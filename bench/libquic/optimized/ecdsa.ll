@@ -346,7 +346,7 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 12:                                               ; preds = %9
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str, i32 noundef 367) #5
-  br label %92
+  br label %102
 
 13:                                               ; preds = %9, %5
   %14 = tail call ptr @EC_KEY_get0_group(ptr noundef nonnull %4) #5
@@ -358,7 +358,7 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 18:                                               ; preds = %13
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 375) #5
-  br label %92
+  br label %102
 
 19:                                               ; preds = %13
   %20 = tail call ptr @ECDSA_SIG_new() #5
@@ -367,7 +367,7 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 21:                                               ; preds = %19
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 381) #5
-  br label %92
+  br label %102
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -389,7 +389,7 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %0, i64 noundef %1, ptr noundef 
 33:                                               ; preds = %30, %27, %22
   %.055 = phi ptr [ null, %22 ], [ null, %27 ], [ %28, %30 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 389) #5
-  br label %90
+  br label %100
 
 34:                                               ; preds = %30
   %35 = tail call ptr @EC_GROUP_get0_order(ptr noundef nonnull %14) #5
@@ -419,7 +419,7 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %0, i64 noundef %1, ptr noundef 
 digest_to_bn.exit.thread:                         ; preds = %34, %46
   %.sink.i = phi i32 [ 119, %34 ], [ 126, %46 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %.sink.i) #5
-  br label %90
+  br label %100
 
 digest_to_bn.exit:                                ; preds = %43, %46
   %50 = icmp eq ptr %2, null
@@ -430,144 +430,174 @@ digest_to_bn.exit:                                ; preds = %43, %46
   %or.cond5 = and i1 %52, %53
   br i1 %or.cond3, label %digest_to_bn.exit.split.us, label %digest_to_bn.exit.split
 
-digest_to_bn.exit.split.us:                       ; preds = %digest_to_bn.exit, %65
+digest_to_bn.exit.split.us:                       ; preds = %digest_to_bn.exit
   %54 = call fastcc i32 @ecdsa_sign_setup(ptr noundef nonnull %4, ptr noundef nonnull %25, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef %0, i64 noundef %1)
-  %.not71.us = icmp eq i32 %54, 0
-  br i1 %.not71.us, label %.split.us, label %55
+  %.not71.us.us = icmp eq i32 %54, 0
+  br i1 %or.cond5, label %digest_to_bn.exit.split.us.split.us, label %digest_to_bn.exit.split.us.split
 
-55:                                               ; preds = %digest_to_bn.exit.split.us
+digest_to_bn.exit.split.us.split.us:              ; preds = %digest_to_bn.exit.split.us
+  br i1 %.not71.us.us, label %.split.us, label %55
+
+55:                                               ; preds = %digest_to_bn.exit.split.us.split.us
   %56 = load ptr, ptr %6, align 8, !tbaa !29
   %57 = load ptr, ptr %20, align 8, !tbaa !26
-  %58 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef %15, ptr noundef %57, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not72.us = icmp eq i32 %58, 0
-  br i1 %.not72.us, label %.split87.us, label %59
+  %58 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef nonnull %15, ptr noundef %57, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not72.us.us = icmp eq i32 %58, 0
+  br i1 %.not72.us.us, label %.split87.us, label %59
 
 59:                                               ; preds = %55
   %60 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
-  %.not73.us = icmp eq i32 %60, 0
-  br i1 %.not73.us, label %.split89.us, label %61
+  %.not73.us.us = icmp eq i32 %60, 0
+  br i1 %.not73.us.us, label %.split89.us, label %61
 
 61:                                               ; preds = %59
   %62 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef %56, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not74.us = icmp eq i32 %62, 0
-  br i1 %.not74.us, label %.split91.us, label %63
+  %.not74.us.us = icmp eq i32 %62, 0
+  br i1 %.not74.us.us, label %.split91.us, label %63
 
 63:                                               ; preds = %61
   %64 = tail call i32 @BN_is_zero(ptr noundef %24) #5
-  %.not75.us = icmp eq i32 %64, 0
+  %.not75.us.us = icmp eq i32 %64, 0
+  br i1 %.not75.us.us, label %.loopexit, label %.split93.us
+
+digest_to_bn.exit.split.us.split:                 ; preds = %digest_to_bn.exit.split.us
+  br i1 %.not71.us.us, label %.split.us, label %.lr.ph100
+
+65:                                               ; preds = %74
+  %66 = call fastcc i32 @ecdsa_sign_setup(ptr noundef nonnull %4, ptr noundef nonnull %25, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef %0, i64 noundef %1)
+  %.not71.us = icmp eq i32 %66, 0
+  br i1 %.not71.us, label %.split.us, label %.lr.ph100
+
+.lr.ph100:                                        ; preds = %digest_to_bn.exit.split.us.split, %65
+  %67 = load ptr, ptr %6, align 8, !tbaa !29
+  %68 = load ptr, ptr %20, align 8, !tbaa !26
+  %69 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef %15, ptr noundef %68, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not72.us = icmp eq i32 %69, 0
+  br i1 %.not72.us, label %.split87.us, label %70
+
+70:                                               ; preds = %.lr.ph100
+  %71 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
+  %.not73.us = icmp eq i32 %71, 0
+  br i1 %.not73.us, label %.split89.us, label %72
+
+72:                                               ; preds = %70
+  %73 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef %67, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not74.us = icmp eq i32 %73, 0
+  br i1 %.not74.us, label %.split91.us, label %74
+
+74:                                               ; preds = %72
+  %75 = tail call i32 @BN_is_zero(ptr noundef %24) #5
+  %.not75.us = icmp eq i32 %75, 0
   br i1 %.not75.us, label %.loopexit, label %65
 
-65:                                               ; preds = %63
-  br i1 %or.cond5, label %.split93.us, label %digest_to_bn.exit.split.us, !llvm.loop !30
-
 digest_to_bn.exit.split:                          ; preds = %digest_to_bn.exit
-  %66 = load ptr, ptr %20, align 8, !tbaa !26
-  %67 = tail call ptr @BN_copy(ptr noundef %66, ptr noundef nonnull %3) #5
-  %68 = icmp eq ptr %67, null
+  %76 = load ptr, ptr %20, align 8, !tbaa !26
+  %77 = tail call ptr @BN_copy(ptr noundef %76, ptr noundef nonnull %3) #5
+  %78 = icmp eq ptr %77, null
   br i1 %or.cond5, label %digest_to_bn.exit.split.split.us, label %digest_to_bn.exit.split.split
 
 digest_to_bn.exit.split.split.us:                 ; preds = %digest_to_bn.exit.split
-  br i1 %68, label %.split.us98, label %69
+  br i1 %78, label %.split.us98, label %79
 
-69:                                               ; preds = %digest_to_bn.exit.split.split.us
-  %70 = load ptr, ptr %20, align 8, !tbaa !26
-  %71 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef nonnull %15, ptr noundef %70, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not72.us94 = icmp eq i32 %71, 0
-  br i1 %.not72.us94, label %.split87.us, label %72
+79:                                               ; preds = %digest_to_bn.exit.split.split.us
+  %80 = load ptr, ptr %20, align 8, !tbaa !26
+  %81 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef nonnull %15, ptr noundef %80, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not72.us94 = icmp eq i32 %81, 0
+  br i1 %.not72.us94, label %.split87.us, label %82
 
-72:                                               ; preds = %69
-  %73 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
-  %.not73.us95 = icmp eq i32 %73, 0
-  br i1 %.not73.us95, label %.split89.us, label %74
+82:                                               ; preds = %79
+  %83 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
+  %.not73.us95 = icmp eq i32 %83, 0
+  br i1 %.not73.us95, label %.split89.us, label %84
 
-74:                                               ; preds = %72
-  %75 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef nonnull %2, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not74.us96 = icmp eq i32 %75, 0
-  br i1 %.not74.us96, label %.split91.us, label %76
+84:                                               ; preds = %82
+  %85 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef nonnull %2, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not74.us96 = icmp eq i32 %85, 0
+  br i1 %.not74.us96, label %.split91.us, label %86
 
-76:                                               ; preds = %74
-  %77 = tail call i32 @BN_is_zero(ptr noundef %24) #5
-  %.not75.us97 = icmp eq i32 %77, 0
+86:                                               ; preds = %84
+  %87 = tail call i32 @BN_is_zero(ptr noundef %24) #5
+  %.not75.us97 = icmp eq i32 %87, 0
   br i1 %.not75.us97, label %.loopexit, label %.split93.us
 
 digest_to_bn.exit.split.split:                    ; preds = %digest_to_bn.exit.split
-  br i1 %68, label %.split.us98, label %.lr.ph
+  br i1 %78, label %.split.us98, label %.lr.ph
 
-78:                                               ; preds = %88
-  %79 = load ptr, ptr %20, align 8, !tbaa !26
-  %80 = tail call ptr @BN_copy(ptr noundef %79, ptr noundef nonnull %3) #5
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %.split.us98, label %.lr.ph
+88:                                               ; preds = %98
+  %89 = load ptr, ptr %20, align 8, !tbaa !26
+  %90 = tail call ptr @BN_copy(ptr noundef %89, ptr noundef nonnull %3) #5
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.split.us98, label %.lr.ph
 
-.split.us:                                        ; preds = %digest_to_bn.exit.split.us
+.split.us:                                        ; preds = %65, %digest_to_bn.exit.split.us.split.us, %digest_to_bn.exit.split.us.split
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 26, ptr noundef nonnull @.str, i32 noundef 401) #5
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !29
-  br label %90
+  br label %100
 
-.split.us98:                                      ; preds = %78, %digest_to_bn.exit.split.split, %digest_to_bn.exit.split.split.us
+.split.us98:                                      ; preds = %88, %digest_to_bn.exit.split.split, %digest_to_bn.exit.split.split.us
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 408) #5
-  br label %90
+  br label %100
 
-.lr.ph:                                           ; preds = %digest_to_bn.exit.split.split, %78
-  %82 = load ptr, ptr %20, align 8, !tbaa !26
-  %83 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef %15, ptr noundef %82, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not72 = icmp eq i32 %83, 0
-  br i1 %.not72, label %.split87.us, label %84
+.lr.ph:                                           ; preds = %digest_to_bn.exit.split.split, %88
+  %92 = load ptr, ptr %20, align 8, !tbaa !26
+  %93 = tail call i32 @BN_mod_mul(ptr noundef nonnull %28, ptr noundef %15, ptr noundef %92, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not72 = icmp eq i32 %93, 0
+  br i1 %.not72, label %.split87.us, label %94
 
-.split87.us:                                      ; preds = %.lr.ph, %55, %69
-  %.pre106 = phi ptr [ null, %69 ], [ %56, %55 ], [ null, %.lr.ph ]
+.split87.us:                                      ; preds = %.lr.ph, %.lr.ph100, %79, %55
+  %.pre108 = phi ptr [ null, %79 ], [ %56, %55 ], [ %67, %.lr.ph100 ], [ null, %.lr.ph ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 414) #5
-  br label %90
+  br label %100
 
-84:                                               ; preds = %.lr.ph
-  %85 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
-  %.not73 = icmp eq i32 %85, 0
-  br i1 %.not73, label %.split89.us, label %86
+94:                                               ; preds = %.lr.ph
+  %95 = tail call i32 @BN_mod_add_quick(ptr noundef %24, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef %35) #5
+  %.not73 = icmp eq i32 %95, 0
+  br i1 %.not73, label %.split89.us, label %96
 
-.split89.us:                                      ; preds = %84, %59, %72
-  %.pre105 = phi ptr [ null, %72 ], [ %56, %59 ], [ null, %84 ]
+.split89.us:                                      ; preds = %94, %70, %82, %59
+  %.pre107 = phi ptr [ null, %82 ], [ %56, %59 ], [ %67, %70 ], [ null, %94 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 418) #5
-  br label %90
+  br label %100
 
-86:                                               ; preds = %84
-  %87 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef %2, ptr noundef %35, ptr noundef nonnull %25) #5
-  %.not74 = icmp eq i32 %87, 0
-  br i1 %.not74, label %.split91.us, label %88
+96:                                               ; preds = %94
+  %97 = tail call i32 @BN_mod_mul(ptr noundef %24, ptr noundef %24, ptr noundef %2, ptr noundef %35, ptr noundef nonnull %25) #5
+  %.not74 = icmp eq i32 %97, 0
+  br i1 %.not74, label %.split91.us, label %98
 
-.split91.us:                                      ; preds = %86, %61, %74
-  %.pre104 = phi ptr [ null, %74 ], [ %56, %61 ], [ null, %86 ]
+.split91.us:                                      ; preds = %96, %72, %84, %61
+  %.pre106 = phi ptr [ null, %84 ], [ %56, %61 ], [ %67, %72 ], [ null, %96 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 422) #5
-  br label %90
+  br label %100
 
-88:                                               ; preds = %86
-  %89 = tail call i32 @BN_is_zero(ptr noundef %24) #5
-  %.not75 = icmp eq i32 %89, 0
-  br i1 %.not75, label %.loopexit, label %78
+98:                                               ; preds = %96
+  %99 = tail call i32 @BN_is_zero(ptr noundef %24) #5
+  %.not75 = icmp eq i32 %99, 0
+  br i1 %.not75, label %.loopexit, label %88
 
-.split93.us:                                      ; preds = %65, %76
-  %.pre107 = phi ptr [ null, %76 ], [ %56, %65 ]
+.split93.us:                                      ; preds = %86, %63
+  %.pre109 = phi ptr [ null, %86 ], [ %56, %63 ]
   tail call void @ERR_put_error(i32 noundef 26, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 429) #5
-  br label %90
+  br label %100
 
-90:                                               ; preds = %33, %.split93.us, %.split91.us, %.split89.us, %.split87.us, %.split.us, %.split.us98, %digest_to_bn.exit.thread
-  %.pre = phi ptr [ null, %digest_to_bn.exit.thread ], [ null, %.split.us98 ], [ %.pre.pre, %.split.us ], [ %.pre106, %.split87.us ], [ %.pre105, %.split89.us ], [ %.pre104, %.split91.us ], [ %.pre107, %.split93.us ], [ null, %33 ]
+100:                                              ; preds = %33, %.split93.us, %.split91.us, %.split89.us, %.split87.us, %.split.us, %.split.us98, %digest_to_bn.exit.thread
+  %.pre = phi ptr [ null, %digest_to_bn.exit.thread ], [ null, %.split.us98 ], [ %.pre.pre, %.split.us ], [ %.pre108, %.split87.us ], [ %.pre107, %.split89.us ], [ %.pre106, %.split91.us ], [ %.pre109, %.split93.us ], [ null, %33 ]
   %.156.ph = phi ptr [ %28, %digest_to_bn.exit.thread ], [ %28, %.split.us98 ], [ %28, %.split.us ], [ %28, %.split87.us ], [ %28, %.split89.us ], [ %28, %.split91.us ], [ %28, %.split93.us ], [ %.055, %33 ]
   %.1.ph = phi ptr [ %31, %digest_to_bn.exit.thread ], [ %31, %.split.us98 ], [ %31, %.split.us ], [ %31, %.split87.us ], [ %31, %.split89.us ], [ %31, %.split91.us ], [ %31, %.split93.us ], [ null, %33 ]
   tail call void @ECDSA_SIG_free(ptr noundef nonnull %20) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %63, %76, %90
-  %91 = phi ptr [ %.pre, %90 ], [ null, %76 ], [ %56, %63 ], [ null, %88 ]
-  %.184 = phi ptr [ %.1.ph, %90 ], [ %31, %76 ], [ %31, %63 ], [ %31, %88 ]
-  %.15682 = phi ptr [ %.156.ph, %90 ], [ %28, %76 ], [ %28, %63 ], [ %28, %88 ]
-  %.052 = phi ptr [ null, %90 ], [ %20, %76 ], [ %20, %63 ], [ %20, %88 ]
+.loopexit:                                        ; preds = %98, %74, %63, %86, %100
+  %101 = phi ptr [ %.pre, %100 ], [ null, %86 ], [ %56, %63 ], [ %67, %74 ], [ null, %98 ]
+  %.184 = phi ptr [ %.1.ph, %100 ], [ %31, %86 ], [ %31, %63 ], [ %31, %74 ], [ %31, %98 ]
+  %.15682 = phi ptr [ %.156.ph, %100 ], [ %28, %86 ], [ %28, %63 ], [ %28, %74 ], [ %28, %98 ]
+  %.052 = phi ptr [ null, %100 ], [ %20, %86 ], [ %20, %63 ], [ %20, %74 ], [ %20, %98 ]
   tail call void @BN_CTX_free(ptr noundef %25) #5
   tail call void @BN_clear_free(ptr noundef %.184) #5
   tail call void @BN_clear_free(ptr noundef %.15682) #5
-  tail call void @BN_clear_free(ptr noundef %91) #5
-  br label %92
+  tail call void @BN_clear_free(ptr noundef %101) #5
+  br label %102
 
-92:                                               ; preds = %.loopexit, %21, %18, %12
+102:                                              ; preds = %.loopexit, %21, %18, %12
   %.0 = phi ptr [ null, %12 ], [ null, %18 ], [ %.052, %.loopexit ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -749,7 +779,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not91.us.us, label %.split119.us.us, label %.split.us.us.backedge
 
 .split.us.us.backedge:                            ; preds = %46, %43
-  br label %.split.us.us, !llvm.loop !32
+  br label %.split.us.us, !llvm.loop !30
 
 .split119.us.us:                                  ; preds = %46
   %48 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
@@ -772,7 +802,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not91, label %.split119, label %.split.backedge
 
 .split.backedge:                                  ; preds = %51, %65
-  br label %.split, !llvm.loop !34
+  br label %.split, !llvm.loop !30
 
 .split119:                                        ; preds = %51
   %53 = tail call i32 @BN_add(ptr noundef %19, ptr noundef %19, ptr noundef %31) #5
@@ -990,7 +1020,4 @@ attributes #5 = { nounwind }
 !28 = !{!27, !13, i64 8}
 !29 = !{!13, !13, i64 0}
 !30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !33, !31}
-!33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
+!31 = !{!"llvm.loop.mustprogress"}

@@ -435,7 +435,7 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
 31:                                               ; preds = %.lr.ph.split, %25
   %32 = tail call ptr @list_next(ptr noundef %9) #11
   %.not16 = icmp eq ptr %32, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %31, %20, %8
   tail call void @list_iterator_destroy(ptr noundef %9) #11
@@ -524,7 +524,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 30:                                               ; preds = %26, %.thread.us
   %31 = tail call ptr @list_next(ptr noundef %18) #11
   %.not36.us = icmp eq ptr %31, null
-  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %32 = phi ptr [ %61, %60 ], [ %20, %.lr.ph ]
@@ -550,7 +550,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi61) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
   %.not3646 = icmp eq ptr %39, null
-  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
 
 40:                                               ; preds = %.lr.ph.split
   %41 = load ptr, ptr %32, align 8
@@ -591,7 +591,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 60:                                               ; preds = %49, %58, %55, %.thread, %45
   %61 = tail call ptr @list_next(ptr noundef %18) #11
   %.not36 = icmp eq ptr %61, null
-  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
   %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
@@ -1010,7 +1010,7 @@ define dso_local void @license_remove_remote(ptr noundef readonly captures(none)
 .backedge:                                        ; preds = %.lr.ph, %23
   %22 = tail call ptr @list_next(ptr noundef %17) #11
   %.not16 = icmp eq ptr %22, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %19, align 8
@@ -1106,7 +1106,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 8
   %.not45 = icmp eq i32 %20, 1
-  br i1 %.not45, label %21, label %86, !llvm.loop !20
+  br i1 %.not45, label %21, label %86, !llvm.loop !17
 
 21:                                               ; preds = %.lr.ph55
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -1129,7 +1129,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
 .backedge49:                                      ; preds = %.lr.ph, %32
   %31 = call ptr @list_next(ptr noundef %15) #11
   %.not46 = icmp eq ptr %31, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %28, align 8
@@ -1283,7 +1283,7 @@ _handle_consumed.exit:                            ; preds = %60, %63, %65
 .backedge:                                        ; preds = %104, %101, %.lr.ph59
   %105 = call ptr @list_next(ptr noundef %89) #11
   %.not42 = icmp eq ptr %105, null
-  br i1 %.not42, label %._crit_edge60, label %.lr.ph59, !llvm.loop !22
+  br i1 %.not42, label %._crit_edge60, label %.lr.ph59, !llvm.loop !19
 
 ._crit_edge60:                                    ; preds = %.backedge, %88
   call void @list_iterator_destroy(ptr noundef %89) #11
@@ -1380,7 +1380,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %21 = load i32, ptr @slurmctld_tres_cnt, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %20, %7
   call void @assoc_mgr_unlock(ptr noundef nonnull %6) #11
@@ -1466,7 +1466,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge.us:                                     ; preds = %40, %41, %52
   %54 = call ptr @list_next(ptr noundef %33) #11
   %.not55.us = icmp eq ptr %54, null
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !24
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !21
 
 .lr.ph71.split:                                   ; preds = %.lr.ph71
   br i1 %1, label %.lr.ph71.split.split.us, label %.lr.ph71.split.split
@@ -1526,7 +1526,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge.us79:                                   ; preds = %66, %69, %79
   %81 = call ptr @list_next(ptr noundef %33) #11
   %.not55.us80 = icmp eq ptr %81, null
-  br i1 %.not55.us80, label %.loopexit, label %.lr.ph71.split.split.us, !llvm.loop !25
+  br i1 %.not55.us80, label %.loopexit, label %.lr.ph71.split.split.us, !llvm.loop !21
 
 .lr.ph71.split.split:                             ; preds = %.lr.ph71.split, %.backedge
   %82 = phi ptr [ %94, %.backedge ], [ %34, %.lr.ph71.split ]
@@ -1560,7 +1560,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge:                                        ; preds = %106, %95, %92
   %94 = call ptr @list_next(ptr noundef %33) #11
   %.not55 = icmp eq ptr %94, null
-  br i1 %.not55, label %.loopexit, label %.lr.ph71.split.split, !llvm.loop !26
+  br i1 %.not55, label %.loopexit, label %.lr.ph71.split.split, !llvm.loop !21
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %82, align 8
@@ -1943,7 +1943,7 @@ define dso_local ptr @license_copy(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @list_push(ptr noundef %3, ptr noundef nonnull %7) #11
   %19 = tail call ptr @list_next(ptr noundef %4) #11
   %.not19 = icmp eq ptr %19, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #11
@@ -2024,7 +2024,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   %.1.us = phi i32 [ %.02739.us, %19 ], [ -1, %29 ]
   %34 = tail call ptr @list_next(ptr noundef %12) #11
   %.not35.us = icmp eq ptr %34, null
-  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %35 = phi ptr [ %63, %62 ], [ %13, %.lr.ph ]
@@ -2077,7 +2077,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
   %.1 = phi i32 [ %.02739, %55 ], [ %.02739, %56 ], [ %.02739, %39 ], [ -1, %58 ]
   %63 = tail call ptr @list_next(ptr noundef %12) #11
   %.not35 = icmp eq ptr %63, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %33, %62, %10
   %.027.lcssa = phi i32 [ 0, %10 ], [ %.1, %62 ], [ %.1.us, %33 ]
@@ -2183,7 +2183,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
   %.2 = phi i32 [ %.1, %34 ], [ %.02236, %36 ]
   %40 = tail call ptr @list_next(ptr noundef %19) #11
   %.not31 = icmp eq ptr %40, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %39, %17
   %.022.lcssa = phi i32 [ 0, %17 ], [ %.2, %39 ]
@@ -2232,7 +2232,7 @@ define dso_local noundef zeroext i1 @license_list_overlap(ptr noundef %0, ptr no
   %10 = load ptr, ptr %8, align 8
   %11 = tail call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @_license_find_rec, ptr noundef %10) #11
   %.not13 = icmp eq ptr %11, null
-  br i1 %.not13, label %7, label %12, !llvm.loop !31
+  br i1 %.not13, label %7, label %12, !llvm.loop !25
 
 12:                                               ; preds = %9, %7
   tail call void @list_iterator_destroy(ptr noundef %6) #11
@@ -2325,7 +2325,7 @@ _pack_license.exit.us:                            ; preds = %20, %.lr.ph.split.u
   %38 = add i32 %.030.us, 1
   %39 = tail call ptr @list_next(ptr noundef %14) #11
   %.not27.us = icmp eq ptr %39, null
-  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 _pack_license.exit:                               ; preds = %.lr.ph, %_pack_license.exit
   %40 = phi ptr [ %43, %_pack_license.exit ], [ %15, %.lr.ph ]
@@ -2335,7 +2335,7 @@ _pack_license.exit:                               ; preds = %.lr.ph, %_pack_lice
   %42 = add i32 %.030, 1
   %43 = tail call ptr @list_next(ptr noundef %14) #11
   %.not27 = icmp eq ptr %43, null
-  br i1 %.not27, label %._crit_edge, label %_pack_license.exit, !llvm.loop !33
+  br i1 %.not27, label %._crit_edge, label %_pack_license.exit, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_pack_license.exit, %_pack_license.exit.us, %13
   %.0.lcssa = phi i32 [ 0, %13 ], [ %38, %_pack_license.exit.us ], [ %42, %_pack_license.exit ]
@@ -2481,7 +2481,7 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 
 .backedge:                                        ; preds = %17, %.lr.ph, %12
   %24 = call ptr @list_next(ptr noundef %7) #11
   %.not12 = icmp eq ptr %24, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.backedge, %6
   call void @list_iterator_destroy(ptr noundef %7) #11
@@ -2553,7 +2553,7 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
 23:                                               ; preds = %17, %.lr.ph
   %24 = call ptr @list_next(ptr noundef %12) #11
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %23, %11
   call void @list_iterator_destroy(ptr noundef %12) #11
@@ -2603,7 +2603,7 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
   tail call void @list_push(ptr noundef %6, ptr noundef nonnull %11) #11
   %17 = tail call ptr @list_next(ptr noundef %8) #11
   %.not15.us = icmp eq ptr %17, null
-  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %18 = phi ptr [ %28, %.lr.ph.split ], [ %9, %.lr.ph ]
@@ -2622,7 +2622,7 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
   tail call void @list_push(ptr noundef %6, ptr noundef nonnull %19) #11
   %28 = tail call ptr @list_next(ptr noundef %8) #11
   %.not15 = icmp eq ptr %28, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   tail call void @list_iterator_destroy(ptr noundef %8) #11
@@ -2690,7 +2690,7 @@ define dso_local ptr @bf_licenses_to_string(ptr noundef %0) local_unnamed_addr #
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull %14, ptr noundef nonnull %.01220, ptr noundef %16, i32 noundef %18) #11
   %19 = call ptr @list_next(ptr noundef %4) #11
   %.not16 = icmp eq ptr %19, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %13, %3
   call void @list_iterator_destroy(ptr noundef %4) #11
@@ -2732,7 +2732,7 @@ define dso_local ptr @slurm_bf_licenses_copy(ptr noundef %0) local_unnamed_addr 
   tail call void @list_append(ptr noundef %3, ptr noundef nonnull %7) #11
   %16 = tail call ptr @list_next(ptr noundef %4) #11
   %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #11
@@ -2947,7 +2947,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
   tail call void @list_push(ptr noundef %0, ptr noundef nonnull %29) #11
   %35 = tail call ptr @list_next(ptr noundef %6) #11
   %.not30 = icmp eq ptr %35, null
-  br i1 %.not30, label %._crit_edge, label %9, !llvm.loop !40
+  br i1 %.not30, label %._crit_edge, label %9, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %28, %5
   tail call void @list_iterator_destroy(ptr noundef %6) #11
@@ -2994,7 +2994,7 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %.not38.not = icmp ugt i32 %13, %20
-  br i1 %.not38.not, label %21, label %.critedge, !llvm.loop !41
+  br i1 %.not38.not, label %21, label %.critedge, !llvm.loop !33
 
 21:                                               ; preds = %18
   %22 = sub nuw i32 %13, %20
@@ -3067,7 +3067,7 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_equal(ptr noundef %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not14 = icmp eq ptr %16, %18
-  br i1 %.not14, label %4, label %19, !llvm.loop !42
+  br i1 %.not14, label %4, label %19, !llvm.loop !34
 
 19:                                               ; preds = %6, %9, %14, %4
   tail call void @list_iterator_destroy(ptr noundef %3) #11
@@ -3133,32 +3133,24 @@ attributes #14 = { nounwind willreturn memory(read) }
 !11 = !{i8 0, i8 2}
 !12 = !{}
 !13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10, !15}
+!17 = distinct !{!17, !9, !10}
 !18 = distinct !{!18, !9, !10}
 !19 = distinct !{!19, !9, !10}
 !20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
 !22 = distinct !{!22, !9, !10}
 !23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10, !15}
-!25 = distinct !{!25, !9, !10, !15}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
 !26 = distinct !{!26, !9, !10}
 !27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10, !15}
+!28 = distinct !{!28, !9, !10}
 !29 = distinct !{!29, !9, !10}
 !30 = distinct !{!30, !9, !10}
 !31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10, !15}
+!32 = distinct !{!32, !9, !10}
 !33 = distinct !{!33, !9, !10}
 !34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10, !15}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}

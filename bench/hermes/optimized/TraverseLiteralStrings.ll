@@ -83,7 +83,7 @@ for.inc.us:                                       ; preds = %_ZNKSt8functionIFvN
   %Next.i.i.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020.us, i64 8
   %__begin2.sroa.0.0.us = load ptr, ptr %Next.i.i.i.us, align 8
   %cmp.i.not.us = icmp eq ptr %__begin2.sroa.0.0.us, %FunctionList.i
-  br i1 %cmp.i.not.us, label %for.end, label %for.body.us, !llvm.loop !4
+  br i1 %cmp.i.not.us, label %for.end, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.020 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.018, %for.body.lr.ph ]
@@ -241,7 +241,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__begin2.sroa.0.015, %8
-  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !6
+  br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !4
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %if.end
   %idx.ext.i.i.i.i = zext i32 %4 to i64
@@ -498,7 +498,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N
 for.inc56:                                        ; preds = %for.body45, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
   %inc = add nuw nsw i32 %i.050, 1
   %exitcond.not = icmp eq i32 %inc, %call43
-  br i1 %exitcond.not, label %for.inc58, label %for.body45, !llvm.loop !8
+  br i1 %exitcond.not, label %for.inc58, label %for.body45, !llvm.loop !6
 
 for.inc58:                                        ; preds = %for.inc56, %for.body41
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.054, i64 8
@@ -549,7 +549,5 @@ attributes #5 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

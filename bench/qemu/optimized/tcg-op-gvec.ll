@@ -1251,7 +1251,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %72, ptr noundef %85, i64 noundef %87) #10
   %88 = add nuw nsw i32 %.017.i, 8
   %89 = icmp samesign ult i32 %88, %2
-  br i1 %89, label %.lr.ph.split.i, label %expand_2_i64.exit, !llvm.loop !9
+  br i1 %89, label %.lr.ph.split.i, label %expand_2_i64.exit, !llvm.loop !6
 
 expand_2_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %71) #10
@@ -1296,7 +1296,7 @@ check_size_impl.exit89:                           ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %100, ptr noundef %107, i64 noundef %106) #10
   %108 = add nuw nsw i32 %.017.us.i95, 4
   %109 = icmp samesign ult i32 %108, %2
-  br i1 %109, label %.lr.ph.split.us.i94, label %expand_2_i32.exit, !llvm.loop !10
+  br i1 %109, label %.lr.ph.split.us.i94, label %expand_2_i32.exit, !llvm.loop !8
 
 .lr.ph.split.i92:                                 ; preds = %.lr.ph.i91, %.lr.ph.split.i92
   %.017.i93 = phi i32 [ %116, %.lr.ph.split.i92 ], [ 0, %.lr.ph.i91 ]
@@ -1311,7 +1311,7 @@ check_size_impl.exit89:                           ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %100, ptr noundef %113, i64 noundef %115) #10
   %116 = add nuw nsw i32 %.017.i93, 4
   %117 = icmp samesign ult i32 %116, %2
-  br i1 %117, label %.lr.ph.split.i92, label %expand_2_i32.exit, !llvm.loop !11
+  br i1 %117, label %.lr.ph.split.i92, label %expand_2_i32.exit, !llvm.loop !8
 
 expand_2_i32.exit:                                ; preds = %.lr.ph.split.i92, %.lr.ph.split.us.i94
   tail call void @tcg_temp_free_i32(ptr noundef %99) #10
@@ -1500,7 +1500,7 @@ define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %10, ptr noundef %17, i64 noundef %16) #10
   %18 = add i32 %.019.us, %4
   %19 = icmp ult i32 %18, %3
-  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %8
   ret void
@@ -1520,7 +1520,7 @@ define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #10
   %28 = add i32 %.019, %4
   %29 = icmp ult i32 %28, %3
-  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: noreturn nounwind
@@ -1671,7 +1671,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %73, ptr noundef %80, i64 noundef %79) #10
   %81 = add nuw nsw i32 %.018.us.i, 8
   %82 = icmp samesign ult i32 %81, %2
-  br i1 %82, label %.lr.ph.split.us.i, label %expand_2i_i64.exit, !llvm.loop !14
+  br i1 %82, label %.lr.ph.split.us.i, label %expand_2i_i64.exit, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.018.i = phi i32 [ %89, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -1686,7 +1686,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %73, ptr noundef %86, i64 noundef %88) #10
   %89 = add nuw nsw i32 %.018.i, 8
   %90 = icmp samesign ult i32 %89, %2
-  br i1 %90, label %.lr.ph.split.i, label %expand_2i_i64.exit, !llvm.loop !15
+  br i1 %90, label %.lr.ph.split.i, label %expand_2i_i64.exit, !llvm.loop !10
 
 expand_2i_i64.exit:                               ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %72) #10
@@ -1732,7 +1732,7 @@ check_size_impl.exit102:                          ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %102, ptr noundef %109, i64 noundef %108) #10
   %110 = add nuw nsw i32 %.018.us.i108, 4
   %111 = icmp samesign ult i32 %110, %2
-  br i1 %111, label %.lr.ph.split.us.i107, label %expand_2i_i32.exit, !llvm.loop !16
+  br i1 %111, label %.lr.ph.split.us.i107, label %expand_2i_i32.exit, !llvm.loop !11
 
 .lr.ph.split.i105:                                ; preds = %.lr.ph.i104, %.lr.ph.split.i105
   %.018.i106 = phi i32 [ %118, %.lr.ph.split.i105 ], [ 0, %.lr.ph.i104 ]
@@ -1747,7 +1747,7 @@ check_size_impl.exit102:                          ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %102, ptr noundef %115, i64 noundef %117) #10
   %118 = add nuw nsw i32 %.018.i106, 4
   %119 = icmp samesign ult i32 %118, %2
-  br i1 %119, label %.lr.ph.split.i105, label %expand_2i_i32.exit, !llvm.loop !17
+  br i1 %119, label %.lr.ph.split.i105, label %expand_2i_i32.exit, !llvm.loop !11
 
 expand_2i_i32.exit:                               ; preds = %.lr.ph.split.i105, %.lr.ph.split.us.i107
   tail call void @tcg_temp_free_i32(ptr noundef %101) #10
@@ -1819,7 +1819,7 @@ define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32
   tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %17) #10
   %19 = add i32 %.020.us, %4
   %20 = icmp ult i32 %19, %3
-  br i1 %20, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
+  br i1 %20, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %9
   ret void
@@ -1839,7 +1839,7 @@ define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32
   tail call void @tcg_gen_st_vec(ptr noundef %22, ptr noundef %26, i64 noundef %28) #10
   %29 = add i32 %.020, %4
   %30 = icmp ult i32 %29, %3
-  br i1 %30, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %30, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 }
 
 declare ptr @tcg_constant_i64(i64 noundef) local_unnamed_addr #2
@@ -2100,7 +2100,7 @@ define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32
   tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %15, i64 noundef %17) #10
   %18 = add i32 %.022.us, %4
   %19 = icmp ult i32 %18, %3
-  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !20
+  br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %9
   ret void
@@ -2120,7 +2120,7 @@ define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32
   tail call void @tcg_gen_st_vec(ptr noundef %21, ptr noundef %25, i64 noundef %27) #10
   %28 = add i32 %.022, %4
   %29 = icmp ult i32 %28, %3
-  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 }
 
 declare void @tcg_temp_free_vec(ptr noundef) local_unnamed_addr #2
@@ -2150,7 +2150,7 @@ define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 n
   tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %12, i64 noundef %14) #10
   %15 = add i32 %.019.us, 8
   %16 = icmp ult i32 %15, %2
-  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
+  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.019 = phi i32 [ %23, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2165,7 +2165,7 @@ define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 n
   tail call void @tcg_gen_st_i64(ptr noundef %8, ptr noundef %20, i64 noundef %22) #10
   %23 = add i32 %.019, 8
   %24 = icmp ult i32 %23, %2
-  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   tail call void @tcg_temp_free_i64(ptr noundef %7) #10
@@ -2202,7 +2202,7 @@ define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 n
   tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %12, i64 noundef %14) #10
   %15 = add i32 %.019.us, 4
   %16 = icmp ult i32 %15, %2
-  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
+  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.019 = phi i32 [ %23, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2217,7 +2217,7 @@ define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 n
   tail call void @tcg_gen_st_i32(ptr noundef %8, ptr noundef %20, i64 noundef %22) #10
   %23 = add i32 %.019, 4
   %24 = icmp ult i32 %23, %2
-  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !25
+  br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   tail call void @tcg_temp_free_i32(ptr noundef %7) #10
@@ -2405,7 +2405,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %85, ptr noundef %95, i64 noundef %94) #10
   %96 = add nuw nsw i32 %.022.us.i, 8
   %97 = icmp samesign ult i32 %96, %3
-  br i1 %97, label %.lr.ph.split.us.i, label %expand_3_i64.exit, !llvm.loop !26
+  br i1 %97, label %.lr.ph.split.us.i, label %expand_3_i64.exit, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.022.i = phi i32 [ %107, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -2424,7 +2424,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %85, ptr noundef %104, i64 noundef %106) #10
   %107 = add nuw nsw i32 %.022.i, 8
   %108 = icmp samesign ult i32 %107, %3
-  br i1 %108, label %.lr.ph.split.i, label %expand_3_i64.exit, !llvm.loop !27
+  br i1 %108, label %.lr.ph.split.i, label %expand_3_i64.exit, !llvm.loop !16
 
 expand_3_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %85) #10
@@ -2475,7 +2475,7 @@ check_size_impl.exit99:                           ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %120, ptr noundef %130, i64 noundef %129) #10
   %131 = add nuw nsw i32 %.022.us.i105, 4
   %132 = icmp samesign ult i32 %131, %3
-  br i1 %132, label %.lr.ph.split.us.i104, label %expand_3_i32.exit, !llvm.loop !28
+  br i1 %132, label %.lr.ph.split.us.i104, label %expand_3_i32.exit, !llvm.loop !17
 
 .lr.ph.split.i102:                                ; preds = %.lr.ph.i101, %.lr.ph.split.i102
   %.022.i103 = phi i32 [ %142, %.lr.ph.split.i102 ], [ 0, %.lr.ph.i101 ]
@@ -2494,7 +2494,7 @@ check_size_impl.exit99:                           ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %120, ptr noundef %139, i64 noundef %141) #10
   %142 = add nuw nsw i32 %.022.i103, 4
   %143 = icmp samesign ult i32 %142, %3
-  br i1 %143, label %.lr.ph.split.i102, label %expand_3_i32.exit, !llvm.loop !29
+  br i1 %143, label %.lr.ph.split.i102, label %expand_3_i32.exit, !llvm.loop !17
 
 expand_3_i32.exit:                                ; preds = %.lr.ph.split.i102, %.lr.ph.split.us.i104
   tail call void @tcg_temp_free_i32(ptr noundef %120) #10
@@ -2569,7 +2569,7 @@ define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %22, i64 noundef %21) #10
   %23 = add i32 %.024.us, %5
   %24 = icmp ult i32 %23, %4
-  br i1 %24, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !30
+  br i1 %24, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %9
   ret void
@@ -2594,7 +2594,7 @@ define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %27, ptr noundef %34, i64 noundef %36) #10
   %37 = add i32 %.024, %5
   %38 = icmp ult i32 %37, %4
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !31
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2681,7 +2681,7 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   %44 = load i8, ptr %43, align 1, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   %46 = tail call fastcc i32 @choose_vector_type(ptr noundef %39, i32 noundef %42, i32 noundef %3, i1 noundef zeroext %45)
-  switch i32 %46, label %195 [
+  switch i32 %46, label %215 [
     i32 5, label %47
     i32 4, label %65
     i32 3, label %75
@@ -2701,7 +2701,7 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   %57 = load ptr, ptr %36, align 8
   tail call fastcc void @expand_3i_vec(i32 noundef %50, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %48, i32 noundef 32, i32 noundef 5, i64 noundef %5, i1 noundef zeroext %53, i1 noundef zeroext %56, ptr noundef %57)
   %58 = icmp eq i32 %48, %3
-  br i1 %58, label %196, label %59
+  br i1 %58, label %216, label %59
 
 59:                                               ; preds = %47
   %60 = add i32 %48, %0
@@ -2727,7 +2727,7 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   %73 = trunc nuw i8 %72 to i1
   %74 = load ptr, ptr %36, align 8
   tail call fastcc void @expand_3i_vec(i32 noundef %67, i32 noundef %.092, i32 noundef %.093, i32 noundef %.094, i32 noundef %.095, i32 noundef 16, i32 noundef 4, i64 noundef %5, i1 noundef zeroext %70, i1 noundef zeroext %73, ptr noundef %74)
-  br label %196
+  br label %216
 
 75:                                               ; preds = %38
   %76 = load i8, ptr %40, align 8
@@ -2740,7 +2740,7 @@ check_overlap_3.exit:                             ; preds = %check_overlap_2.exi
   %83 = trunc nuw i8 %82 to i1
   %84 = load ptr, ptr %36, align 8
   tail call fastcc void @expand_3i_vec(i32 noundef %77, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef 3, i64 noundef %5, i1 noundef zeroext %80, i1 noundef zeroext %83, ptr noundef %84)
-  br label %196
+  br label %216
 
 .thread:                                          ; preds = %check_overlap_3.exit, %38
   %85 = load ptr, ptr %6, align 8
@@ -2768,223 +2768,259 @@ check_size_impl.exit:                             ; preds = %.thread
   %98 = tail call ptr @tcg_temp_new_i64() #10
   br i1 %92, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %111
-  %.027.us.i = phi i32 [ %112, %111 ], [ 0, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
+  br i1 %95, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
+
+.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.us.i
+  %.027.us.us.i = phi i32 [ %110, %.lr.ph.split.us.split.us.i ], [ 0, %.lr.ph.split.us.i ]
   %99 = load ptr, ptr @tcg_env, align 8
-  %100 = add i32 %.027.us.i, %1
+  %100 = add i32 %.027.us.us.i, %1
   %101 = zext i32 %100 to i64
   tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %99, i64 noundef %101) #10
   %102 = load ptr, ptr @tcg_env, align 8
-  %103 = add i32 %.027.us.i, %2
+  %103 = add i32 %.027.us.us.i, %2
   %104 = zext i32 %103 to i64
   tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %102, i64 noundef %104) #10
   %105 = load ptr, ptr @tcg_env, align 8
-  %106 = add i32 %.027.us.i, %0
+  %106 = add i32 %.027.us.us.i, %0
   %107 = zext i32 %106 to i64
   tail call void @tcg_gen_ld_i64(ptr noundef %98, ptr noundef %105, i64 noundef %107) #10
   tail call void %85(ptr noundef %98, ptr noundef %96, ptr noundef %97, i64 noundef %5) #10
   %108 = load ptr, ptr @tcg_env, align 8
   tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %108, i64 noundef %107) #10
-  br i1 %95, label %109, label %111
+  %109 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %96, ptr noundef %109, i64 noundef %101) #10
+  %110 = add nuw nsw i32 %.027.us.us.i, 8
+  %111 = icmp samesign ult i32 %110, %3
+  br i1 %111, label %.lr.ph.split.us.split.us.i, label %expand_3i_i64.exit, !llvm.loop !19
 
-109:                                              ; preds = %.lr.ph.split.us.i
-  %110 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %96, ptr noundef %110, i64 noundef %101) #10
-  br label %111
-
-111:                                              ; preds = %109, %.lr.ph.split.us.i
-  %112 = add i32 %.027.us.i, 8
-  %113 = icmp ult i32 %112, %3
-  br i1 %113, label %.lr.ph.split.us.i, label %expand_3i_i64.exit, !llvm.loop !32
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.i
+  %.027.us.i = phi i32 [ %122, %.lr.ph.split.us.split.i ], [ 0, %.lr.ph.split.us.i ]
+  %112 = load ptr, ptr @tcg_env, align 8
+  %113 = add i32 %.027.us.i, %1
+  %114 = zext i32 %113 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %112, i64 noundef %114) #10
+  %115 = load ptr, ptr @tcg_env, align 8
+  %116 = add i32 %.027.us.i, %2
+  %117 = zext i32 %116 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %115, i64 noundef %117) #10
+  %118 = load ptr, ptr @tcg_env, align 8
+  %119 = add i32 %.027.us.i, %0
+  %120 = zext i32 %119 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %98, ptr noundef %118, i64 noundef %120) #10
+  tail call void %85(ptr noundef %98, ptr noundef %96, ptr noundef %97, i64 noundef %5) #10
+  %121 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %121, i64 noundef %120) #10
+  %122 = add nuw nsw i32 %.027.us.i, 8
+  %123 = icmp samesign ult i32 %122, %3
+  br i1 %123, label %.lr.ph.split.us.split.i, label %expand_3i_i64.exit, !llvm.loop !19
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %95, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.split.us.i
-  %.027.us28.i = phi i32 [ %124, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.split.i ]
-  %114 = load ptr, ptr @tcg_env, align 8
-  %115 = add i32 %.027.us28.i, %1
-  %116 = zext i32 %115 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %114, i64 noundef %116) #10
-  %117 = load ptr, ptr @tcg_env, align 8
-  %118 = add i32 %.027.us28.i, %2
-  %119 = zext i32 %118 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %117, i64 noundef %119) #10
+  %.027.us28.i = phi i32 [ %134, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.split.i ]
+  %124 = load ptr, ptr @tcg_env, align 8
+  %125 = add i32 %.027.us28.i, %1
+  %126 = zext i32 %125 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %124, i64 noundef %126) #10
+  %127 = load ptr, ptr @tcg_env, align 8
+  %128 = add i32 %.027.us28.i, %2
+  %129 = zext i32 %128 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %127, i64 noundef %129) #10
   tail call void %85(ptr noundef %98, ptr noundef %96, ptr noundef %97, i64 noundef %5) #10
-  %120 = load ptr, ptr @tcg_env, align 8
-  %121 = add i32 %.027.us28.i, %0
-  %122 = zext i32 %121 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %120, i64 noundef %122) #10
-  %123 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %96, ptr noundef %123, i64 noundef %116) #10
-  %124 = add nuw nsw i32 %.027.us28.i, 8
-  %125 = icmp samesign ult i32 %124, %3
-  br i1 %125, label %.lr.ph.split.split.us.i, label %expand_3i_i64.exit, !llvm.loop !33
+  %130 = load ptr, ptr @tcg_env, align 8
+  %131 = add i32 %.027.us28.i, %0
+  %132 = zext i32 %131 to i64
+  tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %130, i64 noundef %132) #10
+  %133 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %96, ptr noundef %133, i64 noundef %126) #10
+  %134 = add nuw nsw i32 %.027.us28.i, 8
+  %135 = icmp samesign ult i32 %134, %3
+  br i1 %135, label %.lr.ph.split.split.us.i, label %expand_3i_i64.exit, !llvm.loop !19
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %.lr.ph.split.split.i
-  %.027.i = phi i32 [ %135, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.i ]
-  %126 = load ptr, ptr @tcg_env, align 8
-  %127 = add i32 %.027.i, %1
-  %128 = zext i32 %127 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %126, i64 noundef %128) #10
-  %129 = load ptr, ptr @tcg_env, align 8
-  %130 = add i32 %.027.i, %2
-  %131 = zext i32 %130 to i64
-  tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %129, i64 noundef %131) #10
+  %.027.i = phi i32 [ %145, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.i ]
+  %136 = load ptr, ptr @tcg_env, align 8
+  %137 = add i32 %.027.i, %1
+  %138 = zext i32 %137 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %96, ptr noundef %136, i64 noundef %138) #10
+  %139 = load ptr, ptr @tcg_env, align 8
+  %140 = add i32 %.027.i, %2
+  %141 = zext i32 %140 to i64
+  tail call void @tcg_gen_ld_i64(ptr noundef %97, ptr noundef %139, i64 noundef %141) #10
   tail call void %85(ptr noundef %98, ptr noundef %96, ptr noundef %97, i64 noundef %5) #10
-  %132 = load ptr, ptr @tcg_env, align 8
-  %133 = add i32 %.027.i, %0
-  %134 = zext i32 %133 to i64
-  tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %132, i64 noundef %134) #10
-  %135 = add nuw nsw i32 %.027.i, 8
-  %136 = icmp samesign ult i32 %135, %3
-  br i1 %136, label %.lr.ph.split.split.i, label %expand_3i_i64.exit, !llvm.loop !34
+  %142 = load ptr, ptr @tcg_env, align 8
+  %143 = add i32 %.027.i, %0
+  %144 = zext i32 %143 to i64
+  tail call void @tcg_gen_st_i64(ptr noundef %98, ptr noundef %142, i64 noundef %144) #10
+  %145 = add nuw nsw i32 %.027.i, 8
+  %146 = icmp samesign ult i32 %145, %3
+  br i1 %146, label %.lr.ph.split.split.i, label %expand_3i_i64.exit, !llvm.loop !19
 
-expand_3i_i64.exit:                               ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %111
+expand_3i_i64.exit:                               ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %96) #10
   tail call void @tcg_temp_free_i64(ptr noundef %97) #10
   tail call void @tcg_temp_free_i64(ptr noundef %98) #10
-  br label %196
+  br label %216
 
 check_size_impl.exit.thread:                      ; preds = %check_size_impl.exit, %.thread
-  %137 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %.not104 = icmp eq ptr %138, null
-  %139 = icmp ult i32 %3, 4
-  %or.cond126 = or i1 %139, %.not104
-  br i1 %or.cond126, label %check_size_impl.exit109.thread, label %check_size_impl.exit109
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %.not104 = icmp eq ptr %148, null
+  %149 = icmp ult i32 %3, 4
+  %or.cond129 = or i1 %149, %.not104
+  br i1 %or.cond129, label %check_size_impl.exit109.thread, label %check_size_impl.exit109
 
 check_size_impl.exit109:                          ; preds = %check_size_impl.exit.thread
-  %140 = and i32 %3, 3
-  %141 = icmp eq i32 %140, 0
-  tail call void @llvm.assume(i1 %141)
-  %142 = icmp ult i32 %3, 20
-  br i1 %142, label %.lr.ph.i111, label %check_size_impl.exit109.thread
+  %150 = and i32 %3, 3
+  %151 = icmp eq i32 %150, 0
+  tail call void @llvm.assume(i1 %151)
+  %152 = icmp ult i32 %3, 20
+  br i1 %152, label %.lr.ph.i111, label %check_size_impl.exit109.thread
 
 .lr.ph.i111:                                      ; preds = %check_size_impl.exit109
-  %143 = trunc i64 %5 to i32
-  %144 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  %145 = load i8, ptr %144, align 2, !range !4, !noundef !5
-  %146 = trunc nuw i8 %145 to i1
-  %147 = getelementptr inbounds nuw i8, ptr %6, i64 43
-  %148 = load i8, ptr %147, align 1, !range !4, !noundef !5
-  %149 = trunc nuw i8 %148 to i1
-  %150 = tail call ptr @tcg_temp_new_i32() #10
-  %151 = tail call ptr @tcg_temp_new_i32() #10
-  %152 = tail call ptr @tcg_temp_new_i32() #10
-  br i1 %146, label %.lr.ph.split.us.i117, label %.lr.ph.split.i112
+  %153 = trunc i64 %5 to i32
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 42
+  %155 = load i8, ptr %154, align 2, !range !4, !noundef !5
+  %156 = trunc nuw i8 %155 to i1
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 43
+  %158 = load i8, ptr %157, align 1, !range !4, !noundef !5
+  %159 = trunc nuw i8 %158 to i1
+  %160 = tail call ptr @tcg_temp_new_i32() #10
+  %161 = tail call ptr @tcg_temp_new_i32() #10
+  %162 = tail call ptr @tcg_temp_new_i32() #10
+  br i1 %156, label %.lr.ph.split.us.i117, label %.lr.ph.split.i112
 
-.lr.ph.split.us.i117:                             ; preds = %.lr.ph.i111, %165
-  %.027.us.i118 = phi i32 [ %166, %165 ], [ 0, %.lr.ph.i111 ]
-  %153 = load ptr, ptr @tcg_env, align 8
-  %154 = add i32 %.027.us.i118, %1
-  %155 = zext i32 %154 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %150, ptr noundef %153, i64 noundef %155) #10
-  %156 = load ptr, ptr @tcg_env, align 8
-  %157 = add i32 %.027.us.i118, %2
-  %158 = zext i32 %157 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %156, i64 noundef %158) #10
-  %159 = load ptr, ptr @tcg_env, align 8
-  %160 = add i32 %.027.us.i118, %0
-  %161 = zext i32 %160 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %152, ptr noundef %159, i64 noundef %161) #10
-  tail call void %138(ptr noundef %152, ptr noundef %150, ptr noundef %151, i32 noundef %143) #10
-  %162 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %152, ptr noundef %162, i64 noundef %161) #10
-  br i1 %149, label %163, label %165
+.lr.ph.split.us.i117:                             ; preds = %.lr.ph.i111
+  br i1 %159, label %.lr.ph.split.us.split.us.i120, label %.lr.ph.split.us.split.i118
 
-163:                                              ; preds = %.lr.ph.split.us.i117
-  %164 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %150, ptr noundef %164, i64 noundef %155) #10
-  br label %165
+.lr.ph.split.us.split.us.i120:                    ; preds = %.lr.ph.split.us.i117, %.lr.ph.split.us.split.us.i120
+  %.027.us.us.i121 = phi i32 [ %174, %.lr.ph.split.us.split.us.i120 ], [ 0, %.lr.ph.split.us.i117 ]
+  %163 = load ptr, ptr @tcg_env, align 8
+  %164 = add i32 %.027.us.us.i121, %1
+  %165 = zext i32 %164 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %160, ptr noundef %163, i64 noundef %165) #10
+  %166 = load ptr, ptr @tcg_env, align 8
+  %167 = add i32 %.027.us.us.i121, %2
+  %168 = zext i32 %167 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %161, ptr noundef %166, i64 noundef %168) #10
+  %169 = load ptr, ptr @tcg_env, align 8
+  %170 = add i32 %.027.us.us.i121, %0
+  %171 = zext i32 %170 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %162, ptr noundef %169, i64 noundef %171) #10
+  tail call void %148(ptr noundef %162, ptr noundef %160, ptr noundef %161, i32 noundef %153) #10
+  %172 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i32(ptr noundef %162, ptr noundef %172, i64 noundef %171) #10
+  %173 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i32(ptr noundef %160, ptr noundef %173, i64 noundef %165) #10
+  %174 = add nuw nsw i32 %.027.us.us.i121, 4
+  %175 = icmp samesign ult i32 %174, %3
+  br i1 %175, label %.lr.ph.split.us.split.us.i120, label %expand_3i_i32.exit, !llvm.loop !20
 
-165:                                              ; preds = %163, %.lr.ph.split.us.i117
-  %166 = add i32 %.027.us.i118, 4
-  %167 = icmp ult i32 %166, %3
-  br i1 %167, label %.lr.ph.split.us.i117, label %expand_3i_i32.exit, !llvm.loop !35
+.lr.ph.split.us.split.i118:                       ; preds = %.lr.ph.split.us.i117, %.lr.ph.split.us.split.i118
+  %.027.us.i119 = phi i32 [ %186, %.lr.ph.split.us.split.i118 ], [ 0, %.lr.ph.split.us.i117 ]
+  %176 = load ptr, ptr @tcg_env, align 8
+  %177 = add i32 %.027.us.i119, %1
+  %178 = zext i32 %177 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %160, ptr noundef %176, i64 noundef %178) #10
+  %179 = load ptr, ptr @tcg_env, align 8
+  %180 = add i32 %.027.us.i119, %2
+  %181 = zext i32 %180 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %161, ptr noundef %179, i64 noundef %181) #10
+  %182 = load ptr, ptr @tcg_env, align 8
+  %183 = add i32 %.027.us.i119, %0
+  %184 = zext i32 %183 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %162, ptr noundef %182, i64 noundef %184) #10
+  tail call void %148(ptr noundef %162, ptr noundef %160, ptr noundef %161, i32 noundef %153) #10
+  %185 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i32(ptr noundef %162, ptr noundef %185, i64 noundef %184) #10
+  %186 = add nuw nsw i32 %.027.us.i119, 4
+  %187 = icmp samesign ult i32 %186, %3
+  br i1 %187, label %.lr.ph.split.us.split.i118, label %expand_3i_i32.exit, !llvm.loop !20
 
 .lr.ph.split.i112:                                ; preds = %.lr.ph.i111
-  br i1 %149, label %.lr.ph.split.split.us.i115, label %.lr.ph.split.split.i113
+  br i1 %159, label %.lr.ph.split.split.us.i115, label %.lr.ph.split.split.i113
 
 .lr.ph.split.split.us.i115:                       ; preds = %.lr.ph.split.i112, %.lr.ph.split.split.us.i115
-  %.027.us28.i116 = phi i32 [ %178, %.lr.ph.split.split.us.i115 ], [ 0, %.lr.ph.split.i112 ]
-  %168 = load ptr, ptr @tcg_env, align 8
-  %169 = add i32 %.027.us28.i116, %1
-  %170 = zext i32 %169 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %150, ptr noundef %168, i64 noundef %170) #10
-  %171 = load ptr, ptr @tcg_env, align 8
-  %172 = add i32 %.027.us28.i116, %2
-  %173 = zext i32 %172 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %171, i64 noundef %173) #10
-  tail call void %138(ptr noundef %152, ptr noundef %150, ptr noundef %151, i32 noundef %143) #10
-  %174 = load ptr, ptr @tcg_env, align 8
-  %175 = add i32 %.027.us28.i116, %0
-  %176 = zext i32 %175 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %152, ptr noundef %174, i64 noundef %176) #10
-  %177 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i32(ptr noundef %150, ptr noundef %177, i64 noundef %170) #10
-  %178 = add nuw nsw i32 %.027.us28.i116, 4
-  %179 = icmp samesign ult i32 %178, %3
-  br i1 %179, label %.lr.ph.split.split.us.i115, label %expand_3i_i32.exit, !llvm.loop !36
+  %.027.us28.i116 = phi i32 [ %198, %.lr.ph.split.split.us.i115 ], [ 0, %.lr.ph.split.i112 ]
+  %188 = load ptr, ptr @tcg_env, align 8
+  %189 = add i32 %.027.us28.i116, %1
+  %190 = zext i32 %189 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %160, ptr noundef %188, i64 noundef %190) #10
+  %191 = load ptr, ptr @tcg_env, align 8
+  %192 = add i32 %.027.us28.i116, %2
+  %193 = zext i32 %192 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %161, ptr noundef %191, i64 noundef %193) #10
+  tail call void %148(ptr noundef %162, ptr noundef %160, ptr noundef %161, i32 noundef %153) #10
+  %194 = load ptr, ptr @tcg_env, align 8
+  %195 = add i32 %.027.us28.i116, %0
+  %196 = zext i32 %195 to i64
+  tail call void @tcg_gen_st_i32(ptr noundef %162, ptr noundef %194, i64 noundef %196) #10
+  %197 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i32(ptr noundef %160, ptr noundef %197, i64 noundef %190) #10
+  %198 = add nuw nsw i32 %.027.us28.i116, 4
+  %199 = icmp samesign ult i32 %198, %3
+  br i1 %199, label %.lr.ph.split.split.us.i115, label %expand_3i_i32.exit, !llvm.loop !20
 
 .lr.ph.split.split.i113:                          ; preds = %.lr.ph.split.i112, %.lr.ph.split.split.i113
-  %.027.i114 = phi i32 [ %189, %.lr.ph.split.split.i113 ], [ 0, %.lr.ph.split.i112 ]
-  %180 = load ptr, ptr @tcg_env, align 8
-  %181 = add i32 %.027.i114, %1
-  %182 = zext i32 %181 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %150, ptr noundef %180, i64 noundef %182) #10
-  %183 = load ptr, ptr @tcg_env, align 8
-  %184 = add i32 %.027.i114, %2
-  %185 = zext i32 %184 to i64
-  tail call void @tcg_gen_ld_i32(ptr noundef %151, ptr noundef %183, i64 noundef %185) #10
-  tail call void %138(ptr noundef %152, ptr noundef %150, ptr noundef %151, i32 noundef %143) #10
-  %186 = load ptr, ptr @tcg_env, align 8
-  %187 = add i32 %.027.i114, %0
-  %188 = zext i32 %187 to i64
-  tail call void @tcg_gen_st_i32(ptr noundef %152, ptr noundef %186, i64 noundef %188) #10
-  %189 = add nuw nsw i32 %.027.i114, 4
-  %190 = icmp samesign ult i32 %189, %3
-  br i1 %190, label %.lr.ph.split.split.i113, label %expand_3i_i32.exit, !llvm.loop !37
+  %.027.i114 = phi i32 [ %209, %.lr.ph.split.split.i113 ], [ 0, %.lr.ph.split.i112 ]
+  %200 = load ptr, ptr @tcg_env, align 8
+  %201 = add i32 %.027.i114, %1
+  %202 = zext i32 %201 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %160, ptr noundef %200, i64 noundef %202) #10
+  %203 = load ptr, ptr @tcg_env, align 8
+  %204 = add i32 %.027.i114, %2
+  %205 = zext i32 %204 to i64
+  tail call void @tcg_gen_ld_i32(ptr noundef %161, ptr noundef %203, i64 noundef %205) #10
+  tail call void %148(ptr noundef %162, ptr noundef %160, ptr noundef %161, i32 noundef %153) #10
+  %206 = load ptr, ptr @tcg_env, align 8
+  %207 = add i32 %.027.i114, %0
+  %208 = zext i32 %207 to i64
+  tail call void @tcg_gen_st_i32(ptr noundef %162, ptr noundef %206, i64 noundef %208) #10
+  %209 = add nuw nsw i32 %.027.i114, 4
+  %210 = icmp samesign ult i32 %209, %3
+  br i1 %210, label %.lr.ph.split.split.i113, label %expand_3i_i32.exit, !llvm.loop !20
 
-expand_3i_i32.exit:                               ; preds = %.lr.ph.split.split.i113, %.lr.ph.split.split.us.i115, %165
-  tail call void @tcg_temp_free_i32(ptr noundef %150) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %151) #10
-  tail call void @tcg_temp_free_i32(ptr noundef %152) #10
-  br label %196
+expand_3i_i32.exit:                               ; preds = %.lr.ph.split.split.i113, %.lr.ph.split.split.us.i115, %.lr.ph.split.us.split.i118, %.lr.ph.split.us.split.us.i120
+  tail call void @tcg_temp_free_i32(ptr noundef %160) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %161) #10
+  tail call void @tcg_temp_free_i32(ptr noundef %162) #10
+  br label %216
 
 check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exit109, %check_size_impl.exit.thread
-  %191 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %192 = load ptr, ptr %191, align 8
-  %.not105 = icmp eq ptr %192, null
-  br i1 %.not105, label %193, label %.thread122
+  %211 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %212 = load ptr, ptr %211, align 8
+  %.not105 = icmp eq ptr %212, null
+  br i1 %.not105, label %213, label %.thread125
 
-193:                                              ; preds = %check_size_impl.exit109.thread
+213:                                              ; preds = %check_size_impl.exit109.thread
   tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1527, ptr noundef nonnull @__PRETTY_FUNCTION__.tcg_gen_gvec_3i) #11
   unreachable
 
-.thread122:                                       ; preds = %check_size_impl.exit109.thread
-  %194 = trunc i64 %5 to i32
-  tail call void @tcg_gen_gvec_3_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %194, ptr noundef nonnull %192)
-  br label %201
+.thread125:                                       ; preds = %check_size_impl.exit109.thread
+  %214 = trunc i64 %5 to i32
+  tail call void @tcg_gen_gvec_3_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %214, ptr noundef nonnull %212)
+  br label %221
 
-195:                                              ; preds = %38
+215:                                              ; preds = %38
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1534, ptr noundef nonnull @__func__.tcg_gen_gvec_3i, ptr noundef null) #11
   unreachable
 
-196:                                              ; preds = %expand_3i_i64.exit, %expand_3i_i32.exit, %47, %75, %65
+216:                                              ; preds = %expand_3i_i64.exit, %expand_3i_i32.exit, %47, %75, %65
   %.198 = phi i32 [ %4, %47 ], [ %.097, %65 ], [ %4, %75 ], [ %4, %expand_3i_i64.exit ], [ %4, %expand_3i_i32.exit ]
   %.196 = phi i32 [ %3, %47 ], [ %.095, %65 ], [ %3, %75 ], [ %3, %expand_3i_i64.exit ], [ %3, %expand_3i_i32.exit ]
   %.1 = phi i32 [ %0, %47 ], [ %.092, %65 ], [ %0, %75 ], [ %0, %expand_3i_i64.exit ], [ %0, %expand_3i_i32.exit ]
-  %197 = icmp ult i32 %.196, %.198
-  br i1 %197, label %198, label %201
+  %217 = icmp ult i32 %.196, %.198
+  br i1 %217, label %218, label %221
 
-198:                                              ; preds = %196
-  %199 = add i32 %.1, %.196
-  %200 = sub nuw i32 %.198, %.196
-  tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %199, i32 noundef %200, i32 noundef %200, ptr noundef null, ptr noundef null, i64 noundef 0)
-  br label %201
+218:                                              ; preds = %216
+  %219 = add i32 %.1, %.196
+  %220 = sub nuw i32 %.198, %.196
+  tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %219, i32 noundef %220, i32 noundef %220, ptr noundef null, ptr noundef null, i64 noundef 0)
+  br label %221
 
-201:                                              ; preds = %.thread122, %198, %196
+221:                                              ; preds = %.thread125, %218, %216
   ret void
 }
 
@@ -2996,89 +3032,110 @@ define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32
 .lr.ph:                                           ; preds = %11
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
-  %.029.us = phi i32 [ %28, %27 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %.029.us.us = phi i32 [ %26, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %12 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
   %13 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
   %14 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
   %15 = load ptr, ptr @tcg_env, align 8
-  %16 = add i32 %.029.us, %2
+  %16 = add i32 %.029.us.us, %2
   %17 = zext i32 %16 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %12, ptr noundef %15, i64 noundef %17) #10
   %18 = load ptr, ptr @tcg_env, align 8
-  %19 = add i32 %.029.us, %3
+  %19 = add i32 %.029.us.us, %3
   %20 = zext i32 %19 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %13, ptr noundef %18, i64 noundef %20) #10
   %21 = load ptr, ptr @tcg_env, align 8
-  %22 = add i32 %.029.us, %1
+  %22 = add i32 %.029.us.us, %1
   %23 = zext i32 %22 to i64
   tail call void @tcg_gen_ld_vec(ptr noundef %14, ptr noundef %21, i64 noundef %23) #10
   tail call void %10(i32 noundef %0, ptr noundef %14, ptr noundef %12, ptr noundef %13, i64 noundef %7) #10
   %24 = load ptr, ptr @tcg_env, align 8
   tail call void @tcg_gen_st_vec(ptr noundef %14, ptr noundef %24, i64 noundef %23) #10
-  br i1 %9, label %25, label %27
+  %25 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %25, i64 noundef %17) #10
+  %26 = add i32 %.029.us.us, %5
+  %27 = icmp ult i32 %26, %4
+  br i1 %27, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !21
 
-25:                                               ; preds = %.lr.ph.split.us
-  %26 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %26, i64 noundef %17) #10
-  br label %27
-
-27:                                               ; preds = %25, %.lr.ph.split.us
-  %28 = add i32 %.029.us, %5
-  %29 = icmp ult i32 %28, %4
-  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !38
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
+  %.029.us = phi i32 [ %41, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %28 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %29 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %31 = load ptr, ptr @tcg_env, align 8
+  %32 = add i32 %.029.us, %2
+  %33 = zext i32 %32 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %28, ptr noundef %31, i64 noundef %33) #10
+  %34 = load ptr, ptr @tcg_env, align 8
+  %35 = add i32 %.029.us, %3
+  %36 = zext i32 %35 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %29, ptr noundef %34, i64 noundef %36) #10
+  %37 = load ptr, ptr @tcg_env, align 8
+  %38 = add i32 %.029.us, %1
+  %39 = zext i32 %38 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %30, ptr noundef %37, i64 noundef %39) #10
+  tail call void %10(i32 noundef %0, ptr noundef %30, ptr noundef %28, ptr noundef %29, i64 noundef %7) #10
+  %40 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %40, i64 noundef %39) #10
+  %41 = add i32 %.029.us, %5
+  %42 = icmp ult i32 %41, %4
+  br i1 %42, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %.029.us30 = phi i32 [ %43, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %30 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %31 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %32 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %33 = load ptr, ptr @tcg_env, align 8
-  %34 = add i32 %.029.us30, %2
-  %35 = zext i32 %34 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %30, ptr noundef %33, i64 noundef %35) #10
-  %36 = load ptr, ptr @tcg_env, align 8
-  %37 = add i32 %.029.us30, %3
-  %38 = zext i32 %37 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %31, ptr noundef %36, i64 noundef %38) #10
-  tail call void %10(i32 noundef %0, ptr noundef %32, ptr noundef %30, ptr noundef %31, i64 noundef %7) #10
-  %39 = load ptr, ptr @tcg_env, align 8
-  %40 = add i32 %.029.us30, %1
-  %41 = zext i32 %40 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %32, ptr noundef %39, i64 noundef %41) #10
-  %42 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %42, i64 noundef %35) #10
-  %43 = add i32 %.029.us30, %5
-  %44 = icmp ult i32 %43, %4
-  br i1 %44, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !39
+  %.029.us30 = phi i32 [ %56, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %43 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %44 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %46 = load ptr, ptr @tcg_env, align 8
+  %47 = add i32 %.029.us30, %2
+  %48 = zext i32 %47 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %43, ptr noundef %46, i64 noundef %48) #10
+  %49 = load ptr, ptr @tcg_env, align 8
+  %50 = add i32 %.029.us30, %3
+  %51 = zext i32 %50 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %44, ptr noundef %49, i64 noundef %51) #10
+  tail call void %10(i32 noundef %0, ptr noundef %45, ptr noundef %43, ptr noundef %44, i64 noundef %7) #10
+  %52 = load ptr, ptr @tcg_env, align 8
+  %53 = add i32 %.029.us30, %1
+  %54 = zext i32 %53 to i64
+  tail call void @tcg_gen_st_vec(ptr noundef %45, ptr noundef %52, i64 noundef %54) #10
+  %55 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %55, i64 noundef %48) #10
+  %56 = add i32 %.029.us30, %5
+  %57 = icmp ult i32 %56, %4
+  br i1 %57, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %27, %11
+._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %11
   ret void
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %.029 = phi i32 [ %57, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %45 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %46 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %47 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
-  %48 = load ptr, ptr @tcg_env, align 8
-  %49 = add i32 %.029, %2
-  %50 = zext i32 %49 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %45, ptr noundef %48, i64 noundef %50) #10
-  %51 = load ptr, ptr @tcg_env, align 8
-  %52 = add i32 %.029, %3
-  %53 = zext i32 %52 to i64
-  tail call void @tcg_gen_ld_vec(ptr noundef %46, ptr noundef %51, i64 noundef %53) #10
-  tail call void %10(i32 noundef %0, ptr noundef %47, ptr noundef %45, ptr noundef %46, i64 noundef %7) #10
-  %54 = load ptr, ptr @tcg_env, align 8
-  %55 = add i32 %.029, %1
-  %56 = zext i32 %55 to i64
-  tail call void @tcg_gen_st_vec(ptr noundef %47, ptr noundef %54, i64 noundef %56) #10
-  %57 = add i32 %.029, %5
-  %58 = icmp ult i32 %57, %4
-  br i1 %58, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !40
+  %.029 = phi i32 [ %70, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %58 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %59 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %60 = tail call ptr @tcg_temp_new_vec(i32 noundef %6) #10
+  %61 = load ptr, ptr @tcg_env, align 8
+  %62 = add i32 %.029, %2
+  %63 = zext i32 %62 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %58, ptr noundef %61, i64 noundef %63) #10
+  %64 = load ptr, ptr @tcg_env, align 8
+  %65 = add i32 %.029, %3
+  %66 = zext i32 %65 to i64
+  tail call void @tcg_gen_ld_vec(ptr noundef %59, ptr noundef %64, i64 noundef %66) #10
+  tail call void %10(i32 noundef %0, ptr noundef %60, ptr noundef %58, ptr noundef %59, i64 noundef %7) #10
+  %67 = load ptr, ptr @tcg_env, align 8
+  %68 = add i32 %.029, %1
+  %69 = zext i32 %68 to i64
+  tail call void @tcg_gen_st_vec(ptr noundef %60, ptr noundef %67, i64 noundef %69) #10
+  %70 = add i32 %.029, %5
+  %71 = icmp ult i32 %70, %4
+  br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3304,7 +3361,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %100, ptr noundef %115, i64 noundef %105) #10
   %116 = add nuw nsw i32 %.027.us.i, 8
   %117 = icmp samesign ult i32 %116, %4
-  br i1 %117, label %.lr.ph.split.us.i, label %expand_4_i64.exit, !llvm.loop !41
+  br i1 %117, label %.lr.ph.split.us.i, label %expand_4_i64.exit, !llvm.loop !22
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.027.i = phi i32 [ %130, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -3327,7 +3384,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %99, ptr noundef %127, i64 noundef %129) #10
   %130 = add nuw nsw i32 %.027.i, 8
   %131 = icmp samesign ult i32 %130, %4
-  br i1 %131, label %.lr.ph.split.i, label %expand_4_i64.exit, !llvm.loop !42
+  br i1 %131, label %.lr.ph.split.i, label %expand_4_i64.exit, !llvm.loop !22
 
 expand_4_i64.exit:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   tail call void @tcg_temp_free_i64(ptr noundef %102) #10
@@ -3384,7 +3441,7 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %142, ptr noundef %157, i64 noundef %147) #10
   %158 = add nuw nsw i32 %.027.us.i116, 4
   %159 = icmp samesign ult i32 %158, %4
-  br i1 %159, label %.lr.ph.split.us.i115, label %expand_4_i32.exit, !llvm.loop !43
+  br i1 %159, label %.lr.ph.split.us.i115, label %expand_4_i32.exit, !llvm.loop !23
 
 .lr.ph.split.i113:                                ; preds = %.lr.ph.i112, %.lr.ph.split.i113
   %.027.i114 = phi i32 [ %172, %.lr.ph.split.i113 ], [ 0, %.lr.ph.i112 ]
@@ -3407,7 +3464,7 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %141, ptr noundef %169, i64 noundef %171) #10
   %172 = add nuw nsw i32 %.027.i114, 4
   %173 = icmp samesign ult i32 %172, %4
-  br i1 %173, label %.lr.ph.split.i113, label %expand_4_i32.exit, !llvm.loop !44
+  br i1 %173, label %.lr.ph.split.i113, label %expand_4_i32.exit, !llvm.loop !23
 
 expand_4_i32.exit:                                ; preds = %.lr.ph.split.i113, %.lr.ph.split.us.i115
   tail call void @tcg_temp_free_i32(ptr noundef %144) #10
@@ -3488,7 +3545,7 @@ define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %12, ptr noundef %27, i64 noundef %17) #10
   %28 = add i32 %.029.us, %6
   %29 = icmp ult i32 %28, %5
-  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !45
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %10
   ret void
@@ -3518,7 +3575,7 @@ define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %30, ptr noundef %43, i64 noundef %45) #10
   %46 = add i32 %.029, %6
   %47 = icmp ult i32 %46, %5
-  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !46
+  br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3730,7 +3787,7 @@ check_size_impl.exit:                             ; preds = %.thread
   tail call void @tcg_gen_st_i64(ptr noundef %89, ptr noundef %102, i64 noundef %104) #10
   %105 = add nuw nsw i32 %.024.i, 8
   %106 = icmp samesign ult i32 %105, %4
-  br i1 %106, label %.lr.ph.i, label %expand_4i_i64.exit, !llvm.loop !47
+  br i1 %106, label %.lr.ph.i, label %expand_4i_i64.exit, !llvm.loop !25
 
 expand_4i_i64.exit:                               ; preds = %.lr.ph.i
   tail call void @tcg_temp_free_i64(ptr noundef %92) #10
@@ -3783,7 +3840,7 @@ check_size_impl.exit110:                          ; preds = %check_size_impl.exi
   tail call void @tcg_gen_st_i32(ptr noundef %115, ptr noundef %128, i64 noundef %130) #10
   %131 = add nuw nsw i32 %.024.i113, 4
   %132 = icmp samesign ult i32 %131, %4
-  br i1 %132, label %.lr.ph.i112, label %expand_4i_i32.exit, !llvm.loop !48
+  br i1 %132, label %.lr.ph.i112, label %expand_4i_i32.exit, !llvm.loop !26
 
 expand_4i_i32.exit:                               ; preds = %.lr.ph.i112
   tail call void @tcg_temp_free_i32(ptr noundef %118) #10
@@ -3861,7 +3918,7 @@ define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %0, i32
   tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %24, i64 noundef %26) #10
   %27 = add i32 %.026, %6
   %28 = icmp ult i32 %27, %5
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4162,7 +4219,7 @@ check_size_impl.exit188.thread:                   ; preds = %56
   tail call void @tcg_gen_st_i32(ptr noundef nonnull %.0152, ptr noundef %66, i64 noundef %68) #10
   %69 = add nuw nsw i32 %.0151263, 4
   %70 = icmp samesign ult i32 %69, %.0150194
-  br i1 %70, label %.preheader, label %71, !llvm.loop !50
+  br i1 %70, label %.preheader, label %71, !llvm.loop !28
 
 71:                                               ; preds = %.preheader
   tail call void @tcg_temp_free_i32(ptr noundef nonnull %.0152) #10
@@ -4181,7 +4238,7 @@ check_size_impl.exit188.thread:                   ; preds = %56
   tail call void @tcg_gen_st_i64(ptr noundef nonnull %.0153.ph, ptr noundef %73, i64 noundef %75) #10
   %76 = add nuw nsw i32 %.1262, 8
   %77 = icmp samesign ult i32 %76, %.0150194
-  br i1 %77, label %.preheader223, label %78, !llvm.loop !51
+  br i1 %77, label %.preheader223, label %78, !llvm.loop !29
 
 78:                                               ; preds = %.preheader223
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %.0153.ph) #10
@@ -4524,7 +4581,7 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_st_vec(ptr noundef %43, ptr noundef %49, i64 noundef %51) #10
   %52 = add i32 %.0126151, 16
   %53 = icmp ult i32 %52, %3
-  br i1 %53, label %.lr.ph152, label %.loopexit, !llvm.loop !52
+  br i1 %53, label %.lr.ph152, label %.loopexit, !llvm.loop !30
 
 54:                                               ; preds = %38
   %55 = tail call ptr @tcg_temp_ebb_new_i64() #10
@@ -4553,7 +4610,7 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_st_i64(ptr noundef %56, ptr noundef %68, i64 noundef %70) #10
   %71 = add i32 %.1127153, 16
   %72 = icmp ult i32 %71, %3
-  br i1 %72, label %.lr.ph154, label %._crit_edge, !llvm.loop !53
+  br i1 %72, label %.lr.ph154, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph154, %54
   tail call void @tcg_temp_free_i64(ptr noundef %55) #10
@@ -4599,7 +4656,7 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_st_vec(ptr noundef %84, ptr noundef %90, i64 noundef %92) #10
   %93 = add nuw i32 %.0128144, 32
   %94 = icmp ult i32 %93, %3
-  br i1 %94, label %.lr.ph, label %.loopexit142, !llvm.loop !54
+  br i1 %94, label %.lr.ph, label %.loopexit142, !llvm.loop !32
 
 95:                                               ; preds = %77
   %96 = and i32 %81, 512
@@ -4633,11 +4690,11 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_st_vec(ptr noundef %99, ptr noundef %111, i64 noundef %113) #10
   %114 = add nuw i32 %.1129145, 32
   %115 = icmp ult i32 %114, %3
-  br i1 %115, label %.lr.ph146, label %.loopexit142, !llvm.loop !55
+  br i1 %115, label %.lr.ph146, label %.loopexit142, !llvm.loop !33
 
 116:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !34
   br label %117
 
 117:                                              ; preds = %116, %117
@@ -4653,7 +4710,7 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_ld_i64(ptr noundef %118, ptr noundef %120, i64 noundef %123) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %124, label %117, !llvm.loop !57
+  br i1 %exitcond.not, label %124, label %117, !llvm.loop !35
 
 124:                                              ; preds = %117
   %125 = icmp eq i32 %2, %1
@@ -4678,12 +4735,12 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_gen_st_i64(ptr noundef %131, ptr noundef %132, i64 noundef %135) #10
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
-  br i1 %exitcond160.not, label %136, label %129, !llvm.loop !58
+  br i1 %exitcond160.not, label %136, label %129, !llvm.loop !36
 
 136:                                              ; preds = %129
   %137 = add i32 %.2130149, 32
   %138 = icmp ult i32 %137, %3
-  br i1 %138, label %.preheader141, label %.preheader.preheader, !llvm.loop !59
+  br i1 %138, label %.preheader141, label %.preheader.preheader, !llvm.loop !37
 
 .preheader.preheader:                             ; preds = %136, %124
   br label %.preheader
@@ -4695,7 +4752,7 @@ check_size_align.exit:                            ; preds = %7, %9
   tail call void @tcg_temp_free_i64(ptr noundef %140) #10
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next162, 4
-  br i1 %exitcond164.not, label %141, label %.preheader, !llvm.loop !60
+  br i1 %exitcond164.not, label %141, label %.preheader, !llvm.loop !38
 
 141:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4761,7 +4818,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %15, i64 noundef %17, i32 noundef 5) #10
   %18 = add i32 %14, 32
   %.not34 = icmp ugt i32 %18, %2
-  br i1 %.not34, label %.loopexit36, label %.lr.ph42, !llvm.loop !61
+  br i1 %.not34, label %.loopexit36, label %.lr.ph42, !llvm.loop !39
 
 .loopexit36:                                      ; preds = %.lr.ph42, %.preheader, %11
   %.1 = phi i32 [ %.0, %11 ], [ %.0, %.preheader ], [ %14, %.lr.ph42 ]
@@ -4778,7 +4835,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %21, i64 noundef %23, i32 noundef 4) #10
   %24 = add i32 %20, 16
   %.not35 = icmp ugt i32 %24, %2
-  br i1 %.not35, label %.loopexit, label %.lr.ph45, !llvm.loop !62
+  br i1 %.not35, label %.loopexit, label %.lr.ph45, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %.preheader37, %.lr.ph
   %.439 = phi i32 [ %28, %.lr.ph ], [ %.0, %.preheader37 ]
@@ -4788,7 +4845,7 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   tail call void @tcg_gen_stl_vec(ptr noundef %4, ptr noundef %25, i64 noundef %27, i32 noundef 3) #10
   %28 = add i32 %.439, 8
   %29 = icmp ult i32 %28, %2
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !63
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 30:                                               ; preds = %11
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 525, ptr noundef nonnull @__func__.do_dup_store, ptr noundef null) #11
@@ -8022,7 +8079,7 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   tail call void @tcg_gen_st_vec(ptr noundef %34, ptr noundef %39, i64 noundef %41) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %42 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %42, label %.lr.ph.i, label %expand_2sh_vec.exit, !llvm.loop !64
+  br i1 %42, label %.lr.ph.i, label %expand_2sh_vec.exit, !llvm.loop !42
 
 expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %28
   %43 = icmp eq i32 %29, %4
@@ -8060,7 +8117,7 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %28
   tail call void @tcg_gen_st_vec(ptr noundef %53, ptr noundef %57, i64 noundef %59) #10
   %60 = add i32 %.016.i158, 16
   %61 = icmp ult i32 %60, %.0135
-  br i1 %61, label %.lr.ph.i157, label %expand_2sh_vec.exit159, !llvm.loop !64
+  br i1 %61, label %.lr.ph.i157, label %expand_2sh_vec.exit159, !llvm.loop !42
 
 62:                                               ; preds = %check_overlap_2.exit
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8083,7 +8140,7 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %28
   tail call void @tcg_gen_st_vec(ptr noundef %66, ptr noundef %70, i64 noundef %72) #10
   %73 = add i32 %.016.i162, 8
   %74 = icmp ult i32 %73, %4
-  br i1 %74, label %.lr.ph.i161, label %expand_2sh_vec.exit159, !llvm.loop !64
+  br i1 %74, label %.lr.ph.i161, label %expand_2sh_vec.exit159, !llvm.loop !42
 
 75:                                               ; preds = %check_overlap_2.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3180, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #11
@@ -8144,7 +8201,7 @@ expand_2sh_vec.exit:                              ; preds = %.lr.ph.i, %28
   tail call void @tcg_gen_st_vec(ptr noundef %91, ptr noundef %96, i64 noundef %98) #10
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 32
   %99 = icmp samesign ult i64 %indvars.iv.next196, %89
-  br i1 %99, label %.lr.ph.split.i, label %expand_2s_vec.exit, !llvm.loop !21
+  br i1 %99, label %.lr.ph.split.i, label %expand_2s_vec.exit, !llvm.loop !13
 
 expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %85
   %100 = icmp eq i32 %86, %4
@@ -8182,7 +8239,7 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %85
   tail call void @tcg_gen_st_vec(ptr noundef %110, ptr noundef %114, i64 noundef %116) #10
   %117 = add i32 %.022.i169, 16
   %118 = icmp ult i32 %117, %.3138
-  br i1 %118, label %.lr.ph.split.i168, label %expand_2s_vec.exit170, !llvm.loop !21
+  br i1 %118, label %.lr.ph.split.i168, label %expand_2s_vec.exit170, !llvm.loop !13
 
 119:                                              ; preds = %84
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -8205,7 +8262,7 @@ expand_2s_vec.exit:                               ; preds = %.lr.ph.split.i, %85
   tail call void @tcg_gen_st_vec(ptr noundef %123, ptr noundef %127, i64 noundef %129) #10
   %130 = add i32 %.022.i174, 8
   %131 = icmp ult i32 %130, %4
-  br i1 %131, label %.lr.ph.split.i173, label %expand_2s_vec.exit170, !llvm.loop !21
+  br i1 %131, label %.lr.ph.split.i173, label %expand_2s_vec.exit170, !llvm.loop !13
 
 132:                                              ; preds = %84
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3223, ptr noundef nonnull @__func__.do_gvec_shifts, ptr noundef null) #11
@@ -8252,7 +8309,7 @@ check_size_impl.exit:                             ; preds = %135
   tail call void @tcg_gen_st_i32(ptr noundef %142, ptr noundef %146, i64 noundef %148) #10
   %149 = add nuw nsw i32 %.019.i, 4
   %150 = icmp samesign ult i32 %149, %4
-  br i1 %150, label %.lr.ph.split.i179, label %expand_2s_i32.exit, !llvm.loop !25
+  br i1 %150, label %.lr.ph.split.i179, label %expand_2s_i32.exit, !llvm.loop !15
 
 expand_2s_i32.exit:                               ; preds = %.lr.ph.split.i179
   tail call void @tcg_temp_free_i32(ptr noundef %141) #10
@@ -8293,7 +8350,7 @@ check_size_impl.exit182:                          ; preds = %151
   tail call void @tcg_gen_st_i64(ptr noundef %160, ptr noundef %164, i64 noundef %166) #10
   %167 = add nuw nsw i32 %.019.i186, 8
   %168 = icmp samesign ult i32 %167, %4
-  br i1 %168, label %.lr.ph.split.i185, label %expand_2s_i64.exit, !llvm.loop !23
+  br i1 %168, label %.lr.ph.split.i185, label %expand_2s_i64.exit, !llvm.loop !14
 
 expand_2s_i64.exit:                               ; preds = %.lr.ph.split.i185
   tail call void @tcg_temp_free_i64(ptr noundef %159) #10
@@ -9125,7 +9182,7 @@ check_size_impl.exit:                             ; preds = %52
   tail call void @tcg_gen_st_i64(ptr noundef %58, ptr noundef %66, i64 noundef %68) #10
   %69 = add nuw nsw i32 %.017.i, 8
   %70 = icmp samesign ult i32 %69, %5
-  br i1 %70, label %.lr.ph.i, label %expand_cmp_i64.exit, !llvm.loop !65
+  br i1 %70, label %.lr.ph.i, label %expand_cmp_i64.exit, !llvm.loop !43
 
 expand_cmp_i64.exit:                              ; preds = %.lr.ph.i
   tail call void @tcg_temp_free_i64(ptr noundef %59) #10
@@ -9167,7 +9224,7 @@ check_size_impl.exit106:                          ; preds = %71
   tail call void @tcg_gen_st_i32(ptr noundef %78, ptr noundef %86, i64 noundef %88) #10
   %89 = add nuw nsw i32 %.017.i109, 4
   %90 = icmp samesign ult i32 %89, %5
-  br i1 %90, label %.lr.ph.i108, label %expand_cmp_i32.exit, !llvm.loop !66
+  br i1 %90, label %.lr.ph.i108, label %expand_cmp_i32.exit, !llvm.loop !44
 
 expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
   tail call void @tcg_temp_free_i32(ptr noundef %79) #10
@@ -9664,7 +9721,7 @@ define internal fastcc void @expand_cmp_vec(i32 noundef %0, i32 noundef %1, i32 
   tail call void @tcg_gen_st_vec(ptr noundef %11, ptr noundef %18, i64 noundef %20) #10
   %21 = add i32 %.020, %5
   %22 = icmp ult i32 %21, %4
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9759,7 +9816,7 @@ check_overlap_2.exit:                             ; preds = %check_size_align.ex
   tail call void @tcg_gen_st_vec(ptr noundef %34, ptr noundef %41, i64 noundef %43) #10
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 32
   %44 = icmp samesign ult i64 %indvars.iv.next149, %36
-  br i1 %44, label %.lr.ph.i, label %expand_cmps_vec.exit, !llvm.loop !68
+  br i1 %44, label %.lr.ph.i, label %expand_cmps_vec.exit, !llvm.loop !46
 
 expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %32
   %45 = add i32 %33, %3
@@ -9797,7 +9854,7 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %32
   tail call void @tcg_gen_st_vec(ptr noundef %51, ptr noundef %58, i64 noundef %60) #10
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 16
   %61 = icmp samesign ult i64 %indvars.iv.next152, %53
-  br i1 %61, label %.lr.ph.i128, label %expand_cmps_vec.exit130, !llvm.loop !68
+  br i1 %61, label %.lr.ph.i128, label %expand_cmps_vec.exit130, !llvm.loop !46
 
 62:                                               ; preds = %30
   %63 = and i32 %5, -8
@@ -9824,7 +9881,7 @@ expand_cmps_vec.exit:                             ; preds = %.lr.ph.i, %32
   tail call void @tcg_gen_st_vec(ptr noundef %64, ptr noundef %71, i64 noundef %73) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %74 = icmp samesign ult i64 %indvars.iv.next, %66
-  br i1 %74, label %.lr.ph.i132, label %expand_cmps_vec.exit130, !llvm.loop !68
+  br i1 %74, label %.lr.ph.i132, label %expand_cmps_vec.exit130, !llvm.loop !46
 
 75:                                               ; preds = %30
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 3936, ptr noundef nonnull @__func__.tcg_gen_gvec_cmps, ptr noundef null) #11
@@ -9868,7 +9925,7 @@ check_size_impl.exit:                             ; preds = %77
   tail call void @tcg_gen_st_i64(ptr noundef %83, ptr noundef %88, i64 noundef %90) #10
   %91 = add nuw nsw i32 %.0110144, 8
   %92 = icmp samesign ult i32 %91, %5
-  br i1 %92, label %84, label %93, !llvm.loop !69
+  br i1 %92, label %84, label %93, !llvm.loop !47
 
 93:                                               ; preds = %84
   tail call void @tcg_temp_free_i64(ptr noundef %83) #10
@@ -9906,7 +9963,7 @@ check_size_impl.exit138:                          ; preds = %94
   tail call void @tcg_gen_st_i32(ptr noundef %100, ptr noundef %105, i64 noundef %107) #10
   %108 = add nuw nsw i32 %.0108143, 4
   %109 = icmp samesign ult i32 %108, %5
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !70
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @tcg_temp_free_i32(ptr noundef %100) #10
@@ -10522,68 +10579,46 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !8}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !8}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !8}
+!16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !8}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !8}
+!20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !8}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !8}
+!24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7, !8}
+!26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !8}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !8}
+!30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = !{!"auto-init"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7, !8}
+!41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7, !8}
+!43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7, !8}
+!45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
 !47 = distinct !{!47, !7}
 !48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = !{!"auto-init"}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}

@@ -449,7 +449,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 .critedge:                                        ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count73
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.split, %71, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %50, %.thread, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %50 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %.lr.ph.split ], [ 0, %71 ], [ 1, %.critedge ]
@@ -875,7 +875,7 @@ WebPIsAlphaMode.exit:                             ; preds = %174, %177
   %205 = getelementptr inbounds i8, ptr %.03340, i64 %201
   %206 = add nuw i32 %.041, 1
   %exitcond.not = icmp eq i32 %206, %182
-  br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %202, !llvm.loop !24
 
 .loopexit:                                        ; preds = %202, %204, %.preheader, %197, %WebPIsAlphaMode.exit, %2
   %.032 = phi i32 [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 0, %197 ], [ 1, %.preheader ], [ 0, %202 ], [ 1, %204 ]
@@ -923,7 +923,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef captures(addr
   %22 = getelementptr inbounds i8, ptr %.02024, i64 %18
   %23 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %23, %7
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !25
 
 .loopexit:                                        ; preds = %21, %19, %13, %5, %2
   %.019 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %13 ], [ 1, %21 ], [ 0, %19 ]
@@ -944,13 +944,13 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = add nsw i32 %.fr98, 1
   %19 = sdiv i32 %18, 2
   %20 = add nsw i32 %9, 1
@@ -984,13 +984,13 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %.07284.us = phi ptr [ %39, %.lr.ph.split.us ], [ %11, %.lr.ph ]
   %35 = tail call i64 @fwrite(ptr noundef %.07284.us, i64 noundef %32, i64 noundef 1, ptr noundef nonnull %0)
   %36 = icmp eq i64 %35, 1
-  %37 = load i32, ptr %34, align 8, !tbaa !34
+  %37 = load i32, ptr %34, align 8, !tbaa !32
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.07284.us, i64 %38
   %40 = add nuw nsw i32 %.085.us, 1
   %41 = icmp slt i32 %40, %9
   %42 = select i1 %36, i1 %41, i1 false
-  br i1 %42, label %.lr.ph.split.us, label %.preheader83, !llvm.loop !35
+  br i1 %42, label %.lr.ph.split.us, label %.preheader83, !llvm.loop !33
 
 .preheader83:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.067.lcssa.shrunk = phi i1 [ %36, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
@@ -1008,13 +1008,13 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %46 = tail call i64 @fwrite(ptr noundef %.07284, i64 noundef %32, i64 noundef 1, ptr noundef nonnull %0)
   %47 = icmp eq i64 %46, 1
   %48 = tail call i32 @fputc(i32 noundef 0, ptr noundef nonnull %0)
-  %49 = load i32, ptr %34, align 8, !tbaa !34
+  %49 = load i32, ptr %34, align 8, !tbaa !32
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.07284, i64 %50
   %52 = add nuw nsw i32 %.085, 1
   %53 = icmp slt i32 %52, %9
   %54 = select i1 %47, i1 %53, i1 false
-  br i1 %54, label %.lr.ph.split, label %.preheader83, !llvm.loop !36
+  br i1 %54, label %.lr.ph.split, label %.preheader83, !llvm.loop !33
 
 .preheader:                                       ; preds = %68, %26, %.preheader83
   %.168.lcssa.in = phi i1 [ false, %.preheader83 ], [ true, %26 ], [ %73, %68 ]
@@ -1034,13 +1034,13 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %.07491.us = phi ptr [ %64, %.lr.ph93.split.us ], [ %17, %.lr.ph93 ]
   %60 = tail call i64 @fwrite(ptr noundef %.07491.us, i64 noundef %57, i64 noundef 1, ptr noundef nonnull %0)
   %61 = icmp eq i64 %60, 1
-  %62 = load i32, ptr %59, align 4, !tbaa !37
+  %62 = load i32, ptr %59, align 4, !tbaa !34
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %.07491.us, i64 %63
   %65 = add nuw nsw i32 %.292.us, 1
   %66 = icmp slt i32 %65, %22
   %67 = select i1 %61, i1 %66, i1 false
-  br i1 %67, label %.lr.ph93.split.us, label %.loopexit, !llvm.loop !38
+  br i1 %67, label %.lr.ph93.split.us, label %.loopexit, !llvm.loop !35
 
 68:                                               ; preds = %.lr.ph90, %68
   %.189 = phi i32 [ 0, %.lr.ph90 ], [ %80, %68 ]
@@ -1051,16 +1051,16 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %71 = tail call i64 @fwrite(ptr noundef %.07587, i64 noundef %43, i64 noundef 1, ptr noundef nonnull %0)
   %72 = icmp eq i64 %71, 1
   %73 = and i1 %70, %72
-  %74 = load i32, ptr %44, align 4, !tbaa !39
+  %74 = load i32, ptr %44, align 4, !tbaa !36
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %.07388, i64 %75
-  %77 = load i32, ptr %45, align 8, !tbaa !40
+  %77 = load i32, ptr %45, align 8, !tbaa !37
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %.07587, i64 %78
   %80 = add nuw nsw i32 %.189, 1
   %81 = icmp slt i32 %80, %21
   %82 = select i1 %73, i1 %81, i1 false
-  br i1 %82, label %68, label %.preheader, !llvm.loop !41
+  br i1 %82, label %68, label %.preheader, !llvm.loop !38
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93, %.lr.ph93.split
   %.292 = phi i32 [ %89, %.lr.ph93.split ], [ 0, %.lr.ph93 ]
@@ -1068,13 +1068,13 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
   %83 = tail call i64 @fwrite(ptr noundef %.07491, i64 noundef %57, i64 noundef 1, ptr noundef nonnull %0)
   %84 = icmp eq i64 %83, 1
   %85 = tail call i32 @fputc(i32 noundef 0, ptr noundef nonnull %0)
-  %86 = load i32, ptr %59, align 4, !tbaa !37
+  %86 = load i32, ptr %59, align 4, !tbaa !34
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i8, ptr %.07491, i64 %87
   %89 = add nuw nsw i32 %.292, 1
   %90 = icmp slt i32 %89, %22
   %91 = select i1 %84, i1 %90, i1 false
-  br i1 %91, label %.lr.ph93.split, label %.loopexit, !llvm.loop !42
+  br i1 %91, label %.lr.ph93.split, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph93.split, %.lr.ph93.split.us, %.preheader, %5, %2
   %.070.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.168.lcssa.in, %.preheader ], [ %61, %.lr.ph93.split.us ], [ %84, %.lr.ph93.split ]
@@ -1098,13 +1098,13 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
   %.fr = freeze ptr %17
   %18 = add nsw i32 %7, 1
   %19 = sdiv i32 %18, 2
@@ -1140,13 +1140,13 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_
   %.06880 = phi ptr [ %11, %.lr.ph ], [ %35, %30 ]
   %31 = tail call i64 @fwrite(ptr noundef %.06880, i64 noundef %26, i64 noundef 1, ptr noundef nonnull %0)
   %32 = icmp eq i64 %31, 1
-  %33 = load i32, ptr %27, align 8, !tbaa !34
+  %33 = load i32, ptr %27, align 8, !tbaa !32
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %.06880, i64 %34
   %36 = add nuw nsw i32 %.081, 1
   %37 = icmp slt i32 %36, %9
   %38 = select i1 %32, i1 %37, i1 false
-  br i1 %38, label %30, label %.preheader78, !llvm.loop !43
+  br i1 %38, label %30, label %.preheader78, !llvm.loop !39
 
 .preheader77:                                     ; preds = %41
   br i1 %43, label %.lr.ph88, label %.preheader
@@ -1161,13 +1161,13 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_
   %.06982 = phi ptr [ %13, %.lr.ph84 ], [ %46, %41 ]
   %42 = tail call i64 @fwrite(ptr noundef %.06982, i64 noundef %28, i64 noundef 1, ptr noundef nonnull %0)
   %43 = icmp eq i64 %42, 1
-  %44 = load i32, ptr %29, align 4, !tbaa !39
+  %44 = load i32, ptr %29, align 4, !tbaa !36
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %.06982, i64 %45
   %47 = add nuw nsw i32 %.183, 1
   %48 = icmp slt i32 %47, %21
   %49 = select i1 %43, i1 %48, i1 false
-  br i1 %49, label %41, label %.preheader77, !llvm.loop !44
+  br i1 %49, label %41, label %.preheader77, !llvm.loop !40
 
 .preheader:                                       ; preds = %53, %.preheader78, %.preheader77
   %.264.lcssa.in = phi i1 [ false, %.preheader77 ], [ false, %.preheader78 ], [ %55, %53 ]
@@ -1184,26 +1184,26 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_
   %.07186 = phi ptr [ %15, %.lr.ph88 ], [ %58, %53 ]
   %54 = tail call i64 @fwrite(ptr noundef %.07186, i64 noundef %39, i64 noundef 1, ptr noundef nonnull %0)
   %55 = icmp eq i64 %54, 1
-  %56 = load i32, ptr %40, align 8, !tbaa !40
+  %56 = load i32, ptr %40, align 8, !tbaa !37
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %.07186, i64 %57
   %59 = add nuw nsw i32 %.287, 1
   %60 = icmp slt i32 %59, %21
   %61 = select i1 %55, i1 %60, i1 false
-  br i1 %61, label %53, label %.preheader, !llvm.loop !45
+  br i1 %61, label %53, label %.preheader, !llvm.loop !41
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92.split.preheader, %.lr.ph92.split
   %.391 = phi i32 [ %67, %.lr.ph92.split ], [ 0, %.lr.ph92.split.preheader ]
   %.07090 = phi ptr [ %66, %.lr.ph92.split ], [ %.fr, %.lr.ph92.split.preheader ]
   %62 = tail call i64 @fwrite(ptr noundef %.07090, i64 noundef %51, i64 noundef 1, ptr noundef nonnull %0)
   %63 = icmp eq i64 %62, 1
-  %64 = load i32, ptr %52, align 4, !tbaa !37
+  %64 = load i32, ptr %52, align 4, !tbaa !34
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %.07090, i64 %65
   %67 = add nuw nsw i32 %.391, 1
   %68 = icmp sgt i32 %9, %67
   %69 = select i1 %63, i1 %68, i1 false
-  br i1 %69, label %.lr.ph92.split, label %.loopexit, !llvm.loop !46
+  br i1 %69, label %.lr.ph92.split, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph92.split, %.preheader79, %.preheader, %5, %2
   %.066.shrunk = phi i1 [ false, %2 ], [ false, %5 ], [ %.264.lcssa.in, %.preheader ], [ true, %.preheader79 ], [ %63, %.lr.ph92.split ]
@@ -1230,7 +1230,7 @@ sub_0:                                            ; preds = %3
   br i1 %8, label %9, label %.tail.thread
 
 9:                                                ; preds = %.tail
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !47
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !43
   %11 = tail call ptr @ImgIoUtilSetBinaryMode(ptr noundef %10) #9
   br label %13
 
@@ -1244,7 +1244,7 @@ sub_0:                                            ; preds = %3
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !47
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !43
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #12
   br label %.thread
 
@@ -1432,11 +1432,11 @@ sub_0:                                            ; preds = %3
   %105 = getelementptr inbounds i8, ptr %.02024.i106, i64 %101
   %106 = add nuw i32 %.025.i105, 1
   %exitcond.not.i109 = icmp eq i32 %106, %90
-  br i1 %exitcond.not.i109, label %WebPWritePAM.exit, label %102, !llvm.loop !27
+  br i1 %exitcond.not.i109, label %WebPWritePAM.exit, label %102, !llvm.loop !25
 
 WebPWritePAM.exit:                                ; preds = %104, %102, %77, %75, %57, %55, %38, %36, %96, %88, %68, %60, %49, %41, %30, %22, %19, %20, %80, %84, %86, %82
   %.0 = phi i32 [ %21, %20 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ 1, %19 ], [ 0, %22 ], [ 1, %30 ], [ 0, %41 ], [ 1, %49 ], [ 0, %60 ], [ 1, %68 ], [ 0, %88 ], [ 1, %96 ], [ 1, %38 ], [ 0, %36 ], [ 1, %57 ], [ 0, %55 ], [ 1, %77 ], [ 0, %75 ], [ 0, %102 ], [ 1, %104 ]
-  %107 = load ptr, ptr @stdout, align 8, !tbaa !47
+  %107 = load ptr, ptr @stdout, align 8, !tbaa !43
   %.not93 = icmp eq ptr %14, %107
   br i1 %.not93, label %.thread, label %108
 
@@ -1502,29 +1502,25 @@ attributes #12 = { cold nounwind }
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = distinct !{!21, !20}
 !22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
 !25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = !{!29, !14, i64 0}
-!29 = !{!"WebPYUVABuffer", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !30, i64 48, !30, i64 56, !30, i64 64, !30, i64 72}
-!30 = !{!"long", !7, i64 0}
-!31 = !{!29, !14, i64 8}
-!32 = !{!29, !14, i64 16}
-!33 = !{!29, !14, i64 24}
-!34 = !{!29, !13, i64 32}
-!35 = distinct !{!35, !20, !24}
-!36 = distinct !{!36, !20}
-!37 = !{!29, !13, i64 44}
-!38 = distinct !{!38, !20, !24}
-!39 = !{!29, !13, i64 36}
-!40 = !{!29, !13, i64 40}
+!26 = !{!27, !14, i64 0}
+!27 = !{!"WebPYUVABuffer", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !28, i64 48, !28, i64 56, !28, i64 64, !28, i64 72}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!27, !14, i64 8}
+!30 = !{!27, !14, i64 16}
+!31 = !{!27, !14, i64 24}
+!32 = !{!27, !13, i64 32}
+!33 = distinct !{!33, !20}
+!34 = !{!27, !13, i64 44}
+!35 = distinct !{!35, !20}
+!36 = !{!27, !13, i64 36}
+!37 = !{!27, !13, i64 40}
+!38 = distinct !{!38, !20}
+!39 = distinct !{!39, !20}
+!40 = distinct !{!40, !20}
 !41 = distinct !{!41, !20}
 !42 = distinct !{!42, !20}
-!43 = distinct !{!43, !20}
-!44 = distinct !{!44, !20}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

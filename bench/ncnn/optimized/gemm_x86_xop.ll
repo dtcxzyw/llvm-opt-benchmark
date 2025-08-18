@@ -1364,7 +1364,7 @@ define hidden void @_ZN4ncnn32gemm_transB_packed_tile_int8_xopERKNS_3MatES2_RS0_
   %730 = add nuw nsw i32 %.06971259.i, 2
   %731 = or disjoint i32 %730, 1
   %732 = icmp slt i32 %731, %8
-  br i1 %732, label %.lr.ph1261.i, label %.preheader.i, !llvm.loop !53
+  br i1 %732, label %.lr.ph1261.i, label %.preheader.i, !llvm.loop !52
 
 .lr.ph1272.i:                                     ; preds = %.preheader.i, %.lr.ph1272.i
   %.16981271.i = phi i32 [ %746, %.lr.ph1272.i ], [ %.0697.lcssa.i, %.preheader.i ]
@@ -1387,7 +1387,7 @@ define hidden void @_ZN4ncnn32gemm_transB_packed_tile_int8_xopERKNS_3MatES2_RS0_
   %745 = getelementptr inbounds nuw i8, ptr %.87991267.i, i64 2
   %746 = add nuw nsw i32 %.16981271.i, 1
   %exitcond1458.not.i = icmp eq i32 %746, %8
-  br i1 %exitcond1458.not.i, label %._crit_edge1273.i, label %.lr.ph1272.i, !llvm.loop !54
+  br i1 %exitcond1458.not.i, label %._crit_edge1273.i, label %.lr.ph1272.i, !llvm.loop !53
 
 ._crit_edge1273.i:                                ; preds = %.lr.ph1272.i, %.preheader.i
   %.8799.lcssa.i = phi ptr [ %.7798.lcssa.i, %.preheader.i ], [ %745, %.lr.ph1272.i ]
@@ -1400,14 +1400,14 @@ define hidden void @_ZN4ncnn32gemm_transB_packed_tile_int8_xopERKNS_3MatES2_RS0_
   %749 = add nuw nsw i32 %.27891278.i, 2
   %750 = or disjoint i32 %749, 1
   %751 = icmp slt i32 %750, %6
-  br i1 %751, label %.lr.ph1280.i, label %.preheader898.i, !llvm.loop !55
+  br i1 %751, label %.lr.ph1280.i, label %.preheader898.i, !llvm.loop !54
 
 ._crit_edge1297.i:                                ; preds = %._crit_edge1290.us.i, %.lr.ph1296.split.split.us.preheader.i, %.lr.ph1296.split.split.preheader.i, %.preheader898.i
   %.14.lcssa.i = phi ptr [ %.13.lcssa.i, %.preheader898.i ], [ %scevgep1461.i, %.lr.ph1296.split.split.us.preheader.i ], [ %scevgep1459.i, %.lr.ph1296.split.split.preheader.i ], [ %689, %._crit_edge1290.us.i ]
   %752 = getelementptr inbounds i8, ptr %.27081306.i, i64 %304
   %753 = add nuw nsw i32 %.27141304.i, 1
   %exitcond1465.not.i = icmp eq i32 %753, %4
-  br i1 %exitcond1465.not.i, label %_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiii.exit, label %.preheader901.i, !llvm.loop !56
+  br i1 %exitcond1465.not.i, label %_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiii.exit, label %.preheader901.i, !llvm.loop !55
 
 _ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiii.exit: ; preds = %._crit_edge1297.i, %11, %14, %17, %.preheader902.i
   ret void
@@ -1495,9 +1495,8 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !48 = distinct !{!48, !15}
 !49 = distinct !{!49, !15}
 !50 = distinct !{!50, !15}
-!51 = distinct !{!51, !15, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !15}
+!52 = distinct !{!52, !15}
 !53 = distinct !{!53, !15}
 !54 = distinct !{!54, !15}
 !55 = distinct !{!55, !15}
-!56 = distinct !{!56, !15}

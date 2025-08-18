@@ -2521,7 +2521,7 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   store i64 %36, ptr %11, align 8, !tbaa !41
   %37 = add i64 %.035.us, 1
   %exitcond39.not = icmp eq i64 %.035.us, %19
-  br i1 %exitcond39.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !110
+  br i1 %exitcond39.not, label %._crit_edge36, label %.preheader.us
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   store i64 0, ptr %11, align 8, !tbaa !41
@@ -3264,5 +3264,3 @@ attributes #29 = { cold nounwind }
 !107 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
 !108 = distinct !{!108, !49}
 !109 = distinct !{!109, !49}
-!110 = distinct !{!110, !111}
-!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}

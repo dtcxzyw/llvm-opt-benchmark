@@ -1888,22 +1888,22 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8
-  %.fr82 = freeze i64 %17
+  %.fr88 = freeze i64 %17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %trunc, label %29, label %18
 
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %11, i8 0, i64 65536, i1 false)
-  %.0.sroa.speculated.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.fr82, i64 65536)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.fr88, i64 65536)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 %.0.sroa.speculated.i
-  %22 = icmp eq i64 %.fr82, 0
+  %22 = icmp eq i64 %.fr88, 0
   %23 = add i64 %2, 1
-  br i1 %22, label %.split.us, label %.split
+  br i1 %22, label %.split.us.split.us, label %.split
 
-.split.us:                                        ; preds = %18
+.split.us.split.us:                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %19, align 8
@@ -1911,18 +1911,18 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h70abf37803233ea5E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %24 = load i64, ptr %10, align 8, !range !6, !noundef !5
-  %trunc46.us = trunc nuw i64 %24 to i1
+  %trunc46.us.us = trunc nuw i64 %24 to i1
   %25 = load ptr, ptr %20, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %trunc46.us, label %.split76.us, label %26
+  br i1 %trunc46.us.us, label %.split76.us, label %26
 
-26:                                               ; preds = %.split.us
+26:                                               ; preds = %.split.us.split.us
   %27 = call noundef ptr @_ZN3std2io18default_read_exact17h8d8690f7fd62fb6cE(ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %11, i64 noundef %.0.sroa.speculated.i)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.split81.us, label %.split78.us
 
 29:                                               ; preds = %4
-  %30 = inttoptr i64 %.fr82 to ptr
+  %30 = inttoptr i64 %.fr88 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %30, ptr %31, align 8
   store i64 1, ptr %0, align 8
@@ -1933,7 +1933,7 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   %.040 = phi i64 [ %39, %._crit_edge ], [ 0, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %32 = sub i64 %.fr82, %.040
+  %32 = sub i64 %.fr88, %.040
   %.0.sroa.speculated.i55 = call noundef range(i64 -9223372036854775808, 65537) i64 @llvm.smin.i64(i64 range(i64 0, 65537) %.0.sroa.speculated.i, i64 %32)
   %33 = sub i64 0, %.0.sroa.speculated.i55
   store i64 %33, ptr %19, align 8
@@ -1955,8 +1955,8 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   %39 = add i64 %.0.sroa.speculated.i, %.040
   br label %.lr.ph
 
-.split76.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi ptr [ %25, %.split.us ], [ %35, %.split ]
+.split76.us:                                      ; preds = %.split, %.split.us.split.us
+  %.us-phi = phi ptr [ %25, %.split.us.split.us ], [ %35, %.split ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.us-phi, ptr %40, align 8
   store i64 1, ptr %0, align 8
@@ -1970,7 +1970,7 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   br label %55
 
 ._crit_edge:                                      ; preds = %56
-  %42 = icmp eq i64 %.fr82, %39
+  %42 = icmp eq i64 %.fr88, %39
   br i1 %42, label %.split81.us, label %.split
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
@@ -2033,7 +2033,7 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !293
   %63 = icmp ne i64 %62, 0
   %.not61 = select i1 %trunc.i56, i1 %63, i1 false
-  %64 = sub i64 %.fr82, %.173
+  %64 = sub i64 %.fr88, %.173
   %.sink = select i1 %.not61, i64 %62, i64 %64
   %storemerge = zext i1 %.not61 to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8

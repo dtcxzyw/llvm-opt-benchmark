@@ -8914,9 +8914,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPe
   %26 = or disjoint i64 %23, 1
   %27 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !527
+  %29 = load i32, ptr %28, align 4, !tbaa !526
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !527
+  %31 = load i32, ptr %30, align 4, !tbaa !526
   %.not = icmp eq i32 %29, %31
   br i1 %.not, label %32, label %37
 
@@ -8938,7 +8938,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPe
   %40 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %0, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !tbaa.struct !182
   %41 = icmp slt i64 %spec.select, %8
-  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !528
+  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !525
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %spec.select.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.us ]
@@ -8986,7 +8986,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPe
   %61 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %0, i64 %.018.i.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !tbaa.struct !182
   %62 = icmp sgt i64 %.0919.i.us, %1
-  br i1 %62, label %.lr.ph.i.us, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !529
+  br i1 %62, label %.lr.ph.i.us, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !527
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %71
   %.018.i = phi i64 [ %.0919.i, %71 ], [ %.1, %.lr.ph.i.preheader ]
@@ -8994,7 +8994,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory5arith6linear20CompPe
   %.0919.i = sdiv i64 %.0919.in.i, 2
   %63 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %0, i64 %.0919.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !527
+  %65 = load i32, ptr %64, align 4, !tbaa !526
   %.not50 = icmp eq i32 %65, %.sroa.2.0.copyload
   br i1 %.not50, label %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i
 
@@ -9012,7 +9012,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear20CompPen
   %72 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::linear::Cand", ptr %0, i64 %.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !tbaa.struct !182
   %73 = icmp sgt i64 %.0919.i, %1
-  br i1 %73, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !530
+  br i1 %73, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !527
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal6theory5arith6linear4CandESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valINS6_20CompPenaltyColLengthEEEEvT_T0_SI_T1_RT2_.exit: ; preds = %60, %.lr.ph.i.us, %71, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, %66, %53
   %.0.lcssa.i = phi i64 [ %.1, %53 ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4cvc58internal6theory5arith6linear20CompPenaltyColLengthEEclINS_17__normal_iteratorIPNS6_4CandESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0919.i, %71 ], [ %.018.i, %66 ], [ %.0919.i.us, %60 ], [ %.018.i.us, %.lr.ph.i.us ]
@@ -9723,9 +9723,6 @@ attributes #31 = { nounwind willreturn memory(read) }
 !522 = !{!"_ZTSNSt8__detail9__variant14_UninitializedIlLb1EEE", !43, i64 0}
 !523 = !{!524, !11, i64 48}
 !524 = !{!"_ZTSNSt8__detail9__variant16_Variant_storageILb0EJldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEEE", !11, i64 0, !11, i64 48}
-!525 = distinct !{!525, !127, !526}
-!526 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!527 = !{!389, !14, i64 4}
-!528 = distinct !{!528, !127}
-!529 = distinct !{!529, !127, !526}
-!530 = distinct !{!530, !127}
+!525 = distinct !{!525, !127}
+!526 = !{!389, !14, i64 4}
+!527 = distinct !{!527, !127}

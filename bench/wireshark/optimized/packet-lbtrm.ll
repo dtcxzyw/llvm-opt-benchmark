@@ -2667,7 +2667,7 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
 72:                                               ; preds = %63, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %68, %.thread, %50, %39
   %.lcssa59.sink = phi ptr [ %29, %39 ], [ %29, %50 ], [ %29, %.thread ], [ %64, %68 ]
@@ -2864,13 +2864,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_low_chk_cb(ptr readnone
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !22
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !20
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !23
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !21
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -2898,7 +2898,7 @@ define internal void @lbtrm_tag_mc_address_low_set_cb(ptr noundef captures(none)
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !24
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2940,13 +2940,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mc_address_high_chk_cb(ptr readnon
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !25
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !23
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !26
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !24
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -2974,7 +2974,7 @@ define internal void @lbtrm_tag_mc_address_high_set_cb(ptr noundef captures(none
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !27
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3151,13 +3151,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_incoming_address_chk_cb(ptr
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !28
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !26
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !29
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !27
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -3185,7 +3185,7 @@ define internal void @lbtrm_tag_mim_mc_incoming_address_set_cb(ptr noundef captu
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !30
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3227,13 +3227,13 @@ define internal noundef zeroext i1 @lbtrm_tag_mim_mc_outgoing_address_chk_cb(ptr
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %7, align 4
-  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !31
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !29
   %12 = and i32 %11, -268435456
   %13 = icmp eq i32 %12, -536870912
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %9
-  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !32
+  %15 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #10, !srcloc !30
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %17, label %.sink.split
 
@@ -3261,7 +3261,7 @@ define internal void @lbtrm_tag_mim_mc_outgoing_address_set_cb(ptr noundef captu
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6)
   %12 = load i32, ptr %6, align 4
-  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !33
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #10, !srcloc !31
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %13, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3349,18 +3349,16 @@ attributes #11 = { nounwind willreturn memory(read) }
 !16 = !{i64 2151194181}
 !17 = !{i64 2151194837}
 !18 = !{i64 2151195493}
-!19 = distinct !{!19, !13, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !13}
-!22 = !{i64 2151139161}
-!23 = !{i64 2151139574}
-!24 = !{i64 2151140364}
-!25 = !{i64 2151144344}
-!26 = !{i64 2151144757}
-!27 = !{i64 2151145549}
-!28 = !{i64 2151155546}
-!29 = !{i64 2151155959}
-!30 = !{i64 2151156767}
-!31 = !{i64 2151160836}
-!32 = !{i64 2151161249}
-!33 = !{i64 2151162057}
+!19 = distinct !{!19, !13}
+!20 = !{i64 2151139161}
+!21 = !{i64 2151139574}
+!22 = !{i64 2151140364}
+!23 = !{i64 2151144344}
+!24 = !{i64 2151144757}
+!25 = !{i64 2151145549}
+!26 = !{i64 2151155546}
+!27 = !{i64 2151155959}
+!28 = !{i64 2151156767}
+!29 = !{i64 2151160836}
+!30 = !{i64 2151161249}
+!31 = !{i64 2151162057}

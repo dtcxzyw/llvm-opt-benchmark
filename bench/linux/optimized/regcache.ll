@@ -2008,172 +2008,191 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   %158 = zext i32 %5 to i64
   br i1 %154, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %151, %173
-  %159 = phi i64 [ %174, %173 ], [ %157, %151 ]
+.split.us:                                        ; preds = %151
+  br i1 %153, label %.split.us.split.us, label %.split.us.split
+
+.split.us.split.us:                               ; preds = %.split.us, %168
+  %159 = phi i64 [ %169, %168 ], [ %157, %.split.us ]
   %160 = load i32, ptr %152, align 4
   %161 = trunc i64 %159 to i32
   %162 = mul i32 %160, %161
   %163 = add i32 %162, %3
-  br i1 %153, label %168, label %164
+  %164 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %163) #12
+  br i1 %164, label %165, label %168
 
-164:                                              ; preds = %.split.us
-  %165 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %159) #12, !srcloc !24
-  %166 = icmp ult i8 %165, 2
-  tail call void @llvm.assume(i1 %166)
-  %167 = icmp eq i8 %165, 0
-  br i1 %167, label %173, label %168
+165:                                              ; preds = %.split.us.split.us
+  %166 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %163, i32 noundef -22)
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %.thread26
 
-168:                                              ; preds = %164, %.split.us
-  %169 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %163) #12
-  br i1 %169, label %170, label %173
+168:                                              ; preds = %165, %.split.us.split.us
+  %169 = add nuw nsw i64 %159, 1
+  %170 = icmp eq i64 %169, %158
+  br i1 %170, label %.thread26, label %.split.us.split.us, !llvm.loop !72
 
-170:                                              ; preds = %168
-  %171 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %163, i32 noundef -22)
-  %172 = icmp eq i32 %171, 0
-  br i1 %172, label %173, label %.thread26
+.split.us.split:                                  ; preds = %.split.us, %184
+  %171 = phi i64 [ %185, %184 ], [ %157, %.split.us ]
+  %172 = load i32, ptr %152, align 4
+  %173 = trunc i64 %171 to i32
+  %174 = mul i32 %172, %173
+  %175 = add i32 %174, %3
+  %176 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %171) #12, !srcloc !24
+  %177 = icmp ult i8 %176, 2
+  tail call void @llvm.assume(i1 %177)
+  %178 = icmp eq i8 %176, 0
+  br i1 %178, label %184, label %179
 
-173:                                              ; preds = %170, %168, %164
-  %174 = add nuw nsw i64 %159, 1
-  %175 = icmp eq i64 %174, %158
-  br i1 %175, label %.thread26, label %.split.us, !llvm.loop !72
+179:                                              ; preds = %.split.us.split
+  %180 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %175) #12
+  br i1 %180, label %181, label %184
+
+181:                                              ; preds = %179
+  %182 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %175, i32 noundef -22)
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %.thread26
+
+184:                                              ; preds = %181, %179, %.split.us.split
+  %185 = add nuw nsw i64 %171, 1
+  %186 = icmp eq i64 %185, %158
+  br i1 %186, label %.thread26, label %.split.us.split, !llvm.loop !72
 
 .split:                                           ; preds = %151
   br i1 %153, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %207
-  %176 = phi i64 [ %208, %207 ], [ %157, %.split ]
-  %177 = load i32, ptr %152, align 4
-  %178 = trunc i64 %176 to i32
-  %179 = mul i32 %177, %178
-  %180 = add i32 %179, %3
-  %181 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %180) #12
-  br i1 %181, label %182, label %207
+.split.split.us:                                  ; preds = %.split, %218
+  %187 = phi i64 [ %219, %218 ], [ %157, %.split ]
+  %188 = load i32, ptr %152, align 4
+  %189 = trunc i64 %187 to i32
+  %190 = mul i32 %188, %189
+  %191 = add i32 %190, %3
+  %192 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %191) #12
+  br i1 %192, label %193, label %218
 
-182:                                              ; preds = %.split.split.us
-  %183 = load ptr, ptr %155, align 8
-  %184 = icmp eq ptr %183, null
-  %185 = load i32, ptr %156, align 8
-  br i1 %184, label %191, label %186
+193:                                              ; preds = %.split.split.us
+  %194 = load ptr, ptr %155, align 8
+  %195 = icmp eq ptr %194, null
+  %196 = load i32, ptr %156, align 8
+  br i1 %195, label %202, label %197
 
-186:                                              ; preds = %182
-  %187 = mul i32 %185, %178
-  %188 = zext i32 %187 to i64
-  %189 = getelementptr i8, ptr %1, i64 %188
-  %190 = tail call i32 %183(ptr noundef %189) #12
-  br label %203
+197:                                              ; preds = %193
+  %198 = mul i32 %196, %189
+  %199 = zext i32 %198 to i64
+  %200 = getelementptr i8, ptr %1, i64 %199
+  %201 = tail call i32 %194(ptr noundef %200) #12
+  br label %214
 
-191:                                              ; preds = %182
-  switch i32 %185, label %.split39.us [
-    i32 1, label %199
-    i32 2, label %195
-    i32 4, label %192
+202:                                              ; preds = %193
+  switch i32 %196, label %.split39.us [
+    i32 1, label %210
+    i32 2, label %206
+    i32 4, label %203
   ]
 
-192:                                              ; preds = %191
-  %193 = getelementptr i32, ptr %1, i64 %176
-  %194 = load i32, ptr %193, align 4
-  br label %203
+203:                                              ; preds = %202
+  %204 = getelementptr i32, ptr %1, i64 %187
+  %205 = load i32, ptr %204, align 4
+  br label %214
 
-195:                                              ; preds = %191
-  %196 = getelementptr i16, ptr %1, i64 %176
-  %197 = load i16, ptr %196, align 2
-  %198 = zext i16 %197 to i32
-  br label %203
+206:                                              ; preds = %202
+  %207 = getelementptr i16, ptr %1, i64 %187
+  %208 = load i16, ptr %207, align 2
+  %209 = zext i16 %208 to i32
+  br label %214
 
-199:                                              ; preds = %191
-  %200 = getelementptr i8, ptr %1, i64 %176
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i32
-  br label %203
+210:                                              ; preds = %202
+  %211 = getelementptr i8, ptr %1, i64 %187
+  %212 = load i8, ptr %211, align 1
+  %213 = zext i8 %212 to i32
+  br label %214
 
-203:                                              ; preds = %199, %195, %192, %186
-  %204 = phi i32 [ %190, %186 ], [ %194, %192 ], [ %198, %195 ], [ %202, %199 ]
-  %205 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %180, i32 noundef %204)
-  %206 = icmp eq i32 %205, 0
-  br i1 %206, label %207, label %.thread26
+214:                                              ; preds = %210, %206, %203, %197
+  %215 = phi i32 [ %201, %197 ], [ %205, %203 ], [ %209, %206 ], [ %213, %210 ]
+  %216 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %191, i32 noundef %215)
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %.thread26
 
-207:                                              ; preds = %203, %.split.split.us
-  %208 = add nuw nsw i64 %176, 1
-  %209 = icmp eq i64 %208, %158
-  br i1 %209, label %.thread26, label %.split.split.us, !llvm.loop !74
+218:                                              ; preds = %214, %.split.split.us
+  %219 = add nuw nsw i64 %187, 1
+  %220 = icmp eq i64 %219, %158
+  br i1 %220, label %.thread26, label %.split.split.us, !llvm.loop !72
 
-.split.split:                                     ; preds = %.split, %245
-  %210 = phi i64 [ %246, %245 ], [ %157, %.split ]
-  %211 = load i32, ptr %152, align 4
-  %212 = trunc i64 %210 to i32
-  %213 = mul i32 %211, %212
-  %214 = add i32 %213, %3
-  %215 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %210) #12, !srcloc !24
-  %216 = icmp ult i8 %215, 2
-  tail call void @llvm.assume(i1 %216)
-  %217 = icmp eq i8 %215, 0
-  br i1 %217, label %245, label %218
+.split.split:                                     ; preds = %.split, %256
+  %221 = phi i64 [ %257, %256 ], [ %157, %.split ]
+  %222 = load i32, ptr %152, align 4
+  %223 = trunc i64 %221 to i32
+  %224 = mul i32 %222, %223
+  %225 = add i32 %224, %3
+  %226 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %221) #12, !srcloc !24
+  %227 = icmp ult i8 %226, 2
+  tail call void @llvm.assume(i1 %227)
+  %228 = icmp eq i8 %226, 0
+  br i1 %228, label %256, label %229
 
-218:                                              ; preds = %.split.split
-  %219 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %214) #12
-  br i1 %219, label %220, label %245
+229:                                              ; preds = %.split.split
+  %230 = tail call zeroext i1 @regmap_writeable(ptr noundef %0, i32 noundef %225) #12
+  br i1 %230, label %231, label %256
 
-220:                                              ; preds = %218
-  %221 = load ptr, ptr %155, align 8
-  %222 = icmp eq ptr %221, null
-  %223 = load i32, ptr %156, align 8
-  br i1 %222, label %229, label %224
+231:                                              ; preds = %229
+  %232 = load ptr, ptr %155, align 8
+  %233 = icmp eq ptr %232, null
+  %234 = load i32, ptr %156, align 8
+  br i1 %233, label %240, label %235
 
-224:                                              ; preds = %220
-  %225 = mul i32 %223, %212
-  %226 = zext i32 %225 to i64
-  %227 = getelementptr i8, ptr %1, i64 %226
-  %228 = tail call i32 %221(ptr noundef %227) #12
-  br label %241
+235:                                              ; preds = %231
+  %236 = mul i32 %234, %223
+  %237 = zext i32 %236 to i64
+  %238 = getelementptr i8, ptr %1, i64 %237
+  %239 = tail call i32 %232(ptr noundef %238) #12
+  br label %252
 
-229:                                              ; preds = %220
-  switch i32 %223, label %.split39.us [
-    i32 1, label %230
-    i32 2, label %234
-    i32 4, label %238
+240:                                              ; preds = %231
+  switch i32 %234, label %.split39.us [
+    i32 1, label %241
+    i32 2, label %245
+    i32 4, label %249
   ]
 
-230:                                              ; preds = %229
-  %231 = getelementptr i8, ptr %1, i64 %210
-  %232 = load i8, ptr %231, align 1
-  %233 = zext i8 %232 to i32
-  br label %241
+241:                                              ; preds = %240
+  %242 = getelementptr i8, ptr %1, i64 %221
+  %243 = load i8, ptr %242, align 1
+  %244 = zext i8 %243 to i32
+  br label %252
 
-234:                                              ; preds = %229
-  %235 = getelementptr i16, ptr %1, i64 %210
-  %236 = load i16, ptr %235, align 2
-  %237 = zext i16 %236 to i32
-  br label %241
+245:                                              ; preds = %240
+  %246 = getelementptr i16, ptr %1, i64 %221
+  %247 = load i16, ptr %246, align 2
+  %248 = zext i16 %247 to i32
+  br label %252
 
-238:                                              ; preds = %229
-  %239 = getelementptr i32, ptr %1, i64 %210
-  %240 = load i32, ptr %239, align 4
-  br label %241
+249:                                              ; preds = %240
+  %250 = getelementptr i32, ptr %1, i64 %221
+  %251 = load i32, ptr %250, align 4
+  br label %252
 
-.split39.us:                                      ; preds = %229, %191
+.split39.us:                                      ; preds = %240, %202
   tail call void asm sideeffect "572: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 572b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 572) #12, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 675, i32 0, i64 12) #12, !srcloc !16
   unreachable
 
-241:                                              ; preds = %238, %234, %230, %224
-  %242 = phi i32 [ %228, %224 ], [ %240, %238 ], [ %237, %234 ], [ %233, %230 ]
-  %243 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %214, i32 noundef %242)
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %.thread26
+252:                                              ; preds = %249, %245, %241, %235
+  %253 = phi i32 [ %239, %235 ], [ %251, %249 ], [ %248, %245 ], [ %244, %241 ]
+  %254 = tail call i32 @regcache_sync_val(ptr noundef %0, i32 noundef %225, i32 noundef %253)
+  %255 = icmp eq i32 %254, 0
+  br i1 %255, label %256, label %.thread26
 
-245:                                              ; preds = %241, %218, %.split.split
-  %246 = add nuw nsw i64 %210, 1
-  %247 = icmp eq i64 %246, %158
-  br i1 %247, label %.thread26, label %.split.split, !llvm.loop !75
+256:                                              ; preds = %252, %229, %.split.split
+  %257 = add nuw nsw i64 %221, 1
+  %258 = icmp eq i64 %257, %158
+  br i1 %258, label %.thread26, label %.split.split, !llvm.loop !72
 
 .thread26.sink.split:                             ; preds = %137, %145, %55, %118
   %.ph = phi i32 [ %116, %118 ], [ %53, %55 ], [ %143, %145 ], [ %143, %137 ]
   store i8 0, ptr %19, align 1
   br label %.thread26
 
-.thread26:                                        ; preds = %245, %241, %203, %207, %173, %170, %.thread26.sink.split, %13, %149, %133
-  %248 = phi i32 [ 0, %133 ], [ 0, %149 ], [ 0, %13 ], [ %.ph, %.thread26.sink.split ], [ 0, %173 ], [ %171, %170 ], [ 0, %207 ], [ %205, %203 ], [ 0, %245 ], [ %243, %241 ]
-  ret i32 %248
+.thread26:                                        ; preds = %256, %252, %214, %218, %181, %184, %165, %168, %.thread26.sink.split, %13, %149, %133
+  %259 = phi i32 [ 0, %133 ], [ 0, %149 ], [ 0, %13 ], [ %.ph, %.thread26.sink.split ], [ 0, %168 ], [ %166, %165 ], [ 0, %184 ], [ %182, %181 ], [ 0, %218 ], [ %216, %214 ], [ 0, %256 ], [ %254, %252 ]
+  ret i32 %259
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2317,7 +2336,4 @@ attributes #13 = { nounwind allocsize(0) }
 !69 = !{i64 2155245998, i64 2155245807, i64 2155245859, i64 2155245905, i64 2155245933}
 !70 = !{i64 2155246072, i64 2155246101, i64 2155246147, i64 2155246205, i64 2155246259, i64 2155246313, i64 2155246368, i64 2155246399}
 !71 = distinct !{!71, !7, !8}
-!72 = distinct !{!72, !7, !8, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = distinct !{!74, !7, !8, !73}
-!75 = distinct !{!75, !7, !8}
+!72 = distinct !{!72, !7, !8}

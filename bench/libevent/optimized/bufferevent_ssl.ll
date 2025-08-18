@@ -2167,7 +2167,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = getelementptr inbounds nuw [2 x %struct.iovec], ptr %3, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread, label %.outer.split.us, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread.thread, label %.outer.split.us, !llvm.loop !7
 
 .split.us:                                        ; preds = %21
   %49 = load ptr, ptr %14, align 8
@@ -2616,143 +2616,166 @@ define internal fastcc void @consider_writing(ptr noundef %0) unnamed_addr #0 {
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %17, %13, %10
   %.not39 = icmp samesign ult i32 %11, 2
-  br i1 %.not39, label %7, label %bufferevent_trigger_nolock_.exit._crit_edge, !llvm.loop !10
+  br i1 %.not39, label %7, label %bufferevent_trigger_nolock_.exit._crit_edge, !llvm.loop !8
 
 bufferevent_trigger_nolock_.exit._crit_edge:      ; preds = %bufferevent_trigger_nolock_.exit
   %.pre = load i8, ptr %4, align 4
-  br label %split, !llvm.loop !10
+  br label %split, !llvm.loop !8
 
 split:                                            ; preds = %7, %bufferevent_trigger_nolock_.exit._crit_edge
   %18 = phi i8 [ %.pre, %bufferevent_trigger_nolock_.exit._crit_edge ], [ %8, %7 ]
   %19 = and i8 %18, 1
   %.not40 = icmp eq i8 %19, 0
-  br i1 %.not40, label %20, label %73
+  br i1 %.not40, label %20, label %80
 
 20:                                               ; preds = %split
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %22 = load ptr, ptr %21, align 8
-  %.not41 = icmp eq ptr %22, null
-  br i1 %.not41, label %.thread, label %25
+  %.fr = freeze ptr %22
+  %.not41 = icmp eq ptr %.fr, null
+  br i1 %.not41, label %.split.us.thread, label %25
 
-.thread:                                          ; preds = %20
+.split.us.thread:                                 ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 390
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  br label %.split.us.preheader
+  br label %.split.us.split.us.preheader
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 264
+  %26 = getelementptr inbounds nuw i8, ptr %.fr, i64 264
   %27 = load ptr, ptr %26, align 8
   %28 = freeze ptr %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 390
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.not45 = icmp eq ptr %28, null
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 296
-  br i1 %.not45, label %.split.us.preheader, label %.split
+  %31 = getelementptr i8, ptr %.fr, i64 296
+  br i1 %.not45, label %.split.us, label %.split
 
-.split.us.preheader:                              ; preds = %.thread, %25
-  %32 = phi ptr [ inttoptr (i64 8 to ptr), %.thread ], [ %31, %25 ]
-  %33 = phi ptr [ %24, %.thread ], [ %30, %25 ]
-  %34 = phi ptr [ %23, %.thread ], [ %29, %25 ]
-  br label %.split.us
+.split.us:                                        ; preds = %25
+  %32 = getelementptr i8, ptr %.fr, i64 288
+  %.not47 = icmp eq ptr %32, null
+  br i1 %.not47, label %.split.us.split.us.preheader, label %.split.us.split
 
-.split.us:                                        ; preds = %.split.us.preheader, %44
-  %35 = load i16, ptr %33, align 8
+.split.us.split.us.preheader:                     ; preds = %.split.us.thread, %.split.us
+  %33 = phi ptr [ %23, %.split.us.thread ], [ %29, %.split.us ]
+  %34 = phi ptr [ %24, %.split.us.thread ], [ %30, %.split.us ]
+  br label %.split.us.split.us
+
+.split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %.critedge2.us.us
+  %35 = load i16, ptr %34, align 8
   %36 = and i16 %35, 4
-  %.not42.us = icmp eq i16 %36, 0
-  br i1 %.not42.us, label %.critedge, label %37
+  %.not42.us.us = icmp eq i16 %36, 0
+  br i1 %.not42.us.us, label %.critedge, label %37
 
-37:                                               ; preds = %.split.us
-  %38 = load i16, ptr %34, align 2
-  %.not43.us = icmp eq i16 %38, 0
-  br i1 %.not43.us, label %39, label %.critedge
+37:                                               ; preds = %.split.us.split.us
+  %38 = load i16, ptr %33, align 2
+  %.not43.us.us = icmp eq i16 %38, 0
+  br i1 %.not43.us.us, label %39, label %.critedge
 
 39:                                               ; preds = %37
   %40 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
-  %.not44.us = icmp eq i64 %40, 0
+  %.not44.us.us = icmp eq i64 %40, 0
+  br i1 %.not44.us.us, label %.critedge, label %.critedge2.us.us
+
+.critedge2.us.us:                                 ; preds = %39
+  %41 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
+  %.not49.us.us = icmp samesign ult i32 %41, 2
+  br i1 %.not49.us.us, label %.split.us.split.us, label %.critedge
+
+.split.us.split:                                  ; preds = %.split.us, %51
+  %42 = load i16, ptr %30, align 8
+  %43 = and i16 %42, 4
+  %.not42.us = icmp eq i16 %43, 0
+  br i1 %.not42.us, label %.critedge, label %44
+
+44:                                               ; preds = %.split.us.split
+  %45 = load i16, ptr %29, align 2
+  %.not43.us = icmp eq i16 %45, 0
+  br i1 %.not43.us, label %46, label %.critedge
+
+46:                                               ; preds = %44
+  %47 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
+  %.not44.us = icmp eq i64 %47, 0
   br i1 %.not44.us, label %.critedge, label %.critedge2.us
 
-.critedge2.us:                                    ; preds = %39
-  br i1 %.not41, label %44, label %.critedge2.thread.us
+.critedge2.us:                                    ; preds = %46
+  %48 = load i64, ptr %31, align 8
+  %.not48.us = icmp eq i64 %48, 0
+  br i1 %.not48.us, label %51, label %49
 
-.critedge2.thread.us:                             ; preds = %.critedge2.us
-  %41 = load i64, ptr %32, align 8
-  %.not48.us = icmp eq i64 %41, 0
-  br i1 %.not48.us, label %44, label %42
+49:                                               ; preds = %.critedge2.us
+  %50 = tail call i64 @evbuffer_get_length(ptr noundef null) #7
+  br label %51
 
-42:                                               ; preds = %.critedge2.thread.us
-  %43 = tail call i64 @evbuffer_get_length(ptr noundef null) #7
-  br label %44
-
-44:                                               ; preds = %42, %.critedge2.thread.us, %.critedge2.us
-  %45 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
-  %.not49.us = icmp samesign ult i32 %45, 2
-  br i1 %.not49.us, label %.split.us, label %.critedge, !llvm.loop !11
+51:                                               ; preds = %49, %.critedge2.us
+  %52 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
+  %.not49.us = icmp samesign ult i32 %52, 2
+  br i1 %.not49.us, label %.split.us.split, label %.critedge
 
 .split:                                           ; preds = %25, %.critedge2.thread.thread
-  %46 = load i16, ptr %30, align 8
-  %47 = and i16 %46, 4
-  %.not42 = icmp eq i16 %47, 0
-  br i1 %.not42, label %.critedge, label %48
+  %53 = load i16, ptr %30, align 8
+  %54 = and i16 %53, 4
+  %.not42 = icmp eq i16 %54, 0
+  br i1 %.not42, label %.critedge, label %55
 
-48:                                               ; preds = %.split
-  %49 = load i16, ptr %29, align 2
-  %.not43 = icmp eq i16 %49, 0
-  br i1 %.not43, label %50, label %.critedge
+55:                                               ; preds = %.split
+  %56 = load i16, ptr %29, align 2
+  %.not43 = icmp eq i16 %56, 0
+  br i1 %.not43, label %57, label %.critedge
 
-50:                                               ; preds = %48
-  %51 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
-  %.not44 = icmp eq i64 %51, 0
-  br i1 %.not44, label %.critedge, label %52
+57:                                               ; preds = %55
+  %58 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
+  %.not44 = icmp eq i64 %58, 0
+  br i1 %.not44, label %.critedge, label %59
 
-52:                                               ; preds = %50
-  %53 = load i64, ptr %31, align 8
-  %.not46 = icmp eq i64 %53, 0
-  br i1 %.not46, label %.critedge2.thread.thread, label %54
+59:                                               ; preds = %57
+  %60 = load i64, ptr %31, align 8
+  %.not46 = icmp eq i64 %60, 0
+  br i1 %.not46, label %.critedge2.thread.thread, label %61
 
-54:                                               ; preds = %52
-  %55 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %28) #7
-  %56 = load i64, ptr %31, align 8
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %.critedge2.thread, label %.critedge
+61:                                               ; preds = %59
+  %62 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %28) #7
+  %63 = load i64, ptr %31, align 8
+  %64 = icmp ult i64 %62, %63
+  br i1 %64, label %.critedge2.thread, label %.critedge
 
-.critedge2.thread:                                ; preds = %54
-  %58 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %28) #7
+.critedge2.thread:                                ; preds = %61
+  %65 = tail call i64 @evbuffer_get_length(ptr noundef nonnull %28) #7
   br label %.critedge2.thread.thread
 
-.critedge2.thread.thread:                         ; preds = %52, %.critedge2.thread
-  %59 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
-  %.not49 = icmp samesign ult i32 %59, 2
+.critedge2.thread.thread:                         ; preds = %59, %.critedge2.thread
+  %66 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
+  %.not49 = icmp samesign ult i32 %66, 2
   br i1 %.not49, label %.split, label %.critedge
 
-.critedge:                                        ; preds = %54, %.split, %48, %50, %.critedge2.thread.thread, %.split.us, %37, %39, %44
-  %60 = phi ptr [ %33, %44 ], [ %33, %39 ], [ %33, %37 ], [ %33, %.split.us ], [ %30, %.critedge2.thread.thread ], [ %30, %50 ], [ %30, %48 ], [ %30, %.split ], [ %30, %54 ]
-  %61 = phi ptr [ %34, %44 ], [ %34, %39 ], [ %34, %37 ], [ %34, %.split.us ], [ %29, %.critedge2.thread.thread ], [ %29, %50 ], [ %29, %48 ], [ %29, %.split ], [ %29, %54 ]
-  %62 = load ptr, ptr %21, align 8
-  %.not50 = icmp eq ptr %62, null
-  br i1 %.not50, label %63, label %73
+.critedge:                                        ; preds = %61, %.split, %55, %57, %.critedge2.thread.thread, %51, %46, %44, %.split.us.split, %.critedge2.us.us, %39, %37, %.split.us.split.us
+  %67 = phi ptr [ %34, %.split.us.split.us ], [ %34, %37 ], [ %34, %39 ], [ %34, %.critedge2.us.us ], [ %30, %.split.us.split ], [ %30, %44 ], [ %30, %46 ], [ %30, %51 ], [ %30, %.critedge2.thread.thread ], [ %30, %57 ], [ %30, %55 ], [ %30, %.split ], [ %30, %61 ]
+  %68 = phi ptr [ %33, %.split.us.split.us ], [ %33, %37 ], [ %33, %39 ], [ %33, %.critedge2.us.us ], [ %29, %.split.us.split ], [ %29, %44 ], [ %29, %46 ], [ %29, %51 ], [ %29, %.critedge2.thread.thread ], [ %29, %57 ], [ %29, %55 ], [ %29, %.split ], [ %29, %61 ]
+  %69 = load ptr, ptr %21, align 8
+  %.not50 = icmp eq ptr %69, null
+  br i1 %.not50, label %70, label %80
 
-63:                                               ; preds = %.critedge
-  %64 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.sink.split, label %66
+70:                                               ; preds = %.critedge
+  %71 = tail call i64 @evbuffer_get_length(ptr noundef %3) #7
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %.sink.split, label %73
 
-66:                                               ; preds = %63
-  %67 = load i16, ptr %61, align 2
-  %.not51 = icmp eq i16 %67, 0
-  br i1 %.not51, label %68, label %.sink.split
+73:                                               ; preds = %70
+  %74 = load i16, ptr %68, align 2
+  %.not51 = icmp eq i16 %74, 0
+  br i1 %.not51, label %75, label %.sink.split
 
-68:                                               ; preds = %66
-  %69 = load i16, ptr %60, align 8
-  %70 = and i16 %69, 4
-  %.not52 = icmp eq i16 %70, 0
-  br i1 %.not52, label %.sink.split, label %73
+75:                                               ; preds = %73
+  %76 = load i16, ptr %67, align 8
+  %77 = and i16 %76, 4
+  %.not52 = icmp eq i16 %77, 0
+  br i1 %.not52, label %.sink.split, label %80
 
-.sink.split:                                      ; preds = %66, %68, %63
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %72 = tail call i32 @event_del(ptr noundef nonnull %71) #7
-  br label %73
+.sink.split:                                      ; preds = %73, %75, %70
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %79 = tail call i32 @event_del(ptr noundef nonnull %78) #7
+  br label %80
 
-73:                                               ; preds = %.sink.split, %.critedge, %68, %split
+80:                                               ; preds = %.sink.split, %.critedge, %75, %split
   ret void
 }
 
@@ -2797,8 +2820,5 @@ attributes #7 = { nounwind }
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !8}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

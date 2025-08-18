@@ -1430,7 +1430,7 @@ _ZN7meshoptL11decodeVByteERPKh.exit:              ; preds = %55, %64, %48
   store i32 %75, ptr %76, align 4, !tbaa !4
   %77 = add nuw i64 %.03043, 1
   %exitcond.not = icmp eq i64 %77, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !23
 
 .critedge:                                        ; preds = %_ZN7meshoptL11decodeVByteERPKh.exit, %_ZN7meshoptL11decodeVByteERPKh.exit.us, %12
   %.038.lcssa = phi ptr [ %13, %12 ], [ %.1.us, %_ZN7meshoptL11decodeVByteERPKh.exit.us ], [ %.1, %_ZN7meshoptL11decodeVByteERPKh.exit ]
@@ -1492,6 +1492,4 @@ attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !20 = distinct !{!20, !10}
 !21 = distinct !{!21, !10}
 !22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !10}
+!23 = distinct !{!23, !10}

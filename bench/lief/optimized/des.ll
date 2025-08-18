@@ -1739,7 +1739,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   %162 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %12)
   %163 = add nuw nsw i32 %.061133, 1
   %exitcond.not = icmp eq i32 %163, 100
-  br i1 %exitcond.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split, !llvm.loop !26
+  br i1 %exitcond.not, label %.split.us, label %mbedtls_des_setkey_dec.exit.split, !llvm.loop !24
 
 .split.us:                                        ; preds = %mbedtls_des_setkey_dec.exit.split, %mbedtls_des_setkey_dec.exit.split.us
   %cond = icmp eq i32 %19, 0
@@ -1776,7 +1776,7 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 
 .backedge168.backedge:                            ; preds = %172, %.thread158
   %.064134.be = phi i32 [ %173, %172 ], [ %174, %.thread158 ]
-  br label %.backedge168, !llvm.loop !27
+  br label %.backedge168, !llvm.loop !25
 
 .thread158:                                       ; preds = %171
   %puts82 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -2069,7 +2069,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %.sroa.02.0137.us, ptr %12, align 8
   %323 = add nuw nsw i32 %.263136.us, 1
   %exitcond150.not = icmp eq i32 %323, 100
-  br i1 %exitcond150.not, label %.loopexit129.thread, label %.preheader46.i.preheader.us, !llvm.loop !28
+  br i1 %exitcond150.not, label %.loopexit129.thread, label %.preheader46.i.preheader.us, !llvm.loop !26
 
 .lr.ph.i.preheader.us:                            ; preds = %191, %.lr.ph.i.preheader.us
   %.sroa.0.0.copyload.i.us = phi i64 [ %325, %.lr.ph.i.preheader.us ], [ 8367815003007840078, %191 ]
@@ -2081,7 +2081,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %325, ptr %12, align 8
   %326 = add nuw nsw i32 %.162141.us, 1
   %exitcond152.not = icmp eq i32 %326, 100
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph.i.preheader.us, !llvm.loop !29
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph.i.preheader.us, !llvm.loop !27
 
 .lr.ph.i106.preheader:                            ; preds = %.lr.ph.i106.preheader.preheader, %.lr.ph.i106.preheader
   %.sroa.0.0.copyload.i110 = phi i64 [ %328, %.lr.ph.i106.preheader ], [ 8367815003007840078, %.lr.ph.i106.preheader.preheader ]
@@ -2093,7 +2093,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %328, ptr %12, align 8
   %329 = add nuw nsw i32 %.162141, 1
   %exitcond151.not = icmp eq i32 %329, 100
-  br i1 %exitcond151.not, label %.critedge, label %.lr.ph.i106.preheader, !llvm.loop !30
+  br i1 %exitcond151.not, label %.critedge, label %.lr.ph.i106.preheader, !llvm.loop !27
 
 .preheader46.i115.preheader:                      ; preds = %.preheader46.i115.preheader.preheader, %.preheader46.i115.preheader
   %.0.copyload.i43.i120 = phi i64 [ %.sroa.02.0137, %.preheader46.i115.preheader ], [ 8367815003007840078, %.preheader46.i115.preheader.preheader ]
@@ -2106,7 +2106,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
   store i64 %.sroa.02.0137, ptr %12, align 8
   %333 = add nuw nsw i32 %.263136, 1
   %exitcond149.not = icmp eq i32 %333, 100
-  br i1 %exitcond149.not, label %.loopexit129.thread, label %.preheader46.i115.preheader, !llvm.loop !31
+  br i1 %exitcond149.not, label %.loopexit129.thread, label %.preheader46.i115.preheader, !llvm.loop !26
 
 .loopexit129.thread:                              ; preds = %.preheader46.i115.preheader, %.preheader46.i.preheader.us
   %.us-phi = phi i64 [ %322, %.preheader46.i.preheader.us ], [ %332, %.preheader46.i115.preheader ]
@@ -2142,7 +2142,7 @@ mbedtls_des3_set3key_enc.exit105:                 ; preds = %293
 
 .backedge.backedge:                               ; preds = %340, %.thread161
   %.165142.be = phi i32 [ %341, %340 ], [ %342, %.thread161 ]
-  br label %.backedge, !llvm.loop !32
+  br label %.backedge, !llvm.loop !28
 
 .thread161:                                       ; preds = %.thread
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -2232,12 +2232,8 @@ attributes #13 = { nounwind }
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !25}
-!29 = distinct !{!29, !7, !25}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!28 = distinct !{!28, !7}

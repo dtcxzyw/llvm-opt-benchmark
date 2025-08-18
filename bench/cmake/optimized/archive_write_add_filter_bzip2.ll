@@ -400,7 +400,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_bzip2_write(ptr nounde
   br i1 %35, label %drive_compressor.exit, label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %33, %31
-  br label %.split.us.i, !llvm.loop !39
+  br label %.split.us.i
 
 .split20.us.i:                                    ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -479,5 +479,3 @@ attributes #12 = { nounwind allocsize(0) }
 !36 = !{!5, !12, i64 88}
 !37 = !{!5, !10, i64 8}
 !38 = !{!5, !6, i64 16}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}

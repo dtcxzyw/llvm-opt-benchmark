@@ -7407,22 +7407,22 @@ _ZN6icu_7715MaybeStackArrayIPN12_GLOBAL__N_118ExtensionListEntryELi8EE6resizeEii
   %871 = load ptr, ptr %881, align 8, !tbaa !92
   %872 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1100.i.i, ptr noundef nonnull dereferenceable(1) %871) #20
   %873 = icmp slt i32 %872, 0
-  br i1 %873, label %.thread57.thread91.i.i.i, label %.thread.i.i.i, !llvm.loop !143
+  br i1 %873, label %.thread57.thread102.i.i.i, label %.thread.i.i.i, !llvm.loop !143
 
 .thread57.thread.i.i.i:                           ; preds = %.preheader.i187.i.i
   store ptr %850, ptr %7, align 8, !tbaa !73
   br label %875
 
-.thread57.thread91.i.i.i:                         ; preds = %870
+.thread57.thread102.i.i.i:                        ; preds = %870
   %874 = getelementptr inbounds nuw i8, ptr %.0466775.i.i.i, i64 16
   store ptr %850, ptr %874, align 8, !tbaa !96
   br label %875
 
-875:                                              ; preds = %.thread57.thread91.i.i.i, %.thread57.thread.i.i.i
-  %876 = phi ptr [ %.ph.i.i, %.thread57.thread91.i.i.i ], [ %850, %.thread57.thread.i.i.i ]
-  %.us-phi89.i.i.i = phi ptr [ %881, %.thread57.thread91.i.i.i ], [ %.ph.i.i, %.thread57.thread.i.i.i ]
+875:                                              ; preds = %.thread57.thread102.i.i.i, %.thread57.thread.i.i.i
+  %876 = phi ptr [ %.ph.i.i, %.thread57.thread102.i.i.i ], [ %850, %.thread57.thread.i.i.i ]
+  %.us-phi100.i.i.i = phi ptr [ %881, %.thread57.thread102.i.i.i ], [ %.ph.i.i, %.thread57.thread.i.i.i ]
   %877 = getelementptr inbounds nuw i8, ptr %850, i64 16
-  store ptr %.us-phi89.i.i.i, ptr %877, align 8, !tbaa !96
+  store ptr %.us-phi100.i.i.i, ptr %877, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.i.i
 
 .thread.i.i.i:                                    ; preds = %.preheader.i187.i.i, %870
@@ -7512,9 +7512,9 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.i
 
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.sink.split.i, %.preheader.i189.i.i, %.lr.ph285.i.i
-  %.us-phi89.i194.i.sink.i = phi ptr [ null, %.lr.ph285.i.i ], [ %.5178.i, %.preheader.i189.i.i ], [ %902, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.sink.split.i ]
+  %.us-phi100.i194.i.sink.i = phi ptr [ null, %.lr.ph285.i.i ], [ %.5178.i, %.preheader.i189.i.i ], [ %902, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.sink.split.i ]
   %.7180.ph.i = phi ptr [ %.096284.i.i, %.lr.ph285.i.i ], [ %.096284.i.i, %.preheader.i189.i.i ], [ %.5178.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.sink.split.i ]
-  store ptr %.us-phi89.i194.i.sink.i, ptr %888, align 8, !tbaa !96
+  store ptr %.us-phi100.i194.i.sink.i, ptr %888, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i
 
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.i: ; preds = %.thread.i190.i.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.sink.split.i
@@ -7751,10 +7751,10 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.threa
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i
 
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.sink.split.i, %.preheader.i103.i, %967
-  %.us-phi89.i.sink.i = phi ptr [ null, %967 ], [ %.0173287.i, %.preheader.i103.i ], [ %984, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.sink.split.i ]
+  %.us-phi100.i.sink.i = phi ptr [ null, %967 ], [ %.0173287.i, %.preheader.i103.i ], [ %984, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.sink.split.i ]
   %.2175.ph.i = phi ptr [ %961, %967 ], [ %961, %.preheader.i103.i ], [ %.0173287.i, %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.sink.split.i ]
   %987 = getelementptr inbounds nuw i8, ptr %961, i64 16
-  store ptr %.us-phi89.i.sink.i, ptr %987, align 8, !tbaa !96
+  store ptr %.us-phi100.i.sink.i, ptr %987, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i
 
 _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit.thread.sink.split.i, %.loopexit388.i
@@ -7887,18 +7887,18 @@ _ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_
   %1036 = load ptr, ptr %1044, align 8, !tbaa !92
   %1037 = call i32 @strcmp(ptr noundef nonnull dereferenceable(2) @_ZN12_GLOBAL__N_114PRIVATEUSE_KEYE, ptr noundef nonnull dereferenceable(1) %1036) #20
   %1038 = icmp slt i32 %1037, 0
-  br i1 %1038, label %.thread57.thread91.i123.i, label %.thread.i120.i, !llvm.loop !143
+  br i1 %1038, label %.thread57.thread102.i123.i, label %.thread.i120.i, !llvm.loop !143
 
-.thread57.thread91.i123.i:                        ; preds = %1035
+.thread57.thread102.i123.i:                       ; preds = %1035
   %1039 = getelementptr inbounds nuw i8, ptr %.0466775.i121.i, i64 16
   store ptr %1015, ptr %1039, align 8, !tbaa !96
   br label %.thread57.thread.i127.i
 
-.thread57.thread.i127.i:                          ; preds = %.thread57.thread91.i123.i, %.preheader.i119.i
-  %.11.i = phi ptr [ %.1174386.i, %.thread57.thread91.i123.i ], [ %1015, %.preheader.i119.i ]
-  %.us-phi89.i124.i = phi ptr [ %1044, %.thread57.thread91.i123.i ], [ %.1174386.i, %.preheader.i119.i ]
+.thread57.thread.i127.i:                          ; preds = %.thread57.thread102.i123.i, %.preheader.i119.i
+  %.11.i = phi ptr [ %.1174386.i, %.thread57.thread102.i123.i ], [ %1015, %.preheader.i119.i ]
+  %.us-phi100.i124.i = phi ptr [ %1044, %.thread57.thread102.i123.i ], [ %.1174386.i, %.preheader.i119.i ]
   %1040 = getelementptr inbounds nuw i8, ptr %1015, i64 16
-  store ptr %.us-phi89.i124.i, ptr %1040, align 8, !tbaa !96
+  store ptr %.us-phi100.i124.i, ptr %1040, align 8, !tbaa !96
   br label %_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit128.thread.i
 
 .thread.i120.i:                                   ; preds = %.preheader.i119.i, %1035
@@ -8593,7 +8593,7 @@ _ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread: ; pred
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #11 {
   %4 = load ptr, ptr %0, align 8, !tbaa !73
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %53, label %.preheader
+  br i1 %5, label %57, label %.preheader
 
 .preheader:                                       ; preds = %3
   %6 = load ptr, ptr %1, align 8, !tbaa !92
@@ -8601,147 +8601,165 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119_addExtensionToLis
 
 .preheader.split.us:                              ; preds = %.preheader
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
-  %8 = and i64 %7, 4294967295
+  %.fr = freeze i64 %7
+  %8 = and i64 %.fr, 4294967295
   %9 = icmp eq i64 %8, 1
-  br label %10
+  br i1 %9, label %.preheader.split.us.split.us.preheader, label %.preheader.split.us.split
 
-10:                                               ; preds = %.thread.thread61.us, %.preheader.split.us
-  %.04368.us = phi ptr [ null, %.preheader.split.us ], [ %.04667.us, %.thread.thread61.us ]
-  %.04667.us = phi ptr [ %4, %.preheader.split.us ], [ %48, %.thread.thread61.us ]
-  %11 = load ptr, ptr %.04667.us, align 8, !tbaa !92
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #20
-  %13 = and i64 %12, 4294967295
-  %14 = icmp eq i64 %13, 1
-  %or.cond.us = select i1 %9, i1 %14, i1 false
-  br i1 %or.cond.us, label %33, label %15
+.preheader.split.us.split.us.preheader:           ; preds = %.preheader.split.us
+  %10 = load i8, ptr %6, align 1, !tbaa !15
+  %11 = sext i8 %10 to i32
+  %12 = add nsw i32 %11, -117
+  %13 = icmp eq i8 %10, 120
+  br label %.preheader.split.us.split.us
 
-15:                                               ; preds = %10
-  br i1 %9, label %29, label %16
+.preheader.split.us.split.us:                     ; preds = %.preheader.split.us.split.us.preheader, %.thread.thread61.us.us
+  %.04368.us.us = phi ptr [ %.04667.us.us, %.thread.thread61.us.us ], [ null, %.preheader.split.us.split.us.preheader ]
+  %.04667.us.us = phi ptr [ %30, %.thread.thread61.us.us ], [ %4, %.preheader.split.us.split.us.preheader ]
+  %14 = load ptr, ptr %.04667.us.us, align 8, !tbaa !92
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
+  %16 = and i64 %15, 4294967295
+  %17 = icmp eq i64 %16, 1
+  br i1 %17, label %18, label %26
 
-16:                                               ; preds = %15
-  br i1 %14, label %25, label %17
+18:                                               ; preds = %.preheader.split.us.split.us
+  %19 = load i8, ptr %14, align 1, !tbaa !15
+  %20 = sext i8 %19 to i32
+  %21 = icmp eq i8 %10, %19
+  br i1 %21, label %.thread.thread, label %22
 
-17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %11) #20
-  %.not.us = icmp eq i32 %18, 0
-  br i1 %.not.us, label %.thread.thread, label %19
+22:                                               ; preds = %18
+  br i1 %13, label %.thread.thread61.us.us, label %23
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_120LOCALE_ATTRIBUTE_KEYE) #20
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread.thread61.us, label %22
+23:                                               ; preds = %22
+  %24 = icmp eq i8 %19, 120
+  %25 = sub nsw i32 %11, %20
+  br i1 %24, label %.thread57, label %26
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_120LOCALE_ATTRIBUTE_KEYE) #20
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread57, label %44
+26:                                               ; preds = %.preheader.split.us.split.us, %23
+  %.145.us.us = phi i32 [ %25, %23 ], [ %12, %.preheader.split.us.split.us ]
+  %27 = icmp slt i32 %.145.us.us, 0
+  br i1 %27, label %.thread57, label %.thread.us.us
 
-25:                                               ; preds = %16
-  %26 = load i8, ptr %11, align 1, !tbaa !15
-  %27 = sext i8 %26 to i32
-  %28 = sub nsw i32 117, %27
-  br label %44
+.thread.us.us:                                    ; preds = %26
+  %28 = icmp eq i32 %.145.us.us, 0
+  br i1 %28, label %.thread.thread, label %.thread.thread61.us.us
 
-29:                                               ; preds = %15
-  %30 = load i8, ptr %6, align 1, !tbaa !15
-  %31 = sext i8 %30 to i32
-  %32 = add nsw i32 %31, -117
-  br label %44
+.thread.thread61.us.us:                           ; preds = %.thread.us.us, %22
+  %29 = getelementptr inbounds nuw i8, ptr %.04667.us.us, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !96
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.split.us, label %.preheader.split.us.split.us, !llvm.loop !143
 
-33:                                               ; preds = %10
-  %34 = load i8, ptr %6, align 1, !tbaa !15
-  %35 = sext i8 %34 to i32
-  %36 = load i8, ptr %11, align 1, !tbaa !15
-  %37 = sext i8 %36 to i32
-  %38 = icmp eq i8 %34, %36
-  br i1 %38, label %.thread.thread, label %39
+.preheader.split.us.split:                        ; preds = %.preheader.split.us, %.thread.thread61.us
+  %.04368.us = phi ptr [ %.04667.us, %.thread.thread61.us ], [ null, %.preheader.split.us ]
+  %.04667.us = phi ptr [ %52, %.thread.thread61.us ], [ %4, %.preheader.split.us ]
+  %32 = load ptr, ptr %.04667.us, align 8, !tbaa !92
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #20
+  %34 = and i64 %33, 4294967295
+  %35 = icmp eq i64 %34, 1
+  br i1 %35, label %44, label %36
 
-39:                                               ; preds = %33
-  %40 = icmp eq i8 %34, 120
+36:                                               ; preds = %.preheader.split.us.split
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %32) #20
+  %.not.us = icmp eq i32 %37, 0
+  br i1 %.not.us, label %.thread.thread, label %38
+
+38:                                               ; preds = %36
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_120LOCALE_ATTRIBUTE_KEYE) #20
+  %40 = icmp eq i32 %39, 0
   br i1 %40, label %.thread.thread61.us, label %41
 
-41:                                               ; preds = %39
-  %42 = icmp eq i8 %36, 120
-  %43 = sub nsw i32 %35, %37
-  br i1 %42, label %.thread57, label %44
+41:                                               ; preds = %38
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_120LOCALE_ATTRIBUTE_KEYE) #20
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.thread57, label %48
 
-44:                                               ; preds = %41, %29, %25, %22
-  %.145.us = phi i32 [ %32, %29 ], [ %28, %25 ], [ %18, %22 ], [ %43, %41 ]
-  %45 = icmp slt i32 %.145.us, 0
-  br i1 %45, label %.thread57, label %.thread.us
+44:                                               ; preds = %.preheader.split.us.split
+  %45 = load i8, ptr %32, align 1, !tbaa !15
+  %46 = sext i8 %45 to i32
+  %47 = sub nsw i32 117, %46
+  br label %48
 
-.thread.us:                                       ; preds = %44
-  %46 = icmp eq i32 %.145.us, 0
-  br i1 %46, label %.thread.thread, label %.thread.thread61.us
+48:                                               ; preds = %44, %41
+  %.145.us = phi i32 [ %47, %44 ], [ %37, %41 ]
+  %49 = icmp slt i32 %.145.us, 0
+  br i1 %49, label %.thread57, label %.thread.us
 
-.thread.thread61.us:                              ; preds = %.thread.us, %39, %19
-  %47 = getelementptr inbounds nuw i8, ptr %.04667.us, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !96
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %.split.us, label %10, !llvm.loop !147
+.thread.us:                                       ; preds = %48
+  %50 = icmp eq i32 %.145.us, 0
+  br i1 %50, label %.thread.thread, label %.thread.thread61.us
+
+.thread.thread61.us:                              ; preds = %.thread.us, %38
+  %51 = getelementptr inbounds nuw i8, ptr %.04667.us, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !96
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.split.us, label %.preheader.split.us.split, !llvm.loop !143
 
 .preheader.split:                                 ; preds = %.preheader
-  %50 = load ptr, ptr %4, align 8, !tbaa !92
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %50) #20
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %.thread57.thread, label %.thread
+  %54 = load ptr, ptr %4, align 8, !tbaa !92
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %54) #20
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %.thread57.thread, label %.thread
 
-53:                                               ; preds = %3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %54, align 8, !tbaa !96
+57:                                               ; preds = %3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr null, ptr %58, align 8, !tbaa !96
   store ptr %1, ptr %0, align 8, !tbaa !73
   br label %.thread.thread
 
-.split.us:                                        ; preds = %.thread.thread61, %.thread.thread61.us
-  %.us-phi70 = phi ptr [ %.04667.us, %.thread.thread61.us ], [ %.0466775, %.thread.thread61 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 16
-  store ptr %1, ptr %55, align 8, !tbaa !96
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %56, align 8, !tbaa !96
+.split.us:                                        ; preds = %.thread.thread61, %.thread.thread61.us, %.thread.thread61.us.us
+  %.us-phi70 = phi ptr [ %.04667.us.us, %.thread.thread61.us.us ], [ %.04667.us, %.thread.thread61.us ], [ %.0466775, %.thread.thread61 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 16
+  store ptr %1, ptr %59, align 8, !tbaa !96
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr null, ptr %60, align 8, !tbaa !96
   br label %.thread.thread
 
-57:                                               ; preds = %.thread.thread61
-  %58 = load ptr, ptr %68, align 8, !tbaa !92
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %58) #20
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.thread57.thread91, label %.thread, !llvm.loop !143
+61:                                               ; preds = %.thread.thread61
+  %62 = load ptr, ptr %72, align 8, !tbaa !92
+  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %62) #20
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %.thread57.thread102, label %.thread, !llvm.loop !143
 
-.thread57:                                        ; preds = %22, %41, %44
-  %61 = icmp eq ptr %.04368.us, null
-  br i1 %61, label %.thread57.thread, label %.thread57.thread91
+.thread57:                                        ; preds = %48, %41, %26, %23
+  %.us-phi = phi ptr [ %.04667.us.us, %23 ], [ %.04667.us.us, %26 ], [ %.04667.us, %41 ], [ %.04667.us, %48 ]
+  %.us-phi69 = phi ptr [ %.04368.us.us, %23 ], [ %.04368.us.us, %26 ], [ %.04368.us, %41 ], [ %.04368.us, %48 ]
+  %65 = icmp eq ptr %.us-phi69, null
+  br i1 %65, label %.thread57.thread, label %.thread57.thread102
 
 .thread57.thread:                                 ; preds = %.preheader.split, %.thread57
-  %.us-phi90 = phi ptr [ %.04667.us, %.thread57 ], [ %4, %.preheader.split ]
+  %.us-phi101 = phi ptr [ %.us-phi, %.thread57 ], [ %4, %.preheader.split ]
   store ptr %1, ptr %0, align 8, !tbaa !73
-  br label %63
+  br label %67
 
-.thread57.thread91:                               ; preds = %57, %.thread57
-  %.us-phi6995 = phi ptr [ %.04368.us, %.thread57 ], [ %.0466775, %57 ]
-  %.us-phi94 = phi ptr [ %.04667.us, %.thread57 ], [ %68, %57 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.us-phi6995, i64 16
-  store ptr %1, ptr %62, align 8, !tbaa !96
-  br label %63
+.thread57.thread102:                              ; preds = %61, %.thread57
+  %.us-phi69106 = phi ptr [ %.us-phi69, %.thread57 ], [ %.0466775, %61 ]
+  %.us-phi105 = phi ptr [ %.us-phi, %.thread57 ], [ %72, %61 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.us-phi69106, i64 16
+  store ptr %1, ptr %66, align 8, !tbaa !96
+  br label %67
 
-63:                                               ; preds = %.thread57.thread91, %.thread57.thread
-  %.us-phi89 = phi ptr [ %.us-phi94, %.thread57.thread91 ], [ %.us-phi90, %.thread57.thread ]
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.us-phi89, ptr %64, align 8, !tbaa !96
+67:                                               ; preds = %.thread57.thread102, %.thread57.thread
+  %.us-phi100 = phi ptr [ %.us-phi105, %.thread57.thread102 ], [ %.us-phi101, %.thread57.thread ]
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.us-phi100, ptr %68, align 8, !tbaa !96
   br label %.thread.thread
 
-.thread:                                          ; preds = %.preheader.split, %57
-  %65 = phi i32 [ %59, %57 ], [ %51, %.preheader.split ]
-  %.0466775 = phi ptr [ %68, %57 ], [ %4, %.preheader.split ]
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.thread.thread, label %.thread.thread61
+.thread:                                          ; preds = %.preheader.split, %61
+  %69 = phi i32 [ %63, %61 ], [ %55, %.preheader.split ]
+  %.0466775 = phi ptr [ %72, %61 ], [ %4, %.preheader.split ]
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %.thread.thread, label %.thread.thread61
 
 .thread.thread61:                                 ; preds = %.thread
-  %67 = getelementptr inbounds nuw i8, ptr %.0466775, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !96
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %.split.us, label %57, !llvm.loop !143
+  %71 = getelementptr inbounds nuw i8, ptr %.0466775, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !96
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.split.us, label %61, !llvm.loop !143
 
-.thread.thread:                                   ; preds = %.thread, %.thread.us, %33, %17, %.split.us, %63, %53
-  %.0 = phi i1 [ true, %53 ], [ true, %.split.us ], [ true, %63 ], [ false, %17 ], [ false, %33 ], [ false, %.thread.us ], [ false, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %36, %.thread.us, %18, %.thread.us.us, %.split.us, %67, %57
+  %.0 = phi i1 [ true, %57 ], [ true, %.split.us ], [ true, %67 ], [ false, %.thread.us.us ], [ false, %18 ], [ false, %.thread.us ], [ false, %36 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -9404,5 +9422,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !144 = distinct !{!144, !17}
 !145 = distinct !{!145, !17}
 !146 = distinct !{!146, !17}
-!147 = distinct !{!147, !17, !148}
-!148 = !{!"llvm.loop.unswitch.nontrivial.disable"}

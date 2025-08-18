@@ -230,7 +230,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %40 = or i64 %39, %.0.us33
   %41 = getelementptr inbounds nuw i8, ptr %.125.us32, i64 8
   %42 = icmp ult ptr %41, %7
-  br i1 %42, label %.split.split.us, label %.split31.us, !llvm.loop !48
+  br i1 %42, label %.split.split.us, label %.split31.us, !llvm.loop !46
 
 .split.split:                                     ; preds = %.split, %.split.split
   %.125 = phi ptr [ %45, %.split.split ], [ %26, %.split ]
@@ -240,7 +240,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %44 = xor i64 %43, %.0
   %45 = getelementptr inbounds nuw i8, ptr %.125, i64 8
   %46 = icmp ult ptr %45, %7
-  br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !49
+  br i1 %46, label %.split.split, label %.split31.us, !llvm.loop !46
 
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
@@ -303,10 +303,10 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 200
   %22 = ptrtoint ptr %0 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 224
-  store i64 %22, ptr %23, align 8, !tbaa !50
+  store i64 %22, ptr %23, align 8, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 216
-  %25 = load ptr, ptr %24, align 8, !tbaa !51
-  store ptr %25, ptr %21, align 8, !tbaa !52
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
+  store ptr %25, ptr %21, align 8, !tbaa !49
   %26 = icmp slt i32 %17, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %17, i1 false)
   %spec.select28 = select i1 %26, i32 8212, i32 20
@@ -325,8 +325,8 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %36 = load ptr, ptr %8, align 8, !tbaa !21
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !51
-  %40 = load ptr, ptr %35, align 8, !tbaa !52
+  %39 = load ptr, ptr %38, align 8, !tbaa !48
+  %40 = load ptr, ptr %35, align 8, !tbaa !49
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %39 to i64
   %43 = sub i64 %41, %42
@@ -338,11 +338,11 @@ define internal noundef i32 @lj_cf_bit_tohex(ptr noundef %0) #0 {
   %48 = load i64, ptr %18, align 8, !tbaa !24
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !53
+  %51 = load i64, ptr %50, align 8, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !54
+  %53 = load i64, ptr %52, align 8, !tbaa !51
   %.not27 = icmp ult i64 %51, %53
-  br i1 %.not27, label %56, label %54, !prof !55
+  br i1 %.not27, label %56, label %54, !prof !52
 
 54:                                               ; preds = %16
   %55 = call i32 @lj_gc_step(ptr noundef nonnull %0) #5
@@ -438,13 +438,10 @@ attributes #5 = { nounwind }
 !43 = !{!"p1 long", !14, i64 0}
 !44 = !{!"p1 short", !14, i64 0}
 !45 = !{!37, !38, i64 0}
-!46 = distinct !{!46, !23, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !23, !47}
-!49 = distinct !{!49, !23}
-!50 = !{!31, !11, i64 24}
-!51 = !{!31, !32, i64 16}
-!52 = !{!31, !32, i64 0}
-!53 = !{!26, !11, i64 16}
-!54 = !{!26, !11, i64 24}
-!55 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!46 = distinct !{!46, !23}
+!47 = !{!31, !11, i64 24}
+!48 = !{!31, !32, i64 16}
+!49 = !{!31, !32, i64 0}
+!50 = !{!26, !11, i64 16}
+!51 = !{!26, !11, i64 24}
+!52 = !{!"branch_weights", !"expected", i32 2000, i32 1}

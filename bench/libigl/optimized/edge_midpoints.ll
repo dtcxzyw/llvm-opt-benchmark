@@ -251,7 +251,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 .split.us:                                        ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKNS1_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS5_INS6_13scalar_sum_opIddEEKNS0_IKS2_Li1ELin1ELb0EEESK_EEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us, %.preheader
   %135 = add nuw nsw i64 %.067, 1
   %exitcond76.not = icmp eq i64 %135, %80
-  br i1 %exitcond76.not, label %._crit_edge, label %.preheader, !llvm.loop !37
+  br i1 %exitcond76.not, label %._crit_edge, label %.preheader, !llvm.loop !36
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -380,6 +380,5 @@ attributes #10 = { nounwind allocsize(0) }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"double", !8, i64 0}
 !34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !15}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}

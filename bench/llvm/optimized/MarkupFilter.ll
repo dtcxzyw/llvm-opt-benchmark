@@ -10282,7 +10282,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPPKN4llvm9symbolize12Marku
   %21 = icmp ne ptr %.1.i, %17
   %22 = icmp ne ptr %.120.i, %18
   %23 = select i1 %21, i1 %22, i1 false
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !317
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !316
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %24 = ptrtoint ptr %17 to i64
@@ -10312,7 +10312,7 @@ _ZSt4moveIPPKN4llvm9symbolize12MarkupFilter4MMapES6_ET0_T_S8_S7_.exit.i: ; preds
   %34 = sub i64 %6, %29
   %35 = ashr exact i64 %34, 3
   %.not = icmp slt i64 %35, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !318
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !315
 
 ._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPPKN4llvm9symbolize12MarkupFilter4MMapES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_20endAnyModuleInfoLineEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit", %"_ZSt12__move_mergeIPPKN4llvm9symbolize12MarkupFilter4MMapES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_20endAnyModuleInfoLineEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit.us", %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPPKN4llvm9symbolize12MarkupFilter4MMapES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_20endAnyModuleInfoLineEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit.us" ], [ %33, %"_ZSt12__move_mergeIPPKN4llvm9symbolize12MarkupFilter4MMapES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_20endAnyModuleInfoLineEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit" ]
@@ -10345,7 +10345,7 @@ _ZSt4moveIPPKN4llvm9symbolize12MarkupFilter4MMapES6_ET0_T_S8_S7_.exit.i: ; preds
   %42 = icmp ne ptr %.1.i42, %36
   %43 = icmp ne ptr %.120.i40, %1
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !317
+  br i1 %44, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !316
 
 ._crit_edge.i23:                                  ; preds = %.lr.ph.i30, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %36, %._crit_edge ], [ %.120.i40, %.lr.ph.i30 ]
@@ -10865,7 +10865,5 @@ attributes #29 = { noreturn nounwind }
 !312 = distinct !{!312, !61}
 !313 = distinct !{!313, !61}
 !314 = distinct !{!314, !61}
-!315 = distinct !{!315, !61, !316}
-!316 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!317 = distinct !{!317, !61}
-!318 = distinct !{!318, !61}
+!315 = distinct !{!315, !61}
+!316 = distinct !{!316, !61}

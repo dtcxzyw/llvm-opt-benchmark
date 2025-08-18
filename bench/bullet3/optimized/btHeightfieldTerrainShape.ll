@@ -1991,27 +1991,27 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   %49 = fadd float %44, %34
   store float %49, ptr %35, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %0, ptr %7, align 8, !tbaa !62
+  store ptr %0, ptr %7, align 8, !tbaa !61
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %51 = load i8, ptr %50, align 4, !tbaa !37, !range !46, !noundef !57
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %51, ptr %52, align 8, !tbaa !66
+  store i8 %51, ptr %52, align 8, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %54 = load i8, ptr %53, align 1, !tbaa !38, !range !46, !noundef !57
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i8 %54, ptr %55, align 1, !tbaa !67
+  store i8 %54, ptr %55, align 1, !tbaa !66
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %1, ptr %56, align 8, !tbaa !68
+  store ptr %1, ptr %56, align 8, !tbaa !67
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %58 = load i32, ptr %57, align 4, !tbaa !28
   %59 = add nsw i32 %58, -1
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %59, ptr %60, align 4, !tbaa !69
+  store i32 %59, ptr %60, align 4, !tbaa !68
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %62 = load i32, ptr %61, align 8, !tbaa !29
   %63 = add nsw i32 %62, -1
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %63, ptr %64, align 8, !tbaa !70
+  store i32 %63, ptr %64, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_.indices, i64 12, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2092,17 +2092,17 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
 
 104:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %86, ptr %9, align 8, !tbaa !71
+  store ptr %86, ptr %9, align 8, !tbaa !70
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr %8, ptr %105, align 8, !tbaa !73
+  store ptr %8, ptr %105, align 8, !tbaa !72
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %107 = load i32, ptr %106, align 8, !tbaa !44
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %107, ptr %108, align 8, !tbaa !76
+  store i32 %107, ptr %108, align 8, !tbaa !75
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %110 = load i32, ptr %109, align 4, !tbaa !45
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %110, ptr %111, align 4, !tbaa !77
+  store i32 %110, ptr %111, align 4, !tbaa !76
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %112, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !58
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 36
@@ -2123,9 +2123,9 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 60
   store <2 x float> %.sroa.8.8.vec.insert.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !35
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !78
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !77
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %99, ptr %123, align 8, !tbaa !82
+  store i32 %99, ptr %123, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %124 = sitofp i32 %99 to float
   %125 = fdiv float 1.000000e+00, %124
@@ -2185,13 +2185,13 @@ define linkonce_odr dso_local void @_ZNK22ProcessTrianglesAction4execEii(ptr nou
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !66, !range !46, !noundef !57
+  %12 = load i8, ptr %11, align 8, !tbaa !65, !range !46, !noundef !57
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %16 = load i8, ptr %15, align 1, !tbaa !67, !range !46, !noundef !57
+  %16 = load i8, ptr %15, align 1, !tbaa !66, !range !46, !noundef !57
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %415
 
@@ -2202,7 +2202,7 @@ define linkonce_odr dso_local void @_ZNK22ProcessTrianglesAction4execEii(ptr nou
   br i1 %.not42, label %415, label %21
 
 21:                                               ; preds = %18, %10
-  %22 = load ptr, ptr %0, align 8, !tbaa !62
+  %22 = load ptr, ptr %0, align 8, !tbaa !61
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
@@ -2289,7 +2289,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit: ; preds = %_ZNK25b
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = fmul float %72, %83
   store float %85, ptr %84, align 8, !tbaa !42
-  %86 = load ptr, ptr %0, align 8, !tbaa !62
+  %86 = load ptr, ptr %0, align 8, !tbaa !61
   %87 = add nuw nsw i32 %1, 1
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %89 = load ptr, ptr %86, align 8, !tbaa !4
@@ -2378,7 +2378,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit52: ; preds = %_ZNK2
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %151 = fmul float %138, %149
   store float %151, ptr %150, align 8, !tbaa !42
-  %152 = load ptr, ptr %0, align 8, !tbaa !62
+  %152 = load ptr, ptr %0, align 8, !tbaa !61
   %153 = add nuw nsw i32 %2, 1
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %155 = load ptr, ptr %152, align 8, !tbaa !4
@@ -2468,12 +2468,12 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit59: ; preds = %_ZNK2
   %217 = fmul float %204, %215
   store float %217, ptr %216, align 8, !tbaa !42
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %219 = load ptr, ptr %218, align 8, !tbaa !68
+  %219 = load ptr, ptr %218, align 8, !tbaa !67
   %220 = load ptr, ptr %219, align 8, !tbaa !4
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load ptr, ptr %221, align 8
   call void %222(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2)
-  %223 = load ptr, ptr %0, align 8, !tbaa !62
+  %223 = load ptr, ptr %0, align 8, !tbaa !61
   %224 = load ptr, ptr %223, align 8, !tbaa !4
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 136
   %226 = load ptr, ptr %225, align 8
@@ -2562,7 +2562,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit66: ; preds = %._cri
   %285 = load float, ptr %284, align 4, !tbaa !42
   %286 = fmul float %275, %285
   store float %286, ptr %84, align 8, !tbaa !42
-  %287 = load ptr, ptr %0, align 8, !tbaa !62
+  %287 = load ptr, ptr %0, align 8, !tbaa !61
   %288 = load ptr, ptr %287, align 8, !tbaa !4
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 136
   %290 = load ptr, ptr %289, align 8
@@ -2651,7 +2651,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit73: ; preds = %._cri
   %349 = load float, ptr %348, align 4, !tbaa !42
   %350 = fmul float %339, %349
   store float %350, ptr %150, align 8, !tbaa !42
-  %351 = load ptr, ptr %0, align 8, !tbaa !62
+  %351 = load ptr, ptr %0, align 8, !tbaa !61
   %352 = load ptr, ptr %351, align 8, !tbaa !4
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 136
   %354 = load ptr, ptr %353, align 8
@@ -2743,7 +2743,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80: ; preds = %._cri
   br label %809
 
 415:                                              ; preds = %18, %14
-  %416 = load ptr, ptr %0, align 8, !tbaa !62
+  %416 = load ptr, ptr %0, align 8, !tbaa !61
   %417 = load ptr, ptr %416, align 8, !tbaa !4
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 136
   %419 = load ptr, ptr %418, align 8
@@ -2830,7 +2830,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit87: ; preds = %_ZNK2
   %478 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %479 = fmul float %466, %477
   store float %479, ptr %478, align 8, !tbaa !42
-  %480 = load ptr, ptr %0, align 8, !tbaa !62
+  %480 = load ptr, ptr %0, align 8, !tbaa !61
   %481 = add nuw nsw i32 %2, 1
   %482 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %483 = load ptr, ptr %480, align 8, !tbaa !4
@@ -2919,7 +2919,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit94: ; preds = %_ZNK2
   %544 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %545 = fmul float %532, %543
   store float %545, ptr %544, align 8, !tbaa !42
-  %546 = load ptr, ptr %0, align 8, !tbaa !62
+  %546 = load ptr, ptr %0, align 8, !tbaa !61
   %547 = add nuw nsw i32 %1, 1
   %548 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %549 = load ptr, ptr %546, align 8, !tbaa !4
@@ -3009,12 +3009,12 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit101: ; preds = %_ZNK
   %611 = fmul float %598, %609
   store float %611, ptr %610, align 8, !tbaa !42
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %613 = load ptr, ptr %612, align 8, !tbaa !68
+  %613 = load ptr, ptr %612, align 8, !tbaa !67
   %614 = load ptr, ptr %613, align 8, !tbaa !4
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 16
   %616 = load ptr, ptr %615, align 8
   call void %616(ptr noundef nonnull align 8 dereferenceable(8) %613, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2)
-  %617 = load ptr, ptr %0, align 8, !tbaa !62
+  %617 = load ptr, ptr %0, align 8, !tbaa !61
   %618 = load ptr, ptr %617, align 8, !tbaa !4
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 136
   %620 = load ptr, ptr %619, align 8
@@ -3103,7 +3103,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit108: ; preds = %._cr
   %679 = load float, ptr %678, align 4, !tbaa !42
   %680 = fmul float %669, %679
   store float %680, ptr %478, align 8, !tbaa !42
-  %681 = load ptr, ptr %0, align 8, !tbaa !62
+  %681 = load ptr, ptr %0, align 8, !tbaa !61
   %682 = load ptr, ptr %681, align 8, !tbaa !4
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 136
   %684 = load ptr, ptr %683, align 8
@@ -3192,7 +3192,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit115: ; preds = %._cr
   %743 = load float, ptr %742, align 4, !tbaa !42
   %744 = fmul float %733, %743
   store float %744, ptr %544, align 8, !tbaa !42
-  %745 = load ptr, ptr %0, align 8, !tbaa !62
+  %745 = load ptr, ptr %0, align 8, !tbaa !61
   %746 = load ptr, ptr %745, align 8, !tbaa !4
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 136
   %748 = load ptr, ptr %747, align 8
@@ -3285,7 +3285,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122: ; preds = %._cr
 
 809:                                              ; preds = %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80
   %.sink143.in = phi ptr [ %612, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit122 ], [ %218, %_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit80 ]
-  %.sink143 = load ptr, ptr %.sink143.in, align 8, !tbaa !68
+  %.sink143 = load ptr, ptr %.sink143.in, align 8, !tbaa !67
   %810 = load ptr, ptr %.sink143, align 8, !tbaa !4
   %811 = getelementptr inbounds nuw i8, ptr %810, i64 16
   %812 = load ptr, ptr %811, align 8
@@ -3459,7 +3459,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI22ProcessTrianglesActionEvRT
   %.3 = phi float [ %.2, %96 ], [ %101, %99 ]
   %103 = fcmp ogt float %.sroa.24.1, %sqrt
   tail call void @_ZNK22ProcessTrianglesAction4execEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.0.1, i32 noundef %.sroa.9.1)
-  br i1 %103, label %.loopexit, label %94, !llvm.loop !83
+  br i1 %103, label %.loopexit, label %94, !llvm.loop !82
 
 .loopexit:                                        ; preds = %102, %4
   ret void
@@ -3490,7 +3490,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %21 = tail call noundef float @llvm.fmuladd.f32(float %18, float %18, float %20)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %21)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store float %sqrt.i.i, ptr %22, align 4, !tbaa !84
+  store float %sqrt.i.i, ptr %22, align 4, !tbaa !83
   %23 = fpext float %sqrt.i.i to double
   %24 = fcmp olt double %23, 1.000000e-04
   br i1 %24, label %121, label %25
@@ -3515,7 +3515,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %42 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %41)
   %sqrt = tail call float @llvm.sqrt.f32(float %42)
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store float %sqrt, ptr %43, align 4, !tbaa !86
+  store float %sqrt, ptr %43, align 4, !tbaa !85
   %44 = fpext float %sqrt to double
   %45 = fcmp olt double %44, 1.000000e-04
   %46 = fdiv float %32, %sqrt
@@ -3578,11 +3578,11 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %.0 = phi float [ %76, %73 ], [ %80, %77 ], [ 0x416312CFE0000000, %71 ]
   %82 = tail call noundef float @llvm.floor.f32(float %31)
   %83 = fptosi float %82 to i32
-  store i32 %83, ptr %5, align 4, !tbaa !87
+  store i32 %83, ptr %5, align 4, !tbaa !86
   %84 = tail call noundef float @llvm.floor.f32(float %39)
   %85 = fptosi float %84 to i32
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %85, ptr %86, align 4, !tbaa !88
+  store i32 %85, ptr %86, align 4, !tbaa !87
   %87 = fcmp oeq float %.071, 0.000000e+00
   br i1 %87, label %88, label %92
 
@@ -3592,7 +3592,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
 
 90:                                               ; preds = %88
   %91 = add nsw i32 %83, -1
-  store i32 %91, ptr %5, align 4, !tbaa !87
+  store i32 %91, ptr %5, align 4, !tbaa !86
   br label %92
 
 92:                                               ; preds = %88, %90, %81
@@ -3607,7 +3607,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
 
 97:                                               ; preds = %95
   %98 = add nsw i32 %85, -1
-  store i32 %98, ptr %86, align 4, !tbaa !88
+  store i32 %98, ptr %86, align 4, !tbaa !87
   br label %99
 
 99:                                               ; preds = %95, %97, %92
@@ -3625,21 +3625,21 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %107 = phi i32 [ %93, %99 ], [ %117, %120 ]
   %.273 = phi float [ %.172, %99 ], [ %.374, %120 ]
   %.2 = phi float [ %.1, %99 ], [ %.3, %120 ]
-  store i32 %107, ptr %101, align 4, !tbaa !89
-  store i32 %106, ptr %102, align 4, !tbaa !90
-  store float %.280, ptr %104, align 4, !tbaa !91
+  store i32 %107, ptr %101, align 4, !tbaa !88
+  store i32 %106, ptr %102, align 4, !tbaa !89
+  store float %.280, ptr %104, align 4, !tbaa !90
   %108 = fcmp olt float %.273, %.2
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %105
   %110 = add nsw i32 %107, %51
-  store i32 %110, ptr %5, align 4, !tbaa !87
+  store i32 %110, ptr %5, align 4, !tbaa !86
   %111 = fadd float %58, %.273
   br label %115
 
 112:                                              ; preds = %105
   %113 = add nsw i32 %106, %55
-  store i32 %113, ptr %86, align 4, !tbaa !88
+  store i32 %113, ptr %86, align 4, !tbaa !87
   %114 = fadd float %61, %.2
   br label %115
 
@@ -3649,18 +3649,18 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %117 = phi i32 [ %110, %109 ], [ %107, %112 ]
   %.374 = phi float [ %111, %109 ], [ %.273, %112 ]
   %.3 = phi float [ %.2, %109 ], [ %114, %112 ]
-  store float %.2.sink, ptr %103, align 4, !tbaa !92
+  store float %.2.sink, ptr %103, align 4, !tbaa !91
   %118 = fcmp ogt float %.2.sink, %sqrt
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %115
-  store float %sqrt, ptr %103, align 4, !tbaa !92
+  store float %sqrt, ptr %103, align 4, !tbaa !91
   call fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(32) %5)
   br label %121
 
 120:                                              ; preds = %115
   call fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(32) %5)
-  br label %105, !llvm.loop !93
+  br label %105, !llvm.loop !92
 
 121:                                              ; preds = %4, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3796,7 +3796,7 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i
   store i64 %64, ptr %61, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %60, !llvm.loop !94
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %60, !llvm.loop !93
 
 _ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i: ; preds = %60, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3891,14 +3891,14 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exi
   %.sroa.0.3.us = phi float [ %.sroa.0.274.us, %99 ], [ %.sroa.0.274.us, %97 ], [ %.sroa.0.274.us, %.preheader.us95 ], [ %95, %91 ]
   %101 = add nuw nsw i32 %.05075.us, 1
   %.not60.us.not = icmp slt i32 %.05075.us, %88
-  br i1 %.not60.us.not, label %.preheader.us95, label %..loopexit_crit_edge.us, !llvm.loop !95
+  br i1 %.not60.us.not, label %.preheader.us95, label %..loopexit_crit_edge.us, !llvm.loop !94
 
 ..loopexit_crit_edge.us:                          ; preds = %100, %.lr.ph82.split.us97
   %.sroa.6.1.us = phi float [ %.sroa.6.078.us, %.lr.ph82.split.us97 ], [ %.sroa.6.3.us, %100 ]
   %.sroa.0.1.us = phi float [ %.sroa.0.079.us, %.lr.ph82.split.us97 ], [ %.sroa.0.3.us, %100 ]
   %102 = add nuw nsw i32 %.05180.us92, 1
   %.not58.us94.not = icmp slt i32 %.05180.us92, %80
-  br i1 %.not58.us94.not, label %.lr.ph82.split.us97, label %._crit_edge.us, !llvm.loop !96
+  br i1 %.not58.us94.not, label %.lr.ph82.split.us97, label %._crit_edge.us, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %..loopexit_crit_edge.us
   %103 = load ptr, ptr %73, align 8, !tbaa !15
@@ -3909,12 +3909,12 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exi
   store float %.sroa.6.1.us, ptr %.sroa_idx69.us98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %75
-  br i1 %exitcond.not, label %._crit_edge88.us, label %.lr.ph82.split.us97.preheader, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge88.us, label %.lr.ph82.split.us97.preheader, !llvm.loop !96
 
 ._crit_edge88.us:                                 ; preds = %._crit_edge.us
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit71, label %.lr.ph82.us.preheader, !llvm.loop !98
+  br i1 %exitcond109.not, label %.loopexit71, label %.lr.ph82.us.preheader, !llvm.loop !97
 
 .loopexit71:                                      ; preds = %._crit_edge88.us, %.lr.ph90, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %40, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
   ret void
@@ -3939,14 +3939,14 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK16btCollisionSha
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %0, float noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %1, ptr %3, align 8, !tbaa !99
+  store float %1, ptr %3, align 8, !tbaa !98
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load float, ptr %2, align 8, !tbaa !99
+  %3 = load float, ptr %2, align 8, !tbaa !98
   ret float %3
 }
 
@@ -3975,9 +3975,9 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %3 = alloca %class.btVector3, align 8
   %4 = alloca %class.btVector3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !89
+  %6 = load i32, ptr %5, align 4, !tbaa !88
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !90
+  %8 = load i32, ptr %7, align 4, !tbaa !89
   %9 = icmp slt i32 %6, 0
   %10 = icmp slt i32 %8, 0
   %or.cond = select i1 %9, i1 true, i1 %10
@@ -3985,7 +3985,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !76
+  %13 = load i32, ptr %12, align 8, !tbaa !75
   %.not = icmp slt i32 %6, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
@@ -3994,7 +3994,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   br i1 %or.cond27, label %16, label %94
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %0, align 8, !tbaa !100
+  %17 = load ptr, ptr %0, align 8, !tbaa !99
   %18 = mul nsw i32 %13, %8
   %19 = add nuw nsw i32 %18, %6
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -4007,24 +4007,24 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load float, ptr %24, align 4, !tbaa !86
+  %25 = load float, ptr %24, align 4, !tbaa !85
   %26 = fpext float %25 to double
   %27 = fcmp ogt double %26, 1.000000e-04
   br i1 %27, label %28, label %87
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !82
+  %30 = load i32, ptr %29, align 8, !tbaa !81
   %31 = sitofp i32 %30 to float
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %33 = load float, ptr %32, align 4, !tbaa !84
+  %33 = load float, ptr %32, align 4, !tbaa !83
   %34 = fmul float %33, %31
   %35 = fdiv float %34, %25
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %37 = load float, ptr %36, align 4, !tbaa !91
+  %37 = load float, ptr %36, align 4, !tbaa !90
   %38 = fmul float %37, %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load float, ptr %39, align 4, !tbaa !92
+  %40 = load float, ptr %39, align 4, !tbaa !91
   %41 = fmul float %40, %35
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -4067,7 +4067,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
 
 67:                                               ; preds = %28
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %69 = load ptr, ptr %68, align 8, !tbaa !73
+  %69 = load ptr, ptr %68, align 8, !tbaa !72
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !54
   %72 = sext i32 %71 to i64
@@ -4082,7 +4082,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %80 = load ptr, ptr %79, align 8, !tbaa !73
+  %80 = load ptr, ptr %79, align 8, !tbaa !72
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !54
   %83 = sext i32 %82 to i64
@@ -4101,7 +4101,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
 .critedge:                                        ; preds = %76, %78, %87
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %92 = load ptr, ptr %91, align 8, !tbaa !73
+  %92 = load ptr, ptr %91, align 8, !tbaa !72
   call void @_Z11gridRaycastIK22ProcessTrianglesActionEvRT_RK9btVector3S6_Pi(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %92)
   br label %93
 
@@ -4276,7 +4276,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastIK22ProcessTrianglesActionEvR
   %.3 = phi float [ %.2, %96 ], [ %101, %99 ]
   %103 = fcmp ogt float %.sroa.24.1, %sqrt
   tail call void @_ZNK22ProcessTrianglesAction4execEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.0.1, i32 noundef %.sroa.9.1)
-  br i1 %103, label %.loopexit, label %94, !llvm.loop !101
+  br i1 %103, label %.loopexit, label %94, !llvm.loop !100
 
 .loopexit:                                        ; preds = %102, %4
   ret void
@@ -4385,45 +4385,44 @@ attributes #19 = { noreturn nounwind }
 !57 = !{}
 !58 = !{i64 0, i64 16, !35}
 !59 = distinct !{!59, !56}
-!60 = distinct !{!60, !56, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTS22ProcessTrianglesAction", !64, i64 0, !14, i64 8, !14, i64 9, !10, i64 12, !10, i64 16, !65, i64 24}
-!64 = !{!"p1 _ZTS25btHeightfieldTerrainShape", !13, i64 0}
-!65 = !{!"p1 _ZTS18btTriangleCallback", !13, i64 0}
-!66 = !{!63, !14, i64 8}
-!67 = !{!63, !14, i64 9}
-!68 = !{!63, !65, i64 24}
-!69 = !{!63, !10, i64 12}
-!70 = !{!63, !10, i64 16}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE", !13, i64 0}
-!73 = !{!74, !75, i64 72}
-!74 = !{!"_ZTS20ProcessVBoundsAction", !72, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !23, i64 20, !23, i64 36, !23, i64 52, !75, i64 72, !63, i64 80}
-!75 = !{!"p1 int", !13, i64 0}
-!76 = !{!74, !10, i64 8}
-!77 = !{!74, !10, i64 12}
-!78 = !{i64 0, i64 8, !79, i64 8, i64 1, !80, i64 9, i64 1, !80, i64 12, i64 4, !54, i64 16, i64 4, !54, i64 24, i64 8, !81}
-!79 = !{!64, !64, i64 0}
-!80 = !{!14, !14, i64 0}
-!81 = !{!65, !65, i64 0}
-!82 = !{!74, !10, i64 16}
-!83 = distinct !{!83, !56}
-!84 = !{!85, !22, i64 28}
-!85 = !{!"_ZTSN12_GLOBAL__N_116GridRaycastStateE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28}
-!86 = !{!85, !22, i64 24}
-!87 = !{!85, !10, i64 0}
-!88 = !{!85, !10, i64 4}
-!89 = !{!85, !10, i64 8}
-!90 = !{!85, !10, i64 12}
-!91 = !{!85, !22, i64 20}
-!92 = !{!85, !22, i64 16}
+!60 = distinct !{!60, !56}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTS22ProcessTrianglesAction", !63, i64 0, !14, i64 8, !14, i64 9, !10, i64 12, !10, i64 16, !64, i64 24}
+!63 = !{!"p1 _ZTS25btHeightfieldTerrainShape", !13, i64 0}
+!64 = !{!"p1 _ZTS18btTriangleCallback", !13, i64 0}
+!65 = !{!62, !14, i64 8}
+!66 = !{!62, !14, i64 9}
+!67 = !{!62, !64, i64 24}
+!68 = !{!62, !10, i64 12}
+!69 = !{!62, !10, i64 16}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE", !13, i64 0}
+!72 = !{!73, !74, i64 72}
+!73 = !{!"_ZTS20ProcessVBoundsAction", !71, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !23, i64 20, !23, i64 36, !23, i64 52, !74, i64 72, !62, i64 80}
+!74 = !{!"p1 int", !13, i64 0}
+!75 = !{!73, !10, i64 8}
+!76 = !{!73, !10, i64 12}
+!77 = !{i64 0, i64 8, !78, i64 8, i64 1, !79, i64 9, i64 1, !79, i64 12, i64 4, !54, i64 16, i64 4, !54, i64 24, i64 8, !80}
+!78 = !{!63, !63, i64 0}
+!79 = !{!14, !14, i64 0}
+!80 = !{!64, !64, i64 0}
+!81 = !{!73, !10, i64 16}
+!82 = distinct !{!82, !56}
+!83 = !{!84, !22, i64 28}
+!84 = !{!"_ZTSN12_GLOBAL__N_116GridRaycastStateE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28}
+!85 = !{!84, !22, i64 24}
+!86 = !{!84, !10, i64 0}
+!87 = !{!84, !10, i64 4}
+!88 = !{!84, !10, i64 8}
+!89 = !{!84, !10, i64 12}
+!90 = !{!84, !22, i64 20}
+!91 = !{!84, !22, i64 16}
+!92 = distinct !{!92, !56}
 !93 = distinct !{!93, !56}
 !94 = distinct !{!94, !56}
 !95 = distinct !{!95, !56}
 !96 = distinct !{!96, !56}
 !97 = distinct !{!97, !56}
-!98 = distinct !{!98, !56, !61}
-!99 = !{!20, !22, i64 32}
-!100 = !{!74, !72, i64 0}
-!101 = distinct !{!101, !56}
+!98 = !{!20, !22, i64 32}
+!99 = !{!73, !71, i64 0}
+!100 = distinct !{!100, !56}

@@ -885,7 +885,7 @@ stringlib_find_char.exit:                         ; preds = %70, %.lr.ph.i, %63,
 128:                                              ; preds = %.preheader.us.i80.i.i.i
   %129 = add nsw i64 %.04862.us.i.i.i.i, -1
   %130 = icmp sgt i64 %.04862.us.i.i.i.i, 1
-  br i1 %130, label %.preheader.us.i80.i.i.i, label %fastsearch.exit.i.i, !llvm.loop !49
+  br i1 %130, label %.preheader.us.i80.i.i.i, label %fastsearch.exit.i.i, !llvm.loop !48
 
 .lr.ph.i76.i.i.i:                                 ; preds = %.lr.ph.i76.i.i.i, %92
   %.04660.i.i.i.i = phi i64 [ %spec.select.i77.i.i.i, %.lr.ph.i76.i.i.i ], [ %93, %92 ]
@@ -901,7 +901,7 @@ stringlib_find_char.exit:                         ; preds = %70, %.lr.ph.i, %63,
   %138 = add nsw i64 %.04958.i.i.i.i, -1
   %spec.select.i77.i.i.i = select i1 %137, i64 %138, i64 %.04660.i.i.i.i
   %139 = icmp samesign ugt i64 %.04958.i.i.i.i, 1
-  br i1 %139, label %.lr.ph.i76.i.i.i, label %.preheader56.i.i.i.i, !llvm.loop !50
+  br i1 %139, label %.lr.ph.i76.i.i.i, label %.preheader56.i.i.i.i, !llvm.loop !49
 
 fastsearch.exit.i.i:                              ; preds = %128
   %140 = icmp slt i64 %.15065.us.i.i.fr.i.i, 0
@@ -1202,7 +1202,7 @@ define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(no
   %8 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !32
   %9 = getelementptr i8, ptr %.val, i64 168
-  %.val32 = load i64, ptr %9, align 8, !tbaa !51
+  %.val32 = load i64, ptr %9, align 8, !tbaa !50
   %10 = and i64 %.val32, 67108864
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %22, label %.preheader
@@ -1210,15 +1210,15 @@ define internal fastcc ptr @_Py_bytes_tailmatch(ptr noundef readonly captures(no
 .preheader:                                       ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = getelementptr i8, ptr %3, i64 16
-  %.val3336 = load i64, ptr %12, align 8, !tbaa !52
+  %.val3336 = load i64, ptr %12, align 8, !tbaa !51
   %13 = icmp sgt i64 %.val3336, 0
   br i1 %13, label %.lr.ph, label %.thread
 
 14:                                               ; preds = %21
   %15 = add nuw nsw i64 %.02637, 1
-  %.val33 = load i64, ptr %12, align 8, !tbaa !52
+  %.val33 = load i64, ptr %12, align 8, !tbaa !51
   %16 = icmp slt i64 %15, %.val33
-  br i1 %16, label %.lr.ph, label %.thread, !llvm.loop !53
+  br i1 %16, label %.lr.ph, label %.thread, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %.02637 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
@@ -1290,10 +1290,10 @@ define hidden noundef nonnull ptr @_Py_bytes_isascii(ptr noundef %0, i64 noundef
   br i1 %.not26.i, label %13, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = load i64, ptr %.019.i, align 8, !tbaa !54
+  %11 = load i64, ptr %.019.i, align 8, !tbaa !53
   %12 = and i64 %11, -9187201950435737472
   %.not27.i = icmp eq i64 %12, 0
-  br i1 %.not27.i, label %.preheader.i, label %stringlib_find_max_char.exit, !llvm.loop !55
+  br i1 %.not27.i, label %.preheader.i, label %stringlib_find_max_char.exit, !llvm.loop !54
 
 13:                                               ; preds = %.preheader.i
   %14 = icmp eq ptr %.019.i, %3
@@ -1304,7 +1304,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isascii(ptr noundef %0, i64 noundef
   %15 = getelementptr i8, ptr %.122.i, i64 1
   %16 = load i8, ptr %.122.i, align 1, !tbaa !4
   %.not28.i = icmp sgt i8 %16, -1
-  br i1 %.not28.i, label %4, label %stringlib_find_max_char.exit, !llvm.loop !56
+  br i1 %.not28.i, label %4, label %stringlib_find_max_char.exit, !llvm.loop !55
 
 stringlib_find_max_char.exit:                     ; preds = %.thread31.i, %13, %4, %10
   %17 = phi ptr [ @_Py_FalseStruct, %10 ], [ @_Py_FalseStruct, %.thread31.i ], [ @_Py_TrueStruct, %13 ], [ @_Py_TrueStruct, %4 ]
@@ -1425,7 +1425,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   %spec.select.i = add i64 %.078.i, %60
   %61 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i70 = icmp eq i64 %61, %1
-  br i1 %exitcond.not.i70, label %stringlib_find_char.exit, label %.lr.ph.i69, !llvm.loop !57
+  br i1 %exitcond.not.i70, label %stringlib_find_char.exit, label %.lr.ph.i69, !llvm.loop !56
 
 .lr.ph.i71:                                       ; preds = %54, %68
   %.016.i72 = phi i64 [ %.1.i, %68 ], [ 0, %54 ]
@@ -1444,7 +1444,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   %.1.i = phi i64 [ %66, %65 ], [ %.016.i72, %.lr.ph.i71 ]
   %69 = add nuw nsw i64 %.01115.i, 1
   %exitcond.not.i73 = icmp eq i64 %69, %1
-  br i1 %exitcond.not.i73, label %stringlib_find_char.exit, label %.lr.ph.i71, !llvm.loop !58
+  br i1 %exitcond.not.i73, label %stringlib_find_char.exit, label %.lr.ph.i71, !llvm.loop !57
 
 70:                                               ; preds = %8
   %.not = icmp eq i32 %5, 2
@@ -1529,12 +1529,12 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   %.3.us.i = add i64 %.062101.us.i, 1
   %106 = add i64 %.3.us.i, %.pn.us.i
   %.not.us.i = icmp sgt i64 %106, %81
-  br i1 %.not.us.i, label %.loopexit.i, label %.lr.ph104.split.us.i, !llvm.loop !59
+  br i1 %.not.us.i, label %.loopexit.i, label %.lr.ph104.split.us.i, !llvm.loop !58
 
 107:                                              ; preds = %90
   %108 = add nuw nsw i64 %.093.us.i, 1
-  %exitcond154.not.i = icmp eq i64 %108, %78
-  br i1 %exitcond154.not.i, label %._crit_edge95.us.thread.i, label %90, !llvm.loop !60
+  %exitcond169.not.i = icmp eq i64 %108, %78
+  br i1 %exitcond169.not.i, label %._crit_edge95.us.thread.i, label %90, !llvm.loop !59
 
 .preheader.us.i:                                  ; preds = %.lr.ph104.split.us.i
   %109 = getelementptr i8, ptr %0, i64 %.062101.us.i
@@ -1556,7 +1556,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   %.175.i = select i1 %116, i64 %118, i64 %.07489.i
   %119 = add nuw nsw i64 %.06491.i, 1
   %exitcond.not.i75 = icmp eq i64 %119, %78
-  br i1 %exitcond.not.i75, label %._crit_edge.i, label %.lr.ph.i74, !llvm.loop !61
+  br i1 %exitcond.not.i75, label %._crit_edge.i, label %.lr.ph.i74, !llvm.loop !60
 
 .loopexit.i:                                      ; preds = %105, %._crit_edge.i
   %.171.ph.i = phi i64 [ 0, %._crit_edge.i ], [ %.373.us.i, %105 ]
@@ -1658,7 +1658,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
 171:                                              ; preds = %.preheader.us.i80
   %172 = add nsw i64 %.04862.us.i, -1
   %173 = icmp sgt i64 %.04862.us.i, 1
-  br i1 %173, label %.preheader.us.i80, label %stringlib_find_char.exit, !llvm.loop !49
+  br i1 %173, label %.preheader.us.i80, label %stringlib_find_char.exit, !llvm.loop !48
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %135
   %.04660.i = phi i64 [ %spec.select.i77, %.lr.ph.i76 ], [ %136, %135 ]
@@ -1674,7 +1674,7 @@ define internal fastcc i64 @fastsearch(ptr noundef %0, i64 noundef %1, ptr nound
   %181 = add nsw i64 %.04958.i, -1
   %spec.select.i77 = select i1 %180, i64 %181, i64 %.04660.i
   %182 = icmp samesign ugt i64 %.04958.i, 1
-  br i1 %182, label %.lr.ph.i76, label %.preheader56.i, !llvm.loop !50
+  br i1 %182, label %.lr.ph.i76, label %.preheader56.i, !llvm.loop !49
 
 stringlib_find_char.exit:                         ; preds = %96, %._crit_edge95.us.thread.i, %167, %146, %171, %44, %30, %68, %65, %.lr.ph.i69, %.preheader56.i, %.loopexit.i, %50, %38, %35, %26, %20, %17, %.preheader.i, %10, %6, %133, %131, %129
   %.0 = phi i64 [ %130, %129 ], [ %132, %131 ], [ %134, %133 ], [ -1, %6 ], [ -1, %10 ], [ %23, %20 ], [ %29, %26 ], [ -1, %17 ], [ -1, %.preheader.i ], [ %41, %38 ], [ %53, %50 ], [ -1, %35 ], [ %121, %.loopexit.i ], [ -1, %.preheader56.i ], [ %spec.select.i, %.lr.ph.i69 ], [ %4, %65 ], [ %.1.i, %68 ], [ -1, %30 ], [ -1, %44 ], [ %.15065.us.i, %171 ], [ -1, %146 ], [ -1, %167 ], [ %4, %96 ], [ %.062101.us.i, %._crit_edge95.us.thread.i ]
@@ -1807,12 +1807,12 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
   %.not.us = icmp sgt i64 %43, %8
-  br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !62
+  br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !61
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond201.not = icmp eq i64 %45, %9
-  br i1 %exitcond201.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !63
+  %exitcond216.not = icmp eq i64 %45, %9
+  br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !62
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
   %46 = getelementptr i8, ptr %0, i64 %.088140.us
@@ -1834,7 +1834,7 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
   %exitcond.not = icmp eq i64 %56, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 .split.us:                                        ; preds = %27
   %57 = getelementptr i8, ptr %0, i64 %.088140.us
@@ -1895,9 +1895,9 @@ stringlib__two_way_count.exit:                    ; preds = %.lr.ph.i, %71, %64
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @stringlib__preprocess(ptr noundef %0, i64 noundef range(i64 6, -9223372036854775808) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #8 {
-  store ptr %0, ptr %2, align 8, !tbaa !65
+  store ptr %0, ptr %2, align 8, !tbaa !64
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %1, ptr %4, align 8, !tbaa !67
+  store i64 %1, ptr %4, align 8, !tbaa !66
   br label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %23, %3
@@ -1943,7 +1943,7 @@ define internal fastcc void @stringlib__preprocess(ptr noundef %0, i64 noundef r
   %.1.us.i.i = phi i64 [ %.042.us.i.i, %19 ], [ %.02941.us.i.i, %14 ], [ %.042.us.i.i, %16 ]
   %24 = add i64 %.130.us.i.i, %.134.us.i.i
   %25 = icmp slt i64 %24, %1
-  br i1 %25, label %.split.us.i.i, label %.split.i.i, !llvm.loop !68
+  br i1 %25, label %.split.us.i.i, label %.split.i.i, !llvm.loop !67
 
 .split.i.i:                                       ; preds = %23, %44
   %26 = phi i64 [ %45, %44 ], [ 1, %23 ]
@@ -1988,34 +1988,34 @@ define internal fastcc void @stringlib__preprocess(ptr noundef %0, i64 noundef r
   %.1.i.i = phi i64 [ %.042.i.i, %33 ], [ %.02941.i.i, %42 ], [ %.042.i.i, %39 ]
   %45 = add i64 %.130.i.i, %.134.i.i
   %46 = icmp slt i64 %45, %1
-  br i1 %46, label %.split.i.i, label %stringlib__factorize.exit, !llvm.loop !69
+  br i1 %46, label %.split.i.i, label %stringlib__factorize.exit, !llvm.loop !67
 
 stringlib__factorize.exit:                        ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = icmp sgt i64 %.1.us.i.i, %.1.i.i
   %..i = tail call i64 @llvm.smax.i64(i64 %.1.us.i.i, i64 %.1.i.i)
   %.0.sroa.speculated.i = select i1 %48, i64 %.132.us.i.i, i64 %.132.i.i
-  store i64 %.0.sroa.speculated.i, ptr %47, align 8, !tbaa !54
+  store i64 %.0.sroa.speculated.i, ptr %47, align 8, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %..i, ptr %49, align 8, !tbaa !70
+  store i64 %..i, ptr %49, align 8, !tbaa !68
   %50 = getelementptr i8, ptr %0, i64 %.0.sroa.speculated.i
   %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr %50, i64 %..i)
   %51 = icmp eq i32 %bcmp, 0
   %52 = zext i1 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %52, ptr %53, align 8, !tbaa !71
+  store i32 %52, ptr %53, align 8, !tbaa !69
   br i1 %51, label %.lr.ph.preheader, label %54
 
 54:                                               ; preds = %stringlib__factorize.exit
   %55 = sub i64 %1, %..i
   %. = tail call i64 @llvm.smax.i64(i64 %..i, i64 %55)
   %56 = add i64 %., 1
-  store i64 %56, ptr %47, align 8, !tbaa !72
+  store i64 %56, ptr %47, align 8, !tbaa !70
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %54, %stringlib__factorize.exit
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 %1, ptr %57, align 8, !tbaa !73
+  store i64 %1, ptr %57, align 8, !tbaa !71
   %58 = add nsw i64 %1, -1
   %59 = getelementptr i8, ptr %0, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !4
@@ -2033,13 +2033,13 @@ stringlib__factorize.exit:                        ; preds = %44
 
 66:                                               ; preds = %.lr.ph
   %67 = sub nsw i64 %58, %.059
-  store i64 %67, ptr %57, align 8, !tbaa !73
+  store i64 %67, ptr %57, align 8, !tbaa !71
   br label %.lr.ph62
 
 .critedge:                                        ; preds = %.lr.ph
   %68 = add nsw i64 %.059, -1
   %69 = icmp sgt i64 %.059, 0
-  br i1 %69, label %.lr.ph, label %.lr.ph62, !llvm.loop !74
+  br i1 %69, label %.lr.ph, label %.lr.ph62, !llvm.loop !72
 
 .lr.ph62:                                         ; preds = %.critedge, %66
   %70 = tail call i64 @llvm.umin.i64(i64 %1, i64 255)
@@ -2064,30 +2064,30 @@ stringlib__factorize.exit:                        ; preds = %44
   store i8 %76, ptr %81, align 1, !tbaa !4
   %82 = add nsw i64 %.05361, 1
   %83 = icmp slt i64 %82, %1
-  br i1 %83, label %74, label %._crit_edge, !llvm.loop !75
+  br i1 %83, label %74, label %._crit_edge, !llvm.loop !73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !67
+  %5 = load i64, ptr %4, align 8, !tbaa !66
   %.fr278 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !70
+  %7 = load i64, ptr %6, align 8, !tbaa !68
   %.fr237 = freeze i64 %7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !72
-  %10 = load ptr, ptr %2, align 8, !tbaa !65
+  %9 = load i64, ptr %8, align 8, !tbaa !70
+  %10 = load ptr, ptr %2, align 8, !tbaa !64
   %11 = getelementptr i8, ptr %0, i64 %.fr278
   %12 = getelementptr i8, ptr %11, i64 -1
   %13 = getelementptr i8, ptr %0, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !73
+  %16 = load i64, ptr %15, align 8, !tbaa !71
   %17 = add i64 %16, %.fr237
   %18 = tail call i64 @llvm.smin.i64(i64 %.fr278, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !71
+  %20 = load i32, ptr %19, align 8, !tbaa !69
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %71, label %.preheader182
 
@@ -2164,12 +2164,12 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 50:                                               ; preds = %.lr.ph
   %51 = add i64 %.0135197, 1
   %exitcond.not = icmp eq i64 %51, %.fr278
-  br i1 %exitcond.not, label %.preheader177, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond.not, label %.preheader177, label %.lr.ph, !llvm.loop !74
 
 52:                                               ; preds = %.lr.ph199
   %53 = add i64 %.1136198, 1
   %exitcond275.not = icmp eq i64 %53, %.fr237
-  br i1 %exitcond275.not, label %.preheader177._crit_edge, label %.lr.ph199, !llvm.loop !77
+  br i1 %exitcond275.not, label %.preheader177._crit_edge, label %.lr.ph199, !llvm.loop !75
 
 .lr.ph199:                                        ; preds = %.preheader177, %52
   %.1136198 = phi i64 [ %53, %52 ], [ %.1144, %.preheader177 ]
@@ -2235,7 +2235,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 
 .preheader175.us.backedge:                        ; preds = %.preheader175.us, %104
   %.6132.us.be = phi ptr [ %82, %.preheader175.us ], [ %.8134.us, %104 ]
-  br label %.preheader175.us, !llvm.loop !78
+  br label %.preheader175.us
 
 .lr.ph205.us:                                     ; preds = %.preheader175.us
   %84 = getelementptr i8, ptr %82, i64 %74
@@ -2245,7 +2245,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 86:                                               ; preds = %.lr.ph208.us
   %87 = add nuw nsw i64 %.0207.us, 1
   %exitcond277.not = icmp eq i64 %87, %.fr237
-  br i1 %exitcond277.not, label %.thread170, label %.lr.ph208.us, !llvm.loop !79
+  br i1 %exitcond277.not, label %.thread170, label %.lr.ph208.us, !llvm.loop !76
 
 .lr.ph208.us:                                     ; preds = %..preheader_crit_edge.us, %86
   %.0207.us = phi i64 [ %87, %86 ], [ 0, %..preheader_crit_edge.us ]
@@ -2286,7 +2286,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 106:                                              ; preds = %93
   %107 = add nsw i64 %.0124203.us, 1
   %108 = icmp slt i64 %107, %.fr278
-  br i1 %108, label %93, label %..preheader_crit_edge.us, !llvm.loop !80
+  br i1 %108, label %93, label %..preheader_crit_edge.us, !llvm.loop !77
 
 ..preheader_crit_edge.us:                         ; preds = %106
   br i1 %.not152206, label %.lr.ph208.us, label %.thread170
@@ -2314,7 +2314,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 
 .preheader175.us215.backedge:                     ; preds = %.preheader175.us215, %.thread167.us231
   %.6132.us218.be = phi ptr [ %115, %.preheader175.us215 ], [ %126, %.thread167.us231 ]
-  br label %.preheader175.us215, !llvm.loop !81
+  br label %.preheader175.us215
 
 .preheader.us225:                                 ; preds = %.preheader175.us215
   %117 = getelementptr i8, ptr %115, i64 %74
@@ -2324,7 +2324,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
 119:                                              ; preds = %121
   %120 = add nuw nsw i64 %.0207.us229, 1
   %exitcond276.not = icmp eq i64 %120, %.fr237
-  br i1 %exitcond276.not, label %.thread170, label %121, !llvm.loop !79
+  br i1 %exitcond276.not, label %.thread170, label %121, !llvm.loop !76
 
 121:                                              ; preds = %.preheader.us225, %119
   %.0207.us229 = phi i64 [ 0, %.preheader.us225 ], [ %120, %119 ]
@@ -2356,7 +2356,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   switch i32 %.3140, label %.thread [
     i32 0, label %.preheader175
     i32 17, label %.preheader
-  ], !llvm.loop !82
+  ]
 
 .preheader:                                       ; preds = %.preheader175
   %136 = getelementptr i8, ptr %134, i64 %74
@@ -2385,7 +2385,7 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
   %8 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !32
   %9 = getelementptr i8, ptr %.val, i64 168
-  %.val49 = load i64, ptr %9, align 8, !tbaa !51
+  %.val49 = load i64, ptr %9, align 8, !tbaa !50
   %10 = and i64 %.val49, 134217728
   %.not = icmp eq i64 %10, 0
   %.sink51.sroa.gep52 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2408,7 +2408,7 @@ define internal fastcc range(i32 -1, 2) i32 @tailmatch(ptr noundef readonly capt
 17:                                               ; preds = %11, %15
   %.sink51.sroa.phi = phi ptr [ %.sink51.sroa.gep, %11 ], [ %.sink51.sroa.gep52, %15 ]
   %.037 = phi ptr [ %12, %11 ], [ %16, %15 ]
-  %.val50 = load i64, ptr %.sink51.sroa.phi, align 8, !tbaa !54
+  %.val50 = load i64, ptr %.sink51.sroa.phi, align 8, !tbaa !53
   %18 = icmp sgt i64 %4, %1
   br i1 %18, label %23, label %19
 
@@ -2562,39 +2562,34 @@ attributes #15 = { nounwind willreturn memory(read) }
 !44 = !{!36, !26, i64 24}
 !45 = distinct !{!45, !10}
 !46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !10}
+!48 = distinct !{!48, !10}
 !49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10}
-!51 = !{!36, !25, i64 168}
-!52 = !{!37, !25, i64 16}
-!53 = distinct !{!53, !10}
-!54 = !{!25, !25, i64 0}
+!50 = !{!36, !25, i64 168}
+!51 = !{!37, !25, i64 16}
+!52 = distinct !{!52, !10}
+!53 = !{!25, !25, i64 0}
+!54 = distinct !{!54, !10}
 !55 = distinct !{!55, !10}
 !56 = distinct !{!56, !10}
 !57 = distinct !{!57, !10}
 !58 = distinct !{!58, !10}
-!59 = distinct !{!59, !10, !48}
+!59 = distinct !{!59, !10}
 !60 = distinct !{!60, !10}
 !61 = distinct !{!61, !10}
-!62 = distinct !{!62, !10, !48}
+!62 = distinct !{!62, !10}
 !63 = distinct !{!63, !10}
-!64 = distinct !{!64, !10}
-!65 = !{!66, !26, i64 0}
-!66 = !{!"stringlib__pre", !26, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !8, i64 40, !5, i64 44}
-!67 = !{!66, !25, i64 8}
-!68 = distinct !{!68, !10, !48}
-!69 = distinct !{!69, !10}
-!70 = !{!66, !25, i64 16}
-!71 = !{!66, !8, i64 40}
-!72 = !{!66, !25, i64 24}
-!73 = !{!66, !25, i64 32}
+!64 = !{!65, !26, i64 0}
+!65 = !{!"stringlib__pre", !26, i64 0, !25, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !8, i64 40, !5, i64 44}
+!66 = !{!65, !25, i64 8}
+!67 = distinct !{!67, !10}
+!68 = !{!65, !25, i64 16}
+!69 = !{!65, !8, i64 40}
+!70 = !{!65, !25, i64 24}
+!71 = !{!65, !25, i64 32}
+!72 = distinct !{!72, !10}
+!73 = distinct !{!73, !10}
 !74 = distinct !{!74, !10}
 !75 = distinct !{!75, !10}
 !76 = distinct !{!76, !10}
 !77 = distinct !{!77, !10}
-!78 = distinct !{!78, !48}
-!79 = distinct !{!79, !10}
-!80 = distinct !{!80, !10}
-!81 = distinct !{!81, !48}
-!82 = distinct !{!82, !48}

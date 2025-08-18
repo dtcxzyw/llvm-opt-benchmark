@@ -413,7 +413,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
   %.0102.in = load i16, ptr %107, align 2, !tbaa !32
   %.0102 = zext i16 %.0102.in to i32
   %108 = icmp samesign ult i32 %1, %.0102
-  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !46
+  br i1 %108, label %.lr.ph.split, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %106, %.lr.ph152, %.thread
   %.off = add i8 %15, -41
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
 129:                                              ; preds = %125, %122, %118
   %130 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %130, 16
-  br i1 %exitcond.not.i, label %135, label %118, !llvm.loop !47
+  br i1 %exitcond.not.i, label %135, label %118, !llvm.loop !45
 
 narrow_bpc_get.exit:                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %119, i64 2
@@ -491,7 +491,7 @@ narrow_bpc_get.exit:                              ; preds = %125
 147:                                              ; preds = %142, %.preheader
   %148 = add nuw nsw i64 %.01319.i129, 1
   %exitcond.not.i130 = icmp eq i64 %148, 16
-  br i1 %exitcond.not.i130, label %narrow_bpc_get.exit133.thread, label %.preheader, !llvm.loop !47
+  br i1 %exitcond.not.i130, label %narrow_bpc_get.exit133.thread, label %.preheader, !llvm.loop !45
 
 narrow_bpc_get.exit133:                           ; preds = %142
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 2
@@ -709,7 +709,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
 25:                                               ; preds = %21, %17
   %26 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %26, 16
-  br i1 %exitcond.not.i, label %38, label %17, !llvm.loop !47
+  br i1 %exitcond.not.i, label %38, label %17, !llvm.loop !45
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -1346,7 +1346,7 @@ define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32
 28:                                               ; preds = %23, %19
   %29 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %29, 16
-  br i1 %exitcond.not.i, label %33, label %19, !llvm.loop !47
+  br i1 %exitcond.not.i, label %33, label %19, !llvm.loop !45
 
 narrow_bpc_get.exit:                              ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 2
@@ -1481,7 +1481,5 @@ attributes #7 = { noreturn nounwind }
 !41 = !{!39, !12, i64 4}
 !42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !43}
-!47 = distinct !{!47, !43}
+!44 = distinct !{!44, !43}
+!45 = distinct !{!45, !43}

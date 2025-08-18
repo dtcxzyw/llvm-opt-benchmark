@@ -81,7 +81,7 @@ define noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_1
   %14 = load ptr, ptr %0, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   %16 = load i8, ptr %15, align 1, !tbaa !18
-  %17 = sext i8 %16 to i32
+  %17 = zext i8 %16 to i32
   %18 = trunc i64 %11 to i32
   %19 = and i32 %18, 7
   %20 = or disjoint i32 %19, 24
@@ -132,7 +132,7 @@ define noundef zeroext i1 @_ZNK3net16HpackInputStream8PeekBitsEPmPj(ptr noundef 
   %19 = load ptr, ptr %0, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %11
   %21 = load i8, ptr %20, align 1, !tbaa !18
-  %22 = sext i8 %21 to i32
+  %22 = zext i8 %21 to i32
   %23 = trunc nuw nsw i64 %16 to i32
   %24 = or disjoint i32 %23, 24
   %25 = shl i32 %22, %24

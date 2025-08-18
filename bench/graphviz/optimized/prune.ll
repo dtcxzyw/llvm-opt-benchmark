@@ -461,7 +461,7 @@ addnode.exit:                                     ; preds = %85, %91, %gv_strdup
   %203 = call i32 @agclose(ptr noundef nonnull %195) #19
   %204 = call ptr @nextGraph(ptr noundef nonnull %3) #19
   %.not68 = icmp eq ptr %204, null
-  br i1 %.not68, label %._crit_edge207, label %.lr.ph206.split, !llvm.loop !38
+  br i1 %.not68, label %._crit_edge207, label %.lr.ph206.split, !llvm.loop !36
 
 .split209.us:                                     ; preds = %.lr.ph199.us
   %205 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -595,7 +595,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
 
 39:                                               ; preds = %.lr.ph, %37, %31
   %.not34 = icmp eq ptr %17, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %39, %15
   %40 = tail call i32 @agdelnode(ptr noundef nonnull %0, ptr noundef nonnull %1) #19
@@ -619,7 +619,7 @@ declare i32 @agclose(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @attrs_free(ptr noundef nonnull captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !40
+  %3 = load i64, ptr %2, align 8, !tbaa !38
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %attrs_clear.exit, label %.lr.ph.i
 
@@ -630,10 +630,10 @@ define internal fastcc void @attrs_free(ptr noundef nonnull captures(none) %0) u
 
 6:                                                ; preds = %6, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %6 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !42
-  %8 = load i64, ptr %4, align 8, !tbaa !43
+  %7 = load ptr, ptr %0, align 8, !tbaa !40
+  %8 = load i64, ptr %4, align 8, !tbaa !41
   %9 = add i64 %8, %.06.i
-  %10 = load i64, ptr %5, align 8, !tbaa !44
+  %10 = load i64, ptr %5, align 8, !tbaa !42
   %11 = urem i64 %9, %10
   %12 = getelementptr inbounds nuw %struct.strattr_t, ptr %7, i64 %11
   %.sroa.0.0.copyload.i.i = load ptr, ptr %12, align 8, !tbaa !8
@@ -642,14 +642,14 @@ define internal fastcc void @attrs_free(ptr noundef nonnull captures(none) %0) u
   tail call void @free(ptr noundef %.sroa.0.0.copyload.i.i) #19
   tail call void @free(ptr noundef %.sroa.2.0.copyload.i.i) #19
   %13 = add nuw i64 %.06.i, 1
-  %14 = load i64, ptr %2, align 8, !tbaa !40
+  %14 = load i64, ptr %2, align 8, !tbaa !38
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %6, label %attrs_clear.exit, !llvm.loop !45
+  br i1 %15, label %6, label %attrs_clear.exit, !llvm.loop !43
 
 attrs_clear.exit:                                 ; preds = %6, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = load ptr, ptr %0, align 8, !tbaa !42
+  %17 = load ptr, ptr %0, align 8, !tbaa !40
   tail call void @free(ptr noundef %17) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
@@ -658,7 +658,7 @@ attrs_clear.exit:                                 ; preds = %6, %1
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc void @nodes_free(ptr noundef nonnull captures(none) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !46
+  %3 = load i64, ptr %2, align 8, !tbaa !44
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %nodes_clear.exit, label %.lr.ph.i
 
@@ -669,23 +669,23 @@ define internal fastcc void @nodes_free(ptr noundef nonnull captures(none) %0) u
 
 6:                                                ; preds = %6, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %6 ]
-  %7 = load ptr, ptr %0, align 8, !tbaa !49
-  %8 = load i64, ptr %4, align 8, !tbaa !50
+  %7 = load ptr, ptr %0, align 8, !tbaa !47
+  %8 = load i64, ptr %4, align 8, !tbaa !48
   %9 = add i64 %8, %.06.i
-  %10 = load i64, ptr %5, align 8, !tbaa !51
+  %10 = load i64, ptr %5, align 8, !tbaa !49
   %11 = urem i64 %9, %10
   %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   tail call void @free(ptr noundef %13) #19
   %14 = add nuw i64 %.06.i, 1
-  %15 = load i64, ptr %2, align 8, !tbaa !46
+  %15 = load i64, ptr %2, align 8, !tbaa !44
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %6, label %nodes_clear.exit, !llvm.loop !52
+  br i1 %16, label %6, label %nodes_clear.exit, !llvm.loop !50
 
 nodes_clear.exit:                                 ; preds = %6, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %18 = load ptr, ptr %0, align 8, !tbaa !49
+  %18 = load ptr, ptr %0, align 8, !tbaa !47
   tail call void @free(ptr noundef %18) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
@@ -794,20 +794,18 @@ attributes #25 = { noreturn nounwind }
 !33 = distinct !{!33, !15}
 !34 = distinct !{!34, !15}
 !35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !15}
-!39 = distinct !{!39, !15}
-!40 = !{!41, !23, i64 16}
-!41 = !{!"", !10, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
-!42 = !{!41, !10, i64 0}
-!43 = !{!41, !23, i64 8}
-!44 = !{!41, !23, i64 24}
-!45 = distinct !{!45, !15}
-!46 = !{!47, !23, i64 16}
-!47 = !{!"", !48, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
-!48 = !{!"p2 omnipotent char", !10, i64 0}
-!49 = !{!47, !48, i64 0}
-!50 = !{!47, !23, i64 8}
-!51 = !{!47, !23, i64 24}
-!52 = distinct !{!52, !15}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = !{!39, !23, i64 16}
+!39 = !{!"", !10, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
+!40 = !{!39, !10, i64 0}
+!41 = !{!39, !23, i64 8}
+!42 = !{!39, !23, i64 24}
+!43 = distinct !{!43, !15}
+!44 = !{!45, !23, i64 16}
+!45 = !{!"", !46, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
+!46 = !{!"p2 omnipotent char", !10, i64 0}
+!47 = !{!45, !46, i64 0}
+!48 = !{!45, !23, i64 8}
+!49 = !{!45, !23, i64 24}
+!50 = distinct !{!50, !15}

@@ -4184,7 +4184,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 
   store i16 0, ptr %54, align 2
   %55 = load ptr, ptr %52, align 8
   %56 = icmp eq ptr %55, %49
-  br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.preheader, %48
   store i32 %3, ptr %44, align 64
@@ -4466,7 +4466,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %7
   %13 = add i32 %9, 1
-  br i1 %12, label %14, label %8, !llvm.loop !63
+  br i1 %12, label %14, label %8, !llvm.loop !62
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -4515,7 +4515,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   %40 = add i32 %39, %20
   %41 = load ptr, ptr %19, align 8
   %42 = icmp eq ptr %41, %15
-  br i1 %42, label %.loopexit7, label %.preheader6.split.us, !llvm.loop !64
+  br i1 %42, label %.loopexit7, label %.preheader6.split.us, !llvm.loop !63
 
 .preheader6.split:                                ; preds = %.preheader6, %62
   %43 = phi i1 [ %56, %62 ], [ %.pre17, %.preheader6 ]
@@ -4554,7 +4554,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   %64 = add i32 %63, %45
   %65 = load ptr, ptr %44, align 8
   %66 = icmp eq ptr %65, %15
-  br i1 %66, label %.loopexit7, label %.preheader6.split, !llvm.loop !65
+  br i1 %66, label %.loopexit7, label %.preheader6.split, !llvm.loop !63
 
 .loopexit7:                                       ; preds = %62, %38, %14
   %67 = phi i32 [ %9, %14 ], [ %40, %38 ], [ %64, %62 ]
@@ -4607,7 +4607,7 @@ define internal fastcc i32 @count_semcnt(ptr noundef readonly captures(address) 
   %95 = add i32 %94, %74
   %96 = load ptr, ptr %73, align 8
   %97 = icmp eq ptr %96, %69
-  br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !66
+  br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !64
 
 .loopexit:                                        ; preds = %93, %68, %.loopexit7
   %98 = phi i32 [ %67, %.loopexit7 ], [ %67, %68 ], [ %95, %93 ]
@@ -4782,7 +4782,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   store i32 %35, ptr %26, align 64
   %55 = getelementptr i8, ptr %17, i64 6
   %56 = icmp ult ptr %55, %8
-  br i1 %56, label %16, label %.loopexit16, !llvm.loop !67
+  br i1 %56, label %16, label %.loopexit16, !llvm.loop !65
 
 .loopexit16:                                      ; preds = %54, %2
   %57 = phi ptr [ %4, %2 ], [ %55, %54 ]
@@ -4816,7 +4816,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
 72:                                               ; preds = %71, %.split.us
   %73 = getelementptr i8, ptr %65, i64 -6
   %74 = icmp ult ptr %73, %4
-  br i1 %74, label %.loopexit, label %.split.us, !llvm.loop !68
+  br i1 %74, label %.loopexit, label %.split.us, !llvm.loop !66
 
 .split:                                           ; preds = %62, %91
   %75 = phi ptr [ %92, %91 ], [ %60, %62 ]
@@ -4852,7 +4852,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
 91:                                               ; preds = %90, %.split
   %92 = getelementptr i8, ptr %75, i64 -6
   %93 = icmp ult ptr %92, %4
-  br i1 %93, label %.loopexit, label %.split, !llvm.loop !69
+  br i1 %93, label %.loopexit, label %.split, !llvm.loop !66
 
 94:                                               ; preds = %16, %34
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -4900,7 +4900,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
 124:                                              ; preds = %118, %.preheader
   %125 = getelementptr i8, ptr %104, i64 -6
   %126 = icmp ult ptr %125, %4
-  br i1 %126, label %.loopexit, label %.preheader, !llvm.loop !70
+  br i1 %126, label %.loopexit, label %.preheader, !llvm.loop !67
 
 .loopexit:                                        ; preds = %91, %72, %124, %.thread12, %.loopexit16
   %127 = phi i32 [ %101, %.thread12 ], [ 0, %.loopexit16 ], [ %101, %124 ], [ 0, %72 ], [ 0, %91 ]
@@ -5092,7 +5092,7 @@ do_smart_wakeup_zero.exit:                        ; preds = %48, %52, %.loopexit
 .backedge:                                        ; preds = %.thread, %17
   %.be = phi ptr [ %23, %.thread ], [ %18, %17 ]
   %.be16 = phi i32 [ %110, %.thread ], [ %96, %17 ]
-  br label %20, !llvm.loop !71
+  br label %20, !llvm.loop !68
 
 .thread6:                                         ; preds = %24, %.thread, %17, %3
   %112 = phi i32 [ 0, %3 ], [ %22, %24 ], [ %96, %17 ], [ %110, %.thread ]
@@ -5175,7 +5175,7 @@ define internal fastcc range(i32 0, 2) i32 @wake_const_ops(ptr noundef captures(
 47:                                               ; preds = %43, %14
   %48 = phi i32 [ %46, %43 ], [ %16, %14 ]
   %49 = icmp eq ptr %17, %9
-  br i1 %49, label %.loopexit, label %14, !llvm.loop !72
+  br i1 %49, label %.loopexit, label %14, !llvm.loop !69
 
 .loopexit:                                        ; preds = %47, %3
   %50 = phi i32 [ 0, %3 ], [ %48, %47 ]
@@ -5301,16 +5301,13 @@ attributes #16 = { nounwind allocsize(2) }
 !57 = distinct !{!57, !9, !10}
 !58 = distinct !{!58, !9, !10}
 !59 = distinct !{!59, !9, !10}
-!60 = distinct !{!60, !9, !10, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !9, !10}
+!61 = distinct !{!61, !9, !10}
 !62 = distinct !{!62, !9, !10}
 !63 = distinct !{!63, !9, !10}
-!64 = distinct !{!64, !9, !10, !61}
+!64 = distinct !{!64, !9, !10}
 !65 = distinct !{!65, !9, !10}
 !66 = distinct !{!66, !9, !10}
 !67 = distinct !{!67, !9, !10}
-!68 = distinct !{!68, !9, !10, !61}
+!68 = distinct !{!68, !9, !10}
 !69 = distinct !{!69, !9, !10}
-!70 = distinct !{!70, !9, !10}
-!71 = distinct !{!71, !9, !10}
-!72 = distinct !{!72, !9, !10}

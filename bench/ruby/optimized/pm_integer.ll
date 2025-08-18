@@ -1183,7 +1183,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
 67:                                               ; preds = %.lr.ph273
   %68 = add i64 %.0170272, -1
   %69 = icmp ugt i64 %68, 1
-  br i1 %69, label %.lr.ph273, label %.critedge, !llvm.loop !50
+  br i1 %69, label %.lr.ph273, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %.lr.ph273, %67, %.preheader
   %.0170.lcssa = phi i64 [ %38, %.preheader ], [ 1, %67 ], [ %.0170272, %.lr.ph273 ]
@@ -1267,7 +1267,7 @@ define internal fastcc void @karatsuba_multiply(ptr noundef nonnull writeonly ca
   %98 = udiv i64 %95, %3
   %99 = add nuw i64 %.0182242, 1
   %exitcond.not = icmp eq i64 %99, %84
-  br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !50
 
 100:                                              ; preds = %._crit_edge
   %101 = trunc nuw nsw i64 %98 to i32
@@ -1292,7 +1292,7 @@ pm_integer_free.exit:                             ; preds = %._crit_edge.thread,
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %108 = icmp ult i64 %81, %.1167
-  br i1 %108, label %80, label %._crit_edge248, !llvm.loop !52
+  br i1 %108, label %80, label %._crit_edge248, !llvm.loop !51
 
 109:                                              ; preds = %70
   %110 = lshr i64 %.1, 1
@@ -1574,7 +1574,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
   store i32 %.sink.i, ptr %238, align 4, !tbaa !13
   %239 = add nuw i64 %.04861.i, 1
   %exitcond.not.i212 = icmp eq i64 %239, %.0.i209
-  br i1 %exitcond.not.i212, label %.preheader.i213, label %211, !llvm.loop !53
+  br i1 %exitcond.not.i212, label %.preheader.i213, label %211, !llvm.loop !52
 
 .lr.ph63.i:                                       ; preds = %.preheader.i213, %244
   %.162.i = phi i64 [ %245, %244 ], [ %197, %.preheader.i213 ]
@@ -1587,7 +1587,7 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
 244:                                              ; preds = %.lr.ph63.i
   %245 = add i64 %.162.i, -1
   %246 = icmp ugt i64 %245, 1
-  br i1 %246, label %.lr.ph63.i, label %big_sub2.exit, !llvm.loop !54
+  br i1 %246, label %.lr.ph63.i, label %big_sub2.exit, !llvm.loop !53
 
 big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %big_add.exit208, %.preheader.i213
   %.1.lcssa.i = phi i64 [ 1, %.preheader.i213 ], [ 0, %big_add.exit208 ], [ %.162.i, %.lr.ph63.i ], [ 1, %244 ]
@@ -1628,7 +1628,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %
   %263 = udiv i64 %260, %3
   %264 = add nuw i64 %.0172250, 1
   %exitcond289.not = icmp eq i64 %264, %.1.lcssa.i
-  br i1 %exitcond289.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !55
+  br i1 %exitcond289.not, label %._crit_edge252, label %.lr.ph251, !llvm.loop !54
 
 .preheader237:                                    ; preds = %.lr.ph258, %big_sub2.exit, %._crit_edge252
   %265 = icmp ugt i64 %247, 1
@@ -1648,7 +1648,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %
   %273 = udiv i64 %270, %3
   %274 = add i64 %.0171256, 1
   %.not189 = icmp samesign ugt i64 %3, %270
-  br i1 %.not189, label %.preheader237, label %.lr.ph258, !llvm.loop !56
+  br i1 %.not189, label %.preheader237, label %.lr.ph258, !llvm.loop !55
 
 .lr.ph260:                                        ; preds = %.preheader237, %279
   %.0176259 = phi i64 [ %280, %279 ], [ %247, %.preheader237 ]
@@ -1661,7 +1661,7 @@ big_sub2.exit:                                    ; preds = %.lr.ph63.i, %244, %
 279:                                              ; preds = %.lr.ph260
   %280 = add i64 %.0176259, -1
   %281 = icmp ugt i64 %280, 1
-  br i1 %281, label %.lr.ph260, label %pm_integer_free.exit217, !llvm.loop !57
+  br i1 %281, label %.lr.ph260, label %pm_integer_free.exit217, !llvm.loop !56
 
 pm_integer_free.exit217:                          ; preds = %.lr.ph260, %279, %.preheader237
   %.0176.lcssa = phi i64 [ %247, %.preheader237 ], [ 1, %279 ], [ %.0176259, %.lr.ph260 ]
@@ -1800,8 +1800,8 @@ attributes #14 = { nounwind }
 !45 = distinct !{!45, !11}
 !46 = distinct !{!46, !11}
 !47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !11}
+!49 = distinct !{!49, !11}
 !50 = distinct !{!50, !11}
 !51 = distinct !{!51, !11}
 !52 = distinct !{!52, !11}
@@ -1809,4 +1809,3 @@ attributes #14 = { nounwind }
 !54 = distinct !{!54, !11}
 !55 = distinct !{!55, !11}
 !56 = distinct !{!56, !11}
-!57 = distinct !{!57, !11}

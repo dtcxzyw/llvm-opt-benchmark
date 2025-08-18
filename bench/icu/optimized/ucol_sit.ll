@@ -2093,7 +2093,7 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
 20:                                               ; preds = %.split
   %21 = load i32, ptr %3, align 4, !tbaa !13
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.critedge, label %.split, !llvm.loop !50
+  br i1 %22, label %.critedge, label %.split, !llvm.loop !48
 
 .critedge:                                        ; preds = %7, %7, %13, %20, %.split, %.split
   %.us-phi = phi ptr [ %18, %.split ], [ %18, %.split ], [ %18, %20 ], [ %11, %13 ], [ %11, %7 ], [ %11, %7 ]
@@ -2262,6 +2262,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !45 = !{!44, !26, i64 4}
 !46 = distinct !{!46, !28}
 !47 = distinct !{!47, !28}
-!48 = distinct !{!48, !28, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !28}
+!48 = distinct !{!48, !28}

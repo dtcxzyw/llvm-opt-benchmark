@@ -2765,8 +2765,8 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Gf
   %5 = load double, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
-  %.fr43 = freeze i8 %7
-  %8 = trunc i8 %.fr43 to i1
+  %.fr47 = freeze i8 %7
+  %8 = trunc i8 %.fr47 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2775,62 +2775,111 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Gf
   %13 = trunc i8 %.fr to i1
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
-  %.023.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph ]
-  %.0822.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.023.us, i64 32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+  %.023.us.us = phi ptr [ %.1.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %1, %.lr.ph.split.us ]
+  %.0822.us.us = phi ptr [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %2, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %15, %5
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.023.us, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 40
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
-  %.not.i.i.us.not = icmp eq i8 %19, 0
-  br i1 %.not.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, label %21
+  %.not.i.i.us.us.not = icmp eq i8 %19, 0
+  br i1 %.not.i.i.us.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, label %21
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, %.lr.ph.split.us.split.us
   %20 = fcmp olt double %15, %5
-  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.023.us, i64 48
+21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us
+  %22 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %23, %10
-  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us: ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = xor i8 %.fr, %26
-  %28 = and i8 %27, 1
-  %.not9.i.i.us = icmp eq i8 %28, 0
+  %27 = and i8 %26, 1
+  %.not9.i.i.us.us = icmp eq i8 %27, 0
+  %28 = fcmp olt double %23, %10
+  %or.cond = select i1 %.not9.i.i.us.us, i1 %28, i1 false
+  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us: ; preds = %21
+  %.old = fcmp olt double %23, %10
+  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+  %.sink = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %.19.us.us = phi ptr [ %.023.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %29 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 %.sink
+  %.1.us.us = load ptr, ptr %29, align 8
+  %.not.us.us = icmp eq ptr %.1.us.us, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !41
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+  %.023.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph.split.us ]
+  %.0822.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.023.us, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp oeq double %31, %5
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us.split
+  %33 = getelementptr inbounds nuw i8, ptr %.023.us, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not.i.i.us.not = icmp eq i8 %35, 0
+  br i1 %.not.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, label %37
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us.split
+  %36 = fcmp olt double %31, %5
+  br i1 %36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %.023.us, i64 48
+  %39 = load double, ptr %38, align 8
+  %40 = fcmp oeq double %39, %10
+  br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not9.i.i.us = icmp eq i8 %43, 0
   br i1 %.not9.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %21
-  %29 = fcmp olt double %23, %10
-  br i1 %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %30
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %37
+  %44 = fcmp olt double %39, %10
+  br i1 %44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %45
 
-30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %or.cond.i7.i.i.us = select i1 %24, i1 %33, i1 false
-  %not.or.cond.i7.i.i.us = xor i1 %or.cond.i7.i.i.us, true
-  %34 = or i1 %not.or.cond.i7.i.i.us, %13
-  br i1 %34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %46 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  %or.cond.i7.i.i.us = select i1 %40, i1 %48, i1 false
+  br i1 %or.cond.i7.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %45, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
-  %.sink = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 24, %30 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %.19.us = phi ptr [ %.023.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.0822.us, %30 ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %35 = getelementptr inbounds nuw i8, ptr %.023.us, i64 %.sink
-  %.1.us = load ptr, ptr %35, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %45, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  %.sink54 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 24, %45 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %.19.us = phi ptr [ %.023.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.0822.us, %45 ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.023.us, i64 %.sink54
+  %.1.us = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %.1.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -2838,122 +2887,122 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.th
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34
   %.023.us24 = phi ptr [ %.1.us38, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %1, %.lr.ph.split ]
   %.0822.us25 = phi ptr [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %2, %.lr.ph.split ]
-  %36 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 32
-  %37 = load double, ptr %36, align 8
-  %38 = fcmp oeq double %37, %5
-  br i1 %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %50 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 32
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %51, %5
+  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26: ; preds = %.lr.ph.split.split.us
-  %39 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
-  %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not.i.i.us27 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.us27, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %53 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 1
+  %.not.i.i.us27 = icmp eq i8 %55, 0
+  br i1 %.not.i.i.us27, label %61, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, %.lr.ph.split.split.us
-  %42 = fcmp olt double %37, %5
-  br i1 %42, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %43
+  %56 = fcmp olt double %51, %5
+  br i1 %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %57
 
-43:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
-  %44 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  %or.cond.i.i.i.us = select i1 %38, i1 %46, i1 false
+57:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %58 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
+  %59 = load i8, ptr %58, align 8
+  %60 = trunc i8 %59 to i1
+  %or.cond.i.i.i.us = select i1 %52, i1 %60, i1 false
   br i1 %or.cond.i.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26
-  %48 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp oeq double %49, %10
-  br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31
+61:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26
+  %62 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 48
+  %63 = load double, ptr %62, align 8
+  %64 = fcmp oeq double %63, %10
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29: ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not9.i.i.us30 = icmp eq i8 %53, 0
-  %54 = fcmp olt double %49, %10
-  %or.cond = select i1 %.not9.i.i.us30, i1 %54, i1 false
-  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29: ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 56
+  %66 = load i8, ptr %65, align 8
+  %67 = and i8 %66, 1
+  %.not9.i.i.us30 = icmp eq i8 %67, 0
+  %68 = fcmp olt double %63, %10
+  %or.cond46 = select i1 %.not9.i.i.us30, i1 %68, i1 false
+  br i1 %or.cond46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31: ; preds = %47
-  %.old = fcmp olt double %49, %10
-  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31: ; preds = %61
+  %.old45 = fcmp olt double %63, %10
+  br i1 %.old45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %43
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %57
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
-  %.sink48 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ 24, %43 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
-  %.19.us36 = phi ptr [ %.023.us24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ %.0822.us25, %43 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 %.sink48
-  %.1.us38 = load ptr, ptr %55, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28, %57, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+  %.sink55 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ 24, %57 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
+  %.19.us36 = phi ptr [ %.023.us24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ %.0822.us25, %57 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 %.sink55
+  %.1.us38 = load ptr, ptr %69, align 8
   %.not.us39 = icmp eq ptr %.1.us38, null
-  br i1 %.not.us39, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !43
+  br i1 %.not.us39, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !41
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
   %.023 = phi ptr [ %.1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %1, %.lr.ph.split ]
   %.0822 = phi ptr [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %2, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i8, ptr %.023, i64 32
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp oeq double %57, %5
-  br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.023, i64 32
+  %71 = load double, ptr %70, align 8
+  %72 = fcmp oeq double %71, %5
+  br i1 %72, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i: ; preds = %.lr.ph.split.split
-  %59 = getelementptr inbounds nuw i8, ptr %.023, i64 40
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not.i.i = icmp eq i8 %61, 0
-  br i1 %.not.i.i, label %67, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.023, i64 40
+  %74 = load i8, ptr %73, align 8
+  %75 = and i8 %74, 1
+  %.not.i.i = icmp eq i8 %75, 0
+  br i1 %.not.i.i, label %81, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, %.lr.ph.split.split
-  %62 = fcmp olt double %57, %5
-  br i1 %62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %63
+  %76 = fcmp olt double %71, %5
+  br i1 %76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %77
 
-63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.023, i64 40
-  %65 = load i8, ptr %64, align 8
-  %66 = trunc i8 %65 to i1
-  %or.cond.i.i.i = select i1 %58, i1 %66, i1 false
+77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.023, i64 40
+  %79 = load i8, ptr %78, align 8
+  %80 = trunc i8 %79 to i1
+  %or.cond.i.i.i = select i1 %72, i1 %80, i1 false
   br i1 %or.cond.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %.023, i64 48
-  %69 = load double, ptr %68, align 8
-  %70 = fcmp oeq double %69, %10
-  br i1 %70, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
+81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %.023, i64 48
+  %83 = load double, ptr %82, align 8
+  %84 = fcmp oeq double %83, %10
+  br i1 %84, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %.023, i64 56
-  %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not9.i.i = icmp eq i8 %73, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %.023, i64 56
+  %86 = load i8, ptr %85, align 8
+  %87 = and i8 %86, 1
+  %.not9.i.i = icmp eq i8 %87, 0
   br i1 %.not9.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %67
-  %74 = fcmp olt double %69, %10
-  br i1 %74, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %75
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %81
+  %88 = fcmp olt double %83, %10
+  br i1 %88, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %89
 
-75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %.023, i64 56
-  %77 = load i8, ptr %76, align 8
-  %78 = trunc i8 %77 to i1
-  %or.cond.i7.i.i = select i1 %70, i1 %78, i1 false
+89:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %.023, i64 56
+  %91 = load i8, ptr %90, align 8
+  %92 = trunc i8 %91 to i1
+  %or.cond.i7.i.i = select i1 %84, i1 %92, i1 false
   br i1 %or.cond.i7.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %75, %63, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %89, %77, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %63, %75, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
-  %.sink49 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ 16, %75 ], [ 16, %63 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
-  %.19 = phi ptr [ %.0822, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.023, %75 ], [ %.023, %63 ], [ %.023, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.023, i64 %.sink49
-  %.1 = load ptr, ptr %79, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %77, %89, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+  %.sink56 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ 16, %89 ], [ 16, %77 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
+  %.19 = phi ptr [ %.0822, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.023, %89 ], [ %.023, %77 ], [ %.023, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
+  %93 = getelementptr inbounds nuw i8, ptr %.023, i64 %.sink56
+  %.1 = load ptr, ptr %93, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %4
-  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ]
+._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, %4
+  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ]
   ret ptr %.08.lcssa
 }
 
@@ -2966,8 +3015,8 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Gf
   %5 = load double, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
-  %.fr35 = freeze i8 %7
-  %8 = trunc i8 %.fr35 to i1
+  %.fr39 = freeze i8 %7
+  %8 = trunc i8 %.fr39 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2976,63 +3025,114 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10Gf
   %13 = trunc i8 %.fr to i1
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
-  %.016.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph ]
-  %.0815.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.016.us, i64 32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+  %.016.us.us = phi ptr [ %.1.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %1, %.lr.ph.split.us ]
+  %.0815.us.us = phi ptr [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %2, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %5, %15
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.016.us, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 40
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
-  %.not.i.i.us = icmp eq i8 %19, 0
-  br i1 %.not.i.i.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  %.not.i.i.us.us = icmp eq i8 %19, 0
+  br i1 %.not.i.i.us.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, %.lr.ph.split.us.split.us
   %20 = fcmp olt double %5, %15
-  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.016.us, i64 48
+21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us
+  %22 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %10, %23
-  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us: ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = xor i8 %26, %.fr
-  %28 = and i8 %27, 1
-  %.not9.i.i.us = icmp eq i8 %28, 0
-  br i1 %.not9.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %27 = and i8 %26, 1
+  %.not9.i.i.us.us = icmp ne i8 %27, 0
+  %28 = fcmp olt double %10, %23
+  %or.cond = select i1 %.not9.i.i.us.us, i1 %28, i1 false
+  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %21
-  %29 = fcmp olt double %10, %23
-  br i1 %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %30
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us: ; preds = %21
+  %.old = fcmp olt double %10, %23
+  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
-  %or.cond.i7.i.i.us = and i1 %24, %13
-  br i1 %or.cond.i7.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %30
-  %31 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %.19.us.us = phi ptr [ %.0815.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %29 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 %.sink
+  %.1.us.us = load ptr, ptr %29, align 8
+  %.not.us.us = icmp eq ptr %.1.us.us, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !42
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+  %.016.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph.split.us ]
+  %.0815.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.016.us, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp oeq double %5, %31
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us.split
+  %33 = getelementptr inbounds nuw i8, ptr %.016.us, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not.i.i.us = icmp eq i8 %35, 0
+  br i1 %.not.i.i.us, label %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us.split
+  %36 = fcmp olt double %5, %31
+  br i1 %36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %.016.us, i64 48
+  %39 = load double, ptr %38, align 8
+  %40 = fcmp oeq double %10, %39
+  br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not9.i.i.us.not = icmp eq i8 %43, 0
+  br i1 %.not9.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+  %44 = fcmp olt double %10, %39
+  br i1 %44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread: ; preds = %37
+  %45 = fcmp olt double %10, %39
+  br i1 %45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %46 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
-  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %.19.us = phi ptr [ %.0815.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.016.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %34 = getelementptr inbounds nuw i8, ptr %.016.us, i64 %.sink
-  %.1.us = load ptr, ptr %34, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  %.sink49 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %.19.us = phi ptr [ %.0815.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ %.016.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.016.us, i64 %.sink49
+  %.1.us = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %.1.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !45
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -3040,131 +3140,131 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.th
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
   %.016.us17 = phi ptr [ %.1.us30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %1, %.lr.ph.split ]
   %.0815.us18 = phi ptr [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %2, %.lr.ph.split ]
-  %35 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 32
-  %36 = load double, ptr %35, align 8
-  %37 = fcmp oeq double %5, %36
-  br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread
+  %50 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 32
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %5, %51
+  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19: ; preds = %.lr.ph.split.split.us
-  %38 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
-  %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not.i.i.us20.not = icmp eq i8 %40, 0
-  br i1 %.not.i.i.us20.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, label %47
+  %53 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 1
+  %.not.i.i.us20.not = icmp eq i8 %55, 0
+  br i1 %.not.i.i.us20.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, label %62
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
-  %41 = fcmp olt double %5, %36
-  br i1 %41, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %43
+  %56 = fcmp olt double %5, %51
+  br i1 %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %58
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread: ; preds = %.lr.ph.split.split.us
-  %42 = fcmp olt double %5, %36
-  br i1 %42, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+  %57 = fcmp olt double %5, %51
+  br i1 %57, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-43:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21
-  %44 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
+58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21
+  %59 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
-  %48 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp oeq double %10, %49
-  br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24
+62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
+  %63 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 48
+  %64 = load double, ptr %63, align 8
+  %65 = fcmp oeq double %10, %64
+  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22: ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not9.i.i.us23 = icmp ne i8 %53, 0
-  %54 = fcmp olt double %10, %49
-  %or.cond = select i1 %.not9.i.i.us23, i1 %54, i1 false
-  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22: ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 56
+  %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 1
+  %.not9.i.i.us23 = icmp ne i8 %68, 0
+  %69 = fcmp olt double %10, %64
+  %or.cond38 = select i1 %.not9.i.i.us23, i1 %69, i1 false
+  br i1 %or.cond38, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24: ; preds = %47
-  %.old = fcmp olt double %10, %49
-  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24: ; preds = %62
+  %.old37 = fcmp olt double %10, %64
+  br i1 %.old37, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %43
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %58
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
-  %.sink42 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ 16, %43 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
-  %.19.us28 = phi ptr [ %.0815.us18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ %.016.us17, %43 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 %.sink42
-  %.1.us30 = load ptr, ptr %55, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, %58, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+  %.sink50 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ 16, %58 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
+  %.19.us28 = phi ptr [ %.0815.us18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ %.016.us17, %58 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 %.sink50
+  %.1.us30 = load ptr, ptr %70, align 8
   %.not.us31 = icmp eq ptr %.1.us30, null
-  br i1 %.not.us31, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !46
+  br i1 %.not.us31, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !42
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
   %.016 = phi ptr [ %.1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %1, %.lr.ph.split ]
   %.0815 = phi ptr [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %2, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp oeq double %5, %57
-  br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
+  %71 = getelementptr inbounds nuw i8, ptr %.016, i64 32
+  %72 = load double, ptr %71, align 8
+  %73 = fcmp oeq double %5, %72
+  br i1 %73, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i: ; preds = %.lr.ph.split.split
-  %59 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not.i.i.not = icmp eq i8 %61, 0
-  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %68
+  %74 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %75 = load i8, ptr %74, align 8
+  %76 = and i8 %75, 1
+  %.not.i.i.not = icmp eq i8 %76, 0
+  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %83
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %62 = fcmp olt double %5, %57
-  br i1 %62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %64
+  %77 = fcmp olt double %5, %72
+  br i1 %77, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %79
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread: ; preds = %.lr.ph.split.split
-  %63 = fcmp olt double %5, %57
-  br i1 %63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %78 = fcmp olt double %5, %72
+  br i1 %78, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-64:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+79:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %81 = load i8, ptr %80, align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %70 = load double, ptr %69, align 8
-  %71 = fcmp oeq double %10, %70
-  br i1 %71, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
+83:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %.016, i64 48
+  %85 = load double, ptr %84, align 8
+  %86 = fcmp oeq double %10, %85
+  br i1 %86, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.016, i64 56
-  %73 = load i8, ptr %72, align 8
-  %74 = and i8 %73, 1
-  %.not9.i.i.not = icmp eq i8 %74, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %.016, i64 56
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 1
+  %.not9.i.i.not = icmp eq i8 %89, 0
   br i1 %.not9.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i
-  %75 = fcmp olt double %10, %70
-  br i1 %75, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+  %90 = fcmp olt double %10, %85
+  br i1 %90, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %68
-  %76 = fcmp olt double %10, %70
-  br i1 %76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %83
+  %91 = fcmp olt double %10, %85
+  br i1 %91, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.016, i64 56
-  %78 = load i8, ptr %77, align 8
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+  %92 = getelementptr inbounds nuw i8, ptr %.016, i64 56
+  %93 = load i8, ptr %92, align 8
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %64, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
-  %.sink43 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %64 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %.19 = phi ptr [ %.0815, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ %.016, %64 ], [ %.016, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %80 = getelementptr inbounds nuw i8, ptr %.016, i64 %.sink43
-  %.1 = load ptr, ptr %80, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %79, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %.sink51 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %79 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %.19 = phi ptr [ %.0815, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ %.016, %79 ], [ %.016, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %.016, i64 %.sink51
+  %.1 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, %4
-  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ]
+._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, %4
+  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ]
   ret ptr %.08.lcssa
 }
 
@@ -3177,8 +3277,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfI
   %5 = load double, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
-  %.fr43 = freeze i8 %7
-  %8 = trunc i8 %.fr43 to i1
+  %.fr47 = freeze i8 %7
+  %8 = trunc i8 %.fr47 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3187,62 +3287,111 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfI
   %13 = trunc i8 %.fr to i1
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
-  %.023.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph ]
-  %.0822.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.023.us, i64 32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+  %.023.us.us = phi ptr [ %.1.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %1, %.lr.ph.split.us ]
+  %.0822.us.us = phi ptr [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %2, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %15, %5
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.023.us, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 40
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
-  %.not.i.i.us.not = icmp eq i8 %19, 0
-  br i1 %.not.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, label %21
+  %.not.i.i.us.us.not = icmp eq i8 %19, 0
+  br i1 %.not.i.i.us.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, label %21
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, %.lr.ph.split.us.split.us
   %20 = fcmp olt double %15, %5
-  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.023.us, i64 48
+21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us
+  %22 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %23, %10
-  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us: ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = xor i8 %.fr, %26
-  %28 = and i8 %27, 1
-  %.not9.i.i.us = icmp eq i8 %28, 0
+  %27 = and i8 %26, 1
+  %.not9.i.i.us.us = icmp eq i8 %27, 0
+  %28 = fcmp olt double %23, %10
+  %or.cond = select i1 %.not9.i.i.us.us, i1 %28, i1 false
+  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us: ; preds = %21
+  %.old = fcmp olt double %23, %10
+  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+  %.sink = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %.19.us.us = phi ptr [ %.023.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ %.0822.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %29 = getelementptr inbounds nuw i8, ptr %.023.us.us, i64 %.sink
+  %.1.us.us = load ptr, ptr %29, align 8
+  %.not.us.us = icmp eq ptr %.1.us.us, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !43
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+  %.023.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph.split.us ]
+  %.0822.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.023.us, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp oeq double %31, %5
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us.split
+  %33 = getelementptr inbounds nuw i8, ptr %.023.us, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not.i.i.us.not = icmp eq i8 %35, 0
+  br i1 %.not.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, label %37
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us.split
+  %36 = fcmp olt double %31, %5
+  br i1 %36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %.023.us, i64 48
+  %39 = load double, ptr %38, align 8
+  %40 = fcmp oeq double %39, %10
+  br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not9.i.i.us = icmp eq i8 %43, 0
   br i1 %.not9.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %21
-  %29 = fcmp olt double %23, %10
-  br i1 %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %30
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %37
+  %44 = fcmp olt double %39, %10
+  br i1 %44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %45
 
-30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
-  %31 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %or.cond.i7.i.i.us = select i1 %24, i1 %33, i1 false
-  %not.or.cond.i7.i.i.us = xor i1 %or.cond.i7.i.i.us, true
-  %34 = or i1 %not.or.cond.i7.i.i.us, %13
-  br i1 %34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %46 = getelementptr inbounds nuw i8, ptr %.023.us, i64 56
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  %or.cond.i7.i.i.us = select i1 %40, i1 %48, i1 false
+  br i1 %or.cond.i7.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %45, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
-  %.sink = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 24, %30 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %.19.us = phi ptr [ %.023.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.0822.us, %30 ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %35 = getelementptr inbounds nuw i8, ptr %.023.us, i64 %.sink
-  %.1.us = load ptr, ptr %35, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %45, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  %.sink54 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 24, %45 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %.19.us = phi ptr [ %.023.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.0822.us, %45 ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.0822.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.023.us, i64 %.sink54
+  %.1.us = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %.1.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -3250,122 +3399,122 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.th
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34
   %.023.us24 = phi ptr [ %.1.us38, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %1, %.lr.ph.split ]
   %.0822.us25 = phi ptr [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %2, %.lr.ph.split ]
-  %36 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 32
-  %37 = load double, ptr %36, align 8
-  %38 = fcmp oeq double %37, %5
-  br i1 %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %50 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 32
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %51, %5
+  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26: ; preds = %.lr.ph.split.split.us
-  %39 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
-  %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, 1
-  %.not.i.i.us27 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.us27, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %53 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 1
+  %.not.i.i.us27 = icmp eq i8 %55, 0
+  br i1 %.not.i.i.us27, label %61, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26, %.lr.ph.split.split.us
-  %42 = fcmp olt double %37, %5
-  br i1 %42, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %43
+  %56 = fcmp olt double %51, %5
+  br i1 %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %57
 
-43:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
-  %44 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  %or.cond.i.i.i.us = select i1 %38, i1 %46, i1 false
+57:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28
+  %58 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 40
+  %59 = load i8, ptr %58, align 8
+  %60 = trunc i8 %59 to i1
+  %or.cond.i.i.i.us = select i1 %52, i1 %60, i1 false
   br i1 %or.cond.i.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26
-  %48 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp oeq double %49, %10
-  br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31
+61:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us26
+  %62 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 48
+  %63 = load double, ptr %62, align 8
+  %64 = fcmp oeq double %63, %10
+  br i1 %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29: ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not9.i.i.us30 = icmp eq i8 %53, 0
-  %54 = fcmp olt double %49, %10
-  %or.cond = select i1 %.not9.i.i.us30, i1 %54, i1 false
-  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29: ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 56
+  %66 = load i8, ptr %65, align 8
+  %67 = and i8 %66, 1
+  %.not9.i.i.us30 = icmp eq i8 %67, 0
+  %68 = fcmp olt double %63, %10
+  %or.cond46 = select i1 %.not9.i.i.us30, i1 %68, i1 false
+  br i1 %or.cond46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31: ; preds = %47
-  %.old = fcmp olt double %49, %10
-  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31: ; preds = %61
+  %.old45 = fcmp olt double %63, %10
+  br i1 %.old45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %43
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %57
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
-  %.sink48 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ 24, %43 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
-  %.19.us36 = phi ptr [ %.023.us24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ %.0822.us25, %43 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 %.sink48
-  %.1.us38 = load ptr, ptr %55, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28, %57, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35
+  %.sink55 = phi i64 [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ 24, %57 ], [ 24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
+  %.19.us36 = phi ptr [ %.023.us24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us35 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us29 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us31 ], [ %.0822.us25, %57 ], [ %.0822.us25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us28 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.023.us24, i64 %.sink55
+  %.1.us38 = load ptr, ptr %69, align 8
   %.not.us39 = icmp eq ptr %.1.us38, null
-  br i1 %.not.us39, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !49
+  br i1 %.not.us39, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !43
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
   %.023 = phi ptr [ %.1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %1, %.lr.ph.split ]
   %.0822 = phi ptr [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %2, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i8, ptr %.023, i64 32
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp oeq double %57, %5
-  br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.023, i64 32
+  %71 = load double, ptr %70, align 8
+  %72 = fcmp oeq double %71, %5
+  br i1 %72, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i: ; preds = %.lr.ph.split.split
-  %59 = getelementptr inbounds nuw i8, ptr %.023, i64 40
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not.i.i = icmp eq i8 %61, 0
-  br i1 %.not.i.i, label %67, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.023, i64 40
+  %74 = load i8, ptr %73, align 8
+  %75 = and i8 %74, 1
+  %.not.i.i = icmp eq i8 %75, 0
+  br i1 %.not.i.i, label %81, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, %.lr.ph.split.split
-  %62 = fcmp olt double %57, %5
-  br i1 %62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %63
+  %76 = fcmp olt double %71, %5
+  br i1 %76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %77
 
-63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.023, i64 40
-  %65 = load i8, ptr %64, align 8
-  %66 = trunc i8 %65 to i1
-  %or.cond.i.i.i = select i1 %58, i1 %66, i1 false
+77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.023, i64 40
+  %79 = load i8, ptr %78, align 8
+  %80 = trunc i8 %79 to i1
+  %or.cond.i.i.i = select i1 %72, i1 %80, i1 false
   br i1 %or.cond.i.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %.023, i64 48
-  %69 = load double, ptr %68, align 8
-  %70 = fcmp oeq double %69, %10
-  br i1 %70, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
+81:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %.023, i64 48
+  %83 = load double, ptr %82, align 8
+  %84 = fcmp oeq double %83, %10
+  br i1 %84, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %.023, i64 56
-  %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 1
-  %.not9.i.i = icmp eq i8 %73, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %.023, i64 56
+  %86 = load i8, ptr %85, align 8
+  %87 = and i8 %86, 1
+  %.not9.i.i = icmp eq i8 %87, 0
   br i1 %.not9.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %67
-  %74 = fcmp olt double %69, %10
-  br i1 %74, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %75
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %81
+  %88 = fcmp olt double %83, %10
+  br i1 %88, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %89
 
-75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %.023, i64 56
-  %77 = load i8, ptr %76, align 8
-  %78 = trunc i8 %77 to i1
-  %or.cond.i7.i.i = select i1 %70, i1 %78, i1 false
+89:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %.023, i64 56
+  %91 = load i8, ptr %90, align 8
+  %92 = trunc i8 %91 to i1
+  %or.cond.i7.i.i = select i1 %84, i1 %92, i1 false
   br i1 %or.cond.i7.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %75, %63, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %89, %77, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %63, %75, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
-  %.sink49 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ 16, %75 ], [ 16, %63 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
-  %.19 = phi ptr [ %.0822, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.023, %75 ], [ %.023, %63 ], [ %.023, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.023, i64 %.sink49
-  %.1 = load ptr, ptr %79, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %77, %89, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+  %.sink56 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ 16, %89 ], [ 16, %77 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
+  %.19 = phi ptr [ %.0822, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.023, %89 ], [ %.023, %77 ], [ %.023, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i ]
+  %93 = getelementptr inbounds nuw i8, ptr %.023, i64 %.sink56
+  %.1 = load ptr, ptr %93, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %4
-  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ]
+._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, %4
+  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us36, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us34 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ]
   ret ptr %.08.lcssa
 }
 
@@ -3487,8 +3636,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %5 = load double, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  %.fr73 = freeze i8 %7
-  %8 = trunc i8 %.fr73 to i1
+  %.fr78 = freeze i8 %7
+  %8 = trunc i8 %.fr78 to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3497,281 +3646,331 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %13 = trunc i8 %.fr to i1
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us
-  %.03051.us = phi ptr [ %.030.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ], [ %.03049, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us
+  %.03051.us.us = phi ptr [ %.030.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us ], [ %.03049, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %5, %15
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 40
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
-  %.not.i.i.us = icmp eq i8 %19, 0
-  br i1 %.not.i.i.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  %.not.i.i.us.us = icmp eq i8 %19, 0
+  br i1 %.not.i.i.us.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, %.lr.ph.split.us.split.us
   %20 = fcmp olt double %5, %15
-  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 48
+21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us
+  %22 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %10, %23
-  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 56
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us: ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = xor i8 %26, %.fr
-  %28 = and i8 %27, 1
-  %.not9.i.i.us = icmp eq i8 %28, 0
-  br i1 %.not9.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %27 = and i8 %26, 1
+  %.not9.i.i.us.us = icmp ne i8 %27, 0
+  %28 = fcmp olt double %10, %23
+  %or.cond = select i1 %.not9.i.i.us.us, i1 %28, i1 false
+  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %21
-  %29 = fcmp olt double %10, %23
-  br i1 %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, label %30
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us: ; preds = %21
+  %.old = fcmp olt double %10, %23
+  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
-  %or.cond.i7.i.i.us = and i1 %24, %13
-  br i1 %or.cond.i7.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %30
-  %31 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %.0.i.i32.us.us = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %29 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 %.sink
+  %.030.us.us = load ptr, ptr %29, align 8
+  %.not.us.us = icmp eq ptr %.030.us.us, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !44
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us
+  %.03051.us = phi ptr [ %.030.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ], [ %.03049, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp oeq double %5, %31
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us.split
+  %33 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not.i.i.us = icmp eq i8 %35, 0
+  br i1 %.not.i.i.us, label %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us.split
+  %36 = fcmp olt double %5, %31
+  br i1 %36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 48
+  %39 = load double, ptr %38, align 8
+  %40 = fcmp oeq double %10, %39
+  br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 56
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not9.i.i.us.not = icmp eq i8 %43, 0
+  br i1 %.not9.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+  %44 = fcmp olt double %10, %39
+  br i1 %44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread: ; preds = %37
+  %45 = fcmp olt double %10, %39
+  br i1 %45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %46 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 56
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
-  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %.0.i.i32.us = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ true, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %34 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 %.sink
-  %.030.us = load ptr, ptr %34, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  %.sink92 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %.0.i.i32.us = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ true, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.03051.us, i64 %.sink92
+  %.030.us = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %.030.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62
   %.03051.us54 = phi ptr [ %.030.us66, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62 ], [ %.03049, %.lr.ph.split ]
-  %35 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 32
-  %36 = load double, ptr %35, align 8
-  %37 = fcmp oeq double %5, %36
-  br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread
+  %50 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 32
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %5, %51
+  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55: ; preds = %.lr.ph.split.split.us
-  %38 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 40
-  %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not.i.i.us56.not = icmp eq i8 %40, 0
-  br i1 %.not.i.i.us56.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57, label %47
+  %53 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 40
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 1
+  %.not.i.i.us56.not = icmp eq i8 %55, 0
+  br i1 %.not.i.i.us56.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57, label %62
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55
-  %41 = fcmp olt double %5, %36
-  br i1 %41, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %43
+  %56 = fcmp olt double %5, %51
+  br i1 %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %58
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread: ; preds = %.lr.ph.split.split.us
-  %42 = fcmp olt double %5, %36
-  br i1 %42, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
+  %57 = fcmp olt double %5, %51
+  br i1 %57, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
 
-43:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57
-  %44 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 40
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62
+58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57
+  %59 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 40
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55
-  %48 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp oeq double %10, %49
-  br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60
+62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us55
+  %63 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 48
+  %64 = load double, ptr %63, align 8
+  %65 = fcmp oeq double %10, %64
+  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58: ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not9.i.i.us59 = icmp ne i8 %53, 0
-  %54 = fcmp olt double %10, %49
-  %or.cond = select i1 %.not9.i.i.us59, i1 %54, i1 false
-  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58: ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 56
+  %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 1
+  %.not9.i.i.us59 = icmp ne i8 %68, 0
+  %69 = fcmp olt double %10, %64
+  %or.cond77 = select i1 %.not9.i.i.us59, i1 %69, i1 false
+  br i1 %or.cond77, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60: ; preds = %47
-  %.old = fcmp olt double %10, %49
-  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60: ; preds = %62
+  %.old76 = fcmp olt double %10, %64
+  br i1 %.old76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, %43
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, %58
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
-  %.sink84 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60 ], [ 16, %43 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57 ]
-  %.0.i.i32.us64 = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60 ], [ true, %43 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 %.sink84
-  %.030.us66 = load ptr, ptr %55, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57, %58, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63
+  %.sink93 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60 ], [ 16, %58 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57 ]
+  %.0.i.i32.us64 = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us63 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us58 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us60 ], [ true, %58 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us57 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.03051.us54, i64 %.sink93
+  %.030.us66 = load ptr, ptr %70, align 8
   %.not.us67 = icmp eq ptr %.030.us66, null
-  br i1 %.not.us67, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !52
+  br i1 %.not.us67, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !44
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
   %.03051 = phi ptr [ %.030, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35 ], [ %.03049, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i8, ptr %.03051, i64 32
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp oeq double %5, %57
-  br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
+  %71 = getelementptr inbounds nuw i8, ptr %.03051, i64 32
+  %72 = load double, ptr %71, align 8
+  %73 = fcmp oeq double %5, %72
+  br i1 %73, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i: ; preds = %.lr.ph.split.split
-  %59 = getelementptr inbounds nuw i8, ptr %.03051, i64 40
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not.i.i.not = icmp eq i8 %61, 0
-  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %68
+  %74 = getelementptr inbounds nuw i8, ptr %.03051, i64 40
+  %75 = load i8, ptr %74, align 8
+  %76 = and i8 %75, 1
+  %.not.i.i.not = icmp eq i8 %76, 0
+  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %83
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %62 = fcmp olt double %5, %57
-  br i1 %62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %64
+  %77 = fcmp olt double %5, %72
+  br i1 %77, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %79
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread: ; preds = %.lr.ph.split.split
-  %63 = fcmp olt double %5, %57
-  br i1 %63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %78 = fcmp olt double %5, %72
+  br i1 %78, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-64:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.03051, i64 40
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
+79:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %.03051, i64 40
+  %81 = load i8, ptr %80, align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
 
-68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %.03051, i64 48
-  %70 = load double, ptr %69, align 8
-  %71 = fcmp oeq double %10, %70
-  br i1 %71, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
+83:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %.03051, i64 48
+  %85 = load double, ptr %84, align 8
+  %86 = fcmp oeq double %10, %85
+  br i1 %86, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.03051, i64 56
-  %73 = load i8, ptr %72, align 8
-  %74 = and i8 %73, 1
-  %.not9.i.i.not = icmp eq i8 %74, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %.03051, i64 56
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 1
+  %.not9.i.i.not = icmp eq i8 %89, 0
   br i1 %.not9.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i
-  %75 = fcmp olt double %10, %70
-  br i1 %75, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+  %90 = fcmp olt double %10, %85
+  br i1 %90, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %68
-  %76 = fcmp olt double %10, %70
-  br i1 %76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %83
+  %91 = fcmp olt double %10, %85
+  br i1 %91, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.03051, i64 56
-  %78 = load i8, ptr %77, align 8
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
+  %92 = getelementptr inbounds nuw i8, ptr %.03051, i64 56
+  %93 = load i8, ptr %92, align 8
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %64, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
-  %.sink85 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %64 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %.0.i.i32 = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ true, %64 ], [ true, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %80 = getelementptr inbounds nuw i8, ptr %.03051, i64 %.sink85
-  %.030 = load ptr, ptr %80, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %79, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %.sink94 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %79 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %.0.i.i32 = phi i1 [ false, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ true, %79 ], [ true, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %.03051, i64 %.sink94
+  %.030 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %.030, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
-  %.029.lcssa = phi ptr [ %.03051, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35 ], [ %.03051.us54, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62 ], [ %.03051.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ]
-  %.0.lcssa = phi i1 [ %.0.i.i32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35 ], [ %.0.i.i32.us64, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62 ], [ %.0.i.i32.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ]
-  br i1 %.0.lcssa, label %._crit_edge.thread, label %86
+._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35
+  %.029.lcssa = phi ptr [ %.03051, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35 ], [ %.03051.us54, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62 ], [ %.03051.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ], [ %.03051.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us ]
+  %.0.lcssa = phi i1 [ %.0.i.i32, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35 ], [ %.0.i.i32.us64, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us62 ], [ %.0.i.i32.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us ], [ %.0.i.i32.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread35.us.us ]
+  br i1 %.0.lcssa, label %._crit_edge.thread, label %101
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.029.lcssa81 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %4, %2 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %.029.lcssa81, %82
-  br i1 %83, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %84
+  %.029.lcssa88 = phi ptr [ %.029.lcssa, %._crit_edge ], [ %4, %2 ]
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %.029.lcssa88, %97
+  br i1 %98, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %99
 
-84:                                               ; preds = %._crit_edge.thread
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.029.lcssa81) #20
-  br label %86
+99:                                               ; preds = %._crit_edge.thread
+  %100 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.029.lcssa88) #20
+  br label %101
 
-86:                                               ; preds = %84, %._crit_edge
-  %.029.lcssa80 = phi ptr [ %.029.lcssa81, %84 ], [ %.029.lcssa, %._crit_edge ]
-  %.sroa.015.0 = phi ptr [ %85, %84 ], [ %.029.lcssa, %._crit_edge ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
-  %88 = load double, ptr %87, align 8
-  %89 = load double, ptr %1, align 8
-  %90 = fcmp oeq double %88, %89
-  br i1 %90, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
+101:                                              ; preds = %99, %._crit_edge
+  %.029.lcssa87 = phi ptr [ %.029.lcssa88, %99 ], [ %.029.lcssa, %._crit_edge ]
+  %.sroa.015.0 = phi ptr [ %100, %99 ], [ %.029.lcssa, %._crit_edge ]
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 32
+  %103 = load double, ptr %102, align 8
+  %104 = load double, ptr %1, align 8
+  %105 = fcmp oeq double %103, %104
+  br i1 %105, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8: ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 40
-  %92 = load i8, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %94 = load i8, ptr %93, align 8
-  %95 = xor i8 %94, %92
-  %96 = and i8 %95, 1
-  %.not.i.i9 = icmp eq i8 %96, 0
-  br i1 %.not.i.i9, label %106, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8: ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 40
+  %107 = load i8, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %109 = load i8, ptr %108, align 8
+  %110 = xor i8 %109, %107
+  %111 = and i8 %110, 1
+  %.not.i.i9 = icmp eq i8 %111, 0
+  br i1 %.not.i.i9, label %121, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8, %86
-  %97 = fcmp olt double %88, %89
-  br i1 %97, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %98
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8, %101
+  %112 = fcmp olt double %103, %104
+  br i1 %112, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %113
 
-98:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 40
-  %100 = load i8, ptr %99, align 8
-  %101 = trunc i8 %100 to i1
-  %or.cond.i.i.i6 = select i1 %90, i1 %101, i1 false
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %103 = load i8, ptr %102, align 8
-  %104 = trunc i8 %103 to i1
-  %not.or.cond.i.i.i6 = xor i1 %or.cond.i.i.i6, true
-  %105 = select i1 %not.or.cond.i.i.i6, i1 true, i1 %104
-  br i1 %105, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40
-
-106:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 48
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %109 = load double, ptr %107, align 8
-  %110 = load double, ptr %108, align 8
-  %111 = fcmp oeq double %109, %110
-  br i1 %111, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10
-
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12: ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 56
-  %113 = load i8, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
+113:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 40
   %115 = load i8, ptr %114, align 8
-  %116 = xor i8 %115, %113
-  %117 = and i8 %116, 1
-  %.not9.i.i13 = icmp eq i8 %117, 0
+  %116 = trunc i8 %115 to i1
+  %or.cond.i.i.i6 = select i1 %105, i1 %116, i1 false
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %118 = load i8, ptr %117, align 8
+  %119 = trunc i8 %118 to i1
+  %not.or.cond.i.i.i6 = xor i1 %or.cond.i.i.i6, true
+  %120 = select i1 %not.or.cond.i.i.i6, i1 true, i1 %119
+  br i1 %120, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40
+
+121:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i8
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %124 = load double, ptr %122, align 8
+  %125 = load double, ptr %123, align 8
+  %126 = fcmp oeq double %124, %125
+  br i1 %126, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12: ; preds = %121
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 56
+  %128 = load i8, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %130 = load i8, ptr %129, align 8
+  %131 = xor i8 %130, %128
+  %132 = and i8 %131, 1
+  %.not9.i.i13 = icmp eq i8 %132, 0
   br i1 %.not9.i.i13, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12, %106
-  %118 = fcmp olt double %109, %110
-  br i1 %118, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %119
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12, %121
+  %133 = fcmp olt double %124, %125
+  br i1 %133, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40, label %134
 
-119:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 56
-  %121 = load i8, ptr %120, align 8
-  %122 = trunc i8 %121 to i1
-  %or.cond.i7.i.i11 = select i1 %111, i1 %122, i1 false
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %124 = load i8, ptr %123, align 8
-  %125 = trunc i8 %124 to i1
+134:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.015.0, i64 56
+  %136 = load i8, ptr %135, align 8
+  %137 = trunc i8 %136 to i1
+  %or.cond.i7.i.i11 = select i1 %126, i1 %137, i1 false
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %139 = load i8, ptr %138, align 8
+  %140 = trunc i8 %139 to i1
   %not.or.cond.i7.i.i11 = xor i1 %or.cond.i7.i.i11, true
-  %126 = select i1 %not.or.cond.i7.i.i11, i1 true, i1 %125
-  br i1 %126, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40
+  %141 = select i1 %not.or.cond.i7.i.i11, i1 true, i1 %140
+  br i1 %141, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread: ; preds = %119, %98, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread: ; preds = %134, %113, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i12
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40: ; preds = %119, %98, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5, %._crit_edge.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread
-  %.sroa.028.0 = phi ptr [ %.sroa.015.0, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread ], [ null, %._crit_edge.thread ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5 ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10 ], [ null, %98 ], [ null, %119 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread ], [ %.029.lcssa81, %._crit_edge.thread ], [ %.029.lcssa80, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5 ], [ %.029.lcssa80, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10 ], [ %.029.lcssa80, %98 ], [ %.029.lcssa80, %119 ]
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread40: ; preds = %134, %113, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5, %._crit_edge.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread
+  %.sroa.028.0 = phi ptr [ %.sroa.015.0, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread ], [ null, %._crit_edge.thread ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5 ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10 ], [ null, %113 ], [ null, %134 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit14.thread ], [ %.029.lcssa88, %._crit_edge.thread ], [ %.029.lcssa87, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i5 ], [ %.029.lcssa87, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i10 ], [ %.029.lcssa87, %113 ], [ %.029.lcssa87, %134 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.028.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4297,8 +4496,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfI
   %5 = load double, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8
-  %.fr35 = freeze i8 %7
-  %8 = trunc i8 %.fr35 to i1
+  %.fr39 = freeze i8 %7
+  %8 = trunc i8 %.fr39 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4307,63 +4506,114 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfI
   %13 = trunc i8 %.fr to i1
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
-  %.016.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph ]
-  %.0815.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %.016.us, i64 32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
+  %.016.us.us = phi ptr [ %.1.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %1, %.lr.ph.split.us ]
+  %.0815.us.us = phi ptr [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ], [ %2, %.lr.ph.split.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 32
   %15 = load double, ptr %14, align 8
   %16 = fcmp oeq double %5, %15
-  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  br i1 %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.016.us, i64 40
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
+  %17 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 40
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
-  %.not.i.i.us = icmp eq i8 %19, 0
-  br i1 %.not.i.i.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+  %.not.i.i.us.us = icmp eq i8 %19, 0
+  br i1 %.not.i.i.us.us, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us, %.lr.ph.split.us.split.us
   %20 = fcmp olt double %5, %15
-  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  br i1 %20, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
-  %22 = getelementptr inbounds nuw i8, ptr %.016.us, i64 48
+21:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us.us
+  %22 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %10, %23
-  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us: ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 56
   %26 = load i8, ptr %25, align 8
-  %27 = xor i8 %26, %.fr
-  %28 = and i8 %27, 1
-  %.not9.i.i.us = icmp eq i8 %28, 0
-  br i1 %.not9.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %27 = and i8 %26, 1
+  %.not9.i.i.us.us = icmp ne i8 %27, 0
+  %28 = fcmp olt double %10, %23
+  %or.cond = select i1 %.not9.i.i.us.us, i1 %28, i1 false
+  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, %21
-  %29 = fcmp olt double %10, %23
-  br i1 %29, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %30
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us: ; preds = %21
+  %.old = fcmp olt double %10, %23
+  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
 
-30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
-  %or.cond.i7.i.i.us = and i1 %24, %13
-  br i1 %or.cond.i7.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us
+  br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %30
-  %31 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us
+  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %.19.us.us = phi ptr [ %.0815.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.us ], [ %.016.us.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us.us ]
+  %29 = getelementptr inbounds nuw i8, ptr %.016.us.us, i64 %.sink
+  %.1.us.us = load ptr, ptr %29, align 8
+  %.not.us.us = icmp eq ptr %.1.us.us, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !45
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+  %.016.us = phi ptr [ %.1.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %1, %.lr.ph.split.us ]
+  %.0815.us = phi ptr [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %2, %.lr.ph.split.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.016.us, i64 32
+  %31 = load double, ptr %30, align 8
+  %32 = fcmp oeq double %5, %31
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us: ; preds = %.lr.ph.split.us.split
+  %33 = getelementptr inbounds nuw i8, ptr %.016.us, i64 40
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 1
+  %.not.i.i.us = icmp eq i8 %35, 0
+  br i1 %.not.i.i.us, label %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us, %.lr.ph.split.us.split
+  %36 = fcmp olt double %5, %31
+  br i1 %36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %.016.us, i64 48
+  %39 = load double, ptr %38, align 8
+  %40 = fcmp oeq double %10, %39
+  br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us: ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+  %42 = load i8, ptr %41, align 8
+  %43 = and i8 %42, 1
+  %.not9.i.i.us.not = icmp eq i8 %43, 0
+  br i1 %.not9.i.i.us.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
+  %44 = fcmp olt double %10, %39
+  br i1 %44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread: ; preds = %37
+  %45 = fcmp olt double %10, %39
+  br i1 %45, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us
+  %46 = getelementptr inbounds nuw i8, ptr %.016.us, i64 56
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
+
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
-  %.sink = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %.19.us = phi ptr [ %.0815.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.016.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
-  %34 = getelementptr inbounds nuw i8, ptr %.016.us, i64 %.sink
-  %.1.us = load ptr, ptr %34, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us
+  %.sink49 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %.19.us = phi ptr [ %.0815.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us.thread ], [ %.016.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us ], [ %.016.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us ]
+  %49 = getelementptr inbounds nuw i8, ptr %.016.us, i64 %.sink49
+  %.1.us = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %.1.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !54
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -4371,131 +4621,131 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.th
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
   %.016.us17 = phi ptr [ %.1.us30, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %1, %.lr.ph.split ]
   %.0815.us18 = phi ptr [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %2, %.lr.ph.split ]
-  %35 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 32
-  %36 = load double, ptr %35, align 8
-  %37 = fcmp oeq double %5, %36
-  br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread
+  %50 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 32
+  %51 = load double, ptr %50, align 8
+  %52 = fcmp oeq double %5, %51
+  br i1 %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19: ; preds = %.lr.ph.split.split.us
-  %38 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
-  %39 = load i8, ptr %38, align 8
-  %40 = and i8 %39, 1
-  %.not.i.i.us20.not = icmp eq i8 %40, 0
-  br i1 %.not.i.i.us20.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, label %47
+  %53 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 1
+  %.not.i.i.us20.not = icmp eq i8 %55, 0
+  br i1 %.not.i.i.us20.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, label %62
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
-  %41 = fcmp olt double %5, %36
-  br i1 %41, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %43
+  %56 = fcmp olt double %5, %51
+  br i1 %56, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %58
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread: ; preds = %.lr.ph.split.split.us
-  %42 = fcmp olt double %5, %36
-  br i1 %42, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+  %57 = fcmp olt double %5, %51
+  br i1 %57, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-43:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21
-  %44 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
+58:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21
+  %59 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 40
+  %60 = load i8, ptr %59, align 8
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
 
-47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
-  %48 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp oeq double %10, %49
-  br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24
+62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i.us19
+  %63 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 48
+  %64 = load double, ptr %63, align 8
+  %65 = fcmp oeq double %10, %64
+  br i1 %65, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22: ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 56
-  %52 = load i8, ptr %51, align 8
-  %53 = and i8 %52, 1
-  %.not9.i.i.us23 = icmp ne i8 %53, 0
-  %54 = fcmp olt double %10, %49
-  %or.cond = select i1 %.not9.i.i.us23, i1 %54, i1 false
-  br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22: ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 56
+  %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 1
+  %.not9.i.i.us23 = icmp ne i8 %68, 0
+  %69 = fcmp olt double %10, %64
+  %or.cond38 = select i1 %.not9.i.i.us23, i1 %69, i1 false
+  br i1 %or.cond38, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24: ; preds = %47
-  %.old = fcmp olt double %10, %49
-  br i1 %.old, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24: ; preds = %62
+  %.old37 = fcmp olt double %10, %64
+  br i1 %.old37, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %43
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %58
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
-  %.sink42 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ 16, %43 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
-  %.19.us28 = phi ptr [ %.0815.us18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ %.016.us17, %43 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 %.sink42
-  %.1.us30 = load ptr, ptr %55, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21, %58, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27
+  %.sink50 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ 16, %58 ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
+  %.19.us28 = phi ptr [ %.0815.us18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread.us27 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21.thread ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i.us22 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.us24 ], [ %.016.us17, %58 ], [ %.016.us17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.us21 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.016.us17, i64 %.sink50
+  %.1.us30 = load ptr, ptr %70, align 8
   %.not.us31 = icmp eq ptr %.1.us30, null
-  br i1 %.not.us31, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !55
+  br i1 %.not.us31, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !45
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
   %.016 = phi ptr [ %.1, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %1, %.lr.ph.split ]
   %.0815 = phi ptr [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %2, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp oeq double %5, %57
-  br i1 %58, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
+  %71 = getelementptr inbounds nuw i8, ptr %.016, i64 32
+  %72 = load double, ptr %71, align 8
+  %73 = fcmp oeq double %5, %72
+  br i1 %73, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i: ; preds = %.lr.ph.split.split
-  %59 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 1
-  %.not.i.i.not = icmp eq i8 %61, 0
-  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %68
+  %74 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %75 = load i8, ptr %74, align 8
+  %76 = and i8 %75, 1
+  %.not.i.i.not = icmp eq i8 %76, 0
+  br i1 %.not.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, label %83
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %62 = fcmp olt double %5, %57
-  br i1 %62, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %64
+  %77 = fcmp olt double %5, %72
+  br i1 %77, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %79
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread: ; preds = %.lr.ph.split.split
-  %63 = fcmp olt double %5, %57
-  br i1 %63, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %78 = fcmp olt double %5, %72
+  br i1 %78, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
-64:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+79:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %81 = load i8, ptr %80, align 8
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %70 = load double, ptr %69, align 8
-  %71 = fcmp oeq double %10, %70
-  br i1 %71, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
+83:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %.016, i64 48
+  %85 = load double, ptr %84, align 8
+  %86 = fcmp oeq double %10, %85
+  br i1 %86, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.016, i64 56
-  %73 = load i8, ptr %72, align 8
-  %74 = and i8 %73, 1
-  %.not9.i.i.not = icmp eq i8 %74, 0
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i: ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %.016, i64 56
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 1
+  %.not9.i.i.not = icmp eq i8 %89, 0
   br i1 %.not9.i.i.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i
-  %75 = fcmp olt double %10, %70
-  br i1 %75, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+  %90 = fcmp olt double %10, %85
+  br i1 %90, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %68
-  %76 = fcmp olt double %10, %70
-  br i1 %76, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread: ; preds = %83
+  %91 = fcmp olt double %10, %85
+  br i1 %91, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.016, i64 56
-  %78 = load i8, ptr %77, align 8
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
+  %92 = getelementptr inbounds nuw i8, ptr %.016, i64 56
+  %93 = load i8, ptr %92, align 8
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %64, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i.i, %79, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit
   br label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12
 
-_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
-  %.sink43 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %64 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %.19 = phi ptr [ %.0815, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ %.016, %64 ], [ %.016, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
-  %80 = getelementptr inbounds nuw i8, ptr %.016, i64 %.sink43
-  %.1 = load ptr, ptr %80, align 8
+_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12: ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit, %79, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread
+  %.sink51 = phi i64 [ 24, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ 16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ 16, %79 ], [ 16, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %.19 = phi ptr [ %.0815, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i.thread ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i.i ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i.i ], [ %.016, %79 ], [ %.016, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %.016, i64 %.sink51
+  %.1 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, %4
-  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ]
+._crit_edge:                                      ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12, %4
+  %.08.lcssa = phi ptr [ %2, %4 ], [ %.19, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12 ], [ %.19.us28, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us26 ], [ %.19.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us ], [ %.19.us.us, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__10GfIntervalEEclERKS1_S4_.exit.thread12.us.us ]
   ret ptr %.08.lcssa
 }
 
@@ -4588,19 +4838,8 @@ attributes #24 = { builtin allocsize(0) }
 !38 = distinct !{!38, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalplERKS0_"}
 !39 = distinct !{!39, !8}
 !40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !8, !42}
+!41 = distinct !{!41, !8}
+!42 = distinct !{!42, !8}
+!43 = distinct !{!43, !8}
 !44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8, !42}
-!46 = distinct !{!46, !8, !42}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8, !42}
-!49 = distinct !{!49, !8, !42}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8, !42}
-!52 = distinct !{!52, !8, !42}
-!53 = distinct !{!53, !8}
-!54 = distinct !{!54, !8, !42}
-!55 = distinct !{!55, !8, !42}
-!56 = distinct !{!56, !8}
+!45 = distinct !{!45, !8}

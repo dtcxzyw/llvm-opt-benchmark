@@ -400,9 +400,9 @@ define internal void @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_
   %2 = alloca %"struct.std::array.48", align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(200) %2, i8 0, i64 200, i1 false)
-  %3 = load ptr, ptr %0, align 8, !tbaa !134
+  %3 = load ptr, ptr %0, align 8, !tbaa !133
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !135
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2)
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr noundef nonnull %2) #13
   unreachable
@@ -448,7 +448,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: cold mustprogress noinline optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !136
   invoke void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %1) #23
           to label %3 unwind label %4
 
@@ -483,7 +483,7 @@ declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #15 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #23
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !136
   ret void
 }
 
@@ -659,10 +659,9 @@ attributes #23 = { cold }
 !129 = !{!51, !14, i64 48}
 !130 = !{!22, !22, i64 0}
 !131 = distinct !{!131, !119}
-!132 = distinct !{!132, !119, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = !{!135, !8, i64 0}
-!135 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
-!136 = !{!38, !9, i64 24}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"vtable pointer", !11, i64 0}
+!132 = distinct !{!132, !119}
+!133 = !{!134, !8, i64 0}
+!134 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
+!135 = !{!38, !9, i64 24}
+!136 = !{!137, !137, i64 0}
+!137 = !{!"vtable pointer", !11, i64 0}

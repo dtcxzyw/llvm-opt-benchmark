@@ -531,8 +531,8 @@ declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_u
 define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8
-  %.fr180 = freeze i64 %6
-  %7 = trunc i64 %.fr180 to i32
+  %.fr = freeze i64 %6
+  %7 = trunc i64 %.fr to i32
   %8 = lshr i32 %7, 8
   %9 = and i32 %8, 255
   %10 = add nsw i32 %9, -7
@@ -541,11 +541,11 @@ define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) 
   %12 = and i32 %7, 64512
   %13 = icmp eq i32 %12, 4096
   %14 = icmp eq i32 %9, 20
-  br i1 %13, label %15, label %switch.early.test181
+  br i1 %13, label %15, label %switch.early.test
 
-switch.early.test181:                             ; preds = %4
-  %trunc182 = trunc i32 %8 to i8
-  switch i8 %trunc182, label %.critedge [
+switch.early.test:                                ; preds = %4
+  %trunc = trunc i32 %8 to i8
+  switch i8 %trunc, label %.critedge [
     i8 20, label %15
     i8 15, label %15
     i8 10, label %15
@@ -554,7 +554,7 @@ switch.early.test181:                             ; preds = %4
     i8 7, label %15
   ]
 
-15:                                               ; preds = %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %switch.early.test181, %4
+15:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = icmp eq ptr %17, null
@@ -788,89 +788,82 @@ decode_indexed_line.exit:                         ; preds = %125, %120
   br label %.critedge
 
 142:                                              ; preds = %61
-  br i1 %11, label %144, label %switch.early.test
+  %or.cond23 = or i1 %13, %11
+  br i1 %or.cond23, label %143, label %159
 
-switch.early.test:                                ; preds = %142
-  %143 = trunc i64 %.fr180 to i16
-  %trunc = and i16 %143, -512
-  switch i16 %trunc, label %160 [
-    i16 4608, label %144
-    i16 4096, label %144
-  ]
-
-144:                                              ; preds = %switch.early.test, %switch.early.test, %142
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %146 = load i32, ptr %145, align 8
-  %147 = and i32 %146, 65535
-  %148 = mul nsw i32 %147, %55
-  %149 = add i32 %148, %27
-  %150 = load i32, ptr %3, align 4, !tbaa !56
-  %151 = mul i32 %150, %22
-  %152 = lshr i32 %151, 3
-  %153 = add i32 %149, %152
-  %154 = tail call i32 @lv_fs_seek(ptr noundef %20, i32 noundef %153, i32 noundef 0) #4
-  %.not16.i172 = icmp eq i32 %154, 0
+143:                                              ; preds = %142
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %145 = load i32, ptr %144, align 8
+  %146 = and i32 %145, 65535
+  %147 = mul nsw i32 %146, %55
+  %148 = add i32 %147, %27
+  %149 = load i32, ptr %3, align 4, !tbaa !56
+  %150 = mul i32 %149, %22
+  %151 = lshr i32 %150, 3
+  %152 = add i32 %148, %151
+  %153 = tail call i32 @lv_fs_seek(ptr noundef %20, i32 noundef %152, i32 noundef 0) #4
+  %.not16.i172 = icmp eq i32 %153, 0
   br i1 %.not16.i172, label %fs_read_file_at.exit174, label %.critedge
 
-fs_read_file_at.exit174:                          ; preds = %144
-  %155 = mul i32 %23, %22
-  %156 = lshr i32 %155, 3
-  %157 = tail call i32 @lv_fs_read(ptr noundef %20, ptr noundef %57, i32 noundef %156, ptr noundef null) #4
-  %.not169 = icmp eq i32 %157, 0
-  br i1 %.not169, label %158, label %.critedge
+fs_read_file_at.exit174:                          ; preds = %143
+  %154 = mul i32 %23, %22
+  %155 = lshr i32 %154, 3
+  %156 = tail call i32 @lv_fs_read(ptr noundef %20, ptr noundef %57, i32 noundef %155, ptr noundef null) #4
+  %.not169 = icmp eq i32 %156, 0
+  br i1 %.not169, label %157, label %.critedge
 
-158:                                              ; preds = %fs_read_file_at.exit174
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.2156, ptr %159, align 8, !tbaa !34
+157:                                              ; preds = %fs_read_file_at.exit174
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %.2156, ptr %158, align 8, !tbaa !34
   br label %.critedge
 
-160:                                              ; preds = %switch.early.test
-  br i1 %14, label %161, label %.critedge
+159:                                              ; preds = %142
+  br i1 %14, label %160, label %.critedge
 
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds nuw i8, ptr %.2156, i64 8
-  %163 = load i32, ptr %162, align 8
-  %164 = and i32 %163, 65535
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %166 = load i32, ptr %165, align 8
-  %167 = and i32 %166, 65535
-  %168 = mul nsw i32 %167, %55
-  %169 = add i32 %168, %27
-  %170 = load i32, ptr %3, align 4, !tbaa !56
-  %171 = shl i32 %170, 1
-  %172 = and i32 %171, 536870910
-  %173 = add i32 %169, %172
-  %174 = tail call fastcc i32 @fs_read_file_at(ptr noundef %20, i32 noundef %173, ptr noundef %57, i32 noundef %164, ptr noundef null)
-  %.not167 = icmp eq i32 %174, 0
-  br i1 %.not167, label %175, label %.critedge
+160:                                              ; preds = %159
+  %161 = getelementptr inbounds nuw i8, ptr %.2156, i64 8
+  %162 = load i32, ptr %161, align 8
+  %163 = and i32 %162, 65535
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %165 = load i32, ptr %164, align 8
+  %166 = and i32 %165, 65535
+  %167 = mul nsw i32 %166, %55
+  %168 = add i32 %167, %27
+  %169 = load i32, ptr %3, align 4, !tbaa !56
+  %170 = shl i32 %169, 1
+  %171 = and i32 %170, 536870910
+  %172 = add i32 %168, %171
+  %173 = tail call fastcc i32 @fs_read_file_at(ptr noundef %20, i32 noundef %172, ptr noundef %57, i32 noundef %163, ptr noundef null)
+  %.not167 = icmp eq i32 %173, 0
+  br i1 %.not167, label %174, label %.critedge
 
-175:                                              ; preds = %161
-  %176 = load i64, ptr %5, align 8
-  %177 = lshr i64 %176, 48
-  %178 = trunc nuw nsw i64 %177 to i32
-  %179 = load i32, ptr %165, align 8
-  %180 = and i32 %179, 65535
-  %181 = mul nuw nsw i32 %180, %178
-  %182 = add nuw i32 %181, 12
-  %183 = load i32, ptr %28, align 4, !tbaa !50
-  %184 = lshr i32 %180, 1
-  %185 = mul nsw i32 %184, %183
-  %186 = load i32, ptr %3, align 4, !tbaa !56
-  %187 = add i32 %182, %186
-  %188 = add i32 %187, %185
-  %189 = zext nneg i32 %164 to i64
-  %190 = getelementptr inbounds nuw i8, ptr %57, i64 %189
-  %191 = tail call fastcc i32 @fs_read_file_at(ptr noundef %20, i32 noundef %188, ptr noundef %190, i32 noundef %23, ptr noundef null)
-  %.not168 = icmp eq i32 %191, 0
-  br i1 %.not168, label %192, label %.critedge
+174:                                              ; preds = %160
+  %175 = load i64, ptr %5, align 8
+  %176 = lshr i64 %175, 48
+  %177 = trunc nuw nsw i64 %176 to i32
+  %178 = load i32, ptr %164, align 8
+  %179 = and i32 %178, 65535
+  %180 = mul nuw nsw i32 %179, %177
+  %181 = add nuw i32 %180, 12
+  %182 = load i32, ptr %28, align 4, !tbaa !50
+  %183 = lshr i32 %179, 1
+  %184 = mul nsw i32 %183, %182
+  %185 = load i32, ptr %3, align 4, !tbaa !56
+  %186 = add i32 %181, %185
+  %187 = add i32 %186, %184
+  %188 = zext nneg i32 %163 to i64
+  %189 = getelementptr inbounds nuw i8, ptr %57, i64 %188
+  %190 = tail call fastcc i32 @fs_read_file_at(ptr noundef %20, i32 noundef %187, ptr noundef %189, i32 noundef %23, ptr noundef null)
+  %.not168 = icmp eq i32 %190, 0
+  br i1 %.not168, label %191, label %.critedge
 
-192:                                              ; preds = %175
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %.2156, ptr %193, align 8, !tbaa !34
+191:                                              ; preds = %174
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %.2156, ptr %192, align 8, !tbaa !34
   br label %.critedge
 
-.critedge:                                        ; preds = %switch.early.test181, %144, %15, %40, %160, %192, %161, %175, %158, %fs_read_file_at.exit174, %fs_read_file_at.exit.thread, %140, %54
-  %.0 = phi i32 [ 0, %switch.early.test181 ], [ 0, %15 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 1, %140 ], [ 1, %158 ], [ 0, %fs_read_file_at.exit174 ], [ 1, %192 ], [ 0, %161 ], [ 0, %175 ], [ 0, %160 ], [ 0, %40 ], [ 0, %144 ]
+.critedge:                                        ; preds = %switch.early.test, %143, %15, %40, %159, %191, %160, %174, %157, %fs_read_file_at.exit174, %fs_read_file_at.exit.thread, %140, %54
+  %.0 = phi i32 [ 0, %switch.early.test ], [ 0, %15 ], [ 0, %54 ], [ 0, %fs_read_file_at.exit.thread ], [ 1, %140 ], [ 1, %157 ], [ 0, %fs_read_file_at.exit174 ], [ 1, %191 ], [ 0, %160 ], [ 0, %174 ], [ 0, %159 ], [ 0, %40 ], [ 0, %143 ]
   ret i32 %.0
 }
 
@@ -1250,7 +1243,7 @@ bit_extend.exit.us:                               ; preds = %.lr.ph.i.us, %.lr.p
   %86 = add nuw i32 %.0548, 1
   %.057 = getelementptr inbounds i8, ptr %.0579, i64 -1
   %87 = icmp ult i32 %86, %22
-  br i1 %87, label %.lr.ph.split, label %.loopexit, !llvm.loop !66
+  br i1 %87, label %.lr.ph.split, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph.split, %bit_extend.exit.us, %50
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1395,6 +1388,4 @@ attributes #4 = { nounwind }
 !61 = !{!25, !19, i64 56}
 !62 = !{!25, !5, i64 8}
 !63 = distinct !{!63, !60}
-!64 = distinct !{!64, !60, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = distinct !{!66, !60}
+!64 = distinct !{!64, !60}

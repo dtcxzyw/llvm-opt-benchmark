@@ -1901,7 +1901,7 @@ define void @_ZN9uu_expand16expand_shortcuts17h672d27761356097cE(ptr noalias nou
   br label %.lr.ph.split.split.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h38b4936a01b59d55E.exit.i"
-  %.promoted.i.i.i.i = phi i64 [ %.promoted.i.i.i36.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h38b4936a01b59d55E.exit.i" ], [ 0, %.lr.ph.split.i ]
+  %.promoted.i.i.i.i = phi i64 [ %.promoted.i.i.i38.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h38b4936a01b59d55E.exit.i" ], [ 0, %.lr.ph.split.i ]
   %.lcssa111617.i = phi i64 [ %.lcssa1115.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h38b4936a01b59d55E.exit.i" ], [ 0, %.lr.ph.split.i ]
   %114 = icmp ugt i64 %.promoted.i.i.i.i, %61
   br i1 %114, label %select.unfold.i, label %.lr.ph.split.split.i.i.i.i
@@ -1952,8 +1952,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i: ; preds = 
   %131 = add i64 %130, %.sroa.6.0.i.i.i.i
   %132 = icmp ugt i64 %131, %61
   %133 = add i64 %.sroa.6.0.i.i.i.i, %115
-  %or.cond83.i.i.i.i.not = icmp ult i64 %133, %61
-  br i1 %or.cond83.i.i.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i", label %134
+  %or.cond.i.i.i.i.not = icmp ult i64 %133, %61
+  br i1 %or.cond.i.i.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i", label %134
 
 134:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i", %129
   br i1 %132, label %select.unfold.i, label %.lr.ph.split.split.i.i.i.i
@@ -1965,7 +1965,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i: ; preds = 
   br i1 %136, label %select.unfold.i, label %134
 
 select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i", %.noexc43, %134, %.lr.ph.split.split.i
-  %.promoted.i.i.i36.i = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.split.split.i ], [ %131, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i" ], [ %131, %134 ], [ %61, %.noexc43 ]
+  %.promoted.i.i.i38.i = phi i64 [ %.promoted.i.i.i.i, %.lr.ph.split.split.i ], [ %131, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i" ], [ %131, %134 ], [ %61, %.noexc43 ]
   %.lcssa1115.i = phi i64 [ %.lcssa111617.i, %.lr.ph.split.split.i ], [ %131, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i" ], [ %.lcssa111617.i, %134 ], [ %.lcssa111617.i, %.noexc43 ]
   %137 = phi i1 [ true, %.lr.ph.split.split.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i" ], [ true, %134 ], [ true, %.noexc43 ]
   %.pn.i = phi i64 [ %61, %.lr.ph.split.split.i ], [ %133, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h70b02ee05855bcfaE.exit.i.i.i.i" ], [ %61, %134 ], [ %61, %.noexc43 ]

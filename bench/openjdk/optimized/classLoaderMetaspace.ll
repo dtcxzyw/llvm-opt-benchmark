@@ -265,7 +265,7 @@ _ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit: ; preds = %
   %33 = load i8, ptr %6, align 1
   %34 = trunc i8 %33 to i1
   %or.cond3 = select i1 %or.cond, i1 %34, i1 false
-  br i1 %or.cond3, label %.split, label %.critedge, !llvm.loop !9
+  br i1 %or.cond3, label %.split, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit
   %.us-phi = phi ptr [ %30, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit ], [ %19, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us ]
@@ -576,7 +576,5 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}

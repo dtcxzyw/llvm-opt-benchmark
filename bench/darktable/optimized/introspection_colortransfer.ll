@@ -486,7 +486,7 @@ capture_histogram.exit168.preheader:              ; preds = %149
 ._crit_edge.us:                                   ; preds = %184
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %capture_histogram.exit168._crit_edge, label %.lr.ph.us, !llvm.loop !67
+  br i1 %exitcond214.not, label %capture_histogram.exit168._crit_edge, label %.lr.ph.us
 
 capture_histogram.exit168._crit_edge:             ; preds = %._crit_edge.us, %.lr.ph184, %capture_histogram.exit168.preheader
   %188 = getelementptr inbounds nuw i8, ptr %11, i64 8276
@@ -548,7 +548,7 @@ capture_histogram.exit168._crit_edge:             ; preds = %._crit_edge.us, %.l
 ._crit_edge.us.i:                                 ; preds = %219
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %get_cluster_mapping.exit, label %.preheader.us.i, !llvm.loop !69
+  br i1 %exitcond40.not.i, label %get_cluster_mapping.exit, label %.preheader.us.i
 
 get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i, %capture_histogram.exit168._crit_edge
   %220 = load i32, ptr %151, align 4, !tbaa !47
@@ -736,7 +736,7 @@ get_clusters.exit.us:                             ; preds = %228
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
-  br i1 %exitcond225.not, label %._crit_edge194, label %.lr.ph190.us, !llvm.loop !70
+  br i1 %exitcond225.not, label %._crit_edge194, label %.lr.ph190.us
 
 ._crit_edge194:                                   ; preds = %._crit_edge191.us, %.lr.ph193, %get_cluster_mapping.exit
   tail call void @free(ptr noundef %198) #14
@@ -778,11 +778,11 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   br i1 %15, label %.lr.ph, label %.preheader3.thread
 
 .lr.ph:                                           ; preds = %4
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 176), align 8, !tbaa !71
-  %.val.i = load ptr, ptr %16, align 8, !tbaa !102
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 176), align 8, !tbaa !67
+  %.val.i = load ptr, ptr %16, align 8, !tbaa !98
   %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %.val.i.promoted = load i64, ptr %.val.i, align 8, !tbaa !105
-  %.promoted = load i64, ptr %17, align 8, !tbaa !107
+  %.val.i.promoted = load i64, ptr %.val.i, align 8, !tbaa !101
+  %.promoted = load i64, ptr %17, align 8, !tbaa !103
   %18 = zext nneg i32 %1 to i64
   %19 = shl nuw nsw i64 %18, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %19, i1 false), !tbaa !51
@@ -790,8 +790,8 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   br label %158
 
 .preheader3:                                      ; preds = %158
-  store i64 %167, ptr %.val.i, align 8, !tbaa !105
-  store i64 %182, ptr %17, align 8, !tbaa !107
+  store i64 %167, ptr %.val.i, align 8, !tbaa !101
+  store i64 %182, ptr %17, align 8, !tbaa !103
   %20 = icmp sgt i32 %8, 0
   br i1 %20, label %.preheader3.split.us, label %.preheader2.us28.preheader
 
@@ -805,10 +805,10 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
   %22 = sitofp i32 %.12.val to float
   %23 = sitofp i32 %.8.val to float
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 176), align 8
-  %.val.i134.us = load ptr, ptr %24, align 8, !tbaa !102
+  %.val.i134.us = load ptr, ptr %24, align 8, !tbaa !98
   %25 = getelementptr inbounds nuw i8, ptr %.val.i134.us, i64 8
-  %.val.i134.us.promoted = load i64, ptr %.val.i134.us, align 8, !tbaa !105
-  %.promoted44 = load i64, ptr %25, align 8, !tbaa !107
+  %.val.i134.us.promoted = load i64, ptr %.val.i134.us, align 8, !tbaa !101
+  %.promoted44 = load i64, ptr %25, align 8, !tbaa !103
   %26 = shl nuw nsw i64 %wide.trip.count.i.pre-phi83, 2
   br label %.preheader2.us
 
@@ -828,7 +828,7 @@ define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 
 ._crit_edge.us:                                   ; preds = %._crit_edge.split.us.us.thread, %54
   %27 = add nuw nsw i32 %.012427.us, 1
   %exitcond72.not = icmp eq i32 %27, 10
-  br i1 %exitcond72.not, label %.split.us, label %.preheader2.us, !llvm.loop !108
+  br i1 %exitcond72.not, label %.split.us, label %.preheader2.us
 
 .lr.ph26.us:                                      ; preds = %._crit_edge.split.us.us, %54
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %54 ], [ 0, %._crit_edge.split.us.us ]
@@ -988,11 +988,11 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
   store float %126, ptr %124, align 4, !tbaa !51
   %127 = add nuw nsw i32 %.01258.us.us, 1
   %exitcond65.not = icmp eq i32 %127, %1
-  br i1 %exitcond65.not, label %._crit_edge.split.us.us, label %.lr.ph.preheader.i.us.us, !llvm.loop !109
+  br i1 %exitcond65.not, label %._crit_edge.split.us.us, label %.lr.ph.preheader.i.us.us
 
 .split.us:                                        ; preds = %._crit_edge.us
-  store i64 %63, ptr %.val.i134.us, align 8, !tbaa !105
-  store i64 %70, ptr %25, align 8, !tbaa !107
+  store i64 %63, ptr %.val.i134.us, align 8, !tbaa !101
+  store i64 %70, ptr %25, align 8, !tbaa !103
   br label %.split
 
 .preheader2.us28.preheader:                       ; preds = %.preheader3
@@ -1052,7 +1052,7 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
 ._crit_edge.us36:                                 ; preds = %156
   %157 = add nuw nsw i32 %.012427.us29, 1
   %exitcond61.not = icmp eq i32 %157, 10
-  br i1 %exitcond61.not, label %.split, label %.preheader1.us32, !llvm.loop !110
+  br i1 %exitcond61.not, label %.split, label %.preheader1.us32
 
 158:                                              ; preds = %.lr.ph, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
@@ -1164,12 +1164,12 @@ define void @gui_init(ptr noundef writeonly captures(none) initializes((704, 712
 
 _iop_gui_alloc.exit:                              ; preds = %1, %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %2, ptr %4, align 16, !tbaa !111
+  store ptr %2, ptr %4, align 16, !tbaa !104
   %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #14
   %6 = tail call ptr @gtk_label_new(ptr noundef %5) #14
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %6, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull @.str.19, double noundef 0.000000e+00, ptr noundef nonnull @.str.20, i32 noundef 3, ptr noundef null) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store ptr %6, ptr %7, align 16, !tbaa !112
+  store ptr %6, ptr %7, align 16, !tbaa !105
   ret void
 }
 
@@ -1185,21 +1185,21 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !113
+  %3 = load i32, ptr @introspection, align 8, !tbaa !106
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
   br i1 %or.cond, label %8, label %.preheader
 
 6:                                                ; preds = %.preheader
-  store ptr @introspection_init.f0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 72), align 8, !tbaa !116
-  store ptr @introspection_init.f8, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 776), align 8, !tbaa !116
+  store ptr @introspection_init.f0, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 72), align 8, !tbaa !109
+  store ptr @introspection_init.f8, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 776), align 8, !tbaa !109
   br label %8
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw [10 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !116
+  store ptr %0, ptr %7, align 8, !tbaa !109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %6, label %.preheader
@@ -1447,53 +1447,46 @@ attributes #16 = { nounwind willreturn memory(read) }
 !64 = !{!"p1 _ZTS18dt_iop_module_so_t", !9, i64 0}
 !65 = !{!66, !13, i64 0}
 !66 = !{!"dt_iop_colortransfer_params_t", !13, i64 0, !10, i64 4, !10, i64 8196, !10, i64 8236, !13, i64 8276}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !68}
-!70 = distinct !{!70, !68}
-!71 = !{!72, !89, i64 176}
-!72 = !{!"darktable_t", !73, i64 0, !13, i64 4, !13, i64 8, !37, i64 16, !37, i64 24, !37, i64 32, !37, i64 40, !74, i64 48, !75, i64 56, !57, i64 64, !76, i64 72, !77, i64 80, !78, i64 88, !79, i64 96, !80, i64 104, !81, i64 112, !82, i64 120, !83, i64 128, !84, i64 136, !85, i64 144, !86, i64 152, !87, i64 160, !88, i64 168, !89, i64 176, !90, i64 184, !91, i64 192, !92, i64 200, !93, i64 208, !94, i64 216, !95, i64 224, !10, i64 232, !39, i64 2792, !39, i64 2832, !39, i64 2872, !39, i64 2912, !39, i64 2952, !38, i64 2992, !38, i64 3000, !38, i64 3008, !38, i64 3016, !38, i64 3024, !38, i64 3032, !38, i64 3040, !38, i64 3048, !38, i64 3056, !38, i64 3064, !38, i64 3072, !38, i64 3080, !38, i64 3088, !96, i64 3096, !37, i64 3104, !44, i64 3112, !37, i64 3120, !13, i64 3128, !10, i64 3132, !13, i64 3320, !13, i64 3324, !97, i64 3328, !98, i64 3336, !99, i64 3344, !100, i64 3384, !101, i64 3416}
-!73 = !{!"dt_codepath_t", !13, i64 0}
-!74 = !{!"p1 _ZTS11_JsonParser", !9, i64 0}
-!75 = !{!"p1 _ZTS9dt_conf_t", !9, i64 0}
-!76 = !{!"p1 _ZTS8dt_lib_t", !9, i64 0}
-!77 = !{!"p1 _ZTS17dt_view_manager_t", !9, i64 0}
-!78 = !{!"p1 _ZTS12dt_control_t", !9, i64 0}
-!79 = !{!"p1 _ZTS19dt_control_signal_t", !9, i64 0}
-!80 = !{!"p1 _ZTS12dt_gui_gtk_t", !9, i64 0}
-!81 = !{!"p1 _ZTS17dt_mipmap_cache_t", !9, i64 0}
-!82 = !{!"p1 _ZTS16dt_image_cache_t", !9, i64 0}
-!83 = !{!"p1 _ZTS12dt_bauhaus_t", !9, i64 0}
-!84 = !{!"p1 _ZTS13dt_database_t", !9, i64 0}
-!85 = !{!"p1 _ZTS14dt_pwstorage_t", !9, i64 0}
-!86 = !{!"p1 _ZTS11dt_camctl_t", !9, i64 0}
-!87 = !{!"p1 _ZTS15dt_collection_t", !9, i64 0}
-!88 = !{!"p1 _ZTS14dt_selection_t", !9, i64 0}
-!89 = !{!"p1 _ZTS11dt_points_t", !9, i64 0}
-!90 = !{!"p1 _ZTS12dt_imageio_t", !9, i64 0}
-!91 = !{!"p1 _ZTS11dt_opencl_t", !9, i64 0}
-!92 = !{!"p1 _ZTS9dt_dbus_t", !9, i64 0}
-!93 = !{!"p1 _ZTS9dt_undo_t", !9, i64 0}
-!94 = !{!"p1 _ZTS16dt_colorspaces_t", !9, i64 0}
-!95 = !{!"p1 _ZTS9dt_l10n_t", !9, i64 0}
-!96 = !{!"", !13, i64 0}
-!97 = !{!"p1 _ZTS10_GTimeZone", !9, i64 0}
-!98 = !{!"p1 _ZTS10_GDateTime", !9, i64 0}
-!99 = !{!"dt_sys_resources_t", !18, i64 0, !18, i64 8, !16, i64 16, !16, i64 24, !13, i64 32}
-!100 = !{!"dt_backthumb_t", !44, i64 0, !44, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
-!101 = !{!"dt_gimp_t", !13, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !13, i64 28}
-!102 = !{!103, !104, i64 0}
-!103 = !{!"dt_points_t", !104, i64 0}
-!104 = !{!"p1 _ZTS17dt_points_state_t", !9, i64 0}
-!105 = !{!106, !18, i64 0}
-!106 = !{!"dt_points_state_t", !18, i64 0, !18, i64 8, !10, i64 16}
-!107 = !{!106, !18, i64 8}
-!108 = distinct !{!108, !68}
-!109 = distinct !{!109, !68}
-!110 = distinct !{!110, !68}
-!111 = !{!55, !9, i64 704}
-!112 = !{!55, !62, i64 816}
-!113 = !{!114, !13, i64 0}
-!114 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !38, i64 8, !18, i64 16, !115, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
-!115 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}
-!116 = !{!10, !10, i64 0}
+!67 = !{!68, !85, i64 176}
+!68 = !{!"darktable_t", !69, i64 0, !13, i64 4, !13, i64 8, !37, i64 16, !37, i64 24, !37, i64 32, !37, i64 40, !70, i64 48, !71, i64 56, !57, i64 64, !72, i64 72, !73, i64 80, !74, i64 88, !75, i64 96, !76, i64 104, !77, i64 112, !78, i64 120, !79, i64 128, !80, i64 136, !81, i64 144, !82, i64 152, !83, i64 160, !84, i64 168, !85, i64 176, !86, i64 184, !87, i64 192, !88, i64 200, !89, i64 208, !90, i64 216, !91, i64 224, !10, i64 232, !39, i64 2792, !39, i64 2832, !39, i64 2872, !39, i64 2912, !39, i64 2952, !38, i64 2992, !38, i64 3000, !38, i64 3008, !38, i64 3016, !38, i64 3024, !38, i64 3032, !38, i64 3040, !38, i64 3048, !38, i64 3056, !38, i64 3064, !38, i64 3072, !38, i64 3080, !38, i64 3088, !92, i64 3096, !37, i64 3104, !44, i64 3112, !37, i64 3120, !13, i64 3128, !10, i64 3132, !13, i64 3320, !13, i64 3324, !93, i64 3328, !94, i64 3336, !95, i64 3344, !96, i64 3384, !97, i64 3416}
+!69 = !{!"dt_codepath_t", !13, i64 0}
+!70 = !{!"p1 _ZTS11_JsonParser", !9, i64 0}
+!71 = !{!"p1 _ZTS9dt_conf_t", !9, i64 0}
+!72 = !{!"p1 _ZTS8dt_lib_t", !9, i64 0}
+!73 = !{!"p1 _ZTS17dt_view_manager_t", !9, i64 0}
+!74 = !{!"p1 _ZTS12dt_control_t", !9, i64 0}
+!75 = !{!"p1 _ZTS19dt_control_signal_t", !9, i64 0}
+!76 = !{!"p1 _ZTS12dt_gui_gtk_t", !9, i64 0}
+!77 = !{!"p1 _ZTS17dt_mipmap_cache_t", !9, i64 0}
+!78 = !{!"p1 _ZTS16dt_image_cache_t", !9, i64 0}
+!79 = !{!"p1 _ZTS12dt_bauhaus_t", !9, i64 0}
+!80 = !{!"p1 _ZTS13dt_database_t", !9, i64 0}
+!81 = !{!"p1 _ZTS14dt_pwstorage_t", !9, i64 0}
+!82 = !{!"p1 _ZTS11dt_camctl_t", !9, i64 0}
+!83 = !{!"p1 _ZTS15dt_collection_t", !9, i64 0}
+!84 = !{!"p1 _ZTS14dt_selection_t", !9, i64 0}
+!85 = !{!"p1 _ZTS11dt_points_t", !9, i64 0}
+!86 = !{!"p1 _ZTS12dt_imageio_t", !9, i64 0}
+!87 = !{!"p1 _ZTS11dt_opencl_t", !9, i64 0}
+!88 = !{!"p1 _ZTS9dt_dbus_t", !9, i64 0}
+!89 = !{!"p1 _ZTS9dt_undo_t", !9, i64 0}
+!90 = !{!"p1 _ZTS16dt_colorspaces_t", !9, i64 0}
+!91 = !{!"p1 _ZTS9dt_l10n_t", !9, i64 0}
+!92 = !{!"", !13, i64 0}
+!93 = !{!"p1 _ZTS10_GTimeZone", !9, i64 0}
+!94 = !{!"p1 _ZTS10_GDateTime", !9, i64 0}
+!95 = !{!"dt_sys_resources_t", !18, i64 0, !18, i64 8, !16, i64 16, !16, i64 24, !13, i64 32}
+!96 = !{!"dt_backthumb_t", !44, i64 0, !44, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
+!97 = !{!"dt_gimp_t", !13, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !13, i64 28}
+!98 = !{!99, !100, i64 0}
+!99 = !{!"dt_points_t", !100, i64 0}
+!100 = !{!"p1 _ZTS17dt_points_state_t", !9, i64 0}
+!101 = !{!102, !18, i64 0}
+!102 = !{!"dt_points_state_t", !18, i64 0, !18, i64 8, !10, i64 16}
+!103 = !{!102, !18, i64 8}
+!104 = !{!55, !9, i64 704}
+!105 = !{!55, !62, i64 816}
+!106 = !{!107, !13, i64 0}
+!107 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !38, i64 8, !18, i64 16, !108, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
+!108 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}
+!109 = !{!10, !10, i64 0}

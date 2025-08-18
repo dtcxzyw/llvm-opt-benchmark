@@ -5004,80 +5004,96 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %17 = icmp ult i32 %16, 10001
   %18 = sitofp i32 %3 to double
   %19 = fmul double %18, 1.000000e-05
+  br i1 %17, label %.split.us, label %.preheader40
+
+.split.us:                                        ; preds = %4
   %.not39 = icmp eq i32 %2, 0
-  br i1 %17, label %.preheader.us, label %.preheader40
+  br i1 %.not39, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us:                                    ; preds = %4, %.loopexit.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.loopexit.us ], [ 0, %4 ]
+.preheader.us.us:                                 ; preds = %.split.us, %.loopexit.split.us.us.us
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.loopexit.split.us.us.us ], [ 0, %.split.us ]
   %20 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv66
+  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv72
   store ptr %20, ptr %21, align 8, !tbaa !157
-  %22 = trunc nuw nsw i64 %indvars.iv66 to i32
-  br i1 %.not39, label %.preheader.split.us.us, label %.preheader.split.us48
+  %22 = trunc nuw nsw i64 %indvars.iv72 to i32
+  br label %23
 
-.preheader.split.us48:                            ; preds = %.preheader.us, %.preheader.split.us48
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader.split.us48 ], [ 0, %.preheader.us ]
-  %23 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %24 = shl nuw nsw i32 %23, %5
-  %25 = add i32 %24, %22
-  %26 = mul i32 %25, 65535
-  %27 = add i32 %26, %12
-  %28 = udiv i32 %27, %8
-  %29 = trunc i32 %28 to i16
-  %30 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv58
-  store i16 %29, ptr %30, align 2, !tbaa !48
+23:                                               ; preds = %23, %.preheader.us.us
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %23 ], [ 0, %.preheader.us.us ]
+  %24 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %25 = shl nuw nsw i32 %24, %5
+  %26 = add i32 %25, %22
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv68
+  store i16 %27, ptr %28, align 2, !tbaa !48
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 256
+  br i1 %exitcond71.not, label %.loopexit.split.us.us.us, label %23, !llvm.loop !191
+
+.loopexit.split.us.us.us:                         ; preds = %23
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next73, %13
+  br i1 %exitcond77.not, label %.split50.us, label %.preheader.us.us, !llvm.loop !192
+
+.preheader.us:                                    ; preds = %.split.us, %.loopexit.split.us47
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.loopexit.split.us47 ], [ 0, %.split.us ]
+  %29 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
+  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv62
+  store ptr %29, ptr %30, align 8, !tbaa !157
+  %31 = trunc nuw nsw i64 %indvars.iv62 to i32
+  br label %32
+
+32:                                               ; preds = %.preheader.us, %32
+  %indvars.iv58 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next59, %32 ]
+  %33 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %34 = shl nuw nsw i32 %33, %5
+  %35 = add i32 %34, %31
+  %36 = mul i32 %35, 65535
+  %37 = add i32 %36, %12
+  %38 = udiv i32 %37, %8
+  %39 = trunc i32 %38 to i16
+  %40 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv58
+  store i16 %39, ptr %40, align 2, !tbaa !48
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 256
-  br i1 %exitcond61.not, label %.loopexit.us, label %.preheader.split.us48, !llvm.loop !191
+  br i1 %exitcond61.not, label %.loopexit.split.us47, label %32, !llvm.loop !191
 
-.loopexit.us:                                     ; preds = %.preheader.split.us48, %.preheader.split.us.us
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next67, %13
-  br i1 %exitcond71.not, label %.split50.us, label %.preheader.us, !llvm.loop !192
-
-.preheader.split.us.us:                           ; preds = %.preheader.us, %.preheader.split.us.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.preheader.split.us.us ], [ 0, %.preheader.us ]
-  %31 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %32 = shl nuw nsw i32 %31, %5
-  %33 = add i32 %32, %22
-  %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv62
-  store i16 %34, ptr %35, align 2, !tbaa !48
+.loopexit.split.us47:                             ; preds = %32
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 256
-  br i1 %exitcond65.not, label %.loopexit.us, label %.preheader.split.us.us, !llvm.loop !194
+  %exitcond67.not = icmp eq i64 %indvars.iv.next63, %13
+  br i1 %exitcond67.not, label %.split50.us, label %.preheader.us, !llvm.loop !192
 
 .preheader40:                                     ; preds = %4, %.loopexit41
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.loopexit41 ], [ 0, %4 ]
-  %36 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
-  %37 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
-  store ptr %36, ptr %37, align 8, !tbaa !157
-  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
-  br label %39
+  %41 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
+  %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
+  store ptr %41, ptr %42, align 8, !tbaa !157
+  %43 = trunc nuw nsw i64 %indvars.iv54 to i32
+  br label %44
 
-39:                                               ; preds = %.preheader40, %39
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %39 ]
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  %41 = shl nuw nsw i32 %40, %5
-  %42 = add i32 %41, %38
-  %43 = uitofp i32 %42 to double
-  %44 = fmul double %10, %43
-  %45 = tail call double @pow(double noundef %44, double noundef %19) #30, !tbaa !43
-  %46 = tail call double @llvm.fmuladd.f64(double %45, double 6.553500e+04, double 5.000000e-01)
-  %47 = tail call double @llvm.floor.f64(double %46)
-  %48 = fptoui double %47 to i16
-  %49 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv
-  store i16 %48, ptr %49, align 2, !tbaa !48
+44:                                               ; preds = %.preheader40, %44
+  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %44 ]
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  %46 = shl nuw nsw i32 %45, %5
+  %47 = add i32 %46, %43
+  %48 = uitofp i32 %47 to double
+  %49 = fmul double %10, %48
+  %50 = tail call double @pow(double noundef %49, double noundef %19) #30, !tbaa !43
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 6.553500e+04, double 5.000000e-01)
+  %52 = tail call double @llvm.floor.f64(double %51)
+  %53 = fptoui double %52 to i16
+  %54 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
+  store i16 %53, ptr %54, align 2, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit41, label %39, !llvm.loop !195
+  br i1 %exitcond.not, label %.loopexit41, label %44, !llvm.loop !193
 
-.loopexit41:                                      ; preds = %39
+.loopexit41:                                      ; preds = %44
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %13
-  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !196
+  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !192
 
-.split50.us:                                      ; preds = %.loopexit41, %.loopexit.us
+.split50.us:                                      ; preds = %.loopexit41, %.loopexit.split.us47, %.loopexit.split.us.us.us
   ret void
 }
 
@@ -5097,11 +5113,11 @@ define range(i32 0, 4) i32 @png_set_option(ptr noalias noundef captures(address_
   %10 = select i1 %.not, i32 2, i32 3
   %11 = shl nuw nsw i32 %10, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %13 = load i32, ptr %12, align 8, !tbaa !197
+  %13 = load i32, ptr %12, align 8, !tbaa !194
   %14 = xor i32 %9, -1
   %15 = and i32 %13, %14
   %16 = or i32 %15, %11
-  store i32 %16, ptr %12, align 8, !tbaa !197
+  store i32 %16, ptr %12, align 8, !tbaa !194
   %17 = lshr i32 %13, %1
   %18 = and i32 %17, 3
   br label %19
@@ -5118,19 +5134,19 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
   br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !198
+  %4 = load ptr, ptr %0, align 8, !tbaa !195
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !201
+  %7 = load ptr, ptr %6, align 8, !tbaa !198
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = load ptr, ptr %4, align 8, !tbaa !204
+  %10 = load ptr, ptr %4, align 8, !tbaa !201
   %11 = icmp eq ptr %10, null
   br i1 %11, label %png_image_free_function.exit, label %12
 
@@ -5155,9 +5171,9 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
   br label %22
 
 22:                                               ; preds = %20, %16, %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !205
-  store ptr %2, ptr %0, align 8, !tbaa !198
-  %23 = load ptr, ptr %2, align 8, !tbaa !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !tbaa.struct !202
+  store ptr %2, ptr %0, align 8, !tbaa !195
+  %23 = load ptr, ptr %2, align 8, !tbaa !201
   call void @png_free(ptr noundef %23, ptr noundef nonnull %4) #30
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = load i8, ptr %24, align 8
@@ -5176,7 +5192,7 @@ define void @png_image_free(ptr noundef captures(address_is_null) %0) local_unna
 
 png_image_free_function.exit:                     ; preds = %9, %28, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  store ptr null, ptr %0, align 8, !tbaa !198
+  store ptr null, ptr %0, align 8, !tbaa !195
   br label %30
 
 30:                                               ; preds = %png_image_free_function.exit, %5, %3, %1
@@ -5188,9 +5204,9 @@ define noundef i32 @png_image_error(ptr noundef %0, ptr noundef %1) local_unname
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = tail call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 64, i64 noundef 0, ptr noundef %1) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !207
+  %6 = load i32, ptr %5, align 8, !tbaa !204
   %7 = or i32 %6, 2
-  store i32 %7, ptr %5, align 8, !tbaa !207
+  store i32 %7, ptr %5, align 8, !tbaa !204
   tail call void @png_image_free(ptr noundef %0)
   ret i32 0
 }
@@ -5459,19 +5475,16 @@ attributes #31 = { nounwind returns_twice }
 !189 = distinct !{!189, !26}
 !190 = distinct !{!190, !26}
 !191 = distinct !{!191, !26}
-!192 = distinct !{!192, !26, !193}
-!193 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!194 = distinct !{!194, !26, !193}
-!195 = distinct !{!195, !26}
-!196 = distinct !{!196, !26}
-!197 = !{!4, !10, i64 960}
-!198 = !{!199, !200, i64 0}
-!199 = !{!"", !200, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !5, i64 36}
-!200 = !{!"p1 _ZTS11png_control", !7, i64 0}
-!201 = !{!202, !7, i64 16}
-!202 = !{!"png_control", !203, i64 0, !51, i64 8, !7, i64 16, !12, i64 24, !9, i64 32, !10, i64 40, !10, i64 40}
-!203 = !{!"p1 _ZTS14png_struct_def", !7, i64 0}
-!204 = !{!202, !203, i64 0}
-!205 = !{i64 0, i64 8, !206, i64 8, i64 8, !50, i64 16, i64 8, !40, i64 24, i64 8, !44, i64 32, i64 8, !42, i64 40, i64 1, !27}
-!206 = !{!203, !203, i64 0}
-!207 = !{!199, !10, i64 32}
+!192 = distinct !{!192, !26}
+!193 = distinct !{!193, !26}
+!194 = !{!4, !10, i64 960}
+!195 = !{!196, !197, i64 0}
+!196 = !{!"", !197, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !5, i64 36}
+!197 = !{!"p1 _ZTS11png_control", !7, i64 0}
+!198 = !{!199, !7, i64 16}
+!199 = !{!"png_control", !200, i64 0, !51, i64 8, !7, i64 16, !12, i64 24, !9, i64 32, !10, i64 40, !10, i64 40}
+!200 = !{!"p1 _ZTS14png_struct_def", !7, i64 0}
+!201 = !{!199, !200, i64 0}
+!202 = !{i64 0, i64 8, !203, i64 8, i64 8, !50, i64 16, i64 8, !40, i64 24, i64 8, !44, i64 32, i64 8, !42, i64 40, i64 1, !27}
+!203 = !{!200, !200, i64 0}
+!204 = !{!196, !10, i64 32}

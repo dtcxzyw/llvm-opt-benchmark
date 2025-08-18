@@ -3073,17 +3073,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %.val = load i16, ptr %30, align 2
   %31 = and i16 %.val, 4
   %.not65 = icmp eq i16 %31, 0
-  br i1 %.not65, label %.thread84, label %48
+  br i1 %.not65, label %.thread91, label %48
 
-.thread84:                                        ; preds = %BufferGetPage.exit
+.thread91:                                        ; preds = %BufferGetPage.exit
   %32 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val5886 = load i16, ptr %32, align 4
-  %33 = icmp ult i16 %.val5886, 25
-  %34 = zext i16 %.val5886 to i32
+  %.val5893 = load i16, ptr %32, align 4
+  %33 = icmp ult i16 %.val5893, 25
+  %34 = zext i16 %.val5893 to i32
   %35 = add nuw nsw i32 %34, 262120
   %36 = lshr i32 %35, 2
   %37 = trunc i32 %36 to i16
-  %.0.i87 = select i1 %33, i16 0, i16 %37
+  %.0.i94 = select i1 %33, i16 0, i16 %37
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3123,32 +3123,35 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %53, label %.split.preheader, label %.split.us
 
-.split.preheader:                                 ; preds = %.thread84, %48
-  %71 = phi ptr [ %47, %.thread84 ], [ %70, %48 ]
-  %72 = phi ptr [ %46, %.thread84 ], [ %69, %48 ]
-  %73 = phi ptr [ %45, %.thread84 ], [ %68, %48 ]
-  %74 = phi i16 [ %44, %.thread84 ], [ %67, %48 ]
-  %75 = phi i16 [ %43, %.thread84 ], [ %66, %48 ]
-  %76 = phi ptr [ %41, %.thread84 ], [ %64, %48 ]
-  %77 = phi ptr [ %40, %.thread84 ], [ %63, %48 ]
-  %78 = phi ptr [ %39, %.thread84 ], [ %61, %48 ]
-  %79 = phi ptr [ %38, %.thread84 ], [ %60, %48 ]
-  %.0.i88 = phi i16 [ %.0.i87, %.thread84 ], [ %.0.i, %48 ]
+.split.preheader:                                 ; preds = %.thread91, %48
+  %71 = phi ptr [ %47, %.thread91 ], [ %70, %48 ]
+  %72 = phi ptr [ %46, %.thread91 ], [ %69, %48 ]
+  %73 = phi ptr [ %45, %.thread91 ], [ %68, %48 ]
+  %74 = phi i16 [ %44, %.thread91 ], [ %67, %48 ]
+  %75 = phi i16 [ %43, %.thread91 ], [ %66, %48 ]
+  %76 = phi ptr [ %41, %.thread91 ], [ %64, %48 ]
+  %77 = phi ptr [ %40, %.thread91 ], [ %63, %48 ]
+  %78 = phi ptr [ %39, %.thread91 ], [ %61, %48 ]
+  %79 = phi ptr [ %38, %.thread91 ], [ %60, %48 ]
+  %.0.i95 = phi i16 [ %.0.i94, %.thread91 ], [ %.0.i, %48 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br label %.split
 
-.split.us:                                        ; preds = %48, %90
-  %83 = load volatile i32, ptr @InterruptPending, align 4
-  %.not56.us = icmp eq i32 %83, 0
-  br i1 %.not56.us, label %85, label %84, !prof !9
+.split.us:                                        ; preds = %48
+  br i1 %.not, label %.split.us.split.us, label %.split.us.split
 
-84:                                               ; preds = %.split.us
+.split.us.split.us:                               ; preds = %.split.us, %90
+  %83 = load volatile i32, ptr @InterruptPending, align 4
+  %.not56.us.us = icmp eq i32 %83, 0
+  br i1 %.not56.us.us, label %85, label %84, !prof !9
+
+84:                                               ; preds = %.split.us.split.us
   tail call void @ProcessInterrupts() #11
   br label %85
 
-85:                                               ; preds = %84, %.split.us
+85:                                               ; preds = %84, %.split.us.split.us
   %86 = load ptr, ptr %60, align 8
   %87 = tail call zeroext i16 %86(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i) #11
   %88 = add i16 %87, -1
@@ -3162,9 +3165,9 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 98304
   %96 = icmp eq i32 %95, 32768
-  br i1 %96, label %SampleHeapTupleVisible.exit.us, label %.split.us, !llvm.loop !18
+  br i1 %96, label %SampleHeapTupleVisible.exit.us.us, label %.split.us.split.us
 
-SampleHeapTupleVisible.exit.us:                   ; preds = %90
+SampleHeapTupleVisible.exit.us.us:                ; preds = %90
   %97 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %62, i64 0, i64 %92
   %98 = and i32 %94, 32767
   %99 = zext nneg i32 %98 to i64
@@ -3176,27 +3179,24 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %90
   store i16 %66, ptr %64, align 4
   store i16 %67, ptr %68, align 2
   store i16 %87, ptr %69, align 8
-  br i1 %.not, label %.split75.us, label %.thread60
-
-.split75.us:                                      ; preds = %SampleHeapTupleVisible.exit.us
   %103 = load ptr, ptr %0, align 8
   %104 = load i32, ptr %15, align 4
   %105 = load ptr, ptr %70, align 8
   tail call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext true, ptr noundef %103, ptr noundef nonnull %61, i32 noundef %104, ptr noundef %105) #11
   br label %.split75
 
-.split:                                           ; preds = %.split.backedge, %.split.preheader
+.split.us.split:                                  ; preds = %.split.us, %113
   %106 = load volatile i32, ptr @InterruptPending, align 4
-  %.not56 = icmp eq i32 %106, 0
-  br i1 %.not56, label %108, label %107, !prof !9
+  %.not56.us = icmp eq i32 %106, 0
+  br i1 %.not56.us, label %108, label %107, !prof !9
 
-107:                                              ; preds = %.split
+107:                                              ; preds = %.split.us.split
   tail call void @ProcessInterrupts() #11
   br label %108
 
-108:                                              ; preds = %107, %.split
-  %109 = load ptr, ptr %79, align 8
-  %110 = tail call zeroext i16 %109(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i88) #11
+108:                                              ; preds = %107, %.split.us.split
+  %109 = load ptr, ptr %60, align 8
+  %110 = tail call zeroext i16 %109(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i) #11
   %111 = add i16 %110, -1
   %112 = icmp ult i16 %111, 2048
   br i1 %112, label %113, label %.split71.us
@@ -3204,142 +3204,181 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %90
 113:                                              ; preds = %108
   %114 = zext nneg i16 %110 to i64
   %115 = add nsw i64 %114, -1
-  %116 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %82, i64 0, i64 %115
+  %116 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %62, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 98304
   %119 = icmp eq i32 %118, 32768
-  br i1 %119, label %120, label %.split.backedge
+  br i1 %119, label %SampleHeapTupleVisible.exit.us, label %.split.us.split
 
-120:                                              ; preds = %113
+SampleHeapTupleVisible.exit.us:                   ; preds = %113
+  %120 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %62, i64 0, i64 %115
   %121 = and i32 %117, 32767
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %122
-  store ptr %123, ptr %77, align 8
-  %124 = load i32, ptr %116, align 4
+  store ptr %123, ptr %63, align 8
+  %124 = load i32, ptr %120, align 4
   %125 = lshr i32 %124, 17
-  store i32 %125, ptr %78, align 8
+  store i32 %125, ptr %61, align 8
+  store i16 %66, ptr %64, align 4
+  store i16 %67, ptr %68, align 2
+  store i16 %110, ptr %69, align 8
+  br label %.thread60
+
+.split:                                           ; preds = %.split.backedge, %.split.preheader
+  %126 = load volatile i32, ptr @InterruptPending, align 4
+  %.not56 = icmp eq i32 %126, 0
+  br i1 %.not56, label %128, label %127, !prof !9
+
+127:                                              ; preds = %.split
+  tail call void @ProcessInterrupts() #11
+  br label %128
+
+128:                                              ; preds = %127, %.split
+  %129 = load ptr, ptr %79, align 8
+  %130 = tail call zeroext i16 %129(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i95) #11
+  %131 = add i16 %130, -1
+  %132 = icmp ult i16 %131, 2048
+  br i1 %132, label %133, label %.split71.us
+
+133:                                              ; preds = %128
+  %134 = zext nneg i16 %130 to i64
+  %135 = add nsw i64 %134, -1
+  %136 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %82, i64 0, i64 %135
+  %137 = load i32, ptr %136, align 4
+  %138 = and i32 %137, 98304
+  %139 = icmp eq i32 %138, 32768
+  br i1 %139, label %140, label %.split.backedge
+
+140:                                              ; preds = %133
+  %141 = and i32 %137, 32767
+  %142 = zext nneg i32 %141 to i64
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %142
+  store ptr %143, ptr %77, align 8
+  %144 = load i32, ptr %136, align 4
+  %145 = lshr i32 %144, 17
+  store i32 %145, ptr %78, align 8
   store i16 %75, ptr %76, align 2
   store i16 %74, ptr %73, align 2
-  store i16 %110, ptr %72, align 2
-  %126 = load i32, ptr %8, align 8
-  %127 = and i32 %126, 256
-  %.not.i = icmp eq i32 %127, 0
-  br i1 %.not.i, label %140, label %128
+  store i16 %130, ptr %72, align 2
+  %146 = load i32, ptr %8, align 8
+  %147 = and i32 %146, 256
+  %.not.i = icmp eq i32 %147, 0
+  br i1 %.not.i, label %160, label %148
 
-128:                                              ; preds = %120
-  %129 = load i32, ptr %80, align 4
-  %.not34.i = icmp eq i32 %129, 0
+148:                                              ; preds = %140
+  %149 = load i32, ptr %80, align 4
+  %.not34.i = icmp eq i32 %149, 0
   br i1 %.not34.i, label %SampleHeapTupleVisible.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %128, %136
-  %.02131.i = phi i32 [ %.223.i, %136 ], [ 0, %128 ]
-  %.02430.i = phi i32 [ %.226.i, %136 ], [ %129, %128 ]
-  %130 = sub nuw i32 %.02430.i, %.02131.i
-  %131 = lshr i32 %130, 1
-  %132 = add i32 %131, %.02131.i
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw [291 x i16], ptr %81, i64 0, i64 %133
-  %135 = load i16, ptr %134, align 2
-  %.not29.i = icmp eq i16 %110, %135
-  br i1 %.not29.i, label %SampleHeapTupleVisible.exit, label %136
+.lr.ph.i:                                         ; preds = %148, %156
+  %.02131.i = phi i32 [ %.223.i, %156 ], [ 0, %148 ]
+  %.02430.i = phi i32 [ %.226.i, %156 ], [ %149, %148 ]
+  %150 = sub nuw i32 %.02430.i, %.02131.i
+  %151 = lshr i32 %150, 1
+  %152 = add i32 %151, %.02131.i
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds nuw [291 x i16], ptr %81, i64 0, i64 %153
+  %155 = load i16, ptr %154, align 2
+  %.not29.i = icmp eq i16 %130, %155
+  br i1 %.not29.i, label %SampleHeapTupleVisible.exit, label %156
 
-136:                                              ; preds = %.lr.ph.i
-  %137 = icmp ult i16 %110, %135
-  %138 = add i32 %132, 1
-  %.226.i = select i1 %137, i32 %132, i32 %.02430.i
-  %.223.i = select i1 %137, i32 %.02131.i, i32 %138
-  %139 = icmp ult i32 %.223.i, %.226.i
-  br i1 %139, label %.lr.ph.i, label %SampleHeapTupleVisible.exit, !llvm.loop !20
+156:                                              ; preds = %.lr.ph.i
+  %157 = icmp ult i16 %130, %155
+  %158 = add i32 %152, 1
+  %.226.i = select i1 %157, i32 %152, i32 %.02430.i
+  %.223.i = select i1 %157, i32 %.02131.i, i32 %158
+  %159 = icmp ult i32 %.223.i, %.226.i
+  br i1 %159, label %.lr.ph.i, label %SampleHeapTupleVisible.exit, !llvm.loop !18
 
-140:                                              ; preds = %120
-  %141 = load i32, ptr %15, align 4
-  %142 = load ptr, ptr %71, align 8
-  %143 = tail call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %78, ptr noundef %142, i32 noundef %141) #11
+160:                                              ; preds = %140
+  %161 = load i32, ptr %15, align 4
+  %162 = load ptr, ptr %71, align 8
+  %163 = tail call zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef nonnull %78, ptr noundef %162, i32 noundef %161) #11
   br label %SampleHeapTupleVisible.exit
 
-SampleHeapTupleVisible.exit:                      ; preds = %136, %.lr.ph.i, %140
-  %.055 = phi i1 [ %143, %140 ], [ %.not29.i, %.lr.ph.i ], [ %.not29.i, %136 ]
-  br i1 %.not, label %144, label %.thread
+SampleHeapTupleVisible.exit:                      ; preds = %156, %.lr.ph.i, %160
+  %.055 = phi i1 [ %163, %160 ], [ %.not29.i, %.lr.ph.i ], [ %.not29.i, %156 ]
+  br i1 %.not, label %164, label %.thread
 
-SampleHeapTupleVisible.exit.thread:               ; preds = %128
+SampleHeapTupleVisible.exit.thread:               ; preds = %148
   br i1 %.not, label %.thread.thread.critedge, label %.split.backedge
 
-144:                                              ; preds = %SampleHeapTupleVisible.exit
-  %145 = load ptr, ptr %0, align 8
-  %146 = load i32, ptr %15, align 4
-  %147 = load ptr, ptr %71, align 8
-  tail call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %.055, ptr noundef %145, ptr noundef nonnull %78, i32 noundef %146, ptr noundef %147) #11
+164:                                              ; preds = %SampleHeapTupleVisible.exit
+  %165 = load ptr, ptr %0, align 8
+  %166 = load i32, ptr %15, align 4
+  %167 = load ptr, ptr %71, align 8
+  tail call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext %.055, ptr noundef %165, ptr noundef nonnull %78, i32 noundef %166, ptr noundef %167) #11
   br i1 %.055, label %.split75, label %.split.backedge
 
 .thread:                                          ; preds = %SampleHeapTupleVisible.exit
   br i1 %.055, label %.thread60, label %.split.backedge
 
-.split75:                                         ; preds = %144, %.split75.us
-  %148 = phi ptr [ %61, %.split75.us ], [ %78, %144 ]
-  %149 = load i32, ptr %15, align 4
-  tail call void @LockBuffer(i32 noundef %149, i32 noundef 0) #11
+.split75:                                         ; preds = %164, %SampleHeapTupleVisible.exit.us.us
+  %168 = phi ptr [ %61, %SampleHeapTupleVisible.exit.us.us ], [ %78, %164 ]
+  %169 = load i32, ptr %15, align 4
+  tail call void @LockBuffer(i32 noundef %169, i32 noundef 0) #11
   br label %.thread60
 
 .thread60:                                        ; preds = %.thread, %SampleHeapTupleVisible.exit.us, %.split75
-  %150 = phi ptr [ %61, %SampleHeapTupleVisible.exit.us ], [ %148, %.split75 ], [ %78, %.thread ]
-  %151 = load i32, ptr %15, align 4
-  %152 = tail call ptr @ExecStoreBufferHeapTuple(ptr noundef nonnull %150, ptr noundef %2, i32 noundef %151) #11
-  %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 480
-  %155 = load ptr, ptr %154, align 8
-  %.not57 = icmp eq ptr %155, null
-  br i1 %.not57, label %156, label %161, !prof !6
+  %170 = phi ptr [ %61, %SampleHeapTupleVisible.exit.us ], [ %168, %.split75 ], [ %78, %.thread ]
+  %171 = load i32, ptr %15, align 4
+  %172 = tail call ptr @ExecStoreBufferHeapTuple(ptr noundef nonnull %170, ptr noundef %2, i32 noundef %171) #11
+  %173 = load ptr, ptr %0, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 480
+  %175 = load ptr, ptr %174, align 8
+  %.not57 = icmp eq ptr %175, null
+  br i1 %.not57, label %176, label %181, !prof !6
 
-156:                                              ; preds = %.thread60
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 476
-  %158 = load i8, ptr %157, align 4, !range !4, !noundef !5
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %176
+176:                                              ; preds = %.thread60
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 476
+  %178 = load i8, ptr %177, align 4, !range !4, !noundef !5
+  %179 = trunc nuw i8 %178 to i1
+  br i1 %179, label %180, label %196
 
-160:                                              ; preds = %156
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %153) #11
+180:                                              ; preds = %176
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %173) #11
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
-  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %161
+  %.pre90 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %181
 
-161:                                              ; preds = %.thread60, %160
-  %162 = phi ptr [ %155, %.thread60 ], [ %.pre83, %160 ]
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %164 = load i64, ptr %163, align 8
-  %165 = add i64 %164, 1
-  store i64 %165, ptr %163, align 8
-  br label %176
+181:                                              ; preds = %.thread60, %180
+  %182 = phi ptr [ %175, %.thread60 ], [ %.pre90, %180 ]
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %184 = load i64, ptr %183, align 8
+  %185 = add i64 %184, 1
+  store i64 %185, ptr %183, align 8
+  br label %196
 
-.split71.us:                                      ; preds = %85, %108
-  br i1 %.not, label %166, label %168
+.split71.us:                                      ; preds = %108, %85, %128
+  br i1 %.not, label %186, label %188
 
-166:                                              ; preds = %.split71.us
-  %167 = load i32, ptr %15, align 4
-  tail call void @LockBuffer(i32 noundef %167, i32 noundef 0) #11
-  br label %168
+186:                                              ; preds = %.split71.us
+  %187 = load i32, ptr %15, align 4
+  tail call void @LockBuffer(i32 noundef %187, i32 noundef 0) #11
+  br label %188
 
-168:                                              ; preds = %166, %.split71.us
-  %169 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %172 = load ptr, ptr %171, align 8
-  tail call void %172(ptr noundef %2) #11
-  br label %176
+188:                                              ; preds = %186, %.split71.us
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %192 = load ptr, ptr %191, align 8
+  tail call void %192(ptr noundef %2) #11
+  br label %196
 
 .thread.thread.critedge:                          ; preds = %SampleHeapTupleVisible.exit.thread
-  %173 = load ptr, ptr %0, align 8
-  %174 = load i32, ptr %15, align 4
-  %175 = load ptr, ptr %71, align 8
-  tail call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext false, ptr noundef %173, ptr noundef nonnull %78, i32 noundef %174, ptr noundef %175) #11
+  %193 = load ptr, ptr %0, align 8
+  %194 = load i32, ptr %15, align 4
+  %195 = load ptr, ptr %71, align 8
+  tail call void @HeapCheckForSerializableConflictOut(i1 noundef zeroext false, ptr noundef %193, ptr noundef nonnull %78, i32 noundef %194, ptr noundef %195) #11
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %.thread.thread.critedge, %SampleHeapTupleVisible.exit.thread, %.thread, %113, %144
+.split.backedge:                                  ; preds = %.thread.thread.critedge, %SampleHeapTupleVisible.exit.thread, %.thread, %133, %164
   br label %.split
 
-176:                                              ; preds = %168, %156, %161
-  %177 = phi i1 [ false, %168 ], [ true, %156 ], [ true, %161 ]
-  ret i1 %177
+196:                                              ; preds = %188, %176, %181
+  %197 = phi i1 [ false, %188 ], [ true, %176 ], [ true, %181 ]
+  ret i1 %197
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
@@ -3591,6 +3630,4 @@ attributes #12 = { cold nounwind }
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !8}
+!18 = distinct !{!18, !8}

@@ -1676,7 +1676,7 @@ define hidden void @_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb(ptr noun
   %53 = add nuw nsw i32 %.010, 1
   %54 = load i32, ptr %3, align 4
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
+  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %52, %21, %2
   ret void
@@ -1885,7 +1885,7 @@ _ZN11TypeEntries11print_klassEP12outputStreaml.exit: ; preds = %41, %43
   %44 = add nuw nsw i32 %.09, 1
   %45 = load i32, ptr %3, align 4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %7, label %._crit_edge, !llvm.loop !13
+  br i1 %46, label %7, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN11TypeEntries11print_klassEP12outputStreaml.exit, %2
   ret void
@@ -2180,7 +2180,7 @@ define hidden void @_ZN16ReceiverTypeData22clean_weak_klass_linksEb(ptr noundef 
   %25 = add nuw i32 %.08.us, 1
   %26 = trunc i64 %24 to i32
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %.08 = phi i32 [ %52, %51 ], [ 0, %.lr.ph ]
@@ -2222,7 +2222,7 @@ define hidden void @_ZN16ReceiverTypeData22clean_weak_klass_linksEb(ptr noundef 
   %53 = load i64, ptr @TypeProfileWidth, align 8
   %54 = trunc i64 %53 to i32
   %55 = icmp ult i32 %52, %54
-  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %51, %23, %2
   ret void
@@ -2254,7 +2254,7 @@ define hidden void @_ZNK16ReceiverTypeData22print_receiver_data_onEP12outputStre
   %spec.select = add nuw nsw i32 %.02131, %12
   %13 = add nuw i32 %.02330, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %6, %2
   %.021.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %6 ]
@@ -2310,7 +2310,7 @@ define hidden void @_ZNK16ReceiverTypeData22print_receiver_data_onEP12outputStre
   %.1 = phi i32 [ %35, %29 ], [ %.033, %.lr.ph35 ]
   %37 = add nuw i32 %.12432, 1
   %exitcond43.not = icmp eq i32 %37, %21
-  br i1 %exitcond43.not, label %.preheader, label %.lr.ph35, !llvm.loop !17
+  br i1 %exitcond43.not, label %.preheader, label %.lr.ph35, !llvm.loop !14
 
 38:                                               ; preds = %.lr.ph38, %67
   %39 = phi i64 [ %20, %.lr.ph38 ], [ %68, %67 ]
@@ -2355,7 +2355,7 @@ define hidden void @_ZNK16ReceiverTypeData22print_receiver_data_onEP12outputStre
   %69 = add nuw i32 %.237, 1
   %70 = trunc i64 %68 to i32
   %71 = icmp ult i32 %69, %70
-  br i1 %71, label %38, label %._crit_edge39, !llvm.loop !18
+  br i1 %71, label %38, label %._crit_edge39, !llvm.loop !15
 
 ._crit_edge39:                                    ; preds = %67, %.preheader
   ret void
@@ -2397,7 +2397,7 @@ define hidden noundef nonnull ptr @_ZN7RetData9fixup_retEiP10MethodData(ptr noun
   br label %9
 
 8:                                                ; preds = %9
-  br i1 %10, label %9, label %.loopexit, !llvm.loop !19
+  br i1 %10, label %9, label %.loopexit, !llvm.loop !16
 
 9:                                                ; preds = %3, %8
   %10 = phi i1 [ true, %3 ], [ false, %8 ]
@@ -2576,7 +2576,7 @@ define hidden void @_ZNK7RetData13print_data_onEP12outputStreamPKc(ptr noundef n
   %.not18 = icmp ne i64 %11, 4294967295
   %12 = zext i1 %.not18 to i32
   %spec.select = add nuw nsw i32 %.020, %12
-  br i1 %8, label %7, label %13, !llvm.loop !20
+  br i1 %8, label %7, label %13, !llvm.loop !17
 
 13:                                               ; preds = %7
   %14 = load i64, ptr %6, align 8
@@ -2617,7 +2617,7 @@ define hidden void @_ZNK7RetData13print_data_onEP12outputStreamPKc(ptr noundef n
   br label %38
 
 38:                                               ; preds = %15, %23
-  br i1 %16, label %15, label %39, !llvm.loop !21
+  br i1 %16, label %15, label %39, !llvm.loop !18
 
 39:                                               ; preds = %38
   ret void
@@ -2830,7 +2830,7 @@ _ZN20Bytecode_tableswitchC2EP6MethodPh.exit:      ; preds = %17, %20
   store i64 %54, ptr %57, align 8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge57.loopexit, label %40, !llvm.loop !22
+  br i1 %exitcond63.not, label %._crit_edge57.loopexit, label %40, !llvm.loop !19
 
 ._crit_edge57.loopexit:                           ; preds = %40
   %.pre = load ptr, ptr %4, align 8
@@ -2912,7 +2912,7 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %72, %74
   store i64 %107, ptr %110, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %84, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -2990,7 +2990,7 @@ define hidden void @_ZNK15MultiBranchData13print_data_onEP12outputStreamPKc(ptr 
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.32, i32 noundef %26, i32 noundef %30) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3021,7 +3021,7 @@ define hidden void @_ZNK11ArgInfoData13print_data_onEP12outputStreamPKc(ptr noun
   %14 = trunc i64 %13 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.34, i32 noundef %14) #20
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
@@ -3833,7 +3833,7 @@ _ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; p
 
 42:                                               ; preds = %34, %29
   %.1 = phi ptr [ %32, %34 ], [ %.023, %29 ]
-  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.1, ptr null, ptr nonnull %.024) #20, !srcloc !26
+  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.1, ptr null, ptr nonnull %.024) #20, !srcloc !23
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45
 
@@ -3872,7 +3872,7 @@ _ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; p
 56:                                               ; preds = %51, %.thread29
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.pre = load ptr, ptr %57, align 8
-  br label %26, !llvm.loop !27
+  br label %26, !llvm.loop !24
 
 .thread:                                          ; preds = %31, %42, %54, %55
   %.0 = phi i1 [ false, %55 ], [ false, %54 ], [ false, %31 ], [ true, %42 ]
@@ -3895,7 +3895,7 @@ define hidden void @_ZN17FailedSpeculation24free_failed_speculationsEPPS_(ptr no
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.09) #20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i64, ptr %0, align 8
@@ -3998,7 +3998,7 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   %36 = phi i1 [ true, %15 ], [ %35, %33 ], [ false, %16 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ false, %17 ]
   %37 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit
   %39 = add i32 %7, 320
@@ -4868,7 +4868,7 @@ _ZNK10MethodData9next_dataEP11ProfileData.exit:   ; preds = %25
   %53 = getelementptr inbounds i8, ptr %23, i64 %52
   %54 = tail call noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8 dereferenceable(16) %53)
   %.not13 = icmp eq ptr %54, null
-  br i1 %.not13, label %._crit_edge, label %25, !llvm.loop !30
+  br i1 %.not13, label %._crit_edge, label %25, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %25, %_ZNK10MethodData9next_dataEP11ProfileData.exit, %2, %_ZNK10MethodData10first_dataEv.exit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -5081,7 +5081,7 @@ _ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit: ; preds = 
   %79 = phi i1 [ true, %58 ], [ %78, %76 ], [ false, %59 ], [ false, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ false, %60 ]
   %80 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
   %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit, %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %.055.lcssa = phi i1 [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %79, %_ZN10MethodData28is_speculative_trap_bytecodeEN9Bytecodes4CodeE.exit ]
@@ -5211,7 +5211,7 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %96
   store i16 %158, ptr %159, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph74, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph74, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph74, %143, %136, %131
   %.157 = phi i32 [ %.056, %136 ], [ %.056, %131 ], [ %147, %143 ], [ %147, %.lr.ph74 ]
@@ -5463,14 +5463,14 @@ select.unfold:                                    ; preds = %28
   %43 = getelementptr inbounds i8, ptr %42, i64 %41
   br label %.split.us.i
 
-.split.us.i:                                      ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit.us.i, %._crit_edge
-  %.022 = phi ptr [ %43, %._crit_edge ], [ %50, %_ZN10MethodData10next_extraEP10DataLayout.exit.us.i ]
+.split.us.i:                                      ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us.i, %._crit_edge
+  %.022 = phi ptr [ %43, %._crit_edge ], [ %50, %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us.i ]
   %44 = load i8, ptr %.022, align 8
   switch i8 %44, label %.split20.us.i [
     i8 0, label %_ZN10MethodData17bci_to_extra_dataEiP6Methodb.exit
     i8 9, label %_ZN10MethodData17bci_to_extra_dataEiP6Methodb.exit
     i8 1, label %45
-    i8 13, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.i
+    i8 13, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us.i
   ]
 
 45:                                               ; preds = %.split.us.i
@@ -5478,12 +5478,12 @@ select.unfold:                                    ; preds = %28
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = icmp eq i32 %1, %48
-  br i1 %49, label %_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout.exit, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.i
+  br i1 %49, label %_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout.exit, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us.i
 
-_ZN10MethodData10next_extraEP10DataLayout.exit.us.i: ; preds = %45, %.split.us.i
-  %.0.i.us.i = phi i64 [ 16, %.split.us.i ], [ 8, %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.022, i64 %.0.i.us.i
-  br label %.split.us.i, !llvm.loop !33
+_ZN10MethodData10next_extraEP10DataLayout.exit.us.us.i: ; preds = %45, %.split.us.i
+  %.0.i.us.us.i = phi i64 [ 16, %.split.us.i ], [ 8, %45 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.022, i64 %.0.i.us.us.i
+  br label %.split.us.i, !llvm.loop !30
 
 .split20.us.i:                                    ; preds = %.split.us.i
   %51 = load ptr, ptr @g_assert_poison, align 8
@@ -5624,7 +5624,7 @@ define hidden noundef ptr @_ZN10MethodData36exception_handler_bci_to_data_helper
 11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !31
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -5663,7 +5663,7 @@ define hidden noundef ptr @_ZN10MethodData37exception_handler_bci_to_data_or_nul
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %12, !llvm.loop !34
+  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %12, !llvm.loop !31
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
@@ -5713,7 +5713,7 @@ define hidden void @_ZN10MethodData29exception_handler_bci_to_dataEi(ptr dead_on
 12:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %13, !llvm.loop !34
+  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %13, !llvm.loop !31
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
@@ -5748,14 +5748,14 @@ define hidden noundef ptr @_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10
   %.promoted = load ptr, ptr %3, align 8
   br i1 %.not, label %.split.us, label %.split.split
 
-.split.us:                                        ; preds = %4, %_ZN10MethodData10next_extraEP10DataLayout.exit.us
-  %11 = phi ptr [ %18, %_ZN10MethodData10next_extraEP10DataLayout.exit.us ], [ %.promoted, %4 ]
+.split.us:                                        ; preds = %4, %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us
+  %11 = phi ptr [ %18, %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us ], [ %.promoted, %4 ]
   %12 = load i8, ptr %11, align 8
   switch i8 %12, label %.split20.us [
     i8 0, label %.loopexit
     i8 9, label %.split22.us
     i8 1, label %13
-    i8 13, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us
+    i8 13, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us
   ]
 
 13:                                               ; preds = %.split.us
@@ -5763,13 +5763,13 @@ define hidden noundef ptr @_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = icmp eq i32 %1, %16
-  br i1 %17, label %.split24.us, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us
+  br i1 %17, label %.split24.us, label %_ZN10MethodData10next_extraEP10DataLayout.exit.us.us
 
-_ZN10MethodData10next_extraEP10DataLayout.exit.us: ; preds = %13, %.split.us
-  %.0.i.us = phi i64 [ 16, %.split.us ], [ 8, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.0.i.us
+_ZN10MethodData10next_extraEP10DataLayout.exit.us.us: ; preds = %13, %.split.us
+  %.0.i.us.us = phi i64 [ 16, %.split.us ], [ 8, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %.0.i.us.us
   store ptr %18, ptr %3, align 8
-  br label %.split.us, !llvm.loop !33
+  br label %.split.us, !llvm.loop !30
 
 .split.split:                                     ; preds = %4, %_ZN10MethodData10next_extraEP10DataLayout.exit
   %19 = phi ptr [ %48, %_ZN10MethodData10next_extraEP10DataLayout.exit ], [ %.promoted, %4 ]
@@ -5846,7 +5846,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %.split.split, %42, 
   %.0.i = phi i64 [ 16, %43 ], [ 8, %42 ], [ 8, %42 ], [ 8, %.split.split ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i
   store ptr %48, ptr %3, align 8
-  br label %.split.split, !llvm.loop !35
+  br label %.split.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %33, %.split.split, %.split.us, %.split24.us, %.split22.us
   %.0 = phi ptr [ null, %.split22.us ], [ %21, %.split24.us ], [ null, %.split.us ], [ %25, %33 ], [ null, %.split.split ]
@@ -5906,7 +5906,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %.lr.ph, %.lr.ph, %1
   %.0.i = phi i64 [ 16, %17 ], [ 8, %.lr.ph ], [ 8, %.lr.ph ]
   %22 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
   %23 = icmp ult ptr %22, %9
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !36
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit, %1, %14
   %.0 = phi ptr [ %15, %14 ], [ null, %1 ], [ null, %_ZN10MethodData10next_extraEP10DataLayout.exit ]
@@ -6015,7 +6015,7 @@ _ZNK10MethodData9next_dataEP11ProfileData.exit:   ; preds = %36
   %59 = getelementptr inbounds i8, ptr %34, i64 %58
   %60 = tail call noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8 dereferenceable(16) %59)
   %.not35 = icmp eq ptr %60, null
-  br i1 %.not35, label %._crit_edge, label %36, !llvm.loop !37
+  br i1 %.not35, label %._crit_edge, label %36, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %36, %_ZNK10MethodData9next_dataEP11ProfileData.exit, %33
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.45) #20
@@ -6123,7 +6123,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %70, %95, %95, %96
   %.12534 = phi ptr [ %.2, %96 ], [ %.2, %95 ], [ %.2, %95 ], [ %71, %70 ]
   %.0.i = phi i64 [ 16, %96 ], [ 8, %95 ], [ 8, %95 ], [ 8, %70 ]
   %101 = getelementptr inbounds nuw i8, ptr %.12534, i64 %.0.i
-  br label %70, !llvm.loop !38
+  br label %70, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6441,7 +6441,7 @@ define hidden void @_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib(ptr
   store i64 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.01922, i64 8
   %22 = icmp ult ptr %21, %15
-  br i1 %22, label %18, label %.loopexit, !llvm.loop !39
+  br i1 %22, label %18, label %.loopexit, !llvm.loop !35
 
 23:                                               ; preds = %7
   %24 = icmp sgt i32 %2, 0
@@ -6573,7 +6573,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %24, %24, %26
   store i64 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.01922.i, i64 8
   %47 = icmp ult ptr %46, %40
-  br i1 %47, label %43, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, !llvm.loop !39
+  br i1 %47, label %43, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit.loopexit, !llvm.loop !35
 
 48:                                               ; preds = %.lr.ph
   %49 = icmp eq i32 %.01839, 0
@@ -6646,7 +6646,7 @@ _ZN10MethodData10next_extraEP10DataLayout.exit25: ; preds = %48, %_ZN10MethodDat
   %.0.i24 = phi i64 [ 16, %72 ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit ], [ 8, %48 ]
   %77 = getelementptr inbounds nuw i8, ptr %.040, i64 %.0.i24
   %78 = icmp ult ptr %77, %10
-  br i1 %78, label %.lr.ph, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23, !llvm.loop !40
+  br i1 %78, label %.lr.ph, label %_ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23, !llvm.loop !36
 
 _ZN10MethodData23clean_extra_data_helperEP10DataLayoutib.exit23: ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit25, %2, %.lr.ph24.preheader.i, %55
   ret void
@@ -6714,7 +6714,7 @@ _ZNK10MethodData9next_dataEP11ProfileData.exit:   ; preds = %22
   %39 = getelementptr inbounds i8, ptr %20, i64 %38
   %40 = tail call noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %22, %_ZNK10MethodData9next_dataEP11ProfileData.exit, %2, %_ZNK10MethodData10first_dataEv.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -6832,7 +6832,7 @@ define hidden void @_ZN10MethodData19deallocate_contentsEP15ClassLoaderData(ptr 
   %7 = load ptr, ptr %6, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.09.i.i) #20
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load i64, ptr %3, align 8
@@ -6859,7 +6859,7 @@ define hidden void @_ZN10MethodData25release_C_heap_structuresEv(ptr noundef non
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.09.i) #20
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load i64, ptr %2, align 8
@@ -7094,7 +7094,7 @@ define linkonce_odr hidden void @_ZN12CallTypeData22clean_weak_klass_linksEb(ptr
   %61 = add nuw nsw i32 %.010.i, 1
   %62 = load i32, ptr %11, align 4
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %.lr.ph.split.i, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !12
+  br i1 %63, label %.lr.ph.split.i, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !10
 
 _ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit: ; preds = %60, %29, %9, %2
   %64 = load ptr, ptr %3, align 8
@@ -7245,7 +7245,7 @@ define linkonce_odr hidden void @_ZN19VirtualCallTypeData22clean_weak_klass_link
   %25 = add nuw i32 %.08.us.i, 1
   %26 = trunc i64 %24 to i32
   %27 = icmp ult i32 %25, %26
-  br i1 %27, label %.lr.ph.split.us.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, !llvm.loop !14
+  br i1 %27, label %.lr.ph.split.us.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %51
   %.08.i = phi i32 [ %52, %51 ], [ 0, %.lr.ph.i ]
@@ -7287,7 +7287,7 @@ define linkonce_odr hidden void @_ZN19VirtualCallTypeData22clean_weak_klass_link
   %53 = load i64, ptr @TypeProfileWidth, align 8
   %54 = trunc i64 %53 to i32
   %55 = icmp ult i32 %52, %54
-  br i1 %55, label %.lr.ph.split.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, !llvm.loop !15
+  br i1 %55, label %.lr.ph.split.i, label %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit, !llvm.loop !12
 
 _ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit: ; preds = %51, %23, %2
   %.pre-phi = phi i32 [ 0, %2 ], [ %26, %23 ], [ %54, %51 ]
@@ -7384,7 +7384,7 @@ _ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit: ; preds = %51, %23, %2
   %118 = add nuw nsw i32 %.010.i, 1
   %119 = load i32, ptr %68, align 4
   %120 = icmp slt i32 %118, %119
-  br i1 %120, label %.lr.ph.split.i4, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !12
+  br i1 %120, label %.lr.ph.split.i4, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !10
 
 _ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit: ; preds = %117, %86, %66, %_ZN16ReceiverTypeData22clean_weak_klass_linksEb.exit
   %121 = load i64, ptr @TypeProfileWidth, align 8
@@ -7579,7 +7579,7 @@ define linkonce_odr hidden void @_ZN18ParametersTypeData22clean_weak_klass_links
   %54 = add nuw nsw i32 %.010.i, 1
   %55 = load i32, ptr %4, align 4
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph.split.i, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !12
+  br i1 %56, label %.lr.ph.split.i, label %_ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit, !llvm.loop !10
 
 _ZN20TypeStackSlotEntries22clean_weak_klass_linksEb.exit: ; preds = %53, %22, %2
   ret void
@@ -7870,7 +7870,7 @@ _ZN22ArgumentOffsetComputer7do_typeE9BasicType.exit: ; preds = %18, %21, %_ZN26G
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #20
   %47 = load i32, ptr %9, align 4
   %48 = icmp eq i32 %47, 3
-  br i1 %48, label %._crit_edge, label %18, !llvm.loop !42
+  br i1 %48, label %._crit_edge, label %18, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN22ArgumentOffsetComputer7do_typeE9BasicType.exit, %7
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -7952,7 +7952,7 @@ _ZN22ArgumentOffsetComputer7do_typeE9BasicType.exit9: ; preds = %62, %67, %_ZN26
   %94 = and i8 %93, 15
   %95 = lshr i64 %63, 4
   %.not = icmp eq i8 %94, 0
-  br i1 %.not, label %.loopexit, label %62, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %62, !llvm.loop !39
 
 .loopexit:                                        ; preds = %_ZN22ArgumentOffsetComputer7do_typeE9BasicType.exit9, %52, %._crit_edge
   ret void
@@ -8031,7 +8031,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !44
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !40
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8047,7 +8047,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !45
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !41
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8142,7 +8142,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !46
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !42
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8158,7 +8158,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !47
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !43
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -8390,11 +8390,11 @@ attributes #22 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{i64 2145392468}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !11}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
@@ -8403,17 +8403,17 @@ attributes #22 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!23 = !{i64 2145412694}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = !{i64 2145412694}
+!26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !11}
+!33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
@@ -8424,7 +8424,3 @@ attributes #22 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}

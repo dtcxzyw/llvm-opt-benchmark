@@ -2180,7 +2180,7 @@ define internal fastcc void @limitBoxes(ptr noundef captures(none) %0, i64 nound
 ..loopexit_crit_edge.split.us.us:                 ; preds = %._crit_edge.us.us
   %61 = add i64 %10, 3
   %62 = icmp ult i64 %61, %3
-  br i1 %62, label %.preheader.us85, label %._crit_edge, !llvm.loop !133
+  br i1 %62, label %.preheader.us85, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.split.us.us, %5
   ret void
@@ -2247,7 +2247,7 @@ define internal fastcc void @printpath(ptr noundef readonly captures(none) %0) u
   %43 = add nuw i64 %.020, 1
   %44 = load i64, ptr %3, align 8, !tbaa !25
   %45 = icmp ult i64 %43, %44
-  br i1 %45, label %31, label %._crit_edge, !llvm.loop !134
+  br i1 %45, label %31, label %._crit_edge, !llvm.loop !133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2284,7 +2284,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef cap
 12:                                               ; preds = %14
   %13 = add nuw i64 %.082.i, 1
   %exitcond.not.i = icmp eq i64 %13, %.val.i
-  br i1 %exitcond.not.i, label %.loopexit42, label %14, !llvm.loop !135
+  br i1 %exitcond.not.i, label %.loopexit42, label %14, !llvm.loop !134
 
 14:                                               ; preds = %12, %.lr.ph.i
   %.082.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %12 ]
@@ -2343,7 +2343,7 @@ nodes_contains.exit:                              ; preds = %14
 44:                                               ; preds = %46
   %45 = add nuw i64 %.082.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %45, %.val.i
-  br i1 %exitcond.not.i.i, label %.critedge.i, label %46, !llvm.loop !135
+  br i1 %exitcond.not.i.i, label %.critedge.i, label %46, !llvm.loop !134
 
 46:                                               ; preds = %44, %.lr.ph.i.i
   %.082.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %45, %44 ]
@@ -2357,12 +2357,12 @@ nodes_contains.exit:                              ; preds = %14
 52:                                               ; preds = %46
   %53 = add nuw i64 %.02145.i, 1
   %exitcond.not.i29 = icmp eq i64 %53, %.val.i
-  br i1 %exitcond.not.i29, label %is_cycle_unique.exit, label %.lr.ph.i.i, !llvm.loop !136
+  br i1 %exitcond.not.i29, label %is_cycle_unique.exit, label %.lr.ph.i.i, !llvm.loop !135
 
 .critedge.i:                                      ; preds = %44, %28
   %54 = add nuw i64 %.02848.i, 1
   %exitcond54.not.i = icmp eq i64 %54, %.val33.i
-  br i1 %exitcond54.not.i, label %.loopexit, label %28, !llvm.loop !137
+  br i1 %exitcond54.not.i, label %.loopexit, label %28, !llvm.loop !136
 
 .loopexit:                                        ; preds = %.critedge.i, %21
   %55 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #20
@@ -2380,8 +2380,8 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   br i1 %mul.ov.i.i, label %60, label %63
 
 60:                                               ; preds = %gv_alloc.exit
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !138
-  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef 8) #21, !noalias !138
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !137
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.2, i64 noundef %11, i64 noundef 8) #21, !noalias !137
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
@@ -2391,9 +2391,9 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   br i1 %65, label %66, label %.lr.ph.i30
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !138
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !137
   %68 = shl nuw i64 %11, 3
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.3, i64 noundef %68) #21, !noalias !138
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.3, i64 noundef %68) #21, !noalias !137
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
@@ -2406,13 +2406,13 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   %.pre.i.i.i = phi i64 [ %.pre.i.i9.i, %nodes_append.exit.i ], [ 0, %63 ]
   %72 = phi i64 [ %105, %nodes_append.exit.i ], [ %11, %63 ]
   %73 = phi i64 [ %109, %nodes_append.exit.i ], [ 0, %63 ]
-  %74 = load ptr, ptr %2, align 8, !tbaa !85, !noalias !138
-  %75 = load i64, ptr %8, align 8, !tbaa !95, !noalias !138
+  %74 = load ptr, ptr %2, align 8, !tbaa !85, !noalias !137
+  %75 = load i64, ptr %8, align 8, !tbaa !95, !noalias !137
   %76 = add i64 %75, %73
-  %77 = load i64, ptr %10, align 8, !tbaa !96, !noalias !138
+  %77 = load i64, ptr %10, align 8, !tbaa !96, !noalias !137
   %78 = urem i64 %76, %77
   %79 = getelementptr inbounds nuw ptr, ptr %74, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !98, !noalias !138
+  %80 = load ptr, ptr %79, align 8, !tbaa !98, !noalias !137
   %81 = icmp eq i64 %73, %72
   br i1 %81, label %82, label %nodes_append.exit.i
 
@@ -2423,14 +2423,14 @@ gv_alloc.exit:                                    ; preds = %.loopexit
 
 84:                                               ; preds = %82
   %85 = shl nuw i64 %72, 4
-  %86 = tail call ptr @realloc(ptr noundef %71, i64 noundef %85) #23, !noalias !138
+  %86 = tail call ptr @realloc(ptr noundef %71, i64 noundef %85) #23, !noalias !137
   %87 = icmp eq ptr %86, null
   br i1 %87, label %100, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %72
   %90 = shl nuw nsw i64 %72, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %89, i8 0, i64 %90, i1 false), !noalias !138
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %89, i8 0, i64 %90, i1 false), !noalias !137
   %91 = add i64 %72, %.sroa.5.0
   %92 = icmp ugt i64 %91, %72
   br i1 %92, label %93, label %99
@@ -2441,19 +2441,19 @@ gv_alloc.exit:                                    ; preds = %.loopexit
   %96 = getelementptr inbounds nuw ptr, ptr %86, i64 %95
   %97 = getelementptr inbounds nuw ptr, ptr %86, i64 %.sroa.5.0
   %98 = shl i64 %94, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull align 8 %97, i64 %98, i1 false), !noalias !138
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull align 8 %97, i64 %98, i1 false), !noalias !137
   br label %99
 
 99:                                               ; preds = %93, %88
   %.sroa.5.2 = phi i64 [ %95, %93 ], [ %.sroa.5.0, %88 ]
-  %.pre.i = load i64, ptr %6, align 8, !tbaa !94, !noalias !138
+  %.pre.i = load i64, ptr %6, align 8, !tbaa !94, !noalias !137
   br label %nodes_append.exit.i
 
 100:                                              ; preds = %84, %82
   %.2.i.ph.i.i = phi i32 [ 34, %82 ], [ 12, %84 ]
-  %101 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !138
-  %102 = tail call ptr @strerror(i32 noundef %.2.i.ph.i.i) #19, !noalias !138
-  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.19, ptr noundef %102) #21, !noalias !138
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !14, !noalias !137
+  %102 = tail call ptr @strerror(i32 noundef %.2.i.ph.i.i) #19, !noalias !137
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.19, ptr noundef %102) #21, !noalias !137
   tail call fastcc void @graphviz_exit() #22
   unreachable
 
@@ -2468,13 +2468,13 @@ nodes_append.exit.i:                              ; preds = %99, %.lr.ph.i30
   %106 = add i64 %.pre.i.i9.i, %73
   %107 = urem i64 %106, %105
   %108 = getelementptr inbounds nuw ptr, ptr %.pre46.i.i11.i, i64 %107
-  store ptr %80, ptr %108, align 8, !tbaa !98, !noalias !138
+  store ptr %80, ptr %108, align 8, !tbaa !98, !noalias !137
   %109 = add nuw i64 %73, 1
   %110 = icmp ult i64 %109, %104
-  br i1 %110, label %.lr.ph.i30, label %nodes_copy.exit, !llvm.loop !141
+  br i1 %110, label %.lr.ph.i30, label %nodes_copy.exit, !llvm.loop !140
 
 nodes_copy.exit:                                  ; preds = %nodes_append.exit.i
-  store ptr %.sroa.0.1, ptr %55, align 8, !tbaa !142
+  store ptr %.sroa.0.1, ptr %55, align 8, !tbaa !141
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -2646,7 +2646,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i32, 
   tail call fastcc void @dfs(ptr noundef %0, ptr noundef %199, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   %200 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.044) #19
   %.not = icmp eq ptr %200, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph, %nodes_append.exit
   %.val = load i64, ptr %6, align 8, !tbaa !94
@@ -2851,16 +2851,15 @@ attributes #24 = { cold noreturn nounwind }
 !128 = distinct !{!128, !20}
 !129 = distinct !{!129, !20}
 !130 = distinct !{!130, !20}
-!131 = distinct !{!131, !20, !132}
-!132 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!133 = distinct !{!133, !20, !132}
+!131 = distinct !{!131, !20}
+!132 = distinct !{!132, !20}
+!133 = distinct !{!133, !20}
 !134 = distinct !{!134, !20}
 !135 = distinct !{!135, !20}
 !136 = distinct !{!136, !20}
-!137 = distinct !{!137, !20}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"nodes_copy: argument 0"}
-!140 = distinct !{!140, !"nodes_copy"}
-!141 = distinct !{!141, !20}
-!142 = !{!87, !87, i64 0}
-!143 = distinct !{!143, !20}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"nodes_copy: argument 0"}
+!139 = distinct !{!139, !"nodes_copy"}
+!140 = distinct !{!140, !20}
+!141 = !{!87, !87, i64 0}
+!142 = distinct !{!142, !20}

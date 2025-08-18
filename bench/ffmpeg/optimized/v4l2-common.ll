@@ -13,40 +13,40 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2
-  switch i32 %1, label %.lr.ph [
+  switch i32 %1, label %.lr.ph.split [
     i32 13, label %.split17.us
     i32 0, label %.split17.us
   ]
 
-4:                                                ; preds = %.lr.ph
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %5 = getelementptr inbounds nuw [36 x %struct.fmt_map], ptr @ff_fmt_conversion_table, i64 0, i64 %indvars.iv.next40
+4:                                                ; preds = %.lr.ph.split
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %5 = getelementptr inbounds nuw [36 x %struct.fmt_map], ptr @ff_fmt_conversion_table, i64 0, i64 %indvars.iv.next41
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = icmp eq i32 %7, %1
-  br i1 %8, label %.split17.us, label %.lr.ph, !llvm.loop !9
+  br i1 %8, label %.split17.us, label %.lr.ph.split, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %.split.us, %4
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %4 ], [ 0, %.split.us ]
-  %exitcond42 = icmp eq i64 %indvars.iv39, 34
-  br i1 %exitcond42, label %.loopexit, label %4, !llvm.loop !9
+.lr.ph.split:                                     ; preds = %.split.us, %4
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %4 ], [ 0, %.split.us ]
+  %exitcond43 = icmp eq i64 %indvars.iv40, 34
+  br i1 %exitcond43, label %.loopexit, label %4, !llvm.loop !9
 
 .split:                                           ; preds = %2
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %13
-  %indvars.iv35 = phi i64 [ %indvars.iv.next36, %13 ], [ 0, %.split ]
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %13 ], [ 0, %.split ]
   %10 = phi ptr [ %14, %13 ], [ @ff_fmt_conversion_table, %.split ]
-  %11 = load i32, ptr %10, align 4, !tbaa !12
+  %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %.split17.us, label %13
 
 13:                                               ; preds = %.split.split.us
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %14 = getelementptr inbounds nuw [36 x %struct.fmt_map], ptr @ff_fmt_conversion_table, i64 0, i64 %indvars.iv.next36
-  %exitcond38 = icmp eq i64 %indvars.iv.next36, 35
-  br i1 %exitcond38, label %.loopexit, label %.split.split.us, !llvm.loop !13
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %14 = getelementptr inbounds nuw [36 x %struct.fmt_map], ptr @ff_fmt_conversion_table, i64 0, i64 %indvars.iv.next37
+  %exitcond39 = icmp eq i64 %indvars.iv.next37, 35
+  br i1 %exitcond39, label %.loopexit, label %.split.split.us, !llvm.loop !9
 
 .split.split:                                     ; preds = %.split, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.split ]
@@ -56,14 +56,14 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %.split.split
-  %19 = load i32, ptr %16, align 4, !tbaa !12
+  %19 = load i32, ptr %16, align 4, !tbaa !11
   %20 = icmp eq i32 %19, %0
   br i1 %20, label %.split17.us, label %23
 
 .split17.us:                                      ; preds = %18, %.split.split.us, %4, %.split.us, %.split.us
   %.us-phi = phi ptr [ @ff_fmt_conversion_table, %.split.us ], [ @ff_fmt_conversion_table, %.split.us ], [ %5, %4 ], [ %10, %.split.split.us ], [ %16, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %22 = load i32, ptr %21, align 4, !tbaa !14
+  %22 = load i32, ptr %21, align 4, !tbaa !12
   br label %.loopexit
 
 23:                                               ; preds = %.split.split, %18
@@ -72,10 +72,10 @@ define i32 @ff_fmt_ff2v4l(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %.loopexit, label %.split.split, !llvm.loop !15
+  br i1 %exitcond, label %.loopexit, label %.split.split, !llvm.loop !9
 
-.loopexit:                                        ; preds = %23, %13, %.lr.ph, %.split17.us
-  %.010 = phi i32 [ %22, %.split17.us ], [ 0, %.lr.ph ], [ 0, %13 ], [ 0, %23 ]
+.loopexit:                                        ; preds = %23, %13, %.lr.ph.split, %.split17.us
+  %.010 = phi i32 [ %22, %.split17.us ], [ 0, %.lr.ph.split ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.010
 }
 
@@ -89,21 +89,21 @@ define i32 @ff_fmt_v4l2ff(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %.loopexit, label %7, !llvm.loop !16
+  br i1 %exitcond, label %.loopexit, label %7, !llvm.loop !13
 
 7:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %8 = phi i32 [ 13, %2 ], [ %6, %3 ]
   %9 = phi ptr [ @ff_fmt_conversion_table, %2 ], [ %4, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !14
+  %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = icmp eq i32 %11, %0
   %13 = icmp eq i32 %8, %1
   %or.cond = and i1 %13, %12
   br i1 %or.cond, label %14, label %3
 
 14:                                               ; preds = %7
-  %15 = load i32, ptr %9, align 4, !tbaa !12
+  %15 = load i32, ptr %9, align 4, !tbaa !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %14
@@ -121,18 +121,18 @@ define i32 @ff_fmt_v4l2codec(i32 noundef %0) local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv10, 1
   %3 = getelementptr inbounds nuw [36 x %struct.fmt_map], ptr @ff_fmt_conversion_table, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 35
-  br i1 %exitcond, label %._crit_edge, label %4, !llvm.loop !17
+  br i1 %exitcond, label %._crit_edge, label %4, !llvm.loop !14
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = icmp eq i32 %6, %0
-  br i1 %7, label %._crit_edge11.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %7, label %._crit_edge11.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !4
-  br label %._crit_edge11, !llvm.loop !17
+  br label %._crit_edge11, !llvm.loop !14
 
 ._crit_edge11.loopexit:                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -158,12 +158,9 @@ attributes #1 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !6 = !{!"int", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!5, !6, i64 0}
-!13 = distinct !{!13, !10, !11}
-!14 = !{!5, !6, i64 8}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!11 = !{!5, !6, i64 0}
+!12 = !{!5, !6, i64 8}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

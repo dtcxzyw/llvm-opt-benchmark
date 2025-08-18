@@ -257,21 +257,19 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
   %21 = zext i64 %17 to i128
   %22 = and i64 %10, 4294967296
   %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %.lr.ph.split.us, label %x64_mulmod.exit
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %23 = and i64 %10, 17179869184
   %.not62.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %.lr.ph.split.us.preheader, label %x64_mulmod.exit
+  br i1 %.not62.i, label %x64_mulmod.exit.us.us, label %x64_mulmod.exit.us
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %. = select i1 %.not62.i, i64 24, i64 30
-  %.51 = select i1 %.not62.i, i64 40, i64 34
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.02127.us = phi i64 [ %54, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %.02226.us = phi i64 [ %spec.select108.i.us, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
-  %24 = getelementptr [0 x i64], ptr %20, i64 0, i64 %.02127.us
-  store i64 %.02226.us, ptr %24, align 8, !tbaa !3
-  %25 = zext i64 %.02226.us to i128
+x64_mulmod.exit.us.us:                            ; preds = %.lr.ph.split.us, %x64_mulmod.exit.us.us
+  %.02127.us.us = phi i64 [ %54, %x64_mulmod.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %.02226.us.us = phi i64 [ %spec.select108.i.us.us, %x64_mulmod.exit.us.us ], [ 1, %.lr.ph.split.us ]
+  %24 = getelementptr [0 x i64], ptr %20, i64 0, i64 %.02127.us.us
+  store i64 %.02226.us.us, ptr %24, align 8, !tbaa !3
+  %25 = zext i64 %.02226.us.us to i128
   %26 = mul nuw i128 %25, %21
   %27 = lshr i128 %26, 64
   %28 = trunc nuw i128 %27 to i64
@@ -279,80 +277,128 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
   %30 = sub i64 %29, %28
   %31 = icmp ugt i64 %28, %29
   %32 = sext i1 %31 to i64
-  %33 = lshr i64 %28, %.
-  %spec.select105.i.us = add nsw i64 %33, %32
-  %34 = shl i64 %28, %.51
+  %33 = lshr i64 %28, 24
+  %spec.select105.i.us.us = add nsw i64 %33, %32
+  %34 = shl i64 %28, 40
   %35 = add i64 %34, %30
   %36 = icmp ult i64 %35, %34
   %37 = zext i1 %36 to i64
-  %.11.i.us = add nsw i64 %spec.select105.i.us, %37
-  %38 = lshr i64 %.11.i.us, %.
-  %39 = sub i64 %35, %.11.i.us
-  %40 = icmp ugt i64 %.11.i.us, %35
+  %.11.i.us.us = add nsw i64 %spec.select105.i.us.us, %37
+  %38 = lshr i64 %.11.i.us.us, 24
+  %39 = sub i64 %35, %.11.i.us.us
+  %40 = icmp ugt i64 %.11.i.us.us, %35
   %41 = sext i1 %40 to i64
-  %.12.i.us = add nsw i64 %38, %41
-  %42 = shl i64 %.11.i.us, %.51
+  %.12.i.us.us = add nsw i64 %38, %41
+  %42 = shl i64 %.11.i.us.us, 40
   %43 = add i64 %42, %39
   %44 = icmp ult i64 %43, %42
   %45 = zext i1 %44 to i64
-  %.13.i.us = add nsw i64 %.12.i.us, %45
-  %46 = lshr i64 %.13.i.us, %.
-  %47 = sub i64 %43, %.13.i.us
-  %48 = icmp ugt i64 %.13.i.us, %43
+  %.13.i.us.us = add nsw i64 %.12.i.us.us, %45
+  %46 = lshr i64 %.13.i.us.us, 24
+  %47 = sub i64 %43, %.13.i.us.us
+  %48 = icmp ugt i64 %.13.i.us.us, %43
   %49 = sext i1 %48 to i64
-  %.14.i.us = add nsw i64 %46, %49
-  %50 = shl i64 %.13.i.us, %.51
+  %.14.i.us.us = add nsw i64 %46, %49
+  %50 = shl i64 %.13.i.us.us, 40
   %51 = add i64 %50, %47
   %52 = icmp ult i64 %51, %50
-  %.neg110.i.us = sext i1 %52 to i64
-  %.not63.i.us = icmp eq i64 %.14.i.us, %.neg110.i.us
-  %.not64.i.us = icmp ult i64 %51, %10
-  %or.cond70.i.us = select i1 %.not63.i.us, i1 %.not64.i.us, i1 false
-  %53 = select i1 %or.cond70.i.us, i64 0, i64 %10
-  %spec.select108.i.us = sub i64 %51, %53
-  %54 = add nuw nsw i64 %.02127.us, 1
-  %exitcond29.not = icmp eq i64 %54, %4
-  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !11
+  %.neg110.i.us.us = sext i1 %52 to i64
+  %.not63.i.us.us = icmp eq i64 %.14.i.us.us, %.neg110.i.us.us
+  %.not64.i.us.us = icmp ult i64 %51, %10
+  %or.cond70.i.us.us = select i1 %.not63.i.us.us, i1 %.not64.i.us.us, i1 false
+  %53 = select i1 %or.cond70.i.us.us, i64 0, i64 %10
+  %spec.select108.i.us.us = sub i64 %51, %53
+  %54 = add nuw nsw i64 %.02127.us.us, 1
+  %exitcond31.not = icmp eq i64 %54, %4
+  br i1 %exitcond31.not, label %.loopexit, label %x64_mulmod.exit.us.us, !llvm.loop !11
 
-x64_mulmod.exit:                                  ; preds = %.lr.ph, %x64_mulmod.exit
-  %.02127 = phi i64 [ %77, %x64_mulmod.exit ], [ 0, %.lr.ph ]
-  %.02226 = phi i64 [ %spec.select108.i, %x64_mulmod.exit ], [ 1, %.lr.ph ]
-  %55 = getelementptr [0 x i64], ptr %20, i64 0, i64 %.02127
-  store i64 %.02226, ptr %55, align 8, !tbaa !3
-  %56 = zext i64 %.02226 to i128
+x64_mulmod.exit.us:                               ; preds = %.lr.ph.split.us, %x64_mulmod.exit.us
+  %.02127.us = phi i64 [ %85, %x64_mulmod.exit.us ], [ 0, %.lr.ph.split.us ]
+  %.02226.us = phi i64 [ %spec.select108.i.us, %x64_mulmod.exit.us ], [ 1, %.lr.ph.split.us ]
+  %55 = getelementptr [0 x i64], ptr %20, i64 0, i64 %.02127.us
+  store i64 %.02226.us, ptr %55, align 8, !tbaa !3
+  %56 = zext i64 %.02226.us to i128
   %57 = mul nuw i128 %56, %21
   %58 = lshr i128 %57, 64
   %59 = trunc nuw i128 %58 to i64
   %60 = trunc i128 %57 to i64
-  %61 = lshr i64 %59, 32
-  %62 = sub i64 %60, %59
-  %63 = icmp ugt i64 %59, %60
-  %64 = sext i1 %63 to i64
-  %spec.select.i = add nsw i64 %61, %64
-  %65 = shl i64 %59, 32
-  %66 = add i64 %65, %62
+  %61 = sub i64 %60, %59
+  %62 = icmp ugt i64 %59, %60
+  %63 = sext i1 %62 to i64
+  %64 = lshr i64 %59, 30
+  %spec.select104.i.us = add nsw i64 %64, %63
+  %65 = shl i64 %59, 34
+  %66 = add i64 %65, %61
   %67 = icmp ult i64 %66, %65
   %68 = zext i1 %67 to i64
-  %.13.i = add nsw i64 %spec.select.i, %68
-  %69 = lshr i64 %.13.i, 32
-  %70 = sub i64 %66, %.13.i
-  %71 = icmp ugt i64 %.13.i, %66
+  %.5.i.us = add nsw i64 %spec.select104.i.us, %68
+  %69 = lshr i64 %.5.i.us, 30
+  %70 = sub i64 %66, %.5.i.us
+  %71 = icmp ugt i64 %.5.i.us, %66
   %72 = sext i1 %71 to i64
-  %.14.i = add nsw i64 %69, %72
-  %73 = shl i64 %.13.i, 32
+  %.6.i.us = add nsw i64 %69, %72
+  %73 = shl i64 %.5.i.us, 34
   %74 = add i64 %73, %70
   %75 = icmp ult i64 %74, %73
-  %.neg110.i = sext i1 %75 to i64
-  %.not63.i = icmp eq i64 %.14.i, %.neg110.i
-  %.not64.i = icmp ult i64 %74, %10
-  %or.cond70.i = select i1 %.not63.i, i1 %.not64.i, i1 false
-  %76 = select i1 %or.cond70.i, i64 0, i64 %10
-  %spec.select108.i = sub i64 %74, %76
-  %77 = add nuw nsw i64 %.02127, 1
-  %exitcond.not = icmp eq i64 %77, %4
-  br i1 %exitcond.not, label %.loopexit, label %x64_mulmod.exit, !llvm.loop !13
+  %76 = zext i1 %75 to i64
+  %.13.i.us = add nsw i64 %.6.i.us, %76
+  %77 = lshr i64 %.13.i.us, 30
+  %78 = sub i64 %74, %.13.i.us
+  %79 = icmp ugt i64 %.13.i.us, %74
+  %80 = sext i1 %79 to i64
+  %.14.i.us = add nsw i64 %77, %80
+  %81 = shl i64 %.13.i.us, 34
+  %82 = add i64 %81, %78
+  %83 = icmp ult i64 %82, %81
+  %.neg110.i.us = sext i1 %83 to i64
+  %.not63.i.us = icmp eq i64 %.14.i.us, %.neg110.i.us
+  %.not64.i.us = icmp ult i64 %82, %10
+  %or.cond70.i.us = select i1 %.not63.i.us, i1 %.not64.i.us, i1 false
+  %84 = select i1 %or.cond70.i.us, i64 0, i64 %10
+  %spec.select108.i.us = sub i64 %82, %84
+  %85 = add nuw nsw i64 %.02127.us, 1
+  %exitcond30.not = icmp eq i64 %85, %4
+  br i1 %exitcond30.not, label %.loopexit, label %x64_mulmod.exit.us, !llvm.loop !11
 
-.loopexit:                                        ; preds = %x64_mulmod.exit, %.lr.ph.split.us, %7, %3
+x64_mulmod.exit:                                  ; preds = %.lr.ph, %x64_mulmod.exit
+  %.02127 = phi i64 [ %108, %x64_mulmod.exit ], [ 0, %.lr.ph ]
+  %.02226 = phi i64 [ %spec.select108.i, %x64_mulmod.exit ], [ 1, %.lr.ph ]
+  %86 = getelementptr [0 x i64], ptr %20, i64 0, i64 %.02127
+  store i64 %.02226, ptr %86, align 8, !tbaa !3
+  %87 = zext i64 %.02226 to i128
+  %88 = mul nuw i128 %87, %21
+  %89 = lshr i128 %88, 64
+  %90 = trunc nuw i128 %89 to i64
+  %91 = trunc i128 %88 to i64
+  %92 = lshr i64 %90, 32
+  %93 = sub i64 %91, %90
+  %94 = icmp ugt i64 %90, %91
+  %95 = sext i1 %94 to i64
+  %spec.select.i = add nsw i64 %92, %95
+  %96 = shl i64 %90, 32
+  %97 = add i64 %96, %93
+  %98 = icmp ult i64 %97, %96
+  %99 = zext i1 %98 to i64
+  %.13.i = add nsw i64 %spec.select.i, %99
+  %100 = lshr i64 %.13.i, 32
+  %101 = sub i64 %97, %.13.i
+  %102 = icmp ugt i64 %.13.i, %97
+  %103 = sext i1 %102 to i64
+  %.14.i = add nsw i64 %100, %103
+  %104 = shl i64 %.13.i, 32
+  %105 = add i64 %104, %101
+  %106 = icmp ult i64 %105, %104
+  %.neg110.i = sext i1 %106 to i64
+  %.not63.i = icmp eq i64 %.14.i, %.neg110.i
+  %.not64.i = icmp ult i64 %105, %10
+  %or.cond70.i = select i1 %.not63.i, i1 %.not64.i, i1 false
+  %107 = select i1 %or.cond70.i, i64 0, i64 %10
+  %spec.select108.i = sub i64 %105, %107
+  %108 = add nuw nsw i64 %.02127, 1
+  %exitcond.not = icmp eq i64 %108, %4
+  br i1 %exitcond.not, label %.loopexit, label %x64_mulmod.exit, !llvm.loop !11
+
+.loopexit:                                        ; preds = %x64_mulmod.exit, %x64_mulmod.exit.us, %x64_mulmod.exit.us.us, %7, %3
   ret ptr %5
 }
 
@@ -400,6 +446,4 @@ attributes #5 = { nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8}
+!11 = distinct !{!11, !8}

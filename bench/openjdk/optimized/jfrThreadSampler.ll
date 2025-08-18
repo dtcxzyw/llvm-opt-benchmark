@@ -1263,7 +1263,7 @@ _ZN20EventExecutionSampleC2E14EventStartTime.exit.us: ; preds = %3, %_ZN20EventE
   %.add.us = add nuw nsw i64 %.idx.us, 48
   %23 = icmp eq i64 %.add.us, 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %.ptr.us, i8 0, i64 19, i1 false)
-  br i1 %23, label %.preheader, label %_ZN20EventExecutionSampleC2E14EventStartTime.exit.us, !llvm.loop !17
+  br i1 %23, label %.preheader, label %_ZN20EventExecutionSampleC2E14EventStartTime.exit.us
 
 .split:                                           ; preds = %3, %_ZN20EventExecutionSampleC2E14EventStartTime.exit
   %24 = phi i8 [ %28, %_ZN20EventExecutionSampleC2E14EventStartTime.exit ], [ 1, %3 ]
@@ -1283,7 +1283,7 @@ _ZN20EventExecutionSampleC2E14EventStartTime.exit: ; preds = %.split, %26
   %28 = phi i8 [ 0, %.split ], [ %.pre, %26 ]
   %.add = add nuw nsw i64 %.idx, 48
   %29 = icmp eq i64 %.add, 240
-  br i1 %29, label %.preheader, label %.split, !llvm.loop !19
+  br i1 %29, label %.preheader, label %.split, !llvm.loop !17
 
 .preheader:                                       ; preds = %_ZN20EventExecutionSampleC2E14EventStartTime.exit, %_ZN20EventExecutionSampleC2E14EventStartTime.exit.us
   %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2873), align 1
@@ -1344,7 +1344,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %.split41.us
   %57 = getelementptr inbounds i8, ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %59 = load volatile ptr, ptr %58, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   %60 = ptrtoint ptr %57 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
@@ -1403,7 +1403,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   %.not.i29.us = icmp eq ptr %95, %spec.select.us
   %96 = icmp eq ptr %95, null
   %97 = or i1 %.not.i29.us, %96
-  br i1 %97, label %.outer._crit_edge, label %.lr.ph61, !llvm.loop !22
+  br i1 %97, label %.outer._crit_edge, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %.lr.ph.split.us, %84
   %98 = phi ptr [ %95, %84 ], [ %81, %.lr.ph.split.us ]
@@ -1414,7 +1414,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %102 = load ptr, ptr %101, align 8
   %103 = call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(888) %98) #18
-  br i1 %103, label %84, label %.split51.us, !llvm.loop !23
+  br i1 %103, label %84, label %.split51.us, !llvm.loop !20
 
 .split51.us:                                      ; preds = %.lr.ph61
   %104 = load ptr, ptr %68, align 8
@@ -1431,7 +1431,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   %114 = getelementptr inbounds i8, ptr %111, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %.0.ph68, i64 16
   %116 = load volatile ptr, ptr %115, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   %117 = ptrtoint ptr %114 to i64
   %118 = ptrtoint ptr %116 to i64
   %119 = sub i64 %117, %118
@@ -1446,7 +1446,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
 _ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit: ; preds = %.split51.us, %122
   %124 = phi ptr [ %123, %122 ], [ %.0.ph68, %.split51.us ]
   %125 = icmp samesign ult i32 %spec.select28, %39
-  br i1 %125, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !23
+  br i1 %125, label %.lr.ph.split.us, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.lr.ph.split.us, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit, %84
   %.022.ph.lcssa = phi i32 [ %.022.ph66, %84 ], [ %.022.ph66, %.lr.ph.split.us ], [ %spec.select28, %_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer.exit ]
@@ -1570,7 +1570,7 @@ define hidden noundef ptr @_ZN16JfrThreadSampler18get_enqueue_bufferEv(ptr nound
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load volatile ptr, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -1601,7 +1601,7 @@ define hidden noundef ptr @_ZN16JfrThreadSampler13renew_if_fullEPK9JfrBuffer(ptr
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load volatile ptr, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   %12 = ptrtoint ptr %9 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -2360,7 +2360,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !24
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !21
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #18
@@ -3131,7 +3131,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   store volatile ptr %31, ptr %34, align 8
   store ptr %31, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -3163,7 +3163,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
   store volatile ptr %43, ptr %46, align 8
   store ptr %43, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -3529,7 +3529,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !24
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !21
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #18
@@ -3718,10 +3718,7 @@ attributes #19 = { noreturn nounwind }
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
 !17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = !{i64 2145392468}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !10}
-!24 = !{!"branch_weights", i32 1, i32 1048575}
+!18 = !{!"llvm.loop.unswitch.partial.disable"}
+!19 = !{i64 2145392468}
+!20 = distinct !{!20, !10}
+!21 = !{!"branch_weights", i32 1, i32 1048575}

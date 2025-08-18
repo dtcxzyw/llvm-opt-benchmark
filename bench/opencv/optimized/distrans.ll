@@ -288,7 +288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %83)
   %.val79 = load ptr, ptr %1, align 8, !tbaa !4
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %.val79)
-  br label %.thread
+  br label %.thread142
 
 86:                                               ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_ib.exit
   %87 = landingpad { ptr, i32 }
@@ -445,7 +445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
 129:                                              ; preds = %127
   %sext = shl i32 %128, 24
   %130 = icmp eq i32 %sext, 452984832
-  br i1 %130, label %.thread, label %151
+  br i1 %130, label %.thread142, label %151
 
 131:                                              ; preds = %._crit_edge.i.i100
   %132 = landingpad { ptr, i32 }
@@ -525,24 +525,27 @@ switch.early.test:                                ; preds = %151
   %153 = add i32 %sext, -805306368
   %154 = lshr exact i32 %153, 24
   %trunc = trunc nuw i32 %154 to i8
-  switch i8 %trunc, label %.thread142 [
-    i8 5, label %.thread144
-    i8 3, label %.thread144
-    i8 2, label %.thread144
-    i8 1, label %.thread144
-    i8 0, label %.thread144
+  switch i8 %trunc, label %.thread [
+    i8 5, label %.thread141
+    i8 3, label %.thread141
+    i8 2, label %.thread141
+    i8 1, label %.thread141
+    i8 0, label %.thread141
   ]
 
-.thread144:                                       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+.thread141:                                       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
   store i32 -1, ptr @voronoiType, align 4, !tbaa !20
-  br label %.thread142
+  br label %.thread
 
 155:                                              ; preds = %151
   store i32 -1, ptr @voronoiType, align 4, !tbaa !20
   store i32 3, ptr @distType0, align 4, !tbaa !20
   br label %.backedge
 
-.thread142:                                       ; preds = %switch.early.test, %.thread144
+.backedge:                                        ; preds = %155, %157, %159, %161, %166, %170, %174, %175, %173, %169, %165, %162, %160, %158, %156, %.thread, %171
+  br label %126
+
+.thread:                                          ; preds = %switch.early.test, %.thread141
   switch i32 %sext, label %.backedge [
     i32 822083584, label %156
     i32 838860800, label %157
@@ -554,38 +557,35 @@ switch.early.test:                                ; preds = %151
     i32 536870912, label %163
   ]
 
-.backedge:                                        ; preds = %.thread142, %155, %157, %159, %161, %166, %170, %174, %175, %173, %169, %165, %162, %160, %158, %156, %171
-  br label %126
-
-156:                                              ; preds = %.thread142
+156:                                              ; preds = %.thread
   store i32 1, ptr @distType0, align 4, !tbaa !20
   br label %.backedge
 
-157:                                              ; preds = %.thread142
+157:                                              ; preds = %.thread
   store i32 2, ptr @distType0, align 4, !tbaa !20
   br label %.backedge
 
-158:                                              ; preds = %.thread142
+158:                                              ; preds = %.thread
   store i32 3, ptr @maskSize0, align 4, !tbaa !20
   br label %.backedge
 
-159:                                              ; preds = %.thread142
+159:                                              ; preds = %.thread
   store i32 5, ptr @maskSize0, align 4, !tbaa !20
   br label %.backedge
 
-160:                                              ; preds = %.thread142
+160:                                              ; preds = %.thread
   store i32 0, ptr @maskSize0, align 4, !tbaa !20
   br label %.backedge
 
-161:                                              ; preds = %.thread142
+161:                                              ; preds = %.thread
   store i32 0, ptr @voronoiType, align 4, !tbaa !20
   br label %.backedge
 
-162:                                              ; preds = %.thread142
+162:                                              ; preds = %.thread
   store i32 1, ptr @voronoiType, align 4, !tbaa !20
   br label %.backedge
 
-163:                                              ; preds = %.thread142
+163:                                              ; preds = %.thread
   %164 = load i32, ptr @voronoiType, align 4, !tbaa !20
   switch i32 %164, label %167 [
     i32 0, label %165
@@ -637,19 +637,19 @@ switch.early.test:                                ; preds = %151
   store i32 0, ptr @voronoiType, align 4, !tbaa !20
   br label %.backedge
 
-.thread:                                          ; preds = %129, %82
+.thread142:                                       ; preds = %129, %82
   %.1 = phi i32 [ -1, %82 ], [ 0, %129 ]
   %176 = load ptr, ptr %8, align 8, !tbaa !13
   %177 = icmp eq ptr %176, %62
   br i1 %177, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131: ; preds = %.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131: ; preds = %.thread142
   %178 = load i64, ptr %63, align 8, !tbaa !16
   %179 = icmp ult i64 %178, 16
   call void @llvm.assume(i1 %179)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130: ; preds = %.thread
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130: ; preds = %.thread142
   call void @_ZdlPv(ptr noundef %176) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132
 

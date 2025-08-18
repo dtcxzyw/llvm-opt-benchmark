@@ -26,150 +26,171 @@ define dso_local void @generateSkyscraper(ptr noundef %0, ptr noundef readonly c
   %8 = sub nsw i32 %5, %7
   %9 = add nsw i32 %8, 1
   %.not.not64 = icmp sgt i32 %7, 0
-  br i1 %.not.not64, label %.lr.ph68, label %._crit_edge69
+  br i1 %.not.not64, label %.lr.ph69, label %._crit_edge70
 
-.lr.ph68:                                         ; preds = %2
+.lr.ph69:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = add nsw i32 %8, 2
   %14 = add nsw i32 %4, -2
-  %.pre = load i32, ptr %10, align 4, !tbaa !14
+  %.pre = load i32, ptr %1, align 4, !tbaa !14
+  %.pre79 = load i32, ptr %10, align 4, !tbaa !15
   br label %15
 
-._crit_edge69:                                    ; preds = %._crit_edge, %2
+._crit_edge70:                                    ; preds = %._crit_edge, %2
   ret void
 
-15:                                               ; preds = %.lr.ph68, %._crit_edge
-  %16 = phi i32 [ %.pre, %.lr.ph68 ], [ %44, %._crit_edge ]
-  %17 = phi i32 [ %.pre, %.lr.ph68 ], [ %45, %._crit_edge ]
-  %18 = phi i32 [ %.pre, %.lr.ph68 ], [ %46, %._crit_edge ]
-  %.065 = phi i32 [ %5, %.lr.ph68 ], [ %47, %._crit_edge ]
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %._crit_edge
+15:                                               ; preds = %.lr.ph69, %._crit_edge
+  %16 = phi i32 [ %.pre79, %.lr.ph69 ], [ %54, %._crit_edge ]
+  %17 = phi i32 [ %.pre, %.lr.ph69 ], [ %55, %._crit_edge ]
+  %18 = phi i32 [ %.pre79, %.lr.ph69 ], [ %56, %._crit_edge ]
+  %19 = phi i32 [ %.pre, %.lr.ph69 ], [ %57, %._crit_edge ]
+  %20 = phi i32 [ %.pre79, %.lr.ph69 ], [ %58, %._crit_edge ]
+  %21 = phi i32 [ %.pre, %.lr.ph69 ], [ %59, %._crit_edge ]
+  %.065 = phi i32 [ %5, %.lr.ph69 ], [ %60, %._crit_edge ]
+  %22 = add nsw i32 %20, %21
+  %23 = icmp sgt i32 %20, 0
+  br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %20 = load i32, ptr %1, align 4, !tbaa !15
-  %21 = add nsw i32 %18, %20
-  %22 = icmp eq i32 %.065, %9
-  %23 = icmp sgt i32 %.065, %13
-  %24 = icmp slt i32 %.065, %14
-  %25 = sub i32 %.065, %8
-  %26 = and i32 %25, 1
-  %.not55 = icmp eq i32 %26, 0
-  %.fr = freeze i1 %24
-  %.fr63 = freeze i1 %23
-  %27 = and i1 %.fr, %.fr63
-  br i1 %27, label %.lr.ph.split, label %.lr.ph.split.us
+  %24 = icmp eq i32 %.065, %9
+  %25 = icmp sgt i32 %.065, %13
+  %26 = icmp slt i32 %.065, %14
+  %27 = sub i32 %.065, %8
+  %28 = and i32 %27, 1
+  %.not55 = icmp eq i32 %28, 0
+  %.fr = freeze i1 %26
+  %.fr63 = freeze i1 %25
+  %29 = and i1 %.fr, %.fr63
+  br i1 %29, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %37
-  %28 = phi i32 [ %38, %37 ], [ %16, %.lr.ph ]
-  %29 = phi i32 [ %39, %37 ], [ %17, %.lr.ph ]
-  %30 = phi i32 [ %40, %37 ], [ %20, %.lr.ph ]
-  %31 = phi i32 [ %42, %37 ], [ %21, %.lr.ph ]
-  %.04661.us = phi i32 [ %41, %37 ], [ %20, %.lr.ph ]
-  br i1 %22, label %32, label %35
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %24, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-32:                                               ; preds = %.lr.ph.split.us
-  %33 = add nsw i32 %30, 1
-  %.not.us = icmp sgt i32 %.04661.us, %33
-  %34 = add nsw i32 %31, -2
-  %.not52.us = icmp slt i32 %.04661.us, %34
-  %or.cond.us = select i1 %.not.us, i1 %.not52.us, i1 false
-  br i1 %or.cond.us, label %35, label %37
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %40
+  %30 = phi i32 [ %41, %40 ], [ %16, %.lr.ph.split.us ]
+  %31 = phi i32 [ %42, %40 ], [ %17, %.lr.ph.split.us ]
+  %32 = phi i32 [ %43, %40 ], [ %18, %.lr.ph.split.us ]
+  %33 = phi i32 [ %44, %40 ], [ %19, %.lr.ph.split.us ]
+  %34 = phi i32 [ %46, %40 ], [ %22, %.lr.ph.split.us ]
+  %35 = phi i32 [ %44, %40 ], [ %21, %.lr.ph.split.us ]
+  %.04661.us.us = phi i32 [ %45, %40 ], [ %21, %.lr.ph.split.us ]
+  %36 = add nsw i32 %35, 1
+  %.not.us.us = icmp sgt i32 %.04661.us.us, %36
+  %37 = add nsw i32 %34, -2
+  %.not52.us.us = icmp slt i32 %.04661.us.us, %37
+  %or.cond.us.us = select i1 %.not.us.us, i1 %.not52.us.us, i1 false
+  br i1 %or.cond.us.us, label %38, label %40
 
-35:                                               ; preds = %32, %.lr.ph.split.us
-  %36 = load i32, ptr %11, align 4, !tbaa !16
-  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us, i32 noundef %.065, i32 noundef %36) #4
-  %.pre75 = load i32, ptr %1, align 4, !tbaa !15
-  %.pre76 = load i32, ptr %10, align 4, !tbaa !14
-  br label %37
+38:                                               ; preds = %.lr.ph.split.us.split.us
+  %39 = load i32, ptr %11, align 4, !tbaa !16
+  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us.us, i32 noundef %9, i32 noundef %39) #4
+  %.pre80 = load i32, ptr %1, align 4, !tbaa !14
+  %.pre81 = load i32, ptr %10, align 4, !tbaa !15
+  br label %40
 
-37:                                               ; preds = %35, %32
-  %38 = phi i32 [ %.pre76, %35 ], [ %28, %32 ]
-  %39 = phi i32 [ %.pre76, %35 ], [ %29, %32 ]
-  %40 = phi i32 [ %.pre75, %35 ], [ %30, %32 ]
-  %41 = add nsw i32 %.04661.us, 1
-  %42 = add nsw i32 %39, %40
-  %43 = icmp slt i32 %41, %42
-  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
+40:                                               ; preds = %38, %.lr.ph.split.us.split.us
+  %41 = phi i32 [ %.pre81, %38 ], [ %30, %.lr.ph.split.us.split.us ]
+  %42 = phi i32 [ %.pre80, %38 ], [ %31, %.lr.ph.split.us.split.us ]
+  %43 = phi i32 [ %.pre81, %38 ], [ %32, %.lr.ph.split.us.split.us ]
+  %44 = phi i32 [ %.pre80, %38 ], [ %33, %.lr.ph.split.us.split.us ]
+  %45 = add nsw i32 %.04661.us.us, 1
+  %46 = add nsw i32 %43, %44
+  %47 = icmp slt i32 %45, %46
+  br i1 %47, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %37, %76, %15
-  %44 = phi i32 [ %16, %15 ], [ %77, %76 ], [ %38, %37 ]
-  %45 = phi i32 [ %17, %15 ], [ %77, %76 ], [ %39, %37 ]
-  %46 = phi i32 [ %18, %15 ], [ %77, %76 ], [ %39, %37 ]
-  %47 = add nsw i32 %.065, -1
-  %.not.not = icmp sgt i32 %47, %8
-  br i1 %.not.not, label %15, label %._crit_edge69, !llvm.loop !20
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
+  %.04661.us = phi i32 [ %49, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.us ]
+  %48 = load i32, ptr %11, align 4, !tbaa !16
+  tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661.us, i32 noundef %.065, i32 noundef %48) #4
+  %49 = add nsw i32 %.04661.us, 1
+  %50 = load i32, ptr %1, align 4, !tbaa !14
+  %51 = load i32, ptr %10, align 4, !tbaa !15
+  %52 = add nsw i32 %51, %50
+  %53 = icmp slt i32 %49, %52
+  br i1 %53, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !17
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %76
-  %48 = phi i32 [ %77, %76 ], [ %16, %.lr.ph ]
-  %49 = phi i32 [ %78, %76 ], [ %20, %.lr.ph ]
-  %50 = phi i32 [ %80, %76 ], [ %21, %.lr.ph ]
-  %.04661 = phi i32 [ %79, %76 ], [ %20, %.lr.ph ]
-  br i1 %22, label %51, label %54
+._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %40, %90, %15
+  %54 = phi i32 [ %16, %15 ], [ %91, %90 ], [ %41, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %55 = phi i32 [ %17, %15 ], [ %92, %90 ], [ %42, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %56 = phi i32 [ %18, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %57 = phi i32 [ %19, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %58 = phi i32 [ %20, %15 ], [ %91, %90 ], [ %43, %40 ], [ %51, %.lr.ph.split.us.split ]
+  %59 = phi i32 [ %21, %15 ], [ %92, %90 ], [ %44, %40 ], [ %50, %.lr.ph.split.us.split ]
+  %60 = add nsw i32 %.065, -1
+  %.not.not = icmp sgt i32 %60, %8
+  br i1 %.not.not, label %15, label %._crit_edge70, !llvm.loop !19
 
-51:                                               ; preds = %.lr.ph.split
-  %52 = add nsw i32 %49, 1
-  %.not = icmp sgt i32 %.04661, %52
-  %53 = add nsw i32 %50, -2
-  %.not52 = icmp slt i32 %.04661, %53
+.lr.ph.split:                                     ; preds = %.lr.ph, %90
+  %61 = phi i32 [ %91, %90 ], [ %16, %.lr.ph ]
+  %62 = phi i32 [ %92, %90 ], [ %17, %.lr.ph ]
+  %63 = phi i32 [ %94, %90 ], [ %22, %.lr.ph ]
+  %64 = phi i32 [ %92, %90 ], [ %21, %.lr.ph ]
+  %.04661 = phi i32 [ %93, %90 ], [ %21, %.lr.ph ]
+  br i1 %24, label %65, label %68
+
+65:                                               ; preds = %.lr.ph.split
+  %66 = add nsw i32 %64, 1
+  %.not = icmp sgt i32 %.04661, %66
+  %67 = add nsw i32 %63, -2
+  %.not52 = icmp slt i32 %.04661, %67
   %or.cond = select i1 %.not, i1 %.not52, i1 false
-  br i1 %or.cond, label %54, label %76
+  br i1 %or.cond, label %68, label %90
 
-54:                                               ; preds = %51, %.lr.ph.split
-  %55 = load i32, ptr %11, align 4, !tbaa !16
-  %56 = load i32, ptr %12, align 4, !tbaa !21
-  %.not53 = icmp eq i32 %56, 0
-  br i1 %.not53, label %75, label %57
+68:                                               ; preds = %65, %.lr.ph.split
+  %69 = load i32, ptr %11, align 4, !tbaa !16
+  %70 = load i32, ptr %12, align 4, !tbaa !20
+  %.not53 = icmp eq i32 %70, 0
+  br i1 %.not53, label %89, label %71
 
-57:                                               ; preds = %54
-  %58 = add nsw i32 %49, 1
-  %59 = icmp sgt i32 %.04661, %58
-  %60 = add nsw i32 %50, -2
-  %61 = icmp slt i32 %.04661, %60
-  %or.cond73 = select i1 %59, i1 %61, i1 false
-  br i1 %or.cond73, label %62, label %75
+71:                                               ; preds = %68
+  %72 = add nsw i32 %64, 1
+  %73 = icmp sgt i32 %.04661, %72
+  %74 = add nsw i32 %63, -2
+  %75 = icmp slt i32 %.04661, %74
+  %or.cond76 = select i1 %73, i1 %75, i1 false
+  br i1 %or.cond76, label %76, label %89
 
-62:                                               ; preds = %57
-  %63 = sub nsw i32 %.04661, %58
-  %64 = and i32 %63, 2
-  %.not54 = icmp eq i32 %64, 0
+76:                                               ; preds = %71
+  %77 = sub nsw i32 %.04661, %72
+  %78 = and i32 %77, 2
+  %.not54 = icmp eq i32 %78, 0
   %brmerge = or i1 %.not54, %.not55
-  br i1 %brmerge, label %75, label %.preheader
+  br i1 %brmerge, label %89, label %.preheader
 
-.preheader:                                       ; preds = %62, %.preheader
-  %65 = tail call i32 @rand() #4
-  %66 = srem i32 %65, 2
-  %67 = add nsw i32 %66, 1
-  %68 = load i32, ptr %11, align 4, !tbaa !16
-  %69 = icmp eq i32 %67, %68
-  br i1 %69, label %.preheader, label %70, !llvm.loop !22
+.preheader:                                       ; preds = %76, %.preheader
+  %79 = tail call i32 @rand() #4
+  %80 = srem i32 %79, 2
+  %81 = add nsw i32 %80, 1
+  %82 = load i32, ptr %11, align 4, !tbaa !16
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %.preheader, label %84, !llvm.loop !21
 
-70:                                               ; preds = %.preheader
-  %71 = and i32 %63, 1
-  %.not56 = icmp eq i32 %71, 0
-  br i1 %.not56, label %75, label %72
+84:                                               ; preds = %.preheader
+  %85 = and i32 %77, 1
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %89, label %86
 
-72:                                               ; preds = %70
-  %73 = add nsw i32 %.04661, -1
-  %74 = tail call i32 @lwGetPixel(ptr noundef %0, i32 noundef %73, i32 noundef %.065) #4
-  br label %75
+86:                                               ; preds = %84
+  %87 = add nsw i32 %.04661, -1
+  %88 = tail call i32 @lwGetPixel(ptr noundef %0, i32 noundef %87, i32 noundef %.065) #4
+  br label %89
 
-75:                                               ; preds = %62, %72, %70, %57, %54
-  %.045 = phi i32 [ %55, %57 ], [ %55, %54 ], [ %74, %72 ], [ %67, %70 ], [ %55, %62 ]
+89:                                               ; preds = %76, %86, %84, %71, %68
+  %.045 = phi i32 [ %69, %71 ], [ %69, %68 ], [ %88, %86 ], [ %81, %84 ], [ %69, %76 ]
   tail call void @lwDrawPixel(ptr noundef %0, i32 noundef %.04661, i32 noundef %.065, i32 noundef %.045) #4
-  %.pre77 = load i32, ptr %1, align 4, !tbaa !15
-  %.pre78 = load i32, ptr %10, align 4, !tbaa !14
-  br label %76
+  %.pre82 = load i32, ptr %1, align 4, !tbaa !14
+  %.pre83 = load i32, ptr %10, align 4, !tbaa !15
+  br label %90
 
-76:                                               ; preds = %51, %75
-  %77 = phi i32 [ %48, %51 ], [ %.pre78, %75 ]
-  %78 = phi i32 [ %49, %51 ], [ %.pre77, %75 ]
-  %79 = add nsw i32 %.04661, 1
-  %80 = add nsw i32 %77, %78
-  %81 = icmp slt i32 %79, %80
-  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
+90:                                               ; preds = %65, %89
+  %91 = phi i32 [ %61, %65 ], [ %.pre83, %89 ]
+  %92 = phi i32 [ %62, %65 ], [ %.pre82, %89 ]
+  %93 = add nsw i32 %.04661, 1
+  %94 = add nsw i32 %91, %92
+  %95 = icmp slt i32 %93, %94
+  br i1 %95, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind
@@ -188,184 +209,126 @@ define dso_local void @generateSkyline(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %8 = load i32, ptr %0, align 8, !tbaa !24
+  %8 = load i32, ptr %0, align 8, !tbaa !22
   %9 = icmp sgt i32 %8, -10
-  br i1 %9, label %.split, label %._crit_edge53
+  br i1 %9, label %.split, label %._crit_edge33
 
-.split45.us:                                      ; preds = %._crit_edge
-  %10 = icmp sgt i32 %14, -10
+.split29:                                         ; preds = %._crit_edge
+  %10 = icmp sgt i32 %30, -10
   store i32 0, ptr %3, align 4, !tbaa !16
-  br i1 %10, label %.lr.ph52, label %._crit_edge53
+  br i1 %10, label %.lr.ph32, label %._crit_edge33
 
 .split:                                           ; preds = %1, %._crit_edge
-  %11 = phi i32 [ %14, %._crit_edge ], [ %8, %1 ]
-  %.02436 = phi i32 [ %15, %._crit_edge ], [ 2, %1 ]
+  %11 = phi i32 [ %30, %._crit_edge ], [ %8, %1 ]
+  %.02427 = phi i32 [ %31, %._crit_edge ], [ 2, %1 ]
+  store i32 %.02427, ptr %3, align 4, !tbaa !16
   %12 = icmp sgt i32 %11, -10
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.split
-  %13 = icmp eq i32 %.02436, 2
-  br label %17
+  %13 = icmp eq i32 %.02427, 2
+  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %generateSkyscraper.exit, %.split
-  %14 = phi i32 [ %11, %.split ], [ %63, %generateSkyscraper.exit ]
-  %15 = add nsw i32 %.02436, -1
-  %16 = icmp samesign ugt i32 %.02436, 1
-  br i1 %16, label %.split, label %.split45.us, !llvm.loop !25
-
-17:                                               ; preds = %.lr.ph, %generateSkyscraper.exit
-  %.02326 = phi i32 [ -10, %.lr.ph ], [ %.1, %generateSkyscraper.exit ]
-  %18 = tail call i32 @rand() #4
-  %19 = srem i32 %18, 8
-  %20 = add nsw i32 %19, %.02326
-  %21 = tail call i32 @rand() #4
-  %22 = srem i32 %21, 9
-  %23 = add nsw i32 %22, 10
-  %24 = load i32, ptr %5, align 4, !tbaa !5
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %.02326.us = phi i32 [ %.1.us, %.lr.ph.split.us ], [ -10, %.lr.ph ]
+  %14 = tail call i32 @rand() #4
+  %15 = srem i32 %14, 8
+  %16 = add nsw i32 %15, %.02326.us
+  store i32 %16, ptr %2, align 4, !tbaa !14
+  %17 = tail call i32 @rand() #4
+  %18 = srem i32 %17, 9
+  %19 = add nsw i32 %18, 10
+  store i32 %19, ptr %4, align 4, !tbaa !15
+  %20 = load i32, ptr %5, align 4, !tbaa !5
+  %21 = sdiv i32 %20, 2
+  %22 = tail call i32 @rand() #4
+  %23 = load i32, ptr %5, align 4, !tbaa !5
+  %24 = srem i32 %22, %23
   %25 = sdiv i32 %24, 2
-  %26 = tail call i32 @rand() #4
-  %27 = load i32, ptr %5, align 4, !tbaa !5
-  %28 = srem i32 %26, %27
-  br i1 %13, label %29, label %31
+  %26 = add nsw i32 %25, %21
+  store i32 %26, ptr %6, align 4, !tbaa !12
+  store i32 0, ptr %7, align 4, !tbaa !20
+  call void @generateSkyscraper(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %27 = lshr i32 %19, 1
+  %.1.us = add nsw i32 %27, %16
+  %28 = load i32, ptr %0, align 8, !tbaa !22
+  %29 = icmp slt i32 %.1.us, %28
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
-29:                                               ; preds = %17
-  %30 = sdiv i32 %28, 2
-  br label %33
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.split
+  %30 = phi i32 [ %11, %.split ], [ %28, %.lr.ph.split.us ], [ %47, %.lr.ph.split ]
+  %31 = add nsw i32 %.02427, -1
+  %32 = icmp samesign ugt i32 %.02427, 1
+  br i1 %32, label %.split, label %.split29, !llvm.loop !24
 
-31:                                               ; preds = %17
-  %32 = sdiv i32 %28, 3
-  br label %33
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %.02326 = phi i32 [ %.1, %.lr.ph.split ], [ -10, %.lr.ph ]
+  %33 = tail call i32 @rand() #4
+  %34 = srem i32 %33, 8
+  %35 = add nsw i32 %34, %.02326
+  store i32 %35, ptr %2, align 4, !tbaa !14
+  %36 = tail call i32 @rand() #4
+  %37 = srem i32 %36, 9
+  %38 = add nsw i32 %37, 10
+  store i32 %38, ptr %4, align 4, !tbaa !15
+  %39 = load i32, ptr %5, align 4, !tbaa !5
+  %40 = sdiv i32 %39, 2
+  %41 = tail call i32 @rand() #4
+  %42 = load i32, ptr %5, align 4, !tbaa !5
+  %43 = srem i32 %41, %42
+  %44 = sdiv i32 %43, 3
+  %45 = add nsw i32 %44, %40
+  store i32 %45, ptr %6, align 4, !tbaa !12
+  store i32 0, ptr %7, align 4, !tbaa !20
+  call void @generateSkyscraper(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %46 = add nsw i32 %37, 11
+  %.1 = add nsw i32 %46, %35
+  %47 = load i32, ptr %0, align 8, !tbaa !22
+  %48 = icmp slt i32 %.1, %47
+  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !23
 
-33:                                               ; preds = %31, %29
-  %.sink = phi i32 [ %32, %31 ], [ %30, %29 ]
-  %34 = add nsw i32 %.sink, %25
-  %35 = add nsw i32 %27, -1
-  %36 = sub nsw i32 %35, %34
-  %37 = add nsw i32 %36, 1
-  %.not.not64.i = icmp sgt i32 %34, 0
-  br i1 %.not.not64.i, label %.lr.ph68.i, label %generateSkyscraper.exit
-
-.lr.ph68.i:                                       ; preds = %33
-  %38 = add nsw i32 %36, 2
-  %39 = add nsw i32 %27, -2
-  %40 = add nsw i32 %20, 1
-  %41 = add nsw i32 %23, %20
-  %42 = add i32 %.02326, 8
-  %43 = add i32 %42, %19
-  %44 = add i32 %43, %22
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph68.i
-  %.065.i = phi i32 [ %35, %.lr.ph68.i ], [ %58, %._crit_edge.i ]
-  %45 = icmp eq i32 %.065.i, %37
-  %46 = icmp sgt i32 %.065.i, %38
-  %47 = icmp slt i32 %.065.i, %39
-  %.fr.i = freeze i1 %47
-  %.fr63.i = freeze i1 %46
-  %48 = and i1 %.fr.i, %.fr63.i
-  br i1 %48, label %.lr.ph.split.i.preheader, label %.lr.ph.split.us.i
-
-.lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
-  br i1 %45, label %.lr.ph.split.i.us, label %.lr.ph.split.i
-
-.lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.preheader, %50
-  %.04661.i.us = phi i32 [ %51, %50 ], [ %20, %.lr.ph.split.i.preheader ]
-  %.not.i.us = icmp sgt i32 %.04661.i.us, %40
-  %.not52.i.us = icmp slt i32 %.04661.i.us, %44
-  %or.cond.i.us = select i1 %.not.i.us, i1 %.not52.i.us, i1 false
-  br i1 %or.cond.i.us, label %49, label %50
-
-49:                                               ; preds = %.lr.ph.split.i.us
-  tail call void @lwDrawPixel(ptr noundef nonnull %0, i32 noundef %.04661.i.us, i32 noundef %37, i32 noundef %.02436) #4
-  br label %50
-
-50:                                               ; preds = %49, %.lr.ph.split.i.us
-  %51 = add nsw i32 %.04661.i.us, 1
-  %52 = icmp slt i32 %51, %41
-  br i1 %52, label %.lr.ph.split.i.us, label %._crit_edge.i, !llvm.loop !27
-
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %55
-  %.04661.us.i = phi i32 [ %56, %55 ], [ %20, %.lr.ph.i ]
-  br i1 %45, label %53, label %54
-
-53:                                               ; preds = %.lr.ph.split.us.i
-  %.not.us.i = icmp sgt i32 %.04661.us.i, %40
-  %.not52.us.i = icmp slt i32 %.04661.us.i, %44
-  %or.cond.us.i = select i1 %.not.us.i, i1 %.not52.us.i, i1 false
-  br i1 %or.cond.us.i, label %54, label %55
-
-54:                                               ; preds = %53, %.lr.ph.split.us.i
-  tail call void @lwDrawPixel(ptr noundef nonnull %0, i32 noundef %.04661.us.i, i32 noundef %.065.i, i32 noundef %.02436) #4
-  br label %55
-
-55:                                               ; preds = %54, %53
-  %56 = add nsw i32 %.04661.us.i, 1
-  %57 = icmp slt i32 %56, %41
-  br i1 %57, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !17
-
-._crit_edge.i:                                    ; preds = %55, %.lr.ph.split.i, %50
-  %58 = add nsw i32 %.065.i, -1
-  %.not.not.i = icmp sgt i32 %58, %36
-  br i1 %.not.not.i, label %.lr.ph.i, label %generateSkyscraper.exit, !llvm.loop !20
-
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
-  %.04661.i = phi i32 [ %59, %.lr.ph.split.i ], [ %20, %.lr.ph.split.i.preheader ]
-  tail call void @lwDrawPixel(ptr noundef nonnull %0, i32 noundef %.04661.i, i32 noundef %.065.i, i32 noundef %.02436) #4
-  %59 = add nsw i32 %.04661.i, 1
-  %60 = icmp slt i32 %59, %41
-  br i1 %60, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !23
-
-generateSkyscraper.exit:                          ; preds = %._crit_edge.i, %33
-  %61 = lshr i32 %23, 1
-  %62 = add nsw i32 %22, 11
-  %.pn = select i1 %13, i32 %61, i32 %62
-  %.1 = add nsw i32 %.pn, %20
-  %63 = load i32, ptr %0, align 8, !tbaa !24
-  %64 = icmp slt i32 %.1, %63
-  br i1 %64, label %17, label %._crit_edge, !llvm.loop !28
-
-._crit_edge53:                                    ; preds = %75, %1, %.split45.us
+._crit_edge33:                                    ; preds = %59, %1, %.split29
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-.lr.ph52:                                         ; preds = %.split45.us, %75
-  %.050 = phi i32 [ %84, %75 ], [ -10, %.split45.us ]
-  %65 = tail call i32 @rand() #4
-  %66 = srem i32 %65, 8
-  %67 = add nsw i32 %66, %.050
-  store i32 %67, ptr %2, align 4, !tbaa !15
-  %68 = tail call i32 @rand() #4
-  %69 = srem i32 %68, 14
-  %70 = add nsw i32 %69, 5
-  %71 = and i32 %70, 3
-  %.not = icmp eq i32 %71, 0
-  br i1 %.not, label %75, label %72
+.lr.ph32:                                         ; preds = %.split29, %59
+  %.030 = phi i32 [ %68, %59 ], [ -10, %.split29 ]
+  %49 = tail call i32 @rand() #4
+  %50 = srem i32 %49, 8
+  %51 = add nsw i32 %50, %.030
+  store i32 %51, ptr %2, align 4, !tbaa !14
+  %52 = tail call i32 @rand() #4
+  %53 = srem i32 %52, 14
+  %54 = add nsw i32 %53, 5
+  %55 = and i32 %54, 3
+  %.not = icmp eq i32 %55, 0
+  br i1 %.not, label %59, label %56
 
-72:                                               ; preds = %.lr.ph52
-  %.lhs.trunc = trunc nsw i32 %70 to i8
-  %73 = srem i8 %.lhs.trunc, 3
-  %.sext = sext i8 %73 to i32
-  %74 = add nsw i32 %70, %.sext
-  br label %75
+56:                                               ; preds = %.lr.ph32
+  %.lhs.trunc25 = trunc nsw i32 %54 to i8
+  %57 = srem i8 %.lhs.trunc25, 3
+  %.sext = sext i8 %57 to i32
+  %58 = add nsw i32 %54, %.sext
+  br label %59
 
-75:                                               ; preds = %72, %.lr.ph52
-  %storemerge = phi i32 [ %74, %72 ], [ %70, %.lr.ph52 ]
-  store i32 %storemerge, ptr %4, align 4, !tbaa !14
-  %76 = load i32, ptr %5, align 4, !tbaa !5
-  %77 = sdiv i32 %76, 3
-  %78 = tail call i32 @rand() #4
-  %79 = load i32, ptr %5, align 4, !tbaa !5
-  %80 = srem i32 %78, %79
-  %81 = sdiv i32 %80, 2
-  %82 = add nsw i32 %81, %77
-  store i32 %82, ptr %6, align 4, !tbaa !12
-  store i32 1, ptr %7, align 4, !tbaa !21
+59:                                               ; preds = %56, %.lr.ph32
+  %storemerge = phi i32 [ %58, %56 ], [ %54, %.lr.ph32 ]
+  store i32 %storemerge, ptr %4, align 4, !tbaa !15
+  %60 = load i32, ptr %5, align 4, !tbaa !5
+  %61 = sdiv i32 %60, 3
+  %62 = tail call i32 @rand() #4
+  %63 = load i32, ptr %5, align 4, !tbaa !5
+  %64 = srem i32 %62, %63
+  %65 = sdiv i32 %64, 2
+  %66 = add nsw i32 %65, %61
+  store i32 %66, ptr %6, align 4, !tbaa !12
+  store i32 1, ptr %7, align 4, !tbaa !20
   call void @generateSkyscraper(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  %83 = add i32 %67, 5
-  %84 = add i32 %83, %storemerge
-  %85 = load i32, ptr %0, align 8, !tbaa !24
-  %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph52, label %._crit_edge53, !llvm.loop !29
+  %67 = add i32 %51, 5
+  %68 = add i32 %67, %storemerge
+  %69 = load i32, ptr %0, align 8, !tbaa !22
+  %70 = icmp slt i32 %68, %69
+  br i1 %70, label %.lr.ph32, label %._crit_edge33, !llvm.loop !26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -373,38 +336,38 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 80, ptr %2, align 8, !tbaa !30
+  store i64 80, ptr %2, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 20, ptr %3, align 8, !tbaa !30
+  store i64 20, ptr %3, align 8, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !32
+  %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %2, ptr noundef null) #4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %83
 
 13:                                               ; preds = %7
-  %.pr = load i32, ptr %4, align 8, !tbaa !32
+  %.pr = load i32, ptr %4, align 8, !tbaa !29
   %14 = icmp sgt i32 %.pr, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %8, align 8, !tbaa !49
+  %16 = load ptr, ptr %8, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %17, align 8, !tbaa !47
   %19 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %3, ptr noundef null) #4
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %.thread, label %83
 
 .thread:                                          ; preds = %1, %15, %13
-  %20 = load i64, ptr %2, align 8, !tbaa !30
+  %20 = load i64, ptr %2, align 8, !tbaa !27
   %21 = icmp slt i64 %20, 1
   br i1 %21, label %.sink.split, label %22
 
@@ -414,12 +377,12 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %22, %.thread
   %.sink = phi i64 [ 1, %.thread ], [ 1000, %22 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !30
+  store i64 %.sink, ptr %2, align 8, !tbaa !27
   br label %24
 
 24:                                               ; preds = %.sink.split, %22
   %25 = phi i64 [ %20, %22 ], [ %.sink, %.sink.split ]
-  %26 = load i64, ptr %3, align 8, !tbaa !30
+  %26 = load i64, ptr %3, align 8, !tbaa !27
   %27 = icmp slt i64 %26, 1
   br i1 %27, label %.sink.split20, label %28
 
@@ -429,7 +392,7 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split20:                                    ; preds = %28, %24
   %.sink22 = phi i64 [ 1, %24 ], [ 1000, %28 ]
-  store i64 %.sink22, ptr %3, align 8, !tbaa !30
+  store i64 %.sink22, ptr %3, align 8, !tbaa !27
   br label %30
 
 30:                                               ; preds = %.sink.split20, %28
@@ -448,7 +411,7 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %39 = phi i32 [ %55, %54 ], [ %37, %30 ]
   %.01521.i = phi ptr [ %.2.i, %54 ], [ %35, %30 ]
   %.01720.i = phi i32 [ %56, %54 ], [ 0, %30 ]
-  %40 = load i32, ptr %34, align 8, !tbaa !24
+  %40 = load i32, ptr %34, align 8, !tbaa !22
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
@@ -481,9 +444,9 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.4, %.lr.ph.i ]
   %48 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.119.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %.0.i) #4
   %49 = add nuw nsw i32 %.01618.i, 1
-  %50 = load i32, ptr %34, align 8, !tbaa !24
+  %50 = load i32, ptr %34, align 8, !tbaa !22
   %51 = icmp slt i32 %49, %50
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !51
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !48
 
 52:                                               ; preds = %._crit_edge.i
   %53 = call ptr @sdscatlen(ptr noundef %.1.lcssa.i, ptr noundef nonnull @.str.2, i64 noundef 1) #4
@@ -495,7 +458,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %.2.i = phi ptr [ %53, %52 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %56 = add nuw nsw i32 %.01720.i, 1
   %57 = icmp slt i32 %56, %55
-  br i1 %57, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !52
+  br i1 %57, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !49
 
 renderCanvas.exit:                                ; preds = %54, %30
   %.015.lcssa.i = phi ptr [ %35, %30 ], [ %.2.i, %54 ]
@@ -503,7 +466,7 @@ renderCanvas.exit:                                ; preds = %54, %30
   %59 = call ptr @sdscat(ptr noundef %58, ptr noundef nonnull @.str.1) #4
   %60 = call ptr @sdscatlen(ptr noundef %59, ptr noundef nonnull @.str.2, i64 noundef 1) #4
   %61 = getelementptr inbounds i8, ptr %60, i64 -1
-  %62 = load i8, ptr %61, align 1, !tbaa !53
+  %62 = load i8, ptr %61, align 1, !tbaa !50
   %63 = zext i8 %62 to i32
   %64 = and i32 %63, 7
   switch i32 %64, label %sdslen.exit [
@@ -521,25 +484,25 @@ renderCanvas.exit:                                ; preds = %54, %30
 
 68:                                               ; preds = %renderCanvas.exit
   %69 = getelementptr inbounds i8, ptr %60, i64 -3
-  %70 = load i8, ptr %69, align 1, !tbaa !53
+  %70 = load i8, ptr %69, align 1, !tbaa !50
   %71 = zext i8 %70 to i64
   br label %sdslen.exit
 
 72:                                               ; preds = %renderCanvas.exit
   %73 = getelementptr inbounds i8, ptr %60, i64 -5
-  %74 = load i16, ptr %73, align 1, !tbaa !54
+  %74 = load i16, ptr %73, align 1, !tbaa !51
   %75 = zext i16 %74 to i64
   br label %sdslen.exit
 
 76:                                               ; preds = %renderCanvas.exit
   %77 = getelementptr inbounds i8, ptr %60, i64 -9
-  %78 = load i32, ptr %77, align 1, !tbaa !56
+  %78 = load i32, ptr %77, align 1, !tbaa !53
   %79 = zext i32 %78 to i64
   br label %sdslen.exit
 
 80:                                               ; preds = %renderCanvas.exit
   %81 = getelementptr inbounds i8, ptr %60, i64 -17
-  %82 = load i64, ptr %81, align 1, !tbaa !30
+  %82 = load i64, ptr %81, align 1, !tbaa !27
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %renderCanvas.exit, %65, %68, %72, %76, %80
@@ -601,46 +564,43 @@ attributes #4 = { nounwind }
 !11 = !{!"any pointer", !8, i64 0}
 !12 = !{!13, !7, i64 8}
 !13 = !{!"skyscraper", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16}
-!14 = !{!13, !7, i64 4}
-!15 = !{!13, !7, i64 0}
+!14 = !{!13, !7, i64 0}
+!15 = !{!13, !7, i64 4}
 !16 = !{!13, !7, i64 16}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !18}
-!21 = !{!13, !7, i64 12}
-!22 = distinct !{!22, !18}
+!19 = distinct !{!19, !18}
+!20 = !{!13, !7, i64 12}
+!21 = distinct !{!21, !18}
+!22 = !{!6, !7, i64 0}
 !23 = distinct !{!23, !18}
-!24 = !{!6, !7, i64 0}
-!25 = distinct !{!25, !18, !26}
-!26 = !{!"llvm.loop.unswitch.partial.disable"}
-!27 = distinct !{!27, !18, !19}
-!28 = distinct !{!28, !18}
-!29 = distinct !{!29, !18}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !8, i64 0}
-!32 = !{!33, !7, i64 88}
-!33 = !{!"client", !31, i64 0, !31, i64 8, !34, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !35, i64 32, !36, i64 40, !36, i64 48, !36, i64 56, !10, i64 64, !31, i64 72, !31, i64 80, !7, i64 88, !37, i64 96, !7, i64 104, !7, i64 108, !37, i64 112, !31, i64 120, !38, i64 128, !38, i64 136, !38, i64 144, !38, i64 152, !11, i64 160, !7, i64 168, !7, i64 172, !31, i64 176, !39, i64 184, !40, i64 192, !39, i64 200, !31, i64 208, !31, i64 216, !31, i64 224, !7, i64 232, !41, i64 240, !31, i64 248, !31, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !31, i64 280, !31, i64 288, !10, i64 296, !40, i64 304, !40, i64 312, !40, i64 320, !40, i64 328, !40, i64 336, !40, i64 344, !40, i64 352, !40, i64 360, !8, i64 368, !7, i64 412, !10, i64 416, !7, i64 424, !7, i64 428, !31, i64 432, !42, i64 440, !44, i64 480, !40, i64 552, !39, i64 560, !45, i64 568, !45, i64 576, !45, i64 584, !10, i64 592, !10, i64 600, !46, i64 608, !46, i64 616, !46, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !31, i64 672, !47, i64 680, !31, i64 688, !7, i64 696, !46, i64 704, !11, i64 712, !46, i64 720, !31, i64 728, !48, i64 736, !31, i64 760, !40, i64 768, !7, i64 776, !31, i64 784, !10, i64 792}
-!34 = !{!"p1 _ZTS10connection", !11, i64 0}
-!35 = !{!"p1 _ZTS7redisDb", !11, i64 0}
-!36 = !{!"p1 _ZTS11redisObject", !11, i64 0}
-!37 = !{!"p2 _ZTS11redisObject", !11, i64 0}
-!38 = !{!"p1 _ZTS12redisCommand", !11, i64 0}
-!39 = !{!"p1 _ZTS4list", !11, i64 0}
-!40 = !{!"long long", !8, i64 0}
-!41 = !{!"p1 _ZTS9dictEntry", !11, i64 0}
-!42 = !{!"multiState", !43, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !31, i64 24, !7, i64 32}
-!43 = !{!"p1 _ZTS8multiCmd", !11, i64 0}
-!44 = !{!"blockingState", !7, i64 0, !40, i64 8, !7, i64 16, !45, i64 24, !7, i64 32, !7, i64 36, !40, i64 40, !11, i64 48, !11, i64 56, !31, i64 64}
-!45 = !{!"p1 _ZTS4dict", !11, i64 0}
-!46 = !{!"p1 _ZTS8listNode", !11, i64 0}
-!47 = !{!"p1 _ZTS3rax", !11, i64 0}
-!48 = !{!"listNode", !46, i64 0, !46, i64 8, !11, i64 16}
-!49 = !{!33, !37, i64 96}
-!50 = !{!36, !36, i64 0}
-!51 = distinct !{!51, !18}
-!52 = distinct !{!52, !18}
-!53 = !{!8, !8, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"short", !8, i64 0}
-!56 = !{!7, !7, i64 0}
+!24 = distinct !{!24, !18, !25}
+!25 = !{!"llvm.loop.unswitch.partial.disable"}
+!26 = distinct !{!26, !18}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"long", !8, i64 0}
+!29 = !{!30, !7, i64 88}
+!30 = !{!"client", !28, i64 0, !28, i64 8, !31, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !7, i64 28, !32, i64 32, !33, i64 40, !33, i64 48, !33, i64 56, !10, i64 64, !28, i64 72, !28, i64 80, !7, i64 88, !34, i64 96, !7, i64 104, !7, i64 108, !34, i64 112, !28, i64 120, !35, i64 128, !35, i64 136, !35, i64 144, !35, i64 152, !11, i64 160, !7, i64 168, !7, i64 172, !28, i64 176, !36, i64 184, !37, i64 192, !36, i64 200, !28, i64 208, !28, i64 216, !28, i64 224, !7, i64 232, !38, i64 240, !28, i64 248, !28, i64 256, !7, i64 264, !7, i64 268, !7, i64 272, !7, i64 276, !28, i64 280, !28, i64 288, !10, i64 296, !37, i64 304, !37, i64 312, !37, i64 320, !37, i64 328, !37, i64 336, !37, i64 344, !37, i64 352, !37, i64 360, !8, i64 368, !7, i64 412, !10, i64 416, !7, i64 424, !7, i64 428, !28, i64 432, !39, i64 440, !41, i64 480, !37, i64 552, !36, i64 560, !42, i64 568, !42, i64 576, !42, i64 584, !10, i64 592, !10, i64 600, !43, i64 608, !43, i64 616, !43, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !28, i64 672, !44, i64 680, !28, i64 688, !7, i64 696, !43, i64 704, !11, i64 712, !43, i64 720, !28, i64 728, !45, i64 736, !28, i64 760, !37, i64 768, !7, i64 776, !28, i64 784, !10, i64 792}
+!31 = !{!"p1 _ZTS10connection", !11, i64 0}
+!32 = !{!"p1 _ZTS7redisDb", !11, i64 0}
+!33 = !{!"p1 _ZTS11redisObject", !11, i64 0}
+!34 = !{!"p2 _ZTS11redisObject", !11, i64 0}
+!35 = !{!"p1 _ZTS12redisCommand", !11, i64 0}
+!36 = !{!"p1 _ZTS4list", !11, i64 0}
+!37 = !{!"long long", !8, i64 0}
+!38 = !{!"p1 _ZTS9dictEntry", !11, i64 0}
+!39 = !{!"multiState", !40, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !28, i64 24, !7, i64 32}
+!40 = !{!"p1 _ZTS8multiCmd", !11, i64 0}
+!41 = !{!"blockingState", !7, i64 0, !37, i64 8, !7, i64 16, !42, i64 24, !7, i64 32, !7, i64 36, !37, i64 40, !11, i64 48, !11, i64 56, !28, i64 64}
+!42 = !{!"p1 _ZTS4dict", !11, i64 0}
+!43 = !{!"p1 _ZTS8listNode", !11, i64 0}
+!44 = !{!"p1 _ZTS3rax", !11, i64 0}
+!45 = !{!"listNode", !43, i64 0, !43, i64 8, !11, i64 16}
+!46 = !{!30, !34, i64 96}
+!47 = !{!33, !33, i64 0}
+!48 = distinct !{!48, !18}
+!49 = distinct !{!49, !18}
+!50 = !{!8, !8, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"short", !8, i64 0}
+!53 = !{!7, !7, i64 0}

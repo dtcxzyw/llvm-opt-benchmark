@@ -909,7 +909,7 @@ getQuadrant.exit:                                 ; preds = %138, %146, %147
   %237 = phi i32 [ %225, %.lr.ph317.split ], [ %.pre333, %228 ]
   %238 = add i32 %.3147316, 1
   %.not165 = icmp sgt i32 %238, %237
-  br i1 %.not165, label %._crit_edge, label %.lr.ph317.split, !llvm.loop !15
+  br i1 %.not165, label %._crit_edge, label %.lr.ph317.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %236, %222, %.thread336, %188
   %239 = phi ptr [ %200, %.thread336 ], [ %196, %188 ], [ %196, %222 ], [ %200, %236 ]
@@ -1130,7 +1130,7 @@ define dso_local range(i64 0, 2) i64 @spg_range_quad_leaf_consistent(ptr noundef
   %72 = load i32, ptr %17, align 8
   %73 = sext i32 %72 to i64
   %.not = icmp slt i64 %indvars.iv.next, %73
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %71, %67, %26, %30, %34, %38, %42, %46, %50, %54, %58, %1
   %.lcssa52 = phi i64 [ 1, %1 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %67 ], [ 1, %71 ]
@@ -1194,7 +1194,5 @@ attributes #7 = { cold nounwind }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

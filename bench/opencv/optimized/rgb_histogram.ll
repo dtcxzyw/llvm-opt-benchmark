@@ -272,12 +272,12 @@ define hidden void @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_(
   store float %47, ptr %45, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %27, !llvm.loop !35
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %27, !llvm.loop !34
 
 ._crit_edge.us.i:                                 ; preds = %27
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit, label %.lr.ph.us.i, !llvm.loop !36
+  br i1 %exitcond31.not.i, label %_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit, label %.lr.ph.us.i, !llvm.loop !35
 
 _ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit: ; preds = %._crit_edge.us.i, %3, %.lr.ph23.i
   ret void
@@ -341,12 +341,12 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
   store float %41, ptr %39, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !34
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !36
+  br i1 %exitcond31.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !35
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.lr.ph23, %3
   ret void
@@ -396,7 +396,7 @@ define hidden noundef float @_ZN3vas2ot12RgbHistogram17ComputeSimilarityERKN2cv3
   %20 = fadd float %.02528, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 21:                                               ; preds = %._crit_edge
   %22 = fmul float %19, %20
@@ -479,12 +479,12 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
   store float %51, ptr %49, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !39
+  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !38
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %.lr.ph27, %4
   ret void
@@ -557,12 +557,12 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
   store float %51, ptr %49, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !41
+  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !40
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %.lr.ph27, %4
   ret void
@@ -627,12 +627,11 @@ attributes #13 = { builtin nounwind }
 !30 = !{!"float", !9, i64 0}
 !31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
 !35 = distinct !{!35, !32}
-!36 = distinct !{!36, !32, !34}
+!36 = distinct !{!36, !32}
 !37 = distinct !{!37, !32}
 !38 = distinct !{!38, !32}
-!39 = distinct !{!39, !32, !34}
+!39 = distinct !{!39, !32}
 !40 = distinct !{!40, !32}
-!41 = distinct !{!41, !32, !34}

@@ -470,7 +470,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %157, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %159, ptr noundef %161, i32 noundef %156) #6
   %162 = add nuw nsw i64 %151, 1
   %163 = icmp eq i64 %162, %138
-  br i1 %163, label %.thread17, label %.split, !llvm.loop !25
+  br i1 %163, label %.thread17, label %.split, !llvm.loop !23
 
 .thread17:                                        ; preds = %.split, %.split.us, %134, %.thread15
   %164 = getelementptr inbounds nuw i8, ptr %65, i64 10
@@ -494,7 +494,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %175 = load i32, ptr %174, align 8
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %172, %176
-  br i1 %177, label %55, label %.thread16, !llvm.loop !26
+  br i1 %177, label %55, label %.thread16, !llvm.loop !24
 
 .thread16:                                        ; preds = %86, %93, %171, %167, %.loopexit
   %178 = phi i32 [ 0, %.loopexit ], [ -12, %86 ], [ -12, %93 ], [ 0, %171 ], [ %169, %167 ]
@@ -512,13 +512,13 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
   br i1 %8, label %9, label %10, !prof !5
 
 9:                                                ; preds = %2
-  tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #6, !srcloc !27
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 587, i32 2305, i64 12) #6, !srcloc !28
-  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #6, !srcloc !29
+  tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #6, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 587, i32 2305, i64 12) #6, !srcloc !26
+  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #6, !srcloc !27
   br label %34
 
 10:                                               ; preds = %2
-  %11 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %1) #9, !srcloc !30
+  %11 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %1) #9, !srcloc !28
   %12 = tail call ptr @drm_property_create(ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.13, i32 noundef %11) #6
   %13 = icmp eq ptr %12, null
   br i1 %13, label %34, label %.preheader
@@ -548,7 +548,7 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
 28:                                               ; preds = %.preheader, %21
   %29 = add nuw nsw i64 %14, 1
   %30 = icmp eq i64 %29, 3
-  br i1 %30, label %31, label %.preheader, !llvm.loop !31
+  br i1 %30, label %31, label %.preheader, !llvm.loop !29
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -655,12 +655,10 @@ attributes #9 = { nounwind memory(none) }
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = !{!"llvm.loop.unroll.disable"}
 !22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !20, !21}
-!26 = distinct !{!26, !20, !21}
-!27 = !{i64 2155510632, i64 2155510441, i64 2155510493, i64 2155510539, i64 2155510567}
-!28 = !{i64 2155510706, i64 2155510735, i64 2155510781, i64 2155510839, i64 2155510893, i64 2155510947, i64 2155511002, i64 2155511033, i64 2155511341, i64 2155511347, i64 2155511394, i64 2155511417, i64 2155511443}
-!29 = !{i64 2155511903, i64 2155511714, i64 2155511764, i64 2155511810, i64 2155511838}
-!30 = !{i64 2148413742, i64 2148413770, i64 2148413776, i64 2148413792, i64 2148413808, i64 2148413835, i64 2148414168, i64 2148413468, i64 2148414174, i64 2148414222, i64 2148414286, i64 2148414350, i64 2148414407, i64 2148413549, i64 2148413574, i64 2148414614, i64 2148414744, i64 2148414675, i64 2148414758, i64 2148413666}
-!31 = distinct !{!31, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = distinct !{!24, !20, !21}
+!25 = !{i64 2155510632, i64 2155510441, i64 2155510493, i64 2155510539, i64 2155510567}
+!26 = !{i64 2155510706, i64 2155510735, i64 2155510781, i64 2155510839, i64 2155510893, i64 2155510947, i64 2155511002, i64 2155511033, i64 2155511341, i64 2155511347, i64 2155511394, i64 2155511417, i64 2155511443}
+!27 = !{i64 2155511903, i64 2155511714, i64 2155511764, i64 2155511810, i64 2155511838}
+!28 = !{i64 2148413742, i64 2148413770, i64 2148413776, i64 2148413792, i64 2148413808, i64 2148413835, i64 2148414168, i64 2148413468, i64 2148414174, i64 2148414222, i64 2148414286, i64 2148414350, i64 2148414407, i64 2148413549, i64 2148413574, i64 2148414614, i64 2148414744, i64 2148414675, i64 2148414758, i64 2148413666}
+!29 = distinct !{!29, !20, !21}

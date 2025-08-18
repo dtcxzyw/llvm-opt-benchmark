@@ -114,7 +114,7 @@ define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %0, ptr nounde
 
 .split.us.thread:                                 ; preds = %45, %45, %45
   %.us-phi200 = trunc i64 %indvars.iv to i32
-  store i32 0, ptr %0, align 8, !tbaa !21
+  store i32 0, ptr %0, align 8, !tbaa !20
   br label %.loopexit
 
 .preheader135.split._crit_edge:                   ; preds = %.preheader135.split, %45
@@ -170,28 +170,28 @@ define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %0, ptr nounde
   %70 = icmp samesign ult i32 %56, 98
   %71 = add nuw nsw i32 %56, 52
   %72 = select i1 %70, i32 %71, i32 %57
-  store i32 %72, ptr %14, align 4, !tbaa !23
+  store i32 %72, ptr %14, align 4, !tbaa !22
   br label %79
 
 73:                                               ; preds = %67
   %74 = add nsw i32 %56, -49
-  store i32 %74, ptr %13, align 8, !tbaa !24
+  store i32 %74, ptr %13, align 8, !tbaa !23
   br label %79
 
 75:                                               ; preds = %67
-  store i32 %57, ptr %12, align 4, !tbaa !25
+  store i32 %57, ptr %12, align 4, !tbaa !24
   br label %79
 
 76:                                               ; preds = %67
-  store i32 %57, ptr %11, align 8, !tbaa !26
+  store i32 %57, ptr %11, align 8, !tbaa !25
   br label %79
 
 77:                                               ; preds = %67
-  store i32 %57, ptr %10, align 4, !tbaa !27
+  store i32 %57, ptr %10, align 4, !tbaa !26
   br label %79
 
 78:                                               ; preds = %67
-  store i32 %57, ptr %0, align 8, !tbaa !21
+  store i32 %57, ptr %0, align 8, !tbaa !20
   br label %79
 
 default.unreachable:                              ; preds = %67
@@ -200,7 +200,7 @@ default.unreachable:                              ; preds = %67
 79:                                               ; preds = %78, %77, %76, %75, %73, %69
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next169, 6
-  br i1 %exitcond.not, label %.loopexit, label %.preheader135.split, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.preheader135.split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %79, %41, %.split.us, %.split.us.thread
   %.0102142 = phi i32 [ %.us-phi, %.split.us ], [ %.us-phi200, %.split.us.thread ], [ 12, %41 ], [ 12, %79 ]
@@ -264,7 +264,7 @@ default.unreachable:                              ; preds = %67
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 2
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next192, 8
-  br i1 %exitcond196.not, label %.split150.us.thread, label %.preheader.split.us, !llvm.loop !29
+  br i1 %exitcond196.not, label %.split150.us.thread, label %.preheader.split.us, !llvm.loop !27
 
 .split150.us.thread:                              ; preds = %110
   %.us-phi151203 = add i32 %.0102142, 5
@@ -313,7 +313,7 @@ default.unreachable:                              ; preds = %67
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 2
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next184, 8
-  br i1 %exitcond188.not, label %.split150.us, label %.preheader.split, !llvm.loop !30
+  br i1 %exitcond188.not, label %.split150.us, label %.preheader.split, !llvm.loop !27
 
 .split150.us:                                     ; preds = %131
   %.us-phi151 = add i32 %.0102142, 5
@@ -397,7 +397,7 @@ define hidden ptr @ASN1_UTCTIME_set(ptr noundef %0, i64 noundef %1) local_unname
 define hidden ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
-  store i64 %1, ptr %5, align 8, !tbaa !31
+  store i64 %1, ptr %5, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %.thread
@@ -426,7 +426,7 @@ define hidden ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 18:                                               ; preds = %16, %13
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !23
+  %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = add i32 %20, -150
   %or.cond48 = icmp ult i32 %21, -100
   br i1 %or.cond48, label %55, label %22
@@ -458,7 +458,7 @@ define hidden ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 35:                                               ; preds = %.thread52
   call void @free(ptr noundef nonnull %24) #6
-  %.pre.pre = load i32, ptr %19, align 4, !tbaa !23
+  %.pre.pre = load i32, ptr %19, align 4, !tbaa !22
   br label %36
 
 36:                                               ; preds = %29, %35
@@ -472,15 +472,15 @@ define hidden ptr @ASN1_UTCTIME_adj(ptr noundef %0, i64 noundef %1, i32 noundef 
   %.040 = phi ptr [ %37, %36 ], [ %24, %26 ]
   %40 = srem i32 %39, 100
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !24
+  %42 = load i32, ptr %41, align 8, !tbaa !23
   %43 = add nsw i32 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !25
+  %45 = load i32, ptr %44, align 4, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !26
+  %47 = load i32, ptr %46, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !27
-  %50 = load i32, ptr %11, align 8, !tbaa !21
+  %49 = load i32, ptr %48, align 4, !tbaa !26
+  %50 = load i32, ptr %11, align 8, !tbaa !20
   %51 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.040, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %40, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef %50) #6
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #7
   %53 = trunc i64 %52 to i32
@@ -525,7 +525,7 @@ define hidden range(i32 -2, 2) i32 @ASN1_UTCTIME_cmp_time_t(ptr noundef readonly
   %5 = alloca %struct.tm, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store i64 %1, ptr %3, align 8, !tbaa !31
+  store i64 %1, ptr %3, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -610,17 +610,14 @@ attributes #8 = { nounwind allocsize(0) }
 !15 = !{!7, !11, i64 8}
 !16 = !{!9, !9, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!22, !8, i64 0}
-!22 = !{!"tm", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !13, i64 40, !11, i64 48}
-!23 = !{!22, !8, i64 20}
-!24 = !{!22, !8, i64 16}
-!25 = !{!22, !8, i64 12}
-!26 = !{!22, !8, i64 8}
-!27 = !{!22, !8, i64 4}
-!28 = distinct !{!28, !19}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19}
-!31 = !{!13, !13, i64 0}
+!20 = !{!21, !8, i64 0}
+!21 = !{!"tm", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !13, i64 40, !11, i64 48}
+!22 = !{!21, !8, i64 20}
+!23 = !{!21, !8, i64 16}
+!24 = !{!21, !8, i64 12}
+!25 = !{!21, !8, i64 8}
+!26 = !{!21, !8, i64 4}
+!27 = distinct !{!27, !19}
+!28 = !{!13, !13, i64 0}

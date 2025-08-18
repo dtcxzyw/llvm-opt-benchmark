@@ -281,12 +281,12 @@ declare void @_ZN3igl4findIN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEENS1_6MatrixIiL
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen9DenseBaseINS_5ArrayIbLin1ELi3ELi0ELin1ELi3EEEEclINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_8internal5all_tEEENS7_9enable_ifIXaasr8internal27valid_indexed_view_overloadIT_T0_EE5valuesr8internal6traitsINS3_15IndexedViewTypeISA_SB_E4typeEEE19ReturnAsIndexedViewESE_E4typeERKSA_RKSB_(ptr dead_on_unwind noalias writable sret(%"class.Eigen::IndexedView") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !32, !noalias !48
+  %6 = load i64, ptr %5, align 8, !tbaa !32, !noalias !47
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread, label %9
 
 _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread: ; preds = %4
-  store ptr %1, ptr %0, align 8, !tbaa !51
+  store ptr %1, ptr %0, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %26
@@ -296,9 +296,9 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
   br i1 %10, label %11, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @__cxa_allocate_exception(i64 8) #10, !noalias !48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %12, align 8, !tbaa !19, !noalias !48
-  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12, !noalias !48
+  %12 = tail call ptr @__cxa_allocate_exception(i64 8) #10, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %12, align 8, !tbaa !19, !noalias !47
+  tail call void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12, !noalias !47
   unreachable
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %9
@@ -308,15 +308,15 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %9
   br i1 %15, label %16, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
 16:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
-  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #10, !noalias !48
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %17, align 8, !tbaa !19, !noalias !48
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12, !noalias !48
+  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #10, !noalias !47
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %17, align 8, !tbaa !19, !noalias !47
+  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #12, !noalias !47
   unreachable
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i
-  %18 = load ptr, ptr %2, align 8, !tbaa !42, !noalias !48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %18, i64 %13, i1 false), !noalias !48
-  store ptr %1, ptr %0, align 8, !tbaa !51
+  %18 = load ptr, ptr %2, align 8, !tbaa !42, !noalias !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %18, i64 %13, i1 false), !noalias !47
+  store ptr %1, ptr %0, align 8, !tbaa !50
   %19 = tail call noalias ptr @malloc(i64 noundef %13) #11
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
@@ -443,9 +443,8 @@ attributes #12 = { noreturn }
 !43 = !{!44, !44, i64 0}
 !44 = !{!"int", !8, i64 0}
 !45 = distinct !{!45, !31}
-!46 = distinct !{!46, !31, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi3ELi0ELin1ELi3EEEE6ivcRowINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS3_10IvcRowTypeIT_E4typeERKS8_: argument 0"}
-!50 = distinct !{!50, !"_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi3ELi0ELin1ELi3EEEE6ivcRowINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS3_10IvcRowTypeIT_E4typeERKS8_"}
-!51 = !{!37, !37, i64 0}
+!46 = distinct !{!46, !31}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi3ELi0ELin1ELi3EEEE6ivcRowINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS3_10IvcRowTypeIT_E4typeERKS8_: argument 0"}
+!49 = distinct !{!49, !"_ZNK5Eigen9DenseBaseINS_5ArrayIbLin1ELi3ELi0ELin1ELi3EEEE6ivcRowINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS3_10IvcRowTypeIT_E4typeERKS8_"}
+!50 = !{!37, !37, i64 0}

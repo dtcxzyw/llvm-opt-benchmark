@@ -254,7 +254,7 @@ define i32 @av_thread_message_queue_recv(ptr noundef %0, ptr noundef %1, i32 nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %7 = load i32, ptr %6, align 4, !tbaa !21
+  %7 = load i32, ptr %6, align 4, !tbaa !20
   %.not14.i = icmp eq i32 %7, 0
   br i1 %.not14.i, label %.lr.ph.i, label %.critedge.i
 
@@ -272,9 +272,9 @@ define i32 @av_thread_message_queue_recv(ptr noundef %0, ptr noundef %1, i32 nou
 
 12:                                               ; preds = %.lr.ph.split.us.i
   %13 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %9, ptr noundef nonnull %4) #5
-  %14 = load i32, ptr %6, align 4, !tbaa !21
+  %14 = load i32, ptr %6, align 4, !tbaa !20
   %.not.us.i = icmp eq i32 %14, 0
-  br i1 %.not.us.i, label %.lr.ph.split.us.i, label %.critedge.i, !llvm.loop !22
+  br i1 %.not.us.i, label %.lr.ph.split.us.i, label %.critedge.i, !llvm.loop !21
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %15 = load ptr, ptr %0, align 8, !tbaa !4
@@ -289,7 +289,7 @@ define i32 @av_thread_message_queue_recv(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not12.i, label %19, label %21
 
 19:                                               ; preds = %.critedge.i
-  %20 = load i32, ptr %6, align 4, !tbaa !21
+  %20 = load i32, ptr %6, align 4, !tbaa !20
   br label %av_thread_message_queue_recv_locked.exit
 
 21:                                               ; preds = %.critedge.i
@@ -325,7 +325,7 @@ define void @av_thread_message_queue_set_err_recv(ptr noundef %0, i32 noundef %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %6) #5
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #5
@@ -359,7 +359,7 @@ define internal noundef i32 @free_func_wrap(ptr noundef readonly captures(none) 
   %13 = add nuw i64 %.08, 1
   %14 = load i64, ptr %2, align 8, !tbaa !15
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %7, label %._crit_edge, !llvm.loop !23
+  br i1 %15, label %7, label %._crit_edge, !llvm.loop !22
 }
 
 declare i64 @av_fifo_can_write(ptr noundef) local_unnamed_addr #1
@@ -406,9 +406,8 @@ attributes #5 = { nounwind }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !8, i64 0}
 !17 = !{!5, !10, i64 144}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!5, !10, i64 148}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19}
+!20 = !{!5, !10, i64 148}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

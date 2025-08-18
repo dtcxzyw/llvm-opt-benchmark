@@ -2560,7 +2560,7 @@ try_difference.exit:                              ; preds = %849, %._crit_edge.i
   %933 = add nuw nsw i32 %.03761.i, 1
   %.038.i = load ptr, ptr %932, align 8, !tbaa !91
   %.not54.i = icmp eq ptr %.038.i, null
-  br i1 %.not54.i, label %try_parent_shorthands.exit, label %.lr.ph.split.i, !llvm.loop !103
+  br i1 %.not54.i, label %try_parent_shorthands.exit, label %.lr.ph.split.i, !llvm.loop !101
 
 try_parent_shorthands.exit.thread575:             ; preds = %903, %900, %907
   store i8 94, ptr %.040.i, align 1, !tbaa !24
@@ -2658,7 +2658,7 @@ try_parent_shorthands.exit.thread:                ; preds = %888, %885, %880, %8
   %.1138.ph = phi ptr [ %.2139, %opt_with_value.exit356.thread530 ], [ %.2139, %398 ], [ %.2139, %393 ], [ %.2139, %379 ], [ %.2139, %374 ], [ %.2139, %955 ], [ %.2139, %943 ], [ %.2139, %945 ], [ %.2139, %try_parent_shorthands.exit ], [ %.2139, %try_difference.exit ], [ %.2139, %826 ], [ %.2139, %821 ], [ %.2139, %824 ], [ %.2139, %756 ], [ %.2139, %762 ], [ %.2139, %697 ], [ null, %699 ], [ %.2139, %703 ], [ %.2139, %719 ], [ %.2139, %._crit_edge806 ], [ %.2139, %680 ], [ %.2139, %677 ], [ %.2139, %667 ], [ null, %669 ], [ %.2139, %opt_with_value.exit363 ], [ %.2139, %557 ], [ %.2139, %554 ], [ %.2139, %519 ], [ %.2139, %527 ], [ %.2139, %520 ], [ %.2139, %417 ], [ %.2139, %409 ], [ %.2139, %412 ], [ %.2139, %382 ], [ %.2139, %346 ], [ %.2139, %319 ], [ %.2139, %322 ], [ %.0137829, %275 ], [ %.0137829, %279 ], [ %.0137829, %302 ], [ %.2139, %strbuf_setlen.exit ], [ %430, %433 ], [ %.2139, %438 ], [ %.2139, %443 ], [ %.2139, %448 ], [ %.2139, %453 ], [ %.2139, %458 ], [ %.2139, %469 ], [ %.2139, %529 ], [ %.2139, %532 ], [ %.2139, %537 ], [ %.2139, %540 ], [ %.2139, %561 ], [ %.2139, %576 ], [ %.2139, %654 ], [ %.2139, %663 ], [ %.2139, %724 ], [ %.2139, %729 ], [ %.2139, %734 ], [ %.2139, %739 ], [ %.2139, %744 ], [ %.2139, %813 ], [ %.2139, %806 ], [ %.2139, %788 ], [ %.2139, %782 ], [ %.2139, %776 ], [ %.2139, %770 ], [ %.2139, %649 ], [ %.2139, %643 ], [ %.2139, %637 ], [ %.2139, %621 ], [ %.2139, %615 ], [ %.2139, %598 ], [ %.2139, %570 ], [ %.2139, %489 ], [ %.2139, %495 ], [ %.2139, %957 ], [ %.0137829, %.preheader ], [ %.0137829, %.lr.ph809 ]
   %958 = add nsw i32 %.2142.ph, 1
   %959 = icmp slt i32 %958, %0
-  br i1 %959, label %271, label %._crit_edge831, !llvm.loop !104
+  br i1 %959, label %271, label %._crit_edge831, !llvm.loop !102
 
 ._crit_edge831.thread:                            ; preds = %.tail._crit_edge.thread
   call void @strbuf_release(ptr noundef nonnull %23) #19
@@ -3520,7 +3520,7 @@ define internal noundef i32 @parseopt_dump(ptr noundef readonly captures(none) %
   br i1 %.not19, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %5, align 8, !tbaa !105
+  %21 = load i64, ptr %5, align 8, !tbaa !103
   %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %.sink.split.sink.split, label %strbuf_avail.exit.i
 
@@ -3538,7 +3538,7 @@ strbuf_avail.exit.i:                              ; preds = %20
   br i1 %.not20, label %38, label %27
 
 27:                                               ; preds = %24
-  %28 = load i64, ptr %5, align 8, !tbaa !105
+  %28 = load i64, ptr %5, align 8, !tbaa !103
   %.not.i.i21 = icmp eq i64 %28, 0
   br i1 %.not.i.i21, label %.sink.split.sink.split, label %strbuf_avail.exit.i22
 
@@ -3854,8 +3854,6 @@ attributes #21 = { noreturn nounwind }
 !98 = !{!99, !100, i64 0}
 !99 = !{!"commit_list", !100, i64 0, !92, i64 8}
 !100 = !{!"p1 _ZTS6commit", !6, i64 0}
-!101 = distinct !{!101, !32, !102}
-!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!103 = distinct !{!103, !32}
-!104 = distinct !{!104, !32}
-!105 = !{!23, !13, i64 0}
+!101 = distinct !{!101, !32}
+!102 = distinct !{!102, !32}
+!103 = !{!23, !13, i64 0}

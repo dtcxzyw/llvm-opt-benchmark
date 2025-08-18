@@ -4272,7 +4272,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   store i8 %and3.i.i.i, ptr %arrayidx2.i.i.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp12.i = icmp ugt i64 %add.i, %indvars.iv.next.i
-  br i1 %cmp12.i, label %for.body.i, label %invoke.cont, !llvm.loop !54
+  br i1 %cmp12.i, label %for.body.i, label %invoke.cont, !llvm.loop !52
 
 invoke.cont:                                      ; preds = %for.body.i, %for.body.us.i, %if.end.i
   %call1.i.i.i13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #24
@@ -4290,7 +4290,7 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %19 = and i64 %sub.ptr.div.i.i, 4294967295
   %cmp = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !55
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !53
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -4715,7 +4715,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %add30 = add nuw nsw i32 %mappedFreeInGroup.038, %cast29
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %cmp19 = icmp slt i64 %indvars.iv.next55, %13
-  br i1 %cmp19, label %for.body20, label %for.end.loopexit, !llvm.loop !56
+  br i1 %cmp19, label %for.body20, label %for.end.loopexit, !llvm.loop !54
 
 for.end.loopexit:                                 ; preds = %for.body20
   %17 = icmp eq i32 %add30, 0
@@ -4804,7 +4804,7 @@ for.inc60:                                        ; preds = %for.body, %if.else,
   %24 = load i32, ptr %pageBitmapSize_, align 8
   %25 = sext i32 %24 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %25
-  br i1 %cmp, label %for.body, label %for.end62, !llvm.loop !57
+  br i1 %cmp, label %for.body, label %for.end62, !llvm.loop !55
 
 for.end62:                                        ; preds = %for.inc60, %entry
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.inc60 ]
@@ -4938,7 +4938,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add13 = add nuw nsw i32 %mappedFreeCount.021, %cast12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
 
 lpad:                                             ; preds = %if.then.i.i, %invoke.cont55, %if.end
   %8 = landingpad { ptr, i32 }
@@ -5229,7 +5229,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %and16.i = and i64 %sub.i, %freeBits.017.i
   %inc.i = add nuw nsw i32 %i.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %.sroa.speculated.i
-  br i1 %exitcond.not.i, label %_ZN8facebook5velox6memory13MmapAllocator9SizeClass11allocateAnyEiRiRmRNS1_10AllocationE.exit, label %for.body.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %_ZN8facebook5velox6memory13MmapAllocator9SizeClass11allocateAnyEiRiRmRNS1_10AllocationE.exit, label %for.body.i, !llvm.loop !57
 
 _ZN8facebook5velox6memory13MmapAllocator9SizeClass11allocateAnyEiRiRmRNS1_10AllocationE.exit: ; preds = %if.end.i, %if.then34
   %sub17.i = sub nsw i32 %numPagesToAllocate.132, %.sroa.speculated.i
@@ -5252,7 +5252,7 @@ if.end41:                                         ; preds = %_ZN8facebook5velox6
   %spec.store.select = select i1 %cmp23.not, i32 %inc, i32 0
   %inc26 = add nuw i32 %inc2635, 1
   %exitcond.not = icmp eq i32 %inc2635, %0
-  br i1 %exitcond.not, label %return, label %if.end30, !llvm.loop !60
+  br i1 %exitcond.not, label %return, label %if.end30, !llvm.loop !58
 
 return:                                           ; preds = %if.end41, %if.end21, %if.end18, %if.end15, %if.then38
   %retval.0 = phi i1 [ true, %if.then38 ], [ true, %if.end15 ], [ false, %if.end18 ], [ false, %if.end21 ], [ false, %if.end41 ]
@@ -5357,12 +5357,12 @@ if.end7.i75.i.i:                                  ; preds = %while.body.i72.i.i
   %sub.i95.i.i = add i64 %word.07.i73.i.i, -1
   %and.i96.i.i = and i64 %sub.i95.i.i, %word.07.i73.i.i
   %tobool5.not.i97.i.i = icmp eq i64 %and.i96.i.i, 0
-  br i1 %tobool5.not.i97.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i, !llvm.loop !61
+  br i1 %tobool5.not.i97.i.i, label %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i", label %while.body.i72.i.i, !llvm.loop !59
 
 "_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i": ; preds = %if.end7.i75.i.i, %for.body.i.i
   %needed.5 = phi i32 [ %needed.3, %for.body.i.i ], [ %dec.i.i94.i.i, %if.end7.i75.i.i ]
   %cmp19.i.i = icmp samesign ult i64 %indvars.iv, 129
-  br i1 %cmp19.i.i, label %for.body.i.i, label %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit", !llvm.loop !62
+  br i1 %cmp19.i.i, label %for.body.i.i, label %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit", !llvm.loop !60
 
 "_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit": ; preds = %"_ZZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_ENKUliE_clEi.exit.i.i"
   %cmp31 = icmp eq i32 %needed.5, 0
@@ -5390,7 +5390,7 @@ for.body38:                                       ; preds = %for.cond36
   %22 = icmp ne <4 x i64> %and.i.i.i.i.i14, zeroinitializer
   %23 = bitcast <4 x i1> %22 to i4
   %cmp.i = icmp eq i4 %23, 0
-  br i1 %cmp.i, label %for.cond36, label %return, !llvm.loop !63
+  br i1 %cmp.i, label %for.cond36, label %return, !llvm.loop !61
 
 for.end:                                          ; preds = %for.cond36
   %24 = load ptr, ptr %mappedFreeLookup_58, align 8
@@ -5413,7 +5413,7 @@ for.inc55:                                        ; preds = %for.body.for.inc55_
   %add56 = add nuw i32 %.pre-phi, 4
   %cmp = icmp ult i32 %add56, %add
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 4
-  br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !64
+  br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !62
 
 for.end57:                                        ; preds = %for.inc55, %for.cond
   %needed.1.lcssa = phi i32 [ %needed.0, %for.cond ], [ %needed.2, %for.inc55 ]
@@ -5429,7 +5429,7 @@ for.end57:                                        ; preds = %for.inc55, %for.con
   %29 = load i8, ptr %arrayidx2.i.i20, align 1
   %and3.i.i21 = and i8 %29, %28
   store i8 %and3.i.i21, ptr %arrayidx2.i.i20, align 1
-  br i1 %anyFound.0.lcssa, label %for.cond, label %if.then61, !llvm.loop !65
+  br i1 %anyFound.0.lcssa, label %for.cond, label %if.then61, !llvm.loop !63
 
 if.then61:                                        ; preds = %for.end57
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp62, ptr noundef nonnull @.str.1, i32 noundef 842, i32 noundef 2)
@@ -5537,7 +5537,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %and16 = and i64 %sub, %freeBits.017
   %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %.sroa.speculated
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !59
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !57
 
 for.end.loopexit:                                 ; preds = %if.end
   %.pre = load i32, ptr %numPages, align 4
@@ -5589,7 +5589,7 @@ if.then27:                                        ; preds = %for.body
   %cond = select i1 %cmp32.not, i32 0, i32 %add28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp2.not = icmp ult i64 %add, %indvars.iv.next
-  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !66
+  br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !64
 
 if.end34:                                         ; preds = %for.body
   %5 = xor i4 %4, -1
@@ -5808,7 +5808,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   store i8 %and3.i.i.i, ptr %arrayidx2.i.i.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp12.i = icmp ugt i64 %add.i, %indvars.iv.next.i
-  br i1 %cmp12.i, label %for.body.i, label %invoke.cont24, !llvm.loop !54
+  br i1 %cmp12.i, label %for.body.i, label %invoke.cont24, !llvm.loop !52
 
 invoke.cont24:                                    ; preds = %for.body.i, %if.end.i
   %call1.i.i.i17 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #24
@@ -5824,7 +5824,7 @@ for.inc:                                          ; preds = %for.body, %invoke.c
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %18 = and i64 %sub.ptr.div.i.i, 4294967295
   %cmp = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !67
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !65
 
 for.end:                                          ; preds = %for.inc, %entry
   ret void
@@ -5925,7 +5925,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %and3.i.i, ptr %arrayidx2.i.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp12 = icmp ugt i64 %add, %indvars.iv.next
-  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !54
+  br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !52
 
 for.end:                                          ; preds = %for.body, %for.body.us, %if.end
   ret void
@@ -6838,7 +6838,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN8facebook5velox6memory9MmapArenaEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %while.body, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #30
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !68
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !66
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN8facebook5velox6memory9MmapArenaEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %entry
   ret void
@@ -7189,8 +7189,8 @@ attributes #35 = { nounwind allocsize(0) }
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_: %agg.result"}
 !51 = distinct !{!51, !"_ZN3fmt2v816make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJRmS5_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpOSA_"}
-!52 = distinct !{!52, !5, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
 !54 = distinct !{!54, !5}
 !55 = distinct !{!55, !5}
 !56 = distinct !{!56, !5}
@@ -7204,5 +7204,3 @@ attributes #35 = { nounwind allocsize(0) }
 !64 = distinct !{!64, !5}
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}

@@ -309,7 +309,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30.us: ; preds = %.noexc.us, %34, 
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !22
-  %39 = sext i8 %38 to i32
+  %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %.1.us, 1
   %41 = shl i32 %.1.us, 2
   %42 = and i32 %41, 4
@@ -362,7 +362,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30.us: ; preds = %.noexc.us, %34, 
           to label %_ZN5boost10filesystem6detail12_GLOBAL__N_119system_crypt_randomEPvmPNS_6system10error_codeE.exit unwind label %.split
 
 _ZN5boost10filesystem6detail12_GLOBAL__N_119system_crypt_randomEPvmPNS_6system10error_codeE.exit: ; preds = %.noexc, %63
-  %64 = load i64, ptr %23, align 8, !tbaa !26
+  %64 = load i64, ptr %23, align 8, !tbaa !25
   %65 = and i64 %64, 1
   %.not.i.i = icmp eq i64 %65, 0
   br i1 %.not.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread30, label %66
@@ -372,7 +372,7 @@ _ZN5boost10filesystem6detail12_GLOBAL__N_119system_crypt_randomEPvmPNS_6system10
   br i1 %67, label %_ZNK5boost6system10error_codecvbEv.exit, label %106
 
 _ZNK5boost6system10error_codecvbEv.exit:          ; preds = %66
-  %68 = load i32, ptr %2, align 8, !tbaa !28
+  %68 = load i32, ptr %2, align 8, !tbaa !27
   %.not32 = icmp eq i32 %68, 0
   br i1 %.not32, label %_ZNK5boost6system10error_codecvbEv.exit.thread30, label %106
 
@@ -410,7 +410,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30: ; preds = %_ZN5boost10filesyst
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !22
-  %81 = sext i8 %80 to i32
+  %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %.1, 1
   %83 = shl i32 %.1, 2
   %84 = and i32 %83, 4
@@ -428,7 +428,7 @@ _ZNK5boost6system10error_codecvbEv.exit.thread30: ; preds = %_ZN5boost10filesyst
   %.2 = phi i32 [ %82, %_ZNK5boost6system10error_codecvbEv.exit.thread30 ], [ %.035, %.lr.ph.split ]
   %93 = add nuw i64 %.01834, 1
   %exitcond.not = icmp eq i64 %93, %22
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !30
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !24
 
 .critedge:                                        ; preds = %92, %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %.not23 = icmp eq ptr %2, null
@@ -596,10 +596,8 @@ attributes #16 = { builtin nounwind }
 !21 = !{!19, !19, i64 0}
 !22 = !{!6, !6, i64 0}
 !23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!24 = distinct !{!24, !10, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = !{!27, !19, i64 16}
-!27 = !{!"_ZTSN5boost6system10error_codeE", !6, i64 0, !19, i64 16}
-!28 = !{!29, !5, i64 0}
-!29 = !{!"_ZTSSt10error_code", !5, i64 0, !16, i64 8}
-!30 = distinct !{!30, !10}
+!24 = distinct !{!24, !10}
+!25 = !{!26, !19, i64 16}
+!26 = !{!"_ZTSN5boost6system10error_codeE", !6, i64 0, !19, i64 16}
+!27 = !{!28, !5, i64 0}
+!28 = !{!"_ZTSSt10error_code", !5, i64 0, !16, i64 8}

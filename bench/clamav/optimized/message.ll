@@ -3529,7 +3529,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %131 = getelementptr inbounds nuw i8, ptr %.1160.us.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !44
   %.not209.us.i = icmp eq ptr %132, null
-  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i, !llvm.loop !78
+  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i
 
 133:                                              ; preds = %90
   %134 = load i32, ptr %18, align 4, !tbaa !21
@@ -4052,7 +4052,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %137 = getelementptr inbounds nuw i8, ptr %.1160.us.i, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !44
   %.not209.us.i = icmp eq ptr %138, null
-  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i, !llvm.loop !78
+  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i
 
 139:                                              ; preds = %87
   %140 = load i32, ptr %14, align 4, !tbaa !21
@@ -4574,7 +4574,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %131 = getelementptr inbounds nuw i8, ptr %.1160.us.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !44
   %.not209.us.i = icmp eq ptr %132, null
-  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i, !llvm.loop !78
+  br i1 %.not209.us.i, label %.loopexit.i, label %.preheader.split.us.i
 
 133:                                              ; preds = %81
   %134 = load i32, ptr %13, align 4, !tbaa !21
@@ -6046,5 +6046,3 @@ attributes #24 = { nounwind allocsize(0) }
 !75 = !{ptr @fileblobSetCTX}
 !76 = !{ptr @blobDestroy, ptr @fileblobDestroy}
 !77 = !{ptr @blobAddData, ptr @fileblobAddData}
-!78 = distinct !{!78, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -1437,7 +1437,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   ]
 
 .backedge:                                        ; preds = %662, %662
-  br label %656, !llvm.loop !4
+  br label %656
 
 .split102.us109.i.i:                              ; preds = %659, %666
   %663 = phi i32 [ %667, %666 ], [ %660, %659 ]
@@ -1455,7 +1455,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 666:                                              ; preds = %.split.us.us.i.i
   %667 = load i32, ptr %25, align 4
   %668 = icmp eq i32 %667, 4
-  br i1 %668, label %.split.us.us.i.i, label %.split102.us109.i.i, !llvm.loop !6
+  br i1 %668, label %.split.us.us.i.i, label %.split102.us109.i.i
 
 .preheader64.i.i:                                 ; preds = %.split.us110.i.i, %.split.us.us.i.i
   %.0105.us177.i.i = phi i32 [ %.0105.us.i.i, %.split.us.us.i.i ], [ 0, %.split.us110.i.i ]
@@ -4465,7 +4465,7 @@ define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef readonly captu
   %11 = add nsw i64 %14, %.02838.us.i
   %12 = add nuw i64 %.02937.us.i, 1
   %exitcond53.not.i = icmp eq i64 %12, %5
-  br i1 %exitcond53.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.us.us.i, !llvm.loop !7
+  br i1 %exitcond53.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.us.us.i
 
 13:                                               ; preds = %16, %.split.us.us.i
   %14 = tail call i64 @pwrite64(i32 noundef %0, ptr noundef %7, i64 noundef %9, i64 noundef %.02838.us.i) #15
@@ -4476,7 +4476,7 @@ define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef readonly captu
   %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge.i, !llvm.loop !8
+  br i1 %19, label %13, label %.critedge.i
 
 .critedge32.split.us.us.i:                        ; preds = %13
   %20 = add nsw i64 %14, %.03136.us.i
@@ -4627,8 +4627,3 @@ attributes #18 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

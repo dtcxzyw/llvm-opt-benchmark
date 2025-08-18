@@ -523,9 +523,9 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %31 = zext nneg i32 %6 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = load i8, ptr %32, align 1
-  %34 = sext i8 %33 to i32
-  %35 = ashr i32 %34, %8
-  %36 = trunc nsw i32 %35 to i8
+  %34 = zext i8 %33 to i32
+  %35 = lshr i32 %34, %8
+  %36 = trunc nuw i32 %35 to i8
   %37 = and i8 %36, 3
   br label %38
 
@@ -578,7 +578,7 @@ BufferGetPage.exit.us:                            ; preds = %13, %7
   %24 = add i32 %.01632.us, 1
   %25 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %24, i1 noundef zeroext false)
   %.not28.us = icmp eq i32 %25, 0
-  br i1 %.not28.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
+  br i1 %.not28.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %BufferGetPage.exit
   %26 = phi i32 [ %50, %BufferGetPage.exit ], [ %4, %.lr.ph ]
@@ -750,7 +750,7 @@ BufferGetPage.exit:                               ; preds = %26, %32
   %64 = and i8 %61, %63
   store i8 %64, ptr %60, align 1
   tail call void @MarkBufferDirty(i32 noundef %23) #7
-  %65 = load i8, ptr @InRecovery, align 1, !range !5, !noundef !8
+  %65 = load i8, ptr @InRecovery, align 1, !range !5, !noundef !6
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %90, label %67
 
@@ -880,6 +880,4 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = !{i8 0, i8 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = !{}
+!6 = !{}

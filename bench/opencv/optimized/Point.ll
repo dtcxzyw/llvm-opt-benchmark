@@ -1060,7 +1060,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vecto
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
   %68 = add nsw i64 %.010, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !82
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !80
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit, %3
   ret void
@@ -1315,6 +1315,4 @@ attributes #21 = { nounwind }
 !77 = distinct !{!77, !29}
 !78 = distinct !{!78, !29}
 !79 = !{!14, !14, i64 0}
-!80 = distinct !{!80, !29, !81}
-!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!82 = distinct !{!82, !29}
+!80 = distinct !{!80, !29}

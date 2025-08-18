@@ -7484,8 +7484,8 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
 
 .split43:                                         ; preds = %11
   %20 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 232
@@ -7532,7 +7532,7 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !32
 
 _ZNK2OT4avar12unmap_coordsEPij.exit:              ; preds = %6
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7564,7 +7564,7 @@ _ZNK2OT4avar12unmap_coordsEPij.exit:              ; preds = %6
   store float %65, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK2OT4avar12unmap_coordsEPij.exit
   %67 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %13, %.lr.ph ]
@@ -7675,7 +7675,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
-  br i1 %exitcond.not, label %.lr.ph66.preheader, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.lr.ph66.preheader, label %.lr.ph, !llvm.loop !34
 
 .lr.ph63:                                         ; preds = %.thread59.thread, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %.thread59.thread ]
@@ -7704,7 +7704,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   store float %73, ptr %74, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !36
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.thread59
   %75 = phi ptr [ null, %.thread59 ], [ %42, %.lr.ph63 ]
@@ -7765,7 +7765,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 110:                                              ; preds = %.lr.ph66, %108
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !37
+  br i1 %exitcond81.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !36
 
 ._crit_edge67:                                    ; preds = %110, %.loopexit
   %111 = phi ptr [ %85, %.loopexit ], [ %86, %110 ]
@@ -7822,7 +7822,7 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %11
   %19 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %19, i1 false), !alias.scope !38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %19, i1 false), !alias.scope !37
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %18
@@ -8847,7 +8847,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 75:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge.loopexit.split.loop.exit54:             ; preds = %.lr.ph
   %76 = trunc nuw i64 %indvars.iv to i32
@@ -9000,7 +9000,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
-  store i32 %15, ptr %3, align 4, !noalias !43
+  store i32 %15, ptr %3, align 4, !noalias !42
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %.not.i7 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i7, label %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, label %20
@@ -9013,7 +9013,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
   %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %22 = load i32, ptr %3, align 4
   %.not5 = icmp eq i32 %22, 0
-  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !46
+  br i1 %.not5, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit, %10
   %23 = load i32, ptr %0, align 8
@@ -9094,13 +9094,13 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %26 = load i32, ptr %16, align 4, !noalias !47
+  %26 = load i32, ptr %16, align 4, !noalias !46
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i, label %27
 
 27:                                               ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
   %28 = add i32 %26, -1
-  store i32 %28, ptr %16, align 4, !noalias !47
+  store i32 %28, ptr %16, align 4, !noalias !46
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit.i: ; preds = %27, %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i
@@ -9160,7 +9160,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 13:                                               ; preds = %10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.2.8.insert.ext.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_EEPS1_RKT_S4_.exit.thread, label %10, !llvm.loop !49
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
@@ -9205,7 +9205,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   %28 = add i32 %.143.i.i, 8
   %29 = add i32 %28, %27
   %30 = icmp ugt i32 %24, %29
-  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !51
+  br i1 %30, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !50
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %31 = icmp ugt i32 %29, 178956970
@@ -10020,7 +10020,7 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = add nuw nsw i32 %.02437, 1
   %exitcond.not = icmp eq i32 %65, %33
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !51
 
 ._crit_edge.loopexit:                             ; preds = %55
   %.pre = load i8, ptr %0, align 1
@@ -10446,7 +10446,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %117, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !53
+  br i1 %or.cond.not, label %.lr.ph, label %.thread33, !llvm.loop !52
 
 .thread33:                                        ; preds = %.lr.ph, %109, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit, %.thread, %92, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %23, %14, %2
   %118 = phi i1 [ false, %14 ], [ false, %2 ], [ false, %23 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT13VarRegionListEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit ], [ false, %.thread ], [ false, %92 ], [ true, %109 ], [ %117, %.lr.ph ]
@@ -10675,34 +10675,33 @@ attributes #28 = { noreturn nounwind }
 !20 = distinct !{!20, !19, !"_ZL9hb_memcpyPvPKvm: argument 1"}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!27 = distinct !{!27, !"_ZL9hb_memcpyPvPKvm"}
-!28 = distinct !{!28, !27, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!31 = distinct !{!31, !"_ZL9hb_memcpyPvPKvm"}
-!32 = distinct !{!32, !31, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!23 = distinct !{!23, !7}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!26 = distinct !{!26, !"_ZL9hb_memcpyPvPKvm"}
+!27 = distinct !{!27, !26, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!30 = distinct !{!30, !"_ZL9hb_memcpyPvPKvm"}
+!31 = distinct !{!31, !30, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!40 = distinct !{!40, !"_ZL9hb_memcpyPvPKvm"}
-!41 = distinct !{!41, !40, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!42 = distinct !{!42, !7}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!45 = distinct !{!45, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
-!46 = distinct !{!46, !7}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
-!49 = distinct !{!49, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!39 = distinct !{!39, !"_ZL9hb_memcpyPvPKvm"}
+!40 = distinct !{!40, !39, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!41 = distinct !{!41, !7}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!44 = distinct !{!44, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!45 = distinct !{!45, !7}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv: argument 0"}
+!48 = distinct !{!48, !"_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv"}
+!49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}

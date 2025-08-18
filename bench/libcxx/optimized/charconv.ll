@@ -4595,7 +4595,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
   %.1 = phi i8 [ 1, %26 ], [ %.044.ph140, %32 ], [ %.044.ph140, %41 ], [ %.044.ph140, %.thread ]
   %43 = add nuw i64 %.04785, 1
   %44 = icmp ult i64 %43, %2
-  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !85
+  br i1 %44, label %.lr.ph, label %.critedge, !llvm.loop !83
 
 .critedge.loopexit:                               ; preds = %19
   %45 = add nuw i64 %.047.ph138, 1
@@ -4653,7 +4653,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
 .lr.ph.i.i:                                       ; preds = %59, %64
   %.07.i.i = phi i64 [ %65, %64 ], [ 0, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 %.07.i.i
-  %63 = load i8, ptr %62, align 1, !tbaa !4, !alias.scope !86
+  %63 = load i8, ptr %62, align 1, !tbaa !4, !alias.scope !84
   switch i8 %63, label %_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i [
     i8 32, label %64
     i8 9, label %64
@@ -4670,7 +4670,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
 
 ._ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit_crit_edge.i: ; preds = %64
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !alias.scope !91
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !alias.scope !89
   br label %_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i, !llvm.loop !21
 
 _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; preds = %.lr.ph.i.i, %._ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit_crit_edge.i
@@ -4699,7 +4699,7 @@ _ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm.exit.i: ; pred
   %.273106.i = phi i64 [ %79, %88 ], [ %.071.i66, %.thread61 ]
   %.076105.i = phi i32 [ %.278.i, %88 ], [ 0, %.thread61 ]
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 %.273106.i
-  %73 = load i8, ptr %72, align 1, !tbaa !4, !alias.scope !91
+  %73 = load i8, ptr %72, align 1, !tbaa !4, !alias.scope !89
   %74 = sext i8 %73 to i32
   %75 = tail call fastcc noundef zeroext i1 @_ZN24__llvm_libc_common_utils8internalL7isalnumEi(i32 noundef %74)
   br i1 %75, label %76, label %.critedge.i
@@ -4965,7 +4965,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal11right_shiftEj.exit
   %68 = phi i32 [ 0, %._crit_edge.i ], [ %65, %._ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal11right_shiftEj.exit.loopexit.split.loop.exit101_crit_edge ], [ %.134.lcssa65.i, %.lr.ph.i.i ], [ 0, %.lr.ph119 ]
   %69 = add nuw nsw i32 %.169, 4
   %70 = icmp ult i32 %.169, -8
-  br i1 %70, label %13, label %._crit_edge, !llvm.loop !92
+  br i1 %70, label %13, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal11right_shiftEj.exit
   store i32 %67, ptr %8, align 4, !tbaa !69
@@ -5132,8 +5132,8 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [61 x %"struct.__llvm_libc_common_utils::internal::LShiftTableEntry"], ptr @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal22LEFT_SHIFT_DIGIT_TABLEE, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
-  %7 = load i32, ptr %4, align 16, !tbaa !96
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
+  %7 = load i32, ptr %4, align 16, !tbaa !94
   %8 = load i8, ptr %6, align 1, !tbaa !4
   %.not21.i = icmp eq i8 %8, 0
   %.pre = load i32, ptr %0, align 4, !tbaa !66
@@ -5149,7 +5149,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPre
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.next.i
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal18get_num_new_digitsEj.exit, label %13, !llvm.loop !97
+  br i1 %.not.i, label %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal18get_num_new_digitsEj.exit, label %13, !llvm.loop !95
 
 13:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
@@ -5232,7 +5232,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal18get_num_new_digits
 48:                                               ; preds = %46, %47, %42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %49 = icmp sgt i64 %indvars.iv, 0
-  br i1 %49, label %32, label %.preheader, !llvm.loop !98
+  br i1 %49, label %32, label %.preheader, !llvm.loop !96
 
 50:                                               ; preds = %.lr.ph51, %61
   %.150 = phi i32 [ %.016.i, %.lr.ph51 ], [ %53, %61 ]
@@ -5261,7 +5261,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal18get_num_new_digits
 
 61:                                               ; preds = %59, %60, %55
   %.not = icmp samesign ult i64 %.13049, 10
-  br i1 %.not, label %._crit_edge, label %50, !llvm.loop !99
+  br i1 %.not, label %._crit_edge, label %50, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %61, %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal18get_num_new_digitsEj.exit, %.preheader
   %spec.select = tail call i32 @llvm.umin.i32(i32 %25, i32 800)
@@ -5313,7 +5313,7 @@ define linkonce_odr hidden void @_ZNSt3__131__from_chars_floating_point_hexB8ne2
 
 .lr.ph.i:                                         ; preds = %5
   %12 = tail call ptr @__ctype_b_loc() #18
-  %13 = load ptr, ptr %12, align 8, !tbaa !12, !noalias !100
+  %13 = load ptr, ptr %12, align 8, !tbaa !12, !noalias !98
   br label %14
 
 14:                                               ; preds = %45, %.lr.ph.i
@@ -5324,10 +5324,10 @@ define linkonce_odr hidden void @_ZNSt3__131__from_chars_floating_point_hexB8ne2
   %.01821.i = phi i64 [ %10, %.lr.ph.i ], [ %50, %45 ]
   %18 = phi i64 [ 0, %.lr.ph.i ], [ %49, %45 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.01821.i
-  %20 = load i8, ptr %19, align 1, !tbaa !4, !noalias !100
+  %20 = load i8, ptr %19, align 1, !tbaa !4, !noalias !98
   %21 = sext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %13, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !14, !noalias !100
+  %23 = load i16, ptr %22, align 2, !tbaa !14, !noalias !98
   %24 = and i16 %23, 4096
   %.not.i = icmp eq i16 %24, 0
   br i1 %.not.i, label %42, label %tolower.exit.i
@@ -5336,9 +5336,9 @@ tolower.exit.i:                                   ; preds = %14
   %25 = sext i8 %20 to i32
   %26 = add nsw i32 %25, -48
   %27 = tail call ptr @__ctype_tolower_loc() #18
-  %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !100
+  %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !98
   %29 = getelementptr inbounds i32, ptr %28, i64 %21
-  %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !100
+  %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !98
   %switch.tableidx = add i32 %30, -97
   %31 = icmp ult i32 %switch.tableidx, 6
   %switch.offset = add i32 %30, -87
@@ -5377,7 +5377,7 @@ tolower.exit.i:                                   ; preds = %14
   %.1.i = phi i8 [ 1, %42 ], [ %.01722.i, %33 ], [ %.01722.i, %39 ]
   %50 = add i64 %.01821.i, 1
   %exitcond.not.i = icmp eq i64 %50, %8
-  br i1 %exitcond.not.i, label %_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm.exit, label %14, !llvm.loop !103
+  br i1 %exitcond.not.i, label %_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm.exit, label %14, !llvm.loop !101
 
 _ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm.exit: ; preds = %42, %45
   %.sroa.12.0 = phi i1 [ %17, %42 ], [ %48, %45 ]
@@ -5492,7 +5492,7 @@ _ZN24__llvm_libc_common_utils8internal19binary_exp_to_floatIdEENS0_18FloatConver
   %98 = bitcast i64 %95 to double
   %99 = fneg double %98
   %storemerge.i = select i1 %4, double %99, double %98
-  store double %storemerge.i, ptr %0, align 8, !tbaa !104
+  store double %storemerge.i, ptr %0, align 8, !tbaa !102
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.fca.0.extract, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !52
   %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5522,7 +5522,7 @@ define linkonce_odr hidden void @_ZNSt3__135__from_chars_floating_point_decimalB
   %.01517.i = phi i8 [ %.1.i, %34 ], [ 0, %6 ]
   %17 = phi i64 [ %38, %34 ], [ 0, %6 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 %.018.i
-  %19 = load i8, ptr %18, align 1, !tbaa !4, !noalias !105
+  %19 = load i8, ptr %18, align 1, !tbaa !4, !noalias !103
   %20 = sext i8 %19 to i32
   %isdigittmp.i = add nsw i32 %20, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
@@ -5562,7 +5562,7 @@ define linkonce_odr hidden void @_ZNSt3__135__from_chars_floating_point_decimalB
   %.1.i = phi i8 [ 1, %31 ], [ %.01517.i, %23 ], [ %.01517.i, %28 ]
   %39 = add i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %39, %10
-  br i1 %exitcond.not.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %.lr.ph.i, !llvm.loop !108
+  br i1 %exitcond.not.i, label %_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit, label %.lr.ph.i, !llvm.loop !106
 
 _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll.exit: ; preds = %31, %34
   %.sroa.13.0 = phi i1 [ %16, %31 ], [ %37, %34 ]
@@ -5627,7 +5627,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_co
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !10
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %59 = load i32, ptr %58, align 8, !tbaa !109
+  %59 = load i32, ptr %58, align 8, !tbaa !107
   %60 = icmp eq i32 %59, 34
   %spec.select = select i1 %60, i32 34, i32 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5651,7 +5651,7 @@ _ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_co
   %70 = bitcast i64 %66 to double
   %71 = fneg double %70
   %storemerge.i = select i1 %5, double %71, double %70
-  store double %storemerge.i, ptr %0, align 8, !tbaa !104
+  store double %storemerge.i, ptr %0, align 8, !tbaa !102
   %.sroa.5.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0, ptr %.sroa.5.0..sroa_idx44, align 8, !tbaa !52
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5713,7 +5713,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
   %25 = add nsw i32 %2, -22
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw [23 x double], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 0, i64 %26
-  %28 = load double, ptr %27, align 8, !tbaa !104, !noalias !112
+  %28 = load double, ptr %27, align 8, !tbaa !102, !noalias !110
   %29 = fmul double %28, %16
   br label %30
 
@@ -5726,7 +5726,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
 32:                                               ; preds = %30
   %33 = zext nneg i32 %.019.i to i64
   %34 = getelementptr inbounds nuw [23 x double], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 0, i64 %33
-  %35 = load double, ptr %34, align 8, !tbaa !104, !noalias !112
+  %35 = load double, ptr %34, align 8, !tbaa !102, !noalias !110
   %36 = fmul double %.0.i, %35
   br label %45
 
@@ -5738,7 +5738,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
   %40 = sub nsw i32 0, %2
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw [23 x double], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 0, i64 %41
-  %43 = load double, ptr %42, align 8, !tbaa !104, !noalias !112
+  %43 = load double, ptr %42, align 8, !tbaa !102, !noalias !110
   %44 = fdiv double %16, %43
   br label %45
 
@@ -5754,7 +5754,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
   %47 = fneg double %.1.i
   %48 = sext i32 %.120.i to i64
   %49 = getelementptr inbounds [23 x double], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 0, i64 %48
-  %50 = load double, ptr %49, align 8, !tbaa !104, !noalias !112
+  %50 = load double, ptr %49, align 8, !tbaa !102, !noalias !110
   %51 = fmul double %50, %47
   %52 = fneg double %51
   %53 = fcmp une double %.sroa.039.1.in.i, %52
@@ -5796,7 +5796,7 @@ _ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS
   %75 = getelementptr inbounds nuw [696 x [2 x i64]], ptr @_ZN24__llvm_libc_common_utils8internalL22DETAILED_POWERS_OF_TENE, i64 0, i64 %74
   %76 = zext i64 %68 to i128
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !52, !noalias !115
+  %78 = load i64, ptr %77, align 8, !tbaa !52, !noalias !113
   %79 = zext i64 %78 to i128
   %80 = mul nuw i128 %79, %76
   %81 = and i128 %80, 9426286221665580875776
@@ -5812,7 +5812,7 @@ _ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS
   br i1 %85, label %86, label %95
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr %75, align 16, !tbaa !52, !noalias !115
+  %87 = load i64, ptr %75, align 16, !tbaa !52, !noalias !113
   %88 = zext i64 %87 to i128
   %89 = mul nuw i128 %88, %76
   %90 = lshr i128 %89, 64
@@ -5908,7 +5908,7 @@ _ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13E
   br i1 %130, label %131, label %140
 
 131:                                              ; preds = %128
-  %132 = load i64, ptr %75, align 16, !tbaa !52, !noalias !118
+  %132 = load i64, ptr %75, align 16, !tbaa !52, !noalias !116
   %133 = zext i64 %132 to i128
   %134 = mul nuw i128 %133, %124
   %135 = lshr i128 %134, 64
@@ -6019,7 +6019,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimalC2EPKcm(ptr noundef nonnull align 4 dereferenceable(809) %5, ptr noundef %1, i64 noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %7, align 8, !tbaa !109
+  store i32 0, ptr %7, align 8, !tbaa !107
   %8 = load i32, ptr %5, align 4, !tbaa !66
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -6047,7 +6047,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
 22:                                               ; preds = %15
   store i64 0, ptr %0, align 8, !tbaa !52
   store i32 2047, ptr %6, align 8, !tbaa !10
-  store i32 34, ptr %7, align 8, !tbaa !109
+  store i32 34, ptr %7, align 8, !tbaa !107
   br label %261
 
 23:                                               ; preds = %11
@@ -6066,7 +6066,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
 32:                                               ; preds = %25
   store i64 0, ptr %0, align 8, !tbaa !52
   store i32 0, ptr %6, align 8, !tbaa !10
-  store i32 34, ptr %7, align 8, !tbaa !109
+  store i32 34, ptr %7, align 8, !tbaa !107
   br label %261
 
 .preheader128:                                    ; preds = %41, %23, %25
@@ -6095,7 +6095,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi(ptr noundef nonnull align 4 dereferenceable(809) %5, i32 noundef %43)
   %44 = load i32, ptr %12, align 4, !tbaa !69
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph, label %.preheader128, !llvm.loop !121
+  br i1 %45, label %.lr.ph, label %.preheader128, !llvm.loop !119
 
 46:                                               ; preds = %.preheader128, %.thread111
   %47 = phi i32 [ %.pr, %.thread111 ], [ %.lcssa139, %.preheader128 ]
@@ -6127,7 +6127,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
   %60 = sub nsw i32 %.1, %.040
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi(ptr noundef nonnull align 4 dereferenceable(809) %5, i32 noundef %.040)
   %.pr = load i32, ptr %12, align 4, !tbaa !69
-  br label %46, !llvm.loop !122
+  br label %46, !llvm.loop !120
 
 .critedge2:                                       ; preds = %49
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal10left_shiftEj(ptr noundef nonnull align 4 dereferenceable(809) %5, i32 noundef 1)
@@ -6137,7 +6137,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
 62:                                               ; preds = %.critedge2
   store i64 0, ptr %0, align 8, !tbaa !52
   store i32 2047, ptr %6, align 8, !tbaa !10
-  store i32 34, ptr %7, align 8, !tbaa !109
+  store i32 34, ptr %7, align 8, !tbaa !107
   br label %261
 
 .lr.ph73.i:                                       ; preds = %.critedge2, %.lr.ph73.i
@@ -6179,7 +6179,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit: ; pre
   %77 = add i64 %73, %76
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %invariant.umin.i
-  br i1 %exitcond.not, label %.critedge.preheader.i, label %72, !llvm.loop !123
+  br i1 %exitcond.not, label %.critedge.preheader.i, label %72, !llvm.loop !121
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %.123.i = phi i32 [ %79, %.critedge.i ], [ %.0.lcssa.i, %.critedge.preheader.i ]
@@ -6187,7 +6187,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit: ; pre
   %78 = mul i64 %.11122.i, 10
   %79 = add nuw nsw i32 %.123.i, 1
   %exitcond.not.i = icmp eq i32 %79, %66
-  br i1 %exitcond.not.i, label %.critedge._crit_edge.i, label %.critedge.i, !llvm.loop !124
+  br i1 %exitcond.not.i, label %.critedge._crit_edge.i, label %.critedge.i, !llvm.loop !122
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %.111.lcssa.i = phi i64 [ %.010.lcssa.i, %.critedge.preheader.i ], [ %78, %.critedge.i ]
@@ -6384,7 +6384,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit45: ; p
   %161 = phi i32 [ 0, %._crit_edge.i34.i ], [ %159, %._ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit45.loopexit.split.loop.exit195_crit_edge ], [ %.134.lcssa65.i28.i, %.lr.ph.i.i27.i ], [ 0, %.lr.ph217 ]
   %162 = add nsw i32 %.3145, 1
   %exitcond165.not = icmp eq i32 %162, 0
-  br i1 %exitcond165.not, label %._crit_edge, label %107, !llvm.loop !125
+  br i1 %exitcond165.not, label %._crit_edge, label %107, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit45, %.preheader
   %163 = phi i32 [ %66, %.preheader ], [ %160, %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit45 ]
@@ -6545,7 +6545,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit87: ; p
   %224 = add i64 %220, %223
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next.i107, %invariant.umin.i104
-  br i1 %exitcond170.not, label %.critedge.preheader.i90, label %219, !llvm.loop !123
+  br i1 %exitcond170.not, label %.critedge.preheader.i90, label %219, !llvm.loop !121
 
 .critedge.i99:                                    ; preds = %.critedge.preheader.i90, %.critedge.i99
   %.123.i100 = phi i32 [ %226, %.critedge.i99 ], [ %.0.lcssa.i92, %.critedge.preheader.i90 ]
@@ -6553,7 +6553,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit87: ; p
   %225 = mul i64 %.11122.i101, 10
   %226 = add nuw nsw i32 %.123.i100, 1
   %exitcond.not.i102 = icmp eq i32 %226, %177
-  br i1 %exitcond.not.i102, label %.critedge._crit_edge.i93, label %.critedge.i99, !llvm.loop !124
+  br i1 %exitcond.not.i102, label %.critedge._crit_edge.i93, label %.critedge.i99, !llvm.loop !122
 
 .critedge._crit_edge.i93:                         ; preds = %.critedge.i99, %.critedge.preheader.i90
   %.111.lcssa.i94 = phi i64 [ %.010.lcssa.i91, %.critedge.preheader.i90 ], [ %225, %.critedge.i99 ]
@@ -6631,7 +6631,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal21round_to_integer_t
 .thread114.sink.split:                            ; preds = %259, %256
   %.4118.ph = phi i32 [ 2047, %256 ], [ 0, %259 ]
   %.139117.ph = phi i64 [ 4503599627370496, %256 ], [ %.038, %259 ]
-  store i32 34, ptr %7, align 8, !tbaa !109
+  store i32 34, ptr %7, align 8, !tbaa !107
   br label %.thread114
 
 .thread114:                                       ; preds = %.thread114.sink.split, %256, %259
@@ -6790,46 +6790,44 @@ attributes #20 = { noreturn nounwind }
 !80 = distinct !{!80, !22}
 !81 = distinct !{!81, !22}
 !82 = distinct !{!82, !22}
-!83 = distinct !{!83, !22, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!85 = distinct !{!85, !22}
-!86 = !{!87, !89}
-!87 = distinct !{!87, !88, !"_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm: argument 0"}
-!88 = distinct !{!88, !"_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm"}
-!89 = distinct !{!89, !90, !"_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim: argument 0"}
-!90 = distinct !{!90, !"_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim"}
-!91 = !{!89}
-!92 = distinct !{!92, !22}
-!93 = !{!94, !95, i64 8}
-!94 = !{!"_ZTSN24__llvm_libc_common_utils8internal16LShiftTableEntryE", !11, i64 0, !95, i64 8}
-!95 = !{!"p1 omnipotent char", !9, i64 0}
-!96 = !{!94, !11, i64 0}
+!83 = distinct !{!83, !22}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm: argument 0"}
+!86 = distinct !{!86, !"_ZN24__llvm_libc_common_utils8internal20first_non_whitespaceEPKcm"}
+!87 = distinct !{!87, !88, !"_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim: argument 0"}
+!88 = distinct !{!88, !"_ZN24__llvm_libc_common_utils8internal12strtointegerIiEENS_14StrToNumResultIT_EEPKcim"}
+!89 = !{!87}
+!90 = distinct !{!90, !22}
+!91 = !{!92, !93, i64 8}
+!92 = !{!"_ZTSN24__llvm_libc_common_utils8internal16LShiftTableEntryE", !11, i64 0, !93, i64 8}
+!93 = !{!"p1 omnipotent char", !9, i64 0}
+!94 = !{!92, !11, i64 0}
+!95 = distinct !{!95, !22}
+!96 = distinct !{!96, !22}
 !97 = distinct !{!97, !22}
-!98 = distinct !{!98, !22}
-!99 = distinct !{!99, !22}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm: argument 0"}
-!102 = distinct !{!102, !"_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm"}
-!103 = distinct !{!103, !22}
-!104 = !{!39, !39, i64 0}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll: argument 0"}
-!107 = distinct !{!107, !"_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll"}
-!108 = distinct !{!108, !22}
-!109 = !{!110, !11, i64 16}
-!110 = !{!"_ZTSN24__llvm_libc_common_utils8internal18FloatConvertReturnIdEE", !111, i64 0, !11, i64 16}
-!111 = !{!"_ZTSN24__llvm_libc_common_utils8internal13ExpandedFloatIdEE", !29, i64 0, !11, i64 8}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
-!114 = distinct !{!114, !"_ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
-!117 = distinct !{!117, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
-!120 = distinct !{!120, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm: argument 0"}
+!100 = distinct !{!100, !"_ZNSt3__131__parse_fractional_hex_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcmm"}
+!101 = distinct !{!101, !22}
+!102 = !{!39, !39, i64 0}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll: argument 0"}
+!105 = distinct !{!105, !"_ZNSt3__135__parse_fractional_decimal_constantB8ne210000ImEENS_28__fractional_constant_resultIT_EEPKcll"}
+!106 = distinct !{!106, !22}
+!107 = !{!108, !11, i64 16}
+!108 = !{!"_ZTSN24__llvm_libc_common_utils8internal18FloatConvertReturnIdEE", !109, i64 0, !11, i64 16}
+!109 = !{!"_ZTSN24__llvm_libc_common_utils8internal13ExpandedFloatIdEE", !29, i64 0, !11, i64 8}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
+!112 = distinct !{!112, !"_ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
+!115 = distinct !{!115, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE: argument 0"}
+!118 = distinct !{!118, !"_ZN24__llvm_libc_common_utils8internal12eisel_lemireIdEENS_3cpp8optionalINS0_13ExpandedFloatIT_EEEES6_NS0_14RoundDirectionE"}
+!119 = distinct !{!119, !22}
+!120 = distinct !{!120, !22}
 !121 = distinct !{!121, !22}
 !122 = distinct !{!122, !22}
 !123 = distinct !{!123, !22}
-!124 = distinct !{!124, !22}
-!125 = distinct !{!125, !22}

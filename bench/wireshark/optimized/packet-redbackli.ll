@@ -189,7 +189,7 @@ redbackli_dissect_avp.exit:                       ; preds = %.sink.split.i, %30
   %53 = sub nsw i32 %.035, %33
   %54 = icmp slt i32 %53, 3
   %.not32 = select i1 %51, i1 true, i1 %54
-  br i1 %.not32, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not32, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %redbackli_dissect_avp.exit, %.lr.ph.split, %redbackli_dissect_avp.exit.us, %.lr.ph.split.us, %4
   %.029.lcssa = phi i32 [ 0, %4 ], [ %.02934.us, %.lr.ph.split.us ], [ %21, %redbackli_dissect_avp.exit.us ], [ %.02934, %.lr.ph.split ], [ %52, %redbackli_dissect_avp.exit ]
@@ -267,7 +267,7 @@ define internal noundef zeroext i1 @redbackli_dissect_heur(ptr noundef %0, ptr n
   %21 = add i32 %20, %.03039
   %22 = sub nsw i32 %.02740, %20
   %23 = icmp slt i32 %22, 3
-  br i1 %23, label %.thread, label %.preheader, !llvm.loop !10
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !8
 
 .thread:                                          ; preds = %18, %15
   %.145 = phi i32 [ %.041, %15 ], [ %.1, %18 ]
@@ -328,8 +328,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

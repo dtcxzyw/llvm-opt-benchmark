@@ -412,7 +412,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %57 = getelementptr inbounds nuw i8, ptr %.04460, i64 216
   %.044 = load ptr, ptr %57, align 8, !tbaa !70
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %._crit_edge.loopexit63, label %.lr.ph.split, !llvm.loop !73
+  br i1 %.not, label %._crit_edge.loopexit63, label %.lr.ph.split, !llvm.loop !72
 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -423,7 +423,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %.pre64, i64 72
-  %64 = load i32, ptr %63, align 8, !tbaa !75
+  %64 = load i32, ptr %63, align 8, !tbaa !74
   %65 = icmp eq i32 %64, 0
   br label %66
 
@@ -431,7 +431,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %67 = phi ptr [ %.pre64, %58 ], [ %.pre, %._crit_edge._crit_edge ], [ %.pre64, %62 ]
   %68 = phi i1 [ false, %58 ], [ false, %._crit_edge._crit_edge ], [ %65, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %70 = load i16, ptr %69, align 8, !tbaa !76
+  %70 = load i16, ptr %69, align 8, !tbaa !75
   switch i16 %70, label %.thread [
     i16 4, label %71
     i16 25, label %88
@@ -439,13 +439,13 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 216
-  %73 = load ptr, ptr %72, align 8, !tbaa !77
+  %73 = load ptr, ptr %72, align 8, !tbaa !76
   %.not50 = icmp eq ptr %73, null
   br i1 %.not50, label %74, label %.thread
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !75
+  %76 = load i32, ptr %75, align 8, !tbaa !74
   %77 = icmp ult i32 %76, 2
   %or.cond = and i1 %25, %77
   br i1 %or.cond, label %78, label %.thread
@@ -460,13 +460,13 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !65
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load i16, ptr %85, align 8, !tbaa !76
+  %86 = load i16, ptr %85, align 8, !tbaa !75
   %87 = icmp eq i16 %86, 4
   br label %.thread
 
 88:                                               ; preds = %66
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %90 = load i64, ptr %89, align 8, !tbaa !78
+  %90 = load i64, ptr %89, align 8, !tbaa !77
   %.not51 = icmp eq i64 %90, -1
   br i1 %.not51, label %.thread, label %91
 
@@ -619,11 +619,10 @@ attributes #3 = { nounwind }
 !68 = distinct !{!68, !64}
 !69 = !{!13, !21, i64 74}
 !70 = !{!14, !14, i64 0}
-!71 = distinct !{!71, !64, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !64, !74}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = !{!24, !8, i64 72}
-!76 = !{!25, !26, i64 16}
-!77 = !{!24, !14, i64 216}
-!78 = !{!13, !20, i64 48}
+!71 = distinct !{!71, !64}
+!72 = distinct !{!72, !64, !73}
+!73 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = !{!24, !8, i64 72}
+!75 = !{!25, !26, i64 16}
+!76 = !{!24, !14, i64 216}
+!77 = !{!13, !20, i64 48}

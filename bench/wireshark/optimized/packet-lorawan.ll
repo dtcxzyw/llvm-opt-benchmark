@@ -2255,7 +2255,7 @@ define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr nou
   %.1 = phi i32 [ %84, %76 ], [ %101, %85 ], [ %107, %102 ], [ %118, %108 ], [ %73, %.split ], [ %73, %.split ], [ %132, %119 ], [ %138, %133 ], [ %144, %139 ], [ %150, %145 ], [ %156, %151 ], [ %162, %157 ], [ %168, %163 ]
   %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not = icmp eq i32 %170, 0
-  br i1 %.not, label %.split2.us, label %.split, !llvm.loop !25
+  br i1 %.not, label %.split2.us, label %.split, !llvm.loop !23
 
 .split2.us:                                       ; preds = %169, %.split, %68, %.split.us
   %171 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2347,6 +2347,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
 !21 = distinct !{!21, !"memcpy.inline"}
 !22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
-!23 = distinct !{!23, !7, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !7}
+!23 = distinct !{!23, !7}

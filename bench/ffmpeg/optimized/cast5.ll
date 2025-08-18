@@ -1038,69 +1038,76 @@ define internal fastcc void @generate_round_keys(i32 noundef %0, ptr noundef wri
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @av_cast5_crypt2(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #6 {
+  %7 = add nsw i32 %3, -1
   %.not33 = icmp eq i32 %3, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = add nsw i32 %3, -1
   %.not28 = icmp eq i32 %5, 0
-  %.not29 = icmp eq ptr %4, null
   br i1 %.not28, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %8 = phi i32 [ %23, %20 ], [ %7, %.lr.ph ]
-  %.02435.us = phi ptr [ %22, %20 ], [ %1, %.lr.ph ]
-  %.02534.us = phi ptr [ %21, %20 ], [ %2, %.lr.ph ]
-  br i1 %.not29, label %18, label %.preheader.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %.not29 = icmp eq ptr %4, null
+  br i1 %.not29, label %.lr.ph.split.us.split.us, label %.preheader.us
 
-9:                                                ; preds = %.preheader.us
-  %.024.val.us = load i32, ptr %.02435.us, align 1, !tbaa !9
-  %10 = getelementptr i8, ptr %.02435.us, i64 4
-  %.024.val30.us = load i32, ptr %10, align 1, !tbaa !9
-  tail call fastcc void @encipher(ptr noundef %0, ptr noundef nonnull %.02435.us, i32 %.024.val.us, i32 %.024.val30.us)
-  %11 = load i64, ptr %.02435.us, align 1
-  store i64 %11, ptr %4, align 1
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %8 = phi i32 [ %12, %.lr.ph.split.us.split.us ], [ %7, %.lr.ph.split.us ]
+  %.02435.us.us = phi ptr [ %11, %.lr.ph.split.us.split.us ], [ %1, %.lr.ph.split.us ]
+  %.02534.us.us = phi ptr [ %10, %.lr.ph.split.us.split.us ], [ %2, %.lr.ph.split.us ]
+  %.025.val.us.us = load i32, ptr %.02534.us.us, align 1, !tbaa !9
+  %9 = getelementptr i8, ptr %.02534.us.us, i64 4
+  %.025.val31.us.us = load i32, ptr %9, align 1, !tbaa !9
+  tail call fastcc void @encipher(ptr noundef %0, ptr noundef %.02435.us.us, i32 %.025.val.us.us, i32 %.025.val31.us.us)
+  %10 = getelementptr inbounds nuw i8, ptr %.02534.us.us, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.02435.us.us, i64 8
+  %12 = add nsw i32 %8, -1
+  %.not.us.us = icmp eq i32 %8, 0
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !14
+
+.preheader.us:                                    ; preds = %.lr.ph.split.us, %14
+  %13 = phi i32 [ %19, %14 ], [ %7, %.lr.ph.split.us ]
+  %.02435.us = phi ptr [ %18, %14 ], [ %1, %.lr.ph.split.us ]
+  %.02534.us = phi ptr [ %17, %14 ], [ %2, %.lr.ph.split.us ]
   br label %20
 
-.preheader.us:                                    ; preds = %.lr.ph.split.us, %.preheader.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.lr.ph.split.us ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02534.us, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !9
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 1, !tbaa !9
-  %16 = xor i8 %15, %13
-  %17 = getelementptr inbounds nuw i8, ptr %.02435.us, i64 %indvars.iv
-  store i8 %16, ptr %17, align 1, !tbaa !9
+14:                                               ; preds = %20
+  %.024.val.us = load i32, ptr %.02435.us, align 1, !tbaa !9
+  %15 = getelementptr i8, ptr %.02435.us, i64 4
+  %.024.val30.us = load i32, ptr %15, align 1, !tbaa !9
+  tail call fastcc void @encipher(ptr noundef %0, ptr noundef nonnull %.02435.us, i32 %.024.val.us, i32 %.024.val30.us)
+  %16 = load i64, ptr %.02435.us, align 1
+  store i64 %16, ptr %4, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.02534.us, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02435.us, i64 8
+  %19 = add nsw i32 %13, -1
+  %.not.us = icmp eq i32 %13, 0
+  br i1 %.not.us, label %._crit_edge, label %.preheader.us, !llvm.loop !14
+
+20:                                               ; preds = %.preheader.us, %20
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %20 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.02534.us, i64 %indvars.iv
+  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %24 = load i8, ptr %23, align 1, !tbaa !9
+  %25 = xor i8 %24, %22
+  %26 = getelementptr inbounds nuw i8, ptr %.02435.us, i64 %indvars.iv
+  store i8 %25, ptr %26, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %9, label %.preheader.us, !llvm.loop !14
-
-18:                                               ; preds = %.lr.ph.split.us
-  %.025.val.us = load i32, ptr %.02534.us, align 1, !tbaa !9
-  %19 = getelementptr i8, ptr %.02534.us, i64 4
-  %.025.val31.us = load i32, ptr %19, align 1, !tbaa !9
-  tail call fastcc void @encipher(ptr noundef %0, ptr noundef %.02435.us, i32 %.025.val.us, i32 %.025.val31.us)
-  br label %20
-
-20:                                               ; preds = %18, %9
-  %21 = getelementptr inbounds nuw i8, ptr %.02534.us, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %.02435.us, i64 8
-  %23 = add nsw i32 %8, -1
-  %.not.us = icmp eq i32 %8, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond.not, label %14, label %20, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %24 = phi i32 [ %27, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %.02435 = phi ptr [ %26, %.lr.ph.split ], [ %1, %.lr.ph ]
-  %.02534 = phi ptr [ %25, %.lr.ph.split ], [ %2, %.lr.ph ]
+  %27 = phi i32 [ %30, %.lr.ph.split ], [ %7, %.lr.ph ]
+  %.02435 = phi ptr [ %29, %.lr.ph.split ], [ %1, %.lr.ph ]
+  %.02534 = phi ptr [ %28, %.lr.ph.split ], [ %2, %.lr.ph ]
   tail call fastcc void @decipher(ptr noundef %0, ptr noundef %.02435, ptr noundef %.02534, ptr noundef %4)
-  %25 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.02435, i64 8
-  %27 = add nsw i32 %24, -1
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  %28 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02435, i64 8
+  %30 = add nsw i32 %27, -1
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %20, %6
+._crit_edge:                                      ; preds = %.lr.ph.split, %14, %.lr.ph.split.us.split.us, %6
   ret void
 }
 
@@ -2089,7 +2096,7 @@ define void @av_cast5_crypt(ptr noundef readonly captures(none) %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %.015.us, i64 8
   %11 = add nsw i32 %7, -1
   %.not.us = icmp eq i32 %7, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %12 = phi i32 [ %15, %.lr.ph.split ], [ %6, %.lr.ph ]
@@ -2100,7 +2107,7 @@ define void @av_cast5_crypt(ptr noundef readonly captures(none) %0, ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %15 = add nsw i32 %12, -1
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   ret void
@@ -2147,8 +2154,5 @@ attributes #10 = { nounwind }
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
 !14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12, !16}
-!19 = distinct !{!19, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}

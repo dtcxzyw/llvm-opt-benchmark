@@ -962,7 +962,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %96 = add i32 %.1223.us.us, 1
   %97 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %96)
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph.us, label %.outer._crit_edge, !llvm.loop !9
+  br i1 %98, label %.lr.ph.us, label %.outer._crit_edge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
   %.1.ph227 = phi i32 [ %110, %.split ], [ %64, %.lr.ph.lr.ph ]
@@ -993,7 +993,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %110 = add i32 %.1223, 1
   %111 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %110)
   %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !10
+  br i1 %112, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !6
 
 113:                                              ; preds = %99
   br i1 %.not190, label %114, label %126
@@ -1021,7 +1021,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %.1.be = phi i32 [ %123, %122 ], [ %688, %dissect_q933_segmented_message_ie.exit ]
   %124 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.be)
   %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %99, label %.outer._crit_edge, !llvm.loop !10
+  br i1 %125, label %99, label %.outer._crit_edge, !llvm.loop !6
 
 126:                                              ; preds = %113
   %127 = add i32 %.1223, 1
@@ -1492,7 +1492,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %391 = add i32 %.1.i197, 1
   %392 = add i32 %.1108.i, -1
   %.not114.i = icmp eq i32 %392, 0
-  br i1 %.not114.i, label %dissect_q933_segmented_message_ie.exit, label %388, !llvm.loop !11
+  br i1 %.not114.i, label %dissect_q933_segmented_message_ie.exit, label %388, !llvm.loop !8
 
 393:                                              ; preds = %358, %358
   %394 = load i32, ptr @hf_q933_message_type, align 4
@@ -1575,7 +1575,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   %439 = icmp slt i8 %435, 0
   %440 = icmp eq i32 %437, 0
   %or.cond.i201 = select i1 %439, i1 true, i1 %440
-  br i1 %or.cond.i201, label %441, label %.preheader.i, !llvm.loop !12
+  br i1 %or.cond.i201, label %441, label %.preheader.i, !llvm.loop !9
 
 441:                                              ; preds = %.preheader.i
   %442 = load i32, ptr @hf_q933_interface_identifier, align 4
@@ -2195,10 +2195,7 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

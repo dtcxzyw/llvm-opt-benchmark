@@ -961,7 +961,7 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
 71:                                               ; preds = %66, %63
   %72 = getelementptr i8, ptr %45, i64 4
   %73 = icmp eq i64 %46, 0
-  br i1 %73, label %.loopexit, label %.thread.us, !llvm.loop !16
+  br i1 %73, label %.loopexit, label %.thread.us
 
 .preheader.split:                                 ; preds = %.preheader, %107
   %74 = phi i64 [ %77, %107 ], [ %15, %.preheader ]
@@ -1038,12 +1038,12 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly captures(address_is_
   %114 = sub i64 %112, %113
   %115 = trunc i64 %114 to i32
   %116 = icmp eq i32 %115, %33
-  br i1 %116, label %118, label %117, !prof !18
+  br i1 %116, label %118, label %117, !prof !16
 
 117:                                              ; preds = %.loopexit
-  call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #17, !srcloc !19
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.20, i32 656, i32 2305, i64 12) #17, !srcloc !20
-  call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #17, !srcloc !21
+  call void asm sideeffect "343: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 343b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 343) #17, !srcloc !17
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.20, i32 656, i32 2305, i64 12) #17, !srcloc !18
+  call void asm sideeffect "344: nop\0A\09.pushsection .discard.instr_end\0A\09.long 344b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 344) #17, !srcloc !19
   br label %118
 
 118:                                              ; preds = %117, %.loopexit
@@ -1086,7 +1086,7 @@ define dso_local ptr @kstrdup_quotable_cmdline(ptr noundef %0, i32 noundef %1) #
   %18 = getelementptr i8, ptr %4, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %11, label %21, !llvm.loop !22
+  br i1 %20, label %11, label %21, !llvm.loop !20
 
 21:                                               ; preds = %16
   %22 = add nuw i32 %14, 1
@@ -1108,7 +1108,7 @@ define dso_local ptr @kstrdup_quotable_cmdline(ptr noundef %0, i32 noundef %1) #
 31:                                               ; preds = %30, %25
   %32 = add nuw nsw i64 %26, 1
   %33 = icmp eq i64 %32, %24
-  br i1 %33, label %.thread, label %25, !llvm.loop !23
+  br i1 %33, label %.thread, label %25, !llvm.loop !21
 
 .thread:                                          ; preds = %11, %31
   %34 = tail call ptr @kstrdup_quotable(ptr noundef nonnull %4, i32 noundef %1)
@@ -1196,7 +1196,7 @@ define dso_local noalias ptr @kstrdup_and_replace(ptr noundef %0, i8 noundef zer
   %15 = getelementptr i8, ptr %11, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %14, %7, %4
   ret ptr %5
@@ -1222,7 +1222,7 @@ define dso_local noundef ptr @strreplace(ptr noundef returned captures(ret: addr
   %11 = getelementptr i8, ptr %7, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %10, %3
   ret ptr %0
@@ -1266,7 +1266,7 @@ define dso_local ptr @kasprintf_strarray(i32 noundef %0, ptr noundef %1, i64 nou
   %23 = add i32 %20, 1
   %24 = zext i32 %23 to i64
   %25 = icmp ugt i64 %13, %24
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %17
   tail call void @kfree(ptr noundef nonnull %9) #17
@@ -1275,7 +1275,7 @@ define dso_local ptr @kasprintf_strarray(i32 noundef %0, ptr noundef %1, i64 nou
 26:                                               ; preds = %.preheader3
   %27 = add nuw i64 %13, 1
   %28 = icmp eq i64 %27, %2
-  br i1 %28, label %.thread, label %.preheader3, !llvm.loop !26
+  br i1 %28, label %.thread, label %.preheader3, !llvm.loop !24
 
 .thread:                                          ; preds = %26, %3, %.loopexit, %11, %6
   %29 = phi ptr [ null, %.loopexit ], [ null, %6 ], [ %9, %11 ], [ null, %3 ], [ %9, %26 ]
@@ -1303,7 +1303,7 @@ define dso_local void @kfree_strarray(ptr noundef %0, i64 noundef %1) #3 align 1
   %10 = add i32 %7, 1
   %11 = zext i32 %10 to i64
   %12 = icmp ugt i64 %1, %11
-  br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %12, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %4
   tail call void @kfree(ptr noundef nonnull %0) #17
@@ -1355,7 +1355,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
   %25 = add i32 %22, 1
   %26 = zext i32 %25 to i64
   %27 = icmp ugt i64 %15, %26
-  br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %27, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %19
   tail call void @kfree(ptr noundef nonnull %11) #17
@@ -1364,7 +1364,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
 28:                                               ; preds = %.preheader6
   %29 = add nuw i64 %15, 1
   %30 = icmp eq i64 %29, %2
-  br i1 %30, label %.thread5, label %.preheader6, !llvm.loop !26
+  br i1 %30, label %.thread5, label %.preheader6, !llvm.loop !24
 
 .thread4:                                         ; preds = %.loopexit, %9, %6
   store ptr null, ptr %4, align 8
@@ -1408,7 +1408,7 @@ define internal void @devm_kfree_strarray(ptr readnone captures(none) %0, ptr no
   %13 = add i32 %10, 1
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i64 %5, %14
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %7
   tail call void @kfree(ptr noundef nonnull %3) #17
@@ -1461,7 +1461,7 @@ define dso_local noundef ptr @skip_spaces(ptr noundef readonly captures(ret: add
   %8 = and i8 %7, 32
   %9 = icmp eq i8 %8, 0
   %10 = getelementptr i8, ptr %3, i64 1
-  br i1 %9, label %11, label %2, !llvm.loop !27
+  br i1 %9, label %11, label %2, !llvm.loop !25
 
 11:                                               ; preds = %2
   ret ptr %3
@@ -1490,7 +1490,7 @@ define dso_local noundef ptr @strim(ptr noundef captures(address, ret: address, 
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 32
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %17, label %6, !llvm.loop !28
+  br i1 %16, label %17, label %6, !llvm.loop !26
 
 17:                                               ; preds = %10, %6
   store i8 0, ptr %7, align 1
@@ -1505,7 +1505,7 @@ define dso_local noundef ptr @strim(ptr noundef captures(address, ret: address, 
   %24 = and i8 %23, 32
   %25 = icmp eq i8 %24, 0
   %26 = getelementptr i8, ptr %19, i64 1
-  br i1 %25, label %.loopexit, label %18, !llvm.loop !27
+  br i1 %25, label %.loopexit, label %18, !llvm.loop !25
 
 .loopexit:                                        ; preds = %18, %1
   %27 = phi ptr [ %0, %1 ], [ %19, %18 ]
@@ -1526,7 +1526,7 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr noundef readonly captures(n
 8:                                                ; preds = %.preheader
   %9 = load i8, ptr %14, align 1
   %10 = icmp eq i8 %15, %9
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !27
 
 .preheader:                                       ; preds = %5, %8
   %11 = phi ptr [ %13, %8 ], [ %0, %5 ]
@@ -1535,7 +1535,7 @@ define dso_local noundef zeroext i1 @sysfs_streq(ptr noundef readonly captures(n
   %14 = getelementptr i8, ptr %12, i64 1
   %15 = load i8, ptr %13, align 1
   %16 = icmp eq i8 %15, 0
-  br i1 %16, label %.loopexit, label %8, !llvm.loop !29
+  br i1 %16, label %.loopexit, label %8, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %8, %5, %2
   %17 = phi ptr [ %0, %2 ], [ %0, %5 ], [ %13, %8 ], [ %13, %.preheader ]
@@ -1598,7 +1598,7 @@ define dso_local i32 @match_string(ptr noundef readonly captures(none) %0, i64 n
   %14 = add i32 %6, 1
   %15 = sext i32 %14 to i64
   %16 = icmp ugt i64 %1, %15
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !30
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %13, %10, %.preheader, %3
   %17 = phi i32 [ -22, %3 ], [ -22, %13 ], [ -22, %.preheader ], [ %6, %10 ]
@@ -1634,7 +1634,7 @@ define dso_local i32 @__sysfs_match_string(ptr noundef readonly captures(none) %
 16:                                               ; preds = %.preheader
   %17 = load i8, ptr %22, align 1
   %18 = icmp eq i8 %23, %17
-  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !29
+  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !27
 
 .preheader:                                       ; preds = %13, %16
   %19 = phi ptr [ %21, %16 ], [ %8, %13 ]
@@ -1643,7 +1643,7 @@ define dso_local i32 @__sysfs_match_string(ptr noundef readonly captures(none) %
   %22 = getelementptr i8, ptr %20, i64 1
   %23 = load i8, ptr %21, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %.loopexit, label %16, !llvm.loop !29
+  br i1 %24, label %.loopexit, label %16, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %16, %13, %10
   %25 = phi ptr [ %8, %10 ], [ %8, %13 ], [ %21, %16 ], [ %21, %.preheader ]
@@ -1680,7 +1680,7 @@ define dso_local i32 @__sysfs_match_string(ptr noundef readonly captures(none) %
   %46 = add i32 %6, 1
   %47 = sext i32 %46 to i64
   %48 = icmp ugt i64 %1, %47
-  br i1 %48, label %.preheader10, label %.loopexit11, !llvm.loop !31
+  br i1 %48, label %.preheader10, label %.loopexit11, !llvm.loop !29
 
 .loopexit11:                                      ; preds = %45, %40, %34, %.loopexit, %.preheader10, %3
   %49 = phi i32 [ -22, %3 ], [ %6, %40 ], [ %6, %34 ], [ %6, %.loopexit ], [ -22, %45 ], [ -22, %.preheader10 ]
@@ -1771,12 +1771,12 @@ attributes #19 = { nounwind allocsize(2) }
 !13 = distinct !{!13, !7, !8}
 !14 = distinct !{!14, !7, !8}
 !15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 2154548007, i64 2154547816, i64 2154547868, i64 2154547914, i64 2154547942}
-!20 = !{i64 2154548081, i64 2154548110, i64 2154548156, i64 2154548214, i64 2154548268, i64 2154548322, i64 2154548377, i64 2154548408, i64 2154548716, i64 2154548722, i64 2154548769, i64 2154548792, i64 2154548818}
-!21 = !{i64 2154549271, i64 2154549082, i64 2154549132, i64 2154549178, i64 2154549206}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2154548007, i64 2154547816, i64 2154547868, i64 2154547914, i64 2154547942}
+!18 = !{i64 2154548081, i64 2154548110, i64 2154548156, i64 2154548214, i64 2154548268, i64 2154548322, i64 2154548377, i64 2154548408, i64 2154548716, i64 2154548722, i64 2154548769, i64 2154548792, i64 2154548818}
+!19 = !{i64 2154549271, i64 2154549082, i64 2154549132, i64 2154549178, i64 2154549206}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
 !22 = distinct !{!22, !7, !8}
 !23 = distinct !{!23, !7, !8}
 !24 = distinct !{!24, !7, !8}
@@ -1785,5 +1785,3 @@ attributes #19 = { nounwind allocsize(2) }
 !27 = distinct !{!27, !7, !8}
 !28 = distinct !{!28, !7, !8}
 !29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}

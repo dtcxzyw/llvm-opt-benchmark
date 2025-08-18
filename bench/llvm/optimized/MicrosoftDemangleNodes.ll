@@ -1353,7 +1353,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %52 = add nuw i64 %.011, 1
   %53 = load i64, ptr %6, align 8, !tbaa !33
   %54 = icmp ult i64 %52, %53
-  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
+  br i1 %54, label %.lr.ph.split, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us, %17, %5
   ret void
@@ -1365,7 +1365,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle24EncodedStringLiteralNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !43
+  %5 = load i32, ptr %4, align 4, !tbaa !41
   switch i32 %5, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i32 3, label %6
     i32 0, label %24
@@ -1529,7 +1529,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load i64, ptr %78, align 8, !tbaa !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   %.not.i.i28 = icmp eq i64 %.sroa.0.0.copyload, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !16
@@ -1608,7 +1608,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i37: ; preds = %._ZN4llvm
   %111 = add i64 %110, 1
   store i64 %111, ptr %96, align 8, !tbaa !16
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %113 = load i8, ptr %112, align 8, !tbaa !51, !range !52, !noundef !53
+  %113 = load i8, ptr %112, align 8, !tbaa !49, !range !50, !noundef !51
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit48
 
@@ -1655,7 +1655,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 define dso_local void @_ZNK4llvm11ms_demangle18IntegerLiteralNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::array.0", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !54, !range !52, !noundef !53
+  %6 = load i8, ptr %5, align 8, !tbaa !52, !range !50, !noundef !51
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %24
 
@@ -1699,7 +1699,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %8, %._ZN4llvm16ita
 
 24:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsEc.exit, %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !56
+  %26 = load i64, ptr %25, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %27
 
@@ -1714,7 +1714,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %8, %._ZN4llvm16ita
   store i8 %30, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %31 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %32, label %27, !llvm.loop !57
+  br i1 %.not.i.i.i, label %32, label %27, !llvm.loop !55
 
 32:                                               ; preds = %27
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
@@ -1770,7 +1770,7 @@ define dso_local void @_ZNK4llvm11ms_demangle30TemplateParameterReferenceNode6ou
   %4 = alloca %"struct.std::array.0", align 1
   %5 = alloca %"struct.std::array.0", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !58
+  %7 = load i32, ptr %6, align 8, !tbaa !56
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %27
 
@@ -1814,7 +1814,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load i32, ptr %28, align 8, !tbaa !63
+  %29 = load i32, ptr %28, align 8, !tbaa !61
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -1858,7 +1858,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i15: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i15, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %27
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !64
+  %50 = load ptr, ptr %49, align 8, !tbaa !62
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26, label %51
 
@@ -1867,7 +1867,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %55 = load i32, ptr %6, align 8, !tbaa !58
+  %55 = load i32, ptr %6, align 8, !tbaa !56
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit57
 
@@ -1910,7 +1910,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i22: ; preds = %._ZN4llvm
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i22, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %.pr = load i32, ptr %6, align 8, !tbaa !58
+  %.pr = load i32, ptr %6, align 8, !tbaa !56
   %75 = icmp sgt i32 %.pr, 0
   br i1 %75, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26.thread, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit57
 
@@ -1932,7 +1932,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   store i8 %82, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %83 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %84, label %79, !llvm.loop !57
+  br i1 %.not.i.i.i, label %84, label %79, !llvm.loop !55
 
 84:                                               ; preds = %79
   %85 = icmp slt i64 %77, 0
@@ -1987,7 +1987,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i: ; preds = %._ZN4ll
   %104 = load i64, ptr %89, align 8, !tbaa !16
   %105 = add i64 %104, %gepdiff.i.i.i
   store i64 %105, ptr %89, align 8, !tbaa !16
-  %.pre.pre = load i32, ptr %6, align 8, !tbaa !58
+  %.pre.pre = load i32, ptr %6, align 8, !tbaa !56
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26.thread66
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit26.thread66: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i, %87
@@ -2060,7 +2060,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   store i8 %133, ptr %.ptr.i.i.i37, align 1, !tbaa !23
   %134 = udiv i64 %.08.i.i.i34, 10
   %.not.i.i.i38 = icmp samesign ult i64 %.08.i.i.i34, 10
-  br i1 %.not.i.i.i38, label %135, label %130, !llvm.loop !57
+  br i1 %.not.i.i.i38, label %135, label %130, !llvm.loop !55
 
 135:                                              ; preds = %130
   %136 = icmp slt i64 %128, 0
@@ -2118,10 +2118,10 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEl.exit50: ; preds = %138, %_ZN4llvm16
   %154 = phi i64 [ %126, %138 ], [ %153, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i.i44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = load i32, ptr %6, align 8, !tbaa !58
+  %155 = load i32, ptr %6, align 8, !tbaa !56
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %157, label %111, label %._crit_edge, !llvm.loop !65
+  br i1 %157, label %111, label %._crit_edge, !llvm.loop !63
 
 158:                                              ; preds = %._crit_edge
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2168,7 +2168,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle14IdentifierNode24outputTemplateParametersERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit10, label %6
 
@@ -2208,7 +2208,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %22 = load i64, ptr %7, align 8, !tbaa !16
   %23 = add i64 %22, 1
   store i64 %23, ptr %7, align 8, !tbaa !16
-  %24 = load ptr, ptr %4, align 8, !tbaa !66
+  %24 = load ptr, ptr %4, align 8, !tbaa !64
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
@@ -2255,7 +2255,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle29DynamicStructorIdentifierNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !tbaa !69, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 8, !tbaa !67, !range !50, !noundef !51
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !16
@@ -2330,7 +2330,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %36 = add i64 %35, %.sink56
   store i64 %36, ptr %7, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !72
+  %38 = load ptr, ptr %37, align 8, !tbaa !70
   %.not = icmp eq ptr %38, null
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = add i64 %36, 1
@@ -2369,7 +2369,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i19: ; preds = %._ZN4llvm
   %54 = load i64, ptr %39, align 8, !tbaa !16
   %55 = add i64 %54, 1
   store i64 %55, ptr %39, align 8, !tbaa !16
-  %56 = load ptr, ptr %37, align 8, !tbaa !72
+  %56 = load ptr, ptr %37, align 8, !tbaa !70
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
@@ -2436,7 +2436,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i33: ; preds = %._ZN4llvm
   %84 = add i64 %83, 1
   store i64 %84, ptr %39, align 8, !tbaa !16
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !73
+  %86 = load ptr, ptr %85, align 8, !tbaa !71
   %87 = load ptr, ptr %86, align 8, !tbaa !13
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
@@ -2485,7 +2485,7 @@ define dso_local void @_ZNK4llvm11ms_demangle19NamedIdentifierNode6outputERNS_16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load i64, ptr %4, align 8, !tbaa !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   %.not.i.i = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %.not.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %5
 
@@ -2535,7 +2535,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle31IntrinsicFunctionIdentifierNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !74
+  %5 = load i8, ptr %4, align 8, !tbaa !72
   switch i8 %5, label %134 [
     i8 1, label %6
     i8 2, label %8
@@ -2868,7 +2868,7 @@ define dso_local void @_ZNK4llvm11ms_demangle31IntrinsicFunctionIdentifierNode6o
 define dso_local void @_ZNK4llvm11ms_demangle30LocalStaticGuardIdentifierNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(36) %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::array.0", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !77, !range !52, !noundef !53
+  %6 = load i8, ptr %5, align 8, !tbaa !75, !range !50, !noundef !51
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !16
@@ -2943,7 +2943,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
   %37 = add i64 %36, %.sink34
   store i64 %37, ptr %8, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %39 = load i32, ptr %38, align 4, !tbaa !79
+  %39 = load i32, ptr %38, align 4, !tbaa !77
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit24, label %40
 
@@ -2982,7 +2982,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13: ; preds = %._ZN4llvm
   %55 = load i64, ptr %41, align 8, !tbaa !16
   %56 = add i64 %55, 1
   store i64 %56, ptr %41, align 8, !tbaa !16
-  %57 = load i32, ptr %38, align 4, !tbaa !79
+  %57 = load i32, ptr %38, align 4, !tbaa !77
   %58 = zext i32 %57 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %59
@@ -2998,7 +2998,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13: ; preds = %._ZN4llvm
   store i8 %62, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %63 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %64, label %59, !llvm.loop !57
+  br i1 %.not.i.i.i, label %64, label %59, !llvm.loop !55
 
 64:                                               ; preds = %59
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
@@ -3154,7 +3154,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i8: ; preds = %._ZN4llvm1
   %35 = add i64 %34, 1
   store i64 %35, ptr %4, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !80
+  %37 = load ptr, ptr %36, align 8, !tbaa !78
   %38 = load ptr, ptr %37, align 8, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
@@ -3165,7 +3165,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i8: ; preds = %._ZN4llvm1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle22StructorIdentifierNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !tbaa !83, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 8, !tbaa !81, !range !50, !noundef !51
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -3209,7 +3209,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %26 = load ptr, ptr %25, align 8, !tbaa !84
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -3258,7 +3258,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load i64, ptr %21, align 8, !tbaa !21
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !50
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !48
   %.not.i.i3 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %.not.i.i3, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit9, label %22
 
@@ -3310,7 +3310,7 @@ define dso_local void @_ZNK4llvm11ms_demangle21FunctionSignatureNode9outputPreER
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %7 = load i16, ptr %6, align 2, !tbaa !87
+  %7 = load i16, ptr %6, align 2, !tbaa !85
   %8 = and i16 %7, 1
   %.not14 = icmp eq i16 %8, 0
   br i1 %.not14, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %9
@@ -3351,7 +3351,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %25 = load i64, ptr %10, align 8, !tbaa !16
   %26 = add i64 %25, 8
   store i64 %26, ptr %10, align 8, !tbaa !16
-  %.pre = load i16, ptr %6, align 2, !tbaa !87
+  %.pre = load i16, ptr %6, align 2, !tbaa !85
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %5
@@ -3396,7 +3396,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i27: ; preds = %._ZN4llvm
   %45 = load i64, ptr %30, align 8, !tbaa !16
   %46 = add i64 %45, 11
   store i64 %46, ptr %30, align 8, !tbaa !16
-  %.pre79 = load i16, ptr %6, align 2, !tbaa !87
+  %.pre79 = load i16, ptr %6, align 2, !tbaa !85
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit31
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit31: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i27, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -3450,7 +3450,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 68:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit38
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %70 = load i16, ptr %69, align 2, !tbaa !87
+  %70 = load i16, ptr %69, align 2, !tbaa !85
   %71 = and i16 %70, 24
   %or.cond.not = icmp eq i16 %71, 16
   br i1 %or.cond.not, label %72, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit45
@@ -3491,7 +3491,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i41: ; preds = %._ZN4llvm
   %88 = load i64, ptr %73, align 8, !tbaa !16
   %89 = add i64 %88, 7
   store i64 %89, ptr %73, align 8, !tbaa !16
-  %.pre80 = load i16, ptr %69, align 2, !tbaa !87
+  %.pre80 = load i16, ptr %69, align 2, !tbaa !85
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit45
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit45: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i41, %68
@@ -3536,7 +3536,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i48: ; preds = %._ZN4llvm
   %108 = load i64, ptr %93, align 8, !tbaa !16
   %109 = add i64 %108, 8
   store i64 %109, ptr %93, align 8, !tbaa !16
-  %.pre81 = load i16, ptr %69, align 2, !tbaa !87
+  %.pre81 = load i16, ptr %69, align 2, !tbaa !85
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit52
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit52: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i48, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit45
@@ -3590,7 +3590,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 131:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit59
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !92
+  %133 = load ptr, ptr %132, align 8, !tbaa !90
   %.not23 = icmp eq ptr %133, null
   br i1 %.not23, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit66, label %134
 
@@ -3643,7 +3643,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 156:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit66
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %158 = load i8, ptr %157, align 4, !tbaa !93
+  %158 = load i8, ptr %157, align 4, !tbaa !91
   tail call fastcc void @_ZL23outputCallingConventionRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %158)
   br label %159
 
@@ -4098,7 +4098,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle21FunctionSignatureNode10outputPostERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %5 = load i16, ptr %4, align 2, !tbaa !87
+  %5 = load i16, ptr %4, align 2, !tbaa !85
   %6 = and i16 %5, 256
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %7, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit55
@@ -4140,7 +4140,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %24 = add i64 %23, 1
   store i64 %24, ptr %8, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !94
+  %26 = load ptr, ptr %25, align 8, !tbaa !92
   %.not20 = icmp eq ptr %26, null
   br i1 %.not20, label %31, label %27
 
@@ -4190,7 +4190,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i30: ; preds = %._ZN4llvm
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit34: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i30, %27
   %.pre = phi i64 [ %45, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i30 ], [ %.pre.pre, %27 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = load i8, ptr %46, align 8, !tbaa !95, !range !52, !noundef !53
+  %47 = load i8, ptr %46, align 8, !tbaa !93, !range !50, !noundef !51
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit48
 
@@ -4491,7 +4491,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i79: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit83: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i79, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit76
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %181 = load i8, ptr %180, align 8, !tbaa !96, !range !52, !noundef !53
+  %181 = load i8, ptr %180, align 8, !tbaa !94, !range !50, !noundef !51
   %182 = trunc nuw i8 %181 to i1
   br i1 %182, label %183, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit90
 
@@ -4535,7 +4535,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i86: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit90: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i86, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit83
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %202 = load i32, ptr %201, align 8, !tbaa !97
+  %202 = load i32, ptr %201, align 8, !tbaa !95
   switch i32 %202, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit97 [
     i32 1, label %203
     i32 2, label %221
@@ -4624,7 +4624,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 240:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit97
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %242 = load ptr, ptr %241, align 8, !tbaa !92
+  %242 = load ptr, ptr %241, align 8, !tbaa !90
   %.not27 = icmp eq ptr %242, null
   br i1 %.not27, label %247, label %243
 
@@ -4690,7 +4690,7 @@ define dso_local void @_ZNK4llvm11ms_demangle18ThunkSignatureNode10outputPostERN
   %9 = alloca %"struct.std::array.0", align 1
   %10 = alloca %"struct.std::array.0", align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %12 = load i16, ptr %11, align 2, !tbaa !87
+  %12 = load i16, ptr %11, align 2, !tbaa !85
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 2048
   %.not = icmp eq i32 %14, 0
@@ -4733,7 +4733,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %32 = add i64 %31, 10
   store i64 %32, ptr %16, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %34 = load i32, ptr %33, align 4, !tbaa !98
+  %34 = load i32, ptr %33, align 4, !tbaa !96
   %35 = zext i32 %34 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %36
@@ -4749,7 +4749,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   store i8 %39, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %40 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %41, label %36, !llvm.loop !57
+  br i1 %.not.i.i.i, label %41, label %36, !llvm.loop !55
 
 41:                                               ; preds = %36
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %10, i64 %.0.add.i.i.i
@@ -4876,7 +4876,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
   %93 = add i64 %92, 12
   store i64 %93, ptr %76, align 8, !tbaa !16
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %95 = load i32, ptr %94, align 8, !tbaa !101
+  %95 = load i32, ptr %94, align 8, !tbaa !99
   %96 = tail call i32 @llvm.abs.i32(i32 %95, i1 false)
   %97 = zext i32 %96 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4893,7 +4893,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
   store i8 %101, ptr %.ptr.i.i.i24, align 1, !tbaa !23
   %102 = udiv i64 %.08.i.i.i21, 10
   %.not.i.i.i25 = icmp samesign ult i64 %.08.i.i.i21, 10
-  br i1 %.not.i.i.i25, label %103, label %98, !llvm.loop !57
+  br i1 %.not.i.i.i25, label %103, label %98, !llvm.loop !55
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -4984,7 +4984,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   %137 = add i64 %136, 2
   store i64 %137, ptr %76, align 8, !tbaa !16
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %139 = load i32, ptr %138, align 4, !tbaa !102
+  %139 = load i32, ptr %138, align 4, !tbaa !100
   %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 false)
   %141 = zext i32 %140 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5001,7 +5001,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   store i8 %145, ptr %.ptr.i.i.i43, align 1, !tbaa !23
   %146 = udiv i64 %.08.i.i.i40, 10
   %.not.i.i.i44 = icmp samesign ult i64 %.08.i.i.i40, 10
-  br i1 %.not.i.i.i44, label %147, label %142, !llvm.loop !57
+  br i1 %.not.i.i.i44, label %147, label %142, !llvm.loop !55
 
 147:                                              ; preds = %142
   %148 = icmp slt i32 %139, 0
@@ -5091,7 +5091,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
   %180 = add i64 %179, 2
   store i64 %180, ptr %76, align 8, !tbaa !16
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %182 = load i32, ptr %181, align 8, !tbaa !103
+  %182 = load i32, ptr %181, align 8, !tbaa !101
   %183 = tail call i32 @llvm.abs.i32(i32 %182, i1 false)
   %184 = zext i32 %183 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5108,7 +5108,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
   store i8 %188, ptr %.ptr.i.i.i67, align 1, !tbaa !23
   %189 = udiv i64 %.08.i.i.i64, 10
   %.not.i.i.i68 = icmp samesign ult i64 %.08.i.i.i64, 10
-  br i1 %.not.i.i.i68, label %190, label %185, !llvm.loop !57
+  br i1 %.not.i.i.i68, label %190, label %185, !llvm.loop !55
 
 190:                                              ; preds = %185
   %191 = icmp slt i32 %182, 0
@@ -5197,7 +5197,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i83: ; preds = %._ZN4llvm
   %222 = load i64, ptr %76, align 8, !tbaa !16
   %223 = add i64 %222, 2
   store i64 %223, ptr %76, align 8, !tbaa !16
-  %224 = load i32, ptr %104, align 4, !tbaa !98
+  %224 = load i32, ptr %104, align 4, !tbaa !96
   %225 = zext i32 %224 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %226
@@ -5213,7 +5213,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i83: ; preds = %._ZN4llvm
   store i8 %229, ptr %.ptr.i.i.i91, align 1, !tbaa !23
   %230 = udiv i64 %.08.i.i.i88, 10
   %.not.i.i.i92 = icmp samesign ult i64 %.08.i.i.i88, 10
-  br i1 %.not.i.i.i92, label %231, label %226, !llvm.loop !57
+  br i1 %.not.i.i.i92, label %231, label %226, !llvm.loop !55
 
 231:                                              ; preds = %226
   %.ptr.i.i.i91.le = getelementptr inbounds i8, ptr %6, i64 %.0.add.i.i.i90
@@ -5325,7 +5325,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
   %275 = add i64 %274, 10
   store i64 %275, ptr %76, align 8, !tbaa !16
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %277 = load i32, ptr %276, align 8, !tbaa !103
+  %277 = load i32, ptr %276, align 8, !tbaa !101
   %278 = tail call i32 @llvm.abs.i32(i32 %277, i1 false)
   %279 = zext i32 %278 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5342,7 +5342,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
   store i8 %283, ptr %.ptr.i.i.i119, align 1, !tbaa !23
   %284 = udiv i64 %.08.i.i.i116, 10
   %.not.i.i.i120 = icmp samesign ult i64 %.08.i.i.i116, 10
-  br i1 %.not.i.i.i120, label %285, label %280, !llvm.loop !57
+  br i1 %.not.i.i.i120, label %285, label %280, !llvm.loop !55
 
 285:                                              ; preds = %280
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -5432,7 +5432,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i135: ; preds = %._ZN4llv
   %318 = load i64, ptr %76, align 8, !tbaa !16
   %319 = add i64 %318, 2
   store i64 %319, ptr %76, align 8, !tbaa !16
-  %320 = load i32, ptr %286, align 4, !tbaa !98
+  %320 = load i32, ptr %286, align 4, !tbaa !96
   %321 = zext i32 %320 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %322
@@ -5448,7 +5448,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i135: ; preds = %._ZN4llv
   store i8 %325, ptr %.ptr.i.i.i143, align 1, !tbaa !23
   %326 = udiv i64 %.08.i.i.i140, 10
   %.not.i.i.i144 = icmp samesign ult i64 %.08.i.i.i140, 10
-  br i1 %.not.i.i.i144, label %327, label %322, !llvm.loop !57
+  br i1 %.not.i.i.i144, label %327, label %322, !llvm.loop !55
 
 327:                                              ; preds = %322
   %.ptr.i.i.i143.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i142
@@ -5536,9 +5536,9 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle15PointerTypeNode9outputPreERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !106
+  %7 = load i32, ptr %6, align 8, !tbaa !104
   %8 = icmp eq i32 %7, 3
   %9 = load ptr, ptr %5, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -5643,9 +5643,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit
   %60 = phi i64 [ %59, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %40, %_ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit ]
-  %61 = load ptr, ptr %4, align 8, !tbaa !104
+  %61 = load ptr, ptr %4, align 8, !tbaa !102
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !106
+  %63 = load i32, ptr %62, align 8, !tbaa !104
   switch i32 %63, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 [
     i32 16, label %64
     i32 3, label %78
@@ -5718,9 +5718,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i28: ; preds = %._ZN4llvm
   %92 = load i64, ptr %12, align 8, !tbaa !16
   %93 = add i64 %92, 1
   store i64 %93, ptr %12, align 8, !tbaa !16
-  %94 = load ptr, ptr %4, align 8, !tbaa !104
+  %94 = load ptr, ptr %4, align 8, !tbaa !102
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 20
-  %96 = load i8, ptr %95, align 4, !tbaa !93
+  %96 = load i8, ptr %95, align 4, !tbaa !91
   tail call fastcc void @_ZL23outputCallingConventionRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext %96)
   %97 = load i64, ptr %12, align 8, !tbaa !16
   %98 = add i64 %97, 1
@@ -5763,7 +5763,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %112 = phi i64 [ %60, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %111, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25.sink.split ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !107
+  %114 = load ptr, ptr %113, align 8, !tbaa !105
   %.not18 = icmp eq ptr %114, null
   br i1 %.not18, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46, label %115
 
@@ -5811,7 +5811,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42: ; preds = %._ZN4llvm
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit46: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
   %135 = phi i64 [ %134, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i42 ], [ %112, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %137 = load i32, ptr %136, align 8, !tbaa !108
+  %137 = load i32, ptr %136, align 8, !tbaa !106
   switch i32 %137, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit53 [
     i32 1, label %138
     i32 2, label %152
@@ -5983,9 +5983,9 @@ _ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10Q
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle15PointerTypeNode10outputPostERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !106
+  %7 = load i32, ptr %6, align 8, !tbaa !104
   switch i32 %7, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i32 16, label %8
     i32 3, label %8
@@ -6027,7 +6027,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %24 = load i64, ptr %9, align 8, !tbaa !16
   %25 = add i64 %24, 1
   store i64 %25, ptr %9, align 8, !tbaa !16
-  %.pre = load ptr, ptr %4, align 8, !tbaa !104
+  %.pre = load ptr, ptr %4, align 8, !tbaa !102
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %3, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
@@ -6047,7 +6047,7 @@ define dso_local void @_ZNK4llvm11ms_demangle11TagTypeNode9outputPreERNS_16itani
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !109
+  %7 = load i32, ptr %6, align 8, !tbaa !107
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !16
   switch i32 %7, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit [
@@ -6236,7 +6236,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i32: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit36: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i32, %3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !112
+  %84 = load ptr, ptr %83, align 8, !tbaa !110
   %85 = load ptr, ptr %84, align 8, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
@@ -6264,7 +6264,7 @@ define dso_local void @_ZNK4llvm11ms_demangle11TagTypeNode10outputPostERNS_16ita
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode9outputPreERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !113
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -6287,7 +6287,7 @@ _ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10Q
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !56
+  %6 = load i64, ptr %5, align 8, !tbaa !54
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %11, label %7
 
@@ -6305,7 +6305,7 @@ define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimension
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode20outputDimensionsImplERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !115
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !33
   %8 = icmp eq i64 %7, 0
@@ -6316,7 +6316,7 @@ define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode20outputDimensionsIm
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !56
+  %14 = load i64, ptr %13, align 8, !tbaa !54
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit, label %15
 
@@ -6325,7 +6325,7 @@ define dso_local void @_ZNK4llvm11ms_demangle13ArrayTypeNode20outputDimensionsIm
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(25) %12, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %.pre = load ptr, ptr %4, align 8, !tbaa !115
+  %.pre = load ptr, ptr %4, align 8, !tbaa !113
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre11 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !33
   br label %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit
@@ -6375,13 +6375,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %37 = load i64, ptr %21, align 8, !tbaa !16
   %38 = add i64 %37, 2
   store i64 %38, ptr %21, align 8, !tbaa !16
-  %39 = load ptr, ptr %4, align 8, !tbaa !115
+  %39 = load ptr, ptr %4, align 8, !tbaa !113
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.010
   %43 = load ptr, ptr %42, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !56
+  %45 = load i64, ptr %44, align 8, !tbaa !54
   %.not.i8 = icmp eq i64 %45, 0
   br i1 %.not.i8, label %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit9, label %46
 
@@ -6390,7 +6390,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(25) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %.pre12 = load ptr, ptr %4, align 8, !tbaa !115
+  %.pre12 = load ptr, ptr %4, align 8, !tbaa !113
   br label %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit9
 
 _ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit9: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %46
@@ -6399,7 +6399,7 @@ _ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !33
   %54 = icmp ult i64 %51, %53
-  br i1 %54, label %23, label %.loopexit, !llvm.loop !116
+  br i1 %54, label %23, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit9, %_ZNK4llvm11ms_demangle13ArrayTypeNode18outputOneDimensionERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsEPNS0_4NodeE.exit, %3
   ret void
@@ -6477,7 +6477,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i8: ; preds = %._ZN4llvm1
   %35 = add i64 %34, 1
   store i64 %35, ptr %4, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !113
+  %37 = load ptr, ptr %36, align 8, !tbaa !111
   %38 = load ptr, ptr %37, align 8, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
@@ -6488,7 +6488,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i8: ; preds = %._ZN4llvm1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle10SymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !117
+  %5 = load ptr, ptr %4, align 8, !tbaa !115
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -6499,7 +6499,7 @@ define dso_local void @_ZNK4llvm11ms_demangle10SymbolNode6outputERNS_16itanium_d
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle18FunctionSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !118
+  %5 = load ptr, ptr %4, align 8, !tbaa !116
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -6558,12 +6558,12 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 
 _ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit: ; preds = %3, %12, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !117
+  %38 = load ptr, ptr %37, align 8, !tbaa !115
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %42 = load ptr, ptr %4, align 8, !tbaa !118
+  %42 = load ptr, ptr %4, align 8, !tbaa !116
   %43 = load ptr, ptr %42, align 8, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -6574,7 +6574,7 @@ _ZL22outputSpaceIfNecessaryRN4llvm16itanium_demangle12OutputBufferE.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !121
+  %5 = load i8, ptr %4, align 8, !tbaa !119
   %switch.tableidx = add i8 %5, -1
   %6 = icmp ult i8 %switch.tableidx, 3
   br i1 %6, label %switch.lookup, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit37
@@ -6718,7 +6718,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 
 66:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit37
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !124
+  %68 = load ptr, ptr %67, align 8, !tbaa !122
   %.not22 = icmp eq ptr %68, null
   br i1 %.not22, label %101, label %69
 
@@ -6781,18 +6781,18 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 
 101:                                              ; preds = %66, %69, %76, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !117
+  %103 = load ptr, ptr %102, align 8, !tbaa !115
   %104 = load ptr, ptr %103, align 8, !tbaa !13
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
-  %107 = load ptr, ptr %67, align 8, !tbaa !124
+  %107 = load ptr, ptr %67, align 8, !tbaa !122
   %.not23 = icmp eq ptr %107, null
   br i1 %.not23, label %113, label %.sink.split
 
 .critedge:                                        ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit37
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !117
+  %109 = load ptr, ptr %108, align 8, !tbaa !115
   br label %.sink.split
 
 .sink.split:                                      ; preds = %101, %.critedge
@@ -6811,7 +6811,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle14CustomTypeNode9outputPreERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -6827,7 +6827,7 @@ define dso_local void @_ZNK4llvm11ms_demangle14CustomTypeNode10outputPostERNS_16
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle17QualifiedNameNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !127
+  %5 = load ptr, ptr %4, align 8, !tbaa !125
   tail call void @_ZNK4llvm11ms_demangle13NodeArrayNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, i64 2, ptr nonnull @.str.130)
   ret void
 }
@@ -6874,7 +6874,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %24 = add i64 %23, 32
   store i64 %24, ptr %8, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !129
+  %26 = load i32, ptr %25, align 8, !tbaa !127
   %27 = zext i32 %26 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %28
@@ -6890,7 +6890,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   store i8 %31, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %32 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %33, label %28, !llvm.loop !57
+  br i1 %.not.i.i.i, label %33, label %28, !llvm.loop !55
 
 33:                                               ; preds = %28
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %7, i64 %.0.add.i.i.i
@@ -6969,7 +6969,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
   %63 = add i64 %62, 2
   store i64 %63, ptr %8, align 8, !tbaa !16
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %65 = load i32, ptr %64, align 4, !tbaa !131
+  %65 = load i32, ptr %64, align 4, !tbaa !129
   %66 = tail call i32 @llvm.abs.i32(i32 %65, i1 false)
   %67 = zext i32 %66 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6986,7 +6986,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
   store i8 %71, ptr %.ptr.i.i.i14, align 1, !tbaa !23
   %72 = udiv i64 %.08.i.i.i11, 10
   %.not.i.i.i15 = icmp samesign ult i64 %.08.i.i.i11, 10
-  br i1 %.not.i.i.i15, label %73, label %68, !llvm.loop !57
+  br i1 %.not.i.i.i15, label %73, label %68, !llvm.loop !55
 
 73:                                               ; preds = %68
   %74 = icmp slt i32 %65, 0
@@ -7076,7 +7076,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25: ; preds = %._ZN4llvm
   %106 = add i64 %105, 2
   store i64 %106, ptr %8, align 8, !tbaa !16
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %108 = load i32, ptr %107, align 8, !tbaa !132
+  %108 = load i32, ptr %107, align 8, !tbaa !130
   %109 = zext i32 %108 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %110
@@ -7092,7 +7092,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i25: ; preds = %._ZN4llvm
   store i8 %113, ptr %.ptr.i.i.i33, align 1, !tbaa !23
   %114 = udiv i64 %.08.i.i.i30, 10
   %.not.i.i.i34 = icmp samesign ult i64 %.08.i.i.i30, 10
-  br i1 %.not.i.i.i34, label %115, label %110, !llvm.loop !57
+  br i1 %.not.i.i.i34, label %115, label %110, !llvm.loop !55
 
 115:                                              ; preds = %110
   %.ptr.i.i.i33.le = getelementptr inbounds i8, ptr %5, i64 %.0.add.i.i.i32
@@ -7171,7 +7171,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i46: ; preds = %._ZN4llvm
   %145 = add i64 %144, 2
   store i64 %145, ptr %8, align 8, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %147 = load i32, ptr %146, align 4, !tbaa !133
+  %147 = load i32, ptr %146, align 4, !tbaa !131
   %148 = zext i32 %147 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %149
@@ -7187,7 +7187,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i46: ; preds = %._ZN4llvm
   store i8 %152, ptr %.ptr.i.i.i54, align 1, !tbaa !23
   %153 = udiv i64 %.08.i.i.i51, 10
   %.not.i.i.i55 = icmp samesign ult i64 %.08.i.i.i51, 10
-  br i1 %.not.i.i.i55, label %154, label %149, !llvm.loop !57
+  br i1 %.not.i.i.i55, label %154, label %149, !llvm.loop !55
 
 154:                                              ; preds = %149
   %.ptr.i.i.i54.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i53
@@ -7271,7 +7271,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i67: ; preds = %._ZN4llvm
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle28LocalStaticGuardVariableNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !117
+  %5 = load ptr, ptr %4, align 8, !tbaa !115
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -7318,7 +7318,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %21 = add i64 %20, 8
   store i64 %21, ptr %5, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !134
+  %23 = load i64, ptr %22, align 8, !tbaa !132
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %24
 
@@ -7333,7 +7333,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   store i8 %27, ptr %.ptr.i.i.i, align 1, !tbaa !23
   %28 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %29, label %24, !llvm.loop !57
+  br i1 %.not.i.i.i, label %29, label %24, !llvm.loop !55
 
 29:                                               ; preds = %24
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %4, i64 %.0.add.i.i.i
@@ -7417,7 +7417,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i4: ; preds = %._ZN4llvm1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11ms_demangle22SpecialTableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !tbaa !136
+  %5 = load i8, ptr %4, align 8, !tbaa !134
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %_ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit, label %7
 
@@ -7509,13 +7509,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 
 _ZL16outputQualifiersRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersEbb.exit: ; preds = %3, %_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !117
+  %48 = load ptr, ptr %47, align 8, !tbaa !115
   %49 = load ptr, ptr %48, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) #15
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !138
+  %53 = load ptr, ptr %52, align 8, !tbaa !136
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit13, label %54
 
@@ -7555,7 +7555,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %70 = load i64, ptr %55, align 8, !tbaa !16
   %71 = add i64 %70, 6
   store i64 %71, ptr %55, align 8, !tbaa !16
-  %72 = load ptr, ptr %52, align 8, !tbaa !138
+  %72 = load ptr, ptr %52, align 8, !tbaa !136
   %73 = load ptr, ptr %72, align 8, !tbaa !13
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
@@ -8048,103 +8048,101 @@ attributes #19 = { builtin nounwind }
 !36 = !{!34, !35, i64 16}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"p1 _ZTSN4llvm11ms_demangle4NodeE", !6, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !40}
-!43 = !{!44, !49, i64 44}
-!44 = !{!"_ZTSN4llvm11ms_demangle24EncodedStringLiteralNodeE", !45, i64 0, !47, i64 24, !48, i64 40, !49, i64 44}
-!45 = !{!"_ZTSN4llvm11ms_demangle10SymbolNodeE", !27, i64 0, !46, i64 16}
-!46 = !{!"p1 _ZTSN4llvm11ms_demangle17QualifiedNameNodeE", !6, i64 0}
-!47 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !9, i64 0, !5, i64 8}
-!48 = !{!"bool", !7, i64 0}
-!49 = !{!"_ZTSN4llvm11ms_demangle8CharKindE", !7, i64 0}
-!50 = !{!5, !5, i64 0}
-!51 = !{!44, !48, i64 40}
-!52 = !{i8 0, i8 2}
-!53 = !{}
-!54 = !{!55, !48, i64 24}
-!55 = !{!"_ZTSN4llvm11ms_demangle18IntegerLiteralNodeE", !27, i64 0, !9, i64 16, !48, i64 24}
-!56 = !{!55, !9, i64 16}
-!57 = distinct !{!57, !40}
-!58 = !{!59, !10, i64 24}
-!59 = !{!"_ZTSN4llvm11ms_demangle30TemplateParameterReferenceNodeE", !27, i64 0, !60, i64 16, !10, i64 24, !61, i64 32, !62, i64 56, !48, i64 60}
-!60 = !{!"p1 _ZTSN4llvm11ms_demangle10SymbolNodeE", !6, i64 0}
-!61 = !{!"_ZTSSt5arrayIlLm3EE", !7, i64 0}
-!62 = !{!"_ZTSN4llvm11ms_demangle15PointerAffinityE", !7, i64 0}
-!63 = !{!59, !62, i64 56}
-!64 = !{!59, !60, i64 16}
-!65 = distinct !{!65, !40}
-!66 = !{!67, !68, i64 16}
-!67 = !{!"_ZTSN4llvm11ms_demangle14IdentifierNodeE", !27, i64 0, !68, i64 16}
-!68 = !{!"p1 _ZTSN4llvm11ms_demangle13NodeArrayNodeE", !6, i64 0}
-!69 = !{!70, !48, i64 40}
-!70 = !{!"_ZTSN4llvm11ms_demangle29DynamicStructorIdentifierNodeE", !67, i64 0, !71, i64 24, !46, i64 32, !48, i64 40}
-!71 = !{!"p1 _ZTSN4llvm11ms_demangle18VariableSymbolNodeE", !6, i64 0}
-!72 = !{!70, !71, i64 24}
-!73 = !{!70, !46, i64 32}
-!74 = !{!75, !76, i64 24}
-!75 = !{!"_ZTSN4llvm11ms_demangle31IntrinsicFunctionIdentifierNodeE", !67, i64 0, !76, i64 24}
-!76 = !{!"_ZTSN4llvm11ms_demangle21IntrinsicFunctionKindE", !7, i64 0}
-!77 = !{!78, !48, i64 24}
-!78 = !{!"_ZTSN4llvm11ms_demangle30LocalStaticGuardIdentifierNodeE", !67, i64 0, !48, i64 24, !10, i64 28}
-!79 = !{!78, !10, i64 28}
-!80 = !{!81, !82, i64 24}
-!81 = !{!"_ZTSN4llvm11ms_demangle32ConversionOperatorIdentifierNodeE", !67, i64 0, !82, i64 24}
-!82 = !{!"p1 _ZTSN4llvm11ms_demangle8TypeNodeE", !6, i64 0}
-!83 = !{!84, !48, i64 32}
-!84 = !{!"_ZTSN4llvm11ms_demangle22StructorIdentifierNodeE", !67, i64 0, !85, i64 24, !48, i64 32}
-!85 = !{!"p1 _ZTSN4llvm11ms_demangle14IdentifierNodeE", !6, i64 0}
-!86 = !{!84, !85, i64 24}
-!87 = !{!88, !90, i64 22}
-!88 = !{!"_ZTSN4llvm11ms_demangle21FunctionSignatureNodeE", !26, i64 0, !62, i64 16, !89, i64 20, !90, i64 22, !91, i64 24, !82, i64 32, !48, i64 40, !68, i64 48, !48, i64 56}
-!89 = !{!"_ZTSN4llvm11ms_demangle11CallingConvE", !7, i64 0}
-!90 = !{!"_ZTSN4llvm11ms_demangle9FuncClassE", !7, i64 0}
-!91 = !{!"_ZTSN4llvm11ms_demangle20FunctionRefQualifierE", !7, i64 0}
-!92 = !{!88, !82, i64 32}
-!93 = !{!88, !89, i64 20}
-!94 = !{!88, !68, i64 48}
-!95 = !{!88, !48, i64 40}
-!96 = !{!88, !48, i64 56}
-!97 = !{!88, !91, i64 24}
-!98 = !{!99, !10, i64 60}
-!99 = !{!"_ZTSN4llvm11ms_demangle18ThunkSignatureNodeE", !88, i64 0, !100, i64 60}
-!100 = !{!"_ZTSN4llvm11ms_demangle18ThunkSignatureNode12ThisAdjustorE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
-!101 = !{!99, !10, i64 64}
-!102 = !{!99, !10, i64 68}
-!103 = !{!99, !10, i64 72}
-!104 = !{!105, !82, i64 32}
-!105 = !{!"_ZTSN4llvm11ms_demangle15PointerTypeNodeE", !26, i64 0, !62, i64 16, !46, i64 24, !82, i64 32}
-!106 = !{!27, !28, i64 8}
-!107 = !{!105, !46, i64 24}
-!108 = !{!105, !62, i64 16}
-!109 = !{!110, !111, i64 24}
-!110 = !{!"_ZTSN4llvm11ms_demangle11TagTypeNodeE", !26, i64 0, !46, i64 16, !111, i64 24}
-!111 = !{!"_ZTSN4llvm11ms_demangle7TagKindE", !7, i64 0}
-!112 = !{!110, !46, i64 16}
-!113 = !{!114, !82, i64 24}
-!114 = !{!"_ZTSN4llvm11ms_demangle13ArrayTypeNodeE", !26, i64 0, !68, i64 16, !82, i64 24}
-!115 = !{!114, !68, i64 16}
-!116 = distinct !{!116, !40}
-!117 = !{!45, !46, i64 16}
-!118 = !{!119, !120, i64 24}
-!119 = !{!"_ZTSN4llvm11ms_demangle18FunctionSymbolNodeE", !45, i64 0, !120, i64 24}
-!120 = !{!"p1 _ZTSN4llvm11ms_demangle21FunctionSignatureNodeE", !6, i64 0}
-!121 = !{!122, !123, i64 24}
-!122 = !{!"_ZTSN4llvm11ms_demangle18VariableSymbolNodeE", !45, i64 0, !123, i64 24, !82, i64 32}
-!123 = !{!"_ZTSN4llvm11ms_demangle12StorageClassE", !7, i64 0}
-!124 = !{!122, !82, i64 32}
-!125 = !{!126, !85, i64 16}
-!126 = !{!"_ZTSN4llvm11ms_demangle14CustomTypeNodeE", !26, i64 0, !85, i64 16}
-!127 = !{!128, !68, i64 16}
-!128 = !{!"_ZTSN4llvm11ms_demangle17QualifiedNameNodeE", !27, i64 0, !68, i64 16}
-!129 = !{!130, !10, i64 24}
-!130 = !{!"_ZTSN4llvm11ms_demangle27RttiBaseClassDescriptorNodeE", !67, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
-!131 = !{!130, !10, i64 28}
-!132 = !{!130, !10, i64 32}
-!133 = !{!130, !10, i64 36}
-!134 = !{!135, !9, i64 24}
-!135 = !{!"_ZTSN4llvm11ms_demangle24VcallThunkIdentifierNodeE", !67, i64 0, !9, i64 24}
-!136 = !{!137, !29, i64 32}
-!137 = !{!"_ZTSN4llvm11ms_demangle22SpecialTableSymbolNodeE", !45, i64 0, !46, i64 24, !29, i64 32}
-!138 = !{!137, !46, i64 24}
+!41 = !{!42, !47, i64 44}
+!42 = !{!"_ZTSN4llvm11ms_demangle24EncodedStringLiteralNodeE", !43, i64 0, !45, i64 24, !46, i64 40, !47, i64 44}
+!43 = !{!"_ZTSN4llvm11ms_demangle10SymbolNodeE", !27, i64 0, !44, i64 16}
+!44 = !{!"p1 _ZTSN4llvm11ms_demangle17QualifiedNameNodeE", !6, i64 0}
+!45 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !9, i64 0, !5, i64 8}
+!46 = !{!"bool", !7, i64 0}
+!47 = !{!"_ZTSN4llvm11ms_demangle8CharKindE", !7, i64 0}
+!48 = !{!5, !5, i64 0}
+!49 = !{!42, !46, i64 40}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = !{!53, !46, i64 24}
+!53 = !{!"_ZTSN4llvm11ms_demangle18IntegerLiteralNodeE", !27, i64 0, !9, i64 16, !46, i64 24}
+!54 = !{!53, !9, i64 16}
+!55 = distinct !{!55, !40}
+!56 = !{!57, !10, i64 24}
+!57 = !{!"_ZTSN4llvm11ms_demangle30TemplateParameterReferenceNodeE", !27, i64 0, !58, i64 16, !10, i64 24, !59, i64 32, !60, i64 56, !46, i64 60}
+!58 = !{!"p1 _ZTSN4llvm11ms_demangle10SymbolNodeE", !6, i64 0}
+!59 = !{!"_ZTSSt5arrayIlLm3EE", !7, i64 0}
+!60 = !{!"_ZTSN4llvm11ms_demangle15PointerAffinityE", !7, i64 0}
+!61 = !{!57, !60, i64 56}
+!62 = !{!57, !58, i64 16}
+!63 = distinct !{!63, !40}
+!64 = !{!65, !66, i64 16}
+!65 = !{!"_ZTSN4llvm11ms_demangle14IdentifierNodeE", !27, i64 0, !66, i64 16}
+!66 = !{!"p1 _ZTSN4llvm11ms_demangle13NodeArrayNodeE", !6, i64 0}
+!67 = !{!68, !46, i64 40}
+!68 = !{!"_ZTSN4llvm11ms_demangle29DynamicStructorIdentifierNodeE", !65, i64 0, !69, i64 24, !44, i64 32, !46, i64 40}
+!69 = !{!"p1 _ZTSN4llvm11ms_demangle18VariableSymbolNodeE", !6, i64 0}
+!70 = !{!68, !69, i64 24}
+!71 = !{!68, !44, i64 32}
+!72 = !{!73, !74, i64 24}
+!73 = !{!"_ZTSN4llvm11ms_demangle31IntrinsicFunctionIdentifierNodeE", !65, i64 0, !74, i64 24}
+!74 = !{!"_ZTSN4llvm11ms_demangle21IntrinsicFunctionKindE", !7, i64 0}
+!75 = !{!76, !46, i64 24}
+!76 = !{!"_ZTSN4llvm11ms_demangle30LocalStaticGuardIdentifierNodeE", !65, i64 0, !46, i64 24, !10, i64 28}
+!77 = !{!76, !10, i64 28}
+!78 = !{!79, !80, i64 24}
+!79 = !{!"_ZTSN4llvm11ms_demangle32ConversionOperatorIdentifierNodeE", !65, i64 0, !80, i64 24}
+!80 = !{!"p1 _ZTSN4llvm11ms_demangle8TypeNodeE", !6, i64 0}
+!81 = !{!82, !46, i64 32}
+!82 = !{!"_ZTSN4llvm11ms_demangle22StructorIdentifierNodeE", !65, i64 0, !83, i64 24, !46, i64 32}
+!83 = !{!"p1 _ZTSN4llvm11ms_demangle14IdentifierNodeE", !6, i64 0}
+!84 = !{!82, !83, i64 24}
+!85 = !{!86, !88, i64 22}
+!86 = !{!"_ZTSN4llvm11ms_demangle21FunctionSignatureNodeE", !26, i64 0, !60, i64 16, !87, i64 20, !88, i64 22, !89, i64 24, !80, i64 32, !46, i64 40, !66, i64 48, !46, i64 56}
+!87 = !{!"_ZTSN4llvm11ms_demangle11CallingConvE", !7, i64 0}
+!88 = !{!"_ZTSN4llvm11ms_demangle9FuncClassE", !7, i64 0}
+!89 = !{!"_ZTSN4llvm11ms_demangle20FunctionRefQualifierE", !7, i64 0}
+!90 = !{!86, !80, i64 32}
+!91 = !{!86, !87, i64 20}
+!92 = !{!86, !66, i64 48}
+!93 = !{!86, !46, i64 40}
+!94 = !{!86, !46, i64 56}
+!95 = !{!86, !89, i64 24}
+!96 = !{!97, !10, i64 60}
+!97 = !{!"_ZTSN4llvm11ms_demangle18ThunkSignatureNodeE", !86, i64 0, !98, i64 60}
+!98 = !{!"_ZTSN4llvm11ms_demangle18ThunkSignatureNode12ThisAdjustorE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!99 = !{!97, !10, i64 64}
+!100 = !{!97, !10, i64 68}
+!101 = !{!97, !10, i64 72}
+!102 = !{!103, !80, i64 32}
+!103 = !{!"_ZTSN4llvm11ms_demangle15PointerTypeNodeE", !26, i64 0, !60, i64 16, !44, i64 24, !80, i64 32}
+!104 = !{!27, !28, i64 8}
+!105 = !{!103, !44, i64 24}
+!106 = !{!103, !60, i64 16}
+!107 = !{!108, !109, i64 24}
+!108 = !{!"_ZTSN4llvm11ms_demangle11TagTypeNodeE", !26, i64 0, !44, i64 16, !109, i64 24}
+!109 = !{!"_ZTSN4llvm11ms_demangle7TagKindE", !7, i64 0}
+!110 = !{!108, !44, i64 16}
+!111 = !{!112, !80, i64 24}
+!112 = !{!"_ZTSN4llvm11ms_demangle13ArrayTypeNodeE", !26, i64 0, !66, i64 16, !80, i64 24}
+!113 = !{!112, !66, i64 16}
+!114 = distinct !{!114, !40}
+!115 = !{!43, !44, i64 16}
+!116 = !{!117, !118, i64 24}
+!117 = !{!"_ZTSN4llvm11ms_demangle18FunctionSymbolNodeE", !43, i64 0, !118, i64 24}
+!118 = !{!"p1 _ZTSN4llvm11ms_demangle21FunctionSignatureNodeE", !6, i64 0}
+!119 = !{!120, !121, i64 24}
+!120 = !{!"_ZTSN4llvm11ms_demangle18VariableSymbolNodeE", !43, i64 0, !121, i64 24, !80, i64 32}
+!121 = !{!"_ZTSN4llvm11ms_demangle12StorageClassE", !7, i64 0}
+!122 = !{!120, !80, i64 32}
+!123 = !{!124, !83, i64 16}
+!124 = !{!"_ZTSN4llvm11ms_demangle14CustomTypeNodeE", !26, i64 0, !83, i64 16}
+!125 = !{!126, !66, i64 16}
+!126 = !{!"_ZTSN4llvm11ms_demangle17QualifiedNameNodeE", !27, i64 0, !66, i64 16}
+!127 = !{!128, !10, i64 24}
+!128 = !{!"_ZTSN4llvm11ms_demangle27RttiBaseClassDescriptorNodeE", !65, i64 0, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36}
+!129 = !{!128, !10, i64 28}
+!130 = !{!128, !10, i64 32}
+!131 = !{!128, !10, i64 36}
+!132 = !{!133, !9, i64 24}
+!133 = !{!"_ZTSN4llvm11ms_demangle24VcallThunkIdentifierNodeE", !65, i64 0, !9, i64 24}
+!134 = !{!135, !29, i64 32}
+!135 = !{!"_ZTSN4llvm11ms_demangle22SpecialTableSymbolNodeE", !43, i64 0, !44, i64 24, !29, i64 32}
+!136 = !{!135, !44, i64 24}

@@ -615,7 +615,7 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   %46 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef %45)
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 84), align 4
   %48 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %47)
-  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 88), align 8, !range !10, !noundef !11
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 88), align 8, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   %51 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.13)
   %52 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -633,7 +633,7 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   br label %61
 
 61:                                               ; preds = %56, %cfilter_recent_write_all.exit
-  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 89), align 1, !range !10, !noundef !11
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 89), align 1, !range !9, !noundef !10
   %63 = trunc nuw i8 %62 to i1
   %64 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.18)
   %65 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -648,13 +648,13 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   %74 = icmp eq i32 %73, 1000
   %75 = select i1 %74, ptr @.str.24, ptr @.str.25
   %76 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %75, i32 noundef %73)
-  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 128), align 8, !range !10, !noundef !11
+  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 128), align 8, !range !9, !noundef !10
   %78 = trunc nuw i8 %77 to i1
   %79 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.27)
   %80 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
   %81 = select i1 %78, ptr @.str.138, ptr @.str.139
   %82 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.28, ptr noundef nonnull %81)
-  %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 129), align 1, !range !10, !noundef !11
+  %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 129), align 1, !range !9, !noundef !10
   %84 = trunc nuw i8 %83 to i1
   %85 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.29)
   %86 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -664,19 +664,19 @@ cfilter_recent_write_all.exit:                    ; preds = %cfilter_recent_writ
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @search_in_values, i32 noundef %89)
   %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 44), align 4
   call fastcc void @write_recent_enum(ptr noundef %13, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @search_char_set_values, i32 noundef %90)
-  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 48), align 8, !range !10, !noundef !11
+  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 48), align 8, !range !9, !noundef !10
   %92 = trunc nuw i8 %91 to i1
   %93 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.35)
   %94 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
   %95 = select i1 %92, ptr @.str.138, ptr @.str.139
   %96 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.36, ptr noundef nonnull %95)
-  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 49), align 1, !range !10, !noundef !11
+  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 49), align 1, !range !9, !noundef !10
   %98 = trunc nuw i8 %97 to i1
   %99 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.37)
   %100 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
   %101 = select i1 %98, ptr @.str.138, ptr @.str.139
   %102 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.38, ptr noundef nonnull %101)
-  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 50), align 2, !range !10, !noundef !11
+  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 50), align 2, !range !9, !noundef !10
   %104 = trunc nuw i8 %103 to i1
   %105 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.39)
   %106 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %13, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -770,7 +770,7 @@ define internal fastcc void @write_recent_enum(ptr noundef nonnull %0, ptr nound
   %17 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str.74)
   %.pre = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15, %5
   %.0.lcssa = phi ptr [ null, %5 ], [ %spec.select, %15 ], [ %spec.select, %.lr.ph ]
@@ -830,61 +830,61 @@ define hidden noundef zeroext i1 @write_profile_recent() local_unnamed_addr #0 {
   %24 = call ptr @application_flavor_name_proper()
   %25 = call ptr @application_flavor_name_proper()
   %26 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef %24, ptr noundef %25)
-  %27 = load i8, ptr @recent, align 8, !range !10, !noundef !11
+  %27 = load i8, ptr @recent, align 8, !range !9, !noundef !10
   %28 = trunc nuw i8 %27 to i1
   %29 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.48)
   %30 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %31 = select i1 %28, ptr @.str.138, ptr @.str.139
   %32 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.49, ptr noundef nonnull %31)
-  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 1), align 1, !range !10, !noundef !11
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 1), align 1, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   %35 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.50)
   %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %37 = select i1 %34, ptr @.str.138, ptr @.str.139
   %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.51, ptr noundef nonnull %37)
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 2), align 2, !range !10, !noundef !11
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 2), align 2, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   %41 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.52)
   %42 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %43 = select i1 %40, ptr @.str.138, ptr @.str.139
   %44 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.53, ptr noundef nonnull %43)
-  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 3), align 1, !range !10, !noundef !11
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 3), align 1, !range !9, !noundef !10
   %46 = trunc nuw i8 %45 to i1
   %47 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.54)
   %48 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %49 = select i1 %46, ptr @.str.138, ptr @.str.139
   %50 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.55, ptr noundef nonnull %49)
-  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 4), align 4, !range !10, !noundef !11
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 4), align 4, !range !9, !noundef !10
   %52 = trunc nuw i8 %51 to i1
   %53 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.56)
   %54 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %55 = select i1 %52, ptr @.str.138, ptr @.str.139
   %56 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.57, ptr noundef nonnull %55)
-  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 5), align 1, !range !10, !noundef !11
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 5), align 1, !range !9, !noundef !10
   %58 = trunc nuw i8 %57 to i1
   %59 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.58)
   %60 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %61 = select i1 %58, ptr @.str.138, ptr @.str.139
   %62 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.59, ptr noundef nonnull %61)
-  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 6), align 2, !range !10, !noundef !11
+  %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 6), align 2, !range !9, !noundef !10
   %64 = trunc nuw i8 %63 to i1
   %65 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.60)
   %66 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %67 = select i1 %64, ptr @.str.138, ptr @.str.139
   %68 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.61, ptr noundef nonnull %67)
-  %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 7), align 1, !range !10, !noundef !11
+  %69 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 7), align 1, !range !9, !noundef !10
   %70 = trunc nuw i8 %69 to i1
   %71 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.62)
   %72 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %73 = select i1 %70, ptr @.str.138, ptr @.str.139
   %74 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.63, ptr noundef nonnull %73)
-  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 8), align 8, !range !10, !noundef !11
+  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 8), align 8, !range !9, !noundef !10
   %76 = trunc nuw i8 %75 to i1
   %77 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.64)
   %78 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %79 = select i1 %76, ptr @.str.138, ptr @.str.139
   %80 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.65, ptr noundef nonnull %79)
-  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 9), align 1, !range !10, !noundef !11
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 9), align 1, !range !9, !noundef !10
   %82 = trunc nuw i8 %81 to i1
   %83 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.66)
   %84 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -905,7 +905,7 @@ define hidden noundef zeroext i1 @write_profile_recent() local_unnamed_addr #0 {
   %94 = getelementptr i8, ptr %.098115, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not113 = icmp eq ptr %95, null
-  br i1 %.not113, label %96, label %89, !llvm.loop !13
+  br i1 %.not113, label %96, label %89, !llvm.loop !12
 
 96:                                               ; preds = %89
   %97 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.75, i32 noundef 9)
@@ -942,13 +942,13 @@ define hidden noundef zeroext i1 @write_profile_recent() local_unnamed_addr #0 {
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull @bytes_view_type_values, i32 noundef %114)
   %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   call fastcc void @write_recent_enum(ptr noundef %16, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull @bytes_encoding_type_values, i32 noundef %115)
-  %116 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 36), align 4, !range !10, !noundef !11
+  %116 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 36), align 4, !range !9, !noundef !10
   %117 = trunc nuw i8 %116 to i1
   %118 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.89)
   %119 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
   %120 = select i1 %117, ptr @.str.138, ptr @.str.139
   %121 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.90, ptr noundef nonnull %120)
-  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 37), align 1, !range !10, !noundef !11
+  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 37), align 1, !range !9, !noundef !10
   %123 = trunc nuw i8 %122 to i1
   %124 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.91)
   %125 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -1030,7 +1030,7 @@ define hidden noundef zeroext i1 @write_profile_recent() local_unnamed_addr #0 {
   %166 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.220, ptr noundef %164, ptr noundef %165)
   %167 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not3.i = icmp eq i32 %167, 0
-  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1066,7 +1066,7 @@ window_splitter_recent_write_all.exit:            ; preds = %157, %._crit_edge.i
   %188 = call ptr @join_string_list(ptr noundef %187)
   %189 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.123, ptr noundef %188)
   call void @g_free(ptr noundef %188)
-  %190 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 192), align 8, !range !10, !noundef !11
+  %190 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 192), align 8, !range !9, !noundef !10
   %191 = trunc nuw i8 %190 to i1
   %192 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.124)
   %193 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef nonnull %16, i32 noundef 2, ptr noundef nonnull @.str.137)
@@ -1133,7 +1133,7 @@ define hidden range(i32 0, 3) i32 @recent_set_arg(ptr noundef %0) local_unnamed_
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 256
   %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %12, label %6, !llvm.loop !15
+  br i1 %.not, label %12, label %6, !llvm.loop !14
 
 12:                                               ; preds = %6
   %13 = icmp eq i8 %7, 0
@@ -1651,7 +1651,7 @@ define internal range(i32 0, 3) i32 @read_set_recent_pair_static(ptr noundef %0,
   %251 = tail call ptr @g_list_append(ptr noundef %250, ptr noundef %231)
   store ptr %251, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 136), align 8
   %.not131 = icmp eq ptr %249, null
-  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not131, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %246, %228
   tail call void @prefs_clear_string_list(ptr noundef nonnull %222)
@@ -2209,7 +2209,7 @@ define hidden noundef zeroext i1 @recent_read_dynamic(ptr noundef writeonly capt
   call void @g_hash_table_iter_replace(ptr noundef nonnull %3, ptr noundef %20)
   %21 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not2.i = icmp eq i32 %21, 0
-  br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2406,7 +2406,7 @@ define hidden i32 @recent_get_column_width(i32 noundef %0) local_unnamed_addr #0
   %17 = load ptr, ptr @prefs, align 8
   %18 = tail call i32 @g_list_length(ptr noundef %17)
   %19 = icmp ult i32 %16, %18
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4
   %.06 = phi i32 [ %5, %4 ], [ -1, %6 ], [ -1, %.lr.ph ]
@@ -2453,7 +2453,7 @@ define hidden void @recent_set_column_width(i32 noundef %0, i32 noundef %1) loca
   %18 = load ptr, ptr @prefs, align 8
   %19 = tail call i32 @g_list_length(ptr noundef %18)
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 .sink.split:                                      ; preds = %._crit_edge, %2
   %.sink = phi ptr [ %4, %2 ], [ %12, %._crit_edge ]
@@ -2497,7 +2497,7 @@ define hidden signext i8 @recent_get_column_xalign(i32 noundef %0) local_unnamed
   %18 = load ptr, ptr @prefs, align 8
   %19 = tail call i32 @g_list_length(ptr noundef %18)
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %4
   %.06 = phi i8 [ %6, %4 ], [ 0, %7 ], [ 0, %.lr.ph ]
@@ -2538,7 +2538,7 @@ define hidden void @recent_set_column_xalign(i32 noundef %0, i8 noundef signext 
   %18 = load ptr, ptr @prefs, align 8
   %19 = tail call i32 @g_list_length(ptr noundef %18)
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .sink.split:                                      ; preds = %._crit_edge, %2
   %.sink14 = phi ptr [ %4, %2 ], [ %12, %._crit_edge ]
@@ -2654,7 +2654,7 @@ define internal void @cfilter_recent_write_all_hash_callback(ptr noundef %0, ptr
   %22 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %cfilter_recent_write_all_list.exit, label %.lr.ph.split.i, !llvm.loop !22
+  br i1 %.not.i, label %cfilter_recent_write_all_list.exit, label %.lr.ph.split.i, !llvm.loop !8
 
 cfilter_recent_write_all_list.exit:               ; preds = %.lr.ph.split.i, %21, %.lr.ph.split.us.i, %12, %3
   ret void
@@ -2684,7 +2684,7 @@ define internal void @write_recent_geom(ptr readnone captures(none) %0, ptr noun
   %23 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.137)
   %24 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %26 = load i8, ptr %25, align 1, !range !10, !noundef !11
+  %26 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %27 = trunc nuw i8 %26 to i1
   %28 = select i1 %27, ptr @.str.138, ptr @.str.139
   %29 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.160, ptr noundef %24, ptr noundef nonnull %28)
@@ -3003,10 +3003,10 @@ attributes #15 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -3016,5 +3016,3 @@ attributes #15 = { nounwind }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}

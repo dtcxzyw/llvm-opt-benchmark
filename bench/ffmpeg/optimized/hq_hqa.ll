@@ -654,7 +654,7 @@ hqa_decode_slice.exit.us.i:                       ; preds = %386
   store i32 %395, ptr %396, align 4, !tbaa !48
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, 9
-  br i1 %exitcond.not.i53, label %.preheader.i54, label %.preheader64.i, !llvm.loop !61
+  br i1 %exitcond.not.i53, label %.preheader.i54, label %.preheader64.i, !llvm.loop !60
 
 .preheader.split.i:                               ; preds = %.preheader.i54, %hqa_decode_slice.exit.loopexit.i
   %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %hqa_decode_slice.exit.loopexit.i ], [ 0, %.preheader.i54 ]
@@ -721,7 +721,7 @@ hqa_decode_slice.exit.us.i:                       ; preds = %386
   store i16 -8192, ptr %421, align 16, !tbaa !52
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 12
-  br i1 %exitcond.not.i.i.i, label %422, label %420, !llvm.loop !62
+  br i1 %exitcond.not.i.i.i, label %422, label %420, !llvm.loop !61
 
 422:                                              ; preds = %420
   %423 = lshr i32 %.sroa.5.2.i, 3
@@ -886,7 +886,7 @@ hq_decode_block.exit.i.i.i:                       ; preds = %527, %456
   %542 = phi i32 [ %457, %456 ], [ %525, %527 ]
   %indvars.iv.next92.i.i.i = add nuw nsw i64 %indvars.iv91.i.i.i, 1
   %exitcond94.not.i.i.i = icmp eq i64 %indvars.iv.next92.i.i.i, 12
-  br i1 %exitcond94.not.i.i.i, label %.loopexit.i.i.i, label %456, !llvm.loop !63
+  br i1 %exitcond94.not.i.i.i, label %.loopexit.i.i.i, label %456, !llvm.loop !62
 
 .loopexit.i.i.i:                                  ; preds = %hq_decode_block.exit.i.i.i, %422
   %.sroa.5.5.i = phi i32 [ %438, %422 ], [ %.sroa.5.4.i, %hq_decode_block.exit.i.i.i ]
@@ -994,7 +994,7 @@ hq_decode_block.exit.i.i.i:                       ; preds = %527, %456
   tail call void %624(ptr noundef %628, i32 noundef %629, ptr noundef nonnull %380) #6
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 128
   %630 = icmp samesign ult i64 %indvars.iv.next47.i.i, %383
-  br i1 %630, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !64
+  br i1 %630, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !63
 
 hqa_decode_slice.exit.thread.i:                   ; preds = %.lr.ph.i.i, %520
   %.0213542.i.i = trunc i64 %indvars.iv46.i.i to i32
@@ -1007,11 +1007,11 @@ hqa_decode_slice.exit.thread.i:                   ; preds = %.lr.ph.i.i, %520
   %632 = add nuw nsw i32 %.02036.i.i, 16
   %633 = icmp samesign ult i32 %632, %336
   %indvars.iv.next.i.i59 = add nuw nsw i32 %indvars.iv.i.i58, 48
-  br i1 %633, label %412, label %hqa_decode_slice.exit.loopexit.i, !llvm.loop !65
+  br i1 %633, label %412, label %hqa_decode_slice.exit.loopexit.i, !llvm.loop !64
 
 hqa_decode_slice.exit.loopexit.i:                 ; preds = %._crit_edge.i.i
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 8
-  br i1 %exitcond88.not.i, label %hqa_decode_frame.exit, label %.preheader.split.i, !llvm.loop !66
+  br i1 %exitcond88.not.i, label %hqa_decode_frame.exit, label %.preheader.split.i, !llvm.loop !59
 
 hqa_decode_frame.exit:                            ; preds = %hqa_decode_slice.exit.loopexit.i, %hqa_decode_slice.exit.us.i, %323, %329, %353, %356, %.split.us.i, %hqa_decode_slice.exit.thread.i
   %.0.i = phi i32 [ -1094995529, %323 ], [ %338, %329 ], [ -1094995529, %353 ], [ %358, %356 ], [ 0, %.split.us.i ], [ -1094995529, %hqa_decode_slice.exit.thread.i ], [ 0, %hqa_decode_slice.exit.us.i ], [ 0, %hqa_decode_slice.exit.loopexit.i ]
@@ -1074,7 +1074,7 @@ define internal void @hq_init_static() #0 {
   store i16 %.027, ptr %2, align 4, !tbaa !34
   %14 = add nuw nsw i64 %.02831, 1
   %exitcond.not = icmp eq i64 %14, 1184
-  br i1 %exitcond.not, label %.preheader29, label %1, !llvm.loop !67
+  br i1 %exitcond.not, label %.preheader29, label %1, !llvm.loop !65
 
 .preheader29:                                     ; preds = %12, %21
   %.02634 = phi i64 [ %22, %21 ], [ 0, %12 ]
@@ -1095,10 +1095,10 @@ define internal void @hq_init_static() #0 {
 21:                                               ; preds = %23
   %22 = add nuw nsw i64 %.02634, 1
   %exitcond36.not = icmp eq i64 %22, 16
-  br i1 %exitcond36.not, label %17, label %.preheader29, !llvm.loop !68
+  br i1 %exitcond36.not, label %17, label %.preheader29, !llvm.loop !66
 
 23:                                               ; preds = %24
-  br i1 %18, label %.preheader, label %21, !llvm.loop !69
+  br i1 %18, label %.preheader, label %21, !llvm.loop !67
 
 24:                                               ; preds = %.preheader, %24
   %.032 = phi i64 [ 0, %.preheader ], [ %30, %24 ]
@@ -1110,7 +1110,7 @@ define internal void @hq_init_static() #0 {
   store ptr %28, ptr %29, align 8, !tbaa !54
   %30 = add nuw nsw i64 %.032, 1
   %exitcond35.not = icmp eq i64 %30, 4
-  br i1 %exitcond35.not, label %23, label %24, !llvm.loop !70
+  br i1 %exitcond35.not, label %23, label %24, !llvm.loop !68
 }
 
 declare void @ff_vlc_init_table_from_lengths(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1212,8 +1212,8 @@ attributes #6 = { nounwind }
 !56 = !{!14, !14, i64 0}
 !57 = !{!28, !7, i64 8}
 !58 = distinct !{!58, !50}
-!59 = distinct !{!59, !50, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = distinct !{!59, !50}
+!60 = distinct !{!60, !50}
 !61 = distinct !{!61, !50}
 !62 = distinct !{!62, !50}
 !63 = distinct !{!63, !50}
@@ -1222,5 +1222,3 @@ attributes #6 = { nounwind }
 !66 = distinct !{!66, !50}
 !67 = distinct !{!67, !50}
 !68 = distinct !{!68, !50}
-!69 = distinct !{!69, !50}
-!70 = distinct !{!70, !50}

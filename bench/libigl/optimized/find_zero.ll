@@ -75,7 +75,7 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = icmp eq ptr %31, null
   %33 = icmp eq i32 %1, 2
-  br i1 %32, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.preheader
+  br i1 %32, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.preheader
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.preheader: ; preds = %.lr.ph12.i
   br i1 %33, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.us, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i
@@ -109,13 +109,13 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS
   %47 = load i32, ptr %46, align 4, !tbaa !20
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !31, !range !32, !noundef !33
+  %50 = load i8, ptr %49, align 1, !tbaa !30, !range !31, !noundef !32
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i.us.us, label %52
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.i.us.us
-  %54 = load i8, ptr %53, align 1, !tbaa !31, !range !32, !noundef !33
+  %54 = load i8, ptr %53, align 1, !tbaa !30, !range !31, !noundef !32
   %55 = getelementptr inbounds i32, ptr %43, i64 %48
   %56 = load i32, ptr %55, align 4, !tbaa !20
   %57 = icmp ne i32 %56, %42
@@ -128,171 +128,188 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i.us.us
 
 60:                                               ; preds = %52
-  store i8 1, ptr %49, align 1, !tbaa !31
+  store i8 1, ptr %49, align 1, !tbaa !30
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i.us.us
 
 _ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i.us.us: ; preds = %60, %59, %45
   %61 = add nsw i64 %.sroa.8.09.i.us.us, 1
   %62 = icmp slt i64 %61, %40
-  br i1 %62, label %45, label %._crit_edge.i.us, !llvm.loop !34
+  br i1 %62, label %45, label %._crit_edge.i.us, !llvm.loop !33
 
-_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i: ; preds = %.lr.ph12.i, %._crit_edge.us.i
-  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %._crit_edge.us.i ], [ 0, %.lr.ph12.i ]
-  %63 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv17.i
+_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader: ; preds = %.lr.ph12.i
+  br i1 %33, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.us, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i
+
+_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.us: ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader, %._crit_edge.us.i.us
+  %indvars.iv17.i.us = phi i64 [ %indvars.iv.next18.i.us, %._crit_edge.us.i.us ], [ 0, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader ]
+  %63 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv17.i.us
   %64 = load i32, ptr %63, align 4, !tbaa !20
   %65 = getelementptr i8, ptr %63, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !20
   %67 = sext i32 %66 to i64
   %68 = icmp slt i32 %64, %66
-  br i1 %68, label %.lr.ph.us.i, label %._crit_edge.us.i
+  br i1 %68, label %.lr.ph.us.i.us, label %._crit_edge.us.i.us
 
-._crit_edge.us.i:                                 ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i
+.lr.ph.us.i.us:                                   ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.us
+  %69 = sext i32 %64 to i64
+  %70 = trunc nuw nsw i64 %indvars.iv17.i.us to i32
+  %71 = load ptr, ptr %2, align 8
+  %72 = add nsw i32 %70, 1
+  br label %73
+
+._crit_edge.us.i.us:                              ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.us
+  %indvars.iv.next18.i.us = add nuw nsw i64 %indvars.iv17.i.us, 1
+  %exitcond20.not.i.us = icmp eq i64 %indvars.iv.next18.i.us, %22
+  br i1 %exitcond20.not.i.us, label %_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.us, !llvm.loop !28
+
+73:                                               ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us, %.lr.ph.us.i.us
+  %.sroa.8.09.us.i.us.us = phi i64 [ %69, %.lr.ph.us.i.us ], [ %89, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us ]
+  %74 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.us.i.us.us
+  %75 = load i32, ptr %74, align 4, !tbaa !20
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %76
+  %78 = load i8, ptr %77, align 1, !tbaa !30, !range !31, !noundef !32
+  %79 = trunc nuw i8 %78 to i1
+  br i1 %79, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us, label %80
+
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.us.i.us.us
+  %82 = load i8, ptr %81, align 1, !tbaa !30, !range !31, !noundef !32
+  %83 = getelementptr inbounds i32, ptr %71, i64 %76
+  %84 = load i32, ptr %83, align 4, !tbaa !20
+  %85 = icmp ne i32 %84, %70
+  %86 = icmp eq i8 %82, 0
+  %or.cond.i.us.i.us.us = or i1 %86, %85
+  br i1 %or.cond.i.us.i.us.us, label %88, label %87
+
+87:                                               ; preds = %80
+  store i32 %72, ptr %83, align 4, !tbaa !20
+  br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us
+
+88:                                               ; preds = %80
+  store i8 1, ptr %77, align 1, !tbaa !30
+  br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us
+
+_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us.us: ; preds = %88, %87, %73
+  %89 = add nsw i64 %.sroa.8.09.us.i.us.us, 1
+  %exitcond16.not.i.us.us = icmp eq i64 %89, %67
+  br i1 %exitcond16.not.i.us.us, label %._crit_edge.us.i.us, label %73, !llvm.loop !33
+
+_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i: ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader, %._crit_edge.us.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %._crit_edge.us.i ], [ 0, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i.preheader ]
+  %90 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv17.i
+  %91 = load i32, ptr %90, align 4, !tbaa !20
+  %92 = getelementptr i8, ptr %90, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !20
+  %94 = sext i32 %93 to i64
+  %95 = icmp slt i32 %91, %93
+  br i1 %95, label %.lr.ph.us.i, label %._crit_edge.us.i
+
+._crit_edge.us.i:                                 ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, %22
-  br i1 %exitcond20.not.i, label %_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i, !llvm.loop !35
+  br i1 %exitcond20.not.i, label %_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i, !llvm.loop !28
 
-69:                                               ; preds = %.lr.ph.us.i.split, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i
-  %70 = phi i8 [ %.promoted26, %.lr.ph.us.i.split ], [ %83, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i ]
-  %.sroa.8.09.us.i = phi i64 [ %85, %.lr.ph.us.i.split ], [ %84, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i ]
-  %71 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.us.i
-  %72 = load i32, ptr %71, align 4, !tbaa !20
-  %73 = trunc nuw i8 %70 to i1
-  br i1 %73, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i, label %74
+96:                                               ; preds = %.lr.ph.us.i, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i
+  %97 = phi i8 [ %.promoted26, %.lr.ph.us.i ], [ %110, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i ]
+  %.sroa.8.09.us.i = phi i64 [ %112, %.lr.ph.us.i ], [ %111, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i ]
+  %98 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.us.i
+  %99 = load i32, ptr %98, align 4, !tbaa !20
+  %100 = trunc nuw i8 %97 to i1
+  br i1 %100, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i, label %101
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.us.i
-  %76 = load i8, ptr %75, align 1, !tbaa !31, !range !32, !noundef !33
-  %77 = load i32, ptr %108, align 4, !tbaa !20
-  %78 = icmp ne i32 %77, %72
-  %79 = icmp eq i8 %76, 0
-  %or.cond.i.us.i = or i1 %79, %78
-  br i1 %or.cond.i.us.i, label %82, label %80
+101:                                              ; preds = %96
+  %102 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.us.i
+  %103 = load i8, ptr %102, align 1, !tbaa !30, !range !31, !noundef !32
+  %104 = load i32, ptr %116, align 4, !tbaa !20
+  %105 = icmp ne i32 %104, %99
+  %106 = icmp eq i8 %103, 0
+  %or.cond.i.us.i = or i1 %106, %105
+  br i1 %or.cond.i.us.i, label %109, label %107
 
-80:                                               ; preds = %74
-  %81 = add nsw i32 %72, 1
-  store i32 %81, ptr %108, align 4, !tbaa !20
+107:                                              ; preds = %101
+  %108 = add nsw i32 %99, 1
+  store i32 %108, ptr %116, align 4, !tbaa !20
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i
 
-82:                                               ; preds = %74
-  store i8 1, ptr %107, align 1, !tbaa !31
+109:                                              ; preds = %101
+  store i8 1, ptr %115, align 1, !tbaa !30
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i
 
-_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i: ; preds = %82, %80, %69
-  %83 = phi i8 [ 1, %82 ], [ 0, %80 ], [ 1, %69 ]
-  %84 = add nsw i64 %.sroa.8.09.us.i, 1
-  %exitcond16.not.i = icmp eq i64 %84, %67
-  br i1 %exitcond16.not.i, label %._crit_edge.us.i, label %69, !llvm.loop !36
+_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i: ; preds = %109, %107, %96
+  %110 = phi i8 [ 1, %109 ], [ 0, %107 ], [ 1, %96 ]
+  %111 = add nsw i64 %.sroa.8.09.us.i, 1
+  %exitcond16.not.i = icmp eq i64 %111, %94
+  br i1 %exitcond16.not.i, label %._crit_edge.us.i, label %96, !llvm.loop !33
 
 .lr.ph.us.i:                                      ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.us.i
-  %85 = sext i32 %64 to i64
-  %86 = trunc nuw nsw i64 %indvars.iv17.i to i32
-  %87 = load ptr, ptr %2, align 8
-  br i1 %33, label %.lr.ph.us.i.split.us, label %.lr.ph.us.i.split
-
-.lr.ph.us.i.split.us:                             ; preds = %.lr.ph.us.i
-  %88 = add nsw i32 %86, 1
-  br label %89
-
-89:                                               ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us, %.lr.ph.us.i.split.us
-  %.sroa.8.09.us.i.us = phi i64 [ %85, %.lr.ph.us.i.split.us ], [ %105, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us ]
-  %90 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.us.i.us
-  %91 = load i32, ptr %90, align 4, !tbaa !20
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !31, !range !32, !noundef !33
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us, label %96
-
-96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.us.i.us
-  %98 = load i8, ptr %97, align 1, !tbaa !31, !range !32, !noundef !33
-  %99 = getelementptr inbounds i32, ptr %87, i64 %92
-  %100 = load i32, ptr %99, align 4, !tbaa !20
-  %101 = icmp ne i32 %100, %86
-  %102 = icmp eq i8 %98, 0
-  %or.cond.i.us.i.us = or i1 %102, %101
-  br i1 %or.cond.i.us.i.us, label %104, label %103
-
-103:                                              ; preds = %96
-  store i32 %88, ptr %99, align 4, !tbaa !20
-  br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us
-
-104:                                              ; preds = %96
-  store i8 1, ptr %93, align 1, !tbaa !31
-  br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us
-
-_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.us.i.us: ; preds = %89, %104, %103
-  %105 = add nsw i64 %.sroa.8.09.us.i.us, 1
-  %exitcond16.not.i.us = icmp eq i64 %105, %67
-  br i1 %exitcond16.not.i.us, label %._crit_edge.us.i, label %89, !llvm.loop !37
-
-.lr.ph.us.i.split:                                ; preds = %.lr.ph.us.i
+  %112 = sext i32 %91 to i64
+  %113 = load ptr, ptr %2, align 8
   %sext28 = shl i64 %indvars.iv17.i, 32
-  %106 = ashr exact i64 %sext28, 32
-  %107 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %106
-  %.promoted26 = load i8, ptr %107, align 1, !tbaa !31
-  %108 = getelementptr inbounds i32, ptr %87, i64 %106
-  br label %69
+  %114 = ashr exact i64 %sext28, 32
+  %115 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %114
+  %.promoted26 = load i8, ptr %115, align 1, !tbaa !30
+  %116 = getelementptr inbounds i32, ptr %113, i64 %114
+  br label %96
 
 _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i: ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.preheader, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i.preheader ]
-  %109 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
-  %110 = load i32, ptr %109, align 4, !tbaa !20
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
-  %113 = load i32, ptr %112, align 4, !tbaa !20
-  %114 = sext i32 %113 to i64
-  %115 = add nsw i64 %114, %111
-  %116 = icmp sgt i32 %113, 0
-  br i1 %116, label %.lr.ph.i, label %._crit_edge.i
+  %117 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
+  %118 = load i32, ptr %117, align 4, !tbaa !20
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %121 = load i32, ptr %120, align 4, !tbaa !20
+  %122 = sext i32 %121 to i64
+  %123 = add nsw i64 %122, %119
+  %124 = icmp sgt i32 %121, 0
+  br i1 %124, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i
-  %117 = load ptr, ptr %2, align 8
+  %125 = load ptr, ptr %2, align 8
   %sext27 = shl i64 %indvars.iv.i, 32
-  %118 = ashr exact i64 %sext27, 32
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %118
-  %.promoted = load i8, ptr %119, align 1, !tbaa !31
-  %120 = getelementptr inbounds i32, ptr %117, i64 %118
-  br label %121
+  %126 = ashr exact i64 %sext27, 32
+  %127 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %126
+  %.promoted = load i8, ptr %127, align 1, !tbaa !30
+  %128 = getelementptr inbounds i32, ptr %125, i64 %126
+  br label %129
 
 ._crit_edge.i:                                    ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i, %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %exitcond.not.i, label %_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit, label %_ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIbLi0EiEEE13InnerIteratorC2ERKS3_l.exit.i, !llvm.loop !28
 
-121:                                              ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i, %.lr.ph.i
-  %122 = phi i8 [ %.promoted, %.lr.ph.i ], [ %135, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i ]
-  %.sroa.8.09.i = phi i64 [ %111, %.lr.ph.i ], [ %136, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i ]
-  %123 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.i
-  %124 = load i32, ptr %123, align 4, !tbaa !20
-  %125 = trunc nuw i8 %122 to i1
-  br i1 %125, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i, label %126
+129:                                              ; preds = %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i, %.lr.ph.i
+  %130 = phi i8 [ %.promoted, %.lr.ph.i ], [ %143, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i ]
+  %.sroa.8.09.i = phi i64 [ %119, %.lr.ph.i ], [ %144, %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i ]
+  %131 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.09.i
+  %132 = load i32, ptr %131, align 4, !tbaa !20
+  %133 = trunc nuw i8 %130 to i1
+  br i1 %133, label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i, label %134
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.i
-  %128 = load i8, ptr %127, align 1, !tbaa !31, !range !32, !noundef !33
-  %129 = load i32, ptr %120, align 4, !tbaa !20
-  %130 = icmp ne i32 %129, %124
-  %131 = icmp eq i8 %128, 0
-  %or.cond.i.i = or i1 %131, %130
-  br i1 %or.cond.i.i, label %132, label %133
+134:                                              ; preds = %129
+  %135 = getelementptr inbounds i8, ptr %25, i64 %.sroa.8.09.i
+  %136 = load i8, ptr %135, align 1, !tbaa !30, !range !31, !noundef !32
+  %137 = load i32, ptr %128, align 4, !tbaa !20
+  %138 = icmp ne i32 %137, %132
+  %139 = icmp eq i8 %136, 0
+  %or.cond.i.i = or i1 %139, %138
+  br i1 %or.cond.i.i, label %140, label %141
 
-132:                                              ; preds = %126
-  store i8 1, ptr %119, align 1, !tbaa !31
+140:                                              ; preds = %134
+  store i8 1, ptr %127, align 1, !tbaa !30
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i
 
-133:                                              ; preds = %126
-  %134 = add nsw i32 %124, 1
-  store i32 %134, ptr %120, align 4, !tbaa !20
+141:                                              ; preds = %134
+  %142 = add nsw i32 %132, 1
+  store i32 %142, ptr %128, align 4, !tbaa !20
   br label %_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i
 
-_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i: ; preds = %133, %132, %121
-  %135 = phi i8 [ 0, %133 ], [ 1, %132 ], [ 1, %121 ]
-  %136 = add nsw i64 %.sroa.8.09.i, 1
-  %137 = icmp slt i64 %136, %115
-  br i1 %137, label %121, label %._crit_edge.i, !llvm.loop !36
+_ZZN3igl9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_12SparseMatrixIT_Li0EiEEiRNS1_15PlainObjectBaseIT0_EEENKUliiiE_clEiii.exit.i: ; preds = %141, %140, %129
+  %143 = phi i8 [ 0, %141 ], [ 1, %140 ], [ 1, %129 ]
+  %144 = add nsw i64 %.sroa.8.09.i, 1
+  %145 = icmp slt i64 %144, %123
+  br i1 %145, label %129, label %._crit_edge.i, !llvm.loop !33
 
-_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit: ; preds = %._crit_edge.i, %._crit_edge.i.us, %._crit_edge.us.i, %_ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit
+_ZN3igl8for_eachIbZNS_9find_zeroIbN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS2_12SparseMatrixIT_Li0EiEEiRNS2_15PlainObjectBaseIT0_EEEUliiiE_EEvS9_RKSB_.exit: ; preds = %._crit_edge.i, %._crit_edge.i.us, %._crit_edge.us.i, %._crit_edge.us.i.us, %_ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIbEES1_EEEERKNS_9EigenBaseIT_EENS4_9enable_ifIXsr8internal14is_convertibleINS9_6ScalarEbEE5valueENS1_11PrivateTypeEE4typeE.exit
   tail call void @free(ptr noundef %.sroa.0.0) #8
   ret void
 }
@@ -424,14 +441,9 @@ attributes #10 = { nounwind allocsize(0) }
 !25 = !{!14, !12, i64 8}
 !26 = !{!5, !12, i64 24}
 !27 = !{!5, !12, i64 32}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = !{!8, !8, i64 0}
-!32 = !{i8 0, i8 2}
-!33 = !{}
-!34 = distinct !{!34, !29, !30}
-!35 = distinct !{!35, !29, !30}
-!36 = distinct !{!36, !29}
-!37 = distinct !{!37, !29, !30}
-!38 = distinct !{!38, !29}
+!30 = !{!8, !8, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = distinct !{!33, !29}

@@ -726,7 +726,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   %105 = add nuw nsw i32 %.4148, 1
   %106 = add nuw nsw i32 %.0127147, 1
   %exitcond.not = icmp eq i32 %106, %63
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !6
 
 dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
   %.us-phi = phi i32 [ %.4148.us, %74 ], [ %.4148.us, %.lr.ph.split.us ], [ %.4148, %.lr.ph.split ]
@@ -935,7 +935,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %87 = add i32 %.3151167, 5
   %88 = add nuw nsw i32 %.0153166, 1
   %exitcond.not = icmp eq i32 %88, %74
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %65
   %.2150 = phi i32 [ %68, %65 ], [ %73, %.preheader ], [ %87, %.lr.ph ]
@@ -972,7 +972,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %109 = add i32 %.1149, 4
   %110 = add nuw nsw i32 %.0152168, 1
   %exitcond183.not = icmp eq i32 %110, %11
-  br i1 %exitcond183.not, label %.loopexit165, label %.lr.ph171, !llvm.loop !11
+  br i1 %exitcond183.not, label %.loopexit165, label %.lr.ph171, !llvm.loop !9
 
 .loopexit165:                                     ; preds = %53, %56, %69, %89, %100, %13, %9, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2150, %89 ], [ %109, %100 ]
@@ -1203,7 +1203,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %143 = add nuw nsw i32 %.22.i.i, 6
   %144 = add nuw nsw i32 %.01011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %144, %131
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %127, %124
   %.1.i.i = phi i32 [ 6, %124 ], [ 7, %127 ], [ %143, %.lr.ph.i.i ]
@@ -1271,7 +1271,7 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   %177 = add i32 %176, %.0102117
   %178 = add i16 %.0105116, 1
   %179 = icmp slt i32 %177, %52
-  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %175, %27
   br i1 %.not, label %180, label %184
@@ -1373,11 +1373,9 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}

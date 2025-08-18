@@ -136,7 +136,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
 
 76:                                               ; preds = %67
   %77 = add i32 %storemerge226.us.i, -1
-  br label %.lr.ph222.us.i, !llvm.loop !13
+  br label %.lr.ph222.us.i
 
 ._crit_edge.i:                                    ; preds = %69, %.preheader217.i
   %storemerge.i = phi i32 [ 32, %.preheader217.i ], [ %storemerge226.us.i, %69 ]
@@ -147,7 +147,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %79 = add i32 %.0168.lcssa.i, %.0176231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %34
-  br i1 %exitcond.not.i, label %80, label %.preheader217.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %80, label %.preheader217.i, !llvm.loop !13
 
 80:                                               ; preds = %._crit_edge.i
   %81 = zext i32 %79 to i64
@@ -162,18 +162,18 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %88 = getelementptr inbounds nuw i32, ptr %87, i64 %34
   %89 = getelementptr inbounds nuw i16, ptr %88, i64 %37
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %81
-  store i32 -558043677, ptr %86, align 4, !tbaa !16
+  store i32 -558043677, ptr %86, align 4, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i32 %79, ptr %91, align 4, !tbaa !18
+  store i32 %79, ptr %91, align 4, !tbaa !16
   %92 = trunc nuw i64 %2 to i32
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store i32 %92, ptr %93, align 4, !tbaa !19
+  store i32 %92, ptr %93, align 4, !tbaa !17
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  store i32 40, ptr %94, align 4, !tbaa !20
+  store i32 40, ptr %94, align 4, !tbaa !18
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store i32 %.013.lcssa, ptr %95, align 4, !tbaa !21
+  store i32 %.013.lcssa, ptr %95, align 4, !tbaa !19
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 20
-  store i32 %.014.lcssa, ptr %96, align 4, !tbaa !22
+  store i32 %.014.lcssa, ptr %96, align 4, !tbaa !20
   store ptr %1, ptr %90, align 1
   br label %97
 
@@ -188,7 +188,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   store i32 0, ptr %99, align 4, !tbaa !9
   %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
   %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %34
-  br i1 %exitcond245.not.i, label %.preheader.i, label %97, !llvm.loop !23
+  br i1 %exitcond245.not.i, label %.preheader.i, label %97, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %97, %136
   %indvars.iv247.i = phi i64 [ %indvars.iv.next248.i, %136 ], [ 0, %97 ]
@@ -238,7 +238,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %130 = getelementptr inbounds nuw i32, ptr %39, i64 %129
   %131 = add nuw nsw i64 %.0163235.i, 1
   %exitcond246.not.i = icmp eq i64 %131, %125
-  br i1 %exitcond246.not.i, label %132, label %126, !llvm.loop !24
+  br i1 %exitcond246.not.i, label %132, label %126, !llvm.loop !22
 
 132:                                              ; preds = %126
   %133 = getelementptr i32, ptr %89, i64 %127
@@ -250,7 +250,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
 136:                                              ; preds = %132, %111
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %exitcond252.not.i = icmp eq i64 %indvars.iv.next248.i, %37
-  br i1 %exitcond252.not.i, label %137, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond252.not.i, label %137, label %.preheader.i, !llvm.loop !23
 
 137:                                              ; preds = %136
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef nonnull %33)
@@ -278,7 +278,7 @@ declare void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionaryEPNS_18CompoundDictionaryEPKNS_18PreparedDictionaryE(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = load i64, ptr %0, align 8, !tbaa !26
+  %3 = load i64, ptr %0, align 8, !tbaa !24
   %4 = icmp eq i64 %3, 15
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %4
@@ -286,35 +286,35 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !19
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !29
+  %10 = load i64, ptr %9, align 8, !tbaa !27
   %11 = add i64 %10, %8
-  store i64 %11, ptr %9, align 8, !tbaa !29
+  store i64 %11, ptr %9, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw [16 x ptr], ptr %12, i64 0, i64 %3
-  store ptr %1, ptr %13, align 8, !tbaa !30
+  store ptr %1, ptr %13, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = add i64 %3, 1
   %16 = getelementptr inbounds nuw [16 x i64], ptr %14, i64 0, i64 %15
-  store i64 %11, ptr %16, align 8, !tbaa !33
+  store i64 %11, ptr %16, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !22
+  %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = shl nuw i32 1, %19
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %17, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 4, !tbaa !21
+  %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = shl nuw i32 1, %24
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i16, ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %29 = load i32, ptr %28, align 4, !tbaa !16
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr %27, i64 %30
-  %32 = load i32, ptr %1, align 4, !tbaa !16
+  %32 = load i32, ptr %1, align 4, !tbaa !14
   %33 = icmp eq i32 %32, -558043680
   br i1 %33, label %35, label %34
 
@@ -326,10 +326,10 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli24AttachPreparedDictionary
   %.0.copyload.i.sink = phi ptr [ %.0.copyload.i, %34 ], [ %31, %5 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %37 = getelementptr inbounds nuw [16 x ptr], ptr %36, i64 0, i64 %3
-  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !34
-  %38 = load i64, ptr %0, align 8, !tbaa !26
+  store ptr %.0.copyload.i.sink, ptr %37, align 8, !tbaa !32
+  %38 = load i64, ptr %0, align 8, !tbaa !24
   %39 = add i64 %38, 1
-  store i64 %39, ptr %0, align 8, !tbaa !26
+  store i64 %39, ptr %0, align 8, !tbaa !24
   br label %40
 
 40:                                               ; preds = %2, %35
@@ -373,26 +373,24 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!"int", !7, i64 0}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !4}
-!16 = !{!17, !10, i64 0}
-!17 = !{!"_ZTSN13duckdb_brotli18PreparedDictionaryE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
-!18 = !{!17, !10, i64 4}
-!19 = !{!17, !10, i64 8}
-!20 = !{!17, !10, i64 12}
-!21 = !{!17, !10, i64 16}
-!22 = !{!17, !10, i64 20}
+!13 = distinct !{!13, !4}
+!14 = !{!15, !10, i64 0}
+!15 = !{!"_ZTSN13duckdb_brotli18PreparedDictionaryE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20}
+!16 = !{!15, !10, i64 4}
+!17 = !{!15, !10, i64 8}
+!18 = !{!15, !10, i64 12}
+!19 = !{!15, !10, i64 16}
+!20 = !{!15, !10, i64 20}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSN13duckdb_brotli18CompoundDictionaryE", !28, i64 0, !28, i64 8, !7, i64 16, !7, i64 144, !7, i64 272, !28, i64 400, !7, i64 408}
-!28 = !{!"long", !7, i64 0}
-!29 = !{!27, !28, i64 8}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTSN13duckdb_brotli18PreparedDictionaryE", !32, i64 0}
-!32 = !{!"any pointer", !7, i64 0}
-!33 = !{!28, !28, i64 0}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 omnipotent char", !32, i64 0}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"_ZTSN13duckdb_brotli18CompoundDictionaryE", !26, i64 0, !26, i64 8, !7, i64 16, !7, i64 144, !7, i64 272, !26, i64 400, !7, i64 408}
+!26 = !{!"long", !7, i64 0}
+!27 = !{!25, !26, i64 8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN13duckdb_brotli18PreparedDictionaryE", !30, i64 0}
+!30 = !{!"any pointer", !7, i64 0}
+!31 = !{!26, !26, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 omnipotent char", !30, i64 0}

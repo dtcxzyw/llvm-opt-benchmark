@@ -7429,10 +7429,10 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver17writeBackContac
   %39 = getelementptr i8, ptr %38, i64 260
   %40 = load float, ptr %39, align 4, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 144
-  store float %40, ptr %41, align 8, !tbaa !206
+  store float %40, ptr %41, align 8, !tbaa !205
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count19
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !207
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !204
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -7630,7 +7630,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackJoints
 162:                                              ; preds = %160, %152
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !208
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !206
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7666,7 +7666,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodies
 
 18:                                               ; preds = %16
   %19 = load float, ptr %8, align 4, !tbaa !96
-  %20 = load float, ptr %9, align 4, !tbaa !209
+  %20 = load float, ptr %9, align 4, !tbaa !207
   tail call void @_ZN12btSolverBody29writebackVelocityAndTransformEff(ptr noundef nonnull align 8 dereferenceable(248) %13, float noundef %19, float noundef %20)
   %.pre32 = load ptr, ptr %6, align 8, !tbaa !32
   %.phi.trans.insert = getelementptr inbounds %struct.btSolverBody, ptr %.pre32, i64 %indvars.iv
@@ -7739,9 +7739,9 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %63, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %66, i64 0
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 352
-  %68 = load i32, ptr %67, align 8, !tbaa !210
+  %68 = load i32, ptr %67, align 8, !tbaa !208
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %67, align 8, !tbaa !210
+  store i32 %69, ptr %67, align 8, !tbaa !208
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 420
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %70, align 4
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 428
@@ -7769,9 +7769,9 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %.sroa.0.4.vec.insert.i24 = insertelement <2 x float> %.sroa.0.0.vec.insert.i23, float %84, i64 1
   %.sroa.3.12.vec.insert.i25 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %89, i64 0
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 352
-  %91 = load i32, ptr %90, align 8, !tbaa !210
+  %91 = load i32, ptr %90, align 8, !tbaa !208
   %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %90, align 8, !tbaa !210
+  store i32 %92, ptr %90, align 8, !tbaa !208
   %93 = getelementptr inbounds nuw i8, ptr %74, i64 436
   store <2 x float> %.sroa.0.4.vec.insert.i24, ptr %93, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 444
@@ -7786,9 +7786,9 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 240
   %99 = load ptr, ptr %98, align 8, !tbaa !63
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 352
-  %101 = load i32, ptr %100, align 8, !tbaa !210
+  %101 = load i32, ptr %100, align 8, !tbaa !208
   %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %100, align 8, !tbaa !210
+  store i32 %102, ptr %100, align 8, !tbaa !208
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, ptr noundef nonnull align 4 dereferenceable(64) %97, i64 16, i1 false), !tbaa.struct !79
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -7815,7 +7815,7 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !211
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !209
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8001,10 +8001,10 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver29solveG
   %43 = getelementptr i8, ptr %42, i64 260
   %44 = load float, ptr %43, align 4, !tbaa !57
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 144
-  store float %44, ptr %45, align 8, !tbaa !206
+  store float %44, ptr %45, align 8, !tbaa !205
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count19.i
-  br i1 %exitcond.not.i, label %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit, label %.lr.ph.split.i, !llvm.loop !207
+  br i1 %exitcond.not.i, label %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit, label %.lr.ph.split.i, !llvm.loop !204
 
 46:                                               ; preds = %119, %106, %92, %78, %65, %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit
   %47 = landingpad { ptr, i32 }
@@ -8845,11 +8845,9 @@ attributes #23 = { nounwind }
 !201 = !{!5, !9, i64 384}
 !202 = !{!5, !27, i64 400}
 !203 = !{!91, !24, i64 140}
-!204 = distinct !{!204, !99, !205}
-!205 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!206 = !{!91, !24, i64 144}
-!207 = distinct !{!207, !99}
-!208 = distinct !{!208, !99}
-!209 = !{!95, !24, i64 72}
-!210 = !{!73, !9, i64 352}
-!211 = distinct !{!211, !99}
+!204 = distinct !{!204, !99}
+!205 = !{!91, !24, i64 144}
+!206 = distinct !{!206, !99}
+!207 = !{!95, !24, i64 72}
+!208 = !{!73, !9, i64 352}
+!209 = distinct !{!209, !99}

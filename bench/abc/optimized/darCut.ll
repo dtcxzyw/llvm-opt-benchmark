@@ -921,7 +921,7 @@ Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.
   %193 = lshr i64 %190, 56
   %194 = trunc nuw nsw i64 %193 to i32
   %195 = icmp samesign ult i32 %191, %194
-  br i1 %195, label %151, label %.loopexit, !llvm.loop !60
+  br i1 %195, label %151, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %Dar_CutCheckDominance.exit.thread.i, %140
   %196 = load i32, ptr %32, align 4
@@ -961,7 +961,7 @@ Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.
   %.1.i.i = add nuw nsw i32 %.017.i.i, %216
   %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i74, 1
   %exitcond.not.i.i76 = icmp eq i64 %indvars.iv.next.i.i75, %wide.trip.count.i.i73
-  br i1 %exitcond.not.i.i76, label %Dar_CutTruthPhase.exit.i, label %204, !llvm.loop !61
+  br i1 %exitcond.not.i.i76, label %Dar_CutTruthPhase.exit.i, label %204, !llvm.loop !60
 
 Dar_CutTruthPhase.exit.i:                         ; preds = %206, %204, %.loopexit
   %.013.lcssa.i.i = phi i32 [ 0, %.loopexit ], [ %.01315.i.i, %204 ], [ %.114.i.i, %206 ]
@@ -1024,7 +1024,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i:            ; preds = %238, %230, %222, %.
   %.0.i.i.i = phi i32 [ %229, %222 ], [ %237, %230 ], [ %245, %238 ], [ 0, %.lr.ph.i18.i ]
   %246 = add nsw i32 %.01318.i.i, 1
   %exitcond.not.i19.i = icmp eq i32 %246, %.01420.i.i
-  br i1 %exitcond.not.i19.i, label %._crit_edge.i.i, label %.lr.ph.i18.i, !llvm.loop !62
+  br i1 %exitcond.not.i19.i, label %._crit_edge.i.i, label %.lr.ph.i18.i, !llvm.loop !61
 
 ._crit_edge.i.i:                                  ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i.i, %.preheader.i.i
   %.116.lcssa.i.i = phi i32 [ %.01519.i.i, %.preheader.i.i ], [ %.0.i.i.i, %Dar_CutTruthSwapAdjacentVars.exit.i.i ]
@@ -1036,7 +1036,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i:            ; preds = %238, %230, %222, %.
   %.1.i17.i = phi i32 [ %247, %._crit_edge.i.i ], [ %.022.i.i, %218 ]
   %249 = add nsw i32 %.01420.i.i, -1
   %.not23.i.i = icmp eq i32 %.01420.i.i, 0
-  br i1 %.not23.i.i, label %Dar_CutTruthStretch.exit.i, label %218, !llvm.loop !63
+  br i1 %.not23.i.i, label %Dar_CutTruthStretch.exit.i, label %218, !llvm.loop !62
 
 Dar_CutTruthStretch.exit.i:                       ; preds = %248
   %250 = lshr i32 %198, 29
@@ -1071,7 +1071,7 @@ Dar_CutTruthStretch.exit.i:                       ; preds = %248
   %.1.i27.i = add nuw nsw i32 %.017.i24.i, %266
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i23.i, 1
   %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, %wide.trip.count.i22.i
-  br i1 %exitcond.not.i29.i, label %Dar_CutTruthPhase.exit32.i, label %254, !llvm.loop !61
+  br i1 %exitcond.not.i29.i, label %Dar_CutTruthPhase.exit32.i, label %254, !llvm.loop !60
 
 Dar_CutTruthPhase.exit32.i:                       ; preds = %256, %254, %Dar_CutTruthStretch.exit.i
   %.013.lcssa.i31.i = phi i32 [ 0, %Dar_CutTruthStretch.exit.i ], [ %.01315.i25.i, %254 ], [ %.114.i26.i, %256 ]
@@ -1134,7 +1134,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i46.i:          ; preds = %288, %280, %272, %.
   %.0.i.i47.i = phi i32 [ %279, %272 ], [ %287, %280 ], [ %295, %288 ], [ 0, %.lr.ph.i43.i ]
   %296 = add nsw i32 %.01318.i44.i, 1
   %exitcond.not.i48.i = icmp eq i32 %296, %.01420.i34.i
-  br i1 %exitcond.not.i48.i, label %._crit_edge.i38.i, label %.lr.ph.i43.i, !llvm.loop !62
+  br i1 %exitcond.not.i48.i, label %._crit_edge.i38.i, label %.lr.ph.i43.i, !llvm.loop !61
 
 ._crit_edge.i38.i:                                ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i46.i, %.preheader.i37.i
   %.116.lcssa.i39.i = phi i32 [ %.01519.i35.i, %.preheader.i37.i ], [ %.0.i.i47.i, %Dar_CutTruthSwapAdjacentVars.exit.i46.i ]
@@ -1146,7 +1146,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i46.i:          ; preds = %288, %280, %272, %.
   %.1.i41.i = phi i32 [ %297, %._crit_edge.i38.i ], [ %.022.i33.i, %268 ]
   %299 = add nsw i32 %.01420.i34.i, -1
   %.not23.i42.i = icmp eq i32 %.01420.i34.i, 0
-  br i1 %.not23.i42.i, label %Dar_CutTruth.exit, label %268, !llvm.loop !63
+  br i1 %.not23.i42.i, label %Dar_CutTruth.exit, label %268, !llvm.loop !62
 
 Dar_CutTruth.exit:                                ; preds = %298
   %300 = and i32 %.2.i.i, 65535
@@ -1184,7 +1184,7 @@ Dar_CutTruth.exit:                                ; preds = %298
   %.1.i = add nsw i32 %.045.i, %317
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %._crit_edge.i79, label %.lr.ph.i77, !llvm.loop !64
+  br i1 %exitcond.not.i78, label %._crit_edge.i79, label %.lr.ph.i77, !llvm.loop !63
 
 ._crit_edge.i79:                                  ; preds = %.lr.ph.i77
   %318 = icmp eq i32 %.1.i, %305
@@ -1246,7 +1246,7 @@ Dar_CutTruth.exit:                                ; preds = %298
 Dar_CutTruthSwapAdjacentVars.exit.i.i93:          ; preds = %337, %329, %321, %.lr.ph.i.i92
   %.0.i.i.i94 = phi i32 [ %328, %321 ], [ %336, %329 ], [ %344, %337 ], [ 0, %.lr.ph.i.i92 ]
   %.not16.not.i.i = icmp sgt i32 %.012.i.i, %.023.i.i
-  br i1 %.not16.not.i.i, label %.lr.ph.i.i92, label %._crit_edge.i.i84, !llvm.loop !65
+  br i1 %.not16.not.i.i, label %.lr.ph.i.i92, label %._crit_edge.i.i84, !llvm.loop !64
 
 ._crit_edge.i.i84:                                ; preds = %Dar_CutTruthSwapAdjacentVars.exit.i.i93, %.preheader.i.i83
   %.115.lcssa.i.i = phi i32 [ %.01420.i.i81, %.preheader.i.i83 ], [ %.0.i.i.i94, %Dar_CutTruthSwapAdjacentVars.exit.i.i93 ]
@@ -1258,7 +1258,7 @@ Dar_CutTruthSwapAdjacentVars.exit.i.i93:          ; preds = %337, %329, %321, %.
   %.1.i.i86 = phi i32 [ %345, %._crit_edge.i.i84 ], [ %.023.i.i, %.preheader.i80 ]
   %347 = add nuw nsw i32 %.01321.i.i, 1
   %exitcond.not.i.i87 = icmp eq i32 %347, 4
-  br i1 %exitcond.not.i.i87, label %Dar_CutTruthShrink.exit.i, label %.preheader.i80, !llvm.loop !66
+  br i1 %exitcond.not.i.i87, label %Dar_CutTruthShrink.exit.i, label %.preheader.i80, !llvm.loop !65
 
 Dar_CutTruthShrink.exit.i:                        ; preds = %346
   %348 = or disjoint i32 %.2.i.i85, %302
@@ -1299,7 +1299,7 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %346
   %367 = lshr i32 %366, 29
   %368 = zext nneg i32 %367 to i64
   %369 = icmp samesign ult i64 %indvars.iv.next57.i, %368
-  br i1 %369, label %350, label %370, !llvm.loop !67
+  br i1 %369, label %350, label %370, !llvm.loop !66
 
 370:                                              ; preds = %365
   %371 = shl i32 %.1.i, 29
@@ -1441,7 +1441,7 @@ Dar_CutCheckDominance.exit.thread.i102:           ; preds = %._crit_edge.us.i40.
   %418 = lshr i64 %415, 56
   %419 = trunc nuw nsw i64 %418 to i32
   %420 = icmp samesign ult i32 %416, %419
-  br i1 %420, label %375, label %Dar_CutFilter.exit136thread-pre-split.loopexit, !llvm.loop !60
+  br i1 %420, label %375, label %Dar_CutFilter.exit136thread-pre-split.loopexit, !llvm.loop !59
 
 Dar_CutFilter.exit136thread-pre-split.loopexit:   ; preds = %Dar_CutCheckDominance.exit.thread.i102
   %.pr.pre = load i32, ptr %144, align 4
@@ -1490,7 +1490,7 @@ Aig_ManObj.exit.i:                                ; preds = %433, %.lr.ph.split.
   %441 = add nuw nsw i32 %.026.i, %440
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i141
-  br i1 %exitcond.not.i144, label %.critedge.i, label %Aig_ManObj.exit.i, !llvm.loop !68
+  br i1 %exitcond.not.i144, label %.critedge.i, label %Aig_ManObj.exit.i, !llvm.loop !67
 
 .critedge.i:                                      ; preds = %433
   %442 = icmp ult i32 %421, 1073741824
@@ -1515,9 +1515,9 @@ Dar_CutFindValue.exit:                            ; preds = %Aig_ManObj.exit.i, 
   br i1 %452, label %453, label %457
 
 453:                                              ; preds = %Dar_CutFindValue.exit
-  %454 = load i32, ptr %29, align 8, !tbaa !69
+  %454 = load i32, ptr %29, align 8, !tbaa !68
   %455 = add nsw i32 %454, 1
-  store i32 %455, ptr %29, align 8, !tbaa !69
+  store i32 %455, ptr %29, align 8, !tbaa !68
   %456 = load i32, ptr %144, align 4
   br label %Dar_CutMerge.exit.thread.sink.split
 
@@ -1538,7 +1538,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %Dar_CutMerge.exit.t
   %463 = lshr i64 %462, 56
   %464 = trunc nuw nsw i64 %463 to i32
   %465 = icmp samesign ult i32 %460, %464
-  br i1 %465, label %39, label %.loopexit157.loopexit, !llvm.loop !70
+  br i1 %465, label %39, label %.loopexit157.loopexit, !llvm.loop !69
 
 .loopexit157.loopexit:                            ; preds = %Dar_CutMerge.exit.thread
   %.pre = load i64, ptr %12, align 8
@@ -1551,7 +1551,7 @@ Dar_CutMerge.exit.thread:                         ; preds = %Dar_CutMerge.exit.t
   %469 = lshr i64 %466, 56
   %470 = trunc nuw nsw i64 %469 to i32
   %471 = icmp samesign ult i32 %467, %470
-  br i1 %471, label %30, label %._crit_edge, !llvm.loop !71
+  br i1 %471, label %30, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.loopexit157, %3
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1576,9 +1576,9 @@ Dar_CutMerge.exit.thread:                         ; preds = %Dar_CutMerge.exit.t
   br i1 %481, label %485, label %482
 
 482:                                              ; preds = %476
-  %483 = load i32, ptr %475, align 4, !tbaa !72
+  %483 = load i32, ptr %475, align 4, !tbaa !71
   %484 = add nsw i32 %483, 1
-  store i32 %484, ptr %475, align 4, !tbaa !72
+  store i32 %484, ptr %475, align 4, !tbaa !71
   %.pre198 = load i64, ptr %472, align 8
   br label %485
 
@@ -1589,13 +1589,13 @@ Dar_CutMerge.exit.thread:                         ; preds = %Dar_CutMerge.exit.t
   %489 = lshr i64 %486, 56
   %490 = trunc nuw nsw i64 %489 to i32
   %491 = icmp samesign ult i32 %487, %490
-  br i1 %491, label %476, label %._crit_edge179, !llvm.loop !73
+  br i1 %491, label %476, label %._crit_edge179, !llvm.loop !72
 
 ._crit_edge179:                                   ; preds = %485, %._crit_edge
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %493 = load i32, ptr %492, align 4, !tbaa !72
+  %493 = load i32, ptr %492, align 4, !tbaa !71
   %494 = add nsw i32 %493, -1
-  store i32 %494, ptr %492, align 4, !tbaa !72
+  store i32 %494, ptr %492, align 4, !tbaa !71
   br label %.loopexit158
 
 .loopexit158:                                     ; preds = %457, %._crit_edge179
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 19:                                               ; preds = %21
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 4
-  br i1 %exitcond149.not, label %.lr.ph124, label %21, !llvm.loop !74
+  br i1 %exitcond149.not, label %.lr.ph124, label %21, !llvm.loop !73
 
 .lr.ph124:                                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1722,7 +1722,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   %31 = lshr i32 %30, 29
   %32 = zext nneg i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next151, %32
-  br i1 %33, label %26, label %._crit_edge125, !llvm.loop !75
+  br i1 %33, label %26, label %._crit_edge125, !llvm.loop !74
 
 ._crit_edge125:                                   ; preds = %26
   %34 = and i32 %30, -536870912
@@ -1770,12 +1770,12 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   %50 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv.next137
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = icmp eq i32 %51, %45
-  br i1 %52, label %53, label %48, !llvm.loop !76
+  br i1 %52, label %53, label %48, !llvm.loop !75
 
 53:                                               ; preds = %49
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count
-  br i1 %exitcond142.not, label %.lr.ph, label %.preheader109, !llvm.loop !77
+  br i1 %exitcond142.not, label %.lr.ph, label %.preheader109, !llvm.loop !76
 
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv143 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next144, %54 ]
@@ -1788,7 +1788,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   %59 = lshr i32 %58, 29
   %60 = zext nneg i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next144, %60
-  br i1 %61, label %54, label %._crit_edge, !llvm.loop !78
+  br i1 %61, label %54, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %54
   %62 = and i32 %58, -536870912
@@ -1881,7 +1881,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
   %.2 = phi i32 [ %.1118, %82 ], [ %90, %89 ], [ %.1118, %104 ], [ %109, %108 ], [ %112, %110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %114, label %67, !llvm.loop !79
+  br i1 %exitcond.not, label %114, label %67, !llvm.loop !78
 
 114:                                              ; preds = %113
   %115 = load i32, ptr %4, align 4
@@ -1999,8 +1999,8 @@ attributes #14 = { nounwind allocsize(0) }
 !55 = distinct !{!55, !8}
 !56 = !{!20, !4, i64 2752}
 !57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !8}
+!59 = distinct !{!59, !8}
 !60 = distinct !{!60, !8}
 !61 = distinct !{!61, !8}
 !62 = distinct !{!62, !8}
@@ -2009,15 +2009,14 @@ attributes #14 = { nounwind allocsize(0) }
 !65 = distinct !{!65, !8}
 !66 = distinct !{!66, !8}
 !67 = distinct !{!67, !8}
-!68 = distinct !{!68, !8}
-!69 = !{!20, !4, i64 2768}
+!68 = !{!20, !4, i64 2768}
+!69 = distinct !{!69, !8}
 !70 = distinct !{!70, !8}
-!71 = distinct !{!71, !8}
-!72 = !{!20, !4, i64 2756}
+!71 = !{!20, !4, i64 2756}
+!72 = distinct !{!72, !8}
 !73 = distinct !{!73, !8}
 !74 = distinct !{!74, !8}
 !75 = distinct !{!75, !8}
 !76 = distinct !{!76, !8}
 !77 = distinct !{!77, !8}
 !78 = distinct !{!78, !8}
-!79 = distinct !{!79, !8}

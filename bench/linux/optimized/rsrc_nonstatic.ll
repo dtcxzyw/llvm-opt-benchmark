@@ -905,7 +905,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
 78:                                               ; preds = %.preheader
   %79 = add i64 %75, %20
   %80 = icmp ult i64 %79, %9
-  br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %78, %.preheader, %.thread21, %.loopexit24
   %81 = phi i64 [ 0, %.loopexit24 ], [ 1, %.thread21 ], [ 1, %.preheader ], [ 1, %78 ]
@@ -933,7 +933,7 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %95 = phi i64 [ %93, %88 ], [ %61, %.loopexit ]
   %96 = add i64 %82, %20
   %97 = icmp ult i64 %96, %9
-  br i1 %97, label %.split, label %.split15.us, !llvm.loop !24
+  br i1 %97, label %.split, label %.split15.us, !llvm.loop !21
 
 .split15.us:                                      ; preds = %94, %55
   %.us-phi = phi i64 [ %56, %55 ], [ %95, %94 ]
@@ -1024,7 +1024,7 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !annotation !23
   store i8 0, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %12, align 1
@@ -1049,13 +1049,13 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
   %25 = phi i32 [ %31, %.preheader ], [ 0, %11 ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr i8, ptr %9, i64 %26
-  %28 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #11, !srcloc !26
+  %28 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #11, !srcloc !24
   %29 = add i32 %28, %24
   %30 = and i32 %28, %23
   %31 = add i32 %25, 44
   %32 = load i32, ptr %6, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %.preheader, label %34, !llvm.loop !27
+  br i1 %33, label %.preheader, label %34, !llvm.loop !25
 
 34:                                               ; preds = %.preheader
   %35 = icmp eq i32 %30, -1
@@ -1170,8 +1170,8 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   br i1 %45, label %.thread31, label %46
 
 46:                                               ; preds = %44
-  %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !28
-  %48 = call i32 %3(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %6) #11, !callees !28
+  %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !26
+  %48 = call i32 %3(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %6) #11, !callees !26
   %49 = sub i32 0, %48
   %50 = icmp eq i32 %47, %49
   %51 = call i32 @release_resource(ptr noundef nonnull %28) #11
@@ -1374,7 +1374,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sub_interval(ptr noundef c
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %0
-  br i1 %53, label %.loopexit, label %9, !llvm.loop !29
+  br i1 %53, label %.loopexit, label %9, !llvm.loop !27
 
 .loopexit:                                        ; preds = %49, %36, %3
   %54 = phi i32 [ -12, %36 ], [ 0, %3 ], [ 0, %49 ]
@@ -1636,7 +1636,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_io_db(ptr noundef r
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %9
-  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !30
+  br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %26, %3
   %31 = phi i64 [ 0, %3 ], [ %27, %26 ]
@@ -1651,9 +1651,9 @@ define internal noundef i64 @store_io_db(ptr noundef readonly captures(none) %0,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !annotation !25
+  store i64 0, ptr %5, align 8, !annotation !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 0, ptr %6, align 8, !annotation !25
+  store i64 0, ptr %6, align 8, !annotation !23
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %17, label %11
@@ -1813,7 +1813,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_mem_db(ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %9
-  br i1 %34, label %.loopexit8, label %.preheader7, !llvm.loop !31
+  br i1 %34, label %.loopexit8, label %.preheader7, !llvm.loop !29
 
 .preheader:                                       ; preds = %.loopexit8, %48
   %35 = phi ptr [ %51, %48 ], [ %15, %.loopexit8 ]
@@ -1838,7 +1838,7 @@ define internal range(i64 -2147483648, 2147487734) i64 @show_mem_db(ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %8
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !30
 
 .loopexit:                                        ; preds = %48, %.loopexit8
   %53 = phi i64 [ %13, %.loopexit8 ], [ %49, %48 ]
@@ -1853,9 +1853,9 @@ define internal noundef i64 @store_mem_db(ptr noundef readonly captures(none) %0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !annotation !25
+  store i64 0, ptr %5, align 8, !annotation !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 0, ptr %6, align 8, !annotation !25
+  store i64 0, ptr %6, align 8, !annotation !23
   %9 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %17, label %11
@@ -1952,15 +1952,13 @@ attributes #13 = { cold nounwind }
 !18 = !{i32 -22, i32 1}
 !19 = distinct !{!19, !6, !7}
 !20 = !{i32 -12, i32 1}
-!21 = distinct !{!21, !6, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = !{!"auto-init"}
-!26 = !{i64 2154284228}
-!27 = distinct !{!27, !6, !7}
-!28 = !{ptr @checksum, ptr @readable}
-!29 = distinct !{!29, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = !{!"auto-init"}
+!24 = !{i64 2154284228}
+!25 = distinct !{!25, !6, !7}
+!26 = !{ptr @checksum, ptr @readable}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
 !30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}

@@ -240,8 +240,8 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   br i1 %exitcond368.not.i, label %._crit_edge325.i, label %.preheader321.us.i, !llvm.loop !54
 
 ._crit_edge325.i:                                 ; preds = %._crit_edge.us.i, %60
-  %129 = load i32, ptr %27, align 4, !tbaa !56
-  %130 = load i32, ptr %28, align 8, !tbaa !57
+  %129 = load i32, ptr %27, align 4, !tbaa !55
+  %130 = load i32, ptr %28, align 8, !tbaa !56
   %.not334.i = icmp sle i32 %129, %130
   %or.cond62 = select i1 %.not334.i, i1 %67, i1 false
   br i1 %or.cond62, label %.preheader320.us.preheader.i, label %.preheader319.i
@@ -271,7 +271,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %.1298.us.i = phi nsz float [ %140, %133 ], [ %.0297335.us.i, %._crit_edge.us339.i ]
   %142 = add i32 %.0290336.us.i, 1
   %exitcond374.not.i = icmp eq i32 %.0290336.us.i, %130
-  br i1 %exitcond374.not.i, label %.preheader319.i, label %.preheader320.us.i, !llvm.loop !58
+  br i1 %exitcond374.not.i, label %.preheader319.i, label %.preheader320.us.i, !llvm.loop !57
 
 143:                                              ; preds = %162, %.preheader320.us.i
   %indvars.iv369.i = phi i64 [ 3, %.preheader320.us.i ], [ %indvars.iv.next370.i, %162 ]
@@ -311,7 +311,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %.1.us.i = phi nsz float [ %160, %152 ], [ %.0277330.us.i, %149 ]
   %indvars.iv.next370.i = add nuw nsw i64 %indvars.iv369.i, 1
   %exitcond373.not.i = icmp eq i64 %indvars.iv.next370.i, %wide.trip.count372.i
-  br i1 %exitcond373.not.i, label %._crit_edge.us339.i, label %143, !llvm.loop !59
+  br i1 %exitcond373.not.i, label %._crit_edge.us339.i, label %143, !llvm.loop !58
 
 ._crit_edge.us339.i:                              ; preds = %162
   %163 = icmp ne i32 %.1287.us.i, 0
@@ -426,11 +426,11 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   store float %233, ptr %185, align 4, !tbaa !50
   %indvars.iv.next376.i = add nuw nsw i64 %indvars.iv375.i, 1
   %exitcond379.not.i = icmp eq i64 %indvars.iv.next376.i, %169
-  br i1 %exitcond379.not.i, label %._crit_edge.us343.i, label %186, !llvm.loop !60
+  br i1 %exitcond379.not.i, label %._crit_edge.us343.i, label %186, !llvm.loop !59
 
 ._crit_edge.us343.i:                              ; preds = %186
   %exitcond384.not.i = icmp eq i64 %indvars.iv.next381.i, %wide.trip.count383.i
-  br i1 %exitcond384.not.i, label %.preheader317.i, label %.preheader318.us.i, !llvm.loop !61
+  br i1 %exitcond384.not.i, label %.preheader317.i, label %.preheader318.us.i, !llvm.loop !60
 
 .preheader317.i:                                  ; preds = %._crit_edge.us343.i, %.preheader319.i
   br i1 %.not334.i, label %.preheader.lr.ph.i, label %calculate_blockiness.exit
@@ -490,7 +490,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %.3282.i.us = phi nsz float [ %.2281348.i.us, %246 ], [ %244, %243 ]
   %.3.i.us = phi nsz float [ %258, %246 ], [ %.2349.i.us, %243 ]
   %exitcond389.not.i.us = icmp eq i64 %indvars.iv.next386.pre-phi.i.us, %wide.trip.count388.i
-  br i1 %exitcond389.not.i.us, label %._crit_edge.i.us, label %236, !llvm.loop !62
+  br i1 %exitcond389.not.i.us, label %._crit_edge.i.us, label %236, !llvm.loop !61
 
 ._crit_edge.i.us:                                 ; preds = %260
   %261 = icmp ne i32 %.3289.i.us, 0
@@ -512,7 +512,7 @@ define internal i32 @blockdetect_filter_frame(ptr noundef readonly captures(none
   %.3300.i.us = phi nsz float [ %270, %263 ], [ %.2299356.i.us, %._crit_edge.i.us ]
   %271 = add i32 %.0278357.i.us, 1
   %exitcond390.not.i.us = icmp eq i32 %.0278357.i.us, %130
-  br i1 %exitcond390.not.i.us, label %calculate_blockiness.exit, label %.preheader.i.us, !llvm.loop !63
+  br i1 %exitcond390.not.i.us, label %calculate_blockiness.exit, label %.preheader.i.us, !llvm.loop !62
 
 calculate_blockiness.exit:                        ; preds = %._crit_edge.thread.i.us, %.preheader.lr.ph.i, %.preheader317.i
   %.2299.lcssa.i = phi float [ %.0297.lcssa.i, %.preheader317.i ], [ %.0297.lcssa.i, %.preheader.lr.ph.i ], [ %.3300.i.us, %._crit_edge.thread.i.us ]
@@ -524,7 +524,7 @@ calculate_blockiness.exit:                        ; preds = %._crit_edge.thread.
   %.1 = phi nsz float [ %272, %calculate_blockiness.exit ], [ %.065, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -539,19 +539,19 @@ define internal range(i32 -12, 1) i32 @blockdetect_config_input(ptr noundef read
   %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = mul nsw i32 %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4, !tbaa !65
+  %12 = load i32, ptr %11, align 4, !tbaa !64
   %13 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %12) #6
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %15 = load i8, ptr %14, align 1, !tbaa !66
+  %15 = load i8, ptr %14, align 1, !tbaa !65
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %16, ptr %17, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 10
-  %19 = load i8, ptr %18, align 2, !tbaa !68
+  %19 = load i8, ptr %18, align 2, !tbaa !67
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %20, ptr %21, align 4, !tbaa !46
-  %22 = load i32, ptr %11, align 4, !tbaa !65
+  %22 = load i32, ptr %11, align 4, !tbaa !64
   %23 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %23, ptr %24, align 8, !tbaa !39
@@ -656,18 +656,17 @@ attributes #6 = { nounwind }
 !51 = !{!"float", !8, i64 0}
 !52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = distinct !{!54, !53, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!21, !15, i64 20}
-!57 = !{!21, !15, i64 24}
-!58 = distinct !{!58, !53, !55}
+!54 = distinct !{!54, !53}
+!55 = !{!21, !15, i64 20}
+!56 = !{!21, !15, i64 24}
+!57 = distinct !{!57, !53}
+!58 = distinct !{!58, !53}
 !59 = distinct !{!59, !53}
 !60 = distinct !{!60, !53}
-!61 = distinct !{!61, !53, !55}
+!61 = distinct !{!61, !53}
 !62 = distinct !{!62, !53}
-!63 = distinct !{!63, !53, !55}
-!64 = distinct !{!64, !53}
-!65 = !{!27, !15, i64 36}
-!66 = !{!67, !8, i64 9}
-!67 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !23, i64 16, !8, i64 24, !11, i64 104}
-!68 = !{!67, !8, i64 10}
+!63 = distinct !{!63, !53}
+!64 = !{!27, !15, i64 36}
+!65 = !{!66, !8, i64 9}
+!66 = !{!"AVPixFmtDescriptor", !11, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !23, i64 16, !8, i64 24, !11, i64 104}
+!67 = !{!66, !8, i64 10}

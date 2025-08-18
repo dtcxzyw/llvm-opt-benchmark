@@ -515,15 +515,15 @@ define internal noundef i32 @colorcorrect_slice16(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %70 ]
   %71 = mul nsw i64 %indvars.iv, %69
   %72 = getelementptr inbounds i16, ptr %.090.us, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !70
+  %73 = load i16, ptr %72, align 2, !tbaa !69
   %74 = uitofp i16 %73 to float
   %75 = fmul nsz float %10, %74
   %76 = getelementptr inbounds nuw i16, ptr %.07889.us, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 2, !tbaa !70
+  %77 = load i16, ptr %76, align 2, !tbaa !69
   %78 = uitofp i16 %77 to float
   %79 = tail call nsz float @llvm.fmuladd.f32(float %78, float %10, float -5.000000e-01)
   %80 = getelementptr inbounds nuw i16, ptr %.07988.us, i64 %indvars.iv
-  %81 = load i16, ptr %80, align 2, !tbaa !70
+  %81 = load i16, ptr %80, align 2, !tbaa !69
   %82 = uitofp i16 %81 to float
   %83 = tail call nsz float @llvm.fmuladd.f32(float %82, float %10, float -5.000000e-01)
   %84 = tail call nsz float @llvm.fmuladd.f32(float %75, float %38, float %79)
@@ -541,7 +541,7 @@ define internal noundef i32 @colorcorrect_slice16(ptr noundef readonly captures(
   %94 = select i1 %isnotneg.inv.i.us, i32 0, i32 %52
   %.0.i.us = select i1 %.not.i.us, i32 %92, i32 %94
   %95 = trunc i32 %.0.i.us to i16
-  store i16 %95, ptr %76, align 2, !tbaa !70
+  store i16 %95, ptr %76, align 2, !tbaa !69
   %96 = fadd nsz float %89, 5.000000e-01
   %97 = fmul nsz float %8, %96
   %98 = fptosi float %97 to i32
@@ -551,10 +551,10 @@ define internal noundef i32 @colorcorrect_slice16(ptr noundef readonly captures(
   %100 = select i1 %isnotneg.inv.i84.us, i32 0, i32 %52
   %.0.i85.us = select i1 %.not.i83.us, i32 %98, i32 %100
   %101 = trunc i32 %.0.i85.us to i16
-  store i16 %101, ptr %80, align 2, !tbaa !70
+  store i16 %101, ptr %80, align 2, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %70, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.us, label %70, !llvm.loop !71
 
 ._crit_edge.us:                                   ; preds = %70
   %102 = getelementptr inbounds i16, ptr %.090.us, i64 %54
@@ -562,7 +562,7 @@ define internal noundef i32 @colorcorrect_slice16(ptr noundef readonly captures(
   %104 = getelementptr inbounds i16, ptr %.07988.us, i64 %29
   %105 = add nsw i32 %.08087.us, 1
   %exitcond94.not = icmp eq i32 %105, %21
-  br i1 %exitcond94.not, label %._crit_edge91, label %.preheader.us, !llvm.loop !73
+  br i1 %exitcond94.not, label %._crit_edge91, label %.preheader.us, !llvm.loop !72
 
 ._crit_edge91:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -631,14 +631,14 @@ define internal noundef i32 @average_slice8(ptr noundef readonly captures(none) 
   %43 = add nsw i32 %.161.us, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !73
 
 ._crit_edge.us:                                   ; preds = %35
   %44 = getelementptr inbounds i8, ptr %.05864.us, i64 %20
   %45 = getelementptr inbounds i8, ptr %.05765.us, i64 %23
   %46 = add nsw i32 %.05368.us, 1
   %exitcond76.not = icmp eq i32 %46, %17
-  br i1 %exitcond76.not, label %._crit_edge69.loopexit, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond76.not, label %._crit_edge69.loopexit, label %.preheader.us, !llvm.loop !74
 
 ._crit_edge69.loopexit:                           ; preds = %._crit_edge.us
   %47 = sitofp i32 %39 to float
@@ -725,23 +725,23 @@ define internal noundef i32 @average_slice16(ptr noundef readonly captures(none)
   %.161.us = phi i64 [ %.05467.us, %.preheader.us ], [ %45, %37 ]
   %.15660.us = phi i64 [ %.05566.us, %.preheader.us ], [ %41, %37 ]
   %38 = getelementptr inbounds nuw i16, ptr %.05864.us, i64 %indvars.iv
-  %39 = load i16, ptr %38, align 2, !tbaa !70
+  %39 = load i16, ptr %38, align 2, !tbaa !69
   %40 = zext i16 %39 to i64
   %41 = add nsw i64 %.15660.us, %40
   %42 = getelementptr inbounds nuw i16, ptr %.05765.us, i64 %indvars.iv
-  %43 = load i16, ptr %42, align 2, !tbaa !70
+  %43 = load i16, ptr %42, align 2, !tbaa !69
   %44 = zext i16 %43 to i64
   %45 = add nsw i64 %.161.us, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %37
   %46 = getelementptr inbounds i16, ptr %.05864.us, i64 %21
   %47 = getelementptr inbounds i16, ptr %.05765.us, i64 %25
   %48 = add nsw i32 %.05368.us, 1
   %exitcond76.not = icmp eq i32 %48, %17
-  br i1 %exitcond76.not, label %._crit_edge69.loopexit, label %.preheader.us, !llvm.loop !77
+  br i1 %exitcond76.not, label %._crit_edge69.loopexit, label %.preheader.us, !llvm.loop !76
 
 ._crit_edge69.loopexit:                           ; preds = %._crit_edge.us
   %49 = sitofp i64 %41 to float
@@ -841,14 +841,14 @@ define internal noundef i32 @minmax_slice8(ptr noundef readonly captures(none) %
   %44 = tail call i32 @llvm.umax.i32(i32 %.186.us, i32 %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %35
   %45 = getelementptr inbounds i8, ptr %.07891.us, i64 %20
   %46 = getelementptr inbounds i8, ptr %.07792.us, i64 %23
   %47 = add nsw i32 %.06997.us, 1
   %exitcond110.not = icmp eq i32 %47, %17
-  br i1 %exitcond110.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !79
+  br i1 %exitcond110.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !78
 
 ._crit_edge98.loopexit:                           ; preds = %._crit_edge.us
   %48 = uitofp nneg i32 %..176.us to float
@@ -938,25 +938,25 @@ define internal noundef i32 @minmax_slice16(ptr noundef readonly captures(none) 
   %.17484.us = phi i32 [ %.07394.us, %.preheader.us ], [ %44, %37 ]
   %.17683.us = phi i32 [ %.07593.us, %.preheader.us ], [ %..176.us, %37 ]
   %38 = getelementptr inbounds nuw i16, ptr %.07891.us, i64 %indvars.iv
-  %39 = load i16, ptr %38, align 2, !tbaa !70
+  %39 = load i16, ptr %38, align 2, !tbaa !69
   %40 = zext i16 %39 to i32
   %..176.us = tail call i32 @llvm.umin.i32(i32 %.17683.us, i32 %40)
   %41 = getelementptr inbounds nuw i16, ptr %.07792.us, i64 %indvars.iv
-  %42 = load i16, ptr %41, align 2, !tbaa !70
+  %42 = load i16, ptr %41, align 2, !tbaa !69
   %43 = zext i16 %42 to i32
   %44 = tail call i32 @llvm.umin.i32(i32 %.17484.us, i32 %43)
   %45 = tail call i32 @llvm.smax.i32(i32 %.17285.us, i32 %40)
   %46 = tail call i32 @llvm.smax.i32(i32 %.186.us, i32 %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !79
 
 ._crit_edge.us:                                   ; preds = %37
   %47 = getelementptr inbounds i16, ptr %.07891.us, i64 %21
   %48 = getelementptr inbounds i16, ptr %.07792.us, i64 %25
   %49 = add nsw i32 %.06997.us, 1
   %exitcond110.not = icmp eq i32 %49, %17
-  br i1 %exitcond110.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !81
+  br i1 %exitcond110.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !80
 
 ._crit_edge98.loopexit:                           ; preds = %._crit_edge.us
   %50 = uitofp nneg i32 %..176.us to float
@@ -1059,14 +1059,14 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   store i32 %53, ptr %51, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %41
   %54 = getelementptr inbounds i8, ptr %.07179.us, i64 %15
   %55 = getelementptr inbounds i8, ptr %.07278.us, i64 %18
   %56 = add nuw nsw i32 %.06680.us, 1
   %exitcond97.not = icmp eq i32 %56, %12
-  br i1 %exitcond97.not, label %.preheader, label %.preheader76.us, !llvm.loop !83
+  br i1 %exitcond97.not, label %.preheader, label %.preheader76.us, !llvm.loop !82
 
 .preheader:                                       ; preds = %._crit_edge.us, %4
   %57 = load float, ptr %29, align 4, !tbaa !52
@@ -1088,7 +1088,7 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   %64 = trunc nuw i64 %indvars.iv.next99 to i32
   %65 = uitofp nneg i32 %64 to float
   %66 = fcmp nsz ogt float %58, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge.split.loop.exit106:                   ; preds = %.lr.ph
   %67 = trunc nuw nsw i64 %indvars.iv98 to i32
@@ -1112,7 +1112,7 @@ define internal noundef i32 @median_8(ptr noundef readonly captures(none) %0, pt
   %72 = trunc nuw i64 %indvars.iv.next102 to i32
   %73 = uitofp nneg i32 %72 to float
   %74 = fcmp nsz ogt float %58, %73
-  br i1 %74, label %.lr.ph90, label %._crit_edge91, !llvm.loop !85
+  br i1 %74, label %.lr.ph90, label %._crit_edge91, !llvm.loop !84
 
 ._crit_edge91.loopexit.split.loop.exit:           ; preds = %.lr.ph90
   %75 = trunc nuw nsw i64 %indvars.iv101 to i32
@@ -1195,14 +1195,14 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
 43:                                               ; preds = %.preheader76.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader76.us ], [ %indvars.iv.next, %43 ]
   %44 = getelementptr inbounds nuw i16, ptr %.07179.us, i64 %indvars.iv
-  %45 = load i16, ptr %44, align 2, !tbaa !70
+  %45 = load i16, ptr %44, align 2, !tbaa !69
   %46 = zext i16 %45 to i64
   %47 = getelementptr inbounds nuw i32, ptr %26, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !35
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !35
   %50 = getelementptr inbounds nuw i16, ptr %.07278.us, i64 %indvars.iv
-  %51 = load i16, ptr %50, align 2, !tbaa !70
+  %51 = load i16, ptr %50, align 2, !tbaa !69
   %52 = zext i16 %51 to i64
   %53 = getelementptr inbounds nuw i32, ptr %28, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !35
@@ -1210,14 +1210,14 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   store i32 %55, ptr %53, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !85
 
 ._crit_edge.us:                                   ; preds = %43
   %56 = getelementptr inbounds i16, ptr %.07179.us, i64 %16
   %57 = getelementptr inbounds i16, ptr %.07278.us, i64 %20
   %58 = add nuw nsw i32 %.06680.us, 1
   %exitcond97.not = icmp eq i32 %58, %12
-  br i1 %exitcond97.not, label %.preheader, label %.preheader76.us, !llvm.loop !87
+  br i1 %exitcond97.not, label %.preheader, label %.preheader76.us, !llvm.loop !86
 
 .preheader:                                       ; preds = %._crit_edge.us, %4
   %59 = load float, ptr %31, align 4, !tbaa !52
@@ -1239,7 +1239,7 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   %66 = trunc nuw i64 %indvars.iv.next99 to i32
   %67 = uitofp nneg i32 %66 to float
   %68 = fcmp nsz ogt float %60, %67
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !88
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge.split.loop.exit106:                   ; preds = %.lr.ph
   %69 = trunc nuw nsw i64 %indvars.iv98 to i32
@@ -1263,7 +1263,7 @@ define internal noundef i32 @median_16(ptr noundef readonly captures(none) %0, p
   %74 = trunc nuw i64 %indvars.iv.next102 to i32
   %75 = uitofp nneg i32 %74 to float
   %76 = fcmp nsz ogt float %60, %75
-  br i1 %76, label %.lr.ph90, label %._crit_edge91, !llvm.loop !89
+  br i1 %76, label %.lr.ph90, label %._crit_edge91, !llvm.loop !88
 
 ._crit_edge91.loopexit.split.loop.exit:           ; preds = %.lr.ph90
   %77 = trunc nuw nsw i64 %indvars.iv101 to i32
@@ -1391,25 +1391,24 @@ attributes #9 = { nounwind willreturn memory(read) }
 !65 = !{!11, !11, i64 0}
 !66 = !{!8, !8, i64 0}
 !67 = distinct !{!67, !43}
-!68 = distinct !{!68, !43, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"short", !8, i64 0}
+!68 = distinct !{!68, !43}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"short", !8, i64 0}
+!71 = distinct !{!71, !43}
 !72 = distinct !{!72, !43}
-!73 = distinct !{!73, !43, !69}
+!73 = distinct !{!73, !43}
 !74 = distinct !{!74, !43}
-!75 = distinct !{!75, !43, !69}
+!75 = distinct !{!75, !43}
 !76 = distinct !{!76, !43}
-!77 = distinct !{!77, !43, !69}
+!77 = distinct !{!77, !43}
 !78 = distinct !{!78, !43}
-!79 = distinct !{!79, !43, !69}
+!79 = distinct !{!79, !43}
 !80 = distinct !{!80, !43}
-!81 = distinct !{!81, !43, !69}
+!81 = distinct !{!81, !43}
 !82 = distinct !{!82, !43}
-!83 = distinct !{!83, !43, !69}
+!83 = distinct !{!83, !43}
 !84 = distinct !{!84, !43}
 !85 = distinct !{!85, !43}
 !86 = distinct !{!86, !43}
-!87 = distinct !{!87, !43, !69}
+!87 = distinct !{!87, !43}
 !88 = distinct !{!88, !43}
-!89 = distinct !{!89, !43}

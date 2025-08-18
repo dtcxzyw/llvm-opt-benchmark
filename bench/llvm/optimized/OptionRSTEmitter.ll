@@ -1807,7 +1807,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
   store ptr %46, ptr %72, align 8, !tbaa !13
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !102
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !100
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIPFbS5_S5_EEEEvT_T0_SH_T1_T2_.exit, %3
   ret void
@@ -1845,9 +1845,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt6vectorIPKNS_6Recor
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !103
+  %14 = load i32, ptr %13, align 8, !tbaa !101
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !103
+  store i32 %15, ptr %13, align 8, !tbaa !101
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -2097,7 +2097,5 @@ attributes #17 = { builtin nounwind }
 !97 = distinct !{!97, !16}
 !98 = distinct !{!98, !16}
 !99 = !{!6, !6, i64 0}
-!100 = distinct !{!100, !16, !101}
-!101 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!102 = distinct !{!102, !16}
-!103 = !{!4, !9, i64 16}
+!100 = distinct !{!100, !16}
+!101 = !{!4, !9, i64 16}

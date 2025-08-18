@@ -164,7 +164,7 @@ msgsnd_wait.exit.thread56:                        ; preds = %msgsnd_wait.exit, %
   br i1 %.not.i53, label %up_irq_restore.exit, label %81
 
 81:                                               ; preds = %msgsnd_wait.exit.thread56
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %81, %msgsnd_wait.exit.thread56
@@ -228,7 +228,6 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 579179, i64 579197}
 !7 = !{i64 579798}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = !{i64 579919}
+!10 = !{i64 579919}

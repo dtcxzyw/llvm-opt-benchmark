@@ -3037,7 +3037,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N
 10:                                               ; preds = %.outer.split.split
   %11 = load i8, ptr %5, align 1, !tbaa !17
   %12 = icmp eq i8 %11, 32
-  br i1 %12, label %.outer.split.split, label %.split.us, !llvm.loop !69
+  br i1 %12, label %.outer.split.split, label %.split.us, !llvm.loop !67
 
 .split.us:                                        ; preds = %10, %.outer.split.split
   %exitcond = icmp eq i64 %indvars.iv, 127
@@ -3048,7 +3048,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N
   %.us-phi47 = phi ptr [ %8, %.split.us ], [ %6, %.outer.split.split.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   store i8 %.us-phi2748, ptr %4, align 1, !tbaa !17
-  br label %.outer, !llvm.loop !69
+  br label %.outer, !llvm.loop !67
 
 .split29.us:                                      ; preds = %.outer.split.split
   %13 = and i64 %indvars.iv, 4294967295
@@ -3596,6 +3596,4 @@ attributes #20 = { nounwind willreturn memory(read) }
 !64 = !{!5, !5, i64 0}
 !65 = !{!66, !66, i64 0}
 !66 = !{!"double", !7, i64 0}
-!67 = distinct !{!67, !52, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !52}
+!67 = distinct !{!67, !52}

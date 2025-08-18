@@ -16771,7 +16771,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %16, ptr %21, align 8, !tbaa !14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !177
+  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !175
 
 .loopexit:                                        ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %5
   %22 = icmp sgt i32 %3, 0
@@ -16793,7 +16793,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -16895,16 +16895,16 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
 52:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11TypeHandlerEEEvv.exit, %.noexc6, %51
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !131, !noalias !179
-  %56 = load i32, ptr %53, align 4, !tbaa !33, !noalias !179
-  %57 = load i32, ptr %5, align 8, !tbaa !33, !noalias !179
-  %58 = load ptr, ptr %3, align 8, !tbaa !135, !noalias !179
+  %55 = load ptr, ptr %54, align 8, !tbaa !131, !noalias !177
+  %56 = load i32, ptr %53, align 4, !tbaa !33, !noalias !177
+  %57 = load i32, ptr %5, align 8, !tbaa !33, !noalias !177
+  %58 = load ptr, ptr %3, align 8, !tbaa !135, !noalias !177
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !131, !noalias !182
-  %62 = load i32, ptr %59, align 4, !tbaa !33, !noalias !182
-  %63 = load i32, ptr %34, align 8, !tbaa !33, !noalias !182
-  %64 = load ptr, ptr %1, align 8, !tbaa !135, !noalias !182
+  %61 = load ptr, ptr %60, align 8, !tbaa !131, !noalias !180
+  %62 = load i32, ptr %59, align 4, !tbaa !33, !noalias !180
+  %63 = load i32, ptr %34, align 8, !tbaa !33, !noalias !180
+  %64 = load ptr, ptr %1, align 8, !tbaa !135, !noalias !180
   store ptr %64, ptr %3, align 8, !tbaa !135
   store i32 %63, ptr %5, align 8, !tbaa !33
   store i32 %62, ptr %53, align 4, !tbaa !33
@@ -17308,13 +17308,11 @@ attributes #22 = { builtin allocsize(0) }
 !172 = distinct !{!172, !20}
 !173 = distinct !{!173, !20}
 !174 = distinct !{!174, !20}
-!175 = distinct !{!175, !20, !176}
-!176 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!177 = distinct !{!177, !20}
-!178 = distinct !{!178, !20}
-!179 = !{!180}
-!180 = distinct !{!180, !181, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!181 = distinct !{!181, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
-!184 = distinct !{!184, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
+!175 = distinct !{!175, !20}
+!176 = distinct !{!176, !20}
+!177 = !{!178}
+!178 = distinct !{!178, !179, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!179 = distinct !{!179, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_: argument 0"}
+!182 = distinct !{!182, !"_ZSt10make_tupleIJRPN6google8protobuf5ArenaERiS5_RPNS1_8internal20RepeatedPtrFieldBase3RepEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOSE_"}

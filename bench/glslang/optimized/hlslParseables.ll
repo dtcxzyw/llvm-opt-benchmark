@@ -3964,7 +3964,7 @@ _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i.i:     ; preds = %108, %108
   br i1 %117, label %.preheader.i.i, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i, !llvm.loop !9
 
 _ZN12_GLOBAL__N_16NthArgEPKci.exit.i:             ; preds = %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i.i
-  br i1 %112, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread, label %.split2.us.i
+  br i1 %112, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread, label %.split2.i
 
 _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i
   %.06.lcssa.i.i508 = phi ptr [ %114, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i ], [ %.0106471, %.split.i ]
@@ -3988,7 +3988,7 @@ _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GL
   %121 = add nuw nsw i32 %.0.i138, 1
   br label %.split.i, !llvm.loop !10
 
-.split2.us.i:                                     ; preds = %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i
+.split2.i:                                        ; preds = %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i
   %.not447 = icmp eq i32 %.04.i, 0
   %spec.select = select i1 %.not447, i32 %.0407, i32 %.04.i
   %spec.select444 = call i32 @llvm.umax.i32(i32 %.04.i, i32 1)
@@ -3996,7 +3996,7 @@ _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GL
   %123 = icmp eq ptr %122, null
   br i1 %123, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.lr.ph
 
-_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.lr.ph:  ; preds = %.split2.us.i
+_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.lr.ph:  ; preds = %.split2.i
   %.not113457 = icmp sgt i32 %spec.select444, %spec.select
   %.not113457.fr = freeze i1 %.not113457
   br i1 %.not113457.fr, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.us, label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141
@@ -5689,8 +5689,8 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split: ; preds = %_ZN12_GL
   store i32 %spec.select444469, ptr %10, align 4
   br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread
 
-_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split, %.split2.us.i
-  %.0..promoted506 = phi i32 [ %.0..promoted468, %.split2.us.i ], [ %spec.select444469, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split ], [ %.0..promoted504, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141 ], [ %.0..promoted504, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141 ]
+_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split, %.split2.i
+  %.0..promoted506 = phi i32 [ %.0..promoted468, %.split2.i ], [ %spec.select444469, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split ], [ %.0..promoted504, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141 ], [ %.0..promoted504, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141 ]
   br i1 %57, label %641, label %646
 
 641:                                              ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread

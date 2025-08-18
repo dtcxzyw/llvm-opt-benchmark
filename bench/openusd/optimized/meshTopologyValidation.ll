@@ -5357,7 +5357,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   store i32 %43, ptr %68, align 4
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1
-  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !57
+  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !55
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -5477,6 +5477,4 @@ attributes #23 = { noreturn nounwind }
 !52 = distinct !{!52, !23}
 !53 = distinct !{!53, !23}
 !54 = distinct !{!54, !23}
-!55 = distinct !{!55, !23, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !23}
+!55 = distinct !{!55, !23}

@@ -470,12 +470,12 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, ptr noundef %1, 
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %52, i1 false), !tbaa !31
   %57 = add nuw nsw i64 %.15564.us.us, 1
   %exitcond71.not = icmp eq i64 %57, 20
-  br i1 %exitcond71.not, label %.split.us.us, label %.preheader.us.us, !llvm.loop !34
+  br i1 %exitcond71.not, label %.split.us.us, label %.preheader.us.us
 
 .split.us.us:                                     ; preds = %.preheader.us.us
   %58 = add nuw nsw i64 %.15765.us, 1
   %exitcond72.not = icmp eq i64 %58, 20
-  br i1 %exitcond72.not, label %.split68.us, label %.preheader59.us, !llvm.loop !36
+  br i1 %exitcond72.not, label %.split68.us, label %.preheader59.us
 
 .split68.us:                                      ; preds = %.split.us.us, %49
   ret void
@@ -627,24 +627,24 @@ check_retval.exit99.thread:                       ; preds = %20
   %41 = fmul double %9, %40
   %gep = getelementptr inbounds nuw [20 x [20 x ptr]], ptr %invariant.gep, i64 0, i64 %indvars.iv119
   %42 = load ptr, ptr %gep, align 8, !tbaa !21
-  %43 = load ptr, ptr %1, align 8, !tbaa !37
+  %43 = load ptr, ptr %1, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !40
+  %45 = load ptr, ptr %44, align 8, !tbaa !37
   %46 = shl nuw nsw i64 %indvars.iv119, 1
   %47 = add nuw nsw i64 %46, %35
   %48 = getelementptr inbounds nuw double, ptr %45, i64 %47
-  %49 = load ptr, ptr %2, align 8, !tbaa !37
+  %49 = load ptr, ptr %2, align 8, !tbaa !34
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !40
+  %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw double, ptr %51, i64 %47
-  %53 = load ptr, ptr %15, align 8, !tbaa !37
+  %53 = load ptr, ptr %15, align 8, !tbaa !34
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !40
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
   %56 = getelementptr inbounds nuw double, ptr %55, i64 %47
   %57 = load ptr, ptr %24, align 8, !tbaa !11
-  %58 = load ptr, ptr %57, align 8, !tbaa !37
+  %58 = load ptr, ptr %57, align 8, !tbaa !34
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !40
+  %60 = load ptr, ptr %59, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw double, ptr %60, i64 %47
   %62 = load ptr, ptr %25, align 8, !tbaa !17
   %63 = fmul double %41, 5.000000e+01
@@ -702,9 +702,9 @@ dotprod.exit.i:                                   ; preds = %90
   br i1 %87, label %86, label %WebRates.exit.critedge
 
 WebRates.exit.critedge:                           ; preds = %dotprod.exit.i
-  %97 = call double @sin(double noundef %65) #12, !tbaa !43
+  %97 = call double @sin(double noundef %65) #12, !tbaa !40
   %98 = fmul double %97, 1.000000e+03
-  %99 = call double @sin(double noundef %36) #12, !tbaa !43
+  %99 = call double @sin(double noundef %36) #12, !tbaa !40
   %100 = call double @llvm.fmuladd.f64(double %98, double %99, double %64)
   %101 = load double, ptr %48, align 8, !tbaa !31
   %102 = load double, ptr %26, align 8, !tbaa !31
@@ -778,9 +778,9 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !37
+  %15 = load ptr, ptr %5, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
   %.idx = mul nuw nsw i64 %indvars.iv, 320
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx26
@@ -858,14 +858,14 @@ check_retval.exit14:                              ; preds = %check_retval.exit, 
   br label %check_retval.exit16
 
 check_retval.exit16:                              ; preds = %check_retval.exit14, %19
-  %22 = load ptr, ptr %1, align 8, !tbaa !37
+  %22 = load ptr, ptr %1, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6384
   %26 = load double, ptr %24, align 8, !tbaa !31
   %27 = load double, ptr %25, align 8, !tbaa !31
-  %28 = load i64, ptr %5, align 8, !tbaa !44
-  %29 = load i32, ptr %4, align 4, !tbaa !43
+  %28 = load i64, ptr %5, align 8, !tbaa !41
+  %29 = load i32, ptr %4, align 4, !tbaa !40
   %30 = load double, ptr %6, align 8, !tbaa !31
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %2, double noundef %26, double noundef %27, i64 noundef %28, i32 noundef %29, double noundef %30)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -970,17 +970,17 @@ check_retval.exit17:                              ; preds = %check_retval.exit15
 check_retval.exit19:                              ; preds = %check_retval.exit17, %41
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %puts7 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %44 = load i64, ptr %2, align 8, !tbaa !44
+  %44 = load i64, ptr %2, align 8, !tbaa !41
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %44)
-  %46 = load i64, ptr %3, align 8, !tbaa !44
+  %46 = load i64, ptr %3, align 8, !tbaa !41
   %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %46)
-  %48 = load i64, ptr %7, align 8, !tbaa !44
+  %48 = load i64, ptr %7, align 8, !tbaa !41
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %48)
-  %50 = load i64, ptr %4, align 8, !tbaa !44
+  %50 = load i64, ptr %4, align 8, !tbaa !41
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %50)
-  %52 = load i64, ptr %5, align 8, !tbaa !44
+  %52 = load i64, ptr %5, align 8, !tbaa !41
   %53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %52)
-  %54 = load i64, ptr %6, align 8, !tbaa !44
+  %54 = load i64, ptr %6, align 8, !tbaa !41
   %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1013,17 +1013,17 @@ declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @Fweb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %6 = load ptr, ptr %0, align 8, !tbaa !37
+  %6 = load ptr, ptr %0, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 6512
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !40
-  %14 = load ptr, ptr %1, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %14 = load ptr, ptr %1, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -1084,9 +1084,9 @@ WebRates.exit.preheader.critedge:                 ; preds = %dotprod.exit.i
   %50 = fmul double %49, 5.000000e+01
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %26, double 1.000000e+00)
   %52 = fmul double %49, 0x402921FB54442D28
-  %53 = tail call double @sin(double noundef %52) #12, !tbaa !43
+  %53 = tail call double @sin(double noundef %52) #12, !tbaa !40
   %54 = fmul double %53, 1.000000e+03
-  %55 = tail call double @sin(double noundef %29) #12, !tbaa !43
+  %55 = tail call double @sin(double noundef %29) #12, !tbaa !40
   %56 = tail call double @llvm.fmuladd.f64(double %54, double %55, double %51)
   %57 = load double, ptr %34, align 8, !tbaa !31
   %58 = load double, ptr %19, align 8, !tbaa !31
@@ -1269,14 +1269,11 @@ attributes #14 = { nounwind allocsize(0) }
 !31 = !{!14, !14, i64 0}
 !32 = !{!6, !6, i64 0}
 !33 = !{!12, !6, i64 6528}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !35}
-!37 = !{!38, !6, i64 0}
-!38 = !{!"_generic_N_Vector", !6, i64 0, !39, i64 8, !10, i64 16}
-!39 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
-!40 = !{!41, !30, i64 16}
-!41 = !{!"_N_VectorContent_Serial", !13, i64 0, !42, i64 8, !30, i64 16}
-!42 = !{!"int", !7, i64 0}
-!43 = !{!42, !42, i64 0}
-!44 = !{!13, !13, i64 0}
+!34 = !{!35, !6, i64 0}
+!35 = !{!"_generic_N_Vector", !6, i64 0, !36, i64 8, !10, i64 16}
+!36 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!37 = !{!38, !30, i64 16}
+!38 = !{!"_N_VectorContent_Serial", !13, i64 0, !39, i64 8, !30, i64 16}
+!39 = !{!"int", !7, i64 0}
+!40 = !{!39, !39, i64 0}
+!41 = !{!13, !13, i64 0}

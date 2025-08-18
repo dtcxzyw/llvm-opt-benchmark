@@ -3621,7 +3621,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.0.val = load i32, ptr %66, align 4, !tbaa !21
   %111 = sext i32 %.0.val to i64
   %112 = icmp slt i64 %indvars.iv.next70, %111
-  br i1 %112, label %.lr.ph61.split, label %.critedge2, !llvm.loop !97
+  br i1 %112, label %.lr.ph61.split, label %.critedge2, !llvm.loop !95
 
 .critedge2:                                       ; preds = %110, %83, %.critedge
   %113 = call ptr @Aig_ManDupRepr(ptr noundef nonnull %0, i32 noundef 0) #15
@@ -3744,7 +3744,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %23, %16
   store i32 %31, ptr %30, align 4, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !98
+  br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !96
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 392
@@ -3815,7 +3815,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   %62 = getelementptr i8, ptr %0, i64 48
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %64 = zext nneg i32 %.val73 to i64
-  %65 = load ptr, ptr %63, align 8, !tbaa !99
+  %65 = load ptr, ptr %63, align 8, !tbaa !97
   br label %66
 
 66:                                               ; preds = %.lr.ph, %66
@@ -3846,7 +3846,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   store ptr %.82, ptr %86, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %87 = icmp samesign ult i64 %indvars.iv.next, %64
-  br i1 %87, label %66, label %.critedge, !llvm.loop !100
+  br i1 %87, label %66, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %66, %49
   tail call void @Aig_ManStop(ptr noundef nonnull %.1) #15
@@ -4011,9 +4011,7 @@ attributes #18 = { nounwind allocsize(1) }
 !92 = !{!4, !15, i64 456}
 !93 = distinct !{!93, !40}
 !94 = !{!14, !14, i64 0}
-!95 = distinct !{!95, !40, !96}
-!96 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!97 = distinct !{!97, !40}
+!95 = distinct !{!95, !40}
+!96 = distinct !{!96, !40}
+!97 = !{!4, !13, i64 256}
 !98 = distinct !{!98, !40}
-!99 = !{!4, !13, i64 256}
-!100 = distinct !{!100, !40}

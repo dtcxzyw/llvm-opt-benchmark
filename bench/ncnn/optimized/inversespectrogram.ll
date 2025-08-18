@@ -1026,7 +1026,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
   %lftr.wideiv99 = trunc i64 %indvars.iv.next97 to i32
   %exitcond100.not = icmp eq i32 %50, %lftr.wideiv99
-  br i1 %exitcond100.not, label %._crit_edge69, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond100.not, label %._crit_edge69, label %.preheader.us
 
 79:                                               ; preds = %.preheader.us, %79
   %indvars.iv92 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next93, %79 ]
@@ -1054,7 +1054,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   %98 = fadd fast float %97, %96
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count
-  br i1 %exitcond95.not, label %._crit_edge.us, label %79, !llvm.loop !77
+  br i1 %exitcond95.not, label %._crit_edge.us, label %79, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %79
   %99 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv96
@@ -1110,7 +1110,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %lftr.wideiv90 = trunc i64 %indvars.iv.next88 to i32
   %exitcond91.not = icmp eq i32 %109, %lftr.wideiv90
-  br i1 %exitcond91.not, label %._crit_edge69, label %.preheader.us72, !llvm.loop !78
+  br i1 %exitcond91.not, label %._crit_edge69, label %.preheader.us72
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread60
   %indvars.iv = phi i64 [ %110, %.preheader.preheader ], [ %indvars.iv.next, %.thread60 ]
@@ -1178,7 +1178,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #6
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !79 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
+declare !callback !76 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
@@ -1298,9 +1298,6 @@ attributes #15 = { builtin nounwind }
 !72 = distinct !{!72, !43}
 !73 = !{!20, !21, i64 8}
 !74 = !{!20, !21, i64 9}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !43}
-!78 = distinct !{!78, !76}
-!79 = !{!80}
-!80 = !{i64 2, i64 -1, i64 -1, i1 true}
+!75 = distinct !{!75, !43}
+!76 = !{!77}
+!77 = !{i64 2, i64 -1, i64 -1, i1 true}

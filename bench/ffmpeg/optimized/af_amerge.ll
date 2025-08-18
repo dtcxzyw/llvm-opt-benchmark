@@ -709,7 +709,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   %125 = add nsw i32 %124, %.034.i.i
   %indvars.iv.next.i69.i = add nuw nsw i64 %indvars.iv.i68.i, 1
   %exitcond.not.i70.i = icmp eq i64 %indvars.iv.next.i69.i, %wide.trip.count.i66.i
-  br i1 %exitcond.not.i70.i, label %.preheader31.us.preheader.i.i, label %.lr.ph.i67.i, !llvm.loop !87
+  br i1 %exitcond.not.i70.i, label %.preheader31.us.preheader.i.i, label %.lr.ph.i67.i, !llvm.loop !86
 
 126:                                              ; preds = %.preheader.i
   br i1 %98, label %.lr.ph.preheader.i72.i, label %try_push_frame.exit
@@ -782,7 +782,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   %149 = add nsw i32 %148, %.034.i76.i
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %exitcond.not.i78.i = icmp eq i64 %indvars.iv.next.i77.i, %wide.trip.count.i73.i
-  br i1 %exitcond.not.i78.i, label %.preheader31.us.preheader.i79.i, label %.lr.ph.i74.i, !llvm.loop !87
+  br i1 %exitcond.not.i78.i, label %.preheader31.us.preheader.i79.i, label %.lr.ph.i74.i, !llvm.loop !86
 
 150:                                              ; preds = %.preheader.i
   br i1 %98, label %.lr.ph.preheader.i98.i, label %try_push_frame.exit
@@ -855,7 +855,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   %173 = add nsw i32 %172, %.034.i102.i
   %indvars.iv.next.i103.i = add nuw nsw i64 %indvars.iv.i101.i, 1
   %exitcond.not.i104.i = icmp eq i64 %indvars.iv.next.i103.i, %wide.trip.count.i99.i
-  br i1 %exitcond.not.i104.i, label %.preheader31.us.preheader.i105.i, label %.lr.ph.i100.i, !llvm.loop !87
+  br i1 %exitcond.not.i104.i, label %.preheader31.us.preheader.i105.i, label %.lr.ph.i100.i, !llvm.loop !86
 
 174:                                              ; preds = %.preheader.i
   br i1 %98, label %.lr.ph.preheader.i124.i, label %try_push_frame.exit
@@ -928,7 +928,7 @@ free_frames.exit64.i:                             ; preds = %.lr.ph.i60.i, %99
   %197 = add nsw i32 %196, %.034.i128.i
   %indvars.iv.next.i129.i = add nuw nsw i64 %indvars.iv.i127.i, 1
   %exitcond.not.i130.i = icmp eq i64 %indvars.iv.next.i129.i, %wide.trip.count.i125.i
-  br i1 %exitcond.not.i130.i, label %.preheader31.us.preheader.i131.i, label %.lr.ph.i126.i, !llvm.loop !87
+  br i1 %exitcond.not.i130.i, label %.preheader31.us.preheader.i131.i, label %.lr.ph.i126.i, !llvm.loop !86
 
 copy_samples.exit.i:                              ; preds = %._crit_edge41.us.i116.i, %._crit_edge41.us.i90.i, %._crit_edge41.us.i.i, %._crit_edge41.us.i142.i
   %.pr.i = load i32, ptr %92, align 8, !tbaa !20
@@ -992,7 +992,7 @@ try_push_frame.exit._crit_edge:                   ; preds = %try_push_frame.exit
 
 215:                                              ; preds = %208
   %216 = load i32, ptr %5, align 4, !tbaa !54
-  %217 = load i64, ptr %6, align 8, !tbaa !88
+  %217 = load i64, ptr %6, align 8, !tbaa !87
   call void @ff_avfilter_link_set_in_status(ptr noundef %214, i32 noundef %216, i64 noundef %217) #7
   br label %.loopexit
 
@@ -1013,7 +1013,7 @@ try_push_frame.exit._crit_edge:                   ; preds = %try_push_frame.exit
   %225 = load i32, ptr %25, align 8, !tbaa !65
   %226 = zext i32 %225 to i64
   %227 = icmp samesign ult i64 %indvars.iv.next108, %226
-  br i1 %227, label %.lr.ph77, label %.loopexit, !llvm.loop !89
+  br i1 %227, label %.lr.ph77, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %14, %224, %.preheader, %202, %try_push_frame.exit.thread, %try_push_frame.exit, %220, %215
   %.1 = phi i32 [ 0, %215 ], [ 0, %220 ], [ %200, %try_push_frame.exit ], [ %.0.i.ph, %try_push_frame.exit.thread ], [ 0, %202 ], [ 0, %.preheader ], [ 0, %224 ], [ 0, %14 ]
@@ -1025,12 +1025,12 @@ try_push_frame.exit._crit_edge:                   ; preds = %try_push_frame.exit
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_output(ptr noundef initializes((96, 104)) %0) #1 {
   %2 = alloca %struct.AVBPrint, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !90
+  %3 = load ptr, ptr %0, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !91
+  %7 = load i32, ptr %6, align 4, !tbaa !90
   %8 = tail call i32 @av_get_bytes_per_sample(i32 noundef %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 268
   store i32 %8, ptr %9, align 4, !tbaa !82
@@ -1062,13 +1062,13 @@ define internal noundef i32 @config_output(ptr noundef initializes((96, 104)) %0
   %26 = load i32, ptr %16, align 8, !tbaa !20
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !92
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = call i32 @av_channel_layout_describe_bprint(ptr noundef nonnull %29, ptr noundef nonnull %2) #7
-  %31 = load ptr, ptr %2, align 8, !tbaa !93
+  %31 = load ptr, ptr %2, align 8, !tbaa !92
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.7, ptr noundef %31) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
@@ -1248,13 +1248,12 @@ attributes #8 = { nounwind willreturn memory(none) }
 !82 = !{!21, !15, i64 268}
 !83 = distinct !{!83, !25}
 !84 = distinct !{!84, !25}
-!85 = distinct !{!85, !25, !86}
-!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!87 = distinct !{!87, !25}
-!88 = !{!76, !76, i64 0}
-!89 = distinct !{!89, !25}
-!90 = !{!33, !34, i64 0}
-!91 = !{!33, !15, i64 36}
-!92 = distinct !{!92, !25}
-!93 = !{!94, !11, i64 0}
-!94 = !{!"AVBPrint", !11, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !8, i64 20, !8, i64 21}
+!85 = distinct !{!85, !25}
+!86 = distinct !{!86, !25}
+!87 = !{!76, !76, i64 0}
+!88 = distinct !{!88, !25}
+!89 = !{!33, !34, i64 0}
+!90 = !{!33, !15, i64 36}
+!91 = distinct !{!91, !25}
+!92 = !{!93, !11, i64 0}
+!93 = !{!"AVBPrint", !11, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !8, i64 20, !8, i64 21}

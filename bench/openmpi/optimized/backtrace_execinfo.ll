@@ -62,7 +62,7 @@ define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef captures(address_i
   call void @backtrace_symbols_fd(ptr noundef nonnull %28, i32 noundef 1, i32 noundef %.0) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %11, %9
   %.017 = phi i32 [ -5, %9 ], [ 0, %11 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
@@ -94,7 +94,7 @@ define noundef i32 @prte_backtrace_buffer(ptr noundef writeonly captures(none) i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @backtrace(ptr noundef nonnull %3, i32 noundef 32) #7
   %5 = call ptr @backtrace_symbols(ptr noundef nonnull %3, i32 noundef %4) #7
-  store ptr %5, ptr %0, align 8, !tbaa !11
+  store ptr %5, ptr %0, align 8, !tbaa !9
   store i32 %4, ptr %1, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
@@ -128,10 +128,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p2 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p2 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}

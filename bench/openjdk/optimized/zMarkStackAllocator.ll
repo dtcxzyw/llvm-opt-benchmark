@@ -666,7 +666,7 @@ define hidden void @_ZN19ZMarkStackAllocator13free_magazineEP6ZStackIPS0_I15ZMar
   %35 = inttoptr i64 %34 to ptr
   %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr %.0.i, ptr nonnull %4) #10, !srcloc !6
   %37 = icmp eq ptr %36, %.0.i
-  br i1 %37, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.i, !llvm.loop !15
+  br i1 %37, label %_ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit, label %.split.i, !llvm.loop !13
 
 _ZN10ZStackListI6ZStackIPS0_I15ZMarkStackEntryLm254EELm15EEE4pushEPS4_.exit: ; preds = %.split.i, %.split.us.i
   ret void
@@ -790,6 +790,4 @@ attributes #11 = { noreturn nounwind }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = !{i64 2145410579}
-!13 = distinct !{!13, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !8}
+!13 = distinct !{!13, !8}

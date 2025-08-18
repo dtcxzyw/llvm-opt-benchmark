@@ -1731,7 +1731,7 @@ Vec_WrdErase.exit21.i:                            ; preds = %23, %Vec_WrdErase.e
 33:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %29
-  br i1 %exitcond.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !58
 
 ._crit_edge.i.i:                                  ; preds = %Vec_WrdErase.exit21.i
   %.not.i22.i = icmp eq ptr %.pre.i.i, null
@@ -1771,7 +1771,7 @@ Vec_WecErase.exit.i:                              ; preds = %._crit_edge.thread.
 43:                                               ; preds = %42, %.lr.ph.i27.i
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond3.not = icmp eq i64 %indvars.iv.next.i31.i, %39
-  br i1 %exitcond3.not, label %._crit_edge.thread.i26.i, label %.lr.ph.i27.i, !llvm.loop !59
+  br i1 %exitcond3.not, label %._crit_edge.thread.i26.i, label %.lr.ph.i27.i, !llvm.loop !58
 
 ._crit_edge.i24.i:                                ; preds = %Vec_WecErase.exit.i
   %.not.i25.i = icmp eq ptr %.pre.i23.i, null
@@ -1932,6 +1932,5 @@ attributes #20 = { nounwind willreturn memory(read) }
 !54 = distinct !{!54, !23}
 !55 = !{!14, !9, i64 0}
 !56 = distinct !{!56, !23}
-!57 = distinct !{!57, !23, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !23}
+!57 = distinct !{!57, !23}
+!58 = distinct !{!58, !23}

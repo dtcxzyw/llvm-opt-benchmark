@@ -187160,7 +187160,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !925
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !924
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -187190,7 +187190,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !926
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !923
 }
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
@@ -187371,7 +187371,7 @@ _ZN5caffe8NetStateD2Ev.exit.i:                    ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal18GenericTypeHandlerIN5caffe8NetStateEE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %.lr.ph, %_ZN5caffe8NetStateD2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !927
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !925
 
 37:                                               ; preds = %._crit_edge, %1
   store ptr null, ptr %2, align 8, !tbaa !480
@@ -187703,7 +187703,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 
 _ZZN6google8protobuf8internal16PackedEnumParserINS0_15UnknownFieldSetEEEPKcPvS5_PNS1_12ParseContextEPFbiEPNS1_16InternalMetadataEiENKUlmE_clEm.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit.i, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !426
-  br label %27, !llvm.loop !928
+  br label %27, !llvm.loop !926
 
 _ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci.exit.thread: ; preds = %30, %_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci.exit
   %.125 = phi ptr [ %.fca.0.extract.i7, %_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci.exit ], [ %.018, %30 ]
@@ -188710,9 +188710,7 @@ attributes #29 = { builtin allocsize(0) }
 !920 = distinct !{!920, !432}
 !921 = distinct !{!921, !432}
 !922 = distinct !{!922, !432}
-!923 = distinct !{!923, !432, !924}
-!924 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!923 = distinct !{!923, !432}
+!924 = distinct !{!924, !432}
 !925 = distinct !{!925, !432}
 !926 = distinct !{!926, !432}
-!927 = distinct !{!927, !432}
-!928 = distinct !{!928, !432}

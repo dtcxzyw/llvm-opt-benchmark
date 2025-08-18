@@ -4648,7 +4648,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %sext266 = shl i64 %134, 30
   %135 = ashr i64 %sext266, 32
   %136 = icmp slt i64 %indvars.iv.next231, %135
-  br i1 %136, label %.lr.ph188.split, label %.loopexit178, !llvm.loop !34
+  br i1 %136, label %.lr.ph188.split, label %.loopexit178, !llvm.loop !32
 
 .loopexit178:                                     ; preds = %.lr.ph188.split, %.lr.ph188.split.us, %85, %81
   %.0144 = phi ptr [ null, %81 ], [ %93, %85 ], [ %93, %.lr.ph188.split.us ], [ %93, %.lr.ph188.split ]
@@ -4737,7 +4737,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   store i32 %175, ptr %.4190, align 4
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !35
+  br i1 %exitcond240.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !33
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %161
   %.4.lcssa = phi ptr [ %.2132207, %161 ], [ %176, %.lr.ph192 ]
@@ -4796,7 +4796,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   store i32 %204, ptr %205, align 4
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge198, label %201, !llvm.loop !36
+  br i1 %exitcond245.not, label %._crit_edge198, label %201, !llvm.loop !34
 
 ._crit_edge198:                                   ; preds = %201, %.lr.ph200.._crit_edge198_crit_edge
   %206 = phi ptr [ %.pre265, %.lr.ph200.._crit_edge198_crit_edge ], [ %200, %201 ]
@@ -4818,7 +4818,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %sext268 = shl i64 %217, 30
   %218 = ashr i64 %sext268, 32
   %219 = icmp slt i64 %indvars.iv.next247, %218
-  br i1 %219, label %.lr.ph200, label %.loopexit173, !llvm.loop !37
+  br i1 %219, label %.lr.ph200, label %.loopexit173, !llvm.loop !35
 
 .loopexit173:                                     ; preds = %._crit_edge198, %.preheader172, %._crit_edge193
   br i1 %17, label %220, label %.loopexit
@@ -4877,14 +4877,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %sext269 = shl i64 %253, 30
   %254 = ashr i64 %sext269, 32
   %255 = icmp slt i64 %indvars.iv.next250, %254
-  br i1 %255, label %.lr.ph202, label %.loopexit, !llvm.loop !38
+  br i1 %255, label %.lr.ph202, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph202, %.preheader, %.loopexit173, %220, %155
   %.3137 = phi ptr [ %.2136206, %155 ], [ %227, %220 ], [ %180, %.loopexit173 ], [ %227, %.preheader ], [ %227, %.lr.ph202 ]
   %.3 = phi ptr [ %.2132207, %155 ], [ %226, %220 ], [ %.4.lcssa, %.loopexit173 ], [ %226, %.preheader ], [ %226, %.lr.ph202 ]
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count255
-  br i1 %exitcond256.not, label %.loopexit177, label %.lr.ph208, !llvm.loop !39
+  br i1 %exitcond256.not, label %.loopexit177, label %.lr.ph208, !llvm.loop !37
 
 .loopexit177:                                     ; preds = %.loopexit, %142
   %.1135 = phi ptr [ %.0134217, %142 ], [ %.3137, %.loopexit ]
@@ -4943,13 +4943,13 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %sext270 = shl i64 %293, 30
   %294 = ashr i64 %sext270, 32
   %295 = icmp slt i64 %indvars.iv.next258, %294
-  br i1 %295, label %.lr.ph212, label %.loopexit175, !llvm.loop !40
+  br i1 %295, label %.lr.ph212, label %.loopexit175, !llvm.loop !38
 
 .loopexit175:                                     ; preds = %.lr.ph212, %.preheader174, %.loopexit177, %258
   %.1143 = phi i32 [ %266, %258 ], [ %.0142216, %.loopexit177 ], [ %266, %.preheader174 ], [ %266, %.lr.ph212 ]
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count263
-  br i1 %exitcond264.not, label %._crit_edge221, label %142, !llvm.loop !41
+  br i1 %exitcond264.not, label %._crit_edge221, label %142, !llvm.loop !39
 
 ._crit_edge221:                                   ; preds = %.loopexit175, %.loopexit178
   ret void
@@ -5198,7 +5198,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit54:         ; preds = %86, %_ZNSt6vectorIi
   %sext = shl i64 %113, 30
   %114 = ashr i64 %sext, 32
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %.preheader84, !llvm.loop !42
+  br i1 %115, label %.lr.ph, label %.preheader84, !llvm.loop !40
 
 .lr.ph91:                                         ; preds = %.preheader84, %._crit_edge
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %._crit_edge ], [ 0, %.preheader84 ]
@@ -5367,7 +5367,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit70:         ; preds = %173, %_ZNSt6vectorI
   %sext121 = shl i64 %200, 30
   %201 = ashr i64 %sext121, 32
   %202 = icmp slt i64 %indvars.iv.next109, %201
-  br i1 %202, label %.lr.ph89, label %._crit_edge, !llvm.loop !43
+  br i1 %202, label %.lr.ph89, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit70, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit62
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -5383,7 +5383,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit70:         ; preds = %173, %_ZNSt6vectorI
   %sext122 = shl i64 %211, 32
   %212 = ashr exact i64 %sext122, 32
   %213 = icmp slt i64 %indvars.iv.next112, %212
-  br i1 %213, label %.lr.ph91, label %._crit_edge92, !llvm.loop !44
+  br i1 %213, label %.lr.ph91, label %._crit_edge92, !llvm.loop !42
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %.preheader84
   %.lcssa = phi ptr [ %69, %.preheader84 ], [ %203, %._crit_edge ]
@@ -5431,14 +5431,14 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS
 .lr.ph.i.i.i.i.i71:                               ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i71
   %.012.i.i.i.i.i = phi ptr [ %245, %.lr.ph.i.i.i.i.i71 ], [ %242, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %244, %.lr.ph.i.i.i.i.i71 ], [ %231, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %243 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !48, !noalias !45
-  store i64 %243, ptr %.012.i.i.i.i.i, align 4, !alias.scope !45, !noalias !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  %243 = load i64, ptr %.0911.i.i.i.i.i, align 4, !alias.scope !46, !noalias !43
+  store i64 %243, ptr %.012.i.i.i.i.i, align 4, !alias.scope !43, !noalias !46
   %244 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %245 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i72 = icmp eq ptr %244, %238
-  br i1 %.not.i.i.i.i.i72, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i71, !llvm.loop !50
+  br i1 %.not.i.i.i.i.i72, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i71, !llvm.loop !48
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i71, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %231, null
@@ -5477,7 +5477,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE7re
   %256 = load i32, ptr %250, align 8
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next115, %257
-  br i1 %258, label %.lr.ph94, label %.loopexit, !llvm.loop !51
+  br i1 %258, label %.lr.ph94, label %.loopexit, !llvm.loop !49
 
 259:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE7reserveEm.exit
   %260 = load ptr, ptr %0, align 8
@@ -5527,7 +5527,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE7re
 285:                                              ; preds = %281, %284
   %286 = add nuw nsw i32 %.04195, 1
   %exitcond.not = icmp eq i32 %286, %278
-  br i1 %exitcond.not, label %.loopexit, label %281, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %281, !llvm.loop !50
 
 287:                                              ; preds = %.lr.ph103, %._crit_edge101
   %288 = phi ptr [ %260, %.lr.ph103 ], [ %304, %._crit_edge101 ]
@@ -5562,7 +5562,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE7re
 302:                                              ; preds = %.lr.ph100, %298, %301
   %303 = add nuw nsw i32 %.098, 1
   %exitcond117.not = icmp eq i32 %303, %293
-  br i1 %exitcond117.not, label %._crit_edge101.loopexit, label %.lr.ph100, !llvm.loop !53
+  br i1 %exitcond117.not, label %._crit_edge101.loopexit, label %.lr.ph100, !llvm.loop !51
 
 ._crit_edge101.loopexit:                          ; preds = %302
   %.pre = load ptr, ptr %0, align 8
@@ -5582,7 +5582,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE7re
   %sext123 = shl i64 %312, 32
   %313 = ashr exact i64 %sext123, 32
   %314 = icmp slt i64 %indvars.iv.next119, %313
-  br i1 %314, label %287, label %.loopexit, !llvm.loop !54
+  br i1 %314, label %287, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph94, %285, %._crit_edge101, %.preheader82, %272, %.preheader
   ret void
@@ -5761,7 +5761,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder15populatePatchesEv(pt
 90:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %90, %84
   invoke void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20allocateVertexTablesEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -5999,12 +5999,12 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIPNS0_3Far10PatchParamELj1ELb0EE
   %sext = shl i64 %216, 30
   %217 = ashr i64 %sext, 32
   %218 = icmp slt i64 %indvars.iv.next314, %217
-  br i1 %218, label %.lr.ph291, label %.loopexit276, !llvm.loop !56
+  br i1 %218, label %.lr.ph291, label %.loopexit276, !llvm.loop !54
 
 .loopexit276:                                     ; preds = %207, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIPNS0_3Far10PatchParamELj1ELb0EE7SetSizeEj.exit, %125
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count319
-  br i1 %exitcond320.not, label %._crit_edge296, label %99, !llvm.loop !57
+  br i1 %exitcond320.not, label %._crit_edge296, label %99, !llvm.loop !55
 
 ._crit_edge296:                                   ; preds = %.loopexit276, %96
   %219 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -6222,7 +6222,7 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder21getRefinerFVarChannelEi.exit: ; 
   %sext345 = shl i64 %324, 30
   %325 = ashr i64 %sext345, 32
   %326 = icmp slt i64 %indvars.iv.next322, %325
-  br i1 %326, label %.lr.ph298, label %.loopexit270, !llvm.loop !58
+  br i1 %326, label %.lr.ph298, label %.loopexit270, !llvm.loop !56
 
 .loopexit271:                                     ; preds = %.lr.ph298
   %lpad.loopexit273 = landingpad { ptr, i32 }
@@ -6465,7 +6465,7 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder16assignFacePointsERKNS2_10PatchTu
 446:                                              ; preds = %.lr.ph.i192
   %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i193, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i194, %wide.trip.count.i191
-  br i1 %exitcond.not.i195, label %._crit_edge.i, label %.lr.ph.i192, !llvm.loop !59
+  br i1 %exitcond.not.i195, label %._crit_edge.i, label %.lr.ph.i192, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %446, %430
   %447 = getelementptr inbounds nuw i8, ptr %432, i64 264
@@ -6780,7 +6780,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21doesFVarTopologyMatchERKNS2_10Pat
   %sext346 = shl i64 %616, 30
   %617 = ashr i64 %sext346, 32
   %618 = icmp slt i64 %indvars.iv.next325, %617
-  br i1 %618, label %503, label %._crit_edge303, !llvm.loop !60
+  br i1 %618, label %503, label %._crit_edge303, !llvm.loop !58
 
 ._crit_edge303:                                   ; preds = %606, %488
   %619 = load i8, ptr %92, align 8
@@ -6853,7 +6853,7 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder16assignFacePointsERKNS2_10PatchTu
   %sext347 = shl i64 %660, 29
   %661 = ashr i64 %sext347, 32
   %662 = icmp slt i64 %indvars.iv.next328, %661
-  br i1 %662, label %367, label %._crit_edge307, !llvm.loop !61
+  br i1 %662, label %367, label %._crit_edge307, !llvm.loop !59
 
 ._crit_edge307:                                   ; preds = %655, %.loopexit270
   %663 = load i8, ptr %92, align 8
@@ -6990,7 +6990,7 @@ _ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder16LocalPointHelper19AcquireStencilT
   %sext348 = shl i64 %735, 30
   %736 = ashr i64 %sext348, 32
   %737 = icmp slt i64 %indvars.iv.next331, %736
-  br i1 %737, label %.lr.ph309, label %.loopexit, !llvm.loop !62
+  br i1 %737, label %.lr.ph309, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %730, %.preheader, %688, %._crit_edge307
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -7157,7 +7157,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder21findDes
 40:                                               ; preds = %36, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !61
 
 .loopexit:                                        ; preds = %40, %15, %10, %14
   ret void
@@ -7221,14 +7221,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i.i.i ], [ %13, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %27 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !67, !noalias !64
-  store i64 %27, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !64, !noalias !67
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  %27 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !65, !noalias !62
+  store i64 %27, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !62, !noalias !65
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %28, %6
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !50
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !48
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %25, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i.i.i ]
@@ -7338,23 +7338,23 @@ _ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %20
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !72, !noalias !69
-  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !69, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  %29 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !70, !noalias !67
+  store ptr %29, ptr %.012.i.i.i.i, align 8, !alias.scope !67, !noalias !70
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !72, !noalias !69
-  store ptr %32, ptr %30, align 8, !alias.scope !69, !noalias !72
+  %32 = load ptr, ptr %31, align 8, !alias.scope !70, !noalias !67
+  store ptr %32, ptr %30, align 8, !alias.scope !67, !noalias !70
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !72, !noalias !69
-  store ptr %35, ptr %33, align 8, !alias.scope !69, !noalias !72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !72, !noalias !69
+  %35 = load ptr, ptr %34, align 8, !alias.scope !70, !noalias !67
+  store ptr %35, ptr %33, align 8, !alias.scope !67, !noalias !70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !70, !noalias !67
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %36, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !74
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit
   %.not.i35 = icmp eq ptr %6, null
@@ -7751,14 +7751,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %28, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %31 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !78, !noalias !75
-  store i64 %31, ptr %.012.i.i.i.i.i, align 8, !alias.scope !75, !noalias !78
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  %31 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !76, !noalias !73
+  store i64 %31, ptr %.012.i.i.i.i.i, align 8, !alias.scope !73, !noalias !76
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !80
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE12_M_check_lenEmPKc.exit.i
   %.not.i35.i = icmp eq ptr %5, null
@@ -7931,7 +7931,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %30, %32, %34, %36
 89:                                               ; preds = %85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i, label %85, !llvm.loop !81
+  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i, label %85, !llvm.loop !79
 
 ._crit_edge.loopexit.split.loop.exit11.i.i:       ; preds = %85
   %90 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -7950,13 +7950,13 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %89, %.
   store i32 %97, ptr %98, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit, label %71, !llvm.loop !82
+  br i1 %exitcond.not.i, label %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit, label %71, !llvm.loop !80
 
 _ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i
   %99 = getelementptr inbounds nuw i8, ptr %.02137, i64 16
   %100 = add nuw i64 %.02038, 1
   %exitcond.not = icmp eq i64 %100, %10
-  br i1 %exitcond.not, label %.preheader, label %58, !llvm.loop !83
+  br i1 %exitcond.not, label %.preheader, label %58, !llvm.loop !81
 
 101:                                              ; preds = %.lr.ph41, %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34
   %.040 = phi i64 [ 0, %.lr.ph41 ], [ %143, %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34 ]
@@ -8006,7 +8006,7 @@ _ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQua
 132:                                              ; preds = %128
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, %wide.trip.count.i.i29
-  br i1 %exitcond.not.i.i32, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24, label %128, !llvm.loop !81
+  br i1 %exitcond.not.i.i32, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24, label %128, !llvm.loop !79
 
 ._crit_edge.loopexit.split.loop.exit11.i.i33:     ; preds = %128
   %133 = trunc nuw nsw i64 %indvars.iv.i.i30 to i32
@@ -8025,13 +8025,13 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24: ; preds = %132,
   store i32 %140, ptr %141, align 4
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 4
-  br i1 %exitcond.not.i27, label %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34, label %114, !llvm.loop !82
+  br i1 %exitcond.not.i27, label %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34, label %114, !llvm.loop !80
 
 _ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i24
   %142 = getelementptr inbounds nuw i8, ptr %.139, i64 16
   %143 = add nuw i64 %.040, 1
   %exitcond47.not = icmp eq i64 %143, %18
-  br i1 %exitcond47.not, label %.loopexit, label %101, !llvm.loop !84
+  br i1 %exitcond47.not, label %.loopexit, label %101, !llvm.loop !82
 
 .loopexit:                                        ; preds = %_ZZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder19LegacyGregoryHelper19FinalizeQuadOffsetsERSt6vectorIjSaIjEEEN10QuadOffset6AssignERKNS0_3Vtr8internal5LevelEiPj.exit34, %.preheader, %2
   ret void
@@ -8121,7 +8121,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %22, %24, %26, %28
   store i32 %51, ptr %49, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph36
   %52 = and i32 %47, 1
@@ -8149,7 +8149,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %22, %24, %26, %28
   %64 = add nuw nsw i32 %.03134, 1
   %65 = load i32, ptr %40, align 8
   %66 = icmp slt i32 %64, %65
-  br i1 %66, label %.lr.ph36, label %._crit_edge37, !llvm.loop !86
+  br i1 %66, label %.lr.ph36, label %._crit_edge37, !llvm.loop !84
 
 ._crit_edge37:                                    ; preds = %62, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   ret void
@@ -8341,7 +8341,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %37, %35, %33, %31
   %sext17.i.i = shl i64 %50, 30
   %51 = ashr i64 %sext17.i.i, 32
   %52 = icmp slt i64 %indvars.iv.next.i.i, %51
-  br i1 %52, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE8finalizeEv.exit, !llvm.loop !87
+  br i1 %52, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE8finalizeEv.exit, !llvm.loop !85
 
 53:                                               ; preds = %4
   %54 = load ptr, ptr %3, align 8
@@ -8443,7 +8443,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %37, %35, %33, %31
   %sext17.i.i = shl i64 %50, 30
   %51 = ashr i64 %sext17.i.i, 32
   %52 = icmp slt i64 %indvars.iv.next.i.i, %51
-  br i1 %52, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE8finalizeEv.exit, !llvm.loop !88
+  br i1 %52, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE8finalizeEv.exit, !llvm.loop !86
 
 53:                                               ; preds = %4
   %54 = load ptr, ptr %3, align 8
@@ -9891,8 +9891,8 @@ attributes #20 = { allocsize(0) }
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
@@ -9902,13 +9902,13 @@ attributes #20 = { allocsize(0) }
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!47 = distinct !{!47, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_"}
-!48 = !{!49}
-!49 = distinct !{!49, !47, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_"}
+!46 = !{!47}
+!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
@@ -9921,24 +9921,24 @@ attributes #20 = { allocsize(0) }
 !59 = distinct !{!59, !6}
 !60 = distinct !{!60, !6}
 !61 = distinct !{!61, !6}
-!62 = distinct !{!62, !6}
-!63 = distinct !{!63, !6}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!66 = distinct !{!66, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!64 = distinct !{!64, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_"}
+!65 = !{!66}
+!66 = distinct !{!66, !64, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
 !67 = !{!68}
-!68 = distinct !{!68, !66, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far17PatchTableBuilder10PatchTupleES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!71 = distinct !{!71, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_"}
-!72 = !{!73}
-!73 = distinct !{!73, !71, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!74 = distinct !{!74, !6}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!77 = distinct !{!77, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_"}
-!78 = !{!79}
-!79 = distinct !{!79, !77, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!69 = distinct !{!69, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_"}
+!70 = !{!71}
+!71 = distinct !{!71, !69, !"_ZSt19__relocate_object_aISt6vectorIiSaIiEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!72 = distinct !{!72, !6}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!75 = distinct !{!75, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_"}
+!76 = !{!77}
+!77 = distinct !{!77, !75, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!78 = distinct !{!78, !6}
+!79 = distinct !{!79, !6}
 !80 = distinct !{!80, !6}
 !81 = distinct !{!81, !6}
 !82 = distinct !{!82, !6}
@@ -9946,5 +9946,3 @@ attributes #20 = { allocsize(0) }
 !84 = distinct !{!84, !6}
 !85 = distinct !{!85, !6}
 !86 = distinct !{!86, !6}
-!87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}

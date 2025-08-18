@@ -1349,7 +1349,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   %54 = add i64 %.1114240, -1
   %55 = add i64 %.1135239, 1
   %.not161 = icmp eq i64 %54, 0
-  br i1 %.not161, label %.critedge169.thread.loopexit, label %.preheader.split, !llvm.loop !134
+  br i1 %.not161, label %.critedge169.thread.loopexit, label %.preheader.split, !llvm.loop !132
 
 .critedge:                                        ; preds = %.preheader.split.us, %.preheader.split
   %.us-phi = phi i64 [ %.1135239, %.preheader.split ], [ %.1135239.us, %.preheader.split.us ]
@@ -1457,7 +1457,7 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   br label %.critedge169
 
 107:                                              ; preds = %78
-  store i32 %80, ptr %17, align 8, !tbaa !135
+  store i32 %80, ptr %17, align 8, !tbaa !133
   %108 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %7, ptr noundef nonnull %.0110249, i64 noundef 1) #7
   %.not160 = icmp eq i32 %108, 0
   br i1 %.not160, label %109, label %rtp_write_body_junk.exit183
@@ -1497,13 +1497,13 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   %131 = zext i8 %130 to i64
   %132 = or disjoint i64 %128, %131
   %133 = add nuw nsw i64 %132, 4
-  store i64 %133, ptr %13, align 8, !tbaa !136
+  store i64 %133, ptr %13, align 8, !tbaa !134
   store i32 3, ptr %12, align 8, !tbaa !121
   br label %.critedge169
 
 134:                                              ; preds = %31
   %135 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %7) #7
-  %136 = load i64, ptr %13, align 8, !tbaa !136
+  %136 = load i64, ptr %13, align 8, !tbaa !134
   %137 = sub i64 %136, %135
   %.not153 = icmp ugt i64 %137, %.0113248
   br i1 %.not153, label %157, label %138
@@ -1520,17 +1520,17 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   %143 = getelementptr inbounds nuw i8, ptr %.0110249, i64 %137
   %144 = sub i64 %.0113248, %137
   %145 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #7
-  %146 = load i64, ptr %13, align 8, !tbaa !136
+  %146 = load i64, ptr %13, align 8, !tbaa !134
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %rtp_client_write.exit, label %148
 
 148:                                              ; preds = %140
-  %149 = load ptr, ptr %14, align 8, !tbaa !137
+  %149 = load ptr, ptr %14, align 8, !tbaa !135
   %.not.i176 = icmp eq ptr %149, null
   br i1 %.not.i176, label %150, label %152
 
 150:                                              ; preds = %148
-  %151 = load ptr, ptr %15, align 8, !tbaa !138
+  %151 = load ptr, ptr %15, align 8, !tbaa !136
   br label %152
 
 152:                                              ; preds = %150, %148
@@ -1803,10 +1803,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !129 = distinct !{!129, !124}
 !130 = !{!9, !10, i64 300}
 !131 = !{!9, !11, i64 256}
-!132 = distinct !{!132, !124, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = distinct !{!134, !124}
-!135 = !{!122, !10, i64 32}
-!136 = !{!122, !11, i64 40}
-!137 = !{!9, !4, i64 576}
-!138 = !{!9, !4, i64 560}
+!132 = distinct !{!132, !124}
+!133 = !{!122, !10, i64 32}
+!134 = !{!122, !11, i64 40}
+!135 = !{!9, !4, i64 576}
+!136 = !{!9, !4, i64 560}

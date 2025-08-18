@@ -4264,7 +4264,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %29
   store ptr %47, ptr %48, align 8, !tbaa !119
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !156
+  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !155
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Vec_StrAlloc.exit
   %49 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
@@ -4282,7 +4282,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Vec_StrA
   store i32 0, ptr %53, align 1
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i90, %42
-  br i1 %exitcond.not, label %Vec_PtrCleanSimInfo.exit.loopexit, label %.lr.ph.i88, !llvm.loop !157
+  br i1 %exitcond.not, label %Vec_PtrCleanSimInfo.exit.loopexit, label %.lr.ph.i88, !llvm.loop !156
 
 Vec_PtrCleanSimInfo.exit.loopexit:                ; preds = %.lr.ph.i88
   %.pre = load ptr, ptr %18, align 8, !tbaa !123
@@ -4501,7 +4501,7 @@ Abc_Clock.exit96:                                 ; preds = %147, %155
   %167 = ptrtoint ptr %.val to i64
   %168 = sub i64 %166, %167
   %169 = sdiv exact i64 %168, 12
-  %.val87 = load ptr, ptr %68, align 8, !tbaa !158
+  %.val87 = load ptr, ptr %68, align 8, !tbaa !157
   %sext = shl i64 %169, 32
   %170 = ashr exact i64 %sext, 30
   %171 = getelementptr inbounds i8, ptr %.val87, i64 %170
@@ -4636,7 +4636,7 @@ Abc_Clock.exit100:                                ; preds = %Tas_StorePattern.ex
   %238 = getelementptr i8, ptr %237, i64 4
   %.val78 = load i32, ptr %238, align 4, !tbaa !38
   %239 = icmp slt i32 %236, %.val78
-  br i1 %239, label %79, label %.critedge, !llvm.loop !159
+  br i1 %239, label %79, label %.critedge, !llvm.loop !158
 
 .critedge:                                        ; preds = %79, %235, %Vec_PtrCleanSimInfo.exit
   %.073.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %.174, %235 ], [ %.073112, %79 ]
@@ -5097,7 +5097,7 @@ Tas_QuePush.exit:                                 ; preds = %._crit_edge.i, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = sext i32 %109 to i64
   %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %.lr.ph, label %.loopexit, !llvm.loop !160
+  br i1 %116, label %.lr.ph, label %.loopexit, !llvm.loop !159
 
 117:                                              ; preds = %Tas_VarHasReasonCls.exit
   %118 = load ptr, ptr %12, align 8, !tbaa !82
@@ -5233,7 +5233,7 @@ Tas_QuePush.exit108:                              ; preds = %167, %170
   %180 = load i32, ptr %9, align 4, !tbaa !80
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next122, %181
-  br i1 %182, label %19, label %._crit_edge.loopexit, !llvm.loop !161
+  br i1 %182, label %19, label %._crit_edge.loopexit, !llvm.loop !160
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre131 = load i32, ptr %3, align 8, !tbaa !84
@@ -5278,7 +5278,7 @@ Tas_QuePush.exit108:                              ; preds = %167, %170
   %.val84 = load i32, ptr %202, align 4, !tbaa !44
   %203 = sext i32 %.val84 to i64
   %204 = icmp slt i64 %indvars.iv.next125, %203
-  br i1 %204, label %.lr.ph119, label %.critedge, !llvm.loop !162
+  br i1 %204, label %.lr.ph119, label %.critedge, !llvm.loop !161
 
 .critedge:                                        ; preds = %.lr.ph119, %191
   ret void
@@ -5505,12 +5505,11 @@ attributes #27 = { nounwind willreturn memory(read) }
 !151 = !{!65, !65, i64 0}
 !152 = distinct !{!152, !74}
 !153 = distinct !{!153, !74}
-!154 = distinct !{!154, !74, !155}
-!155 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!154 = distinct !{!154, !74}
+!155 = distinct !{!155, !74}
 !156 = distinct !{!156, !74}
-!157 = distinct !{!157, !74}
-!158 = !{!53, !56, i64 192}
+!157 = !{!53, !56, i64 192}
+!158 = distinct !{!158, !74}
 !159 = distinct !{!159, !74}
 !160 = distinct !{!160, !74}
 !161 = distinct !{!161, !74}
-!162 = distinct !{!162, !74}

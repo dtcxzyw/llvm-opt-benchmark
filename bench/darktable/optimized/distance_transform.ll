@@ -32,7 +32,7 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %6
   tail call void @dt_iop_image_fill(ptr noundef %1, float noundef 0.000000e+00, i64 noundef %2, i64 noundef %3, i64 noundef 1) #7
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, i32 noundef %5) #7
-  br label %46
+  br label %47
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader86, %6
   %15 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
@@ -47,105 +47,105 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %21 = tail call ptr @dt_alloc_aligned(i64 noundef %16) #7
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 64) ]
   %.not113 = icmp eq i64 %2, 0
-  %.not116 = icmp eq i64 %3, 0
+  %.not115 = icmp eq i64 %3, 0
   br i1 %.not113, label %.preheader, label %.preheader85.lr.ph
 
 .preheader85.lr.ph:                               ; preds = %.loopexit
   %22 = trunc i64 %3 to i32
-  br i1 %.not116, label %.preheader85, label %.preheader85.us
+  br i1 %.not115, label %.preheader85, label %.preheader85.us.us
 
-.preheader85.us:                                  ; preds = %.preheader85.lr.ph, %._crit_edge95.us
-  %.07996.us = phi i64 [ %23, %._crit_edge95.us ], [ 0, %.preheader85.lr.ph ]
-  %invariant.gep.us = getelementptr float, ptr %1, i64 %.07996.us
+.preheader85.us.us:                               ; preds = %.preheader85.lr.ph, %._crit_edge95.us.us
+  %.07996.us.us = phi i64 [ %33, %._crit_edge95.us.us ], [ 0, %.preheader85.lr.ph ]
+  %invariant.gep.us.us = getelementptr float, ptr %1, i64 %.07996.us.us
   br label %28
 
-._crit_edge95.us:                                 ; preds = %.lr.ph94.us
-  %23 = add nuw i64 %.07996.us, 1
-  %exitcond122.not = icmp eq i64 %23, %2
-  br i1 %exitcond122.not, label %.lr.ph106.us.preheader, label %.preheader85.us, !llvm.loop !10
-
-.lr.ph94.us:                                      ; preds = %.lr.ph94.us.preheader, %.lr.ph94.us
-  %.07792.us = phi i64 [ %27, %.lr.ph94.us ], [ 0, %.lr.ph94.us.preheader ]
-  %24 = getelementptr inbounds nuw float, ptr %20, i64 %.07792.us
+23:                                               ; preds = %._crit_edge.us.us, %23
+  %.07792.us.us = phi i64 [ 0, %._crit_edge.us.us ], [ %27, %23 ]
+  %24 = getelementptr inbounds nuw float, ptr %20, i64 %.07792.us.us
   %25 = load float, ptr %24, align 4, !tbaa !6
-  %26 = mul i64 %.07792.us, %2
-  %gep91.us = getelementptr float, ptr %invariant.gep.us, i64 %26
-  store float %25, ptr %gep91.us, align 4, !tbaa !6
-  %27 = add nuw i64 %.07792.us, 1
-  %exitcond121.not = icmp eq i64 %27, %3
-  br i1 %exitcond121.not, label %._crit_edge95.us, label %.lr.ph94.us
+  %26 = mul i64 %.07792.us.us, %2
+  %gep91.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %26
+  store float %25, ptr %gep91.us.us, align 4, !tbaa !6
+  %27 = add nuw i64 %.07792.us.us, 1
+  %exitcond120.not = icmp eq i64 %27, %3
+  br i1 %exitcond120.not, label %._crit_edge95.us.us, label %23
 
-28:                                               ; preds = %.preheader85.us, %28
-  %.07888.us = phi i64 [ 0, %.preheader85.us ], [ %32, %28 ]
-  %29 = mul i64 %.07888.us, %2
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %29
-  %30 = load float, ptr %gep.us, align 4, !tbaa !6
-  %31 = getelementptr inbounds nuw float, ptr %17, i64 %.07888.us
+28:                                               ; preds = %28, %.preheader85.us.us
+  %.07888.us.us = phi i64 [ 0, %.preheader85.us.us ], [ %32, %28 ]
+  %29 = mul i64 %.07888.us.us, %2
+  %gep.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %29
+  %30 = load float, ptr %gep.us.us, align 4, !tbaa !6
+  %31 = getelementptr inbounds nuw float, ptr %17, i64 %.07888.us.us
   store float %30, ptr %31, align 4, !tbaa !6
-  %32 = add nuw i64 %.07888.us, 1
-  %exitcond120.not = icmp eq i64 %32, %3
-  br i1 %exitcond120.not, label %.lr.ph94.us.preheader, label %28
+  %32 = add nuw i64 %.07888.us.us, 1
+  %exitcond119.not = icmp eq i64 %32, %3
+  br i1 %exitcond119.not, label %._crit_edge.us.us, label %28
 
-.lr.ph94.us.preheader:                            ; preds = %28
+._crit_edge.us.us:                                ; preds = %28
   tail call fastcc void @_image_distance_transform(ptr noundef nonnull %17, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22)
-  br label %.lr.ph94.us
+  br label %23
+
+._crit_edge95.us.us:                              ; preds = %23
+  %33 = add nuw i64 %.07996.us.us, 1
+  %exitcond121.not = icmp eq i64 %33, %2
+  br i1 %exitcond121.not, label %.lr.ph106.us.preheader, label %.preheader85.us.us
 
 .preheader85:                                     ; preds = %.preheader85.lr.ph, %.preheader85
-  %.07996 = phi i64 [ %33, %.preheader85 ], [ 0, %.preheader85.lr.ph ]
+  %.07996 = phi i64 [ %34, %.preheader85 ], [ 0, %.preheader85.lr.ph ]
   tail call fastcc void @_image_distance_transform(ptr noundef %17, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22)
-  %33 = add nuw i64 %.07996, 1
-  %exitcond123.not = icmp eq i64 %33, %2
-  br i1 %exitcond123.not, label %._crit_edge110, label %.preheader85
+  %34 = add nuw i64 %.07996, 1
+  %exitcond122.not = icmp eq i64 %34, %2
+  br i1 %exitcond122.not, label %._crit_edge110, label %.preheader85
 
 .preheader:                                       ; preds = %.loopexit
-  br i1 %.not116, label %._crit_edge110, label %.lr.ph109.split
+  br i1 %.not115, label %._crit_edge110, label %.lr.ph109.split
 
-.lr.ph106.us.preheader:                           ; preds = %._crit_edge95.us
-  %34 = trunc i64 %2 to i32
+.lr.ph106.us.preheader:                           ; preds = %._crit_edge95.us.us
+  %35 = trunc i64 %2 to i32
   br label %.lr.ph106.us
 
 .lr.ph106.us:                                     ; preds = %.lr.ph106.us.preheader, %._crit_edge.us112
-  %.076108.us = phi i64 [ %44, %._crit_edge.us112 ], [ 0, %.lr.ph106.us.preheader ]
-  %.081107.us = phi float [ %42, %._crit_edge.us112 ], [ 0.000000e+00, %.lr.ph106.us.preheader ]
-  %35 = mul i64 %.076108.us, %2
-  %36 = getelementptr inbounds nuw float, ptr %1, i64 %35
-  tail call fastcc void @_image_distance_transform(ptr noundef %36, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %21, i32 noundef %34)
-  br label %37
+  %.076108.us = phi i64 [ %45, %._crit_edge.us112 ], [ 0, %.lr.ph106.us.preheader ]
+  %.081107.us = phi float [ %43, %._crit_edge.us112 ], [ 0.000000e+00, %.lr.ph106.us.preheader ]
+  %36 = mul i64 %.076108.us, %2
+  %37 = getelementptr inbounds nuw float, ptr %1, i64 %36
+  tail call fastcc void @_image_distance_transform(ptr noundef %37, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %21, i32 noundef %35)
+  br label %38
 
-37:                                               ; preds = %.lr.ph106.us, %37
-  %.075105.us = phi i64 [ 0, %.lr.ph106.us ], [ %43, %37 ]
-  %.1104.us = phi float [ %.081107.us, %.lr.ph106.us ], [ %42, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %20, i64 %.075105.us
-  %39 = load float, ptr %38, align 4, !tbaa !6
-  %40 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %39)
-  %41 = getelementptr float, ptr %36, i64 %.075105.us
-  store float %40, ptr %41, align 4, !tbaa !6
-  %42 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.1104.us, float %40)
-  %43 = add nuw i64 %.075105.us, 1
-  %exitcond124.not = icmp eq i64 %43, %2
-  br i1 %exitcond124.not, label %._crit_edge.us112, label %37
+38:                                               ; preds = %.lr.ph106.us, %38
+  %.075105.us = phi i64 [ 0, %.lr.ph106.us ], [ %44, %38 ]
+  %.1104.us = phi float [ %.081107.us, %.lr.ph106.us ], [ %43, %38 ]
+  %39 = getelementptr inbounds nuw float, ptr %20, i64 %.075105.us
+  %40 = load float, ptr %39, align 4, !tbaa !6
+  %41 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %40)
+  %42 = getelementptr float, ptr %37, i64 %.075105.us
+  store float %41, ptr %42, align 4, !tbaa !6
+  %43 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.1104.us, float %41)
+  %44 = add nuw i64 %.075105.us, 1
+  %exitcond123.not = icmp eq i64 %44, %2
+  br i1 %exitcond123.not, label %._crit_edge.us112, label %38
 
-._crit_edge.us112:                                ; preds = %37
-  %44 = add nuw i64 %.076108.us, 1
-  %exitcond125.not = icmp eq i64 %44, %3
-  br i1 %exitcond125.not, label %._crit_edge110, label %.lr.ph106.us, !llvm.loop !12
+._crit_edge.us112:                                ; preds = %38
+  %45 = add nuw i64 %.076108.us, 1
+  %exitcond124.not = icmp eq i64 %45, %3
+  br i1 %exitcond124.not, label %._crit_edge110, label %.lr.ph106.us
 
 ._crit_edge110:                                   ; preds = %._crit_edge.us112, %.preheader85, %.lr.ph109.split, %.preheader
-  %.081.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph109.split ], [ 0.000000e+00, %.preheader85 ], [ %42, %._crit_edge.us112 ]
+  %.081.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph109.split ], [ 0.000000e+00, %.preheader85 ], [ %43, %._crit_edge.us112 ]
   tail call void @free(ptr noundef %17) #7
   tail call void @free(ptr noundef %20) #7
   tail call void @free(ptr noundef %19) #7
   tail call void @free(ptr noundef %21) #7
-  br label %46
+  br label %47
 
 .lr.ph109.split:                                  ; preds = %.preheader, %.lr.ph109.split
-  %.076108 = phi i64 [ %45, %.lr.ph109.split ], [ 0, %.preheader ]
+  %.076108 = phi i64 [ %46, %.lr.ph109.split ], [ 0, %.preheader ]
   tail call fastcc void @_image_distance_transform(ptr noundef %1, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef 0)
-  %45 = add nuw i64 %.076108, 1
-  %exitcond126.not = icmp eq i64 %45, %3
-  br i1 %exitcond126.not, label %._crit_edge110, label %.lr.ph109.split
+  %46 = add nuw i64 %.076108, 1
+  %exitcond125.not = icmp eq i64 %46, %3
+  br i1 %exitcond125.not, label %._crit_edge110, label %.lr.ph109.split
 
-46:                                               ; preds = %._crit_edge110, %14
+47:                                               ; preds = %._crit_edge110, %14
   %.0 = phi nsz float [ 0.000000e+00, %14 ], [ %.081.lcssa, %._crit_edge110 ]
   ret float %.0
 }
@@ -156,7 +156,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_image_distance_transform(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) initializes((0, 4)) %3, i32 noundef %4) unnamed_addr #2 {
-  store i32 0, ptr %3, align 4, !tbaa !13
+  store i32 0, ptr %3, align 4, !tbaa !10
   store float 0xC415AF1D80000000, ptr %1, align 4, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0x4415AF1D80000000, ptr %6, align 4, !tbaa !6
@@ -206,7 +206,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %14, %.lr.ph74 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %28 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
-  %29 = load i32, ptr %28, align 4, !tbaa !13
+  %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds float, ptr %0, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !6
@@ -237,7 +237,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %46 = add nsw i32 %.1.lcssa, 1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %3, i64 %47
-  store i32 %10, ptr %48, align 4, !tbaa !13
+  store i32 %10, ptr %48, align 4, !tbaa !10
   %49 = getelementptr inbounds float, ptr %1, i64 %47
   store float %45, ptr %49, align 4, !tbaa !6
   %50 = getelementptr i8, ptr %44, i64 8
@@ -270,7 +270,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %sext95 = shl i64 %indvars.iv87, 32
   %59 = ashr exact i64 %sext95, 30
   %60 = getelementptr inbounds i8, ptr %3, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !13
+  %61 = load i32, ptr %60, align 4, !tbaa !10
   %62 = sub nsw i32 %51, %61
   %63 = sitofp i32 %62 to float
   %64 = fmul reassoc nsz arcp contract afn float %63, %63
@@ -323,8 +323,5 @@ attributes #7 = { nounwind }
 !7 = !{!"float", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !8, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !8, i64 0}

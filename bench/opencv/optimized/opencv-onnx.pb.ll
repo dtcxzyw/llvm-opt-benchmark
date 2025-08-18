@@ -23237,7 +23237,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store ptr %16, ptr %21, align 8, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
-  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !287
+  br i1 %exitcond.not, label %.loopexit, label %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, !llvm.loop !285
 
 .loopexit:                                        ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %5
   %22 = icmp sgt i32 %3, 0
@@ -23259,7 +23259,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %24)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !288
+  br i1 %exitcond37.not, label %._crit_edge, label %.lr.ph, !llvm.loop !286
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -23408,7 +23408,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !289
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !287
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23430,7 +23430,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !290
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !288
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23457,7 +23457,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !291
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !289
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23479,7 +23479,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(160) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !292
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !290
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23508,7 +23508,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !293
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !291
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23530,7 +23530,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !294
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !292
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23557,7 +23557,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !295
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !293
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23579,7 +23579,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !296
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !294
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23679,7 +23679,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !297
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !295
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23701,7 +23701,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !298
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !296
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23728,7 +23728,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !299
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !297
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23750,7 +23750,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !300
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !298
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23777,7 +23777,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !301
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !299
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23799,7 +23799,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !302
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !300
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -23828,7 +23828,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !303
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !301
 
 .loopexit:                                        ; preds = %10, %5
   %13 = icmp sgt i32 %3, 0
@@ -23850,7 +23850,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN11opencv_onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !304
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph, !llvm.loop !302
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -24187,8 +24187,8 @@ attributes #24 = { builtin allocsize(0) }
 !282 = !{!"p1 _ZTSN6google8protobuf12UnknownFieldE", !5, i64 0}
 !283 = !{!284, !282, i64 0}
 !284 = !{!"_ZTSNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE17_Vector_impl_dataE", !282, i64 0, !282, i64 8, !282, i64 16}
-!285 = distinct !{!285, !59, !286}
-!286 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!285 = distinct !{!285, !59}
+!286 = distinct !{!286, !59}
 !287 = distinct !{!287, !59}
 !288 = distinct !{!288, !59}
 !289 = distinct !{!289, !59}
@@ -24205,5 +24205,3 @@ attributes #24 = { builtin allocsize(0) }
 !300 = distinct !{!300, !59}
 !301 = distinct !{!301, !59}
 !302 = distinct !{!302, !59}
-!303 = distinct !{!303, !59}
-!304 = distinct !{!304, !59}

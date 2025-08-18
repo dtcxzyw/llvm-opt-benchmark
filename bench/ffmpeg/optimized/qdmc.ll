@@ -1700,8 +1700,8 @@ add_waves.exit.i:                                 ; preds = %801, %._crit_edge.l
 
 .lr.ph219.i:                                      ; preds = %.lr.ph219.i.preheader, %.lr.ph219.i
   %indvars.iv274.i = phi i64 [ %indvars.iv.next275.i, %.lr.ph219.i ], [ 0, %.lr.ph219.i.preheader ]
-  %874 = load ptr, ptr %577, align 8, !tbaa !100
-  %875 = load ptr, ptr %578, align 16, !tbaa !101
+  %874 = load ptr, ptr %577, align 8, !tbaa !99
+  %875 = load ptr, ptr %578, align 16, !tbaa !100
   %876 = getelementptr inbounds nuw [2 x [512 x %struct.AVComplexFloat]], ptr %579, i64 0, i64 %indvars.iv274.i
   %877 = getelementptr inbounds nuw [2 x [512 x %struct.AVComplexFloat]], ptr %576, i64 0, i64 %indvars.iv274.i
   tail call void %874(ptr noundef %875, ptr noundef nonnull %876, ptr noundef nonnull %877, i64 noundef 4) #11
@@ -1709,7 +1709,7 @@ add_waves.exit.i:                                 ; preds = %801, %._crit_edge.l
   %878 = load i32, ptr %73, align 16, !tbaa !33
   %879 = sext i32 %878 to i64
   %880 = icmp slt i64 %indvars.iv.next275.i, %879
-  br i1 %880, label %.lr.ph219.i, label %._crit_edge220.i.loopexit, !llvm.loop !102
+  br i1 %880, label %.lr.ph219.i, label %._crit_edge220.i.loopexit, !llvm.loop !101
 
 ._crit_edge220.i.loopexit:                        ; preds = %.lr.ph219.i
   %.pre = load i32, ptr %270, align 4, !tbaa !45
@@ -1752,12 +1752,12 @@ add_waves.exit.i:                                 ; preds = %801, %._crit_edge.l
   store float %895, ptr %.1223.us.i, align 4, !tbaa !27
   %indvars.iv.next278.i = add nuw nsw i64 %indvars.iv277.i, 1
   %exitcond281.not.i = icmp eq i64 %indvars.iv.next278.i, %wide.trip.count280.i
-  br i1 %exitcond281.not.i, label %._crit_edge225.us.i, label %891, !llvm.loop !103
+  br i1 %exitcond281.not.i, label %._crit_edge225.us.i, label %891, !llvm.loop !102
 
 ._crit_edge225.us.i:                              ; preds = %891
   %indvars.iv.next283.i = add nuw nsw i64 %indvars.iv282.i, 1
   %exitcond286.not.i = icmp eq i64 %indvars.iv.next283.i, %wide.trip.count285.i
-  br i1 %exitcond286.not.i, label %._crit_edge231.i, label %.preheader.us.i, !llvm.loop !104
+  br i1 %exitcond286.not.i, label %._crit_edge231.i, label %.preheader.us.i, !llvm.loop !103
 
 ._crit_edge231.i:                                 ; preds = %._crit_edge225.us.i, %._crit_edge220.i
   %896 = getelementptr inbounds float, ptr %883, i64 %887
@@ -1781,7 +1781,7 @@ add_waves.exit.i:                                 ; preds = %801, %._crit_edge.l
   store i16 %903, ptr %904, align 2, !tbaa !83
   %indvars.iv.next288.i = add nuw nsw i64 %indvars.iv287.i, 1
   %exitcond291.not.i = icmp eq i64 %indvars.iv.next288.i, %wide.trip.count290.i
-  br i1 %exitcond291.not.i, label %._crit_edge235.i, label %.lr.ph234.i, !llvm.loop !105
+  br i1 %exitcond291.not.i, label %._crit_edge235.i, label %.lr.ph234.i, !llvm.loop !104
 
 ._crit_edge235.i:                                 ; preds = %.lr.ph234.i, %._crit_edge231.i
   %905 = sext i32 %885 to i64
@@ -1817,7 +1817,7 @@ add_waves.exit.i:                                 ; preds = %801, %._crit_edge.l
   %928 = load i32, ptr %73, align 16, !tbaa !33
   %929 = sext i32 %928 to i64
   %930 = icmp slt i64 %indvars.iv.next293.i, %929
-  br i1 %930, label %.lr.ph239.i, label %read_wave_data.exit.loopexit.i, !llvm.loop !106
+  br i1 %930, label %.lr.ph239.i, label %read_wave_data.exit.loopexit.i, !llvm.loop !105
 
 read_wave_data.exit.loopexit.i:                   ; preds = %.lr.ph239.i
   %.pre.i = load i32, ptr %270, align 4, !tbaa !45
@@ -1840,7 +1840,7 @@ read_wave_data.exit.i:                            ; preds = %read_wave_data.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %939, i8 0, i64 %942, i1 false)
   %943 = add nuw nsw i32 %.0131243.i, 1
   %exitcond295.not.i = icmp eq i32 %943, 32
-  br i1 %exitcond295.not.i, label %944, label %.preheader191.i, !llvm.loop !107
+  br i1 %exitcond295.not.i, label %944, label %.preheader191.i, !llvm.loop !106
 
 944:                                              ; preds = %read_wave_data.exit.i
   %945 = load i32, ptr %17, align 16, !tbaa !44
@@ -1924,10 +1924,10 @@ define internal void @qdmc_init_static_data() #0 {
   %3 = getelementptr inbounds nuw [13698 x %struct.VLCElem], ptr @qdmc_init_static_data.vlc_buffer, i64 0, i64 %2
   %4 = getelementptr inbounds nuw [6 x %struct.VLC], ptr @vtable, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %5, align 8, !tbaa !108
+  store ptr %3, ptr %5, align 8, !tbaa !107
   %6 = sub i32 13698, %.024
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %6, ptr %7, align 4, !tbaa !111
+  store i32 %6, ptr %7, align 4, !tbaa !110
   %8 = getelementptr inbounds nuw [6 x i8], ptr @huff_bits, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !30
   %10 = zext i8 %9 to i32
@@ -1939,11 +1939,11 @@ define internal void @qdmc_init_static_data() #0 {
   %16 = zext i8 %12 to i64
   %17 = getelementptr inbounds nuw [2 x i8], ptr %.02022, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !112
+  %19 = load i32, ptr %18, align 8, !tbaa !111
   %20 = add i32 %19, %.024
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !113
+  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !112
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.preheader ], [ 0, %1 ]
@@ -1959,7 +1959,7 @@ define internal void @qdmc_init_static_data() #0 {
   store float %28, ptr %29, align 4, !tbaa !27
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 512
-  br i1 %exitcond30.not, label %30, label %.preheader, !llvm.loop !114
+  br i1 %exitcond30.not, label %30, label %.preheader, !llvm.loop !113
 
 30:                                               ; preds = %.preheader
   ret void
@@ -2033,7 +2033,7 @@ define internal fastcc void @make_noises(ptr noundef captures(none) %0) unnamed_
   %31 = add nuw nsw i32 %.03641, 1
   %32 = getelementptr inbounds nuw i8, ptr %.042, i64 4
   %exitcond.not = icmp eq i32 %31, %26
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !115
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %28, %11
   %33 = icmp ult i16 %17, %21
@@ -2061,12 +2061,12 @@ define internal fastcc void @make_noises(ptr noundef captures(none) %0) unnamed_
   %46 = getelementptr inbounds nuw i8, ptr %.145, i64 4
   %47 = add nsw i32 %.03544, -1
   %exitcond53.not = icmp eq i32 %45, %22
-  br i1 %exitcond53.not, label %._crit_edge48, label %42, !llvm.loop !116
+  br i1 %exitcond53.not, label %._crit_edge48, label %42, !llvm.loop !115
 
 ._crit_edge48:                                    ; preds = %42, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge52, label %11, !llvm.loop !117
+  br i1 %exitcond55.not, label %._crit_edge52, label %11, !llvm.loop !116
 
 ._crit_edge52:                                    ; preds = %._crit_edge48, %1
   ret void
@@ -2354,23 +2354,22 @@ attributes #11 = { nounwind }
 !95 = !{!"AVComplexFloat", !16, i64 0, !16, i64 4}
 !96 = !{!95, !16, i64 4}
 !97 = distinct !{!97, !32}
-!98 = distinct !{!98, !32, !99}
-!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!100 = !{!34, !7, i64 935272}
-!101 = !{!34, !37, i64 935264}
+!98 = distinct !{!98, !32}
+!99 = !{!34, !7, i64 935272}
+!100 = !{!34, !37, i64 935264}
+!101 = distinct !{!101, !32}
 !102 = distinct !{!102, !32}
 !103 = distinct !{!103, !32}
-!104 = distinct !{!104, !32, !99}
+!104 = distinct !{!104, !32}
 !105 = distinct !{!105, !32}
 !106 = distinct !{!106, !32}
-!107 = distinct !{!107, !32}
-!108 = !{!109, !110, i64 8}
-!109 = !{!"VLC", !10, i64 0, !110, i64 8, !10, i64 16, !10, i64 20}
-!110 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!111 = !{!109, !10, i64 20}
-!112 = !{!109, !10, i64 16}
+!107 = !{!108, !109, i64 8}
+!108 = !{!"VLC", !10, i64 0, !109, i64 8, !10, i64 16, !10, i64 20}
+!109 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!110 = !{!108, !10, i64 20}
+!111 = !{!108, !10, i64 16}
+!112 = distinct !{!112, !32}
 !113 = distinct !{!113, !32}
 !114 = distinct !{!114, !32}
 !115 = distinct !{!115, !32}
 !116 = distinct !{!116, !32}
-!117 = distinct !{!117, !32}

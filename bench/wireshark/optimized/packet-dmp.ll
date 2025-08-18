@@ -4382,7 +4382,7 @@ dmp_dec_xbyte_sic.exit.i:                         ; preds = %469
   %spec.select.i.i = select i1 %.not.us.i.i, i1 true, i1 %.1.us.i.i
   %indvars.iv.next109.i.i = add nuw nsw i64 %indvars.iv108.i.i, 1
   %exitcond111.not.i.i = icmp eq i64 %indvars.iv.next109.i.i, 3
-  br i1 %exitcond111.not.i.i, label %dmp_dec_xbyte_sic.exit235.i, label %.split.us.i.i, !llvm.loop !19
+  br i1 %exitcond111.not.i.i, label %dmp_dec_xbyte_sic.exit235.i, label %.split.us.i.i, !llvm.loop !18
 
 dmp_dec_xbyte_sic.exit235.i:                      ; preds = %523
   %528 = getelementptr i8, ptr %447, i64 3
@@ -4465,7 +4465,7 @@ dmp_dec_xbyte_sic.exit235.i:                      ; preds = %523
 577:                                              ; preds = %575, %569
   %578 = add i32 %.0215.i, %.1243.i
   %exitcond250.i = icmp eq i32 %572, %wide.trip.count249.i
-  br i1 %exitcond250.i, label %579, label %560, !llvm.loop !21
+  br i1 %exitcond250.i, label %579, label %560, !llvm.loop !19
 
 579:                                              ; preds = %577
   %580 = select i1 %557, ptr @.str.734, ptr @.str.735
@@ -4685,7 +4685,7 @@ dmp_dec_xbyte_sic.exit235.i:                      ; preds = %523
 721:                                              ; preds = %719, %718
   %722 = add i32 %.1216.i, %.2241.i
   %exitcond.i = icmp eq i32 %711, %wide.trip.count.i426
-  br i1 %exitcond.i, label %723, label %612, !llvm.loop !22
+  br i1 %exitcond.i, label %723, label %612, !llvm.loop !20
 
 723:                                              ; preds = %721
   %724 = select i1 %608, ptr @.str.734, ptr @.str.735
@@ -5272,7 +5272,7 @@ dissect_dmp_report.exit:                          ; preds = %dmp_dec_del_time.ex
   %1057 = sub i32 %.1.i443, %.9504
   tail call void @proto_item_set_len(ptr noundef %907, i32 noundef %1057)
   %1058 = icmp slt i32 %.1.i443, %spec.select
-  br i1 %1058, label %.lr.ph, label %dissect_dmp_notification.exit, !llvm.loop !23
+  br i1 %1058, label %.lr.ph, label %dissect_dmp_notification.exit, !llvm.loop !21
 
 1059:                                             ; preds = %896
   %1060 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 32), align 8
@@ -5718,7 +5718,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %.1.i = phi i32 [ %40, %39 ], [ %31, %43 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %23, !llvm.loop !24
+  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %23, !llvm.loop !22
 
 46:                                               ; preds = %5
   %47 = icmp eq i32 %8, 2
@@ -5785,7 +5785,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %.1.i44 = phi i32 [ %81, %80 ], [ %72, %84 ]
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %56
-  br i1 %exitcond.not.i46, label %dissect_7bit_string.exit50, label %64, !llvm.loop !24
+  br i1 %exitcond.not.i46, label %dissect_7bit_string.exit50, label %64, !llvm.loop !22
 
 dissect_7bit_string.exit50:                       ; preds = %86
   %87 = add i32 %3, %50
@@ -6396,7 +6396,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %.1.i = phi i32 [ %57, %56 ], [ %48, %60 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
-  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %40, !llvm.loop !24
+  br i1 %exitcond.not.i, label %dissect_7bit_string.exit, label %40, !llvm.loop !22
 
 63:                                               ; preds = %5
   %64 = icmp eq i32 %26, 2
@@ -6487,7 +6487,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %.1.i82 = phi i32 [ %112, %111 ], [ %103, %115 ]
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %87
-  br i1 %exitcond.not.i84, label %dissect_7bit_string.exit88, label %95, !llvm.loop !24
+  br i1 %exitcond.not.i84, label %dissect_7bit_string.exit88, label %95, !llvm.loop !22
 
 dissect_7bit_string.exit88:                       ; preds = %117, %77
   %.1 = phi i8 [ 0, %77 ], [ %.132.i80, %117 ]
@@ -7477,7 +7477,7 @@ define internal fastcc zeroext i1 @dmp_dec_xbyte_sic(i64 noundef range(i64 0, 17
   %spec.select = select i1 %.not.us, i1 true, i1 %.1.us
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count110
-  br i1 %exitcond111.not, label %.split104.us, label %.split.us, !llvm.loop !19
+  br i1 %exitcond111.not, label %.split104.us, label %.split.us, !llvm.loop !18
 
 .split:                                           ; preds = %4, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %4 ]
@@ -7646,9 +7646,7 @@ attributes #20 = { allocsize(2) }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}

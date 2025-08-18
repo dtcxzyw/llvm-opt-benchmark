@@ -897,12 +897,12 @@ define linkonce_odr hidden void @_ZNK2cv18BlendLinearInvokerIfEclERKNS_5RangeE(p
   store float %77, ptr %78, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %61
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !74
+  br i1 %exitcond43.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !73
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %2
   ret void
@@ -1015,7 +1015,6 @@ attributes #17 = { noreturn nounwind }
 !68 = !{!8, !8, i64 0}
 !69 = distinct !{!69, !70}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = distinct !{!71, !70, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !70}
+!72 = distinct !{!72, !70}
 !73 = distinct !{!73, !70}
-!74 = distinct !{!74, !70, !72}

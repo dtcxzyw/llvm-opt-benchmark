@@ -4348,7 +4348,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 68:                                               ; preds = %.lr.ph86.split
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count107
-  br i1 %exitcond103.not, label %.critedge73, label %.lr.ph86.split, !llvm.loop !11
+  br i1 %exitcond103.not, label %.critedge73, label %.lr.ph86.split, !llvm.loop !9
 
 .critedge73:                                      ; preds = %68, %.lr.ph86.split.us
   %69 = icmp ult i32 %61, 5
@@ -4362,7 +4362,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   store i32 %59, ptr %72, align 8
   %73 = zext i32 %59 to i64
   %74 = add nsw i64 %.idx76.neg, 144
-  %75 = tail call ptr @__memcpy_chk(ptr noundef %71, ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %73, i64 noundef %74) #12, !alias.scope !12
+  %75 = tail call ptr @__memcpy_chk(ptr noundef %71, ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %73, i64 noundef %74) #12, !alias.scope !10
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %14, ptr %76, align 8
   %77 = load i32, ptr @s_gnb_ran_functions_table, align 8
@@ -4506,7 +4506,7 @@ proto_item_set_generated.exit:                    ; preds = %._crit_edge, %24, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
-  br i1 %47, label %32, label %._crit_edge, !llvm.loop !16
+  br i1 %47, label %32, label %._crit_edge, !llvm.loop !14
 
 48:                                               ; preds = %proto_item_set_generated.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4553,7 +4553,7 @@ e2ap_get_private_data.exit.i.i:                   ; preds = %58, %54
 68:                                               ; preds = %69
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %update_dissector_using_oid.exit, label %69, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %update_dissector_using_oid.exit, label %69, !llvm.loop !15
 
 69:                                               ; preds = %68, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
@@ -4618,7 +4618,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
   %spec.select.i = select i1 %97, ptr %94, ptr %.03956.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %93, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %93, !llvm.loop !16
 
 98:                                               ; preds = %._crit_edge.i
   %.not46.i = icmp eq i32 %.0.lcssa, 1
@@ -4646,7 +4646,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 103:                                              ; preds = %104
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
-  br i1 %exitcond76.not.i, label %.loopexit.i, label %104, !llvm.loop !19
+  br i1 %exitcond76.not.i, label %.loopexit.i, label %104, !llvm.loop !17
 
 104:                                              ; preds = %103, %.lr.ph59.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next73.i, %103 ]
@@ -4660,7 +4660,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 110:                                              ; preds = %111
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count80.i
-  br i1 %exitcond81.not.i, label %.loopexit.i, label %111, !llvm.loop !20
+  br i1 %exitcond81.not.i, label %.loopexit.i, label %111, !llvm.loop !18
 
 111:                                              ; preds = %110, %.lr.ph61.i
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next78.i, %110 ]
@@ -8926,7 +8926,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   store i32 0, ptr %65, align 8
   %indvars.iv.next7.i = add nuw nsw i64 %indvars.iv6.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next7.i, %wide.trip.count9.i
-  br i1 %exitcond10.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.us.i, !llvm.loop !21
+  br i1 %exitcond10.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %73
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ 0, %.lr.ph.i ]
@@ -8947,7 +8947,7 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
 73:                                               ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count9.i
-  br i1 %exitcond.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.i, !llvm.loop !19
 
 update_conversation_from_gnb_id.exit:             ; preds = %73, %.lr.ph.split.us.i, %e2ap_get_private_data.exit.i, %49, %69
   ret i32 %7
@@ -9128,17 +9128,17 @@ define internal i32 @dissect_e2ap_RANfunctionDefinition(ptr noundef %0, i32 noun
   %spec.select = select i1 %.not50, i32 %.04253, i32 %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond61.not, label %38, label %29, !llvm.loop !23
+  br i1 %exitcond61.not, label %38, label %29, !llvm.loop !20
 
 35:                                               ; preds = %22, %26
   %36 = add nuw nsw i32 %.04452, 1
   %exitcond.not = icmp eq i32 %36, 30
-  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !21
 
 .critedge:                                        ; preds = %19, %35
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %37 = icmp samesign ugt i64 %indvars.iv62, 2
-  br i1 %37, label %57, label %9, !llvm.loop !25
+  br i1 %37, label %57, label %9, !llvm.loop !22
 
 38:                                               ; preds = %29
   %39 = zext i32 %spec.select to i64
@@ -9371,7 +9371,7 @@ e2ap_get_private_data.exit:                       ; preds = %3, %9
 19:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !23
 
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
@@ -13569,21 +13569,18 @@ attributes #12 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7, !10}
+!21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}

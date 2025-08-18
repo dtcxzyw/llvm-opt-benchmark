@@ -272,7 +272,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
   %110 = load i32, ptr %4, align 8
   %111 = sext i32 %110 to i64
   %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %112, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK17GrowableArrayViewIS1_E.exit
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -608,7 +608,7 @@ define hidden noundef ptr @_ZN13MemoryService18get_memory_managerE14instanceHand
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -640,7 +640,7 @@ define hidden noundef ptr @_ZN13MemoryService15get_memory_poolE14instanceHandle(
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -679,7 +679,7 @@ define hidden void @_ZN13MemoryService18track_memory_usageEv() local_unnamed_add
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @_ZN17LowMemoryDetector17detect_low_memoryEv() #8
@@ -745,7 +745,7 @@ define hidden void @_ZN13MemoryService8gc_beginEP15GCMemoryManagerbbbb(ptr nound
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5
   ret void
@@ -923,7 +923,7 @@ define hidden void @_ZN23TraceMemoryManagerStatsC2EP15GCMemoryManagerN7GCCause5C
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next.i.i, %41
-  br i1 %42, label %.lr.ph.i.i, label %_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb.exit, !llvm.loop !15
+  br i1 %42, label %.lr.ph.i.i, label %_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb.exit, !llvm.loop !13
 
 _ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb.exit: ; preds = %.lr.ph.i.i, %12, %.preheader.i.i
   ret void
@@ -982,7 +982,7 @@ define hidden void @_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next.i, %41
-  br i1 %42, label %.lr.ph.i, label %_ZN13MemoryService8gc_beginEP15GCMemoryManagerbbbb.exit, !llvm.loop !15
+  br i1 %42, label %.lr.ph.i, label %_ZN13MemoryService8gc_beginEP15GCMemoryManagerbbbb.exit, !llvm.loop !13
 
 _ZN13MemoryService8gc_beginEP15GCMemoryManagerbbbb.exit: ; preds = %.lr.ph.i, %12, %.preheader.i
   ret void
@@ -1209,7 +1209,7 @@ _ZN13GrowableArrayIP10MemoryPoolE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1225,7 +1225,7 @@ _ZN13GrowableArrayIP10MemoryPoolE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1309,7 +1309,7 @@ _ZN13GrowableArrayIP13MemoryManagerE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !18
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1325,7 +1325,7 @@ _ZN13GrowableArrayIP13MemoryManagerE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !19
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1431,8 +1431,8 @@ attributes #8 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -1440,5 +1440,3 @@ attributes #8 = { nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}

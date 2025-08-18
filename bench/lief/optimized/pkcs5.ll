@@ -453,12 +453,12 @@ define internal fastcc i32 @pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i6
   store i64 %41, ptr %39, align 8
   %42 = add nuw nsw i64 %38, 8
   %.not.i.us = icmp samesign ugt i64 %42, %15
-  br i1 %.not.i.us, label %.preheader.us, label %.lr.ph.us, !llvm.loop !24
+  br i1 %.not.i.us, label %.preheader.us, label %.lr.ph.us, !llvm.loop !23
 
 mbedtls_xor.exit.us:                              ; preds = %.lr.ph70.us, %.preheader.us
   %43 = add nuw i32 %.03871.us, 1
   %exitcond96.not = icmp eq i32 %43, %5
-  br i1 %exitcond96.not, label %._crit_edge.us, label %32, !llvm.loop !25
+  br i1 %exitcond96.not, label %._crit_edge.us, label %32, !llvm.loop !24
 
 .lr.ph70.us:                                      ; preds = %.preheader.us, %.lr.ph70.us
   %.1.i69.us = phi i64 [ %49, %.lr.ph70.us ], [ %.0.i.lcssa.us, %.preheader.us ]
@@ -470,7 +470,7 @@ mbedtls_xor.exit.us:                              ; preds = %.lr.ph70.us, %.preh
   store i8 %48, ptr %44, align 1, !tbaa !19
   %49 = add nuw nsw i64 %.1.i69.us, 1
   %exitcond.not = icmp eq i64 %49, %15
-  br i1 %exitcond.not, label %mbedtls_xor.exit.us, label %.lr.ph70.us, !llvm.loop !26
+  br i1 %exitcond.not, label %mbedtls_xor.exit.us, label %.lr.ph70.us, !llvm.loop !25
 
 .preheader.us:                                    ; preds = %.lr.ph.us, %.preheader63.us
   %.0.i.lcssa.us = phi i64 [ 0, %.preheader63.us ], [ %38, %.lr.ph.us ]
@@ -536,7 +536,7 @@ mbedtls_xor.exit.us:                              ; preds = %.lr.ph70.us, %.preh
 
 73:                                               ; preds = %68, %67
   %.not52 = icmp eq i32 %65, 0
-  br i1 %.not52, label %.loopexit, label %.lr.ph76.split, !llvm.loop !27
+  br i1 %.not52, label %.loopexit, label %.lr.ph76.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph76.split, %56, %58, %60, %73, %.lr.ph76.split.us, %19, %21, %23, %31, %36, %34, %32, %.preheader64
   %.140 = phi i32 [ 0, %.preheader64 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %18, %.lr.ph76.split.us ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 0, %31 ], [ %55, %.lr.ph76.split ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ 0, %73 ]
@@ -608,7 +608,7 @@ mbedtls_pkcs5_pbkdf2_hmac_ext.exit.us:            ; preds = %16
 22:                                               ; preds = %19
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 6
-  br i1 %exitcond44.not, label %.split35.us, label %.split.us, !llvm.loop !28
+  br i1 %exitcond44.not, label %.split35.us, label %.split.us, !llvm.loop !26
 
 .split:                                           ; preds = %1, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %1 ]
@@ -665,7 +665,7 @@ mbedtls_pkcs5_pbkdf2_hmac_ext.exit:               ; preds = %37
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.split35.us, label %.split, !llvm.loop !29
+  br i1 %exitcond.not, label %.split35.us, label %.split, !llvm.loop !26
 
 .split35.us:                                      ; preds = %43, %22
   br i1 %.not19, label %.critedge, label %44
@@ -755,11 +755,8 @@ attributes #8 = { nounwind }
 !19 = !{!5, !5, i64 0}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
 !24 = distinct !{!24, !21}
 !25 = distinct !{!25, !21}
 !26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21, !23}
-!29 = distinct !{!29, !21}

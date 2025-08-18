@@ -1713,7 +1713,7 @@ ExecProcNode.exit126:                             ; preds = %.loopexit, %132
   %133 = load ptr, ptr %45, align 8
   %134 = tail call ptr %133(ptr noundef nonnull %6) #8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.critedge, label %.lr.ph149.split.split, !llvm.loop !15
+  br i1 %135, label %.critedge, label %.lr.ph149.split.split, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph149.split.split, %ExecProcNode.exit126, %70, %ExecProcNode.exit126.us, %ExecProcNode.exit
   %.1102.lcssa = phi ptr [ %.0101, %ExecProcNode.exit ], [ %86, %ExecProcNode.exit126.us ], [ %86, %70 ], [ %.0101, %ExecProcNode.exit126 ], [ %.0101, %.lr.ph149.split.split ]
@@ -1974,7 +1974,7 @@ define dso_local void @ExecSetParamPlanMulti(ptr noundef %0, ptr noundef readonl
 13:                                               ; preds = %12, %6
   %14 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef %7) #8
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %6, label %._crit_edge, !llvm.loop !16
+  br i1 %15, label %6, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %2
   ret void
@@ -2070,7 +2070,7 @@ define dso_local void @ExecReScanSetParamPlan(ptr noundef %0, ptr noundef captur
   %48 = load i32, ptr %27, align 4
   %49 = sext i32 %48 to i64
   %.not21 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %.not21, label %36, label %.critedge, !llvm.loop !17
+  br i1 %.not21, label %36, label %.critedge, !llvm.loop !15
 }
 
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2156,7 +2156,7 @@ slot_getattr.exit.i.us:                           ; preds = %slot_getsomeattrs.e
   %46 = getelementptr inbounds i64, ptr %45, i64 %42
   %47 = load i64, ptr %46, align 8
   %48 = trunc nuw i8 %44 to i1
-  br i1 %48, label %.backedge.i.us, label %49, !llvm.loop !18
+  br i1 %48, label %.backedge.i.us, label %49, !llvm.loop !16
 
 49:                                               ; preds = %slot_getattr.exit.i.us
   %50 = load i16, ptr %31, align 2
@@ -2172,7 +2172,7 @@ slot_getattr.exit22.i.us:                         ; preds = %slot_getsomeattrs.e
   %53 = getelementptr inbounds i8, ptr %52, i64 %42
   %54 = load i8, ptr %53, align 1, !range !5, !noundef !6
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %.backedge.i.us, label %56, !llvm.loop !18
+  br i1 %55, label %.backedge.i.us, label %56, !llvm.loop !16
 
 56:                                               ; preds = %slot_getattr.exit22.i.us
   %57 = load ptr, ptr %33, align 8
@@ -2190,7 +2190,7 @@ execTuplesUnequal.exit.us:                        ; preds = %56
   %64 = load ptr, ptr %0, align 8
   %65 = call ptr @tuplehash_iterate(ptr noundef %64, ptr noundef nonnull %4) #8
   %.not.us.not = icmp eq ptr %65, null
-  br i1 %.not.us.not, label %.loopexit, label %.lr.ph24.split.us, !llvm.loop !19
+  br i1 %.not.us.not, label %.loopexit, label %.lr.ph24.split.us, !llvm.loop !17
 
 .backedge.i.us:                                   ; preds = %56, %slot_getattr.exit22.i.us, %slot_getattr.exit.i.us
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2298,10 +2298,8 @@ attributes #9 = { cold nounwind }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8, !14}

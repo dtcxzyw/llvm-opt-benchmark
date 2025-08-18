@@ -4391,7 +4391,7 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   switch i8 %13, label %.preheader17.us [
     i8 34, label %14
     i8 0, label %.loopexit18
-  ], !llvm.loop !125
+  ], !llvm.loop !124
 
 14:                                               ; preds = %.preheader17.us
   %15 = getelementptr inbounds nuw i8, ptr %.pn.us, i64 2
@@ -4426,7 +4426,7 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !26
   %.not9.us35 = icmp eq i8 %28, 0
-  br i1 %.not9.us35, label %.critedge.loopexit.us, label %.lr.ph.us, !llvm.loop !126
+  br i1 %.not9.us35, label %.critedge.loopexit.us, label %.lr.ph.us, !llvm.loop !125
 
 .critedge.thread.us:                              ; preds = %..critedge.thread.us_crit_edge, %14, %.critedge.loopexit.us, %.critedge.thread.loopexit.us
   %29 = phi ptr [ %.pre, %..critedge.thread.us_crit_edge ], [ %15, %14 ], [ %.lcssa28.us, %.critedge.loopexit.us ], [ %19, %.critedge.thread.loopexit.us ]
@@ -4452,7 +4452,7 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   %35 = and i8 %34, 1
   %.not = icmp eq i8 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %.promoted27, i64 1
-  br i1 %.not, label %37, label %.split, !llvm.loop !127
+  br i1 %.not, label %37, label %.split, !llvm.loop !123
 
 37:                                               ; preds = %.split
   switch i8 %31, label %.lr.ph [
@@ -4475,7 +4475,7 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !26
   %.not9.us = icmp eq i8 %46, 0
-  br i1 %.not9.us, label %.loopexit19, label %.lr.ph, !llvm.loop !128
+  br i1 %.not9.us, label %.loopexit19, label %.lr.ph, !llvm.loop !125
 
 47:                                               ; preds = %37
   store ptr %36, ptr %3, align 8, !tbaa !72
@@ -4494,7 +4494,7 @@ define internal fastcc range(i32 -1, 1) i32 @skip_imap_list_l(ptr noundef nonnul
   switch i8 %49, label %.preheader17 [
     i8 34, label %50
     i8 0, label %.loopexit18
-  ], !llvm.loop !125
+  ], !llvm.loop !124
 
 50:                                               ; preds = %.preheader17
   %51 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
@@ -4759,9 +4759,6 @@ attributes #27 = { nounwind willreturn memory(none) }
 !120 = !{!53, !53, i64 0}
 !121 = !{!52, !53, i64 24}
 !122 = distinct !{!122, !34}
-!123 = distinct !{!123, !124}
-!124 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!123 = distinct !{!123, !34}
+!124 = distinct !{!124, !34}
 !125 = distinct !{!125, !34}
-!126 = distinct !{!126, !34}
-!127 = distinct !{!127, !34}
-!128 = distinct !{!128, !34, !124}

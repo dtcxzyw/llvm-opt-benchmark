@@ -624,7 +624,7 @@ _ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit.i: ; preds = %._crit_edge.
   br i1 %.not7.i.i.i.i.i.i, label %"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.exit101.thread", label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %223, %258
-  %indvars.iv48.i.i = phi i64 [ %indvars.iv.next49.i.i, %258 ], [ 0, %223 ]
+  %indvars.iv50.i.i = phi i64 [ %indvars.iv.next51.i.i, %258 ], [ 0, %223 ]
   %.025.i.i = phi float [ %.1.i.i, %258 ], [ 2.500000e-01, %223 ]
   %.01623.i.i = phi i32 [ %.117.i.i, %258 ], [ -1, %223 ]
   br label %.lr.ph.i.i.i.i.i.i
@@ -640,7 +640,7 @@ _ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit.i: ; preds = %._crit_edge.
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i38.preheader.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !58
 
 .lr.ph.i.i38.preheader.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i
-  %229 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %indvars.iv48.i.i
+  %229 = getelementptr inbounds nuw [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %indvars.iv50.i.i
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx44.i.i.i.i
   br label %.lr.ph.i.i38.i.i.i.i
 
@@ -692,7 +692,7 @@ _ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i: ; preds = %.lr.ph.
 _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i.loopexit.i.i.i, %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i
   %.0.i.i.i.i = phi float [ 0x47EFFFFFE0000000, %_ZN5ZXing6ReduceIPKiiSt4plusIiEEET0_T_S6_S5_T1_.exit.i.i.i.i ], [ %252, %._crit_edge.thread.i.loopexit.i.i.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i.i.i.i ]
   %253 = fcmp uge float %.0.i.i.i.i, %.025.i.i
-  %254 = trunc nuw nsw i64 %indvars.iv48.i.i to i32
+  %254 = trunc nuw nsw i64 %indvars.iv50.i.i to i32
   br i1 %253, label %255, label %258
 
 255:                                              ; preds = %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i.i
@@ -705,9 +705,9 @@ _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEE
 258:                                              ; preds = %257, %255, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i.i
   %.117.i.i = phi i32 [ -1, %257 ], [ %.01623.i.i, %255 ], [ %254, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i.i ]
   %.1.i.i = phi float [ %.025.i.i, %257 ], [ %.025.i.i, %255 ], [ %.0.i.i.i.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm6EEEEfRKT_RKT0_f.exit.i.i ]
-  %indvars.iv.next49.i.i = add nuw nsw i64 %indvars.iv48.i.i, 1
-  %exitcond51.not.i.i = icmp eq i64 %indvars.iv.next49.i.i, 107
-  br i1 %exitcond51.not.i.i, label %"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.exit101", label %.lr.ph.i.i.i.i.preheader.i.i, !llvm.loop !61
+  %indvars.iv.next51.i.i = add nuw nsw i64 %indvars.iv50.i.i, 1
+  %exitcond53.not.i.i = icmp eq i64 %indvars.iv.next51.i.i, 107
+  br i1 %exitcond53.not.i.i, label %"_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.exit101", label %.lr.ph.i.i.i.i.preheader.i.i, !llvm.loop !61
 
 "_ZZNK5ZXing4OneD13Code128Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_b.exit101": ; preds = %258, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit.i
   %.0.i = phi i32 [ %222, %_ZN5ZXing7IndexOfISt5arrayIiLm107EEiEEiRKT_RKT0_.exit.i ], [ %.117.i.i, %258 ]
@@ -2846,7 +2846,7 @@ _ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %84, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13, %_ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18
   %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 4
   %.not = icmp ult ptr %96, %47
-  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !86
+  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit.us, %_ZZN5ZXing13FindLeftGuardILi3ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -2896,7 +2896,7 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i: ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next5.i.i = add nuw nsw i64 %indvars.iv4.i.i, 1
   %exitcond7.not.i.i = icmp eq i64 %indvars.iv.next5.i.i, 107
-  br i1 %exitcond7.not.i.i, label %__cxx_global_var_init.exit, label %2, !llvm.loop !87
+  br i1 %exitcond7.not.i.i, label %__cxx_global_var_init.exit, label %2, !llvm.loop !85
 
 13:                                               ; preds = %13, %2
   %14 = phi i32 [ %.pre.i.i, %2 ], [ %16, %13 ]
@@ -2908,7 +2908,7 @@ _ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i: ; preds = %.preheader.i.i
   %18 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv.i.i
   store i32 %17, ptr %18, align 4, !tbaa !9
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %13, !llvm.loop !88
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %13, !llvm.loop !86
 
 __cxx_global_var_init.exit:                       ; preds = %_ZN5ZXing5ToIntISt5arrayIiLm4EEvEEiRKT_.exit.i.i
   ret void
@@ -3042,8 +3042,6 @@ attributes #21 = { nounwind }
 !81 = distinct !{!81, !82, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
 !82 = distinct !{!82, !"_ZNK5ZXing11PatternView7subViewEii"}
 !83 = distinct !{!83, !44}
-!84 = distinct !{!84, !44, !85}
-!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !44}
+!85 = distinct !{!85, !44}
 !86 = distinct !{!86, !44}
-!87 = distinct !{!87, !44}
-!88 = distinct !{!88, !44}

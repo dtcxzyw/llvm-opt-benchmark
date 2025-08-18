@@ -30716,7 +30716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.02.06, i64 32
   %.not = icmp eq ptr %66, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !478
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !476
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us, %4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -31919,6 +31919,4 @@ attributes #34 = { nounwind willreturn memory(none) }
 !473 = !{!474}
 !474 = distinct !{!474, !475, !"_ZNK8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9to_stringEv: argument 0"}
 !475 = distinct !{!475, !"_ZNK8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9to_stringEv"}
-!476 = distinct !{!476, !53, !477}
-!477 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!478 = distinct !{!478, !53}
+!476 = distinct !{!476, !53}

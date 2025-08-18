@@ -2772,9 +2772,12 @@ define internal fastcc range(i32 0, 2) i32 @_confirmation(ptr noundef readonly c
   %11 = icmp eq i32 %1, -5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  br i1 %or.cond.i, label %_build_jobid_str.exit.us, label %.split
+  br i1 %or.cond.i, label %.split.us, label %.split
 
-_build_jobid_str.exit.us:                         ; preds = %3, %_build_jobid_str.exit.us.backedge
+.split.us:                                        ; preds = %3
+  br i1 %11, label %_build_jobid_str.exit.us.us, label %_build_jobid_str.exit.us
+
+_build_jobid_str.exit.us.us:                      ; preds = %.split.us, %_build_jobid_str.exit.us.us.backedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %14 = load i32, ptr %8, align 8
@@ -2784,32 +2787,50 @@ _build_jobid_str.exit.us:                         ; preds = %3, %_build_jobid_st
   store ptr %15, ptr %5, align 8
   %16 = load ptr, ptr %12, align 8
   %17 = load ptr, ptr %13, align 8
-  br i1 %11, label %20, label %18
-
-18:                                               ; preds = %_build_jobid_str.exit.us
-  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %15, i32 noundef %1, ptr noundef %16, ptr noundef %17)
-  br label %22
-
-20:                                               ; preds = %_build_jobid_str.exit.us
-  %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %15, ptr noundef %16, ptr noundef %17)
-  br label %22
-
-22:                                               ; preds = %20, %18
+  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %23 = load ptr, ptr @stdin, align 8
-  %24 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %23)
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %_build_jobid_str.exit.us.backedge, label %26
+  %19 = load ptr, ptr @stdin, align 8
+  %20 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %19)
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_build_jobid_str.exit.us.us.backedge, label %22
 
-26:                                               ; preds = %22
-  %27 = load i8, ptr %6, align 16
-  %28 = and i8 %27, -33
-  switch i8 %28, label %_build_jobid_str.exit.us.backedge [
-    i8 89, label %.fold.split.loopexit28
+22:                                               ; preds = %_build_jobid_str.exit.us.us
+  %23 = load i8, ptr %6, align 16
+  %24 = and i8 %23, -33
+  switch i8 %24, label %_build_jobid_str.exit.us.us.backedge [
+    i8 89, label %.fold.split.loopexit32
     i8 78, label %.fold.split
   ]
 
-_build_jobid_str.exit.us.backedge:                ; preds = %26, %22
+_build_jobid_str.exit.us.us.backedge:             ; preds = %22, %_build_jobid_str.exit.us.us
+  br label %_build_jobid_str.exit.us.us, !llvm.loop !32
+
+_build_jobid_str.exit.us:                         ; preds = %.split.us, %_build_jobid_str.exit.us.backedge
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr null, ptr %4, align 8
+  %25 = load i32, ptr %8, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %25, i32 noundef %2) #12
+  %26 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  store ptr %26, ptr %5, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %26, i32 noundef %1, ptr noundef %27, ptr noundef %28)
+  call void @slurm_xfree(ptr noundef nonnull %5) #12
+  %30 = load ptr, ptr @stdin, align 8
+  %31 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %30)
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %_build_jobid_str.exit.us.backedge, label %33
+
+33:                                               ; preds = %_build_jobid_str.exit.us
+  %34 = load i8, ptr %6, align 16
+  %35 = and i8 %34, -33
+  switch i8 %35, label %_build_jobid_str.exit.us.backedge [
+    i8 89, label %.fold.split.loopexit33
+    i8 78, label %.fold.split
+  ]
+
+_build_jobid_str.exit.us.backedge:                ; preds = %33, %_build_jobid_str.exit.us
   br label %_build_jobid_str.exit.us, !llvm.loop !32
 
 .split:                                           ; preds = %3
@@ -2818,116 +2839,119 @@ _build_jobid_str.exit.us.backedge:                ; preds = %26, %22
 .split.split.us:                                  ; preds = %.split, %.split.split.us.backedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %29 = load ptr, ptr %7, align 8
-  %.not.i.us = icmp eq ptr %29, null
-  br i1 %.not.i.us, label %32, label %30
+  %36 = load ptr, ptr %7, align 8
+  %.not.i.us = icmp eq ptr %36, null
+  br i1 %.not.i.us, label %39, label %37
 
-30:                                               ; preds = %.split.split.us
-  %31 = load i32, ptr %8, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i32 noundef %31, ptr noundef nonnull %29) #12
+37:                                               ; preds = %.split.split.us
+  %38 = load i32, ptr %8, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i32 noundef %38, ptr noundef nonnull %36) #12
   br label %_build_jobid_str.exit.us17
 
-32:                                               ; preds = %.split.split.us
-  %33 = load i32, ptr %9, align 4
-  %.not13.i.us = icmp eq i32 %33, -2
-  br i1 %.not13.i.us, label %36, label %34
+39:                                               ; preds = %.split.split.us
+  %40 = load i32, ptr %9, align 4
+  %.not13.i.us = icmp eq i32 %40, -2
+  br i1 %.not13.i.us, label %43, label %41
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr %8, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %35, i32 noundef %33) #12
+41:                                               ; preds = %39
+  %42 = load i32, ptr %8, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %42, i32 noundef %40) #12
   br label %_build_jobid_str.exit.us17
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i32 noundef %37) #12
+43:                                               ; preds = %39
+  %44 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i32 noundef %44) #12
   br label %_build_jobid_str.exit.us17
 
-_build_jobid_str.exit.us17:                       ; preds = %36, %34, %30
-  %38 = load ptr, ptr %4, align 8
+_build_jobid_str.exit.us17:                       ; preds = %43, %41, %37
+  %45 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store ptr %45, ptr %5, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %45, ptr noundef %46, ptr noundef %47)
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %42 = load ptr, ptr @stdin, align 8
-  %43 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %42)
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %.split.split.us.backedge, label %45
+  %49 = load ptr, ptr @stdin, align 8
+  %50 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %49)
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.split.split.us.backedge, label %52
 
-45:                                               ; preds = %_build_jobid_str.exit.us17
-  %46 = load i8, ptr %6, align 16
-  %47 = and i8 %46, -33
-  switch i8 %47, label %.split.split.us.backedge [
-    i8 89, label %.fold.split.loopexit29
+52:                                               ; preds = %_build_jobid_str.exit.us17
+  %53 = load i8, ptr %6, align 16
+  %54 = and i8 %53, -33
+  switch i8 %54, label %.split.split.us.backedge [
+    i8 89, label %.fold.split.loopexit34
     i8 78, label %.fold.split
   ]
 
-.split.split.us.backedge:                         ; preds = %45, %_build_jobid_str.exit.us17
-  br label %.split.split.us, !llvm.loop !34
+.split.split.us.backedge:                         ; preds = %52, %_build_jobid_str.exit.us17
+  br label %.split.split.us, !llvm.loop !32
 
 .split.split:                                     ; preds = %.split, %.split.split.backedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %48 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %51, label %49
+  %55 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %55, null
+  br i1 %.not.i, label %58, label %56
 
-49:                                               ; preds = %.split.split
-  %50 = load i32, ptr %8, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i32 noundef %50, ptr noundef nonnull %48) #12
+56:                                               ; preds = %.split.split
+  %57 = load i32, ptr %8, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i32 noundef %57, ptr noundef nonnull %55) #12
   br label %_build_jobid_str.exit
 
-51:                                               ; preds = %.split.split
-  %52 = load i32, ptr %9, align 4
-  %.not13.i = icmp eq i32 %52, -2
-  br i1 %.not13.i, label %55, label %53
+58:                                               ; preds = %.split.split
+  %59 = load i32, ptr %9, align 4
+  %.not13.i = icmp eq i32 %59, -2
+  br i1 %.not13.i, label %62, label %60
 
-53:                                               ; preds = %51
-  %54 = load i32, ptr %8, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %54, i32 noundef %52) #12
+60:                                               ; preds = %58
+  %61 = load i32, ptr %8, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %61, i32 noundef %59) #12
   br label %_build_jobid_str.exit
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i32 noundef %56) #12
+62:                                               ; preds = %58
+  %63 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i32 noundef %63) #12
   br label %_build_jobid_str.exit
 
-_build_jobid_str.exit:                            ; preds = %49, %53, %55
-  %57 = load ptr, ptr %4, align 8
+_build_jobid_str.exit:                            ; preds = %56, %60, %62
+  %64 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %57, ptr %5, align 8
-  %58 = load ptr, ptr %12, align 8
-  %59 = load ptr, ptr %13, align 8
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %57, i32 noundef %1, ptr noundef %58, ptr noundef %59)
+  store ptr %64, ptr %5, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = load ptr, ptr %13, align 8
+  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %64, i32 noundef %1, ptr noundef %65, ptr noundef %66)
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %61 = load ptr, ptr @stdin, align 8
-  %62 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %61)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.split.split.backedge, label %64
+  %68 = load ptr, ptr @stdin, align 8
+  %69 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 128, ptr noundef %68)
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.split.split.backedge, label %71
 
-.split.split.backedge:                            ; preds = %_build_jobid_str.exit, %64
-  br label %.split.split, !llvm.loop !35
+.split.split.backedge:                            ; preds = %_build_jobid_str.exit, %71
+  br label %.split.split, !llvm.loop !32
 
-64:                                               ; preds = %_build_jobid_str.exit
-  %65 = load i8, ptr %6, align 16
-  %66 = and i8 %65, -33
-  switch i8 %66, label %.split.split.backedge [
-    i8 89, label %.fold.split.loopexit30
+71:                                               ; preds = %_build_jobid_str.exit
+  %72 = load i8, ptr %6, align 16
+  %73 = and i8 %72, -33
+  switch i8 %73, label %.split.split.backedge [
+    i8 89, label %.fold.split.loopexit35
     i8 78, label %.fold.split
   ]
 
-.fold.split.loopexit28:                           ; preds = %26
+.fold.split.loopexit32:                           ; preds = %22
   br label %.fold.split
 
-.fold.split.loopexit29:                           ; preds = %45
+.fold.split.loopexit33:                           ; preds = %33
   br label %.fold.split
 
-.fold.split.loopexit30:                           ; preds = %64
+.fold.split.loopexit34:                           ; preds = %52
   br label %.fold.split
 
-.fold.split:                                      ; preds = %64, %45, %26, %.fold.split.loopexit30, %.fold.split.loopexit29, %.fold.split.loopexit28
-  %.0 = phi i32 [ 1, %.fold.split.loopexit28 ], [ 1, %.fold.split.loopexit29 ], [ 1, %.fold.split.loopexit30 ], [ 0, %26 ], [ 0, %45 ], [ 0, %64 ]
+.fold.split.loopexit35:                           ; preds = %71
+  br label %.fold.split
+
+.fold.split:                                      ; preds = %71, %52, %33, %22, %.fold.split.loopexit35, %.fold.split.loopexit34, %.fold.split.loopexit33, %.fold.split.loopexit32
+  %.0 = phi i32 [ 1, %.fold.split.loopexit32 ], [ 1, %.fold.split.loopexit33 ], [ 1, %.fold.split.loopexit34 ], [ 1, %.fold.split.loopexit35 ], [ 0, %22 ], [ 0, %33 ], [ 0, %52 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -3105,11 +3129,11 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #3 {
   %83 = call i32 @sleep(i32 noundef %82) #12
   %84 = add nuw nsw i32 %.03274, 1
   %exitcond.not = icmp eq i32 %84, 10
-  br i1 %exitcond.not, label %..thread60_crit_edge, label %30, !llvm.loop !36
+  br i1 %exitcond.not, label %..thread60_crit_edge, label %30, !llvm.loop !33
 
 ..thread60_crit_edge:                             ; preds = %81
   %.pre = load i32, ptr %75, align 4
-  br label %.thread60, !llvm.loop !36
+  br label %.thread60, !llvm.loop !33
 
 .thread60:                                        ; preds = %74, %..thread60_crit_edge
   %85 = phi i32 [ %.pre, %..thread60_crit_edge ], [ %76, %74 ]
@@ -3276,8 +3300,5 @@ attributes #15 = { cold noreturn nounwind }
 !29 = distinct !{!29, !9, !10}
 !30 = distinct !{!30, !9, !10}
 !31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !10, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !10, !33}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !9, !10}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !9, !10}

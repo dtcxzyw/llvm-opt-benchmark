@@ -639,7 +639,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next239, %151
-  br i1 %152, label %.lr.ph202.us, label %._crit_edge203.split.us.us, !llvm.loop !37
+  br i1 %152, label %.lr.ph202.us, label %._crit_edge203.split.us.us, !llvm.loop !36
 
 .lr.ph211.split:                                  ; preds = %.lr.ph211, %188
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %188 ], [ 0, %.lr.ph211 ]
@@ -685,7 +685,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, 1
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next231, %174
-  br i1 %175, label %.lr.ph202, label %._crit_edge203.split, !llvm.loop !38
+  br i1 %175, label %.lr.ph202, label %._crit_edge203.split, !llvm.loop !36
 
 ._crit_edge203.split:                             ; preds = %172, %.lr.ph211.split
   %.0163.lcssa = phi i32 [ 0, %.lr.ph211.split ], [ %.1164, %172 ]
@@ -720,7 +720,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %.2173 = phi double [ %187, %184 ], [ %183, %181 ]
   %.2168 = phi double [ %186, %184 ], [ %183, %181 ]
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge212, label %.lr.ph211.split, !llvm.loop !39
+  br i1 %exitcond237.not, label %._crit_edge212, label %.lr.ph211.split, !llvm.loop !35
 
 ._crit_edge212:                                   ; preds = %188, %131, %.critedge2
   %.1172.lcssa = phi double [ %.0171218, %.critedge2 ], [ %.2173.us, %131 ], [ %.2173, %188 ]
@@ -737,7 +737,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 193:                                              ; preds = %190, %._crit_edge212
   %194 = add nuw nsw i32 %107, 1
   %exitcond246.not = icmp eq i32 %194, 101
-  br i1 %exitcond246.not, label %.critedge, label %106, !llvm.loop !40
+  br i1 %exitcond246.not, label %.critedge, label %106, !llvm.loop !37
 
 .critedge:                                        ; preds = %193, %109
   %.0171.lcssa = phi double [ %.1172.lcssa, %193 ], [ %.0171218, %109 ]
@@ -778,7 +778,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   store double %206, ptr %202, align 8, !tbaa !20
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
-  br i1 %exitcond251.not, label %._crit_edge224, label %196, !llvm.loop !41
+  br i1 %exitcond251.not, label %._crit_edge224, label %196, !llvm.loop !38
 
 ._crit_edge224:                                   ; preds = %196, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -902,10 +902,7 @@ attributes #21 = { cold noreturn nounwind }
 !32 = !{!14, !9, i64 16}
 !33 = !{!14, !5, i64 40}
 !34 = distinct !{!34, !23}
-!35 = distinct !{!35, !23, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !23, !36}
+!35 = distinct !{!35, !23}
+!36 = distinct !{!36, !23}
+!37 = distinct !{!37, !23}
 !38 = distinct !{!38, !23}
-!39 = distinct !{!39, !23}
-!40 = distinct !{!40, !23}
-!41 = distinct !{!41, !23}

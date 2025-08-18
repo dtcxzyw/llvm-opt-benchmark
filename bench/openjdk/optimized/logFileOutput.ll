@@ -136,7 +136,7 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
 
 12:                                               ; preds = %4
   %13 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %1, i8 noundef zeroext 17) #13
-  br label %131
+  br label %149
 
 14:                                               ; preds = %4
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
@@ -180,248 +180,297 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
   %.2 = phi i64 [ %33, %30 ], [ %.1, %25 ]
   %35 = add i64 %.2, 1
   %36 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %35, i8 noundef zeroext 17, i32 noundef 0) #13
-  %.not168 = icmp eq i64 %.2, 0
-  br i1 %.not168, label %.outer83._crit_edge, label %.lr.ph.lr.ph.lr.ph.preheader
+  %.not195 = icmp eq i64 %.2, 0
+  br i1 %.not195, label %.outer83._crit_edge, label %.lr.ph.lr.ph.lr.ph.preheader
 
 .lr.ph.lr.ph.lr.ph.preheader:                     ; preds = %34
   %37 = icmp eq ptr %6, null
   br label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.lr.ph.lr.ph.lr.ph.preheader, %.outer
-  %.0.ph167 = phi i64 [ %102, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
-  %.059.ph166 = phi i64 [ %103, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
-  %.062.ph165 = phi ptr [ %.062.ph84140215, %.outer ], [ %8, %.lr.ph.lr.ph.lr.ph.preheader ]
-  %.063.ph164 = phi ptr [ %.063.ph79152, %.outer ], [ %7, %.lr.ph.lr.ph.lr.ph.preheader ]
-  %.064.ph163 = phi i1 [ true, %.outer ], [ %37, %.lr.ph.lr.ph.lr.ph.preheader ]
-  br i1 %.064.ph163, label %.lr.ph.lr.ph.us.preheader, label %.lr.ph.lr.ph
+  %.0.ph194 = phi i64 [ %120, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
+  %.059.ph193 = phi i64 [ %121, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
+  %.062.ph192 = phi ptr [ %.062.ph84142254, %.outer ], [ %8, %.lr.ph.lr.ph.lr.ph.preheader ]
+  %.063.ph191 = phi ptr [ %.063.ph79169, %.outer ], [ %7, %.lr.ph.lr.ph.lr.ph.preheader ]
+  %.064.ph190 = phi i1 [ true, %.outer ], [ %37, %.lr.ph.lr.ph.lr.ph.preheader ]
+  br i1 %.064.ph190, label %.lr.ph.lr.ph.us.preheader, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph.us.preheader:                        ; preds = %.lr.ph.lr.ph.lr.ph
-  %38 = icmp eq ptr %.063.ph164, null
+  %38 = icmp eq ptr %.063.ph191, null
   br label %.lr.ph.lr.ph.us
 
 .lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.us.preheader, %.outer78.us
-  %.0.ph82155.us = phi i64 [ %42, %.outer78.us ], [ %.0.ph167, %.lr.ph.lr.ph.us.preheader ]
-  %.059.ph81154.us = phi i64 [ %43, %.outer78.us ], [ %.059.ph166, %.lr.ph.lr.ph.us.preheader ]
-  %.062.ph80153.us = phi ptr [ %.062.ph84140.us.us196, %.outer78.us ], [ %.062.ph165, %.lr.ph.lr.ph.us.preheader ]
-  %.063.ph79152.us = phi i1 [ true, %.outer78.us ], [ %38, %.lr.ph.lr.ph.us.preheader ]
-  br label %.lr.ph.us.us
+  %.0.ph82172.us = phi i64 [ %43, %.outer78.us ], [ %.0.ph194, %.lr.ph.lr.ph.us.preheader ]
+  %.059.ph81171.us = phi i64 [ %44, %.outer78.us ], [ %.059.ph193, %.lr.ph.lr.ph.us.preheader ]
+  %.062.ph80170.us = phi ptr [ %.us-phi103.us, %.outer78.us ], [ %.062.ph192, %.lr.ph.lr.ph.us.preheader ]
+  %.063.ph79169.us = phi i1 [ true, %.outer78.us ], [ %38, %.lr.ph.lr.ph.us.preheader ]
+  br i1 %.063.ph79169.us, label %.lr.ph.us.us.us.preheader, label %.lr.ph.us.us174
 
-.outer78.us:                                      ; preds = %.tail70.us.us.us, %.tail70.us129.us.us
-  %.062.ph84140.us.us196 = phi ptr [ %.062.ph84140.us.us, %.tail70.us129.us.us ], [ null, %.tail70.us.us.us ]
-  %.us-phi104.us = phi i64 [ %.05996.us126.us.us, %.tail70.us129.us.us ], [ %.05996.us.us.us, %.tail70.us.us.us ]
-  %.us-phi105.us = phi i64 [ %.097.us125.us.us, %.tail70.us129.us.us ], [ %.097.us.us.us, %.tail70.us.us.us ]
-  %39 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
-  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %3) #13
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %42 = add i64 %41, %.us-phi105.us
-  %43 = add i64 %.us-phi104.us, 2
-  %44 = icmp ult i64 %42, %.2
-  br i1 %44, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
+.lr.ph.us.us.us.preheader:                        ; preds = %.lr.ph.lr.ph.us
+  %39 = icmp eq ptr %.062.ph80170.us, null
+  br label %.lr.ph.us.us.us
 
-.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.us.us, %51
-  %.097.us.us.us = phi i64 [ %53, %51 ], [ %.0.ph86142.us.us, %.lr.ph.us.us ]
-  %.05996.us.us.us = phi i64 [ %52, %51 ], [ %.059.ph85141.us.us, %.lr.ph.us.us ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 %.05996.us.us.us
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp ne i8 %46, 37
-  %brmerge = select i1 %47, i1 true, i1 %.063.ph79152.us
-  br i1 %brmerge, label %51, label %.tail70.us.us.us
+.outer78.us:                                      ; preds = %.tail70.us.us, %.tail70.us129.us.us
+  %.us-phi103.us = phi ptr [ %.062.ph84142.us.us177, %.tail70.us129.us.us ], [ null, %.tail70.us.us ]
+  %.us-phi104.us = phi i64 [ %.05996.us126.us147.us, %.tail70.us129.us.us ], [ %.05996.us.us, %.tail70.us.us ]
+  %.us-phi105.us = phi i64 [ %.097.us125.us146.us, %.tail70.us129.us.us ], [ %.097.us.us, %.tail70.us.us ]
+  %40 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
+  %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %3) #13
+  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %43 = add i64 %42, %.us-phi105.us
+  %44 = add i64 %.us-phi104.us, 2
+  %45 = icmp ult i64 %43, %.2
+  br i1 %45, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
 
-.tail70.us.us.us:                                 ; preds = %.lr.ph.split.us.split.us.us
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 116
-  br i1 %50, label %.outer78.us, label %51
+.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.split.us.split.us.us.preheader, %52
+  %.097.us.us = phi i64 [ %54, %52 ], [ %.097.us.us.ph, %.lr.ph.split.us.split.us.us.preheader ]
+  %.05996.us.us = phi i64 [ %53, %52 ], [ %.05996.us.us.ph, %.lr.ph.split.us.split.us.us.preheader ]
+  %46 = getelementptr inbounds i8, ptr %1, i64 %.05996.us.us
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp ne i8 %47, 37
+  %brmerge = or i1 %48, %.063.ph79169.us
+  br i1 %brmerge, label %52, label %.tail70.us.us
 
-51:                                               ; preds = %.lr.ph.split.us.split.us.us, %.tail70.us.us.us
-  %52 = add i64 %.05996.us.us.us, 1
-  %53 = add nuw i64 %.097.us.us.us, 1
-  %54 = getelementptr inbounds i8, ptr %36, i64 %.097.us.us.us
-  store i8 %46, ptr %54, align 1
-  %55 = icmp ult i64 %53, %.2
-  br i1 %55, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !9
+.tail70.us.us:                                    ; preds = %.lr.ph.split.us.split.us.us
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 116
+  br i1 %51, label %.outer78.us, label %52
 
-.lr.ph.us.us:                                     ; preds = %.split137.us.us.us, %.lr.ph.lr.ph.us
-  %.0.ph86142.us.us = phi i64 [ %.0.ph82155.us, %.lr.ph.lr.ph.us ], [ %75, %.split137.us.us.us ]
-  %.059.ph85141.us.us = phi i64 [ %.059.ph81154.us, %.lr.ph.lr.ph.us ], [ %76, %.split137.us.us.us ]
-  %.062.ph84140.us.us = phi ptr [ %.062.ph80153.us, %.lr.ph.lr.ph.us ], [ null, %.split137.us.us.us ]
-  %.not69.us.us = icmp eq ptr %.062.ph84140.us.us, null
-  br i1 %.not69.us.us, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us143.us
+52:                                               ; preds = %.lr.ph.split.us.split.us.us, %.tail70.us.us
+  %53 = add i64 %.05996.us.us, 1
+  %54 = add nuw i64 %.097.us.us, 1
+  %55 = getelementptr inbounds i8, ptr %36, i64 %.097.us.us
+  store i8 %47, ptr %55, align 1
+  %56 = icmp ult i64 %54, %.2
+  br i1 %56, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !6
 
-.lr.ph.split.us143.us:                            ; preds = %.lr.ph.us.us, %.tail74.us.us.us.thread
-  %.097.us125.us.us = phi i64 [ %69, %.tail74.us.us.us.thread ], [ %.0.ph86142.us.us, %.lr.ph.us.us ]
-  %.05996.us126.us.us = phi i64 [ %68, %.tail74.us.us.us.thread ], [ %.059.ph85141.us.us, %.lr.ph.us.us ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 %.05996.us126.us.us
-  %57 = load i8, ptr %56, align 1
-  %58 = icmp eq i8 %57, 37
-  br i1 %58, label %59, label %.tail74.us.us.us.thread
+.lr.ph.us.us174:                                  ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us152.us
+  %.0.ph86144.us.us175 = phi i64 [ %75, %.split137.us.split.us152.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
+  %.059.ph85143.us.us176 = phi i64 [ %76, %.split137.us.split.us152.us ], [ %.059.ph81171.us, %.lr.ph.lr.ph.us ]
+  %.062.ph84142.us.us177 = phi ptr [ null, %.split137.us.split.us152.us ], [ %.062.ph80170.us, %.lr.ph.lr.ph.us ]
+  %.not69.us.us178 = icmp eq ptr %.062.ph84142.us.us177, null
+  br i1 %.not69.us.us178, label %.lr.ph.split.us.split.us.us.preheader, label %.lr.ph.split.us145.us180
 
-59:                                               ; preds = %.lr.ph.split.us143.us
-  br i1 %.063.ph79152.us, label %sub_176.us.us.us, label %.tail70.us129.us.us
+.lr.ph.split.us145.us180:                         ; preds = %.lr.ph.us.us174, %.tail74.us.us151.us.thread
+  %.097.us125.us146.us = phi i64 [ %69, %.tail74.us.us151.us.thread ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
+  %.05996.us126.us147.us = phi i64 [ %68, %.tail74.us.us151.us.thread ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
+  %57 = getelementptr inbounds i8, ptr %1, i64 %.05996.us126.us147.us
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 37
+  br i1 %59, label %.tail70.us129.us.us, label %.tail74.us.us151.us.thread
 
-.tail70.us129.us.us:                              ; preds = %59
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 1
+.tail70.us129.us.us:                              ; preds = %.lr.ph.split.us145.us180
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 116
-  br i1 %62, label %.outer78.us, label %sub_176.us.us.us
+  br i1 %62, label %.outer78.us, label %sub_176.us.us149.us
 
-sub_176.us.us.us:                                 ; preds = %59, %.tail70.us129.us.us
-  %63 = getelementptr inbounds nuw i8, ptr %56, i64 1
+sub_176.us.us149.us:                              ; preds = %.tail70.us129.us.us
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %64 = load i8, ptr %63, align 1
-  %.not177 = icmp eq i8 %64, 104
-  br i1 %.not177, label %.tail74.us.us.us, label %.tail74.us.us.us.thread
+  %.not204 = icmp eq i8 %64, 104
+  br i1 %.not204, label %.tail74.us.us151.us, label %.tail74.us.us151.us.thread
 
-.tail74.us.us.us:                                 ; preds = %sub_176.us.us.us
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 2
+.tail74.us.us151.us:                              ; preds = %sub_176.us.us149.us
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 110
-  br i1 %67, label %.split137.us.us.us, label %.tail74.us.us.us.thread
+  br i1 %67, label %.split137.us.split.us152.us, label %.tail74.us.us151.us.thread
 
-.tail74.us.us.us.thread:                          ; preds = %sub_176.us.us.us, %.tail74.us.us.us, %.lr.ph.split.us143.us
-  %68 = add i64 %.05996.us126.us.us, 1
-  %69 = add nuw i64 %.097.us125.us.us, 1
-  %70 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us
-  store i8 %57, ptr %70, align 1
+.tail74.us.us151.us.thread:                       ; preds = %sub_176.us.us149.us, %.tail74.us.us151.us, %.lr.ph.split.us145.us180
+  %68 = add i64 %.05996.us126.us147.us, 1
+  %69 = add nuw i64 %.097.us125.us146.us, 1
+  %70 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us146.us
+  store i8 %58, ptr %70, align 1
   %71 = icmp ult i64 %69, %.2
-  br i1 %71, label %.lr.ph.split.us143.us, label %.outer83._crit_edge, !llvm.loop !10
+  br i1 %71, label %.lr.ph.split.us145.us180, label %.outer83._crit_edge, !llvm.loop !6
 
-.split137.us.us.us:                               ; preds = %.tail74.us.us.us
-  %72 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us
+.split137.us.split.us152.us:                      ; preds = %.tail74.us.us151.us
+  %72 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us146.us
   %73 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %5) #13
   %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
-  %75 = add i64 %74, %.097.us125.us.us
-  %76 = add i64 %.05996.us126.us.us, 3
+  %75 = add i64 %74, %.097.us125.us146.us
+  %76 = add i64 %.05996.us126.us147.us, 3
   %77 = icmp ult i64 %75, %.2
-  br i1 %77, label %.lr.ph.us.us, label %.outer83._crit_edge, !llvm.loop !11
+  br i1 %77, label %.lr.ph.us.us174, label %.outer83._crit_edge, !llvm.loop !6
+
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.split137.us.split.us.us.us.us
+  %.0.ph86144.us.us.us = phi i64 [ %93, %.split137.us.split.us.us.us.us ], [ %.0.ph82172.us, %.lr.ph.us.us.us.preheader ]
+  %.059.ph85143.us.us.us = phi i64 [ %94, %.split137.us.split.us.us.us.us ], [ %.059.ph81171.us, %.lr.ph.us.us.us.preheader ]
+  %.062.ph84142.us.us.us = phi i1 [ true, %.split137.us.split.us.us.us.us ], [ %39, %.lr.ph.us.us.us.preheader ]
+  br i1 %.062.ph84142.us.us.us, label %.lr.ph.split.us.split.us.us.preheader, label %.lr.ph.split.us145.us.us
+
+.lr.ph.split.us.split.us.us.preheader:            ; preds = %.lr.ph.us.us174, %.lr.ph.us.us.us
+  %.097.us.us.ph = phi i64 [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
+  %.05996.us.us.ph = phi i64 [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
+  br label %.lr.ph.split.us.split.us.us
+
+.lr.ph.split.us145.us.us:                         ; preds = %.lr.ph.us.us.us, %.tail74.us.us.us.us.us.thread
+  %.097.us125.us.us.us.us = phi i64 [ %87, %.tail74.us.us.us.us.us.thread ], [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ]
+  %.05996.us126.us.us.us.us = phi i64 [ %86, %.tail74.us.us.us.us.us.thread ], [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ]
+  %78 = getelementptr inbounds i8, ptr %1, i64 %.05996.us126.us.us.us.us
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 37
+  br i1 %80, label %sub_176.us.us.us.us.us, label %.tail74.us.us.us.us.us.thread
+
+sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.us.us
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  %82 = load i8, ptr %81, align 1
+  %.not206 = icmp eq i8 %82, 104
+  br i1 %.not206, label %.tail74.us.us.us.us.us, label %.tail74.us.us.us.us.us.thread
+
+.tail74.us.us.us.us.us:                           ; preds = %sub_176.us.us.us.us.us
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 2
+  %84 = load i8, ptr %83, align 1
+  %85 = icmp eq i8 %84, 110
+  br i1 %85, label %.split137.us.split.us.us.us.us, label %.tail74.us.us.us.us.us.thread
+
+.tail74.us.us.us.us.us.thread:                    ; preds = %sub_176.us.us.us.us.us, %.tail74.us.us.us.us.us, %.lr.ph.split.us145.us.us
+  %86 = add i64 %.05996.us126.us.us.us.us, 1
+  %87 = add nuw i64 %.097.us125.us.us.us.us, 1
+  %88 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us.us.us
+  store i8 %79, ptr %88, align 1
+  %89 = icmp ult i64 %87, %.2
+  br i1 %89, label %.lr.ph.split.us145.us.us, label %.outer83._crit_edge, !llvm.loop !6
+
+.split137.us.split.us.us.us.us:                   ; preds = %.tail74.us.us.us.us.us
+  %90 = getelementptr inbounds i8, ptr %36, i64 %.097.us125.us.us.us.us
+  %91 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %5) #13
+  %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %93 = add i64 %92, %.097.us125.us.us.us.us
+  %94 = add i64 %.05996.us126.us.us.us.us, 3
+  %95 = icmp ult i64 %93, %.2
+  br i1 %95, label %.lr.ph.us.us.us, label %.outer83._crit_edge, !llvm.loop !6
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer78
-  %.0.ph82155 = phi i64 [ %112, %.outer78 ], [ %.0.ph167, %.lr.ph.lr.ph.lr.ph ]
-  %.059.ph81154 = phi i64 [ %113, %.outer78 ], [ %.059.ph166, %.lr.ph.lr.ph.lr.ph ]
-  %.062.ph80153 = phi ptr [ %.062.ph84140216, %.outer78 ], [ %.062.ph165, %.lr.ph.lr.ph.lr.ph ]
-  %.063.ph79152 = phi ptr [ null, %.outer78 ], [ %.063.ph164, %.lr.ph.lr.ph.lr.ph ]
-  %.not68 = icmp eq ptr %.063.ph79152, null
+  %.0.ph82172 = phi i64 [ %130, %.outer78 ], [ %.0.ph194, %.lr.ph.lr.ph.lr.ph ]
+  %.059.ph81171 = phi i64 [ %131, %.outer78 ], [ %.059.ph193, %.lr.ph.lr.ph.lr.ph ]
+  %.062.ph80170 = phi ptr [ %.062.ph84142255, %.outer78 ], [ %.062.ph192, %.lr.ph.lr.ph.lr.ph ]
+  %.063.ph79169 = phi ptr [ null, %.outer78 ], [ %.063.ph191, %.lr.ph.lr.ph.lr.ph ]
+  %.not68 = icmp eq ptr %.063.ph79169, null
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split137
-  %.0.ph86142 = phi i64 [ %.0.ph82155, %.lr.ph.lr.ph ], [ %123, %.split137 ]
-  %.059.ph85141 = phi i64 [ %.059.ph81154, %.lr.ph.lr.ph ], [ %124, %.split137 ]
-  %.062.ph84140 = phi ptr [ %.062.ph80153, %.lr.ph.lr.ph ], [ null, %.split137 ]
-  %.not69 = icmp eq ptr %.062.ph84140, null
+  %.0.ph86144 = phi i64 [ %.0.ph82172, %.lr.ph.lr.ph ], [ %141, %.split137 ]
+  %.059.ph85143 = phi i64 [ %.059.ph81171, %.lr.ph.lr.ph ], [ %142, %.split137 ]
+  %.062.ph84142 = phi ptr [ %.062.ph80170, %.lr.ph.lr.ph ], [ null, %.split137 ]
+  %.not69 = icmp eq ptr %.062.ph84142, null
   br i1 %.not69, label %.lr.ph.split.us.split, label %.lr.ph.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %88
-  %.097.us = phi i64 [ %90, %88 ], [ %.0.ph86142, %.lr.ph ]
-  %.05996.us = phi i64 [ %89, %88 ], [ %.059.ph85141, %.lr.ph ]
-  %78 = getelementptr inbounds i8, ptr %1, i64 %.05996.us
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 37
-  br i1 %80, label %.tail.us, label %88
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %106
+  %.097.us = phi i64 [ %108, %106 ], [ %.0.ph86144, %.lr.ph ]
+  %.05996.us = phi i64 [ %107, %106 ], [ %.059.ph85143, %.lr.ph ]
+  %96 = getelementptr inbounds i8, ptr %1, i64 %.05996.us
+  %97 = load i8, ptr %96, align 1
+  %98 = icmp eq i8 %97, 37
+  br i1 %98, label %.tail.us, label %106
 
 .tail.us:                                         ; preds = %.lr.ph.split.us.split
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  %82 = load i8, ptr %81, align 1
-  %83 = icmp eq i8 %82, 112
-  br i1 %83, label %.outer, label %84
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  %100 = load i8, ptr %99, align 1
+  %101 = icmp eq i8 %100, 112
+  br i1 %101, label %.outer, label %102
 
-84:                                               ; preds = %.tail.us
-  br i1 %.not68, label %88, label %.tail70.us
+102:                                              ; preds = %.tail.us
+  br i1 %.not68, label %106, label %.tail70.us
 
-.tail70.us:                                       ; preds = %84
-  %85 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  %86 = load i8, ptr %85, align 1
-  %87 = icmp eq i8 %86, 116
-  br i1 %87, label %.outer78, label %88
+.tail70.us:                                       ; preds = %102
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  %104 = load i8, ptr %103, align 1
+  %105 = icmp eq i8 %104, 116
+  br i1 %105, label %.outer78, label %106
 
-88:                                               ; preds = %84, %.tail70.us, %.lr.ph.split.us.split
-  %89 = add i64 %.05996.us, 1
-  %90 = add nuw i64 %.097.us, 1
-  %91 = getelementptr inbounds i8, ptr %36, i64 %.097.us
-  store i8 %79, ptr %91, align 1
-  %92 = icmp ult i64 %90, %.2
-  br i1 %92, label %.lr.ph.split.us.split, label %.outer83._crit_edge, !llvm.loop !12
+106:                                              ; preds = %102, %.tail70.us, %.lr.ph.split.us.split
+  %107 = add i64 %.05996.us, 1
+  %108 = add nuw i64 %.097.us, 1
+  %109 = getelementptr inbounds i8, ptr %36, i64 %.097.us
+  store i8 %97, ptr %109, align 1
+  %110 = icmp ult i64 %108, %.2
+  br i1 %110, label %.lr.ph.split.us.split, label %.outer83._crit_edge, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.tail74.thread
-  %.097 = phi i64 [ %127, %.tail74.thread ], [ %.0.ph86142, %.lr.ph ]
-  %.05996 = phi i64 [ %126, %.tail74.thread ], [ %.059.ph85141, %.lr.ph ]
-  %93 = getelementptr inbounds i8, ptr %1, i64 %.05996
-  %94 = load i8, ptr %93, align 1
-  %95 = icmp eq i8 %94, 37
-  br i1 %95, label %.tail, label %.tail74.thread
+  %.097 = phi i64 [ %145, %.tail74.thread ], [ %.0.ph86144, %.lr.ph ]
+  %.05996 = phi i64 [ %144, %.tail74.thread ], [ %.059.ph85143, %.lr.ph ]
+  %111 = getelementptr inbounds i8, ptr %1, i64 %.05996
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 37
+  br i1 %113, label %.tail, label %.tail74.thread
 
 .tail:                                            ; preds = %.lr.ph.split
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %97 = load i8, ptr %96, align 1
-  %98 = icmp eq i8 %97, 112
-  br i1 %98, label %.outer, label %105
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  %115 = load i8, ptr %114, align 1
+  %116 = icmp eq i8 %115, 112
+  br i1 %116, label %.outer, label %123
 
 .outer:                                           ; preds = %.tail.us, %.tail
-  %.062.ph84140215 = phi ptr [ %.062.ph84140, %.tail ], [ null, %.tail.us ]
+  %.062.ph84142254 = phi ptr [ %.062.ph84142, %.tail ], [ null, %.tail.us ]
   %.us-phi99 = phi i64 [ %.05996, %.tail ], [ %.05996.us, %.tail.us ]
   %.us-phi100 = phi i64 [ %.097, %.tail ], [ %.097.us, %.tail.us ]
-  %99 = getelementptr inbounds i8, ptr %36, i64 %.us-phi100
-  %100 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %2) #13
-  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
-  %102 = add i64 %101, %.us-phi100
-  %103 = add i64 %.us-phi99, 2
-  %104 = icmp ult i64 %102, %.2
-  br i1 %104, label %.lr.ph.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
+  %117 = getelementptr inbounds i8, ptr %36, i64 %.us-phi100
+  %118 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull dereferenceable(1) %2) #13
+  %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
+  %120 = add i64 %119, %.us-phi100
+  %121 = add i64 %.us-phi99, 2
+  %122 = icmp ult i64 %120, %.2
+  br i1 %122, label %.lr.ph.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !6
 
-105:                                              ; preds = %.tail
+123:                                              ; preds = %.tail
   br i1 %.not68, label %sub_176, label %.tail70
 
-.tail70:                                          ; preds = %105
-  %106 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %107 = load i8, ptr %106, align 1
-  %108 = icmp eq i8 %107, 116
-  br i1 %108, label %.outer78, label %sub_176
+.tail70:                                          ; preds = %123
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  %125 = load i8, ptr %124, align 1
+  %126 = icmp eq i8 %125, 116
+  br i1 %126, label %.outer78, label %sub_176
 
 .outer78:                                         ; preds = %.tail70.us, %.tail70
-  %.062.ph84140216 = phi ptr [ %.062.ph84140, %.tail70 ], [ null, %.tail70.us ]
+  %.062.ph84142255 = phi ptr [ %.062.ph84142, %.tail70 ], [ null, %.tail70.us ]
   %.us-phi104 = phi i64 [ %.05996, %.tail70 ], [ %.05996.us, %.tail70.us ]
   %.us-phi105 = phi i64 [ %.097, %.tail70 ], [ %.097.us, %.tail70.us ]
-  %109 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105
-  %110 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(1) %3) #13
-  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %112 = add i64 %111, %.us-phi105
-  %113 = add i64 %.us-phi104, 2
-  %114 = icmp ult i64 %112, %.2
-  br i1 %114, label %.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
+  %127 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105
+  %128 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %3) #13
+  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %130 = add i64 %129, %.us-phi105
+  %131 = add i64 %.us-phi104, 2
+  %132 = icmp ult i64 %130, %.2
+  br i1 %132, label %.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !6
 
-sub_176:                                          ; preds = %105, %.tail70
-  %115 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %116 = load i8, ptr %115, align 1
-  %.not172 = icmp eq i8 %116, 104
-  br i1 %.not172, label %.tail74, label %.tail74.thread
+sub_176:                                          ; preds = %123, %.tail70
+  %133 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  %134 = load i8, ptr %133, align 1
+  %.not199 = icmp eq i8 %134, 104
+  br i1 %.not199, label %.tail74, label %.tail74.thread
 
 .tail74:                                          ; preds = %sub_176
-  %117 = getelementptr inbounds nuw i8, ptr %93, i64 2
-  %118 = load i8, ptr %117, align 1
-  %119 = icmp eq i8 %118, 110
-  br i1 %119, label %.split137, label %.tail74.thread
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  %136 = load i8, ptr %135, align 1
+  %137 = icmp eq i8 %136, 110
+  br i1 %137, label %.split137, label %.tail74.thread
 
 .split137:                                        ; preds = %.tail74
-  %120 = getelementptr inbounds i8, ptr %36, i64 %.097
-  %121 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) %5) #13
-  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
-  %123 = add i64 %122, %.097
-  %124 = add i64 %.05996, 3
-  %125 = icmp ult i64 %123, %.2
-  br i1 %125, label %.lr.ph, label %.outer83._crit_edge, !llvm.loop !12
+  %138 = getelementptr inbounds i8, ptr %36, i64 %.097
+  %139 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %5) #13
+  %140 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %141 = add i64 %140, %.097
+  %142 = add i64 %.05996, 3
+  %143 = icmp ult i64 %141, %.2
+  br i1 %143, label %.lr.ph, label %.outer83._crit_edge, !llvm.loop !6
 
 .tail74.thread:                                   ; preds = %sub_176, %.tail74, %.lr.ph.split
-  %126 = add i64 %.05996, 1
-  %127 = add nuw i64 %.097, 1
-  %128 = getelementptr inbounds i8, ptr %36, i64 %.097
-  store i8 %94, ptr %128, align 1
-  %129 = icmp ult i64 %127, %.2
-  br i1 %129, label %.lr.ph.split, label %.outer83._crit_edge, !llvm.loop !12
+  %144 = add i64 %.05996, 1
+  %145 = add nuw i64 %.097, 1
+  %146 = getelementptr inbounds i8, ptr %36, i64 %.097
+  store i8 %112, ptr %146, align 1
+  %147 = icmp ult i64 %145, %.2
+  br i1 %147, label %.lr.ph.split, label %.outer83._crit_edge, !llvm.loop !6
 
-.outer83._crit_edge:                              ; preds = %.outer, %.outer78, %.split137, %88, %.tail74.thread, %.outer78.us, %.split137.us.us.us, %51, %.tail74.us.us.us.thread, %34
-  %130 = getelementptr inbounds i8, ptr %36, i64 %.2
-  store i8 0, ptr %130, align 1
-  br label %131
+.outer83._crit_edge:                              ; preds = %.outer, %.outer78, %.split137, %106, %.tail74.thread, %.outer78.us, %.split137.us.split.us152.us, %.split137.us.split.us.us.us.us, %52, %.tail74.us.us151.us.thread, %.tail74.us.us.us.us.us.thread, %34
+  %148 = getelementptr inbounds i8, ptr %36, i64 %.2
+  store i8 0, ptr %148, align 1
+  br label %149
 
-131:                                              ; preds = %.outer83._crit_edge, %12
+149:                                              ; preds = %.outer83._crit_edge, %12
   %.060 = phi ptr [ %13, %12 ], [ %36, %.outer83._crit_edge ]
   ret ptr %.060
 }
@@ -772,7 +821,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %.2.i = phi i32 [ %.02630.i, %86 ], [ %.02729.i, %83 ]
   %89 = add nuw i32 %.02630.i, 1
   %exitcond.not.i = icmp eq i32 %89, %63
-  br i1 %exitcond.not.i, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %71, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %71, !llvm.loop !8
 
 _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   %.128.i = phi i32 [ -1, %79 ], [ 0, %60 ], [ %.02630.i, %80 ], [ %.2.i, %88 ]
@@ -1308,11 +1357,6 @@ attributes #15 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = distinct !{!8, !7}

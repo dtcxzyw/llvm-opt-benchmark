@@ -630,7 +630,7 @@ Vec_IntPush.exit177.us.us:                        ; preds = %Vec_IntGrow.exit.i1
 ._crit_edge210.split.us.us:                       ; preds = %._crit_edge208.us.us
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
-  br i1 %exitcond259.not, label %._crit_edge217, label %.preheader181.us, !llvm.loop !29
+  br i1 %exitcond259.not, label %._crit_edge217, label %.preheader181.us, !llvm.loop !28
 
 .lr.ph186:                                        ; preds = %._crit_edge, %Vec_WecPush.exit
   %.val.i189 = phi ptr [ %.val.i187, %Vec_WecPush.exit ], [ %.promoted, %._crit_edge ]
@@ -744,7 +744,7 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %259 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %209, i32 noundef 1, i32 noundef %.1184)
   %260 = add nuw nsw i32 %.1184, 1
   %exitcond230.not = icmp eq i32 %260, %0
-  br i1 %exitcond230.not, label %.preheader182, label %.lr.ph186, !llvm.loop !30
+  br i1 %exitcond230.not, label %.preheader182, label %.lr.ph186, !llvm.loop !29
 
 ._crit_edge217:                                   ; preds = %._crit_edge210.split.us.us, %._crit_edge192.us, %33, %._crit_edge, %.preheader182
   %.pre.i.i179270 = phi ptr [ %.val.i187, %.preheader182 ], [ %.promoted, %._crit_edge ], [ %.val.i187, %33 ], [ %.val.i187, %._crit_edge192.us ], [ %.val.i187, %._crit_edge210.split.us.us ]
@@ -780,13 +780,13 @@ Vec_WecPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val16.i = load i32, ptr %266, align 4, !tbaa !17
   %273 = sext i32 %.val16.i to i64
   %274 = icmp slt i64 %indvars.iv.next.i, %273
-  br i1 %274, label %269, label %.critedge2.i, !llvm.loop !31
+  br i1 %274, label %269, label %.critedge2.i, !llvm.loop !30
 
 .critedge2.i:                                     ; preds = %269, %.lr.ph23.i
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next26.i, %262
-  br i1 %exitcond260.not, label %Vec_WecPrint.exit, label %.lr.ph23.i, !llvm.loop !32
+  br i1 %exitcond260.not, label %Vec_WecPrint.exit, label %.lr.ph23.i, !llvm.loop !31
 
 Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._crit_edge217
   %275 = load i32, ptr %5, align 8, !tbaa !5
@@ -812,7 +812,7 @@ Vec_WecPrint.exit:                                ; preds = %.critedge2.i, %._cr
 281:                                              ; preds = %280, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next.i.i, %277
-  br i1 %exitcond261.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %exitcond261.not, label %._crit_edge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %Vec_WecPrint.exit
   %.not.i.i180 = icmp eq ptr %.pre.i.i179270, null
@@ -882,7 +882,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
 22:                                               ; preds = %.lr.ph
   %23 = add nuw nsw i32 %.077, 1
   %exitcond.not = icmp eq i32 %23, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.077, %.lr.ph ], [ %3, %22 ]
@@ -1059,7 +1059,7 @@ define void @Macc_ConstMultGenTest() local_unnamed_addr #0 {
   %7 = tail call i32 @fclose(ptr noundef %6)
   %8 = add nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %8, 128
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !35
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !34
 
 9:                                                ; preds = %3
   %.not = icmp eq ptr %2, null
@@ -1144,12 +1144,11 @@ attributes #15 = { nounwind allocsize(1) }
 !24 = !{!"llvm.loop.unswitch.partial.disable"}
 !25 = !{!18, !7, i64 0}
 !26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !4, !28}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
 !31 = distinct !{!31, !4}
 !32 = distinct !{!32, !4}
 !33 = distinct !{!33, !4}
 !34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}

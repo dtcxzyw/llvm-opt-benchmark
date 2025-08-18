@@ -389,7 +389,7 @@ define internal i32 @dvdsub_encode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %125 = add nuw nsw i32 %124, %.01617.i.i
   %126 = add nsw i32 %.01518.i.i, -8
   %.not.i.i = icmp eq i32 %.01518.i.i, 0
-  br i1 %.not.i.i, label %color_distance.exit.i, label %117, !llvm.loop !62
+  br i1 %.not.i.i, label %color_distance.exit.i, label %117, !llvm.loop !61
 
 color_distance.exit.i:                            ; preds = %117
   %127 = icmp slt i32 %125, %.03710.i
@@ -398,7 +398,7 @@ color_distance.exit.i:                            ; preds = %117
   %spec.select49.i = select i1 %127, i32 %128, i32 %.311.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond18.not.i, label %129, label %113, !llvm.loop !63
+  br i1 %exitcond18.not.i, label %129, label %113, !llvm.loop !62
 
 129:                                              ; preds = %color_distance.exit.i
   %130 = add nsw i32 %spec.select49.i, %111
@@ -418,13 +418,13 @@ color_distance.exit.i:                            ; preds = %117
   %.136.i = phi i32 [ %.2.i, %132 ], [ %.03513.i, %.preheader1.i ]
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, 256
-  br i1 %exitcond22.not.i, label %count_colors.exit, label %.preheader1.i, !llvm.loop !64
+  br i1 %exitcond22.not.i, label %count_colors.exit, label %.preheader1.i, !llvm.loop !63
 
 count_colors.exit:                                ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
-  br i1 %exitcond309.not, label %._crit_edge271.loopexit, label %76, !llvm.loop !65
+  br i1 %exitcond309.not, label %._crit_edge271.loopexit, label %76, !llvm.loop !64
 
 ._crit_edge271.loopexit:                          ; preds = %count_colors.exit
   %.pre = load i32, ptr %11, align 16, !tbaa !31
@@ -475,7 +475,7 @@ count_colors.exit:                                ; preds = %136
   %156 = add nuw nsw i32 %.0708.i, 1
   %157 = lshr i32 %.0757.i, 8
   %exitcond.not.i174 = icmp eq i32 %156, 3
-  br i1 %exitcond.not.i174, label %158, label %150, !llvm.loop !66
+  br i1 %exitcond.not.i174, label %158, label %150, !llvm.loop !65
 
 158:                                              ; preds = %150
   %159 = tail call i32 @llvm.umin.i32(i32 %155, i32 2)
@@ -488,7 +488,7 @@ count_colors.exit:                                ; preds = %136
 
 163:                                              ; preds = %158, %140
   %exitcond22.not.i175 = icmp eq i64 %indvars.iv.next.i173, 16
-  br i1 %exitcond22.not.i175, label %.preheader3.i, label %140, !llvm.loop !67
+  br i1 %exitcond22.not.i175, label %.preheader3.i, label %140, !llvm.loop !66
 
 .preheader3.i:                                    ; preds = %163, %173
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %173 ], [ 0, %163 ]
@@ -509,7 +509,7 @@ count_colors.exit:                                ; preds = %136
   %spec.store.select.i = select i1 %171, i32 %172, i32 %spec.store.select1011.i
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 33
-  br i1 %exitcond26.not.i, label %173, label %165, !llvm.loop !68
+  br i1 %exitcond26.not.i, label %173, label %165, !llvm.loop !67
 
 173:                                              ; preds = %165
   store i32 %spec.store.select.i, ptr %164, align 4
@@ -518,7 +518,7 @@ count_colors.exit:                                ; preds = %136
   store i32 0, ptr %175, align 4, !tbaa !31
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 4
-  br i1 %exitcond30.not.i, label %.preheader2.i, label %.preheader3.i, !llvm.loop !69
+  br i1 %exitcond30.not.i, label %.preheader2.i, label %.preheader3.i, !llvm.loop !68
 
 .preheader2.i:                                    ; preds = %173, %.preheader2.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.preheader2.i ], [ 0, %173 ]
@@ -533,13 +533,13 @@ count_colors.exit:                                ; preds = %136
   %182 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %181
   store i32 %180, ptr %182, align 4, !tbaa !31
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 16
-  br i1 %exitcond34.not.i, label %.preheader1.i176, label %.preheader2.i, !llvm.loop !70
+  br i1 %exitcond34.not.i, label %.preheader1.i176, label %.preheader2.i, !llvm.loop !69
 
 .loopexit.i:                                      ; preds = %223
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 3
-  br i1 %exitcond44.not.i, label %.preheader.i181, label %.preheader1.i176, !llvm.loop !71
+  br i1 %exitcond44.not.i, label %.preheader.i181, label %.preheader1.i176, !llvm.loop !70
 
 .preheader1.i176:                                 ; preds = %.preheader2.i, %.loopexit.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.loopexit.i ], [ 0, %.preheader2.i ]
@@ -571,7 +571,7 @@ count_colors.exit:                                ; preds = %136
   %201 = add nuw nsw i32 %200, %.01617.i.i179
   %202 = add nsw i32 %.01518.i.i178, -8
   %.not.i.i180 = icmp eq i32 %.01518.i.i178, 0
-  br i1 %.not.i.i180, label %.lr.ph.i, label %192, !llvm.loop !62
+  br i1 %.not.i.i180, label %.lr.ph.i, label %192, !llvm.loop !61
 
 .lr.ph.i:                                         ; preds = %192, %223
   %203 = phi i32 [ %224, %223 ], [ %186, %192 ]
@@ -601,7 +601,7 @@ count_colors.exit:                                ; preds = %136
   %219 = add nuw nsw i32 %218, %.01617.i85.i
   %220 = add nsw i32 %.01518.i84.i, -8
   %.not.i86.i = icmp eq i32 %.01518.i84.i, 0
-  br i1 %.not.i86.i, label %color_distance.exit87.i, label %210, !llvm.loop !62
+  br i1 %.not.i86.i, label %color_distance.exit87.i, label %210, !llvm.loop !61
 
 color_distance.exit87.i:                          ; preds = %210
   %221 = icmp slt i32 %219, %.07315.i
@@ -617,7 +617,7 @@ color_distance.exit87.i:                          ; preds = %210
   %.174.i = phi i32 [ %219, %222 ], [ %.07315.i, %color_distance.exit87.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 4
-  br i1 %exitcond40.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %exitcond40.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !71
 
 .preheader.i181:                                  ; preds = %.loopexit.i, %.preheader.i181
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.preheader.i181 ], [ 0, %.loopexit.i ]
@@ -636,7 +636,7 @@ color_distance.exit87.i:                          ; preds = %210
   store i32 %233, ptr %234, align 4, !tbaa !31
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
-  br i1 %exitcond48.not.i, label %select_palette.exit, label %.preheader.i181, !llvm.loop !73
+  br i1 %exitcond48.not.i, label %select_palette.exit, label %.preheader.i181, !llvm.loop !72
 
 select_palette.exit:                              ; preds = %.preheader.i181
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -681,7 +681,7 @@ select_palette.exit:                              ; preds = %.preheader.i181
   store i32 %254, ptr %255, align 4, !tbaa !31
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
   %exitcond.not.i185 = icmp eq i64 %indvars.iv.next.i184, 4
-  br i1 %exitcond.not.i185, label %.preheader.i186, label %245, !llvm.loop !74
+  br i1 %exitcond.not.i185, label %.preheader.i186, label %245, !llvm.loop !73
 
 .preheader.i186:                                  ; preds = %245, %279
   %indvars.iv11.i = phi i64 [ %indvars.iv.next12.i, %279 ], [ 0, %245 ]
@@ -715,7 +715,7 @@ select_palette.exit:                              ; preds = %.preheader.i181
   %273 = add nuw nsw i32 %272, %.01617.i.i190
   %274 = add nsw i32 %.01518.i.i189, -8
   %.not.i.i191 = icmp eq i32 %.01518.i.i189, 0
-  br i1 %.not.i.i191, label %color_distance.exit.i192, label %264, !llvm.loop !62
+  br i1 %.not.i.i191, label %color_distance.exit.i192, label %264, !llvm.loop !61
 
 color_distance.exit.i192:                         ; preds = %264
   %275 = icmp slt i32 %273, %.04.i
@@ -730,12 +730,12 @@ color_distance.exit.i192:                         ; preds = %264
   %.1.i = phi i32 [ %273, %276 ], [ %.04.i, %color_distance.exit.i192 ]
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, 4
-  br i1 %exitcond10.not.i, label %279, label %260, !llvm.loop !75
+  br i1 %exitcond10.not.i, label %279, label %260, !llvm.loop !74
 
 279:                                              ; preds = %278
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next12.i, 256
-  br i1 %exitcond14.not.i, label %build_color_map.exit, label %.preheader.i186, !llvm.loop !76
+  br i1 %exitcond14.not.i, label %build_color_map.exit, label %.preheader.i186, !llvm.loop !75
 
 build_color_map.exit:                             ; preds = %279
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -790,7 +790,7 @@ build_color_map.exit:                             ; preds = %279
   %309 = add nuw nsw i32 %.02426.i, 1
   %310 = load i32, ptr %283, align 8, !tbaa !54
   %311 = icmp slt i32 %309, %310
-  br i1 %311, label %.lr.ph.i194, label %._crit_edge.loopexit.i, !llvm.loop !77
+  br i1 %311, label %.lr.ph.i194, label %._crit_edge.loopexit.i, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i194
   %.pre39.i = load i32, ptr %280, align 4, !tbaa !55
@@ -810,12 +810,12 @@ build_color_map.exit:                             ; preds = %279
   %320 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %319
   %321 = add nuw nsw i32 %.02331.i, 1
   %322 = icmp slt i32 %321, %312
-  br i1 %322, label %.preheader.i193, label %copy_rectangle.exit, !llvm.loop !78
+  br i1 %322, label %.preheader.i193, label %copy_rectangle.exit, !llvm.loop !77
 
 copy_rectangle.exit:                              ; preds = %._crit_edge.i, %build_color_map.exit, %.preheader.lr.ph.i
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
-  br i1 %exitcond314.not, label %.preheader, label %.lr.ph273, !llvm.loop !80
+  br i1 %exitcond314.not, label %.preheader, label %.lr.ph273, !llvm.loop !79
 
 .preheader:                                       ; preds = %copy_rectangle.exit, %.preheader
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.preheader ], [ 0, %copy_rectangle.exit ]
@@ -824,7 +824,7 @@ copy_rectangle.exit:                              ; preds = %._crit_edge.i, %bui
   store i32 %324, ptr %323, align 4, !tbaa !31
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next316, 4
-  br i1 %exitcond318.not, label %.loopexit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond318.not, label %.loopexit, label %.preheader, !llvm.loop !80
 
 325:                                              ; preds = %select_palette.exit
   %326 = load ptr, ptr %21, align 8, !tbaa !44
@@ -849,7 +849,7 @@ copy_rectangle.exit:                              ; preds = %._crit_edge.i, %bui
   store i32 %339, ptr %340, align 4, !tbaa !31
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i195, 1
   %exitcond.not.i197 = icmp eq i64 %indvars.iv.next.i196, 4
-  br i1 %exitcond.not.i197, label %.preheader.i198, label %330, !llvm.loop !74
+  br i1 %exitcond.not.i197, label %.preheader.i198, label %330, !llvm.loop !73
 
 .preheader.i198:                                  ; preds = %330, %364
   %indvars.iv11.i199 = phi i64 [ %indvars.iv.next12.i211, %364 ], [ 0, %330 ]
@@ -883,7 +883,7 @@ copy_rectangle.exit:                              ; preds = %._crit_edge.i, %bui
   %358 = add nuw nsw i32 %357, %.01617.i.i205
   %359 = add nsw i32 %.01518.i.i204, -8
   %.not.i.i206 = icmp eq i32 %.01518.i.i204, 0
-  br i1 %.not.i.i206, label %color_distance.exit.i207, label %349, !llvm.loop !62
+  br i1 %.not.i.i206, label %color_distance.exit.i207, label %349, !llvm.loop !61
 
 color_distance.exit.i207:                         ; preds = %349
   %360 = icmp slt i32 %358, %.04.i201
@@ -898,12 +898,12 @@ color_distance.exit.i207:                         ; preds = %349
   %.1.i208 = phi i32 [ %358, %361 ], [ %.04.i201, %color_distance.exit.i207 ]
   %indvars.iv.next8.i209 = add nuw nsw i64 %indvars.iv7.i200, 1
   %exitcond10.not.i210 = icmp eq i64 %indvars.iv.next8.i209, 4
-  br i1 %exitcond10.not.i210, label %364, label %345, !llvm.loop !75
+  br i1 %exitcond10.not.i210, label %364, label %345, !llvm.loop !74
 
 364:                                              ; preds = %363
   %indvars.iv.next12.i211 = add nuw nsw i64 %indvars.iv11.i199, 1
   %exitcond14.not.i212 = icmp eq i64 %indvars.iv.next12.i211, 256
-  br i1 %exitcond14.not.i212, label %build_color_map.exit213, label %.preheader.i198, !llvm.loop !76
+  br i1 %exitcond14.not.i212, label %build_color_map.exit213, label %.preheader.i198, !llvm.loop !75
 
 build_color_map.exit213:                          ; preds = %364
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -929,7 +929,7 @@ build_color_map.exit213:                          ; preds = %364
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.14, i32 noundef %371, i32 noundef %373, i32 noundef %368, i32 noundef %374) #8
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next320, 4
-  br i1 %exitcond322.not, label %375, label %366, !llvm.loop !82
+  br i1 %exitcond322.not, label %375, label %366, !llvm.loop !81
 
 375:                                              ; preds = %366
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.15) #8
@@ -959,7 +959,7 @@ build_color_map.exit213:                          ; preds = %364
   %391 = ashr i32 %.sroa.20.0335, 1
   call fastcc void @dvd_encode_rle(ptr noundef %10, ptr noundef %390, i32 noundef %383, i32 noundef %.sroa.13.0337, i32 noundef %391, ptr noundef %12)
   %392 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %393 = load i32, ptr %392, align 8, !tbaa !83
+  %393 = load i32, ptr %392, align 8, !tbaa !82
   %.not163 = icmp eq i32 %393, 0
   %394 = and i32 %.sroa.20.0335, 1
   %.not164 = icmp eq i32 %394, 0
@@ -984,7 +984,7 @@ build_color_map.exit213:                          ; preds = %364
   %404 = tail call i16 @llvm.bswap.i16(i16 %403)
   store i16 %404, ptr %400, align 1, !tbaa !58
   %405 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %406 = load i32, ptr %405, align 4, !tbaa !84
+  %406 = load i32, ptr %405, align 4, !tbaa !83
   %407 = mul i32 %406, 90
   %408 = lshr i32 %407, 10
   %409 = trunc i32 %408 to i16
@@ -1105,7 +1105,7 @@ build_color_map.exit213:                          ; preds = %364
   %493 = getelementptr inbounds nuw i8, ptr %399, i64 24
   store i8 -1, ptr %492, align 1, !tbaa !58
   %494 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %495 = load i32, ptr %494, align 8, !tbaa !85
+  %495 = load i32, ptr %494, align 8, !tbaa !84
   %496 = mul i32 %495, 90
   %497 = lshr i32 %496, 10
   %498 = trunc i32 %497 to i16
@@ -1200,7 +1200,7 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %15 = getelementptr inbounds i8, ptr %.0122197.us, i64 %10
   %16 = add nuw nsw i32 %.0103200.us, 1
   %exitcond205.not = icmp eq i32 %16, %4
-  br i1 %exitcond205.not, label %._crit_edge201, label %.preheader.us, !llvm.loop !86
+  br i1 %exitcond205.not, label %._crit_edge201, label %.preheader.us, !llvm.loop !85
 
 17:                                               ; preds = %.preheader.us, %137
   %.0104191.us = phi i32 [ 0, %.preheader.us ], [ %138, %137 ]
@@ -1416,14 +1416,14 @@ define internal fastcc void @dvd_encode_rle(ptr noundef nonnull captures(none) %
   %.1.us = phi i32 [ %.0.lcssa.us208212, %127 ], [ %.0.lcssa.us208212, %133 ], [ %.0.lcssa.us, %115 ], [ %.0.lcssa.us, %106 ], [ %.0.lcssa.us, %85 ], [ %.0.lcssa.us, %96 ], [ %.0.lcssa.us, %77 ], [ %.0.lcssa.us, %71 ], [ %spec.store.select.us, %57 ], [ %spec.store.select.us, %47 ]
   %138 = add nuw nsw i32 %.1.us, %.0104191.us
   %139 = icmp slt i32 %138, %3
-  br i1 %139, label %17, label %._crit_edge193.us, !llvm.loop !87
+  br i1 %139, label %17, label %._crit_edge193.us, !llvm.loop !86
 
 140:                                              ; preds = %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %141 = trunc i64 %indvars.iv.next to i32
   %142 = add i32 %.0104191.us, %141
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !87
 
 ._crit_edge193.us:                                ; preds = %137
   %143 = and i32 %.1106.us, 1
@@ -1535,8 +1535,8 @@ attributes #9 = { noreturn nounwind }
 !57 = distinct !{!57, !33}
 !58 = !{!8, !8, i64 0}
 !59 = distinct !{!59, !33}
-!60 = distinct !{!60, !33, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !33}
+!61 = distinct !{!61, !33}
 !62 = distinct !{!62, !33}
 !63 = distinct !{!63, !33}
 !64 = distinct !{!64, !33}
@@ -1552,15 +1552,14 @@ attributes #9 = { noreturn nounwind }
 !74 = distinct !{!74, !33}
 !75 = distinct !{!75, !33}
 !76 = distinct !{!76, !33}
-!77 = distinct !{!77, !33}
-!78 = distinct !{!78, !33, !79}
-!79 = !{!"llvm.loop.unswitch.partial.disable"}
+!77 = distinct !{!77, !33, !78}
+!78 = !{!"llvm.loop.unswitch.partial.disable"}
+!79 = distinct !{!79, !33}
 !80 = distinct !{!80, !33}
 !81 = distinct !{!81, !33}
-!82 = distinct !{!82, !33}
-!83 = !{!28, !10, i64 80}
-!84 = !{!41, !10, i64 4}
-!85 = !{!41, !10, i64 8}
-!86 = distinct !{!86, !33, !61}
+!82 = !{!28, !10, i64 80}
+!83 = !{!41, !10, i64 4}
+!84 = !{!41, !10, i64 8}
+!85 = distinct !{!85, !33}
+!86 = distinct !{!86, !33}
 !87 = distinct !{!87, !33}
-!88 = distinct !{!88, !33}

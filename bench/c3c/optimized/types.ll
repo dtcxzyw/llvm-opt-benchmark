@@ -3135,7 +3135,7 @@ create_type_cache.exit:                           ; preds = %35
 65:                                               ; preds = %61, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count90
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %65, %56, %create_type_cache.exit, %44
   %66 = getelementptr inbounds nuw i8, ptr %.071, i64 16
@@ -3528,7 +3528,7 @@ define dso_local ptr @type_get_func(ptr noundef readonly captures(none) %0, i32 
   %30 = add i64 %23, %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %hash_function.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %hash_function.exit, label %.lr.ph.i, !llvm.loop !18
 
 hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   %.017.lcssa.i = phi i64 [ %15, %18 ], [ %15, %2 ], [ %30, %.lr.ph.i ]
@@ -3745,7 +3745,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   store ptr %107, ptr %158, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %94
-  br i1 %exitcond.not.i22, label %159, label %103, !llvm.loop !21
+  br i1 %exitcond.not.i22, label %159, label %103, !llvm.loop !19
 
 159:                                              ; preds = %153
   %160 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -3790,7 +3790,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
   tail call fastcc void @type_append_name_to_scratch(ptr noundef %.1172.i)
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count186.i
-  br i1 %exitcond187.not.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !22
+  br i1 %exitcond187.not.i, label %._crit_edge.i, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %169, %.thread.i, %162
   tail call void @scratch_buffer_append_char(i8 noundef signext 41) #14
@@ -3875,7 +3875,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %18
 207:                                              ; preds = %203, %.lr.ph176.i
   %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
   %exitcond192.not.i = icmp eq i64 %indvars.iv.next189.i, %wide.trip.count191.i
-  br i1 %exitcond192.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !23
+  br i1 %exitcond192.not.i, label %._crit_edge177.i, label %.lr.ph176.i, !llvm.loop !21
 
 ._crit_edge177.i:                                 ; preds = %207, %186
   store ptr %195, ptr getelementptr inbounds nuw (i8, ptr @map, i64 16), align 8
@@ -4077,7 +4077,7 @@ compare_func_param.exit52.i:                      ; preds = %287
 compare_func_param.exit52.thread.i:               ; preds = %tailrecurse.backedge.i46.i, %.lr.ph.i41.i, %compare_func_param.exit52.i, %.lr.ph.i29
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, %wide.trip.count.i28
-  br i1 %exitcond.not.i32, label %func_create_new_func_proto.exit, label %.lr.ph.i29, !llvm.loop !24
+  br i1 %exitcond.not.i32, label %func_create_new_func_proto.exit, label %.lr.ph.i29, !llvm.loop !22
 
 compare_function.exit:                            ; preds = %compare_func_param.exit.i
   br i1 %266, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
@@ -5070,7 +5070,7 @@ type_find_parent_type.exit:                       ; preds = %14, %24
   %.0.i.in = phi ptr [ %17, %14 ], [ %28, %24 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not.not = icmp eq ptr %.0.i, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %6, %18, %8, %.lr.ph, %type_find_parent_type.exit, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %5, %type_find_parent_type.exit ], [ %5, %.lr.ph ], [ %5, %8 ], [ %5, %18 ], [ %5, %6 ]
@@ -5491,7 +5491,7 @@ type_find_parent_type.exit.i:                     ; preds = %95, %85
   %.0.i.in.i = phi ptr [ %88, %85 ], [ %99, %95 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit:                                        ; preds = %77, %89, %79, %type_find_parent_type.exit.i, %73
   %100 = load i32, ptr %.054, align 8
@@ -5907,7 +5907,7 @@ define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0,
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 32
-  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !26
+  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.preheader128
   %.0104.lcssa = phi ptr [ %11, %.preheader128 ], [ %26, %22 ], [ %.0104163, %.lr.ph ]
@@ -5933,7 +5933,7 @@ define dso_local ptr @type_find_max_type(ptr noundef readonly captures(none) %0,
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 32
-  br i1 %42, label %.lr.ph169, label %.critedge2, !llvm.loop !27
+  br i1 %42, label %.lr.ph169, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph169, %36, %.critedge
   %.0103.lcssa = phi ptr [ %10, %.critedge ], [ %40, %36 ], [ %.0103168, %.lr.ph169 ]
@@ -6380,7 +6380,7 @@ type_find_parent_type.exit.i:                     ; preds = %60, %50
   %.0.i.in.i = phi ptr [ %53, %50 ], [ %64, %60 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
 
 .loopexit50:                                      ; preds = %42, %54, %44, %type_find_parent_type.exit.i, %35
   %.not8.not.i36 = icmp eq ptr %36, null
@@ -6435,7 +6435,7 @@ type_find_parent_type.exit.i40:                   ; preds = %86, %76
   %.0.i.in.i41 = phi ptr [ %79, %76 ], [ %90, %86 ]
   %.0.i.i42 = load ptr, ptr %.0.i.in.i41, align 8
   %.not.not.i43 = icmp eq ptr %.0.i.i42, null
-  br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !25
+  br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
 
 .loopexit:                                        ; preds = %68, %80, %70, %type_find_parent_type.exit.i40, %.loopexit50
   %91 = tail call ptr @type_find_max_type(ptr noundef nonnull %spec.select35, ptr noundef %.1)
@@ -6520,7 +6520,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   %38 = getelementptr inbounds nuw [512 x ptr], ptr @type_find_common_ancestor.left_types, i64 0, i64 %indvars.iv
   store ptr %35, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread, label %.preheader60, !llvm.loop !26
 
 39:                                               ; preds = %26, %.preheader60
   %40 = trunc i64 %indvars.iv to i32
@@ -6562,7 +6562,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
 55:                                               ; preds = %56
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
-  br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !29
+  br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !27
 
 56:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next75, %55 ]
@@ -6577,7 +6577,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %63 = load ptr, ptr %62, align 8
   %.not55.us = icmp eq ptr %63, null
-  br i1 %.not55.us, label %.loopexit58, label %.lr.ph67.split.us, !llvm.loop !30
+  br i1 %.not55.us, label %.loopexit58, label %.lr.ph67.split.us
 
 .thread:                                          ; preds = %37, %39
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.51, i32 noundef 512) #13
@@ -7140,8 +7140,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
@@ -7151,6 +7151,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !18}

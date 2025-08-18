@@ -827,7 +827,7 @@ i2o_SCT.exit.us:                                  ; preds = %51, %48
   %64 = add nuw nsw i32 %.03460.us, 1
   %65 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
   %66 = icmp slt i32 %64, %65
-  br i1 %66, label %.lr.ph63.split.us, label %._crit_edge64, !llvm.loop !31
+  br i1 %66, label %.lr.ph63.split.us, label %._crit_edge64, !llvm.loop !30
 
 .lr.ph63.split:                                   ; preds = %36, %72
   %.061 = phi i64 [ %79, %72 ], [ 2, %36 ]
@@ -920,7 +920,7 @@ define ptr @d2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef c
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !33
+  store ptr null, ptr %4, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %1, align 8, !tbaa !11
   store ptr %6, ptr %5, align 8, !tbaa !11
@@ -929,11 +929,11 @@ define ptr @d2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef c
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %4, align 8, !tbaa !33
+  %10 = load ptr, ptr %4, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   store ptr %12, ptr %5, align 8, !tbaa !11
-  %13 = load i32, ptr %10, align 8, !tbaa !37
+  %13 = load i32, ptr %10, align 8, !tbaa !35
   %14 = sext i32 %13 to i64
   %15 = call ptr @o2i_SCT_LIST(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %14)
   %.not = icmp eq ptr %15, null
@@ -946,7 +946,7 @@ define ptr @d2i_SCT_LIST(ptr noundef captures(address_is_null) %0, ptr noundef c
   br label %19
 
 19:                                               ; preds = %16, %9
-  %20 = load ptr, ptr %4, align 8, !tbaa !33
+  %20 = load ptr, ptr %4, align 8, !tbaa !31
   call void @ASN1_OCTET_STRING_free(ptr noundef %20) #4
   br label %21
 
@@ -966,15 +966,15 @@ define i32 @i2d_SCT_LIST(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.asn1_string_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !35
+  store ptr null, ptr %4, align 8, !tbaa !33
   %5 = call i32 @i2o_SCT_LIST(ptr noundef %0, ptr noundef nonnull %4)
-  store i32 %5, ptr %3, align 8, !tbaa !37
+  store i32 %5, ptr %3, align 8, !tbaa !35
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %3, ptr noundef %1) #4
-  %9 = load ptr, ptr %4, align 8, !tbaa !35
+  %9 = load ptr, ptr %4, align 8, !tbaa !33
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 399) #4
   br label %10
 
@@ -1031,10 +1031,8 @@ attributes #4 = { nounwind }
 !28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
 !30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!35 = !{!36, !8, i64 8}
-!36 = !{!"asn1_string_st", !5, i64 0, !5, i64 4, !8, i64 8, !10, i64 16}
-!37 = !{!36, !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!33 = !{!34, !8, i64 8}
+!34 = !{!"asn1_string_st", !5, i64 0, !5, i64 4, !8, i64 8, !10, i64 16}
+!35 = !{!34, !5, i64 0}

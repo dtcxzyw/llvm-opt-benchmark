@@ -3314,7 +3314,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ; preds = %.crite
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = add nuw i64 %.02768, 1
   %exitcond.not = icmp eq i64 %113, %2
-  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !77
+  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !75
 
 _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %55, %66, %.critedge.i.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3338,7 +3338,7 @@ _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph
   %121 = add i16 %114, -1
   store i16 %121, ptr %6, align 8, !tbaa !57
   %.not.i51 = icmp eq i16 %121, 0
-  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !78
+  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !76
 
 .critedge32:                                      ; preds = %120, %.lr.ph.i50, %28, %.critedge34, %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
   %.6 = phi i1 [ false, %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %28 ], [ true, %.lr.ph.i50 ], [ true, %120 ]
@@ -3386,7 +3386,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !77
   ret void
 }
 
@@ -3471,7 +3471,7 @@ define weak_odr { i64, double } @_ZN5folly6detail37str_to_floating_fast_float_fr
   %25 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i, i64 4
   %26 = add nsw i64 %.053.i.i.i, -1
   %27 = icmp sgt i64 %.053.i.i.i, 1
-  br i1 %27, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !81
+  br i1 %27, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !79
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %24
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -3610,7 +3610,7 @@ _ZSt11find_if_notIPKcZN5folly6detail37str_to_floating_fast_float_from_charsIdEEN
   br label %75
 
 73:                                               ; preds = %67
-  %74 = load double, ptr %2, align 8, !tbaa !82
+  %74 = load double, ptr %2, align 8, !tbaa !80
   br label %75
 
 75:                                               ; preds = %69, %52, %72, %73
@@ -3665,7 +3665,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.1115, i64 1
   %.not26 = icmp eq ptr %17, %1
-  br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !82
 
 .critedge:                                        ; preds = %16, %.lr.ph, %5
   %.0 = phi ptr [ %0, %5 ], [ %scevgep, %16 ], [ %.1115, %.lr.ph ]
@@ -3675,7 +3675,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
 19:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.2.8.extract.trunc.i = trunc i64 %4 to i8
-  %20 = load i8, ptr %.0, align 1, !tbaa !14, !noalias !85
+  %20 = load i8, ptr %.0, align 1, !tbaa !14, !noalias !83
   %21 = icmp eq i8 %20, 45
   %22 = zext i1 %21 to i8
   br i1 %21, label %26, label %23
@@ -3695,7 +3695,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
 29:                                               ; preds = %26
   %30 = and i64 %3, 32
   %.not110.i = icmp eq i64 %30, 0
-  %31 = load i8, ptr %27, align 1, !tbaa !14, !noalias !85
+  %31 = load i8, ptr %27, align 1, !tbaa !14, !noalias !83
   %32 = add i8 %31, -48
   %33 = icmp ult i8 %32, 10
   br i1 %.not110.i, label %35, label %34
@@ -3719,7 +3719,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %41
   %.191120 = phi ptr [ %46, %41 ], [ %.090, %.lr.ph122.preheader ]
   %.092119 = phi i64 [ %45, %41 ], [ 0, %.lr.ph122.preheader ]
-  %38 = load i8, ptr %.191120, align 1, !tbaa !14, !noalias !85
+  %38 = load i8, ptr %.191120, align 1, !tbaa !14, !noalias !83
   %39 = add i8 %38, -48
   %40 = icmp ult i8 %39, 10
   br i1 %40, label %41, label %.critedge.i
@@ -3756,7 +3756,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
   br i1 %40, label %.thread, label %56
 
 56:                                               ; preds = %55
-  %57 = load i8, ptr %.191.lcssa.ph, align 1, !tbaa !14, !noalias !85
+  %57 = load i8, ptr %.191.lcssa.ph, align 1, !tbaa !14, !noalias !83
   %58 = icmp eq i8 %57, %.sroa.2.8.extract.trunc.i
   br i1 %58, label %59, label %.thread
 
@@ -3770,7 +3770,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float25from_chars_float_advancedIdcE
 .lr.ph132:                                        ; preds = %59, %.noexc
   %.11131 = phi ptr [ %80, %.noexc ], [ %60, %59 ]
   %.799130 = phi i64 [ %79, %.noexc ], [ %.092.lcssa.ph, %59 ]
-  %.0.copyload.i38 = load i64, ptr %.11131, align 1, !noalias !85
+  %.0.copyload.i38 = load i64, ptr %.11131, align 1, !noalias !83
   %64 = add i64 %.0.copyload.i38, 5063812098665367110
   %65 = add i64 %.0.copyload.i38, -3472328296227680304
   %66 = or i64 %64, %65
@@ -3816,7 +3816,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %88
   %.10139 = phi ptr [ %89, %88 ], [ %.11.lcssa, %.lr.ph140.preheader ]
   %.698138 = phi i64 [ %92, %88 ], [ %.799.lcssa, %.lr.ph140.preheader ]
-  %85 = load i8, ptr %.10139, align 1, !tbaa !14, !noalias !85
+  %85 = load i8, ptr %.10139, align 1, !tbaa !14, !noalias !83
   %86 = add i8 %85, -48
   %87 = icmp ult i8 %86, 10
   br i1 %87, label %88, label %.critedge3.i.loopexit
@@ -3871,7 +3871,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %or.cond108, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = load i8, ptr %.2, align 1, !tbaa !14, !noalias !85
+  %104 = load i8, ptr %.2, align 1, !tbaa !14, !noalias !83
   switch i8 %104, label %105 [
     i8 101, label %109
     i8 69, label %109
@@ -3884,7 +3884,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %or.cond109, label %140, label %107
 
 107:                                              ; preds = %105
-  %108 = load i8, ptr %.2, align 1, !tbaa !14, !noalias !85
+  %108 = load i8, ptr %.2, align 1, !tbaa !14, !noalias !83
   switch i8 %108, label %140 [
     i8 43, label %109
     i8 45, label %109
@@ -3911,7 +3911,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %.not123.i, label %.thread100, label %114
 
 114:                                              ; preds = %113
-  %115 = load i8, ptr %.3, align 1, !tbaa !14, !noalias !85
+  %115 = load i8, ptr %.3, align 1, !tbaa !14, !noalias !83
   %116 = icmp eq i8 %115, 45
   br i1 %116, label %117, label %119
 
@@ -3933,7 +3933,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
   br i1 %121, label %127, label %122
 
 122:                                              ; preds = %.thread100
-  %123 = load i8, ptr %.4, align 1, !tbaa !14, !noalias !85
+  %123 = load i8, ptr %.4, align 1, !tbaa !14, !noalias !83
   %124 = add i8 %123, -48
   %125 = icmp ult i8 %124, 10
   br i1 %125, label %.lr.ph149.preheader, label %127
@@ -3951,7 +3951,7 @@ _ZN10fast_float26loop_parse_if_eight_digitsERPKcS1_Rm.exit: ; preds = %.noexc, %
 .lr.ph149:                                        ; preds = %.lr.ph149.preheader, %132
   %.284.i148 = phi i64 [ %.385.i, %132 ], [ 0, %.lr.ph149.preheader ]
   %.9147 = phi ptr [ %137, %132 ], [ %.4, %.lr.ph149.preheader ]
-  %129 = load i8, ptr %.9147, align 1, !tbaa !14, !noalias !85
+  %129 = load i8, ptr %.9147, align 1, !tbaa !14, !noalias !83
   %130 = add i8 %129, -48
   %131 = icmp ult i8 %130, 10
   br i1 %131, label %132, label %.critedge7.i
@@ -4162,7 +4162,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float6detail12parse_infnanIdcEENS_19
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %.035, i64 3
   %26 = select i1 %6, double 0xFFF8000000000000, double 0x7FF8000000000000
-  store double %26, ptr %2, align 8, !tbaa !82
+  store double %26, ptr %2, align 8, !tbaa !80
   %.not42 = icmp eq ptr %25, %1
   br i1 %.not42, label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51, label %27
 
@@ -4211,7 +4211,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float6detail12parse_infnanIdcEENS_19
   %.067.be = phi ptr [ %.old, %41 ], [ %40, %37 ]
   %42 = load i8, ptr %.067.be, align 1, !tbaa !14
   %43 = icmp eq i8 %42, 41
-  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph80, !llvm.loop !88
+  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph80, !llvm.loop !86
 
 44:                                               ; preds = %.lr.ph.i46
   %45 = add nuw nsw i64 %.01415.i47, 1
@@ -4255,7 +4255,7 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   %.sink = phi i64 [ 3, %51 ], [ 8, %55 ], [ 3, %.lr.ph.i52 ]
   %62 = getelementptr inbounds nuw i8, ptr %.035, i64 %.sink
   %63 = select i1 %6, double 0xFFF0000000000000, double 0x7FF0000000000000
-  store double %63, ptr %2, align 8, !tbaa !82
+  store double %63, ptr %2, align 8, !tbaa !80
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
@@ -4305,19 +4305,19 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdcEENS_19
 23:                                               ; preds = %20
   %24 = sub nsw i64 0, %7
   %25 = getelementptr inbounds nuw [23 x double], ptr @_ZN10fast_float27binary_format_lookup_tablesIdvE13powers_of_tenE.const, i64 0, i64 %24
-  %26 = load double, ptr %25, align 8, !tbaa !82
+  %26 = load double, ptr %25, align 8, !tbaa !80
   %27 = fdiv double %21, %26
   br label %32
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw [23 x double], ptr @_ZN10fast_float27binary_format_lookup_tablesIdvE13powers_of_tenE.const, i64 0, i64 %7
-  %30 = load double, ptr %29, align 8, !tbaa !82
+  %30 = load double, ptr %29, align 8, !tbaa !80
   %31 = fmul double %30, %21
   br label %32
 
 32:                                               ; preds = %28, %23
   %storemerge = phi double [ %31, %28 ], [ %27, %23 ]
-  store double %storemerge, ptr %1, align 8, !tbaa !82
+  store double %storemerge, ptr %1, align 8, !tbaa !80
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i8, ptr %33, align 8, !tbaa !46, !range !22, !noundef !23
   %35 = trunc nuw i8 %34 to i1
@@ -4325,7 +4325,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdcEENS_19
 
 36:                                               ; preds = %32
   %37 = fneg double %storemerge
-  store double %37, ptr %1, align 8, !tbaa !82
+  store double %37, ptr %1, align 8, !tbaa !80
   br label %291
 
 38:                                               ; preds = %12
@@ -4349,15 +4349,15 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdcEENS_19
   %49 = load i8, ptr %48, align 8, !tbaa !46, !range !22, !noundef !23
   %50 = trunc nuw i8 %49 to i1
   %51 = select i1 %50, double -0.000000e+00, double 0.000000e+00
-  store double %51, ptr %1, align 8, !tbaa !82
+  store double %51, ptr %1, align 8, !tbaa !80
   br label %291
 
 52:                                               ; preds = %45
   %53 = uitofp i64 %42 to double
   %54 = getelementptr inbounds nuw [23 x double], ptr @_ZN10fast_float27binary_format_lookup_tablesIdvE13powers_of_tenE.const, i64 0, i64 %7
-  %55 = load double, ptr %54, align 8, !tbaa !82
+  %55 = load double, ptr %54, align 8, !tbaa !80
   %56 = fmul double %55, %53
-  store double %56, ptr %1, align 8, !tbaa !82
+  store double %56, ptr %1, align 8, !tbaa !80
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load i8, ptr %57, align 8, !tbaa !46, !range !22, !noundef !23
   %59 = trunc nuw i8 %58 to i1
@@ -4365,7 +4365,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdcEENS_19
 
 60:                                               ; preds = %52
   %61 = fneg double %56
-  store double %61, ptr %1, align 8, !tbaa !82
+  store double %61, ptr %1, align 8, !tbaa !80
   br label %291
 
 62:                                               ; preds = %17, %40, %38, %8, %2
@@ -5241,7 +5241,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIcEENS_8ExpectedIT_NS_14Conversio
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -5278,7 +5278,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIcEENS_8ExpectedIT_NS_14Conversio
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not54 = icmp eq i8 %21, 48
-  br i1 %.not54, label %.preheader, label %22, !llvm.loop !90
+  br i1 %.not54, label %.preheader, label %22, !llvm.loop !88
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -5335,25 +5335,25 @@ sub_2:                                            ; preds = %sub_1
   %43 = load i8, ptr %.293, align 1, !tbaa !14
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !91
+  %46 = load i16, ptr %45, align 2, !tbaa !89
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %.293, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !91
+  %52 = load i16, ptr %51, align 2, !tbaa !89
   %53 = zext i16 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.293, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = sext i8 %55 to i64
   %57 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !91
+  %58 = load i16, ptr %57, align 2, !tbaa !89
   %59 = zext i16 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %.293, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = sext i8 %61 to i64
   %63 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !91
+  %64 = load i16, ptr %63, align 2, !tbaa !89
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %53, %47
   %67 = add nuw nsw i32 %66, %59
@@ -5369,7 +5369,7 @@ sub_2:                                            ; preds = %sub_1
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %10, %75
   %77 = icmp sgt i64 %76, 3
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !92
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
   %.038109 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
@@ -5386,19 +5386,19 @@ sub_2:                                            ; preds = %sub_1
   %79 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %80 = sext i8 %79 to i64
   %81 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !91
+  %82 = load i16, ptr %81, align 2, !tbaa !89
   %83 = zext i16 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !14
   %86 = sext i8 %85 to i64
   %87 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !91
+  %88 = load i16, ptr %87, align 2, !tbaa !89
   %89 = zext i16 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %91 = load i8, ptr %90, align 1, !tbaa !14
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !91
+  %94 = load i16, ptr %93, align 2, !tbaa !89
   %95 = zext i16 %94 to i32
   %96 = add nuw nsw i32 %89, %83
   %97 = add nuw nsw i32 %96, %95
@@ -5413,13 +5413,13 @@ sub_2:                                            ; preds = %sub_1
   %104 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %105 = sext i8 %104 to i64
   %106 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %105
-  %107 = load i16, ptr %106, align 2, !tbaa !91
+  %107 = load i16, ptr %106, align 2, !tbaa !89
   %108 = zext i16 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %110 = load i8, ptr %109, align 1, !tbaa !14
   %111 = sext i8 %110 to i64
   %112 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !91
+  %113 = load i16, ptr %112, align 2, !tbaa !89
   %114 = zext i16 %113 to i32
   %115 = add nuw nsw i32 %114, %108
   %116 = icmp samesign ugt i32 %115, 9999
@@ -5438,7 +5438,7 @@ sub_2:                                            ; preds = %sub_1
 
 .thread83:                                        ; preds = %121
   %126 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %123
-  %127 = load i16, ptr %126, align 2, !tbaa !91
+  %127 = load i16, ptr %126, align 2, !tbaa !89
   %128 = trunc i16 %127 to i8
   %129 = mul i8 %.040.lcssa, 10
   %130 = add i8 %129, %128
@@ -5495,7 +5495,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIaEENS_8ExpectedIT_NS_14Conversio
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -5532,7 +5532,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIaEENS_8ExpectedIT_NS_14Conversio
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not54 = icmp eq i8 %21, 48
-  br i1 %.not54, label %.preheader, label %22, !llvm.loop !93
+  br i1 %.not54, label %.preheader, label %22, !llvm.loop !91
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -5589,25 +5589,25 @@ sub_2:                                            ; preds = %sub_1
   %43 = load i8, ptr %.293, align 1, !tbaa !14
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !91
+  %46 = load i16, ptr %45, align 2, !tbaa !89
   %47 = zext i16 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %.293, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !14
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !91
+  %52 = load i16, ptr %51, align 2, !tbaa !89
   %53 = zext i16 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.293, i64 2
   %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = sext i8 %55 to i64
   %57 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !91
+  %58 = load i16, ptr %57, align 2, !tbaa !89
   %59 = zext i16 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %.293, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = sext i8 %61 to i64
   %63 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !91
+  %64 = load i16, ptr %63, align 2, !tbaa !89
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %53, %47
   %67 = add nuw nsw i32 %66, %59
@@ -5623,7 +5623,7 @@ sub_2:                                            ; preds = %sub_1
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %10, %75
   %77 = icmp sgt i64 %76, 3
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !94
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %70, %9, %22, %41
   %.038109 = phi i64 [ 3, %41 ], [ %12, %9 ], [ 3, %22 ], [ 3, %70 ]
@@ -5640,19 +5640,19 @@ sub_2:                                            ; preds = %sub_1
   %79 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %80 = sext i8 %79 to i64
   %81 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !91
+  %82 = load i16, ptr %81, align 2, !tbaa !89
   %83 = zext i16 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !14
   %86 = sext i8 %85 to i64
   %87 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !91
+  %88 = load i16, ptr %87, align 2, !tbaa !89
   %89 = zext i16 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %91 = load i8, ptr %90, align 1, !tbaa !14
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !91
+  %94 = load i16, ptr %93, align 2, !tbaa !89
   %95 = zext i16 %94 to i32
   %96 = add nuw nsw i32 %89, %83
   %97 = add nuw nsw i32 %96, %95
@@ -5667,13 +5667,13 @@ sub_2:                                            ; preds = %sub_1
   %104 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %105 = sext i8 %104 to i64
   %106 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %105
-  %107 = load i16, ptr %106, align 2, !tbaa !91
+  %107 = load i16, ptr %106, align 2, !tbaa !89
   %108 = zext i16 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %110 = load i8, ptr %109, align 1, !tbaa !14
   %111 = sext i8 %110 to i64
   %112 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !91
+  %113 = load i16, ptr %112, align 2, !tbaa !89
   %114 = zext i16 %113 to i32
   %115 = add nuw nsw i32 %114, %108
   %116 = icmp samesign ugt i32 %115, 9999
@@ -5692,7 +5692,7 @@ sub_2:                                            ; preds = %sub_1
 
 .thread83:                                        ; preds = %121
   %126 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %123
-  %127 = load i16, ptr %126, align 2, !tbaa !91
+  %127 = load i16, ptr %126, align 2, !tbaa !89
   %128 = trunc i16 %127 to i8
   %129 = mul i8 %.040.lcssa, 10
   %130 = add i8 %129, %128
@@ -5760,7 +5760,7 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIhEENS_8ExpectedIT_NS_14Conversio
 13:                                               ; preds = %.preheader
   %14 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 48
-  br i1 %.not, label %.preheader, label %15, !llvm.loop !95
+  br i1 %.not, label %.preheader, label %15, !llvm.loop !93
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %storemerge to i64
@@ -5813,25 +5813,25 @@ sub_2:                                            ; preds = %sub_1
   %34 = load i8, ptr %.279, align 1, !tbaa !14
   %35 = sext i8 %34 to i64
   %36 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !91
+  %37 = load i16, ptr %36, align 2, !tbaa !89
   %38 = zext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %.279, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !14
   %41 = sext i8 %40 to i64
   %42 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %41
-  %43 = load i16, ptr %42, align 2, !tbaa !91
+  %43 = load i16, ptr %42, align 2, !tbaa !89
   %44 = zext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %.279, i64 2
   %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = sext i8 %46 to i64
   %48 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %47
-  %49 = load i16, ptr %48, align 2, !tbaa !91
+  %49 = load i16, ptr %48, align 2, !tbaa !89
   %50 = zext i16 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %.279, i64 3
   %52 = load i8, ptr %51, align 1, !tbaa !14
   %53 = sext i8 %52 to i64
   %54 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !91
+  %55 = load i16, ptr %54, align 2, !tbaa !89
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %44, %38
   %58 = add nuw nsw i32 %57, %50
@@ -5847,7 +5847,7 @@ sub_2:                                            ; preds = %sub_1
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %3, %66
   %68 = icmp sgt i64 %67, 3
-  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !96
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %61, %2, %15, %32
   %.03896 = phi i64 [ 3, %32 ], [ %5, %2 ], [ 3, %15 ], [ 3, %61 ]
@@ -5864,19 +5864,19 @@ sub_2:                                            ; preds = %sub_1
   %70 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %71 = sext i8 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !91
+  %73 = load i16, ptr %72, align 2, !tbaa !89
   %74 = zext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %76 = load i8, ptr %75, align 1, !tbaa !14
   %77 = sext i8 %76 to i64
   %78 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !91
+  %79 = load i16, ptr %78, align 2, !tbaa !89
   %80 = zext i16 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %82 = load i8, ptr %81, align 1, !tbaa !14
   %83 = sext i8 %82 to i64
   %84 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !91
+  %85 = load i16, ptr %84, align 2, !tbaa !89
   %86 = zext i16 %85 to i32
   %87 = add nuw nsw i32 %80, %74
   %88 = add nuw nsw i32 %87, %86
@@ -5891,13 +5891,13 @@ sub_2:                                            ; preds = %sub_1
   %95 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %96 = sext i8 %95 to i64
   %97 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !91
+  %98 = load i16, ptr %97, align 2, !tbaa !89
   %99 = zext i16 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !14
   %102 = sext i8 %101 to i64
   %103 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !91
+  %104 = load i16, ptr %103, align 2, !tbaa !89
   %105 = zext i16 %104 to i32
   %106 = add nuw nsw i32 %105, %99
   %107 = icmp samesign ugt i32 %106, 9999
@@ -5916,7 +5916,7 @@ sub_2:                                            ; preds = %sub_1
 
 .thread69:                                        ; preds = %112
   %117 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %114
-  %118 = load i16, ptr %117, align 2, !tbaa !91
+  %118 = load i16, ptr %117, align 2, !tbaa !89
   %119 = trunc i16 %118 to i8
   %120 = mul i8 %.040.lcssa, 10
   %121 = add i8 %120, %119
@@ -5956,7 +5956,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -5993,7 +5993,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not53 = icmp eq i8 %21, 48
-  br i1 %.not53, label %.preheader, label %22, !llvm.loop !97
+  br i1 %.not53, label %.preheader, label %22, !llvm.loop !95
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -6034,25 +6034,25 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   %33 = load i8, ptr %.292, align 1, !tbaa !14
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !91
+  %36 = load i16, ptr %35, align 2, !tbaa !89
   %37 = zext i16 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %.292, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = sext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !91
+  %42 = load i16, ptr %41, align 2, !tbaa !89
   %43 = zext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %.292, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !91
+  %48 = load i16, ptr %47, align 2, !tbaa !89
   %49 = zext i16 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %.292, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = sext i8 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !91
+  %54 = load i16, ptr %53, align 2, !tbaa !89
   %55 = zext i16 %54 to i32
   %56 = add nuw nsw i32 %43, %37
   %57 = add nuw nsw i32 %56, %49
@@ -6068,7 +6068,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %10, %65
   %67 = icmp sgt i64 %66, 3
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !98
+  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %60, %31
   %.2.lcssa = phi ptr [ %.0, %31 ], [ %64, %60 ]
@@ -6084,19 +6084,19 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   %69 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %70 = sext i8 %69 to i64
   %71 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !91
+  %72 = load i16, ptr %71, align 2, !tbaa !89
   %73 = zext i16 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !14
   %76 = sext i8 %75 to i64
   %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 2, !tbaa !91
+  %78 = load i16, ptr %77, align 2, !tbaa !89
   %79 = zext i16 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %81 = load i8, ptr %80, align 1, !tbaa !14
   %82 = sext i8 %81 to i64
   %83 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !91
+  %84 = load i16, ptr %83, align 2, !tbaa !89
   %85 = zext i16 %84 to i32
   %86 = add nuw nsw i32 %79, %73
   %87 = add nuw nsw i32 %86, %85
@@ -6111,13 +6111,13 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   %94 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %95 = sext i8 %94 to i64
   %96 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %95
-  %97 = load i16, ptr %96, align 2, !tbaa !91
+  %97 = load i16, ptr %96, align 2, !tbaa !89
   %98 = zext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %100 = load i8, ptr %99, align 1, !tbaa !14
   %101 = sext i8 %100 to i64
   %102 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %101
-  %103 = load i16, ptr %102, align 2, !tbaa !91
+  %103 = load i16, ptr %102, align 2, !tbaa !89
   %104 = zext i16 %103 to i32
   %105 = add nuw nsw i32 %104, %98
   %106 = icmp samesign ugt i32 %105, 9999
@@ -6136,7 +6136,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 
 .thread82:                                        ; preds = %111
   %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %113
-  %117 = load i16, ptr %116, align 2, !tbaa !91
+  %117 = load i16, ptr %116, align 2, !tbaa !89
   %118 = mul i16 %.039.lcssa, 10
   %119 = add i16 %117, %118
   br label %122
@@ -6210,7 +6210,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
 13:                                               ; preds = %.preheader
   %14 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 48
-  br i1 %.not, label %.preheader, label %15, !llvm.loop !99
+  br i1 %.not, label %.preheader, label %15, !llvm.loop !97
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %storemerge to i64
@@ -6247,25 +6247,25 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   %24 = load i8, ptr %.278, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !91
+  %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.278, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !91
+  %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %.278, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !91
+  %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %.278, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !91
+  %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %34, %28
   %48 = add nuw nsw i32 %47, %40
@@ -6281,7 +6281,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
@@ -6297,19 +6297,19 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   %60 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %61 = sext i8 %60 to i64
   %62 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !91
+  %63 = load i16, ptr %62, align 2, !tbaa !89
   %64 = zext i16 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !14
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !91
+  %69 = load i16, ptr %68, align 2, !tbaa !89
   %70 = zext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %72 = load i8, ptr %71, align 1, !tbaa !14
   %73 = sext i8 %72 to i64
   %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 2, !tbaa !91
+  %75 = load i16, ptr %74, align 2, !tbaa !89
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %70, %64
   %78 = add nuw nsw i32 %77, %76
@@ -6324,13 +6324,13 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
   %85 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %86 = sext i8 %85 to i64
   %87 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !91
+  %88 = load i16, ptr %87, align 2, !tbaa !89
   %89 = zext i16 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %91 = load i8, ptr %90, align 1, !tbaa !14
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !91
+  %94 = load i16, ptr %93, align 2, !tbaa !89
   %95 = zext i16 %94 to i32
   %96 = add nuw nsw i32 %95, %89
   %97 = icmp samesign ugt i32 %96, 9999
@@ -6349,7 +6349,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
 
 .thread68:                                        ; preds = %102
   %107 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %104
-  %108 = load i16, ptr %107, align 2, !tbaa !91
+  %108 = load i16, ptr %107, align 2, !tbaa !89
   %109 = mul i16 %.039.lcssa, 10
   %110 = add i16 %108, %109
   br label %113
@@ -6383,7 +6383,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -6420,7 +6420,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not53 = icmp eq i8 %21, 48
-  br i1 %.not53, label %.preheader, label %22, !llvm.loop !101
+  br i1 %.not53, label %.preheader, label %22, !llvm.loop !99
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -6461,25 +6461,25 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   %33 = load i8, ptr %.293, align 1, !tbaa !14
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !91
+  %36 = load i16, ptr %35, align 2, !tbaa !89
   %37 = zext i16 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %.293, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = sext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !91
+  %42 = load i16, ptr %41, align 2, !tbaa !89
   %43 = zext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %.293, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !91
+  %48 = load i16, ptr %47, align 2, !tbaa !89
   %49 = zext i16 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %.293, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = sext i8 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !91
+  %54 = load i16, ptr %53, align 2, !tbaa !89
   %55 = zext i16 %54 to i32
   %56 = add nuw nsw i32 %43, %37
   %57 = add nuw nsw i32 %56, %49
@@ -6494,7 +6494,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %10, %64
   %66 = icmp sgt i64 %65, 3
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !102
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %60, %31
   %.2.lcssa = phi ptr [ %.0, %31 ], [ %63, %60 ]
@@ -6510,19 +6510,19 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   %68 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %69 = sext i8 %68 to i64
   %70 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !91
+  %71 = load i16, ptr %70, align 2, !tbaa !89
   %72 = zext i16 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %74 = load i8, ptr %73, align 1, !tbaa !14
   %75 = sext i8 %74 to i64
   %76 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %75
-  %77 = load i16, ptr %76, align 2, !tbaa !91
+  %77 = load i16, ptr %76, align 2, !tbaa !89
   %78 = zext i16 %77 to i32
   %79 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %80 = load i8, ptr %79, align 1, !tbaa !14
   %81 = sext i8 %80 to i64
   %82 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %81
-  %83 = load i16, ptr %82, align 2, !tbaa !91
+  %83 = load i16, ptr %82, align 2, !tbaa !89
   %84 = zext i16 %83 to i32
   %85 = add nuw nsw i32 %78, %72
   %86 = add nuw nsw i32 %85, %84
@@ -6535,13 +6535,13 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   %91 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !91
+  %94 = load i16, ptr %93, align 2, !tbaa !89
   %95 = zext i16 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !14
   %98 = sext i8 %97 to i64
   %99 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %98
-  %100 = load i16, ptr %99, align 2, !tbaa !91
+  %100 = load i16, ptr %99, align 2, !tbaa !89
   %101 = zext i16 %100 to i32
   %102 = add nuw nsw i32 %101, %95
   %103 = icmp samesign ugt i32 %102, 9999
@@ -6558,7 +6558,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
 
 .thread83:                                        ; preds = %106
   %111 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %108
-  %112 = load i16, ptr %111, align 2, !tbaa !91
+  %112 = load i16, ptr %111, align 2, !tbaa !89
   %113 = zext i16 %112 to i32
   %114 = mul i32 %.039.lcssa, 10
   %115 = add i32 %114, %113
@@ -6633,7 +6633,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
 13:                                               ; preds = %.preheader
   %14 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 48
-  br i1 %.not, label %.preheader, label %15, !llvm.loop !103
+  br i1 %.not, label %.preheader, label %15, !llvm.loop !101
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %storemerge to i64
@@ -6670,25 +6670,25 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   %24 = load i8, ptr %.279, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !91
+  %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.279, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !91
+  %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %.279, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !91
+  %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %.279, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !91
+  %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %34, %28
   %48 = add nuw nsw i32 %47, %40
@@ -6703,7 +6703,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %3, %55
   %57 = icmp sgt i64 %56, 3
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %54, %51 ]
@@ -6719,19 +6719,19 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   %59 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %60 = sext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !91
+  %62 = load i16, ptr %61, align 2, !tbaa !89
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !14
   %66 = sext i8 %65 to i64
   %67 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %66
-  %68 = load i16, ptr %67, align 2, !tbaa !91
+  %68 = load i16, ptr %67, align 2, !tbaa !89
   %69 = zext i16 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %71 = load i8, ptr %70, align 1, !tbaa !14
   %72 = sext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !91
+  %74 = load i16, ptr %73, align 2, !tbaa !89
   %75 = zext i16 %74 to i32
   %76 = add nuw nsw i32 %69, %63
   %77 = add nuw nsw i32 %76, %75
@@ -6744,13 +6744,13 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
   %82 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %83 = sext i8 %82 to i64
   %84 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !91
+  %85 = load i16, ptr %84, align 2, !tbaa !89
   %86 = zext i16 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %88 = load i8, ptr %87, align 1, !tbaa !14
   %89 = sext i8 %88 to i64
   %90 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !91
+  %91 = load i16, ptr %90, align 2, !tbaa !89
   %92 = zext i16 %91 to i32
   %93 = add nuw nsw i32 %92, %86
   %94 = icmp samesign ugt i32 %93, 9999
@@ -6767,7 +6767,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIjEENS_8ExpectedIT_NS_14Conversio
 
 .thread69:                                        ; preds = %97
   %102 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %99
-  %103 = load i16, ptr %102, align 2, !tbaa !91
+  %103 = load i16, ptr %102, align 2, !tbaa !89
   %104 = zext i16 %103 to i32
   %105 = mul i32 %.039.lcssa, 10
   %106 = add i32 %105, %104
@@ -6802,7 +6802,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -6839,7 +6839,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not53 = icmp eq i8 %21, 48
-  br i1 %.not53, label %.preheader, label %22, !llvm.loop !105
+  br i1 %.not53, label %.preheader, label %22, !llvm.loop !103
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -6882,25 +6882,25 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %35 = load i8, ptr %.297, align 1, !tbaa !14
   %36 = sext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !91
+  %38 = load i16, ptr %37, align 2, !tbaa !89
   %39 = zext i16 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !91
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %45 = zext i16 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = sext i8 %47 to i64
   %49 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !91
+  %50 = load i16, ptr %49, align 2, !tbaa !89
   %51 = zext i16 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !14
   %54 = sext i8 %53 to i64
   %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !91
+  %56 = load i16, ptr %55, align 2, !tbaa !89
   %57 = zext i16 %56 to i32
   %58 = add nuw nsw i32 %45, %39
   %59 = add nuw nsw i32 %58, %51
@@ -6916,7 +6916,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %10, %67
   %69 = icmp sgt i64 %68, 3
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %62, %33
   %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
@@ -6932,19 +6932,19 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %71 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %72 = sext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !91
+  %74 = load i16, ptr %73, align 2, !tbaa !89
   %75 = zext i16 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !14
   %78 = sext i8 %77 to i64
   %79 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !91
+  %80 = load i16, ptr %79, align 2, !tbaa !89
   %81 = zext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %83 = load i8, ptr %82, align 1, !tbaa !14
   %84 = sext i8 %83 to i64
   %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !91
+  %86 = load i16, ptr %85, align 2, !tbaa !89
   %87 = zext i16 %86 to i32
   %88 = add nuw nsw i32 %81, %75
   %89 = add nuw nsw i32 %88, %87
@@ -6958,13 +6958,13 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %95 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %96 = sext i8 %95 to i64
   %97 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !91
+  %98 = load i16, ptr %97, align 2, !tbaa !89
   %99 = zext i16 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !14
   %102 = sext i8 %101 to i64
   %103 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !91
+  %104 = load i16, ptr %103, align 2, !tbaa !89
   %105 = zext i16 %104 to i32
   %106 = add nuw nsw i32 %105, %99
   %107 = icmp samesign ugt i32 %106, 9999
@@ -6982,7 +6982,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
 
 .thread87:                                        ; preds = %111
   %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %113
-  %117 = load i16, ptr %116, align 2, !tbaa !91
+  %117 = load i16, ptr %116, align 2, !tbaa !89
   %118 = mul i64 %.039.lcssa, 10
   %119 = zext i16 %117 to i64
   %120 = add i64 %118, %119
@@ -7046,7 +7046,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
 13:                                               ; preds = %.preheader
   %14 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 48
-  br i1 %.not, label %.preheader, label %15, !llvm.loop !107
+  br i1 %.not, label %.preheader, label %15, !llvm.loop !105
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %storemerge to i64
@@ -7083,25 +7083,25 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   %24 = load i8, ptr %.282, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !91
+  %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.282, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !91
+  %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %.282, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !91
+  %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %.282, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !91
+  %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %34, %28
   %48 = add nuw nsw i32 %47, %40
@@ -7117,7 +7117,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !108
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
@@ -7133,19 +7133,19 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   %60 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %61 = sext i8 %60 to i64
   %62 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !91
+  %63 = load i16, ptr %62, align 2, !tbaa !89
   %64 = zext i16 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !14
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !91
+  %69 = load i16, ptr %68, align 2, !tbaa !89
   %70 = zext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %72 = load i8, ptr %71, align 1, !tbaa !14
   %73 = sext i8 %72 to i64
   %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 2, !tbaa !91
+  %75 = load i16, ptr %74, align 2, !tbaa !89
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %70, %64
   %78 = add nuw nsw i32 %77, %76
@@ -7159,13 +7159,13 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
   %84 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %85 = sext i8 %84 to i64
   %86 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !91
+  %87 = load i16, ptr %86, align 2, !tbaa !89
   %88 = zext i16 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !14
   %91 = sext i8 %90 to i64
   %92 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !91
+  %93 = load i16, ptr %92, align 2, !tbaa !89
   %94 = zext i16 %93 to i32
   %95 = add nuw nsw i32 %94, %88
   %96 = icmp samesign ugt i32 %95, 9999
@@ -7183,7 +7183,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toImEENS_8ExpectedIT_NS_14
 
 .thread72:                                        ; preds = %100
   %105 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
-  %106 = load i16, ptr %105, align 2, !tbaa !91
+  %106 = load i16, ptr %105, align 2, !tbaa !89
   %107 = mul i64 %.039.lcssa, 10
   %108 = zext i16 %106 to i64
   %109 = add i64 %107, %108
@@ -7219,7 +7219,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   switch i8 %3, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit [
     i8 45, label %6
     i8 43, label %7
-  ], !prof !89
+  ], !prof !87
 
 6:                                                ; preds = %5
   br label %7
@@ -7256,7 +7256,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
 20:                                               ; preds = %.preheader
   %21 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not53 = icmp eq i8 %21, 48
-  br i1 %.not53, label %.preheader, label %22, !llvm.loop !109
+  br i1 %.not53, label %.preheader, label %22, !llvm.loop !107
 
 22:                                               ; preds = %20
   %23 = ptrtoint ptr %storemerge to i64
@@ -7299,25 +7299,25 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %35 = load i8, ptr %.297, align 1, !tbaa !14
   %36 = sext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !91
+  %38 = load i16, ptr %37, align 2, !tbaa !89
   %39 = zext i16 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !14
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !91
+  %44 = load i16, ptr %43, align 2, !tbaa !89
   %45 = zext i16 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = sext i8 %47 to i64
   %49 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !91
+  %50 = load i16, ptr %49, align 2, !tbaa !89
   %51 = zext i16 %50 to i32
   %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !14
   %54 = sext i8 %53 to i64
   %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !91
+  %56 = load i16, ptr %55, align 2, !tbaa !89
   %57 = zext i16 %56 to i32
   %58 = add nuw nsw i32 %45, %39
   %59 = add nuw nsw i32 %58, %51
@@ -7333,7 +7333,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %10, %67
   %69 = icmp sgt i64 %68, 3
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !110
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %62, %33
   %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
@@ -7349,19 +7349,19 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %71 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %72 = sext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !91
+  %74 = load i16, ptr %73, align 2, !tbaa !89
   %75 = zext i16 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %77 = load i8, ptr %76, align 1, !tbaa !14
   %78 = sext i8 %77 to i64
   %79 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !91
+  %80 = load i16, ptr %79, align 2, !tbaa !89
   %81 = zext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %83 = load i8, ptr %82, align 1, !tbaa !14
   %84 = sext i8 %83 to i64
   %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !91
+  %86 = load i16, ptr %85, align 2, !tbaa !89
   %87 = zext i16 %86 to i32
   %88 = add nuw nsw i32 %81, %75
   %89 = add nuw nsw i32 %88, %87
@@ -7375,13 +7375,13 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %95 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %96 = sext i8 %95 to i64
   %97 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !91
+  %98 = load i16, ptr %97, align 2, !tbaa !89
   %99 = zext i16 %98 to i32
   %100 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !14
   %102 = sext i8 %101 to i64
   %103 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !91
+  %104 = load i16, ptr %103, align 2, !tbaa !89
   %105 = zext i16 %104 to i32
   %106 = add nuw nsw i32 %105, %99
   %107 = icmp samesign ugt i32 %106, 9999
@@ -7399,7 +7399,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
 
 .thread87:                                        ; preds = %111
   %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %113
-  %117 = load i16, ptr %116, align 2, !tbaa !91
+  %117 = load i16, ptr %116, align 2, !tbaa !89
   %118 = mul i64 %.039.lcssa, 10
   %119 = zext i16 %117 to i64
   %120 = add i64 %118, %119
@@ -7463,7 +7463,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
 13:                                               ; preds = %.preheader
   %14 = load i8, ptr %storemerge, align 1, !tbaa !14
   %.not = icmp eq i8 %14, 48
-  br i1 %.not, label %.preheader, label %15, !llvm.loop !111
+  br i1 %.not, label %.preheader, label %15, !llvm.loop !109
 
 15:                                               ; preds = %13
   %16 = ptrtoint ptr %storemerge to i64
@@ -7500,25 +7500,25 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   %24 = load i8, ptr %.282, align 1, !tbaa !14
   %25 = sext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !91
+  %27 = load i16, ptr %26, align 2, !tbaa !89
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.282, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !14
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !91
+  %33 = load i16, ptr %32, align 2, !tbaa !89
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %.282, i64 2
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !91
+  %39 = load i16, ptr %38, align 2, !tbaa !89
   %40 = zext i16 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %.282, i64 3
   %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2, !tbaa !91
+  %45 = load i16, ptr %44, align 2, !tbaa !89
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %34, %28
   %48 = add nuw nsw i32 %47, %40
@@ -7534,7 +7534,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %3, %56
   %58 = icmp sgt i64 %57, 3
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %51, %22
   %.2.lcssa = phi ptr [ %.0, %22 ], [ %55, %51 ]
@@ -7550,19 +7550,19 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   %60 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %61 = sext i8 %60 to i64
   %62 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !91
+  %63 = load i16, ptr %62, align 2, !tbaa !89
   %64 = zext i16 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !14
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !91
+  %69 = load i16, ptr %68, align 2, !tbaa !89
   %70 = zext i16 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
   %72 = load i8, ptr %71, align 1, !tbaa !14
   %73 = sext i8 %72 to i64
   %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 2, !tbaa !91
+  %75 = load i16, ptr %74, align 2, !tbaa !89
   %76 = zext i16 %75 to i32
   %77 = add nuw nsw i32 %70, %64
   %78 = add nuw nsw i32 %77, %76
@@ -7576,13 +7576,13 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
   %84 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
   %85 = sext i8 %84 to i64
   %86 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !91
+  %87 = load i16, ptr %86, align 2, !tbaa !89
   %88 = zext i16 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !14
   %91 = sext i8 %90 to i64
   %92 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !91
+  %93 = load i16, ptr %92, align 2, !tbaa !89
   %94 = zext i16 %93 to i32
   %95 = add nuw nsw i32 %94, %88
   %96 = icmp samesign ugt i32 %95, 9999
@@ -7600,7 +7600,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIyEENS_8ExpectedIT_NS_14
 
 .thread72:                                        ; preds = %100
   %105 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
-  %106 = load i16, ptr %105, align 2, !tbaa !91
+  %106 = load i16, ptr %105, align 2, !tbaa !89
   %107 = mul i64 %.039.lcssa, 10
   %108 = zext i16 %106 to i64
   %109 = add i64 %107, %108
@@ -7631,7 +7631,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not53 = icmp ult ptr %2, %4
-  br i1 %.not53, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not53, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.054 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -7648,7 +7648,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !115
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !113
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -7660,7 +7660,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -7674,7 +7674,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
   %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.054, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -7705,7 +7705,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -7716,7 +7716,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %32 [
     i8 1, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -7795,7 +7795,7 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; pred
 define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.folly::BadExpectedAccess", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %1, align 8, !tbaa !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %1, align 8, !tbaa !77
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %1) #10
           to label %2 unwind label %3
 
@@ -7813,7 +7813,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 ; Function Attrs: cold mustprogress noinline noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %2, align 8, !tbaa !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 16), ptr %2, align 8, !tbaa !77
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #22
   unreachable
 }
@@ -7843,7 +7843,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not53 = icmp ult ptr %2, %4
-  br i1 %.not53, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not53, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.054 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -7860,7 +7860,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !119
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !117
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -7872,7 +7872,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -7886,7 +7886,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
   %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.054, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -7917,7 +7917,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -7928,7 +7928,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %32 [
     i8 1, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8010,7 +8010,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIhEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not35 = icmp ult ptr %2, %4
-  br i1 %.not35, label %.lr.ph, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13, !prof !113
+  br i1 %.not35, label %.lr.ph, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.036 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8027,7 +8027,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIhEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !114, !llvm.loop !120
+  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !112, !llvm.loop !118
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8057,7 +8057,7 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIhEENS_8ExpectedIT_NS_14Co
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %21, %12
   %.06.lcssa.i = phi ptr [ %13, %12 ], [ %scevgep.i, %21 ], [ %.067.i, %.lr.ph.i ]
@@ -8068,7 +8068,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.017.0.extract.trunc, label %24 [
     i8 1, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 24:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8133,7 +8133,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not54 = icmp ult ptr %2, %4
-  br i1 %.not54, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not54, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.055 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8150,7 +8150,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !121
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !119
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8162,7 +8162,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -8176,7 +8176,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
   %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.055, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -8207,7 +8207,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -8218,7 +8218,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %32 [
     i8 1, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8297,7 +8297,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralItEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not36 = icmp ult ptr %2, %4
-  br i1 %.not36, label %.lr.ph, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13, !prof !113
+  br i1 %.not36, label %.lr.ph, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.037 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8314,7 +8314,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralItEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.037, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !114, !llvm.loop !122
+  br i1 %exitcond.not, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !112, !llvm.loop !120
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8344,7 +8344,7 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralItEENS_8ExpectedIT_NS_14Co
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %21, %12
   %.06.lcssa.i = phi ptr [ %13, %12 ], [ %scevgep.i, %21 ], [ %.067.i, %.lr.ph.i ]
@@ -8354,7 +8354,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.017.0.extract.trunc, label %24 [
     i8 1, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 24:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8413,7 +8413,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not56 = icmp ult ptr %2, %4
-  br i1 %.not56, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not56, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.057 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8430,7 +8430,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !123
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !121
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8442,7 +8442,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -8456,7 +8456,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
   %.sroa.036.1.ph = phi i8 [ %.sroa.036.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.057, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -8487,7 +8487,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -8498,7 +8498,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %32 [
     i8 1, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8577,7 +8577,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIjEENS_8ExpectedIT_NS_14Co
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not38 = icmp ult ptr %2, %4
-  br i1 %.not38, label %.lr.ph, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13, !prof !113
+  br i1 %.not38, label %.lr.ph, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.039 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8594,7 +8594,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIjEENS_8ExpectedIT_NS_14Co
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !114, !llvm.loop !124
+  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !112, !llvm.loop !122
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8624,7 +8624,7 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIjEENS_8ExpectedIT_NS_14Co
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %21, %12
   %.06.lcssa.i = phi ptr [ %13, %12 ], [ %scevgep.i, %21 ], [ %.067.i, %.lr.ph.i ]
@@ -8634,7 +8634,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.017.0.extract.trunc, label %24 [
     i8 1, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 24:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8693,7 +8693,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not65 = icmp ult ptr %2, %4
-  br i1 %.not65, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not65, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.066 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8710,7 +8710,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !125
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !123
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8722,7 +8722,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -8736,7 +8736,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
   %.sroa.042.1.ph = phi i8 [ %.sroa.042.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.066, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -8767,7 +8767,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -8778,7 +8778,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %34 [
     i8 1, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 34:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8858,7 +8858,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralImEENS_8ExpectedI
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not45 = icmp ult ptr %2, %4
-  br i1 %.not45, label %.lr.ph, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13, !prof !113
+  br i1 %.not45, label %.lr.ph, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.046 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8875,7 +8875,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralImEENS_8ExpectedI
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !114, !llvm.loop !126
+  br i1 %exitcond.not, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !112, !llvm.loop !124
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -8905,7 +8905,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralImEENS_8ExpectedI
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %21, %12
   %.06.lcssa.i = phi ptr [ %13, %12 ], [ %scevgep.i, %21 ], [ %.067.i, %.lr.ph.i ]
@@ -8916,7 +8916,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.017.0.extract.trunc, label %26 [
     i8 1, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 26:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -8976,7 +8976,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not65 = icmp ult ptr %2, %4
-  br i1 %.not65, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, !prof !113
+  br i1 %.not65, label %.lr.ph, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.066 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -8993,7 +8993,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %.lr.ph, !prof !114, !llvm.loop !127
+  br i1 %exitcond.not, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %.lr.ph, !prof !112, !llvm.loop !125
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -9005,7 +9005,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
   switch i8 %6, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit [
     i8 45, label %12
     i8 43, label %13
-  ], !prof !89
+  ], !prof !87
 
 12:                                               ; preds = %11
   br label %13
@@ -9019,7 +9019,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
   %.sroa.042.1.ph = phi i8 [ %.sroa.042.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.066, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
-  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, !prof !116
+  br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, !prof !114
 
 16:                                               ; preds = %15
   %17 = load i8, ptr %.1.ph, align 1, !tbaa !14
@@ -9050,7 +9050,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %30, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %29, %20
   %.06.lcssa.i = phi ptr [ %21, %20 ], [ %scevgep.i, %29 ], [ %.067.i, %.lr.ph.i ]
@@ -9061,7 +9061,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.023.0.extract.trunc, label %34 [
     i8 1, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 34:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -9141,7 +9141,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIyEENS_8ExpectedI
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = ptrtoint ptr %4 to i64
   %.not45 = icmp ult ptr %2, %4
-  br i1 %.not45, label %.lr.ph, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13, !prof !113
+  br i1 %.not45, label %.lr.ph, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13, !prof !111
 
 .lr.ph:                                           ; preds = %1, %7
   %.046 = phi ptr [ %8, %7 ], [ %2, %1 ]
@@ -9158,7 +9158,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIyEENS_8ExpectedI
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %exitcond.not = icmp eq ptr %8, %4
-  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !114, !llvm.loop !128
+  br i1 %exitcond.not, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit13, label %.lr.ph, !prof !112, !llvm.loop !126
 
 9:                                                ; preds = %.lr.ph
   %10 = sext i8 %6 to i32
@@ -9188,7 +9188,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIyEENS_8ExpectedI
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.067.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %4
-  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !117
+  br i1 %exitcond.not.i, label %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph.i, %21, %12
   %.06.lcssa.i = phi ptr [ %13, %12 ], [ %scevgep.i, %21 ], [ %.067.i, %.lr.ph.i ]
@@ -9199,7 +9199,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   switch i8 %.sroa.017.0.extract.trunc, label %26 [
     i8 1, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5valueEv.exit
     i8 2, label %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit
-  ], !prof !118
+  ], !prof !116
 
 26:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #10
@@ -9321,7 +9321,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %scevgep170 = getelementptr i8, ptr %indvars.iv169, i64 1
   %scevgep180 = getelementptr i8, ptr %indvars.iv179, i64 1
   %scevgep190 = getelementptr i8, ptr %indvars.iv189, i64 1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !129
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !127
 
 11:                                               ; preds = %.lr.ph, %.lr.ph
   %12 = icmp ult ptr %.0129, %4
@@ -9348,7 +9348,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %20 = zext i1 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.1133, i64 1
   %22 = icmp ult ptr %21, %4
-  br i1 %22, label %.lr.ph134, label %.critedge, !llvm.loop !130
+  br i1 %22, label %.lr.ph134, label %.critedge, !llvm.loop !128
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %28
   %23 = phi i8 [ %30, %28 ], [ 121, %.lr.ph.i.preheader ]
@@ -9369,7 +9369,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr217 = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.021.i.add
   %30 = load i8, ptr %.ptr217, align 1, !tbaa !14
   %exitcond211 = icmp eq i64 %.021.i.add, 3
-  br i1 %exitcond211, label %.critedge, label %.lr.ph.i, !llvm.loop !131
+  br i1 %exitcond211, label %.critedge, label %.lr.ph.i, !llvm.loop !129
 
 31:                                               ; preds = %25, %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
@@ -9394,7 +9394,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr216 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.021.i23.add
   %40 = load i8, ptr %.ptr216, align 1, !tbaa !14
   %exitcond204 = icmp eq i64 %.021.i23.add, 2
-  br i1 %exitcond204, label %.critedge, label %.lr.ph.i22, !llvm.loop !131
+  br i1 %exitcond204, label %.critedge, label %.lr.ph.i22, !llvm.loop !129
 
 41:                                               ; preds = %35, %.lr.ph.i22
   %42 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
@@ -9419,7 +9419,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr215 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.021.i31.add
   %50 = load i8, ptr %.ptr215, align 1, !tbaa !14
   %exitcond197 = icmp eq i64 %.021.i31.add, 4
-  br i1 %exitcond197, label %.critedge, label %.lr.ph.i30, !llvm.loop !131
+  br i1 %exitcond197, label %.critedge, label %.lr.ph.i30, !llvm.loop !129
 
 51:                                               ; preds = %45, %.lr.ph.i30
   %52 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
@@ -9444,7 +9444,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr214 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %.021.i39.add
   %60 = load i8, ptr %.ptr214, align 1, !tbaa !14
   %exitcond187 = icmp eq i64 %.021.i39.add, 5
-  br i1 %exitcond187, label %.critedge, label %.lr.ph.i38, !llvm.loop !131
+  br i1 %exitcond187, label %.critedge, label %.lr.ph.i38, !llvm.loop !129
 
 61:                                               ; preds = %55, %.lr.ph.i38
   %62 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
@@ -9472,7 +9472,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.12, i64 %.021.i47.add
   %70 = load i8, ptr %.ptr, align 1, !tbaa !14
   %exitcond167 = icmp eq i64 %.021.i47.add, 2
-  br i1 %exitcond167, label %.critedge, label %.lr.ph.i46, !llvm.loop !131
+  br i1 %exitcond167, label %.critedge, label %.lr.ph.i46, !llvm.loop !129
 
 .lr.ph.i54:                                       ; preds = %.lr.ph.i54.preheader, %76
   %71 = phi i8 [ %78, %76 ], [ 111, %.lr.ph.i54.preheader ]
@@ -9493,7 +9493,7 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   %.ptr213 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.021.i55.add
   %78 = load i8, ptr %.ptr213, align 1, !tbaa !14
   %exitcond177 = icmp eq i64 %.021.i55.add, 3
-  br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !131
+  br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
 .critedge:                                        ; preds = %68, %76, %58, %48, %38, %28, %18, %.lr.ph134, %11, %61, %51, %41, %31
   %.188 = phi i8 [ 1, %31 ], [ 0, %41 ], [ 1, %51 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %48 ], [ 0, %58 ], [ 0, %76 ], [ 1, %68 ]
@@ -9535,18 +9535,18 @@ define void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(
   br i1 %or.cond, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %11, align 8, !tbaa !132
+  %15 = load ptr, ptr %11, align 8, !tbaa !130
   tail call void @_ZNSt11range_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %15)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %0, align 8, !tbaa !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %0, align 8, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %16, align 8, !tbaa !134
+  store i8 1, ptr %16, align 8, !tbaa !132
   br label %72
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = load ptr, ptr %11, align 8, !tbaa !132
+  %18 = load ptr, ptr %11, align 8, !tbaa !130
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %19, ptr %6, align 8, !tbaa !142
+  store ptr %19, ptr %6, align 8, !tbaa !140
   %20 = icmp eq ptr %18, null
   br i1 %20, label %.noexc, label %21
 
@@ -9563,7 +9563,7 @@ define void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(
 
 .noexc.i:                                         ; preds = %21
   %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %24, ptr %6, align 8, !tbaa !144
+  store ptr %24, ptr %6, align 8, !tbaa !142
   %25 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %25, ptr %19, align 8, !tbaa !14
   br label %._crit_edge.i.i
@@ -9587,12 +9587,12 @@ define void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(
 30:                                               ; preds = %29, %27, %._crit_edge.i.i
   %31 = load i64, ptr %5, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %31, ptr %32, align 8, !tbaa !146
-  %33 = load ptr, ptr %6, align 8, !tbaa !144
+  store i64 %31, ptr %32, align 8, !tbaa !144
+  %33 = load ptr, ptr %6, align 8, !tbaa !142
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
   store i8 0, ptr %34, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %35 = load i64, ptr %32, align 8, !tbaa !146
+  %35 = load i64, ptr %32, align 8, !tbaa !144
   %36 = and i64 %35, -2
   %37 = icmp eq i64 %36, 4611686018427387902
   br i1 %37, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -9603,24 +9603,24 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %40 = load i8, ptr %39, align 8, !tbaa !147, !range !22, !noundef !23
+  %40 = load i8, ptr %39, align 8, !tbaa !145, !range !22, !noundef !23
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  %43 = load i64, ptr %32, align 8, !tbaa !146
+  %43 = load i64, ptr %32, align 8, !tbaa !144
   %44 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %43, i64 noundef 0, i64 noundef 1, i8 noundef signext 34)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit unwind label %45
 
 45:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit24, %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i20, %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %6, align 8, !tbaa !144
+  %47 = load ptr, ptr %6, align 8, !tbaa !142
   %48 = icmp eq ptr %47, %19
   br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %45
-  %49 = load i64, ptr %32, align 8, !tbaa !146
+  %49 = load i64, ptr %32, align 8, !tbaa !144
   %50 = icmp ult i64 %49, 16
   call void @llvm.assume(i1 %50)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -9638,7 +9638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = 
   %54 = ptrtoint ptr %3 to i64
   %55 = ptrtoint ptr %2 to i64
   %56 = sub i64 %54, %55
-  %57 = load i64, ptr %32, align 8, !tbaa !146
+  %57 = load i64, ptr %32, align 8, !tbaa !144
   %58 = sub i64 4611686018427387903, %57
   %59 = icmp ult i64 %58, %56
   br i1 %59, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i20
@@ -9658,7 +9658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br i1 %41, label %61, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit24
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %62 = load i64, ptr %32, align 8, !tbaa !146
+  %62 = load i64, ptr %32, align 8, !tbaa !144
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %62, i64 noundef 0, i64 noundef 1, i8 noundef signext 34)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit24 unwind label %45
 
@@ -9667,15 +9667,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit24: ; preds 
           to label %64 unwind label %45
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit24
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %0, align 8, !tbaa !79
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly15ConversionErrorE, i64 16), ptr %0, align 8, !tbaa !77
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %1, ptr %65, align 8, !tbaa !134
-  %66 = load ptr, ptr %6, align 8, !tbaa !144
+  store i8 %1, ptr %65, align 8, !tbaa !132
+  %66 = load ptr, ptr %6, align 8, !tbaa !142
   %67 = icmp eq ptr %66, %19
   br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27: ; preds = %64
-  %68 = load i64, ptr %32, align 8, !tbaa !146
+  %68 = load i64, ptr %32, align 8, !tbaa !144
   %69 = icmp ult i64 %68, 16
   call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
@@ -9855,23 +9855,23 @@ attributes #25 = { cold noreturn nounwind }
 !72 = distinct !{!72, !16}
 !73 = distinct !{!73, !16}
 !74 = distinct !{!74, !16}
-!75 = distinct !{!75, !16, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !16}
-!78 = distinct !{!78, !16}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"vtable pointer", !12, i64 0}
-!81 = distinct !{!81, !16}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"double", !11, i64 0}
-!84 = distinct !{!84, !16}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN10fast_float19parse_number_stringIcEENS_22parsed_number_string_tIT_EEPKS2_S5_NS_15parse_options_tIS2_EE: argument 0"}
-!87 = distinct !{!87, !"_ZN10fast_float19parse_number_stringIcEENS_22parsed_number_string_tIT_EEPKS2_S5_NS_15parse_options_tIS2_EE"}
+!75 = distinct !{!75, !16}
+!76 = distinct !{!76, !16}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"vtable pointer", !12, i64 0}
+!79 = distinct !{!79, !16}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"double", !11, i64 0}
+!82 = distinct !{!82, !16}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN10fast_float19parse_number_stringIcEENS_22parsed_number_string_tIT_EEPKS2_S5_NS_15parse_options_tIS2_EE: argument 0"}
+!85 = distinct !{!85, !"_ZN10fast_float19parse_number_stringIcEENS_22parsed_number_string_tIT_EEPKS2_S5_NS_15parse_options_tIS2_EE"}
+!86 = distinct !{!86, !16}
+!87 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
 !88 = distinct !{!88, !16}
-!89 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!89 = !{!59, !59, i64 0}
 !90 = distinct !{!90, !16}
-!91 = !{!59, !59, i64 0}
+!91 = distinct !{!91, !16}
 !92 = distinct !{!92, !16}
 !93 = distinct !{!93, !16}
 !94 = distinct !{!94, !16}
@@ -9891,14 +9891,14 @@ attributes #25 = { cold noreturn nounwind }
 !108 = distinct !{!108, !16}
 !109 = distinct !{!109, !16}
 !110 = distinct !{!110, !16}
-!111 = distinct !{!111, !16}
-!112 = distinct !{!112, !16}
-!113 = !{!"branch_weights", i32 127, i32 1}
-!114 = !{!"branch_weights", i32 127, i32 255873}
+!111 = !{!"branch_weights", i32 127, i32 1}
+!112 = !{!"branch_weights", i32 127, i32 255873}
+!113 = distinct !{!113, !16}
+!114 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !115 = distinct !{!115, !16}
-!116 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!116 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
 !117 = distinct !{!117, !16}
-!118 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!118 = distinct !{!118, !16}
 !119 = distinct !{!119, !16}
 !120 = distinct !{!120, !16}
 !121 = distinct !{!121, !16}
@@ -9910,21 +9910,19 @@ attributes #25 = { cold noreturn nounwind }
 !127 = distinct !{!127, !16}
 !128 = distinct !{!128, !16}
 !129 = distinct !{!129, !16}
-!130 = distinct !{!130, !16}
-!131 = distinct !{!131, !16}
-!132 = !{!133, !9, i64 0}
-!133 = !{!"_ZTSN5folly6detail12_GLOBAL__N_111ErrorStringE", !9, i64 0, !21, i64 8}
-!134 = !{!135, !141, i64 16}
-!135 = !{!"_ZTSN5folly15ConversionErrorE", !136, i64 0, !141, i64 16}
-!136 = !{!"_ZTSN5folly19ConversionErrorBaseE", !137, i64 0}
-!137 = !{!"_ZTSSt11range_error", !138, i64 0}
-!138 = !{!"_ZTSSt13runtime_error", !139, i64 0, !140, i64 8}
-!139 = !{!"_ZTSSt9exception"}
-!140 = !{!"_ZTSSt12__cow_string", !11, i64 0}
-!141 = !{!"_ZTSN5folly14ConversionCodeE", !11, i64 0}
+!130 = !{!131, !9, i64 0}
+!131 = !{!"_ZTSN5folly6detail12_GLOBAL__N_111ErrorStringE", !9, i64 0, !21, i64 8}
+!132 = !{!133, !139, i64 16}
+!133 = !{!"_ZTSN5folly15ConversionErrorE", !134, i64 0, !139, i64 16}
+!134 = !{!"_ZTSN5folly19ConversionErrorBaseE", !135, i64 0}
+!135 = !{!"_ZTSSt11range_error", !136, i64 0}
+!136 = !{!"_ZTSSt13runtime_error", !137, i64 0, !138, i64 8}
+!137 = !{!"_ZTSSt9exception"}
+!138 = !{!"_ZTSSt12__cow_string", !11, i64 0}
+!139 = !{!"_ZTSN5folly14ConversionCodeE", !11, i64 0}
+!140 = !{!141, !9, i64 0}
+!141 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
 !142 = !{!143, !9, i64 0}
-!143 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
-!144 = !{!145, !9, i64 0}
-!145 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !143, i64 0, !36, i64 8, !11, i64 16}
-!146 = !{!145, !36, i64 8}
-!147 = !{!133, !21, i64 8}
+!143 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !141, i64 0, !36, i64 8, !11, i64 16}
+!144 = !{!143, !36, i64 8}
+!145 = !{!131, !21, i64 8}

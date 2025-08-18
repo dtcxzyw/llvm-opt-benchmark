@@ -1622,7 +1622,7 @@ Vec_QuePrio.exit46.i.i:                           ; preds = %118, %Vec_QuePrio.e
   %.0.i.i = shl i32 %.1.i.i, 1
   %129 = load i32, ptr %40, align 4, !tbaa !59
   %130 = icmp slt i32 %.0.i.i, %129
-  br i1 %130, label %.lr.ph.split.i.i, label %Vec_QueMoveDown.exit.i, !llvm.loop !71
+  br i1 %130, label %.lr.ph.split.i.i, label %Vec_QueMoveDown.exit.i, !llvm.loop !69
 
 Vec_QueMoveDown.exit.i:                           ; preds = %125, %Vec_QuePrio.exit46.i.i, %95, %Vec_QuePrio.exit46.us.i.i, %Vec_QuePrio.exit.thread.i.i, %Vec_QuePrio.exit.i.i
   %.035.lcssa.i.i = phi i32 [ 1, %Vec_QuePrio.exit.thread.i.i ], [ 1, %Vec_QuePrio.exit.i.i ], [ %.03548.us.i.i, %Vec_QuePrio.exit46.us.i.i ], [ %.1.us.i.i, %95 ], [ %.03548.i.i, %Vec_QuePrio.exit46.i.i ], [ %.1.i.i, %125 ]
@@ -1644,7 +1644,7 @@ Vec_QuePop.exit:                                  ; preds = %64, %Vec_QueMoveDow
   %135 = add nuw nsw i32 %.056, 1
   %136 = icmp slt i32 %135, %2
   %or.cond = select i1 %.not39, i1 true, i1 %136
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !72
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %Vec_QueTopPriority.exit, %134, %.lr.ph, %Abc_Clock.exit44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1666,13 +1666,13 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %146 = add i64 %.0.i45, %.0.i43.neg
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i64 %146, ptr %147, align 8, !tbaa !73
+  store i64 %146, ptr %147, align 8, !tbaa !71
   br i1 %.not38, label %160, label %148
 
 148:                                              ; preds = %Abc_Clock.exit46
   call void @Fxch_ManPrintStats(ptr noundef nonnull %10) #22
   %149 = load i64, ptr %27, align 8, !tbaa !57
-  %150 = load i64, ptr %147, align 8, !tbaa !73
+  %150 = load i64, ptr %147, align 8, !tbaa !71
   %151 = add nsw i64 %150, %149
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str)
   %152 = sitofp i64 %151 to double
@@ -1683,7 +1683,7 @@ Abc_Clock.exit46:                                 ; preds = %.critedge, %139
   %155 = sitofp i64 %154 to double
   %156 = fdiv double %155, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %156)
-  %157 = load i64, ptr %147, align 8, !tbaa !73
+  %157 = load i64, ptr %147, align 8, !tbaa !71
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2)
   %158 = sitofp i64 %157 to double
   %159 = fdiv double %158, 1.000000e+06
@@ -1820,9 +1820,9 @@ define range(i32 0, 2) i32 @Abc_NtkFxchPerform(ptr noundef %0, i32 noundef %1, i
 6:                                                ; preds = %4
   %7 = tail call ptr @Abc_NtkFxRetrieve(ptr noundef %0) #22
   %8 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %8, align 8, !tbaa !74
+  %.val = load ptr, ptr %8, align 8, !tbaa !72
   %9 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %9, align 4, !tbaa !86
+  %.val.val = load i32, ptr %9, align 4, !tbaa !84
   %10 = tail call i32 @Fxch_FastExtract(ptr noundef %7, i32 noundef %.val.val, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   tail call void @Abc_NtkFxInsert(ptr noundef %0, ptr noundef %7) #22
   %11 = load i32, ptr %7, align 8, !tbaa !49
@@ -1854,7 +1854,7 @@ define range(i32 0, 2) i32 @Abc_NtkFxchPerform(ptr noundef %0, i32 noundef %1, i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %24 = sext i32 %22 to i64
   %25 = icmp slt i64 %indvars.iv.next.i.i, %24
-  br i1 %25, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !88
+  br i1 %25, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !86
 
 ._crit_edge.i.i:                                  ; preds = %6
   %.not.i.i = icmp eq ptr %.pre.i.i, null
@@ -1922,7 +1922,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #22
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !89
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !87
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #22
@@ -1930,7 +1930,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !89, !noalias !91
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !87, !noalias !89
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #22
   br label %17
 
@@ -2087,28 +2087,26 @@ attributes #23 = { nounwind willreturn memory(read) }
 !66 = !{!67, !67, i64 0}
 !67 = !{!"float", !6, i64 0}
 !68 = !{!60, !8, i64 16}
-!69 = distinct !{!69, !27, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !27}
-!72 = distinct !{!72, !27}
-!73 = !{!13, !20, i64 184}
-!74 = !{!75, !78, i64 32}
-!75 = !{!"Abc_Ntk_t_", !5, i64 0, !5, i64 4, !76, i64 8, !76, i64 16, !77, i64 24, !78, i64 32, !78, i64 40, !78, i64 48, !78, i64 56, !78, i64 64, !78, i64 72, !78, i64 80, !78, i64 88, !6, i64 96, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !79, i64 160, !5, i64 168, !80, i64 176, !79, i64 184, !5, i64 192, !5, i64 196, !5, i64 200, !81, i64 208, !5, i64 216, !4, i64 224, !82, i64 240, !83, i64 248, !9, i64 256, !84, i64 264, !9, i64 272, !67, i64 280, !5, i64 284, !16, i64 288, !78, i64 296, !8, i64 304, !85, i64 312, !78, i64 320, !79, i64 328, !9, i64 336, !9, i64 344, !79, i64 352, !9, i64 360, !9, i64 368, !16, i64 376, !16, i64 384, !76, i64 392, !65, i64 400, !78, i64 408, !16, i64 416, !16, i64 424, !78, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
-!76 = !{!"p1 omnipotent char", !9, i64 0}
-!77 = !{!"p1 _ZTS9Nm_Man_t_", !9, i64 0}
-!78 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!79 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
-!80 = !{!"p1 _ZTS10Abc_Des_t_", !9, i64 0}
-!81 = !{!"double", !6, i64 0}
-!82 = !{!"p1 _ZTS12Mem_Fixed_t_", !9, i64 0}
-!83 = !{!"p1 _ZTS11Mem_Step_t_", !9, i64 0}
-!84 = !{!"p1 _ZTS14Abc_ManTime_t_", !9, i64 0}
-!85 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
-!86 = !{!87, !5, i64 4}
-!87 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
-!88 = distinct !{!88, !27}
-!89 = !{!90, !90, i64 0}
-!90 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"vprintf: argument 0"}
-!93 = distinct !{!93, !"vprintf"}
+!69 = distinct !{!69, !27}
+!70 = distinct !{!70, !27}
+!71 = !{!13, !20, i64 184}
+!72 = !{!73, !76, i64 32}
+!73 = !{!"Abc_Ntk_t_", !5, i64 0, !5, i64 4, !74, i64 8, !74, i64 16, !75, i64 24, !76, i64 32, !76, i64 40, !76, i64 48, !76, i64 56, !76, i64 64, !76, i64 72, !76, i64 80, !76, i64 88, !6, i64 96, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !77, i64 160, !5, i64 168, !78, i64 176, !77, i64 184, !5, i64 192, !5, i64 196, !5, i64 200, !79, i64 208, !5, i64 216, !4, i64 224, !80, i64 240, !81, i64 248, !9, i64 256, !82, i64 264, !9, i64 272, !67, i64 280, !5, i64 284, !16, i64 288, !76, i64 296, !8, i64 304, !83, i64 312, !76, i64 320, !77, i64 328, !9, i64 336, !9, i64 344, !77, i64 352, !9, i64 360, !9, i64 368, !16, i64 376, !16, i64 384, !74, i64 392, !65, i64 400, !76, i64 408, !16, i64 416, !16, i64 424, !76, i64 432, !16, i64 440, !16, i64 448, !16, i64 456}
+!74 = !{!"p1 omnipotent char", !9, i64 0}
+!75 = !{!"p1 _ZTS9Nm_Man_t_", !9, i64 0}
+!76 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!77 = !{!"p1 _ZTS10Abc_Ntk_t_", !9, i64 0}
+!78 = !{!"p1 _ZTS10Abc_Des_t_", !9, i64 0}
+!79 = !{!"double", !6, i64 0}
+!80 = !{!"p1 _ZTS12Mem_Fixed_t_", !9, i64 0}
+!81 = !{!"p1 _ZTS11Mem_Step_t_", !9, i64 0}
+!82 = !{!"p1 _ZTS14Abc_ManTime_t_", !9, i64 0}
+!83 = !{!"p1 _ZTS10Abc_Cex_t_", !9, i64 0}
+!84 = !{!85, !5, i64 4}
+!85 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
+!86 = distinct !{!86, !27}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"vprintf: argument 0"}
+!91 = distinct !{!91, !"vprintf"}

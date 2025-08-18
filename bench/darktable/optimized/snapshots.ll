@@ -1908,7 +1908,7 @@ define internal i32 @_lib_button_button_pressed_callback(ptr noundef %0, ptr nou
 10:                                               ; preds = %.split.us.i
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %exitcond11.i = icmp eq i64 %indvars.iv.next9.i, 10
-  br i1 %exitcond11.i, label %_look_for_widget.exit, label %.split.us.i, !llvm.loop !195
+  br i1 %exitcond11.i, label %_look_for_widget.exit, label %.split.us.i
 
 .split3.us.loopexit.split.loop.exit.i:            ; preds = %.split.us.i
   %sext = shl i64 %indvars.iv8.i, 32
@@ -1918,7 +1918,7 @@ define internal i32 @_lib_button_button_pressed_callback(ptr noundef %0, ptr nou
 _look_for_widget.exit:                            ; preds = %10, %.split3.us.loopexit.split.loop.exit.i
   %.us-phi.i = phi i64 [ %11, %.split3.us.loopexit.split.loop.exit.i ], [ 0, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %13 = load i32, ptr %12, align 8, !tbaa !197
+  %13 = load i32, ptr %12, align 8, !tbaa !195
   %14 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %15 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !147
   %16 = or i32 %15, %13
@@ -2384,10 +2384,8 @@ attributes #16 = { nounwind allocsize(0) }
 !192 = !{}
 !193 = !{!58, !9, i64 96}
 !194 = !{!16, !16, i64 0}
-!195 = distinct !{!195, !196}
-!196 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!197 = !{!198, !9, i64 48}
-!198 = !{!"_GdkEventButton", !9, i64 0, !199, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !200, i64 40, !9, i64 48, !9, i64 52, !201, i64 56, !46, i64 64, !46, i64 72}
-!199 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!200 = !{!"p1 double", !13, i64 0}
-!201 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!195 = !{!196, !9, i64 48}
+!196 = !{!"_GdkEventButton", !9, i64 0, !197, i64 8, !10, i64 16, !9, i64 20, !46, i64 24, !46, i64 32, !198, i64 40, !9, i64 48, !9, i64 52, !199, i64 56, !46, i64 64, !46, i64 72}
+!197 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!198 = !{!"p1 double", !13, i64 0}
+!199 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}

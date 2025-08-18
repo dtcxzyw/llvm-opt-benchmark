@@ -1454,35 +1454,35 @@ transformColumnType.exit:                         ; preds = %thread-pre-split, %
   br i1 %309, label %.lr.ph, label %transformConstraintAttrs.exit.loopexit
 
 transformConstraintAttrs.exit.loopexit:           ; preds = %306
-  %.pre676.pre = load ptr, ptr %113, align 8
+  %.pre679.pre = load ptr, ptr %113, align 8
   br label %transformConstraintAttrs.exit
 
 transformConstraintAttrs.exit:                    ; preds = %transformConstraintAttrs.exit.loopexit, %.lr.ph.i
-  %.pre676 = phi ptr [ %.pre676.pre, %transformConstraintAttrs.exit.loopexit ], [ %114, %.lr.ph.i ]
+  %.pre679 = phi ptr [ %.pre679.pre, %transformConstraintAttrs.exit.loopexit ], [ %114, %.lr.ph.i ]
   %310 = trunc nuw i8 %.0253 to i1
   br i1 %310, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %transformConstraintAttrs.exit
-  %.not275 = icmp eq ptr %.pre676, null
-  %311 = getelementptr inbounds nuw i8, ptr %.pre676, i64 16
+  %.not275 = icmp eq ptr %.pre679, null
+  %311 = getelementptr inbounds nuw i8, ptr %.pre679, i64 16
   br i1 %.not275, label %.loopexit.thread, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader
-  %312 = getelementptr inbounds nuw i8, ptr %.pre676, i64 4
+  %312 = getelementptr inbounds nuw i8, ptr %.pre679, i64 4
   %313 = load i32, ptr %312, align 4
-  %.fr612 = freeze i32 %313
-  %314 = icmp sgt i32 %.fr612, 0
-  br i1 %314, label %.lr.ph552.split.us566, label %.loopexit.thread686
+  %.fr614 = freeze i32 %313
+  %314 = icmp sgt i32 %.fr614, 0
+  br i1 %314, label %.lr.ph552.split.us566.us, label %.loopexit.thread689
 
-.loopexit.thread686:                              ; preds = %.preheader.split
+.loopexit.thread689:                              ; preds = %.preheader.split
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %.lr.ph589
+  br label %.lr.ph591
 
-318:                                              ; preds = %.lr.ph552.split.us566, %324
-  %indvars.iv = phi i64 [ 0, %.lr.ph552.split.us566 ], [ %indvars.iv.next, %324 ]
-  %.3259551556.us = phi i1 [ false, %.lr.ph552.split.us566 ], [ %.4260.us562, %324 ]
+318:                                              ; preds = %.lr.ph552.split.us566.us, %324
+  %indvars.iv = phi i64 [ 0, %.lr.ph552.split.us566.us ], [ %indvars.iv.next, %324 ]
+  %.3259551556.us.us = phi i1 [ false, %.lr.ph552.split.us566.us ], [ %.4260.us562.us, %324 ]
   %319 = getelementptr inbounds nuw %union.ListCell, ptr %325, i64 %indvars.iv
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
@@ -1496,48 +1496,48 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   br label %324
 
 324:                                              ; preds = %323, %318
-  %.4260.us562 = phi i1 [ %.3259551556.us, %318 ], [ true, %323 ]
+  %.4260.us562.us = phi i1 [ %.3259551556.us.us, %318 ], [ true, %323 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %318
 
-.lr.ph552.split.us566:                            ; preds = %.preheader.split
+.lr.ph552.split.us566.us:                         ; preds = %.preheader.split
   %325 = load ptr, ptr %311, align 8
-  %wide.trip.count = zext nneg i32 %.fr612 to i64
+  %wide.trip.count = zext nneg i32 %.fr614 to i64
   br label %318
 
 .loopexit.thread:                                 ; preds = %.thread296, %.preheader
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %.split609.us
+  br label %.split611.us
 
 .loopexit:                                        ; preds = %324, %transformConstraintAttrs.exit
-  %.1257 = phi i1 [ true, %transformConstraintAttrs.exit ], [ %.4260.us562, %324 ]
+  %.1257 = phi i1 [ true, %transformConstraintAttrs.exit ], [ %.4260.us562.us, %324 ]
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %330 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %332 = icmp eq ptr %.pre676, null
-  br i1 %332, label %.split609.us, label %.lr.ph589
+  %332 = icmp eq ptr %.pre679, null
+  br i1 %332, label %.split611.us, label %.lr.ph591
 
-..split609.us.loopexit_crit_edge:                 ; preds = %702
+..split611.us.loopexit_crit_edge:                 ; preds = %702
   %333 = trunc nuw i8 %.2 to i1
-  br label %.split609.us
+  br label %.split611.us
 
-.split609.us:                                     ; preds = %.lr.ph589, %..split609.us.loopexit_crit_edge, %.loopexit.thread, %.loopexit
-  %334 = phi ptr [ %331, %.loopexit ], [ %328, %.loopexit.thread ], [ %338, %..split609.us.loopexit_crit_edge ], [ %338, %.lr.ph589 ]
-  %335 = phi ptr [ %330, %.loopexit ], [ %327, %.loopexit.thread ], [ %339, %..split609.us.loopexit_crit_edge ], [ %339, %.lr.ph589 ]
-  %336 = phi ptr [ %329, %.loopexit ], [ %326, %.loopexit.thread ], [ %340, %..split609.us.loopexit_crit_edge ], [ %340, %.lr.ph589 ]
-  %.us-phi610 = phi i8 [ %.0253, %.loopexit ], [ %.0253, %.loopexit.thread ], [ %.4, %..split609.us.loopexit_crit_edge ], [ %.0253, %.lr.ph589 ]
-  %.us-phi611 = phi i1 [ false, %.loopexit ], [ false, %.loopexit.thread ], [ %333, %..split609.us.loopexit_crit_edge ], [ false, %.lr.ph589 ]
-  %337 = trunc nuw i8 %.us-phi610 to i1
+.split611.us:                                     ; preds = %.lr.ph591, %..split611.us.loopexit_crit_edge, %.loopexit.thread, %.loopexit
+  %334 = phi ptr [ %331, %.loopexit ], [ %328, %.loopexit.thread ], [ %338, %..split611.us.loopexit_crit_edge ], [ %338, %.lr.ph591 ]
+  %335 = phi ptr [ %330, %.loopexit ], [ %327, %.loopexit.thread ], [ %339, %..split611.us.loopexit_crit_edge ], [ %339, %.lr.ph591 ]
+  %336 = phi ptr [ %329, %.loopexit ], [ %326, %.loopexit.thread ], [ %340, %..split611.us.loopexit_crit_edge ], [ %340, %.lr.ph591 ]
+  %.us-phi612 = phi i8 [ %.0253, %.loopexit ], [ %.0253, %.loopexit.thread ], [ %.4, %..split611.us.loopexit_crit_edge ], [ %.0253, %.lr.ph591 ]
+  %.us-phi613 = phi i1 [ false, %.loopexit ], [ false, %.loopexit.thread ], [ %333, %..split611.us.loopexit_crit_edge ], [ false, %.lr.ph591 ]
+  %337 = trunc nuw i8 %.us-phi612 to i1
   br i1 %337, label %706, label %716
 
-.lr.ph589:                                        ; preds = %.loopexit, %.loopexit.thread686
-  %338 = phi ptr [ %317, %.loopexit.thread686 ], [ %331, %.loopexit ]
-  %339 = phi ptr [ %316, %.loopexit.thread686 ], [ %330, %.loopexit ]
-  %340 = phi ptr [ %315, %.loopexit.thread686 ], [ %329, %.loopexit ]
-  %.1257690 = phi i1 [ false, %.loopexit.thread686 ], [ %.1257, %.loopexit ]
+.lr.ph591:                                        ; preds = %.loopexit, %.loopexit.thread689
+  %338 = phi ptr [ %317, %.loopexit.thread689 ], [ %331, %.loopexit ]
+  %339 = phi ptr [ %316, %.loopexit.thread689 ], [ %330, %.loopexit ]
+  %340 = phi ptr [ %315, %.loopexit.thread689 ], [ %329, %.loopexit ]
+  %.1257693 = phi i1 [ false, %.loopexit.thread689 ], [ %.1257, %.loopexit ]
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1548,22 +1548,22 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %351 = getelementptr inbounds nuw i8, ptr %.pre676, i64 4
-  %352 = getelementptr inbounds nuw i8, ptr %.pre676, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %.pre679, i64 4
+  %352 = getelementptr inbounds nuw i8, ptr %.pre679, i64 16
   %353 = load i32, ptr %351, align 4
   %354 = icmp sgt i32 %353, 0
-  br i1 %354, label %.lr.ph920, label %.split609.us
+  br i1 %354, label %.lr.ph923, label %.split611.us
 
-.lr.ph920:                                        ; preds = %.lr.ph589, %702
-  %.1262583919 = phi ptr [ %.2263, %702 ], [ null, %.lr.ph589 ]
-  %.2255584918 = phi i8 [ %.4, %702 ], [ %.0253, %.lr.ph589 ]
-  %.1251585917 = phi i8 [ %.2252, %702 ], [ 0, %.lr.ph589 ]
-  %.1248586916 = phi i8 [ %.2249, %702 ], [ 0, %.lr.ph589 ]
-  %.1245587915 = phi i8 [ %.2246, %702 ], [ 0, %.lr.ph589 ]
-  %.1243588914 = phi i8 [ %.2, %702 ], [ 0, %.lr.ph589 ]
-  %indvars.iv674913 = phi i64 [ %indvars.iv.next675, %702 ], [ 0, %.lr.ph589 ]
+.lr.ph923:                                        ; preds = %.lr.ph591, %702
+  %.1262585922 = phi ptr [ %.2263, %702 ], [ null, %.lr.ph591 ]
+  %.2255586921 = phi i8 [ %.4, %702 ], [ %.0253, %.lr.ph591 ]
+  %.1251587920 = phi i8 [ %.2252, %702 ], [ 0, %.lr.ph591 ]
+  %.1248588919 = phi i8 [ %.2249, %702 ], [ 0, %.lr.ph591 ]
+  %.1245589918 = phi i8 [ %.2246, %702 ], [ 0, %.lr.ph591 ]
+  %.1243590917 = phi i8 [ %.2, %702 ], [ 0, %.lr.ph591 ]
+  %indvars.iv677916 = phi i64 [ %indvars.iv.next678, %702 ], [ 0, %.lr.ph591 ]
   %355 = load ptr, ptr %352, align 8
-  %356 = getelementptr inbounds nuw %union.ListCell, ptr %355, i64 %indvars.iv674913
+  %356 = getelementptr inbounds nuw %union.ListCell, ptr %355, i64 %indvars.iv677916
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 4
   %359 = load i32, ptr %358, align 4
@@ -1586,19 +1586,19 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
     i32 15, label %643
   ]
 
-360:                                              ; preds = %.lr.ph920
-  %361 = trunc nuw i8 %.1243588914 to i1
+360:                                              ; preds = %.lr.ph923
+  %361 = trunc nuw i8 %.1243590917 to i1
   br i1 %361, label %362, label %366
 
 362:                                              ; preds = %360
   %363 = load i8, ptr %339, align 1, !range !4, !noundef !5
   %364 = trunc nuw i8 %363 to i1
-  %365 = trunc nuw i8 %.2255584918 to i1
+  %365 = trunc nuw i8 %.2255586921 to i1
   %or.cond = select i1 %364, i1 true, i1 %365
   br i1 %or.cond, label %367, label %380
 
 366:                                              ; preds = %360
-  %.old3 = trunc nuw i8 %.2255584918 to i1
+  %.old3 = trunc nuw i8 %.2255586921 to i1
   br i1 %.old3, label %367, label %380
 
 367:                                              ; preds = %366, %362
@@ -1622,7 +1622,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store i8 0, ptr %339, align 1
   br label %643
 
-381:                                              ; preds = %.lr.ph920
+381:                                              ; preds = %.lr.ph923
   %382 = load i8, ptr %350, align 8, !range !4, !noundef !5
   %383 = trunc nuw i8 %382 to i1
   br i1 %383, label %384, label %392
@@ -1642,7 +1642,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 392:                                              ; preds = %384, %381
-  %393 = trunc nuw i8 %.1243588914 to i1
+  %393 = trunc nuw i8 %.1243590917 to i1
   br i1 %393, label %394, label %410
 
 394:                                              ; preds = %392
@@ -1668,7 +1668,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 410:                                              ; preds = %394, %392
-  br i1 %.1257690, label %411, label %420
+  br i1 %.1257693, label %411, label %420
 
 411:                                              ; preds = %410
   %412 = getelementptr inbounds nuw i8, ptr %357, i64 21
@@ -1703,7 +1703,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   br label %643
 
 430:                                              ; preds = %420
-  %.not280 = icmp eq ptr %.1262583919, null
+  %.not280 = icmp eq ptr %.1262585922, null
   br i1 %.not280, label %643, label %431
 
 431:                                              ; preds = %430
@@ -1713,7 +1713,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   br i1 %.not281, label %446, label %434
 
 434:                                              ; preds = %431
-  %435 = getelementptr inbounds nuw i8, ptr %.1262583919, i64 8
+  %435 = getelementptr inbounds nuw i8, ptr %.1262585922, i64 8
   %436 = load ptr, ptr %435, align 8
   %.not282 = icmp eq ptr %436, null
   br i1 %.not282, label %446, label %437
@@ -1725,7 +1725,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
 
 439:                                              ; preds = %437
   %440 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %441 = getelementptr inbounds nuw i8, ptr %.1262583919, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %.1262585922, i64 8
   %442 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %442)
   %443 = load ptr, ptr %441, align 8
@@ -1735,7 +1735,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 446:                                              ; preds = %437, %434, %431
-  %447 = getelementptr inbounds nuw i8, ptr %.1262583919, i64 21
+  %447 = getelementptr inbounds nuw i8, ptr %.1262585922, i64 21
   %448 = load i8, ptr %447, align 1, !range !4, !noundef !5
   %449 = getelementptr inbounds nuw i8, ptr %357, i64 21
   %450 = load i8, ptr %449, align 1, !range !4, !noundef !5
@@ -1752,7 +1752,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 456:                                              ; preds = %446
-  %457 = getelementptr inbounds nuw i8, ptr %.1262583919, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %.1262585922, i64 8
   %458 = load ptr, ptr %457, align 8
   %.not285 = icmp eq ptr %458, null
   br i1 %.not285, label %459, label %643
@@ -1764,8 +1764,8 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %433, ptr %457, align 8
   br label %643
 
-461:                                              ; preds = %.lr.ph920
-  %462 = trunc nuw i8 %.1245587915 to i1
+461:                                              ; preds = %.lr.ph923
+  %462 = trunc nuw i8 %.1245589918 to i1
   br i1 %462, label %463, label %476
 
 463:                                              ; preds = %461
@@ -1791,7 +1791,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %478, ptr %347, align 8
   br label %643
 
-479:                                              ; preds = %.lr.ph920
+479:                                              ; preds = %.lr.ph923
   %480 = load i8, ptr %345, align 8, !range !4, !noundef !5
   %481 = trunc nuw i8 %480 to i1
   br i1 %481, label %482, label %486
@@ -1829,7 +1829,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   %500 = getelementptr inbounds nuw i8, ptr %.val, i64 %499
   %501 = load i32, ptr %500, align 4
   call void @ReleaseSysCache(ptr noundef %495) #8
-  %502 = trunc nuw i8 %.1248586916 to i1
+  %502 = trunc nuw i8 %.1248588919 to i1
   br i1 %502, label %503, label %516
 
 503:                                              ; preds = %492
@@ -1856,7 +1856,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   %519 = getelementptr inbounds nuw i8, ptr %357, i64 40
   %520 = load i8, ptr %519, align 8
   store i8 %520, ptr %349, align 8
-  %521 = trunc nuw i8 %.1243588914 to i1
+  %521 = trunc nuw i8 %.1243590917 to i1
   br i1 %521, label %522, label %643
 
 522:                                              ; preds = %516
@@ -1881,7 +1881,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.transformColumnDefinition) #8
   unreachable
 
-538:                                              ; preds = %.lr.ph920
+538:                                              ; preds = %.lr.ph923
   %539 = load i8, ptr %345, align 8, !range !4, !noundef !5
   %540 = trunc nuw i8 %539 to i1
   br i1 %540, label %541, label %545
@@ -1895,7 +1895,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 545:                                              ; preds = %538
-  %546 = trunc nuw i8 %.1251585917 to i1
+  %546 = trunc nuw i8 %.1251587920 to i1
   br i1 %546, label %547, label %560
 
 547:                                              ; preds = %545
@@ -1924,14 +1924,14 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %564, ptr %347, align 8
   br label %643
 
-565:                                              ; preds = %.lr.ph920
+565:                                              ; preds = %.lr.ph923
   %566 = load ptr, ptr %344, align 8
   %567 = call ptr @lappend(ptr noundef %566, ptr noundef nonnull %357) #8
   store ptr %567, ptr %344, align 8
   br label %643
 
-568:                                              ; preds = %.lr.ph920
-  %569 = trunc nuw i8 %.1243588914 to i1
+568:                                              ; preds = %.lr.ph923
+  %569 = trunc nuw i8 %.1243590917 to i1
   br i1 %569, label %570, label %586
 
 570:                                              ; preds = %568
@@ -1973,9 +1973,9 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 917, ptr noundef nonnull @__func__.transformColumnDefinition) #8
   unreachable
 
-597:                                              ; preds = %.lr.ph920
-  %.pre677 = load i8, ptr %341, align 8, !range !4
-  %598 = trunc nuw i8 %.pre677 to i1
+597:                                              ; preds = %.lr.ph923
+  %.pre680 = load i8, ptr %341, align 8, !range !4
+  %598 = trunc nuw i8 %.pre680 to i1
   br i1 %598, label %599, label %.thread
 
 599:                                              ; preds = %597
@@ -1991,7 +1991,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 .thread:                                          ; preds = %586, %597
-  %.3692 = phi i8 [ %.2255584918, %597 ], [ 1, %586 ]
+  %.3695 = phi i8 [ %.2255586921, %597 ], [ 1, %586 ]
   %607 = getelementptr inbounds nuw i8, ptr %357, i64 48
   %608 = load ptr, ptr %607, align 8
   %609 = icmp eq ptr %608, null
@@ -2010,14 +2010,14 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %616, ptr %343, align 8
   br label %643
 
-617:                                              ; preds = %.lr.ph920
+617:                                              ; preds = %.lr.ph923
   %618 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %618)
   %619 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 934, ptr noundef nonnull @__func__.transformColumnDefinition) #8
   unreachable
 
-620:                                              ; preds = %.lr.ph920
+620:                                              ; preds = %.lr.ph923
   %621 = load i8, ptr %341, align 8, !range !4, !noundef !5
   %622 = trunc nuw i8 %621 to i1
   br i1 %622, label %623, label %631
@@ -2045,7 +2045,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %637, ptr %342, align 8
   br label %643
 
-638:                                              ; preds = %.lr.ph920
+638:                                              ; preds = %.lr.ph923
   %639 = getelementptr inbounds nuw i8, ptr %357, i64 4
   %640 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %640)
@@ -2054,13 +2054,13 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 964, ptr noundef nonnull @__func__.transformColumnDefinition) #8
   unreachable
 
-643:                                              ; preds = %522, %516, %.lr.ph920, %.lr.ph920, %.lr.ph920, %.lr.ph920, %.lr.ph920, %.lr.ph920, %423, %456, %459, %460, %430, %631, %614, %565, %560, %476, %380
-  %.2263 = phi ptr [ %.1262583919, %380 ], [ %.1262583919, %456 ], [ %.1262583919, %460 ], [ %.1262583919, %459 ], [ null, %430 ], [ %357, %423 ], [ %.1262583919, %476 ], [ %.1262583919, %560 ], [ %.1262583919, %565 ], [ %.1262583919, %614 ], [ %.1262583919, %631 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %.lr.ph920 ], [ %.1262583919, %516 ], [ %.1262583919, %522 ]
-  %.4 = phi i8 [ 0, %380 ], [ %.2255584918, %456 ], [ %.2255584918, %460 ], [ %.2255584918, %459 ], [ %.2255584918, %430 ], [ 0, %423 ], [ %.2255584918, %476 ], [ %.2255584918, %560 ], [ %.2255584918, %565 ], [ %.3692, %614 ], [ %.2255584918, %631 ], [ %.2255584918, %.lr.ph920 ], [ %.2255584918, %.lr.ph920 ], [ %.2255584918, %.lr.ph920 ], [ %.2255584918, %.lr.ph920 ], [ %.2255584918, %.lr.ph920 ], [ %.2255584918, %.lr.ph920 ], [ 1, %516 ], [ %.2255584918, %522 ]
-  %.2252 = phi i8 [ %.1251585917, %380 ], [ %.1251585917, %456 ], [ %.1251585917, %460 ], [ %.1251585917, %459 ], [ %.1251585917, %430 ], [ %.1251585917, %423 ], [ %.1251585917, %476 ], [ 1, %560 ], [ %.1251585917, %565 ], [ %.1251585917, %614 ], [ %.1251585917, %631 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %.lr.ph920 ], [ %.1251585917, %516 ], [ %.1251585917, %522 ]
-  %.2249 = phi i8 [ %.1248586916, %380 ], [ %.1248586916, %456 ], [ %.1248586916, %460 ], [ %.1248586916, %459 ], [ %.1248586916, %430 ], [ %.1248586916, %423 ], [ %.1248586916, %476 ], [ %.1248586916, %560 ], [ %.1248586916, %565 ], [ %.1248586916, %614 ], [ %.1248586916, %631 ], [ %.1248586916, %.lr.ph920 ], [ %.1248586916, %.lr.ph920 ], [ %.1248586916, %.lr.ph920 ], [ %.1248586916, %.lr.ph920 ], [ %.1248586916, %.lr.ph920 ], [ %.1248586916, %.lr.ph920 ], [ 1, %516 ], [ 1, %522 ]
-  %.2246 = phi i8 [ %.1245587915, %380 ], [ %.1245587915, %456 ], [ %.1245587915, %460 ], [ %.1245587915, %459 ], [ %.1245587915, %430 ], [ %.1245587915, %423 ], [ 1, %476 ], [ %.1245587915, %560 ], [ %.1245587915, %565 ], [ %.1245587915, %614 ], [ %.1245587915, %631 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %.lr.ph920 ], [ %.1245587915, %516 ], [ %.1245587915, %522 ]
-  %.2 = phi i8 [ 1, %380 ], [ %.1243588914, %456 ], [ %.1243588914, %460 ], [ %.1243588914, %459 ], [ %.1243588914, %430 ], [ 1, %423 ], [ %.1243588914, %476 ], [ %.1243588914, %560 ], [ %.1243588914, %565 ], [ %.1243588914, %614 ], [ %.1243588914, %631 ], [ %.1243588914, %.lr.ph920 ], [ %.1243588914, %.lr.ph920 ], [ %.1243588914, %.lr.ph920 ], [ %.1243588914, %.lr.ph920 ], [ %.1243588914, %.lr.ph920 ], [ %.1243588914, %.lr.ph920 ], [ 0, %516 ], [ 1, %522 ]
+643:                                              ; preds = %522, %516, %.lr.ph923, %.lr.ph923, %.lr.ph923, %.lr.ph923, %.lr.ph923, %.lr.ph923, %423, %456, %459, %460, %430, %631, %614, %565, %560, %476, %380
+  %.2263 = phi ptr [ %.1262585922, %380 ], [ %.1262585922, %456 ], [ %.1262585922, %460 ], [ %.1262585922, %459 ], [ null, %430 ], [ %357, %423 ], [ %.1262585922, %476 ], [ %.1262585922, %560 ], [ %.1262585922, %565 ], [ %.1262585922, %614 ], [ %.1262585922, %631 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %.lr.ph923 ], [ %.1262585922, %516 ], [ %.1262585922, %522 ]
+  %.4 = phi i8 [ 0, %380 ], [ %.2255586921, %456 ], [ %.2255586921, %460 ], [ %.2255586921, %459 ], [ %.2255586921, %430 ], [ 0, %423 ], [ %.2255586921, %476 ], [ %.2255586921, %560 ], [ %.2255586921, %565 ], [ %.3695, %614 ], [ %.2255586921, %631 ], [ %.2255586921, %.lr.ph923 ], [ %.2255586921, %.lr.ph923 ], [ %.2255586921, %.lr.ph923 ], [ %.2255586921, %.lr.ph923 ], [ %.2255586921, %.lr.ph923 ], [ %.2255586921, %.lr.ph923 ], [ 1, %516 ], [ %.2255586921, %522 ]
+  %.2252 = phi i8 [ %.1251587920, %380 ], [ %.1251587920, %456 ], [ %.1251587920, %460 ], [ %.1251587920, %459 ], [ %.1251587920, %430 ], [ %.1251587920, %423 ], [ %.1251587920, %476 ], [ 1, %560 ], [ %.1251587920, %565 ], [ %.1251587920, %614 ], [ %.1251587920, %631 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %.lr.ph923 ], [ %.1251587920, %516 ], [ %.1251587920, %522 ]
+  %.2249 = phi i8 [ %.1248588919, %380 ], [ %.1248588919, %456 ], [ %.1248588919, %460 ], [ %.1248588919, %459 ], [ %.1248588919, %430 ], [ %.1248588919, %423 ], [ %.1248588919, %476 ], [ %.1248588919, %560 ], [ %.1248588919, %565 ], [ %.1248588919, %614 ], [ %.1248588919, %631 ], [ %.1248588919, %.lr.ph923 ], [ %.1248588919, %.lr.ph923 ], [ %.1248588919, %.lr.ph923 ], [ %.1248588919, %.lr.ph923 ], [ %.1248588919, %.lr.ph923 ], [ %.1248588919, %.lr.ph923 ], [ 1, %516 ], [ 1, %522 ]
+  %.2246 = phi i8 [ %.1245589918, %380 ], [ %.1245589918, %456 ], [ %.1245589918, %460 ], [ %.1245589918, %459 ], [ %.1245589918, %430 ], [ %.1245589918, %423 ], [ 1, %476 ], [ %.1245589918, %560 ], [ %.1245589918, %565 ], [ %.1245589918, %614 ], [ %.1245589918, %631 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %.lr.ph923 ], [ %.1245589918, %516 ], [ %.1245589918, %522 ]
+  %.2 = phi i8 [ 1, %380 ], [ %.1243590917, %456 ], [ %.1243590917, %460 ], [ %.1243590917, %459 ], [ %.1243590917, %430 ], [ 1, %423 ], [ %.1243590917, %476 ], [ %.1243590917, %560 ], [ %.1243590917, %565 ], [ %.1243590917, %614 ], [ %.1243590917, %631 ], [ %.1243590917, %.lr.ph923 ], [ %.1243590917, %.lr.ph923 ], [ %.1243590917, %.lr.ph923 ], [ %.1243590917, %.lr.ph923 ], [ %.1243590917, %.lr.ph923 ], [ %.1243590917, %.lr.ph923 ], [ 0, %516 ], [ 1, %522 ]
   %644 = trunc nuw i8 %.2246 to i1
   %645 = trunc nuw i8 %.2249 to i1
   %or.cond6 = select i1 %644, i1 %645, i1 false
@@ -2149,14 +2149,14 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   unreachable
 
 702:                                              ; preds = %688, %691
-  %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674913, 1
+  %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677916, 1
   %703 = load i32, ptr %351, align 4
   %704 = sext i32 %703 to i64
-  %705 = icmp slt i64 %indvars.iv.next675, %704
-  br i1 %705, label %.lr.ph920, label %..split609.us.loopexit_crit_edge
+  %705 = icmp slt i64 %indvars.iv.next678, %704
+  br i1 %705, label %.lr.ph923, label %..split611.us.loopexit_crit_edge
 
-706:                                              ; preds = %.split609.us
-  br i1 %.us-phi611, label %707, label %710
+706:                                              ; preds = %.split611.us
+  br i1 %.us-phi613, label %707, label %710
 
 707:                                              ; preds = %706
   %708 = load i8, ptr %335, align 1, !range !4, !noundef !5
@@ -2173,7 +2173,7 @@ transformConstraintAttrs.exit:                    ; preds = %transformConstraint
   store ptr %715, ptr %334, align 8
   br label %716
 
-716:                                              ; preds = %710, %707, %.split609.us
+716:                                              ; preds = %710, %707, %.split611.us
   %717 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %718 = load ptr, ptr %717, align 8
   %.not277 = icmp eq ptr %718, null

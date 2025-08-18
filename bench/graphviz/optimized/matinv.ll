@@ -90,12 +90,12 @@ gv_calloc.exit._crit_edge.thread:                 ; preds = %gv_calloc.exit.preh
   store double %28, ptr %31, align 8, !tbaa !8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %indvars.iv55
-  br i1 %exitcond54.not, label %._crit_edge, label %26, !llvm.loop !15
+  br i1 %exitcond54.not, label %._crit_edge, label %26, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge, %gv_calloc.exit._crit_edge.thread, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %gv_calloc.exit._crit_edge.thread ], [ 1, %._crit_edge ]
@@ -155,8 +155,7 @@ attributes #12 = { cold noreturn nounwind }
 !9 = !{!"double", !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 double", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !13}
 !15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}

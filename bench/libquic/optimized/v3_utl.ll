@@ -1587,7 +1587,7 @@ do_check_string.exit.thread:                      ; preds = %58, %41
 do_check_string.exit:                             ; preds = %51, %56, %69
   %.0.i = phi i32 [ 0, %56 ], [ 0, %51 ], [ %64, %69 ]
   %.not80 = icmp eq i32 %.0.i, 0
-  br i1 %.not80, label %.split, label %.thread107, !llvm.loop !68
+  br i1 %.not80, label %.split, label %.thread107, !llvm.loop !66
 
 .thread107:                                       ; preds = %do_check_string.exit, %.split, %do_check_string.exit.us, %.split.us, %.thread91, %do_check_string.exit.thread, %28, %._crit_edge
   %.0 = phi i32 [ %.158, %._crit_edge ], [ 0, %28 ], [ -1, %do_check_string.exit.thread ], [ 0, %.thread91 ], [ 0, %.split.us ], [ %.0.i.us, %do_check_string.exit.us ], [ 0, %.split ], [ %.0.i, %do_check_string.exit ]
@@ -1664,19 +1664,19 @@ define hidden range(i32 0, 17) i32 @a2i_ipadd(ptr noundef writeonly captures(non
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %10, align 4, !tbaa !69
+  store i32 0, ptr %10, align 4, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 -1, ptr %11, align 4, !tbaa !71
+  store i32 -1, ptr %11, align 4, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %12, align 4, !tbaa !72
+  store i32 0, ptr %12, align 4, !tbaa !70
   %13 = call i32 @CONF_parse_list(ptr noundef nonnull %1, i8 noundef signext 58, i32 noundef 0, ptr noundef nonnull @ipv6_cb, ptr noundef nonnull %7) #18
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %45, label %14
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr %11, align 4, !tbaa !71
+  %15 = load i32, ptr %11, align 4, !tbaa !69
   %16 = icmp eq i32 %15, -1
-  %17 = load i32, ptr %10, align 4, !tbaa !69
+  %17 = load i32, ptr %10, align 4, !tbaa !67
   %.not13.i = icmp eq i32 %17, 16
   br i1 %16, label %18, label %19
 
@@ -1687,7 +1687,7 @@ define hidden range(i32 0, 17) i32 @a2i_ipadd(ptr noundef writeonly captures(non
   br i1 %.not13.i, label %45, label %20
 
 20:                                               ; preds = %19
-  %21 = load i32, ptr %12, align 4, !tbaa !72
+  %21 = load i32, ptr %12, align 4, !tbaa !70
   %22 = icmp sgt i32 %21, 3
   br i1 %22, label %45, label %23
 
@@ -1915,7 +1915,7 @@ define hidden range(i32 0, 2) i32 @X509V3_NAME_from_section(ptr noundef %0, ptr 
   %7 = add nuw i64 %.02435, 1
   %8 = tail call i64 @sk_num(ptr noundef %1) #18
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %10, label %.loopexit33, !llvm.loop !73
+  br i1 %9, label %10, label %.loopexit33, !llvm.loop !71
 
 10:                                               ; preds = %.lr.ph, %6
   %.02435 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
@@ -1943,7 +1943,7 @@ define hidden range(i32 0, 2) i32 @X509V3_NAME_from_section(ptr noundef %0, ptr 
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.023, i64 1
-  br label %14, !llvm.loop !74
+  br label %14, !llvm.loop !72
 
 .loopexit:                                        ; preds = %14, %16
   %.0 = phi ptr [ %spec.select, %16 ], [ %13, %14 ]
@@ -2004,7 +2004,7 @@ define internal range(i32 0, 2) i32 @equal_email(ptr noundef readonly captures(n
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %13 = load i8, ptr %12, align 1, !tbaa !18
   %14 = icmp eq i8 %13, 64
-  br i1 %14, label %15, label %.preheader, !llvm.loop !75
+  br i1 %14, label %15, label %.preheader, !llvm.loop !73
 
 15:                                               ; preds = %11, %6
   %16 = sub i64 %1, %7
@@ -2095,7 +2095,7 @@ define internal range(i32 0, 2) i32 @equal_nocase(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %.0151.us.i, i64 1
   %14 = add i64 %.02.us.i, -1
   %15 = icmp ugt i64 %14, %3
-  br i1 %15, label %.lr.ph.split.us.i, label %.preheader, !llvm.loop !76
+  br i1 %15, label %.lr.ph.split.us.i, label %.preheader, !llvm.loop !74
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %17
   %.02.i = phi i64 [ %19, %17 ], [ %1, %.lr.ph.i ]
@@ -2110,7 +2110,7 @@ define internal range(i32 0, 2) i32 @equal_nocase(ptr noundef readonly captures(
   %18 = getelementptr inbounds nuw i8, ptr %.0151.i, i64 1
   %19 = add i64 %.02.i, -1
   %20 = icmp ugt i64 %19, %3
-  br i1 %20, label %.lr.ph.split.i, label %.preheader, !llvm.loop !77
+  br i1 %20, label %.lr.ph.split.i, label %.preheader, !llvm.loop !74
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %.preheader.i
   %.015.lcssa.i = phi ptr [ %0, %.preheader.i ], [ %.0151.us.i, %.lr.ph.split.us.i ], [ %.0151.i, %.lr.ph.split.i ], [ %.0151.i, %.lr.ph.split.i ]
@@ -2311,7 +2311,7 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %.277.i = phi ptr [ %14, %32 ], [ %.075116.i, %43 ], [ %.075116.i, %56 ], [ %.075116.i, %61 ], [ %.075116.i, %63 ], [ %.075116.i, %46 ]
   %66 = add i64 %.184.i, 1
   %67 = icmp ult i64 %66, %1
-  br i1 %67, label %13, label %._crit_edge.loopexit.i, !llvm.loop !78
+  br i1 %67, label %13, label %._crit_edge.loopexit.i, !llvm.loop !75
 
 ._crit_edge.loopexit.i:                           ; preds = %65
   %68 = and i32 %.282.i, 5
@@ -2349,7 +2349,7 @@ valid_star.exit.thread:                           ; preds = %46, %26, %24, %30, 
   %80 = getelementptr inbounds nuw i8, ptr %.0151.us.i.i, i64 1
   %81 = add i64 %.02.us.i.i, -1
   %82 = icmp ugt i64 %81, %3
-  br i1 %82, label %.lr.ph.split.us.i.i, label %.preheader.i, !llvm.loop !76
+  br i1 %82, label %.lr.ph.split.us.i.i, label %.preheader.i, !llvm.loop !74
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %84
   %.02.i.i = phi i64 [ %86, %84 ], [ %1, %.lr.ph.i.i ]
@@ -2364,7 +2364,7 @@ valid_star.exit.thread:                           ; preds = %46, %26, %24, %30, 
   %85 = getelementptr inbounds nuw i8, ptr %.0151.i.i, i64 1
   %86 = add i64 %.02.i.i, -1
   %87 = icmp ugt i64 %86, %3
-  br i1 %87, label %.lr.ph.split.i.i, label %.preheader.i, !llvm.loop !77
+  br i1 %87, label %.lr.ph.split.i.i, label %.preheader.i, !llvm.loop !74
 
 .critedge.i.i:                                    ; preds = %.lr.ph.split.i.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %.preheader.i.i
   %.015.lcssa.i.i = phi ptr [ %0, %.preheader.i.i ], [ %.0151.us.i.i, %.lr.ph.split.us.i.i ], [ %.0151.i.i, %.lr.ph.split.i.i ], [ %.0151.i.i, %.lr.ph.split.i.i ]
@@ -2572,7 +2572,7 @@ equal_nocase.exit76.i:                            ; preds = %138, %equal_nocase.
 167:                                              ; preds = %163, %.lr.ph.i28
   %168 = getelementptr inbounds nuw i8, ptr %.04489.i, i64 1
   %.not53.i = icmp eq ptr %168, %128
-  br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i28, !llvm.loop !79
+  br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i28, !llvm.loop !76
 
 equal_nocase.exit:                                ; preds = %117, %.lr.ph.i.i27, %133, %.lr.ph.i65.i, %167, %163, %98, %93, %.lr.ph.i24, %159, %156, %150, %145, %102, %.preheader.i, %skip_prefix.exit.i
   %.021 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %102 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %159 ], [ 0, %93 ], [ 0, %.lr.ph.i24 ], [ 1, %98 ], [ 0, %163 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %133 ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
@@ -2607,7 +2607,7 @@ define internal range(i32 0, 2) i32 @equal_case(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %.0151.us.i, i64 1
   %14 = add i64 %.02.us.i, -1
   %15 = icmp ugt i64 %14, %3
-  br i1 %15, label %.lr.ph.split.us.i, label %skip_prefix.exit.thread, !llvm.loop !76
+  br i1 %15, label %.lr.ph.split.us.i, label %skip_prefix.exit.thread, !llvm.loop !74
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %17
   %.02.i = phi i64 [ %19, %17 ], [ %1, %.lr.ph.i ]
@@ -2622,7 +2622,7 @@ define internal range(i32 0, 2) i32 @equal_case(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.0151.i, i64 1
   %19 = add i64 %.02.i, -1
   %20 = icmp ugt i64 %19, %3
-  br i1 %20, label %.lr.ph.split.i, label %skip_prefix.exit.thread, !llvm.loop !77
+  br i1 %20, label %.lr.ph.split.i, label %skip_prefix.exit.thread, !llvm.loop !74
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %.preheader.i
   %.015.lcssa.i = phi ptr [ %0, %.preheader.i ], [ %.0151.us.i, %.lr.ph.split.us.i ], [ %.0151.i, %.lr.ph.split.i ], [ %.0151.i, %.lr.ph.split.i ]
@@ -2761,7 +2761,7 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !69
+  %9 = load i32, ptr %8, align 4, !tbaa !67
   %10 = icmp eq i32 %9, 16
   br i1 %10, label %ipv6_hex.exit.thread, label %11
 
@@ -2771,12 +2771,12 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !71
+  %15 = load i32, ptr %14, align 4, !tbaa !69
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  store i32 %9, ptr %14, align 4, !tbaa !71
+  store i32 %9, ptr %14, align 4, !tbaa !69
   br label %19
 
 18:                                               ; preds = %13
@@ -2785,9 +2785,9 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
 
 19:                                               ; preds = %18, %17
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = load i32, ptr %20, align 4, !tbaa !72
+  %21 = load i32, ptr %20, align 4, !tbaa !70
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %20, align 4, !tbaa !72
+  store i32 %22, ptr %20, align 4, !tbaa !70
   br label %ipv6_hex.exit.thread
 
 23:                                               ; preds = %11
@@ -2853,9 +2853,9 @@ ipv4_from_asc.exit.thread:                        ; preds = %31, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %51 = load i32, ptr %8, align 4, !tbaa !69
+  %51 = load i32, ptr %8, align 4, !tbaa !67
   %52 = add nsw i32 %51, 4
-  store i32 %52, ptr %8, align 4, !tbaa !69
+  store i32 %52, ptr %8, align 4, !tbaa !67
   br label %ipv6_hex.exit.thread
 
 53:                                               ; preds = %23
@@ -2891,7 +2891,7 @@ ipv4_from_asc.exit.thread:                        ; preds = %31, %35
   %67 = add nsw i32 %.sink.i, %60
   %.1.i = or i32 %67, %59
   %.not.i30 = icmp eq i32 %56, 0
-  br i1 %.not.i30, label %68, label %.preheader.i, !llvm.loop !80
+  br i1 %.not.i30, label %68, label %.preheader.i, !llvm.loop !77
 
 68:                                               ; preds = %66
   %69 = lshr i32 %.1.i, 8
@@ -2900,9 +2900,9 @@ ipv4_from_asc.exit.thread:                        ; preds = %31, %35
   %71 = trunc i32 %.1.i to i8
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store i8 %71, ptr %72, align 1, !tbaa !18
-  %73 = load i32, ptr %8, align 4, !tbaa !69
+  %73 = load i32, ptr %8, align 4, !tbaa !67
   %74 = add nsw i32 %73, 2
-  store i32 %74, ptr %8, align 4, !tbaa !69
+  store i32 %74, ptr %8, align 4, !tbaa !67
   br label %ipv6_hex.exit.thread
 
 ipv6_hex.exit.thread:                             ; preds = %64, %ipv4_from_asc.exit.thread, %19, %68, %43, %27, %25, %18, %3
@@ -3016,18 +3016,15 @@ attributes #21 = { nounwind allocsize(0) }
 !63 = distinct !{!63, !31}
 !64 = !{!13, !13, i64 0}
 !65 = !{ptr @equal_case, ptr @equal_email, ptr @equal_nocase, ptr @equal_wildcard}
-!66 = distinct !{!66, !31, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !31}
-!69 = !{!70, !21, i64 16}
-!70 = !{!"", !9, i64 0, !21, i64 16, !21, i64 20, !21, i64 24}
-!71 = !{!70, !21, i64 20}
-!72 = !{!70, !21, i64 24}
+!66 = distinct !{!66, !31}
+!67 = !{!68, !21, i64 16}
+!68 = !{!"", !9, i64 0, !21, i64 16, !21, i64 20, !21, i64 24}
+!69 = !{!68, !21, i64 20}
+!70 = !{!68, !21, i64 24}
+!71 = distinct !{!71, !31}
+!72 = distinct !{!72, !31}
 !73 = distinct !{!73, !31}
 !74 = distinct !{!74, !31}
 !75 = distinct !{!75, !31}
-!76 = distinct !{!76, !31, !67}
+!76 = distinct !{!76, !31}
 !77 = distinct !{!77, !31}
-!78 = distinct !{!78, !31}
-!79 = distinct !{!79, !31}
-!80 = distinct !{!80, !31}

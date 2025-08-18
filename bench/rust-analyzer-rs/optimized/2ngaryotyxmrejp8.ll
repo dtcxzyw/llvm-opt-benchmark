@@ -50,7 +50,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
 
 .split.us.backedge:                               ; preds = %15, %12, %10
   %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i16.us, %10 ]
-  br label %.split.us, !llvm.loop !4
+  br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.0 = phi i32 [ %.0.be, %.split.backedge ], [ %9, %4 ]
@@ -64,15 +64,15 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
 
 .split18.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr @anon.ed906ffe05b3b1fbdf8d5d90439df393.10, ptr %6, align 8, !alias.scope !6, !noalias !9
+  store ptr @anon.ed906ffe05b3b1fbdf8d5d90439df393.10, ptr %6, align 8, !alias.scope !4, !noalias !7
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %17, align 8, !alias.scope !6, !noalias !9
+  store i64 1, ptr %17, align 8, !alias.scope !4, !noalias !7
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %18, align 8, !alias.scope !6, !noalias !9
+  store ptr null, ptr %18, align 8, !alias.scope !4, !noalias !7
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %19, align 8, !alias.scope !6, !noalias !9
+  store ptr %5, ptr %19, align 8, !alias.scope !4, !noalias !7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %20, align 8, !alias.scope !6, !noalias !9
+  store i64 0, ptr %20, align 8, !alias.scope !4, !noalias !7
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #7
   unreachable
 
@@ -104,8 +104,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h2ca55157f5102616E
   store ptr %0, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %28, align 8
-  %.val = load ptr, ptr %2, align 8, !nonnull !11, !align !12, !noundef !11
-  %29 = load ptr, ptr %.val, align 8, !align !12, !noundef !11
+  %.val = load ptr, ptr %2, align 8, !nonnull !9, !align !10, !noundef !9
+  %29 = load ptr, ptr %.val, align 8, !align !10, !noundef !9
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %.val, align 8
@@ -222,12 +222,10 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!8 = distinct !{!8, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!9 = !{!10}
-!10 = distinct !{!10, !8, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!11 = !{}
-!12 = !{i64 8}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!6 = distinct !{!6, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!7 = !{!8}
+!8 = distinct !{!8, !6, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!9 = !{}
+!10 = !{i64 8}

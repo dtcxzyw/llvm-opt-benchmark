@@ -7234,7 +7234,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn17QuantizeLayerImpl18processInputOutp
   %.val = load i32, ptr %75, align 4, !tbaa !126
   %76 = getelementptr i8, ptr %74, i64 64
   %.val22 = load ptr, ptr %76, align 8, !tbaa !127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !175
   %77 = sext i32 %.val to i64
   %.idx27 = shl nsw i64 %77, 2
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -7522,7 +7522,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %29, %33
   %.val = load i32, ptr %39, align 4, !tbaa !126
   %40 = getelementptr i8, ptr %38, i64 64
   %.val11 = load ptr, ptr %40, align 8, !tbaa !127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !181
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !180
   %41 = sext i32 %.val to i64
   %.idx69 = shl nsw i64 %41, 2
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8302,7 +8302,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn19DequantizeLayerImpl18processInputOu
   %.val = load i32, ptr %75, align 4, !tbaa !126
   %76 = getelementptr i8, ptr %74, i64 64
   %.val22 = load ptr, ptr %76, align 8, !tbaa !127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !186
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !185
   %77 = sext i32 %.val to i64
   %.idx27 = shl nsw i64 %77, 2
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -9116,20 +9116,19 @@ attributes #25 = { noreturn nounwind }
 !171 = distinct !{!171, !172, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
 !172 = distinct !{!172, !"_ZNK2cv11_InputArray6getMatEi"}
 !173 = distinct !{!173, !63}
-!174 = distinct !{!174, !63, !175}
-!175 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!176 = !{!177, !179}
-!177 = distinct !{!177, !178, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
-!178 = distinct !{!178, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
-!179 = distinct !{!179, !180, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
-!180 = distinct !{!180, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}
-!181 = !{!182, !184}
-!182 = distinct !{!182, !183, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
-!183 = distinct !{!183, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
-!184 = distinct !{!184, !185, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
-!185 = distinct !{!185, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}
-!186 = !{!187, !189}
-!187 = distinct !{!187, !188, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
-!188 = distinct !{!188, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
-!189 = distinct !{!189, !190, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
-!190 = distinct !{!190, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}
+!174 = distinct !{!174, !63}
+!175 = !{!176, !178}
+!176 = distinct !{!176, !177, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
+!177 = distinct !{!177, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
+!178 = distinct !{!178, !179, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
+!179 = distinct !{!179, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}
+!180 = !{!181, !183}
+!181 = distinct !{!181, !182, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
+!182 = distinct !{!182, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
+!183 = distinct !{!183, !184, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
+!184 = distinct !{!184, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}
+!185 = !{!186, !188}
+!186 = distinct !{!186, !187, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii: argument 0"}
+!187 = distinct !{!187, !"_ZN2cv3dnn14dnn4_v20241223L5shapeEPKii"}
+!188 = distinct !{!188, !189, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE: argument 0"}
+!189 = distinct !{!189, !"_ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE"}

@@ -961,7 +961,7 @@ loadSomValue.exit.us129:                          ; preds = %162, %158, %154
 
 mmbit_iterate.exit.us131:                         ; preds = %186
   %.not.us133 = icmp eq i32 %190, -1
-  br i1 %.not.us133, label %._crit_edge126, label %.lr.ph125.split.split.us, !llvm.loop !5
+  br i1 %.not.us133, label %._crit_edge126, label %.lr.ph125.split.split.us
 
 .lr.ph125.split.split:                            ; preds = %.lr.ph125
   %198 = icmp ult i32 %.fr143, 65
@@ -1054,7 +1054,7 @@ mmbit_get_flat_block.exit.us:                     ; preds = %228, %225, %222, %2
 mmbit_iterate.exit.us138:                         ; preds = %mmbit_get_flat_block.exit.us
   %235 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %234, i1 true)
   %236 = trunc nuw nsw i64 %235 to i32
-  br label %.lr.ph125.split.split.split.us, !llvm.loop !7
+  br label %.lr.ph125.split.split.split.us
 
 ._crit_edge126:                                   ; preds = %.thread81, %mmbit_get_flat_block.exit61, %._crit_edge121, %295, %loadSomValue.exit, %mmbit_iterate.exit, %mmbit_get_flat_block.exit.us, %loadSomValue.exit.us136, %loadSomValue.exit.us129, %mmbit_iterate.exit.us131, %.thread101.us, %mmbit_get_flat_block.exit73, %._crit_edge, %mmbit_get_flat_block.exit69, %2, %mmbit_iterate.exit25
   ret void
@@ -1279,6 +1279,3 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !6}

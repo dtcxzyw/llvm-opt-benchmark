@@ -378,7 +378,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %76) #3
   %77 = add nuw nsw i32 %.03364.us, 1
   %78 = icmp ult ptr %75, %38
-  br i1 %78, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %78, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.03364 = phi i32 [ %111, %108 ], [ 0, %.lr.ph ]
@@ -665,7 +665,7 @@ u_posrelat.exit37:                                ; preds = %u_posrelat.exit, %1
   %72 = sub i64 %71, %35
   %73 = add nuw nsw i64 %.02555.us, 1
   %.not33.not.us = icmp slt i64 %72, %.0.i36
-  br i1 %.not33.not.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %.not33.not.us, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %.02555 = phi i64 [ %108, %104 ], [ 0, %.lr.ph ]
@@ -967,6 +967,3 @@ attributes #3 = { nounwind }
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !15}

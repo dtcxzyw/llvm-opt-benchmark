@@ -458,7 +458,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   %48 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %1, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
   %49 = add nuw nsw i64 %32, 1
   %50 = icmp eq i64 %32, 63
-  br i1 %50, label %.thread, label %.split, !prof !33, !llvm.loop !36
+  br i1 %50, label %.thread, label %.split, !prof !33, !llvm.loop !34
 
 .thread:                                          ; preds = %31, %.loopexit, %.split, %.split.us, %11, %14
   %51 = and i64 %4, 512
@@ -476,7 +476,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !37
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !35
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !28
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !29
@@ -521,7 +521,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   %30 = add nuw nsw i64 %13, 1
   %31 = and i64 %30, 127
   %32 = icmp samesign ugt i64 %31, 63
-  br i1 %32, label %.thread, label %.split.us, !prof !33, !llvm.loop !38
+  br i1 %32, label %.thread, label %.split.us, !prof !33, !llvm.loop !36
 
 .split:                                           ; preds = %2, %60
   %33 = phi i64 [ %62, %60 ], [ 0, %2 ]
@@ -570,7 +570,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   %61 = add nuw nsw i64 %39, 1
   %62 = and i64 %61, 127
   %63 = icmp samesign ugt i64 %62, 63
-  br i1 %63, label %.thread, label %.split, !prof !33, !llvm.loop !39
+  br i1 %63, label %.thread, label %.split, !prof !33, !llvm.loop !36
 
 .thread:                                          ; preds = %38, %60, %.split, %.split.us, %12, %29
   %64 = and i64 %5, 512
@@ -765,9 +765,6 @@ attributes #8 = { nounwind memory(read) }
 !31 = !{i64 1785153}
 !32 = !{i64 336393}
 !33 = !{!"branch_weights", i32 1, i32 1999}
-!34 = distinct !{!34, !22, !23, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !22, !23}
+!35 = !{i64 2154202792}
 !36 = distinct !{!36, !22, !23}
-!37 = !{i64 2154202792}
-!38 = distinct !{!38, !22, !23, !35}
-!39 = distinct !{!39, !22, !23}

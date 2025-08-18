@@ -578,14 +578,14 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit
-  %.fr45.i21 = phi i64 [ %13, %.lr.ph ], [ %129, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
+  %.fr46.i21 = phi i64 [ %13, %.lr.ph ], [ %129, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
   %.020 = phi i64 [ %2, %.lr.ph ], [ %96, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
   %storemerge19 = phi ptr [ %.fr26, %.lr.ph ], [ %.sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit ]
   %17 = icmp eq i64 %.020, 0
   br i1 %17, label %18, label %95
 
 18:                                               ; preds = %16
-  %19 = udiv exact i64 %.fr45.i21, 12
+  %19 = udiv exact i64 %.fr46.i21, 12
   %20 = add nsw i64 %19, -2
   %21 = lshr i64 %20, 1
   %22 = add nsw i64 %19, -1
@@ -756,7 +756,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3hfs4EdgeESt6vectorIS4_SaIS
 
 95:                                               ; preds = %16
   %96 = add nsw i64 %.020, -1
-  %97 = udiv i64 %.fr45.i21, 24
+  %97 = udiv i64 %.fr46.i21, 24
   %98 = getelementptr inbounds nuw %"class.cv::hfs::Edge", ptr %.fr22, i64 %97
   %99 = getelementptr inbounds i8, ptr %storemerge19, i64 -12
   %100 = load float, ptr %15, align 4, !tbaa !48

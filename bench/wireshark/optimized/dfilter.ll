@@ -1574,7 +1574,7 @@ define internal fastcc void @load_references(ptr noundef %0, ptr noundef %1, i1 
   %.be.us.us = load ptr, ptr %.be.us.us.in, align 8
   store ptr %.be.us.us, ptr %5, align 8
   %.not13.us.us = icmp eq ptr %.be.us.us, null
-  br i1 %.not13.us.us, label %._crit_edge18.split.us.us, label %.lr.ph17.us, !llvm.loop !16
+  br i1 %.not13.us.us, label %._crit_edge18.split.us.us, label %.lr.ph17.us, !llvm.loop !15
 
 reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %reference_new.exit.us.us.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %reference_new.exit.us.us.us ], [ 0, %.preheader.us.us ]
@@ -1597,7 +1597,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
   %33 = load i32, ptr %20, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next27, %34
-  br i1 %35, label %reference_new.exit.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !17
+  br i1 %35, label %reference_new.exit.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !16
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %._crit_edge18.split
   %36 = load ptr, ptr %6, align 8
@@ -1626,7 +1626,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
   %.be = load ptr, ptr %.be.in, align 8
   store ptr %.be, ptr %5, align 8
   %.not13 = icmp eq ptr %.be, null
-  br i1 %.not13, label %._crit_edge18.split, label %.lr.ph17, !llvm.loop !18
+  br i1 %.not13, label %._crit_edge18.split, label %.lr.ph17, !llvm.loop !15
 
 ._crit_edge.split:                                ; preds = %reference_new.exit, %.preheader
   %44 = call ptr @g_ptr_array_free(ptr noundef nonnull %40, i32 noundef 1)
@@ -1655,14 +1655,14 @@ reference_new.exit:                               ; preds = %.preheader, %refere
   %58 = load i32, ptr %42, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %reference_new.exit, label %._crit_edge.split, !llvm.loop !19
+  br i1 %60, label %reference_new.exit, label %._crit_edge.split, !llvm.loop !16
 
 ._crit_edge18.split:                              ; preds = %.backedge, %.lr.ph20.split
   %61 = load ptr, ptr %6, align 8
   call void @g_ptr_array_sort(ptr noundef %61, ptr noundef nonnull @compare_ref_layer)
   %62 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph20.split, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph20.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge18.split, %._crit_edge18.split.us.us, %9, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2095,10 +2095,6 @@ attributes #20 = { nounwind willreturn memory(none) }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !15}
-!17 = distinct !{!17, !7, !15}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

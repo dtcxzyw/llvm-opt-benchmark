@@ -83,7 +83,7 @@ define dso_local void @scatterwalk_copychunks(ptr noundef captures(none) %0, ptr
   %50 = add i32 %37, %49
   store i32 %50, ptr %5, align 8
   %.not.us = icmp ugt i64 %27, %47
-  br i1 %.not.us, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %.not.us, label %.lr.ph, label %.critedge
 
 .split:                                           ; preds = %4, %.split.backedge
   %51 = phi i32 [ %.be, %.split.backedge ], [ %.pre6, %4 ]
@@ -162,7 +162,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !5
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -178,7 +178,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   %16 = sub nuw i32 %10, %13
   %17 = tail call ptr @sg_next(ptr noundef %11) #7
   %18 = icmp eq i32 %16, 0
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !6
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -279,7 +279,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   %80 = call i64 @llvm.umin.i64(i64 %63, i64 %79)
   %81 = trunc nuw nsw i64 %80 to i32
   %.not.us = icmp ugt i64 %63, %79
-  br i1 %.not.us, label %.lr.ph, label %.critedge, !llvm.loop !10
+  br i1 %.not.us, label %.lr.ph, label %.critedge
 
 .split.split.us:                                  ; preds = %.split.split.us.outer, %107
   %82 = phi i32 [ %112, %107 ], [ %.ph58, %.split.split.us.outer ]
@@ -321,13 +321,13 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   %113 = load i32, ptr %120, align 4
   %114 = add i32 %113, %112
   %115 = icmp ult i32 %109, %114
-  br i1 %115, label %.split.split.us, label %116, !llvm.loop !11
+  br i1 %115, label %.split.split.us, label %116
 
 116:                                              ; preds = %107
   %117 = call ptr @sg_next(ptr noundef %.ph59) #7
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
-  br label %.split.split.us.outer, !llvm.loop !11
+  br label %.split.split.us.outer
 
 .split.split.us.outer:                            ; preds = %.loopexit, %116
   %.ph58 = phi i32 [ %119, %116 ], [ %48, %.loopexit ]
@@ -420,7 +420,7 @@ define dso_local ptr @scatterwalk_ffwd(ptr noundef %0, ptr noundef %1, i32 nound
   %11 = sub nuw i32 %5, %8
   %12 = tail call ptr @sg_next(ptr noundef %6) #7
   %13 = icmp eq i32 %11, 0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !6
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -508,10 +508,6 @@ attributes #7 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = !{!"auto-init"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!5 = !{!"auto-init"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unroll.disable"}

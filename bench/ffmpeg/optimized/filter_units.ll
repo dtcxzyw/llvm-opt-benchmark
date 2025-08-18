@@ -395,7 +395,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %indvars.iv.next = add i64 %indvars.iv, 1
   %40 = add nsw i64 %.03650.us.us, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %37, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %37, !llvm.loop !57
 
 .lr.ph54.split:                                   ; preds = %.lr.ph54, %.loopexit
   %.03153 = phi ptr [ %spec.select, %.loopexit ], [ %0, %.lr.ph54 ]
@@ -441,7 +441,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
   %61 = load i8, ptr %spec.select, align 1, !tbaa !54
   %.not = icmp eq i8 %61, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph54.split, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph54.split, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %6
   %62 = phi ptr [ %7, %6 ], [ %28, %.loopexit.us ], [ %7, %.loopexit ]
@@ -465,7 +465,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = add nuw nsw i32 %.03557, 1
   %exitcond63.not = icmp eq i32 %69, 3
-  br i1 %exitcond63.not, label %70, label %6, !llvm.loop !60
+  br i1 %exitcond63.not, label %70, label %6, !llvm.loop !58
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %4, align 8, !tbaa !53
@@ -585,8 +585,6 @@ attributes #4 = { nounwind }
 !53 = !{!22, !22, i64 0}
 !54 = !{!8, !8, i64 0}
 !55 = !{!18, !18, i64 0}
-!56 = distinct !{!56, !50, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !50, !57}
-!59 = distinct !{!59, !50}
-!60 = distinct !{!60, !50}
+!56 = distinct !{!56, !50}
+!57 = distinct !{!57, !50}
+!58 = distinct !{!58, !50}

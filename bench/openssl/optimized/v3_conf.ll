@@ -550,9 +550,9 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.preheader
 
-.preheader:                                       ; preds = %39, %.preheader50
-  %.041.lcssa = phi i32 [ -1, %.preheader50 ], [ %.142, %39 ]
-  %.0.lcssa = phi i32 [ -1, %.preheader50 ], [ %.1, %39 ]
+.preheader:                                       ; preds = %50, %.preheader50
+  %.041.lcssa = phi i32 [ -1, %.preheader50 ], [ %.142, %50 ]
+  %.0.lcssa = phi i32 [ -1, %.preheader50 ], [ %.1, %50 ]
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph56, label %.loopexit
@@ -561,133 +561,153 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
   %11 = icmp sgt i32 %.0.lcssa, %.041.lcssa
   %12 = icmp sgt i32 %.041.lcssa, -1
   %or.cond = and i1 %12, %11
+  %or.cond.fr = freeze i1 %or.cond
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.lr.ph56.split.us, label %.lr.ph56.split
 
-.lr.ph56.split.us:                                ; preds = %.lr.ph56, %27
-  %.14455.us = phi i32 [ %28, %27 ], [ 0, %.lr.ph56 ]
-  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455.us) #6
-  br i1 %or.cond, label %14, label %19
+.lr.ph56.split.us:                                ; preds = %.lr.ph56
+  br i1 %or.cond.fr, label %.lr.ph56.split.us.split.us, label %.lr.ph56.split.us.split
 
-14:                                               ; preds = %.lr.ph56.split.us
-  %15 = icmp eq i32 %.14455.us, %.041.lcssa
-  br i1 %15, label %.sink.split, label %16
+.lr.ph56.split.us.split.us:                       ; preds = %.lr.ph56.split.us, %26
+  %.14455.us.us = phi i32 [ %27, %26 ], [ 0, %.lr.ph56.split.us ]
+  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455.us.us) #6
+  %14 = icmp eq i32 %.14455.us.us, %.041.lcssa
+  br i1 %14, label %.sink.split, label %15
 
-16:                                               ; preds = %14
-  %17 = icmp eq i32 %.14455.us, %.0.lcssa
-  br i1 %17, label %.sink.split, label %19
+15:                                               ; preds = %.lr.ph56.split.us.split.us
+  %16 = icmp eq i32 %.14455.us.us, %.0.lcssa
+  br i1 %16, label %.sink.split, label %18
 
-.sink.split:                                      ; preds = %14, %16
-  %.0.lcssa.sink = phi i32 [ %.041.lcssa, %16 ], [ %.0.lcssa, %14 ]
-  %18 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink) #6
-  br label %19
+.sink.split:                                      ; preds = %.lr.ph56.split.us.split.us, %15
+  %.0.lcssa.sink = phi i32 [ %.041.lcssa, %15 ], [ %.0.lcssa, %.lr.ph56.split.us.split.us ]
+  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink) #6
+  br label %18
 
-19:                                               ; preds = %.sink.split, %16, %.lr.ph56.split.us
-  %.045.us = phi ptr [ %13, %16 ], [ %13, %.lr.ph56.split.us ], [ %18, %.sink.split ]
-  %20 = load ptr, ptr %.045.us, align 8, !tbaa !33
-  %21 = getelementptr inbounds nuw i8, ptr %.045.us, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !35
-  %23 = getelementptr inbounds nuw i8, ptr %.045.us, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
-  %25 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef %24)
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %27
+18:                                               ; preds = %.sink.split, %15
+  %.045.us.us = phi ptr [ %13, %15 ], [ %17, %.sink.split ]
+  %19 = load ptr, ptr %.045.us.us, align 8, !tbaa !33
+  %20 = getelementptr inbounds nuw i8, ptr %.045.us.us, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw i8, ptr %.045.us.us, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %24 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %0, ptr noundef %1, ptr noundef %19, ptr noundef %21, ptr noundef %23)
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.loopexit, label %26
 
-27:                                               ; preds = %19
-  tail call void @X509_EXTENSION_free(ptr noundef nonnull %25) #6
-  %28 = add nuw nsw i32 %.14455.us, 1
-  %29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
-  %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph56.split.us, label %.loopexit, !llvm.loop !37
+26:                                               ; preds = %18
+  tail call void @X509_EXTENSION_free(ptr noundef nonnull %24) #6
+  %27 = add nuw nsw i32 %.14455.us.us, 1
+  %28 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
+  %29 = icmp slt i32 %27, %28
+  br i1 %29, label %.lr.ph56.split.us.split.us, label %.loopexit, !llvm.loop !37
 
-.lr.ph:                                           ; preds = %.preheader50, %39
-  %.053 = phi i32 [ %.1, %39 ], [ -1, %.preheader50 ]
-  %.04152 = phi i32 [ %.142, %39 ], [ -1, %.preheader50 ]
-  %.04351 = phi i32 [ %40, %39 ], [ 0, %.preheader50 ]
-  %31 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.04351) #6
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+.lr.ph56.split.us.split:                          ; preds = %.lr.ph56.split.us, %38
+  %.14455.us = phi i32 [ %39, %38 ], [ 0, %.lr.ph56.split.us ]
+  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455.us) #6
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !35
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(23) @.str.1) #5
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %39, label %36
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
+  %36 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %0, ptr noundef %1, ptr noundef %31, ptr noundef %33, ptr noundef %35)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.loopexit, label %38
 
-36:                                               ; preds = %.lr.ph
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(21) @.str.2) #5
-  %38 = icmp eq i32 %37, 0
-  %spec.select = select i1 %38, i32 %.04351, i32 %.053
-  br label %39
+38:                                               ; preds = %.lr.ph56.split.us.split
+  tail call void @X509_EXTENSION_free(ptr noundef nonnull %36) #6
+  %39 = add nuw nsw i32 %.14455.us, 1
+  %40 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %.lr.ph56.split.us.split, label %.loopexit, !llvm.loop !37
 
-39:                                               ; preds = %36, %.lr.ph
-  %.142 = phi i32 [ %.04351, %.lr.ph ], [ %.04152, %36 ]
-  %.1 = phi i32 [ %.053, %.lr.ph ], [ %spec.select, %36 ]
-  %40 = add nuw nsw i32 %.04351, 1
-  %41 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph, label %.preheader, !llvm.loop !39
+.lr.ph:                                           ; preds = %.preheader50, %50
+  %.053 = phi i32 [ %.1, %50 ], [ -1, %.preheader50 ]
+  %.04152 = phi i32 [ %.142, %50 ], [ -1, %.preheader50 ]
+  %.04351 = phi i32 [ %51, %50 ], [ 0, %.preheader50 ]
+  %42 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.04351) #6
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(23) @.str.1) #5
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %50, label %47
 
-.lr.ph56.split:                                   ; preds = %.lr.ph56, %71
-  %.14455 = phi i32 [ %72, %71 ], [ 0, %.lr.ph56 ]
-  %43 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455) #6
-  br i1 %or.cond, label %44, label %49
+47:                                               ; preds = %.lr.ph
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(21) @.str.2) #5
+  %49 = icmp eq i32 %48, 0
+  %spec.select = select i1 %49, i32 %.04351, i32 %.053
+  br label %50
 
-44:                                               ; preds = %.lr.ph56.split
-  %45 = icmp eq i32 %.14455, %.041.lcssa
-  br i1 %45, label %.sink.split67, label %46
+50:                                               ; preds = %47, %.lr.ph
+  %.142 = phi i32 [ %.04351, %.lr.ph ], [ %.04152, %47 ]
+  %.1 = phi i32 [ %.053, %.lr.ph ], [ %spec.select, %47 ]
+  %51 = add nuw nsw i32 %.04351, 1
+  %52 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
+  %53 = icmp slt i32 %51, %52
+  br i1 %53, label %.lr.ph, label %.preheader, !llvm.loop !38
 
-46:                                               ; preds = %44
-  %47 = icmp eq i32 %.14455, %.0.lcssa
-  br i1 %47, label %.sink.split67, label %49
+.lr.ph56.split:                                   ; preds = %.lr.ph56, %82
+  %.14455 = phi i32 [ %83, %82 ], [ 0, %.lr.ph56 ]
+  %54 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.14455) #6
+  br i1 %or.cond.fr, label %55, label %60
 
-.sink.split67:                                    ; preds = %46, %44
-  %.0.lcssa.sink68 = phi i32 [ %.0.lcssa, %44 ], [ %.041.lcssa, %46 ]
-  %48 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink68) #6
-  br label %49
+55:                                               ; preds = %.lr.ph56.split
+  %56 = icmp eq i32 %.14455, %.041.lcssa
+  br i1 %56, label %.sink.split73, label %57
 
-49:                                               ; preds = %.sink.split67, %46, %.lr.ph56.split
-  %.045 = phi ptr [ %43, %46 ], [ %43, %.lr.ph56.split ], [ %48, %.sink.split67 ]
-  %50 = load ptr, ptr %.045, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw i8, ptr %.045, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw i8, ptr %.045, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !36
-  %55 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %0, ptr noundef %1, ptr noundef %50, ptr noundef %52, ptr noundef %54)
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit, label %57
+57:                                               ; preds = %55
+  %58 = icmp eq i32 %.14455, %.0.lcssa
+  br i1 %58, label %.sink.split73, label %60
 
-57:                                               ; preds = %49
-  %58 = load i32, ptr %1, align 8, !tbaa !40
-  %59 = icmp eq i32 %58, 2
-  br i1 %59, label %60, label %delete_ext.exit
+.sink.split73:                                    ; preds = %57, %55
+  %.0.lcssa.sink74 = phi i32 [ %.0.lcssa, %55 ], [ %.041.lcssa, %57 ]
+  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink74) #6
+  br label %60
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %3, align 8, !tbaa !41
-  %62 = tail call ptr @X509_EXTENSION_get_object(ptr noundef nonnull %55) #6
-  %63 = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %61, ptr noundef %62, i32 noundef -1) #6
-  %64 = icmp sgt i32 %63, -1
-  br i1 %64, label %.lr.ph.i, label %delete_ext.exit
+60:                                               ; preds = %.sink.split73, %57, %.lr.ph56.split
+  %.045 = phi ptr [ %54, %57 ], [ %54, %.lr.ph56.split ], [ %59, %.sink.split73 ]
+  %61 = load ptr, ptr %.045, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !35
+  %64 = getelementptr inbounds nuw i8, ptr %.045, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !36
+  %66 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %0, ptr noundef %1, ptr noundef %61, ptr noundef %63, ptr noundef %65)
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.loopexit, label %68
 
-.lr.ph.i:                                         ; preds = %60, %.lr.ph.i
-  %65 = phi i32 [ %67, %.lr.ph.i ], [ %63, %60 ]
-  %66 = tail call ptr @X509v3_delete_ext(ptr noundef %61, i32 noundef %65) #6
-  tail call void @X509_EXTENSION_free(ptr noundef %66) #6
-  %67 = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %61, ptr noundef %62, i32 noundef -1) #6
-  %68 = icmp sgt i32 %67, -1
-  br i1 %68, label %.lr.ph.i, label %delete_ext.exit, !llvm.loop !43
+68:                                               ; preds = %60
+  %69 = load i32, ptr %1, align 8, !tbaa !39
+  %70 = icmp eq i32 %69, 2
+  br i1 %70, label %71, label %delete_ext.exit
 
-delete_ext.exit:                                  ; preds = %.lr.ph.i, %60, %57
-  %69 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %3, ptr noundef nonnull %55, i32 noundef -1) #6
-  %70 = icmp eq ptr %69, null
-  tail call void @X509_EXTENSION_free(ptr noundef nonnull %55) #6
-  br i1 %70, label %.loopexit, label %71
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %3, align 8, !tbaa !40
+  %73 = tail call ptr @X509_EXTENSION_get_object(ptr noundef nonnull %66) #6
+  %74 = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %72, ptr noundef %73, i32 noundef -1) #6
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %.lr.ph.i, label %delete_ext.exit
 
-71:                                               ; preds = %delete_ext.exit
-  %72 = add nuw nsw i32 %.14455, 1
-  %73 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
-  %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph56.split, label %.loopexit, !llvm.loop !44
+.lr.ph.i:                                         ; preds = %71, %.lr.ph.i
+  %76 = phi i32 [ %78, %.lr.ph.i ], [ %74, %71 ]
+  %77 = tail call ptr @X509v3_delete_ext(ptr noundef %72, i32 noundef %76) #6
+  tail call void @X509_EXTENSION_free(ptr noundef %77) #6
+  %78 = tail call i32 @X509v3_get_ext_by_OBJ(ptr noundef %72, ptr noundef %73, i32 noundef -1) #6
+  %79 = icmp sgt i32 %78, -1
+  br i1 %79, label %.lr.ph.i, label %delete_ext.exit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %49, %71, %delete_ext.exit, %19, %27, %.preheader, %4
-  %.046 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %19 ], [ 1, %27 ], [ 0, %49 ], [ 1, %71 ], [ 0, %delete_ext.exit ]
+delete_ext.exit:                                  ; preds = %.lr.ph.i, %71, %68
+  %80 = tail call ptr @X509v3_add_ext(ptr noundef nonnull %3, ptr noundef nonnull %66, i32 noundef -1) #6
+  %81 = icmp eq ptr %80, null
+  tail call void @X509_EXTENSION_free(ptr noundef nonnull %66) #6
+  br i1 %81, label %.loopexit, label %82
+
+82:                                               ; preds = %delete_ext.exit
+  %83 = add nuw nsw i32 %.14455, 1
+  %84 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #6
+  %85 = icmp slt i32 %83, %84
+  br i1 %85, label %.lr.ph56.split, label %.loopexit, !llvm.loop !37
+
+.loopexit:                                        ; preds = %60, %82, %delete_ext.exit, %.lr.ph56.split.us.split, %38, %18, %26, %.preheader, %4
+  %.046 = phi i32 [ 0, %4 ], [ 1, %.preheader ], [ 0, %18 ], [ 1, %26 ], [ 0, %.lr.ph56.split.us.split ], [ 1, %38 ], [ 0, %60 ], [ 1, %82 ], [ 0, %delete_ext.exit ]
   ret i32 %.046
 }
 
@@ -726,7 +746,7 @@ define range(i32 0, 2) i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %0, ptr noundef
 define i32 @X509V3_EXT_REQ_add_nconf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !41
+  store ptr null, ptr %5, align 8, !tbaa !40
   %6 = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %7 = icmp ne i32 %6, 0
   %8 = icmp ne ptr %3, null
@@ -738,7 +758,7 @@ define i32 @X509V3_EXT_REQ_add_nconf(ptr noundef %0, ptr noundef %1, ptr noundef
 
 11:                                               ; preds = %4
   %12 = call i32 @X509_REQ_add_extensions(ptr noundef nonnull %3, ptr noundef nonnull %9) #6
-  %.pre = load ptr, ptr %5, align 8, !tbaa !41
+  %.pre = load ptr, ptr %5, align 8, !tbaa !40
   br label %13
 
 13:                                               ; preds = %11, %4
@@ -767,7 +787,7 @@ define ptr @X509V3_get_string(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not12, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %8, align 8, !tbaa !45
+  %10 = load ptr, ptr %8, align 8, !tbaa !43
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %11, label %12
 
@@ -801,7 +821,7 @@ define ptr @X509V3_get_section(ptr noundef readonly captures(none) %0, ptr nound
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %11, label %12
 
@@ -829,7 +849,7 @@ define void @X509V3_string_free(ptr noundef readonly captures(none) %0, ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %11, label %8
 
@@ -852,7 +872,7 @@ define void @X509V3_section_free(ptr noundef readonly captures(none) %0, ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %11, label %8
 
@@ -900,15 +920,15 @@ define void @X509V3_set_ctx(ptr noundef writeonly captures(address_is_null) %0, 
   br label %15
 
 9:                                                ; preds = %6
-  store i32 %5, ptr %0, align 8, !tbaa !40
+  store i32 %5, ptr %0, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !50
+  store ptr %1, ptr %10, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %11, align 8, !tbaa !51
+  store ptr %2, ptr %11, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %12, align 8, !tbaa !52
+  store ptr %3, ptr %12, align 8, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %13, align 8, !tbaa !53
+  store ptr %4, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %15
@@ -930,7 +950,7 @@ define range(i32 0, 2) i32 @X509V3_set_issuer_pkey(ptr noundef captures(address_
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = icmp eq ptr %7, null
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %9, %8
@@ -944,7 +964,7 @@ define range(i32 0, 2) i32 @X509V3_set_issuer_pkey(ptr noundef captures(address_
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %12, align 8, !tbaa !54
+  store ptr %1, ptr %12, align 8, !tbaa !52
   br label %13
 
 13:                                               ; preds = %11, %10, %4
@@ -1068,7 +1088,7 @@ define i32 @X509V3_EXT_REQ_add_conf(ptr noundef %0, ptr noundef %1, ptr noundef 
 8:                                                ; preds = %4
   tail call void @CONF_set_nconf(ptr noundef nonnull %6, ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !41
+  store ptr null, ptr %5, align 8, !tbaa !40
   %9 = call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %10 = icmp ne i32 %9, 0
   %11 = icmp ne ptr %3, null
@@ -1080,7 +1100,7 @@ define i32 @X509V3_EXT_REQ_add_conf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 14:                                               ; preds = %8
   %15 = call i32 @X509_REQ_add_extensions(ptr noundef nonnull %3, ptr noundef nonnull %12) #6
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !41
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !40
   br label %X509V3_EXT_REQ_add_nconf.exit
 
 X509V3_EXT_REQ_add_nconf.exit:                    ; preds = %8, %14
@@ -1228,21 +1248,19 @@ attributes #6 = { nounwind }
 !34 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
 !35 = !{!34, !12, i64 8}
 !36 = !{!34, !12, i64 16}
-!37 = distinct !{!37, !7, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !7}
-!40 = !{!23, !16, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !13, i64 0}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = !{!46, !13, i64 0}
-!46 = !{!"X509V3_CONF_METHOD_st", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!47 = !{!46, !13, i64 8}
-!48 = !{!46, !13, i64 16}
-!49 = !{!46, !13, i64 24}
-!50 = !{!23, !24, i64 8}
-!51 = !{!23, !24, i64 16}
-!52 = !{!23, !25, i64 24}
-!53 = !{!23, !26, i64 32}
-!54 = !{!23, !28, i64 56}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = !{!23, !16, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !13, i64 0}
+!42 = distinct !{!42, !7}
+!43 = !{!44, !13, i64 0}
+!44 = !{!"X509V3_CONF_METHOD_st", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!45 = !{!44, !13, i64 8}
+!46 = !{!44, !13, i64 16}
+!47 = !{!44, !13, i64 24}
+!48 = !{!23, !24, i64 8}
+!49 = !{!23, !24, i64 16}
+!50 = !{!23, !25, i64 24}
+!51 = !{!23, !26, i64 32}
+!52 = !{!23, !28, i64 56}

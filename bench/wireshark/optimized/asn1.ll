@@ -518,7 +518,7 @@ default.unreachable:                              ; preds = %9
   %38 = getelementptr i8, ptr %.05068, i64 1
   %39 = add nuw nsw i32 %.05667, 1
   %exitcond.not = icmp eq i32 %39, %20
-  br i1 %exitcond.not, label %.split71.us, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.split71.us, label %.split, !llvm.loop !12
 
 .split71.us:                                      ; preds = %.split, %.split.us
   %.us-phi72 = phi i32 [ %31, %.split.us ], [ %37, %.split ]
@@ -557,7 +557,7 @@ default.unreachable:                              ; preds = %9
   %50 = getelementptr i8, ptr %.15174, i64 1
   %51 = add nuw nsw i32 %.15773, 1
   %exitcond84.not = icmp eq i32 %51, %43
-  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond84.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %52 = uitofp i64 %49 to double
@@ -650,7 +650,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !7}
 !10 = !{i8 0, i8 2}
 !11 = !{}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -11333,7 +11333,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_S
   %52 = sub i64 %4, %51
   %53 = ashr exact i64 %52, 3
   %.not = icmp slt i64 %53, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !545
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !543
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.loopexit, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.us, %3
   %.sroa.035.0.lcssa = phi ptr [ %0, %3 ], [ %8, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.us ], [ %13, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.loopexit ]
@@ -11519,7 +11519,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6ve
   %33 = icmp ne ptr %.sroa.019.1.i, %11
   %34 = icmp ne ptr %.sroa.015.1.i, %12
   %or.cond.i = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !546
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !544
 
 .critedge.i:                                      ; preds = %31, %10
   %.sroa.015.0.lcssa.i = phi ptr [ %11, %10 ], [ %.sroa.015.1.i, %31 ]
@@ -11578,7 +11578,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3
   %61 = sub i64 %6, %48
   %62 = ashr exact i64 %61, 3
   %.not = icmp slt i64 %62, %5
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !547
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !545
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit, %4
   %.sroa.046.0.lcssa = phi ptr [ %0, %4 ], [ %12, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
@@ -11638,7 +11638,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIjjESt6ve
   %86 = icmp ne ptr %.sroa.019.1.i35, %63
   %87 = icmp ne ptr %.sroa.015.1.i34, %1
   %or.cond.i36 = select i1 %86, i1 %87, i1 false
-  br i1 %or.cond.i36, label %.lr.ph.i28, label %.critedge.i13, !llvm.loop !546
+  br i1 %or.cond.i36, label %.lr.ph.i28, label %.critedge.i13, !llvm.loop !544
 
 .critedge.i13:                                    ; preds = %84, %._crit_edge
   %.sroa.015.0.lcssa.i14 = phi ptr [ %63, %._crit_edge ], [ %.sroa.015.1.i34, %84 ]
@@ -11764,7 +11764,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i:
   %33 = icmp ne ptr %.1.i, %11
   %34 = icmp ne ptr %.117.i, %12
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !548
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !546
 
 ._crit_edge.i:                                    ; preds = %31, %10
   %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.018.062, %10 ], [ %32, %31 ]
@@ -11833,7 +11833,7 @@ _ZSt12__move_mergeIPSt4pairIjjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_Sa
   %69 = sub i64 %6, %53
   %70 = ashr exact i64 %69, 3
   %.not = icmp slt i64 %70, %5
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !549
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !547
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPSt4pairIjjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit, %4
   %.0.lcssa = phi ptr [ %0, %4 ], [ %12, %_ZSt12__move_mergeIPSt4pairIjjEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEENS3_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit ]
@@ -11893,7 +11893,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIjjES5_EEbT_T0_.exit.thread26.i4
   %95 = icmp ne ptr %.1.i44, %71
   %96 = icmp ne ptr %.117.i43, %1
   %97 = select i1 %95, i1 %96, i1 false
-  br i1 %97, label %.lr.ph.i37, label %._crit_edge.i21, !llvm.loop !548
+  br i1 %97, label %.lr.ph.i37, label %._crit_edge.i21, !llvm.loop !546
 
 ._crit_edge.i21:                                  ; preds = %93, %._crit_edge
   %.sroa.0.0.lcssa.i22 = phi ptr [ %.sroa.018.0.lcssa, %._crit_edge ], [ %94, %93 ]
@@ -12209,7 +12209,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnalyzer15PerB
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %32 = load ptr, ptr %31, align 8, !tbaa !550
+  %32 = load ptr, ptr %31, align 8, !tbaa !548
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
@@ -12265,7 +12265,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnaly
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !314
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !551
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !549
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -12316,7 +12316,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnaly
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !552
+  %48 = load ptr, ptr %47, align 8, !tbaa !550
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -12337,7 +12337,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnaly
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !314
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !551
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !549
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -12381,7 +12381,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnaly
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !552
+  %74 = load ptr, ptr %73, align 8, !tbaa !550
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -12402,7 +12402,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm15BitcodeAnaly
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !314
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !551
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !549
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -12457,7 +12457,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsES
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !550
+  %12 = load ptr, ptr %11, align 8, !tbaa !548
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 4
@@ -12499,11 +12499,11 @@ _ZNKSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE12_M_check_lenEmPK
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !553, !alias.scope !554
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !tbaa.struct !551, !alias.scope !552
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !558
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !556
 
 _ZNSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE12_M_check_lenEmPKc.exit
   %.not.i30 = icmp eq ptr %6, null
@@ -12519,7 +12519,7 @@ _ZNSt12_Vector_baseIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE13_M_dealloc
   %33 = getelementptr inbounds nuw %"struct.llvm::BitcodeAnalyzer::PerRecordStats", ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !370
   %34 = getelementptr inbounds nuw %"struct.llvm::BitcodeAnalyzer::PerRecordStats", ptr %26, i64 %24
-  store ptr %34, ptr %11, align 8, !tbaa !550
+  store ptr %34, ptr %11, align 8, !tbaa !548
   br label %35
 
 35:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN4llvm15BitcodeAnalyzer14PerRecordStatsEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN4llvm15BitcodeAnalyzer14PerRecordStatsESaIS2_EE13_M_deallocateEPS2_m.exit, %2
@@ -13126,19 +13126,17 @@ attributes #30 = { nounwind allocsize(0) }
 !540 = distinct !{!540, !34}
 !541 = distinct !{!541, !34}
 !542 = distinct !{!542, !34}
-!543 = distinct !{!543, !34, !544}
-!544 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!543 = distinct !{!543, !34}
+!544 = distinct !{!544, !34}
 !545 = distinct !{!545, !34}
 !546 = distinct !{!546, !34}
 !547 = distinct !{!547, !34}
-!548 = distinct !{!548, !34}
+!548 = !{!323, !324, i64 16}
 !549 = distinct !{!549, !34}
-!550 = !{!323, !324, i64 16}
-!551 = distinct !{!551, !34}
-!552 = !{!91, !93, i64 24}
-!553 = !{i64 0, i64 4, !36, i64 4, i64 4, !36, i64 8, i64 8, !10}
-!554 = !{!555, !557}
-!555 = distinct !{!555, !556, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!556 = distinct !{!556, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_"}
-!557 = distinct !{!557, !556, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!558 = distinct !{!558, !34}
+!550 = !{!91, !93, i64 24}
+!551 = !{i64 0, i64 4, !36, i64 4, i64 4, !36, i64 8, i64 8, !10}
+!552 = !{!553, !555}
+!553 = distinct !{!553, !554, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!554 = distinct !{!554, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_"}
+!555 = distinct !{!555, !554, !"_ZSt19__relocate_object_aIN4llvm15BitcodeAnalyzer14PerRecordStatsES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!556 = distinct !{!556, !34}

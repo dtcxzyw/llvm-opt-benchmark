@@ -727,7 +727,7 @@ define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 
   %36 = icmp ult i64 %34, %35
   %.not18 = icmp eq i32 %31, 0
   %37 = select i1 %36, i1 %.not18, i1 false
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !57
+  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.1.lcssa = phi i32 [ %24, %.lr.ph.split.us ], [ %31, %.lr.ph.split ]
@@ -768,7 +768,7 @@ define range(i32 -1, 1) i32 @H5G__link_release_table(ptr noundef readonly captur
   %12 = add nuw i64 %.089, 1
   %13 = load i64, ptr %0, align 8, !tbaa !50
   %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %._crit_edge, !llvm.loop !58
+  br i1 %14, label %15, label %._crit_edge, !llvm.loop !56
 
 15:                                               ; preds = %.lr.ph, %11
   %.089 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
@@ -809,7 +809,7 @@ define range(i32 -1, 1) i32 @H5G__link_name_replace(ptr noundef %0, ptr noundef 
   %.not15 = select i1 %not., i1 %7, i1 false
   %.not = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not15
-  br i1 %or.cond, label %.thread, label %8, !prof !59
+  br i1 %or.cond, label %.thread, label %8, !prof !57
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -922,9 +922,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !51 = !{!"", !11, i64 0, !52, i64 8}
 !52 = !{!"p1 _ZTS10H5O_link_t", !17, i64 0}
 !53 = !{!51, !52, i64 8}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !55}
-!58 = distinct !{!58, !55}
-!59 = !{!"branch_weights", i32 2002, i32 2000}
+!56 = distinct !{!56, !55}
+!57 = !{!"branch_weights", i32 2002, i32 2000}

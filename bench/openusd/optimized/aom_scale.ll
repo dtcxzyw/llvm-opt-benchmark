@@ -194,7 +194,7 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 %105
   tail call void %.0180.i(ptr noundef %spec.select210.us.i, i32 noundef %50, ptr noundef %106, i32 noundef %42) #6, !callees !4
   %exitcond267.not.i = icmp eq i64 %indvars.iv.next264.i, %88
-  br i1 %exitcond267.not.i, label %93, label %97, !llvm.loop !10
+  br i1 %exitcond267.not.i, label %93, label %97, !llvm.loop !9
 
 .preheader223.i:                                  ; preds = %.preheader223.lr.ph.i, %117
   %.3228.i = phi ptr [ %118, %117 ], [ %.1.i, %.preheader223.lr.ph.i ]
@@ -217,7 +217,7 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 %115
   tail call void %.0180.i(ptr noundef %spec.select210.i, i32 noundef %50, ptr noundef %116, i32 noundef %42) #6, !callees !4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %88
-  br i1 %exitcond.not.i, label %117, label %107, !llvm.loop !10
+  br i1 %exitcond.not.i, label %117, label %107, !llvm.loop !9
 
 117:                                              ; preds = %107
   tail call void %.0178.i(ptr noundef %83, i32 noundef %56, ptr noundef %.1188227.i, i32 noundef %56, i32 noundef %42) #6, !callees !7
@@ -226,7 +226,7 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %119 = getelementptr inbounds i8, ptr %.1188227.i, i64 %92
   %120 = add nuw i32 %.1192226.i, 1
   %exitcond262.not.i = icmp eq i32 %120, %umax268.i
-  br i1 %exitcond262.not.i, label %Scale2D.exit, label %.preheader223.i, !llvm.loop !11
+  br i1 %exitcond262.not.i, label %Scale2D.exit, label %.preheader223.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %66, %63
   %121 = icmp eq i32 %52, %43
@@ -246,12 +246,12 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %.4248.i = phi ptr [ %45, %.lr.ph249.i ], [ %126, %125 ]
   %.2189247.i = phi ptr [ %54, %.lr.ph249.i ], [ %127, %125 ]
   %.2193246.i = phi i32 [ 0, %.lr.ph249.i ], [ %128, %125 ]
-  tail call void %spec.select211.i(ptr noundef %.4248.i, i32 noundef 1, i32 noundef %4, i32 noundef %122, ptr noundef %.2189247.i, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !12
+  tail call void %spec.select211.i(ptr noundef %.4248.i, i32 noundef 1, i32 noundef %4, i32 noundef %122, ptr noundef %.2189247.i, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !10
   %126 = getelementptr inbounds i8, ptr %.4248.i, i64 %123
   %127 = getelementptr inbounds i8, ptr %.2189247.i, i64 %124
   %128 = add nuw i32 %.2193246.i, 1
   %exitcond286.not.i = icmp eq i32 %128, %43
-  br i1 %exitcond286.not.i, label %Scale2D.exit, label %125, !llvm.loop !13
+  br i1 %exitcond286.not.i, label %Scale2D.exit, label %125, !llvm.loop !11
 
 129:                                              ; preds = %.thread.i
   %130 = icmp ugt i32 %43, %52
@@ -270,7 +270,7 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %.1186.i = phi i32 [ %36, %131 ], [ %135, %134 ]
   %.1184.i = phi i32 [ %133, %131 ], [ %36, %134 ]
   %137 = add i32 %50, 1
-  tail call void %spec.select211.i(ptr noundef %45, i32 noundef 1, i32 noundef %4, i32 noundef %137, ptr noundef %2, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !12
+  tail call void %spec.select211.i(ptr noundef %45, i32 noundef 1, i32 noundef %4, i32 noundef %137, ptr noundef %2, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !10
   %138 = add i32 %43, -1
   %139 = add i32 %138, %.1186.i
   %140 = udiv i32 %139, %.1186.i
@@ -309,16 +309,16 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %153 = getelementptr inbounds nuw i8, ptr %.3190237.us.i, i64 %150
   %154 = add nuw i32 %.3194236.us.i, 1
   %155 = icmp ult i32 %154, %140
-  br i1 %155, label %.preheader219.us.i, label %Scale2D.exit, !llvm.loop !14
+  br i1 %155, label %.preheader219.us.i, label %Scale2D.exit, !llvm.loop !12
 
 .lr.ph235.us.i:                                   ; preds = %..preheader218_crit_edge.us.i, %.lr.ph235.us.i
   %indvars.iv281.i = phi i64 [ %indvars.iv.next282.i, %.lr.ph235.us.i ], [ 0, %..preheader218_crit_edge.us.i ]
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv281.i
   %157 = getelementptr inbounds nuw i8, ptr %.3190237.us.i, i64 %indvars.iv281.i
-  tail call void %.0182.i(ptr noundef %156, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %157, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !15
+  tail call void %.0182.i(ptr noundef %156, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %157, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !13
   %indvars.iv.next282.i = add nuw nsw i64 %indvars.iv281.i, 1
   %exitcond285.not.i = icmp eq i64 %indvars.iv.next282.i, %wide.trip.count284.i
-  br i1 %exitcond285.not.i, label %._crit_edge.us.i, label %.lr.ph235.us.i, !llvm.loop !16
+  br i1 %exitcond285.not.i, label %._crit_edge.us.i, label %.lr.ph235.us.i, !llvm.loop !14
 
 158:                                              ; preds = %176, %.preheader219.us.i
   %indvars.iv276.i = phi i64 [ 1, %.preheader219.us.i ], [ %indvars.iv.next277.i, %176 ]
@@ -345,13 +345,13 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %173 = mul i32 %56, %indvars278.i
   %174 = zext i32 %173 to i64
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 %174
-  tail call void %spec.select211.i(ptr noundef %172, i32 noundef 1, i32 noundef %4, i32 noundef %137, ptr noundef %175, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !12
+  tail call void %spec.select211.i(ptr noundef %172, i32 noundef 1, i32 noundef %4, i32 noundef %137, ptr noundef %175, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !10
   br label %176
 
 176:                                              ; preds = %169, %161
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
   %exitcond280.not.i = icmp eq i64 %indvars.iv.next277.i, %wide.trip.count279.i
-  br i1 %exitcond280.not.i, label %..preheader218_crit_edge.us.i, label %158, !llvm.loop !17
+  br i1 %exitcond280.not.i, label %..preheader218_crit_edge.us.i, label %158, !llvm.loop !15
 
 ..preheader218_crit_edge.us.i:                    ; preds = %176
   br i1 %.not253.i, label %._crit_edge.us.i, label %.lr.ph235.us.i
@@ -372,24 +372,24 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv271.i = phi i64 [ 0, %.preheader219.us239.i ], [ %indvars.iv.next272.i, %177 ]
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv271.i
   %179 = getelementptr inbounds nuw i8, ptr %.3190237.us241.i, i64 %indvars.iv271.i
-  tail call void %.0182.i(ptr noundef %178, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %179, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !15
+  tail call void %.0182.i(ptr noundef %178, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %179, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !13
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %exitcond275.not.i = icmp eq i64 %indvars.iv.next272.i, %wide.trip.count274.i
-  br i1 %exitcond275.not.i, label %._crit_edge.us245.i, label %177, !llvm.loop !16
+  br i1 %exitcond275.not.i, label %._crit_edge.us245.i, label %177, !llvm.loop !14
 
 ._crit_edge.us245.i:                              ; preds = %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %146, i64 %143, i1 false)
   %180 = getelementptr inbounds nuw i8, ptr %.3190237.us241.i, i64 %150
   %181 = add nuw i32 %.3194236.us242.i, 1
   %182 = icmp ult i32 %181, %140
-  br i1 %182, label %.preheader219.us239.i, label %Scale2D.exit, !llvm.loop !18
+  br i1 %182, label %.preheader219.us239.i, label %Scale2D.exit, !llvm.loop !12
 
 .preheader219.i:                                  ; preds = %.preheader219.lr.ph.split.i, %.preheader219.i
   %.3194236.i = phi i32 [ %183, %.preheader219.i ], [ 0, %.preheader219.lr.ph.split.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %146, i64 %143, i1 false)
   %183 = add nuw i32 %.3194236.i, 1
   %184 = icmp ult i32 %183, %140
-  br i1 %184, label %.preheader219.i, label %Scale2D.exit, !llvm.loop !19
+  br i1 %184, label %.preheader219.i, label %Scale2D.exit, !llvm.loop !12
 
 Scale2D.exit.thread:                              ; preds = %.preheader221.i, %.preheader.i
   %185 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %46
@@ -428,7 +428,7 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %198, i8 %203, i64 %206, i1 false)
   %207 = add nuw nsw i32 %.07788, 1
   %exitcond.not = icmp eq i32 %207, %43
-  br i1 %exitcond.not, label %.loopexit81, label %191, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit81, label %191, !llvm.loop !16
 
 .loopexit81:                                      ; preds = %191, %Scale2D.exit.thread, %Scale2D.exit
   %208 = phi ptr [ %185, %Scale2D.exit.thread ], [ %186, %Scale2D.exit ], [ %186, %191 ]
@@ -459,12 +459,12 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
   %226 = add nsw i32 %.089, 1
   %227 = load i32, ptr %209, align 4
   %228 = icmp slt i32 %226, %227
-  br i1 %228, label %214, label %.loopexit, !llvm.loop !21
+  br i1 %228, label %214, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %214, %.loopexit81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge, label %39, !llvm.loop !22
+  br i1 %exitcond100.not, label %._crit_edge, label %39, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %10
   ret void
@@ -515,7 +515,7 @@ define internal void @scale1d_c(ptr noundef readonly captures(none) %0, i32 noun
   %25 = sub nuw i32 %.13240, %6
   %26 = getelementptr inbounds i8, ptr %.13539, i64 %11
   %27 = icmp ugt i32 %25, %6
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = load i8, ptr %26, align 1
@@ -571,7 +571,7 @@ define internal void @scale1d_2t1_ps(ptr noundef readonly captures(none) %0, i32
   %17 = getelementptr inbounds i8, ptr %.013, i64 %13
   %18 = getelementptr inbounds i8, ptr %.01112, i64 %14
   %19 = icmp ult ptr %18, %11
-  br i1 %19, label %15, label %._crit_edge, !llvm.loop !24
+  br i1 %19, label %15, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %15, %8
   ret void
@@ -618,7 +618,7 @@ define internal void @scale1d_2t1_i(ptr noundef readonly captures(none) %0, i32 
   store i8 %33, ptr %.02427, align 1
   %.024 = getelementptr inbounds i8, ptr %.02427, i64 %15
   %34 = icmp ult ptr %.024, %11
-  br i1 %34, label %20, label %._crit_edge, !llvm.loop !25
+  br i1 %34, label %20, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %20, %8
   ret void
@@ -645,21 +645,17 @@ attributes #6 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{ptr @aom_vertical_band_2_1_scale_c, ptr @aom_vertical_band_2_1_scale_i_c, ptr @aom_vertical_band_5_3_scale_c, ptr @aom_vertical_band_5_4_scale_c}
-!8 = distinct !{!8, !6, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{ptr @scale1d_2t1_ps, ptr @scale1d_c}
 !11 = distinct !{!11, !6}
-!12 = !{ptr @scale1d_2t1_ps, ptr @scale1d_c}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6, !9}
-!15 = !{ptr @scale1d_2t1_i, ptr @scale1d_2t1_ps, ptr @scale1d_c}
+!12 = distinct !{!12, !6}
+!13 = !{ptr @scale1d_2t1_i, ptr @scale1d_2t1_ps, ptr @scale1d_c}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6, !9}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

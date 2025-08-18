@@ -40378,7 +40378,7 @@ for.cond602.for.cond.cleanup605_crit_edge.us:     ; preds = %for.inc621.us
 for.cond.cleanup594:                              ; preds = %for.body595, %for.cond602.for.cond.cleanup605_crit_edge.us, %for.body589
   %inc638 = add nuw i64 %k.13744, 1
   %exitcond815.not = icmp eq i64 %inc638, %166
-  br i1 %exitcond815.not, label %for.end639, label %for.body589, !llvm.loop !79
+  br i1 %exitcond815.not, label %for.end639, label %for.body589, !llvm.loop !78
 
 for.body595:                                      ; preds = %for.body595.preheader, %for.body595
   %indvars.iv806 = phi i64 [ %170, %for.body595.preheader ], [ %indvars.iv.next807, %for.body595 ]
@@ -40394,11 +40394,11 @@ for.body595:                                      ; preds = %for.body595.prehead
   %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
   %181 = and i64 %indvars.iv.next807, 4294967295
   %exitcond809.not = icmp eq i64 %181, 32
-  br i1 %exitcond809.not, label %for.cond.cleanup594, label %for.body595, !llvm.loop !80
+  br i1 %exitcond809.not, label %for.cond.cleanup594, label %for.body595, !llvm.loop !77
 
 for.end639:                                       ; preds = %for.cond.cleanup594, %for.cond498.preheader, %for.cond463.preheader, %for.cond428.preheader, %for.cond393.preheader, %for.cond358.preheader, %for.cond323.preheader, %for.cond288.preheader, %for.cond253.preheader, %for.cond220.preheader, %for.cond194.preheader, %if.end585
   %182 = phi i64 [ %166, %if.end585 ], [ %55, %for.cond194.preheader ], [ %55, %for.cond220.preheader ], [ %55, %for.cond253.preheader ], [ %55, %for.cond288.preheader ], [ %55, %for.cond323.preheader ], [ %55, %for.cond358.preheader ], [ %55, %for.cond393.preheader ], [ %55, %for.cond428.preheader ], [ %55, %for.cond463.preheader ], [ %55, %for.cond498.preheader ], [ %166, %for.cond.cleanup594 ]
-  %183 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !81, !noundef !82
+  %183 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !79, !noundef !80
   %loadedv641 = trunc nuw i8 %183 to i1
   %cmp645746 = icmp ne i64 %182, 0
   %or.cond = and i1 %cmp645746, %loadedv641
@@ -40418,7 +40418,7 @@ for.body646:                                      ; preds = %for.body646.lr.ph, 
   store i32 %187, ptr %add.ptr.i455, align 4, !tbaa !34
   %inc653 = add nuw i64 %k.14747, 1
   %exitcond816.not = icmp eq i64 %inc653, %182
-  br i1 %exitcond816.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit469, label %for.body646, !llvm.loop !83
+  br i1 %exitcond816.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit469, label %for.body646, !llvm.loop !81
 
 _ZNSt6vectorIjSaIjEED2Ev.exit469:                 ; preds = %for.body646, %for.end639
   %sub.ptr.lhs.cast.i.i459 = ptrtoint ptr %ppmt.sroa.17.0 to i64
@@ -40504,7 +40504,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !84
+  store ptr %0, ptr %this, align 8, !tbaa !82
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -40561,9 +40561,9 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !85
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !83
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !87
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !85
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -40574,7 +40574,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !85
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !83
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -40587,7 +40587,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !85
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !83
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -40644,7 +40644,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
 _ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !89
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !87
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !36
@@ -40673,7 +40673,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib8SobolRsg6s
 entry:
   %add = add i32 %skip, 1
   %useGrayCode_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !81, !noundef !82
+  %0 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !79, !noundef !80
   %loadedv = trunc nuw i8 %0 to i1
   br i1 %loadedv, label %if.then, label %if.else
 
@@ -40731,12 +40731,12 @@ for.inc.us:                                       ; preds = %if.then12.us, %for.
   %10 = phi i32 [ %xor17.us, %if.then12.us ], [ %5, %for.body9.us ]
   %inc.us = add nuw nsw i64 %index.031.us, 1
   %exitcond38.not = icmp eq i64 %inc.us, %conv6
-  br i1 %exitcond38.not, label %for.cond5.for.cond.cleanup8_crit_edge.us, label %for.body9.us, !llvm.loop !90
+  br i1 %exitcond38.not, label %for.cond5.for.cond.cleanup8_crit_edge.us, label %for.body9.us, !llvm.loop !88
 
 for.cond5.for.cond.cleanup8_crit_edge.us:         ; preds = %for.inc.us
   %inc19.us = add nuw i64 %k.033.us, 1
   %exitcond39.not = icmp eq i64 %inc19.us, %1
-  br i1 %exitcond39.not, label %if.end56, label %for.body.us, !llvm.loop !91
+  br i1 %exitcond39.not, label %if.end56, label %for.body.us, !llvm.loop !89
 
 if.else:                                          ; preds = %entry
   %integerSequence_21 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -40783,13 +40783,13 @@ for.body42.us:                                    ; preds = %for.body33.us, %for
   store i32 %xor48.us, ptr %add.ptr.i23.us, align 4, !tbaa !34
   %inc50.us = add nuw i64 %k37.026.us, 1
   %exitcond.not = icmp eq i64 %inc50.us, %.fr
-  br i1 %exitcond.not, label %if.end52.us, label %for.body42.us, !llvm.loop !92
+  br i1 %exitcond.not, label %if.end52.us, label %for.body42.us, !llvm.loop !90
 
 if.end52.us:                                      ; preds = %for.body42.us, %for.body33.us
   %shl.us = shl i32 %mask.027.us, 1
   %inc54.us = add nuw nsw i64 %index29.028.us, 1
   %exitcond37.not = icmp eq i64 %inc54.us, 32
-  br i1 %exitcond37.not, label %if.end56, label %for.body33.us, !llvm.loop !93
+  br i1 %exitcond37.not, label %if.end56, label %for.body33.us, !llvm.loop !91
 
 if.end56:                                         ; preds = %if.end52.us, %for.cond5.for.cond.cleanup8_crit_edge.us, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit, %for.body.preheader, %if.then
   %sequenceCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -40817,7 +40817,7 @@ entry:
   %ref.tmp56 = alloca %"class.std::allocator.10", align 1
   %ref.tmp59 = alloca %"class.std::__cxx11::basic_string", align 8
   %useGrayCode_ = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !81, !noundef !82
+  %0 = load i8, ptr %useGrayCode_, align 8, !tbaa !39, !range !79, !noundef !80
   %loadedv = trunc nuw i8 %0 to i1
   br i1 %loadedv, label %if.end33, label %if.then
 
@@ -40826,7 +40826,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %sequenceCounter_, align 8, !tbaa !25
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib8SobolRsg6skipToEj(ptr noundef nonnull align 8 dereferenceable(97) %this, i32 noundef %1)
   %firstDraw_ = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %2 = load i8, ptr %firstDraw_, align 4, !tbaa !26, !range !81, !noundef !82
+  %2 = load i8, ptr %firstDraw_, align 4, !tbaa !26, !range !79, !noundef !80
   %loadedv2 = trunc nuw i8 %2 to i1
   br i1 %loadedv2, label %if.then3, label %if.else
 
@@ -40999,7 +40999,7 @@ ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 if.end33:                                         ; preds = %entry
   %firstDraw_34 = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %25 = load i8, ptr %firstDraw_34, align 4, !tbaa !26, !range !81, !noundef !82
+  %25 = load i8, ptr %firstDraw_34, align 4, !tbaa !26, !range !79, !noundef !80
   %loadedv35 = trunc nuw i8 %25 to i1
   br i1 %loadedv35, label %if.then36, label %if.end39
 
@@ -41200,7 +41200,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %inc85 = add nuw nsw i32 %j.096, 1
   %53 = and i32 %n.095, 2
   %cmp84.not = icmp eq i32 %53, 0
-  br i1 %cmp84.not, label %for.cond.preheader.loopexit, label %while.body, !llvm.loop !94
+  br i1 %cmp84.not, label %for.cond.preheader.loopexit, label %while.body, !llvm.loop !92
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %k.098 = phi i64 [ 0, %for.body.lr.ph ], [ %inc91, %for.body ]
@@ -41214,7 +41214,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %xor, ptr %add.ptr.i56, align 4, !tbaa !34
   %inc91 = add nuw i64 %k.098, 1
   %exitcond.not = icmp eq i64 %inc91, %50
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !95
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !93
 
 return:                                           ; preds = %for.body, %for.cond.preheader, %if.then3, %if.else, %if.then36
   %retval.0 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -41293,7 +41293,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 cond.true.i.i.i.i.i:                              ; preds = %for.body
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i, 9223372036854775804
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i, !prof !96
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i, !prof !94
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -41332,7 +41332,7 @@ for.inc:                                          ; preds = %if.then.i.i.i.i.i.i
   %dec = add i64 %__n.addr.013, -1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.014, i64 24
   %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !97
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !95
 
 lpad.loopexit:                                    ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i
   %lpad.loopexit7 = landingpad { ptr, i32 }
@@ -41403,7 +41403,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i
 _ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i:      ; preds = %if.then.i.i.i.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
-  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIjSaIjEEEEvT_S6_.exit, label %for.body.i, !llvm.loop !89
+  br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIjSaIjEEEEvT_S6_.exit, label %for.body.i, !llvm.loop !87
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIjSaIjEEEEvT_S6_.exit: ; preds = %_ZSt8_DestroyISt6vectorIjSaIjEEEvPT_.exit.i, %entry
   ret void
@@ -41540,24 +41540,22 @@ attributes #24 = { noreturn nounwind }
 !74 = distinct !{!74, !48}
 !75 = distinct !{!75, !48}
 !76 = distinct !{!76, !48}
-!77 = distinct !{!77, !48, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!79 = distinct !{!79, !48}
-!80 = distinct !{!80, !48}
-!81 = !{i8 0, i8 2}
-!82 = !{}
-!83 = distinct !{!83, !48}
-!84 = !{!42, !15, i64 0}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"vtable pointer", !7, i64 0}
-!87 = !{!88, !15, i64 0}
-!88 = !{!"_ZTSN5boost6detail12shared_countE", !15, i64 0}
+!77 = distinct !{!77, !48}
+!78 = distinct !{!78, !48}
+!79 = !{i8 0, i8 2}
+!80 = !{}
+!81 = distinct !{!81, !48}
+!82 = !{!42, !15, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"vtable pointer", !7, i64 0}
+!85 = !{!86, !15, i64 0}
+!86 = !{!"_ZTSN5boost6detail12shared_countE", !15, i64 0}
+!87 = distinct !{!87, !48}
+!88 = distinct !{!88, !48}
 !89 = distinct !{!89, !48}
 !90 = distinct !{!90, !48}
-!91 = distinct !{!91, !48, !78}
+!91 = distinct !{!91, !48}
 !92 = distinct !{!92, !48}
-!93 = distinct !{!93, !48, !78}
-!94 = distinct !{!94, !48}
+!93 = distinct !{!93, !48}
+!94 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !95 = distinct !{!95, !48}
-!96 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!97 = distinct !{!97, !48}

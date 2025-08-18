@@ -15376,7 +15376,7 @@ define hidden noundef nonnull ptr @_ZNK14TypeInterfaces17intersection_withEPKS_(
 .critedge8.us:                                    ; preds = %43
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, %42
-  br i1 %exitcond75.not, label %.critedge6, label %43, !llvm.loop !30
+  br i1 %exitcond75.not, label %.critedge6, label %43, !llvm.loop !29
 
 .split.us:                                        ; preds = %43
   %47 = trunc nsw i64 %indvars.iv72 to i32
@@ -15461,7 +15461,7 @@ _ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS
   %85 = phi i32 [ %78, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %15, %.split.us ], [ %15, %.critedge2 ], [ %15, %.lr.ph61 ], [ %15, %.critedge8.us ]
   %.237 = phi i32 [ %82, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %47, %.split.us ], [ %.035, %.critedge2 ], [ %.pre.pre, %.lr.ph61 ], [ %.pre.pre, %.critedge8.us ]
   %.2 = phi i32 [ %81, %_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.1.lcssa8084, %.split.us ], [ %.1.lcssa, %.critedge2 ], [ %.1.lcssa, %.lr.ph61 ], [ %.1.lcssa8084, %.critedge8.us ]
-  br label %12, !llvm.loop !31
+  br label %12, !llvm.loop !30
 
 86:                                               ; preds = %18
   %87 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -20370,7 +20370,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %49, %46, %43
 
 .preheader56.backedge:                            ; preds = %56, %60, %57
   %.pn15.i.be = phi ptr [ %59, %57 ], [ %62, %60 ], [ %.0.i, %56 ]
-  br label %.preheader56, !llvm.loop !32
+  br label %.preheader56, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %40, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %63 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -20449,7 +20449,7 @@ _ZNK4Type8make_ptrEv.exit9.i40:                   ; preds = %77, %74, %71
 
 .preheader.backedge:                              ; preds = %84, %88, %85
   %.pn15.i32.be = phi ptr [ %87, %85 ], [ %90, %88 ], [ %.0.i36, %84 ]
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit49:    ; preds = %68, %_ZNK4Type8make_ptrEv.exit.i46, %_ZNK4Type8make_ptrEv.exit9.i40
   %91 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -20671,7 +20671,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr35is_meet_subtype_of_h
   %39 = icmp ne i32 %38, 26
   %.not6.i = icmp eq ptr %.0.i, null
   %.not.i = or i1 %.not6.i, %39
-  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %.preheader44, !llvm.loop !33
+  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %.preheader44, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %.preheader44
   %40 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -20687,7 +20687,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %.preheader44
   %44 = icmp ne i32 %43, 26
   %.not6.i35 = icmp eq ptr %.0.i34, null
   %.not.i36 = or i1 %.not6.i35, %44
-  br i1 %.not.i36, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37, label %.preheader, !llvm.loop !33
+  br i1 %.not.i36, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit37, label %.preheader, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit37: ; preds = %.preheader
   %45 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -20867,7 +20867,7 @@ _ZNK4Type8make_ptrEv.exit11.i:                    ; preds = %36, %_ZNK4Type8make
   %40 = phi ptr [ %.0.i, %36 ], [ %39, %_ZNK4Type8make_ptrEv.exit11.i.sink.split ]
   %.pn.in.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %40, i64 80
   %.pn.i.pre = load ptr, ptr %.pn.in.i.phi.trans.insert, align 8
-  br label %16, !llvm.loop !32
+  br label %16, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %20, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %41 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -20940,7 +20940,7 @@ _ZNK4Type8make_ptrEv.exit11.i26:                  ; preds = %62, %_ZNK4Type8make
   %66 = phi ptr [ %.0.i19, %62 ], [ %65, %_ZNK4Type8make_ptrEv.exit11.i26.sink.split ]
   %.pn.in.i16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %66, i64 80
   %.pn.i17.pre = load ptr, ptr %.pn.in.i16.phi.trans.insert, align 8
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit32:    ; preds = %46, %_ZNK4Type8make_ptrEv.exit.i29, %_ZNK4Type8make_ptrEv.exit9.i23
   %67 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -21623,7 +21623,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %30, %27, %24
 
 _ZNK4Type8make_ptrEv.exit11.i.backedge:           ; preds = %37, %41, %38
   %.pn15.i.be = phi ptr [ %40, %38 ], [ %43, %41 ], [ %.0.i, %37 ]
-  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !32
+  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %21, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %44 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -21702,7 +21702,7 @@ _ZNK4Type8make_ptrEv.exit9.i52:                   ; preds = %58, %55, %52
 
 .preheader108.backedge:                           ; preds = %65, %69, %66
   %.pn15.i44.be = phi ptr [ %68, %66 ], [ %71, %69 ], [ %.0.i48, %65 ]
-  br label %.preheader108, !llvm.loop !32
+  br label %.preheader108, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit61:    ; preds = %49, %_ZNK4Type8make_ptrEv.exit.i58, %_ZNK4Type8make_ptrEv.exit9.i52
   %72 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -21825,7 +21825,7 @@ _ZNK4Type8make_ptrEv.exit9.i72:                   ; preds = %116, %113, %110
 
 .preheader107.backedge:                           ; preds = %123, %127, %124
   %.pn15.i64.be = phi ptr [ %126, %124 ], [ %129, %127 ], [ %.0.i68, %123 ]
-  br label %.preheader107, !llvm.loop !32
+  br label %.preheader107, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit81:    ; preds = %107, %_ZNK4Type8make_ptrEv.exit.i78, %_ZNK4Type8make_ptrEv.exit9.i72
   %130 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -21904,7 +21904,7 @@ _ZNK4Type8make_ptrEv.exit9.i91:                   ; preds = %144, %141, %138
 
 .preheader.backedge:                              ; preds = %151, %155, %152
   %.pn15.i83.be = phi ptr [ %154, %152 ], [ %157, %155 ], [ %.0.i87, %151 ]
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit100:   ; preds = %135, %_ZNK4Type8make_ptrEv.exit.i97, %_ZNK4Type8make_ptrEv.exit9.i91
   %158 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -22092,7 +22092,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %15, %12, %9
 
 _ZNK4Type8make_ptrEv.exit11.i.backedge:           ; preds = %22, %26, %23
   %.pn15.i.be = phi ptr [ %25, %23 ], [ %28, %26 ], [ %.0.i, %22 ]
-  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !32
+  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %6, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %29 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -22171,7 +22171,7 @@ _ZNK4Type8make_ptrEv.exit9.i41:                   ; preds = %43, %40, %37
 
 .preheader96.backedge:                            ; preds = %50, %54, %51
   %.pn15.i33.be = phi ptr [ %53, %51 ], [ %56, %54 ], [ %.0.i37, %50 ]
-  br label %.preheader96, !llvm.loop !32
+  br label %.preheader96, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit50:    ; preds = %34, %_ZNK4Type8make_ptrEv.exit.i47, %_ZNK4Type8make_ptrEv.exit9.i41
   %57 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -22275,7 +22275,7 @@ _ZNK4Type8make_ptrEv.exit9.i61:                   ; preds = %86, %83, %80
 
 .preheader95.backedge:                            ; preds = %93, %97, %94
   %.pn15.i53.be = phi ptr [ %96, %94 ], [ %99, %97 ], [ %.0.i57, %93 ]
-  br label %.preheader95, !llvm.loop !32
+  br label %.preheader95, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit70:    ; preds = %77, %_ZNK4Type8make_ptrEv.exit.i67, %_ZNK4Type8make_ptrEv.exit9.i61
   %100 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -22354,7 +22354,7 @@ _ZNK4Type8make_ptrEv.exit9.i80:                   ; preds = %114, %111, %108
 
 .preheader.backedge:                              ; preds = %121, %125, %122
   %.pn15.i72.be = phi ptr [ %124, %122 ], [ %127, %125 ], [ %.0.i76, %121 ]
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit89:    ; preds = %105, %_ZNK4Type8make_ptrEv.exit.i86, %_ZNK4Type8make_ptrEv.exit9.i80
   %128 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -22599,7 +22599,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %60, %57, %54
 
 .preheader92.backedge:                            ; preds = %67, %71, %68
   %.pn15.i.be = phi ptr [ %70, %68 ], [ %73, %71 ], [ %.0.i, %67 ]
-  br label %.preheader92, !llvm.loop !32
+  br label %.preheader92, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %51, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %74 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -22678,7 +22678,7 @@ _ZNK4Type8make_ptrEv.exit9.i56:                   ; preds = %88, %85, %82
 
 .preheader91.backedge:                            ; preds = %95, %99, %96
   %.pn15.i48.be = phi ptr [ %98, %96 ], [ %101, %99 ], [ %.0.i52, %95 ]
-  br label %.preheader91, !llvm.loop !32
+  br label %.preheader91, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit65:    ; preds = %79, %_ZNK4Type8make_ptrEv.exit.i62, %_ZNK4Type8make_ptrEv.exit9.i56
   %102 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -22757,7 +22757,7 @@ _ZNK4Type8make_ptrEv.exit9.i76:                   ; preds = %116, %113, %110
 
 .preheader.backedge:                              ; preds = %123, %127, %124
   %.pn15.i68.be = phi ptr [ %126, %124 ], [ %129, %127 ], [ %.0.i72, %123 ]
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit85:    ; preds = %107, %_ZNK4Type8make_ptrEv.exit.i82, %_ZNK4Type8make_ptrEv.exit9.i76
   %130 = icmp eq ptr %.0.i72, %74
@@ -23625,7 +23625,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %19, %16, %13
 
 _ZNK4Type8make_ptrEv.exit11.i.backedge:           ; preds = %26, %30, %27
   %.pn15.i.be = phi ptr [ %29, %27 ], [ %32, %30 ], [ %.0.i, %26 ]
-  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !32
+  br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %10, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
   %33 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -23704,7 +23704,7 @@ _ZNK4Type8make_ptrEv.exit9.i101:                  ; preds = %47, %44, %41
 
 .preheader156.backedge:                           ; preds = %54, %58, %55
   %.pn15.i93.be = phi ptr [ %57, %55 ], [ %60, %58 ], [ %.0.i97, %54 ]
-  br label %.preheader156, !llvm.loop !32
+  br label %.preheader156, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit110:   ; preds = %38, %_ZNK4Type8make_ptrEv.exit.i107, %_ZNK4Type8make_ptrEv.exit9.i101
   %61 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -23787,7 +23787,7 @@ _ZNK4Type8make_ptrEv.exit9.i120:                  ; preds = %77, %74, %71
 
 _ZNK4Type8make_ptrEv.exit11.i123.backedge:        ; preds = %84, %88, %85
   %.pn15.i112.be = phi ptr [ %87, %85 ], [ %90, %88 ], [ %.0.i116, %84 ]
-  br label %_ZNK4Type8make_ptrEv.exit11.i123, !llvm.loop !32
+  br label %_ZNK4Type8make_ptrEv.exit11.i123, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit129:   ; preds = %68, %_ZNK4Type8make_ptrEv.exit.i126, %_ZNK4Type8make_ptrEv.exit9.i120
   %91 = icmp eq ptr %.0.i116, %33
@@ -23865,7 +23865,7 @@ _ZNK4Type8make_ptrEv.exit9.i139:                  ; preds = %104, %101, %98
 
 .preheader.backedge:                              ; preds = %111, %115, %112
   %.pn15.i131.be = phi ptr [ %114, %112 ], [ %117, %115 ], [ %.0.i135, %111 ]
-  br label %.preheader, !llvm.loop !32
+  br label %.preheader, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit148:   ; preds = %95, %_ZNK4Type8make_ptrEv.exit.i145, %_ZNK4Type8make_ptrEv.exit9.i139
   %118 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -28749,7 +28749,7 @@ _ZNK4Type8make_ptrEv.exit9:                       ; preds = %10, %13, %16
 _ZNK4Type8make_ptrEv.exit11:                      ; preds = %24, %27, %30
   %33 = phi ptr [ %26, %24 ], [ %29, %27 ], [ %32, %30 ]
   %34 = add nuw nsw i32 %storemerge, 1
-  br label %3, !llvm.loop !32
+  br label %3, !llvm.loop !31
 
 .critedge:                                        ; preds = %7, %_ZNK4Type8make_ptrEv.exit, %_ZNK4Type8make_ptrEv.exit9
   ret ptr %.0
@@ -29553,7 +29553,7 @@ define linkonce_odr hidden noundef i32 @_ZN7TypePtr11meet_aryptrI15TypeAryKlassP
   %10 = icmp ne i32 %9, 26
   %.not6.i = icmp eq ptr %.0.i, null
   %.not.i = or i1 %.not6.i, %10
-  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %7, !llvm.loop !33
+  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %7, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %7
   %11 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -29569,7 +29569,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %7
   %15 = icmp ne i32 %14, 26
   %.not6.i96 = icmp eq ptr %.0.i95, null
   %.not.i97 = or i1 %.not6.i96, %15
-  br i1 %.not.i97, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit98, label %.preheader120, !llvm.loop !33
+  br i1 %.not.i97, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit98, label %.preheader120, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit98: ; preds = %.preheader120
   %16 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -29589,7 +29589,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit98: ; preds = %.preheader120
   %23 = icmp ne i32 %22, 26
   %.not6.i103 = icmp eq ptr %.0.i102, null
   %.not.i104 = or i1 %.not6.i103, %23
-  br i1 %.not.i104, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit105, label %20, !llvm.loop !33
+  br i1 %.not.i104, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit105, label %20, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit105: ; preds = %20
   %24 = icmp eq ptr %.0.i102, %11
@@ -29604,7 +29604,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit105: ; preds = %20
   %27 = icmp ne i32 %26, 26
   %.not6.i110 = icmp eq ptr %.0.i109, null
   %.not.i111 = or i1 %.not6.i110, %27
-  br i1 %.not.i111, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit112, label %.preheader, !llvm.loop !33
+  br i1 %.not.i111, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit112, label %.preheader, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit112: ; preds = %.preheader
   %28 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -29855,7 +29855,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr35is_java_subtype_of_h
   %21 = icmp ne i32 %20, 26
   %.not6.i = icmp eq ptr %.0.i, null
   %.not.i = or i1 %.not6.i, %21
-  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %18, !llvm.loop !33
+  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %18, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %18
   %22 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -29871,7 +29871,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %18
   %26 = icmp ne i32 %25, 26
   %.not6.i47 = icmp eq ptr %.0.i46, null
   %.not.i48 = or i1 %.not6.i47, %26
-  br i1 %.not.i48, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit49, label %.preheader72, !llvm.loop !33
+  br i1 %.not.i48, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit49, label %.preheader72, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit49: ; preds = %.preheader72
   %27 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -29931,7 +29931,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit49: ; preds = %.preheader72
   %61 = icmp ne i32 %60, 26
   %.not6.i55 = icmp eq ptr %.0.i54, null
   %.not.i56 = or i1 %.not6.i55, %61
-  br i1 %.not.i56, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit57, label %.preheader71, !llvm.loop !33
+  br i1 %.not.i56, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit57, label %.preheader71, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit57: ; preds = %.preheader71
   %62 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -29947,7 +29947,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit57: ; preds = %.preheader71
   %66 = icmp ne i32 %65, 26
   %.not6.i62 = icmp eq ptr %.0.i61, null
   %.not.i63 = or i1 %.not6.i62, %66
-  br i1 %.not.i63, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit64, label %.preheader, !llvm.loop !33
+  br i1 %.not.i63, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit64, label %.preheader, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit64: ; preds = %.preheader
   %67 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -30068,7 +30068,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr37is_same_java_type_as
   %6 = icmp ne i32 %5, 26
   %.not6.i = icmp eq ptr %.0.i, null
   %.not.i = or i1 %.not6.i, %6
-  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %3, !llvm.loop !33
+  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %3, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %3
   %7 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -30084,7 +30084,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %3
   %11 = icmp ne i32 %10, 26
   %.not6.i36 = icmp eq ptr %.0.i35, null
   %.not.i37 = or i1 %.not6.i36, %11
-  br i1 %.not.i37, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit38, label %.preheader60, !llvm.loop !33
+  br i1 %.not.i37, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit38, label %.preheader60, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit38: ; preds = %.preheader60
   %12 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -30125,7 +30125,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit38: ; preds = %.preheader60
   %31 = icmp ne i32 %30, 26
   %.not6.i44 = icmp eq ptr %.0.i43, null
   %.not.i45 = or i1 %.not6.i44, %31
-  br i1 %.not.i45, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit46, label %.preheader59, !llvm.loop !33
+  br i1 %.not.i45, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit46, label %.preheader59, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit46: ; preds = %.preheader59
   %32 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -30141,7 +30141,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit46: ; preds = %.preheader59
   %36 = icmp ne i32 %35, 26
   %.not6.i51 = icmp eq ptr %.0.i50, null
   %.not.i52 = or i1 %.not6.i51, %36
-  br i1 %.not.i52, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, label %.preheader, !llvm.loop !33
+  br i1 %.not.i52, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, label %.preheader, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit53: ; preds = %.preheader
   %37 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -30318,7 +30318,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7TypePtr38maybe_java_subtype_o
   %49 = icmp ne i32 %48, 26
   %.not6.i = icmp eq ptr %.0.i, null
   %.not.i = or i1 %.not6.i, %49
-  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %.preheader76, !llvm.loop !33
+  br i1 %.not.i, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit, label %.preheader76, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %.preheader76
   %50 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -30334,7 +30334,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit: ; preds = %.preheader76
   %54 = icmp ne i32 %53, 26
   %.not6.i51 = icmp eq ptr %.0.i50, null
   %.not.i52 = or i1 %.not6.i51, %54
-  br i1 %.not.i52, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, label %.preheader75, !llvm.loop !33
+  br i1 %.not.i52, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit53, label %.preheader75, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit53: ; preds = %.preheader75
   %55 = load ptr, ptr @_ZN4Type6BOTTOME, align 8
@@ -30350,7 +30350,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit53: ; preds = %.preheader75
   %59 = icmp ne i32 %58, 26
   %.not6.i59 = icmp eq ptr %.0.i58, null
   %.not.i60 = or i1 %.not6.i59, %59
-  br i1 %.not.i60, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit61, label %.preheader74, !llvm.loop !33
+  br i1 %.not.i60, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit61, label %.preheader74, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit61: ; preds = %.preheader74
   %60 = icmp eq ptr %.0.i58, %50
@@ -30365,7 +30365,7 @@ _ZNK15TypeAryKlassPtr17base_element_typeERi.exit61: ; preds = %.preheader74
   %63 = icmp ne i32 %62, 26
   %.not6.i66 = icmp eq ptr %.0.i65, null
   %.not.i67 = or i1 %.not6.i66, %63
-  br i1 %.not.i67, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit68, label %.preheader, !llvm.loop !33
+  br i1 %.not.i67, label %_ZNK15TypeAryKlassPtr17base_element_typeERi.exit68, label %.preheader, !llvm.loop !32
 
 _ZNK15TypeAryKlassPtr17base_element_typeERi.exit68: ; preds = %.preheader
   %64 = icmp eq ptr %.0.i65, %55
@@ -30666,7 +30666,7 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr17base_element_typeERi(ptr nound
   %.not6 = icmp eq ptr %.0, null
   %.not = or i1 %.not6, %6
   %7 = add nuw nsw i32 %storemerge, 1
-  br i1 %.not, label %8, label %3, !llvm.loop !33
+  br i1 %.not, label %8, label %3, !llvm.loop !32
 
 8:                                                ; preds = %3
   ret ptr %.0
@@ -31795,7 +31795,7 @@ _ZN13GrowableArrayIP15ciInstanceKlassE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !34
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !33
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -32152,10 +32152,9 @@ attributes #18 = { noreturn nounwind }
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !7, !29}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}

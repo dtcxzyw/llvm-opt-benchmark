@@ -1072,7 +1072,7 @@ define internal void @thread_benchmark_locks(ptr noundef %0) #0 {
   %4 = load i32, ptr %3, align 4, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !42
-  %.fr54 = freeze i32 %6
+  %.fr56 = freeze i32 %6
   %7 = load atomic i32, ptr %2 monotonic, align 8
   %.not41 = icmp eq i32 %7, 0
   br i1 %.not41, label %.lr.ph45, label %._crit_edge46
@@ -1082,118 +1082,125 @@ define internal void @thread_benchmark_locks(ptr noundef %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %11 = icmp sgt i32 %.fr54, 0
+  %11 = icmp sgt i32 %.fr56, 0
   br i1 %.not30, label %.lr.ph45.split.us, label %.lr.ph45.split
 
-.lr.ph45.split.us:                                ; preds = %.lr.ph45, %_PyMutex_Unlock.exit.us
-  %.02843.us = phi i64 [ %15, %_PyMutex_Unlock.exit.us ], [ 0, %.lr.ph45 ]
-  %.02942.us = phi double [ %.3.lcssa.us, %_PyMutex_Unlock.exit.us ], [ 1.000000e+00, %.lr.ph45 ]
+.lr.ph45.split.us:                                ; preds = %.lr.ph45
+  br i1 %11, label %.lr.ph36.us.us, label %_PyMutex_Unlock.exit.us
+
+.lr.ph36.us.us:                                   ; preds = %.lr.ph45.split.us, %._crit_edge37.us.us
+  %.02843.us.us = phi i64 [ %19, %._crit_edge37.us.us ], [ 0, %.lr.ph45.split.us ]
+  %.02942.us.us = phi double [ %16, %._crit_edge37.us.us ], [ 1.000000e+00, %.lr.ph45.split.us ]
   %12 = load ptr, ptr %10, align 8, !tbaa !43
   %13 = tail call i32 @PyThread_acquire_lock(ptr noundef %12, i32 noundef 1) #6
-  br i1 %11, label %.lr.ph36.us, label %_PyMutex_Unlock.exit.us
+  %.promoted39.us.us = load double, ptr %9, align 8, !tbaa !68
+  br label %14
 
-_PyMutex_Unlock.exit.us:                          ; preds = %._crit_edge37.us, %.lr.ph45.split.us
-  %.3.lcssa.us = phi double [ %19, %._crit_edge37.us ], [ %.02942.us, %.lr.ph45.split.us ]
-  %14 = load ptr, ptr %10, align 8, !tbaa !43
-  tail call void @PyThread_release_lock(ptr noundef %14) #6
-  %15 = add i64 %.02843.us, 1
-  %16 = load atomic i32, ptr %2 monotonic, align 8
-  %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %.lr.ph45.split.us, label %._crit_edge46, !llvm.loop !68
+14:                                               ; preds = %.lr.ph36.us.us, %14
+  %15 = phi double [ %.promoted39.us.us, %.lr.ph36.us.us ], [ %16, %14 ]
+  %.034.us.us = phi i32 [ 0, %.lr.ph36.us.us ], [ %17, %14 ]
+  %.333.us.us = phi double [ %.02942.us.us, %.lr.ph36.us.us ], [ %16, %14 ]
+  %16 = fadd double %.333.us.us, %15
+  %17 = add nuw nsw i32 %.034.us.us, 1
+  %exitcond65.not = icmp eq i32 %17, %.fr56
+  br i1 %exitcond65.not, label %._crit_edge37.us.us, label %14, !llvm.loop !69
 
-17:                                               ; preds = %.lr.ph36.us, %17
-  %18 = phi double [ %.promoted39.us, %.lr.ph36.us ], [ %19, %17 ]
-  %.034.us = phi i32 [ 0, %.lr.ph36.us ], [ %20, %17 ]
-  %.333.us = phi double [ %.02942.us, %.lr.ph36.us ], [ %19, %17 ]
-  %19 = fadd double %.333.us, %18
-  %20 = add nuw nsw i32 %.034.us, 1
-  %exitcond61.not = icmp eq i32 %20, %.fr54
-  br i1 %exitcond61.not, label %._crit_edge37.us, label %17, !llvm.loop !70
+._crit_edge37.us.us:                              ; preds = %14
+  store double %16, ptr %9, align 8, !tbaa !68
+  %18 = load ptr, ptr %10, align 8, !tbaa !43
+  tail call void @PyThread_release_lock(ptr noundef %18) #6
+  %19 = add i64 %.02843.us.us, 1
+  %20 = load atomic i32, ptr %2 monotonic, align 8
+  %.not.us.us = icmp eq i32 %20, 0
+  br i1 %.not.us.us, label %.lr.ph36.us.us, label %._crit_edge46, !llvm.loop !70
 
-.lr.ph36.us:                                      ; preds = %.lr.ph45.split.us
-  %.promoted39.us = load double, ptr %9, align 8, !tbaa !71
-  br label %17
-
-._crit_edge37.us:                                 ; preds = %17
-  store double %19, ptr %9, align 8, !tbaa !71
-  br label %_PyMutex_Unlock.exit.us
+_PyMutex_Unlock.exit.us:                          ; preds = %.lr.ph45.split.us, %_PyMutex_Unlock.exit.us
+  %.02843.us = phi i64 [ %24, %_PyMutex_Unlock.exit.us ], [ 0, %.lr.ph45.split.us ]
+  %21 = load ptr, ptr %10, align 8, !tbaa !43
+  %22 = tail call i32 @PyThread_acquire_lock(ptr noundef %21, i32 noundef 1) #6
+  %23 = load ptr, ptr %10, align 8, !tbaa !43
+  tail call void @PyThread_release_lock(ptr noundef %23) #6
+  %24 = add i64 %.02843.us, 1
+  %25 = load atomic i32, ptr %2 monotonic, align 8
+  %.not.us = icmp eq i32 %25, 0
+  br i1 %.not.us, label %_PyMutex_Unlock.exit.us, label %._crit_edge46, !llvm.loop !70
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45
   br i1 %11, label %.lr.ph45.split.split.us, label %.lr.ph45.split.split
 
 .lr.ph45.split.split.us:                          ; preds = %.lr.ph45.split, %_PyMutex_Unlock.exit.us50
-  %.02843.us48 = phi i64 [ %29, %_PyMutex_Unlock.exit.us50 ], [ 0, %.lr.ph45.split ]
-  %.02942.us49 = phi double [ %27, %_PyMutex_Unlock.exit.us50 ], [ 1.000000e+00, %.lr.ph45.split ]
-  %21 = cmpxchg ptr %8, i8 0, i8 1 seq_cst seq_cst, align 1
-  %22 = extractvalue { i8, i1 } %21, 1
-  br i1 %22, label %_PyMutex_Lock.exit.us, label %23
+  %.02843.us48 = phi i64 [ %34, %_PyMutex_Unlock.exit.us50 ], [ 0, %.lr.ph45.split ]
+  %.02942.us49 = phi double [ %32, %_PyMutex_Unlock.exit.us50 ], [ 1.000000e+00, %.lr.ph45.split ]
+  %26 = cmpxchg ptr %8, i8 0, i8 1 seq_cst seq_cst, align 1
+  %27 = extractvalue { i8, i1 } %26, 1
+  br i1 %27, label %_PyMutex_Lock.exit.us, label %28
 
-23:                                               ; preds = %.lr.ph45.split.split.us
+28:                                               ; preds = %.lr.ph45.split.split.us
   tail call void @PyMutex_Lock(ptr noundef nonnull %8) #6
   br label %_PyMutex_Lock.exit.us
 
-_PyMutex_Lock.exit.us:                            ; preds = %23, %.lr.ph45.split.split.us
-  %.promoted.us = load double, ptr %9, align 8, !tbaa !71
-  br label %25
+_PyMutex_Lock.exit.us:                            ; preds = %28, %.lr.ph45.split.split.us
+  %.promoted.us = load double, ptr %9, align 8, !tbaa !68
+  br label %30
 
-24:                                               ; preds = %._crit_edge.us
+29:                                               ; preds = %._crit_edge.us
   tail call void @PyMutex_Unlock(ptr noundef nonnull %8) #6
   br label %_PyMutex_Unlock.exit.us50
 
-25:                                               ; preds = %_PyMutex_Lock.exit.us, %25
-  %26 = phi double [ %.promoted.us, %_PyMutex_Lock.exit.us ], [ %27, %25 ]
-  %.02732.us = phi i32 [ 0, %_PyMutex_Lock.exit.us ], [ %28, %25 ]
-  %.131.us = phi double [ %.02942.us49, %_PyMutex_Lock.exit.us ], [ %27, %25 ]
-  %27 = fadd double %.131.us, %26
-  %28 = add nuw nsw i32 %.02732.us, 1
-  %exitcond.not = icmp eq i32 %28, %.fr54
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !72
+30:                                               ; preds = %_PyMutex_Lock.exit.us, %30
+  %31 = phi double [ %.promoted.us, %_PyMutex_Lock.exit.us ], [ %32, %30 ]
+  %.02732.us = phi i32 [ 0, %_PyMutex_Lock.exit.us ], [ %33, %30 ]
+  %.131.us = phi double [ %.02942.us49, %_PyMutex_Lock.exit.us ], [ %32, %30 ]
+  %32 = fadd double %.131.us, %31
+  %33 = add nuw nsw i32 %.02732.us, 1
+  %exitcond.not = icmp eq i32 %33, %.fr56
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !71
 
-_PyMutex_Unlock.exit.us50:                        ; preds = %24, %._crit_edge.us
-  %29 = add i64 %.02843.us48, 1
-  %30 = load atomic i32, ptr %2 monotonic, align 4
-  %.not.us51 = icmp eq i32 %30, 0
-  br i1 %.not.us51, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !73
+_PyMutex_Unlock.exit.us50:                        ; preds = %29, %._crit_edge.us
+  %34 = add i64 %.02843.us48, 1
+  %35 = load atomic i32, ptr %2 monotonic, align 4
+  %.not.us51 = icmp eq i32 %35, 0
+  br i1 %.not.us51, label %.lr.ph45.split.split.us, label %._crit_edge46, !llvm.loop !70
 
-._crit_edge.us:                                   ; preds = %25
-  store double %27, ptr %9, align 8, !tbaa !71
-  %31 = cmpxchg ptr %8, i8 1, i8 0 seq_cst seq_cst, align 1
-  %32 = extractvalue { i8, i1 } %31, 1
-  br i1 %32, label %_PyMutex_Unlock.exit.us50, label %24
+._crit_edge.us:                                   ; preds = %30
+  store double %32, ptr %9, align 8, !tbaa !68
+  %36 = cmpxchg ptr %8, i8 1, i8 0 seq_cst seq_cst, align 1
+  %37 = extractvalue { i8, i1 } %36, 1
+  br i1 %37, label %_PyMutex_Unlock.exit.us50, label %29
 
 .lr.ph45.split.split:                             ; preds = %.lr.ph45.split, %_PyMutex_Unlock.exit
-  %.02843 = phi i64 [ %39, %_PyMutex_Unlock.exit ], [ 0, %.lr.ph45.split ]
-  %33 = cmpxchg ptr %8, i8 0, i8 1 seq_cst seq_cst, align 1
-  %34 = extractvalue { i8, i1 } %33, 1
-  br i1 %34, label %_PyMutex_Lock.exit, label %35
+  %.02843 = phi i64 [ %44, %_PyMutex_Unlock.exit ], [ 0, %.lr.ph45.split ]
+  %38 = cmpxchg ptr %8, i8 0, i8 1 seq_cst seq_cst, align 1
+  %39 = extractvalue { i8, i1 } %38, 1
+  br i1 %39, label %_PyMutex_Lock.exit, label %40
 
-35:                                               ; preds = %.lr.ph45.split.split
+40:                                               ; preds = %.lr.ph45.split.split
   tail call void @PyMutex_Lock(ptr noundef nonnull %8) #6
   br label %_PyMutex_Lock.exit
 
-_PyMutex_Lock.exit:                               ; preds = %.lr.ph45.split.split, %35
-  %36 = cmpxchg ptr %8, i8 1, i8 0 seq_cst seq_cst, align 1
-  %37 = extractvalue { i8, i1 } %36, 1
-  br i1 %37, label %_PyMutex_Unlock.exit, label %38
+_PyMutex_Lock.exit:                               ; preds = %.lr.ph45.split.split, %40
+  %41 = cmpxchg ptr %8, i8 1, i8 0 seq_cst seq_cst, align 1
+  %42 = extractvalue { i8, i1 } %41, 1
+  br i1 %42, label %_PyMutex_Unlock.exit, label %43
 
-38:                                               ; preds = %_PyMutex_Lock.exit
+43:                                               ; preds = %_PyMutex_Lock.exit
   tail call void @PyMutex_Unlock(ptr noundef nonnull %8) #6
   br label %_PyMutex_Unlock.exit
 
-_PyMutex_Unlock.exit:                             ; preds = %38, %_PyMutex_Lock.exit
-  %39 = add i64 %.02843, 1
-  %40 = load atomic i32, ptr %2 monotonic, align 4
-  %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %.lr.ph45.split.split, label %._crit_edge46, !llvm.loop !74
+_PyMutex_Unlock.exit:                             ; preds = %43, %_PyMutex_Lock.exit
+  %44 = add i64 %.02843, 1
+  %45 = load atomic i32, ptr %2 monotonic, align 4
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %.lr.ph45.split.split, label %._crit_edge46, !llvm.loop !70
 
-._crit_edge46:                                    ; preds = %_PyMutex_Unlock.exit, %_PyMutex_Unlock.exit.us50, %_PyMutex_Unlock.exit.us, %1
-  %.028.lcssa = phi i64 [ 0, %1 ], [ %15, %_PyMutex_Unlock.exit.us ], [ %29, %_PyMutex_Unlock.exit.us50 ], [ %39, %_PyMutex_Unlock.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.028.lcssa, ptr %41, align 8, !tbaa !50
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %43 = atomicrmw add ptr %42, i64 %.028.lcssa seq_cst, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_PyEvent_Notify(ptr noundef nonnull %44) #6
+._crit_edge46:                                    ; preds = %_PyMutex_Unlock.exit, %_PyMutex_Unlock.exit.us50, %_PyMutex_Unlock.exit.us, %._crit_edge37.us.us, %1
+  %.028.lcssa = phi i64 [ 0, %1 ], [ %19, %._crit_edge37.us.us ], [ %24, %_PyMutex_Unlock.exit.us ], [ %34, %_PyMutex_Unlock.exit.us50 ], [ %44, %_PyMutex_Unlock.exit ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.028.lcssa, ptr %46, align 8, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 240
+  %48 = atomicrmw add ptr %47, i64 %.028.lcssa seq_cst, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_PyEvent_Notify(ptr noundef nonnull %49) #6
   ret void
 }
 
@@ -1380,10 +1387,7 @@ attributes #7 = { noreturn nounwind }
 !65 = !{!63, !64, i64 24}
 !66 = distinct !{!66, !12}
 !67 = !{!20, !20, i64 0}
-!68 = distinct !{!68, !12, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = !{!40, !41, i64 232}
+!69 = distinct !{!69, !12}
 !70 = distinct !{!70, !12}
-!71 = !{!40, !41, i64 232}
-!72 = distinct !{!72, !12}
-!73 = distinct !{!73, !12, !69}
-!74 = distinct !{!74, !12}
+!71 = distinct !{!71, !12}

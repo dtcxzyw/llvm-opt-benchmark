@@ -389,7 +389,7 @@ multiply.exit.loopexit.us:                        ; preds = %.lr.ph.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %19, label %._crit_edge, !llvm.loop !80
+  br i1 %82, label %19, label %._crit_edge, !llvm.loop !79
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -508,6 +508,5 @@ attributes #9 = { nounwind willreturn memory(none) }
 !75 = !{!32, !32, i64 0}
 !76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = distinct !{!78, !77, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !77}
+!78 = distinct !{!78, !77}
+!79 = distinct !{!79, !77}

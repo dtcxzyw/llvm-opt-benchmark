@@ -741,7 +741,7 @@ define hidden noundef zeroext i1 @_ZN15ShenandoahPacer15claim_for_allocEmb(ptr n
   %17 = sub nsw i64 %15, %10
   %18 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, i64 %15, ptr nonnull %11) #8, !srcloc !10
   %.not = icmp eq i64 %18, %15
-  br i1 %.not, label %.split12.us, label %.split, !llvm.loop !14
+  br i1 %.not, label %.split12.us, label %.split, !llvm.loop !11
 
 .split12.us:                                      ; preds = %.split, %16, %.split.us
   %.us-phi = phi i1 [ true, %.split.us ], [ %.not13.not.not, %16 ], [ %.not13.not.not, %.split ]
@@ -814,7 +814,7 @@ define hidden void @_ZN15ShenandoahPacer14pace_for_allocEm(ptr noundef nonnull a
   %13 = sub nsw i64 %11, %9
   %14 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %13, i64 %11, ptr nonnull %10) #8, !srcloc !10
   %.not.i = icmp eq i64 %14, %11
-  br i1 %.not.i, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit.thread, label %.split.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit.thread, label %.split.i, !llvm.loop !11
 
 _ZN15ShenandoahPacer15claim_for_allocEmb.exit:    ; preds = %.split.i
   %15 = load volatile i64, ptr %4, align 8
@@ -883,7 +883,7 @@ _ZN15ShenandoahPacer4waitEm.exit:                 ; preds = %_ZN13MonitorLockerC
 51:                                               ; preds = %_ZN15ShenandoahPacer4waitEm.exit
   %52 = load volatile i64, ptr %10, align 8
   %53 = icmp sgt i64 %52, -1
-  br i1 %53, label %54, label %37, !llvm.loop !15
+  br i1 %53, label %54, label %37, !llvm.loop !13
 
 54:                                               ; preds = %51, %_ZN15ShenandoahPacer4waitEm.exit
   %55 = load ptr, ptr %23, align 8
@@ -1006,7 +1006,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %24 = fadd double %.08, %23
   %25 = load i32, ptr %9, align 4
   %.not.i = icmp ult i32 %13, %25
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !16
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !14
 }
 
 declare void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(ptr noundef nonnull align 8 dereferenceable(30352), i32 noundef, double noundef) local_unnamed_addr #1
@@ -1103,7 +1103,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = load i32, ptr %47, align 4
   %.not.i = icmp ult i32 %45, %48
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !15
 
 49:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   %50 = uitofp i64 %.0.lcssa to double
@@ -1355,10 +1355,8 @@ attributes #8 = { nounwind }
 !8 = !{i64 2145392468}
 !9 = !{i64 2145410579}
 !10 = !{i64 2145412694}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !12}
 !14 = distinct !{!14, !12}
 !15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}

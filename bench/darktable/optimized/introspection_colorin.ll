@@ -1036,7 +1036,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %67 = load i32, ptr %66, align 4, !tbaa !108
   %68 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #17
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %1258, label %69
+  br i1 %.not, label %1264, label %69
 
 69:                                               ; preds = %6
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -1052,9 +1052,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 2456
   %75 = load i32, ptr %74, align 8, !tbaa !118
-  %.not105 = icmp eq i32 %75, 0
+  %.not101 = icmp eq i32 %75, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  br i1 %.not105, label %.critedge, label %76
+  br i1 %.not101, label %.critedge, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 2392
@@ -1095,18 +1095,18 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %108
 
 108:                                              ; preds = %76, %108
-  %.076110 = phi i64 [ 0, %76 ], [ %117, %108 ]
-  %109 = getelementptr inbounds nuw [4 x float], ptr %65, i64 0, i64 %.076110
+  %.076107 = phi i64 [ 0, %76 ], [ %117, %108 ]
+  %109 = getelementptr inbounds nuw [4 x float], ptr %65, i64 0, i64 %.076107
   %110 = load float, ptr %109, align 4, !tbaa !121
-  %111 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %.076110
+  %111 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %.076107
   %112 = load float, ptr %111, align 4, !tbaa !121
   %113 = fmul reassoc nsz arcp contract afn float %112, %110
   store float %113, ptr %111, align 4, !tbaa !121
-  %114 = getelementptr inbounds nuw [4 x float], ptr %107, i64 0, i64 %.076110
+  %114 = getelementptr inbounds nuw [4 x float], ptr %107, i64 0, i64 %.076107
   %115 = load float, ptr %114, align 4, !tbaa !121
   %116 = fmul reassoc nsz arcp contract afn float %115, %110
   store float %116, ptr %114, align 4, !tbaa !121
-  %117 = add nuw nsw i64 %.076110, 1
+  %117 = add nuw nsw i64 %.076107, 1
   %exitcond.not = icmp eq i64 %117, 4
   br i1 %exitcond.not, label %.loopexit, label %108
 
@@ -1177,13 +1177,13 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %159 = shl i32 %156, 2
   %160 = mul i32 %159, %158
   %161 = sext i32 %160 to i64
-  %.not112 = icmp eq i32 %160, 0
-  br i1 %.not112, label %process_cmatrix.exit, label %.lr.ph
+  %.not109 = icmp eq i32 %160, 0
+  br i1 %.not109, label %process_cmatrix.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %154, %dt_vector_mul.exit
-  %.0111 = phi i64 [ %172, %dt_vector_mul.exit ], [ 0, %154 ]
-  %162 = getelementptr inbounds nuw float, ptr %3, i64 %.0111
-  %163 = getelementptr inbounds nuw float, ptr %2, i64 %.0111
+  %.0108 = phi i64 [ %172, %dt_vector_mul.exit ], [ 0, %154 ]
+  %162 = getelementptr inbounds nuw float, ptr %3, i64 %.0108
+  %163 = getelementptr inbounds nuw float, ptr %2, i64 %.0108
   br label %164
 
 164:                                              ; preds = %164, %.lr.ph
@@ -1200,7 +1200,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %exitcond.not.i, label %dt_vector_mul.exit, label %164
 
 dt_vector_mul.exit:                               ; preds = %164
-  %172 = add nuw i64 %.0111, 4
+  %172 = add nuw i64 %.0108, 4
   %173 = icmp ult i64 %172, %161
   br i1 %173, label %.lr.ph, label %process_cmatrix.exit
 
@@ -2936,7 +2936,7 @@ process_cmatrix_proper.exit.i:                    ; preds = %_cmatrix_proper_sim
   tail call void @cmsDoTransform(ptr noundef %.sink.i, ptr noundef nonnull %1151, ptr noundef nonnull %1151, i32 noundef %.8.val.fr.i) #17
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count45.i
-  br i1 %exitcond31.not.i, label %process_cmatrix.exit, label %.lr.ph.us.i, !llvm.loop !174
+  br i1 %exitcond31.not.i, label %process_cmatrix.exit, label %.lr.ph.us.i
 
 1156:                                             ; preds = %_apply_blue_mapping.exit.us.i, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %_apply_blue_mapping.exit.us.i ]
@@ -3030,171 +3030,197 @@ _apply_blue_mapping.exit.us.i:                    ; preds = %1173, %1170, %1156
   %1199 = fcmp reassoc nsz arcp contract afn une float %121, 1.000000e+00
   %spec.select = select i1 %or.cond, i1 true, i1 %1199
   call void @llvm.assume(i1 true) [ "align"(ptr %1196, i64 64) ]
-  %.not15.i = icmp eq i32 %.8.val.fr.i88, 0
   %1200 = getelementptr inbounds nuw i8, ptr %.val83, i64 16
   %1201 = getelementptr inbounds nuw i8, ptr %.val83, i64 32
+  %.not16.i89 = icmp eq i32 %.8.val.fr.i88, 0
   %1202 = getelementptr inbounds nuw i8, ptr %.val83, i64 40
   %1203 = getelementptr inbounds nuw i8, ptr %.val83, i64 24
-  br i1 %spec.select, label %.preheader.us.preheader.i, label %.lr.ph6.split.i
+  br i1 %spec.select, label %.lr.ph6.split.us.i, label %.lr.ph6.split.i
 
-.preheader.us.preheader.i:                        ; preds = %.lr.ph6.i
-  %wide.trip.count25.i = zext i32 %.8.val.fr.i88 to i64
-  br label %.preheader.us.i
+.lr.ph6.split.us.i:                               ; preds = %.lr.ph6.i
+  br i1 %.not16.i89, label %.preheader.us.i, label %.preheader.us.us.preheader.i
 
-.preheader.us.i:                                  ; preds = %1215, %.preheader.us.preheader.i
-  %.0454.us.i = phi i64 [ %1216, %1215 ], [ 0, %.preheader.us.preheader.i ]
-  %1204 = shl i64 %.0454.us.i, 2
+.preheader.us.us.preheader.i:                     ; preds = %.lr.ph6.split.us.i
+  %wide.trip.count26.i = zext i32 %.8.val.fr.i88 to i64
+  br label %.preheader.us.us.i
+
+.preheader.us.us.i:                               ; preds = %1214, %.preheader.us.us.preheader.i
+  %.0454.us.us.i = phi i64 [ %1215, %1214 ], [ 0, %.preheader.us.us.preheader.i ]
+  %1204 = shl i64 %.0454.us.us.i, 2
   %1205 = mul i64 %1204, %1191
   %1206 = getelementptr inbounds nuw float, ptr %2, i64 %1205
-  br i1 %.not15.i, label %.loopexit.us.i, label %.lr.ph.us.i95
+  br label %1216
 
-1207:                                             ; preds = %.loopexit.us.i
-  %1208 = load ptr, ptr %1201, align 32, !tbaa !173
-  tail call void @cmsDoTransform(ptr noundef %1208, ptr noundef %1196, ptr noundef %1229, i32 noundef %.8.val.fr.i88) #17
-  br i1 %.not15.i, label %._crit_edge.us.i101, label %.lr.ph3.us.i
+.lr.ph3.us.us.preheader.i:                        ; preds = %..loopexit_crit_edge.us.us.i
+  %1207 = load ptr, ptr %1201, align 32, !tbaa !173
+  tail call void @cmsDoTransform(ptr noundef %1207, ptr noundef nonnull %1196, ptr noundef %1229, i32 noundef %.8.val.fr.i88) #17
+  br label %.lr.ph3.us.us.i
 
-._crit_edge.us.i101:                              ; preds = %.lr.ph3.us.i, %1207
-  %1209 = load ptr, ptr %1202, align 8, !tbaa !176
-  tail call void @cmsDoTransform(ptr noundef %1209, ptr noundef %1229, ptr noundef %1229, i32 noundef %.8.val.fr.i88) #17
-  br label %1215
+._crit_edge.us.us.i:                              ; preds = %.lr.ph3.us.us.i
+  %1208 = load ptr, ptr %1202, align 8, !tbaa !174
+  tail call void @cmsDoTransform(ptr noundef %1208, ptr noundef nonnull %1229, ptr noundef nonnull %1229, i32 noundef %.8.val.fr.i88) #17
+  br label %1214
 
-.lr.ph3.us.i:                                     ; preds = %1207, %.lr.ph3.us.i
-  %indvars.iv22.i97 = phi i64 [ %indvars.iv.next23.i99, %.lr.ph3.us.i ], [ 0, %1207 ]
-  %.idx28.i = shl nsw i64 %indvars.iv22.i97, 4
-  %1210 = getelementptr inbounds nuw i8, ptr %1229, i64 %.idx28.i
-  %.val.i.us.i98 = load <4 x float>, ptr %1210, align 16, !tbaa !36
-  %1211 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val.i.us.i98, <4 x float> zeroinitializer)
-  %1212 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1211, <4 x float> splat (float 1.000000e+00))
-  store <4 x float> %1212, ptr %1210, align 16, !tbaa !36
-  %indvars.iv.next23.i99 = add nuw nsw i64 %indvars.iv22.i97, 1
-  %exitcond26.not.i100 = icmp eq i64 %indvars.iv.next23.i99, %wide.trip.count25.i
-  br i1 %exitcond26.not.i100, label %._crit_edge.us.i101, label %.lr.ph3.us.i
+.lr.ph3.us.us.i:                                  ; preds = %.lr.ph3.us.us.i, %.lr.ph3.us.us.preheader.i
+  %indvars.iv23.i = phi i64 [ 0, %.lr.ph3.us.us.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph3.us.us.i ]
+  %.idx35.i = shl nsw i64 %indvars.iv23.i, 4
+  %1209 = getelementptr inbounds nuw i8, ptr %1229, i64 %.idx35.i
+  %.val.i.us.us.i = load <4 x float>, ptr %1209, align 16, !tbaa !36
+  %1210 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val.i.us.us.i, <4 x float> zeroinitializer)
+  %1211 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1210, <4 x float> splat (float 1.000000e+00))
+  store <4 x float> %1211, ptr %1209, align 16, !tbaa !36
+  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
+  %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
+  br i1 %exitcond27.not.i, label %._crit_edge.us.us.i, label %.lr.ph3.us.us.i
 
-1213:                                             ; preds = %.loopexit.us.i
-  %1214 = load ptr, ptr %1203, align 8, !tbaa !177
-  tail call void @cmsDoTransform(ptr noundef %1214, ptr noundef %1196, ptr noundef %1229, i32 noundef %.8.val.fr.i88) #17
-  br label %1215
+1212:                                             ; preds = %..loopexit_crit_edge.us.us.i
+  %1213 = load ptr, ptr %1203, align 8, !tbaa !175
+  tail call void @cmsDoTransform(ptr noundef %1213, ptr noundef nonnull %1196, ptr noundef %1229, i32 noundef %.8.val.fr.i88) #17
+  br label %1214
 
-1215:                                             ; preds = %1213, %._crit_edge.us.i101
-  %1216 = add nuw i64 %.0454.us.i, 1
-  %exitcond27.not.i = icmp eq i64 %1216, %1190
-  br i1 %exitcond27.not.i, label %process_lcms2_proper.exit, label %.preheader.us.i, !llvm.loop !178
+1214:                                             ; preds = %1212, %._crit_edge.us.us.i
+  %1215 = add nuw i64 %.0454.us.us.i, 1
+  %exitcond28.not.i = icmp eq i64 %1215, %1190
+  br i1 %exitcond28.not.i, label %process_lcms2_proper.exit, label %.preheader.us.us.i
 
-.lr.ph.us.i95:                                    ; preds = %.preheader.us.i, %dt_vector_mul.exit.us.i
-  %.0461.us.i = phi i64 [ %1227, %dt_vector_mul.exit.us.i ], [ 0, %.preheader.us.i ]
-  %1217 = getelementptr inbounds nuw float, ptr %1196, i64 %.0461.us.i
-  %1218 = getelementptr inbounds nuw float, ptr %1206, i64 %.0461.us.i
+1216:                                             ; preds = %dt_vector_mul.exit.us.us.i, %.preheader.us.us.i
+  %.0461.us.us.i = phi i64 [ 0, %.preheader.us.us.i ], [ %1227, %dt_vector_mul.exit.us.us.i ]
+  %1217 = getelementptr inbounds nuw float, ptr %1196, i64 %.0461.us.us.i
+  %1218 = getelementptr inbounds nuw float, ptr %1206, i64 %.0461.us.us.i
   br label %1219
 
-1219:                                             ; preds = %1219, %.lr.ph.us.i95
-  %.07.i.us.i = phi i64 [ 0, %.lr.ph.us.i95 ], [ %1226, %1219 ]
-  %1220 = getelementptr inbounds nuw float, ptr %1218, i64 %.07.i.us.i
+1219:                                             ; preds = %1219, %1216
+  %.07.i.us.us.i = phi i64 [ 0, %1216 ], [ %1226, %1219 ]
+  %1220 = getelementptr inbounds nuw float, ptr %1218, i64 %.07.i.us.us.i
   %1221 = load float, ptr %1220, align 4, !tbaa !121
-  %1222 = getelementptr inbounds nuw float, ptr %65, i64 %.07.i.us.i
+  %1222 = getelementptr inbounds nuw float, ptr %65, i64 %.07.i.us.us.i
   %1223 = load float, ptr %1222, align 4, !tbaa !121
   %1224 = fmul reassoc nsz arcp contract afn float %1223, %1221
-  %1225 = getelementptr inbounds nuw float, ptr %1217, i64 %.07.i.us.i
+  %1225 = getelementptr inbounds nuw float, ptr %1217, i64 %.07.i.us.us.i
   store float %1224, ptr %1225, align 4, !tbaa !121
-  %1226 = add nuw nsw i64 %.07.i.us.i, 1
-  %exitcond.not.i.us.i = icmp eq i64 %1226, 4
-  br i1 %exitcond.not.i.us.i, label %dt_vector_mul.exit.us.i, label %1219
+  %1226 = add nuw nsw i64 %.07.i.us.us.i, 1
+  %exitcond.not.i.us.us.i = icmp eq i64 %1226, 4
+  br i1 %exitcond.not.i.us.us.i, label %dt_vector_mul.exit.us.us.i, label %1219
 
-dt_vector_mul.exit.us.i:                          ; preds = %1219
-  %1227 = add nuw i64 %.0461.us.i, 4
+dt_vector_mul.exit.us.us.i:                       ; preds = %1219
+  %1227 = add nuw i64 %.0461.us.us.i, 4
   %1228 = icmp ult i64 %1227, %1192
-  br i1 %1228, label %.lr.ph.us.i95, label %.loopexit.us.i
+  br i1 %1228, label %1216, label %..loopexit_crit_edge.us.us.i
 
-.loopexit.us.i:                                   ; preds = %dt_vector_mul.exit.us.i, %.preheader.us.i
+..loopexit_crit_edge.us.us.i:                     ; preds = %dt_vector_mul.exit.us.us.i
   %1229 = getelementptr inbounds nuw float, ptr %3, i64 %1205
   %1230 = load ptr, ptr %1200, align 16, !tbaa !128
-  %.not.us.i96 = icmp eq ptr %1230, null
-  br i1 %.not.us.i96, label %1213, label %1207
+  %.not.us.us.i = icmp eq ptr %1230, null
+  br i1 %.not.us.us.i, label %1212, label %.lr.ph3.us.us.preheader.i
+
+.preheader.us.i:                                  ; preds = %.lr.ph6.split.us.i, %1235
+  %.0454.us.i = phi i64 [ %1236, %1235 ], [ 0, %.lr.ph6.split.us.i ]
+  %1231 = load ptr, ptr %1200, align 16, !tbaa !128
+  %.not.us.i96 = icmp eq ptr %1231, null
+  br i1 %.not.us.i96, label %1233, label %._crit_edge.us.i97
+
+._crit_edge.us.i97:                               ; preds = %.preheader.us.i
+  %1232 = load ptr, ptr %1201, align 32, !tbaa !173
+  tail call void @cmsDoTransform(ptr noundef %1232, ptr noundef %1196, ptr noundef %3, i32 noundef 0) #17
+  %.pre.i = load ptr, ptr %1202, align 8, !tbaa !174
+  tail call void @cmsDoTransform(ptr noundef %.pre.i, ptr noundef %3, ptr noundef %3, i32 noundef 0) #17
+  br label %1235
+
+1233:                                             ; preds = %.preheader.us.i
+  %1234 = load ptr, ptr %1203, align 8, !tbaa !175
+  tail call void @cmsDoTransform(ptr noundef %1234, ptr noundef %1196, ptr noundef %3, i32 noundef 0) #17
+  br label %1235
+
+1235:                                             ; preds = %1233, %._crit_edge.us.i97
+  %1236 = add nuw i64 %.0454.us.i, 1
+  %exitcond34.not.i = icmp eq i64 %1236, %1190
+  br i1 %exitcond34.not.i, label %process_lcms2_proper.exit, label %.preheader.us.i
 
 .lr.ph6.split.i:                                  ; preds = %.lr.ph6.i
-  br i1 %.not15.i, label %.lr.ph6.split.split.i, label %.lr.ph6.split.split.us.preheader.i
+  br i1 %.not16.i89, label %.lr.ph6.split.split.i, label %.lr.ph6.split.split.us.preheader.i
 
 .lr.ph6.split.split.us.preheader.i:               ; preds = %.lr.ph6.split.i
-  %wide.trip.count.i89 = zext i32 %.8.val.fr.i88 to i64
+  %wide.trip.count.i90 = zext i32 %.8.val.fr.i88 to i64
   br label %.lr.ph6.split.split.us.i
 
-.lr.ph6.split.split.us.i:                         ; preds = %1243, %.lr.ph6.split.split.us.preheader.i
-  %.0454.us8.i = phi i64 [ %1244, %1243 ], [ 0, %.lr.ph6.split.split.us.preheader.i ]
-  %1231 = shl i64 %.0454.us8.i, 2
-  %1232 = mul i64 %1231, %1191
-  %1233 = getelementptr inbounds nuw float, ptr %2, i64 %1232
-  %1234 = getelementptr inbounds nuw float, ptr %3, i64 %1232
-  %1235 = load ptr, ptr %1200, align 16, !tbaa !128
-  %.not.us9.i = icmp eq ptr %1235, null
-  br i1 %.not.us9.i, label %1241, label %.lr.ph3.us12.i
+.lr.ph6.split.split.us.i:                         ; preds = %1249, %.lr.ph6.split.split.us.preheader.i
+  %.0454.us8.i = phi i64 [ %1250, %1249 ], [ 0, %.lr.ph6.split.split.us.preheader.i ]
+  %1237 = shl i64 %.0454.us8.i, 2
+  %1238 = mul i64 %1237, %1191
+  %1239 = getelementptr inbounds nuw float, ptr %2, i64 %1238
+  %1240 = getelementptr inbounds nuw float, ptr %3, i64 %1238
+  %1241 = load ptr, ptr %1200, align 16, !tbaa !128
+  %.not.us9.i = icmp eq ptr %1241, null
+  br i1 %.not.us9.i, label %1247, label %.lr.ph3.us12.i
 
 .lr.ph3.us12.i:                                   ; preds = %.lr.ph6.split.split.us.i
-  %1236 = load ptr, ptr %1201, align 32, !tbaa !173
-  tail call void @cmsDoTransform(ptr noundef %1236, ptr noundef %1233, ptr noundef %1234, i32 noundef %.8.val.fr.i88) #17
-  br label %1237
-
-1237:                                             ; preds = %1237, %.lr.ph3.us12.i
-  %indvars.iv.i90 = phi i64 [ 0, %.lr.ph3.us12.i ], [ %indvars.iv.next.i92, %1237 ]
-  %.idx.i91 = shl nsw i64 %indvars.iv.i90, 4
-  %1238 = getelementptr inbounds nuw i8, ptr %1234, i64 %.idx.i91
-  %.val.i.us11.i = load <4 x float>, ptr %1238, align 16, !tbaa !36
-  %1239 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val.i.us11.i, <4 x float> zeroinitializer)
-  %1240 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1239, <4 x float> splat (float 1.000000e+00))
-  store <4 x float> %1240, ptr %1238, align 16, !tbaa !36
-  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i90, 1
-  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i89
-  br i1 %exitcond.not.i93, label %._crit_edge.us13.i, label %1237
-
-1241:                                             ; preds = %.lr.ph6.split.split.us.i
-  %1242 = load ptr, ptr %1203, align 8, !tbaa !177
-  tail call void @cmsDoTransform(ptr noundef %1242, ptr noundef %1233, ptr noundef %1234, i32 noundef %.8.val.fr.i88) #17
+  %1242 = load ptr, ptr %1201, align 32, !tbaa !173
+  tail call void @cmsDoTransform(ptr noundef %1242, ptr noundef %1239, ptr noundef %1240, i32 noundef %.8.val.fr.i88) #17
   br label %1243
 
-1243:                                             ; preds = %._crit_edge.us13.i, %1241
-  %1244 = add nuw i64 %.0454.us8.i, 1
-  %exitcond20.not.i = icmp eq i64 %1244, %1190
-  br i1 %exitcond20.not.i, label %process_lcms2_proper.exit, label %.lr.ph6.split.split.us.i, !llvm.loop !179
+1243:                                             ; preds = %1243, %.lr.ph3.us12.i
+  %indvars.iv.i91 = phi i64 [ 0, %.lr.ph3.us12.i ], [ %indvars.iv.next.i93, %1243 ]
+  %.idx.i92 = shl nsw i64 %indvars.iv.i91, 4
+  %1244 = getelementptr inbounds nuw i8, ptr %1240, i64 %.idx.i92
+  %.val.i.us11.i = load <4 x float>, ptr %1244, align 16, !tbaa !36
+  %1245 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.val.i.us11.i, <4 x float> zeroinitializer)
+  %1246 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1245, <4 x float> splat (float 1.000000e+00))
+  store <4 x float> %1246, ptr %1244, align 16, !tbaa !36
+  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i91, 1
+  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, %wide.trip.count.i90
+  br i1 %exitcond.not.i94, label %._crit_edge.us13.i, label %1243
 
-._crit_edge.us13.i:                               ; preds = %1237
-  %1245 = load ptr, ptr %1202, align 8, !tbaa !176
-  tail call void @cmsDoTransform(ptr noundef %1245, ptr noundef nonnull %1234, ptr noundef nonnull %1234, i32 noundef %.8.val.fr.i88) #17
-  br label %1243
+1247:                                             ; preds = %.lr.ph6.split.split.us.i
+  %1248 = load ptr, ptr %1203, align 8, !tbaa !175
+  tail call void @cmsDoTransform(ptr noundef %1248, ptr noundef %1239, ptr noundef %1240, i32 noundef %.8.val.fr.i88) #17
+  br label %1249
 
-.lr.ph6.split.split.i:                            ; preds = %.lr.ph6.split.i, %1256
-  %.0454.i = phi i64 [ %1257, %1256 ], [ 0, %.lr.ph6.split.i ]
-  %1246 = shl i64 %.0454.i, 2
-  %1247 = mul nuw nsw i64 %1246, %1191
-  %1248 = getelementptr inbounds nuw float, ptr %2, i64 %1247
-  %1249 = getelementptr inbounds nuw float, ptr %3, i64 %1247
-  %1250 = load ptr, ptr %1200, align 16, !tbaa !128
-  %.not.i94 = icmp eq ptr %1250, null
-  br i1 %.not.i94, label %1251, label %1253
+1249:                                             ; preds = %._crit_edge.us13.i, %1247
+  %1250 = add nuw i64 %.0454.us8.i, 1
+  %exitcond21.not.i = icmp eq i64 %1250, %1190
+  br i1 %exitcond21.not.i, label %process_lcms2_proper.exit, label %.lr.ph6.split.split.us.i
 
-1251:                                             ; preds = %.lr.ph6.split.split.i
-  %1252 = load ptr, ptr %1203, align 8, !tbaa !177
-  tail call void @cmsDoTransform(ptr noundef %1252, ptr noundef %1248, ptr noundef %1249, i32 noundef 0) #17
-  br label %1256
+._crit_edge.us13.i:                               ; preds = %1243
+  %1251 = load ptr, ptr %1202, align 8, !tbaa !174
+  tail call void @cmsDoTransform(ptr noundef %1251, ptr noundef nonnull %1240, ptr noundef nonnull %1240, i32 noundef %.8.val.fr.i88) #17
+  br label %1249
 
-1253:                                             ; preds = %.lr.ph6.split.split.i
-  %1254 = load ptr, ptr %1201, align 32, !tbaa !173
-  tail call void @cmsDoTransform(ptr noundef %1254, ptr noundef %1248, ptr noundef %1249, i32 noundef 0) #17
-  %1255 = load ptr, ptr %1202, align 8, !tbaa !176
-  tail call void @cmsDoTransform(ptr noundef %1255, ptr noundef %1249, ptr noundef %1249, i32 noundef 0) #17
-  br label %1256
+.lr.ph6.split.split.i:                            ; preds = %.lr.ph6.split.i, %1262
+  %.0454.i = phi i64 [ %1263, %1262 ], [ 0, %.lr.ph6.split.i ]
+  %1252 = shl i64 %.0454.i, 2
+  %1253 = mul nuw nsw i64 %1252, %1191
+  %1254 = getelementptr inbounds nuw float, ptr %2, i64 %1253
+  %1255 = getelementptr inbounds nuw float, ptr %3, i64 %1253
+  %1256 = load ptr, ptr %1200, align 16, !tbaa !128
+  %.not.i95 = icmp eq ptr %1256, null
+  br i1 %.not.i95, label %1257, label %1259
 
-1256:                                             ; preds = %1253, %1251
-  %1257 = add nuw i64 %.0454.i, 1
-  %exitcond21.not.i = icmp eq i64 %1257, %1190
-  br i1 %exitcond21.not.i, label %process_lcms2_proper.exit, label %.lr.ph6.split.split.i
+1257:                                             ; preds = %.lr.ph6.split.split.i
+  %1258 = load ptr, ptr %1203, align 8, !tbaa !175
+  tail call void @cmsDoTransform(ptr noundef %1258, ptr noundef %1254, ptr noundef %1255, i32 noundef 0) #17
+  br label %1262
 
-process_lcms2_proper.exit:                        ; preds = %1243, %1256, %1215, %1187
+1259:                                             ; preds = %.lr.ph6.split.split.i
+  %1260 = load ptr, ptr %1201, align 32, !tbaa !173
+  tail call void @cmsDoTransform(ptr noundef %1260, ptr noundef %1254, ptr noundef %1255, i32 noundef 0) #17
+  %1261 = load ptr, ptr %1202, align 8, !tbaa !174
+  tail call void @cmsDoTransform(ptr noundef %1261, ptr noundef %1255, ptr noundef %1255, i32 noundef 0) #17
+  br label %1262
+
+1262:                                             ; preds = %1259, %1257
+  %1263 = add nuw i64 %.0454.i, 1
+  %exitcond22.not.i = icmp eq i64 %1263, %1190
+  br i1 %exitcond22.not.i, label %process_lcms2_proper.exit, label %.lr.ph6.split.split.i
+
+process_lcms2_proper.exit:                        ; preds = %1249, %1262, %1214, %1235, %1187
   tail call void @free(ptr noundef %1196) #17
   br label %process_cmatrix.exit
 
 process_cmatrix.exit:                             ; preds = %._crit_edge5.us.i, %1186, %dt_vector_mul.exit, %154, %1140, %process_cmatrix_proper.exit.i, %_process_cmatrix_bm.exit.i, %process_cmatrix_fastpath.exit.i, %process_lcms2_proper.exit, %174
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
-  br label %1258
+  br label %1264
 
-1258:                                             ; preds = %6, %process_cmatrix.exit
+1264:                                             ; preds = %6, %process_cmatrix.exit
   ret void
 }
 
@@ -3218,13 +3244,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   %10 = alloca [4 x float], align 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 16, !tbaa !6
-  %13 = load i32, ptr %1, align 4, !tbaa !180
+  %13 = load i32, ptr %1, align 4, !tbaa !176
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 786732
   store i32 %13, ptr %14, align 4, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %16 = load i32, ptr %15, align 4, !tbaa !182
+  %16 = load i32, ptr %15, align 4, !tbaa !178
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 786736
-  store i32 %16, ptr %17, align 16, !tbaa !183
+  store i32 %16, ptr %17, align 16, !tbaa !179
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 786740
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = tail call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef 512) #17
@@ -3233,14 +3259,14 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   %23 = tail call i64 @g_strlcpy(ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef 512) #17
   %24 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 6, ptr noundef nonnull @.str.26, i32 noundef 63) #17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1032
-  %26 = load ptr, ptr %25, align 8, !tbaa !184
+  %26 = load ptr, ptr %25, align 8, !tbaa !180
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !185
+  %28 = load ptr, ptr %27, align 8, !tbaa !181
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %4
-  %30 = load i32, ptr %12, align 64, !tbaa !186
+  %30 = load i32, ptr %12, align 64, !tbaa !182
   %.not220 = icmp eq i32 %30, 0
   br i1 %.not220, label %32, label %31
 
@@ -3249,15 +3275,15 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   br label %32
 
 32:                                               ; preds = %31, %29, %4
-  store i32 0, ptr %12, align 64, !tbaa !186
+  store i32 0, ptr %12, align 64, !tbaa !182
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 524
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %35 = load i32, ptr %34, align 4, !tbaa !187
+  %35 = load i32, ptr %34, align 4, !tbaa !183
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 786724
   store i32 %35, ptr %36, align 4, !tbaa !123
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %38 = load i32, ptr %37, align 4, !tbaa !188
+  %38 = load i32, ptr %37, align 4, !tbaa !184
   %.off = add i32 %38, -1
   %switch = icmp ult i32 %.off, 4
   br i1 %switch, label %.sink.split, label %42
@@ -3265,19 +3291,19 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
 .sink.split:                                      ; preds = %32
   %39 = tail call ptr @dt_colorspaces_get_profile(i32 noundef %38, ptr noundef nonnull @.str.26, i32 noundef 1) #17
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1032
-  %41 = load ptr, ptr %40, align 8, !tbaa !184
+  %41 = load ptr, ptr %40, align 8, !tbaa !180
   store ptr %41, ptr %33, align 16, !tbaa !128
   br label %42
 
 42:                                               ; preds = %32, %.sink.split
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !177
+  %44 = load ptr, ptr %43, align 8, !tbaa !175
   %.not221 = icmp eq ptr %44, null
   br i1 %.not221, label %46, label %45
 
 45:                                               ; preds = %42
   tail call void @cmsDeleteTransform(ptr noundef nonnull %44) #17
-  store ptr null, ptr %43, align 8, !tbaa !177
+  store ptr null, ptr %43, align 8, !tbaa !175
   br label %46
 
 46:                                               ; preds = %45, %42
@@ -3293,13 +3319,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
 
 50:                                               ; preds = %49, %46
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !176
+  %52 = load ptr, ptr %51, align 8, !tbaa !174
   %.not223 = icmp eq ptr %52, null
   br i1 %.not223, label %54, label %53
 
 53:                                               ; preds = %50
   tail call void @cmsDeleteTransform(ptr noundef nonnull %52) #17
-  store ptr null, ptr %51, align 8, !tbaa !176
+  store ptr null, ptr %51, align 8, !tbaa !174
   br label %54
 
 54:                                               ; preds = %50, %53
@@ -3318,28 +3344,28 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 786728
   store i32 0, ptr %61, align 8, !tbaa !127
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 1, ptr %62, align 8, !tbaa !189
-  %63 = load i32, ptr %1, align 4, !tbaa !180
+  store i32 1, ptr %62, align 8, !tbaa !185
+  %63 = load i32, ptr %1, align 4, !tbaa !176
   %64 = icmp eq i32 %63, 6
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %66, align 16, !tbaa !190
+  store i32 0, ptr %66, align 16, !tbaa !186
   br label %321
 
 67:                                               ; preds = %54
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !122
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 620
-  %71 = load i32, ptr %70, align 4, !tbaa !191
+  %71 = load i32, ptr %70, align 4, !tbaa !187
   %72 = and i32 %71, 1024
   %.not224 = icmp eq i32 %72, 0
   br i1 %.not224, label %73, label %75
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 1, ptr %74, align 16, !tbaa !190
+  store i32 1, ptr %74, align 16, !tbaa !186
   br label %75
 
 75:                                               ; preds = %73, %67
@@ -3353,61 +3379,61 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 1624
   %78 = tail call ptr @dt_colorspaces_create_darktable_profile(ptr noundef nonnull %77) #17
-  store ptr %78, ptr %27, align 8, !tbaa !185
+  store ptr %78, ptr %27, align 8, !tbaa !181
   %.not225 = icmp eq ptr %78, null
   br i1 %.not225, label %.thread257, label %79
 
 79:                                               ; preds = %76
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 1624
   %82 = tail call ptr @dt_colorspaces_create_vendor_profile(ptr noundef nonnull %81) #17
-  store ptr %82, ptr %27, align 8, !tbaa !185
+  store ptr %82, ptr %27, align 8, !tbaa !181
   %.not226 = icmp eq ptr %82, null
   br i1 %.not226, label %.thread257, label %83
 
 83:                                               ; preds = %80
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
 84:                                               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 1624
   %86 = tail call ptr @dt_colorspaces_create_alternate_profile(ptr noundef nonnull %85) #17
-  store ptr %86, ptr %27, align 8, !tbaa !185
+  store ptr %86, ptr %27, align 8, !tbaa !181
   %.not227 = icmp eq ptr %86, null
   br i1 %.not227, label %.thread257, label %.thread263
 
 .thread263:                                       ; preds = %84
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %thread-pre-split
 
 .thread257:                                       ; preds = %75, %76, %80, %84
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 2072
-  %89 = load i32, ptr %88, align 8, !tbaa !205
+  %89 = load i32, ptr %88, align 8, !tbaa !201
   %90 = tail call ptr @dt_image_cache_get(ptr noundef %87, i32 noundef %89, i8 noundef signext 114) #17
   %91 = icmp eq ptr %90, null
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %.thread257
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 1656
-  %94 = load ptr, ptr %93, align 8, !tbaa !206
+  %94 = load ptr, ptr %93, align 8, !tbaa !202
   %95 = icmp eq ptr %94, null
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 1664
-  %98 = load i32, ptr %97, align 16, !tbaa !207
+  %98 = load i32, ptr %97, align 16, !tbaa !203
   %99 = tail call ptr @dt_colorspaces_get_rgb_profile_from_mem(ptr noundef nonnull %94, i32 noundef %98) #17
-  store ptr %99, ptr %27, align 8, !tbaa !185
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store ptr %99, ptr %27, align 8, !tbaa !181
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %100
 
 100:                                              ; preds = %.thread257, %92, %96
   %.4 = phi i32 [ 9, %96 ], [ 10, %92 ], [ 10, %.thread257 ]
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   tail call void @dt_image_cache_read_release(ptr noundef %101, ptr noundef %90) #17
   br label %102
 
@@ -3417,9 +3443,9 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
   br i1 %103, label %104, label %117
 
 104:                                              ; preds = %102
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 2072
-  %107 = load i32, ptr %106, align 8, !tbaa !205
+  %107 = load i32, ptr %106, align 8, !tbaa !201
   %108 = tail call ptr @dt_image_cache_get(ptr noundef %105, i32 noundef %107, i8 noundef signext 114) #17
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 1616
   %110 = load float, ptr %109, align 16, !tbaa !121
@@ -3429,13 +3455,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
 
 113:                                              ; preds = %104
   %114 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %109) #17
-  store ptr %114, ptr %27, align 8, !tbaa !185
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store ptr %114, ptr %27, align 8, !tbaa !181
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %115
 
 115:                                              ; preds = %104, %113
   %.6 = phi i32 [ 10, %113 ], [ 11, %104 ]
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   tail call void @dt_image_cache_read_release(ptr noundef %116, ptr noundef nonnull %108) #17
   br label %117
 
@@ -3466,13 +3492,13 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef %
 
 130:                                              ; preds = %119
   %131 = tail call ptr @dt_colorspaces_create_xyzimatrix_profile(ptr noundef nonnull %120) #17
-  store ptr %131, ptr %27, align 8, !tbaa !185
-  store i32 1, ptr %12, align 64, !tbaa !186
+  store ptr %131, ptr %27, align 8, !tbaa !181
+  store i32 1, ptr %12, align 64, !tbaa !182
   br label %132
 
 thread-pre-split:                                 ; preds = %79, %83, %117, %127, %124, %.thread263
   %.7.ph = phi i32 [ 14, %.thread263 ], [ 3, %124 ], [ 3, %127 ], [ %.5, %117 ], [ 12, %79 ], [ 13, %83 ]
-  %.pr = load ptr, ptr %27, align 8, !tbaa !185
+  %.pr = load ptr, ptr %27, align 8, !tbaa !181
   br label %132
 
 132:                                              ; preds = %thread-pre-split, %130
@@ -3487,13 +3513,13 @@ thread-pre-split:                                 ; preds = %79, %83, %117, %127
   br i1 %.not232, label %._crit_edge, label %136
 
 ._crit_edge:                                      ; preds = %134
-  %.pre = load ptr, ptr %27, align 8, !tbaa !185
+  %.pre = load ptr, ptr %27, align 8, !tbaa !181
   br label %139
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 1032
-  %138 = load ptr, ptr %137, align 8, !tbaa !184
-  store ptr %138, ptr %27, align 8, !tbaa !185
+  %138 = load ptr, ptr %137, align 8, !tbaa !180
+  store ptr %138, ptr %27, align 8, !tbaa !181
   br label %139
 
 139:                                              ; preds = %._crit_edge, %136
@@ -3506,9 +3532,9 @@ thread-pre-split:                                 ; preds = %79, %83, %117, %127
 143:                                              ; preds = %139
   %144 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 1032
-  %146 = load ptr, ptr %145, align 8, !tbaa !184
-  store ptr %146, ptr %27, align 8, !tbaa !185
-  store i32 0, ptr %12, align 64, !tbaa !186
+  %146 = load ptr, ptr %145, align 8, !tbaa !180
+  store ptr %146, ptr %27, align 8, !tbaa !181
+  store i32 0, ptr %12, align 64, !tbaa !182
   br label %147
 
 147:                                              ; preds = %143, %139
@@ -3519,9 +3545,9 @@ thread-pre-split:                                 ; preds = %79, %83, %117, %127
 thread-pre-split265:                              ; preds = %147
   %148 = tail call ptr @dt_colorspaces_get_profile(i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef 1) #17
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1032
-  %150 = load ptr, ptr %149, align 8, !tbaa !184
-  store ptr %150, ptr %27, align 8, !tbaa !185
-  store i32 0, ptr %12, align 64, !tbaa !186
+  %150 = load ptr, ptr %149, align 8, !tbaa !180
+  store ptr %150, ptr %27, align 8, !tbaa !181
+  store i32 0, ptr %12, align 64, !tbaa !182
   %.not234 = icmp eq ptr %150, null
   br i1 %.not234, label %151, label %thread-pre-split265.thread
 
@@ -3530,7 +3556,7 @@ thread-pre-split265:                              ; preds = %147
   %152 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #17
   tail call void (ptr, ...) @dt_control_log(ptr noundef %152) #17
   %153 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %153, align 16, !tbaa !190
+  store i32 0, ptr %153, align 16, !tbaa !186
   br label %321
 
 thread-pre-split265.thread:                       ; preds = %132, %147, %thread-pre-split265
@@ -3559,7 +3585,7 @@ thread-pre-split265.thread:                       ; preds = %132, %147, %thread-
   %.0206 = phi i32 [ 4456604, %157 ], [ 4784284, %156 ], [ 4456604, %thread-pre-split265.thread ]
   %165 = load ptr, ptr %33, align 16, !tbaa !128
   %.not235 = icmp eq ptr %165, null
-  %166 = load ptr, ptr %27, align 8, !tbaa !185
+  %166 = load ptr, ptr %27, align 8, !tbaa !181
   %167 = tail call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %166, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 65536) #17
   %.not236 = icmp eq i32 %167, 0
   br i1 %.not235, label %201, label %168
@@ -3568,22 +3594,22 @@ thread-pre-split265.thread:                       ; preds = %132, %147, %thread-
   br i1 %.not236, label %181, label %169
 
 169:                                              ; preds = %168
-  store i32 0, ptr %62, align 8, !tbaa !189
+  store i32 0, ptr %62, align 8, !tbaa !185
   store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %170 = load ptr, ptr %27, align 8, !tbaa !185
+  %170 = load ptr, ptr %27, align 8, !tbaa !181
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %172 = load i32, ptr %171, align 4, !tbaa !208
+  %172 = load i32, ptr %171, align 4, !tbaa !204
   %173 = tail call ptr @cmsCreateTransform(ptr noundef %170, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %172, i32 noundef 0) #17
-  store ptr %173, ptr %43, align 8, !tbaa !177
-  %174 = load ptr, ptr %27, align 8, !tbaa !185
+  store ptr %173, ptr %43, align 8, !tbaa !175
+  %174 = load ptr, ptr %27, align 8, !tbaa !181
   %175 = load ptr, ptr %33, align 16, !tbaa !128
-  %176 = load i32, ptr %171, align 4, !tbaa !208
+  %176 = load i32, ptr %171, align 4, !tbaa !204
   %177 = tail call ptr @cmsCreateTransform(ptr noundef %174, i32 noundef %.0206, ptr noundef %175, i32 noundef 4456604, i32 noundef %176, i32 noundef 0) #17
   store ptr %177, ptr %47, align 32, !tbaa !173
   %178 = load ptr, ptr %33, align 16, !tbaa !128
-  %179 = load i32, ptr %171, align 4, !tbaa !208
+  %179 = load i32, ptr %171, align 4, !tbaa !204
   %180 = tail call ptr @cmsCreateTransform(ptr noundef %178, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %179, i32 noundef 0) #17
-  store ptr %180, ptr %51, align 8, !tbaa !176
+  store ptr %180, ptr %51, align 8, !tbaa !174
   br label %207
 
 181:                                              ; preds = %168
@@ -3650,13 +3676,13 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   br i1 %.not236, label %207, label %202
 
 202:                                              ; preds = %201
-  store i32 0, ptr %62, align 8, !tbaa !189
+  store i32 0, ptr %62, align 8, !tbaa !185
   store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %203 = load ptr, ptr %27, align 8, !tbaa !185
+  %203 = load ptr, ptr %27, align 8, !tbaa !181
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %205 = load i32, ptr %204, align 4, !tbaa !208
+  %205 = load i32, ptr %204, align 4, !tbaa !204
   %206 = tail call ptr @cmsCreateTransform(ptr noundef %203, i32 noundef %.0206, ptr noundef %26, i32 noundef 4849820, i32 noundef %205, i32 noundef 0) #17
-  store ptr %206, ptr %43, align 8, !tbaa !177
+  store ptr %206, ptr %43, align 8, !tbaa !175
   br label %207
 
 207:                                              ; preds = %201, %202, %169, %dt_colormatrix_mul.exit
@@ -3676,7 +3702,7 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   br i1 %214, label %.thread267, label %215
 
 215:                                              ; preds = %211, %209
-  %216 = load ptr, ptr %51, align 8, !tbaa !176
+  %216 = load ptr, ptr %51, align 8, !tbaa !174
   %.not241 = icmp eq ptr %216, null
   br i1 %.not241, label %217, label %226
 
@@ -3695,13 +3721,13 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   br label %.thread267
 
 .thread267:                                       ; preds = %211, %222, %221
-  %223 = load ptr, ptr %51, align 8, !tbaa !176
+  %223 = load ptr, ptr %51, align 8, !tbaa !174
   %.not244 = icmp eq ptr %223, null
   br i1 %.not244, label %225, label %224
 
 224:                                              ; preds = %.thread267
   call void @cmsDeleteTransform(ptr noundef nonnull %223) #17
-  store ptr null, ptr %51, align 8, !tbaa !176
+  store ptr null, ptr %51, align 8, !tbaa !174
   br label %225
 
 225:                                              ; preds = %224, %.thread267
@@ -3709,7 +3735,7 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   br label %226
 
 226:                                              ; preds = %225, %217, %215, %207
-  %227 = load ptr, ptr %43, align 8, !tbaa !177
+  %227 = load ptr, ptr %43, align 8, !tbaa !175
   %.not245 = icmp eq ptr %227, null
   br i1 %.not245, label %228, label %253
 
@@ -3720,7 +3746,7 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   br i1 %231, label %232, label %253
 
 232:                                              ; preds = %228
-  %233 = load i32, ptr %1, align 4, !tbaa !180
+  %233 = load i32, ptr %1, align 4, !tbaa !176
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %236
 
@@ -3735,12 +3761,12 @@ dt_colormatrix_mul.exit:                          ; preds = %188
 237:                                              ; preds = %236, %235
   %238 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #17
   call void (ptr, ...) @dt_control_log(ptr noundef %238) #17
-  %239 = load ptr, ptr %27, align 8, !tbaa !185
+  %239 = load ptr, ptr %27, align 8, !tbaa !181
   %.not247 = icmp eq ptr %239, null
   br i1 %.not247, label %243, label %240
 
 240:                                              ; preds = %237
-  %241 = load i32, ptr %12, align 64, !tbaa !186
+  %241 = load i32, ptr %12, align 64, !tbaa !182
   %.not248 = icmp eq i32 %241, 0
   br i1 %.not248, label %243, label %242
 
@@ -3752,21 +3778,21 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   store ptr null, ptr %33, align 16, !tbaa !128
   %244 = call ptr @dt_colorspaces_get_profile(i32 noundef 3, ptr noundef nonnull @.str.26, i32 noundef 1) #17
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1032
-  %246 = load ptr, ptr %245, align 8, !tbaa !184
-  store ptr %246, ptr %27, align 8, !tbaa !185
-  store i32 0, ptr %12, align 64, !tbaa !186
+  %246 = load ptr, ptr %245, align 8, !tbaa !180
+  store ptr %246, ptr %27, align 8, !tbaa !181
+  store i32 0, ptr %12, align 64, !tbaa !182
   %247 = call i32 @dt_colorspaces_get_matrix_from_input_profile(ptr noundef %246, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef 65536) #17
   %.not249 = icmp eq i32 %247, 0
   br i1 %.not249, label %253, label %248
 
 248:                                              ; preds = %243
-  store i32 0, ptr %62, align 8, !tbaa !189
+  store i32 0, ptr %62, align 8, !tbaa !185
   store float 0x7FF8000000000000, ptr %55, align 64, !tbaa !121
-  %249 = load ptr, ptr %27, align 8, !tbaa !185
+  %249 = load ptr, ptr %27, align 8, !tbaa !181
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %251 = load i32, ptr %250, align 4, !tbaa !208
+  %251 = load i32, ptr %250, align 4, !tbaa !204
   %252 = call ptr @cmsCreateTransform(ptr noundef %249, i32 noundef 4456604, ptr noundef %26, i32 noundef 4849820, i32 noundef %251, i32 noundef 0) #17
-  store ptr %252, ptr %43, align 8, !tbaa !177
+  store ptr %252, ptr %43, align 8, !tbaa !175
   br label %253
 
 253:                                              ; preds = %243, %248, %228, %226
@@ -3781,13 +3807,13 @@ dt_colormatrix_mul.exit:                          ; preds = %188
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %260 = load ptr, ptr %259, align 8, !tbaa !109
   %261 = load ptr, ptr %68, align 8, !tbaa !122
-  %262 = load i32, ptr %17, align 16, !tbaa !183
+  %262 = load i32, ptr %17, align 16, !tbaa !179
   %263 = call ptr @dt_ioppr_set_pipe_work_profile_info(ptr noundef %260, ptr noundef %261, i32 noundef %262, ptr noundef nonnull %21, i32 noundef 0) #17
   %264 = load ptr, ptr %259, align 8, !tbaa !109
   %265 = load ptr, ptr %68, align 8, !tbaa !122
   %266 = load i32, ptr %14, align 4, !tbaa !26
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %268 = load i32, ptr %267, align 4, !tbaa !208
+  %268 = load i32, ptr %267, align 4, !tbaa !204
   %269 = call ptr @dt_ioppr_set_pipe_input_profile_info(ptr noundef %264, ptr noundef %265, i32 noundef %266, ptr noundef nonnull %18, i32 noundef %268, ptr noundef nonnull %55) #17
   br label %321
 
@@ -3937,12 +3963,12 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !185
+  %7 = load ptr, ptr %6, align 8, !tbaa !181
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %5, align 64, !tbaa !186
+  %9 = load i32, ptr %5, align 64, !tbaa !182
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %11, label %10
 
@@ -3952,13 +3978,13 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 
 11:                                               ; preds = %10, %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !177
+  %13 = load ptr, ptr %12, align 8, !tbaa !175
   %.not19 = icmp eq ptr %13, null
   br i1 %.not19, label %15, label %14
 
 14:                                               ; preds = %11
   tail call void @cmsDeleteTransform(ptr noundef nonnull %13) #17
-  store ptr null, ptr %12, align 8, !tbaa !177
+  store ptr null, ptr %12, align 8, !tbaa !175
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -3974,13 +4000,13 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 
 19:                                               ; preds = %18, %15
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !176
+  %21 = load ptr, ptr %20, align 8, !tbaa !174
   %.not21 = icmp eq ptr %21, null
   br i1 %.not21, label %23, label %22
 
 22:                                               ; preds = %19
   tail call void @cmsDeleteTransform(ptr noundef nonnull %21) #17
-  store ptr null, ptr %20, align 8, !tbaa !176
+  store ptr null, ptr %20, align 8, !tbaa !174
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -3993,13 +4019,13 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 ; Function Attrs: nounwind uwtable
 define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %3 = load ptr, ptr %2, align 16, !tbaa !209
+  %3 = load ptr, ptr %2, align 16, !tbaa !205
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %5 = load ptr, ptr %4, align 8, !tbaa !210
+  %5 = load ptr, ptr %4, align 8, !tbaa !206
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !211
+  %7 = load ptr, ptr %6, align 8, !tbaa !207
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %9 = load i32, ptr %8, align 4, !tbaa !188
+  %9 = load i32, ptr %8, align 4, !tbaa !184
   tail call void @dt_bauhaus_combobox_set(ptr noundef %7, i32 noundef %9) #17
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !55
   %.05789 = load ptr, ptr %10, align 8, !tbaa !91
@@ -4021,7 +4047,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %14, align 8, !tbaa !97
-  %20 = load i32, ptr %11, align 4, !tbaa !182
+  %20 = load i32, ptr %11, align 4, !tbaa !178
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %26
 
@@ -4049,7 +4075,7 @@ split:                                            ; preds = %23
 
 .thread84:                                        ; preds = %26, %1, %split
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %31 = load i32, ptr %30, align 4, !tbaa !182
+  %31 = load i32, ptr %30, align 4, !tbaa !178
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 532
   %33 = tail call ptr @dt_colorspaces_get_name(i32 noundef %31, ptr noundef nonnull %32) #17
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.35, ptr noundef %33) #17
@@ -4058,7 +4084,7 @@ split:                                            ; preds = %23
 split.thread:                                     ; preds = %22, %.thread84, %split
   %.3 = phi i32 [ 0, %.thread84 ], [ %.pre, %split ], [ %16, %22 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !213
+  %35 = load ptr, ptr %34, align 8, !tbaa !209
   tail call void @dt_bauhaus_combobox_set(ptr noundef %35, i32 noundef %.3) #17
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.05892 = load ptr, ptr %36, align 8, !tbaa !91
@@ -4073,7 +4099,7 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
   %.05894 = phi ptr [ %.05892, %.lr.ph95 ], [ %.058, %50 ]
   %39 = load ptr, ptr %.05894, align 8, !tbaa !92
   %40 = load i32, ptr %39, align 8, !tbaa !97
-  %41 = load i32, ptr %5, align 4, !tbaa !180
+  %41 = load i32, ptr %5, align 4, !tbaa !176
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %50
 
@@ -4088,9 +4114,9 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
   br i1 %.not70, label %50, label %.critedge
 
 .critedge:                                        ; preds = %44, %43
-  %47 = load ptr, ptr %3, align 8, !tbaa !214
+  %47 = load ptr, ptr %3, align 8, !tbaa !210
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 1040
-  %49 = load i32, ptr %48, align 8, !tbaa !215
+  %49 = load i32, ptr %48, align 8, !tbaa !211
   tail call void @dt_bauhaus_combobox_set(ptr noundef %47, i32 noundef %49) #17
   br label %82
 
@@ -4114,13 +4140,13 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
   %.05699 = phi ptr [ %.05697, %.lr.ph100 ], [ %.056, %73 ]
   %55 = load ptr, ptr %.05699, align 8, !tbaa !92
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1040
-  %57 = load i32, ptr %56, align 8, !tbaa !215
+  %57 = load i32, ptr %56, align 8, !tbaa !211
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %59, label %73
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %55, align 8, !tbaa !97
-  %61 = load i32, ptr %5, align 4, !tbaa !180
+  %61 = load i32, ptr %5, align 4, !tbaa !176
   %62 = icmp eq i32 %60, %61
   br i1 %62, label %63, label %73
 
@@ -4136,14 +4162,14 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
 
 ..critedge78_crit_edge:                           ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 1040
-  %.pre106 = load i32, ptr %67, align 8, !tbaa !215
+  %.pre106 = load i32, ptr %67, align 8, !tbaa !211
   br label %.critedge78
 
 .critedge78:                                      ; preds = %63, %..critedge78_crit_edge
   %68 = phi i32 [ %.pre106, %..critedge78_crit_edge ], [ %57, %63 ]
-  %69 = load ptr, ptr %3, align 8, !tbaa !214
+  %69 = load ptr, ptr %3, align 8, !tbaa !210
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %71 = load i32, ptr %70, align 8, !tbaa !216
+  %71 = load i32, ptr %70, align 8, !tbaa !212
   %72 = add nsw i32 %71, %68
   tail call void @dt_bauhaus_combobox_set(ptr noundef %69, i32 noundef %72) #17
   br label %82
@@ -4155,7 +4181,7 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
   br i1 %.not71, label %.critedge80, label %54
 
 .critedge80:                                      ; preds = %73, %.critedge76
-  %75 = load ptr, ptr %3, align 8, !tbaa !214
+  %75 = load ptr, ptr %3, align 8, !tbaa !210
   tail call void @dt_bauhaus_combobox_set(ptr noundef %75, i32 noundef 0) #17
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !124
   %77 = and i32 %76, 33554432
@@ -4163,7 +4189,7 @@ split.thread:                                     ; preds = %22, %.thread84, %sp
   br i1 %.not74, label %82, label %78
 
 78:                                               ; preds = %.critedge80
-  %79 = load i32, ptr %5, align 4, !tbaa !180
+  %79 = load i32, ptr %5, align 4, !tbaa !176
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %81 = tail call ptr @dt_colorspaces_get_name(i32 noundef %79, ptr noundef nonnull %80) #17
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.36, ptr noundef %81) #17
@@ -4188,19 +4214,19 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %8 = alloca [64 x i8], align 16
   %9 = alloca [64 x i8], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  store i32 1, ptr %10, align 4, !tbaa !217
+  store i32 1, ptr %10, align 4, !tbaa !213
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 1, ptr %11, align 4, !tbaa !218
+  store i32 1, ptr %11, align 4, !tbaa !214
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %13 = load ptr, ptr %12, align 16, !tbaa !219
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %13 = load ptr, ptr %12, align 16, !tbaa !215
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %16 = load ptr, ptr %15, align 8, !tbaa !109
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1544
-  %18 = load i32, ptr %17, align 8, !tbaa !220
+  %18 = load i32, ptr %17, align 8, !tbaa !216
   %19 = tail call ptr @dt_image_cache_get(ptr noundef %14, i32 noundef %18, i8 noundef signext 119) #17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1656
-  %21 = load ptr, ptr %20, align 8, !tbaa !206
+  %21 = load ptr, ptr %20, align 8, !tbaa !202
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %79
 
@@ -4210,7 +4236,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !96
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 1432
-  %24 = load i32, ptr %23, align 8, !tbaa !236
+  %24 = load i32, ptr %23, align 8, !tbaa !232
   call void @dt_image_full_path(i32 noundef %24, ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull %3) #17
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %25
@@ -4246,7 +4272,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 41:                                               ; preds = %39
   %42 = call i32 @dt_imageio_jpeg_read_profile(ptr noundef nonnull %4, ptr noundef nonnull %20) #17
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 1664
-  store i32 %42, ptr %43, align 16, !tbaa !207
+  store i32 %42, ptr %43, align 16, !tbaa !203
   %.not97 = icmp eq i32 %42, 0
   %44 = select i1 %.not97, i32 -1, i32 9
   br label %45
@@ -4279,7 +4305,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 54:                                               ; preds = %52
   %55 = call i32 @dt_imageio_tiff_read_profile(ptr noundef nonnull %2, ptr noundef nonnull %20) #17
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 1664
-  store i32 %55, ptr %56, align 16, !tbaa !207
+  store i32 %55, ptr %56, align 16, !tbaa !203
   %.not102 = icmp eq i32 %55, 0
   %57 = select i1 %.not102, i32 -1, i32 9
   br label %78
@@ -4293,13 +4319,13 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = call i32 @dt_imageio_png_read_profile(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %5) #17
   %62 = getelementptr inbounds nuw i8, ptr %19, i64 1664
-  store i32 %61, ptr %62, align 16, !tbaa !207
+  store i32 %61, ptr %62, align 16, !tbaa !203
   %63 = call i32 @dt_colorspaces_cicp_to_type(ptr noundef nonnull %5, ptr noundef nonnull %2) #17
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %60
-  %66 = load i32, ptr %62, align 16, !tbaa !207
+  %66 = load i32, ptr %62, align 16, !tbaa !203
   %.not104 = icmp eq i32 %66, 0
   %67 = select i1 %.not104, i32 -1, i32 9
   br label %68
@@ -4318,7 +4344,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = call i32 @dt_imageio_avif_read_profile(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %6) #17
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 1664
-  store i32 %72, ptr %73, align 16, !tbaa !207
+  store i32 %72, ptr %73, align 16, !tbaa !203
   %.not106 = icmp eq i32 %72, 0
   br i1 %.not106, label %74, label %76
 
@@ -4341,7 +4367,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 79:                                               ; preds = %1, %78
   %.3 = phi i32 [ %.1, %78 ], [ 9, %1 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %81 = load ptr, ptr %80, align 16, !tbaa !209
+  %81 = load ptr, ptr %80, align 16, !tbaa !205
   %.not107 = icmp eq ptr %81, null
   br i1 %.not107, label %118, label %82
 
@@ -4352,9 +4378,9 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br i1 %85, label %86, label %116
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr %20, align 8, !tbaa !206
+  %87 = load ptr, ptr %20, align 8, !tbaa !202
   %88 = getelementptr inbounds nuw i8, ptr %19, i64 1664
-  %89 = load i32, ptr %88, align 16, !tbaa !207
+  %89 = load i32, ptr %88, align 16, !tbaa !203
   %90 = call ptr @cmsOpenProfileFromMem(ptr noundef %87, i32 noundef %89) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 16, !tbaa !36
@@ -4402,7 +4428,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %111 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #17
   %112 = call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef %111, ptr noundef nonnull %7, i32 noundef %103, i32 noundef %106, ptr noundef nonnull %.087, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %.088) #17
   %113 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %112, ptr noundef %84, ptr noundef null) #17
-  %114 = load ptr, ptr %81, align 8, !tbaa !214
+  %114 = load ptr, ptr %81, align 8, !tbaa !210
   call void @gtk_widget_set_tooltip_markup(ptr noundef %114, ptr noundef %113) #17
   call void @g_free(ptr noundef %112) #17
   call void @g_free(ptr noundef %113) #17
@@ -4420,7 +4446,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br label %139
 
 116:                                              ; preds = %82
-  %117 = load ptr, ptr %81, align 8, !tbaa !214
+  %117 = load ptr, ptr %81, align 8, !tbaa !210
   call void @gtk_widget_set_tooltip_markup(ptr noundef %117, ptr noundef %84) #17
   call void @g_free(ptr noundef %84) #17
   br label %118
@@ -4431,7 +4457,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %19, i64 1420
-  %121 = load i32, ptr %120, align 4, !tbaa !237
+  %121 = load i32, ptr %120, align 4, !tbaa !233
   %122 = and i32 %121, 16384
   %.not113 = icmp eq i32 %122, 0
   br i1 %.not113, label %123, label %139
@@ -4443,7 +4469,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %19, i64 1668
-  %127 = load i32, ptr %126, align 4, !tbaa !238
+  %127 = load i32, ptr %126, align 4, !tbaa !234
   %.off = add i32 %127, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %139, label %128
@@ -4473,27 +4499,27 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 
 139:                                              ; preds = %125, %137, %135, %130, %128, %123, %119, %118, %.thread
   %.sink = phi i32 [ %.3, %.thread ], [ %.3, %118 ], [ 4, %119 ], [ 3, %123 ], [ 1, %128 ], [ 10, %130 ], [ 11, %135 ], [ %., %137 ], [ %127, %125 ]
-  store i32 %.sink, ptr %13, align 4, !tbaa !180
-  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  store i32 %.sink, ptr %13, align 4, !tbaa !176
+  %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   call void @dt_image_cache_write_release(ptr noundef %140, ptr noundef nonnull %19, i32 noundef 1) #17
-  %141 = load ptr, ptr %80, align 16, !tbaa !209
+  %141 = load ptr, ptr %80, align 16, !tbaa !205
   %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %update_profile_list.exit, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %144 = load ptr, ptr %143, align 8, !tbaa !239
+  %144 = load ptr, ptr %143, align 8, !tbaa !235
   call void @g_list_free_full(ptr noundef %144, ptr noundef nonnull @free) #17
-  store ptr null, ptr %143, align 8, !tbaa !239
+  store ptr null, ptr %143, align 8, !tbaa !235
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  store i32 0, ptr %145, align 8, !tbaa !216
-  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  store i32 0, ptr %145, align 8, !tbaa !212
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   %147 = load ptr, ptr %15, align 8, !tbaa !109
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 1544
-  %149 = load i32, ptr %148, align 8, !tbaa !220
+  %149 = load i32, ptr %148, align 8, !tbaa !216
   %150 = call ptr @dt_image_cache_get(ptr noundef %146, i32 noundef %149, i8 noundef signext 114) #17
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 1656
-  %152 = load ptr, ptr %151, align 8, !tbaa !206
+  %152 = load ptr, ptr %151, align 8, !tbaa !202
   %.not96.i = icmp eq ptr %152, null
   br i1 %.not96.i, label %161, label %153
 
@@ -4503,16 +4529,16 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %156 = call ptr @dt_colorspaces_get_name(i32 noundef 9, ptr noundef nonnull @.str.26) #17
   %157 = call i64 @g_strlcpy(ptr noundef nonnull %155, ptr noundef %156, i64 noundef 512) #17
   store i32 9, ptr %154, align 8, !tbaa !97
-  %158 = load ptr, ptr %143, align 8, !tbaa !239
+  %158 = load ptr, ptr %143, align 8, !tbaa !235
   %159 = call ptr @g_list_append(ptr noundef %158, ptr noundef nonnull %154) #17
-  store ptr %159, ptr %143, align 8, !tbaa !239
+  store ptr %159, ptr %143, align 8, !tbaa !235
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 1040
-  store i32 0, ptr %160, align 8, !tbaa !215
+  store i32 0, ptr %160, align 8, !tbaa !211
   br label %161
 
 161:                                              ; preds = %153, %142
   %.089.i = phi i32 [ 0, %153 ], [ -1, %142 ]
-  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !204
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   call void @dt_image_cache_read_release(ptr noundef %162, ptr noundef nonnull %150) #17
   %163 = load ptr, ptr %15, align 8, !tbaa !109
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 1728
@@ -4527,12 +4553,12 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %171 = call ptr @dt_colorspaces_get_name(i32 noundef 10, ptr noundef nonnull @.str.26) #17
   %172 = call i64 @g_strlcpy(ptr noundef nonnull %170, ptr noundef %171, i64 noundef 512) #17
   store i32 10, ptr %169, align 8, !tbaa !97
-  %173 = load ptr, ptr %143, align 8, !tbaa !239
+  %173 = load ptr, ptr %143, align 8, !tbaa !235
   %174 = call ptr @g_list_append(ptr noundef %173, ptr noundef nonnull %169) #17
-  store ptr %174, ptr %143, align 8, !tbaa !239
+  store ptr %174, ptr %143, align 8, !tbaa !235
   %175 = add nsw i32 %.089.i, 1
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 1040
-  store i32 %175, ptr %176, align 8, !tbaa !215
+  store i32 %175, ptr %176, align 8, !tbaa !211
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !109
   br label %177
 
@@ -4547,7 +4573,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 1532
-  %185 = load i32, ptr %184, align 4, !tbaa !240
+  %185 = load i32, ptr %184, align 4, !tbaa !236
   %186 = and i32 %185, 16384
   %.not99.i = icmp eq i32 %186, 0
   br i1 %.not99.i, label %187, label %196
@@ -4558,12 +4584,12 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %190 = call ptr @dt_colorspaces_get_name(i32 noundef 11, ptr noundef nonnull @.str.26) #17
   %191 = call i64 @g_strlcpy(ptr noundef nonnull %189, ptr noundef %190, i64 noundef 512) #17
   store i32 11, ptr %188, align 8, !tbaa !97
-  %192 = load ptr, ptr %143, align 8, !tbaa !239
+  %192 = load ptr, ptr %143, align 8, !tbaa !235
   %193 = call ptr @g_list_append(ptr noundef %192, ptr noundef nonnull %188) #17
-  store ptr %193, ptr %143, align 8, !tbaa !239
+  store ptr %193, ptr %143, align 8, !tbaa !235
   %194 = add nsw i32 %.1.i, 1
   %195 = getelementptr inbounds nuw i8, ptr %188, i64 1040
-  store i32 %194, ptr %195, align 8, !tbaa !215
+  store i32 %194, ptr %195, align 8, !tbaa !211
   %.pre135.i = load ptr, ptr %15, align 8, !tbaa !109
   br label %196
 
@@ -4581,7 +4607,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 200:                                              ; preds = %199, %196
   %indvars.iv.i = phi i64 [ 0, %196 ], [ %indvars.iv.next.i, %199 ]
   %201 = getelementptr inbounds nuw [93 x %struct.dt_profiled_colormatrix_t], ptr @dt_profiled_colormatrices, i64 0, i64 %indvars.iv.i
-  %202 = load ptr, ptr %201, align 8, !tbaa !241
+  %202 = load ptr, ptr %201, align 8, !tbaa !237
   %203 = call i32 @strcasecmp(ptr noundef nonnull %198, ptr noundef %202) #25
   %.not100.i = icmp eq i32 %203, 0
   br i1 %.not100.i, label %204, label %199
@@ -4592,12 +4618,12 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %207 = call ptr @dt_colorspaces_get_name(i32 noundef 12, ptr noundef nonnull @.str.26) #17
   %208 = call i64 @g_strlcpy(ptr noundef nonnull %206, ptr noundef %207, i64 noundef 512) #17
   store i32 12, ptr %205, align 8, !tbaa !97
-  %209 = load ptr, ptr %143, align 8, !tbaa !239
+  %209 = load ptr, ptr %143, align 8, !tbaa !235
   %210 = call ptr @g_list_append(ptr noundef %209, ptr noundef nonnull %205) #17
-  store ptr %210, ptr %143, align 8, !tbaa !239
+  store ptr %210, ptr %143, align 8, !tbaa !235
   %211 = add nsw i32 %.2.i, 1
   %212 = getelementptr inbounds nuw i8, ptr %205, i64 1040
-  store i32 %211, ptr %212, align 8, !tbaa !215
+  store i32 %211, ptr %212, align 8, !tbaa !211
   %.pre136.i = load ptr, ptr %15, align 8, !tbaa !109
   br label %.loopexit108.i
 
@@ -4615,7 +4641,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 216:                                              ; preds = %215, %.loopexit108.i
   %indvars.iv127.i = phi i64 [ 0, %.loopexit108.i ], [ %indvars.iv.next128.i, %215 ]
   %217 = getelementptr inbounds nuw [5 x %struct.dt_profiled_colormatrix_t], ptr @dt_vendor_colormatrices, i64 0, i64 %indvars.iv127.i
-  %218 = load ptr, ptr %217, align 8, !tbaa !241
+  %218 = load ptr, ptr %217, align 8, !tbaa !237
   %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %214, ptr noundef nonnull dereferenceable(1) %218) #25
   %.not101.i = icmp eq i32 %219, 0
   br i1 %.not101.i, label %220, label %215
@@ -4626,12 +4652,12 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %223 = call ptr @dt_colorspaces_get_name(i32 noundef 13, ptr noundef nonnull @.str.26) #17
   %224 = call i64 @g_strlcpy(ptr noundef nonnull %222, ptr noundef %223, i64 noundef 512) #17
   store i32 13, ptr %221, align 8, !tbaa !97
-  %225 = load ptr, ptr %143, align 8, !tbaa !239
+  %225 = load ptr, ptr %143, align 8, !tbaa !235
   %226 = call ptr @g_list_append(ptr noundef %225, ptr noundef nonnull %221) #17
-  store ptr %226, ptr %143, align 8, !tbaa !239
+  store ptr %226, ptr %143, align 8, !tbaa !235
   %227 = add nsw i32 %.3.i, 1
   %228 = getelementptr inbounds nuw i8, ptr %221, i64 1040
-  store i32 %227, ptr %228, align 8, !tbaa !215
+  store i32 %227, ptr %228, align 8, !tbaa !211
   %.pre137.i = load ptr, ptr %15, align 8, !tbaa !109
   br label %.loopexit107.i
 
@@ -4649,7 +4675,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 232:                                              ; preds = %231, %.loopexit107.i
   %indvars.iv131.i = phi i64 [ 0, %.loopexit107.i ], [ %indvars.iv.next132.i, %231 ]
   %233 = getelementptr inbounds nuw [4 x %struct.dt_profiled_colormatrix_t], ptr @dt_alternate_colormatrices, i64 0, i64 %indvars.iv131.i
-  %234 = load ptr, ptr %233, align 8, !tbaa !241
+  %234 = load ptr, ptr %233, align 8, !tbaa !237
   %235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(1) %234) #25
   %.not102.i = icmp eq i32 %235, 0
   br i1 %.not102.i, label %236, label %231
@@ -4660,19 +4686,19 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %239 = call ptr @dt_colorspaces_get_name(i32 noundef 14, ptr noundef nonnull @.str.26) #17
   %240 = call i64 @g_strlcpy(ptr noundef nonnull %238, ptr noundef %239, i64 noundef 512) #17
   store i32 14, ptr %237, align 8, !tbaa !97
-  %241 = load ptr, ptr %143, align 8, !tbaa !239
+  %241 = load ptr, ptr %143, align 8, !tbaa !235
   %242 = call ptr @g_list_append(ptr noundef %241, ptr noundef nonnull %237) #17
-  store ptr %242, ptr %143, align 8, !tbaa !239
+  store ptr %242, ptr %143, align 8, !tbaa !235
   %243 = add nsw i32 %.4.i, 1
   %244 = getelementptr inbounds nuw i8, ptr %237, i64 1040
-  store i32 %243, ptr %244, align 8, !tbaa !215
+  store i32 %243, ptr %244, align 8, !tbaa !211
   br label %.loopexit106.i
 
 .loopexit106.i:                                   ; preds = %231, %236
   %.5.i = phi i32 [ %243, %236 ], [ %.4.i, %231 ]
   %245 = add nsw i32 %.5.i, 1
-  store i32 %245, ptr %145, align 8, !tbaa !216
-  %246 = load ptr, ptr %141, align 8, !tbaa !214
+  store i32 %245, ptr %145, align 8, !tbaa !212
+  %246 = load ptr, ptr %141, align 8, !tbaa !210
   call void @dt_bauhaus_combobox_clear(ptr noundef %246) #17
   %.092112.i = load ptr, ptr %143, align 8, !tbaa !91
   %.not103113.i = icmp eq ptr %.092112.i, null
@@ -4687,7 +4713,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 .lr.ph.i:                                         ; preds = %.loopexit106.i, %.lr.ph.i
   %.092114.i = phi ptr [ %.092.i, %.lr.ph.i ], [ %.092112.i, %.loopexit106.i ]
   %248 = load ptr, ptr %.092114.i, align 8, !tbaa !92
-  %249 = load ptr, ptr %141, align 8, !tbaa !214
+  %249 = load ptr, ptr %141, align 8, !tbaa !210
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 516
   call void @dt_bauhaus_combobox_add(ptr noundef %249, ptr noundef nonnull %250) #17
   %251 = getelementptr inbounds nuw i8, ptr %.092114.i, i64 8
@@ -4697,7 +4723,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
 
 ._crit_edge120.i:                                 ; preds = %262, %._crit_edge.i
   %252 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %253 = load ptr, ptr %252, align 8, !tbaa !213
+  %253 = load ptr, ptr %252, align 8, !tbaa !209
   call void @dt_bauhaus_combobox_clear(ptr noundef %253) #17
   %254 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !55
   %.0121.i = load ptr, ptr %254, align 8, !tbaa !91
@@ -4708,12 +4734,12 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %.090117.i = phi ptr [ %.090.i, %262 ], [ %.090115.i, %._crit_edge.i ]
   %255 = load ptr, ptr %.090117.i, align 8, !tbaa !92
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 1040
-  %257 = load i32, ptr %256, align 8, !tbaa !215
+  %257 = load i32, ptr %256, align 8, !tbaa !211
   %258 = icmp sgt i32 %257, -1
   br i1 %258, label %259, label %262
 
 259:                                              ; preds = %.lr.ph119.i
-  %260 = load ptr, ptr %141, align 8, !tbaa !214
+  %260 = load ptr, ptr %141, align 8, !tbaa !210
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 516
   call void @dt_bauhaus_combobox_add(ptr noundef %260, ptr noundef nonnull %261) #17
   br label %262
@@ -4733,7 +4759,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br i1 %267, label %268, label %271
 
 268:                                              ; preds = %.lr.ph125.i
-  %269 = load ptr, ptr %252, align 8, !tbaa !213
+  %269 = load ptr, ptr %252, align 8, !tbaa !209
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 516
   call void @dt_bauhaus_combobox_add(ptr noundef %269, ptr noundef nonnull %270) #17
   br label %271
@@ -4809,46 +4835,46 @@ define void @gui_init(ptr noundef initializes((704, 712), (816, 824)) %0) local_
 
 _iop_gui_alloc.exit:                              ; preds = %1, %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %2, ptr %4, align 16, !tbaa !209
+  store ptr %2, ptr %4, align 16, !tbaa !205
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr null, ptr %5, align 8, !tbaa !239
+  store ptr null, ptr %5, align 8, !tbaa !235
   %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store ptr %6, ptr %7, align 16, !tbaa !243
+  store ptr %6, ptr %7, align 16, !tbaa !239
   %8 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #17
-  store ptr %8, ptr %2, align 8, !tbaa !214
+  store ptr %8, ptr %2, align 8, !tbaa !210
   %9 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %8, ptr noundef null, ptr noundef nonnull @.str.51) #17
-  %10 = load ptr, ptr %7, align 16, !tbaa !243
+  %10 = load ptr, ptr %7, align 16, !tbaa !239
   %11 = tail call i64 @gtk_box_get_type() #28
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #17
-  %13 = load ptr, ptr %2, align 8, !tbaa !214
+  %13 = load ptr, ptr %2, align 8, !tbaa !210
   tail call void @gtk_box_pack_start(ptr noundef %12, ptr noundef %13, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
   %14 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #17
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !213
+  store ptr %14, ptr %15, align 8, !tbaa !209
   %16 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %14, ptr noundef null, ptr noundef nonnull @.str.52) #17
-  %17 = load ptr, ptr %7, align 16, !tbaa !243
+  %17 = load ptr, ptr %7, align 16, !tbaa !239
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %11) #17
-  %19 = load ptr, ptr %15, align 8, !tbaa !213
+  %19 = load ptr, ptr %15, align 8, !tbaa !209
   tail call void @gtk_box_pack_start(ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
-  %20 = load ptr, ptr %2, align 8, !tbaa !214
+  %20 = load ptr, ptr %2, align 8, !tbaa !210
   tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef 0) #17
-  %21 = load ptr, ptr %15, align 8, !tbaa !213
+  %21 = load ptr, ptr %15, align 8, !tbaa !209
   tail call void @dt_bauhaus_combobox_set(ptr noundef %21, i32 noundef 0) #17
   %22 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.54, i32 noundef 5) #17
   %23 = tail call ptr @dt_ioppr_get_location_tooltip(ptr noundef nonnull @.str.53, ptr noundef %22) #17
-  %24 = load ptr, ptr %15, align 8, !tbaa !213
+  %24 = load ptr, ptr %15, align 8, !tbaa !209
   tail call void @gtk_widget_set_tooltip_markup(ptr noundef %24, ptr noundef %23) #17
   tail call void @g_free(ptr noundef %23) #17
-  %25 = load ptr, ptr %2, align 8, !tbaa !214
+  %25 = load ptr, ptr %2, align 8, !tbaa !210
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef 80) #17
   %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.55, ptr noundef nonnull @_profile_changed, ptr noundef %0, ptr noundef null, i32 noundef 0) #17
-  %28 = load ptr, ptr %15, align 8, !tbaa !213
+  %28 = load ptr, ptr %15, align 8, !tbaa !209
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef 80) #17
   %30 = tail call i64 @g_signal_connect_data(ptr noundef %29, ptr noundef nonnull @.str.55, ptr noundef nonnull @_workicc_changed, ptr noundef %0, ptr noundef null, i32 noundef 0) #17
   %31 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.56) #17
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !211
+  store ptr %31, ptr %32, align 8, !tbaa !207
   %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %31, ptr noundef %33) #17
   ret void
@@ -4871,21 +4897,21 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_profile_changed(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !244
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !240
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %5 = load i32, ptr %4, align 8, !tbaa !245
+  %5 = load i32, ptr %4, align 8, !tbaa !241
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %42
 
 6:                                                ; preds = %2
   tail call void @dt_iop_request_focus(ptr noundef %1) #17
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %8 = load ptr, ptr %7, align 8, !tbaa !210
+  %8 = load ptr, ptr %7, align 8, !tbaa !206
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %10 = load ptr, ptr %9, align 16, !tbaa !209
+  %10 = load ptr, ptr %9, align 16, !tbaa !205
   %11 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !216
+  %13 = load i32, ptr %12, align 8, !tbaa !212
   %14 = icmp slt i32 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8
@@ -4906,19 +4932,19 @@ define internal void @_profile_changed(ptr noundef %0, ptr noundef %1) #1 {
   %.133 = phi ptr [ %.1, %18 ], [ %.131, %6 ]
   %20 = load ptr, ptr %.133, align 8, !tbaa !92
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1040
-  %22 = load i32, ptr %21, align 8, !tbaa !215
+  %22 = load i32, ptr %21, align 8, !tbaa !211
   %.not30 = icmp eq i32 %22, %.023
   br i1 %.not30, label %23, label %18
 
 23:                                               ; preds = %.critedge
   %24 = load i32, ptr %20, align 8, !tbaa !97
-  store i32 %24, ptr %8, align 4, !tbaa !180
+  store i32 %24, ptr %8, align 4, !tbaa !176
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %25, ptr noundef nonnull align 4 dereferenceable(512) %26, i64 512, i1 false)
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !250
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !246
   tail call void @dt_dev_add_history_item(ptr noundef %27, ptr noundef %1, i32 noundef 1) #17
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !251
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !247
   %29 = and i32 %28, 1
   %30 = icmp ne i32 %29, 0
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3264), align 8
@@ -4937,12 +4963,12 @@ define internal void @_profile_changed(ptr noundef %0, ptr noundef %1) #1 {
   br label %37
 
 37:                                               ; preds = %33, %36, %23
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !252
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !248
   tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %38, i32 noundef 33, i32 noundef 1) #17
   br label %42
 
 ._crit_edge:                                      ; preds = %18, %6
-  %39 = load i32, ptr %8, align 4, !tbaa !180
+  %39 = load i32, ptr %8, align 4, !tbaa !176
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %41 = tail call ptr @dt_colorspaces_get_name(i32 noundef %39, ptr noundef nonnull %40) #17
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.206, ptr noundef %41) #17
@@ -4956,10 +4982,10 @@ define internal void @_profile_changed(ptr noundef %0, ptr noundef %1) #1 {
 define internal void @_workicc_changed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca [512 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %5 = load ptr, ptr %4, align 8, !tbaa !210
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !244
+  %5 = load ptr, ptr %4, align 8, !tbaa !206
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !240
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !245
+  %8 = load i32, ptr %7, align 8, !tbaa !241
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %60
 
@@ -4995,12 +5021,12 @@ define internal void @_workicc_changed(ptr noundef %0, ptr noundef %1) #1 {
 
 20:                                               ; preds = %.loopexit
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  store i32 %17, ptr %21, align 4, !tbaa !182
+  store i32 %17, ptr %21, align 4, !tbaa !178
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 532
   %23 = call i64 @g_strlcpy(ptr noundef nonnull %22, ptr noundef nonnull %3, i64 noundef 512) #17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %25 = load ptr, ptr %24, align 8, !tbaa !109
-  %26 = load i32, ptr %21, align 4, !tbaa !182
+  %26 = load i32, ptr %21, align 4, !tbaa !178
   %27 = call ptr @dt_ioppr_add_profile_info_to_list(ptr noundef %25, i32 noundef %26, ptr noundef nonnull %22, i32 noundef 0) #17
   %28 = icmp eq ptr %27, null
   br i1 %28, label %39, label %29
@@ -5026,9 +5052,9 @@ define internal void @_workicc_changed(ptr noundef %0, ptr noundef %1) #1 {
   br label %41
 
 41:                                               ; preds = %39, %34
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !250
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !246
   call void @dt_dev_add_history_item(ptr noundef %42, ptr noundef nonnull %1, i32 noundef 1) #17
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !251
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !247
   %44 = and i32 %43, 1
   %45 = icmp ne i32 %44, 0
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3264), align 8
@@ -5047,7 +5073,7 @@ define internal void @_workicc_changed(ptr noundef %0, ptr noundef %1) #1 {
   br label %52
 
 52:                                               ; preds = %48, %51, %41
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !252
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !248
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %53, i32 noundef 33, i32 noundef 2) #17
   %54 = load ptr, ptr %24, align 8, !tbaa !109
   call void @dt_dev_pixelpipe_rebuild(ptr noundef %54) #17
@@ -5055,7 +5081,7 @@ define internal void @_workicc_changed(ptr noundef %0, ptr noundef %1) #1 {
 
 .loopexit.thread:                                 ; preds = %12, %9, %.loopexit
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %56 = load i32, ptr %55, align 4, !tbaa !182
+  %56 = load i32, ptr %55, align 4, !tbaa !178
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 532
   %58 = call ptr @dt_colorspaces_get_name(i32 noundef %56, ptr noundef nonnull %57) #17
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.206, ptr noundef %58) #17
@@ -5076,9 +5102,9 @@ declare void @gtk_widget_set_tooltip_text(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %3 = load ptr, ptr %2, align 16, !tbaa !209
+  %3 = load ptr, ptr %2, align 16, !tbaa !205
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !239
+  %5 = load ptr, ptr %4, align 8, !tbaa !235
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -5086,9 +5112,9 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
   %6 = phi ptr [ %9, %.lr.ph ], [ %5, %1 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !92
   tail call void @g_free(ptr noundef %7) #17
-  %8 = load ptr, ptr %4, align 8, !tbaa !239
+  %8 = load ptr, ptr %4, align 8, !tbaa !235
   %9 = tail call ptr @g_list_delete_link(ptr noundef %8, ptr noundef %8) #17
-  store ptr %9, ptr %4, align 8, !tbaa !239
+  store ptr %9, ptr %4, align 8, !tbaa !235
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5110,7 +5136,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #14 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !253
+  %3 = load i32, ptr @introspection, align 8, !tbaa !249
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
@@ -5543,85 +5569,81 @@ attributes #28 = { nounwind willreturn memory(none) }
 !171 = distinct !{!171, !172, !"copy_pixel_nontemporal: argument 0"}
 !172 = distinct !{!172, !"copy_pixel_nontemporal"}
 !173 = !{!27, !9, i64 32}
-!174 = distinct !{!174, !175}
-!175 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!176 = !{!27, !9, i64 40}
-!177 = !{!27, !9, i64 24}
-!178 = distinct !{!178, !175}
-!179 = distinct !{!179, !175}
-!180 = !{!181, !13, i64 0}
-!181 = !{!"dt_iop_colorin_params_t", !13, i64 0, !10, i64 4, !13, i64 516, !13, i64 520, !13, i64 524, !13, i64 528, !10, i64 532}
-!182 = !{!181, !13, i64 528}
-!183 = !{!27, !13, i64 786736}
-!184 = !{!95, !9, i64 1032}
-!185 = !{!27, !9, i64 8}
-!186 = !{!27, !13, i64 0}
-!187 = !{!181, !13, i64 524}
-!188 = !{!181, !13, i64 520}
-!189 = !{!7, !13, i64 216}
-!190 = !{!7, !13, i64 32}
-!191 = !{!192, !13, i64 620}
-!192 = !{!"dt_dev_pixelpipe_t", !193, i64 0, !13, i64 120, !18, i64 128, !196, i64 136, !13, i64 144, !13, i64 148, !19, i64 152, !13, i64 156, !13, i64 160, !21, i64 176, !197, i64 304, !197, i64 312, !197, i64 320, !58, i64 328, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !83, i64 352, !18, i64 360, !13, i64 368, !13, i64 372, !19, i64 376, !19, i64 380, !19, i64 384, !18, i64 392, !82, i64 400, !82, i64 440, !82, i64 480, !13, i64 520, !13, i64 524, !13, i64 528, !198, i64 536, !13, i64 576, !13, i64 580, !13, i64 584, !10, i64 588, !13, i64 592, !13, i64 596, !13, i64 600, !13, i64 604, !13, i64 608, !13, i64 612, !13, i64 616, !13, i64 620, !13, i64 624, !13, i64 628, !199, i64 640, !13, i64 2496, !83, i64 2504, !13, i64 2512, !58, i64 2520, !58, i64 2528, !58, i64 2536, !13, i64 2544, !196, i64 2552, !18, i64 2560}
-!193 = !{!"dt_dev_pixelpipe_cache_t", !13, i64 0, !18, i64 8, !18, i64 16, !9, i64 24, !194, i64 32, !195, i64 40, !194, i64 48, !16, i64 56, !16, i64 64, !18, i64 72, !13, i64 80, !18, i64 88, !18, i64 96, !13, i64 104, !13, i64 108, !13, i64 112}
-!194 = !{!"p1 long", !9, i64 0}
-!195 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !9, i64 0}
-!196 = !{!"p1 float", !9, i64 0}
-!197 = !{!"p1 _ZTS30dt_iop_order_iccprofile_info_t", !9, i64 0}
-!198 = !{!"dt_dev_detail_mask_t", !20, i64 0, !18, i64 24, !196, i64 32}
-!199 = !{!"dt_image_t", !13, i64 0, !13, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !10, i64 36, !10, i64 100, !10, i64 164, !10, i64 292, !10, i64 356, !10, i64 420, !10, i64 484, !18, i64 552, !13, i64 560, !10, i64 564, !10, i64 792, !10, i64 856, !10, i64 920, !10, i64 984, !13, i64 1112, !10, i64 1116, !13, i64 1372, !13, i64 1376, !13, i64 1380, !13, i64 1384, !13, i64 1388, !13, i64 1392, !13, i64 1396, !13, i64 1400, !13, i64 1404, !13, i64 1408, !19, i64 1412, !13, i64 1416, !13, i64 1420, !13, i64 1424, !13, i64 1428, !13, i64 1432, !13, i64 1436, !18, i64 1440, !18, i64 1448, !18, i64 1456, !18, i64 1464, !13, i64 1472, !21, i64 1488, !10, i64 1616, !83, i64 1656, !13, i64 1664, !13, i64 1668, !200, i64 1672, !201, i64 1680, !202, i64 1704, !23, i64 1716, !10, i64 1718, !13, i64 1728, !13, i64 1732, !19, i64 1736, !19, i64 1740, !10, i64 1744, !10, i64 1760, !10, i64 1808, !58, i64 1824, !203, i64 1832, !13, i64 1840, !13, i64 1844}
-!200 = !{!"dt_image_raw_parameters_t", !13, i64 0, !13, i64 3}
-!201 = !{!"dt_image_geoloc_t", !85, i64 0, !85, i64 8, !85, i64 16}
-!202 = !{!"_color_harmony_t", !13, i64 0, !13, i64 4, !13, i64 8}
-!203 = !{!"p1 _ZTS16dt_cache_entry_t", !9, i64 0}
-!204 = !{!56, !68, i64 120}
-!205 = !{!192, !13, i64 2072}
-!206 = !{!199, !83, i64 1656}
-!207 = !{!199, !13, i64 1664}
-!208 = !{!181, !13, i64 516}
-!209 = !{!110, !9, i64 704}
-!210 = !{!110, !9, i64 680}
-!211 = !{!212, !115, i64 8}
-!212 = !{!"dt_iop_colorin_gui_data_t", !115, i64 0, !115, i64 8, !115, i64 16, !58, i64 24, !13, i64 32}
-!213 = !{!212, !115, i64 16}
-!214 = !{!212, !115, i64 0}
-!215 = !{!95, !13, i64 1040}
-!216 = !{!212, !13, i64 32}
-!217 = !{!110, !13, i64 676}
-!218 = !{!110, !13, i64 484}
-!219 = !{!110, !9, i64 688}
-!220 = !{!221, !13, i64 1544}
-!221 = !{!"dt_develop_t", !13, i64 0, !13, i64 4, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !13, i64 52, !13, i64 56, !85, i64 64, !13, i64 72, !13, i64 76, !13, i64 80, !8, i64 88, !12, i64 96, !199, i64 112, !13, i64 1968, !13, i64 1972, !82, i64 1976, !13, i64 2016, !58, i64 2024, !13, i64 2032, !8, i64 2040, !13, i64 2048, !58, i64 2056, !58, i64 2064, !13, i64 2072, !58, i64 2080, !58, i64 2088, !16, i64 2096, !16, i64 2104, !13, i64 2112, !13, i64 2116, !58, i64 2120, !222, i64 2128, !223, i64 2136, !58, i64 2144, !13, i64 2152, !13, i64 2156, !13, i64 2160, !19, i64 2164, !19, i64 2168, !8, i64 2176, !13, i64 2184, !224, i64 2192, !119, i64 2344, !229, i64 2464, !230, i64 2488, !231, i64 2528, !232, i64 2560, !233, i64 2568, !234, i64 2584, !115, i64 2608, !115, i64 2616, !235, i64 2624, !235, i64 2712, !13, i64 2800, !13, i64 2804, !13, i64 2808, !58, i64 2816}
-!222 = !{!"p1 _ZTS15dt_masks_form_t", !9, i64 0}
-!223 = !{!"p1 _ZTS19dt_masks_form_gui_t", !9, i64 0}
-!224 = !{!"", !225, i64 0, !8, i64 32, !226, i64 40, !228, i64 112}
-!225 = !{!"dt_dev_proxy_exposure_t", !8, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!226 = !{!"", !227, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
-!227 = !{!"p1 _ZTS15dt_lib_module_t", !9, i64 0}
-!228 = !{!"", !227, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
-!229 = !{!"", !8, i64 0, !8, i64 8, !9, i64 16}
-!230 = !{!"", !115, i64 0, !115, i64 8, !13, i64 16, !13, i64 20, !19, i64 24, !19, i64 28, !13, i64 32}
-!231 = !{!"", !115, i64 0, !115, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !19, i64 28}
-!232 = !{!"", !115, i64 0}
-!233 = !{!"", !115, i64 0, !13, i64 8}
-!234 = !{!"", !115, i64 0, !115, i64 8, !115, i64 16}
-!235 = !{!"dt_dev_viewport_t", !115, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !85, i64 32, !85, i64 40, !85, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !19, i64 68, !19, i64 72, !19, i64 76, !12, i64 80}
-!236 = !{!199, !13, i64 1432}
-!237 = !{!199, !13, i64 1420}
-!238 = !{!199, !13, i64 1668}
-!239 = !{!212, !58, i64 24}
-!240 = !{!221, !13, i64 1532}
-!241 = !{!242, !83, i64 0}
-!242 = !{!"dt_profiled_colormatrix_t", !83, i64 0, !10, i64 8, !10, i64 20, !10, i64 32, !10, i64 44}
-!243 = !{!110, !115, i64 816}
-!244 = !{!56, !66, i64 104}
-!245 = !{!246, !13, i64 96}
-!246 = !{!"dt_gui_gtk_t", !247, i64 0, !248, i64 8, !249, i64 56, !13, i64 80, !83, i64 88, !13, i64 96, !10, i64 104, !13, i64 1352, !13, i64 1356, !13, i64 1360, !13, i64 1364, !13, i64 1368, !85, i64 1376, !85, i64 1384, !85, i64 1392, !85, i64 1400, !115, i64 1408, !85, i64 1416, !85, i64 1424, !85, i64 1432, !85, i64 1440, !13, i64 1448, !13, i64 1452, !10, i64 1456, !13, i64 5552, !13, i64 5556, !13, i64 5560, !82, i64 5568}
-!247 = !{!"p1 _ZTS7dt_ui_t", !9, i64 0}
-!248 = !{!"dt_gui_widgets_t", !115, i64 0, !115, i64 8, !115, i64 16, !115, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
-!249 = !{!"dt_gui_scrollbars_t", !115, i64 0, !115, i64 8, !13, i64 16}
-!250 = !{!56, !61, i64 64}
-!251 = !{!56, !13, i64 3128}
-!252 = !{!56, !65, i64 96}
-!253 = !{!254, !13, i64 0}
-!254 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !83, i64 8, !18, i64 16, !255, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
-!255 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}
+!174 = !{!27, !9, i64 40}
+!175 = !{!27, !9, i64 24}
+!176 = !{!177, !13, i64 0}
+!177 = !{!"dt_iop_colorin_params_t", !13, i64 0, !10, i64 4, !13, i64 516, !13, i64 520, !13, i64 524, !13, i64 528, !10, i64 532}
+!178 = !{!177, !13, i64 528}
+!179 = !{!27, !13, i64 786736}
+!180 = !{!95, !9, i64 1032}
+!181 = !{!27, !9, i64 8}
+!182 = !{!27, !13, i64 0}
+!183 = !{!177, !13, i64 524}
+!184 = !{!177, !13, i64 520}
+!185 = !{!7, !13, i64 216}
+!186 = !{!7, !13, i64 32}
+!187 = !{!188, !13, i64 620}
+!188 = !{!"dt_dev_pixelpipe_t", !189, i64 0, !13, i64 120, !18, i64 128, !192, i64 136, !13, i64 144, !13, i64 148, !19, i64 152, !13, i64 156, !13, i64 160, !21, i64 176, !193, i64 304, !193, i64 312, !193, i64 320, !58, i64 328, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !83, i64 352, !18, i64 360, !13, i64 368, !13, i64 372, !19, i64 376, !19, i64 380, !19, i64 384, !18, i64 392, !82, i64 400, !82, i64 440, !82, i64 480, !13, i64 520, !13, i64 524, !13, i64 528, !194, i64 536, !13, i64 576, !13, i64 580, !13, i64 584, !10, i64 588, !13, i64 592, !13, i64 596, !13, i64 600, !13, i64 604, !13, i64 608, !13, i64 612, !13, i64 616, !13, i64 620, !13, i64 624, !13, i64 628, !195, i64 640, !13, i64 2496, !83, i64 2504, !13, i64 2512, !58, i64 2520, !58, i64 2528, !58, i64 2536, !13, i64 2544, !192, i64 2552, !18, i64 2560}
+!189 = !{!"dt_dev_pixelpipe_cache_t", !13, i64 0, !18, i64 8, !18, i64 16, !9, i64 24, !190, i64 32, !191, i64 40, !190, i64 48, !16, i64 56, !16, i64 64, !18, i64 72, !13, i64 80, !18, i64 88, !18, i64 96, !13, i64 104, !13, i64 108, !13, i64 112}
+!190 = !{!"p1 long", !9, i64 0}
+!191 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !9, i64 0}
+!192 = !{!"p1 float", !9, i64 0}
+!193 = !{!"p1 _ZTS30dt_iop_order_iccprofile_info_t", !9, i64 0}
+!194 = !{!"dt_dev_detail_mask_t", !20, i64 0, !18, i64 24, !192, i64 32}
+!195 = !{!"dt_image_t", !13, i64 0, !13, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !10, i64 36, !10, i64 100, !10, i64 164, !10, i64 292, !10, i64 356, !10, i64 420, !10, i64 484, !18, i64 552, !13, i64 560, !10, i64 564, !10, i64 792, !10, i64 856, !10, i64 920, !10, i64 984, !13, i64 1112, !10, i64 1116, !13, i64 1372, !13, i64 1376, !13, i64 1380, !13, i64 1384, !13, i64 1388, !13, i64 1392, !13, i64 1396, !13, i64 1400, !13, i64 1404, !13, i64 1408, !19, i64 1412, !13, i64 1416, !13, i64 1420, !13, i64 1424, !13, i64 1428, !13, i64 1432, !13, i64 1436, !18, i64 1440, !18, i64 1448, !18, i64 1456, !18, i64 1464, !13, i64 1472, !21, i64 1488, !10, i64 1616, !83, i64 1656, !13, i64 1664, !13, i64 1668, !196, i64 1672, !197, i64 1680, !198, i64 1704, !23, i64 1716, !10, i64 1718, !13, i64 1728, !13, i64 1732, !19, i64 1736, !19, i64 1740, !10, i64 1744, !10, i64 1760, !10, i64 1808, !58, i64 1824, !199, i64 1832, !13, i64 1840, !13, i64 1844}
+!196 = !{!"dt_image_raw_parameters_t", !13, i64 0, !13, i64 3}
+!197 = !{!"dt_image_geoloc_t", !85, i64 0, !85, i64 8, !85, i64 16}
+!198 = !{!"_color_harmony_t", !13, i64 0, !13, i64 4, !13, i64 8}
+!199 = !{!"p1 _ZTS16dt_cache_entry_t", !9, i64 0}
+!200 = !{!56, !68, i64 120}
+!201 = !{!188, !13, i64 2072}
+!202 = !{!195, !83, i64 1656}
+!203 = !{!195, !13, i64 1664}
+!204 = !{!177, !13, i64 516}
+!205 = !{!110, !9, i64 704}
+!206 = !{!110, !9, i64 680}
+!207 = !{!208, !115, i64 8}
+!208 = !{!"dt_iop_colorin_gui_data_t", !115, i64 0, !115, i64 8, !115, i64 16, !58, i64 24, !13, i64 32}
+!209 = !{!208, !115, i64 16}
+!210 = !{!208, !115, i64 0}
+!211 = !{!95, !13, i64 1040}
+!212 = !{!208, !13, i64 32}
+!213 = !{!110, !13, i64 676}
+!214 = !{!110, !13, i64 484}
+!215 = !{!110, !9, i64 688}
+!216 = !{!217, !13, i64 1544}
+!217 = !{!"dt_develop_t", !13, i64 0, !13, i64 4, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !13, i64 40, !13, i64 44, !13, i64 48, !13, i64 52, !13, i64 56, !85, i64 64, !13, i64 72, !13, i64 76, !13, i64 80, !8, i64 88, !12, i64 96, !195, i64 112, !13, i64 1968, !13, i64 1972, !82, i64 1976, !13, i64 2016, !58, i64 2024, !13, i64 2032, !8, i64 2040, !13, i64 2048, !58, i64 2056, !58, i64 2064, !13, i64 2072, !58, i64 2080, !58, i64 2088, !16, i64 2096, !16, i64 2104, !13, i64 2112, !13, i64 2116, !58, i64 2120, !218, i64 2128, !219, i64 2136, !58, i64 2144, !13, i64 2152, !13, i64 2156, !13, i64 2160, !19, i64 2164, !19, i64 2168, !8, i64 2176, !13, i64 2184, !220, i64 2192, !119, i64 2344, !225, i64 2464, !226, i64 2488, !227, i64 2528, !228, i64 2560, !229, i64 2568, !230, i64 2584, !115, i64 2608, !115, i64 2616, !231, i64 2624, !231, i64 2712, !13, i64 2800, !13, i64 2804, !13, i64 2808, !58, i64 2816}
+!218 = !{!"p1 _ZTS15dt_masks_form_t", !9, i64 0}
+!219 = !{!"p1 _ZTS19dt_masks_form_gui_t", !9, i64 0}
+!220 = !{!"", !221, i64 0, !8, i64 32, !222, i64 40, !224, i64 112}
+!221 = !{!"dt_dev_proxy_exposure_t", !8, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!222 = !{!"", !223, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
+!223 = !{!"p1 _ZTS15dt_lib_module_t", !9, i64 0}
+!224 = !{!"", !223, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!225 = !{!"", !8, i64 0, !8, i64 8, !9, i64 16}
+!226 = !{!"", !115, i64 0, !115, i64 8, !13, i64 16, !13, i64 20, !19, i64 24, !19, i64 28, !13, i64 32}
+!227 = !{!"", !115, i64 0, !115, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !19, i64 28}
+!228 = !{!"", !115, i64 0}
+!229 = !{!"", !115, i64 0, !13, i64 8}
+!230 = !{!"", !115, i64 0, !115, i64 8, !115, i64 16}
+!231 = !{!"dt_dev_viewport_t", !115, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !85, i64 32, !85, i64 40, !85, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !19, i64 68, !19, i64 72, !19, i64 76, !12, i64 80}
+!232 = !{!195, !13, i64 1432}
+!233 = !{!195, !13, i64 1420}
+!234 = !{!195, !13, i64 1668}
+!235 = !{!208, !58, i64 24}
+!236 = !{!217, !13, i64 1532}
+!237 = !{!238, !83, i64 0}
+!238 = !{!"dt_profiled_colormatrix_t", !83, i64 0, !10, i64 8, !10, i64 20, !10, i64 32, !10, i64 44}
+!239 = !{!110, !115, i64 816}
+!240 = !{!56, !66, i64 104}
+!241 = !{!242, !13, i64 96}
+!242 = !{!"dt_gui_gtk_t", !243, i64 0, !244, i64 8, !245, i64 56, !13, i64 80, !83, i64 88, !13, i64 96, !10, i64 104, !13, i64 1352, !13, i64 1356, !13, i64 1360, !13, i64 1364, !13, i64 1368, !85, i64 1376, !85, i64 1384, !85, i64 1392, !85, i64 1400, !115, i64 1408, !85, i64 1416, !85, i64 1424, !85, i64 1432, !85, i64 1440, !13, i64 1448, !13, i64 1452, !10, i64 1456, !13, i64 5552, !13, i64 5556, !13, i64 5560, !82, i64 5568}
+!243 = !{!"p1 _ZTS7dt_ui_t", !9, i64 0}
+!244 = !{!"dt_gui_widgets_t", !115, i64 0, !115, i64 8, !115, i64 16, !115, i64 24, !13, i64 32, !13, i64 36, !13, i64 40}
+!245 = !{!"dt_gui_scrollbars_t", !115, i64 0, !115, i64 8, !13, i64 16}
+!246 = !{!56, !61, i64 64}
+!247 = !{!56, !13, i64 3128}
+!248 = !{!56, !65, i64 96}
+!249 = !{!250, !13, i64 0}
+!250 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !83, i64 8, !18, i64 16, !251, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
+!251 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}

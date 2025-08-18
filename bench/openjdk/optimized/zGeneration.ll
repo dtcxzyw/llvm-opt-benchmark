@@ -6153,7 +6153,7 @@ _ZN26ZIndexDistributorClaimTree11claim_indexEPii.exit: ; preds = %8, %_ZN26ZInde
   %49 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr %48) #17, !srcloc !23
   store i32 %49, ptr %31, align 4
   %50 = icmp slt i32 %49, 16
-  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !30
+  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !28
 
 51:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6205,16 +6205,16 @@ define linkonce_odr hidden void @_ZN26ZIndexDistributorClaimTree12steal_and_doIZ
 .lr.ph:                                           ; preds = %5
   %12 = add nsw i32 %4, 1
   %13 = icmp slt i32 %4, 2
-  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %13, label %.lr.ph.split.us.split, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %.lr.ph.split.us.split
   tail call void @_ZN26ZIndexDistributorClaimTree12claim_and_doIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef nonnull %3, i32 noundef %12)
   tail call void @_ZN26ZIndexDistributorClaimTree12steal_and_doIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef nonnull %3, i32 noundef %12)
   %14 = load i32, ptr %7, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %7, align 4
   %16 = icmp slt i32 %14, 15
-  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !31
+  br i1 %16, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %8, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -6227,7 +6227,7 @@ define linkonce_odr hidden void @_ZN26ZIndexDistributorClaimTree12steal_and_doIZ
   %19 = load i32, ptr %0, align 8
   %20 = shl nuw i32 1, %19
   %21 = icmp slt i32 %18, %20
-  br i1 %21, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !32
+  br i1 %21, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !29
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   tail call void @_ZN26ZIndexDistributorClaimTree12claim_and_doIZN26ZPageTableParallelIterator8do_pagesIZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_EUlS7_E_EEvS9_EUliE_EEvS9_Pii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef nonnull %3, i32 noundef %12)
@@ -6235,9 +6235,9 @@ define linkonce_odr hidden void @_ZN26ZIndexDistributorClaimTree12steal_and_doIZ
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %7, align 4
   %24 = icmp slt i32 %22, 15
-  br i1 %24, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !33
+  br i1 %24, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split, %.lr.ph.split.us, %5
+._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split, %.lr.ph.split.us.split, %5
   ret void
 }
 
@@ -6328,7 +6328,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8
   %46 = getelementptr inbounds nuw i64, ptr %35, i64 %43
   %47 = load i64, ptr %46, align 8
   %.not36.i.i.i.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not36.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %48, !llvm.loop !34
+  br i1 %.not36.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %48, !llvm.loop !30
 
 48:                                               ; preds = %45
   %49 = shl i64 %43, 6
@@ -6358,7 +6358,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i.i.i: ; preds = %50, %33
   %62 = tail call noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_(ptr noundef nonnull %60, i64 noundef %61)
   %63 = add nuw i64 %.0.i.i.i.i.i.i.i.i.i, 1
   %64 = icmp ult i64 %63, %30
-  br i1 %64, label %33, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit, !llvm.loop !35
+  br i1 %64, label %33, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit, !llvm.loop !31
 
 _ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit: ; preds = %54, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i.i.i, %50, %.preheader.i.i.i.i.i.i.i, %24, %15, %2, %10
   ret i1 true
@@ -6548,11 +6548,7 @@ attributes #18 = { noreturn nounwind }
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
 !27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8, !29}
-!32 = distinct !{!32, !8, !29}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
+!31 = distinct !{!31, !8}

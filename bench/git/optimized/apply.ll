@@ -11460,8 +11460,8 @@ strbuf_setlen.exit.i:                             ; preds = %405, %404
   br label %.thread370.thread.i
 
 .thread370.thread.i:                              ; preds = %strbuf_setlen.exit.i, %394, %388, %.thread370.i, %156
-  %.0166.lcssa602.i = phi i32 [ %.0166.lcssa.i, %strbuf_setlen.exit.i ], [ %.0166.lcssa.i, %394 ], [ %.0166.lcssa.i, %388 ], [ %.0166.lcssa.i, %.thread370.i ], [ 0, %156 ]
-  %.0169.lcssa601.i = phi i32 [ %.0169.lcssa.i, %strbuf_setlen.exit.i ], [ %.0169.lcssa.i, %394 ], [ %.0169.lcssa.i, %388 ], [ %.0169.lcssa.i, %.thread370.i ], [ 0, %156 ]
+  %.0166.lcssa601.i = phi i32 [ %.0166.lcssa.i, %strbuf_setlen.exit.i ], [ %.0166.lcssa.i, %394 ], [ %.0166.lcssa.i, %388 ], [ %.0166.lcssa.i, %.thread370.i ], [ 0, %156 ]
+  %.0169.lcssa600.i = phi i32 [ %.0169.lcssa.i, %strbuf_setlen.exit.i ], [ %.0169.lcssa.i, %394 ], [ %.0169.lcssa.i, %388 ], [ %.0169.lcssa.i, %.thread370.i ], [ 0, %156 ]
   %.5.i = phi ptr [ %389, %strbuf_setlen.exit.i ], [ %.0175.lcssa.i, %394 ], [ %.0175.lcssa.i, %388 ], [ %.0175.lcssa.i, %.thread370.i ], [ %165, %156 ]
   %418 = load i64, ptr %.024108, align 8, !tbaa !131
   %419 = getelementptr inbounds nuw i8, ptr %.024108, i64 8
@@ -12121,35 +12121,35 @@ line_by_line_fuzzy_match.exit.i.i.i:              ; preds = %fuzzy_matchlines.ex
 .preheader.i.split.us.i:                          ; preds = %.preheader.i.i
   %670 = load i64, ptr %49, align 8, !tbaa !178
   %671 = icmp eq i64 %670, %669
-  br i1 %671, label %find_pos.exit.thread.i, label %.split.us.loopexit.i
+  br i1 %671, label %find_pos.exit.thread.i, label %.lr.ph528.split.preheader.i
+
+.lr.ph528.split.preheader.i:                      ; preds = %.preheader.i.split.us.i
+  %672 = shl i32 %.169.i.i, 1
+  br label %.split.us.i
 
 .preheader.i.split.i:                             ; preds = %.preheader.i.i
-  %672 = and i32 %.169.i.i, 1
-  %.not8085.i522.i = icmp eq i32 %672, 0
+  %673 = and i32 %.169.i.i, 1
+  %.not8085.i522.i = icmp eq i32 %673, 0
   %.pre166.pre.i.pre.i = load i64, ptr %49, align 8, !tbaa !178
   br i1 %.not8085.i522.i, label %.thread._crit_edge.i.lr.ph.i, label %.thread.i._crit_edge.split.us.i
 
 .thread._crit_edge.i.lr.ph.i:                     ; preds = %.preheader.i.split.i
-  %673 = icmp eq i64 %.pre166.pre.i.pre.i, %669
-  br i1 %673, label %.thread.i._crit_edge.split.us.i, label %.split.us.i
+  %674 = icmp eq i64 %.pre166.pre.i.pre.i, %669
+  br i1 %674, label %.thread.i._crit_edge.split.us.i, label %.split.us.i
 
 .thread.i._crit_edge.split.us.i:                  ; preds = %.thread._crit_edge.i.lr.ph.i, %.preheader.i.split.i
   %.270.i.lcssa.i = phi i32 [ %.169.i.i, %.preheader.i.split.i ], [ 1, %.thread._crit_edge.i.lr.ph.i ]
-  %674 = add nsw i32 %.060.i.i, -1
-  %675 = load ptr, ptr %50, align 8, !tbaa !172
-  %676 = sext i32 %674 to i64
-  %677 = getelementptr inbounds %struct.line, ptr %675, i64 %676
-  %678 = load i64, ptr %677, align 8, !tbaa !180
-  %679 = sub i64 %.066.i.i, %678
+  %675 = add nsw i32 %.060.i.i, -1
+  %676 = load ptr, ptr %50, align 8, !tbaa !172
+  %677 = sext i32 %675 to i64
+  %678 = getelementptr inbounds %struct.line, ptr %676, i64 %677
+  %679 = load i64, ptr %678, align 8, !tbaa !180
+  %680 = sub i64 %.066.i.i, %679
   br label %686
 
-.split.us.loopexit.i:                             ; preds = %.preheader.i.split.us.i
-  %680 = shl i32 %.169.i.i, 1
-  br label %.split.us.i
-
-.split.us.i:                                      ; preds = %.split.us.loopexit.i, %.thread._crit_edge.i.lr.ph.i
-  %.us-phi.i = phi i64 [ %.pre166.pre.i.pre.i, %.thread._crit_edge.i.lr.ph.i ], [ %670, %.split.us.loopexit.i ]
-  %.us-phi521.i = phi i32 [ %.169.i.i, %.thread._crit_edge.i.lr.ph.i ], [ %680, %.split.us.loopexit.i ]
+.split.us.i:                                      ; preds = %.thread._crit_edge.i.lr.ph.i, %.lr.ph528.split.preheader.i
+  %.us-phi.i = phi i64 [ %.pre166.pre.i.pre.i, %.thread._crit_edge.i.lr.ph.i ], [ %670, %.lr.ph528.split.preheader.i ]
+  %.us-phi521.i = phi i32 [ %.169.i.i, %.thread._crit_edge.i.lr.ph.i ], [ %672, %.lr.ph528.split.preheader.i ]
   %681 = load ptr, ptr %50, align 8, !tbaa !172
   %682 = getelementptr inbounds %struct.line, ptr %681, i64 %669
   %683 = load i64, ptr %682, align 8, !tbaa !180
@@ -12160,12 +12160,12 @@ line_by_line_fuzzy_match.exit.i.i.i:              ; preds = %fuzzy_matchlines.ex
 686:                                              ; preds = %.split.us.i, %.thread.i._crit_edge.split.us.i
   %.270.i409.i = phi i32 [ %.270.i.lcssa.i, %.thread.i._crit_edge.split.us.i ], [ %.us-phi521.i, %.split.us.i ]
   %.pre166.i.i = phi i64 [ %.pre166.pre.i.pre.i, %.thread.i._crit_edge.split.us.i ], [ %.us-phi.i, %.split.us.i ]
-  %.167.i.i = phi i64 [ %679, %.thread.i._crit_edge.split.us.i ], [ %.066.i.i, %.split.us.i ]
+  %.167.i.i = phi i64 [ %680, %.thread.i._crit_edge.split.us.i ], [ %.066.i.i, %.split.us.i ]
   %.165.i.i = phi i64 [ %.064.i.i, %.thread.i._crit_edge.split.us.i ], [ %684, %.split.us.i ]
-  %.2.i.i = phi i64 [ %679, %.thread.i._crit_edge.split.us.i ], [ %684, %.split.us.i ]
-  %.161.i.i = phi i32 [ %674, %.thread.i._crit_edge.split.us.i ], [ %.060.i.i, %.split.us.i ]
+  %.2.i.i = phi i64 [ %680, %.thread.i._crit_edge.split.us.i ], [ %684, %.split.us.i ]
+  %.161.i.i = phi i32 [ %675, %.thread.i._crit_edge.split.us.i ], [ %.060.i.i, %.split.us.i ]
   %.159.i.i = phi i32 [ %.058.i.i, %.thread.i._crit_edge.split.us.i ], [ %685, %.split.us.i ]
-  %.1.i287.i = phi i32 [ %674, %.thread.i._crit_edge.split.us.i ], [ %685, %.split.us.i ]
+  %.1.i287.i = phi i32 [ %675, %.thread.i._crit_edge.split.us.i ], [ %685, %.split.us.i ]
   %687 = add i32 %.270.i409.i, 1
   br label %463
 
@@ -12321,7 +12321,7 @@ image_remove_last_line.exit300.i:                 ; preds = %748, %746
   br label %.outer.i.outer
 
 .critedge.i:                                      ; preds = %find_pos.exit.i
-  %.not215.i = icmp eq i32 %.0169.lcssa601.i, 0
+  %.not215.i = icmp eq i32 %.0169.lcssa600.i, 0
   br i1 %.not215.i, label %797, label %753
 
 753:                                              ; preds = %.critedge.i
@@ -12357,7 +12357,7 @@ image_remove_last_line.exit300.i:                 ; preds = %748, %746
 768:                                              ; preds = %764
   %769 = load ptr, ptr @stderr, align 8, !tbaa !128
   %770 = load ptr, ptr %64, align 8, !tbaa !111
-  %771 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %769, ptr noundef nonnull @.str.163, ptr noundef %770, i32 noundef %.0166.lcssa602.i, ptr noundef %765, i32 noundef 1, ptr noundef nonnull @.str.215) #24
+  %771 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %769, ptr noundef nonnull @.str.163, ptr noundef %770, i32 noundef %.0166.lcssa601.i, ptr noundef %765, i32 noundef 1, ptr noundef nonnull @.str.215) #24
   br label %772
 
 772:                                              ; preds = %768, %764
@@ -12371,13 +12371,13 @@ record_ws_error.exit.i:                           ; preds = %772, %760
   br i1 %774, label %.preheader.i, label %793
 
 .preheader.i:                                     ; preds = %record_ws_error.exit.i
-  %.pre591.i = load i64, ptr %41, align 8, !tbaa !178
+  %.pre590.i = load i64, ptr %41, align 8, !tbaa !178
   br label %775
 
 775:                                              ; preds = %image_remove_last_line.exit305.i, %.preheader.i
-  %776 = phi i64 [ %.pre591.i, %.preheader.i ], [ %792, %image_remove_last_line.exit305.i ]
-  %.4173529.i = phi i32 [ %.0169.lcssa601.i, %.preheader.i ], [ %777, %image_remove_last_line.exit305.i ]
-  %777 = add nsw i32 %.4173529.i, -1
+  %776 = phi i64 [ %.pre590.i, %.preheader.i ], [ %792, %image_remove_last_line.exit305.i ]
+  %.4173532.i = phi i32 [ %.0169.lcssa600.i, %.preheader.i ], [ %777, %image_remove_last_line.exit305.i ]
+  %777 = add nsw i32 %.4173532.i, -1
   %778 = load ptr, ptr %.phi.trans.insert.i266.i, align 8, !tbaa !172
   %779 = getelementptr %struct.line, ptr %778, i64 %776
   %780 = getelementptr i8, ptr %779, i64 -16
@@ -12605,7 +12605,7 @@ st_add.exit88.i.i:                                ; preds = %st_add.exit.i.i
   br i1 %879, label %880, label %st_add.exit88.i._crit_edge.i
 
 st_add.exit88.i._crit_edge.i:                     ; preds = %st_add.exit88.i.i
-  %.pre593.pre.i = load ptr, ptr %50, align 8, !tbaa !172
+  %.pre592.pre.i = load ptr, ptr %50, align 8, !tbaa !172
   br label %887
 
 880:                                              ; preds = %st_add.exit88.i.i
@@ -12627,13 +12627,13 @@ st_mult.exit.i321.i:                              ; preds = %880
   br label %887
 
 887:                                              ; preds = %st_mult.exit.i321.i, %st_add.exit88.i._crit_edge.i
-  %.pre593.i = phi ptr [ %886, %st_mult.exit.i321.i ], [ %.pre593.pre.i, %st_add.exit88.i._crit_edge.i ]
+  %.pre592.i = phi ptr [ %886, %st_mult.exit.i321.i ], [ %.pre592.pre.i, %st_add.exit88.i._crit_edge.i ]
   %888 = phi i64 [ %.pre.i322.i, %st_mult.exit.i321.i ], [ %875, %st_add.exit88.i._crit_edge.i ]
   %.not.i317.i = icmp eq i64 %876, %888
   br i1 %.not.i317.i, label %move_array.exit.i319.i, label %889
 
 889:                                              ; preds = %887
-  %890 = getelementptr inbounds nuw %struct.line, ptr %.pre593.i, i64 %831
+  %890 = getelementptr inbounds nuw %struct.line, ptr %.pre592.i, i64 %831
   %891 = getelementptr inbounds nuw %struct.line, ptr %890, i64 %888
   %892 = getelementptr inbounds %struct.line, ptr %890, i64 %876
   %893 = load i64, ptr %49, align 8, !tbaa !178
@@ -12655,12 +12655,12 @@ st_mult.exit.i.i.i:                               ; preds = %897
   %900 = shl nuw i64 %896, 4
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %891, ptr readonly align 1 %892, i64 %900, i1 false)
   %.pr.pre.i.i = load i64, ptr %41, align 8, !tbaa !178
-  %.pre592.i = load ptr, ptr %50, align 8, !tbaa !172
+  %.pre591.i = load ptr, ptr %50, align 8, !tbaa !172
   br label %move_array.exit.i319.i
 
 move_array.exit.i319.i:                           ; preds = %st_mult.exit.i.i.i, %889, %887
   %901 = phi i64 [ %876, %887 ], [ %888, %889 ], [ %.pr.pre.i.i, %st_mult.exit.i.i.i ]
-  %902 = phi ptr [ %.pre593.i, %887 ], [ %.pre593.i, %889 ], [ %.pre592.i, %st_mult.exit.i.i.i ]
+  %902 = phi ptr [ %.pre592.i, %887 ], [ %.pre592.i, %889 ], [ %.pre591.i, %st_mult.exit.i.i.i ]
   %903 = getelementptr inbounds nuw %struct.line, ptr %902, i64 %831
   %904 = load ptr, ptr %.phi.trans.insert.i266.i, align 8, !tbaa !172
   %.not.i89.i.i = icmp eq i64 %901, 0
@@ -12677,8 +12677,8 @@ move_array.exit.i319.i:                           ; preds = %st_mult.exit.i.i.i,
 copy_array.exit.i.i:                              ; preds = %905
   %908 = shl nuw i64 %901, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %903, ptr readonly align 1 %904, i64 %908, i1 false)
-  %.pre594.i = load i64, ptr %41, align 8
-  %909 = icmp eq i64 %.pre594.i, 0
+  %.pre593.i = load i64, ptr %41, align 8
+  %909 = icmp eq i64 %.pre593.i, 0
   %910 = load i32, ptr %48, align 4, !tbaa !236
   %.not86.i.i = icmp ne i32 %910, 0
   %or.cond393.i = select i1 %.not86.i.i, i1 true, i1 %909
@@ -14289,7 +14289,7 @@ create_ce_mode.exit.us40.i:                       ; preds = %.split.split.us.i
 139:                                              ; preds = %create_ce_mode.exit.us40.i, %.split.split.us.i
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 4
-  br i1 %exitcond70.not.i, label %add_conflicted_stages_file.exit, label %.split.split.us.i, !llvm.loop !270
+  br i1 %exitcond70.not.i, label %add_conflicted_stages_file.exit, label %.split.split.us.i, !llvm.loop !268
 
 .split.split.i:                                   ; preds = %.split.i
   switch i16 %trunc.i.i, label %.split.split.split.i [
@@ -14340,7 +14340,7 @@ create_ce_mode.exit.us48.i:                       ; preds = %.split.split.split.
 161:                                              ; preds = %create_ce_mode.exit.us48.i, %.split.split.split.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.us.i, !llvm.loop !271
+  br i1 %exitcond.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.us.i, !llvm.loop !268
 
 .split.split.split.i:                             ; preds = %.split.split.i, %188
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %188 ], [ 1, %.split.split.i ]
@@ -14399,7 +14399,7 @@ _.exit.i25:                                       ; preds = %184, %.split36.us.i
 188:                                              ; preds = %create_ce_mode.exit.i, %.split.split.split.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 4
-  br i1 %exitcond66.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.i, !llvm.loop !272
+  br i1 %exitcond66.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.i, !llvm.loop !268
 
 189:                                              ; preds = %create_one_file.exit.thread
   br i1 %.not21, label %add_conflicted_stages_file.exit, label %190
@@ -15098,8 +15098,4 @@ attributes #25 = { noreturn nounwind }
 !265 = !{!174, !174, i64 0}
 !266 = distinct !{!266, !62}
 !267 = distinct !{!267, !62}
-!268 = distinct !{!268, !62, !269}
-!269 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!270 = distinct !{!270, !62, !269}
-!271 = distinct !{!271, !62, !269}
-!272 = distinct !{!272, !62}
+!268 = distinct !{!268, !62}

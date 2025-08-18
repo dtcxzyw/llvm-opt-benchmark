@@ -4239,7 +4239,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %105 = add i32 %.0228342, 1
   %106 = zext i32 %105 to i64
   %107 = icmp ugt i64 %.1212, %106
-  br i1 %107, label %.lr.ph344.split, label %.critedge, !llvm.loop !67
+  br i1 %107, label %.lr.ph344.split, label %.critedge, !llvm.loop !65
 
 .lr.ph344.split:                                  ; preds = %.lr.ph344, %104
   %108 = phi i64 [ %106, %104 ], [ 0, %.lr.ph344 ]
@@ -4284,7 +4284,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 .critedge:                                        ; preds = %100, %104, %.lr.ph344.split, %95
   %128 = add nuw i64 %.2347, 1
   %exitcond383.not = icmp eq i64 %128, %4
-  br i1 %exitcond383.not, label %.loopexit, label %71, !llvm.loop !68
+  br i1 %exitcond383.not, label %.loopexit, label %71, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.critedge, %69, %.split.us346, %124, %120, %79, %91, %87
   %.7224 = phi i32 [ -1, %87 ], [ -1, %91 ], [ -1, %79 ], [ -1, %120 ], [ -1, %124 ], [ -1, %.split.us346 ], [ 0, %69 ], [ 0, %.critedge ]
@@ -4321,12 +4321,12 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 141:                                              ; preds = %134
   %142 = add nuw i32 %.0216336.us, 1
   %exitcond381.not = icmp eq i32 %142, %130
-  br i1 %exitcond381.not, label %._crit_edge339.us, label %134, !llvm.loop !69
+  br i1 %exitcond381.not, label %._crit_edge339.us, label %134, !llvm.loop !67
 
 ._crit_edge339.us:                                ; preds = %141
   %143 = add nuw i64 %.3340.us, 1
   %exitcond382.not = icmp eq i64 %143, %4
-  br i1 %exitcond382.not, label %.thread, label %.lr.ph338.us, !llvm.loop !70
+  br i1 %exitcond382.not, label %.thread, label %.lr.ph338.us, !llvm.loop !68
 
 144:                                              ; preds = %129
   %145 = load i32, ptr @enable_error_stack, align 4, !tbaa !3
@@ -4405,7 +4405,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %182 = mul i64 %181, %.0209331
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond379.not, label %.preheader316, label %.lr.ph332, !llvm.loop !71
+  br i1 %exitcond379.not, label %.preheader316, label %.lr.ph332, !llvm.loop !69
 
 183:                                              ; preds = %175
   %184 = call i32 @H5Tclose(i64 noundef %176) #16
@@ -4437,7 +4437,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 200:                                              ; preds = %.lr.ph334
   %201 = add nuw i64 %.4333, 1
   %exitcond380.not = icmp eq i64 %201, %4
-  br i1 %exitcond380.not, label %._crit_edge335, label %.lr.ph334, !llvm.loop !72
+  br i1 %exitcond380.not, label %._crit_edge335, label %.lr.ph334, !llvm.loop !70
 
 .lr.ph334:                                        ; preds = %.preheader316, %200
   %.4333 = phi i64 [ %201, %200 ], [ 0, %.preheader316 ]
@@ -4491,15 +4491,15 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 227:                                              ; preds = %.lr.ph328
   %228 = add nuw i64 %.5326, 1
   %exitcond377.not = icmp eq i64 %228, %4
-  br i1 %exitcond377.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !73
+  br i1 %exitcond377.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !71
 
 .lr.ph328:                                        ; preds = %225, %227
   %.5326 = phi i64 [ %228, %227 ], [ 0, %225 ]
   %229 = mul i64 %.5326, %9
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 %229
-  %231 = load i64, ptr %230, align 8, !tbaa !74
+  %231 = load i64, ptr %230, align 8, !tbaa !72
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !76
+  %233 = load ptr, ptr %232, align 8, !tbaa !74
   %234 = tail call i32 @render_bin_output(ptr noundef %0, i64 noundef %1, i64 noundef %226, ptr noundef %233, i64 noundef %231)
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %236, label %227
@@ -4661,7 +4661,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
   %323 = getelementptr inbounds nuw i8, ptr %8, i64 %322
   %324 = load i8, ptr %323, align 1, !tbaa !15
   %.not5.i = icmp eq i8 %324, 0
-  br i1 %.not5.i, label %320, label %h5tools_is_zero.exit, !llvm.loop !77
+  br i1 %.not5.i, label %320, label %h5tools_is_zero.exit, !llvm.loop !75
 
 h5tools_is_zero.exit:                             ; preds = %321
   %325 = call i32 @H5Sget_select_type(i64 noundef %307) #16
@@ -4713,7 +4713,7 @@ h5tools_is_zero.exit:                             ; preds = %321
 351:                                              ; preds = %349, %298, %302, %290
   %352 = add nuw i64 %.6323, 1
   %exitcond376.not = icmp eq i64 %352, %4
-  br i1 %exitcond376.not, label %.loopexit318, label %.lr.ph325, !llvm.loop !78
+  br i1 %exitcond376.not, label %.loopexit318, label %.lr.ph325, !llvm.loop !76
 
 .loopexit318:                                     ; preds = %351, %285, %269, %281, %277
   %.26 = phi i32 [ -1, %277 ], [ -1, %281 ], [ -1, %269 ], [ 0, %285 ], [ 0, %351 ]
@@ -4763,7 +4763,7 @@ h5tools_is_zero.exit:                             ; preds = %321
 377:                                              ; preds = %.lr.ph322
   %378 = add nuw i64 %.7321, 1
   %exitcond375.not = icmp eq i64 %378, %4
-  br i1 %exitcond375.not, label %._crit_edge, label %.lr.ph322, !llvm.loop !79
+  br i1 %exitcond375.not, label %._crit_edge, label %.lr.ph322, !llvm.loop !77
 
 .lr.ph322:                                        ; preds = %375, %377
   %.7321 = phi i64 [ %378, %377 ], [ 0, %375 ]
@@ -4811,7 +4811,7 @@ h5tools_is_zero.exit:                             ; preds = %321
 402:                                              ; preds = %.lr.ph
   %403 = add nuw i64 %.8320, 1
   %exitcond.not = icmp eq i64 %403, %4
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %401, %402
   %.8320 = phi i64 [ %403, %402 ], [ 0, %401 ]
@@ -4914,7 +4914,7 @@ define noundef zeroext i1 @h5tools_is_zero(ptr noundef readonly captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !15
   %.not5 = icmp eq i8 %7, 0
-  br i1 %.not5, label %3, label %8, !llvm.loop !77
+  br i1 %.not5, label %3, label %8, !llvm.loop !75
 
 8:                                                ; preds = %3, %4
   ret i1 %.not
@@ -5485,7 +5485,7 @@ define noundef i32 @render_bin_output_region_data_blocks(i64 noundef %0, ptr nou
   %58 = mul i64 %56, %.096151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader150
   %.096.lcssa = phi i64 [ 1, %.preheader150 ], [ %58, %.lr.ph ]
@@ -5788,7 +5788,7 @@ define noundef i32 @render_bin_output_region_data_blocks(i64 noundef %0, ptr nou
 230:                                              ; preds = %222, %226, %204, %208, %196, %185, %189, %177, %166, %170, %158, %212
   %231 = add nuw i64 %.090157, 1
   %exitcond164.not = icmp eq i64 %231, %5
-  br i1 %exitcond164.not, label %.loopexit, label %.preheader, !llvm.loop !82
+  br i1 %exitcond164.not, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .loopexit:                                        ; preds = %230, %.preheader149, %147, %151, %139, %127, %131, %119, %108, %112, %100, %88, %92, %80, %69, %73, %61, %40, %44, %32, %19, %23, %11
   %.098 = phi ptr [ null, %11 ], [ null, %23 ], [ null, %19 ], [ null, %32 ], [ null, %44 ], [ null, %40 ], [ null, %61 ], [ null, %73 ], [ null, %69 ], [ null, %80 ], [ null, %92 ], [ null, %88 ], [ null, %100 ], [ null, %112 ], [ null, %108 ], [ null, %119 ], [ null, %131 ], [ null, %127 ], [ %117, %139 ], [ %117, %151 ], [ %117, %147 ], [ %117, %.preheader149 ], [ %117, %230 ]
@@ -6207,8 +6207,8 @@ sub_018:                                          ; preds = %15
   br label %23
 
 23:                                               ; preds = %21, %.tail17.thread
-  %24 = load i64, ptr %5, align 8, !tbaa !83
-  %25 = load i64, ptr %6, align 8, !tbaa !83
+  %24 = load i64, ptr %5, align 8, !tbaa !81
+  %25 = load i64, ptr %6, align 8, !tbaa !81
   %26 = icmp eq i64 %24, %25
   br i1 %26, label %27, label %32
 
@@ -6336,24 +6336,22 @@ attributes #20 = { nounwind allocsize(0) }
 !62 = distinct !{!62, !28}
 !63 = distinct !{!63, !28}
 !64 = distinct !{!64, !28}
-!65 = distinct !{!65, !28, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !28}
+!66 = distinct !{!66, !28}
 !67 = distinct !{!67, !28}
 !68 = distinct !{!68, !28}
 !69 = distinct !{!69, !28}
-!70 = distinct !{!70, !28, !66}
+!70 = distinct !{!70, !28}
 !71 = distinct !{!71, !28}
-!72 = distinct !{!72, !28}
-!73 = distinct !{!73, !28}
-!74 = !{!75, !8, i64 0}
-!75 = !{!"", !8, i64 0, !11, i64 8}
-!76 = !{!75, !11, i64 8}
+!72 = !{!73, !8, i64 0}
+!73 = !{!"", !8, i64 0, !11, i64 8}
+!74 = !{!73, !11, i64 8}
+!75 = distinct !{!75, !28}
+!76 = distinct !{!76, !28}
 !77 = distinct !{!77, !28}
 !78 = distinct !{!78, !28}
 !79 = distinct !{!79, !28}
 !80 = distinct !{!80, !28}
-!81 = distinct !{!81, !28}
-!82 = distinct !{!82, !28}
-!83 = !{!84, !8, i64 0}
-!84 = !{!"H5O_info2_t", !8, i64 0, !85, i64 8, !4, i64 24, !4, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64}
-!85 = !{!"H5O_token_t", !5, i64 0}
+!81 = !{!82, !8, i64 0}
+!82 = !{!"H5O_info2_t", !8, i64 0, !83, i64 8, !4, i64 24, !4, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64}
+!83 = !{!"H5O_token_t", !5, i64 0}

@@ -323,7 +323,7 @@ _ZL16calc_x_av_stddeviPA3_fPfS1_.exit:            ; preds = %50
 182:                                              ; preds = %171, %173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split79.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split79.us, label %.split, !llvm.loop !19
 
 .split79.us:                                      ; preds = %182, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -381,6 +381,4 @@ attributes #6 = { nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS8_IO_FILE", !18, i64 0}
 !18 = !{!"any pointer", !6, i64 0}
-!19 = distinct !{!19, !11, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !11}
+!19 = distinct !{!19, !11}

@@ -395,7 +395,7 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   store double %45, ptr %46, align 8, !tbaa !23
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, 11
-  br i1 %exitcond56.not, label %.split.us, label %.thread.us, !llvm.loop !27
+  br i1 %exitcond56.not, label %.split.us, label %.thread.us
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %63
   %indvars.iv = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next, %63 ]
@@ -821,5 +821,3 @@ attributes #13 = { cold }
 !24 = !{!6, !6, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"long", !7, i64 0}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}

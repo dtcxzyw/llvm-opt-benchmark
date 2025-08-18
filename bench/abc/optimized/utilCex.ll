@@ -504,7 +504,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
 94:                                               ; preds = %82, %90
   %95 = add nuw nsw i32 %.0103, 1
   %exitcond.not = icmp eq i32 %95, %32
-  br i1 %exitcond.not, label %.preheader102, label %82, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader102, label %82, !llvm.loop !20
 
 .preheader100:                                    ; preds = %._crit_edge.us, %.preheader101.lr.ph, %.preheader102
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader102 ], [ %.0.lcssa, %.preheader101.lr.ph ], [ %80, %._crit_edge.us ]
@@ -558,12 +558,12 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %120 = add nuw nsw i32 %.180111.us, 1
   %121 = add nsw i32 %.4112.us, 1
   %exitcond137.not = icmp eq i32 %120, %34
-  br i1 %exitcond137.not, label %._crit_edge.us118, label %103, !llvm.loop !22
+  br i1 %exitcond137.not, label %._crit_edge.us118, label %103, !llvm.loop !21
 
 ._crit_edge.us118:                                ; preds = %119
   %122 = add nuw nsw i32 %.177115.us, 1
   %exitcond138.not = icmp eq i32 %122, %27
-  br i1 %exitcond138.not, label %.preheader98, label %.preheader99.us, !llvm.loop !23
+  br i1 %exitcond138.not, label %.preheader98, label %.preheader99.us, !llvm.loop !22
 
 .preheader98:                                     ; preds = %._crit_edge.us118, %.preheader99.lr.ph, %.preheader100
   %.3.lcssa = phi i32 [ %.1.lcssa, %.preheader100 ], [ %.1.lcssa, %.preheader99.lr.ph ], [ %121, %._crit_edge.us118 ]
@@ -612,12 +612,12 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %146 = add nuw nsw i32 %.281120.us, 1
   %147 = add nsw i32 %.6121.us, 1
   %exitcond139.not = icmp eq i32 %146, %34
-  br i1 %exitcond139.not, label %._crit_edge.us127, label %128, !llvm.loop !24
+  br i1 %exitcond139.not, label %._crit_edge.us127, label %128, !llvm.loop !23
 
 ._crit_edge.us127:                                ; preds = %145
   %148 = add i32 %.278125.us, 1
   %exitcond140.not = icmp eq i32 %.278125.us, %12
-  br i1 %exitcond140.not, label %.loopexit, label %.preheader.us, !llvm.loop !25
+  br i1 %exitcond140.not, label %.loopexit, label %.preheader.us, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge.us127, %.preheader.lr.ph, %.preheader98, %22, %18, %14, %9, %6
   %.082 = phi ptr [ null, %6 ], [ null, %9 ], [ null, %14 ], [ null, %18 ], [ null, %22 ], [ %calloc.i, %.preheader98 ], [ %calloc.i, %.preheader.lr.ph ], [ %calloc.i, %._crit_edge.us127 ]
@@ -666,7 +666,7 @@ define void @Abc_CexPrintStats(ptr noundef %0) local_unnamed_addr #4 {
   %16 = add nuw nsw i32 %15, %.021
   %17 = add nuw nsw i32 %.01620, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %8, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %8 ]
@@ -728,7 +728,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %17 = add nuw nsw i32 %16, %.04151.us
   %18 = add nuw nsw i32 %.04250.us, 1
   %exitcond62.not = icmp eq i32 %18, %4
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -765,7 +765,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %.1 = add nuw nsw i32 %.053, %36
   %37 = add nuw nsw i32 %.04250, 1
   %exitcond.not = icmp eq i32 %37, %4
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph.split.us, %.preheader.._crit_edge_crit_edge
   %38 = phi i32 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %1, %.lr.ph.split.us ], [ %8, %23 ]
@@ -848,7 +848,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %15 = add nuw nsw i32 %14, %.021.i
   %16 = add nuw nsw i32 %.01620.i, 1
   %exitcond.not.i = icmp eq i32 %16, %4
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %7, !llvm.loop !26
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %7, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %7, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %15, %7 ]
@@ -887,7 +887,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %43 = add nuw nsw i32 %.021, 1
   %44 = load i32, ptr %20, align 4, !tbaa !3
   %45 = icmp slt i32 %43, %44
-  br i1 %45, label %34, label %._crit_edge, !llvm.loop !29
+  br i1 %45, label %34, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %34, %._crit_edge.i
   %.0.lcssa = phi i32 [ 0, %._crit_edge.i ], [ %43, %34 ]
@@ -923,7 +923,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %61 = add nuw nsw i32 %.01722, 1
   %62 = load i32, ptr %22, align 4, !tbaa !8
   %63 = icmp slt i32 %61, %62
-  br i1 %63, label %.lr.ph25, label %._crit_edge26, !llvm.loop !30
+  br i1 %63, label %.lr.ph25, label %._crit_edge26, !llvm.loop !28
 
 ._crit_edge26:                                    ; preds = %.lr.ph25, %48
   %.2.lcssa = phi i32 [ %.130, %48 ], [ %52, %.lr.ph25 ]
@@ -931,7 +931,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %64 = add nuw nsw i32 %.01629, 1
   %65 = load i32, ptr %18, align 4, !tbaa !11
   %.not.not = icmp slt i32 %.01629, %65
-  br i1 %.not.not, label %48, label %.loopexit, !llvm.loop !31
+  br i1 %.not.not, label %48, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %1, %2
   %str.6.sink = phi ptr [ @str.6, %2 ], [ @str.7, %1 ]
@@ -944,7 +944,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Abc_CexFreeP(ptr noundef captures(none) %0) local_unnamed_addr #6 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !32
+  %2 = load ptr, ptr %0, align 8, !tbaa !30
   %magicptr = ptrtoint ptr %2 to i64
   switch i64 %magicptr, label %3 [
     i64 0, label %4
@@ -956,7 +956,7 @@ define void @Abc_CexFreeP(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %3
-  store ptr null, ptr %0, align 8, !tbaa !32
+  store ptr null, ptr %0, align 8, !tbaa !30
   br label %4
 
 4:                                                ; preds = %.sink.split, %1
@@ -1163,11 +1163,11 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %53 = add nuw nsw i32 %.04249.us, 1
   %54 = add nsw i32 %.14150.us, 1
   %exitcond.not = icmp eq i32 %53, %1
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !33
 
 ._crit_edge.us:                                   ; preds = %52
   %exitcond67.not = icmp eq i32 %34, %8
-  br i1 %exitcond67.not, label %.preheader47, label %.preheader48.us, !llvm.loop !36
+  br i1 %exitcond67.not, label %.preheader47, label %.preheader48.us, !llvm.loop !34
 
 .preheader47:                                     ; preds = %._crit_edge.us, %.preheader48.lr.ph, %4
   %.040.lcssa = phi i32 [ %3, %4 ], [ %3, %.preheader48.lr.ph ], [ %54, %._crit_edge.us ]
@@ -1221,12 +1221,12 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %78 = add nuw nsw i32 %.14354.us, 1
   %79 = add nsw i32 %.355.us, 1
   %exitcond68.not = icmp eq i32 %78, %1
-  br i1 %exitcond68.not, label %._crit_edge.us62, label %61, !llvm.loop !37
+  br i1 %exitcond68.not, label %._crit_edge.us62, label %61, !llvm.loop !35
 
 ._crit_edge.us62:                                 ; preds = %77
   %80 = add nuw i32 %.158.us, 1
   %exitcond69.not = icmp eq i32 %.158.us, %10
-  br i1 %exitcond69.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !38
+  br i1 %exitcond69.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !36
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us62, %.preheader.lr.ph, %.preheader47
   ret ptr %calloc.i
@@ -1247,14 +1247,14 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.066 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !39
+  %7 = load i8, ptr %6, align 1, !tbaa !37
   %8 = and i8 %7, -33
   %narrow63 = icmp eq i8 %8, 88
   %9 = zext i1 %narrow63 to i32
   %10 = add nuw nsw i32 %.066, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
@@ -1310,7 +1310,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %indvars.iv85 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next86, %62 ]
   %.05268 = phi i32 [ 0, %.lr.ph70 ], [ %65, %62 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv85
-  %41 = load i8, ptr %40, align 1, !tbaa !39
+  %41 = load i8, ptr %40, align 1, !tbaa !37
   switch i8 %41, label %62 [
     i8 49, label %53
     i8 120, label %42
@@ -1350,7 +1350,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %65 = add nuw nsw i32 %.05268, %64
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %.preheader64, label %39, !llvm.loop !41
+  br i1 %exitcond89.not, label %.preheader64, label %39, !llvm.loop !39
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge75
   %66 = phi i32 [ %93, %._crit_edge75 ], [ %13, %.preheader.lr.ph ]
@@ -1398,7 +1398,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %90 = add nuw nsw i32 %.15672, 1
   %91 = add nsw i32 %.273, 1
   %92 = icmp slt i32 %90, %89
-  br i1 %92, label %71, label %._crit_edge75, !llvm.loop !42
+  br i1 %92, label %71, label %._crit_edge75, !llvm.loop !40
 
 ._crit_edge75:                                    ; preds = %88, %.preheader
   %93 = phi i32 [ %66, %.preheader ], [ %89, %88 ]
@@ -1406,7 +1406,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %.2.lcssa = phi i32 [ %.179, %.preheader ], [ %91, %88 ]
   %95 = add nuw i32 %.05478, 1
   %exitcond90.not = icmp eq i32 %.05478, %15
-  br i1 %exitcond90.not, label %._crit_edge80, label %.preheader, !llvm.loop !43
+  br i1 %exitcond90.not, label %._crit_edge80, label %.preheader, !llvm.loop !41
 
 ._crit_edge80:                                    ; preds = %._crit_edge75, %.preheader.lr.ph, %.preheader64
   ret ptr %calloc.i
@@ -1472,7 +1472,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %
   %40 = sub nsw i32 %.024, %4
   %.fr = freeze i32 %40
   %41 = srem i32 %.fr, %6
-  %.val = load ptr, ptr %29, align 8, !tbaa !45
+  %.val = load ptr, ptr %29, align 8, !tbaa !43
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !12
@@ -1492,7 +1492,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %
 55:                                               ; preds = %31, %39
   %56 = add nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %56, %26
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %55, %2
   ret ptr %calloc.i
@@ -1524,15 +1524,15 @@ Vec_IntAlloc.exit.i:                              ; preds = %3
 Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.exit.i, %10
   %13 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %9, %10 ], [ null, %3 ]
   %14 = getelementptr i8, ptr %1, i64 4
-  %.val1519 = load i32, ptr %14, align 4, !tbaa !49
+  %.val1519 = load i32, ptr %14, align 4, !tbaa !47
   %15 = icmp sgt i32 %.val1519, 0
   br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %16 = getelementptr i8, ptr %1, i64 8
-  %.val14 = load ptr, ptr %16, align 8, !tbaa !45
+  %.val14 = load ptr, ptr %16, align 8, !tbaa !43
   %17 = getelementptr i8, ptr %2, i64 8
-  %.val = load ptr, ptr %17, align 8, !tbaa !45
+  %.val = load ptr, ptr %17, align 8, !tbaa !43
   %18 = zext nneg i32 %.val1519 to i64
   br label %19
 
@@ -1547,7 +1547,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   store i32 %23, ptr %25, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %26, label %19, label %.critedge, !llvm.loop !50
+  br i1 %26, label %19, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %19, %Vec_IntStartFull.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1621,7 +1621,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
 76:                                               ; preds = %60, %52
   %77 = add nsw i32 %.024.i, 1
   %exitcond.not.i = icmp eq i32 %77, %48
-  br i1 %exitcond.not.i, label %Abc_CexPermute.exit, label %52, !llvm.loop !48
+  br i1 %exitcond.not.i, label %Abc_CexPermute.exit, label %52, !llvm.loop !46
 
 Abc_CexPermute.exit:                              ; preds = %76, %.critedge
   %.not.i18 = icmp eq ptr %13, null
@@ -1661,7 +1661,7 @@ define i32 @Abc_CexCountOnes(ptr noundef readonly captures(none) %0) local_unnam
   %15 = add nuw nsw i32 %14, %.09
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %11, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %15, %11 ]
@@ -1723,36 +1723,34 @@ attributes #17 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !14}
 !17 = distinct !{!17, !14}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
 !22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14, !20}
+!23 = distinct !{!23, !14}
 !24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14, !20}
+!25 = distinct !{!25, !14}
 !26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14, !20}
+!27 = distinct !{!27, !14}
 !28 = distinct !{!28, !14}
 !29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS10Abc_Cex_t_", !34, i64 0}
-!34 = !{!"any pointer", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS10Abc_Cex_t_", !32, i64 0}
+!32 = !{!"any pointer", !6, i64 0}
+!33 = distinct !{!33, !14}
+!34 = distinct !{!34, !14}
 !35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14, !20}
-!37 = distinct !{!37, !14}
-!38 = distinct !{!38, !14, !20}
-!39 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !14}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !14}
+!39 = distinct !{!39, !14}
 !40 = distinct !{!40, !14}
-!41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14, !44}
-!44 = !{!"llvm.loop.unswitch.partial.disable"}
-!45 = !{!46, !47, i64 8}
-!46 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !47, i64 8}
-!47 = !{!"p1 int", !34, i64 0}
+!41 = distinct !{!41, !14, !42}
+!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !45, i64 8}
+!45 = !{!"p1 int", !32, i64 0}
+!46 = distinct !{!46, !14}
+!47 = !{!44, !5, i64 4}
 !48 = distinct !{!48, !14}
-!49 = !{!46, !5, i64 4}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
+!49 = distinct !{!49, !14}

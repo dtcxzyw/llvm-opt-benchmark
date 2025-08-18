@@ -1069,7 +1069,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %449, %471, %jbd2_co
   store i32 %557, ptr %32, align 4
   %558 = add i32 %545, %529
   %559 = icmp sgt i32 %558, %497
-  br i1 %559, label %.thread48, label %.lr.ph.split, !llvm.loop !28
+  br i1 %559, label %.thread48, label %.lr.ph.split, !llvm.loop !26
 
 .thread48:                                        ; preds = %540, %.lr.ph.split.us, %555, %.lr.ph.split, %.thread46.thread, %.thread46, %511
   %560 = phi i32 [ -22, %511 ], [ 0, %.thread46 ], [ 0, %.thread46.thread ], [ 0, %555 ], [ %553, %.lr.ph.split ], [ 0, %540 ], [ %538, %.lr.ph.split.us ]
@@ -1184,7 +1184,7 @@ select.unfold49:                                  ; preds = %137, %563, %483, %1
   %609 = add i64 %612, 1
   %610 = load i64, ptr %605, align 8
   %611 = icmp ugt i64 %609, %610
-  br i1 %611, label %.thread69, label %.preheader, !llvm.loop !29
+  br i1 %611, label %.thread69, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %603, %608
   %612 = phi i64 [ %609, %608 ], [ %604, %603 ]
@@ -1346,7 +1346,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   br i1 %33, label %139, label %34
 
 34:                                               ; preds = %18
-  %35 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %32, i32 1) #9, !srcloc !30
+  %35 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %32, i32 1) #9, !srcloc !28
   %36 = icmp ult i8 %35, 2
   call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   br i1 %75, label %.loopexit14, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 1) #9, !srcloc !30
+  %77 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i32 1) #9, !srcloc !28
   %78 = icmp ult i8 %77, 2
   call void @llvm.assume(i1 %78)
   %79 = icmp eq i8 %77, 0
@@ -1453,7 +1453,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 96:                                               ; preds = %95, %90
   %97 = add nsw i64 %91, -1
   %98 = icmp eq i64 %91, 0
-  br i1 %98, label %.loopexit.thread, label %90, !llvm.loop !31
+  br i1 %98, label %.loopexit.thread, label %90, !llvm.loop !29
 
 99:                                               ; preds = %80, %76
   call void @__brelse(ptr noundef nonnull %74) #9
@@ -1470,7 +1470,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   %.be28 = phi i32 [ %100, %.loopexit ], [ 0, %.loopexit.thread ]
   %103 = call i32 @jbd2_journal_bmap(ptr noundef %1, i64 noundef %.be, ptr noundef nonnull %4) #9
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 .loopexit.thread:                                 ; preds = %96
   %105 = add nuw nsw i64 %62, 1
@@ -1514,7 +1514,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
 123:                                              ; preds = %122, %117
   %124 = add nsw i64 %118, -1
   %125 = icmp sgt i64 %118, 0
-  br i1 %125, label %117, label %.thread12, !llvm.loop !31
+  br i1 %125, label %117, label %.thread12, !llvm.loop !29
 
 .thread12:                                        ; preds = %.loopexit.thread, %123, %47, %107, %111, %.loopexit14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1533,7 +1533,7 @@ define internal fastcc i32 @jread(ptr noundef writeonly captures(none) initializ
   br label %132
 
 132:                                              ; preds = %131, %126, %34
-  %133 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %32, i32 1) #9, !srcloc !30
+  %133 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %32, i32 1) #9, !srcloc !28
   %134 = icmp ult i8 %133, 2
   call void @llvm.assume(i1 %134)
   %135 = icmp eq i8 %133, 0
@@ -1766,7 +1766,7 @@ define internal fastcc void @calc_chksums(ptr noundef %0, ptr noundef readonly c
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, ptr nonnull elementtype(i32) %91) #9, !srcloc !15
   %92 = add nuw nsw i32 %68, 1
   %93 = icmp eq i32 %92, %58
-  br i1 %93, label %.loopexit, label %67, !llvm.loop !33
+  br i1 %93, label %.loopexit, label %67, !llvm.loop !31
 
 .loopexit:                                        ; preds = %83, %81, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1883,11 +1883,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !23 = !{i64 2155701593, i64 2155701622, i64 2155701668, i64 2155701726, i64 2155701780, i64 2155701834, i64 2155701889, i64 2155701920}
 !24 = !{i64 2148334816, i64 2148334855, i64 2148334876, i64 2148334913, i64 2148334936, i64 2148334945, i64 2148335048}
 !25 = !{i64 2148328365, i64 2148328404, i64 2148328425, i64 2148328462, i64 2148328485, i64 2148328355}
-!26 = distinct !{!26, !14, !12, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !14, !12}
+!26 = distinct !{!26, !14, !12}
+!27 = distinct !{!27, !14, !12}
+!28 = !{i64 835874, i64 2148341616}
 !29 = distinct !{!29, !14, !12}
-!30 = !{i64 835874, i64 2148341616}
+!30 = distinct !{!30, !14, !12}
 !31 = distinct !{!31, !14, !12}
-!32 = distinct !{!32, !14, !12}
-!33 = distinct !{!33, !14, !12}

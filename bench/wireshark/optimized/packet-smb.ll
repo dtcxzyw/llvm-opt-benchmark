@@ -11891,7 +11891,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   %118 = add i16 %.1334423.us, -10
   %119 = add i16 %98, -1
   %.not379.us = icmp eq i16 %98, 0
-  br i1 %.not379.us, label %.split426.us, label %.split.us, !llvm.loop !20
+  br i1 %.not379.us, label %.split426.us, label %.split.us
 
 .split:                                           ; preds = %.split.preheader, %169
   %120 = phi i16 [ %170, %169 ], [ %96, %.split.preheader ]
@@ -12034,7 +12034,7 @@ define internal i32 @dissect_locking_andx_request(ptr noundef %0, ptr noundef %1
   %200 = add i16 %.6339429.us, -10
   %201 = add i16 %180, -1
   %.not381.us = icmp eq i16 %180, 0
-  br i1 %.not381.us, label %.split434.us, label %.split431.us, !llvm.loop !22
+  br i1 %.not381.us, label %.split434.us, label %.split431.us
 
 .split431:                                        ; preds = %.split431.preheader, %251
   %202 = phi i16 [ %252, %251 ], [ %178, %.split431.preheader ]
@@ -12289,7 +12289,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %23, %26
   %82 = tail call ptr @proto_tree_add_uint64(ptr noundef %68, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %81)
   %.0126 = load ptr, ptr %.0126152, align 8
   %.not143 = icmp eq ptr %.0126, null
-  br i1 %.not143, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not143, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %83 = load i32, ptr @ett_smb_unlock, align 4
@@ -12316,7 +12316,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %23, %26
   %98 = tail call ptr @proto_tree_add_uint64(ptr noundef %84, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %97)
   %.1127 = load ptr, ptr %.1127155, align 8
   %.not144 = icmp eq ptr %.1127, null
-  br i1 %.not144, label %.loopexit, label %.lr.ph157, !llvm.loop !24
+  br i1 %.not144, label %.loopexit, label %.lr.ph157, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph157, %._crit_edge, %15, %11, %8
   %99 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
@@ -15204,7 +15204,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
   %554 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef %.1.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %5)
   %555 = load i8, ptr %10, align 1, !range !8, !noundef !9
   %556 = trunc nuw i8 %555 to i1
-  br i1 %556, label %dissect_sfsi_response.exit.i, label %.preheader.i, !llvm.loop !25
+  br i1 %556, label %dissect_sfsi_response.exit.i, label %.preheader.i, !llvm.loop !22
 
 557:                                              ; preds = %549
   %558 = load ptr, ptr %550, align 8
@@ -15236,7 +15236,7 @@ dissect_transaction2_response_parameters.exit:    ; preds = %371, %373, %491, %4
   %568 = call fastcc i32 @dissect_ff2_response_data(ptr noundef nonnull %.0426, ptr noundef %1, ptr noundef %.07797.i, i32 noundef %.2.i, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %5)
   %569 = load i8, ptr %10, align 1, !range !8, !noundef !9
   %570 = trunc nuw i8 %569 to i1
-  br i1 %570, label %dissect_sfsi_response.exit.i, label %565, !llvm.loop !26
+  br i1 %570, label %dissect_sfsi_response.exit.i, label %565, !llvm.loop !23
 
 571:                                              ; preds = %559
   %572 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15621,7 +15621,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
   store i16 %804, ptr %11, align 2
   %805 = add nuw i32 %.0232252.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %805, %768
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !24
 
 ._crit_edge.i.i:                                  ; preds = %799, %788
   %806 = phi i32 [ 40, %788 ], [ %802, %799 ]
@@ -15646,7 +15646,7 @@ get_unicode_or_ascii_string.exit.i.i:             ; preds = %662, %657
   store i16 %817, ptr %11, align 2
   %818 = add nuw i32 %.1233254.i.i, 1
   %exitcond263.not.i.i = icmp eq i32 %818, %775
-  br i1 %exitcond263.not.i.i, label %dissect_qfsi_vals.exit.i, label %.lr.ph256.i.i, !llvm.loop !28
+  br i1 %exitcond263.not.i.i, label %dissect_qfsi_vals.exit.i, label %.lr.ph256.i.i, !llvm.loop !25
 
 819:                                              ; preds = %576
   %820 = icmp ult i16 %575, 8
@@ -22202,7 +22202,7 @@ dissect_print_queue_element.exit:                 ; preds = %get_unicode_or_asci
   %90 = trunc nuw nsw i32 %.063.i to i16
   %91 = sub i16 %75, %90
   %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %dissect_print_queue_element.exit, %34
   %.076.lcssa = phi i16 [ %40, %34 ], [ %91, %dissect_print_queue_element.exit ]
@@ -22680,7 +22680,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
 15:                                               ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !27
 
 16:                                               ; preds = %12
   %17 = and i64 %indvars.iv, 4294967295
@@ -22786,7 +22786,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %.147 = phi i64 [ %.04662, %59 ], [ %.151, %._crit_edge69 ]
   %62 = add i64 %.147, 3600
   %63 = icmp slt i64 %62, %61
-  br i1 %63, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !31
+  br i1 %63, label %.lr.ph64, label %.preheader.loopexit, !llvm.loop !28
 
 .lr.ph66:                                         ; preds = %.preheader, %76
   %64 = phi i64 [ %77, %76 ], [ %44, %.preheader ]
@@ -22825,7 +22825,7 @@ define internal fastcc i32 @TimeZoneFaster(i64 noundef range(i64 -2147483648, 64
   %.1 = phi i64 [ %.065, %75 ], [ %.2, %._crit_edge74 ]
   %78 = add i64 %.1, -3600
   %79 = icmp sgt i64 %78, %77
-  br i1 %79, label %.lr.ph66, label %.loopexit, !llvm.loop !32
+  br i1 %79, label %.lr.ph66, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %76, %.preheader, %32, %16
   %.048 = phi i32 [ %19, %16 ], [ %20, %32 ], [ %20, %.preheader ], [ %20, %76 ]
@@ -23013,7 +23013,7 @@ define internal fastcc void @feed_eo_smb(i16 noundef zeroext range(i16 10, 48) %
   %36 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %21, %35, %9
   %.1.lcssa = phi ptr [ null, %9 ], [ %.2, %35 ], [ %.190, %21 ]
@@ -23535,7 +23535,7 @@ define internal fastcc void @dissect_trans_data(ptr noundef %0, ptr noundef %1, 
   %16 = add nuw i32 %.02636, 1
   %17 = add i32 %.02537, 2
   %exitcond.not = icmp eq i32 %.02636, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %4
   %.not32 = icmp eq ptr %1, null
@@ -24746,7 +24746,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
   call void @proto_item_set_len(ptr noundef %113, i32 noundef 10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i16 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %112, %28
   %.0119.lcssa = phi i32 [ %31, %28 ], [ %.2121, %112 ]
@@ -28222,7 +28222,7 @@ dissect_search_dir_info.exit:                     ; preds = %get_unicode_or_asci
   store i16 %72, ptr %7, align 2
   store i8 0, ptr %8, align 1
   %.not = icmp eq i16 %39, 0
-  br i1 %.not, label %.split4.us.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.split4.us.loopexit, label %.lr.ph, !llvm.loop !33
 
 .split4.us.loopexit:                              ; preds = %dissect_search_dir_info.exit, %.split.preheader
   %.2.lcssa = phi i32 [ %36, %.split.preheader ], [ %71, %dissect_search_dir_info.exit ]
@@ -28876,7 +28876,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %147, %152
   %.1203 = phi i16 [ %159, %163 ], [ %169, %167 ]
   %.1 = phi i32 [ %160, %163 ], [ %170, %167 ]
   %.not143 = icmp eq i32 %.1, 0
-  br i1 %.not143, label %.thread210, label %120, !llvm.loop !37
+  br i1 %.not143, label %.thread210, label %120, !llvm.loop !34
 
 173:                                              ; preds = %26
   %174 = load i32, ptr @hf_smb_sec_desc_len, align 4
@@ -29140,7 +29140,7 @@ define internal fastcc void @insert_chunk(ptr noundef captures(none) %0, ptr nou
   %.2 = phi i32 [ %.1202, %44 ], [ %.1202, %55 ], [ %63, %67 ], [ %.1202, %70 ], [ %.1202, %80 ], [ %.1202, %79 ]
   %85 = add i32 %.1164, 1
   %86 = icmp slt i32 %85, %.2
-  br i1 %86, label %44, label %.loopexit, !llvm.loop !38
+  br i1 %86, label %44, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %84, %39, %65
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -29318,9 +29318,9 @@ attributes #21 = { nounwind }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7, !19}
 !19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !21}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
@@ -29334,6 +29334,3 @@ attributes #21 = { nounwind }
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}

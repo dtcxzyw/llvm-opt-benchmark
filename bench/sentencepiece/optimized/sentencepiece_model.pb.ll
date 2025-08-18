@@ -17948,7 +17948,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !177
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 
 ._crit_edge29:                                    ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us, %._crit_edge
   ret void
@@ -17985,7 +17985,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
   %exitcond35.not = icmp eq i32 %3, %lftr.wideiv
-  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !178
+  br i1 %exitcond35.not, label %._crit_edge29, label %.lr.ph28.split, !llvm.loop !175
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
@@ -18020,37 +18020,37 @@ define linkonce_odr void @_ZN6google8protobuf8internal18GenericTypeHandlerIN13se
 define internal void @_GLOBAL__sub_I_sentencepiece_model.pb.cc() #22 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
-  store ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, align 16, !tbaa !179
-  store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 8), align 8, !tbaa !181
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 16), align 16, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 3), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 24), align 8, !tbaa !179
-  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 32), align 16, !tbaa !181
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 40), align 8, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 7), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 48), align 16, !tbaa !179
-  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 56), align 8, !tbaa !181
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 64), align 16, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 14), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 72), align 8, !tbaa !179
-  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 80), align 16, !tbaa !181
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 88), align 8, !tbaa !182
+  store ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, align 16, !tbaa !177
+  store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 8), align 8, !tbaa !179
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 16), align 16, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 3), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 24), align 8, !tbaa !177
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 32), align 16, !tbaa !179
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 40), align 8, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 7), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 48), align 16, !tbaa !177
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 56), align 8, !tbaa !179
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 64), align 16, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL27TrainerSpec_ModelType_namesE, i64 14), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 72), align 8, !tbaa !177
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 80), align 16, !tbaa !179
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE, i64 88), align 8, !tbaa !180
   %2 = tail call ptr @llvm.invariant.start.p0(i64 96, ptr nonnull @_ZN13sentencepieceL29TrainerSpec_ModelType_entriesE)
-  store ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, align 16, !tbaa !179
-  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 8), align 8, !tbaa !181
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 16), align 16, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 4), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 24), align 8, !tbaa !179
-  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 32), align 16, !tbaa !181
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 40), align 8, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 11), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 48), align 16, !tbaa !179
-  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 56), align 8, !tbaa !181
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 64), align 16, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 17), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 72), align 8, !tbaa !179
-  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 80), align 16, !tbaa !181
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 88), align 8, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 24), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 96), align 16, !tbaa !179
-  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 104), align 8, !tbaa !181
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 112), align 16, !tbaa !182
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 30), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 120), align 8, !tbaa !179
-  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 128), align 16, !tbaa !181
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 136), align 8, !tbaa !182
+  store ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, align 16, !tbaa !177
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 8), align 8, !tbaa !179
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 16), align 16, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 4), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 24), align 8, !tbaa !177
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 32), align 16, !tbaa !179
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 40), align 8, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 11), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 48), align 16, !tbaa !177
+  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 56), align 8, !tbaa !179
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 64), align 16, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 17), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 72), align 8, !tbaa !177
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 80), align 16, !tbaa !179
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 88), align 8, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 24), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 96), align 16, !tbaa !177
+  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 104), align 8, !tbaa !179
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 112), align 16, !tbaa !180
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL35ModelProto_SentencePiece_Type_namesE, i64 30), ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 120), align 8, !tbaa !177
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 128), align 16, !tbaa !179
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE, i64 136), align 8, !tbaa !180
   %3 = tail call ptr @llvm.invariant.start.p0(i64 144, ptr nonnull @_ZN13sentencepieceL37ModelProto_SentencePiece_Type_entriesE)
   ret void
 }
@@ -18275,12 +18275,10 @@ attributes #29 = { builtin allocsize(0) }
 !172 = distinct !{!172, !77}
 !173 = distinct !{!173, !77}
 !174 = distinct !{!174, !77}
-!175 = distinct !{!175, !77, !176}
-!176 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!177 = distinct !{!177, !77}
-!178 = distinct !{!178, !77}
-!179 = !{!180, !39, i64 0}
-!180 = !{!"_ZTSN6google8protobuf11StringPieceE", !39, i64 0, !40, i64 8}
-!181 = !{!180, !40, i64 8}
-!182 = !{!183, !12, i64 16}
-!183 = !{!"_ZTSN6google8protobuf8internal9EnumEntryE", !180, i64 0, !12, i64 16}
+!175 = distinct !{!175, !77}
+!176 = distinct !{!176, !77}
+!177 = !{!178, !39, i64 0}
+!178 = !{!"_ZTSN6google8protobuf11StringPieceE", !39, i64 0, !40, i64 8}
+!179 = !{!178, !40, i64 8}
+!180 = !{!181, !12, i64 16}
+!181 = !{!"_ZTSN6google8protobuf8internal9EnumEntryE", !178, i64 0, !12, i64 16}

@@ -409,7 +409,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 67:                                               ; preds = %62
   %68 = load i32, ptr %11, align 8, !tbaa !28
   %.not41.us53 = icmp eq i32 %63, %68
-  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !34
+  br i1 %.not41.us53, label %.split48.us, label %.split.split.us, !llvm.loop !32
 
 .split.split:                                     ; preds = %.split.split.preheader, %101
   %69 = phi i32 [ %102, %101 ], [ %.pre, %.split.split.preheader ]
@@ -445,7 +445,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 
 .split44.us:                                      ; preds = %79, %25, %50
   %85 = tail call ptr @__errno_location() #16
-  %86 = load i32, ptr %85, align 4, !tbaa !35
+  %86 = load i32, ptr %85, align 4, !tbaa !33
   %87 = tail call ptr @strerror(i32 noundef %86) #14
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef %87) #14
   br label %106
@@ -485,7 +485,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %0, i32
 101:                                              ; preds = %97
   %102 = load i32, ptr %11, align 8, !tbaa !28
   %.not41 = icmp eq i32 %98, %102
-  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !36
+  br i1 %.not41, label %.split48.us, label %.split.split, !llvm.loop !32
 
 .split48.us:                                      ; preds = %101, %42, %67
   %103 = icmp eq i32 %1, 4
@@ -614,7 +614,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
   store i32 %55, ptr %42, align 8, !tbaa !17
   %56 = zext i32 %43 to i64
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
-  store i8 %54, ptr %57, align 1, !tbaa !37
+  store i8 %54, ptr %57, align 1, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !22
   %60 = add nsw i64 %59, 1
@@ -623,7 +623,7 @@ gz_zero.exit:                                     ; preds = %26, %22, %11
 
 61:                                               ; preds = %gz_zero.exit
   %62 = trunc i32 %1 to i8
-  store i8 %62, ptr %3, align 1, !tbaa !37
+  store i8 %62, ptr %3, align 1, !tbaa !34
   %63 = call i32 @gzwrite(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1)
   %.not26 = icmp eq i32 %63, 1
   %. = select i1 %.not26, i32 %1, i32 -1
@@ -763,7 +763,7 @@ gz_zero.exit:                                     ; preds = %32, %29, %18
   %57 = add nsw i32 %54, -1
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %56, i64 %58
-  store i8 0, ptr %59, align 1, !tbaa !37
+  store i8 0, ptr %59, align 1, !tbaa !34
   call void @llvm.va_start.p0(ptr nonnull %3)
   %60 = load ptr, ptr %55, align 8, !tbaa !20
   %61 = sext i32 %54 to i64
@@ -777,7 +777,7 @@ gz_zero.exit:                                     ; preds = %32, %29, %18
 64:                                               ; preds = %53
   %65 = load ptr, ptr %55, align 8, !tbaa !20
   %66 = getelementptr inbounds i8, ptr %65, i64 %58
-  %67 = load i8, ptr %66, align 1, !tbaa !37
+  %67 = load i8, ptr %66, align 1, !tbaa !34
   %.not37 = icmp eq i8 %67, 0
   br i1 %.not37, label %68, label %gz_zero.exit.thread
 
@@ -1125,7 +1125,7 @@ gz_zero.exit:                                     ; preds = %31, %21, %17, %14, 
   tail call void @free(ptr noundef %44) #14
   tail call void @gz_error(ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !38
+  %46 = load ptr, ptr %45, align 8, !tbaa !35
   tail call void @free(ptr noundef %46) #14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !31
@@ -1234,10 +1234,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !29 = !{!11, !8, i64 24}
 !30 = !{!4, !8, i64 48}
 !31 = !{!4, !5, i64 4}
-!32 = distinct !{!32, !19, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !19, !33}
-!35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !19}
-!37 = !{!6, !6, i64 0}
-!38 = !{!4, !8, i64 8}
+!32 = distinct !{!32, !19}
+!33 = !{!5, !5, i64 0}
+!34 = !{!6, !6, i64 0}
+!35 = !{!4, !8, i64 8}

@@ -292,7 +292,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 ._crit_edge.us171:                                ; preds = %103
   %123 = add nuw nsw i64 %.0131170.us, 1
   %exitcond183.not = icmp eq i64 %123, %70
-  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us, !llvm.loop !96
+  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us
 
 124:                                              ; preds = %84
   %125 = and i32 %87, -131297
@@ -345,7 +345,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 ._crit_edge.us:                                   ; preds = %131
   %151 = add nuw nsw i64 %.0130167.us, 1
   %exitcond181.not = icmp eq i64 %151, %70
-  br i1 %exitcond181.not, label %.loopexit, label %.preheader159.us, !llvm.loop !98
+  br i1 %exitcond181.not, label %.loopexit, label %.preheader159.us
 
 152:                                              ; preds = %84
   %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
@@ -372,7 +372,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 161:                                              ; preds = %159
   %162 = call noalias ptr @g_try_malloc0(i64 noundef %158) #7
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  store ptr %162, ptr %163, align 8, !tbaa !99
+  store ptr %162, ptr %163, align 8, !tbaa !96
   %.not152 = icmp eq ptr %162, null
   br i1 %.not152, label %169, label %164
 
@@ -382,12 +382,12 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr align 1 %165, i64 %166, i1 false)
   %167 = trunc i64 %166 to i32
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  store i32 %167, ptr %168, align 16, !tbaa !100
+  store i32 %167, ptr %168, align 16, !tbaa !97
   br label %169
 
 169:                                              ; preds = %161, %164, %159, %.loopexit
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 11, ptr %170, align 16, !tbaa !101
+  store i32 11, ptr %170, align 16, !tbaa !98
   br label %171
 
 171:                                              ; preds = %152, %155, %80, %83, %60, %63, %16, %19, %9, %12, %169
@@ -436,12 +436,12 @@ declare void @avifRGBImageFreePixels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) local_unnamed_addr #0 {
-  store ptr null, ptr %1, align 8, !tbaa !102
-  store i32 2, ptr %2, align 4, !tbaa !103
+  store ptr null, ptr %1, align 8, !tbaa !99
+  store i32 2, ptr %2, align 4, !tbaa !100
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 2, ptr %4, align 4, !tbaa !105
+  store i32 2, ptr %4, align 4, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 2, ptr %5, align 4, !tbaa !106
+  store i32 2, ptr %5, align 4, !tbaa !103
   %6 = tail call ptr @avifDecoderCreate() #6
   %7 = tail call ptr @avifImageCreateEmpty() #6
   %8 = icmp eq ptr %6, null
@@ -489,7 +489,7 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
 
 27:                                               ; preds = %25
   %28 = tail call noalias ptr @g_try_malloc0(i64 noundef %24) #7
-  store ptr %28, ptr %1, align 8, !tbaa !102
+  store ptr %28, ptr %1, align 8, !tbaa !99
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %49, label %29
 
@@ -502,17 +502,17 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
 
 33:                                               ; preds = %25, %21
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %35 = load i16, ptr %34, align 8, !tbaa !107
+  %35 = load i16, ptr %34, align 8, !tbaa !104
   %36 = zext i16 %35 to i32
-  store i32 %36, ptr %2, align 4, !tbaa !103
+  store i32 %36, ptr %2, align 4, !tbaa !100
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 114
-  %38 = load i16, ptr %37, align 2, !tbaa !108
+  %38 = load i16, ptr %37, align 2, !tbaa !105
   %39 = zext i16 %38 to i32
-  store i32 %39, ptr %4, align 4, !tbaa !105
+  store i32 %39, ptr %4, align 4, !tbaa !102
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %41 = load i16, ptr %40, align 4, !tbaa !109
+  %41 = load i16, ptr %40, align 4, !tbaa !106
   %42 = zext i16 %41 to i32
-  store i32 %42, ptr %5, align 4, !tbaa !106
+  store i32 %42, ptr %5, align 4, !tbaa !103
   %43 = icmp eq i16 %35, 1
   %44 = icmp eq i16 %38, 4
   %or.cond55 = select i1 %43, i1 %44, i1 false
@@ -521,7 +521,7 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
   br i1 %or.cond56, label %.critedge, label %49
 
 .critedge:                                        ; preds = %33
-  store i32 1, ptr %4, align 4, !tbaa !105
+  store i32 1, ptr %4, align 4, !tbaa !102
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %47 = and i32 %46, 262144
   %.not51 = icmp eq i32 %47, 0
@@ -651,17 +651,14 @@ attributes #7 = { nounwind allocsize(0) }
 !93 = !{!81, !38, i64 32}
 !94 = !{!61, !61, i64 0}
 !95 = !{!58, !58, i64 0}
-!96 = distinct !{!96, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !97}
-!99 = !{!57, !38, i64 1656}
-!100 = !{!57, !9, i64 1664}
-!101 = !{!57, !9, i64 1472}
-!102 = !{!38, !38, i64 0}
-!103 = !{!104, !9, i64 0}
-!104 = !{!"dt_colorspaces_cicp_t", !9, i64 0, !9, i64 4, !9, i64 8}
-!105 = !{!104, !9, i64 4}
-!106 = !{!104, !9, i64 8}
-!107 = !{!72, !61, i64 112}
-!108 = !{!72, !61, i64 114}
-!109 = !{!72, !61, i64 116}
+!96 = !{!57, !38, i64 1656}
+!97 = !{!57, !9, i64 1664}
+!98 = !{!57, !9, i64 1472}
+!99 = !{!38, !38, i64 0}
+!100 = !{!101, !9, i64 0}
+!101 = !{!"dt_colorspaces_cicp_t", !9, i64 0, !9, i64 4, !9, i64 8}
+!102 = !{!101, !9, i64 4}
+!103 = !{!101, !9, i64 8}
+!104 = !{!72, !61, i64 112}
+!105 = !{!72, !61, i64 114}
+!106 = !{!72, !61, i64 116}

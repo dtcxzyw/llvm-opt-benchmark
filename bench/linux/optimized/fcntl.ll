@@ -1023,7 +1023,7 @@ define dso_local void @kill_fasync(ptr noundef %0, i32 noundef %1, i32 noundef %
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %30, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %31 = phi ptr [ %47, %45 ], [ %7, %.lr.ph ]
@@ -1099,7 +1099,7 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   %9 = inttoptr i64 %2 to ptr
   %10 = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !19
   switch i32 %1, label %242 [
     i32 0, label %11
     i32 1030, label %14
@@ -1186,7 +1186,7 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load volatile ptr, ptr %48, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !20
   %50 = tail call zeroext i1 @inode_owner_or_capable(ptr noundef %49, ptr noundef %28) #6
   br i1 %50, label %51, label %103
 
@@ -1388,9 +1388,9 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   br i1 %switch13, label %171, label %170
 
 170:                                              ; preds = %168
-  tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #6, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 232, i32 2305, i64 12) #6, !srcloc !24
-  tail call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #6, !srcloc !25
+  tail call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #6, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 232, i32 2305, i64 12) #6, !srcloc !22
+  tail call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_end\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #6, !srcloc !23
   tail call void @_raw_read_unlock_irq(ptr noundef nonnull %157) #6
   br label %176
 
@@ -1410,7 +1410,7 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
 
 178:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 0, ptr %6, align 8, !annotation !21
+  store i64 0, ptr %6, align 8, !annotation !19
   %179 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %9, i64 noundef 8) #6
   %180 = and i64 %179, 4294967295
   %181 = icmp eq i64 %180, 0
@@ -1489,7 +1489,7 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %221 = load ptr, ptr %220, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !annotation !21
+  store i64 0, ptr %5, align 8, !annotation !19
   %switch = icmp eq i32 %1, 1035
   br i1 %switch, label %222, label %229
 
@@ -1600,7 +1600,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   br i1 %12, label %144, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !19
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 16384
@@ -1639,7 +1639,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 25:                                               ; preds = %24
   %26 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !19
   %27 = call i64 @_copy_from_user(ptr noundef nonnull %7, ptr noundef %26, i64 noundef 16) #6
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
@@ -1690,14 +1690,14 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   br label %56
 
 56:                                               ; preds = %55, %52
-  %57 = call fastcc i32 @put_compat_flock(ptr noundef nonnull %8, ptr noundef %26), !range !26
+  %57 = call fastcc i32 @put_compat_flock(ptr noundef nonnull %8, ptr noundef %26), !range !24
   %58 = sext i32 %57 to i64
   br label %139
 
 59:                                               ; preds = %24, %24
   %60 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !19
   %61 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %60, i64 noundef 24) #6
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %64, label %63
@@ -1749,14 +1749,14 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
   br i1 %85, label %86, label %139
 
 86:                                               ; preds = %81
-  %87 = call fastcc i32 @put_compat_flock64(ptr noundef nonnull %8, ptr noundef %60), !range !26
+  %87 = call fastcc i32 @put_compat_flock64(ptr noundef nonnull %8, ptr noundef %60), !range !24
   %88 = sext i32 %87 to i64
   br label %139
 
 89:                                               ; preds = %24, %24
   %90 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !19
   %91 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %90, i64 noundef 16) #6
   %92 = icmp eq i64 %91, 0
   br i1 %92, label %94, label %93
@@ -1794,7 +1794,7 @@ define internal fastcc i64 @do_compat_fcntl64(i32 noundef %0, i32 noundef %1, i3
 112:                                              ; preds = %24, %24, %24, %24
   %113 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !19
   %114 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %113, i64 noundef 24) #6
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %117, label %116
@@ -1975,11 +1975,9 @@ attributes #8 = { cold nounwind }
 !16 = distinct !{!16, !10, !11}
 !17 = !{i64 2155798038}
 !18 = !{i32 0, i32 2}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!"auto-init"}
-!22 = !{i64 2153150207}
-!23 = !{i64 2155698048, i64 2155697857, i64 2155697909, i64 2155697955, i64 2155697983}
-!24 = !{i64 2155698122, i64 2155698151, i64 2155698197, i64 2155698255, i64 2155698309, i64 2155698363, i64 2155698418, i64 2155698449, i64 2155698757, i64 2155698763, i64 2155698810, i64 2155698833, i64 2155698859}
-!25 = !{i64 2155699302, i64 2155699113, i64 2155699163, i64 2155699209, i64 2155699237}
-!26 = !{i32 -14, i32 1}
+!19 = !{!"auto-init"}
+!20 = !{i64 2153150207}
+!21 = !{i64 2155698048, i64 2155697857, i64 2155697909, i64 2155697955, i64 2155697983}
+!22 = !{i64 2155698122, i64 2155698151, i64 2155698197, i64 2155698255, i64 2155698309, i64 2155698363, i64 2155698418, i64 2155698449, i64 2155698757, i64 2155698763, i64 2155698810, i64 2155698833, i64 2155698859}
+!23 = !{i64 2155699302, i64 2155699113, i64 2155699163, i64 2155699209, i64 2155699237}
+!24 = !{i32 -14, i32 1}

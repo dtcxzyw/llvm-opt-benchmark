@@ -330,12 +330,12 @@ define ptr @Java_sun_security_pkcs11_Secmod_nssGetModuleList(ptr noundef %0, ptr
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next95, %121
-  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %91, %119, %65
   %123 = load ptr, ptr %.07489, align 8
   %.not = icmp eq ptr %123, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %59, %.preheader, %83, %.lr.ph.split.us, %104, %111, %40, %34, %28, %22, %16, %10, %7, %4
   %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %16 ], [ null, %22 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %111 ], [ null, %104 ], [ null, %.lr.ph.split.us ], [ null, %83 ], [ %32, %._crit_edge ], [ null, %59 ], [ null, %.preheader ]
@@ -356,8 +356,6 @@ attributes #4 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

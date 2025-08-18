@@ -1750,7 +1750,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %108, %135, %163, %1
   %265 = add <8 x i64> %263, %264
   %266 = add nuw i64 %.0.i556.us, 1
   %267 = icmp ult i64 %266, %233
-  br i1 %267, label %.lr.ph.us, label %._crit_edge, !llvm.loop !32
+  br i1 %267, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i_crit_edge.us, %228
   %.lcssa5154.lcssa = phi <8 x i64> [ %.promoted53, %228 ], [ %265, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i_crit_edge.us ]
@@ -2296,7 +2296,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %76
   store <8 x i64> %106, ptr %107, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %103, !llvm.loop !34
+  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %103, !llvm.loop !32
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2789,7 +2789,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit:          ; preds = %104, %132, %160, %1
   %261 = add <8 x i64> %259, %260
   %262 = add nuw i64 %.0.i1262.us, 1
   %263 = icmp ult i64 %262, %228
-  br i1 %263, label %.lr.ph.us, label %._crit_edge, !llvm.loop !35
+  br i1 %263, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i_crit_edge.us, %223
   %.lcssa5760.lcssa = phi <8 x i64> [ %.promoted59, %223 ], [ %261, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i_crit_edge.us ]
@@ -2902,7 +2902,7 @@ define noalias ptr @ROCKSDB_XXH3_createState() local_unnamed_addr #15 {
   %11 = getelementptr inbounds i8, ptr %6, i64 -1
   store i8 %10, ptr %11, align 1, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 552
-  store i64 0, ptr %12, align 8, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !33
   br label %_ZL17XXH_alignedMallocmm.exit.thread
 
 _ZL17XXH_alignedMallocmm.exit.thread:             ; preds = %0, %2
@@ -2958,13 +2958,13 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset(ptr noundef writeonly capt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %12, align 8, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @_ZL12XXH3_kSecret, ptr %13, align 8, !tbaa !40
+  store ptr @_ZL12XXH3_kSecret, ptr %13, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %14, align 32, !tbaa !41
+  store i64 128, ptr %14, align 32, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %15, align 8, !tbaa !42
+  store i64 16, ptr %15, align 8, !tbaa !39
   br label %16
 
 16:                                               ; preds = %1, %3
@@ -2996,17 +2996,17 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecret(ptr noundef wri
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %1, ptr %15, align 8, !tbaa !40
+  store ptr %1, ptr %15, align 8, !tbaa !37
   %16 = icmp ugt i64 %2, 135
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %2, -64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %17, ptr %18, align 32, !tbaa !41
+  store i64 %17, ptr %18, align 32, !tbaa !38
   %19 = lshr i64 %17, 3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %19, ptr %20, align 8, !tbaa !42
+  store i64 %19, ptr %20, align 8, !tbaa !39
   %21 = icmp eq ptr %1, null
   %spec.select = zext i1 %21 to i32
   br label %22
@@ -3044,18 +3044,18 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !33
   br label %.sink.split
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %17 = load i64, ptr %16, align 8, !tbaa !36
+  %17 = load i64, ptr %16, align 8, !tbaa !33
   %.not = icmp eq i64 %1, %17
   br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not12 = icmp eq ptr %20, null
   br i1 %.not12, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit, label %21
 
@@ -3080,7 +3080,7 @@ ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %4
   store <8 x i64> %33, ptr %34, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit, label %30, !llvm.loop !34
+  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit, label %30, !llvm.loop !32
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit:        ; preds = %30, %18
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -3100,19 +3100,19 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit:        ; preds = %30, %18
   store i64 2870177450012600261, ptr %41, align 16, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %42, align 8, !tbaa !19
-  store i64 %1, ptr %16, align 8, !tbaa !36
+  store i64 %1, ptr %16, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 1, ptr %43, align 4, !tbaa !43
+  store i32 1, ptr %43, align 4, !tbaa !40
   br label %.sink.split
 
 .sink.split:                                      ; preds = %ROCKSDB_XXH3_64bits_reset.exit, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit
   %.sink = phi ptr [ null, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit ], [ @_ZL12XXH3_kSecret, %ROCKSDB_XXH3_64bits_reset.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %.sink, ptr %44, align 8, !tbaa !40
+  store ptr %.sink, ptr %44, align 8, !tbaa !37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %45, align 32, !tbaa !41
+  store i64 128, ptr %45, align 32, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %46, align 8, !tbaa !42
+  store i64 16, ptr %46, align 8, !tbaa !39
   br label %47
 
 47:                                               ; preds = %.sink.split, %2
@@ -3148,17 +3148,17 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_64bits_reset_withSecretandSeed(ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 %3, ptr %17, align 8, !tbaa !36
+  store i64 %3, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %1, ptr %19, align 8, !tbaa !40
+  store ptr %1, ptr %19, align 8, !tbaa !37
   %20 = add i64 %2, -64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %20, ptr %21, align 32, !tbaa !41
+  store i64 %20, ptr %21, align 32, !tbaa !38
   %22 = lshr i64 %20, 3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %22, ptr %23, align 8, !tbaa !42
-  store i32 1, ptr %18, align 4, !tbaa !43
+  store i64 %22, ptr %23, align 8, !tbaa !39
+  store i32 1, ptr %18, align 4, !tbaa !40
   br label %24
 
 24:                                               ; preds = %4, %8
@@ -3181,16 +3181,16 @@ define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none) %0, pt
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = select i1 %12, ptr %13, ptr %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %16 = load i64, ptr %15, align 16, !tbaa !44
+  %16 = load i64, ptr %15, align 16, !tbaa !41
   %17 = add i64 %16, %2
-  store i64 %17, ptr %15, align 16, !tbaa !44
+  store i64 %17, ptr %15, align 16, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %19 = load i32, ptr %18, align 64, !tbaa !45
+  %19 = load i32, ptr %18, align 64, !tbaa !42
   %20 = icmp ult i32 %19, 257
   tail call void @llvm.assume(i1 %20)
   %21 = zext nneg i32 %19 to i64
@@ -3203,7 +3203,7 @@ define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none) %0, pt
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %27 = trunc i64 %2 to i32
-  %28 = load i32, ptr %18, align 64, !tbaa !45
+  %28 = load i32, ptr %18, align 64, !tbaa !42
   %29 = add i32 %28, %27
   br label %314
 
@@ -3213,7 +3213,7 @@ define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !42
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !39
   br label %115
 
 31:                                               ; preds = %30
@@ -3225,9 +3225,9 @@ define noundef i32 @ROCKSDB_XXH3_64bits_update(ptr noundef captures(none) %0, pt
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %39 = load i64, ptr %38, align 8, !tbaa !42
+  %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %41 = load i64, ptr %40, align 32, !tbaa !41
+  %41 = load i64, ptr %40, align 32, !tbaa !38
   %42 = icmp ugt i64 %39, 3
   tail call void @llvm.assume(i1 %42)
   %43 = load i64, ptr %37, align 8, !tbaa !19
@@ -3340,7 +3340,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15:    ; preds = %.preheader79
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.lr.ph, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i10, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15
   %storemerge.i13 = phi i64 [ %114, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15 ], [ 0, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i10 ], [ %67, %.lr.ph ]
   store i64 %storemerge.i13, ptr %37, align 8, !tbaa !19
-  store i32 0, ptr %18, align 64, !tbaa !45
+  store i32 0, ptr %18, align 64, !tbaa !42
   br label %115
 
 115:                                              ; preds = %._crit_edge, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16
@@ -3361,7 +3361,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.
   %126 = sub i64 %125, %119
   %127 = lshr i64 %126, 6
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %129 = load i64, ptr %128, align 8, !tbaa !46
+  %129 = load i64, ptr %128, align 8, !tbaa !43
   %130 = icmp uge i64 %116, %129
   tail call void @llvm.assume(i1 %130)
   %131 = sub i64 %116, %129
@@ -3406,7 +3406,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %.lr.ph33, %._ZL22XX
   %.pre-phi69 = phi i1 [ %135, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5_crit_edge ], [ true, %.lr.ph33 ]
   %152 = phi <8 x i64> [ %.pre60, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5_crit_edge ], [ %150, %.lr.ph33 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %154 = load i64, ptr %153, align 32, !tbaa !41
+  %154 = load i64, ptr %153, align 32, !tbaa !38
   %155 = getelementptr inbounds nuw i8, ptr %14, i64 %154
   tail call void @llvm.assume(i1 %.pre-phi69)
   %156 = lshr <8 x i64> %152, splat (i64 47)
@@ -3421,7 +3421,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %.lr.ph33, %._ZL22XX
   %165 = mul <8 x i64> %162, splat (i64 -7046029290881679360)
   %166 = add <8 x i64> %164, %165
   store <8 x i64> %166, ptr %0, align 64, !tbaa !12
-  store i64 0, ptr %128, align 8, !tbaa !46
+  store i64 0, ptr %128, align 8, !tbaa !43
   %167 = shl nuw i64 %131, 6
   %168 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 %167
   %169 = sub nsw i64 %127, %131
@@ -3485,7 +3485,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit3:       ; preds = %.lr.ph36, %.prehead
   %198 = getelementptr inbounds nuw i8, ptr %.1125.i40, i64 %121
   %199 = sub i64 %.0126.i39, %116
   %.not133.i = icmp ult i64 %199, %116
-  br i1 %.not133.i, label %.preheader, label %.preheader17, !llvm.loop !47
+  br i1 %.not133.i, label %.preheader, label %.preheader17, !llvm.loop !44
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %200 = phi <8 x i64> [ %214, %.lr.ph43 ], [ %.promoted44, %.preheader ]
@@ -3515,7 +3515,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %.lr.ph43, %.prehead
   %217 = getelementptr inbounds nuw i8, ptr %.1125.i.lcssa, i64 %216
   %218 = icmp ult ptr %217, %9
   tail call void @llvm.assume(i1 %218)
-  store i64 %.0126.i.lcssa, ptr %128, align 8, !tbaa !46
+  store i64 %.0126.i.lcssa, ptr %128, align 8, !tbaa !43
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %220 = getelementptr inbounds i8, ptr %217, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %219, ptr noundef nonnull readonly align 1 dereferenceable(64) %220, i64 64, i1 false)
@@ -3533,7 +3533,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %.lr.ph43, %.prehead
   %227 = getelementptr inbounds i8, ptr %9, i64 -256
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %230 = load i64, ptr %229, align 32, !tbaa !41
+  %230 = load i64, ptr %229, align 32, !tbaa !38
   %231 = icmp ugt i64 %116, 3
   tail call void @llvm.assume(i1 %231)
   %.promoted30 = load i64, ptr %228, align 8, !tbaa !19
@@ -3653,7 +3653,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
   store i64 %storemerge.i7, ptr %228, align 8, !tbaa !19
   %304 = getelementptr inbounds nuw i8, ptr %.3.i, i64 256
   %305 = icmp ult ptr %304, %227
-  br i1 %305, label %236, label %306, !llvm.loop !48
+  br i1 %305, label %236, label %306, !llvm.loop !45
 
 306:                                              ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -3677,7 +3677,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
 
 314:                                              ; preds = %309, %24
   %storemerge.i = phi i32 [ %313, %309 ], [ %29, %24 ]
-  store i32 %storemerge.i, ptr %18, align 64, !tbaa !45
+  store i32 %storemerge.i, ptr %18, align 64, !tbaa !42
   br label %_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.exit
 
 _ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.exit: ; preds = %5, %314
@@ -3689,12 +3689,12 @@ define i64 @ROCKSDB_XXH3_64bits_digest(ptr noundef readonly captures(none) %0) l
   %2 = alloca [64 x i8], align 16
   %3 = alloca [8 x i64], align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = select i1 %6, ptr %7, ptr %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %10 = load i64, ptr %9, align 16, !tbaa !44
+  %10 = load i64, ptr %9, align 16, !tbaa !41
   %11 = icmp ugt i64 %10, 240
   br i1 %11, label %12, label %157
 
@@ -3702,7 +3702,7 @@ define i64 @ROCKSDB_XXH3_64bits_digest(ptr noundef readonly captures(none) %0) l
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %3, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 64, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %14 = load i32, ptr %13, align 64, !tbaa !45
+  %14 = load i32, ptr %13, align 64, !tbaa !42
   %15 = icmp ugt i32 %14, 63
   br i1 %15, label %16, label %110
 
@@ -3711,12 +3711,12 @@ define i64 @ROCKSDB_XXH3_64bits_digest(ptr noundef readonly captures(none) %0) l
   %18 = lshr i32 %17, 6
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %21 = load i64, ptr %20, align 8, !tbaa !46
+  %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %23 = load i64, ptr %22, align 8, !tbaa !42
+  %23 = load i64, ptr %22, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %26 = load i64, ptr %25, align 32, !tbaa !41
+  %26 = load i64, ptr %25, align 32, !tbaa !38
   %27 = icmp uge i64 %23, %19
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ult i64 %21, %23
@@ -3857,7 +3857,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
   %118 = zext nneg i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %114, i64 %118, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %120 = load i64, ptr %119, align 32, !tbaa !41
+  %120 = load i64, ptr %119, align 32, !tbaa !38
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 -7
   %123 = load <8 x i64>, ptr %2, align 16, !tbaa !12
@@ -3915,20 +3915,20 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %135
 
 157:                                              ; preds = %1
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %159 = load i32, ptr %158, align 4, !tbaa !43
+  %159 = load i32, ptr %158, align 4, !tbaa !40
   %.not = icmp eq i32 %159, 0
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br i1 %.not, label %165, label %161
 
 161:                                              ; preds = %157
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %163 = load i64, ptr %162, align 8, !tbaa !36
+  %163 = load i64, ptr %162, align 8, !tbaa !33
   %164 = tail call i64 @ROCKSDB_XXH3_64bits_withSeed(ptr noundef nonnull captures(none) %160, i64 noundef %10, i64 noundef %163) #35
   br label %170
 
 165:                                              ; preds = %157
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %167 = load i64, ptr %166, align 32, !tbaa !41
+  %167 = load i64, ptr %166, align 32, !tbaa !38
   %168 = add i64 %167, 64
   %169 = tail call i64 @ROCKSDB_XXH3_64bits_withSecret(ptr noundef nonnull captures(none) %160, i64 noundef %10, ptr noundef nonnull captures(none) %8, i64 noundef %168) #35
   br label %170
@@ -4936,7 +4936,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %163, %233
   %352 = add <8 x i64> %350, %351
   %353 = add nuw i64 %.0.i.i103.us, 1
   %354 = icmp ult i64 %353, %320
-  br i1 %354, label %.lr.ph.us, label %._crit_edge, !llvm.loop !49
+  br i1 %354, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i_crit_edge.us, %315
   %.lcssa98101.lcssa = phi <8 x i64> [ %.promoted100, %315 ], [ %352, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i_crit_edge.us ]
@@ -5658,7 +5658,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit8:                 ; preds = %95
   store <8 x i64> %130, ptr %131, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %127, !llvm.loop !34
+  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %127, !llvm.loop !32
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6293,7 +6293,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %158, %228
   %348 = add <8 x i64> %346, %347
   %349 = add nuw i64 %.0.i.i108.us, 1
   %350 = icmp ult i64 %349, %315
-  br i1 %350, label %.lr.ph.us, label %._crit_edge, !llvm.loop !50
+  br i1 %350, label %.lr.ph.us, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i_crit_edge.us, %310
   %.lcssa103106.lcssa = phi <8 x i64> [ %.promoted105, %310 ], [ %348, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit39.i.i_crit_edge.us ]
@@ -6455,13 +6455,13 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset(ptr noundef writeonly cap
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %12, align 8, !tbaa !36
+  store i64 0, ptr %12, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @_ZL12XXH3_kSecret, ptr %13, align 8, !tbaa !40
+  store ptr @_ZL12XXH3_kSecret, ptr %13, align 8, !tbaa !37
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %14, align 32, !tbaa !41
+  store i64 128, ptr %14, align 32, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %15, align 8, !tbaa !42
+  store i64 16, ptr %15, align 8, !tbaa !39
   br label %ROCKSDB_XXH3_64bits_reset.exit
 
 ROCKSDB_XXH3_64bits_reset.exit:                   ; preds = %1, %3
@@ -6493,17 +6493,17 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecret(ptr noundef wr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %1, ptr %15, align 8, !tbaa !40
+  store ptr %1, ptr %15, align 8, !tbaa !37
   %16 = icmp ugt i64 %2, 135
   tail call void @llvm.assume(i1 %16)
   %17 = add i64 %2, -64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %17, ptr %18, align 32, !tbaa !41
+  store i64 %17, ptr %18, align 32, !tbaa !38
   %19 = lshr i64 %17, 3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %19, ptr %20, align 8, !tbaa !42
+  store i64 %19, ptr %20, align 8, !tbaa !39
   %21 = icmp eq ptr %1, null
   %spec.select.i = zext i1 %21 to i32
   br label %ROCKSDB_XXH3_64bits_reset_withSecret.exit
@@ -6541,18 +6541,18 @@ ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %13, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %14, align 8, !tbaa !36
+  store i64 0, ptr %14, align 8, !tbaa !33
   br label %.sink.split.i
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %17 = load i64, ptr %16, align 8, !tbaa !36
+  %17 = load i64, ptr %16, align 8, !tbaa !33
   %.not.i = icmp eq i64 %1, %17
   br i1 %.not.i, label %18, label %21
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %21
 
@@ -6577,7 +6577,7 @@ ROCKSDB_XXH3_64bits_reset.exit.i:                 ; preds = %4
   store <8 x i64> %33, ptr %34, align 64, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %30, !llvm.loop !34
+  br i1 %exitcond.not.i, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, label %30, !llvm.loop !32
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %30, %18
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -6597,19 +6597,19 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %30, %18
   store i64 2870177450012600261, ptr %41, align 16, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %42, align 8, !tbaa !19
-  store i64 %1, ptr %16, align 8, !tbaa !36
+  store i64 %1, ptr %16, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 1, ptr %43, align 4, !tbaa !43
+  store i32 1, ptr %43, align 4, !tbaa !40
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i, %ROCKSDB_XXH3_64bits_reset.exit.i
   %.sink.i = phi ptr [ null, %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i ], [ @_ZL12XXH3_kSecret, %ROCKSDB_XXH3_64bits_reset.exit.i ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %.sink.i, ptr %44, align 8, !tbaa !40
+  store ptr %.sink.i, ptr %44, align 8, !tbaa !37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %45, align 32, !tbaa !41
+  store i64 128, ptr %45, align 32, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %46, align 8, !tbaa !42
+  store i64 16, ptr %46, align 8, !tbaa !39
   br label %ROCKSDB_XXH3_64bits_reset_withSeed.exit
 
 ROCKSDB_XXH3_64bits_reset_withSeed.exit:          ; preds = %2, %.sink.split.i
@@ -6645,17 +6645,17 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_128bits_reset_withSecretandSeed(ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 2654435761, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 %3, ptr %17, align 8, !tbaa !36
+  store i64 %3, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %1, ptr %19, align 8, !tbaa !40
+  store ptr %1, ptr %19, align 8, !tbaa !37
   %20 = add i64 %2, -64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %20, ptr %21, align 32, !tbaa !41
+  store i64 %20, ptr %21, align 32, !tbaa !38
   %22 = lshr i64 %20, 3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %22, ptr %23, align 8, !tbaa !42
-  store i32 1, ptr %18, align 4, !tbaa !43
+  store i64 %22, ptr %23, align 8, !tbaa !39
+  store i32 1, ptr %18, align 4, !tbaa !40
   br label %ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit
 
 ROCKSDB_XXH3_64bits_reset_withSecretandSeed.exit: ; preds = %4, %8
@@ -6678,16 +6678,16 @@ define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr noundef captures(none) %0, p
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %11 = load ptr, ptr %10, align 8, !tbaa !40
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = select i1 %12, ptr %13, ptr %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %16 = load i64, ptr %15, align 16, !tbaa !44
+  %16 = load i64, ptr %15, align 16, !tbaa !41
   %17 = add i64 %16, %2
-  store i64 %17, ptr %15, align 16, !tbaa !44
+  store i64 %17, ptr %15, align 16, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %19 = load i32, ptr %18, align 64, !tbaa !45
+  %19 = load i32, ptr %18, align 64, !tbaa !42
   %20 = icmp ult i32 %19, 257
   tail call void @llvm.assume(i1 %20)
   %21 = zext nneg i32 %19 to i64
@@ -6700,7 +6700,7 @@ define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr noundef captures(none) %0, p
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %27 = trunc i64 %2 to i32
-  %28 = load i32, ptr %18, align 64, !tbaa !45
+  %28 = load i32, ptr %18, align 64, !tbaa !42
   %29 = add i32 %28, %27
   br label %314
 
@@ -6710,7 +6710,7 @@ define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr noundef captures(none) %0, p
 
 ._crit_edge:                                      ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !42
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !39
   br label %115
 
 31:                                               ; preds = %30
@@ -6722,9 +6722,9 @@ define noundef i32 @ROCKSDB_XXH3_128bits_update(ptr noundef captures(none) %0, p
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %39 = load i64, ptr %38, align 8, !tbaa !42
+  %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %41 = load i64, ptr %40, align 32, !tbaa !41
+  %41 = load i64, ptr %40, align 32, !tbaa !38
   %42 = icmp ugt i64 %39, 3
   tail call void @llvm.assume(i1 %42)
   %43 = load i64, ptr %37, align 8, !tbaa !19
@@ -6837,7 +6837,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15:    ; preds = %.preheader79
 _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.lr.ph, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i10, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15
   %storemerge.i13 = phi i64 [ %114, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i15 ], [ 0, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit40.i10 ], [ %67, %.lr.ph ]
   store i64 %storemerge.i13, ptr %37, align 8, !tbaa !19
-  store i32 0, ptr %18, align 64, !tbaa !45
+  store i32 0, ptr %18, align 64, !tbaa !42
   br label %115
 
 115:                                              ; preds = %._crit_edge, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16
@@ -6858,7 +6858,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.
   %126 = sub i64 %125, %119
   %127 = lshr i64 %126, 6
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %129 = load i64, ptr %128, align 8, !tbaa !46
+  %129 = load i64, ptr %128, align 8, !tbaa !43
   %130 = icmp uge i64 %116, %129
   tail call void @llvm.assume(i1 %130)
   %131 = sub i64 %116, %129
@@ -6903,7 +6903,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %.lr.ph33, %._ZL22XX
   %.pre-phi69 = phi i1 [ %135, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5_crit_edge ], [ true, %.lr.ph33 ]
   %152 = phi <8 x i64> [ %.pre60, %._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5_crit_edge ], [ %150, %.lr.ph33 ]
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %154 = load i64, ptr %153, align 32, !tbaa !41
+  %154 = load i64, ptr %153, align 32, !tbaa !38
   %155 = getelementptr inbounds nuw i8, ptr %14, i64 %154
   tail call void @llvm.assume(i1 %.pre-phi69)
   %156 = lshr <8 x i64> %152, splat (i64 47)
@@ -6918,7 +6918,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %.lr.ph33, %._ZL22XX
   %165 = mul <8 x i64> %162, splat (i64 -7046029290881679360)
   %166 = add <8 x i64> %164, %165
   store <8 x i64> %166, ptr %0, align 64, !tbaa !12
-  store i64 0, ptr %128, align 8, !tbaa !46
+  store i64 0, ptr %128, align 8, !tbaa !43
   %167 = shl nuw i64 %131, 6
   %168 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 %167
   %169 = sub nsw i64 %127, %131
@@ -6982,7 +6982,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit3:       ; preds = %.lr.ph36, %.prehead
   %198 = getelementptr inbounds nuw i8, ptr %.1125.i40, i64 %121
   %199 = sub i64 %.0126.i39, %116
   %.not133.i = icmp ult i64 %199, %116
-  br i1 %.not133.i, label %.preheader, label %.preheader17, !llvm.loop !47
+  br i1 %.not133.i, label %.preheader, label %.preheader17, !llvm.loop !44
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %200 = phi <8 x i64> [ %214, %.lr.ph43 ], [ %.promoted44, %.preheader ]
@@ -7012,7 +7012,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %.lr.ph43, %.prehead
   %217 = getelementptr inbounds nuw i8, ptr %.1125.i.lcssa, i64 %216
   %218 = icmp ult ptr %217, %9
   tail call void @llvm.assume(i1 %218)
-  store i64 %.0126.i.lcssa, ptr %128, align 8, !tbaa !46
+  store i64 %.0126.i.lcssa, ptr %128, align 8, !tbaa !43
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %220 = getelementptr inbounds i8, ptr %217, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %219, ptr noundef nonnull readonly align 1 dereferenceable(64) %220, i64 64, i1 false)
@@ -7030,7 +7030,7 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %.lr.ph43, %.prehead
   %227 = getelementptr inbounds i8, ptr %9, i64 -256
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %230 = load i64, ptr %229, align 32, !tbaa !41
+  %230 = load i64, ptr %229, align 32, !tbaa !38
   %231 = icmp ugt i64 %116, 3
   tail call void @llvm.assume(i1 %231)
   %.promoted30 = load i64, ptr %228, align 8, !tbaa !19
@@ -7150,7 +7150,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
   store i64 %storemerge.i7, ptr %228, align 8, !tbaa !19
   %304 = getelementptr inbounds nuw i8, ptr %.3.i, i64 256
   %305 = icmp ult ptr %304, %227
-  br i1 %305, label %236, label %306, !llvm.loop !48
+  br i1 %305, label %236, label %306, !llvm.loop !45
 
 306:                                              ; preds = %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -7174,7 +7174,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
 
 314:                                              ; preds = %309, %24
   %storemerge.i = phi i32 [ %313, %309 ], [ %29, %24 ]
-  store i32 %storemerge.i, ptr %18, align 64, !tbaa !45
+  store i32 %storemerge.i, ptr %18, align 64, !tbaa !42
   br label %_ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.exit
 
 _ZL11XXH3_updateP12XXH3_state_sPKhmPFvPmS2_S2_mEPFvPvPKvE.exit: ; preds = %5, %314
@@ -7186,12 +7186,12 @@ define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr noundef readonly captures(n
   %2 = alloca [64 x i8], align 16
   %3 = alloca [8 x i64], align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = select i1 %6, ptr %7, ptr %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %10 = load i64, ptr %9, align 16, !tbaa !44
+  %10 = load i64, ptr %9, align 16, !tbaa !41
   %11 = icmp ugt i64 %10, 240
   br i1 %11, label %12, label %188
 
@@ -7199,7 +7199,7 @@ define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %3, ptr noundef nonnull readonly align 1 dereferenceable(64) %0, i64 64, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %14 = load i32, ptr %13, align 64, !tbaa !45
+  %14 = load i32, ptr %13, align 64, !tbaa !42
   %15 = icmp ugt i32 %14, 63
   br i1 %15, label %16, label %110
 
@@ -7208,12 +7208,12 @@ define { i64, i64 } @ROCKSDB_XXH3_128bits_digest(ptr noundef readonly captures(n
   %18 = lshr i32 %17, 6
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %21 = load i64, ptr %20, align 8, !tbaa !46
+  %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %23 = load i64, ptr %22, align 8, !tbaa !42
+  %23 = load i64, ptr %22, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %26 = load i64, ptr %25, align 32, !tbaa !41
+  %26 = load i64, ptr %25, align 32, !tbaa !38
   %27 = icmp uge i64 %23, %19
   tail call void @llvm.assume(i1 %27)
   %28 = icmp ult i64 %21, %23
@@ -7354,7 +7354,7 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %.lr
   %118 = zext nneg i32 %14 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %114, i64 %118, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %120 = load i64, ptr %119, align 32, !tbaa !41
+  %120 = load i64, ptr %119, align 32, !tbaa !38
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 -7
   %123 = load <8 x i64>, ptr %2, align 16, !tbaa !12
@@ -7455,7 +7455,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit28:                ; preds = %159
 
 188:                                              ; preds = %1
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %190 = load i64, ptr %189, align 8, !tbaa !36
+  %190 = load i64, ptr %189, align 8, !tbaa !33
   %.not = icmp eq i64 %190, 0
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br i1 %.not, label %194, label %192
@@ -7466,7 +7466,7 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit28:                ; preds = %159
 
 194:                                              ; preds = %188
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %196 = load i64, ptr %195, align 32, !tbaa !41
+  %196 = load i64, ptr %195, align 32, !tbaa !38
   %197 = add i64 %196, 64
   %198 = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSecret(ptr noundef nonnull captures(none) %191, i64 noundef %10, ptr noundef nonnull captures(none) %8, i64 noundef %197) #35
   br label %199
@@ -7563,7 +7563,7 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr noundef captures(non
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %spec.select41, i64 %11, i1 false)
   %13 = add i64 %11, %.03650
   %14 = icmp ult i64 %13, %1
-  br i1 %14, label %.lr.ph, label %.lr.ph53, !llvm.loop !51
+  br i1 %14, label %.lr.ph, label %.lr.ph53, !llvm.loop !46
 
 .lr.ph53:                                         ; preds = %.lr.ph
   %15 = lshr i64 %1, 4
@@ -7621,7 +7621,7 @@ define range(i32 0, 2) i32 @ROCKSDB_XXH3_generateSecret(ptr noundef captures(non
   store i64 %58, ptr %56, align 1
   %59 = add nuw nsw i64 %.03751, 1
   %exitcond.not = icmp eq i64 %59, %15
-  br i1 %exitcond.not, label %._crit_edge54, label %21, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge54, label %21, !llvm.loop !47
 
 ._crit_edge54:                                    ; preds = %21
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -7659,7 +7659,7 @@ define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr noundef writeonly captures
   store <8 x i64> %11, ptr %12, align 64, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit, label %8, !llvm.loop !34
+  br i1 %exitcond.not, label %_ZL28XXH3_initCustomSecret_avx512Pvm.exit, label %8, !llvm.loop !32
 
 _ZL28XXH3_initCustomSecret_avx512Pvm.exit:        ; preds = %8
   %13 = icmp ne ptr %0, null
@@ -7705,7 +7705,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noun
   %22 = add i64 %.03549, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %23, label %6, !llvm.loop !53
+  br i1 %exitcond.not, label %23, label %6, !llvm.loop !48
 
 23:                                               ; preds = %6
   %24 = trunc nuw nsw i64 %1 to i32
@@ -7745,7 +7745,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noun
   %indvars.iv58 = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next59, %.lr.ph ]
   %.13652 = phi i64 [ %45, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %.03751 = phi i64 [ %40, %.lr.ph.preheader ], [ %63, %.lr.ph ]
-  %46 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.13652) #33, !srcloc !54
+  %46 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.13652) #33, !srcloc !49
   %47 = shl nuw nsw i64 %indvars.iv58, 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = getelementptr i8, ptr %2, i64 %47
@@ -7769,7 +7769,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noun
   %63 = add i64 %.03751, %62
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %.037.lcssa = phi i64 [ %40, %23 ], [ %63, %.lr.ph ]
@@ -7844,7 +7844,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %42 = xor i64 %40, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %43 = icmp samesign ult i64 %indvars.iv, 128
-  br i1 %43, label %6, label %44, !llvm.loop !56
+  br i1 %43, label %6, label %44, !llvm.loop !51
 
 44:                                               ; preds = %6
   %45 = lshr i64 %27, 37
@@ -7914,7 +7914,7 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %92 = xor i64 %90, %91
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 32
   %.not = icmp samesign ult i64 %1, %indvars.iv.next109
-  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %56, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %56, %44
   %.sroa.020.1.lcssa = phi i64 [ %49, %44 ], [ %77, %56 ]
@@ -8083,29 +8083,24 @@ attributes #35 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !10}
 !30 = distinct !{!30, !10}
 !31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10, !33}
-!36 = !{!37, !20, i64 552}
-!37 = !{!"_ZTS12XXH3_state_s", !6, i64 0, !6, i64 64, !6, i64 256, !5, i64 512, !5, i64 516, !20, i64 520, !20, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !20, i64 560, !38, i64 568}
-!38 = !{!"p1 omnipotent char", !39, i64 0}
-!39 = !{!"any pointer", !6, i64 0}
-!40 = !{!37, !38, i64 568}
-!41 = !{!37, !20, i64 544}
-!42 = !{!37, !20, i64 536}
-!43 = !{!37, !5, i64 516}
-!44 = !{!37, !20, i64 528}
-!45 = !{!37, !5, i64 512}
-!46 = !{!37, !20, i64 520}
+!32 = distinct !{!32, !10}
+!33 = !{!34, !20, i64 552}
+!34 = !{!"_ZTS12XXH3_state_s", !6, i64 0, !6, i64 64, !6, i64 256, !5, i64 512, !5, i64 516, !20, i64 520, !20, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !20, i64 560, !35, i64 568}
+!35 = !{!"p1 omnipotent char", !36, i64 0}
+!36 = !{!"any pointer", !6, i64 0}
+!37 = !{!34, !35, i64 568}
+!38 = !{!34, !20, i64 544}
+!39 = !{!34, !20, i64 536}
+!40 = !{!34, !5, i64 516}
+!41 = !{!34, !20, i64 528}
+!42 = !{!34, !5, i64 512}
+!43 = !{!34, !20, i64 520}
+!44 = distinct !{!44, !10}
+!45 = distinct !{!45, !10}
+!46 = distinct !{!46, !10}
 !47 = distinct !{!47, !10}
 !48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10, !33}
-!50 = distinct !{!50, !10, !33}
+!49 = !{i64 2152316816}
+!50 = distinct !{!50, !10}
 !51 = distinct !{!51, !10}
 !52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10}
-!54 = !{i64 2152316816}
-!55 = distinct !{!55, !10}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10}

@@ -1395,7 +1395,7 @@ mi_os_prim_free.exit.us:                          ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %exitcond148.not = icmp eq i64 %42, %0
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %mi_os_prim_free.exit
   %.05098 = phi i64 [ %62, %mi_os_prim_free.exit ], [ 0, %.lr.ph ]
@@ -1555,7 +1555,7 @@ declare void @_mi_verbose_message(ptr noundef, ...) local_unnamed_addr #2
 define hidden i32 @_mi_os_numa_node_get() local_unnamed_addr #1 {
   %1 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %2, label %_mi_os_numa_node_count.exit, !prof !32
+  br i1 %.not.i, label %2, label %_mi_os_numa_node_count.exit, !prof !30
 
 2:                                                ; preds = %0
   %3 = tail call i64 @_mi_os_numa_node_count_get() #8
@@ -1657,6 +1657,4 @@ attributes #8 = { "no-builtin-malloc" }
 !27 = !{!4, !8, i64 41}
 !28 = !{!5, !5, i64 0}
 !29 = distinct !{!29, !23}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}

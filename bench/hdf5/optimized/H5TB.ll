@@ -1091,7 +1091,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   %109 = tail call i32 @H5free_memory(ptr noundef nonnull %77) #12
   %110 = add nuw nsw i64 %.067173, 1
   %exitcond.not = icmp eq i64 %110, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %108, %73, %.preheader
   %111 = tail call i64 @H5Dget_space(i64 noundef %31) #12
@@ -1228,7 +1228,7 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull readonly 
   %12 = getelementptr inbounds nuw i8, ptr %strchr26, i64 1
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 44)
   %.not = icmp eq ptr %strchr, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %11, %2
   %.017.lcssa = phi ptr [ %1, %2 ], [ %12, %11 ]
@@ -1310,7 +1310,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
   %.072241.us = phi i64 [ %71, %69 ], [ 0, %.lr.ph ]
   %39 = getelementptr inbounds nuw i32, ptr %3, i64 %.072241.us
-  %40 = load i32, ptr %39, align 4, !tbaa !26
+  %40 = load i32, ptr %39, align 4, !tbaa !24
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %.thread124, label %42
 
@@ -1364,12 +1364,12 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
   %70 = tail call i32 @H5free_memory(ptr noundef nonnull %43) #12
   %71 = add nuw i64 %.072241.us, 1
   %exitcond254.not = icmp eq i64 %71, %2
-  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %.072241 = phi i64 [ %106, %104 ], [ 0, %.lr.ph ]
   %72 = getelementptr inbounds nuw i32, ptr %3, i64 %.072241
-  %73 = load i32, ptr %72, align 4, !tbaa !26
+  %73 = load i32, ptr %72, align 4, !tbaa !24
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.thread124, label %75
 
@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
   %105 = tail call i32 @H5free_memory(ptr noundef nonnull %76) #12
   %106 = add nuw i64 %.072241, 1
   %exitcond.not = icmp eq i64 %106, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %104, %69, %.preheader
   %107 = tail call i64 @H5Dget_space(i64 noundef %31) #12
@@ -1880,7 +1880,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   %60 = tail call i32 @H5free_memory(ptr noundef nonnull %29) #12
   %61 = add nuw nsw i64 %.066216.us, 1
   %exitcond248.not = icmp eq i64 %61, %23
-  br i1 %exitcond248.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond248.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %.064217 = phi i64 [ %.165, %95 ], [ 0, %.lr.ph ]
@@ -1946,7 +1946,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   %96 = tail call i32 @H5free_memory(ptr noundef nonnull %63) #12
   %97 = add nuw nsw i64 %.066216, 1
   %exitcond.not = icmp eq i64 %97, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %95, %59
   %.064.lcssa = phi i64 [ %.165.us, %59 ], [ %.165, %95 ]
@@ -2108,7 +2108,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %54
   %.069214.us = phi i64 [ %56, %54 ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw i32, ptr %3, i64 %.069214.us
-  %25 = load i32, ptr %24, align 4, !tbaa !26
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread117, label %27
 
@@ -2162,12 +2162,12 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
   %55 = tail call i32 @H5free_memory(ptr noundef nonnull %28) #12
   %56 = add nuw i64 %.069214.us, 1
   %exitcond227.not = icmp eq i64 %56, %2
-  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
   %.069214 = phi i64 [ %91, %89 ], [ 0, %.lr.ph ]
   %57 = getelementptr inbounds nuw i32, ptr %3, i64 %.069214
-  %58 = load i32, ptr %57, align 4, !tbaa !26
+  %58 = load i32, ptr %57, align 4, !tbaa !24
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread117, label %60
 
@@ -2223,7 +2223,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
   %90 = tail call i32 @H5free_memory(ptr noundef nonnull %61) #12
   %91 = add nuw i64 %.069214, 1
   %exitcond.not = icmp eq i64 %91, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %89, %54, %.preheader
   %92 = tail call i64 @H5Dget_space(i64 noundef %16) #12
@@ -2627,7 +2627,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 28:                                               ; preds = %45
   %29 = add nuw nsw i64 %.047122.us, 1
   %exitcond259.not = icmp eq i64 %29, %23
-  br i1 %exitcond259.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %exitcond259.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !29
 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = tail call i64 @H5Tget_native_type(i64 noundef %26, i32 noundef 0) #12
@@ -2676,7 +2676,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 51:                                               ; preds = %69
   %52 = add nuw nsw i64 %.047122.us166, 1
   %exitcond258.not = icmp eq i64 %52, %23
-  br i1 %exitcond258.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !35
+  br i1 %exitcond258.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !29
 
 .thread.us:                                       ; preds = %.lr.ph.split.split.us
   %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %.047122.us166
@@ -2724,7 +2724,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 75:                                               ; preds = %93
   %76 = add nuw nsw i64 %.047122.us200, 1
   %exitcond257.not = icmp eq i64 %76, %23
-  br i1 %exitcond257.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !36
+  br i1 %exitcond257.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !29
 
 .thread.us201:                                    ; preds = %.lr.ph.split.split.split.us
   %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %.047122.us200
@@ -2760,7 +2760,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 96:                                               ; preds = %119
   %97 = add nuw nsw i64 %.047122, 1
   %exitcond.not = icmp eq i64 %97, %23
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !29
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %96
   %.047122 = phi i64 [ %97, %96 ], [ 0, %.lr.ph.split.split ]
@@ -3359,7 +3359,7 @@ define range(i32 -1, 1) i32 @H5TBcombine_tables(i64 noundef %0, ptr noundef %1, 
 76:                                               ; preds = %93
   %77 = add nuw i64 %.0133765, 1
   %exitcond.not = icmp eq i64 %77, %60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.preheader, %76
   %.0133765 = phi i64 [ %77, %76 ], [ 0, %.preheader ]
@@ -3764,7 +3764,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5TB_attach_attributes(ptr noundef 
 23:                                               ; preds = %18
   %24 = add nuw i64 %.01926, 1
   %exitcond.not = icmp eq i64 %24, %3
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !31
 
 .thread:                                          ; preds = %.lr.ph, %23, %18, %.preheader, %12, %9, %5
   %.025 = phi i32 [ -1, %12 ], [ -1, %9 ], [ -1, %5 ], [ 0, %.preheader ], [ -1, %.lr.ph ], [ 0, %23 ], [ -1, %18 ]
@@ -3827,7 +3827,7 @@ define range(i32 -1, -2147483648) i32 @H5TBAget_fill(i64 noundef %0, ptr noundef
 31:                                               ; preds = %24, %25
   %32 = add nuw i64 %.02036, 1
   %exitcond.not = icmp eq i64 %32, %13
-  br i1 %exitcond.not, label %.thread30, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.thread30, label %.lr.ph, !llvm.loop !32
 
 .thread30:                                        ; preds = %25, %31, %.lr.ph, %.preheader, %17
   %.035 = phi i32 [ -1, %17 ], [ 0, %.preheader ], [ -1, %25 ], [ %22, %31 ], [ -1, %.lr.ph ]
@@ -3992,7 +3992,7 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
   %.1167 = add i64 %.pn, %.0166734
   %84 = add nuw i64 %.0164735, 1
   %exitcond.not = icmp eq i64 %.0164735, %57
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %83, %.preheader725
   %.0170.lcssa = phi i64 [ 0, %.preheader725 ], [ %.1171, %83 ]
@@ -4155,7 +4155,7 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
 176:                                              ; preds = %193
   %177 = add nuw i64 %.1165737, 1
   %exitcond745.not = icmp eq i64 %177, %175
-  br i1 %exitcond745.not, label %._crit_edge739, label %.lr.ph738, !llvm.loop !42
+  br i1 %exitcond745.not, label %._crit_edge739, label %.lr.ph738, !llvm.loop !34
 
 .lr.ph738:                                        ; preds = %.preheader, %176
   %.1165737 = phi i64 [ %177, %176 ], [ 0, %.preheader ]
@@ -4543,7 +4543,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %50 = call i32 @H5free_memory(ptr noundef nonnull %36) #12
   %51 = add nuw i64 %.0168713, 1
   %exitcond.not = icmp eq i64 %51, %34
-  br i1 %exitcond.not, label %.thread539, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.thread539, label %.lr.ph, !llvm.loop !35
 
 52:                                               ; preds = %46
   %53 = call i32 @H5free_memory(ptr noundef nonnull %36) #12
@@ -4621,7 +4621,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %92 = call i32 @H5free_memory(ptr noundef nonnull %64) #12
   %93 = add nuw i64 %.1169716, 1
   %exitcond738.not = icmp eq i64 %93, %34
-  br i1 %exitcond738.not, label %94, label %.preheader698, !llvm.loop !44
+  br i1 %exitcond738.not, label %94, label %.preheader698, !llvm.loop !36
 
 94:                                               ; preds = %91
   %95 = call i32 @H5Pget_chunk(i64 noundef %20, i32 noundef 1, ptr noundef nonnull %6) #12
@@ -4768,7 +4768,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %179 = call i32 @H5free_memory(ptr noundef nonnull %119) #12
   %180 = add nuw i64 %.2170718, 1
   %exitcond739.not = icmp eq i64 %180, %34
-  br i1 %exitcond739.not, label %181, label %117, !llvm.loop !45
+  br i1 %exitcond739.not, label %181, label %117, !llvm.loop !37
 
 181:                                              ; preds = %178
   %182 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #12
@@ -4817,7 +4817,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
 205:                                              ; preds = %222
   %206 = add nuw i64 %.3171719, 1
   %exitcond740.not = icmp eq i64 %206, %197
-  br i1 %exitcond740.not, label %._crit_edge, label %.lr.ph720, !llvm.loop !46
+  br i1 %exitcond740.not, label %._crit_edge, label %.lr.ph720, !llvm.loop !38
 
 .lr.ph720:                                        ; preds = %.preheader, %205
   %.3171719 = phi i64 [ %206, %205 ], [ 0, %.preheader ]
@@ -5193,28 +5193,20 @@ attributes #15 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"int", !5, i64 0}
-!28 = distinct !{!28, !8, !23}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !5, i64 0}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8, !23}
+!30 = distinct !{!30, !8}
 !31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8, !23}
+!32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8, !23}
-!35 = distinct !{!35, !8, !23}
-!36 = distinct !{!36, !8, !23}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
+!36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}

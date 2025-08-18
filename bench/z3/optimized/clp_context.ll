@@ -7338,7 +7338,7 @@ _ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPK
   %33 = sub i64 %5, %32
   %34 = ashr exact i64 %33, 3
   %.not = icmp slt i64 %34, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !614
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !612
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_SC_T0_.exit.loopexit, %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_SC_T0_.exit.us, %4
   %.0.lcssa = phi ptr [ %0, %4 ], [ %9, %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_SC_T0_.exit.us ], [ %14, %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_SC_T0_.exit.loopexit ]
@@ -7431,7 +7431,7 @@ _ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS
   %16 = sub i64 %7, %15
   %17 = ashr exact i64 %16, 3
   %.not.us = icmp slt i64 %17, %6
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !615
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !613
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit
   %.052 = phi ptr [ %19, %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit ], [ %0, %.lr.ph ]
@@ -7458,7 +7458,7 @@ _ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS
   %24 = icmp ne ptr %.1.i, %18
   %25 = icmp ne ptr %.120.i, %19
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !616
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !614
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %27 = ptrtoint ptr %18 to i64
@@ -7488,7 +7488,7 @@ _ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS
   %37 = sub i64 %7, %32
   %38 = ashr exact i64 %37, 3
   %.not = icmp slt i64 %38, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !617
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !613
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit, %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit.us, %5
   %.019.lcssa = phi ptr [ %2, %5 ], [ %14, %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit.us ], [ %36, %_ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit ]
@@ -7520,7 +7520,7 @@ _ZSt12__move_mergeIPPN7datalog4ruleES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS
   %47 = icmp ne ptr %.1.i37, %39
   %48 = icmp ne ptr %.120.i35, %1
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !616
+  br i1 %49, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !614
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i29, %._crit_edge
   %.019.lcssa.i23 = phi ptr [ %39, %._crit_edge ], [ %.120.i35, %.lr.ph.i29 ]
@@ -8763,9 +8763,6 @@ attributes #30 = { nounwind allocsize(0) }
 !609 = distinct !{!609, !266}
 !610 = distinct !{!610, !266}
 !611 = distinct !{!611, !266}
-!612 = distinct !{!612, !266, !613}
-!613 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!612 = distinct !{!612, !266}
+!613 = distinct !{!613, !266}
 !614 = distinct !{!614, !266}
-!615 = distinct !{!615, !266, !613}
-!616 = distinct !{!616, !266}
-!617 = distinct !{!617, !266}

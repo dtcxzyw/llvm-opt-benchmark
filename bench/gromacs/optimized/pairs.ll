@@ -837,7 +837,7 @@ common.resume:                                    ; preds = %901, %506
   %548 = fsub float 1.000000e+00, %547
   store float %548, ptr %indvars.iv.i71.sroa.phi127, align 4, !tbaa !155
   store float %546, ptr %indvars.iv.i71.sroa.phi, align 4, !tbaa !155
-  br i1 %541, label %.split.i, label %.loopexit.i, !llvm.loop !177
+  br i1 %541, label %.split.i, label %.loopexit.i, !llvm.loop !175
 
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %..loopexit_crit_edge.i
   %.sroa.0115.1 = phi ptr [ %497, %..loopexit_crit_edge.i ], [ %spec.select, %.split.us.i ], [ %spec.select, %.split.i ]
@@ -871,10 +871,10 @@ common.resume:                                    ; preds = %901, %506
   %568 = load i32, ptr %567, align 4, !tbaa !154
   %569 = sext i32 %566 to i64
   %570 = getelementptr inbounds i16, ptr %501, i64 %569
-  %571 = load i16, ptr %570, align 2, !tbaa !178
+  %571 = load i16, ptr %570, align 2, !tbaa !176
   %572 = sext i32 %568 to i64
   %573 = getelementptr inbounds i16, ptr %501, i64 %572
-  %574 = load i16, ptr %573, align 2, !tbaa !178
+  %574 = load i16, ptr %573, align 2, !tbaa !176
   %575 = icmp ult i16 %571, %574
   %576 = zext i16 %571 to i32
   %577 = mul nsw i32 %14, %576
@@ -899,13 +899,13 @@ common.resume:                                    ; preds = %901, %506
 
 586:                                              ; preds = %585
   %587 = getelementptr inbounds i8, ptr %498, i64 %569
-  %588 = load i8, ptr %587, align 1, !tbaa !180, !range !35, !noundef !148
+  %588 = load i8, ptr %587, align 1, !tbaa !178, !range !35, !noundef !148
   %589 = trunc nuw i8 %588 to i1
   br i1 %589, label %607, label %590
 
 590:                                              ; preds = %586
   %591 = getelementptr inbounds i8, ptr %498, i64 %572
-  %592 = load i8, ptr %591, align 1, !tbaa !180, !range !35, !noundef !148
+  %592 = load i8, ptr %591, align 1, !tbaa !178, !range !35, !noundef !148
   %593 = trunc nuw i8 %592 to i1
   br i1 %593, label %607, label %594
 
@@ -981,7 +981,7 @@ common.resume:                                    ; preds = %901, %506
   %.0.i = phi float [ %616, %607 ], [ %632, %622 ], [ %644, %637 ], [ 0.000000e+00, %562 ]
   %650 = fmul float %.0204.i, 6.000000e+00
   %651 = fmul float %.0205.i, 1.200000e+01
-  %652 = load i8, ptr %555, align 4, !tbaa !181, !range !35, !noundef !148
+  %652 = load i8, ptr %555, align 4, !tbaa !179, !range !35, !noundef !148
   %653 = trunc nuw i8 %652 to i1
   %654 = getelementptr inbounds [3 x float], ptr %4, i64 %569
   %655 = getelementptr inbounds [3 x float], ptr %4, i64 %572
@@ -1021,9 +1021,9 @@ common.resume:                                    ; preds = %901, %506
   %676 = fmul float %674, %674
   %677 = call float @llvm.fmuladd.f32(float %675, float %675, float %676)
   %678 = call noundef float @llvm.fmuladd.f32(float %673, float %673, float %677)
-  %679 = load ptr, ptr %558, align 8, !tbaa !182
+  %679 = load ptr, ptr %558, align 8, !tbaa !180
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 8
-  %681 = load float, ptr %680, align 8, !tbaa !183
+  %681 = load float, ptr %680, align 8, !tbaa !181
   %682 = fmul float %681, %681
   %683 = fcmp ult float %678, %682
   br i1 %683, label %688, label %684
@@ -1041,7 +1041,7 @@ common.resume:                                    ; preds = %901, %506
 .backedge.i:                                      ; preds = %880, %846, %685, %684
   %686 = trunc nuw i64 %indvars.iv.next13.i to i32
   %687 = icmp sgt i32 %1, %686
-  br i1 %687, label %562, label %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !191
+  br i1 %687, label %562, label %_ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !189
 
 688:                                              ; preds = %672
   br i1 %.1213.i, label %689, label %765
@@ -1067,86 +1067,86 @@ common.resume:                                    ; preds = %901, %506
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 144
   %708 = load ptr, ptr %707, align 8, !tbaa !171
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 20
-  %710 = load i32, ptr %709, align 4, !tbaa !192
+  %710 = load i32, ptr %709, align 4, !tbaa !190
   %711 = icmp eq i32 %710, 0
   br i1 %711, label %712, label %737
 
 712:                                              ; preds = %689
   %713 = getelementptr inbounds nuw i8, ptr %708, i64 4
-  %714 = load float, ptr %713, align 4, !tbaa !193
+  %714 = load float, ptr %713, align 4, !tbaa !191
   %715 = fcmp oeq float %714, 0.000000e+00
   br i1 %715, label %716, label %728
 
 716:                                              ; preds = %712
-  %717 = load float, ptr %708, align 4, !tbaa !194
+  %717 = load float, ptr %708, align 4, !tbaa !192
   %718 = fcmp oeq float %717, 0.000000e+00
   br i1 %718, label %719, label %728
 
 719:                                              ; preds = %716
   %720 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  %721 = load float, ptr %720, align 8, !tbaa !195
+  %721 = load float, ptr %720, align 8, !tbaa !193
   %722 = getelementptr inbounds nuw i8, ptr %679, i64 24
-  %723 = load ptr, ptr %722, align 8, !tbaa !196
+  %723 = load ptr, ptr %722, align 8, !tbaa !194
   %724 = getelementptr inbounds nuw i8, ptr %679, i64 52
-  %725 = load i32, ptr %724, align 4, !tbaa !197
+  %725 = load i32, ptr %724, align 4, !tbaa !195
   %726 = sitofp i32 %725 to float
   %727 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %678, float noundef %721, ptr noundef %723, float noundef %726, float noundef %.0.i, float noundef %650, float noundef %651, float noundef %697, float noundef %702, float noundef %705, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %33, ptr noundef %34, ptr noundef %9)
   br label %846
 
 728:                                              ; preds = %716, %712
   %729 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  %730 = load float, ptr %729, align 8, !tbaa !195
+  %730 = load float, ptr %729, align 8, !tbaa !193
   %731 = getelementptr inbounds nuw i8, ptr %679, i64 24
-  %732 = load ptr, ptr %731, align 8, !tbaa !196
+  %732 = load ptr, ptr %731, align 8, !tbaa !194
   %733 = getelementptr inbounds nuw i8, ptr %679, i64 52
-  %734 = load i32, ptr %733, align 4, !tbaa !197
+  %734 = load i32, ptr %733, align 4, !tbaa !195
   %735 = sitofp i32 %734 to float
   %736 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %678, ptr noundef nonnull align 4 dereferenceable(36) %708, float noundef %730, ptr noundef %732, float noundef %735, float noundef %.0.i, float noundef %650, float noundef %651, float noundef %697, float noundef %702, float noundef %705, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %33, ptr noundef %34, ptr noundef %9)
   br label %846
 
 737:                                              ; preds = %689
   %738 = getelementptr inbounds nuw i8, ptr %708, i64 28
-  %739 = load float, ptr %738, align 4, !tbaa !198
+  %739 = load float, ptr %738, align 4, !tbaa !196
   %740 = fcmp oeq float %739, 0.000000e+00
   br i1 %740, label %741, label %754
 
 741:                                              ; preds = %737
   %742 = getelementptr inbounds nuw i8, ptr %708, i64 24
-  %743 = load float, ptr %742, align 4, !tbaa !199
+  %743 = load float, ptr %742, align 4, !tbaa !197
   %744 = fcmp oeq float %743, 0.000000e+00
   br i1 %744, label %745, label %754
 
 745:                                              ; preds = %741
   %746 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  %747 = load float, ptr %746, align 8, !tbaa !195
+  %747 = load float, ptr %746, align 8, !tbaa !193
   %748 = getelementptr inbounds nuw i8, ptr %679, i64 24
-  %749 = load ptr, ptr %748, align 8, !tbaa !196
+  %749 = load ptr, ptr %748, align 8, !tbaa !194
   %750 = getelementptr inbounds nuw i8, ptr %679, i64 52
-  %751 = load i32, ptr %750, align 4, !tbaa !197
+  %751 = load i32, ptr %750, align 4, !tbaa !195
   %752 = sitofp i32 %751 to float
   %753 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %678, float noundef %747, ptr noundef %749, float noundef %752, float noundef %.0.i, float noundef %650, float noundef %651, float noundef %697, float noundef %702, float noundef %705, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %33, ptr noundef %34, ptr noundef %9)
   br label %846
 
 754:                                              ; preds = %741, %737
   %755 = getelementptr inbounds nuw i8, ptr %706, i64 76
-  %756 = load float, ptr %755, align 4, !tbaa !200
+  %756 = load float, ptr %755, align 4, !tbaa !198
   %757 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  %758 = load float, ptr %757, align 8, !tbaa !195
+  %758 = load float, ptr %757, align 8, !tbaa !193
   %759 = getelementptr inbounds nuw i8, ptr %679, i64 24
-  %760 = load ptr, ptr %759, align 8, !tbaa !196
+  %760 = load ptr, ptr %759, align 8, !tbaa !194
   %761 = getelementptr inbounds nuw i8, ptr %679, i64 52
-  %762 = load i32, ptr %761, align 4, !tbaa !197
+  %762 = load i32, ptr %761, align 4, !tbaa !195
   %763 = sitofp i32 %762 to float
   %764 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %678, float noundef %756, ptr noundef nonnull align 4 dereferenceable(36) %708, float noundef %758, ptr noundef %760, float noundef %763, float noundef %.0.i, float noundef %650, float noundef %651, float noundef %697, float noundef %702, float noundef %705, float noundef %551, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %33, ptr noundef %34, ptr noundef %9)
   br label %846
 
 765:                                              ; preds = %688
   %766 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  %767 = load float, ptr %766, align 8, !tbaa !195
+  %767 = load float, ptr %766, align 8, !tbaa !193
   %768 = getelementptr inbounds nuw i8, ptr %679, i64 24
-  %769 = load ptr, ptr %768, align 8, !tbaa !196
+  %769 = load ptr, ptr %768, align 8, !tbaa !194
   %770 = getelementptr inbounds nuw i8, ptr %679, i64 52
-  %771 = load i32, ptr %770, align 4, !tbaa !197
+  %771 = load i32, ptr %770, align 4, !tbaa !195
   %772 = sitofp i32 %771 to float
   %sqrt3.i = call float @llvm.sqrt.f32(float %678)
   %773 = fdiv float 1.000000e+00, %sqrt3.i
@@ -1424,7 +1424,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   store float %934, ptr %indvars.iv9.i93.sroa.phi174, align 4, !tbaa !155
   %935 = fmul float %930, %933
   store float %935, ptr %indvars.iv9.i93.sroa.phi, align 4, !tbaa !155
-  br i1 %924, label %.split.us.i92, label %.loopexit.i81, !llvm.loop !201
+  br i1 %924, label %.split.us.i92, label %.loopexit.i81, !llvm.loop !199
 
 .split.i79:                                       ; preds = %908, %.split.i79
   %936 = phi i1 [ false, %.split.i79 ], [ true, %908 ]
@@ -1446,7 +1446,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %943 = fsub float 1.000000e+00, %942
   store float %943, ptr %indvars.iv.i80.sroa.phi171, align 4, !tbaa !155
   store float %941, ptr %indvars.iv.i80.sroa.phi, align 4, !tbaa !155
-  br i1 %936, label %.split.i79, label %.loopexit.i81, !llvm.loop !202
+  br i1 %936, label %.split.i79, label %.loopexit.i81, !llvm.loop !199
 
 .loopexit.i81:                                    ; preds = %.split.i79, %.split.us.i92, %..loopexit_crit_edge.i94
   %.sroa.0159.1 = phi ptr [ %497, %..loopexit_crit_edge.i94 ], [ %spec.select204, %.split.us.i92 ], [ %spec.select204, %.split.i79 ]
@@ -1477,10 +1477,10 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %960 = load i32, ptr %959, align 4, !tbaa !154
   %961 = sext i32 %958 to i64
   %962 = getelementptr inbounds i16, ptr %501, i64 %961
-  %963 = load i16, ptr %962, align 2, !tbaa !178
+  %963 = load i16, ptr %962, align 2, !tbaa !176
   %964 = sext i32 %960 to i64
   %965 = getelementptr inbounds i16, ptr %501, i64 %964
-  %966 = load i16, ptr %965, align 2, !tbaa !178
+  %966 = load i16, ptr %965, align 2, !tbaa !176
   %967 = icmp ult i16 %963, %966
   %968 = zext i16 %963 to i32
   %969 = mul nsw i32 %14, %968
@@ -1505,13 +1505,13 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 
 978:                                              ; preds = %977
   %979 = getelementptr inbounds i8, ptr %498, i64 %961
-  %980 = load i8, ptr %979, align 1, !tbaa !180, !range !35, !noundef !148
+  %980 = load i8, ptr %979, align 1, !tbaa !178, !range !35, !noundef !148
   %981 = trunc nuw i8 %980 to i1
   br i1 %981, label %999, label %982
 
 982:                                              ; preds = %978
   %983 = getelementptr inbounds i8, ptr %498, i64 %964
-  %984 = load i8, ptr %983, align 1, !tbaa !180, !range !35, !noundef !148
+  %984 = load i8, ptr %983, align 1, !tbaa !178, !range !35, !noundef !148
   %985 = trunc nuw i8 %984 to i1
   br i1 %985, label %999, label %986
 
@@ -1587,7 +1587,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %.0.i85 = phi float [ %1008, %999 ], [ %1024, %1014 ], [ %1036, %1029 ], [ 0.000000e+00, %954 ]
   %1042 = fmul float %.0200.i, 6.000000e+00
   %1043 = fmul float %.0201.i, 1.200000e+01
-  %1044 = load i8, ptr %950, align 4, !tbaa !181, !range !35, !noundef !148
+  %1044 = load i8, ptr %950, align 4, !tbaa !179, !range !35, !noundef !148
   %1045 = trunc nuw i8 %1044 to i1
   %1046 = getelementptr inbounds [3 x float], ptr %4, i64 %961
   %1047 = getelementptr inbounds [3 x float], ptr %4, i64 %964
@@ -1626,9 +1626,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1068 = fmul float %1066, %1066
   %1069 = call float @llvm.fmuladd.f32(float %1067, float %1067, float %1068)
   %1070 = call noundef float @llvm.fmuladd.f32(float %1065, float %1065, float %1069)
-  %1071 = load ptr, ptr %953, align 8, !tbaa !182
+  %1071 = load ptr, ptr %953, align 8, !tbaa !180
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 8
-  %1073 = load float, ptr %1072, align 8, !tbaa !183
+  %1073 = load float, ptr %1072, align 8, !tbaa !181
   %1074 = fmul float %1073, %1073
   %1075 = fcmp ult float %1070, %1074
   br i1 %1075, label %1080, label %1076
@@ -1646,7 +1646,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
 .backedge.i87:                                    ; preds = %1238, %1077, %1076
   %1078 = trunc nuw i64 %indvars.iv.next13.i84 to i32
   %1079 = icmp sgt i32 %1, %1078
-  br i1 %1079, label %954, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !203
+  br i1 %1079, label %954, label %_ZL16do_pairs_generalIL18BondedKernelFlavor3EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcPS6_PfN3gmx8ArrayRefIS6_EESK_NSJ_IKbEENSJ_IKtEEiPK10t_forcerecP17gmx_grppairener_tPi.exit, !llvm.loop !200
 
 1080:                                             ; preds = %1064
   br i1 %.1208.i, label %1081, label %1157
@@ -1672,86 +1672,86 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 144
   %1100 = load ptr, ptr %1099, align 8, !tbaa !171
   %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 20
-  %1102 = load i32, ptr %1101, align 4, !tbaa !192
+  %1102 = load i32, ptr %1101, align 4, !tbaa !190
   %1103 = icmp eq i32 %1102, 0
   br i1 %1103, label %1104, label %1129
 
 1104:                                             ; preds = %1081
   %1105 = getelementptr inbounds nuw i8, ptr %1100, i64 4
-  %1106 = load float, ptr %1105, align 4, !tbaa !193
+  %1106 = load float, ptr %1105, align 4, !tbaa !191
   %1107 = fcmp oeq float %1106, 0.000000e+00
   br i1 %1107, label %1108, label %1120
 
 1108:                                             ; preds = %1104
-  %1109 = load float, ptr %1100, align 4, !tbaa !194
+  %1109 = load float, ptr %1100, align 4, !tbaa !192
   %1110 = fcmp oeq float %1109, 0.000000e+00
   br i1 %1110, label %1111, label %1120
 
 1111:                                             ; preds = %1108
   %1112 = getelementptr inbounds nuw i8, ptr %1071, i64 16
-  %1113 = load float, ptr %1112, align 8, !tbaa !195
+  %1113 = load float, ptr %1112, align 8, !tbaa !193
   %1114 = getelementptr inbounds nuw i8, ptr %1071, i64 24
-  %1115 = load ptr, ptr %1114, align 8, !tbaa !196
+  %1115 = load ptr, ptr %1114, align 8, !tbaa !194
   %1116 = getelementptr inbounds nuw i8, ptr %1071, i64 52
-  %1117 = load i32, ptr %1116, align 4, !tbaa !197
+  %1117 = load i32, ptr %1116, align 4, !tbaa !195
   %1118 = sitofp i32 %1117 to float
   %1119 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %1070, float noundef %1113, ptr noundef %1115, float noundef %1118, float noundef %.0.i85, float noundef %1042, float noundef %1043, float noundef %1089, float noundef %1094, float noundef %1097, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %22, ptr noundef %23, ptr noundef %9)
   br label %1238
 
 1120:                                             ; preds = %1108, %1104
   %1121 = getelementptr inbounds nuw i8, ptr %1071, i64 16
-  %1122 = load float, ptr %1121, align 8, !tbaa !195
+  %1122 = load float, ptr %1121, align 8, !tbaa !193
   %1123 = getelementptr inbounds nuw i8, ptr %1071, i64 24
-  %1124 = load ptr, ptr %1123, align 8, !tbaa !196
+  %1124 = load ptr, ptr %1123, align 8, !tbaa !194
   %1125 = getelementptr inbounds nuw i8, ptr %1071, i64 52
-  %1126 = load i32, ptr %1125, align 4, !tbaa !197
+  %1126 = load i32, ptr %1125, align 4, !tbaa !195
   %1127 = sitofp i32 %1126 to float
   %1128 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %1070, ptr noundef nonnull align 4 dereferenceable(36) %1100, float noundef %1122, ptr noundef %1124, float noundef %1127, float noundef %.0.i85, float noundef %1042, float noundef %1043, float noundef %1089, float noundef %1094, float noundef %1097, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %22, ptr noundef %23, ptr noundef %9)
   br label %1238
 
 1129:                                             ; preds = %1081
   %1130 = getelementptr inbounds nuw i8, ptr %1100, i64 28
-  %1131 = load float, ptr %1130, align 4, !tbaa !198
+  %1131 = load float, ptr %1130, align 4, !tbaa !196
   %1132 = fcmp oeq float %1131, 0.000000e+00
   br i1 %1132, label %1133, label %1146
 
 1133:                                             ; preds = %1129
   %1134 = getelementptr inbounds nuw i8, ptr %1100, i64 24
-  %1135 = load float, ptr %1134, align 4, !tbaa !199
+  %1135 = load float, ptr %1134, align 4, !tbaa !197
   %1136 = fcmp oeq float %1135, 0.000000e+00
   br i1 %1136, label %1137, label %1146
 
 1137:                                             ; preds = %1133
   %1138 = getelementptr inbounds nuw i8, ptr %1071, i64 16
-  %1139 = load float, ptr %1138, align 8, !tbaa !195
+  %1139 = load float, ptr %1138, align 8, !tbaa !193
   %1140 = getelementptr inbounds nuw i8, ptr %1071, i64 24
-  %1141 = load ptr, ptr %1140, align 8, !tbaa !196
+  %1141 = load ptr, ptr %1140, align 8, !tbaa !194
   %1142 = getelementptr inbounds nuw i8, ptr %1071, i64 52
-  %1143 = load i32, ptr %1142, align 4, !tbaa !197
+  %1143 = load i32, ptr %1142, align 4, !tbaa !195
   %1144 = sitofp i32 %1143 to float
   %1145 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %1070, float noundef %1139, ptr noundef %1141, float noundef %1144, float noundef %.0.i85, float noundef %1042, float noundef %1043, float noundef %1089, float noundef %1094, float noundef %1097, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %22, ptr noundef %23, ptr noundef %9)
   br label %1238
 
 1146:                                             ; preds = %1133, %1129
   %1147 = getelementptr inbounds nuw i8, ptr %1098, i64 76
-  %1148 = load float, ptr %1147, align 4, !tbaa !200
+  %1148 = load float, ptr %1147, align 4, !tbaa !198
   %1149 = getelementptr inbounds nuw i8, ptr %1071, i64 16
-  %1150 = load float, ptr %1149, align 8, !tbaa !195
+  %1150 = load float, ptr %1149, align 8, !tbaa !193
   %1151 = getelementptr inbounds nuw i8, ptr %1071, i64 24
-  %1152 = load ptr, ptr %1151, align 8, !tbaa !196
+  %1152 = load ptr, ptr %1151, align 8, !tbaa !194
   %1153 = getelementptr inbounds nuw i8, ptr %1071, i64 52
-  %1154 = load i32, ptr %1153, align 4, !tbaa !197
+  %1154 = load i32, ptr %1153, align 4, !tbaa !195
   %1155 = sitofp i32 %1154 to float
   %1156 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %1070, float noundef %1148, ptr noundef nonnull align 4 dereferenceable(36) %1100, float noundef %1150, ptr noundef %1152, float noundef %1155, float noundef %.0.i85, float noundef %1042, float noundef %1043, float noundef %1089, float noundef %1094, float noundef %1097, float noundef %946, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %22, ptr noundef %23, ptr noundef %9)
   br label %1238
 
 1157:                                             ; preds = %1080
   %1158 = getelementptr inbounds nuw i8, ptr %1071, i64 16
-  %1159 = load float, ptr %1158, align 8, !tbaa !195
+  %1159 = load float, ptr %1158, align 8, !tbaa !193
   %1160 = getelementptr inbounds nuw i8, ptr %1071, i64 24
-  %1161 = load ptr, ptr %1160, align 8, !tbaa !196
+  %1161 = load ptr, ptr %1160, align 8, !tbaa !194
   %1162 = getelementptr inbounds nuw i8, ptr %1071, i64 52
-  %1163 = load i32, ptr %1162, align 4, !tbaa !197
+  %1163 = load i32, ptr %1162, align 4, !tbaa !195
   %1164 = sitofp i32 %1163 to float
   %sqrt3.i88 = call float @llvm.sqrt.f32(float %1070)
   %1165 = fdiv float 1.000000e+00, %sqrt3.i88
@@ -1928,16 +1928,16 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   %4 = alloca i64, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(129) %1) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !204
+  store ptr %6, ptr %0, align 8, !tbaa !201
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %5, ptr %4, align 8, !tbaa !207
+  store i64 %5, ptr %4, align 8, !tbaa !204
   %7 = icmp ugt i64 %5, 15
   br i1 %7, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %3
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %8, ptr %0, align 8, !tbaa !209
-  %9 = load i64, ptr %4, align 8, !tbaa !207
+  store ptr %8, ptr %0, align 8, !tbaa !206
+  %9 = load i64, ptr %4, align 8, !tbaa !204
   store i64 %9, ptr %6, align 8, !tbaa !153
   br label %._crit_edge.i.i.i.i
 
@@ -1958,10 +1958,10 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   br label %14
 
 14:                                               ; preds = %13, %11, %._crit_edge.i.i.i.i
-  %15 = load i64, ptr %4, align 8, !tbaa !207
+  %15 = load i64, ptr %4, align 8, !tbaa !204
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !211
-  %17 = load ptr, ptr %0, align 8, !tbaa !209
+  store i64 %15, ptr %16, align 8, !tbaa !208
+  %17 = load ptr, ptr %0, align 8, !tbaa !206
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
   store i8 0, ptr %18, align 1, !tbaa !153
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1984,7 +1984,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %19, align 8, !tbaa !212
+  %26 = load ptr, ptr %19, align 8, !tbaa !209
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
@@ -1993,17 +1993,17 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
-  store ptr null, ptr %19, align 8, !tbaa !212
+  store ptr null, ptr %19, align 8, !tbaa !209
   br label %28
 
 28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
   %.pn = phi { ptr, i32 } [ %25, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %23, %22 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !209
+  %29 = load ptr, ptr %0, align 8, !tbaa !206
   %30 = icmp eq ptr %29, %6
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %16, align 8, !tbaa !211
+  %31 = load i64, ptr %16, align 8, !tbaa !208
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2023,7 +2023,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !212
+  %3 = load ptr, ptr %2, align 8, !tbaa !209
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -2032,15 +2032,15 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !212
-  %5 = load ptr, ptr %0, align 8, !tbaa !209
+  store ptr null, ptr %2, align 8, !tbaa !209
+  %5 = load ptr, ptr %0, align 8, !tbaa !206
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !211
+  %9 = load i64, ptr %8, align 8, !tbaa !208
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -2062,7 +2062,7 @@ define internal fastcc void @_ZL14warning_rlimitPA3_KfiiPiff(ptr noundef readonl
   %9 = fpext float %4 to double
   %10 = fpext float %5 to double
   tail call void (ptr, ...) @_Z11gmx_warningPKcz(ptr noundef nonnull @.str.3, i32 noundef %7, i32 noundef %8, double noundef %9, double noundef %10)
-  %11 = load ptr, ptr @debug, align 8, !tbaa !214
+  %11 = load ptr, ptr @debug, align 8, !tbaa !211
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %36, label %12
 
@@ -2244,7 +2244,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br label %100
 
 100:                                              ; preds = %50, %._crit_edge
-  br i1 %46, label %45, label %.preheader, !llvm.loop !216
+  br i1 %46, label %45, label %.preheader, !llvm.loop !213
 
 .preheader:                                       ; preds = %100, %.preheader
   %101 = phi i1 [ false, %.preheader ], [ true, %100 ]
@@ -2275,7 +2275,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %116 = load float, ptr %115, align 4, !tbaa !155
   %117 = tail call float @llvm.fmuladd.f32(float %104, float %116, float %.01617)
   %118 = tail call float @llvm.fmuladd.f32(float %108, float %116, float %.01626)
-  br i1 %101, label %.preheader, label %119, !llvm.loop !217
+  br i1 %101, label %.preheader, label %119, !llvm.loop !214
 
 119:                                              ; preds = %.preheader
   %120 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2348,7 +2348,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %22 = fmul float %0, %0
   %23 = fmul float %0, %22
   %24 = fcmp olt float %0, 0.000000e+00
-  br i1 %24, label %cdce.call, label %cdce.end, !prof !218
+  br i1 %24, label %cdce.call, label %cdce.end, !prof !215
 
 cdce.call:                                        ; preds = %21
   %25 = tail call noundef float @sqrtf(float noundef %0) #19, !tbaa !154
@@ -2387,7 +2387,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
 42:                                               ; preds = %30, %34, %37, %41
   %43 = phi float [ %39, %37 ], [ %29, %41 ], [ %27, %34 ], [ %27, %30 ]
   store float %43, ptr %indvars.iv.sroa.phi, align 4, !tbaa !155
-  br i1 %31, label %30, label %44, !llvm.loop !219
+  br i1 %31, label %30, label %44, !llvm.loop !216
 
 44:                                               ; preds = %42
   %45 = fcmp ogt float %7, 0.000000e+00
@@ -2529,7 +2529,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   br label %152
 
 152:                                              ; preds = %55, %._crit_edge
-  br i1 %51, label %50, label %.preheader, !llvm.loop !220
+  br i1 %51, label %50, label %.preheader, !llvm.loop !217
 
 .preheader:                                       ; preds = %152, %.preheader
   %153 = phi i1 [ false, %.preheader ], [ true, %152 ]
@@ -2574,7 +2574,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %181 = fmul float %178, %180
   %182 = fmul float %163, %181
   %183 = tail call float @llvm.fmuladd.f32(float %182, float %176, float %170)
-  br i1 %153, label %.preheader, label %184, !llvm.loop !221
+  br i1 %153, label %.preheader, label %184, !llvm.loop !218
 
 184:                                              ; preds = %.preheader
   %185 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2681,7 +2681,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 33:                                               ; preds = %23, %27, %30
   %.sink25 = phi float [ %32, %30 ], [ %22, %27 ], [ %22, %23 ]
   store float %.sink25, ptr %indvars.iv.sroa.phi, align 4, !tbaa !155
-  br i1 %24, label %23, label %34, !llvm.loop !222
+  br i1 %24, label %23, label %34, !llvm.loop !219
 
 34:                                               ; preds = %33
   %35 = fmul float %0, %0
@@ -2948,7 +2948,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br label %234
 
 234:                                              ; preds = %77, %202, %153
-  br i1 %71, label %70, label %.preheader, !llvm.loop !223
+  br i1 %71, label %70, label %.preheader, !llvm.loop !220
 
 .preheader:                                       ; preds = %234, %.preheader
   %235 = phi i1 [ false, %.preheader ], [ true, %234 ]
@@ -2985,7 +2985,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %254 = load float, ptr %253, align 4, !tbaa !155
   %255 = tail call float @llvm.fmuladd.f32(float %238, float %254, float %250)
   %256 = tail call float @llvm.fmuladd.f32(float %242, float %254, float %252)
-  br i1 %235, label %.preheader, label %257, !llvm.loop !224
+  br i1 %235, label %.preheader, label %257, !llvm.loop !221
 
 257:                                              ; preds = %.preheader
   %258 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -3264,53 +3264,50 @@ attributes #21 = { nounwind willreturn memory(none) }
 !172 = !{!173, !93, i64 8}
 !173 = !{!"_ZTSN19interaction_const_t18SoftCoreParametersE", !14, i64 0, !14, i64 4, !93, i64 8, !14, i64 12, !14, i64 16, !174, i64 20, !14, i64 24, !14, i64 28, !14, i64 32}
 !174 = !{!"_ZTS12SoftcoreType", !7, i64 0}
-!175 = distinct !{!175, !157, !176}
-!176 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!177 = distinct !{!177, !157}
-!178 = !{!179, !179, i64 0}
-!179 = !{!"short", !7, i64 0}
-!180 = !{!17, !17, i64 0}
-!181 = !{!37, !17, i64 12}
-!182 = !{!67, !67, i64 0}
-!183 = !{!184, !14, i64 8}
-!184 = !{!"_ZTS12t_forcetable", !185, i64 0, !186, i64 4, !14, i64 8, !93, i64 12, !14, i64 16, !187, i64 24, !93, i64 48, !93, i64 52}
-!185 = !{!"_ZTS16TableInteraction", !7, i64 0}
-!186 = !{!"_ZTS11TableFormat", !7, i64 0}
-!187 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !188, i64 0}
-!188 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !189, i64 0}
-!189 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE12_Vector_implE", !190, i64 0}
-!190 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
-!191 = distinct !{!191, !157}
-!192 = !{!173, !174, i64 20}
-!193 = !{!173, !14, i64 4}
-!194 = !{!173, !14, i64 0}
-!195 = !{!184, !14, i64 16}
-!196 = !{!190, !109, i64 0}
-!197 = !{!184, !93, i64 52}
-!198 = !{!173, !14, i64 28}
-!199 = !{!173, !14, i64 24}
-!200 = !{!10, !14, i64 76}
-!201 = distinct !{!201, !157, !176}
-!202 = distinct !{!202, !157}
-!203 = distinct !{!203, !157}
-!204 = !{!205, !206, i64 0}
-!205 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !206, i64 0}
-!206 = !{!"p1 omnipotent char", !6, i64 0}
-!207 = !{!208, !208, i64 0}
-!208 = !{!"long", !7, i64 0}
-!209 = !{!210, !206, i64 0}
-!210 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !205, i64 0, !208, i64 8, !7, i64 16}
-!211 = !{!210, !208, i64 8}
-!212 = !{!213, !213, i64 0}
-!213 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !6, i64 0}
-!214 = !{!215, !215, i64 0}
-!215 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!175 = distinct !{!175, !157}
+!176 = !{!177, !177, i64 0}
+!177 = !{!"short", !7, i64 0}
+!178 = !{!17, !17, i64 0}
+!179 = !{!37, !17, i64 12}
+!180 = !{!67, !67, i64 0}
+!181 = !{!182, !14, i64 8}
+!182 = !{!"_ZTS12t_forcetable", !183, i64 0, !184, i64 4, !14, i64 8, !93, i64 12, !14, i64 16, !185, i64 24, !93, i64 48, !93, i64 52}
+!183 = !{!"_ZTS16TableInteraction", !7, i64 0}
+!184 = !{!"_ZTS11TableFormat", !7, i64 0}
+!185 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !186, i64 0}
+!186 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !187, i64 0}
+!187 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE12_Vector_implE", !188, i64 0}
+!188 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
+!189 = distinct !{!189, !157}
+!190 = !{!173, !174, i64 20}
+!191 = !{!173, !14, i64 4}
+!192 = !{!173, !14, i64 0}
+!193 = !{!182, !14, i64 16}
+!194 = !{!188, !109, i64 0}
+!195 = !{!182, !93, i64 52}
+!196 = !{!173, !14, i64 28}
+!197 = !{!173, !14, i64 24}
+!198 = !{!10, !14, i64 76}
+!199 = distinct !{!199, !157}
+!200 = distinct !{!200, !157}
+!201 = !{!202, !203, i64 0}
+!202 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !203, i64 0}
+!203 = !{!"p1 omnipotent char", !6, i64 0}
+!204 = !{!205, !205, i64 0}
+!205 = !{!"long", !7, i64 0}
+!206 = !{!207, !203, i64 0}
+!207 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !202, i64 0, !205, i64 8, !7, i64 16}
+!208 = !{!207, !205, i64 8}
+!209 = !{!210, !210, i64 0}
+!210 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !6, i64 0}
+!211 = !{!212, !212, i64 0}
+!212 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!213 = distinct !{!213, !157}
+!214 = distinct !{!214, !157}
+!215 = !{!"branch_weights", i32 1, i32 1048575}
 !216 = distinct !{!216, !157}
 !217 = distinct !{!217, !157}
-!218 = !{!"branch_weights", i32 1, i32 1048575}
+!218 = distinct !{!218, !157}
 !219 = distinct !{!219, !157}
 !220 = distinct !{!220, !157}
 !221 = distinct !{!221, !157}
-!222 = distinct !{!222, !157}
-!223 = distinct !{!223, !157}
-!224 = distinct !{!224, !157}

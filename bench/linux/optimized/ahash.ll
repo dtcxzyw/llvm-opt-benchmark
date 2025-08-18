@@ -283,7 +283,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   %162 = phi ptr [ %130, %129 ], [ %102, %116 ], [ %102, %.preheader.split ]
   %163 = phi i32 [ %145, %129 ], [ %118, %116 ], [ %108, %.preheader.split ]
   %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %.preheader.split, label %.thread, !llvm.loop !9
+  br i1 %164, label %.preheader.split, label %.thread, !llvm.loop !5
 
 .thread:                                          ; preds = %156, %127, %92, %63, %2, %6
   %165 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %63 ], [ %99, %92 ], [ 0, %127 ], [ %163, %156 ]
@@ -611,7 +611,7 @@ define dso_local i32 @shash_ahash_finup(ptr noundef readonly captures(none) %0, 
   %116 = phi ptr [ %84, %83 ], [ %50, %70 ], [ %50, %66 ]
   %117 = phi i32 [ %99, %83 ], [ %72, %70 ], [ %60, %66 ]
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.preheader, label %.thread9, !llvm.loop !10
+  br i1 %118, label %.preheader, label %.thread9, !llvm.loop !8
 
 .thread9:                                         ; preds = %81, %110, %41
   %119 = phi i32 [ %44, %41 ], [ 0, %81 ], [ %117, %110 ]
@@ -693,16 +693,16 @@ declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = load i8, ptr %0, align 8, !range !11, !noundef !12
+  %4 = load i8, ptr %0, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %18, label %6, !prof !13
+  br i1 %5, label %18, label %6, !prof !11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @crypto_shash_setkey(ptr noundef %8, ptr noundef %1, i32 noundef %2) #9
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %37, label %11, !prof !14
+  br i1 %10, label %37, label %11, !prof !12
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -721,7 +721,7 @@ define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 no
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %0, ptr noundef %1, i32 noundef %2) #9
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %37, label %25, !prof !14
+  br i1 %24, label %37, label %25, !prof !12
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %21, align 8
@@ -762,9 +762,9 @@ define dso_local i32 @crypto_ahash_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %17, label %7, !prof !13
+  br i1 %6, label %17, label %7, !prof !11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -812,13 +812,13 @@ define dso_local i32 @crypto_ahash_update(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %10, label %7, !prof !13
+  br i1 %6, label %10, label %7, !prof !11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = tail call i32 @shash_ahash_update(ptr noundef %0, ptr noundef nonnull %8), !range !15
+  %9 = tail call i32 @shash_ahash_update(ptr noundef %0, ptr noundef nonnull %8), !range !13
   br label %16
 
 10:                                               ; preds = %1
@@ -839,9 +839,9 @@ define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %12, label %7, !prof !13
+  br i1 %6, label %12, label %7, !prof !11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -868,9 +868,9 @@ define dso_local i32 @crypto_ahash_finup(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %10, label %7, !prof !13
+  br i1 %6, label %10, label %7, !prof !11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -895,9 +895,9 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
-  %5 = load i8, ptr %4, align 8, !range !11, !noundef !12
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %52, label %7, !prof !13
+  br i1 %6, label %52, label %7, !prof !11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -982,9 +982,9 @@ define dso_local i32 @crypto_ahash_export(ptr noundef %0, ptr noundef %1) #0 ali
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = load i8, ptr %5, align 8, !range !11, !noundef !12
+  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %11, label %8, !prof !13
+  br i1 %7, label %11, label %8, !prof !11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1012,9 +1012,9 @@ define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 ali
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -16
-  %6 = load i8, ptr %5, align 8, !range !11, !noundef !12
+  %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %13, label %8, !prof !13
+  br i1 %7, label %13, label %8, !prof !11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1096,24 +1096,24 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %13, %21
   %16 = phi i32 [ %22, %21 ], [ %14, %13 ]
   %17 = add i32 %16, 1
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %17, ptr nonnull elementtype(i32) %4, i32 %16) #9, !srcloc !16
+  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %17, ptr nonnull elementtype(i32) %4, i32 %16) #9, !srcloc !14
   %19 = extractvalue { i8, i32 } %18, 0
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %21, label %.thread, !prof !13
+  br i1 %.not, label %21, label %.thread, !prof !11
 
 21:                                               ; preds = %.preheader
   %22 = extractvalue { i8, i32 } %18, 1
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.thread, label %.preheader, !llvm.loop !17
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %21, %13
   %24 = phi i32 [ 0, %13 ], [ %16, %.preheader ], [ 0, %21 ]
   %25 = add i32 %24, 1
   %26 = or i32 %25, %24
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %29, label %28, !prof !14
+  br i1 %27, label %29, label %28, !prof !12
 
 28:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef nonnull %4, i32 noundef 0) #9
@@ -1140,9 +1140,9 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = load i8, ptr %0, align 8, !range !11, !noundef !12
+  %44 = load i8, ptr %0, align 8, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %55, label %46, !prof !13
+  br i1 %45, label %55, label %46, !prof !11
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1339,7 +1339,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
   %40 = add nuw nsw i64 %7, 1
   %41 = icmp eq i64 %40, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %41, label %.loopexit, label %6, !llvm.loop !18
+  br i1 %41, label %.loopexit, label %6, !llvm.loop !16
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
@@ -1347,7 +1347,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
   tail call void @crypto_unregister_alg(ptr noundef %42) #9
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
   %.not = icmp eq i64 %indvars.iv13, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %39, %.preheader, %.thread7, %2
   %43 = phi i32 [ %34, %.thread7 ], [ 0, %2 ], [ %34, %.preheader ], [ 0, %39 ]
@@ -1370,7 +1370,7 @@ define dso_local void @crypto_unregister_ahashes(ptr noundef %0, i32 noundef %1)
   tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !18
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -1380,12 +1380,12 @@ define dso_local void @crypto_unregister_ahashes(ptr noundef %0, i32 noundef %1)
 define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !13
+  br i1 %4, label %5, label %6, !prof !11
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #9, !srcloc !21
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 752, i32 2305, i64 12) #9, !srcloc !22
-  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_end\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !23
+  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #9, !srcloc !19
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 752, i32 2305, i64 12) #9, !srcloc !20
+  tail call void asm sideeffect "467: nop\0A\09.pushsection .discard.instr_end\0A\09.long 467b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 467) #9, !srcloc !21
   br label %31
 
 6:                                                ; preds = %2
@@ -1694,9 +1694,9 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 42:                                               ; preds = %22
   %43 = load ptr, ptr %2, align 8
   %44 = getelementptr i8, ptr %43, i64 -16
-  %45 = load i8, ptr %44, align 8, !range !11, !noundef !12
+  %45 = load i8, ptr %44, align 8, !range !9, !noundef !10
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %50, label %47, !prof !13
+  br i1 %46, label %50, label %47, !prof !11
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1714,9 +1714,9 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 56:                                               ; preds = %50, %47
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr i8, ptr %57, i64 -16
-  %59 = load i8, ptr %58, align 8, !range !11, !noundef !12
+  %59 = load i8, ptr %58, align 8, !range !9, !noundef !10
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %65, label %61, !prof !13
+  br i1 %60, label %65, label %61, !prof !11
 
 61:                                               ; preds = %56
   %62 = getelementptr i8, ptr %57, i64 32
@@ -1958,22 +1958,20 @@ attributes #10 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = !{i32 -2147483648, i32 1}
-!16 = !{i64 2148953092, i64 2148953131, i64 2148953152, i64 2148953189, i64 2148953212, i64 2148953221, i64 2148953519}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i32 -2147483648, i32 1}
+!14 = !{i64 2148953092, i64 2148953131, i64 2148953152, i64 2148953189, i64 2148953212, i64 2148953221, i64 2148953519}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = !{i64 2155819710, i64 2155819519, i64 2155819571, i64 2155819617, i64 2155819645}
-!22 = !{i64 2155819784, i64 2155819813, i64 2155819859, i64 2155819917, i64 2155819971, i64 2155820025, i64 2155820080, i64 2155820111, i64 2155820419, i64 2155820425, i64 2155820472, i64 2155820495, i64 2155820521}
-!23 = !{i64 2155820968, i64 2155820779, i64 2155820829, i64 2155820875, i64 2155820903}
+!19 = !{i64 2155819710, i64 2155819519, i64 2155819571, i64 2155819617, i64 2155819645}
+!20 = !{i64 2155819784, i64 2155819813, i64 2155819859, i64 2155819917, i64 2155819971, i64 2155820025, i64 2155820080, i64 2155820111, i64 2155820419, i64 2155820425, i64 2155820472, i64 2155820495, i64 2155820521}
+!21 = !{i64 2155820968, i64 2155820779, i64 2155820829, i64 2155820875, i64 2155820903}

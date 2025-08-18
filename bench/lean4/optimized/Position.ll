@@ -3124,7 +3124,7 @@ lean_dec.exit28.us:                               ; preds = %33, %32, %31, %23, 
   %35 = ptrtoint ptr %14 to i64
   %36 = and i64 %35, 1
   %.not.us = icmp eq i64 %36, 0
-  br i1 %.not.us, label %lean_nat_eq.exit.thread53, label %lean_nat_eq.exit.us, !prof !17, !llvm.loop !18
+  br i1 %.not.us, label %lean_nat_eq.exit.thread53, label %lean_nat_eq.exit.us, !prof !17
 
 lean_nat_eq.exit.thread:                          ; preds = %.lr.ph, %lean_dec.exit28
   %37 = phi i64 [ %74, %lean_dec.exit28 ], [ %5, %.lr.ph ]
@@ -3456,7 +3456,7 @@ lean_dec.exit77:                                  ; preds = %62, %lean_nat_eq.ex
 lean_dec.exit76:                                  ; preds = %73, %72, %70, %64
   %74 = and i64 %50, %13
   %brmerge.not.not = icmp eq i64 %74, 0
-  br i1 %brmerge.not.not, label %.critedge.i, label %75, !prof !20
+  br i1 %brmerge.not.not, label %.critedge.i, label %75, !prof !18
 
 75:                                               ; preds = %lean_dec.exit76
   %76 = lshr i64 %13, 1
@@ -3597,10 +3597,10 @@ lean_nat_eq.exit104:                              ; preds = %lean_array_get.exit
   br i1 %130, label %159, label %131
 
 131:                                              ; preds = %lean_nat_eq.exit104
-  br i1 %.not, label %135, label %132, !prof !21
+  br i1 %.not, label %135, label %132, !prof !19
 
 132:                                              ; preds = %131
-  br i1 %11, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit.thread134, !prof !22
+  br i1 %11, label %lean_nat_lt.exit.thread, label %lean_nat_lt.exit.thread134, !prof !20
 
 lean_nat_lt.exit.thread134:                       ; preds = %132
   %133 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.1.i117, ptr noundef %1) #6
@@ -6405,9 +6405,9 @@ _init_l_Lean_instReprPosition___closed__1.exit:   ; preds = %_init_l___private_L
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr @l___private_Lean_Data_Position_0__Lean_reprPosition____x40_Lean_Data_Position___hyg_179____boxed, ptr %118, align 8, !tbaa !4
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store i16 2, ptr %119, align 8, !tbaa !23
+  store i16 2, ptr %119, align 8, !tbaa !21
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 18
-  store i16 0, ptr %120, align 2, !tbaa !23
+  store i16 0, ptr %120, align 2, !tbaa !21
   store ptr %114, ptr @l_Lean_instReprPosition___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %114) #6
   %121 = load ptr, ptr @l_Lean_instReprPosition___closed__1, align 8, !tbaa !4
@@ -6432,9 +6432,9 @@ _init_l_Lean_instToJsonPosition___closed__1.exit: ; preds = %_init_l_Lean_instRe
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr @l___private_Lean_Data_Position_0__Lean_toJsonPosition____x40_Lean_Data_Position___hyg_237_, ptr %127, align 8, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store i16 1, ptr %128, align 8, !tbaa !23
+  store i16 1, ptr %128, align 8, !tbaa !21
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 18
-  store i16 0, ptr %129, align 2, !tbaa !23
+  store i16 0, ptr %129, align 2, !tbaa !21
   store ptr %123, ptr @l_Lean_instToJsonPosition___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %123) #6
   %130 = load ptr, ptr @l_Lean_instToJsonPosition___closed__1, align 8, !tbaa !4
@@ -6467,9 +6467,9 @@ _init_l___private_Lean_Data_Position_0__Lean_fromJsonPosition____x40_Lean_Data_P
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr @l___private_Lean_Data_Position_0__Lean_fromJsonPosition____x40_Lean_Data_Position___hyg_289____lambda__1___boxed, ptr %140, align 8, !tbaa !4
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store i16 1, ptr %141, align 8, !tbaa !23
+  store i16 1, ptr %141, align 8, !tbaa !21
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 18
-  store i16 0, ptr %142, align 2, !tbaa !23
+  store i16 0, ptr %142, align 2, !tbaa !21
   store ptr %136, ptr @l___private_Lean_Data_Position_0__Lean_fromJsonPosition____x40_Lean_Data_Position___hyg_289____closed__4, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %136) #6
   %143 = load ptr, ptr @l___private_Lean_Data_Position_0__Lean_fromJsonPosition____x40_Lean_Data_Position___hyg_289____closed__3, align 8, !tbaa !4
@@ -6542,9 +6542,9 @@ _init_l_Lean_instFromJsonPosition___closed__1.exit: ; preds = %_init_l___private
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr @l___private_Lean_Data_Position_0__Lean_fromJsonPosition____x40_Lean_Data_Position___hyg_289_, ptr %177, align 8, !tbaa !4
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store i16 1, ptr %178, align 8, !tbaa !23
+  store i16 1, ptr %178, align 8, !tbaa !21
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 18
-  store i16 0, ptr %179, align 2, !tbaa !23
+  store i16 0, ptr %179, align 2, !tbaa !21
   store ptr %173, ptr @l_Lean_instFromJsonPosition___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %173) #6
   %180 = load ptr, ptr @l_Lean_instFromJsonPosition___closed__1, align 8, !tbaa !4
@@ -6566,9 +6566,9 @@ _init_l_Lean_Position_lt___closed__1.exit:        ; preds = %_init_l_Lean_instFr
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr @l_instDecidableEqNat___boxed, ptr %185, align 8, !tbaa !4
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 2, ptr %186, align 8, !tbaa !23
+  store i16 2, ptr %186, align 8, !tbaa !21
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 0, ptr %187, align 2, !tbaa !23
+  store i16 0, ptr %187, align 2, !tbaa !21
   store ptr %181, ptr @l_Lean_Position_lt___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %181) #6
   tail call void @lean_inc_heartbeat() #6
@@ -6587,9 +6587,9 @@ _init_l_Lean_Position_lt___closed__2.exit:        ; preds = %_init_l_Lean_Positi
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store ptr @l_Nat_decLt___boxed, ptr %192, align 8, !tbaa !4
   %193 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store i16 2, ptr %193, align 8, !tbaa !23
+  store i16 2, ptr %193, align 8, !tbaa !21
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 18
-  store i16 0, ptr %194, align 2, !tbaa !23
+  store i16 0, ptr %194, align 2, !tbaa !21
   store ptr %188, ptr @l_Lean_Position_lt___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %188) #6
   %195 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.10, i64 noundef 3, i64 noundef 1) #6
@@ -6688,9 +6688,9 @@ _init_l_Lean_Position_instToExpr___closed__2.exit: ; preds = %_init_l_Lean_Posit
   %229 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr @l_Lean_Position_instToExpr___lambda__1, ptr %229, align 8, !tbaa !4
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i16 1, ptr %230, align 8, !tbaa !23
+  store i16 1, ptr %230, align 8, !tbaa !21
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 18
-  store i16 0, ptr %231, align 2, !tbaa !23
+  store i16 0, ptr %231, align 2, !tbaa !21
   store ptr %225, ptr @l_Lean_Position_instToExpr___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %225) #6
   %232 = load ptr, ptr @l_Lean_Position_instToExpr___closed__2, align 8, !tbaa !4
@@ -6890,10 +6890,8 @@ attributes #7 = { noreturn nounwind }
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = !{!"branch_weights", i32 1, i32 127}
 !17 = !{!"branch_weights", i32 127, i32 255873}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = !{!"branch_weights", !"expected", i32 1074010025, i32 1073473623}
-!22 = !{!"branch_weights", !"expected", i32 669, i32 2147482979}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"short", !6, i64 0}
+!18 = !{!"branch_weights", i32 4001, i32 4000000}
+!19 = !{!"branch_weights", !"expected", i32 1074010025, i32 1073473623}
+!20 = !{!"branch_weights", !"expected", i32 669, i32 2147482979}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}

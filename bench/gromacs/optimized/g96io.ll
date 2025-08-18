@@ -1713,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, double noundef %167, double noundef %170, double noundef %173) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count180
-  br i1 %exitcond.not, label %.loopexit152, label %.lr.ph.split, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit152, label %.lr.ph.split, !llvm.loop !91
 
 .loopexit152:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %147, %40
   %175 = call i64 @fwrite(ptr nonnull @.str.31, i64 4, i64 1, ptr %0)
@@ -1787,7 +1787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %224 = fpext float %223 to double
   %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %206, ptr noundef %208, ptr noundef %212, i32 noundef %214, double noundef %218, double noundef %221, double noundef %224) #17
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.loopexit, label %191, !llvm.loop !94
+  br i1 %exitcond201.not, label %.loopexit, label %191, !llvm.loop !92
 
 226:                                              ; preds = %180
   %227 = call i64 @fwrite(ptr nonnull @.str.33, i64 12, i64 1, ptr %0)
@@ -1813,7 +1813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %239 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, double noundef %232, double noundef %235, double noundef %238) #17
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
-  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph169.split.us, !llvm.loop !95
+  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph169.split.us, !llvm.loop !93
 
 .lr.ph169.split:                                  ; preds = %.lr.ph169, %.lr.ph169.split
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph169.split ], [ 0, %.lr.ph169 ]
@@ -1833,7 +1833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, double noundef %246, double noundef %249, double noundef %252) #17
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count195
-  br i1 %exitcond191.not, label %.loopexit, label %.lr.ph169.split, !llvm.loop !96
+  br i1 %exitcond191.not, label %.loopexit, label %.lr.ph169.split, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.lr.ph169.split, %.lr.ph169.split.us, %196, %226, %185
   %254 = call i64 @fwrite(ptr nonnull @.str.31, i64 4, i64 1, ptr %0)
@@ -2057,9 +2057,6 @@ attributes #20 = { cold nounwind }
 !88 = !{!"_ZTS9t_resinfo", !48, i64 0, !14, i64 8, !9, i64 12, !14, i64 16, !9, i64 20, !48, i64 24}
 !89 = !{!88, !14, i64 8}
 !90 = distinct !{!90, !5}
-!91 = distinct !{!91, !5, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !5}
+!92 = distinct !{!92, !5}
 !93 = distinct !{!93, !5}
-!94 = distinct !{!94, !5}
-!95 = distinct !{!95, !5, !92}
-!96 = distinct !{!96, !5}

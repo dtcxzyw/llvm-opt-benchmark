@@ -855,7 +855,7 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
   store i8 %195, ptr %196, align 1, !tbaa !11
   %197 = add i64 %.6, 1
   %198 = icmp eq i64 %197, %2
-  br i1 %198, label %.loopexit, label %.split, !llvm.loop !55
+  br i1 %198, label %.loopexit, label %.split, !llvm.loop !53
 
 .split213.us:                                     ; preds = %.split, %183
   %.us-phi = phi i64 [ %.6.us, %183 ], [ %.6, %.split ]
@@ -868,7 +868,7 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
 
 204:                                              ; preds = %.split213.us
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %206 = load i32, ptr %205, align 8, !tbaa !56
+  %206 = load i32, ptr %205, align 8, !tbaa !54
   %.not146 = icmp ult i32 %200, %206
   br i1 %.not146, label %222, label %207
 
@@ -900,7 +900,7 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   store ptr %219, ptr %220, align 8, !tbaa !48
   %221 = getelementptr inbounds nuw i16, ptr %217, i64 %213
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %219, ptr align 2 %221, i64 %213, i1 false)
-  store i32 %.020.i, ptr %205, align 8, !tbaa !56
+  store i32 %.020.i, ptr %205, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre237 = load i32, ptr %199, align 8, !tbaa !45
   br label %222
@@ -955,7 +955,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8, !tbaa !47
   %.not = icmp eq i8 %7, 0
@@ -963,7 +963,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !58
+  %10 = load i32, ptr %9, align 4, !tbaa !56
   %.not56 = icmp ult i32 %5, %10
   br i1 %.not56, label %11, label %16
 
@@ -1047,16 +1047,16 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   %58 = icmp ult i64 %50, %57
   %59 = zext i1 %58 to i32
   store i32 %59, ptr %43, align 4, !tbaa !34
-  store i32 0, ptr %4, align 8, !tbaa !57
+  store i32 0, ptr %4, align 8, !tbaa !55
   %60 = shl i32 %51, 3
-  store i32 %60, ptr %52, align 4, !tbaa !58
+  store i32 %60, ptr %52, align 4, !tbaa !56
   %61 = icmp ugt i32 %60, %56
   br i1 %61, label %ft_lzwstate_refill.exit, label %ft_lzwstate_refill.exit.thread
 
 ft_lzwstate_refill.exit:                          ; preds = %45
   %.neg20.i = or disjoint i32 %60, 1
   %62 = sub i32 %.neg20.i, %56
-  store i32 %62, ptr %52, align 4, !tbaa !58
+  store i32 %62, ptr %52, align 4, !tbaa !56
   %63 = icmp eq i64 %50, 0
   br i1 %63, label %ft_lzwstate_refill.exit.thread, label %64
 
@@ -1064,7 +1064,7 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   %.049 = phi i32 [ %3, %11 ], [ %42, %ft_lzwstate_refill.exit ]
   %.047 = phi i32 [ %5, %11 ], [ 0, %ft_lzwstate_refill.exit ]
   %65 = add i32 %.047, %.049
-  store i32 %65, ptr %4, align 8, !tbaa !57
+  store i32 %65, ptr %4, align 8, !tbaa !55
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = lshr i32 %.047, 3
   %68 = zext nneg i32 %67 to i64
@@ -1198,9 +1198,7 @@ attributes #8 = { nounwind }
 !50 = !{!"short", !7, i64 0}
 !51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = distinct !{!55, !52}
-!56 = !{!17, !13, i64 104}
-!57 = !{!17, !13, i64 24}
-!58 = !{!17, !13, i64 28}
+!53 = distinct !{!53, !52}
+!54 = !{!17, !13, i64 104}
+!55 = !{!17, !13, i64 24}
+!56 = !{!17, !13, i64 28}

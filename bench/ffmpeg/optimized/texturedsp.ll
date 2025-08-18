@@ -797,13 +797,13 @@ extract_color.exit:                               ; preds = %52, %88
   %.sink37 = add nuw nsw i32 %.sink37.in, -16777216
   %.sink38.in = add nuw nsw i32 %.pn, %17
   %.sink38 = add nuw nsw i32 %.sink38.in, -16777216
-  store i32 %.sink38, ptr %5, align 16, !tbaa !68
+  store i32 %.sink38, ptr %5, align 16, !tbaa !67
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.sink37, ptr %107, align 4, !tbaa !68
+  store i32 %.sink37, ptr %107, align 4, !tbaa !67
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink36, ptr %108, align 8, !tbaa !68
+  store i32 %.sink36, ptr %108, align 8, !tbaa !67
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %.sink, ptr %109, align 4, !tbaa !68
+  store i32 %.sink, ptr %109, align 4, !tbaa !67
   br label %.preheader
 
 .preheader:                                       ; preds = %extract_color.exit, %118
@@ -818,20 +818,20 @@ extract_color.exit:                               ; preds = %52, %88
   %111 = and i32 %.130, 3
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !68
+  %114 = load i32, ptr %113, align 4, !tbaa !67
   %115 = lshr i32 %.130, 2
   %116 = shl nuw nsw i64 %indvars.iv, 2
   %117 = getelementptr inbounds nuw i8, ptr %.033, i64 %116
   store i32 %114, ptr %117, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %118, label %110, !llvm.loop !69
+  br i1 %exitcond.not, label %118, label %110, !llvm.loop !68
 
 118:                                              ; preds = %110
   %119 = getelementptr inbounds i8, ptr %.033, i64 %1
   %120 = add nuw nsw i32 %.01831, 1
   %exitcond35.not = icmp eq i32 %120, 4
-  br i1 %exitcond35.not, label %121, label %.preheader, !llvm.loop !70
+  br i1 %exitcond35.not, label %121, label %.preheader, !llvm.loop !69
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -893,13 +893,13 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %53 = shl nuw nsw i32 %31, 16
   %54 = add nuw nsw i32 %52, %53
   %55 = add nuw nsw i32 %54, %18
-  store i32 %55, ptr %4, align 16, !tbaa !68
+  store i32 %55, ptr %4, align 16, !tbaa !67
   %56 = shl nuw nsw i32 %45, 8
   %57 = shl nuw nsw i32 %51, 16
   %58 = add nuw nsw i32 %56, %57
   %59 = add nuw nsw i32 %58, %38
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %59, ptr %60, align 4, !tbaa !68
+  store i32 %59, ptr %60, align 4, !tbaa !67
   %61 = shl nuw nsw i32 %18, 1
   %62 = add nuw nsw i32 %61, %38
   %.lhs.trunc = trunc nuw nsw i32 %62 to i16
@@ -922,7 +922,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %74 = or disjoint i32 %73, %.zext
   %75 = or disjoint i32 %74, %68
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %75, ptr %76, align 8, !tbaa !68
+  store i32 %75, ptr %76, align 8, !tbaa !67
   %77 = shl nuw nsw i32 %38, 1
   %78 = add nuw nsw i32 %77, %18
   %.lhs.trunc30 = trunc nuw nsw i32 %78 to i16
@@ -945,7 +945,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %90 = or disjoint i32 %89, %.zext31
   %91 = or disjoint i32 %90, %84
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %91, ptr %92, align 4, !tbaa !68
+  store i32 %91, ptr %92, align 4, !tbaa !67
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 3
@@ -985,7 +985,7 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   %115 = and i32 %.136, 3
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !68
+  %118 = load i32, ptr %117, align 4, !tbaa !67
   %119 = zext i8 %114 to i32
   %120 = shl nuw i32 %119, 24
   %121 = or i32 %120, %118
@@ -995,14 +995,14 @@ define internal fastcc void @dxt3_block_internal(ptr noundef writeonly captures(
   store i32 %121, ptr %124, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %125, label %112, !llvm.loop !71
+  br i1 %exitcond.not, label %125, label %112, !llvm.loop !70
 
 125:                                              ; preds = %112
   %126 = getelementptr inbounds i8, ptr %.040, i64 %1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 4
-  br i1 %exitcond45.not, label %127, label %96, !llvm.loop !72
+  br i1 %exitcond45.not, label %127, label %96, !llvm.loop !71
 
 127:                                              ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1051,12 +1051,12 @@ define internal fastcc void @dxt5_block_internal(ptr noundef writeonly captures(
   store i8 %30, ptr %31, align 1, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %32, label %25, !llvm.loop !73
+  br i1 %exitcond.not.i, label %32, label %25, !llvm.loop !72
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 3
   %34 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  br i1 %17, label %16, label %decompress_indices.exit, !llvm.loop !74
+  br i1 %17, label %16, label %decompress_indices.exit, !llvm.loop !73
 
 decompress_indices.exit:                          ; preds = %32
   %35 = zext i16 %7 to i32
@@ -1103,13 +1103,13 @@ decompress_indices.exit:                          ; preds = %32
   %76 = shl nuw nsw i32 %54, 16
   %77 = add nuw nsw i32 %75, %76
   %78 = add nuw nsw i32 %77, %41
-  store i32 %78, ptr %4, align 16, !tbaa !68
+  store i32 %78, ptr %4, align 16, !tbaa !67
   %79 = shl nuw nsw i32 %68, 8
   %80 = shl nuw nsw i32 %74, 16
   %81 = add nuw nsw i32 %79, %80
   %82 = add nuw nsw i32 %81, %61
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %82, ptr %83, align 4, !tbaa !68
+  store i32 %82, ptr %83, align 4, !tbaa !67
   %84 = shl nuw nsw i32 %41, 1
   %85 = add nuw nsw i32 %84, %61
   %.lhs.trunc = trunc nuw nsw i32 %85 to i16
@@ -1132,7 +1132,7 @@ decompress_indices.exit:                          ; preds = %32
   %97 = or disjoint i32 %96, %.zext
   %98 = or disjoint i32 %97, %91
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %98, ptr %99, align 8, !tbaa !68
+  store i32 %98, ptr %99, align 8, !tbaa !67
   %100 = shl nuw nsw i32 %61, 1
   %101 = add nuw nsw i32 %100, %41
   %.lhs.trunc50 = trunc nuw nsw i32 %101 to i16
@@ -1155,7 +1155,7 @@ decompress_indices.exit:                          ; preds = %32
   %113 = or disjoint i32 %112, %.zext51
   %114 = or disjoint i32 %113, %107
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %114, ptr %115, align 4, !tbaa !68
+  store i32 %114, ptr %115, align 4, !tbaa !67
   %116 = zext i8 %12 to i32
   %117 = zext i8 %14 to i32
   %118 = icmp ugt i8 %12, %14
@@ -1199,7 +1199,7 @@ decompress_indices.exit:                          ; preds = %32
   %134 = and i32 %.156.us.us, 3
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %135
-  %137 = load i32, ptr %136, align 4, !tbaa !68
+  %137 = load i32, ptr %136, align 4, !tbaa !67
   %138 = shl nuw i32 %.pre-phi, 24
   %139 = or i32 %138, %137
   %140 = lshr i32 %.156.us.us, 2
@@ -1208,13 +1208,13 @@ decompress_indices.exit:                          ; preds = %32
   store i32 %139, ptr %142, align 1, !tbaa !23
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.split.us.us, label %120, !llvm.loop !75
+  br i1 %exitcond73.not, label %.split.us.us, label %120, !llvm.loop !74
 
 .split.us.us:                                     ; preds = %133
   %143 = getelementptr inbounds i8, ptr %.03760.us, i64 %1
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 4
-  br i1 %exitcond77.not, label %.split62.us, label %.preheader.us, !llvm.loop !76
+  br i1 %exitcond77.not, label %.split62.us, label %.preheader.us, !llvm.loop !75
 
 .preheader:                                       ; preds = %decompress_indices.exit, %.split
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.split ], [ 0, %decompress_indices.exit ]
@@ -1261,7 +1261,7 @@ decompress_indices.exit:                          ; preds = %32
   %161 = and i32 %.156, 3
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %162
-  %164 = load i32, ptr %163, align 4, !tbaa !68
+  %164 = load i32, ptr %163, align 4, !tbaa !67
   %165 = zext i8 %.0 to i32
   %166 = shl nuw i32 %165, 24
   %167 = or i32 %166, %164
@@ -1271,13 +1271,13 @@ decompress_indices.exit:                          ; preds = %32
   store i32 %167, ptr %170, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %145, !llvm.loop !77
+  br i1 %exitcond.not, label %.split, label %145, !llvm.loop !74
 
 .split:                                           ; preds = %160
   %171 = getelementptr inbounds i8, ptr %.03760, i64 %1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %.split62.us, label %.preheader, !llvm.loop !78
+  br i1 %exitcond69.not, label %.split62.us, label %.preheader, !llvm.loop !75
 
 .split62.us:                                      ; preds = %.split, %.split.us.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1313,9 +1313,9 @@ define internal fastcc void @rgtc1_block_internal(ptr noundef writeonly captures
 23:                                               ; preds = %18, %11
   %.034 = phi i32 [ %13, %11 ], [ %19, %18 ]
   %.0 = phi i32 [ %17, %11 ], [ %22, %18 ]
-  store i32 %.034, ptr %9, align 16, !tbaa !68
+  store i32 %.034, ptr %9, align 16, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.0, ptr %24, align 4, !tbaa !68
+  store i32 %.0, ptr %24, align 4, !tbaa !67
   %25 = icmp samesign ugt i32 %.034, %.0
   %26 = shl nuw nsw i32 %.0, 1
   %27 = mul nuw nsw i32 %.0, 3
@@ -1383,17 +1383,17 @@ define internal fastcc void @rgtc1_block_internal(ptr noundef writeonly captures
   %.zext48.sink = zext nneg i16 %.zext48.sink.in to i32
   %.zext46.sink = zext nneg i16 %.zext46.sink.in to i32
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %.zext46.sink, ptr %63, align 8, !tbaa !68
+  store i32 %.zext46.sink, ptr %63, align 8, !tbaa !67
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %.zext48.sink, ptr %64, align 4, !tbaa !68
+  store i32 %.zext48.sink, ptr %64, align 4, !tbaa !67
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %.zext50.sink, ptr %65, align 16, !tbaa !68
+  store i32 %.zext50.sink, ptr %65, align 16, !tbaa !67
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %.zext52.sink, ptr %66, align 4, !tbaa !68
+  store i32 %.zext52.sink, ptr %66, align 4, !tbaa !67
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %.sink55, ptr %67, align 8, !tbaa !68
+  store i32 %.sink55, ptr %67, align 8, !tbaa !67
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 %.sink, ptr %68, align 4, !tbaa !68
+  store i32 %.sink, ptr %68, align 4, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %70
@@ -1422,12 +1422,12 @@ define internal fastcc void @rgtc1_block_internal(ptr noundef writeonly captures
   store i8 %84, ptr %85, align 1, !tbaa !23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %86, label %79, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %86, label %79, !llvm.loop !72
 
 86:                                               ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %.01416.i.i, i64 3
   %88 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  br i1 %71, label %70, label %decompress_indices.exit.preheader.i, !llvm.loop !74
+  br i1 %71, label %70, label %decompress_indices.exit.preheader.i, !llvm.loop !73
 
 decompress_indices.exit.preheader.i:              ; preds = %86
   %.not.i = icmp eq i32 %4, 0
@@ -1450,7 +1450,7 @@ decompress_indices.exit.preheader.i:              ; preds = %86
   %96 = load i8, ptr %95, align 1, !tbaa !23
   %97 = zext i8 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %9, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !68
+  %99 = load i32, ptr %98, align 4, !tbaa !67
   %100 = and i32 %99, 255
   %101 = mul nuw nsw i32 %100, 65793
   %102 = or disjoint i32 %101, -16777216
@@ -1459,12 +1459,12 @@ decompress_indices.exit.preheader.i:              ; preds = %86
   store i32 %102, ptr %gep28.us.us.i, align 1, !tbaa !23
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 4
-  br i1 %exitcond43.not.i, label %.split.us.us.i, label %93, !llvm.loop !79
+  br i1 %exitcond43.not.i, label %.split.us.us.i, label %93, !llvm.loop !76
 
 .split.us.us.i:                                   ; preds = %93
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 4
-  br i1 %exitcond47.not.i, label %rgtc_block_internal.exit, label %.preheader.us.i, !llvm.loop !80
+  br i1 %exitcond47.not.i, label %rgtc_block_internal.exit, label %.preheader.us.i, !llvm.loop !77
 
 .preheader.i:                                     ; preds = %decompress_indices.exit.preheader.i, %.split.i
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.split.i ], [ 0, %decompress_indices.exit.preheader.i ]
@@ -1480,19 +1480,19 @@ decompress_indices.exit.preheader.i:              ; preds = %86
   %109 = load i8, ptr %108, align 1, !tbaa !23
   %110 = zext i8 %109 to i64
   %111 = getelementptr inbounds nuw i32, ptr %9, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !68
+  %112 = load i32, ptr %111, align 4, !tbaa !67
   %113 = trunc i32 %112 to i8
   %114 = mul nuw nsw i64 %indvars.iv.i, %90
   %gep.i = getelementptr i8, ptr %gep30.i, i64 %114
   store i8 %113, ptr %gep.i, align 1, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split.i, label %106, !llvm.loop !81
+  br i1 %exitcond.not.i, label %.split.i, label %106, !llvm.loop !76
 
 .split.i:                                         ; preds = %106
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 4
-  br i1 %exitcond39.not.i, label %rgtc_block_internal.exit, label %.preheader.i, !llvm.loop !82
+  br i1 %exitcond39.not.i, label %rgtc_block_internal.exit, label %.preheader.i, !llvm.loop !77
 
 rgtc_block_internal.exit:                         ; preds = %.split.i, %.split.us.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1595,20 +1595,15 @@ attributes #7 = { nounwind }
 !63 = !{!58, !40, i64 36}
 !64 = !{!58, !40, i64 32}
 !65 = distinct !{!65, !25}
-!66 = distinct !{!66, !25, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = !{!40, !40, i64 0}
+!66 = distinct !{!66, !25}
+!67 = !{!40, !40, i64 0}
+!68 = distinct !{!68, !25}
 !69 = distinct !{!69, !25}
 !70 = distinct !{!70, !25}
 !71 = distinct !{!71, !25}
 !72 = distinct !{!72, !25}
 !73 = distinct !{!73, !25}
 !74 = distinct !{!74, !25}
-!75 = distinct !{!75, !25, !67}
-!76 = distinct !{!76, !25, !67}
+!75 = distinct !{!75, !25}
+!76 = distinct !{!76, !25}
 !77 = distinct !{!77, !25}
-!78 = distinct !{!78, !25}
-!79 = distinct !{!79, !25, !67}
-!80 = distinct !{!80, !25, !67}
-!81 = distinct !{!81, !25}
-!82 = distinct !{!82, !25}

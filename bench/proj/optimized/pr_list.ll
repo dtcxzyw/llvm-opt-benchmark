@@ -165,7 +165,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr n
   %.1 = phi i32 [ %.025, %49 ], [ 1, %.critedge ]
   %.017 = load ptr, ptr %.01726, align 8, !tbaa !41
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %53, %29
   %.015.lcssa = phi i32 [ %.2.us, %29 ], [ %.2, %53 ]
@@ -251,7 +251,7 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef readonly captu
   %.127 = phi i64 [ %.228, %24 ], [ %.02644, %.lr.ph ]
   %.033 = load ptr, ptr %.03345, align 8, !tbaa !41
   %.not36 = icmp eq ptr %.033, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !45
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 .loopexit:                                        ; preds = %26, %4, %.thread, %2
   %.0 = phi ptr [ null, %2 ], [ null, %.thread ], [ %3, %4 ], [ %.130, %26 ]
@@ -339,7 +339,5 @@ attributes #11 = { nounwind }
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
 !41 = !{!12, !12, i64 0}
-!42 = distinct !{!42, !40, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !40}
-!45 = distinct !{!45, !40}
+!42 = distinct !{!42, !40}
+!43 = distinct !{!43, !40}

@@ -313,7 +313,7 @@ if.then:                                          ; preds = %entry, %if.then
   %add = add nuw nsw i64 %add15, 1
   %cmp3 = icmp ult i64 %add, %minBytes
   %or.cond = select i1 %cmp2.not, i1 true, i1 %cmp3
-  br i1 %or.cond, label %if.then, label %if.else, !llvm.loop !10
+  br i1 %or.cond, label %if.then, label %if.else, !llvm.loop !9
 
 if.else:                                          ; preds = %if.then, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %add15, %if.then ]
@@ -390,6 +390,5 @@ attributes #15 = { builtin nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

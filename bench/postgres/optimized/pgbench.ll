@@ -11218,7 +11218,7 @@ coerceToInt.exit194.i:                            ; preds = %298, %valueTypeName
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count
-  br i1 %exitcond140.not, label %._crit_edge106, label %.lr.ph105.split, !llvm.loop !73
+  br i1 %exitcond140.not, label %._crit_edge106, label %.lr.ph105.split, !llvm.loop !71
 
 ._crit_edge106:                                   ; preds = %410, %403, %.preheader
   %.lcssa102 = phi double [ %.promoted101, %.preheader ], [ %406, %403 ], [ %413, %410 ]
@@ -11321,7 +11321,7 @@ valueTypeName.exit.i195.i:                        ; preds = %418, %valueTypeName
   %storemerge.i = phi i64 [ %438, %437 ], [ %436, %435 ]
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %._crit_edge99, label %418, !llvm.loop !74
+  br i1 %exitcond150.not, label %._crit_edge99, label %418, !llvm.loop !72
 
 ._crit_edge99:                                    ; preds = %439, %.preheader75.thread, %.preheader75
   %.lcssa91 = phi i64 [ %.promoted, %.preheader75 ], [ %.promoted161, %.preheader75.thread ], [ %storemerge.i, %439 ]
@@ -11366,7 +11366,7 @@ valueTypeName.exit.i195.i:                        ; preds = %418, %valueTypeName
   %454 = extractvalue { i64, i1 } %452, 0
   %455 = icmp eq i64 %454, 9223372036854775807
   %or.cond = or i1 %453, %455
-  br i1 %or.cond, label %.critedge183.i, label %456, !prof !75
+  br i1 %or.cond, label %.critedge183.i, label %456, !prof !73
 
 .critedge183.i:                                   ; preds = %451
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.417) #25
@@ -11546,7 +11546,7 @@ valueTypeName.exit.i195.i:                        ; preds = %418, %valueTypeName
   %541 = mul i64 %540, 1099511628211
   %542 = add nuw nsw i32 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %542, 8
-  br i1 %exitcond.not.i.i, label %.sink.split, label %537, !llvm.loop !76
+  br i1 %exitcond.not.i.i, label %.sink.split, label %537, !llvm.loop !74
 
 .sink.split:                                      ; preds = %537, %522
   %.lcssa168.sink = phi i64 [ %534, %522 ], [ %541, %537 ]
@@ -11696,7 +11696,7 @@ define internal fastcc noundef zeroext i1 @runShellCommand(ptr noundef captures(
   %42 = add i32 %.250, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge.loopexit:                             ; preds = %38
   %43 = sext i32 %42 to i64
@@ -11790,7 +11790,7 @@ define internal fastcc noundef zeroext i1 @runShellCommand(ptr noundef captures(
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %86 = load i8, ptr %85, align 1
   %.not = icmp eq i8 %86, 0
-  br i1 %.not, label %.critedge, label %77, !llvm.loop !78
+  br i1 %.not, label %.critedge, label %77, !llvm.loop !76
 
 .critedge:                                        ; preds = %84, %72
   %87 = load i8, ptr %6, align 16
@@ -11861,7 +11861,7 @@ define internal fastcc noundef zeroext i1 @is_an_int(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %.critedge2, label %5, !llvm.loop !79
+  br i1 %.not, label %.critedge2, label %5, !llvm.loop !77
 
 .critedge:                                        ; preds = %5
   switch i8 %6, label %.thread40 [
@@ -11894,7 +11894,7 @@ define internal fastcc noundef zeroext i1 @is_an_int(ptr noundef readonly captur
   %23 = getelementptr inbounds nuw i8, ptr %.231, i64 1
   %24 = load i8, ptr %23, align 1
   %.not21 = icmp eq i8 %24, 0
-  br i1 %.not21, label %.critedge2, label %25, !llvm.loop !80
+  br i1 %.not21, label %.critedge2, label %25, !llvm.loop !78
 
 25:                                               ; preds = %.lr.ph32, %22
   %26 = phi i8 [ %.pr44, %.lr.ph32 ], [ %24, %22 ]
@@ -12266,7 +12266,7 @@ define internal fastcc i64 @getGaussianRand(ptr noundef %0, i64 noundef %1, i64 
   %8 = fcmp olt double %7, %5
   %9 = fcmp oge double %7, %3
   %10 = or i1 %8, %9
-  br i1 %10, label %6, label %11, !llvm.loop !81
+  br i1 %10, label %6, label %11, !llvm.loop !79
 
 11:                                               ; preds = %6
   %12 = fadd double %3, %7
@@ -12414,7 +12414,7 @@ define internal fastcc range(i64 0, 9223372036854775807) i64 @permute(i64 nounde
   %43 = add nuw nsw i32 %.051, 1
   %.044 = urem i64 %42, %1
   %exitcond.not = icmp eq i32 %43, 6
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !82
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !80
 
 .loopexit:                                        ; preds = %40, %3
   %.043 = phi i64 [ 0, %3 ], [ %.044, %40 ]
@@ -12596,15 +12596,13 @@ attributes #29 = { noreturn }
 !68 = distinct !{!68, !5}
 !69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
-!71 = distinct !{!71, !5, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !5}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = !{!"branch_weights", i32 2002, i32 2000}
 !74 = distinct !{!74, !5}
-!75 = !{!"branch_weights", i32 2002, i32 2000}
+!75 = distinct !{!75, !5}
 !76 = distinct !{!76, !5}
 !77 = distinct !{!77, !5}
 !78 = distinct !{!78, !5}
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
-!82 = distinct !{!82, !5}

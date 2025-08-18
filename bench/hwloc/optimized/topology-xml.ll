@@ -843,18 +843,18 @@ hwloc_nolibxml_import.exit:                       ; preds = %14, %22
 
 .lr.ph:                                           ; preds = %hwloc_nolibxml_import.exit
   %23 = load i32, ptr @hwloc_nolibxml_import.nolibxml, align 4, !tbaa !3
-  %.fr34 = freeze i32 %23
-  %.not35 = icmp eq i32 %.fr34, 0
-  br i1 %.not35, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %.fr38 = freeze i32 %23
+  %.not39 = icmp eq i32 %.fr38, 0
+  br i1 %.not39, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = call i32 %25(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2) #23
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %.loopexit
 
-28:                                               ; preds = %.lr.ph.split.us
+28:                                               ; preds = %.lr.ph.split.us.split.us
   %29 = tail call ptr @__errno_location() #27
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = icmp eq i32 %30, 38
@@ -862,8 +862,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %14, %22
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %32 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not36 = icmp eq ptr %32, null
-  br i1 %.not36, label %33, label %._crit_edge
+  %.not40 = icmp eq ptr %32, null
+  br i1 %.not40, label %33, label %._crit_edge
 
 33:                                               ; preds = %.lr.ph.split.split.us
   %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
@@ -889,8 +889,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %14, %22
   %45 = call i32 %44(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %.lr.ph.split.us, %33, %38, %._crit_edge
-  %.0 = phi i32 [ %45, %._crit_edge ], [ %26, %.lr.ph.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
+.loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %28, %33, %38, %._crit_edge
+  %.0 = phi i32 [ %45, %._crit_edge ], [ %26, %.lr.ph.split.us.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
   br i1 %.not27, label %48, label %46
 
 46:                                               ; preds = %.loopexit
@@ -988,18 +988,18 @@ hwloc_nolibxml_import.exit:                       ; preds = %13, %21
 
 .lr.ph:                                           ; preds = %hwloc_nolibxml_import.exit
   %22 = load i32, ptr @hwloc_nolibxml_import.nolibxml, align 4, !tbaa !3
-  %.fr28 = freeze i32 %22
-  %.not29 = icmp eq i32 %.fr28, 0
-  br i1 %.not29, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %.fr32 = freeze i32 %22
+  %.not33 = icmp eq i32 %.fr32, 0
+  br i1 %.not33, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = call i32 %24(ptr noundef nonnull %5, ptr noundef null, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3) #23
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %.loopexit
 
-27:                                               ; preds = %.lr.ph.split.us
+27:                                               ; preds = %.lr.ph.split.us.split.us
   %28 = tail call ptr @__errno_location() #27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = icmp eq i32 %29, 38
@@ -1007,8 +1007,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %13, %21
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %31 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not30 = icmp eq ptr %31, null
-  br i1 %.not30, label %32, label %._crit_edge
+  %.not34 = icmp eq ptr %31, null
+  br i1 %.not34, label %32, label %._crit_edge
 
 32:                                               ; preds = %.lr.ph.split.split.us
   %33 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
@@ -1034,8 +1034,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %13, %21
   %44 = call i32 %43(ptr noundef nonnull %5, ptr noundef null, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.lr.ph.split.us, %32, %37, %._crit_edge
-  %.0 = phi i32 [ %44, %._crit_edge ], [ %25, %.lr.ph.split.us ], [ %25, %27 ], [ %35, %32 ], [ %35, %37 ]
+.loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %27, %32, %37, %._crit_edge
+  %.0 = phi i32 [ %44, %._crit_edge ], [ %25, %.lr.ph.split.us.split.us ], [ %25, %27 ], [ %35, %32 ], [ %35, %37 ]
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %.loopexit
@@ -3628,18 +3628,18 @@ hwloc_nolibxml_export.exit:                       ; preds = %18, %26
 
 .lr.ph:                                           ; preds = %hwloc_nolibxml_export.exit
   %27 = load i32, ptr @hwloc_nolibxml_export.nolibxml, align 4, !tbaa !3
-  %.fr32 = freeze i32 %27
-  %.not33 = icmp eq i32 %.fr32, 0
-  br i1 %.not33, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %.fr36 = freeze i32 %27
+  %.not37 = icmp eq i32 %.fr36, 0
+  br i1 %.not37, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !182
   %30 = call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #23
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %.loopexit
 
-32:                                               ; preds = %.lr.ph.split.us
+32:                                               ; preds = %.lr.ph.split.us.split.us
   %33 = tail call ptr @__errno_location() #27
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = icmp eq i32 %34, 38
@@ -3647,8 +3647,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %18, %26
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %36 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not34 = icmp eq ptr %36, null
-  br i1 %.not34, label %37, label %._crit_edge
+  %.not38 = icmp eq ptr %36, null
+  br i1 %.not38, label %37, label %._crit_edge
 
 37:                                               ; preds = %.lr.ph.split.split.us
   %38 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
@@ -3674,8 +3674,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %18, %26
   %49 = call i32 %48(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.lr.ph.split.us, %37, %42, %._crit_edge
-  %.0 = phi i32 [ %49, %._crit_edge ], [ %30, %.lr.ph.split.us ], [ %30, %32 ], [ %40, %37 ], [ %40, %42 ]
+.loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %32, %37, %42, %._crit_edge
+  %.0 = phi i32 [ %49, %._crit_edge ], [ %30, %.lr.ph.split.us.split.us ], [ %30, %32 ], [ %40, %37 ], [ %40, %42 ]
   br i1 %.not25, label %52, label %50
 
 50:                                               ; preds = %.loopexit
@@ -3761,18 +3761,18 @@ hwloc_nolibxml_export.exit:                       ; preds = %19, %27
 
 .lr.ph:                                           ; preds = %hwloc_nolibxml_export.exit
   %28 = load i32, ptr @hwloc_nolibxml_export.nolibxml, align 4, !tbaa !3
-  %.fr34 = freeze i32 %28
-  %.not35 = icmp eq i32 %.fr34, 0
-  br i1 %.not35, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %.fr38 = freeze i32 %28
+  %.not39 = icmp eq i32 %.fr38, 0
+  br i1 %.not39, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !183
   %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, i64 noundef %3) #23
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %.loopexit
 
-33:                                               ; preds = %.lr.ph.split.us
+33:                                               ; preds = %.lr.ph.split.us.split.us
   %34 = tail call ptr @__errno_location() #27
   %35 = load i32, ptr %34, align 4, !tbaa !3
   %36 = icmp eq i32 %35, 38
@@ -3780,8 +3780,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %19, %27
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %37 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not36 = icmp eq ptr %37, null
-  br i1 %.not36, label %38, label %._crit_edge
+  %.not40 = icmp eq ptr %37, null
+  br i1 %.not40, label %38, label %._crit_edge
 
 38:                                               ; preds = %.lr.ph.split.split.us
   %39 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
@@ -3807,8 +3807,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %19, %27
   %50 = call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, i64 noundef %3) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %.lr.ph.split.us, %38, %43, %._crit_edge
-  %.0 = phi i32 [ %50, %._crit_edge ], [ %31, %.lr.ph.split.us ], [ %31, %33 ], [ %41, %38 ], [ %41, %43 ]
+.loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %33, %38, %43, %._crit_edge
+  %.0 = phi i32 [ %50, %._crit_edge ], [ %31, %.lr.ph.split.us.split.us ], [ %31, %33 ], [ %41, %38 ], [ %41, %43 ]
   br i1 %.not27, label %53, label %51
 
 51:                                               ; preds = %.loopexit
@@ -3889,18 +3889,18 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %22
 
 .lr.ph31:                                         ; preds = %hwloc_nolibxml_export.exit
   %23 = load i32, ptr @hwloc_nolibxml_export.nolibxml, align 4, !tbaa !3
-  %.fr37 = freeze i32 %23
-  %.not38 = icmp eq i32 %.fr37, 0
-  br i1 %.not38, label %.lr.ph31.split.us, label %.lr.ph31.split.split.us
+  %.fr41 = freeze i32 %23
+  %.not42 = icmp eq i32 %.fr41, 0
+  br i1 %.not42, label %.lr.ph31.split.us.split.us, label %.lr.ph31.split.split.us
 
-.lr.ph31.split.us:                                ; preds = %.lr.ph31
+.lr.ph31.split.us.split.us:                       ; preds = %.lr.ph31
   %24 = getelementptr inbounds nuw i8, ptr %.pr, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !185
   %26 = tail call i32 %25(ptr noundef %0, ptr noundef %1, ptr noundef %2) #23
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %.loopexit
 
-28:                                               ; preds = %.lr.ph31.split.us
+28:                                               ; preds = %.lr.ph31.split.us.split.us
   %29 = tail call ptr @__errno_location() #27
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = icmp eq i32 %30, 38
@@ -3908,8 +3908,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %22
 
 .lr.ph31.split.split.us:                          ; preds = %.lr.ph31
   %32 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not39 = icmp eq ptr %32, null
-  br i1 %.not39, label %33, label %._crit_edge32
+  %.not43 = icmp eq ptr %32, null
+  br i1 %.not43, label %33, label %._crit_edge32
 
 33:                                               ; preds = %.lr.ph31.split.split.us
   %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 40
@@ -3935,8 +3935,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %22
   %45 = tail call i32 %44(ptr noundef %0, ptr noundef %1, ptr noundef %2) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %.lr.ph31.split.us, %33, %38, %._crit_edge32
-  %.0 = phi i32 [ %45, %._crit_edge32 ], [ %26, %.lr.ph31.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
+.loopexit:                                        ; preds = %.lr.ph31.split.us.split.us, %28, %33, %38, %._crit_edge32
+  %.0 = phi i32 [ %45, %._crit_edge32 ], [ %26, %.lr.ph31.split.us.split.us ], [ %26, %28 ], [ %36, %33 ], [ %36, %38 ]
   br i1 %.not26, label %48, label %46
 
 46:                                               ; preds = %.loopexit
@@ -4020,18 +4020,18 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %23
 
 .lr.ph33:                                         ; preds = %hwloc_nolibxml_export.exit
   %24 = load i32, ptr @hwloc_nolibxml_export.nolibxml, align 4, !tbaa !3
-  %.fr39 = freeze i32 %24
-  %.not40 = icmp eq i32 %.fr39, 0
-  br i1 %.not40, label %.lr.ph33.split.us, label %.lr.ph33.split.split.us
+  %.fr43 = freeze i32 %24
+  %.not44 = icmp eq i32 %.fr43, 0
+  br i1 %.not44, label %.lr.ph33.split.us.split.us, label %.lr.ph33.split.split.us
 
-.lr.ph33.split.us:                                ; preds = %.lr.ph33
+.lr.ph33.split.us.split.us:                       ; preds = %.lr.ph33
   %25 = getelementptr inbounds nuw i8, ptr %.pr, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !187
   %27 = tail call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #23
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %.loopexit
 
-29:                                               ; preds = %.lr.ph33.split.us
+29:                                               ; preds = %.lr.ph33.split.us.split.us
   %30 = tail call ptr @__errno_location() #27
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 38
@@ -4039,8 +4039,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %23
 
 .lr.ph33.split.split.us:                          ; preds = %.lr.ph33
   %33 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not41 = icmp eq ptr %33, null
-  br i1 %.not41, label %34, label %._crit_edge34
+  %.not45 = icmp eq ptr %33, null
+  br i1 %.not45, label %34, label %._crit_edge34
 
 34:                                               ; preds = %.lr.ph33.split.split.us
   %35 = getelementptr inbounds nuw i8, ptr %.pr, i64 48
@@ -4066,8 +4066,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %23
   %46 = tail call i32 %45(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %29, %.lr.ph33.split.us, %34, %39, %._crit_edge34
-  %.0 = phi i32 [ %46, %._crit_edge34 ], [ %27, %.lr.ph33.split.us ], [ %27, %29 ], [ %37, %34 ], [ %37, %39 ]
+.loopexit:                                        ; preds = %.lr.ph33.split.us.split.us, %29, %34, %39, %._crit_edge34
+  %.0 = phi i32 [ %46, %._crit_edge34 ], [ %27, %.lr.ph33.split.us.split.us ], [ %27, %29 ], [ %37, %34 ], [ %37, %39 ]
   br i1 %.not28, label %49, label %47
 
 47:                                               ; preds = %.loopexit
@@ -4965,17 +4965,17 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %35
 
 .lr.ph:                                           ; preds = %hwloc_nolibxml_import.exit
   %36 = load i32, ptr @hwloc_nolibxml_import.nolibxml, align 4, !tbaa !3
-  %.fr55 = freeze i32 %36
-  %.not56 = icmp eq i32 %.fr55, 0
-  br i1 %.not56, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %.fr56 = freeze i32 %36
+  %.not57 = icmp eq i32 %.fr56, 0
+  br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %37 = load ptr, ptr %.pr, align 8, !tbaa !213
   %38 = tail call i32 %37(ptr noundef nonnull %18, ptr noundef %.040, ptr noundef %4, i32 noundef %8) #23
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %.critedge51
 
-40:                                               ; preds = %.lr.ph.split.us
+40:                                               ; preds = %.lr.ph.split.us.split.us
   %41 = tail call ptr @__errno_location() #27
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = icmp eq i32 %42, 38
@@ -4983,8 +4983,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %35
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %44 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8, !tbaa !7
-  %.not57 = icmp eq ptr %44, null
-  br i1 %.not57, label %45, label %._crit_edge
+  %.not58 = icmp eq ptr %44, null
+  br i1 %.not58, label %45, label %._crit_edge
 
 45:                                               ; preds = %.lr.ph.split.split.us
   %46 = load ptr, ptr %.pr, align 8, !tbaa !213
@@ -5015,8 +5015,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %35
   tail call void @free(ptr noundef nonnull %16) #23
   br label %.critedge51
 
-.critedge51:                                      ; preds = %.lr.ph.split.us, %45, %13, %.critedge, %15, %._crit_edge
-  %.039 = phi ptr [ %16, %._crit_edge ], [ null, %15 ], [ null, %.critedge ], [ null, %13 ], [ %16, %45 ], [ %16, %.lr.ph.split.us ]
+.critedge51:                                      ; preds = %.lr.ph.split.us.split.us, %45, %13, %.critedge, %15, %._crit_edge
+  %.039 = phi ptr [ %16, %._crit_edge ], [ null, %15 ], [ null, %.critedge ], [ null, %13 ], [ %16, %45 ], [ %16, %.lr.ph.split.us.split.us ]
   ret ptr %.039
 }
 

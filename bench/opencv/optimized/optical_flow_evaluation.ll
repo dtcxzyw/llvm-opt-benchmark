@@ -5323,7 +5323,7 @@ define internal fastcc void @_ZL12angularErrorRKN2cv4Mat_INS_6Point_IfEEEES5_(pt
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %38 = sext i32 %35 to i64
   %39 = icmp slt i64 %indvars.iv.next60, %38
-  br i1 %39, label %.preheader, label %._crit_edge56, !llvm.loop !119
+  br i1 %39, label %.preheader, label %._crit_edge56, !llvm.loop !118
 
 40:                                               ; preds = %.lr.ph, %87
   %41 = phi i32 [ %26, %.lr.ph ], [ %88, %87 ]
@@ -5406,7 +5406,7 @@ _Z13isFlowCorrectN2cv7Point3_IfEE.exit.thread:    ; preds = %53, %40, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %40, label %._crit_edge.loopexit, !llvm.loop !121
+  br i1 %90, label %40, label %._crit_edge.loopexit, !llvm.loop !120
 
 ._crit_edge56:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %3
   ret void
@@ -5453,7 +5453,7 @@ declare void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 d
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !69
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !122
+  %4 = load ptr, ptr %3, align 8, !tbaa !121
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -5462,7 +5462,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #26
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !123
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !122
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !69
@@ -6008,12 +6008,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.2.us.i = phi i32 [ %204, %211 ], [ %204, %203 ], [ %.143.us.i, %200 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %200, !llvm.loop !124
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %200, !llvm.loop !123
 
 ._crit_edge.us.i:                                 ; preds = %213
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %._crit_edge49.loopexit.i, label %.preheader.us.i, !llvm.loop !125
+  br i1 %exitcond59.not.i, label %._crit_edge49.loopexit.i, label %.preheader.us.i, !llvm.loop !124
 
 214:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6075,7 +6075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   %234 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, double noundef %231, double noundef %233)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %238, label %157, !llvm.loop !126
+  br i1 %exitcond.not, label %238, label %157, !llvm.loop !125
 
 235:                                              ; preds = %157
   %236 = landingpad { ptr, i32 }
@@ -6129,7 +6129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   %248 = fptrunc double %247 to float
   store float %248, ptr %246, align 4, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  store ptr %30, ptr %31, align 8, !tbaa !127
+  store ptr %30, ptr %31, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %249 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %249, align 8, !tbaa !50
@@ -6239,7 +6239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   %294 = icmp samesign ult i64 %indvars.iv.next.i98, %287
   %295 = icmp slt i32 %293, %277
   %296 = select i1 %294, i1 %295, i1 false
-  br i1 %296, label %288, label %._crit_edge.loopexit.i, !llvm.loop !129
+  br i1 %296, label %288, label %._crit_edge.loopexit.i, !llvm.loop !128
 
 ._crit_edge.loopexit.i:                           ; preds = %288
   %297 = trunc nuw nsw i64 %indvars.iv.next.i98 to i32
@@ -6257,7 +6257,7 @@ _ZL7stat_AXN2cv3MatEif.exit:                      ; preds = %274, %._crit_edge.l
   %304 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, double noundef %302, double noundef %303)
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 3
-  br i1 %exitcond109.not, label %264, label %271, !llvm.loop !130
+  br i1 %exitcond109.not, label %264, label %271, !llvm.loop !129
 
 305:                                              ; preds = %271
   %306 = landingpad { ptr, i32 }
@@ -6546,7 +6546,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv7optf
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !130
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -6634,7 +6634,7 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIvEE9constructIN2cv7o
   %4 = alloca %"struct.cv::Ptr.36", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %2, align 8, !tbaa !104
-  store ptr %5, ptr %4, align 8, !tbaa !133
+  store ptr %5, ptr %4, align 8, !tbaa !132
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !83
@@ -6757,7 +6757,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv7optf
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !130
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7023,21 +7023,20 @@ attributes #28 = { noreturn }
 !114 = !{!"float", !8, i64 0}
 !115 = distinct !{!115, !116}
 !116 = !{!"llvm.loop.mustprogress"}
-!117 = distinct !{!117, !116, !118}
-!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!119 = distinct !{!119, !116, !120}
-!120 = !{!"llvm.loop.unswitch.partial.disable"}
-!121 = distinct !{!121, !116}
-!122 = !{!70, !71, i64 8}
+!117 = distinct !{!117, !116}
+!118 = distinct !{!118, !116, !119}
+!119 = !{!"llvm.loop.unswitch.partial.disable"}
+!120 = distinct !{!120, !116}
+!121 = !{!70, !71, i64 8}
+!122 = distinct !{!122, !116}
 !123 = distinct !{!123, !116}
 !124 = distinct !{!124, !116}
-!125 = distinct !{!125, !116, !118}
-!126 = distinct !{!126, !116}
-!127 = !{!128, !128, i64 0}
-!128 = !{!"p1 float", !7, i64 0}
+!125 = distinct !{!125, !116}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 float", !7, i64 0}
+!128 = distinct !{!128, !116}
 !129 = distinct !{!129, !116}
-!130 = distinct !{!130, !116}
-!131 = !{!132, !6, i64 8}
-!132 = !{!"_ZTSSt9type_info", !6, i64 8}
-!133 = !{!134, !106, i64 0}
-!134 = !{!"_ZTSSt12__shared_ptrIKN2cv7optflow8PCAPriorELN9__gnu_cxx12_Lock_policyE2EE", !106, i64 0, !55, i64 8}
+!130 = !{!131, !6, i64 8}
+!131 = !{!"_ZTSSt9type_info", !6, i64 8}
+!132 = !{!133, !106, i64 0}
+!133 = !{!"_ZTSSt12__shared_ptrIKN2cv7optflow8PCAPriorELN9__gnu_cxx12_Lock_policyE2EE", !106, i64 0, !55, i64 8}

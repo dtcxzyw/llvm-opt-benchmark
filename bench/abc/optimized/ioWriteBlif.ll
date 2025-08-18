@@ -2871,7 +2871,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %.val92 = load i32, ptr %110, align 4, !tbaa !31
   %111 = sext i32 %.val92 to i64
   %112 = icmp slt i64 %indvars.iv.next122, %111
-  br i1 %112, label %.lr.ph112, label %.critedge2, !llvm.loop !107
+  br i1 %112, label %.lr.ph112, label %.critedge2, !llvm.loop !106
 
 .critedge2:                                       ; preds = %108, %93
   %113 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 6, i64 1, ptr nonnull %5)
@@ -2910,7 +2910,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %.val91 = load i32, ptr %128, align 4, !tbaa !31
   %129 = sext i32 %.val91 to i64
   %130 = icmp slt i64 %indvars.iv.next125, %129
-  br i1 %130, label %.lr.ph115, label %.critedge4, !llvm.loop !108
+  br i1 %130, label %.lr.ph115, label %.critedge4, !llvm.loop !107
 
 .critedge4:                                       ; preds = %126, %.critedge2
   %fputc86 = tail call i32 @fputc(i32 10, ptr nonnull %5)
@@ -2945,7 +2945,7 @@ define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef
   %.val90 = load i32, ptr %142, align 4, !tbaa !31
   %143 = sext i32 %.val90 to i64
   %144 = icmp slt i64 %indvars.iv.next128, %143
-  br i1 %144, label %.lr.ph118.split, label %.critedge6, !llvm.loop !109
+  br i1 %144, label %.lr.ph118.split, label %.critedge6, !llvm.loop !105
 
 .critedge6:                                       ; preds = %140, %88, %.preheader
   %145 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 6, i64 1, ptr nonnull %5)
@@ -2984,7 +2984,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
 
 .preheader:                                       ; preds = %3
   %7 = getelementptr i8, ptr %1, i64 64
-  %.val4757 = load ptr, ptr %7, align 8, !tbaa !110
+  %.val4757 = load ptr, ptr %7, align 8, !tbaa !108
   %8 = getelementptr i8, ptr %.val4757, i64 4
   %.val47.val58 = load i32, ptr %8, align 4, !tbaa !31
   %9 = icmp sgt i32 %.val47.val58, 0
@@ -3039,7 +3039,7 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %.val.val = load i32, ptr %33, align 4, !tbaa !31
   %34 = sext i32 %.val.val to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !111
+  br i1 %35, label %.lr.ph, label %.critedge, !llvm.loop !109
 
 .lr.ph63:                                         ; preds = %.preheader, %54
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %54 ], [ 0, %.preheader ]
@@ -3085,12 +3085,12 @@ define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %
   %57 = add nsw i32 %.339, %48
   %58 = add nsw i32 %.3, 1
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %.val47 = load ptr, ptr %7, align 8, !tbaa !110
+  %.val47 = load ptr, ptr %7, align 8, !tbaa !108
   %59 = getelementptr i8, ptr %.val47, i64 4
   %.val47.val = load i32, ptr %59, align 4, !tbaa !31
   %60 = sext i32 %.val47.val to i64
   %61 = icmp slt i64 %indvars.iv.next67, %60
-  br i1 %61, label %.lr.ph63, label %.critedge, !llvm.loop !112
+  br i1 %61, label %.lr.ph63, label %.critedge, !llvm.loop !110
 
 .critedge:                                        ; preds = %28, %54, %.preheader49, %.preheader
   ret void
@@ -3132,7 +3132,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   tail call fastcc void @Io_NtkWritePos(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %fputc74 = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %8 = getelementptr i8, ptr %1, i64 4
-  %.val92 = load i32, ptr %8, align 4, !tbaa !113
+  %.val92 = load i32, ptr %8, align 4, !tbaa !111
   %.not = icmp eq i32 %.val92, 6
   br i1 %.not, label %9, label %13
 
@@ -3242,7 +3242,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %.val91 = load i32, ptr %62, align 4, !tbaa !31
   %63 = sext i32 %.val91 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !114
+  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !112
 
 .critedge:                                        ; preds = %60, %16
   %fputc78 = tail call i32 @fputc(i32 10, ptr nonnull %0)
@@ -3294,7 +3294,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %.val90 = load i32, ptr %85, align 4, !tbaa !31
   %86 = sext i32 %.val90 to i64
   %87 = icmp slt i64 %indvars.iv.next135, %86
-  br i1 %87, label %.lr.ph125, label %.critedge2, !llvm.loop !115
+  br i1 %87, label %.lr.ph125, label %.critedge2, !llvm.loop !113
 
 .critedge2:                                       ; preds = %83, %71
   %fputc81 = tail call i32 @fputc(i32 10, ptr nonnull %0)
@@ -3329,14 +3329,14 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
   %.val89 = load i32, ptr %100, align 4, !tbaa !31
   %101 = sext i32 %.val89 to i64
   %102 = icmp slt i64 %indvars.iv.next138, %101
-  br i1 %102, label %.lr.ph128, label %.critedge4, !llvm.loop !116
+  br i1 %102, label %.lr.ph128, label %.critedge4, !llvm.loop !114
 
 .critedge4:                                       ; preds = %98, %.critedge2
   %fputc82 = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %103
 
 103:                                              ; preds = %.critedge4, %68
-  %.val102 = load i32, ptr %8, align 4, !tbaa !113
+  %.val102 = load i32, ptr %8, align 4, !tbaa !111
   %.not115 = icmp eq i32 %.val102, 4
   br i1 %.not115, label %104, label %108
 
@@ -3397,7 +3397,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %
 Extra_ProgressBarUpdate.exit:                     ; preds = %128, %131
   %132 = load ptr, ptr %122, align 8, !tbaa !39
   %133 = getelementptr i8, ptr %132, i64 4
-  %.val25.i = load i32, ptr %133, align 4, !tbaa !113
+  %.val25.i = load i32, ptr %133, align 4, !tbaa !111
   %.not.i106 = icmp eq i32 %.val25.i, 4
   br i1 %.not.i106, label %134, label %158
 
@@ -3501,7 +3501,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %.val30.i.i = load i32, ptr %160, align 4, !tbaa !52
   %184 = sext i32 %.val30.i.i to i64
   %185 = icmp slt i64 %indvars.iv.next.i.i, %184
-  br i1 %185, label %163, label %.critedge.loopexit.i.i, !llvm.loop !117
+  br i1 %185, label %163, label %.critedge.loopexit.i.i, !llvm.loop !115
 
 .critedge.loopexit.i.i:                           ; preds = %180
   %186 = icmp eq i32 %183, 0
@@ -3563,7 +3563,7 @@ Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFani
   %210 = getelementptr i8, ptr %209, i64 4
   %.val = load i32, ptr %210, align 4, !tbaa !31
   %211 = icmp slt i32 %208, %.val
-  br i1 %211, label %117, label %.critedge6, !llvm.loop !118
+  br i1 %211, label %117, label %.critedge6, !llvm.loop !116
 
 .critedge6:                                       ; preds = %207, %108
   tail call void @Extra_ProgressBarStop(ptr noundef %113) #10
@@ -3653,7 +3653,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val27.val = load i32, ptr %42, align 4, !tbaa !31
   %43 = sext i32 %.val27.val to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !119
+  br i1 %44, label %15, label %.critedge.preheader, !llvm.loop !117
 
 .critedge:                                        ; preds = %.lr.ph51, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next54, %.critedge ]
@@ -3705,7 +3705,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none
   %.val33.val = load i32, ptr %71, align 4, !tbaa !31
   %72 = sext i32 %.val33.val to i64
   %73 = icmp slt i64 %indvars.iv.next54, %72
-  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !120
+  br i1 %73, label %.critedge, label %.critedge2, !llvm.loop !118
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
@@ -3871,19 +3871,17 @@ attributes #12 = { nounwind allocsize(0) }
 !102 = !{!9, !13, i64 80}
 !103 = distinct !{!103, !36}
 !104 = !{!17, !10, i64 0}
-!105 = distinct !{!105, !36, !106}
-!106 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!105 = distinct !{!105, !36}
+!106 = distinct !{!106, !36}
 !107 = distinct !{!107, !36}
-!108 = distinct !{!108, !36}
+!108 = !{!9, !13, i64 64}
 !109 = distinct !{!109, !36}
-!110 = !{!9, !13, i64 64}
-!111 = distinct !{!111, !36}
+!110 = distinct !{!110, !36}
+!111 = !{!9, !10, i64 4}
 !112 = distinct !{!112, !36}
-!113 = !{!9, !10, i64 4}
+!113 = distinct !{!113, !36}
 !114 = distinct !{!114, !36}
 !115 = distinct !{!115, !36}
 !116 = distinct !{!116, !36}
 !117 = distinct !{!117, !36}
 !118 = distinct !{!118, !36}
-!119 = distinct !{!119, !36}
-!120 = distinct !{!120, !36}

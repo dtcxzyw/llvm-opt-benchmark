@@ -1376,7 +1376,7 @@ bytestream2_get_byte.exit.thread.us:              ; preds = %bytestream2_get_be3
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32
   %75 = icmp slt i32 %74, 1
-  br i1 %75, label %bytestream2_get_be64.exit, label %bytestream2_get_byte.exit.thread.us, !llvm.loop !32
+  br i1 %75, label %bytestream2_get_be64.exit, label %bytestream2_get_byte.exit.thread.us
 
 bytestream2_get_byte.exit.thread:                 ; preds = %bytestream2_get_byte.exit.thread.preheader, %100
   %76 = phi ptr [ %102, %100 ], [ %.ph, %bytestream2_get_byte.exit.thread.preheader ]
@@ -1507,7 +1507,7 @@ bytestream2_peek_byte.exit.thread.i:              ; preds = %bytestream2_peek_by
 30:                                               ; preds = %bytestream2_peek_byte.exit.thread.i
   %31 = call fastcc i32 @amf_tag_skip(ptr noundef nonnull %6)
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %20, label %amf_get_field_value2.exit, !llvm.loop !34
+  br i1 %32, label %20, label %amf_get_field_value2.exit, !llvm.loop !32
 
 .critedge.thread.i:                               ; preds = %bytestream2_peek_byte.exit.i
   %33 = trunc i64 %25 to i32
@@ -1825,6 +1825,4 @@ attributes #17 = { noreturn nounwind }
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
 !31 = !{!11, !5, i64 16}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !30}
+!32 = distinct !{!32, !30}

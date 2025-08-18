@@ -7163,7 +7163,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %437, %422
   %499 = load ptr, ptr %493, align 8
   call void @scratch_buffer_append(ptr noundef %499) #9
   %exitcond248.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count257
-  br i1 %exitcond248.not, label %._crit_edge202, label %.lr.ph201.split.split.us, !llvm.loop !54
+  br i1 %exitcond248.not, label %._crit_edge202, label %.lr.ph201.split.split.us, !llvm.loop !52
 
 .lr.ph201.split.split:                            ; preds = %.lr.ph201.split, %506
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %506 ], [ 0, %.lr.ph201.split ]
@@ -7190,7 +7190,7 @@ sema_analyse_compound_statement_no_scope.exit:    ; preds = %437, %422
 
 506:                                              ; preds = %504
   %exitcond258.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count257
-  br i1 %exitcond258.not, label %._crit_edge202, label %.lr.ph201.split.split, !llvm.loop !55
+  br i1 %exitcond258.not, label %._crit_edge202, label %.lr.ph201.split.split, !llvm.loop !52
 
 ._crit_edge202:                                   ; preds = %.loopexit.us, %476, %498, %506, %461, %462
   br i1 %458, label %508, label %507
@@ -7630,7 +7630,7 @@ define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr noundef
 13:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
@@ -8043,7 +8043,7 @@ define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr noundef
 sema_analyse_try_unwrap.exit.i.i.i:               ; preds = %219, %214, %84, %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !54
 
 ._crit_edge.i.loopexit.i.i:                       ; preds = %sema_analyse_try_unwrap.exit.i.i.i
   %.pre.i.i = load i16, ptr %19, align 8
@@ -8239,7 +8239,7 @@ sema_analyse_try_unwrap.exit.i.i.i:               ; preds = %219, %214, %84, %50
 321:                                              ; preds = %334
   %indvars.iv.next.i78.i.i = add nuw nsw i64 %indvars.iv.i77.i.i, 1
   %exitcond.not.i79.i.i = icmp eq i64 %indvars.iv.next.i78.i.i, %wide.trip.count.i75.i.i
-  br i1 %exitcond.not.i79.i.i, label %._crit_edge.i80.i.i, label %.lr.ph.i76.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i79.i.i, label %._crit_edge.i80.i.i, label %.lr.ph.i76.i.i, !llvm.loop !55
 
 .lr.ph.i76.i.i:                                   ; preds = %321, %.lr.ph.preheader.i74.i.i
   %indvars.iv.i77.i.i = phi i64 [ 0, %.lr.ph.preheader.i74.i.i ], [ %indvars.iv.next.i78.i.i, %321 ]
@@ -8718,7 +8718,7 @@ define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nound
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i32, ptr %33, align 8
   %.not.not.i = icmp eq i32 %24, %34
-  br i1 %.not.not.i, label %.critedge, label %26, !llvm.loop !59
+  br i1 %.not.not.i, label %.critedge, label %26, !llvm.loop !56
 
 sema_defer_by_result.exit:                        ; preds = %26
   %35 = tail call i32 @context_get_defers(ptr noundef %0, i32 noundef %22, i32 noundef %24, i1 noundef zeroext false) #9
@@ -8869,7 +8869,7 @@ define internal fastcc noundef zeroext i1 @assert_create_from_contract(ptr nound
 74:                                               ; preds = %36, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !57
 
 .loopexit:                                        ; preds = %26, %74, %4, %10, %43, %23
   %75 = phi i1 [ false, %43 ], [ false, %23 ], [ true, %10 ], [ true, %4 ], [ %27, %74 ], [ %27, %26 ]
@@ -8992,12 +8992,9 @@ attributes #10 = { noreturn nounwind }
 !49 = distinct !{!49, !8}
 !50 = distinct !{!50, !8}
 !51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !8, !53}
+!52 = distinct !{!52, !8}
+!53 = distinct !{!53, !8}
+!54 = distinct !{!54, !8}
 !55 = distinct !{!55, !8}
 !56 = distinct !{!56, !8}
 !57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
-!59 = distinct !{!59, !8}
-!60 = distinct !{!60, !8}

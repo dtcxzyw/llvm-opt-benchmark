@@ -714,7 +714,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %140 = icmp slt i64 %indvars.iv.next162, %84
   %indvars.iv.next155 = add i32 %indvars.iv154, 1
-  br i1 %140, label %87, label %._crit_edge, !llvm.loop !80
+  br i1 %140, label %87, label %._crit_edge, !llvm.loop !79
 }
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -843,6 +843,5 @@ attributes #13 = { nounwind willreturn memory(none) }
 !75 = distinct !{!75, !13}
 !76 = !{!35, !6, i64 4194400}
 !77 = !{!16, !23, i64 128}
-!78 = distinct !{!78, !13, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !13}
+!78 = distinct !{!78, !13}
+!79 = distinct !{!79, !13}

@@ -876,7 +876,7 @@ define internal void @_ZL17setup_masks_indicPK18hb_ot_shape_plan_tP11hb_buffer_t
   store i16 %13, ptr %14, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -914,7 +914,7 @@ define internal noundef zeroext i1 @_ZL21setup_syllables_indicPK18hb_ot_shape_pl
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %12, %18
-  br i1 %19, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !14
+  br i1 %19, label %14, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
   %20 = trunc nuw i64 %indvars.iv.next to i32
@@ -952,12 +952,12 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %15
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %27, %36
-  br i1 %37, label %30, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit19, !llvm.loop !14
+  br i1 %37, label %30, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit19, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit19:     ; preds = %30, %31
   %.lcssa.i18 = phi i32 [ %umax.i16, %30 ], [ %32, %31 ]
   %38 = icmp ult i32 %.021, %8
-  br i1 %38, label %23, label %._crit_edge, !llvm.loop !15
+  br i1 %38, label %23, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit19, %3
   ret i1 false
@@ -1283,7 +1283,7 @@ _ZL28consonant_position_from_facePK18indic_shape_plan_tjjP9hb_face_t.exit.i: ; p
 166:                                              ; preds = %_ZL28consonant_position_from_facePK18indic_shape_plan_tjjP9hb_face_t.exit.i, %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL32update_consonant_positions_indicPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t.exit, label %63, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZL32update_consonant_positions_indicPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t.exit, label %63, !llvm.loop !15
 
 _ZL32update_consonant_positions_indicPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t.exit: ; preds = %166, %_ZNK18indic_shape_plan_t17load_virama_glyphEP9hb_font_tPj.exit.i, %42
   %167 = call noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font_tP11hb_buffer_tjjii(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 11, i32 noundef 14, i32 noundef 14)
@@ -1312,7 +1312,7 @@ _ZL32update_consonant_positions_indicPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buff
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 3
   %179 = load i8, ptr %178, align 1
   %180 = icmp eq i8 %173, %179
-  br i1 %180, label %175, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !14
+  br i1 %180, label %175, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %176
   %181 = trunc nuw i64 %indvars.iv.next to i32
@@ -1606,7 +1606,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit479.i:       ; preds = %.lr.ph.i44
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i46 to i32
   %exitcond.not.i47 = icmp eq i32 %.073, %lftr.wideiv.i
-  br i1 %exitcond.not.i47, label %.critedge.i, label %.lr.ph.i44, !llvm.loop !17
+  br i1 %exitcond.not.i47, label %.critedge.i, label %.lr.ph.i44, !llvm.loop !16
 
 .thread.i:                                        ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit.thread.i
   %318 = icmp eq i32 %.pre295.i, 2
@@ -1648,7 +1648,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit482.i:       ; preds = %326
   %335 = and i32 %334, 96
   %336 = icmp ne i32 %335, 0
   %337 = select i1 %332, i1 %336, i1 false
-  br i1 %337, label %.preheader81.i, label %.critedge.i, !llvm.loop !18
+  br i1 %337, label %.preheader81.i, label %.critedge.i, !llvm.loop !17
 
 .critedge.loopexit309.split.loop.exit.i:          ; preds = %.lr.ph.i44
   %338 = trunc nuw i64 %indvars.iv.i45 to i32
@@ -1721,7 +1721,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.thread.i: ; preds = %_ZL12is_consonant
   %.239.i = phi i32 [ %341, %357 ], [ %.138.i, %361 ], [ %.138.i, %_ZL12is_consonantRK15hb_glyph_info_t.exit.thread.i ]
   %.2385.i = phi i1 [ %spec.select.i, %357 ], [ %.0383.i, %361 ], [ %.0383.i, %_ZL12is_consonantRK15hb_glyph_info_t.exit.thread.i ]
   %369 = icmp ugt i32 %341, %.1364.i
-  br i1 %369, label %340, label %370, !llvm.loop !19
+  br i1 %369, label %340, label %370, !llvm.loop !18
 
 370:                                              ; preds = %368, %361, %353
   %.3.i = phi i32 [ %.239.i, %368 ], [ %.138.i, %361 ], [ %341, %353 ]
@@ -1752,7 +1752,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.thread.i: ; preds = %_ZL12is_consonant
   store i8 %380, ptr %378, align 1
   %indvars.iv.next200.i = add nuw nsw i64 %indvars.iv199.i, 1
   %exitcond202.not.i = icmp eq i64 %indvars.iv.next200.i, %wide.trip.count.i38
-  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph97.i, !llvm.loop !20
+  br i1 %exitcond202.not.i, label %._crit_edge.i, label %.lr.ph97.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph97.i, %375
   %381 = icmp ult i32 %.3.i, %.073
@@ -1797,7 +1797,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.thread.i: ; preds = %_ZL12is_consonant
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 18
   %403 = load i8, ptr %402, align 2
   %404 = icmp eq i8 %403, 4
-  br i1 %404, label %.preheader79.i, label %397, !llvm.loop !21
+  br i1 %404, label %.preheader79.i, label %397, !llvm.loop !20
 
 .preheader79.i:                                   ; preds = %399
   %.039498.i = add i32 %.073, -1
@@ -1840,7 +1840,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit488.thread.i: ; preds = %.lr.ph100.i
   %indvars.iv.next204.i = add nsw i64 %indvars.iv203.i, -1
   %indvars.i = trunc i64 %indvars.iv.next204.i to i32
   %418 = icmp ult i32 %.0395.i, %indvars.i
-  br i1 %418, label %.lr.ph100.i, label %.thread52.i, !llvm.loop !22
+  br i1 %418, label %.lr.ph100.i, label %.thread52.i, !llvm.loop !21
 
 419:                                              ; preds = %_ZL12is_consonantRK15hb_glyph_info_t.exit488.thread.i, %_ZL12is_consonantRK15hb_glyph_info_t.exit488.i
   %420 = and i64 %indvars.iv203.i, 4294967295
@@ -1914,7 +1914,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit488.thread.i: ; preds = %.lr.ph100.i
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 3
   %453 = load i8, ptr %452, align 1
   %.not428.i = icmp eq i8 %453, 2
-  br i1 %.not428.i, label %.preheader77.i, label %454, !llvm.loop !23
+  br i1 %.not428.i, label %.preheader77.i, label %454, !llvm.loop !22
 
 454:                                              ; preds = %449
   store i8 %453, ptr %445, align 1
@@ -1953,7 +1953,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit488.thread.i: ; preds = %.lr.ph100.i
   %.1393.i = phi i32 [ 2, %454 ], [ %.0392101.i, %443 ], [ %470, %469 ], [ %.0392101.i, %455 ], [ 2, %.preheader77.i ]
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %exitcond215.not.i = icmp eq i64 %indvars.iv.next207.i, %wide.trip.count214.i
-  br i1 %exitcond215.not.i, label %.preheader76.i, label %.lr.ph104.i, !llvm.loop !24
+  br i1 %exitcond215.not.i, label %.preheader76.i, label %.lr.ph104.i, !llvm.loop !23
 
 .lr.ph112.i:                                      ; preds = %.loopexit75.i, %.lr.ph112.preheader.i
   %indvars.iv222.i = phi i64 [ %434, %.lr.ph112.preheader.i ], [ %indvars.iv.next223.i, %.loopexit75.i ]
@@ -2009,7 +2009,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit491.i:   ; preds = %.lr.ph112.i
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, 1
   %493 = and i64 %indvars.iv.next217.i, 4294967295
   %exitcond221.not.i = icmp eq i64 %493, %indvars.iv222.i
-  br i1 %exitcond221.not.i, label %.loopexit75.i, label %485, !llvm.loop !25
+  br i1 %exitcond221.not.i, label %.loopexit75.i, label %485, !llvm.loop !24
 
 _ZL12is_consonantRK15hb_glyph_info_t.exit491.thread.i: ; preds = %_ZL12is_consonantRK15hb_glyph_info_t.exit491.i, %.lr.ph112._ZL12is_consonantRK15hb_glyph_info_t.exit491.thread_crit_edge.i
   %.pre-phi302.i = phi i32 [ %.pre301.i, %.lr.ph112._ZL12is_consonantRK15hb_glyph_info_t.exit491.thread_crit_edge.i ], [ %477, %_ZL12is_consonantRK15hb_glyph_info_t.exit491.i ]
@@ -2026,7 +2026,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit491.thread.i: ; preds = %_ZL12is_conson
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %lftr.wideiv226.i = trunc i64 %indvars.iv.next223.i to i32
   %exitcond227.not.i = icmp eq i32 %.073, %lftr.wideiv226.i
-  br i1 %exitcond227.not.i, label %._crit_edge113.i, label %.lr.ph112.i, !llvm.loop !26
+  br i1 %exitcond227.not.i, label %._crit_edge113.i, label %.lr.ph112.i, !llvm.loop !25
 
 ._crit_edge113.i:                                 ; preds = %.loopexit75.i, %.preheader76.i
   %498 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %192, i64 %194
@@ -2048,7 +2048,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit491.thread.i: ; preds = %_ZL12is_conson
   store i8 %503, ptr %505, align 1
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
   %exitcond233.not.i = icmp eq i64 %indvars.iv.next229.i, %wide.trip.count232.i
-  br i1 %exitcond233.not.i, label %._crit_edge117.i, label %.lr.ph116.i, !llvm.loop !27
+  br i1 %exitcond233.not.i, label %._crit_edge117.i, label %.lr.ph116.i, !llvm.loop !26
 
 ._crit_edge117.i:                                 ; preds = %.lr.ph116.i, %._crit_edge113.i
   %506 = sub i32 %.073, %.02472
@@ -2078,7 +2078,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit491.thread.i: ; preds = %_ZL12is_conson
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 19
   %516 = load i8, ptr %515, align 1
   %517 = icmp ugt i8 %516, %510
-  br i1 %517, label %511, label %.critedge.split.loop.exit6.i.i, !llvm.loop !28
+  br i1 %517, label %511, label %.critedge.split.loop.exit6.i.i, !llvm.loop !27
 
 .critedge.split.loop.exit6.i.i:                   ; preds = %512
   %518 = trunc nuw i64 %indvars.iv2.i.i to i32
@@ -2107,7 +2107,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit491.thread.i: ; preds = %_ZL12is_conson
 530:                                              ; preds = %521, %.critedge.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i, label %.preheader.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i, label %.preheader.i.i, !llvm.loop !28
 
 _ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i: ; preds = %530, %._crit_edge117.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2137,7 +2137,7 @@ _ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i: ; preds 
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
   %lftr.wideiv238.i = trunc i64 %indvars.iv.next235.i to i32
   %exitcond239.not.i = icmp eq i32 %.073, %lftr.wideiv238.i
-  br i1 %exitcond239.not.i, label %._crit_edge122.i, label %.lr.ph121.i, !llvm.loop !30
+  br i1 %exitcond239.not.i, label %._crit_edge122.i, label %.lr.ph121.i, !llvm.loop !29
 
 ._crit_edge122.i:                                 ; preds = %537, %.lr.ph121.i
   %.0379.lcssa.i = phi i32 [ %.2381.i, %537 ], [ %.0379118.i, %.lr.ph121.i ]
@@ -2178,7 +2178,7 @@ _ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i: ; preds 
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %549 = and i64 %indvars.iv.next.i.i.i, 4294967295
   %550 = icmp samesign ult i64 %indvars.iv.next20.i.i.i, %549
-  br i1 %550, label %.lr.ph.i.i.i37, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !31
+  br i1 %550, label %.lr.ph.i.i.i37, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i, !llvm.loop !30
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i37, %539
   %551 = load i8, ptr %188, align 1
@@ -2216,7 +2216,7 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i: ; preds = %.lr.ph.i.i.i3
   %indvars.iv.next.i14.i.i = add nsw i64 %indvars.iv.i12.i.i, -1
   %562 = and i64 %indvars.iv.next.i14.i.i, 4294967295
   %563 = icmp samesign ult i64 %indvars.iv.next20.i13.i.i, %562
-  br i1 %563, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i.preheader, !llvm.loop !32
+  br i1 %563, label %.lr.ph.i10.i.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i.preheader, !llvm.loop !31
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit.i.preheader: ; preds = %.lr.ph.i10.i.i, %553, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i.i
   br label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i
@@ -2268,7 +2268,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit.i:        ; preds = %_ZN11hb_buffer_t13r
   %indvars.iv.next.i.i515.i = add nsw i64 %indvars.iv.i.i513.i, -1
   %582 = and i64 %indvars.iv.next.i.i515.i, 4294967295
   %583 = icmp samesign ult i64 %indvars.iv.next20.i.i514.i, %582
-  br i1 %583, label %.lr.ph.i.i511.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i, !llvm.loop !31
+  br i1 %583, label %.lr.ph.i.i511.i, label %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i, !llvm.loop !30
 
 _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i: ; preds = %.lr.ph.i.i511.i, %573
   %584 = load i8, ptr %188, align 1
@@ -2306,12 +2306,12 @@ _ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i: ; preds = %.lr.ph.i.i
   %indvars.iv.next.i14.i508.i = add nsw i64 %indvars.iv.i12.i506.i, -1
   %595 = and i64 %indvars.iv.next.i14.i508.i, 4294967295
   %596 = icmp samesign ult i64 %indvars.iv.next20.i13.i507.i, %595
-  br i1 %596, label %.lr.ph.i10.i504.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i, !llvm.loop !32
+  br i1 %596, label %.lr.ph.i10.i504.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i, !llvm.loop !31
 
 _ZN11hb_buffer_t13reverse_rangeEjj.exit516.i:     ; preds = %.lr.ph.i10.i504.i, %586, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i
   %.1375.i = phi i32 [ %.pre297.i, %586 ], [ %.pre297.i, %_ZN10hb_array_tI15hb_glyph_info_tE7reverseEjj.exit.i497.i ], [ %.0374131.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i ], [ %.pre297.i, %.lr.ph.i10.i504.i ]
   %.not419.i = icmp ugt i32 %.pre297.i, %.0377.lcssa.i
-  br i1 %.not419.i, label %.loopexit73.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i, !llvm.loop !33
+  br i1 %.not419.i, label %.loopexit73.i, label %_ZN11hb_buffer_t13reverse_rangeEjj.exit.i, !llvm.loop !32
 
 .loopexit73.i:                                    ; preds = %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i, %._crit_edge122.i, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i
   %.4306.i = phi i32 [ %.4.i, %._crit_edge122.i ], [ %.073, %_ZL14hb_stable_sortI15hb_glyph_info_tS0_iEvPT_jPFiPKT0_S5_EPT1_.exit.i ], [ %.4.i, %_ZN11hb_buffer_t13reverse_rangeEjj.exit516.i ]
@@ -2370,7 +2370,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit516.i:     ; preds = %.lr.ph.i10.i504.i, 
   %storemerge.i = add i32 %.02472, %.pn.i
   %615 = zext i32 %storemerge.i to i64
   %.not421.i = icmp eq i64 %indvars.iv240.i, %615
-  br i1 %.not421.i, label %._crit_edge141.i, label %.lr.ph140.i, !llvm.loop !34
+  br i1 %.not421.i, label %._crit_edge141.i, label %.lr.ph140.i, !llvm.loop !33
 
 ._crit_edge141.i:                                 ; preds = %.lr.ph140.i, %.preheader71.i
   %.041.lcssa.i = phi i32 [ %610, %.preheader71.i ], [ %.sroa.speculated5.i, %.lr.ph140.i ]
@@ -2388,7 +2388,7 @@ _ZN11hb_buffer_t13reverse_rangeEjj.exit516.i:     ; preds = %.lr.ph.i10.i504.i, 
 _ZN11hb_buffer_t14merge_clustersEjj.exit520.i:    ; preds = %619, %._crit_edge141.i, %.lr.ph146.i
   %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
   %exitcond245.not.i = icmp eq i64 %indvars.iv.next241.i, %wide.trip.count244.i
-  br i1 %exitcond245.not.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, label %.lr.ph146.i, !llvm.loop !35
+  br i1 %exitcond245.not.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, label %.lr.ph146.i, !llvm.loop !34
 
 _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit520.i, %605, %602, %.preheader72.i
   br i1 %432, label %.lr.ph148.preheader.i, label %.critedge5.i
@@ -2404,7 +2404,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   store i8 %500, ptr %621, align 1
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
   %exitcond251.not.i = icmp eq i64 %indvars.iv.next247.i, %wide.trip.count250.i
-  br i1 %exitcond251.not.i, label %.lr.ph150.i, label %.lr.ph148.i, !llvm.loop !36
+  br i1 %exitcond251.not.i, label %.lr.ph150.i, label %.lr.ph148.i, !llvm.loop !35
 
 .lr.ph150.i:                                      ; preds = %.lr.ph148.i, %626
   %indvars.iv252.i = phi i64 [ %indvars.iv.next253.i, %626 ], [ %194, %.lr.ph148.i ]
@@ -2423,7 +2423,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv252.i, 1
   %lftr.wideiv256.i = trunc i64 %indvars.iv.next253.i to i32
   %exitcond257.not.i = icmp eq i32 %.073, %lftr.wideiv256.i
-  br i1 %exitcond257.not.i, label %.critedge5.i, label %.lr.ph150.i, !llvm.loop !37
+  br i1 %exitcond257.not.i, label %.critedge5.i, label %.lr.ph150.i, !llvm.loop !36
 
 .critedge5.i:                                     ; preds = %626, %.lr.ph150.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i
   %631 = getelementptr inbounds nuw i8, ptr %.val12.sink.i, i64 164
@@ -2462,7 +2462,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   store i32 %648, ptr %646, align 4
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond263.not.i = icmp eq i64 %indvars.iv.next259.i, %wide.trip.count262.i
-  br i1 %exitcond263.not.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !38
+  br i1 %exitcond263.not.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !37
 
 ._crit_edge155.i:                                 ; preds = %.lr.ph154.i, %644
   %649 = getelementptr inbounds nuw i8, ptr %.val12.sink.i, i64 156
@@ -2490,7 +2490,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %lftr.wideiv268.i = trunc i64 %indvars.iv.next265.i to i32
   %exitcond269.not.i = icmp eq i32 %.073, %lftr.wideiv268.i
-  br i1 %exitcond269.not.i, label %._crit_edge160.i, label %.lr.ph159.i, !llvm.loop !39
+  br i1 %exitcond269.not.i, label %._crit_edge160.i, label %.lr.ph159.i, !llvm.loop !38
 
 ._crit_edge160.i:                                 ; preds = %.lr.ph159.i, %._crit_edge155.i
   %662 = load i8, ptr %391, align 8
@@ -2557,7 +2557,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   %698 = trunc nuw i64 %indvars.iv270.i to i32
   %lftr.wideiv274.i = trunc i64 %indvars.iv.next271.i to i32
   %exitcond275.not.i = icmp eq i32 %.4306.i, %lftr.wideiv274.i
-  br i1 %exitcond275.not.i, label %.loopexit69.i, label %.lr.ph162.i, !llvm.loop !40
+  br i1 %exitcond275.not.i, label %.loopexit69.i, label %.lr.ph162.i, !llvm.loop !39
 
 .loopexit69.i:                                    ; preds = %697, %664, %._crit_edge160.i
   %699 = getelementptr inbounds nuw i8, ptr %.val12.sink.i, i64 152
@@ -2613,7 +2613,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %_ZN11hb_buffer_t14m
   %725 = zext nneg i8 %724 to i32
   %726 = call i32 @hb_ot_layout_lookup_would_substitute(ptr noundef %193, i32 noundef %722, ptr noundef nonnull %12, i32 noundef 2, i32 noundef %725)
   %.not12.not.i525.i = icmp eq i32 %726, 0
-  br i1 %.not12.not.i525.i, label %719, label %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i, !llvm.loop !41
+  br i1 %.not12.not.i525.i, label %719, label %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i, !llvm.loop !40
 
 _ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i: ; preds = %.lr.ph.i523.i, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i
   %727 = phi i1 [ false, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i ], [ true, %.lr.ph.i523.i ]
@@ -2625,7 +2625,7 @@ _ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit
   %732 = load i32, ptr %731, align 4
   %733 = or i32 %732, %728
   store i32 %733, ptr %731, align 4
-  br i1 %727, label %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i, label %.loopexit.i, !llvm.loop !42
+  br i1 %727, label %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i, label %.loopexit.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %.critedge62.i, %_ZNK35hb_indic_would_substitute_feature_t16would_substituteEPKjjP9hb_face_t.exit528.i, %.loopexit69.i
   %.0358170.i = add i32 %.02472, 1
@@ -2697,14 +2697,14 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit534.backedge.us.i: ; preds = %755, %.lr
   %768 = and i32 %767, %765
   store i32 %768, ptr %766, align 4
   %.wide.i = icmp ugt i64 %763, %194
-  br i1 %.wide.i, label %.lr.ph169.i, label %.critedge7.i, !llvm.loop !43
+  br i1 %.wide.i, label %.lr.ph169.i, label %.critedge7.i, !llvm.loop !42
 
 .critedge7.i:                                     ; preds = %_ZL12is_consonantRK15hb_glyph_info_t.exit534.backedge.us.i, %755, %.split.us.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit531.i, %.lr.ph174.i
   %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 1
   %indvars.iv.next281.i = add i32 %indvars.iv280.i, 1
   %lftr.wideiv290.i = trunc i64 %indvars.iv.next287.i to i32
   %exitcond291.not.i = icmp eq i32 %.073, %lftr.wideiv290.i
-  br i1 %exitcond291.not.i, label %_ZL37initial_reordering_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit, label %.lr.ph174.i, !llvm.loop !44
+  br i1 %exitcond291.not.i, label %_ZL37initial_reordering_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit, label %.lr.ph174.i, !llvm.loop !43
 
 _ZL37initial_reordering_consonant_syllablePK18hb_ot_shape_plan_tP9hb_face_tP11hb_buffer_tjj.exit: ; preds = %.critedge7.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2736,12 +2736,12 @@ _ZL33initial_reordering_syllable_indicPK18hb_ot_shape_plan_tP9hb_face_tP11hb_buf
   %780 = getelementptr inbounds nuw i8, ptr %779, i64 3
   %781 = load i8, ptr %780, align 1
   %782 = icmp eq i8 %772, %781
-  br i1 %782, label %775, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33, !llvm.loop !14
+  br i1 %782, label %775, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit33:     ; preds = %775, %776
   %.lcssa.i32 = phi i32 [ %umax.i30, %775 ], [ %777, %776 ]
   %783 = icmp ult i32 %.073, %169
-  br i1 %783, label %190, label %._crit_edge, !llvm.loop !45
+  br i1 %783, label %190, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33, %_ZL32update_consonant_positions_indicPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_t.exit
   %784 = call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
@@ -2791,7 +2791,7 @@ define internal noundef zeroext i1 @_ZL22final_reordering_indicPK18hb_ot_shape_p
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %16, %22
-  br i1 %23, label %18, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !14
+  br i1 %23, label %18, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
   %24 = trunc nuw i64 %indvars.iv.next to i32
@@ -2850,7 +2850,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
 46:                                               ; preds = %43, %40, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit581.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.loopexit581.i, label %.lr.ph.i, !llvm.loop !45
 
 .loopexit581.i:                                   ; preds = %46, %30
   %47 = getelementptr inbounds nuw i8, ptr %32, i64 152
@@ -2930,7 +2930,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
 78:                                               ; preds = %.lr.ph599.i
   %indvars.iv.next676.i = add nuw nsw i64 %indvars.iv675.i, 1
   %79 = icmp samesign ult i64 %indvars.iv.next676.i, %63
-  br i1 %79, label %.lr.ph599.i, label %.loopexit579.i.thread, !llvm.loop !47
+  br i1 %79, label %.lr.ph599.i, label %.loopexit579.i.thread, !llvm.loop !46
 
 80:                                               ; preds = %.lr.ph599.i
   %81 = trunc nuw i64 %indvars.iv675.i to i32
@@ -2943,7 +2943,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %19
 85:                                               ; preds = %.preheader577.i
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond672.not.i = icmp eq i64 %indvars.iv.next90, %63
-  br i1 %exitcond672.not.i, label %.critedge.i, label %.preheader577.i, !llvm.loop !48
+  br i1 %exitcond672.not.i, label %.critedge.i, label %.preheader577.i, !llvm.loop !47
 
 .critedge.i:                                      ; preds = %85, %80, %.preheader576.i, %68
   %.3333.i = phi i32 [ %81, %80 ], [ %59, %68 ], [ %71, %.preheader576.i ], [ %59, %85 ]
@@ -3000,7 +3000,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit.i:          ; preds = %94
 105:                                              ; preds = %_ZL9is_joinerRK15hb_glyph_info_t.exit.i
   %indvars.iv.next679.i = add nuw nsw i64 %indvars.iv678.i, 1
   %106 = icmp samesign ult i64 %indvars.iv.next679.i, %91
-  br i1 %106, label %94, label %.critedge2.i, !llvm.loop !49
+  br i1 %106, label %94, label %.critedge2.i, !llvm.loop !48
 
 .critedge2.split.loop.exit.i:                     ; preds = %94
   %107 = trunc nuw i64 %indvars.iv678.i to i32
@@ -3058,7 +3058,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit448.i:       ; preds = %120
   %129 = and i32 %128, 96
   %130 = icmp ne i32 %129, 0
   %131 = select i1 %126, i1 %130, i1 false
-  br i1 %131, label %.preheader572.i, label %_ZL12is_consonantRK15hb_glyph_info_t.exit.i, !llvm.loop !50
+  br i1 %131, label %.preheader572.i, label %_ZL12is_consonantRK15hb_glyph_info_t.exit.i, !llvm.loop !49
 
 _ZL12is_consonantRK15hb_glyph_info_t.exit.i:      ; preds = %_ZL9is_joinerRK15hb_glyph_info_t.exit448.i
   %132 = and i32 %128, 363526
@@ -3081,7 +3081,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.i:      ; preds = %_ZL9is_joinerRK15hb
   %.7337.i = phi i32 [ %.2346.i, %139 ], [ %.6336603.i, %135 ], [ %.6336603.i, %_ZL12is_consonantRK15hb_glyph_info_t.exit.i ], [ %.6336603.i, %.preheader572.i ], [ %.6336603.i, %120 ]
   %.0344.i = add i32 %.2346.in659.i, 2
   %140 = icmp ult i32 %.0344.i, %.059
-  br i1 %140, label %.preheader573.i, label %.loopexit575.i, !llvm.loop !51
+  br i1 %140, label %.preheader573.i, label %.loopexit575.i, !llvm.loop !50
 
 .loopexit575.i:                                   ; preds = %.critedge4.i, %110, %.critedge2.i, %87
   %.5335.i = phi i32 [ %.2332.i, %87 ], [ %.7337.i, %.critedge4.i ], [ %.6336603.i, %110 ], [ %.6336603.i, %.critedge2.i ]
@@ -3103,7 +3103,7 @@ _ZL12is_consonantRK15hb_glyph_info_t.exit.i:      ; preds = %_ZL9is_joinerRK15hb
   %lftr.wideiv.i = trunc i64 %indvars.iv.next669.i to i32
   %exitcond671.not.i = icmp eq i32 %.059, %lftr.wideiv.i
   %indvars.iv.next87 = add i32 %indvars.iv86, 1
-  br i1 %exitcond671.not.i, label %.loopexit579.i.thread, label %.lr.ph596.i, !llvm.loop !52
+  br i1 %exitcond671.not.i, label %.loopexit579.i.thread, label %.lr.ph596.i, !llvm.loop !51
 
 .loopexit579.i:                                   ; preds = %142, %.loopexit575.i
   %.1331.i = phi i32 [ %.5335.i, %.loopexit575.i ], [ %spec.select.i, %142 ]
@@ -3161,7 +3161,7 @@ _ZL9is_one_ofRK15hb_glyph_info_tj.exit453.i:      ; preds = %.lr.ph610.i
 169:                                              ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit453.i
   %170 = add i32 %.10609.i, -1
   %171 = icmp ult i32 %.02056, %170
-  br i1 %171, label %.lr.ph610.i, label %.critedge6.thread.i, !llvm.loop !53
+  br i1 %171, label %.lr.ph610.i, label %.critedge6.thread.i, !llvm.loop !52
 
 .critedge6.i:                                     ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit453.i, %.lr.ph610.i, %_ZL9is_one_ofRK15hb_glyph_info_tj.exit.thread.i, %.loopexit579.i.thread
   %.0323.i101 = phi i1 [ %.0323.i102, %_ZL9is_one_ofRK15hb_glyph_info_tj.exit.thread.i ], [ %.0323.i103, %.loopexit579.i.thread ], [ %.0323.i102, %.lr.ph610.i ], [ %.0323.i102, %_ZL9is_one_ofRK15hb_glyph_info_tj.exit453.i ]
@@ -3214,7 +3214,7 @@ _ZL9is_one_ofRK15hb_glyph_info_tj.exit456.thread.i: ; preds = %_ZL9is_one_ofRK15
   %indvars.iv.next683.i = add nsw i64 %indvars.iv682.i, -1
   %indvars.i = trunc i64 %indvars.iv.next683.i to i32
   %.not647.i = icmp ult i32 %.02056, %indvars.i
-  br i1 %.not647.i, label %.lr.ph616.i, label %.critedge8.i, !llvm.loop !54
+  br i1 %.not647.i, label %.lr.ph616.i, label %.critedge8.i, !llvm.loop !53
 
 .critedge8.loopexit.split.loop.exit764.i:         ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit456.i
   %187 = trunc nuw i64 %indvars.iv682.i to i32
@@ -3321,7 +3321,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %231, %219
   %.4343.i = phi i32 [ %232, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i ], [ %.3342621.i, %.lr.ph624.i ]
   %.14.i = phi i32 [ %.13.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i ], [ %.12623.i, %.lr.ph624.i ]
   %234 = icmp ult i32 %.02056, %indvars687.i
-  br i1 %234, label %.lr.ph624.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i, !llvm.loop !55
+  br i1 %234, label %.lr.ph624.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i, !llvm.loop !54
 
 .lr.ph627.i:                                      ; preds = %.lr.ph627.i.preheader, %245
   %indvars.iv689.i = phi i64 [ %indvars.iv.next690.i, %245 ], [ %52, %.lr.ph627.i.preheader ]
@@ -3347,7 +3347,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %231, %219
   %indvars.iv.next690.i = add nuw nsw i64 %indvars.iv689.i, 1
   %lftr.wideiv693.i = trunc i64 %indvars.iv.next690.i to i32
   %exitcond694.not.i = icmp eq i32 %.9.i, %lftr.wideiv693.i
-  br i1 %exitcond694.not.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i, label %.lr.ph627.i, !llvm.loop !56
+  br i1 %exitcond694.not.i, label %_ZN11hb_buffer_t14merge_clustersEjj.exit461.i, label %.lr.ph627.i, !llvm.loop !55
 
 _ZN11hb_buffer_t14merge_clustersEjj.exit461.i:    ; preds = %233, %245, %239, %.critedge6.i
   %.11.i = phi i32 [ %.9.i, %.critedge6.i ], [ %.9.i, %239 ], [ %.9.i, %245 ], [ %.14.i, %233 ]
@@ -3407,7 +3407,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit461.i:    ; preds = %233, %245, %239, %.
   %indvars.iv.next696.i = add nuw nsw i64 %indvars.iv695.i, 1
   %lftr.wideiv699.i = trunc i64 %indvars.iv.next696.i to i32
   %exitcond700.not.i = icmp eq i32 %.11733.i, %lftr.wideiv699.i
-  br i1 %exitcond700.not.i, label %.critedge386.i, label %.lr.ph629.i, !llvm.loop !57
+  br i1 %exitcond700.not.i, label %.critedge386.i, label %.lr.ph629.i, !llvm.loop !56
 
 .critedge10.i:                                    ; preds = %.lr.ph629.i
   %272 = trunc nuw i64 %indvars.iv695.i to i32
@@ -3467,7 +3467,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit468.i:       ; preds = %275
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 3
   %297 = load i8, ptr %296, align 1
   %298 = icmp ult i8 %297, 6
-  br i1 %298, label %.preheader565.i, label %.critedge12.i, !llvm.loop !58
+  br i1 %298, label %.preheader565.i, label %.critedge12.i, !llvm.loop !57
 
 .critedge12.i:                                    ; preds = %293, %.preheader565.i
   %.2328.lcssa.i = phi i32 [ %290, %.preheader565.i ], [ %.2328.i, %293 ]
@@ -3491,7 +3491,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit468.i:       ; preds = %275
   %311 = and i32 %310, 14336
   %312 = icmp eq i32 %311, 0
   %.not371.i = select i1 %308, i1 true, i1 %312
-  br i1 %.not371.i, label %300, label %.critedge14.i, !llvm.loop !59
+  br i1 %.not371.i, label %300, label %.critedge14.i, !llvm.loop !58
 
 .critedge14.i:                                    ; preds = %303, %300
   %.3.lcssa.i = phi i32 [ %288, %300 ], [ %.3.i, %303 ]
@@ -3528,7 +3528,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit468.i:       ; preds = %275
   %indvars.iv.next704.i = add nuw nsw i64 %indvars.iv703.i, 1
   %lftr.wideiv707.i = trunc i64 %indvars.iv.next704.i to i32
   %exitcond708.not.i = icmp eq i32 %.11733.i, %lftr.wideiv707.i
-  br i1 %exitcond708.not.i, label %.critedge388.preheader.i, label %.lr.ph631.i, !llvm.loop !60
+  br i1 %exitcond708.not.i, label %.critedge388.preheader.i, label %.lr.ph631.i, !llvm.loop !59
 
 .critedge16.i:                                    ; preds = %.lr.ph631.i
   %324 = trunc nuw i64 %indvars.iv703.i to i32
@@ -3570,7 +3570,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit475.i:       ; preds = %327
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 3
   %344 = load i8, ptr %343, align 1
   %345 = icmp eq i8 %344, 13
-  br i1 %345, label %.critedge388.i, label %.critedge18.i, !llvm.loop !61
+  br i1 %345, label %.critedge388.i, label %.critedge18.i, !llvm.loop !60
 
 .critedge18.i:                                    ; preds = %340, %.critedge388.i
   %.5.lcssa.i = phi i32 [ %umin.i, %.critedge388.i ], [ %.5.i, %340 ]
@@ -3616,7 +3616,7 @@ _ZL9is_joinerRK15hb_glyph_info_t.exit475.i:       ; preds = %327
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %367 = zext i32 %.7.i to i64
   %368 = icmp samesign ult i64 %indvars.iv.next93, %367
-  br i1 %368, label %.lr.ph635.i, label %_ZL9is_joinerRK15hb_glyph_info_t.exit468.thread.i, !llvm.loop !62
+  br i1 %368, label %.lr.ph635.i, label %_ZL9is_joinerRK15hb_glyph_info_t.exit468.thread.i, !llvm.loop !61
 
 _ZL9is_joinerRK15hb_glyph_info_t.exit468.thread.i: ; preds = %.lr.ph635.i, %349, %.critedge18.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit475.i, %327, %.critedge16.i, %.critedge14.i, %.critedge12.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit468.i, %275, %.critedge10.i
   %.1327.i = phi i32 [ %324, %.critedge16.i ], [ %.5.lcssa.i, %.critedge18.i ], [ %.5.lcssa.i, %349 ], [ %272, %.critedge10.i ], [ %.2328.lcssa.i, %.critedge12.i ], [ %.3.lcssa.i, %.critedge14.i ], [ %272, %275 ], [ %324, %327 ], [ %spec.select546.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit468.i ], [ %spec.select547.i, %_ZL9is_joinerRK15hb_glyph_info_t.exit475.i ], [ %.7.i, %.lr.ph635.i ]
@@ -3718,7 +3718,7 @@ _ZL9is_one_ofRK15hb_glyph_info_tj.exit481.i:      ; preds = %.lr.ph639.i
 
 _ZL9is_one_ofRK15hb_glyph_info_tj.exit481.thread.i: ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit481.i, %.lr.ph639.i
   %411 = icmp ult i32 %.02056, %indvars717.i
-  br i1 %411, label %.lr.ph639.i, label %_ZL9is_joinerRK15hb_glyph_info_t.exit486.thread.i, !llvm.loop !63
+  br i1 %411, label %.lr.ph639.i, label %_ZL9is_joinerRK15hb_glyph_info_t.exit486.thread.i, !llvm.loop !62
 
 .critedge20.loopexit.i:                           ; preds = %_ZL9is_one_ofRK15hb_glyph_info_tj.exit481.i
   %412 = trunc nuw i64 %indvars.iv715.i to i32
@@ -3797,7 +3797,7 @@ _ZN11hb_buffer_t14merge_clustersEjj.exit487.i:    ; preds = %439, %_ZL9is_joiner
   %indvars.iv.next710.i = add nuw nsw i64 %indvars.iv709.i, 1
   %lftr.wideiv713.i = trunc i64 %indvars.iv.next710.i to i32
   %exitcond714.not.i = icmp eq i32 %.059, %lftr.wideiv713.i
-  br i1 %exitcond714.not.i, label %.loopexit.i, label %388, !llvm.loop !64
+  br i1 %exitcond714.not.i, label %.loopexit.i, label %388, !llvm.loop !63
 
 .loopexit.i:                                      ; preds = %448, %_ZN11hb_buffer_t14merge_clustersEjj.exit487.i, %393, %382
   %449 = zext i32 %.02056 to i64
@@ -3881,12 +3881,12 @@ _ZL31final_reordering_syllable_indicPK18hb_ot_shape_plan_tP11hb_buffer_tjj.exit:
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 3
   %491 = load i8, ptr %490, align 1
   %492 = icmp eq i8 %482, %491
-  br i1 %492, label %485, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, !llvm.loop !14
+  br i1 %492, label %485, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, !llvm.loop !13
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit31:     ; preds = %485, %486
   %.lcssa.i30 = phi i32 [ %umax.i27, %485 ], [ %487, %486 ]
   %493 = icmp ult i32 %.059, %12
-  br i1 %493, label %30, label %._crit_edge, !llvm.loop !65
+  br i1 %493, label %30, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit31, %11
   %494 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.5)
@@ -4017,7 +4017,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %48, ptr %52, align 1
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %._crit_edge325, label %50, !llvm.loop !66
+  br i1 %exitcond396.not, label %._crit_edge325, label %50, !llvm.loop !65
 
 ._crit_edge325:                                   ; preds = %50, %44
   %53 = add i32 %.2235, 1
@@ -4044,7 +4044,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %58, ptr %62, align 1
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
-  br i1 %exitcond391.not, label %._crit_edge321, label %60, !llvm.loop !67
+  br i1 %exitcond391.not, label %._crit_edge321, label %60, !llvm.loop !66
 
 ._crit_edge321:                                   ; preds = %60, %55
   %63 = add i32 %.2235, 1
@@ -4072,7 +4072,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %69, ptr %73, align 1
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next383, %wide.trip.count385
-  br i1 %exitcond386.not, label %._crit_edge317, label %71, !llvm.loop !68
+  br i1 %exitcond386.not, label %._crit_edge317, label %71, !llvm.loop !67
 
 ._crit_edge317:                                   ; preds = %71, %65
   %74 = add i32 %.2235, 1
@@ -4100,7 +4100,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %80, ptr %84, align 1
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
-  br i1 %exitcond381.not, label %._crit_edge313, label %82, !llvm.loop !69
+  br i1 %exitcond381.not, label %._crit_edge313, label %82, !llvm.loop !68
 
 ._crit_edge313:                                   ; preds = %82, %76
   %85 = add i32 %.2235, 1
@@ -4128,7 +4128,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %91, ptr %95, align 1
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count375
-  br i1 %exitcond376.not, label %._crit_edge309, label %93, !llvm.loop !70
+  br i1 %exitcond376.not, label %._crit_edge309, label %93, !llvm.loop !69
 
 ._crit_edge309:                                   ; preds = %93, %87
   %96 = add i32 %.2235, 1
@@ -4156,7 +4156,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %102, ptr %106, align 1
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
-  br i1 %exitcond371.not, label %._crit_edge305, label %104, !llvm.loop !71
+  br i1 %exitcond371.not, label %._crit_edge305, label %104, !llvm.loop !70
 
 ._crit_edge305:                                   ; preds = %104, %98
   %107 = add i32 %.2235, 1
@@ -4188,7 +4188,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %116, ptr %120, align 1
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
-  br i1 %exitcond366.not, label %._crit_edge301, label %118, !llvm.loop !72
+  br i1 %exitcond366.not, label %._crit_edge301, label %118, !llvm.loop !71
 
 ._crit_edge301:                                   ; preds = %118, %112
   %121 = add i32 %.2235, 1
@@ -4215,7 +4215,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %126, ptr %130, align 1
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %._crit_edge297, label %128, !llvm.loop !73
+  br i1 %exitcond361.not, label %._crit_edge297, label %128, !llvm.loop !72
 
 ._crit_edge297:                                   ; preds = %128, %123
   %131 = add i32 %.2235, 1
@@ -4243,7 +4243,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %137, ptr %141, align 1
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
-  br i1 %exitcond356.not, label %._crit_edge293, label %139, !llvm.loop !74
+  br i1 %exitcond356.not, label %._crit_edge293, label %139, !llvm.loop !73
 
 ._crit_edge293:                                   ; preds = %139, %133
   %142 = add i32 %.2235, 1
@@ -4271,7 +4271,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %148, ptr %152, align 1
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
-  br i1 %exitcond351.not, label %._crit_edge289, label %150, !llvm.loop !75
+  br i1 %exitcond351.not, label %._crit_edge289, label %150, !llvm.loop !74
 
 ._crit_edge289:                                   ; preds = %150, %144
   %153 = add i32 %.2235, 1
@@ -4299,7 +4299,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %159, ptr %163, align 1
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next343, %wide.trip.count345
-  br i1 %exitcond346.not, label %._crit_edge285, label %161, !llvm.loop !76
+  br i1 %exitcond346.not, label %._crit_edge285, label %161, !llvm.loop !75
 
 ._crit_edge285:                                   ; preds = %161, %155
   %164 = add i32 %.2235, 1
@@ -4327,7 +4327,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %170, ptr %174, align 1
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next338, %wide.trip.count340
-  br i1 %exitcond341.not, label %._crit_edge281, label %172, !llvm.loop !77
+  br i1 %exitcond341.not, label %._crit_edge281, label %172, !llvm.loop !76
 
 ._crit_edge281:                                   ; preds = %172, %166
   %175 = add i32 %.2235, 1
@@ -4365,7 +4365,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %184, ptr %188, align 1
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count335
-  br i1 %exitcond336.not, label %._crit_edge277, label %186, !llvm.loop !78
+  br i1 %exitcond336.not, label %._crit_edge277, label %186, !llvm.loop !77
 
 ._crit_edge277:                                   ; preds = %186, %181
   %189 = add i32 %.2235, 1
@@ -4393,7 +4393,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %195, ptr %199, align 1
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count330
-  br i1 %exitcond331.not, label %._crit_edge273, label %197, !llvm.loop !79
+  br i1 %exitcond331.not, label %._crit_edge273, label %197, !llvm.loop !78
 
 ._crit_edge273:                                   ; preds = %197, %191
   %200 = add i32 %.2235, 1
@@ -4425,7 +4425,7 @@ define linkonce_odr hidden void @_Z20find_syllables_indicP11hb_buffer_t(ptr noun
   store i8 %209, ptr %213, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %211, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %211, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %211, %205
   %214 = add i32 %.2235, 1
@@ -4525,7 +4525,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   store i32 %26, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %22, !llvm.loop !81
+  br i1 %exitcond.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %22, !llvm.loop !80
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4556,7 +4556,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %.sroa.speculated22.i = tail call i32 @llvm.umin.i32(i32 %.02729.i, i32 %38)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit139.thread, label %.lr.ph.i, !llvm.loop !82
+  br i1 %exitcond.not.i, label %.loopexit139.thread, label %.lr.ph.i, !llvm.loop !81
 
 39:                                               ; preds = %31
   %40 = zext i32 %2 to i64
@@ -4609,7 +4609,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
 65:                                               ; preds = %59, %55
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count.i40
-  br i1 %exitcond73.not.i, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %55, !llvm.loop !83
+  br i1 %exitcond73.not.i, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %55, !llvm.loop !82
 
 66:                                               ; preds = %39
   %67 = icmp ult i32 %2, %.sroa.speculated
@@ -4643,7 +4643,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %79 = or i32 %78, %1
   store i32 %79, ptr %77, align 4
   %.wide.i = icmp ugt i64 %70, %40
-  br i1 %.wide.i, label %69, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !84
+  br i1 %.wide.i, label %69, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !83
 
 .lr.ph.i41:                                       ; preds = %.preheader55.i, %83
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %83 ], [ %40, %.preheader55.i ]
@@ -4664,7 +4664,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i43 to i32
   %exitcond.not.i44 = icmp eq i32 %.sroa.speculated, %lftr.wideiv.i
-  br i1 %exitcond.not.i44, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i41, !llvm.loop !85
+  br i1 %exitcond.not.i44, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i41, !llvm.loop !84
 
 89:                                               ; preds = %11
   br i1 %4, label %113, label %.preheader
@@ -4691,7 +4691,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next159, %101
-  br i1 %102, label %95, label %._crit_edge, !llvm.loop !86
+  br i1 %102, label %95, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %95, %.preheader
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4714,7 +4714,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   store i32 %112, ptr %110, align 4
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %108, !llvm.loop !87
+  br i1 %exitcond165.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %108, !llvm.loop !86
 
 113:                                              ; preds = %89
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4747,7 +4747,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %.sroa.speculated22.i53 = tail call i32 @llvm.umin.i32(i32 %.02729.i52, i32 %126)
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i49
-  br i1 %exitcond.not.i55, label %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, label %.lr.ph.i50, !llvm.loop !82
+  br i1 %exitcond.not.i55, label %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, label %.lr.ph.i50, !llvm.loop !81
 
 127:                                              ; preds = %119
   %128 = zext i32 %117 to i64
@@ -4792,7 +4792,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %.sroa.speculated22.i64 = tail call i32 @llvm.umin.i32(i32 %.02729.i63, i32 %148)
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i60
-  br i1 %exitcond.not.i66, label %.loopexit.thread, label %.lr.ph.i61, !llvm.loop !82
+  br i1 %exitcond.not.i66, label %.loopexit.thread, label %.lr.ph.i61, !llvm.loop !81
 
 149:                                              ; preds = %141
   %150 = zext i32 %2 to i64
@@ -4846,7 +4846,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
 175:                                              ; preds = %169, %165
   %indvars.iv.next71.i75 = add nuw nsw i64 %indvars.iv70.i73, 1
   %exitcond73.not.i76 = icmp eq i64 %indvars.iv.next71.i75, %wide.trip.count.i72
-  br i1 %exitcond73.not.i76, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %165, !llvm.loop !83
+  br i1 %exitcond73.not.i76, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %165, !llvm.loop !82
 
 176:                                              ; preds = %149
   %177 = icmp ult i32 %2, %139
@@ -4880,7 +4880,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %189 = or i32 %188, %1
   store i32 %189, ptr %187, align 4
   %.wide.i88 = icmp ugt i64 %180, %150
-  br i1 %.wide.i88, label %179, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, !llvm.loop !84
+  br i1 %.wide.i88, label %179, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, !llvm.loop !83
 
 .lr.ph.i78:                                       ; preds = %.preheader55.i77, %193
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i81, %193 ], [ %150, %.preheader55.i77 ]
@@ -4901,7 +4901,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %lftr.wideiv.i82 = trunc i64 %indvars.iv.next.i81 to i32
   %exitcond.not.i83 = icmp eq i32 %139, %lftr.wideiv.i82
-  br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !85
+  br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !84
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %193, %179, %184, %175, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
   %.013.i57129 = phi i32 [ %.013.i57.ph175, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph175, %175 ], [ %.sroa.speculated.i, %184 ], [ %.sroa.speculated.i, %179 ], [ %.sroa.speculated.i, %193 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
@@ -4958,7 +4958,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
 226:                                              ; preds = %220, %216
   %indvars.iv.next71.i97 = add nuw nsw i64 %indvars.iv70.i95, 1
   %exitcond73.not.i98 = icmp eq i64 %indvars.iv.next71.i97, %wide.trip.count.i94
-  br i1 %exitcond73.not.i98, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %216, !llvm.loop !83
+  br i1 %exitcond73.not.i98, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %216, !llvm.loop !82
 
 227:                                              ; preds = %211
   %228 = icmp ult i32 %200, %.sroa.speculated
@@ -4992,7 +4992,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
   %240 = or i32 %239, %1
   store i32 %240, ptr %238, align 4
   %.wide.i110 = icmp ugt i64 %231, %203
-  br i1 %.wide.i110, label %230, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !84
+  br i1 %.wide.i110, label %230, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !83
 
 .lr.ph.i100:                                      ; preds = %.preheader55.i99, %244
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i103, %244 ], [ %203, %.preheader55.i99 ]
@@ -5013,7 +5013,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 1
   %lftr.wideiv.i104 = trunc i64 %indvars.iv.next.i103 to i32
   %exitcond.not.i105 = icmp eq i32 %.sroa.speculated, %lftr.wideiv.i104
-  br i1 %exitcond.not.i105, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i100, !llvm.loop !85
+  br i1 %exitcond.not.i105, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i100, !llvm.loop !84
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit: ; preds = %22, %83, %.lr.ph.i41, %74, %69, %65, %108, %244, %.lr.ph.i100, %235, %230, %226, %.preheader140, %._crit_edge, %.preheader.i106, %.preheader55.i99, %214, %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, %.preheader.i45, %.preheader55.i, %.loopexit139.thread, %27, %6
   ret void
@@ -5117,8 +5117,8 @@ attributes #10 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -5149,7 +5149,7 @@ attributes #10 = { nounwind }
 !40 = distinct !{!40, !7}
 !41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7, !12}
+!43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
@@ -5193,4 +5193,3 @@ attributes #10 = { nounwind }
 !84 = distinct !{!84, !7}
 !85 = distinct !{!85, !7}
 !86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}

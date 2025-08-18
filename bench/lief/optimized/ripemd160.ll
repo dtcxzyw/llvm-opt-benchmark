@@ -2106,7 +2106,7 @@ mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edg
 39:                                               ; preds = %mbedtls_ripemd160.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split24.us, label %.split, !llvm.loop !26
+  br i1 %exitcond.not, label %.split24.us, label %.split, !llvm.loop !24
 
 .split24.us:                                      ; preds = %39, %23
   br i1 %.not16, label %.critedge, label %40
@@ -2185,6 +2185,4 @@ attributes #11 = { nounwind }
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"long", !5, i64 0}
-!24 = distinct !{!24, !21, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !21}
+!24 = distinct !{!24, !21}

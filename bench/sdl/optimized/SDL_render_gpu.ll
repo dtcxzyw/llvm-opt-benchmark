@@ -772,239 +772,302 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %wide.trip.count79 = zext nneg i32 %17 to i64
+  %wide.trip.count85 = zext nneg i32 %17 to i64
   br i1 %.not61, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %60
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %60 ], [ 0, %.lr.ph ]
-  %.05863.us = phi ptr [ %71, %60 ], [ %25, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %22, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %45
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %45 ], [ 0, %.lr.ph.split.us ]
+  %.05863.us.us = phi ptr [ %69, %45 ], [ %25, %.lr.ph.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %33 = trunc nuw nsw i64 %indvars.iv76 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv82 to i32
   switch i32 %28, label %45 [
     i32 4, label %42
     i32 2, label %38
     i32 1, label %34
   ]
 
-34:                                               ; preds = %.lr.ph.split.us
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv76
+34:                                               ; preds = %.lr.ph.split.us.split.us
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv82
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   br label %45
 
-38:                                               ; preds = %.lr.ph.split.us
-  %39 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv76
+38:                                               ; preds = %.lr.ph.split.us.split.us
+  %39 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv82
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   br label %45
 
-42:                                               ; preds = %.lr.ph.split.us
-  %43 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv76
+42:                                               ; preds = %.lr.ph.split.us.split.us
+  %43 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv82
   %44 = load i32, ptr %43, align 4
   br label %45
 
-45:                                               ; preds = %42, %38, %34, %.lr.ph.split.us
-  %.056.us = phi i32 [ %44, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %.lr.ph.split.us ]
-  %46 = mul nsw i32 %.056.us, %4
+45:                                               ; preds = %42, %38, %34, %.lr.ph.split.us.split.us
+  %.056.us.us = phi i32 [ %44, %42 ], [ %41, %38 ], [ %37, %34 ], [ %33, %.lr.ph.split.us.split.us ]
+  %46 = mul nsw i32 %.056.us.us, %4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %3, i64 %47
   %49 = load float, ptr %48, align 4
   %50 = fmul float %13, %49
-  %51 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 4
-  store float %50, ptr %.05863.us, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 4
+  store float %50, ptr %.05863.us.us, align 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %53 = load float, ptr %52, align 4
   %54 = fmul float %14, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 8
   store float %54, ptr %51, align 4
-  %56 = mul nsw i32 %.056.us, %6
+  %56 = mul nsw i32 %.056.us.us, %6
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %5, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %58, i64 16, i1 false)
-  br i1 %22, label %59, label %60
-
-59:                                               ; preds = %45
   call void @SDL_ConvertToLinear(ptr noundef nonnull %16) #11
-  br label %60
-
-60:                                               ; preds = %59, %45
-  %61 = load float, ptr %16, align 4
-  %62 = fmul float %21, %61
-  %63 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 12
-  store float %62, ptr %55, align 4
-  %64 = load float, ptr %30, align 4
-  %65 = fmul float %21, %64
-  %66 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 16
-  store float %65, ptr %63, align 4
-  %67 = load float, ptr %31, align 4
-  %68 = fmul float %21, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 20
-  store float %68, ptr %66, align 4
-  %70 = load float, ptr %32, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 24
-  store float %70, ptr %69, align 4
+  %59 = load float, ptr %16, align 4
+  %60 = fmul float %21, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 12
+  store float %60, ptr %55, align 4
+  %62 = load float, ptr %30, align 4
+  %63 = fmul float %21, %62
+  %64 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 16
+  store float %63, ptr %61, align 4
+  %65 = load float, ptr %31, align 4
+  %66 = fmul float %21, %65
+  %67 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 20
+  store float %66, ptr %64, align 4
+  %68 = load float, ptr %32, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %.05863.us.us, i64 24
+  store float %68, ptr %67, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
+  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !6
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %82
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %82 ], [ 0, %.lr.ph.split.us ]
+  %.05863.us = phi ptr [ %106, %82 ], [ %25, %.lr.ph.split.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  %70 = trunc nuw nsw i64 %indvars.iv77 to i32
+  switch i32 %28, label %82 [
+    i32 4, label %79
+    i32 2, label %75
+    i32 1, label %71
+  ]
+
+71:                                               ; preds = %.lr.ph.split.us.split
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv77
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  br label %82
+
+75:                                               ; preds = %.lr.ph.split.us.split
+  %76 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv77
+  %77 = load i16, ptr %76, align 2
+  %78 = zext i16 %77 to i32
+  br label %82
+
+79:                                               ; preds = %.lr.ph.split.us.split
+  %80 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv77
+  %81 = load i32, ptr %80, align 4
+  br label %82
+
+82:                                               ; preds = %79, %75, %71, %.lr.ph.split.us.split
+  %.056.us = phi i32 [ %81, %79 ], [ %78, %75 ], [ %74, %71 ], [ %70, %.lr.ph.split.us.split ]
+  %83 = mul nsw i32 %.056.us, %4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr %3, i64 %84
+  %86 = load float, ptr %85, align 4
+  %87 = fmul float %13, %86
+  %88 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 4
+  store float %87, ptr %.05863.us, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %90 = load float, ptr %89, align 4
+  %91 = fmul float %14, %90
+  %92 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 8
+  store float %91, ptr %88, align 4
+  %93 = mul nsw i32 %.056.us, %6
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i8, ptr %5, i64 %94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %95, i64 16, i1 false)
+  %96 = load float, ptr %16, align 4
+  %97 = fmul float %21, %96
+  %98 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 12
+  store float %97, ptr %92, align 4
+  %99 = load float, ptr %30, align 4
+  %100 = fmul float %21, %99
+  %101 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 16
+  store float %100, ptr %98, align 4
+  %102 = load float, ptr %31, align 4
+  %103 = fmul float %21, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 20
+  store float %103, ptr %101, align 4
+  %105 = load float, ptr %32, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 24
+  store float %105, ptr %104, align 4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count85
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %22, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %84
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %84 ], [ 0, %.lr.ph.split ]
-  %.05863.us66 = phi ptr [ %116, %84 ], [ %25, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %119
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %119 ], [ 0, %.lr.ph.split ]
+  %.05863.us66 = phi ptr [ %151, %119 ], [ %25, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %72 = trunc nuw nsw i64 %indvars.iv71 to i32
-  switch i32 %28, label %84 [
-    i32 4, label %81
-    i32 2, label %77
-    i32 1, label %73
+  %107 = trunc nuw nsw i64 %indvars.iv72 to i32
+  switch i32 %28, label %119 [
+    i32 4, label %116
+    i32 2, label %112
+    i32 1, label %108
   ]
 
-73:                                               ; preds = %.lr.ph.split.split.us
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv71
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  br label %84
+108:                                              ; preds = %.lr.ph.split.split.us
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv72
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  br label %119
 
-77:                                               ; preds = %.lr.ph.split.split.us
-  %78 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv71
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  br label %84
+112:                                              ; preds = %.lr.ph.split.split.us
+  %113 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv72
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i32
+  br label %119
 
-81:                                               ; preds = %.lr.ph.split.split.us
-  %82 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv71
-  %83 = load i32, ptr %82, align 4
-  br label %84
+116:                                              ; preds = %.lr.ph.split.split.us
+  %117 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv72
+  %118 = load i32, ptr %117, align 4
+  br label %119
 
-84:                                               ; preds = %81, %77, %73, %.lr.ph.split.split.us
-  %.056.us67 = phi i32 [ %83, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %.lr.ph.split.split.us ]
-  %85 = mul nsw i32 %.056.us67, %4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %3, i64 %86
-  %88 = load float, ptr %87, align 4
-  %89 = fmul float %13, %88
-  %90 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 4
-  store float %89, ptr %.05863.us66, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %92 = load float, ptr %91, align 4
-  %93 = fmul float %14, %92
-  %94 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 8
-  store float %93, ptr %90, align 4
-  %95 = mul nsw i32 %.056.us67, %6
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %5, i64 %96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %97, i64 16, i1 false)
-  call void @SDL_ConvertToLinear(ptr noundef nonnull %16) #11
-  %98 = load float, ptr %16, align 4
-  %99 = fmul float %21, %98
-  %100 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 12
-  store float %99, ptr %94, align 4
-  %101 = load float, ptr %30, align 4
-  %102 = fmul float %21, %101
-  %103 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 16
-  store float %102, ptr %100, align 4
-  %104 = load float, ptr %31, align 4
-  %105 = fmul float %21, %104
-  %106 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 20
-  store float %105, ptr %103, align 4
-  %107 = load float, ptr %32, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 24
-  store float %107, ptr %106, align 4
-  %109 = mul nsw i32 %.056.us67, %8
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %7, i64 %110
-  %112 = load float, ptr %111, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 28
-  store float %112, ptr %108, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %115 = load float, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 32
-  store float %115, ptr %113, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count79
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !8
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %129
-  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph.split ]
-  %.05863 = phi ptr [ %161, %129 ], [ %25, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %117 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %28, label %129 [
-    i32 4, label %118
-    i32 2, label %121
-    i32 1, label %125
-  ]
-
-118:                                              ; preds = %.lr.ph.split.split
-  %119 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  %120 = load i32, ptr %119, align 4
-  br label %129
-
-121:                                              ; preds = %.lr.ph.split.split
-  %122 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  %123 = load i16, ptr %122, align 2
-  %124 = zext i16 %123 to i32
-  br label %129
-
-125:                                              ; preds = %.lr.ph.split.split
-  %126 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  br label %129
-
-129:                                              ; preds = %.lr.ph.split.split, %121, %125, %118
-  %.056 = phi i32 [ %120, %118 ], [ %124, %121 ], [ %128, %125 ], [ %117, %.lr.ph.split.split ]
-  %130 = mul nsw i32 %.056, %4
+119:                                              ; preds = %116, %112, %108, %.lr.ph.split.split.us
+  %.056.us67 = phi i32 [ %118, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %.lr.ph.split.split.us ]
+  %120 = mul nsw i32 %.056.us67, %4
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %3, i64 %121
+  %123 = load float, ptr %122, align 4
+  %124 = fmul float %13, %123
+  %125 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 4
+  store float %124, ptr %.05863.us66, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %127 = load float, ptr %126, align 4
+  %128 = fmul float %14, %127
+  %129 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 8
+  store float %128, ptr %125, align 4
+  %130 = mul nsw i32 %.056.us67, %6
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %3, i64 %131
-  %133 = load float, ptr %132, align 4
-  %134 = fmul float %13, %133
-  %135 = getelementptr inbounds nuw i8, ptr %.05863, i64 4
-  store float %134, ptr %.05863, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %137 = load float, ptr %136, align 4
-  %138 = fmul float %14, %137
-  %139 = getelementptr inbounds nuw i8, ptr %.05863, i64 8
-  store float %138, ptr %135, align 4
-  %140 = mul nsw i32 %.056, %6
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %5, i64 %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %142, i64 16, i1 false)
-  %143 = load float, ptr %16, align 4
-  %144 = fmul float %21, %143
-  %145 = getelementptr inbounds nuw i8, ptr %.05863, i64 12
-  store float %144, ptr %139, align 4
-  %146 = load float, ptr %30, align 4
-  %147 = fmul float %21, %146
-  %148 = getelementptr inbounds nuw i8, ptr %.05863, i64 16
-  store float %147, ptr %145, align 4
-  %149 = load float, ptr %31, align 4
-  %150 = fmul float %21, %149
-  %151 = getelementptr inbounds nuw i8, ptr %.05863, i64 20
+  %132 = getelementptr inbounds i8, ptr %5, i64 %131
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %132, i64 16, i1 false)
+  call void @SDL_ConvertToLinear(ptr noundef nonnull %16) #11
+  %133 = load float, ptr %16, align 4
+  %134 = fmul float %21, %133
+  %135 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 12
+  store float %134, ptr %129, align 4
+  %136 = load float, ptr %30, align 4
+  %137 = fmul float %21, %136
+  %138 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 16
+  store float %137, ptr %135, align 4
+  %139 = load float, ptr %31, align 4
+  %140 = fmul float %21, %139
+  %141 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 20
+  store float %140, ptr %138, align 4
+  %142 = load float, ptr %32, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 24
+  store float %142, ptr %141, align 4
+  %144 = mul nsw i32 %.056.us67, %8
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i8, ptr %7, i64 %145
+  %147 = load float, ptr %146, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 28
+  store float %147, ptr %143, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %150 = load float, ptr %149, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 32
   store float %150, ptr %148, align 4
-  %152 = load float, ptr %32, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %.05863, i64 24
-  store float %152, ptr %151, align 4
-  %154 = mul nsw i32 %.056, %8
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %7, i64 %155
-  %157 = load float, ptr %156, align 4
-  %158 = getelementptr inbounds nuw i8, ptr %.05863, i64 28
-  store float %157, ptr %153, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  %160 = load float, ptr %159, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %.05863, i64 32
-  store float %160, ptr %158, align 4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count85
+  br i1 %exitcond76.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !6
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %164
+  %indvars.iv = phi i64 [ %indvars.iv.next, %164 ], [ 0, %.lr.ph.split ]
+  %.05863 = phi ptr [ %196, %164 ], [ %25, %.lr.ph.split ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  %152 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %28, label %164 [
+    i32 4, label %153
+    i32 2, label %156
+    i32 1, label %160
+  ]
+
+153:                                              ; preds = %.lr.ph.split.split
+  %154 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %155 = load i32, ptr %154, align 4
+  br label %164
+
+156:                                              ; preds = %.lr.ph.split.split
+  %157 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %158 = load i16, ptr %157, align 2
+  %159 = zext i16 %158 to i32
+  br label %164
+
+160:                                              ; preds = %.lr.ph.split.split
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  %162 = load i8, ptr %161, align 1
+  %163 = zext i8 %162 to i32
+  br label %164
+
+164:                                              ; preds = %.lr.ph.split.split, %156, %160, %153
+  %.056 = phi i32 [ %155, %153 ], [ %159, %156 ], [ %163, %160 ], [ %152, %.lr.ph.split.split ]
+  %165 = mul nsw i32 %.056, %4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds i8, ptr %3, i64 %166
+  %168 = load float, ptr %167, align 4
+  %169 = fmul float %13, %168
+  %170 = getelementptr inbounds nuw i8, ptr %.05863, i64 4
+  store float %169, ptr %.05863, align 4
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %172 = load float, ptr %171, align 4
+  %173 = fmul float %14, %172
+  %174 = getelementptr inbounds nuw i8, ptr %.05863, i64 8
+  store float %173, ptr %170, align 4
+  %175 = mul nsw i32 %.056, %6
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i8, ptr %5, i64 %176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %177, i64 16, i1 false)
+  %178 = load float, ptr %16, align 4
+  %179 = fmul float %21, %178
+  %180 = getelementptr inbounds nuw i8, ptr %.05863, i64 12
+  store float %179, ptr %174, align 4
+  %181 = load float, ptr %30, align 4
+  %182 = fmul float %21, %181
+  %183 = getelementptr inbounds nuw i8, ptr %.05863, i64 16
+  store float %182, ptr %180, align 4
+  %184 = load float, ptr %31, align 4
+  %185 = fmul float %21, %184
+  %186 = getelementptr inbounds nuw i8, ptr %.05863, i64 20
+  store float %185, ptr %183, align 4
+  %187 = load float, ptr %32, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %.05863, i64 24
+  store float %187, ptr %186, align 4
+  %189 = mul nsw i32 %.056, %8
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i8, ptr %7, i64 %190
+  %192 = load float, ptr %191, align 4
+  %193 = getelementptr inbounds nuw i8, ptr %.05863, i64 28
+  store float %192, ptr %188, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 4
+  %195 = load float, ptr %194, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %.05863, i64 32
+  store float %195, ptr %193, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count79
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count85
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !6
 
-.loopexit:                                        ; preds = %129, %84, %60, %26, %15
+.loopexit:                                        ; preds = %164, %119, %82, %45, %26, %15
   ret i1 %.not62
 }
 
@@ -1268,7 +1331,7 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   %124 = getelementptr inbounds nuw i8, ptr %.0113215, i64 24
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %74, align 4
-  %126 = load i8, ptr %111, align 8, !range !10, !noundef !11
+  %126 = load i8, ptr %111, align 8, !range !7, !noundef !8
   store i8 %126, ptr %75, align 8
   br label %199
 
@@ -1451,7 +1514,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   %200 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %201 = load ptr, ptr %200, align 8
   %.not138 = icmp eq ptr %201, null
-  br i1 %.not138, label %._crit_edge, label %83, !llvm.loop !12
+  br i1 %.not138, label %._crit_edge, label %83, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %199
   %.pre = load i32, ptr %57, align 8
@@ -1713,7 +1776,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   %104 = add nuw nsw i32 %.096, 1
   %105 = load i32, ptr %44, align 4
   %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %92
   %107 = load ptr, ptr %8, align 8
@@ -1935,7 +1998,7 @@ define internal void @GPU_DestroyRenderer(ptr noundef readonly captures(none) %0
 19:                                               ; preds = %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %11, label %14, !llvm.loop !14
+  br i1 %exitcond.not, label %11, label %14, !llvm.loop !11
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %3, align 8
@@ -2503,7 +2566,7 @@ GetSampler.exit:                                  ; preds = %77, %.sink.split.i
   %156 = load i32, ptr %142, align 8
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %147, label %PushFragmentUniforms.exit, !llvm.loop !15
+  br i1 %158, label %147, label %PushFragmentUniforms.exit, !llvm.loop !12
 
 159:                                              ; preds = %119
   %160 = load ptr, ptr %75, align 8
@@ -2580,7 +2643,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @SDL_SetGPUViewport_REAL(ptr noundef %199, ptr noundef nonnull %200) #11
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %202 = load i8, ptr %201, align 8, !range !10, !noundef !11
+  %202 = load i8, ptr %201, align 8, !range !7, !noundef !8
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %204, label %208
 
@@ -2594,7 +2657,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
 
 208:                                              ; preds = %PushFragmentUniforms.exit
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %210 = load i8, ptr %209, align 1, !range !10, !noundef !11
+  %210 = load i8, ptr %209, align 1, !range !7, !noundef !8
   %211 = trunc nuw i8 %210 to i1
   br i1 %211, label %212, label %SetViewportAndScissor.exit
 
@@ -2728,13 +2791,10 @@ attributes #12 = { nounwind allocsize(0,1) }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !4, !7}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}
 !9 = distinct !{!9, !4}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}

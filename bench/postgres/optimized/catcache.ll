@@ -3330,7 +3330,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
 50:                                               ; preds = %48, %36, %.lr.ph.split
   %.sroa.0.0 = load ptr, ptr %.sroa.0.032, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %50, %27, %5
   ret void
@@ -3863,6 +3863,4 @@ attributes #18 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !7}
+!34 = distinct !{!34, !7}

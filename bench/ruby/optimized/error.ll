@@ -3357,7 +3357,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.thread25
   %46 = and i64 %45, 31
   %47 = icmp eq i64 %46, 5
   %48 = add nuw nsw i64 %.014, 1
-  br i1 %47, label %rb_array_len.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, !llvm.loop !111
+  br i1 %47, label %rb_array_len.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, !llvm.loop !109
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %.thread25, %RARRAY_AREF.exit.us, %rbimpl_RB_TYPE_P_fastpath.exit.us
   %49 = load i64, ptr @rb_eTypeError, align 8, !tbaa !15
@@ -3544,7 +3544,7 @@ err_init_recv.exit.i:                             ; preds = %42, %rb_name_err_me
 
 45:                                               ; preds = %err_init_recv.exit.i
   %46 = getelementptr i8, ptr %39, i64 32
-  %.val.i = load ptr, ptr %46, align 8, !tbaa !112
+  %.val.i = load ptr, ptr %46, align 8, !tbaa !110
   %.val.val.i = load i64, ptr %.val.i, align 8, !tbaa !15
   %47 = and i64 %.val.val.i, 2147418113
   %.not11.i = icmp eq i64 %47, 2040070145
@@ -3553,7 +3553,7 @@ err_init_recv.exit.i:                             ; preds = %42, %rb_name_err_me
 48:                                               ; preds = %45
   %49 = load i64, ptr @id_iseq, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !113
+  %51 = load ptr, ptr %50, align 8, !tbaa !111
   %52 = tail call i64 @rb_iseqw_new(ptr noundef %51) #33
   %53 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %49, i64 noundef %52) #33
   br label %name_err_init_attr.exit
@@ -3605,7 +3605,7 @@ define hidden void @rb_free_warning() local_unnamed_addr #0 {
   tail call void @rb_st_free_table(ptr noundef %1) #33
   %2 = load ptr, ptr @warning_categories.1, align 8, !tbaa !33
   tail call void @rb_st_free_table(ptr noundef %2) #33
-  %3 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %3 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   tail call void @rb_st_free_table(ptr noundef %3) #33
   ret void
 }
@@ -3764,7 +3764,7 @@ define hidden void @Init_Exception() local_unnamed_addr #0 {
   %80 = load i64, ptr @rb_eNoMatchingPatternKeyError, align 8, !tbaa !15
   tail call void @rb_define_method(i64 noundef %80, ptr noundef nonnull @.str.43, ptr noundef nonnull @no_matching_pattern_key_err_key, i32 noundef 0) #33
   %81 = tail call ptr @rb_st_init_numtable() #33
-  store ptr %81, ptr @syserr_tbl, align 8, !tbaa !114
+  store ptr %81, ptr @syserr_tbl, align 8, !tbaa !112
   %82 = load i64, ptr @rb_eStandardError, align 8, !tbaa !15
   %83 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.68, i64 noundef %82) #33
   store i64 %83, ptr @rb_eSystemCallError, align 8, !tbaa !15
@@ -4675,7 +4675,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %.prehe
   br label %33
 
 33:                                               ; preds = %26, %30
-  br i1 %27, label %26, label %34, !llvm.loop !115
+  br i1 %27, label %26, label %34, !llvm.loop !113
 
 34:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4814,7 +4814,7 @@ err_init_recv.exit.i:                             ; preds = %38, %26
 
 41:                                               ; preds = %err_init_recv.exit.i
   %42 = getelementptr i8, ptr %35, i64 32
-  %.val.i = load ptr, ptr %42, align 8, !tbaa !112
+  %.val.i = load ptr, ptr %42, align 8, !tbaa !110
   %.val.val.i = load i64, ptr %.val.i, align 8, !tbaa !15
   %43 = and i64 %.val.val.i, 2147418113
   %.not11.i = icmp eq i64 %43, 2040070145
@@ -4823,7 +4823,7 @@ err_init_recv.exit.i:                             ; preds = %38, %26
 44:                                               ; preds = %41
   %45 = load i64, ptr @id_iseq, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !113
+  %47 = load ptr, ptr %46, align 8, !tbaa !111
   %48 = call i64 @rb_iseqw_new(ptr noundef %47) #33
   %49 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %45, i64 noundef %48) #33
   br label %name_err_init_attr.exit
@@ -4894,7 +4894,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %5
 rb_typeddata_is_kind_of.exit:                     ; preds = %.lr.ph.i.i
   %28 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @name_err_mesg_data_type)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !116
+  %30 = load i64, ptr %29, align 8, !tbaa !114
   br label %31
 
 31:                                               ; preds = %1, %rb_typeddata_is_kind_of.exit
@@ -4971,7 +4971,7 @@ define internal noundef i64 @name_err_mesg_init_copy(i64 noundef returned %0, i6
   %5 = tail call i64 @rb_obj_init_copy(i64 noundef %0, i64 noundef %1) #33
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @name_err_mesg_data_type)
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @name_err_mesg_data_type)
-  %8 = load i64, ptr %7, align 8, !tbaa !118
+  %8 = load i64, ptr %7, align 8, !tbaa !116
   store i64 %8, ptr %6, align 8, !tbaa !15
   %9 = icmp eq i64 %8, 0
   %10 = and i64 %8, 7
@@ -4986,7 +4986,7 @@ define internal noundef i64 @name_err_mesg_init_copy(i64 noundef returned %0, i6
 rb_obj_write.exit:                                ; preds = %4, %13
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !116
+  %16 = load i64, ptr %15, align 8, !tbaa !114
   store i64 %16, ptr %14, align 8, !tbaa !15
   %17 = icmp eq i64 %16, 0
   %18 = and i64 %16, 7
@@ -5001,7 +5001,7 @@ rb_obj_write.exit:                                ; preds = %4, %13
 rb_obj_write.exit18:                              ; preds = %rb_obj_write.exit, %21
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !119
+  %24 = load i64, ptr %23, align 8, !tbaa !117
   store i64 %24, ptr %22, align 8, !tbaa !15
   %25 = icmp eq i64 %24, 0
   %26 = and i64 %24, 7
@@ -5031,26 +5031,26 @@ define internal range(i64 0, 21) i64 @name_err_mesg_equal(i64 noundef %0, i64 no
 7:                                                ; preds = %4
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @name_err_mesg_data_type)
   %9 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @name_err_mesg_data_type)
-  %10 = load i64, ptr %8, align 8, !tbaa !118
-  %11 = load i64, ptr %9, align 8, !tbaa !118
+  %10 = load i64, ptr %8, align 8, !tbaa !116
+  %11 = load i64, ptr %9, align 8, !tbaa !116
   %12 = tail call i64 @rb_equal(i64 noundef %10, i64 noundef %11) #33
   %.not13 = icmp eq i64 %12, 0
   br i1 %.not13, label %25, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !116
+  %15 = load i64, ptr %14, align 8, !tbaa !114
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !116
+  %17 = load i64, ptr %16, align 8, !tbaa !114
   %18 = tail call i64 @rb_equal(i64 noundef %15, i64 noundef %17) #33
   %.not14 = icmp eq i64 %18, 0
   br i1 %.not14, label %25, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !119
+  %21 = load i64, ptr %20, align 8, !tbaa !117
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !119
+  %23 = load i64, ptr %22, align 8, !tbaa !117
   %24 = tail call i64 @rb_equal(i64 noundef %21, i64 noundef %23) #33
   %.not15 = icmp eq i64 %24, 0
   %. = select i1 %.not15, i64 0, i64 20
@@ -5069,7 +5069,7 @@ define internal i64 @name_err_mesg_to_str(i64 noundef %0) #0 {
   %5 = alloca [4 x i64], align 16
   %6 = alloca i32, align 4
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @name_err_mesg_data_type)
-  %8 = load i64, ptr %7, align 8, !tbaa !118
+  %8 = load i64, ptr %7, align 8, !tbaa !116
   %9 = icmp eq i64 %8, 4
   br i1 %9, label %97, label %10
 
@@ -5083,7 +5083,7 @@ define internal i64 @name_err_mesg_to_str(i64 noundef %0) #0 {
   %11 = tail call nonnull ptr @rb_usascii_encoding() #33
   %12 = call i64 @rb_setup_fake_str(ptr noundef nonnull %2, ptr noundef nonnull @.str.90, i64 noundef 0, ptr noundef nonnull %11) #33
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !116
+  %14 = load i64, ptr %13, align 8, !tbaa !114
   switch i64 %14, label %21 [
     i64 4, label %15
     i64 20, label %17
@@ -5104,7 +5104,7 @@ define internal i64 @name_err_mesg_to_str(i64 noundef %0) #0 {
 
 21:                                               ; preds = %10
   %22 = inttoptr i64 %8 to ptr
-  %23 = load i64, ptr %22, align 8, !tbaa !7, !noalias !120
+  %23 = load i64, ptr %22, align 8, !tbaa !7, !noalias !118
   %24 = and i64 %23, 8192
   %.not.i.i = icmp eq i64 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -5268,7 +5268,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_class_of.exit, %
   %.047 = phi i64 [ %68, %71 ], [ %68, %73 ], [ %12, %15 ], [ %12, %17 ], [ %12, %19 ], [ %.148, %87 ], [ %.148, %.thread63 ]
   %.045 = phi i64 [ %.146, %71 ], [ %.146, %73 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %.146, %87 ], [ %.146, %.thread63 ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %91 = load i64, ptr %90, align 8, !tbaa !119
+  %91 = load i64, ptr %90, align 8, !tbaa !117
   %92 = call i64 @rb_obj_as_string(i64 noundef %91) #33
   store i64 %92, ptr %5, align 16, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5531,7 +5531,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %.prehe
   br label %33
 
 33:                                               ; preds = %26, %30
-  br i1 %27, label %26, label %34, !llvm.loop !123
+  br i1 %27, label %26, label %34, !llvm.loop !121
 
 34:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5595,11 +5595,11 @@ define internal noundef i64 @syserr_initialize(i32 noundef %0, ptr noundef reado
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %10, ptr %7, align 8, !tbaa !15
-  store ptr %4, ptr %8, align 8, !tbaa !124
+  store ptr %4, ptr %8, align 8, !tbaa !122
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %5, ptr %14, align 8, !tbaa !124
+  store ptr %5, ptr %14, align 8, !tbaa !122
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %15, align 8, !tbaa !124
+  store ptr %6, ptr %15, align 8, !tbaa !122
   %16 = icmp slt i32 %0, 1
   br i1 %16, label %35, label %.preheader
 
@@ -5614,7 +5614,7 @@ define internal noundef i64 @syserr_initialize(i32 noundef %0, ptr noundef reado
   %.185.i63 = phi i32 [ 1, %.preheader ], [ %.286.i, %32 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %20 = getelementptr ptr, ptr %8, i64 %indvars.iv68
-  %21 = load ptr, ptr %20, align 8, !tbaa !124
+  %21 = load ptr, ptr %20, align 8, !tbaa !122
   %22 = icmp slt i32 %.185.i63, %0
   %.not108.i = icmp eq ptr %21, null
   br i1 %22, label %23, label %30
@@ -5642,7 +5642,7 @@ define internal noundef i64 @syserr_initialize(i32 noundef %0, ptr noundef reado
 
 32:                                               ; preds = %31, %30, %28
   %.286.i = phi i32 [ %29, %28 ], [ %.185.i63, %31 ], [ %.185.i63, %30 ]
-  br i1 %19, label %18, label %33, !llvm.loop !125
+  br i1 %19, label %18, label %33, !llvm.loop !123
 
 33:                                               ; preds = %32
   %34 = icmp eq i32 %.286.i, %0
@@ -5677,7 +5677,7 @@ thread-pre-split:                                 ; preds = %rb_scan_args_set.ex
   br i1 %43, label %RBASIC_SET_CLASS.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %45 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %46 = and i64 %42, 1
   %.not.i48 = icmp eq i64 %46, 0
   br i1 %.not.i48, label %49, label %47
@@ -5735,9 +5735,9 @@ RBASIC_SET_CLASS.exit:                            ; preds = %69, %62, %rb_num2lo
   br label %91
 
 70:                                               ; preds = %3
-  store ptr %4, ptr %9, align 8, !tbaa !124
+  store ptr %4, ptr %9, align 8, !tbaa !122
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %6, ptr %71, align 8, !tbaa !124
+  store ptr %6, ptr %71, align 8, !tbaa !122
   %72 = icmp slt i32 %0, 0
   br i1 %72, label %88, label %.preheader56
 
@@ -5746,7 +5746,7 @@ RBASIC_SET_CLASS.exit:                            ; preds = %69, %62, %rb_num2lo
   %.185.i2758 = phi i32 [ %.286.i41, %85 ], [ 0, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = getelementptr ptr, ptr %9, i64 %indvars.iv
-  %74 = load ptr, ptr %73, align 8, !tbaa !124
+  %74 = load ptr, ptr %73, align 8, !tbaa !122
   %75 = icmp slt i32 %.185.i2758, %0
   %.not108.i42 = icmp eq ptr %74, null
   br i1 %75, label %76, label %83
@@ -5775,7 +5775,7 @@ RBASIC_SET_CLASS.exit:                            ; preds = %69, %62, %rb_num2lo
 85:                                               ; preds = %84, %83, %81
   %.286.i41 = phi i32 [ %82, %81 ], [ %.185.i2758, %84 ], [ %.185.i2758, %83 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %86, label %.preheader56, !llvm.loop !125
+  br i1 %exitcond.not, label %86, label %.preheader56, !llvm.loop !123
 
 86:                                               ; preds = %85
   %87 = icmp eq i32 %.286.i41, %0
@@ -6040,7 +6040,7 @@ rb_warning_category_mask.exit:                    ; preds = %19
 define internal i64 @rb_warning_s_categories(i64 %0) #0 {
   %2 = load ptr, ptr @warning_categories.0, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !126
+  %4 = load i64, ptr %3, align 8, !tbaa !124
   %5 = icmp ugt i64 %4, 2305843009213693951
   br i1 %5, label %6, label %rbimpl_size_mul_or_raise.exit, !prof !49
 
@@ -6068,7 +6068,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1
   %15 = call i64 @rb_ary_push(i64 noundef %10, i64 noundef %14) #33
   %16 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6223,7 +6223,7 @@ define internal noundef i64 @warning_write(i32 noundef %0, ptr noundef readonly 
   %7 = load i64, ptr %.034, align 8, !tbaa !15
   %8 = tail call i64 @rb_str_append(i64 noundef %2, i64 noundef %7) #33
   %9 = icmp samesign ugt i32 %.05, 1
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !131
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i64 %2
@@ -6373,7 +6373,7 @@ define internal fastcc i64 @get_syserr(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [13 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %4 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %5 = sext i32 %0 to i64
   %6 = call i32 @rb_st_lookup(ptr noundef %4, i64 noundef %5, ptr noundef nonnull %2) #33
   %.not = icmp eq i32 %6, 0
@@ -6403,7 +6403,7 @@ setup_syserr.exit:                                ; preds = %7, %.sink.split.i
   %13 = shl nsw i64 %5, 1
   %14 = or disjoint i64 %13, 1
   call void @rb_define_const(i64 noundef %11, ptr noundef nonnull @.str.71, i64 noundef %14) #33
-  %15 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %15 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %15, i64 noundef %5, i64 noundef %11) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
@@ -6497,7 +6497,7 @@ define internal fastcc i64 @make_errno_exc_str(i64 noundef %0) unnamed_addr #0 {
 
 9:                                                ; preds = %7
   %10 = inttoptr i64 %spec.store.select to ptr
-  %11 = load i64, ptr %10, align 8, !tbaa !7, !noalias !132
+  %11 = load i64, ptr %10, align 8, !tbaa !7, !noalias !130
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -6555,7 +6555,7 @@ define dso_local i64 @rb_syserr_new_path_in(ptr noundef %0, i32 noundef %1, i64 
 
 8:                                                ; preds = %6
   %9 = inttoptr i64 %spec.store.select to ptr
-  %10 = load i64, ptr %9, align 8, !tbaa !7, !noalias !135
+  %10 = load i64, ptr %9, align 8, !tbaa !7, !noalias !133
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7064,7 +7064,7 @@ declare i64 @rb_str_dup(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_warn_unchilled_symbol_to_s(i64 noundef %0) local_unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = load i64, ptr %2, align 8, !tbaa !7, !noalias !138
+  %3 = load i64, ptr %2, align 8, !tbaa !7, !noalias !136
   %4 = and i64 %3, 8192
   %.not.i.i = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -7096,7 +7096,7 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %1
   %9 = and i64 %7, 2048
   %10 = icmp ne i64 %9, 0
   %or.cond.i = or i1 %.not.i.i, %10
-  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !141
+  br i1 %or.cond.i, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !139
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i, %1
   tail call void @rb_error_frozen_object(i64 noundef %0) #34
@@ -7107,7 +7107,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %12 = and i64 %7, 49152
   %.not.i = icmp eq i64 %12, 0
   %or.cond8.i = or i1 %11, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %13, !prof !142
+  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %13, !prof !140
 
 13:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #33
@@ -7135,7 +7135,7 @@ RB_FL_ABLE.exit:                                  ; preds = %2
 RB_FL_ABLE.exit.i.i.i:                            ; preds = %RB_FL_ABLE.exit
   %10 = and i64 %8, 2048
   %.not3 = icmp eq i64 %10, 0
-  br i1 %.not3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, !prof !143
+  br i1 %.not3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, !prof !141
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %RB_FL_ABLE.exit.i.i.i
   tail call void @rb_error_frozen_object(i64 noundef %0) #34
@@ -7146,7 +7146,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %12 = and i64 %8, 49152
   %.not.i.i = icmp eq i64 %12, 0
   %or.cond8.i.i = or i1 %11, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_check_frozen.exit, label %13, !prof !142
+  br i1 %or.cond8.i.i, label %rb_check_frozen.exit, label %13, !prof !140
 
 13:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #33
@@ -7296,11 +7296,11 @@ define hidden void @Init_syserr() local_unnamed_addr #0 {
   %136 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %137 = tail call i64 @rb_define_class_under(i64 noundef %135, ptr noundef nonnull @.str.102, i64 noundef %136) #33
   tail call void @rb_define_const(i64 noundef %137, ptr noundef nonnull @.str.71, i64 noundef 1) #33
-  %138 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %138 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   tail call void @rb_st_add_direct(ptr noundef %138, i64 noundef 0, i64 noundef %137) #33
   store i64 %137, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
-  %139 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %139 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %140 = call i32 @rb_st_lookup(ptr noundef %139, i64 noundef 7, ptr noundef nonnull %134) #33
   %.not.i = icmp eq i32 %140, 0
   br i1 %.not.i, label %141, label %146
@@ -7310,7 +7310,7 @@ define hidden void @Init_syserr() local_unnamed_addr #0 {
   %143 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %144 = call i64 @rb_define_class_under(i64 noundef %142, ptr noundef nonnull @.str.103, i64 noundef %143) #33
   call void @rb_define_const(i64 noundef %144, ptr noundef nonnull @.str.71, i64 noundef 15) #33
-  %145 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %145 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %145, i64 noundef 7, i64 noundef %144) #33
   br label %set_syserr.exit
 
@@ -7323,7 +7323,7 @@ define hidden void @Init_syserr() local_unnamed_addr #0 {
 set_syserr.exit:                                  ; preds = %141, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
-  %149 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %149 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %150 = call i32 @rb_st_lookup(ptr noundef %149, i64 noundef 13, ptr noundef nonnull %133) #33
   %.not.i1 = icmp eq i32 %150, 0
   br i1 %.not.i1, label %151, label %156
@@ -7333,7 +7333,7 @@ set_syserr.exit:                                  ; preds = %141, %146
   %153 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %154 = call i64 @rb_define_class_under(i64 noundef %152, ptr noundef nonnull @.str.104, i64 noundef %153) #33
   call void @rb_define_const(i64 noundef %154, ptr noundef nonnull @.str.71, i64 noundef 27) #33
-  %155 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %155 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %155, i64 noundef 13, i64 noundef %154) #33
   br label %set_syserr.exit3
 
@@ -7346,7 +7346,7 @@ set_syserr.exit:                                  ; preds = %141, %146
 set_syserr.exit3:                                 ; preds = %151, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
-  %159 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %159 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %160 = call i32 @rb_st_lookup(ptr noundef %159, i64 noundef 98, ptr noundef nonnull %132) #33
   %.not.i4 = icmp eq i32 %160, 0
   br i1 %.not.i4, label %161, label %166
@@ -7356,7 +7356,7 @@ set_syserr.exit3:                                 ; preds = %151, %156
   %163 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %164 = call i64 @rb_define_class_under(i64 noundef %162, ptr noundef nonnull @.str.105, i64 noundef %163) #33
   call void @rb_define_const(i64 noundef %164, ptr noundef nonnull @.str.71, i64 noundef 197) #33
-  %165 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %165 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %165, i64 noundef 98, i64 noundef %164) #33
   br label %set_syserr.exit6
 
@@ -7369,7 +7369,7 @@ set_syserr.exit3:                                 ; preds = %151, %156
 set_syserr.exit6:                                 ; preds = %161, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
   call void @llvm.lifetime.start.p0(ptr nonnull %131)
-  %169 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %169 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %170 = call i32 @rb_st_lookup(ptr noundef %169, i64 noundef 99, ptr noundef nonnull %131) #33
   %.not.i7 = icmp eq i32 %170, 0
   br i1 %.not.i7, label %171, label %176
@@ -7379,7 +7379,7 @@ set_syserr.exit6:                                 ; preds = %161, %166
   %173 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %174 = call i64 @rb_define_class_under(i64 noundef %172, ptr noundef nonnull @.str.106, i64 noundef %173) #33
   call void @rb_define_const(i64 noundef %174, ptr noundef nonnull @.str.71, i64 noundef 199) #33
-  %175 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %175 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %175, i64 noundef 99, i64 noundef %174) #33
   br label %set_syserr.exit9
 
@@ -7392,7 +7392,7 @@ set_syserr.exit6:                                 ; preds = %161, %166
 set_syserr.exit9:                                 ; preds = %171, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
-  %179 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %179 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %180 = call i32 @rb_st_lookup(ptr noundef %179, i64 noundef 68, ptr noundef nonnull %130) #33
   %.not.i10 = icmp eq i32 %180, 0
   br i1 %.not.i10, label %181, label %186
@@ -7402,7 +7402,7 @@ set_syserr.exit9:                                 ; preds = %171, %176
   %183 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %184 = call i64 @rb_define_class_under(i64 noundef %182, ptr noundef nonnull @.str.107, i64 noundef %183) #33
   call void @rb_define_const(i64 noundef %184, ptr noundef nonnull @.str.71, i64 noundef 137) #33
-  %185 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %185 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %185, i64 noundef 68, i64 noundef %184) #33
   br label %set_syserr.exit12
 
@@ -7415,7 +7415,7 @@ set_syserr.exit9:                                 ; preds = %171, %176
 set_syserr.exit12:                                ; preds = %181, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
-  %189 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %189 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %190 = call i32 @rb_st_lookup(ptr noundef %189, i64 noundef 97, ptr noundef nonnull %129) #33
   %.not.i13 = icmp eq i32 %190, 0
   br i1 %.not.i13, label %191, label %196
@@ -7425,7 +7425,7 @@ set_syserr.exit12:                                ; preds = %181, %186
   %193 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %194 = call i64 @rb_define_class_under(i64 noundef %192, ptr noundef nonnull @.str.108, i64 noundef %193) #33
   call void @rb_define_const(i64 noundef %194, ptr noundef nonnull @.str.71, i64 noundef 195) #33
-  %195 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %195 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %195, i64 noundef 97, i64 noundef %194) #33
   br label %set_syserr.exit15
 
@@ -7438,7 +7438,7 @@ set_syserr.exit12:                                ; preds = %181, %186
 set_syserr.exit15:                                ; preds = %191, %196
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
-  %199 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %199 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %200 = call i32 @rb_st_lookup(ptr noundef %199, i64 noundef 11, ptr noundef nonnull %128) #33
   %.not.i16 = icmp eq i32 %200, 0
   br i1 %.not.i16, label %201, label %206
@@ -7450,7 +7450,7 @@ set_syserr.exit15:                                ; preds = %191, %196
   store i64 %204, ptr @rb_eEAGAIN, align 8, !tbaa !15
   store i64 %204, ptr @rb_eEWOULDBLOCK, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %204, ptr noundef nonnull @.str.71, i64 noundef 23) #33
-  %205 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %205 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %205, i64 noundef 11, i64 noundef %204) #33
   br label %set_syserr.exit18
 
@@ -7463,7 +7463,7 @@ set_syserr.exit15:                                ; preds = %191, %196
 set_syserr.exit18:                                ; preds = %201, %206
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
-  %209 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %209 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %210 = call i32 @rb_st_lookup(ptr noundef %209, i64 noundef 114, ptr noundef nonnull %127) #33
   %.not.i19 = icmp eq i32 %210, 0
   br i1 %.not.i19, label %211, label %216
@@ -7473,7 +7473,7 @@ set_syserr.exit18:                                ; preds = %201, %206
   %213 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %214 = call i64 @rb_define_class_under(i64 noundef %212, ptr noundef nonnull @.str.110, i64 noundef %213) #33
   call void @rb_define_const(i64 noundef %214, ptr noundef nonnull @.str.71, i64 noundef 229) #33
-  %215 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %215 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %215, i64 noundef 114, i64 noundef %214) #33
   br label %set_syserr.exit21
 
@@ -7492,7 +7492,7 @@ set_syserr.exit21:                                ; preds = %211, %216
   %222 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %221, ptr noundef nonnull @.str.112, i64 noundef %222) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
-  %223 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %223 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %224 = call i32 @rb_st_lookup(ptr noundef %223, i64 noundef 52, ptr noundef nonnull %126) #33
   %.not.i22 = icmp eq i32 %224, 0
   br i1 %.not.i22, label %225, label %230
@@ -7502,7 +7502,7 @@ set_syserr.exit21:                                ; preds = %211, %216
   %227 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %228 = call i64 @rb_define_class_under(i64 noundef %226, ptr noundef nonnull @.str.113, i64 noundef %227) #33
   call void @rb_define_const(i64 noundef %228, ptr noundef nonnull @.str.71, i64 noundef 105) #33
-  %229 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %229 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %229, i64 noundef 52, i64 noundef %228) #33
   br label %set_syserr.exit24
 
@@ -7518,7 +7518,7 @@ set_syserr.exit24:                                ; preds = %225, %230
   %234 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %233, ptr noundef nonnull @.str.114, i64 noundef %234) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
-  %235 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %235 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %236 = call i32 @rb_st_lookup(ptr noundef %235, i64 noundef 9, ptr noundef nonnull %125) #33
   %.not.i25 = icmp eq i32 %236, 0
   br i1 %.not.i25, label %237, label %242
@@ -7528,7 +7528,7 @@ set_syserr.exit24:                                ; preds = %225, %230
   %239 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %240 = call i64 @rb_define_class_under(i64 noundef %238, ptr noundef nonnull @.str.115, i64 noundef %239) #33
   call void @rb_define_const(i64 noundef %240, ptr noundef nonnull @.str.71, i64 noundef 19) #33
-  %241 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %241 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %241, i64 noundef 9, i64 noundef %240) #33
   br label %set_syserr.exit27
 
@@ -7541,7 +7541,7 @@ set_syserr.exit24:                                ; preds = %225, %230
 set_syserr.exit27:                                ; preds = %237, %242
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
-  %245 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %245 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %246 = call i32 @rb_st_lookup(ptr noundef %245, i64 noundef 77, ptr noundef nonnull %124) #33
   %.not.i28 = icmp eq i32 %246, 0
   br i1 %.not.i28, label %247, label %252
@@ -7551,7 +7551,7 @@ set_syserr.exit27:                                ; preds = %237, %242
   %249 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %250 = call i64 @rb_define_class_under(i64 noundef %248, ptr noundef nonnull @.str.116, i64 noundef %249) #33
   call void @rb_define_const(i64 noundef %250, ptr noundef nonnull @.str.71, i64 noundef 155) #33
-  %251 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %251 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %251, i64 noundef 77, i64 noundef %250) #33
   br label %set_syserr.exit30
 
@@ -7567,7 +7567,7 @@ set_syserr.exit30:                                ; preds = %247, %252
   %256 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %255, ptr noundef nonnull @.str.117, i64 noundef %256) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
-  %257 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %257 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %258 = call i32 @rb_st_lookup(ptr noundef %257, i64 noundef 74, ptr noundef nonnull %123) #33
   %.not.i31 = icmp eq i32 %258, 0
   br i1 %.not.i31, label %259, label %264
@@ -7577,7 +7577,7 @@ set_syserr.exit30:                                ; preds = %247, %252
   %261 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %262 = call i64 @rb_define_class_under(i64 noundef %260, ptr noundef nonnull @.str.118, i64 noundef %261) #33
   call void @rb_define_const(i64 noundef %262, ptr noundef nonnull @.str.71, i64 noundef 149) #33
-  %263 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %263 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %263, i64 noundef 74, i64 noundef %262) #33
   br label %set_syserr.exit33
 
@@ -7590,7 +7590,7 @@ set_syserr.exit30:                                ; preds = %247, %252
 set_syserr.exit33:                                ; preds = %259, %264
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
-  %267 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %267 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %268 = call i32 @rb_st_lookup(ptr noundef %267, i64 noundef 53, ptr noundef nonnull %122) #33
   %.not.i34 = icmp eq i32 %268, 0
   br i1 %.not.i34, label %269, label %274
@@ -7600,7 +7600,7 @@ set_syserr.exit33:                                ; preds = %259, %264
   %271 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %272 = call i64 @rb_define_class_under(i64 noundef %270, ptr noundef nonnull @.str.119, i64 noundef %271) #33
   call void @rb_define_const(i64 noundef %272, ptr noundef nonnull @.str.71, i64 noundef 107) #33
-  %273 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %273 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %273, i64 noundef 53, i64 noundef %272) #33
   br label %set_syserr.exit36
 
@@ -7616,7 +7616,7 @@ set_syserr.exit36:                                ; preds = %269, %274
   %278 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %277, ptr noundef nonnull @.str.120, i64 noundef %278) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
-  %279 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %279 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %280 = call i32 @rb_st_lookup(ptr noundef %279, i64 noundef 56, ptr noundef nonnull %121) #33
   %.not.i37 = icmp eq i32 %280, 0
   br i1 %.not.i37, label %281, label %286
@@ -7626,7 +7626,7 @@ set_syserr.exit36:                                ; preds = %269, %274
   %283 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %284 = call i64 @rb_define_class_under(i64 noundef %282, ptr noundef nonnull @.str.121, i64 noundef %283) #33
   call void @rb_define_const(i64 noundef %284, ptr noundef nonnull @.str.71, i64 noundef 113) #33
-  %285 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %285 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %285, i64 noundef 56, i64 noundef %284) #33
   br label %set_syserr.exit39
 
@@ -7639,7 +7639,7 @@ set_syserr.exit36:                                ; preds = %269, %274
 set_syserr.exit39:                                ; preds = %281, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
-  %289 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %289 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %290 = call i32 @rb_st_lookup(ptr noundef %289, i64 noundef 57, ptr noundef nonnull %120) #33
   %.not.i40 = icmp eq i32 %290, 0
   br i1 %.not.i40, label %291, label %296
@@ -7649,7 +7649,7 @@ set_syserr.exit39:                                ; preds = %281, %286
   %293 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %294 = call i64 @rb_define_class_under(i64 noundef %292, ptr noundef nonnull @.str.122, i64 noundef %293) #33
   call void @rb_define_const(i64 noundef %294, ptr noundef nonnull @.str.71, i64 noundef 115) #33
-  %295 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %295 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %295, i64 noundef 57, i64 noundef %294) #33
   br label %set_syserr.exit42
 
@@ -7662,7 +7662,7 @@ set_syserr.exit39:                                ; preds = %281, %286
 set_syserr.exit42:                                ; preds = %291, %296
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
-  %299 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %299 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %300 = call i32 @rb_st_lookup(ptr noundef %299, i64 noundef 59, ptr noundef nonnull %119) #33
   %.not.i43 = icmp eq i32 %300, 0
   br i1 %.not.i43, label %301, label %306
@@ -7672,7 +7672,7 @@ set_syserr.exit42:                                ; preds = %291, %296
   %303 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %304 = call i64 @rb_define_class_under(i64 noundef %302, ptr noundef nonnull @.str.123, i64 noundef %303) #33
   call void @rb_define_const(i64 noundef %304, ptr noundef nonnull @.str.71, i64 noundef 119) #33
-  %305 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %305 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %305, i64 noundef 59, i64 noundef %304) #33
   br label %set_syserr.exit45
 
@@ -7685,7 +7685,7 @@ set_syserr.exit42:                                ; preds = %291, %296
 set_syserr.exit45:                                ; preds = %301, %306
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
-  %309 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %309 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %310 = call i32 @rb_st_lookup(ptr noundef %309, i64 noundef 16, ptr noundef nonnull %118) #33
   %.not.i46 = icmp eq i32 %310, 0
   br i1 %.not.i46, label %311, label %316
@@ -7695,7 +7695,7 @@ set_syserr.exit45:                                ; preds = %301, %306
   %313 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %314 = call i64 @rb_define_class_under(i64 noundef %312, ptr noundef nonnull @.str.124, i64 noundef %313) #33
   call void @rb_define_const(i64 noundef %314, ptr noundef nonnull @.str.71, i64 noundef 33) #33
-  %315 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %315 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %315, i64 noundef 16, i64 noundef %314) #33
   br label %set_syserr.exit48
 
@@ -7708,7 +7708,7 @@ set_syserr.exit45:                                ; preds = %301, %306
 set_syserr.exit48:                                ; preds = %311, %316
   call void @llvm.lifetime.end.p0(ptr nonnull %118)
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
-  %319 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %319 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %320 = call i32 @rb_st_lookup(ptr noundef %319, i64 noundef 125, ptr noundef nonnull %117) #33
   %.not.i49 = icmp eq i32 %320, 0
   br i1 %.not.i49, label %321, label %326
@@ -7718,7 +7718,7 @@ set_syserr.exit48:                                ; preds = %311, %316
   %323 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %324 = call i64 @rb_define_class_under(i64 noundef %322, ptr noundef nonnull @.str.125, i64 noundef %323) #33
   call void @rb_define_const(i64 noundef %324, ptr noundef nonnull @.str.71, i64 noundef 251) #33
-  %325 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %325 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %325, i64 noundef 125, i64 noundef %324) #33
   br label %set_syserr.exit51
 
@@ -7734,7 +7734,7 @@ set_syserr.exit51:                                ; preds = %321, %326
   %330 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %329, ptr noundef nonnull @.str.126, i64 noundef %330) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
-  %331 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %331 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %332 = call i32 @rb_st_lookup(ptr noundef %331, i64 noundef 10, ptr noundef nonnull %116) #33
   %.not.i52 = icmp eq i32 %332, 0
   br i1 %.not.i52, label %333, label %338
@@ -7744,7 +7744,7 @@ set_syserr.exit51:                                ; preds = %321, %326
   %335 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %336 = call i64 @rb_define_class_under(i64 noundef %334, ptr noundef nonnull @.str.127, i64 noundef %335) #33
   call void @rb_define_const(i64 noundef %336, ptr noundef nonnull @.str.71, i64 noundef 21) #33
-  %337 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %337 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %337, i64 noundef 10, i64 noundef %336) #33
   br label %set_syserr.exit54
 
@@ -7757,7 +7757,7 @@ set_syserr.exit51:                                ; preds = %321, %326
 set_syserr.exit54:                                ; preds = %333, %338
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
-  %341 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %341 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %342 = call i32 @rb_st_lookup(ptr noundef %341, i64 noundef 44, ptr noundef nonnull %115) #33
   %.not.i55 = icmp eq i32 %342, 0
   br i1 %.not.i55, label %343, label %348
@@ -7767,7 +7767,7 @@ set_syserr.exit54:                                ; preds = %333, %338
   %345 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %346 = call i64 @rb_define_class_under(i64 noundef %344, ptr noundef nonnull @.str.128, i64 noundef %345) #33
   call void @rb_define_const(i64 noundef %346, ptr noundef nonnull @.str.71, i64 noundef 89) #33
-  %347 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %347 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %347, i64 noundef 44, i64 noundef %346) #33
   br label %set_syserr.exit57
 
@@ -7780,7 +7780,7 @@ set_syserr.exit54:                                ; preds = %333, %338
 set_syserr.exit57:                                ; preds = %343, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
-  %351 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %351 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %352 = call i32 @rb_st_lookup(ptr noundef %351, i64 noundef 70, ptr noundef nonnull %114) #33
   %.not.i58 = icmp eq i32 %352, 0
   br i1 %.not.i58, label %353, label %358
@@ -7790,7 +7790,7 @@ set_syserr.exit57:                                ; preds = %343, %348
   %355 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %356 = call i64 @rb_define_class_under(i64 noundef %354, ptr noundef nonnull @.str.129, i64 noundef %355) #33
   call void @rb_define_const(i64 noundef %356, ptr noundef nonnull @.str.71, i64 noundef 141) #33
-  %357 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %357 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %357, i64 noundef 70, i64 noundef %356) #33
   br label %set_syserr.exit60
 
@@ -7803,7 +7803,7 @@ set_syserr.exit57:                                ; preds = %343, %348
 set_syserr.exit60:                                ; preds = %353, %358
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
-  %361 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %361 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %362 = call i32 @rb_st_lookup(ptr noundef %361, i64 noundef 103, ptr noundef nonnull %113) #33
   %.not.i61 = icmp eq i32 %362, 0
   br i1 %.not.i61, label %363, label %368
@@ -7813,7 +7813,7 @@ set_syserr.exit60:                                ; preds = %353, %358
   %365 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %366 = call i64 @rb_define_class_under(i64 noundef %364, ptr noundef nonnull @.str.130, i64 noundef %365) #33
   call void @rb_define_const(i64 noundef %366, ptr noundef nonnull @.str.71, i64 noundef 207) #33
-  %367 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %367 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %367, i64 noundef 103, i64 noundef %366) #33
   br label %set_syserr.exit63
 
@@ -7826,7 +7826,7 @@ set_syserr.exit60:                                ; preds = %353, %358
 set_syserr.exit63:                                ; preds = %363, %368
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
-  %371 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %371 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %372 = call i32 @rb_st_lookup(ptr noundef %371, i64 noundef 111, ptr noundef nonnull %112) #33
   %.not.i64 = icmp eq i32 %372, 0
   br i1 %.not.i64, label %373, label %378
@@ -7836,7 +7836,7 @@ set_syserr.exit63:                                ; preds = %363, %368
   %375 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %376 = call i64 @rb_define_class_under(i64 noundef %374, ptr noundef nonnull @.str.131, i64 noundef %375) #33
   call void @rb_define_const(i64 noundef %376, ptr noundef nonnull @.str.71, i64 noundef 223) #33
-  %377 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %377 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %377, i64 noundef 111, i64 noundef %376) #33
   br label %set_syserr.exit66
 
@@ -7849,7 +7849,7 @@ set_syserr.exit63:                                ; preds = %363, %368
 set_syserr.exit66:                                ; preds = %373, %378
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
-  %381 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %381 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %382 = call i32 @rb_st_lookup(ptr noundef %381, i64 noundef 104, ptr noundef nonnull %111) #33
   %.not.i67 = icmp eq i32 %382, 0
   br i1 %.not.i67, label %383, label %388
@@ -7859,7 +7859,7 @@ set_syserr.exit66:                                ; preds = %373, %378
   %385 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %386 = call i64 @rb_define_class_under(i64 noundef %384, ptr noundef nonnull @.str.132, i64 noundef %385) #33
   call void @rb_define_const(i64 noundef %386, ptr noundef nonnull @.str.71, i64 noundef 209) #33
-  %387 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %387 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %387, i64 noundef 104, i64 noundef %386) #33
   br label %set_syserr.exit69
 
@@ -7872,7 +7872,7 @@ set_syserr.exit66:                                ; preds = %373, %378
 set_syserr.exit69:                                ; preds = %383, %388
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
-  %391 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %391 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %392 = call i32 @rb_st_lookup(ptr noundef %391, i64 noundef 35, ptr noundef nonnull %110) #33
   %.not.i70 = icmp eq i32 %392, 0
   br i1 %.not.i70, label %393, label %398
@@ -7882,7 +7882,7 @@ set_syserr.exit69:                                ; preds = %383, %388
   %395 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %396 = call i64 @rb_define_class_under(i64 noundef %394, ptr noundef nonnull @.str.133, i64 noundef %395) #33
   call void @rb_define_const(i64 noundef %396, ptr noundef nonnull @.str.71, i64 noundef 71) #33
-  %397 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %397 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %397, i64 noundef 35, i64 noundef %396) #33
   br label %set_syserr.exit72
 
@@ -7895,7 +7895,7 @@ set_syserr.exit69:                                ; preds = %383, %388
 set_syserr.exit72:                                ; preds = %393, %398
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
-  %401 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %401 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %402 = call i32 @rb_st_lookup(ptr noundef %401, i64 noundef 35, ptr noundef nonnull %109) #33
   %.not.i73 = icmp eq i32 %402, 0
   br i1 %.not.i73, label %403, label %408
@@ -7905,7 +7905,7 @@ set_syserr.exit72:                                ; preds = %393, %398
   %405 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %406 = call i64 @rb_define_class_under(i64 noundef %404, ptr noundef nonnull @.str.134, i64 noundef %405) #33
   call void @rb_define_const(i64 noundef %406, ptr noundef nonnull @.str.71, i64 noundef 71) #33
-  %407 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %407 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %407, i64 noundef 35, i64 noundef %406) #33
   br label %set_syserr.exit75
 
@@ -7918,7 +7918,7 @@ set_syserr.exit72:                                ; preds = %393, %398
 set_syserr.exit75:                                ; preds = %403, %408
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %411 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %411 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %412 = call i32 @rb_st_lookup(ptr noundef %411, i64 noundef 89, ptr noundef nonnull %108) #33
   %.not.i76 = icmp eq i32 %412, 0
   br i1 %.not.i76, label %413, label %418
@@ -7928,7 +7928,7 @@ set_syserr.exit75:                                ; preds = %403, %408
   %415 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %416 = call i64 @rb_define_class_under(i64 noundef %414, ptr noundef nonnull @.str.135, i64 noundef %415) #33
   call void @rb_define_const(i64 noundef %416, ptr noundef nonnull @.str.71, i64 noundef 179) #33
-  %417 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %417 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %417, i64 noundef 89, i64 noundef %416) #33
   br label %set_syserr.exit78
 
@@ -7944,7 +7944,7 @@ set_syserr.exit78:                                ; preds = %413, %418
   %422 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %421, ptr noundef nonnull @.str.136, i64 noundef %422) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
-  %423 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %423 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %424 = call i32 @rb_st_lookup(ptr noundef %423, i64 noundef 33, ptr noundef nonnull %107) #33
   %.not.i79 = icmp eq i32 %424, 0
   br i1 %.not.i79, label %425, label %430
@@ -7954,7 +7954,7 @@ set_syserr.exit78:                                ; preds = %413, %418
   %427 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %428 = call i64 @rb_define_class_under(i64 noundef %426, ptr noundef nonnull @.str.137, i64 noundef %427) #33
   call void @rb_define_const(i64 noundef %428, ptr noundef nonnull @.str.71, i64 noundef 67) #33
-  %429 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %429 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %429, i64 noundef 33, i64 noundef %428) #33
   br label %set_syserr.exit81
 
@@ -7970,7 +7970,7 @@ set_syserr.exit81:                                ; preds = %425, %430
   %434 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %433, ptr noundef nonnull @.str.138, i64 noundef %434) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
-  %435 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %435 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %436 = call i32 @rb_st_lookup(ptr noundef %435, i64 noundef 73, ptr noundef nonnull %106) #33
   %.not.i82 = icmp eq i32 %436, 0
   br i1 %.not.i82, label %437, label %442
@@ -7980,7 +7980,7 @@ set_syserr.exit81:                                ; preds = %425, %430
   %439 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %440 = call i64 @rb_define_class_under(i64 noundef %438, ptr noundef nonnull @.str.139, i64 noundef %439) #33
   call void @rb_define_const(i64 noundef %440, ptr noundef nonnull @.str.71, i64 noundef 147) #33
-  %441 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %441 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %441, i64 noundef 73, i64 noundef %440) #33
   br label %set_syserr.exit84
 
@@ -7993,7 +7993,7 @@ set_syserr.exit81:                                ; preds = %425, %430
 set_syserr.exit84:                                ; preds = %437, %442
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
-  %445 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %445 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %446 = call i32 @rb_st_lookup(ptr noundef %445, i64 noundef 122, ptr noundef nonnull %105) #33
   %.not.i85 = icmp eq i32 %446, 0
   br i1 %.not.i85, label %447, label %452
@@ -8003,7 +8003,7 @@ set_syserr.exit84:                                ; preds = %437, %442
   %449 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %450 = call i64 @rb_define_class_under(i64 noundef %448, ptr noundef nonnull @.str.140, i64 noundef %449) #33
   call void @rb_define_const(i64 noundef %450, ptr noundef nonnull @.str.71, i64 noundef 245) #33
-  %451 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %451 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %451, i64 noundef 122, i64 noundef %450) #33
   br label %set_syserr.exit87
 
@@ -8016,7 +8016,7 @@ set_syserr.exit84:                                ; preds = %437, %442
 set_syserr.exit87:                                ; preds = %447, %452
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  %455 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %455 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %456 = call i32 @rb_st_lookup(ptr noundef %455, i64 noundef 17, ptr noundef nonnull %104) #33
   %.not.i88 = icmp eq i32 %456, 0
   br i1 %.not.i88, label %457, label %462
@@ -8026,7 +8026,7 @@ set_syserr.exit87:                                ; preds = %447, %452
   %459 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %460 = call i64 @rb_define_class_under(i64 noundef %458, ptr noundef nonnull @.str.141, i64 noundef %459) #33
   call void @rb_define_const(i64 noundef %460, ptr noundef nonnull @.str.71, i64 noundef 35) #33
-  %461 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %461 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %461, i64 noundef 17, i64 noundef %460) #33
   br label %set_syserr.exit90
 
@@ -8039,7 +8039,7 @@ set_syserr.exit87:                                ; preds = %447, %452
 set_syserr.exit90:                                ; preds = %457, %462
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
-  %465 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %465 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %466 = call i32 @rb_st_lookup(ptr noundef %465, i64 noundef 14, ptr noundef nonnull %103) #33
   %.not.i91 = icmp eq i32 %466, 0
   br i1 %.not.i91, label %467, label %472
@@ -8049,7 +8049,7 @@ set_syserr.exit90:                                ; preds = %457, %462
   %469 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %470 = call i64 @rb_define_class_under(i64 noundef %468, ptr noundef nonnull @.str.142, i64 noundef %469) #33
   call void @rb_define_const(i64 noundef %470, ptr noundef nonnull @.str.71, i64 noundef 29) #33
-  %471 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %471 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %471, i64 noundef 14, i64 noundef %470) #33
   br label %set_syserr.exit93
 
@@ -8062,7 +8062,7 @@ set_syserr.exit90:                                ; preds = %457, %462
 set_syserr.exit93:                                ; preds = %467, %472
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  %475 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %475 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %476 = call i32 @rb_st_lookup(ptr noundef %475, i64 noundef 27, ptr noundef nonnull %102) #33
   %.not.i94 = icmp eq i32 %476, 0
   br i1 %.not.i94, label %477, label %482
@@ -8072,7 +8072,7 @@ set_syserr.exit93:                                ; preds = %467, %472
   %479 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %480 = call i64 @rb_define_class_under(i64 noundef %478, ptr noundef nonnull @.str.143, i64 noundef %479) #33
   call void @rb_define_const(i64 noundef %480, ptr noundef nonnull @.str.71, i64 noundef 55) #33
-  %481 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %481 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %481, i64 noundef 27, i64 noundef %480) #33
   br label %set_syserr.exit96
 
@@ -8088,7 +8088,7 @@ set_syserr.exit96:                                ; preds = %477, %482
   %486 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %485, ptr noundef nonnull @.str.144, i64 noundef %486) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
-  %487 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %487 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %488 = call i32 @rb_st_lookup(ptr noundef %487, i64 noundef 112, ptr noundef nonnull %101) #33
   %.not.i97 = icmp eq i32 %488, 0
   br i1 %.not.i97, label %489, label %494
@@ -8098,7 +8098,7 @@ set_syserr.exit96:                                ; preds = %477, %482
   %491 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %492 = call i64 @rb_define_class_under(i64 noundef %490, ptr noundef nonnull @.str.145, i64 noundef %491) #33
   call void @rb_define_const(i64 noundef %492, ptr noundef nonnull @.str.71, i64 noundef 225) #33
-  %493 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %493 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %493, i64 noundef 112, i64 noundef %492) #33
   br label %set_syserr.exit99
 
@@ -8111,7 +8111,7 @@ set_syserr.exit96:                                ; preds = %477, %482
 set_syserr.exit99:                                ; preds = %489, %494
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
-  %497 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %497 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %498 = call i32 @rb_st_lookup(ptr noundef %497, i64 noundef 113, ptr noundef nonnull %100) #33
   %.not.i100 = icmp eq i32 %498, 0
   br i1 %.not.i100, label %499, label %504
@@ -8121,7 +8121,7 @@ set_syserr.exit99:                                ; preds = %489, %494
   %501 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %502 = call i64 @rb_define_class_under(i64 noundef %500, ptr noundef nonnull @.str.146, i64 noundef %501) #33
   call void @rb_define_const(i64 noundef %502, ptr noundef nonnull @.str.71, i64 noundef 227) #33
-  %503 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %503 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %503, i64 noundef 113, i64 noundef %502) #33
   br label %set_syserr.exit102
 
@@ -8134,7 +8134,7 @@ set_syserr.exit99:                                ; preds = %489, %494
 set_syserr.exit102:                               ; preds = %499, %504
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
-  %507 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %507 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %508 = call i32 @rb_st_lookup(ptr noundef %507, i64 noundef 133, ptr noundef nonnull %99) #33
   %.not.i103 = icmp eq i32 %508, 0
   br i1 %.not.i103, label %509, label %514
@@ -8144,7 +8144,7 @@ set_syserr.exit102:                               ; preds = %499, %504
   %511 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %512 = call i64 @rb_define_class_under(i64 noundef %510, ptr noundef nonnull @.str.147, i64 noundef %511) #33
   call void @rb_define_const(i64 noundef %512, ptr noundef nonnull @.str.71, i64 noundef 267) #33
-  %513 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %513 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %513, i64 noundef 133, i64 noundef %512) #33
   br label %set_syserr.exit105
 
@@ -8157,7 +8157,7 @@ set_syserr.exit102:                               ; preds = %499, %504
 set_syserr.exit105:                               ; preds = %509, %514
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
-  %517 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %517 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %518 = call i32 @rb_st_lookup(ptr noundef %517, i64 noundef 43, ptr noundef nonnull %98) #33
   %.not.i106 = icmp eq i32 %518, 0
   br i1 %.not.i106, label %519, label %524
@@ -8167,7 +8167,7 @@ set_syserr.exit105:                               ; preds = %509, %514
   %521 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %522 = call i64 @rb_define_class_under(i64 noundef %520, ptr noundef nonnull @.str.148, i64 noundef %521) #33
   call void @rb_define_const(i64 noundef %522, ptr noundef nonnull @.str.71, i64 noundef 87) #33
-  %523 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %523 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %523, i64 noundef 43, i64 noundef %522) #33
   br label %set_syserr.exit108
 
@@ -8180,7 +8180,7 @@ set_syserr.exit105:                               ; preds = %509, %514
 set_syserr.exit108:                               ; preds = %519, %524
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
-  %527 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %527 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %528 = call i32 @rb_st_lookup(ptr noundef %527, i64 noundef 84, ptr noundef nonnull %97) #33
   %.not.i109 = icmp eq i32 %528, 0
   br i1 %.not.i109, label %529, label %534
@@ -8190,7 +8190,7 @@ set_syserr.exit108:                               ; preds = %519, %524
   %531 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %532 = call i64 @rb_define_class_under(i64 noundef %530, ptr noundef nonnull @.str.149, i64 noundef %531) #33
   call void @rb_define_const(i64 noundef %532, ptr noundef nonnull @.str.71, i64 noundef 169) #33
-  %533 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %533 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %533, i64 noundef 84, i64 noundef %532) #33
   br label %set_syserr.exit111
 
@@ -8203,7 +8203,7 @@ set_syserr.exit108:                               ; preds = %519, %524
 set_syserr.exit111:                               ; preds = %529, %534
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
-  %537 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %537 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %538 = call i32 @rb_st_lookup(ptr noundef %537, i64 noundef 115, ptr noundef nonnull %96) #33
   %.not.i112 = icmp eq i32 %538, 0
   br i1 %.not.i112, label %539, label %544
@@ -8214,7 +8214,7 @@ set_syserr.exit111:                               ; preds = %529, %534
   %542 = call i64 @rb_define_class_under(i64 noundef %540, ptr noundef nonnull @.str.150, i64 noundef %541) #33
   store i64 %542, ptr @rb_eEINPROGRESS, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %542, ptr noundef nonnull @.str.71, i64 noundef 231) #33
-  %543 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %543 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %543, i64 noundef 115, i64 noundef %542) #33
   br label %set_syserr.exit114
 
@@ -8227,7 +8227,7 @@ set_syserr.exit111:                               ; preds = %529, %534
 set_syserr.exit114:                               ; preds = %539, %544
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
-  %547 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %547 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %548 = call i32 @rb_st_lookup(ptr noundef %547, i64 noundef 4, ptr noundef nonnull %95) #33
   %.not.i115 = icmp eq i32 %548, 0
   br i1 %.not.i115, label %549, label %554
@@ -8237,7 +8237,7 @@ set_syserr.exit114:                               ; preds = %539, %544
   %551 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %552 = call i64 @rb_define_class_under(i64 noundef %550, ptr noundef nonnull @.str.151, i64 noundef %551) #33
   call void @rb_define_const(i64 noundef %552, ptr noundef nonnull @.str.71, i64 noundef 9) #33
-  %553 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %553 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %553, i64 noundef 4, i64 noundef %552) #33
   br label %set_syserr.exit117
 
@@ -8250,7 +8250,7 @@ set_syserr.exit114:                               ; preds = %539, %544
 set_syserr.exit117:                               ; preds = %549, %554
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
-  %557 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %557 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %558 = call i32 @rb_st_lookup(ptr noundef %557, i64 noundef 22, ptr noundef nonnull %94) #33
   %.not.i118 = icmp eq i32 %558, 0
   br i1 %.not.i118, label %559, label %564
@@ -8260,7 +8260,7 @@ set_syserr.exit117:                               ; preds = %549, %554
   %561 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %562 = call i64 @rb_define_class_under(i64 noundef %560, ptr noundef nonnull @.str.152, i64 noundef %561) #33
   call void @rb_define_const(i64 noundef %562, ptr noundef nonnull @.str.71, i64 noundef 45) #33
-  %563 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %563 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %563, i64 noundef 22, i64 noundef %562) #33
   br label %set_syserr.exit120
 
@@ -8273,7 +8273,7 @@ set_syserr.exit117:                               ; preds = %549, %554
 set_syserr.exit120:                               ; preds = %559, %564
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
-  %567 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %567 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %568 = call i32 @rb_st_lookup(ptr noundef %567, i64 noundef 5, ptr noundef nonnull %93) #33
   %.not.i121 = icmp eq i32 %568, 0
   br i1 %.not.i121, label %569, label %574
@@ -8283,7 +8283,7 @@ set_syserr.exit120:                               ; preds = %559, %564
   %571 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %572 = call i64 @rb_define_class_under(i64 noundef %570, ptr noundef nonnull @.str.153, i64 noundef %571) #33
   call void @rb_define_const(i64 noundef %572, ptr noundef nonnull @.str.71, i64 noundef 11) #33
-  %573 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %573 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %573, i64 noundef 5, i64 noundef %572) #33
   br label %set_syserr.exit123
 
@@ -8299,7 +8299,7 @@ set_syserr.exit123:                               ; preds = %569, %574
   %578 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %577, ptr noundef nonnull @.str.154, i64 noundef %578) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
-  %579 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %579 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %580 = call i32 @rb_st_lookup(ptr noundef %579, i64 noundef 106, ptr noundef nonnull %92) #33
   %.not.i124 = icmp eq i32 %580, 0
   br i1 %.not.i124, label %581, label %586
@@ -8309,7 +8309,7 @@ set_syserr.exit123:                               ; preds = %569, %574
   %583 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %584 = call i64 @rb_define_class_under(i64 noundef %582, ptr noundef nonnull @.str.155, i64 noundef %583) #33
   call void @rb_define_const(i64 noundef %584, ptr noundef nonnull @.str.71, i64 noundef 213) #33
-  %585 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %585 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %585, i64 noundef 106, i64 noundef %584) #33
   br label %set_syserr.exit126
 
@@ -8322,7 +8322,7 @@ set_syserr.exit123:                               ; preds = %569, %574
 set_syserr.exit126:                               ; preds = %581, %586
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
-  %589 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %589 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %590 = call i32 @rb_st_lookup(ptr noundef %589, i64 noundef 21, ptr noundef nonnull %91) #33
   %.not.i127 = icmp eq i32 %590, 0
   br i1 %.not.i127, label %591, label %596
@@ -8332,7 +8332,7 @@ set_syserr.exit126:                               ; preds = %581, %586
   %593 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %594 = call i64 @rb_define_class_under(i64 noundef %592, ptr noundef nonnull @.str.156, i64 noundef %593) #33
   call void @rb_define_const(i64 noundef %594, ptr noundef nonnull @.str.71, i64 noundef 43) #33
-  %595 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %595 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %595, i64 noundef 21, i64 noundef %594) #33
   br label %set_syserr.exit129
 
@@ -8345,7 +8345,7 @@ set_syserr.exit126:                               ; preds = %581, %586
 set_syserr.exit129:                               ; preds = %591, %596
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
-  %599 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %599 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %600 = call i32 @rb_st_lookup(ptr noundef %599, i64 noundef 120, ptr noundef nonnull %90) #33
   %.not.i130 = icmp eq i32 %600, 0
   br i1 %.not.i130, label %601, label %606
@@ -8355,7 +8355,7 @@ set_syserr.exit129:                               ; preds = %591, %596
   %603 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %604 = call i64 @rb_define_class_under(i64 noundef %602, ptr noundef nonnull @.str.157, i64 noundef %603) #33
   call void @rb_define_const(i64 noundef %604, ptr noundef nonnull @.str.71, i64 noundef 241) #33
-  %605 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %605 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %605, i64 noundef 120, i64 noundef %604) #33
   br label %set_syserr.exit132
 
@@ -8368,7 +8368,7 @@ set_syserr.exit129:                               ; preds = %591, %596
 set_syserr.exit132:                               ; preds = %601, %606
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
-  %609 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %609 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %610 = call i32 @rb_st_lookup(ptr noundef %609, i64 noundef 127, ptr noundef nonnull %89) #33
   %.not.i133 = icmp eq i32 %610, 0
   br i1 %.not.i133, label %611, label %616
@@ -8378,7 +8378,7 @@ set_syserr.exit132:                               ; preds = %601, %606
   %613 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %614 = call i64 @rb_define_class_under(i64 noundef %612, ptr noundef nonnull @.str.158, i64 noundef %613) #33
   call void @rb_define_const(i64 noundef %614, ptr noundef nonnull @.str.71, i64 noundef 255) #33
-  %615 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %615 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %615, i64 noundef 127, i64 noundef %614) #33
   br label %set_syserr.exit135
 
@@ -8391,7 +8391,7 @@ set_syserr.exit132:                               ; preds = %601, %606
 set_syserr.exit135:                               ; preds = %611, %616
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
-  %619 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %619 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %620 = call i32 @rb_st_lookup(ptr noundef %619, i64 noundef 129, ptr noundef nonnull %88) #33
   %.not.i136 = icmp eq i32 %620, 0
   br i1 %.not.i136, label %621, label %626
@@ -8401,7 +8401,7 @@ set_syserr.exit135:                               ; preds = %611, %616
   %623 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %624 = call i64 @rb_define_class_under(i64 noundef %622, ptr noundef nonnull @.str.159, i64 noundef %623) #33
   call void @rb_define_const(i64 noundef %624, ptr noundef nonnull @.str.71, i64 noundef 259) #33
-  %625 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %625 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %625, i64 noundef 129, i64 noundef %624) #33
   br label %set_syserr.exit138
 
@@ -8414,7 +8414,7 @@ set_syserr.exit135:                               ; preds = %611, %616
 set_syserr.exit138:                               ; preds = %621, %626
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  %629 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %629 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %630 = call i32 @rb_st_lookup(ptr noundef %629, i64 noundef 128, ptr noundef nonnull %87) #33
   %.not.i139 = icmp eq i32 %630, 0
   br i1 %.not.i139, label %631, label %636
@@ -8424,7 +8424,7 @@ set_syserr.exit138:                               ; preds = %621, %626
   %633 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %634 = call i64 @rb_define_class_under(i64 noundef %632, ptr noundef nonnull @.str.160, i64 noundef %633) #33
   call void @rb_define_const(i64 noundef %634, ptr noundef nonnull @.str.71, i64 noundef 257) #33
-  %635 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %635 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %635, i64 noundef 128, i64 noundef %634) #33
   br label %set_syserr.exit141
 
@@ -8437,7 +8437,7 @@ set_syserr.exit138:                               ; preds = %621, %626
 set_syserr.exit141:                               ; preds = %631, %636
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
-  %639 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %639 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %640 = call i32 @rb_st_lookup(ptr noundef %639, i64 noundef 51, ptr noundef nonnull %86) #33
   %.not.i142 = icmp eq i32 %640, 0
   br i1 %.not.i142, label %641, label %646
@@ -8447,7 +8447,7 @@ set_syserr.exit141:                               ; preds = %631, %636
   %643 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %644 = call i64 @rb_define_class_under(i64 noundef %642, ptr noundef nonnull @.str.161, i64 noundef %643) #33
   call void @rb_define_const(i64 noundef %644, ptr noundef nonnull @.str.71, i64 noundef 103) #33
-  %645 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %645 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %645, i64 noundef 51, i64 noundef %644) #33
   br label %set_syserr.exit144
 
@@ -8460,7 +8460,7 @@ set_syserr.exit141:                               ; preds = %631, %636
 set_syserr.exit144:                               ; preds = %641, %646
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
-  %649 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %649 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %650 = call i32 @rb_st_lookup(ptr noundef %649, i64 noundef 45, ptr noundef nonnull %85) #33
   %.not.i145 = icmp eq i32 %650, 0
   br i1 %.not.i145, label %651, label %656
@@ -8470,7 +8470,7 @@ set_syserr.exit144:                               ; preds = %641, %646
   %653 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %654 = call i64 @rb_define_class_under(i64 noundef %652, ptr noundef nonnull @.str.162, i64 noundef %653) #33
   call void @rb_define_const(i64 noundef %654, ptr noundef nonnull @.str.71, i64 noundef 91) #33
-  %655 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %655 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %655, i64 noundef 45, i64 noundef %654) #33
   br label %set_syserr.exit147
 
@@ -8483,7 +8483,7 @@ set_syserr.exit144:                               ; preds = %641, %646
 set_syserr.exit147:                               ; preds = %651, %656
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
-  %659 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %659 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %660 = call i32 @rb_st_lookup(ptr noundef %659, i64 noundef 46, ptr noundef nonnull %84) #33
   %.not.i148 = icmp eq i32 %660, 0
   br i1 %.not.i148, label %661, label %666
@@ -8493,7 +8493,7 @@ set_syserr.exit147:                               ; preds = %651, %656
   %663 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %664 = call i64 @rb_define_class_under(i64 noundef %662, ptr noundef nonnull @.str.163, i64 noundef %663) #33
   call void @rb_define_const(i64 noundef %664, ptr noundef nonnull @.str.71, i64 noundef 93) #33
-  %665 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %665 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %665, i64 noundef 46, i64 noundef %664) #33
   br label %set_syserr.exit150
 
@@ -8506,7 +8506,7 @@ set_syserr.exit147:                               ; preds = %651, %656
 set_syserr.exit150:                               ; preds = %661, %666
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
-  %669 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %669 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %670 = call i32 @rb_st_lookup(ptr noundef %669, i64 noundef 47, ptr noundef nonnull %83) #33
   %.not.i151 = icmp eq i32 %670, 0
   br i1 %.not.i151, label %671, label %676
@@ -8516,7 +8516,7 @@ set_syserr.exit150:                               ; preds = %661, %666
   %673 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %674 = call i64 @rb_define_class_under(i64 noundef %672, ptr noundef nonnull @.str.164, i64 noundef %673) #33
   call void @rb_define_const(i64 noundef %674, ptr noundef nonnull @.str.71, i64 noundef 95) #33
-  %675 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %675 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %675, i64 noundef 47, i64 noundef %674) #33
   br label %set_syserr.exit153
 
@@ -8529,7 +8529,7 @@ set_syserr.exit150:                               ; preds = %661, %666
 set_syserr.exit153:                               ; preds = %671, %676
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
-  %679 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %679 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %680 = call i32 @rb_st_lookup(ptr noundef %679, i64 noundef 79, ptr noundef nonnull %82) #33
   %.not.i154 = icmp eq i32 %680, 0
   br i1 %.not.i154, label %681, label %686
@@ -8539,7 +8539,7 @@ set_syserr.exit153:                               ; preds = %671, %676
   %683 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %684 = call i64 @rb_define_class_under(i64 noundef %682, ptr noundef nonnull @.str.165, i64 noundef %683) #33
   call void @rb_define_const(i64 noundef %684, ptr noundef nonnull @.str.71, i64 noundef 159) #33
-  %685 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %685 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %685, i64 noundef 79, i64 noundef %684) #33
   br label %set_syserr.exit156
 
@@ -8552,7 +8552,7 @@ set_syserr.exit153:                               ; preds = %671, %676
 set_syserr.exit156:                               ; preds = %681, %686
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
-  %689 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %689 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %690 = call i32 @rb_st_lookup(ptr noundef %689, i64 noundef 80, ptr noundef nonnull %81) #33
   %.not.i157 = icmp eq i32 %690, 0
   br i1 %.not.i157, label %691, label %696
@@ -8562,7 +8562,7 @@ set_syserr.exit156:                               ; preds = %681, %686
   %693 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %694 = call i64 @rb_define_class_under(i64 noundef %692, ptr noundef nonnull @.str.166, i64 noundef %693) #33
   call void @rb_define_const(i64 noundef %694, ptr noundef nonnull @.str.71, i64 noundef 161) #33
-  %695 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %695 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %695, i64 noundef 80, i64 noundef %694) #33
   br label %set_syserr.exit159
 
@@ -8575,7 +8575,7 @@ set_syserr.exit156:                               ; preds = %681, %686
 set_syserr.exit159:                               ; preds = %691, %696
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  %699 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %699 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %700 = call i32 @rb_st_lookup(ptr noundef %699, i64 noundef 83, ptr noundef nonnull %80) #33
   %.not.i160 = icmp eq i32 %700, 0
   br i1 %.not.i160, label %701, label %706
@@ -8585,7 +8585,7 @@ set_syserr.exit159:                               ; preds = %691, %696
   %703 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %704 = call i64 @rb_define_class_under(i64 noundef %702, ptr noundef nonnull @.str.167, i64 noundef %703) #33
   call void @rb_define_const(i64 noundef %704, ptr noundef nonnull @.str.71, i64 noundef 167) #33
-  %705 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %705 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %705, i64 noundef 83, i64 noundef %704) #33
   br label %set_syserr.exit162
 
@@ -8598,7 +8598,7 @@ set_syserr.exit159:                               ; preds = %691, %696
 set_syserr.exit162:                               ; preds = %701, %706
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
-  %709 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %709 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %710 = call i32 @rb_st_lookup(ptr noundef %709, i64 noundef 82, ptr noundef nonnull %79) #33
   %.not.i163 = icmp eq i32 %710, 0
   br i1 %.not.i163, label %711, label %716
@@ -8608,7 +8608,7 @@ set_syserr.exit162:                               ; preds = %701, %706
   %713 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %714 = call i64 @rb_define_class_under(i64 noundef %712, ptr noundef nonnull @.str.168, i64 noundef %713) #33
   call void @rb_define_const(i64 noundef %714, ptr noundef nonnull @.str.71, i64 noundef 165) #33
-  %715 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %715 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %715, i64 noundef 82, i64 noundef %714) #33
   br label %set_syserr.exit165
 
@@ -8621,7 +8621,7 @@ set_syserr.exit162:                               ; preds = %701, %706
 set_syserr.exit165:                               ; preds = %711, %716
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
-  %719 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %719 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %720 = call i32 @rb_st_lookup(ptr noundef %719, i64 noundef 81, ptr noundef nonnull %78) #33
   %.not.i166 = icmp eq i32 %720, 0
   br i1 %.not.i166, label %721, label %726
@@ -8631,7 +8631,7 @@ set_syserr.exit165:                               ; preds = %711, %716
   %723 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %724 = call i64 @rb_define_class_under(i64 noundef %722, ptr noundef nonnull @.str.169, i64 noundef %723) #33
   call void @rb_define_const(i64 noundef %724, ptr noundef nonnull @.str.71, i64 noundef 163) #33
-  %725 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %725 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %725, i64 noundef 81, i64 noundef %724) #33
   br label %set_syserr.exit168
 
@@ -8644,7 +8644,7 @@ set_syserr.exit165:                               ; preds = %711, %716
 set_syserr.exit168:                               ; preds = %721, %726
   call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %729 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %729 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %730 = call i32 @rb_st_lookup(ptr noundef %729, i64 noundef 48, ptr noundef nonnull %77) #33
   %.not.i169 = icmp eq i32 %730, 0
   br i1 %.not.i169, label %731, label %736
@@ -8654,7 +8654,7 @@ set_syserr.exit168:                               ; preds = %721, %726
   %733 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %734 = call i64 @rb_define_class_under(i64 noundef %732, ptr noundef nonnull @.str.170, i64 noundef %733) #33
   call void @rb_define_const(i64 noundef %734, ptr noundef nonnull @.str.71, i64 noundef 97) #33
-  %735 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %735 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %735, i64 noundef 48, i64 noundef %734) #33
   br label %set_syserr.exit171
 
@@ -8667,7 +8667,7 @@ set_syserr.exit168:                               ; preds = %721, %726
 set_syserr.exit171:                               ; preds = %731, %736
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
-  %739 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %739 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %740 = call i32 @rb_st_lookup(ptr noundef %739, i64 noundef 40, ptr noundef nonnull %76) #33
   %.not.i172 = icmp eq i32 %740, 0
   br i1 %.not.i172, label %741, label %746
@@ -8677,7 +8677,7 @@ set_syserr.exit171:                               ; preds = %731, %736
   %743 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %744 = call i64 @rb_define_class_under(i64 noundef %742, ptr noundef nonnull @.str.171, i64 noundef %743) #33
   call void @rb_define_const(i64 noundef %744, ptr noundef nonnull @.str.71, i64 noundef 81) #33
-  %745 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %745 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %745, i64 noundef 40, i64 noundef %744) #33
   br label %set_syserr.exit174
 
@@ -8690,7 +8690,7 @@ set_syserr.exit171:                               ; preds = %731, %736
 set_syserr.exit174:                               ; preds = %741, %746
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  %749 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %749 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %750 = call i32 @rb_st_lookup(ptr noundef %749, i64 noundef 124, ptr noundef nonnull %75) #33
   %.not.i175 = icmp eq i32 %750, 0
   br i1 %.not.i175, label %751, label %756
@@ -8700,7 +8700,7 @@ set_syserr.exit174:                               ; preds = %741, %746
   %753 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %754 = call i64 @rb_define_class_under(i64 noundef %752, ptr noundef nonnull @.str.172, i64 noundef %753) #33
   call void @rb_define_const(i64 noundef %754, ptr noundef nonnull @.str.71, i64 noundef 249) #33
-  %755 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %755 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %755, i64 noundef 124, i64 noundef %754) #33
   br label %set_syserr.exit177
 
@@ -8713,7 +8713,7 @@ set_syserr.exit174:                               ; preds = %741, %746
 set_syserr.exit177:                               ; preds = %751, %756
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  %759 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %759 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %760 = call i32 @rb_st_lookup(ptr noundef %759, i64 noundef 24, ptr noundef nonnull %74) #33
   %.not.i178 = icmp eq i32 %760, 0
   br i1 %.not.i178, label %761, label %766
@@ -8723,7 +8723,7 @@ set_syserr.exit177:                               ; preds = %751, %756
   %763 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %764 = call i64 @rb_define_class_under(i64 noundef %762, ptr noundef nonnull @.str.173, i64 noundef %763) #33
   call void @rb_define_const(i64 noundef %764, ptr noundef nonnull @.str.71, i64 noundef 49) #33
-  %765 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %765 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %765, i64 noundef 24, i64 noundef %764) #33
   br label %set_syserr.exit180
 
@@ -8736,7 +8736,7 @@ set_syserr.exit177:                               ; preds = %751, %756
 set_syserr.exit180:                               ; preds = %761, %766
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  %769 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %769 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %770 = call i32 @rb_st_lookup(ptr noundef %769, i64 noundef 31, ptr noundef nonnull %73) #33
   %.not.i181 = icmp eq i32 %770, 0
   br i1 %.not.i181, label %771, label %776
@@ -8746,7 +8746,7 @@ set_syserr.exit180:                               ; preds = %761, %766
   %773 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %774 = call i64 @rb_define_class_under(i64 noundef %772, ptr noundef nonnull @.str.174, i64 noundef %773) #33
   call void @rb_define_const(i64 noundef %774, ptr noundef nonnull @.str.71, i64 noundef 63) #33
-  %775 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %775 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %775, i64 noundef 31, i64 noundef %774) #33
   br label %set_syserr.exit183
 
@@ -8759,7 +8759,7 @@ set_syserr.exit180:                               ; preds = %761, %766
 set_syserr.exit183:                               ; preds = %771, %776
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  %779 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %779 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %780 = call i32 @rb_st_lookup(ptr noundef %779, i64 noundef 90, ptr noundef nonnull %72) #33
   %.not.i184 = icmp eq i32 %780, 0
   br i1 %.not.i184, label %781, label %786
@@ -8769,7 +8769,7 @@ set_syserr.exit183:                               ; preds = %771, %776
   %783 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %784 = call i64 @rb_define_class_under(i64 noundef %782, ptr noundef nonnull @.str.175, i64 noundef %783) #33
   call void @rb_define_const(i64 noundef %784, ptr noundef nonnull @.str.71, i64 noundef 181) #33
-  %785 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %785 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %785, i64 noundef 90, i64 noundef %784) #33
   br label %set_syserr.exit186
 
@@ -8782,7 +8782,7 @@ set_syserr.exit183:                               ; preds = %771, %776
 set_syserr.exit186:                               ; preds = %781, %786
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  %789 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %789 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %790 = call i32 @rb_st_lookup(ptr noundef %789, i64 noundef 72, ptr noundef nonnull %71) #33
   %.not.i187 = icmp eq i32 %790, 0
   br i1 %.not.i187, label %791, label %796
@@ -8792,7 +8792,7 @@ set_syserr.exit186:                               ; preds = %781, %786
   %793 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %794 = call i64 @rb_define_class_under(i64 noundef %792, ptr noundef nonnull @.str.176, i64 noundef %793) #33
   call void @rb_define_const(i64 noundef %794, ptr noundef nonnull @.str.71, i64 noundef 145) #33
-  %795 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %795 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %795, i64 noundef 72, i64 noundef %794) #33
   br label %set_syserr.exit189
 
@@ -8805,7 +8805,7 @@ set_syserr.exit186:                               ; preds = %781, %786
 set_syserr.exit189:                               ; preds = %791, %796
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %799 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %799 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %800 = call i32 @rb_st_lookup(ptr noundef %799, i64 noundef 36, ptr noundef nonnull %70) #33
   %.not.i190 = icmp eq i32 %800, 0
   br i1 %.not.i190, label %801, label %806
@@ -8815,7 +8815,7 @@ set_syserr.exit189:                               ; preds = %791, %796
   %803 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %804 = call i64 @rb_define_class_under(i64 noundef %802, ptr noundef nonnull @.str.177, i64 noundef %803) #33
   call void @rb_define_const(i64 noundef %804, ptr noundef nonnull @.str.71, i64 noundef 73) #33
-  %805 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %805 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %805, i64 noundef 36, i64 noundef %804) #33
   br label %set_syserr.exit192
 
@@ -8828,7 +8828,7 @@ set_syserr.exit189:                               ; preds = %791, %796
 set_syserr.exit192:                               ; preds = %801, %806
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  %809 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %809 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %810 = call i32 @rb_st_lookup(ptr noundef %809, i64 noundef 119, ptr noundef nonnull %69) #33
   %.not.i193 = icmp eq i32 %810, 0
   br i1 %.not.i193, label %811, label %816
@@ -8838,7 +8838,7 @@ set_syserr.exit192:                               ; preds = %801, %806
   %813 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %814 = call i64 @rb_define_class_under(i64 noundef %812, ptr noundef nonnull @.str.178, i64 noundef %813) #33
   call void @rb_define_const(i64 noundef %814, ptr noundef nonnull @.str.71, i64 noundef 239) #33
-  %815 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %815 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %815, i64 noundef 119, i64 noundef %814) #33
   br label %set_syserr.exit195
 
@@ -8854,7 +8854,7 @@ set_syserr.exit195:                               ; preds = %811, %816
   %820 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %819, ptr noundef nonnull @.str.179, i64 noundef %820) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  %821 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %821 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %822 = call i32 @rb_st_lookup(ptr noundef %821, i64 noundef 100, ptr noundef nonnull %68) #33
   %.not.i196 = icmp eq i32 %822, 0
   br i1 %.not.i196, label %823, label %828
@@ -8864,7 +8864,7 @@ set_syserr.exit195:                               ; preds = %811, %816
   %825 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %826 = call i64 @rb_define_class_under(i64 noundef %824, ptr noundef nonnull @.str.180, i64 noundef %825) #33
   call void @rb_define_const(i64 noundef %826, ptr noundef nonnull @.str.71, i64 noundef 201) #33
-  %827 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %827 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %827, i64 noundef 100, i64 noundef %826) #33
   br label %set_syserr.exit198
 
@@ -8877,7 +8877,7 @@ set_syserr.exit195:                               ; preds = %811, %816
 set_syserr.exit198:                               ; preds = %823, %828
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  %831 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %831 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %832 = call i32 @rb_st_lookup(ptr noundef %831, i64 noundef 102, ptr noundef nonnull %67) #33
   %.not.i199 = icmp eq i32 %832, 0
   br i1 %.not.i199, label %833, label %838
@@ -8887,7 +8887,7 @@ set_syserr.exit198:                               ; preds = %823, %828
   %835 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %836 = call i64 @rb_define_class_under(i64 noundef %834, ptr noundef nonnull @.str.181, i64 noundef %835) #33
   call void @rb_define_const(i64 noundef %836, ptr noundef nonnull @.str.71, i64 noundef 205) #33
-  %837 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %837 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %837, i64 noundef 102, i64 noundef %836) #33
   br label %set_syserr.exit201
 
@@ -8900,7 +8900,7 @@ set_syserr.exit198:                               ; preds = %823, %828
 set_syserr.exit201:                               ; preds = %833, %838
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  %841 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %841 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %842 = call i32 @rb_st_lookup(ptr noundef %841, i64 noundef 101, ptr noundef nonnull %66) #33
   %.not.i202 = icmp eq i32 %842, 0
   br i1 %.not.i202, label %843, label %848
@@ -8910,7 +8910,7 @@ set_syserr.exit201:                               ; preds = %833, %838
   %845 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %846 = call i64 @rb_define_class_under(i64 noundef %844, ptr noundef nonnull @.str.182, i64 noundef %845) #33
   call void @rb_define_const(i64 noundef %846, ptr noundef nonnull @.str.71, i64 noundef 203) #33
-  %847 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %847 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %847, i64 noundef 101, i64 noundef %846) #33
   br label %set_syserr.exit204
 
@@ -8923,7 +8923,7 @@ set_syserr.exit201:                               ; preds = %833, %838
 set_syserr.exit204:                               ; preds = %843, %848
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  %851 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %851 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %852 = call i32 @rb_st_lookup(ptr noundef %851, i64 noundef 23, ptr noundef nonnull %65) #33
   %.not.i205 = icmp eq i32 %852, 0
   br i1 %.not.i205, label %853, label %858
@@ -8933,7 +8933,7 @@ set_syserr.exit204:                               ; preds = %843, %848
   %855 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %856 = call i64 @rb_define_class_under(i64 noundef %854, ptr noundef nonnull @.str.183, i64 noundef %855) #33
   call void @rb_define_const(i64 noundef %856, ptr noundef nonnull @.str.71, i64 noundef 47) #33
-  %857 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %857 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %857, i64 noundef 23, i64 noundef %856) #33
   br label %set_syserr.exit207
 
@@ -8946,7 +8946,7 @@ set_syserr.exit204:                               ; preds = %843, %848
 set_syserr.exit207:                               ; preds = %853, %858
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %861 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %861 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %862 = call i32 @rb_st_lookup(ptr noundef %861, i64 noundef 55, ptr noundef nonnull %64) #33
   %.not.i208 = icmp eq i32 %862, 0
   br i1 %.not.i208, label %863, label %868
@@ -8956,7 +8956,7 @@ set_syserr.exit207:                               ; preds = %853, %858
   %865 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %866 = call i64 @rb_define_class_under(i64 noundef %864, ptr noundef nonnull @.str.184, i64 noundef %865) #33
   call void @rb_define_const(i64 noundef %866, ptr noundef nonnull @.str.71, i64 noundef 111) #33
-  %867 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %867 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %867, i64 noundef 55, i64 noundef %866) #33
   br label %set_syserr.exit210
 
@@ -8972,7 +8972,7 @@ set_syserr.exit210:                               ; preds = %863, %868
   %872 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %871, ptr noundef nonnull @.str.185, i64 noundef %872) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  %873 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %873 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %874 = call i32 @rb_st_lookup(ptr noundef %873, i64 noundef 105, ptr noundef nonnull %63) #33
   %.not.i211 = icmp eq i32 %874, 0
   br i1 %.not.i211, label %875, label %880
@@ -8982,7 +8982,7 @@ set_syserr.exit210:                               ; preds = %863, %868
   %877 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %878 = call i64 @rb_define_class_under(i64 noundef %876, ptr noundef nonnull @.str.186, i64 noundef %877) #33
   call void @rb_define_const(i64 noundef %878, ptr noundef nonnull @.str.71, i64 noundef 211) #33
-  %879 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %879 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %879, i64 noundef 105, i64 noundef %878) #33
   br label %set_syserr.exit213
 
@@ -8995,7 +8995,7 @@ set_syserr.exit210:                               ; preds = %863, %868
 set_syserr.exit213:                               ; preds = %875, %880
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
-  %883 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %883 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %884 = call i32 @rb_st_lookup(ptr noundef %883, i64 noundef 50, ptr noundef nonnull %62) #33
   %.not.i214 = icmp eq i32 %884, 0
   br i1 %.not.i214, label %885, label %890
@@ -9005,7 +9005,7 @@ set_syserr.exit213:                               ; preds = %875, %880
   %887 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %888 = call i64 @rb_define_class_under(i64 noundef %886, ptr noundef nonnull @.str.187, i64 noundef %887) #33
   call void @rb_define_const(i64 noundef %888, ptr noundef nonnull @.str.71, i64 noundef 101) #33
-  %889 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %889 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %889, i64 noundef 50, i64 noundef %888) #33
   br label %set_syserr.exit216
 
@@ -9018,7 +9018,7 @@ set_syserr.exit213:                               ; preds = %875, %880
 set_syserr.exit216:                               ; preds = %885, %890
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %893 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %893 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %894 = call i32 @rb_st_lookup(ptr noundef %893, i64 noundef 61, ptr noundef nonnull %61) #33
   %.not.i217 = icmp eq i32 %894, 0
   br i1 %.not.i217, label %895, label %900
@@ -9028,7 +9028,7 @@ set_syserr.exit216:                               ; preds = %885, %890
   %897 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %898 = call i64 @rb_define_class_under(i64 noundef %896, ptr noundef nonnull @.str.188, i64 noundef %897) #33
   call void @rb_define_const(i64 noundef %898, ptr noundef nonnull @.str.71, i64 noundef 123) #33
-  %899 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %899 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %899, i64 noundef 61, i64 noundef %898) #33
   br label %set_syserr.exit219
 
@@ -9041,7 +9041,7 @@ set_syserr.exit216:                               ; preds = %885, %890
 set_syserr.exit219:                               ; preds = %895, %900
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %903 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %903 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %904 = call i32 @rb_st_lookup(ptr noundef %903, i64 noundef 19, ptr noundef nonnull %60) #33
   %.not.i220 = icmp eq i32 %904, 0
   br i1 %.not.i220, label %905, label %910
@@ -9051,7 +9051,7 @@ set_syserr.exit219:                               ; preds = %895, %900
   %907 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %908 = call i64 @rb_define_class_under(i64 noundef %906, ptr noundef nonnull @.str.189, i64 noundef %907) #33
   call void @rb_define_const(i64 noundef %908, ptr noundef nonnull @.str.71, i64 noundef 39) #33
-  %909 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %909 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %909, i64 noundef 19, i64 noundef %908) #33
   br label %set_syserr.exit222
 
@@ -9064,7 +9064,7 @@ set_syserr.exit219:                               ; preds = %895, %900
 set_syserr.exit222:                               ; preds = %905, %910
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %913 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %913 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %914 = call i32 @rb_st_lookup(ptr noundef %913, i64 noundef 2, ptr noundef nonnull %59) #33
   %.not.i223 = icmp eq i32 %914, 0
   br i1 %.not.i223, label %915, label %920
@@ -9074,7 +9074,7 @@ set_syserr.exit222:                               ; preds = %905, %910
   %917 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %918 = call i64 @rb_define_class_under(i64 noundef %916, ptr noundef nonnull @.str.190, i64 noundef %917) #33
   call void @rb_define_const(i64 noundef %918, ptr noundef nonnull @.str.71, i64 noundef 5) #33
-  %919 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %919 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %919, i64 noundef 2, i64 noundef %918) #33
   br label %set_syserr.exit225
 
@@ -9087,7 +9087,7 @@ set_syserr.exit222:                               ; preds = %905, %910
 set_syserr.exit225:                               ; preds = %915, %920
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %923 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %923 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %924 = call i32 @rb_st_lookup(ptr noundef %923, i64 noundef 8, ptr noundef nonnull %58) #33
   %.not.i226 = icmp eq i32 %924, 0
   br i1 %.not.i226, label %925, label %930
@@ -9097,7 +9097,7 @@ set_syserr.exit225:                               ; preds = %915, %920
   %927 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %928 = call i64 @rb_define_class_under(i64 noundef %926, ptr noundef nonnull @.str.191, i64 noundef %927) #33
   call void @rb_define_const(i64 noundef %928, ptr noundef nonnull @.str.71, i64 noundef 17) #33
-  %929 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %929 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %929, i64 noundef 8, i64 noundef %928) #33
   br label %set_syserr.exit228
 
@@ -9110,7 +9110,7 @@ set_syserr.exit225:                               ; preds = %915, %920
 set_syserr.exit228:                               ; preds = %925, %930
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  %933 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %933 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %934 = call i32 @rb_st_lookup(ptr noundef %933, i64 noundef 126, ptr noundef nonnull %57) #33
   %.not.i229 = icmp eq i32 %934, 0
   br i1 %.not.i229, label %935, label %940
@@ -9120,7 +9120,7 @@ set_syserr.exit228:                               ; preds = %925, %930
   %937 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %938 = call i64 @rb_define_class_under(i64 noundef %936, ptr noundef nonnull @.str.192, i64 noundef %937) #33
   call void @rb_define_const(i64 noundef %938, ptr noundef nonnull @.str.71, i64 noundef 253) #33
-  %939 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %939 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %939, i64 noundef 126, i64 noundef %938) #33
   br label %set_syserr.exit231
 
@@ -9133,7 +9133,7 @@ set_syserr.exit228:                               ; preds = %925, %930
 set_syserr.exit231:                               ; preds = %935, %940
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %943 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %943 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %944 = call i32 @rb_st_lookup(ptr noundef %943, i64 noundef 37, ptr noundef nonnull %56) #33
   %.not.i232 = icmp eq i32 %944, 0
   br i1 %.not.i232, label %945, label %950
@@ -9143,7 +9143,7 @@ set_syserr.exit231:                               ; preds = %935, %940
   %947 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %948 = call i64 @rb_define_class_under(i64 noundef %946, ptr noundef nonnull @.str.193, i64 noundef %947) #33
   call void @rb_define_const(i64 noundef %948, ptr noundef nonnull @.str.71, i64 noundef 75) #33
-  %949 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %949 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %949, i64 noundef 37, i64 noundef %948) #33
   br label %set_syserr.exit234
 
@@ -9156,7 +9156,7 @@ set_syserr.exit231:                               ; preds = %935, %940
 set_syserr.exit234:                               ; preds = %945, %950
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %953 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %953 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %954 = call i32 @rb_st_lookup(ptr noundef %953, i64 noundef 67, ptr noundef nonnull %55) #33
   %.not.i235 = icmp eq i32 %954, 0
   br i1 %.not.i235, label %955, label %960
@@ -9166,7 +9166,7 @@ set_syserr.exit234:                               ; preds = %945, %950
   %957 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %958 = call i64 @rb_define_class_under(i64 noundef %956, ptr noundef nonnull @.str.194, i64 noundef %957) #33
   call void @rb_define_const(i64 noundef %958, ptr noundef nonnull @.str.71, i64 noundef 135) #33
-  %959 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %959 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %959, i64 noundef 67, i64 noundef %958) #33
   br label %set_syserr.exit237
 
@@ -9179,7 +9179,7 @@ set_syserr.exit234:                               ; preds = %945, %950
 set_syserr.exit237:                               ; preds = %955, %960
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  %963 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %963 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %964 = call i32 @rb_st_lookup(ptr noundef %963, i64 noundef 123, ptr noundef nonnull %54) #33
   %.not.i238 = icmp eq i32 %964, 0
   br i1 %.not.i238, label %965, label %970
@@ -9189,7 +9189,7 @@ set_syserr.exit237:                               ; preds = %955, %960
   %967 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %968 = call i64 @rb_define_class_under(i64 noundef %966, ptr noundef nonnull @.str.195, i64 noundef %967) #33
   call void @rb_define_const(i64 noundef %968, ptr noundef nonnull @.str.71, i64 noundef 247) #33
-  %969 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %969 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %969, i64 noundef 123, i64 noundef %968) #33
   br label %set_syserr.exit240
 
@@ -9202,7 +9202,7 @@ set_syserr.exit237:                               ; preds = %955, %960
 set_syserr.exit240:                               ; preds = %965, %970
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %973 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %973 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %974 = call i32 @rb_st_lookup(ptr noundef %973, i64 noundef 12, ptr noundef nonnull %53) #33
   %.not.i241 = icmp eq i32 %974, 0
   br i1 %.not.i241, label %975, label %980
@@ -9212,7 +9212,7 @@ set_syserr.exit240:                               ; preds = %965, %970
   %977 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %978 = call i64 @rb_define_class_under(i64 noundef %976, ptr noundef nonnull @.str.196, i64 noundef %977) #33
   call void @rb_define_const(i64 noundef %978, ptr noundef nonnull @.str.71, i64 noundef 25) #33
-  %979 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %979 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %979, i64 noundef 12, i64 noundef %978) #33
   br label %set_syserr.exit243
 
@@ -9225,7 +9225,7 @@ set_syserr.exit240:                               ; preds = %965, %970
 set_syserr.exit243:                               ; preds = %975, %980
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %983 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %983 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %984 = call i32 @rb_st_lookup(ptr noundef %983, i64 noundef 42, ptr noundef nonnull %52) #33
   %.not.i244 = icmp eq i32 %984, 0
   br i1 %.not.i244, label %985, label %990
@@ -9235,7 +9235,7 @@ set_syserr.exit243:                               ; preds = %975, %980
   %987 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %988 = call i64 @rb_define_class_under(i64 noundef %986, ptr noundef nonnull @.str.197, i64 noundef %987) #33
   call void @rb_define_const(i64 noundef %988, ptr noundef nonnull @.str.71, i64 noundef 85) #33
-  %989 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %989 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %989, i64 noundef 42, i64 noundef %988) #33
   br label %set_syserr.exit246
 
@@ -9248,7 +9248,7 @@ set_syserr.exit243:                               ; preds = %975, %980
 set_syserr.exit246:                               ; preds = %985, %990
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %993 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %993 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %994 = call i32 @rb_st_lookup(ptr noundef %993, i64 noundef 64, ptr noundef nonnull %51) #33
   %.not.i247 = icmp eq i32 %994, 0
   br i1 %.not.i247, label %995, label %1000
@@ -9258,7 +9258,7 @@ set_syserr.exit246:                               ; preds = %985, %990
   %997 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %998 = call i64 @rb_define_class_under(i64 noundef %996, ptr noundef nonnull @.str.198, i64 noundef %997) #33
   call void @rb_define_const(i64 noundef %998, ptr noundef nonnull @.str.71, i64 noundef 129) #33
-  %999 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %999 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %999, i64 noundef 64, i64 noundef %998) #33
   br label %set_syserr.exit249
 
@@ -9271,7 +9271,7 @@ set_syserr.exit246:                               ; preds = %985, %990
 set_syserr.exit249:                               ; preds = %995, %1000
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %1003 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1003 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1004 = call i32 @rb_st_lookup(ptr noundef %1003, i64 noundef 65, ptr noundef nonnull %50) #33
   %.not.i250 = icmp eq i32 %1004, 0
   br i1 %.not.i250, label %1005, label %1010
@@ -9281,7 +9281,7 @@ set_syserr.exit249:                               ; preds = %995, %1000
   %1007 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1008 = call i64 @rb_define_class_under(i64 noundef %1006, ptr noundef nonnull @.str.199, i64 noundef %1007) #33
   call void @rb_define_const(i64 noundef %1008, ptr noundef nonnull @.str.71, i64 noundef 131) #33
-  %1009 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1009 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1009, i64 noundef 65, i64 noundef %1008) #33
   br label %set_syserr.exit252
 
@@ -9297,7 +9297,7 @@ set_syserr.exit252:                               ; preds = %1005, %1010
   %1014 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1013, ptr noundef nonnull @.str.200, i64 noundef %1014) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %1015 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1015 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1016 = call i32 @rb_st_lookup(ptr noundef %1015, i64 noundef 92, ptr noundef nonnull %49) #33
   %.not.i253 = icmp eq i32 %1016, 0
   br i1 %.not.i253, label %1017, label %1022
@@ -9307,7 +9307,7 @@ set_syserr.exit252:                               ; preds = %1005, %1010
   %1019 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1020 = call i64 @rb_define_class_under(i64 noundef %1018, ptr noundef nonnull @.str.201, i64 noundef %1019) #33
   call void @rb_define_const(i64 noundef %1020, ptr noundef nonnull @.str.71, i64 noundef 185) #33
-  %1021 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1021 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1021, i64 noundef 92, i64 noundef %1020) #33
   br label %set_syserr.exit255
 
@@ -9320,7 +9320,7 @@ set_syserr.exit252:                               ; preds = %1005, %1010
 set_syserr.exit255:                               ; preds = %1017, %1022
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %1025 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1025 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1026 = call i32 @rb_st_lookup(ptr noundef %1025, i64 noundef 28, ptr noundef nonnull %48) #33
   %.not.i256 = icmp eq i32 %1026, 0
   br i1 %.not.i256, label %1027, label %1032
@@ -9330,7 +9330,7 @@ set_syserr.exit255:                               ; preds = %1017, %1022
   %1029 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1030 = call i64 @rb_define_class_under(i64 noundef %1028, ptr noundef nonnull @.str.202, i64 noundef %1029) #33
   call void @rb_define_const(i64 noundef %1030, ptr noundef nonnull @.str.71, i64 noundef 57) #33
-  %1031 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1031 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1031, i64 noundef 28, i64 noundef %1030) #33
   br label %set_syserr.exit258
 
@@ -9343,7 +9343,7 @@ set_syserr.exit255:                               ; preds = %1017, %1022
 set_syserr.exit258:                               ; preds = %1027, %1032
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %1035 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1035 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1036 = call i32 @rb_st_lookup(ptr noundef %1035, i64 noundef 63, ptr noundef nonnull %47) #33
   %.not.i259 = icmp eq i32 %1036, 0
   br i1 %.not.i259, label %1037, label %1042
@@ -9353,7 +9353,7 @@ set_syserr.exit258:                               ; preds = %1027, %1032
   %1039 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1040 = call i64 @rb_define_class_under(i64 noundef %1038, ptr noundef nonnull @.str.203, i64 noundef %1039) #33
   call void @rb_define_const(i64 noundef %1040, ptr noundef nonnull @.str.71, i64 noundef 127) #33
-  %1041 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1041 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1041, i64 noundef 63, i64 noundef %1040) #33
   br label %set_syserr.exit261
 
@@ -9366,7 +9366,7 @@ set_syserr.exit258:                               ; preds = %1027, %1032
 set_syserr.exit261:                               ; preds = %1037, %1042
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %1045 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1045 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1046 = call i32 @rb_st_lookup(ptr noundef %1045, i64 noundef 60, ptr noundef nonnull %46) #33
   %.not.i262 = icmp eq i32 %1046, 0
   br i1 %.not.i262, label %1047, label %1052
@@ -9376,7 +9376,7 @@ set_syserr.exit261:                               ; preds = %1037, %1042
   %1049 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1050 = call i64 @rb_define_class_under(i64 noundef %1048, ptr noundef nonnull @.str.204, i64 noundef %1049) #33
   call void @rb_define_const(i64 noundef %1050, ptr noundef nonnull @.str.71, i64 noundef 121) #33
-  %1051 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1051 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1051, i64 noundef 60, i64 noundef %1050) #33
   br label %set_syserr.exit264
 
@@ -9389,7 +9389,7 @@ set_syserr.exit261:                               ; preds = %1037, %1042
 set_syserr.exit264:                               ; preds = %1047, %1052
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %1055 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1055 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1056 = call i32 @rb_st_lookup(ptr noundef %1055, i64 noundef 38, ptr noundef nonnull %45) #33
   %.not.i265 = icmp eq i32 %1056, 0
   br i1 %.not.i265, label %1057, label %1062
@@ -9399,7 +9399,7 @@ set_syserr.exit264:                               ; preds = %1047, %1052
   %1059 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1060 = call i64 @rb_define_class_under(i64 noundef %1058, ptr noundef nonnull @.str.205, i64 noundef %1059) #33
   call void @rb_define_const(i64 noundef %1060, ptr noundef nonnull @.str.71, i64 noundef 77) #33
-  %1061 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1061 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1061, i64 noundef 38, i64 noundef %1060) #33
   br label %set_syserr.exit267
 
@@ -9412,7 +9412,7 @@ set_syserr.exit264:                               ; preds = %1047, %1052
 set_syserr.exit267:                               ; preds = %1057, %1062
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %1065 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1065 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1066 = call i32 @rb_st_lookup(ptr noundef %1065, i64 noundef 15, ptr noundef nonnull %44) #33
   %.not.i268 = icmp eq i32 %1066, 0
   br i1 %.not.i268, label %1067, label %1072
@@ -9422,7 +9422,7 @@ set_syserr.exit267:                               ; preds = %1057, %1062
   %1069 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1070 = call i64 @rb_define_class_under(i64 noundef %1068, ptr noundef nonnull @.str.206, i64 noundef %1069) #33
   call void @rb_define_const(i64 noundef %1070, ptr noundef nonnull @.str.71, i64 noundef 31) #33
-  %1071 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1071 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1071, i64 noundef 15, i64 noundef %1070) #33
   br label %set_syserr.exit270
 
@@ -9438,7 +9438,7 @@ set_syserr.exit270:                               ; preds = %1067, %1072
   %1076 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1075, ptr noundef nonnull @.str.207, i64 noundef %1076) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %1077 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1077 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1078 = call i32 @rb_st_lookup(ptr noundef %1077, i64 noundef 107, ptr noundef nonnull %43) #33
   %.not.i271 = icmp eq i32 %1078, 0
   br i1 %.not.i271, label %1079, label %1084
@@ -9448,7 +9448,7 @@ set_syserr.exit270:                               ; preds = %1067, %1072
   %1081 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1082 = call i64 @rb_define_class_under(i64 noundef %1080, ptr noundef nonnull @.str.208, i64 noundef %1081) #33
   call void @rb_define_const(i64 noundef %1082, ptr noundef nonnull @.str.71, i64 noundef 215) #33
-  %1083 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1083 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1083, i64 noundef 107, i64 noundef %1082) #33
   br label %set_syserr.exit273
 
@@ -9461,7 +9461,7 @@ set_syserr.exit270:                               ; preds = %1067, %1072
 set_syserr.exit273:                               ; preds = %1079, %1084
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %1087 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1087 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1088 = call i32 @rb_st_lookup(ptr noundef %1087, i64 noundef 20, ptr noundef nonnull %42) #33
   %.not.i274 = icmp eq i32 %1088, 0
   br i1 %.not.i274, label %1089, label %1094
@@ -9471,7 +9471,7 @@ set_syserr.exit273:                               ; preds = %1079, %1084
   %1091 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1092 = call i64 @rb_define_class_under(i64 noundef %1090, ptr noundef nonnull @.str.209, i64 noundef %1091) #33
   call void @rb_define_const(i64 noundef %1092, ptr noundef nonnull @.str.71, i64 noundef 41) #33
-  %1093 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1093 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1093, i64 noundef 20, i64 noundef %1092) #33
   br label %set_syserr.exit276
 
@@ -9484,7 +9484,7 @@ set_syserr.exit273:                               ; preds = %1079, %1084
 set_syserr.exit276:                               ; preds = %1089, %1094
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %1097 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1097 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1098 = call i32 @rb_st_lookup(ptr noundef %1097, i64 noundef 39, ptr noundef nonnull %41) #33
   %.not.i277 = icmp eq i32 %1098, 0
   br i1 %.not.i277, label %1099, label %1104
@@ -9494,7 +9494,7 @@ set_syserr.exit276:                               ; preds = %1089, %1094
   %1101 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1102 = call i64 @rb_define_class_under(i64 noundef %1100, ptr noundef nonnull @.str.210, i64 noundef %1101) #33
   call void @rb_define_const(i64 noundef %1102, ptr noundef nonnull @.str.71, i64 noundef 79) #33
-  %1103 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1103 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1103, i64 noundef 39, i64 noundef %1102) #33
   br label %set_syserr.exit279
 
@@ -9507,7 +9507,7 @@ set_syserr.exit276:                               ; preds = %1089, %1094
 set_syserr.exit279:                               ; preds = %1099, %1104
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %1107 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1107 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1108 = call i32 @rb_st_lookup(ptr noundef %1107, i64 noundef 118, ptr noundef nonnull %40) #33
   %.not.i280 = icmp eq i32 %1108, 0
   br i1 %.not.i280, label %1109, label %1114
@@ -9517,7 +9517,7 @@ set_syserr.exit279:                               ; preds = %1099, %1104
   %1111 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1112 = call i64 @rb_define_class_under(i64 noundef %1110, ptr noundef nonnull @.str.211, i64 noundef %1111) #33
   call void @rb_define_const(i64 noundef %1112, ptr noundef nonnull @.str.71, i64 noundef 237) #33
-  %1113 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1113 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1113, i64 noundef 118, i64 noundef %1112) #33
   br label %set_syserr.exit282
 
@@ -9530,7 +9530,7 @@ set_syserr.exit279:                               ; preds = %1099, %1104
 set_syserr.exit282:                               ; preds = %1109, %1114
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %1117 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1117 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1118 = call i32 @rb_st_lookup(ptr noundef %1117, i64 noundef 131, ptr noundef nonnull %39) #33
   %.not.i283 = icmp eq i32 %1118, 0
   br i1 %.not.i283, label %1119, label %1124
@@ -9540,7 +9540,7 @@ set_syserr.exit282:                               ; preds = %1109, %1114
   %1121 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1122 = call i64 @rb_define_class_under(i64 noundef %1120, ptr noundef nonnull @.str.212, i64 noundef %1121) #33
   call void @rb_define_const(i64 noundef %1122, ptr noundef nonnull @.str.71, i64 noundef 263) #33
-  %1123 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1123 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1123, i64 noundef 131, i64 noundef %1122) #33
   br label %set_syserr.exit285
 
@@ -9553,7 +9553,7 @@ set_syserr.exit282:                               ; preds = %1109, %1114
 set_syserr.exit285:                               ; preds = %1119, %1124
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %1127 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1127 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1128 = call i32 @rb_st_lookup(ptr noundef %1127, i64 noundef 88, ptr noundef nonnull %38) #33
   %.not.i286 = icmp eq i32 %1128, 0
   br i1 %.not.i286, label %1129, label %1134
@@ -9563,7 +9563,7 @@ set_syserr.exit285:                               ; preds = %1119, %1124
   %1131 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1132 = call i64 @rb_define_class_under(i64 noundef %1130, ptr noundef nonnull @.str.213, i64 noundef %1131) #33
   call void @rb_define_const(i64 noundef %1132, ptr noundef nonnull @.str.71, i64 noundef 177) #33
-  %1133 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1133 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1133, i64 noundef 88, i64 noundef %1132) #33
   br label %set_syserr.exit288
 
@@ -9576,7 +9576,7 @@ set_syserr.exit285:                               ; preds = %1119, %1124
 set_syserr.exit288:                               ; preds = %1129, %1134
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %1137 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1137 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1138 = call i32 @rb_st_lookup(ptr noundef %1137, i64 noundef 95, ptr noundef nonnull %37) #33
   %.not.i289 = icmp eq i32 %1138, 0
   br i1 %.not.i289, label %1139, label %1144
@@ -9586,7 +9586,7 @@ set_syserr.exit288:                               ; preds = %1129, %1134
   %1141 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1142 = call i64 @rb_define_class_under(i64 noundef %1140, ptr noundef nonnull @.str.214, i64 noundef %1141) #33
   call void @rb_define_const(i64 noundef %1142, ptr noundef nonnull @.str.71, i64 noundef 191) #33
-  %1143 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1143 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1143, i64 noundef 95, i64 noundef %1142) #33
   br label %set_syserr.exit291
 
@@ -9599,7 +9599,7 @@ set_syserr.exit288:                               ; preds = %1129, %1134
 set_syserr.exit291:                               ; preds = %1139, %1144
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1147 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1147 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1148 = call i32 @rb_st_lookup(ptr noundef %1147, i64 noundef 25, ptr noundef nonnull %36) #33
   %.not.i292 = icmp eq i32 %1148, 0
   br i1 %.not.i292, label %1149, label %1154
@@ -9609,7 +9609,7 @@ set_syserr.exit291:                               ; preds = %1139, %1144
   %1151 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1152 = call i64 @rb_define_class_under(i64 noundef %1150, ptr noundef nonnull @.str.215, i64 noundef %1151) #33
   call void @rb_define_const(i64 noundef %1152, ptr noundef nonnull @.str.71, i64 noundef 51) #33
-  %1153 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1153 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1153, i64 noundef 25, i64 noundef %1152) #33
   br label %set_syserr.exit294
 
@@ -9622,7 +9622,7 @@ set_syserr.exit291:                               ; preds = %1139, %1144
 set_syserr.exit294:                               ; preds = %1149, %1154
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1157 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1157 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1158 = call i32 @rb_st_lookup(ptr noundef %1157, i64 noundef 76, ptr noundef nonnull %35) #33
   %.not.i295 = icmp eq i32 %1158, 0
   br i1 %.not.i295, label %1159, label %1164
@@ -9632,7 +9632,7 @@ set_syserr.exit294:                               ; preds = %1149, %1154
   %1161 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1162 = call i64 @rb_define_class_under(i64 noundef %1160, ptr noundef nonnull @.str.216, i64 noundef %1161) #33
   call void @rb_define_const(i64 noundef %1162, ptr noundef nonnull @.str.71, i64 noundef 153) #33
-  %1163 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1163 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1163, i64 noundef 76, i64 noundef %1162) #33
   br label %set_syserr.exit297
 
@@ -9645,7 +9645,7 @@ set_syserr.exit294:                               ; preds = %1149, %1154
 set_syserr.exit297:                               ; preds = %1159, %1164
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %1167 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1167 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1168 = call i32 @rb_st_lookup(ptr noundef %1167, i64 noundef 6, ptr noundef nonnull %34) #33
   %.not.i298 = icmp eq i32 %1168, 0
   br i1 %.not.i298, label %1169, label %1174
@@ -9655,7 +9655,7 @@ set_syserr.exit297:                               ; preds = %1159, %1164
   %1171 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1172 = call i64 @rb_define_class_under(i64 noundef %1170, ptr noundef nonnull @.str.217, i64 noundef %1171) #33
   call void @rb_define_const(i64 noundef %1172, ptr noundef nonnull @.str.71, i64 noundef 13) #33
-  %1173 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1173 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1173, i64 noundef 6, i64 noundef %1172) #33
   br label %set_syserr.exit300
 
@@ -9668,7 +9668,7 @@ set_syserr.exit297:                               ; preds = %1159, %1164
 set_syserr.exit300:                               ; preds = %1169, %1174
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %1177 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1177 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1178 = call i32 @rb_st_lookup(ptr noundef %1177, i64 noundef 95, ptr noundef nonnull %33) #33
   %.not.i301 = icmp eq i32 %1178, 0
   br i1 %.not.i301, label %1179, label %1184
@@ -9678,7 +9678,7 @@ set_syserr.exit300:                               ; preds = %1169, %1174
   %1181 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1182 = call i64 @rb_define_class_under(i64 noundef %1180, ptr noundef nonnull @.str.218, i64 noundef %1181) #33
   call void @rb_define_const(i64 noundef %1182, ptr noundef nonnull @.str.71, i64 noundef 191) #33
-  %1183 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1183 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1183, i64 noundef 95, i64 noundef %1182) #33
   br label %set_syserr.exit303
 
@@ -9691,7 +9691,7 @@ set_syserr.exit300:                               ; preds = %1169, %1174
 set_syserr.exit303:                               ; preds = %1179, %1184
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %1187 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1187 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1188 = call i32 @rb_st_lookup(ptr noundef %1187, i64 noundef 75, ptr noundef nonnull %32) #33
   %.not.i304 = icmp eq i32 %1188, 0
   br i1 %.not.i304, label %1189, label %1194
@@ -9701,7 +9701,7 @@ set_syserr.exit303:                               ; preds = %1179, %1184
   %1191 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1192 = call i64 @rb_define_class_under(i64 noundef %1190, ptr noundef nonnull @.str.219, i64 noundef %1191) #33
   call void @rb_define_const(i64 noundef %1192, ptr noundef nonnull @.str.71, i64 noundef 151) #33
-  %1193 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1193 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1193, i64 noundef 75, i64 noundef %1192) #33
   br label %set_syserr.exit306
 
@@ -9714,7 +9714,7 @@ set_syserr.exit303:                               ; preds = %1179, %1184
 set_syserr.exit306:                               ; preds = %1189, %1194
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %1197 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1197 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1198 = call i32 @rb_st_lookup(ptr noundef %1197, i64 noundef 130, ptr noundef nonnull %31) #33
   %.not.i307 = icmp eq i32 %1198, 0
   br i1 %.not.i307, label %1199, label %1204
@@ -9724,7 +9724,7 @@ set_syserr.exit306:                               ; preds = %1189, %1194
   %1201 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1202 = call i64 @rb_define_class_under(i64 noundef %1200, ptr noundef nonnull @.str.220, i64 noundef %1201) #33
   call void @rb_define_const(i64 noundef %1202, ptr noundef nonnull @.str.71, i64 noundef 261) #33
-  %1203 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1203 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1203, i64 noundef 130, i64 noundef %1202) #33
   br label %set_syserr.exit309
 
@@ -9737,7 +9737,7 @@ set_syserr.exit306:                               ; preds = %1189, %1194
 set_syserr.exit309:                               ; preds = %1199, %1204
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1207 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1207 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1208 = call i32 @rb_st_lookup(ptr noundef %1207, i64 noundef 1, ptr noundef nonnull %30) #33
   %.not.i310 = icmp eq i32 %1208, 0
   br i1 %.not.i310, label %1209, label %1214
@@ -9747,7 +9747,7 @@ set_syserr.exit309:                               ; preds = %1199, %1204
   %1211 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1212 = call i64 @rb_define_class_under(i64 noundef %1210, ptr noundef nonnull @.str.221, i64 noundef %1211) #33
   call void @rb_define_const(i64 noundef %1212, ptr noundef nonnull @.str.71, i64 noundef 3) #33
-  %1213 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1213 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1213, i64 noundef 1, i64 noundef %1212) #33
   br label %set_syserr.exit312
 
@@ -9760,7 +9760,7 @@ set_syserr.exit309:                               ; preds = %1199, %1204
 set_syserr.exit312:                               ; preds = %1209, %1214
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %1217 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1217 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1218 = call i32 @rb_st_lookup(ptr noundef %1217, i64 noundef 96, ptr noundef nonnull %29) #33
   %.not.i313 = icmp eq i32 %1218, 0
   br i1 %.not.i313, label %1219, label %1224
@@ -9770,7 +9770,7 @@ set_syserr.exit312:                               ; preds = %1209, %1214
   %1221 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1222 = call i64 @rb_define_class_under(i64 noundef %1220, ptr noundef nonnull @.str.222, i64 noundef %1221) #33
   call void @rb_define_const(i64 noundef %1222, ptr noundef nonnull @.str.71, i64 noundef 193) #33
-  %1223 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1223 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1223, i64 noundef 96, i64 noundef %1222) #33
   br label %set_syserr.exit315
 
@@ -9783,7 +9783,7 @@ set_syserr.exit312:                               ; preds = %1209, %1214
 set_syserr.exit315:                               ; preds = %1219, %1224
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %1227 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1227 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1228 = call i32 @rb_st_lookup(ptr noundef %1227, i64 noundef 32, ptr noundef nonnull %28) #33
   %.not.i316 = icmp eq i32 %1228, 0
   br i1 %.not.i316, label %1229, label %1234
@@ -9793,7 +9793,7 @@ set_syserr.exit315:                               ; preds = %1219, %1224
   %1231 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1232 = call i64 @rb_define_class_under(i64 noundef %1230, ptr noundef nonnull @.str.223, i64 noundef %1231) #33
   call void @rb_define_const(i64 noundef %1232, ptr noundef nonnull @.str.71, i64 noundef 65) #33
-  %1233 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1233 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1233, i64 noundef 32, i64 noundef %1232) #33
   br label %set_syserr.exit318
 
@@ -9818,7 +9818,7 @@ set_syserr.exit318:                               ; preds = %1229, %1234
   %1244 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1243, ptr noundef nonnull @.str.227, i64 noundef %1244) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %1245 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1245 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1246 = call i32 @rb_st_lookup(ptr noundef %1245, i64 noundef 71, ptr noundef nonnull %27) #33
   %.not.i319 = icmp eq i32 %1246, 0
   br i1 %.not.i319, label %1247, label %1252
@@ -9828,7 +9828,7 @@ set_syserr.exit318:                               ; preds = %1229, %1234
   %1249 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1250 = call i64 @rb_define_class_under(i64 noundef %1248, ptr noundef nonnull @.str.228, i64 noundef %1249) #33
   call void @rb_define_const(i64 noundef %1250, ptr noundef nonnull @.str.71, i64 noundef 143) #33
-  %1251 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1251 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1251, i64 noundef 71, i64 noundef %1250) #33
   br label %set_syserr.exit321
 
@@ -9841,7 +9841,7 @@ set_syserr.exit318:                               ; preds = %1229, %1234
 set_syserr.exit321:                               ; preds = %1247, %1252
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %1255 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1255 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1256 = call i32 @rb_st_lookup(ptr noundef %1255, i64 noundef 93, ptr noundef nonnull %26) #33
   %.not.i322 = icmp eq i32 %1256, 0
   br i1 %.not.i322, label %1257, label %1262
@@ -9851,7 +9851,7 @@ set_syserr.exit321:                               ; preds = %1247, %1252
   %1259 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1260 = call i64 @rb_define_class_under(i64 noundef %1258, ptr noundef nonnull @.str.229, i64 noundef %1259) #33
   call void @rb_define_const(i64 noundef %1260, ptr noundef nonnull @.str.71, i64 noundef 187) #33
-  %1261 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1261 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1261, i64 noundef 93, i64 noundef %1260) #33
   br label %set_syserr.exit324
 
@@ -9864,7 +9864,7 @@ set_syserr.exit321:                               ; preds = %1247, %1252
 set_syserr.exit324:                               ; preds = %1257, %1262
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %1265 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1265 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1266 = call i32 @rb_st_lookup(ptr noundef %1265, i64 noundef 91, ptr noundef nonnull %25) #33
   %.not.i325 = icmp eq i32 %1266, 0
   br i1 %.not.i325, label %1267, label %1272
@@ -9874,7 +9874,7 @@ set_syserr.exit324:                               ; preds = %1257, %1262
   %1269 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1270 = call i64 @rb_define_class_under(i64 noundef %1268, ptr noundef nonnull @.str.230, i64 noundef %1269) #33
   call void @rb_define_const(i64 noundef %1270, ptr noundef nonnull @.str.71, i64 noundef 183) #33
-  %1271 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1271 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1271, i64 noundef 91, i64 noundef %1270) #33
   br label %set_syserr.exit327
 
@@ -9893,7 +9893,7 @@ set_syserr.exit327:                               ; preds = %1267, %1272
   %1278 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1277, ptr noundef nonnull @.str.232, i64 noundef %1278) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %1279 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1279 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1280 = call i32 @rb_st_lookup(ptr noundef %1279, i64 noundef 34, ptr noundef nonnull %24) #33
   %.not.i328 = icmp eq i32 %1280, 0
   br i1 %.not.i328, label %1281, label %1286
@@ -9903,7 +9903,7 @@ set_syserr.exit327:                               ; preds = %1267, %1272
   %1283 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1284 = call i64 @rb_define_class_under(i64 noundef %1282, ptr noundef nonnull @.str.233, i64 noundef %1283) #33
   call void @rb_define_const(i64 noundef %1284, ptr noundef nonnull @.str.71, i64 noundef 69) #33
-  %1285 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1285 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1285, i64 noundef 34, i64 noundef %1284) #33
   br label %set_syserr.exit330
 
@@ -9916,7 +9916,7 @@ set_syserr.exit327:                               ; preds = %1267, %1272
 set_syserr.exit330:                               ; preds = %1281, %1286
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %1289 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1289 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1290 = call i32 @rb_st_lookup(ptr noundef %1289, i64 noundef 78, ptr noundef nonnull %23) #33
   %.not.i331 = icmp eq i32 %1290, 0
   br i1 %.not.i331, label %1291, label %1296
@@ -9926,7 +9926,7 @@ set_syserr.exit330:                               ; preds = %1281, %1286
   %1293 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1294 = call i64 @rb_define_class_under(i64 noundef %1292, ptr noundef nonnull @.str.234, i64 noundef %1293) #33
   call void @rb_define_const(i64 noundef %1294, ptr noundef nonnull @.str.71, i64 noundef 157) #33
-  %1295 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1295 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1295, i64 noundef 78, i64 noundef %1294) #33
   br label %set_syserr.exit333
 
@@ -9939,7 +9939,7 @@ set_syserr.exit330:                               ; preds = %1281, %1286
 set_syserr.exit333:                               ; preds = %1291, %1296
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %1299 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1299 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1300 = call i32 @rb_st_lookup(ptr noundef %1299, i64 noundef 66, ptr noundef nonnull %22) #33
   %.not.i334 = icmp eq i32 %1300, 0
   br i1 %.not.i334, label %1301, label %1306
@@ -9949,7 +9949,7 @@ set_syserr.exit333:                               ; preds = %1291, %1296
   %1303 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1304 = call i64 @rb_define_class_under(i64 noundef %1302, ptr noundef nonnull @.str.235, i64 noundef %1303) #33
   call void @rb_define_const(i64 noundef %1304, ptr noundef nonnull @.str.71, i64 noundef 133) #33
-  %1305 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1305 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1305, i64 noundef 66, i64 noundef %1304) #33
   br label %set_syserr.exit336
 
@@ -9962,7 +9962,7 @@ set_syserr.exit333:                               ; preds = %1291, %1296
 set_syserr.exit336:                               ; preds = %1301, %1306
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %1309 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1309 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1310 = call i32 @rb_st_lookup(ptr noundef %1309, i64 noundef 121, ptr noundef nonnull %21) #33
   %.not.i337 = icmp eq i32 %1310, 0
   br i1 %.not.i337, label %1311, label %1316
@@ -9972,7 +9972,7 @@ set_syserr.exit336:                               ; preds = %1301, %1306
   %1313 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1314 = call i64 @rb_define_class_under(i64 noundef %1312, ptr noundef nonnull @.str.236, i64 noundef %1313) #33
   call void @rb_define_const(i64 noundef %1314, ptr noundef nonnull @.str.71, i64 noundef 243) #33
-  %1315 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1315 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1315, i64 noundef 121, i64 noundef %1314) #33
   br label %set_syserr.exit339
 
@@ -9985,7 +9985,7 @@ set_syserr.exit336:                               ; preds = %1301, %1306
 set_syserr.exit339:                               ; preds = %1311, %1316
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %1319 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1319 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1320 = call i32 @rb_st_lookup(ptr noundef %1319, i64 noundef 85, ptr noundef nonnull %20) #33
   %.not.i340 = icmp eq i32 %1320, 0
   br i1 %.not.i340, label %1321, label %1326
@@ -9995,7 +9995,7 @@ set_syserr.exit339:                               ; preds = %1311, %1316
   %1323 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1324 = call i64 @rb_define_class_under(i64 noundef %1322, ptr noundef nonnull @.str.237, i64 noundef %1323) #33
   call void @rb_define_const(i64 noundef %1324, ptr noundef nonnull @.str.71, i64 noundef 171) #33
-  %1325 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1325 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1325, i64 noundef 85, i64 noundef %1324) #33
   br label %set_syserr.exit342
 
@@ -10008,7 +10008,7 @@ set_syserr.exit339:                               ; preds = %1311, %1316
 set_syserr.exit342:                               ; preds = %1321, %1326
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %1329 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1329 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1330 = call i32 @rb_st_lookup(ptr noundef %1329, i64 noundef 132, ptr noundef nonnull %19) #33
   %.not.i343 = icmp eq i32 %1330, 0
   br i1 %.not.i343, label %1331, label %1336
@@ -10018,7 +10018,7 @@ set_syserr.exit342:                               ; preds = %1321, %1326
   %1333 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1334 = call i64 @rb_define_class_under(i64 noundef %1332, ptr noundef nonnull @.str.238, i64 noundef %1333) #33
   call void @rb_define_const(i64 noundef %1334, ptr noundef nonnull @.str.71, i64 noundef 265) #33
-  %1335 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1335 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1335, i64 noundef 132, i64 noundef %1334) #33
   br label %set_syserr.exit345
 
@@ -10031,7 +10031,7 @@ set_syserr.exit342:                               ; preds = %1321, %1326
 set_syserr.exit345:                               ; preds = %1331, %1336
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %1339 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1339 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1340 = call i32 @rb_st_lookup(ptr noundef %1339, i64 noundef 30, ptr noundef nonnull %18) #33
   %.not.i346 = icmp eq i32 %1340, 0
   br i1 %.not.i346, label %1341, label %1346
@@ -10041,7 +10041,7 @@ set_syserr.exit345:                               ; preds = %1331, %1336
   %1343 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1344 = call i64 @rb_define_class_under(i64 noundef %1342, ptr noundef nonnull @.str.239, i64 noundef %1343) #33
   call void @rb_define_const(i64 noundef %1344, ptr noundef nonnull @.str.71, i64 noundef 61) #33
-  %1345 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1345 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1345, i64 noundef 30, i64 noundef %1344) #33
   br label %set_syserr.exit348
 
@@ -10060,7 +10060,7 @@ set_syserr.exit348:                               ; preds = %1341, %1346
   %1352 = load i64, ptr @rb_eNOERROR, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1351, ptr noundef nonnull @.str.241, i64 noundef %1352) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %1353 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1353 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1354 = call i32 @rb_st_lookup(ptr noundef %1353, i64 noundef 108, ptr noundef nonnull %17) #33
   %.not.i349 = icmp eq i32 %1354, 0
   br i1 %.not.i349, label %1355, label %1360
@@ -10070,7 +10070,7 @@ set_syserr.exit348:                               ; preds = %1341, %1346
   %1357 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1358 = call i64 @rb_define_class_under(i64 noundef %1356, ptr noundef nonnull @.str.242, i64 noundef %1357) #33
   call void @rb_define_const(i64 noundef %1358, ptr noundef nonnull @.str.71, i64 noundef 217) #33
-  %1359 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1359 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1359, i64 noundef 108, i64 noundef %1358) #33
   br label %set_syserr.exit351
 
@@ -10083,7 +10083,7 @@ set_syserr.exit348:                               ; preds = %1341, %1346
 set_syserr.exit351:                               ; preds = %1355, %1360
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %1363 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1363 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1364 = call i32 @rb_st_lookup(ptr noundef %1363, i64 noundef 94, ptr noundef nonnull %16) #33
   %.not.i352 = icmp eq i32 %1364, 0
   br i1 %.not.i352, label %1365, label %1370
@@ -10093,7 +10093,7 @@ set_syserr.exit351:                               ; preds = %1355, %1360
   %1367 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1368 = call i64 @rb_define_class_under(i64 noundef %1366, ptr noundef nonnull @.str.243, i64 noundef %1367) #33
   call void @rb_define_const(i64 noundef %1368, ptr noundef nonnull @.str.71, i64 noundef 189) #33
-  %1369 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1369 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1369, i64 noundef 94, i64 noundef %1368) #33
   br label %set_syserr.exit354
 
@@ -10106,7 +10106,7 @@ set_syserr.exit351:                               ; preds = %1355, %1360
 set_syserr.exit354:                               ; preds = %1365, %1370
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %1373 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1373 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1374 = call i32 @rb_st_lookup(ptr noundef %1373, i64 noundef 29, ptr noundef nonnull %15) #33
   %.not.i355 = icmp eq i32 %1374, 0
   br i1 %.not.i355, label %1375, label %1380
@@ -10116,7 +10116,7 @@ set_syserr.exit354:                               ; preds = %1365, %1370
   %1377 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1378 = call i64 @rb_define_class_under(i64 noundef %1376, ptr noundef nonnull @.str.244, i64 noundef %1377) #33
   call void @rb_define_const(i64 noundef %1378, ptr noundef nonnull @.str.71, i64 noundef 59) #33
-  %1379 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1379 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1379, i64 noundef 29, i64 noundef %1378) #33
   br label %set_syserr.exit357
 
@@ -10129,7 +10129,7 @@ set_syserr.exit354:                               ; preds = %1365, %1370
 set_syserr.exit357:                               ; preds = %1375, %1380
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %1383 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1383 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1384 = call i32 @rb_st_lookup(ptr noundef %1383, i64 noundef 3, ptr noundef nonnull %14) #33
   %.not.i358 = icmp eq i32 %1384, 0
   br i1 %.not.i358, label %1385, label %1390
@@ -10139,7 +10139,7 @@ set_syserr.exit357:                               ; preds = %1375, %1380
   %1387 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1388 = call i64 @rb_define_class_under(i64 noundef %1386, ptr noundef nonnull @.str.245, i64 noundef %1387) #33
   call void @rb_define_const(i64 noundef %1388, ptr noundef nonnull @.str.71, i64 noundef 7) #33
-  %1389 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1389 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1389, i64 noundef 3, i64 noundef %1388) #33
   br label %set_syserr.exit360
 
@@ -10152,7 +10152,7 @@ set_syserr.exit357:                               ; preds = %1375, %1380
 set_syserr.exit360:                               ; preds = %1385, %1390
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %1393 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1393 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1394 = call i32 @rb_st_lookup(ptr noundef %1393, i64 noundef 69, ptr noundef nonnull %13) #33
   %.not.i361 = icmp eq i32 %1394, 0
   br i1 %.not.i361, label %1395, label %1400
@@ -10162,7 +10162,7 @@ set_syserr.exit360:                               ; preds = %1385, %1390
   %1397 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1398 = call i64 @rb_define_class_under(i64 noundef %1396, ptr noundef nonnull @.str.246, i64 noundef %1397) #33
   call void @rb_define_const(i64 noundef %1398, ptr noundef nonnull @.str.71, i64 noundef 139) #33
-  %1399 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1399 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1399, i64 noundef 69, i64 noundef %1398) #33
   br label %set_syserr.exit363
 
@@ -10175,7 +10175,7 @@ set_syserr.exit360:                               ; preds = %1385, %1390
 set_syserr.exit363:                               ; preds = %1395, %1400
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %1403 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1403 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1404 = call i32 @rb_st_lookup(ptr noundef %1403, i64 noundef 116, ptr noundef nonnull %12) #33
   %.not.i364 = icmp eq i32 %1404, 0
   br i1 %.not.i364, label %1405, label %1410
@@ -10185,7 +10185,7 @@ set_syserr.exit363:                               ; preds = %1395, %1400
   %1407 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1408 = call i64 @rb_define_class_under(i64 noundef %1406, ptr noundef nonnull @.str.247, i64 noundef %1407) #33
   call void @rb_define_const(i64 noundef %1408, ptr noundef nonnull @.str.71, i64 noundef 233) #33
-  %1409 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1409 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1409, i64 noundef 116, i64 noundef %1408) #33
   br label %set_syserr.exit366
 
@@ -10198,7 +10198,7 @@ set_syserr.exit363:                               ; preds = %1395, %1400
 set_syserr.exit366:                               ; preds = %1405, %1410
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %1413 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1413 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1414 = call i32 @rb_st_lookup(ptr noundef %1413, i64 noundef 86, ptr noundef nonnull %11) #33
   %.not.i367 = icmp eq i32 %1414, 0
   br i1 %.not.i367, label %1415, label %1420
@@ -10208,7 +10208,7 @@ set_syserr.exit366:                               ; preds = %1405, %1410
   %1417 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1418 = call i64 @rb_define_class_under(i64 noundef %1416, ptr noundef nonnull @.str.248, i64 noundef %1417) #33
   call void @rb_define_const(i64 noundef %1418, ptr noundef nonnull @.str.71, i64 noundef 173) #33
-  %1419 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1419 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1419, i64 noundef 86, i64 noundef %1418) #33
   br label %set_syserr.exit369
 
@@ -10221,7 +10221,7 @@ set_syserr.exit366:                               ; preds = %1405, %1410
 set_syserr.exit369:                               ; preds = %1415, %1420
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %1423 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1423 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1424 = call i32 @rb_st_lookup(ptr noundef %1423, i64 noundef 62, ptr noundef nonnull %10) #33
   %.not.i370 = icmp eq i32 %1424, 0
   br i1 %.not.i370, label %1425, label %1430
@@ -10231,7 +10231,7 @@ set_syserr.exit369:                               ; preds = %1415, %1420
   %1427 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1428 = call i64 @rb_define_class_under(i64 noundef %1426, ptr noundef nonnull @.str.249, i64 noundef %1427) #33
   call void @rb_define_const(i64 noundef %1428, ptr noundef nonnull @.str.71, i64 noundef 125) #33
-  %1429 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1429 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1429, i64 noundef 62, i64 noundef %1428) #33
   br label %set_syserr.exit372
 
@@ -10244,7 +10244,7 @@ set_syserr.exit369:                               ; preds = %1415, %1420
 set_syserr.exit372:                               ; preds = %1425, %1430
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %1433 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1433 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1434 = call i32 @rb_st_lookup(ptr noundef %1433, i64 noundef 110, ptr noundef nonnull %9) #33
   %.not.i373 = icmp eq i32 %1434, 0
   br i1 %.not.i373, label %1435, label %1440
@@ -10254,7 +10254,7 @@ set_syserr.exit372:                               ; preds = %1425, %1430
   %1437 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1438 = call i64 @rb_define_class_under(i64 noundef %1436, ptr noundef nonnull @.str.250, i64 noundef %1437) #33
   call void @rb_define_const(i64 noundef %1438, ptr noundef nonnull @.str.71, i64 noundef 221) #33
-  %1439 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1439 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1439, i64 noundef 110, i64 noundef %1438) #33
   br label %set_syserr.exit375
 
@@ -10267,7 +10267,7 @@ set_syserr.exit372:                               ; preds = %1425, %1430
 set_syserr.exit375:                               ; preds = %1435, %1440
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1443 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1443 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1444 = call i32 @rb_st_lookup(ptr noundef %1443, i64 noundef 109, ptr noundef nonnull %8) #33
   %.not.i376 = icmp eq i32 %1444, 0
   br i1 %.not.i376, label %1445, label %1450
@@ -10277,7 +10277,7 @@ set_syserr.exit375:                               ; preds = %1435, %1440
   %1447 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1448 = call i64 @rb_define_class_under(i64 noundef %1446, ptr noundef nonnull @.str.251, i64 noundef %1447) #33
   call void @rb_define_const(i64 noundef %1448, ptr noundef nonnull @.str.71, i64 noundef 219) #33
-  %1449 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1449 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1449, i64 noundef 109, i64 noundef %1448) #33
   br label %set_syserr.exit378
 
@@ -10290,7 +10290,7 @@ set_syserr.exit375:                               ; preds = %1435, %1440
 set_syserr.exit378:                               ; preds = %1445, %1450
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1453 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1453 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1454 = call i32 @rb_st_lookup(ptr noundef %1453, i64 noundef 26, ptr noundef nonnull %7) #33
   %.not.i379 = icmp eq i32 %1454, 0
   br i1 %.not.i379, label %1455, label %1460
@@ -10300,7 +10300,7 @@ set_syserr.exit378:                               ; preds = %1445, %1450
   %1457 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1458 = call i64 @rb_define_class_under(i64 noundef %1456, ptr noundef nonnull @.str.252, i64 noundef %1457) #33
   call void @rb_define_const(i64 noundef %1458, ptr noundef nonnull @.str.71, i64 noundef 53) #33
-  %1459 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1459 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1459, i64 noundef 26, i64 noundef %1458) #33
   br label %set_syserr.exit381
 
@@ -10313,7 +10313,7 @@ set_syserr.exit378:                               ; preds = %1445, %1450
 set_syserr.exit381:                               ; preds = %1455, %1460
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1463 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1463 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1464 = call i32 @rb_st_lookup(ptr noundef %1463, i64 noundef 117, ptr noundef nonnull %6) #33
   %.not.i382 = icmp eq i32 %1464, 0
   br i1 %.not.i382, label %1465, label %1470
@@ -10323,7 +10323,7 @@ set_syserr.exit381:                               ; preds = %1455, %1460
   %1467 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1468 = call i64 @rb_define_class_under(i64 noundef %1466, ptr noundef nonnull @.str.253, i64 noundef %1467) #33
   call void @rb_define_const(i64 noundef %1468, ptr noundef nonnull @.str.71, i64 noundef 235) #33
-  %1469 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1469 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1469, i64 noundef 117, i64 noundef %1468) #33
   br label %set_syserr.exit384
 
@@ -10336,7 +10336,7 @@ set_syserr.exit381:                               ; preds = %1455, %1460
 set_syserr.exit384:                               ; preds = %1465, %1470
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1473 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1473 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1474 = call i32 @rb_st_lookup(ptr noundef %1473, i64 noundef 49, ptr noundef nonnull %5) #33
   %.not.i385 = icmp eq i32 %1474, 0
   br i1 %.not.i385, label %1475, label %1480
@@ -10346,7 +10346,7 @@ set_syserr.exit384:                               ; preds = %1465, %1470
   %1477 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1478 = call i64 @rb_define_class_under(i64 noundef %1476, ptr noundef nonnull @.str.254, i64 noundef %1477) #33
   call void @rb_define_const(i64 noundef %1478, ptr noundef nonnull @.str.71, i64 noundef 99) #33
-  %1479 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1479 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1479, i64 noundef 49, i64 noundef %1478) #33
   br label %set_syserr.exit387
 
@@ -10359,7 +10359,7 @@ set_syserr.exit384:                               ; preds = %1465, %1470
 set_syserr.exit387:                               ; preds = %1475, %1480
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %1483 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1483 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1484 = call i32 @rb_st_lookup(ptr noundef %1483, i64 noundef 87, ptr noundef nonnull %4) #33
   %.not.i388 = icmp eq i32 %1484, 0
   br i1 %.not.i388, label %1485, label %1490
@@ -10369,7 +10369,7 @@ set_syserr.exit387:                               ; preds = %1475, %1480
   %1487 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1488 = call i64 @rb_define_class_under(i64 noundef %1486, ptr noundef nonnull @.str.255, i64 noundef %1487) #33
   call void @rb_define_const(i64 noundef %1488, ptr noundef nonnull @.str.71, i64 noundef 175) #33
-  %1489 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1489 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1489, i64 noundef 87, i64 noundef %1488) #33
   br label %set_syserr.exit390
 
@@ -10382,7 +10382,7 @@ set_syserr.exit387:                               ; preds = %1475, %1480
 set_syserr.exit390:                               ; preds = %1485, %1490
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %1493 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1493 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1494 = call i32 @rb_st_lookup(ptr noundef %1493, i64 noundef 11, ptr noundef nonnull %3) #33
   %.not.i391 = icmp eq i32 %1494, 0
   br i1 %.not.i391, label %1495, label %1500
@@ -10394,7 +10394,7 @@ set_syserr.exit390:                               ; preds = %1485, %1490
   store i64 %1498, ptr @rb_eEAGAIN, align 8, !tbaa !15
   store i64 %1498, ptr @rb_eEWOULDBLOCK, align 8, !tbaa !15
   call void @rb_define_const(i64 noundef %1498, ptr noundef nonnull @.str.71, i64 noundef 23) #33
-  %1499 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1499 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1499, i64 noundef 11, i64 noundef %1498) #33
   br label %set_syserr.exit393
 
@@ -10407,7 +10407,7 @@ set_syserr.exit390:                               ; preds = %1485, %1490
 set_syserr.exit393:                               ; preds = %1495, %1500
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %1503 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1503 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1504 = call i32 @rb_st_lookup(ptr noundef %1503, i64 noundef 18, ptr noundef nonnull %2) #33
   %.not.i394 = icmp eq i32 %1504, 0
   br i1 %.not.i394, label %1505, label %1510
@@ -10417,7 +10417,7 @@ set_syserr.exit393:                               ; preds = %1495, %1500
   %1507 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1508 = call i64 @rb_define_class_under(i64 noundef %1506, ptr noundef nonnull @.str.257, i64 noundef %1507) #33
   call void @rb_define_const(i64 noundef %1508, ptr noundef nonnull @.str.71, i64 noundef 37) #33
-  %1509 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1509 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1509, i64 noundef 18, i64 noundef %1508) #33
   br label %set_syserr.exit396
 
@@ -10430,7 +10430,7 @@ set_syserr.exit393:                               ; preds = %1495, %1500
 set_syserr.exit396:                               ; preds = %1505, %1510
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %1513 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1513 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   %1514 = call i32 @rb_st_lookup(ptr noundef %1513, i64 noundef 54, ptr noundef nonnull %1) #33
   %.not.i397 = icmp eq i32 %1514, 0
   br i1 %.not.i397, label %1515, label %1520
@@ -10440,7 +10440,7 @@ set_syserr.exit396:                               ; preds = %1505, %1510
   %1517 = load i64, ptr @rb_eSystemCallError, align 8, !tbaa !15
   %1518 = call i64 @rb_define_class_under(i64 noundef %1516, ptr noundef nonnull @.str.258, i64 noundef %1517) #33
   call void @rb_define_const(i64 noundef %1518, ptr noundef nonnull @.str.71, i64 noundef 109) #33
-  %1519 = load ptr, ptr @syserr_tbl, align 8, !tbaa !114
+  %1519 = load ptr, ptr @syserr_tbl, align 8, !tbaa !112
   call void @rb_st_add_direct(ptr noundef %1519, i64 noundef 54, i64 noundef %1518) #33
   br label %set_syserr.exit399
 
@@ -10471,7 +10471,7 @@ define internal range(i64 0, 2) i64 @builtin_inline_class_53(ptr noundef readonl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %6 = load ptr, ptr %5, align 8, !tbaa !110
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = icmp eq i64 %8, 4
@@ -10605,7 +10605,7 @@ end_with_asciichar.exit.thread:                   ; preds = %47, %rbimpl_RB_TYPE
   %62 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.319, i64 noundef 4) #33
   store i64 %62, ptr @rb_warn_m.rbimpl_id, align 8, !tbaa !15
   %.not.i44 = icmp eq i64 %62, 0
-  br i1 %.not.i44, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !144
+  br i1 %.not.i44, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !142
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %61
   %.lcssa.i = phi i64 [ %.pr.i, %61 ], [ %62, %.lr.ph.i ]
@@ -10628,7 +10628,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %61
   %69 = call i64 @rb_intern2(ptr noundef nonnull @.str.322, i64 noundef 6) #33
   store i64 %69, ptr @rb_warn_m.rbimpl_id.321, align 8, !tbaa !15
   %.not.i49 = icmp eq i64 %69, 0
-  br i1 %.not.i49, label %.lr.ph.i48, label %rbimpl_intern_const.exit50, !llvm.loop !144
+  br i1 %.not.i49, label %.lr.ph.i48, label %rbimpl_intern_const.exit50, !llvm.loop !142
 
 rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %67
   %.lcssa.i47 = phi i64 [ %.pr.i45, %67 ], [ %69, %.lr.ph.i48 ]
@@ -10762,7 +10762,7 @@ define internal i64 @builtin_inline_class_55(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %6 = load ptr, ptr %5, align 8, !tbaa !110
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = tail call i64 @rb_to_symbol_type(i64 noundef %8) #33
@@ -10864,18 +10864,18 @@ define internal fastcc noundef ptr @expand_report_argument(ptr noundef nonnull c
   ]
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %1, align 8, !tbaa !145
+  %31 = load ptr, ptr %1, align 8, !tbaa !143
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %30
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !147
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !145
   br label %50
 
 32:                                               ; preds = %30
   %33 = load i64, ptr @rb_argv0, align 8, !tbaa !15
   %34 = inttoptr i64 %33 to ptr
-  %35 = load i64, ptr %34, align 8, !tbaa !7, !noalias !148
+  %35 = load i64, ptr %34, align 8, !tbaa !7, !noalias !146
   %36 = and i64 %35, 8192
   %.not.i.i.i = icmp eq i64 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -10901,14 +10901,14 @@ RSTRING_END.exit.i:                               ; preds = %38, %32
   %43 = getelementptr i8, ptr %.023.i, i64 -1
   %44 = load i8, ptr %43, align 1, !tbaa !26
   %45 = icmp eq i8 %44, 47
-  br i1 %45, label %46, label %40, !llvm.loop !151
+  br i1 %45, label %46, label %40, !llvm.loop !149
 
 46:                                               ; preds = %42, %40
-  store ptr %.023.i, ptr %1, align 8, !tbaa !145
+  store ptr %.023.i, ptr %1, align 8, !tbaa !143
   %47 = ptrtoint ptr %39 to i64
   %48 = ptrtoint ptr %.023.i to i64
   %49 = sub i64 %47, %48
-  store i64 %49, ptr %.phi.trans.insert.i, align 8, !tbaa !147
+  store i64 %49, ptr %.phi.trans.insert.i, align 8, !tbaa !145
   br label %50
 
 50:                                               ; preds = %46, %._crit_edge.i
@@ -10936,20 +10936,20 @@ append_basename.exit:                             ; preds = %50, %57
   br label %.thread
 
 62:                                               ; preds = %27
-  %63 = load ptr, ptr %15, align 8, !tbaa !145
+  %63 = load ptr, ptr %15, align 8, !tbaa !143
   %.not.i84 = icmp eq ptr %63, null
   br i1 %.not.i84, label %64, label %._crit_edge.i85
 
 ._crit_edge.i85:                                  ; preds = %62
-  %.pre.i87 = load i64, ptr %.phi.trans.insert.i86, align 8, !tbaa !147
+  %.pre.i87 = load i64, ptr %.phi.trans.insert.i86, align 8, !tbaa !145
   br label %84
 
 64:                                               ; preds = %62
-  %65 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !152
+  %65 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !150
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1256
-  %67 = load i64, ptr %66, align 8, !tbaa !153
+  %67 = load i64, ptr %66, align 8, !tbaa !151
   %68 = inttoptr i64 %67 to ptr
-  %69 = load i64, ptr %68, align 8, !tbaa !7, !noalias !168
+  %69 = load i64, ptr %68, align 8, !tbaa !7, !noalias !166
   %70 = and i64 %69, 8192
   %.not.i.i.i90 = icmp eq i64 %70, 0
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -10975,14 +10975,14 @@ RSTRING_END.exit.i92:                             ; preds = %72, %64
   %77 = getelementptr i8, ptr %.023.i96, i64 -1
   %78 = load i8, ptr %77, align 1, !tbaa !26
   %79 = icmp eq i8 %78, 47
-  br i1 %79, label %80, label %74, !llvm.loop !151
+  br i1 %79, label %80, label %74, !llvm.loop !149
 
 80:                                               ; preds = %76, %74
-  store ptr %.023.i96, ptr %15, align 8, !tbaa !145
+  store ptr %.023.i96, ptr %15, align 8, !tbaa !143
   %81 = ptrtoint ptr %73 to i64
   %82 = ptrtoint ptr %.023.i96 to i64
   %83 = sub i64 %81, %82
-  store i64 %83, ptr %.phi.trans.insert.i86, align 8, !tbaa !147
+  store i64 %83, ptr %.phi.trans.insert.i86, align 8, !tbaa !145
   br label %84
 
 84:                                               ; preds = %80, %._crit_edge.i85
@@ -11005,20 +11005,20 @@ append_basename.exit97:                           ; preds = %84, %91
   br label %.thread
 
 93:                                               ; preds = %27
-  %94 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !152
+  %94 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !150
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1256
-  %96 = load i64, ptr %95, align 8, !tbaa !153
+  %96 = load i64, ptr %95, align 8, !tbaa !151
   %97 = call fastcc ptr @append_pathname(ptr noundef %.068, ptr noundef %7, i64 noundef %96)
   br label %.thread
 
 98:                                               ; preds = %27
-  %99 = load i32, ptr %14, align 8, !tbaa !171
+  %99 = load i32, ptr %14, align 8, !tbaa !169
   %.not80 = icmp eq i32 %99, 0
   br i1 %.not80, label %100, label %102
 
 100:                                              ; preds = %98
   %101 = call i32 @getpid() #33
-  store i32 %101, ptr %14, align 8, !tbaa !171
+  store i32 %101, ptr %14, align 8, !tbaa !169
   br label %102
 
 102:                                              ; preds = %100, %98
@@ -11031,13 +11031,13 @@ append_basename.exit97:                           ; preds = %84, %91
   br label %.thread
 
 109:                                              ; preds = %27
-  %110 = load i64, ptr %12, align 8, !tbaa !173
+  %110 = load i64, ptr %12, align 8, !tbaa !171
   %.not79 = icmp eq i64 %110, 0
   br i1 %.not79, label %111, label %113
 
 111:                                              ; preds = %109
   %112 = call i64 @time(ptr noundef null) #33
-  store i64 %112, ptr %12, align 8, !tbaa !173
+  store i64 %112, ptr %12, align 8, !tbaa !171
   br label %113
 
 113:                                              ; preds = %111, %109
@@ -11093,7 +11093,7 @@ append_basename.exit97:                           ; preds = %84, %91
   %.160.ph = phi i1 [ true, %.thread ], [ %.261, %129 ], [ %.261, %131 ], [ false, %24 ]
   %134 = load i8, ptr %.163.ph, align 1, !tbaa !26
   %.not82 = icmp eq i8 %134, 0
-  br i1 %.not82, label %135, label %16, !llvm.loop !174
+  br i1 %.not82, label %135, label %16, !llvm.loop !172
 
 135:                                              ; preds = %19, %133
   %.163115 = phi ptr [ %.163.ph, %133 ], [ %18, %19 ]
@@ -11116,7 +11116,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @append_pathname(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #26 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !7, !noalias !175
+  %5 = load i64, ptr %4, align 8, !tbaa !7, !noalias !173
   %6 = and i64 %5, 8192
   %.not.i.i = icmp eq i64 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11171,7 +11171,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %8
 26:                                               ; preds = %23
   %27 = load i8, ptr %24, align 1, !tbaa !26
   %28 = icmp eq i8 %27, 47
-  br i1 %28, label %23, label %.backedge, !llvm.loop !178
+  br i1 %28, label %23, label %.backedge, !llvm.loop !176
 
 .backedge:                                        ; preds = %26, %23, %31, %.critedge4, %41
   %.040.be = phi ptr [ %.242.lcssa, %41 ], [ %.242.lcssa, %.critedge4 ], [ %.04060, %31 ], [ %24, %23 ], [ %24, %26 ]
@@ -11179,7 +11179,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %8
   %29 = icmp ult ptr %.0.be, %12
   %30 = icmp ult ptr %.040.be, %11
   %or.cond = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond, label %.lr.ph62, label %.critedge, !llvm.loop !179
+  br i1 %or.cond, label %.lr.ph62, label %.critedge, !llvm.loop !177
 
 31:                                               ; preds = %.lr.ph62, %16
   %32 = icmp ult ptr %.061, %12
@@ -11202,7 +11202,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %8
   %38 = icmp ult ptr %36, %12
   %39 = icmp ult ptr %37, %11
   %or.cond48 = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond48, label %.lr.ph, label %.critedge4, !llvm.loop !180
+  br i1 %or.cond48, label %.lr.ph, label %.critedge4, !llvm.loop !178
 
 .critedge4:                                       ; preds = %35, %.lr.ph, %.lr.ph
   %.242.lcssa = phi ptr [ %37, %35 ], [ %.24250, %.lr.ph ], [ %.24250, %.lr.ph ]
@@ -11261,30 +11261,30 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @name_err_mesg_mark(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !118
+  %2 = load i64, ptr %0, align 8, !tbaa !116
   tail call void @rb_gc_mark_movable(i64 noundef %2) #33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !116
+  %4 = load i64, ptr %3, align 8, !tbaa !114
   tail call void @rb_gc_mark_movable(i64 noundef %4) #33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !119
+  %6 = load i64, ptr %5, align 8, !tbaa !117
   tail call void @rb_gc_mark_movable(i64 noundef %6) #33
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @name_err_mesg_update(ptr noundef captures(none) %0) #0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !118
+  %2 = load i64, ptr %0, align 8, !tbaa !116
   %3 = tail call i64 @rb_gc_location(i64 noundef %2) #33
-  store i64 %3, ptr %0, align 8, !tbaa !118
+  store i64 %3, ptr %0, align 8, !tbaa !116
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !116
+  %5 = load i64, ptr %4, align 8, !tbaa !114
   %6 = tail call i64 @rb_gc_location(i64 noundef %5) #33
-  store i64 %6, ptr %4, align 8, !tbaa !116
+  store i64 %6, ptr %4, align 8, !tbaa !114
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !119
+  %8 = load i64, ptr %7, align 8, !tbaa !117
   %9 = tail call i64 @rb_gc_location(i64 noundef %8) #33
-  store i64 %9, ptr %7, align 8, !tbaa !119
+  store i64 %9, ptr %7, align 8, !tbaa !117
   ret void
 }
 
@@ -11428,7 +11428,7 @@ define internal i64 @name_err_mesg_receiver_name(i64 noundef %0) #0 {
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.50, i64 noundef 4) #33
   store i64 %11, ptr @name_err_mesg_receiver_name.rbimpl_id, align 8, !tbaa !15
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !144
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !142
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %10
   %.lcssa.i = phi i64 [ %.pr.i, %10 ], [ %11, %.lr.ph.i ]
@@ -11673,75 +11673,73 @@ attributes #40 = { nounwind memory(argmem: readwrite, inaccessiblemem: readwrite
 !106 = !{!99, !9, i64 56}
 !107 = !{!99, !9, i64 72}
 !108 = !{!99, !20, i64 64}
-!109 = distinct !{!109, !41, !110}
-!110 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!111 = distinct !{!111, !41}
-!112 = !{!71, !62, i64 32}
-!113 = !{!71, !72, i64 16}
-!114 = !{!31, !31, i64 0}
-!115 = distinct !{!115, !41}
-!116 = !{!117, !9, i64 8}
-!117 = !{!"name_error_message_struct", !9, i64 0, !9, i64 8, !9, i64 16}
-!118 = !{!117, !9, i64 0}
-!119 = !{!117, !9, i64 16}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"rbimpl_rstring_getmem: argument 0"}
-!122 = distinct !{!122, !"rbimpl_rstring_getmem"}
+!109 = distinct !{!109, !41}
+!110 = !{!71, !62, i64 32}
+!111 = !{!71, !72, i64 16}
+!112 = !{!31, !31, i64 0}
+!113 = distinct !{!113, !41}
+!114 = !{!115, !9, i64 8}
+!115 = !{!"name_error_message_struct", !9, i64 0, !9, i64 8, !9, i64 16}
+!116 = !{!115, !9, i64 0}
+!117 = !{!115, !9, i64 16}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"rbimpl_rstring_getmem: argument 0"}
+!120 = distinct !{!120, !"rbimpl_rstring_getmem"}
+!121 = distinct !{!121, !41}
+!122 = !{!62, !62, i64 0}
 !123 = distinct !{!123, !41}
-!124 = !{!62, !62, i64 0}
-!125 = distinct !{!125, !41}
-!126 = !{!127, !9, i64 16}
-!127 = !{!"st_table", !10, i64 0, !10, i64 1, !10, i64 2, !20, i64 4, !128, i64 8, !9, i64 16, !62, i64 24, !9, i64 32, !9, i64 40, !129, i64 48}
-!128 = !{!"p1 _ZTS12st_hash_type", !18, i64 0}
-!129 = !{!"p1 _ZTS14st_table_entry", !18, i64 0}
-!130 = distinct !{!130, !41}
-!131 = distinct !{!131, !41}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"rbimpl_rstring_getmem: argument 0"}
-!134 = distinct !{!134, !"rbimpl_rstring_getmem"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"rbimpl_rstring_getmem: argument 0"}
-!137 = distinct !{!137, !"rbimpl_rstring_getmem"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"rbimpl_rstring_getmem: argument 0"}
-!140 = distinct !{!140, !"rbimpl_rstring_getmem"}
-!141 = !{!"branch_weights", i32 2146410, i32 -2146410}
-!142 = !{!"branch_weights", i32 4001, i32 1}
-!143 = !{!"branch_weights", i32 -2146410, i32 2146410}
-!144 = distinct !{!144, !41}
-!145 = !{!146, !19, i64 0}
-!146 = !{!"path_string", !19, i64 0, !9, i64 8}
-!147 = !{!146, !9, i64 8}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"rbimpl_rstring_getmem: argument 0"}
-!150 = distinct !{!150, !"rbimpl_rstring_getmem"}
-!151 = distinct !{!151, !41}
-!152 = !{!80, !80, i64 0}
-!153 = !{!154, !9, i64 1256}
-!154 = !{!"rb_vm_struct", !9, i64 0, !155, i64 8, !18, i64 472, !158, i64 480, !91, i64 488, !20, i64 504, !20, i64 508, !20, i64 508, !20, i64 508, !20, i64 508, !9, i64 512, !159, i64 520, !10, i64 528, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !31, i64 640, !31, i64 648, !31, i64 656, !160, i64 664, !161, i64 1184, !20, i64 1192, !91, i64 1200, !10, i64 1216, !9, i64 1256, !9, i64 1264, !9, i64 1272, !9, i64 1280, !20, i64 1288, !162, i64 1296, !165, i64 1312, !31, i64 1320, !166, i64 1328, !31, i64 1336, !67, i64 1344, !31, i64 1352, !31, i64 1360, !67, i64 1368, !9, i64 1376, !10, i64 1384, !167, i64 9568}
-!155 = !{!"", !91, i64 0, !20, i64 16, !20, i64 20, !79, i64 24, !66, i64 32, !156, i64 40, !157, i64 152}
-!156 = !{!"", !10, i64 0, !79, i64 40, !20, i64 48, !10, i64 56, !86, i64 104}
-!157 = !{!"", !10, i64 0, !79, i64 40, !86, i64 48, !10, i64 56, !20, i64 104, !20, i64 108, !20, i64 112, !20, i64 116, !91, i64 120, !20, i64 136, !91, i64 144, !91, i64 160, !91, i64 176, !86, i64 192, !10, i64 200, !10, i64 248, !86, i64 296, !20, i64 300, !20, i64 304}
-!158 = !{!"long long", !10, i64 0}
-!159 = !{!"p1 _ZTS18global_object_list", !18, i64 0}
-!160 = !{!"", !10, i64 0}
-!161 = !{!"p1 _ZTS22rb_postponed_job_queue", !18, i64 0}
-!162 = !{!"", !163, i64 0, !164, i64 8}
-!163 = !{!"p1 _ZTS11rb_objspace", !18, i64 0}
-!164 = !{!"p1 _ZTS24gc_mark_func_data_struct", !18, i64 0}
-!165 = !{!"p1 _ZTS15rb_at_exit_list", !18, i64 0}
-!166 = !{!"p1 _ZTS19rb_builtin_function", !18, i64 0}
-!167 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"rbimpl_rstring_getmem: argument 0"}
-!170 = distinct !{!170, !"rbimpl_rstring_getmem"}
-!171 = !{!172, !20, i64 32}
-!172 = !{!"report_expansion", !146, i64 0, !146, i64 16, !20, i64 32, !9, i64 40}
-!173 = !{!172, !9, i64 40}
-!174 = distinct !{!174, !41}
-!175 = !{!176}
-!176 = distinct !{!176, !177, !"rbimpl_rstring_getmem: argument 0"}
-!177 = distinct !{!177, !"rbimpl_rstring_getmem"}
+!124 = !{!125, !9, i64 16}
+!125 = !{!"st_table", !10, i64 0, !10, i64 1, !10, i64 2, !20, i64 4, !126, i64 8, !9, i64 16, !62, i64 24, !9, i64 32, !9, i64 40, !127, i64 48}
+!126 = !{!"p1 _ZTS12st_hash_type", !18, i64 0}
+!127 = !{!"p1 _ZTS14st_table_entry", !18, i64 0}
+!128 = distinct !{!128, !41}
+!129 = distinct !{!129, !41}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"rbimpl_rstring_getmem: argument 0"}
+!132 = distinct !{!132, !"rbimpl_rstring_getmem"}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"rbimpl_rstring_getmem: argument 0"}
+!135 = distinct !{!135, !"rbimpl_rstring_getmem"}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"rbimpl_rstring_getmem: argument 0"}
+!138 = distinct !{!138, !"rbimpl_rstring_getmem"}
+!139 = !{!"branch_weights", i32 2146410, i32 -2146410}
+!140 = !{!"branch_weights", i32 4001, i32 1}
+!141 = !{!"branch_weights", i32 -2146410, i32 2146410}
+!142 = distinct !{!142, !41}
+!143 = !{!144, !19, i64 0}
+!144 = !{!"path_string", !19, i64 0, !9, i64 8}
+!145 = !{!144, !9, i64 8}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"rbimpl_rstring_getmem: argument 0"}
+!148 = distinct !{!148, !"rbimpl_rstring_getmem"}
+!149 = distinct !{!149, !41}
+!150 = !{!80, !80, i64 0}
+!151 = !{!152, !9, i64 1256}
+!152 = !{!"rb_vm_struct", !9, i64 0, !153, i64 8, !18, i64 472, !156, i64 480, !91, i64 488, !20, i64 504, !20, i64 508, !20, i64 508, !20, i64 508, !20, i64 508, !9, i64 512, !157, i64 520, !10, i64 528, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !31, i64 640, !31, i64 648, !31, i64 656, !158, i64 664, !159, i64 1184, !20, i64 1192, !91, i64 1200, !10, i64 1216, !9, i64 1256, !9, i64 1264, !9, i64 1272, !9, i64 1280, !20, i64 1288, !160, i64 1296, !163, i64 1312, !31, i64 1320, !164, i64 1328, !31, i64 1336, !67, i64 1344, !31, i64 1352, !31, i64 1360, !67, i64 1368, !9, i64 1376, !10, i64 1384, !165, i64 9568}
+!153 = !{!"", !91, i64 0, !20, i64 16, !20, i64 20, !79, i64 24, !66, i64 32, !154, i64 40, !155, i64 152}
+!154 = !{!"", !10, i64 0, !79, i64 40, !20, i64 48, !10, i64 56, !86, i64 104}
+!155 = !{!"", !10, i64 0, !79, i64 40, !86, i64 48, !10, i64 56, !20, i64 104, !20, i64 108, !20, i64 112, !20, i64 116, !91, i64 120, !20, i64 136, !91, i64 144, !91, i64 160, !91, i64 176, !86, i64 192, !10, i64 200, !10, i64 248, !86, i64 296, !20, i64 300, !20, i64 304}
+!156 = !{!"long long", !10, i64 0}
+!157 = !{!"p1 _ZTS18global_object_list", !18, i64 0}
+!158 = !{!"", !10, i64 0}
+!159 = !{!"p1 _ZTS22rb_postponed_job_queue", !18, i64 0}
+!160 = !{!"", !161, i64 0, !162, i64 8}
+!161 = !{!"p1 _ZTS11rb_objspace", !18, i64 0}
+!162 = !{!"p1 _ZTS24gc_mark_func_data_struct", !18, i64 0}
+!163 = !{!"p1 _ZTS15rb_at_exit_list", !18, i64 0}
+!164 = !{!"p1 _ZTS19rb_builtin_function", !18, i64 0}
+!165 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"rbimpl_rstring_getmem: argument 0"}
+!168 = distinct !{!168, !"rbimpl_rstring_getmem"}
+!169 = !{!170, !20, i64 32}
+!170 = !{!"report_expansion", !144, i64 0, !144, i64 16, !20, i64 32, !9, i64 40}
+!171 = !{!170, !9, i64 40}
+!172 = distinct !{!172, !41}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"rbimpl_rstring_getmem: argument 0"}
+!175 = distinct !{!175, !"rbimpl_rstring_getmem"}
+!176 = distinct !{!176, !41}
+!177 = distinct !{!177, !41}
 !178 = distinct !{!178, !41}
-!179 = distinct !{!179, !41}
-!180 = distinct !{!180, !41}

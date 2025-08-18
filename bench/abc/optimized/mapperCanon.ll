@@ -115,7 +115,7 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
   %.149 = phi i32 [ 1, %41 ], [ %48, %46 ], [ %.04868, %43 ]
   %52 = add nuw nsw i32 %.069, 1
   %exitcond75.not = icmp eq i32 %52, %smax76
-  br i1 %exitcond75.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !12
+  br i1 %exitcond75.not, label %._crit_edge, label %Map_CanonComputePhase.exit, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %51, %34, %9
   %.048.lcssa = phi i32 [ 0, %9 ], [ %.149.us, %34 ], [ %.149, %51 ]
@@ -186,7 +186,7 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %86 = shl i32 %.037.i, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
-  br i1 %exitcond.not.i61, label %Map_CanonComputePhase6.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond.not.i61, label %Map_CanonComputePhase6.exit, label %.preheader.i, !llvm.loop !11
 
 Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   %.sroa.9.2 = phi i32 [ %60, %58 ], [ %.sroa.9.1, %.sink.split.i ]
@@ -229,7 +229,7 @@ Map_CanonComputePhase6.exit:                      ; preds = %.sink.split.i, %58
   %.4 = phi i32 [ 1, %94 ], [ %101, %99 ], [ %.366, %96 ], [ %.366, %89 ]
   %105 = add nuw nsw i32 %.167, 1
   %exitcond.not = icmp eq i32 %105, %smax
-  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %58, !llvm.loop !12
 
 .loopexit:                                        ; preds = %104, %55, %._crit_edge
   %.2 = phi i32 [ %.048.lcssa, %._crit_edge ], [ 0, %55 ], [ %.4, %104 ]
@@ -304,7 +304,7 @@ define i32 @Map_CanonComputeFast(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i58.i, 1
   %41 = shl i32 %.037.i.i, 1
   %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 6
-  br i1 %exitcond.not.i61.i, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i61.i, label %Map_CanonComputePhase6.exit.i, label %.preheader.i.i, !llvm.loop !11
 
 Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %13
   %.sroa.9.2.i = phi i32 [ %15, %13 ], [ %.sroa.9.1.i, %.sink.split.i.i ]
@@ -347,7 +347,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %.4.i = phi i32 [ 1, %49 ], [ %56, %54 ], [ %.366.i, %51 ], [ %.366.i, %44 ]
   %60 = add nuw nsw i32 %.167.i, 1
   %exitcond.not.i = icmp eq i32 %60, %11
-  br i1 %exitcond.not.i, label %Map_CanonComputeSlow.exit, label %13, !llvm.loop !14
+  br i1 %exitcond.not.i, label %Map_CanonComputeSlow.exit, label %13, !llvm.loop !12
 
 61:                                               ; preds = %6
   %62 = icmp slt i32 %2, 5
@@ -357,10 +357,10 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %67 = load ptr, ptr %66, align 8, !tbaa !15
+  %67 = load ptr, ptr %66, align 8, !tbaa !13
   %68 = zext nneg i32 %64 to i64
   %69 = getelementptr inbounds nuw i16, ptr %67, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !31
+  %70 = load i16, ptr %69, align 2, !tbaa !29
   %71 = zext i16 %70 to i32
   %72 = shl nuw i32 %71, 16
   %73 = or disjoint i32 %72, %71
@@ -368,9 +368,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %73, ptr %74, align 4, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1800
-  %76 = load ptr, ptr %75, align 8, !tbaa !33
+  %76 = load ptr, ptr %75, align 8, !tbaa !31
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %68
-  %78 = load ptr, ptr %77, align 8, !tbaa !34
+  %78 = load ptr, ptr %77, align 8, !tbaa !32
   %79 = load i8, ptr %78, align 1, !tbaa !9
   br label %Map_CanonComputeSlow.exit.sink.split
 
@@ -381,16 +381,16 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %85 = load ptr, ptr %84, align 8, !tbaa !15
+  %85 = load ptr, ptr %84, align 8, !tbaa !13
   %86 = zext nneg i32 %64 to i64
   %87 = getelementptr inbounds nuw i16, ptr %85, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !31
+  %88 = load i16, ptr %87, align 2, !tbaa !29
   %89 = zext i16 %88 to i32
   store i32 %89, ptr %5, align 4, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %89, ptr %90, align 4, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %92 = load ptr, ptr %91, align 8, !tbaa !35
+  %92 = load ptr, ptr %91, align 8, !tbaa !33
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %86
   %94 = load i8, ptr %93, align 1, !tbaa !9
   %narrow140 = tail call i8 @llvm.smin.i8(i8 %94, i8 4)
@@ -405,33 +405,33 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 97:                                               ; preds = %.lr.ph160, %97
   %indvars.iv168 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next169, %97 ]
-  %98 = load ptr, ptr %96, align 8, !tbaa !33
+  %98 = load ptr, ptr %96, align 8, !tbaa !31
   %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %86
-  %100 = load ptr, ptr %99, align 8, !tbaa !34
+  %100 = load ptr, ptr %99, align 8, !tbaa !32
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv168
   %102 = load i8, ptr %101, align 1, !tbaa !9
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv168
   store i8 %102, ptr %103, align 1, !tbaa !9
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %97, !llvm.loop !36
+  br i1 %exitcond172.not, label %Map_CanonComputeSlow.exit, label %97, !llvm.loop !34
 
 104:                                              ; preds = %80
   %105 = icmp eq i32 %64, 0
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %107 = load ptr, ptr %106, align 8, !tbaa !15
+  %107 = load ptr, ptr %106, align 8, !tbaa !13
   br i1 %105, label %108, label %128
 
 108:                                              ; preds = %104
   %109 = zext nneg i32 %81 to i64
   %110 = getelementptr inbounds nuw i16, ptr %107, i64 %109
-  %111 = load i16, ptr %110, align 2, !tbaa !31
+  %111 = load i16, ptr %110, align 2, !tbaa !29
   %112 = zext i16 %111 to i32
   store i32 %112, ptr %5, align 4, !tbaa !3
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %112, ptr %113, align 4, !tbaa !3
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %115 = load ptr, ptr %114, align 8, !tbaa !35
+  %115 = load ptr, ptr %114, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %109
   %117 = load i8, ptr %116, align 1, !tbaa !9
   %narrow = tail call i8 @llvm.smin.i8(i8 %117, i8 4)
@@ -446,9 +446,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 120:                                              ; preds = %.lr.ph157, %120
   %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %120 ]
-  %121 = load ptr, ptr %119, align 8, !tbaa !33
+  %121 = load ptr, ptr %119, align 8, !tbaa !31
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %109
-  %123 = load ptr, ptr %122, align 8, !tbaa !34
+  %123 = load ptr, ptr %122, align 8, !tbaa !32
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv165
   %125 = load i8, ptr %124, align 1, !tbaa !9
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv165
@@ -456,20 +456,20 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   store i8 %127, ptr %126, align 1, !tbaa !9
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
-  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %120, !llvm.loop !37
+  br i1 %exitcond.not, label %Map_CanonComputeSlow.exit, label %120, !llvm.loop !35
 
 128:                                              ; preds = %104
   %129 = zext nneg i32 %64 to i64
   %130 = getelementptr inbounds nuw i16, ptr %107, i64 %129
-  %131 = load i16, ptr %130, align 2, !tbaa !31
+  %131 = load i16, ptr %130, align 2, !tbaa !29
   %132 = zext i16 %131 to i32
   %133 = zext nneg i32 %81 to i64
   %134 = getelementptr inbounds nuw i16, ptr %107, i64 %133
-  %135 = load i16, ptr %134, align 2, !tbaa !31
+  %135 = load i16, ptr %134, align 2, !tbaa !29
   %136 = zext i16 %135 to i32
   %.not = icmp ult i16 %131, %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %138 = load ptr, ptr %137, align 8, !tbaa !35
+  %138 = load ptr, ptr %137, align 8, !tbaa !33
   br i1 %.not, label %.preheader, label %.preheader143
 
 .preheader143:                                    ; preds = %128
@@ -496,9 +496,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %.0117145 = phi i8 [ 16, %.lr.ph ], [ %.1118, %162 ]
   %.0121144 = phi i32 [ -1, %.lr.ph ], [ %.1122, %162 ]
-  %148 = load ptr, ptr %142, align 8, !tbaa !33
+  %148 = load ptr, ptr %142, align 8, !tbaa !31
   %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %133
-  %150 = load ptr, ptr %149, align 8, !tbaa !34
+  %150 = load ptr, ptr %149, align 8, !tbaa !32
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv
   %152 = load i8, ptr %151, align 1, !tbaa !9
   %153 = sext i8 %152 to i32
@@ -507,9 +507,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %147
-  %157 = load ptr, ptr %142, align 8, !tbaa !33
+  %157 = load ptr, ptr %142, align 8, !tbaa !31
   %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %133
-  %159 = load ptr, ptr %158, align 8, !tbaa !34
+  %159 = load ptr, ptr %158, align 8, !tbaa !32
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !9
   br label %162
@@ -518,12 +518,12 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %.1122 = phi i32 [ %154, %156 ], [ %.0121144, %147 ]
   %.1118 = phi i8 [ %161, %156 ], [ %.0117145, %147 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load ptr, ptr %137, align 8, !tbaa !35
+  %163 = load ptr, ptr %137, align 8, !tbaa !33
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %133
   %165 = load i8, ptr %164, align 1, !tbaa !9
   %166 = sext i8 %165 to i64
   %167 = icmp slt i64 %indvars.iv.next, %166
-  br i1 %167, label %147, label %._crit_edge, !llvm.loop !38
+  br i1 %167, label %147, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %162, %.preheader143
   %.0121.lcssa = phi i32 [ -1, %.preheader143 ], [ %.1122, %162 ]
@@ -539,9 +539,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %indvars.iv163 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next164, %186 ]
   %.2119149 = phi i8 [ 16, %.lr.ph151 ], [ %.3120, %186 ]
   %.2123148 = phi i32 [ -1, %.lr.ph151 ], [ %.3124, %186 ]
-  %172 = load ptr, ptr %146, align 8, !tbaa !33
+  %172 = load ptr, ptr %146, align 8, !tbaa !31
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %129
-  %174 = load ptr, ptr %173, align 8, !tbaa !34
+  %174 = load ptr, ptr %173, align 8, !tbaa !32
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv163
   %176 = load i8, ptr %175, align 1, !tbaa !9
   %177 = sext i8 %176 to i32
@@ -550,9 +550,9 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   br i1 %179, label %180, label %186
 
 180:                                              ; preds = %171
-  %181 = load ptr, ptr %146, align 8, !tbaa !33
+  %181 = load ptr, ptr %146, align 8, !tbaa !31
   %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %129
-  %183 = load ptr, ptr %182, align 8, !tbaa !34
+  %183 = load ptr, ptr %182, align 8, !tbaa !32
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv163
   %185 = load i8, ptr %184, align 1, !tbaa !9
   br label %186
@@ -561,12 +561,12 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %.3124 = phi i32 [ %178, %180 ], [ %.2123148, %171 ]
   %.3120 = phi i8 [ %185, %180 ], [ %.2119149, %171 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %187 = load ptr, ptr %137, align 8, !tbaa !35
+  %187 = load ptr, ptr %137, align 8, !tbaa !33
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %129
   %189 = load i8, ptr %188, align 1, !tbaa !9
   %190 = sext i8 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next164, %190
-  br i1 %191, label %171, label %._crit_edge152.loopexit, !llvm.loop !39
+  br i1 %191, label %171, label %._crit_edge152.loopexit, !llvm.loop !37
 
 ._crit_edge152.loopexit:                          ; preds = %186
   %192 = or i8 %.3120, 16
@@ -618,33 +618,31 @@ attributes #4 = { nounwind }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = !{!16, !28, i64 1792}
-!16 = !{!"Map_ManStruct_t_", !17, i64 0, !4, i64 8, !17, i64 16, !4, i64 24, !17, i64 32, !4, i64 40, !4, i64 44, !19, i64 48, !20, i64 56, !20, i64 64, !21, i64 72, !22, i64 80, !23, i64 88, !23, i64 96, !24, i64 104, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !25, i64 128, !25, i64 132, !25, i64 136, !25, i64 140, !4, i64 144, !4, i64 148, !25, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !4, i64 168, !26, i64 176, !5, i64 184, !5, i64 232, !5, i64 1512, !5, i64 1640, !20, i64 1768, !27, i64 1776, !27, i64 1784, !28, i64 1792, !22, i64 1800, !29, i64 1808, !4, i64 1816, !4, i64 1820, !4, i64 1824, !4, i64 1828, !4, i64 1832, !4, i64 1836, !30, i64 1840, !30, i64 1848, !30, i64 1856, !30, i64 1864, !30, i64 1872, !30, i64 1880, !30, i64 1888, !30, i64 1896, !30, i64 1904, !30, i64 1912, !30, i64 1920}
-!17 = !{!"p2 _ZTS17Map_NodeStruct_t_", !18, i64 0}
-!18 = !{!"any pointer", !5, i64 0}
-!19 = !{!"p1 _ZTS17Map_NodeStruct_t_", !18, i64 0}
-!20 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !18, i64 0}
-!21 = !{!"p1 float", !18, i64 0}
-!22 = !{!"p2 omnipotent char", !18, i64 0}
-!23 = !{!"p1 _ZTS17Map_TimeStruct_t_", !18, i64 0}
-!24 = !{!"p1 int", !18, i64 0}
-!25 = !{!"float", !5, i64 0}
-!26 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !18, i64 0}
-!27 = !{!"p1 _ZTS16Extra_MmFixed_t_", !18, i64 0}
-!28 = !{!"p1 short", !18, i64 0}
-!29 = !{!"p1 omnipotent char", !18, i64 0}
-!30 = !{!"long", !5, i64 0}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"short", !5, i64 0}
-!33 = !{!16, !22, i64 1800}
-!34 = !{!29, !29, i64 0}
-!35 = !{!16, !29, i64 1808}
+!13 = !{!14, !26, i64 1792}
+!14 = !{!"Map_ManStruct_t_", !15, i64 0, !4, i64 8, !15, i64 16, !4, i64 24, !15, i64 32, !4, i64 40, !4, i64 44, !17, i64 48, !18, i64 56, !18, i64 64, !19, i64 72, !20, i64 80, !21, i64 88, !21, i64 96, !22, i64 104, !4, i64 112, !4, i64 116, !4, i64 120, !4, i64 124, !23, i64 128, !23, i64 132, !23, i64 136, !23, i64 140, !4, i64 144, !4, i64 148, !23, i64 152, !4, i64 156, !4, i64 160, !4, i64 164, !4, i64 168, !24, i64 176, !5, i64 184, !5, i64 232, !5, i64 1512, !5, i64 1640, !18, i64 1768, !25, i64 1776, !25, i64 1784, !26, i64 1792, !20, i64 1800, !27, i64 1808, !4, i64 1816, !4, i64 1820, !4, i64 1824, !4, i64 1828, !4, i64 1832, !4, i64 1836, !28, i64 1840, !28, i64 1848, !28, i64 1856, !28, i64 1864, !28, i64 1872, !28, i64 1880, !28, i64 1888, !28, i64 1896, !28, i64 1904, !28, i64 1912, !28, i64 1920}
+!15 = !{!"p2 _ZTS17Map_NodeStruct_t_", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!"p1 _ZTS17Map_NodeStruct_t_", !16, i64 0}
+!18 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !16, i64 0}
+!19 = !{!"p1 float", !16, i64 0}
+!20 = !{!"p2 omnipotent char", !16, i64 0}
+!21 = !{!"p1 _ZTS17Map_TimeStruct_t_", !16, i64 0}
+!22 = !{!"p1 int", !16, i64 0}
+!23 = !{!"float", !5, i64 0}
+!24 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !16, i64 0}
+!25 = !{!"p1 _ZTS16Extra_MmFixed_t_", !16, i64 0}
+!26 = !{!"p1 short", !16, i64 0}
+!27 = !{!"p1 omnipotent char", !16, i64 0}
+!28 = !{!"long", !5, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"short", !5, i64 0}
+!31 = !{!14, !20, i64 1800}
+!32 = !{!27, !27, i64 0}
+!33 = !{!14, !27, i64 1808}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}

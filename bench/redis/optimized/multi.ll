@@ -1137,27 +1137,27 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   call void @listRewind(ptr noundef nonnull %21, ptr noundef nonnull %3) #10
   %23 = call ptr @listNext(ptr noundef nonnull %3) #10
   %.not3743.us = icmp eq ptr %23, null
-  br i1 %.not3743.us, label %.critedge.us, label %.lr.ph.us
+  br i1 %.not3743.us, label %.critedge.us, label %.lr.ph.split.us.split.us49
 
 .critedge.us:                                     ; preds = %37, %.lr.ph45.split.us, %22, %20
   %24 = call ptr @dictNext(ptr noundef %13) #10
   %.not.us = icmp eq ptr %24, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph45.split.us, !llvm.loop !103
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph45.split.us
 
-.lr.ph.us:                                        ; preds = %22, %37
+.lr.ph.split.us.split.us49:                       ; preds = %22, %37
   %25 = phi ptr [ %38, %37 ], [ %23, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 1
-  %.not38.us.us = icmp eq i8 %28, 0
-  br i1 %.not38.us.us, label %31, label %29
+  %.not38.us.us46 = icmp eq i8 %28, 0
+  br i1 %.not38.us.us46, label %31, label %29
 
-29:                                               ; preds = %.lr.ph.us
+29:                                               ; preds = %.lr.ph.split.us.split.us49
   %30 = and i8 %27, -2
   store i8 %30, ptr %26, align 8
-  br label %37, !llvm.loop !105
+  br label %37, !llvm.loop !103
 
-31:                                               ; preds = %.lr.ph.us
+31:                                               ; preds = %.lr.ph.split.us.split.us49
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !97
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1168,8 +1168,8 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
 
 37:                                               ; preds = %31, %29
   %38 = call ptr @listNext(ptr noundef nonnull %3) #10
-  %.not37.us.us = icmp eq ptr %38, null
-  br i1 %.not37.us.us, label %.critedge.us, label %.lr.ph.us, !llvm.loop !106
+  %.not37.us.us47 = icmp eq ptr %38, null
+  br i1 %.not37.us.us47, label %.critedge.us, label %.lr.ph.split.us.split.us49
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45, %.critedge
   %39 = phi ptr [ %77, %.critedge ], [ %14, %.lr.ph45 ]
@@ -1215,12 +1215,12 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %59 = load i8, ptr %52, align 8
   %60 = and i8 %59, -2
   store i8 %60, ptr %52, align 8
-  br label %75, !llvm.loop !105
+  br label %75, !llvm.loop !103
 
 61:                                               ; preds = %55
   %62 = call i32 @keyIsExpired(ptr noundef nonnull %1, ptr noundef nonnull %40) #10
   %.not42 = icmp eq i32 %62, 0
-  br i1 %.not42, label %69, label %75, !llvm.loop !105
+  br i1 %.not42, label %69, label %75, !llvm.loop !103
 
 63:                                               ; preds = %.lr.ph
   br i1 %.not33, label %64, label %69
@@ -1234,7 +1234,7 @@ define dso_local void @touchAllWatchedKeysInDb(ptr noundef %0, ptr noundef %1) l
   %67 = load i8, ptr %52, align 8
   %68 = or i8 %67, 1
   store i8 %68, ptr %52, align 8
-  br label %75, !llvm.loop !105
+  br label %75, !llvm.loop !103
 
 69:                                               ; preds = %63, %64, %61
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 40
@@ -1316,7 +1316,7 @@ define dso_local void @watchCommand(ptr noundef %0) local_unnamed_addr #1 {
   %18 = load i32, ptr %8, align 8, !tbaa !41
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %14, label %._crit_edge, !llvm.loop !107
+  br i1 %20, label %14, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %21 = load ptr, ptr @shared, align 8, !tbaa !81
@@ -1488,8 +1488,5 @@ attributes #13 = { noreturn nounwind }
 !100 = !{!"redisObject", !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 4, !11, i64 8}
 !101 = distinct !{!101, !36}
 !102 = distinct !{!102, !36}
-!103 = distinct !{!103, !104}
-!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!105 = distinct !{!105, !36}
-!106 = distinct !{!106, !104}
-!107 = distinct !{!107, !36}
+!103 = distinct !{!103, !36}
+!104 = distinct !{!104, !36}

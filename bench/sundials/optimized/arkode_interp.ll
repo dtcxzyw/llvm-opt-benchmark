@@ -2119,7 +2119,7 @@ LBasis.exit:                                      ; preds = %47, %56
   %.127.us.i = phi double [ %.02634.us.i, %.lr.ph36.split.us.i ], [ %74, %._crit_edge.us.i ]
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i100, label %.lr.ph36.split.us.i, !llvm.loop !60
+  br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i100, label %.lr.ph36.split.us.i
 
 ._crit_edge.us.i:                                 ; preds = %68
   %70 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i
@@ -2162,7 +2162,7 @@ LBasis.exit:                                      ; preds = %47, %56
   %.127.us.i111 = phi double [ %.02634.us.i102, %.lr.ph36.split.us.i100 ], [ %91, %._crit_edge.us.i110 ]
   %indvars.iv.next42.i112 = add nuw nsw i64 %indvars.iv41.i101, 1
   %exitcond45.not.i113 = icmp eq i64 %indvars.iv.next42.i112, %wide.trip.count44.i
-  br i1 %exitcond45.not.i113, label %LBasis.exit93, label %.lr.ph36.split.us.i100, !llvm.loop !60
+  br i1 %exitcond45.not.i113, label %LBasis.exit93, label %.lr.ph36.split.us.i100
 
 ._crit_edge.us.i110:                              ; preds = %85
   %87 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i101
@@ -2274,7 +2274,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   %.142.us.us.i.us = phi double [ %.04155.us.us.i.us, %.preheader51.us.i.us ], [ %122, %._crit_edge.us.us.i.us ]
   %indvars.iv.next65.i.us = add nuw nsw i64 %indvars.iv64.i.us, 1
   %exitcond68.not.i.us = icmp eq i64 %indvars.iv.next65.i.us, %wide.trip.count72.i
-  br i1 %exitcond68.not.i.us, label %._crit_edge57.split.us.us.i.us, label %.preheader51.us.i.us, !llvm.loop !62
+  br i1 %exitcond68.not.i.us, label %._crit_edge57.split.us.us.i.us, label %.preheader51.us.i.us
 
 ._crit_edge57.split.us.us.i.us:                   ; preds = %123
   %124 = load double, ptr %101, align 8, !tbaa !47
@@ -2289,14 +2289,14 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   %.144.us.i.us = phi double [ %.04360.us.i.us, %.lr.ph.split.us.i.us ], [ %129, %._crit_edge57.split.us.us.i.us ]
   %indvars.iv.next70.i.us = add nuw nsw i64 %indvars.iv69.i.us, 1
   %exitcond73.not.i.us = icmp eq i64 %indvars.iv.next70.i.us, %wide.trip.count72.i
-  br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us, !llvm.loop !63
+  br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us
 
 LBasisD2.exit.loopexit.us:                        ; preds = %130
   %131 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv180
   store double %.144.us.i.us, ptr %131, align 8, !tbaa !47
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph.split.us.preheader.i.us, !llvm.loop !64
+  br i1 %exitcond184.not, label %.loopexit, label %.lr.ph.split.us.preheader.i.us
 
 .preheader147:                                    ; preds = %._crit_edge
   br i1 %.not154, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us.preheader
@@ -2354,14 +2354,14 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   %.127.us.i138.us = phi double [ %.02634.us.i129.us, %.lr.ph36.split.us.i127.us ], [ %150, %._crit_edge.us.i137.us ]
   %indvars.iv.next42.i139.us = add nuw nsw i64 %indvars.iv41.i128.us, 1
   %exitcond45.not.i140.us = icmp eq i64 %indvars.iv.next42.i139.us, %wide.trip.count44.i126
-  br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us, !llvm.loop !60
+  br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us
 
 LBasisD.exit141.loopexit.us:                      ; preds = %151
   %152 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %indvars.iv185
   store double %.127.us.i138.us, ptr %152, align 8, !tbaa !47
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
-  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us, !llvm.loop !65
+  br i1 %exitcond189.not, label %.loopexit, label %.lr.ph36.split.us.preheader.i125.us
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %.not154, label %.loopexit, label %.lr.ph.i116.us.preheader
@@ -2403,7 +2403,7 @@ LBasis.exit123.loopexit.us:                       ; preds = %164
   store double %.1.i120.us, ptr %165, align 8, !tbaa !47
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph.i116.us, !llvm.loop !66
+  br i1 %exitcond194.not, label %.loopexit, label %.lr.ph.i116.us
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv175 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next176, %.lr.ph158 ]
@@ -2531,7 +2531,7 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
   %.127.us = phi double [ %.02634.us, %.lr.ph36.split.us ], [ %33, %._crit_edge.us ]
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge37, label %.lr.ph36.split.us, !llvm.loop !60
+  br i1 %exitcond45.not, label %._crit_edge37, label %.lr.ph36.split.us
 
 ._crit_edge.us:                                   ; preds = %24
   %26 = load ptr, ptr %8, align 8, !tbaa !58
@@ -2574,7 +2574,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.144.us = phi double [ %.04360.us, %.lr.ph.split.us ], [ %45, %._crit_edge57.split.us.us ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us
 
 .preheader51.us:                                  ; preds = %.lr.ph.split.us, %29
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %29 ], [ 0, %.lr.ph.split.us ]
@@ -2616,7 +2616,7 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.142.us.us = phi double [ %.04155.us.us, %.preheader51.us ], [ %37, %._crit_edge.us.us ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count72
-  br i1 %exitcond68.not, label %._crit_edge57.split.us.us, label %.preheader51.us, !llvm.loop !62
+  br i1 %exitcond68.not, label %._crit_edge57.split.us.us, label %.preheader51.us
 
 ._crit_edge.us.us:                                ; preds = %28
   %30 = load ptr, ptr %8, align 8, !tbaa !58
@@ -2670,7 +2670,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.163.us = phi double [ %.06287.us, %.lr.ph88.split.us ], [ %58, %._crit_edge.split.us.us ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph88.split.us, !llvm.loop !67
+  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph88.split.us
 
 .preheader75.us:                                  ; preds = %.lr.ph88.split.us, %15
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %15 ], [ 0, %.lr.ph88.split.us ]
@@ -2684,7 +2684,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.161.us.us = phi double [ %.06084.us.us, %.preheader75.us ], [ %50, %._crit_edge81.split.us.us.us ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
-  br i1 %exitcond101.not, label %._crit_edge.split.us.us, label %.preheader75.us, !llvm.loop !68
+  br i1 %exitcond101.not, label %._crit_edge.split.us.us, label %.preheader75.us
 
 .preheader74.us.us:                               ; preds = %.preheader75.us, %34
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %34 ], [ 0, %.preheader75.us ]
@@ -2730,7 +2730,7 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %.159.us.us.us = phi double [ %.05879.us.us.us, %.preheader74.us.us ], [ %42, %._crit_edge.us.us.us ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count105
-  br i1 %exitcond96.not, label %._crit_edge81.split.us.us.us, label %.preheader74.us.us, !llvm.loop !69
+  br i1 %exitcond96.not, label %._crit_edge81.split.us.us.us, label %.preheader74.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %33
   %35 = load ptr, ptr %8, align 8, !tbaa !58
@@ -2870,13 +2870,3 @@ attributes #15 = { nounwind allocsize(0) }
 !57 = !{!50, !20, i64 24}
 !58 = !{!50, !52, i64 16}
 !59 = !{!24, !21, i64 584}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !61}
-!63 = distinct !{!63, !61}
-!64 = distinct !{!64, !61}
-!65 = distinct !{!65, !61}
-!66 = distinct !{!66, !61}
-!67 = distinct !{!67, !61}
-!68 = distinct !{!68, !61}
-!69 = distinct !{!69, !61}

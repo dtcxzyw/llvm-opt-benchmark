@@ -7954,7 +7954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %18 = xor i32 %17, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !77
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %13, %.lr.ph.split.us.i.i ], [ %18, %.lr.ph.split.i.i ]
@@ -8013,7 +8013,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %
 46:                                               ; preds = %47
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !78
+  br i1 %exitcond.not.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !76
 
 47:                                               ; preds = %46, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %46 ]
@@ -8035,7 +8035,7 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i: ; preds = %47, %_ZN18Adap
   %56 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %26, !llvm.loop !79
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %26, !llvm.loop !77
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i, %.preheader.i.i.i, %46
   %58 = load ptr, ptr %2, align 8
@@ -8529,7 +8529,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #18
   %24 = load i32, ptr %10, align 4
   %25 = icmp eq i32 %24, 3
-  br i1 %25, label %._crit_edge, label %14, !llvm.loop !80
+  br i1 %25, label %._crit_edge, label %14, !llvm.loop !78
 
 26:                                               ; preds = %._crit_edge
   %27 = add nsw i32 %.1.lcssa, 1
@@ -8590,7 +8590,7 @@ define hidden noundef ptr @_ZN13SharedRuntime21find_callee_argumentsEP6SymbolbbP
   store ptr %.034, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !81
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph41, !llvm.loop !79
 
 .loopexit:                                        ; preds = %54, %30
   store i32 %.3, ptr %3, align 4
@@ -8613,7 +8613,7 @@ define hidden noundef ptr @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread
   %4 = alloca %class.frame, align 8
   tail call void @_ZN17StackWatermarkSet13before_unwindEP10JavaThread(ptr noundef %0) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18, !noalias !82
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #18, !noalias !80
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %0) #18
   %6 = call noundef ptr @_ZNK5frame29interpreter_frame_monitor_endEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %7 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
@@ -8631,7 +8631,7 @@ define hidden noundef ptr @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread
   %12 = call noundef ptr @_ZNK5frame33next_monitor_in_interpreter_frameEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.03235) #18
   %13 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %14 = icmp ult ptr %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !85
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !83
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = shl nuw nsw i32 %spec.select, 1
@@ -8779,19 +8779,19 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %._crit_edge, %5
   %85 = call noundef ptr @_ZNK5frame33next_monitor_in_interpreter_frameEP15BasicObjectLock(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.02938) #18
   %86 = call noundef ptr @_ZNK5frame31interpreter_frame_monitor_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
   %87 = icmp ult ptr %85, %86
-  br i1 %87, label %.lr.ph40, label %._crit_edge41, !llvm.loop !86
+  br i1 %87, label %.lr.ph40, label %._crit_edge41, !llvm.loop !84
 
 ._crit_edge41:                                    ; preds = %84, %_ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #18
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %3)
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 4981
-  %89 = load i8, ptr %88, align 1, !noalias !87
+  %89 = load i8, ptr %88, align 1, !noalias !85
   %90 = trunc i8 %89 to i1
   br i1 %90, label %91, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 91:                                               ; preds = %._crit_edge41
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 4968
-  %93 = load ptr, ptr %92, align 8, !noalias !87
+  %93 = load ptr, ptr %92, align 8, !noalias !85
   %94 = icmp eq ptr %93, null
   br i1 %94, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -8802,7 +8802,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %91
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %91
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 4960
-  %97 = load ptr, ptr %96, align 8, !noalias !87
+  %97 = load ptr, ptr %96, align 8, !noalias !85
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(56) %4) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -8897,7 +8897,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   %13 = add nsw i32 %.119.i, -1
   %.011.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !90
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !88
 
 ._crit_edge.i:                                    ; preds = %11, %.preheader.i
   %.1 = phi i1 [ %.0, %.preheader.i ], [ true, %11 ]
@@ -8906,7 +8906,7 @@ define hidden noundef zeroext i1 @_ZN21AdapterHandlerLibrary8containsEPK8CodeBlo
   %14 = icmp sgt i32 %.1.lcssa.i, 0
   %15 = icmp samesign ult i64 %.0.idx22.i, 2336
   %or.cond.i = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !91
+  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !89
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary8containsEPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %1
   %.2 = phi i1 [ false, %1 ], [ false, %.lr.ph.i ], [ %.1, %._crit_edge.i ]
@@ -8947,7 +8947,7 @@ define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStream
   %15 = add nsw i32 %.117.i, -1
   %.011.i = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !92
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %13, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.01219.i, %.preheader.i ], [ %15, %13 ]
@@ -8955,7 +8955,7 @@ define hidden void @_ZN21AdapterHandlerLibrary16print_handler_onEP12outputStream
   %16 = icmp sgt i32 %.1.lcssa.i, 0
   %17 = icmp samesign ult i64 %.0.idx20.i, 2336
   %or.cond.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !93
+  br i1 %or.cond.i, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit", !llvm.loop !91
 
 "_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE7iterateIZN21AdapterHandlerLibrary16print_handler_onEP12outputStreamPK8CodeBlobE3$_0EEvT_.exit": ; preds = %._crit_edge.i, %.lr.ph.i, %2
   ret void
@@ -9196,7 +9196,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
   %.2 = phi i1 [ %.141, %.lr.ph ], [ %spec.select28, %72 ]
   %79 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.042) #18
   %.not25 = icmp eq ptr %79, null
-  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 .loopexit:                                        ; preds = %78
   br i1 %.2, label %80, label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
@@ -9224,12 +9224,12 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
 _ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit: ; preds = %57, %68, %_ZNK5frame20is_interpreted_frameEv.exit.thread, %64, %55, %84, %80, %.loopexit, %_ZNK5frame14is_first_frameEv.exit.thread
   %.120 = phi i32 [ %.019, %.loopexit ], [ %.019, %_ZNK5frame14is_first_frameEv.exit.thread ], [ %82, %80 ], [ %82, %84 ], [ %.019, %55 ], [ %.019, %64 ], [ %.019, %_ZNK5frame20is_interpreted_frameEv.exit.thread ], [ %.019, %68 ], [ %.019, %57 ]
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %4)
-  %86 = load i8, ptr %28, align 1, !noalias !95
+  %86 = load i8, ptr %28, align 1, !noalias !93
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 88:                                               ; preds = %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
-  %89 = load ptr, ptr %29, align 8, !noalias !95
+  %89 = load ptr, ptr %29, align 8, !noalias !93
   %90 = icmp eq ptr %89, null
   br i1 %90, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -9239,13 +9239,13 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %88
   br i1 %.not.i31, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %88
-  %92 = load ptr, ptr %30, align 8, !noalias !95
+  %92 = load ptr, ptr %30, align 8, !noalias !93
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(56) %6) #18
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
 _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit, %_ZNK11RegisterMap7in_contEv.exit.i, %_ZNK11RegisterMap7in_contEv.exit.thread.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
-  br label %31, !llvm.loop !98
+  br label %31, !llvm.loop !96
 
 _ZNK5frame14is_first_frameEv.exit.thread35:       ; preds = %35, %_ZNK5frame14is_first_frameEv.exit
   %93 = load ptr, ptr %10, align 8
@@ -9694,28 +9694,28 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %11 = ptrtoint ptr %7 to i64
-  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !99
+  %12 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !97
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %13, %11
   %15 = inttoptr i64 %14 to ptr
-  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !99
+  %16 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !97
   %17 = sext i32 %16 to i64
   %18 = add nsw i64 %17, %11
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 4, !noalias !99
+  %20 = load i32, ptr %19, align 4, !noalias !97
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i64, ptr %15, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !99
+  %24 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !97
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !noalias !99
+  %26 = load ptr, ptr %25, align 8, !noalias !97
   %.not.i.i.i.i.i.i.i = icmp ule ptr %26, %.sroa.2.0.copyload.i
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %28 = load i32, ptr %27, align 4, !noalias !99
+  %28 = load i32, ptr %27, align 4, !noalias !97
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   %31 = icmp ult ptr %.sroa.2.0.copyload.i, %30
@@ -9762,28 +9762,28 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0.copyload.i13 = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
   %48 = ptrtoint ptr %47 to i64
-  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !102
+  %49 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !100
   %50 = sext i32 %49 to i64
   %51 = add nsw i64 %50, %48
   %52 = inttoptr i64 %51 to ptr
-  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !102
+  %53 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !100
   %54 = sext i32 %53 to i64
   %55 = add nsw i64 %54, %48
   %56 = inttoptr i64 %55 to ptr
-  %57 = load i32, ptr %56, align 4, !noalias !102
+  %57 = load i32, ptr %56, align 4, !noalias !100
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %52, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !102
+  %61 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !100
   %.not.i.i.i.i.i.i14 = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i.i14, label %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i15: ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8, !noalias !102
+  %63 = load ptr, ptr %62, align 8, !noalias !100
   %.not.i.i.i.i.i.i.i16 = icmp ule ptr %63, %.sroa.2.0.copyload.i9
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %65 = load i32, ptr %64, align 4, !noalias !102
+  %65 = load i32, ptr %64, align 4, !noalias !100
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
   %68 = icmp ult ptr %.sroa.2.0.copyload.i9, %67
@@ -9910,7 +9910,7 @@ define linkonce_odr hidden void @_ZN18vframeStreamCommon24fill_from_compiled_fra
   %44 = icmp ult i8 %39, -64
   %45 = icmp eq i64 %indvars.iv.next.i.i, 4
   %or.cond.i.i = or i1 %45, %44
-  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !105
+  br i1 %or.cond.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !103
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i
   %46 = trunc nsw i64 %37 to i32
@@ -9958,7 +9958,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %15, %.preheader.i.i
   %72 = icmp ult i8 %67, -64
   %73 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %73, %72
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !105
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !103
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %74 = trunc nsw i64 %65 to i32
@@ -10025,7 +10025,7 @@ _ZN19DebugInfoReadStream11read_methodEv.exit:     ; preds = %_ZN20CompressedRead
   %114 = icmp ult i8 %109, -64
   %115 = icmp eq i64 %indvars.iv.next.i.i.i10, 4
   %or.cond.i.i.i11 = or i1 %115, %114
-  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !105
+  br i1 %or.cond.i.i.i11, label %_ZN19DebugInfoReadStream8read_bciEv.exit, label %.lr.ph.i.i.i7, !llvm.loop !103
 
 _ZN19DebugInfoReadStream8read_bciEv.exit:         ; preds = %.lr.ph.i.i.i7, %_ZN19DebugInfoReadStream11read_methodEv.exit, %.preheader.i.i.i6
   %.0.i.i.i15 = phi i32 [ %96, %_ZN19DebugInfoReadStream11read_methodEv.exit ], [ %105, %.preheader.i.i.i6 ], [ %113, %.lr.ph.i.i.i7 ]
@@ -10109,7 +10109,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !106
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !104
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10125,7 +10125,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !107
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !105
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -10759,7 +10759,7 @@ _ZN24AdapterSignatureIterator7do_typeE9BasicType.exit: ; preds = %15, %22
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #18
   %28 = load i32, ptr %9, align 4
   %29 = icmp eq i32 %28, 3
-  br i1 %29, label %._crit_edge, label %15, !llvm.loop !108
+  br i1 %29, label %._crit_edge, label %15, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %_ZN24AdapterSignatureIterator7do_typeE9BasicType.exit, %7
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10812,7 +10812,7 @@ _ZN24AdapterSignatureIterator7do_typeE9BasicType.exit3: ; preds = %40, %48
   %55 = and i8 %54, 15
   %56 = lshr i64 %41, 4
   %.not = icmp eq i8 %55, 0
-  br i1 %.not, label %.loopexit, label %40, !llvm.loop !109
+  br i1 %.not, label %.loopexit, label %40, !llvm.loop !107
 
 .loopexit:                                        ; preds = %_ZN24AdapterSignatureIterator7do_typeE9BasicType.exit3, %33, %._crit_edge
   ret void
@@ -10860,7 +10860,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %17 = xor i32 %16, %.0.i8.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count18.i.i
-  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !77
+  br i1 %exitcond.not.i.i, label %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit, label %.lr.ph.split.i.i, !llvm.loop !75
 
 _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %2
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %12, %.lr.ph.split.us.i.i ], [ %17, %.lr.ph.split.i.i ]
@@ -10919,7 +10919,7 @@ _ZN18AdapterFingerPrint12compute_hashERKPS_.exit: ; preds = %.lr.ph.split.i.i, %
 46:                                               ; preds = %47
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !78
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %47, !llvm.loop !76
 
 47:                                               ; preds = %46, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %46 ]
@@ -10941,7 +10941,7 @@ _ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i: ; preds = %47, %_ZN18Ad
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not.i.i8 = icmp eq ptr %57, null
-  br i1 %.not.i.i8, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %25, !llvm.loop !79
+  br i1 %.not.i.i8, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %25, !llvm.loop !77
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EP18AdapterFingerPrintP19AdapterHandlerEntryES2_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS4EXadL_ZNS1_12compute_hashERKS2_EEXadL_ZNS1_6equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %.preheader.i.i.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i, %46, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit
   %58 = phi ptr [ null, %_ZN18AdapterFingerPrint12compute_hashERKPS_.exit ], [ %26, %46 ], [ null, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.thread.i.i ], [ %26, %_ZN18AdapterFingerPrint6equalsERKPS_S2_.exit.i.i ], [ %26, %.preheader.i.i.i.i ]
@@ -11061,7 +11061,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !110
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !108
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #18
@@ -12377,39 +12377,37 @@ attributes #20 = { nounwind willreturn memory(read) }
 !72 = distinct !{!72, !24}
 !73 = distinct !{!73, !24}
 !74 = distinct !{!74, !24}
-!75 = distinct !{!75, !24, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !24}
+!76 = distinct !{!76, !24}
 !77 = distinct !{!77, !24}
 !78 = distinct !{!78, !24}
 !79 = distinct !{!79, !24}
-!80 = distinct !{!80, !24}
-!81 = distinct !{!81, !24}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!84 = distinct !{!84, !"_ZN10JavaThread10last_frameEv"}
-!85 = distinct !{!85, !24}
-!86 = distinct !{!86, !24}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!89 = distinct !{!89, !"_ZNK5frame6senderEP11RegisterMap"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!82 = distinct !{!82, !"_ZN10JavaThread10last_frameEv"}
+!83 = distinct !{!83, !24}
+!84 = distinct !{!84, !24}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!87 = distinct !{!87, !"_ZNK5frame6senderEP11RegisterMap"}
+!88 = distinct !{!88, !24}
+!89 = distinct !{!89, !24}
 !90 = distinct !{!90, !24}
 !91 = distinct !{!91, !24}
 !92 = distinct !{!92, !24}
-!93 = distinct !{!93, !24}
-!94 = distinct !{!94, !24}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!97 = distinct !{!97, !"_ZNK5frame6senderEP11RegisterMap"}
-!98 = distinct !{!98, !24}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
-!101 = distinct !{!101, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
-!104 = distinct !{!104, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!95 = distinct !{!95, !"_ZNK5frame6senderEP11RegisterMap"}
+!96 = distinct !{!96, !24}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
+!99 = distinct !{!99, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZNK17stackChunkOopDesc12derelativizeE5frame: argument 0"}
+!102 = distinct !{!102, !"_ZNK17stackChunkOopDesc12derelativizeE5frame"}
+!103 = distinct !{!103, !24}
+!104 = distinct !{!104, !24}
 !105 = distinct !{!105, !24}
 !106 = distinct !{!106, !24}
 !107 = distinct !{!107, !24}
-!108 = distinct !{!108, !24}
-!109 = distinct !{!109, !24}
-!110 = !{!"branch_weights", i32 1, i32 1048575}
+!108 = !{!"branch_weights", i32 1, i32 1048575}

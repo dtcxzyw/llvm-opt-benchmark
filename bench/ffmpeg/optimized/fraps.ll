@@ -763,7 +763,7 @@ get_vlc2.exit.us57:                               ; preds = %76, %56, %.lr.ph.sp
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, %37
   %121 = trunc nuw i64 %indvars.iv.next74 to i32
   %122 = icmp sgt i32 %32, %121
-  br i1 %122, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !66
+  br i1 %122, label %.lr.ph.split.us.us, label %._crit_edge.us, !llvm.loop !63
 
 123:                                              ; preds = %.lr.ph.split.us.us
   %124 = sext i16 %115 to i32
@@ -843,10 +843,10 @@ define internal i32 @huff_cmp(ptr noundef readonly captures(none) %0, ptr nounde
   %6 = load i32, ptr %5, align 4, !tbaa !55
   %7 = sub i32 %4, %6
   %8 = shl i32 %7, 8
-  %9 = load i16, ptr %0, align 4, !tbaa !67
+  %9 = load i16, ptr %0, align 4, !tbaa !65
   %10 = sext i16 %9 to i32
   %11 = add i32 %8, %10
-  %12 = load i16, ptr %1, align 4, !tbaa !67
+  %12 = load i16, ptr %1, align 4, !tbaa !65
   %13 = sext i16 %12 to i32
   %14 = sub i32 %11, %13
   ret i32 %14
@@ -940,7 +940,5 @@ attributes #7 = { nounwind }
 !61 = !{!"VLC", !10, i64 0, !62, i64 8, !10, i64 16, !10, i64 20}
 !62 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
 !63 = distinct !{!63, !40}
-!64 = distinct !{!64, !40, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = distinct !{!66, !40, !65}
-!67 = !{!56, !57, i64 0}
+!64 = distinct !{!64, !40}
+!65 = !{!56, !57, i64 0}

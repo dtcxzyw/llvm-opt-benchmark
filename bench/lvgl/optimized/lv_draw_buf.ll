@@ -1701,19 +1701,19 @@ switch.lookup:                                    ; preds = %10
   %indvars.iv = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next, %52 ]
   %.089110.us = phi ptr [ %.092112.us, %.preheader102.us ], [ %55, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.091113.us, i64 %indvars.iv
-  %54 = load i8, ptr %53, align 1, !tbaa !36
+  %54 = load i8, ptr %53, align 1, !tbaa !35
   tail call void @lv_color16_premultiply(ptr noundef %.089110.us, i8 noundef zeroext %54) #9
   %55 = getelementptr inbounds nuw i8, ptr %.089110.us, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond136.not, label %._crit_edge.us115, label %52, !llvm.loop !37
+  br i1 %exitcond136.not, label %._crit_edge.us115, label %52, !llvm.loop !36
 
 ._crit_edge.us115:                                ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.092112.us, i64 %45
   %57 = getelementptr inbounds nuw i8, ptr %.091113.us, i64 %46
   %58 = add nuw nsw i32 %.090114.us, 1
   %exitcond137.not = icmp eq i32 %58, %38
-  br i1 %exitcond137.not, label %.loopexit, label %.preheader102.us, !llvm.loop !38
+  br i1 %exitcond137.not, label %.loopexit, label %.preheader102.us, !llvm.loop !37
 
 59:                                               ; preds = %18
   %60 = lshr i64 %3, 48
@@ -1746,18 +1746,18 @@ switch.lookup:                                    ; preds = %10
   %.081107.us = phi i32 [ 0, %.preheader104.us ], [ %75, %71 ]
   %.082106.us = phi ptr [ %.084108.us, %.preheader104.us ], [ %74, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !36
+  %73 = load i8, ptr %72, align 1, !tbaa !35
   tail call void @lv_color16_premultiply(ptr noundef %.082106.us, i8 noundef zeroext %73) #9
   %74 = getelementptr inbounds nuw i8, ptr %.082106.us, i64 3
   %75 = add nuw nsw i32 %.081107.us, 1
   %exitcond.not = icmp eq i32 %75, %64
-  br i1 %exitcond.not, label %._crit_edge.us, label %71, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.us, label %71, !llvm.loop !38
 
 ._crit_edge.us:                                   ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %.084108.us, i64 %68
   %77 = add nuw nsw i32 %.083109.us, 1
   %exitcond134.not = icmp eq i32 %77, %61
-  br i1 %exitcond134.not, label %.loopexit, label %.preheader104.us, !llvm.loop !40
+  br i1 %exitcond134.not, label %.loopexit, label %.preheader104.us, !llvm.loop !39
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us115, %._crit_edge.us120, %.lr.ph, %.preheader104.lr.ph, %.preheader102.lr.ph, %.preheader100.lr.ph, %59, %36, %19, %12, %18
   %78 = load i64, ptr %0, align 8
@@ -1843,9 +1843,9 @@ define void @lv_draw_buf_from_image(ptr noundef %0, ptr noundef readonly capture
   %10 = lshr i32 %9, 8
   %11 = and i32 %10, 255
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !43
+  %15 = load i32, ptr %14, align 4, !tbaa !42
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %16
 
@@ -1956,7 +1956,7 @@ define void @lv_image_buf_free(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !41
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %6, label %5
 
@@ -2037,13 +2037,12 @@ attributes #9 = { nounwind }
 !31 = distinct !{!31, !26}
 !32 = distinct !{!32, !26}
 !33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = !{!6, !6, i64 0}
+!34 = distinct !{!34, !26}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !26}
 !37 = distinct !{!37, !26}
-!38 = distinct !{!38, !26, !35}
+!38 = distinct !{!38, !26}
 !39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26, !35}
-!41 = !{!42, !17, i64 16}
-!42 = !{!"", !15, i64 0, !16, i64 12, !17, i64 16, !5, i64 24}
-!43 = !{!42, !16, i64 12}
+!40 = !{!41, !17, i64 16}
+!41 = !{!"", !15, i64 0, !16, i64 12, !17, i64 16, !5, i64 24}
+!42 = !{!41, !16, i64 12}

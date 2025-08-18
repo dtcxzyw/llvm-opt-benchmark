@@ -456,7 +456,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.13 = phi i1 [ %.12150, %.split ], [ false, %228 ], [ false, %226 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next159, 5
-  br i1 %exitcond.not, label %.split152.us, label %.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.split152.us, label %.split, !llvm.loop !7
 
 .split152.us:                                     ; preds = %232, %221
   %.us-phi = phi i1 [ false, %221 ], [ %.13, %232 ]
@@ -522,6 +522,4 @@ attributes #5 = { cold nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
+!7 = distinct !{!7, !5}

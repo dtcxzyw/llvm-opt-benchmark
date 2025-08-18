@@ -32,13 +32,13 @@ define dso_local noundef ptr @curl_easy_option_by_name(ptr noundef %0) local_unn
 .preheader.split.i:                               ; preds = %1, %14
   %.014.i = phi ptr [ %15, %14 ], [ @Curl_easyopts, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !14
+  %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = icmp eq i32 %8, 327
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.preheader.split.i
   %11 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %12 = load i32, ptr %11, align 8, !tbaa !14
   %13 = and i32 %12, 1
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %lookup.exit, label %14
@@ -47,7 +47,7 @@ define dso_local noundef ptr @curl_easy_option_by_name(ptr noundef %0) local_unn
   %15 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %.not18.i = icmp eq ptr %16, null
-  br i1 %.not18.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !16
+  br i1 %.not18.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !11
 
 lookup.exit:                                      ; preds = %.preheader.split.us.i, %4, %10, %14
   %.1.i = phi ptr [ null, %14 ], [ %.014.i, %10 ], [ null, %4 ], [ %.014.us.i, %.preheader.split.us.i ]
@@ -62,13 +62,13 @@ define dso_local noundef ptr @curl_easy_option_by_id(i32 noundef %0) local_unnam
 .preheader.split.i:                               ; preds = %1, %9
   %.014.i = phi ptr [ %10, %9 ], [ @Curl_easyopts, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !14
+  %3 = load i32, ptr %2, align 8, !tbaa !13
   %4 = icmp eq i32 %3, %0
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %.preheader.split.i
   %6 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !15
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   %8 = and i32 %7, 1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %lookup.exit, label %9
@@ -77,7 +77,7 @@ define dso_local noundef ptr @curl_easy_option_by_id(i32 noundef %0) local_unnam
   %10 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %.not18.i = icmp eq ptr %11, null
-  br i1 %.not18.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !16
+  br i1 %.not18.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !11
 
 lookup.exit:                                      ; preds = %5, %9, %1
   %.1.i = phi ptr [ null, %1 ], [ null, %9 ], [ %.014.i, %5 ]
@@ -129,9 +129,7 @@ attributes #4 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!"int", !8, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = !{!5, !10, i64 8}
-!15 = !{!5, !10, i64 16}
-!16 = distinct !{!16, !12}
+!13 = !{!5, !10, i64 8}
+!14 = !{!5, !10, i64 16}

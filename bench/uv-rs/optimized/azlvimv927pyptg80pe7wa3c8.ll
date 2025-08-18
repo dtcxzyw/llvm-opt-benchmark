@@ -200,7 +200,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h26a021af10bb
   %69 = zext nneg i8 %.sroa.0.1.i.i to i64
   %70 = getelementptr i8, ptr %.sroa.567.0..sroa_idx, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -1
-  %.pre83.i = load i8, ptr %71, align 1, !alias.scope !16, !noalias !19
+  %.pre92.i = load i8, ptr %71, align 1, !alias.scope !16, !noalias !19
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %120, %68
@@ -223,7 +223,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h26a021af10bb
   %.sroa.01.05.i.i = phi i64 [ %80, %79 ], [ 0, %.preheader.i.i ]
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 %.sroa.01.05.i.i
   %77 = load i8, ptr %76, align 1, !alias.scope !21, !noalias !24, !noundef !10
-  %78 = icmp eq i8 %77, %.pre83.i
+  %78 = icmp eq i8 %77, %.pre92.i
   br i1 %78, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i, label %79
 
 79:                                               ; preds = %.lr.ph.i.i
@@ -232,7 +232,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h26a021af10bb
   br i1 %exitcond.not.i.i, label %.critedge, label %.lr.ph.i.i
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i: ; preds = %.lr.ph.split.split.i
-  %81 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.pre83.i, ptr noalias noundef nonnull readonly align 1 %74, i64 noundef %73)
+  %81 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.pre92.i, ptr noalias noundef nonnull readonly align 1 %74, i64 noundef %73)
           to label %.noexc37 unwind label %.loopexit
 
 .noexc37:                                         ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i
@@ -247,8 +247,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i: ; preds = %.lr
   %85 = add i64 %84, %.sroa.4.0.i26.i
   %.not12.i = icmp ult i64 %85, %69
   %.not13.i = icmp ugt i64 %85, %2
-  %or.cond93.i = or i1 %.not12.i, %.not13.i
-  br i1 %or.cond93.i, label %86, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he37128f11c76c63bE.exit.i"
+  %or.cond.i = or i1 %.not12.i, %.not13.i
+  br i1 %or.cond.i, label %86, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he37128f11c76c63bE.exit.i"
 
 86:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he37128f11c76c63bE.exit.i", %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i
   br i1 %.not13.i, label %.critedge, label %.lr.ph.split.split.i

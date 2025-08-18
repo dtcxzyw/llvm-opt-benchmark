@@ -3791,7 +3791,7 @@ define void @satoko_write_dimacs(ptr noundef readonly captures(none) %0, ptr nou
   %.val60 = load i32, ptr %61, align 4, !tbaa !117
   %62 = zext i32 %.val60 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !187
+  br i1 %63, label %.lr.ph.split, label %._crit_edge, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %59, %44, %25
   %64 = load ptr, ptr %8, align 8, !tbaa !44
@@ -3849,7 +3849,7 @@ clause_fetch.exit:                                ; preds = %69, %72
   %90 = load i32, ptr %78, align 4, !tbaa !104
   %91 = zext i32 %90 to i64
   %92 = icmp samesign ult i64 %indvars.iv.next.i, %91
-  br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !188
+  br i1 %92, label %81, label %._crit_edge.i, !llvm.loop !186
 
 ._crit_edge.i:                                    ; preds = %81, %clause_fetch.exit
   br i1 %.not52, label %93, label %95
@@ -3869,7 +3869,7 @@ clause_dump.exit:                                 ; preds = %93, %95
   %.val = load i32, ptr %97, align 4, !tbaa !101
   %98 = zext i32 %.val to i64
   %99 = icmp samesign ult i64 %indvars.iv.next97, %98
-  br i1 %99, label %69, label %._crit_edge84, !llvm.loop !189
+  br i1 %99, label %69, label %._crit_edge84, !llvm.loop !187
 
 ._crit_edge84:                                    ; preds = %clause_dump.exit, %._crit_edge
   br i1 %.not50, label %.loopexit, label %100
@@ -3929,7 +3929,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
   %126 = load i32, ptr %114, align 4, !tbaa !104
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %indvars.iv.next.i73, %127
-  br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !188
+  br i1 %128, label %117, label %._crit_edge.i74, !llvm.loop !186
 
 ._crit_edge.i74:                                  ; preds = %117, %clause_fetch.exit68
   br i1 %.not51, label %129, label %131
@@ -3945,7 +3945,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
 clause_dump.exit77:                               ; preds = %129, %131
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !190
+  br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !188
 
 .loopexit:                                        ; preds = %clause_dump.exit77, %100, %._crit_edge84
   %132 = tail call i32 @fclose(ptr noundef nonnull %.0)
@@ -3985,7 +3985,7 @@ define i32 @satoko_learntnum(ptr noundef readonly captures(none) %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @satoko_conflictnum(ptr noundef readonly captures(none) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %3 = load i64, ptr %2, align 8, !tbaa !191
+  %3 = load i64, ptr %2, align 8, !tbaa !189
   %4 = trunc i64 %3 to i32
   ret i32 %4
 }
@@ -4298,10 +4298,8 @@ attributes #31 = { nounwind allocsize(1) }
 !182 = !{!27, !9, i64 256}
 !183 = distinct !{!183, !90}
 !184 = distinct !{!184, !90}
-!185 = distinct !{!185, !90, !186}
-!186 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!185 = distinct !{!185, !90}
+!186 = distinct !{!186, !90}
 !187 = distinct !{!187, !90}
 !188 = distinct !{!188, !90}
-!189 = distinct !{!189, !90}
-!190 = distinct !{!190, !90}
-!191 = !{!37, !5, i64 48}
+!189 = !{!37, !5, i64 48}

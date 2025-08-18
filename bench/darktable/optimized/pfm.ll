@@ -375,7 +375,7 @@ define dso_local void @write_pfm(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = icmp samesign ult i64 %indvars.iv.next, %14
   %or.cond = select i1 %.not36.us, i1 %25, i1 false
-  br i1 %or.cond, label %.lr.ph.us, label %._crit_edge43, !llvm.loop !19
+  br i1 %or.cond, label %.lr.ph.us, label %._crit_edge43
 
 .lr.ph42.split:                                   ; preds = %.lr.ph42, %.lr.ph42.split
   %.03140 = phi i32 [ %28, %.lr.ph42.split ], [ 0, %.lr.ph42 ]
@@ -445,5 +445,3 @@ attributes #12 = { nounwind allocsize(0,1) }
 !16 = !{!"float", !10, i64 0}
 !17 = !{i64 2157549947}
 !18 = !{i64 2157550574}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}

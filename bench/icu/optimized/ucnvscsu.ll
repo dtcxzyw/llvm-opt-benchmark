@@ -575,7 +575,7 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   %182 = icmp ult ptr %181, %10
   %183 = icmp ult ptr %179, %14
   %or.cond273 = select i1 %182, i1 %183, i1 false
-  br i1 %or.cond273, label %.lr.ph, label %.critedge2, !llvm.loop !50
+  br i1 %or.cond273, label %.lr.ph, label %.critedge2, !llvm.loop !49
 
 .critedge2:                                       ; preds = %173, %.lr.ph, %.loopexit283, %165
   %.8236 = phi i8 [ %18, %165 ], [ 0, %.loopexit283 ], [ 0, %.lr.ph ], [ 0, %173 ]
@@ -648,7 +648,7 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   %.10238.us = phi i8 [ %.9237390.us, %.lr.ph393.split.us ], [ %.10238.us.ph, %.sink.split635 ]
   %.9227.us = phi i8 [ %.8226391.us, %.lr.ph393.split.us ], [ %.9227.us.ph, %.sink.split635 ]
   %exitcond.not = icmp eq ptr %188, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph393.split.us, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph393.split.us, !llvm.loop !50
 
 .lr.ph393.split:                                  ; preds = %.lr.ph393
   store i32 15, ptr %1, align 4, !tbaa !25
@@ -723,7 +723,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %18 = load i8, ptr %17, align 4, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 65
@@ -859,7 +859,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %78 = icmp ult ptr %36, %10
   %79 = icmp ult ptr %.3252, %14
   %or.cond = select i1 %78, i1 %79, i1 false
-  br i1 %or.cond, label %32, label %.critedge, !llvm.loop !53
+  br i1 %or.cond, label %32, label %.critedge, !llvm.loop !52
 
 .critedge.sink.split:                             ; preds = %236, %.split534.us
   %.3306.ph = phi i8 [ 6, %.split534.us ], [ 4, %236 ]
@@ -978,7 +978,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %.5289.us = phi i8 [ %.4288570.us, %.lr.ph574.split.us ], [ %.5289.us.ph, %.sink.split ]
   %.5280.us = phi i8 [ %.4279571.us, %.lr.ph574.split.us ], [ %.5280.us.ph, %.sink.split ]
   %exitcond728.not = icmp eq ptr %84, %10
-  br i1 %exitcond728.not, label %.loopexit, label %.lr.ph574.split.us, !llvm.loop !54
+  br i1 %exitcond728.not, label %.loopexit, label %.lr.ph574.split.us, !llvm.loop !53
 
 .lr.ph574.split:                                  ; preds = %.lr.ph574
   store i32 15, ptr %1, align 4, !tbaa !25
@@ -1224,7 +1224,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %219 = icmp ult ptr %218, %10
   %220 = icmp ult ptr %212, %14
   %or.cond374 = select i1 %219, i1 %220, i1 false
-  br i1 %or.cond374, label %.lr.ph, label %.critedge2, !llvm.loop !55
+  br i1 %or.cond374, label %.lr.ph, label %.critedge2, !llvm.loop !54
 
 .critedge2:                                       ; preds = %215, %.lr.ph, %.loopexit387, %198
   %.16 = phi ptr [ %16, %198 ], [ %.10331, %.loopexit387 ], [ %.18, %215 ], [ %.17503, %.lr.ph ]
@@ -1302,7 +1302,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   %.10313.us = phi i8 [ %.9312518.us, %.lr.ph522.split.us ], [ %.10313.us.ph, %.sink.split816 ]
   %.9302.us = phi i8 [ %.8301519.us, %.lr.ph522.split.us ], [ %.9302.us.ph, %.sink.split816 ]
   %exitcond.not = icmp eq ptr %225, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph522.split.us, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph522.split.us, !llvm.loop !55
 
 .lr.ph522.split:                                  ; preds = %.lr.ph522
   store i32 15, ptr %1, align 4, !tbaa !25
@@ -1366,7 +1366,7 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   store i8 %.2295, ptr %25, align 4, !tbaa !43
   store ptr %.3, ptr %7, align 8, !tbaa !36
   store ptr %.6255, ptr %11, align 8, !tbaa !38
-  store ptr %.7328, ptr %15, align 8, !tbaa !52
+  store ptr %.7328, ptr %15, align 8, !tbaa !51
   ret void
 }
 
@@ -1375,17 +1375,17 @@ define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UError
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !60
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !62
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
@@ -1516,7 +1516,7 @@ define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UError
 85:                                               ; preds = %.preheader468
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZL9getWindowPKjj.exit.thread.preheader, label %.preheader468, !llvm.loop !63
+  br i1 %exitcond.not.i, label %_ZL9getWindowPKjj.exit.thread.preheader, label %.preheader468, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit:                           ; preds = %.preheader468
   %86 = trunc i64 %indvars.iv.i to i8
@@ -1543,7 +1543,7 @@ _ZL9getWindowPKjj.exit.thread.preheader:          ; preds = %85, %_ZL9getWindowP
   %98 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !16
   %.not.i = icmp eq i8 %99, %86
-  br i1 %.not.i, label %100, label %94, !llvm.loop !64
+  br i1 %.not.i, label %100, label %94, !llvm.loop !63
 
 100:                                              ; preds = %94
   %101 = add nsw i32 %spec.store.select.i, 1
@@ -1567,7 +1567,7 @@ _ZL9getWindowPKjj.exit.thread.preheader:          ; preds = %85, %_ZL9getWindowP
   %110 = load i8, ptr %31, align 1, !tbaa !23
   %111 = sext i8 %110 to i32
   %.not20.i = icmp eq i32 %spec.store.select2.i, %111
-  br i1 %.not20.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not20.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %.lr.ph.i, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit:            ; preds = %.lr.ph.i, %100
   %.pre-phi.i = phi i64 [ %97, %100 ], [ %103, %.lr.ph.i ]
@@ -1592,7 +1592,7 @@ _ZL9getWindowPKjj.exit.thread:                    ; preds = %_ZL9getWindowPKjj.e
 122:                                              ; preds = %_ZL9getWindowPKjj.exit.thread
   %indvars.iv.next.i333 = add nuw nsw i64 %indvars.iv.i332, 1
   %exitcond.not.i334 = icmp eq i64 %indvars.iv.next.i333, 7
-  br i1 %exitcond.not.i334, label %123, label %_ZL9getWindowPKjj.exit.thread, !llvm.loop !66
+  br i1 %exitcond.not.i334, label %123, label %_ZL9getWindowPKjj.exit.thread, !llvm.loop !65
 
 123:                                              ; preds = %122
   %124 = icmp ult i32 %78, 128
@@ -1660,7 +1660,7 @@ _ZL16getDynamicOffsetjPj.exit.thread:             ; preds = %_ZL16getDynamicOffs
   %158 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !16
   %.not.i338 = icmp eq i8 %159, %148
-  br i1 %.not.i338, label %160, label %154, !llvm.loop !64
+  br i1 %.not.i338, label %160, label %154, !llvm.loop !63
 
 160:                                              ; preds = %154
   %161 = add nsw i32 %spec.store.select.i337, 1
@@ -1684,7 +1684,7 @@ _ZL16getDynamicOffsetjPj.exit.thread:             ; preds = %_ZL16getDynamicOffs
   %170 = load i8, ptr %31, align 1, !tbaa !23
   %171 = sext i8 %170 to i32
   %.not20.i345 = icmp eq i32 %spec.store.select2.i344, %171
-  br i1 %.not20.i345, label %_ZL16useDynamicWindowP8SCSUDataa.exit347, label %.lr.ph.i341, !llvm.loop !65
+  br i1 %.not20.i345, label %_ZL16useDynamicWindowP8SCSUDataa.exit347, label %.lr.ph.i341, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit347:         ; preds = %.lr.ph.i341, %160
   %.pre-phi.i346 = phi i64 [ %157, %160 ], [ %163, %.lr.ph.i341 ]
@@ -1738,7 +1738,7 @@ _ZL16getDynamicOffsetjPj.exit.thread432:          ; preds = %134, %123
 199:                                              ; preds = %.preheader467
   %indvars.iv.next.i349 = add nuw nsw i64 %indvars.iv.i348, 1
   %exitcond.not.i350 = icmp eq i64 %indvars.iv.next.i349, 8
-  br i1 %exitcond.not.i350, label %_ZL9getWindowPKjj.exit352.thread.preheader, label %.preheader467, !llvm.loop !63
+  br i1 %exitcond.not.i350, label %_ZL9getWindowPKjj.exit352.thread.preheader, label %.preheader467, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit352:                        ; preds = %.preheader467
   %200 = trunc i64 %indvars.iv.i348 to i8
@@ -1795,7 +1795,7 @@ _ZL24isInOffsetWindowOrDirectjj.exit.thread436:   ; preds = %202, %210, %_ZL24is
   %226 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !16
   %.not.i356 = icmp eq i8 %227, %200
-  br i1 %.not.i356, label %228, label %222, !llvm.loop !64
+  br i1 %.not.i356, label %228, label %222, !llvm.loop !63
 
 228:                                              ; preds = %222
   %229 = add nsw i32 %spec.store.select.i355, 1
@@ -1819,7 +1819,7 @@ _ZL24isInOffsetWindowOrDirectjj.exit.thread436:   ; preds = %202, %210, %_ZL24is
   %238 = load i8, ptr %31, align 1, !tbaa !23
   %239 = sext i8 %238 to i32
   %.not20.i363 = icmp eq i32 %spec.store.select2.i362, %239
-  br i1 %.not20.i363, label %_ZL16useDynamicWindowP8SCSUDataa.exit365, label %.lr.ph.i359, !llvm.loop !65
+  br i1 %.not20.i363, label %_ZL16useDynamicWindowP8SCSUDataa.exit365, label %.lr.ph.i359, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit365:         ; preds = %.lr.ph.i359, %228
   %.pre-phi.i364 = phi i64 [ %225, %228 ], [ %231, %.lr.ph.i359 ]
@@ -1853,7 +1853,7 @@ _ZL9getWindowPKjj.exit352.thread:                 ; preds = %_ZL9getWindowPKjj.e
 255:                                              ; preds = %_ZL9getWindowPKjj.exit352.thread
   %indvars.iv.next.i367 = add nuw nsw i64 %indvars.iv.i366, 1
   %exitcond.not.i368 = icmp eq i64 %indvars.iv.next.i367, 8
-  br i1 %exitcond.not.i368, label %_ZL9getWindowPKjj.exit370.thread, label %_ZL9getWindowPKjj.exit352.thread, !llvm.loop !63
+  br i1 %exitcond.not.i368, label %_ZL9getWindowPKjj.exit370.thread, label %_ZL9getWindowPKjj.exit352.thread, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit370:                        ; preds = %_ZL9getWindowPKjj.exit352.thread
   %256 = trunc i64 %indvars.iv.i366 to i8
@@ -1939,7 +1939,7 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
   %.3275.in = phi i32 [ %.2274, %46 ], [ %.6278.in, %298 ], [ %.2274, %54 ]
   %.3282 = getelementptr inbounds nuw i8, ptr %.1280.pn.pn.pn, i64 1
   %.3275 = add nsw i32 %.3275.in, -1
-  br label %36, !llvm.loop !67
+  br label %36, !llvm.loop !66
 
 302:                                              ; preds = %32
   br i1 %or.cond5, label %402, label %.preheader466
@@ -1955,7 +1955,7 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
 .lr.ph:                                           ; preds = %313
   %305 = add nsw i32 %.8547788, -2
   %306 = icmp slt i32 %.8547788, 3
-  br i1 %306, label %.loopexit.sink.split, label %.lr.ph791, !llvm.loop !68
+  br i1 %306, label %.loopexit.sink.split, label %.lr.ph791, !llvm.loop !67
 
 .lr.ph791:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.9297545790 = phi ptr [ %307, %.lr.ph ], [ %.0288, %.lr.ph.preheader ]
@@ -1981,7 +1981,7 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
   %318 = getelementptr inbounds nuw i8, ptr %.9546789, i64 2
   store i8 %317, ptr %316, align 1, !tbaa !16
   %319 = icmp ult ptr %307, %11
-  br i1 %319, label %.lr.ph, label %.loopexit, !llvm.loop !68
+  br i1 %319, label %.lr.ph, label %.loopexit, !llvm.loop !67
 
 320:                                              ; preds = %.lr.ph791
   %321 = icmp ugt i32 %310, 48895
@@ -2024,7 +2024,7 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
 343:                                              ; preds = %.preheader465
   %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i372, 1
   %exitcond.not.i374 = icmp eq i64 %indvars.iv.next.i373, 8
-  br i1 %exitcond.not.i374, label %_ZL9getWindowPKjj.exit376.thread, label %.preheader465, !llvm.loop !63
+  br i1 %exitcond.not.i374, label %_ZL9getWindowPKjj.exit376.thread, label %.preheader465, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit376:                        ; preds = %.preheader465
   %344 = trunc i64 %indvars.iv.i372 to i8
@@ -2048,7 +2048,7 @@ _ZL9getWindowPKjj.exit376:                        ; preds = %.preheader465
   %356 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %355
   %357 = load i8, ptr %356, align 1, !tbaa !16
   %.not.i379 = icmp eq i8 %357, %344
-  br i1 %.not.i379, label %358, label %352, !llvm.loop !64
+  br i1 %.not.i379, label %358, label %352, !llvm.loop !63
 
 358:                                              ; preds = %352
   %359 = add nsw i32 %spec.store.select.i378, 1
@@ -2072,7 +2072,7 @@ _ZL9getWindowPKjj.exit376:                        ; preds = %.preheader465
   %368 = load i8, ptr %31, align 1, !tbaa !23
   %369 = sext i8 %368 to i32
   %.not20.i386 = icmp eq i32 %spec.store.select2.i385, %369
-  br i1 %.not20.i386, label %_ZL16useDynamicWindowP8SCSUDataa.exit388, label %.lr.ph.i382, !llvm.loop !65
+  br i1 %.not20.i386, label %_ZL16useDynamicWindowP8SCSUDataa.exit388, label %.lr.ph.i382, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit388:         ; preds = %.lr.ph.i382, %358
   %.pre-phi.i387 = phi i64 [ %355, %358 ], [ %361, %.lr.ph.i382 ]
@@ -2157,7 +2157,7 @@ _ZL9getWindowPKjj.exit376.thread:                 ; preds = %343, %_ZL9getWindow
 419:                                              ; preds = %414
   %indvars.iv.next.i391 = add nuw nsw i64 %indvars.iv.i390, 1
   %exitcond.not.i392 = icmp eq i64 %indvars.iv.next.i391, 8
-  br i1 %exitcond.not.i392, label %_ZL9getWindowPKjj.exit394.thread, label %414, !llvm.loop !63
+  br i1 %exitcond.not.i392, label %_ZL9getWindowPKjj.exit394.thread, label %414, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit394:                        ; preds = %414
   %420 = trunc i64 %indvars.iv.i390 to i8
@@ -2191,7 +2191,7 @@ _ZL9getWindowPKjj.exit394:                        ; preds = %414
   %438 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %437
   %439 = load i8, ptr %438, align 1, !tbaa !16
   %.not.i397 = icmp eq i8 %439, %420
-  br i1 %.not.i397, label %440, label %434, !llvm.loop !64
+  br i1 %.not.i397, label %440, label %434, !llvm.loop !63
 
 440:                                              ; preds = %434
   %441 = add nsw i32 %spec.store.select.i396, 1
@@ -2215,7 +2215,7 @@ _ZL9getWindowPKjj.exit394:                        ; preds = %414
   %450 = load i8, ptr %31, align 1, !tbaa !23
   %451 = sext i8 %450 to i32
   %.not20.i404 = icmp eq i32 %spec.store.select2.i403, %451
-  br i1 %.not20.i404, label %_ZL16useDynamicWindowP8SCSUDataa.exit406, label %.lr.ph.i400, !llvm.loop !65
+  br i1 %.not20.i404, label %_ZL16useDynamicWindowP8SCSUDataa.exit406, label %.lr.ph.i400, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit406:         ; preds = %.lr.ph.i400, %440
   %.pre-phi.i405 = phi i64 [ %437, %440 ], [ %443, %.lr.ph.i400 ]
@@ -2250,7 +2250,7 @@ _ZL9getWindowPKjj.exit394.thread:                 ; preds = %419, %424, %_ZL9get
 468:                                              ; preds = %.preheader
   %indvars.iv.next.i408 = add nuw nsw i64 %indvars.iv.i407, 1
   %exitcond.not.i409 = icmp eq i64 %indvars.iv.next.i408, 7
-  br i1 %exitcond.not.i409, label %469, label %.preheader, !llvm.loop !66
+  br i1 %exitcond.not.i409, label %469, label %.preheader, !llvm.loop !65
 
 469:                                              ; preds = %468
   %470 = icmp ult i32 %413, 128
@@ -2318,7 +2318,7 @@ _ZL16getDynamicOffsetjPj.exit414.thread:          ; preds = %_ZL16getDynamicOffs
   %504 = getelementptr inbounds [8 x i8], ptr %30, i64 0, i64 %503
   %505 = load i8, ptr %504, align 1, !tbaa !16
   %.not.i418 = icmp eq i8 %505, %494
-  br i1 %.not.i418, label %506, label %500, !llvm.loop !64
+  br i1 %.not.i418, label %506, label %500, !llvm.loop !63
 
 506:                                              ; preds = %500
   %507 = add nsw i32 %spec.store.select.i417, 1
@@ -2342,7 +2342,7 @@ _ZL16getDynamicOffsetjPj.exit414.thread:          ; preds = %_ZL16getDynamicOffs
   %516 = load i8, ptr %31, align 1, !tbaa !23
   %517 = sext i8 %516 to i32
   %.not20.i425 = icmp eq i32 %spec.store.select2.i424, %517
-  br i1 %.not20.i425, label %_ZL16useDynamicWindowP8SCSUDataa.exit427, label %.lr.ph.i421, !llvm.loop !65
+  br i1 %.not20.i425, label %_ZL16useDynamicWindowP8SCSUDataa.exit427, label %.lr.ph.i421, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit427:         ; preds = %.lr.ph.i421, %506
   %.pre-phi.i426 = phi i64 [ %503, %506 ], [ %509, %.lr.ph.i421 ]
@@ -2386,8 +2386,8 @@ _ZL16getDynamicOffsetjPj.exit414.thread444:       ; preds = %480, %469, %460, %_
   store i8 %.2271, ptr %20, align 4, !tbaa !21
   store i8 %.2268, ptr %22, align 1, !tbaa !22
   store i32 %.4, ptr %28, align 4, !tbaa !24
-  store ptr %.7295, ptr %8, align 8, !tbaa !59
-  store ptr %.7286, ptr %12, align 8, !tbaa !61
+  store ptr %.7295, ptr %8, align 8, !tbaa !58
+  store ptr %.7286, ptr %12, align 8, !tbaa !60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
@@ -2489,7 +2489,7 @@ default.unreachable637:                           ; preds = %532
 564:                                              ; preds = %.thread, %562
   %565 = trunc nsw i32 %548 to i8
   %566 = getelementptr inbounds nuw i8, ptr %5, i64 91
-  store i8 %565, ptr %566, align 1, !tbaa !69
+  store i8 %565, ptr %566, align 1, !tbaa !68
   %567 = icmp eq i32 %548, 4
   %568 = shl nsw i32 %548, 3
   %569 = lshr i32 %.3460, %568
@@ -2528,23 +2528,23 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !60
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !62
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !70
+  %21 = load ptr, ptr %20, align 8, !tbaa !69
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %23 = load i8, ptr %22, align 4, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 73
@@ -2720,7 +2720,7 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
 105:                                              ; preds = %.preheader592
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZL9getWindowPKjj.exit.thread.preheader, label %.preheader592, !llvm.loop !63
+  br i1 %exitcond.not.i, label %_ZL9getWindowPKjj.exit.thread.preheader, label %.preheader592, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit:                           ; preds = %.preheader592
   %106 = trunc i64 %indvars.iv.i to i8
@@ -2747,7 +2747,7 @@ _ZL9getWindowPKjj.exit.thread.preheader:          ; preds = %105, %_ZL9getWindow
   %118 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !16
   %.not.i = icmp eq i8 %119, %106
-  br i1 %.not.i, label %120, label %114, !llvm.loop !64
+  br i1 %.not.i, label %120, label %114, !llvm.loop !63
 
 120:                                              ; preds = %114
   %121 = add nsw i32 %spec.store.select.i, 1
@@ -2771,7 +2771,7 @@ _ZL9getWindowPKjj.exit.thread.preheader:          ; preds = %105, %_ZL9getWindow
   %130 = load i8, ptr %35, align 1, !tbaa !23
   %131 = sext i8 %130 to i32
   %.not20.i = icmp eq i32 %spec.store.select2.i, %131
-  br i1 %.not20.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %.lr.ph.i, !llvm.loop !65
+  br i1 %.not20.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %.lr.ph.i, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit:            ; preds = %.lr.ph.i, %120
   %.pre-phi.i = phi i64 [ %117, %120 ], [ %123, %.lr.ph.i ]
@@ -2796,7 +2796,7 @@ _ZL9getWindowPKjj.exit.thread:                    ; preds = %_ZL9getWindowPKjj.e
 142:                                              ; preds = %_ZL9getWindowPKjj.exit.thread
   %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i433, 1
   %exitcond.not.i435 = icmp eq i64 %indvars.iv.next.i434, 7
-  br i1 %exitcond.not.i435, label %143, label %_ZL9getWindowPKjj.exit.thread, !llvm.loop !66
+  br i1 %exitcond.not.i435, label %143, label %_ZL9getWindowPKjj.exit.thread, !llvm.loop !65
 
 143:                                              ; preds = %142
   %144 = icmp ult i32 %93, 128
@@ -2864,7 +2864,7 @@ _ZL16getDynamicOffsetjPj.exit.thread:             ; preds = %_ZL16getDynamicOffs
   %178 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !16
   %.not.i439 = icmp eq i8 %179, %168
-  br i1 %.not.i439, label %180, label %174, !llvm.loop !64
+  br i1 %.not.i439, label %180, label %174, !llvm.loop !63
 
 180:                                              ; preds = %174
   %181 = add nsw i32 %spec.store.select.i438, 1
@@ -2888,7 +2888,7 @@ _ZL16getDynamicOffsetjPj.exit.thread:             ; preds = %_ZL16getDynamicOffs
   %190 = load i8, ptr %35, align 1, !tbaa !23
   %191 = sext i8 %190 to i32
   %.not20.i446 = icmp eq i32 %spec.store.select2.i445, %191
-  br i1 %.not20.i446, label %_ZL16useDynamicWindowP8SCSUDataa.exit448, label %.lr.ph.i442, !llvm.loop !65
+  br i1 %.not20.i446, label %_ZL16useDynamicWindowP8SCSUDataa.exit448, label %.lr.ph.i442, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit448:         ; preds = %.lr.ph.i442, %180
   %.pre-phi.i447 = phi i64 [ %177, %180 ], [ %183, %.lr.ph.i442 ]
@@ -2952,7 +2952,7 @@ _ZL16getDynamicOffsetjPj.exit.thread533:          ; preds = %154, %143
 222:                                              ; preds = %.preheader591
   %indvars.iv.next.i450 = add nuw nsw i64 %indvars.iv.i449, 1
   %exitcond.not.i451 = icmp eq i64 %indvars.iv.next.i450, 8
-  br i1 %exitcond.not.i451, label %_ZL9getWindowPKjj.exit453.thread.preheader, label %.preheader591, !llvm.loop !63
+  br i1 %exitcond.not.i451, label %_ZL9getWindowPKjj.exit453.thread.preheader, label %.preheader591, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit453:                        ; preds = %.preheader591
   %223 = trunc i64 %indvars.iv.i449 to i8
@@ -3009,7 +3009,7 @@ _ZL24isInOffsetWindowOrDirectjj.exit.thread537:   ; preds = %225, %233, %_ZL24is
   %249 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !16
   %.not.i457 = icmp eq i8 %250, %223
-  br i1 %.not.i457, label %251, label %245, !llvm.loop !64
+  br i1 %.not.i457, label %251, label %245, !llvm.loop !63
 
 251:                                              ; preds = %245
   %252 = add nsw i32 %spec.store.select.i456, 1
@@ -3033,7 +3033,7 @@ _ZL24isInOffsetWindowOrDirectjj.exit.thread537:   ; preds = %225, %233, %_ZL24is
   %261 = load i8, ptr %35, align 1, !tbaa !23
   %262 = sext i8 %261 to i32
   %.not20.i464 = icmp eq i32 %spec.store.select2.i463, %262
-  br i1 %.not20.i464, label %_ZL16useDynamicWindowP8SCSUDataa.exit466, label %.lr.ph.i460, !llvm.loop !65
+  br i1 %.not20.i464, label %_ZL16useDynamicWindowP8SCSUDataa.exit466, label %.lr.ph.i460, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit466:         ; preds = %.lr.ph.i460, %251
   %.pre-phi.i465 = phi i64 [ %248, %251 ], [ %254, %.lr.ph.i460 ]
@@ -3067,7 +3067,7 @@ _ZL9getWindowPKjj.exit453.thread:                 ; preds = %_ZL9getWindowPKjj.e
 278:                                              ; preds = %_ZL9getWindowPKjj.exit453.thread
   %indvars.iv.next.i468 = add nuw nsw i64 %indvars.iv.i467, 1
   %exitcond.not.i469 = icmp eq i64 %indvars.iv.next.i468, 8
-  br i1 %exitcond.not.i469, label %_ZL9getWindowPKjj.exit471.thread, label %_ZL9getWindowPKjj.exit453.thread, !llvm.loop !63
+  br i1 %exitcond.not.i469, label %_ZL9getWindowPKjj.exit471.thread, label %_ZL9getWindowPKjj.exit453.thread, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit471:                        ; preds = %_ZL9getWindowPKjj.exit453.thread
   %279 = trunc i64 %indvars.iv.i467 to i8
@@ -3145,7 +3145,7 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
   %.3 = phi i32 [ %48, %53 ], [ %48, %51 ], [ %48, %63 ], [ %48, %61 ], [ %48, %73 ], [ %48, %70 ], [ %90, %99 ], [ %90, %96 ]
   %.3363 = getelementptr inbounds nuw i8, ptr %.1361.pn.pn.pn, i64 1
   %.3354 = add nsw i32 %.3354.in, -1
-  br label %40, !llvm.loop !71
+  br label %40, !llvm.loop !70
 
 322:                                              ; preds = %36
   br i1 %or.cond5, label %427, label %.preheader590
@@ -3161,7 +3161,7 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
 .lr.ph:                                           ; preds = %343
   %325 = add nsw i32 %.8359682965, -2
   %326 = icmp slt i32 %.8359682965, 3
-  br i1 %326, label %.loopexit.sink.split, label %.lr.ph968, !llvm.loop !72
+  br i1 %326, label %.loopexit.sink.split, label %.lr.ph968, !llvm.loop !71
 
 .lr.ph968:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.9389680967 = phi ptr [ %327, %.lr.ph ], [ %.0380, %.lr.ph.preheader ]
@@ -3203,7 +3203,7 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
 343:                                              ; preds = %340, %334
   %.15 = phi ptr [ %342, %340 ], [ null, %334 ]
   %344 = icmp ult ptr %327, %11
-  br i1 %344, label %.lr.ph, label %.loopexit, !llvm.loop !72
+  br i1 %344, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 345:                                              ; preds = %.lr.ph968
   %346 = icmp ugt i32 %331, 48895
@@ -3246,7 +3246,7 @@ _ZL9getWindowPKjj.exit471.thread:                 ; preds = %278, %_ZL9getWindow
 368:                                              ; preds = %.preheader589
   %indvars.iv.next.i474 = add nuw nsw i64 %indvars.iv.i473, 1
   %exitcond.not.i475 = icmp eq i64 %indvars.iv.next.i474, 8
-  br i1 %exitcond.not.i475, label %_ZL9getWindowPKjj.exit477.thread, label %.preheader589, !llvm.loop !63
+  br i1 %exitcond.not.i475, label %_ZL9getWindowPKjj.exit477.thread, label %.preheader589, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit477:                        ; preds = %.preheader589
   %369 = trunc i64 %indvars.iv.i473 to i8
@@ -3270,7 +3270,7 @@ _ZL9getWindowPKjj.exit477:                        ; preds = %.preheader589
   %381 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %380
   %382 = load i8, ptr %381, align 1, !tbaa !16
   %.not.i480 = icmp eq i8 %382, %369
-  br i1 %.not.i480, label %383, label %377, !llvm.loop !64
+  br i1 %.not.i480, label %383, label %377, !llvm.loop !63
 
 383:                                              ; preds = %377
   %384 = add nsw i32 %spec.store.select.i479, 1
@@ -3294,7 +3294,7 @@ _ZL9getWindowPKjj.exit477:                        ; preds = %.preheader589
   %393 = load i8, ptr %35, align 1, !tbaa !23
   %394 = sext i8 %393 to i32
   %.not20.i487 = icmp eq i32 %spec.store.select2.i486, %394
-  br i1 %.not20.i487, label %_ZL16useDynamicWindowP8SCSUDataa.exit489, label %.lr.ph.i483, !llvm.loop !65
+  br i1 %.not20.i487, label %_ZL16useDynamicWindowP8SCSUDataa.exit489, label %.lr.ph.i483, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit489:         ; preds = %.lr.ph.i483, %383
   %.pre-phi.i488 = phi i64 [ %380, %383 ], [ %386, %.lr.ph.i483 ]
@@ -3383,7 +3383,7 @@ _ZL9getWindowPKjj.exit477.thread:                 ; preds = %368, %_ZL9getWindow
 445:                                              ; preds = %440
   %indvars.iv.next.i492 = add nuw nsw i64 %indvars.iv.i491, 1
   %exitcond.not.i493 = icmp eq i64 %indvars.iv.next.i492, 8
-  br i1 %exitcond.not.i493, label %_ZL9getWindowPKjj.exit495.thread, label %440, !llvm.loop !63
+  br i1 %exitcond.not.i493, label %_ZL9getWindowPKjj.exit495.thread, label %440, !llvm.loop !62
 
 _ZL9getWindowPKjj.exit495:                        ; preds = %440
   %446 = trunc i64 %indvars.iv.i491 to i8
@@ -3417,7 +3417,7 @@ _ZL9getWindowPKjj.exit495:                        ; preds = %440
   %464 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %463
   %465 = load i8, ptr %464, align 1, !tbaa !16
   %.not.i498 = icmp eq i8 %465, %446
-  br i1 %.not.i498, label %466, label %460, !llvm.loop !64
+  br i1 %.not.i498, label %466, label %460, !llvm.loop !63
 
 466:                                              ; preds = %460
   %467 = add nsw i32 %spec.store.select.i497, 1
@@ -3441,7 +3441,7 @@ _ZL9getWindowPKjj.exit495:                        ; preds = %440
   %476 = load i8, ptr %35, align 1, !tbaa !23
   %477 = sext i8 %476 to i32
   %.not20.i505 = icmp eq i32 %spec.store.select2.i504, %477
-  br i1 %.not20.i505, label %_ZL16useDynamicWindowP8SCSUDataa.exit507, label %.lr.ph.i501, !llvm.loop !65
+  br i1 %.not20.i505, label %_ZL16useDynamicWindowP8SCSUDataa.exit507, label %.lr.ph.i501, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit507:         ; preds = %.lr.ph.i501, %466
   %.pre-phi.i506 = phi i64 [ %463, %466 ], [ %469, %.lr.ph.i501 ]
@@ -3476,7 +3476,7 @@ _ZL9getWindowPKjj.exit495.thread:                 ; preds = %445, %450, %_ZL9get
 494:                                              ; preds = %.preheader
   %indvars.iv.next.i509 = add nuw nsw i64 %indvars.iv.i508, 1
   %exitcond.not.i510 = icmp eq i64 %indvars.iv.next.i509, 7
-  br i1 %exitcond.not.i510, label %495, label %.preheader, !llvm.loop !66
+  br i1 %exitcond.not.i510, label %495, label %.preheader, !llvm.loop !65
 
 495:                                              ; preds = %494
   %496 = icmp ult i32 %439, 128
@@ -3544,7 +3544,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread:          ; preds = %_ZL16getDynamicOffs
   %530 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 %529
   %531 = load i8, ptr %530, align 1, !tbaa !16
   %.not.i519 = icmp eq i8 %531, %520
-  br i1 %.not.i519, label %532, label %526, !llvm.loop !64
+  br i1 %.not.i519, label %532, label %526, !llvm.loop !63
 
 532:                                              ; preds = %526
   %533 = add nsw i32 %spec.store.select.i518, 1
@@ -3568,7 +3568,7 @@ _ZL16getDynamicOffsetjPj.exit515.thread:          ; preds = %_ZL16getDynamicOffs
   %542 = load i8, ptr %35, align 1, !tbaa !23
   %543 = sext i8 %542 to i32
   %.not20.i526 = icmp eq i32 %spec.store.select2.i525, %543
-  br i1 %.not20.i526, label %_ZL16useDynamicWindowP8SCSUDataa.exit528, label %.lr.ph.i522, !llvm.loop !65
+  br i1 %.not20.i526, label %_ZL16useDynamicWindowP8SCSUDataa.exit528, label %.lr.ph.i522, !llvm.loop !64
 
 _ZL16useDynamicWindowP8SCSUDataa.exit528:         ; preds = %.lr.ph.i522, %532
   %.pre-phi.i527 = phi i64 [ %529, %532 ], [ %535, %.lr.ph.i522 ]
@@ -3614,9 +3614,9 @@ _ZL16getDynamicOffsetjPj.exit515.thread545:       ; preds = %506, %495, %486, %_
   store i8 %.2341, ptr %22, align 4, !tbaa !21
   store i8 %.2338, ptr %24, align 1, !tbaa !22
   store i32 %.4331, ptr %30, align 4, !tbaa !24
-  store ptr %.7387, ptr %8, align 8, !tbaa !59
-  store ptr %.7367, ptr %12, align 8, !tbaa !61
-  store ptr %.10, ptr %20, align 8, !tbaa !70
+  store ptr %.7387, ptr %8, align 8, !tbaa !58
+  store ptr %.7367, ptr %12, align 8, !tbaa !60
+  store ptr %.10, ptr %20, align 8, !tbaa !69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
@@ -3774,7 +3774,7 @@ default.unreachable789:                           ; preds = %574, %560
 610:                                              ; preds = %.thread, %608
   %611 = trunc nsw i32 %594 to i8
   %612 = getelementptr inbounds nuw i8, ptr %5, i64 91
-  store i8 %611, ptr %612, align 1, !tbaa !69
+  store i8 %611, ptr %612, align 1, !tbaa !68
   %613 = shl nsw i32 %594, 3
   %614 = lshr i32 %.3330565, %613
   switch i32 %.4355561, label %.loopexit.sink.split [
@@ -3879,9 +3879,9 @@ define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %12, ptr noundef nonnull align 1 dereferenceable(84) %14, i64 84, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %12, ptr %15, align 8, !tbaa !73
+  store ptr %12, ptr %15, align 8, !tbaa !72
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 62
-  store i8 1, ptr %16, align 2, !tbaa !75
+  store i8 1, ptr %16, align 2, !tbaa !74
   br label %17
 
 17:                                               ; preds = %4, %11, %10
@@ -3916,7 +3916,7 @@ define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captur
   %11 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !16
   %.not = icmp eq i8 %12, %1
-  br i1 %.not, label %13, label %7, !llvm.loop !64
+  br i1 %.not, label %13, label %7, !llvm.loop !63
 
 13:                                               ; preds = %7
   %14 = add nsw i32 %spec.store.select, 1
@@ -3940,7 +3940,7 @@ define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captur
   %23 = load i8, ptr %3, align 1, !tbaa !23
   %24 = sext i8 %23 to i32
   %.not20 = icmp eq i32 %spec.store.select2, %24
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   %.pre-phi = phi i64 [ %10, %13 ], [ %16, %.lr.ph ]
@@ -3970,7 +3970,7 @@ define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj
 11:                                               ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !66
+  br i1 %exitcond.not, label %12, label %3, !llvm.loop !65
 
 12:                                               ; preds = %11
   %13 = icmp ult i32 %0, 128
@@ -4079,31 +4079,30 @@ attributes #10 = { allocsize(0) }
 !45 = !{!13, !6, i64 93}
 !46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !47}
+!49 = distinct !{!49, !47}
 !50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47, !49}
-!52 = !{!32, !35, i64 48}
+!51 = !{!32, !35, i64 48}
+!52 = distinct !{!52, !47}
 !53 = distinct !{!53, !47}
-!54 = distinct !{!54, !47, !49}
+!54 = distinct !{!54, !47}
 !55 = distinct !{!55, !47}
-!56 = distinct !{!56, !47, !49}
-!57 = !{!58, !33, i64 8}
-!58 = !{!"_ZTS25UConverterFromUnicodeArgs", !8, i64 0, !6, i64 2, !33, i64 8, !34, i64 16, !34, i64 24, !9, i64 32, !9, i64 40, !35, i64 48}
-!59 = !{!58, !34, i64 16}
-!60 = !{!58, !34, i64 24}
-!61 = !{!58, !9, i64 32}
-!62 = !{!58, !9, i64 40}
+!56 = !{!57, !33, i64 8}
+!57 = !{!"_ZTS25UConverterFromUnicodeArgs", !8, i64 0, !6, i64 2, !33, i64 8, !34, i64 16, !34, i64 24, !9, i64 32, !9, i64 40, !35, i64 48}
+!58 = !{!57, !34, i64 16}
+!59 = !{!57, !34, i64 24}
+!60 = !{!57, !9, i64 32}
+!61 = !{!57, !9, i64 40}
+!62 = distinct !{!62, !47}
 !63 = distinct !{!63, !47}
 !64 = distinct !{!64, !47}
 !65 = distinct !{!65, !47}
 !66 = distinct !{!66, !47}
 !67 = distinct !{!67, !47}
-!68 = distinct !{!68, !47}
-!69 = !{!13, !6, i64 91}
-!70 = !{!58, !35, i64 48}
+!68 = !{!13, !6, i64 91}
+!69 = !{!57, !35, i64 48}
+!70 = distinct !{!70, !47}
 !71 = distinct !{!71, !47}
-!72 = distinct !{!72, !47}
-!73 = !{!74, !10, i64 16}
-!74 = !{!"_ZTS15cloneSCSUStruct", !13, i64 0, !18, i64 288}
-!75 = !{!74, !6, i64 62}
+!72 = !{!73, !10, i64 16}
+!73 = !{!"_ZTS15cloneSCSUStruct", !13, i64 0, !18, i64 288}
+!74 = !{!73, !6, i64 62}

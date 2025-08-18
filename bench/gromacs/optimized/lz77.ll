@@ -156,7 +156,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
 64:                                               ; preds = %.preheader.us.us
   %indvars.iv.next216 = add i64 %indvars.iv215, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next216, %32
-  br i1 %exitcond218.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !11
+  br i1 %exitcond218.not, label %._crit_edge.us.us, label %.preheader.us.us, !llvm.loop !10
 
 65:                                               ; preds = %62, %59, %._crit_edge.us.us, %50
   %.4122.us.us = phi i32 [ %.0123.lcssa.us.us, %62 ], [ %.3121168.us.us, %59 ], [ %.3121168.us.us, %._crit_edge.us.us ], [ %.3121168.us.us, %50 ]
@@ -164,7 +164,7 @@ define void @Ptngc_comp_to_lz77(ptr noundef readonly captures(none) %0, i32 noun
   %indvars.iv.next220 = add nsw i64 %indvars.iv219, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next220 to i32
   %exitcond222.not = icmp eq i32 %.1131195, %lftr.wideiv
-  br i1 %exitcond222.not, label %._crit_edge174.split.us.us, label %.lr.ph170.us, !llvm.loop !12
+  br i1 %exitcond222.not, label %._crit_edge174.split.us.us, label %.lr.ph170.us, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge174.split.us.us, %.lr.ph.split.us
   %.0118.lcssa = phi i32 [ %.3121.lcssa.us, %._crit_edge174.split.us.us ], [ %.0118180.us, %.lr.ph.split.us ]
@@ -248,7 +248,7 @@ add_circular.exit:                                ; preds = %.lr.ph193.add_circu
   store i32 %.pre-phi, ptr %86, align 4, !tbaa !3
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
-  br i1 %exitcond228.not, label %._crit_edge, label %.lr.ph193, !llvm.loop !13
+  br i1 %exitcond228.not, label %._crit_edge, label %.lr.ph193, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %add_circular.exit, %75
   %103 = add i32 %.1131195, -1
@@ -342,7 +342,7 @@ add_circular.exit154:                             ; preds = %128, %138
   %.3 = phi i32 [ %.2, %126 ], [ %.0112200, %add_circular.exit154 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %151 = icmp slt i32 %.3133, %1
-  br i1 %151, label %.lr.ph201, label %._crit_edge202.loopexit, !llvm.loop !14
+  br i1 %151, label %.lr.ph201, label %._crit_edge202.loopexit, !llvm.loop !13
 
 ._crit_edge202.loopexit:                          ; preds = %150
   %152 = trunc nuw i64 %indvars.iv.next230 to i32
@@ -420,7 +420,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   br i1 %exitcond.not, label %33, label %36
 
 33:                                               ; preds = %.lr.ph
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !14
   %35 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 15, i64 1, ptr %34) #8
   tail call void @exit(i32 noundef 1) #9
   unreachable
@@ -429,7 +429,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %37 = add nuw nsw i32 %.02335, 1
   %exitcond44.not = icmp eq i32 %37, %17
-  br i1 %exitcond44.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond44.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !17
 
 38:                                               ; preds = %.lr.ph41
   %39 = add i32 %11, -2
@@ -448,7 +448,7 @@ define void @Ptngc_comp_from_lz77(ptr noundef readonly captures(none) %0, i32 no
   %.227 = phi i32 [ %.02539, %38 ], [ %.126, %25 ], [ %.126, %.loopexit.loopexit ]
   %.2 = phi i32 [ %40, %38 ], [ %.040, %25 ], [ %43, %.loopexit.loopexit ]
   %44 = icmp slt i32 %.2, %7
-  br i1 %44, label %.lr.ph41, label %._crit_edge, !llvm.loop !19
+  br i1 %44, label %.lr.ph41, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %8
   ret void
@@ -488,14 +488,13 @@ attributes #9 = { cold noreturn nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !10}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !17, i64 0}
-!17 = !{!"any pointer", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS8_IO_FILE", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}

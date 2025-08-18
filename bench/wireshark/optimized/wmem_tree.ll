@@ -687,18 +687,18 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   %11 = inttoptr i64 %10 to ptr
   %.not66.i = icmp eq ptr %2, null
   %12 = zext i1 %4 to i8
-  br i1 %.not66.i, label %.preheader.split.us.i, label %.preheader.split.split.i
+  br i1 %.not66.i, label %.preheader.split.us.split.us.i, label %.preheader.split.split.i
 
-.preheader.split.us.i:                            ; preds = %.preheader.i, %46
-  %.05372.us.i = phi ptr [ %.154.us.i, %46 ], [ %8, %.preheader.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %.05372.us.i, i64 24
+.preheader.split.us.split.us.i:                   ; preds = %.preheader.i, %46
+  %.05372.us.us.i = phi ptr [ %.154.us.us.i, %46 ], [ %8, %.preheader.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.05372.us.us.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %1, %16
   br i1 %17, label %.split.us.i, label %18
 
-18:                                               ; preds = %.preheader.split.us.i
+18:                                               ; preds = %.preheader.split.us.split.us.i
   %19 = icmp ult i32 %1, %16
   br i1 %19, label %34, label %20
 
@@ -707,17 +707,17 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.05372.us.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.05372.us.us.i, i64 16
   %24 = load ptr, ptr %23, align 8
-  %.not65.us.i = icmp eq ptr %24, null
-  br i1 %.not65.us.i, label %25, label %46
+  %.not65.us.us.i = icmp eq ptr %24, null
+  br i1 %.not65.us.us.i, label %25, label %46
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %9, align 8
   %27 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %26, i64 noundef 48) #10
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  store ptr %.05372.us.i, ptr %27, align 8
+  store ptr %.05372.us.us.i, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %11, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -732,17 +732,17 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   br label %46
 
 34:                                               ; preds = %18
-  %35 = getelementptr inbounds nuw i8, ptr %.05372.us.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.05372.us.us.i, i64 8
   %36 = load ptr, ptr %35, align 8
-  %.not67.us.i = icmp eq ptr %36, null
-  br i1 %.not67.us.i, label %37, label %46
+  %.not67.us.us.i = icmp eq ptr %36, null
+  br i1 %.not67.us.us.i, label %37, label %46
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %9, align 8
   %39 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %38, i64 noundef 48) #10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr %.05372.us.i, ptr %39, align 8
+  store ptr %.05372.us.us.i, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %11, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -757,10 +757,10 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   br label %46
 
 46:                                               ; preds = %37, %34, %25, %22, %20
-  %.154.us.i = phi ptr [ %.05372.us.i, %37 ], [ %.05372.us.i, %25 ], [ %.05372.us.i, %20 ], [ %36, %34 ], [ %24, %22 ]
-  %.1.us.i = phi ptr [ %39, %37 ], [ %27, %25 ], [ null, %20 ], [ null, %34 ], [ null, %22 ]
-  %.not64.us.i = icmp eq ptr %.1.us.i, null
-  br i1 %.not64.us.i, label %.preheader.split.us.i, label %.split74.us.i, !llvm.loop !10
+  %.154.us.us.i = phi ptr [ %.05372.us.us.i, %37 ], [ %.05372.us.us.i, %25 ], [ %.05372.us.us.i, %20 ], [ %36, %34 ], [ %24, %22 ]
+  %.1.us.us.i = phi ptr [ %39, %37 ], [ %27, %25 ], [ null, %20 ], [ null, %34 ], [ null, %22 ]
+  %.not64.us.us.i = icmp eq ptr %.1.us.us.i, null
+  br i1 %.not64.us.us.i, label %.preheader.split.us.split.us.i, label %.split74.us.i, !llvm.loop !10
 
 47:                                               ; preds = %6
   %48 = load ptr, ptr %9, align 8
@@ -770,7 +770,7 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   br i1 %.not63.i, label %53, label %51
 
 51:                                               ; preds = %47
-  %52 = tail call ptr %2(ptr noundef %3), !callees !12
+  %52 = tail call ptr %2(ptr noundef %3), !callees !11
   br label %53
 
 53:                                               ; preds = %51, %47
@@ -800,15 +800,15 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   %66 = icmp eq i32 %1, %65
   br i1 %66, label %.split.us.i, label %73
 
-.split.us.i:                                      ; preds = %.preheader.split.split.i, %.preheader.split.us.i
-  %.us-phi.i = phi ptr [ %.05372.us.i, %.preheader.split.us.i ], [ %.05372.i, %.preheader.split.split.i ]
+.split.us.i:                                      ; preds = %.preheader.split.split.i, %.preheader.split.us.split.us.i
+  %.us-phi.i = phi ptr [ %.05372.us.us.i, %.preheader.split.us.split.us.i ], [ %.05372.i, %.preheader.split.split.i ]
   br i1 %5, label %67, label %lookup_or_insert32_node.exit
 
 67:                                               ; preds = %.split.us.i
   br i1 %.not66.i, label %70, label %68
 
 68:                                               ; preds = %67
-  %69 = tail call ptr %2(ptr noundef %3), !callees !12
+  %69 = tail call ptr %2(ptr noundef %3), !callees !11
   br label %70
 
 70:                                               ; preds = %68, %67
@@ -829,7 +829,7 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %9, align 8
-  %80 = tail call ptr %2(ptr noundef %3), !callees !12
+  %80 = tail call ptr %2(ptr noundef %3), !callees !11
   %81 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %79, i64 noundef 48) #10
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
@@ -859,7 +859,7 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %9, align 8
-  %95 = tail call ptr %2(ptr noundef %3), !callees !12
+  %95 = tail call ptr %2(ptr noundef %3), !callees !11
   %96 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc(ptr noundef %94, i64 noundef 48) #10
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
@@ -881,10 +881,10 @@ define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i
   %.154.i = phi ptr [ %.05372.i, %78 ], [ %.05372.i, %93 ], [ %.05372.i, %88 ], [ %77, %75 ], [ %92, %90 ]
   %.1.i = phi ptr [ %81, %78 ], [ %96, %93 ], [ null, %88 ], [ null, %75 ], [ null, %90 ]
   %.not64.i = icmp eq ptr %.1.i, null
-  br i1 %.not64.i, label %.preheader.split.split.i, label %.split74.us.i, !llvm.loop !13
+  br i1 %.not64.i, label %.preheader.split.split.i, label %.split74.us.i, !llvm.loop !10
 
 .split74.us.i:                                    ; preds = %103, %46
-  %.us-phi75.i = phi ptr [ %.1.us.i, %46 ], [ %.1.i, %103 ]
+  %.us-phi75.i = phi ptr [ %.1.us.us.i, %46 ], [ %.1.i, %103 ]
   tail call fastcc void @rb_insert_case1(ptr noundef %0, ptr noundef nonnull %.us-phi75.i)
   br label %lookup_or_insert32_node.exit
 
@@ -929,7 +929,7 @@ define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(ad
 17:                                               ; preds = %.sink.split, %13
   %.1 = phi ptr [ %.018, %13 ], [ %16, %.sink.split ]
   %.not16.not = icmp eq ptr %.1, null
-  br i1 %.not16.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not16.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %17, %.lr.ph, %3, %2
   %.011 = phi i1 [ false, %2 ], [ false, %3 ], [ %10, %.lr.ph ], [ %10, %17 ]
@@ -973,7 +973,7 @@ define ptr @wmem_tree_lookup32(ptr noundef readonly captures(address_is_null) %0
 17:                                               ; preds = %.sink.split.i, %13
   %.1.i = phi ptr [ %.019.i, %13 ], [ %16, %.sink.split.i ]
   %.not17.i = icmp eq ptr %.1.i, null
-  br i1 %.not17.i, label %wmem_tree_lookup32_node.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not17.i, label %wmem_tree_lookup32_node.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 wmem_tree_lookup32_node.exit:                     ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
@@ -1058,7 +1058,7 @@ define ptr @wmem_tree_lookup32_le(ptr noundef readonly captures(address_is_null)
 40:                                               ; preds = %.preheader.i
   %41 = load ptr, ptr %.253.i, align 8
   %.not41.i = icmp eq ptr %41, null
-  br i1 %.not41.i, label %wmem_tree_lookup32_le_node.exit.thread, label %.preheader.i, !llvm.loop !16
+  br i1 %.not41.i, label %wmem_tree_lookup32_le_node.exit.thread, label %.preheader.i, !llvm.loop !14
 
 wmem_tree_lookup32_le_node.exit:                  ; preds = %.lr.ph.i, %19, %.preheader.i
   %.030.i = phi ptr [ %.253.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ], [ %.050.i13, %19 ]
@@ -1149,7 +1149,7 @@ define ptr @wmem_tree_lookup32_le_full(ptr noundef readonly captures(address_is_
 41:                                               ; preds = %.preheader.i
   %42 = load ptr, ptr %.253.i, align 8
   %.not41.i = icmp eq ptr %42, null
-  br i1 %.not41.i, label %wmem_tree_lookup32_le_node.exit.thread, label %.preheader.i, !llvm.loop !16
+  br i1 %.not41.i, label %wmem_tree_lookup32_le_node.exit.thread, label %.preheader.i, !llvm.loop !14
 
 wmem_tree_lookup32_le_node.exit:                  ; preds = %.lr.ph.i, %20, %.preheader.i
   %.030.i = phi ptr [ %.253.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ], [ %.050.i15, %20 ]
@@ -1255,7 +1255,7 @@ define ptr @wmem_tree_lookup32_ge(ptr noundef readonly captures(address_is_null)
 44:                                               ; preds = %.preheader.i
   %45 = load ptr, ptr %.250.i, align 8
   %.not41.i = icmp eq ptr %45, null
-  br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !17
+  br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !15
 
 wmem_tree_lookup32_ge_node.exit:                  ; preds = %.lr.ph.i, %.preheader.i, %28, %33
   %.030.i = phi ptr [ %.047.i17, %33 ], [ %.047.i17, %28 ], [ %.250.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
@@ -1356,7 +1356,7 @@ define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly captures(address_is_
 45:                                               ; preds = %.preheader.i
   %46 = load ptr, ptr %.250.i, align 8
   %.not41.i = icmp eq ptr %46, null
-  br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !17
+  br i1 %.not41.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %.preheader.i, !llvm.loop !15
 
 wmem_tree_lookup32_ge_node.exit:                  ; preds = %.lr.ph.i, %.preheader.i, %29, %34
   %.030.i = phi ptr [ %.047.i19, %34 ], [ %.047.i19, %29 ], [ %.250.i, %.preheader.i ], [ %.1.i, %.lr.ph.i ]
@@ -1416,7 +1416,7 @@ define ptr @wmem_tree_remove32(ptr noundef captures(address_is_null) %0, i32 nou
 17:                                               ; preds = %.sink.split.i, %13
   %.1.i = phi ptr [ %.019.i, %13 ], [ %16, %.sink.split.i ]
   %.not17.i = icmp eq ptr %.1.i, null
-  br i1 %.not17.i, label %wmem_tree_lookup32_node.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not17.i, label %wmem_tree_lookup32_node.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 wmem_tree_lookup32_node.exit:                     ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
@@ -1438,7 +1438,7 @@ wmem_tree_lookup32_node.exit:                     ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not42.i = icmp eq ptr %27, null
-  br i1 %.not42.i, label %28, label %.preheader.i, !llvm.loop !18
+  br i1 %.not42.i, label %28, label %.preheader.i, !llvm.loop !16
 
 28:                                               ; preds = %.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
@@ -1566,7 +1566,7 @@ wmem_tree_lookup32_node.exit:                     ; preds = %.lr.ph.i
   store i32 0, ptr %81, align 8
   %82 = load ptr, ptr %.070131.i.i, align 8
   %.not.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i, label %rb_remove_node.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %rb_remove_node.exit, label %.lr.ph.i.i, !llvm.loop !17
 
 83:                                               ; preds = %62
   %84 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -2266,7 +2266,7 @@ define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_nul
   %.01628.i = phi ptr [ %.016.i, %12 ], [ %.01626.i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01628.i, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef %10), !callees !20
+  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef %10), !callees !18
   %.not22.i = icmp eq i32 %11, 0
   br i1 %.not22.i, label %wmem_tree_lookup.exit.sink.split, label %12
 
@@ -2276,7 +2276,7 @@ define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_nul
   %.218.in.i = getelementptr inbounds nuw i8, ptr %.01628.i, i64 %.218.in.v.i
   %.016.i = load ptr, ptr %.218.in.i, align 8
   %.not.i = icmp eq ptr %.016.i, null
-  br i1 %.not.i, label %wmem_tree_lookup.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %wmem_tree_lookup.exit, label %.lr.ph.i, !llvm.loop !19
 
 .split:                                           ; preds = %3
   br i1 %or.cond.i5, label %wmem_tree_lookup.exit, label %14
@@ -2291,7 +2291,7 @@ define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_nul
   %.01628.i9 = phi ptr [ %.016.i13, %19 ], [ %.01626.i6, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01628.i9, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %17), !callees !20
+  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %17), !callees !18
   %.not22.i10 = icmp eq i32 %18, 0
   br i1 %.not22.i10, label %wmem_tree_lookup.exit.sink.split, label %19
 
@@ -2301,7 +2301,7 @@ define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_nul
   %.218.in.i12 = getelementptr inbounds nuw i8, ptr %.01628.i9, i64 %.218.in.v.i11
   %.016.i13 = load ptr, ptr %.218.in.i12, align 8
   %.not.i14 = icmp eq ptr %.016.i13, null
-  br i1 %.not.i14, label %wmem_tree_lookup.exit, label %.lr.ph.i8, !llvm.loop !21
+  br i1 %.not.i14, label %wmem_tree_lookup.exit, label %.lr.ph.i8, !llvm.loop !19
 
 wmem_tree_lookup.exit.sink.split:                 ; preds = %.lr.ph.i, %.lr.ph.i8
   %.01628.i9.lcssa.sink = phi ptr [ %.01628.i9, %.lr.ph.i8 ], [ %.01628.i, %.lr.ph.i ]
@@ -2336,7 +2336,7 @@ define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, pt
   %.01628.i.i = phi ptr [ %.016.i.i, %12 ], [ %.01626.i.i, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01628.i.i, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef %10), !callees !20
+  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef %10), !callees !18
   %.not22.i.i = icmp eq i32 %11, 0
   br i1 %.not22.i.i, label %wmem_tree_lookup_string.exit, label %12
 
@@ -2346,7 +2346,7 @@ define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, pt
   %.218.in.i.i = getelementptr inbounds nuw i8, ptr %.01628.i.i, i64 %.218.in.v.i.i
   %.016.i.i = load ptr, ptr %.218.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.016.i.i, null
-  br i1 %.not.i.i, label %wmem_tree_lookup_string.exit.thread, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %.not.i.i, label %wmem_tree_lookup_string.exit.thread, label %.lr.ph.i.i, !llvm.loop !19
 
 .split.i:                                         ; preds = %3
   br i1 %or.cond.i5.i, label %wmem_tree_lookup_string.exit.thread, label %14
@@ -2361,7 +2361,7 @@ define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, pt
   %.01628.i9.i = phi ptr [ %.016.i13.i, %19 ], [ %.01626.i6.i, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %.01628.i9.i, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %17), !callees !20
+  %18 = tail call i32 @strcmp(ptr noundef %1, ptr noundef %17), !callees !18
   %.not22.i10.i = icmp eq i32 %18, 0
   br i1 %.not22.i10.i, label %wmem_tree_lookup_string.exit, label %19
 
@@ -2371,7 +2371,7 @@ define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, pt
   %.218.in.i12.i = getelementptr inbounds nuw i8, ptr %.01628.i9.i, i64 %.218.in.v.i11.i
   %.016.i13.i = load ptr, ptr %.218.in.i12.i, align 8
   %.not.i14.i = icmp eq ptr %.016.i13.i, null
-  br i1 %.not.i14.i, label %wmem_tree_lookup_string.exit.thread, label %.lr.ph.i8.i, !llvm.loop !21
+  br i1 %.not.i14.i, label %wmem_tree_lookup_string.exit.thread, label %.lr.ph.i8.i, !llvm.loop !19
 
 wmem_tree_lookup_string.exit:                     ; preds = %.lr.ph.i.i, %.lr.ph.i8.i
   %.01628.i9.lcssa.sink.i = phi ptr [ %.01628.i9.i, %.lr.ph.i8.i ], [ %.01628.i.i, %.lr.ph.i.i ]
@@ -2528,7 +2528,7 @@ define void @wmem_tree_insert32_array(ptr noundef captures(address) %0, ptr noun
   %.154.i.i = phi ptr [ %.05372.i.i, %39 ], [ %.05372.i.i, %54 ], [ %38, %36 ], [ %53, %51 ]
   %.1.i.i = phi ptr [ %44, %39 ], [ %59, %54 ], [ null, %36 ], [ null, %51 ]
   %.not64.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not64.i.i, label %.preheader.split.split.i.i, label %.split74.us.i.i, !llvm.loop !13
+  br i1 %.not64.i.i, label %.preheader.split.split.i.i, label %.split74.us.i.i, !llvm.loop !10
 
 .split74.us.i.i:                                  ; preds = %66
   tail call fastcc void @rb_insert_case1(ptr noundef nonnull %.11821, ptr noundef nonnull %.1.i.i)
@@ -2550,13 +2550,13 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = zext i32 %70 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next, %74
-  br i1 %75, label %8, label %._crit_edge, !llvm.loop !22
+  br i1 %75, label %8, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %69
   %76 = getelementptr i8, ptr %.01627, i64 16
   %77 = load i32, ptr %76, align 8
   %.not = icmp eq i32 %77, 0
-  br i1 %.not, label %._crit_edge29, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge29, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %3
   %.017.lcssa = phi ptr [ null, %3 ], [ %.2, %._crit_edge ]
@@ -2614,7 +2614,7 @@ define ptr @wmem_tree_lookup32_array(ptr noundef readonly captures(address) %0, 
   %18 = getelementptr inbounds nuw i8, ptr %.019.i.i5, i64 %spec.select
   %19 = load ptr, ptr %18, align 8
   %.not17.i.i7 = icmp eq ptr %19, null
-  br i1 %.not17.i.i7, label %wmem_tree_lookup32_array_helper.exit, label %.lr.ph.i.i4, !llvm.loop !15
+  br i1 %.not17.i.i7, label %wmem_tree_lookup32_array_helper.exit, label %.lr.ph.i.i4, !llvm.loop !13
 
 wmem_tree_lookup32.exit12:                        ; preds = %.lr.ph.i.i4
   %20 = getelementptr inbounds nuw i8, ptr %.019.i.i5, i64 32
@@ -2629,13 +2629,13 @@ wmem_tree_lookup32.exit12:                        ; preds = %.lr.ph.i.i4
   %24 = load i32, ptr %23, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = icmp samesign ult i64 %indvars.iv.next.i, %7
-  br i1 %25, label %8, label %._crit_edge.i, !llvm.loop !24
+  br i1 %25, label %8, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %._crit_edge48.i
   %26 = getelementptr i8, ptr %.02141.i, i64 16
   %27 = load i32, ptr %26, align 8
   %.not.i = icmp eq i32 %27, 0
-  br i1 %.not.i, label %._crit_edge43.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge43.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge43.i:                                  ; preds = %._crit_edge.i
   %28 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
@@ -2669,7 +2669,7 @@ wmem_tree_lookup32.exit12:                        ; preds = %.lr.ph.i.i4
 41:                                               ; preds = %.sink.split.i.i, %37
   %.1.i.i = phi ptr [ %.019.i.i, %37 ], [ %40, %.sink.split.i.i ]
   %.not17.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not17.i.i, label %wmem_tree_lookup32_array_helper.exit, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not17.i.i, label %wmem_tree_lookup32_array_helper.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 wmem_tree_lookup32_node.exit.i:                   ; preds = %.lr.ph.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
@@ -2777,7 +2777,7 @@ define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %
 46:                                               ; preds = %.preheader.i.i15
   %47 = load ptr, ptr %.253.i.i16, align 8
   %.not41.i.i17 = icmp eq ptr %47, null
-  br i1 %.not41.i.i17, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i15, !llvm.loop !16
+  br i1 %.not41.i.i17, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i15, !llvm.loop !14
 
 wmem_tree_lookup32_le_node.exit.i10:              ; preds = %.lr.ph.i.i8, %25, %.preheader.i.i15
   %.030.i.i11 = phi ptr [ %.253.i.i16, %.preheader.i.i15 ], [ %.050.i13.i7, %25 ], [ %.1.i.i9, %.lr.ph.i.i8 ]
@@ -2798,13 +2798,13 @@ wmem_tree_lookup32_le.exit18:                     ; preds = %.lr.ph.i.preheader.
   %53 = load i32, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = icmp samesign ult i64 %indvars.iv.next.i, %7
-  br i1 %54, label %8, label %._crit_edge.i, !llvm.loop !24
+  br i1 %54, label %8, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %._crit_edge48.i
   %55 = getelementptr i8, ptr %.02141.i, i64 16
   %56 = load i32, ptr %55, align 8
   %.not.i = icmp eq i32 %56, 0
-  br i1 %.not.i, label %._crit_edge43.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge43.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge43.i:                                  ; preds = %._crit_edge.i
   %57 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
@@ -2874,7 +2874,7 @@ wmem_tree_lookup32_le.exit18:                     ; preds = %.lr.ph.i.preheader.
 93:                                               ; preds = %.preheader.i.i
   %94 = load ptr, ptr %.253.i.i, align 8
   %.not41.i.i = icmp eq ptr %94, null
-  br i1 %.not41.i.i, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i, !llvm.loop !16
+  br i1 %.not41.i.i, label %wmem_tree_lookup32_array_helper.exit, label %.preheader.i.i, !llvm.loop !14
 
 wmem_tree_lookup32_le_node.exit.i:                ; preds = %.lr.ph.i.i, %72, %.preheader.i.i
   %.030.i.i = phi ptr [ %.253.i.i, %.preheader.i.i ], [ %.050.i13.i, %72 ], [ %.1.i.i, %.lr.ph.i.i ]
@@ -2998,7 +2998,7 @@ tailrecurse:                                      ; preds = %wmem_print_indent.e
   %6 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.2)
   %7 = add nuw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %7, %.tr54
-  br i1 %exitcond.not.i, label %wmem_print_indent.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %wmem_print_indent.exit, label %.lr.ph.i, !llvm.loop !24
 
 wmem_print_indent.exit:                           ; preds = %.lr.ph.i, %tailrecurse
   %8 = load ptr, ptr %.tr53, align 8
@@ -3029,7 +3029,7 @@ wmem_print_indent.exit:                           ; preds = %.lr.ph.i, %tailrecu
   %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.2)
   %27 = add nuw i32 %.03.i44, 1
   %exitcond.not.i45 = icmp eq i32 %27, %.tr54
-  br i1 %exitcond.not.i45, label %wmem_print_indent.exit46, label %.lr.ph.i43, !llvm.loop !26
+  br i1 %exitcond.not.i45, label %wmem_print_indent.exit46, label %.lr.ph.i43, !llvm.loop !24
 
 wmem_print_indent.exit46:                         ; preds = %.lr.ph.i43, %25
   %28 = load ptr, ptr %16, align 8
@@ -3053,7 +3053,7 @@ wmem_print_indent.exit46:                         ; preds = %.lr.ph.i43, %25
   %35 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.2)
   %36 = add nuw i32 %.03.i49, 1
   %exitcond.not.i50 = icmp eq i32 %36, %.tr54
-  br i1 %exitcond.not.i50, label %wmem_print_indent.exit51, label %.lr.ph.i48, !llvm.loop !26
+  br i1 %exitcond.not.i50, label %wmem_print_indent.exit51, label %.lr.ph.i48, !llvm.loop !24
 
 wmem_print_indent.exit51:                         ; preds = %.lr.ph.i48, %34
   %37 = load ptr, ptr %22, align 8
@@ -3101,7 +3101,7 @@ wmem_print_indent.exit51:                         ; preds = %.lr.ph.i48, %34
   %54 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.2)
   %55 = add nuw i32 %.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.03.i.i, %.tr54
-  br i1 %exitcond.not.i.i, label %wmem_print_indent.exit.i, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %wmem_print_indent.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 wmem_print_indent.exit.i:                         ; preds = %.lr.ph.i.i, %53
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -3148,20 +3148,18 @@ attributes #10 = { allocsize(1) }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{null}
+!10 = distinct !{!10, !9}
+!11 = distinct !{null}
+!12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!18 = !{ptr @g_ascii_strcasecmp, ptr @strcmp}
 !19 = distinct !{!19, !9}
-!20 = !{ptr @g_ascii_strcasecmp, ptr @strcmp}
+!20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}

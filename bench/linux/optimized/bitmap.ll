@@ -265,7 +265,7 @@ define dso_local void @__bitmap_shift_right(ptr noundef writeonly captures(none)
   store i64 %57, ptr %58, align 8
   %59 = add nuw nsw i64 %38, 1
   %60 = icmp eq i64 %59, %27
-  br i1 %60, label %.loopexit, label %.split, !llvm.loop !12
+  br i1 %60, label %.loopexit, label %.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %49, %.split.us, %4
   %61 = icmp ult i32 %2, 64
@@ -320,7 +320,7 @@ define dso_local void @__bitmap_shift_left(ptr noundef writeonly captures(none) 
   %26 = add nsw i64 %22, -1
   %27 = trunc i64 %22 to i32
   %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.split.us, label %.loopexit, !llvm.loop !13
+  br i1 %28, label %.split.us, label %.loopexit, !llvm.loop !11
 
 .split:                                           ; preds = %14, %34
   %29 = phi i64 [ %43, %34 ], [ %19, %14 ]
@@ -348,7 +348,7 @@ define dso_local void @__bitmap_shift_left(ptr noundef writeonly captures(none) 
   %43 = add nsw i64 %29, -1
   %44 = trunc i64 %29 to i32
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.split, label %.loopexit, !llvm.loop !14
+  br i1 %45, label %.split, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %34, %.split.us, %.thread, %4
   %46 = icmp ult i32 %2, 64
@@ -427,12 +427,12 @@ define dso_local void @bitmap_cut(ptr noundef captures(none) %0, ptr noundef rea
   store i64 %42, ptr %40, align 8
   %43 = add nuw nsw i64 %33, 1
   %44 = icmp eq i64 %43, %8
-  br i1 %44, label %.loopexit.us, label %32, !llvm.loop !15
+  br i1 %44, label %.loopexit.us, label %32, !llvm.loop !12
 
 .loopexit.us:                                     ; preds = %38
   %45 = add i32 %31, -1
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit5, label %.preheader.us, !llvm.loop !16
+  br i1 %46, label %.loopexit5, label %.preheader.us, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %.loopexit.us, %25, %..loopexit5_crit_edge
   %.pre-phi8 = phi i64 [ %.pre7, %..loopexit5_crit_edge ], [ %29, %25 ], [ %29, %.loopexit.us ]
@@ -472,7 +472,7 @@ define dso_local zeroext i1 @__bitmap_and(ptr noundef writeonly captures(none) %
   %18 = or i64 %16, %11
   %19 = add nuw nsw i64 %10, 1
   %20 = icmp eq i64 %19, %8
-  br i1 %20, label %.loopexit, label %9, !llvm.loop !17
+  br i1 %20, label %.loopexit, label %9, !llvm.loop !14
 
 .loopexit:                                        ; preds = %9, %4
   %21 = phi i64 [ 0, %4 ], [ %8, %9 ]
@@ -522,7 +522,7 @@ define dso_local void @__bitmap_or(ptr noundef writeonly captures(none) %0, ptr 
   store i64 %14, ptr %15, align 8
   %16 = add nuw nsw i64 %9, 1
   %17 = icmp eq i64 %16, %7
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret void
@@ -547,7 +547,7 @@ define dso_local void @__bitmap_xor(ptr noundef writeonly captures(none) %0, ptr
   store i64 %14, ptr %15, align 8
   %16 = add nuw nsw i64 %9, 1
   %17 = icmp eq i64 %16, %7
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %4
   ret void
@@ -577,7 +577,7 @@ define dso_local zeroext i1 @__bitmap_andnot(ptr noundef writeonly captures(none
   %19 = or i64 %17, %11
   %20 = add nuw nsw i64 %10, 1
   %21 = icmp eq i64 %20, %8
-  br i1 %21, label %.loopexit, label %9, !llvm.loop !20
+  br i1 %21, label %.loopexit, label %9, !llvm.loop !17
 
 .loopexit:                                        ; preds = %9, %4
   %22 = phi i64 [ 0, %4 ], [ %8, %9 ]
@@ -633,7 +633,7 @@ define dso_local void @__bitmap_replace(ptr noundef writeonly captures(none) %0,
   store i64 %20, ptr %21, align 8
   %22 = add nuw nsw i64 %10, 1
   %23 = icmp eq i64 %22, %8
-  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %23, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret void
@@ -662,7 +662,7 @@ define dso_local noundef zeroext i1 @__bitmap_intersects(ptr noundef readonly ca
 16:                                               ; preds = %8
   %17 = add nuw nsw i64 %9, 1
   %18 = icmp eq i64 %17, %7
-  br i1 %18, label %.loopexit3, label %8, !llvm.loop !22
+  br i1 %18, label %.loopexit3, label %8, !llvm.loop !19
 
 .loopexit3:                                       ; preds = %16, %3
   %19 = phi i64 [ 0, %3 ], [ %7, %16 ]
@@ -716,7 +716,7 @@ define dso_local noundef zeroext i1 @__bitmap_subset(ptr noundef readonly captur
 17:                                               ; preds = %8
   %18 = add nuw nsw i64 %9, 1
   %19 = icmp eq i64 %18, %7
-  br i1 %19, label %.loopexit3, label %8, !llvm.loop !23
+  br i1 %19, label %.loopexit3, label %8, !llvm.loop !20
 
 .loopexit3:                                       ; preds = %17, %3
   %20 = phi i64 [ 0, %3 ], [ %7, %17 ]
@@ -762,12 +762,12 @@ define dso_local i32 @__bitmap_weight(ptr noundef readonly captures(none) %0, i3
   %9 = phi i32 [ 0, %4 ], [ %14, %7 ]
   %10 = getelementptr i64, ptr %0, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %11) #11, !srcloc !24
+  %12 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %11) #11, !srcloc !21
   %13 = trunc i64 %12 to i32
   %14 = add i32 %9, %13
   %15 = add nuw nsw i64 %8, 1
   %16 = icmp eq i64 %15, %6
-  br i1 %16, label %.loopexit, label %7, !llvm.loop !25
+  br i1 %16, label %.loopexit, label %7, !llvm.loop !22
 
 .loopexit:                                        ; preds = %7, %2
   %17 = phi i64 [ 0, %2 ], [ %6, %7 ]
@@ -784,7 +784,7 @@ define dso_local i32 @__bitmap_weight(ptr noundef readonly captures(none) %0, i3
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 -1, %26
   %28 = and i64 %23, %27
-  %29 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %28) #11, !srcloc !24
+  %29 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %28) #11, !srcloc !21
   %30 = trunc i64 %29 to i32
   %31 = add i32 %18, %30
   br label %32
@@ -812,12 +812,12 @@ define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0
   %13 = getelementptr i64, ptr %0, i64 %9
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
-  %16 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #11, !srcloc !24
+  %16 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %15) #11, !srcloc !21
   %17 = trunc i64 %16 to i32
   %18 = add i32 %10, %17
   %19 = add nuw nsw i64 %9, 1
   %20 = icmp eq i64 %19, %7
-  br i1 %20, label %.loopexit, label %8, !llvm.loop !26
+  br i1 %20, label %.loopexit, label %8, !llvm.loop !23
 
 .loopexit:                                        ; preds = %8, %3
   %21 = phi i64 [ 0, %3 ], [ %7, %8 ]
@@ -837,7 +837,7 @@ define dso_local i32 @__bitmap_weight_and(ptr noundef readonly captures(none) %0
   %33 = lshr i64 -1, %32
   %34 = and i64 %27, %33
   %35 = and i64 %34, %29
-  %36 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %35) #11, !srcloc !24
+  %36 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %35) #11, !srcloc !21
   %37 = trunc i64 %36 to i32
   %38 = add i32 %22, %37
   br label %39
@@ -871,7 +871,7 @@ define dso_local void @__bitmap_set(ptr noundef captures(none) %0, i32 noundef %
   %19 = getelementptr i8, ptr %16, i64 8
   %20 = add nsw i32 %14, -64
   %21 = icmp samesign ugt i32 %14, 63
-  br i1 %21, label %.preheader, label %22, !llvm.loop !27
+  br i1 %21, label %.preheader, label %22, !llvm.loop !24
 
 22:                                               ; preds = %.preheader
   %23 = and i32 %12, 63
@@ -927,7 +927,7 @@ define dso_local void @__bitmap_clear(ptr noundef captures(none) %0, i32 noundef
   %22 = getelementptr i8, ptr %19, i64 8
   %23 = add nsw i32 %17, -64
   %24 = icmp samesign ugt i32 %17, 63
-  br i1 %24, label %16, label %25, !llvm.loop !28
+  br i1 %24, label %16, label %25, !llvm.loop !25
 
 25:                                               ; preds = %16
   %26 = and i32 %12, 63
@@ -1008,12 +1008,12 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = phi i32 [ 0, %13 ], [ %23, %16 ]
   %19 = getelementptr i64, ptr %3, i64 %17
   %20 = load i64, ptr %19, align 8
-  %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #11, !srcloc !24
+  %21 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %20) #11, !srcloc !21
   %22 = trunc i64 %21 to i32
   %23 = add i32 %18, %22
   %24 = add nuw nsw i64 %17, 1
   %25 = icmp eq i64 %24, %15
-  br i1 %25, label %.loopexit10, label %16, !llvm.loop !25
+  br i1 %25, label %.loopexit10, label %16, !llvm.loop !22
 
 .loopexit10:                                      ; preds = %16, %7
   %26 = phi i64 [ 0, %7 ], [ %15, %16 ]
@@ -1030,7 +1030,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %35 = zext nneg i32 %34 to i64
   %36 = lshr i64 -1, %35
   %37 = and i64 %32, %36
-  %38 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %37) #11, !srcloc !24
+  %38 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %37) #11, !srcloc !21
   %39 = trunc i64 %38 to i32
   %40 = add i32 %27, %39
   br label %41
@@ -1051,7 +1051,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %47 = phi i32 [ %79, %.thread.us ], [ %44, %.lr.ph ]
   %48 = phi i64 [ %78, %.thread.us ], [ %43, %.lr.ph ]
   %49 = and i64 %48, 4294967295
-  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %49) #12, !srcloc !29
+  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %49) #12, !srcloc !26
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -1070,10 +1070,10 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %59 = phi i64 [ 0, %55 ], [ %63, %58 ]
   %60 = getelementptr i64, ptr %2, i64 %59
   %61 = load i64, ptr %60, align 8
-  %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #11, !srcloc !24
+  %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #11, !srcloc !21
   %63 = add nuw nsw i64 %59, 1
   %64 = icmp eq i64 %63, %57
-  br i1 %64, label %.loopexit.us, label %58, !llvm.loop !25
+  br i1 %64, label %.loopexit.us, label %58, !llvm.loop !22
 
 .loopexit.us:                                     ; preds = %58, %53
   %65 = phi i64 [ 0, %53 ], [ %57, %58 ]
@@ -1088,23 +1088,23 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %72 = and i64 %71, 63
   %73 = lshr i64 -1, %72
   %74 = and i64 %70, %73
-  %75 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #11, !srcloc !24
+  %75 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #11, !srcloc !21
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.loopexit.us, %68, %.lr.ph.split.us
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %49) #12, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %49) #12, !srcloc !27
   %76 = add i64 %48, 1
   %77 = and i64 %76, 4294967295
   %78 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %77) #12
   %79 = trunc i64 %78 to i32
   %80 = icmp ugt i32 %4, %79
-  br i1 %80, label %.lr.ph.split.us, label %.loopexit9, !llvm.loop !31
+  br i1 %80, label %.lr.ph.split.us, label %.loopexit9, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
   %81 = phi i32 [ %131, %127 ], [ %44, %.lr.ph ]
   %82 = phi i64 [ %130, %127 ], [ %43, %.lr.ph ]
   %83 = and i64 %82, 4294967295
-  %84 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %83) #12, !srcloc !29
+  %84 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %83) #12, !srcloc !26
   %85 = icmp ult i8 %84, 2
   tail call void @llvm.assume(i1 %85)
   %86 = icmp eq i8 %84, 0
@@ -1124,12 +1124,12 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %94 = phi i32 [ 0, %89 ], [ %99, %92 ]
   %95 = getelementptr i64, ptr %2, i64 %93
   %96 = load i64, ptr %95, align 8
-  %97 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %96) #11, !srcloc !24
+  %97 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %96) #11, !srcloc !21
   %98 = trunc i64 %97 to i32
   %99 = add i32 %94, %98
   %100 = add nuw nsw i64 %93, 1
   %101 = icmp eq i64 %100, %91
-  br i1 %101, label %.loopexit, label %92, !llvm.loop !25
+  br i1 %101, label %.loopexit, label %92, !llvm.loop !22
 
 .loopexit:                                        ; preds = %92, %87
   %102 = phi i64 [ 0, %87 ], [ %91, %92 ]
@@ -1145,7 +1145,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %110 = and i64 %109, 63
   %111 = lshr i64 -1, %110
   %112 = and i64 %108, %111
-  %113 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %112) #11, !srcloc !24
+  %113 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %112) #11, !srcloc !21
   %114 = trunc i64 %113 to i32
   %115 = add i32 %103, %114
   br label %116
@@ -1156,7 +1156,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %118, label %.thread, label %119
 
 .thread:                                          ; preds = %.lr.ph.split, %116
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %83) #12, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %83) #12, !srcloc !27
   br label %127
 
 119:                                              ; preds = %116
@@ -1171,7 +1171,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 125:                                              ; preds = %122, %119
   %126 = phi i64 [ %124, %122 ], [ %8, %119 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %126) #12, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %126) #12, !srcloc !27
   br label %127
 
 127:                                              ; preds = %125, %.thread
@@ -1180,7 +1180,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %130 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %129) #12
   %131 = trunc i64 %130 to i32
   %132 = icmp ugt i32 %4, %131
-  br i1 %132, label %.lr.ph.split, label %.loopexit9, !llvm.loop !32
+  br i1 %132, label %.lr.ph.split, label %.loopexit9, !llvm.loop !28
 
 .loopexit9:                                       ; preds = %127, %.thread.us, %41, %5
   ret void
@@ -1201,12 +1201,12 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %11 = phi i32 [ 0, %6 ], [ %16, %9 ]
   %12 = getelementptr i64, ptr %2, i64 %10
   %13 = load i64, ptr %12, align 8
-  %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #11, !srcloc !24
+  %14 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %13) #11, !srcloc !21
   %15 = trunc i64 %14 to i32
   %16 = add i32 %11, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit7, label %9, !llvm.loop !25
+  br i1 %18, label %.loopexit7, label %9, !llvm.loop !22
 
 .loopexit7:                                       ; preds = %9, %4
   %19 = phi i64 [ 0, %4 ], [ %8, %9 ]
@@ -1223,7 +1223,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i64 -1, %28
   %30 = and i64 %25, %29
-  %31 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %30) #11, !srcloc !24
+  %31 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %30) #11, !srcloc !21
   %32 = trunc i64 %31 to i32
   %33 = add i32 %20, %32
   br label %34
@@ -1235,7 +1235,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
 
 37:                                               ; preds = %34
   %38 = zext i32 %0 to i64
-  %39 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %38) #12, !srcloc !29
+  %39 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %38) #12, !srcloc !26
   %40 = icmp ult i8 %39, 2
   tail call void @llvm.assume(i1 %40)
   %41 = icmp eq i8 %39, 0
@@ -1255,12 +1255,12 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %49 = phi i32 [ 0, %44 ], [ %54, %47 ]
   %50 = getelementptr i64, ptr %1, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %51) #11, !srcloc !24
+  %52 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %51) #11, !srcloc !21
   %53 = trunc i64 %52 to i32
   %54 = add i32 %49, %53
   %55 = add nuw nsw i64 %48, 1
   %56 = icmp eq i64 %55, %46
-  br i1 %56, label %.loopexit, label %47, !llvm.loop !25
+  br i1 %56, label %.loopexit, label %47, !llvm.loop !22
 
 .loopexit:                                        ; preds = %47, %42
   %57 = phi i64 [ 0, %42 ], [ %46, %47 ]
@@ -1277,7 +1277,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %66 = zext nneg i32 %65 to i64
   %67 = lshr i64 -1, %66
   %68 = and i64 %63, %67
-  %69 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %68) #11, !srcloc !24
+  %69 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %68) #11, !srcloc !21
   %70 = trunc i64 %69 to i32
   %71 = add i32 %58, %70
   br label %72
@@ -1326,7 +1326,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = phi i64 [ %26, %22 ], [ %11, %6 ]
   %15 = phi i32 [ %23, %22 ], [ 0, %6 ]
   %16 = zext i32 %15 to i64
-  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %16) #12, !srcloc !29
+  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %16) #12, !srcloc !26
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i8 %17, 0
@@ -1334,7 +1334,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 20:                                               ; preds = %.lr.ph
   %21 = and i64 %14, 4294967295
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %21) #12, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %21) #12, !srcloc !27
   br label %22
 
 22:                                               ; preds = %20, %.lr.ph
@@ -1344,7 +1344,7 @@ define dso_local void @bitmap_onto(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = tail call i64 @_find_next_bit(ptr noundef %2, i64 noundef %7, i64 noundef %25) #12
   %27 = trunc i64 %26 to i32
   %28 = icmp ugt i32 %3, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !33
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %22, %6, %4
   ret void
@@ -1371,13 +1371,13 @@ define dso_local void @bitmap_fold(ptr noundef %0, ptr noundef %1, i32 noundef %
   %15 = phi i64 [ %20, %.lr.ph ], [ %11, %6 ]
   %16 = urem i32 %14, %2
   %17 = zext i32 %16 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %17) #12, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %17) #12, !srcloc !27
   %18 = add i64 %15, 1
   %19 = and i64 %18, 4294967295
   %20 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %7, i64 noundef %19) #12
   %21 = trunc i64 %20 to i32
   %22 = icmp ugt i32 %3, %21
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4
   ret void
@@ -1524,7 +1524,7 @@ define dso_local void @bitmap_from_arr32(ptr noundef captures(none) %0, ptr noun
 24:                                               ; preds = %18, %9
   %25 = add nuw nsw i64 %10, 2
   %26 = icmp samesign ult i64 %25, %8
-  br i1 %26, label %9, label %.loopexit, !llvm.loop !35
+  br i1 %26, label %9, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %24, %3
   %27 = and i32 %2, 63
@@ -1583,7 +1583,7 @@ define dso_local void @bitmap_to_arr32(ptr noundef captures(none) %0, ptr nounde
 23:                                               ; preds = %18, %9
   %24 = add nuw nsw i64 %10, 2
   %25 = icmp samesign ult i64 %24, %8
-  br i1 %25, label %9, label %.loopexit, !llvm.loop !36
+  br i1 %25, label %9, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %23, %3
   %26 = and i32 %2, 63
@@ -1657,30 +1657,26 @@ attributes #13 = { nounwind allocsize(0) }
 !7 = !{!"llvm.loop.unroll.disable"}
 !8 = distinct !{!8, !6, !7}
 !9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
 !12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7, !11}
+!13 = distinct !{!13, !6, !7}
 !14 = distinct !{!14, !6, !7}
 !15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7, !11}
+!16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
 !19 = distinct !{!19, !6, !7}
 !20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
+!21 = !{i64 2147847149, i64 2147847177, i64 2147847183, i64 2147847199, i64 2147847215, i64 2147847242, i64 2147847575, i64 2147846875, i64 2147847581, i64 2147847629, i64 2147847693, i64 2147847757, i64 2147847814, i64 2147846956, i64 2147846981, i64 2147848021, i64 2147848151, i64 2147848082, i64 2147848165, i64 2147847073}
 !22 = distinct !{!22, !6, !7}
 !23 = distinct !{!23, !6, !7}
-!24 = !{i64 2147847149, i64 2147847177, i64 2147847183, i64 2147847199, i64 2147847215, i64 2147847242, i64 2147847575, i64 2147846875, i64 2147847581, i64 2147847629, i64 2147847693, i64 2147847757, i64 2147847814, i64 2147846956, i64 2147846981, i64 2147848021, i64 2147848151, i64 2147848082, i64 2147848165, i64 2147847073}
+!24 = distinct !{!24, !6, !7}
 !25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
+!26 = !{i64 2147800133, i64 2147800207}
+!27 = !{i64 2147786734, i64 2147786773, i64 2147786794, i64 2147786831, i64 2147786854, i64 2147786724}
 !28 = distinct !{!28, !6, !7}
-!29 = !{i64 2147800133, i64 2147800207}
-!30 = !{i64 2147786734, i64 2147786773, i64 2147786794, i64 2147786831, i64 2147786854, i64 2147786724}
-!31 = distinct !{!31, !6, !7, !11}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
 !32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}

@@ -6142,17 +6142,17 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   br label %41
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %22, align 8, !tbaa !138
-  %37 = load i32, ptr %23, align 8, !tbaa !140
-  %38 = load ptr, ptr %24, align 8, !tbaa !141
-  %39 = load i32, ptr %25, align 8, !tbaa !142
+  %36 = load ptr, ptr %22, align 8, !tbaa !137
+  %37 = load i32, ptr %23, align 8, !tbaa !139
+  %38 = load ptr, ptr %24, align 8, !tbaa !140
+  %39 = load i32, ptr %25, align 8, !tbaa !141
   %40 = call i32 @wc_DhSetKey(ptr noundef nonnull %5, ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39) #17
   br label %41
 
 41:                                               ; preds = %35, %33
   %.2 = phi i32 [ %40, %35 ], [ %34, %33 ]
   %.not52 = icmp eq i32 %.2, 0
-  br i1 %.not52, label %.split118.us, label %.split120.us, !llvm.loop !143
+  br i1 %.not52, label %.split118.us, label %.split120.us, !llvm.loop !136
 
 .split120.us:                                     ; preds = %41, %30
   %.us-phi121 = phi i32 [ %.2.us, %30 ], [ %.2, %41 ]
@@ -6236,7 +6236,7 @@ bench_stats_check.exit:                           ; preds = %bench_async_handle.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = fsub double %86, %57
   %88 = fcmp uge double %87, 1.000000e+00
-  br i1 %88, label %89, label %.preheader96, !llvm.loop !144
+  br i1 %88, label %89, label %.preheader96, !llvm.loop !142
 
 89:                                               ; preds = %bench_stats_check.exit
   %90 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -6291,13 +6291,13 @@ bench_stats_start.exit54:                         ; preds = %89
 bench_async_handle.exit56:                        ; preds = %.preheader
   %120 = add nuw nsw i32 %.279125, 1
   %exitcond.not = icmp eq i32 %120, 100
-  br i1 %exitcond.not, label %121, label %.preheader, !llvm.loop !145
+  br i1 %exitcond.not, label %121, label %.preheader, !llvm.loop !143
 
 121:                                              ; preds = %bench_async_handle.exit56
   %122 = add nuw nsw i32 %.386, 100
   %123 = call fastcc i32 @bench_stats_check(double noundef %107)
   %.not47 = icmp eq i32 %123, 0
-  br i1 %.not47, label %bench_async_handle.exit56.thread, label %115, !llvm.loop !146
+  br i1 %.not47, label %bench_async_handle.exit56.thread, label %115, !llvm.loop !144
 
 bench_async_handle.exit56.thread:                 ; preds = %121, %.preheader, %.split, %.split.us.preheader, %.thread, %.split120.us
   %.083 = phi i32 [ 0, %.split120.us ], [ %.184, %.thread ], [ 0, %.split.us.preheader ], [ 0, %.split ], [ %.386, %.preheader ], [ %122, %121 ]
@@ -6524,7 +6524,7 @@ bench_stats_start.exit:                           ; preds = %2
 bench_async_handle.exit:                          ; preds = %38
   %41 = add nuw nsw i32 %.02742, 1
   %exitcond.not = icmp eq i32 %41, 100
-  br i1 %exitcond.not, label %42, label %.preheader, !llvm.loop !147
+  br i1 %exitcond.not, label %42, label %.preheader, !llvm.loop !145
 
 42:                                               ; preds = %bench_async_handle.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6552,7 +6552,7 @@ bench_stats_check.exit:                           ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = fsub double %57, %23
   %59 = fcmp uge double %58, 1.000000e+00
-  br i1 %59, label %bench_async_handle.exit.thread, label %34, !llvm.loop !148
+  br i1 %59, label %bench_async_handle.exit.thread, label %34, !llvm.loop !146
 
 bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %38, %.preheader
   %.126 = phi i32 [ %.025, %.preheader ], [ %.025, %38 ], [ %51, %bench_stats_check.exit ]
@@ -6625,7 +6625,7 @@ define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
 30:                                               ; preds = %27
   %31 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %18, i32 noundef %17, ptr noundef nonnull %8, i32 noundef %1) #17
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.loopexit146, label %.preheader145, !llvm.loop !149
+  br i1 %32, label %.loopexit146, label %.preheader145, !llvm.loop !147
 
 33:                                               ; preds = %.preheader145
   %34 = tail call ptr @__errno_location() #18
@@ -6670,13 +6670,13 @@ bench_stats_start.exit:                           ; preds = %.preheader145
 bench_async_handle.exit:                          ; preds = %.preheader142
   %57 = add nuw nsw i32 %.0116169, 1
   %exitcond.not = icmp eq i32 %57, 100
-  br i1 %exitcond.not, label %58, label %.preheader142, !llvm.loop !150
+  br i1 %exitcond.not, label %58, label %.preheader142, !llvm.loop !148
 
 58:                                               ; preds = %bench_async_handle.exit
   %59 = add nuw nsw i32 %.0110, 100
   %60 = call fastcc i32 @bench_stats_check(double noundef %45)
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %bench_async_handle.exit.thread, label %54, !llvm.loop !151
+  br i1 %.not, label %bench_async_handle.exit.thread, label %54, !llvm.loop !149
 
 bench_async_handle.exit.thread:                   ; preds = %58, %.preheader142
   %.1111 = phi i32 [ %.0110, %.preheader142 ], [ %59, %58 ]
@@ -6701,10 +6701,10 @@ bench_async_handle.exit.thread:                   ; preds = %58, %.preheader142
   %indvars.iv = phi i64 [ 0, %.preheader139.us.preheader ], [ %indvars.iv.next, %.preheader139.us ]
   %68 = trunc i64 %indvars.iv to i8
   %69 = getelementptr inbounds nuw [66 x i8], ptr %13, i64 0, i64 %indvars.iv
-  store i8 %68, ptr %69, align 1, !tbaa !152
+  store i8 %68, ptr %69, align 1, !tbaa !150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond193.not, label %.split, label %.preheader139.us, !llvm.loop !153
+  br i1 %exitcond193.not, label %.split, label %.preheader139.us, !llvm.loop !151
 
 .split:                                           ; preds = %.preheader139.us, %.preheader141
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6747,7 +6747,7 @@ bench_stats_start.exit76:                         ; preds = %.split
 
 .preheader136:                                    ; preds = %93, %bench_async_handle.exit78
   %.2118172 = phi i32 [ 0, %93 ], [ %100, %bench_async_handle.exit78 ]
-  %94 = load i32, ptr %92, align 8, !tbaa !154
+  %94 = load i32, ptr %92, align 8, !tbaa !152
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %97
 
@@ -6763,13 +6763,13 @@ bench_stats_start.exit76:                         ; preds = %.split
 bench_async_handle.exit78:                        ; preds = %97
   %100 = add nuw nsw i32 %.2118172, 1
   %exitcond194.not = icmp eq i32 %100, 100
-  br i1 %exitcond194.not, label %101, label %.preheader136, !llvm.loop !159
+  br i1 %exitcond194.not, label %101, label %.preheader136, !llvm.loop !157
 
 101:                                              ; preds = %bench_async_handle.exit78
   %102 = add nuw nsw i32 %.2112, 100
   %103 = call fastcc i32 @bench_stats_check(double noundef %84)
   %.not70 = icmp eq i32 %103, 0
-  br i1 %.not70, label %bench_async_handle.exit78.thread, label %93, !llvm.loop !160
+  br i1 %.not70, label %bench_async_handle.exit78.thread, label %93, !llvm.loop !158
 
 bench_async_handle.exit78.thread:                 ; preds = %101, %97
   %.3113 = phi i32 [ %.2112, %97 ], [ %102, %101 ]
@@ -6821,7 +6821,7 @@ bench_stats_start.exit79:                         ; preds = %109
 
 .preheader134:                                    ; preds = %132, %bench_async_handle.exit81
   %.4120174 = phi i32 [ 0, %132 ], [ %140, %bench_async_handle.exit81 ]
-  %133 = load i32, ptr %92, align 8, !tbaa !154
+  %133 = load i32, ptr %92, align 8, !tbaa !152
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %136
 
@@ -6838,13 +6838,13 @@ bench_stats_start.exit79:                         ; preds = %109
 bench_async_handle.exit81:                        ; preds = %136
   %140 = add nuw nsw i32 %.4120174, 1
   %exitcond195.not = icmp eq i32 %140, 100
-  br i1 %exitcond195.not, label %141, label %.preheader134, !llvm.loop !161
+  br i1 %exitcond195.not, label %141, label %.preheader134, !llvm.loop !159
 
 141:                                              ; preds = %bench_async_handle.exit81
   %142 = add nuw nsw i32 %.4114, 100
   %143 = call fastcc i32 @bench_stats_check(double noundef %124)
   %.not72 = icmp eq i32 %143, 0
-  br i1 %.not72, label %bench_async_handle.exit81.thread, label %132, !llvm.loop !162
+  br i1 %.not72, label %bench_async_handle.exit81.thread, label %132, !llvm.loop !160
 
 bench_async_handle.exit81.thread:                 ; preds = %141, %136
   %.5115 = phi i32 [ %.4114, %136 ], [ %142, %141 ]
@@ -7231,19 +7231,19 @@ sub_1:                                            ; preds = %sub_0
 106:                                              ; preds = %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !163
+  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !161
 
 107:                                              ; preds = %.preheader, %106
   %indvars.iv310 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
   %108 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv310
-  %109 = load ptr, ptr %108, align 16, !tbaa !164
+  %109 = load ptr, ptr %108, align 16, !tbaa !162
   %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #20
   %.not180.not = icmp eq i32 %110, 0
   br i1 %.not180.not, label %.critedge5.thread, label %106
 
 .critedge5.thread:                                ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !166
+  %112 = load i32, ptr %111, align 8, !tbaa !164
   %113 = or i32 %bench_cipher_algs.promoted, %112
   store i32 %113, ptr @bench_cipher_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7256,19 +7256,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph:                                           ; preds = %114
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233311, 1
   %exitcond236 = icmp eq i64 %indvars.iv.next234, 14
-  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !167
+  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !165
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv233311 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
   %115 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv233311
-  %116 = load ptr, ptr %115, align 16, !tbaa !164
+  %116 = load ptr, ptr %115, align 16, !tbaa !162
   %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #20
   %.not181.not = icmp eq i32 %117, 0
   br i1 %.not181.not, label %.critedge5, label %.lr.ph
 
 .critedge5:                                       ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load i32, ptr %118, align 8, !tbaa !166
+  %119 = load i32, ptr %118, align 8, !tbaa !164
   %120 = or i32 %bench_digest_algs.promoted, %119
   store i32 %120, ptr @bench_digest_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7281,19 +7281,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph201:                                        ; preds = %121
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237312, 1
   %exitcond240 = icmp eq i64 %indvars.iv.next238, 9
-  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !168
+  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !166
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv237312 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
   %122 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv237312
-  %123 = load ptr, ptr %122, align 16, !tbaa !164
+  %123 = load ptr, ptr %122, align 16, !tbaa !162
   %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #20
   %.not182.not = icmp eq i32 %124, 0
   br i1 %.not182.not, label %.critedge7, label %.lr.ph201
 
 .critedge7:                                       ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !166
+  %126 = load i32, ptr %125, align 8, !tbaa !164
   %127 = or i32 %bench_mac_algs.promoted, %126
   store i32 %127, ptr @bench_mac_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7316,19 +7316,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph215:                                        ; preds = %129
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245314, 1
   %exitcond248 = icmp eq i64 %indvars.iv.next246, 6
-  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !169
+  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !167
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv245314 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next246, %.lr.ph215 ]
   %130 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv245314
-  %131 = load ptr, ptr %130, align 16, !tbaa !164
+  %131 = load ptr, ptr %130, align 16, !tbaa !162
   %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #20
   %.not184.not = icmp eq i32 %132, 0
   br i1 %.not184.not, label %.critedge11, label %.lr.ph215
 
 .critedge11:                                      ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !166
+  %134 = load i32, ptr %133, align 8, !tbaa !164
   %135 = or i32 %bench_asym_algs.promoted, %134
   store i32 %135, ptr @bench_asym_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7341,12 +7341,12 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph221:                                        ; preds = %136
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249315, 1
   %exitcond252 = icmp eq i64 %indvars.iv.next250, 2
-  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !170
+  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !168
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv249315 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next250, %.lr.ph221 ]
   %137 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv249315
-  %138 = load ptr, ptr %137, align 16, !tbaa !164
+  %138 = load ptr, ptr %137, align 16, !tbaa !162
   %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #20
   %.not185.not = icmp eq i32 %139, 0
   br i1 %.not185.not, label %.critedge163.loopexit, label %.lr.ph221
@@ -7373,7 +7373,7 @@ sub_1:                                            ; preds = %sub_0
 
 .critedge163.loopexit:                            ; preds = %136
   %149 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !166
+  %150 = load i32, ptr %149, align 8, !tbaa !164
   %151 = or i32 %bench_other_algs.promoted, %150
   store i32 %151, ptr @bench_other_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7385,7 +7385,7 @@ sub_1:                                            ; preds = %sub_0
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2
-  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !171
+  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %100, %93, %84, %47, %25, %.critedge163, %2
   %155 = tail call i32 @benchmark_test(ptr poison)
@@ -7480,9 +7480,9 @@ print_alg.exit:                                   ; preds = %51, %58
   %.7 = phi i32 [ 0, %58 ], [ %56, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
-  %60 = load ptr, ptr %59, align 16, !tbaa !164
+  %60 = load ptr, ptr %59, align 16, !tbaa !162
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !172
+  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !170
 
 .preheader89:                                     ; preds = %print_alg.exit, %print_alg.exit60
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %print_alg.exit60 ], [ 0, %print_alg.exit ]
@@ -7513,9 +7513,9 @@ print_alg.exit60:                                 ; preds = %65, %72
   %.9 = phi i32 [ 0, %72 ], [ %70, %65 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %73 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next110
-  %74 = load ptr, ptr %73, align 16, !tbaa !164
+  %74 = load ptr, ptr %73, align 16, !tbaa !162
   %exitcond112 = icmp eq i64 %indvars.iv.next110, 14
-  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !173
+  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !171
 
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
   %indvars.iv113 = phi i64 [ %indvars.iv113.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
@@ -7547,8 +7547,8 @@ print_alg.exit62:                                 ; preds = %79
   %indvars.iv113.be = phi i64 [ %indvars.iv.next114, %print_alg.exit62 ], [ %indvars.iv.next114129, %print_alg.exit62.thread ]
   %.28294.be = phi i32 [ %84, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   %.be.in = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv113.be
-  %.be = load ptr, ptr %.be.in, align 16, !tbaa !164
-  br label %.preheader88, !llvm.loop !174
+  %.be = load ptr, ptr %.be.in, align 16, !tbaa !162
+  br label %.preheader88, !llvm.loop !172
 
 print_alg.exit62.thread:                          ; preds = %79
   %putchar.i61 = tail call i32 @putchar(i32 10)
@@ -7608,9 +7608,9 @@ print_alg.exit66:                                 ; preds = %98, %105
   %.15 = phi i32 [ 0, %105 ], [ %103, %98 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %106 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next121
-  %107 = load ptr, ptr %106, align 16, !tbaa !164
+  %107 = load ptr, ptr %106, align 16, !tbaa !162
   %exitcond123 = icmp eq i64 %indvars.iv.next121, 6
-  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !175
+  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !173
 
 .preheader:                                       ; preds = %print_alg.exit66, %print_alg.exit68
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
@@ -7641,9 +7641,9 @@ print_alg.exit68:                                 ; preds = %112, %119
   %.17 = phi i32 [ 0, %119 ], [ %117, %112 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %120 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next125
-  %121 = load ptr, ptr %120, align 16, !tbaa !164
+  %121 = load ptr, ptr %120, align 16, !tbaa !162
   %exitcond127 = icmp eq i64 %indvars.iv.next125, 2
-  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !176
+  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !174
 
 122:                                              ; preds = %print_alg.exit68
   %putchar = tail call i32 @putchar(i32 10)
@@ -7904,13 +7904,13 @@ attributes #20 = { nounwind willreturn memory(read) }
 !133 = distinct !{!133, !12}
 !134 = distinct !{!134, !12}
 !135 = distinct !{!135, !12}
-!136 = distinct !{!136, !12, !137}
-!137 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!138 = !{!139, !9, i64 0}
-!139 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
-!140 = !{!139, !5, i64 8}
-!141 = !{!139, !9, i64 16}
-!142 = !{!139, !5, i64 24}
+!136 = distinct !{!136, !12}
+!137 = !{!138, !9, i64 0}
+!138 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
+!139 = !{!138, !5, i64 8}
+!140 = !{!138, !9, i64 16}
+!141 = !{!138, !5, i64 24}
+!142 = distinct !{!142, !12}
 !143 = distinct !{!143, !12}
 !144 = distinct !{!144, !12}
 !145 = distinct !{!145, !12}
@@ -7918,23 +7918,23 @@ attributes #20 = { nounwind willreturn memory(read) }
 !147 = distinct !{!147, !12}
 !148 = distinct !{!148, !12}
 !149 = distinct !{!149, !12}
-!150 = distinct !{!150, !12}
+!150 = !{!6, !6, i64 0}
 !151 = distinct !{!151, !12}
-!152 = !{!6, !6, i64 0}
-!153 = distinct !{!153, !12}
-!154 = !{!155, !5, i64 8}
-!155 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !156, i64 16, !10, i64 24, !157, i64 32, !6, i64 3160, !158, i64 4200}
-!156 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
-!157 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
-!158 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
+!152 = !{!153, !5, i64 8}
+!153 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !154, i64 16, !10, i64 24, !155, i64 32, !6, i64 3160, !156, i64 4200}
+!154 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
+!155 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
+!156 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
+!157 = distinct !{!157, !12}
+!158 = distinct !{!158, !12}
 !159 = distinct !{!159, !12}
 !160 = distinct !{!160, !12}
 !161 = distinct !{!161, !12}
-!162 = distinct !{!162, !12}
-!163 = distinct !{!163, !12}
-!164 = !{!165, !9, i64 0}
-!165 = !{!"bench_alg", !9, i64 0, !5, i64 8}
-!166 = !{!165, !5, i64 8}
+!162 = !{!163, !9, i64 0}
+!163 = !{!"bench_alg", !9, i64 0, !5, i64 8}
+!164 = !{!163, !5, i64 8}
+!165 = distinct !{!165, !12}
+!166 = distinct !{!166, !12}
 !167 = distinct !{!167, !12}
 !168 = distinct !{!168, !12}
 !169 = distinct !{!169, !12}
@@ -7943,5 +7943,3 @@ attributes #20 = { nounwind willreturn memory(read) }
 !172 = distinct !{!172, !12}
 !173 = distinct !{!173, !12}
 !174 = distinct !{!174, !12}
-!175 = distinct !{!175, !12}
-!176 = distinct !{!176, !12}

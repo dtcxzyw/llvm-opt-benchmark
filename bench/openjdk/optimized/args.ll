@@ -645,7 +645,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %26 = getelementptr inbounds nuw i8, ptr %.184, i64 1
   %.pr = load i8, ptr %26, align 1
   %.not65 = icmp eq i8 %.pr, 0
-  br i1 %.not65, label %.critedge.thread, label %11, !llvm.loop !11
+  br i1 %.not65, label %.critedge.thread, label %11, !llvm.loop !10
 
 .lr.ph96.split:                                   ; preds = %.lr.ph96, %.critedge
   %27 = phi i8 [ %42, %.critedge ], [ %12, %.lr.ph96 ]
@@ -684,7 +684,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %.not73 = icmp eq i8 %38, %27
   %.not74 = icmp eq i8 %38, 0
   %or.cond = or i1 %.not73, %.not74
-  br i1 %or.cond, label %.critedge4, label %.lr.ph, !llvm.loop !12
+  br i1 %or.cond, label %.critedge4, label %.lr.ph, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph, %34
   %.260.lcssa = phi ptr [ %.15994, %34 ], [ %37, %.lr.ph ]
@@ -708,7 +708,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %.4 = getelementptr inbounds nuw i8, ptr %.3.pn, i64 1
   %42 = load i8, ptr %.4, align 1
   %.not67 = icmp eq i8 %42, 0
-  br i1 %.not67, label %.critedge2, label %.lr.ph96.split, !llvm.loop !13
+  br i1 %.not67, label %.critedge2, label %.lr.ph96.split, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph96.split, %.critedge, %.lr.ph96.split.us, %.critedge.us
   %.159.lcssa = phi ptr [ %23, %.critedge.us ], [ %.15994.us, %.lr.ph96.split.us ], [ %.361, %.critedge ], [ %.15994, %.lr.ph96.split ]
@@ -777,7 +777,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   tail call void @JLI_List_add(ptr noundef %0, ptr noundef %58) #12
   %65 = add nuw i64 %.057104, 1
   %exitcond.not = icmp eq i64 %65, %55
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph105, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph105, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %64, %53
   %66 = load ptr, ptr %44, align 8
@@ -788,7 +788,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
 67:                                               ; preds = %._crit_edge, %52
   %68 = load i32, ptr @firstAppArgIndex, align 4
   %.not71 = icmp eq i32 %68, -1
-  br i1 %.not71, label %7, label %69, !llvm.loop !15
+  br i1 %.not71, label %7, label %69, !llvm.loop !13
 
 69:                                               ; preds = %67
   br i1 %.not72, label %71, label %70
@@ -891,7 +891,7 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
 
 20:                                               ; preds = %.critedge
   %21 = load i8, ptr %19, align 1
-  br label %18, !llvm.loop !16
+  br label %18, !llvm.loop !14
 
 22:                                               ; preds = %18
   %23 = icmp eq i32 %16, 0
@@ -948,7 +948,7 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
 
 38:                                               ; preds = %36
   %39 = load i8, ptr %37, align 1
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader, !llvm.loop !15
 
 40:                                               ; preds = %.preheader, %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %.4, i64 1
@@ -1089,7 +1089,7 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   %.2114 = phi ptr [ %.1113, %42 ], [ %.1113, %50 ], [ %.1113, %71 ], [ %74, %73 ], [ %.1113, %75 ], [ %81, %76 ], [ %.1113, %84 ], [ %94, %96 ], [ %94, %97 ], [ %35, %34 ], [ %41, %40 ]
   %106 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %107 = icmp ult ptr %106, %5
-  br i1 %107, label %9, label %._crit_edge, !llvm.loop !18
+  br i1 %107, label %9, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %98, %1
   %108 = phi i32 [ %.pre146, %1 ], [ %99, %98 ]
@@ -1172,13 +1172,11 @@ attributes #15 = { nounwind willreturn memory(none) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}

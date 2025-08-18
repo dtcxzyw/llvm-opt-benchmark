@@ -165,7 +165,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   %.1 = phi ptr [ %68, %66 ], [ %71, %69 ], [ %59, %57 ], [ %61, %60 ]
   %73 = add nuw i32 %.04144, 1
   %exitcond.not = icmp eq i32 %73, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %72, %39, %7
   ret void
@@ -205,7 +205,5 @@ attributes #5 = { noreturn nounwind }
 !11 = !{!"int", !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !15}

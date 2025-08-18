@@ -159,7 +159,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   store double %86, ptr %90, align 8, !tbaa !16
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader, label %.lr.ph97, !llvm.loop !23
+  br i1 %exitcond109.not, label %.preheader, label %.lr.ph97, !llvm.loop !22
 
 .lr.ph102.split:                                  ; preds = %.lr.ph102, %.loopexit
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.loopexit ], [ %48, %.lr.ph102 ]
@@ -221,7 +221,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 .loopexit:                                        ; preds = %.lr.ph100, %100, %97
   %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count127
-  br i1 %exitcond118.not, label %.loopexit93, label %.lr.ph102.split, !llvm.loop !24
+  br i1 %exitcond118.not, label %.loopexit93, label %.lr.ph102.split, !llvm.loop !21
 
 .loopexit93:                                      ; preds = %.loopexit, %.loopexit.us, %.preheader, %7, %8, %13
   %.0 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
@@ -261,7 +261,5 @@ attributes #3 = { nounwind }
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

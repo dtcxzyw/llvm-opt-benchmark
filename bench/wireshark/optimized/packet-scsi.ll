@@ -5009,7 +5009,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
   %.1 = add i32 %.01, 8
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph.split, label %.loopexit, !llvm.loop !18
+  br i1 %59, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %33, %35, %41, %43, %49, %55, %.lr.ph.split.us, %10, %16, %22, %.preheader, %4
   ret void
@@ -5231,7 +5231,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
   %81 = add i32 %80, %.0101
   %82 = sub i32 %.088100, %80
   %.not98 = icmp eq i32 %82, 0
-  br i1 %.not98, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not98, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %75, %71, %10, %45, %40, %34, %31, %26, %24, %8
   ret void
@@ -5372,7 +5372,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %11, %32
   %88 = add i32 %87, %.095
   %89 = sub nsw i32 %.194, %87
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %80, label %.critedge, !llvm.loop !20
+  br i1 %90, label %80, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %80, %82, %75, %dissect_scsi_pagecode.exit, %52, %47, %41, %8
   ret void
@@ -5525,7 +5525,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %10, %33
   %98 = add i32 %97, %.0106
   %99 = sub nsw i32 %.1105, %97
   %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %90, label %.critedge, !llvm.loop !21
+  br i1 %100, label %90, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %90, %92, %85, %dissect_scsi_pagecode.exit, %59, %54, %49, %42, %8
   ret void
@@ -5626,7 +5626,7 @@ define hidden void @dissect_spc_persistentreservein(ptr noundef %0, ptr readnone
   %45 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %44, ptr noundef %0, i32 noundef %.055, i32 noundef 8, i32 noundef 0)
   %46 = add nuw nsw i32 %.062, 1
   %exitcond.not = icmp eq i32 %46, %43
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 47:                                               ; preds = %33
   %48 = icmp eq i32 %.056, 1
@@ -5981,7 +5981,7 @@ default.unreachable133:                           ; preds = %28
   %.pn = zext nneg i8 %.0114 to i32
   %.1116 = add nuw nsw i32 %.0115131, %.pn
   %90 = icmp samesign ult i32 %.1116, 8
-  br i1 %90, label %9, label %.loopexit, !llvm.loop !23
+  br i1 %90, label %9, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %89, %9, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -6108,7 +6108,7 @@ define hidden void @dissect_spc_reportluns(ptr noundef %0, ptr readnone captures
   store volatile i32 %55, ptr %9, align 4
   %56 = add nsw i32 %.065, -8
   %57 = icmp samesign ugt i32 %.065, 8
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %47, %44
   %.0..0..0..0.5 = load volatile i32, ptr %11, align 4
@@ -6553,7 +6553,7 @@ proto_item_set_generated.exit:                    ; preds = %get_cmdset_data.exi
   %197 = add i32 %.0..0..0..0.56, 8
   store volatile i32 %197, ptr %9, align 4
   %.not177 = icmp eq i8 %190, 0
-  br i1 %.not177, label %210, label %198, !llvm.loop !25
+  br i1 %.not177, label %210, label %198, !llvm.loop !23
 
 198:                                              ; preds = %.lr.ph
   %.0..0..0..0.57 = load volatile i32, ptr %9, align 4
@@ -6923,13 +6923,13 @@ dissect_scsi_fix_snsinfo.exit:                    ; preds = %proto_item_set_hidd
   %.2.i = add i32 %.2.in80.i, 12
   %127 = add i32 %.2.in80.i, 20
   %.not.i = icmp ugt i32 %127, %91
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %126, %99, %97, %95, %93, %.preheader.i, %.lr.ph83.i
   %.1.i = phi i32 [ %.082.i, %.lr.ph83.i ], [ %.082.i, %95 ], [ %.082.i, %93 ], [ %.082.i, %99 ], [ %.082.i, %97 ], [ %.278.i, %.preheader.i ], [ %.2.i, %126 ]
   %128 = add i32 %.1.i, %79
   %129 = icmp ult i32 %128, %73
-  br i1 %129, label %.lr.ph83.i, label %dissect_scsi_descriptor_snsinfo.exit, !llvm.loop !27
+  br i1 %129, label %.lr.ph83.i, label %dissect_scsi_descriptor_snsinfo.exit, !llvm.loop !25
 
 dissect_scsi_descriptor_snsinfo.exit:             ; preds = %.loopexit.i, %57, %dissect_scsi_fix_snsinfo.exit, %3
   ret void
@@ -7904,7 +7904,7 @@ proto_item_set_generated.exit187:                 ; preds = %113, %110, %107, %p
   br label %176
 
 120:                                              ; preds = %proto_item_set_generated.exit187
-  %121 = load i8, ptr @scsi_defragment, align 1, !range !28, !noundef !29
+  %121 = load i8, ptr @scsi_defragment, align 1, !range !26, !noundef !27
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %126, label %123
 
@@ -8176,7 +8176,7 @@ define internal void @scsistat_init(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @init_srt_table_row(ptr noundef %10, i32 noundef %.012, ptr noundef %14)
   %15 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %15, 256
-  br i1 %exitcond.not, label %16, label %12, !llvm.loop !30
+  br i1 %exitcond.not, label %16, label %12, !llvm.loop !28
 
 16:                                               ; preds = %12
   ret void
@@ -9075,7 +9075,7 @@ define internal noundef zeroext i1 @dissect_scsi_mmc5_modepage(ptr noundef %0, p
   %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef %56, ptr noundef nonnull @.str.1632, i32 noundef %indvars.iv, i32 noundef %56)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %58, label %52, !llvm.loop !31
+  br i1 %exitcond.not, label %58, label %52, !llvm.loop !29
 
 58:                                               ; preds = %52
   %59 = add i32 %3, 1
@@ -9544,8 +9544,8 @@ attributes #16 = { allocsize(1) }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
@@ -9554,9 +9554,7 @@ attributes #16 = { allocsize(1) }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = !{i8 0, i8 2}
-!29 = !{}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
+!26 = !{i8 0, i8 2}
+!27 = !{}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

@@ -446,7 +446,7 @@ switch.early.test:                                ; preds = %9
   store ptr %24, ptr %7, align 8, !tbaa !6
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %switch.early.test, %22, %20
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %20, %switch.early.test
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %8, label %9, !llvm.loop !25

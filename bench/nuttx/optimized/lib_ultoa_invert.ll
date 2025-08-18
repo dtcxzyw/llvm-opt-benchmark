@@ -39,7 +39,7 @@ define nonnull ptr @__ultoa_invert(i64 noundef %0, ptr noundef writeonly capture
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   store i8 %17, ptr %.016, align 1
   %.not21 = icmp ult i64 %.017, %6
-  br i1 %.not21, label %.split23.us, label %.split, !llvm.loop !9
+  br i1 %.not21, label %.split23.us, label %.split, !llvm.loop !6
 
 .split23.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi ptr [ %12, %.split.us ], [ %18, %.split ]
@@ -56,7 +56,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}

@@ -145,7 +145,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19.us:
   %27 = add nuw nsw i32 %20, 1
   %.014.add.us = add nuw nsw i64 %.014.idx62.us, 8
   %.not.us.not = icmp eq i64 %.014.add.us, 16
-  br i1 %.not.us.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us, !llvm.loop !16
+  br i1 %.not.us.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %16, %37
   %.014.idx62 = phi i64 [ %.014.add, %37 ], [ 0, %16 ]
@@ -203,7 +203,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZN11OpenImageIO6v3
   br i1 %or.cond54, label %42, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread
 
 42:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
-  %43 = load i32, ptr %2, align 4, !tbaa !18
+  %43 = load i32, ptr %2, align 4, !tbaa !16
   %.b = load i1, ptr @_ZN11OpenImageIO6v3_1_03pvtL19oiio_compute_deviceE, align 4
   %44 = zext i1 %.b to i32
   %45 = icmp eq i32 %43, %44
@@ -274,7 +274,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %3
 10:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %.b = load i1, ptr @_ZN11OpenImageIO6v3_1_03pvtL19oiio_compute_deviceE, align 4
   %11 = zext i1 %.b to i32
-  store i32 %11, ptr %2, align 4, !tbaa !18
+  store i32 %11, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9:  ; preds = %3
@@ -291,7 +291,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9:  ; preds = %3
   br i1 %or.cond131, label %15, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27
 
 15:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9
-  store i32 0, ptr %2, align 4, !tbaa !18
+  store i32 0, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %3
@@ -308,8 +308,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15: ; preds = %3
   br i1 %or.cond142, label %19, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
 19:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15
-  %20 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt19cuda_driver_versionE, align 4, !tbaa !18
-  store i32 %20, ptr %2, align 4, !tbaa !18
+  %20 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt19cuda_driver_versionE, align 4, !tbaa !16
+  store i32 %20, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21: ; preds = %3
@@ -326,8 +326,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21: ; preds = %3
   br i1 %or.cond153, label %24, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33
 
 24:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21
-  %25 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt20cuda_runtime_versionE, align 4, !tbaa !18
-  store i32 %25, ptr %2, align 4, !tbaa !18
+  %25 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt20cuda_runtime_versionE, align 4, !tbaa !16
+  store i32 %25, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9
@@ -344,8 +344,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27: ; preds = %_ZNSt11char_traitsI
   br i1 %or.cond164, label %29, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
 
 29:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i27
-  %30 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt18cuda_compatibilityE, align 4, !tbaa !18
-  store i32 %30, ptr %2, align 4, !tbaa !18
+  %30 = load i32, ptr @_ZN11OpenImageIO6v3_1_03pvt18cuda_compatibilityE, align 4, !tbaa !16
+  store i32 %30, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i21
@@ -362,10 +362,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33: ; preds = %_ZNSt11char_traitsI
   br i1 %or.cond175, label %34, label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread
 
 34:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33
-  %35 = load i64, ptr @_ZN11OpenImageIO6v3_1_03pvt17cuda_total_memoryE, align 8, !tbaa !20
+  %35 = load i64, ptr @_ZN11OpenImageIO6v3_1_03pvt17cuda_total_memoryE, align 8, !tbaa !18
   %36 = lshr i64 %35, 20
   %37 = trunc i64 %36 to i32
-  store i32 %37, ptr %2, align 4, !tbaa !18
+  store i32 %37, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i39: ; preds = %3
@@ -402,7 +402,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45: ; preds = %_ZNSt11char_traitsI
 46:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
   %47 = load i8, ptr @_ZN11OpenImageIO6v3_1_03pvt14cuda_supportedE, align 1, !tbaa !3, !range !7, !noundef !8
   %48 = zext nneg i8 %47 to i32
-  store i32 %48, ptr %2, align 4, !tbaa !18
+  store i32 %48, ptr %2, align 4, !tbaa !16
   br label %52
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit49.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i33, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i45
@@ -493,8 +493,6 @@ attributes #17 = { noreturn }
 !13 = !{!"long", !5, i64 0}
 !14 = !{!10, !11, i64 0}
 !15 = !{!11, !11, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!13, !13, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !5, i64 0}
+!18 = !{!13, !13, i64 0}

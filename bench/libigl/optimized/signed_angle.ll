@@ -37,14 +37,14 @@ $_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1EL
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !12
@@ -55,85 +55,87 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !17
-  br label %28
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !23
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !23
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !26
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -147,597 +149,609 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !33
-  %9 = load ptr, ptr %1, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %9 = load ptr, ptr %1, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !33
-  br label %28
+  %13 = load i64, ptr %12, align 8, !tbaa !31
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !35
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !33
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !36
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !33
-  %9 = load ptr, ptr %1, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %9 = load ptr, ptr %1, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !33
-  br label %28
+  %13 = load i64, ptr %12, align 8, !tbaa !31
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !37
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !34
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !38
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_NS2_IKNS3_IdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENT_6ScalarERKNS1_10MatrixBaseISA_EERKNSC_IT0_EERKNSC_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %2, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %2, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %0, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %0, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !33
-  %14 = load ptr, ptr %1, align 8, !tbaa !27
+  %13 = load i64, ptr %12, align 8, !tbaa !31
+  %14 = load ptr, ptr %1, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !33
-  br label %33
+  %18 = load i64, ptr %17, align 8, !tbaa !31
+  br label %28
 
-19:                                               ; preds = %33
-  %20 = tail call double @sqrt(double noundef %46) #4, !tbaa !19
-  %21 = tail call double @sqrt(double noundef %47) #4, !tbaa !19
+19:                                               ; preds = %28
+  %20 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+  %21 = tail call double @sqrt(double noundef %42) #4, !tbaa !19
   %22 = fcmp une double %20, 0.000000e+00
   %23 = fcmp une double %21, 0.000000e+00
   br i1 %22, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %19, %30
-  %24 = phi i1 [ false, %30 ], [ true, %19 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %30 ], [ %.sroa.0, %19 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %30 ], [ %.sroa.062, %19 ]
-  %25 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %26 = fdiv double %25, %20
-  store double %26, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %23, label %27, label %30
+.split.us:                                        ; preds = %19
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %24 = fdiv double %.sroa.071.0..sroa.071.0.72, %20
+  store double %24, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %23, label %.split.us.split.us, label %.split37.us.sink.split
 
-27:                                               ; preds = %.split.us
-  %28 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %29 = fdiv double %28, %21
-  store double %29, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %30
-
-30:                                               ; preds = %27, %.split.us
-  br i1 %24, label %.split.us, label %.split37.us, !llvm.loop !46
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %25 = fdiv double %.sroa.0.0..sroa.0.0.68, %21
+  store double %25, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %26 = fdiv double %.sroa.6.0..sroa.6.8.73, %20
+  store double %26, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %19
   br i1 %23, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %31 = fdiv double %.sroa.0.0..sroa.0.0.56, %21
-  store double %31, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %32 = fdiv double %.sroa.7.0..sroa.7.8.57, %21
-  store double %32, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %27 = fdiv double %.sroa.0.0..sroa.0.0.67, %21
+  store double %27, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+28:                                               ; preds = %3, %28
+  %29 = phi i1 [ true, %3 ], [ false, %28 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %28 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %28 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %42, %28 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
+  %30 = mul nuw nsw i64 %8, %indvars.iv
+  %31 = getelementptr inbounds double, ptr %4, i64 %30
+  %32 = load double, ptr %31, align 8, !tbaa !21
+  %33 = mul nuw nsw i64 %13, %indvars.iv
+  %34 = getelementptr inbounds double, ptr %9, i64 %33
+  %35 = load double, ptr %34, align 8, !tbaa !21
+  %36 = fsub double %32, %35
+  store double %36, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %37 = mul nuw nsw i64 %18, %indvars.iv
+  %38 = getelementptr inbounds double, ptr %14, i64 %37
+  %39 = load double, ptr %38, align 8, !tbaa !21
+  %40 = fsub double %32, %39
+  store double %40, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %41 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %.02932)
+  %42 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %.02833)
+  br i1 %29, label %28, label %19, !llvm.loop !42
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %21, %.split.split.us ], [ %21, %.split.us.split.us ], [ %20, %.split.us ]
+  %43 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %44 = fdiv double %43, %.sink61
+  store double %44, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-33:                                               ; preds = %3, %33
-  %34 = phi i1 [ true, %3 ], [ false, %33 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %33 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %33 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %33 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %47, %33 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %46, %33 ]
-  %35 = mul nuw nsw i64 %8, %indvars.iv
-  %36 = getelementptr inbounds double, ptr %4, i64 %35
-  %37 = load double, ptr %36, align 8, !tbaa !21
-  %38 = mul nuw nsw i64 %13, %indvars.iv
-  %39 = getelementptr inbounds double, ptr %9, i64 %38
-  %40 = load double, ptr %39, align 8, !tbaa !21
-  %41 = fsub double %37, %40
-  store double %41, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %42 = mul nuw nsw i64 %18, %indvars.iv
-  %43 = getelementptr inbounds double, ptr %14, i64 %42
-  %44 = load double, ptr %43, align 8, !tbaa !21
-  %45 = fsub double %37, %44
-  store double %45, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %46 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.02932)
-  %47 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %.02833)
-  br i1 %34, label %33, label %19, !llvm.loop !47
-
-.split37.us:                                      ; preds = %30, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %48 = fneg double %.sroa.062.0..sroa.062.0.
-  %49 = fmul double %.sroa.7.0..sroa.7.8., %48
-  %50 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %49)
-  %51 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %52 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %51)
-  %53 = tail call double @atan2(double noundef %50, double noundef %52) #4, !tbaa !19
-  %54 = fdiv double %53, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %45 = fneg double %.sroa.071.0..sroa.071.0.
+  %46 = fmul double %.sroa.8.0..sroa.8.8., %45
+  %47 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %46)
+  %48 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %49 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %48)
+  %50 = tail call double @atan2(double noundef %47, double noundef %49) #4, !tbaa !19
+  %51 = fdiv double %50, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %54
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %51
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !48
-  %5 = load ptr, ptr %1, align 8, !tbaa !48
-  br label %20
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !43
+  %5 = load ptr, ptr %1, align 8, !tbaa !43
+  br label %15
 
-6:                                                ; preds = %20
-  %7 = tail call double @sqrt(double noundef %30) #4, !tbaa !19
-  %8 = tail call double @sqrt(double noundef %31) #4, !tbaa !19
+6:                                                ; preds = %15
+  %7 = tail call double @sqrt(double noundef %25) #4, !tbaa !19
+  %8 = tail call double @sqrt(double noundef %26) #4, !tbaa !19
   %9 = fcmp une double %7, 0.000000e+00
   %10 = fcmp une double %8, 0.000000e+00
   br i1 %9, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %17
-  %11 = phi i1 [ false, %17 ], [ true, %6 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %17 ], [ %.sroa.0, %6 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %17 ], [ %.sroa.062, %6 ]
-  %12 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %13 = fdiv double %12, %7
-  store double %13, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %10, label %14, label %17
+.split.us:                                        ; preds = %6
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %11 = fdiv double %.sroa.071.0..sroa.071.0.72, %7
+  store double %11, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %10, label %.split.us.split.us, label %.split37.us.sink.split
 
-14:                                               ; preds = %.split.us
-  %15 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %16 = fdiv double %15, %8
-  store double %16, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %17
-
-17:                                               ; preds = %14, %.split.us
-  br i1 %11, label %.split.us, label %.split37.us, !llvm.loop !50
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %12 = fdiv double %.sroa.0.0..sroa.0.0.68, %8
+  store double %12, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %13 = fdiv double %.sroa.6.0..sroa.6.8.73, %7
+  store double %13, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %6
   br i1 %10, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %18 = fdiv double %.sroa.0.0..sroa.0.0.56, %8
-  store double %18, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %19 = fdiv double %.sroa.7.0..sroa.7.8.57, %8
-  store double %19, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %14 = fdiv double %.sroa.0.0..sroa.0.0.67, %8
+  store double %14, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+15:                                               ; preds = %3, %15
+  %16 = phi i1 [ true, %3 ], [ false, %15 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %15 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %15 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %15 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %26, %15 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %25, %15 ]
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %18 = load double, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %20 = load double, ptr %19, align 8, !tbaa !21
+  %21 = fsub double %18, %20
+  store double %21, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %23 = load double, ptr %22, align 8, !tbaa !21
+  %24 = fsub double %18, %23
+  store double %24, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %25 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.02932)
+  %26 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %.02833)
+  br i1 %16, label %15, label %6, !llvm.loop !45
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %8, %.split.split.us ], [ %8, %.split.us.split.us ], [ %7, %.split.us ]
+  %27 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %28 = fdiv double %27, %.sink61
+  store double %28, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-20:                                               ; preds = %3, %20
-  %21 = phi i1 [ true, %3 ], [ false, %20 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %20 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %20 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %20 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %31, %20 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %30, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %25 = load double, ptr %24, align 8, !tbaa !21
-  %26 = fsub double %23, %25
-  store double %26, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !21
-  %29 = fsub double %23, %28
-  store double %29, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %30 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %.02932)
-  %31 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %.02833)
-  br i1 %21, label %20, label %6, !llvm.loop !51
-
-.split37.us:                                      ; preds = %17, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %32 = fneg double %.sroa.062.0..sroa.062.0.
-  %33 = fmul double %.sroa.7.0..sroa.7.8., %32
-  %34 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %33)
-  %35 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %36 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %35)
-  %37 = tail call double @atan2(double noundef %34, double noundef %36) #4, !tbaa !19
-  %38 = fdiv double %37, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %29 = fneg double %.sroa.071.0..sroa.071.0.
+  %30 = fmul double %.sroa.8.0..sroa.8.8., %29
+  %31 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %30)
+  %32 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %33 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %32)
+  %34 = tail call double @atan2(double noundef %31, double noundef %33) #4, !tbaa !19
+  %35 = fdiv double %34, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %38
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !48
-  %5 = load ptr, ptr %1, align 8, !tbaa !48
-  br label %20
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !43
+  %5 = load ptr, ptr %1, align 8, !tbaa !43
+  br label %15
 
-6:                                                ; preds = %20
-  %7 = tail call double @sqrt(double noundef %30) #4, !tbaa !19
-  %8 = tail call double @sqrt(double noundef %31) #4, !tbaa !19
+6:                                                ; preds = %15
+  %7 = tail call double @sqrt(double noundef %25) #4, !tbaa !19
+  %8 = tail call double @sqrt(double noundef %26) #4, !tbaa !19
   %9 = fcmp une double %7, 0.000000e+00
   %10 = fcmp une double %8, 0.000000e+00
   br i1 %9, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %17
-  %11 = phi i1 [ false, %17 ], [ true, %6 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %17 ], [ %.sroa.0, %6 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %17 ], [ %.sroa.062, %6 ]
-  %12 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %13 = fdiv double %12, %7
-  store double %13, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %10, label %14, label %17
+.split.us:                                        ; preds = %6
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %11 = fdiv double %.sroa.071.0..sroa.071.0.72, %7
+  store double %11, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %10, label %.split.us.split.us, label %.split37.us.sink.split
 
-14:                                               ; preds = %.split.us
-  %15 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %16 = fdiv double %15, %8
-  store double %16, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %17
-
-17:                                               ; preds = %14, %.split.us
-  br i1 %11, label %.split.us, label %.split37.us, !llvm.loop !52
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %12 = fdiv double %.sroa.0.0..sroa.0.0.68, %8
+  store double %12, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %13 = fdiv double %.sroa.6.0..sroa.6.8.73, %7
+  store double %13, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %6
   br i1 %10, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %18 = fdiv double %.sroa.0.0..sroa.0.0.56, %8
-  store double %18, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %19 = fdiv double %.sroa.7.0..sroa.7.8.57, %8
-  store double %19, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %14 = fdiv double %.sroa.0.0..sroa.0.0.67, %8
+  store double %14, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+15:                                               ; preds = %3, %15
+  %16 = phi i1 [ true, %3 ], [ false, %15 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %15 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %15 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %15 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %26, %15 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %25, %15 ]
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %18 = load double, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %20 = load double, ptr %19, align 8, !tbaa !21
+  %21 = fsub double %18, %20
+  store double %21, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %23 = load double, ptr %22, align 8, !tbaa !21
+  %24 = fsub double %18, %23
+  store double %24, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %25 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.02932)
+  %26 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %.02833)
+  br i1 %16, label %15, label %6, !llvm.loop !46
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %8, %.split.split.us ], [ %8, %.split.us.split.us ], [ %7, %.split.us ]
+  %27 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %28 = fdiv double %27, %.sink61
+  store double %28, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-20:                                               ; preds = %3, %20
-  %21 = phi i1 [ true, %3 ], [ false, %20 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %20 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %20 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %20 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %31, %20 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %30, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %23 = load double, ptr %22, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %25 = load double, ptr %24, align 8, !tbaa !21
-  %26 = fsub double %23, %25
-  store double %26, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %27 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !21
-  %29 = fsub double %23, %28
-  store double %29, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %30 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %.02932)
-  %31 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %.02833)
-  br i1 %21, label %20, label %6, !llvm.loop !53
-
-.split37.us:                                      ; preds = %17, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %32 = fneg double %.sroa.062.0..sroa.062.0.
-  %33 = fmul double %.sroa.7.0..sroa.7.8., %32
-  %34 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %33)
-  %35 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %36 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %35)
-  %37 = tail call double @atan2(double noundef %34, double noundef %36) #4, !tbaa !19
-  %38 = fdiv double %37, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %29 = fneg double %.sroa.071.0..sroa.071.0.
+  %30 = fmul double %.sroa.8.0..sroa.8.8., %29
+  %31 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %30)
+  %32 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %33 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %32)
+  %34 = tail call double @atan2(double noundef %31, double noundef %33) #4, !tbaa !19
+  %35 = fdiv double %34, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %38
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.063 = alloca float, align 4
-  %.sroa.5 = alloca float, align 4
+  %.sroa.071 = alloca float, align 4
+  %.sroa.6 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
-  %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca float, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !57
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !60
-  %9 = load ptr, ptr %1, align 8, !tbaa !54
+  %8 = load i64, ptr %7, align 8, !tbaa !53
+  %9 = load ptr, ptr %1, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !60
-  br label %26
+  %13 = load i64, ptr %12, align 8, !tbaa !53
+  br label %21
 
-14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
+14:                                               ; preds = %21
+  %sqrtf = tail call float @sqrtf(float noundef %33) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %23
-  %17 = phi i1 [ false, %23 ], [ true, %14 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %.sroa.7, %23 ], [ %.sroa.0, %14 ]
-  %indvars.iv47.sroa.phi61 = phi ptr [ %.sroa.5, %23 ], [ %.sroa.063, %14 ]
-  %18 = load float, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  %19 = fdiv float %18, %sqrtf
-  store float %19, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  br i1 %16, label %20, label %23
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %17 = fdiv float %.sroa.071.0..sroa.071.0.72, %sqrtf
+  store float %17, ptr %.sroa.071, align 4, !tbaa !55
+  br i1 %16, label %.split.us.split.us, label %.split38.us.sink.split
 
-20:                                               ; preds = %.split.us
-  %21 = load float, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  %22 = fdiv float %21, %sqrtf32
-  store float %22, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  br label %23
-
-23:                                               ; preds = %20, %.split.us
-  br i1 %17, label %.split.us, label %.split38.us, !llvm.loop !64
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %18 = fdiv float %.sroa.0.0..sroa.0.0.68, %sqrtf32
+  store float %18, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4.73 = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %19 = fdiv float %.sroa.6.0..sroa.6.4.73, %sqrtf
+  store float %19, ptr %.sroa.6, align 4, !tbaa !55
+  br label %.split38.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %16, label %.split.split.us, label %.split38.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.57 = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %24 = fdiv float %.sroa.0.0..sroa.0.0.57, %sqrtf32
-  store float %24, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4.58 = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %25 = fdiv float %.sroa.7.0..sroa.7.4.58, %sqrtf32
-  store float %25, ptr %.sroa.7, align 4, !tbaa !62
+  %.sroa.0.0..sroa.0.0.67 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %20 = fdiv float %.sroa.0.0..sroa.0.0.67, %sqrtf32
+  store float %20, ptr %.sroa.0, align 4, !tbaa !55
+  br label %.split38.us.sink.split
+
+21:                                               ; preds = %3, %21
+  %22 = phi i1 [ true, %3 ], [ false, %21 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %21 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %21 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
+  %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
+  %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
+  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %24 = load float, ptr %23, align 4, !tbaa !55
+  %25 = mul nuw nsw i64 %8, %indvars.iv
+  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %27 = load float, ptr %26, align 4, !tbaa !55
+  %28 = fsub float %24, %27
+  store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
+  %29 = mul nuw nsw i64 %13, %indvars.iv
+  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %31 = load float, ptr %30, align 4, !tbaa !55
+  %32 = fsub float %24, %31
+  store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
+  %33 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.02933)
+  %34 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %.02834)
+  br i1 %22, label %21, label %14, !llvm.loop !57
+
+.split38.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %sqrtf32.sink = phi float [ %sqrtf32, %.split.split.us ], [ %sqrtf32, %.split.us.split.us ], [ %sqrtf, %.split.us ]
+  %35 = load float, ptr %.sink62.sroa.phi, align 4, !tbaa !55
+  %36 = fdiv float %35, %sqrtf32.sink
+  store float %36, ptr %.sink62.sroa.phi, align 4, !tbaa !55
   br label %.split38.us
 
-26:                                               ; preds = %3, %26
-  %27 = phi i1 [ true, %3 ], [ false, %26 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %26 ]
-  %indvars.iv.sroa.phi59 = phi ptr [ %.sroa.063, %3 ], [ %.sroa.5, %26 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %26 ]
-  %.02834 = phi float [ 0.000000e+00, %3 ], [ %39, %26 ]
-  %.02933 = phi float [ 0.000000e+00, %3 ], [ %38, %26 ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %29 = load float, ptr %28, align 4, !tbaa !62
-  %30 = mul nuw nsw i64 %8, %indvars.iv
-  %31 = getelementptr inbounds float, ptr %4, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !62
-  %33 = fsub float %29, %32
-  store float %33, ptr %indvars.iv.sroa.phi59, align 4, !tbaa !62
-  %34 = mul nuw nsw i64 %13, %indvars.iv
-  %35 = getelementptr inbounds float, ptr %9, i64 %34
-  %36 = load float, ptr %35, align 4, !tbaa !62
-  %37 = fsub float %29, %36
-  store float %37, ptr %indvars.iv.sroa.phi, align 4, !tbaa !62
-  %38 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.02933)
-  %39 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %.02834)
-  br i1 %27, label %26, label %14, !llvm.loop !65
-
-.split38.us:                                      ; preds = %23, %.split.split.us, %.split
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4. = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %.sroa.063.0..sroa.063.0. = load float, ptr %.sroa.063, align 4, !tbaa !62
-  %40 = fneg float %.sroa.063.0..sroa.063.0.
-  %41 = fmul float %.sroa.7.0..sroa.7.4., %40
-  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.5.0..sroa.5.4., float %41)
+.split38.us:                                      ; preds = %.split38.us.sink.split, %.split
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %.sroa.8.0..sroa.8.4. = load float, ptr %.sroa.8, align 4, !tbaa !55
+  %.sroa.071.0..sroa.071.0. = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %37 = fneg float %.sroa.071.0..sroa.071.0.
+  %38 = fmul float %.sroa.8.0..sroa.8.4., %37
+  %39 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.6.0..sroa.6.4., float %38)
+  %40 = fpext float %39 to double
+  %41 = fmul float %.sroa.6.0..sroa.6.4., %.sroa.8.0..sroa.8.4.
+  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.071.0..sroa.071.0., float %41)
   %43 = fpext float %42 to double
-  %44 = fmul float %.sroa.5.0..sroa.5.4., %.sroa.7.0..sroa.7.4.
-  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.063.0..sroa.063.0., float %44)
-  %46 = fpext float %45 to double
-  %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
-  %49 = fptrunc double %48 to float
+  %44 = tail call double @atan2(double noundef %40, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
+  %46 = fptrunc double %45 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret float %49
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret float %46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -745,808 +759,824 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.063 = alloca float, align 4
-  %.sroa.5 = alloca float, align 4
+  %.sroa.071 = alloca float, align 4
+  %.sroa.6 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
-  %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca float, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !66
-  %5 = load ptr, ptr %1, align 8, !tbaa !66
-  br label %18
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !58
+  %5 = load ptr, ptr %1, align 8, !tbaa !58
+  br label %13
 
-6:                                                ; preds = %18
-  %sqrtf = tail call float @sqrtf(float noundef %28) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %29) #2
+6:                                                ; preds = %13
+  %sqrtf = tail call float @sqrtf(float noundef %23) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %24) #2
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %15
-  %9 = phi i1 [ false, %15 ], [ true, %6 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %.sroa.7, %15 ], [ %.sroa.0, %6 ]
-  %indvars.iv47.sroa.phi61 = phi ptr [ %.sroa.5, %15 ], [ %.sroa.063, %6 ]
-  %10 = load float, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  %11 = fdiv float %10, %sqrtf
-  store float %11, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  br i1 %8, label %12, label %15
+.split.us:                                        ; preds = %6
+  %.sroa.071.0..sroa.071.0.72 = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %9 = fdiv float %.sroa.071.0..sroa.071.0.72, %sqrtf
+  store float %9, ptr %.sroa.071, align 4, !tbaa !55
+  br i1 %8, label %.split.us.split.us, label %.split38.us.sink.split
 
-12:                                               ; preds = %.split.us
-  %13 = load float, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  %14 = fdiv float %13, %sqrtf32
-  store float %14, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  br label %15
-
-15:                                               ; preds = %12, %.split.us
-  br i1 %9, label %.split.us, label %.split38.us, !llvm.loop !68
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %10 = fdiv float %.sroa.0.0..sroa.0.0.68, %sqrtf32
+  store float %10, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4.73 = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %11 = fdiv float %.sroa.6.0..sroa.6.4.73, %sqrtf
+  store float %11, ptr %.sroa.6, align 4, !tbaa !55
+  br label %.split38.us.sink.split
 
 .split:                                           ; preds = %6
   br i1 %8, label %.split.split.us, label %.split38.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.57 = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %16 = fdiv float %.sroa.0.0..sroa.0.0.57, %sqrtf32
-  store float %16, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4.58 = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %17 = fdiv float %.sroa.7.0..sroa.7.4.58, %sqrtf32
-  store float %17, ptr %.sroa.7, align 4, !tbaa !62
+  %.sroa.0.0..sroa.0.0.67 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %12 = fdiv float %.sroa.0.0..sroa.0.0.67, %sqrtf32
+  store float %12, ptr %.sroa.0, align 4, !tbaa !55
+  br label %.split38.us.sink.split
+
+13:                                               ; preds = %3, %13
+  %14 = phi i1 [ true, %3 ], [ false, %13 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %13 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %13 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %13 ]
+  %.02834 = phi float [ 0.000000e+00, %3 ], [ %24, %13 ]
+  %.02933 = phi float [ 0.000000e+00, %3 ], [ %23, %13 ]
+  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %16 = load float, ptr %15, align 4, !tbaa !55
+  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %18 = load float, ptr %17, align 4, !tbaa !55
+  %19 = fsub float %16, %18
+  store float %19, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
+  %20 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %21 = load float, ptr %20, align 4, !tbaa !55
+  %22 = fsub float %16, %21
+  store float %22, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
+  %23 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %.02933)
+  %24 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %.02834)
+  br i1 %14, label %13, label %6, !llvm.loop !60
+
+.split38.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %sqrtf32.sink = phi float [ %sqrtf32, %.split.split.us ], [ %sqrtf32, %.split.us.split.us ], [ %sqrtf, %.split.us ]
+  %25 = load float, ptr %.sink62.sroa.phi, align 4, !tbaa !55
+  %26 = fdiv float %25, %sqrtf32.sink
+  store float %26, ptr %.sink62.sroa.phi, align 4, !tbaa !55
   br label %.split38.us
 
-18:                                               ; preds = %3, %18
-  %19 = phi i1 [ true, %3 ], [ false, %18 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %18 ]
-  %indvars.iv.sroa.phi59 = phi ptr [ %.sroa.063, %3 ], [ %.sroa.5, %18 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %18 ]
-  %.02834 = phi float [ 0.000000e+00, %3 ], [ %29, %18 ]
-  %.02933 = phi float [ 0.000000e+00, %3 ], [ %28, %18 ]
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %21 = load float, ptr %20, align 4, !tbaa !62
-  %22 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %23 = load float, ptr %22, align 4, !tbaa !62
-  %24 = fsub float %21, %23
-  store float %24, ptr %indvars.iv.sroa.phi59, align 4, !tbaa !62
-  %25 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  %26 = load float, ptr %25, align 4, !tbaa !62
-  %27 = fsub float %21, %26
-  store float %27, ptr %indvars.iv.sroa.phi, align 4, !tbaa !62
-  %28 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02933)
-  %29 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %.02834)
-  br i1 %19, label %18, label %6, !llvm.loop !69
-
-.split38.us:                                      ; preds = %15, %.split.split.us, %.split
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4. = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %.sroa.063.0..sroa.063.0. = load float, ptr %.sroa.063, align 4, !tbaa !62
-  %30 = fneg float %.sroa.063.0..sroa.063.0.
-  %31 = fmul float %.sroa.7.0..sroa.7.4., %30
-  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.5.0..sroa.5.4., float %31)
+.split38.us:                                      ; preds = %.split38.us.sink.split, %.split
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %.sroa.8.0..sroa.8.4. = load float, ptr %.sroa.8, align 4, !tbaa !55
+  %.sroa.071.0..sroa.071.0. = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %27 = fneg float %.sroa.071.0..sroa.071.0.
+  %28 = fmul float %.sroa.8.0..sroa.8.4., %27
+  %29 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.6.0..sroa.6.4., float %28)
+  %30 = fpext float %29 to double
+  %31 = fmul float %.sroa.6.0..sroa.6.4., %.sroa.8.0..sroa.8.4.
+  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.071.0..sroa.071.0., float %31)
   %33 = fpext float %32 to double
-  %34 = fmul float %.sroa.5.0..sroa.5.4., %.sroa.7.0..sroa.7.4.
-  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.063.0..sroa.063.0., float %34)
-  %36 = fpext float %35 to double
-  %37 = tail call double @atan2(double noundef %33, double noundef %36) #4, !tbaa !19
-  %38 = fdiv double %37, 0xC01921FB54442D18
-  %39 = fptrunc double %38 to float
+  %34 = tail call double @atan2(double noundef %30, double noundef %33) #4, !tbaa !19
+  %35 = fdiv double %34, 0xC01921FB54442D18
+  %36 = fptrunc double %35 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret float %39
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret float %36
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.063 = alloca float, align 4
-  %.sroa.5 = alloca float, align 4
+  %.sroa.071 = alloca float, align 4
+  %.sroa.6 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
-  %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca float, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !75
-  %9 = load ptr, ptr %1, align 8, !tbaa !70
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  %9 = load ptr, ptr %1, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !72
+  %11 = load ptr, ptr %10, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !75
-  br label %26
+  %13 = load i64, ptr %12, align 8, !tbaa !66
+  br label %21
 
-14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
+14:                                               ; preds = %21
+  %sqrtf = tail call float @sqrtf(float noundef %33) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %23
-  %17 = phi i1 [ false, %23 ], [ true, %14 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %.sroa.7, %23 ], [ %.sroa.0, %14 ]
-  %indvars.iv47.sroa.phi61 = phi ptr [ %.sroa.5, %23 ], [ %.sroa.063, %14 ]
-  %18 = load float, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  %19 = fdiv float %18, %sqrtf
-  store float %19, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  br i1 %16, label %20, label %23
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %17 = fdiv float %.sroa.071.0..sroa.071.0.72, %sqrtf
+  store float %17, ptr %.sroa.071, align 4, !tbaa !55
+  br i1 %16, label %.split.us.split.us, label %.split38.us.sink.split
 
-20:                                               ; preds = %.split.us
-  %21 = load float, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  %22 = fdiv float %21, %sqrtf32
-  store float %22, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  br label %23
-
-23:                                               ; preds = %20, %.split.us
-  br i1 %17, label %.split.us, label %.split38.us, !llvm.loop !77
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %18 = fdiv float %.sroa.0.0..sroa.0.0.68, %sqrtf32
+  store float %18, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4.73 = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %19 = fdiv float %.sroa.6.0..sroa.6.4.73, %sqrtf
+  store float %19, ptr %.sroa.6, align 4, !tbaa !55
+  br label %.split38.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %16, label %.split.split.us, label %.split38.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.57 = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %24 = fdiv float %.sroa.0.0..sroa.0.0.57, %sqrtf32
-  store float %24, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4.58 = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %25 = fdiv float %.sroa.7.0..sroa.7.4.58, %sqrtf32
-  store float %25, ptr %.sroa.7, align 4, !tbaa !62
+  %.sroa.0.0..sroa.0.0.67 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %20 = fdiv float %.sroa.0.0..sroa.0.0.67, %sqrtf32
+  store float %20, ptr %.sroa.0, align 4, !tbaa !55
+  br label %.split38.us.sink.split
+
+21:                                               ; preds = %3, %21
+  %22 = phi i1 [ true, %3 ], [ false, %21 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %21 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %21 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
+  %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
+  %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
+  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %24 = load float, ptr %23, align 4, !tbaa !55
+  %25 = mul nuw nsw i64 %8, %indvars.iv
+  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %27 = load float, ptr %26, align 4, !tbaa !55
+  %28 = fsub float %24, %27
+  store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
+  %29 = mul nuw nsw i64 %13, %indvars.iv
+  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %31 = load float, ptr %30, align 4, !tbaa !55
+  %32 = fsub float %24, %31
+  store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
+  %33 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.02933)
+  %34 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %.02834)
+  br i1 %22, label %21, label %14, !llvm.loop !68
+
+.split38.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %sqrtf32.sink = phi float [ %sqrtf32, %.split.split.us ], [ %sqrtf32, %.split.us.split.us ], [ %sqrtf, %.split.us ]
+  %35 = load float, ptr %.sink62.sroa.phi, align 4, !tbaa !55
+  %36 = fdiv float %35, %sqrtf32.sink
+  store float %36, ptr %.sink62.sroa.phi, align 4, !tbaa !55
   br label %.split38.us
 
-26:                                               ; preds = %3, %26
-  %27 = phi i1 [ true, %3 ], [ false, %26 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %26 ]
-  %indvars.iv.sroa.phi59 = phi ptr [ %.sroa.063, %3 ], [ %.sroa.5, %26 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %26 ]
-  %.02834 = phi float [ 0.000000e+00, %3 ], [ %39, %26 ]
-  %.02933 = phi float [ 0.000000e+00, %3 ], [ %38, %26 ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %29 = load float, ptr %28, align 4, !tbaa !62
-  %30 = mul nuw nsw i64 %8, %indvars.iv
-  %31 = getelementptr inbounds float, ptr %4, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !62
-  %33 = fsub float %29, %32
-  store float %33, ptr %indvars.iv.sroa.phi59, align 4, !tbaa !62
-  %34 = mul nuw nsw i64 %13, %indvars.iv
-  %35 = getelementptr inbounds float, ptr %9, i64 %34
-  %36 = load float, ptr %35, align 4, !tbaa !62
-  %37 = fsub float %29, %36
-  store float %37, ptr %indvars.iv.sroa.phi, align 4, !tbaa !62
-  %38 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.02933)
-  %39 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %.02834)
-  br i1 %27, label %26, label %14, !llvm.loop !78
-
-.split38.us:                                      ; preds = %23, %.split.split.us, %.split
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4. = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %.sroa.063.0..sroa.063.0. = load float, ptr %.sroa.063, align 4, !tbaa !62
-  %40 = fneg float %.sroa.063.0..sroa.063.0.
-  %41 = fmul float %.sroa.7.0..sroa.7.4., %40
-  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.5.0..sroa.5.4., float %41)
+.split38.us:                                      ; preds = %.split38.us.sink.split, %.split
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %.sroa.8.0..sroa.8.4. = load float, ptr %.sroa.8, align 4, !tbaa !55
+  %.sroa.071.0..sroa.071.0. = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %37 = fneg float %.sroa.071.0..sroa.071.0.
+  %38 = fmul float %.sroa.8.0..sroa.8.4., %37
+  %39 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.6.0..sroa.6.4., float %38)
+  %40 = fpext float %39 to double
+  %41 = fmul float %.sroa.6.0..sroa.6.4., %.sroa.8.0..sroa.8.4.
+  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.071.0..sroa.071.0., float %41)
   %43 = fpext float %42 to double
-  %44 = fmul float %.sroa.5.0..sroa.5.4., %.sroa.7.0..sroa.7.4.
-  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.063.0..sroa.063.0., float %44)
-  %46 = fpext float %45 to double
-  %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
-  %49 = fptrunc double %48 to float
+  %44 = tail call double @atan2(double noundef %40, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
+  %46 = fptrunc double %45 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret float %49
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret float %46
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_EENT_6ScalarERKNS1_10MatrixBaseIS7_EERKNS9_IT0_EERKNS9_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %2, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %2, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %0, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %0, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !44
-  %14 = load ptr, ptr %1, align 8, !tbaa !39
+  %13 = load i64, ptr %12, align 8, !tbaa !40
+  %14 = load ptr, ptr %1, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !44
-  br label %33
+  %18 = load i64, ptr %17, align 8, !tbaa !40
+  br label %28
 
-19:                                               ; preds = %33
-  %20 = tail call double @sqrt(double noundef %46) #4, !tbaa !19
-  %21 = tail call double @sqrt(double noundef %47) #4, !tbaa !19
+19:                                               ; preds = %28
+  %20 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+  %21 = tail call double @sqrt(double noundef %42) #4, !tbaa !19
   %22 = fcmp une double %20, 0.000000e+00
   %23 = fcmp une double %21, 0.000000e+00
   br i1 %22, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %19, %30
-  %24 = phi i1 [ false, %30 ], [ true, %19 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %30 ], [ %.sroa.0, %19 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %30 ], [ %.sroa.062, %19 ]
-  %25 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %26 = fdiv double %25, %20
-  store double %26, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %23, label %27, label %30
+.split.us:                                        ; preds = %19
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %24 = fdiv double %.sroa.071.0..sroa.071.0.72, %20
+  store double %24, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %23, label %.split.us.split.us, label %.split37.us.sink.split
 
-27:                                               ; preds = %.split.us
-  %28 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %29 = fdiv double %28, %21
-  store double %29, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %30
-
-30:                                               ; preds = %27, %.split.us
-  br i1 %24, label %.split.us, label %.split37.us, !llvm.loop !79
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %25 = fdiv double %.sroa.0.0..sroa.0.0.68, %21
+  store double %25, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %26 = fdiv double %.sroa.6.0..sroa.6.8.73, %20
+  store double %26, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %19
   br i1 %23, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %31 = fdiv double %.sroa.0.0..sroa.0.0.56, %21
-  store double %31, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %32 = fdiv double %.sroa.7.0..sroa.7.8.57, %21
-  store double %32, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %27 = fdiv double %.sroa.0.0..sroa.0.0.67, %21
+  store double %27, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+28:                                               ; preds = %3, %28
+  %29 = phi i1 [ true, %3 ], [ false, %28 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %28 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %28 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %42, %28 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
+  %30 = mul nuw nsw i64 %8, %indvars.iv
+  %31 = getelementptr inbounds double, ptr %4, i64 %30
+  %32 = load double, ptr %31, align 8, !tbaa !21
+  %33 = mul nuw nsw i64 %13, %indvars.iv
+  %34 = getelementptr inbounds double, ptr %9, i64 %33
+  %35 = load double, ptr %34, align 8, !tbaa !21
+  %36 = fsub double %32, %35
+  store double %36, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %37 = mul nuw nsw i64 %18, %indvars.iv
+  %38 = getelementptr inbounds double, ptr %14, i64 %37
+  %39 = load double, ptr %38, align 8, !tbaa !21
+  %40 = fsub double %32, %39
+  store double %40, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %41 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %.02932)
+  %42 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %.02833)
+  br i1 %29, label %28, label %19, !llvm.loop !69
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %21, %.split.split.us ], [ %21, %.split.us.split.us ], [ %20, %.split.us ]
+  %43 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %44 = fdiv double %43, %.sink61
+  store double %44, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-33:                                               ; preds = %3, %33
-  %34 = phi i1 [ true, %3 ], [ false, %33 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %33 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %33 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %33 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %47, %33 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %46, %33 ]
-  %35 = mul nuw nsw i64 %8, %indvars.iv
-  %36 = getelementptr inbounds double, ptr %4, i64 %35
-  %37 = load double, ptr %36, align 8, !tbaa !21
-  %38 = mul nuw nsw i64 %13, %indvars.iv
-  %39 = getelementptr inbounds double, ptr %9, i64 %38
-  %40 = load double, ptr %39, align 8, !tbaa !21
-  %41 = fsub double %37, %40
-  store double %41, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %42 = mul nuw nsw i64 %18, %indvars.iv
-  %43 = getelementptr inbounds double, ptr %14, i64 %42
-  %44 = load double, ptr %43, align 8, !tbaa !21
-  %45 = fsub double %37, %44
-  store double %45, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %46 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.02932)
-  %47 = tail call double @llvm.fmuladd.f64(double %45, double %45, double %.02833)
-  br i1 %34, label %33, label %19, !llvm.loop !80
-
-.split37.us:                                      ; preds = %30, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %48 = fneg double %.sroa.062.0..sroa.062.0.
-  %49 = fmul double %.sroa.7.0..sroa.7.8., %48
-  %50 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %49)
-  %51 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %52 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %51)
-  %53 = tail call double @atan2(double noundef %50, double noundef %52) #4, !tbaa !19
-  %54 = fdiv double %53, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %45 = fneg double %.sroa.071.0..sroa.071.0.
+  %46 = fmul double %.sroa.8.0..sroa.8.8., %45
+  %47 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %46)
+  %48 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %49 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %48)
+  %50 = tail call double @atan2(double noundef %47, double noundef %49) #4, !tbaa !19
+  %51 = fdiv double %50, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %54
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %51
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_NS3_IdLi3ELi1ELi0ELi3ELi1EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %1, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %1, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !44
-  br label %28
+  %13 = load i64, ptr %12, align 8, !tbaa !40
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !81
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !70
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !82
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_NS3_IdLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %1, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %1, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !44
-  br label %28
+  %13 = load i64, ptr %12, align 8, !tbaa !40
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !83
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !71
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !84
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.062 = alloca double, align 16
-  %.sroa.5 = alloca double, align 8
+  %.sroa.071 = alloca double, align 16
+  %.sroa.6 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !44
-  %9 = load ptr, ptr %1, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %9 = load ptr, ptr %1, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !44
-  br label %28
+  %13 = load i64, ptr %12, align 8, !tbaa !40
+  br label %23
 
-14:                                               ; preds = %28
-  %15 = tail call double @sqrt(double noundef %40) #4, !tbaa !19
-  %16 = tail call double @sqrt(double noundef %41) #4, !tbaa !19
+14:                                               ; preds = %23
+  %15 = tail call double @sqrt(double noundef %35) #4, !tbaa !19
+  %16 = tail call double @sqrt(double noundef %36) #4, !tbaa !19
   %17 = fcmp une double %15, 0.000000e+00
   %18 = fcmp une double %16, 0.000000e+00
   br i1 %17, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %25
-  %19 = phi i1 [ false, %25 ], [ true, %14 ]
-  %indvars.iv46.sroa.phi = phi ptr [ %.sroa.7, %25 ], [ %.sroa.0, %14 ]
-  %indvars.iv46.sroa.phi60 = phi ptr [ %.sroa.5, %25 ], [ %.sroa.062, %14 ]
-  %20 = load double, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  %21 = fdiv double %20, %15
-  store double %21, ptr %indvars.iv46.sroa.phi60, align 8, !tbaa !21
-  br i1 %18, label %22, label %25
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %19 = fdiv double %.sroa.071.0..sroa.071.0.72, %15
+  store double %19, ptr %.sroa.071, align 16, !tbaa !21
+  br i1 %18, label %.split.us.split.us, label %.split37.us.sink.split
 
-22:                                               ; preds = %.split.us
-  %23 = load double, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  %24 = fdiv double %23, %16
-  store double %24, ptr %indvars.iv46.sroa.phi, align 8, !tbaa !21
-  br label %25
-
-25:                                               ; preds = %22, %.split.us
-  br i1 %19, label %.split.us, label %.split37.us, !llvm.loop !85
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %20 = fdiv double %.sroa.0.0..sroa.0.0.68, %16
+  store double %20, ptr %.sroa.0, align 16, !tbaa !21
+  %.sroa.6.0..sroa.6.8.73 = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %21 = fdiv double %.sroa.6.0..sroa.6.8.73, %15
+  store double %21, ptr %.sroa.6, align 8, !tbaa !21
+  br label %.split37.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %18, label %.split.split.us, label %.split37.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.56 = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %26 = fdiv double %.sroa.0.0..sroa.0.0.56, %16
-  store double %26, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.7.0..sroa.7.8.57 = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %27 = fdiv double %.sroa.7.0..sroa.7.8.57, %16
-  store double %27, ptr %.sroa.7, align 8, !tbaa !21
+  %.sroa.0.0..sroa.0.0.67 = load double, ptr %.sroa.0, align 16, !tbaa !21
+  %22 = fdiv double %.sroa.0.0..sroa.0.0.67, %16
+  store double %22, ptr %.sroa.0, align 16, !tbaa !21
+  br label %.split37.us.sink.split
+
+23:                                               ; preds = %3, %23
+  %24 = phi i1 [ true, %3 ], [ false, %23 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %23 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %23 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
+  %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
+  %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %26 = load double, ptr %25, align 8, !tbaa !21
+  %27 = mul nuw nsw i64 %8, %indvars.iv
+  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !21
+  %30 = fsub double %26, %29
+  store double %30, ptr %indvars.iv.sroa.phi69, align 8, !tbaa !21
+  %31 = mul nuw nsw i64 %13, %indvars.iv
+  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !21
+  %34 = fsub double %26, %33
+  store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
+  %35 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.02932)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.02833)
+  br i1 %24, label %23, label %14, !llvm.loop !72
+
+.split37.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %.sink61 = phi double [ %16, %.split.split.us ], [ %16, %.split.us.split.us ], [ %15, %.split.us ]
+  %37 = load double, ptr %.sink62.sroa.phi, align 8, !tbaa !21
+  %38 = fdiv double %37, %.sink61
+  store double %38, ptr %.sink62.sroa.phi, align 8, !tbaa !21
   br label %.split37.us
 
-28:                                               ; preds = %3, %28
-  %29 = phi i1 [ true, %3 ], [ false, %28 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %28 ]
-  %indvars.iv.sroa.phi58 = phi ptr [ %.sroa.062, %3 ], [ %.sroa.5, %28 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %28 ]
-  %.02833 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
-  %.02932 = phi double [ 0.000000e+00, %3 ], [ %40, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %31 = load double, ptr %30, align 8, !tbaa !21
-  %32 = mul nuw nsw i64 %8, %indvars.iv
-  %33 = getelementptr inbounds double, ptr %4, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = fsub double %31, %34
-  store double %35, ptr %indvars.iv.sroa.phi58, align 8, !tbaa !21
-  %36 = mul nuw nsw i64 %13, %indvars.iv
-  %37 = getelementptr inbounds double, ptr %9, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = fsub double %31, %38
-  store double %39, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.02932)
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.02833)
-  br i1 %29, label %28, label %14, !llvm.loop !86
-
-.split37.us:                                      ; preds = %25, %.split.split.us, %.split
+.split37.us:                                      ; preds = %.split37.us.sink.split, %.split
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16, !tbaa !21
-  %.sroa.5.0..sroa.5.8. = load double, ptr %.sroa.5, align 8, !tbaa !21
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8, !tbaa !21
-  %.sroa.062.0..sroa.062.0. = load double, ptr %.sroa.062, align 16, !tbaa !21
-  %42 = fneg double %.sroa.062.0..sroa.062.0.
-  %43 = fmul double %.sroa.7.0..sroa.7.8., %42
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.5.0..sroa.5.8., double %43)
-  %45 = fmul double %.sroa.5.0..sroa.5.8., %.sroa.7.0..sroa.7.8.
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
-  %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
+  %.sroa.6.0..sroa.6.8. = load double, ptr %.sroa.6, align 8, !tbaa !21
+  %.sroa.8.0..sroa.8.8. = load double, ptr %.sroa.8, align 8, !tbaa !21
+  %.sroa.071.0..sroa.071.0. = load double, ptr %.sroa.071, align 16, !tbaa !21
+  %39 = fneg double %.sroa.071.0..sroa.071.0.
+  %40 = fmul double %.sroa.8.0..sroa.8.8., %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.6.0..sroa.6.8., double %40)
+  %42 = fmul double %.sroa.6.0..sroa.6.8., %.sroa.8.0..sroa.8.8.
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.071.0..sroa.071.0., double %42)
+  %44 = tail call double @atan2(double noundef %41, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret double %48
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret double %45
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEES6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.063 = alloca float, align 4
-  %.sroa.5 = alloca float, align 4
+  %.sroa.071 = alloca float, align 4
+  %.sroa.6 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
-  %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca float, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !75
-  %9 = load ptr, ptr %1, align 8, !tbaa !70
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  %9 = load ptr, ptr %1, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !72
+  %11 = load ptr, ptr %10, align 8, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !75
-  br label %26
+  %13 = load i64, ptr %12, align 8, !tbaa !66
+  br label %21
 
-14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
+14:                                               ; preds = %21
+  %sqrtf = tail call float @sqrtf(float noundef %33) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %34) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %23
-  %17 = phi i1 [ false, %23 ], [ true, %14 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %.sroa.7, %23 ], [ %.sroa.0, %14 ]
-  %indvars.iv47.sroa.phi61 = phi ptr [ %.sroa.5, %23 ], [ %.sroa.063, %14 ]
-  %18 = load float, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  %19 = fdiv float %18, %sqrtf
-  store float %19, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  br i1 %16, label %20, label %23
+.split.us:                                        ; preds = %14
+  %.sroa.071.0..sroa.071.0.72 = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %17 = fdiv float %.sroa.071.0..sroa.071.0.72, %sqrtf
+  store float %17, ptr %.sroa.071, align 4, !tbaa !55
+  br i1 %16, label %.split.us.split.us, label %.split38.us.sink.split
 
-20:                                               ; preds = %.split.us
-  %21 = load float, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  %22 = fdiv float %21, %sqrtf32
-  store float %22, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  br label %23
-
-23:                                               ; preds = %20, %.split.us
-  br i1 %17, label %.split.us, label %.split38.us, !llvm.loop !87
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %18 = fdiv float %.sroa.0.0..sroa.0.0.68, %sqrtf32
+  store float %18, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4.73 = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %19 = fdiv float %.sroa.6.0..sroa.6.4.73, %sqrtf
+  store float %19, ptr %.sroa.6, align 4, !tbaa !55
+  br label %.split38.us.sink.split
 
 .split:                                           ; preds = %14
   br i1 %16, label %.split.split.us, label %.split38.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.57 = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %24 = fdiv float %.sroa.0.0..sroa.0.0.57, %sqrtf32
-  store float %24, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4.58 = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %25 = fdiv float %.sroa.7.0..sroa.7.4.58, %sqrtf32
-  store float %25, ptr %.sroa.7, align 4, !tbaa !62
+  %.sroa.0.0..sroa.0.0.67 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %20 = fdiv float %.sroa.0.0..sroa.0.0.67, %sqrtf32
+  store float %20, ptr %.sroa.0, align 4, !tbaa !55
+  br label %.split38.us.sink.split
+
+21:                                               ; preds = %3, %21
+  %22 = phi i1 [ true, %3 ], [ false, %21 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %21 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %21 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
+  %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
+  %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
+  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %24 = load float, ptr %23, align 4, !tbaa !55
+  %25 = mul nuw nsw i64 %8, %indvars.iv
+  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %27 = load float, ptr %26, align 4, !tbaa !55
+  %28 = fsub float %24, %27
+  store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
+  %29 = mul nuw nsw i64 %13, %indvars.iv
+  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %31 = load float, ptr %30, align 4, !tbaa !55
+  %32 = fsub float %24, %31
+  store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
+  %33 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.02933)
+  %34 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %.02834)
+  br i1 %22, label %21, label %14, !llvm.loop !73
+
+.split38.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %sqrtf32.sink = phi float [ %sqrtf32, %.split.split.us ], [ %sqrtf32, %.split.us.split.us ], [ %sqrtf, %.split.us ]
+  %35 = load float, ptr %.sink62.sroa.phi, align 4, !tbaa !55
+  %36 = fdiv float %35, %sqrtf32.sink
+  store float %36, ptr %.sink62.sroa.phi, align 4, !tbaa !55
   br label %.split38.us
 
-26:                                               ; preds = %3, %26
-  %27 = phi i1 [ true, %3 ], [ false, %26 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %26 ]
-  %indvars.iv.sroa.phi59 = phi ptr [ %.sroa.063, %3 ], [ %.sroa.5, %26 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %26 ]
-  %.02834 = phi float [ 0.000000e+00, %3 ], [ %39, %26 ]
-  %.02933 = phi float [ 0.000000e+00, %3 ], [ %38, %26 ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %29 = load float, ptr %28, align 4, !tbaa !62
-  %30 = mul nuw nsw i64 %8, %indvars.iv
-  %31 = getelementptr inbounds float, ptr %4, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !62
-  %33 = fsub float %29, %32
-  store float %33, ptr %indvars.iv.sroa.phi59, align 4, !tbaa !62
-  %34 = mul nuw nsw i64 %13, %indvars.iv
-  %35 = getelementptr inbounds float, ptr %9, i64 %34
-  %36 = load float, ptr %35, align 4, !tbaa !62
-  %37 = fsub float %29, %36
-  store float %37, ptr %indvars.iv.sroa.phi, align 4, !tbaa !62
-  %38 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.02933)
-  %39 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %.02834)
-  br i1 %27, label %26, label %14, !llvm.loop !88
-
-.split38.us:                                      ; preds = %23, %.split.split.us, %.split
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4. = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %.sroa.063.0..sroa.063.0. = load float, ptr %.sroa.063, align 4, !tbaa !62
-  %40 = fneg float %.sroa.063.0..sroa.063.0.
-  %41 = fmul float %.sroa.7.0..sroa.7.4., %40
-  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.5.0..sroa.5.4., float %41)
+.split38.us:                                      ; preds = %.split38.us.sink.split, %.split
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %.sroa.8.0..sroa.8.4. = load float, ptr %.sroa.8, align 4, !tbaa !55
+  %.sroa.071.0..sroa.071.0. = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %37 = fneg float %.sroa.071.0..sroa.071.0.
+  %38 = fmul float %.sroa.8.0..sroa.8.4., %37
+  %39 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.6.0..sroa.6.4., float %38)
+  %40 = fpext float %39 to double
+  %41 = fmul float %.sroa.6.0..sroa.6.4., %.sroa.8.0..sroa.8.4.
+  %42 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.071.0..sroa.071.0., float %41)
   %43 = fpext float %42 to double
-  %44 = fmul float %.sroa.5.0..sroa.5.4., %.sroa.7.0..sroa.7.4.
-  %45 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.063.0..sroa.063.0., float %44)
-  %46 = fpext float %45 to double
-  %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
-  %48 = fdiv double %47, 0xC01921FB54442D18
-  %49 = fptrunc double %48 to float
+  %44 = tail call double @atan2(double noundef %40, double noundef %43) #4, !tbaa !19
+  %45 = fdiv double %44, 0xC01921FB54442D18
+  %46 = fptrunc double %45 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret float %49
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret float %46
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_NS3_IfLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %.sroa.063 = alloca float, align 4
-  %.sroa.5 = alloca float, align 4
+  %.sroa.071 = alloca float, align 4
+  %.sroa.6 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
-  %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  %.sroa.8 = alloca float, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  %4 = load ptr, ptr %0, align 8, !tbaa !66
-  %5 = load ptr, ptr %1, align 8, !tbaa !66
-  br label %18
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
+  %4 = load ptr, ptr %0, align 8, !tbaa !58
+  %5 = load ptr, ptr %1, align 8, !tbaa !58
+  br label %13
 
-6:                                                ; preds = %18
-  %sqrtf = tail call float @sqrtf(float noundef %28) #2
-  %sqrtf32 = tail call float @sqrtf(float noundef %29) #2
+6:                                                ; preds = %13
+  %sqrtf = tail call float @sqrtf(float noundef %23) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %24) #2
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %15
-  %9 = phi i1 [ false, %15 ], [ true, %6 ]
-  %indvars.iv47.sroa.phi = phi ptr [ %.sroa.7, %15 ], [ %.sroa.0, %6 ]
-  %indvars.iv47.sroa.phi61 = phi ptr [ %.sroa.5, %15 ], [ %.sroa.063, %6 ]
-  %10 = load float, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  %11 = fdiv float %10, %sqrtf
-  store float %11, ptr %indvars.iv47.sroa.phi61, align 4, !tbaa !62
-  br i1 %8, label %12, label %15
+.split.us:                                        ; preds = %6
+  %.sroa.071.0..sroa.071.0.72 = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %9 = fdiv float %.sroa.071.0..sroa.071.0.72, %sqrtf
+  store float %9, ptr %.sroa.071, align 4, !tbaa !55
+  br i1 %8, label %.split.us.split.us, label %.split38.us.sink.split
 
-12:                                               ; preds = %.split.us
-  %13 = load float, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  %14 = fdiv float %13, %sqrtf32
-  store float %14, ptr %indvars.iv47.sroa.phi, align 4, !tbaa !62
-  br label %15
-
-15:                                               ; preds = %12, %.split.us
-  br i1 %9, label %.split.us, label %.split38.us, !llvm.loop !89
+.split.us.split.us:                               ; preds = %.split.us
+  %.sroa.0.0..sroa.0.0.68 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %10 = fdiv float %.sroa.0.0..sroa.0.0.68, %sqrtf32
+  store float %10, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4.73 = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %11 = fdiv float %.sroa.6.0..sroa.6.4.73, %sqrtf
+  store float %11, ptr %.sroa.6, align 4, !tbaa !55
+  br label %.split38.us.sink.split
 
 .split:                                           ; preds = %6
   br i1 %8, label %.split.split.us, label %.split38.us
 
 .split.split.us:                                  ; preds = %.split
-  %.sroa.0.0..sroa.0.0.57 = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %16 = fdiv float %.sroa.0.0..sroa.0.0.57, %sqrtf32
-  store float %16, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4.58 = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %17 = fdiv float %.sroa.7.0..sroa.7.4.58, %sqrtf32
-  store float %17, ptr %.sroa.7, align 4, !tbaa !62
+  %.sroa.0.0..sroa.0.0.67 = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %12 = fdiv float %.sroa.0.0..sroa.0.0.67, %sqrtf32
+  store float %12, ptr %.sroa.0, align 4, !tbaa !55
+  br label %.split38.us.sink.split
+
+13:                                               ; preds = %3, %13
+  %14 = phi i1 [ true, %3 ], [ false, %13 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.8, %13 ]
+  %indvars.iv.sroa.phi69 = phi ptr [ %.sroa.071, %3 ], [ %.sroa.6, %13 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %13 ]
+  %.02834 = phi float [ 0.000000e+00, %3 ], [ %24, %13 ]
+  %.02933 = phi float [ 0.000000e+00, %3 ], [ %23, %13 ]
+  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %16 = load float, ptr %15, align 4, !tbaa !55
+  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %18 = load float, ptr %17, align 4, !tbaa !55
+  %19 = fsub float %16, %18
+  store float %19, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
+  %20 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %21 = load float, ptr %20, align 4, !tbaa !55
+  %22 = fsub float %16, %21
+  store float %22, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
+  %23 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %.02933)
+  %24 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %.02834)
+  br i1 %14, label %13, label %6, !llvm.loop !74
+
+.split38.us.sink.split:                           ; preds = %.split.us, %.split.us.split.us, %.split.split.us
+  %.sink62.sroa.phi = phi ptr [ %.sroa.8, %.split.split.us ], [ %.sroa.8, %.split.us.split.us ], [ %.sroa.6, %.split.us ]
+  %sqrtf32.sink = phi float [ %sqrtf32, %.split.split.us ], [ %sqrtf32, %.split.us.split.us ], [ %sqrtf, %.split.us ]
+  %25 = load float, ptr %.sink62.sroa.phi, align 4, !tbaa !55
+  %26 = fdiv float %25, %sqrtf32.sink
+  store float %26, ptr %.sink62.sroa.phi, align 4, !tbaa !55
   br label %.split38.us
 
-18:                                               ; preds = %3, %18
-  %19 = phi i1 [ true, %3 ], [ false, %18 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.7, %18 ]
-  %indvars.iv.sroa.phi59 = phi ptr [ %.sroa.063, %3 ], [ %.sroa.5, %18 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %18 ]
-  %.02834 = phi float [ 0.000000e+00, %3 ], [ %29, %18 ]
-  %.02933 = phi float [ 0.000000e+00, %3 ], [ %28, %18 ]
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %21 = load float, ptr %20, align 4, !tbaa !62
-  %22 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %23 = load float, ptr %22, align 4, !tbaa !62
-  %24 = fsub float %21, %23
-  store float %24, ptr %indvars.iv.sroa.phi59, align 4, !tbaa !62
-  %25 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  %26 = load float, ptr %25, align 4, !tbaa !62
-  %27 = fsub float %21, %26
-  store float %27, ptr %indvars.iv.sroa.phi, align 4, !tbaa !62
-  %28 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02933)
-  %29 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %.02834)
-  br i1 %19, label %18, label %6, !llvm.loop !90
-
-.split38.us:                                      ; preds = %15, %.split.split.us, %.split
-  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !62
-  %.sroa.5.0..sroa.5.4. = load float, ptr %.sroa.5, align 4, !tbaa !62
-  %.sroa.7.0..sroa.7.4. = load float, ptr %.sroa.7, align 4, !tbaa !62
-  %.sroa.063.0..sroa.063.0. = load float, ptr %.sroa.063, align 4, !tbaa !62
-  %30 = fneg float %.sroa.063.0..sroa.063.0.
-  %31 = fmul float %.sroa.7.0..sroa.7.4., %30
-  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.5.0..sroa.5.4., float %31)
+.split38.us:                                      ; preds = %.split38.us.sink.split, %.split
+  %.sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !55
+  %.sroa.6.0..sroa.6.4. = load float, ptr %.sroa.6, align 4, !tbaa !55
+  %.sroa.8.0..sroa.8.4. = load float, ptr %.sroa.8, align 4, !tbaa !55
+  %.sroa.071.0..sroa.071.0. = load float, ptr %.sroa.071, align 4, !tbaa !55
+  %27 = fneg float %.sroa.071.0..sroa.071.0.
+  %28 = fmul float %.sroa.8.0..sroa.8.4., %27
+  %29 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.6.0..sroa.6.4., float %28)
+  %30 = fpext float %29 to double
+  %31 = fmul float %.sroa.6.0..sroa.6.4., %.sroa.8.0..sroa.8.4.
+  %32 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.071.0..sroa.071.0., float %31)
   %33 = fpext float %32 to double
-  %34 = fmul float %.sroa.5.0..sroa.5.4., %.sroa.7.0..sroa.7.4.
-  %35 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0..sroa.0.0., float %.sroa.063.0..sroa.063.0., float %34)
-  %36 = fpext float %35 to double
-  %37 = tail call double @atan2(double noundef %33, double noundef %36) #4, !tbaa !19
-  %38 = fdiv double %37, 0xC01921FB54442D18
-  %39 = fptrunc double %38 to float
+  %34 = tail call double @atan2(double noundef %30, double noundef %33) #4, !tbaa !19
+  %35 = fdiv double %34, 0xC01921FB54442D18
+  %36 = fptrunc double %35 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  ret float %39
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.071)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  ret float %36
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1590,71 +1620,55 @@ attributes #4 = { nounwind }
 !20 = !{!"int", !8, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !8, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !24}
-!27 = !{!28, !6, i64 0}
-!28 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEELi0EEE", !6, i64 0, !10, i64 8, !29, i64 9}
-!29 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi2EEE"}
-!30 = !{!31, !32, i64 16}
-!31 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0ELb1EEE", !28, i64 0, !32, i64 16, !15, i64 24, !15, i64 32, !16, i64 40}
-!32 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEE", !7, i64 0}
-!33 = !{!34, !16, i64 8}
-!34 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi2ELi0EEE", !6, i64 0, !16, i64 8}
-!35 = distinct !{!35, !24, !25}
-!36 = distinct !{!36, !24}
-!37 = distinct !{!37, !24, !25}
-!38 = distinct !{!38, !24}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !6, i64 0, !10, i64 8, !15, i64 16}
-!41 = !{!42, !43, i64 24}
-!42 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !40, i64 0, !43, i64 24, !15, i64 32, !15, i64 40, !16, i64 48}
-!43 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE", !7, i64 0}
-!44 = !{!45, !16, i64 8}
-!45 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !6, i64 0, !16, i64 8, !16, i64 16}
-!46 = distinct !{!46, !24, !25}
-!47 = distinct !{!47, !24}
-!48 = !{!49, !6, i64 0}
-!49 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEELi0EEE", !6, i64 0, !10, i64 8, !11, i64 9}
-!50 = distinct !{!50, !24, !25}
-!51 = distinct !{!51, !24}
-!52 = distinct !{!52, !24, !25}
-!53 = distinct !{!53, !24}
-!54 = !{!55, !56, i64 0}
-!55 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !56, i64 0, !10, i64 8, !15, i64 16}
-!56 = !{!"p1 float", !7, i64 0}
-!57 = !{!58, !59, i64 24}
-!58 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !55, i64 0, !59, i64 24, !15, i64 32, !15, i64 40, !16, i64 48}
-!59 = !{!"p1 _ZTSN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEE", !7, i64 0}
-!60 = !{!61, !16, i64 8}
-!61 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EEE", !56, i64 0, !16, i64 8, !16, i64 16}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"float", !8, i64 0}
-!64 = distinct !{!64, !24, !25}
-!65 = distinct !{!65, !24}
-!66 = !{!67, !56, i64 0}
-!67 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEELi0EEE", !56, i64 0, !10, i64 8, !11, i64 9}
-!68 = distinct !{!68, !24, !25}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEELi0EEE", !6, i64 0, !10, i64 8, !27, i64 9}
+!27 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi2EEE"}
+!28 = !{!29, !30, i64 16}
+!29 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0ELb1EEE", !26, i64 0, !30, i64 16, !15, i64 24, !15, i64 32, !16, i64 40}
+!30 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEE", !7, i64 0}
+!31 = !{!32, !16, i64 8}
+!32 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi2ELi0EEE", !6, i64 0, !16, i64 8}
+!33 = distinct !{!33, !24}
+!34 = distinct !{!34, !24}
+!35 = !{!36, !6, i64 0}
+!36 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !6, i64 0, !10, i64 8, !15, i64 16}
+!37 = !{!38, !39, i64 24}
+!38 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !36, i64 0, !39, i64 24, !15, i64 32, !15, i64 40, !16, i64 48}
+!39 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE", !7, i64 0}
+!40 = !{!41, !16, i64 8}
+!41 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEE", !6, i64 0, !16, i64 8, !16, i64 16}
+!42 = distinct !{!42, !24}
+!43 = !{!44, !6, i64 0}
+!44 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEELi0EEE", !6, i64 0, !10, i64 8, !11, i64 9}
+!45 = distinct !{!45, !24}
+!46 = distinct !{!46, !24}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEELi0EEE", !49, i64 0, !10, i64 8, !15, i64 16}
+!49 = !{!"p1 float", !7, i64 0}
+!50 = !{!51, !52, i64 24}
+!51 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0ELb1EEE", !48, i64 0, !52, i64 24, !15, i64 32, !15, i64 40, !16, i64 48}
+!52 = !{!"p1 _ZTSN5Eigen6MatrixIfLin1ELin1ELi0ELin1ELin1EEE", !7, i64 0}
+!53 = !{!54, !16, i64 8}
+!54 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EEE", !49, i64 0, !16, i64 8, !16, i64 16}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"float", !8, i64 0}
+!57 = distinct !{!57, !24}
+!58 = !{!59, !49, i64 0}
+!59 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEELi0EEE", !49, i64 0, !10, i64 8, !11, i64 9}
+!60 = distinct !{!60, !24}
+!61 = !{!62, !49, i64 0}
+!62 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEELi0EEE", !49, i64 0, !10, i64 8, !11, i64 9}
+!63 = !{!64, !65, i64 16}
+!64 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0ELb1EEE", !62, i64 0, !65, i64 16, !15, i64 24, !15, i64 32, !16, i64 40}
+!65 = !{!"p1 _ZTSN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEE", !7, i64 0}
+!66 = !{!67, !16, i64 8}
+!67 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EEE", !49, i64 0, !16, i64 8}
+!68 = distinct !{!68, !24}
 !69 = distinct !{!69, !24}
-!70 = !{!71, !56, i64 0}
-!71 = !{!"_ZTSN5Eigen7MapBaseINS_5BlockIKNS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEELi0EEE", !56, i64 0, !10, i64 8, !11, i64 9}
-!72 = !{!73, !74, i64 16}
-!73 = !{!"_ZTSN5Eigen8internal15BlockImpl_denseIKNS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0ELb1EEE", !71, i64 0, !74, i64 16, !15, i64 24, !15, i64 32, !16, i64 40}
-!74 = !{!"p1 _ZTSN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEE", !7, i64 0}
-!75 = !{!76, !16, i64 8}
-!76 = !{!"_ZTSN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EEE", !56, i64 0, !16, i64 8}
-!77 = distinct !{!77, !24, !25}
-!78 = distinct !{!78, !24}
-!79 = distinct !{!79, !24, !25}
-!80 = distinct !{!80, !24}
-!81 = distinct !{!81, !24, !25}
-!82 = distinct !{!82, !24}
-!83 = distinct !{!83, !24, !25}
-!84 = distinct !{!84, !24}
-!85 = distinct !{!85, !24, !25}
-!86 = distinct !{!86, !24}
-!87 = distinct !{!87, !24, !25}
-!88 = distinct !{!88, !24}
-!89 = distinct !{!89, !24, !25}
-!90 = distinct !{!90, !24}
+!70 = distinct !{!70, !24}
+!71 = distinct !{!71, !24}
+!72 = distinct !{!72, !24}
+!73 = distinct !{!73, !24}
+!74 = distinct !{!74, !24}

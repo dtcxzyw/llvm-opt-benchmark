@@ -132,10 +132,10 @@ _ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit.us: ; preds = %_ZN7ro
   store ptr %34, ptr %1, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !15
-  store ptr %36, ptr %22, align 8, !tbaa !22
+  store ptr %36, ptr %22, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !16
-  store ptr %38, ptr %23, align 8, !tbaa !23
+  store ptr %38, ptr %23, align 8, !tbaa !22
   tail call void @_ZdlPvm(ptr noundef nonnull %.013, i64 noundef 32) #14
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit
 
@@ -147,7 +147,7 @@ _ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit.us: ; preds = %_ZN7ro
 
 _ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit: ; preds = %33, %39
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit.us, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit, %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
   store ptr null, ptr %0, align 8, !tbaa !4
@@ -195,11 +195,11 @@ define void @_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE(ptr noundef n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !22
+  store ptr %8, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !23
+  store ptr %11, ptr %12, align 8, !tbaa !22
   tail call void @_ZdlPvm(ptr noundef %1, i64 noundef 32) #14
   br label %17
 
@@ -223,7 +223,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb18SharedCleanablePtr5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %3
 
@@ -240,9 +240,9 @@ define void @_ZN7rocksdb18SharedCleanablePtr5ResetEv(ptr noundef nonnull align 8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   invoke void %7(ptr noundef %10, ptr noundef %12)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
 
@@ -267,7 +267,7 @@ define void @_ZN7rocksdb18SharedCleanablePtr5ResetEv(ptr noundef nonnull align 8
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i = icmp eq ptr %21, null
-  br i1 %.not9.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -290,7 +290,7 @@ _ZN7rocksdb9CleanableD2Ev.exit.i:                 ; preds = %.noexc1.i.i, %.noex
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit: ; preds = %3, %_ZN7rocksdb9CleanableD2Ev.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %24
 
 24:                                               ; preds = %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit, %1
@@ -299,7 +299,7 @@ _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit: ; preds = %3, %_ZN7rocksdb9Cl
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18SharedCleanablePtr8AllocateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %3
 
@@ -316,9 +316,9 @@ define void @_ZN7rocksdb18SharedCleanablePtr8AllocateEv(ptr noundef nonnull alig
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   invoke void %7(ptr noundef %10, ptr noundef %12)
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
@@ -343,7 +343,7 @@ define void @_ZN7rocksdb18SharedCleanablePtr8AllocateEv(ptr noundef nonnull alig
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
@@ -366,15 +366,15 @@ _ZN7rocksdb9CleanableD2Ev.exit.i.i:               ; preds = %.noexc1.i.i.i, %.no
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb9CleanableD2Ev.exit.i.i, %3
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %1, %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
   %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
-  store i32 1, ptr %25, align 4, !tbaa !30
-  store ptr %24, ptr %0, align 8, !tbaa !26
+  store i32 1, ptr %25, align 4, !tbaa !29
+  store ptr %24, ptr %0, align 8, !tbaa !25
   ret void
 }
 
@@ -383,7 +383,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb18SharedCleanablePtrC2ERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) unnamed_addr #6 align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
@@ -394,7 +394,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleana
   br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !26
+  %4 = load ptr, ptr %0, align 8, !tbaa !25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %5
 
@@ -411,9 +411,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleana
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
   invoke void %9(ptr noundef %12, ptr noundef %14)
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
@@ -438,7 +438,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleana
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
@@ -461,12 +461,12 @@ _ZN7rocksdb9CleanableD2Ev.exit.i.i:               ; preds = %.noexc1.i.i.i, %.no
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb9CleanableD2Ev.exit.i.i, %5
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %3, %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
-  %26 = load ptr, ptr %1, align 8, !tbaa !26
-  store ptr %26, ptr %0, align 8, !tbaa !26
+  %26 = load ptr, ptr %1, align 8, !tbaa !25
+  store ptr %26, ptr %0, align 8, !tbaa !25
   %.not5 = icmp eq ptr %26, null
   br i1 %.not5, label %30, label %27
 
@@ -482,16 +482,16 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %3, %_ZN7rocksdb18Sh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb18SharedCleanablePtrC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7rocksdb18SharedCleanablePtraSEOS0_.exit:
-  store ptr null, ptr %0, align 8, !tbaa !26
-  %2 = load ptr, ptr %1, align 8, !tbaa !26
-  store ptr %2, ptr %0, align 8, !tbaa !26
-  store ptr null, ptr %1, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %1, align 8, !tbaa !25
+  store ptr %2, ptr %0, align 8, !tbaa !25
+  store ptr null, ptr %1, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleanablePtraSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !26
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %4
 
@@ -508,9 +508,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleana
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   invoke void %8(ptr noundef %11, ptr noundef %13)
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
@@ -535,7 +535,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7rocksdb18SharedCleana
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
@@ -558,19 +558,19 @@ _ZN7rocksdb9CleanableD2Ev.exit.i.i:               ; preds = %.noexc1.i.i.i, %.no
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb9CleanableD2Ev.exit.i.i, %4
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i, %2
-  %25 = load ptr, ptr %1, align 8, !tbaa !26
-  store ptr %25, ptr %0, align 8, !tbaa !26
-  store ptr null, ptr %1, align 8, !tbaa !26
+  %25 = load ptr, ptr %1, align 8, !tbaa !25
+  store ptr %25, ptr %0, align 8, !tbaa !25
+  store ptr null, ptr %1, align 8, !tbaa !25
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb18SharedCleanablePtrD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %3
 
@@ -587,9 +587,9 @@ define void @_ZN7rocksdb18SharedCleanablePtrD2Ev(ptr noundef nonnull align 8 cap
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
   invoke void %7(ptr noundef %10, ptr noundef %12)
           to label %.noexc.i.i.i unwind label %.loopexit.split-lp.i.i.i
 
@@ -614,7 +614,7 @@ define void @_ZN7rocksdb18SharedCleanablePtrD2Ev(ptr noundef nonnull align 8 cap
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit.i.i.i = landingpad { ptr, i32 }
@@ -637,7 +637,7 @@ _ZN7rocksdb9CleanableD2Ev.exit.i.i:               ; preds = %.noexc1.i.i.i, %.no
   br label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
 
 _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb9CleanableD2Ev.exit.i.i, %3
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit
 
 _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i, %1
@@ -646,32 +646,32 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %_ZN7rocksdb18Shared
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb18SharedCleanablePtrdeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN7rocksdb18SharedCleanablePtrptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN7rocksdb18SharedCleanablePtr3getEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !26
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18SharedCleanablePtr16RegisterCopyWithEPNS_9CleanableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !26
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = atomicrmw add ptr %5, i32 1 monotonic, align 4
-  %7 = load ptr, ptr %0, align 8, !tbaa !26
+  %7 = load ptr, ptr %0, align 8, !tbaa !25
   %8 = load ptr, ptr %1, align 8, !tbaa !4
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit, label %10
@@ -712,9 +712,9 @@ define linkonce_odr void @_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
   invoke void %6(ptr noundef %9, ptr noundef %11)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i
 
@@ -739,7 +739,7 @@ define linkonce_odr void @_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i.i.i, i64 noundef 32) #14
   %.not9.i.i.i = icmp eq ptr %20, null
-  br i1 %.not9.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not9.i.i.i, label %_ZN7rocksdb9CleanableD2Ev.exit.i, label %.lr.ph.i.i.i, !llvm.loop !28
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -767,7 +767,7 @@ _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit: ; preds = %2, %_ZN7rocksdb9Cl
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18SharedCleanablePtr15MoveAsCleanupToEPNS_9CleanableE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !26
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
@@ -792,7 +792,7 @@ _ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit: ; preds = %4, %7
   store ptr %3, ptr %12, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr null, ptr %13, align 8, !tbaa !16
-  store ptr null, ptr %0, align 8, !tbaa !26
+  store ptr null, ptr %0, align 8, !tbaa !25
   br label %14
 
 14:                                               ; preds = %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit, %2
@@ -807,9 +807,9 @@ define void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull readonly align 8 capt
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   invoke void %2(ptr noundef %5, ptr noundef %7)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -834,7 +834,7 @@ define void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull readonly align 8 capt
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef nonnull %.011.i, i64 noundef 32) #14
   %.not9.i = icmp eq ptr %16, null
-  br i1 %.not9.i, label %_ZN7rocksdb9Cleanable9DoCleanupEv.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not9.i, label %_ZN7rocksdb9Cleanable9DoCleanupEv.exit, label %.lr.ph.i, !llvm.loop !28
 
 _ZN7rocksdb9Cleanable9DoCleanupEv.exit:           ; preds = %.noexc1, %.noexc, %1
   ret void
@@ -893,17 +893,16 @@ attributes #14 = { builtin nounwind }
 !16 = !{!6, !7, i64 16}
 !17 = !{!6, !10, i64 24}
 !18 = !{!6, !7, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = !{!5, !7, i64 8}
-!23 = !{!5, !7, i64 16}
-!24 = distinct !{!24, !20, !25}
-!25 = !{!"llvm.loop.unswitch.partial.disable"}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSN7rocksdb18SharedCleanablePtrE", !28, i64 0}
-!28 = !{!"p1 _ZTSN7rocksdb18SharedCleanablePtr4ImplE", !7, i64 0}
-!29 = distinct !{!29, !20}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"_ZTSSt13__atomic_baseIjE", !32, i64 0}
-!32 = !{!"int", !8, i64 0}
+!21 = !{!5, !7, i64 8}
+!22 = !{!5, !7, i64 16}
+!23 = distinct !{!23, !20, !24}
+!24 = !{!"llvm.loop.unswitch.partial.disable"}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSN7rocksdb18SharedCleanablePtrE", !27, i64 0}
+!27 = !{!"p1 _ZTSN7rocksdb18SharedCleanablePtr4ImplE", !7, i64 0}
+!28 = distinct !{!28, !20}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"_ZTSSt13__atomic_baseIjE", !31, i64 0}
+!31 = !{!"int", !8, i64 0}

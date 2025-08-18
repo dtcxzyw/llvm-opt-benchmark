@@ -1659,7 +1659,7 @@ _ZL16extSetUseMapping20UConverterUnicodeSetij.exit53: ; preds = %83
 _ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread: ; preds = %83, %.lr.ph.split, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53, %87, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit53.thread.us, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread16, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread.thread, %_ZL16extSetUseMapping20UConverterUnicodeSetij.exit.thread
   ret void
@@ -1760,6 +1760,4 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !67 = distinct !{!67, !26}
 !68 = distinct !{!68, !26}
 !69 = !{!63, !9, i64 24}
-!70 = distinct !{!70, !26, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !26}
+!70 = distinct !{!70, !26}

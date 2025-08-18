@@ -464,7 +464,7 @@ define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef readnone 
   %50 = getelementptr inbounds nuw i8, ptr %.05885, i64 %spec.select
   %51 = add i64 %spec.select, %.06084
   %.not = icmp eq i64 %49, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %36, %48, %.lr.ph.split.us, %12, %26
   %.0.lcssa = phi i32 [ %.3.us, %26 ], [ %.086.us, %12 ], [ %.086.us, %.lr.ph.split.us ], [ %.3, %48 ], [ %.086, %36 ], [ %.086, %.lr.ph.split ]
@@ -615,7 +615,5 @@ attributes #20 = { cold noreturn nounwind }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9}

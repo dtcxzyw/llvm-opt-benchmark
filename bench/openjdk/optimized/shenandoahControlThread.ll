@@ -933,7 +933,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %_ZN13Monit
   %12 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef 0) #10
   %13 = tail call noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   %14 = icmp ult i64 %13, %5
-  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !15
+  br i1 %14, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !13
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %.lr.ph.split.us, %2
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
@@ -1326,6 +1326,4 @@ attributes #11 = { noreturn nounwind }
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !11}
+!13 = distinct !{!13, !11}

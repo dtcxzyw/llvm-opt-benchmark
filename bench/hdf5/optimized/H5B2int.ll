@@ -3460,7 +3460,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %126 = icmp samesign ult i64 %indvars.iv.next, %125
   %.not = icmp eq i32 %118, 0
   %127 = and i1 %.not, %126
-  br i1 %127, label %.thread127, label %._crit_edge, !llvm.loop !84
+  br i1 %127, label %.thread127, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %123, %109, %.thread173, %.thread, %86
   %.083.lcssa = phi i64 [ 0, %86 ], [ %indvars.iv.next165168, %.thread ], [ %indvars.iv.next174, %.thread173 ], [ %indvars.iv.next165, %109 ], [ %indvars.iv.next, %123 ]
@@ -3570,7 +3570,7 @@ define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroe
   %27 = load i16, ptr %23, align 8, !tbaa !20
   %28 = zext i16 %27 to i64
   %.not67.not = icmp samesign ult i64 %indvars.iv, %28
-  br i1 %.not67.not, label %29, label %.loopexit, !llvm.loop !85
+  br i1 %.not67.not, label %29, label %.loopexit, !llvm.loop !83
 
 29:                                               ; preds = %20, %26
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %26 ]
@@ -3624,7 +3624,7 @@ define range(i32 -1, 1) i32 @H5B2__delete_node(ptr noundef %0, i16 noundef zeroe
   %49 = load i16, ptr %45, align 8, !tbaa !41
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next108, %50
-  br i1 %51, label %52, label %.thread86, !llvm.loop !86
+  br i1 %51, label %52, label %.thread86, !llvm.loop !84
 
 52:                                               ; preds = %.lr.ph, %48
   %indvars.iv107 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next108, %48 ]
@@ -3698,7 +3698,7 @@ define range(i32 -1, 1) i32 @H5B2__node_size(ptr noundef %0, i16 noundef zeroext
   %21 = load i16, ptr %17, align 8, !tbaa !20
   %22 = zext i16 %21 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %22
-  br i1 %.not.not, label %23, label %.thread.loopexit, !llvm.loop !87
+  br i1 %.not.not, label %23, label %.thread.loopexit, !llvm.loop !85
 
 23:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
@@ -3846,7 +3846,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 288
-  %37 = load ptr, ptr %36, align 8, !tbaa !88
+  %37 = load ptr, ptr %36, align 8, !tbaa !86
   %38 = icmp eq ptr %37, %3
   br i1 %38, label %48, label %H5B2__create_flush_depend.exit.thread
 
@@ -3863,7 +3863,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 280
-  %46 = load ptr, ptr %45, align 8, !tbaa !89
+  %46 = load ptr, ptr %45, align 8, !tbaa !87
   %47 = icmp eq ptr %46, %3
   br i1 %47, label %48, label %H5B2__create_flush_depend.exit.thread
 
@@ -3880,7 +3880,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   br i1 %54, label %55, label %.thread99, !prof !9
 
 .thread99:                                        ; preds = %48
-  store ptr %4, ptr %.25286, align 8, !tbaa !90
+  store ptr %4, ptr %.25286, align 8, !tbaa !88
   br label %H5B2__create_flush_depend.exit.thread
 
 55:                                               ; preds = %48
@@ -3904,8 +3904,8 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %67 = trunc nuw i8 %.pre98 to i1
   %68 = xor i1 %67, true
   %69 = select i1 %66, i1 true, i1 %68
-  store ptr %4, ptr %.25286, align 8, !tbaa !90
-  br i1 %69, label %70, label %H5B2__create_flush_depend.exit.thread, !prof !91
+  store ptr %4, ptr %.25286, align 8, !tbaa !88
+  br i1 %69, label %70, label %H5B2__create_flush_depend.exit.thread, !prof !89
 
 70:                                               ; preds = %65
   %71 = call i32 @H5AC_create_flush_dependency(ptr noundef %4, ptr noundef nonnull %.36384) #4
@@ -4069,13 +4069,11 @@ attributes #4 = { nounwind }
 !79 = distinct !{!79, !19}
 !80 = !{!81, !14, i64 256}
 !81 = !{!"H5B2_leaf_t", !22, i64 0, !29, i64 248, !14, i64 256, !30, i64 264, !31, i64 272, !15, i64 280, !16, i64 288}
-!82 = distinct !{!82, !19, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!82 = distinct !{!82, !19}
+!83 = distinct !{!83, !19}
 !84 = distinct !{!84, !19}
 !85 = distinct !{!85, !19}
-!86 = distinct !{!86, !19}
-!87 = distinct !{!87, !19}
-!88 = !{!21, !15, i64 288}
-!89 = !{!81, !15, i64 280}
-!90 = !{!15, !15, i64 0}
-!91 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!86 = !{!21, !15, i64 288}
+!87 = !{!81, !15, i64 280}
+!88 = !{!15, !15, i64 0}
+!89 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}

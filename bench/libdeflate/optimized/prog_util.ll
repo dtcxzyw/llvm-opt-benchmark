@@ -293,7 +293,7 @@ quote_path.exit.split.us:                         ; preds = %quote_path.exit, %3
 30:                                               ; preds = %27
   %31 = tail call i32 @unlink(ptr noundef nonnull %0) #20
   %.not26.us = icmp eq i32 %31, 0
-  br i1 %.not26.us, label %quote_path.exit.split.us, label %.split28.us, !llvm.loop !24
+  br i1 %.not26.us, label %quote_path.exit.split.us, label %.split28.us
 
 quote_path.exit.split:                            ; preds = %quote_path.exit, %52
   %32 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %0, i32 noundef 131265, i32 noundef 420) #20
@@ -388,12 +388,12 @@ define dso_local range(i32 -2147483648, 1) i32 @map_file_contents(ptr noundef %0
   %7 = load i32, ptr %0, align 8, !tbaa !22
   %8 = tail call ptr @mmap64(ptr noundef null, i64 noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef %7, i64 noundef 0) #20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %8, ptr %9, align 8, !tbaa !26
+  store ptr %8, ptr %9, align 8, !tbaa !24
   %10 = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
-  store ptr null, ptr %9, align 8, !tbaa !26
+  store ptr null, ptr %9, align 8, !tbaa !24
   %12 = tail call ptr @__errno_location() #18
   %13 = load i32, ptr %12, align 4, !tbaa !5
   switch i32 %13, label %19 [
@@ -421,9 +421,9 @@ define dso_local range(i32 -2147483648, 1) i32 @map_file_contents(ptr noundef %0
 22:                                               ; preds = %6
   %23 = tail call i32 @posix_madvise(ptr noundef %8, i64 noundef %1, i32 noundef 2) #20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %0, ptr %24, align 8, !tbaa !27
+  store ptr %0, ptr %24, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %1, ptr %25, align 8, !tbaa !28
+  store i64 %1, ptr %25, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %16, %19, %22, %14, %4
@@ -522,9 +522,9 @@ xread.exit:                                       ; preds = %.lr.ph.i, %28, %11
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.1, ptr %36, align 8, !tbaa !26
+  store ptr %.1, ptr %36, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %34, ptr %37, align 8, !tbaa !28
+  store i64 %34, ptr %37, align 8, !tbaa !26
   br label %40
 
 .loopexit:                                        ; preds = %xread.exit, %xread.exit.thread, %select.unfold
@@ -669,17 +669,17 @@ define dso_local range(i32 -1, 1) i32 @xclose(ptr noundef captures(none) %0) loc
 14:                                               ; preds = %11, %1
   %.0 = phi i32 [ 0, %1 ], [ %.1, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
   %.not12 = icmp eq ptr %16, null
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   br i1 %.not12, label %23, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !28
+  %21 = load i64, ptr %20, align 8, !tbaa !26
   %22 = tail call i32 @munmap(ptr noundef %18, i64 noundef %21) #20
-  store ptr null, ptr %15, align 8, !tbaa !27
+  store ptr null, ptr %15, align 8, !tbaa !25
   br label %24
 
 23:                                               ; preds = %14
@@ -688,7 +688,7 @@ define dso_local range(i32 -1, 1) i32 @xclose(ptr noundef captures(none) %0) loc
 
 24:                                               ; preds = %23, %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %25, align 8, !tbaa !26
+  store ptr null, ptr %25, align 8, !tbaa !24
   store i32 -1, ptr %0, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %26, align 8, !tbaa !21
@@ -872,8 +872,6 @@ attributes #23 = { nounwind allocsize(1) }
 !21 = !{!19, !13, i64 8}
 !22 = !{!19, !6, i64 0}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = !{!19, !11, i64 32}
-!27 = !{!19, !11, i64 24}
-!28 = !{!19, !20, i64 40}
+!24 = !{!19, !11, i64 32}
+!25 = !{!19, !11, i64 24}
+!26 = !{!19, !20, i64 40}

@@ -2783,12 +2783,12 @@ define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr noundef readonly capture
 19:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %19
   %20 = add i32 %.02633.us, %.neg
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %.preheader.us, label %._crit_edge34, !llvm.loop !28
+  br i1 %21, label %.preheader.us, label %._crit_edge34, !llvm.loop !27
 
 .split36.us:                                      ; preds = %12
   %22 = add nuw i32 %6, 1
@@ -2850,12 +2850,12 @@ define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr noundef readonly capture
 24:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %24
   %25 = add i32 %.02633.us, %.neg
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %.preheader.us, label %._crit_edge34, !llvm.loop !30
+  br i1 %26, label %.preheader.us, label %._crit_edge34, !llvm.loop !29
 
 .split36.us:                                      ; preds = %16
   %27 = add nuw nsw i32 %.02633.us, 1
@@ -2915,12 +2915,12 @@ define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr noundef readonly capture
 24:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %24
   %25 = add i32 %.02735.us, %.neg
   %.not.us = icmp slt i32 %25, %3
-  br i1 %.not.us, label %._crit_edge36, label %.preheader.us, !llvm.loop !32
+  br i1 %.not.us, label %._crit_edge36, label %.preheader.us, !llvm.loop !31
 
 .split38.us:                                      ; preds = %16
   %26 = add nsw i32 %.02735.us, 1
@@ -3036,12 +3036,12 @@ minTemp0_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i, %
 39:                                               ; preds = %32
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i64
-  br i1 %exitcond.not.i71, label %._crit_edge.us.i72, label %32, !llvm.loop !27
+  br i1 %exitcond.not.i71, label %._crit_edge.us.i72, label %32, !llvm.loop !26
 
 ._crit_edge.us.i72:                               ; preds = %39
   %40 = add i32 %.02633.us.i, %.neg.i
   %41 = icmp sgt i32 %40, -1
-  br i1 %41, label %.preheader.us.i65, label %minTemp1_fast_moreThen5.exit, !llvm.loop !28
+  br i1 %41, label %.preheader.us.i65, label %minTemp1_fast_moreThen5.exit, !llvm.loop !27
 
 .split36.us.i:                                    ; preds = %32
   %42 = add nuw i32 %.pre, 1
@@ -3094,12 +3094,12 @@ minTemp1_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i72,
 62:                                               ; preds = %54
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i79
-  br i1 %exitcond.not.i88, label %._crit_edge.us.i89, label %54, !llvm.loop !29
+  br i1 %exitcond.not.i88, label %._crit_edge.us.i89, label %54, !llvm.loop !28
 
 ._crit_edge.us.i89:                               ; preds = %62
   %63 = add i32 %.02633.us.i81, %.neg.i
   %64 = icmp sgt i32 %63, -1
-  br i1 %64, label %.preheader.us.i80, label %minTemp2_fast_moreThen5.exit, !llvm.loop !30
+  br i1 %64, label %.preheader.us.i80, label %minTemp2_fast_moreThen5.exit, !llvm.loop !29
 
 .split36.us.i84:                                  ; preds = %54
   %65 = add nuw nsw i32 %.02633.us.i81, 1
@@ -3443,12 +3443,12 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
 287:                                              ; preds = %279
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i118
-  br i1 %exitcond.not.i125, label %._crit_edge.us.i126, label %279, !llvm.loop !31
+  br i1 %exitcond.not.i125, label %._crit_edge.us.i126, label %279, !llvm.loop !30
 
 ._crit_edge.us.i126:                              ; preds = %287
   %288 = add i32 %.02735.us.i, %.neg.i
   %.not.us.i = icmp slt i32 %288, %.sink.i85
-  br i1 %.not.us.i, label %minTemp3_fast_moreThen5.exit, label %.preheader.us.i119, !llvm.loop !32
+  br i1 %.not.us.i, label %minTemp3_fast_moreThen5.exit, label %.preheader.us.i119, !llvm.loop !31
 
 .split38.us.i:                                    ; preds = %279
   %289 = add nsw i32 %.02735.us.i, 1
@@ -3664,12 +3664,12 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef captu
 21:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !27
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %14, !llvm.loop !26
 
 ._crit_edge.us.i:                                 ; preds = %21
   %22 = add i32 %.02633.us.i, %.neg.i
   %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %.preheader.us.i, label %minTemp1_fast_moreThen5.exit.thread, !llvm.loop !28
+  br i1 %23, label %.preheader.us.i, label %minTemp1_fast_moreThen5.exit.thread, !llvm.loop !27
 
 24:                                               ; preds = %14
   %25 = add nuw i32 %8, 1
@@ -3774,7 +3774,7 @@ define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef cap
 17:                                               ; preds = %11, %15
   %.1 = phi i32 [ %.046, %15 ], [ %13, %11 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %18, label %11, !llvm.loop !33
+  br i1 %exitcond.not, label %18, label %11, !llvm.loop !32
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3813,7 +3813,7 @@ define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef cap
 31:                                               ; preds = %.lr.ph, %29
   %.4 = phi i32 [ %.348, %29 ], [ %27, %.lr.ph ]
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %31, %23
   %bcmp = call i32 @bcmp(ptr %0, ptr nonnull %7, i64 %10)
@@ -3851,7 +3851,7 @@ define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noun
 18:                                               ; preds = %12, %16
   %.1 = phi i32 [ %.047, %16 ], [ %14, %12 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %19, label %12, !llvm.loop !35
+  br i1 %exitcond.not, label %19, label %12, !llvm.loop !34
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3969,7 +3969,7 @@ minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit: ; preds = %.lr.ph.i.i, %34, 
 68:                                               ; preds = %.lr.ph, %66
   %.4 = phi i32 [ %.349, %66 ], [ %64, %.lr.ph ]
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %68, %60
   %bcmp = call i32 @bcmp(ptr %0, ptr nonnull %8, i64 %11)
@@ -3991,12 +3991,12 @@ define void @luckyCanonicizerS_F_first_16Vars1(ptr noundef captures(none) %0, i3
 .preheader15:                                     ; preds = %6, %.preheader15
   %11 = tail call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not14 = icmp eq i32 %11, 0
-  br i1 %.not14, label %.loopexit, label %.preheader15, !llvm.loop !37
+  br i1 %.not14, label %.loopexit, label %.preheader15, !llvm.loop !36
 
 .preheader:                                       ; preds = %6, %.preheader
   %12 = tail call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %.not13, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.preheader15, %.preheader
   ret void
@@ -4035,12 +4035,12 @@ define void @luckyCanonicizerS_F_first_16Vars11(ptr noundef %0, i32 noundef %1, 
 .preheader15.i:                                   ; preds = %13, %.preheader15.i
   %22 = call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not14.i = icmp eq i32 %22, 0
-  br i1 %.not14.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader15.i, !llvm.loop !37
+  br i1 %.not14.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader15.i, !llvm.loop !36
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
   %23 = call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not13.i = icmp eq i32 %23, 0
-  br i1 %.not13.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader.i, !llvm.loop !38
+  br i1 %.not13.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader.i, !llvm.loop !37
 
 luckyCanonicizerS_F_first_16Vars1.exit:           ; preds = %.preheader15.i, %.preheader.i
   %24 = and i32 %18, %20
@@ -4050,12 +4050,12 @@ luckyCanonicizerS_F_first_16Vars1.exit:           ; preds = %.preheader15.i, %.p
 .preheader15.i29:                                 ; preds = %luckyCanonicizerS_F_first_16Vars1.exit, %.preheader15.i29
   %25 = call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef nonnull %7, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not14.i30 = icmp eq i32 %25, 0
-  br i1 %.not14.i30, label %luckyCanonicizerS_F_first_16Vars1.exit33, label %.preheader15.i29, !llvm.loop !37
+  br i1 %.not14.i30, label %luckyCanonicizerS_F_first_16Vars1.exit33, label %.preheader15.i29, !llvm.loop !36
 
 .preheader.i31:                                   ; preds = %luckyCanonicizerS_F_first_16Vars1.exit, %.preheader.i31
   %26 = call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef nonnull %7, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not13.i32 = icmp eq i32 %26, 0
-  br i1 %.not13.i32, label %luckyCanonicizerS_F_first_16Vars1.exit33, label %.preheader.i31, !llvm.loop !38
+  br i1 %.not13.i32, label %luckyCanonicizerS_F_first_16Vars1.exit33, label %.preheader.i31, !llvm.loop !37
 
 luckyCanonicizerS_F_first_16Vars1.exit33:         ; preds = %.preheader15.i29, %.preheader.i31
   %27 = call i32 @memCompare(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %1) #9
@@ -4079,12 +4079,12 @@ luckyCanonicizerS_F_first_16Vars1.exit33:         ; preds = %.preheader15.i29, %
 .preheader15.i35:                                 ; preds = %31, %.preheader15.i35
   %35 = tail call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not14.i36 = icmp eq i32 %35, 0
-  br i1 %.not14.i36, label %luckyCanonicizerS_F_first_16Vars1.exit39, label %.preheader15.i35, !llvm.loop !37
+  br i1 %.not14.i36, label %luckyCanonicizerS_F_first_16Vars1.exit39, label %.preheader15.i35, !llvm.loop !36
 
 .preheader.i37:                                   ; preds = %31, %.preheader.i37
   %36 = tail call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not13.i38 = icmp eq i32 %36, 0
-  br i1 %.not13.i38, label %luckyCanonicizerS_F_first_16Vars1.exit39, label %.preheader.i37, !llvm.loop !38
+  br i1 %.not13.i38, label %luckyCanonicizerS_F_first_16Vars1.exit39, label %.preheader.i37, !llvm.loop !37
 
 luckyCanonicizerS_F_first_16Vars1.exit39:         ; preds = %.preheader15.i35, %.preheader.i37, %luckyCanonicizerS_F_first_16Vars1.exit33, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4108,12 +4108,12 @@ define void @luckyCanonicizer_final_fast_16Vars(ptr noundef %0, i32 noundef %1, 
 .preheader15.i:                                   ; preds = %6, %.preheader15.i
   %11 = tail call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not14.i = icmp eq i32 %11, 0
-  br i1 %.not14.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader15.i, !llvm.loop !37
+  br i1 %.not14.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader15.i, !llvm.loop !36
 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %12 = tail call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
   %.not13.i = icmp eq i32 %12, 0
-  br i1 %.not13.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader.i, !llvm.loop !38
+  br i1 %.not13.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader.i, !llvm.loop !37
 
 luckyCanonicizerS_F_first_16Vars1.exit:           ; preds = %.preheader15.i, %.preheader.i
   ret void
@@ -4131,7 +4131,7 @@ define void @bitReverceOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %.0 = add nsw i32 %.0.in5, -1
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0) #9
   %4 = icmp samesign ugt i32 %.0.in5, 1
-  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4150,7 +4150,7 @@ define void @luckyCanonicizer_final_fast_16Vars1(ptr noundef %0, i32 noundef %1,
   %.0.i = add nsw i32 %.0.in5.i, -1
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i) #9
   %9 = icmp samesign ugt i32 %.0.in5.i, 1
-  br i1 %9, label %.lr.ph.i, label %bitReverceOrder.exit, !llvm.loop !39
+  br i1 %9, label %.lr.ph.i, label %bitReverceOrder.exit, !llvm.loop !38
 
 bitReverceOrder.exit:                             ; preds = %.lr.ph.i, %6
   %notmask = shl nsw i32 -1, %1
@@ -4195,12 +4195,12 @@ define i32 @luckyCanonicizer_final_fast(ptr noundef %0, i32 noundef %1, ptr noun
 .preheader15.i.i:                                 ; preds = %12, %.preheader15.i.i
   %18 = call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %14, ptr noundef nonnull readonly %4, ptr noundef %2, ptr noundef nonnull %5)
   %.not14.i.i = icmp eq i32 %18, 0
-  br i1 %.not14.i.i, label %luckyCanonicizer_final_fast_16Vars.exit, label %.preheader15.i.i, !llvm.loop !37
+  br i1 %.not14.i.i, label %luckyCanonicizer_final_fast_16Vars.exit, label %.preheader15.i.i, !llvm.loop !36
 
 .preheader.i.i:                                   ; preds = %12, %.preheader.i.i
   %19 = call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %14, ptr noundef nonnull readonly %4, ptr noundef %2, ptr noundef nonnull %5)
   %.not13.i.i = icmp eq i32 %19, 0
-  br i1 %.not13.i.i, label %luckyCanonicizer_final_fast_16Vars.exit, label %.preheader.i.i, !llvm.loop !38
+  br i1 %.not13.i.i, label %luckyCanonicizer_final_fast_16Vars.exit, label %.preheader.i.i, !llvm.loop !37
 
 luckyCanonicizer_final_fast_16Vars.exit:          ; preds = %.preheader15.i.i, %.preheader.i.i, %10, %7
   %20 = load i32, ptr %5, align 4, !tbaa !6
@@ -4244,7 +4244,7 @@ define i32 @luckyCanonicizer_final_fast1(ptr noundef %0, i32 noundef %1, ptr nou
   %.0.i.i = add nsw i32 %.0.in5.i.i, -1
   call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i.i) #9
   %16 = icmp samesign ugt i32 %.0.in5.i.i, 1
-  br i1 %16, label %.lr.ph.i.i, label %luckyCanonicizer_final_fast_16Vars1.exit, !llvm.loop !39
+  br i1 %16, label %.lr.ph.i.i, label %luckyCanonicizer_final_fast_16Vars1.exit, !llvm.loop !38
 
 luckyCanonicizer_final_fast_16Vars1.exit:         ; preds = %.lr.ph.i.i
   %notmask.i = shl nsw i32 -1, %1
@@ -4317,18 +4317,17 @@ attributes #9 = { nounwind }
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9, !26}
+!28 = distinct !{!28, !9}
 !29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9, !26}
+!30 = distinct !{!30, !9}
 !31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9, !26}
+!32 = distinct !{!32, !9}
 !33 = distinct !{!33, !9}
 !34 = distinct !{!34, !9}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}
 !37 = distinct !{!37, !9}
 !38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}

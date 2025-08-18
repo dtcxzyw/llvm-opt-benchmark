@@ -973,7 +973,7 @@ parseFile.exit:                                   ; preds = %374, %.thread107.i
 428:                                              ; preds = %.critedge44.i.i.i
   %indvars.iv.next79.i.i.i = add nuw nsw i64 %indvars.iv78.i.i.i, 1
   %exitcond82.not.i.i.i = icmp eq i64 %indvars.iv.next79.i.i.i, %wide.trip.count81.i.i.i
-  br i1 %exitcond82.not.i.i.i, label %._crit_edge.i.i.i, label %.critedge44.i.i.i, !llvm.loop !49
+  br i1 %exitcond82.not.i.i.i, label %._crit_edge.i.i.i, label %.critedge44.i.i.i, !llvm.loop !48
 
 .critedge44.i.i.i:                                ; preds = %428, %.critedge44.lr.ph.i.i.i
   %indvars.iv78.i.i.i = phi i64 [ 0, %.critedge44.lr.ph.i.i.i ], [ %indvars.iv.next79.i.i.i, %428 ]
@@ -989,7 +989,7 @@ parseFile.exit:                                   ; preds = %374, %.thread107.i
 ._crit_edge.i.i.i:                                ; preds = %428, %.preheader.i.i.i51
   %indvars.iv.next84.i.i.i = add nuw nsw i64 %indvars.iv83.i.i.i, 1
   %exitcond87.not.i.i.i = icmp eq i64 %indvars.iv.next84.i.i.i, %wide.trip.count86.i.i.i
-  br i1 %exitcond87.not.i.i.i, label %._crit_edge58.i.i.i, label %.preheader.i.i.i51, !llvm.loop !50
+  br i1 %exitcond87.not.i.i.i, label %._crit_edge58.i.i.i, label %.preheader.i.i.i51, !llvm.loop !49
 
 ._crit_edge58.i.i.i:                              ; preds = %._crit_edge.i.i.i, %.preheader45.i.i.i, %.preheader47.lr.ph.i.i.i
   %433 = load ptr, ptr @stderr, align 8, !tbaa !12
@@ -1110,7 +1110,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
 464:                                              ; preds = %.critedge44.i63.i.i
   %indvars.iv.next79.i66.i.i = add nuw nsw i64 %indvars.iv78.i64.i.i, 1
   %exitcond82.not.i67.i.i = icmp eq i64 %indvars.iv.next79.i66.i.i, %wide.trip.count81.i62.i.i
-  br i1 %exitcond82.not.i67.i.i, label %._crit_edge.i68.i.i, label %.critedge44.i63.i.i, !llvm.loop !49
+  br i1 %exitcond82.not.i67.i.i, label %._crit_edge.i68.i.i, label %.critedge44.i63.i.i, !llvm.loop !48
 
 .critedge44.i63.i.i:                              ; preds = %464, %.critedge44.lr.ph.i61.i.i
   %indvars.iv78.i64.i.i = phi i64 [ 0, %.critedge44.lr.ph.i61.i.i ], [ %indvars.iv.next79.i66.i.i, %464 ]
@@ -1126,7 +1126,7 @@ resolveAliasToConverter.exit.i.i:                 ; preds = %._crit_edge58.i.i.i
 ._crit_edge.i68.i.i:                              ; preds = %464, %.preheader.i58.i.i
   %indvars.iv.next84.i69.i.i = add nuw nsw i64 %indvars.iv83.i59.i.i, 1
   %exitcond87.not.i70.i.i = icmp eq i64 %indvars.iv.next84.i69.i.i, %wide.trip.count86.i57.i.i
-  br i1 %exitcond87.not.i70.i.i, label %._crit_edge58.i71.i.i, label %.preheader.i58.i.i, !llvm.loop !50
+  br i1 %exitcond87.not.i70.i.i, label %._crit_edge58.i71.i.i, label %.preheader.i58.i.i, !llvm.loop !49
 
 ._crit_edge58.i71.i.i:                            ; preds = %._crit_edge.i68.i.i, %.preheader45.i54.i.i, %.preheader47.lr.ph.i72.i.i
   %469 = load ptr, ptr @stderr, align 8, !tbaa !12
@@ -1269,7 +1269,7 @@ resolveAliasToConverter.exit96.i.i:               ; preds = %._crit_edge58.i71.i
   %549 = load i16, ptr @knownAliasesCount, align 2, !tbaa !19
   %550 = zext i16 %549 to i64
   %551 = icmp samesign ult i64 %indvars.iv.next.i.i, %550
-  br i1 %551, label %.lr.ph.i.i60, label %resolveAliases.exit.i, !llvm.loop !51
+  br i1 %551, label %.lr.ph.i.i60, label %resolveAliases.exit.i, !llvm.loop !50
 
 resolveAliases.exit.i:                            ; preds = %548, %resolveAliasToConverter.exit.i.i, %388
   %.045.i.i = phi i32 [ 0, %388 ], [ 1, %resolveAliasToConverter.exit.i.i ], [ %.2.i.i, %548 ]
@@ -1344,7 +1344,7 @@ resolveAliases.exit.i:                            ; preds = %548, %resolveAliasT
 582:                                              ; preds = %573
   %indvars.iv.next30.i.us.i = add nuw nsw i64 %indvars.iv29.i.us.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i.us.i, %572
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.split.us.i.us.i, label %573, !llvm.loop !52
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.split.us.i.us.i, label %573, !llvm.loop !51
 
 ..loopexit_crit_edge.split.us.i.us.i:             ; preds = %582
   store i16 %578, ptr @aliasListsSize, align 2, !tbaa !19
@@ -1360,7 +1360,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %.lcssa72.us80.i = phi i16 [ %.lcssa72.us81.i, %583 ], [ %578, %..loopexit_crit_edge.split.us.i.us.i ]
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count.i
-  br i1 %exitcond105.not.i, label %._crit_edge.i57, label %562, !llvm.loop !53
+  br i1 %exitcond105.not.i, label %._crit_edge.i57, label %562, !llvm.loop !52
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i55, %createOneAliasList.exit.i
   %585 = phi i16 [ %637, %createOneAliasList.exit.i ], [ %554, %.lr.ph.i55 ]
@@ -1406,7 +1406,7 @@ createOneAliasList.exit.us.i:                     ; preds = %583, %..loopexit_cr
   %606 = load i16, ptr %588, align 8, !tbaa !41
   %607 = zext i16 %606 to i64
   %608 = icmp samesign ult i64 %indvars.iv.next.i62.i, %607
-  br i1 %608, label %.lr.ph.split.i.i, label %createOneAliasList.exit.loopexit.i, !llvm.loop !54
+  br i1 %608, label %.lr.ph.split.i.i, label %createOneAliasList.exit.loopexit.i, !llvm.loop !51
 
 .lr.ph.split.i.i:                                 ; preds = %605, %.lr.ph.i59.i
   %609 = phi i16 [ %630, %605 ], [ %596, %.lr.ph.i59.i ]
@@ -1470,7 +1470,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %640 = zext i16 %638 to i64
   %641 = icmp samesign ult i64 %indvars.iv.next.i, %640
-  br i1 %641, label %.lr.ph.split.i, label %._crit_edge.loopexit94.i, !llvm.loop !55
+  br i1 %641, label %.lr.ph.split.i, label %._crit_edge.loopexit94.i, !llvm.loop !52
 
 ._crit_edge.loopexit94.i:                         ; preds = %createOneAliasList.exit.i
   %.pre123.i = load i16, ptr @tagCount, align 2, !tbaa !19
@@ -1486,7 +1486,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %647 = zext i16 %642 to i64
   %648 = icmp samesign ult i64 %indvars.iv.next107.i, %647
-  br i1 %648, label %.preheader71.i, label %._crit_edge84.i, !llvm.loop !56
+  br i1 %648, label %.preheader71.i, label %._crit_edge84.i, !llvm.loop !53
 
 ._crit_edge84.i:                                  ; preds = %._crit_edge.i57, %resolveAliases.exit.i
   %649 = load i16, ptr @tableOptions, align 2, !tbaa !33
@@ -1549,7 +1549,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %680 = load i16, ptr @converterCount, align 2, !tbaa !19
   %681 = zext i16 %680 to i64
   %682 = icmp samesign ult i64 %indvars.iv.next110.i, %681
-  br i1 %682, label %.lr.ph87.i, label %.preheader.i59, !llvm.loop !57
+  br i1 %682, label %.lr.ph87.i, label %.preheader.i59, !llvm.loop !54
 
 .lr.ph89.i:                                       ; preds = %.preheader.i59, %.lr.ph89.i
   %indvars.iv112.i = phi i64 [ %indvars.iv.next113.i, %.lr.ph89.i ], [ 2, %.preheader.i59 ]
@@ -1560,7 +1560,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %685 = load i16, ptr @tagCount, align 2, !tbaa !19
   %686 = zext i16 %685 to i64
   %687 = icmp samesign ult i64 %indvars.iv.next113.i, %686
-  br i1 %687, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !58
+  br i1 %687, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !55
 
 ._crit_edge90.i:                                  ; preds = %.lr.ph89.i, %.preheader.i59
   %688 = load i16, ptr @tags, align 16, !tbaa !28
@@ -1647,7 +1647,7 @@ createOneAliasList.exit.i:                        ; preds = %createOneAliasList.
   %741 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %740) #18
   %742 = trunc i64 %741 to i32
   %743 = icmp sgt i32 %737, %742
-  br i1 %743, label %.lr.ph.i65.i, label %createNormalizedAliasStrings.exit.loopexit.i, !llvm.loop !59
+  br i1 %743, label %.lr.ph.i65.i, label %createNormalizedAliasStrings.exit.loopexit.i, !llvm.loop !56
 
 createNormalizedAliasStrings.exit.loopexit.i:     ; preds = %736
   %.pre124.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8, !tbaa !24
@@ -1698,7 +1698,7 @@ createNormalizedAliasStrings.exit.i:              ; preds = %createNormalizedAli
   %771 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %770) #18
   %772 = trunc i64 %771 to i32
   %773 = icmp sgt i32 %767, %772
-  br i1 %773, label %.lr.ph.i66.i, label %createNormalizedAliasStrings.exit70.loopexit.i, !llvm.loop !59
+  br i1 %773, label %.lr.ph.i66.i, label %createNormalizedAliasStrings.exit70.loopexit.i, !llvm.loop !56
 
 createNormalizedAliasStrings.exit70.loopexit.i:   ; preds = %766
   %.pre125.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @tagBlock, i64 8), align 8, !tbaa !24
@@ -1749,12 +1749,12 @@ writeAliasTable.exit:                             ; preds = %._crit_edge90.i, %c
 790:                                              ; preds = %786, %789
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4095
-  br i1 %exitcond.not, label %791, label %786, !llvm.loop !60
+  br i1 %exitcond.not, label %791, label %786, !llvm.loop !57
 
 791:                                              ; preds = %790
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next156, 63
-  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !61
+  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %791, %21
   %.035 = phi i32 [ %.lobit, %21 ], [ 0, %791 ]
@@ -1862,7 +1862,7 @@ define internal fastcc zeroext i16 @getTagNumber(ptr noundef %0, i16 noundef zer
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = zext i16 %.pr to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %22, label %._crit_edge, !llvm.loop !62
+  br i1 %34, label %22, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %32
   %35 = icmp ugt i16 %.pr, 62
@@ -2201,14 +2201,14 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = zext i16 %117 to i64
   %119 = icmp samesign ult i64 %indvars.iv.next, %118
-  br i1 %119, label %68, label %.thread, !llvm.loop !63
+  br i1 %119, label %68, label %.thread, !llvm.loop !60
 
 .thread:                                          ; preds = %116, %.preheader, %98, %85, %82
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %120 = load i16, ptr @converterCount, align 2, !tbaa !19
   %121 = zext i16 %120 to i64
   %122 = icmp samesign ult i64 %indvars.iv.next89, %121
-  br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !64
+  br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.thread, %.preheader79, %47, %61, %59
   %123 = load i16, ptr %23, align 8, !tbaa !41
@@ -2290,9 +2290,9 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %171 = add i16 %170, 1
   store i16 %171, ptr %169, align 2, !tbaa !35
   %172 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %173 = load i16, ptr %172, align 2, !tbaa !65
+  %173 = load i16, ptr %172, align 2, !tbaa !62
   %174 = add i16 %173, 1
-  store i16 %174, ptr %172, align 2, !tbaa !65
+  store i16 %174, ptr %172, align 2, !tbaa !62
   ret void
 }
 
@@ -2441,13 +2441,13 @@ attributes #23 = { nounwind allocsize(1) }
 !44 = distinct !{!44, !22}
 !45 = distinct !{!45, !22}
 !46 = !{!42, !18, i64 8}
-!47 = distinct !{!47, !22, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !22}
+!48 = distinct !{!48, !22}
 !49 = distinct !{!49, !22}
 !50 = distinct !{!50, !22}
 !51 = distinct !{!51, !22}
-!52 = distinct !{!52, !22, !48}
-!53 = distinct !{!53, !22, !48}
+!52 = distinct !{!52, !22}
+!53 = distinct !{!53, !22}
 !54 = distinct !{!54, !22}
 !55 = distinct !{!55, !22}
 !56 = distinct !{!56, !22}
@@ -2456,7 +2456,4 @@ attributes #23 = { nounwind allocsize(1) }
 !59 = distinct !{!59, !22}
 !60 = distinct !{!60, !22}
 !61 = distinct !{!61, !22}
-!62 = distinct !{!62, !22}
-!63 = distinct !{!63, !22}
-!64 = distinct !{!64, !22}
-!65 = !{!29, !20, i64 2}
+!62 = !{!29, !20, i64 2}

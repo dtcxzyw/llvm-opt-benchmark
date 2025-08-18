@@ -6937,7 +6937,7 @@ if.end22:                                         ; preds = %if.end16.thread, %_
   %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0137, i64 128
   %dec = add nsw i64 %__trip_count.0138, -1
   %cmp = icmp sgt i64 %__trip_count.0138, 1
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !163
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !161
 
 for.end.loopexit:                                 ; preds = %if.end22, %if.end22.us
   %.pre140 = ptrtoint ptr %scevgep to i64
@@ -7329,6 +7329,4 @@ attributes #29 = { builtin allocsize(0) }
 !158 = !{!159, !10, i64 0}
 !159 = !{!"_ZTSZN20TestServerModManager8runTestsEP8IGameDefE3$_9", !10, i64 0}
 !160 = distinct !{!160, !61}
-!161 = distinct !{!161, !61, !162}
-!162 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!163 = distinct !{!163, !61}
+!161 = distinct !{!161, !61}

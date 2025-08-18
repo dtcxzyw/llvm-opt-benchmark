@@ -272,7 +272,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %spec.select = select i1 %111, i8 0, i8 %110
   %112 = add nuw nsw i32 %.0101199, 1
   %exitcond217.not = icmp eq i32 %112, %43
-  br i1 %exitcond217.not, label %.loopexit.sink.split, label %109, !llvm.loop !48
+  br i1 %exitcond217.not, label %.loopexit.sink.split, label %109, !llvm.loop !46
 
 113:                                              ; preds = %flush_put_bits.exit
   %114 = load i32, ptr %9, align 8, !tbaa !34
@@ -352,7 +352,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %164 = getelementptr inbounds nuw i8, ptr %.1104181.us, i64 8
   %165 = add nuw nsw i32 %.1106180.us, 2
   %166 = icmp slt i32 %165, %8
-  br i1 %166, label %121, label %._crit_edge.us189, !llvm.loop !49
+  br i1 %166, label %121, label %._crit_edge.us189, !llvm.loop !47
 
 ._crit_edge.us189:                                ; preds = %121
   %167 = load i8, ptr %6, align 1, !tbaa !32
@@ -363,7 +363,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %170 = add nuw nsw i32 %.1102185.us, 1
   %171 = load i32, ptr %9, align 8, !tbaa !34
   %172 = icmp slt i32 %170, %171
-  br i1 %172, label %.lr.ph.us188, label %.loopexit, !llvm.loop !50
+  br i1 %172, label %.lr.ph.us188, label %.loopexit, !llvm.loop !48
 
 .lr.ph187.split:                                  ; preds = %.lr.ph187
   %.promoted191 = load i8, ptr %6, align 1, !tbaa !32
@@ -377,7 +377,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %spec.select118 = select i1 %175, i8 0, i8 %174
   %176 = add nuw nsw i32 %.1102185, 1
   %exitcond215.not = icmp eq i32 %176, %114
-  br i1 %exitcond215.not, label %.loopexit.sink.split, label %173, !llvm.loop !51
+  br i1 %exitcond215.not, label %.loopexit.sink.split, label %173, !llvm.loop !48
 
 177:                                              ; preds = %flush_put_bits.exit
   %178 = load i32, ptr %9, align 8, !tbaa !34
@@ -406,13 +406,13 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %.1171.us = phi ptr [ %.0100175.us, %.lr.ph.us ], [ %220, %185 ]
   %.2107170.us = phi i32 [ 0, %.lr.ph.us ], [ %221, %185 ]
   %.5169.us = phi ptr [ %.4173.us, %.lr.ph.us ], [ %219, %185 ]
-  %186 = load i16, ptr %.1171.us, align 2, !tbaa !52
+  %186 = load i16, ptr %.1171.us, align 2, !tbaa !49
   %187 = and i16 %186, 255
   %188 = zext nneg i16 %187 to i64
   %189 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !41
   store i8 %190, ptr %.5169.us, align 1, !tbaa !41
-  %191 = load i16, ptr %.1171.us, align 2, !tbaa !52
+  %191 = load i16, ptr %.1171.us, align 2, !tbaa !49
   %192 = lshr i16 %191, 8
   %193 = zext nneg i16 %192 to i64
   %194 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %193
@@ -420,7 +420,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %196 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 1
   store i8 %195, ptr %196, align 1, !tbaa !41
   %197 = getelementptr inbounds nuw i8, ptr %.1171.us, i64 2
-  %198 = load i16, ptr %197, align 2, !tbaa !52
+  %198 = load i16, ptr %197, align 2, !tbaa !49
   %199 = shl i16 %198, 4
   %200 = and i16 %199, 240
   %201 = zext nneg i16 %200 to i64
@@ -429,7 +429,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %204 = or i8 %203, %184
   %205 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 2
   store i8 %204, ptr %205, align 1, !tbaa !41
-  %206 = load i16, ptr %197, align 2, !tbaa !52
+  %206 = load i16, ptr %197, align 2, !tbaa !49
   %207 = lshr i16 %206, 4
   %208 = and i16 %207, 255
   %209 = zext nneg i16 %208 to i64
@@ -437,7 +437,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %211 = load i8, ptr %210, align 1, !tbaa !41
   %212 = getelementptr inbounds nuw i8, ptr %.5169.us, i64 3
   store i8 %211, ptr %212, align 1, !tbaa !41
-  %213 = load i16, ptr %197, align 2, !tbaa !52
+  %213 = load i16, ptr %197, align 2, !tbaa !49
   %214 = lshr i16 %213, 12
   %215 = zext nneg i16 %214 to i64
   %216 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %215
@@ -448,7 +448,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %220 = getelementptr inbounds nuw i8, ptr %.1171.us, i64 4
   %221 = add nuw nsw i32 %.2107170.us, 2
   %222 = icmp slt i32 %221, %8
-  br i1 %222, label %185, label %._crit_edge.us, !llvm.loop !54
+  br i1 %222, label %185, label %._crit_edge.us, !llvm.loop !51
 
 ._crit_edge.us:                                   ; preds = %185
   %223 = load i8, ptr %6, align 1, !tbaa !32
@@ -459,7 +459,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %226 = add nuw nsw i32 %.2174.us, 1
   %227 = load i32, ptr %9, align 8, !tbaa !34
   %228 = icmp slt i32 %226, %227
-  br i1 %228, label %.lr.ph.us, label %.loopexit, !llvm.loop !55
+  br i1 %228, label %.lr.ph.us, label %.loopexit, !llvm.loop !52
 
 .lr.ph177.split:                                  ; preds = %.lr.ph177
   %.promoted = load i8, ptr %6, align 1, !tbaa !32
@@ -473,7 +473,7 @@ flush_put_bits.exit:                              ; preds = %39, %27
   %spec.select119 = select i1 %231, i8 0, i8 %230
   %232 = add nuw nsw i32 %.2174, 1
   %exitcond.not = icmp eq i32 %232, %178
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %229, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %229, !llvm.loop !52
 
 .loopexit.sink.split:                             ; preds = %229, %173, %109
   %spec.select119.lcssa.sink = phi i8 [ %spec.select, %109 ], [ %spec.select118, %173 ], [ %spec.select119, %229 ]
@@ -550,14 +550,10 @@ attributes #4 = { nounwind }
 !43 = !{!10, !10, i64 0}
 !44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}
 !48 = distinct !{!48, !45}
-!49 = distinct !{!49, !45}
-!50 = distinct !{!50, !45, !47}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"short", !8, i64 0}
 !51 = distinct !{!51, !45}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"short", !8, i64 0}
-!54 = distinct !{!54, !45}
-!55 = distinct !{!55, !45, !47}
-!56 = distinct !{!56, !45}
+!52 = distinct !{!52, !45}

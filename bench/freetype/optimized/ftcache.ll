@@ -1771,7 +1771,7 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
   %67 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %66, i32 noundef %6, ptr noundef nonnull %5)
   %68 = and i32 %67, 255
   %.not56.us = icmp eq i32 %68, 64
-  br i1 %.not56.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !119
+  br i1 %.not56.us, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %69 = phi i32 [ %97, %95 ], [ %35, %.lr.ph ]
@@ -2024,7 +2024,7 @@ FTC_MruNode_Up.exit:                              ; preds = %87
 ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, %77, %81, %ftc_basic_family_compare.exit
   %95 = load ptr, ptr %.085, align 8, !tbaa !73
   %.not106 = icmp eq ptr %95, %54
-  br i1 %.not106, label %.loopexit132, label %59, !llvm.loop !121
+  br i1 %.not106, label %.loopexit132, label %59, !llvm.loop !119
 
 .loopexit132:                                     ; preds = %ftc_basic_family_compare.exit.thread, %42
   %96 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %52, ptr noundef nonnull %7, ptr noundef %8)
@@ -2111,7 +2111,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   %143 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !44
   %.not114 = icmp eq ptr %144, %118
-  br i1 %.not114, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !122
+  br i1 %.not114, label %.loopexit.thread153.loopexit, label %.lr.ph141, !llvm.loop !120
 
 .lr.ph141:                                        ; preds = %129, %142
   %145 = phi ptr [ %144, %142 ], [ %141, %129 ]
@@ -2368,15 +2368,15 @@ ftc_node_mru_unlink.exit.i:                       ; preds = %.sink.split.i.i.i, 
   %56 = load i64, ptr %36, align 8, !tbaa !104
   %57 = sub i64 %56, %55
   store i64 %57, ptr %36, align 8, !tbaa !104
-  %58 = load ptr, ptr %37, align 8, !tbaa !123
+  %58 = load ptr, ptr %37, align 8, !tbaa !121
   call void %58(ptr noundef nonnull %.02730.i, ptr noundef nonnull %14) #12
   %.not28.i = icmp eq ptr %43, null
-  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !124
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !122
 
 ._crit_edge.i:                                    ; preds = %ftc_node_mru_unlink.exit.i, %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %38, !llvm.loop !125
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %38, !llvm.loop !123
 
 .loopexit.loopexit.i:                             ; preds = %._crit_edge.i
   %.pre.i3 = load ptr, ptr %26, align 8, !tbaa !33
@@ -2427,11 +2427,11 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not, label %132, label %9
 
 9:                                                ; preds = %4
-  store ptr %1, ptr %6, align 8, !tbaa !126
+  store ptr %1, ptr %6, align 8, !tbaa !124
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %spec.select, ptr %10, align 8, !tbaa !128
+  store i32 %spec.select, ptr %10, align 8, !tbaa !126
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %3, ptr %11, align 4, !tbaa !129
+  store i32 %3, ptr %11, align 4, !tbaa !127
   %12 = ptrtoint ptr %1 to i64
   %13 = lshr i64 %12, 3
   %14 = shl i64 %12, 7
@@ -2471,19 +2471,19 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !130
+  %42 = load ptr, ptr %41, align 8, !tbaa !128
   %43 = icmp eq ptr %42, %1
   br i1 %43, label %44, label %ftc_cmap_node_compare.exit.thread
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %46 = load i32, ptr %45, align 8, !tbaa !132
+  %46 = load i32, ptr %45, align 8, !tbaa !130
   %47 = icmp eq i32 %46, %spec.select
   br i1 %47, label %ftc_cmap_node_compare.exit, label %ftc_cmap_node_compare.exit.thread
 
 ftc_cmap_node_compare.exit:                       ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 52
-  %49 = load i32, ptr %48, align 4, !tbaa !133
+  %49 = load i32, ptr %48, align 4, !tbaa !131
   %50 = sub i32 %3, %49
   %51 = icmp ugt i32 %50, 127
   br i1 %51, label %ftc_cmap_node_compare.exit.thread, label %54
@@ -2545,7 +2545,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
 
 73:                                               ; preds = %._crit_edge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 52
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !133
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !131
   %.pre123 = sub i32 %3, %.pre
   %74 = icmp ugt i32 %.pre123, 127
   br i1 %74, label %132, label %75
@@ -2557,7 +2557,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %79 = zext nneg i32 %.pre-phi126 to i64
   %80 = getelementptr inbounds nuw [128 x i16], ptr %78, i64 0, i64 %79
-  %81 = load i16, ptr %80, align 2, !tbaa !134
+  %81 = load i16, ptr %80, align 2, !tbaa !132
   %82 = zext i16 %81 to i32
   %83 = icmp eq i16 %81, -1
   br i1 %83, label %84, label %132
@@ -2566,7 +2566,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %86 = load ptr, ptr %85, align 8, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !130
+  %88 = load ptr, ptr %87, align 8, !tbaa !128
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29.i = icmp eq ptr %86, null
   br i1 %.not29.i, label %FTC_Manager_LookupFace.exit.thread, label %89
@@ -2581,7 +2581,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
 .preheader.i:                                     ; preds = %89, %102
   %.0.i101 = phi ptr [ %103, %102 ], [ %92, %89 ]
   %93 = getelementptr inbounds nuw i8, ptr %.0.i101, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !135
+  %94 = load ptr, ptr %93, align 8, !tbaa !133
   %.not38.i = icmp eq ptr %94, %88
   br i1 %.not38.i, label %95, label %102
 
@@ -2608,7 +2608,7 @@ FTC_MruNode_Up.exit.i:                            ; preds = %95
 102:                                              ; preds = %.preheader.i
   %103 = load ptr, ptr %.0.i101, align 8, !tbaa !73
   %.not32.i = icmp eq ptr %103, %92
-  br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !138
+  br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !136
 
 .loopexit.i:                                      ; preds = %102, %89
   %104 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %90, ptr noundef %88, ptr noundef %5)
@@ -2626,10 +2626,10 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
 105:                                              ; preds = %.loopexit._crit_edge.i, %FTC_MruNode_Up.exit.i, %95
   %106 = phi ptr [ %.pre.i, %.loopexit._crit_edge.i ], [ %.0.i101, %95 ], [ %.0.i101, %FTC_MruNode_Up.exit.i ]
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %108 = load ptr, ptr %107, align 8, !tbaa !139
+  %108 = load ptr, ptr %107, align 8, !tbaa !137
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %110 = load i32, ptr %109, align 8, !tbaa !140
+  %110 = load i32, ptr %109, align 8, !tbaa !138
   %111 = icmp slt i32 %spec.select, %110
   br i1 %111, label %112, label %126
 
@@ -2643,26 +2643,26 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 168
-  %118 = load ptr, ptr %117, align 8, !tbaa !154
+  %118 = load ptr, ptr %117, align 8, !tbaa !152
   %119 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  %120 = load ptr, ptr %119, align 8, !tbaa !155
+  %120 = load ptr, ptr %119, align 8, !tbaa !153
   %121 = zext nneg i32 %2 to i64
   %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %121
-  %123 = load ptr, ptr %122, align 8, !tbaa !156
-  store ptr %123, ptr %117, align 8, !tbaa !154
+  %123 = load ptr, ptr %122, align 8, !tbaa !154
+  store ptr %123, ptr %117, align 8, !tbaa !152
   %124 = zext i32 %3 to i64
   %125 = call i32 @FT_Get_Char_Index(ptr noundef nonnull %108, i64 noundef %124) #12
-  store ptr %118, ptr %117, align 8, !tbaa !154
+  store ptr %118, ptr %117, align 8, !tbaa !152
   br label %126
 
 126:                                              ; preds = %113, %116, %105
   %.2 = phi i32 [ 0, %105 ], [ %125, %116 ], [ %115, %113 ]
   %127 = trunc i32 %.2 to i16
-  %128 = load i32, ptr %77, align 4, !tbaa !133
+  %128 = load i32, ptr %77, align 4, !tbaa !131
   %129 = sub i32 %3, %128
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw [128 x i16], ptr %78, i64 0, i64 %130
-  store i16 %127, ptr %131, align 2, !tbaa !134
+  store i16 %127, ptr %131, align 2, !tbaa !132
   br label %132
 
 132:                                              ; preds = %126, %FTC_Manager_LookupFace.exit.thread, %._crit_edge, %75, %73, %4
@@ -2682,24 +2682,24 @@ define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef rea
 
 6:                                                ; preds = %5, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !130
-  %9 = load ptr, ptr %1, align 8, !tbaa !126
+  %8 = load ptr, ptr %7, align 8, !tbaa !128
+  %9 = load ptr, ptr %1, align 8, !tbaa !124
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i32, ptr %12, align 8, !tbaa !132
+  %13 = load i32, ptr %12, align 8, !tbaa !130
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !128
+  %15 = load i32, ptr %14, align 8, !tbaa !126
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !129
+  %19 = load i32, ptr %18, align 4, !tbaa !127
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %21 = load i32, ptr %20, align 4, !tbaa !133
+  %21 = load i32, ptr %20, align 4, !tbaa !131
   %22 = sub i32 %19, %21
   %23 = icmp ult i32 %22, 128
   %24 = zext i1 %23 to i8
@@ -2718,7 +2718,7 @@ define i32 @FTC_Manager_LookupFace(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not, label %25, label %5
 
 5:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !157
+  store ptr null, ptr %2, align 8, !tbaa !155
   %.not29 = icmp eq ptr %0, null
   br i1 %.not29, label %25, label %6
 
@@ -2732,7 +2732,7 @@ define i32 @FTC_Manager_LookupFace(ptr noundef captures(address_is_null) %0, ptr
 .preheader:                                       ; preds = %6, %19
   %.0 = phi ptr [ %20, %19 ], [ %9, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !135
+  %11 = load ptr, ptr %10, align 8, !tbaa !133
   %.not38 = icmp eq ptr %11, %1
   br i1 %.not38, label %12, label %19
 
@@ -2759,7 +2759,7 @@ FTC_MruNode_Up.exit:                              ; preds = %12
 19:                                               ; preds = %.preheader
   %20 = load ptr, ptr %.0, align 8, !tbaa !73
   %.not32 = icmp eq ptr %20, %9
-  br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !138
+  br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !136
 
 .loopexit:                                        ; preds = %19, %6
   %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %4)
@@ -2773,8 +2773,8 @@ FTC_MruNode_Up.exit:                              ; preds = %12
 .thread:                                          ; preds = %FTC_MruNode_Up.exit, %12, %.loopexit._crit_edge
   %22 = phi ptr [ %.pre, %.loopexit._crit_edge ], [ %.0, %12 ], [ %.0, %FTC_MruNode_Up.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !139
-  store ptr %24, ptr %2, align 8, !tbaa !157
+  %24 = load ptr, ptr %23, align 8, !tbaa !137
+  store ptr %24, ptr %2, align 8, !tbaa !155
   br label %25
 
 25:                                               ; preds = %.loopexit, %.thread, %5, %3
@@ -2795,7 +2795,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
   br i1 %or.cond, label %7, label %69
 
 7:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !158
+  store ptr null, ptr %2, align 8, !tbaa !156
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %8
 
@@ -2807,7 +2807,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not32, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %12 = load ptr, ptr %1, align 8, !tbaa !159
+  %12 = load ptr, ptr %1, align 8, !tbaa !157
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2818,29 +2818,29 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 18:                                               ; preds = %.preheader, %63
   %.0 = phi ptr [ %64, %63 ], [ %11, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !159
+  %20 = load ptr, ptr %19, align 8, !tbaa !157
   %21 = icmp eq ptr %20, %12
   br i1 %21, label %22, label %63
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !160
-  %25 = load i32, ptr %13, align 8, !tbaa !160
+  %24 = load i32, ptr %23, align 8, !tbaa !158
+  %25 = load i32, ptr %13, align 8, !tbaa !158
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %63
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 36
-  %29 = load i32, ptr %28, align 4, !tbaa !161
-  %30 = load i32, ptr %14, align 4, !tbaa !161
+  %29 = load i32, ptr %28, align 4, !tbaa !159
+  %30 = load i32, ptr %14, align 4, !tbaa !159
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %63
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !162
+  %34 = load i32, ptr %33, align 8, !tbaa !160
   %35 = icmp ne i32 %34, 0
-  %36 = load i32, ptr %15, align 8, !tbaa !162
+  %36 = load i32, ptr %15, align 8, !tbaa !160
   %37 = icmp eq i32 %36, 0
   %38 = xor i1 %35, %37
   br i1 %38, label %39, label %63
@@ -2850,21 +2850,21 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 44
-  %42 = load i32, ptr %41, align 4, !tbaa !163
-  %43 = load i32, ptr %16, align 4, !tbaa !163
+  %42 = load i32, ptr %41, align 4, !tbaa !161
+  %43 = load i32, ptr %16, align 4, !tbaa !161
   %44 = icmp eq i32 %42, %43
   br i1 %44, label %45, label %63
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %47 = load i32, ptr %46, align 8, !tbaa !164
-  %48 = load i32, ptr %17, align 8, !tbaa !164
+  %47 = load i32, ptr %46, align 8, !tbaa !162
+  %48 = load i32, ptr %17, align 8, !tbaa !162
   %49 = icmp eq i32 %47, %48
   br i1 %49, label %50, label %63
 
 50:                                               ; preds = %45, %39
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !165
+  %52 = load ptr, ptr %51, align 8, !tbaa !163
   %53 = tail call i32 @FT_Activate_Size(ptr noundef %52) #12
   %.not35 = icmp eq ptr %.0, %11
   br i1 %.not35, label %.thread, label %54
@@ -2893,7 +2893,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 63:                                               ; preds = %45, %40, %32, %27, %22, %18
   %64 = load ptr, ptr %.0, align 8, !tbaa !73
   %.not34 = icmp eq ptr %64, %11
-  br i1 %.not34, label %.loopexit, label %18, !llvm.loop !167
+  br i1 %.not34, label %.loopexit, label %18, !llvm.loop !165
 
 .loopexit:                                        ; preds = %63, %8
   %65 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %4)
@@ -2907,8 +2907,8 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 .thread:                                          ; preds = %56, %54, %50, %.loopexit._crit_edge
   %66 = phi ptr [ %.pre, %.loopexit._crit_edge ], [ %.0, %50 ], [ %.0, %54 ], [ %.0, %56 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !165
-  store ptr %68, ptr %2, align 8, !tbaa !158
+  %68 = load ptr, ptr %67, align 8, !tbaa !163
+  store ptr %68, ptr %2, align 8, !tbaa !156
   br label %69
 
 69:                                               ; preds = %.loopexit, %.thread, %7, %3
@@ -2920,33 +2920,33 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !159
-  %5 = load ptr, ptr %1, align 8, !tbaa !159
+  %4 = load ptr, ptr %3, align 8, !tbaa !157
+  %5 = load ptr, ptr %1, align 8, !tbaa !157
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %7, label %44
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !160
+  %9 = load i32, ptr %8, align 8, !tbaa !158
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !160
+  %11 = load i32, ptr %10, align 8, !tbaa !158
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %13, label %44
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !161
+  %15 = load i32, ptr %14, align 4, !tbaa !159
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !161
+  %17 = load i32, ptr %16, align 4, !tbaa !159
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %44
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !162
+  %21 = load i32, ptr %20, align 8, !tbaa !160
   %22 = icmp ne i32 %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !162
+  %24 = load i32, ptr %23, align 8, !tbaa !160
   %25 = icmp eq i32 %24, 0
   %26 = xor i1 %22, %25
   br i1 %26, label %27, label %44
@@ -2956,23 +2956,23 @@ define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef rea
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !163
+  %30 = load i32, ptr %29, align 4, !tbaa !161
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %32 = load i32, ptr %31, align 4, !tbaa !163
+  %32 = load i32, ptr %31, align 4, !tbaa !161
   %33 = icmp eq i32 %30, %32
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !164
+  %36 = load i32, ptr %35, align 8, !tbaa !162
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !164
+  %38 = load i32, ptr %37, align 8, !tbaa !162
   %39 = icmp eq i32 %36, %38
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %34, %27
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !165
+  %42 = load ptr, ptr %41, align 8, !tbaa !163
   %43 = tail call i32 @FT_Activate_Size(ptr noundef %42) #12
   br label %44
 
@@ -2984,7 +2984,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef rea
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !135
+  %4 = load ptr, ptr %3, align 8, !tbaa !133
   %5 = icmp eq ptr %4, %1
   %6 = zext i1 %5 to i8
   ret i8 %6
@@ -3004,7 +3004,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   br i1 %or.cond, label %12, label %40
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %0, align 8, !tbaa !168
+  %13 = load ptr, ptr %0, align 8, !tbaa !166
   %14 = call ptr @ft_mem_qalloc(ptr noundef %13, i64 noundef 328, ptr noundef nonnull %8) #12
   %15 = load i32, ptr %8, align 4, !tbaa !3
   %.not38 = icmp eq i32 %15, 0
@@ -3017,7 +3017,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   %spec.store.select3 = select i1 %18, i32 4, i32 %2
   %19 = icmp eq i64 %3, 0
   %spec.store.select2 = select i1 %19, i64 200000, i64 %3
-  store ptr %0, ptr %14, align 8, !tbaa !172
+  store ptr %0, ptr %14, align 8, !tbaa !170
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %20, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -3025,9 +3025,9 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i64 0, ptr %22, align 8, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 320
-  store ptr %4, ptr %23, align 8, !tbaa !173
+  store ptr %4, ptr %23, align 8, !tbaa !171
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 312
-  store ptr %5, ptr %24, align 8, !tbaa !174
+  store ptr %5, ptr %24, align 8, !tbaa !172
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 184
   store i32 0, ptr %25, align 8, !tbaa !86
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 188
@@ -3058,7 +3058,7 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
   store i32 0, ptr %38, align 8, !tbaa !101
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store i32 0, ptr %39, align 8, !tbaa !17
-  store ptr %14, ptr %6, align 8, !tbaa !175
+  store ptr %14, ptr %6, align 8, !tbaa !173
   br label %40
 
 40:                                               ; preds = %16, %12, %9, %7
@@ -3075,7 +3075,7 @@ define void @FTC_Manager_Done(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %57, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !172
+  %3 = load ptr, ptr %0, align 8, !tbaa !170
   %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %57, label %4
 
@@ -3102,14 +3102,14 @@ define void @FTC_Manager_Done(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !176
+  %17 = load ptr, ptr %16, align 8, !tbaa !174
   tail call void %17(ptr noundef nonnull %14) #12
   tail call void @ft_mem_free(ptr noundef %6, ptr noundef nonnull %14) #12
   br label %18
 
 18:                                               ; preds = %15, %11
   %.not18.wide = icmp eq i64 %12, 0
-  br i1 %.not18.wide, label %._crit_edge, label %11, !llvm.loop !177
+  br i1 %.not18.wide, label %._crit_edge, label %11, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %18, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -3152,7 +3152,7 @@ FTC_MruList_Remove.exit.i.i:                      ; preds = %35, %FTC_MruNode_Re
   tail call void @ft_mem_free(ptr noundef %26, ptr noundef nonnull %25) #12
   %37 = load ptr, ptr %20, align 8, !tbaa !96
   %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %FTC_MruList_Done.exit, label %FTC_MruNode_Remove.exit.i.i.i, !llvm.loop !178
+  br i1 %.not.i.i, label %FTC_MruList_Done.exit, label %FTC_MruNode_Remove.exit.i.i.i, !llvm.loop !176
 
 FTC_MruList_Done.exit:                            ; preds = %FTC_MruList_Remove.exit.i.i, %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3195,7 +3195,7 @@ FTC_MruList_Remove.exit.i.i25:                    ; preds = %54, %FTC_MruNode_Re
   tail call void @ft_mem_free(ptr noundef %45, ptr noundef nonnull %44) #12
   %56 = load ptr, ptr %39, align 8, !tbaa !96
   %.not.i.i26 = icmp eq ptr %56, null
-  br i1 %.not.i.i26, label %FTC_MruList_Done.exit27, label %FTC_MruNode_Remove.exit.i.i.i22, !llvm.loop !178
+  br i1 %.not.i.i26, label %FTC_MruList_Done.exit27, label %FTC_MruNode_Remove.exit.i.i.i22, !llvm.loop !176
 
 FTC_MruList_Done.exit27:                          ; preds = %FTC_MruList_Remove.exit.i.i25, %FTC_MruList_Done.exit
   tail call void @ft_mem_free(ptr noundef %6, ptr noundef nonnull %0) #12
@@ -3253,7 +3253,7 @@ FTC_MruList_Remove.exit.i:                        ; preds = %19, %FTC_MruNode_Re
   tail call void @ft_mem_free(ptr noundef %10, ptr noundef nonnull %9) #12
   %21 = load ptr, ptr %4, align 8, !tbaa !96
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %FTC_MruList_Reset.exit, label %FTC_MruNode_Remove.exit.i.i, !llvm.loop !178
+  br i1 %.not.i, label %FTC_MruList_Reset.exit, label %FTC_MruNode_Remove.exit.i.i, !llvm.loop !176
 
 FTC_MruList_Reset.exit:                           ; preds = %FTC_MruList_Remove.exit.i, %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3296,7 +3296,7 @@ FTC_MruList_Remove.exit.i10:                      ; preds = %38, %FTC_MruNode_Re
   tail call void @ft_mem_free(ptr noundef %29, ptr noundef nonnull %28) #12
   %40 = load ptr, ptr %23, align 8, !tbaa !96
   %.not.i11 = icmp eq ptr %40, null
-  br i1 %.not.i11, label %FTC_MruList_Reset.exit12, label %FTC_MruNode_Remove.exit.i.i7, !llvm.loop !178
+  br i1 %.not.i11, label %FTC_MruList_Reset.exit12, label %FTC_MruNode_Remove.exit.i.i7, !llvm.loop !176
 
 FTC_MruList_Reset.exit12:                         ; preds = %FTC_MruList_Remove.exit.i10, %FTC_MruList_Reset.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3364,7 +3364,7 @@ define void @FTC_Manager_RemoveFaceID(ptr noundef captures(address_is_null) %0, 
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !72
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !135
+  %17 = load ptr, ptr %16, align 8, !tbaa !133
   %.not13 = icmp eq ptr %17, %1
   br i1 %.not13, label %18, label %31
 
@@ -3406,7 +3406,7 @@ FTC_MruList_Remove.exit.i:                        ; preds = %29, %FTC_MruNode_Re
 
 31:                                               ; preds = %FTC_MruList_Remove.exit.i, %13
   %.not16.i = icmp eq ptr %.0.i, %6
-  br i1 %.not16.i, label %FTC_MruList_RemoveSelection.exit, label %13, !llvm.loop !179
+  br i1 %.not16.i, label %FTC_MruList_RemoveSelection.exit, label %13, !llvm.loop !177
 
 FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3451,7 +3451,7 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
 .lr.ph.i:                                         ; preds = %49, %76
   %53 = phi ptr [ %77, %76 ], [ %52, %49 ]
   %.02835.i = phi ptr [ %.1.i, %76 ], [ %51, %49 ]
-  %54 = load ptr, ptr %42, align 8, !tbaa !180
+  %54 = load ptr, ptr %42, align 8, !tbaa !178
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %53, ptr noundef %1, ptr noundef nonnull %37, ptr noundef null) #12
   %.not30.i = icmp eq i8 %55, 0
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -3488,7 +3488,7 @@ ftc_node_mru_unlink.exit.i:                       ; preds = %.sink.split.i.i.i10
   %71 = load i32, ptr %46, align 8, !tbaa !101
   %72 = add i32 %71, -1
   store i32 %72, ptr %46, align 8, !tbaa !101
-  %73 = load ptr, ptr %47, align 8, !tbaa !123
+  %73 = load ptr, ptr %47, align 8, !tbaa !121
   tail call void %73(ptr noundef nonnull %53, ptr noundef nonnull %37) #12
   %74 = load i64, ptr %48, align 8, !tbaa !32
   %75 = add nsw i64 %74, 1
@@ -3504,7 +3504,7 @@ ftc_node_mru_unlink.exit.i:                       ; preds = %.sink.split.i.i.i10
 ._crit_edge.i:                                    ; preds = %76, %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FTC_Cache_RemoveFaceID.exit, label %49, !llvm.loop !181
+  br i1 %exitcond.not.i, label %FTC_Cache_RemoveFaceID.exit, label %49, !llvm.loop !179
 
 FTC_Cache_RemoveFaceID.exit:                      ; preds = %._crit_edge.i, %35
   tail call fastcc void @ftc_cache_resize(ptr noundef nonnull %37)
@@ -3512,7 +3512,7 @@ FTC_Cache_RemoveFaceID.exit:                      ; preds = %._crit_edge.i, %35
   %78 = load i32, ptr %32, align 8, !tbaa !17
   %79 = zext i32 %78 to i64
   %80 = icmp samesign ult i64 %indvars.iv.next, %79
-  br i1 %80, label %35, label %.loopexit, !llvm.loop !182
+  br i1 %80, label %35, label %.loopexit, !llvm.loop !180
 
 .loopexit:                                        ; preds = %FTC_Cache_RemoveFaceID.exit, %FTC_MruList_RemoveSelection.exit, %2
   ret void
@@ -3575,7 +3575,7 @@ define internal i32 @ftc_inode_new(ptr noundef writeonly captures(none) initiali
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr null, ptr %22, align 8, !tbaa !88
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !183
+  %24 = load ptr, ptr %23, align 8, !tbaa !181
   %25 = call i32 %24(ptr noundef %11, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %22) #12
   store i32 %25, ptr %4, align 4, !tbaa !3
   %.not18.i = icmp eq i32 %25, 0
@@ -3650,7 +3650,7 @@ FTC_INode_Free.exit.i:                            ; preds = %FTC_MruList_Remove.
 FTC_INode_New.exit:                               ; preds = %3, %9, %FTC_INode_Free.exit.i
   %55 = phi i32 [ %8, %3 ], [ %.pre.i, %FTC_INode_Free.exit.i ], [ 0, %9 ]
   %.0.i = phi ptr [ %7, %3 ], [ null, %FTC_INode_Free.exit.i ], [ %7, %9 ]
-  store ptr %.0.i, ptr %0, align 8, !tbaa !185
+  store ptr %.0.i, ptr %0, align 8, !tbaa !183
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %55
 }
@@ -3660,7 +3660,7 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !187
+  %6 = load i32, ptr %5, align 8, !tbaa !185
   switch i32 %6, label %28 [
     i32 1651078259, label %7
     i32 1869968492, label %17
@@ -3668,10 +3668,10 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nou
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !191
+  %9 = load i32, ptr %8, align 8, !tbaa !189
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %12 = load i32, ptr %11, align 8, !tbaa !194
+  %12 = load i32, ptr %11, align 8, !tbaa !192
   %13 = tail call i32 @llvm.abs.i32(i32 %12, i1 true)
   %14 = zext nneg i32 %13 to i64
   %15 = mul nuw nsw i64 %14, %10
@@ -3681,10 +3681,10 @@ define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr nou
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 42
-  %20 = load i16, ptr %19, align 2, !tbaa !195
+  %20 = load i16, ptr %19, align 2, !tbaa !193
   %21 = zext i16 %20 to i64
   %22 = mul nuw nsw i64 %21, 17
-  %23 = load i16, ptr %18, align 8, !tbaa !200
+  %23 = load i16, ptr %18, align 8, !tbaa !198
   %24 = zext i16 %23 to i64
   %25 = shl nuw nsw i64 %24, 1
   %26 = add nuw nsw i64 %22, 80
@@ -3952,15 +3952,15 @@ ftc_node_mru_unlink.exit.i.i:                     ; preds = %.sink.split.i.i.i.i
   %33 = load i64, ptr %13, align 8, !tbaa !104
   %34 = sub i64 %33, %32
   store i64 %34, ptr %13, align 8, !tbaa !104
-  %35 = load ptr, ptr %14, align 8, !tbaa !123
+  %35 = load ptr, ptr %14, align 8, !tbaa !121
   tail call void %35(ptr noundef nonnull %.02730.i.i, ptr noundef nonnull %0) #12
   %.not28.i.i = icmp eq ptr %20, null
-  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !124
+  br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !122
 
 ._crit_edge.i.i:                                  ; preds = %ftc_node_mru_unlink.exit.i.i, %15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.loopexit.i.i, label %15, !llvm.loop !125
+  br i1 %exitcond.not.i.i, label %.loopexit.loopexit.i.i, label %15, !llvm.loop !123
 
 .loopexit.loopexit.i.i:                           ; preds = %._crit_edge.i.i
   %.pre.i.i = load ptr, ptr %4, align 8, !tbaa !33
@@ -4010,7 +4010,7 @@ FTC_MruList_Remove.exit.i.i:                      ; preds = %53, %FTC_MruNode_Re
   tail call void @ft_mem_free(ptr noundef %44, ptr noundef nonnull %43) #12
   %55 = load ptr, ptr %38, align 8, !tbaa !96
   %.not.i.i3 = icmp eq ptr %55, null
-  br i1 %.not.i.i3, label %FTC_MruList_Done.exit, label %FTC_MruNode_Remove.exit.i.i.i, !llvm.loop !178
+  br i1 %.not.i.i3, label %FTC_MruList_Done.exit, label %FTC_MruNode_Remove.exit.i.i.i, !llvm.loop !176
 
 FTC_MruList_Done.exit:                            ; preds = %FTC_MruList_Remove.exit.i.i, %FTC_Cache_Done.exit
   ret void
@@ -4105,15 +4105,15 @@ ftc_node_mru_unlink.exit:                         ; preds = %27, %.sink.split.i.
   %33 = load i64, ptr %13, align 8, !tbaa !104
   %34 = sub i64 %33, %32
   store i64 %34, ptr %13, align 8, !tbaa !104
-  %35 = load ptr, ptr %14, align 8, !tbaa !123
+  %35 = load ptr, ptr %14, align 8, !tbaa !121
   tail call void %35(ptr noundef nonnull %.02730, ptr noundef nonnull %0) #12
   %.not28 = icmp eq ptr %20, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !124
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %ftc_node_mru_unlink.exit, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %15, !llvm.loop !125
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %15, !llvm.loop !123
 
 .loopexit.loopexit:                               ; preds = %._crit_edge
   %.pre = load ptr, ptr %4, align 8, !tbaa !33
@@ -4133,14 +4133,14 @@ define internal noundef i32 @ftc_basic_family_init(ptr noundef writeonly capture
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %8, align 8, !tbaa !201
+  store ptr %7, ptr %8, align 8, !tbaa !199
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %9, align 8, !tbaa !77
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %10, align 8, !tbaa !202
+  store ptr %2, ptr %10, align 8, !tbaa !200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !203
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !201
   ret i32 0
 }
 
@@ -4157,8 +4157,8 @@ define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %4
-  %12 = load ptr, ptr %5, align 8, !tbaa !158
-  %13 = load ptr, ptr %12, align 8, !tbaa !204
+  %12 = load ptr, ptr %5, align 8, !tbaa !156
+  %13 = load ptr, ptr %12, align 8, !tbaa !202
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8, !tbaa !71
   %16 = call i32 @FT_Load_Glyph(ptr noundef %13, i32 noundef %1, i32 noundef %15) #12
@@ -4167,9 +4167,9 @@ define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1,
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  %19 = load ptr, ptr %18, align 8, !tbaa !208
+  %19 = load ptr, ptr %18, align 8, !tbaa !206
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 144
-  %21 = load i32, ptr %20, align 8, !tbaa !209
+  %21 = load i32, ptr %20, align 8, !tbaa !207
   switch i32 %21, label %27 [
     i32 1651078259, label %22
     i32 1869968492, label %22
@@ -4215,7 +4215,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !214
+  %13 = load ptr, ptr %12, align 8, !tbaa !212
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = tail call i32 %13(ptr noundef %.val5, ptr noundef %15) #12
@@ -4257,12 +4257,12 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   %32 = getelementptr inbounds nuw [16 x %struct.FTC_SBitRec_], ptr %30, i64 0, i64 %indvars.iv.i
   store i8 -1, ptr %32, align 8, !tbaa !118
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 0, ptr %33, align 1, !tbaa !216
+  store i8 0, ptr %33, align 1, !tbaa !214
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr null, ptr %34, align 8, !tbaa !115
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !217
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !215
 
 ._crit_edge.i:                                    ; preds = %31, %21
   %35 = load ptr, ptr %14, align 8, !tbaa !18
@@ -4279,7 +4279,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
 FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %37
   %38 = phi i32 [ %20, %18 ], [ %.pre.i, %37 ], [ 0, %._crit_edge.i ], [ 6, %3 ]
   %.0.i = phi ptr [ %19, %18 ], [ null, %37 ], [ %19, %._crit_edge.i ], [ null, %3 ]
-  store ptr %.0.i, ptr %0, align 8, !tbaa !218
+  store ptr %.0.i, ptr %0, align 8, !tbaa !216
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %38
 }
@@ -4306,11 +4306,11 @@ define internal i64 @ftc_snode_weight(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.01522, i64 6
-  %10 = load i16, ptr %9, align 2, !tbaa !220
+  %10 = load i16, ptr %9, align 2, !tbaa !218
   %11 = tail call i16 @llvm.abs.i16(i16 %10, i1 false)
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.01522, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !216
+  %14 = load i8, ptr %13, align 1, !tbaa !214
   %15 = zext i8 %14 to i64
   %16 = mul nuw nsw i64 %12, %15
   %17 = add i64 %16, %.023
@@ -4321,7 +4321,7 @@ define internal i64 @ftc_snode_weight(ptr noundef readonly captures(none) %0, pt
   %19 = add i32 %.01621, -1
   %20 = getelementptr inbounds nuw i8, ptr %.01522, i64 24
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !221
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %18, %2
   %.0.lcssa = phi i64 [ 448, %2 ], [ %.1, %18 ]
@@ -4351,7 +4351,7 @@ define internal void @ftc_snode_free(ptr noundef %0, ptr noundef captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %.01315, i64 24
   %11 = add i32 %.016, -1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4437,60 +4437,60 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   %15 = zext i32 %10 to i64
   %16 = getelementptr inbounds nuw %struct.FTC_SBitRec_, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !201
+  %18 = load ptr, ptr %17, align 8, !tbaa !199
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !223
+  %20 = load ptr, ptr %19, align 8, !tbaa !221
   %21 = call i32 %20(ptr noundef %7, i32 noundef %2, ptr noundef %1, ptr noundef nonnull %5) #12
   %.not87 = icmp eq i32 %21, 0
   br i1 %.not87, label %22, label %.thread
 
 22:                                               ; preds = %13
-  %23 = load ptr, ptr %5, align 8, !tbaa !157
+  %23 = load ptr, ptr %5, align 8, !tbaa !155
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
-  %25 = load ptr, ptr %24, align 8, !tbaa !208
+  %25 = load ptr, ptr %24, align 8, !tbaa !206
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  %28 = load i32, ptr %27, align 8, !tbaa !209
+  %28 = load i32, ptr %27, align 8, !tbaa !207
   %.not88 = icmp eq i32 %28, 1651078259
   br i1 %.not88, label %29, label %.thread
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %31 = load i64, ptr %30, align 8, !tbaa !224
+  %31 = load i64, ptr %30, align 8, !tbaa !222
   %32 = add nsw i64 %31, 32
   %33 = ashr i64 %32, 6
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %35 = load i64, ptr %34, align 8, !tbaa !225
+  %35 = load i64, ptr %34, align 8, !tbaa !223
   %36 = add nsw i64 %35, 32
   %37 = ashr i64 %36, 6
-  %38 = load i32, ptr %26, align 8, !tbaa !226
+  %38 = load i32, ptr %26, align 8, !tbaa !224
   %39 = icmp ult i32 %38, 256
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 156
-  %42 = load i32, ptr %41, align 4, !tbaa !227
+  %42 = load i32, ptr %41, align 4, !tbaa !225
   %43 = trunc i32 %42 to i8
   %44 = icmp ult i32 %42, 256
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 160
-  %47 = load i32, ptr %46, align 8, !tbaa !228
+  %47 = load i32, ptr %46, align 8, !tbaa !226
   %48 = add i32 %47, 32768
   %49 = icmp ult i32 %48, 65536
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 192
-  %52 = load i32, ptr %51, align 8, !tbaa !229
+  %52 = load i32, ptr %51, align 8, !tbaa !227
   %53 = add i32 %52, 128
   %54 = icmp ult i32 %53, 256
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 196
-  %57 = load i32, ptr %56, align 4, !tbaa !230
+  %57 = load i32, ptr %56, align 4, !tbaa !228
   %58 = add i32 %57, 128
   %59 = icmp ult i32 %58, 256
   br i1 %59, label %60, label %.thread
@@ -4513,45 +4513,45 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   store i8 %43, ptr %16, align 8, !tbaa !118
   %71 = trunc nuw i32 %38 to i8
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store i8 %71, ptr %72, align 1, !tbaa !216
+  store i8 %71, ptr %72, align 1, !tbaa !214
   %73 = trunc nsw i32 %47 to i16
   %74 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  store i16 %73, ptr %74, align 2, !tbaa !220
+  store i16 %73, ptr %74, align 2, !tbaa !218
   %75 = trunc nsw i32 %52 to i8
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  store i8 %75, ptr %76, align 2, !tbaa !231
+  store i8 %75, ptr %76, align 2, !tbaa !229
   %77 = trunc nsw i32 %57 to i8
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 3
-  store i8 %77, ptr %78, align 1, !tbaa !232
+  store i8 %77, ptr %78, align 1, !tbaa !230
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 %61, ptr %79, align 8, !tbaa !233
+  store i8 %61, ptr %79, align 8, !tbaa !231
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i8 %66, ptr %80, align 1, !tbaa !234
+  store i8 %66, ptr %80, align 1, !tbaa !232
   %81 = getelementptr inbounds nuw i8, ptr %25, i64 178
-  %82 = load i8, ptr %81, align 2, !tbaa !235
+  %82 = load i8, ptr %81, align 2, !tbaa !233
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i8 %82, ptr %83, align 4, !tbaa !236
+  store i8 %82, ptr %83, align 4, !tbaa !234
   %84 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  %85 = load i16, ptr %84, align 8, !tbaa !237
+  %85 = load i16, ptr %84, align 8, !tbaa !235
   %86 = trunc i16 %85 to i8
   %87 = add i8 %86, -1
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 5
-  store i8 %87, ptr %88, align 1, !tbaa !238
+  store i8 %87, ptr %88, align 1, !tbaa !236
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 296
-  %90 = load ptr, ptr %89, align 8, !tbaa !239
+  %90 = load ptr, ptr %89, align 8, !tbaa !237
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !240
+  %92 = load i32, ptr %91, align 8, !tbaa !238
   %93 = and i32 %92, 1
   %.not89 = icmp eq i32 %93, 0
   br i1 %.not89, label %99, label %94
 
 94:                                               ; preds = %70
   %95 = getelementptr inbounds nuw i8, ptr %25, i64 168
-  %96 = load ptr, ptr %95, align 8, !tbaa !244
+  %96 = load ptr, ptr %95, align 8, !tbaa !242
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %96, ptr %97, align 8, !tbaa !115
   %98 = and i32 %92, -2
-  store i32 %98, ptr %91, align 8, !tbaa !240
+  store i32 %98, ptr %91, align 8, !tbaa !238
   br label %103
 
 99:                                               ; preds = %70
@@ -4566,10 +4566,10 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   br i1 %.not90, label %111, label %104
 
 104:                                              ; preds = %103
-  %105 = load i16, ptr %74, align 2, !tbaa !220
+  %105 = load i16, ptr %74, align 2, !tbaa !218
   %106 = call i16 @llvm.abs.i16(i16 %105, i1 false)
   %107 = zext i16 %106 to i64
-  %108 = load i8, ptr %72, align 1, !tbaa !216
+  %108 = load i8, ptr %72, align 1, !tbaa !214
   %109 = zext i8 %108 to i64
   %110 = mul nuw nsw i64 %107, %109
   store i64 %110, ptr %3, align 8, !tbaa !27
@@ -4587,7 +4587,7 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
 .thread:                                          ; preds = %65, %60, %55, %50, %45, %40, %29, %22, %112, %13
   store i8 -1, ptr %16, align 8, !tbaa !118
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store i8 0, ptr %114, align 1, !tbaa !216
+  store i8 0, ptr %114, align 1, !tbaa !214
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %115, align 8, !tbaa !115
   %.not93 = icmp eq ptr %3, null
@@ -4608,14 +4608,14 @@ define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr noundef writeonly captures(
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !228
+  %6 = load i32, ptr %5, align 8, !tbaa !226
   %spec.select = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %7 = zext nneg i32 %spec.select to i64
-  %8 = load i32, ptr %1, align 8, !tbaa !226
+  %8 = load i32, ptr %1, align 8, !tbaa !224
   %9 = zext i32 %8 to i64
   %10 = mul nuw nsw i64 %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !244
+  %12 = load ptr, ptr %11, align 8, !tbaa !242
   %13 = call ptr @ft_mem_dup(ptr noundef %2, ptr noundef %12, i64 noundef %10, ptr noundef nonnull %4) #12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !115
@@ -4645,7 +4645,7 @@ define internal i32 @ftc_basic_family_get_count(ptr noundef readonly captures(no
 .preheader.i:                                     ; preds = %6, %19
   %.0.i = phi ptr [ %20, %19 ], [ %9, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !135
+  %11 = load ptr, ptr %10, align 8, !tbaa !133
   %.not38.i = icmp eq ptr %11, %5
   br i1 %.not38.i, label %12, label %19
 
@@ -4672,7 +4672,7 @@ FTC_MruNode_Up.exit.i:                            ; preds = %12
 19:                                               ; preds = %.preheader.i
   %20 = load ptr, ptr %.0.i, align 8, !tbaa !73
   %.not32.i = icmp eq ptr %20, %9
-  br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !138
+  br i1 %.not32.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !136
 
 .loopexit.i:                                      ; preds = %19, %6
   %21 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %7, ptr noundef %5, ptr noundef %3)
@@ -4690,14 +4690,14 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %2, %.loopexit.i
 FTC_Manager_LookupFace.exit:                      ; preds = %12, %FTC_MruNode_Up.exit.i, %.loopexit._crit_edge.i
   %22 = phi ptr [ %.pre.i, %.loopexit._crit_edge.i ], [ %.0.i, %12 ], [ %.0.i, %FTC_MruNode_Up.exit.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !139
+  %24 = load ptr, ptr %23, align 8, !tbaa !137
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %FTC_Manager_LookupFace.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %27 = load i64, ptr %26, align 8, !tbaa !245
+  %27 = load i64, ptr %26, align 8, !tbaa !243
   %28 = trunc i64 %27 to i32
   br label %29
 
@@ -4716,8 +4716,8 @@ define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %5, align 8, !tbaa !158
-  %10 = load ptr, ptr %9, align 8, !tbaa !204
+  %9 = load ptr, ptr %5, align 8, !tbaa !156
+  %10 = load ptr, ptr %9, align 8, !tbaa !202
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8, !tbaa !71
   %13 = or i32 %12, 4
@@ -4726,7 +4726,7 @@ define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1
   br i1 %.not11, label %15, label %16
 
 15:                                               ; preds = %8
-  store ptr %10, ptr %3, align 8, !tbaa !157
+  store ptr %10, ptr %3, align 8, !tbaa !155
   br label %16
 
 16:                                               ; preds = %8, %15, %4
@@ -4891,7 +4891,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   %72 = load ptr, ptr %.2, align 8, !tbaa !44
   %.not79 = icmp eq ptr %72, null
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  br i1 %.not79, label %74, label %71, !llvm.loop !246
+  br i1 %.not79, label %74, label %71, !llvm.loop !244
 
 74:                                               ; preds = %71
   store ptr %53, ptr %.2, align 8, !tbaa !44
@@ -5000,7 +5000,7 @@ ftc_node_mru_unlink.exit:                         ; preds = %22, %.sink.split.i.
 
 ftc_node_hash_unlink.exit:                        ; preds = %42, %47
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !123
+  %54 = load ptr, ptr %53, align 8, !tbaa !121
   tail call void %54(ptr noundef nonnull %0, ptr noundef nonnull %8) #12
   ret void
 }
@@ -5017,24 +5017,24 @@ define internal i32 @ftc_cmap_node_new(ptr noundef writeonly captures(none) init
   br i1 %.not, label %.loopexit.loopexit, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %3
-  %9 = load ptr, ptr %1, align 8, !tbaa !126
+  %9 = load ptr, ptr %1, align 8, !tbaa !124
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %9, ptr %10, align 8, !tbaa !130
+  store ptr %9, ptr %10, align 8, !tbaa !128
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !128
+  %12 = load i32, ptr %11, align 8, !tbaa !126
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 %12, ptr %13, align 8, !tbaa !132
+  store i32 %12, ptr %13, align 8, !tbaa !130
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !129
+  %15 = load i32, ptr %14, align 4, !tbaa !127
   %16 = and i32 %15, -128
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i32 %16, ptr %17, align 4, !tbaa !133
+  store i32 %16, ptr %17, align 4, !tbaa !131
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 -1, i64 256, i1 false), !tbaa !134
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 -1, i64 256, i1 false), !tbaa !132
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  store ptr %7, ptr %0, align 8, !tbaa !247
+  store ptr %7, ptr %0, align 8, !tbaa !245
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %8
 }
@@ -5055,7 +5055,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr nound
 
 6:                                                ; preds = %5, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !130
+  %8 = load ptr, ptr %7, align 8, !tbaa !128
   %9 = icmp eq ptr %8, %1
   %10 = zext i1 %9 to i8
   ret i8 %10
@@ -5076,32 +5076,32 @@ define internal i32 @ftc_face_node_init(ptr noundef writeonly captures(none) %0,
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %6 = load ptr, ptr %5, align 8, !tbaa !173
-  %7 = load ptr, ptr %2, align 8, !tbaa !172
+  %6 = load ptr, ptr %5, align 8, !tbaa !171
+  %7 = load ptr, ptr %2, align 8, !tbaa !170
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %9 = load ptr, ptr %8, align 8, !tbaa !174
+  %9 = load ptr, ptr %8, align 8, !tbaa !172
   %10 = call i32 %6(ptr noundef %1, ptr noundef %7, ptr noundef %9, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %21
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %4, align 8, !tbaa !157
+  %12 = load ptr, ptr %4, align 8, !tbaa !155
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  %14 = load ptr, ptr %13, align 8, !tbaa !249
+  %14 = load ptr, ptr %13, align 8, !tbaa !247
   %.not11 = icmp eq ptr %14, null
   br i1 %.not11, label %17, label %15
 
 15:                                               ; preds = %11
   %16 = call i32 @FT_Done_Size(ptr noundef nonnull %14) #12
-  %.pre = load ptr, ptr %4, align 8, !tbaa !157
+  %.pre = load ptr, ptr %4, align 8, !tbaa !155
   br label %17
 
 17:                                               ; preds = %15, %11
   %18 = phi ptr [ %.pre, %15 ], [ %12, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %18, ptr %19, align 8, !tbaa !139
+  store ptr %18, ptr %19, align 8, !tbaa !137
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %20, align 8, !tbaa !135
+  store ptr %1, ptr %20, align 8, !tbaa !133
   br label %21
 
 21:                                               ; preds = %17, %3
@@ -5113,7 +5113,7 @@ define internal i32 @ftc_face_node_init(ptr noundef writeonly captures(none) %0,
 define internal void @ftc_face_node_done(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !133
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %7 = load ptr, ptr %6, align 8, !tbaa !96
   %.not = icmp eq ptr %7, null
@@ -5132,7 +5132,7 @@ define internal void @ftc_face_node_done(ptr noundef captures(none) %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !250
+  %18 = load ptr, ptr %17, align 8, !tbaa !248
   %.not7 = icmp eq ptr %18, %5
   br i1 %.not7, label %19, label %32
 
@@ -5174,11 +5174,11 @@ FTC_MruList_Remove.exit.i:                        ; preds = %30, %FTC_MruNode_Re
 
 32:                                               ; preds = %FTC_MruList_Remove.exit.i, %14
   %.not16.i = icmp eq ptr %.0.i, %7
-  br i1 %.not16.i, label %FTC_MruList_RemoveSelection.exit, label %14, !llvm.loop !179
+  br i1 %.not16.i, label %FTC_MruList_RemoveSelection.exit, label %14, !llvm.loop !177
 
 FTC_MruList_RemoveSelection.exit:                 ; preds = %32, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !139
+  %34 = load ptr, ptr %33, align 8, !tbaa !137
   %35 = tail call i32 @FT_Done_Face(ptr noundef %34) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void
@@ -5193,8 +5193,8 @@ define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0,
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !158
-  %6 = load ptr, ptr %1, align 8, !tbaa !159
+  store ptr null, ptr %5, align 8, !tbaa !156
+  %6 = load ptr, ptr %1, align 8, !tbaa !157
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not29.i.i = icmp eq ptr %2, null
   br i1 %.not29.i.i, label %FTC_Manager_LookupFace.exit.thread.i, label %7
@@ -5209,7 +5209,7 @@ define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0,
 .preheader.i.i:                                   ; preds = %7, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %10, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !135
+  %12 = load ptr, ptr %11, align 8, !tbaa !133
   %.not38.i.i = icmp eq ptr %12, %6
   br i1 %.not38.i.i, label %13, label %20
 
@@ -5236,7 +5236,7 @@ FTC_MruNode_Up.exit.i.i:                          ; preds = %13
 20:                                               ; preds = %.preheader.i.i
   %21 = load ptr, ptr %.0.i.i, align 8, !tbaa !73
   %.not32.i.i = icmp eq ptr %21, %10
-  br i1 %.not32.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !138
+  br i1 %.not32.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !136
 
 .loopexit.i.i:                                    ; preds = %20, %7
   %22 = call fastcc i32 @FTC_MruList_New(ptr noundef nonnull %8, ptr noundef %6, ptr noundef %4)
@@ -5255,44 +5255,44 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
 23:                                               ; preds = %.loopexit._crit_edge.i.i, %FTC_MruNode_Up.exit.i.i, %13
   %24 = phi ptr [ %.pre.i.i, %.loopexit._crit_edge.i.i ], [ %.0.i.i, %13 ], [ %.0.i.i, %FTC_MruNode_Up.exit.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !139
+  %26 = load ptr, ptr %25, align 8, !tbaa !137
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = call i32 @FT_New_Size(ptr noundef %26, ptr noundef nonnull %5) #12
   %.not15.i = icmp eq i32 %27, 0
   br i1 %.not15.i, label %28, label %ftc_scaler_lookup_size.exit.thread
 
 28:                                               ; preds = %23
-  %.pre26.i = load ptr, ptr %5, align 8, !tbaa !158
+  %.pre26.i = load ptr, ptr %5, align 8, !tbaa !156
   %29 = call i32 @FT_Activate_Size(ptr noundef %.pre26.i) #12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !162
+  %31 = load i32, ptr %30, align 8, !tbaa !160
   %.not16.i = icmp eq i32 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !160
+  %33 = load i32, ptr %32, align 8, !tbaa !158
   br i1 %.not16.i, label %38, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !161
+  %36 = load i32, ptr %35, align 4, !tbaa !159
   %37 = call i32 @FT_Set_Pixel_Sizes(ptr noundef %26, i32 noundef %33, i32 noundef %36) #12
   br label %48
 
 38:                                               ; preds = %28
   %39 = zext i32 %33 to i64
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %41 = load i32, ptr %40, align 4, !tbaa !161
+  %41 = load i32, ptr %40, align 4, !tbaa !159
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %44 = load i32, ptr %43, align 4, !tbaa !163
+  %44 = load i32, ptr %43, align 4, !tbaa !161
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %46 = load i32, ptr %45, align 8, !tbaa !164
+  %46 = load i32, ptr %45, align 8, !tbaa !162
   %47 = call i32 @FT_Set_Char_Size(ptr noundef %26, i64 noundef %39, i64 noundef %42, i32 noundef %44, i32 noundef %46) #12
   br label %48
 
 48:                                               ; preds = %38, %34
   %.1.i = phi i32 [ %37, %34 ], [ %47, %38 ]
   %.not17.i = icmp eq i32 %.1.i, 0
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !158
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !156
   br i1 %.not17.i, label %51, label %49
 
 49:                                               ; preds = %48
@@ -5307,7 +5307,7 @@ ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manag
 51:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.pre.i, ptr %52, align 8, !tbaa !165
+  store ptr %.pre.i, ptr %52, align 8, !tbaa !163
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !107
   br label %54
@@ -5320,7 +5320,7 @@ ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manag
 ; Function Attrs: nounwind uwtable
 define internal void @ftc_size_node_done(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !165
+  %4 = load ptr, ptr %3, align 8, !tbaa !163
   %5 = tail call i32 @FT_Done_Size(ptr noundef %4) #12
   ret void
 }
@@ -5486,135 +5486,133 @@ attributes #12 = { nounwind }
 !116 = !{!"FTC_SBitRec_", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !80, i64 6, !5, i64 8, !5, i64 9, !117, i64 16}
 !117 = !{!"p1 omnipotent char", !10, i64 0}
 !118 = !{!116, !5, i64 0}
-!119 = distinct !{!119, !120}
-!120 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!121 = distinct !{!121, !76}
+!119 = distinct !{!119, !76}
+!120 = distinct !{!120, !76}
+!121 = !{!19, !10, i64 56}
 !122 = distinct !{!122, !76}
-!123 = !{!19, !10, i64 56}
-!124 = distinct !{!124, !76}
-!125 = distinct !{!125, !76}
-!126 = !{!127, !10, i64 0}
-!127 = !{!"FTC_CMapQueryRec_", !10, i64 0, !4, i64 8, !4, i64 12}
-!128 = !{!127, !4, i64 8}
-!129 = !{!127, !4, i64 12}
-!130 = !{!131, !10, i64 40}
-!131 = !{!"FTC_CMapNodeRec_", !79, i64 0, !10, i64 40, !4, i64 48, !4, i64 52, !5, i64 56}
-!132 = !{!131, !4, i64 48}
-!133 = !{!131, !4, i64 52}
-!134 = !{!80, !80, i64 0}
-!135 = !{!136, !10, i64 16}
-!136 = !{!"FTC_FaceNodeRec_", !67, i64 0, !10, i64 16, !137, i64 24}
-!137 = !{!"p1 _ZTS11FT_FaceRec_", !10, i64 0}
-!138 = distinct !{!138, !76}
-!139 = !{!136, !137, i64 24}
-!140 = !{!141, !4, i64 72}
-!141 = !{!"FT_FaceRec_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !117, i64 40, !117, i64 48, !4, i64 56, !142, i64 64, !4, i64 72, !143, i64 80, !144, i64 88, !145, i64 104, !80, i64 136, !80, i64 138, !80, i64 140, !80, i64 142, !80, i64 144, !80, i64 146, !80, i64 148, !80, i64 150, !146, i64 152, !147, i64 160, !148, i64 168, !149, i64 176, !11, i64 184, !150, i64 192, !151, i64 200, !144, i64 216, !10, i64 232, !153, i64 240}
-!142 = !{!"p1 _ZTS15FT_Bitmap_Size_", !10, i64 0}
-!143 = !{!"p2 _ZTS14FT_CharMapRec_", !10, i64 0}
-!144 = !{!"FT_Generic_", !10, i64 0, !10, i64 8}
-!145 = !{!"FT_BBox_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!146 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !10, i64 0}
-!147 = !{!"p1 _ZTS11FT_SizeRec_", !10, i64 0}
-!148 = !{!"p1 _ZTS14FT_CharMapRec_", !10, i64 0}
-!149 = !{!"p1 _ZTS13FT_DriverRec_", !10, i64 0}
-!150 = !{!"p1 _ZTS13FT_StreamRec_", !10, i64 0}
-!151 = !{!"FT_ListRec_", !152, i64 0, !152, i64 8}
-!152 = !{!"p1 _ZTS15FT_ListNodeRec_", !10, i64 0}
-!153 = !{!"p1 _ZTS20FT_Face_InternalRec_", !10, i64 0}
-!154 = !{!141, !148, i64 168}
-!155 = !{!141, !143, i64 80}
-!156 = !{!148, !148, i64 0}
-!157 = !{!137, !137, i64 0}
-!158 = !{!147, !147, i64 0}
-!159 = !{!52, !10, i64 0}
-!160 = !{!52, !4, i64 8}
-!161 = !{!52, !4, i64 12}
-!162 = !{!52, !4, i64 16}
-!163 = !{!52, !4, i64 20}
-!164 = !{!52, !4, i64 24}
-!165 = !{!166, !147, i64 16}
-!166 = !{!"FTC_SizeNodeRec_", !67, i64 0, !147, i64 16, !52, i64 24}
-!167 = distinct !{!167, !76}
-!168 = !{!169, !11, i64 0}
-!169 = !{!"FT_LibraryRec_", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !5, i64 24, !151, i64 280, !170, i64 296, !171, i64 304, !5, i64 312, !5, i64 344, !4, i64 392}
-!170 = !{!"p1 _ZTS15FT_RendererRec_", !10, i64 0}
-!171 = !{!"p1 _ZTS13FT_ModuleRec_", !10, i64 0}
-!172 = !{!8, !9, i64 0}
-!173 = !{!8, !10, i64 320}
-!174 = !{!8, !10, i64 312}
-!175 = !{!22, !22, i64 0}
-!176 = !{!19, !10, i64 80}
+!123 = distinct !{!123, !76}
+!124 = !{!125, !10, i64 0}
+!125 = !{!"FTC_CMapQueryRec_", !10, i64 0, !4, i64 8, !4, i64 12}
+!126 = !{!125, !4, i64 8}
+!127 = !{!125, !4, i64 12}
+!128 = !{!129, !10, i64 40}
+!129 = !{!"FTC_CMapNodeRec_", !79, i64 0, !10, i64 40, !4, i64 48, !4, i64 52, !5, i64 56}
+!130 = !{!129, !4, i64 48}
+!131 = !{!129, !4, i64 52}
+!132 = !{!80, !80, i64 0}
+!133 = !{!134, !10, i64 16}
+!134 = !{!"FTC_FaceNodeRec_", !67, i64 0, !10, i64 16, !135, i64 24}
+!135 = !{!"p1 _ZTS11FT_FaceRec_", !10, i64 0}
+!136 = distinct !{!136, !76}
+!137 = !{!134, !135, i64 24}
+!138 = !{!139, !4, i64 72}
+!139 = !{!"FT_FaceRec_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !117, i64 40, !117, i64 48, !4, i64 56, !140, i64 64, !4, i64 72, !141, i64 80, !142, i64 88, !143, i64 104, !80, i64 136, !80, i64 138, !80, i64 140, !80, i64 142, !80, i64 144, !80, i64 146, !80, i64 148, !80, i64 150, !144, i64 152, !145, i64 160, !146, i64 168, !147, i64 176, !11, i64 184, !148, i64 192, !149, i64 200, !142, i64 216, !10, i64 232, !151, i64 240}
+!140 = !{!"p1 _ZTS15FT_Bitmap_Size_", !10, i64 0}
+!141 = !{!"p2 _ZTS14FT_CharMapRec_", !10, i64 0}
+!142 = !{!"FT_Generic_", !10, i64 0, !10, i64 8}
+!143 = !{!"FT_BBox_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!144 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !10, i64 0}
+!145 = !{!"p1 _ZTS11FT_SizeRec_", !10, i64 0}
+!146 = !{!"p1 _ZTS14FT_CharMapRec_", !10, i64 0}
+!147 = !{!"p1 _ZTS13FT_DriverRec_", !10, i64 0}
+!148 = !{!"p1 _ZTS13FT_StreamRec_", !10, i64 0}
+!149 = !{!"FT_ListRec_", !150, i64 0, !150, i64 8}
+!150 = !{!"p1 _ZTS15FT_ListNodeRec_", !10, i64 0}
+!151 = !{!"p1 _ZTS20FT_Face_InternalRec_", !10, i64 0}
+!152 = !{!139, !146, i64 168}
+!153 = !{!139, !141, i64 80}
+!154 = !{!146, !146, i64 0}
+!155 = !{!135, !135, i64 0}
+!156 = !{!145, !145, i64 0}
+!157 = !{!52, !10, i64 0}
+!158 = !{!52, !4, i64 8}
+!159 = !{!52, !4, i64 12}
+!160 = !{!52, !4, i64 16}
+!161 = !{!52, !4, i64 20}
+!162 = !{!52, !4, i64 24}
+!163 = !{!164, !145, i64 16}
+!164 = !{!"FTC_SizeNodeRec_", !67, i64 0, !145, i64 16, !52, i64 24}
+!165 = distinct !{!165, !76}
+!166 = !{!167, !11, i64 0}
+!167 = !{!"FT_LibraryRec_", !11, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !5, i64 24, !149, i64 280, !168, i64 296, !169, i64 304, !5, i64 312, !5, i64 344, !4, i64 392}
+!168 = !{!"p1 _ZTS15FT_RendererRec_", !10, i64 0}
+!169 = !{!"p1 _ZTS13FT_ModuleRec_", !10, i64 0}
+!170 = !{!8, !9, i64 0}
+!171 = !{!8, !10, i64 320}
+!172 = !{!8, !10, i64 312}
+!173 = !{!22, !22, i64 0}
+!174 = !{!19, !10, i64 80}
+!175 = distinct !{!175, !76}
+!176 = distinct !{!176, !76}
 !177 = distinct !{!177, !76}
-!178 = distinct !{!178, !76}
+!178 = !{!19, !10, i64 48}
 !179 = distinct !{!179, !76}
-!180 = !{!19, !10, i64 48}
-!181 = distinct !{!181, !76}
-!182 = distinct !{!182, !76}
-!183 = !{!184, !10, i64 32}
-!184 = !{!"FTC_IFamilyClassRec_", !16, i64 0, !10, i64 32}
-!185 = !{!186, !186, i64 0}
-!186 = !{!"p1 _ZTS13FTC_INodeRec_", !10, i64 0}
-!187 = !{!188, !4, i64 16}
-!188 = !{!"FT_GlyphRec_", !9, i64 0, !189, i64 8, !4, i64 16, !190, i64 24}
-!189 = !{!"p1 _ZTS15FT_Glyph_Class_", !10, i64 0}
-!190 = !{!"FT_Vector_", !13, i64 0, !13, i64 8}
-!191 = !{!192, !4, i64 48}
-!192 = !{!"FT_BitmapGlyphRec_", !188, i64 0, !4, i64 40, !4, i64 44, !193, i64 48}
-!193 = !{!"FT_Bitmap_", !4, i64 0, !4, i64 4, !4, i64 8, !117, i64 16, !80, i64 24, !5, i64 26, !5, i64 27, !10, i64 32}
-!194 = !{!192, !4, i64 56}
-!195 = !{!196, !80, i64 42}
-!196 = !{!"FT_OutlineGlyphRec_", !188, i64 0, !197, i64 40}
-!197 = !{!"FT_Outline_", !80, i64 0, !80, i64 2, !198, i64 8, !117, i64 16, !199, i64 24, !4, i64 32}
-!198 = !{!"p1 _ZTS10FT_Vector_", !10, i64 0}
-!199 = !{!"p1 short", !10, i64 0}
-!200 = !{!196, !80, i64 40}
-!201 = !{!66, !36, i64 32}
-!202 = !{!66, !41, i64 24}
-!203 = !{i64 0, i64 8, !26, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3, i64 20, i64 4, !3, i64 24, i64 4, !3, i64 32, i64 4, !3}
-!204 = !{!205, !137, i64 0}
-!205 = !{!"FT_SizeRec_", !137, i64 0, !144, i64 8, !206, i64 24, !207, i64 80}
-!206 = !{!"FT_Size_Metrics_", !80, i64 0, !80, i64 2, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
-!207 = !{!"p1 _ZTS20FT_Size_InternalRec_", !10, i64 0}
-!208 = !{!141, !146, i64 152}
-!209 = !{!210, !4, i64 144}
-!210 = !{!"FT_GlyphSlotRec_", !9, i64 0, !137, i64 8, !146, i64 16, !4, i64 24, !144, i64 32, !211, i64 48, !13, i64 112, !13, i64 120, !190, i64 128, !4, i64 144, !193, i64 152, !4, i64 192, !4, i64 196, !197, i64 200, !4, i64 240, !212, i64 248, !10, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !10, i64 288, !213, i64 296}
-!211 = !{!"FT_Glyph_Metrics_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56}
-!212 = !{!"p1 _ZTS15FT_SubGlyphRec_", !10, i64 0}
-!213 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !10, i64 0}
-!214 = !{!215, !10, i64 32}
-!215 = !{!"FTC_SFamilyClassRec_", !16, i64 0, !10, i64 32, !10, i64 40}
-!216 = !{!116, !5, i64 1}
-!217 = distinct !{!217, !76}
-!218 = !{!219, !219, i64 0}
-!219 = !{!"p1 _ZTS13FTC_SNodeRec_", !10, i64 0}
-!220 = !{!116, !80, i64 6}
-!221 = distinct !{!221, !76}
-!222 = distinct !{!222, !76}
-!223 = !{!215, !10, i64 40}
-!224 = !{!210, !13, i64 128}
-!225 = !{!210, !13, i64 136}
-!226 = !{!193, !4, i64 0}
-!227 = !{!193, !4, i64 4}
-!228 = !{!193, !4, i64 8}
-!229 = !{!210, !4, i64 192}
-!230 = !{!210, !4, i64 196}
-!231 = !{!116, !5, i64 2}
-!232 = !{!116, !5, i64 3}
-!233 = !{!116, !5, i64 8}
-!234 = !{!116, !5, i64 9}
-!235 = !{!193, !5, i64 26}
-!236 = !{!116, !5, i64 4}
-!237 = !{!193, !80, i64 24}
-!238 = !{!116, !5, i64 5}
-!239 = !{!210, !213, i64 296}
-!240 = !{!241, !4, i64 8}
-!241 = !{!"FT_Slot_InternalRec_", !242, i64 0, !4, i64 8, !5, i64 12, !243, i64 16, !190, i64 48, !10, i64 64, !4, i64 72}
-!242 = !{!"p1 _ZTS18FT_GlyphLoaderRec_", !10, i64 0}
-!243 = !{!"FT_Matrix_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!244 = !{!193, !117, i64 16}
-!245 = !{!141, !13, i64 32}
-!246 = distinct !{!246, !76}
-!247 = !{!248, !248, i64 0}
-!248 = !{!"p1 _ZTS16FTC_CMapNodeRec_", !10, i64 0}
-!249 = !{!141, !147, i64 160}
-!250 = !{!166, !10, i64 24}
+!180 = distinct !{!180, !76}
+!181 = !{!182, !10, i64 32}
+!182 = !{!"FTC_IFamilyClassRec_", !16, i64 0, !10, i64 32}
+!183 = !{!184, !184, i64 0}
+!184 = !{!"p1 _ZTS13FTC_INodeRec_", !10, i64 0}
+!185 = !{!186, !4, i64 16}
+!186 = !{!"FT_GlyphRec_", !9, i64 0, !187, i64 8, !4, i64 16, !188, i64 24}
+!187 = !{!"p1 _ZTS15FT_Glyph_Class_", !10, i64 0}
+!188 = !{!"FT_Vector_", !13, i64 0, !13, i64 8}
+!189 = !{!190, !4, i64 48}
+!190 = !{!"FT_BitmapGlyphRec_", !186, i64 0, !4, i64 40, !4, i64 44, !191, i64 48}
+!191 = !{!"FT_Bitmap_", !4, i64 0, !4, i64 4, !4, i64 8, !117, i64 16, !80, i64 24, !5, i64 26, !5, i64 27, !10, i64 32}
+!192 = !{!190, !4, i64 56}
+!193 = !{!194, !80, i64 42}
+!194 = !{!"FT_OutlineGlyphRec_", !186, i64 0, !195, i64 40}
+!195 = !{!"FT_Outline_", !80, i64 0, !80, i64 2, !196, i64 8, !117, i64 16, !197, i64 24, !4, i64 32}
+!196 = !{!"p1 _ZTS10FT_Vector_", !10, i64 0}
+!197 = !{!"p1 short", !10, i64 0}
+!198 = !{!194, !80, i64 40}
+!199 = !{!66, !36, i64 32}
+!200 = !{!66, !41, i64 24}
+!201 = !{i64 0, i64 8, !26, i64 8, i64 4, !3, i64 12, i64 4, !3, i64 16, i64 4, !3, i64 20, i64 4, !3, i64 24, i64 4, !3, i64 32, i64 4, !3}
+!202 = !{!203, !135, i64 0}
+!203 = !{!"FT_SizeRec_", !135, i64 0, !142, i64 8, !204, i64 24, !205, i64 80}
+!204 = !{!"FT_Size_Metrics_", !80, i64 0, !80, i64 2, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
+!205 = !{!"p1 _ZTS20FT_Size_InternalRec_", !10, i64 0}
+!206 = !{!139, !144, i64 152}
+!207 = !{!208, !4, i64 144}
+!208 = !{!"FT_GlyphSlotRec_", !9, i64 0, !135, i64 8, !144, i64 16, !4, i64 24, !142, i64 32, !209, i64 48, !13, i64 112, !13, i64 120, !188, i64 128, !4, i64 144, !191, i64 152, !4, i64 192, !4, i64 196, !195, i64 200, !4, i64 240, !210, i64 248, !10, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !10, i64 288, !211, i64 296}
+!209 = !{!"FT_Glyph_Metrics_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56}
+!210 = !{!"p1 _ZTS15FT_SubGlyphRec_", !10, i64 0}
+!211 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !10, i64 0}
+!212 = !{!213, !10, i64 32}
+!213 = !{!"FTC_SFamilyClassRec_", !16, i64 0, !10, i64 32, !10, i64 40}
+!214 = !{!116, !5, i64 1}
+!215 = distinct !{!215, !76}
+!216 = !{!217, !217, i64 0}
+!217 = !{!"p1 _ZTS13FTC_SNodeRec_", !10, i64 0}
+!218 = !{!116, !80, i64 6}
+!219 = distinct !{!219, !76}
+!220 = distinct !{!220, !76}
+!221 = !{!213, !10, i64 40}
+!222 = !{!208, !13, i64 128}
+!223 = !{!208, !13, i64 136}
+!224 = !{!191, !4, i64 0}
+!225 = !{!191, !4, i64 4}
+!226 = !{!191, !4, i64 8}
+!227 = !{!208, !4, i64 192}
+!228 = !{!208, !4, i64 196}
+!229 = !{!116, !5, i64 2}
+!230 = !{!116, !5, i64 3}
+!231 = !{!116, !5, i64 8}
+!232 = !{!116, !5, i64 9}
+!233 = !{!191, !5, i64 26}
+!234 = !{!116, !5, i64 4}
+!235 = !{!191, !80, i64 24}
+!236 = !{!116, !5, i64 5}
+!237 = !{!208, !211, i64 296}
+!238 = !{!239, !4, i64 8}
+!239 = !{!"FT_Slot_InternalRec_", !240, i64 0, !4, i64 8, !5, i64 12, !241, i64 16, !188, i64 48, !10, i64 64, !4, i64 72}
+!240 = !{!"p1 _ZTS18FT_GlyphLoaderRec_", !10, i64 0}
+!241 = !{!"FT_Matrix_", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!242 = !{!191, !117, i64 16}
+!243 = !{!139, !13, i64 32}
+!244 = distinct !{!244, !76}
+!245 = !{!246, !246, i64 0}
+!246 = !{!"p1 _ZTS16FTC_CMapNodeRec_", !10, i64 0}
+!247 = !{!139, !145, i64 160}
+!248 = !{!164, !10, i64 24}

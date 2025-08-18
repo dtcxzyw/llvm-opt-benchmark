@@ -194,11 +194,11 @@ av_iamf_param_definition_get_subblock.exit.us44:  ; preds = %.lr.ph.split.us42
   %28 = load i64, ptr %13, align 8, !tbaa !14
   %29 = mul i64 %28, %indvars.iv55
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  store ptr @demixing_info_class, ptr %30, align 8, !tbaa !22
+  store ptr @demixing_info_class, ptr %30, align 8, !tbaa !21
   tail call void @av_opt_set_defaults(ptr noundef nonnull %30) #6
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %6
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us42, !llvm.loop !24
+  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us42, !llvm.loop !19
 
 .lr.ph.split.us45:                                ; preds = %.lr.ph, %av_iamf_param_definition_get_subblock.exit.us47
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_iamf_param_definition_get_subblock.exit.us47 ], [ 0, %.lr.ph ]
@@ -213,11 +213,11 @@ av_iamf_param_definition_get_subblock.exit.us47:  ; preds = %.lr.ph.split.us45
   %36 = load i64, ptr %13, align 8, !tbaa !14
   %37 = mul i64 %36, %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
-  store ptr @recon_gain_class, ptr %38, align 8, !tbaa !25
+  store ptr @recon_gain_class, ptr %38, align 8, !tbaa !23
   tail call void @av_opt_set_defaults(ptr noundef nonnull %38) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us45, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us45, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %av_iamf_param_definition_get_subblock.exit.us47, %av_iamf_param_definition_get_subblock.exit.us44, %av_iamf_param_definition_get_subblock.exit.us, %10
   %.not40 = icmp eq ptr %2, null
@@ -232,7 +232,7 @@ default.unreachable:                              ; preds = %.lr.ph
   unreachable
 
 39:                                               ; preds = %._crit_edge
-  store i64 %8, ptr %2, align 8, !tbaa !28
+  store i64 %8, ptr %2, align 8, !tbaa !25
   br label %40
 
 40:                                               ; preds = %3, %._crit_edge, %39, %switch.lookup
@@ -261,7 +261,7 @@ define ptr @av_iamf_audio_element_alloc() local_unnamed_addr #1 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  store ptr @audio_element_class, ptr %1, align 8, !tbaa !29
+  store ptr @audio_element_class, ptr %1, align 8, !tbaa !26
   tail call void @av_opt_set_defaults(ptr noundef nonnull %1) #6
   br label %3
 
@@ -272,13 +272,13 @@ define ptr @av_iamf_audio_element_alloc() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define ptr @av_iamf_audio_element_add_layer(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !31
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = add nuw i32 %3, 1
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @av_realloc_array(ptr noundef %7, i64 noundef %9, i64 noundef 8) #6
@@ -286,22 +286,22 @@ define ptr @av_iamf_audio_element_add_layer(ptr noundef captures(none) %0) local
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %5
-  store ptr %10, ptr %6, align 8, !tbaa !35
+  store ptr %10, ptr %6, align 8, !tbaa !32
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 64) #6
-  %13 = load ptr, ptr %6, align 8, !tbaa !35
-  %14 = load i32, ptr %2, align 8, !tbaa !34
+  %13 = load ptr, ptr %6, align 8, !tbaa !32
+  %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
-  store ptr %12, ptr %16, align 8, !tbaa !36
+  store ptr %12, ptr %16, align 8, !tbaa !33
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
 
 17:                                               ; preds = %11
-  store ptr @layer_class, ptr %12, align 8, !tbaa !38
+  store ptr @layer_class, ptr %12, align 8, !tbaa !35
   tail call void @av_opt_set_defaults(ptr noundef nonnull %12) #6
-  %18 = load i32, ptr %2, align 8, !tbaa !34
+  %18 = load i32, ptr %2, align 8, !tbaa !31
   %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 8, !tbaa !34
+  store i32 %19, ptr %2, align 8, !tbaa !31
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
@@ -313,13 +313,13 @@ declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @av_iamf_audio_element_free(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !39
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %.preheader
 
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !34
+  %4 = load i32, ptr %3, align 8, !tbaa !31
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -329,32 +329,32 @@ define void @av_iamf_audio_element_free(ptr noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   tail call void @av_free(ptr noundef %7) #6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   tail call void @av_free(ptr noundef %9) #6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
   tail call void @av_free(ptr noundef %11) #6
   tail call void @av_freep(ptr noundef nonnull %0) #6
   br label %21
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = load ptr, ptr %5, align 8, !tbaa !35
+  %13 = load ptr, ptr %5, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !33
   tail call void @av_opt_free(ptr noundef %15) #6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   tail call void @av_free(ptr noundef %17) #6
   tail call void @av_free(ptr noundef %15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %3, align 8, !tbaa !34
+  %18 = load i32, ptr %3, align 8, !tbaa !31
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %12, label %._crit_edge, !llvm.loop !47
+  br i1 %20, label %12, label %._crit_edge, !llvm.loop !44
 
 21:                                               ; preds = %1, %._crit_edge
   ret void
@@ -369,13 +369,13 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @av_iamf_submix_add_element(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !48
+  %3 = load i32, ptr %2, align 8, !tbaa !45
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !52
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %8 = add nuw i32 %3, 1
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @av_realloc_array(ptr noundef %7, i64 noundef %9, i64 noundef 8) #6
@@ -383,22 +383,22 @@ define ptr @av_iamf_submix_add_element(ptr noundef captures(none) %0) local_unna
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %5
-  store ptr %10, ptr %6, align 8, !tbaa !52
+  store ptr %10, ptr %6, align 8, !tbaa !49
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 48) #6
-  %13 = load ptr, ptr %6, align 8, !tbaa !52
-  %14 = load i32, ptr %2, align 8, !tbaa !48
+  %13 = load ptr, ptr %6, align 8, !tbaa !49
+  %14 = load i32, ptr %2, align 8, !tbaa !45
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
-  store ptr %12, ptr %16, align 8, !tbaa !53
+  store ptr %12, ptr %16, align 8, !tbaa !50
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
 
 17:                                               ; preds = %11
-  store ptr @element_class, ptr %12, align 8, !tbaa !55
+  store ptr @element_class, ptr %12, align 8, !tbaa !52
   tail call void @av_opt_set_defaults(ptr noundef nonnull %12) #6
-  %18 = load i32, ptr %2, align 8, !tbaa !48
+  %18 = load i32, ptr %2, align 8, !tbaa !45
   %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 8, !tbaa !48
+  store i32 %19, ptr %2, align 8, !tbaa !45
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
@@ -409,13 +409,13 @@ define ptr @av_iamf_submix_add_element(ptr noundef captures(none) %0) local_unna
 ; Function Attrs: nounwind uwtable
 define ptr @av_iamf_submix_add_layout(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !58
+  %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = add nuw i32 %3, 1
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @av_realloc_array(ptr noundef %7, i64 noundef %9, i64 noundef 8) #6
@@ -423,22 +423,22 @@ define ptr @av_iamf_submix_add_layout(ptr noundef captures(none) %0) local_unnam
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %5
-  store ptr %10, ptr %6, align 8, !tbaa !59
+  store ptr %10, ptr %6, align 8, !tbaa !56
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 80) #6
-  %13 = load ptr, ptr %6, align 8, !tbaa !59
-  %14 = load i32, ptr %2, align 8, !tbaa !58
+  %13 = load ptr, ptr %6, align 8, !tbaa !56
+  %14 = load i32, ptr %2, align 8, !tbaa !55
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
-  store ptr %12, ptr %16, align 8, !tbaa !60
+  store ptr %12, ptr %16, align 8, !tbaa !57
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
 
 17:                                               ; preds = %11
-  store ptr @layout_class, ptr %12, align 8, !tbaa !62
+  store ptr @layout_class, ptr %12, align 8, !tbaa !59
   tail call void @av_opt_set_defaults(ptr noundef nonnull %12) #6
-  %18 = load i32, ptr %2, align 8, !tbaa !58
+  %18 = load i32, ptr %2, align 8, !tbaa !55
   %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 8, !tbaa !58
+  store i32 %19, ptr %2, align 8, !tbaa !55
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
@@ -458,7 +458,7 @@ define ptr @av_iamf_mix_presentation_alloc() local_unnamed_addr #1 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  store ptr @mix_presentation_class, ptr %1, align 8, !tbaa !64
+  store ptr @mix_presentation_class, ptr %1, align 8, !tbaa !61
   tail call void @av_opt_set_defaults(ptr noundef nonnull %1) #6
   br label %3
 
@@ -469,13 +469,13 @@ define ptr @av_iamf_mix_presentation_alloc() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define ptr @av_iamf_mix_presentation_add_submix(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !67
+  %3 = load i32, ptr %2, align 8, !tbaa !64
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = add nuw i32 %3, 1
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @av_realloc_array(ptr noundef %7, i64 noundef %9, i64 noundef 8) #6
@@ -483,22 +483,22 @@ define ptr @av_iamf_mix_presentation_add_submix(ptr noundef captures(none) %0) l
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %5
-  store ptr %10, ptr %6, align 8, !tbaa !68
+  store ptr %10, ptr %6, align 8, !tbaa !65
   %12 = tail call noalias ptr @av_mallocz(i64 noundef 56) #6
-  %13 = load ptr, ptr %6, align 8, !tbaa !68
-  %14 = load i32, ptr %2, align 8, !tbaa !67
+  %13 = load ptr, ptr %6, align 8, !tbaa !65
+  %14 = load i32, ptr %2, align 8, !tbaa !64
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
-  store ptr %12, ptr %16, align 8, !tbaa !69
+  store ptr %12, ptr %16, align 8, !tbaa !66
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
 
 17:                                               ; preds = %11
-  store ptr @submix_class, ptr %12, align 8, !tbaa !71
+  store ptr @submix_class, ptr %12, align 8, !tbaa !68
   tail call void @av_opt_set_defaults(ptr noundef nonnull %12) #6
-  %18 = load i32, ptr %2, align 8, !tbaa !67
+  %18 = load i32, ptr %2, align 8, !tbaa !64
   %19 = add i32 %18, 1
-  store i32 %19, ptr %2, align 8, !tbaa !67
+  store i32 %19, ptr %2, align 8, !tbaa !64
   br label %20
 
 20:                                               ; preds = %11, %5, %1, %17
@@ -508,13 +508,13 @@ define ptr @av_iamf_mix_presentation_add_submix(ptr noundef captures(none) %0) l
 
 ; Function Attrs: nounwind uwtable
 define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !72
+  %2 = load ptr, ptr %0, align 8, !tbaa !69
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %43, label %.preheader
 
 .preheader:                                       ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !67
+  %4 = load i32, ptr %3, align 8, !tbaa !64
   %.not39 = icmp eq i32 %4, 0
   br i1 %.not39, label %._crit_edge38, label %.lr.ph37
 
@@ -525,18 +525,18 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 ._crit_edge38:                                    ; preds = %._crit_edge35, %.preheader
   tail call void @av_opt_free(ptr noundef nonnull %2) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %7 = load ptr, ptr %6, align 8, !tbaa !65
   tail call void @av_free(ptr noundef %7) #6
   tail call void @av_freep(ptr noundef nonnull %0) #6
   br label %43
 
 8:                                                ; preds = %.lr.ph37, %._crit_edge35
   %indvars.iv46 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next47, %._crit_edge35 ]
-  %9 = load ptr, ptr %5, align 8, !tbaa !68
+  %9 = load ptr, ptr %5, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv46
-  %11 = load ptr, ptr %10, align 8, !tbaa !69
+  %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !48
+  %13 = load i32, ptr %12, align 8, !tbaa !45
   %.not40 = icmp eq i32 %13, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -546,10 +546,10 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 
 ._crit_edge:                                      ; preds = %20, %8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %16 = load ptr, ptr %15, align 8, !tbaa !49
   tail call void @av_free(ptr noundef %16) #6
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !58
+  %18 = load i32, ptr %17, align 8, !tbaa !55
   %.not41 = icmp eq i32 %18, 0
   br i1 %.not41, label %._crit_edge35, label %.lr.ph34
 
@@ -559,46 +559,46 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = load ptr, ptr %14, align 8, !tbaa !52
+  %21 = load ptr, ptr %14, align 8, !tbaa !49
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %23 = load ptr, ptr %22, align 8, !tbaa !50
   tail call void @av_opt_free(ptr noundef %23) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %25 = load ptr, ptr %24, align 8, !tbaa !71
   tail call void @av_free(ptr noundef %25) #6
   tail call void @av_free(ptr noundef %23) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = load i32, ptr %12, align 8, !tbaa !48
+  %26 = load i32, ptr %12, align 8, !tbaa !45
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %20, label %._crit_edge, !llvm.loop !75
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge35:                                    ; preds = %36, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !59
+  %30 = load ptr, ptr %29, align 8, !tbaa !56
   tail call void @av_free(ptr noundef %30) #6
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %32 = load ptr, ptr %31, align 8, !tbaa !73
   tail call void @av_free(ptr noundef %32) #6
   tail call void @av_free(ptr noundef nonnull %11) #6
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %33 = load i32, ptr %3, align 8, !tbaa !67
+  %33 = load i32, ptr %3, align 8, !tbaa !64
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next47, %34
-  br i1 %35, label %8, label %._crit_edge38, !llvm.loop !77
+  br i1 %35, label %8, label %._crit_edge38, !llvm.loop !74
 
 36:                                               ; preds = %.lr.ph34, %36
   %indvars.iv43 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next44, %36 ]
-  %37 = load ptr, ptr %19, align 8, !tbaa !59
+  %37 = load ptr, ptr %19, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv43
-  %39 = load ptr, ptr %38, align 8, !tbaa !60
+  %39 = load ptr, ptr %38, align 8, !tbaa !57
   tail call void @av_opt_free(ptr noundef %39) #6
   tail call void @av_free(ptr noundef %39) #6
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %40 = load i32, ptr %17, align 8, !tbaa !58
+  %40 = load i32, ptr %17, align 8, !tbaa !55
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next44, %41
-  br i1 %42, label %36, label %._crit_edge35, !llvm.loop !78
+  br i1 %42, label %36, label %._crit_edge35, !llvm.loop !75
 
 43:                                               ; preds = %1, %._crit_edge38
   ret void
@@ -608,7 +608,7 @@ declare ptr @av_default_item_name(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @param_definition_child_iterate(ptr noundef captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !79
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %3 = icmp ult ptr %2, inttoptr (i64 3 to ptr)
   br i1 %3, label %switch.lookup, label %7
 
@@ -618,7 +618,7 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %0, align 8, !tbaa !79
+  store ptr %6, ptr %0, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %1, %switch.lookup
@@ -628,7 +628,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @audio_element_child_iterate(ptr noundef captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !79
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
@@ -636,7 +636,7 @@ define internal noundef ptr @audio_element_child_iterate(ptr noundef captures(no
   %4 = ptrtoint ptr %2 to i64
   %5 = add i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %0, align 8, !tbaa !79
+  store ptr %6, ptr %0, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -651,7 +651,7 @@ define internal ptr @submix_element_child_next(ptr noundef readonly captures(non
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   br label %6
 
 6:                                                ; preds = %2, %3
@@ -661,7 +661,7 @@ define internal ptr @submix_element_child_next(ptr noundef readonly captures(non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @submix_element_child_iterate(ptr noundef captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !79
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
@@ -669,7 +669,7 @@ define internal noundef ptr @submix_element_child_iterate(ptr noundef captures(n
   %4 = ptrtoint ptr %2 to i64
   %5 = add i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %0, align 8, !tbaa !79
+  store ptr %6, ptr %0, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -679,7 +679,7 @@ define internal noundef ptr @submix_element_child_iterate(ptr noundef captures(n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @mix_presentation_child_iterate(ptr noundef captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !79
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
 
@@ -687,7 +687,7 @@ define internal noundef ptr @mix_presentation_child_iterate(ptr noundef captures
   %4 = ptrtoint ptr %2 to i64
   %5 = add i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %0, align 8, !tbaa !79
+  store ptr %6, ptr %0, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -702,7 +702,7 @@ define internal ptr @submix_presentation_child_next(ptr noundef readonly capture
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
   br label %6
 
 6:                                                ; preds = %2, %3
@@ -712,7 +712,7 @@ define internal ptr @submix_presentation_child_next(ptr noundef readonly capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef ptr @submix_presentation_child_iterate(ptr noundef captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !79
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %3 = icmp ult ptr %2, inttoptr (i64 3 to ptr)
   br i1 %3, label %switch.lookup, label %7
 
@@ -722,7 +722,7 @@ switch.lookup:                                    ; preds = %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
-  store ptr %6, ptr %0, align 8, !tbaa !79
+  store ptr %6, ptr %0, align 8, !tbaa !76
   br label %7
 
 7:                                                ; preds = %1, %switch.lookup
@@ -760,64 +760,61 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !6, i64 0}
 !17 = !{!"AVIAMFMixGain", !6, i64 0, !11, i64 8, !11, i64 12, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40}
 !18 = !{!"AVRational", !11, i64 0, !11, i64 4}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = !{!23, !6, i64 0}
-!23 = !{!"AVIAMFDemixingInfo", !6, i64 0, !11, i64 8, !11, i64 12}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!26, !6, i64 0}
-!26 = !{!"AVIAMFReconGain", !6, i64 0, !11, i64 8, !8, i64 12}
-!27 = distinct !{!27, !20, !21}
-!28 = !{!10, !10, i64 0}
-!29 = !{!30, !6, i64 0}
-!30 = !{!"AVIAMFAudioElement", !6, i64 0, !31, i64 8, !11, i64 16, !33, i64 24, !33, i64 32, !11, i64 40, !11, i64 44}
-!31 = !{!"p2 _ZTS11AVIAMFLayer", !32, i64 0}
-!32 = !{!"any p2 pointer", !7, i64 0}
-!33 = !{!"p1 _ZTS21AVIAMFParamDefinition", !7, i64 0}
-!34 = !{!30, !11, i64 16}
-!35 = !{!30, !31, i64 8}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS11AVIAMFLayer", !7, i64 0}
-!38 = !{!39, !6, i64 0}
-!39 = !{!"AVIAMFLayer", !6, i64 0, !40, i64 8, !11, i64 32, !11, i64 36, !18, i64 40, !11, i64 48, !41, i64 56}
-!40 = !{!"AVChannelLayout", !11, i64 0, !11, i64 4, !8, i64 8, !7, i64 16}
-!41 = !{!"p1 _ZTS10AVRational", !7, i64 0}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS18AVIAMFAudioElement", !7, i64 0}
-!44 = !{!30, !33, i64 24}
-!45 = !{!30, !33, i64 32}
-!46 = !{!39, !41, i64 56}
-!47 = distinct !{!47, !20}
-!48 = !{!49, !11, i64 16}
-!49 = !{!"AVIAMFSubmix", !6, i64 0, !50, i64 8, !11, i64 16, !51, i64 24, !11, i64 32, !33, i64 40, !18, i64 48}
-!50 = !{!"p2 _ZTS19AVIAMFSubmixElement", !32, i64 0}
-!51 = !{!"p2 _ZTS18AVIAMFSubmixLayout", !32, i64 0}
-!52 = !{!49, !50, i64 8}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS19AVIAMFSubmixElement", !7, i64 0}
-!55 = !{!56, !6, i64 0}
-!56 = !{!"AVIAMFSubmixElement", !6, i64 0, !11, i64 8, !33, i64 16, !18, i64 24, !11, i64 32, !57, i64 40}
-!57 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!58 = !{!49, !11, i64 32}
-!59 = !{!49, !51, i64 24}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS18AVIAMFSubmixLayout", !7, i64 0}
-!62 = !{!63, !6, i64 0}
-!63 = !{!"AVIAMFSubmixLayout", !6, i64 0, !11, i64 8, !40, i64 16, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72}
-!64 = !{!65, !6, i64 0}
-!65 = !{!"AVIAMFMixPresentation", !6, i64 0, !66, i64 8, !11, i64 16, !57, i64 24}
-!66 = !{!"p2 _ZTS12AVIAMFSubmix", !32, i64 0}
-!67 = !{!65, !11, i64 16}
-!68 = !{!65, !66, i64 8}
+!21 = !{!22, !6, i64 0}
+!22 = !{!"AVIAMFDemixingInfo", !6, i64 0, !11, i64 8, !11, i64 12}
+!23 = !{!24, !6, i64 0}
+!24 = !{!"AVIAMFReconGain", !6, i64 0, !11, i64 8, !8, i64 12}
+!25 = !{!10, !10, i64 0}
+!26 = !{!27, !6, i64 0}
+!27 = !{!"AVIAMFAudioElement", !6, i64 0, !28, i64 8, !11, i64 16, !30, i64 24, !30, i64 32, !11, i64 40, !11, i64 44}
+!28 = !{!"p2 _ZTS11AVIAMFLayer", !29, i64 0}
+!29 = !{!"any p2 pointer", !7, i64 0}
+!30 = !{!"p1 _ZTS21AVIAMFParamDefinition", !7, i64 0}
+!31 = !{!27, !11, i64 16}
+!32 = !{!27, !28, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS11AVIAMFLayer", !7, i64 0}
+!35 = !{!36, !6, i64 0}
+!36 = !{!"AVIAMFLayer", !6, i64 0, !37, i64 8, !11, i64 32, !11, i64 36, !18, i64 40, !11, i64 48, !38, i64 56}
+!37 = !{!"AVChannelLayout", !11, i64 0, !11, i64 4, !8, i64 8, !7, i64 16}
+!38 = !{!"p1 _ZTS10AVRational", !7, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS18AVIAMFAudioElement", !7, i64 0}
+!41 = !{!27, !30, i64 24}
+!42 = !{!27, !30, i64 32}
+!43 = !{!36, !38, i64 56}
+!44 = distinct !{!44, !20}
+!45 = !{!46, !11, i64 16}
+!46 = !{!"AVIAMFSubmix", !6, i64 0, !47, i64 8, !11, i64 16, !48, i64 24, !11, i64 32, !30, i64 40, !18, i64 48}
+!47 = !{!"p2 _ZTS19AVIAMFSubmixElement", !29, i64 0}
+!48 = !{!"p2 _ZTS18AVIAMFSubmixLayout", !29, i64 0}
+!49 = !{!46, !47, i64 8}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS19AVIAMFSubmixElement", !7, i64 0}
+!52 = !{!53, !6, i64 0}
+!53 = !{!"AVIAMFSubmixElement", !6, i64 0, !11, i64 8, !30, i64 16, !18, i64 24, !11, i64 32, !54, i64 40}
+!54 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!55 = !{!46, !11, i64 32}
+!56 = !{!46, !48, i64 24}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS18AVIAMFSubmixLayout", !7, i64 0}
+!59 = !{!60, !6, i64 0}
+!60 = !{!"AVIAMFSubmixLayout", !6, i64 0, !11, i64 8, !37, i64 16, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72}
+!61 = !{!62, !6, i64 0}
+!62 = !{!"AVIAMFMixPresentation", !6, i64 0, !63, i64 8, !11, i64 16, !54, i64 24}
+!63 = !{!"p2 _ZTS12AVIAMFSubmix", !29, i64 0}
+!64 = !{!62, !11, i64 16}
+!65 = !{!62, !63, i64 8}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS12AVIAMFSubmix", !7, i64 0}
+!68 = !{!46, !6, i64 0}
 !69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTS12AVIAMFSubmix", !7, i64 0}
-!71 = !{!49, !6, i64 0}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS21AVIAMFMixPresentation", !7, i64 0}
-!74 = !{!56, !33, i64 16}
+!70 = !{!"p1 _ZTS21AVIAMFMixPresentation", !7, i64 0}
+!71 = !{!53, !30, i64 16}
+!72 = distinct !{!72, !20}
+!73 = !{!46, !30, i64 40}
+!74 = distinct !{!74, !20}
 !75 = distinct !{!75, !20}
-!76 = !{!49, !33, i64 40}
-!77 = distinct !{!77, !20}
-!78 = distinct !{!78, !20}
-!79 = !{!7, !7, i64 0}
+!76 = !{!7, !7, i64 0}

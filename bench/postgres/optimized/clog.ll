@@ -533,8 +533,8 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %16 = zext nneg i32 %6 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = sext i8 %18 to i32
-  %20 = ashr i32 %19, %8
+  %19 = zext i8 %18 to i32
+  %20 = lshr i32 %19, %8
   %21 = and i32 %20, 3
   %22 = shl i32 %9, 10
   %23 = lshr i32 %5, 5
@@ -999,8 +999,8 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %26 = zext nneg i32 %19 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = sext i8 %28 to i32
-  %30 = ashr i32 %29, %21
+  %29 = zext i8 %28 to i32
+  %30 = lshr i32 %29, %21
   %31 = and i32 %30, 3
   %32 = trunc nuw i8 %14 to i1
   %33 = icmp eq i32 %31, 1
@@ -1037,8 +1037,8 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %50 = zext nneg i32 %41 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
   %52 = load i8, ptr %51, align 1
-  %53 = sext i8 %52 to i32
-  %54 = ashr i32 %53, %43
+  %53 = zext i8 %52 to i32
+  %54 = lshr i32 %53, %43
   %55 = and i32 %54, 3
   %56 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %57 = trunc nuw i8 %56 to i1
@@ -1133,8 +1133,8 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %122 = zext nneg i32 %115 to i64
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
   %124 = load i8, ptr %123, align 1
-  %125 = sext i8 %124 to i32
-  %126 = ashr i32 %125, %117
+  %125 = zext i8 %124 to i32
+  %126 = lshr i32 %125, %117
   %127 = and i32 %126, 3
   %128 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %129 = trunc nuw i8 %128 to i1
@@ -1167,7 +1167,7 @@ TransactionIdSetStatusBit.exit33:                 ; preds = %.lr.ph.split, %131,
   %145 = phi ptr [ %111, %.lr.ph.split ], [ %137, %131 ], [ %.pre, %144 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
-  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !15
 
 TransactionIdSetStatusBit.exit:                   ; preds = %110, %99, %.split24, %79, %68, %60, %.split, %6
   %146 = icmp sgt i32 %1, 0
@@ -1207,8 +1207,8 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %162 = zext nneg i32 %155 to i64
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 %162
   %164 = load i8, ptr %163, align 1
-  %165 = sext i8 %164 to i32
-  %166 = ashr i32 %165, %157
+  %165 = zext i8 %164 to i32
+  %166 = lshr i32 %165, %157
   %167 = and i32 %166, 3
   %168 = trunc nuw i8 %150 to i1
   %or.cond.i34.us = and i1 %148, %168
@@ -1234,7 +1234,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %179 = phi ptr [ %.pre67, %170 ], [ %151, %.lr.ph39.split.us ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !18
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !16
 
 .lr.ph39.split:                                   ; preds = %.lr.ph39, %TransactionIdSetStatusBit.exit36
   %180 = phi ptr [ %218, %TransactionIdSetStatusBit.exit36 ], [ %.pre68, %.lr.ph39 ]
@@ -1252,8 +1252,8 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %191 = zext nneg i32 %184 to i64
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 %191
   %193 = load i8, ptr %192, align 1
-  %194 = sext i8 %193 to i32
-  %195 = ashr i32 %194, %186
+  %194 = zext i8 %193 to i32
+  %195 = lshr i32 %194, %186
   %196 = and i32 %195, 3
   %197 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %198 = trunc nuw i8 %197 to i1
@@ -1291,7 +1291,7 @@ TransactionIdSetStatusBit.exit36:                 ; preds = %.lr.ph39.split, %20
   %218 = phi ptr [ %180, %.lr.ph39.split ], [ %210, %200 ], [ %.pre65, %217 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !19
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit36, %TransactionIdSetStatusBit.exit36.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
   %.pre-phi73 = phi i64 [ %.pre72, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %147, %TransactionIdSetStatusBit.exit36.us ], [ %147, %TransactionIdSetStatusBit.exit36 ]
@@ -1371,8 +1371,5 @@ attributes #10 = { cold nounwind }
 !12 = distinct !{!12, !5}
 !13 = !{i64 2150825149}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !16}
-!19 = distinct !{!19, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

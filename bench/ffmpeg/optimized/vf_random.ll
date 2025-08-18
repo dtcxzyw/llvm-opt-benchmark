@@ -210,12 +210,12 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %19 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %19, ptr %12, align 4, !tbaa !24
   %20 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %20, label %.lr.ph42, label %.loopexit, !llvm.loop !54
+  br i1 %20, label %.lr.ph42, label %.loopexit
 
 .thread:                                          ; preds = %.lr.ph42
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8480
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12576
-  %23 = load i32, ptr %22, align 8, !tbaa !56
+  %23 = load i32, ptr %22, align 8, !tbaa !54
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [512 x i64], ptr %21, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !44
@@ -223,7 +223,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   store i64 %26, ptr %27, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4384
   %29 = add nsw i32 %23, 1
-  store i32 %29, ptr %22, align 8, !tbaa !56
+  store i32 %29, ptr %22, align 8, !tbaa !54
   %30 = getelementptr inbounds [512 x i64], ptr %28, i64 0, i64 %24
   %31 = load i64, ptr %30, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 136
@@ -314,6 +314,4 @@ attributes #4 = { nounwind }
 !51 = !{!28, !29, i64 0}
 !52 = !{!5, !13, i64 32}
 !53 = !{!5, !15, i64 128}
-!54 = distinct !{!54, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!21, !15, i64 12576}
+!54 = !{!21, !15, i64 12576}

@@ -1003,7 +1003,7 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
   store ptr %68, ptr %69, align 8, !tbaa !105
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 6
-  br i1 %exitcond51.not, label %.preheader39, label %.preheader40, !llvm.loop !124
+  br i1 %exitcond51.not, label %.preheader39, label %.preheader40, !llvm.loop !123
 
 .split.us:                                        ; preds = %._crit_edge.us, %.preheader39
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1023,7 +1023,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %11 = load i32, ptr %10, align 8, !tbaa !125
+  %11 = load i32, ptr %10, align 8, !tbaa !124
   %indvars.iv58.sroa.gep76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %.preheader48
 
@@ -1039,7 +1039,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %17 = and i32 %16, 3
   %18 = getelementptr inbounds nuw i8, ptr %indvars.iv58.sroa.phi, i64 4
   store i32 %17, ptr %18, align 4, !tbaa !6
-  br i1 %12, label %.preheader48, label %19, !llvm.loop !126
+  br i1 %12, label %.preheader48, label %19, !llvm.loop !125
 
 19:                                               ; preds = %.preheader48
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 381716
@@ -1067,7 +1067,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   store ptr %36, ptr %37, align 8, !tbaa !105
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, 3
-  br i1 %exitcond.not, label %.preheader47, label %27, !llvm.loop !127
+  br i1 %exitcond.not, label %.preheader47, label %27, !llvm.loop !126
 
 .preheader46:                                     ; preds = %.preheader47
   %.not = icmp eq i32 %4, 0
@@ -1123,7 +1123,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   store i16 %62, ptr %63, align 2, !tbaa !120
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond71.not, label %._crit_edge.us, label %52, !llvm.loop !128
+  br i1 %exitcond71.not, label %._crit_edge.us, label %52, !llvm.loop !127
 
 ._crit_edge.us:                                   ; preds = %58
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
@@ -1131,7 +1131,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %65 = zext i16 %64 to i64
   %66 = getelementptr inbounds nuw i16, ptr %.04154.us, i64 %65
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 6
-  br i1 %exitcond75.not, label %.split.us, label %.preheader.us, !llvm.loop !129
+  br i1 %exitcond75.not, label %.split.us, label %.preheader.us, !llvm.loop !128
 
 .preheader47:                                     ; preds = %27, %.preheader47
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader47 ], [ 0, %27 ]
@@ -1143,7 +1143,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   store ptr %70, ptr %71, align 8, !tbaa !105
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 6
-  br i1 %exitcond67.not, label %.preheader46, label %.preheader47, !llvm.loop !130
+  br i1 %exitcond67.not, label %.preheader46, label %.preheader47, !llvm.loop !129
 
 .split.us:                                        ; preds = %._crit_edge.us, %.preheader46
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1276,7 +1276,7 @@ _ZL30fuji_decode_interpolation_eveniPti.exit:     ; preds = %48, %57, %59
   %83 = icmp slt i32 %.1271, %7
   %84 = icmp slt i32 %.1259, %7
   %85 = select i1 %83, i1 true, i1 %84
-  br i1 %85, label %21, label %._crit_edge, !llvm.loop !131
+  br i1 %85, label %21, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %82, %4
   %.0240.lcssa = phi i32 [ 0, %4 ], [ %.2242, %82 ]
@@ -1300,7 +1300,7 @@ _ZL30fuji_decode_interpolation_eveniPti.exit:     ; preds = %48, %57, %59
   store i16 %96, ptr %98, align 2, !tbaa !120
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZL15fuji_extend_redPPti.exit, label %88, !llvm.loop !132
+  br i1 %exitcond.not.i.i, label %_ZL15fuji_extend_redPPti.exit, label %88, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit:                    ; preds = %88, %_ZL15fuji_extend_redPPti.exit
   %indvars.iv.i.i292 = phi i64 [ %indvars.iv.next.i.i293, %_ZL15fuji_extend_redPPti.exit ], [ 7, %88 ]
@@ -1318,7 +1318,7 @@ _ZL15fuji_extend_redPPti.exit:                    ; preds = %88, %_ZL15fuji_exte
   store i16 %106, ptr %108, align 2, !tbaa !120
   %indvars.iv.next.i.i293 = add nuw nsw i64 %indvars.iv.i.i292, 1
   %exitcond.not.i.i294 = icmp eq i64 %indvars.iv.next.i.i293, 13
-  br i1 %exitcond.not.i.i294, label %_ZL17fuji_extend_greenPPti.exit.preheader, label %_ZL15fuji_extend_redPPti.exit, !llvm.loop !132
+  br i1 %exitcond.not.i.i294, label %_ZL17fuji_extend_greenPPti.exit.preheader, label %_ZL15fuji_extend_redPPti.exit, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit.preheader:        ; preds = %_ZL15fuji_extend_redPPti.exit
   br i1 %.not406, label %.preheader365, label %.lr.ph376
@@ -1442,7 +1442,7 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %172, %170
   %183 = icmp slt i32 %.3273, %7
   %184 = icmp slt i32 %.3261, %7
   %185 = select i1 %183, i1 true, i1 %184
-  br i1 %185, label %122, label %.preheader365, !llvm.loop !133
+  br i1 %185, label %122, label %.preheader365, !llvm.loop !132
 
 186:                                              ; preds = %.preheader365, %186
   %indvars.iv.i.i299 = phi i64 [ %indvars.iv.next.i.i300, %186 ], [ 7, %.preheader365 ]
@@ -1460,7 +1460,7 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %172, %170
   store i16 %194, ptr %196, align 2, !tbaa !120
   %indvars.iv.next.i.i300 = add nuw nsw i64 %indvars.iv.i.i299, 1
   %exitcond.not.i.i301 = icmp eq i64 %indvars.iv.next.i.i300, 13
-  br i1 %exitcond.not.i.i301, label %_ZL17fuji_extend_greenPPti.exit302, label %186, !llvm.loop !132
+  br i1 %exitcond.not.i.i301, label %_ZL17fuji_extend_greenPPti.exit302, label %186, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit302:               ; preds = %186, %_ZL17fuji_extend_greenPPti.exit302
   %indvars.iv.i.i303 = phi i64 [ %indvars.iv.next.i.i304, %_ZL17fuji_extend_greenPPti.exit302 ], [ 15, %186 ]
@@ -1478,7 +1478,7 @@ _ZL17fuji_extend_greenPPti.exit302:               ; preds = %186, %_ZL17fuji_ext
   store i16 %204, ptr %206, align 2, !tbaa !120
   %indvars.iv.next.i.i304 = add nuw nsw i64 %indvars.iv.i.i303, 1
   %exitcond.not.i.i305 = icmp eq i64 %indvars.iv.next.i.i304, 18
-  br i1 %exitcond.not.i.i305, label %_ZL16fuji_extend_bluePPti.exit.preheader, label %_ZL17fuji_extend_greenPPti.exit302, !llvm.loop !132
+  br i1 %exitcond.not.i.i305, label %_ZL16fuji_extend_bluePPti.exit.preheader, label %_ZL17fuji_extend_greenPPti.exit302, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit.preheader:         ; preds = %_ZL17fuji_extend_greenPPti.exit302
   br i1 %.not406, label %.preheader364, label %.lr.ph383
@@ -1666,7 +1666,7 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %311, %309
   %322 = icmp slt i32 %.5275, %7
   %323 = icmp slt i32 %.5263, %7
   %324 = select i1 %322, i1 true, i1 %323
-  br i1 %324, label %220, label %.preheader364, !llvm.loop !134
+  br i1 %324, label %220, label %.preheader364, !llvm.loop !133
 
 325:                                              ; preds = %.preheader364, %325
   %indvars.iv.i.i314 = phi i64 [ %indvars.iv.next.i.i315, %325 ], [ 2, %.preheader364 ]
@@ -1684,7 +1684,7 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %311, %309
   store i16 %333, ptr %335, align 2, !tbaa !120
   %indvars.iv.next.i.i315 = add nuw nsw i64 %indvars.iv.i.i314, 1
   %exitcond.not.i.i316 = icmp eq i64 %indvars.iv.next.i.i315, 5
-  br i1 %exitcond.not.i.i316, label %_ZL15fuji_extend_redPPti.exit317, label %325, !llvm.loop !132
+  br i1 %exitcond.not.i.i316, label %_ZL15fuji_extend_redPPti.exit317, label %325, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit317:                 ; preds = %325, %_ZL15fuji_extend_redPPti.exit317
   %indvars.iv.i.i318 = phi i64 [ %indvars.iv.next.i.i319, %_ZL15fuji_extend_redPPti.exit317 ], [ 7, %325 ]
@@ -1702,7 +1702,7 @@ _ZL15fuji_extend_redPPti.exit317:                 ; preds = %325, %_ZL15fuji_ext
   store i16 %343, ptr %345, align 2, !tbaa !120
   %indvars.iv.next.i.i319 = add nuw nsw i64 %indvars.iv.i.i318, 1
   %exitcond.not.i.i320 = icmp eq i64 %indvars.iv.next.i.i319, 13
-  br i1 %exitcond.not.i.i320, label %_ZL17fuji_extend_greenPPti.exit321.preheader, label %_ZL15fuji_extend_redPPti.exit317, !llvm.loop !132
+  br i1 %exitcond.not.i.i320, label %_ZL17fuji_extend_greenPPti.exit321.preheader, label %_ZL15fuji_extend_redPPti.exit317, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit321.preheader:     ; preds = %_ZL15fuji_extend_redPPti.exit317
   br i1 %.not406, label %.preheader363, label %.lr.ph390
@@ -1840,7 +1840,7 @@ _ZL17fuji_extend_greenPPti.exit321:               ; preds = %416, %414
   %427 = icmp slt i32 %.7277, %7
   %428 = icmp slt i32 %.7265, %7
   %429 = select i1 %427, i1 true, i1 %428
-  br i1 %429, label %359, label %.preheader363, !llvm.loop !135
+  br i1 %429, label %359, label %.preheader363, !llvm.loop !134
 
 430:                                              ; preds = %.preheader363, %430
   %indvars.iv.i.i326 = phi i64 [ %indvars.iv.next.i.i327, %430 ], [ 7, %.preheader363 ]
@@ -1858,7 +1858,7 @@ _ZL17fuji_extend_greenPPti.exit321:               ; preds = %416, %414
   store i16 %438, ptr %440, align 2, !tbaa !120
   %indvars.iv.next.i.i327 = add nuw nsw i64 %indvars.iv.i.i326, 1
   %exitcond.not.i.i328 = icmp eq i64 %indvars.iv.next.i.i327, 13
-  br i1 %exitcond.not.i.i328, label %_ZL17fuji_extend_greenPPti.exit329, label %430, !llvm.loop !132
+  br i1 %exitcond.not.i.i328, label %_ZL17fuji_extend_greenPPti.exit329, label %430, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit329:               ; preds = %430, %_ZL17fuji_extend_greenPPti.exit329
   %indvars.iv.i.i330 = phi i64 [ %indvars.iv.next.i.i331, %_ZL17fuji_extend_greenPPti.exit329 ], [ 15, %430 ]
@@ -1876,7 +1876,7 @@ _ZL17fuji_extend_greenPPti.exit329:               ; preds = %430, %_ZL17fuji_ext
   store i16 %448, ptr %450, align 2, !tbaa !120
   %indvars.iv.next.i.i331 = add nuw nsw i64 %indvars.iv.i.i330, 1
   %exitcond.not.i.i332 = icmp eq i64 %indvars.iv.next.i.i331, 18
-  br i1 %exitcond.not.i.i332, label %_ZL16fuji_extend_bluePPti.exit333.preheader, label %_ZL17fuji_extend_greenPPti.exit329, !llvm.loop !132
+  br i1 %exitcond.not.i.i332, label %_ZL16fuji_extend_bluePPti.exit333.preheader, label %_ZL17fuji_extend_greenPPti.exit329, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit333.preheader:      ; preds = %_ZL17fuji_extend_greenPPti.exit329
   br i1 %.not406, label %.preheader362, label %.lr.ph397
@@ -2014,7 +2014,7 @@ _ZL16fuji_extend_bluePPti.exit333:                ; preds = %521, %519
   %532 = icmp slt i32 %.9279, %7
   %533 = icmp slt i32 %.9267, %7
   %534 = select i1 %532, i1 true, i1 %533
-  br i1 %534, label %464, label %.preheader362, !llvm.loop !136
+  br i1 %534, label %464, label %.preheader362, !llvm.loop !135
 
 535:                                              ; preds = %.preheader362, %535
   %indvars.iv.i.i338 = phi i64 [ %indvars.iv.next.i.i339, %535 ], [ 2, %.preheader362 ]
@@ -2032,7 +2032,7 @@ _ZL16fuji_extend_bluePPti.exit333:                ; preds = %521, %519
   store i16 %543, ptr %545, align 2, !tbaa !120
   %indvars.iv.next.i.i339 = add nuw nsw i64 %indvars.iv.i.i338, 1
   %exitcond.not.i.i340 = icmp eq i64 %indvars.iv.next.i.i339, 5
-  br i1 %exitcond.not.i.i340, label %_ZL15fuji_extend_redPPti.exit341, label %535, !llvm.loop !132
+  br i1 %exitcond.not.i.i340, label %_ZL15fuji_extend_redPPti.exit341, label %535, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit341:                 ; preds = %535, %_ZL15fuji_extend_redPPti.exit341
   %indvars.iv.i.i342 = phi i64 [ %indvars.iv.next.i.i343, %_ZL15fuji_extend_redPPti.exit341 ], [ 7, %535 ]
@@ -2050,7 +2050,7 @@ _ZL15fuji_extend_redPPti.exit341:                 ; preds = %535, %_ZL15fuji_ext
   store i16 %553, ptr %555, align 2, !tbaa !120
   %indvars.iv.next.i.i343 = add nuw nsw i64 %indvars.iv.i.i342, 1
   %exitcond.not.i.i344 = icmp eq i64 %indvars.iv.next.i.i343, 13
-  br i1 %exitcond.not.i.i344, label %_ZL17fuji_extend_greenPPti.exit345.preheader, label %_ZL15fuji_extend_redPPti.exit341, !llvm.loop !132
+  br i1 %exitcond.not.i.i344, label %_ZL17fuji_extend_greenPPti.exit345.preheader, label %_ZL15fuji_extend_redPPti.exit341, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit345.preheader:     ; preds = %_ZL15fuji_extend_redPPti.exit341
   br i1 %.not406, label %.preheader, label %.lr.ph404
@@ -2238,7 +2238,7 @@ _ZL17fuji_extend_greenPPti.exit345:               ; preds = %660, %658
   %671 = icmp slt i32 %.11281, %7
   %672 = icmp slt i32 %.11269, %7
   %673 = select i1 %671, i1 true, i1 %672
-  br i1 %673, label %569, label %.preheader, !llvm.loop !137
+  br i1 %673, label %569, label %.preheader, !llvm.loop !136
 
 674:                                              ; preds = %.preheader, %674
   %indvars.iv.i.i354 = phi i64 [ %indvars.iv.next.i.i355, %674 ], [ 7, %.preheader ]
@@ -2256,7 +2256,7 @@ _ZL17fuji_extend_greenPPti.exit345:               ; preds = %660, %658
   store i16 %682, ptr %684, align 2, !tbaa !120
   %indvars.iv.next.i.i355 = add nuw nsw i64 %indvars.iv.i.i354, 1
   %exitcond.not.i.i356 = icmp eq i64 %indvars.iv.next.i.i355, 13
-  br i1 %exitcond.not.i.i356, label %_ZL17fuji_extend_greenPPti.exit357, label %674, !llvm.loop !132
+  br i1 %exitcond.not.i.i356, label %_ZL17fuji_extend_greenPPti.exit357, label %674, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit357:               ; preds = %674, %_ZL17fuji_extend_greenPPti.exit357
   %indvars.iv.i.i358 = phi i64 [ %indvars.iv.next.i.i359, %_ZL17fuji_extend_greenPPti.exit357 ], [ 15, %674 ]
@@ -2274,7 +2274,7 @@ _ZL17fuji_extend_greenPPti.exit357:               ; preds = %674, %_ZL17fuji_ext
   store i16 %692, ptr %694, align 2, !tbaa !120
   %indvars.iv.next.i.i359 = add nuw nsw i64 %indvars.iv.i.i358, 1
   %exitcond.not.i.i360 = icmp eq i64 %indvars.iv.next.i.i359, 18
-  br i1 %exitcond.not.i.i360, label %_ZL16fuji_extend_bluePPti.exit361, label %_ZL17fuji_extend_greenPPti.exit357, !llvm.loop !132
+  br i1 %exitcond.not.i.i360, label %_ZL16fuji_extend_bluePPti.exit361, label %_ZL17fuji_extend_greenPPti.exit357, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit361:                ; preds = %_ZL17fuji_extend_greenPPti.exit357
   %.not = icmp eq i32 %.18.lcssa, 0
@@ -2359,7 +2359,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL23fuji_decode_sample_even
 55:                                               ; preds = %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !138
+  br i1 %exitcond.not, label %.loopexit, label %46, !llvm.loop !137
 
 .loopexit:                                        ; preds = %55, %5, %49
   %.0121 = phi ptr [ %50, %49 ], [ %1, %5 ], [ %1, %55 ]
@@ -2441,7 +2441,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL23fuji_decode_sample_even
   %107 = add nuw nsw i32 %.1.i, 1
   %108 = shl i32 %104, %107
   %109 = icmp slt i32 %108, %102
-  br i1 %109, label %.preheader.i, label %_ZL7bitDiffii.exit, !llvm.loop !139
+  br i1 %109, label %.preheader.i, label %_ZL7bitDiffii.exit, !llvm.loop !138
 
 _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %106, %99
   %.0.i = phi i32 [ 0, %99 ], [ %107, %106 ], [ 15, %.preheader.i ]
@@ -2634,7 +2634,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
 52:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !140
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !139
 
 .loopexit:                                        ; preds = %52, %5, %46
   %.0111 = phi ptr [ %47, %46 ], [ %1, %5 ], [ %1, %52 ]
@@ -2711,7 +2711,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
   %101 = add nuw nsw i32 %.1.i, 1
   %102 = shl i32 %98, %101
   %103 = icmp slt i32 %102, %96
-  br i1 %103, label %.preheader.i, label %_ZL7bitDiffii.exit, !llvm.loop !139
+  br i1 %103, label %.preheader.i, label %_ZL7bitDiffii.exit, !llvm.loop !138
 
 _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %100, %93
   %.0.i = phi i32 [ 0, %93 ], [ %101, %100 ], [ 15, %.preheader.i ]
@@ -2899,7 +2899,7 @@ define void @_ZN6LibRaw23fuji_bayer_decode_blockEP21fuji_compressed_blockPK22fuj
   %39 = icmp slt i32 %.1267, %7
   %40 = icmp slt i32 %.1255, %7
   %41 = select i1 %39, i1 true, i1 %40
-  br i1 %41, label %12, label %._crit_edge, !llvm.loop !141
+  br i1 %41, label %12, label %._crit_edge, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %38, %4
   %.0236.lcssa = phi i32 [ 0, %4 ], [ %.2238, %38 ]
@@ -2923,7 +2923,7 @@ define void @_ZN6LibRaw23fuji_bayer_decode_blockEP21fuji_compressed_blockPK22fuj
   store i16 %52, ptr %54, align 2, !tbaa !120
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %_ZL15fuji_extend_redPPti.exit, label %44, !llvm.loop !132
+  br i1 %exitcond.not.i.i, label %_ZL15fuji_extend_redPPti.exit, label %44, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit:                    ; preds = %44, %_ZL15fuji_extend_redPPti.exit
   %indvars.iv.i.i285 = phi i64 [ %indvars.iv.next.i.i286, %_ZL15fuji_extend_redPPti.exit ], [ 7, %44 ]
@@ -2941,7 +2941,7 @@ _ZL15fuji_extend_redPPti.exit:                    ; preds = %44, %_ZL15fuji_exte
   store i16 %62, ptr %64, align 2, !tbaa !120
   %indvars.iv.next.i.i286 = add nuw nsw i64 %indvars.iv.i.i285, 1
   %exitcond.not.i.i287 = icmp eq i64 %indvars.iv.next.i.i286, 13
-  br i1 %exitcond.not.i.i287, label %_ZL17fuji_extend_greenPPti.exit.preheader, label %_ZL15fuji_extend_redPPti.exit, !llvm.loop !132
+  br i1 %exitcond.not.i.i287, label %_ZL17fuji_extend_greenPPti.exit.preheader, label %_ZL15fuji_extend_redPPti.exit, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit.preheader:        ; preds = %_ZL15fuji_extend_redPPti.exit
   br i1 %.not371, label %.preheader330, label %.lr.ph341
@@ -3006,7 +3006,7 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %84, %82
   %95 = icmp slt i32 %.3269, %7
   %96 = icmp slt i32 %.3257, %7
   %97 = select i1 %95, i1 true, i1 %96
-  br i1 %97, label %69, label %.preheader330, !llvm.loop !142
+  br i1 %97, label %69, label %.preheader330, !llvm.loop !141
 
 98:                                               ; preds = %.preheader330, %98
   %indvars.iv.i.i288 = phi i64 [ %indvars.iv.next.i.i289, %98 ], [ 7, %.preheader330 ]
@@ -3024,7 +3024,7 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %84, %82
   store i16 %106, ptr %108, align 2, !tbaa !120
   %indvars.iv.next.i.i289 = add nuw nsw i64 %indvars.iv.i.i288, 1
   %exitcond.not.i.i290 = icmp eq i64 %indvars.iv.next.i.i289, 13
-  br i1 %exitcond.not.i.i290, label %_ZL17fuji_extend_greenPPti.exit291, label %98, !llvm.loop !132
+  br i1 %exitcond.not.i.i290, label %_ZL17fuji_extend_greenPPti.exit291, label %98, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit291:               ; preds = %98, %_ZL17fuji_extend_greenPPti.exit291
   %indvars.iv.i.i292 = phi i64 [ %indvars.iv.next.i.i293, %_ZL17fuji_extend_greenPPti.exit291 ], [ 15, %98 ]
@@ -3042,7 +3042,7 @@ _ZL17fuji_extend_greenPPti.exit291:               ; preds = %98, %_ZL17fuji_exte
   store i16 %116, ptr %118, align 2, !tbaa !120
   %indvars.iv.next.i.i293 = add nuw nsw i64 %indvars.iv.i.i292, 1
   %exitcond.not.i.i294 = icmp eq i64 %indvars.iv.next.i.i293, 18
-  br i1 %exitcond.not.i.i294, label %_ZL16fuji_extend_bluePPti.exit.preheader, label %_ZL17fuji_extend_greenPPti.exit291, !llvm.loop !132
+  br i1 %exitcond.not.i.i294, label %_ZL16fuji_extend_bluePPti.exit.preheader, label %_ZL17fuji_extend_greenPPti.exit291, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit.preheader:         ; preds = %_ZL17fuji_extend_greenPPti.exit291
   br i1 %.not371, label %.preheader329, label %.lr.ph348
@@ -3107,7 +3107,7 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %138, %136
   %149 = icmp slt i32 %.5271, %7
   %150 = icmp slt i32 %.5259, %7
   %151 = select i1 %149, i1 true, i1 %150
-  br i1 %151, label %123, label %.preheader329, !llvm.loop !143
+  br i1 %151, label %123, label %.preheader329, !llvm.loop !142
 
 152:                                              ; preds = %.preheader329, %152
   %indvars.iv.i.i295 = phi i64 [ %indvars.iv.next.i.i296, %152 ], [ 2, %.preheader329 ]
@@ -3125,7 +3125,7 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %138, %136
   store i16 %160, ptr %162, align 2, !tbaa !120
   %indvars.iv.next.i.i296 = add nuw nsw i64 %indvars.iv.i.i295, 1
   %exitcond.not.i.i297 = icmp eq i64 %indvars.iv.next.i.i296, 5
-  br i1 %exitcond.not.i.i297, label %_ZL15fuji_extend_redPPti.exit298, label %152, !llvm.loop !132
+  br i1 %exitcond.not.i.i297, label %_ZL15fuji_extend_redPPti.exit298, label %152, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit298:                 ; preds = %152, %_ZL15fuji_extend_redPPti.exit298
   %indvars.iv.i.i299 = phi i64 [ %indvars.iv.next.i.i300, %_ZL15fuji_extend_redPPti.exit298 ], [ 7, %152 ]
@@ -3143,7 +3143,7 @@ _ZL15fuji_extend_redPPti.exit298:                 ; preds = %152, %_ZL15fuji_ext
   store i16 %170, ptr %172, align 2, !tbaa !120
   %indvars.iv.next.i.i300 = add nuw nsw i64 %indvars.iv.i.i299, 1
   %exitcond.not.i.i301 = icmp eq i64 %indvars.iv.next.i.i300, 13
-  br i1 %exitcond.not.i.i301, label %_ZL17fuji_extend_greenPPti.exit302.preheader, label %_ZL15fuji_extend_redPPti.exit298, !llvm.loop !132
+  br i1 %exitcond.not.i.i301, label %_ZL17fuji_extend_greenPPti.exit302.preheader, label %_ZL15fuji_extend_redPPti.exit298, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit302.preheader:     ; preds = %_ZL15fuji_extend_redPPti.exit298
   br i1 %.not371, label %.preheader328, label %.lr.ph355
@@ -3208,7 +3208,7 @@ _ZL17fuji_extend_greenPPti.exit302:               ; preds = %192, %190
   %203 = icmp slt i32 %.7273, %7
   %204 = icmp slt i32 %.7261, %7
   %205 = select i1 %203, i1 true, i1 %204
-  br i1 %205, label %177, label %.preheader328, !llvm.loop !144
+  br i1 %205, label %177, label %.preheader328, !llvm.loop !143
 
 206:                                              ; preds = %.preheader328, %206
   %indvars.iv.i.i303 = phi i64 [ %indvars.iv.next.i.i304, %206 ], [ 7, %.preheader328 ]
@@ -3226,7 +3226,7 @@ _ZL17fuji_extend_greenPPti.exit302:               ; preds = %192, %190
   store i16 %214, ptr %216, align 2, !tbaa !120
   %indvars.iv.next.i.i304 = add nuw nsw i64 %indvars.iv.i.i303, 1
   %exitcond.not.i.i305 = icmp eq i64 %indvars.iv.next.i.i304, 13
-  br i1 %exitcond.not.i.i305, label %_ZL17fuji_extend_greenPPti.exit306, label %206, !llvm.loop !132
+  br i1 %exitcond.not.i.i305, label %_ZL17fuji_extend_greenPPti.exit306, label %206, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit306:               ; preds = %206, %_ZL17fuji_extend_greenPPti.exit306
   %indvars.iv.i.i307 = phi i64 [ %indvars.iv.next.i.i308, %_ZL17fuji_extend_greenPPti.exit306 ], [ 15, %206 ]
@@ -3244,7 +3244,7 @@ _ZL17fuji_extend_greenPPti.exit306:               ; preds = %206, %_ZL17fuji_ext
   store i16 %224, ptr %226, align 2, !tbaa !120
   %indvars.iv.next.i.i308 = add nuw nsw i64 %indvars.iv.i.i307, 1
   %exitcond.not.i.i309 = icmp eq i64 %indvars.iv.next.i.i308, 18
-  br i1 %exitcond.not.i.i309, label %_ZL16fuji_extend_bluePPti.exit310.preheader, label %_ZL17fuji_extend_greenPPti.exit306, !llvm.loop !132
+  br i1 %exitcond.not.i.i309, label %_ZL16fuji_extend_bluePPti.exit310.preheader, label %_ZL17fuji_extend_greenPPti.exit306, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit310.preheader:      ; preds = %_ZL17fuji_extend_greenPPti.exit306
   br i1 %.not371, label %.preheader327, label %.lr.ph362
@@ -3309,7 +3309,7 @@ _ZL16fuji_extend_bluePPti.exit310:                ; preds = %246, %244
   %257 = icmp slt i32 %.9275, %7
   %258 = icmp slt i32 %.9263, %7
   %259 = select i1 %257, i1 true, i1 %258
-  br i1 %259, label %231, label %.preheader327, !llvm.loop !145
+  br i1 %259, label %231, label %.preheader327, !llvm.loop !144
 
 260:                                              ; preds = %.preheader327, %260
   %indvars.iv.i.i311 = phi i64 [ %indvars.iv.next.i.i312, %260 ], [ 2, %.preheader327 ]
@@ -3327,7 +3327,7 @@ _ZL16fuji_extend_bluePPti.exit310:                ; preds = %246, %244
   store i16 %268, ptr %270, align 2, !tbaa !120
   %indvars.iv.next.i.i312 = add nuw nsw i64 %indvars.iv.i.i311, 1
   %exitcond.not.i.i313 = icmp eq i64 %indvars.iv.next.i.i312, 5
-  br i1 %exitcond.not.i.i313, label %_ZL15fuji_extend_redPPti.exit314, label %260, !llvm.loop !132
+  br i1 %exitcond.not.i.i313, label %_ZL15fuji_extend_redPPti.exit314, label %260, !llvm.loop !131
 
 _ZL15fuji_extend_redPPti.exit314:                 ; preds = %260, %_ZL15fuji_extend_redPPti.exit314
   %indvars.iv.i.i315 = phi i64 [ %indvars.iv.next.i.i316, %_ZL15fuji_extend_redPPti.exit314 ], [ 7, %260 ]
@@ -3345,7 +3345,7 @@ _ZL15fuji_extend_redPPti.exit314:                 ; preds = %260, %_ZL15fuji_ext
   store i16 %278, ptr %280, align 2, !tbaa !120
   %indvars.iv.next.i.i316 = add nuw nsw i64 %indvars.iv.i.i315, 1
   %exitcond.not.i.i317 = icmp eq i64 %indvars.iv.next.i.i316, 13
-  br i1 %exitcond.not.i.i317, label %_ZL17fuji_extend_greenPPti.exit318.preheader, label %_ZL15fuji_extend_redPPti.exit314, !llvm.loop !132
+  br i1 %exitcond.not.i.i317, label %_ZL17fuji_extend_greenPPti.exit318.preheader, label %_ZL15fuji_extend_redPPti.exit314, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit318.preheader:     ; preds = %_ZL15fuji_extend_redPPti.exit314
   br i1 %.not371, label %.preheader, label %.lr.ph369
@@ -3410,7 +3410,7 @@ _ZL17fuji_extend_greenPPti.exit318:               ; preds = %300, %298
   %311 = icmp slt i32 %.11277, %7
   %312 = icmp slt i32 %.11265, %7
   %313 = select i1 %311, i1 true, i1 %312
-  br i1 %313, label %285, label %.preheader, !llvm.loop !146
+  br i1 %313, label %285, label %.preheader, !llvm.loop !145
 
 314:                                              ; preds = %.preheader, %314
   %indvars.iv.i.i319 = phi i64 [ %indvars.iv.next.i.i320, %314 ], [ 7, %.preheader ]
@@ -3428,7 +3428,7 @@ _ZL17fuji_extend_greenPPti.exit318:               ; preds = %300, %298
   store i16 %322, ptr %324, align 2, !tbaa !120
   %indvars.iv.next.i.i320 = add nuw nsw i64 %indvars.iv.i.i319, 1
   %exitcond.not.i.i321 = icmp eq i64 %indvars.iv.next.i.i320, 13
-  br i1 %exitcond.not.i.i321, label %_ZL17fuji_extend_greenPPti.exit322, label %314, !llvm.loop !132
+  br i1 %exitcond.not.i.i321, label %_ZL17fuji_extend_greenPPti.exit322, label %314, !llvm.loop !131
 
 _ZL17fuji_extend_greenPPti.exit322:               ; preds = %314, %_ZL17fuji_extend_greenPPti.exit322
   %indvars.iv.i.i323 = phi i64 [ %indvars.iv.next.i.i324, %_ZL17fuji_extend_greenPPti.exit322 ], [ 15, %314 ]
@@ -3446,7 +3446,7 @@ _ZL17fuji_extend_greenPPti.exit322:               ; preds = %314, %_ZL17fuji_ext
   store i16 %332, ptr %334, align 2, !tbaa !120
   %indvars.iv.next.i.i324 = add nuw nsw i64 %indvars.iv.i.i323, 1
   %exitcond.not.i.i325 = icmp eq i64 %indvars.iv.next.i.i324, 18
-  br i1 %exitcond.not.i.i325, label %_ZL16fuji_extend_bluePPti.exit326, label %_ZL17fuji_extend_greenPPti.exit322, !llvm.loop !132
+  br i1 %exitcond.not.i.i325, label %_ZL16fuji_extend_bluePPti.exit326, label %_ZL17fuji_extend_greenPPti.exit322, !llvm.loop !131
 
 _ZL16fuji_extend_bluePPti.exit326:                ; preds = %_ZL17fuji_extend_greenPPti.exit322
   %.not = icmp eq i32 %.15.lcssa, 0
@@ -3502,14 +3502,14 @@ define void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr no
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 381716
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 381708
-  %35 = load i32, ptr %34, align 4, !tbaa !147
+  %35 = load i32, ptr %34, align 4, !tbaa !146
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26
   %37 = add nsw i32 %2, 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 381712
-  %39 = load i32, ptr %38, align 8, !tbaa !148
+  %39 = load i32, ptr %38, align 8, !tbaa !147
   %40 = icmp eq i32 %37, %39
   %41 = load i16, ptr %33, align 2
   %42 = zext i16 %41 to i32
@@ -3616,19 +3616,19 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
 88:                                               ; preds = %.preheader85, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.preheader85 ]
   %89 = getelementptr inbounds nuw [6 x %struct.i_pair], ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.mtable, i64 0, i64 %indvars.iv
-  %90 = load i32, ptr %89, align 8, !tbaa !149
+  %90 = load i32, ptr %89, align 8, !tbaa !148
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds [18 x ptr], ptr %51, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !105
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %95 = load i32, ptr %94, align 4, !tbaa !151
+  %95 = load i32, ptr %94, align 4, !tbaa !150
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds [18 x ptr], ptr %51, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %93, ptr noundef nonnull align 2 dereferenceable(1) %98, i64 %52, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %85, label %88, !llvm.loop !152
+  br i1 %exitcond.not, label %85, label %88, !llvm.loop !151
 
 99:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -3738,7 +3738,7 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
   store ptr %155, ptr %156, align 8, !tbaa !105
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next49.i, 6
-  br i1 %exitcond51.not.i, label %.preheader39.i, label %.preheader40.i, !llvm.loop !124
+  br i1 %exitcond51.not.i, label %.preheader39.i, label %.preheader40.i, !llvm.loop !123
 
 _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._crit_edge.us.i, %.preheader39.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3754,7 +3754,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %158 = load i32, ptr %53, align 8, !tbaa !125
+  %158 = load i32, ptr %53, align 8, !tbaa !124
   br label %.preheader48.i
 
 .preheader48.i:                                   ; preds = %.preheader48.i, %157
@@ -3769,7 +3769,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   %164 = and i32 %163, 3
   %165 = getelementptr inbounds nuw i8, ptr %indvars.iv58.i.sroa.phi, i64 4
   store i32 %164, ptr %165, align 4, !tbaa !6
-  br i1 %159, label %.preheader48.i, label %166, !llvm.loop !126
+  br i1 %159, label %.preheader48.i, label %166, !llvm.loop !125
 
 166:                                              ; preds = %.preheader48.i
   %167 = load i32, ptr %32, align 4, !tbaa !27
@@ -3793,7 +3793,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   store ptr %179, ptr %180, align 8, !tbaa !105
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next62.i, 3
-  br i1 %exitcond.not.i66, label %.preheader47.i, label %170, !llvm.loop !127
+  br i1 %exitcond.not.i66, label %.preheader47.i, label %170, !llvm.loop !126
 
 .preheader46.i:                                   ; preds = %.preheader47.i
   br i1 %.not.i67, label %_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit, label %.preheader.us.preheader.i68
@@ -3848,7 +3848,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   store i16 %206, ptr %207, align 2, !tbaa !120
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i69
-  br i1 %exitcond71.not.i, label %._crit_edge.us.i71, label %196, !llvm.loop !128
+  br i1 %exitcond71.not.i, label %._crit_edge.us.i71, label %196, !llvm.loop !127
 
 ._crit_edge.us.i71:                               ; preds = %202
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
@@ -3856,7 +3856,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   %209 = zext i16 %208 to i64
   %210 = getelementptr inbounds nuw i16, ptr %.04154.us.i, i64 %209
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 6
-  br i1 %exitcond75.not.i, label %_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit, label %.preheader.us.i70, !llvm.loop !129
+  br i1 %exitcond75.not.i, label %_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit, label %.preheader.us.i70, !llvm.loop !128
 
 .preheader47.i:                                   ; preds = %170, %.preheader47.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.preheader47.i ], [ 0, %170 ]
@@ -3868,7 +3868,7 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   store ptr %214, ptr %215, align 8, !tbaa !105
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 6
-  br i1 %exitcond67.not.i, label %.preheader46.i, label %.preheader47.i, !llvm.loop !130
+  br i1 %exitcond67.not.i, label %.preheader46.i, label %.preheader47.i, !llvm.loop !129
 
 _ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit: ; preds = %._crit_edge.us.i71, %.preheader46.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3879,20 +3879,20 @@ _ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit: ; preds = %._cr
 
 216:                                              ; preds = %220
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %217 = load i32, ptr %34, align 4, !tbaa !147
+  %217 = load i32, ptr %34, align 4, !tbaa !146
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next83, %218
-  br i1 %219, label %56, label %._crit_edge, !llvm.loop !153
+  br i1 %219, label %56, label %._crit_edge, !llvm.loop !152
 
 220:                                              ; preds = %.preheader, %220
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %220 ], [ 0, %.preheader ]
   %221 = getelementptr inbounds nuw [3 x %struct.i_pair], ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.ztable, i64 0, i64 %indvars.iv78
-  %222 = load i32, ptr %221, align 8, !tbaa !149
+  %222 = load i32, ptr %221, align 8, !tbaa !148
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds [18 x ptr], ptr %51, i64 0, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !105
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  %227 = load i32, ptr %226, align 4, !tbaa !151
+  %227 = load i32, ptr %226, align 4, !tbaa !150
   %228 = mul i32 %227, %31
   %229 = zext i32 %228 to i64
   call void @llvm.memset.p0.i64(ptr align 2 %225, i8 0, i64 %229, i1 false)
@@ -3913,7 +3913,7 @@ _ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit: ; preds = %._cr
   store i16 %240, ptr %242, align 2, !tbaa !120
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 3
-  br i1 %exitcond81.not, label %216, label %220, !llvm.loop !154
+  br i1 %exitcond81.not, label %216, label %220, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %216, %26
   %243 = load i32, ptr %15, align 8, !tbaa !87
@@ -3947,22 +3947,22 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
   call void @_ZN6LibRaw15init_fuji_comprEP22fuji_compressed_params(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 381712
-  %5 = load i32, ptr %4, align 8, !tbaa !148
+  %5 = load i32, ptr %4, align 8, !tbaa !147
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   %8 = tail call noundef ptr @_ZN6LibRaw6mallocEm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %7)
-  %9 = load i32, ptr %4, align 8, !tbaa !148
+  %9 = load i32, ptr %4, align 8, !tbaa !147
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
   %12 = tail call noundef ptr @_ZN6LibRaw6mallocEm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %11)
   %13 = load ptr, ptr %3, align 8, !tbaa !99
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 381584
-  %15 = load i64, ptr %14, align 8, !tbaa !155
+  %15 = load i64, ptr %14, align 8, !tbaa !154
   %16 = load ptr, ptr %13, align 8, !tbaa !100
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %15, i32 noundef 0)
-  %20 = load i32, ptr %4, align 8, !tbaa !148
+  %20 = load i32, ptr %4, align 8, !tbaa !147
   %21 = shl i32 %20, 2
   %22 = load ptr, ptr %3, align 8, !tbaa !99
   %23 = sext i32 %21 to i64
@@ -3982,7 +3982,7 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
   unreachable
 
 30:                                               ; preds = %1
-  %31 = load i32, ptr %4, align 8, !tbaa !148
+  %31 = load i32, ptr %4, align 8, !tbaa !147
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
   %34 = add nsw i64 %33, 15
@@ -3994,14 +3994,14 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 381708
-  %40 = load i32, ptr %39, align 4, !tbaa !147
+  %40 = load i32, ptr %39, align 4, !tbaa !146
   %41 = add nsw i32 %40, 15
   %42 = and i32 %41, -16
   %43 = mul nsw i32 %42, %31
   %44 = sext i32 %43 to i64
   %45 = tail call noundef ptr @_ZN6LibRaw6mallocEm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %44)
   %46 = load ptr, ptr %3, align 8, !tbaa !99
-  %47 = load i64, ptr %14, align 8, !tbaa !155
+  %47 = load i64, ptr %14, align 8, !tbaa !154
   %48 = add nsw i64 %47, %35
   %49 = load ptr, ptr %46, align 8, !tbaa !100
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -4013,16 +4013,16 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef %45, i64 noundef 1, i64 noundef %44)
   %58 = add nsw i64 %35, %44
-  %.pre = load i32, ptr %4, align 8, !tbaa !148
+  %.pre = load i32, ptr %4, align 8, !tbaa !147
   br label %59
 
 59:                                               ; preds = %38, %30
   %60 = phi i32 [ %31, %30 ], [ %.pre, %38 ]
   %.036 = phi i64 [ %35, %30 ], [ %58, %38 ]
   %.035 = phi ptr [ null, %30 ], [ %45, %38 ]
-  %61 = load i64, ptr %14, align 8, !tbaa !155
+  %61 = load i64, ptr %14, align 8, !tbaa !154
   %62 = add nsw i64 %61, %.036
-  store i64 %62, ptr %12, align 8, !tbaa !156
+  store i64 %62, ptr %12, align 8, !tbaa !155
   %63 = icmp sgt i32 %60, 0
   br i1 %63, label %.lr.ph, label %._crit_edge
 
@@ -4050,15 +4050,15 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
   %70 = zext i8 %69 to i32
   %71 = or disjoint i32 %67, %70
   %72 = icmp samesign ugt i32 %.045.i, 1
-  br i1 %72, label %.lr.ph.i, label %_ZN6LibRaw5sgetnEiPh.exit, !llvm.loop !157
+  br i1 %72, label %.lr.ph.i, label %_ZN6LibRaw5sgetnEiPh.exit, !llvm.loop !156
 
 _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   store i32 %71, ptr %65, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = load i32, ptr %4, align 8, !tbaa !148
+  %73 = load i32, ptr %4, align 8, !tbaa !147
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %.preheader, !llvm.loop !158
+  br i1 %75, label %.lr.ph, label %.preheader, !llvm.loop !157
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
   %76 = phi i64 [ %62, %.lr.ph42.preheader ], [ %81, %.lr.ph42 ]
@@ -4069,10 +4069,10 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %80 = zext i32 %79 to i64
   %81 = add nsw i64 %76, %80
   %82 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv45
-  store i64 %81, ptr %82, align 8, !tbaa !156
+  store i64 %81, ptr %82, align 8, !tbaa !155
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !159
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph42, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %59, %.preheader
   %.lcssa3949 = phi i32 [ %73, %.preheader ], [ %60, %59 ], [ %73, %.lr.ph42 ]
@@ -4098,7 +4098,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw16fuji_decode_loopEP22fuji_compressed_paramsiPxPjPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #2 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 381708
-  %8 = load i32, ptr %7, align 4, !tbaa !147
+  %8 = load i32, ptr %7, align 4, !tbaa !146
   %9 = add nsw i32 %8, 15
   %10 = and i32 %9, -16
   %11 = icmp sgt i32 %2, 0
@@ -4120,19 +4120,19 @@ define void @_ZN6LibRaw16fuji_decode_loopEP22fuji_compressed_paramsiPxPjPh(ptr n
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv17 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next18, %.lr.ph.split.us ]
   %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv17
-  %14 = load i64, ptr %13, align 8, !tbaa !156
+  %14 = load i64, ptr %13, align 8, !tbaa !155
   %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv17
   %16 = load i32, ptr %15, align 4, !tbaa !6
   %17 = trunc nuw nsw i64 %indvars.iv17 to i32
   tail call void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %1, i32 noundef %17, i64 noundef %14, i32 noundef %16, ptr noundef null)
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
-  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !160
+  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !159
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  %19 = load i64, ptr %18, align 8, !tbaa !156
+  %19 = load i64, ptr %18, align 8, !tbaa !155
   %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !6
   %22 = mul nsw i64 %indvars.iv, %12
@@ -4141,7 +4141,7 @@ define void @_ZN6LibRaw16fuji_decode_loopEP22fuji_compressed_paramsiPxPjPh(ptr n
   tail call void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %1, i32 noundef %24, i64 noundef %19, i32 noundef %21, ptr noundef nonnull %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !161
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
   ret void
@@ -4154,7 +4154,7 @@ define void @_ZN6LibRaw28parse_fuji_compressed_headerEv(ptr noundef nonnull alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 381584
-  %6 = load i64, ptr %5, align 8, !tbaa !155
+  %6 = load i64, ptr %5, align 8, !tbaa !154
   %7 = load ptr, ptr %4, align 8, !tbaa !100
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -4177,7 +4177,7 @@ define void @_ZN6LibRaw28parse_fuji_compressed_headerEv(ptr noundef nonnull alig
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %16, %18
   %exitcond.not = icmp eq i64 %.036.i.idx, 1
-  br i1 %exitcond.not, label %_ZN6LibRaw5sgetnEiPh.exit, label %.lr.ph.i, !llvm.loop !157
+  br i1 %exitcond.not, label %_ZN6LibRaw5sgetnEiPh.exit, label %.lr.ph.i, !llvm.loop !156
 
 _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -4198,7 +4198,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %26, %28
   %exitcond127.not = icmp eq i64 %.036.i82.idx, 6
-  br i1 %exitcond127.not, label %.lr.ph.i85, label %.lr.ph.i80, !llvm.loop !157
+  br i1 %exitcond127.not, label %.lr.ph.i85, label %.lr.ph.i80, !llvm.loop !156
 
 .lr.ph.i85:                                       ; preds = %.lr.ph.i80, %.lr.ph.i85
   %.07.i86 = phi i32 [ %33, %.lr.ph.i85 ], [ 0, %.lr.ph.i80 ]
@@ -4210,7 +4210,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %30, %32
   %exitcond129.not = icmp eq i64 %.036.i87.idx, 8
-  br i1 %exitcond129.not, label %.lr.ph.i90, label %.lr.ph.i85, !llvm.loop !157
+  br i1 %exitcond129.not, label %.lr.ph.i90, label %.lr.ph.i85, !llvm.loop !156
 
 .lr.ph.i90:                                       ; preds = %.lr.ph.i85, %.lr.ph.i90
   %.07.i91 = phi i32 [ %37, %.lr.ph.i90 ], [ 0, %.lr.ph.i85 ]
@@ -4222,7 +4222,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %36 = zext i8 %35 to i32
   %37 = or disjoint i32 %34, %36
   %exitcond131.not = icmp eq i64 %.036.i92.idx, 10
-  br i1 %exitcond131.not, label %.lr.ph.i95, label %.lr.ph.i90, !llvm.loop !157
+  br i1 %exitcond131.not, label %.lr.ph.i95, label %.lr.ph.i90, !llvm.loop !156
 
 .lr.ph.i95:                                       ; preds = %.lr.ph.i90, %.lr.ph.i95
   %.07.i96 = phi i32 [ %41, %.lr.ph.i95 ], [ 0, %.lr.ph.i90 ]
@@ -4234,7 +4234,7 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %38, %40
   %exitcond133.not = icmp eq i64 %.036.i97.idx, 12
-  br i1 %exitcond133.not, label %_ZN6LibRaw5sgetnEiPh.exit99, label %.lr.ph.i95, !llvm.loop !157
+  br i1 %exitcond133.not, label %_ZN6LibRaw5sgetnEiPh.exit99, label %.lr.ph.i95, !llvm.loop !156
 
 _ZN6LibRaw5sgetnEiPh.exit99:                      ; preds = %.lr.ph.i95
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 13
@@ -4251,7 +4251,7 @@ _ZN6LibRaw5sgetnEiPh.exit99:                      ; preds = %.lr.ph.i95
   %46 = zext i8 %45 to i32
   %47 = or disjoint i32 %44, %46
   %exitcond135.not = icmp eq i64 %.036.i102.idx, 15
-  br i1 %exitcond135.not, label %_ZN6LibRaw5sgetnEiPh.exit104, label %.lr.ph.i100, !llvm.loop !157
+  br i1 %exitcond135.not, label %_ZN6LibRaw5sgetnEiPh.exit104, label %.lr.ph.i100, !llvm.loop !156
 
 _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
   %48 = zext i8 %21 to i32
@@ -4330,9 +4330,9 @@ _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 381708
-  store i32 %47, ptr %86, align 4, !tbaa !147
+  store i32 %47, ptr %86, align 4, !tbaa !146
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 381712
-  store i32 %51, ptr %87, align 8, !tbaa !148
+  store i32 %51, ptr %87, align 8, !tbaa !147
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 381716
   store i32 768, ptr %88, align 4, !tbaa !27
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 381720
@@ -4344,14 +4344,14 @@ _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %.lhs.trunc105, ptr %93, align 2, !tbaa !117
-  store i16 %.lhs.trunc, ptr %92, align 8, !tbaa !162
-  %94 = load i64, ptr %5, align 8, !tbaa !155
+  store i16 %.lhs.trunc, ptr %92, align 8, !tbaa !160
+  %94 = load i64, ptr %5, align 8, !tbaa !154
   %95 = add nsw i64 %94, 16
-  store i64 %95, ptr %5, align 8, !tbaa !155
+  store i64 %95, ptr %5, align 8, !tbaa !154
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 767584
-  store i64 ptrtoint (ptr @_ZN6LibRaw24fuji_compressed_load_rawEv to i64), ptr %96, align 8, !tbaa !163
+  store i64 ptrtoint (ptr @_ZN6LibRaw24fuji_compressed_load_rawEv to i64), ptr %96, align 8, !tbaa !161
   %.repack77 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  store i64 0, ptr %.repack77, align 8, !tbaa !163
+  store i64 0, ptr %.repack77, align 8, !tbaa !161
   br label %97
 
 97:                                               ; preds = %_ZN6LibRaw5sgetnEiPh.exit104, %56, %63, %68, %70, %76, %83, %82, %1, %85
@@ -4469,7 +4469,7 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %64, %22, %10
 70:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
   %71 = load i32, ptr %1, align 4, !tbaa !6
   %72 = add nsw i32 %71, 1
-  br label %10, !llvm.loop !164
+  br label %10, !llvm.loop !162
 
 73:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
   ret void
@@ -4593,7 +4593,7 @@ define internal fastcc void @_ZL14fuji_read_codeP21fuji_compressed_blockPii(ptr 
 _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %17, %72
   %76 = and i32 %20, 248
   %.not34 = icmp eq i32 %76, 0
-  br i1 %.not34, label %.loopexit, label %17, !llvm.loop !165
+  br i1 %.not34, label %.loopexit, label %17, !llvm.loop !163
 
 .loopexit:                                        ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit, %5
   %.030.in = phi i32 [ %2, %5 ], [ %20, %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit ]
@@ -4801,14 +4801,14 @@ attributes #12 = { noreturn }
 !119 = distinct !{!119, !12}
 !120 = !{!16, !16, i64 0}
 !121 = distinct !{!121, !12}
-!122 = distinct !{!122, !12, !123}
-!123 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!124 = distinct !{!124, !12}
-!125 = !{!28, !7, i64 544}
+!122 = distinct !{!122, !12}
+!123 = distinct !{!123, !12}
+!124 = !{!28, !7, i64 544}
+!125 = distinct !{!125, !12}
 !126 = distinct !{!126, !12}
 !127 = distinct !{!127, !12}
 !128 = distinct !{!128, !12}
-!129 = distinct !{!129, !12, !123}
+!129 = distinct !{!129, !12}
 !130 = distinct !{!130, !12}
 !131 = distinct !{!131, !12}
 !132 = distinct !{!132, !12}
@@ -4825,23 +4825,21 @@ attributes #12 = { noreturn }
 !143 = distinct !{!143, !12}
 !144 = distinct !{!144, !12}
 !145 = distinct !{!145, !12}
-!146 = distinct !{!146, !12}
-!147 = !{!28, !7, i64 381708}
-!148 = !{!28, !7, i64 381712}
-!149 = !{!150, !7, i64 0}
-!150 = !{!"_ZTSZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPhE6i_pair", !7, i64 0, !7, i64 4}
-!151 = !{!150, !7, i64 4}
+!146 = !{!28, !7, i64 381708}
+!147 = !{!28, !7, i64 381712}
+!148 = !{!149, !7, i64 0}
+!149 = !{!"_ZTSZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPhE6i_pair", !7, i64 0, !7, i64 4}
+!150 = !{!149, !7, i64 4}
+!151 = distinct !{!151, !12}
 !152 = distinct !{!152, !12}
 !153 = distinct !{!153, !12}
-!154 = distinct !{!154, !12}
-!155 = !{!28, !39, i64 381584}
-!156 = !{!39, !39, i64 0}
+!154 = !{!28, !39, i64 381584}
+!155 = !{!39, !39, i64 0}
+!156 = distinct !{!156, !12}
 !157 = distinct !{!157, !12}
 !158 = distinct !{!158, !12}
 !159 = distinct !{!159, !12}
-!160 = distinct !{!160, !12, !123}
-!161 = distinct !{!161, !12}
-!162 = !{!28, !16, i64 16}
-!163 = !{!28, !8, i64 767584}
-!164 = distinct !{!164, !12}
-!165 = distinct !{!165, !12}
+!160 = !{!28, !16, i64 16}
+!161 = !{!28, !8, i64 767584}
+!162 = distinct !{!162, !12}
+!163 = distinct !{!163, !12}

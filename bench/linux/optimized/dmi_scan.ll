@@ -449,7 +449,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 40:                                               ; preds = %30, %35
   %41 = load ptr, ptr %31, align 8
   %42 = icmp eq ptr %41, @dmi_devices
-  br i1 %42, label %.thread6, label %30, !llvm.loop !15
+  br i1 %42, label %.thread6, label %30, !llvm.loop !14
 
 43:                                               ; preds = %35
   %44 = icmp eq ptr %31, null
@@ -480,7 +480,7 @@ define internal fastcc noundef zeroext i1 @dmi_matches(ptr noundef readonly capt
 .thread5:                                         ; preds = %43, %56, %53
   %59 = add nuw nsw i64 %25, 1
   %60 = icmp eq i64 %59, 4
-  br i1 %60, label %.thread6, label %.split, !llvm.loop !16
+  br i1 %60, label %.thread6, label %.split, !llvm.loop !13
 
 .thread6.loopexit26:                              ; preds = %.split.us
   br label %.thread6
@@ -509,7 +509,7 @@ define dso_local noundef ptr @dmi_first_match(ptr noundef readonly captures(ret:
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 127
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %8, %.preheader, %1
   %14 = phi ptr [ null, %1 ], [ null, %8 ], [ %6, %.preheader ]
@@ -571,7 +571,7 @@ define dso_local noundef range(i32 0, 2) i32 @dmi_name_in_vendors(ptr noundef re
   br i1 %2, label %.split.loop.exit2, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %13, %10
-  br label %.backedge, !llvm.loop !18
+  br label %.backedge, !llvm.loop !16
 
 .split.loop.exit:                                 ; preds = %10
   %.mux.le = zext i1 %12 to i32
@@ -595,59 +595,59 @@ define dso_local ptr @dmi_find_device(i32 noundef %0, ptr noundef readonly captu
   %9 = icmp eq ptr %1, null
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %15
-  %10 = phi ptr [ %16, %15 ], [ %7, %.lr.ph ]
-  br i1 %6, label %.thread, label %11
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %6, label %.thread, label %.lr.ph.split.us.split
 
-11:                                               ; preds = %.lr.ph.split.us
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, %0
-  br i1 %14, label %.thread, label %15
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %14
+  %10 = phi ptr [ %15, %14 ], [ %7, %.lr.ph.split.us ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, %0
+  br i1 %13, label %.thread, label %14
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %10, align 8
-  %17 = icmp eq ptr %16, @dmi_devices
-  br i1 %17, label %.thread, label %.lr.ph.split.us, !llvm.loop !19
+14:                                               ; preds = %.lr.ph.split.us.split
+  %15 = load ptr, ptr %10, align 8
+  %16 = icmp eq ptr %15, @dmi_devices
+  br i1 %16, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %6, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %23
-  %18 = phi ptr [ %24, %23 ], [ %7, %.lr.ph.split ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @strcmp(ptr noundef %20, ptr noundef nonnull dereferenceable(1) %1) #21
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %23
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %22
+  %17 = phi ptr [ %23, %22 ], [ %7, %.lr.ph.split ]
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call i32 @strcmp(ptr noundef %19, ptr noundef nonnull dereferenceable(1) %1) #21
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.thread, label %22
 
-23:                                               ; preds = %.lr.ph.split.split.us
-  %24 = load ptr, ptr %18, align 8
-  %25 = icmp eq ptr %24, @dmi_devices
-  br i1 %25, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !20
+22:                                               ; preds = %.lr.ph.split.split.us
+  %23 = load ptr, ptr %17, align 8
+  %24 = icmp eq ptr %23, @dmi_devices
+  br i1 %24, label %.thread, label %.lr.ph.split.split.us, !llvm.loop !14
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %35
-  %26 = phi ptr [ %36, %35 ], [ %7, %.lr.ph.split ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, %0
-  br i1 %29, label %30, label %35
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %34
+  %25 = phi ptr [ %35, %34 ], [ %7, %.lr.ph.split ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, %0
+  br i1 %28, label %29, label %34
 
-30:                                               ; preds = %.lr.ph.split.split
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef %32, ptr noundef nonnull dereferenceable(1) %1) #21
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread, label %35
+29:                                               ; preds = %.lr.ph.split.split
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i32 @strcmp(ptr noundef %31, ptr noundef nonnull dereferenceable(1) %1) #21
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %.thread, label %34
 
-35:                                               ; preds = %.lr.ph.split.split, %30
-  %36 = load ptr, ptr %26, align 8
-  %37 = icmp eq ptr %36, @dmi_devices
-  br i1 %37, label %.thread, label %.lr.ph.split.split, !llvm.loop !15
+34:                                               ; preds = %.lr.ph.split.split, %29
+  %35 = load ptr, ptr %25, align 8
+  %36 = icmp eq ptr %35, @dmi_devices
+  br i1 %36, label %.thread, label %.lr.ph.split.split, !llvm.loop !14
 
-.thread:                                          ; preds = %35, %30, %23, %.lr.ph.split.split.us, %15, %.lr.ph.split.us, %11, %3
-  %38 = phi ptr [ null, %3 ], [ %10, %11 ], [ %7, %.lr.ph.split.us ], [ null, %15 ], [ %18, %.lr.ph.split.split.us ], [ null, %23 ], [ %26, %30 ], [ null, %35 ]
-  ret ptr %38
+.thread:                                          ; preds = %34, %29, %22, %.lr.ph.split.split.us, %14, %.lr.ph.split.us.split, %.lr.ph.split.us, %3
+  %37 = phi ptr [ null, %3 ], [ %7, %.lr.ph.split.us ], [ %10, %.lr.ph.split.us.split ], [ null, %14 ], [ %17, %.lr.ph.split.split.us ], [ null, %22 ], [ %25, %29 ], [ null, %34 ]
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -824,7 +824,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly ca
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %36, %12
   %38 = icmp slt i64 %37, %23
-  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !17
 
 39:                                               ; preds = %30
   tail call void %0(ptr noundef %16, ptr noundef %1) #21
@@ -932,7 +932,7 @@ define dso_local void @dmi_memdev_name(i16 noundef zeroext %0, ptr noundef write
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %10 ]
@@ -972,7 +972,7 @@ define dso_local i64 @dmi_memdev_size(i16 noundef zeroext %0) #8 align 16 {
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
@@ -1010,7 +1010,7 @@ define dso_local zeroext i8 @dmi_memdev_type(i16 noundef zeroext %0) #8 align 16
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %8 ]
@@ -1119,7 +1119,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_smbios3_present(ptr noun
   %16 = add i8 %15, %13
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, %10
-  br i1 %18, label %19, label %11, !llvm.loop !25
+  br i1 %18, label %19, label %11, !llvm.loop !21
 
 19:                                               ; preds = %11
   %20 = icmp eq i8 %16, 0
@@ -1195,7 +1195,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr noundef read
   %16 = add i8 %15, %13
   %17 = add nuw nsw i64 %12, 1
   %18 = icmp eq i64 %17, %10
-  br i1 %18, label %19, label %11, !llvm.loop !25
+  br i1 %18, label %19, label %11, !llvm.loop !21
 
 19:                                               ; preds = %11
   %20 = icmp eq i8 %16, 0
@@ -1236,7 +1236,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @dmi_present(ptr noundef read
   %38 = add i8 %37, %35
   %39 = add nuw nsw i64 %34, 1
   %40 = icmp eq i64 %39, 15
-  br i1 %40, label %41, label %.preheader, !llvm.loop !25
+  br i1 %40, label %41, label %.preheader, !llvm.loop !21
 
 41:                                               ; preds = %.preheader
   %42 = icmp eq i8 %38, 0
@@ -1346,10 +1346,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr noundef
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %32, %8
   %34 = icmp slt i64 %33, %19
-  br i1 %34, label %.preheader.i, label %.loopexit.i, !llvm.loop !21
+  br i1 %34, label %.preheader.i, label %.loopexit.i, !llvm.loop !17
 
 35:                                               ; preds = %26
-  tail call void %0(ptr noundef %12, ptr noundef null) #21, !callees !26
+  tail call void %0(ptr noundef %12, ptr noundef null) #21, !callees !22
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %35, %.lr.ph.i
@@ -1654,7 +1654,7 @@ define internal fastcc void @dmi_save_uuid(ptr noundef %0) unnamed_addr #0 secti
   %23 = select i1 %22, i32 %13, i32 0
   %24 = add nuw nsw i64 %11, 1
   %25 = icmp eq i64 %24, 16
-  br i1 %25, label %26, label %10, !llvm.loop !27
+  br i1 %25, label %26, label %10, !llvm.loop !23
 
 26:                                               ; preds = %17, %10
   %27 = phi i32 [ %23, %17 ], [ 0, %10 ]
@@ -1777,7 +1777,7 @@ define internal fastcc void @dmi_save_devices(ptr noundef readonly captures(addr
 24:                                               ; preds = %18, %12
   %25 = add nuw nsw i64 %13, 1
   %26 = icmp eq i64 %25, %11
-  br i1 %26, label %.loopexit, label %12, !llvm.loop !28
+  br i1 %26, label %.loopexit, label %12, !llvm.loop !24
 
 .loopexit:                                        ; preds = %24, %1
   ret void
@@ -1831,7 +1831,7 @@ define internal fastcc void @dmi_save_oem_strings_devices(ptr noundef readonly c
 26:                                               ; preds = %19, %11
   %27 = add nuw nsw i32 %12, 1
   %28 = icmp eq i32 %12, %10
-  br i1 %28, label %.loopexit, label %11, !llvm.loop !29
+  br i1 %28, label %.loopexit, label %11, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %16, %5, %1
   ret void
@@ -1963,7 +1963,7 @@ define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly captures(ret:
   %18 = getelementptr i8, ptr %17, i64 1
   %19 = add i8 %11, -1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.loopexit3, label %.preheader, !llvm.loop !30
+  br i1 %20, label %.loopexit3, label %.preheader, !llvm.loop !26
 
 .loopexit3:                                       ; preds = %15, %.preheader, %4
   %21 = phi ptr [ %8, %4 ], [ %18, %15 ], [ %12, %.preheader ]
@@ -1979,7 +1979,7 @@ define internal fastcc ptr @dmi_string_nosave(ptr noundef readonly captures(ret:
 
 25:                                               ; preds = %22
   %26 = getelementptr i8, ptr %23, i64 1
-  br label %22, !llvm.loop !31
+  br label %22, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %22
   br label %.loopexit
@@ -2115,7 +2115,7 @@ define internal fastcc i32 @print_filtered(ptr noundef %0, i64 noundef range(i64
   %23 = getelementptr i8, ptr %9, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   %26 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %22, %.preheader ]
@@ -2295,23 +2295,19 @@ attributes #23 = { cold }
 !10 = distinct !{!10, !8, !9}
 !11 = !{i32 -12, i32 1}
 !12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
 !15 = distinct !{!15, !8, !9}
 !16 = distinct !{!16, !8, !9}
 !17 = distinct !{!17, !8, !9}
 !18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9, !14}
-!20 = distinct !{!20, !8, !9, !14}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
 !21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
+!22 = !{ptr @count_mem_devices, ptr @dmi_decode, ptr @save_mem_devices}
 !23 = distinct !{!23, !8, !9}
 !24 = distinct !{!24, !8, !9}
 !25 = distinct !{!25, !8, !9}
-!26 = !{ptr @count_mem_devices, ptr @dmi_decode, ptr @save_mem_devices}
+!26 = distinct !{!26, !8, !9}
 !27 = distinct !{!27, !8, !9}
 !28 = distinct !{!28, !8, !9}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9}
-!32 = distinct !{!32, !8, !9}

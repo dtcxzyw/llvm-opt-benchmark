@@ -1189,7 +1189,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val43 = load i32, ptr %9, align 4, !tbaa !61
   %44 = sext i32 %.val43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !76
+  br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %38, %43, %.lr.ph.split, %16, %21, %.lr.ph.split.us, %6
   %.132 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ %37, %.lr.ph.split ], [ 1, %43 ], [ %39, %38 ]
@@ -1234,7 +1234,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val40 = load i32, ptr %9, align 4, !tbaa !61
   %62 = sext i32 %.val40 to i64
   %63 = icmp slt i64 %indvars.iv.next80, %62
-  br i1 %63, label %59, label %.critedge2, !llvm.loop !77
+  br i1 %63, label %59, label %.critedge2, !llvm.loop !75
 
 .critedge2:                                       ; preds = %59, %56
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1514,7 +1514,5 @@ attributes #11 = { nounwind willreturn memory(read) }
 !71 = !{!69, !16, i64 112}
 !72 = !{!69, !16, i64 48}
 !73 = distinct !{!73, !66}
-!74 = distinct !{!74, !66, !75}
-!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!76 = distinct !{!76, !66}
-!77 = distinct !{!77, !66}
+!74 = distinct !{!74, !66}
+!75 = distinct !{!75, !66}

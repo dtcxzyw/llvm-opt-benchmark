@@ -2242,7 +2242,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr noundef readonly captures(none
   %.2 = phi ptr [ %.14656, %.lr.ph60.split ], [ %60, %.preheader ]
   %62 = add nuw nsw i32 %.14257, 1
   %exitcond74.not = icmp eq i32 %62, %smax76
-  br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !58
+  br i1 %exitcond74.not, label %._crit_edge61, label %.lr.ph60.split, !llvm.loop !56
 
 ._crit_edge61:                                    ; preds = %61, %45
   %.146.lcssa = phi ptr [ %.2.us, %45 ], [ %.2, %61 ]
@@ -2288,7 +2288,7 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 2
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #25
-  store ptr %24, ptr %3, align 16, !tbaa !59
+  store ptr %24, ptr %3, align 16, !tbaa !57
   %25 = icmp sgt i32 %1, 1
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2301,14 +2301,14 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = getelementptr inbounds i32, ptr %26, i64 %16
   %28 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  store ptr %27, ptr %28, align 8, !tbaa !59
+  store ptr %27, ptr %28, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.phi.trans.insert165 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  %.pre = load ptr, ptr %.phi.trans.insert165, align 8, !tbaa !59
+  %.pre = load ptr, ptr %.phi.trans.insert165, align 8, !tbaa !57
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit
@@ -2317,59 +2317,59 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %31 = icmp sgt i32 %1, 0
   %32 = icmp sgt i32 %7, 0
   %or.cond.i = and i1 %31, %32
-  br i1 %or.cond.i, label %.lr.ph31.split.us.preheader.i, label %Bbl_ManSopToTruthElem.exit
+  br i1 %or.cond.i, label %.lr.ph31.split.us.split.us.preheader.i, label %Bbl_ManSopToTruthElem.exit
 
-.lr.ph31.split.us.preheader.i:                    ; preds = %._crit_edge
-  %wide.trip.count63.i = zext nneg i32 %1 to i64
-  %wide.trip.count53.i = zext nneg i32 %7 to i64
-  br label %.lr.ph31.split.us.i
+.lr.ph31.split.us.split.us.preheader.i:           ; preds = %._crit_edge
+  %wide.trip.count75.i = zext nneg i32 %1 to i64
+  %wide.trip.count65.i = zext nneg i32 %7 to i64
+  br label %.lr.ph31.split.us.split.us.i
 
-.lr.ph31.split.us.i:                              ; preds = %.loopexit.us.i, %.lr.ph31.split.us.preheader.i
-  %indvars.iv60.i = phi i64 [ 0, %.lr.ph31.split.us.preheader.i ], [ %indvars.iv.next61.i, %.loopexit.us.i ]
-  %33 = icmp samesign ult i64 %indvars.iv60.i, 5
-  br i1 %33, label %.lr.ph28.us.i, label %.preheader24.us.i
+.lr.ph31.split.us.split.us.i:                     ; preds = %..loopexit25_crit_edge.us.us.i, %.lr.ph31.split.us.split.us.preheader.i
+  %indvars.iv72.i = phi i64 [ 0, %.lr.ph31.split.us.split.us.preheader.i ], [ %indvars.iv.next73.i, %..loopexit25_crit_edge.us.us.i ]
+  %33 = icmp samesign ult i64 %indvars.iv72.i, 5
+  br i1 %33, label %.preheader.us.us.i, label %.preheader24.us.us.i
 
-34:                                               ; preds = %.preheader24.us.i, %34
-  %indvars.iv50.i = phi i64 [ 0, %.preheader24.us.i ], [ %indvars.iv.next51.i, %34 ]
-  %35 = trunc nuw nsw i64 %indvars.iv50.i to i32
-  %36 = and i32 %42, %35
-  %.not.us.i = icmp ne i32 %36, 0
-  %37 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv50.i
-  %..i = sext i1 %.not.us.i to i32
+34:                                               ; preds = %.preheader24.us.us.i, %34
+  %indvars.iv62.i = phi i64 [ 0, %.preheader24.us.us.i ], [ %indvars.iv.next63.i, %34 ]
+  %35 = trunc nuw nsw i64 %indvars.iv62.i to i32
+  %36 = and i32 %46, %35
+  %.not.us.us.i = icmp ne i32 %36, 0
+  %37 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv62.i
+  %..i = sext i1 %.not.us.us.i to i32
   store i32 %..i, ptr %37, align 4, !tbaa !15
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
-  br i1 %exitcond54.not.i, label %.loopexit.us.i, label %34, !llvm.loop !61
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
+  br i1 %exitcond66.not.i, label %..loopexit25_crit_edge.us.us.i, label %34, !llvm.loop !59
 
-.loopexit.us.i:                                   ; preds = %34, %38
-  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
-  br i1 %exitcond64.not.i, label %Bbl_ManSopToTruthElem.exit, label %.lr.ph31.split.us.i, !llvm.loop !62
+..loopexit25_crit_edge.us.us.i:                   ; preds = %34, %38
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
+  br i1 %exitcond76.not.i, label %Bbl_ManSopToTruthElem.exit, label %.lr.ph31.split.us.split.us.i, !llvm.loop !60
 
-38:                                               ; preds = %.lr.ph28.us.i, %38
-  %indvars.iv55.i = phi i64 [ 0, %.lr.ph28.us.i ], [ %indvars.iv.next56.i, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv55.i
-  store i32 %46, ptr %39, align 4, !tbaa !15
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count53.i
-  br i1 %exitcond59.not.i, label %.loopexit.us.i, label %38, !llvm.loop !63
+38:                                               ; preds = %.preheader.us.us.i, %38
+  %indvars.iv67.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next68.i, %38 ]
+  %39 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv67.i
+  store i32 %41, ptr %39, align 4, !tbaa !15
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count65.i
+  br i1 %exitcond71.not.i, label %..loopexit25_crit_edge.us.us.i, label %38, !llvm.loop !61
 
-.preheader24.us.i:                                ; preds = %.lr.ph31.split.us.i
-  %40 = trunc i64 %indvars.iv60.i to i32
-  %41 = add i32 %40, -5
-  %42 = shl nuw i32 1, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv60.i
-  %44 = load ptr, ptr %43, align 8, !tbaa !59
-  br label %34
-
-.lr.ph28.us.i:                                    ; preds = %.lr.ph31.split.us.i
-  %45 = getelementptr inbounds nuw [5 x i32], ptr @__const.Bbl_ManSopToTruthElem.Masks, i64 0, i64 %indvars.iv60.i
-  %46 = load i32, ptr %45, align 4, !tbaa !15
-  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv60.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !59
+.preheader.us.us.i:                               ; preds = %.lr.ph31.split.us.split.us.i
+  %40 = getelementptr inbounds nuw [5 x i32], ptr @__const.Bbl_ManSopToTruthElem.Masks, i64 0, i64 %indvars.iv72.i
+  %41 = load i32, ptr %40, align 4, !tbaa !15
+  %42 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72.i
+  %43 = load ptr, ptr %42, align 8, !tbaa !57
   br label %38
 
-Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._crit_edge
+.preheader24.us.us.i:                             ; preds = %.lr.ph31.split.us.split.us.i
+  %44 = trunc i64 %indvars.iv72.i to i32
+  %45 = add i32 %44, -5
+  %46 = shl nuw i32 1, %45
+  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72.i
+  %48 = load ptr, ptr %47, align 8, !tbaa !57
+  br label %34
+
+Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_edge.us.us.i, %._crit_edge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %18, i8 0, i64 %17, i1 false)
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %50 = udiv i64 %49, %12
@@ -2400,7 +2400,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   %56 = getelementptr inbounds nuw i8, ptr %.072103.us, i64 %12
   %57 = add nuw nsw i32 %.069106.us, 1
   %58 = icmp slt i32 %57, %51
-  br i1 %58, label %.lr.ph92.us, label %._crit_edge108, !llvm.loop !64
+  br i1 %58, label %.lr.ph92.us, label %._crit_edge108, !llvm.loop !62
 
 .lr.ph101.us:                                     ; preds = %.loopexit80.us.us, %.lr.ph101.us
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph101.us ], [ 0, %.loopexit80.us.us ]
@@ -2412,7 +2412,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   store i32 %63, ptr %61, align 4, !tbaa !15
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge102.us, label %.lr.ph101.us, !llvm.loop !65
+  br i1 %exitcond159.not, label %._crit_edge102.us, label %.lr.ph101.us, !llvm.loop !63
 
 .lr.ph92.split.us.us:                             ; preds = %.lr.ph92.us, %.loopexit80.us.us
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.loopexit80.us.us ], [ 0, %.lr.ph92.us ]
@@ -2434,7 +2434,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   store i32 %72, ptr %70, align 4, !tbaa !15
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %.loopexit80.us.us, label %66, !llvm.loop !66
+  br i1 %exitcond144.not, label %.loopexit80.us.us, label %66, !llvm.loop !64
 
 73:                                               ; preds = %.lr.ph89.us.us, %73
   %indvars.iv145 = phi i64 [ 0, %.lr.ph89.us.us ], [ %indvars.iv.next146, %73 ]
@@ -2446,21 +2446,21 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   store i32 %78, ptr %76, align 4, !tbaa !15
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit80.us.us, label %73, !llvm.loop !67
+  br i1 %exitcond149.not, label %.loopexit80.us.us, label %73, !llvm.loop !65
 
 .loopexit80.us.us:                                ; preds = %66, %73, %.lr.ph92.split.us.us
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.lr.ph101.us, label %.lr.ph92.split.us.us, !llvm.loop !68
+  br i1 %exitcond154.not, label %.lr.ph101.us, label %.lr.ph92.split.us.us, !llvm.loop !66
 
 .preheader81.us.us:                               ; preds = %.lr.ph92.split.us.us
   %79 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv150
-  %80 = load ptr, ptr %79, align 8, !tbaa !59
+  %80 = load ptr, ptr %79, align 8, !tbaa !57
   br label %66
 
 .lr.ph89.us.us:                                   ; preds = %.lr.ph92.split.us.us
   %81 = getelementptr inbounds nuw [16 x ptr], ptr %3, i64 0, i64 %indvars.iv150
-  %82 = load ptr, ptr %81, align 8, !tbaa !59
+  %82 = load ptr, ptr %81, align 8, !tbaa !57
   br label %73
 
 .lr.ph107.split:                                  ; preds = %.lr.ph107
@@ -2488,13 +2488,13 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   store i32 %90, ptr %88, align 4, !tbaa !15
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %._crit_edge102.us122, label %85, !llvm.loop !65
+  br i1 %exitcond139.not, label %._crit_edge102.us122, label %85, !llvm.loop !63
 
 ._crit_edge102.us122:                             ; preds = %85
   %91 = getelementptr inbounds i8, ptr %.072103.us119, i64 %12
   %92 = add nuw nsw i32 %.069106.us118, 1
   %93 = icmp slt i32 %92, %51
-  br i1 %93, label %.preheader83.us117, label %._crit_edge108, !llvm.loop !69
+  br i1 %93, label %.preheader83.us117, label %._crit_edge108, !llvm.loop !62
 
 .preheader83:                                     ; preds = %.lr.ph107.split, %.preheader83
   %.069106 = phi i32 [ %97, %.preheader83 ], [ 0, %.lr.ph107.split ]
@@ -2505,7 +2505,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   %96 = getelementptr inbounds i8, ptr %.072103, i64 %12
   %97 = add nuw nsw i32 %.069106, 1
   %98 = icmp slt i32 %97, %51
-  br i1 %98, label %.preheader83, label %._crit_edge108, !llvm.loop !70
+  br i1 %98, label %.preheader83, label %._crit_edge108, !llvm.loop !62
 
 ._crit_edge108:                                   ; preds = %.preheader83, %._crit_edge102.us122, %._crit_edge102.us
   %.us-phi = phi i8 [ %55, %._crit_edge102.us ], [ %84, %._crit_edge102.us122 ], [ %95, %.preheader83 ]
@@ -2537,7 +2537,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %.loopexit.us.i, %._
   store i32 %105, ptr %103, align 4, !tbaa !15
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph126, !llvm.loop !71
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph126, !llvm.loop !67
 
 .loopexit:                                        ; preds = %.lr.ph126, %102, %2, %14
   %.067 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %102 ], [ %18, %.lr.ph126 ]
@@ -3163,19 +3163,15 @@ attributes #27 = { nounwind willreturn memory(read) }
 !53 = distinct !{!53, !13}
 !54 = distinct !{!54, !13}
 !55 = distinct !{!55, !13}
-!56 = distinct !{!56, !13, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !13}
+!57 = !{!26, !26, i64 0}
 !58 = distinct !{!58, !13}
-!59 = !{!26, !26, i64 0}
+!59 = distinct !{!59, !13}
 !60 = distinct !{!60, !13}
 !61 = distinct !{!61, !13}
-!62 = distinct !{!62, !13, !57}
+!62 = distinct !{!62, !13}
 !63 = distinct !{!63, !13}
-!64 = distinct !{!64, !13, !57}
+!64 = distinct !{!64, !13}
 !65 = distinct !{!65, !13}
 !66 = distinct !{!66, !13}
 !67 = distinct !{!67, !13}
-!68 = distinct !{!68, !13, !57}
-!69 = distinct !{!69, !13, !57}
-!70 = distinct !{!70, !13}
-!71 = distinct !{!71, !13}

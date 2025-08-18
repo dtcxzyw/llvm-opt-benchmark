@@ -3376,7 +3376,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit759: ; pre
 
 1085:                                             ; preds = %1083
   %1086 = getelementptr inbounds nuw i8, ptr %1043, i64 88
-  store ptr %.fr1126, ptr %1086, align 8, !tbaa !96
+  store ptr %.fr1126, ptr %1086, align 8, !tbaa !95
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit761
 
 .critedge632:                                     ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEEC2EPS1_R10UErrorCode.exit759
@@ -3390,7 +3390,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit761: ; preds = %1083, %108
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %61) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %1090 = add nuw nsw i32 %.0414, 1
-  br label %.preheader.split, !llvm.loop !97
+  br label %.preheader.split, !llvm.loop !94
 
 .body752:                                         ; preds = %1058, %1069, %.thread947, %.split1124.us, %.split1124, %1041
   %.pn518.pn.pn = phi { ptr, i32 } [ %.pn10.i751, %1041 ], [ %1059, %1058 ], [ %1079, %.thread947 ], [ %1070, %1069 ], [ %1057, %.split1124 ], [ %1017, %.split1124.us ]
@@ -3575,12 +3575,12 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit770: ; preds = %1140
 1150:                                             ; preds = %1102
   %1151 = load ptr, ptr %24, align 8, !tbaa !15
   store ptr null, ptr %24, align 8, !tbaa !15
-  store ptr %1151, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
+  store ptr %1151, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
   store ptr null, ptr %23, align 8, !tbaa !15
-  store ptr %915, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  store ptr %915, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %1152 = load ptr, ptr %25, align 8, !tbaa !15
   store ptr null, ptr %25, align 8, !tbaa !15
-  store ptr %1152, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  store ptr %1152, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   br label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit771.thread
 
 _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit771.thread: ; preds = %1135, %1132, %1145, %1150
@@ -4091,7 +4091,7 @@ define internal noundef signext i8 @_ZL14region_cleanupv() #1 personality ptr @_
   br label %3
 
 1:                                                ; preds = %10
-  %2 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  %2 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %12, label %11
 
@@ -4113,14 +4113,14 @@ define internal noundef signext i8 @_ZL14region_cleanupv() #1 personality ptr @_
 10:                                               ; preds = %6, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %1, label %3, !llvm.loop !99
+  br i1 %exitcond.not.i, label %1, label %3, !llvm.loop !97
 
 11:                                               ; preds = %1
   tail call void @uhash_close_77(ptr noundef nonnull %2)
   br label %12
 
 12:                                               ; preds = %11, %1
-  %13 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
+  %13 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
   %.not10.i = icmp eq ptr %13, null
   br i1 %.not10.i, label %15, label %14
 
@@ -4129,7 +4129,7 @@ define internal noundef signext i8 @_ZL14region_cleanupv() #1 personality ptr @_
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %16 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %.not11.i = icmp eq ptr %16, null
   br i1 %.not11.i, label %18, label %17
 
@@ -4151,9 +4151,9 @@ define internal noundef signext i8 @_ZL14region_cleanupv() #1 personality ptr @_
   br label %_ZN6icu_776Region17cleanupRegionDataEv.exit
 
 _ZN6icu_776Region17cleanupRegionDataEv.exit:      ; preds = %18, %20
-  store ptr null, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
-  store ptr null, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
-  store ptr null, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  store ptr null, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
+  store ptr null, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
+  store ptr null, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   store atomic i32 0, ptr @_ZN6icu_77L19gRegionDataInitOnceE seq_cst, align 4
   ret i8 1
 }
@@ -4255,7 +4255,7 @@ define void @_ZN6icu_776Region17cleanupRegionDataEv() local_unnamed_addr #1 alig
   br label %3
 
 1:                                                ; preds = %10
-  %2 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  %2 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %11
 
@@ -4277,14 +4277,14 @@ define void @_ZN6icu_776Region17cleanupRegionDataEv() local_unnamed_addr #1 alig
 10:                                               ; preds = %3, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %1, label %3, !llvm.loop !99
+  br i1 %exitcond.not, label %1, label %3, !llvm.loop !97
 
 11:                                               ; preds = %1
   tail call void @uhash_close_77(ptr noundef nonnull %2)
   br label %12
 
 12:                                               ; preds = %11, %1
-  %13 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
+  %13 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %15, label %14
 
@@ -4293,7 +4293,7 @@ define void @_ZN6icu_776Region17cleanupRegionDataEv() local_unnamed_addr #1 alig
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %16 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %18, label %17
 
@@ -4315,9 +4315,9 @@ define void @_ZN6icu_776Region17cleanupRegionDataEv() local_unnamed_addr #1 alig
   br label %24
 
 24:                                               ; preds = %20, %18
-  store ptr null, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
-  store ptr null, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
-  store ptr null, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  store ptr null, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
+  store ptr null, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
+  store ptr null, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   store atomic i32 0, ptr @_ZN6icu_77L19gRegionDataInitOnceE seq_cst, align 4
   ret void
 }
@@ -4512,12 +4512,12 @@ define noundef ptr @_ZN6icu_776Region11getInstanceEPKcR10UErrorCode(ptr noundef 
 10:                                               ; preds = %8
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %11 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 12:                                               ; preds = %8, %6
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %15
 
@@ -4541,7 +4541,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
 19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %0, i32 noundef -1, i32 noundef 0)
-  %20 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %20 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %21 = invoke ptr @uhash_get_77(ptr noundef %20, ptr noundef nonnull %3)
           to label %22 unwind label %26
 
@@ -4550,7 +4550,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   br i1 %.not30, label %23, label %.thread
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  %24 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   %25 = invoke ptr @uhash_get_77(ptr noundef %24, ptr noundef nonnull %3)
           to label %28 unwind label %26
 
@@ -4601,7 +4601,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
           to label %50 unwind label %59
 
 50:                                               ; preds = %45
-  %51 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %51 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %52 = invoke ptr @uhash_get_77(ptr noundef %51, ptr noundef %49)
           to label %53 unwind label %59
 
@@ -4658,12 +4658,12 @@ define noundef ptr @_ZNK6icu_776Region18getPreferredValuesER10UErrorCode(ptr nou
 9:                                                ; preds = %7
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 11:                                               ; preds = %7, %5
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %14
 
@@ -4722,12 +4722,12 @@ define noundef ptr @_ZN6icu_776Region11getInstanceEiR10UErrorCode(i32 noundef %0
 10:                                               ; preds = %8
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %11 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 12:                                               ; preds = %8, %6
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %15
 
@@ -4741,7 +4741,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   br i1 %16, label %17, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 17:                                               ; preds = %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %18 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !98
+  %18 = load ptr, ptr @_ZN6icu_77L14numericCodeMapE, align 8, !tbaa !96
   %19 = tail call ptr @uhash_iget_77(ptr noundef %18, i32 noundef %0)
   %.not24 = icmp eq ptr %19, null
   br i1 %.not24, label %20, label %29
@@ -4755,7 +4755,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
           to label %23 unwind label %27
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !98
+  %24 = load ptr, ptr @_ZN6icu_77L13regionAliasesE, align 8, !tbaa !96
   %25 = invoke ptr @uhash_get_77(ptr noundef %24, ptr noundef nonnull %3)
           to label %26 unwind label %27
 
@@ -4809,7 +4809,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(116) %45, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %53 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %53 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %54 = call ptr @uhash_get_77(ptr noundef %53, ptr noundef %52)
   %55 = load ptr, ptr %45, align 8, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -4845,12 +4845,12 @@ define noundef ptr @_ZN6icu_776Region12getAvailableE11URegionTypeR10UErrorCode(i
 9:                                                ; preds = %7
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 11:                                               ; preds = %7, %5
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %14
 
@@ -4903,13 +4903,13 @@ define noundef ptr @_ZNK6icu_776Region19getContainingRegionEv(ptr noundef nonnul
 6:                                                ; preds = %4
   call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %2)
   %7 = load i32, ptr %2, align 4, !tbaa !13
-  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1, %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !96
+  %9 = load ptr, ptr %8, align 8, !tbaa !95
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %9
 }
@@ -4931,12 +4931,12 @@ define noundef ptr @_ZNK6icu_776Region19getContainingRegionE11URegionType(ptr no
 7:                                                ; preds = %5
   call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %8 = load i32, ptr %3, align 4, !tbaa !13
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 9:                                                ; preds = %5, %2
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %12
 
@@ -4946,7 +4946,7 @@ define noundef ptr @_ZNK6icu_776Region19getContainingRegionE11URegionType(ptr no
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %7, %9, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = load ptr, ptr %13, align 8, !tbaa !96
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
   %15 = icmp eq ptr %14, null
   br i1 %15, label %22, label %16
 
@@ -4985,12 +4985,12 @@ define noundef ptr @_ZNK6icu_776Region19getContainedRegionsER10UErrorCode(ptr no
 9:                                                ; preds = %7
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = load i32, ptr %1, align 4, !tbaa !13
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 11:                                               ; preds = %7, %5
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %14
 
@@ -5045,12 +5045,12 @@ define noundef ptr @_ZNK6icu_776Region19getContainedRegionsE11URegionTypeR10UErr
 11:                                               ; preds = %9
   tail call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %2)
   %12 = load i32, ptr %2, align 4, !tbaa !13
-  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 13:                                               ; preds = %9, %7
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %16
 
@@ -5150,7 +5150,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.threa
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   invoke void @_ZN6icu_777UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %57, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.preheader unwind label %62, !llvm.loop !104
+          to label %.preheader unwind label %62, !llvm.loop !102
 
 58:                                               ; preds = %44
   %59 = landingpad { ptr, i32 }
@@ -5179,7 +5179,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.threa
   br label %.preheader79.backedge
 
 .preheader79.backedge:                            ; preds = %.critedge2.thread, %.critedge2, %38
-  br label %.preheader79, !llvm.loop !105
+  br label %.preheader79, !llvm.loop !103
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit56: ; preds = %62, %60
   %.pn49 = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
@@ -5289,12 +5289,12 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_776Region8containsERKS0_(ptr 
 7:                                                ; preds = %5
   call void @_ZN6icu_776Region14loadRegionDataER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %8 = load i32, ptr %3, align 4, !tbaa !13
-  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_77L19gRegionDataInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 9:                                                ; preds = %5, %2
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !100
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_77L19gRegionDataInitOnceE, i64 4), align 4, !tbaa !98
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %12
 
@@ -5325,7 +5325,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %7
   %22 = phi ptr [ %29, %.critedge ], [ %19, %.preheader ]
   %.01422 = phi i32 [ %28, %.critedge ], [ 0, %.preheader ]
   %23 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 noundef %.01422)
-  %24 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !98
+  %24 = load ptr, ptr @_ZN6icu_77L11regionIDMapE, align 8, !tbaa !96
   %25 = call ptr @uhash_get_77(ptr noundef %24, ptr noundef %23)
   %.not18 = icmp eq ptr %25, null
   br i1 %.not18, label %.critedge, label %26
@@ -5341,7 +5341,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !55
   %.not20 = icmp slt i32 %28, %31
-  br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %26, %.critedge, %.preheader, %15, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %.0 = phi i8 [ 0, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ 1, %15 ], [ 0, %.preheader ], [ 1, %26 ], [ 0, %.critedge ]
@@ -5367,9 +5367,9 @@ define void @_ZN6icu_7721RegionNameEnumerationC2EPNS_7UVectorER10UErrorCode(ptr 
   tail call void @_ZN6icu_7717StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7721RegionNameEnumerationE, i64 16), ptr %0, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %4, align 4, !tbaa !107
+  store i32 0, ptr %4, align 4, !tbaa !105
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr null, ptr %5, align 8, !tbaa !110
+  store ptr null, ptr %5, align 8, !tbaa !108
   %.not = icmp eq ptr %1, null
   %6 = load i32, ptr %2, align 4
   %7 = icmp sgt i32 %6, 0
@@ -5447,7 +5447,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %_ZN6icu_7712L
   %35 = add nuw nsw i32 %.02456, 1
   %36 = load i32, ptr %2, align 4, !tbaa !13
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.loopexit, label %20, !llvm.loop !111
+  br i1 %37, label %.loopexit, label %20, !llvm.loop !109
 
 38:                                               ; preds = %25
   %39 = landingpad { ptr, i32 }
@@ -5474,7 +5474,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %_ZN6icu_7712L
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
 .thread52:                                        ; preds = %20
-  store ptr %9, ptr %5, align 8, !tbaa !110
+  store ptr %9, ptr %5, align 8, !tbaa !108
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit36
 
 .loopexit:                                        ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
@@ -5508,21 +5508,21 @@ define noundef ptr @_ZN6icu_7721RegionNameEnumeration5snextER10UErrorCode(ptr no
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %11 = load i32, ptr %10, align 4, !tbaa !107
+  %11 = load i32, ptr %10, align 4, !tbaa !105
   %12 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %11)
   %.not6 = icmp eq ptr %12, null
   br i1 %.not6, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr %10, align 4, !tbaa !107
+  %14 = load i32, ptr %10, align 4, !tbaa !105
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %10, align 4, !tbaa !107
+  store i32 %15, ptr %10, align 4, !tbaa !105
   br label %16
 
 16:                                               ; preds = %9, %13, %2, %5
@@ -5533,14 +5533,14 @@ define noundef ptr @_ZN6icu_7721RegionNameEnumeration5snextER10UErrorCode(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7721RegionNameEnumeration5resetER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((116, 120)) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %3, align 4, !tbaa !107
+  store i32 0, ptr %3, align 4, !tbaa !105
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7721RegionNameEnumeration5countER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = load ptr, ptr %3, align 8, !tbaa !110
+  %4 = load ptr, ptr %3, align 8, !tbaa !108
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
@@ -5558,7 +5558,7 @@ define noundef i32 @_ZNK6icu_7721RegionNameEnumeration5countER10UErrorCode(ptr n
 define void @_ZN6icu_7721RegionNameEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7721RegionNameEnumerationE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8, !tbaa !110
+  %3 = load ptr, ptr %2, align 8, !tbaa !108
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -5757,21 +5757,19 @@ attributes #22 = { nounwind willreturn memory(read) }
 !91 = !{!92}
 !92 = distinct !{!92, !93, !"_ZN6icu_7728ures_getUnicodeStringByIndexEPK15UResourceBundleiP10UErrorCode: argument 0"}
 !93 = distinct !{!93, !"_ZN6icu_7728ures_getUnicodeStringByIndexEPK15UResourceBundleiP10UErrorCode"}
-!94 = distinct !{!94, !39, !95}
-!95 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!96 = !{!60, !64, i64 88}
+!94 = distinct !{!94, !39}
+!95 = !{!60, !64, i64 88}
+!96 = !{!17, !17, i64 0}
 !97 = distinct !{!97, !39}
-!98 = !{!17, !17, i64 0}
-!99 = distinct !{!99, !39}
-!100 = !{!101, !14, i64 4}
-!101 = !{!"_ZTSN6icu_779UInitOnceE", !102, i64 0, !14, i64 4}
-!102 = !{!"_ZTSSt6atomicIiE", !103, i64 0}
-!103 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!98 = !{!99, !14, i64 4}
+!99 = !{!"_ZTSN6icu_779UInitOnceE", !100, i64 0, !14, i64 4}
+!100 = !{!"_ZTSSt6atomicIiE", !101, i64 0}
+!101 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!102 = distinct !{!102, !39}
+!103 = distinct !{!103, !39}
 !104 = distinct !{!104, !39}
-!105 = distinct !{!105, !39}
-!106 = distinct !{!106, !39}
-!107 = !{!108, !9, i64 116}
-!108 = !{!"_ZTSN6icu_7721RegionNameEnumerationE", !109, i64 0, !9, i64 116, !19, i64 120}
-!109 = !{!"_ZTSN6icu_7717StringEnumerationE", !57, i64 0, !61, i64 8, !7, i64 72, !5, i64 104, !9, i64 112}
-!110 = !{!108, !19, i64 120}
-!111 = distinct !{!111, !39}
+!105 = !{!106, !9, i64 116}
+!106 = !{!"_ZTSN6icu_7721RegionNameEnumerationE", !107, i64 0, !9, i64 116, !19, i64 120}
+!107 = !{!"_ZTSN6icu_7717StringEnumerationE", !57, i64 0, !61, i64 8, !7, i64 72, !5, i64 104, !9, i64 112}
+!108 = !{!106, !19, i64 120}
+!109 = distinct !{!109, !39}

@@ -503,12 +503,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIfE26BoundControlPoints
   store float %37, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !10
+  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !9
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -828,7 +828,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE
   %28 = load i32, ptr %4, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %30, label %12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !11
+  br i1 %30, label %12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !10
 
 31:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -866,7 +866,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE
   %55 = load i32, ptr %4, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i8, %56
-  br i1 %57, label %36, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !12
+  br i1 %57, label %36, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !11
 
 58:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i9, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -908,7 +908,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE
   %85 = load i32, ptr %4, align 8
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next.i11, %86
-  br i1 %87, label %63, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !13
+  br i1 %87, label %63, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !12
 
 88:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -954,7 +954,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE
   %118 = load i32, ptr %4, align 8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next.i14, %119
-  br i1 %120, label %93, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !14
+  br i1 %120, label %93, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !13
 
 121:                                              ; preds = %1
   br i1 %6, label %.lr.ph.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -990,7 +990,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE
   %144 = load i32, ptr %4, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next.i17, %145
-  br i1 %146, label %126, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !15
+  br i1 %146, label %126, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !14
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIffE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %93, %63, %36, %12, %126, %121, %88, %58, %31, %7
   ret void
@@ -1121,7 +1121,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyER
   %37 = tail call float @llvm.fmuladd.f32(float %36, float 5.000000e-01, float %35)
   store float %37, ptr %33, align 4
   %exitcond.not.i = icmp eq i32 %16, %6
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %14, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %14, !llvm.loop !15
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1182,7 +1182,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyER
   %82 = tail call float @llvm.fmuladd.f32(float %81, float 5.000000e-01, float %76)
   store float %82, ptr %77, align 4
   %exitcond.not.i8 = icmp eq i32 %51, %40
-  br i1 %exitcond.not.i8, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %49, !llvm.loop !17
+  br i1 %exitcond.not.i8, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %49, !llvm.loop !16
 
 83:                                               ; preds = %1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1257,7 +1257,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyER
   %138 = tail call float @llvm.fmuladd.f32(float %137, float 5.000000e-01, float %129)
   store float %138, ptr %130, align 4
   %exitcond.not.i11 = icmp eq i32 %97, %85
-  br i1 %exitcond.not.i11, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %95, !llvm.loop !18
+  br i1 %exitcond.not.i11, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %95, !llvm.loop !17
 
 139:                                              ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi4EEEvRKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1314,7 +1314,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5ApplyER
   store float %171, ptr %169, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i: ; preds = %.lr.ph.i.i
   %.pr.i = load i32, ptr %2, align 8
@@ -1339,7 +1339,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i: ; pre
   store float %180, ptr %181, align 4
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next.i34.i, %wide.trip.count.i31.i
-  br i1 %exitcond.not.i35.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i, label %.lr.ph.i32.i, !llvm.loop !20
+  br i1 %exitcond.not.i35.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i, label %.lr.ph.i32.i, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i: ; preds = %.lr.ph.i32.i
   %.pre.i = load i32, ptr %2, align 8
@@ -1360,11 +1360,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i: ; pre
   store float %187, ptr %185, align 4
   %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
   %exitcond.not.i41.i = icmp eq i64 %indvars.iv.next.i40.i, %wide.trip.count.i37.i
-  br i1 %exitcond.not.i41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit42.i, label %.lr.ph.i38.i, !llvm.loop !19
+  br i1 %exitcond.not.i41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit42.i, label %.lr.ph.i38.i, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit42.i: ; preds = %.lr.ph.i38.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i, %.lr.ph.i12.split
   %exitcond.not.i13 = icmp eq i32 %155, %142
-  br i1 %exitcond.not.i13, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %.lr.ph.i12.split, !llvm.loop !21
+  br i1 %exitcond.not.i13, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit, label %.lr.ph.i12.split, !llvm.loop !20
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %95, %49, %14, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit42.i, %.lr.ph.i12, %140, %83, %38, %4, %139
   ret void
@@ -1462,7 +1462,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIfE5applyIL
   %71 = tail call float @llvm.fmuladd.f32(float %70, float 5.000000e-01, float %59)
   store float %71, ptr %60, align 4
   %exitcond.not = icmp eq i32 %20, %3
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %18, %1
   ret void
@@ -1533,7 +1533,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %29 = load i32, ptr %12, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i, %30
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %30, %.lr.ph.i ]
@@ -1544,7 +1544,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %36 = add nuw nsw i32 %.02432.i, 1
   %37 = load i32, ptr %4, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %14, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !25
+  br i1 %38, label %14, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !24
 
 39:                                               ; preds = %1
   br i1 %6, label %.lr.ph34.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -1601,7 +1601,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %69 = load i32, ptr %44, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next.i17, %70
-  br i1 %71, label %.lr.ph.i14, label %._crit_edge.i12, !llvm.loop !26
+  br i1 %71, label %.lr.ph.i14, label %._crit_edge.i12, !llvm.loop !25
 
 ._crit_edge.i12:                                  ; preds = %.lr.ph.i14, %.._crit_edge_crit_edge.i10
   %.pre-phi.i13 = phi i64 [ %.pre.i11, %.._crit_edge_crit_edge.i10 ], [ %70, %.lr.ph.i14 ]
@@ -1612,7 +1612,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %76 = add nuw nsw i32 %.02432.i7, 1
   %77 = load i32, ptr %4, align 4
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %46, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !27
+  br i1 %78, label %46, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !26
 
 79:                                               ; preds = %1
   br i1 %6, label %.lr.ph34.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -1679,7 +1679,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %117 = load i32, ptr %84, align 8
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next.i29, %118
-  br i1 %119, label %.lr.ph.i26, label %._crit_edge.i24, !llvm.loop !28
+  br i1 %119, label %.lr.ph.i26, label %._crit_edge.i24, !llvm.loop !27
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i26, %.._crit_edge_crit_edge.i22
   %.pre-phi.i25 = phi i64 [ %.pre.i23, %.._crit_edge_crit_edge.i22 ], [ %118, %.lr.ph.i26 ]
@@ -1690,7 +1690,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %124 = add nuw nsw i32 %.02432.i19, 1
   %125 = load i32, ptr %4, align 4
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %86, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !29
+  br i1 %126, label %86, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !28
 
 127:                                              ; preds = %1
   br i1 %6, label %.lr.ph34.i30, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -1767,7 +1767,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %173 = load i32, ptr %132, align 8
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next.i41, %174
-  br i1 %175, label %.lr.ph.i38, label %._crit_edge.i36, !llvm.loop !30
+  br i1 %175, label %.lr.ph.i38, label %._crit_edge.i36, !llvm.loop !29
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph.i38, %.._crit_edge_crit_edge.i34
   %.pre-phi.i37 = phi i64 [ %.pre.i35, %.._crit_edge_crit_edge.i34 ], [ %174, %.lr.ph.i38 ]
@@ -1778,7 +1778,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %180 = add nuw nsw i32 %.02432.i31, 1
   %181 = load i32, ptr %4, align 4
   %182 = icmp slt i32 %180, %181
-  br i1 %182, label %134, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !31
+  br i1 %182, label %134, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !30
 
 183:                                              ; preds = %1
   br i1 %6, label %.lr.ph41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -1819,7 +1819,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i.thread
   store float %198, ptr %199, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i: ; preds = %.lr.ph.i.i
   %.pre = load i32, ptr %2, align 8
@@ -1861,7 +1861,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i.._crit
   store float %216, ptr %214, align 4
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i33.i = icmp eq i64 %indvars.iv.next.i32.i, %wide.trip.count.i29.i
-  br i1 %exitcond.not.i33.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.i, label %.lr.ph.i30.i, !llvm.loop !19
+  br i1 %exitcond.not.i33.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.i, label %.lr.ph.i30.i, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.i: ; preds = %.lr.ph.i30.i
   %.pre.i45 = load i32, ptr %188, align 8
@@ -1872,7 +1872,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i: ; pre
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next.i44, %218
-  br i1 %219, label %.lr.ph.split.i, label %._crit_edge.i42, !llvm.loop !32
+  br i1 %219, label %.lr.ph.split.i, label %._crit_edge.i42, !llvm.loop !31
 
 ._crit_edge.i42:                                  ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i.._crit_edge.i42_crit_edge
   %.pre-phi = phi i64 [ %.pre62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.i.._crit_edge.i42_crit_edge ], [ %218, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i ]
@@ -1883,7 +1883,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.i: ; pre
   %224 = add nuw nsw i32 %.02439.i, 1
   %225 = load i32, ptr %4, align 4
   %226 = icmp slt i32 %224, %225
-  br i1 %226, label %190, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !33
+  br i1 %226, label %190, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !32
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIfE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %._crit_edge.i36, %._crit_edge.i24, %._crit_edge.i12, %._crit_edge.i, %._crit_edge.i42, %183, %127, %79, %39, %7
   ret void
@@ -2143,7 +2143,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %122 = load i32, ptr %61, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next.i, %123
-  br i1 %124, label %87, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !34
+  br i1 %124, label %87, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !33
 
 125:                                              ; preds = %67
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi2EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %9)
@@ -2359,7 +2359,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %118 = load i32, ptr %52, align 8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next.i, %119
-  br i1 %120, label %83, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !34
+  br i1 %120, label %83, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !33
 
 121:                                              ; preds = %58
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi2EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %9)
@@ -2570,7 +2570,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %111 = load i32, ptr %40, align 8
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next.i, %112
-  br i1 %113, label %76, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !34
+  br i1 %113, label %76, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5ApplyERKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !33
 
 114:                                              ; preds = %46
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi2EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %8)
@@ -2681,7 +2681,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5ApplyERK
   %32 = load i32, ptr %21, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next49.i, %33
-  br i1 %34, label %25, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !35
+  br i1 %34, label %25, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !34
 
 35:                                               ; preds = %4
   %36 = load i32, ptr %14, align 4
@@ -2716,7 +2716,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5ApplyERK
   %58 = load i32, ptr %43, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next.i, %59
-  br i1 %60, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !36
+  br i1 %60, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !35
 
 61:                                               ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi2EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -2801,7 +2801,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %37 = load i32, ptr %22, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next.i, %38
-  br i1 %39, label %.lr.ph.i, label %.preheader.i, !llvm.loop !37
+  br i1 %39, label %.lr.ph.i, label %.preheader.i, !llvm.loop !36
 
 40:                                               ; preds = %._crit_edge.i, %.lr.ph47.i
   %41 = phi i32 [ %27, %.lr.ph47.i ], [ %69, %._crit_edge.i ]
@@ -2846,7 +2846,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %66 = load i32, ptr %22, align 4
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next51.i, %67
-  br i1 %68, label %.lr.ph44.i, label %._crit_edge.loopexit.i, !llvm.loop !38
+  br i1 %68, label %.lr.ph44.i, label %._crit_edge.loopexit.i, !llvm.loop !37
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph44.i
   %.pre.i = load i32, ptr %26, align 8
@@ -2858,7 +2858,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %71 = sext i32 %69 to i64
   %72 = icmp slt i64 %indvars.iv.next54.i, %71
-  br i1 %72, label %40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !39
+  br i1 %72, label %40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5applyILi1EEEvRKNS2_27CommonCombinationParametersIfEE.exit, !llvm.loop !38
 
 73:                                               ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5applyILi2EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -2950,7 +2950,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %37 = load i32, ptr %22, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next49, %38
-  br i1 %39, label %26, label %.loopexit, !llvm.loop !40
+  br i1 %39, label %26, label %.loopexit, !llvm.loop !39
 
 40:                                               ; preds = %1
   %41 = load i32, ptr %11, align 4
@@ -2995,7 +2995,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %71 = load i32, ptr %52, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %40, %14
   ret void
@@ -3065,7 +3065,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %45 = load i32, ptr %26, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next49, %46
-  br i1 %47, label %30, label %.loopexit, !llvm.loop !42
+  br i1 %47, label %30, label %.loopexit, !llvm.loop !41
 
 48:                                               ; preds = %1
   %49 = load i32, ptr %11, align 4
@@ -3120,7 +3120,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %87 = load i32, ptr %64, align 8
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %48, %14
   ret void
@@ -3200,7 +3200,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %53 = load i32, ptr %30, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next49, %54
-  br i1 %55, label %34, label %.loopexit, !llvm.loop !44
+  br i1 %55, label %34, label %.loopexit, !llvm.loop !43
 
 56:                                               ; preds = %1
   %57 = load i32, ptr %11, align 4
@@ -3265,7 +3265,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   %103 = load i32, ptr %76, align 8
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !45
+  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %56, %14
   ret void
@@ -3307,7 +3307,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IfE5applyILi
   store float %21, ptr %22, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit, label %.lr.ph.i, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit: ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3338,14 +3338,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit: ; preds
   store float %34, ptr %32, align 4
   %indvars.iv.next.i45.us = add nuw nsw i64 %indvars.iv.i44.us, 1
   %exitcond.not.i46.us = icmp eq i64 %indvars.iv.next.i45.us, %wide.trip.count.i42
-  br i1 %exitcond.not.i46.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us, label %.lr.ph.i43.us, !llvm.loop !19
+  br i1 %exitcond.not.i46.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us, label %.lr.ph.i43.us, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us: ; preds = %.lr.ph.i43.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %35 = load i32, ptr %23, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next71, %36
-  br i1 %37, label %.lr.ph.preheader.i41.us, label %.loopexit, !llvm.loop !46
+  br i1 %37, label %.lr.ph.preheader.i41.us, label %.loopexit, !llvm.loop !45
 
 38:                                               ; preds = %1
   %39 = load i32, ptr %13, align 4
@@ -3369,7 +3369,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit
   store float %47, ptr %48, align 4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i48
-  br i1 %exitcond.not.i52, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit53, label %.lr.ph.i49, !llvm.loop !20
+  br i1 %exitcond.not.i52, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit53, label %.lr.ph.i49, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit53: ; preds = %.lr.ph.i49
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3404,14 +3404,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit53: ; pre
   store float %65, ptr %63, align 4
   %indvars.iv.next.i58.us = add nuw nsw i64 %indvars.iv.i57.us, 1
   %exitcond.not.i59.us = icmp eq i64 %indvars.iv.next.i58.us, %wide.trip.count.i55
-  br i1 %exitcond.not.i59.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit60.loopexit.us, label %.lr.ph.i56.us, !llvm.loop !19
+  br i1 %exitcond.not.i59.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit60.loopexit.us, label %.lr.ph.i56.us, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit60.loopexit.us: ; preds = %.lr.ph.i56.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %49, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.preheader.i54.us, label %.loopexit, !llvm.loop !47
+  br i1 %68, label %.lr.ph.preheader.i54.us, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit60.loopexit.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us, %38, %16, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit53, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit
   ret void
@@ -3550,7 +3550,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   %100 = load i32, ptr %48, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %52, label %._crit_edge, !llvm.loop !48
+  br i1 %102, label %52, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %64, %17
   ret void
@@ -3718,7 +3718,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   %123 = load i32, ptr %58, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %62, label %._crit_edge, !llvm.loop !49
+  br i1 %125, label %62, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %74, %17
   ret void
@@ -3915,7 +3915,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   %146 = load i32, ptr %68, align 8
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %72, label %._crit_edge, !llvm.loop !50
+  br i1 %148, label %72, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %84, %17
   ret void
@@ -3965,7 +3965,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   store float %27, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.preheader.i48:                             ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3984,7 +3984,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   store float %36, ptr %37, align 4
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i
-  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !20
+  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !19
 
 .lr.ph.preheader.i55:                             ; preds = %.lr.ph.i50
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4003,7 +4003,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   store float %45, ptr %46, align 4
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
-  br i1 %exitcond.not.i60, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61, label %.lr.ph.i57, !llvm.loop !20
+  br i1 %exitcond.not.i60, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61, label %.lr.ph.i57, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; preds = %.lr.ph.i57
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4054,7 +4054,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
   store float %71, ptr %69, align 4
   %indvars.iv.next.i66.us = add nuw nsw i64 %indvars.iv.i65.us, 1
   %exitcond.not.i67.us = icmp eq i64 %indvars.iv.next.i66.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !19
+  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !18
 
 .lr.ph.preheader.i68.us:                          ; preds = %.lr.ph.i64.us
   %72 = load ptr, ptr %29, align 8
@@ -4073,7 +4073,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
   store float %80, ptr %78, align 4
   %indvars.iv.next.i72.us = add nuw nsw i64 %indvars.iv.i71.us, 1
   %exitcond.not.i73.us = icmp eq i64 %indvars.iv.next.i72.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !19
+  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !18
 
 .lr.ph.preheader.i75.us:                          ; preds = %.lr.ph.i70.us
   %81 = load ptr, ptr %38, align 8
@@ -4092,14 +4092,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
   store float %89, ptr %87, align 4
   %indvars.iv.next.i79.us = add nuw nsw i64 %indvars.iv.i78.us, 1
   %exitcond.not.i80.us = icmp eq i64 %indvars.iv.next.i79.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i80.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us, label %.lr.ph.i77.us, !llvm.loop !19
+  br i1 %exitcond.not.i80.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us, label %.lr.ph.i77.us, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us: ; preds = %.lr.ph.i77.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i32, ptr %47, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !51
+  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us, %19, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61
   ret void
@@ -4166,7 +4166,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %39 = load i32, ptr %19, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %28, label %.preheader, !llvm.loop !52
+  br i1 %41, label %28, label %.preheader, !llvm.loop !51
 
 42:                                               ; preds = %.lr.ph47, %._crit_edge
   %43 = phi i32 [ %25, %.lr.ph47 ], [ %77, %._crit_edge ]
@@ -4220,7 +4220,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %74 = load i32, ptr %19, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next51, %75
-  br i1 %76, label %60, label %._crit_edge.loopexit, !llvm.loop !53
+  br i1 %76, label %60, label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %60
   %.pre = load i32, ptr %24, align 8
@@ -4232,7 +4232,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %79 = sext i32 %77 to i64
   %80 = icmp slt i64 %indvars.iv.next54, %79
-  br i1 %80, label %42, label %._crit_edge48, !llvm.loop !54
+  br i1 %80, label %42, label %._crit_edge48, !llvm.loop !53
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -4304,7 +4304,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %43 = load i32, ptr %19, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %29, label %.preheader, !llvm.loop !55
+  br i1 %45, label %29, label %.preheader, !llvm.loop !54
 
 46:                                               ; preds = %.lr.ph47, %._crit_edge
   %47 = phi i32 [ %26, %.lr.ph47 ], [ %86, %._crit_edge ]
@@ -4364,7 +4364,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %83 = load i32, ptr %19, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next51, %84
-  br i1 %85, label %65, label %._crit_edge.loopexit, !llvm.loop !56
+  br i1 %85, label %65, label %._crit_edge.loopexit, !llvm.loop !55
 
 ._crit_edge.loopexit:                             ; preds = %65
   %.pre = load i32, ptr %25, align 8
@@ -4376,7 +4376,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %88 = sext i32 %86 to i64
   %89 = icmp slt i64 %indvars.iv.next54, %88
-  br i1 %89, label %46, label %._crit_edge48, !llvm.loop !57
+  br i1 %89, label %46, label %._crit_edge48, !llvm.loop !56
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -4453,7 +4453,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %47 = load i32, ptr %19, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %30, label %.preheader, !llvm.loop !58
+  br i1 %49, label %30, label %.preheader, !llvm.loop !57
 
 50:                                               ; preds = %.lr.ph47, %._crit_edge
   %51 = phi i32 [ %27, %.lr.ph47 ], [ %95, %._crit_edge ]
@@ -4519,7 +4519,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %92 = load i32, ptr %19, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next51, %93
-  br i1 %94, label %70, label %._crit_edge.loopexit, !llvm.loop !59
+  br i1 %94, label %70, label %._crit_edge.loopexit, !llvm.loop !58
 
 ._crit_edge.loopexit:                             ; preds = %70
   %.pre = load i32, ptr %26, align 8
@@ -4531,7 +4531,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %97 = sext i32 %95 to i64
   %98 = icmp slt i64 %indvars.iv.next54, %97
-  br i1 %98, label %50, label %._crit_edge48, !llvm.loop !60
+  br i1 %98, label %50, label %._crit_edge48, !llvm.loop !59
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -4541,7 +4541,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5applyILi0EEEvRKNS2_27CommonCombinationParametersIfEE(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %.fr63 = freeze i32 %3
+  %.fr65 = freeze i32 %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4569,8 +4569,8 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   br i1 %23, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %19
-  %24 = icmp sgt i32 %.fr63, 0
-  %wide.trip.count.i = zext nneg i32 %.fr63 to i64
+  %24 = icmp sgt i32 %.fr65, 0
+  %wide.trip.count.i = zext nneg i32 %.fr65 to i64
   br i1 %24, label %.lr.ph.preheader.i.us, label %.preheader
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us
@@ -4591,14 +4591,14 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIfE5
   store float %32, ptr %33, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !19
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us: ; preds = %.lr.ph.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.preheader.i.us, label %.preheader, !llvm.loop !61
+  br i1 %36, label %.lr.ph.preheader.i.us, label %.preheader, !llvm.loop !60
 
 .preheader:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us, %.lr.ph, %19
   %37 = phi i32 [ %22, %19 ], [ %22, %.lr.ph ], [ %34, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit.us ]
@@ -4609,14 +4609,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit
 
 .lr.ph53:                                         ; preds = %.preheader
   %41 = sext i32 %5 to i64
-  %42 = icmp sgt i32 %.fr63, 0
-  %wide.trip.count.i43 = zext nneg i32 %.fr63 to i64
+  %42 = icmp sgt i32 %.fr65, 0
+  %wide.trip.count.i43 = zext nneg i32 %.fr65 to i64
   br i1 %42, label %.lr.ph53.split.us, label %._crit_edge54
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %._crit_edge.split.us.us
   %43 = phi i32 [ %59, %._crit_edge.split.us.us ], [ %39, %.lr.ph53 ]
   %44 = phi i32 [ %60, %._crit_edge.split.us.us ], [ %37, %.lr.ph53 ]
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %._crit_edge.split.us.us ], [ 1, %.lr.ph53 ]
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %._crit_edge.split.us.us ], [ 1, %.lr.ph53 ]
   %.03951.us = phi ptr [ %57, %._crit_edge.split.us.us ], [ %20, %.lr.ph53 ]
   %45 = load ptr, ptr %10, align 8
   %46 = icmp eq ptr %45, null
@@ -4624,7 +4624,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit
 
 47:                                               ; preds = %.lr.ph53.split.us
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv75
   %50 = load i32, ptr %49, align 4
   %51 = mul nsw i32 %50, %5
   %52 = sext i32 %51 to i64
@@ -4647,18 +4647,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %56
   %59 = phi i32 [ %.pre, %._crit_edge.split.us.us.loopexit ], [ %43, %56 ]
   %60 = phi i32 [ %74, %._crit_edge.split.us.us.loopexit ], [ %44, %56 ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %61 = sext i32 %59 to i64
-  %62 = icmp slt i64 %indvars.iv.next73, %61
-  br i1 %62, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !62
+  %62 = icmp slt i64 %indvars.iv.next76, %61
+  br i1 %62, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !61
 
 .lr.ph.preheader.i42.us.us:                       ; preds = %56, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us ], [ 0, %56 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv69
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us ], [ 0, %56 ]
+  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv72
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv69
+  %65 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv72
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv72
+  %67 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv75
   %68 = load float, ptr %67, align 4
   br label %.lr.ph.i44.us.us
 
@@ -4672,14 +4672,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit.loopexit
   store float %73, ptr %71, align 4
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, %wide.trip.count.i43
-  br i1 %exitcond.not.i47.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us, label %.lr.ph.i44.us.us, !llvm.loop !19
+  br i1 %exitcond.not.i47.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us, label %.lr.ph.i44.us.us, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.loopexit.us.us: ; preds = %.lr.ph.i44.us.us
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %74 = load i32, ptr %21, align 4
   %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next70, %75
-  br i1 %76, label %.lr.ph.preheader.i42.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !63
+  %76 = icmp slt i64 %indvars.iv.next73, %75
+  br i1 %76, label %.lr.ph.preheader.i42.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !62
 
 ._crit_edge54:                                    ; preds = %._crit_edge.split.us.us, %.lr.ph53, %.preheader
   ret void
@@ -5266,8 +5266,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %115 = zext i32 %33 to i64
   %116 = zext i32 %108 to i64
   %117 = zext i32 %106 to i64
-  %wide.trip.count50 = zext nneg i32 %35 to i64
-  br label %.lr.ph.split.us
+  %wide.trip.count56 = zext nneg i32 %35 to i64
+  br i1 %32, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.preheader:                           ; preds = %.thread
   %118 = add i32 %33, -1
@@ -5281,89 +5281,121 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIfEEiPKPT_iS5_PS5
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %157
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %157 ]
-  %126 = icmp eq i64 %indvars.iv47, %115
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %131
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %131 ], [ 0, %.lr.ph ]
+  %126 = icmp eq i64 %indvars.iv53, %115
   br i1 %126, label %131, label %127
 
-127:                                              ; preds = %.lr.ph.split.us
-  %128 = icmp eq i64 %indvars.iv47, %116
+127:                                              ; preds = %.lr.ph.split.us.split.us
+  %128 = icmp eq i64 %indvars.iv53, %116
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp eq i64 %indvars.iv47, %117
-  %spec.select.us = select i1 %130, i64 3, i64 2
+  %130 = icmp eq i64 %indvars.iv53, %117
+  %spec.select.us.us = select i1 %130, i64 3, i64 2
   br label %131
 
-131:                                              ; preds = %129, %127, %.lr.ph.split.us
-  %.0.us = phi i64 [ 0, %.lr.ph.split.us ], [ 1, %127 ], [ %spec.select.us, %129 ]
+131:                                              ; preds = %129, %127, %.lr.ph.split.us.split.us
+  %.0.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ], [ %spec.select.us.us, %129 ]
   %132 = load ptr, ptr %5, align 16
-  %133 = getelementptr inbounds nuw float, ptr %132, i64 %.0.us
+  %133 = getelementptr inbounds nuw float, ptr %132, i64 %.0.us.us
   %134 = load float, ptr %133, align 4
   %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv47
+  %136 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv53
   store float %134, ptr %136, align 4
   %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds nuw float, ptr %137, i64 %.0.us
+  %138 = getelementptr inbounds nuw float, ptr %137, i64 %.0.us.us
   %139 = load float, ptr %138, align 4
   %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv47
+  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv53
   store float %139, ptr %141, align 4
   %142 = load ptr, ptr %109, align 16
-  %143 = getelementptr inbounds nuw float, ptr %142, i64 %.0.us
+  %143 = getelementptr inbounds nuw float, ptr %142, i64 %.0.us.us
   %144 = load float, ptr %143, align 4
   %145 = load ptr, ptr %110, align 8
-  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv47
+  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv53
   store float %144, ptr %146, align 4
-  br i1 %32, label %147, label %157
+  %147 = load ptr, ptr %111, align 8
+  %148 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv53
+  store float 0.000000e+00, ptr %148, align 4
+  %149 = load ptr, ptr %112, align 16
+  %150 = getelementptr inbounds nuw float, ptr %149, i64 %.0.us.us
+  %151 = load float, ptr %150, align 4
+  %152 = load ptr, ptr %113, align 8
+  %153 = getelementptr inbounds nuw float, ptr %152, i64 %indvars.iv53
+  store float %151, ptr %153, align 4
+  %154 = load ptr, ptr %114, align 8
+  %155 = getelementptr inbounds nuw float, ptr %154, i64 %indvars.iv53
+  store float 0.000000e+00, ptr %155, align 4
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !63
 
-147:                                              ; preds = %131
-  %148 = load ptr, ptr %111, align 8
-  %149 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv47
-  store float 0.000000e+00, ptr %149, align 4
-  %150 = load ptr, ptr %112, align 16
-  %151 = getelementptr inbounds nuw float, ptr %150, i64 %.0.us
-  %152 = load float, ptr %151, align 4
-  %153 = load ptr, ptr %113, align 8
-  %154 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv47
-  store float %152, ptr %154, align 4
-  %155 = load ptr, ptr %114, align 8
-  %156 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv47
-  store float 0.000000e+00, ptr %156, align 4
-  br label %157
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %161
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %161 ], [ 0, %.lr.ph ]
+  %156 = icmp eq i64 %indvars.iv48, %115
+  br i1 %156, label %161, label %157
 
-157:                                              ; preds = %147, %131
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
+157:                                              ; preds = %.lr.ph.split.us.split
+  %158 = icmp eq i64 %indvars.iv48, %116
+  br i1 %158, label %161, label %159
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %163
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %163 ]
-  %158 = icmp eq i64 %indvars.iv, %125
-  br i1 %158, label %163, label %159
+159:                                              ; preds = %157
+  %160 = icmp eq i64 %indvars.iv48, %117
+  %spec.select.us = select i1 %160, i64 3, i64 2
+  br label %161
 
-159:                                              ; preds = %.lr.ph.split
-  %160 = icmp eq i64 %indvars.iv, %124
-  br i1 %160, label %163, label %161
+161:                                              ; preds = %159, %157, %.lr.ph.split.us.split
+  %.0.us = phi i64 [ 0, %.lr.ph.split.us.split ], [ 1, %157 ], [ %spec.select.us, %159 ]
+  %162 = load ptr, ptr %5, align 16
+  %163 = getelementptr inbounds nuw float, ptr %162, i64 %.0.us
+  %164 = load float, ptr %163, align 4
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv48
+  store float %164, ptr %166, align 4
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds nuw float, ptr %167, i64 %.0.us
+  %169 = load float, ptr %168, align 4
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv48
+  store float %169, ptr %171, align 4
+  %172 = load ptr, ptr %109, align 16
+  %173 = getelementptr inbounds nuw float, ptr %172, i64 %.0.us
+  %174 = load float, ptr %173, align 4
+  %175 = load ptr, ptr %110, align 8
+  %176 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv48
+  store float %174, ptr %176, align 4
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !63
 
-161:                                              ; preds = %159
-  %162 = icmp eq i64 %indvars.iv, %123
-  %spec.select = select i1 %162, i64 3, i64 2
-  br label %163
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %182
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %182 ]
+  %177 = icmp eq i64 %indvars.iv, %125
+  br i1 %177, label %182, label %178
 
-163:                                              ; preds = %161, %159, %.lr.ph.split
-  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %159 ], [ %spec.select, %161 ]
-  %164 = load ptr, ptr %5, align 16
-  %165 = getelementptr inbounds nuw float, ptr %164, i64 %.0
-  %166 = load float, ptr %165, align 4
-  %167 = load ptr, ptr %2, align 8
-  %168 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv
-  store float %166, ptr %168, align 4
+178:                                              ; preds = %.lr.ph.split
+  %179 = icmp eq i64 %indvars.iv, %124
+  br i1 %179, label %182, label %180
+
+180:                                              ; preds = %178
+  %181 = icmp eq i64 %indvars.iv, %123
+  %spec.select = select i1 %181, i64 3, i64 2
+  br label %182
+
+182:                                              ; preds = %180, %178, %.lr.ph.split
+  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %178 ], [ %spec.select, %180 ]
+  %183 = load ptr, ptr %5, align 16
+  %184 = getelementptr inbounds nuw float, ptr %183, i64 %.0
+  %185 = load float, ptr %184, align 4
+  %186 = load ptr, ptr %2, align 8
+  %187 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv
+  store float %185, ptr %187, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %163, %157, %.thread, %101
+._crit_edge:                                      ; preds = %182, %161, %131, %.thread, %101
   ret i32 %35
 }
 
@@ -5826,12 +5858,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE18BoundControlPoints
   store double %28, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %17
   %29 = add nuw nsw i32 %.02835.us, 1
   %exitcond41.not = icmp eq i32 %29, %7
-  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !67
+  br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !65
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %5
   ret void
@@ -5890,12 +5922,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Bfr7SurfaceIdE26BoundControlPoints
   store double %37, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !66
 
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !69
+  br i1 %exitcond47.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !67
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -6215,7 +6247,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE
   %28 = load i32, ptr %4, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %30, label %12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !70
+  br i1 %30, label %12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !68
 
 31:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -6253,7 +6285,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE
   %55 = load i32, ptr %4, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i8, %56
-  br i1 %57, label %36, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !71
+  br i1 %57, label %36, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !69
 
 58:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i9, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -6295,7 +6327,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE
   %85 = load i32, ptr %4, align 8
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next.i11, %86
-  br i1 %87, label %63, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !72
+  br i1 %87, label %63, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !70
 
 88:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i12, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -6341,7 +6373,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE
   %118 = load i32, ptr %4, align 8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next.i14, %119
-  br i1 %120, label %93, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !73
+  br i1 %120, label %93, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !71
 
 121:                                              ; preds = %1
   br i1 %6, label %.lr.ph.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -6377,7 +6409,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE
   %144 = load i32, ptr %4, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next.i17, %145
-  br i1 %146, label %126, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !74
+  br i1 %146, label %126, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !72
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIddE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %93, %63, %36, %12, %126, %121, %88, %58, %31, %7
   ret void
@@ -6508,7 +6540,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyER
   %37 = tail call double @llvm.fmuladd.f64(double %36, double 5.000000e-01, double %35)
   store double %37, ptr %33, align 8
   %exitcond.not.i = icmp eq i32 %16, %6
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %14, !llvm.loop !75
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %14, !llvm.loop !73
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6569,7 +6601,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyER
   %82 = tail call double @llvm.fmuladd.f64(double %81, double 5.000000e-01, double %76)
   store double %82, ptr %77, align 8
   %exitcond.not.i8 = icmp eq i32 %51, %40
-  br i1 %exitcond.not.i8, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %49, !llvm.loop !76
+  br i1 %exitcond.not.i8, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %49, !llvm.loop !74
 
 83:                                               ; preds = %1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6644,7 +6676,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyER
   %138 = tail call double @llvm.fmuladd.f64(double %137, double 5.000000e-01, double %129)
   store double %138, ptr %130, align 8
   %exitcond.not.i11 = icmp eq i32 %97, %85
-  br i1 %exitcond.not.i11, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %95, !llvm.loop !77
+  br i1 %exitcond.not.i11, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %95, !llvm.loop !75
 
 139:                                              ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi4EEEvRKNS4_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -6701,7 +6733,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5ApplyER
   store double %171, ptr %169, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i: ; preds = %.lr.ph.i.i
   %.pr.i = load i32, ptr %2, align 8
@@ -6726,7 +6758,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i: ; pre
   store double %180, ptr %181, align 8
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
   %exitcond.not.i35.i = icmp eq i64 %indvars.iv.next.i34.i, %wide.trip.count.i31.i
-  br i1 %exitcond.not.i35.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i, label %.lr.ph.i32.i, !llvm.loop !79
+  br i1 %exitcond.not.i35.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i, label %.lr.ph.i32.i, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i: ; preds = %.lr.ph.i32.i
   %.pre.i = load i32, ptr %2, align 8
@@ -6747,11 +6779,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i: ; pre
   store double %187, ptr %185, align 8
   %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
   %exitcond.not.i41.i = icmp eq i64 %indvars.iv.next.i40.i, %wide.trip.count.i37.i
-  br i1 %exitcond.not.i41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit42.i, label %.lr.ph.i38.i, !llvm.loop !78
+  br i1 %exitcond.not.i41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit42.i, label %.lr.ph.i38.i, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit42.i: ; preds = %.lr.ph.i38.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i, %.lr.ph.i12.split
   %exitcond.not.i13 = icmp eq i32 %155, %142
-  br i1 %exitcond.not.i13, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %.lr.ph.i12.split, !llvm.loop !80
+  br i1 %exitcond.not.i13, label %_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit, label %.lr.ph.i12.split, !llvm.loop !78
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %95, %49, %14, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit42.i, %.lr.ph.i12, %140, %83, %38, %4, %139
   ret void
@@ -6849,7 +6881,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points9SplitFaceIdE5applyIL
   %71 = tail call double @llvm.fmuladd.f64(double %70, double 5.000000e-01, double %59)
   store double %71, ptr %60, align 8
   %exitcond.not = icmp eq i32 %20, %3
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %18, %1
   ret void
@@ -6917,7 +6949,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %29 = load i32, ptr %12, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i, %30
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !82
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !80
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %30, %.lr.ph.i ]
@@ -6928,7 +6960,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %36 = add nuw nsw i32 %.02432.i, 1
   %37 = load i32, ptr %4, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %14, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !83
+  br i1 %38, label %14, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !81
 
 39:                                               ; preds = %1
   br i1 %6, label %.lr.ph34.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -6985,7 +7017,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %69 = load i32, ptr %44, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next.i17, %70
-  br i1 %71, label %.lr.ph.i14, label %._crit_edge.i12, !llvm.loop !84
+  br i1 %71, label %.lr.ph.i14, label %._crit_edge.i12, !llvm.loop !82
 
 ._crit_edge.i12:                                  ; preds = %.lr.ph.i14, %.._crit_edge_crit_edge.i10
   %.pre-phi.i13 = phi i64 [ %.pre.i11, %.._crit_edge_crit_edge.i10 ], [ %70, %.lr.ph.i14 ]
@@ -6996,7 +7028,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %76 = add nuw nsw i32 %.02432.i7, 1
   %77 = load i32, ptr %4, align 4
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %46, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !85
+  br i1 %78, label %46, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !83
 
 79:                                               ; preds = %1
   br i1 %6, label %.lr.ph34.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -7063,7 +7095,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %117 = load i32, ptr %84, align 8
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next.i29, %118
-  br i1 %119, label %.lr.ph.i26, label %._crit_edge.i24, !llvm.loop !86
+  br i1 %119, label %.lr.ph.i26, label %._crit_edge.i24, !llvm.loop !84
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i26, %.._crit_edge_crit_edge.i22
   %.pre-phi.i25 = phi i64 [ %.pre.i23, %.._crit_edge_crit_edge.i22 ], [ %118, %.lr.ph.i26 ]
@@ -7074,7 +7106,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %124 = add nuw nsw i32 %.02432.i19, 1
   %125 = load i32, ptr %4, align 4
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %86, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !87
+  br i1 %126, label %86, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !85
 
 127:                                              ; preds = %1
   br i1 %6, label %.lr.ph34.i30, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -7151,7 +7183,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %173 = load i32, ptr %132, align 8
   %174 = sext i32 %173 to i64
   %175 = icmp slt i64 %indvars.iv.next.i41, %174
-  br i1 %175, label %.lr.ph.i38, label %._crit_edge.i36, !llvm.loop !88
+  br i1 %175, label %.lr.ph.i38, label %._crit_edge.i36, !llvm.loop !86
 
 ._crit_edge.i36:                                  ; preds = %.lr.ph.i38, %.._crit_edge_crit_edge.i34
   %.pre-phi.i37 = phi i64 [ %.pre.i35, %.._crit_edge_crit_edge.i34 ], [ %174, %.lr.ph.i38 ]
@@ -7162,7 +7194,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveI
   %180 = add nuw nsw i32 %.02432.i31, 1
   %181 = load i32, ptr %4, align 4
   %182 = icmp slt i32 %180, %181
-  br i1 %182, label %134, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !89
+  br i1 %182, label %134, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !87
 
 183:                                              ; preds = %1
   br i1 %6, label %.lr.ph41.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -7203,7 +7235,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i.thread
   store double %198, ptr %199, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !79
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i, label %.lr.ph.i.i, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i: ; preds = %.lr.ph.i.i
   %.pre = load i32, ptr %2, align 8
@@ -7245,7 +7277,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i.._crit
   store double %216, ptr %214, align 8
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i33.i = icmp eq i64 %indvars.iv.next.i32.i, %wide.trip.count.i29.i
-  br i1 %exitcond.not.i33.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.i, label %.lr.ph.i30.i, !llvm.loop !78
+  br i1 %exitcond.not.i33.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.i, label %.lr.ph.i30.i, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.i: ; preds = %.lr.ph.i30.i
   %.pre.i45 = load i32, ptr %188, align 8
@@ -7256,7 +7288,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i: ; pre
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next.i44, %218
-  br i1 %219, label %.lr.ph.split.i, label %._crit_edge.i42, !llvm.loop !90
+  br i1 %219, label %.lr.ph.split.i, label %._crit_edge.i42, !llvm.loop !88
 
 ._crit_edge.i42:                                  ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i.._crit_edge.i42_crit_edge
   %.pre-phi = phi i64 [ %.pre62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.i.._crit_edge.i42_crit_edge ], [ %218, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i ]
@@ -7267,7 +7299,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.i: ; pre
   %224 = add nuw nsw i32 %.02439.i, 1
   %225 = load i32, ptr %4, align 4
   %226 = icmp slt i32 %224, %225
-  br i1 %226, label %190, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !91
+  br i1 %226, label %190, label %_ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !89
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points18CombineConsecutiveIdE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %._crit_edge.i36, %._crit_edge.i24, %._crit_edge.i12, %._crit_edge.i, %._crit_edge.i42, %183, %127, %79, %39, %7
   ret void
@@ -7527,7 +7559,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %122 = load i32, ptr %61, align 8
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next.i, %123
-  br i1 %124, label %87, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !92
+  br i1 %124, label %87, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !90
 
 125:                                              ; preds = %67
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi2EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %9)
@@ -7743,7 +7775,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %118 = load i32, ptr %52, align 8
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next.i, %119
-  br i1 %120, label %83, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !92
+  br i1 %120, label %83, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !90
 
 121:                                              ; preds = %58
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi2EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %9)
@@ -7954,7 +7986,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %111 = load i32, ptr %40, align 8
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next.i, %112
-  br i1 %113, label %76, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !92
+  br i1 %113, label %76, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5ApplyERKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !90
 
 114:                                              ; preds = %46
   call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi2EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %8)
@@ -8065,7 +8097,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5ApplyERK
   %32 = load i32, ptr %21, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next49.i, %33
-  br i1 %34, label %25, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !93
+  br i1 %34, label %25, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !91
 
 35:                                               ; preds = %4
   %36 = load i32, ptr %14, align 4
@@ -8100,7 +8132,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5ApplyERK
   %58 = load i32, ptr %43, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next.i, %59
-  br i1 %60, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !94
+  br i1 %60, label %.lr.ph.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !92
 
 61:                                               ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi2EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -8185,7 +8217,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %37 = load i32, ptr %22, align 4
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next.i, %38
-  br i1 %39, label %.lr.ph.i, label %.preheader.i, !llvm.loop !95
+  br i1 %39, label %.lr.ph.i, label %.preheader.i, !llvm.loop !93
 
 40:                                               ; preds = %._crit_edge.i, %.lr.ph47.i
   %41 = phi i32 [ %27, %.lr.ph47.i ], [ %69, %._crit_edge.i ]
@@ -8230,7 +8262,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %66 = load i32, ptr %22, align 4
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next51.i, %67
-  br i1 %68, label %.lr.ph44.i, label %._crit_edge.loopexit.i, !llvm.loop !96
+  br i1 %68, label %.lr.ph44.i, label %._crit_edge.loopexit.i, !llvm.loop !94
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph44.i
   %.pre.i = load i32, ptr %26, align 8
@@ -8242,7 +8274,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %71 = sext i32 %69 to i64
   %72 = icmp slt i64 %indvars.iv.next54.i, %71
-  br i1 %72, label %40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !97
+  br i1 %72, label %40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5applyILi1EEEvRKNS2_27CommonCombinationParametersIdEE.exit, !llvm.loop !95
 
 73:                                               ; preds = %1
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5applyILi2EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -8334,7 +8366,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %37 = load i32, ptr %22, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next49, %38
-  br i1 %39, label %26, label %.loopexit, !llvm.loop !98
+  br i1 %39, label %26, label %.loopexit, !llvm.loop !96
 
 40:                                               ; preds = %1
   %41 = load i32, ptr %11, align 4
@@ -8379,7 +8411,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %71 = load i32, ptr %52, align 8
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !99
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %40, %14
   ret void
@@ -8449,7 +8481,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %45 = load i32, ptr %26, align 8
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next49, %46
-  br i1 %47, label %30, label %.loopexit, !llvm.loop !100
+  br i1 %47, label %30, label %.loopexit, !llvm.loop !98
 
 48:                                               ; preds = %1
   %49 = load i32, ptr %11, align 4
@@ -8504,7 +8536,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %87 = load i32, ptr %64, align 8
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !101
+  br i1 %89, label %.lr.ph, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %48, %14
   ret void
@@ -8584,7 +8616,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %53 = load i32, ptr %30, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next49, %54
-  br i1 %55, label %34, label %.loopexit, !llvm.loop !102
+  br i1 %55, label %34, label %.loopexit, !llvm.loop !100
 
 56:                                               ; preds = %1
   %57 = load i32, ptr %11, align 4
@@ -8649,7 +8681,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   %103 = load i32, ptr %76, align 8
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !103
+  br i1 %105, label %.lr.ph, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %56, %14
   ret void
@@ -8691,7 +8723,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine1IdE5applyILi
   store double %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit, label %.lr.ph.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit, label %.lr.ph.i, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit: ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8722,14 +8754,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit: ; preds
   store double %34, ptr %32, align 8
   %indvars.iv.next.i45.us = add nuw nsw i64 %indvars.iv.i44.us, 1
   %exitcond.not.i46.us = icmp eq i64 %indvars.iv.next.i45.us, %wide.trip.count.i42
-  br i1 %exitcond.not.i46.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us, label %.lr.ph.i43.us, !llvm.loop !78
+  br i1 %exitcond.not.i46.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us, label %.lr.ph.i43.us, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us: ; preds = %.lr.ph.i43.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %35 = load i32, ptr %23, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next71, %36
-  br i1 %37, label %.lr.ph.preheader.i41.us, label %.loopexit, !llvm.loop !104
+  br i1 %37, label %.lr.ph.preheader.i41.us, label %.loopexit, !llvm.loop !102
 
 38:                                               ; preds = %1
   %39 = load i32, ptr %13, align 4
@@ -8753,7 +8785,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit
   store double %47, ptr %48, align 8
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i48
-  br i1 %exitcond.not.i52, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit53, label %.lr.ph.i49, !llvm.loop !79
+  br i1 %exitcond.not.i52, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit53, label %.lr.ph.i49, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit53: ; preds = %.lr.ph.i49
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8788,14 +8820,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit53: ; pre
   store double %65, ptr %63, align 8
   %indvars.iv.next.i58.us = add nuw nsw i64 %indvars.iv.i57.us, 1
   %exitcond.not.i59.us = icmp eq i64 %indvars.iv.next.i58.us, %wide.trip.count.i55
-  br i1 %exitcond.not.i59.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit60.loopexit.us, label %.lr.ph.i56.us, !llvm.loop !78
+  br i1 %exitcond.not.i59.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit60.loopexit.us, label %.lr.ph.i56.us, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit60.loopexit.us: ; preds = %.lr.ph.i56.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %49, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.preheader.i54.us, label %.loopexit, !llvm.loop !105
+  br i1 %68, label %.lr.ph.preheader.i54.us, label %.loopexit, !llvm.loop !103
 
 .loopexit:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit60.loopexit.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us, %38, %16, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit53, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit
   ret void
@@ -8934,7 +8966,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   %100 = load i32, ptr %48, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next, %101
-  br i1 %102, label %52, label %._crit_edge, !llvm.loop !106
+  br i1 %102, label %52, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %64, %17
   ret void
@@ -9102,7 +9134,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   %123 = load i32, ptr %58, align 8
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next, %124
-  br i1 %125, label %62, label %._crit_edge, !llvm.loop !107
+  br i1 %125, label %62, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %74, %17
   ret void
@@ -9299,7 +9331,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   %146 = load i32, ptr %68, align 8
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %72, label %._crit_edge, !llvm.loop !108
+  br i1 %148, label %72, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %84, %17
   ret void
@@ -9349,7 +9381,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   store double %27, ptr %28, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !77
 
 .lr.ph.preheader.i48:                             ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -9368,7 +9400,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   store double %36, ptr %37, align 8
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i
-  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !79
+  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !77
 
 .lr.ph.preheader.i55:                             ; preds = %.lr.ph.i50
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9387,7 +9419,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   store double %45, ptr %46, align 8
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
-  br i1 %exitcond.not.i60, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61, label %.lr.ph.i57, !llvm.loop !79
+  br i1 %exitcond.not.i60, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61, label %.lr.ph.i57, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; preds = %.lr.ph.i57
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9438,7 +9470,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
   store double %71, ptr %69, align 8
   %indvars.iv.next.i66.us = add nuw nsw i64 %indvars.iv.i65.us, 1
   %exitcond.not.i67.us = icmp eq i64 %indvars.iv.next.i66.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !78
+  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !76
 
 .lr.ph.preheader.i68.us:                          ; preds = %.lr.ph.i64.us
   %72 = load ptr, ptr %29, align 8
@@ -9457,7 +9489,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
   store double %80, ptr %78, align 8
   %indvars.iv.next.i72.us = add nuw nsw i64 %indvars.iv.i71.us, 1
   %exitcond.not.i73.us = icmp eq i64 %indvars.iv.next.i72.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !78
+  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !76
 
 .lr.ph.preheader.i75.us:                          ; preds = %.lr.ph.i70.us
   %81 = load ptr, ptr %38, align 8
@@ -9476,14 +9508,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
   store double %89, ptr %87, align 8
   %indvars.iv.next.i79.us = add nuw nsw i64 %indvars.iv.i78.us, 1
   %exitcond.not.i80.us = icmp eq i64 %indvars.iv.next.i79.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i80.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us, label %.lr.ph.i77.us, !llvm.loop !78
+  br i1 %exitcond.not.i80.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us, label %.lr.ph.i77.us, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us: ; preds = %.lr.ph.i77.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = load i32, ptr %47, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !109
+  br i1 %92, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us, %19, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61
   ret void
@@ -9550,7 +9582,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %39 = load i32, ptr %19, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %28, label %.preheader, !llvm.loop !110
+  br i1 %41, label %28, label %.preheader, !llvm.loop !108
 
 42:                                               ; preds = %.lr.ph47, %._crit_edge
   %43 = phi i32 [ %25, %.lr.ph47 ], [ %77, %._crit_edge ]
@@ -9604,7 +9636,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %74 = load i32, ptr %19, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next51, %75
-  br i1 %76, label %60, label %._crit_edge.loopexit, !llvm.loop !111
+  br i1 %76, label %60, label %._crit_edge.loopexit, !llvm.loop !109
 
 ._crit_edge.loopexit:                             ; preds = %60
   %.pre = load i32, ptr %24, align 8
@@ -9616,7 +9648,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %79 = sext i32 %77 to i64
   %80 = icmp slt i64 %indvars.iv.next54, %79
-  br i1 %80, label %42, label %._crit_edge48, !llvm.loop !112
+  br i1 %80, label %42, label %._crit_edge48, !llvm.loop !110
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -9688,7 +9720,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %43 = load i32, ptr %19, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %29, label %.preheader, !llvm.loop !113
+  br i1 %45, label %29, label %.preheader, !llvm.loop !111
 
 46:                                               ; preds = %.lr.ph47, %._crit_edge
   %47 = phi i32 [ %26, %.lr.ph47 ], [ %86, %._crit_edge ]
@@ -9748,7 +9780,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %83 = load i32, ptr %19, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next51, %84
-  br i1 %85, label %65, label %._crit_edge.loopexit, !llvm.loop !114
+  br i1 %85, label %65, label %._crit_edge.loopexit, !llvm.loop !112
 
 ._crit_edge.loopexit:                             ; preds = %65
   %.pre = load i32, ptr %25, align 8
@@ -9760,7 +9792,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %88 = sext i32 %86 to i64
   %89 = icmp slt i64 %indvars.iv.next54, %88
-  br i1 %89, label %46, label %._crit_edge48, !llvm.loop !115
+  br i1 %89, label %46, label %._crit_edge48, !llvm.loop !113
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -9837,7 +9869,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %47 = load i32, ptr %19, align 4
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %30, label %.preheader, !llvm.loop !116
+  br i1 %49, label %30, label %.preheader, !llvm.loop !114
 
 50:                                               ; preds = %.lr.ph47, %._crit_edge
   %51 = phi i32 [ %27, %.lr.ph47 ], [ %95, %._crit_edge ]
@@ -9903,7 +9935,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %92 = load i32, ptr %19, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next51, %93
-  br i1 %94, label %70, label %._crit_edge.loopexit, !llvm.loop !117
+  br i1 %94, label %70, label %._crit_edge.loopexit, !llvm.loop !115
 
 ._crit_edge.loopexit:                             ; preds = %70
   %.pre = load i32, ptr %26, align 8
@@ -9915,7 +9947,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %97 = sext i32 %95 to i64
   %98 = icmp slt i64 %indvars.iv.next54, %97
-  br i1 %98, label %50, label %._crit_edge48, !llvm.loop !118
+  br i1 %98, label %50, label %._crit_edge48, !llvm.loop !116
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader
   ret void
@@ -9925,7 +9957,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5applyILi0EEEvRKNS2_27CommonCombinationParametersIdEE(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %.fr63 = freeze i32 %3
+  %.fr65 = freeze i32 %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9953,8 +9985,8 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   br i1 %23, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %19
-  %24 = icmp sgt i32 %.fr63, 0
-  %wide.trip.count.i = zext nneg i32 %.fr63 to i64
+  %24 = icmp sgt i32 %.fr65, 0
+  %wide.trip.count.i = zext nneg i32 %.fr65 to i64
   br i1 %24, label %.lr.ph.preheader.i.us, label %.preheader
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us
@@ -9975,14 +10007,14 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CombineMultipleIdE5
   store double %32, ptr %33, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !79
+  br i1 %exitcond.not.i.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !77
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us: ; preds = %.lr.ph.i.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %21, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.preheader.i.us, label %.preheader, !llvm.loop !119
+  br i1 %36, label %.lr.ph.preheader.i.us, label %.preheader, !llvm.loop !117
 
 .preheader:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us, %.lr.ph, %19
   %37 = phi i32 [ %22, %19 ], [ %22, %.lr.ph ], [ %34, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit.us ]
@@ -9993,14 +10025,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit
 
 .lr.ph53:                                         ; preds = %.preheader
   %41 = sext i32 %5 to i64
-  %42 = icmp sgt i32 %.fr63, 0
-  %wide.trip.count.i43 = zext nneg i32 %.fr63 to i64
+  %42 = icmp sgt i32 %.fr65, 0
+  %wide.trip.count.i43 = zext nneg i32 %.fr65 to i64
   br i1 %42, label %.lr.ph53.split.us, label %._crit_edge54
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %._crit_edge.split.us.us
   %43 = phi i32 [ %59, %._crit_edge.split.us.us ], [ %39, %.lr.ph53 ]
   %44 = phi i32 [ %60, %._crit_edge.split.us.us ], [ %37, %.lr.ph53 ]
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %._crit_edge.split.us.us ], [ 1, %.lr.ph53 ]
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %._crit_edge.split.us.us ], [ 1, %.lr.ph53 ]
   %.03951.us = phi ptr [ %57, %._crit_edge.split.us.us ], [ %20, %.lr.ph53 ]
   %45 = load ptr, ptr %10, align 8
   %46 = icmp eq ptr %45, null
@@ -10008,7 +10040,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit
 
 47:                                               ; preds = %.lr.ph53.split.us
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv75
   %50 = load i32, ptr %49, align 4
   %51 = mul nsw i32 %50, %5
   %52 = sext i32 %51 to i64
@@ -10031,18 +10063,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %56
   %59 = phi i32 [ %.pre, %._crit_edge.split.us.us.loopexit ], [ %43, %56 ]
   %60 = phi i32 [ %74, %._crit_edge.split.us.us.loopexit ], [ %44, %56 ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %61 = sext i32 %59 to i64
-  %62 = icmp slt i64 %indvars.iv.next73, %61
-  br i1 %62, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !120
+  %62 = icmp slt i64 %indvars.iv.next76, %61
+  br i1 %62, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !118
 
 .lr.ph.preheader.i42.us.us:                       ; preds = %56, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us ], [ 0, %56 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv69
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us ], [ 0, %56 ]
+  %63 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv72
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv69
+  %65 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv72
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv72
+  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv75
   %68 = load double, ptr %67, align 8
   br label %.lr.ph.i44.us.us
 
@@ -10056,14 +10088,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit.loopexit
   store double %73, ptr %71, align 8
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, %wide.trip.count.i43
-  br i1 %exitcond.not.i47.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us, label %.lr.ph.i44.us.us, !llvm.loop !78
+  br i1 %exitcond.not.i47.us.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us, label %.lr.ph.i44.us.us, !llvm.loop !76
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.loopexit.us.us: ; preds = %.lr.ph.i44.us.us
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %74 = load i32, ptr %21, align 4
   %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next70, %75
-  br i1 %76, label %.lr.ph.preheader.i42.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !121
+  %76 = icmp slt i64 %indvars.iv.next73, %75
+  br i1 %76, label %.lr.ph.preheader.i42.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !119
 
 ._crit_edge54:                                    ; preds = %._crit_edge.split.us.us, %.lr.ph53, %.preheader
   ret void
@@ -10642,8 +10674,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %115 = zext i32 %33 to i64
   %116 = zext i32 %108 to i64
   %117 = zext i32 %106 to i64
-  %wide.trip.count50 = zext nneg i32 %35 to i64
-  br label %.lr.ph.split.us
+  %wide.trip.count56 = zext nneg i32 %35 to i64
+  br i1 %32, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.preheader:                           ; preds = %.thread
   %118 = add i32 %33, -1
@@ -10657,89 +10689,121 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_121assignWeightsPerDerivIdEEiPKPT_iS5_PS5
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %157
-  %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %157 ]
-  %126 = icmp eq i64 %indvars.iv47, %115
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %131
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %131 ], [ 0, %.lr.ph ]
+  %126 = icmp eq i64 %indvars.iv53, %115
   br i1 %126, label %131, label %127
 
-127:                                              ; preds = %.lr.ph.split.us
-  %128 = icmp eq i64 %indvars.iv47, %116
+127:                                              ; preds = %.lr.ph.split.us.split.us
+  %128 = icmp eq i64 %indvars.iv53, %116
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp eq i64 %indvars.iv47, %117
-  %spec.select.us = select i1 %130, i64 3, i64 2
+  %130 = icmp eq i64 %indvars.iv53, %117
+  %spec.select.us.us = select i1 %130, i64 3, i64 2
   br label %131
 
-131:                                              ; preds = %129, %127, %.lr.ph.split.us
-  %.0.us = phi i64 [ 0, %.lr.ph.split.us ], [ 1, %127 ], [ %spec.select.us, %129 ]
+131:                                              ; preds = %129, %127, %.lr.ph.split.us.split.us
+  %.0.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ 1, %127 ], [ %spec.select.us.us, %129 ]
   %132 = load ptr, ptr %5, align 16
-  %133 = getelementptr inbounds nuw double, ptr %132, i64 %.0.us
+  %133 = getelementptr inbounds nuw double, ptr %132, i64 %.0.us.us
   %134 = load double, ptr %133, align 8
   %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv47
+  %136 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv53
   store double %134, ptr %136, align 8
   %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds nuw double, ptr %137, i64 %.0.us
+  %138 = getelementptr inbounds nuw double, ptr %137, i64 %.0.us.us
   %139 = load double, ptr %138, align 8
   %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv47
+  %141 = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv53
   store double %139, ptr %141, align 8
   %142 = load ptr, ptr %109, align 16
-  %143 = getelementptr inbounds nuw double, ptr %142, i64 %.0.us
+  %143 = getelementptr inbounds nuw double, ptr %142, i64 %.0.us.us
   %144 = load double, ptr %143, align 8
   %145 = load ptr, ptr %110, align 8
-  %146 = getelementptr inbounds nuw double, ptr %145, i64 %indvars.iv47
+  %146 = getelementptr inbounds nuw double, ptr %145, i64 %indvars.iv53
   store double %144, ptr %146, align 8
-  br i1 %32, label %147, label %157
+  %147 = load ptr, ptr %111, align 8
+  %148 = getelementptr inbounds nuw double, ptr %147, i64 %indvars.iv53
+  store double 0.000000e+00, ptr %148, align 8
+  %149 = load ptr, ptr %112, align 16
+  %150 = getelementptr inbounds nuw double, ptr %149, i64 %.0.us.us
+  %151 = load double, ptr %150, align 8
+  %152 = load ptr, ptr %113, align 8
+  %153 = getelementptr inbounds nuw double, ptr %152, i64 %indvars.iv53
+  store double %151, ptr %153, align 8
+  %154 = load ptr, ptr %114, align 8
+  %155 = getelementptr inbounds nuw double, ptr %154, i64 %indvars.iv53
+  store double 0.000000e+00, ptr %155, align 8
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !120
 
-147:                                              ; preds = %131
-  %148 = load ptr, ptr %111, align 8
-  %149 = getelementptr inbounds nuw double, ptr %148, i64 %indvars.iv47
-  store double 0.000000e+00, ptr %149, align 8
-  %150 = load ptr, ptr %112, align 16
-  %151 = getelementptr inbounds nuw double, ptr %150, i64 %.0.us
-  %152 = load double, ptr %151, align 8
-  %153 = load ptr, ptr %113, align 8
-  %154 = getelementptr inbounds nuw double, ptr %153, i64 %indvars.iv47
-  store double %152, ptr %154, align 8
-  %155 = load ptr, ptr %114, align 8
-  %156 = getelementptr inbounds nuw double, ptr %155, i64 %indvars.iv47
-  store double 0.000000e+00, ptr %156, align 8
-  br label %157
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %161
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %161 ], [ 0, %.lr.ph ]
+  %156 = icmp eq i64 %indvars.iv48, %115
+  br i1 %156, label %161, label %157
 
-157:                                              ; preds = %147, %131
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !122
+157:                                              ; preds = %.lr.ph.split.us.split
+  %158 = icmp eq i64 %indvars.iv48, %116
+  br i1 %158, label %161, label %159
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %163
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %163 ]
-  %158 = icmp eq i64 %indvars.iv, %125
-  br i1 %158, label %163, label %159
+159:                                              ; preds = %157
+  %160 = icmp eq i64 %indvars.iv48, %117
+  %spec.select.us = select i1 %160, i64 3, i64 2
+  br label %161
 
-159:                                              ; preds = %.lr.ph.split
-  %160 = icmp eq i64 %indvars.iv, %124
-  br i1 %160, label %163, label %161
+161:                                              ; preds = %159, %157, %.lr.ph.split.us.split
+  %.0.us = phi i64 [ 0, %.lr.ph.split.us.split ], [ 1, %157 ], [ %spec.select.us, %159 ]
+  %162 = load ptr, ptr %5, align 16
+  %163 = getelementptr inbounds nuw double, ptr %162, i64 %.0.us
+  %164 = load double, ptr %163, align 8
+  %165 = load ptr, ptr %2, align 8
+  %166 = getelementptr inbounds nuw double, ptr %165, i64 %indvars.iv48
+  store double %164, ptr %166, align 8
+  %167 = load ptr, ptr %6, align 8
+  %168 = getelementptr inbounds nuw double, ptr %167, i64 %.0.us
+  %169 = load double, ptr %168, align 8
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds nuw double, ptr %170, i64 %indvars.iv48
+  store double %169, ptr %171, align 8
+  %172 = load ptr, ptr %109, align 16
+  %173 = getelementptr inbounds nuw double, ptr %172, i64 %.0.us
+  %174 = load double, ptr %173, align 8
+  %175 = load ptr, ptr %110, align 8
+  %176 = getelementptr inbounds nuw double, ptr %175, i64 %indvars.iv48
+  store double %174, ptr %176, align 8
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !120
 
-161:                                              ; preds = %159
-  %162 = icmp eq i64 %indvars.iv, %123
-  %spec.select = select i1 %162, i64 3, i64 2
-  br label %163
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %182
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %182 ]
+  %177 = icmp eq i64 %indvars.iv, %125
+  br i1 %177, label %182, label %178
 
-163:                                              ; preds = %161, %159, %.lr.ph.split
-  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %159 ], [ %spec.select, %161 ]
-  %164 = load ptr, ptr %5, align 16
-  %165 = getelementptr inbounds nuw double, ptr %164, i64 %.0
-  %166 = load double, ptr %165, align 8
-  %167 = load ptr, ptr %2, align 8
-  %168 = getelementptr inbounds nuw double, ptr %167, i64 %indvars.iv
-  store double %166, ptr %168, align 8
+178:                                              ; preds = %.lr.ph.split
+  %179 = icmp eq i64 %indvars.iv, %124
+  br i1 %179, label %182, label %180
+
+180:                                              ; preds = %178
+  %181 = icmp eq i64 %indvars.iv, %123
+  %spec.select = select i1 %181, i64 3, i64 2
+  br label %182
+
+182:                                              ; preds = %180, %178, %.lr.ph.split
+  %.0 = phi i64 [ 0, %.lr.ph.split ], [ 1, %178 ], [ %spec.select, %180 ]
+  %183 = load ptr, ptr %5, align 16
+  %184 = getelementptr inbounds nuw double, ptr %183, i64 %.0
+  %185 = load double, ptr %184, align 8
+  %186 = load ptr, ptr %2, align 8
+  %187 = getelementptr inbounds nuw double, ptr %186, i64 %indvars.iv
+  store double %185, ptr %187, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %163, %157, %.thread, %101
+._crit_edge:                                      ; preds = %182, %161, %131, %.thread, %101
   ret i32 %35
 }
 
@@ -11135,7 +11199,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE
   store float %31, ptr %32, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !124
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre.i = load i32, ptr %4, align 8
@@ -11146,7 +11210,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.i: ; pre
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.split.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !125
+  br i1 %35, label %.lr.ph.split.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !122
 
 36:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11192,7 +11256,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.i: ; pre
   store float %60, ptr %61, align 4
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, %wide.trip.count.i.i11
-  br i1 %exitcond.not.i.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i12, !llvm.loop !126
+  br i1 %exitcond.not.i.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i12, !llvm.loop !123
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.loopexit.i: ; preds = %.lr.ph.i.i12
   %.pre.i16 = load i32, ptr %4, align 8
@@ -11203,7 +11267,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.i: ; pre
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next.i9, %63
-  br i1 %64, label %.lr.ph.split.i7, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !127
+  br i1 %64, label %.lr.ph.split.i7, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !124
 
 65:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i17, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11249,7 +11313,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.i: ; pre
   store float %89, ptr %90, align 4
   %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, %wide.trip.count.i.i22
-  br i1 %exitcond.not.i.i26, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i23, !llvm.loop !128
+  br i1 %exitcond.not.i.i26, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i23, !llvm.loop !125
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.loopexit.i: ; preds = %.lr.ph.i.i23
   %.pre.i27 = load i32, ptr %4, align 8
@@ -11260,7 +11324,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.i: ; pre
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next.i20, %92
-  br i1 %93, label %.lr.ph.split.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !129
+  br i1 %93, label %.lr.ph.split.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !126
 
 94:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i28, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11306,7 +11370,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.i: ; pre
   store float %118, ptr %119, align 4
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, %wide.trip.count.i.i33
-  br i1 %exitcond.not.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i34, !llvm.loop !130
+  br i1 %exitcond.not.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i34, !llvm.loop !127
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.loopexit.i: ; preds = %.lr.ph.i.i34
   %.pre.i38 = load i32, ptr %4, align 8
@@ -11317,7 +11381,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.i: ; pre
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next.i31, %121
-  br i1 %122, label %.lr.ph.split.i29, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !131
+  br i1 %122, label %.lr.ph.split.i29, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !128
 
 123:                                              ; preds = %1
   br i1 %6, label %.lr.ph.i39, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11364,7 +11428,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.i: ; pre
   store float %148, ptr %149, align 4
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i46, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, %wide.trip.count.i.i44
-  br i1 %exitcond.not.i.i48, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi0EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i45, !llvm.loop !132
+  br i1 %exitcond.not.i.i48, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi0EE4CopyEPfPKdi.exit.loopexit.i, label %.lr.ph.i.i45, !llvm.loop !129
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi0EE4CopyEPfPKdi.exit.loopexit.i: ; preds = %.lr.ph.i.i45
   %.pre.i49 = load i32, ptr %4, align 8
@@ -11375,7 +11439,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi0EE4CopyEPfPKdi.exit.i: ; pre
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next.i42, %151
-  br i1 %152, label %.lr.ph.split.i40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !133
+  br i1 %152, label %.lr.ph.split.i40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !130
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIfdE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi4EE4CopyEPfPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi3EE4CopyEPfPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi2EE4CopyEPfPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi1EE4CopyEPfPKdi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIfdLi0EE4CopyEPfPKdi.exit.i, %.lr.ph.i39, %123, %94, %65, %36, %7
   ret void
@@ -11467,7 +11531,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE
   store double %31, ptr %32, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !134
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !131
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %.pre.i = load i32, ptr %4, align 8
@@ -11478,7 +11542,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.i: ; pre
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.split.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !135
+  br i1 %35, label %.lr.ph.split.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !132
 
 36:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i6, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11524,7 +11588,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.i: ; pre
   store double %60, ptr %61, align 8
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, %wide.trip.count.i.i11
-  br i1 %exitcond.not.i.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i12, !llvm.loop !136
+  br i1 %exitcond.not.i.i15, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i12, !llvm.loop !133
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.loopexit.i: ; preds = %.lr.ph.i.i12
   %.pre.i16 = load i32, ptr %4, align 8
@@ -11535,7 +11599,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.i: ; pre
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next.i9, %63
-  br i1 %64, label %.lr.ph.split.i7, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !137
+  br i1 %64, label %.lr.ph.split.i7, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !134
 
 65:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i17, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11581,7 +11645,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.i: ; pre
   store double %89, ptr %90, align 8
   %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, %wide.trip.count.i.i22
-  br i1 %exitcond.not.i.i26, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i23, !llvm.loop !138
+  br i1 %exitcond.not.i.i26, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i23, !llvm.loop !135
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.loopexit.i: ; preds = %.lr.ph.i.i23
   %.pre.i27 = load i32, ptr %4, align 8
@@ -11592,7 +11656,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.i: ; pre
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next.i20, %92
-  br i1 %93, label %.lr.ph.split.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !139
+  br i1 %93, label %.lr.ph.split.i18, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !136
 
 94:                                               ; preds = %1
   br i1 %6, label %.lr.ph.i28, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11638,7 +11702,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.i: ; pre
   store double %118, ptr %119, align 8
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, %wide.trip.count.i.i33
-  br i1 %exitcond.not.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i34, !llvm.loop !140
+  br i1 %exitcond.not.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i34, !llvm.loop !137
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.loopexit.i: ; preds = %.lr.ph.i.i34
   %.pre.i38 = load i32, ptr %4, align 8
@@ -11649,7 +11713,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.i: ; pre
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next.i31, %121
-  br i1 %122, label %.lr.ph.split.i29, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !141
+  br i1 %122, label %.lr.ph.split.i29, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !138
 
 123:                                              ; preds = %1
   br i1 %6, label %.lr.ph.i39, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit
@@ -11696,7 +11760,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.i: ; pre
   store double %148, ptr %149, align 8
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i46, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, %wide.trip.count.i.i44
-  br i1 %exitcond.not.i.i48, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi0EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i45, !llvm.loop !142
+  br i1 %exitcond.not.i.i48, label %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi0EE4CopyEPdPKfi.exit.loopexit.i, label %.lr.ph.i.i45, !llvm.loop !139
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi0EE4CopyEPdPKfi.exit.loopexit.i: ; preds = %.lr.ph.i.i45
   %.pre.i49 = load i32, ptr %4, align 8
@@ -11707,7 +11771,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi0EE4CopyEPdPKfi.exit.i: ; pre
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next.i42, %151
-  br i1 %152, label %.lr.ph.split.i40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !143
+  br i1 %152, label %.lr.ph.split.i40, label %_ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit, !llvm.loop !140
 
 _ZN10OpenSubdiv6v3_6_03Bfr6points15CopyConsecutiveIdfE5applyILi1EEEvRKNS4_10ParametersE.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi4EE4CopyEPdPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi3EE4CopyEPdPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi2EE4CopyEPdPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi1EE4CopyEPdPKfi.exit.i, %_ZN10OpenSubdiv6v3_6_03Bfr6points11PointCopierIdfLi0EE4CopyEPdPKfi.exit.i, %.lr.ph.i39, %123, %94, %65, %36, %7
   ret void
@@ -11748,10 +11812,10 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6, !8}
+!10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
@@ -11761,9 +11825,9 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6, !22}
-!22 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !6, !21}
+!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
@@ -11772,8 +11836,8 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6, !22}
+!31 = distinct !{!31, !6, !21}
+!32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
@@ -11787,12 +11851,12 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6, !8}
-!47 = distinct !{!47, !6, !8}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6, !8}
+!51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}
 !53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
@@ -11802,15 +11866,15 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !58 = distinct !{!58, !6}
 !59 = distinct !{!59, !6}
 !60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6, !8}
-!62 = distinct !{!62, !6, !8}
-!63 = distinct !{!63, !6, !8}
-!64 = distinct !{!64, !6, !8}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
 !65 = distinct !{!65, !6}
 !66 = distinct !{!66, !6}
-!67 = distinct !{!67, !6, !8}
+!67 = distinct !{!67, !6}
 !68 = distinct !{!68, !6}
-!69 = distinct !{!69, !6, !8}
+!69 = distinct !{!69, !6}
 !70 = distinct !{!70, !6}
 !71 = distinct !{!71, !6}
 !72 = distinct !{!72, !6}
@@ -11819,9 +11883,9 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !75 = distinct !{!75, !6}
 !76 = distinct !{!76, !6}
 !77 = distinct !{!77, !6}
-!78 = distinct !{!78, !6}
+!78 = distinct !{!78, !6, !21}
 !79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6, !22}
+!80 = distinct !{!80, !6}
 !81 = distinct !{!81, !6}
 !82 = distinct !{!82, !6}
 !83 = distinct !{!83, !6}
@@ -11829,9 +11893,9 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !85 = distinct !{!85, !6}
 !86 = distinct !{!86, !6}
 !87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}
+!88 = distinct !{!88, !6, !21}
 !89 = distinct !{!89, !6}
-!90 = distinct !{!90, !6, !22}
+!90 = distinct !{!90, !6}
 !91 = distinct !{!91, !6}
 !92 = distinct !{!92, !6}
 !93 = distinct !{!93, !6}
@@ -11845,12 +11909,12 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !101 = distinct !{!101, !6}
 !102 = distinct !{!102, !6}
 !103 = distinct !{!103, !6}
-!104 = distinct !{!104, !6, !8}
-!105 = distinct !{!105, !6, !8}
+!104 = distinct !{!104, !6}
+!105 = distinct !{!105, !6}
 !106 = distinct !{!106, !6}
 !107 = distinct !{!107, !6}
 !108 = distinct !{!108, !6}
-!109 = distinct !{!109, !6, !8}
+!109 = distinct !{!109, !6}
 !110 = distinct !{!110, !6}
 !111 = distinct !{!111, !6}
 !112 = distinct !{!112, !6}
@@ -11860,28 +11924,25 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !116 = distinct !{!116, !6}
 !117 = distinct !{!117, !6}
 !118 = distinct !{!118, !6}
-!119 = distinct !{!119, !6, !8}
-!120 = distinct !{!120, !6, !8}
-!121 = distinct !{!121, !6, !8}
-!122 = distinct !{!122, !6, !8}
+!119 = distinct !{!119, !6}
+!120 = distinct !{!120, !6}
+!121 = distinct !{!121, !6}
+!122 = distinct !{!122, !6, !21}
 !123 = distinct !{!123, !6}
-!124 = distinct !{!124, !6}
-!125 = distinct !{!125, !6, !22}
-!126 = distinct !{!126, !6}
-!127 = distinct !{!127, !6, !22}
-!128 = distinct !{!128, !6}
-!129 = distinct !{!129, !6, !22}
-!130 = distinct !{!130, !6}
-!131 = distinct !{!131, !6, !22}
-!132 = distinct !{!132, !6}
-!133 = distinct !{!133, !6, !22}
-!134 = distinct !{!134, !6}
-!135 = distinct !{!135, !6, !22}
-!136 = distinct !{!136, !6}
-!137 = distinct !{!137, !6, !22}
-!138 = distinct !{!138, !6}
-!139 = distinct !{!139, !6, !22}
-!140 = distinct !{!140, !6}
-!141 = distinct !{!141, !6, !22}
-!142 = distinct !{!142, !6}
-!143 = distinct !{!143, !6, !22}
+!124 = distinct !{!124, !6, !21}
+!125 = distinct !{!125, !6}
+!126 = distinct !{!126, !6, !21}
+!127 = distinct !{!127, !6}
+!128 = distinct !{!128, !6, !21}
+!129 = distinct !{!129, !6}
+!130 = distinct !{!130, !6, !21}
+!131 = distinct !{!131, !6}
+!132 = distinct !{!132, !6, !21}
+!133 = distinct !{!133, !6}
+!134 = distinct !{!134, !6, !21}
+!135 = distinct !{!135, !6}
+!136 = distinct !{!136, !6, !21}
+!137 = distinct !{!137, !6}
+!138 = distinct !{!138, !6, !21}
+!139 = distinct !{!139, !6}
+!140 = distinct !{!140, !6, !21}

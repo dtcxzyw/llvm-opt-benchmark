@@ -643,22 +643,22 @@ read_pbm_integer.exit87.us.i:                     ; preds = %pbm_getc.exit31.i82
 add_map_entry.exit.us.i:                          ; preds = %254, %._crit_edge.thread.i.us.i
   %276 = add nuw i32 %.0117.us.i, 1
   %exitcond142.not.i = icmp eq i32 %276, %108
-  br i1 %exitcond142.not.i, label %._crit_edge.us119.i, label %.critedge.i.preheader.us.i, !llvm.loop !51
+  br i1 %exitcond142.not.i, label %._crit_edge.us119.i, label %.critedge.i.preheader.us.i, !llvm.loop !50
 
 277:                                              ; preds = %pbm_getc.exit31.i82.us.i
   %278 = mul i32 %.0.i81.us.i, 10
   %279 = add i32 %235, %278
-  br label %231, !llvm.loop !52
+  br label %231, !llvm.loop !51
 
 280:                                              ; preds = %pbm_getc.exit31.i70.us.i
   %281 = mul i32 %.0.i69.us.i, 10
   %282 = add i32 %215, %281
-  br label %211, !llvm.loop !52
+  br label %211, !llvm.loop !51
 
 283:                                              ; preds = %pbm_getc.exit31.i.us.i
   %284 = mul i32 %.0.i.us.i, 10
   %285 = add i32 %195, %284
-  br label %191, !llvm.loop !52
+  br label %191, !llvm.loop !51
 
 .critedge.i.preheader.us.i:                       ; preds = %add_map_entry.exit.us.i, %.preheader.us.i
   %.0117.us.i = phi i32 [ 0, %.preheader.us.i ], [ %276, %add_map_entry.exit.us.i ]
@@ -667,7 +667,7 @@ add_map_entry.exit.us.i:                          ; preds = %254, %._crit_edge.t
 ._crit_edge.us119.i:                              ; preds = %add_map_entry.exit.us.i
   %286 = add nuw i32 %.062118.us.i, 1
   %exitcond143.not.i = icmp eq i32 %286, %109
-  br i1 %exitcond143.not.i, label %read_ppm_map.exit, label %.preheader.us.i, !llvm.loop !53
+  br i1 %exitcond143.not.i, label %read_ppm_map.exit, label %.preheader.us.i, !llvm.loop !52
 
 287:                                              ; preds = %123
   %288 = load ptr, ptr %0, align 8, !tbaa !31
@@ -768,7 +768,7 @@ pbm_getc.exit31:                                  ; preds = %.preheader.i30, %.p
 23:                                               ; preds = %pbm_getc.exit31
   %24 = mul i32 %.0, 10
   %25 = add i32 %21, %24
-  br label %17, !llvm.loop !52
+  br label %17, !llvm.loop !51
 
 26:                                               ; preds = %pbm_getc.exit31
   ret i32 %.0
@@ -836,8 +836,7 @@ attributes #3 = { nounwind }
 !46 = distinct !{!46, !44}
 !47 = distinct !{!47, !44}
 !48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !44}
+!50 = distinct !{!50, !44}
 !51 = distinct !{!51, !44}
 !52 = distinct !{!52, !44}
-!53 = distinct !{!53, !44, !50}

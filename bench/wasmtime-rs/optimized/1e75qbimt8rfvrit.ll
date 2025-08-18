@@ -195,7 +195,7 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   %17 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.0.0.us
   %18 = tail call i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h552da3dc21f4fe08E"(ptr align 8 %16, ptr align 8 %17), !range !6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.split.us, label %.loopexit, !llvm.loop !7
+  br i1 %19, label %.split.us, label %.loopexit
 
 .split:                                           ; preds = %4, %27
   %.sroa.0.0 = phi i64 [ %21, %27 ], [ 0, %4 ]
@@ -234,7 +234,7 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
   %29 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.0.0
   %30 = tail call i8 @"_ZN56_$LT$alloc..string..String$u20$as$u20$core..cmp..Ord$GT$3cmp17h552da3dc21f4fe08E"(ptr align 8 %28, ptr align 8 %29), !range !6
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.split, label %.loopexit, !llvm.loop !9
+  br i1 %31, label %.split, label %.loopexit, !llvm.loop !7
 
 32:                                               ; preds = %.check
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.sroa.0.0, i64 %11, ptr nonnull align 8 @anon.33b25492035a4f28ee4f431f35b667fb.9) #10
@@ -476,6 +476,4 @@ attributes #10 = { noreturn }
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !6 = !{i8 -1, i8 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.injection.disable"}
+!8 = !{!"llvm.loop.unswitch.injection.disable"}

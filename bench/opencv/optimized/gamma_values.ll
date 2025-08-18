@@ -552,7 +552,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fi
   store double %145, ptr %.07.i.i.i.i, align 8, !tbaa !45
   %146 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 8
   %.not.i.i.i.i134 = icmp eq ptr %146, %96
-  br i1 %.not.i.i.i.i134, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !53
+  br i1 %.not.i.i.i.i134, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !52
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %139
   %147 = getelementptr inbounds double, ptr %94, i64 %140
@@ -566,7 +566,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
   store double %149, ptr %.07.i.i.i.i137, align 8, !tbaa !45
   %150 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i137, i64 8
   %.not.i.i.i.i138 = icmp eq ptr %150, %93
-  br i1 %.not.i.i.i.i138, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139, label %.lr.ph.i.i.i.i136, !llvm.loop !53
+  br i1 %.not.i.i.i.i138, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139, label %.lr.ph.i.i.i.i136, !llvm.loop !52
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139: ; preds = %.lr.ph.i.i.i.i136, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
   %151 = getelementptr inbounds double, ptr %97, i64 %140
@@ -580,7 +580,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
   store double %153, ptr %.07.i.i.i.i142, align 8, !tbaa !45
   %154 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i142, i64 8
   %.not.i.i.i.i143 = icmp eq ptr %154, %98
-  br i1 %.not.i.i.i.i143, label %_ZNSt6vectorIdSaIdEED2Ev.exit150, label %.lr.ph.i.i.i.i141, !llvm.loop !53
+  br i1 %.not.i.i.i.i143, label %_ZNSt6vectorIdSaIdEED2Ev.exit150, label %.lr.ph.i.i.i.i141, !llvm.loop !52
 
 _ZNSt6vectorIdSaIdEED2Ev.exit150:                 ; preds = %.lr.ph.i.i.i.i141, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139, %.split.us
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0242.0) #17
@@ -893,6 +893,5 @@ attributes #19 = { noreturn }
 !48 = !{!34, !35, i64 16}
 !49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = distinct !{!53, !50}
+!51 = distinct !{!51, !50}
+!52 = distinct !{!52, !50}

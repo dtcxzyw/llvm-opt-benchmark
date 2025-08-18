@@ -1380,14 +1380,14 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   %84 = fadd reassoc nsz arcp contract afn float %80, %83
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !125
+  br i1 %exitcond185.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !124
 
 ._crit_edge130:                                   ; preds = %.lr.ph129
   store float %84, ptr %indvars.iv186.sroa.phi, align 4, !tbaa !6
   br label %85
 
 85:                                               ; preds = %._crit_edge130, %._crit_edge124.split.us
-  br i1 %70, label %.preheader, label %86, !llvm.loop !126
+  br i1 %70, label %.preheader, label %86, !llvm.loop !125
 
 86:                                               ; preds = %85
   %.sroa.4.0..sroa.4.4. = load float, ptr %.sroa.4, align 4, !tbaa !6
@@ -1416,13 +1416,13 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   %97 = fadd reassoc nsz arcp contract afn float %91, %96
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge139.us, label %90, !llvm.loop !127
+  br i1 %exitcond198.not, label %._crit_edge139.us, label %90, !llvm.loop !126
 
 ._crit_edge139.us:                                ; preds = %90
   store float %97, ptr %89, align 4, !tbaa !6
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %.lr.ph151, label %.lr.ph138.us, !llvm.loop !128
+  br i1 %exitcond203.not, label %.lr.ph151, label %.lr.ph138.us, !llvm.loop !127
 
 .lr.ph135:                                        ; preds = %86, %.lr.ph135
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %.lr.ph135 ], [ 1, %86 ]
@@ -1432,7 +1432,7 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   store float %100, ptr %98, align 4, !tbaa !6
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %.preheader95, label %.lr.ph135, !llvm.loop !129
+  br i1 %exitcond193.not, label %.preheader95, label %.lr.ph135, !llvm.loop !128
 
 .lr.ph151:                                        ; preds = %._crit_edge139.us, %.lr.ph151
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.lr.ph151 ], [ 0, %._crit_edge139.us ]
@@ -1450,7 +1450,7 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   store i16 %104, ptr %111, align 2, !tbaa !84
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
-  br i1 %exitcond208.not, label %.loopexit.loopexit, label %.lr.ph151, !llvm.loop !130
+  br i1 %exitcond208.not, label %.loopexit.loopexit, label %.lr.ph151, !llvm.loop !129
 
 .loopexit.loopexit:                               ; preds = %.lr.ph151
   %.pre211 = load i16, ptr %26, align 2, !tbaa !95
@@ -1461,7 +1461,7 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   %113 = add nuw nsw i32 %.077152, 1
   %114 = zext i16 %112 to i32
   %115 = icmp samesign ult i32 %113, %114
-  br i1 %115, label %.preheader98, label %._crit_edge153.loopexit, !llvm.loop !131
+  br i1 %115, label %.preheader98, label %._crit_edge153.loopexit, !llvm.loop !130
 
 ._crit_edge153.loopexit:                          ; preds = %.loopexit
   %.pre212 = load i16, ptr %24, align 4, !tbaa !97
@@ -1474,7 +1474,7 @@ define void @_ZN6LibRaw16blend_highlightsEv(ptr noundef nonnull readonly align 8
   %119 = add nuw nsw i32 %.076154, 1
   %120 = zext i16 %116 to i32
   %121 = icmp samesign ult i32 %119, %120
-  br i1 %121, label %.preheader99, label %._crit_edge155, !llvm.loop !132
+  br i1 %121, label %.preheader99, label %._crit_edge155, !llvm.loop !131
 
 ._crit_edge155:                                   ; preds = %._crit_edge153, %.preheader100
   %122 = load ptr, ptr %10, align 8, !tbaa !107
@@ -1508,7 +1508,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5288
-  %5 = load i32, ptr %4, align 8, !tbaa !133
+  %5 = load i32, ptr %4, align 8, !tbaa !132
   %6 = sub nsw i32 4, %5
   %7 = tail call reassoc nsz arcp contract afn noundef double @llvm.powi.f64.i32(double 2.000000e+00, i32 %6)
   %8 = fptrunc reassoc nsz arcp contract afn double %7 to float
@@ -1536,12 +1536,12 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   store i32 %16, ptr %17, align 4, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph213.preheader, label %12, !llvm.loop !134
+  br i1 %exitcond.not, label %.lr.ph213.preheader, label %12, !llvm.loop !133
 
 18:                                               ; preds = %.lr.ph213
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count305
-  br i1 %exitcond306.not, label %.preheader207, label %.lr.ph213, !llvm.loop !135
+  br i1 %exitcond306.not, label %.preheader207, label %.lr.ph213, !llvm.loop !134
 
 .preheader207:                                    ; preds = %18
   %.not400 = icmp eq i32 %10, 1
@@ -1572,7 +1572,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %.1169 = select i1 %29, i32 %30, i32 %.0168214
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond311.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count310
-  br i1 %exitcond311.not, label %._crit_edge.loopexit, label %23, !llvm.loop !136
+  br i1 %exitcond311.not, label %._crit_edge.loopexit, label %23, !llvm.loop !135
 
 ._crit_edge.loopexit:                             ; preds = %23
   %31 = zext i32 %.1169 to i64
@@ -1686,7 +1686,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
 ._crit_edge242.us:                                ; preds = %.lr.ph241.split.split.us.us, %91, %.lr.ph241.split.us251
   %indvars.iv.next327 = add nuw nsw i32 %indvars.iv326, %73
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %44
-  br i1 %exitcond342.not, label %._crit_edge248.preheader, label %.preheader205.us, !llvm.loop !137
+  br i1 %exitcond342.not, label %._crit_edge248.preheader, label %.preheader205.us, !llvm.loop !136
 
 .lr.ph233.us.us:                                  ; preds = %.lr.ph233.us.us.preheader, %91
   %indvars.iv331 = phi i64 [ 0, %.lr.ph233.us.us.preheader ], [ %indvars.iv.next332, %91 ]
@@ -1711,7 +1711,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, %77
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, %77
   %exitcond337.not = icmp eq i64 %indvars.iv.next332, %57
-  br i1 %exitcond337.not, label %._crit_edge242.us, label %.lr.ph233.us.us, !llvm.loop !138
+  br i1 %exitcond337.not, label %._crit_edge242.us, label %.lr.ph233.us.us, !llvm.loop !137
 
 ._crit_edge234.us.us:                             ; preds = %._crit_edge224.us.us.us, %.lr.ph233.us.us
   %.us-phi.us.us = phi i32 [ 0, %.lr.ph233.us.us ], [ %.2160.us.us.us, %._crit_edge224.us.us.us ]
@@ -1768,12 +1768,12 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %.2.us.us.us = phi nsz float [ %111, %109 ], [ %.1221.us.us.us, %105 ], [ %.1221.us.us.us, %95 ]
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next320, %indvars.iv329
-  br i1 %exitcond325.not, label %._crit_edge224.us.us.us, label %95, !llvm.loop !139
+  br i1 %exitcond325.not, label %._crit_edge224.us.us.us, label %95, !llvm.loop !138
 
 ._crit_edge224.us.us.us:                          ; preds = %115
   %116 = add nuw nsw i32 %.0172228.us.us.us, 1
   %exitcond328.not = icmp eq i32 %116, %indvars.iv326
-  br i1 %exitcond328.not, label %._crit_edge234.us.us, label %.lr.ph223.us.us.us, !llvm.loop !140
+  br i1 %exitcond328.not, label %._crit_edge234.us.us, label %.lr.ph223.us.us.us, !llvm.loop !139
 
 .lr.ph241.split.split.us.us:                      ; preds = %.lr.ph241.split.split.us.us.preheader, %.lr.ph241.split.split.us.us
   %indvars.iv312 = phi i64 [ 0, %.lr.ph241.split.split.us.us.preheader ], [ %indvars.iv.next313, %.lr.ph241.split.split.us.us ]
@@ -1781,7 +1781,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   store float 0x7FF8000000000000, ptr %gep, align 4, !tbaa !6
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %57
-  br i1 %exitcond316.not, label %._crit_edge242.us, label %.lr.ph241.split.split.us.us, !llvm.loop !141
+  br i1 %exitcond316.not, label %._crit_edge242.us, label %.lr.ph241.split.split.us.us, !llvm.loop !137
 
 ._crit_edge248:                                   ; preds = %._crit_edge248.preheader, %._crit_edge264
   %.0180 = phi i32 [ %117, %._crit_edge264 ], [ %55, %._crit_edge248.preheader ]
@@ -1864,17 +1864,17 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %.4.us = phi nsz float [ %155, %149 ], [ %.3256.us, %142 ], [ %.3256.us, %.preheader.us ]
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next344, 8
-  br i1 %exitcond346.not, label %124, label %.preheader.us, !llvm.loop !142
+  br i1 %exitcond346.not, label %124, label %.preheader.us, !llvm.loop !140
 
 158:                                              ; preds = %126, %124, %120
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %57
-  br i1 %exitcond351.not, label %._crit_edge259.us, label %120, !llvm.loop !143
+  br i1 %exitcond351.not, label %._crit_edge259.us, label %120, !llvm.loop !141
 
 ._crit_edge259.us:                                ; preds = %158
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %44
-  br i1 %exitcond356.not, label %.preheader203, label %.preheader201.us, !llvm.loop !144
+  br i1 %exitcond356.not, label %.preheader203, label %.preheader201.us, !llvm.loop !142
 
 .preheader203:                                    ; preds = %._crit_edge259.us
   br i1 %56, label %.lr.ph263, label %.preheader206
@@ -1896,11 +1896,11 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %.1182 = phi i32 [ 1, %162 ], [ %.0181262, %.lr.ph263 ]
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %52
-  br i1 %exitcond361.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !145
+  br i1 %exitcond361.not, label %._crit_edge264, label %.lr.ph263, !llvm.loop !143
 
 ._crit_edge264:                                   ; preds = %164
   %165 = icmp eq i32 %.1182, 0
-  br i1 %165, label %166, label %._crit_edge248, !llvm.loop !146
+  br i1 %165, label %166, label %._crit_edge248, !llvm.loop !144
 
 166:                                              ; preds = %._crit_edge264, %._crit_edge248
   br i1 %56, label %.lr.ph268, label %.preheader206
@@ -1945,7 +1945,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %179 = phi i16 [ %172, %170 ], [ %189, %._crit_edge272.us ]
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %57
-  br i1 %exitcond371.not, label %._crit_edge279.us, label %170, !llvm.loop !147
+  br i1 %exitcond371.not, label %._crit_edge279.us, label %170, !llvm.loop !145
 
 180:                                              ; preds = %.lr.ph275.us, %._crit_edge272.us
   %.pre385 = phi i16 [ %.pre386, %.lr.ph275.us ], [ %.pre382, %._crit_edge272.us ]
@@ -1968,7 +1968,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %192 = lshr i32 4, %191
   %193 = mul i32 %192, %168
   %194 = icmp ult i32 %190, %193
-  br i1 %194, label %180, label %._crit_edge276.us, !llvm.loop !148
+  br i1 %194, label %180, label %._crit_edge276.us, !llvm.loop !146
 
 195:                                              ; preds = %.lr.ph271.us, %220
   %.pre384 = phi i16 [ %.pre385, %.lr.ph271.us ], [ %.pre383, %220 ]
@@ -2014,7 +2014,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %225 = lshr i32 4, %224
   %226 = mul i32 %225, %229
   %227 = icmp ult i32 %223, %226
-  br i1 %227, label %195, label %._crit_edge272.us, !llvm.loop !149
+  br i1 %227, label %195, label %._crit_edge272.us, !llvm.loop !147
 
 .lr.ph271.us:                                     ; preds = %180
   %228 = load i32, ptr %167, align 4, !tbaa !80
@@ -2028,7 +2028,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
 
 ._crit_edge279.us:                                ; preds = %._crit_edge276.us
   %exitcond376.not = icmp eq i64 %indvars.iv.next373, %44
-  br i1 %exitcond376.not, label %.loopexit, label %.preheader202.us, !llvm.loop !150
+  br i1 %exitcond376.not, label %.loopexit, label %.preheader202.us, !llvm.loop !148
 
 .lr.ph268:                                        ; preds = %166, %235
   %indvars.iv362 = phi i64 [ %indvars.iv.next363, %235 ], [ 0, %166 ]
@@ -2044,14 +2044,14 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
 235:                                              ; preds = %.lr.ph268, %234
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %52
-  br i1 %exitcond366.not, label %.preheader206, label %.lr.ph268, !llvm.loop !151
+  br i1 %exitcond366.not, label %.preheader206, label %.lr.ph268, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.preheader204, %._crit_edge279.us, %.preheader202.lr.ph, %.preheader206, %58
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %236 = load i32, ptr %9, align 4, !tbaa !82
   %237 = zext i32 %236 to i64
   %238 = icmp samesign ult i64 %indvars.iv.next378, %237
-  br i1 %238, label %58, label %._crit_edge285, !llvm.loop !152
+  br i1 %238, label %58, label %._crit_edge285, !llvm.loop !150
 
 ._crit_edge285:                                   ; preds = %.loopexit, %._crit_edge
   tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %47)
@@ -2224,33 +2224,31 @@ attributes #9 = { noreturn }
 !120 = distinct !{!120, !11}
 !121 = distinct !{!121, !11}
 !122 = distinct !{!122, !11}
-!123 = distinct !{!123, !11, !124}
-!124 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!123 = distinct !{!123, !11}
+!124 = distinct !{!124, !11}
 !125 = distinct !{!125, !11}
 !126 = distinct !{!126, !11}
 !127 = distinct !{!127, !11}
-!128 = distinct !{!128, !11, !124}
+!128 = distinct !{!128, !11}
 !129 = distinct !{!129, !11}
 !130 = distinct !{!130, !11}
 !131 = distinct !{!131, !11}
-!132 = distinct !{!132, !11}
-!133 = !{!15, !21, i64 5288}
+!132 = !{!15, !21, i64 5288}
+!133 = distinct !{!133, !11}
 !134 = distinct !{!134, !11}
 !135 = distinct !{!135, !11}
 !136 = distinct !{!136, !11}
-!137 = distinct !{!137, !11, !124}
-!138 = distinct !{!138, !11, !124}
+!137 = distinct !{!137, !11}
+!138 = distinct !{!138, !11}
 !139 = distinct !{!139, !11}
-!140 = distinct !{!140, !11, !124}
-!141 = distinct !{!141, !11, !124}
+!140 = distinct !{!140, !11}
+!141 = distinct !{!141, !11}
 !142 = distinct !{!142, !11}
 !143 = distinct !{!143, !11}
-!144 = distinct !{!144, !11, !124}
+!144 = distinct !{!144, !11}
 !145 = distinct !{!145, !11}
 !146 = distinct !{!146, !11}
 !147 = distinct !{!147, !11}
 !148 = distinct !{!148, !11}
 !149 = distinct !{!149, !11}
-!150 = distinct !{!150, !11, !124}
-!151 = distinct !{!151, !11}
-!152 = distinct !{!152, !11}
+!150 = distinct !{!150, !11}

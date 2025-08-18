@@ -460,27 +460,27 @@ define internal i64 @cache_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %62 = sub nsw i64 %.190, %52
   %.not103 = icmp sle i64 %62, %61
   %63 = icmp slt i32 %60, 0
-  %or.cond147 = or i1 %.not103, %63
-  br i1 %or.cond147, label %.split.split.split.us.preheader, label %.thread124
+  %or.cond149 = or i1 %.not103, %63
+  br i1 %or.cond149, label %.split.split.split.us.preheader, label %.thread124
 
 64:                                               ; preds = %53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 96
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !38
   %65 = icmp slt i32 %.pre, 0
-  br i1 %65, label %.split.us.preheader, label %.thread124
+  br i1 %65, label %.split.us.split.preheader, label %.thread124
 
-.split.us.preheader:                              ; preds = %64
+.split.us.split.preheader:                        ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %.split.us
+  br label %.split.us.split
 
-.split.us:                                        ; preds = %.split.us.preheader, %68
+.split.us.split:                                  ; preds = %.split.us.split.preheader, %68
   %66 = call i32 @cache_read(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 32768)
   %67 = icmp eq i32 %66, -541478725
   br i1 %67, label %.split128.us, label %68
 
-68:                                               ; preds = %.split.us
+68:                                               ; preds = %.split.us.split
   %69 = icmp sgt i32 %66, -1
-  br i1 %69, label %.split.us, label %.thread119.loopexit143, !llvm.loop !39
+  br i1 %69, label %.split.us.split, label %.thread119.loopexit145, !llvm.loop !39
 
 .split.split.split.us.preheader:                  ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -498,9 +498,9 @@ define internal i64 @cache_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %spec.select.us132 = trunc nuw nsw i64 %spec.select125.us131 to i32
   %75 = call i32 @cache_read(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %spec.select.us132)
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %.split.split.split.us, label %.thread119.loopexit.split.loop.exit145, !llvm.loop !42
+  br i1 %76, label %.split.split.split.us, label %.thread119.loopexit.split.loop.exit147, !llvm.loop !39
 
-.split128.us:                                     ; preds = %.split.us
+.split128.us:                                     ; preds = %.split.us.split
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %78 = load i32, ptr %77, align 8, !tbaa !33
   %.not104 = icmp eq i32 %78, 0
@@ -511,16 +511,16 @@ define internal i64 @cache_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   call void @abort() #11
   unreachable
 
-.thread119.loopexit.split.loop.exit145:           ; preds = %73
+.thread119.loopexit.split.loop.exit147:           ; preds = %73
   %80 = sext i32 %75 to i64
   br label %.thread119
 
-.thread119.loopexit143:                           ; preds = %68
+.thread119.loopexit145:                           ; preds = %68
   %81 = sext i32 %66 to i64
   br label %.thread119
 
-.thread119:                                       ; preds = %.split.split.split.us, %.thread119.loopexit.split.loop.exit145, %.thread119.loopexit143
-  %.us-phi = phi i64 [ %81, %.thread119.loopexit143 ], [ %80, %.thread119.loopexit.split.loop.exit145 ], [ %71, %.split.split.split.us ]
+.thread119:                                       ; preds = %.split.split.split.us, %.thread119.loopexit.split.loop.exit147, %.thread119.loopexit145
+  %.us-phi = phi i64 [ %81, %.thread119.loopexit145 ], [ %80, %.thread119.loopexit.split.loop.exit147 ], [ %71, %.split.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread124
 
@@ -728,7 +728,5 @@ attributes #11 = { noreturn nounwind }
 !36 = !{!18, !18, i64 0}
 !37 = !{!15, !15, i64 0}
 !38 = !{!17, !13, i64 96}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !40, !41}

@@ -1713,7 +1713,7 @@ _ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit.loope
   tail call void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl18process_4row_blockEPNS_3MatEi(ptr noundef nonnull align 8 dereferenceable(424) %118, ptr noundef %119, i32 noundef %.017)
   %120 = add nsw i32 %.017, 4
   %121 = icmp slt i32 %120, %12
-  br i1 %121, label %117, label %.preheader, !llvm.loop !121
+  br i1 %121, label %117, label %.preheader, !llvm.loop !120
 
 _ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit: ; preds = %.lr.ph19, %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit ], [ %42, %.lr.ph19 ]
@@ -1734,7 +1734,7 @@ _ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit: ; pr
   store float %134, ptr %127, align 4, !tbaa !116
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count25
-  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit, %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit.loopexit.us, %.preheader
   ret void
@@ -1929,7 +1929,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl18
   store float %164, ptr %158, align 4, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph168.preheader, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %.lr.ph168.preheader, label %.lr.ph, !llvm.loop !121
 
 .lr.ph168.preheader:                              ; preds = %.lr.ph
   %165 = add nsw i32 %77, -2
@@ -1977,7 +1977,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl18
   store float %199, ptr %192, align 4, !tbaa !116
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, -1
   %.not = icmp eq i64 %indvars.iv171, 0
-  br i1 %.not, label %._crit_edge169, label %.lr.ph168, !llvm.loop !124
+  br i1 %.not, label %._crit_edge169, label %.lr.ph168, !llvm.loop !122
 
 ._crit_edge169:                                   ; preds = %.lr.ph168, %3
   ret void
@@ -2108,12 +2108,12 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %lftr.wideiv97 = trunc i64 %indvars.iv.next96 to i32
   %exitcond98.not = icmp eq i32 %42, %lftr.wideiv97
-  br i1 %exitcond98.not, label %._crit_edge.us, label %56, !llvm.loop !125
+  br i1 %exitcond98.not, label %._crit_edge.us, label %56, !llvm.loop !123
 
 ._crit_edge.us:                                   ; preds = %56
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond102.not, label %.lr.ph89, label %.lr.ph81.us, !llvm.loop !126
+  br i1 %exitcond102.not, label %.lr.ph89, label %.lr.ph81.us, !llvm.loop !124
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ %smin, %.lr.ph ], [ %indvars.iv.next, %79 ]
@@ -2132,7 +2132,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader, label %79, !llvm.loop !127
+  br i1 %exitcond.not, label %.preheader, label %79, !llvm.loop !125
 
 .lr.ph89:                                         ; preds = %._crit_edge.us
   %90 = load i64, ptr %21, align 8, !tbaa !115
@@ -2170,12 +2170,12 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
   %lftr.wideiv106 = trunc i64 %indvars.iv.next105 to i32
   %exitcond107.not = icmp eq i32 %95, %lftr.wideiv106
-  br i1 %exitcond107.not, label %._crit_edge.us91, label %104, !llvm.loop !128
+  br i1 %exitcond107.not, label %._crit_edge.us91, label %104, !llvm.loop !126
 
 ._crit_edge.us91:                                 ; preds = %104
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
   %113 = icmp sgt i64 %indvars.iv108, 0
-  br i1 %113, label %.lr.ph86.us, label %._crit_edge90, !llvm.loop !129
+  br i1 %113, label %.lr.ph86.us, label %._crit_edge90, !llvm.loop !127
 
 ._crit_edge90:                                    ; preds = %._crit_edge.us91, %2, %.preheader
   ret void
@@ -2251,7 +2251,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl18ComputeLUT_P
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %20, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !128
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2261,7 +2261,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc28FastGlobalSmootherFilterImplELN9__gnu_cxx12_L
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl6createERKNS_11_InputArrayEddid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, i32 noundef %5, double noundef %4)
   %7 = load ptr, ptr %6, align 8, !tbaa !77
-  store ptr %7, ptr %0, align 8, !tbaa !131
+  store ptr %7, ptr %0, align 8, !tbaa !129
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !81
@@ -2275,16 +2275,16 @@ define void @_ZN2cv8ximgproc24fastGlobalSmootherFilterERKNS_11_InputArrayES3_RKN
   %8 = alloca %"struct.cv::Ptr", align 8
   %9 = alloca %"struct.cv::Ptr.7", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !134
-  call void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl6createERKNS_11_InputArrayEddid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %3, double noundef %4, i32 noundef %6, double noundef %5), !noalias !134
-  %10 = load ptr, ptr %8, align 8, !tbaa !77, !noalias !134
-  store ptr %10, ptr %9, align 8, !tbaa !131, !alias.scope !134
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !132
+  call void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl6createERKNS_11_InputArrayEddid(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %3, double noundef %4, i32 noundef %6, double noundef %5), !noalias !132
+  %10 = load ptr, ptr %8, align 8, !tbaa !77, !noalias !132
+  store ptr %10, ptr %9, align 8, !tbaa !129, !alias.scope !132
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !81, !noalias !134
-  store ptr %13, ptr %11, align 8, !tbaa !81, !alias.scope !134
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !134
+  %13 = load ptr, ptr %12, align 8, !tbaa !81, !noalias !132
+  store ptr %13, ptr %11, align 8, !tbaa !81, !alias.scope !132
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !132
   %14 = load ptr, ptr %10, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
@@ -2317,7 +2317,7 @@ define void @_ZN2cv8ximgproc24fastGlobalSmootherFilterERKNS_11_InputArrayES3_RKN
   br label %_ZNSt12__shared_ptrIN2cv8ximgproc24FastGlobalSmootherFilterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 31:                                               ; preds = %18
-  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !137
+  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !135
   %.not.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i, label %35, label %33
 
@@ -2333,7 +2333,7 @@ define void @_ZN2cv8ximgproc24fastGlobalSmootherFilterERKNS_11_InputArrayES3_RKN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %35, %33
   %.0.i.i.i.i = phi i32 [ %22, %33 ], [ %36, %35 ]
   %37 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %37, label %38, label %_ZNSt12__shared_ptrIN2cv8ximgproc24FastGlobalSmootherFilterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !138
+  br i1 %37, label %38, label %_ZNSt12__shared_ptrIN2cv8ximgproc24FastGlobalSmootherFilterELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !136
 
 38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #25
@@ -2380,7 +2380,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc24FastGlobalSm
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !137
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !135
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %21, label %19
 
@@ -2396,7 +2396,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8ximgproc24FastGlobalSm
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !138
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !136
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
@@ -2518,7 +2518,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !137
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !135
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
@@ -2610,9 +2610,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %39 = mul i64 %28, %indvars.iv43
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %42 = load i8, ptr %38, align 1, !tbaa !137
+  %42 = load i8, ptr %38, align 1, !tbaa !135
   %43 = zext i8 %42 to i32
-  %44 = load i8, ptr %41, align 1, !tbaa !137
+  %44 = load i8, ptr %41, align 1, !tbaa !135
   %45 = zext i8 %44 to i32
   %46 = sub nsw i32 %43, %45
   %47 = mul nsw i32 %46, %46
@@ -2626,9 +2626,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %51 ]
   %.02331.us = phi ptr [ %41, %.lr.ph.us ], [ %52, %51 ]
   %52 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 1
-  %53 = load i8, ptr %.02331.us, align 1, !tbaa !137
+  %53 = load i8, ptr %.02331.us, align 1, !tbaa !135
   %54 = zext i8 %53 to i32
-  %55 = load i8, ptr %52, align 1, !tbaa !137
+  %55 = load i8, ptr %52, align 1, !tbaa !135
   %56 = zext i8 %55 to i32
   %57 = sub nsw i32 %54, %56
   %58 = mul nsw i32 %57, %57
@@ -2639,7 +2639,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   store float %61, ptr %62, align 4, !tbaa !116
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge.us, label %51, !llvm.loop !139
+  br i1 %exitcond41.not, label %._crit_edge.us, label %51, !llvm.loop !137
 
 ._crit_edge.us:                                   ; preds = %51
   %63 = getelementptr inbounds float, ptr %40, i64 %33
@@ -2647,7 +2647,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %lftr.wideiv45 = trunc i64 %indvars.iv.next44 to i32
   %exitcond46.not = icmp eq i32 %36, %lftr.wideiv45
-  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !140
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !138
 
 ._crit_edge36:                                    ; preds = %.lr.ph35.split, %._crit_edge.us, %2
   ret void
@@ -2659,9 +2659,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %66 = mul i64 %28, %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %25, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %69 = load i8, ptr %65, align 1, !tbaa !137
+  %69 = load i8, ptr %65, align 1, !tbaa !135
   %70 = zext i8 %69 to i32
-  %71 = load i8, ptr %68, align 1, !tbaa !137
+  %71 = load i8, ptr %68, align 1, !tbaa !135
   %72 = zext i8 %71 to i32
   %73 = sub nsw i32 %70, %72
   %74 = mul nsw i32 %73, %73
@@ -2674,7 +2674,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !138
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2749,9 +2749,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv69 = phi i64 [ %26, %.lr.ph59.us ], [ %indvars.iv.next70, %40 ]
   %.157.us = phi ptr [ %gep61.us, %.lr.ph59.us ], [ %52, %40 ]
   %.14456.us = phi ptr [ %gep.us, %.lr.ph59.us ], [ %51, %40 ]
-  %41 = load i8, ptr %.14456.us, align 1, !tbaa !137
+  %41 = load i8, ptr %.14456.us, align 1, !tbaa !135
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %.157.us, align 1, !tbaa !137
+  %43 = load i8, ptr %.157.us, align 1, !tbaa !135
   %44 = zext i8 %43 to i32
   %45 = sub nsw i32 %42, %44
   %46 = mul nsw i32 %45, %45
@@ -2765,19 +2765,19 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
   %lftr.wideiv71 = trunc i64 %indvars.iv.next70 to i32
   %exitcond72.not = icmp eq i32 %.sroa.speculated, %lftr.wideiv71
-  br i1 %exitcond72.not, label %..loopexit_crit_edge.us, label %40, !llvm.loop !142
+  br i1 %exitcond72.not, label %..loopexit_crit_edge.us, label %40, !llvm.loop !139
 
 ..loopexit_crit_edge.us:                          ; preds = %40
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond76.not, label %.lr.ph66.preheader, label %.lr.ph59.us, !llvm.loop !143
+  br i1 %exitcond76.not, label %.lr.ph66.preheader, label %.lr.ph59.us, !llvm.loop !140
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04254 = phi ptr [ %31, %.lr.ph.preheader ], [ %64, %.lr.ph ]
   %.04353 = phi ptr [ %27, %.lr.ph.preheader ], [ %63, %.lr.ph ]
-  %53 = load i8, ptr %.04353, align 1, !tbaa !137
+  %53 = load i8, ptr %.04353, align 1, !tbaa !135
   %54 = zext i8 %53 to i32
-  %55 = load i8, ptr %.04254, align 1, !tbaa !137
+  %55 = load i8, ptr %.04254, align 1, !tbaa !135
   %56 = zext i8 %55 to i32
   %57 = sub nsw i32 %54, %56
   %58 = mul nsw i32 %57, %57
@@ -2791,7 +2791,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.sroa.speculated, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !144
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !141
 
 .lr.ph66.preheader:                               ; preds = %..loopexit_crit_edge.us, %.preheader
   %65 = sext i32 %34 to i64
@@ -2873,26 +2873,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %39 = mul i64 %28, %indvars.iv43
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 3
-  %42 = load i8, ptr %38, align 1, !tbaa !137
+  %42 = load i8, ptr %38, align 1, !tbaa !135
   %43 = zext i8 %42 to i32
-  %44 = load i8, ptr %41, align 1, !tbaa !137
+  %44 = load i8, ptr %41, align 1, !tbaa !135
   %45 = zext i8 %44 to i32
   %46 = sub nsw i32 %43, %45
   %47 = mul nsw i32 %46, %46
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %49 = load i8, ptr %48, align 1, !tbaa !137
+  %49 = load i8, ptr %48, align 1, !tbaa !135
   %50 = zext i8 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %52 = load i8, ptr %51, align 1, !tbaa !137
+  %52 = load i8, ptr %51, align 1, !tbaa !135
   %53 = zext i8 %52 to i32
   %54 = sub nsw i32 %50, %53
   %55 = mul nsw i32 %54, %54
   %56 = add nuw nsw i32 %55, %47
   %57 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %58 = load i8, ptr %57, align 1, !tbaa !137
+  %58 = load i8, ptr %57, align 1, !tbaa !135
   %59 = zext i8 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 5
-  %61 = load i8, ptr %60, align 1, !tbaa !137
+  %61 = load i8, ptr %60, align 1, !tbaa !135
   %62 = zext i8 %61 to i32
   %63 = sub nsw i32 %59, %62
   %64 = mul nsw i32 %63, %63
@@ -2907,26 +2907,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %69 ]
   %.02331.us = phi ptr [ %41, %.lr.ph.us ], [ %70, %69 ]
   %70 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 3
-  %71 = load i8, ptr %.02331.us, align 1, !tbaa !137
+  %71 = load i8, ptr %.02331.us, align 1, !tbaa !135
   %72 = zext i8 %71 to i32
-  %73 = load i8, ptr %70, align 1, !tbaa !137
+  %73 = load i8, ptr %70, align 1, !tbaa !135
   %74 = zext i8 %73 to i32
   %75 = sub nsw i32 %72, %74
   %76 = mul nsw i32 %75, %75
   %77 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !137
+  %78 = load i8, ptr %77, align 1, !tbaa !135
   %79 = zext i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !137
+  %81 = load i8, ptr %80, align 1, !tbaa !135
   %82 = zext i8 %81 to i32
   %83 = sub nsw i32 %79, %82
   %84 = mul nsw i32 %83, %83
   %85 = add nuw nsw i32 %84, %76
   %86 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 2
-  %87 = load i8, ptr %86, align 1, !tbaa !137
+  %87 = load i8, ptr %86, align 1, !tbaa !135
   %88 = zext i8 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %.02331.us, i64 5
-  %90 = load i8, ptr %89, align 1, !tbaa !137
+  %90 = load i8, ptr %89, align 1, !tbaa !135
   %91 = zext i8 %90 to i32
   %92 = sub nsw i32 %88, %91
   %93 = mul nsw i32 %92, %92
@@ -2938,7 +2938,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   store float %97, ptr %98, align 4, !tbaa !116
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge.us, label %69, !llvm.loop !145
+  br i1 %exitcond41.not, label %._crit_edge.us, label %69, !llvm.loop !142
 
 ._crit_edge.us:                                   ; preds = %69
   %99 = getelementptr inbounds float, ptr %40, i64 %33
@@ -2946,7 +2946,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %lftr.wideiv45 = trunc i64 %indvars.iv.next44 to i32
   %exitcond46.not = icmp eq i32 %36, %lftr.wideiv45
-  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !146
+  br i1 %exitcond46.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !143
 
 ._crit_edge36:                                    ; preds = %.lr.ph35.split, %._crit_edge.us, %2
   ret void
@@ -2958,26 +2958,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %102 = mul i64 %28, %indvars.iv
   %103 = getelementptr inbounds nuw i8, ptr %25, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 3
-  %105 = load i8, ptr %101, align 1, !tbaa !137
+  %105 = load i8, ptr %101, align 1, !tbaa !135
   %106 = zext i8 %105 to i32
-  %107 = load i8, ptr %104, align 1, !tbaa !137
+  %107 = load i8, ptr %104, align 1, !tbaa !135
   %108 = zext i8 %107 to i32
   %109 = sub nsw i32 %106, %108
   %110 = mul nsw i32 %109, %109
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 1
-  %112 = load i8, ptr %111, align 1, !tbaa !137
+  %112 = load i8, ptr %111, align 1, !tbaa !135
   %113 = zext i8 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %115 = load i8, ptr %114, align 1, !tbaa !137
+  %115 = load i8, ptr %114, align 1, !tbaa !135
   %116 = zext i8 %115 to i32
   %117 = sub nsw i32 %113, %116
   %118 = mul nsw i32 %117, %117
   %119 = add nuw nsw i32 %118, %110
   %120 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  %121 = load i8, ptr %120, align 1, !tbaa !137
+  %121 = load i8, ptr %120, align 1, !tbaa !135
   %122 = zext i8 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %101, i64 5
-  %124 = load i8, ptr %123, align 1, !tbaa !137
+  %124 = load i8, ptr %123, align 1, !tbaa !135
   %125 = zext i8 %124 to i32
   %126 = sub nsw i32 %122, %125
   %127 = mul nsw i32 %126, %126
@@ -2991,7 +2991,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !147
+  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35.split, !llvm.loop !143
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -3075,26 +3075,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv70 = phi i64 [ %smin69, %.lr.ph59.us ], [ %indvars.iv.next71, %47 ]
   %.157.us = phi ptr [ %gep61.us, %.lr.ph59.us ], [ %77, %47 ]
   %.14456.us = phi ptr [ %gep.us, %.lr.ph59.us ], [ %76, %47 ]
-  %48 = load i8, ptr %.14456.us, align 1, !tbaa !137
+  %48 = load i8, ptr %.14456.us, align 1, !tbaa !135
   %49 = zext i8 %48 to i32
-  %50 = load i8, ptr %.157.us, align 1, !tbaa !137
+  %50 = load i8, ptr %.157.us, align 1, !tbaa !135
   %51 = zext i8 %50 to i32
   %52 = sub nsw i32 %49, %51
   %53 = mul nsw i32 %52, %52
   %54 = getelementptr inbounds nuw i8, ptr %.14456.us, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !137
+  %55 = load i8, ptr %54, align 1, !tbaa !135
   %56 = zext i8 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %.157.us, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !137
+  %58 = load i8, ptr %57, align 1, !tbaa !135
   %59 = zext i8 %58 to i32
   %60 = sub nsw i32 %56, %59
   %61 = mul nsw i32 %60, %60
   %62 = add nuw nsw i32 %61, %53
   %63 = getelementptr inbounds nuw i8, ptr %.14456.us, i64 2
-  %64 = load i8, ptr %63, align 1, !tbaa !137
+  %64 = load i8, ptr %63, align 1, !tbaa !135
   %65 = zext i8 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %.157.us, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !137
+  %67 = load i8, ptr %66, align 1, !tbaa !135
   %68 = zext i8 %67 to i32
   %69 = sub nsw i32 %65, %68
   %70 = mul nsw i32 %69, %69
@@ -3109,36 +3109,36 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %lftr.wideiv72 = trunc i64 %indvars.iv.next71 to i32
   %exitcond73.not = icmp eq i32 %42, %lftr.wideiv72
-  br i1 %exitcond73.not, label %..loopexit_crit_edge.us, label %47, !llvm.loop !148
+  br i1 %exitcond73.not, label %..loopexit_crit_edge.us, label %47, !llvm.loop !144
 
 ..loopexit_crit_edge.us:                          ; preds = %47
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
-  br i1 %exitcond77.not, label %.lr.ph66.preheader, label %.lr.ph59.us, !llvm.loop !149
+  br i1 %exitcond77.not, label %.lr.ph66.preheader, label %.lr.ph59.us, !llvm.loop !145
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %smin, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04254 = phi ptr [ %32, %.lr.ph.preheader ], [ %107, %.lr.ph ]
   %.04353 = phi ptr [ %28, %.lr.ph.preheader ], [ %106, %.lr.ph ]
-  %78 = load i8, ptr %.04353, align 1, !tbaa !137
+  %78 = load i8, ptr %.04353, align 1, !tbaa !135
   %79 = zext i8 %78 to i32
-  %80 = load i8, ptr %.04254, align 1, !tbaa !137
+  %80 = load i8, ptr %.04254, align 1, !tbaa !135
   %81 = zext i8 %80 to i32
   %82 = sub nsw i32 %79, %81
   %83 = mul nsw i32 %82, %82
   %84 = getelementptr inbounds nuw i8, ptr %.04353, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !137
+  %85 = load i8, ptr %84, align 1, !tbaa !135
   %86 = zext i8 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %.04254, i64 1
-  %88 = load i8, ptr %87, align 1, !tbaa !137
+  %88 = load i8, ptr %87, align 1, !tbaa !135
   %89 = zext i8 %88 to i32
   %90 = sub nsw i32 %86, %89
   %91 = mul nsw i32 %90, %90
   %92 = add nuw nsw i32 %91, %83
   %93 = getelementptr inbounds nuw i8, ptr %.04353, i64 2
-  %94 = load i8, ptr %93, align 1, !tbaa !137
+  %94 = load i8, ptr %93, align 1, !tbaa !135
   %95 = zext i8 %94 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.04254, i64 2
-  %97 = load i8, ptr %96, align 1, !tbaa !137
+  %97 = load i8, ptr %96, align 1, !tbaa !135
   %98 = zext i8 %97 to i32
   %99 = sub nsw i32 %95, %98
   %100 = mul nsw i32 %99, %99
@@ -3153,7 +3153,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %35, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !150
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !146
 
 .lr.ph66.preheader:                               ; preds = %..loopexit_crit_edge.us, %.preheader
   %108 = sext i32 %38 to i64
@@ -3260,7 +3260,7 @@ _ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !151
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !147
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIN2cv3MatESaIS1_EE12_M_check_lenEmPKc.exit ], [ %23, %.lr.ph.i.i.i.i ]
@@ -3276,7 +3276,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i19, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i18, i64 96
   %.not.i.i.i.i20 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !151
+  br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !147
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i21 = phi ptr [ %24, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %26, %.lr.ph.i.i.i.i17 ]
@@ -3346,7 +3346,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !151
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !147
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %23, %.lr.ph.i.i.i.i ]
@@ -3362,7 +3362,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
   %.not.i.i.i.i30 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !151
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !147
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %24, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %26, %.lr.ph.i.i.i.i27 ]
@@ -3588,36 +3588,32 @@ attributes #27 = { noreturn nounwind }
 !116 = !{!17, !17, i64 0}
 !117 = distinct !{!117, !108}
 !118 = distinct !{!118, !108}
-!119 = distinct !{!119, !108, !120}
-!120 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!119 = distinct !{!119, !108}
+!120 = distinct !{!120, !108}
 !121 = distinct !{!121, !108}
 !122 = distinct !{!122, !108}
 !123 = distinct !{!123, !108}
 !124 = distinct !{!124, !108}
 !125 = distinct !{!125, !108}
-!126 = distinct !{!126, !108, !120}
+!126 = distinct !{!126, !108}
 !127 = distinct !{!127, !108}
 !128 = distinct !{!128, !108}
-!129 = distinct !{!129, !108, !120}
-!130 = distinct !{!130, !108}
-!131 = !{!132, !133, i64 0}
-!132 = !{!"_ZTSSt12__shared_ptrIN2cv8ximgproc24FastGlobalSmootherFilterELN9__gnu_cxx12_Lock_policyE2EE", !133, i64 0, !79, i64 8}
-!133 = !{!"p1 _ZTSN2cv8ximgproc24FastGlobalSmootherFilterE", !7, i64 0}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZN2cv8ximgproc30createFastGlobalSmootherFilterERKNS_11_InputArrayEdddi: argument 0"}
-!136 = distinct !{!136, !"_ZN2cv8ximgproc30createFastGlobalSmootherFilterERKNS_11_InputArrayEdddi"}
-!137 = !{!8, !8, i64 0}
-!138 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!129 = !{!130, !131, i64 0}
+!130 = !{!"_ZTSSt12__shared_ptrIN2cv8ximgproc24FastGlobalSmootherFilterELN9__gnu_cxx12_Lock_policyE2EE", !131, i64 0, !79, i64 8}
+!131 = !{!"p1 _ZTSN2cv8ximgproc24FastGlobalSmootherFilterE", !7, i64 0}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN2cv8ximgproc30createFastGlobalSmootherFilterERKNS_11_InputArrayEdddi: argument 0"}
+!134 = distinct !{!134, !"_ZN2cv8ximgproc30createFastGlobalSmootherFilterERKNS_11_InputArrayEdddi"}
+!135 = !{!8, !8, i64 0}
+!136 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!137 = distinct !{!137, !108}
+!138 = distinct !{!138, !108}
 !139 = distinct !{!139, !108}
-!140 = distinct !{!140, !108, !120}
+!140 = distinct !{!140, !108}
 !141 = distinct !{!141, !108}
 !142 = distinct !{!142, !108}
-!143 = distinct !{!143, !108, !120}
+!143 = distinct !{!143, !108}
 !144 = distinct !{!144, !108}
 !145 = distinct !{!145, !108}
-!146 = distinct !{!146, !108, !120}
+!146 = distinct !{!146, !108}
 !147 = distinct !{!147, !108}
-!148 = distinct !{!148, !108}
-!149 = distinct !{!149, !108, !120}
-!150 = distinct !{!150, !108}
-!151 = distinct !{!151, !108}

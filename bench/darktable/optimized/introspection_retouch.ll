@@ -7849,7 +7849,7 @@ dt_XYZ_to_Lab.exit.us:                            ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 4
   %96 = icmp ugt i64 %13, %indvars.iv.next23
-  br i1 %96, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !328
+  br i1 %96, label %.lr.ph.split.us, label %._crit_edge.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 852
@@ -8075,7 +8075,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #18 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !330
+  %3 = load i32, ptr @introspection, align 8, !tbaa !328
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
@@ -8795,9 +8795,9 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr noundef readonly captu
   %13 = getelementptr i8, ptr %2, i64 16
   %.val28 = load float, ptr %13, align 4, !tbaa !299
   %14 = getelementptr i8, ptr %.val, i64 144
-  %.val.val = load i32, ptr %14, align 16, !tbaa !333
+  %.val.val = load i32, ptr %14, align 16, !tbaa !331
   %15 = getelementptr i8, ptr %.val, i64 148
-  %.val.val32 = load i32, ptr %15, align 4, !tbaa !334
+  %.val.val32 = load i32, ptr %15, align 4, !tbaa !332
   %16 = sitofp i32 %.val.val to float
   %17 = fmul reassoc nsz arcp contract afn float %.val28, %16
   %18 = sitofp i32 %.val.val32 to float
@@ -8822,14 +8822,14 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr noundef readonly captu
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !297
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
-  %36 = load i32, ptr %35, align 16, !tbaa !333
+  %36 = load i32, ptr %35, align 16, !tbaa !331
   %37 = sitofp i32 %36 to float
   %38 = fmul reassoc nsz arcp contract afn float %32, %37
   store float %38, ptr %9, align 16, !tbaa !22
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %40 = load float, ptr %39, align 4, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 148
-  %42 = load i32, ptr %41, align 4, !tbaa !334
+  %42 = load i32, ptr %41, align 4, !tbaa !332
   %43 = sitofp i32 %42 to float
   %44 = fmul reassoc nsz arcp contract afn float %40, %43
   %45 = load float, ptr %4, align 4, !tbaa !22
@@ -8852,7 +8852,7 @@ define internal fastcc i32 @rt_masks_point_calc_delta(ptr noundef readonly captu
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %56 = load ptr, ptr %55, align 8, !tbaa !138
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %58 = load i32, ptr %57, align 16, !tbaa !335
+  %58 = load i32, ptr %57, align 16, !tbaa !333
   %59 = sitofp i32 %58 to double
   %60 = call i32 @dt_dev_distort_transform_plus(ptr noundef %56, ptr noundef nonnull %52, double noundef %59, i32 noundef 3, ptr noundef nonnull %9, i64 noundef 2) #26
   %.not = icmp eq i32 %60, 0
@@ -9045,7 +9045,7 @@ rt_copy_in_to_out.exit:                           ; preds = %rt_copy_in_to_out.e
 ._crit_edge.us.i:                                 ; preds = %79
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
-  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i, !llvm.loop !336
+  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i
 
 rt_copy_image_masked.exit:                        ; preds = %._crit_edge.us.i, %.lr.ph44.i, %rt_copy_in_to_out.exit, %18
   tail call void @free(ptr noundef %16) #26
@@ -9253,7 +9253,7 @@ rt_copy_in_to_out.exit37:                         ; preds = %28, %rt_copy_in_to_
 ._crit_edge.us.i:                                 ; preds = %113
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
-  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i, !llvm.loop !336
+  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i
 
 rt_copy_image_masked.exit:                        ; preds = %._crit_edge.us.i, %.lr.ph44.i, %rt_copy_in_to_out.exit37, %27
   tail call void @free(ptr noundef %17) #26
@@ -9478,7 +9478,7 @@ rt_copy_in_to_out.exit:                           ; preds = %52, %31
 ._crit_edge.us.i:                                 ; preds = %117
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
-  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i, !llvm.loop !336
+  br i1 %exitcond55.not.i, label %rt_copy_image_masked.exit, label %.lr.ph.us.i
 
 rt_copy_image_masked.exit:                        ; preds = %._crit_edge.us.i, %.lr.ph44.i, %91, %30
   call void @free(ptr noundef %28) #26
@@ -9561,7 +9561,7 @@ define internal fastcc void @_retouch_fill(ptr noundef captures(none) %0, ptr no
 ._crit_edge.us:                                   ; preds = %33
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge40, label %.lr.ph.us, !llvm.loop !337
+  br i1 %exitcond50.not, label %._crit_edge40, label %.lr.ph.us
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.lr.ph39, %6
   ret void
@@ -9634,7 +9634,7 @@ define internal fastcc void @rt_copy_mask_to_alpha(ptr noundef captures(none) %0
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond43.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !338
+  br i1 %exitcond43.not, label %._crit_edge38, label %.lr.ph.us
 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.lr.ph37, %6
   ret void
@@ -10557,14 +10557,9 @@ attributes #29 = { nounwind willreturn memory(read) }
 !325 = !{!"dt_masks_functions_t", !10, i64 0, !42, i64 8, !42, i64 16, !42, i64 24, !42, i64 32, !42, i64 40, !42, i64 48, !42, i64 56, !42, i64 64, !42, i64 72, !42, i64 80, !42, i64 88, !42, i64 96, !42, i64 104, !42, i64 112, !42, i64 120, !42, i64 128, !42, i64 136, !42, i64 144, !42, i64 152}
 !326 = !{!153, !10, i64 13256}
 !327 = !{!315, !10, i64 8}
-!328 = distinct !{!328, !329}
-!329 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!330 = !{!331, !10, i64 0}
-!331 = !{!"dt_introspection_t", !10, i64 0, !10, i64 4, !87, i64 8, !48, i64 16, !332, i64 24, !48, i64 32, !48, i64 40, !54, i64 48}
-!332 = !{!"p1 _ZTS24dt_introspection_field_t", !42, i64 0}
-!333 = !{!184, !10, i64 144}
-!334 = !{!184, !10, i64 148}
-!335 = !{!44, !10, i64 480}
-!336 = distinct !{!336, !329}
-!337 = distinct !{!337, !329}
-!338 = distinct !{!338, !329}
+!328 = !{!329, !10, i64 0}
+!329 = !{!"dt_introspection_t", !10, i64 0, !10, i64 4, !87, i64 8, !48, i64 16, !330, i64 24, !48, i64 32, !48, i64 40, !54, i64 48}
+!330 = !{!"p1 _ZTS24dt_introspection_field_t", !42, i64 0}
+!331 = !{!184, !10, i64 144}
+!332 = !{!184, !10, i64 148}
+!333 = !{!44, !10, i64 480}

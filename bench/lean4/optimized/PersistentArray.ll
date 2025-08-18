@@ -21885,7 +21885,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -22238,7 +22238,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -22547,7 +22547,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -22804,7 +22804,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -23545,7 +23545,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -23779,7 +23779,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -24034,7 +24034,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -24387,7 +24387,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !29
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -24675,7 +24675,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #8
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -25383,7 +25383,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -25757,7 +25757,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -26014,7 +26014,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -26248,7 +26248,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -26536,7 +26536,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !35
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -26791,7 +26791,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -27165,7 +27165,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !37
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -27422,7 +27422,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !38
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -27656,7 +27656,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !39
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -27965,7 +27965,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !40
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -28339,7 +28339,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !41
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -28596,7 +28596,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !42
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -28830,7 +28830,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !43
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -29118,7 +29118,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !44
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -29373,7 +29373,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !45
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -29747,7 +29747,7 @@ lean_inc.exit.us:                                 ; preds = %23, %22, %21
 
 lean_dec.exit22.us:                               ; preds = %31, %30, %29, %lean_inc.exit.us
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !46
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit22
   %.01839 = phi i64 [ %33, %lean_dec.exit22 ], [ %2, %.lr.ph ]
@@ -30004,7 +30004,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !47
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -30238,7 +30238,7 @@ lean_array_uget.exit.us:                          ; preds = %18, %17, %16, %.lr.
 lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %.01933.us) #8
   %.not.us = icmp eq i64 %9, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %26, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -30848,7 +30848,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -31558,7 +31558,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !50
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -33189,7 +33189,7 @@ lean_inc.exit.us:                                 ; preds = %22, %21, %20
 lean_dec.exit.us:                                 ; preds = %30, %29, %28, %lean_inc.exit.us
   %32 = add i64 %.01839.us, 1
   %.not.us = icmp eq i64 %32, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01839 = phi i64 [ %60, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -41329,7 +41329,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_PersistentArray_findSome_x3f_
 16:                                               ; preds = %lean_obj_tag.exit.us
   %17 = add nuw i64 %.04292.us, 1
   %exitcond105.not = icmp eq i64 %17, %5
-  br i1 %exitcond105.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %exitcond105.not, label %._crit_edge.thread, label %.lr.ph.split.us
 
 18:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %13, align 4, !tbaa !4
@@ -42206,7 +42206,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_PersistentArray_findSome_x3f_
 16:                                               ; preds = %lean_obj_tag.exit.us
   %17 = add nuw i64 %.04187.us, 1
   %exitcond100.not = icmp eq i64 %17, %5
-  br i1 %exitcond100.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !53
+  br i1 %exitcond100.not, label %._crit_edge.thread, label %.lr.ph.split.us
 
 18:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %13, align 4, !tbaa !4
@@ -42823,7 +42823,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_PersistentArray_findSome_x3f_
 16:                                               ; preds = %lean_obj_tag.exit.us
   %17 = add nuw i64 %.04187.us, 1
   %exitcond100.not = icmp eq i64 %17, %5
-  br i1 %exitcond100.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !54
+  br i1 %exitcond100.not, label %._crit_edge.thread, label %.lr.ph.split.us
 
 18:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %13, align 4, !tbaa !4
@@ -53357,7 +53357,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit24.us
   %13 = add i64 %.01841.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !55
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -53758,7 +53758,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !56
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -54127,7 +54127,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !57
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -54662,7 +54662,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit24.us
   %13 = add i64 %.01841.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !58
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -55063,7 +55063,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !59
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -55432,7 +55432,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_PersistentArr
 12:                                               ; preds = %lean_dec.exit25.us
   %13 = add i64 %.01942.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -58216,7 +58216,7 @@ lean_array_uget.exit.us:                          ; preds = %22, %21, %20, %.lr.
 33:                                               ; preds = %31, %30, %29, %lean_array_uget.exit.us
   %34 = add i64 %.01835.us, 1
   %.not.us = icmp eq i64 %34, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !61
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = icmp sgt i64 %10, -1
@@ -58277,7 +58277,7 @@ lean_array_uget.exit.us41:                        ; preds = %.lr.ph.split.split.
   %56 = phi ptr [ %48, %53 ], [ %48, %52 ], [ %48, %51 ], [ %46, %lean_array_uget.exit.us41 ]
   %57 = add i64 %.01835.us36, 1
   %.not.us46 = icmp eq i64 %57, %3
-  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !62
+  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %77
   %.01835 = phi i64 [ %78, %77 ], [ %2, %.lr.ph.split ]
@@ -59497,7 +59497,7 @@ lean_array_uget.exit.us:                          ; preds = %22, %21, %20, %.lr.
 33:                                               ; preds = %31, %30, %29, %lean_array_uget.exit.us
   %34 = add i64 %.01835.us, 1
   %.not.us = icmp eq i64 %34, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = icmp sgt i64 %10, -1
@@ -59558,7 +59558,7 @@ lean_array_uget.exit.us41:                        ; preds = %.lr.ph.split.split.
   %56 = phi ptr [ %48, %53 ], [ %48, %52 ], [ %48, %51 ], [ %46, %lean_array_uget.exit.us41 ]
   %57 = add i64 %.01835.us36, 1
   %.not.us46 = icmp eq i64 %57, %3
-  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !64
+  br i1 %.not.us46, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %77
   %.01835 = phi i64 [ %78, %77 ], [ %2, %.lr.ph.split ]
@@ -60189,7 +60189,7 @@ lean_dec.exit21.us:                               ; preds = %22, %21, %20, %13, 
 
 lean_dec.exit.us:                                 ; preds = %27, %26, %25
   %29 = tail call ptr @l_Lean_PersistentArray_push___rarg(ptr noundef %.018.us, ptr noundef nonnull %1)
-  br label %.split.us, !llvm.loop !65
+  br label %.split.us
 
 .split:                                           ; preds = %6, %lean_dec.exit21
   %.018 = phi ptr [ %45, %lean_dec.exit21 ], [ %5, %6 ]
@@ -61692,48 +61692,3 @@ attributes #10 = { "function-inline-cost-multiplier"="2" }
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
 !19 = !{!"branch_weights", !"expected", i32 1073473623, i32 1074010025}
 !20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !22}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = distinct !{!35, !22}
-!36 = distinct !{!36, !22}
-!37 = distinct !{!37, !22}
-!38 = distinct !{!38, !22}
-!39 = distinct !{!39, !22}
-!40 = distinct !{!40, !22}
-!41 = distinct !{!41, !22}
-!42 = distinct !{!42, !22}
-!43 = distinct !{!43, !22}
-!44 = distinct !{!44, !22}
-!45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22}
-!47 = distinct !{!47, !22}
-!48 = distinct !{!48, !22}
-!49 = distinct !{!49, !22}
-!50 = distinct !{!50, !22}
-!51 = distinct !{!51, !22}
-!52 = distinct !{!52, !22}
-!53 = distinct !{!53, !22}
-!54 = distinct !{!54, !22}
-!55 = distinct !{!55, !22}
-!56 = distinct !{!56, !22}
-!57 = distinct !{!57, !22}
-!58 = distinct !{!58, !22}
-!59 = distinct !{!59, !22}
-!60 = distinct !{!60, !22}
-!61 = distinct !{!61, !22}
-!62 = distinct !{!62, !22}
-!63 = distinct !{!63, !22}
-!64 = distinct !{!64, !22}
-!65 = distinct !{!65, !22}

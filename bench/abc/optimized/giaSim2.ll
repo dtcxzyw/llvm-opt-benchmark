@@ -1394,7 +1394,7 @@ define noundef ptr @Gia_Sim2GenerateCounter(ptr noundef readonly captures(none) 
   %.val38.val.us.us = load i32, ptr %45, align 4, !tbaa !38
   %46 = sub nsw i32 %.val38.val.us.us, %.val37.us.us
   %47 = icmp slt i32 %44, %46
-  br i1 %47, label %.preheader.us.us, label %._crit_edge45.split.us.us, !llvm.loop !78
+  br i1 %47, label %.preheader.us.us, label %._crit_edge45.split.us.us, !llvm.loop !77
 
 48:                                               ; preds = %48, %.preheader.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ %28, %.preheader.us.us ]
@@ -1403,7 +1403,7 @@ define noundef ptr @Gia_Sim2GenerateCounter(ptr noundef readonly captures(none) 
   %50 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
   store i32 %49, ptr %50, align 4, !tbaa !48
   %51 = icmp sgt i64 %indvars.iv, 1
-  br i1 %51, label %48, label %._crit_edge.us.us, !llvm.loop !79
+  br i1 %51, label %48, label %._crit_edge.us.us, !llvm.loop !78
 
 ._crit_edge.us.us:                                ; preds = %48
   %52 = load i32, ptr %21, align 4, !tbaa !48
@@ -1441,7 +1441,7 @@ define noundef ptr @Gia_Sim2GenerateCounter(ptr noundef readonly captures(none) 
   %.val38.val = load i32, ptr %27, align 4, !tbaa !38
   %66 = sub nsw i32 %.val38.val, %.val37
   %67 = icmp slt i32 %65, %66
-  br i1 %67, label %.preheader, label %._crit_edge45.split, !llvm.loop !80
+  br i1 %67, label %.preheader, label %._crit_edge45.split, !llvm.loop !77
 
 ._crit_edge45.split:                              ; preds = %.preheader, %.preheader.lr.ph, %.preheader39
   %.val374158 = phi i32 [ %.val3741, %.preheader39 ], [ %.val3741, %.preheader.lr.ph ], [ %.val37, %.preheader ]
@@ -1449,7 +1449,7 @@ define noundef ptr @Gia_Sim2GenerateCounter(ptr noundef readonly captures(none) 
   %69 = load i32, ptr %25, align 4, !tbaa !75
   %70 = add nsw i32 %69, %.052
   %exitcond.not = icmp eq i32 %.03151, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader39, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader39, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %._crit_edge45.split, %._crit_edge45.split.us.us, %5
   %.not33 = icmp eq ptr %17, null
@@ -1480,10 +1480,10 @@ define range(i32 0, 2) i32 @Gia_ManSimSimulateEquiv(ptr noundef %0, ptr noundef 
   br i1 %9, label %Abc_Clock.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = load i64, ptr %7, align 8, !tbaa !82
+  %11 = load i64, ptr %7, align 8, !tbaa !79
   %12 = mul nsw i64 %11, 1000000
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !84
+  %14 = load i64, ptr %13, align 8, !tbaa !81
   %15 = sdiv i64 %14, 1000
   %16 = add nsw i64 %15, %12
   br label %Abc_Clock.exit
@@ -1492,7 +1492,7 @@ Abc_Clock.exit:                                   ; preds = %2, %10
   %.0.i = phi i64 [ %16, %10 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i32, ptr %17, align 4, !tbaa !85
+  %18 = load i32, ptr %17, align 4, !tbaa !82
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %32, label %19
 
@@ -1505,10 +1505,10 @@ Abc_Clock.exit:                                   ; preds = %2, %10
   br i1 %23, label %Abc_Clock.exit77, label %24
 
 24:                                               ; preds = %19
-  %25 = load i64, ptr %6, align 8, !tbaa !82
+  %25 = load i64, ptr %6, align 8, !tbaa !79
   %26 = mul nsw i64 %25, 1000000
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !84
+  %28 = load i64, ptr %27, align 8, !tbaa !81
   %29 = sdiv i64 %28, 1000
   %30 = add nsw i64 %29, %26
   br label %Abc_Clock.exit77
@@ -1522,13 +1522,13 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
 32:                                               ; preds = %Abc_Clock.exit, %Abc_Clock.exit77
   %33 = phi i64 [ %31, %Abc_Clock.exit77 ], [ 0, %Abc_Clock.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %35 = load ptr, ptr %34, align 8, !tbaa !86
+  %35 = load ptr, ptr %34, align 8, !tbaa !83
   %.not58 = icmp eq ptr %35, null
   br i1 %.not58, label %37, label %36
 
 36:                                               ; preds = %32
   call void @free(ptr noundef nonnull %35) #16
-  store ptr null, ptr %34, align 8, !tbaa !86
+  store ptr null, ptr %34, align 8, !tbaa !83
   br label %37
 
 37:                                               ; preds = %32, %36
@@ -1583,11 +1583,11 @@ Abc_Clock.exit77:                                 ; preds = %19, %24
   %61 = add nuw nsw i32 %.0128.us, 1
   %.val69.us = load i32, ptr %40, align 8, !tbaa !69
   %62 = icmp slt i32 %61, %.val69.us
-  br i1 %62, label %.lr.ph.preheader.i.us, label %.critedge, !llvm.loop !87
+  br i1 %62, label %.lr.ph.preheader.i.us, label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %.lr.ph.preheader.i.us, %.lr.ph.split, %.lr.ph, %37
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !88
+  %64 = load i32, ptr %63, align 4, !tbaa !85
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph136, label %.loopexit
 
@@ -1663,7 +1663,7 @@ Gia_Sim2InfoZero.exit.i:                          ; preds = %.lr.ph.preheader.i.
   %99 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.next.i.i
   store i32 %98, ptr %99, align 4, !tbaa !48
   %100 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %100, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.exit.i.loopexit, !llvm.loop !89
+  br i1 %100, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.exit.i.loopexit, !llvm.loop !86
 
 Gia_Sim2InfoRandom.exit.i.loopexit:               ; preds = %.lr.ph.i.i
   %.val41.i.pre = load i32, ptr %40, align 8, !tbaa !69
@@ -1679,7 +1679,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %102 = sub nsw i32 %.val42.val.i, %.val41.i
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next.i, %103
-  br i1 %104, label %.lr.ph.i, label %.critedge.i, !llvm.loop !90
+  br i1 %104, label %.lr.ph.i, label %.critedge.i, !llvm.loop !87
 
 .critedge.i:                                      ; preds = %Gia_Sim2InfoRandom.exit.i, %.lr.ph.i, %Gia_Sim2InfoZero.exit.i
   %105 = load i32, ptr %73, align 8, !tbaa !21
@@ -1749,7 +1749,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %138 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next.i66.i
   store i32 %137, ptr %138, align 4, !tbaa !48
   %139 = icmp samesign ugt i64 %indvars.iv.i65.i, 1
-  br i1 %139, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !91
+  br i1 %139, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !88
 
 .lr.ph9.i.i:                                      ; preds = %.preheader3.i.i, %.lr.ph9.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %.lr.ph9.i.i ], [ %70, %.preheader3.i.i ]
@@ -1763,7 +1763,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %146 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next19.i.i
   store i32 %145, ptr %146, align 4, !tbaa !48
   %147 = icmp samesign ugt i64 %indvars.iv18.i.i, 1
-  br i1 %147, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !92
+  br i1 %147, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !89
 
 148:                                              ; preds = %111
   br i1 %.not46.i.i, label %.preheader.i.i, label %.preheader1.i.i
@@ -1786,7 +1786,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %155 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next22.i.i
   store i32 %154, ptr %155, align 4, !tbaa !48
   %156 = icmp samesign ugt i64 %indvars.iv21.i.i, 1
-  br i1 %156, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !93
+  br i1 %156, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !90
 
 .lr.ph13.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph13.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %.lr.ph13.i.i ], [ %70, %.preheader.i.i ]
@@ -1799,17 +1799,17 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %162 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next25.i.i
   store i32 %161, ptr %162, align 4, !tbaa !48
   %163 = icmp samesign ugt i64 %indvars.iv24.i.i, 1
-  br i1 %163, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !94
+  br i1 %163, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !91
 
 Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.ph9.i.i, %.lr.ph11.i.i, %.lr.ph13.i.i, %.preheader.i.i, %.preheader1.i.i, %.preheader3.i.i, %.preheader5.i.i, %.lr.ph87.split.i
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %164 = load i32, ptr %73, align 8, !tbaa !21
   %165 = sext i32 %164 to i64
   %166 = icmp slt i64 %indvars.iv.next99.i, %165
-  br i1 %166, label %.lr.ph87.split.i, label %.critedge2.i, !llvm.loop !95
+  br i1 %166, label %.lr.ph87.split.i, label %.critedge2.i, !llvm.loop !92
 
 .critedge2.i:                                     ; preds = %Gia_Sim2SimulateNode.exit.i, %.lr.ph87.i, %.critedge.i
-  %167 = load ptr, ptr %74, align 8, !tbaa !96
+  %167 = load ptr, ptr %74, align 8, !tbaa !93
   %168 = getelementptr i8, ptr %167, i64 4
   %.val3689.i = load i32, ptr %168, align 4, !tbaa !38
   %169 = icmp sgt i32 %.val3689.i, 0
@@ -1863,7 +1863,7 @@ Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.
   %190 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv.next.i72.i
   store i32 %189, ptr %190, align 4, !tbaa !48
   %191 = icmp samesign ugt i64 %indvars.iv.i71.i, 1
-  br i1 %191, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !97
+  br i1 %191, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !94
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i73.i, %.lr.ph5.i.i
   %indvars.iv8.i.i = phi i64 [ %indvars.iv.next9.i.i, %.lr.ph5.i.i ], [ %70, %.preheader.i73.i ]
@@ -1873,14 +1873,14 @@ Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.
   %194 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv.next9.i.i
   store i32 %193, ptr %194, align 4, !tbaa !48
   %195 = icmp samesign ugt i64 %indvars.iv8.i.i, 1
-  br i1 %195, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !98
+  br i1 %195, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !95
 
 Gia_Sim2SimulateCo.exit.i:                        ; preds = %.lr.ph.i70.i, %.lr.ph5.i.i, %.preheader.i73.i, %.preheader1.i68.i
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %.val36.i = load i32, ptr %168, align 4, !tbaa !38
   %196 = sext i32 %.val36.i to i64
   %197 = icmp slt i64 %indvars.iv.next102.i, %196
-  br i1 %197, label %171, label %Gia_Sim2SimulateRound.exit, !llvm.loop !99
+  br i1 %197, label %171, label %Gia_Sim2SimulateRound.exit, !llvm.loop !96
 
 Gia_Sim2SimulateRound.exit:                       ; preds = %Gia_Sim2SimulateCo.exit.i, %.critedge2.i, %.lr.ph91.i
   %198 = load i32, ptr %75, align 4, !tbaa !42
@@ -1889,8 +1889,8 @@ Gia_Sim2SimulateRound.exit:                       ; preds = %Gia_Sim2SimulateCo.
 
 199:                                              ; preds = %Gia_Sim2SimulateRound.exit
   %200 = add nuw nsw i32 %.1135, 1
-  %201 = load i32, ptr %63, align 4, !tbaa !88
-  %202 = load i32, ptr %17, align 4, !tbaa !85
+  %201 = load i32, ptr %63, align 4, !tbaa !85
+  %202 = load i32, ptr %17, align 4, !tbaa !82
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %200, i32 noundef %201, i32 noundef %202)
   %203 = load ptr, ptr %76, align 8, !tbaa !58
   %.not61 = icmp eq ptr %203, null
@@ -1913,9 +1913,9 @@ Gia_Sim2SimulateRound.exit:                       ; preds = %Gia_Sim2SimulateCo.
   br i1 %210, label %Abc_Clock.exit79, label %211
 
 211:                                              ; preds = %208
-  %212 = load i64, ptr %5, align 8, !tbaa !82
+  %212 = load i64, ptr %5, align 8, !tbaa !79
   %213 = mul nsw i64 %212, 1000000
-  %214 = load i64, ptr %78, align 8, !tbaa !84
+  %214 = load i64, ptr %78, align 8, !tbaa !81
   %215 = sdiv i64 %214, 1000
   %216 = add nsw i64 %215, %213
   %217 = sitofp i64 %216 to double
@@ -1930,13 +1930,13 @@ Abc_Clock.exit79:                                 ; preds = %208, %211
   br label %220
 
 220:                                              ; preds = %Abc_Clock.exit79, %Gia_Sim2SimulateRound.exit
-  %221 = load i32, ptr %80, align 4, !tbaa !100
+  %221 = load i32, ptr %80, align 4, !tbaa !97
   %.not63 = icmp eq i32 %221, 0
   br i1 %.not63, label %Gia_Sim2CheckPos.exit.thread, label %222
 
 222:                                              ; preds = %220
   %.val20.i = load i32, ptr %40, align 8, !tbaa !69
-  %.val21.i = load ptr, ptr %74, align 8, !tbaa !96
+  %.val21.i = load ptr, ptr %74, align 8, !tbaa !93
   %223 = getelementptr i8, ptr %.val21.i, i64 4
   %.val21.val.i = load i32, ptr %223, align 4, !tbaa !38
   %224 = sub nsw i32 %.val21.val.i, %.val20.i
@@ -1992,7 +1992,7 @@ Abc_Clock.exit79:                                 ; preds = %208, %211
 242:                                              ; preds = %239
   %243 = add nuw nsw i32 %.07.i.i.us.i, 1
   %exitcond.not.i.i.us.i = icmp eq i32 %243, 32
-  br i1 %exitcond.not.i.i.us.i, label %Gia_Sim2InfoIsZero.exit.us.i, label %239, !llvm.loop !101
+  br i1 %exitcond.not.i.i.us.i, label %Gia_Sim2InfoIsZero.exit.us.i, label %239, !llvm.loop !98
 
 Gia_Sim2InfoIsZero.exit.us.i:                     ; preds = %242, %239
   %.06.i.i.us.i = phi i32 [ %.07.i.i.us.i, %239 ], [ -1, %242 ]
@@ -2003,23 +2003,23 @@ Gia_Sim2InfoIsZero.exit.us.i:                     ; preds = %242, %239
 246:                                              ; preds = %.lr.ph.i.us.i
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %70
-  br i1 %exitcond.not.i.us.i, label %Gia_Sim2InfoIsZero.exit.thread.us.i, label %.lr.ph.i.us.i, !llvm.loop !102
+  br i1 %exitcond.not.i.us.i, label %Gia_Sim2InfoIsZero.exit.thread.us.i, label %.lr.ph.i.us.i, !llvm.loop !99
 
 Gia_Sim2InfoIsZero.exit.thread.us.i:              ; preds = %246, %Gia_Sim2InfoIsZero.exit.us.i
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Gia_Sim2CheckPos.exit.thread, label %.lr.ph.preheader.i.us.i, !llvm.loop !103
+  br i1 %exitcond.not.i, label %Gia_Sim2CheckPos.exit.thread, label %.lr.ph.preheader.i.us.i, !llvm.loop !100
 
 247:                                              ; preds = %Gia_Sim2InfoIsZero.exit.us.i
   %248 = trunc nuw nsw i64 %indvars.iv.i85 to i32
   call void @Gia_ManResetRandom(ptr noundef nonnull %1) #16
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %248, ptr %249, align 4, !tbaa !104
+  store i32 %248, ptr %249, align 4, !tbaa !101
   %250 = call ptr @Gia_Sim2GenerateCounter(ptr noundef nonnull %0, i32 noundef %.1135, i32 noundef %248, i32 noundef %.val39.i, i32 noundef %244)
-  store ptr %250, ptr %34, align 8, !tbaa !86
-  %251 = load ptr, ptr %0, align 8, !tbaa !105
+  store ptr %250, ptr %34, align 8, !tbaa !83
+  %251 = load ptr, ptr %0, align 8, !tbaa !102
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %248, ptr noundef %251, i32 noundef %.1135)
-  %252 = load ptr, ptr %34, align 8, !tbaa !86
+  %252 = load ptr, ptr %34, align 8, !tbaa !83
   %253 = call i32 @Gia_ManVerifyCex(ptr noundef nonnull %0, ptr noundef %252, i32 noundef 0) #16
   %.not67 = icmp eq i32 %253, 0
   br i1 %.not67, label %254, label %.loopexit
@@ -2049,9 +2049,9 @@ Gia_Sim2CheckPos.exit.thread:                     ; preds = %Gia_Sim2InfoIsZero.
   br i1 %261, label %Abc_Clock.exit88, label %262
 
 262:                                              ; preds = %259
-  %263 = load i64, ptr %4, align 8, !tbaa !82
+  %263 = load i64, ptr %4, align 8, !tbaa !79
   %264 = mul nsw i64 %263, 1000000
-  %265 = load i64, ptr %81, align 8, !tbaa !84
+  %265 = load i64, ptr %81, align 8, !tbaa !81
   %266 = sdiv i64 %265, 1000
   %267 = add nsw i64 %266, %264
   br label %Abc_Clock.exit88
@@ -2067,7 +2067,7 @@ Abc_Clock.exit88:                                 ; preds = %259, %262
   br label %.loopexit
 
 271:                                              ; preds = %Abc_Clock.exit88
-  %272 = load i32, ptr %63, align 4, !tbaa !88
+  %272 = load i32, ptr %63, align 4, !tbaa !85
   %273 = add nsw i32 %272, -1
   %274 = icmp slt i32 %.1135, %273
   br i1 %274, label %275, label %Gia_Sim2InfoTransfer.exit
@@ -2078,7 +2078,7 @@ Abc_Clock.exit88:                                 ; preds = %259, %262
   br i1 %276, label %.lr.ph.i90, label %Gia_Sim2InfoTransfer.exit
 
 .lr.ph.i90:                                       ; preds = %275
-  %.val31.i = load ptr, ptr %74, align 8, !tbaa !96
+  %.val31.i = load ptr, ptr %74, align 8, !tbaa !93
   %277 = getelementptr i8, ptr %.val31.i, i64 4
   %.val28.i = load ptr, ptr %69, align 8, !tbaa !43
   %278 = getelementptr i8, ptr %.val31.i, i64 8
@@ -2130,29 +2130,29 @@ Abc_Clock.exit88:                                 ; preds = %259, %262
   %302 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv.next.i.i98
   store i32 %301, ptr %302, align 4, !tbaa !48
   %303 = icmp samesign ugt i64 %indvars.iv.i.i97, 1
-  br i1 %303, label %.lr.ph.i.i96, label %Gia_Sim2InfoCopy.exit.loopexit.i, !llvm.loop !106
+  br i1 %303, label %.lr.ph.i.i96, label %Gia_Sim2InfoCopy.exit.loopexit.i, !llvm.loop !103
 
 Gia_Sim2InfoCopy.exit.loopexit.i:                 ; preds = %.lr.ph.i.i96
   %.val21.pre.i = load i32, ptr %40, align 8, !tbaa !69
   %304 = add nuw nsw i32 %.035.i, 1
   %305 = icmp slt i32 %304, %.val21.pre.i
-  br i1 %305, label %.lr.ph.split.split.i, label %Gia_Sim2InfoTransfer.exit.loopexit, !llvm.loop !107
+  br i1 %305, label %.lr.ph.split.split.i, label %Gia_Sim2InfoTransfer.exit.loopexit, !llvm.loop !104
 
 Gia_Sim2InfoTransfer.exit.loopexit:               ; preds = %Gia_Sim2InfoCopy.exit.loopexit.i
-  %.pre = load i32, ptr %63, align 4, !tbaa !88
+  %.pre = load i32, ptr %63, align 4, !tbaa !85
   br label %Gia_Sim2InfoTransfer.exit
 
 Gia_Sim2InfoTransfer.exit:                        ; preds = %Gia_Sim2InfoTransfer.exit.loopexit, %.lr.ph.split.i92, %.lr.ph.i90, %275, %271
   %306 = phi i32 [ %.pre, %Gia_Sim2InfoTransfer.exit.loopexit ], [ %272, %.lr.ph.split.i92 ], [ %272, %.lr.ph.i90 ], [ %272, %275 ], [ %272, %271 ]
   %307 = add nuw nsw i32 %.1135, 1
   %308 = icmp slt i32 %307, %306
-  br i1 %308, label %82, label %.loopexit, !llvm.loop !109
+  br i1 %308, label %82, label %.loopexit, !llvm.loop !106
 
 .loopexit:                                        ; preds = %Gia_Sim2InfoTransfer.exit, %.critedge, %254, %247, %269
   %.054 = phi i32 [ 0, %269 ], [ 1, %247 ], [ 1, %254 ], [ 0, %.critedge ], [ 0, %Gia_Sim2InfoTransfer.exit ]
   %.2 = phi i32 [ %270, %269 ], [ %.1135, %247 ], [ %.1135, %254 ], [ 0, %.critedge ], [ %307, %Gia_Sim2InfoTransfer.exit ]
   call void @Gia_Sim2Delete(ptr noundef nonnull %38)
-  %309 = load ptr, ptr %34, align 8, !tbaa !86
+  %309 = load ptr, ptr %34, align 8, !tbaa !83
   %310 = icmp eq ptr %309, null
   br i1 %310, label %311, label %313
 
@@ -2168,10 +2168,10 @@ Gia_Sim2InfoTransfer.exit:                        ; preds = %Gia_Sim2InfoTransfe
   br i1 %315, label %Abc_Clock.exit100, label %316
 
 316:                                              ; preds = %313
-  %317 = load i64, ptr %3, align 8, !tbaa !82
+  %317 = load i64, ptr %3, align 8, !tbaa !79
   %318 = mul nsw i64 %317, 1000000
   %319 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %320 = load i64, ptr %319, align 8, !tbaa !84
+  %320 = load i64, ptr %319, align 8, !tbaa !81
   %321 = sdiv i64 %320, 1000
   %322 = add nsw i64 %321, %318
   br label %Abc_Clock.exit100
@@ -2326,37 +2326,34 @@ attributes #20 = { nounwind allocsize(1) }
 !73 = !{!72, !10, i64 0}
 !74 = !{!72, !10, i64 8}
 !75 = !{!72, !10, i64 12}
-!76 = distinct !{!76, !47, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !47, !77}
-!79 = distinct !{!79, !47}
-!80 = distinct !{!80, !47}
-!81 = distinct !{!81, !47}
-!82 = !{!83, !33, i64 0}
-!83 = !{!"timespec", !33, i64 0, !33, i64 8}
-!84 = !{!83, !33, i64 8}
-!85 = !{!19, !10, i64 12}
-!86 = !{!22, !27, i64 376}
-!87 = distinct !{!87, !47, !77}
-!88 = !{!19, !10, i64 4}
+!76 = distinct !{!76, !47}
+!77 = distinct !{!77, !47}
+!78 = distinct !{!78, !47}
+!79 = !{!80, !33, i64 0}
+!80 = !{!"timespec", !33, i64 0, !33, i64 8}
+!81 = !{!80, !33, i64 8}
+!82 = !{!19, !10, i64 12}
+!83 = !{!22, !27, i64 376}
+!84 = distinct !{!84, !47}
+!85 = !{!19, !10, i64 4}
+!86 = distinct !{!86, !47}
+!87 = distinct !{!87, !47}
+!88 = distinct !{!88, !47}
 !89 = distinct !{!89, !47}
 !90 = distinct !{!90, !47}
 !91 = distinct !{!91, !47}
 !92 = distinct !{!92, !47}
-!93 = distinct !{!93, !47}
+!93 = !{!22, !4, i64 72}
 !94 = distinct !{!94, !47}
 !95 = distinct !{!95, !47}
-!96 = !{!22, !4, i64 72}
-!97 = distinct !{!97, !47}
+!96 = distinct !{!96, !47}
+!97 = !{!19, !10, i64 16}
 !98 = distinct !{!98, !47}
 !99 = distinct !{!99, !47}
-!100 = !{!19, !10, i64 16}
-!101 = distinct !{!101, !47}
-!102 = distinct !{!102, !47}
-!103 = distinct !{!103, !47, !77}
-!104 = !{!19, !10, i64 24}
-!105 = !{!22, !23, i64 0}
+!100 = distinct !{!100, !47}
+!101 = !{!19, !10, i64 24}
+!102 = !{!22, !23, i64 0}
+!103 = distinct !{!103, !47}
+!104 = distinct !{!104, !47, !105}
+!105 = !{!"llvm.loop.unswitch.partial.disable"}
 !106 = distinct !{!106, !47}
-!107 = distinct !{!107, !47, !108}
-!108 = !{!"llvm.loop.unswitch.partial.disable"}
-!109 = distinct !{!109, !47}

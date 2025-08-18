@@ -28724,7 +28724,7 @@ lean_nat_lt.exit.thread36.us:                     ; preds = %lean_obj_tag.exit.u
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread36.us
   %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread36.us ]
-  br label %.split.us, !llvm.loop !19
+  br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
   %.021 = phi ptr [ %.021.be, %.split.backedge ], [ %0, %2 ]
@@ -68835,5 +68835,3 @@ attributes #8 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !6, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}

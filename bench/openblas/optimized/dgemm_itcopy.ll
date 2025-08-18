@@ -348,7 +348,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %178 = getelementptr inbounds i8, ptr %.4336389.us, i64 %.idx358
   %179 = add nsw i64 %.4392.us, -16
   %180 = icmp sgt i64 %.4392.us, 31
-  br i1 %180, label %166, label %._crit_edge395.us, !llvm.loop !13
+  br i1 %180, label %166, label %._crit_edge395.us, !llvm.loop !12
 
 ._crit_edge395.us:                                ; preds = %166
   %.idx352.us = mul i64 %119, -64
@@ -454,7 +454,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %230 = getelementptr inbounds double, ptr %.11319, i64 %116
   %231 = add nsw i64 %.1402, -2
   %232 = icmp sgt i64 %.1402, 3
-  br i1 %232, label %185, label %._crit_edge405, !llvm.loop !14
+  br i1 %232, label %185, label %._crit_edge405, !llvm.loop !11
 
 ._crit_edge405:                                   ; preds = %228, %161, %._crit_edge385
   %.6302.lcssa = phi ptr [ %.0296.lcssa, %._crit_edge385 ], [ %162, %161 ], [ %229, %228 ]
@@ -491,7 +491,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %243 = getelementptr inbounds i8, ptr %.8340409, i64 %.idx350
   %244 = add nsw i64 %.8411, -16
   %245 = icmp samesign ugt i64 %.8411, 31
-  br i1 %245, label %.lr.ph413, label %._crit_edge414, !llvm.loop !15
+  br i1 %245, label %.lr.ph413, label %._crit_edge414, !llvm.loop !13
 
 ._crit_edge414:                                   ; preds = %.lr.ph413, %.lr.ph420
   %.8340.lcssa = phi ptr [ %235, %.lr.ph420 ], [ %243, %.lr.ph413 ]
@@ -573,8 +573,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !4, i64 0}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

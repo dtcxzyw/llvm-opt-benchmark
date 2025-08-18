@@ -376,19 +376,19 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   store i32 %spec.select, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !10
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %7
-  br i1 %exitcond40.not, label %14, label %.preheader, !llvm.loop !13
+  br i1 %exitcond40.not, label %14, label %.preheader, !llvm.loop !11
 
 14:                                               ; preds = %.split.us
   call void @glTexImage2D(i32 noundef 3553, i32 noundef %.02227, i32 noundef 6408, i32 noundef %.02128, i32 noundef %.02128, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef nonnull %2)
   %15 = lshr i32 %.02128, 1
   %16 = add nuw nsw i32 %.02227, 1
   %exitcond41 = icmp eq i32 %16, 7
-  br i1 %exitcond41, label %17, label %.preheader24, !llvm.loop !14
+  br i1 %exitcond41, label %17, label %.preheader24, !llvm.loop !12
 
 17:                                               ; preds = %14
   call void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9985)
@@ -764,8 +764,6 @@ attributes #20 = { builtin nounwind }
 !7 = distinct !{!7, !6}
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}

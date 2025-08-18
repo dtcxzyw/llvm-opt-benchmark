@@ -2127,7 +2127,7 @@ define dso_local void @sync_bdevs(i1 noundef zeroext %0) local_unnamed_addr #1 a
   %81 = load ptr, ptr @blockdev_superblock, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1224
   %83 = icmp eq ptr %80, %82
-  br i1 %83, label %.loopexit, label %.preheader.split, !llvm.loop !51
+  br i1 %83, label %.loopexit, label %.preheader.split, !llvm.loop !49
 
 .loopexit:                                        ; preds = %78, %40, %1
   %84 = phi ptr [ null, %1 ], [ %41, %40 ], [ %79, %78 ]
@@ -2382,9 +2382,9 @@ define internal fastcc void @blkdev_flush_mapping(ptr noundef %0) unnamed_addr #
   br i1 %4, label %6, label %5, !prof !6
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #12, !srcloc !52
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 636, i32 2307, i64 12) #12, !srcloc !53
-  tail call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_end\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #12, !srcloc !54
+  tail call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #12, !srcloc !50
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 636, i32 2307, i64 12) #12, !srcloc !51
+  tail call void asm sideeffect "485: nop\0A\09.pushsection .discard.instr_end\0A\09.long 485b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 485) #12, !srcloc !52
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -2445,7 +2445,7 @@ define internal fastcc void @blkdev_flush_mapping(ptr noundef %0) unnamed_addr #
   %38 = load i64, ptr %26, align 8
   %39 = and i64 %38, 7
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .loopexit:                                        ; preds = %37, %23
   tail call void @_raw_spin_unlock(ptr noundef nonnull %25) #12
@@ -2541,10 +2541,8 @@ attributes #18 = { nounwind allocsize(2) }
 !46 = !{i64 2157009646, i64 2157009455, i64 2157009507, i64 2157009553, i64 2157009581}
 !47 = !{i64 2157009720, i64 2157009749, i64 2157009795, i64 2157009853, i64 2157009907, i64 2157009961, i64 2157010016, i64 2157010047, i64 2157010355, i64 2157010361, i64 2157010408, i64 2157010431, i64 2157010457}
 !48 = !{i64 2157010902, i64 2157010713, i64 2157010763, i64 2157010809, i64 2157010837}
-!49 = distinct !{!49, !25, !26, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !25, !26}
-!52 = !{i64 2157011786, i64 2157011595, i64 2157011647, i64 2157011693, i64 2157011721}
-!53 = !{i64 2157011860, i64 2157011889, i64 2157011935, i64 2157011993, i64 2157012047, i64 2157012101, i64 2157012156, i64 2157012187, i64 2157012495, i64 2157012501, i64 2157012548, i64 2157012571, i64 2157012597}
-!54 = !{i64 2157013042, i64 2157012853, i64 2157012903, i64 2157012949, i64 2157012977}
-!55 = distinct !{!55, !25, !26}
+!49 = distinct !{!49, !25, !26}
+!50 = !{i64 2157011786, i64 2157011595, i64 2157011647, i64 2157011693, i64 2157011721}
+!51 = !{i64 2157011860, i64 2157011889, i64 2157011935, i64 2157011993, i64 2157012047, i64 2157012101, i64 2157012156, i64 2157012187, i64 2157012495, i64 2157012501, i64 2157012548, i64 2157012571, i64 2157012597}
+!52 = !{i64 2157013042, i64 2157012853, i64 2157012903, i64 2157012949, i64 2157012977}
+!53 = distinct !{!53, !25, !26}

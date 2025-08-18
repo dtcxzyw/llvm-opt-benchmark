@@ -402,7 +402,7 @@ cmv_process_header.exit:                          ; preds = %69, %56
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvar.next.i.i, 4
-  br i1 %exitcond45.not.i.i, label %cmv_motcomp.exit.i, label %.preheader.i.i, !llvm.loop !49
+  br i1 %exitcond45.not.i.i, label %cmv_motcomp.exit.i, label %.preheader.i.i, !llvm.loop !48
 
 cmv_motcomp.exit.i:                               ; preds = %.split.us.i.i, %196
   %230 = getelementptr inbounds nuw i8, ptr %.198.i, i64 1
@@ -485,7 +485,7 @@ cmv_motcomp.exit.i:                               ; preds = %.split.us.i.i, %196
   %indvars.iv.next43.i85.i = add nuw nsw i64 %indvars.iv42.i77.i, 1
   %indvar.next.i86.i = add nuw nsw i64 %indvar.i78.i, 1
   %exitcond45.not.i87.i = icmp eq i64 %indvar.next.i86.i, 4
-  br i1 %exitcond45.not.i87.i, label %cmv_motcomp.exit95.i, label %.preheader.i76.i, !llvm.loop !49
+  br i1 %exitcond45.not.i87.i, label %cmv_motcomp.exit95.i, label %.preheader.i76.i, !llvm.loop !48
 
 cmv_motcomp.exit95.i:                             ; preds = %.split.us.i84.i, %231, %cmv_motcomp.exit.i, %194, %173
   %.3.i = phi ptr [ %193, %173 ], [ %230, %cmv_motcomp.exit.i ], [ %.198.i, %194 ], [ %.198.i, %231 ], [ %.198.i, %.split.us.i84.i ]
@@ -497,7 +497,7 @@ cmv_motcomp.exit95.i:                             ; preds = %.split.us.i84.i, %2
   %274 = sdiv i32 %273, 4
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next.i74, %275
-  br i1 %276, label %153, label %.critedge.loopexit.i, !llvm.loop !50
+  br i1 %276, label %153, label %.critedge.loopexit.i, !llvm.loop !49
 
 .critedge.loopexit.i:                             ; preds = %cmv_motcomp.exit95.i, %153
   %277 = phi ptr [ %271, %cmv_motcomp.exit95.i ], [ %154, %153 ]
@@ -516,24 +516,24 @@ cmv_motcomp.exit95.i:                             ; preds = %.split.us.i84.i, %2
   %281 = sdiv i32 %280, 4
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next112.i, %282
-  br i1 %283, label %.preheader.i, label %cmv_decode_inter.exit, !llvm.loop !51
+  br i1 %283, label %.preheader.i, label %cmv_decode_inter.exit, !llvm.loop !50
 
 cmv_decode_inter.exit:                            ; preds = %.critedge.i, %129
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %285 = load i32, ptr %284, align 4, !tbaa !52
+  %285 = load i32, ptr %284, align 4, !tbaa !51
   %286 = and i32 %285, -3
-  store i32 %286, ptr %284, align 4, !tbaa !52
+  store i32 %286, ptr %284, align 4, !tbaa !51
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %287, align 8, !tbaa !57
+  store i32 2, ptr %287, align 8, !tbaa !56
   br label %cmv_decode_intra.exit
 
 288:                                              ; preds = %123
   %289 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %290 = load i32, ptr %289, align 4, !tbaa !52
+  %290 = load i32, ptr %289, align 4, !tbaa !51
   %291 = or i32 %290, 2
-  store i32 %291, ptr %289, align 4, !tbaa !52
+  store i32 %291, ptr %289, align 4, !tbaa !51
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %292, align 8, !tbaa !57
+  store i32 1, ptr %292, align 8, !tbaa !56
   %293 = load ptr, ptr %10, align 8, !tbaa !27
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 116
   %295 = load i32, ptr %294, align 4, !tbaa !41
@@ -573,7 +573,7 @@ cmv_decode_inter.exit:                            ; preds = %.critedge.i, %129
   %315 = getelementptr inbounds nuw i8, ptr %309, i64 116
   %316 = load i32, ptr %315, align 4, !tbaa !41
   %317 = icmp slt i32 %314, %316
-  br i1 %317, label %300, label %cmv_decode_intra.exit, !llvm.loop !58
+  br i1 %317, label %300, label %cmv_decode_intra.exit, !llvm.loop !57
 
 cmv_decode_intra.exit:                            ; preds = %305, %300, %288, %cmv_decode_inter.exit
   %318 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -687,15 +687,14 @@ attributes #5 = { nounwind }
 !44 = !{!"llvm.loop.mustprogress"}
 !45 = !{!5, !10, i64 804}
 !46 = !{!14, !14, i64 0}
-!47 = distinct !{!47, !44, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}
 !49 = distinct !{!49, !44}
 !50 = distinct !{!50, !44}
-!51 = distinct !{!51, !44}
-!52 = !{!53, !10, i64 276}
-!53 = !{!"AVFrame", !8, i64 0, !8, i64 64, !54, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !55, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !56, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!54 = !{!"p2 omnipotent char", !26, i64 0}
-!55 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!56 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!57 = !{!53, !10, i64 120}
-!58 = distinct !{!58, !44}
+!51 = !{!52, !10, i64 276}
+!52 = !{!"AVFrame", !8, i64 0, !8, i64 64, !53, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !54, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !55, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!53 = !{!"p2 omnipotent char", !26, i64 0}
+!54 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!55 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!56 = !{!52, !10, i64 120}
+!57 = distinct !{!57, !44}

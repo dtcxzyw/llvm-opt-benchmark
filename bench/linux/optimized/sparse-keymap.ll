@@ -182,7 +182,7 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
   %56 = add i32 %41, 1
   %57 = sext i32 %56 to i64
   %58 = icmp ugt i64 %12, %57
-  br i1 %58, label %.split, label %.loopexit5, !llvm.loop !13
+  br i1 %58, label %.split, label %.loopexit5, !llvm.loop !11
 
 .loopexit5:                                       ; preds = %55, %36, %17
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -229,7 +229,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !annotation !14
+  store i32 0, ptr %3, align 4, !annotation !12
   %8 = load i8, ptr %1, align 4
   %9 = and i8 %8, 1
   %10 = icmp eq i8 %9, 0
@@ -258,7 +258,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
 22:                                               ; preds = %19, %15
   %23 = phi i32 [ %20, %19 ], [ %17, %15 ]
   %24 = getelementptr i8, ptr %16, i64 12
-  br label %15, !llvm.loop !15
+  br label %15, !llvm.loop !13
 
 25:                                               ; preds = %7
   %26 = call i32 @input_scancode_to_scalar(ptr noundef %1, ptr noundef nonnull %3) #6
@@ -335,7 +335,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noun
 64:                                               ; preds = %62, %56
   %65 = phi i16 [ %63, %62 ], [ %58, %56 ]
   %66 = getelementptr i8, ptr %57, i64 12
-  br label %56, !llvm.loop !16
+  br label %56, !llvm.loop !14
 
 67:                                               ; preds = %60, %56
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -366,7 +366,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 0, ptr %4, align 4, !annotation !14
+  store i32 0, ptr %4, align 4, !annotation !12
   %9 = load i8, ptr %1, align 4
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
@@ -395,7 +395,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
 23:                                               ; preds = %20, %16
   %24 = phi i32 [ %21, %20 ], [ %18, %16 ]
   %25 = getelementptr i8, ptr %17, i64 12
-  br label %16, !llvm.loop !15
+  br label %16, !llvm.loop !13
 
 26:                                               ; preds = %8
   %27 = call i32 @input_scancode_to_scalar(ptr noundef %1, ptr noundef nonnull %4) #6
@@ -449,7 +449,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i32, ptr %51, align 4
   %56 = zext i32 %55 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %56) #6, !srcloc !17
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %56) #6, !srcloc !15
   %57 = load i32, ptr %2, align 4
   %58 = load ptr, ptr %5, align 8
   br label %59
@@ -479,7 +479,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
 
 .thread2:                                         ; preds = %59, %69
   %71 = zext i32 %57 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %71) #6, !srcloc !18
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %54, i64 %71) #6, !srcloc !16
   br label %72
 
 72:                                               ; preds = %.thread, %.thread2, %69, %44, %.loopexit, %3
@@ -568,13 +568,13 @@ define dso_local noundef zeroext i1 @sparse_keymap_report_event(ptr noundef %0, 
 .thread:                                          ; preds = %14, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %18, align 4, !annotation !14
+  store i32 0, ptr %18, align 4, !annotation !12
   br label %22
 
 19:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %20, align 4, !annotation !14
+  store i32 0, ptr %20, align 4, !annotation !12
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %22, label %21
 
@@ -627,11 +627,9 @@ attributes #6 = { nounwind }
 !8 = distinct !{!8, !6, !7}
 !9 = distinct !{!9, !6, !7}
 !10 = !{i64 2148332892}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6, !7}
+!12 = !{!"auto-init"}
 !13 = distinct !{!13, !6, !7}
-!14 = !{!"auto-init"}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = !{i64 2148332251, i64 2148332290, i64 2148332311, i64 2148332348, i64 2148332371, i64 2148332241}
-!18 = !{i64 2148333539, i64 2148333578, i64 2148333599, i64 2148333636, i64 2148333659, i64 2148333529}
+!14 = distinct !{!14, !6, !7}
+!15 = !{i64 2148332251, i64 2148332290, i64 2148332311, i64 2148332348, i64 2148332371, i64 2148332241}
+!16 = !{i64 2148333539, i64 2148333578, i64 2148333599, i64 2148333636, i64 2148333659, i64 2148333529}

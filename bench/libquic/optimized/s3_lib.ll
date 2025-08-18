@@ -682,51 +682,51 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   %.039 = phi ptr [ %14, %11 ], [ null, %3 ]
   call void @ssl_get_compatible_server_ciphers(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %16 = call i64 @sk_num(ptr noundef %.041) #15
-  %.not82 = icmp eq i64 %16, 0
-  br i1 %.not82, label %.loopexit, label %.lr.ph
+  %.not86 = icmp eq i64 %16, 0
+  br i1 %.not86, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %.not49 = icmp eq ptr %.039, null
-  br i1 %.not49, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+  br i1 %.not49, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %.critedge.us
-  %.04359.us = phi i64 [ %33, %.critedge.us ], [ 0, %.lr.ph ]
-  %17 = call ptr @sk_value(ptr noundef %.041, i64 noundef %.04359.us) #15
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph, %.critedge.us.us
+  %.04359.us.us = phi i64 [ %33, %.critedge.us.us ], [ 0, %.lr.ph ]
+  %17 = call ptr @sk_value(ptr noundef %.041, i64 noundef %.04359.us.us) #15
   %18 = call zeroext i16 @SSL_CIPHER_get_min_version(ptr noundef %17) #15
   %19 = call zeroext i16 @ssl3_protocol_version(ptr noundef nonnull %0) #15
   %20 = icmp ugt i16 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !99
-  br i1 %20, label %.critedge.us, label %23
+  br i1 %20, label %.critedge.us.us, label %23
 
-23:                                               ; preds = %.lr.ph.split.us.split
+23:                                               ; preds = %.lr.ph.split.us.split.split.us
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !101
   %26 = load i32, ptr %5, align 4, !tbaa !79
   %27 = and i32 %26, %25
-  %.not47.us = icmp eq i32 %27, 0
-  br i1 %.not47.us, label %.critedge.us, label %28
+  %.not47.us.us = icmp eq i32 %27, 0
+  br i1 %.not47.us.us, label %.critedge.us.us, label %28
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %6, align 4, !tbaa !79
   %30 = and i32 %29, %22
-  %.not56.us = icmp eq i32 %30, 0
-  br i1 %.not56.us, label %.critedge.us, label %31
+  %.not56.us.us = icmp eq i32 %30, 0
+  br i1 %.not56.us.us, label %.critedge.us.us, label %31
 
 31:                                               ; preds = %28
   %32 = call i32 @sk_find(ptr noundef %.044, ptr noundef nonnull %4, ptr noundef nonnull %17) #15
-  %.not48.us = icmp eq i32 %32, 0
-  br i1 %.not48.us, label %.critedge.us, label %.split.us.thread
+  %.not48.us.us = icmp eq i32 %32, 0
+  br i1 %.not48.us.us, label %.critedge.us.us, label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %31
-  %.pre9194 = load i64, ptr %4, align 8, !tbaa !102
+  %.pre99102 = load i64, ptr %4, align 8, !tbaa !102
   br label %.loopexit.sink.split
 
-.critedge.us:                                     ; preds = %31, %28, %23, %.lr.ph.split.us.split
-  %33 = add nuw i64 %.04359.us, 1
+.critedge.us.us:                                  ; preds = %31, %28, %23, %.lr.ph.split.us.split.split.us
+  %33 = add nuw i64 %.04359.us.us, 1
   %34 = call i64 @sk_num(ptr noundef %.041) #15
   %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !103
+  br i1 %35, label %.lr.ph.split.us.split.split.us, label %.loopexit, !llvm.loop !103
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %70
   %.062 = phi i32 [ %.154, %70 ], [ -1, %.lr.ph ]
@@ -769,9 +769,9 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
 57:                                               ; preds = %52
   %58 = sext i32 %.062 to i64
   %59 = icmp ult i64 %.pre, %58
-  %or.cond100 = select i1 %56, i1 true, i1 %59
+  %or.cond108 = select i1 %56, i1 true, i1 %59
   %60 = trunc i64 %.pre to i32
-  %spec.select = select i1 %or.cond100, i32 %60, i32 %.062
+  %spec.select = select i1 %or.cond108, i32 %60, i32 %.062
   br label %.critedge.thread
 
 .split.us:                                        ; preds = %52
@@ -803,15 +803,15 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   %71 = add nuw i64 %.04359, 1
   %72 = call i64 @sk_num(ptr noundef %.041) #15
   %73 = icmp ult i64 %71, %72
-  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !106
+  br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !103
 
 .loopexit.sink.split:                             ; preds = %.split.us, %61, %64, %.split.us.thread, %.split64
-  %.sink = phi i64 [ %69, %.split64 ], [ %62, %64 ], [ %.pre, %61 ], [ %.pre, %.split.us ], [ %.pre9194, %.split.us.thread ]
+  %.sink = phi i64 [ %69, %.split64 ], [ %62, %64 ], [ %.pre, %61 ], [ %.pre, %.split.us ], [ %.pre99102, %.split.us.thread ]
   %74 = call ptr @sk_value(ptr noundef %.044, i64 noundef %.sink) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %.critedge.us, %.loopexit.sink.split, %15
-  %.040 = phi ptr [ null, %15 ], [ %74, %.loopexit.sink.split ], [ null, %.critedge.us ], [ null, %70 ]
+.loopexit:                                        ; preds = %70, %.critedge.us.us, %.loopexit.sink.split, %15
+  %.040 = phi ptr [ null, %15 ], [ %74, %.loopexit.sink.split ], [ null, %.critedge.us.us ], [ null, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -869,14 +869,14 @@ define hidden range(i32 0, 3) i32 @ssl3_get_req_cert_type(ptr noundef %0, ptr no
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %9, ptr %3, align 8, !tbaa !85
   %10 = icmp ult i64 %8, %4
-  br i1 %10, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !107
+  br i1 %10, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !105
 
 .thread:                                          ; preds = %.lr.ph
   %11 = add nuw i64 %.01617, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %12, ptr %3, align 8, !tbaa !85
   %13 = icmp ult i64 %11, %4
-  br i1 %13, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !107
+  br i1 %13, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !105
 
 ._crit_edge.thread29:                             ; preds = %.thread
   %14 = icmp ne i32 %.019.ph, 0
@@ -920,9 +920,9 @@ define hidden i32 @ssl_get_algorithm_prf(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
-  %5 = load ptr, ptr %4, align 8, !tbaa !108
+  %5 = load ptr, ptr %4, align 8, !tbaa !106
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !109
+  %7 = load i32, ptr %6, align 4, !tbaa !107
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %12
 
@@ -1076,10 +1076,8 @@ attributes #16 = { nounwind willreturn memory(read) }
 !100 = !{!"ssl_cipher_st", !16, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
 !101 = !{!100, !8, i64 12}
 !102 = !{!25, !25, i64 0}
-!103 = distinct !{!103, !104, !105}
+!103 = distinct !{!103, !104}
 !104 = !{!"llvm.loop.mustprogress"}
-!105 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!106 = distinct !{!106, !104}
-!107 = distinct !{!107, !104}
-!108 = !{!43, !53, i64 440}
-!109 = !{!100, !8, i64 28}
+!105 = distinct !{!105, !104}
+!106 = !{!43, !53, i64 440}
+!107 = !{!100, !8, i64 28}

@@ -550,7 +550,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   store i32 %49, ptr %50, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond148.not, label %.preheader116, label %44, !llvm.loop !48
+  br i1 %exitcond148.not, label %.preheader116, label %44, !llvm.loop !47
 
 .lr.ph142:                                        ; preds = %._crit_edge.us, %.preheader116
   %51 = add nsw i32 %.0.lcssa, -1
@@ -581,7 +581,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   %64 = add i32 %63, %.054128
   %65 = add nuw nsw i32 %storemerge63127, 1
   %exitcond156.not = icmp eq i32 %65, %52
-  br i1 %exitcond156.not, label %._crit_edge, label %60, !llvm.loop !49
+  br i1 %exitcond156.not, label %._crit_edge, label %60, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %60, %.loopexit
   %.054.lcssa = phi i32 [ %58, %.loopexit ], [ %64, %60 ]
@@ -689,7 +689,7 @@ define hidden noundef i32 @_ZN5zxing23SimpleAdaptiveBinarizer10qrBinarizeEPKhPh(
   store i32 %125, ptr %120, align 4, !tbaa !44
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit.backedge, label %.lr.ph140, !llvm.loop !50
+  br i1 %exitcond164.not, label %.loopexit.backedge, label %.lr.ph140, !llvm.loop !49
 
 ._crit_edge143:                                   ; preds = %._crit_edge136
   tail call void @free(ptr noundef nonnull %30) #10
@@ -812,7 +812,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.i: ; preds = %_ZN5zxing3RefINS
   %37 = load i32, ptr %36, align 8, !tbaa !9
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8, !tbaa !9
-  store ptr %5, ptr %0, align 8, !tbaa !51
+  store ptr %5, ptr %0, align 8, !tbaa !50
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit, label %39
 
 39:                                               ; preds = %34
@@ -964,11 +964,10 @@ attributes #13 = { nounwind allocsize(0) }
 !43 = !{!7, !7, i64 0}
 !44 = !{!11, !11, i64 0}
 !45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !41}
+!47 = distinct !{!47, !41}
 !48 = distinct !{!48, !41}
 !49 = distinct !{!49, !41}
-!50 = distinct !{!50, !41}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !53, i64 0}
-!53 = !{!"p1 _ZTSN5zxing9BinarizerE", !6, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !52, i64 0}
+!52 = !{!"p1 _ZTSN5zxing9BinarizerE", !6, i64 0}

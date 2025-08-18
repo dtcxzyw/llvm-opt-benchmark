@@ -91,35 +91,44 @@ define hidden noundef i32 @_ZNK4cvc58internal14RtfTermContext12computeValueENS0_
   %8 = trunc i64 %7 to i32
   %9 = and i32 %8, 1023
   %10 = tail call noundef zeroext i1 @_ZN4cvc58internal4kind13isClosureKindENS1_6Kind_tE(i32 noundef %9)
-  br i1 %10, label %11, label %12
+  br i1 %10, label %11, label %.noexc
 
 11:                                               ; preds = %4
   %spec.select = or i32 %2, 1
-  br label %26
+  br label %22
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr %1, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = trunc i64 %15 to i32
-  %17 = and i32 %16, 1023
-  %18 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %17)
-  %19 = icmp ne i32 %18, 1
-  %20 = icmp ne i32 %17, 5
-  %or.cond.i = and i1 %19, %20
-  %21 = add nsw i32 %17, -252
-  %22 = icmp ult i32 %21, -3
-  %or.cond7.i = and i1 %or.cond.i, %22
-  %23 = icmp ne i32 %17, 136
-  %spec.select.i = and i1 %23, %or.cond7.i
-  %24 = icmp ult i32 %2, 2
-  %or.cond = and i1 %24, %spec.select.i
-  %25 = or disjoint i32 %2, 2
-  %spec.select9 = select i1 %or.cond, i32 %25, i32 %2
-  br label %26
+.noexc:                                           ; preds = %4
+  %12 = load ptr, ptr %1, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = trunc i64 %14 to i32
+  %16 = and i32 %15, 1023
+  %17 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %16)
+  %.not.i = icmp eq i32 %17, 1
+  br i1 %.not.i, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit, label %switch.early.test.i
 
-26:                                               ; preds = %12, %11
-  %.0 = phi i32 [ %spec.select, %11 ], [ %spec.select9, %12 ]
+switch.early.test.i:                              ; preds = %.noexc
+  switch i32 %16, label %18 [
+    i32 251, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+    i32 250, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+    i32 249, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+    i32 5, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+    i32 136, label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+  ]
+
+18:                                               ; preds = %switch.early.test.i
+  br label %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit
+
+_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit: ; preds = %18, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.noexc
+  %19 = phi i1 [ false, %switch.early.test.i ], [ true, %18 ], [ false, %.noexc ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ]
+  %20 = icmp ult i32 %2, 2
+  %or.cond = and i1 %20, %19
+  %21 = or disjoint i32 %2, 2
+  %spec.select9 = select i1 %or.cond, i32 %21, i32 %2
+  br label %22
+
+22:                                               ; preds = %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit, %11
+  %.0 = phi i32 [ %spec.select, %11 ], [ %spec.select9, %_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE.exit ]
   ret i32 %.0
 }
 
@@ -131,15 +140,24 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal14RtfTermContext21hasNestedTe
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 1023
   %7 = tail call noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef %6)
-  %8 = icmp ne i32 %7, 1
-  %9 = icmp ne i32 %6, 5
-  %or.cond = and i1 %8, %9
-  %10 = add nsw i32 %6, -252
-  %11 = icmp ult i32 %10, -3
-  %or.cond7 = and i1 %or.cond, %11
-  %12 = icmp ne i32 %6, 136
-  %spec.select = and i1 %12, %or.cond7
-  ret i1 %spec.select
+  %.not = icmp eq i32 %7, 1
+  br i1 %.not, label %switch.edge, label %switch.early.test
+
+switch.early.test:                                ; preds = %1
+  switch i32 %6, label %8 [
+    i32 251, label %switch.edge
+    i32 250, label %switch.edge
+    i32 249, label %switch.edge
+    i32 5, label %switch.edge
+    i32 136, label %switch.edge
+  ]
+
+8:                                                ; preds = %switch.early.test
+  br label %switch.edge
+
+switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1, %8
+  %9 = phi i1 [ false, %switch.early.test ], [ true, %8 ], [ false, %1 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ]
+  ret i1 %9
 }
 
 declare i32 @__gxx_personality_v0(...)

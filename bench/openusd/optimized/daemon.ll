@@ -75,7 +75,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
   %spec.select = call i32 @llvm.smax.i32(i32 %.052, i32 %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader48, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader48, label %.lr.ph, !llvm.loop !7
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63.split.preheader, %.critedge44
   %.12960 = phi i32 [ %30, %.critedge44 ], [ 0, %.lr.ph63.split.preheader ]
@@ -87,7 +87,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
 20:                                               ; preds = %.preheader
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %.not39 = icmp eq i64 %indvars.iv.next75, %10
-  br i1 %.not39, label %.critedge43, label %.preheader, !llvm.loop !9
+  br i1 %.not39, label %.critedge43, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph63.split, %20
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %20 ], [ 0, %.lr.ph63.split ]
@@ -122,7 +122,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
   %.131 = phi i32 [ %spec.select46, %.critedge ], [ %.03058, %25 ], [ %.03058, %.preheader ]
   %30 = add nuw nsw i32 %.12960, 1
   %exitcond77.not = icmp eq i32 %30, %.026
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph63.split, !llvm.loop !10
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph63.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge44, %.critedge44.us, %.preheader48
   %.032.lcssa = phi i32 [ 0, %.preheader48 ], [ %.133.us, %.critedge44.us ], [ %.133, %.critedge44 ]
@@ -159,8 +159,6 @@ attributes #6 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

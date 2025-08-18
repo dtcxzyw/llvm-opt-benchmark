@@ -2663,7 +2663,7 @@ switch.lookup30:                                  ; preds = %41
 60:                                               ; preds = %.lr.ph.split, %46
   %.014 = load ptr, ptr %.01426, align 8, !tbaa !39
   %.not = icmp eq ptr %.014, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %60, %15, %uv_default_loop.exit
   ret void
@@ -2692,11 +2692,11 @@ define dso_local void @uv_ref(ptr noundef captures(none) %0) local_unnamed_addr 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !50
+  %12 = load i32, ptr %11, align 8, !tbaa !48
   %13 = add i32 %12, 1
-  store i32 %13, ptr %11, align 8, !tbaa !50
+  store i32 %13, ptr %11, align 8, !tbaa !48
   br label %14
 
 14:                                               ; preds = %8, %5, %1
@@ -2720,11 +2720,11 @@ define dso_local void @uv_unref(ptr noundef captures(none) %0) local_unnamed_add
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !49
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !50
+  %13 = load i32, ptr %12, align 8, !tbaa !48
   %14 = add i32 %13, -1
-  store i32 %14, ptr %12, align 8, !tbaa !50
+  store i32 %14, ptr %12, align 8, !tbaa !48
   br label %15
 
 15:                                               ; preds = %9, %6, %1
@@ -2743,14 +2743,14 @@ define dso_local range(i32 0, 2) i32 @uv_has_ref(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @uv_stop(ptr noundef writeonly captures(none) initializes((48, 52)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 1, ptr %2, align 8, !tbaa !58
+  store i32 1, ptr %2, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @uv_now(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %3 = load i64, ptr %2, align 8, !tbaa !59
+  %3 = load i64, ptr %2, align 8, !tbaa !57
   ret i64 %3
 }
 
@@ -2767,11 +2767,11 @@ define dso_local i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08 = phi i64 [ 0, %.lr.ph.preheader ], [ %5, %.lr.ph ]
   %3 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %0, i64 %indvars.iv, i32 1
-  %4 = load i64, ptr %3, align 8, !tbaa !60
+  %4 = load i64, ptr %3, align 8, !tbaa !58
   %5 = add i64 %4, %.08
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %5, %.lr.ph ]
@@ -2795,31 +2795,31 @@ define dso_local i32 @uv_send_buffer_size(ptr noundef %0, ptr noundef %1) local_
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -105, 1) i32 @uv_fs_event_getpath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !64
+  %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !66
+  store i64 0, ptr %2, align 8, !tbaa !64
   br label %17
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
-  %12 = load i64, ptr %2, align 8, !tbaa !66
+  %12 = load i64, ptr %2, align 8, !tbaa !64
   %.not15 = icmp ult i64 %11, %12
   br i1 %.not15, label %15, label %13
 
 13:                                               ; preds = %8
   %14 = add i64 %11, 1
-  store i64 %14, ptr %2, align 8, !tbaa !66
+  store i64 %14, ptr %2, align 8, !tbaa !64
   br label %17
 
 15:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %10, i64 %11, i1 false)
-  store i64 %11, ptr %2, align 8, !tbaa !66
+  store i64 %11, ptr %2, align 8, !tbaa !64
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   store i8 0, ptr %16, align 1, !tbaa !9
   br label %17
@@ -2833,11 +2833,11 @@ define dso_local range(i32 -105, 1) i32 @uv_fs_event_getpath(ptr noundef readonl
 define dso_local void @uv__fs_scandir_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load ptr, ptr %3, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   %5 = load i32, ptr %2, align 4, !tbaa !10
   %.not = icmp eq i32 %5, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !75
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !73
   %.pre17 = trunc i64 %.pre to i32
   br i1 %.not, label %._crit_edge15, label %6
 
@@ -2860,24 +2860,24 @@ define dso_local void @uv__fs_scandir_cleanup(ptr noundef captures(none) %0) loc
   %12 = phi i32 [ %17, %.lr.ph ], [ %9, %._crit_edge15 ]
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !76
+  %15 = load ptr, ptr %14, align 8, !tbaa !74
   tail call void @free(ptr noundef %15) #26
   %16 = load i32, ptr %2, align 4, !tbaa !10
   %17 = add i32 %16, 1
   store i32 %17, ptr %2, align 4, !tbaa !10
-  %18 = load i64, ptr %10, align 8, !tbaa !75
+  %18 = load i64, ptr %10, align 8, !tbaa !73
   %19 = trunc i64 %18 to i32
   %20 = icmp ult i32 %17, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !76
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre16 = load ptr, ptr %3, align 8, !tbaa !68
+  %.pre16 = load ptr, ptr %3, align 8, !tbaa !66
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %._crit_edge15
   %21 = phi ptr [ %.pre16, %._crit_edge.loopexit ], [ %4, %._crit_edge15 ]
   tail call void @free(ptr noundef %21) #26
-  store ptr null, ptr %3, align 8, !tbaa !68
+  store ptr null, ptr %3, align 8, !tbaa !66
   ret void
 }
 
@@ -2887,7 +2887,7 @@ declare void @free(ptr allocptr noundef captures(none)) #16
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i64, ptr %3, align 8, !tbaa !75
+  %4 = load i64, ptr %3, align 8, !tbaa !73
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %6, label %8
 
@@ -2897,7 +2897,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !68
+  %10 = load ptr, ptr %9, align 8, !tbaa !66
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %36, label %11
 
@@ -2911,10 +2911,10 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
   %15 = add i32 %13, -1
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %18 = load ptr, ptr %17, align 8, !tbaa !74
   tail call void @free(ptr noundef %18) #26
   %.pre = load i32, ptr %12, align 4, !tbaa !10
-  %.pre22 = load i64, ptr %3, align 8, !tbaa !75
+  %.pre22 = load i64, ptr %3, align 8, !tbaa !73
   br label %19
 
 19:                                               ; preds = %14, %11
@@ -2926,7 +2926,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 
 24:                                               ; preds = %19
   tail call void @free(ptr noundef nonnull %10) #26
-  store ptr null, ptr %9, align 8, !tbaa !68
+  store ptr null, ptr %9, align 8, !tbaa !66
   br label %36
 
 25:                                               ; preds = %19
@@ -2934,11 +2934,11 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
   store i32 %26, ptr %12, align 4, !tbaa !10
   %27 = zext i32 %21 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !76
+  %29 = load ptr, ptr %28, align 8, !tbaa !74
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 19
-  store ptr %30, ptr %1, align 8, !tbaa !79
+  store ptr %30, ptr %1, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 18
-  %32 = load i8, ptr %31, align 2, !tbaa !81
+  %32 = load i8, ptr %31, align 2, !tbaa !79
   %switch.tableidx = add i8 %32, -1
   %33 = icmp ult i8 %switch.tableidx, 12
   br i1 %33, label %switch.lookup, label %uv__fs_get_dirent_type.exit
@@ -2952,7 +2952,7 @@ switch.lookup:                                    ; preds = %25
 uv__fs_get_dirent_type.exit:                      ; preds = %25, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.0.i, ptr %35, align 8, !tbaa !83
+  store i32 %.0.i, ptr %35, align 8, !tbaa !81
   br label %36
 
 36:                                               ; preds = %8, %uv__fs_get_dirent_type.exit, %24, %6
@@ -2963,7 +2963,7 @@ uv__fs_get_dirent_type.exit:                      ; preds = %25, %switch.lookup
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 8) i32 @uv__fs_get_dirent_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %3 = load i8, ptr %2, align 2, !tbaa !81
+  %3 = load i8, ptr %2, align 2, !tbaa !79
   %switch.tableidx = add i8 %3, -1
   %4 = icmp ult i8 %switch.tableidx, 12
   br i1 %4, label %switch.lookup, label %6
@@ -2982,19 +2982,19 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__fs_readdir_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8, !tbaa !84
-  store ptr null, ptr %2, align 8, !tbaa !68
+  %6 = load ptr, ptr %3, align 8, !tbaa !82
+  store ptr null, ptr %2, align 8, !tbaa !66
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i64, ptr %8, align 8, !tbaa !75
+  %9 = load i64, ptr %8, align 8, !tbaa !73
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %.loopexit
 
@@ -3006,15 +3006,15 @@ define dso_local void @uv__fs_readdir_cleanup(ptr noundef captures(none) %0) loc
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %6, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !79
+  %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %15(ptr noundef %14) #26
   store i32 %.pre, ptr %11, align 4, !tbaa !10
-  store ptr null, ptr %13, align 8, !tbaa !79
+  store ptr null, ptr %13, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i64, ptr %8, align 8, !tbaa !75
+  %16 = load i64, ptr %8, align 8, !tbaa !73
   %17 = icmp sgt i64 %16, %indvars.iv.next
-  br i1 %17, label %12, label %.loopexit, !llvm.loop !88
+  br i1 %17, label %12, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %12, %.preheader, %5, %1
   ret void
@@ -3108,7 +3108,7 @@ define dso_local range(i32 -16, 1) i32 @uv_loop_close(ptr noundef %0) local_unna
   %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = and i32 %9, 16
   %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %.loopexit, label %6, !llvm.loop !89
+  br i1 %.not11, label %.loopexit, label %6, !llvm.loop !87
 
 11:                                               ; preds = %6
   tail call void @uv__loop_close(ptr noundef %0) #26
@@ -3150,7 +3150,7 @@ define dso_local void @uv_loop_delete(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr %9, align 8, !tbaa !40
   %11 = and i32 %10, 16
   %.not11.i = icmp eq i32 %11, 0
-  br i1 %.not11.i, label %uv_loop_close.exit, label %7, !llvm.loop !89
+  br i1 %.not11.i, label %uv_loop_close.exit, label %7, !llvm.loop !87
 
 12:                                               ; preds = %7
   tail call void @uv__loop_close(ptr noundef %0) #26
@@ -3189,7 +3189,7 @@ define dso_local i32 @uv_read_start(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load i32, ptr %8, align 8, !tbaa !90
+  %9 = load i32, ptr %8, align 8, !tbaa !88
   %10 = and i32 %9, 1
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %17
@@ -3229,13 +3229,13 @@ define dso_local void @uv_os_free_environ(ptr noundef %0, i32 noundef %1) local_
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !92
+  %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %8(ptr noundef %7) #26
   store i32 %.pre, ptr %4, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %5, %2
   %9 = load i32, ptr %4, align 4, !tbaa !10
@@ -3259,13 +3259,13 @@ define dso_local void @uv_free_cpu_info(ptr noundef %0, i32 noundef %1) local_un
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
   %8 = load ptr, ptr @uv__allocator.3, align 8, !tbaa !12
   tail call void %8(ptr noundef %7) #26
   store i32 %.pre, ptr %4, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %5, %2
   %9 = load i32, ptr %4, align 4, !tbaa !10
@@ -3300,15 +3300,15 @@ declare void @uv__threadpool_cleanup() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__metrics_update_idle_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
-  %4 = load i32, ptr %3, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
+  %4 = load i32, ptr %3, align 8, !tbaa !98
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !103
+  %8 = load i64, ptr %7, align 8, !tbaa !101
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %18, label %10
 
@@ -3316,13 +3316,13 @@ define dso_local void @uv__metrics_update_idle_time(ptr noundef readonly capture
   %11 = tail call i64 @uv_hrtime() #26
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull %12) #26
-  %13 = load i64, ptr %7, align 8, !tbaa !103
-  store i64 0, ptr %7, align 8, !tbaa !103
+  %13 = load i64, ptr %7, align 8, !tbaa !101
+  store i64 0, ptr %7, align 8, !tbaa !101
   %14 = sub i64 %11, %13
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !104
+  %16 = load i64, ptr %15, align 8, !tbaa !102
   %17 = add i64 %14, %16
-  store i64 %17, ptr %15, align 8, !tbaa !104
+  store i64 %17, ptr %15, align 8, !tbaa !102
   tail call void @uv_mutex_unlock(ptr noundef nonnull %12) #26
   br label %18
 
@@ -3339,19 +3339,19 @@ declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__metrics_set_provider_entry_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
-  %4 = load i32, ptr %3, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
+  %4 = load i32, ptr %3, align 8, !tbaa !98
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i64 @uv_hrtime() #26
-  %8 = load ptr, ptr %2, align 8, !tbaa !99
+  %8 = load ptr, ptr %2, align 8, !tbaa !97
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull %10) #26
-  store i64 %7, ptr %9, align 8, !tbaa !103
+  store i64 %7, ptr %9, align 8, !tbaa !101
   tail call void @uv_mutex_unlock(ptr noundef nonnull %10) #26
   br label %11
 
@@ -3362,13 +3362,13 @@ define dso_local void @uv__metrics_set_provider_entry_time(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uv_metrics_idle_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull %5) #26
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !104
-  %8 = load i64, ptr %4, align 8, !tbaa !103
+  %7 = load i64, ptr %6, align 8, !tbaa !102
+  %8 = load i64, ptr %4, align 8, !tbaa !101
   tail call void @uv_mutex_unlock(ptr noundef nonnull %5) #26
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %13, label %9
@@ -3488,62 +3488,60 @@ attributes #27 = { nounwind willreturn memory(none) }
 !43 = !{!"llvm.loop.mustprogress"}
 !44 = !{!29, !29, i64 0}
 !45 = !{!41, !11, i64 16}
-!46 = distinct !{!46, !43, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !43}
-!49 = !{!41, !29, i64 8}
-!50 = !{!51, !11, i64 8}
-!51 = !{!"uv_loop_s", !6, i64 0, !11, i64 8, !7, i64 16, !7, i64 32, !6, i64 40, !11, i64 48, !31, i64 56, !11, i64 64, !7, i64 72, !7, i64 88, !52, i64 104, !11, i64 112, !11, i64 116, !7, i64 120, !7, i64 136, !53, i64 176, !7, i64 304, !30, i64 360, !7, i64 368, !7, i64 384, !7, i64 400, !7, i64 416, !7, i64 432, !6, i64 448, !34, i64 456, !11, i64 512, !54, i64 520, !31, i64 536, !31, i64 544, !7, i64 552, !34, i64 560, !55, i64 616, !11, i64 768, !34, i64 776, !6, i64 832, !11, i64 840}
-!52 = !{!"p2 _ZTS8uv__io_s", !6, i64 0}
-!53 = !{!"uv_async_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !6, i64 96, !7, i64 104, !11, i64 120}
-!54 = !{!"", !6, i64 0, !11, i64 8}
-!55 = !{!"uv_signal_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !6, i64 96, !11, i64 104, !56, i64 112, !11, i64 144, !11, i64 148}
-!56 = !{!"", !57, i64 0, !57, i64 8, !57, i64 16, !11, i64 24}
-!57 = !{!"p1 _ZTS11uv_signal_s", !6, i64 0}
-!58 = !{!51, !11, i64 48}
-!59 = !{!51, !31, i64 544}
-!60 = !{!61, !31, i64 8}
-!61 = !{!"uv_buf_t", !62, i64 0, !31, i64 8}
-!62 = !{!"p1 omnipotent char", !6, i64 0}
-!63 = distinct !{!63, !43}
-!64 = !{!65, !11, i64 88}
-!65 = !{!"uv_fs_event_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !62, i64 96, !6, i64 104, !7, i64 112, !11, i64 128}
-!66 = !{!31, !31, i64 0}
-!67 = !{!65, !62, i64 96}
-!68 = !{!69, !6, i64 96}
-!69 = !{!"uv_fs_s", !6, i64 0, !11, i64 8, !7, i64 16, !11, i64 64, !29, i64 72, !6, i64 80, !31, i64 88, !6, i64 96, !62, i64 104, !70, i64 112, !62, i64 272, !11, i64 280, !11, i64 284, !11, i64 288, !11, i64 292, !72, i64 296, !31, i64 304, !11, i64 312, !11, i64 316, !73, i64 320, !73, i64 328, !74, i64 336, !7, i64 376}
-!70 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72, !31, i64 80, !31, i64 88, !71, i64 96, !71, i64 112, !71, i64 128, !71, i64 144}
-!71 = !{!"", !31, i64 0, !31, i64 8}
-!72 = !{!"p1 _ZTS8uv_buf_t", !6, i64 0}
-!73 = !{!"double", !7, i64 0}
-!74 = !{!"uv__work", !6, i64 0, !6, i64 8, !29, i64 16, !7, i64 24}
-!75 = !{!69, !31, i64 88}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTS6dirent", !6, i64 0}
-!78 = distinct !{!78, !43}
-!79 = !{!80, !62, i64 0}
-!80 = !{!"uv_dirent_s", !62, i64 0, !11, i64 8}
-!81 = !{!82, !7, i64 18}
-!82 = !{!"dirent", !31, i64 0, !31, i64 8, !17, i64 16, !7, i64 18, !7, i64 19}
-!83 = !{!80, !11, i64 8}
-!84 = !{!85, !86, i64 0}
-!85 = !{!"uv_dir_s", !86, i64 0, !31, i64 8, !7, i64 16, !87, i64 48}
-!86 = !{!"p1 _ZTS11uv_dirent_s", !6, i64 0}
-!87 = !{!"p1 _ZTS11__dirstream", !6, i64 0}
-!88 = distinct !{!88, !43}
-!89 = distinct !{!89, !43}
-!90 = !{!91, !11, i64 88}
-!91 = !{!"uv_stream_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !31, i64 96, !6, i64 104, !6, i64 112, !32, i64 120, !33, i64 128, !34, i64 136, !7, i64 192, !7, i64 208, !6, i64 224, !11, i64 232, !11, i64 236, !6, i64 240}
-!92 = !{!93, !62, i64 0}
-!93 = !{!"uv_env_item_s", !62, i64 0, !62, i64 8}
-!94 = distinct !{!94, !43}
-!95 = !{!96, !62, i64 0}
-!96 = !{!"uv_cpu_info_s", !62, i64 0, !11, i64 8, !97, i64 16}
-!97 = !{!"uv_cpu_times_s", !31, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32}
-!98 = distinct !{!98, !43}
-!99 = !{!51, !6, i64 40}
-!100 = !{!101, !11, i64 0}
-!101 = !{!"uv__loop_internal_fields_s", !11, i64 0, !102, i64 8}
-!102 = !{!"uv__loop_metrics_s", !31, i64 0, !31, i64 8, !7, i64 16}
-!103 = !{!102, !31, i64 0}
-!104 = !{!102, !31, i64 8}
+!46 = distinct !{!46, !43}
+!47 = !{!41, !29, i64 8}
+!48 = !{!49, !11, i64 8}
+!49 = !{!"uv_loop_s", !6, i64 0, !11, i64 8, !7, i64 16, !7, i64 32, !6, i64 40, !11, i64 48, !31, i64 56, !11, i64 64, !7, i64 72, !7, i64 88, !50, i64 104, !11, i64 112, !11, i64 116, !7, i64 120, !7, i64 136, !51, i64 176, !7, i64 304, !30, i64 360, !7, i64 368, !7, i64 384, !7, i64 400, !7, i64 416, !7, i64 432, !6, i64 448, !34, i64 456, !11, i64 512, !52, i64 520, !31, i64 536, !31, i64 544, !7, i64 552, !34, i64 560, !53, i64 616, !11, i64 768, !34, i64 776, !6, i64 832, !11, i64 840}
+!50 = !{!"p2 _ZTS8uv__io_s", !6, i64 0}
+!51 = !{!"uv_async_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !6, i64 96, !7, i64 104, !11, i64 120}
+!52 = !{!"", !6, i64 0, !11, i64 8}
+!53 = !{!"uv_signal_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !6, i64 96, !11, i64 104, !54, i64 112, !11, i64 144, !11, i64 148}
+!54 = !{!"", !55, i64 0, !55, i64 8, !55, i64 16, !11, i64 24}
+!55 = !{!"p1 _ZTS11uv_signal_s", !6, i64 0}
+!56 = !{!49, !11, i64 48}
+!57 = !{!49, !31, i64 544}
+!58 = !{!59, !31, i64 8}
+!59 = !{!"uv_buf_t", !60, i64 0, !31, i64 8}
+!60 = !{!"p1 omnipotent char", !6, i64 0}
+!61 = distinct !{!61, !43}
+!62 = !{!63, !11, i64 88}
+!63 = !{!"uv_fs_event_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !60, i64 96, !6, i64 104, !7, i64 112, !11, i64 128}
+!64 = !{!31, !31, i64 0}
+!65 = !{!63, !60, i64 96}
+!66 = !{!67, !6, i64 96}
+!67 = !{!"uv_fs_s", !6, i64 0, !11, i64 8, !7, i64 16, !11, i64 64, !29, i64 72, !6, i64 80, !31, i64 88, !6, i64 96, !60, i64 104, !68, i64 112, !60, i64 272, !11, i64 280, !11, i64 284, !11, i64 288, !11, i64 292, !70, i64 296, !31, i64 304, !11, i64 312, !11, i64 316, !71, i64 320, !71, i64 328, !72, i64 336, !7, i64 376}
+!68 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72, !31, i64 80, !31, i64 88, !69, i64 96, !69, i64 112, !69, i64 128, !69, i64 144}
+!69 = !{!"", !31, i64 0, !31, i64 8}
+!70 = !{!"p1 _ZTS8uv_buf_t", !6, i64 0}
+!71 = !{!"double", !7, i64 0}
+!72 = !{!"uv__work", !6, i64 0, !6, i64 8, !29, i64 16, !7, i64 24}
+!73 = !{!67, !31, i64 88}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS6dirent", !6, i64 0}
+!76 = distinct !{!76, !43}
+!77 = !{!78, !60, i64 0}
+!78 = !{!"uv_dirent_s", !60, i64 0, !11, i64 8}
+!79 = !{!80, !7, i64 18}
+!80 = !{!"dirent", !31, i64 0, !31, i64 8, !17, i64 16, !7, i64 18, !7, i64 19}
+!81 = !{!78, !11, i64 8}
+!82 = !{!83, !84, i64 0}
+!83 = !{!"uv_dir_s", !84, i64 0, !31, i64 8, !7, i64 16, !85, i64 48}
+!84 = !{!"p1 _ZTS11uv_dirent_s", !6, i64 0}
+!85 = !{!"p1 _ZTS11__dirstream", !6, i64 0}
+!86 = distinct !{!86, !43}
+!87 = distinct !{!87, !43}
+!88 = !{!89, !11, i64 88}
+!89 = !{!"uv_stream_s", !6, i64 0, !29, i64 8, !11, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !30, i64 80, !11, i64 88, !31, i64 96, !6, i64 104, !6, i64 112, !32, i64 120, !33, i64 128, !34, i64 136, !7, i64 192, !7, i64 208, !6, i64 224, !11, i64 232, !11, i64 236, !6, i64 240}
+!90 = !{!91, !60, i64 0}
+!91 = !{!"uv_env_item_s", !60, i64 0, !60, i64 8}
+!92 = distinct !{!92, !43}
+!93 = !{!94, !60, i64 0}
+!94 = !{!"uv_cpu_info_s", !60, i64 0, !11, i64 8, !95, i64 16}
+!95 = !{!"uv_cpu_times_s", !31, i64 0, !31, i64 8, !31, i64 16, !31, i64 24, !31, i64 32}
+!96 = distinct !{!96, !43}
+!97 = !{!49, !6, i64 40}
+!98 = !{!99, !11, i64 0}
+!99 = !{!"uv__loop_internal_fields_s", !11, i64 0, !100, i64 8}
+!100 = !{!"uv__loop_metrics_s", !31, i64 0, !31, i64 8, !7, i64 16}
+!101 = !{!100, !31, i64 0}
+!102 = !{!100, !31, i64 8}

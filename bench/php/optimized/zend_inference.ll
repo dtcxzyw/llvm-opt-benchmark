@@ -33315,7 +33315,7 @@ add_will_overflow.exit273.thread:                 ; preds = %308, %add_will_over
   %366 = phi i8 [ %341, %.lr.ph.split.us ], [ %353, %350 ]
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
-  br i1 %exitcond283.not, label %.thread274, label %.lr.ph.split.us, !llvm.loop !205
+  br i1 %exitcond283.not, label %.thread274, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %391
   %367 = phi i8 [ %storemerge, %391 ], [ 0, %.lr.ph ]
@@ -34180,7 +34180,7 @@ zend_inference_narrowing_meet.exit.us.us:         ; preds = %.preheader.us.us, %
 .split316.us.us:                                  ; preds = %.loopexit.us.us
   %491 = add nuw nsw i32 %.0249317.us, 1
   %exitcond341.not = icmp eq i32 %491, 16
-  br i1 %exitcond341.not, label %.split320.us, label %.split318.us, !llvm.loop !207
+  br i1 %exitcond341.not, label %.split320.us, label %.split318.us
 
 .split318:                                        ; preds = %24
   %492 = load i32, ptr %16, align 4, !tbaa !24
@@ -34234,11 +34234,11 @@ zend_inference_narrowing_meet.exit.us.us:         ; preds = %.preheader.us.us, %
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %12, i1 false)
   %517 = add nuw nsw i32 %.0249317.us321, 1
   %exitcond343.not = icmp eq i32 %517, 16
-  br i1 %exitcond343.not, label %.split320.us, label %.lr.ph.us327, !llvm.loop !208
+  br i1 %exitcond343.not, label %.split320.us, label %.lr.ph.us327
 
 .split320.us:                                     ; preds = %._crit_edge.us328, %.split316.us.us
   %518 = phi ptr [ %38, %.split316.us.us ], [ %25, %._crit_edge.us328 ]
-  br i1 %14, label %519, label %.split320.us.thread, !prof !209
+  br i1 %14, label %519, label %.split320.us.thread, !prof !205
 
 519:                                              ; preds = %.split320.us
   call void @_efree(ptr noundef %518) #18
@@ -34400,7 +34400,7 @@ get_ssa_var_info.exit548:                         ; preds = %74, %89
 
 96:                                               ; preds = %get_ssa_var_info.exit548
   %97 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !210
+  %98 = load i32, ptr %97, align 8, !tbaa !206
   %99 = and i32 %98, %.0.i547
   %100 = and i32 %99, 960
   %.not316 = icmp eq i32 %100, 0
@@ -34412,7 +34412,7 @@ get_ssa_var_info.exit548:                         ; preds = %74, %89
 
 103:                                              ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !212
+  %105 = load ptr, ptr %104, align 8, !tbaa !208
   %.not318 = icmp eq ptr %105, null
   %.not319 = icmp eq ptr %81, %105
   %or.cond = select i1 %.not318, i1 true, i1 %.not319
@@ -34437,7 +34437,7 @@ safe_instanceof.exit:                             ; preds = %107
   br i1 %111, label %112, label %safe_instanceof.exit.thread
 
 112:                                              ; preds = %safe_instanceof.exit
-  %113 = load ptr, ptr %104, align 8, !tbaa !212
+  %113 = load ptr, ptr %104, align 8, !tbaa !208
   br label %safe_instanceof.exit.thread
 
 safe_instanceof.exit.thread:                      ; preds = %107, %96, %103, %112, %safe_instanceof.exit, %106, %get_ssa_var_info.exit548
@@ -50543,11 +50543,7 @@ attributes #20 = { noreturn nounwind }
 !202 = !{!198, !23, i64 17}
 !203 = !{!198, !7, i64 32}
 !204 = !{!198, !7, i64 36}
-!205 = distinct !{!205, !206}
-!206 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!207 = distinct !{!207, !206}
-!208 = distinct !{!208, !206}
-!209 = !{!"branch_weights", !"expected", i32 1248717, i32 2146234931}
-!210 = !{!211, !7, i64 0}
-!211 = !{!"_zend_ssa_type_constraint", !7, i64 0, !37, i64 8}
-!212 = !{!211, !37, i64 8}
+!205 = !{!"branch_weights", !"expected", i32 1248717, i32 2146234931}
+!206 = !{!207, !7, i64 0}
+!207 = !{!"_zend_ssa_type_constraint", !7, i64 0, !37, i64 8}
+!208 = !{!207, !37, i64 8}

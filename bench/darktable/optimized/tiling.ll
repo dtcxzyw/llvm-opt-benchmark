@@ -2818,7 +2818,7 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
 ._crit_edge370.us.i:                              ; preds = %1725, %.lr.ph369.split.us.us.i
   %1737 = add nuw i64 %.0319371.us.i, 1
   %exitcond399.not.i = icmp eq i64 %1737, %1617
-  br i1 %exitcond399.not.i, label %.preheader.i31, label %.lr.ph369.us.i, !llvm.loop !114
+  br i1 %exitcond399.not.i, label %.preheader.i31, label %.lr.ph369.us.i
 
 .lr.ph369.split.us.us.i:                          ; preds = %.lr.ph369.us.i
   %1738 = load ptr, ptr %1368, align 8, !tbaa !28
@@ -3265,11 +3265,11 @@ define void @default_tiling_callback(ptr noundef readonly captures(none) %0, ptr
 
 34:                                               ; preds = %33, %5
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %36 = load i32, ptr %35, align 16, !tbaa !116
+  %36 = load i32, ptr %35, align 16, !tbaa !114
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2528
-  %40 = load ptr, ptr %39, align 16, !tbaa !117
+  %40 = load ptr, ptr %39, align 16, !tbaa !115
   %41 = tail call i32 @dt_ioppr_get_iop_order(ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef 0) #12
   %42 = icmp sgt i32 %36, %41
   br i1 %42, label %49, label %43
@@ -3277,7 +3277,7 @@ define void @default_tiling_callback(ptr noundef readonly captures(none) %0, ptr
 43:                                               ; preds = %34
   %44 = load ptr, ptr %37, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
-  %46 = load i32, ptr %45, align 8, !tbaa !118
+  %46 = load i32, ptr %45, align 8, !tbaa !116
   switch i32 %46, label %47 [
     i32 0, label %49
     i32 9, label %48
@@ -3489,8 +3489,6 @@ attributes #13 = { nounwind allocsize(0) }
 !111 = !{!112, !112, i64 0}
 !112 = !{!"p1 double", !11, i64 0}
 !113 = !{!7, !11, i64 360}
-!114 = distinct !{!114, !115}
-!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!116 = !{!7, !8, i64 480}
-!117 = !{!84, !52, i64 2528}
-!118 = !{!84, !8, i64 184}
+!114 = !{!7, !8, i64 480}
+!115 = !{!84, !52, i64 2528}
+!116 = !{!84, !8, i64 184}

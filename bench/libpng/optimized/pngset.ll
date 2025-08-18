@@ -2253,7 +2253,7 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
 
 33:                                               ; preds = %24
   %.not79 = icmp eq i32 %spec.store.select, 0
-  br i1 %.not79, label %thread-pre-split, label %.preheader90.split.us
+  br i1 %.not79, label %thread-pre-split, label %.lr.ph.i.preheader.us.preheader
 
 34:                                               ; preds = %25, %29
   %.not81 = icmp eq ptr %28, null
@@ -2264,20 +2264,20 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   %wide.trip.count = zext nneg i32 %.066 to i64
   br label %.preheader90.split
 
-.preheader90.split.us:                            ; preds = %33
-  %wide.trip.count108 = zext nneg i32 %.066 to i64
-  br label %.lr.ph.i.us.preheader
+.lr.ph.i.preheader.us.preheader:                  ; preds = %33
+  %wide.trip.count110 = zext nneg i32 %.066 to i64
+  br label %.lr.ph.i.preheader.us
 
-.lr.ph.i.us.preheader:                            ; preds = %add_one_chunk.exit.us, %.preheader90.split.us
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %add_one_chunk.exit.us ], [ 0, %.preheader90.split.us ]
-  %36 = mul i64 %indvars.iv104, 5
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.i.preheader.us.preheader, %add_one_chunk.exit.us
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv.next107, %add_one_chunk.exit.us ]
+  %36 = mul i64 %indvars.iv106, 5
   %37 = and i64 %36, 4294967295
   %38 = getelementptr inbounds nuw i8, ptr %.071, i64 %37
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %40
-  %.023.i.us = phi i32 [ %41, %40 ], [ 0, %.lr.ph.i.us.preheader ]
-  %.01722.i.us = phi ptr [ %42, %40 ], [ %19, %.lr.ph.i.us.preheader ]
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %40
+  %.023.i.us = phi i32 [ %41, %40 ], [ 0, %.lr.ph.i.preheader.us ]
+  %.01722.i.us = phi ptr [ %42, %40 ], [ %19, %.lr.ph.i.preheader.us ]
   %bcmp.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.01722.i.us, ptr noundef nonnull readonly dereferenceable(4) %38, i64 4)
   %39 = icmp eq i32 %bcmp.i.us, 0
   br i1 %39, label %.sink.split.i.loopexit.us, label %40
@@ -2289,9 +2289,9 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   br i1 %exitcond.not.i.us, label %add_one_chunk.exit.us, label %.lr.ph.i.us, !llvm.loop !199
 
 add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.loopexit.us
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count108
-  br i1 %exitcond109.not, label %.preheader, label %.lr.ph.i.us.preheader, !llvm.loop !200
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count110
+  br i1 %exitcond111.not, label %.preheader, label %.lr.ph.i.preheader.us, !llvm.loop !200
 
 .sink.split.i.loopexit.us:                        ; preds = %.lr.ph.i.us
   %43 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 4
@@ -2299,10 +2299,10 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %add_one_chunk.exit.us
 
 .preheader:                                       ; preds = %.sink.split.i, %add_one_chunk.exit.us
-  %.068114116 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
+  %.068116118 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
   %.us-phi = phi i32 [ %spec.store.select, %add_one_chunk.exit.us ], [ %.016.ph.i, %.sink.split.i ]
-  %.not99 = icmp eq i32 %.us-phi, 0
-  br i1 %.not99, label %._crit_edge.thread, label %.lr.ph
+  %.not100 = icmp eq i32 %.us-phi, 0
+  br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
 
 .preheader90.split:                               ; preds = %.preheader90, %.sink.split.i
   %indvars.iv = phi i64 [ 0, %.preheader90 ], [ %indvars.iv.next, %.sink.split.i ]
@@ -2340,38 +2340,38 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   store i8 %35, ptr %53, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader90.split, !llvm.loop !202
+  br i1 %exitcond.not, label %.preheader, label %.preheader90.split, !llvm.loop !200
 
 .lr.ph:                                           ; preds = %.preheader, %61
-  %.198 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
-  %.06297 = phi ptr [ %.163, %61 ], [ %.068114116, %.preheader ]
-  %.06495 = phi ptr [ %63, %61 ], [ %.068114116, %.preheader ]
-  %.16794 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds nuw i8, ptr %.06495, i64 4
+  %.199 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
+  %.06298 = phi ptr [ %.163, %61 ], [ %.068116118, %.preheader ]
+  %.06496 = phi ptr [ %63, %61 ], [ %.068116118, %.preheader ]
+  %.16795 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
+  %54 = getelementptr inbounds nuw i8, ptr %.06496, i64 4
   %55 = load i8, ptr %54, align 1, !tbaa !4
   %.not85 = icmp eq i8 %55, 0
   br i1 %.not85, label %61, label %56
 
 56:                                               ; preds = %.lr.ph
-  %.not86 = icmp eq ptr %.06297, %.06495
+  %.not86 = icmp eq ptr %.06298, %.06496
   br i1 %.not86, label %58, label %57
 
 57:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.06297, ptr noundef nonnull align 1 dereferenceable(5) %.06495, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.06298, ptr noundef nonnull align 1 dereferenceable(5) %.06496, i64 5, i1 false)
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = getelementptr inbounds nuw i8, ptr %.06297, i64 5
-  %60 = add i32 %.16794, 1
+  %59 = getelementptr inbounds nuw i8, ptr %.06298, i64 5
+  %60 = add i32 %.16795, 1
   br label %61
 
 61:                                               ; preds = %.lr.ph, %58
-  %.2 = phi i32 [ %60, %58 ], [ %.16794, %.lr.ph ]
-  %.163 = phi ptr [ %59, %58 ], [ %.06297, %.lr.ph ]
-  %62 = add nuw i32 %.198, 1
-  %63 = getelementptr inbounds nuw i8, ptr %.06495, i64 5
-  %exitcond110.not = icmp eq i32 %62, %.us-phi
-  br i1 %exitcond110.not, label %._crit_edge, label %.lr.ph, !llvm.loop !203
+  %.2 = phi i32 [ %60, %58 ], [ %.16795, %.lr.ph ]
+  %.163 = phi ptr [ %59, %58 ], [ %.06298, %.lr.ph ]
+  %62 = add nuw i32 %.199, 1
+  %63 = getelementptr inbounds nuw i8, ptr %.06496, i64 5
+  %exitcond112.not = icmp eq i32 %62, %.us-phi
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %61
   %64 = icmp eq i32 %.2, 0
@@ -2379,15 +2379,15 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %65 = load ptr, ptr %18, align 8, !tbaa !198
-  %.not82 = icmp eq ptr %65, %.068114116
+  %.not82 = icmp eq ptr %65, %.068116118
   br i1 %.not82, label %67, label %66
 
 66:                                               ; preds = %._crit_edge.thread
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068114116) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068116118) #12
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %66, %._crit_edge, %34
-  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068114116, %._crit_edge ], [ null, %33 ]
+  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068116118, %._crit_edge ], [ null, %33 ]
   %.3.ph = phi i32 [ 0, %34 ], [ 0, %66 ], [ %.2, %._crit_edge ], [ 0, %33 ]
   %.pr = load ptr, ptr %18, align 8, !tbaa !198
   br label %67
@@ -2423,9 +2423,9 @@ define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly captures(a
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  store ptr %2, ptr %6, align 8, !tbaa !204
+  store ptr %2, ptr %6, align 8, !tbaa !202
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  store ptr %1, ptr %7, align 8, !tbaa !205
+  store ptr %1, ptr %7, align 8, !tbaa !203
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -2441,7 +2441,7 @@ define void @png_set_rows(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %8 = load ptr, ptr %7, align 8, !tbaa !206
+  %8 = load ptr, ptr %7, align 8, !tbaa !204
   %.not = icmp eq ptr %8, null
   %.not14 = icmp eq ptr %8, %2
   %or.cond16 = or i1 %.not, %.not14
@@ -2452,7 +2452,7 @@ define void @png_set_rows(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %10
 
 10:                                               ; preds = %9, %6
-  store ptr %2, ptr %7, align 8, !tbaa !206
+  store ptr %2, ptr %7, align 8, !tbaa !204
   %.not15 = icmp eq ptr %2, null
   br i1 %.not15, label %15, label %11
 
@@ -2491,12 +2491,12 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
 11:                                               ; preds = %7
   %12 = trunc nuw nsw i64 %1 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  store i32 %12, ptr %13, align 8, !tbaa !207
+  store i32 %12, ptr %13, align 8, !tbaa !205
   br label %28
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %16 = load i32, ptr %15, align 8, !tbaa !208
+  %16 = load i32, ptr %15, align 8, !tbaa !206
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %18, label %17
 
@@ -2514,7 +2514,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %23 = load i32, ptr %22, align 8, !tbaa !209
+  %23 = load i32, ptr %22, align 8, !tbaa !207
   %24 = zext i32 %23 to i64
   %.not23 = icmp eq i64 %1, %24
   br i1 %.not23, label %28, label %25
@@ -2523,7 +2523,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @png_free_buffer_list(ptr noundef nonnull %0, ptr noundef nonnull %26) #12
   %27 = trunc nuw nsw i64 %1 to i32
-  store i32 %27, ptr %22, align 8, !tbaa !209
+  store i32 %27, ptr %22, align 8, !tbaa !207
   br label %28
 
 28:                                               ; preds = %21, %25, %2, %20, %17, %11
@@ -2558,9 +2558,9 @@ define void @png_set_user_limits(ptr noalias noundef writeonly captures(address_
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1116
-  store i32 %1, ptr %6, align 4, !tbaa !210
+  store i32 %1, ptr %6, align 4, !tbaa !208
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  store i32 %2, ptr %7, align 8, !tbaa !211
+  store i32 %2, ptr %7, align 8, !tbaa !209
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -2574,7 +2574,7 @@ define void @png_set_chunk_cache_max(ptr noalias noundef writeonly captures(addr
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1124
-  store i32 %1, ptr %4, align 4, !tbaa !212
+  store i32 %1, ptr %4, align 4, !tbaa !210
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -2590,7 +2590,7 @@ define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly captures(add
   %3 = icmp eq i64 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %. = select i1 %3, i64 -1, i64 %1
-  store i64 %., ptr %4, align 8, !tbaa !213
+  store i64 %., ptr %4, align 8, !tbaa !211
   br label %5
 
 5:                                                ; preds = %.sink.split, %2
@@ -2601,11 +2601,11 @@ define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly captures(add
 define void @png_set_benign_errors(ptr noalias noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %4 = load i32, ptr %3, align 8, !tbaa !214
+  %4 = load i32, ptr %3, align 8, !tbaa !212
   %5 = and i32 %4, -7340033
   %masksel = select i1 %.not, i32 0, i32 7340032
   %.sink = or disjoint i32 %5, %masksel
-  store i32 %.sink, ptr %3, align 8, !tbaa !214
+  store i32 %.sink, ptr %3, align 8, !tbaa !212
   ret void
 }
 
@@ -2614,7 +2614,7 @@ define void @png_set_check_for_invalid_index(ptr noalias noundef writeonly captu
   %3 = icmp slt i32 %1, 1
   %spec.select = sext i1 %3 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  store i32 %spec.select, ptr %4, align 4, !tbaa !215
+  store i32 %spec.select, ptr %4, align 4, !tbaa !213
   ret void
 }
 
@@ -2680,7 +2680,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   %25 = icmp ne i8 %24, 0
   %26 = icmp samesign ult i32 %.144, 79
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !216
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %.047.lcssa = phi ptr [ %2, %.preheader ], [ %.148, %23 ]
@@ -2971,20 +2971,18 @@ attributes #14 = { noreturn nounwind }
 !197 = !{!78, !11, i64 1020}
 !198 = !{!78, !15, i64 1024}
 !199 = distinct !{!199, !110}
-!200 = distinct !{!200, !110, !201}
-!201 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!202 = distinct !{!202, !110}
-!203 = distinct !{!203, !110}
-!204 = !{!78, !14, i64 1008}
-!205 = !{!78, !14, i64 1000}
-!206 = !{!10, !21, i64 304}
-!207 = !{!78, !11, i64 1192}
-!208 = !{!78, !11, i64 312}
-!209 = !{!78, !11, i64 440}
-!210 = !{!78, !11, i64 1116}
-!211 = !{!78, !11, i64 1120}
-!212 = !{!78, !11, i64 1124}
-!213 = !{!78, !12, i64 1128}
-!214 = !{!78, !11, i64 304}
-!215 = !{!78, !11, i64 612}
-!216 = distinct !{!216, !110}
+!200 = distinct !{!200, !110}
+!201 = distinct !{!201, !110}
+!202 = !{!78, !14, i64 1008}
+!203 = !{!78, !14, i64 1000}
+!204 = !{!10, !21, i64 304}
+!205 = !{!78, !11, i64 1192}
+!206 = !{!78, !11, i64 312}
+!207 = !{!78, !11, i64 440}
+!208 = !{!78, !11, i64 1116}
+!209 = !{!78, !11, i64 1120}
+!210 = !{!78, !11, i64 1124}
+!211 = !{!78, !12, i64 1128}
+!212 = !{!78, !11, i64 304}
+!213 = !{!78, !11, i64 612}
+!214 = distinct !{!214, !110}

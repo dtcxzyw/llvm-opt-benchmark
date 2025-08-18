@@ -29563,7 +29563,7 @@ stbir__should_do_vertical_first.exit:             ; preds = %75, %80, %82, %84, 
   %239 = getelementptr inbounds i8, ptr %237, i64 %143
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %221, !llvm.loop !970
+  br i1 %exitcond.not, label %._crit_edge, label %221, !llvm.loop !968
 
 ._crit_edge:                                      ; preds = %221, %.thread382.us, %.thread470, %207
   %.not361380472 = phi i1 [ %.not361378, %207 ], [ true, %.thread470 ], [ true, %.thread382.us ], [ %.not361378, %221 ]
@@ -29961,7 +29961,7 @@ stbir_simd_memcpy.exit372:                        ; preds = %431, %468
   %490 = getelementptr inbounds nuw i8, ptr %172, i64 252
   %491 = load i32, ptr %490, align 4, !tbaa !936
   %492 = getelementptr inbounds nuw i8, ptr %172, i64 188
-  %493 = load i32, ptr %492, align 4, !tbaa !971
+  %493 = load i32, ptr %492, align 4, !tbaa !969
   %494 = sub nsw i32 0, %491
   %495 = add nsw i32 %491, %489
   %wide.trip.count.i = zext nneg i32 %486 to i64
@@ -29991,10 +29991,10 @@ stbir_simd_memcpy.exit372:                        ; preds = %431, %468
 
 stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_memcpy.exit372
   %507 = getelementptr inbounds nuw i8, ptr %172, i64 276
-  %508 = load i32, ptr %507, align 4, !tbaa !972
+  %508 = load i32, ptr %507, align 4, !tbaa !970
   %509 = getelementptr inbounds nuw i8, ptr %172, i64 332
   %510 = getelementptr inbounds nuw i8, ptr %172, i64 280
-  %511 = load i32, ptr %510, align 8, !tbaa !973
+  %511 = load i32, ptr %510, align 8, !tbaa !971
   %.not364 = icmp eq i32 %511, 0
   %512 = tail call i32 @llvm.smin.i32(i32 %508, i32 %.012.lcssa.i)
   %spec.store.select369 = select i1 %.not364, i32 %512, i32 %508
@@ -30032,12 +30032,12 @@ stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_me
   store float 9.999000e+03, ptr %521, align 4, !tbaa !50
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
-  br i1 %exitcond454.not, label %.preheader398.us, label %520, !llvm.loop !974
+  br i1 %exitcond454.not, label %.preheader398.us, label %520, !llvm.loop !972
 
 .loopexit.us:                                     ; preds = %._crit_edge413.us.us, %.preheader398.us, %.lr.ph417.split.us
   %indvars.iv.next466 = add nuw nsw i64 %indvars.iv465, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next466, %wide.trip.count468
-  br i1 %exitcond469.not, label %.thread392, label %.lr.ph417.split.us, !llvm.loop !975
+  br i1 %exitcond469.not, label %.thread392, label %.lr.ph417.split.us, !llvm.loop !973
 
 .lr.ph409.us:                                     ; preds = %.lr.ph417.split.us
   %522 = getelementptr inbounds nuw %struct.stbir__per_split_info, ptr %484, i64 %indvars.iv465
@@ -30063,12 +30063,12 @@ stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_me
   store float 9.999000e+03, ptr %531, align 4, !tbaa !50
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond459.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count458
-  br i1 %exitcond459.not, label %._crit_edge413.us.us, label %530, !llvm.loop !976
+  br i1 %exitcond459.not, label %._crit_edge413.us.us, label %530, !llvm.loop !974
 
 ._crit_edge413.us.us:                             ; preds = %530
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond464.not = icmp eq i64 %indvars.iv.next461, %wide.trip.count463
-  br i1 %exitcond464.not, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !977
+  br i1 %exitcond464.not, label %.loopexit.us, label %.preheader.us.us, !llvm.loop !975
 
 .lr.ph417.split:                                  ; preds = %.lr.ph417
   br i1 %515, label %.lr.ph417.split.split.us, label %.thread392
@@ -30092,12 +30092,12 @@ stbir__get_split_info.exit:                       ; preds = %496, %stbir_simd_me
   store float 9.999000e+03, ptr %537, align 4, !tbaa !50
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count443
-  br i1 %exitcond444.not, label %._crit_edge410.us425, label %536, !llvm.loop !974
+  br i1 %exitcond444.not, label %._crit_edge410.us425, label %536, !llvm.loop !972
 
 ._crit_edge410.us425:                             ; preds = %536
   %indvars.iv.next446 = add nuw nsw i64 %indvars.iv445, 1
   %exitcond449.not = icmp eq i64 %indvars.iv.next446, %wide.trip.count448
-  br i1 %exitcond449.not, label %.thread392, label %.lr.ph409.us424, !llvm.loop !978
+  br i1 %exitcond449.not, label %.thread392, label %.lr.ph409.us424, !llvm.loop !973
 
 .thread390:                                       ; preds = %341
   %538 = ptrtoint ptr %.3328 to i64
@@ -30121,7 +30121,7 @@ define noundef i32 @stbir__perform_resize(ptr noundef %0, i32 noundef %1, i32 no
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds %struct.stbir__per_split_info, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %9 = load i32, ptr %8, align 8, !tbaa !973
+  %9 = load i32, ptr %8, align 8, !tbaa !971
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
@@ -30140,19 +30140,19 @@ define noundef i32 @stbir__perform_resize(ptr noundef %0, i32 noundef %1, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir__update_info_from_resize(ptr noundef captures(none) initializes((304, 328), (336, 368), (424, 432), (456, 464)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %4 = load i32, ptr %3, align 8, !tbaa !979
+  %4 = load i32, ptr %3, align 8, !tbaa !976
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %6 = load i32, ptr %5, align 4, !tbaa !982
+  %6 = load i32, ptr %5, align 4, !tbaa !979
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !983
+  %8 = load ptr, ptr %7, align 8, !tbaa !980
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %8, ptr %9, align 8, !tbaa !453
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %11 = load i32, ptr %10, align 8, !tbaa !984
+  %11 = load i32, ptr %10, align 8, !tbaa !981
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %11, ptr %12, align 8, !tbaa !454
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %14 = load i32, ptr %13, align 4, !tbaa !985
+  %14 = load i32, ptr %13, align 4, !tbaa !982
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %14, ptr %15, align 4, !tbaa !923
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -30162,7 +30162,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %21 = load i32, ptr %20, align 4, !tbaa !986
+  %21 = load i32, ptr %20, align 4, !tbaa !983
   %22 = icmp eq i32 %21, 6
   %23 = add i32 %4, -1
   %or.cond = icmp ult i32 %23, 2
@@ -30219,7 +30219,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
 51:                                               ; preds = %._crit_edge, %42
   %.pre-phi = phi i64 [ %.pre118, %._crit_edge ], [ %46, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %53 = load ptr, ptr %52, align 8, !tbaa !987
+  %53 = load ptr, ptr %52, align 8, !tbaa !984
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %55 = load i32, ptr %54, align 8, !tbaa !963
   %56 = sext i32 %55 to i64
@@ -30238,14 +30238,14 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %68, ptr %69, align 8, !tbaa !922
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %71 = load ptr, ptr %70, align 8, !tbaa !988
+  %71 = load ptr, ptr %70, align 8, !tbaa !985
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %71, ptr %72, align 8, !tbaa !456
-  %73 = load ptr, ptr %1, align 8, !tbaa !989
+  %73 = load ptr, ptr %1, align 8, !tbaa !986
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %73, ptr %74, align 8, !tbaa !457
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %76 = load ptr, ptr %75, align 8, !tbaa !990
+  %76 = load ptr, ptr %75, align 8, !tbaa !987
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %76, ptr %77, align 8, !tbaa !902
   %78 = icmp eq i32 %.097, 0
@@ -30397,7 +30397,7 @@ define void @stbir__update_info_from_resize(ptr noundef captures(none) initializ
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 %.097, ptr %156, align 8, !tbaa !449
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  store i32 %.096, ptr %157, align 4, !tbaa !991
+  store i32 %.096, ptr %157, align 4, !tbaa !988
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %.1100, ptr %158, align 8, !tbaa !458
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -30416,12 +30416,12 @@ define void @stbir__clip(ptr noundef captures(none) %0, ptr noundef captures(non
   %10 = load i32, ptr %1, align 4, !tbaa !18
   %11 = sitofp i32 %10 to double
   %12 = fdiv double %9, %11
-  %13 = load double, ptr %4, align 8, !tbaa !992
-  %14 = load double, ptr %3, align 8, !tbaa !992
+  %13 = load double, ptr %4, align 8, !tbaa !989
+  %14 = load double, ptr %3, align 8, !tbaa !989
   %15 = fsub double %13, %14
   %16 = fmul double %12, %15
   %17 = fsub double %14, %16
-  store double %17, ptr %3, align 8, !tbaa !992
+  store double %17, ptr %3, align 8, !tbaa !989
   store i32 0, ptr %0, align 4, !tbaa !18
   br label %18
 
@@ -30437,12 +30437,12 @@ define void @stbir__clip(ptr noundef captures(none) %0, ptr noundef captures(non
   %25 = sitofp i32 %22 to double
   %26 = sitofp i32 %20 to double
   %27 = fdiv double %25, %26
-  %28 = load double, ptr %4, align 8, !tbaa !992
-  %29 = load double, ptr %3, align 8, !tbaa !992
+  %28 = load double, ptr %4, align 8, !tbaa !989
+  %29 = load double, ptr %3, align 8, !tbaa !989
   %30 = fsub double %28, %29
   %31 = fmul double %27, %30
   %32 = fadd double %28, %31
-  store double %32, ptr %4, align 8, !tbaa !992
+  store double %32, ptr %4, align 8, !tbaa !989
   %33 = sub nsw i32 %2, %19
   store i32 %33, ptr %1, align 4, !tbaa !18
   br label %34
@@ -30495,7 +30495,7 @@ define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %0, i32 nou
   %23 = mul i64 %19, %.058100.us
   %24 = add i64 %23, %.06398.us
   %.not73.us = icmp ult i64 %24, %6
-  br i1 %.not73.us, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !993
+  br i1 %.not73.us, label %.lr.ph.split.us, label %._crit_edge.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.055101 = phi i64 [ %39, %35 ], [ 0, %.lr.ph ]
@@ -30684,115 +30684,115 @@ stbir__clip.exit:                                 ; preds = %39, %44
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbir__init_and_set_layout(ptr noundef initializes((56, 64), (96, 104)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %4, align 8, !tbaa !988
+  store ptr null, ptr %4, align 8, !tbaa !985
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %5, align 8, !tbaa !990
-  store ptr %0, ptr %0, align 8, !tbaa !989
+  store ptr null, ptr %5, align 8, !tbaa !987
+  store ptr %0, ptr %0, align 8, !tbaa !986
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %6, align 4, !tbaa !994
+  store i32 0, ptr %6, align 4, !tbaa !990
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  store double 1.000000e+00, ptr %9, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %9, align 8, !tbaa !991
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double 1.000000e+00, ptr %10, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %10, align 8, !tbaa !992
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %11, align 8, !tbaa !997
+  store i32 0, ptr %11, align 8, !tbaa !993
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %12, align 4, !tbaa !998
+  store i32 0, ptr %12, align 4, !tbaa !994
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load i32, ptr %13, align 8, !tbaa !999
+  %14 = load i32, ptr %13, align 8, !tbaa !995
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %14, ptr %15, align 8, !tbaa !1000
+  store i32 %14, ptr %15, align 8, !tbaa !996
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %17 = load i32, ptr %16, align 4, !tbaa !1001
+  %17 = load i32, ptr %16, align 4, !tbaa !997
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %17, ptr %18, align 4, !tbaa !1002
+  store i32 %17, ptr %18, align 4, !tbaa !998
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %2, ptr %19, align 8, !tbaa !979
+  store i32 %2, ptr %19, align 8, !tbaa !976
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %2, ptr %20, align 4, !tbaa !982
+  store i32 %2, ptr %20, align 4, !tbaa !979
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %1, ptr %21, align 8, !tbaa !1003
+  store i32 %1, ptr %21, align 8, !tbaa !999
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %1, ptr %22, align 4, !tbaa !1004
+  store i32 %1, ptr %22, align 4, !tbaa !1000
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %23, align 8, !tbaa !1005
+  store i32 1, ptr %23, align 8, !tbaa !1001
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @stbir_resize_init(ptr noundef initializes((8, 24), (56, 80), (96, 112), (116, 120)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #15 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %12, align 8, !tbaa !983
+  store ptr %1, ptr %12, align 8, !tbaa !980
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %13, align 8, !tbaa !1006
+  store i32 %2, ptr %13, align 8, !tbaa !1002
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %3, ptr %14, align 4, !tbaa !1007
+  store i32 %3, ptr %14, align 4, !tbaa !1003
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %4, ptr %15, align 8, !tbaa !984
+  store i32 %4, ptr %15, align 8, !tbaa !981
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %5, ptr %16, align 8, !tbaa !987
+  store ptr %5, ptr %16, align 8, !tbaa !984
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %6, ptr %17, align 8, !tbaa !999
+  store i32 %6, ptr %17, align 8, !tbaa !995
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %7, ptr %18, align 4, !tbaa !1001
+  store i32 %7, ptr %18, align 4, !tbaa !997
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %8, ptr %19, align 4, !tbaa !985
+  store i32 %8, ptr %19, align 4, !tbaa !982
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %20, align 4, !tbaa !1008
+  store i32 0, ptr %20, align 4, !tbaa !1004
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr null, ptr %21, align 8, !tbaa !988
+  store ptr null, ptr %21, align 8, !tbaa !985
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %22, align 8, !tbaa !990
-  store ptr %0, ptr %0, align 8, !tbaa !989
+  store ptr null, ptr %22, align 8, !tbaa !987
+  store ptr %0, ptr %0, align 8, !tbaa !986
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %23, align 4, !tbaa !994
+  store i32 0, ptr %23, align 4, !tbaa !990
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, i8 0, i64 56, i1 false)
-  store double 1.000000e+00, ptr %26, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %26, align 8, !tbaa !991
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double 1.000000e+00, ptr %27, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %27, align 8, !tbaa !992
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %28, align 8, !tbaa !997
+  store i32 0, ptr %28, align 8, !tbaa !993
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 0, ptr %29, align 4, !tbaa !998
+  store i32 0, ptr %29, align 4, !tbaa !994
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %6, ptr %30, align 8, !tbaa !1000
+  store i32 %6, ptr %30, align 8, !tbaa !996
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %7, ptr %31, align 4, !tbaa !1002
+  store i32 %7, ptr %31, align 4, !tbaa !998
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %10, ptr %32, align 8, !tbaa !979
+  store i32 %10, ptr %32, align 8, !tbaa !976
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %10, ptr %33, align 4, !tbaa !982
+  store i32 %10, ptr %33, align 4, !tbaa !979
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %9, ptr %34, align 8, !tbaa !1003
+  store i32 %9, ptr %34, align 8, !tbaa !999
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %9, ptr %35, align 4, !tbaa !1004
+  store i32 %9, ptr %35, align 4, !tbaa !1000
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %36, align 8, !tbaa !1005
+  store i32 1, ptr %36, align 8, !tbaa !1001
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbir_set_datatypes(ptr noundef captures(none) initializes((136, 144)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %1, ptr %4, align 8, !tbaa !979
+  store i32 %1, ptr %4, align 8, !tbaa !976
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %2, ptr %5, align 4, !tbaa !982
+  store i32 %2, ptr %5, align 4, !tbaa !979
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %7 = load ptr, ptr %6, align 8, !tbaa !1009
+  %7 = load ptr, ptr %6, align 8, !tbaa !1005
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %10 = load i32, ptr %9, align 8, !tbaa !1005
+  %10 = load i32, ptr %9, align 8, !tbaa !1001
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %11, label %12
 
@@ -30807,17 +30807,17 @@ define void @stbir_set_datatypes(ptr noundef captures(none) initializes((136, 14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir_set_pixel_callbacks(ptr noundef captures(none) initializes((56, 64), (96, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %4, align 8, !tbaa !988
+  store ptr %1, ptr %4, align 8, !tbaa !985
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %2, ptr %5, align 8, !tbaa !990
+  store ptr %2, ptr %5, align 8, !tbaa !987
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %7 = load ptr, ptr %6, align 8, !tbaa !1009
+  %7 = load ptr, ptr %6, align 8, !tbaa !1005
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %10 = load i32, ptr %9, align 8, !tbaa !1005
+  %10 = load i32, ptr %9, align 8, !tbaa !1001
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %11, label %14
 
@@ -30834,15 +30834,15 @@ define void @stbir_set_pixel_callbacks(ptr noundef captures(none) initializes((5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbir_set_user_data(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #17 {
-  store ptr %1, ptr %0, align 8, !tbaa !989
+  store ptr %1, ptr %0, align 8, !tbaa !986
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !1009
+  %4 = load ptr, ptr %3, align 8, !tbaa !1005
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load i32, ptr %6, align 8, !tbaa !1005
+  %7 = load i32, ptr %6, align 8, !tbaa !1001
   %.not6 = icmp eq i32 %7, 0
   br i1 %.not6, label %8, label %10
 
@@ -30858,21 +30858,21 @@ define void @stbir_set_user_data(ptr noundef captures(none) initializes((0, 8)) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbir_set_buffer_ptrs(ptr noundef captures(none) initializes((8, 16), (64, 72), (104, 112)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %6, align 8, !tbaa !983
+  store ptr %1, ptr %6, align 8, !tbaa !980
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %2, ptr %7, align 8, !tbaa !984
+  store i32 %2, ptr %7, align 8, !tbaa !981
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %3, ptr %8, align 8, !tbaa !987
+  store ptr %3, ptr %8, align 8, !tbaa !984
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %4, ptr %9, align 4, !tbaa !985
+  store i32 %4, ptr %9, align 4, !tbaa !982
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %11 = load ptr, ptr %10, align 8, !tbaa !1009
+  %11 = load ptr, ptr %10, align 8, !tbaa !1005
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %14 = load i32, ptr %13, align 8, !tbaa !1005
+  %14 = load i32, ptr %13, align 8, !tbaa !1001
   %.not11 = icmp eq i32 %14, 0
   br i1 %.not11, label %15, label %16
 
@@ -30887,72 +30887,72 @@ define void @stbir_set_buffer_ptrs(ptr noundef captures(none) initializes((8, 16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stbir_set_edgemodes(ptr noundef writeonly captures(none) initializes((120, 124), (152, 160)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %1, ptr %4, align 8, !tbaa !1010
+  store i32 %1, ptr %4, align 8, !tbaa !1006
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %2, ptr %5, align 4, !tbaa !1011
+  store i32 %2, ptr %5, align 4, !tbaa !1007
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %6, align 8, !tbaa !1005
+  store i32 1, ptr %6, align 8, !tbaa !1001
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stbir_set_filters(ptr noundef writeonly captures(none) initializes((120, 124), (144, 152)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %1, ptr %4, align 8, !tbaa !1012
+  store i32 %1, ptr %4, align 8, !tbaa !1008
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %2, ptr %5, align 4, !tbaa !1013
+  store i32 %2, ptr %5, align 4, !tbaa !1009
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %6, align 8, !tbaa !1005
+  store i32 1, ptr %6, align 8, !tbaa !1001
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stbir_set_filter_callbacks(ptr noundef writeonly captures(none) initializes((120, 124), (160, 192)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #15 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %1, ptr %6, align 8, !tbaa !1014
+  store ptr %1, ptr %6, align 8, !tbaa !1010
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %2, ptr %7, align 8, !tbaa !1015
+  store ptr %2, ptr %7, align 8, !tbaa !1011
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %3, ptr %8, align 8, !tbaa !1016
+  store ptr %3, ptr %8, align 8, !tbaa !1012
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %4, ptr %9, align 8, !tbaa !1017
+  store ptr %4, ptr %9, align 8, !tbaa !1013
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %10, align 8, !tbaa !1005
+  store i32 1, ptr %10, align 8, !tbaa !1001
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stbir_set_pixel_layouts(ptr noundef writeonly captures(none) initializes((120, 124), (128, 136)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %1, ptr %4, align 8, !tbaa !1003
+  store i32 %1, ptr %4, align 8, !tbaa !999
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store i32 %2, ptr %5, align 4, !tbaa !1004
+  store i32 %2, ptr %5, align 4, !tbaa !1000
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %6, align 8, !tbaa !1005
+  store i32 1, ptr %6, align 8, !tbaa !1001
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr noundef writeonly captures(none) initializes((116, 124)) %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %1, ptr %3, align 4, !tbaa !1008
+  store i32 %1, ptr %3, align 4, !tbaa !1004
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %4, align 8, !tbaa !1005
+  store i32 1, ptr %4, align 8, !tbaa !1001
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr noundef writeonly captures(none) initializes((24, 56), (120, 124)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #15 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %1, ptr %6, align 8, !tbaa !1018
+  store double %1, ptr %6, align 8, !tbaa !1014
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %2, ptr %7, align 8, !tbaa !1019
+  store double %2, ptr %7, align 8, !tbaa !1015
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %3, ptr %8, align 8, !tbaa !995
+  store double %3, ptr %8, align 8, !tbaa !991
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %4, ptr %9, align 8, !tbaa !996
+  store double %4, ptr %9, align 8, !tbaa !992
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %10, align 8, !tbaa !1005
+  store i32 1, ptr %10, align 8, !tbaa !1001
   %11 = fcmp olt double %3, 0x3870000000000000
   br i1 %11, label %21, label %12
 
@@ -30981,17 +30981,17 @@ define range(i32 0, 2) i32 @stbir_set_input_subrect(ptr noundef writeonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr noundef captures(none) initializes((80, 96), (120, 124)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %1, ptr %6, align 8, !tbaa !997
+  store i32 %1, ptr %6, align 8, !tbaa !993
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %2, ptr %7, align 4, !tbaa !998
+  store i32 %2, ptr %7, align 4, !tbaa !994
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %3, ptr %8, align 8, !tbaa !1000
+  store i32 %3, ptr %8, align 8, !tbaa !996
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %4, ptr %9, align 4, !tbaa !1002
+  store i32 %4, ptr %9, align 4, !tbaa !998
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %10, align 8, !tbaa !1005
+  store i32 1, ptr %10, align 8, !tbaa !1001
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !999
+  %12 = load i32, ptr %11, align 8, !tbaa !995
   %.not = icmp sge i32 %1, %12
   %13 = add nsw i32 %3, %1
   %14 = icmp slt i32 %13, 1
@@ -31000,7 +31000,7 @@ define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr noundef captures(
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %17 = load i32, ptr %16, align 4, !tbaa !1001
+  %17 = load i32, ptr %16, align 4, !tbaa !997
   %.not24 = icmp slt i32 %2, %17
   br i1 %.not24, label %18, label %23
 
@@ -31023,12 +31023,12 @@ define range(i32 0, 2) i32 @stbir_set_output_pixel_subrect(ptr noundef captures(
 define range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr noundef captures(none) initializes((24, 56), (80, 96), (120, 124)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
   %6 = sitofp i32 %1 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i32, ptr %7, align 8, !tbaa !999
+  %8 = load i32, ptr %7, align 8, !tbaa !995
   %9 = sitofp i32 %8 to double
   %10 = fdiv double %6, %9
   %11 = sitofp i32 %2 to double
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %13 = load i32, ptr %12, align 4, !tbaa !1001
+  %13 = load i32, ptr %12, align 4, !tbaa !997
   %14 = sitofp i32 %13 to double
   %15 = fdiv double %11, %14
   %16 = add nsw i32 %3, %1
@@ -31038,23 +31038,23 @@ define range(i32 0, 2) i32 @stbir_set_pixel_subrect(ptr noundef captures(none) i
   %20 = sitofp i32 %19 to double
   %21 = fdiv double %20, %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %10, ptr %22, align 8, !tbaa !1018
+  store double %10, ptr %22, align 8, !tbaa !1014
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %15, ptr %23, align 8, !tbaa !1019
+  store double %15, ptr %23, align 8, !tbaa !1015
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %18, ptr %24, align 8, !tbaa !995
+  store double %18, ptr %24, align 8, !tbaa !991
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %21, ptr %25, align 8, !tbaa !996
+  store double %21, ptr %25, align 8, !tbaa !992
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %1, ptr %26, align 8, !tbaa !997
+  store i32 %1, ptr %26, align 8, !tbaa !993
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %2, ptr %27, align 4, !tbaa !998
+  store i32 %2, ptr %27, align 4, !tbaa !994
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %3, ptr %28, align 8, !tbaa !1000
+  store i32 %3, ptr %28, align 8, !tbaa !996
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %4, ptr %29, align 4, !tbaa !1002
+  store i32 %4, ptr %29, align 4, !tbaa !998
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 1, ptr %30, align 8, !tbaa !1005
+  store i32 1, ptr %30, align 8, !tbaa !1001
   %.not = icmp slt i32 %1, %8
   %31 = icmp sgt i32 %16, 0
   %or.cond41.not44 = select i1 %.not, i1 %31, i1 false
@@ -31090,19 +31090,19 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1009
+  %9 = load ptr, ptr %8, align 8, !tbaa !1005
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %92
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = load i32, ptr %11, align 8, !tbaa !1012
+  %12 = load i32, ptr %11, align 8, !tbaa !1008
   %13 = icmp ugt i32 %12, 6
   br i1 %13, label %92, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %16 = load i32, ptr %15, align 4, !tbaa !1013
+  %16 = load i32, ptr %15, align 4, !tbaa !1009
   %17 = icmp ugt i32 %16, 6
   %18 = icmp slt i32 %1, 1
   %or.cond52 = or i1 %18, %17
@@ -31110,22 +31110,22 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load i32, ptr %20, align 8, !tbaa !997
+  %21 = load i32, ptr %20, align 8, !tbaa !993
   store i32 %21, ptr %6, align 4, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %23 = load i32, ptr %22, align 4, !tbaa !998
+  %23 = load i32, ptr %22, align 4, !tbaa !994
   store i32 %23, ptr %7, align 4, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load i32, ptr %25, align 8, !tbaa !999
+  %26 = load i32, ptr %25, align 8, !tbaa !995
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %28 = load i32, ptr %27, align 8, !tbaa !1000
+  %28 = load i32, ptr %27, align 8, !tbaa !996
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !1006
+  %30 = load i32, ptr %29, align 8, !tbaa !1002
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load double, ptr %31, align 8, !tbaa !1018
+  %32 = load double, ptr %31, align 8, !tbaa !1014
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load double, ptr %33, align 8, !tbaa !995
+  %34 = load double, ptr %33, align 8, !tbaa !991
   %35 = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %24, i32 noundef %26, ptr noundef nonnull %6, i32 noundef %28, i32 noundef %30, double noundef %32, double noundef %34)
   %.not49 = icmp eq i32 %35, 0
   br i1 %.not49, label %92, label %36
@@ -31133,15 +31133,15 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
 36:                                               ; preds = %19
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %39 = load i32, ptr %38, align 4, !tbaa !1001
+  %39 = load i32, ptr %38, align 4, !tbaa !997
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %41 = load i32, ptr %40, align 4, !tbaa !1002
+  %41 = load i32, ptr %40, align 4, !tbaa !998
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %43 = load i32, ptr %42, align 4, !tbaa !1007
+  %43 = load i32, ptr %42, align 4, !tbaa !1003
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load double, ptr %44, align 8, !tbaa !1019
+  %45 = load double, ptr %44, align 8, !tbaa !1015
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %47 = load double, ptr %46, align 8, !tbaa !996
+  %47 = load double, ptr %46, align 8, !tbaa !992
   %48 = call i32 @stbir__calculate_region_transform(ptr noundef nonnull %37, i32 noundef %39, ptr noundef nonnull %7, i32 noundef %41, i32 noundef %43, double noundef %45, double noundef %47)
   %.not50 = icmp eq i32 %48, 0
   br i1 %.not50, label %92, label %49
@@ -31158,22 +31158,22 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %58 = load ptr, ptr %57, align 8, !tbaa !1014
+  %58 = load ptr, ptr %57, align 8, !tbaa !1010
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %60 = load ptr, ptr %59, align 8, !tbaa !1015
+  %60 = load ptr, ptr %59, align 8, !tbaa !1011
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %62 = load i32, ptr %61, align 8, !tbaa !1010
-  %63 = load ptr, ptr %0, align 8, !tbaa !989
+  %62 = load i32, ptr %61, align 8, !tbaa !1006
+  %63 = load ptr, ptr %0, align 8, !tbaa !986
   call void @stbir__set_sampler(ptr noundef nonnull %4, i32 noundef %12, ptr noundef %58, ptr noundef %60, i32 noundef %62, ptr noundef nonnull %24, i32 noundef 1, ptr noundef %63)
-  %64 = load ptr, ptr %0, align 8, !tbaa !989
+  %64 = load ptr, ptr %0, align 8, !tbaa !986
   call void @stbir__get_conservative_extents(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %64)
-  %65 = load i32, ptr %15, align 4, !tbaa !1013
-  %66 = load ptr, ptr %57, align 8, !tbaa !1014
+  %65 = load i32, ptr %15, align 4, !tbaa !1009
+  %66 = load ptr, ptr %57, align 8, !tbaa !1010
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %68 = load ptr, ptr %67, align 8, !tbaa !1017
+  %68 = load ptr, ptr %67, align 8, !tbaa !1013
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %70 = load i32, ptr %69, align 4, !tbaa !1011
-  %71 = load ptr, ptr %0, align 8, !tbaa !989
+  %70 = load i32, ptr %69, align 4, !tbaa !1007
+  %71 = load ptr, ptr %0, align 8, !tbaa !986
   call void @stbir__set_sampler(ptr noundef nonnull %5, i32 noundef %65, ptr noundef %66, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %37, i32 noundef 0, ptr noundef %71)
   %72 = load i32, ptr %53, align 4, !tbaa !29
   %73 = sdiv i32 %72, %1
@@ -31190,24 +31190,24 @@ define range(i32 -536870912, -2147483648) i32 @stbir__perform_build(ptr noundef 
 78:                                               ; preds = %75, %56
   %.046 = phi i32 [ %spec.store.select, %75 ], [ %1, %56 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %80 = load i32, ptr %79, align 8, !tbaa !1003
+  %80 = load i32, ptr %79, align 8, !tbaa !999
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %82 = load i32, ptr %81, align 4, !tbaa !1004
+  %82 = load i32, ptr %81, align 4, !tbaa !1000
   %83 = load i32, ptr %6, align 4, !tbaa !18
   %84 = load i32, ptr %7, align 4, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %86 = load i32, ptr %85, align 4, !tbaa !1008
-  %87 = load ptr, ptr %0, align 8, !tbaa !989
+  %86 = load i32, ptr %85, align 4, !tbaa !1004
+  %87 = load ptr, ptr %0, align 8, !tbaa !986
   %88 = call ptr @stbir__alloc_internal_mem_and_build_samplers(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef %80, i32 noundef %82, i32 noundef %.046, i32 noundef %83, i32 noundef %84, i32 noundef %86, ptr noundef %87)
   %.not51 = icmp eq ptr %88, null
   br i1 %.not51, label %92, label %89
 
 89:                                               ; preds = %78
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %.046, ptr %90, align 8, !tbaa !1020
-  store ptr %88, ptr %8, align 8, !tbaa !1009
+  store i32 %.046, ptr %90, align 8, !tbaa !1016
+  store ptr %88, ptr %8, align 8, !tbaa !1005
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %91, align 8, !tbaa !1005
+  store i32 0, ptr %91, align 8, !tbaa !1001
   call void @stbir__update_info_from_resize(ptr noundef nonnull %88, ptr noundef nonnull %0)
   br label %92
 
@@ -31227,7 +31227,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @stbir_free_samplers(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load ptr, ptr %2, align 8, !tbaa !1009
+  %3 = load ptr, ptr %2, align 8, !tbaa !1005
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
@@ -31243,9 +31243,9 @@ define void @stbir_free_samplers(ptr noundef captures(none) %0) local_unnamed_ad
   br label %stbir__free_internal_mem.exit
 
 stbir__free_internal_mem.exit:                    ; preds = %4, %7
-  store ptr null, ptr %2, align 8, !tbaa !1009
+  store ptr null, ptr %2, align 8, !tbaa !1005
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 0, ptr %8, align 4, !tbaa !994
+  store i32 0, ptr %8, align 4, !tbaa !990
   br label %9
 
 9:                                                ; preds = %stbir__free_internal_mem.exit, %1
@@ -31255,13 +31255,13 @@ stbir__free_internal_mem.exit:                    ; preds = %4, %7
 ; Function Attrs: nounwind uwtable
 define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers_with_splits(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = load ptr, ptr %3, align 8, !tbaa !1009
+  %4 = load ptr, ptr %3, align 8, !tbaa !1005
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load i32, ptr %7, align 8, !tbaa !1005
+  %8 = load i32, ptr %7, align 8, !tbaa !1001
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
 
@@ -31277,12 +31277,12 @@ define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers_with_splits(
   br label %stbir_free_samplers.exit
 
 stbir_free_samplers.exit:                         ; preds = %9, %12
-  store ptr null, ptr %3, align 8, !tbaa !1009
+  store ptr null, ptr %3, align 8, !tbaa !1005
   br label %.thread
 
 .thread:                                          ; preds = %2, %stbir_free_samplers.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 1, ptr %13, align 4, !tbaa !994
+  store i32 1, ptr %13, align 4, !tbaa !990
   %14 = tail call i32 @stbir__perform_build(ptr noundef nonnull %0, i32 noundef %1)
   br label %15
 
@@ -31294,13 +31294,13 @@ stbir_free_samplers.exit:                         ; preds = %9, %12
 ; Function Attrs: nounwind uwtable
 define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load ptr, ptr %2, align 8, !tbaa !1009
+  %3 = load ptr, ptr %2, align 8, !tbaa !1005
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.i, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load i32, ptr %6, align 8, !tbaa !1005
+  %7 = load i32, ptr %6, align 8, !tbaa !1001
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %stbir_build_samplers_with_splits.exit, label %8
 
@@ -31316,12 +31316,12 @@ define range(i32 -536870912, -2147483648) i32 @stbir_build_samplers(ptr noundef 
   br label %stbir_free_samplers.exit.i
 
 stbir_free_samplers.exit.i:                       ; preds = %11, %8
-  store ptr null, ptr %2, align 8, !tbaa !1009
+  store ptr null, ptr %2, align 8, !tbaa !1005
   br label %.thread.i
 
 .thread.i:                                        ; preds = %stbir_free_samplers.exit.i, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 1, ptr %12, align 4, !tbaa !994
+  store i32 1, ptr %12, align 4, !tbaa !990
   %13 = tail call i32 @stbir__perform_build(ptr noundef nonnull %0, i32 noundef 1)
   br label %stbir_build_samplers_with_splits.exit
 
@@ -31333,24 +31333,24 @@ stbir_build_samplers_with_splits.exit:            ; preds = %5, %.thread.i
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbir_resize_extended(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load ptr, ptr %2, align 8, !tbaa !1009
+  %3 = load ptr, ptr %2, align 8, !tbaa !1005
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %7
 
 .thread:                                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %6 = load i32, ptr %5, align 4, !tbaa !994
+  %6 = load i32, ptr %5, align 4, !tbaa !990
   br label %stbir_build_samplers.exit
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %9 = load i32, ptr %8, align 8, !tbaa !1005
+  %9 = load i32, ptr %8, align 8, !tbaa !1001
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %12 = load i32, ptr %11, align 4, !tbaa !994
+  %12 = load i32, ptr %11, align 4, !tbaa !990
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %14 = load ptr, ptr %13, align 8, !tbaa !950
   %.not6.i = icmp eq ptr %14, null
@@ -31362,31 +31362,31 @@ define range(i32 0, 2) i32 @stbir_resize_extended(ptr noundef captures(none) %0)
   br label %stbir__free_internal_mem.exit
 
 stbir__free_internal_mem.exit:                    ; preds = %10, %15
-  store ptr null, ptr %2, align 8, !tbaa !1009
+  store ptr null, ptr %2, align 8, !tbaa !1005
   br label %stbir_build_samplers.exit
 
 stbir_build_samplers.exit:                        ; preds = %.thread, %stbir__free_internal_mem.exit
   %16 = phi i32 [ %6, %.thread ], [ %12, %stbir__free_internal_mem.exit ]
   %17 = phi ptr [ %5, %.thread ], [ %11, %stbir__free_internal_mem.exit ]
-  store i32 1, ptr %17, align 4, !tbaa !994
+  store i32 1, ptr %17, align 4, !tbaa !990
   %18 = tail call i32 @stbir__perform_build(ptr noundef nonnull %0, i32 noundef 1)
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %.thread25, label %19
 
 19:                                               ; preds = %stbir_build_samplers.exit
-  store i32 %16, ptr %17, align 4, !tbaa !994
-  %20 = load ptr, ptr %2, align 8, !tbaa !1009
+  store i32 %16, ptr %17, align 4, !tbaa !990
+  %20 = load ptr, ptr %2, align 8, !tbaa !1005
   %.not28 = icmp eq ptr %20, null
   br i1 %.not28, label %.thread25, label %21
 
 21:                                               ; preds = %7, %19
   %22 = phi ptr [ %3, %7 ], [ %20, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %24 = load i32, ptr %23, align 8, !tbaa !1020
+  %24 = load i32, ptr %23, align 8, !tbaa !1016
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 416
   %26 = load ptr, ptr %25, align 8, !tbaa !960
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 280
-  %28 = load i32, ptr %27, align 8, !tbaa !973
+  %28 = load i32, ptr %27, align 8, !tbaa !971
   %.not.i23 = icmp eq i32 %28, 0
   br i1 %.not.i23, label %30, label %29
 
@@ -31400,12 +31400,12 @@ stbir_build_samplers.exit:                        ; preds = %.thread, %stbir__fr
 
 stbir__perform_resize.exit:                       ; preds = %29, %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %32 = load i32, ptr %31, align 4, !tbaa !994
+  %32 = load i32, ptr %31, align 4, !tbaa !990
   %.not21 = icmp eq i32 %32, 0
   br i1 %.not21, label %33, label %.thread25
 
 33:                                               ; preds = %stbir__perform_resize.exit
-  %34 = load ptr, ptr %2, align 8, !tbaa !1009
+  %34 = load ptr, ptr %2, align 8, !tbaa !1005
   %.not.i24 = icmp eq ptr %34, null
   br i1 %.not.i24, label %stbir_free_samplers.exit, label %35
 
@@ -31421,11 +31421,11 @@ stbir__perform_resize.exit:                       ; preds = %29, %30
   br label %stbir__free_internal_mem.exit.i
 
 stbir__free_internal_mem.exit.i:                  ; preds = %38, %35
-  store i32 0, ptr %31, align 4, !tbaa !994
+  store i32 0, ptr %31, align 4, !tbaa !990
   br label %stbir_free_samplers.exit
 
 stbir_free_samplers.exit:                         ; preds = %33, %stbir__free_internal_mem.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !1009
+  store ptr null, ptr %2, align 8, !tbaa !1005
   br label %.thread25
 
 .thread25:                                        ; preds = %stbir_build_samplers.exit, %stbir__perform_resize.exit, %stbir_free_samplers.exit, %19
@@ -31442,7 +31442,7 @@ define range(i32 0, 2) i32 @stbir_resize_extended_split(ptr noundef captures(non
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load i32, ptr %5, align 8, !tbaa !1020
+  %6 = load i32, ptr %5, align 8, !tbaa !1016
   %7 = icmp eq i32 %2, %6
   br i1 %7, label %8, label %10
 
@@ -31452,19 +31452,19 @@ define range(i32 0, 2) i32 @stbir_resize_extended_split(ptr noundef captures(non
 
 10:                                               ; preds = %3, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %12 = load ptr, ptr %11, align 8, !tbaa !1009
+  %12 = load ptr, ptr %11, align 8, !tbaa !1005
   %13 = icmp eq ptr %12, null
   br i1 %13, label %stbir__perform_resize.exit, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %16 = load i32, ptr %15, align 8, !tbaa !1005
+  %16 = load i32, ptr %15, align 8, !tbaa !1001
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %stbir__perform_resize.exit
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %19 = load i32, ptr %18, align 8, !tbaa !1020
+  %19 = load i32, ptr %18, align 8, !tbaa !1016
   %20 = icmp sge i32 %1, %19
   %21 = icmp slt i32 %1, 0
   %or.cond = or i1 %21, %20
@@ -31483,7 +31483,7 @@ define range(i32 0, 2) i32 @stbir_resize_extended_split(ptr noundef captures(non
   %29 = zext nneg i32 %1 to i64
   %30 = getelementptr inbounds nuw %struct.stbir__per_split_info, ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  %32 = load i32, ptr %31, align 8, !tbaa !973
+  %32 = load i32, ptr %31, align 8, !tbaa !971
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %34, label %33
 
@@ -31588,56 +31588,56 @@ stbir__check_output_stuff.exit:                   ; preds = %30, %28
   %.not15 = icmp eq ptr %.022, null
   %33 = select i1 %.not15, ptr %4, ptr %.022
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %34, align 8, !tbaa !983
+  store ptr %0, ptr %34, align 8, !tbaa !980
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %35, align 8, !tbaa !1006
+  store i32 %1, ptr %35, align 8, !tbaa !1002
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %2, ptr %36, align 4, !tbaa !1007
+  store i32 %2, ptr %36, align 4, !tbaa !1003
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i32 %3, ptr %37, align 8, !tbaa !984
+  store i32 %3, ptr %37, align 8, !tbaa !981
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr %33, ptr %38, align 8, !tbaa !987
+  store ptr %33, ptr %38, align 8, !tbaa !984
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %5, ptr %39, align 8, !tbaa !999
+  store i32 %5, ptr %39, align 8, !tbaa !995
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store i32 %6, ptr %40, align 4, !tbaa !1001
+  store i32 %6, ptr %40, align 4, !tbaa !997
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  store i32 %.021, ptr %41, align 4, !tbaa !985
+  store i32 %.021, ptr %41, align 4, !tbaa !982
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 116
-  store i32 0, ptr %42, align 4, !tbaa !1008
+  store i32 0, ptr %42, align 4, !tbaa !1004
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr null, ptr %43, align 8, !tbaa !988
+  store ptr null, ptr %43, align 8, !tbaa !985
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store ptr null, ptr %44, align 8, !tbaa !990
-  store ptr %10, ptr %10, align 8, !tbaa !989
+  store ptr null, ptr %44, align 8, !tbaa !987
+  store ptr %10, ptr %10, align 8, !tbaa !986
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 124
-  store i32 0, ptr %45, align 4, !tbaa !994
+  store i32 0, ptr %45, align 4, !tbaa !990
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 56, i1 false)
-  store double 1.000000e+00, ptr %48, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %48, align 8, !tbaa !991
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store double 1.000000e+00, ptr %49, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %49, align 8, !tbaa !992
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 0, ptr %50, align 8, !tbaa !997
+  store i32 0, ptr %50, align 8, !tbaa !993
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i32 0, ptr %51, align 4, !tbaa !998
+  store i32 0, ptr %51, align 4, !tbaa !994
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i32 %5, ptr %52, align 8, !tbaa !1000
+  store i32 %5, ptr %52, align 8, !tbaa !996
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 92
-  store i32 %6, ptr %53, align 4, !tbaa !1002
+  store i32 %6, ptr %53, align 4, !tbaa !998
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store i32 0, ptr %54, align 8, !tbaa !979
+  store i32 0, ptr %54, align 8, !tbaa !976
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 140
-  store i32 0, ptr %55, align 4, !tbaa !982
+  store i32 0, ptr %55, align 4, !tbaa !979
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i32 %8, ptr %56, align 8, !tbaa !1003
+  store i32 %8, ptr %56, align 8, !tbaa !999
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 132
-  store i32 %8, ptr %57, align 4, !tbaa !1004
+  store i32 %8, ptr %57, align 4, !tbaa !1000
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i32 1, ptr %58, align 8, !tbaa !1005
+  store i32 1, ptr %58, align 8, !tbaa !1001
   %59 = call i32 @stbir_resize_extended(ptr noundef nonnull %10)
   %.not16 = icmp ne i32 %59, 0
   %brmerge = or i1 %.not15, %.not16
@@ -31697,56 +31697,56 @@ stbir__check_output_stuff.exit:                   ; preds = %30, %28
   %.not15 = icmp eq ptr %.022, null
   %33 = select i1 %.not15, ptr %4, ptr %.022
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %34, align 8, !tbaa !983
+  store ptr %0, ptr %34, align 8, !tbaa !980
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %35, align 8, !tbaa !1006
+  store i32 %1, ptr %35, align 8, !tbaa !1002
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %2, ptr %36, align 4, !tbaa !1007
+  store i32 %2, ptr %36, align 4, !tbaa !1003
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i32 %3, ptr %37, align 8, !tbaa !984
+  store i32 %3, ptr %37, align 8, !tbaa !981
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr %33, ptr %38, align 8, !tbaa !987
+  store ptr %33, ptr %38, align 8, !tbaa !984
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %5, ptr %39, align 8, !tbaa !999
+  store i32 %5, ptr %39, align 8, !tbaa !995
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store i32 %6, ptr %40, align 4, !tbaa !1001
+  store i32 %6, ptr %40, align 4, !tbaa !997
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  store i32 %.021, ptr %41, align 4, !tbaa !985
+  store i32 %.021, ptr %41, align 4, !tbaa !982
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 116
-  store i32 0, ptr %42, align 4, !tbaa !1008
+  store i32 0, ptr %42, align 4, !tbaa !1004
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr null, ptr %43, align 8, !tbaa !988
+  store ptr null, ptr %43, align 8, !tbaa !985
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store ptr null, ptr %44, align 8, !tbaa !990
-  store ptr %10, ptr %10, align 8, !tbaa !989
+  store ptr null, ptr %44, align 8, !tbaa !987
+  store ptr %10, ptr %10, align 8, !tbaa !986
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 124
-  store i32 0, ptr %45, align 4, !tbaa !994
+  store i32 0, ptr %45, align 4, !tbaa !990
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 56, i1 false)
-  store double 1.000000e+00, ptr %48, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %48, align 8, !tbaa !991
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store double 1.000000e+00, ptr %49, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %49, align 8, !tbaa !992
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 0, ptr %50, align 8, !tbaa !997
+  store i32 0, ptr %50, align 8, !tbaa !993
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i32 0, ptr %51, align 4, !tbaa !998
+  store i32 0, ptr %51, align 4, !tbaa !994
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i32 %5, ptr %52, align 8, !tbaa !1000
+  store i32 %5, ptr %52, align 8, !tbaa !996
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 92
-  store i32 %6, ptr %53, align 4, !tbaa !1002
+  store i32 %6, ptr %53, align 4, !tbaa !998
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store i32 1, ptr %54, align 8, !tbaa !979
+  store i32 1, ptr %54, align 8, !tbaa !976
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 140
-  store i32 1, ptr %55, align 4, !tbaa !982
+  store i32 1, ptr %55, align 4, !tbaa !979
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i32 %8, ptr %56, align 8, !tbaa !1003
+  store i32 %8, ptr %56, align 8, !tbaa !999
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 132
-  store i32 %8, ptr %57, align 4, !tbaa !1004
+  store i32 %8, ptr %57, align 4, !tbaa !1000
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i32 1, ptr %58, align 8, !tbaa !1005
+  store i32 1, ptr %58, align 8, !tbaa !1001
   %59 = call i32 @stbir_resize_extended(ptr noundef nonnull %10)
   %.not16 = icmp ne i32 %59, 0
   %brmerge = or i1 %.not15, %.not16
@@ -31807,56 +31807,56 @@ stbir__check_output_stuff.exit:                   ; preds = %31, %29
   %.not15 = icmp eq ptr %.022, null
   %34 = select i1 %.not15, ptr %4, ptr %.022
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %35, align 8, !tbaa !983
+  store ptr %0, ptr %35, align 8, !tbaa !980
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %1, ptr %36, align 8, !tbaa !1006
+  store i32 %1, ptr %36, align 8, !tbaa !1002
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 %2, ptr %37, align 4, !tbaa !1007
+  store i32 %2, ptr %37, align 4, !tbaa !1003
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i32 %3, ptr %38, align 8, !tbaa !984
+  store i32 %3, ptr %38, align 8, !tbaa !981
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr %34, ptr %39, align 8, !tbaa !987
+  store ptr %34, ptr %39, align 8, !tbaa !984
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i32 %5, ptr %40, align 8, !tbaa !999
+  store i32 %5, ptr %40, align 8, !tbaa !995
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 76
-  store i32 %6, ptr %41, align 4, !tbaa !1001
+  store i32 %6, ptr %41, align 4, !tbaa !997
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  store i32 %.021, ptr %42, align 4, !tbaa !985
+  store i32 %.021, ptr %42, align 4, !tbaa !982
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 116
-  store i32 0, ptr %43, align 4, !tbaa !1008
+  store i32 0, ptr %43, align 4, !tbaa !1004
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr null, ptr %44, align 8, !tbaa !988
+  store ptr null, ptr %44, align 8, !tbaa !985
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store ptr null, ptr %45, align 8, !tbaa !990
-  store ptr %10, ptr %10, align 8, !tbaa !989
+  store ptr null, ptr %45, align 8, !tbaa !987
+  store ptr %10, ptr %10, align 8, !tbaa !986
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 124
-  store i32 0, ptr %46, align 4, !tbaa !994
+  store i32 0, ptr %46, align 4, !tbaa !990
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 56, i1 false)
-  store double 1.000000e+00, ptr %49, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %49, align 8, !tbaa !991
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store double 1.000000e+00, ptr %50, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %50, align 8, !tbaa !992
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 0, ptr %51, align 8, !tbaa !997
+  store i32 0, ptr %51, align 8, !tbaa !993
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i32 0, ptr %52, align 4, !tbaa !998
+  store i32 0, ptr %52, align 4, !tbaa !994
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i32 %5, ptr %53, align 8, !tbaa !1000
+  store i32 %5, ptr %53, align 8, !tbaa !996
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 92
-  store i32 %6, ptr %54, align 4, !tbaa !1002
+  store i32 %6, ptr %54, align 4, !tbaa !998
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  store i32 4, ptr %55, align 8, !tbaa !979
+  store i32 4, ptr %55, align 8, !tbaa !976
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 140
-  store i32 4, ptr %56, align 4, !tbaa !982
+  store i32 4, ptr %56, align 4, !tbaa !979
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i32 %8, ptr %57, align 8, !tbaa !1003
+  store i32 %8, ptr %57, align 8, !tbaa !999
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 132
-  store i32 %8, ptr %58, align 4, !tbaa !1004
+  store i32 %8, ptr %58, align 4, !tbaa !1000
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i32 1, ptr %59, align 8, !tbaa !1005
+  store i32 1, ptr %59, align 8, !tbaa !1001
   %60 = call i32 @stbir_resize_extended(ptr noundef nonnull %10)
   %.not16 = icmp ne i32 %60, 0
   %brmerge = or i1 %.not15, %.not16
@@ -31920,64 +31920,64 @@ stbir__check_output_stuff.exit:                   ; preds = %38, %36
   %.not22 = icmp eq ptr %.028, null
   %41 = select i1 %.not22, ptr %4, ptr %.028
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %0, ptr %42, align 8, !tbaa !983
+  store ptr %0, ptr %42, align 8, !tbaa !980
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 %1, ptr %43, align 8, !tbaa !1006
+  store i32 %1, ptr %43, align 8, !tbaa !1002
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i32 %2, ptr %44, align 4, !tbaa !1007
+  store i32 %2, ptr %44, align 4, !tbaa !1003
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store i32 %3, ptr %45, align 8, !tbaa !984
+  store i32 %3, ptr %45, align 8, !tbaa !981
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store ptr %41, ptr %46, align 8, !tbaa !987
+  store ptr %41, ptr %46, align 8, !tbaa !984
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i32 %5, ptr %47, align 8, !tbaa !999
+  store i32 %5, ptr %47, align 8, !tbaa !995
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 76
-  store i32 %6, ptr %48, align 4, !tbaa !1001
+  store i32 %6, ptr %48, align 4, !tbaa !997
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 108
-  store i32 %7, ptr %49, align 4, !tbaa !985
+  store i32 %7, ptr %49, align 4, !tbaa !982
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  store i32 0, ptr %50, align 4, !tbaa !1008
+  store i32 0, ptr %50, align 4, !tbaa !1004
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store ptr null, ptr %51, align 8, !tbaa !988
+  store ptr null, ptr %51, align 8, !tbaa !985
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store ptr null, ptr %52, align 8, !tbaa !990
-  store ptr %13, ptr %13, align 8, !tbaa !989
+  store ptr null, ptr %52, align 8, !tbaa !987
+  store ptr %13, ptr %13, align 8, !tbaa !986
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 124
-  store i32 0, ptr %53, align 4, !tbaa !994
+  store i32 0, ptr %53, align 4, !tbaa !990
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, i8 0, i64 40, i1 false)
-  store double 1.000000e+00, ptr %56, align 8, !tbaa !995
+  store double 1.000000e+00, ptr %56, align 8, !tbaa !991
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store double 1.000000e+00, ptr %58, align 8, !tbaa !996
+  store double 1.000000e+00, ptr %58, align 8, !tbaa !992
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i32 0, ptr %59, align 8, !tbaa !997
+  store i32 0, ptr %59, align 8, !tbaa !993
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 84
-  store i32 0, ptr %60, align 4, !tbaa !998
+  store i32 0, ptr %60, align 4, !tbaa !994
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  store i32 %5, ptr %61, align 8, !tbaa !1000
+  store i32 %5, ptr %61, align 8, !tbaa !996
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 92
-  store i32 %6, ptr %62, align 4, !tbaa !1002
+  store i32 %6, ptr %62, align 4, !tbaa !998
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  store i32 %9, ptr %63, align 8, !tbaa !979
+  store i32 %9, ptr %63, align 8, !tbaa !976
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 140
-  store i32 %9, ptr %64, align 4, !tbaa !982
+  store i32 %9, ptr %64, align 4, !tbaa !979
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  store i32 %8, ptr %65, align 8, !tbaa !1003
+  store i32 %8, ptr %65, align 8, !tbaa !999
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 132
-  store i32 %8, ptr %66, align 4, !tbaa !1004
+  store i32 %8, ptr %66, align 4, !tbaa !1000
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store i32 1, ptr %67, align 8, !tbaa !1005
+  store i32 1, ptr %67, align 8, !tbaa !1001
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  store i32 %10, ptr %68, align 8, !tbaa !1010
+  store i32 %10, ptr %68, align 8, !tbaa !1006
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 156
-  store i32 %10, ptr %69, align 4, !tbaa !1011
-  store i32 %11, ptr %54, align 8, !tbaa !1012
+  store i32 %10, ptr %69, align 4, !tbaa !1007
+  store i32 %11, ptr %54, align 8, !tbaa !1008
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 148
-  store i32 %11, ptr %70, align 4, !tbaa !1013
+  store i32 %11, ptr %70, align 4, !tbaa !1009
   %71 = call i32 @stbir_resize_extended(ptr noundef nonnull %13)
   %.not23 = icmp ne i32 %71, 0
   %brmerge = or i1 %.not22, %.not23
@@ -33036,56 +33036,52 @@ attributes #25 = { nounwind allocsize(0) }
 !965 = !{!446, !19, i64 468}
 !966 = !{!446, !19, i64 472}
 !967 = !{!446, !19, i64 476}
-!968 = distinct !{!968, !8, !969}
-!969 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!970 = distinct !{!970, !8}
-!971 = !{!446, !19, i64 188}
-!972 = !{!446, !19, i64 276}
-!973 = !{!446, !19, i64 280}
+!968 = distinct !{!968, !8}
+!969 = !{!446, !19, i64 188}
+!970 = !{!446, !19, i64 276}
+!971 = !{!446, !19, i64 280}
+!972 = distinct !{!972, !8}
+!973 = distinct !{!973, !8}
 !974 = distinct !{!974, !8}
-!975 = distinct !{!975, !8, !969}
-!976 = distinct !{!976, !8}
-!977 = distinct !{!977, !8, !969}
-!978 = distinct !{!978, !8, !969}
-!979 = !{!980, !19, i64 136}
-!980 = !{!"STBIR_RESIZE", !23, i64 0, !23, i64 8, !19, i64 16, !19, i64 20, !954, i64 24, !954, i64 32, !954, i64 40, !954, i64 48, !23, i64 56, !23, i64 64, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84, !19, i64 88, !19, i64 92, !23, i64 96, !19, i64 104, !19, i64 108, !19, i64 112, !19, i64 116, !19, i64 120, !19, i64 124, !19, i64 128, !19, i64 132, !19, i64 136, !19, i64 140, !19, i64 144, !19, i64 148, !19, i64 152, !19, i64 156, !23, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !981, i64 192}
-!981 = !{!"p1 _ZTS11stbir__info", !23, i64 0}
-!982 = !{!980, !19, i64 140}
-!983 = !{!980, !23, i64 8}
-!984 = !{!980, !19, i64 104}
-!985 = !{!980, !19, i64 108}
-!986 = !{!446, !19, i64 220}
-!987 = !{!980, !23, i64 64}
-!988 = !{!980, !23, i64 56}
-!989 = !{!980, !23, i64 0}
-!990 = !{!980, !23, i64 96}
-!991 = !{!446, !19, i64 340}
-!992 = !{!954, !954, i64 0}
-!993 = distinct !{!993, !969}
-!994 = !{!980, !19, i64 124}
-!995 = !{!980, !954, i64 40}
-!996 = !{!980, !954, i64 48}
-!997 = !{!980, !19, i64 80}
-!998 = !{!980, !19, i64 84}
-!999 = !{!980, !19, i64 72}
-!1000 = !{!980, !19, i64 88}
-!1001 = !{!980, !19, i64 76}
-!1002 = !{!980, !19, i64 92}
-!1003 = !{!980, !19, i64 128}
-!1004 = !{!980, !19, i64 132}
-!1005 = !{!980, !19, i64 120}
-!1006 = !{!980, !19, i64 16}
-!1007 = !{!980, !19, i64 20}
-!1008 = !{!980, !19, i64 116}
-!1009 = !{!980, !981, i64 192}
-!1010 = !{!980, !19, i64 152}
-!1011 = !{!980, !19, i64 156}
-!1012 = !{!980, !19, i64 144}
-!1013 = !{!980, !19, i64 148}
-!1014 = !{!980, !23, i64 160}
-!1015 = !{!980, !23, i64 168}
-!1016 = !{!980, !23, i64 176}
-!1017 = !{!980, !23, i64 184}
-!1018 = !{!980, !954, i64 24}
-!1019 = !{!980, !954, i64 32}
-!1020 = !{!980, !19, i64 112}
+!975 = distinct !{!975, !8}
+!976 = !{!977, !19, i64 136}
+!977 = !{!"STBIR_RESIZE", !23, i64 0, !23, i64 8, !19, i64 16, !19, i64 20, !954, i64 24, !954, i64 32, !954, i64 40, !954, i64 48, !23, i64 56, !23, i64 64, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84, !19, i64 88, !19, i64 92, !23, i64 96, !19, i64 104, !19, i64 108, !19, i64 112, !19, i64 116, !19, i64 120, !19, i64 124, !19, i64 128, !19, i64 132, !19, i64 136, !19, i64 140, !19, i64 144, !19, i64 148, !19, i64 152, !19, i64 156, !23, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !978, i64 192}
+!978 = !{!"p1 _ZTS11stbir__info", !23, i64 0}
+!979 = !{!977, !19, i64 140}
+!980 = !{!977, !23, i64 8}
+!981 = !{!977, !19, i64 104}
+!982 = !{!977, !19, i64 108}
+!983 = !{!446, !19, i64 220}
+!984 = !{!977, !23, i64 64}
+!985 = !{!977, !23, i64 56}
+!986 = !{!977, !23, i64 0}
+!987 = !{!977, !23, i64 96}
+!988 = !{!446, !19, i64 340}
+!989 = !{!954, !954, i64 0}
+!990 = !{!977, !19, i64 124}
+!991 = !{!977, !954, i64 40}
+!992 = !{!977, !954, i64 48}
+!993 = !{!977, !19, i64 80}
+!994 = !{!977, !19, i64 84}
+!995 = !{!977, !19, i64 72}
+!996 = !{!977, !19, i64 88}
+!997 = !{!977, !19, i64 76}
+!998 = !{!977, !19, i64 92}
+!999 = !{!977, !19, i64 128}
+!1000 = !{!977, !19, i64 132}
+!1001 = !{!977, !19, i64 120}
+!1002 = !{!977, !19, i64 16}
+!1003 = !{!977, !19, i64 20}
+!1004 = !{!977, !19, i64 116}
+!1005 = !{!977, !978, i64 192}
+!1006 = !{!977, !19, i64 152}
+!1007 = !{!977, !19, i64 156}
+!1008 = !{!977, !19, i64 144}
+!1009 = !{!977, !19, i64 148}
+!1010 = !{!977, !23, i64 160}
+!1011 = !{!977, !23, i64 168}
+!1012 = !{!977, !23, i64 176}
+!1013 = !{!977, !23, i64 184}
+!1014 = !{!977, !954, i64 24}
+!1015 = !{!977, !954, i64 32}
+!1016 = !{!977, !19, i64 112}

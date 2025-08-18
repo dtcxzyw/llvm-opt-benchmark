@@ -371,7 +371,7 @@ define internal i32 @dissect_nflog(ptr noundef %0, ptr noundef %1, ptr noundef %
   %139 = add i32 %138, %.0135169
   %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %139)
   %141 = icmp sgt i32 %140, 3
-  br i1 %141, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %141, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.thread.thread187, %43
   %.0140.lcssa = phi ptr [ %.2142.us, %43 ], [ %.2142, %.thread.thread187 ]
@@ -513,7 +513,5 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}

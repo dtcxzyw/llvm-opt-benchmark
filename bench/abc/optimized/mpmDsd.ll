@@ -1687,7 +1687,7 @@ Vec_WrdPush.exit.us:                              ; preds = %Vec_WrdGrow.exit.i.
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 6960
   %185 = call ptr @Mpm_ManBuildHashTable(ptr noundef nonnull %184)
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 6952
-  store ptr %185, ptr %186, align 8, !tbaa !80
+  store ptr %185, ptr %186, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %187 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #22
   %188 = icmp slt i32 %187, 0
@@ -1769,7 +1769,7 @@ define i64 @Mpm_CutTruthFromDsd(ptr noundef readonly captures(none) %0, ptr noun
   %.1 = phi i64 [ %27, %17 ], [ %.011, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %28, %3
   %.0.lcssa = phi i64 [ %8, %3 ], [ %.1, %28 ]
@@ -1785,7 +1785,7 @@ define i32 @Mpm_CutCheckDsd6(ptr noundef readonly captures(none) %0, i64 noundef
   %spec.select = xor i64 %1, %5
   store i64 %spec.select, ptr %3, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6952
-  %7 = load ptr, ptr %6, align 8, !tbaa !80
+  %7 = load ptr, ptr %6, align 8, !tbaa !79
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = load i32, ptr %7, align 8, !tbaa !48
@@ -1878,7 +1878,7 @@ Hsh_IntObj.exit.i:                                ; preds = %.lr.ph.i
 Hsh_IntManLookup.exit:                            ; preds = %Hsh_IntObj.exit.i, %Hsh_IntObj.exit.lr.ph.split.i, %Hsh_IntObj.exit.lr.ph.i
   %.pr = phi i32 [ %29, %Hsh_IntObj.exit.lr.ph.i ], [ %29, %Hsh_IntObj.exit.lr.ph.split.i ], [ %47, %Hsh_IntObj.exit.i ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 6960
-  %56 = load ptr, ptr %55, align 8, !tbaa !82
+  %56 = load ptr, ptr %55, align 8, !tbaa !81
   %57 = getelementptr i8, ptr %56, i64 8
   %.val = load ptr, ptr %57, align 8, !tbaa !47
   %58 = sext i32 %.pr to i64
@@ -1962,7 +1962,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %.2137 = phi i64 [ %55, %47 ], [ %.1136165, %.preheader156 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, 6
-  br i1 %exitcond181.not, label %.loopexit, label %.preheader156, !llvm.loop !83
+  br i1 %exitcond181.not, label %.loopexit, label %.preheader156, !llvm.loop !82
 
 .loopexit:                                        ; preds = %56, %20
   %.0135 = phi i64 [ %41, %20 ], [ %.2137, %56 ]
@@ -2058,7 +2058,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %.2125 = phi i64 [ %120, %112 ], [ %.1124162, %.preheader159 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit160, label %.preheader159, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit160, label %.preheader159, !llvm.loop !83
 
 .loopexit160:                                     ; preds = %121, %71
   %.0123 = phi i64 [ %101, %71 ], [ %.2125, %121 ]
@@ -2091,7 +2091,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %.2 = phi i64 [ %135, %127 ], [ %.1164, %.preheader157 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 6
-  br i1 %exitcond177.not, label %.loopexit158, label %.preheader157, !llvm.loop !85
+  br i1 %exitcond177.not, label %.loopexit158, label %.preheader157, !llvm.loop !84
 
 .loopexit158:                                     ; preds = %136, %.loopexit160
   %.0 = phi i64 [ %106, %.loopexit160 ], [ %.2, %136 ]
@@ -2141,15 +2141,15 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !21
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 56
-  %172 = load i32, ptr %171, align 8, !tbaa !86
+  %172 = load i32, ptr %171, align 8, !tbaa !85
   %.not147 = icmp eq i32 %172, 0
   br i1 %.not147, label %184, label %173
 
 173:                                              ; preds = %164
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 11328
-  %175 = load ptr, ptr %174, align 8, !tbaa !87
+  %175 = load ptr, ptr %174, align 8, !tbaa !86
   %176 = getelementptr i8, ptr %175, i64 8
-  %.val155 = load ptr, ptr %176, align 8, !tbaa !88
+  %.val155 = load ptr, ptr %176, align 8, !tbaa !87
   %177 = sext i32 %165 to i64
   %178 = getelementptr %struct.Vec_Int_t_, ptr %.val155, i64 %177, i32 1
   %.val = load i32, ptr %178, align 4, !tbaa !45
@@ -2200,14 +2200,14 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   store i32 %203, ptr %207, align 4, !tbaa !20
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count
-  br i1 %exitcond185.not, label %._crit_edge, label %197, !llvm.loop !90
+  br i1 %exitcond185.not, label %._crit_edge, label %197, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %197, %184
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 6944
   %209 = load ptr, ptr %208, align 8, !tbaa !39
   %210 = sext i32 %165 to i64
   %211 = getelementptr inbounds %struct.Mpm_Dsd_t_, ptr %209, i64 %210
-  %212 = load i32, ptr %211, align 8, !tbaa !91
+  %212 = load i32, ptr %211, align 8, !tbaa !90
   %213 = shl i32 %212, 27
   %214 = and i32 %190, 134217727
   %215 = or disjoint i32 %213, %214
@@ -2234,9 +2234,9 @@ define range(i32 0, 2) i32 @Mpm_CutComputeDsd6(ptr noundef captures(none) %0, pt
   %226 = icmp ult i32 %225, 268435456
   %227 = zext i1 %226 to i32
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 13896
-  %229 = load i32, ptr %228, align 8, !tbaa !92
+  %229 = load i32, ptr %228, align 8, !tbaa !91
   %230 = add nsw i32 %229, %227
-  store i32 %230, ptr %228, align 8, !tbaa !92
+  store i32 %230, ptr %228, align 8, !tbaa !91
   br label %231
 
 231:                                              ; preds = %._crit_edge170, %180, %160
@@ -2277,7 +2277,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #14 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #22
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !93
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !92
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #22
@@ -2285,7 +2285,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #14 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !93, !noalias !95
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !92, !noalias !94
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #22
   br label %17
 
@@ -2434,23 +2434,22 @@ attributes #24 = { nounwind willreturn memory(read) }
 !75 = distinct !{!75, !19}
 !76 = !{!22, !33, i64 6968}
 !77 = distinct !{!77, !19}
-!78 = distinct !{!78, !19, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = !{!22, !31, i64 6952}
-!81 = distinct !{!81, !19}
-!82 = !{!22, !32, i64 6960}
+!78 = distinct !{!78, !19}
+!79 = !{!22, !31, i64 6952}
+!80 = distinct !{!80, !19}
+!81 = !{!22, !32, i64 6960}
+!82 = distinct !{!82, !19}
 !83 = distinct !{!83, !19}
 !84 = distinct !{!84, !19}
-!85 = distinct !{!85, !19}
-!86 = !{!38, !5, i64 56}
-!87 = !{!22, !34, i64 11328}
-!88 = !{!89, !32, i64 8}
-!89 = !{!"Vec_Wec_t_", !5, i64 0, !5, i64 4, !32, i64 8}
-!90 = distinct !{!90, !19}
-!91 = !{!13, !5, i64 0}
-!92 = !{!22, !5, i64 13896}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"vprintf: argument 0"}
-!97 = distinct !{!97, !"vprintf"}
+!85 = !{!38, !5, i64 56}
+!86 = !{!22, !34, i64 11328}
+!87 = !{!88, !32, i64 8}
+!88 = !{!"Vec_Wec_t_", !5, i64 0, !5, i64 4, !32, i64 8}
+!89 = distinct !{!89, !19}
+!90 = !{!13, !5, i64 0}
+!91 = !{!22, !5, i64 13896}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"vprintf: argument 0"}
+!96 = distinct !{!96, !"vprintf"}

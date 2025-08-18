@@ -749,7 +749,7 @@ be_underlying_writebuf_full.exit65.us.us:         ; preds = %80
   %100 = load ptr, ptr %28, align 8
   %101 = tail call i32 %95(ptr noundef %96, ptr noundef %99, i64 noundef -1, i32 noundef %1, ptr noundef %100) #3
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.lr.ph, label %.critedge.thread, !llvm.loop !6
+  br i1 %102, label %.lr.ph, label %.critedge.thread, !llvm.loop !3
 
 .lr.ph:                                           ; preds = %.split, %94
   store i32 1, ptr %2, align 4
@@ -789,7 +789,7 @@ be_underlying_writebuf_full.exit67.thread:        ; preds = %112
   %115 = load ptr, ptr %20, align 8
   %116 = tail call i64 @evbuffer_get_length(ptr noundef %115) #3
   %.not54 = icmp eq i64 %116, 0
-  br i1 %.not54, label %.critedge61, label %.split, !llvm.loop !7
+  br i1 %.not54, label %.critedge61, label %.split, !llvm.loop !5
 
 .critedge61:                                      ; preds = %.split, %bufferevent_trigger_nolock_.exit, %112, %be_underlying_writebuf_full.exit67.thread, %bufferevent_trigger_nolock_.exit.us, %44, %47, %be_underlying_writebuf_full.exit67.us, %.critedge.split.us.us
   %117 = phi ptr [ %32, %.critedge.split.us.us ], [ %32, %be_underlying_writebuf_full.exit67.us ], [ %32, %47 ], [ %32, %44 ], [ %32, %bufferevent_trigger_nolock_.exit.us ], [ %22, %be_underlying_writebuf_full.exit67.thread ], [ %22, %112 ], [ %22, %bufferevent_trigger_nolock_.exit ], [ %22, %.split ]
@@ -873,7 +873,7 @@ define internal fastcc void @be_filter_read_nolock_(ptr noundef readonly capture
   %28 = load ptr, ptr %13, align 8
   %29 = tail call i32 %23(ptr noundef %26, ptr noundef %27, i64 noundef -1, i32 noundef 2, ptr noundef %28) #3
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !8
+  br i1 %30, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.split13, %22
   %31 = load i16, ptr %14, align 8
@@ -1039,7 +1039,7 @@ be_readbuf_full.exit.thread.split.us:             ; preds = %be_readbuf_full.exi
 
 be_readbuf_full.exit.thread.split.us.backedge:    ; preds = %44, %be_readbuf_full.exit41.us
   %.be = phi i64 [ 0, %44 ], [ %48, %be_readbuf_full.exit41.us ]
-  br label %be_readbuf_full.exit.thread.split.us, !llvm.loop !9
+  br label %be_readbuf_full.exit.thread.split.us, !llvm.loop !6
 
 be_readbuf_full.exit41.us:                        ; preds = %44
   %46 = load ptr, ptr %17, align 8
@@ -1073,7 +1073,7 @@ be_readbuf_full.exit.thread.split:                ; preds = %3
   %68 = load ptr, ptr %52, align 8
   %69 = tail call i32 %63(ptr noundef %66, ptr noundef %67, i64 noundef -1, i32 noundef %1, ptr noundef %68) #3
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %70, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %be_readbuf_full.exit.thread.split, %62
   store i32 1, ptr %2, align 4
@@ -1136,10 +1136,7 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = distinct !{!5, !4}
 !6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4, !5}

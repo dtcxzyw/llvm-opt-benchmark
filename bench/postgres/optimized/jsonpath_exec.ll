@@ -2816,7 +2816,7 @@ select.unfold.us:                                 ; preds = %executeNextItem.exi
 select.unfold:                                    ; preds = %.lr.ph.split.split
   %330 = add i32 %.0638862, 1
   %.not669 = icmp sgt i32 %330, %spec.store.select865
-  br i1 %.not669, label %.thread711.thread845.thread, label %.lr.ph.split.split, !llvm.loop !13
+  br i1 %.not669, label %.thread711.thread845.thread, label %.lr.ph.split.split, !llvm.loop !11
 
 .thread711:                                       ; preds = %select.unfold.us
   %331 = icmp eq i32 %.8581.ph.us, 2
@@ -2845,7 +2845,7 @@ select.unfold:                                    ; preds = %.lr.ph.split.split
   %333 = add nuw i32 %.0630922, 1
   %334 = load i32, ptr %262, align 8
   %335 = icmp slt i32 %333, %334
-  br i1 %335, label %.lr.ph923, label %.thread728, !llvm.loop !14
+  br i1 %335, label %.lr.ph923, label %.thread728, !llvm.loop !12
 
 .thread728:                                       ; preds = %.thread711.thread845.thread, %JsonbArraySize.exit, %.thread717
   %.3576 = phi i32 [ %.4577.ph, %.thread717 ], [ 1, %JsonbArraySize.exit ], [ %.7580847890, %.thread711.thread845.thread ]
@@ -3393,12 +3393,12 @@ executeItemUnwrapTargetArray.exit.split.us:       ; preds = %executeItemUnwrapTa
   %.057.i.us = phi i32 [ %609, %608 ], [ %607, %executeItemUnwrapTargetArray.exit.split.us ]
   %611 = and i32 %.057.i.us, -2
   %or.cond.i697.us = icmp eq i32 %611, 2
-  br i1 %or.cond.i697.us, label %612, label %executeItemUnwrapTargetArray.exit.split.us, !llvm.loop !15
+  br i1 %or.cond.i697.us, label %612, label %executeItemUnwrapTargetArray.exit.split.us, !llvm.loop !13
 
 612:                                              ; preds = %610
   %613 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %3, i1 noundef zeroext false)
   %614 = icmp eq i32 %613, 2
-  br i1 %614, label %executeAnyItem.exit, label %executeItemUnwrapTargetArray.exit.split.us.outer, !llvm.loop !15
+  br i1 %614, label %executeAnyItem.exit, label %executeItemUnwrapTargetArray.exit.split.us.outer, !llvm.loop !13
 
 executeItemUnwrapTargetArray.exit.split.us.outer: ; preds = %executeItemUnwrapTargetArray.exit, %612
   %.058.i.us.ph = phi i32 [ %613, %612 ], [ 1, %executeItemUnwrapTargetArray.exit ]
@@ -3419,14 +3419,14 @@ executeItemUnwrapTargetArray.exit.split:          ; preds = %executeItemUnwrapTa
   %.057.i = phi i32 [ %617, %616 ], [ %615, %executeItemUnwrapTargetArray.exit.split ]
   %619 = and i32 %.057.i, -2
   %or.cond.i697 = icmp eq i32 %619, 2
-  br i1 %or.cond.i697, label %620, label %executeItemUnwrapTargetArray.exit.split, !llvm.loop !16
+  br i1 %or.cond.i697, label %620, label %executeItemUnwrapTargetArray.exit.split, !llvm.loop !13
 
 620:                                              ; preds = %618
   %621 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef null, i1 noundef zeroext false)
   switch i32 %621, label %executeItemUnwrapTargetArray.exit.split.outer [
     i32 2, label %executeAnyItem.exit
     i32 0, label %executeAnyItem.exit
-  ], !llvm.loop !16
+  ], !llvm.loop !13
 
 executeItemUnwrapTargetArray.exit.split.outer:    ; preds = %executeItemUnwrapTargetArray.exit, %620
   %.058.i.ph = phi i32 [ %621, %620 ], [ 1, %executeItemUnwrapTargetArray.exit ]
@@ -3577,7 +3577,7 @@ JsonbType.exit.thread767:                         ; preds = %590, %589
 685:                                              ; preds = %695
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond, label %.critedge851, label %686, !llvm.loop !17
+  br i1 %exitcond, label %.critedge851, label %686, !llvm.loop !14
 
 686:                                              ; preds = %.thread770, %685
   %indvars.iv = phi i64 [ 0, %.thread770 ], [ %indvars.iv.next, %685 ]
@@ -5247,7 +5247,7 @@ JsonValueListInitIterator.exit109:                ; preds = %58, %55, %53
 .loopexit:                                        ; preds = %JsonValueListNext.exit.us, %81, %.lr.ph.split, %JsonValueListNext.exit95
   %.143.i.lcssa = phi i8 [ %.042.i, %JsonValueListNext.exit95 ], [ 1, %.lr.ph.split ], [ %.042.i, %81 ], [ %.345.i.us, %JsonValueListNext.exit.us ]
   %.138.i.lcssa = phi i1 [ %.037.i, %JsonValueListNext.exit95 ], [ %.037.i, %.lr.ph.split ], [ %.037.i, %81 ], [ %.340.i.us, %JsonValueListNext.exit.us ]
-  br label %73, !llvm.loop !18
+  br label %73, !llvm.loop !15
 
 73:                                               ; preds = %.loopexit, %JsonValueListInitIterator.exit109
   %.sroa.0136.0 = phi ptr [ %.sroa.0136.2, %JsonValueListInitIterator.exit109 ], [ %.sroa.0136.1, %.loopexit ]
@@ -5371,7 +5371,7 @@ JsonValueListNext.exit.us:                        ; preds = %110, %executeStarts
   %.sroa.0.2.us = phi ptr [ %111, %110 ], [ null, %executeStartsWith.exit.thread157.us ]
   %.sroa.15.2.us = phi ptr [ %..i.i.us, %110 ], [ null, %executeStartsWith.exit.thread157.us ]
   %.not52.i.us = icmp eq ptr %.sroa.0.1192.us, null
-  br i1 %.not52.i.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not52.i.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %116 = load i8, ptr %72, align 8, !range !6, !noundef !7
@@ -5487,7 +5487,7 @@ JsonValueListInitIterator.exit119.preheader:      ; preds = %JsonValueListNext.e
 JsonValueListInitIterator.exit119.preheader.split.us: ; preds = %JsonValueListInitIterator.exit119.preheader
   %157 = load i8, ptr %142, align 8, !range !6, !noundef !7
   %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %.loopexit178.outer, label %executePredicate.exit87, !llvm.loop !18
+  br i1 %158, label %.loopexit178.outer, label %executePredicate.exit87, !llvm.loop !15
 
 JsonValueListInitIterator.exit119.preheader.split: ; preds = %JsonValueListInitIterator.exit119.preheader
   %159 = load ptr, ptr %10, align 8
@@ -5510,12 +5510,12 @@ executeLikeRegex.exit:                            ; preds = %JsonValueListInitIt
   %168 = load i32, ptr %153, align 8
   %169 = load i32, ptr %146, align 8
   %170 = call zeroext i1 @RE_compile_and_execute(ptr noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef %169, i32 noundef 100, i32 noundef 0, ptr noundef null) #11
-  br i1 %170, label %171, label %.loopexit178, !llvm.loop !18
+  br i1 %170, label %171, label %.loopexit178, !llvm.loop !15
 
 171:                                              ; preds = %executeLikeRegex.exit
   %172 = load i8, ptr %142, align 8, !range !6, !noundef !7
   %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %executePredicate.exit87, label %.loopexit178.outer243, !llvm.loop !18
+  br i1 %173, label %executePredicate.exit87, label %.loopexit178.outer243, !llvm.loop !15
 
 174:                                              ; preds = %JsonValueListNext.exit124
   %spec.select268 = select i1 %.037.i65.ph246, i32 1, i32 %.042.i64.ph
@@ -5807,10 +5807,22 @@ JsonValueListInitIterator.exit:                   ; preds = %16, %13, %10
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not21.i = icmp eq ptr %4, null
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %or.cond3, label %.outer.split.us.us.outer, label %.outer.split
+  br i1 %or.cond3, label %.outer.us.us.outer, label %.outer.split
 
-28:                                               ; preds = %.split.us69
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.us, i64 8
+.outer.us.us.outer:                               ; preds = %JsonValueListInitIterator.exit, %.outer.us.us.outer.backedge
+  %.sroa.0.0.ph.us.us.ph = phi ptr [ %.sroa.0.2.us.us.us, %.outer.us.us.outer.backedge ], [ %.sroa.0.1, %JsonValueListInitIterator.exit ]
+  %.sroa.11.0.ph.us.us.ph = phi ptr [ %.sroa.11.2.us.us.us, %.outer.us.us.outer.backedge ], [ %.sroa.11.1, %JsonValueListInitIterator.exit ]
+  %.029.ph.us.us.ph = phi i32 [ 0, %.outer.us.us.outer.backedge ], [ 1, %JsonValueListInitIterator.exit ]
+  br label %.outer.us.us
+
+.outer.us.us:                                     ; preds = %.outer.us.us.outer, %executeNextItem.exit.us.us
+  %.sroa.0.0.ph.us.us = phi ptr [ %.sroa.0.2.us.us.us, %executeNextItem.exit.us.us ], [ %.sroa.0.0.ph.us.us.ph, %.outer.us.us.outer ]
+  %.sroa.11.0.ph.us.us = phi ptr [ %.sroa.11.2.us.us.us, %executeNextItem.exit.us.us ], [ %.sroa.11.0.ph.us.us.ph, %.outer.us.us.outer ]
+  %.not.i38.us.us.us = icmp eq ptr %.sroa.11.0.ph.us.us, null
+  br i1 %.not.i38.us.us.us, label %JsonValueListNext.exit.us.us.us, label %49
+
+28:                                               ; preds = %.split.us.us.us
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.us.us, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull %3, i32 noundef 0, i64 noundef %31) #11
@@ -5819,88 +5831,76 @@ JsonValueListInitIterator.exit:                   ; preds = %16, %13, %10
   store ptr %34, ptr %29, align 8
   br label %35
 
-35:                                               ; preds = %28, %.split.us69
+35:                                               ; preds = %.split.us.us.us, %28
   %36 = load i32, ptr %26, align 4
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %executeNextItem.exit.us, label %38
+  br i1 %37, label %executeNextItem.exit.us.us, label %38
 
 38:                                               ; preds = %35
   br i1 %.not21.i, label %executeNextItem.exit.thread.thread44, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %4, align 8
-  %.not.i41.us = icmp eq ptr %40, null
-  br i1 %.not.i41.us, label %43, label %41
+  %.not.i41.us.us = icmp eq ptr %40, null
+  br i1 %.not.i41.us.us, label %43, label %41
 
 41:                                               ; preds = %39
-  %42 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %40, ptr nonnull %.sroa.0.0.ph.us) #11
+  %42 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %40, ptr nonnull %.sroa.0.0.ph.us.us) #11
   store ptr %42, ptr %27, align 8
   store ptr null, ptr %4, align 8
-  br label %.outer.split.us.us.outer.backedge
+  br label %.outer.us.us.outer.backedge
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %27, align 8
-  %.not13.i.us = icmp eq ptr %44, null
-  br i1 %.not13.i.us, label %47, label %45
+  %.not13.i.us.us = icmp eq ptr %44, null
+  br i1 %.not13.i.us.us, label %47, label %45
 
 45:                                               ; preds = %43
-  %46 = call ptr @lappend(ptr noundef nonnull %44, ptr noundef nonnull %.sroa.0.0.ph.us) #11
+  %46 = call ptr @lappend(ptr noundef nonnull %44, ptr noundef nonnull %.sroa.0.0.ph.us.us) #11
   store ptr %46, ptr %27, align 8
-  br label %.outer.split.us.us.outer.backedge
+  br label %.outer.us.us.outer.backedge
 
 47:                                               ; preds = %43
-  store ptr %.sroa.0.0.ph.us, ptr %4, align 8
-  br label %.outer.split.us.us.outer.backedge
+  store ptr %.sroa.0.0.ph.us.us, ptr %4, align 8
+  br label %.outer.us.us.outer.backedge
 
-executeNextItem.exit.us:                          ; preds = %35
-  %48 = call fastcc i32 @executeItem(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %.sroa.0.0.ph.us, ptr noundef %4)
-  switch i32 %48, label %.outer.split.us.us [
+executeNextItem.exit.us.us:                       ; preds = %35
+  %48 = call fastcc i32 @executeItem(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %.sroa.0.0.ph.us.us, ptr noundef %4)
+  switch i32 %48, label %.outer.us.us [
     i32 2, label %executeNextItem.exit.thread.thread44
-    i32 0, label %executeNextItem.exit.thread.us
-  ], !llvm.loop !20
+    i32 0, label %executeNextItem.exit.thread.us.us
+  ], !llvm.loop !17
 
-executeNextItem.exit.thread.us:                   ; preds = %executeNextItem.exit.us
-  br i1 %25, label %.outer.split.us.us.outer.backedge, label %executeNextItem.exit.thread.thread44
+executeNextItem.exit.thread.us.us:                ; preds = %executeNextItem.exit.us.us
+  br i1 %25, label %.outer.us.us.outer.backedge, label %executeNextItem.exit.thread.thread44
 
-.outer.split.us.us.outer.backedge:                ; preds = %executeNextItem.exit.thread.us, %47, %45, %41
-  br label %.outer.split.us.us.outer, !llvm.loop !20
+.outer.us.us.outer.backedge:                      ; preds = %executeNextItem.exit.thread.us.us, %47, %45, %41
+  br label %.outer.us.us.outer, !llvm.loop !17
 
-.outer.split.us.us.outer:                         ; preds = %JsonValueListInitIterator.exit, %.outer.split.us.us.outer.backedge
-  %.sroa.0.0.ph.us.ph = phi ptr [ %.sroa.0.2.us.us, %.outer.split.us.us.outer.backedge ], [ %.sroa.0.1, %JsonValueListInitIterator.exit ]
-  %.sroa.11.0.ph.us.ph = phi ptr [ %.sroa.11.2.us.us, %.outer.split.us.us.outer.backedge ], [ %.sroa.11.1, %JsonValueListInitIterator.exit ]
-  %.029.ph.us.ph = phi i32 [ 0, %.outer.split.us.us.outer.backedge ], [ 1, %JsonValueListInitIterator.exit ]
-  br label %.outer.split.us.us
-
-.split.us69:                                      ; preds = %55
-  br i1 %.not37, label %35, label %28
-
-.outer.split.us.us:                               ; preds = %.outer.split.us.us.outer, %executeNextItem.exit.us
-  %.sroa.0.0.ph.us = phi ptr [ %.sroa.0.2.us.us, %executeNextItem.exit.us ], [ %.sroa.0.0.ph.us.ph, %.outer.split.us.us.outer ]
-  %.sroa.11.0.ph.us = phi ptr [ %.sroa.11.2.us.us, %executeNextItem.exit.us ], [ %.sroa.11.0.ph.us.ph, %.outer.split.us.us.outer ]
-  %.not.i38.us.us = icmp eq ptr %.sroa.11.0.ph.us, null
-  br i1 %.not.i38.us.us, label %JsonValueListNext.exit.us.us, label %49
-
-49:                                               ; preds = %.outer.split.us.us
-  %50 = load ptr, ptr %.sroa.11.0.ph.us, align 8
-  %.val.i39.us.us = load i32, ptr %23, align 4
-  %.val9.i.us.us = load ptr, ptr %24, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.11.0.ph.us, i64 8
-  %52 = sext i32 %.val.i39.us.us to i64
-  %53 = getelementptr inbounds %union.ListCell, ptr %.val9.i.us.us, i64 %52
+49:                                               ; preds = %.outer.us.us
+  %50 = load ptr, ptr %.sroa.11.0.ph.us.us, align 8
+  %.val.i39.us.us.us = load i32, ptr %23, align 4
+  %.val9.i.us.us.us = load ptr, ptr %24, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.11.0.ph.us.us, i64 8
+  %52 = sext i32 %.val.i39.us.us.us to i64
+  %53 = getelementptr inbounds %union.ListCell, ptr %.val9.i.us.us.us, i64 %52
   %54 = icmp ult ptr %51, %53
-  %..i.i.us.us = select i1 %54, ptr %51, ptr null
-  br label %JsonValueListNext.exit.us.us
+  %..i.i.us.us.us = select i1 %54, ptr %51, ptr null
+  br label %JsonValueListNext.exit.us.us.us
 
-JsonValueListNext.exit.us.us:                     ; preds = %49, %.outer.split.us.us
-  %.sroa.0.2.us.us = phi ptr [ %50, %49 ], [ null, %.outer.split.us.us ]
-  %.sroa.11.2.us.us = phi ptr [ %..i.i.us.us, %49 ], [ null, %.outer.split.us.us ]
-  %.not.us.us = icmp eq ptr %.sroa.0.0.ph.us, null
-  br i1 %.not.us.us, label %executeNextItem.exit.thread.thread44, label %55
+JsonValueListNext.exit.us.us.us:                  ; preds = %49, %.outer.us.us
+  %.sroa.0.2.us.us.us = phi ptr [ %50, %49 ], [ null, %.outer.us.us ]
+  %.sroa.11.2.us.us.us = phi ptr [ %..i.i.us.us.us, %49 ], [ null, %.outer.us.us ]
+  %.not.us.us.us = icmp eq ptr %.sroa.0.0.ph.us.us, null
+  br i1 %.not.us.us.us, label %executeNextItem.exit.thread.thread44, label %55
 
-55:                                               ; preds = %JsonValueListNext.exit.us.us
-  %56 = load i32, ptr %.sroa.0.0.ph.us, align 8
-  %.not46.us.us = icmp eq i32 %56, 2
-  br i1 %.not46.us.us, label %.split.us69, label %.split60.us
+55:                                               ; preds = %JsonValueListNext.exit.us.us.us
+  %56 = load i32, ptr %.sroa.0.0.ph.us.us, align 8
+  %.not46.us.us.us = icmp eq i32 %56, 2
+  br i1 %.not46.us.us.us, label %.split.us.us.us, label %.split60.us
+
+.split.us.us.us:                                  ; preds = %55
+  br i1 %.not37, label %35, label %28
 
 .outer.split:                                     ; preds = %JsonValueListInitIterator.exit, %63
   %.sroa.0.0 = phi ptr [ %.sroa.0.2, %63 ], [ %.sroa.0.1, %JsonValueListInitIterator.exit ]
@@ -5928,7 +5928,7 @@ JsonValueListNext.exit:                           ; preds = %.outer.split, %57
 63:                                               ; preds = %JsonValueListNext.exit
   %64 = load i32, ptr %.sroa.0.0, align 8
   %.not46 = icmp eq i32 %64, 2
-  br i1 %.not46, label %executeNextItem.exit.thread.thread44, label %.outer.split, !llvm.loop !21
+  br i1 %.not46, label %executeNextItem.exit.thread.thread44, label %.outer.split
 
 .split60.us:                                      ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 58
@@ -5946,8 +5946,8 @@ JsonValueListNext.exit:                           ; preds = %.outer.split, %57
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2212, ptr noundef nonnull @__func__.executeUnaryArithmExpr) #11
   unreachable
 
-executeNextItem.exit.thread.thread44:             ; preds = %JsonValueListNext.exit, %63, %JsonValueListNext.exit.us.us, %executeNextItem.exit.us, %38, %executeNextItem.exit.thread.us, %.split60.us, %5
-  %.0 = phi i32 [ 2, %5 ], [ 2, %.split60.us ], [ %48, %executeNextItem.exit.us ], [ %.029.ph.us.ph, %JsonValueListNext.exit.us.us ], [ 0, %38 ], [ 0, %executeNextItem.exit.thread.us ], [ 1, %JsonValueListNext.exit ], [ 0, %63 ]
+executeNextItem.exit.thread.thread44:             ; preds = %JsonValueListNext.exit, %63, %JsonValueListNext.exit.us.us.us, %executeNextItem.exit.us.us, %executeNextItem.exit.thread.us.us, %38, %.split60.us, %5
+  %.0 = phi i32 [ 2, %5 ], [ 2, %.split60.us ], [ %48, %executeNextItem.exit.us.us ], [ %.029.ph.us.us.ph, %JsonValueListNext.exit.us.us.us ], [ 0, %executeNextItem.exit.thread.us.us ], [ 0, %38 ], [ 1, %JsonValueListNext.exit ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -6101,7 +6101,7 @@ JsonValueListAppend.exit.us:                      ; preds = %41, %39, %35, %28
   br i1 %or.cond11.us, label %44, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %JsonValueListAppend.exit.us, %25
-  br label %.split.us, !llvm.loop !22
+  br label %.split.us, !llvm.loop !13
 
 44:                                               ; preds = %JsonValueListAppend.exit.us
   %45 = load ptr, ptr %15, align 8
@@ -6112,7 +6112,7 @@ JsonValueListAppend.exit.us:                      ; preds = %41, %39, %35, %28
 48:                                               ; preds = %44
   %49 = icmp eq i32 %46, 0
   %or.cond13.us = and i1 %.not69, %49
-  br i1 %or.cond13.us, label %.loopexit, label %.split.us.outer, !llvm.loop !22
+  br i1 %or.cond13.us, label %.loopexit, label %.split.us.outer, !llvm.loop !13
 
 .split:                                           ; preds = %13
   br i1 %7, label %.split.split.us.outer, label %.split.split
@@ -6136,7 +6136,7 @@ JsonValueListAppend.exit.us:                      ; preds = %41, %39, %35, %28
   %.057.us71 = phi i32 [ %52, %51 ], [ %50, %.split.split.us ]
   %54 = and i32 %.057.us71, -2
   %or.cond.us72 = icmp eq i32 %54, 2
-  br i1 %or.cond.us72, label %55, label %.split.split.us, !llvm.loop !23
+  br i1 %or.cond.us72, label %55, label %.split.split.us, !llvm.loop !13
 
 55:                                               ; preds = %53
   br i1 %.not67, label %56, label %59
@@ -6184,7 +6184,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
 
 .split.split.us.outer.backedge:                   ; preds = %71, %JsonValueListAppend.exit.us74
   %.058.us70.ph.be = phi i32 [ %.3.us75, %JsonValueListAppend.exit.us74 ], [ %69, %71 ]
-  br label %.split.split.us.outer, !llvm.loop !23
+  br label %.split.split.us.outer, !llvm.loop !13
 
 .split.split:                                     ; preds = %.split
   br i1 %20, label %.split.split.split.outer, label %.split.split.split.us.outer
@@ -6216,7 +6216,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
   br i1 %or.cond6.us84, label %82, label %.split.split.split.us.backedge
 
 .split.split.split.us.backedge:                   ; preds = %79, %76
-  br label %.split.split.split.us, !llvm.loop !24
+  br label %.split.split.split.us, !llvm.loop !13
 
 82:                                               ; preds = %79, %78
   %83 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
@@ -6226,7 +6226,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
 85:                                               ; preds = %82
   %86 = icmp ne i32 %83, 0
   %or.cond8.us85 = or i1 %18, %86
-  br i1 %or.cond8.us85, label %.split.split.split.us.outer, label %.loopexit, !llvm.loop !24
+  br i1 %or.cond8.us85, label %.split.split.split.us.outer, label %.loopexit, !llvm.loop !13
 
 .split.split.split.us.outer:                      ; preds = %.split.split, %85
   %.058.us81.ph = phi i32 [ %83, %85 ], [ 1, %.split.split ]
@@ -6247,7 +6247,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
   %.057 = phi i32 [ %89, %88 ], [ %87, %.split.split.split ]
   %91 = and i32 %.057, -2
   %or.cond = icmp eq i32 %91, 2
-  br i1 %or.cond, label %92, label %.split.split.split, !llvm.loop !16
+  br i1 %or.cond, label %92, label %.split.split.split, !llvm.loop !13
 
 92:                                               ; preds = %90
   br i1 %.not67, label %93, label %96
@@ -6295,7 +6295,7 @@ JsonValueListAppend.exit:                         ; preds = %.JsonValueListAppen
 
 .split.split.split.outer.backedge:                ; preds = %107, %JsonValueListAppend.exit
   %.058.ph.be = phi i32 [ %.3, %JsonValueListAppend.exit ], [ %105, %107 ]
-  br label %.split.split.split.outer, !llvm.loop !16
+  br label %.split.split.split.outer, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.split.split.split.us, %85, %82, %.split.split.split, %107, %103, %99, %96, %.split.split.us, %59, %63, %67, %71, %31, %.split.us, %48, %44, %9
   %.0 = phi i32 [ 1, %9 ], [ 0, %31 ], [ %.058.us.ph, %.split.us ], [ 2, %44 ], [ 0, %48 ], [ %.058.us70.ph, %.split.split.us ], [ 2, %59 ], [ 2, %67 ], [ 0, %71 ], [ 0, %63 ], [ %.058.ph, %.split.split.split ], [ 2, %96 ], [ 2, %103 ], [ 0, %107 ], [ 0, %99 ], [ %.058.us81.ph, %.split.split.split.us ], [ 2, %82 ], [ 0, %85 ]
@@ -6692,7 +6692,7 @@ JsonbType.exit.thread56:                          ; preds = %4, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not48.us = icmp eq i32 %72, 1
-  br i1 %.not48.us, label %73, label %select.unfold.us, !llvm.loop !25
+  br i1 %.not48.us, label %73, label %select.unfold.us, !llvm.loop !18
 
 73:                                               ; preds = %.lr.ph.split.us
   %74 = call i32 @JsonbIteratorNext(ptr noundef nonnull %12, ptr noundef nonnull %7, i1 noundef zeroext true) #11
@@ -6810,14 +6810,14 @@ select.unfold.us:                                 ; preds = %124, %.lr.ph.split.
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %126 = call i32 @JsonbIteratorNext(ptr noundef nonnull %12, ptr noundef nonnull %6, i1 noundef zeroext true) #11
   %.not47.us = icmp eq i32 %126, 0
-  br i1 %.not47.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %.not47.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %127 = phi i32 [ %128, %select.unfold ], [ %65, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not48 = icmp eq i32 %127, 1
-  br i1 %.not48, label %.loopexit.sink.split, label %select.unfold, !llvm.loop !25
+  br i1 %.not48, label %.loopexit.sink.split, label %select.unfold, !llvm.loop !18
 
 select.unfold:                                    ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -7015,21 +7015,21 @@ JsonValueListNext.exit.us:                        ; preds = %35, %JsonValueListI
   br i1 %.not50.us, label %.split.us, label %JsonValueListInitIterator.exit61.us
 
 JsonValueListInitIterator.exit61.us:              ; preds = %JsonValueListNext.exit.us
-  %41 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.076.0.us, ptr noundef null, ptr noundef %7) #11, !callees !27
+  %41 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.076.0.us, ptr noundef null, ptr noundef %7) #11, !callees !19
   switch i32 %41, label %JsonValueListInitIterator.exit.split.us [
     i32 2, label %45
     i32 1, label %42
-  ], !llvm.loop !28
+  ]
 
 42:                                               ; preds = %JsonValueListInitIterator.exit61.us
   %43 = load i8, ptr %34, align 8, !range !6, !noundef !7
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.thread, label %JsonValueListInitIterator.exit.split.us.outer148, !llvm.loop !28
+  br i1 %44, label %.thread, label %JsonValueListInitIterator.exit.split.us.outer148
 
 45:                                               ; preds = %JsonValueListInitIterator.exit61.us
   %46 = load i8, ptr %34, align 8, !range !6, !noundef !7
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %JsonValueListInitIterator.exit.split.us.outer, label %.thread, !llvm.loop !28
+  br i1 %47, label %JsonValueListInitIterator.exit.split.us.outer, label %.thread
 
 JsonValueListInitIterator.exit.split.outer:       ; preds = %JsonValueListNext.exit71, %JsonValueListInitIterator.exit
   %.sroa.076.0.ph = phi ptr [ %.sroa.076.1, %JsonValueListInitIterator.exit ], [ %.sroa.076.2, %JsonValueListNext.exit71 ]
@@ -7118,7 +7118,7 @@ JsonValueListNext.exit66:                         ; preds = %62, %JsonValueListI
   %.14397 = phi i8 [ %.042.ph, %.lr.ph ], [ %.345, %JsonValueListNext.exit71 ]
   %.sroa.15.296 = phi ptr [ %.sroa.15.1133, %.lr.ph ], [ %.sroa.15.3, %JsonValueListNext.exit71 ]
   %.sroa.0.295 = phi ptr [ %.sroa.0.1132, %.lr.ph ], [ %.sroa.0.3, %JsonValueListNext.exit71 ]
-  %75 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.076.0, ptr noundef nonnull %.13299, ptr noundef %7) #11, !callees !27
+  %75 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.076.0, ptr noundef nonnull %.13299, ptr noundef %7) #11, !callees !19
   switch i32 %75, label %82 [
     i32 2, label %76
     i32 1, label %79
@@ -7155,7 +7155,7 @@ JsonValueListNext.exit71:                         ; preds = %83, %82
   %.sroa.0.3 = phi ptr [ %84, %83 ], [ null, %82 ]
   %.sroa.15.3 = phi ptr [ %..i.i70, %83 ], [ null, %82 ]
   %.not52 = icmp eq ptr %.sroa.0.295, null
-  br i1 %.not52, label %JsonValueListInitIterator.exit.split.outer, label %74, !llvm.loop !29
+  br i1 %.not52, label %JsonValueListInitIterator.exit.split.outer, label %74, !llvm.loop !16
 
 .split.us:                                        ; preds = %JsonValueListNext.exit, %JsonValueListNext.exit.us
   %.us-phi103 = phi i8 [ %.042.us.ph, %JsonValueListNext.exit.us ], [ %.042.ph, %JsonValueListNext.exit ]
@@ -7810,7 +7810,7 @@ JsonbType.exit.thread26:                          ; preds = %35, %37
   br label %JsonValueListAppend.exit.backedge
 
 JsonValueListAppend.exit.backedge:                ; preds = %59, %58, %54, %executeItemUnwrapTargetArray.exit
-  br label %JsonValueListAppend.exit, !llvm.loop !30
+  br label %JsonValueListAppend.exit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %JsonValueListNext.exit, %11
   %.0 = phi i32 [ 2, %11 ], [ 0, %JsonValueListNext.exit ]
@@ -7950,7 +7950,7 @@ define internal fastcc noundef ptr @JsonTableInitPlan(ptr noundef %0, ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = and i64 %indvars.iv.next, 2147483648
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %30, label %.critedge, !llvm.loop !31
+  br i1 %37, label %30, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %30, %33, %9
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8383,24 +8383,14 @@ attributes #14 = { "function-inline-cost-multiplier"="2" }
 !8 = distinct !{!8, !5}
 !9 = !{ptr @CountJsonPathVars, ptr @countVariablesFromJsonb}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5, !12}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !12}
-!20 = distinct !{!20, !5, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !5, !12}
-!23 = distinct !{!23, !5, !12}
-!24 = distinct !{!24, !5, !12}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !12}
-!27 = distinct !{ptr @executeComparison, null, null}
-!28 = distinct !{!28, !12}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!19 = distinct !{ptr @executeComparison, null, null}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

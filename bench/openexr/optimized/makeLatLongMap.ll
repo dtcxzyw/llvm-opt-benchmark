@@ -289,7 +289,7 @@ _ZNSolsEPFRSoS_E.exit63.us:                       ; preds = %.noexc82.us
 
 123:                                              ; preds = %121
   %124 = add nuw nsw i32 %.038.us, 1
-  br label %.preheader106.us, !llvm.loop !50
+  br label %.preheader106.us, !llvm.loop !49
 
 125:                                              ; preds = %121
   invoke void @_ZN7Imf_3_419TiledRgbaOutputFile9writeTileEiii(ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %.0.us, i32 noundef %.038.us, i32 noundef %.039.us)
@@ -297,7 +297,7 @@ _ZNSolsEPFRSoS_E.exit63.us:                       ; preds = %.noexc82.us
 
 126:                                              ; preds = %125
   %127 = add nuw nsw i32 %.0.us, 1
-  br label %.preheader.us, !llvm.loop !51
+  br label %.preheader.us, !llvm.loop !50
 
 .loopexit.split.us:                               ; preds = %.noexc82.us, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i77.us, %.noexc80.us, %99, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61.us, %84, %.preheader107.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -389,7 +389,7 @@ _ZNSolsEPFRSoS_E.exit63:                          ; preds = %132
 148:                                              ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %149 = add nuw nsw i32 %.039, 1
-  br label %.preheader107.split, !llvm.loop !52
+  br label %.preheader107.split, !llvm.loop !47
 
 .split111:                                        ; preds = %139, %137, %136, %_ZNSolsEPFRSoS_E.exit63
   %150 = landingpad { ptr, i32 }
@@ -412,7 +412,7 @@ _ZNSolsEPFRSoS_E.exit63:                          ; preds = %132
 
 155:                                              ; preds = %153
   %156 = add nuw nsw i32 %.038, 1
-  br label %.preheader106, !llvm.loop !50
+  br label %.preheader106, !llvm.loop !49
 
 .split117:                                        ; preds = %158, %.preheader
   %157 = landingpad { ptr, i32 }
@@ -425,7 +425,7 @@ _ZNSolsEPFRSoS_E.exit63:                          ; preds = %132
 
 159:                                              ; preds = %158
   %160 = add nuw nsw i32 %.0, 1
-  br label %.preheader, !llvm.loop !51
+  br label %.preheader, !llvm.loop !50
 
 161:                                              ; preds = %.split117, %.split117.us, %.split114, %.split114.us, %.split111, %.split111.us
   %.pn.pn = phi { ptr, i32 } [ %150, %.split111 ], [ %128, %.split111.us ], [ %151, %.split114 ], [ %129, %.split114.us ], [ %157, %.split117 ], [ %130, %.split117.us ]
@@ -676,9 +676,7 @@ attributes #12 = { builtin nounwind }
 !44 = !{!"p1 _ZTSN7Imf_3_44RgbaE", !22, i64 0}
 !45 = !{!46, !6, i64 8}
 !46 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !5, i64 0, !5, i64 8}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !48}
 !50 = distinct !{!50, !48}
-!51 = distinct !{!51, !48}
-!52 = distinct !{!52, !48}

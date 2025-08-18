@@ -288,7 +288,7 @@ define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(addres
   %14 = load i32, ptr %11, align 8, !tbaa !45
   store i32 %14, ptr %12, align 8, !tbaa !46
   store i32 3, ptr %10, align 8, !tbaa !22
-  br label %.preheader.split.us69, !llvm.loop !47
+  br label %.preheader.split.us69
 
 .preheader.split.us77:                            ; preds = %.preheader, %.backedge.us78
   %15 = phi i32 [ 4, %.backedge.us78 ], [ %.promoted, %.preheader ]
@@ -303,7 +303,7 @@ define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(addres
   %16 = load i32, ptr %11, align 8, !tbaa !45
   store i32 %16, ptr %12, align 8, !tbaa !46
   store i32 4, ptr %10, align 8, !tbaa !22
-  br label %.preheader.split.us77, !llvm.loop !49
+  br label %.preheader.split.us77
 
 .preheader.split:                                 ; preds = %.preheader
   switch i32 %.promoted, label %isempty_RL.exit.thread [
@@ -456,7 +456,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %.48.val, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !50
+  %20 = load i32, ptr %19, align 8, !tbaa !47
   %21 = icmp ne i32 %20, 0
   %.pre26 = load i32, ptr %4, align 8, !tbaa !41
   %.pre28 = load i32, ptr %5, align 4, !tbaa !40
@@ -466,7 +466,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) 
 
 .lr.ph.preheader:                                 ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !51
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %.lr.ph.preheader
@@ -482,13 +482,13 @@ define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) 
   store i32 %29, ptr %4, align 8, !tbaa !41
   %30 = load ptr, ptr %.48.val, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !50
+  %32 = load i32, ptr %31, align 8, !tbaa !47
   %33 = add i32 %32, -1
-  store i32 %33, ptr %31, align 8, !tbaa !50
+  store i32 %33, ptr %31, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !51
+  %35 = load ptr, ptr %34, align 8, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %34, align 8, !tbaa !51
+  store ptr %36, ptr %34, align 8, !tbaa !48
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %38 = load i32, ptr %37, align 4, !tbaa !35
   %39 = add i32 %38, 1
@@ -606,7 +606,7 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   br i1 %81, label %copy_input_until_stop.exit, label %.lr.ph20.preheader
 
 .lr.ph20.preheader:                               ; preds = %.lr.ph95.i
-  %.pre31 = load ptr, ptr %.pre102.i, align 8, !tbaa !52
+  %.pre31 = load ptr, ptr %.pre102.i, align 8, !tbaa !49
   %.pre32 = load i32, ptr %1, align 4, !tbaa !37
   br label %.lr.ph20
 
@@ -633,7 +633,7 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   %96 = xor i32 %94, %95
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %97
-  %99 = load i32, ptr %98, align 4, !tbaa !53
+  %99 = load i32, ptr %98, align 4, !tbaa !50
   %100 = xor i32 %93, %99
   store i32 %100, ptr %10, align 8, !tbaa !42
   %101 = zext i32 %82 to i64
@@ -673,9 +673,9 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
 
 115:                                              ; preds = %113, %112, %90
   %116 = load ptr, ptr %.48.val, align 8, !tbaa !14
-  %117 = load ptr, ptr %116, align 8, !tbaa !52
+  %117 = load ptr, ptr %116, align 8, !tbaa !49
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  store ptr %118, ptr %116, align 8, !tbaa !52
+  store ptr %118, ptr %116, align 8, !tbaa !49
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %120 = load i32, ptr %119, align 8, !tbaa !45
   %121 = add i32 %120, -1
@@ -705,7 +705,7 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
 .lr.ph46:                                         ; preds = %.lr.ph14.preheader, %183
   %134 = phi ptr [ %169, %183 ], [ %.pre.i38, %.lr.ph14.preheader ]
   %135 = phi i32 [ %186, %183 ], [ %77, %.lr.ph14.preheader ]
-  %136 = load ptr, ptr %134, align 8, !tbaa !52
+  %136 = load ptr, ptr %134, align 8, !tbaa !49
   %137 = load i8, ptr %136, align 1, !tbaa !43
   %138 = zext i8 %137 to i32
   %139 = load i32, ptr %1, align 4, !tbaa !37
@@ -726,7 +726,7 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   %149 = xor i32 %147, %148
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %150
-  %152 = load i32, ptr %151, align 4, !tbaa !53
+  %152 = load i32, ptr %151, align 4, !tbaa !50
   %153 = xor i32 %146, %152
   store i32 %153, ptr %10, align 8, !tbaa !42
   %154 = zext i32 %139 to i64
@@ -766,9 +766,9 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
 
 168:                                              ; preds = %166, %165, %143
   %169 = load ptr, ptr %.48.val, align 8, !tbaa !14
-  %170 = load ptr, ptr %169, align 8, !tbaa !52
+  %170 = load ptr, ptr %169, align 8, !tbaa !49
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
-  store ptr %171, ptr %169, align 8, !tbaa !52
+  store ptr %171, ptr %169, align 8, !tbaa !49
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %173 = load i32, ptr %172, align 8, !tbaa !45
   %174 = add i32 %173, -1
@@ -973,17 +973,17 @@ define range(i32 -3, 1) i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1
   br i1 %20, label %36, label %21
 
 21:                                               ; preds = %16
-  store ptr %0, ptr %19, align 8, !tbaa !54
+  store ptr %0, ptr %19, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %19, ptr %22, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 10, ptr %23, align 8, !tbaa !56
+  store i32 10, ptr %23, align 8, !tbaa !53
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i32 0, ptr %24, align 4, !tbaa !57
+  store i32 0, ptr %24, align 4, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 0, ptr %25, align 8, !tbaa !58
+  store i32 0, ptr %25, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 3188
-  store i32 0, ptr %26, align 4, !tbaa !59
+  store i32 0, ptr %26, align 4, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %27, align 4, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -994,13 +994,13 @@ define range(i32 -3, 1) i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 noundef %1
   store i32 0, ptr %30, align 8, !tbaa !36
   %31 = trunc nuw nsw i32 %2 to i8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 44
-  store i8 %31, ptr %32, align 4, !tbaa !60
+  store i8 %31, ptr %32, align 4, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 3152
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 0, ptr %34, align 8, !tbaa !61
+  store i32 0, ptr %34, align 8, !tbaa !58
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
-  store i32 %1, ptr %35, align 4, !tbaa !62
+  store i32 %1, ptr %35, align 4, !tbaa !59
   br label %36
 
 36:                                               ; preds = %16, %3, %21
@@ -1019,13 +1019,13 @@ define i32 @BZ2_indexIntoF(i32 noundef %0, ptr noundef readonly captures(none) %
   %5 = ashr i32 %4, 1
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds i32, ptr %1, i64 %6
-  %8 = load i32, ptr %7, align 4, !tbaa !53
+  %8 = load i32, ptr %7, align 4, !tbaa !50
   %.not = icmp slt i32 %0, %8
   %..09 = select i1 %.not, i32 %5, i32 %.09
   %.0. = select i1 %.not, i32 %.0, i32 %5
   %9 = sub nsw i32 %..09, %.0.
   %.not11 = icmp eq i32 %9, 1
-  br i1 %.not11, label %10, label %3, !llvm.loop !63
+  br i1 %.not11, label %10, label %3, !llvm.loop !60
 
 10:                                               ; preds = %3
   ret i32 %.0.
@@ -1043,7 +1043,7 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   br i1 %6, label %unRLE_obuf_to_output_SMALL.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !51
   %.not = icmp eq ptr %8, %0
   br i1 %.not, label %.preheader, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1068,7 +1068,7 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 3176
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 3188
-  %.pre = load i32, ptr %9, align 8, !tbaa !56
+  %.pre = load i32, ptr %9, align 8, !tbaa !53
   br label %.outer
 
 .outer:                                           ; preds = %786, %.preheader
@@ -1083,16 +1083,16 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   ]
 
 31:                                               ; preds = %30
-  %32 = load i8, ptr %10, align 4, !tbaa !60
+  %32 = load i8, ptr %10, align 4, !tbaa !57
   %.not47 = icmp eq i8 %32, 0
-  %33 = load i8, ptr %11, align 4, !tbaa !65
+  %33 = load i8, ptr %11, align 4, !tbaa !62
   %.not.i53 = icmp eq i8 %33, 0
   br i1 %.not47, label %464, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %5, align 8, !tbaa !54
+  %35 = load ptr, ptr %5, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !50
+  %37 = load i32, ptr %36, align 8, !tbaa !47
   %38 = icmp eq i32 %37, 0
   br i1 %.not.i53, label %.preheader353.i, label %.preheader360.i
 
@@ -1100,14 +1100,14 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   br i1 %38, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %.preheader360.i
-  %.pre.pre.i = load i32, ptr %12, align 8, !tbaa !66
+  %.pre.pre.i = load i32, ptr %12, align 8, !tbaa !63
   br label %.lr.ph.i.outer
 
 .preheader353.i:                                  ; preds = %34
   br i1 %38, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph366.lr.ph.i
 
 .lr.ph366.lr.ph.i:                                ; preds = %.preheader353.i
-  %.pre374.pre.i = load i32, ptr %12, align 8, !tbaa !66
+  %.pre374.pre.i = load i32, ptr %12, align 8, !tbaa !63
   br label %.lr.ph366.i.outer
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %.backedge363.i
@@ -1115,32 +1115,32 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   br i1 %39, label %74, label %40
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = load i8, ptr %13, align 4, !tbaa !67
+  %41 = load i8, ptr %13, align 4, !tbaa !64
   %42 = getelementptr inbounds nuw i8, ptr %.ph195, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !51
+  %43 = load ptr, ptr %42, align 8, !tbaa !48
   store i8 %41, ptr %43, align 1, !tbaa !43
-  %44 = load i32, ptr %14, align 8, !tbaa !68
+  %44 = load i32, ptr %14, align 8, !tbaa !65
   %45 = shl i32 %44, 8
   %46 = lshr i32 %44, 24
   %47 = zext i8 %41 to i32
   %48 = xor i32 %46, %47
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !53
+  %51 = load i32, ptr %50, align 4, !tbaa !50
   %52 = xor i32 %51, %45
-  store i32 %52, ptr %14, align 8, !tbaa !68
-  %53 = load i32, ptr %12, align 8, !tbaa !66
+  store i32 %52, ptr %14, align 8, !tbaa !65
+  %53 = load i32, ptr %12, align 8, !tbaa !63
   %54 = add nsw i32 %53, -1
-  store i32 %54, ptr %12, align 8, !tbaa !66
-  %55 = load ptr, ptr %5, align 8, !tbaa !54
+  store i32 %54, ptr %12, align 8, !tbaa !63
+  %55 = load ptr, ptr %5, align 8, !tbaa !51
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !51
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  store ptr %58, ptr %56, align 8, !tbaa !51
+  store ptr %58, ptr %56, align 8, !tbaa !48
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %60 = load i32, ptr %59, align 8, !tbaa !50
+  %60 = load i32, ptr %59, align 8, !tbaa !47
   %61 = add i32 %60, -1
-  store i32 %61, ptr %59, align 8, !tbaa !50
+  store i32 %61, ptr %59, align 8, !tbaa !47
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %64 = add i32 %63, 1
@@ -1167,8 +1167,8 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   br label %.lr.ph.i
 
 74:                                               ; preds = %.lr.ph.i
-  %75 = load i32, ptr %15, align 4, !tbaa !69
-  %76 = load i32, ptr %16, align 8, !tbaa !70
+  %75 = load i32, ptr %15, align 4, !tbaa !66
+  %76 = load i32, ptr %16, align 8, !tbaa !67
   %77 = add nsw i32 %76, 1
   %78 = icmp eq i32 %75, %77
   br i1 %78, label %unRLE_obuf_to_output_SMALL.exit, label %79
@@ -1178,12 +1178,12 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   br i1 %80, label %unRLE_obuf_to_output_SMALL.exit.thread, label %81
 
 81:                                               ; preds = %79
-  store i32 1, ptr %12, align 8, !tbaa !66
-  %82 = load i32, ptr %17, align 8, !tbaa !71
+  store i32 1, ptr %12, align 8, !tbaa !63
+  %82 = load i32, ptr %17, align 8, !tbaa !68
   %83 = trunc i32 %82 to i8
-  store i8 %83, ptr %13, align 4, !tbaa !67
-  %84 = load i32, ptr %18, align 4, !tbaa !72
-  %85 = load i32, ptr %19, align 8, !tbaa !73
+  store i8 %83, ptr %13, align 4, !tbaa !64
+  %84 = load i32, ptr %18, align 4, !tbaa !69
+  %85 = load i32, ptr %19, align 8, !tbaa !70
   %86 = mul i32 %85, 100000
   %.not272.i = icmp ult i32 %84, %86
   br i1 %.not272.i, label %.preheader370.i, label %unRLE_obuf_to_output_SMALL.exit.thread
@@ -1195,21 +1195,21 @@ define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_un
   %88 = ashr i32 %87, 1
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %20, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !53
+  %91 = load i32, ptr %90, align 4, !tbaa !50
   %.not.i.i = icmp slt i32 %84, %91
   %..09.i.i = select i1 %.not.i.i, i32 %88, i32 %.09.i.i
   %.0..i.i = select i1 %.not.i.i, i32 %.0.i.i, i32 %88
   %92 = sub nsw i32 %..09.i.i, %.0..i.i
   %.not11.i.i = icmp eq i32 %92, 1
-  br i1 %.not11.i.i, label %BZ2_indexIntoF.exit.i, label %.preheader370.i, !llvm.loop !63
+  br i1 %.not11.i.i, label %BZ2_indexIntoF.exit.i, label %.preheader370.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
-  %93 = load ptr, ptr %21, align 8, !tbaa !74
+  %93 = load ptr, ptr %21, align 8, !tbaa !71
   %94 = zext i32 %84 to i64
   %95 = getelementptr inbounds nuw i16, ptr %93, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !75
+  %96 = load i16, ptr %95, align 2, !tbaa !72
   %97 = zext i16 %96 to i32
-  %98 = load ptr, ptr %22, align 8, !tbaa !77
+  %98 = load ptr, ptr %22, align 8, !tbaa !74
   %99 = lshr i32 %84, 1
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 %100
@@ -1221,16 +1221,16 @@ BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
   %107 = shl nuw nsw i32 %106, 16
   %108 = and i32 %107, 983040
   %109 = or disjoint i32 %108, %97
-  store i32 %109, ptr %18, align 4, !tbaa !72
-  %110 = load i32, ptr %23, align 8, !tbaa !78
+  store i32 %109, ptr %18, align 4, !tbaa !69
+  %110 = load i32, ptr %23, align 8, !tbaa !75
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %119
 
 112:                                              ; preds = %BZ2_indexIntoF.exit.i
-  %113 = load i32, ptr %24, align 4, !tbaa !79
+  %113 = load i32, ptr %24, align 4, !tbaa !76
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %114
-  %116 = load i32, ptr %115, align 4, !tbaa !53
+  %116 = load i32, ptr %115, align 4, !tbaa !50
   %117 = add nsw i32 %113, 1
   %118 = icmp eq i32 %117, 512
   %spec.store.select.i = select i1 %118, i32 0, i32 %117
@@ -1240,9 +1240,9 @@ BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
 119:                                              ; preds = %112, %BZ2_indexIntoF.exit.i
   %120 = phi i32 [ %116, %112 ], [ %110, %BZ2_indexIntoF.exit.i ]
   %121 = add nsw i32 %120, -1
-  store i32 %121, ptr %23, align 8, !tbaa !78
+  store i32 %121, ptr %23, align 8, !tbaa !75
   %122 = add nsw i32 %75, 1
-  store i32 %122, ptr %15, align 4, !tbaa !69
+  store i32 %122, ptr %15, align 4, !tbaa !66
   %123 = icmp eq i32 %75, %76
   br i1 %123, label %.backedge363.i, label %124
 
@@ -1255,16 +1255,16 @@ BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
   br i1 %.not273.i, label %131, label %128
 
 128:                                              ; preds = %124
-  store i32 %127, ptr %17, align 8, !tbaa !71
+  store i32 %127, ptr %17, align 8, !tbaa !68
   br label %.backedge363.i
 
 .backedge363.i:                                   ; preds = %278, %210, %201, %170, %161, %128, %119
-  %129 = load i32, ptr %73, align 8, !tbaa !50
+  %129 = load i32, ptr %73, align 8, !tbaa !47
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph.i
 
 131:                                              ; preds = %124
-  store i32 2, ptr %12, align 8, !tbaa !66
+  store i32 2, ptr %12, align 8, !tbaa !63
   %.not274.i = icmp ult i32 %109, %86
   br i1 %.not274.i, label %.preheader358.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1275,18 +1275,18 @@ BZ2_indexIntoF.exit.i:                            ; preds = %.preheader370.i
   %133 = ashr i32 %132, 1
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i32, ptr %20, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !53
+  %136 = load i32, ptr %135, align 4, !tbaa !50
   %.not.i289.i = icmp slt i32 %109, %136
   %..09.i290.i = select i1 %.not.i289.i, i32 %133, i32 %.09.i287.i
   %.0..i291.i = select i1 %.not.i289.i, i32 %.0.i288.i, i32 %133
   %137 = sub nsw i32 %..09.i290.i, %.0..i291.i
   %.not11.i292.i = icmp eq i32 %137, 1
-  br i1 %.not11.i292.i, label %BZ2_indexIntoF.exit293.i, label %.preheader358.i, !llvm.loop !63
+  br i1 %.not11.i292.i, label %BZ2_indexIntoF.exit293.i, label %.preheader358.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
   %138 = zext nneg i32 %109 to i64
   %139 = getelementptr inbounds nuw i16, ptr %93, i64 %138
-  %140 = load i16, ptr %139, align 2, !tbaa !75
+  %140 = load i16, ptr %139, align 2, !tbaa !72
   %141 = zext i16 %140 to i32
   %142 = lshr i32 %109, 1
   %143 = zext nneg i32 %142 to i64
@@ -1299,15 +1299,15 @@ BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
   %150 = shl nuw nsw i32 %149, 16
   %151 = and i32 %150, 983040
   %152 = or disjoint i32 %151, %141
-  store i32 %152, ptr %18, align 4, !tbaa !72
+  store i32 %152, ptr %18, align 4, !tbaa !69
   %153 = icmp eq i32 %121, 0
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %BZ2_indexIntoF.exit293.i
-  %155 = load i32, ptr %24, align 4, !tbaa !79
+  %155 = load i32, ptr %24, align 4, !tbaa !76
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !53
+  %158 = load i32, ptr %157, align 4, !tbaa !50
   %159 = add nsw i32 %155, 1
   %160 = icmp eq i32 %159, 512
   %spec.store.select283.i = select i1 %160, i32 0, i32 %159
@@ -1317,9 +1317,9 @@ BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
 161:                                              ; preds = %154, %BZ2_indexIntoF.exit293.i
   %162 = phi i32 [ %158, %154 ], [ %121, %BZ2_indexIntoF.exit293.i ]
   %163 = add nsw i32 %162, -1
-  store i32 %163, ptr %23, align 8, !tbaa !78
+  store i32 %163, ptr %23, align 8, !tbaa !75
   %164 = add nsw i32 %75, 2
-  store i32 %164, ptr %15, align 4, !tbaa !69
+  store i32 %164, ptr %15, align 4, !tbaa !66
   %165 = icmp eq i32 %122, %76
   br i1 %165, label %.backedge363.i, label %166
 
@@ -1332,11 +1332,11 @@ BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
   br i1 %.not276.i, label %171, label %170
 
 170:                                              ; preds = %166
-  store i32 %169, ptr %17, align 8, !tbaa !71
+  store i32 %169, ptr %17, align 8, !tbaa !68
   br label %.backedge363.i
 
 171:                                              ; preds = %166
-  store i32 3, ptr %12, align 8, !tbaa !66
+  store i32 3, ptr %12, align 8, !tbaa !63
   %.not277.i = icmp ult i32 %152, %86
   br i1 %.not277.i, label %.preheader357.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1347,18 +1347,18 @@ BZ2_indexIntoF.exit293.i:                         ; preds = %.preheader358.i
   %173 = ashr i32 %172, 1
   %174 = sext i32 %173 to i64
   %175 = getelementptr inbounds i32, ptr %20, i64 %174
-  %176 = load i32, ptr %175, align 4, !tbaa !53
+  %176 = load i32, ptr %175, align 4, !tbaa !50
   %.not.i296.i = icmp slt i32 %152, %176
   %..09.i297.i = select i1 %.not.i296.i, i32 %173, i32 %.09.i294.i
   %.0..i298.i = select i1 %.not.i296.i, i32 %.0.i295.i, i32 %173
   %177 = sub nsw i32 %..09.i297.i, %.0..i298.i
   %.not11.i299.i = icmp eq i32 %177, 1
-  br i1 %.not11.i299.i, label %BZ2_indexIntoF.exit300.i, label %.preheader357.i, !llvm.loop !63
+  br i1 %.not11.i299.i, label %BZ2_indexIntoF.exit300.i, label %.preheader357.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
   %178 = zext nneg i32 %152 to i64
   %179 = getelementptr inbounds nuw i16, ptr %93, i64 %178
-  %180 = load i16, ptr %179, align 2, !tbaa !75
+  %180 = load i16, ptr %179, align 2, !tbaa !72
   %181 = zext i16 %180 to i32
   %182 = lshr i32 %152, 1
   %183 = zext nneg i32 %182 to i64
@@ -1371,15 +1371,15 @@ BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
   %190 = shl nuw nsw i32 %189, 16
   %191 = and i32 %190, 983040
   %192 = or disjoint i32 %191, %181
-  store i32 %192, ptr %18, align 4, !tbaa !72
+  store i32 %192, ptr %18, align 4, !tbaa !69
   %193 = icmp eq i32 %163, 0
   br i1 %193, label %194, label %201
 
 194:                                              ; preds = %BZ2_indexIntoF.exit300.i
-  %195 = load i32, ptr %24, align 4, !tbaa !79
+  %195 = load i32, ptr %24, align 4, !tbaa !76
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %196
-  %198 = load i32, ptr %197, align 4, !tbaa !53
+  %198 = load i32, ptr %197, align 4, !tbaa !50
   %199 = add nsw i32 %195, 1
   %200 = icmp eq i32 %199, 512
   %spec.store.select284.i = select i1 %200, i32 0, i32 %199
@@ -1389,9 +1389,9 @@ BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
 201:                                              ; preds = %194, %BZ2_indexIntoF.exit300.i
   %202 = phi i32 [ %198, %194 ], [ %163, %BZ2_indexIntoF.exit300.i ]
   %203 = add nsw i32 %202, -1
-  store i32 %203, ptr %23, align 8, !tbaa !78
+  store i32 %203, ptr %23, align 8, !tbaa !75
   %204 = add nsw i32 %75, 3
-  store i32 %204, ptr %15, align 4, !tbaa !69
+  store i32 %204, ptr %15, align 4, !tbaa !66
   %205 = icmp eq i32 %164, %76
   br i1 %205, label %.backedge363.i, label %206
 
@@ -1404,7 +1404,7 @@ BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
   br i1 %.not279.i, label %211, label %210
 
 210:                                              ; preds = %206
-  store i32 %209, ptr %17, align 8, !tbaa !71
+  store i32 %209, ptr %17, align 8, !tbaa !68
   br label %.backedge363.i
 
 211:                                              ; preds = %206
@@ -1418,18 +1418,18 @@ BZ2_indexIntoF.exit300.i:                         ; preds = %.preheader357.i
   %213 = ashr i32 %212, 1
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i32, ptr %20, i64 %214
-  %216 = load i32, ptr %215, align 4, !tbaa !53
+  %216 = load i32, ptr %215, align 4, !tbaa !50
   %.not.i303.i = icmp slt i32 %192, %216
   %..09.i304.i = select i1 %.not.i303.i, i32 %213, i32 %.09.i301.i
   %.0..i305.i = select i1 %.not.i303.i, i32 %.0.i302.i, i32 %213
   %217 = sub nsw i32 %..09.i304.i, %.0..i305.i
   %.not11.i306.i = icmp eq i32 %217, 1
-  br i1 %.not11.i306.i, label %BZ2_indexIntoF.exit307.i, label %.preheader356.i, !llvm.loop !63
+  br i1 %.not11.i306.i, label %BZ2_indexIntoF.exit307.i, label %.preheader356.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit307.i:                         ; preds = %.preheader356.i
   %218 = zext nneg i32 %192 to i64
   %219 = getelementptr inbounds nuw i16, ptr %93, i64 %218
-  %220 = load i16, ptr %219, align 2, !tbaa !75
+  %220 = load i16, ptr %219, align 2, !tbaa !72
   %221 = zext i16 %220 to i32
   %222 = lshr i32 %192, 1
   %223 = zext nneg i32 %222 to i64
@@ -1442,15 +1442,15 @@ BZ2_indexIntoF.exit307.i:                         ; preds = %.preheader356.i
   %230 = shl nuw nsw i32 %229, 16
   %231 = and i32 %230, 983040
   %232 = or disjoint i32 %231, %221
-  store i32 %232, ptr %18, align 4, !tbaa !72
+  store i32 %232, ptr %18, align 4, !tbaa !69
   %233 = icmp eq i32 %203, 0
   br i1 %233, label %234, label %241
 
 234:                                              ; preds = %BZ2_indexIntoF.exit307.i
-  %235 = load i32, ptr %24, align 4, !tbaa !79
+  %235 = load i32, ptr %24, align 4, !tbaa !76
   %236 = sext i32 %235 to i64
   %237 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %236
-  %238 = load i32, ptr %237, align 4, !tbaa !53
+  %238 = load i32, ptr %237, align 4, !tbaa !50
   %239 = add nsw i32 %235, 1
   %240 = icmp eq i32 %239, 512
   %spec.store.select285.i = select i1 %240, i32 0, i32 %239
@@ -1460,15 +1460,15 @@ BZ2_indexIntoF.exit307.i:                         ; preds = %.preheader356.i
 241:                                              ; preds = %234, %BZ2_indexIntoF.exit307.i
   %242 = phi i32 [ %238, %234 ], [ %203, %BZ2_indexIntoF.exit307.i ]
   %243 = add nsw i32 %242, -1
-  store i32 %243, ptr %23, align 8, !tbaa !78
+  store i32 %243, ptr %23, align 8, !tbaa !75
   %244 = icmp eq i32 %243, 1
   %245 = zext i1 %244 to i32
   %246 = add nsw i32 %75, 4
-  store i32 %246, ptr %15, align 4, !tbaa !69
+  store i32 %246, ptr %15, align 4, !tbaa !66
   %.masked281.i = and i32 %.0..i305.i, 255
   %247 = xor i32 %.masked281.i, %245
   %248 = add nuw nsw i32 %247, 4
-  store i32 %248, ptr %12, align 8, !tbaa !66
+  store i32 %248, ptr %12, align 8, !tbaa !63
   %.not282.i = icmp ult i32 %232, %86
   br i1 %.not282.i, label %.preheader355.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1479,19 +1479,19 @@ BZ2_indexIntoF.exit307.i:                         ; preds = %.preheader356.i
   %250 = ashr i32 %249, 1
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds i32, ptr %20, i64 %251
-  %253 = load i32, ptr %252, align 4, !tbaa !53
+  %253 = load i32, ptr %252, align 4, !tbaa !50
   %.not.i310.i = icmp slt i32 %232, %253
   %..09.i311.i = select i1 %.not.i310.i, i32 %250, i32 %.09.i308.i
   %.0..i312.i = select i1 %.not.i310.i, i32 %.0.i309.i, i32 %250
   %254 = sub nsw i32 %..09.i311.i, %.0..i312.i
   %.not11.i313.i = icmp eq i32 %254, 1
-  br i1 %.not11.i313.i, label %BZ2_indexIntoF.exit314.i, label %.preheader355.i, !llvm.loop !63
+  br i1 %.not11.i313.i, label %BZ2_indexIntoF.exit314.i, label %.preheader355.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
-  store i32 %.0..i312.i, ptr %17, align 8, !tbaa !71
+  store i32 %.0..i312.i, ptr %17, align 8, !tbaa !68
   %255 = zext nneg i32 %232 to i64
   %256 = getelementptr inbounds nuw i16, ptr %93, i64 %255
-  %257 = load i16, ptr %256, align 2, !tbaa !75
+  %257 = load i16, ptr %256, align 2, !tbaa !72
   %258 = zext i16 %257 to i32
   %259 = lshr i32 %232, 1
   %260 = zext nneg i32 %259 to i64
@@ -1504,15 +1504,15 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   %267 = shl nuw nsw i32 %266, 16
   %268 = and i32 %267, 983040
   %269 = or disjoint i32 %268, %258
-  store i32 %269, ptr %18, align 4, !tbaa !72
+  store i32 %269, ptr %18, align 4, !tbaa !69
   %270 = icmp eq i32 %243, 0
   br i1 %270, label %271, label %278
 
 271:                                              ; preds = %BZ2_indexIntoF.exit314.i
-  %272 = load i32, ptr %24, align 4, !tbaa !79
+  %272 = load i32, ptr %24, align 4, !tbaa !76
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %273
-  %275 = load i32, ptr %274, align 4, !tbaa !53
+  %275 = load i32, ptr %274, align 4, !tbaa !50
   %276 = add nsw i32 %272, 1
   %277 = icmp eq i32 %276, 512
   %spec.store.select286.i = select i1 %277, i32 0, i32 %276
@@ -1522,13 +1522,13 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
 278:                                              ; preds = %271, %BZ2_indexIntoF.exit314.i
   %279 = phi i32 [ %275, %271 ], [ %243, %BZ2_indexIntoF.exit314.i ]
   %280 = add nsw i32 %279, -1
-  store i32 %280, ptr %23, align 8, !tbaa !78
+  store i32 %280, ptr %23, align 8, !tbaa !75
   %281 = icmp eq i32 %280, 1
   %282 = zext i1 %281 to i32
   %283 = xor i32 %.0..i312.i, %282
-  store i32 %283, ptr %17, align 8, !tbaa !71
+  store i32 %283, ptr %17, align 8, !tbaa !68
   %284 = add nsw i32 %75, 5
-  store i32 %284, ptr %15, align 4, !tbaa !69
+  store i32 %284, ptr %15, align 4, !tbaa !66
   br label %.backedge363.i
 
 .lr.ph366.i:                                      ; preds = %.lr.ph366.i.outer, %.backedge.i
@@ -1536,32 +1536,32 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   br i1 %285, label %320, label %286
 
 286:                                              ; preds = %.lr.ph366.i
-  %287 = load i8, ptr %13, align 4, !tbaa !67
+  %287 = load i8, ptr %13, align 4, !tbaa !64
   %288 = getelementptr inbounds nuw i8, ptr %.ph190, i64 24
-  %289 = load ptr, ptr %288, align 8, !tbaa !51
+  %289 = load ptr, ptr %288, align 8, !tbaa !48
   store i8 %287, ptr %289, align 1, !tbaa !43
-  %290 = load i32, ptr %14, align 8, !tbaa !68
+  %290 = load i32, ptr %14, align 8, !tbaa !65
   %291 = shl i32 %290, 8
   %292 = lshr i32 %290, 24
   %293 = zext i8 %287 to i32
   %294 = xor i32 %292, %293
   %295 = zext nneg i32 %294 to i64
   %296 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %295
-  %297 = load i32, ptr %296, align 4, !tbaa !53
+  %297 = load i32, ptr %296, align 4, !tbaa !50
   %298 = xor i32 %297, %291
-  store i32 %298, ptr %14, align 8, !tbaa !68
-  %299 = load i32, ptr %12, align 8, !tbaa !66
+  store i32 %298, ptr %14, align 8, !tbaa !65
+  %299 = load i32, ptr %12, align 8, !tbaa !63
   %300 = add nsw i32 %299, -1
-  store i32 %300, ptr %12, align 8, !tbaa !66
-  %301 = load ptr, ptr %5, align 8, !tbaa !54
+  store i32 %300, ptr %12, align 8, !tbaa !63
+  %301 = load ptr, ptr %5, align 8, !tbaa !51
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 24
-  %303 = load ptr, ptr %302, align 8, !tbaa !51
+  %303 = load ptr, ptr %302, align 8, !tbaa !48
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 1
-  store ptr %304, ptr %302, align 8, !tbaa !51
+  store ptr %304, ptr %302, align 8, !tbaa !48
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 32
-  %306 = load i32, ptr %305, align 8, !tbaa !50
+  %306 = load i32, ptr %305, align 8, !tbaa !47
   %307 = add i32 %306, -1
-  store i32 %307, ptr %305, align 8, !tbaa !50
+  store i32 %307, ptr %305, align 8, !tbaa !47
   %308 = getelementptr inbounds nuw i8, ptr %301, i64 36
   %309 = load i32, ptr %308, align 4, !tbaa !35
   %310 = add i32 %309, 1
@@ -1588,8 +1588,8 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   br label %.lr.ph366.i
 
 320:                                              ; preds = %.lr.ph366.i
-  %321 = load i32, ptr %15, align 4, !tbaa !69
-  %322 = load i32, ptr %16, align 8, !tbaa !70
+  %321 = load i32, ptr %15, align 4, !tbaa !66
+  %322 = load i32, ptr %16, align 8, !tbaa !67
   %323 = add nsw i32 %322, 1
   %324 = icmp eq i32 %321, %323
   br i1 %324, label %unRLE_obuf_to_output_SMALL.exit, label %325
@@ -1599,12 +1599,12 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   br i1 %326, label %unRLE_obuf_to_output_SMALL.exit.thread, label %327
 
 327:                                              ; preds = %325
-  store i32 1, ptr %12, align 8, !tbaa !66
-  %328 = load i32, ptr %17, align 8, !tbaa !71
+  store i32 1, ptr %12, align 8, !tbaa !63
+  %328 = load i32, ptr %17, align 8, !tbaa !68
   %329 = trunc i32 %328 to i8
-  store i8 %329, ptr %13, align 4, !tbaa !67
-  %330 = load i32, ptr %18, align 4, !tbaa !72
-  %331 = load i32, ptr %19, align 8, !tbaa !73
+  store i8 %329, ptr %13, align 4, !tbaa !64
+  %330 = load i32, ptr %18, align 4, !tbaa !69
+  %331 = load i32, ptr %19, align 8, !tbaa !70
   %332 = mul i32 %331, 100000
   %.not264.i = icmp ult i32 %330, %332
   br i1 %.not264.i, label %.preheader368.i, label %unRLE_obuf_to_output_SMALL.exit.thread
@@ -1616,21 +1616,21 @@ BZ2_indexIntoF.exit314.i:                         ; preds = %.preheader355.i
   %334 = ashr i32 %333, 1
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds i32, ptr %20, i64 %335
-  %337 = load i32, ptr %336, align 4, !tbaa !53
+  %337 = load i32, ptr %336, align 4, !tbaa !50
   %.not.i317.i = icmp slt i32 %330, %337
   %..09.i318.i = select i1 %.not.i317.i, i32 %334, i32 %.09.i315.i
   %.0..i319.i = select i1 %.not.i317.i, i32 %.0.i316.i, i32 %334
   %338 = sub nsw i32 %..09.i318.i, %.0..i319.i
   %.not11.i320.i = icmp eq i32 %338, 1
-  br i1 %.not11.i320.i, label %BZ2_indexIntoF.exit321.i, label %.preheader368.i, !llvm.loop !63
+  br i1 %.not11.i320.i, label %BZ2_indexIntoF.exit321.i, label %.preheader368.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit321.i:                         ; preds = %.preheader368.i
-  %339 = load ptr, ptr %21, align 8, !tbaa !74
+  %339 = load ptr, ptr %21, align 8, !tbaa !71
   %340 = zext i32 %330 to i64
   %341 = getelementptr inbounds nuw i16, ptr %339, i64 %340
-  %342 = load i16, ptr %341, align 2, !tbaa !75
+  %342 = load i16, ptr %341, align 2, !tbaa !72
   %343 = zext i16 %342 to i32
-  %344 = load ptr, ptr %22, align 8, !tbaa !77
+  %344 = load ptr, ptr %22, align 8, !tbaa !74
   %345 = lshr i32 %330, 1
   %346 = zext nneg i32 %345 to i64
   %347 = getelementptr inbounds nuw i8, ptr %344, i64 %346
@@ -1642,9 +1642,9 @@ BZ2_indexIntoF.exit321.i:                         ; preds = %.preheader368.i
   %353 = shl nuw nsw i32 %352, 16
   %354 = and i32 %353, 983040
   %355 = or disjoint i32 %354, %343
-  store i32 %355, ptr %18, align 4, !tbaa !72
+  store i32 %355, ptr %18, align 4, !tbaa !69
   %356 = add nsw i32 %321, 1
-  store i32 %356, ptr %15, align 4, !tbaa !69
+  store i32 %356, ptr %15, align 4, !tbaa !66
   %357 = icmp eq i32 %321, %322
   br i1 %357, label %.backedge.i, label %358
 
@@ -1654,16 +1654,16 @@ BZ2_indexIntoF.exit321.i:                         ; preds = %.preheader368.i
   br i1 %.not265.i, label %363, label %360
 
 360:                                              ; preds = %358
-  store i32 %359, ptr %17, align 8, !tbaa !71
+  store i32 %359, ptr %17, align 8, !tbaa !68
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %BZ2_indexIntoF.exit349.i, %416, %BZ2_indexIntoF.exit335.i, %389, %BZ2_indexIntoF.exit328.i, %360, %BZ2_indexIntoF.exit321.i
-  %361 = load i32, ptr %319, align 8, !tbaa !50
+  %361 = load i32, ptr %319, align 8, !tbaa !47
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph366.i
 
 363:                                              ; preds = %358
-  store i32 2, ptr %12, align 8, !tbaa !66
+  store i32 2, ptr %12, align 8, !tbaa !63
   %.not266.i = icmp ult i32 %355, %332
   br i1 %.not266.i, label %.preheader352.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1674,18 +1674,18 @@ BZ2_indexIntoF.exit321.i:                         ; preds = %.preheader368.i
   %365 = ashr i32 %364, 1
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds i32, ptr %20, i64 %366
-  %368 = load i32, ptr %367, align 4, !tbaa !53
+  %368 = load i32, ptr %367, align 4, !tbaa !50
   %.not.i324.i = icmp slt i32 %355, %368
   %..09.i325.i = select i1 %.not.i324.i, i32 %365, i32 %.09.i322.i
   %.0..i326.i = select i1 %.not.i324.i, i32 %.0.i323.i, i32 %365
   %369 = sub nsw i32 %..09.i325.i, %.0..i326.i
   %.not11.i327.i = icmp eq i32 %369, 1
-  br i1 %.not11.i327.i, label %BZ2_indexIntoF.exit328.i, label %.preheader352.i, !llvm.loop !63
+  br i1 %.not11.i327.i, label %BZ2_indexIntoF.exit328.i, label %.preheader352.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit328.i:                         ; preds = %.preheader352.i
   %370 = zext nneg i32 %355 to i64
   %371 = getelementptr inbounds nuw i16, ptr %339, i64 %370
-  %372 = load i16, ptr %371, align 2, !tbaa !75
+  %372 = load i16, ptr %371, align 2, !tbaa !72
   %373 = zext i16 %372 to i32
   %374 = lshr i32 %355, 1
   %375 = zext nneg i32 %374 to i64
@@ -1698,9 +1698,9 @@ BZ2_indexIntoF.exit328.i:                         ; preds = %.preheader352.i
   %382 = shl nuw nsw i32 %381, 16
   %383 = and i32 %382, 983040
   %384 = or disjoint i32 %383, %373
-  store i32 %384, ptr %18, align 4, !tbaa !72
+  store i32 %384, ptr %18, align 4, !tbaa !69
   %385 = add nsw i32 %321, 2
-  store i32 %385, ptr %15, align 4, !tbaa !69
+  store i32 %385, ptr %15, align 4, !tbaa !66
   %386 = icmp eq i32 %356, %322
   br i1 %386, label %.backedge.i, label %387
 
@@ -1710,11 +1710,11 @@ BZ2_indexIntoF.exit328.i:                         ; preds = %.preheader352.i
   br i1 %.not267.i, label %390, label %389
 
 389:                                              ; preds = %387
-  store i32 %388, ptr %17, align 8, !tbaa !71
+  store i32 %388, ptr %17, align 8, !tbaa !68
   br label %.backedge.i
 
 390:                                              ; preds = %387
-  store i32 3, ptr %12, align 8, !tbaa !66
+  store i32 3, ptr %12, align 8, !tbaa !63
   %.not268.i = icmp ult i32 %384, %332
   br i1 %.not268.i, label %.preheader351.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1725,18 +1725,18 @@ BZ2_indexIntoF.exit328.i:                         ; preds = %.preheader352.i
   %392 = ashr i32 %391, 1
   %393 = sext i32 %392 to i64
   %394 = getelementptr inbounds i32, ptr %20, i64 %393
-  %395 = load i32, ptr %394, align 4, !tbaa !53
+  %395 = load i32, ptr %394, align 4, !tbaa !50
   %.not.i331.i = icmp slt i32 %384, %395
   %..09.i332.i = select i1 %.not.i331.i, i32 %392, i32 %.09.i329.i
   %.0..i333.i = select i1 %.not.i331.i, i32 %.0.i330.i, i32 %392
   %396 = sub nsw i32 %..09.i332.i, %.0..i333.i
   %.not11.i334.i = icmp eq i32 %396, 1
-  br i1 %.not11.i334.i, label %BZ2_indexIntoF.exit335.i, label %.preheader351.i, !llvm.loop !63
+  br i1 %.not11.i334.i, label %BZ2_indexIntoF.exit335.i, label %.preheader351.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit335.i:                         ; preds = %.preheader351.i
   %397 = zext nneg i32 %384 to i64
   %398 = getelementptr inbounds nuw i16, ptr %339, i64 %397
-  %399 = load i16, ptr %398, align 2, !tbaa !75
+  %399 = load i16, ptr %398, align 2, !tbaa !72
   %400 = zext i16 %399 to i32
   %401 = lshr i32 %384, 1
   %402 = zext nneg i32 %401 to i64
@@ -1749,9 +1749,9 @@ BZ2_indexIntoF.exit335.i:                         ; preds = %.preheader351.i
   %409 = shl nuw nsw i32 %408, 16
   %410 = and i32 %409, 983040
   %411 = or disjoint i32 %410, %400
-  store i32 %411, ptr %18, align 4, !tbaa !72
+  store i32 %411, ptr %18, align 4, !tbaa !69
   %412 = add nsw i32 %321, 3
-  store i32 %412, ptr %15, align 4, !tbaa !69
+  store i32 %412, ptr %15, align 4, !tbaa !66
   %413 = icmp eq i32 %385, %322
   br i1 %413, label %.backedge.i, label %414
 
@@ -1761,7 +1761,7 @@ BZ2_indexIntoF.exit335.i:                         ; preds = %.preheader351.i
   br i1 %.not269.i, label %417, label %416
 
 416:                                              ; preds = %414
-  store i32 %415, ptr %17, align 8, !tbaa !71
+  store i32 %415, ptr %17, align 8, !tbaa !68
   br label %.backedge.i
 
 417:                                              ; preds = %414
@@ -1775,18 +1775,18 @@ BZ2_indexIntoF.exit335.i:                         ; preds = %.preheader351.i
   %419 = ashr i32 %418, 1
   %420 = sext i32 %419 to i64
   %421 = getelementptr inbounds i32, ptr %20, i64 %420
-  %422 = load i32, ptr %421, align 4, !tbaa !53
+  %422 = load i32, ptr %421, align 4, !tbaa !50
   %.not.i338.i = icmp slt i32 %411, %422
   %..09.i339.i = select i1 %.not.i338.i, i32 %419, i32 %.09.i336.i
   %.0..i340.i = select i1 %.not.i338.i, i32 %.0.i337.i, i32 %419
   %423 = sub nsw i32 %..09.i339.i, %.0..i340.i
   %.not11.i341.i = icmp eq i32 %423, 1
-  br i1 %.not11.i341.i, label %BZ2_indexIntoF.exit342.i, label %.preheader350.i, !llvm.loop !63
+  br i1 %.not11.i341.i, label %BZ2_indexIntoF.exit342.i, label %.preheader350.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit342.i:                         ; preds = %.preheader350.i
   %424 = zext nneg i32 %411 to i64
   %425 = getelementptr inbounds nuw i16, ptr %339, i64 %424
-  %426 = load i16, ptr %425, align 2, !tbaa !75
+  %426 = load i16, ptr %425, align 2, !tbaa !72
   %427 = zext i16 %426 to i32
   %428 = lshr i32 %411, 1
   %429 = zext nneg i32 %428 to i64
@@ -1799,12 +1799,12 @@ BZ2_indexIntoF.exit342.i:                         ; preds = %.preheader350.i
   %436 = shl nuw nsw i32 %435, 16
   %437 = and i32 %436, 983040
   %438 = or disjoint i32 %437, %427
-  store i32 %438, ptr %18, align 4, !tbaa !72
+  store i32 %438, ptr %18, align 4, !tbaa !69
   %439 = add nsw i32 %321, 4
-  store i32 %439, ptr %15, align 4, !tbaa !69
+  store i32 %439, ptr %15, align 4, !tbaa !66
   %440 = and i32 %.0..i340.i, 255
   %441 = add nuw nsw i32 %440, 4
-  store i32 %441, ptr %12, align 8, !tbaa !66
+  store i32 %441, ptr %12, align 8, !tbaa !63
   %.not271.i = icmp ult i32 %438, %332
   br i1 %.not271.i, label %.preheader.i, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -1815,19 +1815,19 @@ BZ2_indexIntoF.exit342.i:                         ; preds = %.preheader350.i
   %443 = ashr i32 %442, 1
   %444 = sext i32 %443 to i64
   %445 = getelementptr inbounds i32, ptr %20, i64 %444
-  %446 = load i32, ptr %445, align 4, !tbaa !53
+  %446 = load i32, ptr %445, align 4, !tbaa !50
   %.not.i345.i = icmp slt i32 %438, %446
   %..09.i346.i = select i1 %.not.i345.i, i32 %443, i32 %.09.i343.i
   %.0..i347.i = select i1 %.not.i345.i, i32 %.0.i344.i, i32 %443
   %447 = sub nsw i32 %..09.i346.i, %.0..i347.i
   %.not11.i348.i = icmp eq i32 %447, 1
-  br i1 %.not11.i348.i, label %BZ2_indexIntoF.exit349.i, label %.preheader.i, !llvm.loop !63
+  br i1 %.not11.i348.i, label %BZ2_indexIntoF.exit349.i, label %.preheader.i, !llvm.loop !60
 
 BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
-  store i32 %.0..i347.i, ptr %17, align 8, !tbaa !71
+  store i32 %.0..i347.i, ptr %17, align 8, !tbaa !68
   %448 = zext nneg i32 %438 to i64
   %449 = getelementptr inbounds nuw i16, ptr %339, i64 %448
-  %450 = load i16, ptr %449, align 2, !tbaa !75
+  %450 = load i16, ptr %449, align 2, !tbaa !72
   %451 = zext i16 %450 to i32
   %452 = lshr i32 %438, 1
   %453 = zext nneg i32 %452 to i64
@@ -1840,23 +1840,23 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %460 = shl nuw nsw i32 %459, 16
   %461 = and i32 %460, 983040
   %462 = or disjoint i32 %461, %451
-  store i32 %462, ptr %18, align 4, !tbaa !72
+  store i32 %462, ptr %18, align 4, !tbaa !69
   %463 = add nsw i32 %321, 5
-  store i32 %463, ptr %15, align 4, !tbaa !69
+  store i32 %463, ptr %15, align 4, !tbaa !66
   br label %.backedge.i
 
 464:                                              ; preds = %31
   br i1 %.not.i53, label %635, label %.preheader326.i
 
 .preheader326.i:                                  ; preds = %464
-  %465 = load ptr, ptr %5, align 8, !tbaa !54
+  %465 = load ptr, ptr %5, align 8, !tbaa !51
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 32
-  %467 = load i32, ptr %466, align 8, !tbaa !50
+  %467 = load i32, ptr %466, align 8, !tbaa !47
   %468 = icmp eq i32 %467, 0
   br i1 %468, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph.lr.ph.i54
 
 .lr.ph.lr.ph.i54:                                 ; preds = %.preheader326.i
-  %.pre.pre.i55 = load i32, ptr %12, align 8, !tbaa !66
+  %.pre.pre.i55 = load i32, ptr %12, align 8, !tbaa !63
   br label %.lr.ph.i56.outer
 
 .lr.ph.i56.outer:                                 ; preds = %.lr.ph.lr.ph.i54, %502
@@ -1871,32 +1871,32 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %471, label %504, label %472
 
 472:                                              ; preds = %.lr.ph.i56
-  %473 = load i8, ptr %13, align 4, !tbaa !67
+  %473 = load i8, ptr %13, align 4, !tbaa !64
   %474 = getelementptr inbounds nuw i8, ptr %.ph, i64 24
-  %475 = load ptr, ptr %474, align 8, !tbaa !51
+  %475 = load ptr, ptr %474, align 8, !tbaa !48
   store i8 %473, ptr %475, align 1, !tbaa !43
-  %476 = load i32, ptr %14, align 8, !tbaa !68
+  %476 = load i32, ptr %14, align 8, !tbaa !65
   %477 = shl i32 %476, 8
   %478 = lshr i32 %476, 24
   %479 = zext i8 %473 to i32
   %480 = xor i32 %478, %479
   %481 = zext nneg i32 %480 to i64
   %482 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %481
-  %483 = load i32, ptr %482, align 4, !tbaa !53
+  %483 = load i32, ptr %482, align 4, !tbaa !50
   %484 = xor i32 %483, %477
-  store i32 %484, ptr %14, align 8, !tbaa !68
-  %485 = load i32, ptr %12, align 8, !tbaa !66
+  store i32 %484, ptr %14, align 8, !tbaa !65
+  %485 = load i32, ptr %12, align 8, !tbaa !63
   %486 = add nsw i32 %485, -1
-  store i32 %486, ptr %12, align 8, !tbaa !66
-  %487 = load ptr, ptr %5, align 8, !tbaa !54
+  store i32 %486, ptr %12, align 8, !tbaa !63
+  %487 = load ptr, ptr %5, align 8, !tbaa !51
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 24
-  %489 = load ptr, ptr %488, align 8, !tbaa !51
+  %489 = load ptr, ptr %488, align 8, !tbaa !48
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 1
-  store ptr %490, ptr %488, align 8, !tbaa !51
+  store ptr %490, ptr %488, align 8, !tbaa !48
   %491 = getelementptr inbounds nuw i8, ptr %487, i64 32
-  %492 = load i32, ptr %491, align 8, !tbaa !50
+  %492 = load i32, ptr %491, align 8, !tbaa !47
   %493 = add i32 %492, -1
-  store i32 %493, ptr %491, align 8, !tbaa !50
+  store i32 %493, ptr %491, align 8, !tbaa !47
   %494 = getelementptr inbounds nuw i8, ptr %487, i64 36
   %495 = load i32, ptr %494, align 4, !tbaa !35
   %496 = add i32 %495, 1
@@ -1916,8 +1916,8 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %503, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph.i56.outer
 
 504:                                              ; preds = %.lr.ph.i56
-  %505 = load i32, ptr %15, align 4, !tbaa !69
-  %506 = load i32, ptr %16, align 8, !tbaa !70
+  %505 = load i32, ptr %15, align 4, !tbaa !66
+  %506 = load i32, ptr %16, align 8, !tbaa !67
   %507 = add nsw i32 %506, 1
   %508 = icmp eq i32 %505, %507
   br i1 %508, label %unRLE_obuf_to_output_SMALL.exit, label %509
@@ -1927,32 +1927,32 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %510, label %unRLE_obuf_to_output_SMALL.exit.thread, label %511
 
 511:                                              ; preds = %509
-  store i32 1, ptr %12, align 8, !tbaa !66
-  %512 = load i32, ptr %17, align 8, !tbaa !71
+  store i32 1, ptr %12, align 8, !tbaa !63
+  %512 = load i32, ptr %17, align 8, !tbaa !68
   %513 = trunc i32 %512 to i8
-  store i8 %513, ptr %13, align 4, !tbaa !67
-  %514 = load i32, ptr %18, align 4, !tbaa !72
-  %515 = load i32, ptr %19, align 8, !tbaa !73
+  store i8 %513, ptr %13, align 4, !tbaa !64
+  %514 = load i32, ptr %18, align 4, !tbaa !69
+  %515 = load i32, ptr %19, align 8, !tbaa !70
   %516 = mul i32 %515, 100000
   %.not307.i = icmp ult i32 %514, %516
   br i1 %.not307.i, label %517, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 517:                                              ; preds = %511
-  %518 = load ptr, ptr %25, align 8, !tbaa !80
+  %518 = load ptr, ptr %25, align 8, !tbaa !77
   %519 = zext i32 %514 to i64
   %520 = getelementptr inbounds nuw i32, ptr %518, i64 %519
-  %521 = load i32, ptr %520, align 4, !tbaa !53
+  %521 = load i32, ptr %520, align 4, !tbaa !50
   %522 = lshr i32 %521, 8
-  store i32 %522, ptr %18, align 4, !tbaa !72
-  %523 = load i32, ptr %23, align 8, !tbaa !78
+  store i32 %522, ptr %18, align 4, !tbaa !69
+  %523 = load i32, ptr %23, align 8, !tbaa !75
   %524 = icmp eq i32 %523, 0
   br i1 %524, label %525, label %532
 
 525:                                              ; preds = %517
-  %526 = load i32, ptr %24, align 4, !tbaa !79
+  %526 = load i32, ptr %24, align 4, !tbaa !76
   %527 = sext i32 %526 to i64
   %528 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %527
-  %529 = load i32, ptr %528, align 4, !tbaa !53
+  %529 = load i32, ptr %528, align 4, !tbaa !50
   %530 = add nsw i32 %526, 1
   %531 = icmp eq i32 %530, 512
   %spec.store.select.i60 = select i1 %531, i32 0, i32 %530
@@ -1962,9 +1962,9 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 532:                                              ; preds = %525, %517
   %533 = phi i32 [ %529, %525 ], [ %523, %517 ]
   %534 = add nsw i32 %533, -1
-  store i32 %534, ptr %23, align 8, !tbaa !78
+  store i32 %534, ptr %23, align 8, !tbaa !75
   %535 = add nsw i32 %505, 1
-  store i32 %535, ptr %15, align 4, !tbaa !69
+  store i32 %535, ptr %15, align 4, !tbaa !66
   %536 = icmp eq i32 %505, %506
   br i1 %536, label %.backedge328.i, label %537
 
@@ -1977,33 +1977,33 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %.not308.i, label %544, label %541
 
 541:                                              ; preds = %537
-  store i32 %540, ptr %17, align 8, !tbaa !71
+  store i32 %540, ptr %17, align 8, !tbaa !68
   br label %.backedge328.i
 
 .backedge328.i:                                   ; preds = %628, %591, %582, %567, %558, %541, %532
-  %542 = load i32, ptr %470, align 8, !tbaa !50
+  %542 = load i32, ptr %470, align 8, !tbaa !47
   %543 = icmp eq i32 %542, 0
   br i1 %543, label %unRLE_obuf_to_output_SMALL.exit, label %.lr.ph.i56
 
 544:                                              ; preds = %537
-  store i32 2, ptr %12, align 8, !tbaa !66
+  store i32 2, ptr %12, align 8, !tbaa !63
   %.not309.i = icmp ult i32 %522, %516
   br i1 %.not309.i, label %545, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 545:                                              ; preds = %544
   %546 = zext nneg i32 %522 to i64
   %547 = getelementptr inbounds nuw i32, ptr %518, i64 %546
-  %548 = load i32, ptr %547, align 4, !tbaa !53
+  %548 = load i32, ptr %547, align 4, !tbaa !50
   %549 = lshr i32 %548, 8
-  store i32 %549, ptr %18, align 4, !tbaa !72
+  store i32 %549, ptr %18, align 4, !tbaa !69
   %550 = icmp eq i32 %534, 0
   br i1 %550, label %551, label %558
 
 551:                                              ; preds = %545
-  %552 = load i32, ptr %24, align 4, !tbaa !79
+  %552 = load i32, ptr %24, align 4, !tbaa !76
   %553 = sext i32 %552 to i64
   %554 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %553
-  %555 = load i32, ptr %554, align 4, !tbaa !53
+  %555 = load i32, ptr %554, align 4, !tbaa !50
   %556 = add nsw i32 %552, 1
   %557 = icmp eq i32 %556, 512
   %spec.store.select318.i = select i1 %557, i32 0, i32 %556
@@ -2013,9 +2013,9 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 558:                                              ; preds = %551, %545
   %559 = phi i32 [ %555, %551 ], [ %534, %545 ]
   %560 = add nsw i32 %559, -1
-  store i32 %560, ptr %23, align 8, !tbaa !78
+  store i32 %560, ptr %23, align 8, !tbaa !75
   %561 = add nsw i32 %505, 2
-  store i32 %561, ptr %15, align 4, !tbaa !69
+  store i32 %561, ptr %15, align 4, !tbaa !66
   %562 = icmp eq i32 %535, %506
   br i1 %562, label %.backedge328.i, label %563
 
@@ -2028,28 +2028,28 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %.not311.i, label %568, label %567
 
 567:                                              ; preds = %563
-  store i32 %566, ptr %17, align 8, !tbaa !71
+  store i32 %566, ptr %17, align 8, !tbaa !68
   br label %.backedge328.i
 
 568:                                              ; preds = %563
-  store i32 3, ptr %12, align 8, !tbaa !66
+  store i32 3, ptr %12, align 8, !tbaa !63
   %.not312.i = icmp ult i32 %549, %516
   br i1 %.not312.i, label %569, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 569:                                              ; preds = %568
   %570 = zext nneg i32 %549 to i64
   %571 = getelementptr inbounds nuw i32, ptr %518, i64 %570
-  %572 = load i32, ptr %571, align 4, !tbaa !53
+  %572 = load i32, ptr %571, align 4, !tbaa !50
   %573 = lshr i32 %572, 8
-  store i32 %573, ptr %18, align 4, !tbaa !72
+  store i32 %573, ptr %18, align 4, !tbaa !69
   %574 = icmp eq i32 %560, 0
   br i1 %574, label %575, label %582
 
 575:                                              ; preds = %569
-  %576 = load i32, ptr %24, align 4, !tbaa !79
+  %576 = load i32, ptr %24, align 4, !tbaa !76
   %577 = sext i32 %576 to i64
   %578 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %577
-  %579 = load i32, ptr %578, align 4, !tbaa !53
+  %579 = load i32, ptr %578, align 4, !tbaa !50
   %580 = add nsw i32 %576, 1
   %581 = icmp eq i32 %580, 512
   %spec.store.select319.i = select i1 %581, i32 0, i32 %580
@@ -2059,9 +2059,9 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 582:                                              ; preds = %575, %569
   %583 = phi i32 [ %579, %575 ], [ %560, %569 ]
   %584 = add nsw i32 %583, -1
-  store i32 %584, ptr %23, align 8, !tbaa !78
+  store i32 %584, ptr %23, align 8, !tbaa !75
   %585 = add nsw i32 %505, 3
-  store i32 %585, ptr %15, align 4, !tbaa !69
+  store i32 %585, ptr %15, align 4, !tbaa !66
   %586 = icmp eq i32 %561, %506
   br i1 %586, label %.backedge328.i, label %587
 
@@ -2074,7 +2074,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br i1 %.not314.i, label %592, label %591
 
 591:                                              ; preds = %587
-  store i32 %590, ptr %17, align 8, !tbaa !71
+  store i32 %590, ptr %17, align 8, !tbaa !68
   br label %.backedge328.i
 
 592:                                              ; preds = %587
@@ -2084,17 +2084,17 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 593:                                              ; preds = %592
   %594 = zext nneg i32 %573 to i64
   %595 = getelementptr inbounds nuw i32, ptr %518, i64 %594
-  %596 = load i32, ptr %595, align 4, !tbaa !53
+  %596 = load i32, ptr %595, align 4, !tbaa !50
   %597 = lshr i32 %596, 8
-  store i32 %597, ptr %18, align 4, !tbaa !72
+  store i32 %597, ptr %18, align 4, !tbaa !69
   %598 = icmp eq i32 %584, 0
   br i1 %598, label %599, label %606
 
 599:                                              ; preds = %593
-  %600 = load i32, ptr %24, align 4, !tbaa !79
+  %600 = load i32, ptr %24, align 4, !tbaa !76
   %601 = sext i32 %600 to i64
   %602 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %601
-  %603 = load i32, ptr %602, align 4, !tbaa !53
+  %603 = load i32, ptr %602, align 4, !tbaa !50
   %604 = add nsw i32 %600, 1
   %605 = icmp eq i32 %604, 512
   %spec.store.select320.i = select i1 %605, i32 0, i32 %604
@@ -2104,34 +2104,34 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 606:                                              ; preds = %599, %593
   %607 = phi i32 [ %603, %599 ], [ %584, %593 ]
   %608 = add nsw i32 %607, -1
-  store i32 %608, ptr %23, align 8, !tbaa !78
+  store i32 %608, ptr %23, align 8, !tbaa !75
   %609 = icmp eq i32 %608, 1
   %610 = zext i1 %609 to i32
   %611 = add nsw i32 %505, 4
-  store i32 %611, ptr %15, align 4, !tbaa !69
+  store i32 %611, ptr %15, align 4, !tbaa !66
   %.masked316.i = and i32 %596, 255
   %612 = xor i32 %.masked316.i, %610
   %613 = add nuw nsw i32 %612, 4
-  store i32 %613, ptr %12, align 8, !tbaa !66
+  store i32 %613, ptr %12, align 8, !tbaa !63
   %.not317.i = icmp ult i32 %597, %516
   br i1 %.not317.i, label %614, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 614:                                              ; preds = %606
   %615 = zext nneg i32 %597 to i64
   %616 = getelementptr inbounds nuw i32, ptr %518, i64 %615
-  %617 = load i32, ptr %616, align 4, !tbaa !53
+  %617 = load i32, ptr %616, align 4, !tbaa !50
   %618 = and i32 %617, 255
-  store i32 %618, ptr %17, align 8, !tbaa !71
+  store i32 %618, ptr %17, align 8, !tbaa !68
   %619 = lshr i32 %617, 8
-  store i32 %619, ptr %18, align 4, !tbaa !72
+  store i32 %619, ptr %18, align 4, !tbaa !69
   %620 = icmp eq i32 %608, 0
   br i1 %620, label %621, label %628
 
 621:                                              ; preds = %614
-  %622 = load i32, ptr %24, align 4, !tbaa !79
+  %622 = load i32, ptr %24, align 4, !tbaa !76
   %623 = sext i32 %622 to i64
   %624 = getelementptr inbounds [512 x i32], ptr @BZ2_rNums, i64 0, i64 %623
-  %625 = load i32, ptr %624, align 4, !tbaa !53
+  %625 = load i32, ptr %624, align 4, !tbaa !50
   %626 = add nsw i32 %622, 1
   %627 = icmp eq i32 %626, 512
   %spec.store.select321.i = select i1 %627, i32 0, i32 %626
@@ -2141,30 +2141,30 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 628:                                              ; preds = %621, %614
   %629 = phi i32 [ %625, %621 ], [ %608, %614 ]
   %630 = add nsw i32 %629, -1
-  store i32 %630, ptr %23, align 8, !tbaa !78
+  store i32 %630, ptr %23, align 8, !tbaa !75
   %631 = icmp eq i32 %630, 1
   %632 = zext i1 %631 to i32
   %633 = xor i32 %618, %632
-  store i32 %633, ptr %17, align 8, !tbaa !71
+  store i32 %633, ptr %17, align 8, !tbaa !68
   %634 = add nsw i32 %505, 5
-  store i32 %634, ptr %15, align 4, !tbaa !69
+  store i32 %634, ptr %15, align 4, !tbaa !66
   br label %.backedge328.i
 
 635:                                              ; preds = %464
-  %636 = load i32, ptr %14, align 8, !tbaa !68
-  %637 = load i8, ptr %13, align 4, !tbaa !67
-  %638 = load i32, ptr %12, align 8, !tbaa !66
-  %639 = load i32, ptr %15, align 4, !tbaa !69
-  %640 = load i32, ptr %17, align 8, !tbaa !71
-  %641 = load ptr, ptr %25, align 8, !tbaa !80
-  %642 = load i32, ptr %18, align 4, !tbaa !72
-  %643 = load ptr, ptr %5, align 8, !tbaa !54
+  %636 = load i32, ptr %14, align 8, !tbaa !65
+  %637 = load i8, ptr %13, align 4, !tbaa !64
+  %638 = load i32, ptr %12, align 8, !tbaa !63
+  %639 = load i32, ptr %15, align 4, !tbaa !66
+  %640 = load i32, ptr %17, align 8, !tbaa !68
+  %641 = load ptr, ptr %25, align 8, !tbaa !77
+  %642 = load i32, ptr %18, align 4, !tbaa !69
+  %643 = load ptr, ptr %5, align 8, !tbaa !51
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 24
-  %645 = load ptr, ptr %644, align 8, !tbaa !51
+  %645 = load ptr, ptr %644, align 8, !tbaa !48
   %646 = getelementptr inbounds nuw i8, ptr %643, i64 32
-  %647 = load i32, ptr %646, align 8, !tbaa !50
-  %648 = load i32, ptr %19, align 8, !tbaa !73
-  %649 = load i32, ptr %16, align 8, !tbaa !70
+  %647 = load i32, ptr %646, align 8, !tbaa !47
+  %648 = load i32, ptr %19, align 8, !tbaa !70
+  %649 = load i32, ptr %16, align 8, !tbaa !67
   %650 = add nsw i32 %649, 1
   %651 = mul i32 %648, 100000
   br label %.backedge.i61
@@ -2204,7 +2204,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %660 = xor i32 %659, %654
   %661 = zext nneg i32 %660 to i64
   %662 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %661
-  %663 = load i32, ptr %662, align 4, !tbaa !53
+  %663 = load i32, ptr %662, align 4, !tbaa !50
   %664 = xor i32 %663, %658
   %665 = add nsw i32 %.1273342.i, -1
   %666 = getelementptr inbounds nuw i8, ptr %.2253343.i, i64 1
@@ -2231,7 +2231,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %674 = xor i32 %672, %673
   %675 = zext nneg i32 %674 to i64
   %676 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %675
-  %677 = load i32, ptr %676, align 4, !tbaa !53
+  %677 = load i32, ptr %676, align 4, !tbaa !50
   %678 = xor i32 %677, %671
   %679 = getelementptr inbounds nuw i8, ptr %.4255.i, i64 1
   %680 = add i32 %.4250.i, -1
@@ -2260,7 +2260,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 687:                                              ; preds = %685
   %688 = zext i32 %.1257.i to i64
   %689 = getelementptr inbounds nuw i32, ptr %641, i64 %688
-  %690 = load i32, ptr %689, align 4, !tbaa !53
+  %690 = load i32, ptr %689, align 4, !tbaa !50
   %691 = lshr i32 %690, 8
   %692 = add nsw i32 %.1269.i, 1
   %693 = and i32 %690, 255
@@ -2278,7 +2278,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 697:                                              ; preds = %696
   %698 = zext nneg i32 %691 to i64
   %699 = getelementptr inbounds nuw i32, ptr %641, i64 %698
-  %700 = load i32, ptr %699, align 4, !tbaa !53
+  %700 = load i32, ptr %699, align 4, !tbaa !50
   %701 = lshr i32 %700, 8
   %702 = add nsw i32 %.1269.i, 2
   %703 = icmp eq i32 %702, %650
@@ -2296,7 +2296,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 707:                                              ; preds = %706
   %708 = zext nneg i32 %701 to i64
   %709 = getelementptr inbounds nuw i32, ptr %641, i64 %708
-  %710 = load i32, ptr %709, align 4, !tbaa !53
+  %710 = load i32, ptr %709, align 4, !tbaa !50
   %711 = lshr i32 %710, 8
   %712 = add nsw i32 %.1269.i, 3
   %713 = icmp eq i32 %712, %650
@@ -2314,7 +2314,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
 717:                                              ; preds = %716
   %718 = zext nneg i32 %711 to i64
   %719 = getelementptr inbounds nuw i32, ptr %641, i64 %718
-  %720 = load i32, ptr %719, align 4, !tbaa !53
+  %720 = load i32, ptr %719, align 4, !tbaa !50
   %721 = lshr i32 %720, 8
   %.not306.i = icmp ult i32 %721, %651
   br i1 %.not306.i, label %722, label %unRLE_obuf_to_output_SMALL.exit.thread
@@ -2324,7 +2324,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %724 = add nuw nsw i32 %723, 4
   %725 = zext nneg i32 %721 to i64
   %726 = getelementptr inbounds nuw i32, ptr %641, i64 %725
-  %727 = load i32, ptr %726, align 4, !tbaa !53
+  %727 = load i32, ptr %726, align 4, !tbaa !50
   %728 = and i32 %727, 255
   %729 = lshr i32 %727, 8
   %730 = add nsw i32 %.1269.i, 5
@@ -2346,7 +2346,7 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   %.3254.i = phi ptr [ %666, %657 ], [ %.4255.i, %.loopexit323.i ], [ %.1252.i, %683 ], [ %.0251.i, %.preheader.i62 ]
   %.3249.i = phi i32 [ 0, %657 ], [ 0, %.loopexit323.i ], [ %.1247.i, %683 ], [ 0, %.preheader.i62 ]
   %.3.i = phi i32 [ %664, %657 ], [ %.4.i, %.loopexit323.i ], [ %.1245.i, %683 ], [ %.0244.i, %.preheader.i62 ]
-  %731 = load ptr, ptr %5, align 8, !tbaa !54
+  %731 = load ptr, ptr %5, align 8, !tbaa !51
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 36
   %733 = load i32, ptr %732, align 4, !tbaa !35
   %734 = sub i32 %647, %.3249.i
@@ -2363,44 +2363,44 @@ BZ2_indexIntoF.exit349.i:                         ; preds = %.preheader.i
   br label %741
 
 741:                                              ; preds = %737, %.loopexit.i
-  store i32 %.3.i, ptr %14, align 8, !tbaa !68
-  store i8 %.2262.i, ptr %13, align 4, !tbaa !67
-  store i32 %.2274.i, ptr %12, align 8, !tbaa !66
-  store i32 %.2270.i, ptr %15, align 4, !tbaa !69
-  store i32 %.2266.i, ptr %17, align 8, !tbaa !71
-  store ptr %641, ptr %25, align 8, !tbaa !80
-  store i32 %.2258.i, ptr %18, align 4, !tbaa !72
+  store i32 %.3.i, ptr %14, align 8, !tbaa !65
+  store i8 %.2262.i, ptr %13, align 4, !tbaa !64
+  store i32 %.2274.i, ptr %12, align 8, !tbaa !63
+  store i32 %.2270.i, ptr %15, align 4, !tbaa !66
+  store i32 %.2266.i, ptr %17, align 8, !tbaa !68
+  store ptr %641, ptr %25, align 8, !tbaa !77
+  store i32 %.2258.i, ptr %18, align 4, !tbaa !69
   %742 = getelementptr inbounds nuw i8, ptr %731, i64 24
-  store ptr %.3254.i, ptr %742, align 8, !tbaa !51
+  store ptr %.3254.i, ptr %742, align 8, !tbaa !48
   %743 = getelementptr inbounds nuw i8, ptr %731, i64 32
-  store i32 %.3249.i, ptr %743, align 8, !tbaa !50
+  store i32 %.3249.i, ptr %743, align 8, !tbaa !47
   br label %unRLE_obuf_to_output_SMALL.exit
 
 unRLE_obuf_to_output_SMALL.exit:                  ; preds = %74, %.backedge363.i, %70, %320, %.backedge.i, %316, %504, %.backedge328.i, %502, %.preheader360.i, %.preheader353.i, %.preheader326.i, %741
-  %744 = load i32, ptr %15, align 4, !tbaa !69
-  %745 = load i32, ptr %16, align 8, !tbaa !70
+  %744 = load i32, ptr %15, align 4, !tbaa !66
+  %745 = load i32, ptr %16, align 8, !tbaa !67
   %746 = add nsw i32 %745, 1
   %747 = icmp eq i32 %744, %746
   br i1 %747, label %748, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 748:                                              ; preds = %unRLE_obuf_to_output_SMALL.exit
-  %749 = load i32, ptr %12, align 8, !tbaa !66
+  %749 = load i32, ptr %12, align 8, !tbaa !63
   %750 = icmp eq i32 %749, 0
   br i1 %750, label %751, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 751:                                              ; preds = %748
-  %752 = load i32, ptr %14, align 8, !tbaa !68
+  %752 = load i32, ptr %14, align 8, !tbaa !65
   %753 = xor i32 %752, -1
-  store i32 %753, ptr %14, align 8, !tbaa !68
-  %754 = load i32, ptr %26, align 4, !tbaa !62
+  store i32 %753, ptr %14, align 8, !tbaa !65
+  %754 = load i32, ptr %26, align 4, !tbaa !59
   %755 = icmp sgt i32 %754, 2
   br i1 %755, label %756, label %760
 
 756:                                              ; preds = %751
   %757 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %758 = load i32, ptr %27, align 8, !tbaa !81
+  %758 = load i32, ptr %27, align 8, !tbaa !78
   %759 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %757, ptr noundef nonnull @.str.2, i32 noundef %758, i32 noundef %753) #20
-  %.pr = load i32, ptr %26, align 4, !tbaa !62
+  %.pr = load i32, ptr %26, align 4, !tbaa !59
   br label %760
 
 760:                                              ; preds = %756, %751
@@ -2414,17 +2414,17 @@ unRLE_obuf_to_output_SMALL.exit:                  ; preds = %74, %.backedge363.i
   br label %765
 
 765:                                              ; preds = %763, %760
-  %766 = load i32, ptr %14, align 8, !tbaa !68
-  %767 = load i32, ptr %27, align 8, !tbaa !81
+  %766 = load i32, ptr %14, align 8, !tbaa !65
+  %767 = load i32, ptr %27, align 8, !tbaa !78
   %.not49 = icmp eq i32 %766, %767
   br i1 %.not49, label %.thread, label %unRLE_obuf_to_output_SMALL.exit.thread
 
 .thread:                                          ; preds = %765
-  %768 = load i32, ptr %28, align 4, !tbaa !59
+  %768 = load i32, ptr %28, align 4, !tbaa !56
   %769 = tail call i32 @llvm.fshl.i32(i32 %768, i32 %768, i32 1)
   %770 = xor i32 %769, %766
-  store i32 %770, ptr %28, align 4, !tbaa !59
-  store i32 14, ptr %9, align 8, !tbaa !56
+  store i32 %770, ptr %28, align 4, !tbaa !56
+  store i32 14, ptr %9, align 8, !tbaa !53
   br label %.loopexit
 
 771:                                              ; preds = %30
@@ -2436,28 +2436,28 @@ unRLE_obuf_to_output_SMALL.exit:                  ; preds = %74, %.backedge363.i
   br i1 %773, label %774, label %786
 
 774:                                              ; preds = %.loopexit
-  %775 = load i32, ptr %26, align 4, !tbaa !62
+  %775 = load i32, ptr %26, align 4, !tbaa !59
   %776 = icmp sgt i32 %775, 2
   br i1 %776, label %777, label %.thread65
 
 777:                                              ; preds = %774
   %778 = load ptr, ptr @stderr, align 8, !tbaa !3
   %779 = getelementptr inbounds nuw i8, ptr %5, i64 3180
-  %780 = load i32, ptr %779, align 4, !tbaa !82
-  %781 = load i32, ptr %28, align 4, !tbaa !59
+  %780 = load i32, ptr %779, align 4, !tbaa !79
+  %781 = load i32, ptr %28, align 4, !tbaa !56
   %782 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %778, ptr noundef nonnull @.str.4, i32 noundef %780, i32 noundef %781) #20
   br label %.thread65
 
 .thread65:                                        ; preds = %774, %777
-  %783 = load i32, ptr %28, align 4, !tbaa !59
+  %783 = load i32, ptr %28, align 4, !tbaa !56
   %784 = getelementptr inbounds nuw i8, ptr %5, i64 3180
-  %785 = load i32, ptr %784, align 4, !tbaa !82
+  %785 = load i32, ptr %784, align 4, !tbaa !79
   %.not51 = icmp eq i32 %783, %785
   %. = select i1 %.not51, i32 4, i32 -4
   br label %unRLE_obuf_to_output_SMALL.exit.thread
 
 786:                                              ; preds = %.loopexit
-  %787 = load i32, ptr %9, align 8, !tbaa !56
+  %787 = load i32, ptr %9, align 8, !tbaa !53
   %.not50 = icmp eq i32 %787, 2
   br i1 %.not50, label %.outer, label %unRLE_obuf_to_output_SMALL.exit.thread
 
@@ -2480,13 +2480,13 @@ define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef captures(address) %
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !51
   %.not = icmp eq ptr %8, %0
   br i1 %.not, label %9, label %39
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 3152
-  %11 = load ptr, ptr %10, align 8, !tbaa !80
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %.not26 = icmp eq ptr %11, null
   br i1 %.not26, label %17, label %12
 
@@ -2500,7 +2500,7 @@ define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef captures(address) %
 
 17:                                               ; preds = %12, %9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 3160
-  %19 = load ptr, ptr %18, align 8, !tbaa !74
+  %19 = load ptr, ptr %18, align 8, !tbaa !71
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %25, label %20
 
@@ -2514,7 +2514,7 @@ define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef captures(address) %
 
 25:                                               ; preds = %20, %17
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 3168
-  %27 = load ptr, ptr %26, align 8, !tbaa !77
+  %27 = load ptr, ptr %26, align 8, !tbaa !74
   %.not28 = icmp eq ptr %27, null
   br i1 %.not28, label %33, label %28
 
@@ -2547,7 +2547,7 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %5
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %7
 
 7:                                                ; preds = %5, %6
@@ -2565,7 +2565,7 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %40, label %14
 
 14:                                               ; preds = %13
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %40
 
 15:                                               ; preds = %7
@@ -2577,7 +2577,7 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %40, label %18
 
 18:                                               ; preds = %17
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %40
 
 19:                                               ; preds = %15
@@ -2589,26 +2589,26 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %40, label %23
 
 23:                                               ; preds = %22
-  store i32 -3, ptr %0, align 4, !tbaa !53
+  store i32 -3, ptr %0, align 4, !tbaa !50
   br label %40
 
 24:                                               ; preds = %19
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %24
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %26
 
 26:                                               ; preds = %24, %25
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 5096
-  store i32 0, ptr %27, align 8, !tbaa !83
+  store i32 0, ptr %27, align 8, !tbaa !80
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 5100
-  store i8 0, ptr %28, align 4, !tbaa !85
+  store i8 0, ptr %28, align 4, !tbaa !82
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 5008
-  store i32 0, ptr %29, align 8, !tbaa !86
-  store ptr %1, ptr %20, align 8, !tbaa !87
+  store i32 0, ptr %29, align 8, !tbaa !83
+  store ptr %1, ptr %20, align 8, !tbaa !84
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 5012
-  store i8 1, ptr %30, align 4, !tbaa !88
+  store i8 1, ptr %30, align 4, !tbaa !85
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 5016
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 5072
   %33 = icmp eq i32 %4, 0
@@ -2622,7 +2622,7 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
   br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %35
-  store i32 %34, ptr %0, align 4, !tbaa !53
+  store i32 %34, ptr %0, align 4, !tbaa !50
   br label %37
 
 37:                                               ; preds = %35, %36
@@ -2631,8 +2631,8 @@ define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_nu
 
 38:                                               ; preds = %26
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 5024
-  store i32 0, ptr %39, align 8, !tbaa !89
-  store i8 1, ptr %28, align 4, !tbaa !85
+  store i32 0, ptr %39, align 8, !tbaa !86
+  store i8 1, ptr %28, align 4, !tbaa !82
   br label %40
 
 40:                                               ; preds = %23, %22, %18, %17, %14, %13, %38, %37
@@ -2655,7 +2655,7 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %4
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -2664,7 +2664,7 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   %9 = icmp eq ptr %2, null
   %10 = icmp slt i32 %3, 0
   %or.cond3 = or i1 %9, %10
@@ -2674,7 +2674,7 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %.thread
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %12
 
 12:                                               ; preds = %11, %.thread
@@ -2682,12 +2682,12 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 -2, ptr %14, align 8, !tbaa !83
+  store i32 -2, ptr %14, align 8, !tbaa !80
   br label %68
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 5012
-  %17 = load i8, ptr %16, align 4, !tbaa !88
+  %17 = load i8, ptr %16, align 4, !tbaa !85
   %.not69 = icmp eq i8 %17, 0
   br i1 %.not69, label %18, label %21
 
@@ -2695,15 +2695,15 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %18
-  store i32 -1, ptr %0, align 4, !tbaa !53
+  store i32 -1, ptr %0, align 4, !tbaa !50
   br label %20
 
 20:                                               ; preds = %18, %19
-  store i32 -1, ptr %8, align 8, !tbaa !83
+  store i32 -1, ptr %8, align 8, !tbaa !80
   br label %68
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %1, align 8, !tbaa !87
+  %22 = load ptr, ptr %1, align 8, !tbaa !84
   %23 = tail call i32 @ferror(ptr noundef %22) #23
   %.not70 = icmp eq i32 %23, 0
   br i1 %.not70, label %27, label %24
@@ -2712,11 +2712,11 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %24
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %26
 
 26:                                               ; preds = %24, %25
-  store i32 -6, ptr %8, align 8, !tbaa !83
+  store i32 -6, ptr %8, align 8, !tbaa !80
   br label %68
 
 27:                                               ; preds = %21
@@ -2727,18 +2727,18 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %29
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %31
 
 31:                                               ; preds = %29, %30
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   br label %68
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 5024
-  store i32 %3, ptr %34, align 8, !tbaa !89
-  store ptr %2, ptr %33, align 8, !tbaa !90
+  store i32 %3, ptr %34, align 8, !tbaa !86
+  store ptr %2, ptr %33, align 8, !tbaa !87
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 5048
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 5040
@@ -2746,8 +2746,8 @@ define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr
   br label %39
 
 39:                                               ; preds = %62, %32
-  store i32 5000, ptr %35, align 8, !tbaa !91
-  store ptr %36, ptr %37, align 8, !tbaa !92
+  store i32 5000, ptr %35, align 8, !tbaa !88
+  store ptr %36, ptr %37, align 8, !tbaa !89
   %40 = load ptr, ptr %38, align 8, !tbaa !32
   %41 = icmp eq ptr %40, null
   br i1 %41, label %select.unfold.loopexit, label %42
@@ -2781,29 +2781,29 @@ select.unfold:                                    ; preds = %.preheader.i, %.pre
   br i1 %.not, label %47, label %46
 
 46:                                               ; preds = %select.unfold
-  store i32 %.0.i.ph, ptr %0, align 4, !tbaa !53
+  store i32 %.0.i.ph, ptr %0, align 4, !tbaa !50
   br label %47
 
 47:                                               ; preds = %select.unfold, %46
-  store i32 %.0.i.ph, ptr %8, align 8, !tbaa !83
+  store i32 %.0.i.ph, ptr %8, align 8, !tbaa !80
   br label %68
 
 BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
-  %48 = load i32, ptr %35, align 8, !tbaa !91
+  %48 = load i32, ptr %35, align 8, !tbaa !88
   %49 = icmp ult i32 %48, 5000
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %BZ2_bzCompress.exit
   %51 = sub nuw nsw i32 5000, %48
   %52 = zext nneg i32 %51 to i64
-  %53 = load ptr, ptr %1, align 8, !tbaa !87
+  %53 = load ptr, ptr %1, align 8, !tbaa !84
   %54 = tail call i64 @fwrite(ptr noundef nonnull %36, i64 noundef 1, i64 noundef %52, ptr noundef %53)
   %55 = trunc i64 %54 to i32
   %.not72 = icmp eq i32 %51, %55
   br i1 %.not72, label %56, label %59
 
 56:                                               ; preds = %50
-  %57 = load ptr, ptr %1, align 8, !tbaa !87
+  %57 = load ptr, ptr %1, align 8, !tbaa !84
   %58 = tail call i32 @ferror(ptr noundef %57) #23
   %.not73 = icmp eq i32 %58, 0
   br i1 %.not73, label %62, label %59
@@ -2812,15 +2812,15 @@ BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
   br i1 %.not, label %61, label %60
 
 60:                                               ; preds = %59
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %61
 
 61:                                               ; preds = %59, %60
-  store i32 -6, ptr %8, align 8, !tbaa !83
+  store i32 -6, ptr %8, align 8, !tbaa !80
   br label %68
 
 62:                                               ; preds = %56, %BZ2_bzCompress.exit
-  %63 = load i32, ptr %34, align 8, !tbaa !89
+  %63 = load i32, ptr %34, align 8, !tbaa !86
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %39
 
@@ -2828,11 +2828,11 @@ BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
   br i1 %.not, label %67, label %66
 
 66:                                               ; preds = %65
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %67
 
 67:                                               ; preds = %65, %66
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   br label %68
 
 68:                                               ; preds = %20, %12, %13, %67, %61, %47, %31, %26
@@ -2858,12 +2858,12 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not105, label %157, label %10
 
 10:                                               ; preds = %9
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %157
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 5012
-  %13 = load i8, ptr %12, align 4, !tbaa !88
+  %13 = load i8, ptr %12, align 4, !tbaa !85
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %18
 
@@ -2872,16 +2872,16 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not89, label %16, label %15
 
 15:                                               ; preds = %14
-  store i32 -1, ptr %0, align 4, !tbaa !53
+  store i32 -1, ptr %0, align 4, !tbaa !50
   br label %16
 
 16:                                               ; preds = %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 -1, ptr %17, align 8, !tbaa !83
+  store i32 -1, ptr %17, align 8, !tbaa !80
   br label %157
 
 18:                                               ; preds = %11
-  %19 = load ptr, ptr %1, align 8, !tbaa !87
+  %19 = load ptr, ptr %1, align 8, !tbaa !84
   %20 = tail call i32 @ferror(ptr noundef %19) #23
   %.not90 = icmp eq i32 %20, 0
   br i1 %.not90, label %25, label %21
@@ -2891,12 +2891,12 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not104, label %23, label %22
 
 22:                                               ; preds = %21
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %23
 
 23:                                               ; preds = %21, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 -6, ptr %24, align 8, !tbaa !83
+  store i32 -6, ptr %24, align 8, !tbaa !80
   br label %157
 
 25:                                               ; preds = %18
@@ -2904,7 +2904,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not91, label %27, label %26
 
 26:                                               ; preds = %25
-  store i32 0, ptr %3, align 4, !tbaa !53
+  store i32 0, ptr %3, align 4, !tbaa !50
   br label %27
 
 27:                                               ; preds = %26, %25
@@ -2912,7 +2912,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not92, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 0, ptr %4, align 4, !tbaa !53
+  store i32 0, ptr %4, align 4, !tbaa !50
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -2920,7 +2920,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not93, label %31, label %30
 
 30:                                               ; preds = %29
-  store i32 0, ptr %5, align 4, !tbaa !53
+  store i32 0, ptr %5, align 4, !tbaa !50
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -2928,7 +2928,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br i1 %.not94, label %33, label %32
 
 32:                                               ; preds = %31
-  store i32 0, ptr %6, align 4, !tbaa !53
+  store i32 0, ptr %6, align 4, !tbaa !50
   br label %33
 
 33:                                               ; preds = %32, %31
@@ -2937,7 +2937,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  %36 = load i32, ptr %35, align 8, !tbaa !83
+  %36 = load i32, ptr %35, align 8, !tbaa !80
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.preheader, label %.loopexit112
 
@@ -2951,8 +2951,8 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   br label %44
 
 44:                                               ; preds = %.preheader, %92
-  store i32 5000, ptr %38, align 8, !tbaa !91
-  store ptr %39, ptr %40, align 8, !tbaa !92
+  store i32 5000, ptr %38, align 8, !tbaa !88
+  store ptr %39, ptr %40, align 8, !tbaa !89
   %45 = load ptr, ptr %41, align 8, !tbaa !32
   %46 = icmp eq ptr %45, null
   br i1 %46, label %isempty_RL.exit.thread.loopexit.i, label %47
@@ -2981,7 +2981,7 @@ define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) 
   %52 = load i32, ptr %43, align 8, !tbaa !45
   store i32 %52, ptr %50, align 8, !tbaa !46
   store i32 4, ptr %49, align 8, !tbaa !22
-  br label %.preheader.split.us77.i, !llvm.loop !49
+  br label %.preheader.split.us77.i
 
 .split65.us.i:                                    ; preds = %.preheader.split.us77.i
   %53 = load i32, ptr %50, align 8, !tbaa !46
@@ -3033,30 +3033,30 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
   br i1 %.not99, label %75, label %74
 
 74:                                               ; preds = %isempty_RL.exit.thread.loopexit.i
-  store i32 %.0.i.ph, ptr %0, align 4, !tbaa !53
+  store i32 %.0.i.ph, ptr %0, align 4, !tbaa !50
   br label %75
 
 75:                                               ; preds = %isempty_RL.exit.thread.loopexit.i, %74
-  store i32 %.0.i.ph, ptr %35, align 8, !tbaa !83
+  store i32 %.0.i.ph, ptr %35, align 8, !tbaa !80
   br label %157
 
 76:                                               ; preds = %73, %isempty_RL.exit52.i, %64, %58
   %77 = phi i1 [ true, %73 ], [ false, %isempty_RL.exit52.i ], [ false, %58 ], [ false, %64 ]
-  %78 = load i32, ptr %38, align 8, !tbaa !91
+  %78 = load i32, ptr %38, align 8, !tbaa !88
   %79 = icmp ult i32 %78, 5000
   br i1 %79, label %80, label %92
 
 80:                                               ; preds = %76
   %81 = sub nuw nsw i32 5000, %78
   %82 = zext nneg i32 %81 to i64
-  %83 = load ptr, ptr %1, align 8, !tbaa !87
+  %83 = load ptr, ptr %1, align 8, !tbaa !84
   %84 = tail call i64 @fwrite(ptr noundef nonnull %39, i64 noundef 1, i64 noundef %82, ptr noundef %83)
   %85 = trunc i64 %84 to i32
   %.not96 = icmp eq i32 %81, %85
   br i1 %.not96, label %86, label %89
 
 86:                                               ; preds = %80
-  %87 = load ptr, ptr %1, align 8, !tbaa !87
+  %87 = load ptr, ptr %1, align 8, !tbaa !84
   %88 = tail call i32 @ferror(ptr noundef %87) #23
   %.not97 = icmp eq i32 %88, 0
   br i1 %.not97, label %92, label %89
@@ -3066,18 +3066,18 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
   br i1 %.not98, label %91, label %90
 
 90:                                               ; preds = %89
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %91
 
 91:                                               ; preds = %89, %90
-  store i32 -6, ptr %35, align 8, !tbaa !83
+  store i32 -6, ptr %35, align 8, !tbaa !80
   br label %157
 
 92:                                               ; preds = %86, %76
   br i1 %77, label %.loopexit112.loopexit, label %44
 
 .loopexit112.loopexit:                            ; preds = %92
-  %.pre = load ptr, ptr %1, align 8, !tbaa !87
+  %.pre = load ptr, ptr %1, align 8, !tbaa !84
   br label %.loopexit112
 
 .loopexit112:                                     ; preds = %.loopexit112.loopexit, %34
@@ -3088,7 +3088,7 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
 
 95:                                               ; preds = %.loopexit112
   %96 = tail call i32 @fflush(ptr noundef %93)
-  %97 = load ptr, ptr %1, align 8, !tbaa !87
+  %97 = load ptr, ptr %1, align 8, !tbaa !84
   %98 = tail call i32 @ferror(ptr noundef %97) #23
   %.not101 = icmp eq i32 %98, 0
   br i1 %.not101, label %.critedge, label %99
@@ -3098,11 +3098,11 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
   br i1 %.not102, label %101, label %100
 
 100:                                              ; preds = %99
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %101
 
 101:                                              ; preds = %99, %100
-  store i32 -6, ptr %35, align 8, !tbaa !83
+  store i32 -6, ptr %35, align 8, !tbaa !80
   br label %157
 
 .critedge:                                        ; preds = %33, %95, %.loopexit112
@@ -3110,8 +3110,8 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
 
 102:                                              ; preds = %.critedge
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 5028
-  %104 = load i32, ptr %103, align 4, !tbaa !93
-  store i32 %104, ptr %3, align 4, !tbaa !53
+  %104 = load i32, ptr %103, align 4, !tbaa !90
+  store i32 %104, ptr %3, align 4, !tbaa !50
   br label %105
 
 105:                                              ; preds = %102, %.critedge
@@ -3119,8 +3119,8 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 5032
-  %108 = load i32, ptr %107, align 8, !tbaa !94
-  store i32 %108, ptr %4, align 4, !tbaa !53
+  %108 = load i32, ptr %107, align 8, !tbaa !91
+  store i32 %108, ptr %4, align 4, !tbaa !50
   br label %109
 
 109:                                              ; preds = %106, %105
@@ -3128,8 +3128,8 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 5052
-  %112 = load i32, ptr %111, align 4, !tbaa !95
-  store i32 %112, ptr %5, align 4, !tbaa !53
+  %112 = load i32, ptr %111, align 4, !tbaa !92
+  store i32 %112, ptr %5, align 4, !tbaa !50
   br label %113
 
 113:                                              ; preds = %110, %109
@@ -3137,8 +3137,8 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 5056
-  %116 = load i32, ptr %115, align 8, !tbaa !96
-  store i32 %116, ptr %6, align 4, !tbaa !53
+  %116 = load i32, ptr %115, align 8, !tbaa !93
+  store i32 %116, ptr %6, align 4, !tbaa !50
   br label %117
 
 117:                                              ; preds = %114, %113
@@ -3146,12 +3146,12 @@ isempty_RL.exit.thread.loopexit.i:                ; preds = %44, %47, %.split65.
   br i1 %.not103, label %119, label %118
 
 118:                                              ; preds = %117
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %119
 
 119:                                              ; preds = %117, %118
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 0, ptr %120, align 8, !tbaa !83
+  store i32 0, ptr %120, align 8, !tbaa !80
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 5064
   %122 = load ptr, ptr %121, align 8, !tbaa !32
   %123 = icmp eq ptr %122, null
@@ -3231,7 +3231,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %8
 
 8:                                                ; preds = %6, %7
@@ -3260,7 +3260,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br i1 %.not, label %56, label %17
 
 17:                                               ; preds = %16
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %56
 
 18:                                               ; preds = %15
@@ -3272,7 +3272,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br i1 %.not, label %56, label %21
 
 21:                                               ; preds = %20
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %56
 
 22:                                               ; preds = %18
@@ -3284,26 +3284,26 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br i1 %.not, label %56, label %26
 
 26:                                               ; preds = %25
-  store i32 -3, ptr %0, align 4, !tbaa !53
+  store i32 -3, ptr %0, align 4, !tbaa !50
   br label %56
 
 27:                                               ; preds = %22
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %29
 
 29:                                               ; preds = %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 5096
-  store i32 0, ptr %30, align 8, !tbaa !83
+  store i32 0, ptr %30, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 5100
-  store i8 0, ptr %31, align 4, !tbaa !85
-  store ptr %1, ptr %23, align 8, !tbaa !87
+  store i8 0, ptr %31, align 4, !tbaa !82
+  store ptr %1, ptr %23, align 8, !tbaa !84
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 5008
-  store i32 0, ptr %32, align 8, !tbaa !86
+  store i32 0, ptr %32, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 5012
-  store i8 0, ptr %33, align 4, !tbaa !88
+  store i8 0, ptr %33, align 4, !tbaa !85
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 5016
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 5072
   %36 = icmp sgt i32 %5, 0
@@ -3322,13 +3322,13 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds [5000 x i8], ptr %37, i64 0, i64 %41
   store i8 %40, ptr %42, align 1, !tbaa !43
-  %43 = load i32, ptr %32, align 8, !tbaa !86
+  %43 = load i32, ptr %32, align 8, !tbaa !83
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %32, align 8, !tbaa !86
+  store i32 %44, ptr %32, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %.07485, i64 1
   %46 = add nsw i32 %.07386, -1
   %47 = icmp samesign ugt i32 %.07386, 1
-  br i1 %47, label %38, label %._crit_edge, !llvm.loop !97
+  br i1 %47, label %38, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %38, %29
   %48 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %34, i32 noundef %2, i32 noundef %3)
@@ -3339,7 +3339,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br i1 %.not, label %51, label %50
 
 50:                                               ; preds = %49
-  store i32 %48, ptr %0, align 4, !tbaa !53
+  store i32 %48, ptr %0, align 4, !tbaa !50
   br label %51
 
 51:                                               ; preds = %49, %50
@@ -3347,12 +3347,12 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
   br label %56
 
 52:                                               ; preds = %._crit_edge
-  %53 = load i32, ptr %32, align 8, !tbaa !86
+  %53 = load i32, ptr %32, align 8, !tbaa !83
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 5024
-  store i32 %53, ptr %54, align 8, !tbaa !89
+  store i32 %53, ptr %54, align 8, !tbaa !86
   %55 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %55, ptr %34, align 8, !tbaa !90
-  store i8 1, ptr %31, align 4, !tbaa !85
+  store ptr %55, ptr %34, align 8, !tbaa !87
+  store i8 1, ptr %31, align 4, !tbaa !82
   br label %56
 
 56:                                               ; preds = %26, %25, %21, %20, %17, %16, %52, %51
@@ -3370,38 +3370,38 @@ define void @BZ2_bzReadClose(ptr noundef writeonly captures(address_is_null) %0,
   br i1 %.not20, label %54, label %4
 
 .thread23:                                        ; preds = %2
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   %.not2024 = icmp eq ptr %1, null
   br i1 %.not2024, label %54, label %.thread26
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 0, ptr %5, align 8, !tbaa !83
+  store i32 0, ptr %5, align 8, !tbaa !80
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 5012
-  %7 = load i8, ptr %6, align 4, !tbaa !88
+  %7 = load i8, ptr %6, align 4, !tbaa !85
   %.not21 = icmp eq i8 %7, 0
   br i1 %.not21, label %14, label %12
 
 .thread26:                                        ; preds = %.thread23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 5012
-  %10 = load i8, ptr %9, align 4, !tbaa !88
+  %10 = load i8, ptr %9, align 4, !tbaa !85
   %.not2127 = icmp eq i8 %10, 0
   br i1 %.not2127, label %14, label %11
 
 11:                                               ; preds = %.thread26
-  store i32 -1, ptr %0, align 4, !tbaa !53
+  store i32 -1, ptr %0, align 4, !tbaa !50
   br label %12
 
 12:                                               ; preds = %4, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 -1, ptr %13, align 8, !tbaa !83
+  store i32 -1, ptr %13, align 8, !tbaa !80
   br label %54
 
 14:                                               ; preds = %.thread26, %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 5100
-  %16 = load i8, ptr %15, align 4, !tbaa !85
+  %16 = load i8, ptr %15, align 4, !tbaa !82
   %.not22 = icmp eq i8 %16, 0
   br i1 %.not22, label %BZ2_bzDecompressEnd.exit, label %17
 
@@ -3413,13 +3413,13 @@ define void @BZ2_bzReadClose(ptr noundef writeonly captures(address_is_null) %0,
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 5016
-  %23 = load ptr, ptr %19, align 8, !tbaa !54
+  %23 = load ptr, ptr %19, align 8, !tbaa !51
   %.not.i = icmp eq ptr %23, %22
   br i1 %.not.i, label %24, label %BZ2_bzDecompressEnd.exit
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 3152
-  %26 = load ptr, ptr %25, align 8, !tbaa !80
+  %26 = load ptr, ptr %25, align 8, !tbaa !77
   %.not26.i = icmp eq ptr %26, null
   br i1 %.not26.i, label %32, label %27
 
@@ -3433,7 +3433,7 @@ define void @BZ2_bzReadClose(ptr noundef writeonly captures(address_is_null) %0,
 
 32:                                               ; preds = %27, %24
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 3160
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = load ptr, ptr %33, align 8, !tbaa !71
   %.not27.i = icmp eq ptr %34, null
   br i1 %.not27.i, label %40, label %35
 
@@ -3447,7 +3447,7 @@ define void @BZ2_bzReadClose(ptr noundef writeonly captures(address_is_null) %0,
 
 40:                                               ; preds = %35, %32
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 3168
-  %42 = load ptr, ptr %41, align 8, !tbaa !77
+  %42 = load ptr, ptr %41, align 8, !tbaa !74
   %.not28.i = icmp eq ptr %42, null
   br i1 %.not28.i, label %48, label %43
 
@@ -3482,7 +3482,7 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %4
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -3491,7 +3491,7 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   %9 = icmp eq ptr %2, null
   %10 = icmp slt i32 %3, 0
   %or.cond3 = or i1 %9, %10
@@ -3501,7 +3501,7 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %.thread
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %12
 
 12:                                               ; preds = %11, %.thread
@@ -3509,12 +3509,12 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  store i32 -2, ptr %14, align 8, !tbaa !83
+  store i32 -2, ptr %14, align 8, !tbaa !80
   br label %83
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 5012
-  %17 = load i8, ptr %16, align 4, !tbaa !88
+  %17 = load i8, ptr %16, align 4, !tbaa !85
   %.not89 = icmp eq i8 %17, 0
   br i1 %.not89, label %21, label %18
 
@@ -3522,11 +3522,11 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %18
-  store i32 -1, ptr %0, align 4, !tbaa !53
+  store i32 -1, ptr %0, align 4, !tbaa !50
   br label %20
 
 20:                                               ; preds = %18, %19
-  store i32 -1, ptr %8, align 8, !tbaa !83
+  store i32 -1, ptr %8, align 8, !tbaa !80
   br label %83
 
 21:                                               ; preds = %15
@@ -3537,26 +3537,26 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %23
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %25
 
 25:                                               ; preds = %23, %24
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   br label %83
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 5048
-  store i32 %3, ptr %28, align 8, !tbaa !91
+  store i32 %3, ptr %28, align 8, !tbaa !88
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 5040
-  store ptr %2, ptr %29, align 8, !tbaa !92
+  store ptr %2, ptr %29, align 8, !tbaa !89
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 5024
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5008
   br label %33
 
 33:                                               ; preds = %79, %26
-  %34 = load ptr, ptr %1, align 8, !tbaa !87
+  %34 = load ptr, ptr %1, align 8, !tbaa !84
   %35 = tail call i32 @ferror(ptr noundef %34) #23
   %.not90 = icmp eq i32 %35, 0
   br i1 %.not90, label %39, label %36
@@ -3565,15 +3565,15 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %36
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %38
 
 38:                                               ; preds = %36, %37
-  store i32 -6, ptr %8, align 8, !tbaa !83
+  store i32 -6, ptr %8, align 8, !tbaa !80
   br label %83
 
 39:                                               ; preds = %33
-  %40 = load i32, ptr %30, align 8, !tbaa !89
+  %40 = load i32, ptr %30, align 8, !tbaa !86
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %myfeof.exit
 
@@ -3584,9 +3584,9 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
 
 45:                                               ; preds = %42
   %46 = tail call i32 @ungetc(i32 noundef %43, ptr noundef %34)
-  %47 = load ptr, ptr %1, align 8, !tbaa !87
+  %47 = load ptr, ptr %1, align 8, !tbaa !84
   %48 = tail call i64 @fread(ptr noundef nonnull %31, i64 noundef 1, i64 noundef 5000, ptr noundef %47)
-  %49 = load ptr, ptr %1, align 8, !tbaa !87
+  %49 = load ptr, ptr %1, align 8, !tbaa !84
   %50 = tail call i32 @ferror(ptr noundef %49) #23
   %.not92 = icmp eq i32 %50, 0
   br i1 %.not92, label %54, label %51
@@ -3595,18 +3595,18 @@ define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr n
   br i1 %.not, label %53, label %52
 
 52:                                               ; preds = %51
-  store i32 -6, ptr %0, align 4, !tbaa !53
+  store i32 -6, ptr %0, align 4, !tbaa !50
   br label %53
 
 53:                                               ; preds = %51, %52
-  store i32 -6, ptr %8, align 8, !tbaa !83
+  store i32 -6, ptr %8, align 8, !tbaa !80
   br label %83
 
 54:                                               ; preds = %45
   %55 = trunc i64 %48 to i32
-  store i32 %55, ptr %32, align 8, !tbaa !86
-  store i32 %55, ptr %30, align 8, !tbaa !89
-  store ptr %31, ptr %27, align 8, !tbaa !90
+  store i32 %55, ptr %32, align 8, !tbaa !83
+  store i32 %55, ptr %30, align 8, !tbaa !86
+  store ptr %31, ptr %27, align 8, !tbaa !87
   br label %myfeof.exit
 
 myfeof.exit:                                      ; preds = %42, %54, %39
@@ -3619,11 +3619,11 @@ myfeof.exit:                                      ; preds = %42, %54, %39
   br i1 %.not, label %60, label %59
 
 59:                                               ; preds = %58
-  store i32 %56, ptr %0, align 4, !tbaa !53
+  store i32 %56, ptr %0, align 4, !tbaa !50
   br label %60
 
 60:                                               ; preds = %58, %59
-  store i32 %56, ptr %8, align 8, !tbaa !83
+  store i32 %56, ptr %8, align 8, !tbaa !80
   br label %83
 
 61:                                               ; preds = %myfeof.exit
@@ -3633,7 +3633,7 @@ myfeof.exit:                                      ; preds = %42, %54, %39
   ]
 
 62:                                               ; preds = %61
-  %63 = load ptr, ptr %1, align 8, !tbaa !87
+  %63 = load ptr, ptr %1, align 8, !tbaa !84
   %64 = tail call i32 @fgetc(ptr noundef %63)
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %myfeof.exit96, label %myfeof.exit96.thread
@@ -3643,12 +3643,12 @@ myfeof.exit96.thread:                             ; preds = %62
   br label %79
 
 myfeof.exit96:                                    ; preds = %62
-  %67 = load i32, ptr %30, align 8, !tbaa !89
+  %67 = load i32, ptr %30, align 8, !tbaa !86
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %myfeof.exit96
-  %70 = load i32, ptr %28, align 8, !tbaa !91
+  %70 = load i32, ptr %28, align 8, !tbaa !88
   %.not94 = icmp eq i32 %70, 0
   br i1 %.not94, label %.thread103, label %71
 
@@ -3656,28 +3656,28 @@ myfeof.exit96:                                    ; preds = %62
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %71
-  store i32 -7, ptr %0, align 4, !tbaa !53
+  store i32 -7, ptr %0, align 4, !tbaa !50
   br label %73
 
 73:                                               ; preds = %71, %72
-  store i32 -7, ptr %8, align 8, !tbaa !83
+  store i32 -7, ptr %8, align 8, !tbaa !80
   br label %83
 
 74:                                               ; preds = %61
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %74
-  store i32 4, ptr %0, align 4, !tbaa !53
+  store i32 4, ptr %0, align 4, !tbaa !50
   br label %76
 
 76:                                               ; preds = %74, %75
-  store i32 4, ptr %8, align 8, !tbaa !83
-  %77 = load i32, ptr %28, align 8, !tbaa !91
+  store i32 4, ptr %8, align 8, !tbaa !80
+  %77 = load i32, ptr %28, align 8, !tbaa !88
   %78 = sub i32 %3, %77
   br label %83
 
 79:                                               ; preds = %myfeof.exit96, %myfeof.exit96.thread, %61
-  %.pr = load i32, ptr %28, align 8, !tbaa !91
+  %.pr = load i32, ptr %28, align 8, !tbaa !88
   %80 = icmp eq i32 %.pr, 0
   br i1 %80, label %.thread103, label %33
 
@@ -3685,11 +3685,11 @@ myfeof.exit96:                                    ; preds = %62
   br i1 %.not, label %82, label %81
 
 81:                                               ; preds = %.thread103
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %82
 
 82:                                               ; preds = %.thread103, %81
-  store i32 0, ptr %8, align 8, !tbaa !83
+  store i32 0, ptr %8, align 8, !tbaa !80
   br label %83
 
 83:                                               ; preds = %25, %20, %12, %13, %82, %76, %73, %60, %53, %38
@@ -3710,12 +3710,12 @@ define void @BZ2_bzReadGetUnused(ptr noundef writeonly captures(address_is_null)
   br i1 %.not33, label %27, label %7
 
 7:                                                ; preds = %6
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %27
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 5096
-  %10 = load i32, ptr %9, align 8, !tbaa !83
+  %10 = load i32, ptr %9, align 8, !tbaa !80
   %.not = icmp eq i32 %10, 4
   br i1 %.not, label %14, label %11
 
@@ -3724,11 +3724,11 @@ define void @BZ2_bzReadGetUnused(ptr noundef writeonly captures(address_is_null)
   br i1 %.not32, label %13, label %12
 
 12:                                               ; preds = %11
-  store i32 -1, ptr %0, align 4, !tbaa !53
+  store i32 -1, ptr %0, align 4, !tbaa !50
   br label %13
 
 13:                                               ; preds = %11, %12
-  store i32 -1, ptr %9, align 8, !tbaa !83
+  store i32 -1, ptr %9, align 8, !tbaa !80
   br label %27
 
 14:                                               ; preds = %8
@@ -3742,28 +3742,28 @@ define void @BZ2_bzReadGetUnused(ptr noundef writeonly captures(address_is_null)
   br i1 %.not31, label %19, label %18
 
 18:                                               ; preds = %17
-  store i32 -2, ptr %0, align 4, !tbaa !53
+  store i32 -2, ptr %0, align 4, !tbaa !50
   br label %19
 
 19:                                               ; preds = %17, %18
-  store i32 -2, ptr %9, align 8, !tbaa !83
+  store i32 -2, ptr %9, align 8, !tbaa !80
   br label %27
 
 20:                                               ; preds = %14
   br i1 %.not31, label %22, label %21
 
 21:                                               ; preds = %20
-  store i32 0, ptr %0, align 4, !tbaa !53
+  store i32 0, ptr %0, align 4, !tbaa !50
   br label %22
 
 22:                                               ; preds = %20, %21
-  store i32 0, ptr %9, align 8, !tbaa !83
+  store i32 0, ptr %9, align 8, !tbaa !80
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 5016
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 5024
-  %25 = load i32, ptr %24, align 8, !tbaa !89
-  store i32 %25, ptr %3, align 4, !tbaa !53
-  %26 = load ptr, ptr %23, align 8, !tbaa !90
-  store ptr %26, ptr %2, align 8, !tbaa !98
+  %25 = load i32, ptr %24, align 8, !tbaa !86
+  store i32 %25, ptr %3, align 4, !tbaa !50
+  %26 = load ptr, ptr %23, align 8, !tbaa !87
+  store ptr %26, ptr %2, align 8, !tbaa !95
   br label %27
 
 27:                                               ; preds = %7, %6, %22, %19, %13
@@ -3800,14 +3800,14 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
   br i1 %.not, label %22, label %BZ2_bzCompressEnd.exit
 
 22:                                               ; preds = %16
-  store ptr %2, ptr %8, align 8, !tbaa !52
+  store ptr %2, ptr %8, align 8, !tbaa !49
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %0, ptr %23, align 8, !tbaa !51
+  store ptr %0, ptr %23, align 8, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %3, ptr %24, align 8, !tbaa !45
-  %25 = load i32, ptr %1, align 4, !tbaa !53
+  %25 = load i32, ptr %1, align 4, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %25, ptr %26, align 8, !tbaa !50
+  store i32 %25, ptr %26, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !32
   %29 = icmp eq ptr %28, null
@@ -3836,7 +3836,7 @@ define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr nounde
 .backedge.us78.i:                                 ; preds = %.preheader.split.us77.i
   store i32 %3, ptr %33, align 8, !tbaa !46
   store i32 4, ptr %32, align 8, !tbaa !22
-  br label %.preheader.split.us77.i, !llvm.loop !49
+  br label %.preheader.split.us77.i
 
 .split65.us.i:                                    ; preds = %.preheader.split.us77.i
   %35 = load i32, ptr %33, align 8, !tbaa !46
@@ -3877,10 +3877,10 @@ isempty_RL.exit52.i:                              ; preds = %46, %42
 
 55:                                               ; preds = %isempty_RL.exit52.i
   store i32 1, ptr %32, align 8, !tbaa !22
-  %56 = load i32, ptr %26, align 8, !tbaa !50
-  %57 = load i32, ptr %1, align 4, !tbaa !53
+  %56 = load i32, ptr %26, align 8, !tbaa !47
+  %57 = load i32, ptr %1, align 4, !tbaa !50
   %58 = sub i32 %57, %56
-  store i32 %58, ptr %1, align 4, !tbaa !53
+  store i32 %58, ptr %1, align 4, !tbaa !50
   %59 = load ptr, ptr %27, align 8, !tbaa !32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %BZ2_bzCompressEnd.exit, label %61
@@ -4056,17 +4056,17 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   br i1 %18, label %BZ2_bzDecompressInit.exit, label %19
 
 19:                                               ; preds = %13
-  store ptr %7, ptr %17, align 8, !tbaa !54
+  store ptr %7, ptr %17, align 8, !tbaa !51
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %17, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 10, ptr %21, align 8, !tbaa !56
+  store i32 10, ptr %21, align 8, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  store i32 0, ptr %22, align 4, !tbaa !57
+  store i32 0, ptr %22, align 4, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 0, ptr %23, align 8, !tbaa !58
+  store i32 0, ptr %23, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 3188
-  store i32 0, ptr %24, align 4, !tbaa !59
+  store i32 0, ptr %24, align 4, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %25, align 4, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4077,21 +4077,21 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   store i32 0, ptr %28, align 8, !tbaa !36
   %29 = trunc nuw nsw i32 %4 to i8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 44
-  store i8 %29, ptr %30, align 4, !tbaa !60
+  store i8 %29, ptr %30, align 4, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 3152
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i32 0, ptr %32, align 8, !tbaa !61
+  store i32 0, ptr %32, align 8, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  store i32 %5, ptr %33, align 4, !tbaa !62
-  store ptr %2, ptr %7, align 8, !tbaa !52
+  store i32 %5, ptr %33, align 4, !tbaa !59
+  store ptr %2, ptr %7, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %0, ptr %34, align 8, !tbaa !51
+  store ptr %0, ptr %34, align 8, !tbaa !48
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %3, ptr %35, align 8, !tbaa !45
-  %36 = load i32, ptr %1, align 4, !tbaa !53
+  %36 = load i32, ptr %1, align 4, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %36, ptr %37, align 8, !tbaa !50
+  store i32 %36, ptr %37, align 8, !tbaa !47
   %38 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %7)
   switch i32 %38, label %97 [
     i32 0, label %69
@@ -4099,22 +4099,22 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   ]
 
 39:                                               ; preds = %19
-  %40 = load i32, ptr %37, align 8, !tbaa !50
-  %41 = load i32, ptr %1, align 4, !tbaa !53
+  %40 = load i32, ptr %37, align 8, !tbaa !47
+  %41 = load i32, ptr %1, align 4, !tbaa !50
   %42 = sub i32 %41, %40
-  store i32 %42, ptr %1, align 4, !tbaa !53
+  store i32 %42, ptr %1, align 4, !tbaa !50
   %43 = load ptr, ptr %20, align 8, !tbaa !32
   %44 = icmp eq ptr %43, null
   br i1 %44, label %BZ2_bzDecompressInit.exit, label %45
 
 45:                                               ; preds = %39
-  %46 = load ptr, ptr %43, align 8, !tbaa !54
+  %46 = load ptr, ptr %43, align 8, !tbaa !51
   %.not.i = icmp eq ptr %46, %7
   br i1 %.not.i, label %47, label %BZ2_bzDecompressInit.exit
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 3152
-  %49 = load ptr, ptr %48, align 8, !tbaa !80
+  %49 = load ptr, ptr %48, align 8, !tbaa !77
   %.not26.i = icmp eq ptr %49, null
   br i1 %.not26.i, label %53, label %50
 
@@ -4126,7 +4126,7 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 
 53:                                               ; preds = %50, %47
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 3160
-  %55 = load ptr, ptr %54, align 8, !tbaa !74
+  %55 = load ptr, ptr %54, align 8, !tbaa !71
   %.not27.i = icmp eq ptr %55, null
   br i1 %.not27.i, label %59, label %56
 
@@ -4138,7 +4138,7 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 
 59:                                               ; preds = %56, %53
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 3168
-  %61 = load ptr, ptr %60, align 8, !tbaa !77
+  %61 = load ptr, ptr %60, align 8, !tbaa !74
   %.not28.i = icmp eq ptr %61, null
   br i1 %.not28.i, label %65, label %62
 
@@ -4156,20 +4156,20 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   br label %BZ2_bzDecompressInit.exit
 
 69:                                               ; preds = %19
-  %70 = load i32, ptr %37, align 8, !tbaa !50
+  %70 = load i32, ptr %37, align 8, !tbaa !47
   %.not35 = icmp eq i32 %70, 0
   %71 = load ptr, ptr %20, align 8, !tbaa !32
   %72 = icmp eq ptr %71, null
   br i1 %72, label %BZ2_bzDecompressEnd.exit42, label %73
 
 73:                                               ; preds = %69
-  %74 = load ptr, ptr %71, align 8, !tbaa !54
+  %74 = load ptr, ptr %71, align 8, !tbaa !51
   %.not.i37 = icmp eq ptr %74, %7
   br i1 %.not.i37, label %75, label %BZ2_bzDecompressEnd.exit42
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 3152
-  %77 = load ptr, ptr %76, align 8, !tbaa !80
+  %77 = load ptr, ptr %76, align 8, !tbaa !77
   %.not26.i39 = icmp eq ptr %77, null
   br i1 %.not26.i39, label %81, label %78
 
@@ -4181,7 +4181,7 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 
 81:                                               ; preds = %78, %75
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 3160
-  %83 = load ptr, ptr %82, align 8, !tbaa !74
+  %83 = load ptr, ptr %82, align 8, !tbaa !71
   %.not27.i40 = icmp eq ptr %83, null
   br i1 %.not27.i40, label %87, label %84
 
@@ -4193,7 +4193,7 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 
 87:                                               ; preds = %84, %81
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 3168
-  %89 = load ptr, ptr %88, align 8, !tbaa !77
+  %89 = load ptr, ptr %88, align 8, !tbaa !74
   %.not28.i41 = icmp eq ptr %89, null
   br i1 %.not28.i41, label %93, label %90
 
@@ -4220,13 +4220,13 @@ BZ2_bzDecompressEnd.exit42:                       ; preds = %69, %73, %93
   br i1 %99, label %BZ2_bzDecompressInit.exit, label %100
 
 100:                                              ; preds = %97
-  %101 = load ptr, ptr %98, align 8, !tbaa !54
+  %101 = load ptr, ptr %98, align 8, !tbaa !51
   %.not.i43 = icmp eq ptr %101, %7
   br i1 %.not.i43, label %102, label %BZ2_bzDecompressInit.exit
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 3152
-  %104 = load ptr, ptr %103, align 8, !tbaa !80
+  %104 = load ptr, ptr %103, align 8, !tbaa !77
   %.not26.i45 = icmp eq ptr %104, null
   br i1 %.not26.i45, label %108, label %105
 
@@ -4238,7 +4238,7 @@ BZ2_bzDecompressEnd.exit42:                       ; preds = %69, %73, %93
 
 108:                                              ; preds = %105, %102
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 3160
-  %110 = load ptr, ptr %109, align 8, !tbaa !74
+  %110 = load ptr, ptr %109, align 8, !tbaa !71
   %.not27.i46 = icmp eq ptr %110, null
   br i1 %.not27.i46, label %114, label %111
 
@@ -4250,7 +4250,7 @@ BZ2_bzDecompressEnd.exit42:                       ; preds = %69, %73, %93
 
 114:                                              ; preds = %111, %108
   %115 = getelementptr inbounds nuw i8, ptr %98, i64 3168
-  %116 = load ptr, ptr %115, align 8, !tbaa !77
+  %116 = load ptr, ptr %115, align 8, !tbaa !74
   %.not28.i47 = icmp eq ptr %116, null
   br i1 %.not28.i47, label %120, label %117
 
@@ -4309,10 +4309,10 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
 10:                                               ; preds = %.preheader
   %11 = sext i8 %7 to i32
   %12 = tail call ptr @__ctype_b_loc() #25
-  %13 = load ptr, ptr %12, align 8, !tbaa !99
+  %13 = load ptr, ptr %12, align 8, !tbaa !96
   %14 = sext i8 %7 to i64
   %15 = getelementptr inbounds i16, ptr %13, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !75
+  %16 = load i16, ptr %15, align 2, !tbaa !72
   %17 = and i16 %16, 2048
   %.not47 = icmp eq i16 %17, 0
   %18 = add nsw i32 %11, -48
@@ -4324,7 +4324,7 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
   %.134 = phi i32 [ %.033, %8 ], [ %.033, %9 ], [ %spec.select, %10 ], [ %.033, %.preheader ]
   %.1 = phi i32 [ %.031, %8 ], [ 1, %9 ], [ %.031, %10 ], [ %.031, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %.032, i64 1
-  br label %.preheader, !llvm.loop !100
+  br label %.preheader, !llvm.loop !97
 
 21:                                               ; preds = %.preheader
   %.not42 = icmp eq i32 %.037, 0
@@ -4383,14 +4383,14 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 5096
-  store i32 0, ptr %45, align 8, !tbaa !83
+  store i32 0, ptr %45, align 8, !tbaa !80
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 5100
-  store i8 0, ptr %46, align 4, !tbaa !85
+  store i8 0, ptr %46, align 4, !tbaa !82
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 5008
-  store i32 0, ptr %47, align 8, !tbaa !86
-  store ptr %.036, ptr %42, align 8, !tbaa !87
+  store i32 0, ptr %47, align 8, !tbaa !83
+  store ptr %.036, ptr %42, align 8, !tbaa !84
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 5012
-  store i8 1, ptr %48, align 4, !tbaa !88
+  store i8 1, ptr %48, align 4, !tbaa !85
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 5016
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 5072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
@@ -4400,8 +4400,8 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 5024
-  store i32 0, ptr %53, align 8, !tbaa !89
-  store i8 1, ptr %46, align 4, !tbaa !85
+  store i32 0, ptr %53, align 8, !tbaa !86
+  store i8 1, ptr %46, align 4, !tbaa !82
   br label %BZ2_bzWriteOpen.exit
 
 54:                                               ; preds = %38
@@ -4416,14 +4416,14 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 5096
-  store i32 0, ptr %60, align 8, !tbaa !83
+  store i32 0, ptr %60, align 8, !tbaa !80
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 5100
-  store i8 0, ptr %61, align 4, !tbaa !85
-  store ptr %.036, ptr %57, align 8, !tbaa !87
+  store i8 0, ptr %61, align 4, !tbaa !82
+  store ptr %.036, ptr %57, align 8, !tbaa !84
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 5008
-  store i32 0, ptr %62, align 8, !tbaa !86
+  store i32 0, ptr %62, align 8, !tbaa !83
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 5012
-  store i8 0, ptr %63, align 4, !tbaa !88
+  store i8 0, ptr %63, align 4, !tbaa !85
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 5016
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 5072
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
@@ -4432,12 +4432,12 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
   br i1 %.not83.i, label %67, label %.sink.split
 
 67:                                               ; preds = %59
-  %68 = load i32, ptr %62, align 8, !tbaa !86
+  %68 = load i32, ptr %62, align 8, !tbaa !83
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 5024
-  store i32 %68, ptr %69, align 8, !tbaa !89
+  store i32 %68, ptr %69, align 8, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %70, ptr %64, align 8, !tbaa !90
-  store i8 1, ptr %61, align 4, !tbaa !85
+  store ptr %70, ptr %64, align 8, !tbaa !87
+  store i8 1, ptr %61, align 4, !tbaa !82
   br label %BZ2_bzWriteOpen.exit
 
 .sink.split:                                      ; preds = %59, %44
@@ -4474,13 +4474,13 @@ define i32 @BZ2_bzread(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5096
-  %6 = load i32, ptr %5, align 8, !tbaa !83
+  %6 = load i32, ptr %5, align 8, !tbaa !80
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %3
   %9 = call i32 @BZ2_bzRead(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
-  %10 = load i32, ptr %4, align 4, !tbaa !53
+  %10 = load i32, ptr %4, align 4, !tbaa !50
   %11 = and i32 %10, -5
   %or.cond = icmp eq i32 %11, 0
   %. = select i1 %or.cond, i32 %9, i32 -1
@@ -4497,7 +4497,7 @@ define i32 @BZ2_bzwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_un
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @BZ2_bzWrite(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  %5 = load i32, ptr %4, align 4, !tbaa !53
+  %5 = load i32, ptr %4, align 4, !tbaa !50
   %6 = icmp eq i32 %5, 0
   %. = select i1 %6, i32 %2, i32 -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4517,41 +4517,41 @@ define void @BZ2_bzclose(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %3, label %101, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !87
+  %5 = load ptr, ptr %0, align 8, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5012
-  %7 = load i8, ptr %6, align 4, !tbaa !88
+  %7 = load i8, ptr %6, align 4, !tbaa !85
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %56, label %8
 
 8:                                                ; preds = %4
   call void @BZ2_bzWriteClose64(ptr noundef nonnull %2, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  %9 = load i32, ptr %2, align 4, !tbaa !53
+  %9 = load i32, ptr %2, align 4, !tbaa !50
   %.not10 = icmp eq i32 %9, 0
   br i1 %.not10, label %BZ2_bzWriteClose64.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = load i8, ptr %6, align 4, !tbaa !88
+  %11 = load i8, ptr %6, align 4, !tbaa !85
   %.not.i = icmp eq i8 %11, 0
   br i1 %.not.i, label %12, label %14
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 5096
-  store i32 -1, ptr %13, align 8, !tbaa !83
+  store i32 -1, ptr %13, align 8, !tbaa !80
   br label %BZ2_bzWriteClose64.exit
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %0, align 8, !tbaa !87
+  %15 = load ptr, ptr %0, align 8, !tbaa !84
   %16 = call i32 @ferror(ptr noundef %15) #23
   %.not90.i = icmp eq i32 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   br i1 %.not90.i, label %19, label %18
 
 18:                                               ; preds = %14
-  store i32 -6, ptr %17, align 8, !tbaa !83
+  store i32 -6, ptr %17, align 8, !tbaa !80
   br label %BZ2_bzWriteClose64.exit
 
 19:                                               ; preds = %14
-  store i32 0, ptr %17, align 8, !tbaa !83
+  store i32 0, ptr %17, align 8, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %21 = load ptr, ptr %20, align 8, !tbaa !32
   %22 = icmp eq ptr %21, null
@@ -4620,9 +4620,9 @@ BZ2_bzCompressEnd.exit.i:                         ; preds = %50, %23, %19
 
 56:                                               ; preds = %4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 5096
-  store i32 0, ptr %57, align 8, !tbaa !83
+  store i32 0, ptr %57, align 8, !tbaa !80
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 5100
-  %59 = load i8, ptr %58, align 4, !tbaa !85
+  %59 = load i8, ptr %58, align 4, !tbaa !82
   %.not22.i = icmp eq i8 %59, 0
   br i1 %.not22.i, label %BZ2_bzReadClose.exit, label %60
 
@@ -4634,13 +4634,13 @@ BZ2_bzCompressEnd.exit.i:                         ; preds = %50, %23, %19
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 5016
-  %66 = load ptr, ptr %62, align 8, !tbaa !54
+  %66 = load ptr, ptr %62, align 8, !tbaa !51
   %.not.i.i = icmp eq ptr %66, %65
   br i1 %.not.i.i, label %67, label %BZ2_bzReadClose.exit
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 3152
-  %69 = load ptr, ptr %68, align 8, !tbaa !80
+  %69 = load ptr, ptr %68, align 8, !tbaa !77
   %.not26.i.i = icmp eq ptr %69, null
   br i1 %.not26.i.i, label %75, label %70
 
@@ -4654,7 +4654,7 @@ BZ2_bzCompressEnd.exit.i:                         ; preds = %50, %23, %19
 
 75:                                               ; preds = %70, %67
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 3160
-  %77 = load ptr, ptr %76, align 8, !tbaa !74
+  %77 = load ptr, ptr %76, align 8, !tbaa !71
   %.not27.i.i = icmp eq ptr %77, null
   br i1 %.not27.i.i, label %83, label %78
 
@@ -4668,7 +4668,7 @@ BZ2_bzCompressEnd.exit.i:                         ; preds = %50, %23, %19
 
 83:                                               ; preds = %78, %75
   %84 = getelementptr inbounds nuw i8, ptr %62, i64 3168
-  %85 = load ptr, ptr %84, align 8, !tbaa !77
+  %85 = load ptr, ptr %84, align 8, !tbaa !74
   %.not28.i.i = icmp eq ptr %85, null
   br i1 %.not28.i.i, label %91, label %86
 
@@ -4716,13 +4716,13 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @BZ2_bzerror(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5096
-  %4 = load i32, ptr %3, align 8, !tbaa !83
+  %4 = load i32, ptr %3, align 8, !tbaa !80
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 0)
-  store i32 %spec.store.select, ptr %1, align 4, !tbaa !53
+  store i32 %spec.store.select, ptr %1, align 4, !tbaa !50
   %5 = sub nsw i32 0, %spec.store.select
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [16 x ptr], ptr @bzerrorstrings, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8, !tbaa !101
+  %8 = load ptr, ptr %7, align 8, !tbaa !98
   ret ptr %8
 }
 
@@ -4752,12 +4752,12 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %14 = xor i32 %13, %9
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw [256 x i32], ptr @BZ2_crc32Table, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !53
+  %17 = load i32, ptr %16, align 4, !tbaa !50
   %18 = xor i32 %12, %17
   store i32 %18, ptr %8, align 8, !tbaa !42
   %19 = add nuw nsw i32 %.057, 1
   %exitcond.not = icmp eq i32 %19, %6
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %10, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5000,59 +5000,56 @@ attributes #25 = { nounwind willreturn memory(none) }
 !44 = !{!15, !11, i64 660}
 !45 = !{!9, !11, i64 8}
 !46 = !{!15, !11, i64 16}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !48}
-!50 = !{!9, !11, i64 32}
-!51 = !{!9, !10, i64 24}
-!52 = !{!9, !10, i64 0}
-!53 = !{!11, !11, i64 0}
-!54 = !{!55, !5, i64 0}
-!55 = !{!"", !5, i64 0, !11, i64 8, !6, i64 12, !11, i64 16, !6, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !6, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !6, i64 68, !11, i64 1092, !6, i64 1096, !6, i64 2124, !16, i64 3152, !17, i64 3160, !10, i64 3168, !11, i64 3176, !11, i64 3180, !11, i64 3184, !11, i64 3188, !11, i64 3192, !6, i64 3196, !6, i64 3452, !6, i64 3468, !6, i64 3724, !6, i64 7820, !6, i64 7884, !6, i64 25886, !6, i64 43888, !6, i64 45436, !6, i64 51628, !6, i64 57820, !6, i64 64012, !11, i64 64036, !11, i64 64040, !11, i64 64044, !11, i64 64048, !11, i64 64052, !11, i64 64056, !11, i64 64060, !11, i64 64064, !11, i64 64068, !11, i64 64072, !11, i64 64076, !11, i64 64080, !11, i64 64084, !11, i64 64088, !11, i64 64092, !11, i64 64096, !11, i64 64100, !11, i64 64104, !11, i64 64108, !11, i64 64112, !11, i64 64116, !16, i64 64120, !16, i64 64128, !16, i64 64136}
-!56 = !{!55, !11, i64 8}
-!57 = !{!55, !11, i64 36}
-!58 = !{!55, !11, i64 32}
-!59 = !{!55, !11, i64 3188}
-!60 = !{!55, !6, i64 44}
-!61 = !{!55, !11, i64 48}
-!62 = !{!55, !11, i64 52}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!55, !6, i64 20}
-!66 = !{!55, !11, i64 16}
-!67 = !{!55, !6, i64 12}
-!68 = !{!55, !11, i64 3184}
-!69 = !{!55, !11, i64 1092}
-!70 = !{!55, !11, i64 64080}
-!71 = !{!55, !11, i64 64}
-!72 = !{!55, !11, i64 60}
-!73 = !{!55, !11, i64 40}
-!74 = !{!55, !17, i64 3160}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"short", !6, i64 0}
-!77 = !{!55, !10, i64 3168}
-!78 = !{!55, !11, i64 24}
-!79 = !{!55, !11, i64 28}
-!80 = !{!55, !16, i64 3152}
-!81 = !{!55, !11, i64 3176}
-!82 = !{!55, !11, i64 3180}
-!83 = !{!84, !11, i64 5096}
-!84 = !{!"", !4, i64 0, !6, i64 8, !11, i64 5008, !6, i64 5012, !9, i64 5016, !11, i64 5096, !6, i64 5100}
-!85 = !{!84, !6, i64 5100}
-!86 = !{!84, !11, i64 5008}
-!87 = !{!84, !4, i64 0}
-!88 = !{!84, !6, i64 5012}
-!89 = !{!84, !11, i64 5024}
-!90 = !{!84, !10, i64 5016}
-!91 = !{!84, !11, i64 5048}
-!92 = !{!84, !10, i64 5040}
-!93 = !{!84, !11, i64 5028}
-!94 = !{!84, !11, i64 5032}
-!95 = !{!84, !11, i64 5052}
-!96 = !{!84, !11, i64 5056}
-!97 = distinct !{!97, !64}
-!98 = !{!5, !5, i64 0}
-!99 = !{!17, !17, i64 0}
-!100 = distinct !{!100, !64}
-!101 = !{!10, !10, i64 0}
-!102 = distinct !{!102, !64}
+!47 = !{!9, !11, i64 32}
+!48 = !{!9, !10, i64 24}
+!49 = !{!9, !10, i64 0}
+!50 = !{!11, !11, i64 0}
+!51 = !{!52, !5, i64 0}
+!52 = !{!"", !5, i64 0, !11, i64 8, !6, i64 12, !11, i64 16, !6, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !6, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !6, i64 68, !11, i64 1092, !6, i64 1096, !6, i64 2124, !16, i64 3152, !17, i64 3160, !10, i64 3168, !11, i64 3176, !11, i64 3180, !11, i64 3184, !11, i64 3188, !11, i64 3192, !6, i64 3196, !6, i64 3452, !6, i64 3468, !6, i64 3724, !6, i64 7820, !6, i64 7884, !6, i64 25886, !6, i64 43888, !6, i64 45436, !6, i64 51628, !6, i64 57820, !6, i64 64012, !11, i64 64036, !11, i64 64040, !11, i64 64044, !11, i64 64048, !11, i64 64052, !11, i64 64056, !11, i64 64060, !11, i64 64064, !11, i64 64068, !11, i64 64072, !11, i64 64076, !11, i64 64080, !11, i64 64084, !11, i64 64088, !11, i64 64092, !11, i64 64096, !11, i64 64100, !11, i64 64104, !11, i64 64108, !11, i64 64112, !11, i64 64116, !16, i64 64120, !16, i64 64128, !16, i64 64136}
+!53 = !{!52, !11, i64 8}
+!54 = !{!52, !11, i64 36}
+!55 = !{!52, !11, i64 32}
+!56 = !{!52, !11, i64 3188}
+!57 = !{!52, !6, i64 44}
+!58 = !{!52, !11, i64 48}
+!59 = !{!52, !11, i64 52}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.mustprogress"}
+!62 = !{!52, !6, i64 20}
+!63 = !{!52, !11, i64 16}
+!64 = !{!52, !6, i64 12}
+!65 = !{!52, !11, i64 3184}
+!66 = !{!52, !11, i64 1092}
+!67 = !{!52, !11, i64 64080}
+!68 = !{!52, !11, i64 64}
+!69 = !{!52, !11, i64 60}
+!70 = !{!52, !11, i64 40}
+!71 = !{!52, !17, i64 3160}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"short", !6, i64 0}
+!74 = !{!52, !10, i64 3168}
+!75 = !{!52, !11, i64 24}
+!76 = !{!52, !11, i64 28}
+!77 = !{!52, !16, i64 3152}
+!78 = !{!52, !11, i64 3176}
+!79 = !{!52, !11, i64 3180}
+!80 = !{!81, !11, i64 5096}
+!81 = !{!"", !4, i64 0, !6, i64 8, !11, i64 5008, !6, i64 5012, !9, i64 5016, !11, i64 5096, !6, i64 5100}
+!82 = !{!81, !6, i64 5100}
+!83 = !{!81, !11, i64 5008}
+!84 = !{!81, !4, i64 0}
+!85 = !{!81, !6, i64 5012}
+!86 = !{!81, !11, i64 5024}
+!87 = !{!81, !10, i64 5016}
+!88 = !{!81, !11, i64 5048}
+!89 = !{!81, !10, i64 5040}
+!90 = !{!81, !11, i64 5028}
+!91 = !{!81, !11, i64 5032}
+!92 = !{!81, !11, i64 5052}
+!93 = !{!81, !11, i64 5056}
+!94 = distinct !{!94, !61}
+!95 = !{!5, !5, i64 0}
+!96 = !{!17, !17, i64 0}
+!97 = distinct !{!97, !61}
+!98 = !{!10, !10, i64 0}
+!99 = distinct !{!99, !61}

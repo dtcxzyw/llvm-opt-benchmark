@@ -1001,23 +1001,23 @@ if.then7:                                         ; preds = %land.rhs.i, %for.bo
 for.inc:                                          ; preds = %land.rhs.i, %for.body
   %inc = add nuw nsw i64 %i.011, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
-  br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !15
+  br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !13
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %for.inc, %for.inc.us, %entry
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 16
-  store i8 3, ptr %LHSKind.i.i, align 8, !alias.scope !16
+  store i8 3, ptr %LHSKind.i.i, align 8, !alias.scope !14
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 17
-  store i8 5, ptr %RHSKind.i.i, align 1, !alias.scope !16
-  store ptr @.str.17, ptr %ref.tmp13, align 8, !alias.scope !16
+  store i8 5, ptr %RHSKind.i.i, align 1, !alias.scope !14
+  store ptr @.str.17, ptr %ref.tmp13, align 8, !alias.scope !14
   %RHS5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 8
-  store ptr %ArgVal, ptr %RHS5.i.i, align 8, !alias.scope !16
-  store ptr %ref.tmp13, ptr %ref.tmp, align 8, !alias.scope !19
+  store ptr %ArgVal, ptr %RHS5.i.i, align 8, !alias.scope !14
+  store ptr %ref.tmp13, ptr %ref.tmp, align 8, !alias.scope !17
   %RHS4.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr @.str.18, ptr %RHS4.i.i.i, align 8, !alias.scope !19
+  store ptr @.str.18, ptr %RHS4.i.i.i, align 8, !alias.scope !17
   %LHSKind5.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !19
+  store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !17
   %RHSKind6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
-  store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !19
+  store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !17
   %call16 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #18
   %call17 = call noundef zeroext i1 @_ZN4llvh2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(145) %O, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(36) %call16) #18
   br label %return
@@ -1276,7 +1276,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN6hermes3hbc12BytecodeFormEE10OptionInfoELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !24
+  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN6hermes3hbc12BytecodeFormEE10OptionInfoELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !22
 
 _ZN4llvh23SmallVectorTemplateBaseINS_2cl6parserIN6hermes3hbc12BytecodeFormEE10OptionInfoELb0EE18uninitialized_moveIPS7_SA_EEvT_SB_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZN4llvh11safe_mallocEm.exit
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1324,10 +1324,10 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !25
+  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !23
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 12
-  store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !alias.scope !25
+  store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4, !alias.scope !23
   store ptr @.str.1, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %ref.tmp.i.sroa.4.0.add.ptr.i.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 5, ptr %ref.tmp.i.sroa.4.0.add.ptr.i.i.i.i.i.i.i.sroa_idx.i, align 8
@@ -1347,7 +1347,7 @@ entry:
   store ptr @.str.4, ptr %ref.tmp.i.sroa.13.0.add.ptr.i.i.i.i.i.i.i.sroa_idx.i, align 8
   %ref.tmp.i.sroa.14.0.add.ptr.i.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 88
   store i64 27, ptr %ref.tmp.i.sroa.14.0.add.ptr.i.i.i.i.i.i.i.sroa_idx.i, align 8
-  store i32 2, ptr %Size.i.i.i.i.i.i.i.i, align 8, !alias.scope !25
+  store i32 2, ptr %Size.i.i.i.i.i.i.i.i, align 8, !alias.scope !23
   store i32 2, ptr %ref.tmp5.i, align 4
   store ptr @.str.5, ptr %ref.tmp6.i, align 8
   %Str.sroa.2.0.Desc.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6.i, i64 8
@@ -1504,18 +1504,16 @@ attributes #24 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !12}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4llvhplEPKcRKNS_9StringRefE: %agg.result"}
-!18 = distinct !{!18, !"_ZN4llvhplEPKcRKNS_9StringRefE"}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
-!21 = distinct !{!21, !"_ZNK4llvh5Twine6concatERKS0_"}
-!22 = distinct !{!22, !23, !"_ZN4llvhplERKNS_5TwineES2_: %agg.result"}
-!23 = distinct !{!23, !"_ZN4llvhplERKNS_5TwineES2_"}
-!24 = distinct !{!24, !12}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN4llvh2cl6valuesIJNS0_15OptionEnumValueES2_EEENS0_11ValuesClassEDpT_: %agg.result"}
-!27 = distinct !{!27, !"_ZN4llvh2cl6valuesIJNS0_15OptionEnumValueES2_EEENS0_11ValuesClassEDpT_"}
+!13 = distinct !{!13, !12}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN4llvhplEPKcRKNS_9StringRefE: %agg.result"}
+!16 = distinct !{!16, !"_ZN4llvhplEPKcRKNS_9StringRefE"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
+!19 = distinct !{!19, !"_ZNK4llvh5Twine6concatERKS0_"}
+!20 = distinct !{!20, !21, !"_ZN4llvhplERKNS_5TwineES2_: %agg.result"}
+!21 = distinct !{!21, !"_ZN4llvhplERKNS_5TwineES2_"}
+!22 = distinct !{!22, !12}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN4llvh2cl6valuesIJNS0_15OptionEnumValueES2_EEENS0_11ValuesClassEDpT_: %agg.result"}
+!25 = distinct !{!25, !"_ZN4llvh2cl6valuesIJNS0_15OptionEnumValueES2_EEENS0_11ValuesClassEDpT_"}

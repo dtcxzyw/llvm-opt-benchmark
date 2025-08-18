@@ -1015,8 +1015,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %24 = add i64 %23, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %24, %10
   %25 = add i64 %.sroa.4.0.i26.i.i, %11
-  %or.cond93.i.not.i = icmp ult i64 %25, %10
-  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i", label %26
+  %or.cond.i.not.i = icmp ult i64 %25, %10
+  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i", label %26
 
 26:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i", %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.split.split.i.i
@@ -3233,8 +3233,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i: ; preds = 
   %17 = add i64 %16, %.sroa.4.0.i26.i.i.i
   %.not13.i.i.i = icmp ugt i64 %17, %.sroa.4.0.copyload
   %18 = add i64 %.sroa.4.0.i26.i.i.i, %4
-  %or.cond93.i.not.i.i = icmp ult i64 %18, %.sroa.4.0.copyload
-  br i1 %or.cond93.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i.i", label %19
+  %or.cond.i.not.i.i = icmp ult i64 %18, %.sroa.4.0.copyload
+  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i.i", label %19
 
 19:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4f2b0f86e41d42d0E.exit.i.i.i", %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i
   br i1 %.not13.i.i.i, label %.loopexit.i, label %.lr.ph.split.split.i.i.i

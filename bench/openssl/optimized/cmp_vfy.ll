@@ -1625,7 +1625,7 @@ check_cert_path.exit:                             ; preds = %31, %17
   %36 = add nuw nsw i32 %.03251, 1
   %37 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !78
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %35, %22, %.preheader
   %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.134.ph.us, %22 ], [ %.134.ph, %35 ]
@@ -1757,6 +1757,4 @@ attributes #3 = { nounwind }
 !73 = !{!"ossl_cmp_pkibody_st", !10, i64 0, !7, i64 8}
 !74 = !{!4, !10, i64 188}
 !75 = distinct !{!75, !63}
-!76 = distinct !{!76, !63, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !63}
+!76 = distinct !{!76, !63}

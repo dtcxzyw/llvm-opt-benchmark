@@ -107229,7 +107229,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %29 = tail call ptr @lean_array_push(ptr noundef %.02237.us, ptr noundef nonnull %24) #7
   %30 = add i64 %.02038.us, 1
   %.not.us = icmp eq i64 %30, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02038 = phi i64 [ %54, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -107387,7 +107387,7 @@ lean_dec.exit.us:                                 ; preds = %lean_inc.exit.us
   %29 = tail call ptr @lean_array_push(ptr noundef %.02237.us, ptr noundef nonnull %24) #7
   %30 = add i64 %.02038.us, 1
   %.not.us = icmp eq i64 %30, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.02038 = phi i64 [ %54, %lean_dec.exit ], [ %2, %.lr.ph ]
@@ -227973,6 +227973,3 @@ attributes #8 = { noreturn nounwind }
 !20 = !{!"branch_weights", i32 4000000, i32 4001}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"double", !7, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !24}

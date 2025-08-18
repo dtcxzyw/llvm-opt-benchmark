@@ -655,7 +655,7 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly captures(addr
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %60, align 8
   tail call void @kfree(ptr noundef %58) #9
   %63 = icmp eq ptr %59, %3
-  br i1 %63, label %.loopexit.thread, label %.split, !llvm.loop !12
+  br i1 %63, label %.loopexit.thread, label %.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %52, %2
   %64 = icmp eq i32 %1, 0
@@ -801,15 +801,15 @@ define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 
   %52 = getelementptr i8, ptr %6, i64 %.v
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
-  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
   %55 = and i32 %54, 983040
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %58, label %57, !prof !5
 
 57:                                               ; preds = %15
-  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !15
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !16
+  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !13
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !14
   br label %70
 
 58:                                               ; preds = %15
@@ -980,15 +980,15 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %85, ptr %86, align 8
-  %87 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !13
+  %87 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #10, !srcloc !11
   %88 = and i32 %87, 983040
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %91, label %90, !prof !5
 
 90:                                               ; preds = %.thread
-  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !15
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !16
+  tail call void asm sideeffect "449: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 449b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 449) #9, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 451, i32 2307, i64 12) #9, !srcloc !13
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_end\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #9, !srcloc !14
   br label %104
 
 91:                                               ; preds = %.thread
@@ -1119,7 +1119,7 @@ define dso_local i32 @crypto_skcipher_setkey(ptr noundef %0, ptr noundef %1, i32
 56:                                               ; preds = %53, %45, %13
   %57 = phi i32 [ %27, %13 ], [ %55, %53 ], [ %52, %45 ]
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %68, label %.thread, !prof !17
+  br i1 %58, label %68, label %.thread, !prof !15
 
 .thread:                                          ; preds = %40, %56
   %59 = phi i32 [ %57, %56 ], [ -12, %40 ]
@@ -1341,9 +1341,9 @@ define dso_local ptr @crypto_alloc_sync_skcipher(ptr noundef %0, i32 noundef %1,
   br i1 %9, label %10, label %12, !prof !6
 
 10:                                               ; preds = %7
-  tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #9, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 921, i32 2305, i64 12) #9, !srcloc !19
-  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !20
+  tail call void asm sideeffect "462: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 462b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 462) #9, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 921, i32 2305, i64 12) #9, !srcloc !17
+  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_end\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @crypto_destroy_tfm(ptr noundef %5, ptr noundef nonnull %11) #9
   br label %12
@@ -1615,7 +1615,7 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
   %63 = add nuw nsw i64 %7, 1
   %64 = icmp eq i64 %63, %5
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %64, label %.loopexit, label %6, !llvm.loop !21
+  br i1 %64, label %.loopexit, label %6, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv16 = phi i64 [ %61, %.preheader.preheader ], [ %indvars.iv.next17, %.preheader ]
@@ -1623,7 +1623,7 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
   tail call void @crypto_unregister_alg(ptr noundef %65) #9
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
   %.not = icmp eq i64 %indvars.iv16, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %62, %.preheader, %.thread10, %2
   %66 = phi i32 [ %57, %.thread10 ], [ 0, %2 ], [ %57, %.preheader ], [ 0, %62 ]
@@ -1646,7 +1646,7 @@ define dso_local void @crypto_unregister_skciphers(ptr noundef %0, i32 noundef %
   tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %.loopexit, label %7, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %7, !llvm.loop !21
 
 .loopexit:                                        ; preds = %7, %2
   ret void
@@ -1659,9 +1659,9 @@ define dso_local i32 @skcipher_register_instance(ptr noundef %0, ptr noundef %1)
   br i1 %4, label %5, label %6, !prof !6
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #9, !srcloc !24
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1037, i32 2305, i64 12) #9, !srcloc !25
-  tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_end\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #9, !srcloc !26
+  tail call void asm sideeffect "470: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 470b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 470) #9, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1037, i32 2305, i64 12) #9, !srcloc !23
+  tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_end\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #9, !srcloc !24
   br label %.thread5
 
 6:                                                ; preds = %2
@@ -1757,7 +1757,7 @@ declare dso_local i32 @crypto_register_instance(ptr noundef, ptr noundef) local_
 define dso_local ptr @skcipher_alloc_instance_simple(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !annotation !27
+  store i32 0, ptr %3, align 4, !annotation !25
   %4 = call i32 @crypto_check_attr_type(ptr noundef %1, i32 noundef 5, ptr noundef nonnull %3) #9
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
@@ -2399,23 +2399,21 @@ attributes #12 = { nounwind allocsize(2) }
 !5 = !{!"branch_weights", i32 2000, i32 1}
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{i32 -12, i32 1}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9, !10}
-!13 = !{i64 2148610067}
-!14 = !{i64 2156027241, i64 2156027050, i64 2156027102, i64 2156027148, i64 2156027176}
-!15 = !{i64 2156027315, i64 2156027344, i64 2156027390, i64 2156027448, i64 2156027502, i64 2156027556, i64 2156027611, i64 2156027642, i64 2156027950, i64 2156027956, i64 2156028003, i64 2156028026, i64 2156028052}
-!16 = !{i64 2156028502, i64 2156028313, i64 2156028363, i64 2156028409, i64 2156028437}
-!17 = !{!"branch_weights", i32 -2147483648, i32 0}
-!18 = !{i64 2156060416, i64 2156060225, i64 2156060277, i64 2156060323, i64 2156060351}
-!19 = !{i64 2156060490, i64 2156060519, i64 2156060565, i64 2156060623, i64 2156060677, i64 2156060731, i64 2156060786, i64 2156060817, i64 2156061125, i64 2156061131, i64 2156061178, i64 2156061201, i64 2156061227}
-!20 = !{i64 2156061677, i64 2156061488, i64 2156061538, i64 2156061584, i64 2156061612}
+!11 = !{i64 2148610067}
+!12 = !{i64 2156027241, i64 2156027050, i64 2156027102, i64 2156027148, i64 2156027176}
+!13 = !{i64 2156027315, i64 2156027344, i64 2156027390, i64 2156027448, i64 2156027502, i64 2156027556, i64 2156027611, i64 2156027642, i64 2156027950, i64 2156027956, i64 2156028003, i64 2156028026, i64 2156028052}
+!14 = !{i64 2156028502, i64 2156028313, i64 2156028363, i64 2156028409, i64 2156028437}
+!15 = !{!"branch_weights", i32 -2147483648, i32 0}
+!16 = !{i64 2156060416, i64 2156060225, i64 2156060277, i64 2156060323, i64 2156060351}
+!17 = !{i64 2156060490, i64 2156060519, i64 2156060565, i64 2156060623, i64 2156060677, i64 2156060731, i64 2156060786, i64 2156060817, i64 2156061125, i64 2156061131, i64 2156061178, i64 2156061201, i64 2156061227}
+!18 = !{i64 2156061677, i64 2156061488, i64 2156061538, i64 2156061584, i64 2156061612}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = !{i64 2156075575, i64 2156075384, i64 2156075436, i64 2156075482, i64 2156075510}
-!25 = !{i64 2156075649, i64 2156075678, i64 2156075724, i64 2156075782, i64 2156075836, i64 2156075890, i64 2156075945, i64 2156075976, i64 2156076284, i64 2156076290, i64 2156076337, i64 2156076360, i64 2156076386}
-!26 = !{i64 2156076837, i64 2156076648, i64 2156076698, i64 2156076744, i64 2156076772}
-!27 = !{!"auto-init"}
+!22 = !{i64 2156075575, i64 2156075384, i64 2156075436, i64 2156075482, i64 2156075510}
+!23 = !{i64 2156075649, i64 2156075678, i64 2156075724, i64 2156075782, i64 2156075836, i64 2156075890, i64 2156075945, i64 2156075976, i64 2156076284, i64 2156076290, i64 2156076337, i64 2156076360, i64 2156076386}
+!24 = !{i64 2156076837, i64 2156076648, i64 2156076698, i64 2156076744, i64 2156076772}
+!25 = !{!"auto-init"}

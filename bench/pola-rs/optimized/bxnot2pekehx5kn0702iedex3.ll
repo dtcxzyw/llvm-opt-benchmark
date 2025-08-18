@@ -14636,13 +14636,13 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_e
   %.promoted = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i)
-  br i1 %38, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader", label %.split23.us
+  br i1 %38, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us", label %.split23.us
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader": ; preds = %.split.us
-  %.not.i.us38 = icmp eq ptr %.promoted, null
-  br i1 %.not.i.us38, label %.split23.us, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us": ; preds = %.split.us
+  %.not.i.us.us33 = icmp eq ptr %.promoted, null
+  br i1 %.not.i.us.us33, label %.split23.us, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us.us.us
 
-_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us: ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader"
+_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us.us.us: ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us"
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1065)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1066)
@@ -14652,23 +14652,23 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   store ptr %.promoted, ptr %28, align 8
-  %.sroa.214.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214.0..sroa_idx.us, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  %.sroa.214.0..sroa_idx.us.us.us = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214.0..sroa_idx.us.us.us, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i)
   br label %.split23.us
 
-.split23.us:                                      ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader", %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us, %.split.us
-  %.lcssa = phi i64 [ 0, %.split.us ], [ 1, %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader" ]
-  %40 = phi ptr [ %.promoted, %.split.us ], [ null, %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us ], [ null, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.preheader" ]
+.split23.us:                                      ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us.us.us, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us", %.split.us
+  %.lcssa25 = phi i64 [ 0, %.split.us ], [ 1, %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us.us.us ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us" ]
+  %40 = phi ptr [ %.promoted, %.split.us ], [ null, %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i.us.us.us ], [ null, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5f9cf9586b35b1E.exit.i.us.lr.ph.split.us" ]
   store ptr %40, ptr %34, align 8
-  store i64 %.lcssa, ptr %.sroa.2.0..sroa_idx, align 8
-  store i64 %.lcssa, ptr %32, align 8
+  store i64 %.lcssa25, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %.lcssa25, ptr %32, align 8
   br label %.split23
 
 .split:                                           ; preds = %24, %48
-  %.pre32 = phi ptr [ %.pre, %48 ], [ %35, %24 ]
+  %.pre41 = phi ptr [ %.pre, %48 ], [ %35, %24 ]
   %41 = phi i64 [ %52, %48 ], [ 0, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.experimental.noalias.scope.decl(metadata !1065)
@@ -14677,7 +14677,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.
   call void @llvm.experimental.noalias.scope.decl(metadata !1067)
   call void @llvm.experimental.noalias.scope.decl(metadata !1068)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1073
-  %.not.i.i.i = icmp eq ptr %.pre32, null
+  %.not.i.i.i = icmp eq ptr %.pre41, null
   br i1 %.not.i.i.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h75cfd9cd0565b5e7E.exit.thread.i.i, label %42
 
 42:                                               ; preds = %.split

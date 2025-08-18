@@ -3571,7 +3571,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i:   ; preds = %_ZNK5ZXing11Pattern
   store i32 %40, ptr %41, align 4, !tbaa !24
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN5ZXing20NormalizedE2EPatternILi5EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i, !llvm.loop !169
+  br i1 %exitcond.not.i.i.i, label %_ZN5ZXing20NormalizedE2EPatternILi5EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i, !llvm.loop !167
 
 _ZN5ZXing20NormalizedE2EPatternILi5EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i.i: ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i, %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i.i.i
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %4, align 8
@@ -3597,7 +3597,7 @@ _ZN5ZXing20NormalizedE2EPatternILi5EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   %spec.select25.i.i = select i1 %44, i32 %45, i32 %.031.i.i
   %indvars.iv.next36.i.i = add nuw nsw i64 %indvars.iv35.i.i, 1
   %exitcond38.not.i.i = icmp eq i64 %indvars.iv.next36.i.i, 6
-  br i1 %exitcond38.not.i.i, label %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit, label %.preheader.i.i, !llvm.loop !170
+  br i1 %exitcond38.not.i.i, label %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit, label %.preheader.i.i, !llvm.loop !168
 
 46:                                               ; preds = %46, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %46 ]
@@ -3611,7 +3611,7 @@ _ZN5ZXing20NormalizedE2EPatternILi5EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
   %53 = add nuw nsw i32 %52, %.02127.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %43, label %46, !llvm.loop !171
+  br i1 %exitcond.not.i.i, label %43, label %46, !llvm.loop !169
 
 _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; preds = %43
   %54 = icmp slt i32 %spec.select.i.i, 2
@@ -3625,17 +3625,17 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
 
 59:                                               ; preds = %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
-  %60 = load ptr, ptr %12, align 8, !tbaa !178, !noalias !179
-  %61 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !179
-  store ptr %8, ptr %6, align 8, !tbaa !29, !alias.scope !179
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  %60 = load ptr, ptr %12, align 8, !tbaa !176, !noalias !177
+  %61 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !177
+  store ptr %8, ptr %6, align 8, !tbaa !29, !alias.scope !177
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 8, ptr %62, align 8, !tbaa !32, !alias.scope !179
+  store i32 8, ptr %62, align 8, !tbaa !32, !alias.scope !177
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %60, ptr %63, align 8, !tbaa !178, !alias.scope !179
+  store ptr %60, ptr %63, align 8, !tbaa !176, !alias.scope !177
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %61, ptr %64, align 8, !tbaa !33, !alias.scope !179
+  store ptr %61, ptr %64, align 8, !tbaa !33, !alias.scope !177
   %65 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %58, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = and i64 %65, 4294967295
@@ -3658,10 +3658,10 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   br i1 %spec.select.i, label %75, label %118
 
 75:                                               ; preds = %68, %67
-  %76 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !180
+  %76 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !178
   %.ptr69 = getelementptr inbounds nuw i8, ptr %76, i64 26
-  %77 = load ptr, ptr %12, align 8, !tbaa !178, !noalias !180
-  %78 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !180
+  %77 = load ptr, ptr %12, align 8, !tbaa !176, !noalias !178
+  %78 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !178
   %.not1.i.i = icmp ult ptr %.ptr69, %77
   br i1 %.not1.i.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit
 
@@ -3711,13 +3711,13 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit: ; preds = %.lr.p
   br label %98
 
 92:                                               ; preds = %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit
-  store ptr %.ptr69, ptr %7, align 8, !tbaa !29, !alias.scope !185
+  store ptr %.ptr69, ptr %7, align 8, !tbaa !29, !alias.scope !183
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 8, ptr %93, align 8, !tbaa !32, !alias.scope !185
+  store i32 8, ptr %93, align 8, !tbaa !32, !alias.scope !183
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %77, ptr %94, align 8, !tbaa !178, !alias.scope !185
+  store ptr %77, ptr %94, align 8, !tbaa !176, !alias.scope !183
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %78, ptr %95, align 8, !tbaa !33, !alias.scope !185
+  store ptr %78, ptr %95, align 8, !tbaa !33, !alias.scope !183
   %96 = call fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %58, i1 noundef zeroext true)
   %.sroa.9.0.extract.shift = lshr i64 %96, 32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3750,7 +3750,7 @@ _ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %58, ptr %101, align 4, !tbaa !154
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %103 = load ptr, ptr %12, align 8, !tbaa !178
+  %103 = load ptr, ptr %12, align 8, !tbaa !176
   %104 = load ptr, ptr %1, align 8, !tbaa !29
   %.not6.i.i.i = icmp eq ptr %103, %104
   br i1 %.not6.i.i.i, label %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, label %.lr.ph.i.i.i
@@ -3770,7 +3770,7 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.
 
 _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit.thread, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i
   %.05.lcssa.i.i.i = phi i32 [ 0, %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit.thread ], [ %108, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i ]
-  store i32 %.05.lcssa.i.i.i, ptr %102, align 4, !tbaa !190
+  store i32 %.05.lcssa.i.i.i, ptr %102, align 4, !tbaa !188
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %. = select i1 %99, i64 8, i64 5
   %.71 = select i1 %99, i64 26, i64 16
@@ -3795,28 +3795,28 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i24: ; preds = %.l
 
 117:                                              ; preds = %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i24, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit
   %.05.lcssa.i.i.i25 = phi i32 [ -1, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %116, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i24 ]
-  store i32 %.05.lcssa.i.i.i25, ptr %109, align 4, !tbaa !191
+  store i32 %.05.lcssa.i.i.i25, ptr %109, align 4, !tbaa !189
   br label %125
 
 118:                                              ; preds = %98, %_ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit, %59, %68
   store i32 -1, ptr %0, align 4, !tbaa !106
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %119, align 4, !tbaa !192
+  store i32 0, ptr %119, align 4, !tbaa !190
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %120, align 4, !tbaa !106
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %121, align 4, !tbaa !192
+  store i32 0, ptr %121, align 4, !tbaa !190
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %122, align 4, !tbaa !154
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 -1, ptr %123, align 4, !tbaa !190
+  store i32 -1, ptr %123, align 4, !tbaa !188
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %124, align 4, !tbaa !191
+  store i32 1, ptr %124, align 4, !tbaa !189
   br label %125
 
 125:                                              ; preds = %117, %118
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 -1, ptr %126, align 4, !tbaa !193
+  store i32 -1, ptr %126, align 4, !tbaa !191
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %127, align 4, !tbaa !52
   ret void
@@ -3893,7 +3893,7 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   %32 = add nsw i32 %31, %.057.i.i.i
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.08.i.i.add.i, 16
-  br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !194
+  br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !192
 
 _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
   %33 = add nsw i32 %30, %23
@@ -3942,7 +3942,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   store i32 1, ptr %1, align 4
   %.sroa.572.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 -1, ptr %.sroa.572.0..sroa_idx.i, align 4
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8), align 8, !tbaa !195
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 8), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 24), i8 0, i64 24, i1 false)
   %3 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #22
           to label %4 unwind label %28
@@ -3956,7 +3956,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   store i32 -2, ptr %.sroa.568.0..sroa_idx.i, align 4
   %.sroa.669.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 2, ptr %.sroa.669.0..sroa_idx.i, align 4
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 32), align 8, !tbaa !195
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 32), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 48), i8 0, i64 24, i1 false)
   %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %7 unwind label %30
@@ -3972,7 +3972,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   store i32 2, ptr %.sroa.6.0..sroa_idx.i, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 -4, ptr %.sroa.7.0..sroa_idx.i, align 4
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 56), align 8, !tbaa !195
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 56), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 72), i8 0, i64 24, i1 false)
   %9 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #22
           to label %10 unwind label %32
@@ -3982,7 +3982,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 88), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) @constinit, i64 20, i1 false)
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 80), align 8, !tbaa !195
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 80), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 96), i8 0, i64 24, i1 false)
   %12 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
           to label %13 unwind label %34
@@ -3992,7 +3992,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 112), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %12, ptr noundef nonnull align 4 dereferenceable(24) @constinit.1, i64 24, i1 false)
-  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 104), align 8, !tbaa !195
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 104), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 120), i8 0, i64 24, i1 false)
   %15 = invoke noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #22
           to label %16 unwind label %36
@@ -4002,7 +4002,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 136), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, ptr noundef nonnull align 4 dereferenceable(28) @constinit.2, i64 28, i1 false)
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 128), align 8, !tbaa !195
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 128), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 144), i8 0, i64 24, i1 false)
   %18 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
           to label %19 unwind label %38
@@ -4012,7 +4012,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 160), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) @constinit.3, i64 32, i1 false)
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 152), align 8, !tbaa !195
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 152), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 168), i8 0, i64 24, i1 false)
   %21 = invoke noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #22
           to label %22 unwind label %40
@@ -4022,7 +4022,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 36
   store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 184), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) @constinit.4, i64 36, i1 false)
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 176), align 8, !tbaa !195
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 176), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 192), i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
           to label %25 unwind label %42
@@ -4032,7 +4032,7 @@ define internal void @_GLOBAL__sub_I_ODDataBarExpandedReader.cpp() #16 section "
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 208), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(40) @constinit.5, i64 40, i1 false)
-  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 200), align 8, !tbaa !195
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 200), align 8, !tbaa !193
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 216), i8 0, i64 24, i1 false)
   %27 = invoke noalias noundef nonnull dereferenceable(44) ptr @_Znwm(i64 noundef 44) #22
           to label %__cxx_global_var_init.exit unwind label %44
@@ -4115,7 +4115,7 @@ __cxx_global_var_init.exit:                       ; preds = %25
   %56 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 232), align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %27, ptr noundef nonnull align 4 dereferenceable(44) @constinit.6, i64 44, i1 false)
-  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 224), align 8, !tbaa !195
+  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 224), align 8, !tbaa !193
   %57 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayISt6vectorIiSaIiEELm10EED2Ev, ptr nonnull @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, ptr nonnull @__dso_handle) #24
   ret void
 }
@@ -4339,32 +4339,30 @@ attributes #26 = { nounwind willreturn memory(read) }
 !164 = distinct !{!164, !"_ZNK5ZXing11PatternView7subViewEii"}
 !165 = distinct !{!165, !166, !"_ZN5ZXing4OneD7DataBar6FinderERKNS_11PatternViewE: argument 0"}
 !166 = distinct !{!166, !"_ZN5ZXing4OneD7DataBar6FinderERKNS_11PatternViewE"}
-!167 = distinct !{!167, !37, !168}
-!168 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!167 = distinct !{!167, !37}
+!168 = distinct !{!168, !37}
 !169 = distinct !{!169, !37}
-!170 = distinct !{!170, !37}
-!171 = distinct !{!171, !37}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE: argument 0"}
-!174 = distinct !{!174, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE"}
-!175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
-!177 = distinct !{!177, !"_ZNK5ZXing11PatternView7subViewEii"}
-!178 = !{!30, !31, i64 16}
-!179 = !{!176, !173}
-!180 = !{!181, !183}
-!181 = distinct !{!181, !182, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
-!182 = distinct !{!182, !"_ZNK5ZXing11PatternView7subViewEii"}
-!183 = distinct !{!183, !184, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
-!184 = distinct !{!184, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
-!185 = !{!186, !188}
-!186 = distinct !{!186, !187, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
-!187 = distinct !{!187, !"_ZNK5ZXing11PatternView7subViewEii"}
-!188 = distinct !{!188, !189, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
-!189 = distinct !{!189, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
-!190 = !{!53, !25, i64 20}
-!191 = !{!53, !25, i64 24}
-!192 = !{!54, !25, i64 4}
-!193 = !{!53, !25, i64 28}
-!194 = distinct !{!194, !37}
-!195 = !{!4, !5, i64 8}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE: argument 0"}
+!172 = distinct !{!172, !"_ZN5ZXing4OneD7DataBar8LeftCharERKNS_11PatternViewE"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!175 = distinct !{!175, !"_ZNK5ZXing11PatternView7subViewEii"}
+!176 = !{!30, !31, i64 16}
+!177 = !{!174, !171}
+!178 = !{!179, !181}
+!179 = distinct !{!179, !180, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!180 = distinct !{!180, !"_ZNK5ZXing11PatternView7subViewEii"}
+!181 = distinct !{!181, !182, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
+!182 = distinct !{!182, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
+!183 = !{!184, !186}
+!184 = distinct !{!184, !185, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!185 = distinct !{!185, !"_ZNK5ZXing11PatternView7subViewEii"}
+!186 = distinct !{!186, !187, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE: argument 0"}
+!187 = distinct !{!187, !"_ZN5ZXing4OneD7DataBar9RightCharERKNS_11PatternViewE"}
+!188 = !{!53, !25, i64 20}
+!189 = !{!53, !25, i64 24}
+!190 = !{!54, !25, i64 4}
+!191 = !{!53, !25, i64 28}
+!192 = distinct !{!192, !37}
+!193 = !{!4, !5, i64 8}

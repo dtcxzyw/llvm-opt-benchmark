@@ -975,12 +975,12 @@ vec_resize.exit:                                  ; preds = %46, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %69, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %147, %105, %62, %.critedge127.thread
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %.loopexit142, label %62, !llvm.loop !21
+  br i1 %exitcond197.not, label %.loopexit142, label %62, !llvm.loop !19
 
 .loopexit142:                                     ; preds = %._crit_edge, %58, %55
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
@@ -1006,7 +1006,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   call void @unit_register_global_decl(ptr noundef nonnull %10, ptr noundef %163) #11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.loopexit218, label %.lr.ph160, !llvm.loop !22
+  br i1 %exitcond202.not, label %.loopexit218, label %.lr.ph160, !llvm.loop !20
 
 .loopexit218:                                     ; preds = %.lr.ph160, %159
   %164 = getelementptr inbounds i8, ptr %158, i64 -8
@@ -1024,7 +1024,7 @@ vec_resize.exit132:                               ; preds = %.loopexit142, %.loo
 vec_resize.exit129:                               ; preds = %53, %vec_resize.exit, %13, %vec_resize.exit132
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
-  br i1 %exitcond207.not, label %.loopexit144, label %.lr.ph164, !llvm.loop !23
+  br i1 %exitcond207.not, label %.loopexit144, label %.lr.ph164, !llvm.loop !21
 
 .loopexit144:                                     ; preds = %vec_resize.exit129, %1, %5, %.loopexit
   ret void
@@ -1098,7 +1098,7 @@ define dso_local void @sema_analysis_pass_register_conditional_declarations(ptr 
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %22, %15
   %23 = getelementptr inbounds i8, ptr %14, i64 -8
@@ -1233,12 +1233,12 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
 83:                                               ; preds = %82, %74
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
-  br i1 %exitcond122.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !25
+  br i1 %exitcond122.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !23
 
 ._crit_edge104:                                   ; preds = %83, %39, %41
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !26
+  br i1 %exitcond127.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !24
 
 ._crit_edge108:                                   ; preds = %._crit_edge104
   %.pre134 = load ptr, ptr %12, align 8
@@ -1259,7 +1259,7 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
 .critedge:                                        ; preds = %._crit_edge108.thread, %85
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !27
+  br i1 %exitcond132.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !25
 
 ._crit_edge112:                                   ; preds = %.critedge, %1, %5
   ret void
@@ -1313,7 +1313,7 @@ define dso_local void @sema_analysis_pass_ct_assert(ptr noundef readonly capture
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -1332,7 +1332,7 @@ define dso_local void @sema_analysis_pass_ct_assert(ptr noundef readonly capture
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %.loopexit, label %9, !llvm.loop !29
+  br i1 %exitcond39.not, label %.loopexit, label %9, !llvm.loop !27
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %5, %25
   ret void
@@ -1384,7 +1384,7 @@ define dso_local void @sema_analysis_pass_ct_echo(ptr noundef readonly captures(
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -1403,7 +1403,7 @@ define dso_local void @sema_analysis_pass_ct_echo(ptr noundef readonly captures(
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %.loopexit, label %9, !llvm.loop !31
+  br i1 %exitcond39.not, label %.loopexit, label %9, !llvm.loop !29
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %5, %25
   ret void
@@ -1460,7 +1460,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %21 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %20) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %15
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -1486,7 +1486,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %30 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %29) #11
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
-  br i1 %exitcond232.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !33
+  br i1 %exitcond232.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !31
 
 ._crit_edge179:                                   ; preds = %.lr.ph178, %._crit_edge, %24
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1553,7 +1553,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
 59:                                               ; preds = %48, %53, %55, %.lr.ph182, %45
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !34
+  br i1 %exitcond237.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !32
 
 ._crit_edge183:                                   ; preds = %59, %._crit_edge179, %33
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 152
@@ -1579,7 +1579,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %68 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %67) #11
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !35
+  br i1 %exitcond242.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !33
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %._crit_edge183, %62
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 160
@@ -1605,7 +1605,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %77 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %76) #11
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !36
+  br i1 %exitcond247.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !34
 
 ._crit_edge191:                                   ; preds = %.lr.ph190, %._crit_edge187, %71
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 168
@@ -1631,7 +1631,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %86 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %85) #11
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !37
+  br i1 %exitcond252.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !35
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %._crit_edge191, %80
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 144
@@ -1657,7 +1657,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %95 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %94) #11
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
-  br i1 %exitcond257.not, label %._crit_edge199, label %.lr.ph198, !llvm.loop !38
+  br i1 %exitcond257.not, label %._crit_edge199, label %.lr.ph198, !llvm.loop !36
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %._crit_edge195, %89
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -1683,7 +1683,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %104 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %103) #11
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !39
+  br i1 %exitcond262.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !37
 
 ._crit_edge203:                                   ; preds = %.lr.ph202, %._crit_edge199, %98
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 192
@@ -1726,7 +1726,7 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %122 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %121) #11
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
-  br i1 %exitcond267.not, label %._crit_edge207, label %.lr.ph206, !llvm.loop !40
+  br i1 %exitcond267.not, label %._crit_edge207, label %.lr.ph206, !llvm.loop !38
 
 ._crit_edge207:                                   ; preds = %.lr.ph206, %113, %116
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 232
@@ -1751,13 +1751,13 @@ define dso_local void @sema_analysis_pass_decls(ptr noundef readonly captures(no
   %130 = call zeroext i1 @sema_check_type_variable_array(ptr noundef nonnull %2, ptr noundef %129) #11
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
-  br i1 %exitcond272.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !41
+  br i1 %exitcond272.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !39
 
 ._crit_edge211:                                   ; preds = %.lr.ph210, %._crit_edge207, %125
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
-  br i1 %exitcond277.not, label %._crit_edge215, label %9, !llvm.loop !42
+  br i1 %exitcond277.not, label %._crit_edge215, label %9, !llvm.loop !40
 
 ._crit_edge215:                                   ; preds = %._crit_edge211, %1, %5
   ret void
@@ -1929,13 +1929,13 @@ analyse_func_body.exit:                           ; preds = %33, %46
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %86 = load ptr, ptr %8, align 8
   %.not43 = icmp eq ptr %86, null
-  br i1 %.not43, label %.critedge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not43, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph, %85, %.preheader
   %87 = phi ptr [ null, %.preheader ], [ %12, %.lr.ph ], [ null, %85 ]
   %88 = add nuw i32 %.03853, 1
   %exitcond.not = icmp eq i32 %88, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.critedge, %1, %.preheader.lr.ph, %5
   ret void
@@ -2027,7 +2027,7 @@ define dso_local void @sema_analysis_pass_interface(ptr noundef readonly capture
   call void @sema_decl_stack_push(ptr noundef %33) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %29, %25
   %34 = load ptr, ptr %23, align 8
@@ -2134,12 +2134,12 @@ define dso_local void @sema_analysis_pass_interface(ptr noundef readonly capture
 87:                                               ; preds = %76, %67, %54
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count119.i
-  br i1 %exitcond120.not.i, label %._crit_edge92.i, label %.lr.ph91.i, !llvm.loop !47
+  br i1 %exitcond120.not.i, label %._crit_edge92.i, label %.lr.ph91.i, !llvm.loop !45
 
 ._crit_edge92.i:                                  ; preds = %87, %47, %.lr.ph95.i
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next122.i, %wide.trip.count124.i
-  br i1 %exitcond125.not.i, label %sema_check_interfaces.exit, label %.lr.ph95.i, !llvm.loop !48
+  br i1 %exitcond125.not.i, label %sema_check_interfaces.exit, label %.lr.ph95.i, !llvm.loop !46
 
 sema_check_interfaces.exit:                       ; preds = %._crit_edge92.i, %._crit_edge.i, %35, %58, %71, %80
   call void @sema_decl_stack_restore(ptr noundef %26) #11
@@ -2148,13 +2148,13 @@ sema_check_interfaces.exit:                       ; preds = %._crit_edge92.i, %.
 88:                                               ; preds = %22, %sema_check_interfaces.exit, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph49, %13
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !50
+  br i1 %exitcond73.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !48
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %1, %5
   ret void
@@ -2254,7 +2254,7 @@ define dso_local void @sema_analysis_pass_functions(ptr noundef readonly capture
 analyse_func_body.exit:                           ; preds = %.lr.ph, %28, %34, %38, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %analyse_func_body.exit, %.lr.ph71, %13
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2327,7 +2327,7 @@ analyse_func_body.exit:                           ; preds = %.lr.ph, %28, %34, %
 analyse_func_body.exit54:                         ; preds = %.lr.ph67, %60, %66, %70, %.sink.split.i48
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !52
+  br i1 %exitcond81.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !50
 
 ._crit_edge68:                                    ; preds = %analyse_func_body.exit54, %._crit_edge, %45
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 192
@@ -2392,7 +2392,7 @@ analyse_func_body.exit63:                         ; preds = %.sink.split.i57, %9
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !53
+  br i1 %exitcond86.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !51
 
 ._crit_edge72:                                    ; preds = %analyse_func_body.exit63, %1, %5
   ret void
@@ -2436,7 +2436,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
 15:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
@@ -2486,7 +2486,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
   %35 = and i1 %.083.in101, %34
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !55
+  br i1 %exitcond123.not, label %._crit_edge104, label %.lr.ph103, !llvm.loop !53
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %29
   %.083.in.lcssa = phi i1 [ %26, %29 ], [ %35, %.lr.ph103 ]
@@ -2641,7 +2641,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
 99:                                               ; preds = %92, %89, %88, %75, %70, %67, %64
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !56
+  br i1 %exitcond128.not, label %._crit_edge108, label %.lr.ph107, !llvm.loop !54
 
 ._crit_edge108:                                   ; preds = %99, %53, %55
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 144), align 8
@@ -2754,7 +2754,7 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr noundef readon
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -2946,8 +2946,8 @@ attributes #12 = { noreturn nounwind }
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
@@ -2970,10 +2970,10 @@ attributes #12 = { noreturn nounwind }
 !39 = distinct !{!39, !8}
 !40 = distinct !{!40, !8}
 !41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
+!42 = distinct !{!42, !8, !43}
+!43 = !{!"llvm.loop.unswitch.partial.disable"}
+!44 = distinct !{!44, !8}
+!45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
 !47 = distinct !{!47, !8}
 !48 = distinct !{!48, !8}
@@ -2984,5 +2984,3 @@ attributes #12 = { noreturn nounwind }
 !53 = distinct !{!53, !8}
 !54 = distinct !{!54, !8}
 !55 = distinct !{!55, !8}
-!56 = distinct !{!56, !8}
-!57 = distinct !{!57, !8}

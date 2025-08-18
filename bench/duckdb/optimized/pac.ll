@@ -635,7 +635,7 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %.lr.ph.split.us.pre
   tail call void @duckdb_je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %48) #9
   %70 = add i64 %67, %.0414.us.i
   %.not.us.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i, !llvm.loop !62
+  br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %100
   %71 = phi ptr [ %.sroa.0.2, %100 ], [ %.sroa.0.128, %.lr.ph.i ]
@@ -678,7 +678,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
   %90 = lshr i64 %.042.val.i, 12
   %91 = add i64 %.05.i, 1
   %92 = add i64 %90, %.0433.i
-  %93 = load i32, ptr %46, align 8, !tbaa !64
+  %93 = load i32, ptr %46, align 8, !tbaa !62
   %switch.not.i = icmp eq i32 %93, 1
   br i1 %switch.not.i, label %94, label %98
 
@@ -791,7 +791,7 @@ define zeroext i1 @duckdb_je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %19
   %29 = getelementptr i8, ptr %2, i64 160
-  %.val = load i64, ptr %29, align 8, !tbaa !65
+  %.val = load i64, ptr %29, align 8, !tbaa !63
   %30 = icmp ugt i64 %24, %.val
   br i1 %30, label %31, label %pac_decay_try_purge.exit
 
@@ -1045,7 +1045,5 @@ attributes #9 = { nounwind }
 !59 = !{!15, !5, i64 58404}
 !60 = !{!28, !23, i64 112}
 !61 = !{!6, !6, i64 0}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = !{!17, !5, i64 19424}
-!65 = !{!28, !22, i64 160}
+!62 = !{!17, !5, i64 19424}
+!63 = !{!28, !22, i64 160}

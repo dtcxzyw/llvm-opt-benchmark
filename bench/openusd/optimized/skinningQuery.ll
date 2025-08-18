@@ -10857,7 +10857,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   store double %43, ptr %68, align 8
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1
-  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !74
+  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !72
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -11032,7 +11032,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   store i32 %73, ptr %75, align 4
   %77 = add nuw i64 %.057130, 1
   %exitcond.not = icmp eq i64 %77, %20
-  br i1 %exitcond.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph, !llvm.loop !73
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %42
   %.sroa.17.1 = phi ptr [ %62, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.17.0, %42 ], [ %.sroa.17.0, %65 ], [ %.sroa.17.0, %76 ]
@@ -11040,7 +11040,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   %.sroa.0.1 = phi ptr [ %56, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.0.0, %42 ], [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %76 ]
   %.150 = phi i1 [ false, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ false, %42 ], [ %.049, %65 ], [ %.049, %76 ]
   %78 = add i64 %storemerge, 1
-  br label %22, !llvm.loop !76
+  br label %22, !llvm.loop !74
 
 79:                                               ; preds = %24
   %80 = icmp eq ptr %.sroa.0.0, %.sroa.10.0
@@ -11095,7 +11095,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %102 = add nuw nsw i64 %.053131.us, 1
   %exitcond160.not = icmp eq i64 %102, %.sroa.speculated
-  br i1 %exitcond160.not, label %.loopexit.thread, label %.lr.ph132.split.us, !llvm.loop !77
+  br i1 %exitcond160.not, label %.loopexit.thread, label %.lr.ph132.split.us, !llvm.loop !75
 
 .thread101.split.us:                              ; preds = %95, %.lr.ph132.split.us
   %lpad.thr_comm.us = landingpad { ptr, i32 }
@@ -11141,7 +11141,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   %118 = add nuw nsw i64 %.053131, 1
   %exitcond158.not = icmp eq i64 %118, %.sroa.speculated
-  br i1 %exitcond158.not, label %.loopexit.thread, label %.lr.ph132.split, !llvm.loop !78
+  br i1 %exitcond158.not, label %.loopexit.thread, label %.lr.ph132.split, !llvm.loop !75
 
 119:                                              ; preds = %108
   %120 = landingpad { ptr, i32 }
@@ -11409,7 +11409,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   store float %73, ptr %75, align 4
   %77 = add nuw i64 %.057130, 1
   %exitcond.not = icmp eq i64 %77, %20
-  br i1 %exitcond.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph, !llvm.loop !76
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %42
   %.sroa.17.1 = phi ptr [ %62, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.17.0, %42 ], [ %.sroa.17.0, %65 ], [ %.sroa.17.0, %76 ]
@@ -11417,7 +11417,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   %.sroa.0.1 = phi ptr [ %56, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.0.0, %42 ], [ %.sroa.0.0, %65 ], [ %.sroa.0.0, %76 ]
   %.150 = phi i1 [ false, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ false, %42 ], [ %.049, %65 ], [ %.049, %76 ]
   %78 = add i64 %storemerge, 1
-  br label %22, !llvm.loop !80
+  br label %22, !llvm.loop !77
 
 79:                                               ; preds = %24
   %80 = icmp eq ptr %.sroa.0.0, %.sroa.10.0
@@ -11472,7 +11472,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %102 = add nuw nsw i64 %.053131.us, 1
   %exitcond160.not = icmp eq i64 %102, %.sroa.speculated
-  br i1 %exitcond160.not, label %.loopexit.thread, label %.lr.ph132.split.us, !llvm.loop !81
+  br i1 %exitcond160.not, label %.loopexit.thread, label %.lr.ph132.split.us, !llvm.loop !78
 
 .thread101.split.us:                              ; preds = %95, %.lr.ph132.split.us
   %lpad.thr_comm.us = landingpad { ptr, i32 }
@@ -11518,7 +11518,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %76, %65, %_ZNSt6vec
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   %118 = add nuw nsw i64 %.053131, 1
   %exitcond158.not = icmp eq i64 %118, %.sroa.speculated
-  br i1 %exitcond158.not, label %.loopexit.thread, label %.lr.ph132.split, !llvm.loop !82
+  br i1 %exitcond158.not, label %.loopexit.thread, label %.lr.ph132.split, !llvm.loop !78
 
 119:                                              ; preds = %108
   %120 = landingpad { ptr, i32 }
@@ -12239,14 +12239,10 @@ attributes #24 = { noreturn }
 !69 = distinct !{!69, !13}
 !70 = distinct !{!70, !13}
 !71 = distinct !{!71, !13}
-!72 = distinct !{!72, !13, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !13}
+!73 = distinct !{!73, !13}
 !74 = distinct !{!74, !13}
 !75 = distinct !{!75, !13}
 !76 = distinct !{!76, !13}
-!77 = distinct !{!77, !13, !73}
+!77 = distinct !{!77, !13}
 !78 = distinct !{!78, !13}
-!79 = distinct !{!79, !13}
-!80 = distinct !{!80, !13}
-!81 = distinct !{!81, !13, !73}
-!82 = distinct !{!82, !13}

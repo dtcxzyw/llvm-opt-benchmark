@@ -1243,9 +1243,9 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -1
   %20 = icmp ugt i64 %17, 4
-  br i1 %20, label %.lr.ph.split.us.i.i, label %.lr.ph.split.split.i.i
+  br i1 %20, label %.lr.ph.split.us.split.i.i, label %.lr.ph.split.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %41
+.lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.i.i, %41
   %.sroa.7.046.us.i.i = phi i64 [ %43, %41 ], [ %14, %.lr.ph.i.i ]
   %21 = phi ptr [ %44, %41 ], [ %13, %.lr.ph.i.i ]
   %22 = phi i64 [ %39, %41 ], [ %.promoted.i.i, %.lr.ph.i.i ]
@@ -1253,11 +1253,11 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %24 = icmp ult i64 %.sroa.7.046.us.i.i, 16
   br i1 %24, label %27, label %25
 
-25:                                               ; preds = %.lr.ph.split.us.i.i
+25:                                               ; preds = %.lr.ph.split.us.split.i.i
   %26 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %23, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %.sroa.7.046.us.i.i), !noalias !303
   br label %35
 
-27:                                               ; preds = %.lr.ph.split.us.i.i
+27:                                               ; preds = %.lr.ph.split.us.split.i.i
   %.not.i.us.i.i = icmp eq i64 %.sroa.7.046.us.i.i, 0
   br i1 %.not.i.us.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i, label %.lr.ph.i.us.i.i
 
@@ -1293,14 +1293,14 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i: ; preds = %
   store i64 %39, ptr %8, align 8, !alias.scope !300, !noalias !301
   %.not.us.i.i = icmp ult i64 %39, %17
   %40 = icmp ugt i64 %39, %.val5.i
-  %or.cond.i.i = or i1 %.not.us.i.i, %40
-  br i1 %or.cond.i.i, label %41, label %.split48.us.i.i
+  %or.cond79.i.i = or i1 %.not.us.i.i, %40
+  br i1 %or.cond79.i.i, label %41, label %.split48.us.i.i
 
 41:                                               ; preds = %37
   %42 = icmp ugt i64 %39, %10
   %43 = sub nuw i64 %10, %39
   %44 = getelementptr inbounds i8, ptr %.val.i, i64 %39
-  br i1 %42, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E.exit.i", label %.lr.ph.split.us.i.i, !llvm.loop !307
+  br i1 %42, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E.exit.i", label %.lr.ph.split.us.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %65
   %.sroa.7.046.i.i = phi i64 [ %67, %65 ], [ %14, %.lr.ph.i.i ]
@@ -1350,8 +1350,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %55,
   store i64 %63, ptr %8, align 8, !alias.scope !300, !noalias !301
   %.not.i.i = icmp ult i64 %63, %17
   %64 = icmp ugt i64 %63, %.val5.i
-  %or.cond83.i.i = or i1 %.not.i.i, %64
-  br i1 %or.cond83.i.i, label %65, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i.i"
+  %or.cond.i.i = or i1 %.not.i.i, %64
+  br i1 %or.cond.i.i, label %65, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i.i"
 
 .split.us.i.i:                                    ; preds = %59, %35
   store i64 %10, ptr %8, align 8, !alias.scope !300, !noalias !301
@@ -1366,22 +1366,22 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %55,
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i.i": ; preds = %61
   %69 = sub nuw i64 %63, %17
   %70 = getelementptr inbounds i8, ptr %.val.i, i64 %69
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %70, ptr nonnull readonly align 1 %15, i64 %17), !alias.scope !309, !noalias !301
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %70, ptr nonnull readonly align 1 %15, i64 %17), !alias.scope !307, !noalias !301
   %71 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %71, label %77, label %65
 
 .split48.us.i.i:                                  ; preds = %37
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %17, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.87d6ebe9ab3839001b79ce89744842c3.23) #18, !noalias !313
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %17, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.87d6ebe9ab3839001b79ce89744842c3.23) #18, !noalias !311
   unreachable
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E.exit.i": ; preds = %65, %41, %.split.us.i.i, %5
-  store i8 1, ptr %2, align 1, !alias.scope !316
+  store i8 1, ptr %2, align 1, !alias.scope !314
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %73 = load i8, ptr %72, align 8, !range !116, !alias.scope !316, !noundef !12
+  %73 = load i8, ptr %72, align 8, !range !116, !alias.scope !314, !noundef !12
   %74 = trunc nuw i8 %73 to i1
-  %.pre.i.i = load i64, ptr %0, align 8, !alias.scope !316
+  %.pre.i.i = load i64, ptr %0, align 8, !alias.scope !314
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre5.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !316
+  %.pre5.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !314
   %.not.i6.i = icmp ne i64 %.pre5.i.i, %.pre.i.i
   %or.cond.not.i.i = select i1 %74, i1 true, i1 %.not.i6.i
   %75 = getelementptr inbounds i8, ptr %.val.i, i64 %.pre.i.i
@@ -1893,15 +1893,13 @@ attributes #21 = { nounwind }
 !304 = !{!305}
 !305 = distinct !{!305, !306, !"_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E: argument 0"}
 !306 = distinct !{!306, !"_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E"}
-!307 = distinct !{!307, !308}
-!308 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!309 = !{!310, !312}
-!310 = distinct !{!310, !311, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE: argument 0"}
-!311 = distinct !{!311, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE"}
-!312 = distinct !{!312, !311, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE: argument 1"}
-!313 = !{!314, !302, !298, !295}
-!314 = distinct !{!314, !315, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h61502dd72e488936E.llvm.15286421680055538252: argument 0"}
-!315 = distinct !{!315, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h61502dd72e488936E.llvm.15286421680055538252"}
-!316 = !{!317, !295}
-!317 = distinct !{!317, !318, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E: argument 0"}
-!318 = distinct !{!318, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E"}
+!307 = !{!308, !310}
+!308 = distinct !{!308, !309, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE: argument 0"}
+!309 = distinct !{!309, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE"}
+!310 = distinct !{!310, !309, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE: argument 1"}
+!311 = !{!312, !302, !298, !295}
+!312 = distinct !{!312, !313, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h61502dd72e488936E.llvm.15286421680055538252: argument 0"}
+!313 = distinct !{!313, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h61502dd72e488936E.llvm.15286421680055538252"}
+!314 = !{!315, !295}
+!315 = distinct !{!315, !316, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E: argument 0"}
+!316 = distinct !{!316, !"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he023520725ddc450E"}

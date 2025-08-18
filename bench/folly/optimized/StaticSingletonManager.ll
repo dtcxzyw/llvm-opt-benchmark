@@ -326,7 +326,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
   %.in.i.i.i = getelementptr i8, ptr %.01118.i.i.i, i64 %.in.v.i.i.i
   %.011.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !28
   %.not.i14.i.i = icmp eq ptr %.011.i.i.i, null
-  br i1 %.not.i14.i.i, label %._crit_edge.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i14.i.i, label %._crit_edge.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !34
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.i.i.i.i, %123
   %.010.lcssa.i.i.i = phi ptr [ %.01118.us.i.i.i, %123 ], [ %.01118.i.i.i, %._crit_edge.i.i.i.i.i.i ]
@@ -335,7 +335,7 @@ _ZNKSt4lessISt10type_indexEclERKS0_S3_.exit.us.i.i.i: ; preds = %.lr.ph.split.us
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %select.unfold2.sink.split.i.i.i
   %.010.lcssa25.i.i.i = phi ptr [ %.010.lcssa.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), %select.unfold2.sink.split.i.i.i ]
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 32), align 8, !tbaa !37
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 32), align 8, !tbaa !35
   %132 = icmp eq ptr %.010.lcssa25.i.i.i, %131
   br i1 %132, label %select.unfold2.i.i.i, label %133
 
@@ -429,9 +429,9 @@ _ZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl12create_entry
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 40
   %166 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 56)) #13
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %168 = load ptr, ptr %167, align 8, !tbaa !38
+  %168 = load ptr, ptr %167, align 8, !tbaa !36
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %170 = load ptr, ptr %169, align 8, !tbaa !39
+  %170 = load ptr, ptr %169, align 8, !tbaa !37
   %171 = load atomic i64, ptr %165 acquire, align 8
   %.0.i.i.i = inttoptr i64 %171 to ptr
   %.not.not.i = icmp eq i64 %171, 0
@@ -462,7 +462,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i8:      ; preds = %172
   store atomic i64 %180, ptr %165 release, align 8
   %181 = load atomic i64, ptr %165 seq_cst, align 8
   %.0.i.i.i.i = inttoptr i64 %181 to ptr
-  store ptr %.0.i.i.i.i, ptr %170, align 8, !tbaa !40
+  store ptr %.0.i.i.i.i, ptr %170, align 8, !tbaa !38
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i:          ; preds = %177
@@ -495,19 +495,19 @@ define internal fastcc void @_ZN5folly14IndestructibleINS_6detail12_GLOBAL__N_13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 16, ptr %4, align 8, !tbaa !41
+  store i64 16, ptr %4, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 12, ptr %5, align 8, !tbaa !43
+  store i64 12, ptr %5, align 8, !tbaa !41
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKNS_27reentrant_allocator_optionsE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   call void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), align 8, !tbaa !44
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), align 8, !tbaa !42
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 24), align 8, !tbaa !16
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 32), align 8, !tbaa !37
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 40), align 8, !tbaa !45
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 32), align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 40), align 8, !tbaa !43
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 48), align 8, !tbaa !32
   call void @_ZN5folly6detail24reentrant_allocator_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -783,15 +783,13 @@ attributes #16 = { noreturn nounwind }
 !31 = !{!15, !15, i64 0}
 !32 = !{!17, !21, i64 32}
 !33 = !{!18, !20, i64 24}
-!34 = distinct !{!34, !30, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !30}
-!37 = !{!17, !20, i64 16}
-!38 = !{!9, !12, i64 16}
-!39 = !{!9, !12, i64 24}
-!40 = !{!12, !12, i64 0}
-!41 = !{!42, !21, i64 0}
-!42 = !{!"_ZTSN5folly27reentrant_allocator_optionsE", !21, i64 0, !21, i64 8}
-!43 = !{!42, !21, i64 8}
-!44 = !{!17, !19, i64 0}
-!45 = !{!17, !20, i64 24}
+!34 = distinct !{!34, !30}
+!35 = !{!17, !20, i64 16}
+!36 = !{!9, !12, i64 16}
+!37 = !{!9, !12, i64 24}
+!38 = !{!12, !12, i64 0}
+!39 = !{!40, !21, i64 0}
+!40 = !{!"_ZTSN5folly27reentrant_allocator_optionsE", !21, i64 0, !21, i64 8}
+!41 = !{!40, !21, i64 8}
+!42 = !{!17, !19, i64 0}
+!43 = !{!17, !20, i64 24}

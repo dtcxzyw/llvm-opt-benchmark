@@ -724,7 +724,7 @@ select.unfold108.us147:                           ; preds = %172, %169, %165
   %174 = load i32, ptr %154, align 4
   %175 = sext i32 %174 to i64
   %176 = icmp slt i64 %indvars.iv.next181, %175
-  br i1 %176, label %.lr.ph144.split.us, label %._crit_edge138, !llvm.loop !10
+  br i1 %176, label %.lr.ph144.split.us, label %._crit_edge138
 
 .lr.ph144.split:                                  ; preds = %.lr.ph144, %select.unfold108
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold108 ], [ 0, %.lr.ph144 ]
@@ -948,5 +948,3 @@ attributes #5 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

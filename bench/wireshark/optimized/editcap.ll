@@ -3961,7 +3961,7 @@ define internal fastcc noundef zeroext i1 @process_new_idbs(ptr noundef nonnull 
 25:                                               ; preds = %21, %.lr.ph.split
   %26 = call ptr @wtap_get_next_interface_description(ptr noundef nonnull %0)
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !40
 
 .critedge:                                        ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4000,7 +4000,7 @@ define internal fastcc noundef zeroext i1 @selected(i64 noundef %0) unnamed_addr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %3 = getelementptr [512 x %struct.select_item], ptr @selectfrm, i64 0, i64 %indvars.iv
-  %4 = load i8, ptr %3, align 8, !range !43, !noundef !44
+  %4 = load i8, ptr %3, align 8, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
@@ -4023,7 +4023,7 @@ define internal fastcc noundef zeroext i1 @selected(i64 noundef %0) unnamed_addr
 14:                                               ; preds = %9, %8, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %9, %12, %14, %1
   %.lcssa = phi i1 [ false, %1 ], [ false, %14 ], [ true, %12 ], [ true, %9 ]
@@ -4357,7 +4357,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
 37:                                               ; preds = %30, %35, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %35, %37, %11
   %.lcssa = phi i1 [ false, %11 ], [ false, %37 ], [ true, %35 ]
@@ -4493,7 +4493,7 @@ define internal fastcc void @mutate_packet_data(ptr noundef readonly captures(no
   %14 = load i8, ptr %13, align 1
   %.not.i = icmp eq i8 %14, 0
   %15 = add i32 %.0.i, 1
-  br i1 %.not.i, label %16, label %.preheader67, !llvm.loop !47
+  br i1 %.not.i, label %16, label %.preheader67, !llvm.loop !45
 
 16:                                               ; preds = %.preheader67
   %17 = add i32 %.0.i, 2
@@ -4506,7 +4506,7 @@ define internal fastcc void @mutate_packet_data(ptr noundef readonly captures(no
   %21 = load i8, ptr %20, align 1
   %.not22.i = icmp eq i8 %21, 0
   %22 = add i32 %.1.i, 1
-  br i1 %.not22.i, label %.preheader26.i, label %18, !llvm.loop !48
+  br i1 %.not22.i, label %.preheader26.i, label %18, !llvm.loop !46
 
 .preheader26.i:                                   ; preds = %18, %.preheader26.i
   %.2.in.i = phi i32 [ %.2.i, %.preheader26.i ], [ %.1.i, %18 ]
@@ -4515,7 +4515,7 @@ define internal fastcc void @mutate_packet_data(ptr noundef readonly captures(no
   %24 = getelementptr i8, ptr %1, i64 %23
   %25 = load i8, ptr %24, align 1
   %.not23.i = icmp eq i8 %25, 0
-  br i1 %.not23.i, label %26, label %.preheader26.i, !llvm.loop !49
+  br i1 %.not23.i, label %26, label %.preheader26.i, !llvm.loop !47
 
 26:                                               ; preds = %.preheader26.i
   %27 = add i32 %.2.in.i, 2
@@ -4528,7 +4528,7 @@ define internal fastcc void @mutate_packet_data(ptr noundef readonly captures(no
   %31 = load i8, ptr %30, align 1
   %.not24.i = icmp eq i8 %31, 0
   %32 = add i32 %.3.i, 1
-  br i1 %.not24.i, label %.preheader.i, label %28, !llvm.loop !50
+  br i1 %.not24.i, label %.preheader.i, label %28, !llvm.loop !48
 
 .preheader.i:                                     ; preds = %28, %.preheader.i
   %.4.in.i = phi i32 [ %.4.i, %.preheader.i ], [ %.3.i, %28 ]
@@ -4537,7 +4537,7 @@ define internal fastcc void @mutate_packet_data(ptr noundef readonly captures(no
   %34 = getelementptr i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1
   %.not25.i = icmp eq i8 %35, 0
-  br i1 %.not25.i, label %find_dct2000_real_data.exit, label %.preheader.i, !llvm.loop !51
+  br i1 %.not25.i, label %find_dct2000_real_data.exit, label %.preheader.i, !llvm.loop !49
 
 find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   %36 = add i32 %.4.in.i, 4
@@ -4668,7 +4668,7 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %100 ], [ %.04469, %102 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.04469, %.thread57 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
   %106 = add i32 %.246, 1
   %107 = icmp ult i32 %106, %.048
-  br i1 %107, label %55, label %.loopexit, !llvm.loop !52
+  br i1 %107, label %55, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.critedge, %51, %4, %48
   ret void
@@ -4915,16 +4915,14 @@ attributes #24 = { allocsize(0,1) }
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !8}
-!43 = !{i8 0, i8 2}
-!44 = !{}
+!40 = distinct !{!40, !8}
+!41 = !{i8 0, i8 2}
+!42 = !{}
+!43 = distinct !{!43, !8}
+!44 = distinct !{!44, !8}
 !45 = distinct !{!45, !8}
 !46 = distinct !{!46, !8}
 !47 = distinct !{!47, !8}
 !48 = distinct !{!48, !8}
 !49 = distinct !{!49, !8}
 !50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}
-!52 = distinct !{!52, !8}

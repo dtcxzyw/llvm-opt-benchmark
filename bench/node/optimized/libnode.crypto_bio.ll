@@ -544,7 +544,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 _ZN4node6crypto7NodeBIO15TryMoveReadHeadEv.exit:  ; preds = %land.rhs.i, %if.end.i, %do.end9
   %33 = phi ptr [ %22, %do.end9 ], [ %25, %land.rhs.i ], [ %31, %if.end.i ]
   %cmp3 = icmp ult i64 %add26, %spec.select18
-  br i1 %cmp3, label %do.body, label %do.body29, !llvm.loop !10
+  br i1 %cmp3, label %do.body, label %do.body29, !llvm.loop !8
 
 do.body29:                                        ; preds = %_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv.exit, %_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv.exit.us
   %bytes_read.0.lcssa = phi i64 [ %add26.us, %_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv.exit.us ], [ %add26, %_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv.exit ]
@@ -625,7 +625,7 @@ if.else:                                          ; preds = %for.body
   %next_ = getelementptr inbounds nuw i8, ptr %pos.022, i64 32
   %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %if.else, %for.body, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %i.021, %for.body ], [ %0, %if.else ]
@@ -1060,7 +1060,7 @@ while.body19:                                     ; preds = %land.rhs
   %inc = add nuw i64 %off.032, 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %tmp.031, i64 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
-  br i1 %exitcond.not, label %while.end.thread, label %land.rhs, !llvm.loop !12
+  br i1 %exitcond.not, label %while.end.thread, label %land.rhs, !llvm.loop !10
 
 while.end.thread:                                 ; preds = %while.body19
   %add41 = add i64 %spec.select, %bytes_read.035
@@ -1090,7 +1090,7 @@ if.then27:                                        ; preds = %if.end23
 if.end28:                                         ; preds = %if.then27, %if.end23
   %current.1 = phi ptr [ %7, %if.then27 ], [ %current.037, %if.end23 ]
   %cmp3 = icmp ult i64 %add44, %spec.select27
-  br i1 %cmp3, label %do.body, label %do.body30, !llvm.loop !13
+  br i1 %cmp3, label %do.body, label %do.body30, !llvm.loop !11
 
 do.body30:                                        ; preds = %if.end28
   %8 = icmp eq i64 %spec.select27, %add44
@@ -1182,7 +1182,7 @@ do.end15.i:                                       ; preds = %do.body.i
   %write_pos_.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %write_pos_.i, align 8
   %cmp4.not.i = icmp eq i64 %9, %10
-  br i1 %cmp4.not.i, label %while.end.i, label %do.body.i, !llvm.loop !14
+  br i1 %cmp4.not.i, label %while.end.i, label %do.body.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %do.end15.i, %while.cond.preheader.i
   %.lcssa.i = phi ptr [ %0, %while.cond.preheader.i ], [ %8, %do.end15.i ]
@@ -1304,7 +1304,7 @@ do.end15:                                         ; preds = %do.body
   %write_pos_ = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %write_pos_, align 8
   %cmp4.not = icmp eq i64 %9, %10
-  br i1 %cmp4.not, label %while.end, label %do.body, !llvm.loop !14
+  br i1 %cmp4.not, label %while.end, label %do.body, !llvm.loop !12
 
 while.end:                                        ; preds = %do.end15, %while.cond.preheader
   %.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %8, %do.end15 ]
@@ -1486,7 +1486,7 @@ delete.end:                                       ; preds = %if.then.i, %delete.
   tail call void @_ZdlPv(ptr noundef nonnull %cur.018) #20
   %12 = load ptr, ptr %read_head_, align 8
   %cmp17.not = icmp eq ptr %7, %12
-  br i1 %cmp17.not, label %while.end, label %do.body, !llvm.loop !15
+  br i1 %cmp17.not, label %while.end, label %do.body, !llvm.loop !13
 
 while.end:                                        ; preds = %delete.end
   store ptr %7, ptr %next_8, align 8
@@ -1883,7 +1883,7 @@ delete.end:                                       ; preds = %if.then.i, %delete.
   tail call void @_ZdlPv(ptr noundef nonnull %current.0) #20
   %6 = load ptr, ptr %read_head_, align 8
   %cmp4.not = icmp eq ptr %1, %6
-  br i1 %cmp4.not, label %do.end, label %delete.notnull, !llvm.loop !16
+  br i1 %cmp4.not, label %do.end, label %delete.notnull, !llvm.loop !14
 
 do.end:                                           ; preds = %delete.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_head_, i8 0, i64 16, i1 false)
@@ -1933,7 +1933,7 @@ delete.end.i:                                     ; preds = %if.then.i.i, %delet
   tail call void @_ZdlPv(ptr noundef nonnull %current.0.i) #20
   %6 = load ptr, ptr %read_head_.i, align 8
   %cmp4.not.i = icmp eq ptr %1, %6
-  br i1 %cmp4.not.i, label %_ZN4node6crypto7NodeBIOD2Ev.exit, label %delete.notnull.i, !llvm.loop !16
+  br i1 %cmp4.not.i, label %_ZN4node6crypto7NodeBIOD2Ev.exit, label %delete.notnull.i, !llvm.loop !14
 
 _ZN4node6crypto7NodeBIOD2Ev.exit:                 ; preds = %delete.end.i, %entry
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -1992,13 +1992,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %7 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !17
+  %7 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !15
   %cmp.i.i.i1.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.i.i.i1.i.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %8 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !17
+  %8 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !15
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 504
@@ -2230,15 +2230,13 @@ attributes #20 = { builtin nounwind }
 !5 = !{!"branch_weights", i32 1, i32 1048575}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!19 = distinct !{!19, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!17 = distinct !{!17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}

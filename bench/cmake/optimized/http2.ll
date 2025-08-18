@@ -6887,7 +6887,7 @@ define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr nounde
 
 46:                                               ; preds = %30, %35, %39, %44
   %47 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  br i1 %47, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !205
+  br i1 %47, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %46, %28, %19, %17, %3
   %48 = load ptr, ptr %7, align 8, !tbaa !121
@@ -7246,7 +7246,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
   %80 = load i32, ptr %79, align 8, !tbaa !128
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.118, i32 noundef %80) #11
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %82 = load i64, ptr %81, align 8, !tbaa !206
+  %82 = load i64, ptr %81, align 8, !tbaa !204
   %.not99 = icmp eq i64 %82, 0
   %83 = select i1 %.not99, i32 16, i32 18
   store i32 %83, ptr %3, align 4, !tbaa !140
@@ -7282,7 +7282,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
   %95 = add nuw i64 %.0112, 1
   %96 = call i64 @Curl_dynhds_count(ptr noundef nonnull %90) #11
   %97 = icmp ult i64 %95, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !207
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !205
 
 .lr.ph:                                           ; preds = %92, %94
   %.0112 = phi i64 [ %95, %94 ], [ 0, %92 ]
@@ -7293,14 +7293,14 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
 99:                                               ; preds = %.lr.ph
   call void @Curl_dyn_reset(ptr noundef nonnull %5) #11
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %101 = load i64, ptr %100, align 8, !tbaa !208
+  %101 = load i64, ptr %100, align 8, !tbaa !206
   %102 = trunc i64 %101 to i32
-  %103 = load ptr, ptr %98, align 8, !tbaa !210
+  %103 = load ptr, ptr %98, align 8, !tbaa !208
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %105 = load i64, ptr %104, align 8, !tbaa !211
+  %105 = load i64, ptr %104, align 8, !tbaa !209
   %106 = trunc i64 %105 to i32
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !212
+  %108 = load ptr, ptr %107, align 8, !tbaa !210
   %109 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.120, i32 noundef %102, ptr noundef %103, i32 noundef %106, ptr noundef %108) #11
   store i32 %109, ptr %3, align 4, !tbaa !140
   %.not96 = icmp eq i32 %109, 0
@@ -7657,7 +7657,7 @@ define internal fastcc range(i64 -1, 1) i64 @stream_recv(ptr noundef %0, ptr nou
 
 92:                                               ; preds = %89, %84, %80, %73, %72
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %94 = load i64, ptr %93, align 8, !tbaa !206
+  %94 = load i64, ptr %93, align 8, !tbaa !204
   %.not84 = icmp eq i64 %94, 0
   %95 = select i1 %.not84, i32 16, i32 18
   br label %.thread.sink.split
@@ -8008,13 +8008,11 @@ attributes #12 = { nounwind willreturn memory(read) }
 !200 = !{!84, !6, i64 316}
 !201 = !{!16, !7, i64 4875}
 !202 = !{!16, !17, i64 824}
-!203 = distinct !{!203, !95, !204}
-!204 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!203 = distinct !{!203, !95}
+!204 = !{!16, !17, i64 248}
 !205 = distinct !{!205, !95}
-!206 = !{!16, !17, i64 248}
-!207 = distinct !{!207, !95}
-!208 = !{!209, !17, i64 16}
-!209 = !{!"dynhds_entry", !9, i64 0, !9, i64 8, !17, i64 16, !17, i64 24}
-!210 = !{!209, !9, i64 0}
-!211 = !{!209, !17, i64 24}
-!212 = !{!209, !9, i64 8}
+!206 = !{!207, !17, i64 16}
+!207 = !{!"dynhds_entry", !9, i64 0, !9, i64 8, !17, i64 16, !17, i64 24}
+!208 = !{!207, !9, i64 0}
+!209 = !{!207, !17, i64 24}
+!210 = !{!207, !9, i64 8}

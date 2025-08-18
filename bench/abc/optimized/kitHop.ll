@@ -482,7 +482,7 @@ Gia_ManAppendAnd2.exit.us:                        ; preds = %256, %254, %Gia_Man
   %289 = load i32, ptr %13, align 8, !tbaa !12
   %290 = sext i32 %289 to i64
   %291 = icmp slt i64 %indvars.iv.next, %290
-  br i1 %291, label %.lr.ph.split, label %.critedge, !llvm.loop !52
+  br i1 %291, label %.lr.ph.split, label %.critedge, !llvm.loop !49
 
 .split.us:                                        ; preds = %63
   %puts.i.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
@@ -522,7 +522,7 @@ define i32 @Kit_GraphToGia(ptr noundef %0, ptr noundef readonly captures(none) %
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.val.us = load ptr, ptr %8, align 8, !tbaa !13
   %.val16.us = load ptr, ptr %10, align 8, !tbaa !39
-  %.val17.us = load ptr, ptr %11, align 8, !tbaa !53
+  %.val17.us = load ptr, ptr %11, align 8, !tbaa !51
   %12 = getelementptr i8, ptr %.val17.us, i64 8
   %.val17.val.us = load ptr, ptr %12, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i32, ptr %.val17.val.us, i64 %indvars.iv22
@@ -545,7 +545,7 @@ define i32 @Kit_GraphToGia(ptr noundef %0, ptr noundef readonly captures(none) %
   %28 = load i32, ptr %5, align 4, !tbaa !11
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next23, %29
-  br i1 %30, label %.lr.ph.split.us, label %.critedge, !llvm.loop !54
+  br i1 %30, label %.lr.ph.split.us, label %.critedge, !llvm.loop !52
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -559,7 +559,7 @@ define i32 @Kit_GraphToGia(ptr noundef %0, ptr noundef readonly captures(none) %
   %34 = load i32, ptr %5, align 4, !tbaa !11
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph.split, label %.critedge, !llvm.loop !55
+  br i1 %36, label %.lr.ph.split, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %37 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3)
@@ -614,7 +614,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.val.us.i = load ptr, ptr %20, align 8, !tbaa !13
   %.val16.us.i = load ptr, ptr %22, align 8, !tbaa !39
-  %.val17.us.i = load ptr, ptr %23, align 8, !tbaa !53
+  %.val17.us.i = load ptr, ptr %23, align 8, !tbaa !51
   %24 = getelementptr i8, ptr %.val17.us.i, i64 8
   %.val17.val.us.i = load ptr, ptr %24, align 8, !tbaa !43
   %25 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i, i64 %indvars.iv22.i
@@ -637,7 +637,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   %40 = load i32, ptr %17, align 4, !tbaa !11
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next23.i, %41
-  br i1 %42, label %.lr.ph.split.us.i, label %Kit_GraphToGia.exit, !llvm.loop !54
+  br i1 %42, label %.lr.ph.split.us.i, label %Kit_GraphToGia.exit, !llvm.loop !52
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -651,7 +651,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   %46 = load i32, ptr %17, align 4, !tbaa !11
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next.i, %47
-  br i1 %48, label %.lr.ph.split.i, label %Kit_GraphToGia.exit, !llvm.loop !55
+  br i1 %48, label %.lr.ph.split.i, label %Kit_GraphToGia.exit, !llvm.loop !52
 
 .split17:                                         ; preds = %15
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -670,7 +670,7 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   %indvars.iv22.i28 = phi i64 [ %indvars.iv.next23.i33, %.lr.ph.split.us.i27 ], [ 0, %.split17 ]
   %.val.us.i29 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
   %.val16.us.i30 = load ptr, ptr %52, align 8, !tbaa !39
-  %.val17.us.i31 = load ptr, ptr %53, align 8, !tbaa !53
+  %.val17.us.i31 = load ptr, ptr %53, align 8, !tbaa !51
   %54 = getelementptr i8, ptr %.val17.us.i31, i64 8
   %.val17.val.us.i32 = load ptr, ptr %54, align 8, !tbaa !43
   %55 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i32, i64 %indvars.iv22.i28
@@ -774,7 +774,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.val.us.i = load ptr, ptr %21, align 8, !tbaa !13
   %.val16.us.i = load ptr, ptr %23, align 8, !tbaa !39
-  %.val17.us.i = load ptr, ptr %24, align 8, !tbaa !53
+  %.val17.us.i = load ptr, ptr %24, align 8, !tbaa !51
   %25 = getelementptr i8, ptr %.val17.us.i, i64 8
   %.val17.val.us.i = load ptr, ptr %25, align 8, !tbaa !43
   %26 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i, i64 %indvars.iv22.i
@@ -797,7 +797,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   %41 = load i32, ptr %18, align 4, !tbaa !11
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next23.i, %42
-  br i1 %43, label %.lr.ph.split.us.i, label %Kit_GraphToGia.exit, !llvm.loop !54
+  br i1 %43, label %.lr.ph.split.us.i, label %Kit_GraphToGia.exit, !llvm.loop !52
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -811,7 +811,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   %47 = load i32, ptr %18, align 4, !tbaa !11
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %49, label %.lr.ph.split.i, label %Kit_GraphToGia.exit, !llvm.loop !55
+  br i1 %49, label %.lr.ph.split.i, label %Kit_GraphToGia.exit, !llvm.loop !52
 
 .split21:                                         ; preds = %16
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -832,7 +832,7 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   %indvars.iv22.i33 = phi i64 [ %indvars.iv.next23.i38, %.lr.ph.split.us.i32 ], [ 0, %.split21 ]
   %.val.us.i34 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
   %.val16.us.i35 = load ptr, ptr %53, align 8, !tbaa !39
-  %.val17.us.i36 = load ptr, ptr %54, align 8, !tbaa !53
+  %.val17.us.i36 = load ptr, ptr %54, align 8, !tbaa !51
   %55 = getelementptr i8, ptr %.val17.us.i36, i64 8
   %.val17.val.us.i37 = load ptr, ptr %55, align 8, !tbaa !43
   %56 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i37, i64 %indvars.iv22.i33
@@ -1246,7 +1246,7 @@ Vec_IntPushTwo.exit:                              ; preds = %Vec_IntPush.exit.i,
   %153 = load i32, ptr %41, align 8, !tbaa !12
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
-  br i1 %155, label %78, label %.critedge.loopexit, !llvm.loop !56
+  br i1 %155, label %78, label %.critedge.loopexit, !llvm.loop !53
 
 .critedge.loopexit:                               ; preds = %Vec_IntPushTwo.exit
   %.val46.pre = load i32, ptr %38, align 8
@@ -1421,7 +1421,7 @@ define ptr @Kit_GraphToHopInternal(ptr noundef %0, ptr noundef readonly captures
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val37 = load ptr, ptr %5, align 8, !tbaa !57
+  %.val37 = load ptr, ptr %5, align 8, !tbaa !54
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val37 to i64
   %8 = zext nneg i32 %6 to i64
@@ -1491,7 +1491,7 @@ define ptr @Kit_GraphToHopInternal(ptr noundef %0, ptr noundef readonly captures
   %55 = load i32, ptr %14, align 8, !tbaa !12
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %28, label %.critedge, !llvm.loop !62
+  br i1 %57, label %28, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %28
   %.val27 = load i32, ptr %3, align 8
@@ -1531,7 +1531,7 @@ define ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef readonly captures(none) %
   %11 = load i32, ptr %3, align 4, !tbaa !11
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %7, label %.critedge, !llvm.loop !63
+  br i1 %13, label %7, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %7, %2
   %.lcssa9 = phi i32 [ %4, %2 ], [ %11, %7 ]
@@ -1543,7 +1543,7 @@ define ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef readonly captures(none) %
 
 15:                                               ; preds = %.critedge
   %16 = getelementptr i8, ptr %0, i64 24
-  %.val37.i = load ptr, ptr %16, align 8, !tbaa !57
+  %.val37.i = load ptr, ptr %16, align 8, !tbaa !54
   %17 = and i32 %.val31.i, 1
   %18 = ptrtoint ptr %.val37.i to i64
   %19 = zext nneg i32 %17 to i64
@@ -1611,7 +1611,7 @@ define ptr @Kit_GraphToHop(ptr noundef %0, ptr noundef readonly captures(none) %
   %65 = load i32, ptr %24, align 8, !tbaa !12
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next.i, %66
-  br i1 %67, label %38, label %.critedge.i, !llvm.loop !62
+  br i1 %67, label %38, label %.critedge.i, !llvm.loop !59
 
 .critedge.i:                                      ; preds = %38
   %.val27.i = load i32, ptr %14, align 8
@@ -1791,18 +1791,15 @@ attributes #15 = { cold noreturn nounwind }
 !46 = !{!16, !5, i64 116}
 !47 = !{!16, !5, i64 808}
 !48 = !{!16, !32, i64 984}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = !{!16, !20, i64 64}
 !52 = distinct !{!52, !50}
-!53 = !{!16, !20, i64 64}
-!54 = distinct !{!54, !50, !51}
-!55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50}
-!57 = !{!58, !59, i64 24}
-!58 = !{!"Hop_Man_t_", !25, i64 0, !25, i64 8, !25, i64 16, !59, i64 24, !60, i64 32, !6, i64 72, !5, i64 96, !5, i64 100, !61, i64 104, !5, i64 112, !9, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !25, i64 144, !25, i64 152, !59, i64 160, !31, i64 168, !31, i64 176}
-!59 = !{!"p1 _ZTS10Hop_Obj_t_", !9, i64 0}
-!60 = !{!"Hop_Obj_t_", !6, i64 0, !6, i64 8, !59, i64 16, !59, i64 24, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 36}
-!61 = !{!"p2 _ZTS10Hop_Obj_t_", !9, i64 0}
-!62 = distinct !{!62, !50}
-!63 = distinct !{!63, !50}
+!53 = distinct !{!53, !50}
+!54 = !{!55, !56, i64 24}
+!55 = !{!"Hop_Man_t_", !25, i64 0, !25, i64 8, !25, i64 16, !56, i64 24, !57, i64 32, !6, i64 72, !5, i64 96, !5, i64 100, !58, i64 104, !5, i64 112, !9, i64 120, !5, i64 128, !5, i64 132, !5, i64 136, !25, i64 144, !25, i64 152, !56, i64 160, !31, i64 168, !31, i64 176}
+!56 = !{!"p1 _ZTS10Hop_Obj_t_", !9, i64 0}
+!57 = !{!"Hop_Obj_t_", !6, i64 0, !6, i64 8, !56, i64 16, !56, i64 24, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 32, !5, i64 36}
+!58 = !{!"p2 _ZTS10Hop_Obj_t_", !9, i64 0}
+!59 = distinct !{!59, !50}
+!60 = distinct !{!60, !50}

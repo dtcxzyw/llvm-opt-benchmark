@@ -105,7 +105,7 @@ define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
 18:                                               ; preds = %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond, label %.loopexit, label %.split.us, !llvm.loop !7
+  br i1 %exitcond, label %.loopexit, label %.split.us
 
 .split20.us:                                      ; preds = %.split.us
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -131,5 +131,3 @@ attributes #3 = { nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 2151948397, i64 2151948433, i64 2151948457}
 !6 = !{i64 4461006}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}

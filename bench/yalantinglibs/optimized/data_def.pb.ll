@@ -14089,7 +14089,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
   %exitcond12.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !40
+  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !38
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %for.body8.i.us, %for.end.i
   %13 = load i32, ptr %current_size_4.i, align 8
@@ -14144,7 +14144,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame7Monster9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !41
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14166,7 +14166,7 @@ for.body8.i:                                      ; preds = %for.body8.i.prehead
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
   %exitcond11.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !42
+  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !40
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame7MonsterEE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %for.body8.i, %for.end.i
   %11 = load i32, ptr %current_size_4.i, align 8
@@ -14271,7 +14271,7 @@ _ZN6mygame6rect32D2Ev.exit.i:                     ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %for.body, %_ZN6mygame6rect32D2Ev.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !41
 
 for.end.loopexit:                                 ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE6DeleteEPS4_PNS0_5ArenaE.exit
   %.pre = load ptr, ptr %rep_, align 8
@@ -14323,7 +14323,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !44
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !42
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14352,7 +14352,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
   %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
   %exitcond17.not = icmp eq i32 %0, %lftr.wideiv16
-  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !45
+  br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !43
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %indvars.iv9 = phi i64 [ %indvars.iv.next10, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ], [ %9, %for.body8.i.lr.ph ]
@@ -14379,7 +14379,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next10 to i32
   %exitcond12.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !46
+  br i1 %exitcond12.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !43
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %for.body8.i.us, %for.end.i
   %13 = load i32, ptr %current_size_4.i, align 8
@@ -14434,7 +14434,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   tail call void @_ZN6mygame6person9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !47
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !44
 
 for.end.i:                                        ; preds = %for.body.i, %if.end
   %8 = load ptr, ptr %this, align 8
@@ -14456,7 +14456,7 @@ for.body8.i:                                      ; preds = %for.body8.i.prehead
   %indvars.iv.next9 = add nsw i64 %indvars.iv8, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next9 to i32
   %exitcond11.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !48
+  br i1 %exitcond11.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i, !llvm.loop !45
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6personEE11TypeHandlerEEEvPPvSA_ii.exit: ; preds = %for.body8.i, %for.end.i
   %11 = load i32, ptr %current_size_4.i, align 8
@@ -14562,14 +14562,11 @@ attributes #26 = { noreturn }
 !35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
 !37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6, !39}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
+!45 = distinct !{!45, !6}

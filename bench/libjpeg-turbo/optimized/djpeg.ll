@@ -1299,7 +1299,7 @@ jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %108,
   store ptr %119, ptr %104, align 8, !tbaa !82
   %120 = add nsw i64 %103, -1
   %121 = icmp sgt i64 %103, 0
-  br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !89
+  br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %jpeg_getc.exit31, %100, %56
   br i1 %5, label %122, label %._crit_edge.thread
@@ -1426,8 +1426,8 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 
 58:                                               ; preds = %52
   %59 = load i32, ptr %5, align 4, !tbaa !44
-  store i32 %59, ptr %18, align 8, !tbaa !90
-  store i32 1, ptr %19, align 4, !tbaa !91
+  store i32 %59, ptr %18, align 8, !tbaa !88
+  store i32 1, ptr %19, align 4, !tbaa !89
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %299
 
@@ -1454,7 +1454,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not203, label %71, label %70
 
 70:                                               ; preds = %65
-  store i32 0, ptr %20, align 8, !tbaa !92
+  store i32 0, ptr %20, align 8, !tbaa !90
   br label %299
 
 71:                                               ; preds = %65
@@ -1464,7 +1464,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not204, label %75, label %74
 
 74:                                               ; preds = %71
-  store i32 1, ptr %20, align 8, !tbaa !92
+  store i32 1, ptr %20, align 8, !tbaa !90
   br label %299
 
 75:                                               ; preds = %71
@@ -1474,7 +1474,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not205, label %79, label %78
 
 78:                                               ; preds = %75
-  store i32 2, ptr %20, align 8, !tbaa !92
+  store i32 2, ptr %20, align 8, !tbaa !90
   br label %299
 
 79:                                               ; preds = %75
@@ -1504,7 +1504,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not199, label %91, label %90
 
 90:                                               ; preds = %85
-  store i32 2, ptr %21, align 8, !tbaa !93
+  store i32 2, ptr %21, align 8, !tbaa !91
   br label %299
 
 91:                                               ; preds = %85
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not200, label %95, label %94
 
 94:                                               ; preds = %91
-  store i32 0, ptr %21, align 8, !tbaa !93
+  store i32 0, ptr %21, align 8, !tbaa !91
   br label %299
 
 95:                                               ; preds = %91
@@ -1524,7 +1524,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not201, label %99, label %98
 
 98:                                               ; preds = %95
-  store i32 1, ptr %21, align 8, !tbaa !93
+  store i32 1, ptr %21, align 8, !tbaa !91
   br label %299
 
 99:                                               ; preds = %95
@@ -1582,19 +1582,19 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not161, label %130, label %126
 
 126:                                              ; preds = %124
-  store i32 0, ptr %22, align 4, !tbaa !94
-  store i32 1, ptr %21, align 8, !tbaa !93
-  %127 = load i32, ptr %19, align 4, !tbaa !91
+  store i32 0, ptr %22, align 4, !tbaa !92
+  store i32 1, ptr %21, align 8, !tbaa !91
+  %127 = load i32, ptr %19, align 4, !tbaa !89
   %.not197 = icmp eq i32 %127, 0
   br i1 %.not197, label %128, label %129
 
 128:                                              ; preds = %126
-  store i32 216, ptr %18, align 8, !tbaa !90
+  store i32 216, ptr %18, align 8, !tbaa !88
   br label %129
 
 129:                                              ; preds = %128, %126
-  store i32 1, ptr %20, align 8, !tbaa !92
-  store i32 0, ptr %23, align 4, !tbaa !95
+  store i32 1, ptr %20, align 8, !tbaa !90
+  store i32 0, ptr %23, align 4, !tbaa !93
   br label %299
 
 130:                                              ; preds = %124
@@ -1626,7 +1626,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not165, label %141, label %140
 
 140:                                              ; preds = %138, %136
-  store i32 1, ptr %24, align 8, !tbaa !96
+  store i32 1, ptr %24, align 8, !tbaa !94
   br label %299
 
 141:                                              ; preds = %138
@@ -1635,7 +1635,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not166, label %144, label %143
 
 143:                                              ; preds = %141
-  store i32 2, ptr %24, align 8, !tbaa !96
+  store i32 2, ptr %24, align 8, !tbaa !94
   br label %299
 
 144:                                              ; preds = %141
@@ -1644,7 +1644,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not167, label %147, label %146
 
 146:                                              ; preds = %144
-  store i32 16, ptr %24, align 8, !tbaa !96
+  store i32 16, ptr %24, align 8, !tbaa !94
   br label %299
 
 147:                                              ; preds = %144
@@ -1718,7 +1718,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 
 179:                                              ; preds = %178, %177
   %180 = call i32 @fclose(ptr noundef nonnull %166)
-  store i32 1, ptr %19, align 4, !tbaa !91
+  store i32 1, ptr %19, align 4, !tbaa !89
   br label %299
 
 181:                                              ; preds = %156
@@ -1754,13 +1754,13 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %194 = load i8, ptr %7, align 1, !tbaa !9
   %195 = and i8 %194, -33
   %or.cond = icmp eq i8 %195, 77
-  %.pre = load i64, ptr %6, align 8, !tbaa !97
+  %.pre = load i64, ptr %6, align 8, !tbaa !95
   %196 = mul nsw i64 %.pre, 1000
   %spec.select = select i1 %or.cond, i64 %196, i64 %.pre
   %197 = mul nsw i64 %spec.select, 1000
-  %198 = load ptr, ptr %26, align 8, !tbaa !98
+  %198 = load ptr, ptr %26, align 8, !tbaa !96
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 88
-  store i64 %197, ptr %199, align 8, !tbaa !99
+  store i64 %197, ptr %199, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %299
@@ -1797,7 +1797,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not172, label %214, label %213
 
 213:                                              ; preds = %211
-  store i32 0, ptr %23, align 4, !tbaa !95
+  store i32 0, ptr %23, align 4, !tbaa !93
   br label %299
 
 214:                                              ; preds = %211
@@ -1806,7 +1806,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not173, label %217, label %216
 
 216:                                              ; preds = %214
-  store i32 0, ptr %22, align 4, !tbaa !94
+  store i32 0, ptr %22, align 4, !tbaa !92
   br label %299
 
 217:                                              ; preds = %214
@@ -2035,7 +2035,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %.1 = phi i32 [ %.0232, %36 ], [ %.0232, %40 ], [ %50, %58 ], [ %63, %70 ], [ %63, %74 ], [ %63, %78 ], [ %83, %90 ], [ %83, %94 ], [ %83, %98 ], [ %.0232, %114 ], [ %.0232, %129 ], [ %.0232, %132 ], [ %.0232, %135 ], [ %.0232, %140 ], [ %.0232, %143 ], [ %.0232, %146 ], [ %150, %152 ], [ %159, %179 ], [ %159, %161 ], [ %184, %193 ], [ %203, %205 ], [ %.0232, %213 ], [ %.0232, %216 ], [ %.0232, %219 ], [ %223, %225 ], [ %.0232, %231 ], [ %.0232, %236 ], [ %.0232, %239 ], [ %243, %245 ], [ %254, %268 ], [ %272, %291 ], [ %.0232, %294 ], [ %.0232, %297 ]
   %300 = add nsw i32 %.1, 1
   %301 = icmp slt i32 %300, %1
-  br i1 %301, label %29, label %._crit_edge, !llvm.loop !101
+  br i1 %301, label %29, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %299, %34, %4
   %.0.lcssa = phi i32 [ 1, %4 ], [ %.0232, %34 ], [ %300, %299 ]
@@ -2045,7 +2045,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 ; Function Attrs: nounwind uwtable
 define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
   %3 = icmp slt i32 %1, 0
-  %4 = load ptr, ptr %0, align 8, !tbaa !102
+  %4 = load ptr, ptr %0, align 8, !tbaa !100
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
@@ -2060,7 +2060,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
 
 .sink.split:                                      ; preds = %2, %8
   %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !104
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !102
   tail call void %.sink(ptr noundef nonnull %0) #12
   br label %10
 
@@ -2365,21 +2365,19 @@ attributes #18 = { nounwind willreturn memory(none) }
 !84 = !{!85, !85, i64 0}
 !85 = !{!"p1 short", !6, i64 0}
 !86 = !{!20, !20, i64 0}
-!87 = distinct !{!87, !47, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!89 = distinct !{!89, !47}
-!90 = !{!11, !15, i64 120}
-!91 = !{!11, !15, i64 108}
-!92 = !{!11, !15, i64 96}
-!93 = !{!11, !15, i64 112}
-!94 = !{!11, !15, i64 116}
-!95 = !{!11, !15, i64 100}
-!96 = !{!11, !15, i64 64}
-!97 = !{!35, !35, i64 0}
-!98 = !{!11, !13, i64 8}
-!99 = !{!100, !35, i64 88}
-!100 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
-!101 = distinct !{!101, !47}
-!102 = !{!103, !12, i64 0}
-!103 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
-!104 = !{!6, !6, i64 0}
+!87 = distinct !{!87, !47}
+!88 = !{!11, !15, i64 120}
+!89 = !{!11, !15, i64 108}
+!90 = !{!11, !15, i64 96}
+!91 = !{!11, !15, i64 112}
+!92 = !{!11, !15, i64 116}
+!93 = !{!11, !15, i64 100}
+!94 = !{!11, !15, i64 64}
+!95 = !{!35, !35, i64 0}
+!96 = !{!11, !13, i64 8}
+!97 = !{!98, !35, i64 88}
+!98 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
+!99 = distinct !{!99, !47}
+!100 = !{!101, !12, i64 0}
+!101 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
+!102 = !{!6, !6, i64 0}

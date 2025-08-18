@@ -2205,7 +2205,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb0EEvP17grpc_slic
 
 30:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us
   %31 = icmp eq i64 %49, %42
-  br i1 %31, label %.split.us, label %.lr.ph109, !llvm.loop !82
+  br i1 %31, label %.split.us, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph.split.us, %30
   %.03095.us108 = phi i64 [ %42, %30 ], [ %1, %.lr.ph.split.us ]
@@ -2241,7 +2241,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
   %48 = and i64 %47, 255
   %49 = select i1 %.not38.us, i64 %48, i64 %47
   %50 = icmp ugt i64 %49, %42
-  br i1 %50, label %._crit_edge, label %30, !llvm.loop !82
+  br i1 %50, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %grpc_slice_buffer_add_indexed.exit48, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us, %.critedge
   %.030.lcssa = phi i64 [ %1, %.critedge ], [ %42, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %148, %grpc_slice_buffer_add_indexed.exit48 ]
@@ -2539,7 +2539,7 @@ define linkonce_odr void @_Z31grpc_slice_buffer_trim_end_implILb1EEvP17grpc_slic
 
 30:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us
   %31 = icmp eq i64 %49, %42
-  br i1 %31, label %.split.us, label %.lr.ph109, !llvm.loop !84
+  br i1 %31, label %.split.us, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph.split.us, %30
   %.03095.us108 = phi i64 [ %42, %30 ], [ %1, %.lr.ph.split.us ]
@@ -2575,7 +2575,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us: ; preds = 
   %48 = and i64 %47, 255
   %49 = select i1 %.not38.us, i64 %48, i64 %47
   %50 = icmp ugt i64 %49, %42
-  br i1 %50, label %._crit_edge, label %30, !llvm.loop !84
+  br i1 %50, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %grpc_slice_buffer_add_indexed.exit48, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us, %.critedge
   %.030.lcssa = phi i64 [ %1, %.critedge ], [ %42, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit.us ], [ %148, %grpc_slice_buffer_add_indexed.exit48 ]
@@ -2999,14 +2999,14 @@ _ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit: ;
 
 10:                                               ; preds = %_ZN4absl12lts_2024072212log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit
   %11 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %11, ptr %4, align 8, !tbaa !85
+  store ptr %11, ptr %4, align 8, !tbaa !82
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %13 = getelementptr i8, ptr %11, i64 -24
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 %14
-  store ptr %12, ptr %15, align 8, !tbaa !85
+  store ptr %12, ptr %15, align 8, !tbaa !82
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !85
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %16, align 8, !tbaa !82
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -3027,7 +3027,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit
 
 _ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !85
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %16, align 8, !tbaa !82
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -3052,14 +3052,14 @@ declare noundef ptr @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilder
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072212log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %2, ptr %0, align 8, !tbaa !85
+  store ptr %2, ptr %0, align 8, !tbaa !82
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %4 = getelementptr i8, ptr %2, i64 -24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  store ptr %3, ptr %6, align 8, !tbaa !85
+  store ptr %3, ptr %6, align 8, !tbaa !82
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !85
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %7, align 8, !tbaa !82
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3080,7 +3080,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !85
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !82
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3245,8 +3245,5 @@ attributes #26 = { builtin nounwind }
 !79 = !{!"branch_weights", i32 127, i32 255873}
 !80 = distinct !{!80, !39}
 !81 = distinct !{!81, !39}
-!82 = distinct !{!82, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !83}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"vtable pointer", !8, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"vtable pointer", !8, i64 0}

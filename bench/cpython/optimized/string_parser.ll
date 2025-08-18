@@ -189,24 +189,24 @@ PyUnicode_READ.exit.us98.i:                       ; preds = %.lr.ph.i, %PyUnicod
   %.04594.us96.i = phi i64 [ %72, %PyUnicode_READ.exit.us98.i ], [ 0, %.lr.ph.i ]
   %.45093.us97.i = phi ptr [ %71, %PyUnicode_READ.exit.us98.i ], [ %.248.i, %.lr.ph.i ]
   %67 = getelementptr i16, ptr %.0.i.i, i64 %.04594.us96.i
-  %68 = load i16, ptr %67, align 2, !tbaa !19
+  %68 = load i16, ptr %67, align 2, !tbaa !18
   %69 = zext i16 %68 to i32
   %70 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.45093.us97.i, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %69) #8
   %71 = getelementptr i8, ptr %.45093.us97.i, i64 10
   %72 = add nuw nsw i64 %.04594.us96.i, 1
   %exitcond.not.i = icmp eq i64 %72, %.val.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %PyUnicode_READ.exit.us98.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %PyUnicode_READ.exit.us98.i, !llvm.loop !17
 
 PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %PyUnicode_READ.exit.i
   %.04594.i = phi i64 [ %77, %PyUnicode_READ.exit.i ], [ 0, %.lr.ph.i ]
   %.45093.i = phi ptr [ %76, %PyUnicode_READ.exit.i ], [ %.248.i, %.lr.ph.i ]
   %73 = getelementptr i32, ptr %.0.i.i, i64 %.04594.i
-  %74 = load i32, ptr %73, align 4, !tbaa !21
+  %74 = load i32, ptr %73, align 4, !tbaa !19
   %75 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.45093.i, ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %74) #8
   %76 = getelementptr i8, ptr %.45093.i, i64 10
   %77 = add nuw nsw i64 %.04594.i, 1
   %exitcond115.not.i = icmp eq i64 %77, %.val.i
-  br i1 %exitcond115.not.i, label %._crit_edge.i, label %PyUnicode_READ.exit.i, !llvm.loop !23
+  br i1 %exitcond115.not.i, label %._crit_edge.i, label %PyUnicode_READ.exit.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %PyUnicode_READ.exit.us98.i, %PyUnicode_READ.exit.us.i, %PyUnicode_READ.exit.i, %_PyUnicode_DATA.exit.i
   %.450.lcssa.i = phi ptr [ %.248.i, %_PyUnicode_DATA.exit.i ], [ %76, %PyUnicode_READ.exit.i ], [ %65, %PyUnicode_READ.exit.us.i ], [ %71, %PyUnicode_READ.exit.us98.i ]
@@ -237,7 +237,7 @@ Py_DECREF.exit.i:                                 ; preds = %.thread84.i, %82, %
   %.2.i = phi ptr [ %84, %.thread84.i ], [ %.0.lcssa.i.i, %82 ], [ %.0.lcssa.i.i, %79 ], [ %.0.lcssa.i.i, %._crit_edge.i ]
   %.5.i = phi ptr [ %85, %.thread84.i ], [ %.450.lcssa.i, %82 ], [ %.450.lcssa.i, %79 ], [ %.450.lcssa.i, %._crit_edge.i ]
   %86 = icmp ult ptr %.2.i, %19
-  br i1 %86, label %22, label %.loopexit.i, !llvm.loop !24
+  br i1 %86, label %22, label %.loopexit.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %Py_DECREF.exit.i, %31, %18
   %.147.i = phi ptr [ %32, %31 ], [ %16, %18 ], [ %.5.i, %Py_DECREF.exit.i ]
@@ -317,7 +317,7 @@ declare ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef, i64 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = tail call ptr @PyBytes_AsString(ptr noundef %4) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %88, label %7
@@ -327,7 +327,7 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   %9 = zext i8 %8 to i32
   %10 = zext i8 %8 to i64
   %11 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = and i32 %12, 3
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.loopexit, label %.preheader95
@@ -360,7 +360,7 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   %.not86 = icmp eq i32 %.270, 0
   %.not87 = icmp eq i32 %.2, 0
   %16 = select i1 %.not86, i1 true, i1 %.not87
-  br i1 %16, label %.preheader95, label %.loopexit.loopexit, !llvm.loop !29
+  br i1 %16, label %.preheader95, label %.loopexit.loopexit, !llvm.loop !26
 
 .loopexit.loopexit:                               ; preds = %15, %.preheader95
   %.075.ph = phi ptr [ %.17696, %.preheader95 ], [ %.277, %15 ]
@@ -392,7 +392,7 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !30
+  %25 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !27
   tail call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.1) #8
   br label %88
 
@@ -469,7 +469,7 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   %63 = getelementptr i8, ptr %.0101, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %.not93 = icmp eq i8 %64, 0
-  br i1 %.not93, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not93, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader, %62
   %65 = phi i8 [ %64, %62 ], [ %61, %.preheader ]
@@ -478,18 +478,18 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
   br i1 %66, label %67, label %62
 
 67:                                               ; preds = %.lr.ph
-  %68 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !30
+  %68 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %70 = load i32, ptr %69, align 4, !tbaa !32
+  %70 = load i32, ptr %69, align 4, !tbaa !29
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = load i32, ptr %72, align 8, !tbaa !33
+  %73 = load i32, ptr %72, align 8, !tbaa !30
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %76 = load i32, ptr %75, align 4, !tbaa !34
+  %76 = load i32, ptr %75, align 4, !tbaa !31
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %79 = load i32, ptr %78, align 8, !tbaa !35
+  %79 = load i32, ptr %78, align 8, !tbaa !32
   %80 = sext i32 %79 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %0, ptr noundef %68, i64 noundef %71, i64 noundef %74, i64 noundef %77, i64 noundef %80, ptr nonnull poison)
   br label %88
@@ -555,7 +555,7 @@ define internal fastcc ptr @decode_bytes_with_escapes(ptr noundef %0, ptr nounde
   br i1 %7, label %Py_DECREF.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %5, align 8, !tbaa !36
+  %9 = load ptr, ptr %5, align 8, !tbaa !33
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %Py_DECREF.exit, label %10
 
@@ -593,13 +593,13 @@ declare ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef, i64 noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %5 = load i32, ptr %4, align 4, !tbaa !38
+  %5 = load i32, ptr %4, align 4, !tbaa !35
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %Py_DECREF.exit38
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %1, align 1, !tbaa !4
-  %8 = load i32, ptr %2, align 8, !tbaa !45
+  %8 = load i32, ptr %2, align 8, !tbaa !42
   %9 = and i32 %8, -2
   %switch = icmp eq i32 %9, 60
   br i1 %switch, label %10, label %11
@@ -631,16 +631,16 @@ define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr no
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load i32, ptr %23, align 8, !tbaa !46
+  %24 = load i32, ptr %23, align 8, !tbaa !43
   %25 = icmp sgt i32 %24, 11
   %PyExc_SyntaxWarning.val = load ptr, ptr @PyExc_SyntaxWarning, align 8
   %PyExc_DeprecationWarning.val = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %.0 = select i1 %25, ptr %PyExc_SyntaxWarning.val, ptr %PyExc_DeprecationWarning.val
-  %26 = load ptr, ptr %0, align 8, !tbaa !47
+  %26 = load ptr, ptr %0, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2336
-  %28 = load ptr, ptr %27, align 8, !tbaa !48
+  %28 = load ptr, ptr %27, align 8, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %30 = load i32, ptr %29, align 4, !tbaa !32
+  %30 = load i32, ptr %29, align 4, !tbaa !29
   %31 = tail call i32 @PyErr_WarnExplicitObject(ptr noundef %.0, ptr noundef nonnull %20, ptr noundef %28, i32 noundef %30, ptr noundef null, ptr noundef null) #8
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %47
@@ -653,8 +653,8 @@ define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr no
 35:                                               ; preds = %33
   tail call void @PyErr_Clear() #8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %2, ptr %36, align 8, !tbaa !51
-  %37 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !30
+  store ptr %2, ptr %36, align 8, !tbaa !48
+  %37 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !27
   br i1 %14, label %38, label %40
 
 38:                                               ; preds = %35
@@ -760,38 +760,35 @@ attributes #9 = { nounwind willreturn memory(read) }
 !14 = !{!"long", !5, i64 0}
 !15 = !{!"", !16, i64 0, !16, i64 2, !16, i64 2, !16, i64 2, !16, i64 2}
 !16 = !{!"short", !5, i64 0}
-!17 = distinct !{!17, !8, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!16, !16, i64 0}
-!20 = distinct !{!20, !8, !18}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !5, i64 0}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = !{!26, !27, i64 8}
-!26 = !{!"", !22, i64 0, !27, i64 8, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28, !22, i64 32, !28, i64 40, !27, i64 48}
-!27 = !{!"p1 _ZTS7_object", !13, i64 0}
-!28 = !{!"p1 _ZTS5_memo", !13, i64 0}
-!29 = distinct !{!29, !8}
-!30 = !{!27, !27, i64 0}
-!31 = distinct !{!31, !8}
-!32 = !{!26, !22, i64 20}
-!33 = !{!26, !22, i64 24}
-!34 = !{!26, !22, i64 28}
-!35 = !{!26, !22, i64 32}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 omnipotent char", !13, i64 0}
-!38 = !{!39, !22, i64 148}
-!39 = !{!"", !40, i64 0, !13, i64 8, !22, i64 16, !22, i64 20, !22, i64 24, !41, i64 32, !13, i64 40, !42, i64 48, !22, i64 56, !22, i64 60, !43, i64 64, !22, i64 72, !27, i64 80, !22, i64 88, !22, i64 92, !22, i64 96, !22, i64 100, !22, i64 104, !44, i64 112, !13, i64 136, !22, i64 144, !22, i64 148, !22, i64 152}
-!40 = !{!"p1 _ZTS9tok_state", !13, i64 0}
-!41 = !{!"p1 _ZTS6_arena", !13, i64 0}
-!42 = !{!"p2 omnipotent char", !13, i64 0}
-!43 = !{!"p1 int", !13, i64 0}
-!44 = !{!"", !13, i64 0, !14, i64 8, !14, i64 16}
-!45 = !{!26, !22, i64 0}
-!46 = !{!39, !22, i64 104}
-!47 = !{!39, !40, i64 0}
-!48 = !{!49, !27, i64 2336}
-!49 = !{!"tok_state", !37, i64 0, !37, i64 8, !37, i64 16, !22, i64 24, !37, i64 32, !37, i64 40, !37, i64 48, !37, i64 56, !22, i64 64, !50, i64 72, !22, i64 80, !22, i64 84, !5, i64 88, !22, i64 488, !22, i64 492, !37, i64 496, !37, i64 504, !22, i64 512, !22, i64 516, !22, i64 520, !22, i64 524, !22, i64 528, !5, i64 532, !5, i64 732, !5, i64 1532, !27, i64 2336, !5, i64 2344, !22, i64 2744, !22, i64 2748, !37, i64 2752, !22, i64 2760, !37, i64 2768, !37, i64 2776, !27, i64 2784, !27, i64 2792, !27, i64 2800, !37, i64 2808, !37, i64 2816, !37, i64 2824, !22, i64 2832, !22, i64 2836, !13, i64 2840, !22, i64 2848, !5, i64 2856, !22, i64 17256, !22, i64 17260, !22, i64 17264, !22, i64 17268}
-!50 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!51 = !{!39, !13, i64 136}
+!17 = distinct !{!17, !8}
+!18 = !{!16, !16, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !5, i64 0}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !24, i64 8}
+!23 = !{!"", !20, i64 0, !24, i64 8, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !25, i64 40, !24, i64 48}
+!24 = !{!"p1 _ZTS7_object", !13, i64 0}
+!25 = !{!"p1 _ZTS5_memo", !13, i64 0}
+!26 = distinct !{!26, !8}
+!27 = !{!24, !24, i64 0}
+!28 = distinct !{!28, !8}
+!29 = !{!23, !20, i64 20}
+!30 = !{!23, !20, i64 24}
+!31 = !{!23, !20, i64 28}
+!32 = !{!23, !20, i64 32}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 omnipotent char", !13, i64 0}
+!35 = !{!36, !20, i64 148}
+!36 = !{!"", !37, i64 0, !13, i64 8, !20, i64 16, !20, i64 20, !20, i64 24, !38, i64 32, !13, i64 40, !39, i64 48, !20, i64 56, !20, i64 60, !40, i64 64, !20, i64 72, !24, i64 80, !20, i64 88, !20, i64 92, !20, i64 96, !20, i64 100, !20, i64 104, !41, i64 112, !13, i64 136, !20, i64 144, !20, i64 148, !20, i64 152}
+!37 = !{!"p1 _ZTS9tok_state", !13, i64 0}
+!38 = !{!"p1 _ZTS6_arena", !13, i64 0}
+!39 = !{!"p2 omnipotent char", !13, i64 0}
+!40 = !{!"p1 int", !13, i64 0}
+!41 = !{!"", !13, i64 0, !14, i64 8, !14, i64 16}
+!42 = !{!23, !20, i64 0}
+!43 = !{!36, !20, i64 104}
+!44 = !{!36, !37, i64 0}
+!45 = !{!46, !24, i64 2336}
+!46 = !{!"tok_state", !34, i64 0, !34, i64 8, !34, i64 16, !20, i64 24, !34, i64 32, !34, i64 40, !34, i64 48, !34, i64 56, !20, i64 64, !47, i64 72, !20, i64 80, !20, i64 84, !5, i64 88, !20, i64 488, !20, i64 492, !34, i64 496, !34, i64 504, !20, i64 512, !20, i64 516, !20, i64 520, !20, i64 524, !20, i64 528, !5, i64 532, !5, i64 732, !5, i64 1532, !24, i64 2336, !5, i64 2344, !20, i64 2744, !20, i64 2748, !34, i64 2752, !20, i64 2760, !34, i64 2768, !34, i64 2776, !24, i64 2784, !24, i64 2792, !24, i64 2800, !34, i64 2808, !34, i64 2816, !34, i64 2824, !20, i64 2832, !20, i64 2836, !13, i64 2840, !20, i64 2848, !5, i64 2856, !20, i64 17256, !20, i64 17260, !20, i64 17264, !20, i64 17268}
+!47 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!48 = !{!36, !13, i64 136}

@@ -765,7 +765,7 @@ define internal fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef ca
 77:                                               ; preds = %.preheader.split
   %78 = call i32 @PyErr_CheckSignals() #11
   %.not47 = icmp eq i32 %78, 0
-  br i1 %.not47, label %.preheader.split, label %.critedge3.thread.thread, !llvm.loop !46
+  br i1 %.not47, label %.preheader.split, label %.critedge3.thread.thread, !llvm.loop !44
 
 .critedge3:                                       ; preds = %.preheader.split, %.preheader.split.us
   %.us-phi = phi i32 [ %63, %.preheader.split.us ], [ %72, %.preheader.split ]
@@ -1039,6 +1039,4 @@ attributes #13 = { nounwind willreturn memory(none) }
 !41 = !{!40, !11, i64 8}
 !42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !43}
+!44 = distinct !{!44, !43}

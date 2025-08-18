@@ -1466,7 +1466,7 @@ bytestream2_get_byte.exit226.us.i:                ; preds = %699, %696
   store i8 %.0.i225.us.sink.i, ptr %722, align 1, !tbaa !41
   %723 = add nuw nsw i32 %.2312.us.i, 1
   %exitcond.not.i100 = icmp eq i32 %723, 4
-  br i1 %exitcond.not.i100, label %.loopexit.us.i101, label %.preheader289.us.i, !llvm.loop !68
+  br i1 %exitcond.not.i100, label %.loopexit.us.i101, label %.preheader289.us.i, !llvm.loop !67
 
 724:                                              ; preds = %bytestream2_get_byte.exit238.us.i
   %725 = shl nuw i32 1, %.sroa.0.5.us.i94
@@ -1562,7 +1562,7 @@ bytestream2_get_byte.exit232.us.i:                ; preds = %748, %744
   store i8 %770, ptr %775, align 1, !tbaa !41
   %776 = add nuw nsw i32 %.1315.us.i, 1
   %exitcond340.not.i = icmp eq i32 %776, 16
-  br i1 %exitcond340.not.i, label %.loopexit.us.i101, label %.preheader.us.i107, !llvm.loop !69
+  br i1 %exitcond340.not.i, label %.loopexit.us.i101, label %.preheader.us.i107, !llvm.loop !68
 
 777:                                              ; preds = %bytestream2_get_byte.exit236.us.i
   br i1 %742, label %781, label %778
@@ -1586,7 +1586,7 @@ bytestream2_get_byte.exit234.us.i:                ; preds = %781, %778
   %.sroa.33.11.us.i = phi i32 [ %.sroa.33.6.us.i, %783 ], [ %.sroa.33.6.us.i, %.preheader.us.i107 ], [ %.sroa.33.10.us.i, %719 ]
   %782 = add nuw nsw i32 %.2200317.us.i, 1
   %exitcond342.not.i = icmp eq i32 %782, 4
-  br i1 %exitcond342.not.i, label %.loopexit291.us.i, label %.preheader294.us.i, !llvm.loop !70
+  br i1 %exitcond342.not.i, label %.loopexit291.us.i, label %.preheader294.us.i, !llvm.loop !69
 
 783:                                              ; preds = %783, %bytestream2_get_byte.exit234.us.i
   %.0197316.us.i = phi i32 [ 0, %bytestream2_get_byte.exit234.us.i ], [ %793, %783 ]
@@ -1603,7 +1603,7 @@ bytestream2_get_byte.exit234.us.i:                ; preds = %781, %778
   store i8 %.0.i233.us.i, ptr %792, align 1, !tbaa !41
   %793 = add nuw nsw i32 %.0197316.us.i, 1
   %exitcond341.not.i = icmp eq i32 %793, 16
-  br i1 %exitcond341.not.i, label %.loopexit.us.i101, label %783, !llvm.loop !71
+  br i1 %exitcond341.not.i, label %.loopexit.us.i101, label %783, !llvm.loop !70
 
 794:                                              ; preds = %bytestream2_get_byte.exit244.us.i
   %795 = shl nuw i32 1, %.sroa.0.2.us.i93
@@ -1656,7 +1656,7 @@ bytestream2_get_byte.exit242.us.i:                ; preds = %810, %806, %794
   store i8 %820, ptr %822, align 1, !tbaa !41
   %823 = add nuw nsw i32 %.1199320.us.i, 1
   %exitcond343.not.i = icmp eq i32 %823, 64
-  br i1 %exitcond343.not.i, label %.loopexit291.us.i, label %.preheader292.us.i, !llvm.loop !72
+  br i1 %exitcond343.not.i, label %.loopexit291.us.i, label %.preheader292.us.i, !llvm.loop !71
 
 824:                                              ; preds = %bytestream2_get_byte.exit242.us.i
   %825 = load ptr, ptr %17, align 8, !tbaa !50
@@ -1691,7 +1691,7 @@ bytestream2_get_byte.exit240.us.i:                ; preds = %836, %833
   %.sroa.33.12.us.i = phi i32 [ %.sroa.33.3.us.i, %839 ], [ %.sroa.33.3.us.i, %.preheader292.us.i ], [ %.sroa.33.11.us.i, %.loopexit.us.i101 ]
   %837 = add nuw nsw i32 %.0196322.us.i, 8
   %838 = icmp slt i32 %837, %472
-  br i1 %838, label %489, label %._crit_edge.us.i103, !llvm.loop !73
+  br i1 %838, label %489, label %._crit_edge.us.i103, !llvm.loop !72
 
 839:                                              ; preds = %839, %bytestream2_get_byte.exit240.us.i
   %.0198321.us.i = phi i32 [ 0, %bytestream2_get_byte.exit240.us.i ], [ %849, %839 ]
@@ -1708,12 +1708,12 @@ bytestream2_get_byte.exit240.us.i:                ; preds = %836, %833
   store i8 %.0.i239.us.i, ptr %848, align 1, !tbaa !41
   %849 = add nuw nsw i32 %.0198321.us.i, 1
   %exitcond344.not.i = icmp eq i32 %849, 64
-  br i1 %exitcond344.not.i, label %.loopexit291.us.i, label %839, !llvm.loop !74
+  br i1 %exitcond344.not.i, label %.loopexit291.us.i, label %839, !llvm.loop !73
 
 ._crit_edge.us.i103:                              ; preds = %.loopexit291.us.i
   %850 = add nuw nsw i32 %.0195326.us.i, 8
   %851 = icmp slt i32 %850, %474
-  br i1 %851, label %.preheader296.us.i, label %kmvc_decode_intra_8x8.exit, !llvm.loop !75
+  br i1 %851, label %.preheader296.us.i, label %kmvc_decode_intra_8x8.exit, !llvm.loop !74
 
 .loopexit297.sink.split.i:                        ; preds = %824, %506, %bytestream2_get_byte.exit232.us.i, %bytestream2_get_byte.exit224.us.i
   %.str.11.sink.i105 = phi ptr [ @.str.11, %bytestream2_get_byte.exit224.us.i ], [ @.str.11, %bytestream2_get_byte.exit232.us.i ], [ @.str.10, %506 ], [ @.str.10, %824 ]
@@ -1752,7 +1752,7 @@ kmvc_decode_intra_8x8.exit:                       ; preds = %._crit_edge.us.i103
   %868 = add nuw nsw i32 %.2128, 1
   %869 = load i32, ptr %854, align 4, !tbaa !32
   %870 = icmp slt i32 %868, %869
-  br i1 %870, label %861, label %._crit_edge, !llvm.loop !76
+  br i1 %870, label %861, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %861, %kmvc_decode_intra_8x8.exit
   %871 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1877,8 +1877,8 @@ attributes #8 = { noreturn nounwind }
 !63 = distinct !{!63, !37}
 !64 = distinct !{!64, !37}
 !65 = distinct !{!65, !37}
-!66 = distinct !{!66, !37, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !37}
+!67 = distinct !{!67, !37}
 !68 = distinct !{!68, !37}
 !69 = distinct !{!69, !37}
 !70 = distinct !{!70, !37}
@@ -1886,5 +1886,4 @@ attributes #8 = { noreturn nounwind }
 !72 = distinct !{!72, !37}
 !73 = distinct !{!73, !37}
 !74 = distinct !{!74, !37}
-!75 = distinct !{!75, !37, !67}
-!76 = distinct !{!76, !37}
+!75 = distinct !{!75, !37}

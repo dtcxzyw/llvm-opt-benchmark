@@ -17818,7 +17818,7 @@ _ZNKSt4lessIKSt10type_indexEclERS1_S3_.exit.us:   ; preds = %.lr.ph.split.us
   %.in = getelementptr inbounds nuw i8, ptr %.02531, i64 %.in.v
   %.025 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %._crit_edge, label %._crit_edge.i.i.i, !llvm.loop !93
+  br i1 %.not, label %._crit_edge, label %._crit_edge.i.i.i, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %._crit_edge.i.i.i, %18
   %.024.lcssa = phi ptr [ %.02531.us, %18 ], [ %.02531, %._crit_edge.i.i.i ]
@@ -18520,6 +18520,4 @@ attributes #38 = { nounwind allocsize(0) }
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZSt16forward_as_tupleIJKSt10type_indexEESt5tupleIJDpOT_EES5_: argument 0"}
 !90 = distinct !{!90, !"_ZSt16forward_as_tupleIJKSt10type_indexEESt5tupleIJDpOT_EES5_"}
-!91 = distinct !{!91, !5, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!93 = distinct !{!93, !5}
+!91 = distinct !{!91, !5}

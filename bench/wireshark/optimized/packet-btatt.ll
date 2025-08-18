@@ -8963,13 +8963,13 @@ btatt_dissect_with_reassmbly.exit:                ; preds = %btatt_dissect_attri
 
 136:                                              ; preds = %134
   %137 = load i8, ptr %39, align 8
-  %.fr6597 = freeze i8 %137
-  %138 = and i8 %.fr6597, -7
+  %.fr6654 = freeze i8 %137
+  %138 = and i8 %.fr6654, -7
   %switch.selectcmp.i.i = icmp eq i8 %138, 8
   br i1 %switch.selectcmp.i.i, label %5313, label %switch.early.test
 
 switch.early.test:                                ; preds = %136
-  switch i8 %.fr6597, label %139 [
+  switch i8 %.fr6654, label %139 [
     i8 30, label %5313
     i8 19, label %5313
   ]
@@ -9246,13 +9246,13 @@ switch.early.test:                                ; preds = %136
 
 153:                                              ; preds = %151, %149
   %154 = phi i8 [ %.pre7067, %151 ], [ %146, %149 ]
-  %.fr6595 = freeze i8 %154
-  %155 = and i8 %.fr6595, -7
+  %.fr6652 = freeze i8 %154
+  %155 = and i8 %.fr6652, -7
   %switch.selectcmp.i.i4890 = icmp eq i8 %155, 8
   br i1 %switch.selectcmp.i.i4890, label %.thread6013, label %switch.early.test6017
 
 switch.early.test6017:                            ; preds = %153
-  switch i8 %.fr6595, label %156 [
+  switch i8 %.fr6652, label %156 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9323,20 +9323,20 @@ switch.early.test6017:                            ; preds = %153
 
 192:                                              ; preds = %190, %188
   %193 = phi i8 [ %.pre7066, %190 ], [ %186, %188 ]
-  %.fr6594 = freeze i8 %193
-  %194 = and i8 %.fr6594, -7
+  %.fr6651 = freeze i8 %193
+  %194 = and i8 %.fr6651, -7
   %switch.selectcmp.i.i4896 = icmp eq i8 %194, 8
   br i1 %switch.selectcmp.i.i4896, label %.thread6013, label %switch.early.test6018
 
 switch.early.test6018:                            ; preds = %192
-  switch i8 %.fr6594, label %195 [
+  switch i8 %.fr6651, label %195 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
 
 195:                                              ; preds = %switch.early.test6018
   %196 = load i32, ptr @hf_btatt_included_service_handle, align 4
-  %197 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef %2, i32 noundef %196, ptr noundef %19, i32 noundef %122, ptr noundef %22, ptr noundef null, i32 noundef -1, i8 noundef zeroext %.fr6594)
+  %197 = call fastcc i32 @dissect_handle(ptr noundef %0, ptr noundef %2, i32 noundef %196, ptr noundef %19, i32 noundef %122, ptr noundef %22, ptr noundef null, i32 noundef -1, i8 noundef zeroext %.fr6651)
   %198 = add i32 %197, -2
   %199 = call zeroext i16 @tvb_get_uint16(ptr noundef %19, i32 noundef %198, i32 noundef -2147483648)
   %200 = load i32, ptr @hf_btatt_ending_handle, align 4
@@ -9376,13 +9376,13 @@ switch.early.test6018:                            ; preds = %192
 
 219:                                              ; preds = %217, %215
   %220 = phi i8 [ %.pre7065, %217 ], [ %213, %215 ]
-  %.fr6593 = freeze i8 %220
-  %221 = and i8 %.fr6593, -7
+  %.fr6650 = freeze i8 %220
+  %221 = and i8 %.fr6650, -7
   %switch.selectcmp.i.i4902 = icmp eq i8 %221, 8
   br i1 %switch.selectcmp.i.i4902, label %.thread6013, label %switch.early.test6020
 
 switch.early.test6020:                            ; preds = %219
-  switch i8 %.fr6593, label %222 [
+  switch i8 %.fr6650, label %222 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9466,13 +9466,13 @@ switch.early.test6020:                            ; preds = %219
 
 271:                                              ; preds = %269, %267
   %272 = phi i8 [ %.pre7064, %269 ], [ %265, %267 ]
-  %.fr6592 = freeze i8 %272
-  %273 = and i8 %.fr6592, -7
+  %.fr6649 = freeze i8 %272
+  %273 = and i8 %.fr6649, -7
   %switch.selectcmp.i.i4908 = icmp eq i8 %273, 8
   br i1 %switch.selectcmp.i.i4908, label %.thread6013, label %switch.early.test6021
 
 switch.early.test6021:                            ; preds = %271
-  switch i8 %.fr6592, label %274 [
+  switch i8 %.fr6649, label %274 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9510,13 +9510,13 @@ switch.early.test6021:                            ; preds = %271
 
 290:                                              ; preds = %288, %285
   %291 = phi i8 [ %.pre7063, %288 ], [ %280, %285 ]
-  %.fr6591 = freeze i8 %291
-  %292 = and i8 %.fr6591, -7
+  %.fr6648 = freeze i8 %291
+  %292 = and i8 %.fr6648, -7
   %switch.selectcmp.i.i4914 = icmp eq i8 %292, 8
   br i1 %switch.selectcmp.i.i4914, label %.thread6013, label %switch.early.test6023
 
 switch.early.test6023:                            ; preds = %290
-  switch i8 %.fr6591, label %293 [
+  switch i8 %.fr6648, label %293 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9558,13 +9558,13 @@ switch.early.test6023:                            ; preds = %290
   br label %310
 
 310:                                              ; preds = %307, %303
-  %.fr6590 = phi i8 [ %309, %307 ], [ %300, %303 ]
-  %311 = and i8 %.fr6590, -7
+  %.fr6647 = phi i8 [ %309, %307 ], [ %300, %303 ]
+  %311 = and i8 %.fr6647, -7
   %switch.selectcmp.i.i4920 = icmp eq i8 %311, 8
   br i1 %switch.selectcmp.i.i4920, label %.thread6013, label %switch.early.test6026
 
 switch.early.test6026:                            ; preds = %310
-  switch i8 %.fr6590, label %312 [
+  switch i8 %.fr6647, label %312 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9721,13 +9721,13 @@ switch.early.test6026:                            ; preds = %310
 
 344:                                              ; preds = %342, %339
   %345 = phi i8 [ %.pre7061, %342 ], [ %334, %339 ]
-  %.fr6589 = freeze i8 %345
-  %346 = and i8 %.fr6589, -7
+  %.fr6646 = freeze i8 %345
+  %346 = and i8 %.fr6646, -7
   %switch.selectcmp.i.i4926 = icmp eq i8 %346, 8
   br i1 %switch.selectcmp.i.i4926, label %.thread6013, label %switch.early.test6028
 
 switch.early.test6028:                            ; preds = %344
-  switch i8 %.fr6589, label %347 [
+  switch i8 %.fr6646, label %347 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9758,13 +9758,13 @@ switch.early.test6028:                            ; preds = %344
 
 359:                                              ; preds = %357, %355
   %360 = phi i8 [ %.pre7060, %357 ], [ %353, %355 ]
-  %.fr6588 = freeze i8 %360
-  %361 = and i8 %.fr6588, -7
+  %.fr6645 = freeze i8 %360
+  %361 = and i8 %.fr6645, -7
   %switch.selectcmp.i.i4932 = icmp eq i8 %361, 8
   br i1 %switch.selectcmp.i.i4932, label %.thread6013, label %switch.early.test6029
 
 switch.early.test6029:                            ; preds = %359
-  switch i8 %.fr6588, label %362 [
+  switch i8 %.fr6645, label %362 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9810,13 +9810,13 @@ switch.early.test6029:                            ; preds = %359
 
 387:                                              ; preds = %385, %383
   %388 = phi i8 [ %.pre7059, %385 ], [ %381, %383 ]
-  %.fr6587 = freeze i8 %388
-  %389 = and i8 %.fr6587, -7
+  %.fr6644 = freeze i8 %388
+  %389 = and i8 %.fr6644, -7
   %switch.selectcmp.i.i4938 = icmp eq i8 %389, 8
   br i1 %switch.selectcmp.i.i4938, label %.thread6013, label %switch.early.test6030
 
 switch.early.test6030:                            ; preds = %387
-  switch i8 %.fr6587, label %390 [
+  switch i8 %.fr6644, label %390 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -9831,33 +9831,33 @@ switch.early.test6030:                            ; preds = %387
   %397 = call ptr @proto_item_add_subtree(ptr noundef %395, i32 noundef %396)
   %398 = call i32 @tvb_captured_length(ptr noundef %19)
   %399 = icmp ult i32 %122, %398
-  br i1 %399, label %.lr.ph6635, label %.thread6013
+  br i1 %399, label %.lr.ph6692, label %.thread6013
 
-.lr.ph6635:                                       ; preds = %390, %.lr.ph6635
-  %.16633 = phi i32 [ %402, %.lr.ph6635 ], [ %122, %390 ]
+.lr.ph6692:                                       ; preds = %390, %.lr.ph6692
+  %.16690 = phi i32 [ %402, %.lr.ph6692 ], [ %122, %390 ]
   %400 = load i32, ptr @hf_btatt_handle, align 4
   %401 = load i8, ptr %39, align 8
-  %402 = call fastcc i32 @dissect_handle(ptr noundef %397, ptr noundef %2, i32 noundef %400, ptr noundef %19, i32 noundef %.16633, ptr noundef %22, ptr noundef null, i32 noundef -1, i8 noundef zeroext %401)
+  %402 = call fastcc i32 @dissect_handle(ptr noundef %397, ptr noundef %2, i32 noundef %400, ptr noundef %19, i32 noundef %.16690, ptr noundef %22, ptr noundef null, i32 noundef -1, i8 noundef zeroext %401)
   %403 = call i32 @tvb_captured_length(ptr noundef %19)
   %404 = icmp ult i32 %402, %403
-  br i1 %404, label %.lr.ph6635, label %.thread6013, !llvm.loop !28
+  br i1 %404, label %.lr.ph6692, label %.thread6013, !llvm.loop !28
 
 405:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %406 = load i8, ptr %39, align 8
-  %.fr6586 = freeze i8 %406
-  %407 = and i8 %.fr6586, -7
+  %.fr6643 = freeze i8 %406
+  %407 = and i8 %.fr6643, -7
   %switch.selectcmp.i.i4941 = icmp eq i8 %407, 8
   br i1 %switch.selectcmp.i.i4941, label %452, label %switch.early.test6031
 
 switch.early.test6031:                            ; preds = %405
-  switch i8 %.fr6586, label %408 [
+  switch i8 %.fr6643, label %408 [
     i8 30, label %452
     i8 19, label %452
   ]
 
 408:                                              ; preds = %switch.early.test6031
-  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %13, ptr noundef %2, i32 noundef %23, i8 noundef zeroext %.fr6586, ptr noundef %22)
+  call fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nonnull writable align 2 %13, ptr noundef %2, i32 noundef %23, i8 noundef zeroext %.fr6643, ptr noundef %22)
   %409 = load ptr, ptr %25, align 8
   %410 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %409, ptr noundef nonnull %13)
   %411 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %409, ptr noundef nonnull @.str.3242, ptr noundef %410)
@@ -9939,13 +9939,13 @@ switch.early.test6031:                            ; preds = %405
 
 461:                                              ; preds = %457, %459, %453
   %462 = phi i8 [ %.pre7058, %457 ], [ %.pre7057, %459 ], [ %.pre7058, %453 ]
-  %.fr6585 = freeze i8 %462
-  %463 = and i8 %.fr6585, -7
+  %.fr6642 = freeze i8 %462
+  %463 = and i8 %.fr6642, -7
   %switch.selectcmp.i.i4947 = icmp eq i8 %463, 8
   br i1 %switch.selectcmp.i.i4947, label %.thread6013, label %switch.early.test6032
 
 switch.early.test6032:                            ; preds = %461
-  switch i8 %.fr6585, label %464 [
+  switch i8 %.fr6642, label %464 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10002,13 +10002,13 @@ switch.early.test6032:                            ; preds = %461
 
 491:                                              ; preds = %487, %489, %483
   %492 = phi i8 [ %.pre7056, %487 ], [ %.pre7055, %489 ], [ %.pre7056, %483 ]
-  %.fr6584 = freeze i8 %492
-  %493 = and i8 %.fr6584, -7
+  %.fr6641 = freeze i8 %492
+  %493 = and i8 %.fr6641, -7
   %switch.selectcmp.i.i4953 = icmp eq i8 %493, 8
   br i1 %switch.selectcmp.i.i4953, label %.thread6013, label %switch.early.test6033
 
 switch.early.test6033:                            ; preds = %491
-  switch i8 %.fr6584, label %494 [
+  switch i8 %.fr6641, label %494 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10041,13 +10041,13 @@ switch.early.test6033:                            ; preds = %491
 
 508:                                              ; preds = %506, %504
   %509 = phi i8 [ %.pre7054, %506 ], [ %502, %504 ]
-  %.fr6583 = freeze i8 %509
-  %510 = and i8 %.fr6583, -7
+  %.fr6640 = freeze i8 %509
+  %510 = and i8 %.fr6640, -7
   %switch.selectcmp.i.i4959 = icmp eq i8 %510, 8
   br i1 %switch.selectcmp.i.i4959, label %.thread6013, label %switch.early.test6034
 
 switch.early.test6034:                            ; preds = %508
-  switch i8 %.fr6583, label %511 [
+  switch i8 %.fr6640, label %511 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10084,13 +10084,13 @@ switch.early.test6034:                            ; preds = %508
 
 526:                                              ; preds = %524, %521
   %527 = phi i8 [ %.pre7053, %524 ], [ %516, %521 ]
-  %.fr6582 = freeze i8 %527
-  %528 = and i8 %.fr6582, -7
+  %.fr6639 = freeze i8 %527
+  %528 = and i8 %.fr6639, -7
   %switch.selectcmp.i.i4965 = icmp eq i8 %528, 8
   br i1 %switch.selectcmp.i.i4965, label %.thread6013, label %switch.early.test6036
 
 switch.early.test6036:                            ; preds = %526
-  switch i8 %.fr6582, label %529 [
+  switch i8 %.fr6639, label %529 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10136,13 +10136,13 @@ switch.early.test6036:                            ; preds = %526
 
 553:                                              ; preds = %144
   %554 = load i8, ptr %39, align 8
-  %.fr6581 = freeze i8 %554
-  %555 = and i8 %.fr6581, -7
+  %.fr6638 = freeze i8 %554
+  %555 = and i8 %.fr6638, -7
   %switch.selectcmp.i.i4968 = icmp eq i8 %555, 8
   br i1 %switch.selectcmp.i.i4968, label %.thread6013, label %switch.early.test6037
 
 switch.early.test6037:                            ; preds = %553
-  switch i8 %.fr6581, label %556 [
+  switch i8 %.fr6638, label %556 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10155,13 +10155,13 @@ switch.early.test6037:                            ; preds = %553
 
 560:                                              ; preds = %144
   %561 = load i8, ptr %39, align 8
-  %.fr6580 = freeze i8 %561
-  %562 = and i8 %.fr6580, -7
+  %.fr6637 = freeze i8 %561
+  %562 = and i8 %.fr6637, -7
   %switch.selectcmp.i.i4971 = icmp eq i8 %562, 8
   br i1 %switch.selectcmp.i.i4971, label %.thread6013, label %switch.early.test6038
 
 switch.early.test6038:                            ; preds = %560
-  switch i8 %.fr6580, label %563 [
+  switch i8 %.fr6637, label %563 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10189,13 +10189,13 @@ switch.early.test6038:                            ; preds = %560
 
 582:                                              ; preds = %144
   %583 = load i8, ptr %39, align 8
-  %.fr6579 = freeze i8 %583
-  %584 = and i8 %.fr6579, -7
+  %.fr6636 = freeze i8 %583
+  %584 = and i8 %.fr6636, -7
   %switch.selectcmp.i.i4974 = icmp eq i8 %584, 8
   br i1 %switch.selectcmp.i.i4974, label %.thread6013, label %switch.early.test6039
 
 switch.early.test6039:                            ; preds = %582
-  switch i8 %.fr6579, label %585 [
+  switch i8 %.fr6636, label %585 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10237,13 +10237,13 @@ switch.early.test6039:                            ; preds = %582
 
 605:                                              ; preds = %603, %600
   %606 = phi i8 [ %.pre7052, %603 ], [ %595, %600 ]
-  %.fr6578 = freeze i8 %606
-  %607 = and i8 %.fr6578, -7
+  %.fr6635 = freeze i8 %606
+  %607 = and i8 %.fr6635, -7
   %switch.selectcmp.i.i4980 = icmp eq i8 %607, 8
   br i1 %switch.selectcmp.i.i4980, label %.thread6013, label %switch.early.test6041
 
 switch.early.test6041:                            ; preds = %605
-  switch i8 %.fr6578, label %608 [
+  switch i8 %.fr6635, label %608 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10284,13 +10284,13 @@ switch.early.test6041:                            ; preds = %605
 
 629:                                              ; preds = %144
   %630 = load i8, ptr %39, align 8
-  %.fr6577 = freeze i8 %630
-  %631 = and i8 %.fr6577, -7
+  %.fr6634 = freeze i8 %630
+  %631 = and i8 %.fr6634, -7
   %switch.selectcmp.i.i4983 = icmp eq i8 %631, 8
   br i1 %switch.selectcmp.i.i4983, label %.thread6013, label %switch.early.test6042
 
 switch.early.test6042:                            ; preds = %629
-  switch i8 %.fr6577, label %632 [
+  switch i8 %.fr6634, label %632 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10305,13 +10305,13 @@ switch.early.test6042:                            ; preds = %629
 
 638:                                              ; preds = %144
   %639 = load i8, ptr %39, align 8
-  %.fr6576 = freeze i8 %639
-  %640 = and i8 %.fr6576, -7
+  %.fr6633 = freeze i8 %639
+  %640 = and i8 %.fr6633, -7
   %switch.selectcmp.i.i4986 = icmp eq i8 %640, 8
   br i1 %switch.selectcmp.i.i4986, label %.thread6013, label %switch.early.test6043
 
 switch.early.test6043:                            ; preds = %638
-  switch i8 %.fr6576, label %641 [
+  switch i8 %.fr6633, label %641 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10404,13 +10404,13 @@ switch.early.test6043:                            ; preds = %638
 
 672:                                              ; preds = %667, %670, %660
   %673 = phi i8 [ %.pre7051, %667 ], [ %.pre7050, %670 ], [ %.pre7051, %660 ]
-  %.fr6575 = freeze i8 %673
-  %674 = and i8 %.fr6575, -7
+  %.fr6632 = freeze i8 %673
+  %674 = and i8 %.fr6632, -7
   %switch.selectcmp.i.i4992 = icmp eq i8 %674, 8
   br i1 %switch.selectcmp.i.i4992, label %.thread6013, label %switch.early.test6045
 
 switch.early.test6045:                            ; preds = %672
-  switch i8 %.fr6575, label %675 [
+  switch i8 %.fr6632, label %675 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10440,13 +10440,13 @@ switch.early.test6045:                            ; preds = %672
 
 685:                                              ; preds = %681, %683, %679
   %686 = phi i8 [ %.pre7049, %681 ], [ %.pre7048, %683 ], [ %.pre7049, %679 ]
-  %.fr6574 = freeze i8 %686
-  %687 = and i8 %.fr6574, -7
+  %.fr6631 = freeze i8 %686
+  %687 = and i8 %.fr6631, -7
   %switch.selectcmp.i.i4995 = icmp eq i8 %687, 8
   br i1 %switch.selectcmp.i.i4995, label %.thread6013, label %switch.early.test6046
 
 switch.early.test6046:                            ; preds = %685
-  switch i8 %.fr6574, label %688 [
+  switch i8 %.fr6631, label %688 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10489,13 +10489,13 @@ switch.early.test6046:                            ; preds = %685
 
 703:                                              ; preds = %699, %701, %696
   %704 = phi i8 [ %.pre7047, %699 ], [ %.pre7046, %701 ], [ %.pre7047, %696 ]
-  %.fr6573 = freeze i8 %704
-  %705 = and i8 %.fr6573, -7
+  %.fr6630 = freeze i8 %704
+  %705 = and i8 %.fr6630, -7
   %switch.selectcmp.i.i5001 = icmp eq i8 %705, 8
   br i1 %switch.selectcmp.i.i5001, label %.thread6013, label %switch.early.test6047
 
 switch.early.test6047:                            ; preds = %703
-  switch i8 %.fr6573, label %706 [
+  switch i8 %.fr6630, label %706 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10533,13 +10533,13 @@ switch.early.test6047:                            ; preds = %703
 
 724:                                              ; preds = %722, %719
   %725 = phi i8 [ %.pre7044, %722 ], [ %.pre7045, %719 ]
-  %.fr6572 = freeze i8 %725
-  %726 = and i8 %.fr6572, -7
+  %.fr6629 = freeze i8 %725
+  %726 = and i8 %.fr6629, -7
   %switch.selectcmp.i.i5004 = icmp eq i8 %726, 8
   br i1 %switch.selectcmp.i.i5004, label %.thread6013, label %switch.early.test6048
 
 switch.early.test6048:                            ; preds = %724
-  switch i8 %.fr6572, label %switch.early.test6048.thread [
+  switch i8 %.fr6629, label %switch.early.test6048.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10561,8 +10561,8 @@ switch.early.test6048.thread:                     ; preds = %721, %switch.early.
 
 734:                                              ; preds = %733
   %735 = load i8, ptr %39, align 8
-  %.fr65717232 = freeze i8 %735
-  %.not4878 = icmp eq i8 %.fr65717232, 82
+  %.fr66287232 = freeze i8 %735
+  %.not4878 = icmp eq i8 %.fr66287232, 82
   br i1 %.not4878, label %switch.early.test6050, label %.sink.split
 
 736:                                              ; preds = %733
@@ -10590,14 +10590,14 @@ switch.early.test6048.thread:                     ; preds = %721, %switch.early.
 
 746:                                              ; preds = %.sink.split, %733, %742
   %.pr7074 = load i8, ptr %39, align 8
-  %.fr6571 = freeze i8 %.pr7074
-  %747 = and i8 %.fr6571, -7
+  %.fr6628 = freeze i8 %.pr7074
+  %747 = and i8 %.fr6628, -7
   %switch.selectcmp.i.i5010 = icmp eq i8 %747, 8
   br i1 %switch.selectcmp.i.i5010, label %.thread6013, label %switch.early.test6050
 
 switch.early.test6050:                            ; preds = %734, %746
-  %.fr65717234 = phi i8 [ %.fr6571, %746 ], [ %.fr65717232, %734 ]
-  switch i8 %.fr65717234, label %748 [
+  %.fr66287234 = phi i8 [ %.fr6628, %746 ], [ %.fr66287232, %734 ]
+  switch i8 %.fr66287234, label %748 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10631,13 +10631,13 @@ switch.early.test6050:                            ; preds = %734, %746
 
 760:                                              ; preds = %756, %758, %752
   %761 = phi i8 [ %.pre7043, %756 ], [ %.pre7042, %758 ], [ %.pre7043, %752 ]
-  %.fr6570 = freeze i8 %761
-  %762 = and i8 %.fr6570, -7
+  %.fr6627 = freeze i8 %761
+  %762 = and i8 %.fr6627, -7
   %switch.selectcmp.i.i5016 = icmp eq i8 %762, 8
   br i1 %switch.selectcmp.i.i5016, label %.thread6013, label %switch.early.test6051
 
 switch.early.test6051:                            ; preds = %760
-  switch i8 %.fr6570, label %763 [
+  switch i8 %.fr6627, label %763 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10650,13 +10650,13 @@ switch.early.test6051:                            ; preds = %760
 
 767:                                              ; preds = %144
   %768 = load i8, ptr %39, align 8
-  %.fr6569 = freeze i8 %768
-  %769 = and i8 %.fr6569, -7
+  %.fr6626 = freeze i8 %768
+  %769 = and i8 %.fr6626, -7
   %switch.selectcmp.i.i5019 = icmp eq i8 %769, 8
   br i1 %switch.selectcmp.i.i5019, label %.thread6013, label %switch.early.test6052
 
 switch.early.test6052:                            ; preds = %767
-  switch i8 %.fr6569, label %770 [
+  switch i8 %.fr6626, label %770 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10667,13 +10667,13 @@ switch.early.test6052:                            ; preds = %767
 
 772:                                              ; preds = %144
   %773 = load i8, ptr %39, align 8
-  %.fr6568 = freeze i8 %773
-  %774 = and i8 %.fr6568, -7
+  %.fr6625 = freeze i8 %773
+  %774 = and i8 %.fr6625, -7
   %switch.selectcmp.i.i5022 = icmp eq i8 %774, 8
   br i1 %switch.selectcmp.i.i5022, label %.thread6013, label %switch.early.test6053
 
 switch.early.test6053:                            ; preds = %772
-  switch i8 %.fr6568, label %775 [
+  switch i8 %.fr6625, label %775 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10689,44 +10689,44 @@ switch.early.test6053:                            ; preds = %772
   %781 = icmp eq i16 %.sroa.0270.0.copyload, 6149
   %or.cond40 = and i1 %781, %780
   %.pre7041 = load i8, ptr %39, align 8
-  %.fr6693 = freeze i8 %.pre7041
+  %.fr6623 = freeze i8 %.pre7041
   br i1 %or.cond40, label %782, label %791
 
 782:                                              ; preds = %779
-  %783 = and i8 %.fr6693, -7
+  %783 = and i8 %.fr6623, -7
   %switch.selectcmp.i5025 = icmp eq i8 %783, 8
-  %784 = and i8 %.fr6693, -5
+  %784 = and i8 %.fr6623, -5
   %785 = icmp eq i8 %784, 19
-  %or.cond6653 = or i1 %switch.selectcmp.i5025, %785
-  br i1 %or.cond6653, label %.thread6013, label %786
+  %or.cond6387 = or i1 %switch.selectcmp.i5025, %785
+  br i1 %or.cond6387, label %.thread6013, label %786
 
 786:                                              ; preds = %782
-  %787 = add i8 %.fr6693, -9
+  %787 = add i8 %.fr6623, -9
   %switch.and.i5026 = and i8 %787, -7
   %switch.selectcmp.i5027 = icmp eq i8 %switch.and.i5026, 0
-  br i1 %switch.selectcmp.i5027, label %791, label %switch.early.test6637
+  br i1 %switch.selectcmp.i5027, label %791, label %switch.early.test6371
 
-switch.early.test6637:                            ; preds = %786
-  switch i8 %.fr6693, label %788 [
+switch.early.test6371:                            ; preds = %786
+  switch i8 %.fr6623, label %788 [
     i8 27, label %791
     i8 22, label %791
     i8 18, label %791
   ]
 
-788:                                              ; preds = %switch.early.test6637
+788:                                              ; preds = %switch.early.test6371
   %789 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre7040 = load i8, ptr %39, align 8
   %790 = freeze i8 %.pre7040
   br label %791
 
-791:                                              ; preds = %switch.early.test6637, %switch.early.test6637, %switch.early.test6637, %786, %788, %779
-  %.fr6567 = phi i8 [ %.fr6693, %switch.early.test6637 ], [ %.fr6693, %switch.early.test6637 ], [ %.fr6693, %switch.early.test6637 ], [ %.fr6693, %786 ], [ %790, %788 ], [ %.fr6693, %779 ]
-  %792 = and i8 %.fr6567, -7
+791:                                              ; preds = %switch.early.test6371, %switch.early.test6371, %switch.early.test6371, %786, %788, %779
+  %.fr6624 = phi i8 [ %.fr6623, %switch.early.test6371 ], [ %.fr6623, %switch.early.test6371 ], [ %.fr6623, %switch.early.test6371 ], [ %.fr6623, %786 ], [ %790, %788 ], [ %.fr6623, %779 ]
+  %792 = and i8 %.fr6624, -7
   %switch.selectcmp.i.i5028 = icmp eq i8 %792, 8
   br i1 %switch.selectcmp.i.i5028, label %.thread6013, label %switch.early.test6056
 
 switch.early.test6056:                            ; preds = %791
-  switch i8 %.fr6567, label %793 [
+  switch i8 %.fr6624, label %793 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10769,13 +10769,13 @@ thread-pre-split:                                 ; preds = %793, %793, %799
 
 810:                                              ; preds = %144
   %811 = load i8, ptr %39, align 8
-  %.fr6566 = freeze i8 %811
-  %812 = and i8 %.fr6566, -7
+  %.fr6622 = freeze i8 %811
+  %812 = and i8 %.fr6622, -7
   %switch.selectcmp.i.i5031 = icmp eq i8 %812, 8
   br i1 %switch.selectcmp.i.i5031, label %.thread6013, label %switch.early.test6057
 
 switch.early.test6057:                            ; preds = %810
-  switch i8 %.fr6566, label %813 [
+  switch i8 %.fr6622, label %813 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10788,13 +10788,13 @@ switch.early.test6057:                            ; preds = %810
 
 817:                                              ; preds = %144
   %818 = load i8, ptr %39, align 8
-  %.fr6565 = freeze i8 %818
-  %819 = and i8 %.fr6565, -7
+  %.fr6621 = freeze i8 %818
+  %819 = and i8 %.fr6621, -7
   %switch.selectcmp.i.i5034 = icmp eq i8 %819, 8
   br i1 %switch.selectcmp.i.i5034, label %.thread6013, label %switch.early.test6058
 
 switch.early.test6058:                            ; preds = %817
-  switch i8 %.fr6565, label %820 [
+  switch i8 %.fr6621, label %820 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10835,13 +10835,13 @@ switch.early.test6058:                            ; preds = %817
 
 836:                                              ; preds = %831, %834, %824
   %837 = phi i8 [ %.pre7039, %831 ], [ %.pre7038, %834 ], [ %.pre7039, %824 ]
-  %.fr6564 = freeze i8 %837
-  %838 = and i8 %.fr6564, -7
+  %.fr6620 = freeze i8 %837
+  %838 = and i8 %.fr6620, -7
   %switch.selectcmp.i.i5040 = icmp eq i8 %838, 8
   br i1 %switch.selectcmp.i.i5040, label %.thread6013, label %switch.early.test6060
 
 switch.early.test6060:                            ; preds = %836
-  switch i8 %.fr6564, label %839 [
+  switch i8 %.fr6620, label %839 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10891,13 +10891,13 @@ switch.early.test6060:                            ; preds = %836
 
 862:                                              ; preds = %858, %860, %854
   %863 = phi i8 [ %.pre7037, %858 ], [ %.pre7036, %860 ], [ %.pre7037, %854 ]
-  %.fr6563 = freeze i8 %863
-  %864 = and i8 %.fr6563, -7
+  %.fr6619 = freeze i8 %863
+  %864 = and i8 %.fr6619, -7
   %switch.selectcmp.i.i5046 = icmp eq i8 %864, 8
   br i1 %switch.selectcmp.i.i5046, label %.thread6013, label %switch.early.test6061
 
 switch.early.test6061:                            ; preds = %862
-  switch i8 %.fr6563, label %865 [
+  switch i8 %.fr6619, label %865 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10911,13 +10911,13 @@ switch.early.test6061:                            ; preds = %862
 
 870:                                              ; preds = %144
   %871 = load i8, ptr %39, align 8
-  %.fr6562 = freeze i8 %871
-  %872 = and i8 %.fr6562, -7
+  %.fr6618 = freeze i8 %871
+  %872 = and i8 %.fr6618, -7
   %switch.selectcmp.i.i5049 = icmp eq i8 %872, 8
   br i1 %switch.selectcmp.i.i5049, label %.thread6013, label %switch.early.test6062
 
 switch.early.test6062:                            ; preds = %870
-  switch i8 %.fr6562, label %873 [
+  switch i8 %.fr6618, label %873 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10930,13 +10930,13 @@ switch.early.test6062:                            ; preds = %870
 
 877:                                              ; preds = %144
   %878 = load i8, ptr %39, align 8
-  %.fr6561 = freeze i8 %878
-  %879 = and i8 %.fr6561, -7
+  %.fr6617 = freeze i8 %878
+  %879 = and i8 %.fr6617, -7
   %switch.selectcmp.i.i5052 = icmp eq i8 %879, 8
   br i1 %switch.selectcmp.i.i5052, label %.thread6013, label %switch.early.test6063
 
 switch.early.test6063:                            ; preds = %877
-  switch i8 %.fr6561, label %880 [
+  switch i8 %.fr6617, label %880 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10970,13 +10970,13 @@ switch.early.test6063:                            ; preds = %877
 
 892:                                              ; preds = %888, %890, %884
   %893 = phi i8 [ %.pre7035, %888 ], [ %.pre7034, %890 ], [ %.pre7035, %884 ]
-  %.fr6560 = freeze i8 %893
-  %894 = and i8 %.fr6560, -7
+  %.fr6616 = freeze i8 %893
+  %894 = and i8 %.fr6616, -7
   %switch.selectcmp.i.i5058 = icmp eq i8 %894, 8
   br i1 %switch.selectcmp.i.i5058, label %.thread6013, label %switch.early.test6064
 
 switch.early.test6064:                            ; preds = %892
-  switch i8 %.fr6560, label %895 [
+  switch i8 %.fr6616, label %895 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -10998,13 +10998,13 @@ switch.early.test6064:                            ; preds = %892
 
 908:                                              ; preds = %144
   %909 = load i8, ptr %39, align 8
-  %.fr6559 = freeze i8 %909
-  %910 = and i8 %.fr6559, -7
+  %.fr6615 = freeze i8 %909
+  %910 = and i8 %.fr6615, -7
   %switch.selectcmp.i.i5061 = icmp eq i8 %910, 8
   br i1 %switch.selectcmp.i.i5061, label %.thread6013, label %switch.early.test6065
 
 switch.early.test6065:                            ; preds = %908
-  switch i8 %.fr6559, label %911 [
+  switch i8 %.fr6615, label %911 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11037,13 +11037,13 @@ switch.early.test6065:                            ; preds = %908
 
 923:                                              ; preds = %921, %918
   %924 = phi i8 [ %.pre7032, %921 ], [ %.pre7033, %918 ]
-  %.fr6558 = freeze i8 %924
-  %925 = and i8 %.fr6558, -7
+  %.fr6614 = freeze i8 %924
+  %925 = and i8 %.fr6614, -7
   %switch.selectcmp.i.i5064 = icmp eq i8 %925, 8
   br i1 %switch.selectcmp.i.i5064, label %.thread6013, label %switch.early.test6066
 
 switch.early.test6066:                            ; preds = %923
-  switch i8 %.fr6558, label %switch.early.test6066.thread [
+  switch i8 %.fr6614, label %switch.early.test6066.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11077,13 +11077,13 @@ switch.early.test6066.thread:                     ; preds = %920, %switch.early.
 
 937:                                              ; preds = %933, %935, %929
   %938 = phi i8 [ %.pre7031, %933 ], [ %.pre7030, %935 ], [ %.pre7031, %929 ]
-  %.fr6557 = freeze i8 %938
-  %939 = and i8 %.fr6557, -7
+  %.fr6613 = freeze i8 %938
+  %939 = and i8 %.fr6613, -7
   %switch.selectcmp.i.i5070 = icmp eq i8 %939, 8
   br i1 %switch.selectcmp.i.i5070, label %.thread6013, label %switch.early.test6067
 
 switch.early.test6067:                            ; preds = %937
-  switch i8 %.fr6557, label %940 [
+  switch i8 %.fr6613, label %940 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11113,13 +11113,13 @@ switch.early.test6067:                            ; preds = %937
 
 952:                                              ; preds = %950, %947
   %953 = phi i8 [ %.pre7028, %950 ], [ %.pre7029, %947 ]
-  %.fr6556 = freeze i8 %953
-  %954 = and i8 %.fr6556, -7
+  %.fr6612 = freeze i8 %953
+  %954 = and i8 %.fr6612, -7
   %switch.selectcmp.i.i5073 = icmp eq i8 %954, 8
   br i1 %switch.selectcmp.i.i5073, label %.thread6013, label %switch.early.test6068
 
 switch.early.test6068:                            ; preds = %952
-  switch i8 %.fr6556, label %switch.early.test6068.thread [
+  switch i8 %.fr6612, label %switch.early.test6068.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11215,13 +11215,13 @@ switch.early.test6068.thread:                     ; preds = %949, %switch.early.
 
 998:                                              ; preds = %994, %996, %990
   %999 = phi i8 [ %.pre7027, %994 ], [ %.pre7026, %996 ], [ %.pre7027, %990 ]
-  %.fr6555 = freeze i8 %999
-  %1000 = and i8 %.fr6555, -7
+  %.fr6611 = freeze i8 %999
+  %1000 = and i8 %.fr6611, -7
   %switch.selectcmp.i.i5079 = icmp eq i8 %1000, 8
   br i1 %switch.selectcmp.i.i5079, label %.thread6013, label %switch.early.test6070
 
 switch.early.test6070:                            ; preds = %998
-  switch i8 %.fr6555, label %1001 [
+  switch i8 %.fr6611, label %1001 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11245,13 +11245,13 @@ switch.early.test6070:                            ; preds = %998
 
 1010:                                             ; preds = %144
   %1011 = load i8, ptr %39, align 8
-  %.fr6554 = freeze i8 %1011
-  %1012 = and i8 %.fr6554, -7
+  %.fr6610 = freeze i8 %1011
+  %1012 = and i8 %.fr6610, -7
   %switch.selectcmp.i.i5082 = icmp eq i8 %1012, 8
   br i1 %switch.selectcmp.i.i5082, label %.thread6013, label %switch.early.test6071
 
 switch.early.test6071:                            ; preds = %1010
-  switch i8 %.fr6554, label %1013 [
+  switch i8 %.fr6610, label %1013 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11265,13 +11265,13 @@ switch.early.test6071:                            ; preds = %1010
 
 1018:                                             ; preds = %144
   %1019 = load i8, ptr %39, align 8
-  %.fr6553 = freeze i8 %1019
-  %1020 = and i8 %.fr6553, -7
+  %.fr6609 = freeze i8 %1019
+  %1020 = and i8 %.fr6609, -7
   %switch.selectcmp.i.i5085 = icmp eq i8 %1020, 8
   br i1 %switch.selectcmp.i.i5085, label %.thread6013, label %switch.early.test6072
 
 switch.early.test6072:                            ; preds = %1018
-  switch i8 %.fr6553, label %1021 [
+  switch i8 %.fr6609, label %1021 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11338,14 +11338,14 @@ switch.early.test6072:                            ; preds = %1018
 
 1050:                                             ; preds = %.sink.split7262, %1044, %1040
   %.pr7086 = load i8, ptr %39, align 8
-  %.fr6552 = freeze i8 %.pr7086
-  %1051 = and i8 %.fr6552, -7
+  %.fr6608 = freeze i8 %.pr7086
+  %1051 = and i8 %.fr6608, -7
   %switch.selectcmp.i.i5088 = icmp eq i8 %1051, 8
   br i1 %switch.selectcmp.i.i5088, label %.thread6013, label %switch.early.test6073
 
 switch.early.test6073:                            ; preds = %1047, %1042, %1050
-  %.fr65527238 = phi i8 [ %.fr6552, %1050 ], [ 27, %1047 ], [ %1043, %1042 ]
-  switch i8 %.fr65527238, label %1052 [
+  %.fr66087238 = phi i8 [ %.fr6608, %1050 ], [ 27, %1047 ], [ %1043, %1042 ]
+  switch i8 %.fr66087238, label %1052 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11408,13 +11408,13 @@ switch.early.test6073:                            ; preds = %1047, %1042, %1050
 
 1081:                                             ; preds = %1077, %1079, %1073
   %1082 = phi i8 [ %.pre7025, %1077 ], [ %.pre7024, %1079 ], [ %.pre7025, %1073 ]
-  %.fr6551 = freeze i8 %1082
-  %1083 = and i8 %.fr6551, -7
+  %.fr6607 = freeze i8 %1082
+  %1083 = and i8 %.fr6607, -7
   %switch.selectcmp.i.i5094 = icmp eq i8 %1083, 8
   br i1 %switch.selectcmp.i.i5094, label %.thread6013, label %switch.early.test6074
 
 switch.early.test6074:                            ; preds = %1081
-  switch i8 %.fr6551, label %1084 [
+  switch i8 %.fr6607, label %1084 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11427,13 +11427,13 @@ switch.early.test6074:                            ; preds = %1081
 
 1088:                                             ; preds = %144
   %1089 = load i8, ptr %39, align 8
-  %.fr6550 = freeze i8 %1089
-  %1090 = and i8 %.fr6550, -7
+  %.fr6606 = freeze i8 %1089
+  %1090 = and i8 %.fr6606, -7
   %switch.selectcmp.i.i5097 = icmp eq i8 %1090, 8
   br i1 %switch.selectcmp.i.i5097, label %.thread6013, label %switch.early.test6075
 
 switch.early.test6075:                            ; preds = %1088
-  switch i8 %.fr6550, label %1091 [
+  switch i8 %.fr6606, label %1091 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11457,13 +11457,13 @@ switch.early.test6075:                            ; preds = %1088
 
 1100:                                             ; preds = %144
   %1101 = load i8, ptr %39, align 8
-  %.fr6549 = freeze i8 %1101
-  %1102 = and i8 %.fr6549, -7
+  %.fr6605 = freeze i8 %1101
+  %1102 = and i8 %.fr6605, -7
   %switch.selectcmp.i.i5100 = icmp eq i8 %1102, 8
   br i1 %switch.selectcmp.i.i5100, label %.thread6013, label %switch.early.test6076
 
 switch.early.test6076:                            ; preds = %1100
-  switch i8 %.fr6549, label %1103 [
+  switch i8 %.fr6605, label %1103 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11506,29 +11506,29 @@ switch.early.test6076:                            ; preds = %1100
   %1118 = add i8 %.pre7023, -9
   %switch.and.i5104 = and i8 %1118, -7
   %switch.selectcmp.i5105 = icmp eq i8 %switch.and.i5104, 0
-  br i1 %switch.selectcmp.i5105, label %1121, label %switch.early.test6638
+  br i1 %switch.selectcmp.i5105, label %1121, label %switch.early.test6372
 
-switch.early.test6638:                            ; preds = %1117
+switch.early.test6372:                            ; preds = %1117
   switch i8 %.pre7023, label %1119 [
     i8 29, label %1121
     i8 22, label %1121
     i8 18, label %1121
   ]
 
-1119:                                             ; preds = %switch.early.test6638
+1119:                                             ; preds = %switch.early.test6372
   %1120 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre7022 = load i8, ptr %39, align 8
   br label %1121
 
-1121:                                             ; preds = %switch.early.test6638, %switch.early.test6638, %switch.early.test6638, %1117, %1119, %1112
-  %1122 = phi i8 [ %.pre7023, %switch.early.test6638 ], [ %.pre7023, %switch.early.test6638 ], [ %.pre7023, %switch.early.test6638 ], [ %.pre7023, %1117 ], [ %.pre7022, %1119 ], [ %.pre7023, %1112 ]
-  %.fr6548 = freeze i8 %1122
-  %1123 = and i8 %.fr6548, -7
+1121:                                             ; preds = %switch.early.test6372, %switch.early.test6372, %switch.early.test6372, %1117, %1119, %1112
+  %1122 = phi i8 [ %.pre7023, %switch.early.test6372 ], [ %.pre7023, %switch.early.test6372 ], [ %.pre7023, %switch.early.test6372 ], [ %.pre7023, %1117 ], [ %.pre7022, %1119 ], [ %.pre7023, %1112 ]
+  %.fr6604 = freeze i8 %1122
+  %1123 = and i8 %.fr6604, -7
   %switch.selectcmp.i.i5106 = icmp eq i8 %1123, 8
   br i1 %switch.selectcmp.i.i5106, label %.thread6013, label %switch.early.test6080
 
 switch.early.test6080:                            ; preds = %1121
-  switch i8 %.fr6548, label %1124 [
+  switch i8 %.fr6604, label %1124 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11542,44 +11542,44 @@ switch.early.test6080:                            ; preds = %1121
 1128:                                             ; preds = %144
   %1129 = icmp eq i16 %.sroa.0270.0.copyload, 6162
   %.pre7021 = load i8, ptr %39, align 8
-  %.fr6692 = freeze i8 %.pre7021
+  %.fr6602 = freeze i8 %.pre7021
   br i1 %1129, label %1130, label %1139
 
 1130:                                             ; preds = %1128
-  %1131 = and i8 %.fr6692, -7
+  %1131 = and i8 %.fr6602, -7
   %switch.selectcmp.i5109 = icmp eq i8 %1131, 8
-  %1132 = and i8 %.fr6692, -5
+  %1132 = and i8 %.fr6602, -5
   %1133 = icmp eq i8 %1132, 19
-  %or.cond6655 = or i1 %switch.selectcmp.i5109, %1133
-  br i1 %or.cond6655, label %.thread6013, label %1134
+  %or.cond6389 = or i1 %switch.selectcmp.i5109, %1133
+  br i1 %or.cond6389, label %.thread6013, label %1134
 
 1134:                                             ; preds = %1130
-  %1135 = add i8 %.fr6692, -9
+  %1135 = add i8 %.fr6602, -9
   %switch.and.i5110 = and i8 %1135, -7
   %switch.selectcmp.i5111 = icmp eq i8 %switch.and.i5110, 0
-  br i1 %switch.selectcmp.i5111, label %1139, label %switch.early.test6639
+  br i1 %switch.selectcmp.i5111, label %1139, label %switch.early.test6373
 
-switch.early.test6639:                            ; preds = %1134
-  switch i8 %.fr6692, label %1136 [
+switch.early.test6373:                            ; preds = %1134
+  switch i8 %.fr6602, label %1136 [
     i8 27, label %1139
     i8 22, label %1139
     i8 18, label %1139
   ]
 
-1136:                                             ; preds = %switch.early.test6639
+1136:                                             ; preds = %switch.early.test6373
   %1137 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre7020 = load i8, ptr %39, align 8
   %1138 = freeze i8 %.pre7020
   br label %1139
 
-1139:                                             ; preds = %switch.early.test6639, %switch.early.test6639, %switch.early.test6639, %1134, %1136, %1128
-  %.fr6547 = phi i8 [ %.fr6692, %switch.early.test6639 ], [ %.fr6692, %switch.early.test6639 ], [ %.fr6692, %switch.early.test6639 ], [ %.fr6692, %1134 ], [ %1138, %1136 ], [ %.fr6692, %1128 ]
-  %1140 = and i8 %.fr6547, -7
+1139:                                             ; preds = %switch.early.test6373, %switch.early.test6373, %switch.early.test6373, %1134, %1136, %1128
+  %.fr6603 = phi i8 [ %.fr6602, %switch.early.test6373 ], [ %.fr6602, %switch.early.test6373 ], [ %.fr6602, %switch.early.test6373 ], [ %.fr6602, %1134 ], [ %1138, %1136 ], [ %.fr6602, %1128 ]
+  %1140 = and i8 %.fr6603, -7
   %switch.selectcmp.i.i5112 = icmp eq i8 %1140, 8
   br i1 %switch.selectcmp.i.i5112, label %.thread6013, label %switch.early.test6083
 
 switch.early.test6083:                            ; preds = %1139
-  switch i8 %.fr6547, label %1141 [
+  switch i8 %.fr6603, label %1141 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11615,13 +11615,13 @@ switch.early.test6083:                            ; preds = %1139
 
 1155:                                             ; preds = %1151, %1153, %1147
   %1156 = phi i8 [ %.pre7019, %1151 ], [ %.pre7018, %1153 ], [ %.pre7019, %1147 ]
-  %.fr6546 = freeze i8 %1156
-  %1157 = and i8 %.fr6546, -7
+  %.fr6601 = freeze i8 %1156
+  %1157 = and i8 %.fr6601, -7
   %switch.selectcmp.i.i5118 = icmp eq i8 %1157, 8
   br i1 %switch.selectcmp.i.i5118, label %.thread6013, label %switch.early.test6084
 
 switch.early.test6084:                            ; preds = %1155
-  switch i8 %.fr6546, label %1158 [
+  switch i8 %.fr6601, label %1158 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11658,13 +11658,13 @@ switch.early.test6084:                            ; preds = %1155
 
 1173:                                             ; preds = %1169, %1171, %1165
   %1174 = phi i8 [ %.pre7017, %1169 ], [ %.pre7016, %1171 ], [ %.pre7017, %1165 ]
-  %.fr6545 = freeze i8 %1174
-  %1175 = and i8 %.fr6545, -7
+  %.fr6600 = freeze i8 %1174
+  %1175 = and i8 %.fr6600, -7
   %switch.selectcmp.i.i5124 = icmp eq i8 %1175, 8
   br i1 %switch.selectcmp.i.i5124, label %.thread6013, label %switch.early.test6085
 
 switch.early.test6085:                            ; preds = %1173
-  switch i8 %.fr6545, label %1176 [
+  switch i8 %.fr6600, label %1176 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11700,13 +11700,13 @@ switch.early.test6085:                            ; preds = %1173
 
 1190:                                             ; preds = %1186, %1188, %1182
   %1191 = phi i8 [ %.pre7015, %1186 ], [ %.pre7014, %1188 ], [ %.pre7015, %1182 ]
-  %.fr6544 = freeze i8 %1191
-  %1192 = and i8 %.fr6544, -7
+  %.fr6599 = freeze i8 %1191
+  %1192 = and i8 %.fr6599, -7
   %switch.selectcmp.i.i5130 = icmp eq i8 %1192, 8
   br i1 %switch.selectcmp.i.i5130, label %.thread6013, label %switch.early.test6086
 
 switch.early.test6086:                            ; preds = %1190
-  switch i8 %.fr6544, label %1193 [
+  switch i8 %.fr6599, label %1193 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11742,13 +11742,13 @@ switch.early.test6086:                            ; preds = %1190
 
 1207:                                             ; preds = %1203, %1205, %1199
   %1208 = phi i8 [ %.pre7013, %1203 ], [ %.pre7012, %1205 ], [ %.pre7013, %1199 ]
-  %.fr6543 = freeze i8 %1208
-  %1209 = and i8 %.fr6543, -7
+  %.fr6598 = freeze i8 %1208
+  %1209 = and i8 %.fr6598, -7
   %switch.selectcmp.i.i5136 = icmp eq i8 %1209, 8
   br i1 %switch.selectcmp.i.i5136, label %.thread6013, label %switch.early.test6087
 
 switch.early.test6087:                            ; preds = %1207
-  switch i8 %.fr6543, label %1210 [
+  switch i8 %.fr6598, label %1210 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11784,13 +11784,13 @@ switch.early.test6087:                            ; preds = %1207
 
 1224:                                             ; preds = %1220, %1222, %1216
   %1225 = phi i8 [ %.pre7011, %1220 ], [ %.pre7010, %1222 ], [ %.pre7011, %1216 ]
-  %.fr6542 = freeze i8 %1225
-  %1226 = and i8 %.fr6542, -7
+  %.fr6597 = freeze i8 %1225
+  %1226 = and i8 %.fr6597, -7
   %switch.selectcmp.i.i5142 = icmp eq i8 %1226, 8
   br i1 %switch.selectcmp.i.i5142, label %.thread6013, label %switch.early.test6088
 
 switch.early.test6088:                            ; preds = %1224
-  switch i8 %.fr6542, label %1227 [
+  switch i8 %.fr6597, label %1227 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11826,13 +11826,13 @@ switch.early.test6088:                            ; preds = %1224
 
 1241:                                             ; preds = %1237, %1239, %1233
   %1242 = phi i8 [ %.pre7009, %1237 ], [ %.pre7008, %1239 ], [ %.pre7009, %1233 ]
-  %.fr6541 = freeze i8 %1242
-  %1243 = and i8 %.fr6541, -7
+  %.fr6596 = freeze i8 %1242
+  %1243 = and i8 %.fr6596, -7
   %switch.selectcmp.i.i5148 = icmp eq i8 %1243, 8
   br i1 %switch.selectcmp.i.i5148, label %.thread6013, label %switch.early.test6089
 
 switch.early.test6089:                            ; preds = %1241
-  switch i8 %.fr6541, label %1244 [
+  switch i8 %.fr6596, label %1244 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11868,13 +11868,13 @@ switch.early.test6089:                            ; preds = %1241
 
 1258:                                             ; preds = %1254, %1256, %1250
   %1259 = phi i8 [ %.pre7007, %1254 ], [ %.pre7006, %1256 ], [ %.pre7007, %1250 ]
-  %.fr6540 = freeze i8 %1259
-  %1260 = and i8 %.fr6540, -7
+  %.fr6595 = freeze i8 %1259
+  %1260 = and i8 %.fr6595, -7
   %switch.selectcmp.i.i5154 = icmp eq i8 %1260, 8
   br i1 %switch.selectcmp.i.i5154, label %.thread6013, label %switch.early.test6090
 
 switch.early.test6090:                            ; preds = %1258
-  switch i8 %.fr6540, label %1261 [
+  switch i8 %.fr6595, label %1261 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11910,13 +11910,13 @@ switch.early.test6090:                            ; preds = %1258
 
 1275:                                             ; preds = %1271, %1273, %1267
   %1276 = phi i8 [ %.pre7005, %1271 ], [ %.pre7004, %1273 ], [ %.pre7005, %1267 ]
-  %.fr6538 = freeze i8 %1276
-  %1277 = and i8 %.fr6538, -7
+  %.fr6593 = freeze i8 %1276
+  %1277 = and i8 %.fr6593, -7
   %switch.selectcmp.i.i5160 = icmp eq i8 %1277, 8
   br i1 %switch.selectcmp.i.i5160, label %.thread6013, label %switch.early.test6091
 
 switch.early.test6091:                            ; preds = %1275
-  switch i8 %.fr6538, label %1278 [
+  switch i8 %.fr6593, label %1278 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -11929,38 +11929,38 @@ switch.early.test6091:                            ; preds = %1275
   %1283 = load i32, ptr @hf_btatt_regulatory_certification_data_list_length, align 4
   %1284 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1283, ptr noundef %19, i32 noundef %1282, i32 noundef 2, i32 noundef -2147483648)
   %1285 = add i32 %122, 4
-  %.not48586627 = icmp eq i16 %1281, 0
-  br i1 %.not48586627, label %.thread6013, label %.lr.ph6631
+  %.not48586684 = icmp eq i16 %1281, 0
+  br i1 %.not48586684, label %.thread6013, label %.lr.ph6688
 
-.lr.ph6631:                                       ; preds = %1278, %1355
+.lr.ph6688:                                       ; preds = %1278, %1355
   %.in = phi i16 [ %1286, %1355 ], [ %1281, %1278 ]
-  %.126629 = phi i32 [ %.18, %1355 ], [ %1285, %1278 ]
-  %.046426628 = phi i32 [ %1303, %1355 ], [ 4, %1278 ]
+  %.126686 = phi i32 [ %.18, %1355 ], [ %1285, %1278 ]
+  %.046426685 = phi i32 [ %1303, %1355 ], [ 4, %1278 ]
   %1286 = add i16 %.in, -1
   %1287 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item, align 4
-  %1288 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1287, ptr noundef %19, i32 noundef %.126629, i32 noundef 0, i32 noundef 0)
+  %1288 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1287, ptr noundef %19, i32 noundef %.126686, i32 noundef 0, i32 noundef 0)
   %1289 = load i32, ptr @ett_btatt_list, align 4
   %1290 = call ptr @proto_item_add_subtree(ptr noundef %1288, i32 noundef %1289)
   %1291 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_body, align 4
-  %1292 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1291, ptr noundef %19, i32 noundef %.126629, i32 noundef 1, i32 noundef 0)
-  %1293 = add i32 %.126629, 1
+  %1292 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1291, ptr noundef %19, i32 noundef %.126686, i32 noundef 1, i32 noundef 0)
+  %1293 = add i32 %.126686, 1
   %1294 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_body_structure_type, align 4
   %1295 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1294, ptr noundef %19, i32 noundef %1293, i32 noundef 1, i32 noundef 0)
   %1296 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %1293)
-  %1297 = add i32 %.126629, 2
+  %1297 = add i32 %.126686, 2
   %1298 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_body_structure_length, align 4
   %1299 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1298, ptr noundef %19, i32 noundef %1297, i32 noundef 2, i32 noundef -2147483648)
   %1300 = call zeroext i16 @tvb_get_uint16(ptr noundef %19, i32 noundef %1297, i32 noundef -2147483648)
   %1301 = zext i16 %1300 to i32
-  %1302 = add i32 %.046426628, 4
+  %1302 = add i32 %.046426685, 4
   %1303 = add i32 %1302, %1301
-  %1304 = add i32 %.126629, 4
+  %1304 = add i32 %.126686, 4
   switch i8 %1296, label %1347 [
     i8 1, label %1305
     i8 2, label %1343
   ]
 
-1305:                                             ; preds = %.lr.ph6631
+1305:                                             ; preds = %.lr.ph6688
   %1306 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data, align 4
   %1307 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1306, ptr noundef %19, i32 noundef %1304, i32 noundef %1301, i32 noundef 0)
   %1308 = load i32, ptr @ett_btatt_list, align 4
@@ -11971,14 +11971,14 @@ switch.early.test6091:                            ; preds = %1275
 1310:                                             ; preds = %1305
   %1311 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_major_ig_version, align 4
   %1312 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1311, ptr noundef %19, i32 noundef %1304, i32 noundef 1, i32 noundef 0)
-  %1313 = add i32 %.126629, 5
-  %.not6539 = icmp eq i16 %1300, 1
-  br i1 %.not6539, label %.thread6004, label %1314
+  %1313 = add i32 %.126686, 5
+  %.not6594 = icmp eq i16 %1300, 1
+  br i1 %.not6594, label %.thread6004, label %1314
 
 1314:                                             ; preds = %1310
   %1315 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_minor_ig_version, align 4
   %1316 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1315, ptr noundef %19, i32 noundef %1313, i32 noundef 1, i32 noundef 0)
-  %1317 = add i32 %.126629, 6
+  %1317 = add i32 %.126686, 6
   %1318 = icmp ugt i16 %1300, 2
   br i1 %1318, label %1319, label %.thread6004
 
@@ -11986,7 +11986,7 @@ switch.early.test6091:                            ; preds = %1275
   %1320 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_certification_data_list_count, align 4
   %1321 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1320, ptr noundef %19, i32 noundef %1317, i32 noundef 2, i32 noundef -2147483648)
   %1322 = call zeroext i16 @tvb_get_uint16(ptr noundef %19, i32 noundef %1317, i32 noundef -2147483648)
-  %1323 = add i32 %.126629, 8
+  %1323 = add i32 %.126686, 8
   %1324 = icmp ugt i16 %1300, 4
   br i1 %1324, label %1325, label %.thread6004
 
@@ -11994,7 +11994,7 @@ switch.early.test6091:                            ; preds = %1275
   %1326 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_certification_data_list_length, align 4
   %1327 = call ptr @proto_tree_add_item(ptr noundef %1309, i32 noundef %1326, ptr noundef %19, i32 noundef %1323, i32 noundef 2, i32 noundef -2147483648)
   %1328 = call zeroext i16 @tvb_get_uint16(ptr noundef %19, i32 noundef %1323, i32 noundef -2147483648)
-  %1329 = add i32 %.126629, 10
+  %1329 = add i32 %.126686, 10
   %1330 = icmp ugt i16 %1300, 6
   %1331 = icmp ne i16 %1322, 0
   %or.cond12 = select i1 %1330, i1 %1331, i1 false
@@ -12009,22 +12009,22 @@ switch.early.test6091:                            ; preds = %1275
   br label %1338
 
 1338:                                             ; preds = %1332, %1338
-  %.176626 = phi i32 [ %1329, %1332 ], [ %1342, %1338 ]
-  %.146386625 = phi i16 [ %1322, %1332 ], [ %1339, %1338 ]
-  %1339 = add i16 %.146386625, -1
+  %.176683 = phi i32 [ %1329, %1332 ], [ %1342, %1338 ]
+  %.146386682 = phi i16 [ %1322, %1332 ], [ %1339, %1338 ]
+  %1339 = add i16 %.146386682, -1
   %1340 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_certified_device_class, align 4
-  %1341 = call ptr @proto_tree_add_item(ptr noundef %1337, i32 noundef %1340, ptr noundef %19, i32 noundef %.176626, i32 noundef 2, i32 noundef -2147483648)
-  %1342 = add i32 %.176626, 2
+  %1341 = call ptr @proto_tree_add_item(ptr noundef %1337, i32 noundef %1340, ptr noundef %19, i32 noundef %.176683, i32 noundef 2, i32 noundef -2147483648)
+  %1342 = add i32 %.176683, 2
   %.not4860 = icmp eq i16 %1339, 0
   br i1 %.not4860, label %.thread6004, label %1338, !llvm.loop !29
 
-1343:                                             ; preds = %.lr.ph6631
+1343:                                             ; preds = %.lr.ph6688
   %1344 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_regulation_bit_field_type, align 4
   %1345 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1344, ptr noundef %19, i32 noundef %1304, i32 noundef 2, i32 noundef -2147483648)
-  %1346 = add i32 %.126629, 6
+  %1346 = add i32 %.126686, 6
   br label %.thread6004
 
-1347:                                             ; preds = %.lr.ph6631
+1347:                                             ; preds = %.lr.ph6688
   %1348 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_data, align 4
   %1349 = call ptr @proto_tree_add_item(ptr noundef %1290, i32 noundef %1348, ptr noundef %19, i32 noundef %1304, i32 noundef %1301, i32 noundef 0)
   %1350 = add i32 %1304, %1301
@@ -12044,7 +12044,7 @@ switch.early.test6091:                            ; preds = %1275
 
 1355:                                             ; preds = %1353, %.thread6004
   %.not4858 = icmp eq i16 %1286, 0
-  br i1 %.not4858, label %.thread6013, label %.lr.ph6631, !llvm.loop !30
+  br i1 %.not4858, label %.thread6013, label %.lr.ph6688, !llvm.loop !30
 
 1356:                                             ; preds = %144
   %1357 = icmp eq i16 %.sroa.0270.0.copyload, 6170
@@ -12071,13 +12071,13 @@ switch.early.test6091:                            ; preds = %1275
 
 1364:                                             ; preds = %1360, %1362, %1356
   %1365 = phi i8 [ %.pre7003, %1360 ], [ %.pre7002, %1362 ], [ %.pre7003, %1356 ]
-  %.fr6537 = freeze i8 %1365
-  %1366 = and i8 %.fr6537, -7
+  %.fr6592 = freeze i8 %1365
+  %1366 = and i8 %.fr6592, -7
   %switch.selectcmp.i.i5166 = icmp eq i8 %1366, 8
   br i1 %switch.selectcmp.i.i5166, label %.thread6013, label %switch.early.test6093
 
 switch.early.test6093:                            ; preds = %1364
-  switch i8 %.fr6537, label %1367 [
+  switch i8 %.fr6592, label %1367 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12090,13 +12090,13 @@ switch.early.test6093:                            ; preds = %1364
 
 1371:                                             ; preds = %144
   %1372 = load i8, ptr %39, align 8
-  %.fr6536 = freeze i8 %1372
-  %1373 = and i8 %.fr6536, -7
+  %.fr6591 = freeze i8 %1372
+  %1373 = and i8 %.fr6591, -7
   %switch.selectcmp.i.i5169 = icmp eq i8 %1373, 8
   br i1 %switch.selectcmp.i.i5169, label %.thread6013, label %switch.early.test6094
 
 switch.early.test6094:                            ; preds = %1371
-  switch i8 %.fr6536, label %1374 [
+  switch i8 %.fr6591, label %1374 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12112,13 +12112,13 @@ switch.early.test6094:                            ; preds = %1371
 
 1379:                                             ; preds = %144
   %1380 = load i8, ptr %39, align 8
-  %.fr6535 = freeze i8 %1380
-  %1381 = and i8 %.fr6535, -7
+  %.fr6590 = freeze i8 %1380
+  %1381 = and i8 %.fr6590, -7
   %switch.selectcmp.i.i5172 = icmp eq i8 %1381, 8
   br i1 %switch.selectcmp.i.i5172, label %.thread6013, label %switch.early.test6095
 
 switch.early.test6095:                            ; preds = %1379
-  switch i8 %.fr6535, label %1382 [
+  switch i8 %.fr6590, label %1382 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12148,13 +12148,13 @@ switch.early.test6095:                            ; preds = %1379
 
 1392:                                             ; preds = %1390, %1387
   %1393 = phi i8 [ %.pre7000, %1390 ], [ %.pre7001, %1387 ]
-  %.fr6534 = freeze i8 %1393
-  %1394 = and i8 %.fr6534, -7
+  %.fr6589 = freeze i8 %1393
+  %1394 = and i8 %.fr6589, -7
   %switch.selectcmp.i.i5175 = icmp eq i8 %1394, 8
   br i1 %switch.selectcmp.i.i5175, label %.thread6013, label %switch.early.test6096
 
 switch.early.test6096:                            ; preds = %1392
-  switch i8 %.fr6534, label %switch.early.test6096.thread [
+  switch i8 %.fr6589, label %switch.early.test6096.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12168,44 +12168,44 @@ switch.early.test6096.thread:                     ; preds = %1389, %switch.early
 1398:                                             ; preds = %144
   %1399 = icmp eq i16 %.sroa.0270.0.copyload, 6162
   %.pre6999 = load i8, ptr %39, align 8
-  %.fr6691 = freeze i8 %.pre6999
+  %.fr6587 = freeze i8 %.pre6999
   br i1 %1399, label %1400, label %1409
 
 1400:                                             ; preds = %1398
-  %1401 = and i8 %.fr6691, -7
+  %1401 = and i8 %.fr6587, -7
   %switch.selectcmp.i5178 = icmp eq i8 %1401, 8
-  %1402 = and i8 %.fr6691, -5
+  %1402 = and i8 %.fr6587, -5
   %1403 = icmp eq i8 %1402, 19
-  %or.cond6657 = or i1 %switch.selectcmp.i5178, %1403
-  br i1 %or.cond6657, label %.thread6013, label %1404
+  %or.cond6391 = or i1 %switch.selectcmp.i5178, %1403
+  br i1 %or.cond6391, label %.thread6013, label %1404
 
 1404:                                             ; preds = %1400
-  %1405 = add i8 %.fr6691, -9
+  %1405 = add i8 %.fr6587, -9
   %switch.and.i5179 = and i8 %1405, -7
   %switch.selectcmp.i5180 = icmp eq i8 %switch.and.i5179, 0
-  br i1 %switch.selectcmp.i5180, label %1409, label %switch.early.test6640
+  br i1 %switch.selectcmp.i5180, label %1409, label %switch.early.test6374
 
-switch.early.test6640:                            ; preds = %1404
-  switch i8 %.fr6691, label %1406 [
+switch.early.test6374:                            ; preds = %1404
+  switch i8 %.fr6587, label %1406 [
     i8 82, label %1409
     i8 22, label %1409
     i8 18, label %1409
   ]
 
-1406:                                             ; preds = %switch.early.test6640
+1406:                                             ; preds = %switch.early.test6374
   %1407 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6998 = load i8, ptr %39, align 8
   %1408 = freeze i8 %.pre6998
   br label %1409
 
-1409:                                             ; preds = %switch.early.test6640, %switch.early.test6640, %switch.early.test6640, %1404, %1406, %1398
-  %.fr6533 = phi i8 [ %.fr6691, %switch.early.test6640 ], [ %.fr6691, %switch.early.test6640 ], [ %.fr6691, %switch.early.test6640 ], [ %.fr6691, %1404 ], [ %1408, %1406 ], [ %.fr6691, %1398 ]
-  %1410 = and i8 %.fr6533, -7
+1409:                                             ; preds = %switch.early.test6374, %switch.early.test6374, %switch.early.test6374, %1404, %1406, %1398
+  %.fr6588 = phi i8 [ %.fr6587, %switch.early.test6374 ], [ %.fr6587, %switch.early.test6374 ], [ %.fr6587, %switch.early.test6374 ], [ %.fr6587, %1404 ], [ %1408, %1406 ], [ %.fr6587, %1398 ]
+  %1410 = and i8 %.fr6588, -7
   %switch.selectcmp.i.i5181 = icmp eq i8 %1410, 8
   br i1 %switch.selectcmp.i.i5181, label %.thread6013, label %switch.early.test6099
 
 switch.early.test6099:                            ; preds = %1409
-  switch i8 %.fr6533, label %1411 [
+  switch i8 %.fr6588, label %1411 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12221,44 +12221,44 @@ switch.early.test6099:                            ; preds = %1409
 1417:                                             ; preds = %144
   %1418 = icmp eq i16 %.sroa.0270.0.copyload, 6162
   %.pre6997 = load i8, ptr %39, align 8
-  %.fr6690 = freeze i8 %.pre6997
+  %.fr6585 = freeze i8 %.pre6997
   br i1 %1418, label %1419, label %1428
 
 1419:                                             ; preds = %1417
-  %1420 = and i8 %.fr6690, -7
+  %1420 = and i8 %.fr6585, -7
   %switch.selectcmp.i5184 = icmp eq i8 %1420, 8
-  %1421 = and i8 %.fr6690, -5
+  %1421 = and i8 %.fr6585, -5
   %1422 = icmp eq i8 %1421, 19
-  %or.cond6659 = or i1 %switch.selectcmp.i5184, %1422
-  br i1 %or.cond6659, label %.thread6013, label %1423
+  %or.cond6393 = or i1 %switch.selectcmp.i5184, %1422
+  br i1 %or.cond6393, label %.thread6013, label %1423
 
 1423:                                             ; preds = %1419
-  %1424 = add i8 %.fr6690, -9
+  %1424 = add i8 %.fr6585, -9
   %switch.and.i5185 = and i8 %1424, -7
   %switch.selectcmp.i5186 = icmp eq i8 %switch.and.i5185, 0
-  br i1 %switch.selectcmp.i5186, label %1428, label %switch.early.test6641
+  br i1 %switch.selectcmp.i5186, label %1428, label %switch.early.test6375
 
-switch.early.test6641:                            ; preds = %1423
-  switch i8 %.fr6690, label %1425 [
+switch.early.test6375:                            ; preds = %1423
+  switch i8 %.fr6585, label %1425 [
     i8 27, label %1428
     i8 22, label %1428
     i8 18, label %1428
   ]
 
-1425:                                             ; preds = %switch.early.test6641
+1425:                                             ; preds = %switch.early.test6375
   %1426 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6996 = load i8, ptr %39, align 8
   %1427 = freeze i8 %.pre6996
   br label %1428
 
-1428:                                             ; preds = %switch.early.test6641, %switch.early.test6641, %switch.early.test6641, %1423, %1425, %1417
-  %.fr6532 = phi i8 [ %.fr6690, %switch.early.test6641 ], [ %.fr6690, %switch.early.test6641 ], [ %.fr6690, %switch.early.test6641 ], [ %.fr6690, %1423 ], [ %1427, %1425 ], [ %.fr6690, %1417 ]
-  %1429 = and i8 %.fr6532, -7
+1428:                                             ; preds = %switch.early.test6375, %switch.early.test6375, %switch.early.test6375, %1423, %1425, %1417
+  %.fr6586 = phi i8 [ %.fr6585, %switch.early.test6375 ], [ %.fr6585, %switch.early.test6375 ], [ %.fr6585, %switch.early.test6375 ], [ %.fr6585, %1423 ], [ %1427, %1425 ], [ %.fr6585, %1417 ]
+  %1429 = and i8 %.fr6586, -7
   %switch.selectcmp.i.i5187 = icmp eq i8 %1429, 8
   br i1 %switch.selectcmp.i.i5187, label %.thread6013, label %switch.early.test6102
 
 switch.early.test6102:                            ; preds = %1428
-  switch i8 %.fr6532, label %1430 [
+  switch i8 %.fr6586, label %1430 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12287,13 +12287,13 @@ switch.early.test6102:                            ; preds = %1428
 
 1441:                                             ; preds = %1439, %1436
   %1442 = phi i8 [ %.pre6994, %1439 ], [ %.pre6995, %1436 ]
-  %.fr6531 = freeze i8 %1442
-  %1443 = and i8 %.fr6531, -7
+  %.fr6584 = freeze i8 %1442
+  %1443 = and i8 %.fr6584, -7
   %switch.selectcmp.i.i5190 = icmp eq i8 %1443, 8
   br i1 %switch.selectcmp.i.i5190, label %.thread6013, label %switch.early.test6103
 
 switch.early.test6103:                            ; preds = %1441
-  switch i8 %.fr6531, label %switch.early.test6103.thread [
+  switch i8 %.fr6584, label %switch.early.test6103.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12433,14 +12433,14 @@ switch.early.test6103.thread:                     ; preds = %1438, %switch.early
 
 1514:                                             ; preds = %.sink.split7266, %1510, %1507
   %.pr7098 = load i8, ptr %39, align 8
-  %.fr6530 = freeze i8 %.pr7098
-  %1515 = and i8 %.fr6530, -7
+  %.fr6583 = freeze i8 %.pr7098
+  %1515 = and i8 %.fr6583, -7
   %switch.selectcmp.i.i5193 = icmp eq i8 %1515, 8
   br i1 %switch.selectcmp.i.i5193, label %.thread6013, label %switch.early.test6104
 
 switch.early.test6104:                            ; preds = %1511, %1508, %1514
-  %.fr65307244 = phi i8 [ %.fr6530, %1514 ], [ 27, %1511 ], [ %1509, %1508 ]
-  switch i8 %.fr65307244, label %1516 [
+  %.fr65837244 = phi i8 [ %.fr6583, %1514 ], [ 27, %1511 ], [ %1509, %1508 ]
+  switch i8 %.fr65837244, label %1516 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12531,13 +12531,13 @@ switch.early.test6104:                            ; preds = %1511, %1508, %1514
 
 1560:                                             ; preds = %1558, %1555
   %1561 = phi i8 [ %.pre6992, %1558 ], [ %.pre6993, %1555 ]
-  %.fr6529 = freeze i8 %1561
-  %1562 = and i8 %.fr6529, -7
+  %.fr6582 = freeze i8 %1561
+  %1562 = and i8 %.fr6582, -7
   %switch.selectcmp.i.i5196 = icmp eq i8 %1562, 8
   br i1 %switch.selectcmp.i.i5196, label %.thread6013, label %switch.early.test6105
 
 switch.early.test6105:                            ; preds = %1560
-  switch i8 %.fr6529, label %switch.early.test6105.thread [
+  switch i8 %.fr6582, label %switch.early.test6105.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12589,23 +12589,23 @@ switch.early.test6105.thread:                     ; preds = %1557, %switch.early
   %1589 = load i32, ptr @ett_btatt_list, align 4
   %1590 = call ptr @proto_item_add_subtree(ptr noundef %1588, i32 noundef %1589)
   %1591 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %.30)
-  %.not48376619 = icmp eq i32 %1591, 0
-  br i1 %.not48376619, label %._crit_edge, label %.lr.ph6622
+  %.not48376676 = icmp eq i32 %1591, 0
+  br i1 %.not48376676, label %._crit_edge, label %.lr.ph6679
 
-.lr.ph6622:                                       ; preds = %1585, %.lr.ph6622
-  %.046336621 = phi i32 [ %1595, %.lr.ph6622 ], [ 0, %1585 ]
-  %.316620 = phi i32 [ %1594, %.lr.ph6622 ], [ %.30, %1585 ]
+.lr.ph6679:                                       ; preds = %1585, %.lr.ph6679
+  %.046336678 = phi i32 [ %1595, %.lr.ph6679 ], [ 0, %1585 ]
+  %.316677 = phi i32 [ %1594, %.lr.ph6679 ], [ %.30, %1585 ]
   %1592 = load i32, ptr @hf_btatt_heart_rate_measurement_rr_interval, align 4
-  %1593 = call ptr @proto_tree_add_item(ptr noundef %1590, i32 noundef %1592, ptr noundef %19, i32 noundef %.316620, i32 noundef 2, i32 noundef -2147483648)
-  %1594 = add i32 %.316620, 2
-  %1595 = add i32 %.046336621, 1
+  %1593 = call ptr @proto_tree_add_item(ptr noundef %1590, i32 noundef %1592, ptr noundef %19, i32 noundef %.316677, i32 noundef 2, i32 noundef -2147483648)
+  %1594 = add i32 %.316677, 2
+  %1595 = add i32 %.046336678, 1
   %1596 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %1594)
   %.not4837 = icmp eq i32 %1596, 0
-  br i1 %.not4837, label %._crit_edge, label %.lr.ph6622, !llvm.loop !31
+  br i1 %.not4837, label %._crit_edge, label %.lr.ph6679, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph6622, %1585
-  %.31.lcssa = phi i32 [ %.30, %1585 ], [ %1594, %.lr.ph6622 ]
-  %.04633.lcssa = phi i32 [ 0, %1585 ], [ %1595, %.lr.ph6622 ]
+._crit_edge:                                      ; preds = %.lr.ph6679, %1585
+  %.31.lcssa = phi i32 [ %.30, %1585 ], [ %1594, %.lr.ph6679 ]
+  %.04633.lcssa = phi i32 [ 0, %1585 ], [ %1595, %.lr.ph6679 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1588, ptr noundef nonnull @.str.3251, i32 noundef %.04633.lcssa)
   br label %.thread6013
 
@@ -12632,13 +12632,13 @@ switch.early.test6105.thread:                     ; preds = %1557, %switch.early
 
 1605:                                             ; preds = %1601, %1603, %1597
   %1606 = phi i8 [ %.pre6991, %1601 ], [ %.pre6990, %1603 ], [ %.pre6991, %1597 ]
-  %.fr6528 = freeze i8 %1606
-  %1607 = and i8 %.fr6528, -7
+  %.fr6581 = freeze i8 %1606
+  %1607 = and i8 %.fr6581, -7
   %switch.selectcmp.i.i5202 = icmp eq i8 %1607, 8
   br i1 %switch.selectcmp.i.i5202, label %.thread6013, label %switch.early.test6106
 
 switch.early.test6106:                            ; preds = %1605
-  switch i8 %.fr6528, label %1608 [
+  switch i8 %.fr6581, label %1608 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12668,13 +12668,13 @@ switch.early.test6106:                            ; preds = %1605
 
 1618:                                             ; preds = %1614, %1616, %1612
   %1619 = phi i8 [ %.pre6989, %1614 ], [ %.pre6988, %1616 ], [ %.pre6989, %1612 ]
-  %.fr6527 = freeze i8 %1619
-  %1620 = and i8 %.fr6527, -7
+  %.fr6580 = freeze i8 %1619
+  %1620 = and i8 %.fr6580, -7
   %switch.selectcmp.i.i5205 = icmp eq i8 %1620, 8
   br i1 %switch.selectcmp.i.i5205, label %.thread6013, label %switch.early.test6107
 
 switch.early.test6107:                            ; preds = %1618
-  switch i8 %.fr6527, label %1621 [
+  switch i8 %.fr6580, label %1621 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12687,13 +12687,13 @@ switch.early.test6107:                            ; preds = %1618
 
 1625:                                             ; preds = %144
   %1626 = load i8, ptr %39, align 8
-  %.fr6526 = freeze i8 %1626
-  %1627 = and i8 %.fr6526, -7
+  %.fr6579 = freeze i8 %1626
+  %1627 = and i8 %.fr6579, -7
   %switch.selectcmp.i.i5208 = icmp eq i8 %1627, 8
   br i1 %switch.selectcmp.i.i5208, label %.thread6013, label %switch.early.test6108
 
 switch.early.test6108:                            ; preds = %1625
-  switch i8 %.fr6526, label %1628 [
+  switch i8 %.fr6579, label %1628 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12707,13 +12707,13 @@ switch.early.test6108:                            ; preds = %1625
 
 1633:                                             ; preds = %144
   %1634 = load i8, ptr %39, align 8
-  %.fr6525 = freeze i8 %1634
-  %1635 = and i8 %.fr6525, -7
+  %.fr6578 = freeze i8 %1634
+  %1635 = and i8 %.fr6578, -7
   %switch.selectcmp.i.i5211 = icmp eq i8 %1635, 8
   br i1 %switch.selectcmp.i.i5211, label %.thread6013, label %switch.early.test6109
 
 switch.early.test6109:                            ; preds = %1633
-  switch i8 %.fr6525, label %1636 [
+  switch i8 %.fr6578, label %1636 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12727,13 +12727,13 @@ switch.early.test6109:                            ; preds = %1633
 
 1641:                                             ; preds = %144
   %1642 = load i8, ptr %39, align 8
-  %.fr6524 = freeze i8 %1642
-  %1643 = and i8 %.fr6524, -7
+  %.fr6577 = freeze i8 %1642
+  %1643 = and i8 %.fr6577, -7
   %switch.selectcmp.i.i5214 = icmp eq i8 %1643, 8
   br i1 %switch.selectcmp.i.i5214, label %.thread6013, label %switch.early.test6110
 
 switch.early.test6110:                            ; preds = %1641
-  switch i8 %.fr6524, label %1644 [
+  switch i8 %.fr6577, label %1644 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12746,13 +12746,13 @@ switch.early.test6110:                            ; preds = %1641
 
 1648:                                             ; preds = %144
   %1649 = load i8, ptr %39, align 8
-  %.fr6523 = freeze i8 %1649
-  %1650 = and i8 %.fr6523, -7
+  %.fr6576 = freeze i8 %1649
+  %1650 = and i8 %.fr6576, -7
   %switch.selectcmp.i.i5217 = icmp eq i8 %1650, 8
   br i1 %switch.selectcmp.i.i5217, label %.thread6013, label %switch.early.test6111
 
 switch.early.test6111:                            ; preds = %1648
-  switch i8 %.fr6523, label %1651 [
+  switch i8 %.fr6576, label %1651 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12767,13 +12767,13 @@ switch.early.test6111:                            ; preds = %1648
 
 1657:                                             ; preds = %144
   %1658 = load i8, ptr %39, align 8
-  %.fr6522 = freeze i8 %1658
-  %1659 = and i8 %.fr6522, -7
+  %.fr6575 = freeze i8 %1658
+  %1659 = and i8 %.fr6575, -7
   %switch.selectcmp.i.i5220 = icmp eq i8 %1659, 8
   br i1 %switch.selectcmp.i.i5220, label %.thread6013, label %switch.early.test6112
 
 switch.early.test6112:                            ; preds = %1657
-  switch i8 %.fr6522, label %1660 [
+  switch i8 %.fr6575, label %1660 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12809,13 +12809,13 @@ switch.early.test6112:                            ; preds = %1657
 
 1672:                                             ; preds = %1668, %1670, %1664
   %1673 = phi i8 [ %.pre6987, %1668 ], [ %.pre6986, %1670 ], [ %.pre6987, %1664 ]
-  %.fr6521 = freeze i8 %1673
-  %1674 = and i8 %.fr6521, -7
+  %.fr6574 = freeze i8 %1673
+  %1674 = and i8 %.fr6574, -7
   %switch.selectcmp.i.i5226 = icmp eq i8 %1674, 8
   br i1 %switch.selectcmp.i.i5226, label %.thread6013, label %switch.early.test6114
 
 switch.early.test6114:                            ; preds = %1672
-  switch i8 %.fr6521, label %1675 [
+  switch i8 %.fr6574, label %1675 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12843,13 +12843,13 @@ switch.early.test6114:                            ; preds = %1672
 
 1685:                                             ; preds = %1683, %1680
   %1686 = phi i8 [ %.pre6984, %1683 ], [ %.pre6985, %1680 ]
-  %.fr6520 = freeze i8 %1686
-  %1687 = and i8 %.fr6520, -7
+  %.fr6573 = freeze i8 %1686
+  %1687 = and i8 %.fr6573, -7
   %switch.selectcmp.i.i5229 = icmp eq i8 %1687, 8
   br i1 %switch.selectcmp.i.i5229, label %.thread6013, label %switch.early.test6115
 
 switch.early.test6115:                            ; preds = %1685
-  switch i8 %.fr6520, label %switch.early.test6115.thread [
+  switch i8 %.fr6573, label %switch.early.test6115.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12885,13 +12885,13 @@ switch.early.test6115.thread:                     ; preds = %1682, %switch.early
 
 1699:                                             ; preds = %1695, %1697, %1691
   %1700 = phi i8 [ %.pre6983, %1695 ], [ %.pre6982, %1697 ], [ %.pre6983, %1691 ]
-  %.fr6519 = freeze i8 %1700
-  %1701 = and i8 %.fr6519, -7
+  %.fr6572 = freeze i8 %1700
+  %1701 = and i8 %.fr6572, -7
   %switch.selectcmp.i.i5235 = icmp eq i8 %1701, 8
   br i1 %switch.selectcmp.i.i5235, label %.thread6013, label %switch.early.test6117
 
 switch.early.test6117:                            ; preds = %1699
-  switch i8 %.fr6519, label %1702 [
+  switch i8 %.fr6572, label %1702 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12928,13 +12928,13 @@ switch.early.test6117:                            ; preds = %1699
 
 1715:                                             ; preds = %1713, %1711, %1706
   %1716 = phi i8 [ %.pre6980, %1713 ], [ %.pre6981, %1711 ], [ %.pre6981, %1706 ]
-  %.fr6518 = freeze i8 %1716
-  %1717 = and i8 %.fr6518, -7
+  %.fr6571 = freeze i8 %1716
+  %1717 = and i8 %.fr6571, -7
   %switch.selectcmp.i.i5241 = icmp eq i8 %1717, 8
   br i1 %switch.selectcmp.i.i5241, label %.thread6013, label %switch.early.test6118
 
 switch.early.test6118:                            ; preds = %1715
-  switch i8 %.fr6518, label %1718 [
+  switch i8 %.fr6571, label %1718 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12957,13 +12957,13 @@ switch.early.test6118:                            ; preds = %1715
 
 1730:                                             ; preds = %144
   %1731 = load i8, ptr %39, align 8
-  %.fr6517 = freeze i8 %1731
-  %1732 = and i8 %.fr6517, -7
+  %.fr6570 = freeze i8 %1731
+  %1732 = and i8 %.fr6570, -7
   %switch.selectcmp.i.i5244 = icmp eq i8 %1732, 8
   br i1 %switch.selectcmp.i.i5244, label %.thread6013, label %switch.early.test6119
 
 switch.early.test6119:                            ; preds = %1730
-  switch i8 %.fr6517, label %1733 [
+  switch i8 %.fr6570, label %1733 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -12993,13 +12993,13 @@ switch.early.test6119:                            ; preds = %1730
 
 1743:                                             ; preds = %1739, %1741, %1737
   %1744 = phi i8 [ %.pre6979, %1739 ], [ %.pre6978, %1741 ], [ %.pre6979, %1737 ]
-  %.fr6516 = freeze i8 %1744
-  %1745 = and i8 %.fr6516, -7
+  %.fr6569 = freeze i8 %1744
+  %1745 = and i8 %.fr6569, -7
   %switch.selectcmp.i.i5247 = icmp eq i8 %1745, 8
   br i1 %switch.selectcmp.i.i5247, label %.thread6013, label %switch.early.test6120
 
 switch.early.test6120:                            ; preds = %1743
-  switch i8 %.fr6516, label %1746 [
+  switch i8 %.fr6569, label %1746 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13029,13 +13029,13 @@ switch.early.test6120:                            ; preds = %1743
 
 1758:                                             ; preds = %1756, %1753
   %1759 = phi i8 [ %.pre6976, %1756 ], [ %.pre6977, %1753 ]
-  %.fr6515 = freeze i8 %1759
-  %1760 = and i8 %.fr6515, -7
+  %.fr6568 = freeze i8 %1759
+  %1760 = and i8 %.fr6568, -7
   %switch.selectcmp.i.i5250 = icmp eq i8 %1760, 8
   br i1 %switch.selectcmp.i.i5250, label %.thread6013, label %switch.early.test6121
 
 switch.early.test6121:                            ; preds = %1758
-  switch i8 %.fr6515, label %switch.early.test6121.thread [
+  switch i8 %.fr6568, label %switch.early.test6121.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13065,13 +13065,13 @@ switch.early.test6121.thread:                     ; preds = %1755, %switch.early
 
 1772:                                             ; preds = %1770, %1767
   %1773 = phi i8 [ %.pre6974, %1770 ], [ %.pre6975, %1767 ]
-  %.fr6514 = freeze i8 %1773
-  %1774 = and i8 %.fr6514, -7
+  %.fr6567 = freeze i8 %1773
+  %1774 = and i8 %.fr6567, -7
   %switch.selectcmp.i.i5253 = icmp eq i8 %1774, 8
   br i1 %switch.selectcmp.i.i5253, label %.thread6013, label %switch.early.test6122
 
 switch.early.test6122:                            ; preds = %1772
-  switch i8 %.fr6514, label %switch.early.test6122.thread [
+  switch i8 %.fr6567, label %switch.early.test6122.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13118,13 +13118,13 @@ switch.early.test6122.thread:                     ; preds = %1769, %switch.early
 
 1797:                                             ; preds = %1793, %1795, %1789
   %1798 = phi i8 [ %.pre6973, %1793 ], [ %.pre6972, %1795 ], [ %.pre6973, %1789 ]
-  %.fr6513 = freeze i8 %1798
-  %1799 = and i8 %.fr6513, -7
+  %.fr6566 = freeze i8 %1798
+  %1799 = and i8 %.fr6566, -7
   %switch.selectcmp.i.i5259 = icmp eq i8 %1799, 8
   br i1 %switch.selectcmp.i.i5259, label %.thread6013, label %switch.early.test6123
 
 switch.early.test6123:                            ; preds = %1797
-  switch i8 %.fr6513, label %1800 [
+  switch i8 %.fr6566, label %1800 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13159,13 +13159,13 @@ switch.early.test6123:                            ; preds = %1797
 
 1813:                                             ; preds = %1809, %1811, %1805
   %1814 = phi i8 [ %.pre6971, %1809 ], [ %.pre6970, %1811 ], [ %.pre6971, %1805 ]
-  %.fr6512 = freeze i8 %1814
-  %1815 = and i8 %.fr6512, -7
+  %.fr6565 = freeze i8 %1814
+  %1815 = and i8 %.fr6565, -7
   %switch.selectcmp.i.i5265 = icmp eq i8 %1815, 8
   br i1 %switch.selectcmp.i.i5265, label %.thread6013, label %switch.early.test6124
 
 switch.early.test6124:                            ; preds = %1813
-  switch i8 %.fr6512, label %1816 [
+  switch i8 %.fr6565, label %1816 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13206,13 +13206,13 @@ switch.early.test6124:                            ; preds = %1813
 
 1835:                                             ; preds = %1831, %1833, %1827
   %1836 = phi i8 [ %.pre6969, %1831 ], [ %.pre6968, %1833 ], [ %.pre6969, %1827 ]
-  %.fr6511 = freeze i8 %1836
-  %1837 = and i8 %.fr6511, -7
+  %.fr6564 = freeze i8 %1836
+  %1837 = and i8 %.fr6564, -7
   %switch.selectcmp.i.i5271 = icmp eq i8 %1837, 8
   br i1 %switch.selectcmp.i.i5271, label %.thread6013, label %switch.early.test6125
 
 switch.early.test6125:                            ; preds = %1835
-  switch i8 %.fr6511, label %1838 [
+  switch i8 %.fr6564, label %1838 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13237,13 +13237,13 @@ switch.early.test6125:                            ; preds = %1835
 
 1845:                                             ; preds = %1843, %1840
   %1846 = phi i8 [ %.pre6966, %1843 ], [ %.pre6967, %1840 ]
-  %.fr6510 = freeze i8 %1846
-  %1847 = and i8 %.fr6510, -7
+  %.fr6563 = freeze i8 %1846
+  %1847 = and i8 %.fr6563, -7
   %switch.selectcmp.i.i5274 = icmp eq i8 %1847, 8
   br i1 %switch.selectcmp.i.i5274, label %.thread6013, label %switch.early.test6126
 
 switch.early.test6126:                            ; preds = %1845
-  switch i8 %.fr6510, label %switch.early.test6126.thread [
+  switch i8 %.fr6563, label %switch.early.test6126.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13290,13 +13290,13 @@ switch.early.test6126.thread:                     ; preds = %1842, %switch.early
 
 1864:                                             ; preds = %1861, %1861, %1858, %1862, %1851
   %1865 = phi i8 [ %.pre6965, %1861 ], [ %.pre6965, %1861 ], [ %.pre6965, %1858 ], [ %.pre6964, %1862 ], [ %.pre6965, %1851 ]
-  %.fr6509 = freeze i8 %1865
-  %1866 = and i8 %.fr6509, -7
+  %.fr6562 = freeze i8 %1865
+  %1866 = and i8 %.fr6562, -7
   %switch.selectcmp.i.i5280 = icmp eq i8 %1866, 8
   br i1 %switch.selectcmp.i.i5280, label %.thread6013, label %switch.early.test6128
 
 switch.early.test6128:                            ; preds = %1864
-  switch i8 %.fr6509, label %1867 [
+  switch i8 %.fr6562, label %1867 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13333,13 +13333,13 @@ switch.early.test6128:                            ; preds = %1864
 
 1880:                                             ; preds = %1876, %1878, %1872
   %1881 = phi i8 [ %.pre6963, %1876 ], [ %.pre6962, %1878 ], [ %.pre6963, %1872 ]
-  %.fr6508 = freeze i8 %1881
-  %1882 = and i8 %.fr6508, -7
+  %.fr6561 = freeze i8 %1881
+  %1882 = and i8 %.fr6561, -7
   %switch.selectcmp.i.i5286 = icmp eq i8 %1882, 8
   br i1 %switch.selectcmp.i.i5286, label %.thread6013, label %switch.early.test6130
 
 switch.early.test6130:                            ; preds = %1880
-  switch i8 %.fr6508, label %1883 [
+  switch i8 %.fr6561, label %1883 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13366,13 +13366,13 @@ switch.early.test6130:                            ; preds = %1880
 
 1892:                                             ; preds = %1890, %1887
   %1893 = phi i8 [ %.pre6960, %1890 ], [ %.pre6961, %1887 ]
-  %.fr6507 = freeze i8 %1893
-  %1894 = and i8 %.fr6507, -7
+  %.fr6560 = freeze i8 %1893
+  %1894 = and i8 %.fr6560, -7
   %switch.selectcmp.i.i5289 = icmp eq i8 %1894, 8
   br i1 %switch.selectcmp.i.i5289, label %.thread6013, label %switch.early.test6131
 
 switch.early.test6131:                            ; preds = %1892
-  switch i8 %.fr6507, label %switch.early.test6131.thread [
+  switch i8 %.fr6560, label %switch.early.test6131.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13409,13 +13409,13 @@ switch.early.test6131.thread:                     ; preds = %1889, %switch.early
 
 1909:                                             ; preds = %1905, %1907, %1901
   %1910 = phi i8 [ %.pre6959, %1905 ], [ %.pre6958, %1907 ], [ %.pre6959, %1901 ]
-  %.fr6506 = freeze i8 %1910
-  %1911 = and i8 %.fr6506, -7
+  %.fr6559 = freeze i8 %1910
+  %1911 = and i8 %.fr6559, -7
   %switch.selectcmp.i.i5295 = icmp eq i8 %1911, 8
   br i1 %switch.selectcmp.i.i5295, label %.thread6013, label %switch.early.test6132
 
 switch.early.test6132:                            ; preds = %1909
-  switch i8 %.fr6506, label %1912 [
+  switch i8 %.fr6559, label %1912 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13465,13 +13465,13 @@ switch.early.test6132:                            ; preds = %1909
 
 1934:                                             ; preds = %1930, %1932, %1926
   %1935 = phi i8 [ %.pre6957, %1930 ], [ %.pre6956, %1932 ], [ %.pre6957, %1926 ]
-  %.fr6505 = freeze i8 %1935
-  %1936 = and i8 %.fr6505, -7
+  %.fr6558 = freeze i8 %1935
+  %1936 = and i8 %.fr6558, -7
   %switch.selectcmp.i.i5301 = icmp eq i8 %1936, 8
   br i1 %switch.selectcmp.i.i5301, label %.thread6013, label %switch.early.test6133
 
 switch.early.test6133:                            ; preds = %1934
-  switch i8 %.fr6505, label %1937 [
+  switch i8 %.fr6558, label %1937 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13511,13 +13511,13 @@ thread-pre-split7129:                             ; preds = %1945, %1942
   br label %1948
 
 1948:                                             ; preds = %thread-pre-split7129, %1943, %1943, %1943
-  %.fr6504 = phi i8 [ %1947, %thread-pre-split7129 ], [ %1944, %1943 ], [ %1944, %1943 ], [ %1944, %1943 ]
-  %1949 = and i8 %.fr6504, -7
+  %.fr6557 = phi i8 [ %1947, %thread-pre-split7129 ], [ %1944, %1943 ], [ %1944, %1943 ], [ %1944, %1943 ]
+  %1949 = and i8 %.fr6557, -7
   %switch.selectcmp.i.i5304 = icmp eq i8 %1949, 8
   br i1 %switch.selectcmp.i.i5304, label %.thread6013, label %switch.early.test6136
 
 switch.early.test6136:                            ; preds = %1948
-  switch i8 %.fr6504, label %1950 [
+  switch i8 %.fr6557, label %1950 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13650,13 +13650,13 @@ switch.early.test6136:                            ; preds = %1948
 
 2027:                                             ; preds = %2025, %2022
   %2028 = phi i8 [ %.pre6954, %2025 ], [ %.pre6955, %2022 ]
-  %.fr6503 = freeze i8 %2028
-  %2029 = and i8 %.fr6503, -7
+  %.fr6556 = freeze i8 %2028
+  %2029 = and i8 %.fr6556, -7
   %switch.selectcmp.i.i5307 = icmp eq i8 %2029, 8
   br i1 %switch.selectcmp.i.i5307, label %.thread6013, label %switch.early.test6137
 
 switch.early.test6137:                            ; preds = %2027
-  switch i8 %.fr6503, label %switch.early.test6137.thread [
+  switch i8 %.fr6556, label %switch.early.test6137.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13719,13 +13719,13 @@ switch.early.test6137.thread:                     ; preds = %2024, %switch.early
 
 2061:                                             ; preds = %2057, %2059, %2053
   %2062 = phi i8 [ %.pre6953, %2057 ], [ %.pre6952, %2059 ], [ %.pre6953, %2053 ]
-  %.fr6502 = freeze i8 %2062
-  %2063 = and i8 %.fr6502, -7
+  %.fr6555 = freeze i8 %2062
+  %2063 = and i8 %.fr6555, -7
   %switch.selectcmp.i.i5313 = icmp eq i8 %2063, 8
   br i1 %switch.selectcmp.i.i5313, label %.thread6013, label %switch.early.test6138
 
 switch.early.test6138:                            ; preds = %2061
-  switch i8 %.fr6502, label %2064 [
+  switch i8 %.fr6555, label %2064 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13760,13 +13760,13 @@ switch.early.test6138:                            ; preds = %2061
 
 2074:                                             ; preds = %2071, %2071, %2071, %2072, %2069
   %2075 = phi i8 [ %.pre6951, %2071 ], [ %.pre6951, %2071 ], [ %.pre6951, %2071 ], [ %.pre6950, %2072 ], [ %.pre6951, %2069 ]
-  %.fr6501 = freeze i8 %2075
-  %2076 = and i8 %.fr6501, -7
+  %.fr6554 = freeze i8 %2075
+  %2076 = and i8 %.fr6554, -7
   %switch.selectcmp.i.i5316 = icmp eq i8 %2076, 8
   br i1 %switch.selectcmp.i.i5316, label %.thread6013, label %switch.early.test6141
 
 switch.early.test6141:                            ; preds = %2074
-  switch i8 %.fr6501, label %2077 [
+  switch i8 %.fr6554, label %2077 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13812,17 +13812,17 @@ switch.early.test6141:                            ; preds = %2074
 
 .preheader:                                       ; preds = %2099
   %2102 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2097)
-  %.not48186615 = icmp eq i32 %2102, 0
-  br i1 %.not48186615, label %.thread6013, label %.lr.ph6617
+  %.not48186672 = icmp eq i32 %2102, 0
+  br i1 %.not48186672, label %.thread6013, label %.lr.ph6674
 
-.lr.ph6617:                                       ; preds = %.preheader, %.lr.ph6617
-  %.346616 = phi i32 [ %2105, %.lr.ph6617 ], [ %2097, %.preheader ]
+.lr.ph6674:                                       ; preds = %.preheader, %.lr.ph6674
+  %.346673 = phi i32 [ %2105, %.lr.ph6674 ], [ %2097, %.preheader ]
   %2103 = load i32, ptr @hf_btatt_sensor_location, align 4
-  %2104 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2103, ptr noundef %19, i32 noundef %.346616, i32 noundef 1, i32 noundef 0)
-  %2105 = add i32 %.346616, 1
+  %2104 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2103, ptr noundef %19, i32 noundef %.346673, i32 noundef 1, i32 noundef 0)
+  %2105 = add i32 %.346673, 1
   %2106 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2105)
   %.not4818 = icmp eq i32 %2106, 0
-  br i1 %.not4818, label %.thread6013, label %.lr.ph6617, !llvm.loop !32
+  br i1 %.not4818, label %.thread6013, label %.lr.ph6674, !llvm.loop !32
 
 2107:                                             ; preds = %144
   %2108 = icmp eq i16 %.sroa.0270.0.copyload, 6165
@@ -13863,13 +13863,13 @@ switch.early.test6141:                            ; preds = %2074
 
 2119:                                             ; preds = %2116, %2116, %2112, %2117, %2107
   %2120 = phi i8 [ %.pre6949, %2116 ], [ %.pre6949, %2116 ], [ %.pre6949, %2112 ], [ %.pre6948, %2117 ], [ %.pre6949, %2107 ]
-  %.fr6500 = freeze i8 %2120
-  %2121 = and i8 %.fr6500, -7
+  %.fr6553 = freeze i8 %2120
+  %2121 = and i8 %.fr6553, -7
   %switch.selectcmp.i.i5322 = icmp eq i8 %2121, 8
   br i1 %switch.selectcmp.i.i5322, label %.thread6013, label %switch.early.test6144
 
 switch.early.test6144:                            ; preds = %2119
-  switch i8 %.fr6500, label %2122 [
+  switch i8 %.fr6553, label %2122 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13882,13 +13882,13 @@ switch.early.test6144:                            ; preds = %2119
 
 2126:                                             ; preds = %144
   %2127 = load i8, ptr %39, align 8
-  %.fr6499 = freeze i8 %2127
-  %2128 = and i8 %.fr6499, -7
+  %.fr6552 = freeze i8 %2127
+  %2128 = and i8 %.fr6552, -7
   %switch.selectcmp.i.i5325 = icmp eq i8 %2128, 8
   br i1 %switch.selectcmp.i.i5325, label %.thread6013, label %switch.early.test6145
 
 switch.early.test6145:                            ; preds = %2126
-  switch i8 %.fr6499, label %2129 [
+  switch i8 %.fr6552, label %2129 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13939,13 +13939,13 @@ switch.early.test6145:                            ; preds = %2126
 
 2146:                                             ; preds = %2143, %2143, %2139, %2144, %2134
   %2147 = phi i8 [ %.pre6947, %2143 ], [ %.pre6947, %2143 ], [ %.pre6947, %2139 ], [ %.pre6946, %2144 ], [ %.pre6947, %2134 ]
-  %.fr6498 = freeze i8 %2147
-  %2148 = and i8 %.fr6498, -7
+  %.fr6551 = freeze i8 %2147
+  %2148 = and i8 %.fr6551, -7
   %switch.selectcmp.i.i5331 = icmp eq i8 %2148, 8
   br i1 %switch.selectcmp.i.i5331, label %.thread6013, label %switch.early.test6148
 
 switch.early.test6148:                            ; preds = %2146
-  switch i8 %.fr6498, label %2149 [
+  switch i8 %.fr6551, label %2149 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -13958,13 +13958,13 @@ switch.early.test6148:                            ; preds = %2146
 
 2153:                                             ; preds = %144
   %2154 = load i8, ptr %39, align 8
-  %.fr6497 = freeze i8 %2154
-  %2155 = and i8 %.fr6497, -7
+  %.fr6550 = freeze i8 %2154
+  %2155 = and i8 %.fr6550, -7
   %switch.selectcmp.i.i5334 = icmp eq i8 %2155, 8
   br i1 %switch.selectcmp.i.i5334, label %.thread6013, label %switch.early.test6149
 
 switch.early.test6149:                            ; preds = %2153
-  switch i8 %.fr6497, label %2156 [
+  switch i8 %.fr6550, label %2156 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14002,13 +14002,13 @@ switch.early.test6149:                            ; preds = %2153
 
 2169:                                             ; preds = %2165, %2167, %2160
   %2170 = phi i8 [ %.pre6945, %2165 ], [ %.pre6944, %2167 ], [ %.pre6945, %2160 ]
-  %.fr6496 = freeze i8 %2170
-  %2171 = and i8 %.fr6496, -7
+  %.fr6549 = freeze i8 %2170
+  %2171 = and i8 %.fr6549, -7
   %switch.selectcmp.i.i5340 = icmp eq i8 %2171, 8
   br i1 %switch.selectcmp.i.i5340, label %.thread6013, label %switch.early.test6152
 
 switch.early.test6152:                            ; preds = %2169
-  switch i8 %.fr6496, label %2172 [
+  switch i8 %.fr6549, label %2172 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14038,13 +14038,13 @@ switch.early.test6152:                            ; preds = %2169
 
 2182:                                             ; preds = %2180, %2177
   %2183 = phi i8 [ %.pre6942, %2180 ], [ %.pre6943, %2177 ]
-  %.fr6495 = freeze i8 %2183
-  %2184 = and i8 %.fr6495, -7
+  %.fr6548 = freeze i8 %2183
+  %2184 = and i8 %.fr6548, -7
   %switch.selectcmp.i.i5343 = icmp eq i8 %2184, 8
   br i1 %switch.selectcmp.i.i5343, label %.thread6013, label %switch.early.test6153
 
 switch.early.test6153:                            ; preds = %2182
-  switch i8 %.fr6495, label %switch.early.test6153.thread [
+  switch i8 %.fr6548, label %switch.early.test6153.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14107,13 +14107,13 @@ switch.early.test6153.thread:                     ; preds = %2179, %switch.early
 
 2216:                                             ; preds = %2212, %2214, %2208
   %2217 = phi i8 [ %.pre6941, %2212 ], [ %.pre6940, %2214 ], [ %.pre6941, %2208 ]
-  %.fr6494 = freeze i8 %2217
-  %2218 = and i8 %.fr6494, -7
+  %.fr6547 = freeze i8 %2217
+  %2218 = and i8 %.fr6547, -7
   %switch.selectcmp.i.i5349 = icmp eq i8 %2218, 8
   br i1 %switch.selectcmp.i.i5349, label %.thread6013, label %switch.early.test6154
 
 switch.early.test6154:                            ; preds = %2216
-  switch i8 %.fr6494, label %2219 [
+  switch i8 %.fr6547, label %2219 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14150,13 +14150,13 @@ switch.early.test6154:                            ; preds = %2216
 
 2232:                                             ; preds = %2224, %2228, %2230
   %2233 = load i8, ptr %39, align 8
-  %.fr6493 = freeze i8 %2233
-  %2234 = and i8 %.fr6493, -7
+  %.fr6546 = freeze i8 %2233
+  %2234 = and i8 %.fr6546, -7
   %switch.selectcmp.i.i5355 = icmp eq i8 %2234, 8
   br i1 %switch.selectcmp.i.i5355, label %.thread6013, label %switch.early.test6155
 
 switch.early.test6155:                            ; preds = %2232
-  switch i8 %.fr6493, label %2235 [
+  switch i8 %.fr6546, label %2235 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14185,13 +14185,13 @@ switch.early.test6155:                            ; preds = %2232
 
 2244:                                             ; preds = %2242, %2239
   %2245 = phi i8 [ %.pre6938, %2242 ], [ %.pre6939, %2239 ]
-  %.fr6492 = freeze i8 %2245
-  %2246 = and i8 %.fr6492, -7
+  %.fr6545 = freeze i8 %2245
+  %2246 = and i8 %.fr6545, -7
   %switch.selectcmp.i.i5358 = icmp eq i8 %2246, 8
   br i1 %switch.selectcmp.i.i5358, label %.thread6013, label %switch.early.test6156
 
 switch.early.test6156:                            ; preds = %2244
-  switch i8 %.fr6492, label %switch.early.test6156.thread [
+  switch i8 %.fr6545, label %switch.early.test6156.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14281,13 +14281,13 @@ switch.early.test6156.thread:                     ; preds = %2241, %switch.early
 
 2296:                                             ; preds = %2294, %2291
   %2297 = phi i8 [ %.pre6936, %2294 ], [ %.pre6937, %2291 ]
-  %.fr6491 = freeze i8 %2297
-  %2298 = and i8 %.fr6491, -7
+  %.fr6544 = freeze i8 %2297
+  %2298 = and i8 %.fr6544, -7
   %switch.selectcmp.i.i5361 = icmp eq i8 %2298, 8
   br i1 %switch.selectcmp.i.i5361, label %.thread6013, label %switch.early.test6157
 
 switch.early.test6157:                            ; preds = %2296
-  switch i8 %.fr6491, label %switch.early.test6157.thread [
+  switch i8 %.fr6544, label %switch.early.test6157.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14406,13 +14406,13 @@ switch.early.test6157.thread:                     ; preds = %2293, %switch.early
 
 2368:                                             ; preds = %2364, %2366, %2360
   %2369 = phi i8 [ %.pre6935, %2364 ], [ %.pre6934, %2366 ], [ %.pre6935, %2360 ]
-  %.fr6490 = freeze i8 %2369
-  %2370 = and i8 %.fr6490, -7
+  %.fr6543 = freeze i8 %2369
+  %2370 = and i8 %.fr6543, -7
   %switch.selectcmp.i.i5367 = icmp eq i8 %2370, 8
   br i1 %switch.selectcmp.i.i5367, label %.thread6013, label %switch.early.test6158
 
 switch.early.test6158:                            ; preds = %2368
-  switch i8 %.fr6490, label %2371 [
+  switch i8 %.fr6543, label %2371 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14464,13 +14464,13 @@ switch.early.test6158:                            ; preds = %2368
 
 2396:                                             ; preds = %2394, %2391
   %2397 = phi i8 [ %.pre6932, %2394 ], [ %.pre6933, %2391 ]
-  %.fr6489 = freeze i8 %2397
-  %2398 = and i8 %.fr6489, -7
+  %.fr6542 = freeze i8 %2397
+  %2398 = and i8 %.fr6542, -7
   %switch.selectcmp.i.i5370 = icmp eq i8 %2398, 8
   br i1 %switch.selectcmp.i.i5370, label %.thread6013, label %switch.early.test6159
 
 switch.early.test6159:                            ; preds = %2396
-  switch i8 %.fr6489, label %switch.early.test6159.thread [
+  switch i8 %.fr6542, label %switch.early.test6159.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14632,13 +14632,13 @@ switch.early.test6159.thread:                     ; preds = %2393, %switch.early
 
 2485:                                             ; preds = %2483, %2480
   %2486 = phi i8 [ %.pre6930, %2483 ], [ %.pre6931, %2480 ]
-  %.fr6488 = freeze i8 %2486
-  %2487 = and i8 %.fr6488, -7
+  %.fr6541 = freeze i8 %2486
+  %2487 = and i8 %.fr6541, -7
   %switch.selectcmp.i.i5373 = icmp eq i8 %2487, 8
   br i1 %switch.selectcmp.i.i5373, label %.thread6013, label %switch.early.test6160
 
 switch.early.test6160:                            ; preds = %2485
-  switch i8 %.fr6488, label %switch.early.test6160.thread [
+  switch i8 %.fr6541, label %switch.early.test6160.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14679,41 +14679,41 @@ switch.early.test6160.thread:                     ; preds = %2482, %switch.early
   %.54 = phi i32 [ %2507, %2504 ], [ %.53, %2502 ]
   %2509 = and i32 %2492, 4
   %.not4783 = icmp eq i32 %2509, 0
-  br i1 %.not4783, label %.loopexit, label %.preheader6602
+  br i1 %.not4783, label %.loopexit, label %.preheader6659
 
-.preheader6602:                                   ; preds = %2508
+.preheader6659:                                   ; preds = %2508
   %2510 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %.54)
   %2511 = icmp sgt i32 %2510, 0
-  br i1 %2511, label %.lr.ph6610, label %.loopexit
+  br i1 %2511, label %.lr.ph6667, label %.loopexit
 
-.lr.ph6610:                                       ; preds = %.preheader6602, %.lr.ph6610
-  %.566609 = phi i32 [ %2514, %.lr.ph6610 ], [ %.54, %.preheader6602 ]
+.lr.ph6667:                                       ; preds = %.preheader6659, %.lr.ph6667
+  %.566666 = phi i32 [ %2514, %.lr.ph6667 ], [ %.54, %.preheader6659 ]
   %2512 = load i32, ptr @hf_btatt_cycling_power_vector_instantaneous_force_magnitude_array, align 4
-  %2513 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2512, ptr noundef %19, i32 noundef %.566609, i32 noundef 2, i32 noundef -2147483648)
-  %2514 = add i32 %.566609, 2
+  %2513 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2512, ptr noundef %19, i32 noundef %.566666, i32 noundef 2, i32 noundef -2147483648)
+  %2514 = add i32 %.566666, 2
   %2515 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %2514)
   %2516 = icmp sgt i32 %2515, 0
-  br i1 %2516, label %.lr.ph6610, label %.loopexit, !llvm.loop !33
+  br i1 %2516, label %.lr.ph6667, label %.loopexit, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.lr.ph6610, %.preheader6602, %2508
-  %.55 = phi i32 [ %.54, %2508 ], [ %.54, %.preheader6602 ], [ %2514, %.lr.ph6610 ]
+.loopexit:                                        ; preds = %.lr.ph6667, %.preheader6659, %2508
+  %.55 = phi i32 [ %.54, %2508 ], [ %.54, %.preheader6659 ], [ %2514, %.lr.ph6667 ]
   %2517 = and i32 %2492, 8
   %.not4784 = icmp eq i32 %2517, 0
-  br i1 %.not4784, label %.thread6013, label %.preheader6600
+  br i1 %.not4784, label %.thread6013, label %.preheader6657
 
-.preheader6600:                                   ; preds = %.loopexit
+.preheader6657:                                   ; preds = %.loopexit
   %2518 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %.55)
   %2519 = icmp sgt i32 %2518, 0
-  br i1 %2519, label %.lr.ph6613, label %.thread6013
+  br i1 %2519, label %.lr.ph6670, label %.thread6013
 
-.lr.ph6613:                                       ; preds = %.preheader6600, %.lr.ph6613
-  %.576612 = phi i32 [ %2522, %.lr.ph6613 ], [ %.55, %.preheader6600 ]
+.lr.ph6670:                                       ; preds = %.preheader6657, %.lr.ph6670
+  %.576669 = phi i32 [ %2522, %.lr.ph6670 ], [ %.55, %.preheader6657 ]
   %2520 = load i32, ptr @hf_btatt_cycling_power_vector_instantaneous_torque_magnitude_array, align 4
-  %2521 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2520, ptr noundef %19, i32 noundef %.576612, i32 noundef 2, i32 noundef -2147483648)
-  %2522 = add i32 %.576612, 2
+  %2521 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2520, ptr noundef %19, i32 noundef %.576669, i32 noundef 2, i32 noundef -2147483648)
+  %2522 = add i32 %.576669, 2
   %2523 = call i32 @tvb_reported_length_remaining(ptr noundef %19, i32 noundef %2522)
   %2524 = icmp sgt i32 %2523, 0
-  br i1 %2524, label %.lr.ph6613, label %.thread6013, !llvm.loop !34
+  br i1 %2524, label %.lr.ph6670, label %.thread6013, !llvm.loop !34
 
 2525:                                             ; preds = %144
   %2526 = icmp eq i16 %.sroa.0270.0.copyload, 6168
@@ -14738,13 +14738,13 @@ switch.early.test6160.thread:                     ; preds = %2482, %switch.early
 
 2533:                                             ; preds = %2529, %2531, %2525
   %2534 = phi i8 [ %.pre6929, %2529 ], [ %.pre6928, %2531 ], [ %.pre6929, %2525 ]
-  %.fr6487 = freeze i8 %2534
-  %2535 = and i8 %.fr6487, -7
+  %.fr6540 = freeze i8 %2534
+  %2535 = and i8 %.fr6540, -7
   %switch.selectcmp.i.i5379 = icmp eq i8 %2535, 8
   br i1 %switch.selectcmp.i.i5379, label %.thread6013, label %switch.early.test6161
 
 switch.early.test6161:                            ; preds = %2533
-  switch i8 %.fr6487, label %2536 [
+  switch i8 %.fr6540, label %2536 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14778,13 +14778,13 @@ switch.early.test6161:                            ; preds = %2533
 
 2546:                                             ; preds = %2543, %2543, %2543, %2544, %2541
   %2547 = phi i8 [ %.pre6927, %2543 ], [ %.pre6927, %2543 ], [ %.pre6927, %2543 ], [ %.pre6926, %2544 ], [ %.pre6927, %2541 ]
-  %.fr6486 = freeze i8 %2547
-  %2548 = and i8 %.fr6486, -7
+  %.fr6539 = freeze i8 %2547
+  %2548 = and i8 %.fr6539, -7
   %switch.selectcmp.i.i5382 = icmp eq i8 %2548, 8
   br i1 %switch.selectcmp.i.i5382, label %.thread6013, label %switch.early.test6164
 
 switch.early.test6164:                            ; preds = %2546
-  switch i8 %.fr6486, label %2549 [
+  switch i8 %.fr6539, label %2549 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -14870,18 +14870,18 @@ switch.early.test6164:                            ; preds = %2546
 2591:                                             ; preds = %2583
   %2592 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %2586)
   %2593 = icmp eq i8 %2592, 1
-  br i1 %2593, label %.preheader6603, label %.thread6013
+  br i1 %2593, label %.preheader6660, label %.thread6013
 
-.preheader6603:                                   ; preds = %2591
+.preheader6660:                                   ; preds = %2591
   %2594 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2589)
-  %.not47796607 = icmp eq i32 %2594, 0
-  br i1 %.not47796607, label %.thread6013, label %.lr.ph
+  %.not47796664 = icmp eq i32 %2594, 0
+  br i1 %.not47796664, label %.thread6013, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader6603, %.lr.ph
-  %.586608 = phi i32 [ %2597, %.lr.ph ], [ %2589, %.preheader6603 ]
+.lr.ph:                                           ; preds = %.preheader6660, %.lr.ph
+  %.586665 = phi i32 [ %2597, %.lr.ph ], [ %2589, %.preheader6660 ]
   %2595 = load i32, ptr @hf_btatt_sensor_location, align 4
-  %2596 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2595, ptr noundef %19, i32 noundef %.586608, i32 noundef 1, i32 noundef 0)
-  %2597 = add i32 %.586608, 1
+  %2596 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2595, ptr noundef %19, i32 noundef %.586665, i32 noundef 1, i32 noundef 0)
+  %2597 = add i32 %.586665, 1
   %2598 = call i32 @tvb_captured_length_remaining(ptr noundef %19, i32 noundef %2597)
   %.not4779 = icmp eq i32 %2598, 0
   br i1 %.not4779, label %.thread6013, label %.lr.ph, !llvm.loop !35
@@ -14978,13 +14978,13 @@ switch.early.test6164:                            ; preds = %2546
 
 2652:                                             ; preds = %2650, %2647
   %2653 = phi i8 [ %.pre6924, %2650 ], [ %.pre6925, %2647 ]
-  %.fr6485 = freeze i8 %2653
-  %2654 = and i8 %.fr6485, -7
+  %.fr6538 = freeze i8 %2653
+  %2654 = and i8 %.fr6538, -7
   %switch.selectcmp.i.i5385 = icmp eq i8 %2654, 8
   br i1 %switch.selectcmp.i.i5385, label %.thread6013, label %switch.early.test6165
 
 switch.early.test6165:                            ; preds = %2652
-  switch i8 %.fr6485, label %switch.early.test6165.thread [
+  switch i8 %.fr6538, label %switch.early.test6165.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15096,13 +15096,13 @@ switch.early.test6165.thread:                     ; preds = %2649, %switch.early
 
 2709:                                             ; preds = %2707, %2704
   %2710 = phi i8 [ %.pre6922, %2707 ], [ %.pre6923, %2704 ]
-  %.fr6484 = freeze i8 %2710
-  %2711 = and i8 %.fr6484, -7
+  %.fr6537 = freeze i8 %2710
+  %2711 = and i8 %.fr6537, -7
   %switch.selectcmp.i.i5388 = icmp eq i8 %2711, 8
   br i1 %switch.selectcmp.i.i5388, label %.thread6013, label %switch.early.test6166
 
 switch.early.test6166:                            ; preds = %2709
-  switch i8 %.fr6484, label %switch.early.test6166.thread [
+  switch i8 %.fr6537, label %switch.early.test6166.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15176,13 +15176,13 @@ switch.early.test6166.thread:                     ; preds = %2706, %switch.early
 
 2748:                                             ; preds = %2744, %2746, %2740
   %2749 = phi i8 [ %.pre6921, %2744 ], [ %.pre6920, %2746 ], [ %.pre6921, %2740 ]
-  %.fr6483 = freeze i8 %2749
-  %2750 = and i8 %.fr6483, -7
+  %.fr6536 = freeze i8 %2749
+  %2750 = and i8 %.fr6536, -7
   %switch.selectcmp.i.i5394 = icmp eq i8 %2750, 8
   br i1 %switch.selectcmp.i.i5394, label %.thread6013, label %switch.early.test6167
 
 switch.early.test6167:                            ; preds = %2748
-  switch i8 %.fr6483, label %2751 [
+  switch i8 %.fr6536, label %2751 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15299,13 +15299,13 @@ switch.early.test6167:                            ; preds = %2748
 
 2807:                                             ; preds = %2803, %2805, %2799
   %2808 = phi i8 [ %.pre6919, %2803 ], [ %.pre6918, %2805 ], [ %.pre6919, %2799 ]
-  %.fr6482 = freeze i8 %2808
-  %2809 = and i8 %.fr6482, -7
+  %.fr6535 = freeze i8 %2808
+  %2809 = and i8 %.fr6535, -7
   %switch.selectcmp.i.i5400 = icmp eq i8 %2809, 8
   br i1 %switch.selectcmp.i.i5400, label %.thread6013, label %switch.early.test6168
 
 switch.early.test6168:                            ; preds = %2807
-  switch i8 %.fr6482, label %2810 [
+  switch i8 %.fr6535, label %2810 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15339,13 +15339,13 @@ switch.early.test6168:                            ; preds = %2807
 
 2820:                                             ; preds = %2817, %2817, %2817, %2818, %2815
   %2821 = phi i8 [ %.pre6917, %2817 ], [ %.pre6917, %2817 ], [ %.pre6917, %2817 ], [ %.pre6916, %2818 ], [ %.pre6917, %2815 ]
-  %.fr6481 = freeze i8 %2821
-  %2822 = and i8 %.fr6481, -7
+  %.fr6534 = freeze i8 %2821
+  %2822 = and i8 %.fr6534, -7
   %switch.selectcmp.i.i5403 = icmp eq i8 %2822, 8
   br i1 %switch.selectcmp.i.i5403, label %.thread6013, label %switch.early.test6171
 
 switch.early.test6171:                            ; preds = %2820
-  switch i8 %.fr6481, label %2823 [
+  switch i8 %.fr6534, label %2823 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15455,13 +15455,13 @@ switch.early.test6171:                            ; preds = %2820
 
 2879:                                             ; preds = %2875, %2877, %2871
   %2880 = phi i8 [ %.pre6915, %2875 ], [ %.pre6914, %2877 ], [ %.pre6915, %2871 ]
-  %.fr6480 = freeze i8 %2880
-  %2881 = and i8 %.fr6480, -7
+  %.fr6533 = freeze i8 %2880
+  %2881 = and i8 %.fr6533, -7
   %switch.selectcmp.i.i5409 = icmp eq i8 %2881, 8
   br i1 %switch.selectcmp.i.i5409, label %.thread6013, label %switch.early.test6173
 
 switch.early.test6173:                            ; preds = %2879
-  switch i8 %.fr6480, label %2882 [
+  switch i8 %.fr6533, label %2882 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15497,13 +15497,13 @@ switch.early.test6173:                            ; preds = %2879
 
 2894:                                             ; preds = %2890, %2892, %2886
   %2895 = phi i8 [ %.pre6913, %2890 ], [ %.pre6912, %2892 ], [ %.pre6913, %2886 ]
-  %.fr6479 = freeze i8 %2895
-  %2896 = and i8 %.fr6479, -7
+  %.fr6532 = freeze i8 %2895
+  %2896 = and i8 %.fr6532, -7
   %switch.selectcmp.i.i5415 = icmp eq i8 %2896, 8
   br i1 %switch.selectcmp.i.i5415, label %.thread6013, label %switch.early.test6175
 
 switch.early.test6175:                            ; preds = %2894
-  switch i8 %.fr6479, label %2897 [
+  switch i8 %.fr6532, label %2897 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15539,13 +15539,13 @@ switch.early.test6175:                            ; preds = %2894
 
 2909:                                             ; preds = %2905, %2907, %2901
   %2910 = phi i8 [ %.pre6911, %2905 ], [ %.pre6910, %2907 ], [ %.pre6911, %2901 ]
-  %.fr6478 = freeze i8 %2910
-  %2911 = and i8 %.fr6478, -7
+  %.fr6531 = freeze i8 %2910
+  %2911 = and i8 %.fr6531, -7
   %switch.selectcmp.i.i5421 = icmp eq i8 %2911, 8
   br i1 %switch.selectcmp.i.i5421, label %.thread6013, label %switch.early.test6177
 
 switch.early.test6177:                            ; preds = %2909
-  switch i8 %.fr6478, label %2912 [
+  switch i8 %.fr6531, label %2912 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15581,13 +15581,13 @@ switch.early.test6177:                            ; preds = %2909
 
 2924:                                             ; preds = %2920, %2922, %2916
   %2925 = phi i8 [ %.pre6909, %2920 ], [ %.pre6908, %2922 ], [ %.pre6909, %2916 ]
-  %.fr6477 = freeze i8 %2925
-  %2926 = and i8 %.fr6477, -7
+  %.fr6530 = freeze i8 %2925
+  %2926 = and i8 %.fr6530, -7
   %switch.selectcmp.i.i5427 = icmp eq i8 %2926, 8
   br i1 %switch.selectcmp.i.i5427, label %.thread6013, label %switch.early.test6179
 
 switch.early.test6179:                            ; preds = %2924
-  switch i8 %.fr6477, label %2927 [
+  switch i8 %.fr6530, label %2927 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15623,13 +15623,13 @@ switch.early.test6179:                            ; preds = %2924
 
 2939:                                             ; preds = %2935, %2937, %2931
   %2940 = phi i8 [ %.pre6907, %2935 ], [ %.pre6906, %2937 ], [ %.pre6907, %2931 ]
-  %.fr6476 = freeze i8 %2940
-  %2941 = and i8 %.fr6476, -7
+  %.fr6529 = freeze i8 %2940
+  %2941 = and i8 %.fr6529, -7
   %switch.selectcmp.i.i5433 = icmp eq i8 %2941, 8
   br i1 %switch.selectcmp.i.i5433, label %.thread6013, label %switch.early.test6181
 
 switch.early.test6181:                            ; preds = %2939
-  switch i8 %.fr6476, label %2942 [
+  switch i8 %.fr6529, label %2942 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15665,13 +15665,13 @@ switch.early.test6181:                            ; preds = %2939
 
 2954:                                             ; preds = %2950, %2952, %2946
   %2955 = phi i8 [ %.pre6905, %2950 ], [ %.pre6904, %2952 ], [ %.pre6905, %2946 ]
-  %.fr6475 = freeze i8 %2955
-  %2956 = and i8 %.fr6475, -7
+  %.fr6528 = freeze i8 %2955
+  %2956 = and i8 %.fr6528, -7
   %switch.selectcmp.i.i5439 = icmp eq i8 %2956, 8
   br i1 %switch.selectcmp.i.i5439, label %.thread6013, label %switch.early.test6183
 
 switch.early.test6183:                            ; preds = %2954
-  switch i8 %.fr6475, label %2957 [
+  switch i8 %.fr6528, label %2957 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15707,13 +15707,13 @@ switch.early.test6183:                            ; preds = %2954
 
 2969:                                             ; preds = %2965, %2967, %2961
   %2970 = phi i8 [ %.pre6903, %2965 ], [ %.pre6902, %2967 ], [ %.pre6903, %2961 ]
-  %.fr6474 = freeze i8 %2970
-  %2971 = and i8 %.fr6474, -7
+  %.fr6527 = freeze i8 %2970
+  %2971 = and i8 %.fr6527, -7
   %switch.selectcmp.i.i5445 = icmp eq i8 %2971, 8
   br i1 %switch.selectcmp.i.i5445, label %.thread6013, label %switch.early.test6185
 
 switch.early.test6185:                            ; preds = %2969
-  switch i8 %.fr6474, label %2972 [
+  switch i8 %.fr6527, label %2972 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15749,13 +15749,13 @@ switch.early.test6185:                            ; preds = %2969
 
 2984:                                             ; preds = %2980, %2982, %2976
   %2985 = phi i8 [ %.pre6901, %2980 ], [ %.pre6900, %2982 ], [ %.pre6901, %2976 ]
-  %.fr6473 = freeze i8 %2985
-  %2986 = and i8 %.fr6473, -7
+  %.fr6526 = freeze i8 %2985
+  %2986 = and i8 %.fr6526, -7
   %switch.selectcmp.i.i5451 = icmp eq i8 %2986, 8
   br i1 %switch.selectcmp.i.i5451, label %.thread6013, label %switch.early.test6187
 
 switch.early.test6187:                            ; preds = %2984
-  switch i8 %.fr6473, label %2987 [
+  switch i8 %.fr6526, label %2987 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15791,13 +15791,13 @@ switch.early.test6187:                            ; preds = %2984
 
 2999:                                             ; preds = %2995, %2997, %2991
   %3000 = phi i8 [ %.pre6899, %2995 ], [ %.pre6898, %2997 ], [ %.pre6899, %2991 ]
-  %.fr6472 = freeze i8 %3000
-  %3001 = and i8 %.fr6472, -7
+  %.fr6525 = freeze i8 %3000
+  %3001 = and i8 %.fr6525, -7
   %switch.selectcmp.i.i5457 = icmp eq i8 %3001, 8
   br i1 %switch.selectcmp.i.i5457, label %.thread6013, label %switch.early.test6189
 
 switch.early.test6189:                            ; preds = %2999
-  switch i8 %.fr6472, label %3002 [
+  switch i8 %.fr6525, label %3002 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15833,13 +15833,13 @@ switch.early.test6189:                            ; preds = %2999
 
 3014:                                             ; preds = %3010, %3012, %3006
   %3015 = phi i8 [ %.pre6897, %3010 ], [ %.pre6896, %3012 ], [ %.pre6897, %3006 ]
-  %.fr6471 = freeze i8 %3015
-  %3016 = and i8 %.fr6471, -7
+  %.fr6524 = freeze i8 %3015
+  %3016 = and i8 %.fr6524, -7
   %switch.selectcmp.i.i5463 = icmp eq i8 %3016, 8
   br i1 %switch.selectcmp.i.i5463, label %.thread6013, label %switch.early.test6191
 
 switch.early.test6191:                            ; preds = %3014
-  switch i8 %.fr6471, label %3017 [
+  switch i8 %.fr6524, label %3017 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15875,13 +15875,13 @@ switch.early.test6191:                            ; preds = %3014
 
 3029:                                             ; preds = %3025, %3027, %3021
   %3030 = phi i8 [ %.pre6895, %3025 ], [ %.pre6894, %3027 ], [ %.pre6895, %3021 ]
-  %.fr6470 = freeze i8 %3030
-  %3031 = and i8 %.fr6470, -7
+  %.fr6523 = freeze i8 %3030
+  %3031 = and i8 %.fr6523, -7
   %switch.selectcmp.i.i5469 = icmp eq i8 %3031, 8
   br i1 %switch.selectcmp.i.i5469, label %.thread6013, label %switch.early.test6193
 
 switch.early.test6193:                            ; preds = %3029
-  switch i8 %.fr6470, label %3032 [
+  switch i8 %.fr6523, label %3032 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15917,13 +15917,13 @@ switch.early.test6193:                            ; preds = %3029
 
 3044:                                             ; preds = %3040, %3042, %3036
   %3045 = phi i8 [ %.pre6893, %3040 ], [ %.pre6892, %3042 ], [ %.pre6893, %3036 ]
-  %.fr6469 = freeze i8 %3045
-  %3046 = and i8 %.fr6469, -7
+  %.fr6522 = freeze i8 %3045
+  %3046 = and i8 %.fr6522, -7
   %switch.selectcmp.i.i5475 = icmp eq i8 %3046, 8
   br i1 %switch.selectcmp.i.i5475, label %.thread6013, label %switch.early.test6195
 
 switch.early.test6195:                            ; preds = %3044
-  switch i8 %.fr6469, label %3047 [
+  switch i8 %.fr6522, label %3047 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -15959,13 +15959,13 @@ switch.early.test6195:                            ; preds = %3044
 
 3059:                                             ; preds = %3055, %3057, %3051
   %3060 = phi i8 [ %.pre6891, %3055 ], [ %.pre6890, %3057 ], [ %.pre6891, %3051 ]
-  %.fr6468 = freeze i8 %3060
-  %3061 = and i8 %.fr6468, -7
+  %.fr6521 = freeze i8 %3060
+  %3061 = and i8 %.fr6521, -7
   %switch.selectcmp.i.i5481 = icmp eq i8 %3061, 8
   br i1 %switch.selectcmp.i.i5481, label %.thread6013, label %switch.early.test6197
 
 switch.early.test6197:                            ; preds = %3059
-  switch i8 %.fr6468, label %3062 [
+  switch i8 %.fr6521, label %3062 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16001,13 +16001,13 @@ switch.early.test6197:                            ; preds = %3059
 
 3074:                                             ; preds = %3070, %3072, %3066
   %3075 = phi i8 [ %.pre6889, %3070 ], [ %.pre6888, %3072 ], [ %.pre6889, %3066 ]
-  %.fr6467 = freeze i8 %3075
-  %3076 = and i8 %.fr6467, -7
+  %.fr6520 = freeze i8 %3075
+  %3076 = and i8 %.fr6520, -7
   %switch.selectcmp.i.i5487 = icmp eq i8 %3076, 8
   br i1 %switch.selectcmp.i.i5487, label %.thread6013, label %switch.early.test6199
 
 switch.early.test6199:                            ; preds = %3074
-  switch i8 %.fr6467, label %3077 [
+  switch i8 %.fr6520, label %3077 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16043,13 +16043,13 @@ switch.early.test6199:                            ; preds = %3074
 
 3089:                                             ; preds = %3085, %3087, %3081
   %3090 = phi i8 [ %.pre6887, %3085 ], [ %.pre6886, %3087 ], [ %.pre6887, %3081 ]
-  %.fr6466 = freeze i8 %3090
-  %3091 = and i8 %.fr6466, -7
+  %.fr6519 = freeze i8 %3090
+  %3091 = and i8 %.fr6519, -7
   %switch.selectcmp.i.i5493 = icmp eq i8 %3091, 8
   br i1 %switch.selectcmp.i.i5493, label %.thread6013, label %switch.early.test6201
 
 switch.early.test6201:                            ; preds = %3089
-  switch i8 %.fr6466, label %3092 [
+  switch i8 %.fr6519, label %3092 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16085,13 +16085,13 @@ switch.early.test6201:                            ; preds = %3089
 
 3104:                                             ; preds = %3100, %3102, %3096
   %3105 = phi i8 [ %.pre6885, %3100 ], [ %.pre6884, %3102 ], [ %.pre6885, %3096 ]
-  %.fr6465 = freeze i8 %3105
-  %3106 = and i8 %.fr6465, -7
+  %.fr6518 = freeze i8 %3105
+  %3106 = and i8 %.fr6518, -7
   %switch.selectcmp.i.i5499 = icmp eq i8 %3106, 8
   br i1 %switch.selectcmp.i.i5499, label %.thread6013, label %switch.early.test6203
 
 switch.early.test6203:                            ; preds = %3104
-  switch i8 %.fr6465, label %3107 [
+  switch i8 %.fr6518, label %3107 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16120,13 +16120,13 @@ switch.early.test6203:                            ; preds = %3104
 
 3116:                                             ; preds = %3114, %3111
   %3117 = phi i8 [ %.pre6882, %3114 ], [ %.pre6883, %3111 ]
-  %.fr6464 = freeze i8 %3117
-  %3118 = and i8 %.fr6464, -7
+  %.fr6517 = freeze i8 %3117
+  %3118 = and i8 %.fr6517, -7
   %switch.selectcmp.i.i5502 = icmp eq i8 %3118, 8
   br i1 %switch.selectcmp.i.i5502, label %.thread6013, label %switch.early.test6204
 
 switch.early.test6204:                            ; preds = %3116
-  switch i8 %.fr6464, label %switch.early.test6204.thread [
+  switch i8 %.fr6517, label %switch.early.test6204.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16166,13 +16166,13 @@ switch.early.test6204.thread:                     ; preds = %3113, %switch.early
 
 3141:                                             ; preds = %144
   %3142 = load i8, ptr %39, align 8
-  %.fr6463 = freeze i8 %3142
-  %3143 = and i8 %.fr6463, -7
+  %.fr6516 = freeze i8 %3142
+  %3143 = and i8 %.fr6516, -7
   %switch.selectcmp.i.i5505 = icmp eq i8 %3143, 8
   br i1 %switch.selectcmp.i.i5505, label %.thread6013, label %switch.early.test6205
 
 switch.early.test6205:                            ; preds = %3141
-  switch i8 %.fr6463, label %3144 [
+  switch i8 %.fr6516, label %3144 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16213,13 +16213,13 @@ switch.early.test6205:                            ; preds = %3141
 
 3160:                                             ; preds = %3155, %3158, %3148
   %3161 = phi i8 [ %.pre6881, %3155 ], [ %.pre6880, %3158 ], [ %.pre6881, %3148 ]
-  %.fr6462 = freeze i8 %3161
-  %3162 = and i8 %.fr6462, -7
+  %.fr6515 = freeze i8 %3161
+  %3162 = and i8 %.fr6515, -7
   %switch.selectcmp.i.i5511 = icmp eq i8 %3162, 8
   br i1 %switch.selectcmp.i.i5511, label %.thread6013, label %switch.early.test6207
 
 switch.early.test6207:                            ; preds = %3160
-  switch i8 %.fr6462, label %3163 [
+  switch i8 %.fr6515, label %3163 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16260,13 +16260,13 @@ switch.early.test6207:                            ; preds = %3160
 
 3179:                                             ; preds = %3174, %3177, %3167
   %3180 = phi i8 [ %.pre6879, %3174 ], [ %.pre6878, %3177 ], [ %.pre6879, %3167 ]
-  %.fr6461 = freeze i8 %3180
-  %3181 = and i8 %.fr6461, -7
+  %.fr6514 = freeze i8 %3180
+  %3181 = and i8 %.fr6514, -7
   %switch.selectcmp.i.i5517 = icmp eq i8 %3181, 8
   br i1 %switch.selectcmp.i.i5517, label %.thread6013, label %switch.early.test6209
 
 switch.early.test6209:                            ; preds = %3179
-  switch i8 %.fr6461, label %3182 [
+  switch i8 %.fr6514, label %3182 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16307,13 +16307,13 @@ switch.early.test6209:                            ; preds = %3179
 
 3198:                                             ; preds = %3193, %3196, %3186
   %3199 = phi i8 [ %.pre6877, %3193 ], [ %.pre6876, %3196 ], [ %.pre6877, %3186 ]
-  %.fr6460 = freeze i8 %3199
-  %3200 = and i8 %.fr6460, -7
+  %.fr6513 = freeze i8 %3199
+  %3200 = and i8 %.fr6513, -7
   %switch.selectcmp.i.i5523 = icmp eq i8 %3200, 8
   br i1 %switch.selectcmp.i.i5523, label %.thread6013, label %switch.early.test6211
 
 switch.early.test6211:                            ; preds = %3198
-  switch i8 %.fr6460, label %3201 [
+  switch i8 %.fr6513, label %3201 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16354,13 +16354,13 @@ switch.early.test6211:                            ; preds = %3198
 
 3217:                                             ; preds = %3212, %3215, %3205
   %3218 = phi i8 [ %.pre6875, %3212 ], [ %.pre6874, %3215 ], [ %.pre6875, %3205 ]
-  %.fr6459 = freeze i8 %3218
-  %3219 = and i8 %.fr6459, -7
+  %.fr6512 = freeze i8 %3218
+  %3219 = and i8 %.fr6512, -7
   %switch.selectcmp.i.i5529 = icmp eq i8 %3219, 8
   br i1 %switch.selectcmp.i.i5529, label %.thread6013, label %switch.early.test6213
 
 switch.early.test6213:                            ; preds = %3217
-  switch i8 %.fr6459, label %3220 [
+  switch i8 %.fr6512, label %3220 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16401,13 +16401,13 @@ switch.early.test6213:                            ; preds = %3217
 
 3236:                                             ; preds = %3231, %3234, %3224
   %3237 = phi i8 [ %.pre6873, %3231 ], [ %.pre6872, %3234 ], [ %.pre6873, %3224 ]
-  %.fr6458 = freeze i8 %3237
-  %3238 = and i8 %.fr6458, -7
+  %.fr6511 = freeze i8 %3237
+  %3238 = and i8 %.fr6511, -7
   %switch.selectcmp.i.i5535 = icmp eq i8 %3238, 8
   br i1 %switch.selectcmp.i.i5535, label %.thread6013, label %switch.early.test6215
 
 switch.early.test6215:                            ; preds = %3236
-  switch i8 %.fr6458, label %3239 [
+  switch i8 %.fr6511, label %3239 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16448,13 +16448,13 @@ switch.early.test6215:                            ; preds = %3236
 
 3255:                                             ; preds = %3250, %3253, %3243
   %3256 = phi i8 [ %.pre6871, %3250 ], [ %.pre6870, %3253 ], [ %.pre6871, %3243 ]
-  %.fr6457 = freeze i8 %3256
-  %3257 = and i8 %.fr6457, -7
+  %.fr6510 = freeze i8 %3256
+  %3257 = and i8 %.fr6510, -7
   %switch.selectcmp.i.i5541 = icmp eq i8 %3257, 8
   br i1 %switch.selectcmp.i.i5541, label %.thread6013, label %switch.early.test6217
 
 switch.early.test6217:                            ; preds = %3255
-  switch i8 %.fr6457, label %3258 [
+  switch i8 %.fr6510, label %3258 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16495,13 +16495,13 @@ switch.early.test6217:                            ; preds = %3255
 
 3274:                                             ; preds = %3269, %3272, %3262
   %3275 = phi i8 [ %.pre6869, %3269 ], [ %.pre6868, %3272 ], [ %.pre6869, %3262 ]
-  %.fr6456 = freeze i8 %3275
-  %3276 = and i8 %.fr6456, -7
+  %.fr6509 = freeze i8 %3275
+  %3276 = and i8 %.fr6509, -7
   %switch.selectcmp.i.i5547 = icmp eq i8 %3276, 8
   br i1 %switch.selectcmp.i.i5547, label %.thread6013, label %switch.early.test6219
 
 switch.early.test6219:                            ; preds = %3274
-  switch i8 %.fr6456, label %3277 [
+  switch i8 %.fr6509, label %3277 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16548,13 +16548,13 @@ switch.early.test6219:                            ; preds = %3274
 
 3299:                                             ; preds = %3294, %3297, %3287
   %3300 = phi i8 [ %.pre6867, %3294 ], [ %.pre6866, %3297 ], [ %.pre6867, %3287 ]
-  %.fr6455 = freeze i8 %3300
-  %3301 = and i8 %.fr6455, -7
+  %.fr6508 = freeze i8 %3300
+  %3301 = and i8 %.fr6508, -7
   %switch.selectcmp.i.i5553 = icmp eq i8 %3301, 8
   br i1 %switch.selectcmp.i.i5553, label %.thread6013, label %switch.early.test6221
 
 switch.early.test6221:                            ; preds = %3299
-  switch i8 %.fr6455, label %3302 [
+  switch i8 %.fr6508, label %3302 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16597,13 +16597,13 @@ switch.early.test6221:                            ; preds = %3299
 
 3320:                                             ; preds = %3315, %3318, %3308
   %3321 = phi i8 [ %.pre6865, %3315 ], [ %.pre6864, %3318 ], [ %.pre6865, %3308 ]
-  %.fr6454 = freeze i8 %3321
-  %3322 = and i8 %.fr6454, -7
+  %.fr6507 = freeze i8 %3321
+  %3322 = and i8 %.fr6507, -7
   %switch.selectcmp.i.i5559 = icmp eq i8 %3322, 8
   br i1 %switch.selectcmp.i.i5559, label %.thread6013, label %switch.early.test6223
 
 switch.early.test6223:                            ; preds = %3320
-  switch i8 %.fr6454, label %3323 [
+  switch i8 %.fr6507, label %3323 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16644,13 +16644,13 @@ switch.early.test6223:                            ; preds = %3320
 
 3339:                                             ; preds = %3334, %3337, %3327
   %3340 = phi i8 [ %.pre6863, %3334 ], [ %.pre6862, %3337 ], [ %.pre6863, %3327 ]
-  %.fr6453 = freeze i8 %3340
-  %3341 = and i8 %.fr6453, -7
+  %.fr6506 = freeze i8 %3340
+  %3341 = and i8 %.fr6506, -7
   %switch.selectcmp.i.i5565 = icmp eq i8 %3341, 8
   br i1 %switch.selectcmp.i.i5565, label %.thread6013, label %switch.early.test6225
 
 switch.early.test6225:                            ; preds = %3339
-  switch i8 %.fr6453, label %3342 [
+  switch i8 %.fr6506, label %3342 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16691,13 +16691,13 @@ switch.early.test6225:                            ; preds = %3339
 
 3358:                                             ; preds = %3353, %3356, %3346
   %3359 = phi i8 [ %.pre6861, %3353 ], [ %.pre6860, %3356 ], [ %.pre6861, %3346 ]
-  %.fr6452 = freeze i8 %3359
-  %3360 = and i8 %.fr6452, -7
+  %.fr6505 = freeze i8 %3359
+  %3360 = and i8 %.fr6505, -7
   %switch.selectcmp.i.i5571 = icmp eq i8 %3360, 8
   br i1 %switch.selectcmp.i.i5571, label %.thread6013, label %switch.early.test6227
 
 switch.early.test6227:                            ; preds = %3358
-  switch i8 %.fr6452, label %3361 [
+  switch i8 %.fr6505, label %3361 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16740,13 +16740,13 @@ switch.early.test6227:                            ; preds = %3358
 
 3379:                                             ; preds = %3374, %3377, %3367
   %3380 = phi i8 [ %.pre6859, %3374 ], [ %.pre6858, %3377 ], [ %.pre6859, %3367 ]
-  %.fr6451 = freeze i8 %3380
-  %3381 = and i8 %.fr6451, -7
+  %.fr6504 = freeze i8 %3380
+  %3381 = and i8 %.fr6504, -7
   %switch.selectcmp.i.i5577 = icmp eq i8 %3381, 8
   br i1 %switch.selectcmp.i.i5577, label %.thread6013, label %switch.early.test6229
 
 switch.early.test6229:                            ; preds = %3379
-  switch i8 %.fr6451, label %3382 [
+  switch i8 %.fr6504, label %3382 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16796,13 +16796,13 @@ switch.early.test6229:                            ; preds = %3379
 
 3407:                                             ; preds = %3402, %3405, %3395
   %3408 = phi i8 [ %.pre6857, %3402 ], [ %.pre6856, %3405 ], [ %.pre6857, %3395 ]
-  %.fr6450 = freeze i8 %3408
-  %3409 = and i8 %.fr6450, -7
+  %.fr6503 = freeze i8 %3408
+  %3409 = and i8 %.fr6503, -7
   %switch.selectcmp.i.i5583 = icmp eq i8 %3409, 8
   br i1 %switch.selectcmp.i.i5583, label %.thread6013, label %switch.early.test6231
 
 switch.early.test6231:                            ; preds = %3407
-  switch i8 %.fr6450, label %3410 [
+  switch i8 %.fr6503, label %3410 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16843,13 +16843,13 @@ switch.early.test6231:                            ; preds = %3407
 
 3426:                                             ; preds = %3421, %3424, %3414
   %3427 = phi i8 [ %.pre6855, %3421 ], [ %.pre6854, %3424 ], [ %.pre6855, %3414 ]
-  %.fr6449 = freeze i8 %3427
-  %3428 = and i8 %.fr6449, -7
+  %.fr6502 = freeze i8 %3427
+  %3428 = and i8 %.fr6502, -7
   %switch.selectcmp.i.i5589 = icmp eq i8 %3428, 8
   br i1 %switch.selectcmp.i.i5589, label %.thread6013, label %switch.early.test6233
 
 switch.early.test6233:                            ; preds = %3426
-  switch i8 %.fr6449, label %3429 [
+  switch i8 %.fr6502, label %3429 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16890,13 +16890,13 @@ switch.early.test6233:                            ; preds = %3426
 
 3445:                                             ; preds = %3440, %3443, %3433
   %3446 = phi i8 [ %.pre6853, %3440 ], [ %.pre6852, %3443 ], [ %.pre6853, %3433 ]
-  %.fr6448 = freeze i8 %3446
-  %3447 = and i8 %.fr6448, -7
+  %.fr6501 = freeze i8 %3446
+  %3447 = and i8 %.fr6501, -7
   %switch.selectcmp.i.i5595 = icmp eq i8 %3447, 8
   br i1 %switch.selectcmp.i.i5595, label %.thread6013, label %switch.early.test6235
 
 switch.early.test6235:                            ; preds = %3445
-  switch i8 %.fr6448, label %3448 [
+  switch i8 %.fr6501, label %3448 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16937,13 +16937,13 @@ switch.early.test6235:                            ; preds = %3445
 
 3464:                                             ; preds = %3459, %3462, %3452
   %3465 = phi i8 [ %.pre6851, %3459 ], [ %.pre6850, %3462 ], [ %.pre6851, %3452 ]
-  %.fr6447 = freeze i8 %3465
-  %3466 = and i8 %.fr6447, -7
+  %.fr6500 = freeze i8 %3465
+  %3466 = and i8 %.fr6500, -7
   %switch.selectcmp.i.i5601 = icmp eq i8 %3466, 8
   br i1 %switch.selectcmp.i.i5601, label %.thread6013, label %switch.early.test6237
 
 switch.early.test6237:                            ; preds = %3464
-  switch i8 %.fr6447, label %3467 [
+  switch i8 %.fr6500, label %3467 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -16984,13 +16984,13 @@ switch.early.test6237:                            ; preds = %3464
 
 3483:                                             ; preds = %3478, %3481, %3471
   %3484 = phi i8 [ %.pre6849, %3478 ], [ %.pre6848, %3481 ], [ %.pre6849, %3471 ]
-  %.fr6446 = freeze i8 %3484
-  %3485 = and i8 %.fr6446, -7
+  %.fr6499 = freeze i8 %3484
+  %3485 = and i8 %.fr6499, -7
   %switch.selectcmp.i.i5607 = icmp eq i8 %3485, 8
   br i1 %switch.selectcmp.i.i5607, label %.thread6013, label %switch.early.test6239
 
 switch.early.test6239:                            ; preds = %3483
-  switch i8 %.fr6446, label %3486 [
+  switch i8 %.fr6499, label %3486 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17033,13 +17033,13 @@ switch.early.test6239:                            ; preds = %3483
 
 3504:                                             ; preds = %3499, %3502, %3492
   %3505 = phi i8 [ %.pre6847, %3499 ], [ %.pre6846, %3502 ], [ %.pre6847, %3492 ]
-  %.fr6445 = freeze i8 %3505
-  %3506 = and i8 %.fr6445, -7
+  %.fr6498 = freeze i8 %3505
+  %3506 = and i8 %.fr6498, -7
   %switch.selectcmp.i.i5613 = icmp eq i8 %3506, 8
   br i1 %switch.selectcmp.i.i5613, label %.thread6013, label %switch.early.test6241
 
 switch.early.test6241:                            ; preds = %3504
-  switch i8 %.fr6445, label %3507 [
+  switch i8 %.fr6498, label %3507 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17080,13 +17080,13 @@ switch.early.test6241:                            ; preds = %3504
 
 3523:                                             ; preds = %3518, %3521, %3511
   %3524 = phi i8 [ %.pre6845, %3518 ], [ %.pre6844, %3521 ], [ %.pre6845, %3511 ]
-  %.fr6444 = freeze i8 %3524
-  %3525 = and i8 %.fr6444, -7
+  %.fr6497 = freeze i8 %3524
+  %3525 = and i8 %.fr6497, -7
   %switch.selectcmp.i.i5619 = icmp eq i8 %3525, 8
   br i1 %switch.selectcmp.i.i5619, label %.thread6013, label %switch.early.test6243
 
 switch.early.test6243:                            ; preds = %3523
-  switch i8 %.fr6444, label %3526 [
+  switch i8 %.fr6497, label %3526 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17127,13 +17127,13 @@ switch.early.test6243:                            ; preds = %3523
 
 3542:                                             ; preds = %3537, %3540, %3530
   %3543 = phi i8 [ %.pre6843, %3537 ], [ %.pre6842, %3540 ], [ %.pre6843, %3530 ]
-  %.fr6443 = freeze i8 %3543
-  %3544 = and i8 %.fr6443, -7
+  %.fr6496 = freeze i8 %3543
+  %3544 = and i8 %.fr6496, -7
   %switch.selectcmp.i.i5625 = icmp eq i8 %3544, 8
   br i1 %switch.selectcmp.i.i5625, label %.thread6013, label %switch.early.test6245
 
 switch.early.test6245:                            ; preds = %3542
-  switch i8 %.fr6443, label %3545 [
+  switch i8 %.fr6496, label %3545 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17174,13 +17174,13 @@ switch.early.test6245:                            ; preds = %3542
 
 3561:                                             ; preds = %3556, %3559, %3549
   %3562 = phi i8 [ %.pre6841, %3556 ], [ %.pre6840, %3559 ], [ %.pre6841, %3549 ]
-  %.fr6442 = freeze i8 %3562
-  %3563 = and i8 %.fr6442, -7
+  %.fr6495 = freeze i8 %3562
+  %3563 = and i8 %.fr6495, -7
   %switch.selectcmp.i.i5631 = icmp eq i8 %3563, 8
   br i1 %switch.selectcmp.i.i5631, label %.thread6013, label %switch.early.test6247
 
 switch.early.test6247:                            ; preds = %3561
-  switch i8 %.fr6442, label %3564 [
+  switch i8 %.fr6495, label %3564 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17224,13 +17224,13 @@ switch.early.test6247:                            ; preds = %3561
 
 3583:                                             ; preds = %3578, %3581, %3571
   %3584 = phi i8 [ %.pre6839, %3578 ], [ %.pre6838, %3581 ], [ %.pre6839, %3571 ]
-  %.fr6441 = freeze i8 %3584
-  %3585 = and i8 %.fr6441, -7
+  %.fr6494 = freeze i8 %3584
+  %3585 = and i8 %.fr6494, -7
   %switch.selectcmp.i.i5637 = icmp eq i8 %3585, 8
   br i1 %switch.selectcmp.i.i5637, label %.thread6013, label %switch.early.test6249
 
 switch.early.test6249:                            ; preds = %3583
-  switch i8 %.fr6441, label %3586 [
+  switch i8 %.fr6494, label %3586 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17271,13 +17271,13 @@ switch.early.test6249:                            ; preds = %3583
 
 3602:                                             ; preds = %3597, %3600, %3590
   %3603 = phi i8 [ %.pre6837, %3597 ], [ %.pre6836, %3600 ], [ %.pre6837, %3590 ]
-  %.fr6440 = freeze i8 %3603
-  %3604 = and i8 %.fr6440, -7
+  %.fr6493 = freeze i8 %3603
+  %3604 = and i8 %.fr6493, -7
   %switch.selectcmp.i.i5643 = icmp eq i8 %3604, 8
   br i1 %switch.selectcmp.i.i5643, label %.thread6013, label %switch.early.test6251
 
 switch.early.test6251:                            ; preds = %3602
-  switch i8 %.fr6440, label %3605 [
+  switch i8 %.fr6493, label %3605 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17318,13 +17318,13 @@ switch.early.test6251:                            ; preds = %3602
 
 3621:                                             ; preds = %3616, %3619, %3609
   %3622 = phi i8 [ %.pre6835, %3616 ], [ %.pre6834, %3619 ], [ %.pre6835, %3609 ]
-  %.fr6439 = freeze i8 %3622
-  %3623 = and i8 %.fr6439, -7
+  %.fr6492 = freeze i8 %3622
+  %3623 = and i8 %.fr6492, -7
   %switch.selectcmp.i.i5649 = icmp eq i8 %3623, 8
   br i1 %switch.selectcmp.i.i5649, label %.thread6013, label %switch.early.test6253
 
 switch.early.test6253:                            ; preds = %3621
-  switch i8 %.fr6439, label %3624 [
+  switch i8 %.fr6492, label %3624 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17365,13 +17365,13 @@ switch.early.test6253:                            ; preds = %3621
 
 3640:                                             ; preds = %3635, %3638, %3628
   %3641 = phi i8 [ %.pre6833, %3635 ], [ %.pre6832, %3638 ], [ %.pre6833, %3628 ]
-  %.fr6438 = freeze i8 %3641
-  %3642 = and i8 %.fr6438, -7
+  %.fr6491 = freeze i8 %3641
+  %3642 = and i8 %.fr6491, -7
   %switch.selectcmp.i.i5655 = icmp eq i8 %3642, 8
   br i1 %switch.selectcmp.i.i5655, label %.thread6013, label %switch.early.test6255
 
 switch.early.test6255:                            ; preds = %3640
-  switch i8 %.fr6438, label %3643 [
+  switch i8 %.fr6491, label %3643 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17385,44 +17385,44 @@ switch.early.test6255:                            ; preds = %3640
 3647:                                             ; preds = %144
   %3648 = icmp eq i16 %.sroa.0270.0.copyload, 6172
   %.pre6831 = load i8, ptr %39, align 8
-  %.fr6689 = freeze i8 %.pre6831
+  %.fr6489 = freeze i8 %.pre6831
   br i1 %3648, label %3649, label %3658
 
 3649:                                             ; preds = %3647
-  %3650 = and i8 %.fr6689, -7
+  %3650 = and i8 %.fr6489, -7
   %switch.selectcmp.i5658 = icmp eq i8 %3650, 8
-  %3651 = and i8 %.fr6689, -5
+  %3651 = and i8 %.fr6489, -5
   %3652 = icmp eq i8 %3651, 19
-  %or.cond6661 = or i1 %switch.selectcmp.i5658, %3652
-  br i1 %or.cond6661, label %.thread6013, label %3653
+  %or.cond6395 = or i1 %switch.selectcmp.i5658, %3652
+  br i1 %or.cond6395, label %.thread6013, label %3653
 
 3653:                                             ; preds = %3649
-  %3654 = add i8 %.fr6689, -9
+  %3654 = add i8 %.fr6489, -9
   %switch.and.i5659 = and i8 %3654, -7
   %switch.selectcmp.i5660 = icmp eq i8 %switch.and.i5659, 0
-  br i1 %switch.selectcmp.i5660, label %3658, label %switch.early.test6642
+  br i1 %switch.selectcmp.i5660, label %3658, label %switch.early.test6376
 
-switch.early.test6642:                            ; preds = %3653
-  switch i8 %.fr6689, label %3655 [
+switch.early.test6376:                            ; preds = %3653
+  switch i8 %.fr6489, label %3655 [
     i8 27, label %3658
     i8 22, label %3658
     i8 18, label %3658
   ]
 
-3655:                                             ; preds = %switch.early.test6642
+3655:                                             ; preds = %switch.early.test6376
   %3656 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6830 = load i8, ptr %39, align 8
   %3657 = freeze i8 %.pre6830
   br label %3658
 
-3658:                                             ; preds = %switch.early.test6642, %switch.early.test6642, %switch.early.test6642, %3653, %3655, %3647
-  %.fr6437 = phi i8 [ %.fr6689, %switch.early.test6642 ], [ %.fr6689, %switch.early.test6642 ], [ %.fr6689, %switch.early.test6642 ], [ %.fr6689, %3653 ], [ %3657, %3655 ], [ %.fr6689, %3647 ]
-  %3659 = and i8 %.fr6437, -7
+3658:                                             ; preds = %switch.early.test6376, %switch.early.test6376, %switch.early.test6376, %3653, %3655, %3647
+  %.fr6490 = phi i8 [ %.fr6489, %switch.early.test6376 ], [ %.fr6489, %switch.early.test6376 ], [ %.fr6489, %switch.early.test6376 ], [ %.fr6489, %3653 ], [ %3657, %3655 ], [ %.fr6489, %3647 ]
+  %3659 = and i8 %.fr6490, -7
   %switch.selectcmp.i.i5661 = icmp eq i8 %3659, 8
   br i1 %switch.selectcmp.i.i5661, label %.thread6013, label %switch.early.test6258
 
 switch.early.test6258:                            ; preds = %3658
-  switch i8 %.fr6437, label %3660 [
+  switch i8 %.fr6490, label %3660 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17456,13 +17456,13 @@ switch.early.test6258:                            ; preds = %3658
 
 3672:                                             ; preds = %3668, %3670, %3664
   %3673 = phi i8 [ %.pre6829, %3668 ], [ %.pre6828, %3670 ], [ %.pre6829, %3664 ]
-  %.fr6436 = freeze i8 %3673
-  %3674 = and i8 %.fr6436, -7
+  %.fr6488 = freeze i8 %3673
+  %3674 = and i8 %.fr6488, -7
   %switch.selectcmp.i.i5667 = icmp eq i8 %3674, 8
   br i1 %switch.selectcmp.i.i5667, label %.thread6013, label %switch.early.test6259
 
 switch.early.test6259:                            ; preds = %3672
-  switch i8 %.fr6436, label %3675 [
+  switch i8 %.fr6488, label %3675 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17496,13 +17496,13 @@ switch.early.test6259:                            ; preds = %3672
 
 3687:                                             ; preds = %3683, %3685, %3679
   %3688 = phi i8 [ %.pre6827, %3683 ], [ %.pre6826, %3685 ], [ %.pre6827, %3679 ]
-  %.fr6435 = freeze i8 %3688
-  %3689 = and i8 %.fr6435, -7
+  %.fr6487 = freeze i8 %3688
+  %3689 = and i8 %.fr6487, -7
   %switch.selectcmp.i.i5673 = icmp eq i8 %3689, 8
   br i1 %switch.selectcmp.i.i5673, label %.thread6013, label %switch.early.test6260
 
 switch.early.test6260:                            ; preds = %3687
-  switch i8 %.fr6435, label %3690 [
+  switch i8 %.fr6487, label %3690 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17532,13 +17532,13 @@ switch.early.test6260:                            ; preds = %3687
 
 3700:                                             ; preds = %3698, %3695
   %3701 = phi i8 [ %.pre6824, %3698 ], [ %.pre6825, %3695 ]
-  %.fr6434 = freeze i8 %3701
-  %3702 = and i8 %.fr6434, -7
+  %.fr6486 = freeze i8 %3701
+  %3702 = and i8 %.fr6486, -7
   %switch.selectcmp.i.i5676 = icmp eq i8 %3702, 8
   br i1 %switch.selectcmp.i.i5676, label %.thread6013, label %switch.early.test6261
 
 switch.early.test6261:                            ; preds = %3700
-  switch i8 %.fr6434, label %switch.early.test6261.thread [
+  switch i8 %.fr6486, label %switch.early.test6261.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17728,13 +17728,13 @@ switch.early.test6261.thread:                     ; preds = %3697, %switch.early
 
 3787:                                             ; preds = %3784, %3784, %3784, %3785, %3782
   %3788 = phi i8 [ %.pre6823, %3784 ], [ %.pre6823, %3784 ], [ %.pre6823, %3784 ], [ %.pre6822, %3785 ], [ %.pre6823, %3782 ]
-  %.fr6433 = freeze i8 %3788
-  %3789 = and i8 %.fr6433, -7
+  %.fr6485 = freeze i8 %3788
+  %3789 = and i8 %.fr6485, -7
   %switch.selectcmp.i.i5679 = icmp eq i8 %3789, 8
   br i1 %switch.selectcmp.i.i5679, label %.thread6013, label %switch.early.test6264
 
 switch.early.test6264:                            ; preds = %3787
-  switch i8 %.fr6433, label %3790 [
+  switch i8 %.fr6485, label %3790 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17814,13 +17814,13 @@ switch.early.test6264:                            ; preds = %3787
 
 3828:                                             ; preds = %3824, %3826, %3820
   %3829 = phi i8 [ %.pre6821, %3824 ], [ %.pre6820, %3826 ], [ %.pre6821, %3820 ]
-  %.fr6432 = freeze i8 %3829
-  %3830 = and i8 %.fr6432, -7
+  %.fr6484 = freeze i8 %3829
+  %3830 = and i8 %.fr6484, -7
   %switch.selectcmp.i.i5685 = icmp eq i8 %3830, 8
   br i1 %switch.selectcmp.i.i5685, label %.thread6013, label %switch.early.test6265
 
 switch.early.test6265:                            ; preds = %3828
-  switch i8 %.fr6432, label %3831 [
+  switch i8 %.fr6484, label %3831 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17854,13 +17854,13 @@ switch.early.test6265:                            ; preds = %3828
 
 3841:                                             ; preds = %3838, %3838, %3838, %3839, %3836
   %3842 = phi i8 [ %.pre6819, %3838 ], [ %.pre6819, %3838 ], [ %.pre6819, %3838 ], [ %.pre6818, %3839 ], [ %.pre6819, %3836 ]
-  %.fr6431 = freeze i8 %3842
-  %3843 = and i8 %.fr6431, -7
+  %.fr6483 = freeze i8 %3842
+  %3843 = and i8 %.fr6483, -7
   %switch.selectcmp.i.i5688 = icmp eq i8 %3843, 8
   br i1 %switch.selectcmp.i.i5688, label %.thread6013, label %switch.early.test6268
 
 switch.early.test6268:                            ; preds = %3841
-  switch i8 %.fr6431, label %3844 [
+  switch i8 %.fr6483, label %3844 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -17956,13 +17956,13 @@ switch.early.test6268:                            ; preds = %3841
 
 3894:                                             ; preds = %3890, %3892, %3886
   %3895 = phi i8 [ %.pre6817, %3890 ], [ %.pre6816, %3892 ], [ %.pre6817, %3886 ]
-  %.fr6430 = freeze i8 %3895
-  %3896 = and i8 %.fr6430, -7
+  %.fr6482 = freeze i8 %3895
+  %3896 = and i8 %.fr6482, -7
   %switch.selectcmp.i.i5694 = icmp eq i8 %3896, 8
   br i1 %switch.selectcmp.i.i5694, label %.thread6013, label %switch.early.test6270
 
 switch.early.test6270:                            ; preds = %3894
-  switch i8 %.fr6430, label %3897 [
+  switch i8 %.fr6482, label %3897 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18014,13 +18014,13 @@ switch.early.test6270:                            ; preds = %3894
 
 3922:                                             ; preds = %3917, %3920, %3910
   %3923 = phi i8 [ %.pre6815, %3917 ], [ %.pre6814, %3920 ], [ %.pre6815, %3910 ]
-  %.fr6429 = freeze i8 %3923
-  %3924 = and i8 %.fr6429, -7
+  %.fr6481 = freeze i8 %3923
+  %3924 = and i8 %.fr6481, -7
   %switch.selectcmp.i.i5700 = icmp eq i8 %3924, 8
   br i1 %switch.selectcmp.i.i5700, label %.thread6013, label %switch.early.test6272
 
 switch.early.test6272:                            ; preds = %3922
-  switch i8 %.fr6429, label %3925 [
+  switch i8 %.fr6481, label %3925 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18058,13 +18058,13 @@ switch.early.test6272:                            ; preds = %3922
 
 3939:                                             ; preds = %3935, %3937, %3931
   %3940 = phi i8 [ %.pre6813, %3935 ], [ %.pre6812, %3937 ], [ %.pre6813, %3931 ]
-  %.fr6428 = freeze i8 %3940
-  %3941 = and i8 %.fr6428, -7
+  %.fr6480 = freeze i8 %3940
+  %3941 = and i8 %.fr6480, -7
   %switch.selectcmp.i.i5706 = icmp eq i8 %3941, 8
   br i1 %switch.selectcmp.i.i5706, label %.thread6013, label %switch.early.test6274
 
 switch.early.test6274:                            ; preds = %3939
-  switch i8 %.fr6428, label %3942 [
+  switch i8 %.fr6480, label %3942 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18094,13 +18094,13 @@ switch.early.test6274:                            ; preds = %3939
 
 3952:                                             ; preds = %3948, %3950, %3946
   %3953 = phi i8 [ %.pre6811, %3948 ], [ %.pre6810, %3950 ], [ %.pre6811, %3946 ]
-  %.fr6427 = freeze i8 %3953
-  %3954 = and i8 %.fr6427, -7
+  %.fr6479 = freeze i8 %3953
+  %3954 = and i8 %.fr6479, -7
   %switch.selectcmp.i.i5709 = icmp eq i8 %3954, 8
   br i1 %switch.selectcmp.i.i5709, label %.thread6013, label %switch.early.test6275
 
 switch.early.test6275:                            ; preds = %3952
-  switch i8 %.fr6427, label %3955 [
+  switch i8 %.fr6479, label %3955 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18144,13 +18144,13 @@ switch.early.test6275:                            ; preds = %3952
 
 3975:                                             ; preds = %3971, %3973, %3967
   %3976 = phi i8 [ %.pre6809, %3971 ], [ %.pre6808, %3973 ], [ %.pre6809, %3967 ]
-  %.fr6426 = freeze i8 %3976
-  %3977 = and i8 %.fr6426, -7
+  %.fr6478 = freeze i8 %3976
+  %3977 = and i8 %.fr6478, -7
   %switch.selectcmp.i.i5715 = icmp eq i8 %3977, 8
   br i1 %switch.selectcmp.i.i5715, label %.thread6013, label %switch.early.test6276
 
 switch.early.test6276:                            ; preds = %3975
-  switch i8 %.fr6426, label %3978 [
+  switch i8 %.fr6478, label %3978 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18163,17 +18163,17 @@ switch.early.test6276:                            ; preds = %3975
   %3983 = add i32 %122, 3
   %3984 = and i32 %3982, 8388608
   %.not4712 = icmp eq i32 %3984, 0
-  br i1 %.not4712, label %.thread6013, label %.preheader6605
+  br i1 %.not4712, label %.thread6013, label %.preheader6662
 
-.preheader6605:                                   ; preds = %3978, %.preheader6605
-  %.85 = phi i32 [ %3988, %.preheader6605 ], [ %3983, %3978 ]
+.preheader6662:                                   ; preds = %3978, %.preheader6662
+  %.85 = phi i32 [ %3988, %.preheader6662 ], [ %3983, %3978 ]
   %3985 = load i32, ptr @hf_btatt_bond_management_feature_nth, align 4
   %3986 = load i32, ptr @ett_btatt_value, align 4
   %3987 = call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %19, i32 noundef %.85, i32 noundef %3985, i32 noundef %3986, ptr noundef nonnull @hfx_btatt_bond_management_feature_nth, i32 noundef -2147483648)
   %3988 = add i32 %.85, 1
   %3989 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.85)
   %.not4713 = icmp sgt i8 %3989, -1
-  br i1 %.not4713, label %.thread6013, label %.preheader6605, !llvm.loop !36
+  br i1 %.not4713, label %.thread6013, label %.preheader6662, !llvm.loop !36
 
 3990:                                             ; preds = %144
   %3991 = icmp ne i16 %.sroa.0270.0.copyload, 6144
@@ -18196,13 +18196,13 @@ switch.early.test6276:                            ; preds = %3975
 
 3997:                                             ; preds = %3993, %3995, %3990
   %3998 = phi i8 [ %.pre6807, %3993 ], [ %.pre6806, %3995 ], [ %.pre6807, %3990 ]
-  %.fr6425 = freeze i8 %3998
-  %3999 = and i8 %.fr6425, -7
+  %.fr6477 = freeze i8 %3998
+  %3999 = and i8 %.fr6477, -7
   %switch.selectcmp.i.i5721 = icmp eq i8 %3999, 8
   br i1 %switch.selectcmp.i.i5721, label %.thread6013, label %switch.early.test6277
 
 switch.early.test6277:                            ; preds = %3997
-  switch i8 %.fr6425, label %4000 [
+  switch i8 %.fr6477, label %4000 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18229,13 +18229,13 @@ switch.early.test6277:                            ; preds = %3997
 
 4009:                                             ; preds = %4007, %4004
   %4010 = phi i8 [ %.pre6804, %4007 ], [ %.pre6805, %4004 ]
-  %.fr6424 = freeze i8 %4010
-  %4011 = and i8 %.fr6424, -7
+  %.fr6476 = freeze i8 %4010
+  %4011 = and i8 %.fr6476, -7
   %switch.selectcmp.i.i5724 = icmp eq i8 %4011, 8
   br i1 %switch.selectcmp.i.i5724, label %.thread6013, label %switch.early.test6278
 
 switch.early.test6278:                            ; preds = %4009
-  switch i8 %.fr6424, label %switch.early.test6278.thread [
+  switch i8 %.fr6476, label %switch.early.test6278.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18377,13 +18377,13 @@ switch.early.test6278.thread:                     ; preds = %4006, %switch.early
 
 4086:                                             ; preds = %4082, %4084, %4078
   %4087 = phi i8 [ %.pre6803, %4082 ], [ %.pre6802, %4084 ], [ %.pre6803, %4078 ]
-  %.fr6423 = freeze i8 %4087
-  %4088 = and i8 %.fr6423, -7
+  %.fr6475 = freeze i8 %4087
+  %4088 = and i8 %.fr6475, -7
   %switch.selectcmp.i.i5730 = icmp eq i8 %4088, 8
   br i1 %switch.selectcmp.i.i5730, label %.thread6013, label %switch.early.test6279
 
 switch.early.test6279:                            ; preds = %4086
-  switch i8 %.fr6423, label %4089 [
+  switch i8 %.fr6475, label %4089 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18425,13 +18425,13 @@ switch.early.test6279:                            ; preds = %4086
 
 4109:                                             ; preds = %4105, %4107, %4101
   %4110 = phi i8 [ %.pre6801, %4105 ], [ %.pre6800, %4107 ], [ %.pre6801, %4101 ]
-  %.fr6422 = freeze i8 %4110
-  %4111 = and i8 %.fr6422, -7
+  %.fr6474 = freeze i8 %4110
+  %4111 = and i8 %.fr6474, -7
   %switch.selectcmp.i.i5736 = icmp eq i8 %4111, 8
   br i1 %switch.selectcmp.i.i5736, label %.thread6013, label %switch.early.test6280
 
 switch.early.test6280:                            ; preds = %4109
-  switch i8 %.fr6422, label %4112 [
+  switch i8 %.fr6474, label %4112 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18496,13 +18496,13 @@ switch.early.test6280:                            ; preds = %4109
 
 4150:                                             ; preds = %4145, %4148, %4138
   %4151 = phi i8 [ %.pre6799, %4145 ], [ %.pre6798, %4148 ], [ %.pre6799, %4138 ]
-  %.fr6421 = freeze i8 %4151
-  %4152 = and i8 %.fr6421, -7
+  %.fr6473 = freeze i8 %4151
+  %4152 = and i8 %.fr6473, -7
   %switch.selectcmp.i.i5742 = icmp eq i8 %4152, 8
   br i1 %switch.selectcmp.i.i5742, label %.thread6013, label %switch.early.test6282
 
 switch.early.test6282:                            ; preds = %4150
-  switch i8 %.fr6421, label %4153 [
+  switch i8 %.fr6473, label %4153 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18556,13 +18556,13 @@ switch.early.test6282:                            ; preds = %4150
 
 4180:                                             ; preds = %4175, %4178, %4168
   %4181 = phi i8 [ %.pre6797, %4175 ], [ %.pre6796, %4178 ], [ %.pre6797, %4168 ]
-  %.fr6420 = freeze i8 %4181
-  %4182 = and i8 %.fr6420, -7
+  %.fr6472 = freeze i8 %4181
+  %4182 = and i8 %.fr6472, -7
   %switch.selectcmp.i.i5748 = icmp eq i8 %4182, 8
   br i1 %switch.selectcmp.i.i5748, label %.thread6013, label %switch.early.test6284
 
 switch.early.test6284:                            ; preds = %4180
-  switch i8 %.fr6420, label %4183 [
+  switch i8 %.fr6472, label %4183 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18603,13 +18603,13 @@ switch.early.test6284:                            ; preds = %4180
 
 4198:                                             ; preds = %4195, %4195, %4195, %4196, %4193
   %4199 = phi i8 [ %.pre6795, %4195 ], [ %.pre6795, %4195 ], [ %.pre6795, %4195 ], [ %.pre6794, %4196 ], [ %.pre6795, %4193 ]
-  %.fr6419 = freeze i8 %4199
-  %4200 = and i8 %.fr6419, -7
+  %.fr6471 = freeze i8 %4199
+  %4200 = and i8 %.fr6471, -7
   %switch.selectcmp.i.i5751 = icmp eq i8 %4200, 8
   br i1 %switch.selectcmp.i.i5751, label %.thread6013, label %switch.early.test6287
 
 switch.early.test6287:                            ; preds = %4198
-  switch i8 %.fr6419, label %4201 [
+  switch i8 %.fr6471, label %4201 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18795,44 +18795,44 @@ switch.early.test6287:                            ; preds = %4198
 4300:                                             ; preds = %144
   %4301 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6793 = load i8, ptr %39, align 8
-  %.fr6688 = freeze i8 %.pre6793
+  %.fr6469 = freeze i8 %.pre6793
   br i1 %4301, label %4302, label %4311
 
 4302:                                             ; preds = %4300
-  %4303 = and i8 %.fr6688, -7
+  %4303 = and i8 %.fr6469, -7
   %switch.selectcmp.i5754 = icmp eq i8 %4303, 8
-  %4304 = and i8 %.fr6688, -5
+  %4304 = and i8 %.fr6469, -5
   %4305 = icmp eq i8 %4304, 19
-  %or.cond6663 = or i1 %switch.selectcmp.i5754, %4305
-  br i1 %or.cond6663, label %.thread6013, label %4306
+  %or.cond6397 = or i1 %switch.selectcmp.i5754, %4305
+  br i1 %or.cond6397, label %.thread6013, label %4306
 
 4306:                                             ; preds = %4302
-  %4307 = add i8 %.fr6688, -9
+  %4307 = add i8 %.fr6469, -9
   %switch.and.i5755 = and i8 %4307, -7
   %switch.selectcmp.i5756 = icmp eq i8 %switch.and.i5755, 0
-  br i1 %switch.selectcmp.i5756, label %4311, label %switch.early.test6643
+  br i1 %switch.selectcmp.i5756, label %4311, label %switch.early.test6377
 
-switch.early.test6643:                            ; preds = %4306
-  switch i8 %.fr6688, label %4308 [
+switch.early.test6377:                            ; preds = %4306
+  switch i8 %.fr6469, label %4308 [
     i8 82, label %4311
     i8 22, label %4311
     i8 18, label %4311
   ]
 
-4308:                                             ; preds = %switch.early.test6643
+4308:                                             ; preds = %switch.early.test6377
   %4309 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6792 = load i8, ptr %39, align 8
   %4310 = freeze i8 %.pre6792
   br label %4311
 
-4311:                                             ; preds = %switch.early.test6643, %switch.early.test6643, %switch.early.test6643, %4306, %4308, %4300
-  %.fr6418 = phi i8 [ %.fr6688, %switch.early.test6643 ], [ %.fr6688, %switch.early.test6643 ], [ %.fr6688, %switch.early.test6643 ], [ %.fr6688, %4306 ], [ %4310, %4308 ], [ %.fr6688, %4300 ]
-  %4312 = and i8 %.fr6418, -7
+4311:                                             ; preds = %switch.early.test6377, %switch.early.test6377, %switch.early.test6377, %4306, %4308, %4300
+  %.fr6470 = phi i8 [ %.fr6469, %switch.early.test6377 ], [ %.fr6469, %switch.early.test6377 ], [ %.fr6469, %switch.early.test6377 ], [ %.fr6469, %4306 ], [ %4310, %4308 ], [ %.fr6469, %4300 ]
+  %4312 = and i8 %.fr6470, -7
   %switch.selectcmp.i.i5757 = icmp eq i8 %4312, 8
   br i1 %switch.selectcmp.i.i5757, label %.thread6013, label %switch.early.test6290
 
 switch.early.test6290:                            ; preds = %4311
-  switch i8 %.fr6418, label %4313 [
+  switch i8 %.fr6470, label %4313 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18847,44 +18847,44 @@ switch.early.test6290:                            ; preds = %4311
 4318:                                             ; preds = %144
   %4319 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6791 = load i8, ptr %39, align 8
-  %.fr6687 = freeze i8 %.pre6791
+  %.fr6467 = freeze i8 %.pre6791
   br i1 %4319, label %4320, label %4329
 
 4320:                                             ; preds = %4318
-  %4321 = and i8 %.fr6687, -7
+  %4321 = and i8 %.fr6467, -7
   %switch.selectcmp.i5760 = icmp eq i8 %4321, 8
-  %4322 = and i8 %.fr6687, -5
+  %4322 = and i8 %.fr6467, -5
   %4323 = icmp eq i8 %4322, 19
-  %or.cond6665 = or i1 %switch.selectcmp.i5760, %4323
-  br i1 %or.cond6665, label %.thread6013, label %4324
+  %or.cond6399 = or i1 %switch.selectcmp.i5760, %4323
+  br i1 %or.cond6399, label %.thread6013, label %4324
 
 4324:                                             ; preds = %4320
-  %4325 = add i8 %.fr6687, -9
+  %4325 = add i8 %.fr6467, -9
   %switch.and.i5761 = and i8 %4325, -7
   %switch.selectcmp.i5762 = icmp eq i8 %switch.and.i5761, 0
-  br i1 %switch.selectcmp.i5762, label %4329, label %switch.early.test6644
+  br i1 %switch.selectcmp.i5762, label %4329, label %switch.early.test6378
 
-switch.early.test6644:                            ; preds = %4324
-  switch i8 %.fr6687, label %4326 [
+switch.early.test6378:                            ; preds = %4324
+  switch i8 %.fr6467, label %4326 [
     i8 82, label %4329
     i8 22, label %4329
     i8 18, label %4329
   ]
 
-4326:                                             ; preds = %switch.early.test6644
+4326:                                             ; preds = %switch.early.test6378
   %4327 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6790 = load i8, ptr %39, align 8
   %4328 = freeze i8 %.pre6790
   br label %4329
 
-4329:                                             ; preds = %switch.early.test6644, %switch.early.test6644, %switch.early.test6644, %4324, %4326, %4318
-  %.fr6417 = phi i8 [ %.fr6687, %switch.early.test6644 ], [ %.fr6687, %switch.early.test6644 ], [ %.fr6687, %switch.early.test6644 ], [ %.fr6687, %4324 ], [ %4328, %4326 ], [ %.fr6687, %4318 ]
-  %4330 = and i8 %.fr6417, -7
+4329:                                             ; preds = %switch.early.test6378, %switch.early.test6378, %switch.early.test6378, %4324, %4326, %4318
+  %.fr6468 = phi i8 [ %.fr6467, %switch.early.test6378 ], [ %.fr6467, %switch.early.test6378 ], [ %.fr6467, %switch.early.test6378 ], [ %.fr6467, %4324 ], [ %4328, %4326 ], [ %.fr6467, %4318 ]
+  %4330 = and i8 %.fr6468, -7
   %switch.selectcmp.i.i5763 = icmp eq i8 %4330, 8
   br i1 %switch.selectcmp.i.i5763, label %.thread6013, label %switch.early.test6293
 
 switch.early.test6293:                            ; preds = %4329
-  switch i8 %.fr6417, label %4331 [
+  switch i8 %.fr6468, label %4331 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18898,44 +18898,44 @@ switch.early.test6293:                            ; preds = %4329
 4335:                                             ; preds = %144
   %4336 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6789 = load i8, ptr %39, align 8
-  %.fr6686 = freeze i8 %.pre6789
+  %.fr6465 = freeze i8 %.pre6789
   br i1 %4336, label %4337, label %4346
 
 4337:                                             ; preds = %4335
-  %4338 = and i8 %.fr6686, -7
+  %4338 = and i8 %.fr6465, -7
   %switch.selectcmp.i5766 = icmp eq i8 %4338, 8
-  %4339 = and i8 %.fr6686, -5
+  %4339 = and i8 %.fr6465, -5
   %4340 = icmp eq i8 %4339, 19
-  %or.cond6667 = or i1 %switch.selectcmp.i5766, %4340
-  br i1 %or.cond6667, label %.thread6013, label %4341
+  %or.cond6401 = or i1 %switch.selectcmp.i5766, %4340
+  br i1 %or.cond6401, label %.thread6013, label %4341
 
 4341:                                             ; preds = %4337
-  %4342 = add i8 %.fr6686, -9
+  %4342 = add i8 %.fr6465, -9
   %switch.and.i5767 = and i8 %4342, -7
   %switch.selectcmp.i5768 = icmp eq i8 %switch.and.i5767, 0
-  br i1 %switch.selectcmp.i5768, label %4346, label %switch.early.test6645
+  br i1 %switch.selectcmp.i5768, label %4346, label %switch.early.test6379
 
-switch.early.test6645:                            ; preds = %4341
-  switch i8 %.fr6686, label %4343 [
+switch.early.test6379:                            ; preds = %4341
+  switch i8 %.fr6465, label %4343 [
     i8 82, label %4346
     i8 22, label %4346
     i8 18, label %4346
   ]
 
-4343:                                             ; preds = %switch.early.test6645
+4343:                                             ; preds = %switch.early.test6379
   %4344 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6788 = load i8, ptr %39, align 8
   %4345 = freeze i8 %.pre6788
   br label %4346
 
-4346:                                             ; preds = %switch.early.test6645, %switch.early.test6645, %switch.early.test6645, %4341, %4343, %4335
-  %.fr6416 = phi i8 [ %.fr6686, %switch.early.test6645 ], [ %.fr6686, %switch.early.test6645 ], [ %.fr6686, %switch.early.test6645 ], [ %.fr6686, %4341 ], [ %4345, %4343 ], [ %.fr6686, %4335 ]
-  %4347 = and i8 %.fr6416, -7
+4346:                                             ; preds = %switch.early.test6379, %switch.early.test6379, %switch.early.test6379, %4341, %4343, %4335
+  %.fr6466 = phi i8 [ %.fr6465, %switch.early.test6379 ], [ %.fr6465, %switch.early.test6379 ], [ %.fr6465, %switch.early.test6379 ], [ %.fr6465, %4341 ], [ %4345, %4343 ], [ %.fr6465, %4335 ]
+  %4347 = and i8 %.fr6466, -7
   %switch.selectcmp.i.i5769 = icmp eq i8 %4347, 8
   br i1 %switch.selectcmp.i.i5769, label %.thread6013, label %switch.early.test6296
 
 switch.early.test6296:                            ; preds = %4346
-  switch i8 %.fr6416, label %4348 [
+  switch i8 %.fr6466, label %4348 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -18949,44 +18949,44 @@ switch.early.test6296:                            ; preds = %4346
 4352:                                             ; preds = %144
   %4353 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6787 = load i8, ptr %39, align 8
-  %.fr6685 = freeze i8 %.pre6787
+  %.fr6463 = freeze i8 %.pre6787
   br i1 %4353, label %4354, label %4363
 
 4354:                                             ; preds = %4352
-  %4355 = and i8 %.fr6685, -7
+  %4355 = and i8 %.fr6463, -7
   %switch.selectcmp.i5772 = icmp eq i8 %4355, 8
-  %4356 = and i8 %.fr6685, -5
+  %4356 = and i8 %.fr6463, -5
   %4357 = icmp eq i8 %4356, 19
-  %or.cond6669 = or i1 %switch.selectcmp.i5772, %4357
-  br i1 %or.cond6669, label %.thread6013, label %4358
+  %or.cond6403 = or i1 %switch.selectcmp.i5772, %4357
+  br i1 %or.cond6403, label %.thread6013, label %4358
 
 4358:                                             ; preds = %4354
-  %4359 = add i8 %.fr6685, -9
+  %4359 = add i8 %.fr6463, -9
   %switch.and.i5773 = and i8 %4359, -7
   %switch.selectcmp.i5774 = icmp eq i8 %switch.and.i5773, 0
-  br i1 %switch.selectcmp.i5774, label %4363, label %switch.early.test6646
+  br i1 %switch.selectcmp.i5774, label %4363, label %switch.early.test6380
 
-switch.early.test6646:                            ; preds = %4358
-  switch i8 %.fr6685, label %4360 [
+switch.early.test6380:                            ; preds = %4358
+  switch i8 %.fr6463, label %4360 [
     i8 82, label %4363
     i8 22, label %4363
     i8 18, label %4363
   ]
 
-4360:                                             ; preds = %switch.early.test6646
+4360:                                             ; preds = %switch.early.test6380
   %4361 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6786 = load i8, ptr %39, align 8
   %4362 = freeze i8 %.pre6786
   br label %4363
 
-4363:                                             ; preds = %switch.early.test6646, %switch.early.test6646, %switch.early.test6646, %4358, %4360, %4352
-  %.fr6415 = phi i8 [ %.fr6685, %switch.early.test6646 ], [ %.fr6685, %switch.early.test6646 ], [ %.fr6685, %switch.early.test6646 ], [ %.fr6685, %4358 ], [ %4362, %4360 ], [ %.fr6685, %4352 ]
-  %4364 = and i8 %.fr6415, -7
+4363:                                             ; preds = %switch.early.test6380, %switch.early.test6380, %switch.early.test6380, %4358, %4360, %4352
+  %.fr6464 = phi i8 [ %.fr6463, %switch.early.test6380 ], [ %.fr6463, %switch.early.test6380 ], [ %.fr6463, %switch.early.test6380 ], [ %.fr6463, %4358 ], [ %4362, %4360 ], [ %.fr6463, %4352 ]
+  %4364 = and i8 %.fr6464, -7
   %switch.selectcmp.i.i5775 = icmp eq i8 %4364, 8
   br i1 %switch.selectcmp.i.i5775, label %.thread6013, label %switch.early.test6299
 
 switch.early.test6299:                            ; preds = %4363
-  switch i8 %.fr6415, label %4365 [
+  switch i8 %.fr6464, label %4365 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19000,44 +19000,44 @@ switch.early.test6299:                            ; preds = %4363
 4369:                                             ; preds = %144
   %4370 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6785 = load i8, ptr %39, align 8
-  %.fr6684 = freeze i8 %.pre6785
+  %.fr6461 = freeze i8 %.pre6785
   br i1 %4370, label %4371, label %4380
 
 4371:                                             ; preds = %4369
-  %4372 = and i8 %.fr6684, -7
+  %4372 = and i8 %.fr6461, -7
   %switch.selectcmp.i5778 = icmp eq i8 %4372, 8
-  %4373 = and i8 %.fr6684, -5
+  %4373 = and i8 %.fr6461, -5
   %4374 = icmp eq i8 %4373, 19
-  %or.cond6671 = or i1 %switch.selectcmp.i5778, %4374
-  br i1 %or.cond6671, label %.thread6013, label %4375
+  %or.cond6405 = or i1 %switch.selectcmp.i5778, %4374
+  br i1 %or.cond6405, label %.thread6013, label %4375
 
 4375:                                             ; preds = %4371
-  %4376 = add i8 %.fr6684, -9
+  %4376 = add i8 %.fr6461, -9
   %switch.and.i5779 = and i8 %4376, -7
   %switch.selectcmp.i5780 = icmp eq i8 %switch.and.i5779, 0
-  br i1 %switch.selectcmp.i5780, label %4380, label %switch.early.test6647
+  br i1 %switch.selectcmp.i5780, label %4380, label %switch.early.test6381
 
-switch.early.test6647:                            ; preds = %4375
-  switch i8 %.fr6684, label %4377 [
+switch.early.test6381:                            ; preds = %4375
+  switch i8 %.fr6461, label %4377 [
     i8 82, label %4380
     i8 22, label %4380
     i8 18, label %4380
   ]
 
-4377:                                             ; preds = %switch.early.test6647
+4377:                                             ; preds = %switch.early.test6381
   %4378 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6784 = load i8, ptr %39, align 8
   %4379 = freeze i8 %.pre6784
   br label %4380
 
-4380:                                             ; preds = %switch.early.test6647, %switch.early.test6647, %switch.early.test6647, %4375, %4377, %4369
-  %.fr6414 = phi i8 [ %.fr6684, %switch.early.test6647 ], [ %.fr6684, %switch.early.test6647 ], [ %.fr6684, %switch.early.test6647 ], [ %.fr6684, %4375 ], [ %4379, %4377 ], [ %.fr6684, %4369 ]
-  %4381 = and i8 %.fr6414, -7
+4380:                                             ; preds = %switch.early.test6381, %switch.early.test6381, %switch.early.test6381, %4375, %4377, %4369
+  %.fr6462 = phi i8 [ %.fr6461, %switch.early.test6381 ], [ %.fr6461, %switch.early.test6381 ], [ %.fr6461, %switch.early.test6381 ], [ %.fr6461, %4375 ], [ %4379, %4377 ], [ %.fr6461, %4369 ]
+  %4381 = and i8 %.fr6462, -7
   %switch.selectcmp.i.i5781 = icmp eq i8 %4381, 8
   br i1 %switch.selectcmp.i.i5781, label %.thread6013, label %switch.early.test6302
 
 switch.early.test6302:                            ; preds = %4380
-  switch i8 %.fr6414, label %4382 [
+  switch i8 %.fr6462, label %4382 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19051,44 +19051,44 @@ switch.early.test6302:                            ; preds = %4380
 4386:                                             ; preds = %144
   %4387 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6783 = load i8, ptr %39, align 8
-  %.fr6683 = freeze i8 %.pre6783
+  %.fr6459 = freeze i8 %.pre6783
   br i1 %4387, label %4388, label %4397
 
 4388:                                             ; preds = %4386
-  %4389 = and i8 %.fr6683, -7
+  %4389 = and i8 %.fr6459, -7
   %switch.selectcmp.i5784 = icmp eq i8 %4389, 8
-  %4390 = and i8 %.fr6683, -5
+  %4390 = and i8 %.fr6459, -5
   %4391 = icmp eq i8 %4390, 19
-  %or.cond6673 = or i1 %switch.selectcmp.i5784, %4391
-  br i1 %or.cond6673, label %.thread6013, label %4392
+  %or.cond6407 = or i1 %switch.selectcmp.i5784, %4391
+  br i1 %or.cond6407, label %.thread6013, label %4392
 
 4392:                                             ; preds = %4388
-  %4393 = add i8 %.fr6683, -9
+  %4393 = add i8 %.fr6459, -9
   %switch.and.i5785 = and i8 %4393, -7
   %switch.selectcmp.i5786 = icmp eq i8 %switch.and.i5785, 0
-  br i1 %switch.selectcmp.i5786, label %4397, label %switch.early.test6648
+  br i1 %switch.selectcmp.i5786, label %4397, label %switch.early.test6382
 
-switch.early.test6648:                            ; preds = %4392
-  switch i8 %.fr6683, label %4394 [
+switch.early.test6382:                            ; preds = %4392
+  switch i8 %.fr6459, label %4394 [
     i8 82, label %4397
     i8 22, label %4397
     i8 18, label %4397
   ]
 
-4394:                                             ; preds = %switch.early.test6648
+4394:                                             ; preds = %switch.early.test6382
   %4395 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6782 = load i8, ptr %39, align 8
   %4396 = freeze i8 %.pre6782
   br label %4397
 
-4397:                                             ; preds = %switch.early.test6648, %switch.early.test6648, %switch.early.test6648, %4392, %4394, %4386
-  %.fr6413 = phi i8 [ %.fr6683, %switch.early.test6648 ], [ %.fr6683, %switch.early.test6648 ], [ %.fr6683, %switch.early.test6648 ], [ %.fr6683, %4392 ], [ %4396, %4394 ], [ %.fr6683, %4386 ]
-  %4398 = and i8 %.fr6413, -7
+4397:                                             ; preds = %switch.early.test6382, %switch.early.test6382, %switch.early.test6382, %4392, %4394, %4386
+  %.fr6460 = phi i8 [ %.fr6459, %switch.early.test6382 ], [ %.fr6459, %switch.early.test6382 ], [ %.fr6459, %switch.early.test6382 ], [ %.fr6459, %4392 ], [ %4396, %4394 ], [ %.fr6459, %4386 ]
+  %4398 = and i8 %.fr6460, -7
   %switch.selectcmp.i.i5787 = icmp eq i8 %4398, 8
   br i1 %switch.selectcmp.i.i5787, label %.thread6013, label %switch.early.test6305
 
 switch.early.test6305:                            ; preds = %4397
-  switch i8 %.fr6413, label %4399 [
+  switch i8 %.fr6460, label %4399 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19102,44 +19102,44 @@ switch.early.test6305:                            ; preds = %4397
 4403:                                             ; preds = %144
   %4404 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6781 = load i8, ptr %39, align 8
-  %.fr6682 = freeze i8 %.pre6781
+  %.fr6457 = freeze i8 %.pre6781
   br i1 %4404, label %4405, label %4414
 
 4405:                                             ; preds = %4403
-  %4406 = and i8 %.fr6682, -7
+  %4406 = and i8 %.fr6457, -7
   %switch.selectcmp.i5790 = icmp eq i8 %4406, 8
-  %4407 = and i8 %.fr6682, -5
+  %4407 = and i8 %.fr6457, -5
   %4408 = icmp eq i8 %4407, 19
-  %or.cond6675 = or i1 %switch.selectcmp.i5790, %4408
-  br i1 %or.cond6675, label %.thread6013, label %4409
+  %or.cond6409 = or i1 %switch.selectcmp.i5790, %4408
+  br i1 %or.cond6409, label %.thread6013, label %4409
 
 4409:                                             ; preds = %4405
-  %4410 = add i8 %.fr6682, -9
+  %4410 = add i8 %.fr6457, -9
   %switch.and.i5791 = and i8 %4410, -7
   %switch.selectcmp.i5792 = icmp eq i8 %switch.and.i5791, 0
-  br i1 %switch.selectcmp.i5792, label %4414, label %switch.early.test6649
+  br i1 %switch.selectcmp.i5792, label %4414, label %switch.early.test6383
 
-switch.early.test6649:                            ; preds = %4409
-  switch i8 %.fr6682, label %4411 [
+switch.early.test6383:                            ; preds = %4409
+  switch i8 %.fr6457, label %4411 [
     i8 82, label %4414
     i8 22, label %4414
     i8 18, label %4414
   ]
 
-4411:                                             ; preds = %switch.early.test6649
+4411:                                             ; preds = %switch.early.test6383
   %4412 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6780 = load i8, ptr %39, align 8
   %4413 = freeze i8 %.pre6780
   br label %4414
 
-4414:                                             ; preds = %switch.early.test6649, %switch.early.test6649, %switch.early.test6649, %4409, %4411, %4403
-  %.fr6412 = phi i8 [ %.fr6682, %switch.early.test6649 ], [ %.fr6682, %switch.early.test6649 ], [ %.fr6682, %switch.early.test6649 ], [ %.fr6682, %4409 ], [ %4413, %4411 ], [ %.fr6682, %4403 ]
-  %4415 = and i8 %.fr6412, -7
+4414:                                             ; preds = %switch.early.test6383, %switch.early.test6383, %switch.early.test6383, %4409, %4411, %4403
+  %.fr6458 = phi i8 [ %.fr6457, %switch.early.test6383 ], [ %.fr6457, %switch.early.test6383 ], [ %.fr6457, %switch.early.test6383 ], [ %.fr6457, %4409 ], [ %4413, %4411 ], [ %.fr6457, %4403 ]
+  %4415 = and i8 %.fr6458, -7
   %switch.selectcmp.i.i5793 = icmp eq i8 %4415, 8
   br i1 %switch.selectcmp.i.i5793, label %.thread6013, label %switch.early.test6308
 
 switch.early.test6308:                            ; preds = %4414
-  switch i8 %.fr6412, label %4416 [
+  switch i8 %.fr6458, label %4416 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19153,44 +19153,44 @@ switch.early.test6308:                            ; preds = %4414
 4420:                                             ; preds = %144
   %4421 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6779 = load i8, ptr %39, align 8
-  %.fr6681 = freeze i8 %.pre6779
+  %.fr6455 = freeze i8 %.pre6779
   br i1 %4421, label %4422, label %4431
 
 4422:                                             ; preds = %4420
-  %4423 = and i8 %.fr6681, -7
+  %4423 = and i8 %.fr6455, -7
   %switch.selectcmp.i5796 = icmp eq i8 %4423, 8
-  %4424 = and i8 %.fr6681, -5
+  %4424 = and i8 %.fr6455, -5
   %4425 = icmp eq i8 %4424, 19
-  %or.cond6677 = or i1 %switch.selectcmp.i5796, %4425
-  br i1 %or.cond6677, label %.thread6013, label %4426
+  %or.cond6411 = or i1 %switch.selectcmp.i5796, %4425
+  br i1 %or.cond6411, label %.thread6013, label %4426
 
 4426:                                             ; preds = %4422
-  %4427 = add i8 %.fr6681, -9
+  %4427 = add i8 %.fr6455, -9
   %switch.and.i5797 = and i8 %4427, -7
   %switch.selectcmp.i5798 = icmp eq i8 %switch.and.i5797, 0
-  br i1 %switch.selectcmp.i5798, label %4431, label %switch.early.test6650
+  br i1 %switch.selectcmp.i5798, label %4431, label %switch.early.test6384
 
-switch.early.test6650:                            ; preds = %4426
-  switch i8 %.fr6681, label %4428 [
+switch.early.test6384:                            ; preds = %4426
+  switch i8 %.fr6455, label %4428 [
     i8 82, label %4431
     i8 22, label %4431
     i8 18, label %4431
   ]
 
-4428:                                             ; preds = %switch.early.test6650
+4428:                                             ; preds = %switch.early.test6384
   %4429 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6778 = load i8, ptr %39, align 8
   %4430 = freeze i8 %.pre6778
   br label %4431
 
-4431:                                             ; preds = %switch.early.test6650, %switch.early.test6650, %switch.early.test6650, %4426, %4428, %4420
-  %.fr6411 = phi i8 [ %.fr6681, %switch.early.test6650 ], [ %.fr6681, %switch.early.test6650 ], [ %.fr6681, %switch.early.test6650 ], [ %.fr6681, %4426 ], [ %4430, %4428 ], [ %.fr6681, %4420 ]
-  %4432 = and i8 %.fr6411, -7
+4431:                                             ; preds = %switch.early.test6384, %switch.early.test6384, %switch.early.test6384, %4426, %4428, %4420
+  %.fr6456 = phi i8 [ %.fr6455, %switch.early.test6384 ], [ %.fr6455, %switch.early.test6384 ], [ %.fr6455, %switch.early.test6384 ], [ %.fr6455, %4426 ], [ %4430, %4428 ], [ %.fr6455, %4420 ]
+  %4432 = and i8 %.fr6456, -7
   %switch.selectcmp.i.i5799 = icmp eq i8 %4432, 8
   br i1 %switch.selectcmp.i.i5799, label %.thread6013, label %switch.early.test6311
 
 switch.early.test6311:                            ; preds = %4431
-  switch i8 %.fr6411, label %4433 [
+  switch i8 %.fr6456, label %4433 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19205,44 +19205,44 @@ switch.early.test6311:                            ; preds = %4431
 4438:                                             ; preds = %144
   %4439 = icmp eq i16 %.sroa.0270.0.copyload, 6177
   %.pre6777 = load i8, ptr %39, align 8
-  %.fr6680 = freeze i8 %.pre6777
+  %.fr6453 = freeze i8 %.pre6777
   br i1 %4439, label %4440, label %4449
 
 4440:                                             ; preds = %4438
-  %4441 = and i8 %.fr6680, -7
+  %4441 = and i8 %.fr6453, -7
   %switch.selectcmp.i5802 = icmp eq i8 %4441, 8
-  %4442 = and i8 %.fr6680, -5
+  %4442 = and i8 %.fr6453, -5
   %4443 = icmp eq i8 %4442, 19
-  %or.cond6679 = or i1 %switch.selectcmp.i5802, %4443
-  br i1 %or.cond6679, label %.thread6013, label %4444
+  %or.cond6413 = or i1 %switch.selectcmp.i5802, %4443
+  br i1 %or.cond6413, label %.thread6013, label %4444
 
 4444:                                             ; preds = %4440
-  %4445 = add i8 %.fr6680, -9
+  %4445 = add i8 %.fr6453, -9
   %switch.and.i5803 = and i8 %4445, -7
   %switch.selectcmp.i5804 = icmp eq i8 %switch.and.i5803, 0
-  br i1 %switch.selectcmp.i5804, label %4449, label %switch.early.test6651
+  br i1 %switch.selectcmp.i5804, label %4449, label %switch.early.test6385
 
-switch.early.test6651:                            ; preds = %4444
-  switch i8 %.fr6680, label %4446 [
+switch.early.test6385:                            ; preds = %4444
+  switch i8 %.fr6453, label %4446 [
     i8 82, label %4449
     i8 22, label %4449
     i8 18, label %4449
   ]
 
-4446:                                             ; preds = %switch.early.test6651
+4446:                                             ; preds = %switch.early.test6385
   %4447 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %0, ptr noundef nonnull @ei_btatt_invalid_usage)
   %.pre6776 = load i8, ptr %39, align 8
   %4448 = freeze i8 %.pre6776
   br label %4449
 
-4449:                                             ; preds = %switch.early.test6651, %switch.early.test6651, %switch.early.test6651, %4444, %4446, %4438
-  %.fr6410 = phi i8 [ %.fr6680, %switch.early.test6651 ], [ %.fr6680, %switch.early.test6651 ], [ %.fr6680, %switch.early.test6651 ], [ %.fr6680, %4444 ], [ %4448, %4446 ], [ %.fr6680, %4438 ]
-  %4450 = and i8 %.fr6410, -7
+4449:                                             ; preds = %switch.early.test6385, %switch.early.test6385, %switch.early.test6385, %4444, %4446, %4438
+  %.fr6454 = phi i8 [ %.fr6453, %switch.early.test6385 ], [ %.fr6453, %switch.early.test6385 ], [ %.fr6453, %switch.early.test6385 ], [ %.fr6453, %4444 ], [ %4448, %4446 ], [ %.fr6453, %4438 ]
+  %4450 = and i8 %.fr6454, -7
   %switch.selectcmp.i.i5805 = icmp eq i8 %4450, 8
   br i1 %switch.selectcmp.i.i5805, label %.thread6013, label %switch.early.test6314
 
 switch.early.test6314:                            ; preds = %4449
-  switch i8 %.fr6410, label %4451 [
+  switch i8 %.fr6454, label %4451 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19274,13 +19274,13 @@ switch.early.test6314:                            ; preds = %4449
 
 4463:                                             ; preds = %4459, %4461, %4457
   %4464 = phi i8 [ %.pre6775, %4459 ], [ %.pre6774, %4461 ], [ %.pre6775, %4457 ]
-  %.fr6409 = freeze i8 %4464
-  %4465 = and i8 %.fr6409, -7
+  %.fr6452 = freeze i8 %4464
+  %4465 = and i8 %.fr6452, -7
   %switch.selectcmp.i.i5808 = icmp eq i8 %4465, 8
   br i1 %switch.selectcmp.i.i5808, label %.thread6013, label %switch.early.test6315
 
 switch.early.test6315:                            ; preds = %4463
-  switch i8 %.fr6409, label %4466 [
+  switch i8 %.fr6452, label %4466 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19323,13 +19323,13 @@ switch.early.test6315:                            ; preds = %4463
 
 4484:                                             ; preds = %4479, %4482, %4472
   %4485 = phi i8 [ %.pre6773, %4479 ], [ %.pre6772, %4482 ], [ %.pre6773, %4472 ]
-  %.fr6408 = freeze i8 %4485
-  %4486 = and i8 %.fr6408, -7
+  %.fr6451 = freeze i8 %4485
+  %4486 = and i8 %.fr6451, -7
   %switch.selectcmp.i.i5814 = icmp eq i8 %4486, 8
   br i1 %switch.selectcmp.i.i5814, label %.thread6013, label %switch.early.test6317
 
 switch.early.test6317:                            ; preds = %4484
-  switch i8 %.fr6408, label %4487 [
+  switch i8 %.fr6451, label %4487 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19363,13 +19363,13 @@ switch.early.test6317:                            ; preds = %4484
 
 4503:                                             ; preds = %4501, %4498
   %4504 = phi i8 [ %.pre6770, %4501 ], [ %.pre6771, %4498 ]
-  %.fr6407 = freeze i8 %4504
-  %4505 = and i8 %.fr6407, -7
+  %.fr6450 = freeze i8 %4504
+  %4505 = and i8 %.fr6450, -7
   %switch.selectcmp.i.i5817 = icmp eq i8 %4505, 8
   br i1 %switch.selectcmp.i.i5817, label %.thread6013, label %switch.early.test6318
 
 switch.early.test6318:                            ; preds = %4503
-  switch i8 %.fr6407, label %switch.early.test6318.thread [
+  switch i8 %.fr6450, label %switch.early.test6318.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19414,13 +19414,13 @@ switch.early.test6318.thread:                     ; preds = %4500, %switch.early
 
 4525:                                             ; preds = %4520, %4523, %4513
   %4526 = phi i8 [ %.pre6769, %4520 ], [ %.pre6768, %4523 ], [ %.pre6769, %4513 ]
-  %.fr6406 = freeze i8 %4526
-  %4527 = and i8 %.fr6406, -7
+  %.fr6449 = freeze i8 %4526
+  %4527 = and i8 %.fr6449, -7
   %switch.selectcmp.i.i5823 = icmp eq i8 %4527, 8
   br i1 %switch.selectcmp.i.i5823, label %.thread6013, label %switch.early.test6320
 
 switch.early.test6320:                            ; preds = %4525
-  switch i8 %.fr6406, label %4528 [
+  switch i8 %.fr6449, label %4528 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19452,13 +19452,13 @@ switch.early.test6320:                            ; preds = %4525
 
 4540:                                             ; preds = %4536, %4538, %4534
   %4541 = phi i8 [ %.pre6767, %4536 ], [ %.pre6766, %4538 ], [ %.pre6767, %4534 ]
-  %.fr6405 = freeze i8 %4541
-  %4542 = and i8 %.fr6405, -7
+  %.fr6448 = freeze i8 %4541
+  %4542 = and i8 %.fr6448, -7
   %switch.selectcmp.i.i5826 = icmp eq i8 %4542, 8
   br i1 %switch.selectcmp.i.i5826, label %.thread6013, label %switch.early.test6321
 
 switch.early.test6321:                            ; preds = %4540
-  switch i8 %.fr6405, label %4543 [
+  switch i8 %.fr6448, label %4543 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19492,13 +19492,13 @@ switch.early.test6321:                            ; preds = %4540
 
 4555:                                             ; preds = %4551, %4553, %4547
   %4556 = phi i8 [ %.pre6765, %4551 ], [ %.pre6764, %4553 ], [ %.pre6765, %4547 ]
-  %.fr6404 = freeze i8 %4556
-  %4557 = and i8 %.fr6404, -7
+  %.fr6447 = freeze i8 %4556
+  %4557 = and i8 %.fr6447, -7
   %switch.selectcmp.i.i5832 = icmp eq i8 %4557, 8
   br i1 %switch.selectcmp.i.i5832, label %.thread6013, label %switch.early.test6322
 
 switch.early.test6322:                            ; preds = %4555
-  switch i8 %.fr6404, label %4558 [
+  switch i8 %.fr6447, label %4558 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19531,13 +19531,13 @@ switch.early.test6322:                            ; preds = %4555
 
 4567:                                             ; preds = %4564, %4564, %4564, %4565, %4562
   %4568 = phi i8 [ %.pre6763, %4564 ], [ %.pre6763, %4564 ], [ %.pre6763, %4564 ], [ %.pre6762, %4565 ], [ %.pre6763, %4562 ]
-  %.fr6403 = freeze i8 %4568
-  %4569 = and i8 %.fr6403, -7
+  %.fr6446 = freeze i8 %4568
+  %4569 = and i8 %.fr6446, -7
   %switch.selectcmp.i.i5835 = icmp eq i8 %4569, 8
   br i1 %switch.selectcmp.i.i5835, label %.thread6013, label %switch.early.test6325
 
 switch.early.test6325:                            ; preds = %4567
-  switch i8 %.fr6403, label %4570 [
+  switch i8 %.fr6446, label %4570 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19590,13 +19590,13 @@ switch.early.test6325:                            ; preds = %4567
 
 4594:                                             ; preds = %4590, %4592, %4586
   %4595 = phi i8 [ %.pre6761, %4590 ], [ %.pre6760, %4592 ], [ %.pre6761, %4586 ]
-  %.fr6402 = freeze i8 %4595
-  %4596 = and i8 %.fr6402, -7
+  %.fr6445 = freeze i8 %4595
+  %4596 = and i8 %.fr6445, -7
   %switch.selectcmp.i.i5841 = icmp eq i8 %4596, 8
   br i1 %switch.selectcmp.i.i5841, label %.thread6013, label %switch.early.test6326
 
 switch.early.test6326:                            ; preds = %4594
-  switch i8 %.fr6402, label %4597 [
+  switch i8 %.fr6445, label %4597 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19642,13 +19642,13 @@ switch.early.test6326:                            ; preds = %4594
 
 4618:                                             ; preds = %4613, %4616, %4606
   %4619 = phi i8 [ %.pre6759, %4613 ], [ %.pre6758, %4616 ], [ %.pre6759, %4606 ]
-  %.fr6401 = freeze i8 %4619
-  %4620 = and i8 %.fr6401, -7
+  %.fr6444 = freeze i8 %4619
+  %4620 = and i8 %.fr6444, -7
   %switch.selectcmp.i.i5847 = icmp eq i8 %4620, 8
   br i1 %switch.selectcmp.i.i5847, label %.thread6013, label %switch.early.test6328
 
 switch.early.test6328:                            ; preds = %4618
-  switch i8 %.fr6401, label %4621 [
+  switch i8 %.fr6444, label %4621 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19684,13 +19684,13 @@ switch.early.test6328:                            ; preds = %4618
 
 4635:                                             ; preds = %4631, %4633, %4627
   %4636 = phi i8 [ %.pre6757, %4631 ], [ %.pre6756, %4633 ], [ %.pre6757, %4627 ]
-  %.fr6400 = freeze i8 %4636
-  %4637 = and i8 %.fr6400, -7
+  %.fr6443 = freeze i8 %4636
+  %4637 = and i8 %.fr6443, -7
   %switch.selectcmp.i.i5853 = icmp eq i8 %4637, 8
   br i1 %switch.selectcmp.i.i5853, label %.thread6013, label %switch.early.test6329
 
 switch.early.test6329:                            ; preds = %4635
-  switch i8 %.fr6400, label %4638 [
+  switch i8 %.fr6443, label %4638 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19722,13 +19722,13 @@ switch.early.test6329:                            ; preds = %4635
 
 4648:                                             ; preds = %4644, %4646, %4640
   %4649 = phi i8 [ %.pre6755, %4644 ], [ %.pre6754, %4646 ], [ %.pre6755, %4640 ]
-  %.fr6399 = freeze i8 %4649
-  %4650 = and i8 %.fr6399, -7
+  %.fr6442 = freeze i8 %4649
+  %4650 = and i8 %.fr6442, -7
   %switch.selectcmp.i.i5859 = icmp eq i8 %4650, 8
   br i1 %switch.selectcmp.i.i5859, label %.thread6013, label %switch.early.test6330
 
 switch.early.test6330:                            ; preds = %4648
-  switch i8 %.fr6399, label %4651 [
+  switch i8 %.fr6442, label %4651 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19772,13 +19772,13 @@ switch.early.test6330:                            ; preds = %4648
 
 4670:                                             ; preds = %4665, %4668, %4658
   %4671 = phi i8 [ %.pre6753, %4665 ], [ %.pre6752, %4668 ], [ %.pre6753, %4658 ]
-  %.fr6398 = freeze i8 %4671
-  %4672 = and i8 %.fr6398, -7
+  %.fr6441 = freeze i8 %4671
+  %4672 = and i8 %.fr6441, -7
   %switch.selectcmp.i.i5865 = icmp eq i8 %4672, 8
   br i1 %switch.selectcmp.i.i5865, label %.thread6013, label %switch.early.test6332
 
 switch.early.test6332:                            ; preds = %4670
-  switch i8 %.fr6398, label %4673 [
+  switch i8 %.fr6441, label %4673 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19823,13 +19823,13 @@ switch.early.test6332:                            ; preds = %4670
 
 4692:                                             ; preds = %4687, %4690, %4680
   %4693 = phi i8 [ %.pre6751, %4687 ], [ %.pre6750, %4690 ], [ %.pre6751, %4680 ]
-  %.fr6397 = freeze i8 %4693
-  %4694 = and i8 %.fr6397, -7
+  %.fr6440 = freeze i8 %4693
+  %4694 = and i8 %.fr6440, -7
   %switch.selectcmp.i.i5871 = icmp eq i8 %4694, 8
   br i1 %switch.selectcmp.i.i5871, label %.thread6013, label %switch.early.test6334
 
 switch.early.test6334:                            ; preds = %4692
-  switch i8 %.fr6397, label %4695 [
+  switch i8 %.fr6440, label %4695 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19867,13 +19867,13 @@ switch.early.test6334:                            ; preds = %4692
 
 4710:                                             ; preds = %4706, %4708, %4702
   %4711 = phi i8 [ %.pre6749, %4706 ], [ %.pre6748, %4708 ], [ %.pre6749, %4702 ]
-  %.fr6396 = freeze i8 %4711
-  %4712 = and i8 %.fr6396, -7
+  %.fr6439 = freeze i8 %4711
+  %4712 = and i8 %.fr6439, -7
   %switch.selectcmp.i.i5877 = icmp eq i8 %4712, 8
   br i1 %switch.selectcmp.i.i5877, label %.thread6013, label %switch.early.test6335
 
 switch.early.test6335:                            ; preds = %4710
-  switch i8 %.fr6396, label %4713 [
+  switch i8 %.fr6439, label %4713 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19914,13 +19914,13 @@ switch.early.test6335:                            ; preds = %4710
 
 4729:                                             ; preds = %4724, %4727, %4717
   %4730 = phi i8 [ %.pre6747, %4724 ], [ %.pre6746, %4727 ], [ %.pre6747, %4717 ]
-  %.fr6395 = freeze i8 %4730
-  %4731 = and i8 %.fr6395, -7
+  %.fr6438 = freeze i8 %4730
+  %4731 = and i8 %.fr6438, -7
   %switch.selectcmp.i.i5883 = icmp eq i8 %4731, 8
   br i1 %switch.selectcmp.i.i5883, label %.thread6013, label %switch.early.test6337
 
 switch.early.test6337:                            ; preds = %4729
-  switch i8 %.fr6395, label %4732 [
+  switch i8 %.fr6438, label %4732 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -19954,13 +19954,13 @@ switch.early.test6337:                            ; preds = %4729
 
 4742:                                             ; preds = %4739, %4739, %4739, %4740, %4737
   %4743 = phi i8 [ %.pre6745, %4739 ], [ %.pre6745, %4739 ], [ %.pre6745, %4739 ], [ %.pre6744, %4740 ], [ %.pre6745, %4737 ]
-  %.fr6394 = freeze i8 %4743
-  %4744 = and i8 %.fr6394, -7
+  %.fr6437 = freeze i8 %4743
+  %4744 = and i8 %.fr6437, -7
   %switch.selectcmp.i.i5886 = icmp eq i8 %4744, 8
   br i1 %switch.selectcmp.i.i5886, label %.thread6013, label %switch.early.test6340
 
 switch.early.test6340:                            ; preds = %4742
-  switch i8 %.fr6394, label %4745 [
+  switch i8 %.fr6437, label %4745 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20062,13 +20062,13 @@ switch.early.test6340:                            ; preds = %4742
 
 4797:                                             ; preds = %4794, %4794, %4794, %4795, %4792
   %4798 = phi i8 [ %.pre6743, %4794 ], [ %.pre6743, %4794 ], [ %.pre6743, %4794 ], [ %.pre6742, %4795 ], [ %.pre6743, %4792 ]
-  %.fr6393 = freeze i8 %4798
-  %4799 = and i8 %.fr6393, -7
+  %.fr6436 = freeze i8 %4798
+  %4799 = and i8 %.fr6436, -7
   %switch.selectcmp.i.i5889 = icmp eq i8 %4799, 8
   br i1 %switch.selectcmp.i.i5889, label %.thread6013, label %switch.early.test6343
 
 switch.early.test6343:                            ; preds = %4797
-  switch i8 %.fr6393, label %4800 [
+  switch i8 %.fr6436, label %4800 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20143,13 +20143,13 @@ switch.early.test6343:                            ; preds = %4797
 
 4837:                                             ; preds = %4832, %4835, %4825
   %4838 = phi i8 [ %.pre6741, %4832 ], [ %.pre6740, %4835 ], [ %.pre6741, %4825 ]
-  %.fr6392 = freeze i8 %4838
-  %4839 = and i8 %.fr6392, -7
+  %.fr6435 = freeze i8 %4838
+  %4839 = and i8 %.fr6435, -7
   %switch.selectcmp.i.i5895 = icmp eq i8 %4839, 8
   br i1 %switch.selectcmp.i.i5895, label %.thread6013, label %switch.early.test6345
 
 switch.early.test6345:                            ; preds = %4837
-  switch i8 %.fr6392, label %4840 [
+  switch i8 %.fr6435, label %4840 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20219,13 +20219,13 @@ switch.early.test6345:                            ; preds = %4837
 
 4870:                                             ; preds = %4868, %4865
   %4871 = phi i8 [ %.pre6738, %4868 ], [ %.pre6739, %4865 ]
-  %.fr6391 = freeze i8 %4871
-  %4872 = and i8 %.fr6391, -7
+  %.fr6434 = freeze i8 %4871
+  %4872 = and i8 %.fr6434, -7
   %switch.selectcmp.i.i5898 = icmp eq i8 %4872, 8
   br i1 %switch.selectcmp.i.i5898, label %.thread6013, label %switch.early.test6346
 
 switch.early.test6346:                            ; preds = %4870
-  switch i8 %.fr6391, label %switch.early.test6346.thread [
+  switch i8 %.fr6434, label %switch.early.test6346.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20261,13 +20261,13 @@ switch.early.test6346.thread:                     ; preds = %4867, %switch.early
 
 4887:                                             ; preds = %4883, %4885, %4880
   %4888 = phi i8 [ %.pre6737, %4883 ], [ %.pre6736, %4885 ], [ %.pre6737, %4880 ]
-  %.fr6390 = freeze i8 %4888
-  %4889 = and i8 %.fr6390, -7
+  %.fr6433 = freeze i8 %4888
+  %4889 = and i8 %.fr6433, -7
   %switch.selectcmp.i.i5904 = icmp eq i8 %4889, 8
   br i1 %switch.selectcmp.i.i5904, label %.thread6013, label %switch.early.test6347
 
 switch.early.test6347:                            ; preds = %4887
-  switch i8 %.fr6390, label %4890 [
+  switch i8 %.fr6433, label %4890 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20299,13 +20299,13 @@ switch.early.test6347:                            ; preds = %4887
 
 4901:                                             ; preds = %4897, %4899, %4894
   %4902 = phi i8 [ %.pre6735, %4897 ], [ %.pre6734, %4899 ], [ %.pre6735, %4894 ]
-  %.fr6389 = freeze i8 %4902
-  %4903 = and i8 %.fr6389, -7
+  %.fr6432 = freeze i8 %4902
+  %4903 = and i8 %.fr6432, -7
   %switch.selectcmp.i.i5910 = icmp eq i8 %4903, 8
   br i1 %switch.selectcmp.i.i5910, label %.thread6013, label %switch.early.test6348
 
 switch.early.test6348:                            ; preds = %4901
-  switch i8 %.fr6389, label %4904 [
+  switch i8 %.fr6432, label %4904 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20337,13 +20337,13 @@ switch.early.test6348:                            ; preds = %4901
 
 4918:                                             ; preds = %4916, %4913
   %4919 = phi i8 [ %.pre6732, %4916 ], [ %.pre6733, %4913 ]
-  %.fr6388 = freeze i8 %4919
-  %4920 = and i8 %.fr6388, -7
+  %.fr6431 = freeze i8 %4919
+  %4920 = and i8 %.fr6431, -7
   %switch.selectcmp.i.i5913 = icmp eq i8 %4920, 8
   br i1 %switch.selectcmp.i.i5913, label %.thread6013, label %switch.early.test6349
 
 switch.early.test6349:                            ; preds = %4918
-  switch i8 %.fr6388, label %switch.early.test6349.thread [
+  switch i8 %.fr6431, label %switch.early.test6349.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20371,13 +20371,13 @@ switch.early.test6349.thread:                     ; preds = %4915, %switch.early
 
 4930:                                             ; preds = %4928, %4925
   %4931 = phi i8 [ %.pre6730, %4928 ], [ %.pre6731, %4925 ]
-  %.fr6387 = freeze i8 %4931
-  %4932 = and i8 %.fr6387, -7
+  %.fr6430 = freeze i8 %4931
+  %4932 = and i8 %.fr6430, -7
   %switch.selectcmp.i.i5916 = icmp eq i8 %4932, 8
   br i1 %switch.selectcmp.i.i5916, label %.thread6013, label %switch.early.test6350
 
 switch.early.test6350:                            ; preds = %4930
-  switch i8 %.fr6387, label %switch.early.test6350.thread [
+  switch i8 %.fr6430, label %switch.early.test6350.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20405,13 +20405,13 @@ switch.early.test6350.thread:                     ; preds = %4927, %switch.early
 
 4942:                                             ; preds = %4940, %4937
   %4943 = phi i8 [ %.pre6728, %4940 ], [ %.pre6729, %4937 ]
-  %.fr6386 = freeze i8 %4943
-  %4944 = and i8 %.fr6386, -7
+  %.fr6429 = freeze i8 %4943
+  %4944 = and i8 %.fr6429, -7
   %switch.selectcmp.i.i5919 = icmp eq i8 %4944, 8
   br i1 %switch.selectcmp.i.i5919, label %.thread6013, label %switch.early.test6351
 
 switch.early.test6351:                            ; preds = %4942
-  switch i8 %.fr6386, label %switch.early.test6351.thread [
+  switch i8 %.fr6429, label %switch.early.test6351.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20439,13 +20439,13 @@ switch.early.test6351.thread:                     ; preds = %4939, %switch.early
 
 4954:                                             ; preds = %4952, %4949
   %4955 = phi i8 [ %.pre6726, %4952 ], [ %.pre6727, %4949 ]
-  %.fr6385 = freeze i8 %4955
-  %4956 = and i8 %.fr6385, -7
+  %.fr6428 = freeze i8 %4955
+  %4956 = and i8 %.fr6428, -7
   %switch.selectcmp.i.i5922 = icmp eq i8 %4956, 8
   br i1 %switch.selectcmp.i.i5922, label %.thread6013, label %switch.early.test6352
 
 switch.early.test6352:                            ; preds = %4954
-  switch i8 %.fr6385, label %switch.early.test6352.thread [
+  switch i8 %.fr6428, label %switch.early.test6352.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20473,13 +20473,13 @@ switch.early.test6352.thread:                     ; preds = %4951, %switch.early
 
 4966:                                             ; preds = %4964, %4961
   %4967 = phi i8 [ %.pre6724, %4964 ], [ %.pre6725, %4961 ]
-  %.fr6384 = freeze i8 %4967
-  %4968 = and i8 %.fr6384, -7
+  %.fr6427 = freeze i8 %4967
+  %4968 = and i8 %.fr6427, -7
   %switch.selectcmp.i.i5925 = icmp eq i8 %4968, 8
   br i1 %switch.selectcmp.i.i5925, label %.thread6013, label %switch.early.test6353
 
 switch.early.test6353:                            ; preds = %4966
-  switch i8 %.fr6384, label %switch.early.test6353.thread [
+  switch i8 %.fr6427, label %switch.early.test6353.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20507,13 +20507,13 @@ switch.early.test6353.thread:                     ; preds = %4963, %switch.early
 
 4978:                                             ; preds = %4976, %4973
   %4979 = phi i8 [ %.pre6722, %4976 ], [ %.pre6723, %4973 ]
-  %.fr6383 = freeze i8 %4979
-  %4980 = and i8 %.fr6383, -7
+  %.fr6426 = freeze i8 %4979
+  %4980 = and i8 %.fr6426, -7
   %switch.selectcmp.i.i5928 = icmp eq i8 %4980, 8
   br i1 %switch.selectcmp.i.i5928, label %.thread6013, label %switch.early.test6354
 
 switch.early.test6354:                            ; preds = %4978
-  switch i8 %.fr6383, label %switch.early.test6354.thread [
+  switch i8 %.fr6426, label %switch.early.test6354.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20548,13 +20548,13 @@ switch.early.test6354.thread:                     ; preds = %4975, %switch.early
 
 4993:                                             ; preds = %4988, %4991, %4985
   %4994 = phi i8 [ %.pre6721, %4988 ], [ %.pre6720, %4991 ], [ %.pre6721, %4985 ]
-  %.fr6382 = freeze i8 %4994
-  %4995 = and i8 %.fr6382, -7
+  %.fr6425 = freeze i8 %4994
+  %4995 = and i8 %.fr6425, -7
   %switch.selectcmp.i.i5934 = icmp eq i8 %4995, 8
   br i1 %switch.selectcmp.i.i5934, label %.thread6013, label %switch.early.test6356
 
 switch.early.test6356:                            ; preds = %4993
-  switch i8 %.fr6382, label %4996 [
+  switch i8 %.fr6425, label %4996 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20595,13 +20595,13 @@ switch.early.test6356:                            ; preds = %4993
 
 5016:                                             ; preds = %5012, %5014, %5009
   %5017 = phi i8 [ %.pre6719, %5012 ], [ %.pre6718, %5014 ], [ %.pre6719, %5009 ]
-  %.fr6381 = freeze i8 %5017
-  %5018 = and i8 %.fr6381, -7
+  %.fr6424 = freeze i8 %5017
+  %5018 = and i8 %.fr6424, -7
   %switch.selectcmp.i.i5940 = icmp eq i8 %5018, 8
   br i1 %switch.selectcmp.i.i5940, label %.thread6013, label %switch.early.test6357
 
 switch.early.test6357:                            ; preds = %5016
-  switch i8 %.fr6381, label %5019 [
+  switch i8 %.fr6424, label %5019 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20639,13 +20639,13 @@ switch.early.test6357:                            ; preds = %5016
 
 5036:                                             ; preds = %5032, %5034, %5029
   %5037 = phi i8 [ %.pre6717, %5032 ], [ %.pre6716, %5034 ], [ %.pre6717, %5029 ]
-  %.fr6380 = freeze i8 %5037
-  %5038 = and i8 %.fr6380, -7
+  %.fr6423 = freeze i8 %5037
+  %5038 = and i8 %.fr6423, -7
   %switch.selectcmp.i.i5946 = icmp eq i8 %5038, 8
   br i1 %switch.selectcmp.i.i5946, label %.thread6013, label %switch.early.test6358
 
 switch.early.test6358:                            ; preds = %5036
-  switch i8 %.fr6380, label %5039 [
+  switch i8 %.fr6423, label %5039 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20683,13 +20683,13 @@ switch.early.test6358:                            ; preds = %5036
 
 5056:                                             ; preds = %5052, %5054, %5049
   %5057 = phi i8 [ %.pre6715, %5052 ], [ %.pre6714, %5054 ], [ %.pre6715, %5049 ]
-  %.fr6379 = freeze i8 %5057
-  %5058 = and i8 %.fr6379, -7
+  %.fr6422 = freeze i8 %5057
+  %5058 = and i8 %.fr6422, -7
   %switch.selectcmp.i.i5952 = icmp eq i8 %5058, 8
   br i1 %switch.selectcmp.i.i5952, label %.thread6013, label %switch.early.test6359
 
 switch.early.test6359:                            ; preds = %5056
-  switch i8 %.fr6379, label %5059 [
+  switch i8 %.fr6422, label %5059 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20727,13 +20727,13 @@ switch.early.test6359:                            ; preds = %5056
 
 5076:                                             ; preds = %5072, %5074, %5069
   %5077 = phi i8 [ %.pre6713, %5072 ], [ %.pre6712, %5074 ], [ %.pre6713, %5069 ]
-  %.fr6378 = freeze i8 %5077
-  %5078 = and i8 %.fr6378, -7
+  %.fr6421 = freeze i8 %5077
+  %5078 = and i8 %.fr6421, -7
   %switch.selectcmp.i.i5958 = icmp eq i8 %5078, 8
   br i1 %switch.selectcmp.i.i5958, label %.thread6013, label %switch.early.test6360
 
 switch.early.test6360:                            ; preds = %5076
-  switch i8 %.fr6378, label %5079 [
+  switch i8 %.fr6421, label %5079 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20771,13 +20771,13 @@ switch.early.test6360:                            ; preds = %5076
 
 5096:                                             ; preds = %5092, %5094, %5089
   %5097 = phi i8 [ %.pre6711, %5092 ], [ %.pre6710, %5094 ], [ %.pre6711, %5089 ]
-  %.fr6377 = freeze i8 %5097
-  %5098 = and i8 %.fr6377, -7
+  %.fr6420 = freeze i8 %5097
+  %5098 = and i8 %.fr6420, -7
   %switch.selectcmp.i.i5964 = icmp eq i8 %5098, 8
   br i1 %switch.selectcmp.i.i5964, label %.thread6013, label %switch.early.test6361
 
 switch.early.test6361:                            ; preds = %5096
-  switch i8 %.fr6377, label %5099 [
+  switch i8 %.fr6420, label %5099 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20816,13 +20816,13 @@ switch.early.test6361:                            ; preds = %5096
 
 5114:                                             ; preds = %5111, %5111, %5111, %5112, %5109
   %5115 = phi i8 [ %.pre6709, %5111 ], [ %.pre6709, %5111 ], [ %.pre6709, %5111 ], [ %.pre6708, %5112 ], [ %.pre6709, %5109 ]
-  %.fr6376 = freeze i8 %5115
-  %5116 = and i8 %.fr6376, -7
+  %.fr6419 = freeze i8 %5115
+  %5116 = and i8 %.fr6419, -7
   %switch.selectcmp.i.i5967 = icmp eq i8 %5116, 8
   br i1 %switch.selectcmp.i.i5967, label %.thread6013, label %switch.early.test6364
 
 switch.early.test6364:                            ; preds = %5114
-  switch i8 %.fr6376, label %5117 [
+  switch i8 %.fr6419, label %5117 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -20850,13 +20850,13 @@ switch.early.test6364:                            ; preds = %5114
 
 5127:                                             ; preds = %5125, %5122
   %5128 = phi i8 [ %.pre, %5125 ], [ %.pre6707, %5122 ]
-  %.fr6375 = freeze i8 %5128
-  %5129 = and i8 %.fr6375, -7
+  %.fr6418 = freeze i8 %5128
+  %5129 = and i8 %.fr6418, -7
   %switch.selectcmp.i.i5970 = icmp eq i8 %5129, 8
   br i1 %switch.selectcmp.i.i5970, label %.thread6013, label %switch.early.test6365
 
 switch.early.test6365:                            ; preds = %5127
-  switch i8 %.fr6375, label %switch.early.test6365.thread [
+  switch i8 %.fr6418, label %switch.early.test6365.thread [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21080,13 +21080,13 @@ switch.early.test6365.thread:                     ; preds = %5124, %switch.early
 
 5260:                                             ; preds = %5237
   %5261 = load i8, ptr %39, align 8
-  %.fr6374 = freeze i8 %5261
-  %5262 = and i8 %.fr6374, -7
+  %.fr6417 = freeze i8 %5261
+  %5262 = and i8 %.fr6417, -7
   %switch.selectcmp.i.i5973 = icmp eq i8 %5262, 8
   br i1 %switch.selectcmp.i.i5973, label %.thread6013, label %switch.early.test6366
 
 switch.early.test6366:                            ; preds = %5260
-  switch i8 %.fr6374, label %5263 [
+  switch i8 %.fr6417, label %5263 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21099,13 +21099,13 @@ switch.early.test6366:                            ; preds = %5260
 
 5267:                                             ; preds = %144
   %5268 = load i8, ptr %39, align 8
-  %.fr6373 = freeze i8 %5268
-  %5269 = and i8 %.fr6373, -7
+  %.fr6416 = freeze i8 %5268
+  %5269 = and i8 %.fr6416, -7
   %switch.selectcmp.i.i5976 = icmp eq i8 %5269, 8
   br i1 %switch.selectcmp.i.i5976, label %.thread6013, label %switch.early.test6367
 
 switch.early.test6367:                            ; preds = %5267
-  switch i8 %.fr6373, label %5270 [
+  switch i8 %.fr6416, label %5270 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21124,13 +21124,13 @@ switch.early.test6367:                            ; preds = %5267
 
 5280:                                             ; preds = %144
   %5281 = load i8, ptr %39, align 8
-  %.fr6372 = freeze i8 %5281
-  %5282 = and i8 %.fr6372, -7
+  %.fr6415 = freeze i8 %5281
+  %5282 = and i8 %.fr6415, -7
   %switch.selectcmp.i.i5979 = icmp eq i8 %5282, 8
   br i1 %switch.selectcmp.i.i5979, label %.thread6013, label %switch.early.test6368
 
 switch.early.test6368:                            ; preds = %5280
-  switch i8 %.fr6372, label %5283 [
+  switch i8 %.fr6415, label %5283 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21158,13 +21158,13 @@ switch.early.test6368:                            ; preds = %5280
 
 5298:                                             ; preds = %144
   %5299 = load i8, ptr %39, align 8
-  %.fr6371 = freeze i8 %5299
-  %5300 = and i8 %.fr6371, -7
+  %.fr6414 = freeze i8 %5299
+  %5300 = and i8 %.fr6414, -7
   %switch.selectcmp.i.i5982 = icmp eq i8 %5300, 8
   br i1 %switch.selectcmp.i.i5982, label %.thread6013, label %switch.early.test6369
 
 switch.early.test6369:                            ; preds = %5298
-  switch i8 %.fr6371, label %5301 [
+  switch i8 %.fr6414, label %5301 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21177,13 +21177,13 @@ switch.early.test6369:                            ; preds = %5298
 
 5305:                                             ; preds = %144
   %5306 = load i8, ptr %39, align 8
-  %.fr6596 = freeze i8 %5306
-  %5307 = and i8 %.fr6596, -7
+  %.fr6653 = freeze i8 %5306
+  %5307 = and i8 %.fr6653, -7
   %switch.selectcmp.i.i5985 = icmp eq i8 %5307, 8
   br i1 %switch.selectcmp.i.i5985, label %.thread6013, label %switch.early.test6370
 
 switch.early.test6370:                            ; preds = %5305
-  switch i8 %.fr6596, label %5308 [
+  switch i8 %.fr6653, label %5308 [
     i8 30, label %.thread6013
     i8 19, label %.thread6013
   ]
@@ -21194,8 +21194,8 @@ switch.early.test6370:                            ; preds = %5305
   %5311 = call i32 @tvb_captured_length(ptr noundef %19)
   br label %.thread6013
 
-.thread6013:                                      ; preds = %.preheader6605, %.lr.ph, %.lr.ph6613, %.lr.ph6617, %1355, %.lr.ph6635, %.preheader6603, %.preheader6600, %.preheader, %1278, %390, %5111, %5111, %5111, %4794, %4794, %4794, %4739, %4739, %4739, %4564, %4564, %4564, %4195, %4195, %4195, %3838, %3838, %3838, %3784, %3784, %3784, %2817, %2817, %2817, %2543, %2543, %2543, %2071, %2071, %2071, %1943, %1943, %1943, %2138, %2138, %2138, %2111, %2111, %2111, %1116, %1116, %1116, %302, %302, %302, %switch.early.test6370, %switch.early.test6370, %5305, %switch.early.test6369, %switch.early.test6369, %5298, %switch.early.test6368, %switch.early.test6368, %5280, %switch.early.test6367, %switch.early.test6367, %5267, %switch.early.test6366, %switch.early.test6366, %5260, %switch.early.test6365, %switch.early.test6365, %5127, %switch.early.test6364, %switch.early.test6364, %5114, %switch.early.test6361, %switch.early.test6361, %5096, %switch.early.test6360, %switch.early.test6360, %5076, %switch.early.test6359, %switch.early.test6359, %5056, %switch.early.test6358, %switch.early.test6358, %5036, %switch.early.test6357, %switch.early.test6357, %5016, %switch.early.test6356, %switch.early.test6356, %4993, %switch.early.test6354, %switch.early.test6354, %4978, %switch.early.test6353, %switch.early.test6353, %4966, %switch.early.test6352, %switch.early.test6352, %4954, %switch.early.test6351, %switch.early.test6351, %4942, %switch.early.test6350, %switch.early.test6350, %4930, %switch.early.test6349, %switch.early.test6349, %4918, %switch.early.test6348, %switch.early.test6348, %4901, %switch.early.test6347, %switch.early.test6347, %4887, %switch.early.test6346, %switch.early.test6346, %4870, %switch.early.test6345, %switch.early.test6345, %4837, %switch.early.test6343, %switch.early.test6343, %4797, %switch.early.test6340, %switch.early.test6340, %4742, %switch.early.test6337, %switch.early.test6337, %4729, %switch.early.test6335, %switch.early.test6335, %4710, %switch.early.test6334, %switch.early.test6334, %4692, %switch.early.test6332, %switch.early.test6332, %4670, %switch.early.test6330, %switch.early.test6330, %4648, %switch.early.test6329, %switch.early.test6329, %4635, %switch.early.test6328, %switch.early.test6328, %4618, %switch.early.test6326, %switch.early.test6326, %4594, %switch.early.test6325, %switch.early.test6325, %4567, %switch.early.test6322, %switch.early.test6322, %4555, %switch.early.test6321, %switch.early.test6321, %4540, %4536, %switch.early.test6320, %switch.early.test6320, %4525, %switch.early.test6318, %switch.early.test6318, %4503, %switch.early.test6317, %switch.early.test6317, %4484, %switch.early.test6315, %switch.early.test6315, %4463, %4459, %switch.early.test6314, %switch.early.test6314, %4449, %switch.early.test6311, %switch.early.test6311, %4431, %switch.early.test6308, %switch.early.test6308, %4414, %switch.early.test6305, %switch.early.test6305, %4397, %switch.early.test6302, %switch.early.test6302, %4380, %switch.early.test6299, %switch.early.test6299, %4363, %switch.early.test6296, %switch.early.test6296, %4346, %switch.early.test6293, %switch.early.test6293, %4329, %switch.early.test6290, %switch.early.test6290, %4311, %switch.early.test6287, %switch.early.test6287, %4198, %switch.early.test6284, %switch.early.test6284, %4180, %switch.early.test6282, %switch.early.test6282, %4150, %switch.early.test6280, %switch.early.test6280, %4109, %switch.early.test6279, %switch.early.test6279, %4086, %switch.early.test6278, %switch.early.test6278, %4009, %switch.early.test6277, %switch.early.test6277, %3997, %switch.early.test6276, %switch.early.test6276, %3975, %switch.early.test6275, %switch.early.test6275, %3952, %3948, %switch.early.test6274, %switch.early.test6274, %3939, %switch.early.test6272, %switch.early.test6272, %3922, %switch.early.test6270, %switch.early.test6270, %3894, %switch.early.test6268, %switch.early.test6268, %3841, %switch.early.test6265, %switch.early.test6265, %3828, %switch.early.test6264, %switch.early.test6264, %3787, %switch.early.test6261, %switch.early.test6261, %3700, %switch.early.test6260, %switch.early.test6260, %3687, %switch.early.test6259, %switch.early.test6259, %3672, %switch.early.test6258, %switch.early.test6258, %3658, %switch.early.test6255, %switch.early.test6255, %3640, %switch.early.test6253, %switch.early.test6253, %3621, %switch.early.test6251, %switch.early.test6251, %3602, %switch.early.test6249, %switch.early.test6249, %3583, %switch.early.test6247, %switch.early.test6247, %3561, %switch.early.test6245, %switch.early.test6245, %3542, %switch.early.test6243, %switch.early.test6243, %3523, %switch.early.test6241, %switch.early.test6241, %3504, %switch.early.test6239, %switch.early.test6239, %3483, %switch.early.test6237, %switch.early.test6237, %3464, %switch.early.test6235, %switch.early.test6235, %3445, %switch.early.test6233, %switch.early.test6233, %3426, %switch.early.test6231, %switch.early.test6231, %3407, %switch.early.test6229, %switch.early.test6229, %3379, %switch.early.test6227, %switch.early.test6227, %3358, %switch.early.test6225, %switch.early.test6225, %3339, %switch.early.test6223, %switch.early.test6223, %3320, %switch.early.test6221, %switch.early.test6221, %3299, %switch.early.test6219, %switch.early.test6219, %3274, %switch.early.test6217, %switch.early.test6217, %3255, %switch.early.test6215, %switch.early.test6215, %3236, %switch.early.test6213, %switch.early.test6213, %3217, %switch.early.test6211, %switch.early.test6211, %3198, %switch.early.test6209, %switch.early.test6209, %3179, %switch.early.test6207, %switch.early.test6207, %3160, %switch.early.test6205, %switch.early.test6205, %3141, %switch.early.test6204, %switch.early.test6204, %3116, %switch.early.test6203, %switch.early.test6203, %3104, %switch.early.test6201, %switch.early.test6201, %3089, %switch.early.test6199, %switch.early.test6199, %3074, %switch.early.test6197, %switch.early.test6197, %3059, %switch.early.test6195, %switch.early.test6195, %3044, %switch.early.test6193, %switch.early.test6193, %3029, %switch.early.test6191, %switch.early.test6191, %3014, %switch.early.test6189, %switch.early.test6189, %2999, %switch.early.test6187, %switch.early.test6187, %2984, %switch.early.test6185, %switch.early.test6185, %2969, %switch.early.test6183, %switch.early.test6183, %2954, %switch.early.test6181, %switch.early.test6181, %2939, %switch.early.test6179, %switch.early.test6179, %2924, %switch.early.test6177, %switch.early.test6177, %2909, %switch.early.test6175, %switch.early.test6175, %2894, %switch.early.test6173, %switch.early.test6173, %2879, %switch.early.test6171, %switch.early.test6171, %2820, %switch.early.test6168, %switch.early.test6168, %2807, %switch.early.test6167, %switch.early.test6167, %2748, %switch.early.test6166, %switch.early.test6166, %2709, %switch.early.test6165, %switch.early.test6165, %2652, %switch.early.test6164, %switch.early.test6164, %2546, %switch.early.test6161, %switch.early.test6161, %2533, %switch.early.test6160, %switch.early.test6160, %2485, %switch.early.test6159, %switch.early.test6159, %2396, %switch.early.test6158, %switch.early.test6158, %2368, %switch.early.test6157, %switch.early.test6157, %2296, %switch.early.test6156, %switch.early.test6156, %2244, %switch.early.test6155, %switch.early.test6155, %2232, %switch.early.test6154, %switch.early.test6154, %2216, %switch.early.test6153, %switch.early.test6153, %2182, %switch.early.test6152, %switch.early.test6152, %2169, %switch.early.test6149, %switch.early.test6149, %2153, %switch.early.test6148, %switch.early.test6148, %2146, %switch.early.test6145, %switch.early.test6145, %2126, %switch.early.test6144, %switch.early.test6144, %2119, %switch.early.test6141, %switch.early.test6141, %2074, %switch.early.test6138, %switch.early.test6138, %2061, %switch.early.test6137, %switch.early.test6137, %2027, %switch.early.test6136, %switch.early.test6136, %1948, %switch.early.test6133, %switch.early.test6133, %1934, %switch.early.test6132, %switch.early.test6132, %1909, %switch.early.test6131, %switch.early.test6131, %1892, %switch.early.test6130, %switch.early.test6130, %1880, %switch.early.test6128, %switch.early.test6128, %1864, %switch.early.test6126, %switch.early.test6126, %1845, %switch.early.test6125, %switch.early.test6125, %1835, %switch.early.test6124, %switch.early.test6124, %1813, %switch.early.test6123, %switch.early.test6123, %1797, %switch.early.test6122, %switch.early.test6122, %1772, %switch.early.test6121, %switch.early.test6121, %1758, %switch.early.test6120, %switch.early.test6120, %1743, %1739, %switch.early.test6119, %switch.early.test6119, %1730, %switch.early.test6118, %switch.early.test6118, %1715, %switch.early.test6117, %switch.early.test6117, %1699, %switch.early.test6115, %switch.early.test6115, %1685, %switch.early.test6114, %switch.early.test6114, %1672, %switch.early.test6112, %switch.early.test6112, %1657, %switch.early.test6111, %switch.early.test6111, %1648, %switch.early.test6110, %switch.early.test6110, %1641, %switch.early.test6109, %switch.early.test6109, %1633, %switch.early.test6108, %switch.early.test6108, %1625, %switch.early.test6107, %switch.early.test6107, %1618, %1614, %switch.early.test6106, %switch.early.test6106, %1605, %switch.early.test6105, %switch.early.test6105, %1560, %switch.early.test6104, %switch.early.test6104, %1514, %switch.early.test6103, %switch.early.test6103, %1441, %switch.early.test6102, %switch.early.test6102, %1428, %switch.early.test6099, %switch.early.test6099, %1409, %switch.early.test6096, %switch.early.test6096, %1392, %switch.early.test6095, %switch.early.test6095, %1379, %switch.early.test6094, %switch.early.test6094, %1371, %switch.early.test6093, %switch.early.test6093, %1364, %switch.early.test6091, %switch.early.test6091, %1275, %switch.early.test6090, %switch.early.test6090, %1258, %switch.early.test6089, %switch.early.test6089, %1241, %switch.early.test6088, %switch.early.test6088, %1224, %switch.early.test6087, %switch.early.test6087, %1207, %switch.early.test6086, %switch.early.test6086, %1190, %switch.early.test6085, %switch.early.test6085, %1173, %switch.early.test6084, %switch.early.test6084, %1155, %switch.early.test6083, %switch.early.test6083, %1139, %switch.early.test6080, %switch.early.test6080, %1121, %switch.early.test6076, %switch.early.test6076, %1100, %switch.early.test6075, %switch.early.test6075, %1088, %switch.early.test6074, %switch.early.test6074, %1081, %switch.early.test6073, %switch.early.test6073, %1050, %switch.early.test6072, %switch.early.test6072, %1018, %switch.early.test6071, %switch.early.test6071, %1010, %switch.early.test6070, %switch.early.test6070, %998, %switch.early.test6068, %switch.early.test6068, %952, %switch.early.test6067, %switch.early.test6067, %937, %switch.early.test6066, %switch.early.test6066, %923, %switch.early.test6065, %switch.early.test6065, %908, %switch.early.test6064, %switch.early.test6064, %892, %switch.early.test6063, %switch.early.test6063, %877, %switch.early.test6062, %switch.early.test6062, %870, %switch.early.test6061, %switch.early.test6061, %862, %switch.early.test6060, %switch.early.test6060, %836, %switch.early.test6058, %switch.early.test6058, %817, %switch.early.test6057, %switch.early.test6057, %810, %switch.early.test6056, %switch.early.test6056, %791, %switch.early.test6053, %switch.early.test6053, %772, %switch.early.test6052, %switch.early.test6052, %767, %switch.early.test6051, %switch.early.test6051, %760, %switch.early.test6050, %switch.early.test6050, %746, %switch.early.test6048, %switch.early.test6048, %724, %switch.early.test6047, %switch.early.test6047, %703, %switch.early.test6046, %switch.early.test6046, %685, %681, %switch.early.test6045, %switch.early.test6045, %672, %switch.early.test6043, %switch.early.test6043, %638, %switch.early.test6042, %switch.early.test6042, %629, %switch.early.test6041, %switch.early.test6041, %605, %switch.early.test6039, %switch.early.test6039, %582, %switch.early.test6038, %switch.early.test6038, %560, %switch.early.test6037, %switch.early.test6037, %553, %switch.early.test6036, %switch.early.test6036, %526, %switch.early.test6034, %switch.early.test6034, %508, %switch.early.test6033, %switch.early.test6033, %491, %switch.early.test6032, %switch.early.test6032, %461, %switch.early.test6030, %switch.early.test6030, %387, %switch.early.test6029, %switch.early.test6029, %359, %switch.early.test6028, %switch.early.test6028, %344, %switch.early.test6026, %switch.early.test6026, %310, %switch.early.test6023, %switch.early.test6023, %290, %switch.early.test6021, %switch.early.test6021, %271, %switch.early.test6020, %switch.early.test6020, %219, %switch.early.test6018, %switch.early.test6018, %192, %switch.early.test6017, %switch.early.test6017, %153, %5283, %4867, %3697, %3113, %2241, %1508, %1269, %1042, %721, %329, %331, %4813, %452, %5289, %5294, %5247, %5263, %4840, %4845, %4851, %4853, %4858, %4827, %4829, %4800, %4805, %4809, %4821, %4745, %4750, %4755, %4765, %4762, %4783, %4786, %4779, %4771, %4719, %4721, %4704, %4682, %4684, %4660, %4662, %4642, %4629, %4608, %4610, %4588, %4570, %4580, %4549, %4515, %4517, %4474, %4476, %4440, %4422, %4405, %4388, %4371, %4354, %4337, %4320, %4302, %4292, %4296, %4183, %4189, %4170, %4172, %4153, %4164, %4140, %4142, %4112, %4134, %4103, %4080, %4071, %4074, %3978, %3969, %3955, %3961, %3933, %3912, %3914, %3897, %3906, %3888, %3844, %3856, %3868, %3882, %3879, %3870, %3822, %3811, %3813, %3775, %3777, %3681, %3666, %3649, %3630, %3632, %3611, %3613, %3592, %3594, %3573, %3575, %3551, %3553, %3532, %3534, %3513, %3515, %3494, %3496, %3473, %3475, %3454, %3456, %3435, %3437, %3416, %3418, %3397, %3399, %3369, %3371, %3348, %3350, %3329, %3331, %3310, %3312, %3289, %3291, %3264, %3266, %3245, %3247, %3226, %3228, %3207, %3209, %3188, %3190, %3169, %3171, %3150, %3152, %3125, %3136, %3132, %3098, %3083, %3068, %3053, %3038, %3023, %3008, %2993, %2978, %2963, %2948, %2933, %2918, %2903, %2888, %2873, %2823, %2828, %2832, %2837, %2841, %2845, %2849, %2865, %2861, %2853, %2801, %2793, %2795, %2742, %2735, %2737, %2699, %2701, %2549, %2554, %2558, %2562, %2566, %2570, %2574, %2578, %2641, %2644, %2634, %2637, %2627, %2630, %2620, %2623, %2613, %2616, %2606, %2609, %2599, %2602, %2591, %2583, %2527, %.loopexit, %2474, %2476, %2384, %2386, %2362, %2354, %2356, %2285, %2287, %2225, %2210, %2199, %2201, %2162, %2136, %2109, %2077, %2082, %2086, %2099, %2090, %2055, %2047, %2049, %1928, %1903, %1874, %1853, %1855, %1829, %1807, %1791, %switch.early.test6122.thread, %1783, %1718, %1725, %1709, %1693, %1666, %1599, %1583, %._crit_edge, %1548, %1550, %1498, %1500, %1419, %1400, %1358, %1252, %1235, %1218, %1201, %1184, %1167, %1149, %1130, %1114, %1075, %1067, %1069, %992, %983, %985, %931, %886, %856, %826, %828, %802, %805, %782, %754, %736, %739, %662, %664, %614, %623, %625, %619, %594, %597, %535, %546, %544, %541, %515, %518, %501, %485, %467, %478, %474, %455, %380, %352, %333, %336, %299, %279, %282, %264, %234, %259, %249, %212, %185, %159, %180, %171, %145, %5308, %5301, %5270, %5236, %5117, %5099, %5079, %5059, %5039, %5019, %4996, %switch.early.test6354.thread, %switch.early.test6353.thread, %switch.early.test6352.thread, %switch.early.test6351.thread, %switch.early.test6350.thread, %switch.early.test6349.thread, %4904, %4890, %switch.early.test6346.thread, %4732, %4713, %4695, %4673, %4651, %4638, %4621, %4597, %4558, %4543, %4528, %switch.early.test6318.thread, %4487, %4466, %4451, %4433, %4416, %4399, %4382, %4365, %4348, %4331, %4313, %4089, %4000, %3942, %3925, %3831, %3690, %3675, %3660, %3643, %3624, %3605, %3586, %3564, %3545, %3526, %3507, %3486, %3467, %3448, %3429, %3410, %3382, %3361, %3342, %3323, %3302, %3277, %3258, %3239, %3220, %3201, %3182, %3163, %3144, %3107, %3092, %3077, %3062, %3047, %3032, %3017, %3002, %2987, %2972, %2957, %2942, %2927, %2912, %2897, %2882, %2810, %2536, %2235, %2219, %2172, %2156, %2149, %2129, %2122, %2064, %2020, %1937, %1912, %switch.early.test6131.thread, %1883, %1867, %switch.early.test6126.thread, %1838, %1816, %1800, %switch.early.test6121.thread, %1746, %1733, %1702, %switch.early.test6115.thread, %1675, %1660, %1651, %1644, %1636, %1628, %1621, %1608, %1430, %1411, %switch.early.test6096.thread, %1382, %1374, %1367, %1261, %1244, %1227, %1210, %1193, %1176, %1158, %1141, %1124, %1110, %1098, %1084, %1037, %1013, %1008, %940, %switch.early.test6066.thread, %911, %895, %880, %873, %865, %847, %820, %813, %775, %770, %763, %748, %switch.early.test6048.thread, %706, %693, %675, %655, %632, %585, %563, %556, %511, %494, %362, %347, %293, %274, %195
-  %.04635 = phi i32 [ %122, %switch.early.test6370 ], [ %5311, %5308 ], [ %122, %145 ], [ %122, %switch.early.test6017 ], [ %164, %159 ], [ %176, %171 ], [ %184, %180 ], [ %122, %185 ], [ %122, %switch.early.test6018 ], [ %208, %195 ], [ %122, %212 ], [ %122, %switch.early.test6020 ], [ %241, %234 ], [ %255, %249 ], [ %263, %259 ], [ %122, %264 ], [ %122, %switch.early.test6021 ], [ %278, %274 ], [ %122, %279 ], [ %122, %282 ], [ %122, %switch.early.test6023 ], [ %298, %293 ], [ %122, %299 ], [ %122, %302 ], [ %122, %switch.early.test6026 ], [ %122, %333 ], [ %122, %336 ], [ %122, %switch.early.test6028 ], [ %351, %347 ], [ %122, %352 ], [ %122, %switch.early.test6029 ], [ %379, %362 ], [ %122, %380 ], [ %122, %switch.early.test6030 ], [ %.2, %452 ], [ %122, %455 ], [ %122, %switch.early.test6032 ], [ %470, %467 ], [ %477, %474 ], [ %482, %478 ], [ %122, %485 ], [ %122, %switch.early.test6033 ], [ %500, %494 ], [ %122, %501 ], [ %122, %switch.early.test6034 ], [ %514, %511 ], [ %122, %515 ], [ %122, %518 ], [ %122, %switch.early.test6036 ], [ %538, %535 ], [ %543, %541 ], [ %552, %546 ], [ %533, %544 ], [ %122, %switch.early.test6037 ], [ %559, %556 ], [ %122, %switch.early.test6038 ], [ %581, %563 ], [ %122, %switch.early.test6039 ], [ %593, %585 ], [ %122, %594 ], [ %122, %597 ], [ %122, %switch.early.test6041 ], [ %617, %614 ], [ %622, %619 ], [ %628, %625 ], [ %612, %623 ], [ %122, %switch.early.test6042 ], [ %637, %632 ], [ %122, %switch.early.test6043 ], [ %659, %655 ], [ %122, %662 ], [ %122, %664 ], [ %122, %switch.early.test6045 ], [ %678, %675 ], [ %122, %681 ], [ %122, %switch.early.test6046 ], [ %695, %693 ], [ %122, %switch.early.test6047 ], [ %718, %706 ], [ %122, %721 ], [ %122, %switch.early.test6048 ], [ %732, %switch.early.test6048.thread ], [ %122, %switch.early.test6050 ], [ %751, %748 ], [ %122, %736 ], [ %122, %739 ], [ %122, %754 ], [ %122, %switch.early.test6051 ], [ %766, %763 ], [ %122, %switch.early.test6052 ], [ %771, %770 ], [ %122, %switch.early.test6053 ], [ %778, %775 ], [ %122, %782 ], [ %122, %switch.early.test6056 ], [ %809, %805 ], [ %.3, %802 ], [ %122, %switch.early.test6057 ], [ %816, %813 ], [ %122, %switch.early.test6058 ], [ %823, %820 ], [ %122, %826 ], [ %122, %828 ], [ %122, %switch.early.test6060 ], [ %853, %847 ], [ %122, %856 ], [ %122, %switch.early.test6061 ], [ %869, %865 ], [ %122, %switch.early.test6062 ], [ %876, %873 ], [ %122, %switch.early.test6063 ], [ %883, %880 ], [ %122, %886 ], [ %122, %switch.early.test6064 ], [ %907, %895 ], [ %122, %switch.early.test6065 ], [ %917, %911 ], [ %122, %switch.early.test6066 ], [ %928, %switch.early.test6066.thread ], [ %122, %931 ], [ %122, %switch.early.test6067 ], [ %946, %940 ], [ %122, %switch.early.test6068 ], [ %989, %985 ], [ %.8, %983 ], [ %122, %992 ], [ %122, %switch.early.test6070 ], [ %1009, %1008 ], [ %122, %switch.early.test6071 ], [ %1017, %1013 ], [ %122, %switch.early.test6072 ], [ %.9, %1037 ], [ %122, %1042 ], [ %122, %switch.early.test6073 ], [ %1072, %1069 ], [ %.10, %1067 ], [ %122, %1075 ], [ %122, %switch.early.test6074 ], [ %1087, %1084 ], [ %122, %switch.early.test6075 ], [ %1099, %1098 ], [ %122, %switch.early.test6076 ], [ %1111, %1110 ], [ %122, %1114 ], [ %122, %1116 ], [ %122, %switch.early.test6080 ], [ %1127, %1124 ], [ %122, %1130 ], [ %122, %switch.early.test6083 ], [ %1146, %1141 ], [ %122, %1149 ], [ %122, %switch.early.test6084 ], [ %1164, %1158 ], [ %122, %1167 ], [ %122, %switch.early.test6085 ], [ %1181, %1176 ], [ %122, %1184 ], [ %122, %switch.early.test6086 ], [ %1198, %1193 ], [ %122, %1201 ], [ %122, %switch.early.test6087 ], [ %1215, %1210 ], [ %122, %1218 ], [ %122, %switch.early.test6088 ], [ %1232, %1227 ], [ %122, %1235 ], [ %122, %switch.early.test6089 ], [ %1249, %1244 ], [ %122, %1252 ], [ %122, %switch.early.test6090 ], [ %1266, %1261 ], [ %122, %1358 ], [ %122, %switch.early.test6093 ], [ %1370, %1367 ], [ %122, %switch.early.test6094 ], [ %1378, %1374 ], [ %122, %switch.early.test6095 ], [ %1386, %1382 ], [ %122, %switch.early.test6096 ], [ %1397, %switch.early.test6096.thread ], [ %122, %1400 ], [ %122, %switch.early.test6099 ], [ %1416, %1411 ], [ %122, %1419 ], [ %122, %switch.early.test6102 ], [ %1435, %1430 ], [ %122, %switch.early.test6103 ], [ %1503, %1500 ], [ %.24, %1498 ], [ %122, %1508 ], [ %122, %switch.early.test6104 ], [ %1554, %1550 ], [ %.28, %1548 ], [ %122, %switch.early.test6105 ], [ %.31.lcssa, %._crit_edge ], [ %.30, %1583 ], [ %122, %1599 ], [ %122, %switch.early.test6106 ], [ %1611, %1608 ], [ %122, %1614 ], [ %122, %switch.early.test6107 ], [ %1624, %1621 ], [ %122, %switch.early.test6108 ], [ %1632, %1628 ], [ %122, %switch.early.test6109 ], [ %1640, %1636 ], [ %122, %switch.early.test6110 ], [ %1647, %1644 ], [ %122, %switch.early.test6111 ], [ %1656, %1651 ], [ %122, %switch.early.test6112 ], [ %1663, %1660 ], [ %122, %1666 ], [ %122, %switch.early.test6114 ], [ %1679, %1675 ], [ %122, %switch.early.test6115 ], [ %1690, %switch.early.test6115.thread ], [ %122, %1693 ], [ %122, %switch.early.test6117 ], [ %1705, %1702 ], [ %122, %1709 ], [ %122, %switch.early.test6118 ], [ %1729, %1725 ], [ %1722, %1718 ], [ %122, %switch.early.test6119 ], [ %1736, %1733 ], [ %122, %1739 ], [ %122, %switch.early.test6120 ], [ %1752, %1746 ], [ %122, %switch.early.test6121 ], [ %1766, %switch.early.test6121.thread ], [ %122, %switch.early.test6122 ], [ %1788, %1783 ], [ %1780, %switch.early.test6122.thread ], [ %122, %1791 ], [ %122, %switch.early.test6123 ], [ %1804, %1800 ], [ %122, %1807 ], [ %122, %switch.early.test6124 ], [ %1826, %1816 ], [ %122, %1829 ], [ %122, %switch.early.test6125 ], [ %1839, %1838 ], [ %122, %switch.early.test6126 ], [ %1850, %switch.early.test6126.thread ], [ %122, %1853 ], [ %122, %1855 ], [ %122, %switch.early.test6128 ], [ %1871, %1867 ], [ %122, %1874 ], [ %122, %switch.early.test6130 ], [ %1886, %1883 ], [ %122, %switch.early.test6131 ], [ %1900, %switch.early.test6131.thread ], [ %122, %1903 ], [ %122, %switch.early.test6132 ], [ %1925, %1912 ], [ %122, %1928 ], [ %122, %switch.early.test6133 ], [ %1941, %1937 ], [ %122, %1943 ], [ %122, %switch.early.test6136 ], [ %.32, %2020 ], [ %122, %switch.early.test6137 ], [ %2052, %2049 ], [ %.33, %2047 ], [ %122, %2055 ], [ %122, %switch.early.test6138 ], [ %2068, %2064 ], [ %122, %2071 ], [ %122, %switch.early.test6141 ], [ %2081, %2077 ], [ %2085, %2082 ], [ %2089, %2086 ], [ %2097, %2099 ], [ %2097, %2090 ], [ %122, %2109 ], [ %122, %2111 ], [ %122, %switch.early.test6144 ], [ %2125, %2122 ], [ %122, %switch.early.test6145 ], [ %2133, %2129 ], [ %122, %2136 ], [ %122, %2138 ], [ %122, %switch.early.test6148 ], [ %2152, %2149 ], [ %122, %switch.early.test6149 ], [ %2159, %2156 ], [ %122, %2162 ], [ %122, %switch.early.test6152 ], [ %2176, %2172 ], [ %122, %switch.early.test6153 ], [ %2207, %2201 ], [ %.35, %2199 ], [ %122, %2210 ], [ %122, %switch.early.test6154 ], [ %2223, %2219 ], [ %122, %2225 ], [ %122, %switch.early.test6155 ], [ %2238, %2235 ], [ %122, %2241 ], [ %122, %switch.early.test6156 ], [ %2290, %2287 ], [ %.38, %2285 ], [ %122, %switch.early.test6157 ], [ %2359, %2356 ], [ %.42, %2354 ], [ %122, %2362 ], [ %122, %switch.early.test6158 ], [ %2390, %2386 ], [ %.43, %2384 ], [ %122, %switch.early.test6159 ], [ %2479, %2476 ], [ %.52, %2474 ], [ %122, %switch.early.test6160 ], [ %.55, %.loopexit ], [ %122, %2527 ], [ %122, %switch.early.test6161 ], [ %2540, %2536 ], [ %122, %2543 ], [ %122, %switch.early.test6164 ], [ %2553, %2549 ], [ %2557, %2554 ], [ %2561, %2558 ], [ %2565, %2562 ], [ %2569, %2566 ], [ %2573, %2570 ], [ %2577, %2574 ], [ %2582, %2578 ], [ %2589, %2583 ], [ %2646, %2644 ], [ %2589, %2641 ], [ %2640, %2637 ], [ %2589, %2634 ], [ %2633, %2630 ], [ %2589, %2627 ], [ %2626, %2623 ], [ %2589, %2620 ], [ %2619, %2616 ], [ %2589, %2613 ], [ %2612, %2609 ], [ %2589, %2606 ], [ %2605, %2602 ], [ %2589, %2599 ], [ %2589, %2591 ], [ %122, %switch.early.test6165 ], [ %2703, %2701 ], [ %.64, %2699 ], [ %122, %switch.early.test6166 ], [ %2739, %2737 ], [ %.66, %2735 ], [ %122, %2742 ], [ %122, %switch.early.test6167 ], [ %2798, %2795 ], [ %.72, %2793 ], [ %122, %2801 ], [ %122, %switch.early.test6168 ], [ %2814, %2810 ], [ %122, %2817 ], [ %122, %switch.early.test6171 ], [ %2827, %2823 ], [ %2831, %2828 ], [ %2836, %2832 ], [ %2840, %2837 ], [ %2859, %2853 ], [ %2870, %2865 ], [ %2864, %2861 ], [ %2844, %2841 ], [ %2848, %2845 ], [ %2852, %2849 ], [ %122, %2873 ], [ %122, %switch.early.test6173 ], [ %2885, %2882 ], [ %122, %2888 ], [ %122, %switch.early.test6175 ], [ %2900, %2897 ], [ %122, %2903 ], [ %122, %switch.early.test6177 ], [ %2915, %2912 ], [ %122, %2918 ], [ %122, %switch.early.test6179 ], [ %2930, %2927 ], [ %122, %2933 ], [ %122, %switch.early.test6181 ], [ %2945, %2942 ], [ %122, %2948 ], [ %122, %switch.early.test6183 ], [ %2960, %2957 ], [ %122, %2963 ], [ %122, %switch.early.test6185 ], [ %2975, %2972 ], [ %122, %2978 ], [ %122, %switch.early.test6187 ], [ %2990, %2987 ], [ %122, %2993 ], [ %122, %switch.early.test6189 ], [ %3005, %3002 ], [ %122, %3008 ], [ %122, %switch.early.test6191 ], [ %3020, %3017 ], [ %122, %3023 ], [ %122, %switch.early.test6193 ], [ %3035, %3032 ], [ %122, %3038 ], [ %122, %switch.early.test6195 ], [ %3050, %3047 ], [ %122, %3053 ], [ %122, %switch.early.test6197 ], [ %3065, %3062 ], [ %122, %3068 ], [ %122, %switch.early.test6199 ], [ %3080, %3077 ], [ %122, %3083 ], [ %122, %switch.early.test6201 ], [ %3095, %3092 ], [ %122, %3098 ], [ %122, %switch.early.test6203 ], [ %3110, %3107 ], [ %122, %3113 ], [ %122, %switch.early.test6204 ], [ %3128, %3125 ], [ %3135, %3132 ], [ %3140, %3136 ], [ %122, %switch.early.test6205 ], [ %3147, %3144 ], [ %122, %3150 ], [ %122, %3152 ], [ %122, %switch.early.test6207 ], [ %3166, %3163 ], [ %122, %3169 ], [ %122, %3171 ], [ %122, %switch.early.test6209 ], [ %3185, %3182 ], [ %122, %3188 ], [ %122, %3190 ], [ %122, %switch.early.test6211 ], [ %3204, %3201 ], [ %122, %3207 ], [ %122, %3209 ], [ %122, %switch.early.test6213 ], [ %3223, %3220 ], [ %122, %3226 ], [ %122, %3228 ], [ %122, %switch.early.test6215 ], [ %3242, %3239 ], [ %122, %3245 ], [ %122, %3247 ], [ %122, %switch.early.test6217 ], [ %3261, %3258 ], [ %122, %3264 ], [ %122, %3266 ], [ %122, %switch.early.test6219 ], [ %3286, %3277 ], [ %122, %3289 ], [ %122, %3291 ], [ %122, %switch.early.test6221 ], [ %3307, %3302 ], [ %122, %3310 ], [ %122, %3312 ], [ %122, %switch.early.test6223 ], [ %3326, %3323 ], [ %122, %3329 ], [ %122, %3331 ], [ %122, %switch.early.test6225 ], [ %3345, %3342 ], [ %122, %3348 ], [ %122, %3350 ], [ %122, %switch.early.test6227 ], [ %3366, %3361 ], [ %122, %3369 ], [ %122, %3371 ], [ %122, %switch.early.test6229 ], [ %3394, %3382 ], [ %122, %3397 ], [ %122, %3399 ], [ %122, %switch.early.test6231 ], [ %3413, %3410 ], [ %122, %3416 ], [ %122, %3418 ], [ %122, %switch.early.test6233 ], [ %3432, %3429 ], [ %122, %3435 ], [ %122, %3437 ], [ %122, %switch.early.test6235 ], [ %3451, %3448 ], [ %122, %3454 ], [ %122, %3456 ], [ %122, %switch.early.test6237 ], [ %3470, %3467 ], [ %122, %3473 ], [ %122, %3475 ], [ %122, %switch.early.test6239 ], [ %3491, %3486 ], [ %122, %3494 ], [ %122, %3496 ], [ %122, %switch.early.test6241 ], [ %3510, %3507 ], [ %122, %3513 ], [ %122, %3515 ], [ %122, %switch.early.test6243 ], [ %3529, %3526 ], [ %122, %3532 ], [ %122, %3534 ], [ %122, %switch.early.test6245 ], [ %3548, %3545 ], [ %122, %3551 ], [ %122, %3553 ], [ %122, %switch.early.test6247 ], [ %3570, %3564 ], [ %122, %3573 ], [ %122, %3575 ], [ %122, %switch.early.test6249 ], [ %3589, %3586 ], [ %122, %3592 ], [ %122, %3594 ], [ %122, %switch.early.test6251 ], [ %3608, %3605 ], [ %122, %3611 ], [ %122, %3613 ], [ %122, %switch.early.test6253 ], [ %3627, %3624 ], [ %122, %3630 ], [ %122, %3632 ], [ %122, %switch.early.test6255 ], [ %3646, %3643 ], [ %122, %3649 ], [ %122, %switch.early.test6258 ], [ %3663, %3660 ], [ %122, %3666 ], [ %122, %switch.early.test6259 ], [ %3678, %3675 ], [ %122, %3681 ], [ %122, %switch.early.test6260 ], [ %3694, %3690 ], [ %122, %3697 ], [ %122, %switch.early.test6261 ], [ %3781, %3777 ], [ %.82, %3775 ], [ %122, %3784 ], [ %122, %switch.early.test6264 ], [ %3819, %3813 ], [ %.84, %3811 ], [ %122, %3822 ], [ %122, %switch.early.test6265 ], [ %3835, %3831 ], [ %122, %3838 ], [ %122, %switch.early.test6268 ], [ %3848, %3844 ], [ %3857, %3856 ], [ %3869, %3868 ], [ %3885, %3882 ], [ %3876, %3879 ], [ %3876, %3870 ], [ %122, %3888 ], [ %122, %switch.early.test6270 ], [ %3909, %3906 ], [ %3903, %3897 ], [ %122, %3912 ], [ %122, %3914 ], [ %122, %switch.early.test6272 ], [ %3930, %3925 ], [ %122, %3933 ], [ %122, %switch.early.test6274 ], [ %3945, %3942 ], [ %122, %3948 ], [ %122, %switch.early.test6275 ], [ %3966, %3961 ], [ %3958, %3955 ], [ %122, %3969 ], [ %122, %switch.early.test6276 ], [ %3983, %3978 ], [ %122, %switch.early.test6277 ], [ %4003, %4000 ], [ %122, %switch.early.test6278 ], [ %4077, %4074 ], [ %.90, %4071 ], [ %122, %4080 ], [ %122, %switch.early.test6279 ], [ %4100, %4089 ], [ %122, %4103 ], [ %122, %switch.early.test6280 ], [ %4137, %4134 ], [ %4131, %4112 ], [ %122, %4140 ], [ %122, %4142 ], [ %122, %switch.early.test6282 ], [ %4167, %4164 ], [ %4161, %4153 ], [ %122, %4170 ], [ %122, %4172 ], [ %122, %switch.early.test6284 ], [ %4192, %4189 ], [ %4186, %4183 ], [ %122, %4195 ], [ %122, %switch.early.test6287 ], [ %4299, %4296 ], [ %.91, %4292 ], [ %122, %4302 ], [ %122, %switch.early.test6290 ], [ %4317, %4313 ], [ %122, %4320 ], [ %122, %switch.early.test6293 ], [ %4334, %4331 ], [ %122, %4337 ], [ %122, %switch.early.test6296 ], [ %4351, %4348 ], [ %122, %4354 ], [ %122, %switch.early.test6299 ], [ %4368, %4365 ], [ %122, %4371 ], [ %122, %switch.early.test6302 ], [ %4385, %4382 ], [ %122, %4388 ], [ %122, %switch.early.test6305 ], [ %4402, %4399 ], [ %122, %4405 ], [ %122, %switch.early.test6308 ], [ %4419, %4416 ], [ %122, %4422 ], [ %122, %switch.early.test6311 ], [ %4437, %4433 ], [ %122, %4440 ], [ %122, %switch.early.test6314 ], [ %4456, %4451 ], [ %122, %4459 ], [ %122, %switch.early.test6315 ], [ %4471, %4466 ], [ %122, %4474 ], [ %122, %4476 ], [ %122, %switch.early.test6317 ], [ %4497, %4487 ], [ %122, %switch.early.test6318 ], [ %4512, %switch.early.test6318.thread ], [ %122, %4515 ], [ %122, %4517 ], [ %122, %switch.early.test6320 ], [ %4533, %4528 ], [ %122, %4536 ], [ %122, %switch.early.test6321 ], [ %4546, %4543 ], [ %122, %4549 ], [ %122, %switch.early.test6322 ], [ %4561, %4558 ], [ %122, %4564 ], [ %122, %switch.early.test6325 ], [ %4585, %4580 ], [ %.92, %4570 ], [ %122, %4588 ], [ %122, %switch.early.test6326 ], [ %4605, %4597 ], [ %122, %4608 ], [ %122, %4610 ], [ %122, %switch.early.test6328 ], [ %4626, %4621 ], [ %122, %4629 ], [ %122, %switch.early.test6329 ], [ %4639, %4638 ], [ %122, %4642 ], [ %122, %switch.early.test6330 ], [ %4657, %4651 ], [ %122, %4660 ], [ %122, %4662 ], [ %122, %switch.early.test6332 ], [ %4679, %4673 ], [ %122, %4682 ], [ %122, %4684 ], [ %122, %switch.early.test6334 ], [ %4701, %4695 ], [ %122, %4704 ], [ %122, %switch.early.test6335 ], [ %4716, %4713 ], [ %122, %4719 ], [ %122, %4721 ], [ %122, %switch.early.test6337 ], [ %4736, %4732 ], [ %122, %4739 ], [ %122, %switch.early.test6340 ], [ %4749, %4745 ], [ %4754, %4750 ], [ %4777, %4771 ], [ %4791, %4786 ], [ %4777, %4783 ], [ %4782, %4779 ], [ %4770, %4765 ], [ %4749, %4762 ], [ %4761, %4755 ], [ %122, %4794 ], [ %122, %switch.early.test6343 ], [ %4804, %4800 ], [ %4824, %4821 ], [ %4819, %4813 ], [ %4812, %4809 ], [ %4808, %4805 ], [ %122, %4827 ], [ %122, %4829 ], [ %122, %switch.early.test6345 ], [ %4843, %4840 ], [ %4864, %4858 ], [ %4850, %4845 ], [ %4852, %4851 ], [ %4857, %4853 ], [ %122, %4867 ], [ %122, %switch.early.test6346 ], [ %4879, %switch.early.test6346.thread ], [ %122, %switch.early.test6347 ], [ %4893, %4890 ], [ %122, %switch.early.test6348 ], [ %4912, %4904 ], [ %122, %switch.early.test6349 ], [ %4924, %switch.early.test6349.thread ], [ %122, %switch.early.test6350 ], [ %4936, %switch.early.test6350.thread ], [ %122, %switch.early.test6351 ], [ %4948, %switch.early.test6351.thread ], [ %122, %switch.early.test6352 ], [ %4960, %switch.early.test6352.thread ], [ %122, %switch.early.test6353 ], [ %4972, %switch.early.test6353.thread ], [ %122, %switch.early.test6354 ], [ %4984, %switch.early.test6354.thread ], [ %122, %switch.early.test6356 ], [ %5008, %4996 ], [ %122, %switch.early.test6357 ], [ %5028, %5019 ], [ %122, %switch.early.test6358 ], [ %5048, %5039 ], [ %122, %switch.early.test6359 ], [ %5068, %5059 ], [ %122, %switch.early.test6360 ], [ %5088, %5079 ], [ %122, %switch.early.test6361 ], [ %5108, %5099 ], [ %122, %5111 ], [ %122, %switch.early.test6364 ], [ %5121, %5117 ], [ %122, %switch.early.test6365 ], [ %.93, %5236 ], [ %5259, %5247 ], [ %122, %switch.early.test6366 ], [ %5266, %5263 ], [ %122, %switch.early.test6367 ], [ %5279, %5270 ], [ %122, %switch.early.test6368 ], [ %5297, %5294 ], [ %5292, %5289 ], [ %122, %switch.early.test6369 ], [ %5304, %5301 ], [ %318, %331 ], [ %318, %329 ], [ %122, %1269 ], [ %122, %switch.early.test6091 ], [ %5287, %5283 ], [ %122, %153 ], [ %122, %switch.early.test6017 ], [ %122, %192 ], [ %122, %switch.early.test6018 ], [ %122, %219 ], [ %122, %switch.early.test6020 ], [ %122, %271 ], [ %122, %switch.early.test6021 ], [ %122, %290 ], [ %122, %switch.early.test6023 ], [ %122, %310 ], [ %122, %switch.early.test6026 ], [ %122, %344 ], [ %122, %switch.early.test6028 ], [ %122, %359 ], [ %122, %switch.early.test6029 ], [ %122, %387 ], [ %122, %switch.early.test6030 ], [ %122, %461 ], [ %122, %switch.early.test6032 ], [ %122, %491 ], [ %122, %switch.early.test6033 ], [ %122, %508 ], [ %122, %switch.early.test6034 ], [ %122, %526 ], [ %122, %switch.early.test6036 ], [ %122, %553 ], [ %122, %switch.early.test6037 ], [ %122, %560 ], [ %122, %switch.early.test6038 ], [ %122, %582 ], [ %122, %switch.early.test6039 ], [ %122, %605 ], [ %122, %switch.early.test6041 ], [ %122, %629 ], [ %122, %switch.early.test6042 ], [ %122, %638 ], [ %122, %switch.early.test6043 ], [ %122, %672 ], [ %122, %switch.early.test6045 ], [ %122, %685 ], [ %122, %switch.early.test6046 ], [ %122, %703 ], [ %122, %switch.early.test6047 ], [ %122, %724 ], [ %122, %switch.early.test6048 ], [ %122, %746 ], [ %122, %switch.early.test6050 ], [ %122, %760 ], [ %122, %switch.early.test6051 ], [ %122, %767 ], [ %122, %switch.early.test6052 ], [ %122, %772 ], [ %122, %switch.early.test6053 ], [ %122, %791 ], [ %122, %switch.early.test6056 ], [ %122, %810 ], [ %122, %switch.early.test6057 ], [ %122, %817 ], [ %122, %switch.early.test6058 ], [ %122, %836 ], [ %122, %switch.early.test6060 ], [ %122, %862 ], [ %122, %switch.early.test6061 ], [ %122, %870 ], [ %122, %switch.early.test6062 ], [ %122, %877 ], [ %122, %switch.early.test6063 ], [ %122, %892 ], [ %122, %switch.early.test6064 ], [ %122, %908 ], [ %122, %switch.early.test6065 ], [ %122, %923 ], [ %122, %switch.early.test6066 ], [ %122, %937 ], [ %122, %switch.early.test6067 ], [ %122, %952 ], [ %122, %switch.early.test6068 ], [ %122, %998 ], [ %122, %switch.early.test6070 ], [ %122, %1010 ], [ %122, %switch.early.test6071 ], [ %122, %1018 ], [ %122, %switch.early.test6072 ], [ %122, %1050 ], [ %122, %switch.early.test6073 ], [ %122, %1081 ], [ %122, %switch.early.test6074 ], [ %122, %1088 ], [ %122, %switch.early.test6075 ], [ %122, %1100 ], [ %122, %switch.early.test6076 ], [ %122, %1121 ], [ %122, %switch.early.test6080 ], [ %122, %1139 ], [ %122, %switch.early.test6083 ], [ %122, %1155 ], [ %122, %switch.early.test6084 ], [ %122, %1173 ], [ %122, %switch.early.test6085 ], [ %122, %1190 ], [ %122, %switch.early.test6086 ], [ %122, %1207 ], [ %122, %switch.early.test6087 ], [ %122, %1224 ], [ %122, %switch.early.test6088 ], [ %122, %1241 ], [ %122, %switch.early.test6089 ], [ %122, %1258 ], [ %122, %switch.early.test6090 ], [ %122, %1275 ], [ %122, %switch.early.test6091 ], [ %122, %1364 ], [ %122, %switch.early.test6093 ], [ %122, %1371 ], [ %122, %switch.early.test6094 ], [ %122, %1379 ], [ %122, %switch.early.test6095 ], [ %122, %1392 ], [ %122, %switch.early.test6096 ], [ %122, %1409 ], [ %122, %switch.early.test6099 ], [ %122, %1428 ], [ %122, %switch.early.test6102 ], [ %122, %1441 ], [ %122, %switch.early.test6103 ], [ %122, %1514 ], [ %122, %switch.early.test6104 ], [ %122, %1560 ], [ %122, %switch.early.test6105 ], [ %122, %1605 ], [ %122, %switch.early.test6106 ], [ %122, %1618 ], [ %122, %switch.early.test6107 ], [ %122, %1625 ], [ %122, %switch.early.test6108 ], [ %122, %1633 ], [ %122, %switch.early.test6109 ], [ %122, %1641 ], [ %122, %switch.early.test6110 ], [ %122, %1648 ], [ %122, %switch.early.test6111 ], [ %122, %1657 ], [ %122, %switch.early.test6112 ], [ %122, %1672 ], [ %122, %switch.early.test6114 ], [ %122, %1685 ], [ %122, %switch.early.test6115 ], [ %122, %1699 ], [ %122, %switch.early.test6117 ], [ %122, %1715 ], [ %122, %switch.early.test6118 ], [ %122, %1730 ], [ %122, %switch.early.test6119 ], [ %122, %1743 ], [ %122, %switch.early.test6120 ], [ %122, %1758 ], [ %122, %switch.early.test6121 ], [ %122, %1772 ], [ %122, %switch.early.test6122 ], [ %122, %1797 ], [ %122, %switch.early.test6123 ], [ %122, %1813 ], [ %122, %switch.early.test6124 ], [ %122, %1835 ], [ %122, %switch.early.test6125 ], [ %122, %1845 ], [ %122, %switch.early.test6126 ], [ %122, %1864 ], [ %122, %switch.early.test6128 ], [ %122, %1880 ], [ %122, %switch.early.test6130 ], [ %122, %1892 ], [ %122, %switch.early.test6131 ], [ %122, %1909 ], [ %122, %switch.early.test6132 ], [ %122, %1934 ], [ %122, %switch.early.test6133 ], [ %122, %1948 ], [ %122, %switch.early.test6136 ], [ %122, %2027 ], [ %122, %switch.early.test6137 ], [ %122, %2061 ], [ %122, %switch.early.test6138 ], [ %122, %2074 ], [ %122, %switch.early.test6141 ], [ %122, %2119 ], [ %122, %switch.early.test6144 ], [ %122, %2126 ], [ %122, %switch.early.test6145 ], [ %122, %2146 ], [ %122, %switch.early.test6148 ], [ %122, %2153 ], [ %122, %switch.early.test6149 ], [ %122, %2169 ], [ %122, %switch.early.test6152 ], [ %122, %2182 ], [ %122, %switch.early.test6153 ], [ %122, %2216 ], [ %122, %switch.early.test6154 ], [ %122, %2232 ], [ %122, %switch.early.test6155 ], [ %122, %2244 ], [ %122, %switch.early.test6156 ], [ %122, %2296 ], [ %122, %switch.early.test6157 ], [ %122, %2368 ], [ %122, %switch.early.test6158 ], [ %122, %2396 ], [ %122, %switch.early.test6159 ], [ %122, %2485 ], [ %122, %switch.early.test6160 ], [ %122, %2533 ], [ %122, %switch.early.test6161 ], [ %122, %2546 ], [ %122, %switch.early.test6164 ], [ %122, %2652 ], [ %122, %switch.early.test6165 ], [ %122, %2709 ], [ %122, %switch.early.test6166 ], [ %122, %2748 ], [ %122, %switch.early.test6167 ], [ %122, %2807 ], [ %122, %switch.early.test6168 ], [ %122, %2820 ], [ %122, %switch.early.test6171 ], [ %122, %2879 ], [ %122, %switch.early.test6173 ], [ %122, %2894 ], [ %122, %switch.early.test6175 ], [ %122, %2909 ], [ %122, %switch.early.test6177 ], [ %122, %2924 ], [ %122, %switch.early.test6179 ], [ %122, %2939 ], [ %122, %switch.early.test6181 ], [ %122, %2954 ], [ %122, %switch.early.test6183 ], [ %122, %2969 ], [ %122, %switch.early.test6185 ], [ %122, %2984 ], [ %122, %switch.early.test6187 ], [ %122, %2999 ], [ %122, %switch.early.test6189 ], [ %122, %3014 ], [ %122, %switch.early.test6191 ], [ %122, %3029 ], [ %122, %switch.early.test6193 ], [ %122, %3044 ], [ %122, %switch.early.test6195 ], [ %122, %3059 ], [ %122, %switch.early.test6197 ], [ %122, %3074 ], [ %122, %switch.early.test6199 ], [ %122, %3089 ], [ %122, %switch.early.test6201 ], [ %122, %3104 ], [ %122, %switch.early.test6203 ], [ %122, %3116 ], [ %122, %switch.early.test6204 ], [ %122, %3141 ], [ %122, %switch.early.test6205 ], [ %122, %3160 ], [ %122, %switch.early.test6207 ], [ %122, %3179 ], [ %122, %switch.early.test6209 ], [ %122, %3198 ], [ %122, %switch.early.test6211 ], [ %122, %3217 ], [ %122, %switch.early.test6213 ], [ %122, %3236 ], [ %122, %switch.early.test6215 ], [ %122, %3255 ], [ %122, %switch.early.test6217 ], [ %122, %3274 ], [ %122, %switch.early.test6219 ], [ %122, %3299 ], [ %122, %switch.early.test6221 ], [ %122, %3320 ], [ %122, %switch.early.test6223 ], [ %122, %3339 ], [ %122, %switch.early.test6225 ], [ %122, %3358 ], [ %122, %switch.early.test6227 ], [ %122, %3379 ], [ %122, %switch.early.test6229 ], [ %122, %3407 ], [ %122, %switch.early.test6231 ], [ %122, %3426 ], [ %122, %switch.early.test6233 ], [ %122, %3445 ], [ %122, %switch.early.test6235 ], [ %122, %3464 ], [ %122, %switch.early.test6237 ], [ %122, %3483 ], [ %122, %switch.early.test6239 ], [ %122, %3504 ], [ %122, %switch.early.test6241 ], [ %122, %3523 ], [ %122, %switch.early.test6243 ], [ %122, %3542 ], [ %122, %switch.early.test6245 ], [ %122, %3561 ], [ %122, %switch.early.test6247 ], [ %122, %3583 ], [ %122, %switch.early.test6249 ], [ %122, %3602 ], [ %122, %switch.early.test6251 ], [ %122, %3621 ], [ %122, %switch.early.test6253 ], [ %122, %3640 ], [ %122, %switch.early.test6255 ], [ %122, %3658 ], [ %122, %switch.early.test6258 ], [ %122, %3672 ], [ %122, %switch.early.test6259 ], [ %122, %3687 ], [ %122, %switch.early.test6260 ], [ %122, %3700 ], [ %122, %switch.early.test6261 ], [ %122, %3787 ], [ %122, %switch.early.test6264 ], [ %122, %3828 ], [ %122, %switch.early.test6265 ], [ %122, %3841 ], [ %122, %switch.early.test6268 ], [ %122, %3894 ], [ %122, %switch.early.test6270 ], [ %122, %3922 ], [ %122, %switch.early.test6272 ], [ %122, %3939 ], [ %122, %switch.early.test6274 ], [ %122, %3952 ], [ %122, %switch.early.test6275 ], [ %122, %3975 ], [ %122, %switch.early.test6276 ], [ %122, %3997 ], [ %122, %switch.early.test6277 ], [ %122, %4009 ], [ %122, %switch.early.test6278 ], [ %122, %4086 ], [ %122, %switch.early.test6279 ], [ %122, %4109 ], [ %122, %switch.early.test6280 ], [ %122, %4150 ], [ %122, %switch.early.test6282 ], [ %122, %4180 ], [ %122, %switch.early.test6284 ], [ %122, %4198 ], [ %122, %switch.early.test6287 ], [ %122, %4311 ], [ %122, %switch.early.test6290 ], [ %122, %4329 ], [ %122, %switch.early.test6293 ], [ %122, %4346 ], [ %122, %switch.early.test6296 ], [ %122, %4363 ], [ %122, %switch.early.test6299 ], [ %122, %4380 ], [ %122, %switch.early.test6302 ], [ %122, %4397 ], [ %122, %switch.early.test6305 ], [ %122, %4414 ], [ %122, %switch.early.test6308 ], [ %122, %4431 ], [ %122, %switch.early.test6311 ], [ %122, %4449 ], [ %122, %switch.early.test6314 ], [ %122, %4463 ], [ %122, %switch.early.test6315 ], [ %122, %4484 ], [ %122, %switch.early.test6317 ], [ %122, %4503 ], [ %122, %switch.early.test6318 ], [ %122, %4525 ], [ %122, %switch.early.test6320 ], [ %122, %4540 ], [ %122, %switch.early.test6321 ], [ %122, %4555 ], [ %122, %switch.early.test6322 ], [ %122, %4567 ], [ %122, %switch.early.test6325 ], [ %122, %4594 ], [ %122, %switch.early.test6326 ], [ %122, %4618 ], [ %122, %switch.early.test6328 ], [ %122, %4635 ], [ %122, %switch.early.test6329 ], [ %122, %4648 ], [ %122, %switch.early.test6330 ], [ %122, %4670 ], [ %122, %switch.early.test6332 ], [ %122, %4692 ], [ %122, %switch.early.test6334 ], [ %122, %4710 ], [ %122, %switch.early.test6335 ], [ %122, %4729 ], [ %122, %switch.early.test6337 ], [ %122, %4742 ], [ %122, %switch.early.test6340 ], [ %122, %4797 ], [ %122, %switch.early.test6343 ], [ %122, %4837 ], [ %122, %switch.early.test6345 ], [ %122, %4870 ], [ %122, %switch.early.test6346 ], [ %122, %4887 ], [ %122, %switch.early.test6347 ], [ %122, %4901 ], [ %122, %switch.early.test6348 ], [ %122, %4918 ], [ %122, %switch.early.test6349 ], [ %122, %4930 ], [ %122, %switch.early.test6350 ], [ %122, %4942 ], [ %122, %switch.early.test6351 ], [ %122, %4954 ], [ %122, %switch.early.test6352 ], [ %122, %4966 ], [ %122, %switch.early.test6353 ], [ %122, %4978 ], [ %122, %switch.early.test6354 ], [ %122, %4993 ], [ %122, %switch.early.test6356 ], [ %122, %5016 ], [ %122, %switch.early.test6357 ], [ %122, %5036 ], [ %122, %switch.early.test6358 ], [ %122, %5056 ], [ %122, %switch.early.test6359 ], [ %122, %5076 ], [ %122, %switch.early.test6360 ], [ %122, %5096 ], [ %122, %switch.early.test6361 ], [ %122, %5114 ], [ %122, %switch.early.test6364 ], [ %122, %5127 ], [ %122, %switch.early.test6365 ], [ %122, %5260 ], [ %122, %switch.early.test6366 ], [ %122, %5267 ], [ %122, %switch.early.test6367 ], [ %122, %5280 ], [ %122, %switch.early.test6368 ], [ %122, %5298 ], [ %122, %switch.early.test6369 ], [ %122, %5305 ], [ %122, %switch.early.test6370 ], [ %122, %302 ], [ %122, %302 ], [ %122, %1116 ], [ %122, %1116 ], [ %122, %1943 ], [ %122, %1943 ], [ %122, %2071 ], [ %122, %2071 ], [ %122, %2111 ], [ %122, %2111 ], [ %122, %2138 ], [ %122, %2138 ], [ %122, %2543 ], [ %122, %2543 ], [ %122, %2817 ], [ %122, %2817 ], [ %122, %3784 ], [ %122, %3784 ], [ %122, %3838 ], [ %122, %3838 ], [ %122, %4195 ], [ %122, %4195 ], [ %122, %4564 ], [ %122, %4564 ], [ %122, %4739 ], [ %122, %4739 ], [ %122, %4794 ], [ %122, %4794 ], [ %122, %5111 ], [ %122, %5111 ], [ %122, %390 ], [ %1285, %1278 ], [ %2097, %.preheader ], [ %.55, %.preheader6600 ], [ %2589, %.preheader6603 ], [ %402, %.lr.ph6635 ], [ %.18, %1355 ], [ %2105, %.lr.ph6617 ], [ %2522, %.lr.ph6613 ], [ %2597, %.lr.ph ], [ %3988, %.preheader6605 ]
+.thread6013:                                      ; preds = %.preheader6662, %.lr.ph, %.lr.ph6670, %.lr.ph6674, %1355, %.lr.ph6692, %.preheader6660, %.preheader6657, %.preheader, %1278, %390, %5111, %5111, %5111, %4794, %4794, %4794, %4739, %4739, %4739, %4564, %4564, %4564, %4195, %4195, %4195, %3838, %3838, %3838, %3784, %3784, %3784, %2817, %2817, %2817, %2543, %2543, %2543, %2071, %2071, %2071, %1943, %1943, %1943, %2138, %2138, %2138, %2111, %2111, %2111, %1116, %1116, %1116, %302, %302, %302, %switch.early.test6370, %switch.early.test6370, %5305, %switch.early.test6369, %switch.early.test6369, %5298, %switch.early.test6368, %switch.early.test6368, %5280, %switch.early.test6367, %switch.early.test6367, %5267, %switch.early.test6366, %switch.early.test6366, %5260, %switch.early.test6365, %switch.early.test6365, %5127, %switch.early.test6364, %switch.early.test6364, %5114, %switch.early.test6361, %switch.early.test6361, %5096, %switch.early.test6360, %switch.early.test6360, %5076, %switch.early.test6359, %switch.early.test6359, %5056, %switch.early.test6358, %switch.early.test6358, %5036, %switch.early.test6357, %switch.early.test6357, %5016, %switch.early.test6356, %switch.early.test6356, %4993, %switch.early.test6354, %switch.early.test6354, %4978, %switch.early.test6353, %switch.early.test6353, %4966, %switch.early.test6352, %switch.early.test6352, %4954, %switch.early.test6351, %switch.early.test6351, %4942, %switch.early.test6350, %switch.early.test6350, %4930, %switch.early.test6349, %switch.early.test6349, %4918, %switch.early.test6348, %switch.early.test6348, %4901, %switch.early.test6347, %switch.early.test6347, %4887, %switch.early.test6346, %switch.early.test6346, %4870, %switch.early.test6345, %switch.early.test6345, %4837, %switch.early.test6343, %switch.early.test6343, %4797, %switch.early.test6340, %switch.early.test6340, %4742, %switch.early.test6337, %switch.early.test6337, %4729, %switch.early.test6335, %switch.early.test6335, %4710, %switch.early.test6334, %switch.early.test6334, %4692, %switch.early.test6332, %switch.early.test6332, %4670, %switch.early.test6330, %switch.early.test6330, %4648, %switch.early.test6329, %switch.early.test6329, %4635, %switch.early.test6328, %switch.early.test6328, %4618, %switch.early.test6326, %switch.early.test6326, %4594, %switch.early.test6325, %switch.early.test6325, %4567, %switch.early.test6322, %switch.early.test6322, %4555, %switch.early.test6321, %switch.early.test6321, %4540, %4536, %switch.early.test6320, %switch.early.test6320, %4525, %switch.early.test6318, %switch.early.test6318, %4503, %switch.early.test6317, %switch.early.test6317, %4484, %switch.early.test6315, %switch.early.test6315, %4463, %4459, %switch.early.test6314, %switch.early.test6314, %4449, %switch.early.test6311, %switch.early.test6311, %4431, %switch.early.test6308, %switch.early.test6308, %4414, %switch.early.test6305, %switch.early.test6305, %4397, %switch.early.test6302, %switch.early.test6302, %4380, %switch.early.test6299, %switch.early.test6299, %4363, %switch.early.test6296, %switch.early.test6296, %4346, %switch.early.test6293, %switch.early.test6293, %4329, %switch.early.test6290, %switch.early.test6290, %4311, %switch.early.test6287, %switch.early.test6287, %4198, %switch.early.test6284, %switch.early.test6284, %4180, %switch.early.test6282, %switch.early.test6282, %4150, %switch.early.test6280, %switch.early.test6280, %4109, %switch.early.test6279, %switch.early.test6279, %4086, %switch.early.test6278, %switch.early.test6278, %4009, %switch.early.test6277, %switch.early.test6277, %3997, %switch.early.test6276, %switch.early.test6276, %3975, %switch.early.test6275, %switch.early.test6275, %3952, %3948, %switch.early.test6274, %switch.early.test6274, %3939, %switch.early.test6272, %switch.early.test6272, %3922, %switch.early.test6270, %switch.early.test6270, %3894, %switch.early.test6268, %switch.early.test6268, %3841, %switch.early.test6265, %switch.early.test6265, %3828, %switch.early.test6264, %switch.early.test6264, %3787, %switch.early.test6261, %switch.early.test6261, %3700, %switch.early.test6260, %switch.early.test6260, %3687, %switch.early.test6259, %switch.early.test6259, %3672, %switch.early.test6258, %switch.early.test6258, %3658, %switch.early.test6255, %switch.early.test6255, %3640, %switch.early.test6253, %switch.early.test6253, %3621, %switch.early.test6251, %switch.early.test6251, %3602, %switch.early.test6249, %switch.early.test6249, %3583, %switch.early.test6247, %switch.early.test6247, %3561, %switch.early.test6245, %switch.early.test6245, %3542, %switch.early.test6243, %switch.early.test6243, %3523, %switch.early.test6241, %switch.early.test6241, %3504, %switch.early.test6239, %switch.early.test6239, %3483, %switch.early.test6237, %switch.early.test6237, %3464, %switch.early.test6235, %switch.early.test6235, %3445, %switch.early.test6233, %switch.early.test6233, %3426, %switch.early.test6231, %switch.early.test6231, %3407, %switch.early.test6229, %switch.early.test6229, %3379, %switch.early.test6227, %switch.early.test6227, %3358, %switch.early.test6225, %switch.early.test6225, %3339, %switch.early.test6223, %switch.early.test6223, %3320, %switch.early.test6221, %switch.early.test6221, %3299, %switch.early.test6219, %switch.early.test6219, %3274, %switch.early.test6217, %switch.early.test6217, %3255, %switch.early.test6215, %switch.early.test6215, %3236, %switch.early.test6213, %switch.early.test6213, %3217, %switch.early.test6211, %switch.early.test6211, %3198, %switch.early.test6209, %switch.early.test6209, %3179, %switch.early.test6207, %switch.early.test6207, %3160, %switch.early.test6205, %switch.early.test6205, %3141, %switch.early.test6204, %switch.early.test6204, %3116, %switch.early.test6203, %switch.early.test6203, %3104, %switch.early.test6201, %switch.early.test6201, %3089, %switch.early.test6199, %switch.early.test6199, %3074, %switch.early.test6197, %switch.early.test6197, %3059, %switch.early.test6195, %switch.early.test6195, %3044, %switch.early.test6193, %switch.early.test6193, %3029, %switch.early.test6191, %switch.early.test6191, %3014, %switch.early.test6189, %switch.early.test6189, %2999, %switch.early.test6187, %switch.early.test6187, %2984, %switch.early.test6185, %switch.early.test6185, %2969, %switch.early.test6183, %switch.early.test6183, %2954, %switch.early.test6181, %switch.early.test6181, %2939, %switch.early.test6179, %switch.early.test6179, %2924, %switch.early.test6177, %switch.early.test6177, %2909, %switch.early.test6175, %switch.early.test6175, %2894, %switch.early.test6173, %switch.early.test6173, %2879, %switch.early.test6171, %switch.early.test6171, %2820, %switch.early.test6168, %switch.early.test6168, %2807, %switch.early.test6167, %switch.early.test6167, %2748, %switch.early.test6166, %switch.early.test6166, %2709, %switch.early.test6165, %switch.early.test6165, %2652, %switch.early.test6164, %switch.early.test6164, %2546, %switch.early.test6161, %switch.early.test6161, %2533, %switch.early.test6160, %switch.early.test6160, %2485, %switch.early.test6159, %switch.early.test6159, %2396, %switch.early.test6158, %switch.early.test6158, %2368, %switch.early.test6157, %switch.early.test6157, %2296, %switch.early.test6156, %switch.early.test6156, %2244, %switch.early.test6155, %switch.early.test6155, %2232, %switch.early.test6154, %switch.early.test6154, %2216, %switch.early.test6153, %switch.early.test6153, %2182, %switch.early.test6152, %switch.early.test6152, %2169, %switch.early.test6149, %switch.early.test6149, %2153, %switch.early.test6148, %switch.early.test6148, %2146, %switch.early.test6145, %switch.early.test6145, %2126, %switch.early.test6144, %switch.early.test6144, %2119, %switch.early.test6141, %switch.early.test6141, %2074, %switch.early.test6138, %switch.early.test6138, %2061, %switch.early.test6137, %switch.early.test6137, %2027, %switch.early.test6136, %switch.early.test6136, %1948, %switch.early.test6133, %switch.early.test6133, %1934, %switch.early.test6132, %switch.early.test6132, %1909, %switch.early.test6131, %switch.early.test6131, %1892, %switch.early.test6130, %switch.early.test6130, %1880, %switch.early.test6128, %switch.early.test6128, %1864, %switch.early.test6126, %switch.early.test6126, %1845, %switch.early.test6125, %switch.early.test6125, %1835, %switch.early.test6124, %switch.early.test6124, %1813, %switch.early.test6123, %switch.early.test6123, %1797, %switch.early.test6122, %switch.early.test6122, %1772, %switch.early.test6121, %switch.early.test6121, %1758, %switch.early.test6120, %switch.early.test6120, %1743, %1739, %switch.early.test6119, %switch.early.test6119, %1730, %switch.early.test6118, %switch.early.test6118, %1715, %switch.early.test6117, %switch.early.test6117, %1699, %switch.early.test6115, %switch.early.test6115, %1685, %switch.early.test6114, %switch.early.test6114, %1672, %switch.early.test6112, %switch.early.test6112, %1657, %switch.early.test6111, %switch.early.test6111, %1648, %switch.early.test6110, %switch.early.test6110, %1641, %switch.early.test6109, %switch.early.test6109, %1633, %switch.early.test6108, %switch.early.test6108, %1625, %switch.early.test6107, %switch.early.test6107, %1618, %1614, %switch.early.test6106, %switch.early.test6106, %1605, %switch.early.test6105, %switch.early.test6105, %1560, %switch.early.test6104, %switch.early.test6104, %1514, %switch.early.test6103, %switch.early.test6103, %1441, %switch.early.test6102, %switch.early.test6102, %1428, %switch.early.test6099, %switch.early.test6099, %1409, %switch.early.test6096, %switch.early.test6096, %1392, %switch.early.test6095, %switch.early.test6095, %1379, %switch.early.test6094, %switch.early.test6094, %1371, %switch.early.test6093, %switch.early.test6093, %1364, %switch.early.test6091, %switch.early.test6091, %1275, %switch.early.test6090, %switch.early.test6090, %1258, %switch.early.test6089, %switch.early.test6089, %1241, %switch.early.test6088, %switch.early.test6088, %1224, %switch.early.test6087, %switch.early.test6087, %1207, %switch.early.test6086, %switch.early.test6086, %1190, %switch.early.test6085, %switch.early.test6085, %1173, %switch.early.test6084, %switch.early.test6084, %1155, %switch.early.test6083, %switch.early.test6083, %1139, %switch.early.test6080, %switch.early.test6080, %1121, %switch.early.test6076, %switch.early.test6076, %1100, %switch.early.test6075, %switch.early.test6075, %1088, %switch.early.test6074, %switch.early.test6074, %1081, %switch.early.test6073, %switch.early.test6073, %1050, %switch.early.test6072, %switch.early.test6072, %1018, %switch.early.test6071, %switch.early.test6071, %1010, %switch.early.test6070, %switch.early.test6070, %998, %switch.early.test6068, %switch.early.test6068, %952, %switch.early.test6067, %switch.early.test6067, %937, %switch.early.test6066, %switch.early.test6066, %923, %switch.early.test6065, %switch.early.test6065, %908, %switch.early.test6064, %switch.early.test6064, %892, %switch.early.test6063, %switch.early.test6063, %877, %switch.early.test6062, %switch.early.test6062, %870, %switch.early.test6061, %switch.early.test6061, %862, %switch.early.test6060, %switch.early.test6060, %836, %switch.early.test6058, %switch.early.test6058, %817, %switch.early.test6057, %switch.early.test6057, %810, %switch.early.test6056, %switch.early.test6056, %791, %switch.early.test6053, %switch.early.test6053, %772, %switch.early.test6052, %switch.early.test6052, %767, %switch.early.test6051, %switch.early.test6051, %760, %switch.early.test6050, %switch.early.test6050, %746, %switch.early.test6048, %switch.early.test6048, %724, %switch.early.test6047, %switch.early.test6047, %703, %switch.early.test6046, %switch.early.test6046, %685, %681, %switch.early.test6045, %switch.early.test6045, %672, %switch.early.test6043, %switch.early.test6043, %638, %switch.early.test6042, %switch.early.test6042, %629, %switch.early.test6041, %switch.early.test6041, %605, %switch.early.test6039, %switch.early.test6039, %582, %switch.early.test6038, %switch.early.test6038, %560, %switch.early.test6037, %switch.early.test6037, %553, %switch.early.test6036, %switch.early.test6036, %526, %switch.early.test6034, %switch.early.test6034, %508, %switch.early.test6033, %switch.early.test6033, %491, %switch.early.test6032, %switch.early.test6032, %461, %switch.early.test6030, %switch.early.test6030, %387, %switch.early.test6029, %switch.early.test6029, %359, %switch.early.test6028, %switch.early.test6028, %344, %switch.early.test6026, %switch.early.test6026, %310, %switch.early.test6023, %switch.early.test6023, %290, %switch.early.test6021, %switch.early.test6021, %271, %switch.early.test6020, %switch.early.test6020, %219, %switch.early.test6018, %switch.early.test6018, %192, %switch.early.test6017, %switch.early.test6017, %153, %5283, %4867, %3697, %3113, %2241, %1508, %1269, %1042, %721, %329, %331, %4813, %452, %5289, %5294, %5247, %5263, %4840, %4845, %4851, %4853, %4858, %4827, %4829, %4800, %4805, %4809, %4821, %4745, %4750, %4755, %4765, %4762, %4783, %4786, %4779, %4771, %4719, %4721, %4704, %4682, %4684, %4660, %4662, %4642, %4629, %4608, %4610, %4588, %4570, %4580, %4549, %4515, %4517, %4474, %4476, %4440, %4422, %4405, %4388, %4371, %4354, %4337, %4320, %4302, %4292, %4296, %4183, %4189, %4170, %4172, %4153, %4164, %4140, %4142, %4112, %4134, %4103, %4080, %4071, %4074, %3978, %3969, %3955, %3961, %3933, %3912, %3914, %3897, %3906, %3888, %3844, %3856, %3868, %3882, %3879, %3870, %3822, %3811, %3813, %3775, %3777, %3681, %3666, %3649, %3630, %3632, %3611, %3613, %3592, %3594, %3573, %3575, %3551, %3553, %3532, %3534, %3513, %3515, %3494, %3496, %3473, %3475, %3454, %3456, %3435, %3437, %3416, %3418, %3397, %3399, %3369, %3371, %3348, %3350, %3329, %3331, %3310, %3312, %3289, %3291, %3264, %3266, %3245, %3247, %3226, %3228, %3207, %3209, %3188, %3190, %3169, %3171, %3150, %3152, %3125, %3136, %3132, %3098, %3083, %3068, %3053, %3038, %3023, %3008, %2993, %2978, %2963, %2948, %2933, %2918, %2903, %2888, %2873, %2823, %2828, %2832, %2837, %2841, %2845, %2849, %2865, %2861, %2853, %2801, %2793, %2795, %2742, %2735, %2737, %2699, %2701, %2549, %2554, %2558, %2562, %2566, %2570, %2574, %2578, %2641, %2644, %2634, %2637, %2627, %2630, %2620, %2623, %2613, %2616, %2606, %2609, %2599, %2602, %2591, %2583, %2527, %.loopexit, %2474, %2476, %2384, %2386, %2362, %2354, %2356, %2285, %2287, %2225, %2210, %2199, %2201, %2162, %2136, %2109, %2077, %2082, %2086, %2099, %2090, %2055, %2047, %2049, %1928, %1903, %1874, %1853, %1855, %1829, %1807, %1791, %switch.early.test6122.thread, %1783, %1718, %1725, %1709, %1693, %1666, %1599, %1583, %._crit_edge, %1548, %1550, %1498, %1500, %1419, %1400, %1358, %1252, %1235, %1218, %1201, %1184, %1167, %1149, %1130, %1114, %1075, %1067, %1069, %992, %983, %985, %931, %886, %856, %826, %828, %802, %805, %782, %754, %736, %739, %662, %664, %614, %623, %625, %619, %594, %597, %535, %546, %544, %541, %515, %518, %501, %485, %467, %478, %474, %455, %380, %352, %333, %336, %299, %279, %282, %264, %234, %259, %249, %212, %185, %159, %180, %171, %145, %5308, %5301, %5270, %5236, %5117, %5099, %5079, %5059, %5039, %5019, %4996, %switch.early.test6354.thread, %switch.early.test6353.thread, %switch.early.test6352.thread, %switch.early.test6351.thread, %switch.early.test6350.thread, %switch.early.test6349.thread, %4904, %4890, %switch.early.test6346.thread, %4732, %4713, %4695, %4673, %4651, %4638, %4621, %4597, %4558, %4543, %4528, %switch.early.test6318.thread, %4487, %4466, %4451, %4433, %4416, %4399, %4382, %4365, %4348, %4331, %4313, %4089, %4000, %3942, %3925, %3831, %3690, %3675, %3660, %3643, %3624, %3605, %3586, %3564, %3545, %3526, %3507, %3486, %3467, %3448, %3429, %3410, %3382, %3361, %3342, %3323, %3302, %3277, %3258, %3239, %3220, %3201, %3182, %3163, %3144, %3107, %3092, %3077, %3062, %3047, %3032, %3017, %3002, %2987, %2972, %2957, %2942, %2927, %2912, %2897, %2882, %2810, %2536, %2235, %2219, %2172, %2156, %2149, %2129, %2122, %2064, %2020, %1937, %1912, %switch.early.test6131.thread, %1883, %1867, %switch.early.test6126.thread, %1838, %1816, %1800, %switch.early.test6121.thread, %1746, %1733, %1702, %switch.early.test6115.thread, %1675, %1660, %1651, %1644, %1636, %1628, %1621, %1608, %1430, %1411, %switch.early.test6096.thread, %1382, %1374, %1367, %1261, %1244, %1227, %1210, %1193, %1176, %1158, %1141, %1124, %1110, %1098, %1084, %1037, %1013, %1008, %940, %switch.early.test6066.thread, %911, %895, %880, %873, %865, %847, %820, %813, %775, %770, %763, %748, %switch.early.test6048.thread, %706, %693, %675, %655, %632, %585, %563, %556, %511, %494, %362, %347, %293, %274, %195
+  %.04635 = phi i32 [ %122, %switch.early.test6370 ], [ %5311, %5308 ], [ %122, %145 ], [ %122, %switch.early.test6017 ], [ %164, %159 ], [ %176, %171 ], [ %184, %180 ], [ %122, %185 ], [ %122, %switch.early.test6018 ], [ %208, %195 ], [ %122, %212 ], [ %122, %switch.early.test6020 ], [ %241, %234 ], [ %255, %249 ], [ %263, %259 ], [ %122, %264 ], [ %122, %switch.early.test6021 ], [ %278, %274 ], [ %122, %279 ], [ %122, %282 ], [ %122, %switch.early.test6023 ], [ %298, %293 ], [ %122, %299 ], [ %122, %302 ], [ %122, %switch.early.test6026 ], [ %122, %333 ], [ %122, %336 ], [ %122, %switch.early.test6028 ], [ %351, %347 ], [ %122, %352 ], [ %122, %switch.early.test6029 ], [ %379, %362 ], [ %122, %380 ], [ %122, %switch.early.test6030 ], [ %.2, %452 ], [ %122, %455 ], [ %122, %switch.early.test6032 ], [ %470, %467 ], [ %477, %474 ], [ %482, %478 ], [ %122, %485 ], [ %122, %switch.early.test6033 ], [ %500, %494 ], [ %122, %501 ], [ %122, %switch.early.test6034 ], [ %514, %511 ], [ %122, %515 ], [ %122, %518 ], [ %122, %switch.early.test6036 ], [ %538, %535 ], [ %543, %541 ], [ %552, %546 ], [ %533, %544 ], [ %122, %switch.early.test6037 ], [ %559, %556 ], [ %122, %switch.early.test6038 ], [ %581, %563 ], [ %122, %switch.early.test6039 ], [ %593, %585 ], [ %122, %594 ], [ %122, %597 ], [ %122, %switch.early.test6041 ], [ %617, %614 ], [ %622, %619 ], [ %628, %625 ], [ %612, %623 ], [ %122, %switch.early.test6042 ], [ %637, %632 ], [ %122, %switch.early.test6043 ], [ %659, %655 ], [ %122, %662 ], [ %122, %664 ], [ %122, %switch.early.test6045 ], [ %678, %675 ], [ %122, %681 ], [ %122, %switch.early.test6046 ], [ %695, %693 ], [ %122, %switch.early.test6047 ], [ %718, %706 ], [ %122, %721 ], [ %122, %switch.early.test6048 ], [ %732, %switch.early.test6048.thread ], [ %122, %switch.early.test6050 ], [ %751, %748 ], [ %122, %736 ], [ %122, %739 ], [ %122, %754 ], [ %122, %switch.early.test6051 ], [ %766, %763 ], [ %122, %switch.early.test6052 ], [ %771, %770 ], [ %122, %switch.early.test6053 ], [ %778, %775 ], [ %122, %782 ], [ %122, %switch.early.test6056 ], [ %809, %805 ], [ %.3, %802 ], [ %122, %switch.early.test6057 ], [ %816, %813 ], [ %122, %switch.early.test6058 ], [ %823, %820 ], [ %122, %826 ], [ %122, %828 ], [ %122, %switch.early.test6060 ], [ %853, %847 ], [ %122, %856 ], [ %122, %switch.early.test6061 ], [ %869, %865 ], [ %122, %switch.early.test6062 ], [ %876, %873 ], [ %122, %switch.early.test6063 ], [ %883, %880 ], [ %122, %886 ], [ %122, %switch.early.test6064 ], [ %907, %895 ], [ %122, %switch.early.test6065 ], [ %917, %911 ], [ %122, %switch.early.test6066 ], [ %928, %switch.early.test6066.thread ], [ %122, %931 ], [ %122, %switch.early.test6067 ], [ %946, %940 ], [ %122, %switch.early.test6068 ], [ %989, %985 ], [ %.8, %983 ], [ %122, %992 ], [ %122, %switch.early.test6070 ], [ %1009, %1008 ], [ %122, %switch.early.test6071 ], [ %1017, %1013 ], [ %122, %switch.early.test6072 ], [ %.9, %1037 ], [ %122, %1042 ], [ %122, %switch.early.test6073 ], [ %1072, %1069 ], [ %.10, %1067 ], [ %122, %1075 ], [ %122, %switch.early.test6074 ], [ %1087, %1084 ], [ %122, %switch.early.test6075 ], [ %1099, %1098 ], [ %122, %switch.early.test6076 ], [ %1111, %1110 ], [ %122, %1114 ], [ %122, %1116 ], [ %122, %switch.early.test6080 ], [ %1127, %1124 ], [ %122, %1130 ], [ %122, %switch.early.test6083 ], [ %1146, %1141 ], [ %122, %1149 ], [ %122, %switch.early.test6084 ], [ %1164, %1158 ], [ %122, %1167 ], [ %122, %switch.early.test6085 ], [ %1181, %1176 ], [ %122, %1184 ], [ %122, %switch.early.test6086 ], [ %1198, %1193 ], [ %122, %1201 ], [ %122, %switch.early.test6087 ], [ %1215, %1210 ], [ %122, %1218 ], [ %122, %switch.early.test6088 ], [ %1232, %1227 ], [ %122, %1235 ], [ %122, %switch.early.test6089 ], [ %1249, %1244 ], [ %122, %1252 ], [ %122, %switch.early.test6090 ], [ %1266, %1261 ], [ %122, %1358 ], [ %122, %switch.early.test6093 ], [ %1370, %1367 ], [ %122, %switch.early.test6094 ], [ %1378, %1374 ], [ %122, %switch.early.test6095 ], [ %1386, %1382 ], [ %122, %switch.early.test6096 ], [ %1397, %switch.early.test6096.thread ], [ %122, %1400 ], [ %122, %switch.early.test6099 ], [ %1416, %1411 ], [ %122, %1419 ], [ %122, %switch.early.test6102 ], [ %1435, %1430 ], [ %122, %switch.early.test6103 ], [ %1503, %1500 ], [ %.24, %1498 ], [ %122, %1508 ], [ %122, %switch.early.test6104 ], [ %1554, %1550 ], [ %.28, %1548 ], [ %122, %switch.early.test6105 ], [ %.31.lcssa, %._crit_edge ], [ %.30, %1583 ], [ %122, %1599 ], [ %122, %switch.early.test6106 ], [ %1611, %1608 ], [ %122, %1614 ], [ %122, %switch.early.test6107 ], [ %1624, %1621 ], [ %122, %switch.early.test6108 ], [ %1632, %1628 ], [ %122, %switch.early.test6109 ], [ %1640, %1636 ], [ %122, %switch.early.test6110 ], [ %1647, %1644 ], [ %122, %switch.early.test6111 ], [ %1656, %1651 ], [ %122, %switch.early.test6112 ], [ %1663, %1660 ], [ %122, %1666 ], [ %122, %switch.early.test6114 ], [ %1679, %1675 ], [ %122, %switch.early.test6115 ], [ %1690, %switch.early.test6115.thread ], [ %122, %1693 ], [ %122, %switch.early.test6117 ], [ %1705, %1702 ], [ %122, %1709 ], [ %122, %switch.early.test6118 ], [ %1729, %1725 ], [ %1722, %1718 ], [ %122, %switch.early.test6119 ], [ %1736, %1733 ], [ %122, %1739 ], [ %122, %switch.early.test6120 ], [ %1752, %1746 ], [ %122, %switch.early.test6121 ], [ %1766, %switch.early.test6121.thread ], [ %122, %switch.early.test6122 ], [ %1788, %1783 ], [ %1780, %switch.early.test6122.thread ], [ %122, %1791 ], [ %122, %switch.early.test6123 ], [ %1804, %1800 ], [ %122, %1807 ], [ %122, %switch.early.test6124 ], [ %1826, %1816 ], [ %122, %1829 ], [ %122, %switch.early.test6125 ], [ %1839, %1838 ], [ %122, %switch.early.test6126 ], [ %1850, %switch.early.test6126.thread ], [ %122, %1853 ], [ %122, %1855 ], [ %122, %switch.early.test6128 ], [ %1871, %1867 ], [ %122, %1874 ], [ %122, %switch.early.test6130 ], [ %1886, %1883 ], [ %122, %switch.early.test6131 ], [ %1900, %switch.early.test6131.thread ], [ %122, %1903 ], [ %122, %switch.early.test6132 ], [ %1925, %1912 ], [ %122, %1928 ], [ %122, %switch.early.test6133 ], [ %1941, %1937 ], [ %122, %1943 ], [ %122, %switch.early.test6136 ], [ %.32, %2020 ], [ %122, %switch.early.test6137 ], [ %2052, %2049 ], [ %.33, %2047 ], [ %122, %2055 ], [ %122, %switch.early.test6138 ], [ %2068, %2064 ], [ %122, %2071 ], [ %122, %switch.early.test6141 ], [ %2081, %2077 ], [ %2085, %2082 ], [ %2089, %2086 ], [ %2097, %2099 ], [ %2097, %2090 ], [ %122, %2109 ], [ %122, %2111 ], [ %122, %switch.early.test6144 ], [ %2125, %2122 ], [ %122, %switch.early.test6145 ], [ %2133, %2129 ], [ %122, %2136 ], [ %122, %2138 ], [ %122, %switch.early.test6148 ], [ %2152, %2149 ], [ %122, %switch.early.test6149 ], [ %2159, %2156 ], [ %122, %2162 ], [ %122, %switch.early.test6152 ], [ %2176, %2172 ], [ %122, %switch.early.test6153 ], [ %2207, %2201 ], [ %.35, %2199 ], [ %122, %2210 ], [ %122, %switch.early.test6154 ], [ %2223, %2219 ], [ %122, %2225 ], [ %122, %switch.early.test6155 ], [ %2238, %2235 ], [ %122, %2241 ], [ %122, %switch.early.test6156 ], [ %2290, %2287 ], [ %.38, %2285 ], [ %122, %switch.early.test6157 ], [ %2359, %2356 ], [ %.42, %2354 ], [ %122, %2362 ], [ %122, %switch.early.test6158 ], [ %2390, %2386 ], [ %.43, %2384 ], [ %122, %switch.early.test6159 ], [ %2479, %2476 ], [ %.52, %2474 ], [ %122, %switch.early.test6160 ], [ %.55, %.loopexit ], [ %122, %2527 ], [ %122, %switch.early.test6161 ], [ %2540, %2536 ], [ %122, %2543 ], [ %122, %switch.early.test6164 ], [ %2553, %2549 ], [ %2557, %2554 ], [ %2561, %2558 ], [ %2565, %2562 ], [ %2569, %2566 ], [ %2573, %2570 ], [ %2577, %2574 ], [ %2582, %2578 ], [ %2589, %2583 ], [ %2646, %2644 ], [ %2589, %2641 ], [ %2640, %2637 ], [ %2589, %2634 ], [ %2633, %2630 ], [ %2589, %2627 ], [ %2626, %2623 ], [ %2589, %2620 ], [ %2619, %2616 ], [ %2589, %2613 ], [ %2612, %2609 ], [ %2589, %2606 ], [ %2605, %2602 ], [ %2589, %2599 ], [ %2589, %2591 ], [ %122, %switch.early.test6165 ], [ %2703, %2701 ], [ %.64, %2699 ], [ %122, %switch.early.test6166 ], [ %2739, %2737 ], [ %.66, %2735 ], [ %122, %2742 ], [ %122, %switch.early.test6167 ], [ %2798, %2795 ], [ %.72, %2793 ], [ %122, %2801 ], [ %122, %switch.early.test6168 ], [ %2814, %2810 ], [ %122, %2817 ], [ %122, %switch.early.test6171 ], [ %2827, %2823 ], [ %2831, %2828 ], [ %2836, %2832 ], [ %2840, %2837 ], [ %2859, %2853 ], [ %2870, %2865 ], [ %2864, %2861 ], [ %2844, %2841 ], [ %2848, %2845 ], [ %2852, %2849 ], [ %122, %2873 ], [ %122, %switch.early.test6173 ], [ %2885, %2882 ], [ %122, %2888 ], [ %122, %switch.early.test6175 ], [ %2900, %2897 ], [ %122, %2903 ], [ %122, %switch.early.test6177 ], [ %2915, %2912 ], [ %122, %2918 ], [ %122, %switch.early.test6179 ], [ %2930, %2927 ], [ %122, %2933 ], [ %122, %switch.early.test6181 ], [ %2945, %2942 ], [ %122, %2948 ], [ %122, %switch.early.test6183 ], [ %2960, %2957 ], [ %122, %2963 ], [ %122, %switch.early.test6185 ], [ %2975, %2972 ], [ %122, %2978 ], [ %122, %switch.early.test6187 ], [ %2990, %2987 ], [ %122, %2993 ], [ %122, %switch.early.test6189 ], [ %3005, %3002 ], [ %122, %3008 ], [ %122, %switch.early.test6191 ], [ %3020, %3017 ], [ %122, %3023 ], [ %122, %switch.early.test6193 ], [ %3035, %3032 ], [ %122, %3038 ], [ %122, %switch.early.test6195 ], [ %3050, %3047 ], [ %122, %3053 ], [ %122, %switch.early.test6197 ], [ %3065, %3062 ], [ %122, %3068 ], [ %122, %switch.early.test6199 ], [ %3080, %3077 ], [ %122, %3083 ], [ %122, %switch.early.test6201 ], [ %3095, %3092 ], [ %122, %3098 ], [ %122, %switch.early.test6203 ], [ %3110, %3107 ], [ %122, %3113 ], [ %122, %switch.early.test6204 ], [ %3128, %3125 ], [ %3135, %3132 ], [ %3140, %3136 ], [ %122, %switch.early.test6205 ], [ %3147, %3144 ], [ %122, %3150 ], [ %122, %3152 ], [ %122, %switch.early.test6207 ], [ %3166, %3163 ], [ %122, %3169 ], [ %122, %3171 ], [ %122, %switch.early.test6209 ], [ %3185, %3182 ], [ %122, %3188 ], [ %122, %3190 ], [ %122, %switch.early.test6211 ], [ %3204, %3201 ], [ %122, %3207 ], [ %122, %3209 ], [ %122, %switch.early.test6213 ], [ %3223, %3220 ], [ %122, %3226 ], [ %122, %3228 ], [ %122, %switch.early.test6215 ], [ %3242, %3239 ], [ %122, %3245 ], [ %122, %3247 ], [ %122, %switch.early.test6217 ], [ %3261, %3258 ], [ %122, %3264 ], [ %122, %3266 ], [ %122, %switch.early.test6219 ], [ %3286, %3277 ], [ %122, %3289 ], [ %122, %3291 ], [ %122, %switch.early.test6221 ], [ %3307, %3302 ], [ %122, %3310 ], [ %122, %3312 ], [ %122, %switch.early.test6223 ], [ %3326, %3323 ], [ %122, %3329 ], [ %122, %3331 ], [ %122, %switch.early.test6225 ], [ %3345, %3342 ], [ %122, %3348 ], [ %122, %3350 ], [ %122, %switch.early.test6227 ], [ %3366, %3361 ], [ %122, %3369 ], [ %122, %3371 ], [ %122, %switch.early.test6229 ], [ %3394, %3382 ], [ %122, %3397 ], [ %122, %3399 ], [ %122, %switch.early.test6231 ], [ %3413, %3410 ], [ %122, %3416 ], [ %122, %3418 ], [ %122, %switch.early.test6233 ], [ %3432, %3429 ], [ %122, %3435 ], [ %122, %3437 ], [ %122, %switch.early.test6235 ], [ %3451, %3448 ], [ %122, %3454 ], [ %122, %3456 ], [ %122, %switch.early.test6237 ], [ %3470, %3467 ], [ %122, %3473 ], [ %122, %3475 ], [ %122, %switch.early.test6239 ], [ %3491, %3486 ], [ %122, %3494 ], [ %122, %3496 ], [ %122, %switch.early.test6241 ], [ %3510, %3507 ], [ %122, %3513 ], [ %122, %3515 ], [ %122, %switch.early.test6243 ], [ %3529, %3526 ], [ %122, %3532 ], [ %122, %3534 ], [ %122, %switch.early.test6245 ], [ %3548, %3545 ], [ %122, %3551 ], [ %122, %3553 ], [ %122, %switch.early.test6247 ], [ %3570, %3564 ], [ %122, %3573 ], [ %122, %3575 ], [ %122, %switch.early.test6249 ], [ %3589, %3586 ], [ %122, %3592 ], [ %122, %3594 ], [ %122, %switch.early.test6251 ], [ %3608, %3605 ], [ %122, %3611 ], [ %122, %3613 ], [ %122, %switch.early.test6253 ], [ %3627, %3624 ], [ %122, %3630 ], [ %122, %3632 ], [ %122, %switch.early.test6255 ], [ %3646, %3643 ], [ %122, %3649 ], [ %122, %switch.early.test6258 ], [ %3663, %3660 ], [ %122, %3666 ], [ %122, %switch.early.test6259 ], [ %3678, %3675 ], [ %122, %3681 ], [ %122, %switch.early.test6260 ], [ %3694, %3690 ], [ %122, %3697 ], [ %122, %switch.early.test6261 ], [ %3781, %3777 ], [ %.82, %3775 ], [ %122, %3784 ], [ %122, %switch.early.test6264 ], [ %3819, %3813 ], [ %.84, %3811 ], [ %122, %3822 ], [ %122, %switch.early.test6265 ], [ %3835, %3831 ], [ %122, %3838 ], [ %122, %switch.early.test6268 ], [ %3848, %3844 ], [ %3857, %3856 ], [ %3869, %3868 ], [ %3885, %3882 ], [ %3876, %3879 ], [ %3876, %3870 ], [ %122, %3888 ], [ %122, %switch.early.test6270 ], [ %3909, %3906 ], [ %3903, %3897 ], [ %122, %3912 ], [ %122, %3914 ], [ %122, %switch.early.test6272 ], [ %3930, %3925 ], [ %122, %3933 ], [ %122, %switch.early.test6274 ], [ %3945, %3942 ], [ %122, %3948 ], [ %122, %switch.early.test6275 ], [ %3966, %3961 ], [ %3958, %3955 ], [ %122, %3969 ], [ %122, %switch.early.test6276 ], [ %3983, %3978 ], [ %122, %switch.early.test6277 ], [ %4003, %4000 ], [ %122, %switch.early.test6278 ], [ %4077, %4074 ], [ %.90, %4071 ], [ %122, %4080 ], [ %122, %switch.early.test6279 ], [ %4100, %4089 ], [ %122, %4103 ], [ %122, %switch.early.test6280 ], [ %4137, %4134 ], [ %4131, %4112 ], [ %122, %4140 ], [ %122, %4142 ], [ %122, %switch.early.test6282 ], [ %4167, %4164 ], [ %4161, %4153 ], [ %122, %4170 ], [ %122, %4172 ], [ %122, %switch.early.test6284 ], [ %4192, %4189 ], [ %4186, %4183 ], [ %122, %4195 ], [ %122, %switch.early.test6287 ], [ %4299, %4296 ], [ %.91, %4292 ], [ %122, %4302 ], [ %122, %switch.early.test6290 ], [ %4317, %4313 ], [ %122, %4320 ], [ %122, %switch.early.test6293 ], [ %4334, %4331 ], [ %122, %4337 ], [ %122, %switch.early.test6296 ], [ %4351, %4348 ], [ %122, %4354 ], [ %122, %switch.early.test6299 ], [ %4368, %4365 ], [ %122, %4371 ], [ %122, %switch.early.test6302 ], [ %4385, %4382 ], [ %122, %4388 ], [ %122, %switch.early.test6305 ], [ %4402, %4399 ], [ %122, %4405 ], [ %122, %switch.early.test6308 ], [ %4419, %4416 ], [ %122, %4422 ], [ %122, %switch.early.test6311 ], [ %4437, %4433 ], [ %122, %4440 ], [ %122, %switch.early.test6314 ], [ %4456, %4451 ], [ %122, %4459 ], [ %122, %switch.early.test6315 ], [ %4471, %4466 ], [ %122, %4474 ], [ %122, %4476 ], [ %122, %switch.early.test6317 ], [ %4497, %4487 ], [ %122, %switch.early.test6318 ], [ %4512, %switch.early.test6318.thread ], [ %122, %4515 ], [ %122, %4517 ], [ %122, %switch.early.test6320 ], [ %4533, %4528 ], [ %122, %4536 ], [ %122, %switch.early.test6321 ], [ %4546, %4543 ], [ %122, %4549 ], [ %122, %switch.early.test6322 ], [ %4561, %4558 ], [ %122, %4564 ], [ %122, %switch.early.test6325 ], [ %4585, %4580 ], [ %.92, %4570 ], [ %122, %4588 ], [ %122, %switch.early.test6326 ], [ %4605, %4597 ], [ %122, %4608 ], [ %122, %4610 ], [ %122, %switch.early.test6328 ], [ %4626, %4621 ], [ %122, %4629 ], [ %122, %switch.early.test6329 ], [ %4639, %4638 ], [ %122, %4642 ], [ %122, %switch.early.test6330 ], [ %4657, %4651 ], [ %122, %4660 ], [ %122, %4662 ], [ %122, %switch.early.test6332 ], [ %4679, %4673 ], [ %122, %4682 ], [ %122, %4684 ], [ %122, %switch.early.test6334 ], [ %4701, %4695 ], [ %122, %4704 ], [ %122, %switch.early.test6335 ], [ %4716, %4713 ], [ %122, %4719 ], [ %122, %4721 ], [ %122, %switch.early.test6337 ], [ %4736, %4732 ], [ %122, %4739 ], [ %122, %switch.early.test6340 ], [ %4749, %4745 ], [ %4754, %4750 ], [ %4777, %4771 ], [ %4791, %4786 ], [ %4777, %4783 ], [ %4782, %4779 ], [ %4770, %4765 ], [ %4749, %4762 ], [ %4761, %4755 ], [ %122, %4794 ], [ %122, %switch.early.test6343 ], [ %4804, %4800 ], [ %4824, %4821 ], [ %4819, %4813 ], [ %4812, %4809 ], [ %4808, %4805 ], [ %122, %4827 ], [ %122, %4829 ], [ %122, %switch.early.test6345 ], [ %4843, %4840 ], [ %4864, %4858 ], [ %4850, %4845 ], [ %4852, %4851 ], [ %4857, %4853 ], [ %122, %4867 ], [ %122, %switch.early.test6346 ], [ %4879, %switch.early.test6346.thread ], [ %122, %switch.early.test6347 ], [ %4893, %4890 ], [ %122, %switch.early.test6348 ], [ %4912, %4904 ], [ %122, %switch.early.test6349 ], [ %4924, %switch.early.test6349.thread ], [ %122, %switch.early.test6350 ], [ %4936, %switch.early.test6350.thread ], [ %122, %switch.early.test6351 ], [ %4948, %switch.early.test6351.thread ], [ %122, %switch.early.test6352 ], [ %4960, %switch.early.test6352.thread ], [ %122, %switch.early.test6353 ], [ %4972, %switch.early.test6353.thread ], [ %122, %switch.early.test6354 ], [ %4984, %switch.early.test6354.thread ], [ %122, %switch.early.test6356 ], [ %5008, %4996 ], [ %122, %switch.early.test6357 ], [ %5028, %5019 ], [ %122, %switch.early.test6358 ], [ %5048, %5039 ], [ %122, %switch.early.test6359 ], [ %5068, %5059 ], [ %122, %switch.early.test6360 ], [ %5088, %5079 ], [ %122, %switch.early.test6361 ], [ %5108, %5099 ], [ %122, %5111 ], [ %122, %switch.early.test6364 ], [ %5121, %5117 ], [ %122, %switch.early.test6365 ], [ %.93, %5236 ], [ %5259, %5247 ], [ %122, %switch.early.test6366 ], [ %5266, %5263 ], [ %122, %switch.early.test6367 ], [ %5279, %5270 ], [ %122, %switch.early.test6368 ], [ %5297, %5294 ], [ %5292, %5289 ], [ %122, %switch.early.test6369 ], [ %5304, %5301 ], [ %318, %331 ], [ %318, %329 ], [ %122, %1269 ], [ %122, %switch.early.test6091 ], [ %5287, %5283 ], [ %122, %153 ], [ %122, %switch.early.test6017 ], [ %122, %192 ], [ %122, %switch.early.test6018 ], [ %122, %219 ], [ %122, %switch.early.test6020 ], [ %122, %271 ], [ %122, %switch.early.test6021 ], [ %122, %290 ], [ %122, %switch.early.test6023 ], [ %122, %310 ], [ %122, %switch.early.test6026 ], [ %122, %344 ], [ %122, %switch.early.test6028 ], [ %122, %359 ], [ %122, %switch.early.test6029 ], [ %122, %387 ], [ %122, %switch.early.test6030 ], [ %122, %461 ], [ %122, %switch.early.test6032 ], [ %122, %491 ], [ %122, %switch.early.test6033 ], [ %122, %508 ], [ %122, %switch.early.test6034 ], [ %122, %526 ], [ %122, %switch.early.test6036 ], [ %122, %553 ], [ %122, %switch.early.test6037 ], [ %122, %560 ], [ %122, %switch.early.test6038 ], [ %122, %582 ], [ %122, %switch.early.test6039 ], [ %122, %605 ], [ %122, %switch.early.test6041 ], [ %122, %629 ], [ %122, %switch.early.test6042 ], [ %122, %638 ], [ %122, %switch.early.test6043 ], [ %122, %672 ], [ %122, %switch.early.test6045 ], [ %122, %685 ], [ %122, %switch.early.test6046 ], [ %122, %703 ], [ %122, %switch.early.test6047 ], [ %122, %724 ], [ %122, %switch.early.test6048 ], [ %122, %746 ], [ %122, %switch.early.test6050 ], [ %122, %760 ], [ %122, %switch.early.test6051 ], [ %122, %767 ], [ %122, %switch.early.test6052 ], [ %122, %772 ], [ %122, %switch.early.test6053 ], [ %122, %791 ], [ %122, %switch.early.test6056 ], [ %122, %810 ], [ %122, %switch.early.test6057 ], [ %122, %817 ], [ %122, %switch.early.test6058 ], [ %122, %836 ], [ %122, %switch.early.test6060 ], [ %122, %862 ], [ %122, %switch.early.test6061 ], [ %122, %870 ], [ %122, %switch.early.test6062 ], [ %122, %877 ], [ %122, %switch.early.test6063 ], [ %122, %892 ], [ %122, %switch.early.test6064 ], [ %122, %908 ], [ %122, %switch.early.test6065 ], [ %122, %923 ], [ %122, %switch.early.test6066 ], [ %122, %937 ], [ %122, %switch.early.test6067 ], [ %122, %952 ], [ %122, %switch.early.test6068 ], [ %122, %998 ], [ %122, %switch.early.test6070 ], [ %122, %1010 ], [ %122, %switch.early.test6071 ], [ %122, %1018 ], [ %122, %switch.early.test6072 ], [ %122, %1050 ], [ %122, %switch.early.test6073 ], [ %122, %1081 ], [ %122, %switch.early.test6074 ], [ %122, %1088 ], [ %122, %switch.early.test6075 ], [ %122, %1100 ], [ %122, %switch.early.test6076 ], [ %122, %1121 ], [ %122, %switch.early.test6080 ], [ %122, %1139 ], [ %122, %switch.early.test6083 ], [ %122, %1155 ], [ %122, %switch.early.test6084 ], [ %122, %1173 ], [ %122, %switch.early.test6085 ], [ %122, %1190 ], [ %122, %switch.early.test6086 ], [ %122, %1207 ], [ %122, %switch.early.test6087 ], [ %122, %1224 ], [ %122, %switch.early.test6088 ], [ %122, %1241 ], [ %122, %switch.early.test6089 ], [ %122, %1258 ], [ %122, %switch.early.test6090 ], [ %122, %1275 ], [ %122, %switch.early.test6091 ], [ %122, %1364 ], [ %122, %switch.early.test6093 ], [ %122, %1371 ], [ %122, %switch.early.test6094 ], [ %122, %1379 ], [ %122, %switch.early.test6095 ], [ %122, %1392 ], [ %122, %switch.early.test6096 ], [ %122, %1409 ], [ %122, %switch.early.test6099 ], [ %122, %1428 ], [ %122, %switch.early.test6102 ], [ %122, %1441 ], [ %122, %switch.early.test6103 ], [ %122, %1514 ], [ %122, %switch.early.test6104 ], [ %122, %1560 ], [ %122, %switch.early.test6105 ], [ %122, %1605 ], [ %122, %switch.early.test6106 ], [ %122, %1618 ], [ %122, %switch.early.test6107 ], [ %122, %1625 ], [ %122, %switch.early.test6108 ], [ %122, %1633 ], [ %122, %switch.early.test6109 ], [ %122, %1641 ], [ %122, %switch.early.test6110 ], [ %122, %1648 ], [ %122, %switch.early.test6111 ], [ %122, %1657 ], [ %122, %switch.early.test6112 ], [ %122, %1672 ], [ %122, %switch.early.test6114 ], [ %122, %1685 ], [ %122, %switch.early.test6115 ], [ %122, %1699 ], [ %122, %switch.early.test6117 ], [ %122, %1715 ], [ %122, %switch.early.test6118 ], [ %122, %1730 ], [ %122, %switch.early.test6119 ], [ %122, %1743 ], [ %122, %switch.early.test6120 ], [ %122, %1758 ], [ %122, %switch.early.test6121 ], [ %122, %1772 ], [ %122, %switch.early.test6122 ], [ %122, %1797 ], [ %122, %switch.early.test6123 ], [ %122, %1813 ], [ %122, %switch.early.test6124 ], [ %122, %1835 ], [ %122, %switch.early.test6125 ], [ %122, %1845 ], [ %122, %switch.early.test6126 ], [ %122, %1864 ], [ %122, %switch.early.test6128 ], [ %122, %1880 ], [ %122, %switch.early.test6130 ], [ %122, %1892 ], [ %122, %switch.early.test6131 ], [ %122, %1909 ], [ %122, %switch.early.test6132 ], [ %122, %1934 ], [ %122, %switch.early.test6133 ], [ %122, %1948 ], [ %122, %switch.early.test6136 ], [ %122, %2027 ], [ %122, %switch.early.test6137 ], [ %122, %2061 ], [ %122, %switch.early.test6138 ], [ %122, %2074 ], [ %122, %switch.early.test6141 ], [ %122, %2119 ], [ %122, %switch.early.test6144 ], [ %122, %2126 ], [ %122, %switch.early.test6145 ], [ %122, %2146 ], [ %122, %switch.early.test6148 ], [ %122, %2153 ], [ %122, %switch.early.test6149 ], [ %122, %2169 ], [ %122, %switch.early.test6152 ], [ %122, %2182 ], [ %122, %switch.early.test6153 ], [ %122, %2216 ], [ %122, %switch.early.test6154 ], [ %122, %2232 ], [ %122, %switch.early.test6155 ], [ %122, %2244 ], [ %122, %switch.early.test6156 ], [ %122, %2296 ], [ %122, %switch.early.test6157 ], [ %122, %2368 ], [ %122, %switch.early.test6158 ], [ %122, %2396 ], [ %122, %switch.early.test6159 ], [ %122, %2485 ], [ %122, %switch.early.test6160 ], [ %122, %2533 ], [ %122, %switch.early.test6161 ], [ %122, %2546 ], [ %122, %switch.early.test6164 ], [ %122, %2652 ], [ %122, %switch.early.test6165 ], [ %122, %2709 ], [ %122, %switch.early.test6166 ], [ %122, %2748 ], [ %122, %switch.early.test6167 ], [ %122, %2807 ], [ %122, %switch.early.test6168 ], [ %122, %2820 ], [ %122, %switch.early.test6171 ], [ %122, %2879 ], [ %122, %switch.early.test6173 ], [ %122, %2894 ], [ %122, %switch.early.test6175 ], [ %122, %2909 ], [ %122, %switch.early.test6177 ], [ %122, %2924 ], [ %122, %switch.early.test6179 ], [ %122, %2939 ], [ %122, %switch.early.test6181 ], [ %122, %2954 ], [ %122, %switch.early.test6183 ], [ %122, %2969 ], [ %122, %switch.early.test6185 ], [ %122, %2984 ], [ %122, %switch.early.test6187 ], [ %122, %2999 ], [ %122, %switch.early.test6189 ], [ %122, %3014 ], [ %122, %switch.early.test6191 ], [ %122, %3029 ], [ %122, %switch.early.test6193 ], [ %122, %3044 ], [ %122, %switch.early.test6195 ], [ %122, %3059 ], [ %122, %switch.early.test6197 ], [ %122, %3074 ], [ %122, %switch.early.test6199 ], [ %122, %3089 ], [ %122, %switch.early.test6201 ], [ %122, %3104 ], [ %122, %switch.early.test6203 ], [ %122, %3116 ], [ %122, %switch.early.test6204 ], [ %122, %3141 ], [ %122, %switch.early.test6205 ], [ %122, %3160 ], [ %122, %switch.early.test6207 ], [ %122, %3179 ], [ %122, %switch.early.test6209 ], [ %122, %3198 ], [ %122, %switch.early.test6211 ], [ %122, %3217 ], [ %122, %switch.early.test6213 ], [ %122, %3236 ], [ %122, %switch.early.test6215 ], [ %122, %3255 ], [ %122, %switch.early.test6217 ], [ %122, %3274 ], [ %122, %switch.early.test6219 ], [ %122, %3299 ], [ %122, %switch.early.test6221 ], [ %122, %3320 ], [ %122, %switch.early.test6223 ], [ %122, %3339 ], [ %122, %switch.early.test6225 ], [ %122, %3358 ], [ %122, %switch.early.test6227 ], [ %122, %3379 ], [ %122, %switch.early.test6229 ], [ %122, %3407 ], [ %122, %switch.early.test6231 ], [ %122, %3426 ], [ %122, %switch.early.test6233 ], [ %122, %3445 ], [ %122, %switch.early.test6235 ], [ %122, %3464 ], [ %122, %switch.early.test6237 ], [ %122, %3483 ], [ %122, %switch.early.test6239 ], [ %122, %3504 ], [ %122, %switch.early.test6241 ], [ %122, %3523 ], [ %122, %switch.early.test6243 ], [ %122, %3542 ], [ %122, %switch.early.test6245 ], [ %122, %3561 ], [ %122, %switch.early.test6247 ], [ %122, %3583 ], [ %122, %switch.early.test6249 ], [ %122, %3602 ], [ %122, %switch.early.test6251 ], [ %122, %3621 ], [ %122, %switch.early.test6253 ], [ %122, %3640 ], [ %122, %switch.early.test6255 ], [ %122, %3658 ], [ %122, %switch.early.test6258 ], [ %122, %3672 ], [ %122, %switch.early.test6259 ], [ %122, %3687 ], [ %122, %switch.early.test6260 ], [ %122, %3700 ], [ %122, %switch.early.test6261 ], [ %122, %3787 ], [ %122, %switch.early.test6264 ], [ %122, %3828 ], [ %122, %switch.early.test6265 ], [ %122, %3841 ], [ %122, %switch.early.test6268 ], [ %122, %3894 ], [ %122, %switch.early.test6270 ], [ %122, %3922 ], [ %122, %switch.early.test6272 ], [ %122, %3939 ], [ %122, %switch.early.test6274 ], [ %122, %3952 ], [ %122, %switch.early.test6275 ], [ %122, %3975 ], [ %122, %switch.early.test6276 ], [ %122, %3997 ], [ %122, %switch.early.test6277 ], [ %122, %4009 ], [ %122, %switch.early.test6278 ], [ %122, %4086 ], [ %122, %switch.early.test6279 ], [ %122, %4109 ], [ %122, %switch.early.test6280 ], [ %122, %4150 ], [ %122, %switch.early.test6282 ], [ %122, %4180 ], [ %122, %switch.early.test6284 ], [ %122, %4198 ], [ %122, %switch.early.test6287 ], [ %122, %4311 ], [ %122, %switch.early.test6290 ], [ %122, %4329 ], [ %122, %switch.early.test6293 ], [ %122, %4346 ], [ %122, %switch.early.test6296 ], [ %122, %4363 ], [ %122, %switch.early.test6299 ], [ %122, %4380 ], [ %122, %switch.early.test6302 ], [ %122, %4397 ], [ %122, %switch.early.test6305 ], [ %122, %4414 ], [ %122, %switch.early.test6308 ], [ %122, %4431 ], [ %122, %switch.early.test6311 ], [ %122, %4449 ], [ %122, %switch.early.test6314 ], [ %122, %4463 ], [ %122, %switch.early.test6315 ], [ %122, %4484 ], [ %122, %switch.early.test6317 ], [ %122, %4503 ], [ %122, %switch.early.test6318 ], [ %122, %4525 ], [ %122, %switch.early.test6320 ], [ %122, %4540 ], [ %122, %switch.early.test6321 ], [ %122, %4555 ], [ %122, %switch.early.test6322 ], [ %122, %4567 ], [ %122, %switch.early.test6325 ], [ %122, %4594 ], [ %122, %switch.early.test6326 ], [ %122, %4618 ], [ %122, %switch.early.test6328 ], [ %122, %4635 ], [ %122, %switch.early.test6329 ], [ %122, %4648 ], [ %122, %switch.early.test6330 ], [ %122, %4670 ], [ %122, %switch.early.test6332 ], [ %122, %4692 ], [ %122, %switch.early.test6334 ], [ %122, %4710 ], [ %122, %switch.early.test6335 ], [ %122, %4729 ], [ %122, %switch.early.test6337 ], [ %122, %4742 ], [ %122, %switch.early.test6340 ], [ %122, %4797 ], [ %122, %switch.early.test6343 ], [ %122, %4837 ], [ %122, %switch.early.test6345 ], [ %122, %4870 ], [ %122, %switch.early.test6346 ], [ %122, %4887 ], [ %122, %switch.early.test6347 ], [ %122, %4901 ], [ %122, %switch.early.test6348 ], [ %122, %4918 ], [ %122, %switch.early.test6349 ], [ %122, %4930 ], [ %122, %switch.early.test6350 ], [ %122, %4942 ], [ %122, %switch.early.test6351 ], [ %122, %4954 ], [ %122, %switch.early.test6352 ], [ %122, %4966 ], [ %122, %switch.early.test6353 ], [ %122, %4978 ], [ %122, %switch.early.test6354 ], [ %122, %4993 ], [ %122, %switch.early.test6356 ], [ %122, %5016 ], [ %122, %switch.early.test6357 ], [ %122, %5036 ], [ %122, %switch.early.test6358 ], [ %122, %5056 ], [ %122, %switch.early.test6359 ], [ %122, %5076 ], [ %122, %switch.early.test6360 ], [ %122, %5096 ], [ %122, %switch.early.test6361 ], [ %122, %5114 ], [ %122, %switch.early.test6364 ], [ %122, %5127 ], [ %122, %switch.early.test6365 ], [ %122, %5260 ], [ %122, %switch.early.test6366 ], [ %122, %5267 ], [ %122, %switch.early.test6367 ], [ %122, %5280 ], [ %122, %switch.early.test6368 ], [ %122, %5298 ], [ %122, %switch.early.test6369 ], [ %122, %5305 ], [ %122, %switch.early.test6370 ], [ %122, %302 ], [ %122, %302 ], [ %122, %1116 ], [ %122, %1116 ], [ %122, %1943 ], [ %122, %1943 ], [ %122, %2071 ], [ %122, %2071 ], [ %122, %2111 ], [ %122, %2111 ], [ %122, %2138 ], [ %122, %2138 ], [ %122, %2543 ], [ %122, %2543 ], [ %122, %2817 ], [ %122, %2817 ], [ %122, %3784 ], [ %122, %3784 ], [ %122, %3838 ], [ %122, %3838 ], [ %122, %4195 ], [ %122, %4195 ], [ %122, %4564 ], [ %122, %4564 ], [ %122, %4739 ], [ %122, %4739 ], [ %122, %4794 ], [ %122, %4794 ], [ %122, %5111 ], [ %122, %5111 ], [ %122, %390 ], [ %1285, %1278 ], [ %2097, %.preheader ], [ %.55, %.preheader6657 ], [ %2589, %.preheader6660 ], [ %402, %.lr.ph6692 ], [ %.18, %1355 ], [ %2105, %.lr.ph6674 ], [ %2522, %.lr.ph6670 ], [ %2597, %.lr.ph ], [ %3988, %.preheader6662 ]
   %5312 = add i32 %.04635, %4
   br label %5313
 
@@ -21331,43 +21331,43 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %.not47 = icmp eq ptr %3, null
   %21 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %9)
-  %.not44.us83 = icmp eq ptr %21, null
-  br i1 %.not47, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  %.not44.us73 = icmp eq ptr %21, null
+  br i1 %.not47, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %.not44.us83, label %.thread, label %.lr.ph87
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %.not44.us73, label %.loopexit, label %.lr.ph77
 
-.lr.ph87:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %22 = phi ptr [ %46, %.lr.ph.split.us ], [ %21, %.lr.ph.split.us.preheader ]
-  %.03451.us86 = phi i32 [ %41, %.lr.ph.split.us ], [ -1, %.lr.ph.split.us.preheader ]
-  %.03152.us85 = phi i1 [ false, %.lr.ph.split.us ], [ true, %.lr.ph.split.us.preheader ]
-  %.053.us84 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+.lr.ph77:                                         ; preds = %.lr.ph.split.us.split, %43
+  %22 = phi ptr [ %47, %43 ], [ %21, %.lr.ph.split.us.split ]
+  %.03451.us76 = phi i32 [ %41, %43 ], [ -1, %.lr.ph.split.us.split ]
+  %.03152.us75 = phi i1 [ false, %43 ], [ true, %.lr.ph.split.us.split ]
+  %.053.us74 = phi ptr [ %.1.us, %43 ], [ null, %.lr.ph.split.us.split ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
-  %.not45.us = icmp ult i32 %24, %.03451.us86
+  %.not45.us = icmp ult i32 %24, %.03451.us76
   br i1 %.not45.us, label %25, label %.thread
 
-25:                                               ; preds = %.lr.ph87
+25:                                               ; preds = %.lr.ph77
   %26 = load i32, ptr %22, align 8
   %27 = add i32 %26, %24
-  br i1 %.03152.us85, label %29, label %28
+  br i1 %.03152.us75, label %29, label %28
 
 28:                                               ; preds = %25
-  %.not46.us = icmp eq i32 %27, %.03451.us86
+  %.not46.us = icmp eq i32 %27, %.03451.us76
   br i1 %.not46.us, label %33, label %.thread
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %20, align 8
   %31 = zext i32 %27 to i64
   %32 = call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %31) #15
-  %.pre76 = load i32, ptr %23, align 4
-  %.pre77 = load i32, ptr %22, align 8
+  %.pre85 = load i32, ptr %23, align 4
+  %.pre86 = load i32, ptr %22, align 8
   br label %33
 
 33:                                               ; preds = %29, %28
-  %34 = phi i32 [ %26, %28 ], [ %.pre77, %29 ]
-  %35 = phi i32 [ %24, %28 ], [ %.pre76, %29 ]
-  %.1.us = phi ptr [ %.053.us84, %28 ], [ %32, %29 ]
+  %34 = phi i32 [ %26, %28 ], [ %.pre86, %29 ]
+  %35 = phi i32 [ %24, %28 ], [ %.pre85, %29 ]
+  %.1.us = phi ptr [ %.053.us74, %28 ], [ %32, %29 ]
   %36 = zext i32 %35 to i64
   %37 = getelementptr i8, ptr %.1.us, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -21376,79 +21376,79 @@ define internal fastcc ptr @get_value(ptr noundef readonly captures(none) %0, i3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %37, ptr noundef align 1 %39, i64 noundef range(i64 0, 4294967296) %40, i1 noundef false) #14
   %41 = load i32, ptr %23, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit, label %.lr.ph.split.us
+  br i1 %42, label %.loopexit, label %43
 
-.lr.ph.split.us:                                  ; preds = %33
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %44 = load i32, ptr %43, align 8
-  %45 = add i32 %44, -1
-  %46 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %45)
-  %.not44.us = icmp eq ptr %46, null
-  br i1 %.not44.us, label %.thread, label %.lr.ph87
+43:                                               ; preds = %33
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, -1
+  %47 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %46)
+  %.not44.us = icmp eq ptr %47, null
+  br i1 %.not44.us, label %.thread, label %.lr.ph77
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %.not44.us83, label %.thread.thread, label %.lr.ph71
+  br i1 %.not44.us73, label %.thread.thread88, label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %.lr.ph.split.split, %68
-  %47 = phi ptr [ %72, %68 ], [ %21, %.lr.ph.split.split ]
-  %.0345170 = phi i32 [ %66, %68 ], [ -1, %.lr.ph.split.split ]
-  %.0315269 = phi i1 [ false, %68 ], [ true, %.lr.ph.split.split ]
-  %.05368 = phi ptr [ %.1, %68 ], [ null, %.lr.ph.split.split ]
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4
-  %.not45 = icmp ult i32 %49, %.0345170
-  br i1 %.not45, label %50, label %.thread
+.lr.ph71:                                         ; preds = %.lr.ph.split.split, %69
+  %48 = phi ptr [ %73, %69 ], [ %21, %.lr.ph.split.split ]
+  %.0345170 = phi i32 [ %67, %69 ], [ -1, %.lr.ph.split.split ]
+  %.0315269 = phi i1 [ false, %69 ], [ true, %.lr.ph.split.split ]
+  %.05368 = phi ptr [ %.1, %69 ], [ null, %.lr.ph.split.split ]
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %50 = load i32, ptr %49, align 4
+  %.not45 = icmp ult i32 %50, %.0345170
+  br i1 %.not45, label %51, label %.thread
 
-50:                                               ; preds = %.lr.ph71
-  %51 = load i32, ptr %47, align 8
-  %52 = add i32 %51, %49
-  br i1 %.0315269, label %53, label %57
+51:                                               ; preds = %.lr.ph71
+  %52 = load i32, ptr %48, align 8
+  %53 = add i32 %52, %50
+  br i1 %.0315269, label %54, label %58
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %20, align 8
-  %55 = zext i32 %52 to i64
-  %56 = call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef %55) #15
-  store i32 %52, ptr %3, align 4
-  %.pre = load i32, ptr %48, align 4
-  %.pre75 = load i32, ptr %47, align 8
-  br label %58
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %20, align 8
+  %56 = zext i32 %53 to i64
+  %57 = call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef %56) #15
+  store i32 %53, ptr %3, align 4
+  %.pre = load i32, ptr %49, align 4
+  %.pre81 = load i32, ptr %48, align 8
+  br label %59
 
-57:                                               ; preds = %50
-  %.not46 = icmp eq i32 %52, %.0345170
-  br i1 %.not46, label %58, label %.thread
+58:                                               ; preds = %51
+  %.not46 = icmp eq i32 %53, %.0345170
+  br i1 %.not46, label %59, label %.thread
 
-58:                                               ; preds = %53, %57
-  %59 = phi i32 [ %51, %57 ], [ %.pre75, %53 ]
-  %60 = phi i32 [ %49, %57 ], [ %.pre, %53 ]
-  %.1 = phi ptr [ %.05368, %57 ], [ %56, %53 ]
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr i8, ptr %.1, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = zext i32 %59 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %62, ptr noundef align 1 %64, i64 noundef range(i64 0, 4294967296) %65, i1 noundef false) #14
-  %66 = load i32, ptr %48, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.loopexit, label %68
+59:                                               ; preds = %54, %58
+  %60 = phi i32 [ %52, %58 ], [ %.pre81, %54 ]
+  %61 = phi i32 [ %50, %58 ], [ %.pre, %54 ]
+  %.1 = phi ptr [ %.05368, %58 ], [ %57, %54 ]
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr i8, ptr %.1, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = zext i32 %60 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %65, i64 noundef range(i64 0, 4294967296) %66, i1 noundef false) #14
+  %67 = load i32, ptr %49, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %.loopexit, label %69
 
-68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = add i32 %70, -1
-  %72 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %71)
-  %.not44 = icmp eq ptr %72, null
+69:                                               ; preds = %59
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, -1
+  %73 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %19, i32 noundef %72)
+  %.not44 = icmp eq ptr %73, null
   br i1 %.not44, label %.thread, label %.lr.ph71
 
-.thread:                                          ; preds = %57, %68, %.lr.ph71, %.lr.ph87, %.lr.ph.split.us, %28, %.lr.ph.split.us.preheader, %7, %4
+.thread:                                          ; preds = %58, %69, %.lr.ph71, %28, %43, %.lr.ph77, %7, %4
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %.loopexit, label %.thread.thread
+  br i1 %.not48, label %.loopexit, label %.thread.thread88
 
-.thread.thread:                                   ; preds = %.lr.ph.split.split, %.thread
+.thread.thread88:                                 ; preds = %.lr.ph.split.split, %.thread
   store i32 0, ptr %3, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %58, %33, %.thread, %.thread.thread
-  %.033 = phi ptr [ null, %.thread.thread ], [ null, %.thread ], [ %.1.us, %33 ], [ %.1, %58 ]
+.loopexit:                                        ; preds = %59, %33, %.lr.ph.split.us.split, %.thread, %.thread.thread88
+  %.033 = phi ptr [ null, %.thread.thread88 ], [ null, %.thread ], [ null, %.lr.ph.split.us.split ], [ %.1.us, %33 ], [ %.1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.033
 }

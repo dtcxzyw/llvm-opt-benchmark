@@ -740,7 +740,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr i8, ptr %33, i64 %2
   %35 = getelementptr i8, ptr %34, i64 -1
-  %36 = load ptr, ptr %35, align 8, !nosanitize !31
+  %36 = load ptr, ptr %35, align 8, !nosanitize !30
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(12) %32) #8
   br i1 %37, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread
 
@@ -751,7 +751,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %41 = load ptr, ptr %40, align 8, !tbaa !18
   %42 = getelementptr i8, ptr %41, i64 %2
   %43 = getelementptr i8, ptr %42, i64 -1
-  %44 = load ptr, ptr %43, align 8, !nosanitize !31
+  %44 = load ptr, ptr %43, align 8, !nosanitize !30
   %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(12) %40) #8
   br i1 %45, label %.loopexit.loopexit111.split.loop.exit115, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread
 
@@ -762,7 +762,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = getelementptr i8, ptr %49, i64 %2
   %51 = getelementptr i8, ptr %50, i64 -1
-  %52 = load ptr, ptr %51, align 8, !nosanitize !31
+  %52 = load ptr, ptr %51, align 8, !nosanitize !30
   %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(12) %48) #8
   br i1 %53, label %.loopexit.loopexit111.split.loop.exit117, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44
 
@@ -773,7 +773,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %57 = load ptr, ptr %56, align 8, !tbaa !18
   %58 = getelementptr i8, ptr %57, i64 %2
   %59 = getelementptr i8, ptr %58, i64 -1
-  %60 = load ptr, ptr %59, align 8, !nosanitize !31
+  %60 = load ptr, ptr %59, align 8, !nosanitize !30
   %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(12) %56) #8
   br i1 %61, label %.loopexit.loopexit111.split.loop.exit, label %62
 
@@ -781,7 +781,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %63 = getelementptr inbounds nuw i8, ptr %.02991, i64 32
   %64 = add nsw i64 %.092, -1
   %65 = icmp sgt i64 %.092, 1
-  br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, label %._crit_edge, !llvm.loop !32
+  br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %62, %27, %4
   %.029.lcssa = phi ptr [ %0, %4 ], [ %28, %27 ], [ %63, %62 ]
@@ -813,7 +813,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %74 = load ptr, ptr %71, align 8, !tbaa !18
   %75 = getelementptr i8, ptr %74, i64 %2
   %76 = getelementptr i8, ptr %75, i64 -1
-  %77 = load ptr, ptr %76, align 8, !nosanitize !31
+  %77 = load ptr, ptr %76, align 8, !nosanitize !30
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit49
 
 78:                                               ; preds = %69
@@ -841,7 +841,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %88 = load ptr, ptr %86, align 8, !tbaa !18
   %89 = getelementptr i8, ptr %88, i64 %2
   %90 = getelementptr i8, ptr %89, i64 -1
-  %91 = load ptr, ptr %90, align 8, !nosanitize !31
+  %91 = load ptr, ptr %90, align 8, !nosanitize !30
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit54
 
 92:                                               ; preds = %84
@@ -869,7 +869,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   %102 = load ptr, ptr %100, align 8, !tbaa !18
   %103 = getelementptr i8, ptr %102, i64 %2
   %104 = getelementptr i8, ptr %103, i64 -1
-  %105 = load ptr, ptr %104, align 8, !nosanitize !31
+  %105 = load ptr, ptr %104, align 8, !nosanitize !30
   br label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit59
 
 106:                                              ; preds = %98
@@ -964,7 +964,5 @@ attributes #9 = { builtin nounwind }
 !26 = distinct !{!26, !21}
 !27 = !{!28, !28, i64 0}
 !28 = !{!"long", !6, i64 0}
-!29 = distinct !{!29, !21, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = !{}
-!32 = distinct !{!32, !21}
+!29 = distinct !{!29, !21}
+!30 = !{}

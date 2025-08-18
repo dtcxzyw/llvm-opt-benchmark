@@ -804,7 +804,7 @@ _print_tres_line.exit:                            ; preds = %198, %.loopexit327
   %270 = load i32, ptr @tres_cnt, align 4
   %271 = zext i32 %270 to i64
   %272 = icmp samesign ult i64 %indvars.iv.next40.i, %271
-  br i1 %272, label %.lr.ph.split.us.i, label %_print_tres_line.exit249, !llvm.loop !14
+  br i1 %272, label %.lr.ph.split.us.i, label %_print_tres_line.exit249, !llvm.loop !13
 
 _print_tres_line.exit249:                         ; preds = %269, %248
   %273 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -849,7 +849,7 @@ _print_tres_line.exit249:                         ; preds = %269, %248
   %294 = load i32, ptr @tres_cnt, align 4
   %295 = zext i32 %294 to i64
   %296 = icmp samesign ult i64 %indvars.iv.next40.i257, %295
-  br i1 %296, label %.lr.ph.split.us.i253, label %_print_tres_line.exit259, !llvm.loop !14
+  br i1 %296, label %.lr.ph.split.us.i253, label %_print_tres_line.exit259, !llvm.loop !13
 
 _print_tres_line.exit259:                         ; preds = %293, %_print_tres_line.exit249
   %297 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -894,7 +894,7 @@ _print_tres_line.exit259:                         ; preds = %293, %_print_tres_l
   %318 = load i32, ptr @tres_cnt, align 4
   %319 = zext i32 %318 to i64
   %320 = icmp samesign ult i64 %indvars.iv.next40.i267, %319
-  br i1 %320, label %.lr.ph.split.us.i263, label %_print_tres_line.exit269, !llvm.loop !14
+  br i1 %320, label %.lr.ph.split.us.i263, label %_print_tres_line.exit269, !llvm.loop !13
 
 _print_tres_line.exit269:                         ; preds = %317, %_print_tres_line.exit259
   %321 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -922,7 +922,7 @@ _print_tres_line.exit269:                         ; preds = %317, %_print_tres_l
 .backedge329:                                     ; preds = %328, %62
   %333 = tail call ptr @list_next(ptr noundef %59) #11
   %.not208 = icmp eq ptr %333, null
-  br i1 %.not208, label %.loopexit328, label %62, !llvm.loop !16
+  br i1 %.not208, label %.loopexit328, label %62, !llvm.loop !14
 
 .loopexit328:                                     ; preds = %.backedge329, %54, %47, %50
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1081,7 +1081,7 @@ _print_tres_line.exit269:                         ; preds = %317, %_print_tres_l
   store i64 %420, ptr %421, align 8
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count347
-  br i1 %exitcond348.not, label %.loopexit, label %.lr.ph337, !llvm.loop !17
+  br i1 %exitcond348.not, label %.loopexit, label %.lr.ph337, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph337, %.preheader, %406
   %422 = getelementptr inbounds nuw i8, ptr %354, i64 64
@@ -1189,7 +1189,7 @@ _print_tres_line.exit284:                         ; preds = %437, %.loopexit
   %480 = load i32, ptr @tres_cnt, align 4
   %481 = zext i32 %480 to i64
   %482 = icmp samesign ult i64 %indvars.iv.next40.i292, %481
-  br i1 %482, label %.lr.ph.split.us.i288, label %_print_tres_line.exit294, !llvm.loop !14
+  br i1 %482, label %.lr.ph.split.us.i288, label %_print_tres_line.exit294, !llvm.loop !13
 
 _print_tres_line.exit294:                         ; preds = %479, %458
   %483 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -1234,7 +1234,7 @@ _print_tres_line.exit294:                         ; preds = %479, %458
   %504 = load i32, ptr @tres_cnt, align 4
   %505 = zext i32 %504 to i64
   %506 = icmp samesign ult i64 %indvars.iv.next40.i302, %505
-  br i1 %506, label %.lr.ph.split.us.i298, label %_print_tres_line.exit304, !llvm.loop !14
+  br i1 %506, label %.lr.ph.split.us.i298, label %_print_tres_line.exit304, !llvm.loop !13
 
 _print_tres_line.exit304:                         ; preds = %503, %_print_tres_line.exit294
   %507 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -1279,7 +1279,7 @@ _print_tres_line.exit304:                         ; preds = %503, %_print_tres_l
   %528 = load i32, ptr @tres_cnt, align 4
   %529 = zext i32 %528 to i64
   %530 = icmp samesign ult i64 %indvars.iv.next40.i312, %529
-  br i1 %530, label %.lr.ph.split.us.i308, label %_print_tres_line.exit314, !llvm.loop !14
+  br i1 %530, label %.lr.ph.split.us.i308, label %_print_tres_line.exit314, !llvm.loop !13
 
 _print_tres_line.exit314:                         ; preds = %527, %_print_tres_line.exit304
   %531 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -1339,7 +1339,7 @@ _print_tres_line.exit314:                         ; preds = %527, %_print_tres_l
   %560 = load i32, ptr @tres_cnt, align 4
   %561 = zext i32 %560 to i64
   %562 = icmp samesign ult i64 %indvars.iv.next40.i322, %561
-  br i1 %562, label %.lr.ph.split.us.i318, label %_print_tres_line.exit324, !llvm.loop !14
+  br i1 %562, label %.lr.ph.split.us.i318, label %_print_tres_line.exit324, !llvm.loop !13
 
 _print_tres_line.exit324:                         ; preds = %559, %538
   %563 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %7)
@@ -1416,7 +1416,7 @@ _print_tres_line.exit324:                         ; preds = %559, %538
 .backedge:                                        ; preds = %604, %353
   %605 = tail call ptr @list_next(ptr noundef %350) #11
   %.not214 = icmp eq ptr %605, null
-  br i1 %.not214, label %.loopexit325, label %353, !llvm.loop !18
+  br i1 %.not214, label %.loopexit325, label %353, !llvm.loop !16
 
 .loopexit325:                                     ; preds = %.backedge, %345, %338, %341
   ret void
@@ -1486,7 +1486,7 @@ define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readon
   %23 = load i32, ptr @tres_cnt, align 4
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next40, %24
-  br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not26 = icmp eq i64 %3, 0
@@ -1520,7 +1520,7 @@ define internal fastcc void @_print_tres_line(ptr noundef %0, ptr noundef readon
   %40 = load i32, ptr @tres_cnt, align 4
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next37, %41
-  br i1 %42, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !19
+  br i1 %42, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph.split ]
@@ -1790,9 +1790,6 @@ attributes #11 = { nounwind }
 !11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
 !13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10, !15}

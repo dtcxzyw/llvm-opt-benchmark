@@ -4218,8 +4218,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_faccessat(i32 
   %94 = or disjoint i32 %16, 32
   br i1 %90, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %87, %108
-  %95 = phi i1 [ false, %108 ], [ true, %87 ]
+.split.us:                                        ; preds = %87
+  br i1 %93, label %.split.us.split.us, label %.split.us.split
+
+.split.us.split.us:                               ; preds = %.split.us, %105
+  %95 = phi i1 [ false, %105 ], [ true, %.split.us ]
   %96 = load ptr, ptr %88, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8
@@ -4228,125 +4231,144 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_faccessat(i32 
   %101 = load volatile ptr, ptr %100, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
   %102 = call i32 @inode_permission(ptr noundef %101, ptr noundef %98, i32 noundef %91) #14
-  %103 = icmp ne i32 %102, 0
-  %104 = or i1 %93, %103
-  br i1 %104, label %105, label %.split12.us
-
-105:                                              ; preds = %.split.us
   call void @path_put(ptr noundef nonnull %5) #14
-  %106 = icmp eq i32 %102, -116
-  %107 = and i1 %95, %106
-  br i1 %107, label %108, label %.loopexit
+  %103 = icmp eq i32 %102, -116
+  %104 = and i1 %95, %103
+  br i1 %104, label %105, label %.loopexit
 
-108:                                              ; preds = %105
-  %109 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %.split.us, label %.loopexit, !llvm.loop !95
+105:                                              ; preds = %.split.us.split.us
+  %106 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %.split.us.split.us, label %.loopexit
+
+.split.us.split:                                  ; preds = %.split.us, %119
+  %108 = phi i1 [ false, %119 ], [ true, %.split.us ]
+  %109 = load ptr, ptr %88, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %5, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load volatile ptr, ptr %113, align 8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
+  %115 = call i32 @inode_permission(ptr noundef %114, ptr noundef %111, i32 noundef %91) #14
+  %.not17 = icmp eq i32 %115, 0
+  br i1 %.not17, label %.split12.us, label %116
+
+116:                                              ; preds = %.split.us.split
+  call void @path_put(ptr noundef nonnull %5) #14
+  %117 = icmp eq i32 %115, -116
+  %118 = and i1 %108, %117
+  br i1 %118, label %119, label %.loopexit
+
+119:                                              ; preds = %116
+  %120 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %.split.us.split, label %.loopexit
 
 .split:                                           ; preds = %87
   br i1 %93, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %126
-  %111 = phi i1 [ false, %126 ], [ true, %.split ]
-  %112 = load ptr, ptr %88, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i16, ptr %114, align 8
-  %116 = icmp slt i16 %115, -28672
-  br i1 %116, label %117, label %119
+.split.split.us:                                  ; preds = %.split, %137
+  %122 = phi i1 [ false, %137 ], [ true, %.split ]
+  %123 = load ptr, ptr %88, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  %125 = load ptr, ptr %124, align 8
+  %126 = load i16, ptr %125, align 8
+  %127 = icmp slt i16 %126, -28672
+  br i1 %127, label %128, label %130
 
-117:                                              ; preds = %.split.split.us
-  %118 = call zeroext i1 @path_noexec(ptr noundef nonnull %5) #14
-  br i1 %118, label %.thread7, label %119
+128:                                              ; preds = %.split.split.us
+  %129 = call zeroext i1 @path_noexec(ptr noundef nonnull %5) #14
+  br i1 %129, label %.thread7, label %130
 
-119:                                              ; preds = %117, %.split.split.us
-  %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %122 = load volatile ptr, ptr %121, align 8
+130:                                              ; preds = %128, %.split.split.us
+  %131 = load ptr, ptr %5, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %133 = load volatile ptr, ptr %132, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
-  %123 = call i32 @inode_permission(ptr noundef %122, ptr noundef %114, i32 noundef %91) #14
+  %134 = call i32 @inode_permission(ptr noundef %133, ptr noundef %125, i32 noundef %91) #14
   call void @path_put(ptr noundef nonnull %5) #14
-  %124 = icmp eq i32 %123, -116
-  %125 = and i1 %111, %124
-  br i1 %125, label %126, label %.loopexit
+  %135 = icmp eq i32 %134, -116
+  %136 = and i1 %122, %135
+  br i1 %136, label %137, label %.loopexit
 
-126:                                              ; preds = %119
-  %127 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %.split.split.us, label %.loopexit, !llvm.loop !97
+137:                                              ; preds = %130
+  %138 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %.split.split.us, label %.loopexit
 
-129:                                              ; preds = %151
-  %130 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %.split.split, label %.loopexit
+140:                                              ; preds = %162
+  %141 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef nonnull %5, ptr noundef null) #14
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %.split.split, label %.loopexit
 
-.split.split:                                     ; preds = %.split, %129
-  %132 = phi i1 [ false, %129 ], [ true, %.split ]
-  %133 = load ptr, ptr %88, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
-  %135 = load ptr, ptr %134, align 8
-  %136 = load i16, ptr %135, align 8
-  %137 = icmp slt i16 %136, -28672
-  br i1 %137, label %138, label %140
+.split.split:                                     ; preds = %.split, %140
+  %143 = phi i1 [ false, %140 ], [ true, %.split ]
+  %144 = load ptr, ptr %88, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
+  %146 = load ptr, ptr %145, align 8
+  %147 = load i16, ptr %146, align 8
+  %148 = icmp slt i16 %147, -28672
+  br i1 %148, label %149, label %151
 
-138:                                              ; preds = %.split.split
-  %139 = call zeroext i1 @path_noexec(ptr noundef nonnull %5) #14
-  br i1 %139, label %.thread7, label %140
+149:                                              ; preds = %.split.split
+  %150 = call zeroext i1 @path_noexec(ptr noundef nonnull %5) #14
+  br i1 %150, label %.thread7, label %151
 
-140:                                              ; preds = %138, %.split.split
-  %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %143 = load volatile ptr, ptr %142, align 8
+151:                                              ; preds = %149, %.split.split
+  %152 = load ptr, ptr %5, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  %154 = load volatile ptr, ptr %153, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
-  %144 = call i32 @inode_permission(ptr noundef %143, ptr noundef %135, i32 noundef %91) #14
-  %.not = icmp eq i32 %144, 0
-  br i1 %.not, label %.split12.us, label %151
+  %155 = call i32 @inode_permission(ptr noundef %154, ptr noundef %146, i32 noundef %91) #14
+  %.not = icmp eq i32 %155, 0
+  br i1 %.not, label %.split12.us, label %162
 
-.split12.us:                                      ; preds = %140, %.split.us
-  %.us-phi = phi ptr [ %98, %.split.us ], [ %135, %140 ]
-  %145 = load i16, ptr %.us-phi, align 8
-  %146 = and i16 %145, -4096
-  switch i16 %146, label %147 [
+.split12.us:                                      ; preds = %151, %.split.us.split
+  %.us-phi = phi ptr [ %111, %.split.us.split ], [ %146, %151 ]
+  %156 = load i16, ptr %.us-phi, align 8
+  %157 = and i16 %156, -4096
+  switch i16 %157, label %158 [
     i16 8192, label %.thread7
     i16 24576, label %.thread7
     i16 4096, label %.thread7
     i16 -16384, label %.thread7
   ]
 
-147:                                              ; preds = %.split12.us
-  %148 = load ptr, ptr %5, align 8
-  %149 = call zeroext i1 @__mnt_is_readonly(ptr noundef %148) #14
-  %150 = select i1 %149, i32 -30, i32 0
+158:                                              ; preds = %.split12.us
+  %159 = load ptr, ptr %5, align 8
+  %160 = call zeroext i1 @__mnt_is_readonly(ptr noundef %159) #14
+  %161 = select i1 %160, i32 -30, i32 0
   br label %.thread7
 
-.thread7:                                         ; preds = %138, %117, %.split12.us, %.split12.us, %.split12.us, %.split12.us, %147
-  %.ph = phi i32 [ %150, %147 ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ -13, %117 ], [ -13, %138 ]
+.thread7:                                         ; preds = %149, %128, %.split12.us, %.split12.us, %.split12.us, %.split12.us, %158
+  %.ph = phi i32 [ %161, %158 ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ 0, %.split12.us ], [ -13, %128 ], [ -13, %149 ]
   call void @path_put(ptr noundef nonnull %5) #14
   br label %.loopexit
 
-151:                                              ; preds = %140
+162:                                              ; preds = %151
   call void @path_put(ptr noundef nonnull %5) #14
-  %152 = icmp eq i32 %144, -116
-  %153 = and i1 %132, %152
-  br i1 %153, label %129, label %.loopexit
+  %163 = icmp eq i32 %155, -116
+  %164 = and i1 %143, %163
+  br i1 %164, label %140, label %.loopexit
 
-.loopexit:                                        ; preds = %151, %129, %119, %126, %108, %105, %.thread7, %83
-  %154 = phi i32 [ %85, %83 ], [ %.ph, %.thread7 ], [ %102, %105 ], [ %109, %108 ], [ %123, %119 ], [ %127, %126 ], [ %144, %151 ], [ %130, %129 ]
-  %155 = icmp eq ptr %84, null
-  br i1 %155, label %157, label %156
+.loopexit:                                        ; preds = %162, %140, %130, %137, %116, %119, %.split.us.split.us, %105, %.thread7, %83
+  %165 = phi i32 [ %85, %83 ], [ %.ph, %.thread7 ], [ %102, %.split.us.split.us ], [ %106, %105 ], [ %115, %116 ], [ %120, %119 ], [ %134, %130 ], [ %138, %137 ], [ %155, %162 ], [ %141, %140 ]
+  %166 = icmp eq ptr %84, null
+  br i1 %166, label %168, label %167
 
-156:                                              ; preds = %.loopexit
+167:                                              ; preds = %.loopexit
   call void @revert_creds(ptr noundef nonnull %84) #14
-  br label %157
+  br label %168
 
-157:                                              ; preds = %156, %.loopexit
-  %158 = sext i32 %154 to i64
+168:                                              ; preds = %167, %.loopexit
+  %169 = sext i32 %165 to i64
   br label %.thread
 
-.thread:                                          ; preds = %51, %157, %81, %4
-  %159 = phi i64 [ %158, %157 ], [ -22, %4 ], [ -12, %81 ], [ -12, %51 ]
+.thread:                                          ; preds = %51, %168, %81, %4
+  %170 = phi i64 [ %169, %168 ], [ -22, %4 ], [ -12, %81 ], [ -12, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i64 %159
+  ret i64 %170
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -4578,6 +4600,3 @@ attributes #15 = { nounwind memory(none) }
 !92 = !{i64 2156915333, i64 2156915144, i64 2156915194, i64 2156915240, i64 2156915268}
 !93 = !{i64 2156915639, i64 2156915450, i64 2156915500, i64 2156915546, i64 2156915574}
 !94 = !{i64 2149043876, i64 2149043915, i64 2149043936, i64 2149043973, i64 2149043996, i64 2149044005, i64 2149044104}
-!95 = distinct !{!95, !96}
-!96 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!97 = distinct !{!97, !96}

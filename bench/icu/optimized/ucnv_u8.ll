@@ -629,298 +629,326 @@ define internal void @_ZL19ucnv_toUnicode_UTF8P23UConverterToUnicodeArgsP10UErro
 
 .lr.ph:                                           ; preds = %47
   %49 = icmp samesign ult i32 %.0.fr, 3
-  br i1 %49, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  br i1 %49, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %50 = zext nneg i32 %.090 to i64
-  br label %.lr.ph.split.us
+  br i1 %15, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %57
-  %indvars.iv230 = phi i64 [ %50, %.lr.ph.split.us.preheader ], [ %indvars.iv.next231, %57 ]
-  %.192118.us = phi i32 [ %.091, %.lr.ph.split.us.preheader ], [ %60, %57 ]
-  %.3117.us = phi ptr [ %.093, %.lr.ph.split.us.preheader ], [ %61, %57 ]
-  %51 = icmp ult ptr %.3117.us, %10
-  br i1 %51, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.split.us
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %55
+  %indvars.iv254 = phi i64 [ %indvars.iv.next255, %55 ], [ %50, %.lr.ph.split.us ]
+  %.192118.us.us = phi i32 [ %58, %55 ], [ %.091, %.lr.ph.split.us ]
+  %.3117.us.us = phi ptr [ %59, %55 ], [ %.093, %.lr.ph.split.us ]
+  %51 = icmp ult ptr %.3117.us.us, %10
+  br i1 %51, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, label %.split.us
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
-  %52 = load i8, ptr %.3117.us, align 1, !tbaa !25
-  %53 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv230
+_ZN6icu_774UTF812isValidTrailEihii.exit.us.us:    ; preds = %.lr.ph.split.us.split.us
+  %52 = load i8, ptr %.3117.us.us, align 1, !tbaa !25
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv254
   store i8 %52, ptr %53, align 1, !tbaa !25
   %54 = icmp sgt i8 %52, -65
-  br i1 %54, label %55, label %57
+  br i1 %54, label %._crit_edge.loopexit268.split.loop.exit, label %55
 
-55:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %56 = trunc nuw nsw i64 %indvars.iv230 to i32
+55:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us
+  %56 = zext i8 %52 to i32
+  %57 = shl i32 %.192118.us.us, 6
+  %58 = add i32 %57, %56
+  %59 = getelementptr inbounds nuw i8, ptr %.3117.us.us, i64 1
+  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
+  %60 = trunc nuw i64 %indvars.iv.next255 to i32
+  %61 = icmp sgt i32 %.0.fr, %60
+  br i1 %61, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !46
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %68
+  %indvars.iv257 = phi i64 [ %indvars.iv.next258, %68 ], [ %50, %.lr.ph.split.us ]
+  %.192118.us = phi i32 [ %71, %68 ], [ %.091, %.lr.ph.split.us ]
+  %.3117.us = phi ptr [ %72, %68 ], [ %.093, %.lr.ph.split.us ]
+  %62 = icmp ult ptr %.3117.us, %10
+  br i1 %62, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.split.us
+
+_ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us.split
+  %63 = load i8, ptr %.3117.us, align 1, !tbaa !25
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv257
+  store i8 %63, ptr %64, align 1, !tbaa !25
+  %65 = icmp sgt i8 %63, -65
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
+  %67 = trunc nuw nsw i64 %indvars.iv257 to i32
   br label %._crit_edge
 
-57:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %58 = zext i8 %52 to i32
-  %59 = shl i32 %.192118.us, 6
-  %60 = add i32 %59, %58
-  %61 = getelementptr inbounds nuw i8, ptr %.3117.us, i64 1
-  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
-  %62 = trunc nuw i64 %indvars.iv.next231 to i32
-  %63 = icmp sgt i32 %.0.fr, %62
-  br i1 %63, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !46
+68:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
+  %69 = zext i8 %63 to i32
+  %70 = shl i32 %.192118.us, 6
+  %71 = add i32 %70, %69
+  %72 = getelementptr inbounds nuw i8, ptr %.3117.us, i64 1
+  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
+  %73 = trunc nuw i64 %indvars.iv.next258 to i32
+  %74 = icmp sgt i32 %.0.fr, %73
+  br i1 %74, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %64 = icmp eq i32 %.0.fr, 3
-  %65 = zext nneg i32 %.090 to i64
-  br i1 %64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %75 = icmp eq i32 %.0.fr, 3
+  %76 = zext nneg i32 %.090 to i64
+  br i1 %75, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %87
-  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %87 ], [ %65, %.lr.ph.split ]
-  %.192118.us135 = phi i32 [ %89, %87 ], [ %.091, %.lr.ph.split ]
-  %.3117.us136 = phi ptr [ %90, %87 ], [ %.093, %.lr.ph.split ]
-  %66 = icmp ult ptr %.3117.us136, %10
-  br i1 %66, label %67, label %.split.us
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %98
+  %indvars.iv251 = phi i64 [ %indvars.iv.next252, %98 ], [ %76, %.lr.ph.split ]
+  %.192118.us135 = phi i32 [ %100, %98 ], [ %.091, %.lr.ph.split ]
+  %.3117.us136 = phi ptr [ %101, %98 ], [ %.093, %.lr.ph.split ]
+  %77 = icmp ult ptr %.3117.us136, %10
+  br i1 %77, label %78, label %.split.us
 
-67:                                               ; preds = %.lr.ph.split.split.us
-  %68 = load i8, ptr %.3117.us136, align 1, !tbaa !25
-  %69 = zext i8 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv227
-  store i8 %68, ptr %70, align 1, !tbaa !25
-  %71 = icmp samesign ugt i64 %indvars.iv227, 1
-  br i1 %71, label %72, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
+78:                                               ; preds = %.lr.ph.split.split.us
+  %79 = load i8, ptr %.3117.us136, align 1, !tbaa !25
+  %80 = zext i8 %79 to i32
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv251
+  store i8 %79, ptr %81, align 1, !tbaa !25
+  %82 = icmp samesign ugt i64 %indvars.iv251, 1
+  br i1 %82, label %83, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
 
-72:                                               ; preds = %67
-  %73 = icmp sgt i8 %68, -65
-  br i1 %73, label %.thread, label %87
+83:                                               ; preds = %78
+  %84 = icmp sgt i8 %79, -65
+  br i1 %84, label %.thread, label %98
 
-.thread:                                          ; preds = %72
-  %74 = trunc nuw nsw i64 %indvars.iv227 to i32
+.thread:                                          ; preds = %83
+  %85 = trunc nuw nsw i64 %indvars.iv251 to i32
   br label %._crit_edge
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %67
-  %75 = and i32 %.192118.us135, 15
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !25
-  %79 = lshr i8 %68, 5
-  %80 = shl nuw i8 1, %79
-  %81 = and i8 %78, %80
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %87
+_ZN6icu_774UTF812isValidTrailEihii.exit.us137:    ; preds = %78
+  %86 = and i32 %.192118.us135, 15
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !25
+  %90 = lshr i8 %79, 5
+  %91 = shl nuw i8 1, %90
+  %92 = and i8 %89, %91
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %94, label %98
 
-83:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
-  %84 = icmp eq i64 %indvars.iv227, 1
-  %or.cond.us140 = and i1 %15, %84
-  %85 = icmp eq i32 %.192118.us135, 237
-  %or.cond3.us141 = select i1 %or.cond.us140, i1 %85, i1 false
-  %86 = icmp slt i8 %68, -64
-  %or.cond110.us142 = and i1 %or.cond3.us141, %86
-  br i1 %or.cond110.us142, label %87, label %._crit_edge.loopexit241.split.loop.exit
+94:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
+  %95 = icmp eq i64 %indvars.iv251, 1
+  %or.cond.us140 = and i1 %15, %95
+  %96 = icmp eq i32 %.192118.us135, 237
+  %or.cond3.us141 = select i1 %or.cond.us140, i1 %96, i1 false
+  %97 = icmp slt i8 %79, -64
+  %or.cond110.us142 = and i1 %or.cond3.us141, %97
+  br i1 %or.cond110.us142, label %98, label %._crit_edge.loopexit270.split.loop.exit
 
-87:                                               ; preds = %72, %83, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
-  %88 = shl i32 %.192118.us135, 6
-  %89 = add i32 %88, %69
-  %90 = getelementptr inbounds nuw i8, ptr %.3117.us136, i64 1
-  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
-  %91 = trunc nuw i64 %indvars.iv.next228 to i32
-  %92 = icmp slt i32 %91, 3
-  br i1 %92, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !48
+98:                                               ; preds = %83, %94, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137
+  %99 = shl i32 %.192118.us135, 6
+  %100 = add i32 %99, %80
+  %101 = getelementptr inbounds nuw i8, ptr %.3117.us136, i64 1
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
+  %102 = trunc nuw i64 %indvars.iv.next252 to i32
+  %103 = icmp slt i32 %102, 3
+  br i1 %103, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !46
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %15, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %110
-  %indvars.iv = phi i64 [ %indvars.iv.next, %110 ], [ %65, %.lr.ph.split.split ]
-  %.192118.us163 = phi i32 [ %112, %110 ], [ %.091, %.lr.ph.split.split ]
-  %.3117.us164 = phi ptr [ %113, %110 ], [ %.093, %.lr.ph.split.split ]
-  %93 = icmp ult ptr %.3117.us164, %10
-  br i1 %93, label %94, label %.split.us
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %121
+  %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ %76, %.lr.ph.split.split ]
+  %.192118.us163 = phi i32 [ %123, %121 ], [ %.091, %.lr.ph.split.split ]
+  %.3117.us164 = phi ptr [ %124, %121 ], [ %.093, %.lr.ph.split.split ]
+  %104 = icmp ult ptr %.3117.us164, %10
+  br i1 %104, label %105, label %.split.us
 
-94:                                               ; preds = %.lr.ph.split.split.split.us
-  %95 = load i8, ptr %.3117.us164, align 1, !tbaa !25
-  %96 = zext i8 %95 to i32
-  %97 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
-  store i8 %95, ptr %97, align 1, !tbaa !25
-  %98 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %98, label %99, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
+105:                                              ; preds = %.lr.ph.split.split.split.us
+  %106 = load i8, ptr %.3117.us164, align 1, !tbaa !25
+  %107 = zext i8 %106 to i32
+  %108 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
+  store i8 %106, ptr %108, align 1, !tbaa !25
+  %109 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %109, label %110, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
 
-99:                                               ; preds = %94
-  %100 = icmp sgt i8 %95, -65
-  br i1 %100, label %._crit_edge.loopexit248.split.loop.exit, label %110
+110:                                              ; preds = %105
+  %111 = icmp sgt i8 %106, -65
+  br i1 %111, label %._crit_edge.loopexit280.split.loop.exit, label %121
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us165:    ; preds = %94
-  %101 = lshr i8 %95, 4
-  %102 = zext nneg i8 %101 to i64
-  %103 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !25
-  %105 = and i32 %.192118.us163, 7
-  %106 = shl nuw nsw i32 1, %105
-  %107 = trunc nuw i32 %106 to i8
-  %108 = and i8 %104, %107
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %._crit_edge.loopexit248.split.loop.exit274, label %110
+_ZN6icu_774UTF812isValidTrailEihii.exit.us165:    ; preds = %105
+  %112 = lshr i8 %106, 4
+  %113 = zext nneg i8 %112 to i64
+  %114 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !25
+  %116 = and i32 %.192118.us163, 7
+  %117 = shl nuw nsw i32 1, %116
+  %118 = trunc nuw i32 %117 to i8
+  %119 = and i8 %115, %118
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %._crit_edge.loopexit280.split.loop.exit309, label %121
 
-110:                                              ; preds = %99, %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
-  %111 = shl i32 %.192118.us163, 6
-  %112 = add i32 %111, %96
-  %113 = getelementptr inbounds nuw i8, ptr %.3117.us164, i64 1
+121:                                              ; preds = %110, %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
+  %122 = shl i32 %.192118.us163, 6
+  %123 = add i32 %122, %107
+  %124 = getelementptr inbounds nuw i8, ptr %.3117.us164, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %114 = trunc nuw i64 %indvars.iv.next to i32
-  %115 = icmp sgt i32 %.0.fr, %114
-  br i1 %115, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !49
+  %125 = trunc nuw i64 %indvars.iv.next to i32
+  %126 = icmp sgt i32 %.0.fr, %125
+  br i1 %126, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !46
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %138
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %138 ], [ %65, %.lr.ph.split.split ]
-  %.192118 = phi i32 [ %140, %138 ], [ %.091, %.lr.ph.split.split ]
-  %.3117 = phi ptr [ %141, %138 ], [ %.093, %.lr.ph.split.split ]
-  %116 = icmp ult ptr %.3117, %10
-  br i1 %116, label %117, label %.split.us
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %149
+  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %149 ], [ %76, %.lr.ph.split.split ]
+  %.192118 = phi i32 [ %151, %149 ], [ %.091, %.lr.ph.split.split ]
+  %.3117 = phi ptr [ %152, %149 ], [ %.093, %.lr.ph.split.split ]
+  %127 = icmp ult ptr %.3117, %10
+  br i1 %127, label %128, label %.split.us
 
-117:                                              ; preds = %.lr.ph.split.split.split
-  %118 = load i8, ptr %.3117, align 1, !tbaa !25
-  %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv224
-  store i8 %118, ptr %120, align 1, !tbaa !25
-  %121 = icmp samesign ugt i64 %indvars.iv224, 1
-  br i1 %121, label %122, label %_ZN6icu_774UTF812isValidTrailEihii.exit
+128:                                              ; preds = %.lr.ph.split.split.split
+  %129 = load i8, ptr %.3117, align 1, !tbaa !25
+  %130 = zext i8 %129 to i32
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv248
+  store i8 %129, ptr %131, align 1, !tbaa !25
+  %132 = icmp samesign ugt i64 %indvars.iv248, 1
+  br i1 %132, label %133, label %_ZN6icu_774UTF812isValidTrailEihii.exit
 
-122:                                              ; preds = %117
-  %123 = icmp sgt i8 %118, -65
-  br i1 %123, label %.thread237, label %138
+133:                                              ; preds = %128
+  %134 = icmp sgt i8 %129, -65
+  br i1 %134, label %.thread264, label %149
 
-.thread237:                                       ; preds = %122
-  %124 = trunc nuw nsw i64 %indvars.iv224 to i32
+.thread264:                                       ; preds = %133
+  %135 = trunc nuw nsw i64 %indvars.iv248 to i32
   br label %._crit_edge
 
-_ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %117
-  %125 = lshr i8 %118, 4
-  %126 = zext nneg i8 %125 to i64
-  %127 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !25
-  %129 = and i32 %.192118, 7
-  %130 = shl nuw nsw i32 1, %129
-  %131 = trunc nuw i32 %130 to i8
-  %132 = and i8 %128, %131
-  %133 = icmp eq i8 %132, 0
-  br i1 %133, label %134, label %138
+_ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %128
+  %136 = lshr i8 %129, 4
+  %137 = zext nneg i8 %136 to i64
+  %138 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !25
+  %140 = and i32 %.192118, 7
+  %141 = shl nuw nsw i32 1, %140
+  %142 = trunc nuw i32 %141 to i8
+  %143 = and i8 %139, %142
+  %144 = icmp eq i8 %143, 0
+  br i1 %144, label %145, label %149
 
-134:                                              ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit
-  %135 = icmp eq i64 %indvars.iv224, 1
-  %136 = icmp eq i32 %.192118, 237
-  %or.cond3 = select i1 %135, i1 %136, i1 false
-  %137 = icmp slt i8 %118, -64
-  %or.cond110 = and i1 %or.cond3, %137
-  br i1 %or.cond110, label %138, label %._crit_edge.loopexit243.split.loop.exit
+145:                                              ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit
+  %146 = icmp eq i64 %indvars.iv248, 1
+  %147 = icmp eq i32 %.192118, 237
+  %or.cond3 = select i1 %146, i1 %147, i1 false
+  %148 = icmp slt i8 %129, -64
+  %or.cond110 = and i1 %or.cond3, %148
+  br i1 %or.cond110, label %149, label %._crit_edge.loopexit275.split.loop.exit
 
-138:                                              ; preds = %122, %134, %_ZN6icu_774UTF812isValidTrailEihii.exit
-  %139 = shl i32 %.192118, 6
-  %140 = add i32 %139, %119
-  %141 = getelementptr inbounds nuw i8, ptr %.3117, i64 1
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %142 = trunc nuw i64 %indvars.iv.next225 to i32
-  %143 = icmp sgt i32 %.0.fr, %142
-  br i1 %143, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !50
+149:                                              ; preds = %133, %145, %_ZN6icu_774UTF812isValidTrailEihii.exit
+  %150 = shl i32 %.192118, 6
+  %151 = add i32 %150, %130
+  %152 = getelementptr inbounds nuw i8, ptr %.3117, i64 1
+  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
+  %153 = trunc nuw i64 %indvars.iv.next249 to i32
+  %154 = icmp sgt i32 %.0.fr, %153
+  br i1 %154, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !46
 
-.split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %.3117.us, %.lr.ph.split.us ], [ %.3117.us136, %.lr.ph.split.split.us ], [ %.3117, %.lr.ph.split.split.split ], [ %.3117.us164, %.lr.ph.split.split.split.us ]
-  %.us-phi126 = phi i32 [ %.192118.us, %.lr.ph.split.us ], [ %.192118.us135, %.lr.ph.split.split.us ], [ %.192118, %.lr.ph.split.split.split ], [ %.192118.us163, %.lr.ph.split.split.split.us ]
-  %.us-phi127.in = phi i64 [ %indvars.iv230, %.lr.ph.split.us ], [ %indvars.iv227, %.lr.ph.split.split.us ], [ %indvars.iv224, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
-  %144 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %.us-phi126, ptr %144, align 8, !tbaa !44
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %.0.fr, ptr %145, align 4, !tbaa !43
-  %146 = trunc i64 %.us-phi127.in to i8
-  store i8 %146, ptr %16, align 8, !tbaa !42
+.split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split
+  %.us-phi = phi ptr [ %.3117.us, %.lr.ph.split.us.split ], [ %.3117.us.us, %.lr.ph.split.us.split.us ], [ %.3117.us136, %.lr.ph.split.split.us ], [ %.3117, %.lr.ph.split.split.split ], [ %.3117.us164, %.lr.ph.split.split.split.us ]
+  %.us-phi126 = phi i32 [ %.192118.us, %.lr.ph.split.us.split ], [ %.192118.us.us, %.lr.ph.split.us.split.us ], [ %.192118.us135, %.lr.ph.split.split.us ], [ %.192118, %.lr.ph.split.split.split ], [ %.192118.us163, %.lr.ph.split.split.split.us ]
+  %.us-phi127.in = phi i64 [ %indvars.iv257, %.lr.ph.split.us.split ], [ %indvars.iv254, %.lr.ph.split.us.split.us ], [ %indvars.iv251, %.lr.ph.split.split.us ], [ %indvars.iv248, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store i32 %.us-phi126, ptr %155, align 8, !tbaa !44
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  store i32 %.0.fr, ptr %156, align 4, !tbaa !43
+  %157 = trunc i64 %.us-phi127.in to i8
+  store i8 %157, ptr %16, align 8, !tbaa !42
   br label %.loopexit
 
-._crit_edge.loopexit241.split.loop.exit:          ; preds = %83
-  %147 = trunc nuw nsw i64 %indvars.iv227 to i32
+._crit_edge.loopexit268.split.loop.exit:          ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us
+  %158 = trunc nuw nsw i64 %indvars.iv254 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit243.split.loop.exit:          ; preds = %134
-  %148 = trunc nuw nsw i64 %indvars.iv224 to i32
+._crit_edge.loopexit270.split.loop.exit:          ; preds = %94
+  %159 = trunc nuw nsw i64 %indvars.iv251 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit248.split.loop.exit:          ; preds = %99
-  %149 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit275.split.loop.exit:          ; preds = %145
+  %160 = trunc nuw nsw i64 %indvars.iv248 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit248.split.loop.exit274:       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
-  %150 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit280.split.loop.exit:          ; preds = %110
+  %161 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %110, %138, %87, %57, %._crit_edge.loopexit248.split.loop.exit, %._crit_edge.loopexit248.split.loop.exit274, %._crit_edge.loopexit243.split.loop.exit, %._crit_edge.loopexit241.split.loop.exit, %.thread237, %.thread, %55, %47
-  %.3.lcssa = phi ptr [ %.093, %47 ], [ %.3117.us, %55 ], [ %.3117.us136, %.thread ], [ %.3117, %.thread237 ], [ %.3117.us136, %._crit_edge.loopexit241.split.loop.exit ], [ %.3117, %._crit_edge.loopexit243.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit248.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit248.split.loop.exit274 ], [ %61, %57 ], [ %90, %87 ], [ %141, %138 ], [ %113, %110 ]
-  %.192.lcssa = phi i32 [ %.091, %47 ], [ %.192118.us, %55 ], [ %.192118.us135, %.thread ], [ %.192118, %.thread237 ], [ %.192118.us135, %._crit_edge.loopexit241.split.loop.exit ], [ %.192118, %._crit_edge.loopexit243.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit248.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit248.split.loop.exit274 ], [ %60, %57 ], [ %89, %87 ], [ %140, %138 ], [ %112, %110 ]
-  %.1.lcssa = phi i32 [ %.090, %47 ], [ %56, %55 ], [ %74, %.thread ], [ %124, %.thread237 ], [ %147, %._crit_edge.loopexit241.split.loop.exit ], [ %148, %._crit_edge.loopexit243.split.loop.exit ], [ %149, %._crit_edge.loopexit248.split.loop.exit ], [ %150, %._crit_edge.loopexit248.split.loop.exit274 ], [ %.0.fr, %57 ], [ 3, %87 ], [ %.0.fr, %138 ], [ %.0.fr, %110 ]
-  %151 = icmp ne i32 %.1.lcssa, %.0.fr
-  %152 = icmp sgt i32 %.1.lcssa, 3
-  %or.cond5.not = and i1 %15, %152
-  %or.cond113 = or i1 %151, %or.cond5.not
-  br i1 %or.cond113, label %176, label %153
+._crit_edge.loopexit280.split.loop.exit309:       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us165
+  %162 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %._crit_edge
 
-153:                                              ; preds = %._crit_edge
-  %154 = sext i32 %.0.fr to i64
-  %155 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !33
-  %157 = sub i32 %.192.lcssa, %156
-  %158 = icmp ult i32 %157, 65536
-  br i1 %158, label %159, label %162
+._crit_edge:                                      ; preds = %121, %149, %98, %55, %68, %._crit_edge.loopexit280.split.loop.exit, %._crit_edge.loopexit280.split.loop.exit309, %._crit_edge.loopexit275.split.loop.exit, %._crit_edge.loopexit270.split.loop.exit, %._crit_edge.loopexit268.split.loop.exit, %.thread264, %.thread, %66, %47
+  %.3.lcssa = phi ptr [ %.093, %47 ], [ %.3117.us, %66 ], [ %.3117.us136, %.thread ], [ %.3117, %.thread264 ], [ %.3117.us.us, %._crit_edge.loopexit268.split.loop.exit ], [ %.3117.us136, %._crit_edge.loopexit270.split.loop.exit ], [ %.3117, %._crit_edge.loopexit275.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit280.split.loop.exit ], [ %.3117.us164, %._crit_edge.loopexit280.split.loop.exit309 ], [ %72, %68 ], [ %59, %55 ], [ %101, %98 ], [ %152, %149 ], [ %124, %121 ]
+  %.192.lcssa = phi i32 [ %.091, %47 ], [ %.192118.us, %66 ], [ %.192118.us135, %.thread ], [ %.192118, %.thread264 ], [ %.192118.us.us, %._crit_edge.loopexit268.split.loop.exit ], [ %.192118.us135, %._crit_edge.loopexit270.split.loop.exit ], [ %.192118, %._crit_edge.loopexit275.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit280.split.loop.exit ], [ %.192118.us163, %._crit_edge.loopexit280.split.loop.exit309 ], [ %71, %68 ], [ %58, %55 ], [ %100, %98 ], [ %151, %149 ], [ %123, %121 ]
+  %.1.lcssa = phi i32 [ %.090, %47 ], [ %67, %66 ], [ %85, %.thread ], [ %135, %.thread264 ], [ %158, %._crit_edge.loopexit268.split.loop.exit ], [ %159, %._crit_edge.loopexit270.split.loop.exit ], [ %160, %._crit_edge.loopexit275.split.loop.exit ], [ %161, %._crit_edge.loopexit280.split.loop.exit ], [ %162, %._crit_edge.loopexit280.split.loop.exit309 ], [ %.0.fr, %68 ], [ %.0.fr, %55 ], [ 3, %98 ], [ %.0.fr, %149 ], [ %.0.fr, %121 ]
+  %163 = icmp ne i32 %.1.lcssa, %.0.fr
+  %164 = icmp sgt i32 %.1.lcssa, 3
+  %or.cond5.not = and i1 %15, %164
+  %or.cond113 = or i1 %163, %or.cond5.not
+  br i1 %or.cond113, label %188, label %165
 
-159:                                              ; preds = %153
-  %160 = trunc nuw i32 %157 to i16
-  %161 = getelementptr inbounds nuw i8, ptr %.095, i64 2
-  store i16 %160, ptr %.095, align 2, !tbaa !23
+165:                                              ; preds = %._crit_edge
+  %166 = sext i32 %.0.fr to i64
+  %167 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %166
+  %168 = load i32, ptr %167, align 4, !tbaa !33
+  %169 = sub i32 %.192.lcssa, %168
+  %170 = icmp ult i32 %169, 65536
+  br i1 %170, label %171, label %174
+
+171:                                              ; preds = %165
+  %172 = trunc nuw i32 %169 to i16
+  %173 = getelementptr inbounds nuw i8, ptr %.095, i64 2
+  store i16 %172, ptr %.095, align 2, !tbaa !23
   br label %.preheader, !llvm.loop !45
 
-.preheader:                                       ; preds = %2, %171, %159
-  %.196.ph = phi ptr [ %172, %171 ], [ %161, %159 ], [ %8, %2 ]
-  %.194.ph = phi ptr [ %.3.lcssa, %171 ], [ %.3.lcssa, %159 ], [ %6, %2 ]
+.preheader:                                       ; preds = %2, %183, %171
+  %.196.ph = phi ptr [ %184, %183 ], [ %173, %171 ], [ %8, %2 ]
+  %.194.ph = phi ptr [ %.3.lcssa, %183 ], [ %.3.lcssa, %171 ], [ %6, %2 ]
   br label %26
 
-162:                                              ; preds = %153
-  %163 = lshr i32 %157, 10
-  %164 = trunc i32 %163 to i16
-  %165 = add i16 %164, -10304
-  %166 = getelementptr inbounds nuw i8, ptr %.095, i64 2
-  store i16 %165, ptr %.095, align 2, !tbaa !23
-  %167 = trunc i32 %157 to i16
-  %168 = and i16 %167, 1023
-  %169 = or disjoint i16 %168, -9216
-  %170 = icmp ult ptr %166, %12
-  br i1 %170, label %171, label %173
+174:                                              ; preds = %165
+  %175 = lshr i32 %169, 10
+  %176 = trunc i32 %175 to i16
+  %177 = add i16 %176, -10304
+  %178 = getelementptr inbounds nuw i8, ptr %.095, i64 2
+  store i16 %177, ptr %.095, align 2, !tbaa !23
+  %179 = trunc i32 %169 to i16
+  %180 = and i16 %179, 1023
+  %181 = or disjoint i16 %180, -9216
+  %182 = icmp ult ptr %178, %12
+  br i1 %182, label %183, label %185
 
-171:                                              ; preds = %162
-  %172 = getelementptr inbounds nuw i8, ptr %.095, i64 4
-  store i16 %169, ptr %166, align 2, !tbaa !23
+183:                                              ; preds = %174
+  %184 = getelementptr inbounds nuw i8, ptr %.095, i64 4
+  store i16 %181, ptr %178, align 2, !tbaa !23
   br label %.preheader, !llvm.loop !45
 
-173:                                              ; preds = %162
-  %174 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i16 %169, ptr %174, align 8, !tbaa !23
-  %175 = getelementptr inbounds nuw i8, ptr %4, i64 93
-  store i8 1, ptr %175, align 1, !tbaa !51
+185:                                              ; preds = %174
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  store i16 %181, ptr %186, align 8, !tbaa !23
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 93
+  store i8 1, ptr %187, align 1, !tbaa !47
   store i32 15, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
-176:                                              ; preds = %._crit_edge
-  %177 = trunc i32 %.1.lcssa to i8
-  store i8 %177, ptr %16, align 8, !tbaa !42
+188:                                              ; preds = %._crit_edge
+  %189 = trunc i32 %.1.lcssa to i8
+  store i8 %189, ptr %16, align 8, !tbaa !42
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %173, %176, %.split.us
-  %.398 = phi ptr [ %166, %173 ], [ %.095, %176 ], [ %.095, %.split.us ], [ %.196, %26 ]
-  %.4 = phi ptr [ %.3.lcssa, %173 ], [ %.3.lcssa, %176 ], [ %.us-phi, %.split.us ], [ %.194, %26 ]
-  %178 = icmp uge ptr %.4, %10
+.loopexit:                                        ; preds = %26, %185, %188, %.split.us
+  %.398 = phi ptr [ %178, %185 ], [ %.095, %188 ], [ %.095, %.split.us ], [ %.196, %26 ]
+  %.4 = phi ptr [ %.3.lcssa, %185 ], [ %.3.lcssa, %188 ], [ %.us-phi, %.split.us ], [ %.194, %26 ]
+  %190 = icmp uge ptr %.4, %10
   %.not107 = icmp ult ptr %.398, %12
-  %or.cond111 = select i1 %178, i1 true, i1 %.not107
-  br i1 %or.cond111, label %183, label %179
+  %or.cond111 = select i1 %190, i1 true, i1 %.not107
+  br i1 %or.cond111, label %195, label %191
 
-179:                                              ; preds = %.loopexit
-  %180 = load i32, ptr %1, align 4, !tbaa !27
-  %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %183, label %182
+191:                                              ; preds = %.loopexit
+  %192 = load i32, ptr %1, align 4, !tbaa !27
+  %193 = icmp sgt i32 %192, 0
+  br i1 %193, label %195, label %194
 
-182:                                              ; preds = %179
+194:                                              ; preds = %191
   store i32 15, ptr %1, align 4, !tbaa !27
-  br label %183
+  br label %195
 
-183:                                              ; preds = %182, %179, %.loopexit
+195:                                              ; preds = %194, %191, %.loopexit
   store ptr %.398, ptr %7, align 8, !tbaa !39
   store ptr %.4, ptr %5, align 8, !tbaa !38
   ret void
@@ -935,7 +963,7 @@ define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnico
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -985,7 +1013,7 @@ define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnico
   %39 = add nsw i32 %.1119, 1
   %40 = getelementptr inbounds nuw i8, ptr %.1114, i64 4
   store i32 %.1119, ptr %.1114, align 4, !tbaa !33
-  br label %28, !llvm.loop !53
+  br label %28, !llvm.loop !49
 
 41:                                               ; preds = %32
   %42 = zext i8 %34 to i32
@@ -1016,316 +1044,344 @@ define internal void @_ZL33ucnv_toUnicode_UTF8_OFFSETS_LOGICP23UConverterToUnico
 
 .lr.ph:                                           ; preds = %51
   %53 = icmp samesign ult i32 %.0.fr, 3
-  br i1 %53, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  br i1 %53, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %54 = zext nneg i32 %.0103 to i64
-  br label %.lr.ph.split.us
+  br i1 %17, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %61
-  %indvars.iv251 = phi i64 [ %54, %.lr.ph.split.us.preheader ], [ %indvars.iv.next252, %61 ]
-  %.1105139.us = phi i32 [ %.0104, %.lr.ph.split.us.preheader ], [ %64, %61 ]
-  %.3138.us = phi ptr [ %.0106, %.lr.ph.split.us.preheader ], [ %65, %61 ]
-  %55 = icmp ult ptr %.3138.us, %12
-  br i1 %55, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.split.us
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %59
+  %indvars.iv275 = phi i64 [ %indvars.iv.next276, %59 ], [ %54, %.lr.ph.split.us ]
+  %.1105139.us.us = phi i32 [ %62, %59 ], [ %.0104, %.lr.ph.split.us ]
+  %.3138.us.us = phi ptr [ %63, %59 ], [ %.0106, %.lr.ph.split.us ]
+  %55 = icmp ult ptr %.3138.us.us, %12
+  br i1 %55, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us, label %.split.us
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
-  %56 = load i8, ptr %.3138.us, align 1, !tbaa !25
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv251
+_ZN6icu_774UTF812isValidTrailEihii.exit.us.us:    ; preds = %.lr.ph.split.us.split.us
+  %56 = load i8, ptr %.3138.us.us, align 1, !tbaa !25
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv275
   store i8 %56, ptr %57, align 1, !tbaa !25
   %58 = icmp sgt i8 %56, -65
-  br i1 %58, label %59, label %61
+  br i1 %58, label %._crit_edge.loopexit289.split.loop.exit, label %59
 
-59:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %60 = trunc nuw nsw i64 %indvars.iv251 to i32
+59:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us
+  %60 = zext i8 %56 to i32
+  %61 = shl i32 %.1105139.us.us, 6
+  %62 = add i32 %61, %60
+  %63 = getelementptr inbounds nuw i8, ptr %.3138.us.us, i64 1
+  %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
+  %64 = trunc nuw i64 %indvars.iv.next276 to i32
+  %65 = icmp sgt i32 %.0.fr, %64
+  br i1 %65, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !50
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %72
+  %indvars.iv278 = phi i64 [ %indvars.iv.next279, %72 ], [ %54, %.lr.ph.split.us ]
+  %.1105139.us = phi i32 [ %75, %72 ], [ %.0104, %.lr.ph.split.us ]
+  %.3138.us = phi ptr [ %76, %72 ], [ %.0106, %.lr.ph.split.us ]
+  %66 = icmp ult ptr %.3138.us, %12
+  br i1 %66, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.split.us
+
+_ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us.split
+  %67 = load i8, ptr %.3138.us, align 1, !tbaa !25
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv278
+  store i8 %67, ptr %68, align 1, !tbaa !25
+  %69 = icmp sgt i8 %67, -65
+  br i1 %69, label %70, label %72
+
+70:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
+  %71 = trunc nuw nsw i64 %indvars.iv278 to i32
   br label %._crit_edge
 
-61:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %62 = zext i8 %56 to i32
-  %63 = shl i32 %.1105139.us, 6
-  %64 = add i32 %63, %62
-  %65 = getelementptr inbounds nuw i8, ptr %.3138.us, i64 1
-  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
-  %66 = trunc nuw i64 %indvars.iv.next252 to i32
-  %67 = icmp sgt i32 %.0.fr, %66
-  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !54
+72:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us
+  %73 = zext i8 %67 to i32
+  %74 = shl i32 %.1105139.us, 6
+  %75 = add i32 %74, %73
+  %76 = getelementptr inbounds nuw i8, ptr %.3138.us, i64 1
+  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
+  %77 = trunc nuw i64 %indvars.iv.next279 to i32
+  %78 = icmp sgt i32 %.0.fr, %77
+  br i1 %78, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %68 = icmp eq i32 %.0.fr, 3
-  %69 = zext nneg i32 %.0103 to i64
-  br i1 %68, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %79 = icmp eq i32 %.0.fr, 3
+  %80 = zext nneg i32 %.0103 to i64
+  br i1 %79, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %91
-  %indvars.iv248 = phi i64 [ %indvars.iv.next249, %91 ], [ %69, %.lr.ph.split ]
-  %.1105139.us156 = phi i32 [ %93, %91 ], [ %.0104, %.lr.ph.split ]
-  %.3138.us157 = phi ptr [ %94, %91 ], [ %.0106, %.lr.ph.split ]
-  %70 = icmp ult ptr %.3138.us157, %12
-  br i1 %70, label %71, label %.split.us
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %102
+  %indvars.iv272 = phi i64 [ %indvars.iv.next273, %102 ], [ %80, %.lr.ph.split ]
+  %.1105139.us156 = phi i32 [ %104, %102 ], [ %.0104, %.lr.ph.split ]
+  %.3138.us157 = phi ptr [ %105, %102 ], [ %.0106, %.lr.ph.split ]
+  %81 = icmp ult ptr %.3138.us157, %12
+  br i1 %81, label %82, label %.split.us
 
-71:                                               ; preds = %.lr.ph.split.split.us
-  %72 = load i8, ptr %.3138.us157, align 1, !tbaa !25
-  %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv248
-  store i8 %72, ptr %74, align 1, !tbaa !25
-  %75 = icmp samesign ugt i64 %indvars.iv248, 1
-  br i1 %75, label %76, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
+82:                                               ; preds = %.lr.ph.split.split.us
+  %83 = load i8, ptr %.3138.us157, align 1, !tbaa !25
+  %84 = zext i8 %83 to i32
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv272
+  store i8 %83, ptr %85, align 1, !tbaa !25
+  %86 = icmp samesign ugt i64 %indvars.iv272, 1
+  br i1 %86, label %87, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
 
-76:                                               ; preds = %71
-  %77 = icmp sgt i8 %72, -65
-  br i1 %77, label %.thread, label %91
+87:                                               ; preds = %82
+  %88 = icmp sgt i8 %83, -65
+  br i1 %88, label %.thread, label %102
 
-.thread:                                          ; preds = %76
-  %78 = trunc nuw nsw i64 %indvars.iv248 to i32
+.thread:                                          ; preds = %87
+  %89 = trunc nuw nsw i64 %indvars.iv272 to i32
   br label %._crit_edge
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us158:    ; preds = %71
-  %79 = and i32 %.1105139.us156, 15
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !25
-  %83 = lshr i8 %72, 5
-  %84 = shl nuw i8 1, %83
-  %85 = and i8 %82, %84
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %91
+_ZN6icu_774UTF812isValidTrailEihii.exit.us158:    ; preds = %82
+  %90 = and i32 %.1105139.us156, 15
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !25
+  %94 = lshr i8 %83, 5
+  %95 = shl nuw i8 1, %94
+  %96 = and i8 %93, %95
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %98, label %102
 
-87:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
-  %88 = icmp eq i64 %indvars.iv248, 1
-  %or.cond.us161 = and i1 %17, %88
-  %89 = icmp eq i32 %.1105139.us156, 237
-  %or.cond3.us162 = select i1 %or.cond.us161, i1 %89, i1 false
-  %90 = icmp slt i8 %72, -64
-  %or.cond131.us163 = and i1 %or.cond3.us162, %90
-  br i1 %or.cond131.us163, label %91, label %._crit_edge.loopexit262.split.loop.exit
+98:                                               ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
+  %99 = icmp eq i64 %indvars.iv272, 1
+  %or.cond.us161 = and i1 %17, %99
+  %100 = icmp eq i32 %.1105139.us156, 237
+  %or.cond3.us162 = select i1 %or.cond.us161, i1 %100, i1 false
+  %101 = icmp slt i8 %83, -64
+  %or.cond131.us163 = and i1 %or.cond3.us162, %101
+  br i1 %or.cond131.us163, label %102, label %._crit_edge.loopexit291.split.loop.exit
 
-91:                                               ; preds = %76, %87, %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
-  %92 = shl i32 %.1105139.us156, 6
-  %93 = add i32 %92, %73
-  %94 = getelementptr inbounds nuw i8, ptr %.3138.us157, i64 1
-  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
-  %95 = trunc nuw i64 %indvars.iv.next249 to i32
-  %96 = icmp slt i32 %95, 3
-  br i1 %96, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !55
+102:                                              ; preds = %87, %98, %_ZN6icu_774UTF812isValidTrailEihii.exit.us158
+  %103 = shl i32 %.1105139.us156, 6
+  %104 = add i32 %103, %84
+  %105 = getelementptr inbounds nuw i8, ptr %.3138.us157, i64 1
+  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
+  %106 = trunc nuw i64 %indvars.iv.next273 to i32
+  %107 = icmp slt i32 %106, 3
+  br i1 %107, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %17, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %114
-  %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ %69, %.lr.ph.split.split ]
-  %.1105139.us184 = phi i32 [ %116, %114 ], [ %.0104, %.lr.ph.split.split ]
-  %.3138.us185 = phi ptr [ %117, %114 ], [ %.0106, %.lr.ph.split.split ]
-  %97 = icmp ult ptr %.3138.us185, %12
-  br i1 %97, label %98, label %.split.us
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %125
+  %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ %80, %.lr.ph.split.split ]
+  %.1105139.us184 = phi i32 [ %127, %125 ], [ %.0104, %.lr.ph.split.split ]
+  %.3138.us185 = phi ptr [ %128, %125 ], [ %.0106, %.lr.ph.split.split ]
+  %108 = icmp ult ptr %.3138.us185, %12
+  br i1 %108, label %109, label %.split.us
 
-98:                                               ; preds = %.lr.ph.split.split.split.us
-  %99 = load i8, ptr %.3138.us185, align 1, !tbaa !25
-  %100 = zext i8 %99 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
-  store i8 %99, ptr %101, align 1, !tbaa !25
-  %102 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %102, label %103, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
+109:                                              ; preds = %.lr.ph.split.split.split.us
+  %110 = load i8, ptr %.3138.us185, align 1, !tbaa !25
+  %111 = zext i8 %110 to i32
+  %112 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
+  store i8 %110, ptr %112, align 1, !tbaa !25
+  %113 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %113, label %114, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
 
-103:                                              ; preds = %98
-  %104 = icmp sgt i8 %99, -65
-  br i1 %104, label %._crit_edge.loopexit269.split.loop.exit, label %114
+114:                                              ; preds = %109
+  %115 = icmp sgt i8 %110, -65
+  br i1 %115, label %._crit_edge.loopexit301.split.loop.exit, label %125
 
-_ZN6icu_774UTF812isValidTrailEihii.exit.us186:    ; preds = %98
-  %105 = lshr i8 %99, 4
-  %106 = zext nneg i8 %105 to i64
-  %107 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !25
-  %109 = and i32 %.1105139.us184, 7
-  %110 = shl nuw nsw i32 1, %109
-  %111 = trunc nuw i32 %110 to i8
-  %112 = and i8 %108, %111
-  %113 = icmp eq i8 %112, 0
-  br i1 %113, label %._crit_edge.loopexit269.split.loop.exit295, label %114
+_ZN6icu_774UTF812isValidTrailEihii.exit.us186:    ; preds = %109
+  %116 = lshr i8 %110, 4
+  %117 = zext nneg i8 %116 to i64
+  %118 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %117
+  %119 = load i8, ptr %118, align 1, !tbaa !25
+  %120 = and i32 %.1105139.us184, 7
+  %121 = shl nuw nsw i32 1, %120
+  %122 = trunc nuw i32 %121 to i8
+  %123 = and i8 %119, %122
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %._crit_edge.loopexit301.split.loop.exit330, label %125
 
-114:                                              ; preds = %103, %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
-  %115 = shl i32 %.1105139.us184, 6
-  %116 = add i32 %115, %100
-  %117 = getelementptr inbounds nuw i8, ptr %.3138.us185, i64 1
+125:                                              ; preds = %114, %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
+  %126 = shl i32 %.1105139.us184, 6
+  %127 = add i32 %126, %111
+  %128 = getelementptr inbounds nuw i8, ptr %.3138.us185, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %118 = trunc nuw i64 %indvars.iv.next to i32
-  %119 = icmp sgt i32 %.0.fr, %118
-  br i1 %119, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !56
+  %129 = trunc nuw i64 %indvars.iv.next to i32
+  %130 = icmp sgt i32 %.0.fr, %129
+  br i1 %130, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !50
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %142
-  %indvars.iv245 = phi i64 [ %indvars.iv.next246, %142 ], [ %69, %.lr.ph.split.split ]
-  %.1105139 = phi i32 [ %144, %142 ], [ %.0104, %.lr.ph.split.split ]
-  %.3138 = phi ptr [ %145, %142 ], [ %.0106, %.lr.ph.split.split ]
-  %120 = icmp ult ptr %.3138, %12
-  br i1 %120, label %121, label %.split.us
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %153
+  %indvars.iv269 = phi i64 [ %indvars.iv.next270, %153 ], [ %80, %.lr.ph.split.split ]
+  %.1105139 = phi i32 [ %155, %153 ], [ %.0104, %.lr.ph.split.split ]
+  %.3138 = phi ptr [ %156, %153 ], [ %.0106, %.lr.ph.split.split ]
+  %131 = icmp ult ptr %.3138, %12
+  br i1 %131, label %132, label %.split.us
 
-121:                                              ; preds = %.lr.ph.split.split.split
-  %122 = load i8, ptr %.3138, align 1, !tbaa !25
-  %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv245
-  store i8 %122, ptr %124, align 1, !tbaa !25
-  %125 = icmp samesign ugt i64 %indvars.iv245, 1
-  br i1 %125, label %126, label %_ZN6icu_774UTF812isValidTrailEihii.exit
+132:                                              ; preds = %.lr.ph.split.split.split
+  %133 = load i8, ptr %.3138, align 1, !tbaa !25
+  %134 = zext i8 %133 to i32
+  %135 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv269
+  store i8 %133, ptr %135, align 1, !tbaa !25
+  %136 = icmp samesign ugt i64 %indvars.iv269, 1
+  br i1 %136, label %137, label %_ZN6icu_774UTF812isValidTrailEihii.exit
 
-126:                                              ; preds = %121
-  %127 = icmp sgt i8 %122, -65
-  br i1 %127, label %.thread258, label %142
+137:                                              ; preds = %132
+  %138 = icmp sgt i8 %133, -65
+  br i1 %138, label %.thread285, label %153
 
-.thread258:                                       ; preds = %126
-  %128 = trunc nuw nsw i64 %indvars.iv245 to i32
+.thread285:                                       ; preds = %137
+  %139 = trunc nuw nsw i64 %indvars.iv269 to i32
   br label %._crit_edge
 
-_ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %121
-  %129 = lshr i8 %122, 4
-  %130 = zext nneg i8 %129 to i64
-  %131 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !25
-  %133 = and i32 %.1105139, 7
-  %134 = shl nuw nsw i32 1, %133
-  %135 = trunc nuw i32 %134 to i8
-  %136 = and i8 %132, %135
-  %137 = icmp eq i8 %136, 0
-  br i1 %137, label %138, label %142
+_ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %132
+  %140 = lshr i8 %133, 4
+  %141 = zext nneg i8 %140 to i64
+  %142 = getelementptr inbounds nuw [17 x i8], ptr @.str.1, i64 0, i64 %141
+  %143 = load i8, ptr %142, align 1, !tbaa !25
+  %144 = and i32 %.1105139, 7
+  %145 = shl nuw nsw i32 1, %144
+  %146 = trunc nuw i32 %145 to i8
+  %147 = and i8 %143, %146
+  %148 = icmp eq i8 %147, 0
+  br i1 %148, label %149, label %153
 
-138:                                              ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit
-  %139 = icmp eq i64 %indvars.iv245, 1
-  %140 = icmp eq i32 %.1105139, 237
-  %or.cond3 = select i1 %139, i1 %140, i1 false
-  %141 = icmp slt i8 %122, -64
-  %or.cond131 = and i1 %or.cond3, %141
-  br i1 %or.cond131, label %142, label %._crit_edge.loopexit264.split.loop.exit
+149:                                              ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit
+  %150 = icmp eq i64 %indvars.iv269, 1
+  %151 = icmp eq i32 %.1105139, 237
+  %or.cond3 = select i1 %150, i1 %151, i1 false
+  %152 = icmp slt i8 %133, -64
+  %or.cond131 = and i1 %or.cond3, %152
+  br i1 %or.cond131, label %153, label %._crit_edge.loopexit296.split.loop.exit
 
-142:                                              ; preds = %126, %138, %_ZN6icu_774UTF812isValidTrailEihii.exit
-  %143 = shl i32 %.1105139, 6
-  %144 = add i32 %143, %123
-  %145 = getelementptr inbounds nuw i8, ptr %.3138, i64 1
-  %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
-  %146 = trunc nuw i64 %indvars.iv.next246 to i32
-  %147 = icmp sgt i32 %.0.fr, %146
-  br i1 %147, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !57
+153:                                              ; preds = %137, %149, %_ZN6icu_774UTF812isValidTrailEihii.exit
+  %154 = shl i32 %.1105139, 6
+  %155 = add i32 %154, %134
+  %156 = getelementptr inbounds nuw i8, ptr %.3138, i64 1
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
+  %157 = trunc nuw i64 %indvars.iv.next270 to i32
+  %158 = icmp sgt i32 %.0.fr, %157
+  br i1 %158, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !50
 
-.split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %.3138.us, %.lr.ph.split.us ], [ %.3138.us157, %.lr.ph.split.split.us ], [ %.3138, %.lr.ph.split.split.split ], [ %.3138.us185, %.lr.ph.split.split.split.us ]
-  %.us-phi147 = phi i32 [ %.1105139.us, %.lr.ph.split.us ], [ %.1105139.us156, %.lr.ph.split.split.us ], [ %.1105139, %.lr.ph.split.split.split ], [ %.1105139.us184, %.lr.ph.split.split.split.us ]
-  %.us-phi148.in = phi i64 [ %indvars.iv251, %.lr.ph.split.us ], [ %indvars.iv248, %.lr.ph.split.split.us ], [ %indvars.iv245, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i32 %.us-phi147, ptr %148, align 8, !tbaa !44
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 %.0.fr, ptr %149, align 4, !tbaa !43
-  %150 = trunc i64 %.us-phi148.in to i8
-  store i8 %150, ptr %18, align 8, !tbaa !42
+.split.us:                                        ; preds = %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split
+  %.us-phi = phi ptr [ %.3138.us, %.lr.ph.split.us.split ], [ %.3138.us.us, %.lr.ph.split.us.split.us ], [ %.3138.us157, %.lr.ph.split.split.us ], [ %.3138, %.lr.ph.split.split.split ], [ %.3138.us185, %.lr.ph.split.split.split.us ]
+  %.us-phi147 = phi i32 [ %.1105139.us, %.lr.ph.split.us.split ], [ %.1105139.us.us, %.lr.ph.split.us.split.us ], [ %.1105139.us156, %.lr.ph.split.split.us ], [ %.1105139, %.lr.ph.split.split.split ], [ %.1105139.us184, %.lr.ph.split.split.split.us ]
+  %.us-phi148.in = phi i64 [ %indvars.iv278, %.lr.ph.split.us.split ], [ %indvars.iv275, %.lr.ph.split.us.split.us ], [ %indvars.iv272, %.lr.ph.split.split.us ], [ %indvars.iv269, %.lr.ph.split.split.split ], [ %indvars.iv, %.lr.ph.split.split.split.us ]
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store i32 %.us-phi147, ptr %159, align 8, !tbaa !44
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  store i32 %.0.fr, ptr %160, align 4, !tbaa !43
+  %161 = trunc i64 %.us-phi148.in to i8
+  store i8 %161, ptr %18, align 8, !tbaa !42
   br label %.loopexit
 
-._crit_edge.loopexit262.split.loop.exit:          ; preds = %87
-  %151 = trunc nuw nsw i64 %indvars.iv248 to i32
+._crit_edge.loopexit289.split.loop.exit:          ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us.us
+  %162 = trunc nuw nsw i64 %indvars.iv275 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit264.split.loop.exit:          ; preds = %138
-  %152 = trunc nuw nsw i64 %indvars.iv245 to i32
+._crit_edge.loopexit291.split.loop.exit:          ; preds = %98
+  %163 = trunc nuw nsw i64 %indvars.iv272 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit269.split.loop.exit:          ; preds = %103
-  %153 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit296.split.loop.exit:          ; preds = %149
+  %164 = trunc nuw nsw i64 %indvars.iv269 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit269.split.loop.exit295:       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
-  %154 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit301.split.loop.exit:          ; preds = %114
+  %165 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %114, %142, %91, %61, %._crit_edge.loopexit269.split.loop.exit, %._crit_edge.loopexit269.split.loop.exit295, %._crit_edge.loopexit264.split.loop.exit, %._crit_edge.loopexit262.split.loop.exit, %.thread258, %.thread, %59, %51
-  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %.3138.us, %59 ], [ %.3138.us157, %.thread ], [ %.3138, %.thread258 ], [ %.3138.us157, %._crit_edge.loopexit262.split.loop.exit ], [ %.3138, %._crit_edge.loopexit264.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit269.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit269.split.loop.exit295 ], [ %65, %61 ], [ %94, %91 ], [ %145, %142 ], [ %117, %114 ]
-  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %.1105139.us, %59 ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread258 ], [ %.1105139.us156, %._crit_edge.loopexit262.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit264.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit269.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit269.split.loop.exit295 ], [ %64, %61 ], [ %93, %91 ], [ %144, %142 ], [ %116, %114 ]
-  %.1.lcssa = phi i32 [ %.0103, %51 ], [ %60, %59 ], [ %78, %.thread ], [ %128, %.thread258 ], [ %151, %._crit_edge.loopexit262.split.loop.exit ], [ %152, %._crit_edge.loopexit264.split.loop.exit ], [ %153, %._crit_edge.loopexit269.split.loop.exit ], [ %154, %._crit_edge.loopexit269.split.loop.exit295 ], [ %.0.fr, %61 ], [ 3, %91 ], [ %.0.fr, %142 ], [ %.0.fr, %114 ]
-  %155 = icmp ne i32 %.1.lcssa, %.0.fr
-  %156 = icmp sgt i32 %.1.lcssa, 3
-  %or.cond5.not = and i1 %17, %156
-  %or.cond134 = or i1 %155, %or.cond5.not
-  br i1 %or.cond134, label %185, label %157
+._crit_edge.loopexit301.split.loop.exit330:       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit.us186
+  %166 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %._crit_edge
 
-157:                                              ; preds = %._crit_edge
-  %158 = sext i32 %.0.fr to i64
-  %159 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !33
-  %161 = sub i32 %.1105.lcssa, %160
-  %162 = icmp ult i32 %161, 65536
-  br i1 %162, label %163, label %167
+._crit_edge:                                      ; preds = %125, %153, %102, %59, %72, %._crit_edge.loopexit301.split.loop.exit, %._crit_edge.loopexit301.split.loop.exit330, %._crit_edge.loopexit296.split.loop.exit, %._crit_edge.loopexit291.split.loop.exit, %._crit_edge.loopexit289.split.loop.exit, %.thread285, %.thread, %70, %51
+  %.3.lcssa = phi ptr [ %.0106, %51 ], [ %.3138.us, %70 ], [ %.3138.us157, %.thread ], [ %.3138, %.thread285 ], [ %.3138.us.us, %._crit_edge.loopexit289.split.loop.exit ], [ %.3138.us157, %._crit_edge.loopexit291.split.loop.exit ], [ %.3138, %._crit_edge.loopexit296.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit301.split.loop.exit ], [ %.3138.us185, %._crit_edge.loopexit301.split.loop.exit330 ], [ %76, %72 ], [ %63, %59 ], [ %105, %102 ], [ %156, %153 ], [ %128, %125 ]
+  %.1105.lcssa = phi i32 [ %.0104, %51 ], [ %.1105139.us, %70 ], [ %.1105139.us156, %.thread ], [ %.1105139, %.thread285 ], [ %.1105139.us.us, %._crit_edge.loopexit289.split.loop.exit ], [ %.1105139.us156, %._crit_edge.loopexit291.split.loop.exit ], [ %.1105139, %._crit_edge.loopexit296.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit301.split.loop.exit ], [ %.1105139.us184, %._crit_edge.loopexit301.split.loop.exit330 ], [ %75, %72 ], [ %62, %59 ], [ %104, %102 ], [ %155, %153 ], [ %127, %125 ]
+  %.1.lcssa = phi i32 [ %.0103, %51 ], [ %71, %70 ], [ %89, %.thread ], [ %139, %.thread285 ], [ %162, %._crit_edge.loopexit289.split.loop.exit ], [ %163, %._crit_edge.loopexit291.split.loop.exit ], [ %164, %._crit_edge.loopexit296.split.loop.exit ], [ %165, %._crit_edge.loopexit301.split.loop.exit ], [ %166, %._crit_edge.loopexit301.split.loop.exit330 ], [ %.0.fr, %72 ], [ %.0.fr, %59 ], [ 3, %102 ], [ %.0.fr, %153 ], [ %.0.fr, %125 ]
+  %167 = icmp ne i32 %.1.lcssa, %.0.fr
+  %168 = icmp sgt i32 %.1.lcssa, 3
+  %or.cond5.not = and i1 %17, %168
+  %or.cond134 = or i1 %167, %or.cond5.not
+  br i1 %or.cond134, label %197, label %169
 
-163:                                              ; preds = %157
-  %164 = trunc nuw i32 %161 to i16
-  %165 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
-  store i16 %164, ptr %.0108, align 2, !tbaa !23
-  %166 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
+169:                                              ; preds = %._crit_edge
+  %170 = sext i32 %.0.fr to i64
+  %171 = getelementptr inbounds [5 x i32], ptr @_ZL15offsetsFromUTF8, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !33
+  %173 = sub i32 %.1105.lcssa, %172
+  %174 = icmp ult i32 %173, 65536
+  br i1 %174, label %175, label %179
+
+175:                                              ; preds = %169
+  %176 = trunc nuw i32 %173 to i16
+  %177 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
+  store i16 %176, ptr %.0108, align 2, !tbaa !23
+  %178 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
   store i32 %.0118, ptr %.0113, align 4, !tbaa !33
-  br label %183
+  br label %195
 
-167:                                              ; preds = %157
-  %168 = lshr i32 %161, 10
-  %169 = trunc i32 %168 to i16
-  %170 = add i16 %169, -10304
-  %171 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
-  store i16 %170, ptr %.0108, align 2, !tbaa !23
-  %172 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
+179:                                              ; preds = %169
+  %180 = lshr i32 %173, 10
+  %181 = trunc i32 %180 to i16
+  %182 = add i16 %181, -10304
+  %183 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
+  store i16 %182, ptr %.0108, align 2, !tbaa !23
+  %184 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
   store i32 %.0118, ptr %.0113, align 4, !tbaa !33
-  %173 = trunc i32 %161 to i16
-  %174 = and i16 %173, 1023
-  %175 = or disjoint i16 %174, -9216
-  %176 = icmp ult ptr %171, %14
-  br i1 %176, label %177, label %180
+  %185 = trunc i32 %173 to i16
+  %186 = and i16 %185, 1023
+  %187 = or disjoint i16 %186, -9216
+  %188 = icmp ult ptr %183, %14
+  br i1 %188, label %189, label %192
 
-177:                                              ; preds = %167
-  %178 = getelementptr inbounds nuw i8, ptr %.0108, i64 4
-  store i16 %175, ptr %171, align 2, !tbaa !23
-  %179 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
-  store i32 %.0118, ptr %172, align 4, !tbaa !33
-  br label %183
+189:                                              ; preds = %179
+  %190 = getelementptr inbounds nuw i8, ptr %.0108, i64 4
+  store i16 %187, ptr %183, align 2, !tbaa !23
+  %191 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
+  store i32 %.0118, ptr %184, align 4, !tbaa !33
+  br label %195
 
-180:                                              ; preds = %167
-  %181 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i16 %175, ptr %181, align 8, !tbaa !23
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 93
-  store i8 1, ptr %182, align 1, !tbaa !51
+192:                                              ; preds = %179
+  %193 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  store i16 %187, ptr %193, align 8, !tbaa !23
+  %194 = getelementptr inbounds nuw i8, ptr %4, i64 93
+  store i8 1, ptr %194, align 1, !tbaa !47
   store i32 15, ptr %1, align 4, !tbaa !27
-  br label %183
+  br label %195
 
-183:                                              ; preds = %177, %180, %163
-  %.4117 = phi ptr [ %166, %163 ], [ %179, %177 ], [ %172, %180 ]
-  %.4112 = phi ptr [ %165, %163 ], [ %178, %177 ], [ %171, %180 ]
-  %184 = add nsw i32 %.0.fr, %.0118
-  br label %.preheader, !llvm.loop !53
+195:                                              ; preds = %189, %192, %175
+  %.4117 = phi ptr [ %178, %175 ], [ %191, %189 ], [ %184, %192 ]
+  %.4112 = phi ptr [ %177, %175 ], [ %190, %189 ], [ %183, %192 ]
+  %196 = add nsw i32 %.0.fr, %.0118
+  br label %.preheader, !llvm.loop !49
 
-.preheader:                                       ; preds = %2, %183
-  %.1119.ph = phi i32 [ %184, %183 ], [ 0, %2 ]
-  %.1114.ph = phi ptr [ %.4117, %183 ], [ %10, %2 ]
-  %.1109.ph = phi ptr [ %.4112, %183 ], [ %8, %2 ]
-  %.1107.ph = phi ptr [ %.3.lcssa, %183 ], [ %6, %2 ]
+.preheader:                                       ; preds = %2, %195
+  %.1119.ph = phi i32 [ %196, %195 ], [ 0, %2 ]
+  %.1114.ph = phi ptr [ %.4117, %195 ], [ %10, %2 ]
+  %.1109.ph = phi ptr [ %.4112, %195 ], [ %8, %2 ]
+  %.1107.ph = phi ptr [ %.3.lcssa, %195 ], [ %6, %2 ]
   br label %28
 
-185:                                              ; preds = %._crit_edge
-  %186 = trunc i32 %.1.lcssa to i8
-  store i8 %186, ptr %18, align 8, !tbaa !42
+197:                                              ; preds = %._crit_edge
+  %198 = trunc i32 %.1.lcssa to i8
+  store i8 %198, ptr %18, align 8, !tbaa !42
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %185, %.split.us
-  %.3116 = phi ptr [ %.0113, %185 ], [ %.0113, %.split.us ], [ %.1114, %28 ]
-  %.3111 = phi ptr [ %.0108, %185 ], [ %.0108, %.split.us ], [ %.1109, %28 ]
-  %.4 = phi ptr [ %.3.lcssa, %185 ], [ %.us-phi, %.split.us ], [ %.1107, %28 ]
-  %187 = icmp uge ptr %.4, %12
+.loopexit:                                        ; preds = %28, %197, %.split.us
+  %.3116 = phi ptr [ %.0113, %197 ], [ %.0113, %.split.us ], [ %.1114, %28 ]
+  %.3111 = phi ptr [ %.0108, %197 ], [ %.0108, %.split.us ], [ %.1109, %28 ]
+  %.4 = phi ptr [ %.3.lcssa, %197 ], [ %.us-phi, %.split.us ], [ %.1107, %28 ]
+  %199 = icmp uge ptr %.4, %12
   %.not128 = icmp ult ptr %.3111, %14
-  %or.cond132 = select i1 %187, i1 true, i1 %.not128
-  br i1 %or.cond132, label %192, label %188
+  %or.cond132 = select i1 %199, i1 true, i1 %.not128
+  br i1 %or.cond132, label %204, label %200
 
-188:                                              ; preds = %.loopexit
-  %189 = load i32, ptr %1, align 4, !tbaa !27
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %192, label %191
+200:                                              ; preds = %.loopexit
+  %201 = load i32, ptr %1, align 4, !tbaa !27
+  %202 = icmp sgt i32 %201, 0
+  br i1 %202, label %204, label %203
 
-191:                                              ; preds = %188
+203:                                              ; preds = %200
   store i32 15, ptr %1, align 4, !tbaa !27
-  br label %192
+  br label %204
 
-192:                                              ; preds = %191, %188, %.loopexit
+204:                                              ; preds = %203, %200, %.loopexit
   store ptr %.3111, ptr %7, align 8, !tbaa !39
   store ptr %.4, ptr %5, align 8, !tbaa !38
-  store ptr %.3116, ptr %9, align 8, !tbaa !52
+  store ptr %.3116, ptr %9, align 8, !tbaa !48
   ret void
 }
 
@@ -1414,7 +1470,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph, %43
   %47 = getelementptr inbounds nuw i8, ptr %.090131.us, i64 1
   %48 = load ptr, ptr %7, align 8, !tbaa !40
   %49 = icmp ult ptr %47, %48
-  br i1 %49, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.loopexit, !llvm.loop !58
+  br i1 %49, label %_ZN6icu_774UTF812isValidTrailEihii.exit.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %50 = xor i1 %20, %22
@@ -1448,7 +1504,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us138:    ; preds = %.lr.ph.split.split.
   %64 = getelementptr inbounds nuw i8, ptr %.090131.us136, i64 1
   %65 = load ptr, ptr %7, align 8, !tbaa !40
   %66 = icmp ult ptr %64, %65
-  br i1 %66, label %.lr.ph.split.split.us, label %.loopexit, !llvm.loop !59
+  br i1 %66, label %.lr.ph.split.split.us, label %.loopexit
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %77
   %.090131 = phi ptr [ %81, %77 ], [ %11, %.lr.ph.split ]
@@ -1597,7 +1653,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   store i8 %147, ptr %149, align 1, !tbaa !25
   %150 = add i8 %.398128, 1
   %151 = icmp ult ptr %146, %.5
-  br i1 %151, label %145, label %152, !llvm.loop !60
+  br i1 %151, label %145, label %152, !llvm.loop !51
 
 152:                                              ; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1800,7 +1856,7 @@ define internal void @_ZL17ucnv_UTF8FromUTF8P25UConverterFromUnicodeArgsP23UConv
   %.1195.be = phi ptr [ %102, %106 ], [ %130, %129 ], [ %140, %139 ]
   %108 = add nsw i32 %.3203295, %.sink
   %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 110:                                              ; preds = %.lr.ph
   %111 = icmp samesign ugt i8 %103, -33
@@ -1909,7 +1965,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph310.split.us
   %161 = zext i8 %155 to i32
   %162 = add nsw i32 %160, %161
   %163 = icmp slt i8 %159, %.1218.fr
-  br i1 %163, label %.lr.ph310.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !62
+  br i1 %163, label %.lr.ph310.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !53
 
 .lr.ph310.split:                                  ; preds = %.lr.ph310, %189
   %.2309 = phi ptr [ %190, %189 ], [ %.0194, %.lr.ph310 ]
@@ -1964,7 +2020,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %193 = zext i8 %166 to i32
   %194 = add nsw i32 %192, %193
   %195 = icmp slt i8 %191, %.1218.fr
-  br i1 %195, label %.lr.ph310.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !63
+  br i1 %195, label %.lr.ph310.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !53
 
 .split.us:                                        ; preds = %.lr.ph310.split, %.lr.ph310.split.us
   %.us-phi = phi i8 [ %.2221307.us, %.lr.ph310.split.us ], [ %.2221307, %.lr.ph310.split ]
@@ -1991,7 +2047,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %168, %172, %180
   %205 = getelementptr inbounds [7 x i8], ptr %201, i64 0, i64 %indvars.iv
   store i8 %204, ptr %205, align 1, !tbaa !25
   %206 = icmp samesign ult i64 %indvars.iv.next, %196
-  br i1 %206, label %202, label %._crit_edge331, !llvm.loop !64
+  br i1 %206, label %202, label %._crit_edge331, !llvm.loop !54
 
 ._crit_edge331:                                   ; preds = %202, %.split.us
   %.3.lcssa = phi ptr [ %199, %.split.us ], [ %203, %202 ]
@@ -2050,7 +2106,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   %225 = getelementptr inbounds nuw [7 x i8], ptr %219, i64 0, i64 %indvars.iv400
   store i8 %224, ptr %225, align 1, !tbaa !25
   %226 = icmp slt i64 %indvars.iv.next401, %221
-  br i1 %226, label %222, label %._crit_edge337, !llvm.loop !65
+  br i1 %226, label %222, label %._crit_edge337, !llvm.loop !55
 
 ._crit_edge337:                                   ; preds = %222, %214
   %.4.lcssa = phi ptr [ %217, %214 ], [ %223, %222 ]
@@ -2069,7 +2125,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   store i8 %229, ptr %.2198339, align 1, !tbaa !25
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next404, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge342, label %227, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge342, label %227, !llvm.loop !56
 
 ._crit_edge342:                                   ; preds = %227, %.preheader
   %.2198.lcssa = phi ptr [ %.0196, %.preheader ], [ %230, %227 ]
@@ -2091,13 +2147,13 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge: ; preds = %_ZN6icu_774UTF812
   store i8 %236, ptr %.3199345, align 1, !tbaa !25
   %238 = add nuw nsw i8 %.1347, 1
   %239 = icmp slt i8 %238, %.1218.fr
-  br i1 %239, label %.lr.ph349, label %._crit_edge350, !llvm.loop !67
+  br i1 %239, label %.lr.ph349, label %._crit_edge350, !llvm.loop !57
 
 ._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge342
   %.3199.lcssa = phi ptr [ %.2198.lcssa, %._crit_edge342 ], [ %237, %.lr.ph349 ]
   %.5.lcssa = phi ptr [ %233, %._crit_edge342 ], [ %235, %.lr.ph349 ]
   %240 = sub nsw i32 %.2202, %211
-  br label %.preheader261, !llvm.loop !61
+  br label %.preheader261, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader261
   %.1197.lcssa = phi ptr [ %.1197.ph, %.preheader261 ], [ %.1197.be, %.backedge ]
@@ -2226,7 +2282,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit258:       ; preds = %280, %284, %292
   store i8 %278, ptr %308, align 1, !tbaa !25
   %309 = getelementptr inbounds nuw i8, ptr %276, i64 1
   %310 = icmp eq ptr %309, %9
-  br i1 %310, label %._crit_edge301, label %275, !llvm.loop !68
+  br i1 %310, label %._crit_edge301, label %275, !llvm.loop !58
 
 311:                                              ; preds = %261
   store i32 -127, ptr %2, align 4, !tbaa !27
@@ -2306,26 +2362,16 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !43 = !{!18, !20, i64 76}
 !44 = !{!18, !20, i64 72}
 !45 = distinct !{!45, !30}
-!46 = distinct !{!46, !30, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !30, !47}
-!49 = distinct !{!49, !30, !47}
+!46 = distinct !{!46, !30}
+!47 = !{!18, !6, i64 93}
+!48 = !{!37, !12, i64 48}
+!49 = distinct !{!49, !30}
 !50 = distinct !{!50, !30}
-!51 = !{!18, !6, i64 93}
-!52 = !{!37, !12, i64 48}
+!51 = distinct !{!51, !30}
+!52 = distinct !{!52, !30}
 !53 = distinct !{!53, !30}
-!54 = distinct !{!54, !30, !47}
-!55 = distinct !{!55, !30, !47}
-!56 = distinct !{!56, !30, !47}
+!54 = distinct !{!54, !30}
+!55 = distinct !{!55, !30}
+!56 = distinct !{!56, !30}
 !57 = distinct !{!57, !30}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = distinct !{!60, !30}
-!61 = distinct !{!61, !30}
-!62 = distinct !{!62, !30, !47}
-!63 = distinct !{!63, !30}
-!64 = distinct !{!64, !30}
-!65 = distinct !{!65, !30}
-!66 = distinct !{!66, !30}
-!67 = distinct !{!67, !30}
-!68 = distinct !{!68, !30}
+!58 = distinct !{!58, !30}

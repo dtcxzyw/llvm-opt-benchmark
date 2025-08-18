@@ -3161,7 +3161,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
 116:                                              ; preds = %108
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
-  br i1 %exitcond127.not, label %.loopexit, label %.split, !llvm.loop !38
+  br i1 %exitcond127.not, label %.loopexit, label %.split, !llvm.loop !36
 
 .split116.us:                                     ; preds = %91, %108
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3178,7 +3178,7 @@ define dso_local noundef ptr @decNumberAnd(ptr noundef returned %0, ptr noundef 
   %121 = getelementptr inbounds nuw i8, ptr %.081120, i64 2
   %122 = getelementptr inbounds nuw i8, ptr %.082118, i64 2
   %.not98 = icmp ugt ptr %122, %67
-  br i1 %.not98, label %._crit_edge, label %71, !llvm.loop !39
+  br i1 %.not98, label %._crit_edge, label %71, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.082.lcssa = phi ptr [ %24, %60 ], [ %122, %.loopexit ]
@@ -3419,7 +3419,7 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 
 75:                                               ; preds = %71
   %76 = icmp ult i16 %72, %73
-  br i1 %76, label %decUnitCompare.exit, label %70, !llvm.loop !40
+  br i1 %76, label %decUnitCompare.exit, label %70, !llvm.loop !38
 
 decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, %65, %62, %32, %30, %28
   %.1 = phi i32 [ -1, %28 ], [ 1, %30 ], [ -1, %32 ], [ 1, %62 ], [ -1, %65 ], [ 1, %35 ], [ 1, %71 ], [ -1, %75 ], [ 0, %70 ]
@@ -4071,7 +4071,7 @@ define dso_local noundef ptr @decNumberCopy(ptr noundef returned writeonly captu
   %31 = getelementptr inbounds nuw i8, ptr %.02631, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %.032, i64 2
   %33 = icmp ult ptr %31, %28
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %4, %2
   ret ptr %0
@@ -4536,7 +4536,7 @@ thread-pre-split:                                 ; preds = %91, %96
   store i16 0, ptr %.1470691, align 2, !tbaa !11
   %221 = getelementptr inbounds i8, ptr %.1470691, i64 -2
   %.not559 = icmp ult ptr %221, %.0443
-  br i1 %.not559, label %._crit_edge, label %.lr.ph692, !llvm.loop !42
+  br i1 %.not559, label %._crit_edge, label %.lr.ph692, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph692, %.preheader678
   %222 = icmp slt i32 %128, 50
@@ -4599,7 +4599,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %251 = getelementptr inbounds nuw i8, ptr %.0465695, i64 4
   %252 = load i32, ptr %251, align 4, !tbaa !16
   %.not561 = icmp ugt i32 %252, %248
-  br i1 %.not561, label %.preheader677, label %.lr.ph697, !llvm.loop !43
+  br i1 %.not561, label %.preheader677, label %.lr.ph697, !llvm.loop !41
 
 .lr.ph703:                                        ; preds = %.preheader677, %.lr.ph703
   %.1466702 = phi ptr [ %254, %.lr.ph703 ], [ getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), %.preheader677 ]
@@ -4608,7 +4608,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %254 = getelementptr inbounds nuw i8, ptr %.1466702, i64 4
   %255 = load i32, ptr %254, align 4, !tbaa !16
   %.not562 = icmp ugt i32 %255, %235
-  br i1 %.not562, label %._crit_edge704, label %.lr.ph703, !llvm.loop !44
+  br i1 %.not562, label %._crit_edge704, label %.lr.ph703, !llvm.loop !42
 
 ._crit_edge704:                                   ; preds = %.lr.ph703, %.preheader677
   %.1479.lcssa = phi i32 [ %.0478.lcssa, %.preheader677 ], [ %253, %.lr.ph703 ]
@@ -4725,7 +4725,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %314 = icmp eq i16 %313, 0
   %315 = icmp ugt ptr %312, %.0443
   %316 = and i1 %315, %314
-  br i1 %316, label %.lr.ph714, label %._crit_edge715, !llvm.loop !45
+  br i1 %316, label %.lr.ph714, label %._crit_edge715, !llvm.loop !43
 
 ._crit_edge715:                                   ; preds = %.lr.ph714, %306
   %.lcssa710 = phi i16 [ %307, %306 ], [ %313, %.lr.ph714 ]
@@ -4816,7 +4816,7 @@ thread-pre-split:                                 ; preds = %91, %96
   %354 = load i32, ptr %.2467, align 4, !tbaa !16
   %.not570 = icmp ugt i32 %354, %350
   %355 = getelementptr inbounds nuw i8, ptr %.2467, i64 4
-  br i1 %.not570, label %.loopexit, label %.preheader675, !llvm.loop !46
+  br i1 %.not570, label %.loopexit, label %.preheader675, !llvm.loop !44
 
 356:                                              ; preds = %352
   %357 = add nsw i32 %.0437, 3
@@ -5068,7 +5068,7 @@ thread-pre-split:                                 ; preds = %91, %96
 466:                                              ; preds = %.lr.ph730, %462
   %467 = getelementptr inbounds nuw i8, ptr %.0435729, i64 2
   %468 = icmp ult ptr %467, %455
-  br i1 %468, label %.lr.ph730, label %._crit_edge731, !llvm.loop !47
+  br i1 %468, label %.lr.ph730, label %._crit_edge731, !llvm.loop !45
 
 ._crit_edge731:                                   ; preds = %466, %.preheader672
   %469 = icmp sgt i32 %452, 0
@@ -5422,7 +5422,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %51 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %52 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %53 = icmp ult ptr %51, %48
-  br i1 %53, label %.lr.ph.i, label %.thread278, !llvm.loop !41
+  br i1 %53, label %.lr.ph.i, label %.thread278, !llvm.loop !39
 
 54:                                               ; preds = %19
   %55 = tail call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
@@ -5692,7 +5692,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
   %200 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %200, align 2, !tbaa !11
   %201 = call ptr @decContextDefault(ptr noundef nonnull %8, i32 noundef 64) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %8, i64 28, i1 false), !tbaa.struct !46
   store i32 %148, ptr %7, align 4, !tbaa !25
   store i32 %147, ptr %8, align 4, !tbaa !25
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6033,7 +6033,7 @@ decCheckMath.exit50.thread:                       ; preds = %59, %54, %decCheckM
   br i1 %or.cond16.i52, label %decCheckMath.exit55.thread, label %.thread.thread
 
 decCheckMath.exit55.thread:                       ; preds = %86, %81, %decCheckMath.exit50.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !46
   %91 = load i32, ptr %1, align 4, !tbaa !10
   %92 = load i32, ptr %2, align 4, !tbaa !10
   %93 = add nsw i32 %92, %91
@@ -6353,12 +6353,12 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %108 = icmp samesign ult i64 %indvars.iv388, 6
   %109 = icmp samesign ugt i32 %.1232325, 3
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %98, label %111, !llvm.loop !49
+  br i1 %110, label %98, label %111, !llvm.loop !47
 
 111:                                              ; preds = %98
   store i32 %105, ptr %.0251329, align 4, !tbaa !16
   %112 = getelementptr inbounds nuw i8, ptr %.0251329, i64 4
-  br i1 %109, label %.lr.ph332, label %.lr.ph342.preheader, !llvm.loop !50
+  br i1 %109, label %.lr.ph332, label %.lr.ph342.preheader, !llvm.loop !48
 
 .lr.ph342.preheader:                              ; preds = %111, %95
   %.0251.lcssa = phi ptr [ %.0261, %95 ], [ %112, %111 ]
@@ -6389,12 +6389,12 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %125 = icmp samesign ult i64 %indvars.iv391, 6
   %126 = icmp sgt i32 %.3234334, 3
   %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %115, label %128, !llvm.loop !51
+  br i1 %127, label %115, label %128, !llvm.loop !49
 
 128:                                              ; preds = %115
   store i32 %122, ptr %.0249338, align 4, !tbaa !16
   %129 = getelementptr inbounds nuw i8, ptr %.0249338, i64 4
-  br i1 %126, label %.lr.ph342, label %._crit_edge343, !llvm.loop !52
+  br i1 %126, label %.lr.ph342, label %._crit_edge343, !llvm.loop !50
 
 ._crit_edge343:                                   ; preds = %128
   %.idx371 = shl nsw i64 %82, 3
@@ -6410,7 +6410,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %135 = add i64 %umax, %134
   %136 = and i64 %135, -8
   %137 = add i64 %136, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.0253, i8 0, i64 %137, i1 false), !tbaa !53
+  call void @llvm.memset.p0.i64(ptr align 8 %.0253, i8 0, i64 %137, i1 false), !tbaa !51
   br label %.preheader317
 
 .preheader317:                                    ; preds = %.lr.ph347.preheader, %._crit_edge343
@@ -6446,13 +6446,13 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %148 = load i32, ptr %.1252350, align 4, !tbaa !16
   %149 = zext i32 %148 to i64
   %150 = mul nuw i64 %146, %149
-  %151 = load i64, ptr %.1223351, align 8, !tbaa !53
+  %151 = load i64, ptr %.1223351, align 8, !tbaa !51
   %152 = add i64 %150, %151
-  store i64 %152, ptr %.1223351, align 8, !tbaa !53
+  store i64 %152, ptr %.1223351, align 8, !tbaa !51
   %153 = getelementptr inbounds nuw i8, ptr %.1252350, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %.1223351, i64 8
   %.not287 = icmp ugt ptr %153, %113
-  br i1 %.not287, label %._crit_edge354, label %147, !llvm.loop !55
+  br i1 %.not287, label %._crit_edge354, label %147, !llvm.loop !53
 
 ._crit_edge354:                                   ; preds = %147, %140
   %155 = icmp sgt i32 %.0239359, 1
@@ -6465,7 +6465,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 
 .lr.ph356:                                        ; preds = %._crit_edge354, %176
   %.2224355 = phi ptr [ %177, %176 ], [ %.0253, %._crit_edge354 ]
-  %157 = load i64, ptr %.2224355, align 8, !tbaa !53
+  %157 = load i64, ptr %.2224355, align 8, !tbaa !51
   %158 = icmp ult i64 %157, 1000000000
   br i1 %158, label %176, label %159
 
@@ -6477,9 +6477,9 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 162:                                              ; preds = %159
   %163 = udiv i64 %157, 1000000000000000000
   %164 = getelementptr inbounds nuw i8, ptr %.2224355, i64 16
-  %165 = load i64, ptr %164, align 8, !tbaa !53
+  %165 = load i64, ptr %164, align 8, !tbaa !51
   %166 = add i64 %165, %163
-  store i64 %166, ptr %164, align 8, !tbaa !53
+  store i64 %166, ptr %164, align 8, !tbaa !51
   %.neg289 = mul i64 %163, -1000000000000000000
   %167 = add i64 %.neg289, %157
   %.neg290 = mul nuw nsw i64 %163, 3294967296
@@ -6491,29 +6491,29 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %.0235.in = phi i64 [ %168, %162 ], [ %160, %159 ]
   %171 = and i64 %.0235.in, 4294967295
   %172 = getelementptr inbounds nuw i8, ptr %.2224355, i64 8
-  %173 = load i64, ptr %172, align 8, !tbaa !53
+  %173 = load i64, ptr %172, align 8, !tbaa !51
   %174 = add i64 %173, %171
-  store i64 %174, ptr %172, align 8, !tbaa !53
+  store i64 %174, ptr %172, align 8, !tbaa !51
   %.neg291 = mul nsw i64 %171, -1000000000
   %175 = add i64 %170, %.neg291
-  store i64 %175, ptr %.2224355, align 8, !tbaa !53
+  store i64 %175, ptr %.2224355, align 8, !tbaa !51
   br label %176
 
 176:                                              ; preds = %.lr.ph356, %169
   %177 = getelementptr inbounds nuw i8, ptr %.2224355, i64 8
   %178 = icmp ult ptr %177, %130
-  br i1 %178, label %.lr.ph356, label %.loopexit, !llvm.loop !56
+  br i1 %178, label %.lr.ph356, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %176, %._crit_edge354
   %.1240 = phi i32 [ %.mux, %._crit_edge354 ], [ 18, %176 ]
   %179 = getelementptr inbounds nuw i8, ptr %.1250358, i64 4
   %.not286 = icmp ugt ptr %179, %.0249338
-  br i1 %.not286, label %.preheader, label %140, !llvm.loop !57
+  br i1 %.not286, label %.preheader, label %140, !llvm.loop !55
 
 .lr.ph366:                                        ; preds = %.preheader, %189
   %.3365 = phi ptr [ %192, %189 ], [ %.0253, %.preheader ]
   %.0225364 = phi ptr [ %191, %189 ], [ %.0253, %.preheader ]
-  %180 = load i64, ptr %.3365, align 8, !tbaa !53
+  %180 = load i64, ptr %.3365, align 8, !tbaa !51
   %181 = trunc i64 %180 to i32
   br label %182
 
@@ -6529,7 +6529,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %186 = add nuw nsw i32 %.2362, 3
   %187 = getelementptr inbounds nuw i8, ptr %.1226361, i64 2
   %188 = icmp samesign ult i32 %.2362, 3
-  br i1 %188, label %182, label %189, !llvm.loop !58
+  br i1 %188, label %182, label %189, !llvm.loop !56
 
 189:                                              ; preds = %182
   %190 = trunc i32 %183 to i16
@@ -6537,7 +6537,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %191 = getelementptr inbounds nuw i8, ptr %.1226361, i64 4
   %192 = getelementptr inbounds nuw i8, ptr %.3365, i64 8
   %193 = icmp ult ptr %192, %130
-  br i1 %193, label %.lr.ph366, label %._crit_edge367.loopexit, !llvm.loop !59
+  br i1 %193, label %.lr.ph366, label %._crit_edge367.loopexit, !llvm.loop !57
 
 ._crit_edge367.loopexit:                          ; preds = %189
   %.pre = ptrtoint ptr %191 to i64
@@ -6654,7 +6654,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %252 = getelementptr inbounds nuw i8, ptr %.0248323, i64 2
   %253 = icmp ult ptr %252, %235
-  br i1 %253, label %238, label %.loopexit318, !llvm.loop !60
+  br i1 %253, label %238, label %.loopexit318, !llvm.loop !58
 
 .loopexit318:                                     ; preds = %251, %._crit_edge367
   %.2260 = phi ptr [ %.0258, %._crit_edge367 ], [ null, %251 ]
@@ -6888,7 +6888,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 65:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split85.us, label %.split.us, !llvm.loop !61
+  br i1 %exitcond.not, label %.split85.us, label %.split.us, !llvm.loop !59
 
 .split:                                           ; preds = %51, %78
   %66 = phi i16 [ %74, %78 ], [ 0, %51 ]
@@ -6916,7 +6916,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
 78:                                               ; preds = %73
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond99.not, label %.split85.us, label %.split, !llvm.loop !62
+  br i1 %exitcond99.not, label %.split85.us, label %.split, !llvm.loop !59
 
 .split87.us:                                      ; preds = %60, %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6932,7 +6932,7 @@ define dso_local noundef ptr @decNumberInvert(ptr noundef returned %0, ptr nound
   %82 = getelementptr inbounds nuw i8, ptr %.05690, i64 2
   %83 = getelementptr inbounds nuw i8, ptr %.05789, i64 2
   %.not68 = icmp ugt ptr %83, %43
-  br i1 %.not68, label %._crit_edge, label %47, !llvm.loop !63
+  br i1 %.not68, label %._crit_edge, label %47, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.split85.us, %36
   %.057.lcssa = phi ptr [ %.ptr77, %36 ], [ %83, %.split85.us ]
@@ -7178,7 +7178,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %48 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %49 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %50 = icmp ult ptr %48, %45
-  br i1 %50, label %.lr.ph.i, label %.thread229, !llvm.loop !41
+  br i1 %50, label %.lr.ph.i, label %.thread229, !llvm.loop !39
 
 51:                                               ; preds = %17
   %52 = tail call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
@@ -7236,7 +7236,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %76, label %77, label %.thread
 
 77:                                               ; preds = %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 3, ptr %78, align 4, !tbaa !35
   %79 = call ptr @decNumberFromString(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %11)
@@ -7251,7 +7251,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 3, ptr %86, align 4, !tbaa !35
   %87 = call ptr @decNumberFromString(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %11)
@@ -7605,7 +7605,7 @@ decNumberFromUInt32.exit.i219:                    ; preds = %228, %226, %232, %2
   store i32 %244, ptr %245, align 4, !tbaa !30
   %246 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 0, ptr %246, align 4, !tbaa !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !46
   %247 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1999998, ptr %247, align 4, !tbaa !31
   %248 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7902,7 +7902,7 @@ define dso_local noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef
   %38 = getelementptr inbounds nuw i8, ptr %.02631.i.i, i64 2
   %39 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 2
   %40 = icmp ult ptr %38, %35
-  br i1 %40, label %.lr.ph.i.i, label %decNumberCopyAbs.exit, !llvm.loop !41
+  br i1 %40, label %.lr.ph.i.i, label %decNumberCopyAbs.exit, !llvm.loop !39
 
 decNumberCopyAbs.exit:                            ; preds = %.lr.ph.i.i, %.decNumberCopy.exit_crit_edge.i, %16
   %41 = phi i8 [ %.pre.i, %.decNumberCopy.exit_crit_edge.i ], [ %9, %16 ], [ %9, %.lr.ph.i.i ]
@@ -8293,7 +8293,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %49 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %51 = icmp ult ptr %49, %46
-  br i1 %51, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %51, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !39
 
 52:                                               ; preds = %24
   %53 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -8333,7 +8333,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned captures(addres
   %68 = getelementptr inbounds nuw i8, ptr %.03953, i64 2
   %69 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   %70 = icmp ult ptr %68, %65
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %57, label %._crit_edge.thread, label %75
@@ -8520,7 +8520,7 @@ define dso_local noundef ptr @decNumberCopyAbs(ptr noundef returned captures(add
   %28 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %30 = icmp ult ptr %28, %25
-  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !39
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %4
   %31 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %6, %4 ], [ %6, %.lr.ph.i ]
@@ -9261,7 +9261,7 @@ define dso_local noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr no
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9397,7 +9397,7 @@ define dso_local noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr nou
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9495,7 +9495,7 @@ define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr n
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !46
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9580,7 +9580,7 @@ define dso_local noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr n
   %45 = getelementptr inbounds nuw i8, ptr %.02631.i.i, i64 2
   %46 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 2
   %47 = icmp ult ptr %45, %42
-  br i1 %47, label %.lr.ph.i.i, label %decNumberCopySign.exit, !llvm.loop !41
+  br i1 %47, label %.lr.ph.i.i, label %decNumberCopySign.exit, !llvm.loop !39
 
 decNumberCopySign.exit:                           ; preds = %.lr.ph.i.i, %.decNumberCopy.exit_crit_edge.i, %22
   %48 = phi i8 [ %.pre.i, %.decNumberCopy.exit_crit_edge.i ], [ %23, %22 ], [ %23, %.lr.ph.i.i ]
@@ -9946,7 +9946,7 @@ define dso_local noundef ptr @decNumberCopySign(ptr noundef returned captures(ad
   %31 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %32 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %33 = icmp ult ptr %31, %28
-  br i1 %33, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %33, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !39
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %7
   %34 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %9, %7 ], [ %9, %.lr.ph.i ]
@@ -10169,7 +10169,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 98:                                               ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !65
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !62
 
 .preheader.split:                                 ; preds = %.preheader, %115
   %99 = phi i16 [ %108, %115 ], [ 0, %.preheader ]
@@ -10202,7 +10202,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
 115:                                              ; preds = %107
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
-  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !66
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !62
 
 .split.us:                                        ; preds = %90, %107
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10219,7 +10219,7 @@ define dso_local noundef ptr @decNumberOr(ptr noundef returned %0, ptr noundef r
   %120 = getelementptr inbounds nuw i8, ptr %.080117, i64 2
   %121 = getelementptr inbounds nuw i8, ptr %.081115, i64 2
   %.not97 = icmp ugt ptr %121, %67
-  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !67
+  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.081.lcssa = phi ptr [ %24, %60 ], [ %121, %.loopexit ]
@@ -10570,7 +10570,7 @@ decCheckMath.exit224.thread:                      ; preds = %125, %120
 
 143:                                              ; preds = %93
   %spec.select219 = tail call i32 @llvm.abs.i32(i32 %60, i1 true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !46
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 3, ptr %144, align 4, !tbaa !35
   %145 = load i32, ptr %2, align 4, !tbaa !10
@@ -10942,7 +10942,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   %48 = getelementptr inbounds i8, ptr %.06484, i64 -2
   %49 = getelementptr inbounds i8, ptr %.06085, i64 -2
   %.not74 = icmp ult ptr %48, %0
-  br i1 %.not74, label %.loopexit76, label %.lr.ph86, !llvm.loop !68
+  br i1 %.not74, label %.loopexit76, label %.lr.ph86, !llvm.loop !64
 
 50:                                               ; preds = %41
   %51 = icmp samesign ult i32 %6, 50
@@ -11004,7 +11004,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   %86 = getelementptr inbounds i8, ptr %.16579, i64 -2
   %87 = getelementptr inbounds i8, ptr %.281, i64 -2
   %.not = icmp ult ptr %86, %0
-  br i1 %.not, label %.loopexit76.loopexit92, label %73, !llvm.loop !69
+  br i1 %.not, label %.loopexit76.loopexit92, label %73, !llvm.loop !65
 
 .loopexit76.loopexit92:                           ; preds = %84
   %88 = trunc i32 %85 to i16
@@ -11022,7 +11022,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef captures(address) %0, i32
   store i16 %.26389, ptr %.390, align 2, !tbaa !11
   %89 = getelementptr inbounds i8, ptr %.390, i64 -2
   %.not75 = icmp ult ptr %89, %0
-  br i1 %.not75, label %.loopexit, label %.lr.ph91, !llvm.loop !70
+  br i1 %.not75, label %.loopexit, label %.lr.ph91, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph91, %.loopexit76, %3, %8
   %.0 = phi i32 [ %6, %8 ], [ %1, %3 ], [ %6, %.loopexit76 ], [ %6, %.lr.ph91 ]
@@ -11067,7 +11067,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %21 = add nsw i32 %.062128, -3
   %22 = getelementptr inbounds nuw i8, ptr %.166127, i64 2
   %23 = icmp samesign ugt i32 %21, 2
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %20
   %24 = icmp eq i32 %21, 0
@@ -11136,7 +11136,7 @@ define internal fastcc i32 @decGetInt(ptr noundef readonly captures(none) %0) un
   %52 = getelementptr inbounds nuw i8, ptr %.671131, i64 2
   %53 = trunc nuw i64 %indvars.iv.next to i32
   %54 = icmp sgt i32 %5, %53
-  br i1 %54, label %.lr.ph133, label %._crit_edge134, !llvm.loop !72
+  br i1 %54, label %.lr.ph133, label %._crit_edge134, !llvm.loop !68
 
 ._crit_edge134:                                   ; preds = %.lr.ph133, %.preheader
   %.580.lcssa = phi i32 [ %.479, %.preheader ], [ %53, %.lr.ph133 ]
@@ -11326,7 +11326,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
   %56 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %57 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %58 = icmp ult ptr %56, %53
-  br i1 %58, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %58, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !39
 
 59:                                               ; preds = %6
   %.not89 = icmp eq i8 %4, 0
@@ -11405,7 +11405,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !46
   store i32 %90, ptr %8, align 4, !tbaa !25
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %98, align 4, !tbaa !4
@@ -11640,7 +11640,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %spec.select74.us = getelementptr inbounds nuw i8, ptr %.06085.us, i64 %spec.select74.idx.us
   %37 = add nuw nsw i32 %.05686.us, 1
   %exitcond.not = icmp eq i32 %37, %20
-  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph.split.us, !llvm.loop !73
+  br i1 %exitcond.not, label %.thread.thread, label %.lr.ph.split.us, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %.05686 = phi i32 [ %58, %55 ], [ 0, %.lr.ph ]
@@ -11682,7 +11682,7 @@ define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr noundef
   %spec.select74 = getelementptr inbounds nuw i8, ptr %.06085, i64 %spec.select74.idx
   %58 = add nuw nsw i32 %.05686, 1
   %exitcond99.not = icmp eq i32 %58, %20
-  br i1 %exitcond99.not, label %.thread.thread, label %.lr.ph.split, !llvm.loop !74
+  br i1 %exitcond99.not, label %.thread.thread, label %.lr.ph.split, !llvm.loop !69
 
 .thread:                                          ; preds = %.lr.ph.split.us, %.lr.ph.split, %51
   %.056.lcssa = phi i32 [ %.05686, %51 ], [ %.05686, %.lr.ph.split ], [ %.05686.us, %.lr.ph.split.us ]
@@ -12140,7 +12140,7 @@ define dso_local noundef ptr @decNumberRotate(ptr noundef returned %0, ptr nound
   %162 = getelementptr inbounds nuw i8, ptr %.010.i, i64 2
   %163 = getelementptr inbounds i8, ptr %.089.i, i64 -2
   %164 = icmp ult ptr %162, %163
-  br i1 %164, label %.lr.ph.i, label %decReverse.exit, !llvm.loop !75
+  br i1 %164, label %.lr.ph.i, label %decReverse.exit, !llvm.loop !70
 
 decReverse.exit:                                  ; preds = %.lr.ph.i, %155
   %165 = icmp ugt i32 %90, 1
@@ -12160,7 +12160,7 @@ decReverse.exit:                                  ; preds = %.lr.ph.i, %155
   %169 = getelementptr inbounds nuw i8, ptr %.010.i131, i64 2
   %170 = getelementptr inbounds i8, ptr %.089.i132, i64 -2
   %171 = icmp ult ptr %169, %170
-  br i1 %171, label %.lr.ph.i130, label %decReverse.exit133, !llvm.loop !75
+  br i1 %171, label %.lr.ph.i130, label %decReverse.exit133, !llvm.loop !70
 
 decReverse.exit133:                               ; preds = %.lr.ph.i130, %decReverse.exit
   %172 = icmp samesign ugt i32 %65, 1
@@ -12176,7 +12176,7 @@ decReverse.exit133:                               ; preds = %.lr.ph.i130, %decRe
   %175 = getelementptr inbounds nuw i8, ptr %.010.i135, i64 2
   %176 = getelementptr inbounds i8, ptr %.089.i136, i64 -2
   %177 = icmp ult ptr %175, %176
-  br i1 %177, label %.lr.ph.i134, label %decReverse.exit137, !llvm.loop !75
+  br i1 %177, label %.lr.ph.i134, label %decReverse.exit137, !llvm.loop !70
 
 decReverse.exit137:                               ; preds = %.lr.ph.i134, %decReverse.exit133, %137
   %178 = tail call fastcc i32 @decGetDigits(ptr noundef nonnull %40, i32 noundef %65)
@@ -12286,7 +12286,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
   %34 = getelementptr inbounds nuw i8, ptr %.06178, i64 2
   %35 = getelementptr inbounds nuw i8, ptr %.06277, i64 2
   %36 = icmp ult ptr %35, %29
-  br i1 %36, label %.lr.ph80, label %._crit_edge81, !llvm.loop !76
+  br i1 %36, label %.lr.ph80, label %._crit_edge81, !llvm.loop !71
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %.thread71
   %.061.lcssa = phi ptr [ %0, %.thread71 ], [ %34, %.lr.ph80 ]
@@ -12936,7 +12936,7 @@ define dso_local noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr n
   %49 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %51 = icmp ult ptr %49, %46
-  br i1 %51, label %.lr.ph.i, label %.thread304, !llvm.loop !41
+  br i1 %51, label %.lr.ph.i, label %.thread304, !llvm.loop !39
 
 52:                                               ; preds = %21
   %53 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %9)
@@ -13174,10 +13174,10 @@ decNumberCopy.exit254:                            ; preds = %.decNumberCopy.exit
   %170 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %10)
   %171 = load i32, ptr %5, align 4, !tbaa !25
   %172 = icmp slt i32 %171, %76
-  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !77
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 3, ptr %173, align 4, !tbaa !35
   %174 = sdiv i32 %.0, 2
@@ -13493,7 +13493,7 @@ decNumberCopy.exit276.decTrim.exit_crit_edge:     ; preds = %decNumberCopy.exit2
   %spec.select74.idx.us.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.06085.us.i, i64 %spec.select74.idx.us.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %326 = add nuw nsw i32 %.05686.us.i, 1
   %exitcond.not.i = icmp eq i32 %326, %310
-  br i1 %exitcond.not.i, label %.thread.thread.i, label %.lr.ph.split.us.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %.thread.thread.i, label %.lr.ph.split.us.i, !llvm.loop !69
 
 .thread.i278:                                     ; preds = %.lr.ph.split.us.i
   %327 = icmp eq i32 %.05686.us.i, 0
@@ -13934,7 +13934,7 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   %39 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %40 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %41 = icmp ult ptr %39, %36
-  br i1 %41, label %.lr.ph.i, label %decNumberCopy.exit29, !llvm.loop !41
+  br i1 %41, label %.lr.ph.i, label %decNumberCopy.exit29, !llvm.loop !39
 
 42:                                               ; preds = %12
   %43 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %7)
@@ -13998,14 +13998,14 @@ define dso_local noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, 
   %71 = getelementptr inbounds nuw i8, ptr %.02631.i28, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %.032.i27, i64 2
   %73 = icmp ult ptr %71, %68
-  br i1 %73, label %.lr.ph.i26, label %decNumberCopy.exit29, !llvm.loop !41
+  br i1 %73, label %.lr.ph.i26, label %decNumberCopy.exit29, !llvm.loop !39
 
 74:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   %75 = load i32, ptr %1, align 4, !tbaa !10
   store i32 %75, ptr %6, align 4, !tbaa !25
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %76, align 4, !tbaa !78
+  store i32 0, ptr %76, align 4, !tbaa !73
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %77, align 4, !tbaa !4
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -14052,7 +14052,7 @@ decStatus.exit.i:                                 ; preds = %88, %86, %82
 decNumberQuantize.exit:                           ; preds = %74, %decStatus.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %94 = load i32, ptr %93, align 4, !tbaa !79
+  %94 = load i32, ptr %93, align 4, !tbaa !74
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %42, %decNumberQuantize.exit
@@ -14100,17 +14100,17 @@ decNumberCopy.exit29:                             ; preds = %.lr.ph.i, %.lr.ph.i
 define dso_local noundef ptr @decNumberToIntegralValue(ptr noundef returned %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.decContext, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !46
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %5, align 4, !tbaa !78
+  store i32 0, ptr %5, align 4, !tbaa !73
   %6 = call ptr @decNumberToIntegralExact(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !79
+  %8 = load i32, ptr %7, align 4, !tbaa !74
   %9 = and i32 %8, 128
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !79
+  %11 = load i32, ptr %10, align 4, !tbaa !74
   %12 = or i32 %11, %9
-  store i32 %12, ptr %10, align 4, !tbaa !79
+  store i32 %12, ptr %10, align 4, !tbaa !74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 }
@@ -14294,7 +14294,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 98:                                               ; preds = %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !80
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !75
 
 .preheader.split:                                 ; preds = %.preheader, %115
   %99 = phi i16 [ %108, %115 ], [ 0, %.preheader ]
@@ -14327,7 +14327,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
 115:                                              ; preds = %107
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
-  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !81
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.split, !llvm.loop !75
 
 .split.us:                                        ; preds = %90, %107
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14344,7 +14344,7 @@ define dso_local noundef ptr @decNumberXor(ptr noundef returned %0, ptr noundef 
   %120 = getelementptr inbounds nuw i8, ptr %.080117, i64 2
   %121 = getelementptr inbounds nuw i8, ptr %.081115, i64 2
   %.not97 = icmp ugt ptr %121, %67
-  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !82
+  br i1 %.not97, label %._crit_edge, label %71, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.loopexit, %60
   %.081.lcssa = phi ptr [ %24, %60 ], [ %121, %.loopexit ]
@@ -14517,7 +14517,7 @@ define dso_local noundef ptr @decNumberCopyNegate(ptr noundef returned captures(
   %28 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %.032.i, i64 2
   %30 = icmp ult ptr %28, %25
-  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !41
+  br i1 %30, label %.lr.ph.i, label %decNumberCopy.exit, !llvm.loop !39
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.i, %.decNumberCopy.exit_crit_edge, %4
   %31 = phi i8 [ %.pre, %.decNumberCopy.exit_crit_edge ], [ %6, %4 ], [ %6, %.lr.ph.i ]
@@ -14567,7 +14567,7 @@ define dso_local noundef ptr @decNumberGetBCD(ptr noundef readonly captures(none
   %.1 = phi i32 [ %12, %.lr.ph ], [ 3, %13 ]
   %.018 = getelementptr inbounds i8, ptr %.01827, i64 -1
   %.not = icmp ult ptr %.018, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %17, %2
   ret ptr %1
@@ -14643,13 +14643,13 @@ define dso_local noundef ptr @decNumberSetBCD(ptr noundef returned captures(ret:
   %35 = getelementptr inbounds nuw i8, ptr %.12334, i64 1
   %36 = add nsw i32 %.135, -1
   %37 = icmp samesign ugt i32 %.135, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph43
   %.123.lcssa = phi ptr [ %.02239, %.lr.ph43 ], [ %35, %.lr.ph ]
   %.024.add = add nsw i64 %.024.idx38, -2
   %.not = icmp slt i64 %.024.idx38, 11
-  br i1 %.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !85
+  br i1 %.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !79
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %26
   store i32 %2, ptr %0, align 4, !tbaa !10
@@ -14754,7 +14754,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %27 = getelementptr inbounds nuw i8, ptr %.1134172, i64 2
   %28 = getelementptr inbounds nuw i8, ptr %.1142171, i64 2
   %29 = icmp ult ptr %28, %16
-  br i1 %29, label %22, label %.loopexit170, !llvm.loop !86
+  br i1 %29, label %22, label %.loopexit170, !llvm.loop !80
 
 .loopexit170:                                     ; preds = %26, %.preheader169, %19, %7
   %.0141 = phi ptr [ %20, %19 ], [ %5, %7 ], [ %5, %.preheader169 ], [ %28, %26 ]
@@ -14837,7 +14837,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %.1129 = phi i32 [ %49, %46 ], [ %64, %57 ], [ %.1129.ph, %.sink.split ]
   %71 = getelementptr inbounds nuw i8, ptr %.2143174, i64 2
   %72 = icmp ult ptr %71, %spec.select
-  br i1 %72, label %.lr.ph178, label %._crit_edge, !llvm.loop !87
+  br i1 %72, label %.lr.ph178, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %70, %.loopexit170
   %.2143.lcssa = phi ptr [ %.0141, %.loopexit170 ], [ %71, %70 ]
@@ -14934,7 +14934,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   %.5 = phi i32 [ %95, %92 ], [ %110, %103 ], [ %.5.ph, %.sink.split205 ]
   %117 = getelementptr inbounds nuw i8, ptr %.4145183, i64 2
   %118 = icmp ult ptr %117, %spec.select166
-  br i1 %118, label %75, label %.loopexit, !llvm.loop !88
+  br i1 %118, label %75, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %116, %._crit_edge
   %.3144 = phi ptr [ %.2143.lcssa, %._crit_edge ], [ %117, %116 ]
@@ -14970,7 +14970,7 @@ define internal fastcc i32 @decUnitAddSub(ptr noundef readonly captures(address)
   store i16 %storemerge162, ptr %.5146187, align 2, !tbaa !11
   %132 = getelementptr inbounds nuw i8, ptr %.5146187, i64 2
   %133 = icmp ult ptr %132, %spec.select166
-  br i1 %133, label %.lr.ph189, label %._crit_edge190, !llvm.loop !89
+  br i1 %133, label %.lr.ph189, label %._crit_edge190, !llvm.loop !83
 
 ._crit_edge190:                                   ; preds = %.lr.ph189, %.preheader
   %.5146.lcssa = phi ptr [ %5, %.preheader ], [ %132, %.lr.ph189 ]
@@ -15034,7 +15034,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 
 21:                                               ; preds = %17
   %22 = icmp ult i16 %18, %19
-  br i1 %22, label %.loopexit, label %16, !llvm.loop !40
+  br i1 %22, label %.loopexit, label %16, !llvm.loop !38
 
 23:                                               ; preds = %5
   %24 = icmp slt i32 %4, 50
@@ -15109,7 +15109,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decUnitCompare(ptr noundef
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %.06180, i64 2
   %65 = icmp ult ptr %64, %59
-  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !90
+  br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !84
 
 .critedge:                                        ; preds = %.lr.ph, %63, %.preheader
   %.061.lcssa = phi ptr [ %.060, %.preheader ], [ %64, %63 ], [ %.06180, %.lr.ph ]
@@ -15343,7 +15343,7 @@ select.unfold122:                                 ; preds = %44, %37, %18, %9
   %.186.ptr = getelementptr inbounds i8, ptr %0, i64 %.186.idx
   store i16 %99, ptr %.186.ptr, align 2, !tbaa !11
   %.not99 = icmp samesign ult i64 %.186.idx.in166, 13
-  br i1 %.not99, label %._crit_edge169, label %100, !llvm.loop !91
+  br i1 %.not99, label %._crit_edge169, label %100, !llvm.loop !85
 
 ._crit_edge169:                                   ; preds = %100, %91
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15596,7 +15596,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br label %.sink.split
 
 39:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !46
   %40 = load i32, ptr %0, align 4, !tbaa !10
   %41 = sub nsw i32 %40, %33
   store i32 %41, ptr %5, align 4, !tbaa !25
@@ -15717,7 +15717,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %112 = getelementptr inbounds i8, ptr %.16579.i, i64 -2
   %113 = getelementptr inbounds i8, ptr %.281.i, i64 -2
   %.not.i = icmp ult ptr %112, %10
-  br i1 %.not.i, label %.loopexit76.loopexit92.i, label %99, !llvm.loop !69
+  br i1 %.not.i, label %.loopexit76.loopexit92.i, label %99, !llvm.loop !65
 
 .loopexit76.loopexit92.i:                         ; preds = %110
   %114 = trunc i32 %111 to i16
@@ -15735,7 +15735,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   store i16 %.26389.i, ptr %.390.i, align 2, !tbaa !11
   %115 = getelementptr inbounds i8, ptr %.390.i, i64 -2
   %.not75.i = icmp ult ptr %115, %10
-  br i1 %.not75.i, label %decShiftToMost.exit, label %.lr.ph91.i, !llvm.loop !70
+  br i1 %.not75.i, label %decShiftToMost.exit, label %.lr.ph91.i, !llvm.loop !66
 
 decShiftToMost.exit:                              ; preds = %.lr.ph91.i, %57, %.loopexit76.i
   store i32 %55, ptr %0, align 4, !tbaa !10
@@ -15861,8 +15861,8 @@ attributes #19 = { nounwind allocsize(0) }
 !33 = distinct !{!33, !14}
 !34 = distinct !{!34, !14}
 !35 = !{!26, !6, i64 12}
-!36 = distinct !{!36, !14, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !14}
+!37 = distinct !{!37, !14}
 !38 = distinct !{!38, !14}
 !39 = distinct !{!39, !14}
 !40 = distinct !{!40, !14}
@@ -15871,26 +15871,26 @@ attributes #19 = { nounwind allocsize(0) }
 !43 = distinct !{!43, !14}
 !44 = distinct !{!44, !14}
 !45 = distinct !{!45, !14}
-!46 = distinct !{!46, !14}
+!46 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 1, !19}
 !47 = distinct !{!47, !14}
-!48 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 1, !19}
+!48 = distinct !{!48, !14}
 !49 = distinct !{!49, !14}
 !50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = distinct !{!52, !14}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"long", !7, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"long", !7, i64 0}
+!53 = distinct !{!53, !14}
+!54 = distinct !{!54, !14}
 !55 = distinct !{!55, !14}
 !56 = distinct !{!56, !14}
 !57 = distinct !{!57, !14}
 !58 = distinct !{!58, !14}
 !59 = distinct !{!59, !14}
 !60 = distinct !{!60, !14}
-!61 = distinct !{!61, !14, !37}
+!61 = distinct !{!61, !14}
 !62 = distinct !{!62, !14}
 !63 = distinct !{!63, !14}
 !64 = distinct !{!64, !14}
-!65 = distinct !{!65, !14, !37}
+!65 = distinct !{!65, !14}
 !66 = distinct !{!66, !14}
 !67 = distinct !{!67, !14}
 !68 = distinct !{!68, !14}
@@ -15898,22 +15898,16 @@ attributes #19 = { nounwind allocsize(0) }
 !70 = distinct !{!70, !14}
 !71 = distinct !{!71, !14}
 !72 = distinct !{!72, !14}
-!73 = distinct !{!73, !14, !37}
-!74 = distinct !{!74, !14}
+!73 = !{!26, !6, i64 16}
+!74 = !{!26, !6, i64 20}
 !75 = distinct !{!75, !14}
 !76 = distinct !{!76, !14}
 !77 = distinct !{!77, !14}
-!78 = !{!26, !6, i64 16}
-!79 = !{!26, !6, i64 20}
-!80 = distinct !{!80, !14, !37}
+!78 = distinct !{!78, !14}
+!79 = distinct !{!79, !14}
+!80 = distinct !{!80, !14}
 !81 = distinct !{!81, !14}
 !82 = distinct !{!82, !14}
 !83 = distinct !{!83, !14}
 !84 = distinct !{!84, !14}
 !85 = distinct !{!85, !14}
-!86 = distinct !{!86, !14}
-!87 = distinct !{!87, !14}
-!88 = distinct !{!88, !14}
-!89 = distinct !{!89, !14}
-!90 = distinct !{!90, !14}
-!91 = distinct !{!91, !14}

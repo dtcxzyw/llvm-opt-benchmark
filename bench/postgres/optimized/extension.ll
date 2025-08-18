@@ -916,7 +916,7 @@ get_extension_schema.exit.us:                     ; preds = %175, %get_required_
   %185 = load i32, ptr %145, align 4
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next.us, %186
-  br i1 %187, label %.lr.ph153.us, label %.critedge, !llvm.loop !6
+  br i1 %187, label %.lr.ph153.us, label %.critedge
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %get_extension_schema.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %get_extension_schema.exit ], [ 0, %.lr.ph153.preheader ]
@@ -1267,7 +1267,7 @@ define dso_local noundef i64 @pg_available_extensions(ptr noundef %0) local_unna
 is_extension_control_filename.exit:               ; preds = %23
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(9) @.str.107) #17
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %is_extension_control_filename.exit.thread, !llvm.loop !8
+  br i1 %28, label %29, label %is_extension_control_filename.exit.thread, !llvm.loop !6
 
 29:                                               ; preds = %is_extension_control_filename.exit
   %30 = call ptr @pstrdup(ptr noundef nonnull %25) #15
@@ -1275,7 +1275,7 @@ is_extension_control_filename.exit:               ; preds = %23
   store i8 0, ptr %31, align 1
   %32 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.10) #17
   %.not21 = icmp eq ptr %32, null
-  br i1 %.not21, label %33, label %is_extension_control_filename.exit.thread, !llvm.loop !8
+  br i1 %.not21, label %33, label %is_extension_control_filename.exit.thread, !llvm.loop !6
 
 33:                                               ; preds = %29
   %34 = call ptr @palloc0(i64 noundef 72) #15
@@ -1420,7 +1420,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
 is_extension_control_filename.exit:               ; preds = %29
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.107) #17
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %get_available_versions_for_extension.exit, !llvm.loop !10
+  br i1 %34, label %35, label %get_available_versions_for_extension.exit, !llvm.loop !8
 
 35:                                               ; preds = %is_extension_control_filename.exit
   %36 = call ptr @pstrdup(ptr noundef nonnull %31) #15
@@ -1428,7 +1428,7 @@ is_extension_control_filename.exit:               ; preds = %29
   store i8 0, ptr %37, align 1
   %38 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.10) #17
   %.not15 = icmp eq ptr %38, null
-  br i1 %.not15, label %39, label %get_available_versions_for_extension.exit, !llvm.loop !10
+  br i1 %.not15, label %39, label %get_available_versions_for_extension.exit, !llvm.loop !8
 
 39:                                               ; preds = %35
   %40 = call ptr @palloc0(i64 noundef 72) #15
@@ -1548,7 +1548,7 @@ is_extension_control_filename.exit:               ; preds = %29
   %104 = load i32, ptr %90, align 4
   %105 = sext i32 %104 to i64
   %.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %105
-  br i1 %.not.i.i, label %97, label %.critedge.loopexit.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %97, label %.critedge.loopexit.i.i, !llvm.loop !9
 
 .critedge.loopexit.i.i:                           ; preds = %97
   %106 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
@@ -1779,7 +1779,7 @@ get_nearest_unprocessed_vertex.exit.thread.i.i:   ; preds = %.critedge66.i.i, %1
   %216 = getelementptr inbounds nuw i8, ptr %.05082.i.i, i64 24
   %217 = load ptr, ptr %216, align 8
   %.not64.i.i = icmp eq ptr %217, %132
-  br i1 %.not64.i.i, label %find_update_path.exit.i, label %.lr.ph84.i.i, !llvm.loop !12
+  br i1 %.not64.i.i, label %find_update_path.exit.i, label %.lr.ph84.i.i, !llvm.loop !10
 
 find_update_path.exit.i:                          ; preds = %.lr.ph84.i.i
   %218 = icmp eq ptr %215, null
@@ -1886,7 +1886,7 @@ find_install_path.exit.i:                         ; preds = %find_update_path.ex
   %272 = load i32, ptr %258, align 4
   %273 = sext i32 %272 to i64
   %.not.i65.i = icmp slt i64 %indvars.iv.next.i64.i, %273
-  br i1 %.not.i65.i, label %265, label %.critedge.loopexit.i66.i, !llvm.loop !11
+  br i1 %.not.i65.i, label %265, label %.critedge.loopexit.i66.i, !llvm.loop !9
 
 .critedge.loopexit.i66.i:                         ; preds = %265
   %274 = trunc nuw nsw i64 %indvars.iv.next.i64.i to i32
@@ -1911,7 +1911,7 @@ find_install_path.exit.thread.i:                  ; preds = %277, %find_install_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %279 = sext i32 %278 to i64
   %280 = icmp slt i64 %indvars.iv.next.i, %279
-  br i1 %280, label %.lr.ph.i, label %.critedge55.i, !llvm.loop !13
+  br i1 %280, label %.lr.ph.i, label %.critedge55.i, !llvm.loop !11
 
 .critedge55.i:                                    ; preds = %find_install_path.exit.thread.i, %117, %.lr.ph
   %281 = phi i32 [ %118, %117 ], [ %52, %.lr.ph ], [ %278, %find_install_path.exit.thread.i ]
@@ -1968,7 +1968,7 @@ define dso_local noundef zeroext i1 @extension_file_exists(ptr noundef readonly 
 is_extension_control_filename.exit:               ; preds = %.lr.ph
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.107) #17
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.backedge, !llvm.loop !14
+  br i1 %17, label %18, label %.backedge, !llvm.loop !12
 
 18:                                               ; preds = %is_extension_control_filename.exit
   %19 = call ptr @pstrdup(ptr noundef nonnull %14) #15
@@ -1976,7 +1976,7 @@ is_extension_control_filename.exit:               ; preds = %.lr.ph
   store i8 0, ptr %20, align 1
   %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.10) #17
   %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %22, label %.backedge, !llvm.loop !14
+  br i1 %.not14, label %22, label %.backedge, !llvm.loop !12
 
 22:                                               ; preds = %18
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #17
@@ -2233,7 +2233,7 @@ get_nearest_unprocessed_vertex.exit.thread.i:     ; preds = %.critedge66.i, %get
   %119 = getelementptr inbounds nuw i8, ptr %.05082.i, i64 24
   %120 = load ptr, ptr %119, align 8
   %.not64.i = icmp eq ptr %120, %29
-  br i1 %.not64.i, label %find_update_path.exit, label %.lr.ph84.i, !llvm.loop !12
+  br i1 %.not64.i, label %find_update_path.exit, label %.lr.ph84.i, !llvm.loop !10
 
 find_update_path.exit:                            ; preds = %.lr.ph84.i, %get_nearest_unprocessed_vertex.exit.thread.i
   %.0.i = phi ptr [ null, %get_nearest_unprocessed_vertex.exit.thread.i ], [ %118, %.lr.ph84.i ]
@@ -2279,7 +2279,7 @@ find_update_path.exit:                            ; preds = %.lr.ph84.i, %get_ne
   %138 = load i32, ptr %131, align 4
   %139 = sext i32 %138 to i64
   %.not51 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %.not51, label %134, label %.critedge55, !llvm.loop !15
+  br i1 %.not51, label %134, label %.critedge55, !llvm.loop !13
 
 .critedge55:                                      ; preds = %134, %129
   %140 = load ptr, ptr %4, align 8
@@ -2305,7 +2305,7 @@ find_update_path.exit:                            ; preds = %.lr.ph84.i, %get_ne
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next66, %149
-  br i1 %150, label %32, label %.critedge53, !llvm.loop !16
+  br i1 %150, label %32, label %.critedge53, !llvm.loop !14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2336,25 +2336,25 @@ define internal fastcc ptr @get_ext_ver_list(ptr noundef readonly captures(none)
 is_extension_script_filename.exit:                ; preds = %9
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.108) #17
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br i1 %14, label %15, label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 15:                                               ; preds = %is_extension_script_filename.exit
   %16 = load ptr, ptr %0, align 8
   %17 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef %16, i64 noundef %7) #17
   %.not29 = icmp eq i32 %17, 0
-  br i1 %.not29, label %18, label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br i1 %.not29, label %18, label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %7
   %20 = load i8, ptr %19, align 1
   %.not30 = icmp eq i8 %20, 45
-  br i1 %.not30, label %21, label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br i1 %.not30, label %21, label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %8
   %23 = load i8, ptr %22, align 1
   %.not32 = icmp eq i8 %23, 45
-  br i1 %.not32, label %24, label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br i1 %.not32, label %24, label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -2417,14 +2417,14 @@ get_ext_ver_info.exit:                            ; preds = %36, %._crit_edge.i
   %.1.i = phi ptr [ %42, %._crit_edge.i ], [ %38, %36 ]
   %50 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   store i8 1, ptr %50, align 8
-  br label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 51:                                               ; preds = %24
   store i8 0, ptr %28, align 1
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %53 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.10) #17
   %.not34 = icmp eq ptr %53, null
-  br i1 %.not34, label %54, label %is_extension_script_filename.exit.thread, !llvm.loop !17
+  br i1 %.not34, label %54, label %is_extension_script_filename.exit.thread, !llvm.loop !15
 
 54:                                               ; preds = %51
   %.not.i36 = icmp eq ptr %.068, null
@@ -2740,7 +2740,7 @@ get_nearest_unprocessed_vertex.exit.thread:       ; preds = %.critedge66, %48, %
   %95 = getelementptr inbounds nuw i8, ptr %.05082, i64 24
   %96 = load ptr, ptr %95, align 8
   %.not64 = icmp eq ptr %96, %1
-  br i1 %.not64, label %.loopexit, label %.lr.ph84, !llvm.loop !12
+  br i1 %.not64, label %.loopexit, label %.lr.ph84, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph84, %get_nearest_unprocessed_vertex.exit.thread
   %.0 = phi ptr [ null, %get_nearest_unprocessed_vertex.exit.thread ], [ %94, %.lr.ph84 ]
@@ -2915,7 +2915,7 @@ define dso_local noundef i64 @pg_extension_config_dump(ptr noundef readonly capt
 85:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %85, %76, %82
   %86 = load i64, ptr %3, align 8
@@ -3374,7 +3374,7 @@ get_extension_name.exit:                          ; preds = %79, %84
 .critedge:                                        ; preds = %.critedgethread-pre-split, %66
   %115 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %74, %66 ]
   %.not92 = icmp eq i8 %115, 101
-  br i1 %.not92, label %116, label %.critedge.thread, !llvm.loop !19
+  br i1 %.not92, label %116, label %.critedge.thread, !llvm.loop !17
 
 116:                                              ; preds = %.critedge
   %117 = load i32, ptr %72, align 4
@@ -4418,7 +4418,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
 112:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %extension_config_remove.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %extension_config_remove.exit, label %.lr.ph.i, !llvm.loop !18
 
 113:                                              ; preds = %.lr.ph.i
   %114 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -4454,7 +4454,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
   %124 = getelementptr inbounds nuw i64, ptr %121, i64 %indvars.iv103.i
   store i64 %123, ptr %124, align 8
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count106.i
-  br i1 %exitcond107.not.i, label %._crit_edge.i, label %.lr.ph93.i, !llvm.loop !21
+  br i1 %exitcond107.not.i, label %._crit_edge.i, label %.lr.ph93.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph93.i, %118
   %125 = load ptr, ptr %11, align 8
@@ -4555,7 +4555,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
   %169 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv110.i
   store i64 %168, ptr %169, align 8
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next111.i, %wide.trip.count113.i
-  br i1 %exitcond114.not.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !22
+  br i1 %exitcond114.not.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !20
 
 ._crit_edge97.i:                                  ; preds = %.lr.ph96.i, %163
   %170 = load ptr, ptr %13, align 8
@@ -5108,7 +5108,7 @@ read_extension_script_file.exit:                  ; preds = %read_whole_file.exi
 
 228:                                              ; preds = %223, %211
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  br label %.split.split, !llvm.loop !23
+  br label %.split.split, !llvm.loop !21
 
 229:                                              ; preds = %.thread
   %230 = call ptr @cstring_to_text(ptr noundef nonnull @.str.96) #15
@@ -5628,7 +5628,7 @@ define internal fastcc void @parse_extension_control_file(ptr noundef %0, ptr no
   %178 = getelementptr inbounds nuw i8, ptr %.06682, i64 40
   %.066 = load ptr, ptr %178, align 8
   %.not69 = icmp eq ptr %.066, null
-  br i1 %.not69, label %._crit_edge.loopexit, label %48, !llvm.loop !24
+  br i1 %.not69, label %._crit_edge.loopexit, label %48, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %177
   %.pre = load ptr, ptr %4, align 8
@@ -5817,7 +5817,7 @@ define internal void @script_error_callback(ptr noundef readonly captures(none) 
   %.pre-phi = phi i32 [ %30, %39 ], [ %30, %38 ], [ %30, %25 ], [ %24, %.lr.ph ]
   %42 = phi i32 [ %20, %39 ], [ %36, %38 ], [ %20, %25 ], [ %20, %.lr.ph ]
   %43 = icmp slt i32 %.pre-phi, %18
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph._crit_edge, %16, %.critedge, %12
   %44 = call ptr @CleanQuerytext(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
@@ -5885,7 +5885,7 @@ thread-pre-split:                                 ; preds = %.loopexit, %57
   %79 = getelementptr inbounds nuw i8, ptr %.04567, i64 1
   %80 = load i8, ptr %79, align 1
   %.not60 = icmp eq i8 %80, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph69, !llvm.loop !26
+  br i1 %.not60, label %._crit_edge, label %.lr.ph69, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %75, %.lr.ph69, %69
   %.0.lcssa = phi i32 [ 1, %69 ], [ %.068, %.lr.ph69 ], [ %spec.select64, %75 ]
@@ -6028,23 +6028,21 @@ attributes #20 = { nounwind returns_twice }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

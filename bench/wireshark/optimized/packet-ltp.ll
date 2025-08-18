@@ -2875,144 +2875,201 @@ define internal fastcc void @ltp_ref_use(ptr noundef %0, i64 noundef %1, ptr nou
   %20 = icmp sgt i32 %6, -1
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %43
-  %.02537.us = phi ptr [ %44, %43 ], [ %17, %.lr.ph ]
-  %21 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537.us)
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not32, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %43
+  %.02537.us.us = phi ptr [ %44, %43 ], [ %17, %.lr.ph.split.us ]
+  %21 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537.us.us)
   %22 = load i32, ptr %21, align 8
   %23 = load i32, ptr %18, align 4
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %43, label %25
 
-25:                                               ; preds = %.lr.ph.split.us
+25:                                               ; preds = %.lr.ph.split.us.split.us
   %26 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %22)
-  %.not.i.us = icmp eq ptr %26, null
-  br i1 %.not.i.us, label %proto_item_set_generated.exit.us, label %27
+  %.not.i.us.us = icmp eq ptr %26, null
+  br i1 %.not.i.us.us, label %proto_item_set_generated.exit.us.us, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %29 = load ptr, ptr %28, align 8
-  %.not5.i.us = icmp eq ptr %29, null
-  br i1 %.not5.i.us, label %proto_item_set_generated.exit.us, label %30
+  %.not5.i.us.us = icmp eq ptr %29, null
+  br i1 %.not5.i.us.us, label %proto_item_set_generated.exit.us.us, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 2
   store i32 %33, ptr %31, align 4
-  br label %proto_item_set_generated.exit.us
+  br label %proto_item_set_generated.exit.us.us
 
-proto_item_set_generated.exit.us:                 ; preds = %30, %27, %25
+proto_item_set_generated.exit.us.us:              ; preds = %30, %27, %25
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.024.us = select i1 %.not32, ptr %19, ptr %34
-  %.0.us = select i1 %.not32, ptr %34, ptr %19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %.0.us, ptr noundef nonnull %.024.us)
+  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %34, ptr noundef nonnull %19)
   %35 = call ptr @proto_tree_add_time(ptr noundef %3, i32 noundef %6, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
-  %.not.i33.us = icmp eq ptr %35, null
-  br i1 %.not.i33.us, label %proto_item_set_generated.exit35.us, label %36
+  %.not.i33.us.us = icmp eq ptr %35, null
+  br i1 %.not.i33.us.us, label %proto_item_set_generated.exit35.us.us, label %36
 
-36:                                               ; preds = %proto_item_set_generated.exit.us
+36:                                               ; preds = %proto_item_set_generated.exit.us.us
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %38 = load ptr, ptr %37, align 8
-  %.not5.i34.us = icmp eq ptr %38, null
-  br i1 %.not5.i34.us, label %proto_item_set_generated.exit35.us, label %39
+  %.not5.i34.us.us = icmp eq ptr %38, null
+  br i1 %.not5.i34.us.us, label %proto_item_set_generated.exit35.us.us, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = or i32 %41, 2
   store i32 %42, ptr %40, align 4
-  br label %proto_item_set_generated.exit35.us
+  br label %proto_item_set_generated.exit35.us.us
 
-proto_item_set_generated.exit35.us:               ; preds = %39, %36, %proto_item_set_generated.exit.us
+proto_item_set_generated.exit35.us.us:            ; preds = %proto_item_set_generated.exit.us.us, %39, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %43
 
-43:                                               ; preds = %proto_item_set_generated.exit35.us, %.lr.ph.split.us
-  %44 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us)
-  %.not31.us = icmp eq ptr %44, null
-  br i1 %.not31.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
+43:                                               ; preds = %proto_item_set_generated.exit35.us.us, %.lr.ph.split.us.split.us
+  %44 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us.us)
+  %.not31.us.us = icmp eq ptr %44, null
+  br i1 %.not31.us.us, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !18
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not32, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %59
-  %.02537.us38 = phi ptr [ %60, %59 ], [ %17, %.lr.ph.split ]
-  %45 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537.us38)
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %67
+  %.02537.us = phi ptr [ %68, %67 ], [ %17, %.lr.ph.split.us ]
+  %45 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537.us)
   %46 = load i32, ptr %45, align 8
   %47 = load i32, ptr %18, align 4
   %48 = icmp eq i32 %46, %47
-  br i1 %48, label %59, label %49
+  br i1 %48, label %67, label %49
 
-49:                                               ; preds = %.lr.ph.split.split.us
+49:                                               ; preds = %.lr.ph.split.us.split
   %50 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %46)
-  %.not.i.us39 = icmp eq ptr %50, null
-  br i1 %.not.i.us39, label %proto_item_set_generated.exit.us41, label %51
+  %.not.i.us = icmp eq ptr %50, null
+  br i1 %.not.i.us, label %proto_item_set_generated.exit.us, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %53 = load ptr, ptr %52, align 8
-  %.not5.i.us40 = icmp eq ptr %53, null
-  br i1 %.not5.i.us40, label %proto_item_set_generated.exit.us41, label %54
+  %.not5.i.us = icmp eq ptr %53, null
+  br i1 %.not5.i.us, label %proto_item_set_generated.exit.us, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, 2
   store i32 %57, ptr %55, align 4
-  br label %proto_item_set_generated.exit.us41
+  br label %proto_item_set_generated.exit.us
 
-proto_item_set_generated.exit.us41:               ; preds = %54, %51, %49
+proto_item_set_generated.exit.us:                 ; preds = %54, %51, %49
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %58, ptr noundef nonnull %19)
+  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %58)
+  %59 = call ptr @proto_tree_add_time(ptr noundef %3, i32 noundef %6, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10)
+  %.not.i33.us = icmp eq ptr %59, null
+  br i1 %.not.i33.us, label %proto_item_set_generated.exit35.us, label %60
+
+60:                                               ; preds = %proto_item_set_generated.exit.us
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %.not5.i34.us = icmp eq ptr %62, null
+  br i1 %.not5.i34.us, label %proto_item_set_generated.exit35.us, label %63
+
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %65 = load i32, ptr %64, align 4
+  %66 = or i32 %65, 2
+  store i32 %66, ptr %64, align 4
+  br label %proto_item_set_generated.exit35.us
+
+proto_item_set_generated.exit35.us:               ; preds = %63, %60, %proto_item_set_generated.exit.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %59
+  br label %67
 
-59:                                               ; preds = %proto_item_set_generated.exit.us41, %.lr.ph.split.split.us
-  %60 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us38)
-  %.not31.us42 = icmp eq ptr %60, null
-  br i1 %.not31.us42, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !20
+67:                                               ; preds = %proto_item_set_generated.exit35.us, %.lr.ph.split.us.split
+  %68 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us)
+  %.not31.us = icmp eq ptr %68, null
+  br i1 %.not31.us, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !18
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %75
-  %.02537 = phi ptr [ %76, %75 ], [ %17, %.lr.ph.split ]
-  %61 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537)
-  %62 = load i32, ptr %61, align 8
-  %63 = load i32, ptr %18, align 4
-  %64 = icmp eq i32 %62, %63
-  br i1 %64, label %75, label %65
+.lr.ph.split:                                     ; preds = %.lr.ph
+  br i1 %.not32, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-65:                                               ; preds = %.lr.ph.split.split
-  %66 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %62)
-  %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %67
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %83
+  %.02537.us38 = phi ptr [ %84, %83 ], [ %17, %.lr.ph.split ]
+  %69 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537.us38)
+  %70 = load i32, ptr %69, align 8
+  %71 = load i32, ptr %18, align 4
+  %72 = icmp eq i32 %70, %71
+  br i1 %72, label %83, label %73
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %.not5.i = icmp eq ptr %69, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %70
+73:                                               ; preds = %.lr.ph.split.split.us
+  %74 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %70)
+  %.not.i.us39 = icmp eq ptr %74, null
+  br i1 %.not.i.us39, label %proto_item_set_generated.exit.us41, label %75
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
-  %72 = load i32, ptr %71, align 4
-  %73 = or i32 %72, 2
-  store i32 %73, ptr %71, align 4
+75:                                               ; preds = %73
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %.not5.i.us40 = icmp eq ptr %77, null
+  br i1 %.not5.i.us40, label %proto_item_set_generated.exit.us41, label %78
+
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
+  %80 = load i32, ptr %79, align 4
+  %81 = or i32 %80, 2
+  store i32 %81, ptr %79, align 4
+  br label %proto_item_set_generated.exit.us41
+
+proto_item_set_generated.exit.us41:               ; preds = %78, %75, %73
+  %82 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %82, ptr noundef nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %83
+
+83:                                               ; preds = %proto_item_set_generated.exit.us41, %.lr.ph.split.split.us
+  %84 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537.us38)
+  %.not31.us42 = icmp eq ptr %84, null
+  br i1 %.not31.us42, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !18
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %99
+  %.02537 = phi ptr [ %100, %99 ], [ %17, %.lr.ph.split ]
+  %85 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02537)
+  %86 = load i32, ptr %85, align 8
+  %87 = load i32, ptr %18, align 4
+  %88 = icmp eq i32 %86, %87
+  br i1 %88, label %99, label %89
+
+89:                                               ; preds = %.lr.ph.split.split
+  %90 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %86)
+  %.not.i = icmp eq ptr %90, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %91
+
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %93 = load ptr, ptr %92, align 8
+  %.not5.i = icmp eq ptr %93, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %94
+
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 28
+  %96 = load i32, ptr %95, align 4
+  %97 = or i32 %96, 2
+  store i32 %97, ptr %95, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %65, %67, %70
-  %74 = getelementptr inbounds nuw i8, ptr %61, i64 8
+proto_item_set_generated.exit:                    ; preds = %89, %91, %94
+  %98 = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %74)
+  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %98)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %75
+  br label %99
 
-75:                                               ; preds = %.lr.ph.split.split, %proto_item_set_generated.exit
-  %76 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537)
-  %.not31 = icmp eq ptr %76, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !21
+99:                                               ; preds = %.lr.ph.split.split, %proto_item_set_generated.exit
+  %100 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02537)
+  %.not31 = icmp eq ptr %100, null
+  br i1 %.not31, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !18
 
-.loopexit:                                        ; preds = %75, %59, %43, %16, %12, %13
+.loopexit:                                        ; preds = %99, %83, %67, %43, %16, %12, %13
   ret void
 }
 
@@ -3211,7 +3268,7 @@ proto_item_set_generated.exit40:                  ; preds = %proto_item_set_gene
 proto_item_set_generated.exit43:                  ; preds = %67, %64, %61, %56
   %71 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.045)
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %.loopexit, label %56, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %56, !llvm.loop !19
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit43, %proto_item_set_generated.exit40, %proto_item_set_generated.exit, %7
   ret void
@@ -3356,8 +3413,5 @@ attributes #15 = { noreturn }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7, !19}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

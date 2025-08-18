@@ -4626,7 +4626,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit:   ; preds = %67
 83:                                               ; preds = %58, %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit, %70, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
-  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !71
+  br i1 %exitcond.not, label %.split23.us, label %.split, !llvm.loop !69
 }
 
 ; Function Attrs: uwtable
@@ -4747,6 +4747,4 @@ attributes #26 = { noreturn }
 !66 = !{!67, !68, i64 8}
 !67 = !{!"_ZTSN7Imf_3_47RgbaLutE", !63, i64 0, !68, i64 8}
 !68 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !6, i64 0}
-!69 = distinct !{!69, !11, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !11}
+!69 = distinct !{!69, !11}

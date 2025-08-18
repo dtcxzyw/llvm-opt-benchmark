@@ -2287,7 +2287,7 @@ define dso_local i32 @get_rel_data_width(ptr noundef readonly captures(none) %0,
   %74 = load i16, ptr %73, align 4
   %75 = sext i16 %74 to i64
   %.not.not = icmp slt i64 %indvars.iv, %75
-  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
+  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %71, %34, %2
   %.023.lcssa = phi i64 [ 0, %2 ], [ %.1.us, %34 ], [ %.1, %71 ]
@@ -2360,7 +2360,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
 .critedge75:                                      ; preds = %23, %16, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge82, label %11, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge82, label %11, !llvm.loop !23
 
 .critedge82:                                      ; preds = %.critedge75, %.preheader
   %26 = load i32, ptr @constraint_exclusion, align 4
@@ -2417,7 +2417,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %49 = load i32, ptr %7, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next107, %50
-  br i1 %51, label %37, label %.critedge79, !llvm.loop !26
+  br i1 %51, label %37, label %.critedge79, !llvm.loop !24
 
 52:                                               ; preds = %.critedge79
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2495,7 +2495,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %.2.us.i = phi ptr [ %94, %87 ], [ %.160.us.i, %.lr.ph.split.us.i ], [ %.160.us.i, %83 ]
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %exitcond87.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count86.i
-  br i1 %exitcond87.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !27
+  br i1 %exitcond87.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !25
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %58, label %.lr.ph.split.split.i, label %.lr.ph.split.split.us.i
@@ -2525,7 +2525,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %.2.us65.i = phi ptr [ %108, %101 ], [ %.160.us61.i, %.lr.ph.split.split.us.i ]
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count86.i
-  br i1 %exitcond82.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !28
+  br i1 %exitcond82.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !25
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %127
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %127 ], [ 0, %.lr.ph.split.i ]
@@ -2558,7 +2558,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %.2.i = phi ptr [ %126, %119 ], [ %.160.i, %.lr.ph.split.split.i ], [ %.160.i, %115 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count86.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %109, %127, %95, %74
   %.1.lcssa.i = phi ptr [ null, %74 ], [ %.2.us.i, %95 ], [ %.2.i, %127 ], [ %.2.us65.i, %109 ]
@@ -2625,7 +2625,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %.5.i = phi ptr [ %.470.i, %147 ], [ %165, %151 ], [ %.470.i, %.lr.ph72.i ]
   %167 = add i32 %.15369.i, 1
   %.not57.i = icmp sgt i32 %167, %134
-  br i1 %.not57.i, label %.loopexit.i, label %.lr.ph72.i, !llvm.loop !30
+  br i1 %.not57.i, label %.loopexit.i, label %.lr.ph72.i, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %166, %132, %128, %._crit_edge.i, %63
   %.0.i = phi ptr [ null, %63 ], [ %.1.lcssa.i, %128 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %.1.lcssa.i, %132 ], [ %.5.i, %166 ]
@@ -2817,7 +2817,7 @@ define dso_local ptr @build_physical_tlist(ptr noundef readonly captures(none) %
   %58 = tail call ptr @lappend(ptr noundef %.098, ptr noundef %57) #10
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !31
+  br i1 %exitcond.not, label %.thread, label %33, !llvm.loop !27
 
 .thread:                                          ; preds = %48, %44, %33, %24
   %.1 = phi ptr [ null, %24 ], [ null, %33 ], [ null, %44 ], [ %58, %48 ]
@@ -3515,7 +3515,7 @@ define dso_local ptr @get_dependent_generated_columns(ptr noundef readonly captu
   %57 = load i16, ptr %32, align 8
   %58 = zext i16 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %56, %.preheader, %28, %19
   %.0 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.2, %56 ]
@@ -3763,14 +3763,10 @@ attributes #11 = { cold nounwind }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7, !23}
-!28 = distinct !{!28, !7, !23}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

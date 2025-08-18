@@ -233,7 +233,7 @@ define internal fastcc void @mi_segment_cache_purge(i1 noundef zeroext %0, ptr n
   %54 = add nuw nsw i64 %.03755, 1
   %55 = add i64 %spec.store.select, 1
   %exitcond.not = icmp eq i64 %54, %6
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.thread, %52, %.thread.us, %2
   ret void
@@ -309,7 +309,7 @@ _mi_os_numa_node.exit.thread:                     ; preds = %13, %_mi_os_numa_no
   %38 = add nuw nsw i64 %.057.i, 1
   %exitcond.i = icmp ne i64 %38, 16
   %or.cond.not.i = select i1 %.not.i42, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %35, label %mi_commit_mask_is_empty.exit, !llvm.loop !28
+  br i1 %or.cond.not.i, label %35, label %mi_commit_mask_is_empty.exit, !llvm.loop !26
 
 mi_commit_mask_is_empty.exit:                     ; preds = %35
   %or.cond = or i1 %5, %.not.i42
@@ -373,7 +373,7 @@ define internal fastcc void @mi_commit_mask_decommit(ptr noundef %0, ptr noundef
   %8 = add nuw nsw i64 %.057.i, 1
   %exitcond.i = icmp ne i64 %8, 16
   %or.cond.not.i = select i1 %.not.i, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %5, label %mi_commit_mask_is_empty.exit, !llvm.loop !28
+  br i1 %or.cond.not.i, label %5, label %mi_commit_mask_is_empty.exit, !llvm.loop !26
 
 mi_commit_mask_is_empty.exit:                     ; preds = %5
   br i1 %.not.i, label %25, label %.preheader
@@ -386,7 +386,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %5
   %11 = add nuw nsw i64 %.057.i15, 1
   %exitcond.i17 = icmp ne i64 %11, 16
   %or.cond.not.i18 = select i1 %.not.i16, i1 %exitcond.i17, i1 false
-  br i1 %or.cond.not.i18, label %.preheader, label %mi_commit_mask_is_full.exit, !llvm.loop !29
+  br i1 %or.cond.not.i18, label %.preheader, label %mi_commit_mask_is_full.exit, !llvm.loop !27
 
 mi_commit_mask_is_full.exit:                      ; preds = %.preheader
   br i1 %.not.i16, label %12, label %14
@@ -414,7 +414,7 @@ mi_commit_mask_is_full.exit:                      ; preds = %.preheader
   store i64 %23, ptr %4, align 8, !tbaa !5
   %24 = call i64 @_mi_commit_mask_next_run(ptr noundef nonnull %0, ptr noundef nonnull %4) #9
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -450,7 +450,7 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
   %15 = cmpxchg weak ptr %10, i64 %.0, i64 %14 release monotonic, align 8
   %16 = extractvalue { i64, i1 } %15, 1
   %17 = extractvalue { i64, i1 } %15, 0
-  br i1 %16, label %.loopexit, label %13, !llvm.loop !31
+  br i1 %16, label %.loopexit, label %13, !llvm.loop !29
 
 .loopexit:                                        ; preds = %13, %1
   ret void
@@ -480,7 +480,7 @@ define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr 
   %16 = cmpxchg weak ptr %10, i64 %.0, i64 %15 release monotonic, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   %18 = extractvalue { i64, i1 } %16, 0
-  br i1 %17, label %.loopexit, label %14, !llvm.loop !32
+  br i1 %17, label %.loopexit, label %14, !llvm.loop !30
 
 .loopexit:                                        ; preds = %14, %1
   ret void
@@ -530,7 +530,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %25 = icmp ne i64 %24, 0
   %26 = icmp ne i64 %22, 0
   %27 = and i1 %25, %26
-  br i1 %27, label %.preheader.i.i, label %28, !llvm.loop !33
+  br i1 %27, label %.preheader.i.i, label %28, !llvm.loop !31
 
 28:                                               ; preds = %.preheader.i.i
   %.not46.i.i = icmp eq i64 %24, 0
@@ -548,16 +548,16 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
   %33 = getelementptr i8, ptr %4, i64 %31
   %34 = getelementptr i8, ptr %33, i64 %32
   %35 = ptrtoint ptr %34 to i64
-  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !34
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2856), align 8, !tbaa !32
   %37 = xor i64 %36, %35
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 320
-  %39 = load i64, ptr %38, align 64, !tbaa !40
+  %39 = load i64, ptr %38, align 64, !tbaa !38
   %.not50.i.i = icmp eq i64 %37, %39
   br i1 %.not50.i.i, label %40, label %mi_is_valid_pointer.exit, !prof !3
 
 40:                                               ; preds = %29
   %41 = getelementptr i8, ptr %34, i64 328
-  %.val.i.i = load i64, ptr %41, align 8, !tbaa !43
+  %.val.i.i = load i64, ptr %41, align 8, !tbaa !41
   %42 = shl i64 %.val.i.i, 16
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 %42
   %.not51.i.i = icmp ugt ptr %43, %0
@@ -627,23 +627,21 @@ attributes #9 = { nounwind }
 !21 = !{!22, !23, i64 8}
 !22 = !{!"mi_os_tld_s", !6, i64 0, !23, i64 8}
 !23 = !{!"p1 _ZTS10mi_stats_s", !15, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !25}
 !27 = distinct !{!27, !25}
 !28 = distinct !{!28, !25}
 !29 = distinct !{!29, !25}
 !30 = distinct !{!30, !25}
 !31 = distinct !{!31, !25}
-!32 = distinct !{!32, !25}
-!33 = distinct !{!33, !25}
-!34 = !{!35, !6, i64 2856}
-!35 = !{!"mi_heap_s", !36, i64 0, !7, i64 8, !7, i64 1040, !7, i64 2840, !6, i64 2848, !6, i64 2856, !7, i64 2864, !37, i64 2880, !6, i64 3016, !6, i64 3024, !6, i64 3032, !39, i64 3040, !10, i64 3048}
-!36 = !{!"p1 _ZTS8mi_tld_s", !15, i64 0}
-!37 = !{!"mi_random_cxt_s", !7, i64 0, !7, i64 64, !38, i64 128}
-!38 = !{!"int", !7, i64 0}
-!39 = !{!"p1 _ZTS9mi_heap_s", !15, i64 0}
-!40 = !{!41, !6, i64 320}
-!41 = !{!"mi_segment_s", !6, i64 0, !10, i64 8, !10, i64 9, !10, i64 10, !10, i64 11, !6, i64 16, !16, i64 24, !16, i64 152, !7, i64 280, !42, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !38, i64 344, !7, i64 352, !6, i64 360, !7, i64 368}
-!42 = !{!"p1 _ZTS12mi_segment_s", !15, i64 0}
-!43 = !{!41, !6, i64 328}
+!32 = !{!33, !6, i64 2856}
+!33 = !{!"mi_heap_s", !34, i64 0, !7, i64 8, !7, i64 1040, !7, i64 2840, !6, i64 2848, !6, i64 2856, !7, i64 2864, !35, i64 2880, !6, i64 3016, !6, i64 3024, !6, i64 3032, !37, i64 3040, !10, i64 3048}
+!34 = !{!"p1 _ZTS8mi_tld_s", !15, i64 0}
+!35 = !{!"mi_random_cxt_s", !7, i64 0, !7, i64 64, !36, i64 128}
+!36 = !{!"int", !7, i64 0}
+!37 = !{!"p1 _ZTS9mi_heap_s", !15, i64 0}
+!38 = !{!39, !6, i64 320}
+!39 = !{!"mi_segment_s", !6, i64 0, !10, i64 8, !10, i64 9, !10, i64 10, !10, i64 11, !6, i64 16, !16, i64 24, !16, i64 152, !7, i64 280, !40, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !36, i64 344, !7, i64 352, !6, i64 360, !7, i64 368}
+!40 = !{!"p1 _ZTS12mi_segment_s", !15, i64 0}
+!41 = !{!39, !6, i64 328}

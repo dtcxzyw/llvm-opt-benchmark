@@ -711,7 +711,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixI
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_E6NextFEEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = load i32, ptr %0, align 8, !tbaa !15
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -777,7 +777,7 @@ _ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin
   %50 = getelementptr i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4, !tbaa !30
   %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %21, !llvm.loop !49
+  br i1 %52, label %53, label %21, !llvm.loop !48
 
 53:                                               ; preds = %_ZN3igl16HalfEdgeIteratorIN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_E5flipFEv.exit
   %.not.not5 = icmp eq i8 %40, 0
@@ -866,7 +866,6 @@ attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 !43 = !{!22, !17, i64 16}
 !44 = !{!26, !28, i64 16}
 !45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = !{!16, !17, i64 24}
-!49 = distinct !{!49, !33}
+!46 = distinct !{!46, !33}
+!47 = !{!16, !17, i64 24}
+!48 = distinct !{!48, !33}

@@ -23027,7 +23027,7 @@ define noundef ptr @rlReadScreenPixels(i32 noundef %0, i32 noundef %1) local_unn
 
 ._crit_edge.us:                                   ; preds = %20
   %.not.us.not = icmp sgt i64 %indvars.iv58, %12
-  br i1 %.not.us.not, label %.preheader.us, label %._crit_edge55, !llvm.loop !20
+  br i1 %.not.us.not, label %.preheader.us, label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge.us, %2
   ret ptr %6
@@ -30651,49 +30651,49 @@ define void @GetCameraViewMatrix(ptr dead_on_unwind noalias writable writeonly s
   %41 = fneg float %32
   %42 = fmul float %15, %41
   %43 = tail call float @llvm.fmuladd.f32(float %14, float %33, float %42)
-  store float %32, ptr %0, align 4, !alias.scope !22
+  store float %32, ptr %0, align 4, !alias.scope !20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %37, ptr %44, align 4, !alias.scope !22
+  store float %37, ptr %44, align 4, !alias.scope !20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %14, ptr %45, align 4, !alias.scope !22
+  store float %14, ptr %45, align 4, !alias.scope !20
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %46, align 4, !alias.scope !22
+  store float 0.000000e+00, ptr %46, align 4, !alias.scope !20
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %33, ptr %47, align 4, !alias.scope !22
+  store float %33, ptr %47, align 4, !alias.scope !20
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %40, ptr %48, align 4, !alias.scope !22
+  store float %40, ptr %48, align 4, !alias.scope !20
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %15, ptr %49, align 4, !alias.scope !22
+  store float %15, ptr %49, align 4, !alias.scope !20
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %50, align 4, !alias.scope !22
+  store float 0.000000e+00, ptr %50, align 4, !alias.scope !20
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %34, ptr %51, align 4, !alias.scope !22
+  store float %34, ptr %51, align 4, !alias.scope !20
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %43, ptr %52, align 4, !alias.scope !22
+  store float %43, ptr %52, align 4, !alias.scope !20
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %16, ptr %53, align 4, !alias.scope !22
+  store float %16, ptr %53, align 4, !alias.scope !20
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %54, align 4, !alias.scope !22
+  store float 0.000000e+00, ptr %54, align 4, !alias.scope !20
   %55 = fmul float %.sroa.069.4.vec.extract.i, %33
   %56 = tail call float @llvm.fmuladd.f32(float %32, float %.sroa.069.0.vec.extract.i, float %55)
   %57 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.24.0.copyload, float %56)
   %58 = fneg float %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %58, ptr %59, align 4, !alias.scope !22
+  store float %58, ptr %59, align 4, !alias.scope !20
   %60 = fmul float %.sroa.069.4.vec.extract.i, %40
   %61 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.069.0.vec.extract.i, float %60)
   %62 = tail call float @llvm.fmuladd.f32(float %43, float %.sroa.24.0.copyload, float %61)
   %63 = fneg float %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %63, ptr %64, align 4, !alias.scope !22
+  store float %63, ptr %64, align 4, !alias.scope !20
   %65 = fmul float %.sroa.069.4.vec.extract.i, %15
   %66 = tail call float @llvm.fmuladd.f32(float %14, float %.sroa.069.0.vec.extract.i, float %65)
   %67 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.24.0.copyload, float %66)
   %68 = fneg float %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %68, ptr %69, align 4, !alias.scope !22
+  store float %68, ptr %69, align 4, !alias.scope !20
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %70, align 4, !alias.scope !22
+  store float 1.000000e+00, ptr %70, align 4, !alias.scope !20
   ret void
 }
 
@@ -30712,11 +30712,11 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias writable write
   %9 = fmul float %8, 0x3F91DF46A0000000
   %10 = fpext float %9 to double
   %11 = fpext float %2 to double
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %12, i8 0, i64 60, i1 false), !alias.scope !25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %12, i8 0, i64 60, i1 false), !alias.scope !23
   %13 = fmul double %10, 5.000000e-01
-  %14 = tail call double @tan(double noundef %13) #60, !noalias !25
+  %14 = tail call double @tan(double noundef %13) #60, !noalias !23
   %15 = fmul double %14, 1.000000e-02
   %16 = fmul double %15, %11
   %17 = fadd double %16, %16
@@ -30724,20 +30724,20 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias writable write
   %19 = fadd double %15, %15
   %20 = fptrunc double %19 to float
   %21 = fdiv float 0x3F947AE140000000, %18
-  store float %21, ptr %0, align 4, !alias.scope !25
+  store float %21, ptr %0, align 4, !alias.scope !23
   %22 = fdiv float 0x3F947AE140000000, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %22, ptr %23, align 4, !alias.scope !25
+  store float %22, ptr %23, align 4, !alias.scope !23
   %24 = fptrunc double %16 to float
   %25 = fsub float %24, %24
   %26 = fdiv float %25, %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %26, ptr %27, align 4, !alias.scope !25
+  store float %26, ptr %27, align 4, !alias.scope !23
   %28 = fptrunc double %15 to float
   %29 = fsub float %28, %28
   %30 = fdiv float %29, %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %30, ptr %31, align 4, !alias.scope !25
+  store float %30, ptr %31, align 4, !alias.scope !23
   br label %67
 
 32:                                               ; preds = %3
@@ -30752,36 +30752,36 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias writable write
   %41 = fadd double %36, %36
   %42 = fptrunc double %41 to float
   %43 = fdiv float 2.000000e+00, %40
-  store float %43, ptr %0, align 4, !alias.scope !28
+  store float %43, ptr %0, align 4, !alias.scope !26
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 0.000000e+00, ptr %44, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %44, align 4, !alias.scope !26
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float 0.000000e+00, ptr %45, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %45, align 4, !alias.scope !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %46, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %46, align 4, !alias.scope !26
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float 0.000000e+00, ptr %47, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %47, align 4, !alias.scope !26
   %48 = fdiv float 2.000000e+00, %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %48, ptr %49, align 4, !alias.scope !28
+  store float %48, ptr %49, align 4, !alias.scope !26
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float 0.000000e+00, ptr %50, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %50, align 4, !alias.scope !26
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %51, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %51, align 4, !alias.scope !26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %52, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %52, align 4, !alias.scope !26
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %53, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %53, align 4, !alias.scope !26
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float 0xBF606258A0000000, ptr %54, align 4, !alias.scope !28
+  store float 0xBF606258A0000000, ptr %54, align 4, !alias.scope !26
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %55, align 4, !alias.scope !28
+  store float 0.000000e+00, ptr %55, align 4, !alias.scope !26
   %56 = fptrunc double %38 to float
   %57 = fsub float %56, %56
   %58 = fneg float %57
   %59 = fdiv float %58, %40
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %59, ptr %60, align 4, !alias.scope !28
+  store float %59, ptr %60, align 4, !alias.scope !26
   %61 = fptrunc double %36 to float
   %62 = fsub float %61, %61
   %63 = fneg float %62
@@ -30790,8 +30790,8 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias writable write
 
 65:                                               ; preds = %3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %66, i8 0, i64 56, i1 false), !alias.scope !31
-  store float 1.000000e+00, ptr %0, align 4, !alias.scope !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %66, i8 0, i64 56, i1 false), !alias.scope !29
+  store float 1.000000e+00, ptr %0, align 4, !alias.scope !29
   br label %67
 
 67:                                               ; preds = %65, %32, %6
@@ -30896,8 +30896,8 @@ MatrixRotate.exit:                                ; preds = %GetCameraUp.exit, %
   %.063.i = phi float [ %42, %38 ], [ %.sroa.617.0.i.i, %GetCameraUp.exit ]
   %.062.i = phi float [ %41, %38 ], [ %.sroa.061.4.vec.extract.i.pre-phi, %GetCameraUp.exit ]
   %.0.i = phi float [ %40, %38 ], [ %.sroa.061.0.vec.extract.i.pre-phi, %GetCameraUp.exit ]
-  %43 = tail call float @sinf(float noundef %23) #60, !noalias !34
-  %44 = tail call float @cosf(float noundef %23) #60, !noalias !34
+  %43 = tail call float @sinf(float noundef %23) #60, !noalias !32
+  %44 = tail call float @cosf(float noundef %23) #60, !noalias !32
   %45 = fsub float 1.000000e+00, %44
   %46 = fmul float %.0.i, %.0.i
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %45, float %44)
@@ -34388,7 +34388,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge17
   %.1118.us.i = phi i32 [ %289, %253 ], [ %.011771.us.i, %.lr.ph.split.us.i ]
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count91.i
-  br i1 %exitcond92.not.i, label %._crit_edge.i44, label %.lr.ph.split.us.i, !llvm.loop !37
+  br i1 %exitcond92.not.i, label %._crit_edge.i44, label %.lr.ph.split.us.i
 
 ._crit_edge.i44:                                  ; preds = %339, %290, %234
   %.0117.lcssa.i = phi i32 [ 1, %234 ], [ %.1118.us.i, %290 ], [ %.1118.i, %339 ]
@@ -35888,7 +35888,7 @@ sinfl_decode.exit217:                             ; preds = %sinfl_refill.exit20
 
 413:                                              ; preds = %sinfl_decode.exit217
   %.not = icmp ult ptr %.3128, %19
-  br i1 %.not, label %418, label %414, !prof !38
+  br i1 %.not, label %418, label %414, !prof !35
 
 414:                                              ; preds = %413
   %415 = ptrtoint ptr %.3128 to i64
@@ -35960,7 +35960,7 @@ sinfl_decode.exit225:                             ; preds = %._crit_edge.i222, %
   %.0150 = phi i32 [ %446, %sinfl_decode.exit225 ], [ %411, %sinfl_decode.exit217 ]
   %.4129 = phi ptr [ %420, %sinfl_decode.exit225 ], [ %.3128, %sinfl_decode.exit217 ]
   %453 = icmp eq i32 %.0150, 256
-  br i1 %453, label %454, label %459, !prof !39
+  br i1 %453, label %454, label %459, !prof !36
 
 454:                                              ; preds = %451
   %.not168 = icmp eq i32 %.0139.ph, 0
@@ -36057,7 +36057,7 @@ sinfl_decode.exit235:                             ; preds = %465, %482
   %521 = sub i64 %520, %28
   %522 = trunc i64 %521 to i32
   %523 = icmp sgt i32 %516, %522
-  br i1 %523, label %.thread275, label %524, !prof !39
+  br i1 %523, label %.thread275, label %524, !prof !36
 
 524:                                              ; preds = %sinfl_decode.exit235
   %525 = sext i16 %477 to i64
@@ -36068,7 +36068,7 @@ sinfl_decode.exit235:                             ; preds = %465, %482
   %529 = ptrtoint ptr %528 to i64
   %530 = sub i64 %29, %529
   %531 = icmp sgt i64 %530, 20
-  br i1 %531, label %532, label %577, !prof !38
+  br i1 %531, label %532, label %577, !prof !35
 
 532:                                              ; preds = %524
   %533 = icmp sgt i32 %516, 7
@@ -36331,7 +36331,7 @@ define hidden i32 @sdeflate(ptr noundef initializes((0, 131080)) %0, ptr noundef
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #35 {
-.preheader216:
+.preheader217:
   %5 = alloca [320 x i8], align 16
   %6 = alloca [19 x i32], align 16
   %7 = alloca [19 x i8], align 16
@@ -36366,34 +36366,34 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 963516
   br label %36
 
-36:                                               ; preds = %.preheader216, %sdefl_flush.exit
-  %.0200 = phi ptr [ %.44, %sdefl_flush.exit ], [ %1, %.preheader216 ]
-  %.088 = phi i32 [ %.189.lcssa378, %sdefl_flush.exit ], [ 0, %.preheader216 ]
+36:                                               ; preds = %.preheader217, %sdefl_flush.exit
+  %.0201 = phi ptr [ %.44, %sdefl_flush.exit ], [ %1, %.preheader217 ]
+  %.088 = phi i32 [ %.189.lcssa379, %sdefl_flush.exit ], [ 0, %.preheader217 ]
   %37 = add nsw i32 %.088, 262144
   %38 = call i32 @llvm.smin.i32(i32 %37, i32 %3)
   %39 = icmp sgt i32 %3, %.088
-  br i1 %39, label %.lr.ph283, label %._crit_edge.thread
+  br i1 %39, label %.lr.ph284, label %._crit_edge.thread
 
-.lr.ph283:                                        ; preds = %36
+.lr.ph284:                                        ; preds = %36
   %40 = load i8, ptr %20, align 1
   %41 = zext i8 %40 to i32
   br label %42
 
-42:                                               ; preds = %.lr.ph283, %.loopexit
-  %.189282 = phi i32 [ %.088, %.lr.ph283 ], [ %.3, %.loopexit ]
-  %.191281 = phi i32 [ 0, %.lr.ph283 ], [ %.393365, %.loopexit ]
-  %43 = sub nsw i32 %38, %.189282
+42:                                               ; preds = %.lr.ph284, %.loopexit
+  %.189283 = phi i32 [ %.088, %.lr.ph284 ], [ %.3, %.loopexit ]
+  %.191282 = phi i32 [ 0, %.lr.ph284 ], [ %.393366, %.loopexit ]
+  %43 = sub nsw i32 %38, %.189283
   %44 = call i32 @llvm.smin.i32(i32 %43, i32 258)
   %45 = icmp sgt i32 %43, %41
   %. = select i1 %45, i32 %41, i32 %44
   %46 = icmp sgt i32 %43, 4
-  %47 = sext i32 %.189282 to i64
+  %47 = sext i32 %.189283 to i64
   %48 = getelementptr inbounds i8, ptr %2, i64 %47
   br i1 %46, label %49, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %42
-  %.pre356 = load i8, ptr %48, align 1
-  br label %.thread361
+  %.pre357 = load i8, ptr %48, align 1
+  br label %.thread362
 
 49:                                               ; preds = %42
   %.val43.i = load i32, ptr %48, align 1
@@ -36401,12 +36401,12 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %51 = lshr i32 %50, 17
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [32768 x i32], ptr %10, i64 0, i64 %52
-  %54 = call i32 @llvm.smax.i32(i32 %.189282, i32 32767)
+  %54 = call i32 @llvm.smax.i32(i32 %.189283, i32 32767)
   %55 = add nsw i32 %54, -32768
   %.04049.i = load i32, ptr %53, align 4
   %56 = icmp sgt i32 %.04049.i, %55
   %57 = trunc i32 %.val43.i to i8
-  br i1 %56, label %.lr.ph52.i, label %.thread361
+  br i1 %56, label %.lr.ph52.i, label %.thread362
 
 .lr.ph52.i:                                       ; preds = %49
   %wide.trip.count.i = zext nneg i32 %44 to i64
@@ -36414,7 +36414,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
 
 .lr.ph52.split.us.i:                              ; preds = %82, %.lr.ph52.i
   %.sroa.8.4 = phi i32 [ 0, %.lr.ph52.i ], [ %.sroa.8.5, %82 ]
-  %.sroa.0169.3 = phi i32 [ 0, %.lr.ph52.i ], [ %.sroa.0169.4, %82 ]
+  %.sroa.0170.3 = phi i32 [ 0, %.lr.ph52.i ], [ %.sroa.0170.4, %82 ]
   %58 = phi i32 [ 0, %.lr.ph52.i ], [ %80, %82 ]
   %.04051.us.i = phi i32 [ %.04049.i, %.lr.ph52.i ], [ %.040.us.i, %82 ]
   %.03950.us.i = phi i32 [ %14, %.lr.ph52.i ], [ %81, %82 ]
@@ -36422,7 +36422,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %2, i64 %60
   %62 = load i8, ptr %61, align 1
-  %63 = add nsw i32 %58, %.189282
+  %63 = add nsw i32 %58, %.189283
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %2, i64 %64
   %66 = load i8, ptr %65, align 1
@@ -36440,8 +36440,8 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %87 ], [ 4, %68 ]
   %gep.i = getelementptr i8, ptr %70, i64 %indvars.iv.i
   %72 = load i8, ptr %gep.i, align 1
-  %gep77.i = getelementptr i8, ptr %48, i64 %indvars.iv.i
-  %73 = load i8, ptr %gep77.i, align 1
+  %gep79.i = getelementptr i8, ptr %48, i64 %indvars.iv.i
+  %73 = load i8, ptr %gep79.i, align 1
   %74 = icmp eq i8 %72, %73
   br i1 %74, label %87, label %.critedge.us.split.loop.exit.i
 
@@ -36455,13 +36455,13 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   br i1 %76, label %77, label %.thread.us.i
 
 77:                                               ; preds = %.critedge.us.i
-  %78 = sub nsw i32 %.189282, %.04051.us.i
+  %78 = sub nsw i32 %.189283, %.04051.us.i
   %79 = icmp eq i32 %.038.lcssa.us.i, %44
   br i1 %79, label %sdefl_fnd.exit, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %77, %.critedge.us.i, %68, %.lr.ph52.split.us.i
   %.sroa.8.5 = phi i32 [ %.038.lcssa.us.i, %77 ], [ %.sroa.8.4, %.critedge.us.i ], [ %.sroa.8.4, %68 ], [ %.sroa.8.4, %.lr.ph52.split.us.i ]
-  %.sroa.0169.4 = phi i32 [ %78, %77 ], [ %.sroa.0169.3, %.critedge.us.i ], [ %.sroa.0169.3, %68 ], [ %.sroa.0169.3, %.lr.ph52.split.us.i ]
+  %.sroa.0170.4 = phi i32 [ %78, %77 ], [ %.sroa.0170.3, %.critedge.us.i ], [ %.sroa.0170.3, %68 ], [ %.sroa.0170.3, %.lr.ph52.split.us.i ]
   %80 = phi i32 [ %.038.lcssa.us.i, %77 ], [ %58, %.critedge.us.i ], [ %58, %68 ], [ %58, %.lr.ph52.split.us.i ]
   %81 = add nsw i32 %.03950.us.i, -1
   %.not.us.i = icmp eq i32 %81, 0
@@ -36473,7 +36473,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
   %85 = getelementptr inbounds nuw [32768 x i32], ptr %21, i64 0, i64 %84
   %.040.us.i = load i32, ptr %85, align 4
   %86 = icmp sgt i32 %.040.us.i, %55
-  br i1 %86, label %.lr.ph52.split.us.i, label %sdefl_fnd.exit, !llvm.loop !40
+  br i1 %86, label %.lr.ph52.split.us.i, label %sdefl_fnd.exit
 
 87:                                               ; preds = %.preheader.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -36482,7 +36482,7 @@ define internal fastcc i32 @sdefl_compr(ptr noundef initializes((8, 131080)) %0,
 
 sdefl_fnd.exit:                                   ; preds = %82, %.thread.us.i, %77
   %.sroa.8.0 = phi i32 [ %44, %77 ], [ %.sroa.8.5, %.thread.us.i ], [ %.sroa.8.5, %82 ]
-  %.sroa.0169.0 = phi i32 [ %78, %77 ], [ %.sroa.0169.4, %.thread.us.i ], [ %.sroa.0169.4, %82 ]
+  %.sroa.0170.0 = phi i32 [ %78, %77 ], [ %.sroa.0170.4, %.thread.us.i ], [ %.sroa.0170.4, %82 ]
   %88 = icmp sgt i32 %.sroa.8.0, 3
   %or.cond = select i1 %22, i1 %88, i1 false
   %89 = add nsw i32 %.sroa.8.0, 1
@@ -36491,7 +36491,7 @@ sdefl_fnd.exit:                                   ; preds = %82, %.thread.us.i, 
   br i1 %or.cond106, label %91, label %132
 
 91:                                               ; preds = %sdefl_fnd.exit
-  %92 = add nsw i32 %.189282, 1
+  %92 = add nsw i32 %.189283, 1
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %2, i64 %93
   %.val43.i109 = load i32, ptr %94, align 1
@@ -36503,18 +36503,18 @@ sdefl_fnd.exit:                                   ; preds = %82, %.thread.us.i, 
   %100 = add nsw i32 %99, -32768
   %.04049.i110 = load i32, ptr %98, align 4
   %101 = icmp sgt i32 %.04049.i110, %100
-  br i1 %101, label %.lr.ph52.split.us.preheader.i131, label %sdefl_fnd.exit154.thread
+  br i1 %101, label %.lr.ph52.split.us.preheader.i132, label %sdefl_fnd.exit155.thread
 
-.lr.ph52.split.us.preheader.i131:                 ; preds = %91
-  %wide.trip.count.i133 = zext nneg i32 %89 to i64
-  br label %.lr.ph52.split.us.i135
+.lr.ph52.split.us.preheader.i132:                 ; preds = %91
+  %wide.trip.count.i134 = zext nneg i32 %89 to i64
+  br label %.lr.ph52.split.us.i136
 
-.lr.ph52.split.us.i135:                           ; preds = %125, %.lr.ph52.split.us.preheader.i131
-  %.sroa.6.2 = phi i32 [ 0, %.lr.ph52.split.us.preheader.i131 ], [ %.sroa.6.3, %125 ]
-  %102 = phi i32 [ 0, %.lr.ph52.split.us.preheader.i131 ], [ %123, %125 ]
-  %.04051.us.i136 = phi i32 [ %.04049.i110, %.lr.ph52.split.us.preheader.i131 ], [ %.040.us.i140, %125 ]
-  %.03950.us.i137 = phi i32 [ %14, %.lr.ph52.split.us.preheader.i131 ], [ %124, %125 ]
-  %103 = add nsw i32 %.04051.us.i136, %102
+.lr.ph52.split.us.i136:                           ; preds = %125, %.lr.ph52.split.us.preheader.i132
+  %.sroa.6.2 = phi i32 [ 0, %.lr.ph52.split.us.preheader.i132 ], [ %.sroa.6.3, %125 ]
+  %102 = phi i32 [ 0, %.lr.ph52.split.us.preheader.i132 ], [ %123, %125 ]
+  %.04051.us.i137 = phi i32 [ %.04049.i110, %.lr.ph52.split.us.preheader.i132 ], [ %.040.us.i141, %125 ]
+  %.03950.us.i138 = phi i32 [ %14, %.lr.ph52.split.us.preheader.i132 ], [ %124, %125 ]
+  %103 = add nsw i32 %.04051.us.i137, %102
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %2, i64 %104
   %106 = load i8, ptr %105, align 1
@@ -36523,91 +36523,91 @@ sdefl_fnd.exit:                                   ; preds = %82, %.thread.us.i, 
   %109 = getelementptr inbounds i8, ptr %2, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %106, %110
-  br i1 %111, label %112, label %.thread.us.i138
+  br i1 %111, label %112, label %.thread.us.i139
 
-112:                                              ; preds = %.lr.ph52.split.us.i135
-  %113 = sext i32 %.04051.us.i136 to i64
+112:                                              ; preds = %.lr.ph52.split.us.i136
+  %113 = sext i32 %.04051.us.i137 to i64
   %114 = getelementptr inbounds i8, ptr %2, i64 %113
-  %.val.us.i141 = load i32, ptr %114, align 1
-  %115 = icmp eq i32 %.val.us.i141, %.val43.i109
-  br i1 %115, label %.preheader.us.i145, label %.thread.us.i138
+  %.val.us.i142 = load i32, ptr %114, align 1
+  %115 = icmp eq i32 %.val.us.i142, %.val43.i109
+  br i1 %115, label %.preheader.us.i146, label %.thread.us.i139
 
-.preheader.us.i145:                               ; preds = %112, %130
-  %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i152, %130 ], [ 4, %112 ]
-  %gep.i147 = getelementptr i8, ptr %114, i64 %indvars.iv.i146
-  %116 = load i8, ptr %gep.i147, align 1
-  %gep77.i148 = getelementptr i8, ptr %94, i64 %indvars.iv.i146
-  %117 = load i8, ptr %gep77.i148, align 1
+.preheader.us.i146:                               ; preds = %112, %130
+  %indvars.iv.i147 = phi i64 [ %indvars.iv.next.i153, %130 ], [ 4, %112 ]
+  %gep.i148 = getelementptr i8, ptr %114, i64 %indvars.iv.i147
+  %116 = load i8, ptr %gep.i148, align 1
+  %gep79.i149 = getelementptr i8, ptr %94, i64 %indvars.iv.i147
+  %117 = load i8, ptr %gep79.i149, align 1
   %118 = icmp eq i8 %116, %117
-  br i1 %118, label %130, label %.critedge.us.split.loop.exit.i149
+  br i1 %118, label %130, label %.critedge.us.split.loop.exit.i150
 
-.critedge.us.split.loop.exit.i149:                ; preds = %.preheader.us.i145
-  %119 = trunc nuw nsw i64 %indvars.iv.i146 to i32
-  br label %.critedge.us.i150
+.critedge.us.split.loop.exit.i150:                ; preds = %.preheader.us.i146
+  %119 = trunc nuw nsw i64 %indvars.iv.i147 to i32
+  br label %.critedge.us.i151
 
-.critedge.us.i150:                                ; preds = %130, %.critedge.us.split.loop.exit.i149
-  %.038.lcssa.us.i151 = phi i32 [ %119, %.critedge.us.split.loop.exit.i149 ], [ %89, %130 ]
-  %120 = icmp sgt i32 %.038.lcssa.us.i151, %102
-  br i1 %120, label %121, label %.thread.us.i138
+.critedge.us.i151:                                ; preds = %130, %.critedge.us.split.loop.exit.i150
+  %.038.lcssa.us.i152 = phi i32 [ %119, %.critedge.us.split.loop.exit.i150 ], [ %89, %130 ]
+  %120 = icmp sgt i32 %.038.lcssa.us.i152, %102
+  br i1 %120, label %121, label %.thread.us.i139
 
-121:                                              ; preds = %.critedge.us.i150
-  %122 = icmp eq i32 %.038.lcssa.us.i151, %89
-  br i1 %122, label %.thread361, label %.thread.us.i138
+121:                                              ; preds = %.critedge.us.i151
+  %122 = icmp eq i32 %.038.lcssa.us.i152, %89
+  br i1 %122, label %.thread362, label %.thread.us.i139
 
-.thread.us.i138:                                  ; preds = %121, %.critedge.us.i150, %112, %.lr.ph52.split.us.i135
-  %.sroa.6.3 = phi i32 [ %.038.lcssa.us.i151, %121 ], [ %.sroa.6.2, %.critedge.us.i150 ], [ %.sroa.6.2, %112 ], [ %.sroa.6.2, %.lr.ph52.split.us.i135 ]
-  %123 = phi i32 [ %.038.lcssa.us.i151, %121 ], [ %102, %.critedge.us.i150 ], [ %102, %112 ], [ %102, %.lr.ph52.split.us.i135 ]
-  %124 = add nsw i32 %.03950.us.i137, -1
-  %.not.us.i139 = icmp eq i32 %124, 0
-  br i1 %.not.us.i139, label %sdefl_fnd.exit154, label %125
+.thread.us.i139:                                  ; preds = %121, %.critedge.us.i151, %112, %.lr.ph52.split.us.i136
+  %.sroa.6.3 = phi i32 [ %.038.lcssa.us.i152, %121 ], [ %.sroa.6.2, %.critedge.us.i151 ], [ %.sroa.6.2, %112 ], [ %.sroa.6.2, %.lr.ph52.split.us.i136 ]
+  %123 = phi i32 [ %.038.lcssa.us.i152, %121 ], [ %102, %.critedge.us.i151 ], [ %102, %112 ], [ %102, %.lr.ph52.split.us.i136 ]
+  %124 = add nsw i32 %.03950.us.i138, -1
+  %.not.us.i140 = icmp eq i32 %124, 0
+  br i1 %.not.us.i140, label %sdefl_fnd.exit155, label %125
 
-125:                                              ; preds = %.thread.us.i138
-  %126 = and i32 %.04051.us.i136, 32767
+125:                                              ; preds = %.thread.us.i139
+  %126 = and i32 %.04051.us.i137, 32767
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw [32768 x i32], ptr %21, i64 0, i64 %127
-  %.040.us.i140 = load i32, ptr %128, align 4
-  %129 = icmp sgt i32 %.040.us.i140, %100
-  br i1 %129, label %.lr.ph52.split.us.i135, label %sdefl_fnd.exit154, !llvm.loop !40
+  %.040.us.i141 = load i32, ptr %128, align 4
+  %129 = icmp sgt i32 %.040.us.i141, %100
+  br i1 %129, label %.lr.ph52.split.us.i136, label %sdefl_fnd.exit155
 
-130:                                              ; preds = %.preheader.us.i145
-  %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i146, 1
-  %exitcond.not.i153 = icmp eq i64 %indvars.iv.next.i152, %wide.trip.count.i133
-  br i1 %exitcond.not.i153, label %.critedge.us.i150, label %.preheader.us.i145
+130:                                              ; preds = %.preheader.us.i146
+  %indvars.iv.next.i153 = add nuw nsw i64 %indvars.iv.i147, 1
+  %exitcond.not.i154 = icmp eq i64 %indvars.iv.next.i153, %wide.trip.count.i134
+  br i1 %exitcond.not.i154, label %.critedge.us.i151, label %.preheader.us.i146
 
-sdefl_fnd.exit154:                                ; preds = %.thread.us.i138, %125
+sdefl_fnd.exit155:                                ; preds = %.thread.us.i139, %125
   %131 = icmp sgt i32 %.sroa.6.3, %.sroa.8.0
-  br i1 %131, label %.thread361, label %sdefl_fnd.exit154.thread
+  br i1 %131, label %.thread362, label %sdefl_fnd.exit155.thread
 
 132:                                              ; preds = %sdefl_fnd.exit
-  br i1 %88, label %sdefl_fnd.exit154.thread, label %.thread361
+  br i1 %88, label %sdefl_fnd.exit155.thread, label %.thread362
 
-sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit154, %132
-  %.not103 = icmp eq i32 %.191281, 0
+sdefl_fnd.exit155.thread:                         ; preds = %91, %sdefl_fnd.exit155, %132
+  %.not103 = icmp eq i32 %.191282, 0
   %.pre = load i32, ptr %24, align 4
   br i1 %.not103, label %141, label %133
 
-133:                                              ; preds = %sdefl_fnd.exit154.thread
-  %134 = sub nsw i32 %.189282, %.191281
+133:                                              ; preds = %sdefl_fnd.exit155.thread
+  %134 = sub nsw i32 %.189283, %.191282
   %135 = sext i32 %.pre to i64
   %136 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %135
   store i32 %134, ptr %136, align 4
   %.idx.i = shl nsw i64 %135, 3
   %137 = getelementptr i8, ptr %23, i64 %.idx.i
   %138 = getelementptr i8, ptr %137, i64 4
-  store i32 %.191281, ptr %138, align 4
+  store i32 %.191282, ptr %138, align 4
   %139 = load i32, ptr %24, align 4
   %140 = add nsw i32 %139, 1
   store i32 %140, ptr %24, align 4
   br label %141
 
-141:                                              ; preds = %133, %sdefl_fnd.exit154.thread
-  %142 = phi i32 [ %140, %133 ], [ %.pre, %sdefl_fnd.exit154.thread ]
-  %143 = sub nsw i32 0, %.sroa.0169.0
+141:                                              ; preds = %133, %sdefl_fnd.exit155.thread
+  %142 = phi i32 [ %140, %133 ], [ %.pre, %sdefl_fnd.exit155.thread ]
+  %143 = sub nsw i32 0, %.sroa.0170.0
   %144 = sext i32 %142 to i64
   %145 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %144
   store i32 %143, ptr %145, align 4
-  %.idx.i155 = shl nsw i64 %144, 3
-  %146 = getelementptr i8, ptr %23, i64 %.idx.i155
+  %.idx.i156 = shl nsw i64 %144, 3
+  %146 = getelementptr i8, ptr %23, i64 %.idx.i156
   %147 = getelementptr i8, ptr %146, i64 4
   store i32 %.sroa.8.0, ptr %147, align 4
   %148 = load i32, ptr %24, align 4
@@ -36616,7 +36616,7 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   %150 = zext nneg i32 %.sroa.8.0 to i64
   %151 = getelementptr inbounds nuw [259 x i8], ptr @sdefl_match_codes.lslot, i64 0, i64 %150
   %152 = load i8, ptr %151, align 1
-  %153 = add nsw i32 %.sroa.0169.0, -1
+  %153 = add nsw i32 %.sroa.0170.0, -1
   %.not.i.i.i = icmp eq i32 %153, 0
   %154 = sext i32 %153 to i64
   %155 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %154, i1 true)
@@ -36641,7 +36641,7 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   %169 = getelementptr inbounds nuw [14 x i16], ptr @sdefl_match_codes.dxmax, i64 0, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = sext i16 %170 to i32
-  %172 = icmp sgt i32 %.sroa.0169.0, %171
+  %172 = icmp sgt i32 %.sroa.0170.0, %171
   %173 = zext i1 %172 to i32
   %174 = or disjoint i32 %167, %173
   %.pre.i = zext nneg i32 %174 to i64
@@ -36659,20 +36659,20 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, 1
   store i32 %183, ptr %181, align 4
-  %184 = add nsw i32 %.sroa.8.0, %.189282
+  %184 = add nsw i32 %.sroa.8.0, %.189283
   %185 = sub nsw i32 %3, %184
   %186 = icmp sgt i32 %185, 4
   br i1 %186, label %.preheader, label %.loopexit
 
-.thread361:                                       ; preds = %121, %132, %49, %sdefl_fnd.exit154, %..thread_crit_edge
-  %187 = phi i8 [ %.pre356, %..thread_crit_edge ], [ %57, %sdefl_fnd.exit154 ], [ %57, %49 ], [ %57, %132 ], [ %57, %121 ]
+.thread362:                                       ; preds = %121, %132, %49, %sdefl_fnd.exit155, %..thread_crit_edge
+  %187 = phi i8 [ %.pre357, %..thread_crit_edge ], [ %57, %sdefl_fnd.exit155 ], [ %57, %49 ], [ %57, %132 ], [ %57, %121 ]
   %188 = zext i8 %187 to i64
   %189 = getelementptr inbounds nuw [288 x i32], ptr %15, i64 0, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = add i32 %190, 1
   store i32 %191, ptr %189, align 4
-  %192 = add nsw i32 %.191281, 1
-  %193 = add nsw i32 %.189282, 1
+  %192 = add nsw i32 %.191282, 1
+  %193 = add nsw i32 %.189283, 1
   %194 = sub nsw i32 %3, %193
   %195 = icmp sgt i32 %194, 4
   br i1 %195, label %.lr.ph.preheader, label %.loopexit
@@ -36685,18 +36685,18 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   %196 = icmp sgt i32 %spec.select, 0
   br i1 %196, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.thread361, %.preheader
-  %.393366374 = phi i32 [ 0, %.preheader ], [ %192, %.thread361 ]
-  %.087367373 = phi i32 [ %spec.select, %.preheader ], [ 1, %.thread361 ]
-  %.086368372 = phi i32 [ %spec.select108, %.preheader ], [ 1, %.thread361 ]
-  %197 = sext i32 %.189282 to i64
-  %198 = sext i32 %.086368372 to i64
+.lr.ph.preheader:                                 ; preds = %.thread362, %.preheader
+  %.393367375 = phi i32 [ 0, %.preheader ], [ %192, %.thread362 ]
+  %.087368374 = phi i32 [ %spec.select, %.preheader ], [ 1, %.thread362 ]
+  %.086369373 = phi i32 [ %spec.select108, %.preheader ], [ 1, %.thread362 ]
+  %197 = sext i32 %.189283 to i64
+  %198 = sext i32 %.086369373 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %197, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1280 = phi i32 [ %.087367373, %.lr.ph.preheader ], [ %199, %.lr.ph ]
-  %199 = add nsw i32 %.1280, -1
+  %.1281 = phi i32 [ %.087368374, %.lr.ph.preheader ], [ %199, %.lr.ph ]
+  %199 = add nsw i32 %.1281, -1
   %200 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %.val = load i32, ptr %200, align 1
   %201 = mul i32 %.val, -1640531575
@@ -36710,40 +36710,40 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   store i32 %205, ptr %208, align 4
   store i32 %206, ptr %204, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %198
-  %209 = icmp samesign ugt i32 %.1280, 1
+  %209 = icmp samesign ugt i32 %.1281, 1
   br i1 %209, label %.lr.ph, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %210 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread361, %.loopexit.loopexit, %.preheader, %175
-  %.393365 = phi i32 [ 0, %175 ], [ 0, %.preheader ], [ %.393366374, %.loopexit.loopexit ], [ %192, %.thread361 ]
-  %.3 = phi i32 [ %184, %175 ], [ %.189282, %.preheader ], [ %210, %.loopexit.loopexit ], [ %193, %.thread361 ]
+.loopexit:                                        ; preds = %.thread362, %.loopexit.loopexit, %.preheader, %175
+  %.393366 = phi i32 [ 0, %175 ], [ 0, %.preheader ], [ %.393367375, %.loopexit.loopexit ], [ %192, %.thread362 ]
+  %.3 = phi i32 [ %184, %175 ], [ %.189283, %.preheader ], [ %210, %.loopexit.loopexit ], [ %193, %.thread362 ]
   %211 = icmp slt i32 %.3, %38
   br i1 %211, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.not = icmp eq i32 %.393365, 0
+  %.not = icmp eq i32 %.393366, 0
   br i1 %.not, label %._crit_edge.thread, label %212
 
 212:                                              ; preds = %._crit_edge
-  %213 = sub nsw i32 %.3, %.393365
+  %213 = sub nsw i32 %.3, %.393366
   %214 = load i32, ptr %24, align 4
   %215 = sext i32 %214 to i64
   %216 = getelementptr inbounds [87382 x %struct.sdefl_seqt], ptr %23, i64 0, i64 %215
   store i32 %213, ptr %216, align 4
-  %.idx.i156 = shl nsw i64 %215, 3
-  %217 = getelementptr i8, ptr %23, i64 %.idx.i156
+  %.idx.i157 = shl nsw i64 %215, 3
+  %217 = getelementptr i8, ptr %23, i64 %.idx.i157
   %218 = getelementptr i8, ptr %217, i64 4
-  store i32 %.393365, ptr %218, align 4
+  store i32 %.393366, ptr %218, align 4
   %219 = load i32, ptr %24, align 4
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %24, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %36, %212, %._crit_edge
-  %.189.lcssa378 = phi i32 [ %.3, %212 ], [ %.3, %._crit_edge ], [ %.088, %36 ]
+  %.189.lcssa379 = phi i32 [ %.3, %212 ], [ %.3, %._crit_edge ], [ %.088, %36 ]
   %221 = icmp sle i32 %3, %37
   %222 = zext i1 %221 to i32
   %223 = sub nsw i32 %38, %.088
@@ -36766,8 +36766,8 @@ sdefl_fnd.exit154.thread:                         ; preds = %91, %sdefl_fnd.exit
   %228 = getelementptr i8, ptr %18, i64 %227
   %229 = getelementptr i8, ptr %228, i64 -1
   %230 = load i8, ptr %229, align 1
-  %.not.i.i157 = icmp eq i8 %230, 0
-  br i1 %.not.i.i157, label %231, label %234
+  %.not.i.i158 = icmp eq i8 %230, 0
+  br i1 %.not.i.i158, label %231, label %234
 
 231:                                              ; preds = %226
   %232 = add nsw i32 %.sroa.5.0.i, -1
@@ -36949,22 +36949,22 @@ sdefl_precode.exit.i:                             ; preds = %._crit_edge109.i.i
   br label %315
 
 315:                                              ; preds = %317, %sdefl_precode.exit.i
-  %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i163, %317 ], [ 19, %sdefl_precode.exit.i ]
-  %316 = icmp samesign ugt i64 %indvars.iv.i158, 4
+  %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i164, %317 ], [ 19, %sdefl_precode.exit.i ]
+  %316 = icmp samesign ugt i64 %indvars.iv.i159, 4
   br i1 %316, label %317, label %.split.loop.exit292.i
 
 317:                                              ; preds = %315
-  %indvars.iv.next.i163 = add nsw i64 %indvars.iv.i158, -1
-  %318 = getelementptr inbounds nuw [19 x i8], ptr @sdefl_flush.perm, i64 0, i64 %indvars.iv.next.i163
+  %indvars.iv.next.i164 = add nsw i64 %indvars.iv.i159, -1
+  %318 = getelementptr inbounds nuw [19 x i8], ptr @sdefl_flush.perm, i64 0, i64 %indvars.iv.next.i164
   %319 = load i8, ptr %318, align 1
   %320 = zext i8 %319 to i64
   %321 = getelementptr inbounds nuw [19 x i8], ptr %7, i64 0, i64 %320
   %322 = load i8, ptr %321, align 1
-  %.not.i164 = icmp eq i8 %322, 0
-  br i1 %.not.i164, label %315, label %.split.loop.exit.i
+  %.not.i165 = icmp eq i8 %322, 0
+  br i1 %.not.i165, label %315, label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %317
-  %323 = trunc nuw nsw i64 %indvars.iv.i158 to i32
+  %323 = trunc nuw nsw i64 %indvars.iv.i159 to i32
   br label %.split.loop.exit292.i
 
 .split.loop.exit292.i:                            ; preds = %315, %.split.loop.exit.i
@@ -37067,11 +37067,11 @@ sdefl_blk_type.exit.i:                            ; preds = %.preheader.i124.i
   %381 = getelementptr inbounds i8, ptr %2, i64 %380
   %382 = zext nneg i32 %374 to i64
   %smax.i = call i32 @llvm.smax.i32(i32 %374, i32 1)
-  %wide.trip.count.i159 = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i160 = zext nneg i32 %smax.i to i64
   br label %383
 
 383:                                              ; preds = %sdefl_put.exit138.i, %.lr.ph.i
-  %.2202 = phi ptr [ %.0200, %.lr.ph.i ], [ %432, %sdefl_put.exit138.i ]
+  %.2203 = phi ptr [ %.0201, %.lr.ph.i ], [ %432, %sdefl_put.exit138.i ]
   %indvars.iv253.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next254.i, %sdefl_put.exit138.i ]
   %.0230.i = phi i32 [ %223, %.lr.ph.i ], [ %433, %sdefl_put.exit138.i ]
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
@@ -37091,7 +37091,7 @@ sdefl_blk_type.exit.i:                            ; preds = %.preheader.i124.i
 
 .lr.ph.i126.i:                                    ; preds = %383, %.lr.ph.i126.i
   %394 = phi i32 [ %397, %.lr.ph.i126.i ], [ %391, %383 ]
-  %.7 = phi ptr [ %400, %.lr.ph.i126.i ], [ %.2202, %383 ]
+  %.7 = phi ptr [ %400, %.lr.ph.i126.i ], [ %.2203, %383 ]
   %395 = trunc i32 %394 to i8
   store i8 %395, ptr %.7, align 1
   %396 = load i32, ptr %0, align 4
@@ -37106,7 +37106,7 @@ sdefl_blk_type.exit.i:                            ; preds = %.preheader.i124.i
 
 sdefl_put.exit.i:                                 ; preds = %.lr.ph.i126.i, %383
   %402 = phi i32 [ %391, %383 ], [ %397, %.lr.ph.i126.i ]
-  %.3203 = phi ptr [ %.2202, %383 ], [ %400, %.lr.ph.i126.i ]
+  %.3204 = phi ptr [ %.2203, %383 ], [ %400, %.lr.ph.i126.i ]
   %403 = phi i32 [ %392, %383 ], [ %399, %.lr.ph.i126.i ]
   %404 = add nsw i32 %403, 2
   store i32 %404, ptr %34, align 4
@@ -37115,7 +37115,7 @@ sdefl_put.exit.i:                                 ; preds = %.lr.ph.i126.i, %383
 
 .lr.ph.i130.i:                                    ; preds = %sdefl_put.exit.i, %.lr.ph.i130.i
   %406 = phi i32 [ %409, %.lr.ph.i130.i ], [ %402, %sdefl_put.exit.i ]
-  %.6 = phi ptr [ %412, %.lr.ph.i130.i ], [ %.3203, %sdefl_put.exit.i ]
+  %.6 = phi ptr [ %412, %.lr.ph.i130.i ], [ %.3204, %sdefl_put.exit.i ]
   %407 = trunc i32 %406 to i8
   store i8 %407, ptr %.6, align 1
   %408 = load i32, ptr %0, align 4
@@ -37130,7 +37130,7 @@ sdefl_put.exit.i:                                 ; preds = %.lr.ph.i126.i, %383
 
 sdefl_put.exit132.i:                              ; preds = %.lr.ph.i130.i, %sdefl_put.exit.i
   %414 = phi i32 [ %402, %sdefl_put.exit.i ], [ %409, %.lr.ph.i130.i ]
-  %.4 = phi ptr [ %.3203, %sdefl_put.exit.i ], [ %412, %.lr.ph.i130.i ]
+  %.4 = phi ptr [ %.3204, %sdefl_put.exit.i ], [ %412, %.lr.ph.i130.i ]
   %415 = phi i32 [ %404, %sdefl_put.exit.i ], [ %411, %.lr.ph.i130.i ]
   %.not123.i = icmp eq i32 %415, 0
   br i1 %.not123.i, label %sdefl_put.exit138.i, label %.lr.ph.preheader.i134.i
@@ -37168,8 +37168,8 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %428, ptr readonly align 1 %430, i64 %431, i1 false)
   %432 = getelementptr inbounds i8, ptr %428, i64 %431
   %433 = sub nsw i32 %.0230.i, %387
-  %exitcond.not.i160 = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count.i159
-  br i1 %exitcond.not.i160, label %sdefl_flush.exit, label %383
+  %exitcond.not.i161 = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count.i160
+  br i1 %exitcond.not.i161, label %sdefl_flush.exit, label %383
 
 434:                                              ; preds = %sdefl_blk_type.exit.i
   %435 = load i32, ptr %34, align 4
@@ -37184,7 +37184,7 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
 
 .lr.ph.i142.i:                                    ; preds = %434, %.lr.ph.i142.i
   %441 = phi i32 [ %444, %.lr.ph.i142.i ], [ %438, %434 ]
-  %.43 = phi ptr [ %447, %.lr.ph.i142.i ], [ %.0200, %434 ]
+  %.43 = phi ptr [ %447, %.lr.ph.i142.i ], [ %.0201, %434 ]
   %442 = trunc i32 %441 to i8
   store i8 %442, ptr %.43, align 1
   %443 = load i32, ptr %0, align 4
@@ -37198,7 +37198,7 @@ sdefl_put.exit138.i:                              ; preds = %.lr.ph.i136.i, %sde
   br i1 %448, label %.lr.ph.i142.i, label %sdefl_put.exit144.i
 
 sdefl_put.exit144.i:                              ; preds = %.lr.ph.i142.i, %434
-  %.8 = phi ptr [ %.0200, %434 ], [ %447, %.lr.ph.i142.i ]
+  %.8 = phi ptr [ %.0201, %434 ], [ %447, %.lr.ph.i142.i ]
   %449 = phi i32 [ %438, %434 ], [ %444, %.lr.ph.i142.i ]
   %450 = phi i32 [ %439, %434 ], [ %446, %.lr.ph.i142.i ]
   %451 = shl nuw nsw i32 2, %450
@@ -37597,8 +37597,8 @@ sdefl_put.exit204.i:                              ; preds = %sdefl_put.exit204.l
   %662 = trunc nuw nsw i64 %661 to i32
   %663 = xor i32 %662, 63
   %.0.i12.i.i.i = select i1 %.not.i11.i.i.i, i32 0, i32 %663
-  %.not.i.i.i162 = icmp eq i32 %.0.i12.i.i.i, 0
-  br i1 %.not.i.i.i162, label %sdefl_match_codes.exit.i.i, label %664
+  %.not.i.i.i163 = icmp eq i32 %.0.i12.i.i.i, 0
+  br i1 %.not.i.i.i163, label %sdefl_match_codes.exit.i.i, label %664
 
 664:                                              ; preds = %645
   %665 = shl nuw nsw i32 %.0.i12.i.i.i, 1
@@ -37781,14 +37781,14 @@ sdefl_match.exit.i:                               ; preds = %.lr.ph.i27.i.i, %sd
   br i1 %772, label %.lr.ph.i209.i, label %sdefl_flush.exit
 
 sdefl_flush.exit:                                 ; preds = %sdefl_put.exit138.i, %.lr.ph.i209.i, %.preheader218.i, %._crit_edge.i
-  %.44 = phi ptr [ %.15, %._crit_edge.i ], [ %.0200, %.preheader218.i ], [ %771, %.lr.ph.i209.i ], [ %432, %sdefl_put.exit138.i ]
+  %.44 = phi ptr [ %.15, %._crit_edge.i ], [ %.0201, %.preheader218.i ], [ %771, %.lr.ph.i209.i ], [ %432, %sdefl_put.exit138.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1280) %15, i8 0, i64 1280, i1 false)
   store i32 0, ptr %24, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %773 = icmp slt i32 %.189.lcssa378, %3
+  %773 = icmp slt i32 %.189.lcssa379, %3
   br i1 %773, label %36, label %774
 
 774:                                              ; preds = %sdefl_flush.exit
@@ -37798,12 +37798,12 @@ sdefl_flush.exit:                                 ; preds = %sdefl_put.exit138.i
 
 .lr.ph.preheader.i:                               ; preds = %774
   store i32 8, ptr %34, align 4
-  %.pre357 = load i32, ptr %0, align 4
-  br label %.lr.ph.i167
+  %.pre358 = load i32, ptr %0, align 4
+  br label %.lr.ph.i168
 
-.lr.ph.i167:                                      ; preds = %.lr.ph.i167, %.lr.ph.preheader.i
-  %776 = phi i32 [ %.pre357, %.lr.ph.preheader.i ], [ %779, %.lr.ph.i167 ]
-  %.45 = phi ptr [ %.44, %.lr.ph.preheader.i ], [ %782, %.lr.ph.i167 ]
+.lr.ph.i168:                                      ; preds = %.lr.ph.i168, %.lr.ph.preheader.i
+  %776 = phi i32 [ %.pre358, %.lr.ph.preheader.i ], [ %779, %.lr.ph.i168 ]
+  %.45 = phi ptr [ %.44, %.lr.ph.preheader.i ], [ %782, %.lr.ph.i168 ]
   %777 = trunc i32 %776 to i8
   store i8 %777, ptr %.45, align 1
   %778 = load i32, ptr %0, align 4
@@ -37814,11 +37814,11 @@ sdefl_flush.exit:                                 ; preds = %sdefl_put.exit138.i
   store i32 %781, ptr %34, align 4
   %782 = getelementptr inbounds nuw i8, ptr %.45, i64 1
   %783 = icmp sgt i32 %780, 15
-  br i1 %783, label %.lr.ph.i167, label %sdefl_put.exit
+  br i1 %783, label %.lr.ph.i168, label %sdefl_put.exit
 
-sdefl_put.exit:                                   ; preds = %.lr.ph.i167, %774
-  %.1201 = phi ptr [ %.44, %774 ], [ %782, %.lr.ph.i167 ]
-  %784 = ptrtoint ptr %.1201 to i64
+sdefl_put.exit:                                   ; preds = %.lr.ph.i168, %774
+  %.1202 = phi ptr [ %.44, %774 ], [ %782, %.lr.ph.i168 ]
+  %784 = ptrtoint ptr %.1202 to i64
   %785 = ptrtoint ptr %1 to i64
   %786 = sub i64 %784, %785
   %787 = trunc i64 %786 to i32
@@ -41878,37 +41878,37 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
   %.sroa.1715.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
   %.sroa.1816.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !41
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !37
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %.sroa.75.0.copyload, ptr %6, align 4, !alias.scope !41
+  store float %.sroa.75.0.copyload, ptr %6, align 4, !alias.scope !37
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %.sroa.119.0.copyload, ptr %7, align 4, !alias.scope !41
+  store float %.sroa.119.0.copyload, ptr %7, align 4, !alias.scope !37
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %.sroa.1513.0.copyload, ptr %8, align 4, !alias.scope !41
+  store float %.sroa.1513.0.copyload, ptr %8, align 4, !alias.scope !37
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float %.sroa.42.0.copyload, ptr %9, align 4, !alias.scope !41
+  store float %.sroa.42.0.copyload, ptr %9, align 4, !alias.scope !37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store float %.sroa.86.0.copyload, ptr %10, align 4, !alias.scope !41
+  store float %.sroa.86.0.copyload, ptr %10, align 4, !alias.scope !37
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store float %.sroa.1210.0.copyload, ptr %11, align 4, !alias.scope !41
+  store float %.sroa.1210.0.copyload, ptr %11, align 4, !alias.scope !37
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %.sroa.1614.0.copyload, ptr %12, align 4, !alias.scope !41
+  store float %.sroa.1614.0.copyload, ptr %12, align 4, !alias.scope !37
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store float %.sroa.53.0.copyload, ptr %13, align 4, !alias.scope !41
+  store float %.sroa.53.0.copyload, ptr %13, align 4, !alias.scope !37
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store float %.sroa.97.0.copyload, ptr %14, align 4, !alias.scope !41
+  store float %.sroa.97.0.copyload, ptr %14, align 4, !alias.scope !37
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store float %.sroa.1311.0.copyload, ptr %15, align 4, !alias.scope !41
+  store float %.sroa.1311.0.copyload, ptr %15, align 4, !alias.scope !37
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store float %.sroa.1715.0.copyload, ptr %16, align 4, !alias.scope !41
+  store float %.sroa.1715.0.copyload, ptr %16, align 4, !alias.scope !37
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %.sroa.64.0.copyload, ptr %17, align 4, !alias.scope !41
+  store float %.sroa.64.0.copyload, ptr %17, align 4, !alias.scope !37
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store float %.sroa.108.0.copyload, ptr %18, align 4, !alias.scope !41
+  store float %.sroa.108.0.copyload, ptr %18, align 4, !alias.scope !37
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store float %.sroa.1412.0.copyload, ptr %19, align 4, !alias.scope !41
+  store float %.sroa.1412.0.copyload, ptr %19, align 4, !alias.scope !37
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store float %.sroa.1816.0.copyload, ptr %20, align 4, !alias.scope !41
+  store float %.sroa.1816.0.copyload, ptr %20, align 4, !alias.scope !37
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   ret void
 }
@@ -42015,7 +42015,7 @@ define void @EndDrawing() local_unnamed_addr #28 {
 
 ._crit_edge.us.i:                                 ; preds = %42
   %.not.us.not.i = icmp sgt i64 %indvars.iv58.i, %35
-  br i1 %.not.us.not.i, label %.preheader.us.i, label %rlReadScreenPixels.exit, !llvm.loop !20
+  br i1 %.not.us.not.i, label %.preheader.us.i, label %rlReadScreenPixels.exit
 
 rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %14
   %56 = load i32, ptr @gifFrameCounter, align 4
@@ -43235,7 +43235,7 @@ define void @TakeScreenshot(ptr noundef %0) local_unnamed_addr #28 {
 
 ._crit_edge.us.i:                                 ; preds = %35
   %.not.us.not.i = icmp sgt i64 %indvars.iv58.i, %28
-  br i1 %.not.us.not.i, label %.preheader.us.i, label %rlReadScreenPixels.exit, !llvm.loop !20
+  br i1 %.not.us.not.i, label %.preheader.us.i, label %rlReadScreenPixels.exit
 
 rlReadScreenPixels.exit:                          ; preds = %._crit_edge.us.i, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -43350,37 +43350,37 @@ define void @BeginMode2D(ptr noundef readonly byval(%struct.Camera2D) align 8 ca
   %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 60
   %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
-  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !44
+  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !40
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !44
+  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !40
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !44
+  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !40
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !44
+  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !40
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !44
+  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !40
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !44
+  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !40
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !44
+  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !40
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !44
+  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !40
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !44
+  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !40
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !44
+  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !40
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !44
+  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !40
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !44
+  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !40
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !44
+  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !40
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !44
+  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !40
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !44
+  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !40
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !44
+  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !40
   call void @rlMultMatrixf(ptr noundef nonnull %3)
   ret void
 }
@@ -43396,8 +43396,8 @@ define void @GetCameraMatrix2D(ptr dead_on_unwind noalias writable writeonly sre
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load float, ptr %9, align 8
   %11 = fmul float %10, 0x3F91DF46A0000000
-  %12 = tail call float @sinf(float noundef %11) #60, !noalias !47
-  %13 = tail call float @cosf(float noundef %11) #60, !noalias !47
+  %12 = tail call float @sinf(float noundef %11) #60, !noalias !43
+  %13 = tail call float @cosf(float noundef %11) #60, !noalias !43
   %14 = fsub float 1.000000e+00, %13
   %15 = tail call float @llvm.fmuladd.f32(float %14, float 0.000000e+00, float %13)
   %16 = tail call float @llvm.fmuladd.f32(float %14, float 0.000000e+00, float %12)
@@ -43635,37 +43635,37 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
   %.sroa.1715.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
   %.sroa.1816.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !50
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !46
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %.sroa.75.0.copyload, ptr %9, align 4, !alias.scope !50
+  store float %.sroa.75.0.copyload, ptr %9, align 4, !alias.scope !46
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sroa.119.0.copyload, ptr %10, align 4, !alias.scope !50
+  store float %.sroa.119.0.copyload, ptr %10, align 4, !alias.scope !46
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %.sroa.1513.0.copyload, ptr %11, align 4, !alias.scope !50
+  store float %.sroa.1513.0.copyload, ptr %11, align 4, !alias.scope !46
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %.sroa.42.0.copyload, ptr %12, align 4, !alias.scope !50
+  store float %.sroa.42.0.copyload, ptr %12, align 4, !alias.scope !46
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float %.sroa.86.0.copyload, ptr %13, align 4, !alias.scope !50
+  store float %.sroa.86.0.copyload, ptr %13, align 4, !alias.scope !46
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %.sroa.1210.0.copyload, ptr %14, align 4, !alias.scope !50
+  store float %.sroa.1210.0.copyload, ptr %14, align 4, !alias.scope !46
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float %.sroa.1614.0.copyload, ptr %15, align 4, !alias.scope !50
+  store float %.sroa.1614.0.copyload, ptr %15, align 4, !alias.scope !46
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float %.sroa.53.0.copyload, ptr %16, align 4, !alias.scope !50
+  store float %.sroa.53.0.copyload, ptr %16, align 4, !alias.scope !46
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float %.sroa.97.0.copyload, ptr %17, align 4, !alias.scope !50
+  store float %.sroa.97.0.copyload, ptr %17, align 4, !alias.scope !46
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float %.sroa.1311.0.copyload, ptr %18, align 4, !alias.scope !50
+  store float %.sroa.1311.0.copyload, ptr %18, align 4, !alias.scope !46
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float %.sroa.1715.0.copyload, ptr %19, align 4, !alias.scope !50
+  store float %.sroa.1715.0.copyload, ptr %19, align 4, !alias.scope !46
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float %.sroa.64.0.copyload, ptr %20, align 4, !alias.scope !50
+  store float %.sroa.64.0.copyload, ptr %20, align 4, !alias.scope !46
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store float %.sroa.108.0.copyload, ptr %21, align 4, !alias.scope !50
+  store float %.sroa.108.0.copyload, ptr %21, align 4, !alias.scope !46
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store float %.sroa.1412.0.copyload, ptr %22, align 4, !alias.scope !50
+  store float %.sroa.1412.0.copyload, ptr %22, align 4, !alias.scope !46
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store float %.sroa.1816.0.copyload, ptr %23, align 4, !alias.scope !50
+  store float %.sroa.1816.0.copyload, ptr %23, align 4, !alias.scope !46
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   br label %24
 
@@ -43846,37 +43846,37 @@ rlPushMatrix.exit:                                ; preds = %1, %.._crit_edge.i_
   %100 = tail call float @llvm.fmuladd.f32(float %61, float %.sroa.069.0.vec.extract.i, float %99)
   %101 = tail call float @llvm.fmuladd.f32(float %63, float %.sroa.24.0.copyload, float %100)
   %102 = fneg float %101
-  store float %79, ptr %2, align 4, !alias.scope !53
+  store float %79, ptr %2, align 4, !alias.scope !49
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %84, ptr %103, align 4, !alias.scope !53
+  store float %84, ptr %103, align 4, !alias.scope !49
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %61, ptr %104, align 4, !alias.scope !53
+  store float %61, ptr %104, align 4, !alias.scope !49
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float 0.000000e+00, ptr %105, align 4, !alias.scope !53
+  store float 0.000000e+00, ptr %105, align 4, !alias.scope !49
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %80, ptr %106, align 4, !alias.scope !53
+  store float %80, ptr %106, align 4, !alias.scope !49
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float %87, ptr %107, align 4, !alias.scope !53
+  store float %87, ptr %107, align 4, !alias.scope !49
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %62, ptr %108, align 4, !alias.scope !53
+  store float %62, ptr %108, align 4, !alias.scope !49
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float 0.000000e+00, ptr %109, align 4, !alias.scope !53
+  store float 0.000000e+00, ptr %109, align 4, !alias.scope !49
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float %81, ptr %110, align 4, !alias.scope !53
+  store float %81, ptr %110, align 4, !alias.scope !49
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float %90, ptr %111, align 4, !alias.scope !53
+  store float %90, ptr %111, align 4, !alias.scope !49
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float %63, ptr %112, align 4, !alias.scope !53
+  store float %63, ptr %112, align 4, !alias.scope !49
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float 0.000000e+00, ptr %113, align 4, !alias.scope !53
+  store float 0.000000e+00, ptr %113, align 4, !alias.scope !49
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float %94, ptr %114, align 4, !alias.scope !53
+  store float %94, ptr %114, align 4, !alias.scope !49
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store float %98, ptr %115, align 4, !alias.scope !53
+  store float %98, ptr %115, align 4, !alias.scope !49
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store float %102, ptr %116, align 4, !alias.scope !53
+  store float %102, ptr %116, align 4, !alias.scope !49
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store float 1.000000e+00, ptr %117, align 4, !alias.scope !53
+  store float 1.000000e+00, ptr %117, align 4, !alias.scope !49
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   %118 = load ptr, ptr @glad_glEnable, align 8
   tail call void %118(i32 noundef 2929) #60
@@ -43937,37 +43937,37 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
   %.sroa.1715.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
   %.sroa.1816.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
-  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !56
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !52
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !56
+  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !52
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !56
+  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !52
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !56
+  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !52
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !56
+  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !52
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !56
+  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !52
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !56
+  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !52
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !56
+  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !52
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store float %.sroa.53.0.copyload, ptr %21, align 4, !alias.scope !56
+  store float %.sroa.53.0.copyload, ptr %21, align 4, !alias.scope !52
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store float %.sroa.97.0.copyload, ptr %22, align 4, !alias.scope !56
+  store float %.sroa.97.0.copyload, ptr %22, align 4, !alias.scope !52
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store float %.sroa.1311.0.copyload, ptr %23, align 4, !alias.scope !56
+  store float %.sroa.1311.0.copyload, ptr %23, align 4, !alias.scope !52
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store float %.sroa.1715.0.copyload, ptr %24, align 4, !alias.scope !56
+  store float %.sroa.1715.0.copyload, ptr %24, align 4, !alias.scope !52
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store float %.sroa.64.0.copyload, ptr %25, align 4, !alias.scope !56
+  store float %.sroa.64.0.copyload, ptr %25, align 4, !alias.scope !52
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store float %.sroa.108.0.copyload, ptr %26, align 4, !alias.scope !56
+  store float %.sroa.108.0.copyload, ptr %26, align 4, !alias.scope !52
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store float %.sroa.1412.0.copyload, ptr %27, align 4, !alias.scope !56
+  store float %.sroa.1412.0.copyload, ptr %27, align 4, !alias.scope !52
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store float %.sroa.1816.0.copyload, ptr %28, align 4, !alias.scope !56
+  store float %.sroa.1816.0.copyload, ptr %28, align 4, !alias.scope !52
   call void @rlMultMatrixf(ptr noundef nonnull %2)
   br label %29
 
@@ -44073,37 +44073,37 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 152), align 8
   %.sroa.1715.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 156), align 4
   %.sroa.1816.0.copyload = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 160), align 8
-  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !59
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !55
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %.sroa.75.0.copyload, ptr %15, align 4, !alias.scope !59
+  store float %.sroa.75.0.copyload, ptr %15, align 4, !alias.scope !55
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %.sroa.119.0.copyload, ptr %16, align 4, !alias.scope !59
+  store float %.sroa.119.0.copyload, ptr %16, align 4, !alias.scope !55
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %.sroa.1513.0.copyload, ptr %17, align 4, !alias.scope !59
+  store float %.sroa.1513.0.copyload, ptr %17, align 4, !alias.scope !55
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float %.sroa.42.0.copyload, ptr %18, align 4, !alias.scope !59
+  store float %.sroa.42.0.copyload, ptr %18, align 4, !alias.scope !55
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store float %.sroa.86.0.copyload, ptr %19, align 4, !alias.scope !59
+  store float %.sroa.86.0.copyload, ptr %19, align 4, !alias.scope !55
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store float %.sroa.1210.0.copyload, ptr %20, align 4, !alias.scope !59
+  store float %.sroa.1210.0.copyload, ptr %20, align 4, !alias.scope !55
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %.sroa.1614.0.copyload, ptr %21, align 4, !alias.scope !59
+  store float %.sroa.1614.0.copyload, ptr %21, align 4, !alias.scope !55
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store float %.sroa.53.0.copyload, ptr %22, align 4, !alias.scope !59
+  store float %.sroa.53.0.copyload, ptr %22, align 4, !alias.scope !55
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store float %.sroa.97.0.copyload, ptr %23, align 4, !alias.scope !59
+  store float %.sroa.97.0.copyload, ptr %23, align 4, !alias.scope !55
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store float %.sroa.1311.0.copyload, ptr %24, align 4, !alias.scope !59
+  store float %.sroa.1311.0.copyload, ptr %24, align 4, !alias.scope !55
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store float %.sroa.1715.0.copyload, ptr %25, align 4, !alias.scope !59
+  store float %.sroa.1715.0.copyload, ptr %25, align 4, !alias.scope !55
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %.sroa.64.0.copyload, ptr %26, align 4, !alias.scope !59
+  store float %.sroa.64.0.copyload, ptr %26, align 4, !alias.scope !55
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store float %.sroa.108.0.copyload, ptr %27, align 4, !alias.scope !59
+  store float %.sroa.108.0.copyload, ptr %27, align 4, !alias.scope !55
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store float %.sroa.1412.0.copyload, ptr %28, align 4, !alias.scope !59
+  store float %.sroa.1412.0.copyload, ptr %28, align 4, !alias.scope !55
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store float %.sroa.1816.0.copyload, ptr %29, align 4, !alias.scope !59
+  store float %.sroa.1816.0.copyload, ptr %29, align 4, !alias.scope !55
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 68), align 4
   store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 60), align 4
@@ -44339,7 +44339,7 @@ define void @LoadVrStereoConfig(ptr dead_on_unwind noalias writable writeonly sr
   %62 = load double, ptr @rlCullDistanceNear, align 8
   %63 = load double, ptr @rlCullDistanceFar, align 8
   %64 = fmul double %60, 5.000000e-01
-  %65 = tail call double @tan(double noundef %64) #60, !noalias !62
+  %65 = tail call double @tan(double noundef %64) #60, !noalias !58
   %66 = fmul double %62, %65
   %67 = fmul double %66, %61
   %68 = fadd double %67, %67
@@ -44952,59 +44952,59 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   %54 = fneg float %45
   %55 = fmul float %28, %54
   %56 = tail call float @llvm.fmuladd.f32(float %27, float %46, float %55)
-  store float %45, ptr %6, align 8, !alias.scope !65
+  store float %45, ptr %6, align 8, !alias.scope !61
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store float %50, ptr %57, align 8, !alias.scope !65
+  store float %50, ptr %57, align 8, !alias.scope !61
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store float %27, ptr %58, align 8, !alias.scope !65
+  store float %27, ptr %58, align 8, !alias.scope !61
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store float 0.000000e+00, ptr %59, align 8, !alias.scope !65
+  store float 0.000000e+00, ptr %59, align 8, !alias.scope !61
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %46, ptr %60, align 4, !alias.scope !65
+  store float %46, ptr %60, align 4, !alias.scope !61
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store float %53, ptr %61, align 4, !alias.scope !65
+  store float %53, ptr %61, align 4, !alias.scope !61
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store float %28, ptr %62, align 4, !alias.scope !65
+  store float %28, ptr %62, align 4, !alias.scope !61
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store float 0.000000e+00, ptr %63, align 4, !alias.scope !65
+  store float 0.000000e+00, ptr %63, align 4, !alias.scope !61
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store float %47, ptr %64, align 8, !alias.scope !65
+  store float %47, ptr %64, align 8, !alias.scope !61
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store float %56, ptr %65, align 8, !alias.scope !65
+  store float %56, ptr %65, align 8, !alias.scope !61
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store float %29, ptr %66, align 8, !alias.scope !65
+  store float %29, ptr %66, align 8, !alias.scope !61
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store float 0.000000e+00, ptr %67, align 8, !alias.scope !65
+  store float 0.000000e+00, ptr %67, align 8, !alias.scope !61
   %68 = fmul float %.sroa.069.4.vec.extract.i, %46
   %69 = tail call float @llvm.fmuladd.f32(float %45, float %.sroa.069.0.vec.extract.i, float %68)
   %70 = tail call float @llvm.fmuladd.f32(float %47, float %.sroa.256.0.copyload, float %69)
   %71 = fneg float %70
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store float %71, ptr %72, align 4, !alias.scope !65
+  store float %71, ptr %72, align 4, !alias.scope !61
   %73 = fmul float %.sroa.069.4.vec.extract.i, %53
   %74 = tail call float @llvm.fmuladd.f32(float %50, float %.sroa.069.0.vec.extract.i, float %73)
   %75 = tail call float @llvm.fmuladd.f32(float %56, float %.sroa.256.0.copyload, float %74)
   %76 = fneg float %75
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store float %76, ptr %77, align 4, !alias.scope !65
+  store float %76, ptr %77, align 4, !alias.scope !61
   %78 = fmul float %.sroa.069.4.vec.extract.i, %28
   %79 = tail call float @llvm.fmuladd.f32(float %27, float %.sroa.069.0.vec.extract.i, float %78)
   %80 = tail call float @llvm.fmuladd.f32(float %29, float %.sroa.256.0.copyload, float %79)
   %81 = fneg float %80
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store float %81, ptr %82, align 4, !alias.scope !65
+  store float %81, ptr %82, align 4, !alias.scope !61
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store float 1.000000e+00, ptr %83, align 4, !alias.scope !65
+  store float 1.000000e+00, ptr %83, align 4, !alias.scope !61
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %84, i8 0, i64 56, i1 false), !alias.scope !68
-  store float 1.000000e+00, ptr %7, align 8, !alias.scope !68
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %84, i8 0, i64 56, i1 false), !alias.scope !64
+  store float 1.000000e+00, ptr %7, align 8, !alias.scope !64
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store float 1.000000e+00, ptr %85, align 4, !alias.scope !68
+  store float 1.000000e+00, ptr %85, align 4, !alias.scope !64
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store float 1.000000e+00, ptr %86, align 8, !alias.scope !68
+  store float 1.000000e+00, ptr %86, align 8, !alias.scope !64
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store float 1.000000e+00, ptr %87, align 4, !alias.scope !68
+  store float 1.000000e+00, ptr %87, align 4, !alias.scope !64
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %89 = load i32, ptr %88, align 8
   switch i32 %89, label %150 [
@@ -45023,7 +45023,7 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   %98 = load double, ptr @rlCullDistanceNear, align 8
   %99 = load double, ptr @rlCullDistanceFar, align 8
   %100 = fmul double %94, 5.000000e-01
-  %101 = tail call double @tan(double noundef %100) #60, !noalias !71
+  %101 = tail call double @tan(double noundef %100) #60, !noalias !67
   %102 = fmul double %98, %101
   %103 = fmul double %97, %102
   %104 = fadd double %103, %103
@@ -45236,49 +45236,49 @@ define void @GetCameraMatrix(ptr dead_on_unwind noalias writable writeonly sret(
   %41 = fneg float %32
   %42 = fmul float %15, %41
   %43 = tail call float @llvm.fmuladd.f32(float %14, float %33, float %42)
-  store float %32, ptr %0, align 4, !alias.scope !74
+  store float %32, ptr %0, align 4, !alias.scope !70
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %37, ptr %44, align 4, !alias.scope !74
+  store float %37, ptr %44, align 4, !alias.scope !70
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %14, ptr %45, align 4, !alias.scope !74
+  store float %14, ptr %45, align 4, !alias.scope !70
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float 0.000000e+00, ptr %46, align 4, !alias.scope !74
+  store float 0.000000e+00, ptr %46, align 4, !alias.scope !70
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %33, ptr %47, align 4, !alias.scope !74
+  store float %33, ptr %47, align 4, !alias.scope !70
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %40, ptr %48, align 4, !alias.scope !74
+  store float %40, ptr %48, align 4, !alias.scope !70
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %15, ptr %49, align 4, !alias.scope !74
+  store float %15, ptr %49, align 4, !alias.scope !70
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float 0.000000e+00, ptr %50, align 4, !alias.scope !74
+  store float 0.000000e+00, ptr %50, align 4, !alias.scope !70
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %34, ptr %51, align 4, !alias.scope !74
+  store float %34, ptr %51, align 4, !alias.scope !70
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %43, ptr %52, align 4, !alias.scope !74
+  store float %43, ptr %52, align 4, !alias.scope !70
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %16, ptr %53, align 4, !alias.scope !74
+  store float %16, ptr %53, align 4, !alias.scope !70
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float 0.000000e+00, ptr %54, align 4, !alias.scope !74
+  store float 0.000000e+00, ptr %54, align 4, !alias.scope !70
   %55 = fmul float %.sroa.069.4.vec.extract.i, %33
   %56 = tail call float @llvm.fmuladd.f32(float %32, float %.sroa.069.0.vec.extract.i, float %55)
   %57 = tail call float @llvm.fmuladd.f32(float %34, float %.sroa.24.0.copyload, float %56)
   %58 = fneg float %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %58, ptr %59, align 4, !alias.scope !74
+  store float %58, ptr %59, align 4, !alias.scope !70
   %60 = fmul float %.sroa.069.4.vec.extract.i, %40
   %61 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.069.0.vec.extract.i, float %60)
   %62 = tail call float @llvm.fmuladd.f32(float %43, float %.sroa.24.0.copyload, float %61)
   %63 = fneg float %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %63, ptr %64, align 4, !alias.scope !74
+  store float %63, ptr %64, align 4, !alias.scope !70
   %65 = fmul float %.sroa.069.4.vec.extract.i, %15
   %66 = tail call float @llvm.fmuladd.f32(float %14, float %.sroa.069.0.vec.extract.i, float %65)
   %67 = tail call float @llvm.fmuladd.f32(float %16, float %.sroa.24.0.copyload, float %66)
   %68 = fneg float %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %68, ptr %69, align 4, !alias.scope !74
+  store float %68, ptr %69, align 4, !alias.scope !70
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %70, align 4, !alias.scope !74
+  store float 1.000000e+00, ptr %70, align 4, !alias.scope !70
   ret void
 }
 
@@ -45309,7 +45309,7 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef rea
   %15 = fdiv double %13, %14
   %16 = load double, ptr @rlCullDistanceNear, align 8
   %17 = fmul double %12, 5.000000e-01
-  %18 = tail call double @tan(double noundef %17) #60, !noalias !77
+  %18 = tail call double @tan(double noundef %17) #60, !noalias !73
   %19 = fmul double %16, %18
   %20 = fmul double %15, %19
   %21 = fadd double %20, %20
@@ -46323,7 +46323,7 @@ sub_129.us:                                       ; preds = %.tail.us
 30:                                               ; preds = %.tail27.us.thread, %.tail27.us, %.tail.us
   %31 = tail call ptr @readdir(ptr noundef nonnull %5) #60
   %.not22.us = icmp eq ptr %31, null
-  br i1 %.not22.us, label %._crit_edge, label %sub_0.us, !llvm.loop !80
+  br i1 %.not22.us, label %._crit_edge, label %sub_0.us
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %60
   %32 = phi ptr [ %61, %60 ], [ %6, %sub_0.lr.ph ]
@@ -49440,64 +49440,59 @@ attributes #64 = { nounwind allocsize(1) }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"rlMatrixToFloatV: argument 0"}
 !19 = distinct !{!19, !"rlMatrixToFloatV"}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"MatrixLookAt: argument 0"}
-!24 = distinct !{!24, !"MatrixLookAt"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"MatrixPerspective: argument 0"}
-!27 = distinct !{!27, !"MatrixPerspective"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"MatrixOrtho: argument 0"}
-!30 = distinct !{!30, !"MatrixOrtho"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"MatrixIdentity: argument 0"}
-!33 = distinct !{!33, !"MatrixIdentity"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"MatrixRotate: argument 0"}
-!36 = distinct !{!36, !"MatrixRotate"}
-!37 = distinct !{!37, !21}
-!38 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!40 = distinct !{!40, !21}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"MatrixToFloatV: argument 0"}
-!43 = distinct !{!43, !"MatrixToFloatV"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"MatrixToFloatV: argument 0"}
-!46 = distinct !{!46, !"MatrixToFloatV"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"MatrixRotate: argument 0"}
-!49 = distinct !{!49, !"MatrixRotate"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"MatrixToFloatV: argument 0"}
-!52 = distinct !{!52, !"MatrixToFloatV"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"MatrixToFloatV: argument 0"}
-!55 = distinct !{!55, !"MatrixToFloatV"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"MatrixToFloatV: argument 0"}
-!58 = distinct !{!58, !"MatrixToFloatV"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"MatrixToFloatV: argument 0"}
-!61 = distinct !{!61, !"MatrixToFloatV"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"MatrixPerspective: argument 0"}
-!64 = distinct !{!64, !"MatrixPerspective"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"MatrixLookAt: argument 0"}
-!67 = distinct !{!67, !"MatrixLookAt"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"MatrixIdentity: argument 0"}
-!70 = distinct !{!70, !"MatrixIdentity"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"MatrixPerspective: argument 0"}
-!73 = distinct !{!73, !"MatrixPerspective"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"MatrixLookAt: argument 0"}
-!76 = distinct !{!76, !"MatrixLookAt"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"MatrixPerspective: argument 0"}
-!79 = distinct !{!79, !"MatrixPerspective"}
-!80 = distinct !{!80, !21}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"MatrixLookAt: argument 0"}
+!22 = distinct !{!22, !"MatrixLookAt"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"MatrixPerspective: argument 0"}
+!25 = distinct !{!25, !"MatrixPerspective"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"MatrixOrtho: argument 0"}
+!28 = distinct !{!28, !"MatrixOrtho"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"MatrixIdentity: argument 0"}
+!31 = distinct !{!31, !"MatrixIdentity"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"MatrixRotate: argument 0"}
+!34 = distinct !{!34, !"MatrixRotate"}
+!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"MatrixToFloatV: argument 0"}
+!39 = distinct !{!39, !"MatrixToFloatV"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"MatrixToFloatV: argument 0"}
+!42 = distinct !{!42, !"MatrixToFloatV"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"MatrixRotate: argument 0"}
+!45 = distinct !{!45, !"MatrixRotate"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"MatrixToFloatV: argument 0"}
+!48 = distinct !{!48, !"MatrixToFloatV"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"MatrixToFloatV: argument 0"}
+!51 = distinct !{!51, !"MatrixToFloatV"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"MatrixToFloatV: argument 0"}
+!54 = distinct !{!54, !"MatrixToFloatV"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"MatrixToFloatV: argument 0"}
+!57 = distinct !{!57, !"MatrixToFloatV"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"MatrixPerspective: argument 0"}
+!60 = distinct !{!60, !"MatrixPerspective"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"MatrixLookAt: argument 0"}
+!63 = distinct !{!63, !"MatrixLookAt"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"MatrixIdentity: argument 0"}
+!66 = distinct !{!66, !"MatrixIdentity"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"MatrixPerspective: argument 0"}
+!69 = distinct !{!69, !"MatrixPerspective"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"MatrixLookAt: argument 0"}
+!72 = distinct !{!72, !"MatrixLookAt"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"MatrixPerspective: argument 0"}
+!75 = distinct !{!75, !"MatrixPerspective"}

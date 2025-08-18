@@ -212,7 +212,7 @@ pkcs12_remove_bag.exit129:                        ; preds = %86, %83, %80
   %87 = add nuw nsw i32 %.084146, 1
   %88 = call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  br i1 %89, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %pkcs12_remove_bag.exit129, %pkcs12_remove_bag.exit129.us, %pkcs12_remove_bag.exit.thread, %pkcs12_remove_bag.exit
   %.087150 = phi ptr [ %.1, %pkcs12_remove_bag.exit.thread ], [ %.087, %pkcs12_remove_bag.exit ], [ %.087151154, %pkcs12_remove_bag.exit129.us ], [ %.087, %pkcs12_remove_bag.exit129 ]
@@ -836,7 +836,5 @@ attributes #3 = { nounwind }
 !9 = !{!"p1 _ZTS23stack_st_PKCS12_SAFEBAG", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !13}

@@ -614,7 +614,7 @@ isNewline.exit.thread:                            ; preds = %21, %21
 24:                                               ; preds = %.thread, %21, %isNewline.exit.thread
   %25 = load i32, ptr %2, align 4, !tbaa !4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.split, label %.critedge, !llvm.loop !18
+  br i1 %26, label %.split, label %.critedge, !llvm.loop !16
 
 .split23.us:                                      ; preds = %21, %.split.us
   store i32 3, ptr %2, align 4, !tbaa !4
@@ -660,6 +660,4 @@ attributes #5 = { nounwind }
 !13 = !{!"short", !6, i64 0}
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !15}
+!16 = distinct !{!16, !15}

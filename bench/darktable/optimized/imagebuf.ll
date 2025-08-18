@@ -524,70 +524,84 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   br i1 %59, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %57
-  %60 = icmp sgt i32 %9, 0
+  %60 = icmp slt i32 %9, 1
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.not100 = icmp eq i64 %2, 0
-  br i1 %60, label %.preheader.us.preheader, label %.loopexit
+  %or.cond = or i1 %60, %.not100
+  br i1 %or.cond, label %.loopexit, label %.preheader.us.us.preheader
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+.preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %62 = shl i64 %2, 2
-  %63 = mul i32 %7, %28
-  %64 = add i32 %29, %63
-  %65 = sub i32 %64, %30
-  %wide.trip.count = zext nneg i32 %9 to i64
-  br label %.preheader.us
+  %63 = zext nneg i32 %9 to i64
+  %64 = mul i64 %2, %63
+  %65 = shl i64 %64, 2
+  %66 = mul i32 %7, %28
+  %67 = add i32 %29, %66
+  %68 = sub i32 %67, %30
+  %69 = sext i32 %28 to i64
+  %wide.trip.count123 = zext nneg i32 %58 to i64
+  br label %.preheader.us.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge88.us
-  %.07293.us = phi i32 [ %71, %._crit_edge88.us ], [ 0, %.preheader.us.preheader ]
-  %66 = mul i32 %9, %.07293.us
-  %67 = mul i32 %7, %.07293.us
-  %68 = add i32 %65, %67
-  %69 = add nsw i32 %.07293.us, %28
-  %70 = icmp sgt i32 %69, -1
-  br i1 %.not100, label %._crit_edge88.us, label %.lr.ph87.split.us.us
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge88.split.us.us.us
+  %indvars.iv120 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next121, %._crit_edge88.split.us.us.us ]
+  %70 = trunc nuw nsw i64 %indvars.iv120 to i32
+  %71 = mul i32 %9, %70
+  %72 = mul i32 %7, %70
+  %73 = add i32 %68, %72
+  %74 = zext i32 %71 to i64
+  %75 = mul i64 %62, %74
+  %scevgep112 = getelementptr i8, ptr %0, i64 %75
+  %76 = add nsw i64 %indvars.iv120, %69
+  %77 = icmp sgt i64 %76, -1
+  br i1 %77, label %.lr.ph87.split.us.us.us.split.us, label %._crit_edge88.split.us.us.us.sink.split
 
-._crit_edge88.us:                                 ; preds = %._crit_edge.us.us, %.preheader.us
-  %71 = add nuw nsw i32 %.07293.us, 1
-  %exitcond112.not = icmp eq i32 %71, %58
-  br i1 %exitcond112.not, label %.loopexit, label %.preheader.us, !llvm.loop !32
+.lr.ph87.split.us.us.us.split.us:                 ; preds = %.preheader.us.us
+  %78 = load i32, ptr %61, align 4, !tbaa !20
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %76, %79
+  %.fr = freeze i1 %80
+  br i1 %.fr, label %.lr.ph85.us.us.us.us, label %._crit_edge88.split.us.us.us.sink.split
 
-.lr.ph87.split.us.us:                             ; preds = %.preheader.us, %._crit_edge.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us ], [ 0, %.preheader.us ]
-  %indvars110 = trunc i64 %indvars.iv to i32
-  %72 = add i32 %66, %indvars110
-  %73 = zext i32 %72 to i64
-  %74 = mul i64 %62, %73
-  %scevgep107 = getelementptr i8, ptr %0, i64 %74
-  %75 = add i32 %68, %indvars110
-  %76 = sext i32 %75 to i64
-  %77 = mul i64 %62, %76
-  %scevgep108 = getelementptr i8, ptr %1, i64 %77
-  br i1 %70, label %.lr.ph85.us.us, label %.lr.ph85.split.us91.us.preheader
+.lr.ph85.us.us.us.us:                             ; preds = %.lr.ph87.split.us.us.us.split.us, %._crit_edge.us.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us.us.us ], [ 0, %.lr.ph87.split.us.us.us.split.us ]
+  %indvars118 = trunc i64 %indvars.iv to i32
+  %81 = add i32 %71, %indvars118
+  %82 = zext i32 %81 to i64
+  %83 = mul i64 %62, %82
+  %scevgep115 = getelementptr i8, ptr %0, i64 %83
+  %84 = add nsw i32 %31, %indvars118
+  %85 = icmp sgt i32 %84, -1
+  %86 = icmp slt i32 %84, %7
+  %87 = and i1 %85, %86
+  br i1 %87, label %.lr.ph85.split.us.us.us.us.us.preheader, label %.lr.ph85.split.us91.us.us.us.preheader
 
-.lr.ph85.us.us:                                   ; preds = %.lr.ph87.split.us.us
-  %78 = add nsw i32 %31, %indvars110
-  %79 = load i32, ptr %61, align 4, !tbaa !20
-  %80 = icmp slt i32 %69, %79
-  %81 = icmp sgt i32 %78, -1
-  %82 = icmp slt i32 %78, %7
-  %83 = and i1 %81, %82
-  %spec.select.us.us = select i1 %80, i1 %83, i1 false
-  br i1 %spec.select.us.us, label %.lr.ph85.split.us.us.us.preheader, label %.lr.ph85.split.us91.us.preheader
+.lr.ph85.split.us91.us.us.us.preheader:           ; preds = %.lr.ph85.us.us.us.us
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep115, i8 0, i64 %62, i1 false), !tbaa !32
+  br label %._crit_edge.us.us.us.us
 
-.lr.ph85.split.us91.us.preheader:                 ; preds = %.lr.ph87.split.us.us, %.lr.ph85.us.us
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep107, i8 0, i64 %62, i1 false), !tbaa !34
-  br label %._crit_edge.us.us
+.lr.ph85.split.us.us.us.us.us.preheader:          ; preds = %.lr.ph85.us.us.us.us
+  %88 = add i32 %73, %indvars118
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 %62, %89
+  %scevgep116 = getelementptr i8, ptr %1, i64 %90
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep115, ptr align 4 %scevgep116, i64 %62, i1 false), !tbaa !32
+  br label %._crit_edge.us.us.us.us
 
-.lr.ph85.split.us.us.us.preheader:                ; preds = %.lr.ph85.us.us
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep107, ptr align 4 %scevgep108, i64 %62, i1 false), !tbaa !34
-  br label %._crit_edge.us.us
-
-._crit_edge.us.us:                                ; preds = %.lr.ph85.split.us91.us.preheader, %.lr.ph85.split.us.us.us.preheader
+._crit_edge.us.us.us.us:                          ; preds = %.lr.ph85.split.us91.us.us.us.preheader, %.lr.ph85.split.us.us.us.us.us.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond111.not, label %._crit_edge88.us, label %.lr.ph87.split.us.us, !llvm.loop !35
+  %exitcond119.not = icmp eq i64 %indvars.iv.next, %63
+  br i1 %exitcond119.not, label %._crit_edge88.split.us.us.us, label %.lr.ph85.us.us.us.us
 
-.loopexit:                                        ; preds = %48, %._crit_edge88.us, %.preheader.lr.ph, %39, %57, %17
+._crit_edge88.split.us.us.us.sink.split:          ; preds = %.lr.ph87.split.us.us.us.split.us, %.preheader.us.us
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep112, i8 0, i64 %65, i1 false), !tbaa !32
+  br label %._crit_edge88.split.us.us.us
+
+._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us.us, %._crit_edge88.split.us.us.us.sink.split
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
+  br i1 %exitcond124.not, label %.loopexit, label %.preheader.us.us
+
+.loopexit:                                        ; preds = %48, %._crit_edge88.split.us.us.us, %.preheader.lr.ph, %39, %57, %17
   ret void
 }
 
@@ -604,10 +618,10 @@ define void @dt_iop_image_scaled_copy(ptr noalias noundef writeonly captures(non
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.010 = phi i64 [ %13, %.lr.ph ], [ 0, %6 ]
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %.010
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = fmul reassoc nsz arcp contract afn float %10, %2
   %12 = getelementptr inbounds nuw float, ptr %0, i64 %.010
-  store float %11, ptr %12, align 4, !tbaa !34
+  store float %11, ptr %12, align 4, !tbaa !32
   %13 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %13, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -632,7 +646,7 @@ define void @dt_iop_image_fill(ptr noundef writeonly captures(none) %0, float no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.012 = phi i64 [ %12, %.lr.ph ], [ 0, %.preheader ]
   %11 = getelementptr inbounds nuw float, ptr %0, i64 %.012
-  store float %1, ptr %11, align 4, !tbaa !34
+  store float %1, ptr %11, align 4, !tbaa !32
   %12 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %12, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
@@ -654,9 +668,9 @@ define void @dt_iop_image_add_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fadd reassoc nsz arcp contract afn float %9, %1
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !32
   %11 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -675,11 +689,11 @@ define void @dt_iop_image_add_image(ptr noundef captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
-  %11 = load float, ptr %10, align 4, !tbaa !34
+  %11 = load float, ptr %10, align 4, !tbaa !32
   %12 = fadd reassoc nsz arcp contract afn float %11, %9
-  store float %12, ptr %10, align 4, !tbaa !34
+  store float %12, ptr %10, align 4, !tbaa !32
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -698,11 +712,11 @@ define void @dt_iop_image_sub_image(ptr noundef captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.09 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %1, i64 %.09
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.09
-  %11 = load float, ptr %10, align 4, !tbaa !34
+  %11 = load float, ptr %10, align 4, !tbaa !32
   %12 = fsub reassoc nsz arcp contract afn float %11, %9
-  store float %12, ptr %10, align 4, !tbaa !34
+  store float %12, ptr %10, align 4, !tbaa !32
   %13 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %13, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -721,9 +735,9 @@ define void @dt_iop_image_invert(ptr noundef captures(none) %0, float noundef %1
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.010 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.010
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fsub reassoc nsz arcp contract afn float %1, %9
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !32
   %11 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %11, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -742,9 +756,9 @@ define void @dt_iop_image_mul_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %9 = load float, ptr %8, align 4, !tbaa !34
+  %9 = load float, ptr %8, align 4, !tbaa !32
   %10 = fmul reassoc nsz arcp contract afn float %9, %1
-  store float %10, ptr %8, align 4, !tbaa !34
+  store float %10, ptr %8, align 4, !tbaa !32
   %11 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -767,9 +781,9 @@ define void @dt_iop_image_div_const(ptr noundef captures(none) %0, float noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.08
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = fmul reassoc nsz arcp contract afn float %10, %8
-  store float %11, ptr %9, align 4, !tbaa !34
+  store float %11, ptr %9, align 4, !tbaa !32
   %12 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %12, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -788,13 +802,13 @@ define void @dt_iop_image_linear_blend(ptr noalias noundef captures(none) %0, fl
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.014 = phi i64 [ %16, %.lr.ph ], [ 0, %6 ]
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.014
-  %10 = load float, ptr %9, align 4, !tbaa !34
+  %10 = load float, ptr %9, align 4, !tbaa !32
   %11 = getelementptr inbounds nuw float, ptr %2, i64 %.014
-  %12 = load float, ptr %11, align 4, !tbaa !34
+  %12 = load float, ptr %11, align 4, !tbaa !32
   %13 = fsub reassoc nsz arcp contract afn float %10, %12
   %14 = fmul reassoc nsz arcp contract afn float %13, %1
   %15 = fadd reassoc nsz arcp contract afn float %14, %12
-  store float %15, ptr %9, align 4, !tbaa !34
+  store float %15, ptr %9, align 4, !tbaa !32
   %16 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %16, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -878,7 +892,4 @@ attributes #14 = { nounwind }
 !29 = distinct !{!29, !28, !"dt_iop_image_copy_by_size: argument 1"}
 !30 = !{!18, !7, i64 4}
 !31 = !{!18, !7, i64 0}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = !{!19, !19, i64 0}
-!35 = distinct !{!35, !33}
+!32 = !{!19, !19, i64 0}

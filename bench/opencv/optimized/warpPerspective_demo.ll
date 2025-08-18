@@ -2203,10 +2203,10 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i.i ], [ %45, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i.i ], [ %7, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %47 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !111, !noalias !108
-  store i64 %47, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !108, !noalias !111
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  %47 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 4, !alias.scope !110, !noalias !107
+  store i64 %47, ptr %.012.i.i.i.i.i.i.i, align 4, !alias.scope !107, !noalias !110
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %48, %6
@@ -2377,7 +2377,7 @@ define internal void @_GLOBAL__sub_I_warpPerspective_demo.cpp() #14 section ".te
   %10 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr %10, ptr @midpoints, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !112
   store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @midpoints, i64 16), align 8, !tbaa !58
   store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @midpoints, i64 8), align 8, !tbaa !57
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev, ptr nonnull @midpoints, ptr nonnull @__dso_handle) #22
@@ -2385,7 +2385,7 @@ define internal void @_GLOBAL__sub_I_warpPerspective_demo.cpp() #14 section ".te
   %13 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store ptr %13, ptr @dst_corners, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false), !tbaa !112
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @dst_corners, i64 16), align 8, !tbaa !58
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @dst_corners, i64 8), align 8, !tbaa !57
   %15 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev, ptr nonnull @dst_corners, ptr nonnull @__dso_handle) #22
@@ -2549,11 +2549,10 @@ attributes #23 = { builtin allocsize(0) }
 !103 = distinct !{!103, !101, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
 !104 = distinct !{!104, !65}
 !105 = !{!25, !25, i64 0}
-!106 = distinct !{!106, !65, !107}
-!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!110 = distinct !{!110, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!111 = !{!112}
-!112 = distinct !{!112, !110, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!113 = !{!90, !90, i64 0}
+!106 = distinct !{!106, !65}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!109 = distinct !{!109, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!110 = !{!111}
+!111 = distinct !{!111, !109, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!112 = !{!90, !90, i64 0}

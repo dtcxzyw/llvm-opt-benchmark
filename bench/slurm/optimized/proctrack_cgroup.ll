@@ -314,7 +314,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 
 57:                                               ; preds = %.lr.ph.split
   %58 = call i32 @_slurm_cgroup_is_pid_a_slurm_task(i64 noundef %0, i32 noundef %55)
-  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 83), align 1, !range !12, !noundef !13
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 83), align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   %61 = icmp eq i32 %58, 1
   %or.cond = select i1 %60, i1 true, i1 %61
@@ -345,7 +345,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
   %76 = load i32, ptr %4, align 4
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %75, %49, %.thread35
   call void @slurm_xfree(ptr noundef nonnull %3) #8
@@ -464,7 +464,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_un
   %35 = load i32, ptr %3, align 4
   %36 = icmp ne i32 %35, 0
   %37 = select i1 %34, i1 %36, i1 false
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %28, %13, %5, %24
   call void @slurm_xfree(ptr noundef nonnull %2) #8
@@ -510,11 +510,9 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}

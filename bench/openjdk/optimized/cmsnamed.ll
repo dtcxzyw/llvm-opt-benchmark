@@ -1759,7 +1759,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   store i16 0, ptr %43, align 2
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
-  br i1 %exitcond52.not, label %.split.us, label %.preheader.split.us, !llvm.loop !18
+  br i1 %exitcond52.not, label %.split.us, label %.preheader.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1775,7 +1775,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %51 = load i32, ptr %25, align 8
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph.split, label %.preheader, !llvm.loop !19
+  br i1 %53, label %.lr.ph.split, label %.preheader, !llvm.loop !16
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader.split ], [ 0, %.preheader ]
@@ -1789,7 +1789,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   store i16 %55, ptr %60, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !17
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %.not35 = icmp eq ptr %1, null
@@ -1939,7 +1939,7 @@ cmsNamedColorCount.exit:                          ; preds = %2
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit.loopexit.split.loop.exit15:             ; preds = %.lr.ph
   %11 = trunc nuw i64 %indvars.iv to i32
@@ -2104,7 +2104,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %31 = load i32, ptr %28, align 8
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 34:                                               ; preds = %.lr.ph22, %34
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %34 ]
@@ -2121,7 +2121,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %43 = load i32, ptr %21, align 8
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next28, %44
-  br i1 %45, label %34, label %.loopexit, !llvm.loop !23
+  br i1 %45, label %34, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %25, %.preheader
   ret void
@@ -2238,7 +2238,7 @@ define hidden ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 nounde
   store ptr null, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2, %12
   %.024 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %4 ], [ %5, %.lr.ph ]
@@ -2371,7 +2371,7 @@ cmsMLUfree.exit34:                                ; preds = %45, %48
   %52 = load i32, ptr %0, align 8
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %51
   %.pre39 = load ptr, ptr %4, align 8
@@ -2484,7 +2484,7 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly capture
   %62 = load i32, ptr %0, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %19, label %.loopexit, !llvm.loop !26
+  br i1 %64, label %19, label %.loopexit, !llvm.loop !23
 
 65:                                               ; preds = %8
   tail call void @cmsFreeProfileSequenceDescription(ptr noundef nonnull %6)
@@ -2614,7 +2614,7 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
   %44 = load ptr, ptr %3, align 8
   tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %.032) #14
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %42, %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2710,7 +2710,7 @@ cmsDictAlloc.exit:                                ; preds = %1
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @cmsDictAddEntry(ptr noundef nonnull %4, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %16)
   %.not16 = icmp eq i32 %17, 0
-  br i1 %.not16, label %18, label %7, !llvm.loop !28
+  br i1 %.not16, label %18, label %7, !llvm.loop !25
 
 18:                                               ; preds = %8
   tail call void @cmsDictFree(ptr noundef nonnull %4)
@@ -2796,9 +2796,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7, !17}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
@@ -2806,6 +2806,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}

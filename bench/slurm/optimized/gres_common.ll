@@ -366,7 +366,7 @@ define internal fastcc void @_print_gres_list_helper(ptr noundef %0, i32 noundef
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %1, ptr noundef nonnull @.str.7, ptr noundef %31, ptr noundef %33, i64 noundef %35, i32 noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47) #6
   %48 = tail call ptr @slurm_list_next(ptr noundef %6) #6
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   tail call void @slurm_list_iterator_destroy(ptr noundef %6) #6
@@ -706,7 +706,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %6, align 4
   %.not54.not = icmp slt i32 %52, %.037
-  br i1 %.not54.not, label %35, label %._crit_edge, !llvm.loop !16
+  br i1 %.not54.not, label %35, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %51
   %.pre = load ptr, ptr %7, align 8
@@ -880,7 +880,5 @@ attributes #7 = { cold nounwind }
 !10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}

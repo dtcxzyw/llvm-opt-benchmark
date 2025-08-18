@@ -1143,7 +1143,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %41, %.lr.ph.split, 
   %49 = add i32 %48, 2
   store i32 %49, ptr %3, align 4
   %50 = icmp ult i32 %49, %8
-  br i1 %50, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %50, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %dissect_zcl_attr_id.exit.us, %7
   ret void
@@ -1303,7 +1303,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph, %zbee_
   %55 = icmp ult i32 %54, %9
   %56 = icmp samesign ult i64 %indvars.iv, 63
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %51, %7
   ret void
@@ -1478,7 +1478,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %26, %.lr.ph, %zbee_
   %44 = icmp ult i32 %43, %8
   %45 = icmp samesign ult i64 %indvars.iv, 63
   %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %7
   ret void
@@ -1562,7 +1562,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph, %zbee_
   %45 = icmp ult i32 %44, %9
   %46 = icmp samesign ult i64 %indvars.iv, 63
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %7
   ret void
@@ -2535,7 +2535,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader18, label %3, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader18, label %3, !llvm.loop !12
 
 .preheader18:                                     ; preds = %3, %.preheader18
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.preheader18 ], [ 66, %3 ]
@@ -2546,7 +2546,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next32, 16
-  br i1 %exitcond38.not, label %.preheader, label %.preheader18, !llvm.loop !15
+  br i1 %exitcond38.not, label %.preheader, label %.preheader18, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader18, %.preheader
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 82, %.preheader18 ]
@@ -2557,7 +2557,7 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next40, 16
-  br i1 %exitcond46.not, label %10, label %.preheader, !llvm.loop !16
+  br i1 %exitcond46.not, label %10, label %.preheader, !llvm.loop !14
 
 10:                                               ; preds = %.preheader
   %11 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.814, ptr noundef nonnull @.str.815, ptr noundef nonnull @.str.816)
@@ -3130,7 +3130,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %zbee_zcl_
   %50 = icmp ult i32 %49, %7
   %51 = icmp samesign ult i64 %indvars.iv, 63
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %46, %6
   ret void
@@ -3354,7 +3354,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
   %111 = icmp ult i32 %110, %7
   %112 = icmp samesign ult i64 %indvars.iv, 63
   %113 = select i1 %111, i1 %112, i1 false
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
   ret void
@@ -3482,7 +3482,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %61, %50, %zbee_zcl_
   %75 = icmp ult i32 %74, %8
   %76 = icmp samesign ult i64 %indvars.iv, 63
   %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %24
   ret void
@@ -3577,7 +3577,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %26, %zbee_zcl_
   %51 = icmp ult i32 %50, %7
   %52 = icmp samesign ult i64 %indvars.iv, 63
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
   ret void
@@ -3775,7 +3775,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
   %104 = icmp ult i32 %103, %7
   %105 = icmp samesign ult i64 %indvars.iv, 63
   %106 = select i1 %104, i1 %105, i1 false
-  br i1 %106, label %11, label %._crit_edge, !llvm.loop !21
+  br i1 %106, label %11, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_data_general.exit, %6
   ret void
@@ -3906,7 +3906,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %zbee_
   %53 = icmp ult i32 %52, %15
   %54 = icmp samesign ult i64 %indvars.iv, 63
   %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
   ret void
@@ -3924,7 +3924,7 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
   %11 = icmp ult i32 %10, %7
   %12 = icmp samesign ult i64 %indvars.iv, 15
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %.lr.ph5, label %._crit_edge, !llvm.loop !23
+  br i1 %13, label %.lr.ph5, label %._crit_edge, !llvm.loop !21
 
 .lr.ph5:                                          ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
@@ -4007,7 +4007,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %zbee
   %53 = add i32 %52, 2
   store i32 %53, ptr %2, align 4
   %exitcond.not = icmp eq i32 %51, %48
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   ret void
@@ -4109,7 +4109,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph4, %zbee
   %55 = add i32 %54, 2
   store i32 %55, ptr %2, align 4
   %exitcond.not = icmp eq i32 %53, %48
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %dissect_zcl_attr_id.exit
   tail call void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %13, ptr noundef %2, i16 noundef zeroext %18, i16 noundef zeroext %3, i16 noundef zeroext %4, i1 noundef zeroext %5)
@@ -4117,7 +4117,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph4, %zbee
   %57 = icmp ult i32 %56, %7
   %58 = icmp samesign ult i64 %indvars.iv, 63
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph4, label %._crit_edge, !llvm.loop !26
+  br i1 %59, label %.lr.ph4, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   %.0.lcssa = phi ptr [ null, %6 ], [ %16, %.loopexit ]
@@ -4233,14 +4233,14 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %zbee_zcl_
   %61 = add i32 %60, 2
   store i32 %61, ptr %2, align 4
   %exitcond.not = icmp eq i32 %59, %54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %dissect_zcl_attr_id.exit, %.lr.ph4
   %62 = phi i32 [ %56, %49 ], [ %48, %dissect_zcl_attr_id.exit ], [ %24, %.lr.ph4 ], [ %61, %.lr.ph ]
   %63 = icmp ult i32 %62, %7
   %64 = icmp samesign ult i64 %indvars.iv, 63
   %65 = select i1 %63, i1 %64, i1 false
-  br i1 %65, label %.lr.ph4, label %._crit_edge, !llvm.loop !28
+  br i1 %65, label %.lr.ph4, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   ret void
@@ -4310,7 +4310,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, p
   %33 = icmp ult i32 %31, %12
   %34 = icmp ult i32 %32, %19
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !29
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %3
   ret void
@@ -4411,7 +4411,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %zbee_
   %60 = icmp ult i32 %59, %15
   %61 = icmp samesign ult i64 %indvars.iv, 63
   %62 = select i1 %60, i1 %61, i1 false
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %dissect_zcl_attr_id.exit, %6
   ret void
@@ -4468,8 +4468,8 @@ attributes #6 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -4489,5 +4489,3 @@ attributes #6 = { allocsize(0) }
 !26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}

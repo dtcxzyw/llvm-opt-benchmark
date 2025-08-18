@@ -414,7 +414,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %.l
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt7displayERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(976) %1, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -445,7 +445,7 @@ define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literal
 13:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.thread, label %9, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us.thread, label %9, !llvm.loop !33
 
 ._crit_edge.us.thread:                            ; preds = %13
   %14 = trunc nuw i64 %indvars.iv31 to i32
@@ -459,7 +459,7 @@ define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literal
 17:                                               ; preds = %._crit_edge.us
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge22, label %.lr.ph.us, !llvm.loop !36
+  br i1 %exitcond35.not, label %._crit_edge22, label %.lr.ph.us, !llvm.loop !34
 
 ._crit_edge22.loopexit.split.loop.exit:           ; preds = %._crit_edge.us
   %18 = trunc nuw i64 %indvars.iv31 to i32
@@ -549,8 +549,6 @@ attributes #8 = { nounwind }
 !29 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
 !30 = !{!"_ZTSSt6locale", !31, i64 0}
 !31 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
-!32 = distinct !{!32, !18, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !18}
+!33 = distinct !{!33, !18}
 !34 = distinct !{!34, !18}
-!35 = distinct !{!35, !18}
-!36 = distinct !{!36, !18, !33}

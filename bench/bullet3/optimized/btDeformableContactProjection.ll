@@ -6279,7 +6279,7 @@ define dso_local void @_ZN29btDeformableContactProjection16checkConstraintsERK20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %11, !llvm.loop !283
+  br i1 %exitcond36.not, label %._crit_edge, label %11, !llvm.loop !282
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -6367,7 +6367,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.preheader: ; preds = %20
   %43 = load i32, ptr %42, align 8, !tbaa !242
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 128
   store i32 1, ptr %44, align 8, !tbaa !243
-  %45 = load i32, ptr %10, align 8, !tbaa !284
+  %45 = load i32, ptr %10, align 8, !tbaa !283
   %46 = icmp eq i32 %36, %45
   br i1 %46, label %47, label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit
 
@@ -6404,10 +6404,10 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i: ; preds = %
   %59 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %60 = load ptr, ptr %11, align 8, !tbaa !276
   %61 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %60, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(80) %61, i64 80, i1 false), !tbaa.struct !285
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(80) %61, i64 80, i1 false), !tbaa.struct !284
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i, label %58, !llvm.loop !286
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i, label %58, !llvm.loop !285
 
 _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i: ; preds = %58, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i
   %62 = load ptr, ptr %11, align 8, !tbaa !276
@@ -6422,9 +6422,9 @@ _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i: ; preds =
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i: ; preds = %65, %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %12, align 8, !tbaa !287
+  store i8 1, ptr %12, align 8, !tbaa !286
   store ptr %.0.i.i.i, ptr %11, align 8, !tbaa !276
-  store i32 %49, ptr %10, align 8, !tbaa !284
+  store i32 %49, ptr %10, align 8, !tbaa !283
   %.pre2.i = load i32, ptr %9, align 4, !tbaa !275
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit
 
@@ -6461,7 +6461,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit: ; preds = 
   %74 = load i32, ptr %73, align 4, !tbaa !181
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph, label %.preheader230, !llvm.loop !288
+  br i1 %76, label %.lr.ph, label %.preheader230, !llvm.loop !287
 
 .preheader229:                                    ; preds = %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit78, %.preheader230
   %77 = load ptr, ptr %14, align 8, !tbaa !122
@@ -6484,7 +6484,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit: ; preds = 
   %90 = load i32, ptr %89, align 8, !tbaa !242
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 128
   store i32 1, ptr %91, align 8, !tbaa !243
-  %92 = load i32, ptr %10, align 8, !tbaa !284
+  %92 = load i32, ptr %10, align 8, !tbaa !283
   %93 = icmp eq i32 %81, %92
   br i1 %93, label %94, label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit78
 
@@ -6521,10 +6521,10 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i66: ; preds =
   %106 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %.0.i.i.i67, i64 %indvars.iv.i.i.i75
   %107 = load ptr, ptr %11, align 8, !tbaa !276
   %108 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %107, i64 %indvars.iv.i.i.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %106, ptr noundef nonnull align 4 dereferenceable(80) %108, i64 80, i1 false), !tbaa.struct !285
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %106, ptr noundef nonnull align 4 dereferenceable(80) %108, i64 80, i1 false), !tbaa.struct !284
   %indvars.iv.next.i.i.i76 = add nuw nsw i64 %indvars.iv.i.i.i75, 1
   %exitcond.not.i.i.i77 = icmp eq i64 %indvars.iv.next.i.i.i76, %wide.trip.count.i.i.i74
-  br i1 %exitcond.not.i.i.i77, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i68, label %105, !llvm.loop !286
+  br i1 %exitcond.not.i.i.i77, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i68, label %105, !llvm.loop !285
 
 _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i68: ; preds = %105, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i66
   %109 = load ptr, ptr %11, align 8, !tbaa !276
@@ -6539,9 +6539,9 @@ _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i68: ; preds
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i71
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i71: ; preds = %112, %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i68
-  store i8 1, ptr %12, align 8, !tbaa !287
+  store i8 1, ptr %12, align 8, !tbaa !286
   store ptr %.0.i.i.i67, ptr %11, align 8, !tbaa !276
-  store i32 %96, ptr %10, align 8, !tbaa !284
+  store i32 %96, ptr %10, align 8, !tbaa !283
   %.pre2.i72 = load i32, ptr %9, align 4, !tbaa !275
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit78
 
@@ -6578,7 +6578,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit78: ; preds 
   %121 = load i32, ptr %120, align 4, !tbaa !128
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next266, %122
-  br i1 %123, label %.lr.ph233, label %.preheader229, !llvm.loop !289
+  br i1 %123, label %.lr.ph233, label %.preheader229, !llvm.loop !288
 
 .preheader:                                       ; preds = %175, %.preheader229
   %124 = load ptr, ptr %15, align 8, !tbaa !134
@@ -6628,7 +6628,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit78: ; preds 
   %.sroa.10.0 = phi float [ %.sroa.10.20.copyload, %144 ], [ 0.000000e+00, %135 ]
   %.sroa.11.0 = phi float [ %.sroa.11.20.copyload, %144 ], [ 0.000000e+00, %135 ]
   %147 = load i32, ptr %9, align 4, !tbaa !275
-  %148 = load i32, ptr %10, align 8, !tbaa !284
+  %148 = load i32, ptr %10, align 8, !tbaa !283
   %149 = icmp eq i32 %147, %148
   br i1 %149, label %150, label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94
 
@@ -6665,10 +6665,10 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i82: ; preds =
   %162 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %.0.i.i.i83, i64 %indvars.iv.i.i.i91
   %163 = load ptr, ptr %11, align 8, !tbaa !276
   %164 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %163, i64 %indvars.iv.i.i.i91
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %162, ptr noundef nonnull align 4 dereferenceable(80) %164, i64 80, i1 false), !tbaa.struct !285
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %162, ptr noundef nonnull align 4 dereferenceable(80) %164, i64 80, i1 false), !tbaa.struct !284
   %indvars.iv.next.i.i.i92 = add nuw nsw i64 %indvars.iv.i.i.i91, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %indvars.iv.next.i.i.i92, %wide.trip.count.i.i.i90
-  br i1 %exitcond.not.i.i.i93, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i84, label %161, !llvm.loop !286
+  br i1 %exitcond.not.i.i.i93, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i84, label %161, !llvm.loop !285
 
 _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i84: ; preds = %161, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i82
   %165 = load ptr, ptr %11, align 8, !tbaa !276
@@ -6683,9 +6683,9 @@ _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i84: ; preds
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i87
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i87: ; preds = %168, %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i84
-  store i8 1, ptr %12, align 8, !tbaa !287
+  store i8 1, ptr %12, align 8, !tbaa !286
   store ptr %.0.i.i.i83, ptr %11, align 8, !tbaa !276
-  store i32 %152, ptr %10, align 8, !tbaa !284
+  store i32 %152, ptr %10, align 8, !tbaa !283
   %.pre2.i88 = load i32, ptr %9, align 4, !tbaa !275
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94
 
@@ -6732,7 +6732,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94: ; preds 
   %178 = load i32, ptr %177, align 4, !tbaa !123
   %179 = sext i32 %178 to i64
   %180 = icmp slt i64 %indvars.iv.next269, %179
-  br i1 %180, label %.lr.ph243, label %.preheader, !llvm.loop !290
+  br i1 %180, label %.lr.ph243, label %.preheader, !llvm.loop !289
 
 .lr.ph253:                                        ; preds = %.preheader, %239
   %181 = phi ptr [ %240, %239 ], [ %124, %.preheader ]
@@ -6749,7 +6749,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94: ; preds 
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 96
   %190 = load ptr, ptr %189, align 8, !tbaa !262
   %191 = getelementptr inbounds nuw i8, ptr %184, i64 88
-  %192 = load ptr, ptr %191, align 8, !tbaa !291
+  %192 = load ptr, ptr %191, align 8, !tbaa !290
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 872
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %16, align 4, !tbaa !279
@@ -6776,7 +6776,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94: ; preds 
   store i32 %205, ptr %206, align 4, !tbaa !37
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next272, 3
-  br i1 %exitcond.not, label %195, label %200, !llvm.loop !292
+  br i1 %exitcond.not, label %195, label %200, !llvm.loop !291
 
 207:                                              ; preds = %195
   store float 1.000000e+00, ptr %199, align 4, !tbaa !45
@@ -6798,7 +6798,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit94: ; preds 
   %.sink = phi i32 [ 3, %207 ], [ 1, %208 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !277
   %211 = load i32, ptr %9, align 4, !tbaa !275
-  %212 = load i32, ptr %10, align 8, !tbaa !284
+  %212 = load i32, ptr %10, align 8, !tbaa !283
   %213 = icmp eq i32 %211, %212
   br i1 %213, label %214, label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit110
 
@@ -6835,10 +6835,10 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i98: ; preds =
   %226 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %.0.i.i.i99, i64 %indvars.iv.i.i.i107
   %227 = load ptr, ptr %11, align 8, !tbaa !276
   %228 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %227, i64 %indvars.iv.i.i.i107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %226, ptr noundef nonnull align 4 dereferenceable(80) %228, i64 80, i1 false), !tbaa.struct !285
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %226, ptr noundef nonnull align 4 dereferenceable(80) %228, i64 80, i1 false), !tbaa.struct !284
   %indvars.iv.next.i.i.i108 = add nuw nsw i64 %indvars.iv.i.i.i107, 1
   %exitcond.not.i.i.i109 = icmp eq i64 %indvars.iv.next.i.i.i108, %wide.trip.count.i.i.i106
-  br i1 %exitcond.not.i.i.i109, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i100, label %225, !llvm.loop !286
+  br i1 %exitcond.not.i.i.i109, label %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i100, label %225, !llvm.loop !285
 
 _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i100: ; preds = %225, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE8allocateEi.exit.i.i98
   %229 = load ptr, ptr %11, align 8, !tbaa !276
@@ -6853,9 +6853,9 @@ _ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i100: ; pred
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i103
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierE10deallocateEv.exit.i.i103: ; preds = %232, %_ZNK20btAlignedObjectArrayI18LagrangeMultiplierE4copyEiiPS0_.exit.i.i100
-  store i8 1, ptr %12, align 8, !tbaa !287
+  store i8 1, ptr %12, align 8, !tbaa !286
   store ptr %.0.i.i.i99, ptr %11, align 8, !tbaa !276
-  store i32 %216, ptr %10, align 8, !tbaa !284
+  store i32 %216, ptr %10, align 8, !tbaa !283
   %.pre2.i104 = load i32, ptr %9, align 4, !tbaa !275
   br label %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit110
 
@@ -6864,7 +6864,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit110: ; preds
   %234 = load ptr, ptr %11, align 8, !tbaa !276
   %235 = sext i32 %233 to i64
   %236 = getelementptr inbounds %struct.LagrangeMultiplier, ptr %234, i64 %235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %236, ptr noundef nonnull align 4 dereferenceable(80) %2, i64 80, i1 false), !tbaa.struct !285
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %236, ptr noundef nonnull align 4 dereferenceable(80) %2, i64 80, i1 false), !tbaa.struct !284
   %237 = load i32, ptr %9, align 4, !tbaa !275
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr %9, align 4, !tbaa !275
@@ -6879,7 +6879,7 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit110: ; preds
   %242 = load i32, ptr %241, align 4, !tbaa !135
   %243 = sext i32 %242 to i64
   %244 = icmp slt i64 %indvars.iv.next275, %243
-  br i1 %244, label %.lr.ph253, label %_ZNK17btCollisionObject8isActiveEv.exit.thread, !llvm.loop !293
+  br i1 %244, label %.lr.ph253, label %_ZNK17btCollisionObject8isActiveEv.exit.thread, !llvm.loop !292
 
 _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %239, %.preheader, %20, %20, %20
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
@@ -6888,7 +6888,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %239, %.preheader, %
   %247 = load i32, ptr %246, align 4, !tbaa !112
   %248 = sext i32 %247 to i64
   %249 = icmp slt i64 %indvars.iv.next278, %248
-  br i1 %249, label %20, label %._crit_edge, !llvm.loop !294
+  br i1 %249, label %20, label %._crit_edge, !llvm.loop !293
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6979,7 +6979,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %57 = load i32, ptr %56, align 4, !tbaa !123
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.preheader94, !llvm.loop !295
+  br i1 %59, label %.lr.ph, label %.preheader94, !llvm.loop !294
 
 .preheader:                                       ; preds = %73, %.preheader94
   %60 = load ptr, ptr %11, align 8, !tbaa !141
@@ -6995,9 +6995,9 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %66 = load ptr, ptr %65, align 8, !tbaa !146
   %67 = getelementptr inbounds nuw %class.btDeformableFaceRigidContactConstraint, ptr %66, i64 %indvars.iv109
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  %69 = load ptr, ptr %68, align 8, !tbaa !291
+  %69 = load ptr, ptr %68, align 8, !tbaa !290
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 848
-  %71 = load ptr, ptr %70, align 8, !tbaa !296
+  %71 = load ptr, ptr %70, align 8, !tbaa !295
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   br label %79
 
@@ -7008,7 +7008,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %76 = load i32, ptr %75, align 4, !tbaa !135
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next110, %77
-  br i1 %78, label %.lr.ph99, label %.preheader, !llvm.loop !298
+  br i1 %78, label %.lr.ph99, label %.preheader, !llvm.loop !297
 
 79:                                               ; preds = %.lr.ph99, %110
   %indvars.iv106 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next107, %110 ]
@@ -7055,7 +7055,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
 110:                                              ; preds = %85, %79
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, 3
-  br i1 %exitcond.not, label %73, label %79, !llvm.loop !299
+  br i1 %exitcond.not, label %73, label %79, !llvm.loop !298
 
 ._crit_edge:                                      ; preds = %155, %.preheader
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
@@ -7064,7 +7064,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %113 = load i32, ptr %112, align 4, !tbaa !112
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next120, %114
-  br i1 %115, label %.preheader95, label %._crit_edge104, !llvm.loop !300
+  br i1 %115, label %.preheader95, label %._crit_edge104, !llvm.loop !299
 
 .lr.ph102:                                        ; preds = %.preheader, %155
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %155 ], [ 0, %.preheader ]
@@ -7073,10 +7073,10 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %118 = load ptr, ptr %117, align 8, !tbaa !148
   %119 = getelementptr inbounds nuw %class.btDeformableFaceNodeContactConstraint, ptr %118, i64 %indvars.iv116
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
-  %121 = load ptr, ptr %120, align 8, !tbaa !301
+  %121 = load ptr, ptr %120, align 8, !tbaa !300
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !304
-  %124 = load ptr, ptr %121, align 8, !tbaa !306
+  %123 = load ptr, ptr %122, align 8, !tbaa !303
+  %124 = load ptr, ptr %121, align 8, !tbaa !305
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 112
   %126 = load float, ptr %125, align 8, !tbaa !174
   %127 = fcmp une float %126, 0.000000e+00
@@ -7126,7 +7126,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
   %158 = load i32, ptr %157, align 4, !tbaa !142
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next117, %159
-  br i1 %160, label %.lr.ph102, label %._crit_edge, !llvm.loop !307
+  br i1 %160, label %.lr.ph102, label %._crit_edge, !llvm.loop !306
 
 161:                                              ; preds = %153, %192
   %indvars.iv112 = phi i64 [ 0, %153 ], [ %indvars.iv.next113, %192 ]
@@ -7173,7 +7173,7 @@ define dso_local void @_ZN29btDeformableContactProjection20applyDynamicFrictionE
 192:                                              ; preds = %167, %161
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 3
-  br i1 %exitcond115.not, label %155, label %161, !llvm.loop !308
+  br i1 %exitcond115.not, label %155, label %161, !llvm.loop !307
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7409,13 +7409,13 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit: ; 
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 1, ptr %98, align 8, !tbaa !309
+  store i8 1, ptr %98, align 8, !tbaa !308
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %99, align 8, !tbaa !148
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %100, align 4, !tbaa !142
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 0, ptr %101, align 8, !tbaa !310
+  store i32 0, ptr %101, align 8, !tbaa !309
   invoke void @_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %97, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(25) %7)
           to label %102 unwind label %126
 
@@ -7437,7 +7437,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit: ; 
   call void %109(ptr noundef nonnull align 8 dereferenceable(96) %107) #23
   %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
   %110 = icmp eq i64 %indvars.iv.next.i.i.i42, %zext.i.i40
-  br i1 %110, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i, label %105, !llvm.loop !311
+  br i1 %110, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i, label %105, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i: ; preds = %105, %102
   %111 = load ptr, ptr %99, align 8, !tbaa !148
@@ -7528,11 +7528,11 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit: ; p
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierE5clearEv.exit: ; preds = %._crit_edge, %141
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i8 1, ptr %138, align 8, !tbaa !287
+  store i8 1, ptr %138, align 8, !tbaa !286
   store ptr null, ptr %136, align 8, !tbaa !276
   store i32 0, ptr %142, align 4, !tbaa !275
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %143, align 8, !tbaa !284
+  store i32 0, ptr %143, align 8, !tbaa !283
   ret void
 
 144:                                              ; preds = %.lr.ph, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE5clearEv.exit
@@ -7730,7 +7730,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE5clearEv.exit
   call void %231(ptr noundef nonnull align 8 dereferenceable(96) %229) #23
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i67, 1
   %232 = icmp eq i64 %indvars.iv.next.i.i68, %zext.i66
-  br i1 %232, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %227, !llvm.loop !311
+  br i1 %232, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %227, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i: ; preds = %227, %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE5clearEv.exit
   %233 = getelementptr inbounds nuw i8, ptr %222, i64 16
@@ -7747,14 +7747,14 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
   br label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE5clearEv.exit
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE5clearEv.exit: ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, %238
-  store i8 1, ptr %235, align 8, !tbaa !309
+  store i8 1, ptr %235, align 8, !tbaa !308
   store ptr null, ptr %233, align 8, !tbaa !148
   store i32 0, ptr %223, align 4, !tbaa !142
   %239 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  store i32 0, ptr %239, align 8, !tbaa !310
+  store i32 0, ptr %239, align 8, !tbaa !309
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !312
+  br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !311
 
 240:                                              ; preds = %126, %124, %122, %120, %118
   %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ]
@@ -7765,7 +7765,7 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE5clearEv.exit:
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btDeformableStaticConstraint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !313
+  %6 = load i32, ptr %5, align 4, !tbaa !312
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.preheader, label %33
 
@@ -7829,7 +7829,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit: ; preds = %_
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %6, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !314
+  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !313
 
 33:                                               ; preds = %3
   %34 = icmp sgt i32 %1, %6
@@ -7900,10 +7900,10 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit: ; preds 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !315
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !314
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit, %33
-  store i32 %1, ptr %5, align 4, !tbaa !313
+  store i32 %1, ptr %5, align 4, !tbaa !312
   ret void
 }
 
@@ -7964,7 +7964,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintE7destroyEii.exit.i: ; p
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btDeformableNodeAnchorConstraint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !316
+  %6 = load i32, ptr %5, align 4, !tbaa !315
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.preheader, label %33
 
@@ -8028,7 +8028,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit: ; preds 
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %6, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !317
+  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !316
 
 33:                                               ; preds = %3
   %34 = icmp sgt i32 %1, %6
@@ -8083,10 +8083,10 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintEC2ERKS1_.exit: ; pr
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !318
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !317
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit, %33
-  store i32 %1, ptr %5, align 4, !tbaa !316
+  store i32 %1, ptr %5, align 4, !tbaa !315
   ret void
 }
 
@@ -8147,7 +8147,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintE7destroyEii.exit.i:
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btDeformableNodeRigidContactConstraint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !319
+  %6 = load i32, ptr %5, align 4, !tbaa !318
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.preheader, label %33
 
@@ -8211,7 +8211,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit: ; 
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %6, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !320
+  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !319
 
 33:                                               ; preds = %3
   %34 = icmp sgt i32 %1, %6
@@ -8268,10 +8268,10 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintEC2ERKS1_.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !321
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !320
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit, %33
-  store i32 %1, ptr %5, align 4, !tbaa !319
+  store i32 %1, ptr %5, align 4, !tbaa !318
   ret void
 }
 
@@ -8332,7 +8332,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintE7destroyEii.e
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btDeformableFaceRigidContactConstraint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !322
+  %6 = load i32, ptr %5, align 4, !tbaa !321
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.preheader, label %33
 
@@ -8396,7 +8396,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit: ; 
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %6, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !323
+  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !322
 
 33:                                               ; preds = %3
   %34 = icmp sgt i32 %1, %6
@@ -8430,7 +8430,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit: ; 
   store i8 0, ptr %37, align 8, !tbaa !187
   store i8 0, ptr %38, align 8, !tbaa !259
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %4, align 8, !tbaa !50
-  store i8 0, ptr %39, align 8, !tbaa !324
+  store i8 0, ptr %39, align 8, !tbaa !323
   call void @_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %44, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(105) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load ptr, ptr %46, align 8, !tbaa !146
@@ -8455,10 +8455,10 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintEC2ERKS1_.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !325
+  br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !324
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit, %33
-  store i32 %1, ptr %5, align 4, !tbaa !322
+  store i32 %1, ptr %5, align 4, !tbaa !321
   ret void
 }
 
@@ -8519,7 +8519,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE7destroyEii.e
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE6resizeEiRKS1_(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.btDeformableFaceNodeContactConstraint, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !326
+  %6 = load i32, ptr %5, align 4, !tbaa !325
   %7 = icmp slt i32 %1, %6
   br i1 %7, label %.preheader, label %33
 
@@ -8551,7 +8551,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableF
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(96) %19) #23
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %22 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
-  br i1 %22, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i, label %17, !llvm.loop !311
+  br i1 %22, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i, label %17, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i: ; preds = %17, %10
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -8575,15 +8575,15 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
   unreachable
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i, %28
-  store i8 1, ptr %25, align 8, !tbaa !309
+  store i8 1, ptr %25, align 8, !tbaa !308
   store ptr null, ptr %23, align 8, !tbaa !148
   store i32 0, ptr %13, align 4, !tbaa !142
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %32, align 8, !tbaa !310
+  store i32 0, ptr %32, align 8, !tbaa !309
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %6, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !327
+  br i1 %exitcond30.not, label %.loopexit, label %10, !llvm.loop !326
 
 33:                                               ; preds = %3
   %34 = icmp sgt i32 %1, %6
@@ -8603,13 +8603,13 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit: ; p
   %41 = load ptr, ptr %35, align 8, !tbaa !141
   %42 = getelementptr inbounds %class.btAlignedObjectArray.82, ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store i8 1, ptr %43, align 8, !tbaa !309
+  store i8 1, ptr %43, align 8, !tbaa !308
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr null, ptr %44, align 8, !tbaa !148
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 0, ptr %45, align 4, !tbaa !142
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 0, ptr %46, align 8, !tbaa !310
+  store i32 0, ptr %46, align 8, !tbaa !309
   %47 = load i32, ptr %36, align 4, !tbaa !142
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %37, align 8, !tbaa !187
@@ -8647,16 +8647,16 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %63, i64 56, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit, label %50, !llvm.loop !328
+  br i1 %exitcond.not.i.i, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit, label %50, !llvm.loop !327
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit: ; preds = %50, %40
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !329
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !328
 
 .loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit, %33
-  store i32 %1, ptr %5, align 4, !tbaa !326
+  store i32 %1, ptr %5, align 4, !tbaa !325
   ret void
 }
 
@@ -8681,7 +8681,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI37btDeformableFace
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(96) %8) #23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %11 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %11, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %6, !llvm.loop !311
+  br i1 %11, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %6, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i: ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8698,11 +8698,11 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
           to label %18 unwind label %20
 
 18:                                               ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, %17
-  store i8 1, ptr %14, align 8, !tbaa !309
+  store i8 1, ptr %14, align 8, !tbaa !308
   store ptr null, ptr %12, align 8, !tbaa !148
   store i32 0, ptr %2, align 4, !tbaa !142
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %19, align 8, !tbaa !310
+  store i32 0, ptr %19, align 8, !tbaa !309
   ret void
 
 20:                                               ; preds = %17
@@ -8798,7 +8798,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i: ; preds = %30, %22
   store i32 0, ptr %35, align 8, !tbaa !31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %36 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %36, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i, label %22, !llvm.loop !330
+  br i1 %36, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i, label %22, !llvm.loop !329
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i, %_ZN20btAlignedObjectArrayIiE5clearEv.exit3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8815,7 +8815,7 @@ _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i: ; preds = %_ZN20btA
   br label %_ZN20btAlignedObjectArrayIS_I9btVector3EE5clearEv.exit
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EE5clearEv.exit: ; preds = %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i, %42
-  store i8 1, ptr %39, align 8, !tbaa !331
+  store i8 1, ptr %39, align 8, !tbaa !330
   store ptr null, ptr %37, align 8, !tbaa !248
   store i32 0, ptr %18, align 4, !tbaa !239
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8878,15 +8878,15 @@ define linkonce_odr dso_local void @_ZN29btDeformableContactProjectionD2Ev(ptr n
 
 _ZN20btAlignedObjectArrayI18LagrangeMultiplierED2Ev.exit: ; preds = %1, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i8 1, ptr %9, align 8, !tbaa !287
+  store i8 1, ptr %9, align 8, !tbaa !286
   store ptr null, ptr %7, align 8, !tbaa !276
   store i32 0, ptr %16, align 4, !tbaa !275
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %17, align 8, !tbaa !284
+  store i32 0, ptr %17, align 8, !tbaa !283
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN9btHashMapI9btHashInt20btAlignedObjectArrayI9btVector3EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %18) #23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !332
+  %20 = load ptr, ptr %19, align 8, !tbaa !331
   %.not.i.i.i1 = icmp ne ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i8, ptr %21, align 8, !range !32
@@ -8907,11 +8907,11 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierED2Ev.exit: ; preds = %1, %12
 
 _ZN20btAlignedObjectArrayIP29btDeformableContactConstraintED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI18LagrangeMultiplierED2Ev.exit, %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %21, align 8, !tbaa !333
-  store ptr null, ptr %19, align 8, !tbaa !332
-  store i32 0, ptr %28, align 4, !tbaa !334
+  store i8 1, ptr %21, align 8, !tbaa !332
+  store ptr null, ptr %19, align 8, !tbaa !331
+  store i32 0, ptr %28, align 4, !tbaa !333
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %29, align 8, !tbaa !335
+  store i32 0, ptr %29, align 8, !tbaa !334
   ret void
 }
 
@@ -9415,7 +9415,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %130, %142
 169:                                              ; preds = %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %170 = icmp samesign ult i64 %indvars.iv.next, %80
-  br i1 %170, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !336
+  br i1 %170, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !335
 
 171:                                              ; preds = %167, %94, %92, %90
   %.pn = phi { ptr, i32 } [ %168, %167 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ]
@@ -9607,7 +9607,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !316
+  %3 = load i32, ptr %2, align 4, !tbaa !315
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit.i
 
@@ -9670,7 +9670,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit.i.i: ; pr
   store i32 0, ptr %28, align 8, !tbaa !215
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !337
+  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !336
 
 _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9687,11 +9687,11 @@ _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exi
           to label %36 unwind label %38
 
 36:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit.i, %35
-  store i8 1, ptr %32, align 8, !tbaa !338
+  store i8 1, ptr %32, align 8, !tbaa !337
   store ptr null, ptr %30, align 8, !tbaa !127
-  store i32 0, ptr %2, align 4, !tbaa !316
+  store i32 0, ptr %2, align 4, !tbaa !315
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !339
+  store i32 0, ptr %37, align 8, !tbaa !338
   ret void
 
 38:                                               ; preds = %35
@@ -9705,7 +9705,7 @@ _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !326
+  %3 = load i32, ptr %2, align 4, !tbaa !325
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit.i
 
@@ -9737,7 +9737,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableF
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(96) %15) #23
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %18 = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %zext.i.i.i.i
-  br i1 %18, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i.i, label %13, !llvm.loop !311
+  br i1 %18, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i.i, label %13, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i.i: ; preds = %13, %6
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -9761,14 +9761,14 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
   unreachable
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit.i.i: ; preds = %24, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i.i
-  store i8 1, ptr %21, align 8, !tbaa !309
+  store i8 1, ptr %21, align 8, !tbaa !308
   store ptr null, ptr %19, align 8, !tbaa !148
   store i32 0, ptr %9, align 4, !tbaa !142
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %28, align 8, !tbaa !310
+  store i32 0, ptr %28, align 8, !tbaa !309
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !340
+  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !339
 
 _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9785,11 +9785,11 @@ _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEi
           to label %36 unwind label %38
 
 36:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit.i, %35
-  store i8 1, ptr %32, align 8, !tbaa !341
+  store i8 1, ptr %32, align 8, !tbaa !340
   store ptr null, ptr %30, align 8, !tbaa !141
-  store i32 0, ptr %2, align 4, !tbaa !326
+  store i32 0, ptr %2, align 4, !tbaa !325
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !342
+  store i32 0, ptr %37, align 8, !tbaa !341
   ret void
 
 38:                                               ; preds = %35
@@ -9803,7 +9803,7 @@ _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !322
+  %3 = load i32, ptr %2, align 4, !tbaa !321
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit.i
 
@@ -9866,7 +9866,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit.i.i
   store i32 0, ptr %28, align 8, !tbaa !233
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !343
+  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !342
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9883,11 +9883,11 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyE
           to label %36 unwind label %38
 
 36:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit.i, %35
-  store i8 1, ptr %32, align 8, !tbaa !344
+  store i8 1, ptr %32, align 8, !tbaa !343
   store ptr null, ptr %30, align 8, !tbaa !134
-  store i32 0, ptr %2, align 4, !tbaa !322
+  store i32 0, ptr %2, align 4, !tbaa !321
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !345
+  store i32 0, ptr %37, align 8, !tbaa !344
   ret void
 
 38:                                               ; preds = %35
@@ -9901,7 +9901,7 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !319
+  %3 = load i32, ptr %2, align 4, !tbaa !318
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit.i
 
@@ -9964,7 +9964,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit.i.i
   store i32 0, ptr %28, align 8, !tbaa !225
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !346
+  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !345
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9981,11 +9981,11 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyE
           to label %36 unwind label %38
 
 36:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit.i, %35
-  store i8 1, ptr %32, align 8, !tbaa !347
+  store i8 1, ptr %32, align 8, !tbaa !346
   store ptr null, ptr %30, align 8, !tbaa !122
-  store i32 0, ptr %2, align 4, !tbaa !319
+  store i32 0, ptr %2, align 4, !tbaa !318
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !348
+  store i32 0, ptr %37, align 8, !tbaa !347
   ret void
 
 38:                                               ; preds = %35
@@ -9999,7 +9999,7 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !313
+  %3 = load i32, ptr %2, align 4, !tbaa !312
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i
 
@@ -10062,7 +10062,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit.i.i: ; preds 
   store i32 0, ptr %28, align 8, !tbaa !185
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %29 = icmp eq i64 %indvars.iv.next.i.i, %zext.i
-  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !349
+  br i1 %29, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i, label %6, !llvm.loop !348
 
 _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit.i.i, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10079,11 +10079,11 @@ _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i:
           to label %36 unwind label %38
 
 36:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit.i, %35
-  store i8 1, ptr %32, align 8, !tbaa !350
+  store i8 1, ptr %32, align 8, !tbaa !349
   store ptr null, ptr %30, align 8, !tbaa !180
-  store i32 0, ptr %2, align 4, !tbaa !313
+  store i32 0, ptr %2, align 4, !tbaa !312
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %37, align 8, !tbaa !351
+  store i32 0, ptr %37, align 8, !tbaa !350
   ret void
 
 38:                                               ; preds = %35
@@ -10166,7 +10166,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i.i: ; preds = %25, %17
   store i32 0, ptr %30, align 8, !tbaa !31
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %31 = icmp eq i64 %indvars.iv.next.i.i.i, %zext.i.i
-  br i1 %31, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i.i, label %17, !llvm.loop !330
+  br i1 %31, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i.i, label %17, !llvm.loop !329
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i.i.i, %_ZN20btAlignedObjectArrayI9btHashIntED2Ev.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10190,7 +10190,7 @@ _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i.i: ; preds = %_ZN20b
   unreachable
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit.i.i, %37
-  store i8 1, ptr %34, align 8, !tbaa !331
+  store i8 1, ptr %34, align 8, !tbaa !330
   store ptr null, ptr %32, align 8, !tbaa !248
   store i32 0, ptr %13, align 4, !tbaa !239
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10324,7 +10324,7 @@ _ZN15btReducedVectorD2Ev.exit.i:                  ; preds = %25, %_ZN20btAligned
   store i32 0, ptr %30, align 8, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %31, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %6, !llvm.loop !352
+  br i1 %31, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %6, !llvm.loop !351
 
 _ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit: ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10459,7 +10459,7 @@ _ZN15btReducedVectorD2Ev.exit.i:                  ; preds = %41, %_ZN20btAligned
   store i32 0, ptr %46, align 8, !tbaa !27
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %47 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %47, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %22, !llvm.loop !352
+  br i1 %47, label %_ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit, label %22, !llvm.loop !351
 
 _ZN20btAlignedObjectArrayI15btReducedVectorE7destroyEii.exit: ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %_ZN20btAlignedObjectArrayI15btReducedVectorE8allocateEi.exit, %_ZNK20btAlignedObjectArrayI15btReducedVectorE4copyEiiPS0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10732,7 +10732,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit43:  ; preds = %.lr.ph.i20, %.lr.ph
   store i32 %100, ptr %97, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !353
+  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !352
 
 .loopexit:                                        ; preds = %77, %.preheader, %2
   ret void
@@ -10844,7 +10844,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i: ; preds = %15
 _ZN20btAlignedObjectArrayI9btVector3EC2ERKS1_.exit.i: ; preds = %39, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %43, label %_ZNK20btAlignedObjectArrayIS_I9btVector3EE4copyEiiPS1_.exit, label %15, !llvm.loop !354
+  br i1 %43, label %_ZNK20btAlignedObjectArrayIS_I9btVector3EE4copyEiiPS1_.exit, label %15, !llvm.loop !353
 
 _ZNK20btAlignedObjectArrayIS_I9btVector3EE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3EC2ERKS1_.exit.i
   %.pre = load i32, ptr %11, align 4, !tbaa !239
@@ -10889,7 +10889,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i: ; preds = %54, %46
   store i32 0, ptr %59, align 8, !tbaa !31
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %60 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %60, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit, label %46, !llvm.loop !330
+  br i1 %60, label %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit, label %46, !llvm.loop !329
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I9btVector3EE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I9btVector3EE4copyEiiPS1_.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10907,7 +10907,7 @@ _ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit: ; preds = %_ZN20btAli
 
 _ZN20btAlignedObjectArrayIS_I9btVector3EE10deallocateEv.exit: ; preds = %66, %_ZN20btAlignedObjectArrayIS_I9btVector3EE7destroyEii.exit
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %67, align 8, !tbaa !331
+  store i8 1, ptr %67, align 8, !tbaa !330
   store ptr %.0.i, ptr %61, align 8, !tbaa !248
   store i32 %1, ptr %3, align 8, !tbaa !244
   br label %68
@@ -10920,7 +10920,7 @@ _ZN20btAlignedObjectArrayIS_I9btVector3EE10deallocateEv.exit: ; preds = %66, %_Z
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btDeformableStaticConstraint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !351
+  %5 = load i32, ptr %4, align 8, !tbaa !350
   %6 = icmp slt i32 %5, %1
   br i1 %6, label %7, label %79
 
@@ -10937,7 +10937,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I28btDeformableS
 _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE8allocateEi.exit: ; preds = %7, %8
   %.0.i = phi ptr [ %11, %8 ], [ null, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !313
+  %13 = load i32, ptr %12, align 4, !tbaa !312
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit
 
@@ -11005,10 +11005,10 @@ _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE8allocateEi.exit: ;
 _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit.i: ; preds = %30, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %45, label %_ZNK20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !355
+  br i1 %45, label %_ZNK20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !354
 
 _ZNK20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintEC2ERKS1_.exit.i
-  %.pre = load i32, ptr %12, align 4, !tbaa !313
+  %.pre = load i32, ptr %12, align 4, !tbaa !312
   %46 = icmp sgt i32 %.pre, 0
   br i1 %46, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit
 
@@ -11071,7 +11071,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit.i: ; preds = 
   store i32 0, ptr %70, align 8, !tbaa !185
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %71 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %71, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit, label %48, !llvm.loop !349
+  br i1 %71, label %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit, label %48, !llvm.loop !348
 
 _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI28btDeformableStaticConstraintED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE4copyEiiPS1_.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11089,9 +11089,9 @@ _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit: ;
 
 _ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE10deallocateEv.exit: ; preds = %77, %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE7destroyEii.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %78, align 8, !tbaa !350
+  store i8 1, ptr %78, align 8, !tbaa !349
   store ptr %.0.i, ptr %72, align 8, !tbaa !180
-  store i32 %1, ptr %4, align 8, !tbaa !351
+  store i32 %1, ptr %4, align 8, !tbaa !350
   br label %79
 
 79:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I28btDeformableStaticConstraintEE10deallocateEv.exit, %2
@@ -11120,7 +11120,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI28btDeformableStat
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
   %exitcond29.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond29.not, label %.loopexit, label %9, !llvm.loop !356
+  br i1 %exitcond29.not, label %.loopexit, label %9, !llvm.loop !355
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %1, %5
@@ -11249,7 +11249,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintE10deallocateEv.exit.i: 
   store ptr %71, ptr %70, align 8, !tbaa !191
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !357
+  br i1 %exitcond.not, label %.loopexit, label %62, !llvm.loop !356
 
 .loopexit:                                        ; preds = %62, %9, %14
   store i32 %1, ptr %4, align 4, !tbaa !181
@@ -11260,7 +11260,7 @@ _ZN20btAlignedObjectArrayI28btDeformableStaticConstraintE10deallocateEv.exit.i: 
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btDeformableNodeAnchorConstraint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !339
+  %5 = load i32, ptr %4, align 8, !tbaa !338
   %6 = icmp slt i32 %5, %1
   br i1 %6, label %7, label %69
 
@@ -11277,7 +11277,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I32btDeformableN
 _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE8allocateEi.exit: ; preds = %7, %8
   %.0.i = phi ptr [ %11, %8 ], [ null, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !316
+  %13 = load i32, ptr %12, align 4, !tbaa !315
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit
 
@@ -11329,10 +11329,10 @@ _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE8allocateEi.exi
 _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintEC2ERKS1_.exit.i: ; preds = %30, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %35, label %_ZNK20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !358
+  br i1 %35, label %_ZNK20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !357
 
 _ZNK20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintEC2ERKS1_.exit.i
-  %.pre = load i32, ptr %12, align 4, !tbaa !316
+  %.pre = load i32, ptr %12, align 4, !tbaa !315
   %36 = icmp sgt i32 %.pre, 0
   br i1 %36, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit
 
@@ -11395,7 +11395,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit.i: ; pred
   store i32 0, ptr %60, align 8, !tbaa !215
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %61 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %61, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit, label %38, !llvm.loop !337
+  br i1 %61, label %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit, label %38, !llvm.loop !336
 
 _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE4copyEiiPS1_.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11413,9 +11413,9 @@ _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exi
 
 _ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE10deallocateEv.exit: ; preds = %67, %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE7destroyEii.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %68, align 8, !tbaa !338
+  store i8 1, ptr %68, align 8, !tbaa !337
   store ptr %.0.i, ptr %62, align 8, !tbaa !127
-  store i32 %1, ptr %4, align 8, !tbaa !339
+  store i32 %1, ptr %4, align 8, !tbaa !338
   br label %69
 
 69:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEE10deallocateEv.exit, %2
@@ -11444,7 +11444,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI32btDeformableNode
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %5, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !359
+  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !358
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %1, %5
@@ -11541,7 +11541,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintE10deallocateEv.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !360
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !359
 
 .loopexit:                                        ; preds = %48, %9, %14
   store i32 %1, ptr %4, align 4, !tbaa !128
@@ -11552,7 +11552,7 @@ _ZN20btAlignedObjectArrayI32btDeformableNodeAnchorConstraintE10deallocateEv.exit
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btDeformableNodeRigidContactConstraint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !348
+  %5 = load i32, ptr %4, align 8, !tbaa !347
   %6 = icmp slt i32 %5, %1
   br i1 %6, label %7, label %70
 
@@ -11569,7 +11569,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableN
 _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE8allocateEi.exit: ; preds = %7, %8
   %.0.i = phi ptr [ %11, %8 ], [ null, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !319
+  %13 = load i32, ptr %12, align 4, !tbaa !318
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit
 
@@ -11623,10 +11623,10 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE8allocate
 _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintEC2ERKS1_.exit.i: ; preds = %31, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %36, label %_ZNK20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE4copyEiiPS1_.exit, label %18, !llvm.loop !361
+  br i1 %36, label %_ZNK20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE4copyEiiPS1_.exit, label %18, !llvm.loop !360
 
 _ZNK20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintEC2ERKS1_.exit.i
-  %.pre = load i32, ptr %12, align 4, !tbaa !319
+  %.pre = load i32, ptr %12, align 4, !tbaa !318
   %37 = icmp sgt i32 %.pre, 0
   br i1 %37, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit
 
@@ -11689,7 +11689,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit.i: 
   store i32 0, ptr %61, align 8, !tbaa !225
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %62 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %62, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit, label %39, !llvm.loop !346
+  br i1 %62, label %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit, label %39, !llvm.loop !345
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE4copyEiiPS1_.exit
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11707,9 +11707,9 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyE
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE10deallocateEv.exit: ; preds = %68, %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE7destroyEii.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %69, align 8, !tbaa !347
+  store i8 1, ptr %69, align 8, !tbaa !346
   store ptr %.0.i, ptr %63, align 8, !tbaa !122
-  store i32 %1, ptr %4, align 8, !tbaa !348
+  store i32 %1, ptr %4, align 8, !tbaa !347
   br label %70
 
 70:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I38btDeformableNodeRigidContactConstraintEE10deallocateEv.exit, %2
@@ -11738,7 +11738,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI38btDeformableNode
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %5, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !362
+  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !361
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %1, %5
@@ -11835,7 +11835,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintE10deallocateE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !363
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !362
 
 .loopexit:                                        ; preds = %48, %9, %14
   store i32 %1, ptr %4, align 4, !tbaa !123
@@ -11846,7 +11846,7 @@ _ZN20btAlignedObjectArrayI38btDeformableNodeRigidContactConstraintE10deallocateE
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btDeformableFaceRigidContactConstraint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !345
+  %5 = load i32, ptr %4, align 8, !tbaa !344
   %6 = icmp slt i32 %5, %1
   br i1 %6, label %7, label %71
 
@@ -11863,7 +11863,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I38btDeformableF
 _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE8allocateEi.exit: ; preds = %7, %8
   %.0.i = phi ptr [ %11, %8 ], [ null, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !322
+  %13 = load i32, ptr %12, align 4, !tbaa !321
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit
 
@@ -11894,7 +11894,7 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE8allocate
   store i8 0, ptr %16, align 8, !tbaa !187
   store i8 0, ptr %17, align 8, !tbaa !259
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV38btDeformableFaceRigidContactConstraint, i64 16), ptr %3, align 8, !tbaa !50
-  store i8 0, ptr %18, align 8, !tbaa !324
+  store i8 0, ptr %18, align 8, !tbaa !323
   call void @_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE6resizeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(25) %20, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(105) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = load ptr, ptr %24, align 8, !tbaa !146
@@ -11919,10 +11919,10 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE8allocate
 _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintEC2ERKS1_.exit.i: ; preds = %32, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %37, label %_ZNK20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE4copyEiiPS1_.exit, label %19, !llvm.loop !364
+  br i1 %37, label %_ZNK20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE4copyEiiPS1_.exit, label %19, !llvm.loop !363
 
 _ZNK20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintEC2ERKS1_.exit.i
-  %.pre = load i32, ptr %12, align 4, !tbaa !322
+  %.pre = load i32, ptr %12, align 4, !tbaa !321
   %38 = icmp sgt i32 %.pre, 0
   br i1 %38, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit
 
@@ -11985,7 +11985,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit.i: 
   store i32 0, ptr %62, align 8, !tbaa !233
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %63 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %63, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit, label %40, !llvm.loop !343
+  br i1 %63, label %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit, label %40, !llvm.loop !342
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE4copyEiiPS1_.exit
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12003,9 +12003,9 @@ _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyE
 
 _ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE10deallocateEv.exit: ; preds = %69, %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE7destroyEii.exit
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %70, align 8, !tbaa !344
+  store i8 1, ptr %70, align 8, !tbaa !343
   store ptr %.0.i, ptr %64, align 8, !tbaa !134
-  store i32 %1, ptr %4, align 8, !tbaa !345
+  store i32 %1, ptr %4, align 8, !tbaa !344
   br label %71
 
 71:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I38btDeformableFaceRigidContactConstraintEE10deallocateEv.exit, %2
@@ -12034,7 +12034,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI38btDeformableFace
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv29 = trunc i64 %indvars.iv.next27 to i32
   %exitcond30.not = icmp eq i32 %5, %lftr.wideiv29
-  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !365
+  br i1 %exitcond30.not, label %.loopexit, label %9, !llvm.loop !364
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %1, %5
@@ -12131,7 +12131,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE10deallocateE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !366
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !365
 
 .loopexit:                                        ; preds = %48, %9, %14
   store i32 %1, ptr %4, align 4, !tbaa !135
@@ -12142,7 +12142,7 @@ _ZN20btAlignedObjectArrayI38btDeformableFaceRigidContactConstraintE10deallocateE
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.btDeformableFaceNodeContactConstraint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !342
+  %5 = load i32, ptr %4, align 8, !tbaa !341
   %6 = icmp slt i32 %5, %1
   br i1 %6, label %7, label %78
 
@@ -12159,7 +12159,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_I37btDeformableF
 _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE8allocateEi.exit: ; preds = %7, %8
   %.0.i = phi ptr [ %11, %8 ], [ null, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !326
+  %13 = load i32, ptr %12, align 4, !tbaa !325
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit
 
@@ -12175,13 +12175,13 @@ _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE8allocateE
   %19 = load ptr, ptr %15, align 8, !tbaa !141
   %20 = getelementptr inbounds nuw %class.btAlignedObjectArray.82, ptr %19, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i8 1, ptr %21, align 8, !tbaa !309
+  store i8 1, ptr %21, align 8, !tbaa !308
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr null, ptr %22, align 8, !tbaa !148
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %23, align 4, !tbaa !142
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %24, align 8, !tbaa !310
+  store i32 0, ptr %24, align 8, !tbaa !309
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !142
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -12221,15 +12221,15 @@ _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE8allocateE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(56) %43, i64 56, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit.i, label %30, !llvm.loop !328
+  br i1 %exitcond.not.i.i.i, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit.i, label %30, !llvm.loop !327
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit.i: ; preds = %30, %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !367
+  br i1 %44, label %_ZNK20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE4copyEiiPS1_.exit, label %17, !llvm.loop !366
 
 _ZNK20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE4copyEiiPS1_.exit: ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintEC2ERKS1_.exit.i
-  %.pre = load i32, ptr %12, align 4, !tbaa !326
+  %.pre = load i32, ptr %12, align 4, !tbaa !325
   %45 = icmp sgt i32 %.pre, 0
   br i1 %45, label %.lr.ph.i5, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit
 
@@ -12261,7 +12261,7 @@ _ZNK20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE4copyEiiP
   call void %58(ptr noundef nonnull align 8 dereferenceable(96) %56) #23
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %59 = icmp eq i64 %indvars.iv.next.i.i.i.i, %zext.i.i.i
-  br i1 %59, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i, label %54, !llvm.loop !311
+  br i1 %59, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i, label %54, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i: ; preds = %54, %47
   %60 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -12285,14 +12285,14 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
   unreachable
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit.i: ; preds = %65, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i.i.i
-  store i8 1, ptr %62, align 8, !tbaa !309
+  store i8 1, ptr %62, align 8, !tbaa !308
   store ptr null, ptr %60, align 8, !tbaa !148
   store i32 0, ptr %50, align 4, !tbaa !142
   %69 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 0, ptr %69, align 8, !tbaa !310
+  store i32 0, ptr %69, align 8, !tbaa !309
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %70 = icmp eq i64 %indvars.iv.next.i7, %zext11
-  br i1 %70, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit, label %47, !llvm.loop !340
+  br i1 %70, label %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit, label %47, !llvm.loop !339
 
 _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit: ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintED2Ev.exit.i, %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE8allocateEi.exit, %_ZNK20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE4copyEiiPS1_.exit
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12310,9 +12310,9 @@ _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEi
 
 _ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE10deallocateEv.exit: ; preds = %76, %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE7destroyEii.exit
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %77, align 8, !tbaa !341
+  store i8 1, ptr %77, align 8, !tbaa !340
   store ptr %.0.i, ptr %71, align 8, !tbaa !141
-  store i32 %1, ptr %4, align 8, !tbaa !342
+  store i32 %1, ptr %4, align 8, !tbaa !341
   br label %78
 
 78:                                               ; preds = %_ZN20btAlignedObjectArrayIS_I37btDeformableFaceNodeContactConstraintEE10deallocateEv.exit, %2
@@ -12341,7 +12341,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI37btDeformableFace
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
   %exitcond29.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond29.not, label %.loopexit, label %9, !llvm.loop !368
+  br i1 %exitcond29.not, label %.loopexit, label %9, !llvm.loop !367
 
 14:                                               ; preds = %3
   %15 = icmp sgt i32 %1, %5
@@ -12349,7 +12349,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI37btDeformableFace
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !310
+  %18 = load i32, ptr %17, align 8, !tbaa !309
   %19 = icmp slt i32 %18, %1
   br i1 %19, label %20, label %.lr.ph
 
@@ -12398,7 +12398,7 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE8allocateEi.ex
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 8 dereferenceable(56) %41, i64 56, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE4copyEiiPS0_.exit.i, label %28, !llvm.loop !328
+  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE4copyEiiPS0_.exit.i, label %28, !llvm.loop !327
 
 _ZNK20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE4copyEiiPS0_.exit.i: ; preds = %28
   %.pre.i = load i32, ptr %4, align 4, !tbaa !142
@@ -12418,7 +12418,7 @@ _ZNK20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE4copyEiiPS0_.
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(96) %45) #23
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
   %48 = icmp eq i64 %indvars.iv.next.i7.i, %zext.i
-  br i1 %48, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %43, !llvm.loop !311
+  br i1 %48, label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i, label %43, !llvm.loop !310
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i: ; preds = %43, %_ZNK20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE4copyEiiPS0_.exit.i, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE8allocateEi.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12435,9 +12435,9 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.ex
   br label %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE10deallocateEv.exit.i
 
 _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE10deallocateEv.exit.i: ; preds = %54, %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE7destroyEii.exit.i
-  store i8 1, ptr %51, align 8, !tbaa !309
+  store i8 1, ptr %51, align 8, !tbaa !308
   store ptr %.0.i.i, ptr %49, align 8, !tbaa !148
-  store i32 %1, ptr %17, align 8, !tbaa !310
+  store i32 %1, ptr %17, align 8, !tbaa !309
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE10deallocateEv.exit.i, %16
@@ -12468,7 +12468,7 @@ _ZN20btAlignedObjectArrayI37btDeformableFaceNodeContactConstraintE10deallocateEv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 8 dereferenceable(56) %59, i64 56, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !369
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !368
 
 .loopexit:                                        ; preds = %61, %9, %14
   store i32 %1, ptr %4, align 4, !tbaa !142
@@ -12815,77 +12815,77 @@ attributes #25 = { builtin nounwind }
 !278 = !{!"_ZTS18LagrangeMultiplier", !7, i64 0, !7, i64 4, !8, i64 8, !8, i64 20, !8, i64 68}
 !279 = !{!278, !7, i64 4}
 !280 = distinct !{!280, !34}
-!281 = distinct !{!281, !34, !282}
-!282 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!283 = distinct !{!283, !34}
-!284 = !{!94, !7, i64 8}
-!285 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 12, !41, i64 20, i64 48, !41, i64 68, i64 12, !41}
-!286 = distinct !{!286, !34}
-!287 = !{!94, !12, i64 24}
+!281 = distinct !{!281, !34}
+!282 = distinct !{!282, !34}
+!283 = !{!94, !7, i64 8}
+!284 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 12, !41, i64 20, i64 48, !41, i64 68, i64 12, !41}
+!285 = distinct !{!285, !34}
+!286 = !{!94, !12, i64 24}
+!287 = distinct !{!287, !34}
 !288 = distinct !{!288, !34}
 !289 = distinct !{!289, !34}
-!290 = distinct !{!290, !34}
-!291 = !{!257, !258, i64 88}
+!290 = !{!257, !258, i64 88}
+!291 = distinct !{!291, !34}
 !292 = distinct !{!292, !34}
 !293 = distinct !{!293, !34}
 !294 = distinct !{!294, !34}
-!295 = distinct !{!295, !34}
-!296 = !{!297, !264, i64 848}
-!297 = !{!"_ZTSN10btSoftBody26DeformableFaceRigidContactE", !204, i64 0, !264, i64 848, !159, i64 856, !159, i64 872, !159, i64 888}
+!295 = !{!296, !264, i64 848}
+!296 = !{!"_ZTSN10btSoftBody26DeformableFaceRigidContactE", !204, i64 0, !264, i64 848, !159, i64 856, !159, i64 872, !159, i64 888}
+!297 = distinct !{!297, !34}
 !298 = distinct !{!298, !34}
 !299 = distinct !{!299, !34}
-!300 = distinct !{!300, !34}
-!301 = !{!302, !303, i64 56}
-!302 = !{!"_ZTS37btDeformableFaceNodeContactConstraint", !188, i64 0, !168, i64 40, !264, i64 48, !303, i64 56, !159, i64 64, !159, i64 80}
-!303 = !{!"p1 _ZTSN10btSoftBody25DeformableFaceNodeContactE", !11, i64 0}
-!304 = !{!305, !264, i64 8}
-!305 = !{!"_ZTSN10btSoftBody25DeformableFaceNodeContactE", !168, i64 0, !264, i64 8, !159, i64 16, !159, i64 32, !159, i64 48, !46, i64 64, !46, i64 68, !46, i64 72, !46, i64 76, !121, i64 80}
-!306 = !{!305, !168, i64 0}
+!300 = !{!301, !302, i64 56}
+!301 = !{!"_ZTS37btDeformableFaceNodeContactConstraint", !188, i64 0, !168, i64 40, !264, i64 48, !302, i64 56, !159, i64 64, !159, i64 80}
+!302 = !{!"p1 _ZTSN10btSoftBody25DeformableFaceNodeContactE", !11, i64 0}
+!303 = !{!304, !264, i64 8}
+!304 = !{!"_ZTSN10btSoftBody25DeformableFaceNodeContactE", !168, i64 0, !264, i64 8, !159, i64 16, !159, i64 32, !159, i64 48, !46, i64 64, !46, i64 68, !46, i64 72, !46, i64 76, !121, i64 80}
+!305 = !{!304, !168, i64 0}
+!306 = distinct !{!306, !34}
 !307 = distinct !{!307, !34}
-!308 = distinct !{!308, !34}
-!309 = !{!143, !12, i64 24}
-!310 = !{!143, !7, i64 8}
+!308 = !{!143, !12, i64 24}
+!309 = !{!143, !7, i64 8}
+!310 = distinct !{!310, !34}
 !311 = distinct !{!311, !34}
-!312 = distinct !{!312, !34}
-!313 = !{!97, !7, i64 4}
+!312 = !{!97, !7, i64 4}
+!313 = distinct !{!313, !34}
 !314 = distinct !{!314, !34}
-!315 = distinct !{!315, !34}
-!316 = !{!109, !7, i64 4}
+!315 = !{!109, !7, i64 4}
+!316 = distinct !{!316, !34}
 !317 = distinct !{!317, !34}
-!318 = distinct !{!318, !34}
-!319 = !{!100, !7, i64 4}
+!318 = !{!100, !7, i64 4}
+!319 = distinct !{!319, !34}
 !320 = distinct !{!320, !34}
-!321 = distinct !{!321, !34}
-!322 = !{!103, !7, i64 4}
-!323 = distinct !{!323, !34}
-!324 = !{!263, !12, i64 104}
-!325 = distinct !{!325, !34}
-!326 = !{!106, !7, i64 4}
+!321 = !{!103, !7, i64 4}
+!322 = distinct !{!322, !34}
+!323 = !{!263, !12, i64 104}
+!324 = distinct !{!324, !34}
+!325 = !{!106, !7, i64 4}
+!326 = distinct !{!326, !34}
 !327 = distinct !{!327, !34}
 !328 = distinct !{!328, !34}
 !329 = distinct !{!329, !34}
-!330 = distinct !{!330, !34}
-!331 = !{!88, !12, i64 24}
-!332 = !{!84, !86, i64 16}
-!333 = !{!84, !12, i64 24}
-!334 = !{!84, !7, i64 4}
-!335 = !{!84, !7, i64 8}
+!330 = !{!88, !12, i64 24}
+!331 = !{!84, !86, i64 16}
+!332 = !{!84, !12, i64 24}
+!333 = !{!84, !7, i64 4}
+!334 = !{!84, !7, i64 8}
+!335 = distinct !{!335, !34}
 !336 = distinct !{!336, !34}
-!337 = distinct !{!337, !34}
-!338 = !{!109, !12, i64 24}
-!339 = !{!109, !7, i64 8}
-!340 = distinct !{!340, !34}
-!341 = !{!106, !12, i64 24}
-!342 = !{!106, !7, i64 8}
-!343 = distinct !{!343, !34}
-!344 = !{!103, !12, i64 24}
-!345 = !{!103, !7, i64 8}
-!346 = distinct !{!346, !34}
-!347 = !{!100, !12, i64 24}
-!348 = !{!100, !7, i64 8}
-!349 = distinct !{!349, !34}
-!350 = !{!97, !12, i64 24}
-!351 = !{!97, !7, i64 8}
+!337 = !{!109, !12, i64 24}
+!338 = !{!109, !7, i64 8}
+!339 = distinct !{!339, !34}
+!340 = !{!106, !12, i64 24}
+!341 = !{!106, !7, i64 8}
+!342 = distinct !{!342, !34}
+!343 = !{!103, !12, i64 24}
+!344 = !{!103, !7, i64 8}
+!345 = distinct !{!345, !34}
+!346 = !{!100, !12, i64 24}
+!347 = !{!100, !7, i64 8}
+!348 = distinct !{!348, !34}
+!349 = !{!97, !12, i64 24}
+!350 = !{!97, !7, i64 8}
+!351 = distinct !{!351, !34}
 !352 = distinct !{!352, !34}
 !353 = distinct !{!353, !34}
 !354 = distinct !{!354, !34}
@@ -12903,4 +12903,3 @@ attributes #25 = { builtin nounwind }
 !366 = distinct !{!366, !34}
 !367 = distinct !{!367, !34}
 !368 = distinct !{!368, !34}
-!369 = distinct !{!369, !34}

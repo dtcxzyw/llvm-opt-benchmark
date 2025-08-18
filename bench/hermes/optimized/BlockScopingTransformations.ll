@@ -260,24 +260,60 @@ if.end:                                           ; preds = %entry
   %cmp18.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.fr, inttoptr (i64 -2 to ptr)
   %cmp7.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
   %cmp.i40.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i40.i, label %while.body.us, label %if.end.split
+  br i1 %cmp.i40.i, label %if.end.split.us, label %if.end.split
 
-while.body.us:                                    ; preds = %if.end, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us
-  %ProbeAmt.0.us = phi i32 [ %inc.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ 1, %if.end ]
-  %call5.pn.us = phi i32 [ %add.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ %conv.i.i, %if.end ]
-  %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ null, %if.end ]
+if.end.split.us:                                  ; preds = %if.end
+  br i1 %cmp18.i, label %while.body.us.us, label %while.body.us
+
+while.body.us.us:                                 ; preds = %if.end.split.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us
+  %ProbeAmt.0.us.us = phi i32 [ %inc.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us ], [ 1, %if.end.split.us ]
+  %call5.pn.us.us = phi i32 [ %add.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us ], [ %conv.i.i, %if.end.split.us ]
+  %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us ], [ null, %if.end.split.us ]
+  %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
+  %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
+  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
+  %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
+  switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
+    i64 -1, label %if.then.i.us.us
+    i64 -2, label %return
+  ]
+
+if.then.i.us.us:                                  ; preds = %while.body.us.us
+  br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
+
+if.end19.i.us.us:                                 ; preds = %while.body.us.us
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.us.us, i64 8
+  %agg.tmp6.sroa.2.0.copyload.us.us = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us, align 8
+  %cmp.i.i.us.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us.us, 0
+  br i1 %cmp.i.i.us.us, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
+
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us: ; preds = %if.end19.i.us.us, %if.then.i.us.us
+  %cmp7.i20.us.us = icmp eq ptr %agg.tmp6.sroa.0.0.copyload.us.us, inttoptr (i64 -1 to ptr)
+  br i1 %cmp7.i20.us.us, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us
+
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us: ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
+  %cmp18.i30.us.us = icmp eq ptr %agg.tmp6.sroa.0.0.copyload.us.us, inttoptr (i64 -2 to ptr)
+  %tobool21.us.us = icmp eq ptr %FoundTombstone.0.us.us, null
+  %or.cond.not.us.us = select i1 %cmp18.i30.us.us, i1 %tobool21.us.us, i1 false
+  %spec.select.us.us = select i1 %or.cond.not.us.us, ptr %add.ptr.us.us, ptr %FoundTombstone.0.us.us
+  %inc.us.us = add i32 %ProbeAmt.0.us.us, 1
+  %add.us.us = add i32 %BucketNo.0.us.us, %ProbeAmt.0.us.us
+  br label %while.body.us.us, !llvm.loop !9
+
+while.body.us:                                    ; preds = %if.end.split.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us
+  %ProbeAmt.0.us = phi i32 [ %inc.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ 1, %if.end.split.us ]
+  %call5.pn.us = phi i32 [ %add.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ %conv.i.i, %if.end.split.us ]
+  %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
   %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
-  %magicptr.i.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
-  switch i64 %magicptr.i.us, label %if.end19.i.us [
+  %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
+  switch i64 %magicptr, label %if.end19.i.us [
     i64 -1, label %if.then.i.us
-    i64 -2, label %if.then13.i.us
+    i64 -2, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us
   ]
-
-if.then13.i.us:                                   ; preds = %while.body.us
-  br i1 %cmp18.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
 
 if.then.i.us:                                     ; preds = %while.body.us
   br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
@@ -288,11 +324,11 @@ if.end19.i.us:                                    ; preds = %while.body.us
   %cmp.i.i.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.i.us, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us: ; preds = %if.end19.i.us, %if.then.i.us, %if.then13.i.us
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us: ; preds = %if.end19.i.us, %if.then.i.us
   %cmp7.i20.us = icmp eq ptr %agg.tmp6.sroa.0.0.copyload.us, inttoptr (i64 -1 to ptr)
   br i1 %cmp7.i20.us, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us: ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us: ; preds = %while.body.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
   %cmp18.i30.us = icmp eq ptr %agg.tmp6.sroa.0.0.copyload.us, inttoptr (i64 -2 to ptr)
   %tobool21.us = icmp eq ptr %FoundTombstone.0.us, null
   %or.cond.not.us = select i1 %cmp18.i30.us, i1 %tobool21.us, i1 false
@@ -312,14 +348,11 @@ while.body.us50:                                  ; preds = %if.end.split, %_ZN4
   %idx.ext.us55 = zext i32 %BucketNo.0.us54 to i64
   %add.ptr.us56 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us55
   %agg.tmp6.sroa.0.0.copyload.us57 = load ptr, ptr %add.ptr.us56, align 8
-  %magicptr.i.us58 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us57 to i64
-  switch i64 %magicptr.i.us58, label %if.end19.i.us61 [
-    i64 -1, label %if.then.i.us60
+  %magicptr133 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us57 to i64
+  switch i64 %magicptr133, label %if.end19.i.us61 [
     i64 -2, label %return
+    i64 -1, label %if.then15
   ]
-
-if.then.i.us60:                                   ; preds = %while.body.us50
-  br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
 if.end19.i.us61:                                  ; preds = %while.body.us50
   %agg.tmp6.sroa.2.0.call7.sroa_idx.us62 = getelementptr inbounds nuw i8, ptr %add.ptr.us56, i64 8
@@ -332,7 +365,7 @@ land.rhs.i.i.us65:                                ; preds = %if.end19.i.us61
   %2 = icmp eq i32 %bcmp.i.us, 0
   br i1 %2, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66: ; preds = %land.rhs.i.i.us65, %if.end19.i.us61, %if.then.i.us60
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66: ; preds = %land.rhs.i.i.us65, %if.end19.i.us61
   %cmp7.i20.us67 = icmp eq ptr %agg.tmp6.sroa.0.0.copyload.us57, inttoptr (i64 -1 to ptr)
   br i1 %cmp7.i20.us67, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us68
 
@@ -343,7 +376,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us68: ; preds = %_Z
   %spec.select.us72 = select i1 %or.cond.not.us71, ptr %add.ptr.us56, ptr %FoundTombstone.0.us53
   %inc.us73 = add i32 %ProbeAmt.0.us51, 1
   %add.us74 = add i32 %BucketNo.0.us54, %ProbeAmt.0.us51
-  br label %while.body.us50, !llvm.loop !12
+  br label %while.body.us50, !llvm.loop !9
 
 if.end.split.split:                               ; preds = %if.end.split
   br i1 %cmp7.i, label %while.body.us83, label %while.body
@@ -356,8 +389,8 @@ while.body.us83:                                  ; preds = %if.end.split.split,
   %idx.ext.us88 = zext i32 %BucketNo.0.us87 to i64
   %add.ptr.us89 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us88
   %agg.tmp6.sroa.0.0.copyload.us90 = load ptr, ptr %add.ptr.us89, align 8
-  %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us90 to i64
-  switch i64 %magicptr, label %if.end19.i.us94 [
+  %magicptr134 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us90 to i64
+  switch i64 %magicptr134, label %if.end19.i.us94 [
     i64 -1, label %return
     i64 -2, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us102
   ]
@@ -384,7 +417,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us102: ; preds = %w
   %spec.select.us106 = select i1 %or.cond.not.us105, ptr %add.ptr.us89, ptr %FoundTombstone.0.us86
   %inc.us107 = add i32 %ProbeAmt.0.us84, 1
   %add.us108 = add i32 %BucketNo.0.us87, %ProbeAmt.0.us84
-  br label %while.body.us83, !llvm.loop !13
+  br label %while.body.us83, !llvm.loop !9
 
 while.body:                                       ; preds = %if.end.split.split, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
   %ProbeAmt.0 = phi i32 [ %inc, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40 ], [ 1, %if.end.split.split ]
@@ -412,9 +445,9 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.b
   %cmp7.i20 = icmp eq ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -1 to ptr)
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
-if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
@@ -426,11 +459,11 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
   %inc = add i32 %ProbeAmt.0, 1
   %add = add i32 %BucketNo.0, %ProbeAmt.0
-  br label %while.body, !llvm.loop !14
+  br label %while.body, !llvm.loop !9
 
-return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %if.then.i.us60, %land.rhs.i.i.us65, %if.then.i.us, %if.then13.i.us, %if.end19.i.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then13.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us56, %if.then.i.us60 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.end19.i.us ], [ true, %if.then13.i.us ], [ true, %if.then.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %if.then.i.us60 ], [ true, %while.body.us50 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i.us98 ], [ true, %land.rhs.i.i ]
+return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us ], [ true, %if.then.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us50 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i.us98 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }
@@ -553,7 +586,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !15
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -577,7 +610,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !11
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not26.i = icmp eq i32 %0, 0
@@ -607,7 +640,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
   %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %B.027.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
-  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !16
+  br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i
   call void @_ZdlPv(ptr noundef nonnull %1) #12
@@ -2866,7 +2899,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -2890,7 +2923,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -2947,7 +2980,7 @@ for.inc.i.i.i176:                                 ; preds = %if.then.i.i.i184, %
   %__n.1.i.i.i177 = phi i64 [ %__n.05.i.i.i173, %for.body.i.i.i171 ], [ %__i.06.i.i.i172, %if.then.i.i.i184 ]
   %inc.i.i.i178 = add nuw nsw i64 %__i.06.i.i.i172, 1
   %exitcond.not.i.i.i179 = icmp eq i64 %inc.i.i.i178, 3
-  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180: ; preds = %for.inc.i.i.i176, %if.then.i.i.i184
   %retval.0.i.i.i181 = phi i64 [ 3, %if.then.i.i.i184 ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
@@ -2986,7 +3019,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -3009,7 +3042,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -3035,7 +3068,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -3059,7 +3092,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -3103,7 +3136,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -3127,7 +3160,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -3171,7 +3204,7 @@ for.inc.i.i.i106:                                 ; preds = %if.then.i.i.i133, %
   %__n.1.i.i.i107 = phi i64 [ %__n.05.i.i.i103, %for.body.i.i.i101 ], [ %__i.06.i.i.i102, %if.then.i.i.i133 ]
   %inc.i.i.i108 = add nuw nsw i64 %__i.06.i.i.i102, 1
   %exitcond.not.i.i.i109 = icmp eq i64 %inc.i.i.i108, 3
-  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110: ; preds = %for.inc.i.i.i106, %if.then.i.i.i133
   %retval.0.i.i.i111 = phi i64 [ 3, %if.then.i.i.i133 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
@@ -3195,7 +3228,7 @@ for.inc.i.i8.i119:                                ; preds = %if.then.i.i15.i131,
   %__n.1.i.i9.i120 = phi i64 [ %__n.05.i.i5.i116, %for.body.i.i3.i114 ], [ %__i.06.i.i4.i115, %if.then.i.i15.i131 ]
   %inc.i.i10.i121 = add nuw nsw i64 %__i.06.i.i4.i115, 1
   %exitcond.not.i.i11.i122 = icmp eq i64 %inc.i.i10.i121, 3
-  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123: ; preds = %for.inc.i.i8.i119, %if.then.i.i15.i131
   %retval.0.i.i12.i124 = phi i64 [ 3, %if.then.i.i15.i131 ], [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ]
@@ -3239,7 +3272,7 @@ for.inc.i.i.i141:                                 ; preds = %if.then.i.i.i168, %
   %__n.1.i.i.i142 = phi i64 [ %__n.05.i.i.i138, %for.body.i.i.i136 ], [ %__i.06.i.i.i137, %if.then.i.i.i168 ]
   %inc.i.i.i143 = add nuw nsw i64 %__i.06.i.i.i137, 1
   %exitcond.not.i.i.i144 = icmp eq i64 %inc.i.i.i143, 3
-  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145: ; preds = %for.inc.i.i.i141, %if.then.i.i.i168
   %retval.0.i.i.i146 = phi i64 [ 3, %if.then.i.i.i168 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
@@ -3263,7 +3296,7 @@ for.inc.i.i8.i154:                                ; preds = %if.then.i.i15.i166,
   %__n.1.i.i9.i155 = phi i64 [ %__n.05.i.i5.i151, %for.body.i.i3.i149 ], [ %__i.06.i.i4.i150, %if.then.i.i15.i166 ]
   %inc.i.i10.i156 = add nuw nsw i64 %__i.06.i.i4.i150, 1
   %exitcond.not.i.i11.i157 = icmp eq i64 %inc.i.i10.i156, 3
-  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158: ; preds = %for.inc.i.i8.i154, %if.then.i.i15.i166
   %retval.0.i.i12.i159 = phi i64 [ 3, %if.then.i.i15.i166 ], [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ]
@@ -3313,7 +3346,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -3337,7 +3370,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -3394,7 +3427,7 @@ for.inc.i.i.i176:                                 ; preds = %if.then.i.i.i184, %
   %__n.1.i.i.i177 = phi i64 [ %__n.05.i.i.i173, %for.body.i.i.i171 ], [ %__i.06.i.i.i172, %if.then.i.i.i184 ]
   %inc.i.i.i178 = add nuw nsw i64 %__i.06.i.i.i172, 1
   %exitcond.not.i.i.i179 = icmp eq i64 %inc.i.i.i178, 3
-  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180: ; preds = %for.inc.i.i.i176, %if.then.i.i.i184
   %retval.0.i.i.i181 = phi i64 [ 3, %if.then.i.i.i184 ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
@@ -3433,7 +3466,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -3456,7 +3489,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -3482,7 +3515,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -3506,7 +3539,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -3550,7 +3583,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -3574,7 +3607,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -3618,7 +3651,7 @@ for.inc.i.i.i106:                                 ; preds = %if.then.i.i.i133, %
   %__n.1.i.i.i107 = phi i64 [ %__n.05.i.i.i103, %for.body.i.i.i101 ], [ %__i.06.i.i.i102, %if.then.i.i.i133 ]
   %inc.i.i.i108 = add nuw nsw i64 %__i.06.i.i.i102, 1
   %exitcond.not.i.i.i109 = icmp eq i64 %inc.i.i.i108, 3
-  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110: ; preds = %for.inc.i.i.i106, %if.then.i.i.i133
   %retval.0.i.i.i111 = phi i64 [ 3, %if.then.i.i.i133 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
@@ -3642,7 +3675,7 @@ for.inc.i.i8.i119:                                ; preds = %if.then.i.i15.i131,
   %__n.1.i.i9.i120 = phi i64 [ %__n.05.i.i5.i116, %for.body.i.i3.i114 ], [ %__i.06.i.i4.i115, %if.then.i.i15.i131 ]
   %inc.i.i10.i121 = add nuw nsw i64 %__i.06.i.i4.i115, 1
   %exitcond.not.i.i11.i122 = icmp eq i64 %inc.i.i10.i121, 3
-  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123: ; preds = %for.inc.i.i8.i119, %if.then.i.i15.i131
   %retval.0.i.i12.i124 = phi i64 [ 3, %if.then.i.i15.i131 ], [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ]
@@ -3686,7 +3719,7 @@ for.inc.i.i.i141:                                 ; preds = %if.then.i.i.i168, %
   %__n.1.i.i.i142 = phi i64 [ %__n.05.i.i.i138, %for.body.i.i.i136 ], [ %__i.06.i.i.i137, %if.then.i.i.i168 ]
   %inc.i.i.i143 = add nuw nsw i64 %__i.06.i.i.i137, 1
   %exitcond.not.i.i.i144 = icmp eq i64 %inc.i.i.i143, 3
-  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145: ; preds = %for.inc.i.i.i141, %if.then.i.i.i168
   %retval.0.i.i.i146 = phi i64 [ 3, %if.then.i.i.i168 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
@@ -3710,7 +3743,7 @@ for.inc.i.i8.i154:                                ; preds = %if.then.i.i15.i166,
   %__n.1.i.i9.i155 = phi i64 [ %__n.05.i.i5.i151, %for.body.i.i3.i149 ], [ %__i.06.i.i4.i150, %if.then.i.i15.i166 ]
   %inc.i.i10.i156 = add nuw nsw i64 %__i.06.i.i4.i150, 1
   %exitcond.not.i.i11.i157 = icmp eq i64 %inc.i.i10.i156, 3
-  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158: ; preds = %for.inc.i.i8.i154, %if.then.i.i15.i166
   %retval.0.i.i12.i159 = phi i64 [ 3, %if.then.i.i15.i166 ], [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ]
@@ -3760,7 +3793,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -3784,7 +3817,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -3841,7 +3874,7 @@ for.inc.i.i.i176:                                 ; preds = %if.then.i.i.i184, %
   %__n.1.i.i.i177 = phi i64 [ %__n.05.i.i.i173, %for.body.i.i.i171 ], [ %__i.06.i.i.i172, %if.then.i.i.i184 ]
   %inc.i.i.i178 = add nuw nsw i64 %__i.06.i.i.i172, 1
   %exitcond.not.i.i.i179 = icmp eq i64 %inc.i.i.i178, 3
-  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i179, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180, label %for.body.i.i.i171, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i180: ; preds = %for.inc.i.i.i176, %if.then.i.i.i184
   %retval.0.i.i.i181 = phi i64 [ 3, %if.then.i.i.i184 ], [ %__n.1.i.i.i177, %for.inc.i.i.i176 ]
@@ -3880,7 +3913,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -3903,7 +3936,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -3929,7 +3962,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -3953,7 +3986,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -3997,7 +4030,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -4021,7 +4054,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -4065,7 +4098,7 @@ for.inc.i.i.i106:                                 ; preds = %if.then.i.i.i133, %
   %__n.1.i.i.i107 = phi i64 [ %__n.05.i.i.i103, %for.body.i.i.i101 ], [ %__i.06.i.i.i102, %if.then.i.i.i133 ]
   %inc.i.i.i108 = add nuw nsw i64 %__i.06.i.i.i102, 1
   %exitcond.not.i.i.i109 = icmp eq i64 %inc.i.i.i108, 3
-  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110: ; preds = %for.inc.i.i.i106, %if.then.i.i.i133
   %retval.0.i.i.i111 = phi i64 [ 3, %if.then.i.i.i133 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
@@ -4089,7 +4122,7 @@ for.inc.i.i8.i119:                                ; preds = %if.then.i.i15.i131,
   %__n.1.i.i9.i120 = phi i64 [ %__n.05.i.i5.i116, %for.body.i.i3.i114 ], [ %__i.06.i.i4.i115, %if.then.i.i15.i131 ]
   %inc.i.i10.i121 = add nuw nsw i64 %__i.06.i.i4.i115, 1
   %exitcond.not.i.i11.i122 = icmp eq i64 %inc.i.i10.i121, 3
-  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123: ; preds = %for.inc.i.i8.i119, %if.then.i.i15.i131
   %retval.0.i.i12.i124 = phi i64 [ 3, %if.then.i.i15.i131 ], [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ]
@@ -4133,7 +4166,7 @@ for.inc.i.i.i141:                                 ; preds = %if.then.i.i.i168, %
   %__n.1.i.i.i142 = phi i64 [ %__n.05.i.i.i138, %for.body.i.i.i136 ], [ %__i.06.i.i.i137, %if.then.i.i.i168 ]
   %inc.i.i.i143 = add nuw nsw i64 %__i.06.i.i.i137, 1
   %exitcond.not.i.i.i144 = icmp eq i64 %inc.i.i.i143, 3
-  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145: ; preds = %for.inc.i.i.i141, %if.then.i.i.i168
   %retval.0.i.i.i146 = phi i64 [ 3, %if.then.i.i.i168 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
@@ -4157,7 +4190,7 @@ for.inc.i.i8.i154:                                ; preds = %if.then.i.i15.i166,
   %__n.1.i.i9.i155 = phi i64 [ %__n.05.i.i5.i151, %for.body.i.i3.i149 ], [ %__i.06.i.i4.i150, %if.then.i.i15.i166 ]
   %inc.i.i10.i156 = add nuw nsw i64 %__i.06.i.i4.i150, 1
   %exitcond.not.i.i11.i157 = icmp eq i64 %inc.i.i10.i156, 3
-  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158: ; preds = %for.inc.i.i8.i154, %if.then.i.i15.i166
   %retval.0.i.i12.i159 = phi i64 [ 3, %if.then.i.i15.i166 ], [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ]
@@ -4207,7 +4240,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -4231,7 +4264,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -4288,7 +4321,7 @@ for.inc.i.i.i129:                                 ; preds = %if.then.i.i.i137, %
   %__n.1.i.i.i130 = phi i64 [ %__n.05.i.i.i126, %for.body.i.i.i124 ], [ %__i.06.i.i.i125, %if.then.i.i.i137 ]
   %inc.i.i.i131 = add nuw nsw i64 %__i.06.i.i.i125, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %inc.i.i.i131, 3
-  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133: ; preds = %for.inc.i.i.i129, %if.then.i.i.i137
   %retval.0.i.i.i134 = phi i64 [ 3, %if.then.i.i.i137 ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
@@ -4327,7 +4360,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -4350,7 +4383,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -4376,7 +4409,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -4400,7 +4433,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -4444,7 +4477,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -4468,7 +4501,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -4512,7 +4545,7 @@ for.inc.i.i.i94:                                  ; preds = %if.then.i.i.i121, %
   %__n.1.i.i.i95 = phi i64 [ %__n.05.i.i.i91, %for.body.i.i.i89 ], [ %__i.06.i.i.i90, %if.then.i.i.i121 ]
   %inc.i.i.i96 = add nuw nsw i64 %__i.06.i.i.i90, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %inc.i.i.i96, 3
-  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98: ; preds = %for.inc.i.i.i94, %if.then.i.i.i121
   %retval.0.i.i.i99 = phi i64 [ 3, %if.then.i.i.i121 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
@@ -4536,7 +4569,7 @@ for.inc.i.i8.i107:                                ; preds = %if.then.i.i15.i119,
   %__n.1.i.i9.i108 = phi i64 [ %__n.05.i.i5.i104, %for.body.i.i3.i102 ], [ %__i.06.i.i4.i103, %if.then.i.i15.i119 ]
   %inc.i.i10.i109 = add nuw nsw i64 %__i.06.i.i4.i103, 1
   %exitcond.not.i.i11.i110 = icmp eq i64 %inc.i.i10.i109, 3
-  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111: ; preds = %for.inc.i.i8.i107, %if.then.i.i15.i119
   %retval.0.i.i12.i112 = phi i64 [ 3, %if.then.i.i15.i119 ], [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ]
@@ -4586,7 +4619,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -4610,7 +4643,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -4654,7 +4687,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -4678,7 +4711,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -4728,7 +4761,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -4752,7 +4785,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -4796,7 +4829,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -4820,7 +4853,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -4870,7 +4903,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -4894,7 +4927,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -4938,7 +4971,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -4962,7 +4995,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -5006,7 +5039,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -5030,7 +5063,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -5080,7 +5113,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5104,7 +5137,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5148,7 +5181,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -5172,7 +5205,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -5216,7 +5249,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -5240,7 +5273,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -5290,7 +5323,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5314,7 +5347,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5358,7 +5391,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -5382,7 +5415,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -5426,7 +5459,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -5450,7 +5483,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -5494,7 +5527,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i117, %
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i117 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i117
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i117 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -5518,7 +5551,7 @@ for.inc.i.i8.i103:                                ; preds = %if.then.i.i15.i115,
   %__n.1.i.i9.i104 = phi i64 [ %__n.05.i.i5.i100, %for.body.i.i3.i98 ], [ %__i.06.i.i4.i99, %if.then.i.i15.i115 ]
   %inc.i.i10.i105 = add nuw nsw i64 %__i.06.i.i4.i99, 1
   %exitcond.not.i.i11.i106 = icmp eq i64 %inc.i.i10.i105, 3
-  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107: ; preds = %for.inc.i.i8.i103, %if.then.i.i15.i115
   %retval.0.i.i12.i108 = phi i64 [ 3, %if.then.i.i15.i115 ], [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ]
@@ -5568,7 +5601,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5592,7 +5625,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5642,7 +5675,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5666,7 +5699,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5716,7 +5749,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5740,7 +5773,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5790,7 +5823,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5814,7 +5847,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5864,7 +5897,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -5888,7 +5921,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -5932,7 +5965,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -5956,7 +5989,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -6006,7 +6039,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6030,7 +6063,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6087,7 +6120,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -6126,7 +6159,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -6149,7 +6182,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_cases
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
@@ -6181,7 +6214,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6205,7 +6238,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6249,7 +6282,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -6273,7 +6306,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -6323,7 +6356,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6347,7 +6380,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6397,7 +6430,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6421,7 +6454,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6465,7 +6498,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -6489,7 +6522,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -6533,7 +6566,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -6557,7 +6590,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -6607,7 +6640,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6631,7 +6664,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6675,7 +6708,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -6699,7 +6732,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -6743,7 +6776,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -6767,7 +6800,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -6817,7 +6850,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6841,7 +6874,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6891,7 +6924,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -6915,7 +6948,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -6959,7 +6992,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -6983,7 +7016,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -7040,7 +7073,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -7079,7 +7112,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -7102,7 +7135,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   ret void
@@ -7134,7 +7167,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7158,7 +7191,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7208,7 +7241,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7232,7 +7265,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7282,7 +7315,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7306,7 +7339,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7350,7 +7383,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -7374,7 +7407,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -7424,7 +7457,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7448,7 +7481,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7492,7 +7525,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -7516,7 +7549,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -7573,7 +7606,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -7612,7 +7645,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -7635,7 +7668,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit45
   ret void
@@ -7667,7 +7700,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7691,7 +7724,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7735,7 +7768,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -7759,7 +7792,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -7816,7 +7849,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i63 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i63
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -7855,7 +7888,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -7878,7 +7911,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_arguments
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   ret void
@@ -7910,7 +7943,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -7934,7 +7967,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -7978,7 +8011,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -8002,7 +8035,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -8052,7 +8085,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8076,7 +8109,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8126,7 +8159,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8150,7 +8183,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8200,7 +8233,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8224,7 +8257,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8268,7 +8301,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -8292,7 +8325,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -8342,7 +8375,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8366,7 +8399,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8410,7 +8443,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -8434,7 +8467,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -8484,7 +8517,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8508,7 +8541,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8552,7 +8585,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -8576,7 +8609,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -8626,7 +8659,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8650,7 +8683,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8694,7 +8727,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -8718,7 +8751,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -8762,7 +8795,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -8786,7 +8819,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -8836,7 +8869,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -8860,7 +8893,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -8904,7 +8937,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -8928,7 +8961,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -8978,7 +9011,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9002,7 +9035,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9052,7 +9085,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9076,7 +9109,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9126,7 +9159,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9150,7 +9183,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9200,7 +9233,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9224,7 +9257,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9268,7 +9301,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -9292,7 +9325,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -9342,7 +9375,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9366,7 +9399,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9423,7 +9456,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -9462,7 +9495,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -9485,7 +9518,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_consequent
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
@@ -9517,7 +9550,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9541,7 +9574,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9585,7 +9618,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -9609,7 +9642,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -9659,7 +9692,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9683,7 +9716,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9727,7 +9760,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -9751,7 +9784,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -9801,7 +9834,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9825,7 +9858,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -9869,7 +9902,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -9893,7 +9926,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -9943,7 +9976,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -9967,7 +10000,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -10011,7 +10044,7 @@ for.inc.i.i.i28:                                  ; preds = %if.then.i.i.i55, %f
   %__n.1.i.i.i29 = phi i64 [ %__n.05.i.i.i25, %for.body.i.i.i23 ], [ %__i.06.i.i.i24, %if.then.i.i.i55 ]
   %inc.i.i.i30 = add nuw nsw i64 %__i.06.i.i.i24, 1
   %exitcond.not.i.i.i31 = icmp eq i64 %inc.i.i.i30, 3
-  br i1 %exitcond.not.i.i.i31, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, label %for.body.i.i.i23, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i31, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, label %for.body.i.i.i23, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32: ; preds = %for.inc.i.i.i28, %if.then.i.i.i55
   %retval.0.i.i.i33 = phi i64 [ 3, %if.then.i.i.i55 ], [ %__n.1.i.i.i29, %for.inc.i.i.i28 ]
@@ -10035,7 +10068,7 @@ for.inc.i.i8.i41:                                 ; preds = %if.then.i.i15.i53, 
   %__n.1.i.i9.i42 = phi i64 [ %__n.05.i.i5.i38, %for.body.i.i3.i36 ], [ %__i.06.i.i4.i37, %if.then.i.i15.i53 ]
   %inc.i.i10.i43 = add nuw nsw i64 %__i.06.i.i4.i37, 1
   %exitcond.not.i.i11.i44 = icmp eq i64 %inc.i.i10.i43, 3
-  br i1 %exitcond.not.i.i11.i44, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45, label %for.body.i.i3.i36, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i44, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45, label %for.body.i.i3.i36, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45: ; preds = %for.inc.i.i8.i41, %if.then.i.i15.i53
   %retval.0.i.i12.i46 = phi i64 [ 3, %if.then.i.i15.i53 ], [ %__n.1.i.i9.i42, %for.inc.i.i8.i41 ]
@@ -10085,7 +10118,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -10109,7 +10142,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -10153,7 +10186,7 @@ for.inc.i.i.i32:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i33 = phi i64 [ %__n.05.i.i.i29, %for.body.i.i.i27 ], [ %__i.06.i.i.i28, %if.then.i.i.i59 ]
   %inc.i.i.i34 = add nuw nsw i64 %__i.06.i.i.i28, 1
   %exitcond.not.i.i.i35 = icmp eq i64 %inc.i.i.i34, 3
-  br i1 %exitcond.not.i.i.i35, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, label %for.body.i.i.i27, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i35, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, label %for.body.i.i.i27, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36: ; preds = %for.inc.i.i.i32, %if.then.i.i.i59
   %retval.0.i.i.i37 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i33, %for.inc.i.i.i32 ]
@@ -10177,7 +10210,7 @@ for.inc.i.i8.i45:                                 ; preds = %if.then.i.i15.i57, 
   %__n.1.i.i9.i46 = phi i64 [ %__n.05.i.i5.i42, %for.body.i.i3.i40 ], [ %__i.06.i.i4.i41, %if.then.i.i15.i57 ]
   %inc.i.i10.i47 = add nuw nsw i64 %__i.06.i.i4.i41, 1
   %exitcond.not.i.i11.i48 = icmp eq i64 %inc.i.i10.i47, 3
-  br i1 %exitcond.not.i.i11.i48, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, label %for.body.i.i3.i40, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i48, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, label %for.body.i.i3.i40, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49: ; preds = %for.inc.i.i8.i45, %if.then.i.i15.i57
   %retval.0.i.i12.i50 = phi i64 [ 3, %if.then.i.i15.i57 ], [ %__n.1.i.i9.i46, %for.inc.i.i8.i45 ]
@@ -10221,7 +10254,7 @@ for.inc.i.i.i67:                                  ; preds = %if.then.i.i.i94, %f
   %__n.1.i.i.i68 = phi i64 [ %__n.05.i.i.i64, %for.body.i.i.i62 ], [ %__i.06.i.i.i63, %if.then.i.i.i94 ]
   %inc.i.i.i69 = add nuw nsw i64 %__i.06.i.i.i63, 1
   %exitcond.not.i.i.i70 = icmp eq i64 %inc.i.i.i69, 3
-  br i1 %exitcond.not.i.i.i70, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, label %for.body.i.i.i62, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i70, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, label %for.body.i.i.i62, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71: ; preds = %for.inc.i.i.i67, %if.then.i.i.i94
   %retval.0.i.i.i72 = phi i64 [ 3, %if.then.i.i.i94 ], [ %__n.1.i.i.i68, %for.inc.i.i.i67 ]
@@ -10245,7 +10278,7 @@ for.inc.i.i8.i80:                                 ; preds = %if.then.i.i15.i92, 
   %__n.1.i.i9.i81 = phi i64 [ %__n.05.i.i5.i77, %for.body.i.i3.i75 ], [ %__i.06.i.i4.i76, %if.then.i.i15.i92 ]
   %inc.i.i10.i82 = add nuw nsw i64 %__i.06.i.i4.i76, 1
   %exitcond.not.i.i11.i83 = icmp eq i64 %inc.i.i10.i82, 3
-  br i1 %exitcond.not.i.i11.i83, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, label %for.body.i.i3.i75, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i83, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, label %for.body.i.i3.i75, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84: ; preds = %for.inc.i.i8.i80, %if.then.i.i15.i92
   %retval.0.i.i12.i85 = phi i64 [ 3, %if.then.i.i15.i92 ], [ %__n.1.i.i9.i81, %for.inc.i.i8.i80 ]
@@ -10289,7 +10322,7 @@ for.inc.i.i.i102:                                 ; preds = %if.then.i.i.i129, %
   %__n.1.i.i.i103 = phi i64 [ %__n.05.i.i.i99, %for.body.i.i.i97 ], [ %__i.06.i.i.i98, %if.then.i.i.i129 ]
   %inc.i.i.i104 = add nuw nsw i64 %__i.06.i.i.i98, 1
   %exitcond.not.i.i.i105 = icmp eq i64 %inc.i.i.i104, 3
-  br i1 %exitcond.not.i.i.i105, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, label %for.body.i.i.i97, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i105, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, label %for.body.i.i.i97, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106: ; preds = %for.inc.i.i.i102, %if.then.i.i.i129
   %retval.0.i.i.i107 = phi i64 [ 3, %if.then.i.i.i129 ], [ %__n.1.i.i.i103, %for.inc.i.i.i102 ]
@@ -10313,7 +10346,7 @@ for.inc.i.i8.i115:                                ; preds = %if.then.i.i15.i127,
   %__n.1.i.i9.i116 = phi i64 [ %__n.05.i.i5.i112, %for.body.i.i3.i110 ], [ %__i.06.i.i4.i111, %if.then.i.i15.i127 ]
   %inc.i.i10.i117 = add nuw nsw i64 %__i.06.i.i4.i111, 1
   %exitcond.not.i.i11.i118 = icmp eq i64 %inc.i.i10.i117, 3
-  br i1 %exitcond.not.i.i11.i118, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119, label %for.body.i.i3.i110, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i118, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119, label %for.body.i.i3.i110, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119: ; preds = %for.inc.i.i8.i115, %if.then.i.i15.i127
   %retval.0.i.i12.i120 = phi i64 [ 3, %if.then.i.i15.i127 ], [ %__n.1.i.i9.i116, %for.inc.i.i8.i115 ]
@@ -10370,7 +10403,7 @@ for.inc.i.i.i172:                                 ; preds = %if.then.i.i.i180, %
   %__n.1.i.i.i173 = phi i64 [ %__n.05.i.i.i169, %for.body.i.i.i167 ], [ %__i.06.i.i.i168, %if.then.i.i.i180 ]
   %inc.i.i.i174 = add nuw nsw i64 %__i.06.i.i.i168, 1
   %exitcond.not.i.i.i175 = icmp eq i64 %inc.i.i.i174, 3
-  br i1 %exitcond.not.i.i.i175, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, label %for.body.i.i.i167, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i175, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, label %for.body.i.i.i167, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176: ; preds = %for.inc.i.i.i172, %if.then.i.i.i180
   %retval.0.i.i.i177 = phi i64 [ 3, %if.then.i.i.i180 ], [ %__n.1.i.i.i173, %for.inc.i.i.i172 ]
@@ -10409,7 +10442,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -10432,7 +10465,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %21, %_implements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
   %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -10471,7 +10504,7 @@ for.inc.i.i.i194:                                 ; preds = %if.then.i.i.i228, %
   %__n.1.i.i.i195 = phi i64 [ %__n.05.i.i.i191, %for.body.i.i.i189 ], [ %__i.06.i.i.i190, %if.then.i.i.i228 ]
   %inc.i.i.i196 = add nuw nsw i64 %__i.06.i.i.i190, 1
   %exitcond.not.i.i.i197 = icmp eq i64 %inc.i.i.i196, 3
-  br i1 %exitcond.not.i.i.i197, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, label %for.body.i.i.i189, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i197, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, label %for.body.i.i.i189, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198: ; preds = %for.inc.i.i.i194, %if.then.i.i.i228
   %retval.0.i.i.i199 = phi i64 [ 3, %if.then.i.i.i228 ], [ %__n.1.i.i.i195, %for.inc.i.i.i194 ]
@@ -10510,7 +10543,7 @@ for.inc.i.i14.i207:                               ; preds = %if.then.i.i21.i221,
   %__n.1.i.i15.i208 = phi i64 [ %__n.05.i.i11.i204, %for.body.i.i9.i202 ], [ %__i.06.i.i10.i203, %if.then.i.i21.i221 ]
   %inc.i.i16.i209 = add nuw nsw i64 %__i.06.i.i10.i203, 1
   %exitcond.not.i.i17.i210 = icmp eq i64 %inc.i.i16.i209, 3
-  br i1 %exitcond.not.i.i17.i210, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211, label %for.body.i.i9.i202, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i210, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211, label %for.body.i.i9.i202, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211: ; preds = %for.inc.i.i14.i207, %if.then.i.i21.i221
   %retval.0.i.i18.i212 = phi i64 [ 3, %if.then.i.i21.i221 ], [ %__n.1.i.i15.i208, %for.inc.i.i14.i207 ]
@@ -10533,7 +10566,7 @@ if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_Z
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
   %cmp.i.not.i215 = icmp eq ptr %30, %_decorators
-  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !20
+  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
@@ -10559,7 +10592,7 @@ for.inc.i.i.i137:                                 ; preds = %if.then.i.i.i164, %
   %__n.1.i.i.i138 = phi i64 [ %__n.05.i.i.i134, %for.body.i.i.i132 ], [ %__i.06.i.i.i133, %if.then.i.i.i164 ]
   %inc.i.i.i139 = add nuw nsw i64 %__i.06.i.i.i133, 1
   %exitcond.not.i.i.i140 = icmp eq i64 %inc.i.i.i139, 3
-  br i1 %exitcond.not.i.i.i140, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, label %for.body.i.i.i132, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i140, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, label %for.body.i.i.i132, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141: ; preds = %for.inc.i.i.i137, %if.then.i.i.i164
   %retval.0.i.i.i142 = phi i64 [ 3, %if.then.i.i.i164 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
@@ -10583,7 +10616,7 @@ for.inc.i.i8.i150:                                ; preds = %if.then.i.i15.i162,
   %__n.1.i.i9.i151 = phi i64 [ %__n.05.i.i5.i147, %for.body.i.i3.i145 ], [ %__i.06.i.i4.i146, %if.then.i.i15.i162 ]
   %inc.i.i10.i152 = add nuw nsw i64 %__i.06.i.i4.i146, 1
   %exitcond.not.i.i11.i153 = icmp eq i64 %inc.i.i10.i152, 3
-  br i1 %exitcond.not.i.i11.i153, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154, label %for.body.i.i3.i145, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i153, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154, label %for.body.i.i3.i145, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154: ; preds = %for.inc.i.i8.i150, %if.then.i.i15.i162
   %retval.0.i.i12.i155 = phi i64 [ 3, %if.then.i.i15.i162 ], [ %__n.1.i.i9.i151, %for.inc.i.i8.i150 ]
@@ -10633,7 +10666,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -10657,7 +10690,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -10701,7 +10734,7 @@ for.inc.i.i.i32:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i33 = phi i64 [ %__n.05.i.i.i29, %for.body.i.i.i27 ], [ %__i.06.i.i.i28, %if.then.i.i.i59 ]
   %inc.i.i.i34 = add nuw nsw i64 %__i.06.i.i.i28, 1
   %exitcond.not.i.i.i35 = icmp eq i64 %inc.i.i.i34, 3
-  br i1 %exitcond.not.i.i.i35, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, label %for.body.i.i.i27, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i35, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36, label %for.body.i.i.i27, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i36: ; preds = %for.inc.i.i.i32, %if.then.i.i.i59
   %retval.0.i.i.i37 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i33, %for.inc.i.i.i32 ]
@@ -10725,7 +10758,7 @@ for.inc.i.i8.i45:                                 ; preds = %if.then.i.i15.i57, 
   %__n.1.i.i9.i46 = phi i64 [ %__n.05.i.i5.i42, %for.body.i.i3.i40 ], [ %__i.06.i.i4.i41, %if.then.i.i15.i57 ]
   %inc.i.i10.i47 = add nuw nsw i64 %__i.06.i.i4.i41, 1
   %exitcond.not.i.i11.i48 = icmp eq i64 %inc.i.i10.i47, 3
-  br i1 %exitcond.not.i.i11.i48, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, label %for.body.i.i3.i40, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i48, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49, label %for.body.i.i3.i40, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i49: ; preds = %for.inc.i.i8.i45, %if.then.i.i15.i57
   %retval.0.i.i12.i50 = phi i64 [ 3, %if.then.i.i15.i57 ], [ %__n.1.i.i9.i46, %for.inc.i.i8.i45 ]
@@ -10769,7 +10802,7 @@ for.inc.i.i.i67:                                  ; preds = %if.then.i.i.i94, %f
   %__n.1.i.i.i68 = phi i64 [ %__n.05.i.i.i64, %for.body.i.i.i62 ], [ %__i.06.i.i.i63, %if.then.i.i.i94 ]
   %inc.i.i.i69 = add nuw nsw i64 %__i.06.i.i.i63, 1
   %exitcond.not.i.i.i70 = icmp eq i64 %inc.i.i.i69, 3
-  br i1 %exitcond.not.i.i.i70, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, label %for.body.i.i.i62, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i70, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71, label %for.body.i.i.i62, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i71: ; preds = %for.inc.i.i.i67, %if.then.i.i.i94
   %retval.0.i.i.i72 = phi i64 [ 3, %if.then.i.i.i94 ], [ %__n.1.i.i.i68, %for.inc.i.i.i67 ]
@@ -10793,7 +10826,7 @@ for.inc.i.i8.i80:                                 ; preds = %if.then.i.i15.i92, 
   %__n.1.i.i9.i81 = phi i64 [ %__n.05.i.i5.i77, %for.body.i.i3.i75 ], [ %__i.06.i.i4.i76, %if.then.i.i15.i92 ]
   %inc.i.i10.i82 = add nuw nsw i64 %__i.06.i.i4.i76, 1
   %exitcond.not.i.i11.i83 = icmp eq i64 %inc.i.i10.i82, 3
-  br i1 %exitcond.not.i.i11.i83, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, label %for.body.i.i3.i75, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i83, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84, label %for.body.i.i3.i75, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i84: ; preds = %for.inc.i.i8.i80, %if.then.i.i15.i92
   %retval.0.i.i12.i85 = phi i64 [ 3, %if.then.i.i15.i92 ], [ %__n.1.i.i9.i81, %for.inc.i.i8.i80 ]
@@ -10837,7 +10870,7 @@ for.inc.i.i.i102:                                 ; preds = %if.then.i.i.i129, %
   %__n.1.i.i.i103 = phi i64 [ %__n.05.i.i.i99, %for.body.i.i.i97 ], [ %__i.06.i.i.i98, %if.then.i.i.i129 ]
   %inc.i.i.i104 = add nuw nsw i64 %__i.06.i.i.i98, 1
   %exitcond.not.i.i.i105 = icmp eq i64 %inc.i.i.i104, 3
-  br i1 %exitcond.not.i.i.i105, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, label %for.body.i.i.i97, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i105, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106, label %for.body.i.i.i97, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i106: ; preds = %for.inc.i.i.i102, %if.then.i.i.i129
   %retval.0.i.i.i107 = phi i64 [ 3, %if.then.i.i.i129 ], [ %__n.1.i.i.i103, %for.inc.i.i.i102 ]
@@ -10861,7 +10894,7 @@ for.inc.i.i8.i115:                                ; preds = %if.then.i.i15.i127,
   %__n.1.i.i9.i116 = phi i64 [ %__n.05.i.i5.i112, %for.body.i.i3.i110 ], [ %__i.06.i.i4.i111, %if.then.i.i15.i127 ]
   %inc.i.i10.i117 = add nuw nsw i64 %__i.06.i.i4.i111, 1
   %exitcond.not.i.i11.i118 = icmp eq i64 %inc.i.i10.i117, 3
-  br i1 %exitcond.not.i.i11.i118, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119, label %for.body.i.i3.i110, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i118, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119, label %for.body.i.i3.i110, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i119: ; preds = %for.inc.i.i8.i115, %if.then.i.i15.i127
   %retval.0.i.i12.i120 = phi i64 [ 3, %if.then.i.i15.i127 ], [ %__n.1.i.i9.i116, %for.inc.i.i8.i115 ]
@@ -10918,7 +10951,7 @@ for.inc.i.i.i172:                                 ; preds = %if.then.i.i.i180, %
   %__n.1.i.i.i173 = phi i64 [ %__n.05.i.i.i169, %for.body.i.i.i167 ], [ %__i.06.i.i.i168, %if.then.i.i.i180 ]
   %inc.i.i.i174 = add nuw nsw i64 %__i.06.i.i.i168, 1
   %exitcond.not.i.i.i175 = icmp eq i64 %inc.i.i.i174, 3
-  br i1 %exitcond.not.i.i.i175, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, label %for.body.i.i.i167, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i175, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176, label %for.body.i.i.i167, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i176: ; preds = %for.inc.i.i.i172, %if.then.i.i.i180
   %retval.0.i.i.i177 = phi i64 [ 3, %if.then.i.i.i180 ], [ %__n.1.i.i.i173, %for.inc.i.i.i172 ]
@@ -10957,7 +10990,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -10980,7 +11013,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %21, %_implements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit131
   %_decorators = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -11019,7 +11052,7 @@ for.inc.i.i.i194:                                 ; preds = %if.then.i.i.i228, %
   %__n.1.i.i.i195 = phi i64 [ %__n.05.i.i.i191, %for.body.i.i.i189 ], [ %__i.06.i.i.i190, %if.then.i.i.i228 ]
   %inc.i.i.i196 = add nuw nsw i64 %__i.06.i.i.i190, 1
   %exitcond.not.i.i.i197 = icmp eq i64 %inc.i.i.i196, 3
-  br i1 %exitcond.not.i.i.i197, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, label %for.body.i.i.i189, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i197, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198, label %for.body.i.i.i189, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i198: ; preds = %for.inc.i.i.i194, %if.then.i.i.i228
   %retval.0.i.i.i199 = phi i64 [ 3, %if.then.i.i.i228 ], [ %__n.1.i.i.i195, %for.inc.i.i.i194 ]
@@ -11058,7 +11091,7 @@ for.inc.i.i14.i207:                               ; preds = %if.then.i.i21.i221,
   %__n.1.i.i15.i208 = phi i64 [ %__n.05.i.i11.i204, %for.body.i.i9.i202 ], [ %__i.06.i.i10.i203, %if.then.i.i21.i221 ]
   %inc.i.i16.i209 = add nuw nsw i64 %__i.06.i.i10.i203, 1
   %exitcond.not.i.i17.i210 = icmp eq i64 %inc.i.i16.i209, 3
-  br i1 %exitcond.not.i.i17.i210, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211, label %for.body.i.i9.i202, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i210, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211, label %for.body.i.i9.i202, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211: ; preds = %for.inc.i.i14.i207, %if.then.i.i21.i221
   %retval.0.i.i18.i212 = phi i64 [ 3, %if.then.i.i21.i221 ], [ %__n.1.i.i15.i208, %for.inc.i.i14.i207 ]
@@ -11081,7 +11114,7 @@ if.end27.sink.split.i217:                         ; preds = %if.then19.i216, %_Z
 
 if.end27.i214:                                    ; preds = %if.end27.sink.split.i217, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i211
   %cmp.i.not.i215 = icmp eq ptr %30, %_decorators
-  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !20
+  br i1 %cmp.i.not.i215, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230, label %for.body.i184, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit230: ; preds = %if.end27.i214, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
@@ -11107,7 +11140,7 @@ for.inc.i.i.i137:                                 ; preds = %if.then.i.i.i164, %
   %__n.1.i.i.i138 = phi i64 [ %__n.05.i.i.i134, %for.body.i.i.i132 ], [ %__i.06.i.i.i133, %if.then.i.i.i164 ]
   %inc.i.i.i139 = add nuw nsw i64 %__i.06.i.i.i133, 1
   %exitcond.not.i.i.i140 = icmp eq i64 %inc.i.i.i139, 3
-  br i1 %exitcond.not.i.i.i140, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, label %for.body.i.i.i132, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i140, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141, label %for.body.i.i.i132, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i141: ; preds = %for.inc.i.i.i137, %if.then.i.i.i164
   %retval.0.i.i.i142 = phi i64 [ 3, %if.then.i.i.i164 ], [ %__n.1.i.i.i138, %for.inc.i.i.i137 ]
@@ -11131,7 +11164,7 @@ for.inc.i.i8.i150:                                ; preds = %if.then.i.i15.i162,
   %__n.1.i.i9.i151 = phi i64 [ %__n.05.i.i5.i147, %for.body.i.i3.i145 ], [ %__i.06.i.i4.i146, %if.then.i.i15.i162 ]
   %inc.i.i10.i152 = add nuw nsw i64 %__i.06.i.i4.i146, 1
   %exitcond.not.i.i11.i153 = icmp eq i64 %inc.i.i10.i152, 3
-  br i1 %exitcond.not.i.i11.i153, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154, label %for.body.i.i3.i145, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i153, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154, label %for.body.i.i3.i145, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i154: ; preds = %for.inc.i.i8.i150, %if.then.i.i15.i162
   %retval.0.i.i12.i155 = phi i64 [ 3, %if.then.i.i15.i162 ], [ %__n.1.i.i9.i151, %for.inc.i.i8.i150 ]
@@ -11202,7 +11235,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -11226,7 +11259,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -11270,7 +11303,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -11294,7 +11327,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -11338,7 +11371,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -11362,7 +11395,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -11406,7 +11439,7 @@ for.inc.i.i.i106:                                 ; preds = %if.then.i.i.i133, %
   %__n.1.i.i.i107 = phi i64 [ %__n.05.i.i.i103, %for.body.i.i.i101 ], [ %__i.06.i.i.i102, %if.then.i.i.i133 ]
   %inc.i.i.i108 = add nuw nsw i64 %__i.06.i.i.i102, 1
   %exitcond.not.i.i.i109 = icmp eq i64 %inc.i.i.i108, 3
-  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i109, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110, label %for.body.i.i.i101, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i110: ; preds = %for.inc.i.i.i106, %if.then.i.i.i133
   %retval.0.i.i.i111 = phi i64 [ 3, %if.then.i.i.i133 ], [ %__n.1.i.i.i107, %for.inc.i.i.i106 ]
@@ -11430,7 +11463,7 @@ for.inc.i.i8.i119:                                ; preds = %if.then.i.i15.i131,
   %__n.1.i.i9.i120 = phi i64 [ %__n.05.i.i5.i116, %for.body.i.i3.i114 ], [ %__i.06.i.i4.i115, %if.then.i.i15.i131 ]
   %inc.i.i10.i121 = add nuw nsw i64 %__i.06.i.i4.i115, 1
   %exitcond.not.i.i11.i122 = icmp eq i64 %inc.i.i10.i121, 3
-  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i122, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123, label %for.body.i.i3.i114, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i123: ; preds = %for.inc.i.i8.i119, %if.then.i.i15.i131
   %retval.0.i.i12.i124 = phi i64 [ 3, %if.then.i.i15.i131 ], [ %__n.1.i.i9.i120, %for.inc.i.i8.i119 ]
@@ -11474,7 +11507,7 @@ for.inc.i.i.i141:                                 ; preds = %if.then.i.i.i168, %
   %__n.1.i.i.i142 = phi i64 [ %__n.05.i.i.i138, %for.body.i.i.i136 ], [ %__i.06.i.i.i137, %if.then.i.i.i168 ]
   %inc.i.i.i143 = add nuw nsw i64 %__i.06.i.i.i137, 1
   %exitcond.not.i.i.i144 = icmp eq i64 %inc.i.i.i143, 3
-  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i144, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145, label %for.body.i.i.i136, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i145: ; preds = %for.inc.i.i.i141, %if.then.i.i.i168
   %retval.0.i.i.i146 = phi i64 [ 3, %if.then.i.i.i168 ], [ %__n.1.i.i.i142, %for.inc.i.i.i141 ]
@@ -11498,7 +11531,7 @@ for.inc.i.i8.i154:                                ; preds = %if.then.i.i15.i166,
   %__n.1.i.i9.i155 = phi i64 [ %__n.05.i.i5.i151, %for.body.i.i3.i149 ], [ %__i.06.i.i4.i150, %if.then.i.i15.i166 ]
   %inc.i.i10.i156 = add nuw nsw i64 %__i.06.i.i4.i150, 1
   %exitcond.not.i.i11.i157 = icmp eq i64 %inc.i.i10.i156, 3
-  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i157, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158, label %for.body.i.i3.i149, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i158: ; preds = %for.inc.i.i8.i154, %if.then.i.i15.i166
   %retval.0.i.i12.i159 = phi i64 [ 3, %if.then.i.i15.i166 ], [ %__n.1.i.i9.i155, %for.inc.i.i8.i154 ]
@@ -11548,7 +11581,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -11572,7 +11605,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -11616,7 +11649,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -11640,7 +11673,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -11703,7 +11736,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i28, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i28 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i28
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i28 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -11742,7 +11775,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -11765,7 +11798,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -11791,7 +11824,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -11815,7 +11848,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -11872,7 +11905,7 @@ for.inc.i.i.i42:                                  ; preds = %if.then.i.i.i76, %f
   %__n.1.i.i.i43 = phi i64 [ %__n.05.i.i.i39, %for.body.i.i.i37 ], [ %__i.06.i.i.i38, %if.then.i.i.i76 ]
   %inc.i.i.i44 = add nuw nsw i64 %__i.06.i.i.i38, 1
   %exitcond.not.i.i.i45 = icmp eq i64 %inc.i.i.i44, 3
-  br i1 %exitcond.not.i.i.i45, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46, label %for.body.i.i.i37, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i45, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46, label %for.body.i.i.i37, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i46: ; preds = %for.inc.i.i.i42, %if.then.i.i.i76
   %retval.0.i.i.i47 = phi i64 [ 3, %if.then.i.i.i76 ], [ %__n.1.i.i.i43, %for.inc.i.i.i42 ]
@@ -11911,7 +11944,7 @@ for.inc.i.i14.i55:                                ; preds = %if.then.i.i21.i69, 
   %__n.1.i.i15.i56 = phi i64 [ %__n.05.i.i11.i52, %for.body.i.i9.i50 ], [ %__i.06.i.i10.i51, %if.then.i.i21.i69 ]
   %inc.i.i16.i57 = add nuw nsw i64 %__i.06.i.i10.i51, 1
   %exitcond.not.i.i17.i58 = icmp eq i64 %inc.i.i16.i57, 3
-  br i1 %exitcond.not.i.i17.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i9.i50, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i9.i50, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i14.i55, %if.then.i.i21.i69
   %retval.0.i.i18.i60 = phi i64 [ 3, %if.then.i.i21.i69 ], [ %__n.1.i.i15.i56, %for.inc.i.i14.i55 ]
@@ -11934,7 +11967,7 @@ if.end27.sink.split.i65:                          ; preds = %if.then19.i64, %_ZS
 
 if.end27.i62:                                     ; preds = %if.end27.sink.split.i65, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59
   %cmp.i.not.i63 = icmp eq ptr %15, %_assertions
-  br i1 %cmp.i.not.i63, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78, label %for.body.i32, !llvm.loop !20
+  br i1 %cmp.i.not.i63, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78, label %for.body.i32, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit78: ; preds = %if.end27.i62, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
@@ -11966,7 +11999,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -11990,7 +12023,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12034,7 +12067,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -12058,7 +12091,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -12108,7 +12141,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12132,7 +12165,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12182,7 +12215,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12206,7 +12239,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12256,7 +12289,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12280,7 +12313,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12324,7 +12357,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -12348,7 +12381,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -12398,7 +12431,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12422,7 +12455,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12479,7 +12512,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i63 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i63
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -12518,7 +12551,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -12541,7 +12574,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -12567,7 +12600,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -12591,7 +12624,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -12641,7 +12674,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12665,7 +12698,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12709,7 +12742,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -12733,7 +12766,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -12783,7 +12816,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12807,7 +12840,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12857,7 +12890,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12881,7 +12914,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -12931,7 +12964,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -12955,7 +12988,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13018,7 +13051,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -13057,7 +13090,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -13080,7 +13113,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_properties
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -13106,7 +13139,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13130,7 +13163,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13193,7 +13226,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -13232,7 +13265,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -13255,7 +13288,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_elements
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -13281,7 +13314,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13305,7 +13338,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13355,7 +13388,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13379,7 +13412,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13429,7 +13462,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13453,7 +13486,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13497,7 +13530,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -13521,7 +13554,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -13571,7 +13604,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13595,7 +13628,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13639,7 +13672,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -13663,7 +13696,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -13713,7 +13746,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13737,7 +13770,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13781,7 +13814,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -13805,7 +13838,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -13855,7 +13888,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13879,7 +13912,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -13929,7 +13962,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -13953,7 +13986,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14003,7 +14036,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14027,7 +14060,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14084,7 +14117,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i63 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i63
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -14123,7 +14156,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -14146,7 +14179,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_attributes
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -14172,7 +14205,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -14196,7 +14229,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -14246,7 +14279,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14270,7 +14303,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14320,7 +14353,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14344,7 +14377,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14388,7 +14421,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -14412,7 +14445,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -14462,7 +14495,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14486,7 +14519,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14536,7 +14569,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14560,7 +14593,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14617,7 +14650,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -14656,7 +14689,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -14679,7 +14712,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_children
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_closingElement = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -14705,7 +14738,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -14729,7 +14762,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -14779,7 +14812,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -14803,7 +14836,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -14860,7 +14893,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -14899,7 +14932,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -14922,7 +14955,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_children
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_closingFragment = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -14948,7 +14981,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -14972,7 +15005,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -15035,7 +15068,7 @@ for.inc.i.i.i129:                                 ; preds = %if.then.i.i.i137, %
   %__n.1.i.i.i130 = phi i64 [ %__n.05.i.i.i126, %for.body.i.i.i124 ], [ %__i.06.i.i.i125, %if.then.i.i.i137 ]
   %inc.i.i.i131 = add nuw nsw i64 %__i.06.i.i.i125, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %inc.i.i.i131, 3
-  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133: ; preds = %for.inc.i.i.i129, %if.then.i.i.i137
   %retval.0.i.i.i134 = phi i64 [ 3, %if.then.i.i.i137 ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
@@ -15074,7 +15107,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -15097,7 +15130,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_this = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -15123,7 +15156,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -15147,7 +15180,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -15191,7 +15224,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -15215,7 +15248,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -15259,7 +15292,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -15283,7 +15316,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -15327,7 +15360,7 @@ for.inc.i.i.i94:                                  ; preds = %if.then.i.i.i121, %
   %__n.1.i.i.i95 = phi i64 [ %__n.05.i.i.i91, %for.body.i.i.i89 ], [ %__i.06.i.i.i90, %if.then.i.i.i121 ]
   %inc.i.i.i96 = add nuw nsw i64 %__i.06.i.i.i90, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %inc.i.i.i96, 3
-  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98: ; preds = %for.inc.i.i.i94, %if.then.i.i.i121
   %retval.0.i.i.i99 = phi i64 [ 3, %if.then.i.i.i121 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
@@ -15351,7 +15384,7 @@ for.inc.i.i8.i107:                                ; preds = %if.then.i.i15.i119,
   %__n.1.i.i9.i108 = phi i64 [ %__n.05.i.i5.i104, %for.body.i.i3.i102 ], [ %__i.06.i.i4.i103, %if.then.i.i15.i119 ]
   %inc.i.i10.i109 = add nuw nsw i64 %__i.06.i.i4.i103, 1
   %exitcond.not.i.i11.i110 = icmp eq i64 %inc.i.i10.i109, 3
-  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111: ; preds = %for.inc.i.i8.i107, %if.then.i.i15.i119
   %retval.0.i.i12.i112 = phi i64 [ 3, %if.then.i.i15.i119 ], [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ]
@@ -15401,7 +15434,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -15425,7 +15458,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -15469,7 +15502,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -15493,7 +15526,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -15556,7 +15589,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i98 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i98
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -15595,7 +15628,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -15618,7 +15651,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_rest = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -15644,7 +15677,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -15668,7 +15701,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -15712,7 +15745,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -15736,7 +15769,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -15780,7 +15813,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -15804,7 +15837,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -15854,7 +15887,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -15878,7 +15911,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -15922,7 +15955,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -15946,7 +15979,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -15996,7 +16029,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16020,7 +16053,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16070,7 +16103,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16094,7 +16127,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16138,7 +16171,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -16162,7 +16195,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -16212,7 +16245,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16236,7 +16269,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16286,7 +16319,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16310,7 +16343,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16360,7 +16393,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16384,7 +16417,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16434,7 +16467,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16458,7 +16491,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16502,7 +16535,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -16526,7 +16559,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -16576,7 +16609,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16600,7 +16633,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16644,7 +16677,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -16668,7 +16701,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -16718,7 +16751,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16742,7 +16775,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -16786,7 +16819,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -16810,7 +16843,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -16854,7 +16887,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -16878,7 +16911,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -16928,7 +16961,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -16952,7 +16985,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17002,7 +17035,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17026,7 +17059,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17076,7 +17109,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17100,7 +17133,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17144,7 +17177,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -17168,7 +17201,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -17218,7 +17251,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17242,7 +17275,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17286,7 +17319,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -17310,7 +17343,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -17360,7 +17393,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17384,7 +17417,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17428,7 +17461,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -17452,7 +17485,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -17502,7 +17535,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17526,7 +17559,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17570,7 +17603,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -17594,7 +17627,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -17638,7 +17671,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -17662,7 +17695,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -17706,7 +17739,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i117, %
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i117 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i117
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i117 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -17730,7 +17763,7 @@ for.inc.i.i8.i103:                                ; preds = %if.then.i.i15.i115,
   %__n.1.i.i9.i104 = phi i64 [ %__n.05.i.i5.i100, %for.body.i.i3.i98 ], [ %__i.06.i.i4.i99, %if.then.i.i15.i115 ]
   %inc.i.i10.i105 = add nuw nsw i64 %__i.06.i.i4.i99, 1
   %exitcond.not.i.i11.i106 = icmp eq i64 %inc.i.i10.i105, 3
-  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107: ; preds = %for.inc.i.i8.i103, %if.then.i.i15.i115
   %retval.0.i.i12.i108 = phi i64 [ 3, %if.then.i.i15.i115 ], [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ]
@@ -17780,7 +17813,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -17804,7 +17837,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -17848,7 +17881,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -17872,7 +17905,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -17935,7 +17968,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -17974,7 +18007,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -17997,7 +18030,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -18023,7 +18056,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -18047,7 +18080,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -18097,7 +18130,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -18121,7 +18154,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -18165,7 +18198,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -18189,7 +18222,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -18233,7 +18266,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -18257,7 +18290,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -18307,7 +18340,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -18331,7 +18364,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -18375,7 +18408,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -18399,7 +18432,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -18443,7 +18476,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -18467,7 +18500,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -18511,7 +18544,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i117, %
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i117 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i117
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i117 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -18535,7 +18568,7 @@ for.inc.i.i8.i103:                                ; preds = %if.then.i.i15.i115,
   %__n.1.i.i9.i104 = phi i64 [ %__n.05.i.i5.i100, %for.body.i.i3.i98 ], [ %__i.06.i.i4.i99, %if.then.i.i15.i115 ]
   %inc.i.i10.i105 = add nuw nsw i64 %__i.06.i.i4.i99, 1
   %exitcond.not.i.i11.i106 = icmp eq i64 %inc.i.i10.i105, 3
-  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107: ; preds = %for.inc.i.i8.i103, %if.then.i.i15.i115
   %retval.0.i.i12.i108 = phi i64 [ 3, %if.then.i.i15.i115 ], [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ]
@@ -18585,7 +18618,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -18609,7 +18642,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -18653,7 +18686,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -18677,7 +18710,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -18734,7 +18767,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i98 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i98
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -18773,7 +18806,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -18796,7 +18829,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -18822,7 +18855,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -18846,7 +18879,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -18896,7 +18929,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -18920,7 +18953,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -18964,7 +18997,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -18988,7 +19021,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -19032,7 +19065,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -19056,7 +19089,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -19106,7 +19139,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -19130,7 +19163,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -19174,7 +19207,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -19198,7 +19231,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -19242,7 +19275,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -19266,7 +19299,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -19310,7 +19343,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i117, %
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i117 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i117
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i117 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -19334,7 +19367,7 @@ for.inc.i.i8.i103:                                ; preds = %if.then.i.i15.i115,
   %__n.1.i.i9.i104 = phi i64 [ %__n.05.i.i5.i100, %for.body.i.i3.i98 ], [ %__i.06.i.i4.i99, %if.then.i.i15.i115 ]
   %inc.i.i10.i105 = add nuw nsw i64 %__i.06.i.i4.i99, 1
   %exitcond.not.i.i11.i106 = icmp eq i64 %inc.i.i10.i105, 3
-  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107: ; preds = %for.inc.i.i8.i103, %if.then.i.i15.i115
   %retval.0.i.i12.i108 = phi i64 [ 3, %if.then.i.i15.i115 ], [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ]
@@ -19384,7 +19417,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -19408,7 +19441,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -19452,7 +19485,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -19476,7 +19509,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -19533,7 +19566,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i98 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i98
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -19572,7 +19605,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -19595,7 +19628,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -19621,7 +19654,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -19645,7 +19678,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -19695,7 +19728,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -19719,7 +19752,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -19763,7 +19796,7 @@ for.inc.i.i.i28:                                  ; preds = %if.then.i.i.i55, %f
   %__n.1.i.i.i29 = phi i64 [ %__n.05.i.i.i25, %for.body.i.i.i23 ], [ %__i.06.i.i.i24, %if.then.i.i.i55 ]
   %inc.i.i.i30 = add nuw nsw i64 %__i.06.i.i.i24, 1
   %exitcond.not.i.i.i31 = icmp eq i64 %inc.i.i.i30, 3
-  br i1 %exitcond.not.i.i.i31, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, label %for.body.i.i.i23, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i31, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32, label %for.body.i.i.i23, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i32: ; preds = %for.inc.i.i.i28, %if.then.i.i.i55
   %retval.0.i.i.i33 = phi i64 [ 3, %if.then.i.i.i55 ], [ %__n.1.i.i.i29, %for.inc.i.i.i28 ]
@@ -19787,7 +19820,7 @@ for.inc.i.i8.i41:                                 ; preds = %if.then.i.i15.i53, 
   %__n.1.i.i9.i42 = phi i64 [ %__n.05.i.i5.i38, %for.body.i.i3.i36 ], [ %__i.06.i.i4.i37, %if.then.i.i15.i53 ]
   %inc.i.i10.i43 = add nuw nsw i64 %__i.06.i.i4.i37, 1
   %exitcond.not.i.i11.i44 = icmp eq i64 %inc.i.i10.i43, 3
-  br i1 %exitcond.not.i.i11.i44, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45, label %for.body.i.i3.i36, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i44, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45, label %for.body.i.i3.i36, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i45: ; preds = %for.inc.i.i8.i41, %if.then.i.i15.i53
   %retval.0.i.i12.i46 = phi i64 [ 3, %if.then.i.i15.i53 ], [ %__n.1.i.i9.i42, %for.inc.i.i8.i41 ]
@@ -19844,7 +19877,7 @@ for.inc.i.i.i98:                                  ; preds = %if.then.i.i.i106, %
   %__n.1.i.i.i99 = phi i64 [ %__n.05.i.i.i95, %for.body.i.i.i93 ], [ %__i.06.i.i.i94, %if.then.i.i.i106 ]
   %inc.i.i.i100 = add nuw nsw i64 %__i.06.i.i.i94, 1
   %exitcond.not.i.i.i101 = icmp eq i64 %inc.i.i.i100, 3
-  br i1 %exitcond.not.i.i.i101, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102, label %for.body.i.i.i93, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i101, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102, label %for.body.i.i.i93, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i102: ; preds = %for.inc.i.i.i98, %if.then.i.i.i106
   %retval.0.i.i.i103 = phi i64 [ 3, %if.then.i.i.i106 ], [ %__n.1.i.i.i99, %for.inc.i.i.i98 ]
@@ -19883,7 +19916,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -19906,7 +19939,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit57
   %_implements = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -19945,7 +19978,7 @@ for.inc.i.i.i120:                                 ; preds = %if.then.i.i.i154, %
   %__n.1.i.i.i121 = phi i64 [ %__n.05.i.i.i117, %for.body.i.i.i115 ], [ %__i.06.i.i.i116, %if.then.i.i.i154 ]
   %inc.i.i.i122 = add nuw nsw i64 %__i.06.i.i.i116, 1
   %exitcond.not.i.i.i123 = icmp eq i64 %inc.i.i.i122, 3
-  br i1 %exitcond.not.i.i.i123, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124, label %for.body.i.i.i115, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i123, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124, label %for.body.i.i.i115, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i124: ; preds = %for.inc.i.i.i120, %if.then.i.i.i154
   %retval.0.i.i.i125 = phi i64 [ 3, %if.then.i.i.i154 ], [ %__n.1.i.i.i121, %for.inc.i.i.i120 ]
@@ -19984,7 +20017,7 @@ for.inc.i.i14.i133:                               ; preds = %if.then.i.i21.i147,
   %__n.1.i.i15.i134 = phi i64 [ %__n.05.i.i11.i130, %for.body.i.i9.i128 ], [ %__i.06.i.i10.i129, %if.then.i.i21.i147 ]
   %inc.i.i16.i135 = add nuw nsw i64 %__i.06.i.i10.i129, 1
   %exitcond.not.i.i17.i136 = icmp eq i64 %inc.i.i16.i135, 3
-  br i1 %exitcond.not.i.i17.i136, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137, label %for.body.i.i9.i128, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i136, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137, label %for.body.i.i9.i128, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137: ; preds = %for.inc.i.i14.i133, %if.then.i.i21.i147
   %retval.0.i.i18.i138 = phi i64 [ 3, %if.then.i.i21.i147 ], [ %__n.1.i.i15.i134, %for.inc.i.i14.i133 ]
@@ -20007,7 +20040,7 @@ if.end27.sink.split.i143:                         ; preds = %if.then19.i142, %_Z
 
 if.end27.i140:                                    ; preds = %if.end27.sink.split.i143, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i137
   %cmp.i.not.i141 = icmp eq ptr %20, %_implements
-  br i1 %cmp.i.not.i141, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156, label %for.body.i110, !llvm.loop !20
+  br i1 %cmp.i.not.i141, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156, label %for.body.i110, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156: ; preds = %if.end27.i140, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %_mixins = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -20046,7 +20079,7 @@ for.inc.i.i.i169:                                 ; preds = %if.then.i.i.i203, %
   %__n.1.i.i.i170 = phi i64 [ %__n.05.i.i.i166, %for.body.i.i.i164 ], [ %__i.06.i.i.i165, %if.then.i.i.i203 ]
   %inc.i.i.i171 = add nuw nsw i64 %__i.06.i.i.i165, 1
   %exitcond.not.i.i.i172 = icmp eq i64 %inc.i.i.i171, 3
-  br i1 %exitcond.not.i.i.i172, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173, label %for.body.i.i.i164, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i172, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173, label %for.body.i.i.i164, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i173: ; preds = %for.inc.i.i.i169, %if.then.i.i.i203
   %retval.0.i.i.i174 = phi i64 [ 3, %if.then.i.i.i203 ], [ %__n.1.i.i.i170, %for.inc.i.i.i169 ]
@@ -20085,7 +20118,7 @@ for.inc.i.i14.i182:                               ; preds = %if.then.i.i21.i196,
   %__n.1.i.i15.i183 = phi i64 [ %__n.05.i.i11.i179, %for.body.i.i9.i177 ], [ %__i.06.i.i10.i178, %if.then.i.i21.i196 ]
   %inc.i.i16.i184 = add nuw nsw i64 %__i.06.i.i10.i178, 1
   %exitcond.not.i.i17.i185 = icmp eq i64 %inc.i.i16.i184, 3
-  br i1 %exitcond.not.i.i17.i185, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186, label %for.body.i.i9.i177, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i185, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186, label %for.body.i.i9.i177, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186: ; preds = %for.inc.i.i14.i182, %if.then.i.i21.i196
   %retval.0.i.i18.i187 = phi i64 [ 3, %if.then.i.i21.i196 ], [ %__n.1.i.i15.i183, %for.inc.i.i14.i182 ]
@@ -20108,7 +20141,7 @@ if.end27.sink.split.i192:                         ; preds = %if.then19.i191, %_Z
 
 if.end27.i189:                                    ; preds = %if.end27.sink.split.i192, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i186
   %cmp.i.not.i190 = icmp eq ptr %29, %_mixins
-  br i1 %cmp.i.not.i190, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205, label %for.body.i159, !llvm.loop !20
+  br i1 %cmp.i.not.i190, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205, label %for.body.i159, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit205: ; preds = %if.end27.i189, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit156
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
@@ -20134,7 +20167,7 @@ for.inc.i.i.i63:                                  ; preds = %if.then.i.i.i90, %f
   %__n.1.i.i.i64 = phi i64 [ %__n.05.i.i.i60, %for.body.i.i.i58 ], [ %__i.06.i.i.i59, %if.then.i.i.i90 ]
   %inc.i.i.i65 = add nuw nsw i64 %__i.06.i.i.i59, 1
   %exitcond.not.i.i.i66 = icmp eq i64 %inc.i.i.i65, 3
-  br i1 %exitcond.not.i.i.i66, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67, label %for.body.i.i.i58, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i66, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67, label %for.body.i.i.i58, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i67: ; preds = %for.inc.i.i.i63, %if.then.i.i.i90
   %retval.0.i.i.i68 = phi i64 [ 3, %if.then.i.i.i90 ], [ %__n.1.i.i.i64, %for.inc.i.i.i63 ]
@@ -20158,7 +20191,7 @@ for.inc.i.i8.i76:                                 ; preds = %if.then.i.i15.i88, 
   %__n.1.i.i9.i77 = phi i64 [ %__n.05.i.i5.i73, %for.body.i.i3.i71 ], [ %__i.06.i.i4.i72, %if.then.i.i15.i88 ]
   %inc.i.i10.i78 = add nuw nsw i64 %__i.06.i.i4.i72, 1
   %exitcond.not.i.i11.i79 = icmp eq i64 %inc.i.i10.i78, 3
-  br i1 %exitcond.not.i.i11.i79, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i80, label %for.body.i.i3.i71, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i79, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i80, label %for.body.i.i3.i71, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i80: ; preds = %for.inc.i.i8.i76, %if.then.i.i15.i88
   %retval.0.i.i12.i81 = phi i64 [ 3, %if.then.i.i15.i88 ], [ %__n.1.i.i9.i77, %for.inc.i.i8.i76 ]
@@ -20208,7 +20241,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -20232,7 +20265,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -20276,7 +20309,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -20300,7 +20333,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -20350,7 +20383,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -20374,7 +20407,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -20431,7 +20464,7 @@ for.inc.i.i.i129:                                 ; preds = %if.then.i.i.i137, %
   %__n.1.i.i.i130 = phi i64 [ %__n.05.i.i.i126, %for.body.i.i.i124 ], [ %__i.06.i.i.i125, %if.then.i.i.i137 ]
   %inc.i.i.i131 = add nuw nsw i64 %__i.06.i.i.i125, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %inc.i.i.i131, 3
-  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i132, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133, label %for.body.i.i.i124, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i133: ; preds = %for.inc.i.i.i129, %if.then.i.i.i137
   %retval.0.i.i.i134 = phi i64 [ 3, %if.then.i.i.i137 ], [ %__n.1.i.i.i130, %for.inc.i.i.i129 ]
@@ -20470,7 +20503,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -20493,7 +20526,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_rest = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -20519,7 +20552,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -20543,7 +20576,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -20587,7 +20620,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -20611,7 +20644,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -20655,7 +20688,7 @@ for.inc.i.i.i94:                                  ; preds = %if.then.i.i.i121, %
   %__n.1.i.i.i95 = phi i64 [ %__n.05.i.i.i91, %for.body.i.i.i89 ], [ %__i.06.i.i.i90, %if.then.i.i.i121 ]
   %inc.i.i.i96 = add nuw nsw i64 %__i.06.i.i.i90, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %inc.i.i.i96, 3
-  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98: ; preds = %for.inc.i.i.i94, %if.then.i.i.i121
   %retval.0.i.i.i99 = phi i64 [ 3, %if.then.i.i.i121 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
@@ -20679,7 +20712,7 @@ for.inc.i.i8.i107:                                ; preds = %if.then.i.i15.i119,
   %__n.1.i.i9.i108 = phi i64 [ %__n.05.i.i5.i104, %for.body.i.i3.i102 ], [ %__i.06.i.i4.i103, %if.then.i.i15.i119 ]
   %inc.i.i10.i109 = add nuw nsw i64 %__i.06.i.i4.i103, 1
   %exitcond.not.i.i11.i110 = icmp eq i64 %inc.i.i10.i109, 3
-  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111: ; preds = %for.inc.i.i8.i107, %if.then.i.i15.i119
   %retval.0.i.i12.i112 = phi i64 [ 3, %if.then.i.i15.i119 ], [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ]
@@ -20729,7 +20762,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -20753,7 +20786,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -20803,7 +20836,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -20827,7 +20860,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -20871,7 +20904,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -20895,7 +20928,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -20945,7 +20978,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -20969,7 +21002,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21026,7 +21059,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i63 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i63
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -21065,7 +21098,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -21088,7 +21121,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_specifiers
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -21114,7 +21147,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -21138,7 +21171,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -21188,7 +21221,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21212,7 +21245,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21262,7 +21295,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21286,7 +21319,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21330,7 +21363,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -21354,7 +21387,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -21404,7 +21437,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21428,7 +21461,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21478,7 +21511,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21502,7 +21535,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21546,7 +21579,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -21570,7 +21603,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -21620,7 +21653,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21644,7 +21677,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21688,7 +21721,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -21712,7 +21745,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -21762,7 +21795,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21786,7 +21819,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -21849,7 +21882,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -21888,7 +21921,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -21911,7 +21944,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_properties
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_indexers = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -21950,7 +21983,7 @@ for.inc.i.i.i35:                                  ; preds = %if.then.i.i.i69, %f
   %__n.1.i.i.i36 = phi i64 [ %__n.05.i.i.i32, %for.body.i.i.i30 ], [ %__i.06.i.i.i31, %if.then.i.i.i69 ]
   %inc.i.i.i37 = add nuw nsw i64 %__i.06.i.i.i31, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %inc.i.i.i37, 3
-  br i1 %exitcond.not.i.i.i38, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39, label %for.body.i.i.i30, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i38, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39, label %for.body.i.i.i30, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i39: ; preds = %for.inc.i.i.i35, %if.then.i.i.i69
   %retval.0.i.i.i40 = phi i64 [ 3, %if.then.i.i.i69 ], [ %__n.1.i.i.i36, %for.inc.i.i.i35 ]
@@ -21989,7 +22022,7 @@ for.inc.i.i14.i48:                                ; preds = %if.then.i.i21.i62, 
   %__n.1.i.i15.i49 = phi i64 [ %__n.05.i.i11.i45, %for.body.i.i9.i43 ], [ %__i.06.i.i10.i44, %if.then.i.i21.i62 ]
   %inc.i.i16.i50 = add nuw nsw i64 %__i.06.i.i10.i44, 1
   %exitcond.not.i.i17.i51 = icmp eq i64 %inc.i.i16.i50, 3
-  br i1 %exitcond.not.i.i17.i51, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52, label %for.body.i.i9.i43, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i51, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52, label %for.body.i.i9.i43, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52: ; preds = %for.inc.i.i14.i48, %if.then.i.i21.i62
   %retval.0.i.i18.i53 = phi i64 [ 3, %if.then.i.i21.i62 ], [ %__n.1.i.i15.i49, %for.inc.i.i14.i48 ]
@@ -22012,7 +22045,7 @@ if.end27.sink.split.i58:                          ; preds = %if.then19.i57, %_ZS
 
 if.end27.i55:                                     ; preds = %if.end27.sink.split.i58, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i52
   %cmp.i.not.i56 = icmp eq ptr %10, %_indexers
-  br i1 %cmp.i.not.i56, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71, label %for.body.i25, !llvm.loop !20
+  br i1 %cmp.i.not.i56, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71, label %for.body.i25, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71: ; preds = %if.end27.i55, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit
   %_callProperties = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -22051,7 +22084,7 @@ for.inc.i.i.i84:                                  ; preds = %if.then.i.i.i118, %
   %__n.1.i.i.i85 = phi i64 [ %__n.05.i.i.i81, %for.body.i.i.i79 ], [ %__i.06.i.i.i80, %if.then.i.i.i118 ]
   %inc.i.i.i86 = add nuw nsw i64 %__i.06.i.i.i80, 1
   %exitcond.not.i.i.i87 = icmp eq i64 %inc.i.i.i86, 3
-  br i1 %exitcond.not.i.i.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i.i84, %if.then.i.i.i118
   %retval.0.i.i.i89 = phi i64 [ 3, %if.then.i.i.i118 ], [ %__n.1.i.i.i85, %for.inc.i.i.i84 ]
@@ -22090,7 +22123,7 @@ for.inc.i.i14.i97:                                ; preds = %if.then.i.i21.i111,
   %__n.1.i.i15.i98 = phi i64 [ %__n.05.i.i11.i94, %for.body.i.i9.i92 ], [ %__i.06.i.i10.i93, %if.then.i.i21.i111 ]
   %inc.i.i16.i99 = add nuw nsw i64 %__i.06.i.i10.i93, 1
   %exitcond.not.i.i17.i100 = icmp eq i64 %inc.i.i16.i99, 3
-  br i1 %exitcond.not.i.i17.i100, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101, label %for.body.i.i9.i92, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i100, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101, label %for.body.i.i9.i92, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101: ; preds = %for.inc.i.i14.i97, %if.then.i.i21.i111
   %retval.0.i.i18.i102 = phi i64 [ 3, %if.then.i.i21.i111 ], [ %__n.1.i.i15.i98, %for.inc.i.i14.i97 ]
@@ -22113,7 +22146,7 @@ if.end27.sink.split.i107:                         ; preds = %if.then19.i106, %_Z
 
 if.end27.i104:                                    ; preds = %if.end27.sink.split.i107, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i101
   %cmp.i.not.i105 = icmp eq ptr %19, %_callProperties
-  br i1 %cmp.i.not.i105, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120, label %for.body.i74, !llvm.loop !20
+  br i1 %cmp.i.not.i105, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120, label %for.body.i74, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120: ; preds = %if.end27.i104, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit71
   %_internalSlots = getelementptr inbounds nuw i8, ptr %node, i64 96
@@ -22152,7 +22185,7 @@ for.inc.i.i.i133:                                 ; preds = %if.then.i.i.i167, %
   %__n.1.i.i.i134 = phi i64 [ %__n.05.i.i.i130, %for.body.i.i.i128 ], [ %__i.06.i.i.i129, %if.then.i.i.i167 ]
   %inc.i.i.i135 = add nuw nsw i64 %__i.06.i.i.i129, 1
   %exitcond.not.i.i.i136 = icmp eq i64 %inc.i.i.i135, 3
-  br i1 %exitcond.not.i.i.i136, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137, label %for.body.i.i.i128, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i136, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137, label %for.body.i.i.i128, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i137: ; preds = %for.inc.i.i.i133, %if.then.i.i.i167
   %retval.0.i.i.i138 = phi i64 [ 3, %if.then.i.i.i167 ], [ %__n.1.i.i.i134, %for.inc.i.i.i133 ]
@@ -22191,7 +22224,7 @@ for.inc.i.i14.i146:                               ; preds = %if.then.i.i21.i160,
   %__n.1.i.i15.i147 = phi i64 [ %__n.05.i.i11.i143, %for.body.i.i9.i141 ], [ %__i.06.i.i10.i142, %if.then.i.i21.i160 ]
   %inc.i.i16.i148 = add nuw nsw i64 %__i.06.i.i10.i142, 1
   %exitcond.not.i.i17.i149 = icmp eq i64 %inc.i.i16.i148, 3
-  br i1 %exitcond.not.i.i17.i149, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150, label %for.body.i.i9.i141, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i149, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150, label %for.body.i.i9.i141, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150: ; preds = %for.inc.i.i14.i146, %if.then.i.i21.i160
   %retval.0.i.i18.i151 = phi i64 [ 3, %if.then.i.i21.i160 ], [ %__n.1.i.i15.i147, %for.inc.i.i14.i146 ]
@@ -22214,7 +22247,7 @@ if.end27.sink.split.i156:                         ; preds = %if.then19.i155, %_Z
 
 if.end27.i153:                                    ; preds = %if.end27.sink.split.i156, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i150
   %cmp.i.not.i154 = icmp eq ptr %28, %_internalSlots
-  br i1 %cmp.i.not.i154, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169, label %for.body.i123, !llvm.loop !20
+  br i1 %cmp.i.not.i154, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169, label %for.body.i123, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit169: ; preds = %if.end27.i153, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit120
   ret void
@@ -22246,7 +22279,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -22270,7 +22303,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -22314,7 +22347,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -22338,7 +22371,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -22382,7 +22415,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -22406,7 +22439,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -22456,7 +22489,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -22480,7 +22513,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -22530,7 +22563,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -22554,7 +22587,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -22598,7 +22631,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -22622,7 +22655,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -22672,7 +22705,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -22696,7 +22729,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -22746,7 +22779,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -22770,7 +22803,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -22814,7 +22847,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -22838,7 +22871,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -22882,7 +22915,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -22906,7 +22939,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -22950,7 +22983,7 @@ for.inc.i.i.i94:                                  ; preds = %if.then.i.i.i121, %
   %__n.1.i.i.i95 = phi i64 [ %__n.05.i.i.i91, %for.body.i.i.i89 ], [ %__i.06.i.i.i90, %if.then.i.i.i121 ]
   %inc.i.i.i96 = add nuw nsw i64 %__i.06.i.i.i90, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %inc.i.i.i96, 3
-  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98: ; preds = %for.inc.i.i.i94, %if.then.i.i.i121
   %retval.0.i.i.i99 = phi i64 [ 3, %if.then.i.i.i121 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
@@ -22974,7 +23007,7 @@ for.inc.i.i8.i107:                                ; preds = %if.then.i.i15.i119,
   %__n.1.i.i9.i108 = phi i64 [ %__n.05.i.i5.i104, %for.body.i.i3.i102 ], [ %__i.06.i.i4.i103, %if.then.i.i15.i119 ]
   %inc.i.i10.i109 = add nuw nsw i64 %__i.06.i.i4.i103, 1
   %exitcond.not.i.i11.i110 = icmp eq i64 %inc.i.i10.i109, 3
-  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111: ; preds = %for.inc.i.i8.i107, %if.then.i.i15.i119
   %retval.0.i.i12.i112 = phi i64 [ 3, %if.then.i.i15.i119 ], [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ]
@@ -23024,7 +23057,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23048,7 +23081,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23092,7 +23125,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -23116,7 +23149,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -23160,7 +23193,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -23184,7 +23217,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -23228,7 +23261,7 @@ for.inc.i.i.i94:                                  ; preds = %if.then.i.i.i121, %
   %__n.1.i.i.i95 = phi i64 [ %__n.05.i.i.i91, %for.body.i.i.i89 ], [ %__i.06.i.i.i90, %if.then.i.i.i121 ]
   %inc.i.i.i96 = add nuw nsw i64 %__i.06.i.i.i90, 1
   %exitcond.not.i.i.i97 = icmp eq i64 %inc.i.i.i96, 3
-  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i97, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98, label %for.body.i.i.i89, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i98: ; preds = %for.inc.i.i.i94, %if.then.i.i.i121
   %retval.0.i.i.i99 = phi i64 [ 3, %if.then.i.i.i121 ], [ %__n.1.i.i.i95, %for.inc.i.i.i94 ]
@@ -23252,7 +23285,7 @@ for.inc.i.i8.i107:                                ; preds = %if.then.i.i15.i119,
   %__n.1.i.i9.i108 = phi i64 [ %__n.05.i.i5.i104, %for.body.i.i3.i102 ], [ %__i.06.i.i4.i103, %if.then.i.i15.i119 ]
   %inc.i.i10.i109 = add nuw nsw i64 %__i.06.i.i4.i103, 1
   %exitcond.not.i.i11.i110 = icmp eq i64 %inc.i.i10.i109, 3
-  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i110, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111, label %for.body.i.i3.i102, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i111: ; preds = %for.inc.i.i8.i107, %if.then.i.i15.i119
   %retval.0.i.i12.i112 = phi i64 [ 3, %if.then.i.i15.i119 ], [ %__n.1.i.i9.i108, %for.inc.i.i8.i107 ]
@@ -23302,7 +23335,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23326,7 +23359,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23370,7 +23403,7 @@ for.inc.i.i.i24:                                  ; preds = %if.then.i.i.i51, %f
   %__n.1.i.i.i25 = phi i64 [ %__n.05.i.i.i21, %for.body.i.i.i19 ], [ %__i.06.i.i.i20, %if.then.i.i.i51 ]
   %inc.i.i.i26 = add nuw nsw i64 %__i.06.i.i.i20, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %inc.i.i.i26, 3
-  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i27, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28, label %for.body.i.i.i19, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i28: ; preds = %for.inc.i.i.i24, %if.then.i.i.i51
   %retval.0.i.i.i29 = phi i64 [ 3, %if.then.i.i.i51 ], [ %__n.1.i.i.i25, %for.inc.i.i.i24 ]
@@ -23394,7 +23427,7 @@ for.inc.i.i8.i37:                                 ; preds = %if.then.i.i15.i49, 
   %__n.1.i.i9.i38 = phi i64 [ %__n.05.i.i5.i34, %for.body.i.i3.i32 ], [ %__i.06.i.i4.i33, %if.then.i.i15.i49 ]
   %inc.i.i10.i39 = add nuw nsw i64 %__i.06.i.i4.i33, 1
   %exitcond.not.i.i11.i40 = icmp eq i64 %inc.i.i10.i39, 3
-  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i40, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41, label %for.body.i.i3.i32, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i41: ; preds = %for.inc.i.i8.i37, %if.then.i.i15.i49
   %retval.0.i.i12.i42 = phi i64 [ 3, %if.then.i.i15.i49 ], [ %__n.1.i.i9.i38, %for.inc.i.i8.i37 ]
@@ -23438,7 +23471,7 @@ for.inc.i.i.i59:                                  ; preds = %if.then.i.i.i86, %f
   %__n.1.i.i.i60 = phi i64 [ %__n.05.i.i.i56, %for.body.i.i.i54 ], [ %__i.06.i.i.i55, %if.then.i.i.i86 ]
   %inc.i.i.i61 = add nuw nsw i64 %__i.06.i.i.i55, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %inc.i.i.i61, 3
-  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i62, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63, label %for.body.i.i.i54, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i63: ; preds = %for.inc.i.i.i59, %if.then.i.i.i86
   %retval.0.i.i.i64 = phi i64 [ 3, %if.then.i.i.i86 ], [ %__n.1.i.i.i60, %for.inc.i.i.i59 ]
@@ -23462,7 +23495,7 @@ for.inc.i.i8.i72:                                 ; preds = %if.then.i.i15.i84, 
   %__n.1.i.i9.i73 = phi i64 [ %__n.05.i.i5.i69, %for.body.i.i3.i67 ], [ %__i.06.i.i4.i68, %if.then.i.i15.i84 ]
   %inc.i.i10.i74 = add nuw nsw i64 %__i.06.i.i4.i68, 1
   %exitcond.not.i.i11.i75 = icmp eq i64 %inc.i.i10.i74, 3
-  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i75, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76, label %for.body.i.i3.i67, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i76: ; preds = %for.inc.i.i8.i72, %if.then.i.i15.i84
   %retval.0.i.i12.i77 = phi i64 [ 3, %if.then.i.i15.i84 ], [ %__n.1.i.i9.i73, %for.inc.i.i8.i72 ]
@@ -23512,7 +23545,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23536,7 +23569,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23580,7 +23613,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -23604,7 +23637,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -23654,7 +23687,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23678,7 +23711,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23722,7 +23755,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -23746,7 +23779,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -23796,7 +23829,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23820,7 +23853,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23870,7 +23903,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -23894,7 +23927,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -23938,7 +23971,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -23962,7 +23995,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -24012,7 +24045,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24036,7 +24069,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24086,7 +24119,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24110,7 +24143,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24154,7 +24187,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -24178,7 +24211,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -24228,7 +24261,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24252,7 +24285,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24296,7 +24329,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -24320,7 +24353,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -24370,7 +24403,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24394,7 +24427,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24438,7 +24471,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -24462,7 +24495,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -24512,7 +24545,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24536,7 +24569,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24580,7 +24613,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -24604,7 +24637,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -24654,7 +24687,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24678,7 +24711,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24728,7 +24761,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24752,7 +24785,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24802,7 +24835,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24826,7 +24859,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -24870,7 +24903,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -24894,7 +24927,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -24944,7 +24977,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -24968,7 +25001,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25018,7 +25051,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25042,7 +25075,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25086,7 +25119,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -25110,7 +25143,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -25160,7 +25193,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25184,7 +25217,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25228,7 +25261,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -25252,7 +25285,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -25315,7 +25348,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -25354,7 +25387,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -25377,7 +25410,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -25403,7 +25436,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25427,7 +25460,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25471,7 +25504,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -25495,7 +25528,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -25558,7 +25591,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i59, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i59 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i59
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i59 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -25597,7 +25630,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -25620,7 +25653,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -25646,7 +25679,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25670,7 +25703,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25714,7 +25747,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -25738,7 +25771,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -25788,7 +25821,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25812,7 +25845,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25856,7 +25889,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -25880,7 +25913,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -25930,7 +25963,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -25954,7 +25987,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -25998,7 +26031,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -26022,7 +26055,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -26072,7 +26105,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26096,7 +26129,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -26140,7 +26173,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -26164,7 +26197,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -26214,7 +26247,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26238,7 +26271,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -26288,7 +26321,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26312,7 +26345,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -26356,7 +26389,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -26380,7 +26413,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -26424,7 +26457,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -26448,7 +26481,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -26498,7 +26531,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26522,7 +26555,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -26566,7 +26599,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -26590,7 +26623,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -26647,7 +26680,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i98 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i98
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -26686,7 +26719,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -26709,7 +26742,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %11, %_extends
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit49
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -26735,7 +26768,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -26759,7 +26792,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -26809,7 +26842,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26833,7 +26866,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -26877,7 +26910,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -26901,7 +26934,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -26951,7 +26984,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -26975,7 +27008,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27032,7 +27065,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -27071,7 +27104,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -27094,7 +27127,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_members
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   ret void
@@ -27126,7 +27159,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27150,7 +27183,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27194,7 +27227,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -27218,7 +27251,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -27268,7 +27301,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27292,7 +27325,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27336,7 +27369,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -27360,7 +27393,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -27410,7 +27443,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27434,7 +27467,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27478,7 +27511,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i39, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i39 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i39
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i39 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -27502,7 +27535,7 @@ for.inc.i.i8.i25:                                 ; preds = %if.then.i.i15.i37, 
   %__n.1.i.i9.i26 = phi i64 [ %__n.05.i.i5.i22, %for.body.i.i3.i20 ], [ %__i.06.i.i4.i21, %if.then.i.i15.i37 ]
   %inc.i.i10.i27 = add nuw nsw i64 %__i.06.i.i4.i21, 1
   %exitcond.not.i.i11.i28 = icmp eq i64 %inc.i.i10.i27, 3
-  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i28, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29, label %for.body.i.i3.i20, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i29: ; preds = %for.inc.i.i8.i25, %if.then.i.i15.i37
   %retval.0.i.i12.i30 = phi i64 [ 3, %if.then.i.i15.i37 ], [ %__n.1.i.i9.i26, %for.inc.i.i8.i25 ]
@@ -27552,7 +27585,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27576,7 +27609,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27620,7 +27653,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -27644,7 +27677,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -27688,7 +27721,7 @@ for.inc.i.i.i51:                                  ; preds = %if.then.i.i.i78, %f
   %__n.1.i.i.i52 = phi i64 [ %__n.05.i.i.i48, %for.body.i.i.i46 ], [ %__i.06.i.i.i47, %if.then.i.i.i78 ]
   %inc.i.i.i53 = add nuw nsw i64 %__i.06.i.i.i47, 1
   %exitcond.not.i.i.i54 = icmp eq i64 %inc.i.i.i53, 3
-  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i54, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55, label %for.body.i.i.i46, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i55: ; preds = %for.inc.i.i.i51, %if.then.i.i.i78
   %retval.0.i.i.i56 = phi i64 [ 3, %if.then.i.i.i78 ], [ %__n.1.i.i.i52, %for.inc.i.i.i51 ]
@@ -27712,7 +27745,7 @@ for.inc.i.i8.i64:                                 ; preds = %if.then.i.i15.i76, 
   %__n.1.i.i9.i65 = phi i64 [ %__n.05.i.i5.i61, %for.body.i.i3.i59 ], [ %__i.06.i.i4.i60, %if.then.i.i15.i76 ]
   %inc.i.i10.i66 = add nuw nsw i64 %__i.06.i.i4.i60, 1
   %exitcond.not.i.i11.i67 = icmp eq i64 %inc.i.i10.i66, 3
-  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i67, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68, label %for.body.i.i3.i59, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i68: ; preds = %for.inc.i.i8.i64, %if.then.i.i15.i76
   %retval.0.i.i12.i69 = phi i64 [ 3, %if.then.i.i15.i76 ], [ %__n.1.i.i9.i65, %for.inc.i.i8.i64 ]
@@ -27762,7 +27795,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27786,7 +27819,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27836,7 +27869,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -27860,7 +27893,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -27904,7 +27937,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -27928,7 +27961,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -27972,7 +28005,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i82, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i82 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i82
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i82 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -27996,7 +28029,7 @@ for.inc.i.i8.i68:                                 ; preds = %if.then.i.i15.i80, 
   %__n.1.i.i9.i69 = phi i64 [ %__n.05.i.i5.i65, %for.body.i.i3.i63 ], [ %__i.06.i.i4.i64, %if.then.i.i15.i80 ]
   %inc.i.i10.i70 = add nuw nsw i64 %__i.06.i.i4.i64, 1
   %exitcond.not.i.i11.i71 = icmp eq i64 %inc.i.i10.i70, 3
-  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i71, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72, label %for.body.i.i3.i63, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i72: ; preds = %for.inc.i.i8.i68, %if.then.i.i15.i80
   %retval.0.i.i12.i73 = phi i64 [ 3, %if.then.i.i15.i80 ], [ %__n.1.i.i9.i69, %for.inc.i.i8.i68 ]
@@ -28040,7 +28073,7 @@ for.inc.i.i.i90:                                  ; preds = %if.then.i.i.i117, %
   %__n.1.i.i.i91 = phi i64 [ %__n.05.i.i.i87, %for.body.i.i.i85 ], [ %__i.06.i.i.i86, %if.then.i.i.i117 ]
   %inc.i.i.i92 = add nuw nsw i64 %__i.06.i.i.i86, 1
   %exitcond.not.i.i.i93 = icmp eq i64 %inc.i.i.i92, 3
-  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i93, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94, label %for.body.i.i.i85, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i94: ; preds = %for.inc.i.i.i90, %if.then.i.i.i117
   %retval.0.i.i.i95 = phi i64 [ 3, %if.then.i.i.i117 ], [ %__n.1.i.i.i91, %for.inc.i.i.i90 ]
@@ -28064,7 +28097,7 @@ for.inc.i.i8.i103:                                ; preds = %if.then.i.i15.i115,
   %__n.1.i.i9.i104 = phi i64 [ %__n.05.i.i5.i100, %for.body.i.i3.i98 ], [ %__i.06.i.i4.i99, %if.then.i.i15.i115 ]
   %inc.i.i10.i105 = add nuw nsw i64 %__i.06.i.i4.i99, 1
   %exitcond.not.i.i11.i106 = icmp eq i64 %inc.i.i10.i105, 3
-  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i106, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107, label %for.body.i.i3.i98, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i107: ; preds = %for.inc.i.i8.i103, %if.then.i.i15.i115
   %retval.0.i.i12.i108 = phi i64 [ 3, %if.then.i.i15.i115 ], [ %__n.1.i.i9.i104, %for.inc.i.i8.i103 ]
@@ -28114,7 +28147,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -28138,7 +28171,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -28182,7 +28215,7 @@ for.inc.i.i.i36:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i37 = phi i64 [ %__n.05.i.i.i33, %for.body.i.i.i31 ], [ %__i.06.i.i.i32, %if.then.i.i.i63 ]
   %inc.i.i.i38 = add nuw nsw i64 %__i.06.i.i.i32, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %inc.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i39, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40, label %for.body.i.i.i31, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i40: ; preds = %for.inc.i.i.i36, %if.then.i.i.i63
   %retval.0.i.i.i41 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i37, %for.inc.i.i.i36 ]
@@ -28206,7 +28239,7 @@ for.inc.i.i8.i49:                                 ; preds = %if.then.i.i15.i61, 
   %__n.1.i.i9.i50 = phi i64 [ %__n.05.i.i5.i46, %for.body.i.i3.i44 ], [ %__i.06.i.i4.i45, %if.then.i.i15.i61 ]
   %inc.i.i10.i51 = add nuw nsw i64 %__i.06.i.i4.i45, 1
   %exitcond.not.i.i11.i52 = icmp eq i64 %inc.i.i10.i51, 3
-  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i52, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53, label %for.body.i.i3.i44, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i53: ; preds = %for.inc.i.i8.i49, %if.then.i.i15.i61
   %retval.0.i.i12.i54 = phi i64 [ 3, %if.then.i.i15.i61 ], [ %__n.1.i.i9.i50, %for.inc.i.i8.i49 ]
@@ -28250,7 +28283,7 @@ for.inc.i.i.i71:                                  ; preds = %if.then.i.i.i98, %f
   %__n.1.i.i.i72 = phi i64 [ %__n.05.i.i.i68, %for.body.i.i.i66 ], [ %__i.06.i.i.i67, %if.then.i.i.i98 ]
   %inc.i.i.i73 = add nuw nsw i64 %__i.06.i.i.i67, 1
   %exitcond.not.i.i.i74 = icmp eq i64 %inc.i.i.i73, 3
-  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i74, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75, label %for.body.i.i.i66, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i75: ; preds = %for.inc.i.i.i71, %if.then.i.i.i98
   %retval.0.i.i.i76 = phi i64 [ 3, %if.then.i.i.i98 ], [ %__n.1.i.i.i72, %for.inc.i.i.i71 ]
@@ -28274,7 +28307,7 @@ for.inc.i.i8.i84:                                 ; preds = %if.then.i.i15.i96, 
   %__n.1.i.i9.i85 = phi i64 [ %__n.05.i.i5.i81, %for.body.i.i3.i79 ], [ %__i.06.i.i4.i80, %if.then.i.i15.i96 ]
   %inc.i.i10.i86 = add nuw nsw i64 %__i.06.i.i4.i80, 1
   %exitcond.not.i.i11.i87 = icmp eq i64 %inc.i.i10.i86, 3
-  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i87, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88, label %for.body.i.i3.i79, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i88: ; preds = %for.inc.i.i8.i84, %if.then.i.i15.i96
   %retval.0.i.i12.i89 = phi i64 [ 3, %if.then.i.i15.i96 ], [ %__n.1.i.i9.i85, %for.inc.i.i8.i84 ]
@@ -28324,7 +28357,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -28348,7 +28381,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -28405,7 +28438,7 @@ for.inc.i.i.i55:                                  ; preds = %if.then.i.i.i63, %f
   %__n.1.i.i.i56 = phi i64 [ %__n.05.i.i.i52, %for.body.i.i.i50 ], [ %__i.06.i.i.i51, %if.then.i.i.i63 ]
   %inc.i.i.i57 = add nuw nsw i64 %__i.06.i.i.i51, 1
   %exitcond.not.i.i.i58 = icmp eq i64 %inc.i.i.i57, 3
-  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i58, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59, label %for.body.i.i.i50, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i59: ; preds = %for.inc.i.i.i55, %if.then.i.i.i63
   %retval.0.i.i.i60 = phi i64 [ 3, %if.then.i.i.i63 ], [ %__n.1.i.i.i56, %for.inc.i.i.i55 ]
@@ -28444,7 +28477,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -28467,7 +28500,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %6, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE9postVisitEPPNS0_4NodeESt7variantIJNS0_11UnmodifiedTENS0_8RemovedTES7_EE.exit
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 72
@@ -28493,7 +28526,7 @@ for.inc.i.i.i20:                                  ; preds = %if.then.i.i.i47, %f
   %__n.1.i.i.i21 = phi i64 [ %__n.05.i.i.i17, %for.body.i.i.i15 ], [ %__i.06.i.i.i16, %if.then.i.i.i47 ]
   %inc.i.i.i22 = add nuw nsw i64 %__i.06.i.i.i16, 1
   %exitcond.not.i.i.i23 = icmp eq i64 %inc.i.i.i22, 3
-  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i23, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24, label %for.body.i.i.i15, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i24: ; preds = %for.inc.i.i.i20, %if.then.i.i.i47
   %retval.0.i.i.i25 = phi i64 [ 3, %if.then.i.i.i47 ], [ %__n.1.i.i.i21, %for.inc.i.i.i20 ]
@@ -28517,7 +28550,7 @@ for.inc.i.i8.i33:                                 ; preds = %if.then.i.i15.i45, 
   %__n.1.i.i9.i34 = phi i64 [ %__n.05.i.i5.i30, %for.body.i.i3.i28 ], [ %__i.06.i.i4.i29, %if.then.i.i15.i45 ]
   %inc.i.i10.i35 = add nuw nsw i64 %__i.06.i.i4.i29, 1
   %exitcond.not.i.i11.i36 = icmp eq i64 %inc.i.i10.i35, 3
-  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i36, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37, label %for.body.i.i3.i28, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i37: ; preds = %for.inc.i.i8.i33, %if.then.i.i15.i45
   %retval.0.i.i12.i38 = phi i64 [ 3, %if.then.i.i15.i45 ], [ %__n.1.i.i9.i34, %for.inc.i.i8.i33 ]
@@ -28580,7 +28613,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -28619,7 +28652,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -28642,7 +28675,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_parameters
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -28668,7 +28701,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -28692,7 +28725,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -28755,7 +28788,7 @@ for.inc.i.i.i12:                                  ; preds = %if.then.i.i.i20, %f
   %__n.1.i.i.i13 = phi i64 [ %__n.05.i.i.i9, %for.body.i.i.i7 ], [ %__i.06.i.i.i8, %if.then.i.i.i20 ]
   %inc.i.i.i14 = add nuw nsw i64 %__i.06.i.i.i8, 1
   %exitcond.not.i.i.i15 = icmp eq i64 %inc.i.i.i14, 3
-  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i15, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16, label %for.body.i.i.i7, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i16: ; preds = %for.inc.i.i.i12, %if.then.i.i.i20
   %retval.0.i.i.i17 = phi i64 [ 3, %if.then.i.i.i20 ], [ %__n.1.i.i.i13, %for.inc.i.i.i12 ]
@@ -28794,7 +28827,7 @@ for.inc.i.i14.i:                                  ; preds = %if.then.i.i21.i, %f
   %__n.1.i.i15.i = phi i64 [ %__n.05.i.i11.i, %for.body.i.i9.i ], [ %__i.06.i.i10.i, %if.then.i.i21.i ]
   %inc.i.i16.i = add nuw nsw i64 %__i.06.i.i10.i, 1
   %exitcond.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 3
-  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i17.i, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i9.i, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i14.i, %if.then.i.i21.i
   %retval.0.i.i18.i = phi i64 [ 3, %if.then.i.i21.i ], [ %__n.1.i.i15.i, %for.inc.i.i14.i ]
@@ -28817,7 +28850,7 @@ if.end27.sink.split.i:                            ; preds = %if.then19.i, %_ZSt3
 
 if.end27.i:                                       ; preds = %if.end27.sink.split.i, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i
   %cmp.i.not.i = icmp eq ptr %1, %_params
-  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !20
+  br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit, label %for.body.i, !llvm.loop !16
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_RN4llvh12simple_ilistINS0_4NodeEJEEEPS9_.exit: ; preds = %if.end27.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
@@ -28843,7 +28876,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -28867,7 +28900,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -28917,7 +28950,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -28941,7 +28974,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -28991,7 +29024,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -29015,7 +29048,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -29065,7 +29098,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %__n.1.i.i.i = phi i64 [ %__n.05.i.i.i, %for.body.i.i.i ], [ %__i.06.i.i.i, %if.then.i.i.i ]
   %inc.i.i.i = add nuw nsw i64 %__i.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i.i, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ 3, %if.then.i.i.i ], [ %__n.1.i.i.i, %for.inc.i.i.i ]
@@ -29089,7 +29122,7 @@ for.inc.i.i8.i:                                   ; preds = %if.then.i.i15.i, %f
   %__n.1.i.i9.i = phi i64 [ %__n.05.i.i5.i, %for.body.i.i3.i ], [ %__i.06.i.i4.i, %if.then.i.i15.i ]
   %inc.i.i10.i = add nuw nsw i64 %__i.06.i.i4.i, 1
   %exitcond.not.i.i11.i = icmp eq i64 %inc.i.i10.i, 3
-  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i, label %for.body.i.i3.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i: ; preds = %for.inc.i.i8.i, %if.then.i.i15.i
   %retval.0.i.i12.i = phi i64 [ 3, %if.then.i.i15.i ], [ %__n.1.i.i9.i, %for.inc.i.i8.i ]
@@ -29133,7 +29166,7 @@ for.inc.i.i.i16:                                  ; preds = %if.then.i.i.i43, %f
   %__n.1.i.i.i17 = phi i64 [ %__n.05.i.i.i13, %for.body.i.i.i11 ], [ %__i.06.i.i.i12, %if.then.i.i.i43 ]
   %inc.i.i.i18 = add nuw nsw i64 %__i.06.i.i.i12, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %inc.i.i.i18, 3
-  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i19, label %_ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20, label %for.body.i.i.i11, !llvm.loop !13
 
 _ZSt17holds_alternativeIN6hermes6ESTree8RemovedTEJNS1_11UnmodifiedTES2_PNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit.i20: ; preds = %for.inc.i.i.i16, %if.then.i.i.i43
   %retval.0.i.i.i21 = phi i64 [ 3, %if.then.i.i.i43 ], [ %__n.1.i.i.i17, %for.inc.i.i.i16 ]
@@ -29157,7 +29190,7 @@ for.inc.i.i8.i29:                                 ; preds = %if.then.i.i15.i41, 
   %__n.1.i.i9.i30 = phi i64 [ %__n.05.i.i5.i26, %for.body.i.i3.i24 ], [ %__i.06.i.i4.i25, %if.then.i.i15.i41 ]
   %inc.i.i10.i31 = add nuw nsw i64 %__i.06.i.i4.i25, 1
   %exitcond.not.i.i11.i32 = icmp eq i64 %inc.i.i10.i31, 3
-  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !18
+  br i1 %exitcond.not.i.i11.i32, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33, label %for.body.i.i3.i24, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit.i33: ; preds = %for.inc.i.i8.i29, %if.then.i.i15.i41
   %retval.0.i.i12.i34 = phi i64 [ 3, %if.then.i.i15.i41 ], [ %__n.1.i.i9.i30, %for.inc.i.i8.i29 ]
@@ -29219,7 +29252,7 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %__n.1.i.i = phi i64 [ %__n.05.i.i, %for.body.i.i ], [ %__i.06.i.i, %if.then.i.i ]
   %inc.i.i = add nuw nsw i64 %__i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit, label %for.body.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %_ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit, label %for.body.i.i, !llvm.loop !14
 
 _ZSt17holds_alternativeIPN6hermes6ESTree4NodeEJNS1_11UnmodifiedTENS1_8RemovedTES3_EEbRKSt7variantIJDpT0_EE.exit: ; preds = %if.then.i.i, %for.inc.i.i
   %retval.0.i.i = phi i64 [ 3, %if.then.i.i ], [ %__n.1.i.i, %for.inc.i.i ]
@@ -29258,7 +29291,7 @@ for.inc.i.i14:                                    ; preds = %if.then.i.i21, %for
   %__n.1.i.i15 = phi i64 [ %__n.05.i.i11, %for.body.i.i9 ], [ %__i.06.i.i10, %if.then.i.i21 ]
   %inc.i.i16 = add nuw nsw i64 %__i.06.i.i10, 1
   %exitcond.not.i.i17 = icmp eq i64 %inc.i.i16, 3
-  br i1 %exitcond.not.i.i17, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit, label %for.body.i.i9, !llvm.loop !19
+  br i1 %exitcond.not.i.i17, label %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit, label %for.body.i.i9, !llvm.loop !15
 
 _ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit: ; preds = %if.then.i.i21, %for.inc.i.i14
   %retval.0.i.i18 = phi i64 [ 3, %if.then.i.i21 ], [ %__n.1.i.i15, %for.inc.i.i14 ]
@@ -29281,7 +29314,7 @@ if.end27.sink.split:                              ; preds = %_ZSt3getIPN6hermes6
 
 if.end27:                                         ; preds = %if.end27.sink.split, %_ZSt17holds_alternativeIN6hermes6ESTree11UnmodifiedTEJS2_NS1_8RemovedTEPNS1_4NodeEEEbRKSt7variantIJDpT0_EE.exit
   %cmp.i.not = icmp eq ptr %1, %list
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %if.end27, %entry
   ret void
@@ -30094,14 +30127,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvh9SetVectorIPN6hermes12UniqueStringESt6vectorIS3_SaIS3_EENS_8DenseSetIS3_NS_12DenseMapInfoIS3_EEEEE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %X) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8, !noalias !21
+  %0 = load ptr, ptr %this, align 8, !noalias !17
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !21
+  %1 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !17
   %cmp.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %2 = load ptr, ptr %X, align 8, !noalias !21
+  %2 = load ptr, ptr %X, align 8, !noalias !17
   %3 = ptrtoint ptr %2 to i64
   %conv.i.i.i.i.i.i = trunc i64 %3 to i32
   %shr.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i.i, 4
@@ -30111,7 +30144,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %BucketNo.019.i.i.i.i = and i32 %xor.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %0, i64 %idx.ext20.i.i.i.i
-  %4 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !21
+  %4 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !17
   %cmp.i22.i.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.i22.i.i.i.i, label %if.end, label %if.end9.i.i.i.i
 
@@ -30139,15 +30172,15 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %0, i64 %idx.ext.i.i.i.i
-  %6 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !21
+  %6 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !17
   %cmp.i.i.i.i.i = icmp eq ptr %2, %6
-  br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end9.i.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end9.i.i.i.i, !llvm.loop !22
 
 if.then:                                          ; preds = %if.then12.i.i.i.i, %entry
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %entry ]
-  %call.i.i.i = tail call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef %cond.sink.i.i.i.i), !noalias !21
-  %7 = load ptr, ptr %X, align 8, !noalias !21
-  store ptr %7, ptr %call.i.i.i, align 8, !noalias !21
+  %call.i.i.i = tail call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef nonnull align 8 dereferenceable(8) %X, ptr noundef %cond.sink.i.i.i.i), !noalias !17
+  %7 = load ptr, ptr %X, align 8, !noalias !17
+  store ptr %7, ptr %call.i.i.i, align 8, !noalias !17
   %vector_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_finish.i, align 8
@@ -30278,7 +30311,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %2, i64 %idx.ext.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %8
-  br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !22
 
 if.else:                                          ; preds = %entry
   %NumTombstones.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -30338,7 +30371,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %add.ptr.i.i36 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %10, i64 %idx.ext.i.i35
   %16 = load ptr, ptr %add.ptr.i.i36, align 8
   %cmp.i.i.i37 = icmp eq ptr %12, %16
-  br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !26
+  br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !22
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
   %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
@@ -30406,7 +30439,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !27
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !23
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -30428,7 +30461,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !27
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !23
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not17.i = icmp eq i32 %0, 0
@@ -30486,7 +30519,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %6, i64 %idx.ext.i.i11.i
   %10 = load ptr, ptr %add.ptr.i.i12.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %10
-  br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end9.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end9.i.i.i, !llvm.loop !22
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i: ; preds = %if.end13.i.i.i, %if.then12.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i12.i, %if.end13.i.i.i ]
@@ -30499,7 +30532,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSet
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, %for.body.i5, %for.body.i5
   %incdec.ptr.i7 = getelementptr inbounds nuw i8, ptr %B.018.i, i64 8
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
-  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !28
+  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %for.body.i5, !llvm.loop !24
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i6, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E9initEmptyEv.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #12
@@ -32121,13 +32154,13 @@ for.body28:                                       ; preds = %sw.bb17, %for.body2
 
 sw.bb33:                                          ; preds = %tailrecurse
   %_name = getelementptr inbounds nuw i8, ptr %node.tr, i64 48
-  %1 = load ptr, ptr %_name, align 8, !noalias !29
+  %1 = load ptr, ptr %_name, align 8, !noalias !25
   store ptr %1, ptr %ref.tmp, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %second.i, align 8
-  %2 = load ptr, ptr %tempIds, align 8, !noalias !32
+  %2 = load ptr, ptr %tempIds, align 8, !noalias !28
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tempIds, i64 16
-  %3 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !32
+  %3 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8, !noalias !28
   %cmp.i.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
@@ -32141,7 +32174,7 @@ if.end.i.i.i.i:                                   ; preds = %sw.bb33
   %BucketNo.019.i.i.i.i = and i32 %sub.i.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.64", ptr %2, i64 %idx.ext20.i.i.i.i
-  %5 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !32
+  %5 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !28
   %cmp.i22.i.i.i.i = icmp eq ptr %1, %5
   br i1 %cmp.i22.i.i.i.i, label %if.end, label %if.end9.i.i.i.i
 
@@ -32169,18 +32202,18 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.64", ptr %2, i64 %idx.ext.i.i.i.i
-  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !32
+  %7 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !28
   %cmp.i.i.i.i.i = icmp eq ptr %1, %7
-  br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end9.i.i.i.i, !llvm.loop !37
+  br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end9.i.i.i.i, !llvm.loop !33
 
 if.then:                                          ; preds = %if.then12.i.i.i.i, %sw.bb33
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then12.i.i.i.i ], [ null, %sw.bb33 ]
-  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %tempIds, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %cond.sink.i.i.i.i), !noalias !32
-  %8 = load ptr, ptr %ref.tmp, align 8, !noalias !32
-  store ptr %8, ptr %call.i.i.i, align 8, !noalias !32
+  %call.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %tempIds, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %cond.sink.i.i.i.i), !noalias !28
+  %8 = load ptr, ptr %ref.tmp, align 8, !noalias !28
+  store ptr %8, ptr %call.i.i.i, align 8, !noalias !28
   %second.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
-  %9 = load ptr, ptr %second.i, align 8, !noalias !32
-  store ptr %9, ptr %second.i.i2.i.i, align 8, !noalias !32
+  %9 = load ptr, ptr %second.i, align 8, !noalias !28
+  store ptr %9, ptr %second.i.i2.i.i, align 8, !noalias !28
   %internalIDs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call38 = call ptr @_ZN6hermes23InternalIdentifierMaker4nextEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %internalIDs_, ptr nonnull @.str.13, i64 7) #12
   store ptr %call38, ptr %second.i.i2.i.i, align 8
@@ -32523,7 +32556,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.64", ptr %2, i64 %idx.ext.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %8
-  br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !37
+  br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !33
 
 if.else:                                          ; preds = %entry
   %NumTombstones.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -32583,7 +32616,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.64", ptr %10, i64 %idx.ext.i.i35
   %16 = load ptr, ptr %add.ptr.i.i36, align 8
   %cmp.i.i.i37 = icmp eq ptr %12, %16
-  br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !37
+  br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !33
 
 if.end12:                                         ; preds = %if.end13.i.i, %if.end13.i.i27, %if.then12.i.i40, %if.end.i.i11, %if.then10, %if.then12.i.i, %if.end.i.i, %if.then, %if.else
   %TheBucket.addr.0 = phi ptr [ %TheBucket, %if.else ], [ %cond.i.i, %if.then12.i.i ], [ null, %if.then ], [ %add.ptr21.i.i, %if.end.i.i ], [ %cond.i.i42, %if.then12.i.i40 ], [ null, %if.then10 ], [ %add.ptr21.i.i19, %if.end.i.i11 ], [ %add.ptr.i.i36, %if.end13.i.i27 ], [ %add.ptr.i.i, %if.end13.i.i ]
@@ -32651,7 +32684,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !38
+  br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !34
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapIPN6hermes12UniqueStringES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
@@ -32673,7 +32706,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !38
+  br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !34
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
   %cmp.not19.i = icmp eq i32 %0, 0
@@ -32731,7 +32764,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.ptr.i.i12.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.64", ptr %6, i64 %idx.ext.i.i11.i
   %10 = load ptr, ptr %add.ptr.i.i12.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %10
-  br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %if.end9.i.i.i, !llvm.loop !37
+  br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %if.end9.i.i.i, !llvm.loop !33
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i: ; preds = %if.end13.i.i.i, %if.then12.i.i.i, %if.then.i
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ %add.ptr21.i.i.i, %if.then.i ], [ %add.ptr.i.i12.i, %if.end13.i.i.i ]
@@ -32748,7 +32781,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfo
 if.end.i6:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %for.body.i5, %for.body.i5
   %incdec.ptr.i7 = getelementptr inbounds nuw i8, ptr %B.020.i, i64 16
   %cmp.not.i8 = icmp eq ptr %incdec.ptr.i7, %add.ptr
-  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %for.body.i5, !llvm.loop !39
+  br i1 %cmp.not.i8, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %for.body.i5, !llvm.loop !35
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_.exit: ; preds = %if.end.i6, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E9initEmptyEv.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %1) #12
@@ -32772,7 +32805,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %1, 26
   %tobool.not9 = icmp eq ptr %0, null
   %tobool.not = or i1 %tobool.not9, %cmp.i.i.i.i.i.i.i
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !40
+  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !36
 
 while.end:                                        ; preds = %while.cond
   switch i32 %1, label %sw.default [
@@ -32855,35 +32888,31 @@ attributes #16 = { builtin nounwind allocsize(0) }
 !6 = distinct !{!6, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_"}
 !7 = distinct !{!7, !8, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6insertEOSt4pairIS2_S5_E: %agg.result"}
 !8 = distinct !{!8, !"_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6insertEOSt4pairIS2_S5_E"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
 !15 = distinct !{!15, !10}
 !16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_: %agg.result"}
-!23 = distinct !{!23, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_"}
-!24 = distinct !{!24, !25, !"_ZN4llvh6detail12DenseSetImplIPN6hermes12UniqueStringENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_: %agg.result"}
-!25 = distinct !{!25, !"_ZN4llvh6detail12DenseSetImplIPN6hermes12UniqueStringENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_"}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt9make_pairIRPN6hermes12UniqueStringEDnESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: %agg.result"}
-!31 = distinct !{!31, !"_ZSt9make_pairIRPN6hermes12UniqueStringEDnESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!32 = !{!33, !35}
-!33 = distinct !{!33, !34, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_: %agg.result"}
-!34 = distinct !{!34, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_"}
-!35 = distinct !{!35, !36, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6insertEOSt4pairIS4_S4_E: %agg.result"}
-!36 = distinct !{!36, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6insertEOSt4pairIS4_S4_E"}
-!37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_: %agg.result"}
+!19 = distinct !{!19, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_"}
+!20 = distinct !{!20, !21, !"_ZN4llvh6detail12DenseSetImplIPN6hermes12UniqueStringENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_: %agg.result"}
+!21 = distinct !{!21, !"_ZN4llvh6detail12DenseSetImplIPN6hermes12UniqueStringENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E6insertERKS4_"}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZSt9make_pairIRPN6hermes12UniqueStringEDnESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: %agg.result"}
+!27 = distinct !{!27, !"_ZSt9make_pairIRPN6hermes12UniqueStringEDnESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_: %agg.result"}
+!30 = distinct !{!30, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS4_S4_S6_S9_Lb0EEEbEOS4_DpOT_"}
+!31 = distinct !{!31, !32, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6insertEOSt4pairIS4_S4_E: %agg.result"}
+!32 = distinct !{!32, !"_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes12UniqueStringES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6insertEOSt4pairIS4_S4_E"}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10}

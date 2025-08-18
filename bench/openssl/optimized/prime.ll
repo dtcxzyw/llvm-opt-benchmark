@@ -298,7 +298,7 @@ switch.early.test.i:                              ; preds = %.preheader33.i
 
 .critedge.i:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.preheader33.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader33.i, !llvm.loop !19
+  br label %.preheader33.i, !llvm.loop !18
 
 check_num.exit:                                   ; preds = %switch.early.test.i
   %89 = and i64 %indvars.iv.i, 4294967295
@@ -342,7 +342,7 @@ check_num.exit:                                   ; preds = %switch.early.test.i
   %113 = getelementptr inbounds nuw i8, ptr %.03585, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !13
   %.not53 = icmp eq ptr %114, null
-  br i1 %.not53, label %.thread, label %.preheader33.i.preheader, !llvm.loop !20
+  br i1 %.not53, label %.thread, label %.preheader33.i.preheader, !llvm.loop !17
 
 .thread:                                          ; preds = %18, %107, %48, %.preheader, %.critedge, %.split.us, %57, %68, %79, %63, %.loopexit, %9, %82
   %.036 = phi i32 [ 1, %.loopexit ], [ 0, %9 ], [ 0, %82 ], [ 1, %63 ], [ 1, %79 ], [ 1, %68 ], [ 1, %57 ], [ 1, %.split.us ], [ 1, %.critedge ], [ 0, %.preheader ], [ 0, %48 ], [ 0, %107 ], [ 1, %18 ]
@@ -424,7 +424,5 @@ attributes #4 = { nounwind }
 !14 = !{!"p1 omnipotent char", !6, i64 0}
 !15 = !{!7, !7, i64 0}
 !16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}

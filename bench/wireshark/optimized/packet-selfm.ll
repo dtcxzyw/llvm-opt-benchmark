@@ -1371,7 +1371,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %127 = add nuw nsw i32 %.06162.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %93
-  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.split.i, !llvm.loop !12
 
 .thread:                                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %67
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1440,7 +1440,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %166 = add nuw nsw i32 %.235, 14
   %167 = add nuw nsw i32 %.216834, 1
   %exitcond64.not = icmp eq i32 %.216834, %.0171
-  br i1 %exitcond64.not, label %.thread1, label %149, !llvm.loop !15
+  br i1 %exitcond64.not, label %.thread1, label %149, !llvm.loop !13
 
 .thread1:                                         ; preds = %149, %136, %133
   %.13 = phi i32 [ 0, %133 ], [ 18, %136 ], [ %166, %149 ]
@@ -1500,7 +1500,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %199 = add nuw nsw i32 %.539, 18
   %200 = add nuw nsw i32 %.316938, 1
   %exitcond65.not = icmp eq i32 %.316938, %.1172
-  br i1 %exitcond65.not, label %._crit_edge, label %191, !llvm.loop !16
+  br i1 %exitcond65.not, label %._crit_edge, label %191, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %191, %179
   %201 = and i32 %7, 65535
@@ -1600,7 +1600,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %249 = add nuw nsw i32 %.074.i, 1
   %.065.i = add i32 %.06575.i, 4
   %exitcond.not.i183 = icmp eq i32 %.074.i, %242
-  br i1 %exitcond.not.i183, label %.preheader70.i, label %.lr.ph.i182, !llvm.loop !17
+  br i1 %exitcond.not.i183, label %.preheader70.i, label %.lr.ph.i182, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %.lr.ph79.i, %.preheader70.i
   %.166.lcssa.i = phi i32 [ %.065.lcssa.i, %.preheader70.i ], [ %256, %.lr.ph79.i ]
@@ -1622,7 +1622,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %256 = add i32 %.16677.i, 8
   %257 = add nuw nsw i32 %.178.i, 1
   %exitcond88.not.i = icmp eq i32 %.178.i, %243
-  br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph79.i, !llvm.loop !18
+  br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph79.i, !llvm.loop !16
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i, %.lr.ph84.preheader.i
   %.283.i = phi i32 [ %261, %.lr.ph84.i ], [ 1, %.lr.ph84.preheader.i ]
@@ -1632,7 +1632,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %260 = add i32 %.26782.i, 2
   %261 = add nuw nsw i32 %.283.i, 1
   %exitcond89.not.i = icmp eq i32 %.283.i, %250
-  br i1 %exitcond89.not.i, label %._crit_edge.i, label %.lr.ph84.i, !llvm.loop !19
+  br i1 %exitcond89.not.i, label %._crit_edge.i, label %.lr.ph84.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph84.i, %.preheader.i
   %.267.lcssa.i = phi i32 [ %.166.lcssa.i, %.preheader.i ], [ %260, %.lr.ph84.i ]
@@ -1731,7 +1731,7 @@ dissect_relaydef_frame.exit:                      ; preds = %._crit_edge.i, %264
   %333 = add i32 %.0146.i, 10
   %334 = add nuw nsw i32 %.0140145.i, 1
   %exitcond.not.i186 = icmp eq i32 %334, %314
-  br i1 %exitcond.not.i186, label %.preheader144.i, label %317, !llvm.loop !20
+  br i1 %exitcond.not.i186, label %.preheader144.i, label %317, !llvm.loop !18
 
 .lr.ph149.i:                                      ; preds = %.preheader144.i, %.lr.ph149.i
   %.1148.i = phi i32 [ %374, %.lr.ph149.i ], [ %.0.lcssa.i, %.preheader144.i ]
@@ -1777,7 +1777,7 @@ dissect_relaydef_frame.exit:                      ; preds = %._crit_edge.i, %264
   %373 = tail call ptr @proto_tree_add_item(ptr noundef %337, i32 noundef %371, ptr noundef %0, i32 noundef %372, i32 noundef 1, i32 noundef 0)
   %374 = add i32 %.1148.i, 14
   %exitcond156.not.i = icmp eq i32 %336, %316
-  br i1 %exitcond156.not.i, label %._crit_edge.i187, label %.lr.ph149.i, !llvm.loop !21
+  br i1 %exitcond156.not.i, label %._crit_edge.i187, label %.lr.ph149.i, !llvm.loop !19
 
 ._crit_edge.i187:                                 ; preds = %.lr.ph149.i, %.preheader144.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader144.i ], [ %374, %.lr.ph149.i ]
@@ -1795,7 +1795,7 @@ dissect_relaydef_frame.exit:                      ; preds = %._crit_edge.i, %264
   %380 = add i32 %.3152.i, 4
   %381 = add nuw nsw i32 %.2142151.i, 1
   %exitcond157.not.i = icmp eq i32 %381, %375
-  br i1 %exitcond157.not.i, label %.loopexit.i, label %.preheader.i188, !llvm.loop !22
+  br i1 %exitcond157.not.i, label %.loopexit.i, label %.preheader.i188, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %.preheader.i188, %._crit_edge.i187
   %.2.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i187 ], [ %380, %.preheader.i188 ]
@@ -1883,7 +1883,7 @@ dissect_fmconfig_frame.exit:                      ; preds = %.loopexit.i, %384
   %430 = add i32 %.174.us.i, 2
   %431 = add nuw nsw i32 %.16673.us.i, 1
   %exitcond81.not.i = icmp eq i32 %.16673.us.i, %422
-  br i1 %exitcond81.not.i, label %._crit_edge.i194, label %.lr.ph75.split.us.i, !llvm.loop !23
+  br i1 %exitcond81.not.i, label %._crit_edge.i194, label %.lr.ph75.split.us.i, !llvm.loop !21
 
 .lr.ph.i190:                                      ; preds = %.lr.ph.i190, %.lr.ph.preheader.i189
   %.071.i = phi i32 [ %439, %.lr.ph.i190 ], [ %420, %.lr.ph.preheader.i189 ]
@@ -1898,7 +1898,7 @@ dissect_fmconfig_frame.exit:                      ; preds = %.loopexit.i, %384
   %439 = add i32 %.071.i, 2
   %440 = add nuw nsw i32 %.06570.i, 1
   %exitcond.not.i191 = icmp eq i32 %.06570.i, %421
-  br i1 %exitcond.not.i191, label %.preheader.i192, label %.lr.ph.i190, !llvm.loop !24
+  br i1 %exitcond.not.i191, label %.preheader.i192, label %.lr.ph.i190, !llvm.loop !22
 
 .lr.ph75.split.i:                                 ; preds = %.lr.ph75.i, %.lr.ph75.split.i
   %.174.i = phi i32 [ %451, %.lr.ph75.split.i ], [ %.0.lcssa.i193, %.lr.ph75.i ]
@@ -1916,7 +1916,7 @@ dissect_fmconfig_frame.exit:                      ; preds = %.loopexit.i, %384
   %451 = add i32 %.174.i, 3
   %452 = add nuw nsw i32 %.16673.i, 1
   %exitcond80.not.i = icmp eq i32 %.16673.i, %422
-  br i1 %exitcond80.not.i, label %._crit_edge.i194, label %.lr.ph75.split.i, !llvm.loop !25
+  br i1 %exitcond80.not.i, label %._crit_edge.i194, label %.lr.ph75.split.i, !llvm.loop !21
 
 ._crit_edge.i194:                                 ; preds = %.lr.ph75.split.i, %.lr.ph75.split.us.i, %.preheader.i192
   %.1.lcssa.i195 = phi i32 [ %.0.lcssa.i193, %.preheader.i192 ], [ %430, %.lr.ph75.split.us.i ], [ %451, %.lr.ph75.split.i ]
@@ -2100,7 +2100,7 @@ region_lookup.exit473.i:                          ; preds = %537, %region_lookup
   %551 = add i32 %.1551.i, 2
   %552 = add nuw nsw i32 %.0450550.i, 1
   %exitcond582.not.i = icmp eq i32 %552, %548
-  br i1 %exitcond582.not.i, label %.loopexit.i198, label %.lr.ph553.i, !llvm.loop !26
+  br i1 %exitcond582.not.i, label %.loopexit.i198, label %.lr.ph553.i, !llvm.loop !23
 
 553:                                              ; preds = %494
   %554 = load i32, ptr @hf_selfm_fastmsg_soe_req_orig, align 4
@@ -2146,7 +2146,7 @@ region_lookup.exit473.i:                          ; preds = %537, %region_lookup
   %spec.select.i = select i1 %583, i32 %584, i32 %.0462538.i
   %585 = add i32 %.1451539.i, 1
   %exitcond580.not.i = icmp eq i32 %585, %464
-  br i1 %exitcond580.not.i, label %._crit_edge542.i, label %.lr.ph541.i, !llvm.loop !27
+  br i1 %exitcond580.not.i, label %._crit_edge542.i, label %.lr.ph541.i, !llvm.loop !24
 
 ._crit_edge542.i:                                 ; preds = %.lr.ph541.i, %557
   %.0462.lcssa.i = phi i32 [ 0, %557 ], [ %spec.select.i, %.lr.ph541.i ]
@@ -2215,7 +2215,7 @@ fastser_uns_wordbit_lookup.exit.i:                ; preds = %614, %610, %.lr.ph5
   %629 = tail call ptr @proto_tree_add_uint(ptr noundef %617, i32 noundef %628, ptr noundef %0, i32 noundef %.0462.lcssa.i, i32 noundef 4, i32 noundef %603)
   %630 = add i32 %.2545.i, 4
   %exitcond581.not.i = icmp eq i32 %605, %smax.i
-  br i1 %exitcond581.not.i, label %._crit_edge548.i, label %.lr.ph547.i, !llvm.loop !28
+  br i1 %exitcond581.not.i, label %._crit_edge548.i, label %.lr.ph547.i, !llvm.loop !25
 
 ._crit_edge548.i:                                 ; preds = %fastser_uns_wordbit_lookup.exit.i, %._crit_edge542.i
   %.2.lcssa.i = phi i32 [ %573, %._crit_edge542.i ], [ %630, %fastser_uns_wordbit_lookup.exit.i ]
@@ -2256,7 +2256,7 @@ fastser_uns_wordbit_lookup.exit.i:                ; preds = %614, %610, %.lr.ph5
   %656 = add i32 %.3534.i, 2
   %657 = add nuw nsw i32 %.3453533.i, 1
   %exitcond579.not.i = icmp eq i32 %657, %653
-  br i1 %exitcond579.not.i, label %.loopexit.i198, label %.lr.ph536.i, !llvm.loop !29
+  br i1 %exitcond579.not.i, label %.loopexit.i198, label %.lr.ph536.i, !llvm.loop !26
 
 658:                                              ; preds = %494
   %659 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %498)
@@ -2345,7 +2345,7 @@ region_lookup.exit485.i:                          ; preds = %674, %region_lookup
   %711 = add i32 %.4523.i, 2
   %712 = add nuw nsw i32 %.4454522.i, 1
   %exitcond577.not.i = icmp eq i32 %712, %708
-  br i1 %exitcond577.not.i, label %._crit_edge526.i, label %.lr.ph525.i, !llvm.loop !30
+  br i1 %exitcond577.not.i, label %._crit_edge526.i, label %.lr.ph525.i, !llvm.loop !27
 
 ._crit_edge526.i:                                 ; preds = %.lr.ph525.i, %686
   %.4.lcssa.i = phi i32 [ %707, %686 ], [ %711, %.lr.ph525.i ]
@@ -2367,7 +2367,7 @@ region_lookup.exit485.i:                          ; preds = %674, %region_lookup
   %722 = add i32 %.5529.i, 2
   %723 = add nuw nsw i32 %.5455528.i, 1
   %exitcond578.not.i = icmp eq i32 %723, %719
-  br i1 %exitcond578.not.i, label %.loopexit.i198, label %.lr.ph531.i, !llvm.loop !31
+  br i1 %exitcond578.not.i, label %.loopexit.i198, label %.lr.ph531.i, !llvm.loop !28
 
 724:                                              ; preds = %494
   %725 = tail call fastcc i32 @dissect_fastmsg_readresp_frame(ptr noundef %0, ptr noundef %467, ptr noundef %1, i32 noundef %498, i8 noundef zeroext %.0466.i)
@@ -2385,7 +2385,7 @@ region_lookup.exit485.i:                          ; preds = %674, %region_lookup
 .loopexit498.i:                                   ; preds = %.lr.ph515.i, %.lr.ph520.i
   %.7.lcssa.i = phi i32 [ %760, %.lr.ph520.i ], [ %763, %.lr.ph515.i ]
   %exitcond576.not.i = icmp eq i32 %742, %731
-  br i1 %exitcond576.not.i, label %.loopexit.i198, label %.lr.ph520.i, !llvm.loop !32
+  br i1 %exitcond576.not.i, label %.loopexit.i198, label %.lr.ph520.i, !llvm.loop !29
 
 .lr.ph520.i:                                      ; preds = %726, %.loopexit498.i
   %.6518.i = phi i32 [ %.7.lcssa.i, %.loopexit498.i ], [ %730, %726 ]
@@ -2432,7 +2432,7 @@ region_lookup.exit485.i:                          ; preds = %674, %region_lookup
   %763 = add i32 %.7513.i, 2
   %764 = add nuw nsw i32 %.0460512.i, 1
   %exitcond575.not.i = icmp eq i32 %764, %738
-  br i1 %exitcond575.not.i, label %.loopexit498.i, label %.lr.ph515.i, !llvm.loop !33
+  br i1 %exitcond575.not.i, label %.loopexit498.i, label %.lr.ph515.i, !llvm.loop !30
 
 765:                                              ; preds = %494
   %766 = load i32, ptr @hf_selfm_fid, align 4
@@ -2478,7 +2478,7 @@ region_lookup.exit485.i:                          ; preds = %674, %region_lookup
   %798 = tail call ptr @proto_tree_add_item(ptr noundef %787, i32 noundef %797, ptr noundef %0, i32 noundef %796, i32 noundef 2, i32 noundef 0)
   %799 = add i32 %.8509.i, 18
   %exitcond574.not.i = icmp eq i32 %786, %.0449.i
-  br i1 %exitcond574.not.i, label %._crit_edge.i202, label %.lr.ph510.i, !llvm.loop !34
+  br i1 %exitcond574.not.i, label %._crit_edge.i202, label %.lr.ph510.i, !llvm.loop !31
 
 ._crit_edge.i202:                                 ; preds = %.lr.ph510.i, %765
   %.8.lcssa.i = phi i32 [ %784, %765 ], [ %799, %.lr.ph510.i ]
@@ -2560,7 +2560,7 @@ region_lookup.exit495.i:                          ; preds = %823, %region_lookup
   %844 = add i32 %.9505.i, 14
   %845 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %844)
   %846 = icmp sgt i32 %845, 2
-  br i1 %846, label %833, label %.loopexit.i198, !llvm.loop !35
+  br i1 %846, label %833, label %.loopexit.i198, !llvm.loop !32
 
 847:                                              ; preds = %861, %.lr.ph.i200
   %.10504.i = phi i32 [ %498, %.lr.ph.i200 ], [ %.11.i, %861 ]
@@ -2590,14 +2590,14 @@ region_lookup.exit495.i:                          ; preds = %823, %region_lookup
   %.11.i = phi i32 [ %859, %853 ], [ %.10504.i, %850 ], [ %.10504.i, %847 ]
   %862 = add i32 %.0465502.i, 1
   %exitcond.not.i201 = icmp eq i32 %862, %464
-  br i1 %exitcond.not.i201, label %.loopexit.i198, label %847, !llvm.loop !36
+  br i1 %exitcond.not.i201, label %.loopexit.i198, label %847, !llvm.loop !33
 
 .loopexit.i198:                                   ; preds = %861, %833, %.loopexit498.i, %.lr.ph531.i, %.lr.ph536.i, %.lr.ph553.i, %region_lookup.exit495.i, %802, %._crit_edge.i202, %726, %724, %._crit_edge526.i, %679, %region_lookup.exit485.i, %637, %._crit_edge548.i, %553, %545, %region_lookup.exit473.i, %511, %501, %.preheader.i197, %494
   %.0.i = phi i32 [ %498, %494 ], [ %510, %501 ], [ %520, %511 ], [ %544, %region_lookup.exit473.i ], [ %556, %553 ], [ %636, %._crit_edge548.i ], [ %678, %region_lookup.exit485.i ], [ %683, %679 ], [ %725, %724 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %spec.select468.i, %802 ], [ %498, %545 ], [ %652, %637 ], [ %718, %._crit_edge526.i ], [ %730, %726 ], [ %829, %region_lookup.exit495.i ], [ %498, %.preheader.i197 ], [ %551, %.lr.ph553.i ], [ %656, %.lr.ph536.i ], [ %722, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %844, %833 ], [ %.11.i, %861 ]
   %863 = load i32, ptr @hf_selfm_fastmsg_crc16, align 4
   %864 = tail call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %863, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
   %865 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
-  %866 = load i8, ptr @selfm_crc16, align 1, !range !6, !noundef !37
+  %866 = load i8, ptr @selfm_crc16, align 1, !range !6, !noundef !34
   %867 = trunc nuw i8 %866 to i1
   br i1 %867, label %868, label %dissect_fastmsg_frame.exit
 
@@ -2828,7 +2828,7 @@ region_lookup.exit246:                            ; preds = %region_lookup.exit,
   %33 = add i32 %32, -2
   %34 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %31, i32 noundef %33)
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %36 = load i8, ptr %35, align 8, !range !6, !noundef !37
+  %36 = load i8, ptr %35, align 8, !range !6, !noundef !34
   %or.cond = icmp ugt i8 %4, -65
   br i1 %or.cond, label %44, label %37
 
@@ -3098,7 +3098,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %174 = add i16 %.0214293, 1
   %175 = load i16, ptr %90, align 4
   %.not241 = icmp ugt i16 %174, %175
-  br i1 %.not241, label %.loopexit, label %.lr.ph295, !llvm.loop !38
+  br i1 %.not241, label %.loopexit, label %.lr.ph295, !llvm.loop !35
 
 176:                                              ; preds = %proto_item_set_generated.exit253, %proto_item_set_generated.exit253
   %177 = load i32, ptr @hf_selfm_fmdata_ai_value_string, align 4
@@ -3122,7 +3122,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %189 = add i32 %.3289, %188
   %190 = add i16 %.1215288, 1
   %.not240 = icmp ugt i16 %190, %186
-  br i1 %.not240, label %.loopexit, label %.lr.ph290, !llvm.loop !39
+  br i1 %.not240, label %.loopexit, label %.lr.ph290, !llvm.loop !36
 
 .lr.ph285:                                        ; preds = %.preheader261, %.lr.ph285
   %191 = phi i16 [ %197, %.lr.ph285 ], [ %119, %.preheader261 ]
@@ -3140,7 +3140,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %200 = add i32 %.4284, %199
   %201 = add i16 %.2216283, 1
   %.not239 = icmp ugt i16 %201, %197
-  br i1 %.not239, label %.loopexit, label %.lr.ph285, !llvm.loop !40
+  br i1 %.not239, label %.loopexit, label %.lr.ph285, !llvm.loop !37
 
 .lr.ph280:                                        ; preds = %.preheader263, %.lr.ph280
   %202 = phi i16 [ %208, %.lr.ph280 ], [ %118, %.preheader263 ]
@@ -3158,7 +3158,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %211 = add i32 %.5279, %210
   %212 = add i16 %.3217278, 1
   %.not238 = icmp ugt i16 %212, %208
-  br i1 %.not238, label %.loopexit, label %.lr.ph280, !llvm.loop !41
+  br i1 %.not238, label %.loopexit, label %.lr.ph280, !llvm.loop !38
 
 .lr.ph275:                                        ; preds = %.preheader265, %.lr.ph275
   %213 = phi i16 [ %219, %.lr.ph275 ], [ %117, %.preheader265 ]
@@ -3176,7 +3176,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %222 = add i32 %.6274, %221
   %223 = add i16 %.4218273, 1
   %.not237 = icmp ugt i16 %223, %219
-  br i1 %.not237, label %.loopexit, label %.lr.ph275, !llvm.loop !42
+  br i1 %.not237, label %.loopexit, label %.lr.ph275, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader267, %.lr.ph
   %224 = phi i16 [ %230, %.lr.ph ], [ %116, %.preheader267 ]
@@ -3194,13 +3194,13 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   %233 = add i32 %.7271, %232
   %234 = add i16 %.5219270, 1
   %.not236 = icmp ugt i16 %234, %230
-  br i1 %.not236, label %.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not236, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph275, %.lr.ph280, %.lr.ph285, %.lr.ph290, %.lr.ph295, %.preheader267, %.preheader265, %.preheader263, %.preheader261, %.preheader, %121, %176, %proto_item_set_generated.exit253, %55
   %.1 = phi i32 [ %.0212298, %proto_item_set_generated.exit253 ], [ %179, %176 ], [ %.0212298, %55 ], [ %.0212298, %121 ], [ %.0212298, %.preheader ], [ %.0212298, %.preheader261 ], [ %.0212298, %.preheader263 ], [ %.0212298, %.preheader265 ], [ %.0212298, %.preheader267 ], [ %173, %.lr.ph295 ], [ %189, %.lr.ph290 ], [ %200, %.lr.ph285 ], [ %211, %.lr.ph280 ], [ %222, %.lr.ph275 ], [ %233, %.lr.ph ]
   %235 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0299)
   %.not235 = icmp eq ptr %235, null
-  br i1 %.not235, label %.critedge, label %.lr.ph300, !llvm.loop !44
+  br i1 %.not235, label %.critedge, label %.lr.ph300, !llvm.loop !41
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph300, %49, %.thread, %45, %44
   %236 = zext i16 %10 to i32
@@ -3266,7 +3266,7 @@ define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1,
 29:                                               ; preds = %.lr.ph
   %30 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0208241)
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread, label %.lr.ph, !llvm.loop !45
+  br i1 %31, label %.thread, label %.lr.ph, !llvm.loop !42
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %6, align 8
@@ -3472,14 +3472,14 @@ proto_item_set_generated.exit:                    ; preds = %122, %119, %114, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %144, label %82, !llvm.loop !46
+  br i1 %exitcond.not, label %144, label %82, !llvm.loop !43
 
 144:                                              ; preds = %142
   %indvars.iv.next262 = add nuw nsw i32 %indvars.iv261, 1
   %145 = load i8, ptr %48, align 2
   %146 = zext i8 %145 to i32
   %147 = icmp samesign ult i32 %indvars.iv.next262, %146
-  br i1 %147, label %53, label %.loopexit240, !llvm.loop !47
+  br i1 %147, label %53, label %.loopexit240, !llvm.loop !44
 
 .loopexit240:                                     ; preds = %144, %.preheader, %42
   %.2 = phi i32 [ %47, %42 ], [ %47, %.preheader ], [ %.5, %144 ]
@@ -3608,7 +3608,7 @@ proto_item_set_generated.exit:                    ; preds = %122, %119, %114, %1
   %245 = load i8, ptr %187, align 2
   %246 = zext i8 %245 to i32
   %247 = icmp samesign ult i32 %195, %246
-  br i1 %247, label %.lr.ph255, label %.loopexit, !llvm.loop !48
+  br i1 %247, label %.lr.ph255, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph255, %189, %186
   %.7 = phi i32 [ %.6, %186 ], [ %.6, %189 ], [ %244, %.lr.ph255 ]
@@ -3785,8 +3785,8 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
@@ -3796,7 +3796,7 @@ attributes #7 = { nounwind }
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8, !13}
+!23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
@@ -3807,10 +3807,10 @@ attributes #7 = { nounwind }
 !31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!34 = !{}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
-!37 = !{}
+!37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
 !39 = distinct !{!39, !8}
 !40 = distinct !{!40, !8}
@@ -3819,6 +3819,3 @@ attributes #7 = { nounwind }
 !43 = distinct !{!43, !8}
 !44 = distinct !{!44, !8}
 !45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}

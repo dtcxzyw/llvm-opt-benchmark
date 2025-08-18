@@ -1402,7 +1402,7 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   %62 = load i32, ptr %54, align 4
   %63 = sext i32 %62 to i64
   %.not.us.i = icmp slt i64 %indvars.iv.next35.i, %63
-  br i1 %.not.us.i, label %filter_event_trigger.exit.us.i, label %.critedge.i20, !llvm.loop !13
+  br i1 %.not.us.i, label %filter_event_trigger.exit.us.i, label %.critedge.i20, !llvm.loop !11
 
 .critedge.i20:                                    ; preds = %filter_event_trigger.exit.us.i
   %64 = icmp eq ptr %61, null
@@ -2257,7 +2257,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.0.0 = load ptr, ptr %.sroa.0.054, align 8
   %.not46 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not46, label %._crit_edge, label %36, !llvm.loop !15
+  br i1 %.not46, label %._crit_edge, label %36, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %94, %15
   ret i64 0
@@ -3449,6 +3449,4 @@ attributes #20 = { noreturn nounwind }
 !10 = !{}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5}
+!13 = distinct !{!13, !5}

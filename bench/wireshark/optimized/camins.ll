@@ -273,7 +273,7 @@ process_timestamp.exit.i.us:                      ; preds = %31, %24, %18, %11, 
   %.2.us = phi i16 [ %35, %34 ], [ %29, %28 ], [ %22, %21 ], [ %16, %15 ], [ %.05991.us, %.lr.ph.split.us ], [ %14, %11 ], [ %20, %18 ], [ %27, %24 ], [ %33, %31 ]
   %.5.i.us = phi i32 [ 1, %34 ], [ 2, %28 ], [ 1, %21 ], [ 2, %15 ], [ %.0.i92.us, %.lr.ph.split.us ], [ 2, %11 ], [ 1, %18 ], [ 2, %24 ], [ 1, %31 ]
   %37 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %3, ptr noundef %4)
-  br i1 %37, label %.lr.ph.split.us, label %find_next_pkt_info.exit, !llvm.loop !8
+  br i1 %37, label %.lr.ph.split.us, label %find_next_pkt_info.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %process_timestamp.exit.i
   %.0.i92 = phi i32 [ %.5.i, %process_timestamp.exit.i ], [ 0, %.lr.ph ]
@@ -438,7 +438,7 @@ process_timestamp.exit.us.i:                      ; preds = %102, %101, %99
   %.126.us.i = phi ptr [ %104, %102 ], [ %.02533.us.i, %101 ], [ %.02533.us.i, %99 ]
   %.1.us.i = phi i16 [ %105, %102 ], [ %.034.us.i, %101 ], [ %.034.us.i, %99 ]
   %106 = icmp ult i16 %.1.us.i, %.us-phi93.sink
-  br i1 %106, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %106, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %process_timestamp.exit.i41
   %.034.i = phi i16 [ %.1.i, %process_timestamp.exit.i41 ], [ 0, %.lr.ph.i ]
@@ -500,7 +500,7 @@ process_timestamp.exit.i41:                       ; preds = %131, %117, %111
   %.126.i = phi ptr [ %113, %111 ], [ %.02533.i, %131 ], [ %.02533.i, %117 ]
   %.1.i = phi i16 [ %114, %111 ], [ %.034.i, %131 ], [ %.034.i, %117 ]
   %134 = icmp ult i16 %.1.i, %.us-phi93.sink
-  br i1 %134, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !11
+  br i1 %134, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !8
 
 read_packet_data.exit.thread:                     ; preds = %.thread75, %.split.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -578,7 +578,4 @@ attributes #4 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7}
+!8 = distinct !{!8, !7}

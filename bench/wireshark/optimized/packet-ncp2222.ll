@@ -15243,7 +15243,7 @@ ncp_hash_lookup.exit:                             ; preds = %.lr.ph.i, %293, %28
   %350 = add nuw nsw i32 %.038.i, 1
   %351 = icmp samesign ult i32 %350, %328
   %or.cond40.i = select i1 %349, i1 %351, i1 false
-  br i1 %or.cond40.i, label %.lr.ph.split.i, label %dissect_ncp_89_6_request.exit, !llvm.loop !25
+  br i1 %or.cond40.i, label %.lr.ph.split.i, label %dissect_ncp_89_6_request.exit, !llvm.loop !23
 
 dissect_ncp_89_6_request.exit:                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %321
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -15579,7 +15579,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
 106:                                              ; preds = %105, %process_struct_sub_ptvc_record.exit
   %107 = add nuw i32 %.0.i49, 1
   %exitcond.not = icmp eq i32 %107, %74
-  br i1 %exitcond.not, label %_process_ptvc_record.exit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %_process_ptvc_record.exit, label %.lr.ph, !llvm.loop !24
 
 108:                                              ; preds = %32
   br i1 %39, label %109, label %133
@@ -15657,7 +15657,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
   call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef %.055, i1 noundef zeroext %6, i1 noundef zeroext %138, ptr noundef nonnull %10)
   %139 = add nuw i32 %.1.i52, 1
   %exitcond65.not = icmp eq i32 %139, %136
-  br i1 %exitcond65.not, label %_process_ptvc_record.exit, label %.lr.ph53, !llvm.loop !27
+  br i1 %exitcond65.not, label %_process_ptvc_record.exit, label %.lr.ph53, !llvm.loop !25
 
 140:                                              ; preds = %.lr.ph51, %150
   %.2.i50 = phi i32 [ 0, %.lr.ph51 ], [ %152, %150 ]
@@ -15683,7 +15683,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %91, %101
   call void @ptvcursor_advance(ptr noundef %0, i32 noundef %151)
   %152 = add nuw i32 %.2.i50, 1
   %exitcond64.not = icmp eq i32 %152, %136
-  br i1 %exitcond64.not, label %_process_ptvc_record.exit, label %140, !llvm.loop !28
+  br i1 %exitcond64.not, label %_process_ptvc_record.exit, label %140, !llvm.loop !26
 
 _process_ptvc_record.exit:                        ; preds = %106, %150, %.lr.ph53, %71, %.preheader46, %.preheader, %process_struct_sub_ptvc_record.exit43, %70, %110, %113, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -15693,7 +15693,7 @@ _process_ptvc_record.exit:                        ; preds = %106, %150, %.lr.ph5
   %154 = getelementptr i8, ptr %.055, i64 40
   %155 = load ptr, ptr %154, align 8
   %.not = icmp eq ptr %155, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %153, %7
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -15932,7 +15932,7 @@ define internal fastcc void @dissect_ncp_8x20req(ptr noundef %0, ptr noundef %1,
   %84 = add i32 %.1124, 1
   %85 = add nsw i32 %.1122, 1
   %.not.not = icmp slt i32 %.1122, %.2127
-  br i1 %.not.not, label %25, label %86, !llvm.loop !30
+  br i1 %.not.not, label %25, label %86, !llvm.loop !28
 
 86:                                               ; preds = %79, %83
   %.0..0..0..0.98 = load volatile ptr, ptr %5, align 8
@@ -15983,7 +15983,7 @@ define internal fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr nounde
   %10 = add i16 %.052, 1
   %11 = zext i16 %10 to i32
   %.not = icmp ult i32 %6, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %3, %9
   %12 = phi i32 [ %11, %9 ], [ 1, %3 ]
@@ -18227,7 +18227,7 @@ check_offset_addition.exit:                       ; preds = %.lr.ph2247
   %75 = add i32 %.016852246, 1
   %76 = load i32, ptr %59, align 4
   %.not1766 = icmp ugt i32 %75, %76
-  br i1 %.not1766, label %.loopexit, label %.lr.ph2247, !llvm.loop !32
+  br i1 %.not1766, label %.loopexit, label %.lr.ph2247, !llvm.loop !30
 
 77:                                               ; preds = %33
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -18312,7 +18312,7 @@ check_offset_addition.exit1768:                   ; preds = %.lr.ph2239
   %109 = add i32 %.12238, 1
   %110 = load i32, ptr %93, align 4
   %.not1765 = icmp ugt i32 %109, %110
-  br i1 %.not1765, label %.loopexit, label %.lr.ph2239, !llvm.loop !33
+  br i1 %.not1765, label %.loopexit, label %.lr.ph2239, !llvm.loop !31
 
 .lr.ph2234:                                       ; preds = %.preheader1858, %.lr.ph2234
   %.22233 = phi i32 [ %126, %.lr.ph2234 ], [ 1, %.preheader1858 ]
@@ -18341,7 +18341,7 @@ check_offset_addition.exit1768:                   ; preds = %.lr.ph2239
   %126 = add i32 %.22233, 1
   %127 = load i32, ptr %91, align 4
   %.not1764 = icmp ugt i32 %126, %127
-  br i1 %.not1764, label %.loopexit, label %.lr.ph2234, !llvm.loop !34
+  br i1 %.not1764, label %.loopexit, label %.lr.ph2234, !llvm.loop !32
 
 128:                                              ; preds = %.lr.ph2230, %._crit_edge2225
   %.32229 = phi i32 [ 1, %.lr.ph2230 ], [ %155, %._crit_edge2225 ]
@@ -18388,7 +18388,7 @@ check_offset_addition.exit1770:                   ; preds = %128
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %151, ptr noundef %1, i32 noundef %150, i32 noundef %152, i32 noundef -2147483648)
   %154 = add nuw nsw i32 %.016862223, 1
   %exitcond2441.not = icmp eq i32 %.016862223, %148
-  br i1 %exitcond2441.not, label %._crit_edge2225, label %.lr.ph2224, !llvm.loop !35
+  br i1 %exitcond2441.not, label %._crit_edge2225, label %.lr.ph2224, !llvm.loop !33
 
 ._crit_edge2225:                                  ; preds = %.lr.ph2224, %check_offset_addition.exit1770
   %.51709.in.lcssa = phi i32 [ %145, %check_offset_addition.exit1770 ], [ %150, %.lr.ph2224 ]
@@ -18396,7 +18396,7 @@ check_offset_addition.exit1770:                   ; preds = %128
   %155 = add i32 %.32229, 1
   %156 = load i32, ptr %88, align 4
   %.not1762 = icmp ugt i32 %155, %156
-  br i1 %.not1762, label %.loopexit, label %128, !llvm.loop !36
+  br i1 %.not1762, label %.loopexit, label %128, !llvm.loop !34
 
 157:                                              ; preds = %.lr.ph2220, %._crit_edge2213
   %.42219 = phi i32 [ 1, %.lr.ph2220 ], [ %214, %._crit_edge2213 ]
@@ -18477,14 +18477,14 @@ check_offset_addition.exit1772:                   ; preds = %157
   %212 = add i32 %210, %211
   %213 = add nuw nsw i32 %.116872211, 1
   %exitcond2440.not = icmp eq i32 %.116872211, %177
-  br i1 %exitcond2440.not, label %._crit_edge2213, label %.lr.ph2212, !llvm.loop !37
+  br i1 %exitcond2440.not, label %._crit_edge2213, label %.lr.ph2212, !llvm.loop !35
 
 ._crit_edge2213:                                  ; preds = %.lr.ph2212, %206, %check_offset_addition.exit1772
   %.81712 = phi i32 [ %181, %check_offset_addition.exit1772 ], [ %212, %206 ], [ %202, %.lr.ph2212 ]
   %214 = add i32 %.42219, 1
   %215 = load i32, ptr %84, align 4
   %.not1760 = icmp ugt i32 %214, %215
-  br i1 %.not1760, label %.loopexit, label %157, !llvm.loop !38
+  br i1 %.not1760, label %.loopexit, label %157, !llvm.loop !36
 
 216:                                              ; preds = %.lr.ph2208, %._crit_edge2203
   %.52207 = phi i32 [ 1, %.lr.ph2208 ], [ %258, %._crit_edge2203 ]
@@ -18550,14 +18550,14 @@ check_offset_addition.exit1775:                   ; preds = %216
   %257 = add nuw nsw i32 %.216882200, 1
   %.101714 = add i32 %237, 16
   %exitcond2439.not = icmp eq i32 %.216882200, %232
-  br i1 %exitcond2439.not, label %._crit_edge2203, label %.lr.ph2202, !llvm.loop !39
+  br i1 %exitcond2439.not, label %._crit_edge2203, label %.lr.ph2202, !llvm.loop !37
 
 ._crit_edge2203:                                  ; preds = %.lr.ph2202, %check_offset_addition.exit1775
   %.101714.lcssa = phi i32 [ %.1017142197, %check_offset_addition.exit1775 ], [ %.101714, %.lr.ph2202 ]
   %258 = add i32 %.52207, 1
   %259 = load i32, ptr %80, align 4
   %.not1758 = icmp ugt i32 %258, %259
-  br i1 %.not1758, label %.loopexit, label %216, !llvm.loop !40
+  br i1 %.not1758, label %.loopexit, label %216, !llvm.loop !38
 
 .lr.ph2196:                                       ; preds = %.preheader1866, %check_offset_addition.exit1778
   %.62195 = phi i32 [ %275, %check_offset_addition.exit1778 ], [ 1, %.preheader1866 ]
@@ -18594,7 +18594,7 @@ check_offset_addition.exit1778:                   ; preds = %262
   %275 = add i32 %.62195, 1
   %276 = load i32, ptr %57, align 4
   %.not1756 = icmp ugt i32 %275, %276
-  br i1 %.not1756, label %.loopexit, label %.lr.ph2196, !llvm.loop !41
+  br i1 %.not1756, label %.loopexit, label %.lr.ph2196, !llvm.loop !39
 
 .lr.ph2187:                                       ; preds = %.preheader1868, %check_offset_addition.exit1779
   %.72186 = phi i32 [ %292, %check_offset_addition.exit1779 ], [ 1, %.preheader1868 ]
@@ -18627,7 +18627,7 @@ check_offset_addition.exit1779:                   ; preds = %.lr.ph2187
   %292 = add i32 %.72186, 1
   %293 = load i32, ptr %55, align 4
   %.not1755 = icmp ugt i32 %292, %293
-  br i1 %.not1755, label %.loopexit, label %.lr.ph2187, !llvm.loop !42
+  br i1 %.not1755, label %.loopexit, label %.lr.ph2187, !llvm.loop !40
 
 .lr.ph2179:                                       ; preds = %.preheader1870, %check_offset_addition.exit1782
   %.82178 = phi i32 [ %308, %check_offset_addition.exit1782 ], [ 1, %.preheader1870 ]
@@ -18658,13 +18658,13 @@ check_offset_addition.exit1782:                   ; preds = %.lr.ph2179
   %308 = add i32 %.82178, 1
   %309 = load i32, ptr %53, align 4
   %.not1754 = icmp ugt i32 %308, %309
-  br i1 %.not1754, label %.loopexit, label %.lr.ph2179, !llvm.loop !43
+  br i1 %.not1754, label %.loopexit, label %.lr.ph2179, !llvm.loop !41
 
 310:                                              ; preds = %393
   %311 = add i32 %.92173, 1
   %312 = load i32, ptr %48, align 4
   %.not1752 = icmp ugt i32 %311, %312
-  br i1 %.not1752, label %.loopexit, label %.preheader1872, !llvm.loop !44
+  br i1 %.not1752, label %.loopexit, label %.preheader1872, !llvm.loop !42
 
 .preheader1872:                                   ; preds = %.preheader1872.lr.ph, %310
   %.92173 = phi i32 [ 1, %.preheader1872.lr.ph ], [ %311, %310 ]
@@ -18806,7 +18806,7 @@ check_offset_addition.exit1783:                   ; preds = %355
   %391 = shl i32 %.017272168, 1
   %392 = add nuw nsw i32 %.316892170, 1
   %exitcond2438.not = icmp eq i32 %392, 9
-  br i1 %exitcond2438.not, label %393, label %313, !llvm.loop !45
+  br i1 %exitcond2438.not, label %393, label %313, !llvm.loop !43
 
 393:                                              ; preds = %383, %390
   %394 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %387)
@@ -18864,7 +18864,7 @@ check_offset_addition.exit1786:                   ; preds = %396
   %424 = add nuw i32 %.102163, 1
   %425 = load i32, ptr %45, align 4
   %426 = icmp ult i32 %424, %425
-  br i1 %426, label %396, label %.loopexit, !llvm.loop !46
+  br i1 %426, label %396, label %.loopexit, !llvm.loop !44
 
 427:                                              ; preds = %.lr.ph2158, %427
   %.112157 = phi i32 [ 0, %.lr.ph2158 ], [ %434, %427 ]
@@ -18878,7 +18878,7 @@ check_offset_addition.exit1786:                   ; preds = %396
   %434 = add nuw i32 %.112157, 1
   %435 = load i32, ptr %42, align 4
   %436 = icmp ult i32 %434, %435
-  br i1 %436, label %427, label %.loopexit, !llvm.loop !47
+  br i1 %436, label %427, label %.loopexit, !llvm.loop !45
 
 437:                                              ; preds = %33
   %438 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -18988,13 +18988,13 @@ check_offset_addition.exit1788:                   ; preds = %490
   %501 = add i32 %.122145, 1
   %502 = load i32, ptr %5, align 4
   %.not1751 = icmp ugt i32 %501, %502
-  br i1 %.not1751, label %._crit_edge2148, label %.lr.ph2147, !llvm.loop !48
+  br i1 %.not1751, label %._crit_edge2148, label %.lr.ph2147, !llvm.loop !46
 
 ._crit_edge2148:                                  ; preds = %check_offset_addition.exit1788, %441
   %.221726.lcssa = phi i32 [ %448, %441 ], [ %500, %check_offset_addition.exit1788 ]
   %503 = add i32 %.416902152, 1
   %.not1750 = icmp ugt i32 %503, %439
-  br i1 %.not1750, label %.loopexit, label %441, !llvm.loop !49
+  br i1 %.not1750, label %.loopexit, label %441, !llvm.loop !47
 
 504:                                              ; preds = %33
   %505 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -19093,7 +19093,7 @@ check_offset_addition.exit1790:                   ; preds = %553
   %563 = add i32 %.0.i1791, %559
   %564 = add i32 %.516912140, 1
   %.not1749 = icmp ugt i32 %564, %506
-  br i1 %.not1749, label %.loopexit, label %508, !llvm.loop !50
+  br i1 %.not1749, label %.loopexit, label %508, !llvm.loop !48
 
 565:                                              ; preds = %33
   %566 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %36)
@@ -19136,7 +19136,7 @@ check_offset_addition.exit1790:                   ; preds = %553
   %594 = add nuw i32 %.132126, 1
   %.24 = add i32 %.242127, 4
   %exitcond2436.not = icmp eq i32 %594, %585
-  br i1 %exitcond2436.not, label %._crit_edge2130, label %.lr.ph2129, !llvm.loop !51
+  br i1 %exitcond2436.not, label %._crit_edge2130, label %.lr.ph2129, !llvm.loop !49
 
 ._crit_edge2130:                                  ; preds = %.lr.ph2129, %565
   %.24.in.lcssa = phi i32 [ %582, %565 ], [ %.242127, %.lr.ph2129 ]
@@ -19163,7 +19163,7 @@ check_offset_addition.exit1790:                   ; preds = %553
   %605 = add i32 %.252133, 4
   %606 = add nuw i32 %.142134, 1
   %exitcond2437.not = icmp eq i32 %606, %595
-  br i1 %exitcond2437.not, label %._crit_edge2137, label %.lr.ph2136, !llvm.loop !52
+  br i1 %exitcond2437.not, label %._crit_edge2137, label %.lr.ph2136, !llvm.loop !50
 
 ._crit_edge2137:                                  ; preds = %.lr.ph2136, %._crit_edge2130
   store ptr @.str.7572, ptr %8, align 8
@@ -19522,7 +19522,7 @@ check_offset_addition.exit1797:                   ; preds = %786
   %807 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.29)
   %808 = icmp sgt i32 %807, 3
   %809 = add nuw nsw i32 %.616922120, 1
-  br i1 %808, label %629, label %810, !llvm.loop !53
+  br i1 %808, label %629, label %810, !llvm.loop !51
 
 810:                                              ; preds = %805, %804
   %811 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.29)
@@ -19530,7 +19530,7 @@ check_offset_addition.exit1797:                   ; preds = %786
   %813 = add nuw i32 %.152122, 1
   %exitcond2435.not = icmp eq i32 %813, %616
   %or.cond = select i1 %812, i1 true, i1 %exitcond2435.not
-  br i1 %or.cond, label %.loopexit, label %623, !llvm.loop !54
+  br i1 %or.cond, label %.loopexit, label %623, !llvm.loop !52
 
 814:                                              ; preds = %33
   %815 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -19657,7 +19657,7 @@ check_offset_addition.exit1802:                   ; preds = %.lr.ph2048
   %887 = add nuw i32 %.716932046, 1
   %888 = load i32, ptr %5, align 4
   %889 = icmp ult i32 %887, %888
-  br i1 %889, label %.lr.ph2048, label %._crit_edge2049, !llvm.loop !55
+  br i1 %889, label %.lr.ph2048, label %._crit_edge2049, !llvm.loop !53
 
 ._crit_edge2049:                                  ; preds = %check_offset_addition.exit1802, %865
   %.34.lcssa = phi i32 [ %871, %865 ], [ %886, %check_offset_addition.exit1802 ]
@@ -19699,7 +19699,7 @@ check_offset_addition.exit1804:                   ; preds = %.lr.ph2054
   %911 = add nuw i32 %.816942052, 1
   %912 = load i32, ptr %5, align 4
   %913 = icmp ult i32 %911, %912
-  br i1 %913, label %.lr.ph2054, label %._crit_edge2055, !llvm.loop !56
+  br i1 %913, label %.lr.ph2054, label %._crit_edge2055, !llvm.loop !54
 
 ._crit_edge2055:                                  ; preds = %check_offset_addition.exit1804, %._crit_edge2049
   %.35.lcssa = phi i32 [ %895, %._crit_edge2049 ], [ %910, %check_offset_addition.exit1804 ]
@@ -19741,7 +19741,7 @@ check_offset_addition.exit1806:                   ; preds = %.lr.ph2060
   %935 = add nuw i32 %.916952058, 1
   %936 = load i32, ptr %5, align 4
   %937 = icmp ult i32 %935, %936
-  br i1 %937, label %.lr.ph2060, label %._crit_edge2061, !llvm.loop !57
+  br i1 %937, label %.lr.ph2060, label %._crit_edge2061, !llvm.loop !55
 
 ._crit_edge2061:                                  ; preds = %check_offset_addition.exit1806, %._crit_edge2055
   %.36.lcssa = phi i32 [ %919, %._crit_edge2055 ], [ %934, %check_offset_addition.exit1806 ]
@@ -19783,7 +19783,7 @@ check_offset_addition.exit1808:                   ; preds = %.lr.ph2066
   %959 = add nuw i32 %.1016962064, 1
   %960 = load i32, ptr %5, align 4
   %961 = icmp ult i32 %959, %960
-  br i1 %961, label %.lr.ph2066, label %._crit_edge2067, !llvm.loop !58
+  br i1 %961, label %.lr.ph2066, label %._crit_edge2067, !llvm.loop !56
 
 ._crit_edge2067:                                  ; preds = %check_offset_addition.exit1808, %._crit_edge2061
   %.37.lcssa = phi i32 [ %943, %._crit_edge2061 ], [ %958, %check_offset_addition.exit1808 ]
@@ -19828,7 +19828,7 @@ check_offset_addition.exit1811:                   ; preds = %.lr.ph2072
   %986 = load i32, ptr %5, align 4
   %987 = icmp ult i32 %985, %986
   %or.cond2252 = select i1 %984, i1 %987, i1 false
-  br i1 %or.cond2252, label %.lr.ph2072, label %thread-pre-split, !llvm.loop !59
+  br i1 %or.cond2252, label %.lr.ph2072, label %thread-pre-split, !llvm.loop !57
 
 thread-pre-split:                                 ; preds = %check_offset_addition.exit1811, %._crit_edge2067
   %.33.ph = phi i32 [ %967, %._crit_edge2067 ], [ %982, %check_offset_addition.exit1811 ]
@@ -19905,7 +19905,7 @@ check_offset_addition.exit1814:                   ; preds = %check_offset_additi
   %.40 = add i32 %1025, 4
   %1029 = load i32, ptr %5, align 4
   %1030 = icmp ult i32 %1028, %1029
-  br i1 %1030, label %.lr.ph2080, label %.loopexit1883, !llvm.loop !60
+  br i1 %1030, label %.lr.ph2080, label %.loopexit1883, !llvm.loop !58
 
 .loopexit1883:                                    ; preds = %check_offset_addition.exit1814, %991, %988
   %.39.ph = phi i32 [ %.33, %988 ], [ %.402075, %991 ], [ %.40, %check_offset_addition.exit1814 ]
@@ -19983,7 +19983,7 @@ check_offset_addition.exit1816:                   ; preds = %.lr.ph2084
   %1079 = add nuw i32 %.1316992083, 1
   %1080 = load i32, ptr %5, align 4
   %1081 = icmp ult i32 %1079, %1080
-  br i1 %1081, label %.lr.ph2084, label %._crit_edge2085, !llvm.loop !61
+  br i1 %1081, label %.lr.ph2084, label %._crit_edge2085, !llvm.loop !59
 
 ._crit_edge2085:                                  ; preds = %check_offset_addition.exit1816, %.thread1853
   %.41.lcssa = phi i32 [ %1063, %.thread1853 ], [ %1078, %check_offset_addition.exit1816 ]
@@ -20025,7 +20025,7 @@ check_offset_addition.exit1818:                   ; preds = %.lr.ph2090
   %1103 = add nuw i32 %.1417002088, 1
   %1104 = load i32, ptr %5, align 4
   %1105 = icmp ult i32 %1103, %1104
-  br i1 %1105, label %.lr.ph2090, label %._crit_edge2091, !llvm.loop !62
+  br i1 %1105, label %.lr.ph2090, label %._crit_edge2091, !llvm.loop !60
 
 ._crit_edge2091:                                  ; preds = %check_offset_addition.exit1818, %._crit_edge2085
   %.42.lcssa = phi i32 [ %1087, %._crit_edge2085 ], [ %1102, %check_offset_addition.exit1818 ]
@@ -20067,7 +20067,7 @@ check_offset_addition.exit1820:                   ; preds = %.lr.ph2096
   %1127 = add nuw i32 %.1517012094, 1
   %1128 = load i32, ptr %5, align 4
   %1129 = icmp ult i32 %1127, %1128
-  br i1 %1129, label %.lr.ph2096, label %._crit_edge2097, !llvm.loop !63
+  br i1 %1129, label %.lr.ph2096, label %._crit_edge2097, !llvm.loop !61
 
 ._crit_edge2097:                                  ; preds = %check_offset_addition.exit1820, %._crit_edge2091
   %.43.lcssa = phi i32 [ %1111, %._crit_edge2091 ], [ %1126, %check_offset_addition.exit1820 ]
@@ -20109,7 +20109,7 @@ check_offset_addition.exit1822:                   ; preds = %.lr.ph2102
   %1151 = add nuw i32 %.1617022100, 1
   %1152 = load i32, ptr %5, align 4
   %1153 = icmp ult i32 %1151, %1152
-  br i1 %1153, label %.lr.ph2102, label %._crit_edge2103, !llvm.loop !64
+  br i1 %1153, label %.lr.ph2102, label %._crit_edge2103, !llvm.loop !62
 
 ._crit_edge2103:                                  ; preds = %check_offset_addition.exit1822, %._crit_edge2097
   %.44.lcssa = phi i32 [ %1135, %._crit_edge2097 ], [ %1150, %check_offset_addition.exit1822 ]
@@ -20151,7 +20151,7 @@ check_offset_addition.exit1824:                   ; preds = %.lr.ph2108
   %1175 = add nuw i32 %.1717032106, 1
   %1176 = load i32, ptr %5, align 4
   %1177 = icmp ult i32 %1175, %1176
-  br i1 %1177, label %.lr.ph2108, label %._crit_edge2109, !llvm.loop !65
+  br i1 %1177, label %.lr.ph2108, label %._crit_edge2109, !llvm.loop !63
 
 ._crit_edge2109:                                  ; preds = %check_offset_addition.exit1824, %._crit_edge2103
   %.45.lcssa = phi i32 [ %1159, %._crit_edge2103 ], [ %1174, %check_offset_addition.exit1824 ]
@@ -20168,7 +20168,7 @@ check_offset_addition.exit1824:                   ; preds = %.lr.ph2108
   %.46 = phi i32 [ %1181, %._crit_edge2109 ], [ %.39.ph, %.loopexit1883 ], [ %842, %check_offset_addition.exit1800 ]
   %1185 = add nuw i32 %.162112, 1
   %exitcond.not = icmp eq i32 %1185, %816
-  br i1 %exitcond.not, label %.loopexit, label %820, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %820, !llvm.loop !64
 
 .lr.ph2019:                                       ; preds = %.preheader1886, %.lr.ph2019
   %.172018 = phi i32 [ %1196, %.lr.ph2019 ], [ 1, %.preheader1886 ]
@@ -20188,7 +20188,7 @@ check_offset_addition.exit1824:                   ; preds = %.lr.ph2108
   %1196 = add i32 %.172018, 1
   %1197 = load i32, ptr %40, align 4
   %.not1741 = icmp ugt i32 %1196, %1197
-  br i1 %.not1741, label %._crit_edge2020, label %.lr.ph2019, !llvm.loop !67
+  br i1 %.not1741, label %._crit_edge2020, label %.lr.ph2019, !llvm.loop !65
 
 ._crit_edge2020:                                  ; preds = %.lr.ph2019, %.preheader1886
   %.lcssa2015 = phi i32 [ 0, %.preheader1886 ], [ %1190, %.lr.ph2019 ]
@@ -20239,7 +20239,7 @@ check_offset_addition.exit1829:                   ; preds = %.lr.ph2027
   %1223 = add i32 %.182025, 1
   %1224 = load i32, ptr %5, align 4
   %.not1742 = icmp ugt i32 %1223, %1224
-  br i1 %.not1742, label %._crit_edge2028, label %.lr.ph2027, !llvm.loop !68
+  br i1 %.not1742, label %._crit_edge2028, label %.lr.ph2027, !llvm.loop !66
 
 ._crit_edge2028:                                  ; preds = %check_offset_addition.exit1829, %1200
   %.48.lcssa = phi i32 [ %1207, %1200 ], [ %1222, %check_offset_addition.exit1829 ]
@@ -20319,7 +20319,7 @@ check_offset_addition.exit1834:                   ; preds = %check_offset_additi
   %.49 = add i32 %1266, 4
   %1270 = load i32, ptr %5, align 4
   %.not1743 = icmp ugt i32 %1269, %1270
-  br i1 %.not1743, label %._crit_edge2037, label %.lr.ph2036, !llvm.loop !69
+  br i1 %.not1743, label %._crit_edge2037, label %.lr.ph2036, !llvm.loop !67
 
 ._crit_edge2037:                                  ; preds = %check_offset_addition.exit1834, %1227
   %.49.in.lcssa = phi i32 [ %1231, %1227 ], [ %1266, %check_offset_addition.exit1834 ]
@@ -20400,7 +20400,7 @@ check_offset_addition.exit1840:                   ; preds = %check_offset_additi
   %1316 = add i32 %.202042, 1
   %1317 = load i32, ptr %5, align 4
   %.not1744 = icmp ugt i32 %1316, %1317
-  br i1 %.not1744, label %.loopexit, label %.lr.ph2044, !llvm.loop !70
+  br i1 %.not1744, label %.loopexit, label %.lr.ph2044, !llvm.loop !68
 
 1318:                                             ; preds = %33
   %1319 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -20526,7 +20526,7 @@ check_offset_addition.exit1840:                   ; preds = %check_offset_additi
   %1406 = add i32 %.212011, 1
   %1407 = load i32, ptr %5, align 4
   %.not1740 = icmp ugt i32 %1406, %1407
-  br i1 %.not1740, label %.loopexit1887, label %1370, !llvm.loop !71
+  br i1 %.not1740, label %.loopexit1887, label %1370, !llvm.loop !69
 
 .loopexit1887:                                    ; preds = %1405, %1362, %1337
   %.51 = phi i32 [ %1361, %1337 ], [ %1367, %1362 ], [ %.53, %1405 ]
@@ -20597,7 +20597,7 @@ check_offset_addition.exit1840:                   ; preds = %check_offset_additi
   %1457 = add i32 %.222006, 1
   %.not1739 = icmp ugt i32 %1457, %1436
   %or.cond2604 = or i1 %1456, %.not1739
-  br i1 %or.cond2604, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %or.cond2604, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1417
   %.55 = phi i32 [ %1441, %1417 ], [ %1454, %.lr.ph ]
@@ -20954,7 +20954,7 @@ define internal void @ncp_init_protocol() #7 {
   store i32 -16, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 99
-  br i1 %exitcond.not, label %3, label %1, !llvm.loop !73
+  br i1 %exitcond.not, label %3, label %1, !llvm.loop !71
 
 3:                                                ; preds = %1
   ret void
@@ -21424,7 +21424,7 @@ define internal fastcc void @process_bitfield_sub_ptvc_record(ptr noundef %0, pt
   %36 = getelementptr i8, ptr %.028, i64 40
   %37 = load ptr, ptr %36, align 8
   %.not25 = icmp eq ptr %37, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %29, %4
   tail call void @ptvcursor_free(ptr noundef %20)
@@ -21949,7 +21949,7 @@ check_offset_addition.exit.us:                    ; preds = %35
 68:                                               ; preds = %.lr.ph.us
   %69 = add nuw i32 %.0192243.us, 1
   %exitcond288.not = icmp eq i32 %69, %66
-  br i1 %exitcond288.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond288.not, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !73
 
 .lr.ph.us:                                        ; preds = %63, %68
   %.1244.us = phi i32 [ %72, %68 ], [ %67, %63 ]
@@ -22019,7 +22019,7 @@ check_offset_addition.exit.us:                    ; preds = %35
   %114 = add i32 %.3.us, 4
   %115 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %114)
   %116 = icmp slt i32 %115, 4
-  br i1 %116, label %.split254.us, label %.split.us, !llvm.loop !76
+  br i1 %116, label %.split254.us, label %.split.us
 
 .split:                                           ; preds = %7, %469
   %.0191 = phi i32 [ %470, %469 ], [ %5, %7 ]
@@ -22661,7 +22661,7 @@ process_entry_info.exit:                          ; preds = %442, %444
   %453 = add i32 %452, %.0.i199
   %454 = call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %453)
   %455 = icmp slt i32 %454, 4
-  br i1 %455, label %.loopexit200, label %152, !llvm.loop !77
+  br i1 %455, label %.loopexit200, label %152, !llvm.loop !74
 
 456:                                              ; preds = %136
   br label %.loopexit200.sink.split
@@ -23062,7 +23062,7 @@ process_search_match.exit:                        ; preds = %150
   %212 = load i32, ptr %4, align 4
   %213 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %212)
   %214 = icmp slt i32 %213, 4
-  br i1 %214, label %215, label %207, !llvm.loop !78
+  br i1 %214, label %215, label %207, !llvm.loop !75
 
 215:                                              ; preds = %208
   tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #17
@@ -23172,7 +23172,7 @@ define internal fastcc noundef ptr @get_string(ptr noundef %0, i32 noundef %1, i
 38:                                               ; preds = %36
   %39 = add nsw i32 %.2, 1
   %40 = icmp slt i32 %39, %.142
-  br i1 %40, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !79
+  br i1 %40, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !76
 
 ._crit_edge.loopexit:                             ; preds = %36, %38
   %.1.ph = phi i32 [ %39, %38 ], [ %.2, %36 ]
@@ -23358,7 +23358,7 @@ define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, pt
 67:                                               ; preds = %65
   %68 = add nsw i32 %.2.i, 1
   %69 = icmp slt i32 %68, %.142.i
-  br i1 %69, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !79
+  br i1 %69, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !76
 
 ._crit_edge.loopexit.i:                           ; preds = %67, %65
   %.1.ph.i = phi i32 [ %68, %67 ], [ %.2.i, %65 ]
@@ -23395,7 +23395,7 @@ check_offset_addition.exit:                       ; preds = %get_string.exit
   %83 = add i32 %.0.i677, %79
   %84 = add i32 %.0653786, 1
   %.not672 = icmp ugt i32 %84, %29
-  br i1 %.not672, label %.loopexit, label %.lr.ph788, !llvm.loop !80
+  br i1 %.not672, label %.loopexit, label %.lr.ph788, !llvm.loop !77
 
 85:                                               ; preds = %22
   %86 = add i32 %.0656791, 4
@@ -23465,7 +23465,7 @@ check_offset_addition.exit:                       ; preds = %get_string.exit
   %127 = add i32 %125, %126
   %128 = add i32 %.1778, 1
   %.not671 = icmp ugt i32 %128, %115
-  br i1 %.not671, label %.loopexit, label %.lr.ph780, !llvm.loop !81
+  br i1 %.not671, label %.loopexit, label %.lr.ph780, !llvm.loop !78
 
 129:                                              ; preds = %22
   %130 = call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef %.0656791)
@@ -23826,7 +23826,7 @@ check_offset_addition.exit690:                    ; preds = %347
   %352 = add i32 %314, %315
   %353 = add i32 %.2775, 1
   %.not670 = icmp ugt i32 %353, %295
-  br i1 %.not670, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not670, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %check_offset_addition.exit690, %294
   %.8.lcssa = phi i32 [ %300, %294 ], [ %352, %check_offset_addition.exit690 ]
@@ -24175,7 +24175,7 @@ sub_1737:                                         ; preds = %.tail730, %sub_1732
   %566 = add i32 %.0.i702, %.2658
   %567 = add i32 %.0654793, 1
   %.not = icmp ugt i32 %567, %9
-  br i1 %.not, label %._crit_edge796, label %19, !llvm.loop !83
+  br i1 %.not, label %._crit_edge796, label %19, !llvm.loop !80
 
 ._crit_edge796:                                   ; preds = %.loopexit, %5
   %.0656.lcssa = phi i32 [ %14, %5 ], [ %566, %.loopexit ]
@@ -24348,7 +24348,7 @@ check_offset_addition.exit518:                    ; preds = %52
   %.2 = add i32 %.2576, 8
   %99 = load i32, ptr %7, align 4
   %.not515 = icmp ugt i32 %98, %99
-  br i1 %.not515, label %._crit_edge579, label %84, !llvm.loop !84
+  br i1 %.not515, label %._crit_edge579, label %84, !llvm.loop !81
 
 ._crit_edge579:                                   ; preds = %84, %79
   %.2.in.lcssa = phi i32 [ %4, %79 ], [ %.2576, %84 ]
@@ -24489,7 +24489,7 @@ check_offset_addition.exit523:                    ; preds = %138
   %.3 = add i32 %.3586, 8
   %187 = load i32, ptr %7, align 4
   %.not516 = icmp ugt i32 %186, %187
-  br i1 %.not516, label %._crit_edge589, label %172, !llvm.loop !85
+  br i1 %.not516, label %._crit_edge589, label %172, !llvm.loop !82
 
 ._crit_edge589:                                   ; preds = %172, %167
   %.3.in.lcssa = phi i32 [ %.1, %167 ], [ %.3586, %172 ]
@@ -24635,13 +24635,13 @@ check_offset_addition.exit528:                    ; preds = %265
   %275 = add i32 %.0506549, 1
   %276 = load i32, ptr %6, align 4
   %.not514 = icmp ugt i32 %275, %276
-  br i1 %.not514, label %._crit_edge553, label %.lr.ph552, !llvm.loop !86
+  br i1 %.not514, label %._crit_edge553, label %.lr.ph552, !llvm.loop !83
 
 ._crit_edge553:                                   ; preds = %check_offset_addition.exit528, %216
   %.5.lcssa = phi i32 [ %223, %216 ], [ %274, %check_offset_addition.exit528 ]
   %277 = add i32 %.2509556, 1
   %.not512 = icmp ugt i32 %277, %214
-  br i1 %.not512, label %._crit_edge560, label %216, !llvm.loop !87
+  br i1 %.not512, label %._crit_edge560, label %216, !llvm.loop !84
 
 ._crit_edge560:                                   ; preds = %._crit_edge553, %213
   %.4.lcssa = phi i32 [ %4, %213 ], [ %.5.lcssa, %._crit_edge553 ]
@@ -24756,7 +24756,7 @@ check_offset_addition.exit532:                    ; preds = %check_offset_additi
   %.6 = add i32 %.6566, 8
   %343 = load i32, ptr %7, align 4
   %.not513 = icmp ugt i32 %342, %343
-  br i1 %.not513, label %._crit_edge569, label %328, !llvm.loop !88
+  br i1 %.not513, label %._crit_edge569, label %328, !llvm.loop !85
 
 ._crit_edge569:                                   ; preds = %328, %323
   %.6.in.lcssa = phi i32 [ %.4.lcssa, %323 ], [ %.6566, %328 ]
@@ -24853,7 +24853,7 @@ check_offset_addition.exit536:                    ; preds = %check_offset_additi
   %402 = add i32 %.4511546, 1
   %403 = load i32, ptr %6, align 4
   %.not = icmp ugt i32 %402, %403
-  br i1 %.not, label %._crit_edge, label %385, !llvm.loop !89
+  br i1 %.not, label %._crit_edge, label %385, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %385, %377
   %.7.lcssa = phi i32 [ %383, %377 ], [ %401, %385 ]
@@ -24990,8 +24990,8 @@ attributes #18 = { nounwind willreturn memory(read) }
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
@@ -25043,7 +25043,7 @@ attributes #18 = { nounwind willreturn memory(read) }
 !73 = distinct !{!73, !9}
 !74 = distinct !{!74, !9}
 !75 = distinct !{!75, !9}
-!76 = distinct !{!76, !24}
+!76 = distinct !{!76, !9}
 !77 = distinct !{!77, !9}
 !78 = distinct !{!78, !9}
 !79 = distinct !{!79, !9}
@@ -25054,6 +25054,3 @@ attributes #18 = { nounwind willreturn memory(read) }
 !84 = distinct !{!84, !9}
 !85 = distinct !{!85, !9}
 !86 = distinct !{!86, !9}
-!87 = distinct !{!87, !9}
-!88 = distinct !{!88, !9}
-!89 = distinct !{!89, !9}

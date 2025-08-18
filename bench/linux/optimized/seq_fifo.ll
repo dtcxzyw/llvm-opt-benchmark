@@ -525,7 +525,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_fifo_resize(ptr noundef 
   %24 = load ptr, ptr %23, align 8
   tail call void @snd_seq_cell_free(ptr noundef nonnull %22) #6
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %15, %12
   %26 = phi ptr [ %3, %12 ], [ %4, %15 ], [ %4, %.preheader ]
@@ -619,6 +619,5 @@ attributes #7 = { nounwind memory(none) }
 !11 = !{i64 2147955581}
 !12 = !{i64 2154165262}
 !13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = distinct !{!14, !6, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}

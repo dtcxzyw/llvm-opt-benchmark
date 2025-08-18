@@ -1676,7 +1676,7 @@ zbee_apf_transaction_len.exit:                    ; preds = %.lr.ph, %zbee_apf_t
   %61 = add i32 %58, %.148
   %62 = add nuw nsw i32 %.04447, 1
   %exitcond.not = icmp eq i32 %62, %21
-  br i1 %exitcond.not, label %.loopexit, label %zbee_apf_transaction_len.exit, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %zbee_apf_transaction_len.exit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %zbee_apf_transaction_len.exit, %zbee_apf_transaction_len.exit.us, %8
   %.0 = phi i32 [ 1, %8 ], [ %53, %zbee_apf_transaction_len.exit.us ], [ %61, %zbee_apf_transaction_len.exit ]
@@ -1883,6 +1883,4 @@ attributes #6 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

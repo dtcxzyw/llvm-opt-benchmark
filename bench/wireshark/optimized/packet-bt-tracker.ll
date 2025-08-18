@@ -536,7 +536,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %190 = add i32 %.1225.i, %153
   %191 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %190)
   %.not.i = icmp slt i32 %191, %153
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph226.split.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph226.split.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph226.split.i, %.lr.ph226.split.us.i, %is_ipv4_format.exit.i
   %.0209.lcssa.i = phi i32 [ 0, %is_ipv4_format.exit.i ], [ %160, %.lr.ph226.split.us.i ], [ %176, %.lr.ph226.split.i ]
@@ -564,7 +564,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %204 = add i32 %.2220.i, 20
   %205 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %204)
   %206 = icmp sgt i32 %205, 19
-  br i1 %206, label %.lr.ph221.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !12
+  br i1 %206, label %.lr.ph221.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !10
 
 207:                                              ; preds = %proto_item_set_generated.exit.i
   %208 = load i32, ptr @hf_bt_tracker_action, align 4
@@ -588,7 +588,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   %222 = add i32 %.3219.i, 12
   %223 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %222)
   %224 = icmp sgt i32 %223, 11
-  br i1 %224, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !13
+  br i1 %224, label %.lr.ph.i, label %dissect_bt_tracker_msg.exit, !llvm.loop !11
 
 225:                                              ; preds = %proto_item_set_generated.exit.i
   %226 = load i32, ptr @hf_bt_tracker_action, align 4
@@ -715,8 +715,6 @@ attributes #4 = { nounwind willreturn memory(read) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}

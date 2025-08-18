@@ -4126,7 +4126,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread92.thread105
   %82 = icmp samesign ult i32 %81, %.0729196103
   %83 = icmp ne i32 %80, 0
   %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5031,7 +5031,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   br label %proto_item_set_hidden.exit26.backedge
 
 proto_item_set_hidden.exit26.backedge:            ; preds = %52, %49, %.critedge
-  br label %proto_item_set_hidden.exit26, !llvm.loop !22
+  br label %proto_item_set_hidden.exit26, !llvm.loop !20
 
 56:                                               ; preds = %5, %.thread
   ret void
@@ -5196,7 +5196,7 @@ proto_item_set_generated.exit48:                  ; preds = %65, %68
   br label %proto_item_set_hidden.exit51
 
 proto_item_set_hidden.exit51:                     ; preds = %proto_item_set_generated.exit48, %proto_item_set_hidden.exit42, %74, %72
-  br i1 %.not56, label %27, label %26, !llvm.loop !23
+  br i1 %.not56, label %27, label %26, !llvm.loop !21
 
 78:                                               ; preds = %6, %26
   ret void
@@ -5271,7 +5271,7 @@ proto_item_set_hidden.exit:                       ; preds = %.backedge
   br i1 %24, label %.backedge.backedge, label %proto_item_set_hidden.exit.thread
 
 .backedge.backedge:                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge, !llvm.loop !22
 
 proto_item_set_hidden.exit.thread:                ; preds = %36, %33, %proto_item_set_hidden.exit, %5, %9
   ret void
@@ -5411,7 +5411,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   %88 = load i32, ptr @number_of_nat64_prefix, align 4
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %87, %89
-  br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit123, !llvm.loop !25
+  br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit123, !llvm.loop !23
 
 91:                                               ; preds = %10, %81
   %.0102.ph = phi i32 [ %., %81 ], [ 96, %10 ]
@@ -5480,7 +5480,7 @@ proto_item_set_generated.exit111:                 ; preds = %.proto_item_set_gen
   br label %118
 
 118:                                              ; preds = %proto_item_set_generated.exit, %116, %proto_item_set_generated.exit111
-  %119 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #21, !srcloc !26
+  %119 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #21, !srcloc !24
   %120 = lshr i32 %.0102.ph, 3
   %121 = add nuw nsw i32 %120, %3
   %122 = add nsw i32 %.0102.ph, -33
@@ -6427,7 +6427,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 .backedge:                                        ; preds = %dissect_opt_apn6.exit, %745, %102, %135
   %.0.be = phi i32 [ %89, %102 ], [ %138, %135 ], [ %743, %745 ], [ %.1, %dissect_opt_apn6.exit ]
   %105 = icmp slt i32 %.0.be, %19
-  br i1 %105, label %87, label %._crit_edge, !llvm.loop !27
+  br i1 %105, label %87, label %._crit_edge, !llvm.loop !25
 
 106:                                              ; preds = %87
   %ipv6_opt_type_hdr.p.promoted.i = load ptr, ptr @ipv6_opt_type_hdr.p, align 8
@@ -6444,7 +6444,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 .lr.ph.i:                                         ; preds = %.lr.ph
   %111 = load i32, ptr %114, align 4
   %112 = icmp eq i32 %111, %91
-  br i1 %112, label %.lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %112, label %.lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %113 = phi ptr [ %114, %.lr.ph.i ], [ %ipv6_opt_type_hdr.p.promoted.i, %.lr.ph.i.preheader ]
@@ -6452,7 +6452,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   %115 = getelementptr i8, ptr %113, i64 12
   %116 = load i32, ptr %115, align 4
   %.not.i250 = icmp eq i32 %116, 2
-  br i1 %.not.i250, label %ipv6_opt_type_hdr.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i250, label %ipv6_opt_type_hdr.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !26
 
 .lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge:        ; preds = %.lr.ph.i
   store ptr %114, ptr @ipv6_opt_type_hdr.p, align 8
@@ -7269,7 +7269,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %517, %516
   %553 = icmp ne i16 %.0130.be.i.i, 0
   %554 = icmp samesign ule i32 %363, %552
   %555 = select i1 %553, i1 %554, i1 false
-  br i1 %555, label %392, label %._crit_edge.i.i, !llvm.loop !29
+  br i1 %555, label %392, label %._crit_edge.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %359
   %.0130.lcssa.i.i = phi i16 [ %361, %359 ], [ %.0130.be.i.i, %.backedge.i.i ]
@@ -7740,14 +7740,12 @@ attributes #21 = { nounwind memory(none) }
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
+!24 = !{i64 2151970385}
 !25 = distinct !{!25, !9}
-!26 = !{i64 2151970385}
+!26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}

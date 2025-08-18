@@ -13380,7 +13380,7 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36: ; preds = %15, %_ZNKSt4l
   %27 = getelementptr inbounds nuw i8, ptr %.03246, i64 %.sink
   %.032 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us
   %.031.lcssa = phi ptr [ %.03246.us, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us ], [ %.03246, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36 ]
@@ -14153,7 +14153,7 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us: ; preds = %.lr.ph, %_ZNKSt4les
   %.in.us = getelementptr inbounds nuw i8, ptr %.03246.us, i64 %.in.us.v
   %.032.us = load ptr, ptr %.in.us, align 8
   %.not.us = icmp eq ptr %.032.us, null
-  br i1 %.not.us, label %._crit_edge, label %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us, !llvm.loop !61
+  br i1 %.not.us, label %._crit_edge, label %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us, !llvm.loop !59
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36
   %.03246 = phi ptr [ %.032, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36 ], [ %.03244, %.lr.ph ]
@@ -14203,7 +14203,7 @@ _ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36: ; preds = %15, %_ZNKSt4l
   %27 = getelementptr inbounds nuw i8, ptr %.03246, i64 %.sink
   %.032 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.i, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us
   %.031.lcssa = phi ptr [ %.03246.us, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.us ], [ %.03246, %_ZNKSt4lessIN3nix9CanonPathEEclERKS1_S4_.exit.thread36 ]
@@ -14405,8 +14405,5 @@ attributes #28 = { builtin allocsize(0) }
 !55 = distinct !{!55, !23}
 !56 = distinct !{!56, !23}
 !57 = distinct !{!57, !23}
-!58 = distinct !{!58, !23, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = distinct !{!60, !23}
-!61 = distinct !{!61, !23, !59}
-!62 = distinct !{!62, !23}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}

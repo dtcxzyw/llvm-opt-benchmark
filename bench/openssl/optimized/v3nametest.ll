@@ -499,67 +499,64 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 36:                                               ; preds = %27, %31
   %37 = add nuw nsw i64 %.04562, 1
-  %exitcond71.not = icmp eq i64 %37, 27
-  br i1 %exitcond71.not, label %38, label %24, !llvm.loop !25
+  %exitcond72.not = icmp eq i64 %37, 27
+  br i1 %exitcond72.not, label %38, label %24, !llvm.loop !25
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i64 %.163, 1
-  %exitcond72.not = icmp eq i64 %39, 27
-  br i1 %exitcond72.not, label %.split.split.preheader, label %.preheader, !llvm.loop !26
+  %exitcond73.not = icmp eq i64 %39, 27
+  br i1 %exitcond73.not, label %.split.split.preheader, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %0, %5
   %.not53 = icmp eq ptr %2, null
   %.not54 = icmp eq ptr %.fr, null
   br i1 %.not53, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %.loopexit, %43
-  %.264.us = phi i64 [ %44, %43 ], [ 0, %.loopexit ]
-  br i1 %.not54, label %43, label %40
+.split.us:                                        ; preds = %.loopexit
+  br i1 %.not54, label %.split66.us, label %.split.us.split
 
-40:                                               ; preds = %.split.us
-  %41 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264.us
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  tail call void @GENERAL_NAME_free(ptr noundef %42) #7
-  br label %43
-
-43:                                               ; preds = %40, %.split.us
-  %44 = add nuw nsw i64 %.264.us, 1
-  %exitcond75.not = icmp eq i64 %44, 27
-  br i1 %exitcond75.not, label %.split66.us, label %.split.us, !llvm.loop !27
+.split.us.split:                                  ; preds = %.split.us, %.split.us.split
+  %.264.us = phi i64 [ %42, %.split.us.split ], [ 0, %.split.us ]
+  %40 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264.us
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
+  tail call void @GENERAL_NAME_free(ptr noundef %41) #7
+  %42 = add nuw nsw i64 %.264.us, 1
+  %exitcond76.not = icmp eq i64 %42, 27
+  br i1 %exitcond76.not, label %.split66.us, label %.split.us.split, !llvm.loop !27
 
 .split:                                           ; preds = %.loopexit
   br i1 %.not54, label %.split.split.us, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %38, %27, %31, %.thread, %.split
-  %.0428082 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %31 ], [ 0, %27 ], [ 1, %38 ]
+  %.0428183 = phi i32 [ 0, %.split ], [ 0, %.thread ], [ 0, %31 ], [ 0, %27 ], [ 1, %38 ]
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %.264.us67 = phi i64 [ %47, %.split.split.us ], [ 0, %.split ]
-  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264.us67
-  %46 = load ptr, ptr %45, align 8, !tbaa !22
-  tail call void @GENERAL_NAME_free(ptr noundef %46) #7
-  %47 = add nuw nsw i64 %.264.us67, 1
-  %exitcond74.not = icmp eq i64 %47, 27
-  br i1 %exitcond74.not, label %.split66.us, label %.split.split.us, !llvm.loop !29
+  %.264.us67 = phi i64 [ %45, %.split.split.us ], [ 0, %.split ]
+  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264.us67
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
+  tail call void @GENERAL_NAME_free(ptr noundef %44) #7
+  %45 = add nuw nsw i64 %.264.us67, 1
+  %exitcond75.not = icmp eq i64 %45, 27
+  br i1 %exitcond75.not, label %.split66.us, label %.split.split.us, !llvm.loop !27
 
 .split.split:                                     ; preds = %.split.split.preheader, %.split.split
-  %.264 = phi i64 [ %52, %.split.split ], [ 0, %.split.split.preheader ]
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264
+  %.264 = phi i64 [ %50, %.split.split ], [ 0, %.split.split.preheader ]
+  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  call void @GENERAL_NAME_free(ptr noundef %47) #7
+  %48 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264
   %49 = load ptr, ptr %48, align 8, !tbaa !22
   call void @GENERAL_NAME_free(ptr noundef %49) #7
-  %50 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264
-  %51 = load ptr, ptr %50, align 8, !tbaa !22
-  call void @GENERAL_NAME_free(ptr noundef %51) #7
-  %52 = add nuw nsw i64 %.264, 1
-  %exitcond73.not = icmp eq i64 %52, 27
-  br i1 %exitcond73.not, label %.split66.us, label %.split.split, !llvm.loop !30
+  %50 = add nuw nsw i64 %.264, 1
+  %exitcond74.not = icmp eq i64 %50, 27
+  br i1 %exitcond74.not, label %.split66.us, label %.split.split, !llvm.loop !27
 
-.split66.us:                                      ; preds = %.split.split, %.split.split.us, %43
-  %.04279 = phi i32 [ 0, %43 ], [ 0, %.split.split.us ], [ %.0428082, %.split.split ]
+.split66.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us.split, %.split.us
+  %.04280 = phi i32 [ 0, %.split.us ], [ 0, %.split.us.split ], [ 0, %.split.split.us ], [ %.0428183, %.split.split ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 706) #7
   call void @CRYPTO_free(ptr noundef %.fr, ptr noundef nonnull @.str.2, i32 noundef 707) #7
-  ret i32 %.04279
+  ret i32 %.04280
 }
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -666,7 +663,7 @@ define internal range(i32 0, 2) i32 @set_cn(ptr noundef %0, ...) unnamed_addr #0
 18:                                               ; preds = %15, %10
   %19 = phi i32 [ %14, %10 ], [ %8, %15 ]
   %20 = phi ptr [ %13, %10 ], [ %16, %15 ]
-  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %21 = load i32, ptr %20, align 4, !tbaa !28
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %37, label %23
 
@@ -759,7 +756,7 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
 18:                                               ; preds = %15, %10
   %19 = phi i32 [ %14, %10 ], [ %8, %15 ]
   %20 = phi ptr [ %13, %10 ], [ %16, %15 ]
-  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %21 = load i32, ptr %20, align 4, !tbaa !28
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %47, label %23
 
@@ -939,8 +936,5 @@ attributes #9 = { noreturn nounwind }
 !24 = distinct !{!24, !15}
 !25 = distinct !{!25, !15}
 !26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !15, !28}
-!30 = distinct !{!30, !15}
-!31 = !{!10, !10, i64 0}
+!27 = distinct !{!27, !15}
+!28 = !{!10, !10, i64 0}

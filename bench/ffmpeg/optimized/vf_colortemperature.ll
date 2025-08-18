@@ -382,13 +382,13 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
 55:                                               ; preds = %.preheader.us, %55
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %55 ]
   %56 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %indvars.iv
-  %57 = load i16, ptr %56, align 2, !tbaa !60
+  %57 = load i16, ptr %56, align 2, !tbaa !59
   %58 = uitofp i16 %57 to float
   %59 = getelementptr inbounds nuw i16, ptr %.0128150.us, i64 %indvars.iv
-  %60 = load i16, ptr %59, align 2, !tbaa !60
+  %60 = load i16, ptr %59, align 2, !tbaa !59
   %61 = uitofp i16 %60 to float
   %62 = getelementptr inbounds nuw i16, ptr %.0129149.us, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2, !tbaa !60
+  %63 = load i16, ptr %62, align 2, !tbaa !59
   %64 = uitofp i16 %63 to float
   %65 = fmul nsz float %52, %64
   %66 = fmul nsz float %53, %58
@@ -434,7 +434,7 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   %103 = select i1 %isnotneg.inv.i.us, i32 0, i32 %49
   %.0.i.us = select i1 %.not.i.us, i32 %101, i32 %103
   %104 = trunc i32 %.0.i.us to i16
-  store i16 %104, ptr %56, align 2, !tbaa !60
+  store i16 %104, ptr %56, align 2, !tbaa !59
   %105 = fptosi float %100 to i32
   %106 = and i32 %notmask.i, %105
   %.not.i140.us = icmp eq i32 %106, 0
@@ -442,7 +442,7 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   %107 = select i1 %isnotneg.inv.i141.us, i32 0, i32 %49
   %.0.i142.us = select i1 %.not.i140.us, i32 %105, i32 %107
   %108 = trunc i32 %.0.i142.us to i16
-  store i16 %108, ptr %59, align 2, !tbaa !60
+  store i16 %108, ptr %59, align 2, !tbaa !59
   %109 = fptosi float %96 to i32
   %110 = and i32 %notmask.i, %109
   %.not.i144.us = icmp eq i32 %110, 0
@@ -450,10 +450,10 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   %111 = select i1 %isnotneg.inv.i145.us, i32 0, i32 %49
   %.0.i146.us = select i1 %.not.i144.us, i32 %109, i32 %111
   %112 = trunc i32 %.0.i146.us to i16
-  store i16 %112, ptr %62, align 2, !tbaa !60
+  store i16 %112, ptr %62, align 2, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %55
   %113 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %24
@@ -461,7 +461,7 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   %115 = getelementptr inbounds nuw i16, ptr %.0129149.us, i64 %32
   %116 = add nsw i32 %.0131148.us, 1
   %exitcond155.not = icmp eq i32 %116, %20
-  br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !63
+  br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !62
 
 ._crit_edge152:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -472,7 +472,7 @@ define internal noundef i32 @temperature_slice8p(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !64
+  %8 = load i32, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 108
@@ -600,13 +600,13 @@ define internal noundef i32 @temperature_slice8p(ptr noundef readonly captures(n
   store i8 %.0.i142.us, ptr %gep153, align 1, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %44
   %100 = getelementptr inbounds i8, ptr %.0145.us, i64 %25
   %101 = add nsw i32 %.0128144.us, 1
   %exitcond149.not = icmp eq i32 %101, %22
-  br i1 %exitcond149.not, label %._crit_edge146, label %.preheader.us, !llvm.loop !66
+  br i1 %exitcond149.not, label %._crit_edge146, label %.preheader.us, !llvm.loop !65
 
 ._crit_edge146:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -617,7 +617,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !64
+  %8 = load i32, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 108
@@ -682,13 +682,13 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %51 ]
   %52 = mul nsw i64 %indvars.iv, %47
   %gep = getelementptr i16, ptr %invariant.gep, i64 %52
-  %53 = load i16, ptr %gep, align 2, !tbaa !60
+  %53 = load i16, ptr %gep, align 2, !tbaa !59
   %54 = uitofp i16 %53 to float
   %gep157 = getelementptr i16, ptr %invariant.gep156, i64 %52
-  %55 = load i16, ptr %gep157, align 2, !tbaa !60
+  %55 = load i16, ptr %gep157, align 2, !tbaa !59
   %56 = uitofp i16 %55 to float
   %gep159 = getelementptr i16, ptr %invariant.gep158, i64 %52
-  %57 = load i16, ptr %gep159, align 2, !tbaa !60
+  %57 = load i16, ptr %gep159, align 2, !tbaa !59
   %58 = uitofp i16 %57 to float
   %59 = fmul nsz float %44, %58
   %60 = fmul nsz float %45, %54
@@ -734,7 +734,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %97 = select i1 %isnotneg.inv.i.us, i32 0, i32 %35
   %.0.i.us = select i1 %.not.i.us, i32 %95, i32 %97
   %98 = trunc i32 %.0.i.us to i16
-  store i16 %98, ptr %gep, align 2, !tbaa !60
+  store i16 %98, ptr %gep, align 2, !tbaa !59
   %99 = fptosi float %94 to i32
   %100 = and i32 %notmask.i, %99
   %.not.i142.us = icmp eq i32 %100, 0
@@ -742,7 +742,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %101 = select i1 %isnotneg.inv.i143.us, i32 0, i32 %35
   %.0.i144.us = select i1 %.not.i142.us, i32 %99, i32 %101
   %102 = trunc i32 %.0.i144.us to i16
-  store i16 %102, ptr %gep157, align 2, !tbaa !60
+  store i16 %102, ptr %gep157, align 2, !tbaa !59
   %103 = fptosi float %90 to i32
   %104 = and i32 %notmask.i, %103
   %.not.i146.us = icmp eq i32 %104, 0
@@ -750,16 +750,16 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %105 = select i1 %isnotneg.inv.i147.us, i32 0, i32 %35
   %.0.i148.us = select i1 %.not.i146.us, i32 %103, i32 %105
   %106 = trunc i32 %.0.i148.us to i16
-  store i16 %106, ptr %gep159, align 2, !tbaa !60
+  store i16 %106, ptr %gep159, align 2, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !66
 
 ._crit_edge.us:                                   ; preds = %51
   %107 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %26
   %108 = add nsw i32 %.0132150.us, 1
   %exitcond155.not = icmp eq i32 %108, %22
-  br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !68
+  br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !67
 
 ._crit_edge152:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -880,7 +880,7 @@ define internal noundef i32 @temperature_slice32(ptr noundef readonly captures(n
   store float %90, ptr %54, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %49
   %95 = getelementptr inbounds nuw float, ptr %.0139.us, i64 %24
@@ -888,7 +888,7 @@ define internal noundef i32 @temperature_slice32(ptr noundef readonly captures(n
   %97 = getelementptr inbounds nuw float, ptr %.0125137.us, i64 %32
   %98 = add nsw i32 %.0127136.us, 1
   %exitcond143.not = icmp eq i32 %98, %20
-  br i1 %exitcond143.not, label %._crit_edge140, label %.preheader.us, !llvm.loop !70
+  br i1 %exitcond143.not, label %._crit_edge140, label %.preheader.us, !llvm.loop !69
 
 ._crit_edge140:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -971,16 +971,15 @@ attributes #8 = { nounwind }
 !55 = !{!8, !8, i64 0}
 !56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"short", !8, i64 0}
+!58 = distinct !{!58, !57}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"short", !8, i64 0}
+!61 = distinct !{!61, !57}
 !62 = distinct !{!62, !57}
-!63 = distinct !{!63, !57, !59}
-!64 = !{!30, !11, i64 32}
+!63 = !{!30, !11, i64 32}
+!64 = distinct !{!64, !57}
 !65 = distinct !{!65, !57}
-!66 = distinct !{!66, !57, !59}
+!66 = distinct !{!66, !57}
 !67 = distinct !{!67, !57}
-!68 = distinct !{!68, !57, !59}
+!68 = distinct !{!68, !57}
 !69 = distinct !{!69, !57}
-!70 = distinct !{!70, !57, !59}

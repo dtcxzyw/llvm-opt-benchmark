@@ -2520,7 +2520,7 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   %117 = load ptr, ptr %103, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %119 = icmp eq ptr %117, %118
-  br i1 %119, label %.loopexit, label %.preheader.split, !llvm.loop !68
+  br i1 %119, label %.loopexit, label %.preheader.split, !llvm.loop !66
 
 .loopexit:                                        ; preds = %115, %97, %.loopexit6
   tail call void @_raw_spin_unlock(ptr noundef nonnull %76) #15
@@ -2857,20 +2857,20 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr noundef writ
   %22 = or i32 %21, %14
   %23 = load ptr, ptr %16, align 8
   %24 = getelementptr i8, ptr %23, i64 1312
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %24) #15, !srcloc !69
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, ptr elementtype(i32) %24) #15, !srcloc !67
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr i8, ptr %25, i64 1312
   %27 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26) #15, !srcloc !20
   %28 = or i32 %27, 32
   %29 = load ptr, ptr %16, align 8
   %30 = getelementptr i8, ptr %29, i64 1312
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %30) #15, !srcloc !69
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %28, ptr elementtype(i32) %30) #15, !srcloc !67
   br label %34
 
 31:                                               ; preds = %34
   %32 = add nsw i32 %35, -1
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %40, label %34, !llvm.loop !70
+  br i1 %33, label %40, label %34, !llvm.loop !68
 
 34:                                               ; preds = %31, %17
   %35 = phi i32 [ 100, %17 ], [ %32, %31 ]
@@ -2906,7 +2906,7 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr noundef writ
   %60 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59) #15, !srcloc !20
   %61 = load ptr, ptr %16, align 8
   %62 = getelementptr i8, ptr %61, i64 1312
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %62) #15, !srcloc !69
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, ptr elementtype(i32) %62) #15, !srcloc !67
   %63 = and i32 %48, 511
   %64 = add nsw i32 %63, -11
   %65 = icmp ult i32 %64, 478
@@ -2916,7 +2916,7 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr noundef writ
   %67 = add nuw nsw i64 %18, 1
   tail call void @__udelay(i64 noundef %18) #15
   %68 = icmp eq i64 %67, 10
-  br i1 %68, label %.critedge, label %17, !llvm.loop !71
+  br i1 %68, label %.critedge, label %17, !llvm.loop !69
 
 69:                                               ; preds = %45
   %70 = and i64 %18, 4294967295
@@ -3021,7 +3021,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %18 = phi i32 [ 49, %10 ], [ %56, %55 ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr i8, ptr %19, i64 104
-  %21 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %20) #15, !srcloc !72
+  %21 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %20) #15, !srcloc !70
   %22 = and i16 %21, 1
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %24, label %55
@@ -3029,15 +3029,15 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
 24:                                               ; preds = %17
   %25 = load ptr, ptr %16, align 8
   %26 = getelementptr i8, ptr %25, i64 104
-  %27 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %26) #15, !srcloc !72
+  %27 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %26) #15, !srcloc !70
   %28 = or i16 %27, 2
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %28, ptr elementtype(i16) %26) #15, !srcloc !31
   %29 = load ptr, ptr %16, align 8
   %30 = getelementptr i8, ptr %29, i64 96
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, ptr elementtype(i32) %30) #15, !srcloc !69
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, ptr elementtype(i32) %30) #15, !srcloc !67
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr i8, ptr %31, i64 104
-  %33 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %32) #15, !srcloc !72
+  %33 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %32) #15, !srcloc !70
   %34 = or i16 %33, 1
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %34, ptr elementtype(i16) %32) #15, !srcloc !31
   br label %35
@@ -3046,7 +3046,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %36 = phi i32 [ 49, %24 ], [ %49, %48 ]
   %37 = load ptr, ptr %16, align 8
   %38 = getelementptr i8, ptr %37, i64 104
-  %39 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %38) #15, !srcloc !72
+  %39 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %38) #15, !srcloc !70
   %40 = and i16 %39, 2
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %48, label %42
@@ -3064,7 +3064,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
   tail call void @__const_udelay(i64 noundef 4295) #15
   %49 = add nsw i32 %36, -1
   %50 = icmp eq i32 %36, 0
-  br i1 %50, label %51, label %35, !llvm.loop !73
+  br i1 %50, label %51, label %35, !llvm.loop !71
 
 51:                                               ; preds = %48
   %52 = tail call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.azx_single_wait_for_response) #15
@@ -3077,7 +3077,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
   tail call void @__const_udelay(i64 noundef 4295) #15
   %56 = add nsw i32 %18, -1
   %57 = icmp eq i32 %18, 0
-  br i1 %57, label %58, label %17, !llvm.loop !74
+  br i1 %57, label %58, label %17, !llvm.loop !72
 
 58:                                               ; preds = %55
   %59 = tail call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.azx_single_send_cmd) #15
@@ -3335,12 +3335,10 @@ attributes #18 = { nounwind allocsize(2) }
 !63 = !{i64 2155927762}
 !64 = !{i64 2155927921}
 !65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = distinct !{!66, !7, !8}
+!67 = !{i64 2151974295}
 !68 = distinct !{!68, !7, !8}
-!69 = !{i64 2151974295}
-!70 = distinct !{!70, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = !{i64 2151971485}
 !71 = distinct !{!71, !7, !8}
-!72 = !{i64 2151971485}
-!73 = distinct !{!73, !7, !8}
-!74 = distinct !{!74, !7, !8}
+!72 = distinct !{!72, !7, !8}

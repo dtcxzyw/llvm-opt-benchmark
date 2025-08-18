@@ -3983,7 +3983,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symboli
   %45 = sub i64 %6, %44
   %46 = sdiv exact i64 %45, 40
   %.not = icmp slt i64 %46, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !259
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit.loopexit, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit.us, %3
   %.sroa.030.0.lcssa = phi ptr [ %0, %3 ], [ %10, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit.us ], [ %15, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_.exit.loopexit ]
@@ -4098,7 +4098,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizabl
   %13 = sub i64 %6, %12
   %14 = sdiv exact i64 %13, 40
   %.not.us = icmp slt i64 %14, %5
-  br i1 %.not.us, label %._crit_edge, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, !llvm.loop !260
+  br i1 %.not.us, label %._crit_edge, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, !llvm.loop !258
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit
   %.052 = phi ptr [ %43, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit ], [ %2, %.lr.ph ]
@@ -4140,7 +4140,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizabl
   %32 = icmp ne ptr %.sroa.015.1.i, %15
   %33 = icmp ne ptr %.sroa.011.1.i, %16
   %or.cond.i = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i.loopexit, !llvm.loop !261
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i.loopexit, !llvm.loop !259
 
 .critedge.i.loopexit:                             ; preds = %30
   %34 = ptrtoint ptr %15 to i64
@@ -4170,7 +4170,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizabl
   %44 = sub i64 %6, %39
   %45 = sdiv exact i64 %44, 40
   %.not = icmp slt i64 %45, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !262
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !258
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, %4
   %.sroa.036.0.lcssa = phi ptr [ %0, %4 ], [ %10, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us ], [ %16, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit ]
@@ -4217,7 +4217,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizabl
   %64 = icmp ne ptr %.sroa.015.1.i26, %46
   %65 = icmp ne ptr %.sroa.011.1.i25, %1
   %or.cond.i27 = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond.i27, label %.lr.ph.i20, label %.critedge.i13, !llvm.loop !261
+  br i1 %or.cond.i27, label %.lr.ph.i20, label %.critedge.i13, !llvm.loop !259
 
 .critedge.i13:                                    ; preds = %62, %._crit_edge
   %.sroa.011.0.lcssa.i14 = phi ptr [ %46, %._crit_edge ], [ %.sroa.011.1.i25, %62 ]
@@ -4273,7 +4273,7 @@ _ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu
   %13 = sub i64 %6, %12
   %14 = sdiv exact i64 %13, 40
   %.not.us = icmp slt i64 %14, %5
-  br i1 %.not.us, label %._crit_edge, label %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, !llvm.loop !263
+  br i1 %.not.us, label %._crit_edge, label %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, !llvm.loop !260
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit
   %.sroa.018.048 = phi ptr [ %44, %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit ], [ %2, %.lr.ph ]
@@ -4315,7 +4315,7 @@ _ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu
   %32 = icmp ne ptr %.1.i, %15
   %33 = icmp ne ptr %.117.i, %16
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !264
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !261
 
 ._crit_edge.i.loopexit:                           ; preds = %30
   %35 = ptrtoint ptr %15 to i64
@@ -4345,7 +4345,7 @@ _ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu
   %45 = sub i64 %6, %40
   %46 = sdiv exact i64 %45, 40
   %.not = icmp slt i64 %46, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !265
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit, %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us, %4
   %.0.lcssa = phi ptr [ %0, %4 ], [ %10, %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit.us ], [ %16, %_ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEENS5_5__ops15_Iter_less_iterEET0_T_SE_SE_SE_SD_T1_.exit ]
@@ -4392,7 +4392,7 @@ _ZSt12__move_mergeIPN4llvm9symbolize22SymbolizableObjectFile10SymbolDescEN9__gnu
   %66 = icmp ne ptr %.1.i34, %47
   %67 = icmp ne ptr %.117.i33, %1
   %68 = select i1 %66, i1 %67, i1 false
-  br i1 %68, label %.lr.ph.i28, label %._crit_edge.i21, !llvm.loop !264
+  br i1 %68, label %.lr.ph.i28, label %._crit_edge.i21, !llvm.loop !261
 
 ._crit_edge.i21:                                  ; preds = %64, %._crit_edge
   %.sroa.0.0.lcssa.i22 = phi ptr [ %.sroa.018.0.lcssa, %._crit_edge ], [ %65, %64 ]
@@ -4965,12 +4965,8 @@ attributes #25 = { nounwind allocsize(0) }
 !254 = distinct !{!254, !65}
 !255 = distinct !{!255, !65}
 !256 = distinct !{!256, !65}
-!257 = distinct !{!257, !65, !258}
-!258 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!257 = distinct !{!257, !65}
+!258 = distinct !{!258, !65}
 !259 = distinct !{!259, !65}
-!260 = distinct !{!260, !65, !258}
+!260 = distinct !{!260, !65}
 !261 = distinct !{!261, !65}
-!262 = distinct !{!262, !65}
-!263 = distinct !{!263, !65, !258}
-!264 = distinct !{!264, !65}
-!265 = distinct !{!265, !65}

@@ -1191,7 +1191,7 @@ define dso_local ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1,
   %35 = load i32, ptr @g_context_cnt, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
+  br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph.split.us, %18
   %.1.lcssa = phi ptr [ %.0, %18 ], [ %24, %.lr.ph.split.us ], [ %34, %30 ]
@@ -1272,7 +1272,7 @@ define dso_local ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_
   %23 = load i32, ptr @g_context_cnt, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.1.lcssa = phi ptr [ %.0, %15 ], [ %22, %.lr.ph ]
@@ -1335,7 +1335,7 @@ define dso_local zeroext i1 @node_features_g_user_update(i32 noundef %0) local_u
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
   %19 = select i1 %18, i1 %15, i1 false
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i1 [ true, %.preheader ], [ %15, %.lr.ph ]
@@ -1409,7 +1409,7 @@ define dso_local i32 @node_features_g_boot_time() local_unnamed_addr #0 {
   %23 = load i32, ptr @g_context_cnt, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %22, %21 ]
@@ -1497,7 +1497,7 @@ define dso_local ptr @node_features_g_get_config() local_unnamed_addr #0 {
   %26 = load i32, ptr @g_context_cnt, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #9
@@ -1575,10 +1575,8 @@ attributes #11 = { noreturn nounwind }
 !21 = distinct !{!21, !9, !10}
 !22 = distinct !{!22, !9, !10}
 !23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
 !26 = distinct !{!26, !9, !10}
 !27 = distinct !{!27, !9, !10}
 !28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}

@@ -344,7 +344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6
 _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNISt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES9_ILi2EES9_ILi3EES4_EES1_IFPFiiiESA_SB_EEiEET1_RKSJ_mOT_OT0_.exit, %58
   %63 = add nuw i64 %.061, 1
   %exitcond.not = icmp eq i64 %63, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph.split.split
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -433,7 +433,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 80:                                               ; preds = %._crit_edge.thread, %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24
   fence syncscope("singlethread") seq_cst
-  %81 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !17
+  %81 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !15
   %82 = sub i64 %81, %36
   %83 = invoke noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %82)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfStopwatch10GetSecondsEv.exit unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -489,7 +489,7 @@ define internal noundef i32 @_ZL3summmiRKSt6vectorIiSaIiEE(i64 noundef %0, i64 n
   %10 = add nsw i32 %9, %.078
   %11 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %11, %1
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %7, %4
   %.07.lcssa = phi i32 [ %2, %4 ], [ %10, %7 ]
@@ -1024,7 +1024,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   br i1 %71, label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.backedge, label %72
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.backedge: ; preds = %69, %75
-  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11, !llvm.loop !19
+  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11, !llvm.loop !17
 
 72:                                               ; preds = %69
   %.not.i8 = icmp eq i64 %70, 0
@@ -1107,7 +1107,7 @@ _ZN3tbb6detail2d119reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_ra
   %41 = atomicrmw sub ptr %40, i32 1 seq_cst, align 4
   %42 = add i32 %41, -1
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %_ZN3tbb6detail2d19fold_treeINS1_19reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_rangeImEEiZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EESH_ILi2EESH_ILi3EESC_EERS9_IFPFiiiESI_SJ_EEiEET1_RKST_mOT_OT0_mE13Work_Body_TBBSR_EEEEEEvPNS1_4nodeERKNS1_14execution_dataE.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %43, label %_ZN3tbb6detail2d19fold_treeINS1_19reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_rangeImEEiZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EESH_ILi2EESH_ILi3EESC_EERS9_IFPFiiiESI_SJ_EEiEET1_RKST_mOT_OT0_mE13Work_Body_TBBSR_EEEEEEvPNS1_4nodeERKNS1_14execution_dataE.exit, label %.lr.ph.i, !llvm.loop !18
 
 44:                                               ; preds = %.lr.ph.i
   %45 = getelementptr inbounds nuw i8, ptr %.015.i, i64 24
@@ -1201,7 +1201,7 @@ thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118
 
 44:                                               ; preds = %57
   %45 = icmp ult i8 %72, %41
-  br i1 %45, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit, !llvm.loop !21
+  br i1 %45, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i: ; preds = %.lr.ph.i, %44
   %46 = phi i8 [ %74, %44 ], [ %.promoted.i.pr46, %.lr.ph.i ]
@@ -1243,10 +1243,10 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   store i8 %72, ptr %73, align 1
   %74 = add nuw nsw i8 %46, 1
   %exitcond.not.i = icmp eq i8 %74, 8
-  br i1 %exitcond.not.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge30, label %44, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge30, label %44, !llvm.loop !19
 
 ._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge30: ; preds = %57
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit, !llvm.loop !21
+  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %44, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge30, %.lr.ph.i
   %75 = phi i8 [ 8, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge30 ], [ %.promoted.i.pr46, %.lr.ph.i ], [ %74, %44 ], [ %46, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
@@ -1396,7 +1396,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit: ; pr
   %155 = load ptr, ptr %154, align 8
   %.0.i.i = select i1 %153, ptr %155, ptr %150
   %156 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i)
-  br i1 %156, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit22, label %thread-pre-split, !llvm.loop !22
+  br i1 %156, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit22, label %thread-pre-split, !llvm.loop !20
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EED2Ev.exit22: ; preds = %thread-pre-split23, %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit, %17
   ret void
@@ -1751,7 +1751,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; preds = %120, %114
-  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !23
+  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %118, %117, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, %69, %68, %56
   %.pre-phi.i = phi i64 [ %63, %68 ], [ %63, %69 ], [ %63, %56 ], [ %112, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %112, %117 ], [ %112, %118 ]
@@ -1802,7 +1802,7 @@ thread-pre-split.i.i:                             ; preds = %_ZN3tbb6detail2d118
 
 140:                                              ; preds = %153
   %141 = icmp ult i8 %168, %137
-  br i1 %141, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !21
+  br i1 %141, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %140
   %142 = phi i8 [ %170, %140 ], [ %.promoted.i.pr50.i.i, %.lr.ph.i.i.i ]
@@ -1844,10 +1844,10 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   store i8 %168, ptr %169, align 1
   %170 = add nuw nsw i8 %142, 1
   %exitcond.not.i.i.i = icmp eq i8 %170, 8
-  br i1 %exitcond.not.i.i.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge34.i.i, label %140, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge34.i.i, label %140, !llvm.loop !19
 
 ._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge34.i.i: ; preds = %153
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !21
+  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, %140, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge34.i.i, %.lr.ph.i.i.i
   %171 = phi i8 [ 8, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.loopexit_crit_edge34.i.i ], [ %.promoted.i.pr50.i.i, %.lr.ph.i.i.i ], [ %170, %140 ], [ %142, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i ]
@@ -1978,7 +1978,7 @@ _ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i: 
   %237 = load ptr, ptr %236, align 8
   %.0.i.i.i.i = select i1 %235, ptr %237, ptr %232
   %238 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i)
-  br i1 %238, label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_iZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSG_mOT_OT0_mE13Work_Body_TBBSE_EEKNS1_16auto_partitionerEEES8_EEvRSJ_RSL_RNS1_14execution_dataE.exit, label %thread-pre-split.i.i, !llvm.loop !24
+  br i1 %238, label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_iZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSG_mOT_OT0_mE13Work_Body_TBBSE_EEKNS1_16auto_partitionerEEES8_EEvRSJ_RSL_RNS1_14execution_dataE.exit, label %thread-pre-split.i.i, !llvm.loop !22
 
 _ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_iZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSG_mOT_OT0_mE13Work_Body_TBBSE_EEKNS1_16auto_partitionerEEES8_EEvRSJ_RSL_RNS1_14execution_dataE.exit: ; preds = %thread-pre-split27.i.i, %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit.i.i, %.critedge.i, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2050,7 +2050,7 @@ _ZN3tbb6detail2d119reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_ra
   %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
   %37 = add i32 %36, -1
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %_ZN3tbb6detail2d19fold_treeINS1_19reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_rangeImEEiZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSD_mOT_OT0_mE13Work_Body_TBBSB_EEEEEEvPNS1_4nodeERKNS1_14execution_dataE.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %38, label %_ZN3tbb6detail2d19fold_treeINS1_19reduction_tree_nodeINS1_18lambda_reduce_bodyINS1_13blocked_rangeImEEiZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSD_mOT_OT0_mE13Work_Body_TBBSB_EEEEEEvPNS1_4nodeERKNS1_14execution_dataE.exit, label %.lr.ph.i, !llvm.loop !23
 
 39:                                               ; preds = %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %.015.i, i64 24
@@ -2143,15 +2143,13 @@ attributes #27 = { noreturn nounwind }
 !11 = !{!12}
 !12 = distinct !{!12, !13, !"_ZSt4bindIPFiiiEJRKSt12_PlaceholderILi1EERKS2_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESA_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
 !13 = distinct !{!13, !"_ZSt4bindIPFiiiEJRKSt12_PlaceholderILi1EERKS2_ILi2EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESA_JDpT0_EE4typeEOSA_DpOSB_"}
-!14 = distinct !{!14, !6, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6}
+!15 = !{i64 7253524, i64 7253533, i64 7253562, i64 7253589}
 !16 = distinct !{!16, !6}
-!17 = !{i64 7253524, i64 7253533, i64 7253562, i64 7253589}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}

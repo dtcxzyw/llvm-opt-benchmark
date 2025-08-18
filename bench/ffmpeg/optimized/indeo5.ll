@@ -2033,7 +2033,7 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
   %7 = xor i32 %6, 1
   store i32 %7, ptr %5, align 8, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4772
-  store i32 %7, ptr %8, align 4, !tbaa !147
+  store i32 %7, ptr %8, align 4, !tbaa !146
   br label %.sink.split
 
 9:                                                ; preds = %1
@@ -2044,7 +2044,7 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
 
 ._crit_edge:                                      ; preds = %9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4780
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !148
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !147
   br label %13
 
 12:                                               ; preds = %9
@@ -2055,15 +2055,15 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
   %14 = phi i32 [ %.pre, %._crit_edge ], [ 2, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4780
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4772
-  %17 = load i32, ptr %16, align 4, !tbaa !147
-  store i32 %17, ptr %15, align 4, !tbaa !148
-  store i32 %14, ptr %16, align 4, !tbaa !147
+  %17 = load i32, ptr %16, align 4, !tbaa !146
+  store i32 %17, ptr %15, align 4, !tbaa !147
+  store i32 %14, ptr %16, align 4, !tbaa !146
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %13
   %.sink = phi i32 [ %17, %13 ], [ %6, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4776
-  store i32 %.sink, ptr %18, align 8, !tbaa !149
+  store i32 %.sink, ptr %18, align 8, !tbaa !148
   br label %19
 
 19:                                               ; preds = %.sink.split, %1
@@ -2089,10 +2089,10 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4688
   store i32 0, ptr %26, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4772
-  store i32 %25, ptr %27, align 4, !tbaa !147
+  store i32 %25, ptr %27, align 4, !tbaa !146
   %28 = xor i32 %25, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4776
-  store i32 %28, ptr %29, align 8, !tbaa !149
+  store i32 %28, ptr %29, align 8, !tbaa !148
   br label %30
 
 30:                                               ; preds = %24, %19
@@ -2298,8 +2298,7 @@ attributes #8 = { nounwind }
 !142 = !{!131, !8, i64 11}
 !143 = !{!84, !10, i64 420}
 !144 = distinct !{!144, !82}
-!145 = distinct !{!145, !82, !146}
-!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!147 = !{!28, !10, i64 4772}
-!148 = !{!28, !10, i64 4780}
-!149 = !{!28, !10, i64 4776}
+!145 = distinct !{!145, !82}
+!146 = !{!28, !10, i64 4772}
+!147 = !{!28, !10, i64 4780}
+!148 = !{!28, !10, i64 4776}

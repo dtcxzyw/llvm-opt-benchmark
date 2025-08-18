@@ -1245,7 +1245,7 @@ IDANlsIC.exit.thread324:                          ; preds = %627, %IDANlsIC.exit
   %704 = load i32, ptr %161, align 4, !tbaa !29
   %705 = sext i32 %704 to i64
   %706 = icmp slt i64 %indvars.iv.next539, %705
-  br i1 %706, label %.lr.ph453.us, label %._crit_edge454.us, !llvm.loop !100
+  br i1 %706, label %.lr.ph453.us, label %._crit_edge454.us, !llvm.loop !99
 
 .preheader351.us:                                 ; preds = %.preheader352.us
   %707 = load i32, ptr %161, align 4, !tbaa !29
@@ -1302,7 +1302,7 @@ IDANlsIC.exit.thread324:                          ; preds = %627, %IDANlsIC.exit
   %736 = load i32, ptr %161, align 4, !tbaa !29
   %737 = sext i32 %736 to i64
   %738 = icmp slt i64 %indvars.iv.next.i313, %737
-  br i1 %738, label %.lr.ph.i311, label %.preheader69.i.preheader, !llvm.loop !101
+  br i1 %738, label %.lr.ph.i311, label %.preheader69.i.preheader, !llvm.loop !100
 
 .preheader69.i.preheader:                         ; preds = %.lr.ph.i311, %.preheader72.i
   %.ph = phi i32 [ %728, %.preheader72.i ], [ %736, %.lr.ph.i311 ]
@@ -1323,7 +1323,7 @@ thread-pre-split.i:                               ; preds = %924
   %743 = load i32, ptr %161, align 4, !tbaa !29
   %744 = sext i32 %743 to i64
   %745 = icmp slt i64 %indvars.iv.next.i.i310, %744
-  br i1 %745, label %.lr.ph.i.i308, label %._crit_edge.i.i295, !llvm.loop !102
+  br i1 %745, label %.lr.ph.i.i308, label %._crit_edge.i.i295, !llvm.loop !101
 
 .lr.ph.i.i308:                                    ; preds = %.preheader69.i, %742
   %indvars.iv.i.i309 = phi i64 [ %indvars.iv.next.i.i310, %742 ], [ 0, %.preheader69.i ]
@@ -1375,9 +1375,9 @@ thread-pre-split.i:                               ; preds = %924
 .lr.ph78.i.i:                                     ; preds = %.preheader59.i.i, %._crit_edge75.i.i
   %.04077.i.i = phi i32 [ %892, %._crit_edge75.i.i ], [ 0, %.preheader59.i.i ]
   %.15276.i.i = phi double [ %.14.i.i.i, %._crit_edge75.i.i ], [ %.051.i.i, %.preheader59.i.i ]
-  %775 = load i64, ptr %685, align 8, !tbaa !103
+  %775 = load i64, ptr %685, align 8, !tbaa !102
   %776 = add nsw i64 %775, 1
-  store i64 %776, ptr %685, align 8, !tbaa !103
+  store i64 %776, ptr %685, align 8, !tbaa !102
   %777 = load ptr, ptr %180, align 8, !tbaa !28
   store ptr %777, ptr %181, align 8, !tbaa !75
   %778 = fmul double %.15276.i.i, %.15276.i.i
@@ -1437,14 +1437,14 @@ thread-pre-split.i:                               ; preds = %924
   %812 = load i32, ptr %161, align 4, !tbaa !29
   %813 = sext i32 %812 to i64
   %814 = icmp slt i64 %indvars.iv.next.i.i.i.i306, %813
-  br i1 %814, label %.lr.ph.i.i.i.i304, label %.preheader.i.i.i.i307, !llvm.loop !104
+  br i1 %814, label %.lr.ph.i.i.i.i304, label %.preheader.i.i.i.i307, !llvm.loop !103
 
 815:                                              ; preds = %831
   %indvars.iv.next55.i.i.i.i = add nuw nsw i64 %indvars.iv54.i.i.i.i, 1
   %816 = load i32, ptr %161, align 4, !tbaa !29
   %817 = sext i32 %816 to i64
   %818 = icmp slt i64 %indvars.iv.next55.i.i.i.i, %817
-  br i1 %818, label %.lr.ph52.i.i.i.i, label %._crit_edge.i.i.i.i298, !llvm.loop !105
+  br i1 %818, label %.lr.ph52.i.i.i.i, label %._crit_edge.i.i.i.i298, !llvm.loop !104
 
 .lr.ph52.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i307, %815
   %indvars.iv54.i.i.i.i = phi i64 [ %indvars.iv.next55.i.i.i.i, %815 ], [ 0, %.preheader.i.i.i.i307 ]
@@ -1524,7 +1524,7 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %837, %._crit_edge.i
   %864 = load i32, ptr %161, align 4, !tbaa !29
   %865 = sext i32 %864 to i64
   %866 = icmp slt i64 %indvars.iv.next.i.i.i303, %865
-  br i1 %866, label %.lr.ph.i.i.i301, label %._crit_edge.i.i.i, !llvm.loop !106
+  br i1 %866, label %.lr.ph.i.i.i301, label %._crit_edge.i.i.i, !llvm.loop !105
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i301
   %867 = icmp slt i32 %864, 1
@@ -1546,7 +1546,7 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %837, %._crit_edge.i
   %876 = load i32, ptr %161, align 4, !tbaa !29
   %877 = sext i32 %876 to i64
   %878 = icmp slt i64 %indvars.iv.next26.i.i.i, %877
-  br i1 %878, label %.lr.ph21.i.i.i, label %IDASensLineSrch.exit.i.i, !llvm.loop !107
+  br i1 %878, label %.lr.ph21.i.i.i, label %IDASensLineSrch.exit.i.i, !llvm.loop !106
 
 IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph21.i.i.i, %._crit_edge.i.i.i, %855
   %879 = phi i32 [ %864, %._crit_edge.i.i.i ], [ %856, %855 ], [ %876, %.lr.ph21.i.i.i ]
@@ -1571,13 +1571,13 @@ IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph21.i.i.i, %._
   %889 = load i32, ptr %161, align 4, !tbaa !29
   %890 = sext i32 %889 to i64
   %891 = icmp slt i64 %indvars.iv.next93.i.i, %890
-  br i1 %891, label %.lr.ph74.i.i, label %._crit_edge75.i.i, !llvm.loop !108
+  br i1 %891, label %.lr.ph74.i.i, label %._crit_edge75.i.i, !llvm.loop !107
 
 ._crit_edge75.i.i:                                ; preds = %.lr.ph74.i.i, %.preheader.i.i299
   %892 = add nuw nsw i32 %.04077.i.i, 1
   %893 = load i32, ptr %178, align 8, !tbaa !73
   %894 = icmp slt i32 %892, %893
-  br i1 %894, label %.lr.ph78.i.i, label %895, !llvm.loop !109
+  br i1 %894, label %.lr.ph78.i.i, label %895, !llvm.loop !108
 
 895:                                              ; preds = %._crit_edge75.i.i
   %896 = fdiv double %.14.i.i.i, %.15276.i.i
@@ -1611,12 +1611,12 @@ IDASensNewtonIC.exit.i:                           ; preds = %895, %.preheader59.
   %910 = load i32, ptr %161, align 4, !tbaa !29
   %911 = sext i32 %910 to i64
   %912 = icmp slt i64 %indvars.iv.next99.i, %911
-  br i1 %912, label %.lr.ph82.i, label %._crit_edge.i, !llvm.loop !110
+  br i1 %912, label %.lr.ph82.i, label %._crit_edge.i, !llvm.loop !109
 
 ._crit_edge.i:                                    ; preds = %.lr.ph82.i, %.preheader.i296
-  %913 = load i64, ptr %686, align 8, !tbaa !111
+  %913 = load i64, ptr %686, align 8, !tbaa !110
   %914 = add nsw i64 %913, 1
-  store i64 %914, ptr %686, align 8, !tbaa !111
+  store i64 %914, ptr %686, align 8, !tbaa !110
   %915 = load ptr, ptr %174, align 8, !tbaa !69
   %916 = load ptr, ptr %52, align 8, !tbaa !25
   %917 = load ptr, ptr %55, align 8, !tbaa !26
@@ -1630,27 +1630,27 @@ IDASensNewtonIC.exit.i:                           ; preds = %895, %.preheader59.
 
 924:                                              ; preds = %._crit_edge.i
   %.not55.i = icmp eq i32 %922, 0
-  br i1 %.not55.i, label %thread-pre-split.i, label %.loopexit, !llvm.loop !112
+  br i1 %.not55.i, label %thread-pre-split.i, label %.loopexit, !llvm.loop !111
 
 .thread330:                                       ; preds = %727, %709, %._crit_edge.i, %.lr.ph.i.i308, %784, %.lr.ph52.i.i.i.i
   %.051.i.ph.ph = phi i32 [ -7, %.lr.ph52.i.i.i.i ], [ -8, %784 ], [ -7, %.lr.ph.i.i308 ], [ -6, %._crit_edge.i ], [ -12, %727 ], [ -8, %709 ]
-  %925 = load i64, ptr %687, align 8, !tbaa !113
+  %925 = load i64, ptr %687, align 8, !tbaa !112
   %926 = add nsw i64 %925, 1
-  store i64 %926, ptr %687, align 8, !tbaa !113
+  store i64 %926, ptr %687, align 8, !tbaa !112
   br label %IDASensNlsIC.exit.thread338
 
 .loopexit:                                        ; preds = %895, %924, %758, %802, %849, %831
   %.051.i.ph = phi i32 [ 1, %831 ], [ 3, %849 ], [ 1, %802 ], [ 1, %758 ], [ 4, %895 ], [ 1, %924 ]
-  %927 = load i64, ptr %687, align 8, !tbaa !113
+  %927 = load i64, ptr %687, align 8, !tbaa !112
   %928 = add nsw i64 %927, 1
-  store i64 %928, ptr %687, align 8, !tbaa !113
+  store i64 %928, ptr %687, align 8, !tbaa !112
   %929 = icmp eq i32 %.1252447, %.0253
   br i1 %929, label %IDASensNlsIC.exit.thread338, label %.preheader
 
 .loopexit.thread:                                 ; preds = %IDASensNewtonIC.exit.i
-  %930 = load i64, ptr %687, align 8, !tbaa !113
+  %930 = load i64, ptr %687, align 8, !tbaa !112
   %931 = add nsw i64 %930, 1
-  store i64 %931, ptr %687, align 8, !tbaa !113
+  store i64 %931, ptr %687, align 8, !tbaa !112
   %932 = icmp eq i32 %.1252447, %.0253
   br i1 %932, label %IDASensNlsIC.exit.thread338, label %.loopexit346
 
@@ -1679,7 +1679,7 @@ IDASensNewtonIC.exit.i:                           ; preds = %895, %.preheader59.
   %947 = load i32, ptr %161, align 4, !tbaa !29
   %948 = sext i32 %947 to i64
   %949 = icmp slt i64 %indvars.iv.next532, %948
-  br i1 %949, label %.lr.ph445, label %.loopexit346, !llvm.loop !114
+  br i1 %949, label %.lr.ph445, label %.loopexit346, !llvm.loop !113
 
 .loopexit346:                                     ; preds = %.lr.ph445, %.loopexit.thread, %.preheader
   %950 = fmul double %.7448, 1.000000e-01
@@ -1721,12 +1721,12 @@ IDASensNlsIC.exit.thread334:                      ; preds = %770, %IDASensLineSr
   %970 = load i32, ptr %161, align 4, !tbaa !29
   %971 = sext i32 %970 to i64
   %972 = icmp slt i64 %indvars.iv.next535, %971
-  br i1 %972, label %.lr.ph453, label %._crit_edge454, !llvm.loop !100
+  br i1 %972, label %.lr.ph453, label %._crit_edge454, !llvm.loop !99
 
 ._crit_edge454:                                   ; preds = %.lr.ph453, %.preheader351
   %973 = add nuw nsw i32 %.1456, 1
   %exitcond537.not = icmp eq i32 %973, 3
-  br i1 %exitcond537.not, label %IDASensNlsIC.exit.thread338, label %.preheader352, !llvm.loop !115
+  br i1 %exitcond537.not, label %IDASensNlsIC.exit.thread338, label %.preheader352, !llvm.loop !98
 
 IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge454, %IDASensNlsIC.exit.thread334, %.loopexit.thread, %.loopexit, %._crit_edge454.us, %.preheader352.us, %.thread330
   %.5264 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ -24, %.preheader352.us ], [ 0, %._crit_edge454.us ], [ %.051.i.ph, %.loopexit ], [ 5, %.loopexit.thread ], [ -24, %IDASensNlsIC.exit.thread334 ], [ 0, %._crit_edge454 ]
@@ -1927,7 +1927,7 @@ define internal fastcc void @IDASensNewyyp(ptr noundef nonnull readonly captures
   %49 = load i32, ptr %6, align 4, !tbaa !29
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next42, %50
-  br i1 %51, label %22, label %.loopexit, !llvm.loop !116
+  br i1 %51, label %22, label %.loopexit, !llvm.loop !114
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
@@ -1945,7 +1945,7 @@ define internal fastcc void @IDASensNewyyp(ptr noundef nonnull readonly captures
   %62 = load i32, ptr %6, align 4, !tbaa !29
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %52, label %.loopexit, !llvm.loop !117
+  br i1 %64, label %52, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %52, %22, %.preheader34, %.preheader
   ret void
@@ -2058,23 +2058,21 @@ attributes #3 = { nounwind }
 !95 = distinct !{!95, !34}
 !96 = distinct !{!96, !34}
 !97 = !{!4, !5, i64 1672}
-!98 = distinct !{!98, !34, !99}
-!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!98 = distinct !{!98, !34}
+!99 = distinct !{!99, !34}
 !100 = distinct !{!100, !34}
 !101 = distinct !{!101, !34}
-!102 = distinct !{!102, !34}
-!103 = !{!4, !14, i64 1440}
+!102 = !{!4, !14, i64 1440}
+!103 = distinct !{!103, !34}
 !104 = distinct !{!104, !34}
 !105 = distinct !{!105, !34}
 !106 = distinct !{!106, !34}
 !107 = distinct !{!107, !34}
 !108 = distinct !{!108, !34}
 !109 = distinct !{!109, !34}
-!110 = distinct !{!110, !34}
-!111 = !{!4, !14, i64 1456}
-!112 = distinct !{!112, !34}
-!113 = !{!4, !14, i64 1392}
+!110 = !{!4, !14, i64 1456}
+!111 = distinct !{!111, !34}
+!112 = !{!4, !14, i64 1392}
+!113 = distinct !{!113, !34}
 !114 = distinct !{!114, !34}
 !115 = distinct !{!115, !34}
-!116 = distinct !{!116, !34}
-!117 = distinct !{!117, !34}

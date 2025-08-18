@@ -3358,7 +3358,7 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   store i32 %.sroa.0.0.insert.insert40.i.i, ptr %98, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %97, !llvm.loop !53
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %97, !llvm.loop !52
 
 .loopexit.i.i:                                    ; preds = %97, %94, %81
   %.not54.i.i = icmp eq i32 %.073.lcssa, %85
@@ -3399,13 +3399,13 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   %118 = getelementptr inbounds nuw %struct.HUFv07_DEltX4, ptr %87, i64 %117
   store i32 %.sroa.0.0.insert.insert.i.reass.i, ptr %118, align 2
   %119 = icmp ult i32 %116, %111
-  br i1 %119, label %115, label %120, !llvm.loop !54
+  br i1 %119, label %115, label %120, !llvm.loop !53
 
 120:                                              ; preds = %115
   store i32 %111, ptr %109, align 4, !tbaa !3
   %indvars.iv.next57.i.i = add nuw nsw i64 %indvars.iv56.i.i, 1
   %exitcond60.not.i.i = icmp eq i64 %indvars.iv.next57.i.i, %wide.trip.count59.i.i
-  br i1 %exitcond60.not.i.i, label %HUFv07_fillDTableX4Level2.exit.i, label %.lr.ph53.i.i, !llvm.loop !55
+  br i1 %exitcond60.not.i.i, label %HUFv07_fillDTableX4Level2.exit.i, label %.lr.ph53.i.i, !llvm.loop !54
 
 HUFv07_fillDTableX4Level2.exit.i:                 ; preds = %120, %.loopexit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3432,14 +3432,14 @@ HUFv07_fillDTableX4Level2.exit.i:                 ; preds = %120, %.loopexit.i.i
   store i32 %.sroa.0.0.insert.insert.i, ptr %126, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %125, !llvm.loop !56
+  br i1 %exitcond.not.i, label %.loopexit.i, label %125, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %125, %121, %HUFv07_fillDTableX4Level2.exit.i
   %.pre-phi.i = phi i32 [ %122, %121 ], [ %.pre.i, %HUFv07_fillDTableX4Level2.exit.i ], [ %122, %125 ]
   store i32 %.pre-phi.i, ptr %77, align 4, !tbaa !3
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count61.i
-  br i1 %exitcond62.not.i, label %HUFv07_fillDTableX4.exit, label %.lr.ph55.i, !llvm.loop !57
+  br i1 %exitcond62.not.i, label %HUFv07_fillDTableX4.exit, label %.lr.ph55.i, !llvm.loop !56
 
 HUFv07_fillDTableX4.exit:                         ; preds = %.loopexit.i, %._crit_edge98
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4589,7 +4589,7 @@ BITv07_reloadDStream.exit254:                     ; preds = %597, %BITv07_reload
   %615 = icmp eq i32 %614, 0
   %616 = icmp ult ptr %508, %252
   %617 = select i1 %615, i1 %616, i1 false
-  br i1 %617, label %280, label %._crit_edge, !llvm.loop !58
+  br i1 %617, label %280, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %BITv07_reloadDStream.exit254
   store i32 %.val9.i313, ptr %256, align 8, !tbaa !41
@@ -4774,15 +4774,15 @@ define range(i32 0, 2) i32 @HUFv07_selectDecoder(i64 noundef %0, i64 noundef %1)
   %6 = trunc i64 %5 to i32
   %7 = and i64 %4, 4294967295
   %8 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 8, !tbaa !59
+  %9 = load i32, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !61
+  %11 = load i32, ptr %10, align 4, !tbaa !60
   %12 = mul i32 %11, %6
   %13 = add i32 %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !59
+  %15 = load i32, ptr %14, align 8, !tbaa !58
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !61
+  %17 = load i32, ptr %16, align 4, !tbaa !60
   %18 = mul i32 %17, %6
   %19 = add i32 %18, %15
   %20 = lshr i32 %19, 3
@@ -4825,15 +4825,15 @@ define i64 @HUFv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %19 = trunc i64 %18 to i32
   %20 = and i64 %17, 4294967295
   %21 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 8, !tbaa !59
+  %22 = load i32, ptr %21, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !61
+  %24 = load i32, ptr %23, align 4, !tbaa !60
   %25 = mul i32 %24, %19
   %26 = add i32 %25, %22
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !59
+  %28 = load i32, ptr %27, align 8, !tbaa !58
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !61
+  %30 = load i32, ptr %29, align 4, !tbaa !60
   %31 = mul i32 %30, %19
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 3
@@ -4841,7 +4841,7 @@ define i64 @HUFv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %35 = icmp ult i32 %34, %26
   %36 = zext i1 %35 to i64
   %37 = getelementptr inbounds nuw [2 x ptr], ptr @HUFv07_decompress.decompress, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !62
+  %38 = load ptr, ptr %37, align 8, !tbaa !61
   %39 = tail call i64 %38(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #26
   br label %40
 
@@ -4883,15 +4883,15 @@ define i64 @HUFv07_decompress4X_DCtx(ptr noundef %0, ptr noundef %1, i64 noundef
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
   %22 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 8, !tbaa !59
+  %23 = load i32, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !61
+  %25 = load i32, ptr %24, align 4, !tbaa !60
   %26 = mul i32 %25, %20
   %27 = add i32 %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !59
+  %29 = load i32, ptr %28, align 8, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !61
+  %31 = load i32, ptr %30, align 4, !tbaa !60
   %32 = mul i32 %31, %20
   %33 = add i32 %32, %29
   %34 = lshr i32 %33, 3
@@ -4952,15 +4952,15 @@ define i64 @HUFv07_decompress4X_hufOnly(ptr noundef %0, ptr noundef %1, i64 noun
   %14 = trunc i64 %13 to i32
   %15 = and i64 %12, 4294967295
   %16 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %15
-  %17 = load i32, ptr %16, align 8, !tbaa !59
+  %17 = load i32, ptr %16, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !61
+  %19 = load i32, ptr %18, align 4, !tbaa !60
   %20 = mul i32 %19, %14
   %21 = add i32 %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !59
+  %23 = load i32, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !61
+  %25 = load i32, ptr %24, align 4, !tbaa !60
   %26 = mul i32 %25, %14
   %27 = add i32 %26, %23
   %28 = lshr i32 %27, 3
@@ -5036,15 +5036,15 @@ define i64 @HUFv07_decompress1X_DCtx(ptr noundef captures(none) %0, ptr noundef 
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
   %22 = getelementptr inbounds nuw [16 x [3 x %struct.algo_time_t]], ptr @algoTime, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 8, !tbaa !59
+  %23 = load i32, ptr %22, align 8, !tbaa !58
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !61
+  %25 = load i32, ptr %24, align 4, !tbaa !60
   %26 = mul i32 %25, %20
   %27 = add i32 %26, %23
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !59
+  %29 = load i32, ptr %28, align 8, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !61
+  %31 = load i32, ptr %30, align 4, !tbaa !60
   %32 = mul i32 %31, %20
   %33 = add i32 %32, %29
   %34 = lshr i32 %33, 3
@@ -5134,19 +5134,19 @@ define noundef i64 @ZSTDv07_estimateDCtxSize() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @ZSTDv07_decompressBegin(ptr noundef writeonly captures(none) initializes((5132, 5136), (21520, 21572), (21604, 21616), (21712, 21716)) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21552
-  store i64 5, ptr %2, align 8, !tbaa !63
+  store i64 5, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 21604
-  store i32 0, ptr %3, align 4, !tbaa !69
+  store i32 0, ptr %3, align 4, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 21520
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21612
-  store i32 0, ptr %6, align 4, !tbaa !70
+  store i32 0, ptr %6, align 4, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 21608
-  store i32 0, ptr %7, align 8, !tbaa !71
+  store i32 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 21712
-  store i32 0, ptr %8, align 8, !tbaa !72
+  store i32 0, ptr %8, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   ret i64 0
@@ -5154,7 +5154,7 @@ define noundef i64 @ZSTDv07_decompressBegin(ptr noundef writeonly captures(none)
 
 ; Function Attrs: nounwind uwtable
 define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_customMem) align 8 captures(none) %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %3 = icmp ne ptr %2, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -5163,7 +5163,7 @@ define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custom
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @defaultCustomMem, i64 24, i1 false), !tbaa.struct !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @defaultCustomMem, i64 24, i1 false), !tbaa.struct !73
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -5176,7 +5176,7 @@ define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custom
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !75
+  %15 = load ptr, ptr %14, align 8, !tbaa !74
   %16 = tail call ptr %10(ptr noundef %15, i64 noundef 152864) #26
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %27, label %17
@@ -5185,19 +5185,19 @@ define ptr @ZSTDv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custom
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 21728
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 21552
-  store i64 5, ptr %19, align 8, !tbaa !63
+  store i64 5, ptr %19, align 8, !tbaa !62
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 21604
-  store i32 0, ptr %20, align 4, !tbaa !69
+  store i32 0, ptr %20, align 4, !tbaa !68
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 21520
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %22, align 4, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 21612
-  store i32 0, ptr %23, align 4, !tbaa !70
+  store i32 0, ptr %23, align 4, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 21608
-  store i32 0, ptr %24, align 8, !tbaa !71
+  store i32 0, ptr %24, align 8, !tbaa !70
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 21712
-  store i32 0, ptr %25, align 8, !tbaa !72
+  store i32 0, ptr %25, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %26, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   br label %27
@@ -5221,19 +5221,19 @@ define noalias noundef ptr @ZSTDv07_createDCtx() local_unnamed_addr #13 {
   %defaultCustomMem.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 21744
   store ptr null, ptr %defaultCustomMem.sroa.7.0..sroa_idx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 21552
-  store i64 5, ptr %4, align 8, !tbaa !63
+  store i64 5, ptr %4, align 8, !tbaa !62
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 21604
-  store i32 0, ptr %5, align 4, !tbaa !69
+  store i32 0, ptr %5, align 4, !tbaa !68
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 21520
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %7, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 21612
-  store i32 0, ptr %8, align 4, !tbaa !70
+  store i32 0, ptr %8, align 4, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 21608
-  store i32 0, ptr %9, align 8, !tbaa !71
+  store i32 0, ptr %9, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 21712
-  store i32 0, ptr %10, align 8, !tbaa !72
+  store i32 0, ptr %10, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   br label %ZSTDv07_createDCtx_advanced.exit
@@ -5249,9 +5249,9 @@ define noundef i64 @ZSTDv07_freeDCtx(ptr noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 21736
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21744
-  %7 = load ptr, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
   tail call void %5(ptr noundef %7, ptr noundef nonnull %0) #26
   br label %8
 
@@ -5289,7 +5289,7 @@ define range(i64 5, 1) i64 @ZSTDv07_getFrameParams(ptr noundef writeonly capture
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val85 = load i32, ptr %12, align 1
   %13 = zext i32 %.val85 to i64
-  store i64 %13, ptr %0, align 8, !tbaa !78
+  store i64 %13, ptr %0, align 8, !tbaa !77
   br label %.thread94.sink.split
 
 14:                                               ; preds = %5
@@ -5302,10 +5302,10 @@ define range(i64 5, 1) i64 @ZSTDv07_getFrameParams(ptr noundef writeonly capture
   %.not.i = icmp ne i32 %19, 0
   %20 = zext nneg i32 %17 to i64
   %21 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !79
+  %22 = load i64, ptr %21, align 8, !tbaa !78
   %23 = zext nneg i32 %18 to i64
   %24 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %23
-  %25 = load i64, ptr %24, align 8, !tbaa !79
+  %25 = load i64, ptr %24, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val91, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
   %26 = zext i1 %narrow1.i to i64
@@ -5424,11 +5424,11 @@ default.unreachable:                              ; preds = %60, %47
   br i1 %77, label %.thread94, label %78
 
 78:                                               ; preds = %75
-  store i64 %.069, ptr %0, align 8, !tbaa !78
+  store i64 %.069, ptr %0, align 8, !tbaa !77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %spec.select, ptr %79, align 8, !tbaa !80
+  store i32 %spec.select, ptr %79, align 8, !tbaa !79
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.070, ptr %80, align 4, !tbaa !81
+  store i32 %.070, ptr %80, align 4, !tbaa !80
   br label %.thread94.sink.split
 
 .thread94.sink.split:                             ; preds = %11, %78
@@ -5458,29 +5458,29 @@ define i64 @ZSTDv07_getDecompressedSize(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @ZSTDv07_decompressBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
   %.not.i = icmp eq ptr %1, %7
   br i1 %.not.i, label %ZSTDv07_checkContinuity.exit, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %7, ptr %9, align 8, !tbaa !83
+  store ptr %7, ptr %9, align 8, !tbaa !82
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %11 = load ptr, ptr %10, align 8, !tbaa !84
+  %11 = load ptr, ptr %10, align 8, !tbaa !83
   %12 = ptrtoint ptr %7 to i64
   %13 = ptrtoint ptr %11 to i64
   %.neg.i = sub i64 %13, %12
   %14 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %14, ptr %15, align 8, !tbaa !85
-  store ptr %1, ptr %10, align 8, !tbaa !84
-  store ptr %1, ptr %6, align 8, !tbaa !82
+  store ptr %14, ptr %15, align 8, !tbaa !84
+  store ptr %1, ptr %10, align 8, !tbaa !83
+  store ptr %1, ptr %6, align 8, !tbaa !81
   br label %ZSTDv07_checkContinuity.exit
 
 ZSTDv07_checkContinuity.exit:                     ; preds = %5, %8
   %16 = tail call fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
-  store ptr %17, ptr %6, align 8, !tbaa !82
+  store ptr %17, ptr %6, align 8, !tbaa !81
   ret i64 %16
 }
 
@@ -5632,11 +5632,11 @@ define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %0, ptr
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 21760
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 21720
-  store ptr %105, ptr %106, align 8, !tbaa !86
+  store ptr %105, ptr %106, align 8, !tbaa !85
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 21752
-  store i64 %.0131154162171.i, ptr %107, align 8, !tbaa !87
+  store i64 %.0131154162171.i, ptr %107, align 8, !tbaa !86
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 21608
-  store i32 1, ptr %108, align 8, !tbaa !71
+  store i32 1, ptr %108, align 8, !tbaa !70
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 %.0131154162171.i
   store i64 0, ptr %109, align 1
   br label %220
@@ -5648,7 +5648,7 @@ define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %0, ptr
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 21608
-  %114 = load i32, ptr %113, align 8, !tbaa !71
+  %114 = load i32, ptr %113, align 8, !tbaa !70
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %ZSTDv07_decompressSequences.exit, label %116
 
@@ -5688,9 +5688,9 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
 
 141:                                              ; preds = %HUFv07_decompress1X4_usingDTable.exit.i
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 21720
-  store ptr %135, ptr %142, align 8, !tbaa !86
+  store ptr %135, ptr %142, align 8, !tbaa !85
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 21752
-  store i64 %124, ptr %143, align 8, !tbaa !87
+  store i64 %124, ptr %143, align 8, !tbaa !86
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 %124
   store i64 0, ptr %144, align 1
   br label %220
@@ -5748,9 +5748,9 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 %.0127.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %176, ptr nonnull align 1 %177, i64 %.0128.i, i1 false)
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 21720
-  store ptr %176, ptr %178, align 8, !tbaa !86
+  store ptr %176, ptr %178, align 8, !tbaa !85
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 21752
-  store i64 %.0128.i, ptr %179, align 8, !tbaa !87
+  store i64 %.0128.i, ptr %179, align 8, !tbaa !86
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 %.0128.i
   store i64 0, ptr %180, align 1
   br label %220
@@ -5758,9 +5758,9 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
 181:                                              ; preds = %169
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 %.0127.i
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 21720
-  store ptr %182, ptr %183, align 8, !tbaa !86
+  store ptr %182, ptr %183, align 8, !tbaa !85
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 21752
-  store i64 %.0128.i, ptr %184, align 8, !tbaa !87
+  store i64 %.0128.i, ptr %184, align 8, !tbaa !86
   br label %220
 
 185:                                              ; preds = %21
@@ -5812,9 +5812,9 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
   %215 = add nuw nsw i64 %.0126.i, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %211, i8 %214, i64 %215, i1 false)
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 21720
-  store ptr %211, ptr %216, align 8, !tbaa !86
+  store ptr %211, ptr %216, align 8, !tbaa !85
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 21752
-  store i64 %.0126.i, ptr %217, align 8, !tbaa !87
+  store i64 %.0126.i, ptr %217, align 8, !tbaa !86
   %218 = add nuw nsw i32 %.0181.i, 1
   %219 = zext nneg i32 %218 to i64
   br label %220
@@ -5834,13 +5834,13 @@ default.unreachable:                              ; preds = %ZSTDv07_buildSeqTab
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2052
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %231 = load ptr, ptr %230, align 8, !tbaa !84
+  %231 = load ptr, ptr %230, align 8, !tbaa !83
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  %233 = load ptr, ptr %232, align 8, !tbaa !85
+  %233 = load ptr, ptr %232, align 8, !tbaa !84
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  %235 = load ptr, ptr %234, align 8, !tbaa !83
+  %235 = load ptr, ptr %234, align 8, !tbaa !82
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 21612
-  %237 = load i32, ptr %236, align 4, !tbaa !70
+  %237 = load i32, ptr %236, align 4, !tbaa !69
   %238 = icmp eq i64 %4, %.0129.i
   br i1 %238, label %ZSTDv07_decompressSequences.exit, label %239
 
@@ -6369,7 +6369,7 @@ ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread163.sink.spl
 
 434:                                              ; preds = %433
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i32 1, ptr %236, align 4, !tbaa !70
+  store i32 1, ptr %236, align 4, !tbaa !69
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 21560
   %436 = getelementptr inbounds nuw i8, ptr %17, i64 80
   br label %437
@@ -6380,10 +6380,10 @@ ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread163.sink.spl
   %439 = load i32, ptr %438, align 4, !tbaa !3
   %440 = zext i32 %439 to i64
   %441 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %indvars.iv.i
-  store i64 %440, ptr %441, align 8, !tbaa !79
+  store i64 %440, ptr %441, align 8, !tbaa !78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %442, label %437, !llvm.loop !88
+  br i1 %exitcond.not.i, label %442, label %437, !llvm.loop !87
 
 442:                                              ; preds = %437
   %443 = sub i64 %273, %428
@@ -6521,7 +6521,7 @@ BITv07_initDStream.exit.i:                        ; preds = %448
   %522 = zext nneg i32 %521 to i64
   %523 = lshr i64 %519, %522
   %524 = add nuw nsw i32 %.val4.i.i.i, %514
-  store i64 %523, ptr %512, align 8, !tbaa !89
+  store i64 %523, ptr %512, align 8, !tbaa !88
   %525 = icmp samesign ugt i32 %524, 64
   br i1 %525, label %FSEv07_initDState.exit.i, label %526
 
@@ -6576,7 +6576,7 @@ FSEv07_initDState.exit.i:                         ; preds = %BITv07_reloadDStrea
   %.ptr232.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx230.i
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %547 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr %546, ptr %547, align 8, !tbaa !91
+  store ptr %546, ptr %547, align 8, !tbaa !90
   %548 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %549 = load i16, ptr %229, align 2, !tbaa !26
   %550 = zext i16 %549 to i32
@@ -6589,7 +6589,7 @@ FSEv07_initDState.exit.i:                         ; preds = %BITv07_reloadDStrea
   %557 = zext nneg i32 %556 to i64
   %558 = lshr i64 %554, %557
   %559 = add i32 %.val4.i.i98.i, %550
-  store i64 %558, ptr %548, align 8, !tbaa !89
+  store i64 %558, ptr %548, align 8, !tbaa !88
   %560 = icmp ugt i32 %559, 64
   br i1 %560, label %FSEv07_initDState.exit104.i, label %561
 
@@ -6644,7 +6644,7 @@ FSEv07_initDState.exit104.i:                      ; preds = %BITv07_reloadDStrea
   %.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx235.i
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %582 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store ptr %581, ptr %582, align 8, !tbaa !91
+  store ptr %581, ptr %582, align 8, !tbaa !90
   %583 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %584 = load i16, ptr %228, align 2, !tbaa !26
   %585 = zext i16 %584 to i32
@@ -6658,7 +6658,7 @@ FSEv07_initDState.exit104.i:                      ; preds = %BITv07_reloadDStrea
   %593 = lshr i64 %589, %592
   %594 = add i32 %.val4.i.i106.i, %585
   store i32 %594, ptr %515, align 8, !tbaa !41
-  store i64 %593, ptr %583, align 8, !tbaa !89
+  store i64 %593, ptr %583, align 8, !tbaa !88
   %595 = icmp ugt i32 %594, 64
   br i1 %595, label %FSEv07_initDState.exit112.i, label %596
 
@@ -6709,7 +6709,7 @@ BITv07_reloadDStream.exit.sink.split.i108.i:      ; preds = %606, %598
 FSEv07_initDState.exit112.i:                      ; preds = %BITv07_reloadDStream.exit.sink.split.i108.i, %604, %FSEv07_initDState.exit104.i
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 3084
   %621 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store ptr %620, ptr %621, align 8, !tbaa !91
+  store ptr %620, ptr %621, align 8, !tbaa !90
   %622 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %623 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %624 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -6792,25 +6792,25 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 
 663:                                              ; preds = %BITv07_reloadDStream.exit.i
   %664 = add nsw i32 %.0142.i, -1
-  %.val.i116.i = load i64, ptr %512, align 8, !tbaa !89, !noalias !92
-  %.val59.i.i = load ptr, ptr %547, align 8, !tbaa !91, !noalias !92
+  %.val.i116.i = load i64, ptr %512, align 8, !tbaa !88, !noalias !91
+  %.val59.i.i = load ptr, ptr %547, align 8, !tbaa !90, !noalias !91
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val59.i.i, i64 %.val.i116.i, i32 1
-  %.sroa.3.0.copyload.i.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i.i, align 2, !tbaa !14, !noalias !92
-  %.val60.i.i = load i64, ptr %583, align 8, !tbaa !89, !noalias !92
-  %.val61.i.i = load ptr, ptr %621, align 8, !tbaa !91, !noalias !92
+  %.sroa.3.0.copyload.i.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i.i, align 2, !tbaa !14, !noalias !91
+  %.val60.i.i = load i64, ptr %583, align 8, !tbaa !88, !noalias !91
+  %.val61.i.i = load ptr, ptr %621, align 8, !tbaa !90, !noalias !91
   %.sroa.3.0..sroa_idx.i64.i.i = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val61.i.i, i64 %.val60.i.i, i32 1
-  %.sroa.3.0.copyload.i65.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i64.i.i, align 2, !tbaa !14, !noalias !92
-  %.val62.i.i = load i64, ptr %548, align 8, !tbaa !89, !noalias !92
-  %.val63.i.i = load ptr, ptr %582, align 8, !tbaa !91, !noalias !92
+  %.sroa.3.0.copyload.i65.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i64.i.i, align 2, !tbaa !14, !noalias !91
+  %.val62.i.i = load i64, ptr %548, align 8, !tbaa !88, !noalias !91
+  %.val63.i.i = load ptr, ptr %582, align 8, !tbaa !90, !noalias !91
   %.sroa.3.0..sroa_idx.i66.i.i = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val63.i.i, i64 %.val62.i.i, i32 1
-  %.sroa.3.0.copyload.i67.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i66.i.i, align 2, !tbaa !14, !noalias !92
+  %.sroa.3.0.copyload.i67.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i66.i.i, align 2, !tbaa !14, !noalias !91
   %665 = zext i8 %.sroa.3.0.copyload.i67.i.i to i32
   %666 = zext i8 %.sroa.3.0.copyload.i.i.i to i64
   %667 = getelementptr inbounds nuw [36 x i32], ptr @LL_bits, i64 0, i64 %666
-  %668 = load i32, ptr %667, align 4, !tbaa !3, !noalias !92
+  %668 = load i32, ptr %667, align 4, !tbaa !3, !noalias !91
   %669 = zext i8 %.sroa.3.0.copyload.i65.i.i to i64
   %670 = getelementptr inbounds nuw [53 x i32], ptr @ML_bits, i64 0, i64 %669
-  %671 = load i32, ptr %670, align 4, !tbaa !3, !noalias !92
+  %671 = load i32, ptr %670, align 4, !tbaa !3, !noalias !91
   %672 = add i32 %668, %665
   %673 = add i32 %672, %671
   %.not.i117.i = icmp eq i8 %.sroa.3.0.copyload.i67.i.i, 0
@@ -6819,9 +6819,9 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 674:                                              ; preds = %663
   %675 = zext i8 %.sroa.3.0.copyload.i67.i.i to i64
   %676 = getelementptr inbounds nuw [29 x i32], ptr @ZSTDv07_decodeSequence.OF_base, i64 0, i64 %675
-  %677 = load i32, ptr %676, align 4, !tbaa !3, !noalias !92
+  %677 = load i32, ptr %676, align 4, !tbaa !3, !noalias !91
   %678 = zext i32 %677 to i64
-  %.val.i.i118.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !92
+  %.val.i.i118.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !91
   %679 = and i32 %.val4.i.i119.i, 63
   %680 = zext nneg i32 %679 to i64
   %681 = shl i64 %.val.i.i118.i, %680
@@ -6848,44 +6848,44 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 
 694:                                              ; preds = %.thread.i123.i
   %695 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %spec.select.i.i
-  %696 = load i64, ptr %695, align 8, !tbaa !79, !noalias !92
+  %696 = load i64, ptr %695, align 8, !tbaa !78, !noalias !91
   %.not58.i.i = icmp eq i64 %spec.select.i.i, 1
   br i1 %.not58.i.i, label %699, label %697
 
 697:                                              ; preds = %694
-  %698 = load i64, ptr %623, align 8, !tbaa !79, !noalias !92
-  store i64 %698, ptr %624, align 8, !tbaa !79, !noalias !92
+  %698 = load i64, ptr %623, align 8, !tbaa !78, !noalias !91
+  store i64 %698, ptr %624, align 8, !tbaa !78, !noalias !91
   br label %699
 
 699:                                              ; preds = %697, %694
-  %700 = load i64, ptr %436, align 8, !tbaa !79, !noalias !92
-  store i64 %700, ptr %623, align 8, !tbaa !79, !noalias !92
-  store i64 %696, ptr %436, align 8, !tbaa !79, !noalias !92
+  %700 = load i64, ptr %436, align 8, !tbaa !78, !noalias !91
+  store i64 %700, ptr %623, align 8, !tbaa !78, !noalias !91
+  store i64 %696, ptr %436, align 8, !tbaa !78, !noalias !91
   br label %706
 
 701:                                              ; preds = %.thread.i123.i
-  %702 = load i64, ptr %436, align 8, !tbaa !79, !noalias !92
+  %702 = load i64, ptr %436, align 8, !tbaa !78, !noalias !91
   br label %706
 
 703:                                              ; preds = %674
-  %704 = load i64, ptr %623, align 8, !tbaa !79, !noalias !92
-  store i64 %704, ptr %624, align 8, !tbaa !79, !noalias !92
-  %705 = load i64, ptr %436, align 8, !tbaa !79, !noalias !92
-  store i64 %705, ptr %623, align 8, !tbaa !79, !noalias !92
-  store i64 %688, ptr %436, align 8, !tbaa !79, !noalias !92
+  %704 = load i64, ptr %623, align 8, !tbaa !78, !noalias !91
+  store i64 %704, ptr %624, align 8, !tbaa !78, !noalias !91
+  %705 = load i64, ptr %436, align 8, !tbaa !78, !noalias !91
+  store i64 %705, ptr %623, align 8, !tbaa !78, !noalias !91
+  store i64 %688, ptr %436, align 8, !tbaa !78, !noalias !91
   br label %706
 
 706:                                              ; preds = %703, %701, %699
   %.val4.i69.i.i = phi i32 [ %.val4.i69.i226.i, %699 ], [ %.val4.i69.i226.i, %701 ], [ %687, %703 ]
   %.2.i.i = phi i64 [ %696, %699 ], [ %702, %701 ], [ %688, %703 ]
   %707 = getelementptr inbounds nuw [53 x i32], ptr @ZSTDv07_decodeSequence.ML_base, i64 0, i64 %669
-  %708 = load i32, ptr %707, align 4, !tbaa !3, !noalias !92
+  %708 = load i32, ptr %707, align 4, !tbaa !3, !noalias !91
   %709 = zext i32 %708 to i64
   %710 = icmp ugt i8 %.sroa.3.0.copyload.i65.i.i, 31
   br i1 %710, label %711, label %721
 
 711:                                              ; preds = %706
-  %.val.i68.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !92
+  %.val.i68.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !91
   %712 = and i32 %.val4.i69.i.i, 63
   %713 = zext nneg i32 %712 to i64
   %714 = shl i64 %.val.i68.i.i, %713
@@ -6902,13 +6902,13 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   %722 = phi i64 [ %719, %711 ], [ 0, %706 ]
   %723 = add nuw i64 %722, %709
   %724 = getelementptr inbounds nuw [36 x i32], ptr @ZSTDv07_decodeSequence.LL_base, i64 0, i64 %666
-  %725 = load i32, ptr %724, align 4, !tbaa !3, !noalias !92
+  %725 = load i32, ptr %724, align 4, !tbaa !3, !noalias !91
   %726 = zext i32 %725 to i64
   %727 = icmp ugt i8 %.sroa.3.0.copyload.i.i.i, 15
   br i1 %727, label %728, label %738
 
 728:                                              ; preds = %721
-  %.val.i70.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !92
+  %.val.i70.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !91
   %729 = and i32 %.val4.i71.i.i, 63
   %730 = zext nneg i32 %729 to i64
   %731 = shl i64 %.val.i70.i.i, %730
@@ -6938,7 +6938,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   %747 = zext nneg i32 %746 to i64
   %748 = sub nsw i64 0, %747
   %749 = getelementptr inbounds i8, ptr %662, i64 %748
-  store ptr %749, ptr %622, align 8, !tbaa !39, !noalias !92
+  store ptr %749, ptr %622, align 8, !tbaa !39, !noalias !91
   %750 = and i32 %739, 7
   br label %BITv07_reloadDStream.exit.sink.split.i121.i
 
@@ -6960,7 +6960,7 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
   %763 = zext i32 %.024.i.i122.i to i64
   %764 = sub nsw i64 0, %763
   %765 = getelementptr inbounds i8, ptr %662, i64 %764
-  store ptr %765, ptr %622, align 8, !tbaa !39, !noalias !92
+  store ptr %765, ptr %622, align 8, !tbaa !39, !noalias !91
   %766 = shl i32 %.024.i.i122.i, 3
   %767 = sub i32 %739, %766
   br label %BITv07_reloadDStream.exit.sink.split.i121.i
@@ -6968,19 +6968,19 @@ BITv07_reloadDStream.exit.i:                      ; preds = %BITv07_reloadDStrea
 BITv07_reloadDStream.exit.sink.split.i121.i:      ; preds = %753, %745
   %storemerge186.i = phi i32 [ %750, %745 ], [ %767, %753 ]
   %.val30.i.sink.in.i.i = phi ptr [ %749, %745 ], [ %765, %753 ]
-  store i32 %storemerge186.i, ptr %515, align 8, !tbaa !41, !noalias !92
-  %.val30.i.sink.i.i = load i64, ptr %.val30.i.sink.in.i.i, align 1, !noalias !92
-  store i64 %.val30.i.sink.i.i, ptr %17, align 8, !tbaa !40, !noalias !92
+  store i32 %storemerge186.i, ptr %515, align 8, !tbaa !41, !noalias !91
+  %.val30.i.sink.i.i = load i64, ptr %.val30.i.sink.in.i.i, align 1, !noalias !91
+  store i64 %.val30.i.sink.i.i, ptr %17, align 8, !tbaa !40, !noalias !91
   br label %ZSTDv07_decodeSequence.exit.i
 
 ZSTDv07_decodeSequence.exit.i:                    ; preds = %BITv07_reloadDStream.exit.sink.split.i121.i, %751, %738
   %.val4.i.i.i.i = phi i32 [ %739, %751 ], [ %739, %738 ], [ %storemerge186.i, %BITv07_reloadDStream.exit.sink.split.i121.i ]
   %768 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val59.i.i, i64 %.val.i116.i
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %768, align 2, !tbaa !10, !noalias !92
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %768, align 2, !tbaa !10, !noalias !91
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %768, i64 3
-  %.sroa.42.0.copyload.i.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i.i, align 1, !tbaa !14, !noalias !92
+  %.sroa.42.0.copyload.i.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i.i.i, align 1, !tbaa !14, !noalias !91
   %769 = zext i8 %.sroa.42.0.copyload.i.i.i to i32
-  %.val.i.i.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !92
+  %.val.i.i.i.i = load i64, ptr %17, align 8, !tbaa !40, !noalias !91
   %770 = and i32 %.val4.i.i.i.i, 63
   %771 = zext nneg i32 %770 to i64
   %772 = shl i64 %.val.i.i.i.i, %771
@@ -6992,11 +6992,11 @@ ZSTDv07_decodeSequence.exit.i:                    ; preds = %BITv07_reloadDStrea
   %778 = add i32 %.val4.i.i.i.i, %769
   %779 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
   %780 = add nuw i64 %777, %779
-  store i64 %780, ptr %512, align 8, !tbaa !89, !noalias !92
+  store i64 %780, ptr %512, align 8, !tbaa !88, !noalias !91
   %781 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val61.i.i, i64 %.val60.i.i
-  %.sroa.0.0.copyload.i73.i.i = load i16, ptr %781, align 2, !tbaa !10, !noalias !92
+  %.sroa.0.0.copyload.i73.i.i = load i16, ptr %781, align 2, !tbaa !10, !noalias !91
   %.sroa.42.0..sroa_idx.i74.i.i = getelementptr inbounds nuw i8, ptr %781, i64 3
-  %.sroa.42.0.copyload.i75.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i74.i.i, align 1, !tbaa !14, !noalias !92
+  %.sroa.42.0.copyload.i75.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i74.i.i, align 1, !tbaa !14, !noalias !91
   %782 = zext i8 %.sroa.42.0.copyload.i75.i.i to i32
   %783 = and i32 %778, 63
   %784 = zext nneg i32 %783 to i64
@@ -7009,11 +7009,11 @@ ZSTDv07_decodeSequence.exit.i:                    ; preds = %BITv07_reloadDStrea
   %791 = add i32 %778, %782
   %792 = zext i16 %.sroa.0.0.copyload.i73.i.i to i64
   %793 = add nuw i64 %790, %792
-  store i64 %793, ptr %583, align 8, !tbaa !89, !noalias !92
+  store i64 %793, ptr %583, align 8, !tbaa !88, !noalias !91
   %794 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %.val63.i.i, i64 %.val62.i.i
-  %.sroa.0.0.copyload.i78.i.i = load i16, ptr %794, align 2, !tbaa !10, !noalias !92
+  %.sroa.0.0.copyload.i78.i.i = load i16, ptr %794, align 2, !tbaa !10, !noalias !91
   %.sroa.42.0..sroa_idx.i79.i.i = getelementptr inbounds nuw i8, ptr %794, i64 3
-  %.sroa.42.0.copyload.i80.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i79.i.i, align 1, !tbaa !14, !noalias !92
+  %.sroa.42.0.copyload.i80.i.i = load i8, ptr %.sroa.42.0..sroa_idx.i79.i.i, align 1, !tbaa !14, !noalias !91
   %795 = zext i8 %.sroa.42.0.copyload.i80.i.i to i32
   %796 = and i32 %791, 63
   %797 = zext nneg i32 %796 to i64
@@ -7024,10 +7024,10 @@ ZSTDv07_decodeSequence.exit.i:                    ; preds = %BITv07_reloadDStrea
   %802 = zext nneg i32 %801 to i64
   %803 = lshr i64 %799, %802
   %804 = add i32 %791, %795
-  store i32 %804, ptr %515, align 8, !tbaa !41, !noalias !92
+  store i32 %804, ptr %515, align 8, !tbaa !41, !noalias !91
   %805 = zext i16 %.sroa.0.0.copyload.i78.i.i to i64
   %806 = add nuw i64 %803, %805
-  store i64 %806, ptr %548, align 8, !tbaa !89, !noalias !92
+  store i64 %806, ptr %548, align 8, !tbaa !88, !noalias !91
   %807 = getelementptr inbounds i8, ptr %.277.i, i64 %741
   %808 = add i64 %741, %723
   %809 = getelementptr inbounds nuw i8, ptr %.277.i, i64 %808
@@ -7056,7 +7056,7 @@ ZSTDv07_decodeSequence.exit.i:                    ; preds = %BITv07_reloadDStrea
   %822 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
   %823 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %824 = icmp ult ptr %822, %807
-  br i1 %824, label %.preheader117.i.i, label %ZSTDv07_wildcopy.exit.i.i, !llvm.loop !95
+  br i1 %824, label %.preheader117.i.i, label %ZSTDv07_wildcopy.exit.i.i, !llvm.loop !94
 
 ZSTDv07_wildcopy.exit.i.i:                        ; preds = %.preheader117.i.i
   %825 = ptrtoint ptr %807 to i64
@@ -7103,7 +7103,7 @@ ZSTDv07_wildcopy.exit.i.i:                        ; preds = %.preheader117.i.i
   %844 = getelementptr inbounds nuw i8, ptr %.186119.i.i, i64 1
   store i8 %843, ptr %.186119.i.i, align 1, !tbaa !14
   %845 = icmp ult ptr %844, %809
-  br i1 %845, label %.lr.ph.i.i, label %ZSTDv07_execSequence.exit.i, !llvm.loop !96
+  br i1 %845, label %.lr.ph.i.i, label %ZSTDv07_execSequence.exit.i, !llvm.loop !95
 
 .thread.i125.i:                                   ; preds = %836, %ZSTDv07_wildcopy.exit.i.i
   %846 = phi i64 [ %723, %ZSTDv07_wildcopy.exit.i.i ], [ %834, %836 ]
@@ -7165,7 +7165,7 @@ ZSTDv07_wildcopy.exit.i.i:                        ; preds = %.preheader117.i.i
   %876 = getelementptr inbounds nuw i8, ptr %.09.i105.i.i, i64 8
   %877 = getelementptr inbounds nuw i8, ptr %.0.i106.i.i, i64 8
   %878 = icmp ult ptr %876, %625
-  br i1 %878, label %.preheader188.i, label %ZSTDv07_wildcopy.exit108.i.i, !llvm.loop !95
+  br i1 %878, label %.preheader188.i, label %ZSTDv07_wildcopy.exit108.i.i, !llvm.loop !94
 
 ZSTDv07_wildcopy.exit108.i.i:                     ; preds = %.preheader188.i
   %879 = ptrtoint ptr %871 to i64
@@ -7187,7 +7187,7 @@ ZSTDv07_wildcopy.exit108.i.i:                     ; preds = %.preheader188.i
   %886 = getelementptr inbounds nuw i8, ptr %.4121.i.i, i64 1
   store i8 %885, ptr %.4121.i.i, align 1, !tbaa !14
   %887 = icmp ult ptr %886, %809
-  br i1 %887, label %.lr.ph122.i.i, label %ZSTDv07_execSequence.exit.i, !llvm.loop !97
+  br i1 %887, label %.lr.ph122.i.i, label %ZSTDv07_execSequence.exit.i, !llvm.loop !96
 
 888:                                              ; preds = %870
   %889 = getelementptr i8, ptr %.085.i.i, i64 %846
@@ -7201,22 +7201,22 @@ ZSTDv07_wildcopy.exit108.i.i:                     ; preds = %.preheader188.i
   %891 = getelementptr inbounds nuw i8, ptr %.09.i109.i.i, i64 8
   %892 = getelementptr inbounds nuw i8, ptr %.0.i110.i.i, i64 8
   %893 = icmp ult ptr %891, %889
-  br i1 %893, label %890, label %ZSTDv07_execSequence.exit.i, !llvm.loop !95
+  br i1 %893, label %890, label %ZSTDv07_execSequence.exit.i, !llvm.loop !94
 
 ZSTDv07_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %890, %.lr.ph122.i.i, %882, %.preheader.i.i, %835
   %894 = icmp ult i64 %808, -119
-  br i1 %894, label %632, label %.thread174.i, !llvm.loop !98
+  br i1 %894, label %632, label %.thread174.i, !llvm.loop !97
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %895 = getelementptr inbounds nuw [3 x i64], ptr %436, i64 0, i64 %indvars.iv213.i
-  %896 = load i64, ptr %895, align 8, !tbaa !79
+  %896 = load i64, ptr %895, align 8, !tbaa !78
   %897 = trunc i64 %896 to i32
   %898 = getelementptr inbounds nuw [3 x i32], ptr %435, i64 0, i64 %indvars.iv213.i
   store i32 %897, ptr %898, align 4, !tbaa !3
   %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
   %exitcond216.not.i = icmp eq i64 %indvars.iv.next214.i, 3
-  br i1 %exitcond216.not.i, label %899, label %.preheader.i, !llvm.loop !99
+  br i1 %exitcond216.not.i, label %899, label %.preheader.i, !llvm.loop !98
 
 .thread174.i:                                     ; preds = %ZSTDv07_execSequence.exit.i, %828, %818, %ZSTDv07_decodeSequence.exit.i, %BITv07_reloadDStream.exit.thread.i, %BITv07_initDStream.exit.i, %495, %448, %442
   %.4.ph.i = phi i64 [ -20, %BITv07_reloadDStream.exit.thread.i ], [ -20, %BITv07_initDStream.exit.i ], [ -20, %442 ], [ -20, %448 ], [ -20, %495 ], [ %808, %ZSTDv07_execSequence.exit.i ], [ -20, %828 ], [ -20, %818 ], [ -70, %ZSTDv07_decodeSequence.exit.i ]
@@ -7263,27 +7263,27 @@ ZSTDv07_decompressSequences.exit:                 ; preds = %.thread.i, %134, %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @ZSTDv07_insertBlock(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef returned %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  %5 = load ptr, ptr %4, align 8, !tbaa !82
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
   %.not.i = icmp eq ptr %1, %5
   br i1 %.not.i, label %ZSTDv07_checkContinuity.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %5, ptr %7, align 8, !tbaa !83
+  store ptr %5, ptr %7, align 8, !tbaa !82
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %9 = load ptr, ptr %8, align 8, !tbaa !84
+  %9 = load ptr, ptr %8, align 8, !tbaa !83
   %10 = ptrtoint ptr %5 to i64
   %11 = ptrtoint ptr %9 to i64
   %.neg.i = sub i64 %11, %10
   %12 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %12, ptr %13, align 8, !tbaa !85
-  store ptr %1, ptr %8, align 8, !tbaa !84
+  store ptr %12, ptr %13, align 8, !tbaa !84
+  store ptr %1, ptr %8, align 8, !tbaa !83
   br label %ZSTDv07_checkContinuity.exit
 
 ZSTDv07_checkContinuity.exit:                     ; preds = %3, %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  store ptr %14, ptr %4, align 8, !tbaa !82
+  store ptr %14, ptr %4, align 8, !tbaa !81
   ret i64 %2
 }
 
@@ -7291,23 +7291,23 @@ ZSTDv07_checkContinuity.exit:                     ; preds = %3, %6
 define i64 @ZSTDv07_decompress_usingDict(ptr noundef initializes((5132, 5136), (21520, 21572), (21604, 21616), (21712, 21716)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = tail call i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef %0, ptr noundef %5, i64 noundef %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  %10 = load ptr, ptr %9, align 8, !tbaa !82
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
   %.not.i = icmp eq ptr %1, %10
   br i1 %.not.i, label %ZSTDv07_checkContinuity.exit, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %10, ptr %12, align 8, !tbaa !83
+  store ptr %10, ptr %12, align 8, !tbaa !82
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
   %15 = ptrtoint ptr %10 to i64
   %16 = ptrtoint ptr %14 to i64
   %.neg.i = sub i64 %16, %15
   %17 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %17, ptr %18, align 8, !tbaa !85
-  store ptr %1, ptr %13, align 8, !tbaa !84
-  store ptr %1, ptr %9, align 8, !tbaa !82
+  store ptr %17, ptr %18, align 8, !tbaa !84
+  store ptr %1, ptr %13, align 8, !tbaa !83
+  store ptr %1, ptr %9, align 8, !tbaa !81
   br label %ZSTDv07_checkContinuity.exit
 
 ZSTDv07_checkContinuity.exit:                     ; preds = %7, %11
@@ -7327,19 +7327,19 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21552
-  store i64 5, ptr %13, align 8, !tbaa !63
+  store i64 5, ptr %13, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 21604
-  store i32 0, ptr %14, align 4, !tbaa !69
+  store i32 0, ptr %14, align 4, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 21520
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %16, align 4, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 21612
-  store i32 0, ptr %17, align 4, !tbaa !70
+  store i32 0, ptr %17, align 4, !tbaa !69
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 21608
-  store i32 0, ptr %18, align 8, !tbaa !71
+  store i32 0, ptr %18, align 8, !tbaa !70
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 21712
-  store i32 0, ptr %19, align 8, !tbaa !72
+  store i32 0, ptr %19, align 8, !tbaa !71
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   %21 = icmp ne ptr %1, null
@@ -7354,10 +7354,10 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 21528
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %1, ptr %27, align 8, !tbaa !85
-  store ptr %1, ptr %26, align 8, !tbaa !84
+  store ptr %1, ptr %27, align 8, !tbaa !84
+  store ptr %1, ptr %26, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  store ptr %28, ptr %15, align 8, !tbaa !82
+  store ptr %28, ptr %15, align 8, !tbaa !81
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 29:                                               ; preds = %23
@@ -7368,16 +7368,16 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 21528
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %1, ptr %32, align 8, !tbaa !85
-  store ptr %1, ptr %31, align 8, !tbaa !84
+  store ptr %1, ptr %32, align 8, !tbaa !84
+  store ptr %1, ptr %31, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  store ptr %33, ptr %15, align 8, !tbaa !82
+  store ptr %33, ptr %15, align 8, !tbaa !81
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val.i = load i32, ptr %35, align 1
-  store i32 %.val.i, ptr %19, align 8, !tbaa !72
+  store i32 %.val.i, ptr %19, align 8, !tbaa !71
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = add i64 %2, -8
   %38 = getelementptr i8, ptr %1, i64 %2
@@ -7520,8 +7520,8 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 ZSTDv07_loadEntropy.exit.i:                       ; preds = %90
-  store i32 1, ptr %17, align 4, !tbaa !70
-  store i32 1, ptr %18, align 8, !tbaa !71
+  store i32 1, ptr %17, align 4, !tbaa !69
+  store i32 1, ptr %18, align 8, !tbaa !70
   %95 = ptrtoint ptr %80 to i64
   %96 = ptrtoint ptr %36 to i64
   %97 = sub i64 %95, %96
@@ -7529,19 +7529,19 @@ ZSTDv07_loadEntropy.exit.i:                       ; preds = %90
   br i1 %98, label %99, label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 99:                                               ; preds = %ZSTDv07_loadEntropy.exit.i
-  %100 = load ptr, ptr %15, align 8, !tbaa !82
+  %100 = load ptr, ptr %15, align 8, !tbaa !81
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %100, ptr %101, align 8, !tbaa !83
+  store ptr %100, ptr %101, align 8, !tbaa !82
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %103 = load ptr, ptr %102, align 8, !tbaa !84
+  %103 = load ptr, ptr %102, align 8, !tbaa !83
   %104 = ptrtoint ptr %100 to i64
   %105 = ptrtoint ptr %103 to i64
   %.neg.i36.i = sub i64 %105, %104
   %106 = getelementptr inbounds i8, ptr %80, i64 %.neg.i36.i
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %106, ptr %107, align 8, !tbaa !85
-  store ptr %80, ptr %102, align 8, !tbaa !84
-  store ptr %38, ptr %15, align 8, !tbaa !82
+  store ptr %106, ptr %107, align 8, !tbaa !84
+  store ptr %80, ptr %102, align 8, !tbaa !83
+  store ptr %38, ptr %15, align 8, !tbaa !81
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 ZSTDv07_decompress_insertDictionary.exit.thread:  ; preds = %99, %30, %25, %90, %85, %82, %78, %.critedge98.i.i, %.critedge96.i.i, %.critedge.i.i, %34, %ZSTDv07_loadEntropy.exit.i, %3
@@ -7566,10 +7566,10 @@ define internal fastcc i64 @ZSTDv07_decompressFrame(ptr noundef %0, ptr noundef 
   %.not.i = icmp ne i32 %14, 0
   %15 = zext nneg i32 %12 to i64
   %16 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !79
+  %17 = load i64, ptr %16, align 8, !tbaa !78
   %18 = zext nneg i32 %13 to i64
   %19 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %18
-  %20 = load i64, ptr %19, align 8, !tbaa !79
+  %20 = load i64, ptr %19, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
   %21 = zext i1 %narrow1.i to i64
@@ -7591,19 +7591,19 @@ define internal fastcc i64 @ZSTDv07_decompressFrame(ptr noundef %0, ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 21576
   %32 = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %31, ptr noundef nonnull readonly %3, i64 noundef %25)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 21588
-  %34 = load i32, ptr %33, align 4, !tbaa !100
+  %34 = load i32, ptr %33, align 4, !tbaa !99
   %.not.i82 = icmp eq i32 %34, 0
   br i1 %.not.i82, label %38, label %35
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 21712
-  %37 = load i32, ptr %36, align 8, !tbaa !72
+  %37 = load i32, ptr %36, align 8, !tbaa !71
   %.not10.i83 = icmp eq i32 %37, %34
   br i1 %.not10.i83, label %38, label %.thread
 
 38:                                               ; preds = %35, %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 21592
-  %40 = load i32, ptr %39, align 8, !tbaa !101
+  %40 = load i32, ptr %39, align 8, !tbaa !100
   %.not11.i = icmp eq i32 %40, 0
   br i1 %.not11.i, label %ZSTDv07_decodeFrameHeader.exit, label %41
 
@@ -7708,7 +7708,7 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %38, %41
 
 .thread117:                                       ; preds = %77, %76, %83, %82, %84
   %.062.ph120 = phi i64 [ %85, %84 ], [ %.0.i84.ph, %77 ], [ 0, %76 ], [ %80, %83 ], [ 0, %82 ]
-  %87 = load i32, ptr %39, align 8, !tbaa !101
+  %87 = load i32, ptr %39, align 8, !tbaa !100
   %.not81 = icmp eq i32 %87, 0
   br i1 %.not81, label %90, label %88
 
@@ -7742,19 +7742,19 @@ default.unreachable169:                           ; preds = %71
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv07_decompressDCtx(ptr noundef initializes((5132, 5136), (21520, 21572), (21604, 21616), (21712, 21716)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21552
-  store i64 5, ptr %6, align 8, !tbaa !63
+  store i64 5, ptr %6, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 21604
-  store i32 0, ptr %7, align 4, !tbaa !69
+  store i32 0, ptr %7, align 4, !tbaa !68
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 21520
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %9, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 21612
-  store i32 0, ptr %10, align 4, !tbaa !70
+  store i32 0, ptr %10, align 4, !tbaa !69
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 21608
-  store i32 0, ptr %11, align 8, !tbaa !71
+  store i32 0, ptr %11, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 21712
-  store i32 0, ptr %12, align 8, !tbaa !72
+  store i32 0, ptr %12, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   %.not.i.i = icmp eq ptr %1, null
@@ -7763,9 +7763,9 @@ define i64 @ZSTDv07_decompressDCtx(ptr noundef initializes((5132, 5136), (21520,
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 21528
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %1, ptr %16, align 8, !tbaa !85
-  store ptr %1, ptr %15, align 8, !tbaa !84
-  store ptr %1, ptr %8, align 8, !tbaa !82
+  store ptr %1, ptr %16, align 8, !tbaa !84
+  store ptr %1, ptr %15, align 8, !tbaa !83
+  store ptr %1, ptr %8, align 8, !tbaa !81
   br label %ZSTDv07_decompress_usingDict.exit
 
 ZSTDv07_decompress_usingDict.exit:                ; preds = %5, %14
@@ -7794,13 +7794,13 @@ define i64 @ZSTDv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 21608
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 21712
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 21560
-  store i64 5, ptr %8, align 8, !tbaa !63
-  store i32 0, ptr %9, align 4, !tbaa !69
+  store i64 5, ptr %8, align 8, !tbaa !62
+  store i32 0, ptr %9, align 4, !tbaa !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %11, align 4, !tbaa !3
-  store i32 0, ptr %12, align 4, !tbaa !70
-  store i32 0, ptr %13, align 8, !tbaa !71
-  store i32 0, ptr %14, align 8, !tbaa !72
+  store i32 0, ptr %12, align 4, !tbaa !69
+  store i32 0, ptr %13, align 8, !tbaa !70
+  store i32 0, ptr %14, align 8, !tbaa !71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %ZSTDv07_freeDCtx.exit, label %16
@@ -7808,15 +7808,15 @@ define i64 @ZSTDv07_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 21528
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 21536
-  store ptr %0, ptr %18, align 8, !tbaa !85
-  store ptr %0, ptr %17, align 8, !tbaa !84
-  store ptr %0, ptr %10, align 8, !tbaa !82
+  store ptr %0, ptr %18, align 8, !tbaa !84
+  store ptr %0, ptr %17, align 8, !tbaa !83
+  store ptr %0, ptr %10, align 8, !tbaa !81
   br label %ZSTDv07_freeDCtx.exit
 
 ZSTDv07_freeDCtx.exit:                            ; preds = %6, %16
   %19 = tail call fastcc i64 @ZSTDv07_decompressFrame(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3)
-  %20 = load ptr, ptr %defaultCustomMem.sroa.6.0..sroa_idx.i, align 8, !tbaa !76
-  %21 = load ptr, ptr %defaultCustomMem.sroa.7.0..sroa_idx.i, align 8, !tbaa !77
+  %20 = load ptr, ptr %defaultCustomMem.sroa.6.0..sroa_idx.i, align 8, !tbaa !75
+  %21 = load ptr, ptr %defaultCustomMem.sroa.7.0..sroa_idx.i, align 8, !tbaa !76
   tail call void %20(ptr noundef %21, ptr noundef nonnull %5) #26
   br label %ZSTDv07_createDCtx.exit.thread
 
@@ -7831,7 +7831,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  store i64 -72, ptr %2, align 8, !tbaa !79
+  store i64 -72, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 7:                                                ; preds = %4
@@ -7844,10 +7844,10 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   %.not.i = icmp ne i32 %12, 0
   %13 = zext nneg i32 %10 to i64
   %14 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !79
+  %15 = load i64, ptr %14, align 8, !tbaa !78
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %16
-  %18 = load i64, ptr %17, align 8, !tbaa !79
+  %18 = load i64, ptr %17, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val58, 64
   %narrow1.i = and i1 %.not10.i, %.not.i
   %19 = zext i1 %narrow1.i to i64
@@ -7861,7 +7861,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %7
-  store i64 %23, ptr %2, align 8, !tbaa !79
+  store i64 %23, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 26:                                               ; preds = %7
@@ -7870,7 +7870,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br i1 %.not56, label %28, label %27
 
 27:                                               ; preds = %26
-  store i64 -10, ptr %2, align 8, !tbaa !79
+  store i64 -10, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 28:                                               ; preds = %26
@@ -7879,7 +7879,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  store i64 -72, ptr %2, align 8, !tbaa !79
+  store i64 -72, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 32:                                               ; preds = %28
@@ -7903,7 +7903,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   ]
 
 ._crit_edge:                                      ; preds = %54, %32
-  store i64 -72, ptr %2, align 8, !tbaa !79
+  store i64 -72, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 38:                                               ; preds = %.lr.ph
@@ -7928,7 +7928,7 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.thread66
-  store i64 -72, ptr %2, align 8, !tbaa !79
+  store i64 -72, ptr %2, align 8, !tbaa !78
   br label %.critedge
 
 54:                                               ; preds = %.thread66
@@ -7944,27 +7944,27 @@ define void @ZSTDv07_findFrameSizeInfoLegacy(ptr noundef %0, i64 noundef %1, ptr
   %60 = ptrtoint ptr %.2.ph to i64
   %61 = ptrtoint ptr %0 to i64
   %62 = sub i64 %60, %61
-  store i64 %62, ptr %2, align 8, !tbaa !79
+  store i64 %62, ptr %2, align 8, !tbaa !78
   %63 = shl i64 %.05087, 17
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %._crit_edge, %25, %27, %31, %.thread, %6
   %.sink = phi i64 [ -2, %53 ], [ -2, %._crit_edge ], [ -2, %25 ], [ -2, %27 ], [ -2, %31 ], [ %63, %.thread ], [ -2, %6 ]
-  store i64 %.sink, ptr %3, align 8, !tbaa !102
+  store i64 %.sink, ptr %3, align 8, !tbaa !101
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ZSTDv07_nextSrcSizeToDecompress(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21552
-  %3 = load i64, ptr %2, align 8, !tbaa !63
+  %3 = load i64, ptr %2, align 8, !tbaa !62
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @ZSTDv07_isSkipFrame(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 21604
-  %3 = load i32, ptr %2, align 4, !tbaa !69
+  %3 = load i32, ptr %2, align 4, !tbaa !68
   %4 = icmp eq i32 %3, 5
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -7973,7 +7973,7 @@ define range(i32 0, 2) i32 @ZSTDv07_isSkipFrame(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv07_decompressContinue(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 21552
-  %7 = load i64, ptr %6, align 8, !tbaa !63
+  %7 = load i64, ptr %6, align 8, !tbaa !62
   %.not = icmp eq i64 %4, %7
   br i1 %.not, label %8, label %ZSTDv07_decodeFrameHeader.exit.thread
 
@@ -7983,28 +7983,28 @@ define i64 @ZSTDv07_decompressContinue(ptr noundef %0, ptr noundef %1, i64 nound
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  %11 = load ptr, ptr %10, align 8, !tbaa !82
+  %11 = load ptr, ptr %10, align 8, !tbaa !81
   %.not.i = icmp eq ptr %1, %11
   br i1 %.not.i, label %ZSTDv07_checkContinuity.exit, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %11, ptr %13, align 8, !tbaa !83
+  store ptr %11, ptr %13, align 8, !tbaa !82
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
+  %15 = load ptr, ptr %14, align 8, !tbaa !83
   %16 = ptrtoint ptr %11 to i64
   %17 = ptrtoint ptr %15 to i64
   %.neg.i = sub i64 %17, %16
   %18 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %18, ptr %19, align 8, !tbaa !85
-  store ptr %1, ptr %14, align 8, !tbaa !84
-  store ptr %1, ptr %10, align 8, !tbaa !82
+  store ptr %18, ptr %19, align 8, !tbaa !84
+  store ptr %1, ptr %14, align 8, !tbaa !83
+  store ptr %1, ptr %10, align 8, !tbaa !81
   br label %ZSTDv07_checkContinuity.exit
 
 ZSTDv07_checkContinuity.exit:                     ; preds = %12, %9, %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 21604
-  %21 = load i32, ptr %20, align 4, !tbaa !69
+  %21 = load i32, ptr %20, align 4, !tbaa !68
   switch i32 %21, label %ZSTDv07_decodeFrameHeader.exit.thread [
     i32 0, label %22
     i32 1, label %ZSTDv07_checkContinuity.exit._crit_edge
@@ -8016,7 +8016,7 @@ ZSTDv07_checkContinuity.exit:                     ; preds = %12, %9, %8
 
 ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContinuity.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 21704
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !103
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !102
   br label %53
 
 22:                                               ; preds = %ZSTDv07_checkContinuity.exit
@@ -8032,8 +8032,8 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152840
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %27, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 5, i1 false)
-  store i64 3, ptr %6, align 8, !tbaa !63
-  store i32 4, ptr %20, align 4, !tbaa !69
+  store i64 3, ptr %6, align 8, !tbaa !62
+  store i32 4, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 28:                                               ; preds = %23
@@ -8046,10 +8046,10 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
   %.not.i97 = icmp ne i32 %33, 0
   %34 = zext nneg i32 %31 to i64
   %35 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_did_fieldSize, i64 0, i64 %34
-  %36 = load i64, ptr %35, align 8, !tbaa !79
+  %36 = load i64, ptr %35, align 8, !tbaa !78
   %37 = zext nneg i32 %32 to i64
   %38 = getelementptr inbounds nuw [4 x i64], ptr @ZSTDv07_fcs_fieldSize, i64 0, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !79
+  %39 = load i64, ptr %38, align 8, !tbaa !78
   %.not10.i = icmp ult i8 %.val96, 64
   %narrow1.i = and i1 %.not10.i, %.not.i97
   %40 = zext i1 %narrow1.i to i64
@@ -8060,7 +8060,7 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
   %43 = add i64 %42, %41
   %44 = add i64 %43, %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 21704
-  store i64 %44, ptr %45, align 8, !tbaa !103
+  store i64 %44, ptr %45, align 8, !tbaa !102
   %46 = icmp ult i64 %44, -119
   br i1 %46, label %47, label %ZSTDv07_decodeFrameHeader.exit.thread
 
@@ -8072,12 +8072,12 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
 
 50:                                               ; preds = %47
   %51 = add i64 %44, -5
-  store i64 %51, ptr %6, align 8, !tbaa !63
-  store i32 1, ptr %20, align 4, !tbaa !69
+  store i64 %51, ptr %6, align 8, !tbaa !62
+  store i32 1, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 52:                                               ; preds = %47
-  store i64 0, ptr %6, align 8, !tbaa !63
+  store i64 0, ptr %6, align 8, !tbaa !62
   br label %53
 
 53:                                               ; preds = %ZSTDv07_checkContinuity.exit._crit_edge, %52
@@ -8089,19 +8089,19 @@ ZSTDv07_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv07_checkContin
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 21576
   %59 = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %58, ptr noundef nonnull readonly %56, i64 noundef %54)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 21588
-  %61 = load i32, ptr %60, align 4, !tbaa !100
+  %61 = load i32, ptr %60, align 4, !tbaa !99
   %.not.i98 = icmp eq i32 %61, 0
   br i1 %.not.i98, label %65, label %62
 
 62:                                               ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 21712
-  %64 = load i32, ptr %63, align 8, !tbaa !72
+  %64 = load i32, ptr %63, align 8, !tbaa !71
   %.not10.i99 = icmp eq i32 %64, %61
   br i1 %.not10.i99, label %65, label %ZSTDv07_decodeFrameHeader.exit.thread
 
 65:                                               ; preds = %62, %53
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 21592
-  %67 = load i32, ptr %66, align 8, !tbaa !101
+  %67 = load i32, ptr %66, align 8, !tbaa !100
   %.not11.i = icmp eq i32 %67, 0
   br i1 %.not11.i, label %ZSTDv07_decodeFrameHeader.exit, label %68
 
@@ -8115,8 +8115,8 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %65, %68
   br i1 %71, label %72, label %ZSTDv07_decodeFrameHeader.exit.thread
 
 72:                                               ; preds = %ZSTDv07_decodeFrameHeader.exit
-  store i64 3, ptr %6, align 8, !tbaa !63
-  store i32 2, ptr %20, align 4, !tbaa !69
+  store i64 3, ptr %6, align 8, !tbaa !62
+  store i32 2, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 73:                                               ; preds = %ZSTDv07_checkContinuity.exit
@@ -8146,7 +8146,7 @@ ZSTDv07_getcBlockSize.exit:                       ; preds = %73
 
 ZSTDv07_getcBlockSize.exit.thread:                ; preds = %73
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 21592
-  %91 = load i32, ptr %90, align 8, !tbaa !101
+  %91 = load i32, ptr %90, align 8, !tbaa !100
   %.not90 = icmp eq i32 %91, 0
   br i1 %.not90, label %102, label %92
 
@@ -8164,24 +8164,24 @@ ZSTDv07_getcBlockSize.exit.thread:                ; preds = %73
   br i1 %.not91, label %102, label %ZSTDv07_decodeFrameHeader.exit.thread
 
 102:                                              ; preds = %92, %ZSTDv07_getcBlockSize.exit.thread
-  store i64 0, ptr %6, align 8, !tbaa !63
+  store i64 0, ptr %6, align 8, !tbaa !62
   br label %104
 
 ZSTDv07_getcBlockSize.exit.thread107:             ; preds = %ZSTDv07_getcBlockSize.exit, %73
   %.0.i100109 = phi i64 [ %89, %ZSTDv07_getcBlockSize.exit ], [ 1, %73 ]
-  store i64 %.0.i100109, ptr %6, align 8, !tbaa !63
+  store i64 %.0.i100109, ptr %6, align 8, !tbaa !62
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 21600
-  store i32 %76, ptr %103, align 8, !tbaa !104
+  store i32 %76, ptr %103, align 8, !tbaa !103
   br label %104
 
 104:                                              ; preds = %ZSTDv07_getcBlockSize.exit.thread107, %102
   %storemerge = phi i32 [ 3, %ZSTDv07_getcBlockSize.exit.thread107 ], [ 0, %102 ]
-  store i32 %storemerge, ptr %20, align 4, !tbaa !69
+  store i32 %storemerge, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 105:                                              ; preds = %ZSTDv07_checkContinuity.exit
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 21600
-  %107 = load i32, ptr %106, align 8, !tbaa !104
+  %107 = load i32, ptr %106, align 8, !tbaa !103
   switch i32 %107, label %ZSTDv07_decodeFrameHeader.exit.thread [
     i32 0, label %108
     i32 1, label %110
@@ -8197,8 +8197,8 @@ ZSTDv07_getcBlockSize.exit.thread107:             ; preds = %ZSTDv07_getcBlockSi
   br i1 %111, label %ZSTDv07_copyRawBlock.exit.thread113, label %112
 
 ZSTDv07_copyRawBlock.exit.thread113:              ; preds = %110
-  store i32 2, ptr %20, align 4, !tbaa !69
-  store i64 3, ptr %6, align 8, !tbaa !63
+  store i32 2, ptr %20, align 4, !tbaa !68
+  store i64 3, ptr %6, align 8, !tbaa !62
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 112:                                              ; preds = %110
@@ -8210,14 +8210,14 @@ ZSTDv07_copyRawBlock.exit.thread113:              ; preds = %110
   br label %ZSTDv07_copyRawBlock.exit
 
 ZSTDv07_copyRawBlock.exit.thread:                 ; preds = %105, %112
-  store i32 2, ptr %20, align 4, !tbaa !69
-  store i64 3, ptr %6, align 8, !tbaa !63
+  store i32 2, ptr %20, align 4, !tbaa !68
+  store i64 3, ptr %6, align 8, !tbaa !62
   br label %115
 
 ZSTDv07_copyRawBlock.exit:                        ; preds = %113, %108
   %.0 = phi i64 [ %109, %108 ], [ %4, %113 ]
-  store i32 2, ptr %20, align 4, !tbaa !69
-  store i64 3, ptr %6, align 8, !tbaa !63
+  store i32 2, ptr %20, align 4, !tbaa !68
+  store i64 3, ptr %6, align 8, !tbaa !62
   %114 = icmp ult i64 %.0, -119
   br i1 %114, label %115, label %ZSTDv07_decodeFrameHeader.exit.thread
 
@@ -8225,9 +8225,9 @@ ZSTDv07_copyRawBlock.exit:                        ; preds = %113, %108
   %.0112 = phi i64 [ 0, %ZSTDv07_copyRawBlock.exit.thread ], [ %.0, %ZSTDv07_copyRawBlock.exit ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 %.0112
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  store ptr %116, ptr %117, align 8, !tbaa !82
+  store ptr %116, ptr %117, align 8, !tbaa !81
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 21592
-  %119 = load i32, ptr %118, align 8, !tbaa !101
+  %119 = load i32, ptr %118, align 8, !tbaa !100
   %.not88 = icmp eq i32 %119, 0
   br i1 %.not88, label %ZSTDv07_decodeFrameHeader.exit.thread, label %120
 
@@ -8242,13 +8242,13 @@ ZSTDv07_copyRawBlock.exit:                        ; preds = %113, %108
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 152844
   %.val = load i32, ptr %125, align 1
   %126 = zext i32 %.val to i64
-  store i64 %126, ptr %6, align 8, !tbaa !63
-  store i32 5, ptr %20, align 4, !tbaa !69
+  store i64 %126, ptr %6, align 8, !tbaa !62
+  store i32 5, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 127:                                              ; preds = %ZSTDv07_checkContinuity.exit
-  store i64 0, ptr %6, align 8, !tbaa !63
-  store i32 0, ptr %20, align 4, !tbaa !69
+  store i64 0, ptr %6, align 8, !tbaa !62
+  store i32 0, ptr %20, align 4, !tbaa !68
   br label %ZSTDv07_decodeFrameHeader.exit.thread
 
 ZSTDv07_decodeFrameHeader.exit.thread:            ; preds = %62, %ZSTDv07_copyRawBlock.exit.thread113, %104, %92, %28, %ZSTDv07_checkContinuity.exit, %105, %ZSTDv07_copyRawBlock.exit, %120, %115, %72, %ZSTDv07_decodeFrameHeader.exit, %22, %5, %127, %123, %50, %26
@@ -8277,19 +8277,19 @@ ZSTDv07_createDCtx_advanced.exit.i:               ; preds = %2
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 21744
   store ptr null, ptr %.sroa.7.0..sroa_idx.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 21552
-  store i64 5, ptr %7, align 8, !tbaa !63
+  store i64 5, ptr %7, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 21604
-  store i32 0, ptr %8, align 4, !tbaa !69
+  store i32 0, ptr %8, align 4, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 21520
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 21612
-  store i32 0, ptr %11, align 4, !tbaa !70
+  store i32 0, ptr %11, align 4, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 21608
-  store i32 0, ptr %12, align 8, !tbaa !71
+  store i32 0, ptr %12, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 21712
-  store i32 0, ptr %13, align 8, !tbaa !72
+  store i32 0, ptr %13, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   %15 = icmp ne ptr %4, null
@@ -8316,11 +8316,11 @@ ZSTDv07_createDCtx_advanced.exit.thread.i:        ; preds = %ZSTDv07_createDCtx_
   br label %ZSTDv07_createDDict_advanced.exit
 
 .critedge.i:                                      ; preds = %17
-  store ptr %4, ptr %3, align 8, !tbaa !105
+  store ptr %4, ptr %3, align 8, !tbaa !104
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %1, ptr %21, align 8, !tbaa !108
+  store i64 %1, ptr %21, align 8, !tbaa !107
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %5, ptr %22, align 8, !tbaa !109
+  store ptr %5, ptr %22, align 8, !tbaa !108
   br label %ZSTDv07_createDDict_advanced.exit
 
 ZSTDv07_createDDict_advanced.exit:                ; preds = %ZSTDv07_createDCtx_advanced.exit.thread.i, %20, %.critedge.i
@@ -8332,13 +8332,13 @@ ZSTDv07_createDDict_advanced.exit:                ; preds = %ZSTDv07_createDCtx_
 define noundef i64 @ZSTDv07_freeDDict(ptr noundef %0) local_unnamed_addr #1 {
 ZSTDv07_freeDCtx.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load ptr, ptr %1, align 8, !tbaa !109
+  %2 = load ptr, ptr %1, align 8, !tbaa !108
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 21736
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 21744
-  %6 = load ptr, ptr %5, align 8, !tbaa !77
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   tail call void %4(ptr noundef %6, ptr noundef nonnull %2) #26
-  %7 = load ptr, ptr %0, align 8, !tbaa !105
+  %7 = load ptr, ptr %0, align 8, !tbaa !104
   tail call void %4(ptr noundef %6, ptr noundef %7) #26
   tail call void %4(ptr noundef %6, ptr noundef nonnull %0) #26
   ret i64 0
@@ -8347,26 +8347,26 @@ ZSTDv07_freeDCtx.exit:
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTDv07_decompress_usingDDict(ptr noundef initializes((0, 21766)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !109
+  %8 = load ptr, ptr %7, align 8, !tbaa !108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21766) %0, ptr noundef nonnull readonly align 8 dereferenceable(21766) %8, i64 21766, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 21520
-  %10 = load ptr, ptr %9, align 8, !tbaa !82
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %1, %10
   br i1 %.not.i.i, label %ZSTDv07_decompress_usingPreparedDCtx.exit, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 21544
-  store ptr %10, ptr %12, align 8, !tbaa !83
+  store ptr %10, ptr %12, align 8, !tbaa !82
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21528
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
   %15 = ptrtoint ptr %10 to i64
   %16 = ptrtoint ptr %14 to i64
   %.neg.i.i = sub i64 %16, %15
   %17 = getelementptr inbounds i8, ptr %1, i64 %.neg.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 21536
-  store ptr %17, ptr %18, align 8, !tbaa !85
-  store ptr %1, ptr %13, align 8, !tbaa !84
-  store ptr %1, ptr %9, align 8, !tbaa !82
+  store ptr %17, ptr %18, align 8, !tbaa !84
+  store ptr %1, ptr %13, align 8, !tbaa !83
+  store ptr %1, ptr %9, align 8, !tbaa !81
   br label %ZSTDv07_decompress_usingPreparedDCtx.exit
 
 ZSTDv07_decompress_usingPreparedDCtx.exit:        ; preds = %6, %11
@@ -8404,24 +8404,24 @@ ZBUFFv07_freeDCtx.exit.i:                         ; preds = %3
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 21744
   store ptr null, ptr %.sroa.7.0..sroa_idx.i, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 21552
-  store i64 5, ptr %8, align 8, !tbaa !63
+  store i64 5, ptr %8, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 21604
-  store i32 0, ptr %9, align 4, !tbaa !69
+  store i32 0, ptr %9, align 4, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 21520
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %11, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 21612
-  store i32 0, ptr %12, align 4, !tbaa !70
+  store i32 0, ptr %12, align 4, !tbaa !69
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 21608
-  store i32 0, ptr %13, align 8, !tbaa !71
+  store i32 0, ptr %13, align 8, !tbaa !70
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 21712
-  store i32 0, ptr %14, align 8, !tbaa !72
+  store i32 0, ptr %14, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
-  store ptr %5, ptr %1, align 8, !tbaa !110
+  store ptr %5, ptr %1, align 8, !tbaa !109
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %16, align 8, !tbaa !112
+  store i32 0, ptr %16, align 8, !tbaa !111
   br label %ZBUFFv07_createDCtx_advanced.exit
 
 ZBUFFv07_createDCtx_advanced.exit:                ; preds = %0, %ZBUFFv07_freeDCtx.exit.i, %6
@@ -8431,7 +8431,7 @@ ZBUFFv07_createDCtx_advanced.exit:                ; preds = %0, %ZBUFFv07_freeDC
 
 ; Function Attrs: nounwind uwtable
 define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_customMem) align 8 captures(none) %0) local_unnamed_addr #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %2 = load ptr, ptr %0, align 8, !tbaa !72
   %3 = icmp ne ptr %2, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -8440,7 +8440,7 @@ define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custo
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @defaultCustomMem, i64 24, i1 false), !tbaa.struct !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @defaultCustomMem, i64 24, i1 false), !tbaa.struct !73
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -8453,7 +8453,7 @@ define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custo
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !75
+  %15 = load ptr, ptr %14, align 8, !tbaa !74
   %16 = tail call ptr %10(ptr noundef %15, i64 noundef 160) #26
   %17 = icmp eq ptr %16, null
   br i1 %17, label %51, label %18
@@ -8467,39 +8467,39 @@ define ptr @ZBUFFv07_createDCtx_advanced(ptr noundef byval(%struct.ZSTDv07_custo
   br i1 %.not.i, label %ZSTDv07_freeDCtx.exit.i, label %40
 
 ZSTDv07_freeDCtx.exit.i:                          ; preds = %18
-  store ptr null, ptr %16, align 8, !tbaa !110
+  store ptr null, ptr %16, align 8, !tbaa !109
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !113
+  %22 = load ptr, ptr %21, align 8, !tbaa !112
   %.not.i16 = icmp eq ptr %22, null
   br i1 %.not.i16, label %28, label %23
 
 23:                                               ; preds = %ZSTDv07_freeDCtx.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %25 = load ptr, ptr %24, align 8, !tbaa !114
+  %25 = load ptr, ptr %24, align 8, !tbaa !113
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %27 = load ptr, ptr %26, align 8, !tbaa !115
+  %27 = load ptr, ptr %26, align 8, !tbaa !114
   tail call void %25(ptr noundef %27, ptr noundef nonnull %22) #26
   br label %28
 
 28:                                               ; preds = %23, %ZSTDv07_freeDCtx.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !116
+  %30 = load ptr, ptr %29, align 8, !tbaa !115
   %.not15.i = icmp eq ptr %30, null
   br i1 %.not15.i, label %ZBUFFv07_freeDCtx.exit, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %33 = load ptr, ptr %32, align 8, !tbaa !114
+  %33 = load ptr, ptr %32, align 8, !tbaa !113
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %35 = load ptr, ptr %34, align 8, !tbaa !115
+  %35 = load ptr, ptr %34, align 8, !tbaa !114
   tail call void %33(ptr noundef %35, ptr noundef nonnull %30) #26
   br label %ZBUFFv07_freeDCtx.exit
 
 ZBUFFv07_freeDCtx.exit:                           ; preds = %28, %31
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %37 = load ptr, ptr %36, align 8, !tbaa !114
+  %37 = load ptr, ptr %36, align 8, !tbaa !113
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %39 = load ptr, ptr %38, align 8, !tbaa !115
+  %39 = load ptr, ptr %38, align 8, !tbaa !114
   tail call void %37(ptr noundef %39, ptr noundef nonnull %16) #26
   br label %51
 
@@ -8511,24 +8511,24 @@ ZBUFFv07_freeDCtx.exit:                           ; preds = %28, %31
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 21744
   store ptr %15, ptr %.sroa.7.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 21552
-  store i64 5, ptr %42, align 8, !tbaa !63
+  store i64 5, ptr %42, align 8, !tbaa !62
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 21604
-  store i32 0, ptr %43, align 4, !tbaa !69
+  store i32 0, ptr %43, align 4, !tbaa !68
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 21520
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %45, align 4, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 21612
-  store i32 0, ptr %46, align 4, !tbaa !70
+  store i32 0, ptr %46, align 4, !tbaa !69
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 21608
-  store i32 0, ptr %47, align 8, !tbaa !71
+  store i32 0, ptr %47, align 8, !tbaa !70
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 21712
-  store i32 0, ptr %48, align 8, !tbaa !72
+  store i32 0, ptr %48, align 8, !tbaa !71
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %49, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
-  store ptr %20, ptr %16, align 8, !tbaa !110
+  store ptr %20, ptr %16, align 8, !tbaa !109
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i32 0, ptr %50, align 8, !tbaa !112
+  store i32 0, ptr %50, align 8, !tbaa !111
   br label %51
 
 51:                                               ; preds = %13, %8, %40, %ZBUFFv07_freeDCtx.exit
@@ -8542,51 +8542,51 @@ define noundef i64 @ZBUFFv07_freeDCtx(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %31, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !110
+  %4 = load ptr, ptr %0, align 8, !tbaa !109
   %5 = icmp eq ptr %4, null
   br i1 %5, label %ZSTDv07_freeDCtx.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 21736
-  %8 = load ptr, ptr %7, align 8, !tbaa !76
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 21744
-  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !76
   tail call void %8(ptr noundef %10, ptr noundef nonnull %4) #26
   br label %ZSTDv07_freeDCtx.exit
 
 ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !113
+  %12 = load ptr, ptr %11, align 8, !tbaa !112
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %ZSTDv07_freeDCtx.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %15 = load ptr, ptr %14, align 8, !tbaa !114
+  %15 = load ptr, ptr %14, align 8, !tbaa !113
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %17 = load ptr, ptr %16, align 8, !tbaa !115
+  %17 = load ptr, ptr %16, align 8, !tbaa !114
   tail call void %15(ptr noundef %17, ptr noundef nonnull %12) #26
   br label %18
 
 18:                                               ; preds = %13, %ZSTDv07_freeDCtx.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !116
+  %20 = load ptr, ptr %19, align 8, !tbaa !115
   %.not15 = icmp eq ptr %20, null
   br i1 %.not15, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %23 = load ptr, ptr %22, align 8, !tbaa !114
+  %23 = load ptr, ptr %22, align 8, !tbaa !113
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %25 = load ptr, ptr %24, align 8, !tbaa !115
+  %25 = load ptr, ptr %24, align 8, !tbaa !114
   tail call void %23(ptr noundef %25, ptr noundef nonnull %20) #26
   br label %26
 
 26:                                               ; preds = %21, %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %28 = load ptr, ptr %27, align 8, !tbaa !114
+  %28 = load ptr, ptr %27, align 8, !tbaa !113
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %30 = load ptr, ptr %29, align 8, !tbaa !115
+  %30 = load ptr, ptr %29, align 8, !tbaa !114
   tail call void %28(ptr noundef %30, ptr noundef nonnull %0) #26
   br label %31
 
@@ -8597,14 +8597,14 @@ ZSTDv07_freeDCtx.exit:                            ; preds = %3, %6
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i64 -30, 1) i64 @ZBUFFv07_decompressInitDictionary(ptr noundef captures(none) initializes((32, 36), (56, 64), (80, 96), (128, 136)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 1, ptr %4, align 8, !tbaa !112
+  store i32 1, ptr %4, align 8, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %6, align 8, !tbaa !117
+  store i64 0, ptr %6, align 8, !tbaa !116
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %7, align 8, !tbaa !118
+  store i64 0, ptr %7, align 8, !tbaa !117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %8 = load ptr, ptr %0, align 8, !tbaa !110
+  %8 = load ptr, ptr %0, align 8, !tbaa !109
   %9 = tail call i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef %8, ptr noundef %1, i64 noundef %2)
   ret i64 %9
 }
@@ -8612,28 +8612,28 @@ define range(i64 -30, 1) i64 @ZBUFFv07_decompressInitDictionary(ptr noundef capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef range(i64 -30, 1) i64 @ZBUFFv07_decompressInit(ptr noundef captures(none) initializes((32, 36), (56, 64), (80, 96), (128, 136)) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 1, ptr %2, align 8, !tbaa !112
+  store i32 1, ptr %2, align 8, !tbaa !111
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %4, align 8, !tbaa !117
+  store i64 0, ptr %4, align 8, !tbaa !116
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %5, align 8, !tbaa !118
+  store i64 0, ptr %5, align 8, !tbaa !117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %6 = load ptr, ptr %0, align 8, !tbaa !110
+  %6 = load ptr, ptr %0, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 21552
-  store i64 5, ptr %7, align 8, !tbaa !63
+  store i64 5, ptr %7, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 21604
-  store i32 0, ptr %8, align 4, !tbaa !69
+  store i32 0, ptr %8, align 4, !tbaa !68
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 21520
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 5132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 201326604, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 21612
-  store i32 0, ptr %11, align 4, !tbaa !70
+  store i32 0, ptr %11, align 4, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 21608
-  store i32 0, ptr %12, align 8, !tbaa !71
+  store i32 0, ptr %12, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 21712
-  store i32 0, ptr %13, align 8, !tbaa !72
+  store i32 0, ptr %13, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 21560
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) @repStartValue, i64 12, i1 false), !tbaa !3
   ret i64 0
@@ -8641,9 +8641,9 @@ define noundef range(i64 -30, 1) i64 @ZBUFFv07_decompressInit(ptr noundef captur
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
-  %6 = load i64, ptr %4, align 8, !tbaa !79
+  %6 = load i64, ptr %4, align 8, !tbaa !78
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
-  %8 = load i64, ptr %2, align 8, !tbaa !79
+  %8 = load i64, ptr %2, align 8, !tbaa !78
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8672,7 +8672,7 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread271:                                       ; preds = %.thread271.backedge, %.thread271.outer
   %.0200305 = phi ptr [ %.0200305.ph, %.thread271.outer ], [ %.0200305.be, %.thread271.backedge ]
-  %28 = load i32, ptr %10, align 8, !tbaa !112
+  %28 = load i32, ptr %10, align 8, !tbaa !111
   switch i32 %28, label %.thread [
     i32 0, label %.thread.loopexit
     i32 1, label %29
@@ -8682,18 +8682,18 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 ._crit_edge318:                                   ; preds = %.thread271
-  %.pre319 = load i64, ptr %25, align 8, !tbaa !119
-  %.pre320 = load i64, ptr %24, align 8, !tbaa !120
+  %.pre319 = load i64, ptr %25, align 8, !tbaa !118
+  %.pre320 = load i64, ptr %24, align 8, !tbaa !119
   br label %165
 
 ._crit_edge314:                                   ; preds = %.thread271
-  %.pre315 = load ptr, ptr %0, align 8, !tbaa !110
+  %.pre315 = load ptr, ptr %0, align 8, !tbaa !109
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre315, i64 21552
-  %.pre316 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !63
+  %.pre316 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !62
   br label %128
 
 29:                                               ; preds = %.thread271
-  %30 = load i64, ptr %13, align 8, !tbaa !118
+  %30 = load i64, ptr %13, align 8, !tbaa !117
   %31 = tail call i64 @ZSTDv07_getFrameParams(ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %30)
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %33, label %.thread
@@ -8703,7 +8703,7 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not240, label %52, label %34
 
 34:                                               ; preds = %33
-  %35 = load i64, ptr %13, align 8, !tbaa !118
+  %35 = load i64, ptr %13, align 8, !tbaa !117
   %36 = sub i64 %31, %35
   %37 = ptrtoint ptr %.0200305 to i64
   %38 = sub i64 %14, %37
@@ -8717,15 +8717,15 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull align 1 %.0200305, i64 %38, i1 false)
-  %.pre = load i64, ptr %13, align 8, !tbaa !118
+  %.pre = load i64, ptr %13, align 8, !tbaa !117
   br label %43
 
 43:                                               ; preds = %41, %40
   %44 = phi i64 [ %.pre, %41 ], [ %35, %40 ]
   %45 = add i64 %44, %38
-  store i64 %45, ptr %13, align 8, !tbaa !118
-  store i64 0, ptr %2, align 8, !tbaa !79
-  %46 = load i64, ptr %13, align 8, !tbaa !118
+  store i64 %45, ptr %13, align 8, !tbaa !117
+  store i64 0, ptr %2, align 8, !tbaa !78
+  %46 = load i64, ptr %13, align 8, !tbaa !117
   %47 = add nuw i64 %31, 3
   %48 = sub i64 %47, %46
   br label %.thread
@@ -8733,58 +8733,58 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
 49:                                               ; preds = %34
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %.0200305, i64 %36, i1 false)
-  store i64 %31, ptr %13, align 8, !tbaa !118
+  store i64 %31, ptr %13, align 8, !tbaa !117
   %51 = getelementptr inbounds nuw i8, ptr %.0200305, i64 %36
   br label %.thread271.backedge
 
 52:                                               ; preds = %33
-  %53 = load ptr, ptr %0, align 8, !tbaa !110
+  %53 = load ptr, ptr %0, align 8, !tbaa !109
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 21552
-  %55 = load i64, ptr %54, align 8, !tbaa !63
+  %55 = load i64, ptr %54, align 8, !tbaa !62
   %56 = tail call i64 @ZSTDv07_decompressContinue(ptr noundef %53, ptr noundef null, i64 noundef 0, ptr noundef nonnull %12, i64 noundef %55)
   %57 = icmp ult i64 %56, -119
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %52
-  %59 = load i64, ptr %13, align 8, !tbaa !118
+  %59 = load i64, ptr %13, align 8, !tbaa !117
   %60 = icmp ult i64 %55, %59
   br i1 %60, label %61, label %.thread259
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %0, align 8, !tbaa !110
+  %62 = load ptr, ptr %0, align 8, !tbaa !109
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 21552
-  %64 = load i64, ptr %63, align 8, !tbaa !63
+  %64 = load i64, ptr %63, align 8, !tbaa !62
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 %55
   %66 = tail call i64 @ZSTDv07_decompressContinue(ptr noundef %62, ptr noundef null, i64 noundef 0, ptr noundef nonnull %65, i64 noundef %64)
   %67 = icmp ult i64 %66, -119
   br i1 %67, label %.thread259, label %.thread
 
 .thread259:                                       ; preds = %58, %61
-  %68 = load i32, ptr %15, align 8, !tbaa !121
+  %68 = load i32, ptr %15, align 8, !tbaa !120
   %spec.select = tail call i32 @llvm.umax.i32(i32 %68, i32 1024)
-  store i32 %spec.select, ptr %15, align 8, !tbaa !121
+  store i32 %spec.select, ptr %15, align 8, !tbaa !120
   %narrow = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 131072)
   %69 = zext nneg i32 %narrow to i64
-  store i64 %69, ptr %16, align 8, !tbaa !122
-  %70 = load i64, ptr %17, align 8, !tbaa !123
+  store i64 %69, ptr %16, align 8, !tbaa !121
+  %70 = load i64, ptr %17, align 8, !tbaa !122
   %71 = icmp ult i64 %70, %69
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %.thread259
-  %73 = load ptr, ptr %19, align 8, !tbaa !114
-  %74 = load ptr, ptr %20, align 8, !tbaa !115
-  %75 = load ptr, ptr %21, align 8, !tbaa !113
+  %73 = load ptr, ptr %19, align 8, !tbaa !113
+  %74 = load ptr, ptr %20, align 8, !tbaa !114
+  %75 = load ptr, ptr %21, align 8, !tbaa !112
   tail call void %73(ptr noundef %74, ptr noundef %75) #26
-  store i64 %69, ptr %17, align 8, !tbaa !123
-  %76 = load ptr, ptr %18, align 8, !tbaa !124
-  %77 = load ptr, ptr %20, align 8, !tbaa !115
+  store i64 %69, ptr %17, align 8, !tbaa !122
+  %76 = load ptr, ptr %18, align 8, !tbaa !123
+  %77 = load ptr, ptr %20, align 8, !tbaa !114
   %78 = tail call ptr %76(ptr noundef %77, i64 noundef %69) #26
-  store ptr %78, ptr %21, align 8, !tbaa !113
+  store ptr %78, ptr %21, align 8, !tbaa !112
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72
-  %.pre313 = load i32, ptr %15, align 8, !tbaa !121
+  %.pre313 = load i32, ptr %15, align 8, !tbaa !120
   br label %80
 
 80:                                               ; preds = %._crit_edge, %.thread259
@@ -8792,36 +8792,36 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   %82 = zext i32 %81 to i64
   %83 = add nuw nsw i64 %69, 16
   %84 = add nuw nsw i64 %83, %82
-  %85 = load i64, ptr %22, align 8, !tbaa !125
+  %85 = load i64, ptr %22, align 8, !tbaa !124
   %86 = icmp ult i64 %85, %84
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %80
-  %88 = load ptr, ptr %19, align 8, !tbaa !114
-  %89 = load ptr, ptr %20, align 8, !tbaa !115
-  %90 = load ptr, ptr %23, align 8, !tbaa !116
+  %88 = load ptr, ptr %19, align 8, !tbaa !113
+  %89 = load ptr, ptr %20, align 8, !tbaa !114
+  %90 = load ptr, ptr %23, align 8, !tbaa !115
   tail call void %88(ptr noundef %89, ptr noundef %90) #26
-  store i64 %84, ptr %22, align 8, !tbaa !125
-  %91 = load ptr, ptr %18, align 8, !tbaa !124
-  %92 = load ptr, ptr %20, align 8, !tbaa !115
+  store i64 %84, ptr %22, align 8, !tbaa !124
+  %91 = load ptr, ptr %18, align 8, !tbaa !123
+  %92 = load ptr, ptr %20, align 8, !tbaa !114
   %93 = tail call ptr %91(ptr noundef %92, i64 noundef %84) #26
-  store ptr %93, ptr %23, align 8, !tbaa !116
+  store ptr %93, ptr %23, align 8, !tbaa !115
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %87, %80
-  store i32 2, ptr %10, align 8, !tbaa !112
+  store i32 2, ptr %10, align 8, !tbaa !111
   br label %96
 
 96:                                               ; preds = %95, %.thread271
-  %97 = load ptr, ptr %0, align 8, !tbaa !110
+  %97 = load ptr, ptr %0, align 8, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 21552
-  %99 = load i64, ptr %98, align 8, !tbaa !63
+  %99 = load i64, ptr %98, align 8, !tbaa !62
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %96
-  store i32 0, ptr %10, align 8, !tbaa !112
+  store i32 0, ptr %10, align 8, !tbaa !111
   br label %.loopexit
 
 102:                                              ; preds = %96
@@ -8832,15 +8832,15 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 21604
-  %107 = load i32, ptr %106, align 4, !tbaa !69
+  %107 = load i32, ptr %106, align 4, !tbaa !68
   %108 = icmp eq i32 %107, 5
-  %109 = load ptr, ptr %23, align 8, !tbaa !116
-  %110 = load i64, ptr %24, align 8, !tbaa !120
+  %109 = load ptr, ptr %23, align 8, !tbaa !115
+  %110 = load i64, ptr %24, align 8, !tbaa !119
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
   br i1 %108, label %115, label %112
 
 112:                                              ; preds = %105
-  %113 = load i64, ptr %22, align 8, !tbaa !125
+  %113 = load i64, ptr %22, align 8, !tbaa !124
   %114 = sub i64 %113, %110
   br label %115
 
@@ -8857,10 +8857,10 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond, label %122, label %.thread271.backedge
 
 122:                                              ; preds = %119
-  %123 = load i64, ptr %24, align 8, !tbaa !120
+  %123 = load i64, ptr %24, align 8, !tbaa !119
   %124 = add i64 %123, %117
-  store i64 %124, ptr %25, align 8, !tbaa !119
-  store i32 4, ptr %10, align 8, !tbaa !112
+  store i64 %124, ptr %25, align 8, !tbaa !118
+  store i32 4, ptr %10, align 8, !tbaa !111
   br label %.thread271.backedge
 
 125:                                              ; preds = %102
@@ -8868,14 +8868,14 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %126, label %.loopexit, label %127
 
 127:                                              ; preds = %125
-  store i32 3, ptr %10, align 8, !tbaa !112
+  store i32 3, ptr %10, align 8, !tbaa !111
   br label %128
 
 128:                                              ; preds = %._crit_edge314, %127
   %129 = phi i64 [ %.pre316, %._crit_edge314 ], [ %99, %127 ]
-  %130 = load i64, ptr %26, align 8, !tbaa !117
+  %130 = load i64, ptr %26, align 8, !tbaa !116
   %131 = sub i64 %129, %130
-  %132 = load i64, ptr %17, align 8, !tbaa !123
+  %132 = load i64, ptr %17, align 8, !tbaa !122
   %133 = sub i64 %132, %130
   %134 = icmp ugt i64 %131, %133
   br i1 %134, label %.thread, label %135
@@ -8888,54 +8888,54 @@ define i64 @ZBUFFv07_decompressContinue(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %ZBUFFv07_limitCopy.exit, label %139
 
 139:                                              ; preds = %135
-  %140 = load ptr, ptr %21, align 8, !tbaa !113
+  %140 = load ptr, ptr %21, align 8, !tbaa !112
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %130
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr readonly align 1 %.0200305, i64 %138, i1 false)
-  %.pre317 = load i64, ptr %26, align 8, !tbaa !117
+  %.pre317 = load i64, ptr %26, align 8, !tbaa !116
   br label %ZBUFFv07_limitCopy.exit
 
 ZBUFFv07_limitCopy.exit:                          ; preds = %135, %139
   %142 = phi i64 [ %130, %135 ], [ %.pre317, %139 ]
   %143 = getelementptr inbounds nuw i8, ptr %.0200305, i64 %138
   %144 = add i64 %142, %138
-  store i64 %144, ptr %26, align 8, !tbaa !117
+  store i64 %144, ptr %26, align 8, !tbaa !116
   %145 = icmp ult i64 %137, %131
   br i1 %145, label %.loopexit, label %146
 
 146:                                              ; preds = %ZBUFFv07_limitCopy.exit
-  %147 = load ptr, ptr %0, align 8, !tbaa !110
+  %147 = load ptr, ptr %0, align 8, !tbaa !109
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 21604
-  %149 = load i32, ptr %148, align 4, !tbaa !69
-  %150 = load ptr, ptr %23, align 8, !tbaa !116
-  %151 = load i64, ptr %24, align 8, !tbaa !120
+  %149 = load i32, ptr %148, align 4, !tbaa !68
+  %150 = load ptr, ptr %23, align 8, !tbaa !115
+  %151 = load i64, ptr %24, align 8, !tbaa !119
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 %151
-  %153 = load i64, ptr %22, align 8, !tbaa !125
+  %153 = load i64, ptr %22, align 8, !tbaa !124
   %154 = sub i64 %153, %151
-  %155 = load ptr, ptr %21, align 8, !tbaa !113
+  %155 = load ptr, ptr %21, align 8, !tbaa !112
   %156 = tail call i64 @ZSTDv07_decompressContinue(ptr noundef %147, ptr noundef %152, i64 noundef %154, ptr noundef %155, i64 noundef %129)
   %157 = icmp ult i64 %156, -119
   br i1 %157, label %158, label %.thread
 
 158:                                              ; preds = %146
   %159 = icmp eq i32 %149, 5
-  store i64 0, ptr %26, align 8, !tbaa !117
+  store i64 0, ptr %26, align 8, !tbaa !116
   %160 = icmp ne i64 %156, 0
   %or.cond7 = select i1 %160, i1 true, i1 %159
   br i1 %or.cond7, label %162, label %161
 
 161:                                              ; preds = %158
-  store i32 2, ptr %10, align 8, !tbaa !112
+  store i32 2, ptr %10, align 8, !tbaa !111
   br label %.thread271.backedge
 
 .thread271.backedge:                              ; preds = %161, %119, %122, %49
   %.0200305.be = phi ptr [ %51, %49 ], [ %120, %122 ], [ %120, %119 ], [ %143, %161 ]
-  br label %.thread271, !llvm.loop !126
+  br label %.thread271, !llvm.loop !125
 
 162:                                              ; preds = %158
-  %163 = load i64, ptr %24, align 8, !tbaa !120
+  %163 = load i64, ptr %24, align 8, !tbaa !119
   %164 = add i64 %163, %156
-  store i64 %164, ptr %25, align 8, !tbaa !119
-  store i32 4, ptr %10, align 8, !tbaa !112
+  store i64 %164, ptr %25, align 8, !tbaa !118
+  store i32 4, ptr %10, align 8, !tbaa !111
   br label %165
 
 165:                                              ; preds = %._crit_edge318, %162
@@ -8950,25 +8950,25 @@ ZBUFFv07_limitCopy.exit:                          ; preds = %135, %139
   br i1 %.not.i248, label %ZBUFFv07_limitCopy.exit249, label %172
 
 172:                                              ; preds = %165
-  %173 = load ptr, ptr %23, align 8, !tbaa !116
+  %173 = load ptr, ptr %23, align 8, !tbaa !115
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 %166
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0210304.ph, ptr readonly align 1 %174, i64 %171, i1 false)
-  %.pre321 = load i64, ptr %24, align 8, !tbaa !120
+  %.pre321 = load i64, ptr %24, align 8, !tbaa !119
   br label %ZBUFFv07_limitCopy.exit249
 
 ZBUFFv07_limitCopy.exit249:                       ; preds = %165, %172
   %175 = phi i64 [ %166, %165 ], [ %.pre321, %172 ]
   %176 = getelementptr inbounds nuw i8, ptr %.0210304.ph, i64 %171
   %177 = add i64 %175, %171
-  store i64 %177, ptr %24, align 8, !tbaa !120
+  store i64 %177, ptr %24, align 8, !tbaa !119
   %.not293 = icmp ugt i64 %168, %170
   br i1 %.not293, label %.loopexit, label %178
 
 178:                                              ; preds = %ZBUFFv07_limitCopy.exit249
-  store i32 2, ptr %10, align 8, !tbaa !112
-  %179 = load i64, ptr %16, align 8, !tbaa !122
+  store i32 2, ptr %10, align 8, !tbaa !111
+  %179 = load i64, ptr %16, align 8, !tbaa !121
   %180 = add i64 %179, %177
-  %181 = load i64, ptr %22, align 8, !tbaa !125
+  %181 = load i64, ptr %22, align 8, !tbaa !124
   %182 = icmp ugt i64 %180, %181
   br i1 %182, label %183, label %.thread271.outer.backedge
 
@@ -8977,7 +8977,7 @@ ZBUFFv07_limitCopy.exit249:                       ; preds = %165, %172
   br label %.thread271.outer.backedge
 
 .thread271.outer.backedge:                        ; preds = %183, %178
-  br label %.thread271.outer, !llvm.loop !126
+  br label %.thread271.outer, !llvm.loop !125
 
 .loopexit:                                        ; preds = %125, %ZBUFFv07_limitCopy.exit, %ZBUFFv07_limitCopy.exit249, %101
   %.1211.ph = phi ptr [ %.0210304.ph, %101 ], [ %.0210304.ph, %125 ], [ %.0210304.ph, %ZBUFFv07_limitCopy.exit ], [ %176, %ZBUFFv07_limitCopy.exit249 ]
@@ -8985,15 +8985,15 @@ ZBUFFv07_limitCopy.exit249:                       ; preds = %165, %172
   %184 = ptrtoint ptr %.6206.ph to i64
   %185 = ptrtoint ptr %3 to i64
   %186 = sub i64 %184, %185
-  store i64 %186, ptr %4, align 8, !tbaa !79
+  store i64 %186, ptr %4, align 8, !tbaa !78
   %187 = ptrtoint ptr %.1211.ph to i64
   %188 = ptrtoint ptr %1 to i64
   %189 = sub i64 %187, %188
-  store i64 %189, ptr %2, align 8, !tbaa !79
-  %190 = load ptr, ptr %0, align 8, !tbaa !110
+  store i64 %189, ptr %2, align 8, !tbaa !78
+  %190 = load ptr, ptr %0, align 8, !tbaa !109
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 21552
-  %192 = load i64, ptr %191, align 8, !tbaa !63
-  %193 = load i64, ptr %26, align 8, !tbaa !117
+  %192 = load i64, ptr %191, align 8, !tbaa !62
+  %193 = load i64, ptr %26, align 8, !tbaa !116
   %194 = sub i64 %192, %193
   br label %.thread
 
@@ -9361,7 +9361,7 @@ BITv07_reloadDStream.exit:                        ; preds = %19, %27
   store i8 %84, ptr %78, align 1, !tbaa !14
   %90 = load i32, ptr %6, align 8, !tbaa !41
   %91 = icmp ugt i32 %90, 64
-  br i1 %91, label %.preheader55, label %.lr.ph5, !llvm.loop !127
+  br i1 %91, label %.preheader55, label %.lr.ph5, !llvm.loop !126
 
 .lr.ph13:                                         ; preds = %.preheader55, %122
   %.312 = phi ptr [ %133, %122 ], [ %.0.lcssa, %.preheader55 ]
@@ -9444,7 +9444,7 @@ BITv07_reloadDStream.exit50:                      ; preds = %96, %104
   store i8 %128, ptr %.312, align 1, !tbaa !14
   %.pre = load i32, ptr %6, align 8, !tbaa !41
   %134 = icmp ugt i32 %.pre, 64
-  br i1 %134, label %BITv07_reloadDStream.exit50.thread, label %.lr.ph13, !llvm.loop !128
+  br i1 %134, label %BITv07_reloadDStream.exit50.thread, label %.lr.ph13, !llvm.loop !127
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.456 = phi ptr [ %145, %.lr.ph ], [ %.456.ph, %.lr.ph.preheader ]
@@ -9464,7 +9464,7 @@ BITv07_reloadDStream.exit50:                      ; preds = %96, %104
   %145 = getelementptr inbounds nuw i8, ptr %.456, i64 1
   store i8 %140, ptr %.456, align 1, !tbaa !14
   %146 = icmp ult ptr %145, %2
-  br i1 %146, label %.lr.ph, label %._crit_edge, !llvm.loop !129
+  br i1 %146, label %.lr.ph, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %BITv07_reloadDStream.exit50.thread, %.preheader
   ret void
@@ -9616,7 +9616,7 @@ BITv07_reloadDStream.exit:                        ; preds = %18, %26
   %104 = zext i8 %103 to i64
   %105 = getelementptr inbounds nuw i8, ptr %90, i64 %104
   %106 = icmp ugt i32 %101, 64
-  br i1 %106, label %.preheader68, label %.lr.ph4, !llvm.loop !130
+  br i1 %106, label %.preheader68, label %.lr.ph4, !llvm.loop !129
 
 .lr.ph12:                                         ; preds = %.preheader68, %136
   %.311 = phi ptr [ %151, %136 ], [ %.0.lcssa, %.preheader68 ]
@@ -9696,7 +9696,7 @@ BITv07_reloadDStream.exit62:                      ; preds = %111, %119
   %150 = zext i8 %149 to i64
   %151 = getelementptr inbounds nuw i8, ptr %.311, i64 %150
   %152 = icmp ugt i32 %147, 64
-  br i1 %152, label %.preheader, label %.lr.ph12, !llvm.loop !131
+  br i1 %152, label %.preheader, label %.lr.ph12, !llvm.loop !130
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.val9.i66 = phi i32 [ %163, %.lr.ph ], [ %.val9.i6480, %.preheader ]
@@ -9720,7 +9720,7 @@ BITv07_reloadDStream.exit62:                      ; preds = %111, %119
   %166 = zext i8 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %.471, i64 %166
   %.not = icmp ugt ptr %167, %43
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.val15.i = phi i32 [ %.val9.i6480, %.preheader ], [ %163, %.lr.ph ]
@@ -9896,85 +9896,84 @@ attributes #28 = { nounwind willreturn memory(read) }
 !48 = distinct !{!48, !8}
 !49 = distinct !{!49, !8}
 !50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !8}
+!52 = distinct !{!52, !8}
 !53 = distinct !{!53, !8}
 !54 = distinct !{!54, !8}
 !55 = distinct !{!55, !8}
 !56 = distinct !{!56, !8}
 !57 = distinct !{!57, !8}
-!58 = distinct !{!58, !8}
-!59 = !{!60, !4, i64 0}
-!60 = !{!"", !4, i64 0, !4, i64 4}
-!61 = !{!60, !4, i64 4}
-!62 = !{!38, !38, i64 0}
-!63 = !{!64, !36, i64 21552}
-!64 = !{!"ZSTDv07_DCtx_s", !5, i64 0, !5, i64 2052, !5, i64 3080, !5, i64 5132, !38, i64 21520, !38, i64 21528, !38, i64 21536, !38, i64 21544, !36, i64 21552, !5, i64 21560, !65, i64 21576, !4, i64 21600, !4, i64 21604, !4, i64 21608, !4, i64 21612, !67, i64 21616, !36, i64 21704, !4, i64 21712, !37, i64 21720, !68, i64 21728, !36, i64 21752, !5, i64 21760, !5, i64 152840}
-!65 = !{!"", !66, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
-!66 = !{!"long long", !5, i64 0}
-!67 = !{!"XXH64_state_s", !36, i64 0, !5, i64 8, !5, i64 40, !4, i64 72, !4, i64 76, !36, i64 80}
-!68 = !{!"", !38, i64 0, !38, i64 8, !38, i64 16}
-!69 = !{!64, !4, i64 21604}
-!70 = !{!64, !4, i64 21612}
-!71 = !{!64, !4, i64 21608}
-!72 = !{!64, !4, i64 21712}
-!73 = !{!68, !38, i64 0}
-!74 = !{i64 0, i64 8, !62, i64 8, i64 8, !62, i64 16, i64 8, !62}
-!75 = !{!68, !38, i64 16}
-!76 = !{!64, !38, i64 21736}
-!77 = !{!64, !38, i64 21744}
-!78 = !{!65, !66, i64 0}
-!79 = !{!36, !36, i64 0}
-!80 = !{!65, !4, i64 8}
-!81 = !{!65, !4, i64 12}
-!82 = !{!64, !38, i64 21520}
-!83 = !{!64, !38, i64 21544}
-!84 = !{!64, !38, i64 21528}
-!85 = !{!64, !38, i64 21536}
-!86 = !{!64, !37, i64 21720}
-!87 = !{!64, !36, i64 21752}
-!88 = distinct !{!88, !8}
-!89 = !{!90, !36, i64 0}
-!90 = !{!"", !36, i64 0, !38, i64 8}
-!91 = !{!90, !38, i64 8}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"ZSTDv07_decodeSequence: argument 0"}
-!94 = distinct !{!94, !"ZSTDv07_decodeSequence"}
+!58 = !{!59, !4, i64 0}
+!59 = !{!"", !4, i64 0, !4, i64 4}
+!60 = !{!59, !4, i64 4}
+!61 = !{!38, !38, i64 0}
+!62 = !{!63, !36, i64 21552}
+!63 = !{!"ZSTDv07_DCtx_s", !5, i64 0, !5, i64 2052, !5, i64 3080, !5, i64 5132, !38, i64 21520, !38, i64 21528, !38, i64 21536, !38, i64 21544, !36, i64 21552, !5, i64 21560, !64, i64 21576, !4, i64 21600, !4, i64 21604, !4, i64 21608, !4, i64 21612, !66, i64 21616, !36, i64 21704, !4, i64 21712, !37, i64 21720, !67, i64 21728, !36, i64 21752, !5, i64 21760, !5, i64 152840}
+!64 = !{!"", !65, i64 0, !4, i64 8, !4, i64 12, !4, i64 16}
+!65 = !{!"long long", !5, i64 0}
+!66 = !{!"XXH64_state_s", !36, i64 0, !5, i64 8, !5, i64 40, !4, i64 72, !4, i64 76, !36, i64 80}
+!67 = !{!"", !38, i64 0, !38, i64 8, !38, i64 16}
+!68 = !{!63, !4, i64 21604}
+!69 = !{!63, !4, i64 21612}
+!70 = !{!63, !4, i64 21608}
+!71 = !{!63, !4, i64 21712}
+!72 = !{!67, !38, i64 0}
+!73 = !{i64 0, i64 8, !61, i64 8, i64 8, !61, i64 16, i64 8, !61}
+!74 = !{!67, !38, i64 16}
+!75 = !{!63, !38, i64 21736}
+!76 = !{!63, !38, i64 21744}
+!77 = !{!64, !65, i64 0}
+!78 = !{!36, !36, i64 0}
+!79 = !{!64, !4, i64 8}
+!80 = !{!64, !4, i64 12}
+!81 = !{!63, !38, i64 21520}
+!82 = !{!63, !38, i64 21544}
+!83 = !{!63, !38, i64 21528}
+!84 = !{!63, !38, i64 21536}
+!85 = !{!63, !37, i64 21720}
+!86 = !{!63, !36, i64 21752}
+!87 = distinct !{!87, !8}
+!88 = !{!89, !36, i64 0}
+!89 = !{!"", !36, i64 0, !38, i64 8}
+!90 = !{!89, !38, i64 8}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"ZSTDv07_decodeSequence: argument 0"}
+!93 = distinct !{!93, !"ZSTDv07_decodeSequence"}
+!94 = distinct !{!94, !8}
 !95 = distinct !{!95, !8}
 !96 = distinct !{!96, !8}
 !97 = distinct !{!97, !8}
 !98 = distinct !{!98, !8}
-!99 = distinct !{!99, !8}
-!100 = !{!64, !4, i64 21588}
-!101 = !{!64, !4, i64 21592}
-!102 = !{!66, !66, i64 0}
-!103 = !{!64, !36, i64 21704}
-!104 = !{!64, !4, i64 21600}
-!105 = !{!106, !38, i64 0}
-!106 = !{!"ZSTDv07_DDict_s", !38, i64 0, !36, i64 8, !107, i64 16}
-!107 = !{!"p1 _ZTS14ZSTDv07_DCtx_s", !38, i64 0}
-!108 = !{!106, !36, i64 8}
-!109 = !{!106, !107, i64 16}
-!110 = !{!111, !107, i64 0}
-!111 = !{!"ZBUFFv07_DCtx_s", !107, i64 0, !65, i64 8, !4, i64 32, !37, i64 40, !36, i64 48, !36, i64 56, !37, i64 64, !36, i64 72, !36, i64 80, !36, i64 88, !36, i64 96, !5, i64 104, !36, i64 128, !68, i64 136}
-!112 = !{!111, !4, i64 32}
-!113 = !{!111, !37, i64 40}
-!114 = !{!111, !38, i64 144}
-!115 = !{!111, !38, i64 152}
-!116 = !{!111, !37, i64 64}
-!117 = !{!111, !36, i64 56}
-!118 = !{!111, !36, i64 128}
-!119 = !{!111, !36, i64 88}
-!120 = !{!111, !36, i64 80}
-!121 = !{!111, !4, i64 16}
-!122 = !{!111, !36, i64 96}
-!123 = !{!111, !36, i64 48}
-!124 = !{!111, !38, i64 136}
-!125 = !{!111, !36, i64 72}
+!99 = !{!63, !4, i64 21588}
+!100 = !{!63, !4, i64 21592}
+!101 = !{!65, !65, i64 0}
+!102 = !{!63, !36, i64 21704}
+!103 = !{!63, !4, i64 21600}
+!104 = !{!105, !38, i64 0}
+!105 = !{!"ZSTDv07_DDict_s", !38, i64 0, !36, i64 8, !106, i64 16}
+!106 = !{!"p1 _ZTS14ZSTDv07_DCtx_s", !38, i64 0}
+!107 = !{!105, !36, i64 8}
+!108 = !{!105, !106, i64 16}
+!109 = !{!110, !106, i64 0}
+!110 = !{!"ZBUFFv07_DCtx_s", !106, i64 0, !64, i64 8, !4, i64 32, !37, i64 40, !36, i64 48, !36, i64 56, !37, i64 64, !36, i64 72, !36, i64 80, !36, i64 88, !36, i64 96, !5, i64 104, !36, i64 128, !67, i64 136}
+!111 = !{!110, !4, i64 32}
+!112 = !{!110, !37, i64 40}
+!113 = !{!110, !38, i64 144}
+!114 = !{!110, !38, i64 152}
+!115 = !{!110, !37, i64 64}
+!116 = !{!110, !36, i64 56}
+!117 = !{!110, !36, i64 128}
+!118 = !{!110, !36, i64 88}
+!119 = !{!110, !36, i64 80}
+!120 = !{!110, !4, i64 16}
+!121 = !{!110, !36, i64 96}
+!122 = !{!110, !36, i64 48}
+!123 = !{!110, !38, i64 136}
+!124 = !{!110, !36, i64 72}
+!125 = distinct !{!125, !8}
 !126 = distinct !{!126, !8}
 !127 = distinct !{!127, !8}
 !128 = distinct !{!128, !8}
 !129 = distinct !{!129, !8}
 !130 = distinct !{!130, !8}
 !131 = distinct !{!131, !8}
-!132 = distinct !{!132, !8}

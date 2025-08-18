@@ -2220,7 +2220,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef
 108:                                              ; preds = %105
   %109 = getelementptr i8, ptr %103, i64 1
   %110 = icmp ult ptr %109, %101
-  br i1 %110, label %.preheader, label %.thread, !llvm.loop !23
+  br i1 %110, label %.preheader, label %.thread, !llvm.loop !22
 
 111:                                              ; preds = %105
   %112 = icmp eq ptr %103, null
@@ -2252,7 +2252,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef
   %128 = phi ptr [ %70, %84 ], [ %70, %80 ], [ %56, %.split ]
   %129 = getelementptr i8, ptr %128, i64 1
   %130 = icmp ult ptr %129, %11
-  br i1 %130, label %.split, label %.thread, !llvm.loop !24
+  br i1 %130, label %.split, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %58, %66, %76, %127, %52, %38, %30, %108, %.preheader, %.preheader, %96, %121, %115, %111, %8
   %131 = phi i32 [ 1, %121 ], [ -1, %111 ], [ -1, %115 ], [ 0, %8 ], [ -1, %96 ], [ -1, %.preheader ], [ -1, %.preheader ], [ -1, %108 ], [ 0, %30 ], [ 0, %38 ], [ 0, %52 ], [ 0, %127 ], [ 0, %76 ], [ 0, %66 ], [ 0, %58 ]
@@ -2312,7 +2312,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_sip_init() #7 sectio
   %24 = add nuw i32 %5, 1
   %25 = load i32, ptr @ports_c, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %4, label %27, !llvm.loop !25
+  br i1 %26, label %4, label %27, !llvm.loop !23
 
 27:                                               ; preds = %4
   %28 = shl i32 %25, 2
@@ -2596,7 +2596,7 @@ define internal fastcc i32 @word_len(ptr noundef readonly %0, ptr noundef readno
   %26 = getelementptr i8, ptr %12, i64 1
   %27 = add i32 %11, 1
   %28 = icmp eq ptr %26, %1
-  br i1 %28, label %.loopexit, label %10, !llvm.loop !26
+  br i1 %28, label %.loopexit, label %10, !llvm.loop !24
 
 .loopexit:                                        ; preds = %25, %24, %2
   %29 = phi i32 [ 0, %2 ], [ %11, %24 ], [ %9, %25 ]
@@ -2635,8 +2635,8 @@ define internal i32 @sdp_addr_len(ptr noundef readonly captures(none) %0, ptr no
   br label %22
 
 21:                                               ; preds = %4
-  tail call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !27
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !28
+  tail call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !26
   unreachable
 
 22:                                               ; preds = %15, %9
@@ -2765,7 +2765,7 @@ define internal i32 @sip_help_udp(ptr noundef %0, i32 noundef %1, ptr noundef %2
 17:                                               ; preds = %11
   %18 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %15) #14
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %30, label %20, !prof !29
+  br i1 %19, label %30, label %20, !prof !27
 
 20:                                               ; preds = %17, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2820,7 +2820,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %16 = add i32 %1, %15
   %17 = sub i32 %13, %16
   %18 = icmp sgt i32 %17, 19
-  br i1 %18, label %24, label %19, !prof !30
+  br i1 %18, label %24, label %19, !prof !28
 
 19:                                               ; preds = %11
   %20 = icmp eq ptr %0, null
@@ -2829,7 +2829,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
 21:                                               ; preds = %19
   %22 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5, i32 noundef 20) #14
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.thread, label %..thread11_crit_edge, !prof !29
+  br i1 %23, label %.thread, label %..thread11_crit_edge, !prof !27
 
 ..thread11_crit_edge:                             ; preds = %21
   %.pre = load i32, ptr %12, align 8
@@ -2866,7 +2866,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
 44:                                               ; preds = %39
   %45 = call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %42) #14
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread, label %47, !prof !29
+  br i1 %46, label %.thread, label %47, !prof !27
 
 47:                                               ; preds = %44, %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2936,7 +2936,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %91, ptr %10, align 8
   %92 = getelementptr i8, ptr %75, i64 5
   %93 = icmp ugt ptr %92, %72
-  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !29
 
 94:                                               ; preds = %86
   %95 = and i64 %65, 4294967295
@@ -2972,7 +2972,7 @@ define internal i32 @sip_help_tcp(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %118 = add i32 %110, %117
   %119 = call i32 @ct_sip_get_header(ptr noundef %2, ptr noundef %116, i32 noundef 0, i32 noundef %118, i32 noundef 7, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !19
   %120 = icmp slt i32 %119, 1
-  br i1 %120, label %.loopexit, label %.preheader16, !llvm.loop !32
+  br i1 %120, label %.loopexit, label %.preheader16, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.preheader16, %106, %70, %90, %55
   %.ph = phi i16 [ 0, %55 ], [ %59, %90 ], [ %59, %.preheader16 ], [ %112, %106 ], [ %59, %70 ]
@@ -3042,7 +3042,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %33, label %31, !prof !30
+  br i1 %30, label %33, label %31, !prof !28
 
 31:                                               ; preds = %27
   %32 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %22, i8 noundef zeroext 0) #14
@@ -3105,7 +3105,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 63:                                               ; preds = %66, %78, %72, %88, %84
   %64 = add nuw nsw i64 %67, 1
   %65 = icmp eq i64 %64, 6
-  br i1 %65, label %.loopexit13, label %66, !llvm.loop !33
+  br i1 %65, label %.loopexit13, label %66, !llvm.loop !31
 
 66:                                               ; preds = %.preheader, %63
   %67 = phi i64 [ %64, %63 ], [ 0, %.preheader ]
@@ -3243,7 +3243,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 152:                                              ; preds = %155, %167, %161
   %153 = add nuw nsw i64 %156, 1
   %154 = icmp eq i64 %153, 6
-  br i1 %154, label %.loopexit, label %155, !llvm.loop !34
+  br i1 %154, label %.loopexit, label %155, !llvm.loop !32
 
 155:                                              ; preds = %152, %147
   %156 = phi i64 [ 0, %147 ], [ %153, %152 ]
@@ -3349,7 +3349,7 @@ define internal i32 @process_invite_request(ptr noundef %0, i32 noundef %1, i32 
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.thread10, label %23, !prof !30
+  br i1 %20, label %.thread10, label %23, !prof !28
 
 .thread10:                                        ; preds = %17
   %21 = zext i8 %15 to i64
@@ -3373,7 +3373,7 @@ define internal i32 @process_invite_request(ptr noundef %0, i32 noundef %1, i32 
   %29 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %34, label %32, !prof !30
+  br i1 %31, label %34, label %32, !prof !28
 
 32:                                               ; preds = %28
   %33 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %.pr13, i8 noundef zeroext 0) #14
@@ -3411,7 +3411,7 @@ define internal i32 @process_invite_request(ptr noundef %0, i32 noundef %1, i32 
   br i1 %51, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %50, %47
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %50, %47, %.thread
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -3448,7 +3448,7 @@ define internal i32 @process_invite_response(ptr noundef %0, i32 noundef %1, i32
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22, !prof !30
+  br i1 %21, label %24, label %22, !prof !28
 
 22:                                               ; preds = %18
   %23 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %13, i8 noundef zeroext 0) #14
@@ -3489,7 +3489,7 @@ define internal i32 @process_invite_response(ptr noundef %0, i32 noundef %1, i32
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %49, label %47, !prof !30
+  br i1 %46, label %49, label %47, !prof !28
 
 47:                                               ; preds = %43
   %48 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %38, i8 noundef zeroext 0) #14
@@ -3526,7 +3526,7 @@ define internal i32 @process_invite_response(ptr noundef %0, i32 noundef %1, i32
   br i1 %66, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %65, %62
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %65, %62, %52
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -3609,8 +3609,8 @@ define internal i32 @process_sdp(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %47
 
 46:                                               ; preds = %36
-  tail call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !27
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !28
+  tail call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !25
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !26
   unreachable
 
 47:                                               ; preds = %44, %42
@@ -3671,7 +3671,7 @@ ct_sip_parse_sdp_addr.exit:                       ; preds = %30, %47
 86:                                               ; preds = %.split
   %87 = add nuw nsw i64 %81, 1
   %88 = icmp eq i64 %87, 3
-  br i1 %88, label %.thread, label %.split, !llvm.loop !36
+  br i1 %88, label %.thread, label %.split, !llvm.loop !34
 
 89:                                               ; preds = %.split
   %90 = icmp eq ptr %82, null
@@ -3683,7 +3683,7 @@ ct_sip_parse_sdp_addr.exit:                       ; preds = %30, %47
   br label %92
 
 92:                                               ; preds = %93, %.thread
-  br i1 %66, label %68, label %.loopexit, !llvm.loop !37
+  br i1 %66, label %68, label %.loopexit, !llvm.loop !35
 
 93:                                               ; preds = %89
   %94 = add i32 %76, 6
@@ -3737,8 +3737,8 @@ ct_sip_parse_sdp_addr.exit:                       ; preds = %30, %47
   br label %122
 
 121:                                              ; preds = %111
-  call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !27
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !28
+  call void asm sideeffect "1029: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1029b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1029) #14, !srcloc !25
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 662, i32 0, i64 12) #14, !srcloc !26
   unreachable
 
 122:                                              ; preds = %119, %117
@@ -3914,7 +3914,7 @@ select.unfold:                                    ; preds = %122, %105
   %207 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %208 = load i32, ptr %207, align 8
   %209 = icmp eq i32 %208, 0
-  br i1 %209, label %212, label %210, !prof !30
+  br i1 %209, label %212, label %210, !prof !28
 
 210:                                              ; preds = %206
   %211 = call ptr @__nf_ct_ext_find(ptr noundef nonnull %201, i8 noundef zeroext 0) #14
@@ -3941,7 +3941,7 @@ select.unfold:                                    ; preds = %122, %105
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %225 = load i32, ptr %224, align 8
   %226 = icmp eq i32 %225, 0
-  br i1 %226, label %229, label %227, !prof !30
+  br i1 %226, label %229, label %227, !prof !28
 
 227:                                              ; preds = %223
   %228 = call ptr @__nf_ct_ext_find(ptr noundef nonnull %218, i8 noundef zeroext 0) #14
@@ -4003,7 +4003,7 @@ select.unfold:                                    ; preds = %122, %105
   store i16 %265, ptr %60, align 4
   %266 = call ptr @__nf_ct_expect_find(ptr noundef %140, ptr noundef nonnull @nf_ct_zone_dflt, ptr noundef nonnull %9) #14
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %.thread28.thread73, label %.lr.ph, !llvm.loop !38
+  br i1 %267, label %.thread28.thread73, label %.lr.ph, !llvm.loop !36
 
 .thread28.thread73:                               ; preds = %263
   %268 = load i16, ptr %60, align 4
@@ -4166,7 +4166,7 @@ select.unfold:                                    ; preds = %122, %105
   %341 = add nuw nsw i32 %67, 1
   %342 = icmp samesign ult i32 %67, 2
   %343 = icmp eq i32 %341, 3
-  br i1 %343, label %.loopexit, label %65, !llvm.loop !37
+  br i1 %343, label %.loopexit, label %65, !llvm.loop !35
 
 .loopexit:                                        ; preds = %340, %92, %68
   %344 = load volatile ptr, ptr @nf_nat_sip_hooks, align 8
@@ -4217,7 +4217,7 @@ define internal i32 @process_update_response(ptr noundef %0, i32 noundef %1, i32
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22, !prof !30
+  br i1 %21, label %24, label %22, !prof !28
 
 22:                                               ; preds = %18
   %23 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %13, i8 noundef zeroext 0) #14
@@ -4258,7 +4258,7 @@ define internal i32 @process_update_response(ptr noundef %0, i32 noundef %1, i32
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %49, label %47, !prof !30
+  br i1 %46, label %49, label %47, !prof !28
 
 47:                                               ; preds = %43
   %48 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %38, i8 noundef zeroext 0) #14
@@ -4295,7 +4295,7 @@ define internal i32 @process_update_response(ptr noundef %0, i32 noundef %1, i32
   br i1 %66, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %65, %62
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %65, %62, %52
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -4326,7 +4326,7 @@ define internal i32 @process_prack_response(ptr noundef %0, i32 noundef %1, i32 
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %24, label %22, !prof !30
+  br i1 %21, label %24, label %22, !prof !28
 
 22:                                               ; preds = %18
   %23 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %13, i8 noundef zeroext 0) #14
@@ -4367,7 +4367,7 @@ define internal i32 @process_prack_response(ptr noundef %0, i32 noundef %1, i32 
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %49, label %47, !prof !30
+  br i1 %46, label %49, label %47, !prof !28
 
 47:                                               ; preds = %43
   %48 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %38, i8 noundef zeroext 0) #14
@@ -4404,7 +4404,7 @@ define internal i32 @process_prack_response(ptr noundef %0, i32 noundef %1, i32 
   br i1 %66, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %65, %62
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %65, %62, %52
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -4435,7 +4435,7 @@ define internal noundef i32 @process_bye_request(ptr noundef readonly captures(n
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %23, label %21, !prof !30
+  br i1 %20, label %23, label %21, !prof !28
 
 21:                                               ; preds = %17
   %22 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %12, i8 noundef zeroext 0) #14
@@ -4472,7 +4472,7 @@ define internal noundef i32 @process_bye_request(ptr noundef readonly captures(n
   br i1 %40, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %39, %36
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %39, %36, %26
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -4505,7 +4505,7 @@ define internal i32 @process_register_request(ptr noundef %0, i32 noundef %1, i3
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %29, label %27, !prof !30
+  br i1 %26, label %29, label %27, !prof !28
 
 27:                                               ; preds = %23
   %28 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %18, i8 noundef zeroext 0) #14
@@ -4590,7 +4590,7 @@ define internal i32 @process_register_request(ptr noundef %0, i32 noundef %1, i3
   %77 = load i32, ptr %9, align 4
   %78 = add i32 %77, %76
   %79 = load i32, ptr %4, align 4
-  %80 = call fastcc i32 @ct_sip_parse_transport(ptr noundef %16, ptr noundef %75, i32 noundef %78, i32 noundef %79, ptr noundef nonnull %12), !range !39
+  %80 = call fastcc i32 @ct_sip_parse_transport(ptr noundef %16, ptr noundef %75, i32 noundef %78, i32 noundef %79, ptr noundef nonnull %12), !range !37
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %226, label %82
 
@@ -4919,7 +4919,7 @@ define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %32, label %30, !prof !30
+  br i1 %29, label %32, label %30, !prof !28
 
 30:                                               ; preds = %26
   %31 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %21, i8 noundef zeroext 0) #14
@@ -5007,7 +5007,7 @@ define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i
   %77 = icmp ne i64 %73, %74
   %78 = icmp ne i64 %75, %76
   %79 = or i1 %77, %78
-  br i1 %79, label %.thread23, label %80, !llvm.loop !40
+  br i1 %79, label %.thread23, label %80, !llvm.loop !38
 
 80:                                               ; preds = %72
   %81 = load ptr, ptr %3, align 8
@@ -5015,9 +5015,9 @@ define internal range(i32 0, 2) i32 @process_register_response(ptr noundef %0, i
   %83 = load i32, ptr %13, align 4
   %84 = add i32 %83, %82
   %85 = load i32, ptr %4, align 4
-  %86 = call fastcc i32 @ct_sip_parse_transport(ptr noundef %19, ptr noundef %81, i32 noundef %84, i32 noundef %85, ptr noundef nonnull %11), !range !39
+  %86 = call fastcc i32 @ct_sip_parse_transport(ptr noundef %19, ptr noundef %81, i32 noundef %84, i32 noundef %85, ptr noundef nonnull %11), !range !37
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.thread23, label %88, !llvm.loop !40
+  br i1 %87, label %.thread23, label %88, !llvm.loop !38
 
 88:                                               ; preds = %80
   %89 = load ptr, ptr %3, align 8
@@ -5248,7 +5248,7 @@ ct_sip_header_search.exit17:                      ; preds = %175
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 0
-  br i1 %204, label %207, label %205, !prof !30
+  br i1 %204, label %207, label %205, !prof !28
 
 205:                                              ; preds = %201
   %206 = call ptr @__nf_ct_ext_find(ptr noundef nonnull %196, i8 noundef zeroext 0) #14
@@ -5314,7 +5314,7 @@ ct_sip_header_search.exit17:                      ; preds = %175
 
 248:                                              ; preds = %242, %238, %234, %224, %218
   %249 = icmp eq ptr %220, null
-  br i1 %249, label %.loopexit28, label %218, !llvm.loop !41
+  br i1 %249, label %.loopexit28, label %218, !llvm.loop !39
 
 .thread26:                                        ; preds = %242
   %250 = getelementptr inbounds nuw i8, ptr %219, i64 96
@@ -5333,7 +5333,7 @@ ct_sip_header_search.exit17:                      ; preds = %175
   %254 = load i32, ptr %4, align 4
   %255 = call i32 @ct_sip_parse_header_uri(ptr noundef %19, ptr noundef %253, ptr noundef nonnull %14, i32 noundef %254, i32 noundef 3, ptr noundef nonnull %15, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %10), !range !19
   %256 = icmp slt i32 %255, 0
-  br i1 %256, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %256, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 .thread25:                                        ; preds = %190, %.lr.ph, %45
   %257 = load ptr, ptr %20, align 8
@@ -5349,7 +5349,7 @@ ct_sip_header_search.exit17:                      ; preds = %175
   %263 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %264 = load i32, ptr %263, align 8
   %265 = icmp eq i32 %264, 0
-  br i1 %265, label %268, label %266, !prof !30
+  br i1 %265, label %268, label %266, !prof !28
 
 266:                                              ; preds = %262
   %267 = call ptr @__nf_ct_ext_find(ptr noundef nonnull %257, i8 noundef zeroext 0) #14
@@ -5387,7 +5387,7 @@ ct_sip_header_search.exit17:                      ; preds = %175
   br i1 %286, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %285, %281
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %285, %281, %271
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #14
@@ -5419,7 +5419,7 @@ define internal fastcc ptr @nfct_help(ptr %.176.val) unnamed_addr #10 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %.176.val, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %9, !prof !30
+  br i1 %8, label %11, label %9, !prof !28
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %.176.val, i8 noundef zeroext 0) #14
@@ -5752,24 +5752,22 @@ attributes #15 = { cold nounwind }
 !18 = distinct !{!18, !7}
 !19 = !{i32 -1, i32 2}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !6, !7, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
 !23 = distinct !{!23, !6, !7}
 !24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = !{i64 2161044229, i64 2161044033, i64 2161044085, i64 2161044131, i64 2161044159}
-!28 = !{i64 2161044306, i64 2161044335, i64 2161044381, i64 2161044439, i64 2161044493, i64 2161044547, i64 2161044602, i64 2161044633}
-!29 = !{!"branch_weights", i32 1, i32 2000}
-!30 = !{!"branch_weights", i32 2000, i32 1}
+!25 = !{i64 2161044229, i64 2161044033, i64 2161044085, i64 2161044131, i64 2161044159}
+!26 = !{i64 2161044306, i64 2161044335, i64 2161044381, i64 2161044439, i64 2161044493, i64 2161044547, i64 2161044602, i64 2161044633}
+!27 = !{!"branch_weights", i32 1, i32 2000}
+!28 = !{!"branch_weights", i32 2000, i32 1}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !7}
 !31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !7}
+!32 = distinct !{!32, !6, !7}
 !33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
 !35 = distinct !{!35, !6, !7}
 !36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = !{i32 0, i32 2}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !6, !7}
+!37 = !{i32 0, i32 2}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !6, !7}

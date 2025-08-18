@@ -3147,7 +3147,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   store i32 %.0.i193, ptr %85, align 4, !tbaa !39
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next259, 60
-  br i1 %exitcond261.not, label %.preheader207, label %.split, !llvm.loop !131
+  br i1 %exitcond261.not, label %.preheader207, label %.split, !llvm.loop !129
 
 .preheader206:                                    ; preds = %.preheader207, %220
   %indvars.iv266 = phi i64 [ 0, %.preheader207 ], [ %indvars.iv.next267, %220 ]
@@ -3174,7 +3174,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %spec.select248 = call i32 @llvm.umax.i32(i32 %91, i32 %.0159211)
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 2
   %93 = icmp samesign ult i64 %indvars.iv268, 58
-  br i1 %93, label %88, label %.preheader205, !llvm.loop !132
+  br i1 %93, label %88, label %.preheader205, !llvm.loop !130
 
 94:                                               ; preds = %.preheader205, %94
   %indvars.iv271 = phi i64 [ 22, %.preheader205 ], [ %indvars.iv.next272, %94 ]
@@ -3200,7 +3200,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %.1156200 = call i64 @llvm.umin.i64(i64 %105, i64 %.0155216)
   %indvars.iv.next272 = add nsw i64 %indvars.iv271, -1
   %108 = icmp samesign ugt i64 %indvars.iv271, 2
-  br i1 %108, label %94, label %109, !llvm.loop !133
+  br i1 %108, label %94, label %109, !llvm.loop !131
 
 109:                                              ; preds = %94
   %110 = add i32 %.1158, -3
@@ -3225,7 +3225,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   store i32 %116, ptr %117, align 4, !tbaa !39
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 2
   %118 = icmp samesign ult i64 %indvars.iv274, 58
-  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !134
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %119 = trunc nuw nsw i64 %indvars.iv312 to i32
@@ -3292,7 +3292,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %.3162 = phi i32 [ %.2161219, %134 ], [ %155, %157 ], [ %.2161219, %137 ]
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 2
   %159 = icmp samesign ult i64 %indvars.iv277, 58
-  br i1 %159, label %134, label %._crit_edge222, !llvm.loop !135
+  br i1 %159, label %134, label %._crit_edge222, !llvm.loop !133
 
 ._crit_edge222:                                   ; preds = %158
   %160 = getelementptr inbounds nuw [6 x i32], ptr %67, i64 0, i64 %indvars.iv280
@@ -3308,7 +3308,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   store i16 1, ptr %168, align 2, !tbaa !40
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count
-  br i1 %exitcond283.not, label %._crit_edge224, label %.lr.ph221, !llvm.loop !136
+  br i1 %exitcond283.not, label %._crit_edge224, label %.lr.ph221, !llvm.loop !134
 
 ._crit_edge224:                                   ; preds = %._crit_edge222, %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %8, i8 0, i64 120, i1 false)
@@ -3326,7 +3326,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   store i16 %171, ptr %175, align 2, !tbaa !40
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
-  br i1 %exitcond288.not, label %.preheader.preheader, label %.lr.ph227, !llvm.loop !137
+  br i1 %exitcond288.not, label %.preheader.preheader, label %.lr.ph227, !llvm.loop !135
 
 .preheader.preheader:                             ; preds = %.lr.ph227, %._crit_edge224
   br label %.preheader
@@ -3357,7 +3357,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %190 = call i32 @llvm.sadd.sat.i32(i32 %.0144229, i32 %189)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next290, %indvars.iv296
-  br i1 %exitcond295.not, label %191, label %176, !llvm.loop !138
+  br i1 %exitcond295.not, label %191, label %176, !llvm.loop !136
 
 191:                                              ; preds = %176
   %192 = lshr i32 %190, 14
@@ -3367,7 +3367,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %indvars.iv.next299 = add nsw i64 %indvars.iv298, -1
   %.not = icmp eq i64 %indvars.iv298, 0
   %indvars.iv.next297 = add nsw i64 %indvars.iv296, -1
-  br i1 %.not, label %.preheader202, label %.preheader, !llvm.loop !139
+  br i1 %.not, label %.preheader202, label %.preheader, !llvm.loop !137
 
 .preheader202:                                    ; preds = %191, %.preheader202
   %indvars.iv303 = phi i64 [ %indvars.iv.next304, %.preheader202 ], [ 0, %191 ]
@@ -3392,7 +3392,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %210 = call i32 @llvm.sadd.sat.i32(i32 %209, i32 %207)
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next304, 60
-  br i1 %exitcond306.not, label %211, label %.preheader202, !llvm.loop !140
+  br i1 %exitcond306.not, label %211, label %.preheader202, !llvm.loop !138
 
 211:                                              ; preds = %.preheader202
   %212 = icmp slt i32 %210, %.0.lcssa238239
@@ -3417,19 +3417,19 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   store i32 %218, ptr %219, align 4, !tbaa !39
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond311.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count310
-  br i1 %exitcond311.not, label %.loopexit, label %.lr.ph235, !llvm.loop !141
+  br i1 %exitcond311.not, label %.loopexit, label %.lr.ph235, !llvm.loop !139
 
 .loopexit:                                        ; preds = %.lr.ph235, %213, %211
   %.promoted236242 = phi i32 [ %.promoted236243, %211 ], [ %210, %213 ], [ %210, %.lr.ph235 ]
   %.0.lcssa237 = phi i32 [ %.0.lcssa238239, %211 ], [ %210, %213 ], [ %210, %.lr.ph235 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next313, 5
-  br i1 %exitcond315.not, label %220, label %.lr.ph.preheader, !llvm.loop !142
+  br i1 %exitcond315.not, label %220, label %.lr.ph.preheader, !llvm.loop !140
 
 220:                                              ; preds = %.loopexit
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next267, 2
-  br i1 %exitcond317.not, label %221, label %.preheader206, !llvm.loop !143
+  br i1 %exitcond317.not, label %221, label %.preheader206, !llvm.loop !141
 
 221:                                              ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3627,8 +3627,8 @@ attributes #9 = { noreturn nounwind }
 !126 = distinct !{!126, !42}
 !127 = distinct !{!127, !42}
 !128 = distinct !{!128, !42}
-!129 = distinct !{!129, !42, !130}
-!130 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!129 = distinct !{!129, !42}
+!130 = distinct !{!130, !42}
 !131 = distinct !{!131, !42}
 !132 = distinct !{!132, !42}
 !133 = distinct !{!133, !42}
@@ -3640,5 +3640,3 @@ attributes #9 = { noreturn nounwind }
 !139 = distinct !{!139, !42}
 !140 = distinct !{!140, !42}
 !141 = distinct !{!141, !42}
-!142 = distinct !{!142, !42}
-!143 = distinct !{!143, !42}

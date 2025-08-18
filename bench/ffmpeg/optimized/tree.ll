@@ -310,7 +310,7 @@ define void @av_tree_enumerate(ptr noundef readonly captures(address_is_null) %0
   %9 = getelementptr inbounds nuw i8, ptr %.tr27.us, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %.not.us = icmp eq ptr %10, null
-  br i1 %.not.us, label %._crit_edge, label %.thread21.us, !llvm.loop !14
+  br i1 %.not.us, label %._crit_edge, label %.thread21.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread20
   %.tr27 = phi ptr [ %22, %.thread20 ], [ %0, %.lr.ph ]
@@ -368,5 +368,3 @@ attributes #3 = { nounwind }
 !11 = !{!"p1 _ZTS10AVTreeNode", !8, i64 0}
 !12 = !{!8, !8, i64 0}
 !13 = !{!5, !9, i64 24}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}

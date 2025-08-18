@@ -11116,11 +11116,11 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %370 = getelementptr %struct._gtp_mess_items, ptr %gprs_mess_items.umts_mess_items.i, i64 %369
   %371 = load i8, ptr %370, align 8
   %.not.i = icmp eq i8 %371, 0
-  br i1 %.not.i, label %check_field_presence_and_decoder.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !50
+  br i1 %.not.i, label %check_field_presence_and_decoder.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !49
 
 .lr.ph.i:                                         ; preds = %.lr.ph460
   %372 = icmp eq i8 %371, %366
-  br i1 %372, label %.preheader.i, label %.lr.ph460, !llvm.loop !50
+  br i1 %372, label %.preheader.i, label %.lr.ph460, !llvm.loop !49
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %gprs_mess_items.umts_mess_items.i, %.lr.ph.i.preheader ], [ %370, %.lr.ph.i ]
@@ -11150,7 +11150,7 @@ check_field_presence_and_decoder.exit.thread.us:  ; preds = %.lr.ph464.split.us
   %387 = getelementptr [46 x %struct.ext_header], ptr %373, i64 0, i64 %386
   %388 = load i8, ptr %387, align 8
   %.not30.i = icmp eq i8 %388, 0
-  br i1 %.not30.i, label %check_field_presence_and_decoder.exit.thread433, label %.lr.ph44.i, !llvm.loop !51
+  br i1 %.not30.i, label %check_field_presence_and_decoder.exit.thread433, label %.lr.ph44.i, !llvm.loop !50
 
 check_field_presence_and_decoder.exit:            ; preds = %380
   %389 = zext i8 %377 to i32
@@ -11202,7 +11202,7 @@ check_field_presence_and_decoder.exit.thread433:  ; preds = %385, %.preheader.i
   %411 = add i32 %410, %.4375463
   %412 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %411)
   %413 = icmp sgt i32 %412, 0
-  br i1 %413, label %.lr.ph464.split, label %._crit_edge, !llvm.loop !52
+  br i1 %413, label %.lr.ph464.split, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %409, %356, %341
   %.4375.lcssa = phi i32 [ %.1372, %341 ], [ %360, %356 ], [ %411, %409 ]
@@ -12038,7 +12038,7 @@ define internal fastcc void @dissect_gtp_tpdu_as_pdcp_lte_info(ptr noundef %0, p
 addresses_equal.exit.i:                           ; preds = %34, %23, %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %look_up_pdcp_lte_keys_record.exit.thread, label %12, !llvm.loop !53
+  br i1 %exitcond.not.i, label %look_up_pdcp_lte_keys_record.exit.thread, label %12, !llvm.loop !51
 
 look_up_pdcp_lte_keys_record.exit:                ; preds = %29, %34
   %.not = icmp eq ptr %30, null
@@ -12182,7 +12182,7 @@ define internal fastcc void @dissect_gtp_tpsu_as_pdcp_nr_info(ptr noundef %0, pt
 addresses_equal.exit.i:                           ; preds = %35, %24, %17, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %look_up_pdcp_nr_keys_record.exit.thread, label %13, !llvm.loop !54
+  br i1 %exitcond.not.i, label %look_up_pdcp_nr_keys_record.exit.thread, label %13, !llvm.loop !52
 
 look_up_pdcp_nr_keys_record.exit:                 ; preds = %30, %35
   %.not = icmp eq ptr %31, null
@@ -12733,7 +12733,7 @@ proto_item_set_hidden.exit126:                    ; preds = %121, %118, %116, %9
 addresses_equal.exit.i.us:                        ; preds = %150, %.lr.ph.i.split.us
   %154 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.068.i.us)
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !55
+  br i1 %155, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !8
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %addresses_equal.exit.i
   %.068.i = phi ptr [ %167, %addresses_equal.exit.i ], [ %143, %.lr.ph.i ]
@@ -13618,7 +13618,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_mm_cntxt(ptr noundef %0, i32
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 8, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %decode_triplet.exit, label %.lr.ph.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %decode_triplet.exit, label %.lr.ph.i, !llvm.loop !53
 
 decode_triplet.exit:                              ; preds = %.lr.ph.i, %51
   %narrow = mul nuw i8 %19, 28
@@ -14291,7 +14291,7 @@ define internal range(i32 2, 258) i32 @decode_gtp_hdr_list(ptr noundef %0, i32 n
   %22 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @next_extension_header_fieldvals, ptr noundef nonnull @.str.1814)
   %23 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.1813, i32 noundef %21, ptr noundef %22, i32 noundef %20)
   %exitcond.not = icmp eq i32 %21, %8
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %16, %5
   ret i32 %9
@@ -16601,7 +16601,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_rel_pack(ptr noundef %0, i32
   %20 = add nuw nsw i32 %14, 2
   %21 = and i32 %20, 65535
   %22 = icmp samesign ult i32 %21, %8
-  br i1 %22, label %13, label %._crit_edge, !llvm.loop !58
+  br i1 %22, label %13, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %13, %5
   ret i32 %9
@@ -16632,7 +16632,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_can_pack(ptr noundef %0, i32
   %20 = add nuw nsw i32 %14, 2
   %21 = and i32 %20, 65535
   %22 = icmp samesign ult i32 %21, %8
-  br i1 %22, label %13, label %._crit_edge, !llvm.loop !59
+  br i1 %22, label %13, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %13, %5
   ret i32 %9
@@ -16712,13 +16712,13 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0)
   %21 = add i32 %1, 4
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %21)
-  %.fr124 = freeze i8 %22
+  %.fr126 = freeze i8 %22
   %23 = load i32, ptr @hf_gtp_data_record_format, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
   %25 = add i32 %1, 5
-  %26 = zext i8 %.fr124 to i32
-  %27 = icmp ult i8 %.fr124, 5
-  br i1 %27, label %28, label %98
+  %26 = zext i8 %.fr126 to i32
+  %27 = icmp ult i8 %.fr126, 5
+  br i1 %27, label %28, label %108
 
 28:                                               ; preds = %16
   %29 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @gtp_cdr_fmt_vals, ptr noundef nonnull @.str.1683)
@@ -16738,11 +16738,12 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
 
 ._crit_edge:                                      ; preds = %28, %37
   %.0115 = phi i8 [ %38, %37 ], [ %31, %28 ]
+  %.0115.fr = freeze i8 %.0115
   %39 = icmp ult i8 %34, 101
   %40 = sext i1 %39 to i8
   %spec.select = add nsw i8 %34, %40
-  %41 = zext i8 %.0115 to i32
-  %42 = icmp eq i8 %.0115, 15
+  %41 = zext i8 %.0115.fr to i32
+  %42 = icmp eq i8 %.0115.fr, 15
   %43 = or i1 %35, %42
   %44 = select i1 %43, i32 3, i32 2
   %45 = load i32, ptr @ett_gtp_cdr_ver, align 4
@@ -16761,7 +16762,7 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
   %56 = load i32, ptr @hf_gtp_cdr_rel_ext, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %56, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef 0)
   %58 = add i32 %1, 8
-  %59 = icmp ult i8 %.0115, 16
+  %59 = icmp ult i8 %.0115.fr, 16
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
@@ -16770,88 +16771,105 @@ define internal i32 @decode_gtp_data_req(ptr noundef %0, i32 noundef %1, ptr nou
 
 62:                                               ; preds = %55, %60, %._crit_edge
   %.0111 = phi i32 [ %58, %60 ], [ %58, %55 ], [ %36, %._crit_edge ]
-  %.not123 = icmp eq i8 %18, 0
-  br i1 %.not123, label %.loopexit, label %.lr.ph
+  %.not125 = icmp eq i8 %18, 0
+  br i1 %.not125, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %62
-  %63 = icmp eq i8 %.fr124, 1
-  %64 = icmp ult i8 %.0115, 7
-  %wide.trip.count131 = zext i8 %18 to i32
-  br i1 %63, label %.lr.ph.split.us, label %.lr.ph.split
+  %63 = icmp eq i8 %.fr126, 1
+  br i1 %63, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %81
-  %indvars.iv128 = phi i32 [ %69, %81 ], [ 0, %.lr.ph ]
-  %.1122.us = phi i32 [ %82, %81 ], [ %.0111, %.lr.ph ]
-  %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1122.us)
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %wide.trip.count = zext i8 %18 to i32
+  br label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %64 = icmp ult i8 %.0115.fr, 7
+  %wide.trip.count140 = zext i8 %18 to i32
+  br i1 %64, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %indvars.iv137 = phi i32 [ %69, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %.1122.us.us = phi i32 [ %78, %.lr.ph.split.us.split.us ], [ %.0111, %.lr.ph.split.us ]
+  %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1122.us.us)
   %66 = zext i16 %65 to i32
   %67 = add nuw nsw i32 %66, 2
   %68 = load i32, ptr @ett_gtp_cdr_dr, align 4
-  %69 = add nuw nsw i32 %indvars.iv128, 1
-  %70 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.1122.us, i32 noundef %67, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.1827, i32 noundef %69)
+  %69 = add nuw nsw i32 %indvars.iv137, 1
+  %70 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.1122.us.us, i32 noundef %67, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.1827, i32 noundef %69)
   %71 = load i32, ptr @hf_gtp_cdr_length, align 4
-  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %71, ptr noundef %0, i32 noundef %.1122.us, i32 noundef 2, i32 noundef %66)
-  %73 = add i32 %.1122.us, 2
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %71, ptr noundef %0, i32 noundef %.1122.us.us, i32 noundef 2, i32 noundef %66)
+  %73 = add i32 %.1122.us.us, 2
   %74 = load i32, ptr @hf_gtp_cdr_context, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef %66, i32 noundef 0)
   %76 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %73)
-  br i1 %64, label %79, label %77
+  %77 = tail call i32 @dissect_gprscdr_GPRSCallEventRecord_PDU(ptr noundef %76, ptr noundef %2, ptr noundef %70, ptr noundef null)
+  %78 = add i32 %73, %66
+  %exitcond141.not = icmp eq i32 %69, %wide.trip.count140
+  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !57
 
-77:                                               ; preds = %.lr.ph.split.us
-  %78 = tail call i32 @dissect_gprscdr_GPRSRecord_PDU(ptr noundef %76, ptr noundef %2, ptr noundef %70, ptr noundef null)
-  br label %81
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
+  %indvars.iv132 = phi i32 [ %83, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %.1122.us = phi i32 [ %92, %.lr.ph.split.us.split ], [ %.0111, %.lr.ph.split.us ]
+  %79 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1122.us)
+  %80 = zext i16 %79 to i32
+  %81 = add nuw nsw i32 %80, 2
+  %82 = load i32, ptr @ett_gtp_cdr_dr, align 4
+  %83 = add nuw nsw i32 %indvars.iv132, 1
+  %84 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.1122.us, i32 noundef %81, i32 noundef %82, ptr noundef null, ptr noundef nonnull @.str.1827, i32 noundef %83)
+  %85 = load i32, ptr @hf_gtp_cdr_length, align 4
+  %86 = tail call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %.1122.us, i32 noundef 2, i32 noundef %80)
+  %87 = add i32 %.1122.us, 2
+  %88 = load i32, ptr @hf_gtp_cdr_context, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef %80, i32 noundef 0)
+  %90 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %87)
+  %91 = tail call i32 @dissect_gprscdr_GPRSRecord_PDU(ptr noundef %90, ptr noundef %2, ptr noundef %84, ptr noundef null)
+  %92 = add i32 %87, %80
+  %exitcond136.not = icmp eq i32 %83, %wide.trip.count140
+  br i1 %exitcond136.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !57
 
-79:                                               ; preds = %.lr.ph.split.us
-  %80 = tail call i32 @dissect_gprscdr_GPRSCallEventRecord_PDU(ptr noundef %76, ptr noundef %2, ptr noundef %70, ptr noundef null)
-  br label %81
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %indvars.iv = phi i32 [ 0, %.lr.ph.split.preheader ], [ %97, %.lr.ph.split ]
+  %.1122 = phi i32 [ %.0111, %.lr.ph.split.preheader ], [ %107, %.lr.ph.split ]
+  %93 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1122)
+  %94 = zext i16 %93 to i32
+  %95 = add nuw nsw i32 %94, 2
+  %96 = load i32, ptr @ett_gtp_cdr_dr, align 4
+  %97 = add nuw nsw i32 %indvars.iv, 1
+  %98 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.1122, i32 noundef %95, i32 noundef %96, ptr noundef null, ptr noundef nonnull @.str.1827, i32 noundef %97)
+  %99 = load i32, ptr @hf_gtp_cdr_length, align 4
+  %100 = tail call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef %.1122, i32 noundef 2, i32 noundef %94)
+  %101 = add i32 %.1122, 2
+  %102 = load i32, ptr @hf_gtp_cdr_context, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef %94, i32 noundef 0)
+  %104 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %101)
+  %105 = load ptr, ptr @gtp_cdr_fmt_dissector_table, align 8
+  %106 = tail call i32 @dissector_try_uint(ptr noundef %105, i32 noundef %26, ptr noundef %104, ptr noundef %2, ptr noundef %98)
+  %107 = add i32 %101, %94
+  %exitcond.not = icmp eq i32 %97, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !57
 
-81:                                               ; preds = %79, %77
-  %82 = add i32 %73, %66
-  %exitcond132.not = icmp eq i32 %69, %wide.trip.count131
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !60
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %indvars.iv = phi i32 [ %87, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.1122 = phi i32 [ %97, %.lr.ph.split ], [ %.0111, %.lr.ph ]
-  %83 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1122)
-  %84 = zext i16 %83 to i32
-  %85 = add nuw nsw i32 %84, 2
-  %86 = load i32, ptr @ett_gtp_cdr_dr, align 4
-  %87 = add nuw nsw i32 %indvars.iv, 1
-  %88 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.1122, i32 noundef %85, i32 noundef %86, ptr noundef null, ptr noundef nonnull @.str.1827, i32 noundef %87)
-  %89 = load i32, ptr @hf_gtp_cdr_length, align 4
-  %90 = tail call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.1122, i32 noundef 2, i32 noundef %84)
-  %91 = add i32 %.1122, 2
-  %92 = load i32, ptr @hf_gtp_cdr_context, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef %84, i32 noundef 0)
-  %94 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %91)
-  %95 = load ptr, ptr @gtp_cdr_fmt_dissector_table, align 8
-  %96 = tail call i32 @dissector_try_uint(ptr noundef %95, i32 noundef %26, ptr noundef %94, ptr noundef %2, ptr noundef %88)
-  %97 = add i32 %91, %84
-  %exitcond.not = icmp eq i32 %87, %wide.trip.count131
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !61
-
-98:                                               ; preds = %16
+108:                                              ; preds = %16
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.1828)
-  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %25)
-  %100 = load ptr, ptr @gtpcdr_handle, align 8
-  %.not = icmp eq ptr %100, null
-  br i1 %.not, label %103, label %101
+  %109 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %25)
+  %110 = load ptr, ptr @gtpcdr_handle, align 8
+  %.not = icmp eq ptr %110, null
+  br i1 %.not, label %113, label %111
 
-101:                                              ; preds = %98
-  %102 = tail call i32 @call_dissector(ptr noundef nonnull %100, ptr noundef %99, ptr noundef %2, ptr noundef %3)
-  br label %106
+111:                                              ; preds = %108
+  %112 = tail call i32 @call_dissector(ptr noundef nonnull %110, ptr noundef %109, ptr noundef %2, ptr noundef %3)
+  br label %116
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr @gtp_cdr_fmt_dissector_table, align 8
-  %105 = call i32 @dissector_try_uint_with_data(ptr noundef %104, i32 noundef %26, ptr noundef %99, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %6)
-  br label %106
+113:                                              ; preds = %108
+  %114 = load ptr, ptr @gtp_cdr_fmt_dissector_table, align 8
+  %115 = call i32 @dissector_try_uint_with_data(ptr noundef %114, i32 noundef %26, ptr noundef %109, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %6)
+  br label %116
 
-106:                                              ; preds = %103, %101
-  %107 = add nuw nsw i32 %13, 3
+116:                                              ; preds = %113, %111
+  %117 = add nuw nsw i32 %13, 3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split, %81, %62, %5, %106
-  %.0 = phi i32 [ %107, %106 ], [ 3, %5 ], [ %.0111, %62 ], [ %82, %81 ], [ %97, %.lr.ph.split ]
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %62, %5, %116
+  %.0 = phi i32 [ %117, %116 ], [ 3, %5 ], [ %.0111, %62 ], [ %78, %.lr.ph.split.us.split.us ], [ %92, %.lr.ph.split.us.split ], [ %107, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -16896,7 +16914,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i3
 25:                                               ; preds = %23, %.lr.ph.split.us
   %26 = and i32 %20, 65535
   %27 = icmp samesign ult i32 %26, %10
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !62
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %28 = phi i32 [ %39, %38 ], [ 0, %.lr.ph ]
@@ -16918,7 +16936,7 @@ define internal range(i32 3, 65539) i32 @decode_gtp_data_resp(ptr noundef %0, i3
 38:                                               ; preds = %36, %.lr.ph.split
   %39 = and i32 %32, 65535
   %40 = icmp samesign ult i32 %39, %10
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %38, %25, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -17170,7 +17188,7 @@ define internal fastcc range(i32 0, 65536) i32 @decode_quintuplet(ptr noundef %0
   %52 = add i32 %1, %51
   call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %52)
   %exitcond.not = icmp eq i32 %7, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %53 = zext i16 %49 to i32
@@ -17414,20 +17432,15 @@ attributes #18 = { nounwind }
 !45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
 !47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
 !53 = distinct !{!53, !7}
 !54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7, !49}
+!55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
 !57 = distinct !{!57, !7}
 !58 = distinct !{!58, !7}
 !59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7, !49}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7, !49}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}

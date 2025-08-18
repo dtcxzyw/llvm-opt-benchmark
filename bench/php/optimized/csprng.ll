@@ -286,7 +286,7 @@ php_random_bytes.exit25.us:                       ; preds = %.split.us
   %28 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %5, i64 noundef 128)
   %29 = icmp eq i32 %28, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %29, label %.loopexit, label %.split.us, !llvm.loop !16
+  br i1 %29, label %.loopexit, label %.split.us
 
 .lr.ph:                                           ; preds = %.split.preheader, %php_random_bytes.exit25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -370,5 +370,3 @@ attributes #9 = { nounwind }
 !13 = !{!"p1 _ZTS17_zend_class_entry", !14, i64 0}
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}

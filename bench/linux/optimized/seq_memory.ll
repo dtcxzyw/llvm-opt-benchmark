@@ -481,13 +481,13 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %20, %23
-  br i1 %24, label %25, label %144
+  br i1 %24, label %25, label %163
 
 25:                                               ; preds = %19
   store ptr null, ptr %7, align 8, !annotation !6
   %26 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %3, ptr noundef %5)
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %144, label %28
+  br i1 %27, label %163, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %7, align 8
@@ -495,12 +495,12 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
   %30 = load i8, ptr %9, align 1
   %31 = and i8 %30, 12
   %32 = icmp eq i8 %31, 4
-  br i1 %32, label %33, label %143
+  br i1 %32, label %33, label %162
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 4
-  %.fr12 = freeze i32 %35
+  %.fr14 = freeze i32 %35
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !annotation !6
   %36 = or disjoint i32 %21, 1073741824
@@ -514,207 +514,248 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load ptr, ptr %41, align 4
-  %43 = and i32 %.fr12, 1073741824
-  %44 = icmp ne i32 %43, 0
-  %45 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %.loopexit, label %47
+  %43 = and i32 %.fr14, 1073741824
+  %.not15 = icmp eq i32 %43, 0
+  %44 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %.loopexit, label %46
 
-47:                                               ; preds = %40
-  %48 = icmp sgt i32 %.fr12, -1
-  %49 = tail call i32 @llvm.umin.i32(i32 %21, i32 28)
-  br i1 %48, label %.split.us, label %.split
+46:                                               ; preds = %40
+  %47 = icmp sgt i32 %.fr14, -1
+  %48 = tail call i32 @llvm.umin.i32(i32 %21, i32 28)
+  br i1 %47, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %47, %75
-  %50 = phi i32 [ %79, %75 ], [ %49, %47 ]
-  %51 = phi i32 [ %76, %75 ], [ %21, %47 ]
-  %52 = phi ptr [ %73, %75 ], [ %42, %47 ]
-  %53 = phi ptr [ %.pre20.pre, %75 ], [ null, %47 ]
-  %54 = phi ptr [ %78, %75 ], [ %42, %47 ]
-  %55 = phi i32 [ %56, %75 ], [ %20, %47 ]
-  %56 = add nsw i32 %55, -1
-  %57 = load ptr, ptr %38, align 4
-  %58 = icmp eq ptr %57, null
-  %.pre20.pre = load ptr, ptr %8, align 8
-  br i1 %58, label %59, label %60
+.split.us:                                        ; preds = %46
+  br i1 %.not15, label %.split.us.split.us, label %.split.us.split
 
-59:                                               ; preds = %.split.us
-  store ptr %.pre20.pre, ptr %38, align 4
-  br label %60
+.split.us.split.us:                               ; preds = %.split.us, %65
+  %49 = phi i32 [ %68, %65 ], [ %48, %.split.us ]
+  %50 = phi i32 [ %66, %65 ], [ %21, %.split.us ]
+  %51 = phi ptr [ %.pre28.pre, %65 ], [ null, %.split.us ]
+  %52 = phi ptr [ %67, %65 ], [ %42, %.split.us ]
+  %53 = phi i32 [ %54, %65 ], [ %20, %.split.us ]
+  %54 = add nsw i32 %53, -1
+  %55 = load ptr, ptr %38, align 4
+  %56 = icmp eq ptr %55, null
+  %.pre28.pre = load ptr, ptr %8, align 8
+  br i1 %56, label %57, label %58
 
-60:                                               ; preds = %59, %.split.us
-  %61 = icmp eq ptr %53, null
-  br i1 %61, label %64, label %62
+57:                                               ; preds = %.split.us.split.us
+  store ptr %.pre28.pre, ptr %38, align 4
+  br label %58
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %.pre20.pre, ptr %63, align 8
-  br label %64
+58:                                               ; preds = %57, %.split.us.split.us
+  %59 = icmp eq ptr %51, null
+  br i1 %59, label %62, label %60
 
-64:                                               ; preds = %62, %60
-  %65 = icmp ne ptr %52, null
-  %66 = select i1 %44, i1 %65, i1 false
-  br i1 %66, label %69, label %67
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store ptr %.pre28.pre, ptr %61, align 8
+  br label %62
 
-67:                                               ; preds = %64
-  %68 = sext i32 %50 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.pre20.pre, ptr align 1 %54, i64 %68, i1 false)
-  br label %72
+62:                                               ; preds = %60, %58
+  %63 = sext i32 %49 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.pre28.pre, ptr align 1 %52, i64 %63, i1 false)
+  %64 = icmp samesign ult i32 %53, 2
+  br i1 %64, label %.loopexit8, label %65, !llvm.loop !20
 
-69:                                               ; preds = %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %.pre20.pre, ptr noundef nonnull align 8 dereferenceable(28) %52, i64 28, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %71 = load ptr, ptr %70, align 8
-  br label %72
+65:                                               ; preds = %62
+  %66 = sub i32 %50, %49
+  %67 = getelementptr i8, ptr %52, i64 %63
+  %68 = tail call i32 @llvm.smin.i32(i32 %66, i32 28)
+  %69 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.loopexit, label %.split.us.split.us, !llvm.loop !20
 
-72:                                               ; preds = %69, %67
-  %73 = phi ptr [ %71, %69 ], [ %52, %67 ]
-  %74 = icmp samesign ult i32 %55, 2
-  br i1 %74, label %.loopexit8, label %75, !llvm.loop !20
+.split.us.split:                                  ; preds = %.split.us, %94
+  %71 = phi i32 [ %98, %94 ], [ %48, %.split.us ]
+  %72 = phi i32 [ %95, %94 ], [ %21, %.split.us ]
+  %73 = phi ptr [ %92, %94 ], [ %42, %.split.us ]
+  %74 = phi ptr [ %.pre27.pre, %94 ], [ null, %.split.us ]
+  %75 = phi ptr [ %97, %94 ], [ %42, %.split.us ]
+  %76 = phi i32 [ %77, %94 ], [ %20, %.split.us ]
+  %77 = add nsw i32 %76, -1
+  %78 = load ptr, ptr %38, align 4
+  %79 = icmp eq ptr %78, null
+  %.pre27.pre = load ptr, ptr %8, align 8
+  br i1 %79, label %80, label %81
 
-75:                                               ; preds = %72
-  %76 = sub i32 %51, %50
-  %77 = sext i32 %50 to i64
-  %78 = getelementptr i8, ptr %54, i64 %77
-  %79 = tail call i32 @llvm.smin.i32(i32 %76, i32 28)
-  %80 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
-  %81 = icmp slt i32 %80, 0
-  br i1 %81, label %.loopexit, label %.split.us, !llvm.loop !21
+80:                                               ; preds = %.split.us.split
+  store ptr %.pre27.pre, ptr %38, align 4
+  br label %81
 
-.split:                                           ; preds = %47
-  br i1 %44, label %.split.split, label %.split.split.us
+81:                                               ; preds = %80, %.split.us.split
+  %82 = icmp eq ptr %74, null
+  br i1 %82, label %85, label %83
 
-.split.split.us:                                  ; preds = %.split, %103
-  %82 = phi i32 [ %106, %103 ], [ %49, %.split ]
-  %83 = phi i32 [ %104, %103 ], [ %21, %.split ]
-  %84 = phi ptr [ %.pre.pre, %103 ], [ null, %.split ]
-  %85 = phi ptr [ %105, %103 ], [ %42, %.split ]
-  %86 = phi i32 [ %87, %103 ], [ %20, %.split ]
-  %87 = add nsw i32 %86, -1
-  %88 = load ptr, ptr %38, align 4
-  %89 = icmp eq ptr %88, null
-  %.pre.pre = load ptr, ptr %8, align 8
-  br i1 %89, label %90, label %91
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  store ptr %.pre27.pre, ptr %84, align 8
+  br label %85
 
-90:                                               ; preds = %.split.split.us
-  store ptr %.pre.pre, ptr %38, align 4
+85:                                               ; preds = %83, %81
+  %.not16 = icmp eq ptr %73, null
+  br i1 %.not16, label %86, label %88
+
+86:                                               ; preds = %85
+  %87 = sext i32 %71 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.pre27.pre, ptr align 1 %75, i64 %87, i1 false)
   br label %91
 
-91:                                               ; preds = %90, %.split.split.us
-  %92 = icmp eq ptr %84, null
-  br i1 %92, label %95, label %93
+88:                                               ; preds = %85
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %.pre27.pre, ptr noundef nonnull align 8 dereferenceable(28) %73, i64 28, i1 false)
+  %89 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %90 = load ptr, ptr %89, align 8
+  br label %91
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store ptr %.pre.pre, ptr %94, align 8
-  br label %95
+91:                                               ; preds = %88, %86
+  %92 = phi ptr [ %90, %88 ], [ null, %86 ]
+  %93 = icmp samesign ult i32 %76, 2
+  br i1 %93, label %.loopexit8, label %94, !llvm.loop !20
 
-95:                                               ; preds = %93, %91
-  %96 = icmp slt i32 %83, 0
-  br i1 %96, label %.critedge, label %97, !prof !14
+94:                                               ; preds = %91
+  %95 = sub i32 %72, %71
+  %96 = sext i32 %71 to i64
+  %97 = getelementptr i8, ptr %75, i64 %96
+  %98 = tail call i32 @llvm.smin.i32(i32 %95, i32 28)
+  %99 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %.loopexit, label %.split.us.split, !llvm.loop !20
 
-97:                                               ; preds = %95
-  %98 = sext i32 %82 to i64
-  %99 = tail call i64 @_copy_from_user(ptr noundef %.pre.pre, ptr noundef %85, i64 noundef %98) #12
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %.loopexit
+.split:                                           ; preds = %46
+  br i1 %.not15, label %.split.split.us, label %.split.split
 
-101:                                              ; preds = %97
-  %102 = icmp samesign ult i32 %86, 2
-  br i1 %102, label %.loopexit8, label %103, !llvm.loop !20
+.split.split.us:                                  ; preds = %.split, %122
+  %101 = phi i32 [ %125, %122 ], [ %48, %.split ]
+  %102 = phi i32 [ %123, %122 ], [ %21, %.split ]
+  %103 = phi ptr [ %.pre26.pre, %122 ], [ null, %.split ]
+  %104 = phi ptr [ %124, %122 ], [ %42, %.split ]
+  %105 = phi i32 [ %106, %122 ], [ %20, %.split ]
+  %106 = add nsw i32 %105, -1
+  %107 = load ptr, ptr %38, align 4
+  %108 = icmp eq ptr %107, null
+  %.pre26.pre = load ptr, ptr %8, align 8
+  br i1 %108, label %109, label %110
 
-103:                                              ; preds = %101
-  %104 = sub i32 %83, %82
-  %105 = getelementptr i8, ptr %85, i64 %98
-  %106 = tail call i32 @llvm.smin.i32(i32 %104, i32 28)
-  %107 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
-  %108 = icmp slt i32 %107, 0
-  br i1 %108, label %.loopexit, label %.split.split.us, !llvm.loop !23
+109:                                              ; preds = %.split.split.us
+  store ptr %.pre26.pre, ptr %38, align 4
+  br label %110
 
-109:                                              ; preds = %140
-  %110 = sub i32 %117, %116
-  %111 = sext i32 %116 to i64
-  %112 = getelementptr i8, ptr %120, i64 %111
-  %113 = tail call i32 @llvm.smin.i32(i32 %110, i32 28)
-  %114 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %.loopexit, label %.split.split, !llvm.loop !20
+110:                                              ; preds = %109, %.split.split.us
+  %111 = icmp eq ptr %103, null
+  br i1 %111, label %114, label %112
 
-.split.split:                                     ; preds = %.split, %109
-  %116 = phi i32 [ %113, %109 ], [ %49, %.split ]
-  %117 = phi i32 [ %110, %109 ], [ %21, %.split ]
-  %118 = phi ptr [ %141, %109 ], [ %42, %.split ]
-  %119 = phi ptr [ %.pre19.pre, %109 ], [ null, %.split ]
-  %120 = phi ptr [ %112, %109 ], [ %42, %.split ]
-  %121 = phi i32 [ %122, %109 ], [ %20, %.split ]
-  %122 = add nsw i32 %121, -1
-  %123 = load ptr, ptr %38, align 4
-  %124 = icmp eq ptr %123, null
-  %.pre19.pre = load ptr, ptr %8, align 8
-  br i1 %124, label %125, label %126
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 40
+  store ptr %.pre26.pre, ptr %113, align 8
+  br label %114
 
-125:                                              ; preds = %.split.split
-  store ptr %.pre19.pre, ptr %38, align 4
-  br label %126
+114:                                              ; preds = %112, %110
+  %115 = icmp slt i32 %102, 0
+  br i1 %115, label %.critedge, label %116, !prof !14
 
-126:                                              ; preds = %125, %.split.split
-  %127 = icmp eq ptr %119, null
-  br i1 %127, label %130, label %128
+116:                                              ; preds = %114
+  %117 = sext i32 %101 to i64
+  %118 = tail call i64 @_copy_from_user(ptr noundef %.pre26.pre, ptr noundef %104, i64 noundef %117) #12
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %120, label %.loopexit
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  store ptr %.pre19.pre, ptr %129, align 8
-  br label %130
+120:                                              ; preds = %116
+  %121 = icmp samesign ult i32 %105, 2
+  br i1 %121, label %.loopexit8, label %122, !llvm.loop !20
 
-130:                                              ; preds = %128, %126
-  %.not = icmp eq ptr %118, null
-  br i1 %.not, label %134, label %131
+122:                                              ; preds = %120
+  %123 = sub i32 %102, %101
+  %124 = getelementptr i8, ptr %104, i64 %117
+  %125 = tail call i32 @llvm.smin.i32(i32 %123, i32 28)
+  %126 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %.loopexit, label %.split.split.us, !llvm.loop !20
 
-131:                                              ; preds = %130
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %.pre19.pre, ptr noundef nonnull align 8 dereferenceable(28) %118, i64 28, i1 false)
-  %132 = getelementptr inbounds nuw i8, ptr %118, i64 40
-  %133 = load ptr, ptr %132, align 8
-  br label %140
+128:                                              ; preds = %159
+  %129 = sub i32 %136, %135
+  %130 = sext i32 %135 to i64
+  %131 = getelementptr i8, ptr %139, i64 %130
+  %132 = tail call i32 @llvm.smin.i32(i32 %129, i32 28)
+  %133 = call fastcc i32 @snd_seq_cell_alloc(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %3, ptr noundef %5)
+  %134 = icmp slt i32 %133, 0
+  br i1 %134, label %.loopexit, label %.split.split, !llvm.loop !20
 
-134:                                              ; preds = %130
-  %135 = icmp slt i32 %117, 0
-  br i1 %135, label %.critedge, label %136, !prof !14
+.split.split:                                     ; preds = %.split, %128
+  %135 = phi i32 [ %132, %128 ], [ %48, %.split ]
+  %136 = phi i32 [ %129, %128 ], [ %21, %.split ]
+  %137 = phi ptr [ %160, %128 ], [ %42, %.split ]
+  %138 = phi ptr [ %.pre.pre, %128 ], [ null, %.split ]
+  %139 = phi ptr [ %131, %128 ], [ %42, %.split ]
+  %140 = phi i32 [ %141, %128 ], [ %20, %.split ]
+  %141 = add nsw i32 %140, -1
+  %142 = load ptr, ptr %38, align 4
+  %143 = icmp eq ptr %142, null
+  %.pre.pre = load ptr, ptr %8, align 8
+  br i1 %143, label %144, label %145
 
-.critedge:                                        ; preds = %95, %134
+144:                                              ; preds = %.split.split
+  store ptr %.pre.pre, ptr %38, align 4
+  br label %145
+
+145:                                              ; preds = %144, %.split.split
+  %146 = icmp eq ptr %138, null
+  br i1 %146, label %149, label %147
+
+147:                                              ; preds = %145
+  %148 = getelementptr inbounds nuw i8, ptr %138, i64 40
+  store ptr %.pre.pre, ptr %148, align 8
+  br label %149
+
+149:                                              ; preds = %147, %145
+  %.not = icmp eq ptr %137, null
+  br i1 %.not, label %153, label %150
+
+150:                                              ; preds = %149
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %.pre.pre, ptr noundef nonnull align 8 dereferenceable(28) %137, i64 28, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %152 = load ptr, ptr %151, align 8
+  br label %159
+
+153:                                              ; preds = %149
+  %154 = icmp slt i32 %136, 0
+  br i1 %154, label %.critedge, label %155, !prof !14
+
+.critedge:                                        ; preds = %153, %114
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #12, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #12, !srcloc !16
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #12, !srcloc !17
   br label %.loopexit
 
-136:                                              ; preds = %134
-  %137 = sext i32 %116 to i64
-  %138 = tail call i64 @_copy_from_user(ptr noundef %.pre19.pre, ptr noundef %120, i64 noundef %137) #12
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %140, label %.loopexit
+155:                                              ; preds = %153
+  %156 = sext i32 %135 to i64
+  %157 = tail call i64 @_copy_from_user(ptr noundef %.pre.pre, ptr noundef %139, i64 noundef %156) #12
+  %158 = icmp eq i64 %157, 0
+  br i1 %158, label %159, label %.loopexit
 
-140:                                              ; preds = %136, %131
-  %141 = phi ptr [ %133, %131 ], [ null, %136 ]
-  %142 = icmp samesign ult i32 %121, 2
-  br i1 %142, label %.loopexit8, label %109, !llvm.loop !20
+159:                                              ; preds = %155, %150
+  %160 = phi ptr [ %152, %150 ], [ null, %155 ]
+  %161 = icmp samesign ult i32 %140, 2
+  br i1 %161, label %.loopexit8, label %128, !llvm.loop !20
 
-.loopexit8:                                       ; preds = %101, %140, %72, %33
+.loopexit8:                                       ; preds = %159, %120, %91, %62, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %143
+  br label %162
 
-143:                                              ; preds = %.loopexit8, %28
+162:                                              ; preds = %.loopexit8, %28
   store ptr %29, ptr %2, align 8
-  br label %144
+  br label %163
 
-.loopexit:                                        ; preds = %97, %103, %109, %136, %75, %40, %.critedge
-  %.ph = phi i32 [ -14, %.critedge ], [ %45, %40 ], [ %80, %75 ], [ %114, %109 ], [ -14, %136 ], [ %107, %103 ], [ -14, %97 ]
+.loopexit:                                        ; preds = %128, %155, %116, %122, %94, %65, %40, %.critedge
+  %.ph = phi i32 [ -14, %.critedge ], [ %44, %40 ], [ %69, %65 ], [ %99, %94 ], [ %126, %122 ], [ -14, %116 ], [ %133, %128 ], [ -14, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @snd_seq_cell_free(ptr noundef %29)
-  br label %144
+  br label %163
 
-144:                                              ; preds = %.loopexit, %143, %25, %19
-  %145 = phi i32 [ %.ph, %.loopexit ], [ 0, %143 ], [ -12, %19 ], [ %26, %25 ]
+163:                                              ; preds = %.loopexit, %162, %25, %19
+  %164 = phi i32 [ %.ph, %.loopexit ], [ 0, %162 ], [ -12, %19 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %145
+  ret i32 %164
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -727,7 +768,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
 7:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !6
   store ptr null, ptr %1, align 8
-  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !24
+  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !21
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
@@ -767,7 +808,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %25
-  %29 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #12, !srcloc !25
+  %29 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #12, !srcloc !22
   call void @add_wait_queue(ptr noundef nonnull %20, ptr noundef nonnull %5) #12
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %23) #12
   call void @schedule() #12
@@ -776,13 +817,13 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   %31 = load volatile i64, ptr %9, align 8
   %32 = and i64 %31, 131072
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %.critedge, !prof !26
+  br i1 %33, label %34, label %.critedge, !prof !23
 
 34:                                               ; preds = %28
   %35 = load volatile i64, ptr %9, align 8
   %36 = and i64 %35, 4
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.split.split.us, label %.critedge, !llvm.loop !27
+  br i1 %37, label %.split.split.us, label %.critedge, !llvm.loop !24
 
 .split.split:                                     ; preds = %.split, %49
   %38 = phi i64 [ %45, %49 ], [ %13, %.split ]
@@ -796,7 +837,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
-  %44 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #12, !srcloc !25
+  %44 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #12, !srcloc !22
   call void @add_wait_queue(ptr noundef nonnull %20, ptr noundef nonnull %5) #12
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %38) #12
   call void @mutex_unlock(ptr noundef nonnull %3) #12
@@ -807,13 +848,13 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   %46 = load volatile i64, ptr %9, align 8
   %47 = and i64 %46, 131072
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %.critedge, !prof !26
+  br i1 %48, label %49, label %.critedge, !prof !23
 
 49:                                               ; preds = %43
   %50 = load volatile i64, ptr %9, align 8
   %51 = and i64 %50, 4
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.split.split, label %.critedge, !llvm.loop !28
+  br i1 %52, label %.split.split, label %.critedge, !llvm.loop !24
 
 .split9:                                          ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i64 [ %13, %.split.us ], [ %23, %.split.split.us ], [ %38, %.split.split ]
@@ -831,7 +872,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @snd_seq_cell_alloc(ptr no
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %17, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, ptr nonnull elementtype(i32) %59) #12, !srcloc !29
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, ptr nonnull elementtype(i32) %59) #12, !srcloc !25
   %60 = load volatile i32, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %62 = load i32, ptr %61, align 4
@@ -958,7 +999,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_pool_init(ptr noundef %0
   %29 = load i32, ptr %4, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %28, %30
-  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !30
+  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %18
   %32 = phi i32 [ %20, %18 ], [ %29, %.preheader ]
@@ -1024,7 +1065,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_pool_done(ptr noundef %0
   %14 = tail call i64 @schedule_timeout_uninterruptible(i64 noundef 1) #12
   %15 = load volatile i32, ptr %11, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !31
+  br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1090,7 +1131,7 @@ define dso_local noundef i32 @snd_seq_pool_delete(ptr noundef captures(none) %0)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 1, ptr %7, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #12
-  %8 = tail call i32 @snd_seq_pool_done(ptr noundef nonnull %2), !range !32
+  %8 = tail call i32 @snd_seq_pool_done(ptr noundef nonnull %2), !range !28
   tail call void @kfree(ptr noundef nonnull %2) #12
   br label %9
 
@@ -1277,15 +1318,11 @@ attributes #15 = { nounwind allocsize(2) }
 !18 = !{i64 2148871619, i64 2148871658, i64 2148871679, i64 2148871716, i64 2148871739, i64 2148871609}
 !19 = distinct !{!19, !8, !9}
 !20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !8, !9, !22}
-!24 = !{i64 2147950149}
-!25 = !{i64 2154797745}
-!26 = !{!"branch_weights", i32 2000, i32 1}
-!27 = distinct !{!27, !8, !9, !22}
-!28 = distinct !{!28, !8, !9}
-!29 = !{i64 2148871256, i64 2148871295, i64 2148871316, i64 2148871353, i64 2148871376, i64 2148871246}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9}
-!32 = !{i32 -22, i32 1}
+!21 = !{i64 2147950149}
+!22 = !{i64 2154797745}
+!23 = !{!"branch_weights", i32 2000, i32 1}
+!24 = distinct !{!24, !8, !9}
+!25 = !{i64 2148871256, i64 2148871295, i64 2148871316, i64 2148871353, i64 2148871376, i64 2148871246}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = !{i32 -22, i32 1}

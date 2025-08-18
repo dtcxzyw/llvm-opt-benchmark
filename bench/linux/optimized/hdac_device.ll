@@ -1058,7 +1058,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %135 = add i16 %132, 1
   %136 = zext i16 %135 to i32
   %137 = icmp ult i32 %110, %136
-  br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !18
+  br i1 %137, label %.loopexit.loopexit20, label %.preheader.split, !llvm.loop !16
 
 138:                                              ; preds = %115
   br i1 %43, label %144, label %139
@@ -1086,7 +1086,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   %148 = phi i16 [ %78, %131 ], [ %111, %144 ], [ %111, %.loopexit.loopexit20 ], [ %111, %.preheader.split.us ]
   %149 = add nuw nsw i32 %80, 1
   %150 = icmp eq i32 %149, %34
-  br i1 %150, label %.thread18, label %76, !llvm.loop !19
+  br i1 %150, label %.thread18, label %76, !llvm.loop !17
 
 .thread18:                                        ; preds = %139, %113, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
   %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
@@ -1205,7 +1205,7 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
   %13 = extractvalue { i8, i32 } %8, 1
   %14 = add i32 %13, -1
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !20
+  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !14, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %12, %1
   %16 = tail call i64 @ktime_get_mono_fast_ns() #9
@@ -1292,11 +1292,11 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
   %7 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i64 %6, 12
-  br i1 %9, label %19, label %10, !llvm.loop !21
+  br i1 %9, label %19, label %10, !llvm.loop !19
 
 10:                                               ; preds = %.preheader
   %11 = icmp eq i32 %8, %2
-  br i1 %11, label %12, label %.preheader, !llvm.loop !21
+  br i1 %11, label %12, label %.preheader, !llvm.loop !19
 
 12:                                               ; preds = %10
   %13 = icmp eq i32 %2, 0
@@ -1369,11 +1369,11 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %8 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %7, 12
-  br i1 %10, label %20, label %11, !llvm.loop !21
+  br i1 %10, label %20, label %11, !llvm.loop !19
 
 11:                                               ; preds = %.preheader
   %12 = icmp eq i32 %9, %2
-  br i1 %12, label %13, label %.preheader, !llvm.loop !21
+  br i1 %12, label %13, label %.preheader, !llvm.loop !19
 
 13:                                               ; preds = %11
   %14 = icmp eq i32 %2, 0
@@ -1461,7 +1461,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %15 = icmp sgt i32 %13, -1
   %16 = select i1 %15, i32 %14, i32 -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %17 = call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !22
+  %17 = call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !20
   %18 = icmp eq ptr %2, null
   br i1 %18, label %38, label %.preheader
 
@@ -1484,7 +1484,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   %30 = phi i32 [ %28, %25 ], [ %20, %.preheader ]
   %31 = add nuw nsw i64 %19, 1
   %32 = icmp eq i64 %31, 11
-  br i1 %32, label %33, label %.preheader, !llvm.loop !23
+  br i1 %32, label %33, label %.preheader, !llvm.loop !21
 
 33:                                               ; preds = %29
   %34 = icmp eq i32 %30, 0
@@ -1690,7 +1690,7 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
 define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = tail call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !22
+  %6 = tail call fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext %1), !range !20
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -1715,7 +1715,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 20:                                               ; preds = %10
   %21 = add nuw nsw i64 %11, 1
   %22 = icmp eq i64 %21, 11
-  br i1 %22, label %.loopexit, label %10, !llvm.loop !24
+  br i1 %22, label %.loopexit, label %10, !llvm.loop !22
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2029,7 +2029,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   call void @msleep(i32 noundef 1) #9
   %39 = add nuw nsw i32 %13, 1
   %40 = icmp eq i32 %39, 500
-  br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !25
+  br i1 %40, label %.loopexit, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %3, %72
   %41 = phi i32 [ %73, %72 ], [ 0, %3 ]
@@ -2095,7 +2095,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   call void @msleep(i32 noundef 1) #9
   %73 = add nuw nsw i32 %41, 1
   %74 = icmp eq i32 %73, 500
-  br i1 %74, label %.loopexit, label %.split, !llvm.loop !26
+  br i1 %74, label %.loopexit, label %.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %34, %30, %64, %68, %72, %.split5.us
   %75 = phi i32 [ %.us-phi, %.split5.us ], [ %60, %72 ], [ %60, %68 ], [ %60, %64 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
@@ -2165,14 +2165,11 @@ attributes #10 = { cold nounwind }
 !13 = !{!"branch_weights", i32 1, i32 2000}
 !14 = !{!"branch_weights", i32 127, i32 255873}
 !15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
 !18 = distinct !{!18, !8, !9}
 !19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
+!20 = !{i32 0, i32 -1}
 !21 = distinct !{!21, !8, !9}
-!22 = !{i32 0, i32 -1}
+!22 = distinct !{!22, !8, !9}
 !23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9, !17}
-!26 = distinct !{!26, !8, !9}

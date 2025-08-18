@@ -5942,7 +5942,7 @@ NextCert.exit.us:                                 ; preds = %165
   %213 = sub i32 %.7.us, %.0.i251.us
   %214 = add i32 %.0.i251.us, %.4.us
   %.old7.not.us = icmp eq i32 %212, 0
-  br i1 %.old7.not.us, label %.thread297, label %.preheader.split.us, !llvm.loop !163
+  br i1 %.old7.not.us, label %.thread297, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %269
   %.3262 = phi i32 [ %.4263285, %269 ], [ %.0259327, %.preheader ]
@@ -6090,7 +6090,7 @@ NextCert.exit:                                    ; preds = %217
   %291 = icmp sgt i32 %.6, 0
   %292 = icmp eq i32 %.1178, 0
   %293 = select i1 %291, i1 %292, i1 false
-  br i1 %293, label %66, label %._crit_edge, !llvm.loop !165
+  br i1 %293, label %66, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %290
   %.not239 = icmp eq i32 %.1178, -327
@@ -6133,26 +6133,26 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 716, ptr %11, align 8, !tbaa !166
+  store i32 716, ptr %11, align 8, !tbaa !164
   %12 = tail call i32 @CheckAvailableSize(ptr noundef nonnull %0, i32 noundef 716) #11
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = tail call ptr @GetOutputBuffer(ptr noundef nonnull %0) #11
-  store ptr %14, ptr %2, align 16, !tbaa !168
+  store ptr %14, ptr %2, align 16, !tbaa !166
   store i8 1, ptr %5, align 2, !tbaa !100
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %16 = load i32, ptr %15, align 8, !tbaa !169
+  %16 = load i32, ptr %15, align 8, !tbaa !167
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %18 = load i32, ptr %17, align 16, !tbaa !108
   %19 = sub i32 %16, %18
   %20 = add i32 %19, -9
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 9, ptr %21, align 16, !tbaa !170
+  store i32 9, ptr %21, align 16, !tbaa !168
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 9
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %22, ptr %23, align 8, !tbaa !171
+  store ptr %22, ptr %23, align 8, !tbaa !169
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %25 = load ptr, ptr %24, align 16, !tbaa !131
   %26 = icmp eq ptr %25, null
@@ -6169,7 +6169,7 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = load i32, ptr %28, align 4, !tbaa !172
+  %33 = load i32, ptr %28, align 4, !tbaa !170
   %34 = icmp sgt i32 %33, %20
   br i1 %34, label %.thread, label %35
 
@@ -6179,7 +6179,7 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %39 = load i32, ptr %38, align 8, !tbaa !173
+  %39 = load i32, ptr %38, align 8, !tbaa !171
   switch i32 %39, label %.thread [
     i32 10, label %43
     i32 37, label %.thread133
@@ -6187,16 +6187,16 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
 
 .thread133:                                       ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  store i8 3, ptr %40, align 2, !tbaa !174
+  store i8 3, ptr %40, align 2, !tbaa !172
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1039
-  %42 = load i8, ptr %41, align 1, !tbaa !175
+  %42 = load i8, ptr %41, align 1, !tbaa !173
   br label %EncodeSigAlg.exit
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  store i8 8, ptr %44, align 2, !tbaa !174
+  store i8 8, ptr %44, align 2, !tbaa !172
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1039
-  %46 = load i8, ptr %45, align 1, !tbaa !175
+  %46 = load i8, ptr %45, align 1, !tbaa !173
   br label %EncodeSigAlg.exit
 
 EncodeSigAlg.exit:                                ; preds = %43, %.thread133
@@ -6204,17 +6204,17 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   %.sink7.i = phi i8 [ 8, %43 ], [ %42, %.thread133 ]
   %.sink.i = phi i8 [ %46, %43 ], [ 3, %.thread133 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %49 = load ptr, ptr %23, align 8, !tbaa !171
+  %49 = load ptr, ptr %23, align 8, !tbaa !169
   store i8 %.sink7.i, ptr %49, align 1, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 %.sink.i, ptr %50, align 1, !tbaa !57
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %52 = load ptr, ptr %51, align 16, !tbaa !176
+  %52 = load ptr, ptr %51, align 16, !tbaa !174
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %EncodeSigAlg.exit
-  %55 = load i32, ptr %38, align 8, !tbaa !173
+  %55 = load i32, ptr %38, align 8, !tbaa !171
   %56 = icmp eq i32 %55, 10
   %57 = load i32, ptr %28, align 4
   %58 = icmp ugt i32 %57, 162
@@ -6222,7 +6222,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   %59 = zext i32 %57 to i64
   %spec.select = select i1 %or.cond, i64 %59, i64 162
   %60 = call ptr @wolfSSL_Malloc(i64 noundef %spec.select) #11
-  store ptr %60, ptr %51, align 16, !tbaa !176
+  store ptr %60, ptr %51, align 16, !tbaa !174
   %.not106 = icmp eq ptr %60, null
   br i1 %.not106, label %.thread, label %61
 
@@ -6234,7 +6234,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   br i1 %.not107, label %65, label %.thread
 
 65:                                               ; preds = %61
-  %66 = load i32, ptr %38, align 8, !tbaa !173
+  %66 = load i32, ptr %38, align 8, !tbaa !171
   %67 = icmp eq i32 %66, 10
   br i1 %67, label %68, label %81
 
@@ -6247,10 +6247,10 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr %51, align 16, !tbaa !176
-  %74 = load i16, ptr %63, align 8, !tbaa !177
+  %73 = load ptr, ptr %51, align 16, !tbaa !174
+  %74 = load i16, ptr %63, align 8, !tbaa !175
   %75 = zext i16 %74 to i32
-  %76 = load i8, ptr %47, align 1, !tbaa !175
+  %76 = load i8, ptr %47, align 1, !tbaa !173
   %77 = zext i8 %76 to i32
   %78 = call i32 @CreateRSAEncodedSig(ptr noundef nonnull %70, ptr noundef %73, i32 noundef %75, i32 poison, i32 noundef %77)
   %79 = icmp slt i32 %78, 0
@@ -6258,7 +6258,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 
 80:                                               ; preds = %72
   store i32 %78, ptr %69, align 8, !tbaa !142
-  %.pr = load i32, ptr %38, align 8, !tbaa !173
+  %.pr = load i32, ptr %38, align 8, !tbaa !171
   br label %81
 
 81:                                               ; preds = %80, %65
@@ -6268,20 +6268,20 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 
 .thread113.thread:                                ; preds = %81
   store i8 2, ptr %5, align 2, !tbaa !100
-  %84 = load ptr, ptr %23, align 8, !tbaa !171
+  %84 = load ptr, ptr %23, align 8, !tbaa !169
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   br label %112
 
 86:                                               ; preds = %81
-  %87 = load i32, ptr %11, align 8, !tbaa !166
-  %88 = load i32, ptr %21, align 16, !tbaa !170
+  %87 = load i32, ptr %11, align 8, !tbaa !164
+  %88 = load i32, ptr %21, align 16, !tbaa !168
   %89 = add i32 %87, -4
   %90 = sub i32 %89, %88
-  store i32 %90, ptr %28, align 4, !tbaa !172
-  %91 = load ptr, ptr %51, align 16, !tbaa !176
-  %92 = load i16, ptr %63, align 8, !tbaa !177
+  store i32 %90, ptr %28, align 4, !tbaa !170
+  %91 = load ptr, ptr %51, align 16, !tbaa !174
+  %92 = load i16, ptr %63, align 8, !tbaa !175
   %93 = zext i16 %92 to i32
-  %94 = load i8, ptr %47, align 1, !tbaa !175
+  %94 = load i8, ptr %47, align 1, !tbaa !173
   %95 = zext i8 %94 to i32
   %96 = call fastcc i32 @CreateECCEncodedSig(ptr noundef %91, i32 noundef %93, i32 noundef %95)
   %97 = icmp slt i32 %96, 0
@@ -6289,26 +6289,26 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 
 .thread113:                                       ; preds = %86
   %98 = trunc i32 %96 to i16
-  store i16 %98, ptr %63, align 8, !tbaa !177
-  %.pre = load i32, ptr %38, align 8, !tbaa !173
+  store i16 %98, ptr %63, align 8, !tbaa !175
+  %.pre = load i32, ptr %38, align 8, !tbaa !171
   store i8 2, ptr %5, align 2, !tbaa !100
-  %99 = load ptr, ptr %23, align 8, !tbaa !171
+  %99 = load ptr, ptr %23, align 8, !tbaa !169
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = icmp eq i32 %.pre, 37
   br i1 %101, label %102, label %112
 
 102:                                              ; preds = %.thread113
-  %103 = load ptr, ptr %51, align 16, !tbaa !176
-  %104 = load i16, ptr %63, align 8, !tbaa !177
+  %103 = load ptr, ptr %51, align 16, !tbaa !174
+  %104 = load i16, ptr %63, align 8, !tbaa !175
   %105 = zext i16 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %107 = load ptr, ptr %106, align 16, !tbaa !178
+  %107 = load ptr, ptr %106, align 16, !tbaa !176
   %108 = call i32 @EccSign(ptr noundef nonnull %0, ptr noundef %103, i32 noundef %105, ptr noundef nonnull %100, ptr noundef nonnull %28, ptr noundef %107, ptr noundef null) #11
-  %109 = load i32, ptr %28, align 4, !tbaa !172
+  %109 = load i32, ptr %28, align 4, !tbaa !170
   %110 = trunc i32 %109 to i16
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i16 %110, ptr %111, align 4, !tbaa !179
-  %.pr117 = load i32, ptr %38, align 8, !tbaa !173
+  store i16 %110, ptr %111, align 4, !tbaa !177
+  %.pr117 = load i32, ptr %38, align 8, !tbaa !171
   br label %112
 
 112:                                              ; preds = %.thread113.thread, %102, %.thread113
@@ -6321,28 +6321,28 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 116:                                              ; preds = %112
   %117 = load ptr, ptr %3, align 8, !tbaa !141
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %117, ptr %118, align 16, !tbaa !180
+  store ptr %117, ptr %118, align 16, !tbaa !178
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %120 = load i32, ptr %119, align 8, !tbaa !142
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 %120, ptr %121, align 8, !tbaa !181
-  %122 = load i8, ptr %48, align 2, !tbaa !174
+  store i32 %120, ptr %121, align 8, !tbaa !179
+  %122 = load i8, ptr %48, align 2, !tbaa !172
   %123 = zext i8 %122 to i32
-  %124 = load i8, ptr %47, align 1, !tbaa !175
+  %124 = load i8, ptr %47, align 1, !tbaa !173
   %125 = zext i8 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %127 = load ptr, ptr %126, align 16, !tbaa !178
+  %127 = load ptr, ptr %126, align 16, !tbaa !176
   %128 = load ptr, ptr %24, align 16, !tbaa !131
   %129 = call i32 @RsaSign(ptr noundef nonnull %0, ptr noundef %117, i32 noundef %120, ptr noundef nonnull %113, ptr noundef nonnull %28, i32 noundef %123, i32 noundef %125, ptr noundef %127, ptr noundef %128) #11
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %.thread118, label %.thread
 
 .thread118:                                       ; preds = %116
-  %131 = load i32, ptr %28, align 4, !tbaa !172
+  %131 = load i32, ptr %28, align 4, !tbaa !170
   %132 = trunc i32 %131 to i16
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i16 %132, ptr %133, align 4, !tbaa !179
-  %134 = load ptr, ptr %51, align 16, !tbaa !176
+  store i16 %132, ptr %133, align 4, !tbaa !177
+  %134 = load ptr, ptr %51, align 16, !tbaa !174
   %135 = zext i32 %131 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr nonnull align 1 %113, i64 %135, i1 false)
   br label %137
@@ -6353,8 +6353,8 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 
 137:                                              ; preds = %.thread118, %136
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %139 = load i16, ptr %138, align 4, !tbaa !179
-  %140 = load ptr, ptr %23, align 8, !tbaa !171
+  %139 = load i16, ptr %138, align 4, !tbaa !177
+  %140 = load ptr, ptr %23, align 8, !tbaa !169
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 2
   %142 = lshr i16 %139, 8
   %143 = trunc nuw i16 %142 to i8
@@ -6363,30 +6363,30 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 3
   store i8 %144, ptr %145, align 1, !tbaa !57
   store i8 3, ptr %5, align 2, !tbaa !100
-  %146 = load i32, ptr %38, align 8, !tbaa !173
+  %146 = load i32, ptr %38, align 8, !tbaa !171
   %147 = icmp eq i32 %146, 10
   br i1 %147, label %148, label %.thread130
 
 148:                                              ; preds = %137
-  %149 = load ptr, ptr %51, align 16, !tbaa !176
-  %150 = load i32, ptr %28, align 4, !tbaa !172
+  %149 = load ptr, ptr %51, align 16, !tbaa !174
+  %150 = load i32, ptr %28, align 4, !tbaa !170
   %151 = load ptr, ptr %3, align 8, !tbaa !141
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %153 = load i32, ptr %152, align 8, !tbaa !142
-  %154 = load i8, ptr %48, align 2, !tbaa !174
+  %154 = load i8, ptr %48, align 2, !tbaa !172
   %155 = zext i8 %154 to i32
-  %156 = load i8, ptr %47, align 1, !tbaa !175
+  %156 = load i8, ptr %47, align 1, !tbaa !173
   %157 = zext i8 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %159 = load ptr, ptr %158, align 16, !tbaa !178
+  %159 = load ptr, ptr %158, align 16, !tbaa !176
   %160 = load ptr, ptr %24, align 16, !tbaa !131
   %161 = call i32 @VerifyRsaSign(ptr noundef nonnull %0, ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %153, i32 noundef %155, i32 noundef %157, ptr noundef %159, ptr noundef %160) #11
   %.not109 = icmp eq i32 %161, 0
   br i1 %.not109, label %.thread130, label %.thread
 
 .thread130:                                       ; preds = %137, %148
-  %162 = load ptr, ptr %2, align 16, !tbaa !168
-  %163 = load i16, ptr %138, align 4, !tbaa !179
+  %162 = load ptr, ptr %2, align 16, !tbaa !166
+  %163 = load i16, ptr %138, align 4, !tbaa !177
   %164 = zext i16 %163 to i32
   %165 = add nuw nsw i32 %164, 4
   %166 = getelementptr i8, ptr %0, i64 710
@@ -6417,12 +6417,12 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   %182 = trunc i32 %165 to i8
   %183 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i8 %182, ptr %183, align 1, !tbaa !57
-  %184 = load i16, ptr %138, align 4, !tbaa !179
+  %184 = load i16, ptr %138, align 4, !tbaa !177
   %185 = zext i16 %184 to i32
   %186 = add nuw nsw i32 %185, 13
-  store i32 %186, ptr %11, align 8, !tbaa !166
+  store i32 %186, ptr %11, align 8, !tbaa !164
   store i8 5, ptr %5, align 2, !tbaa !100
-  %187 = load ptr, ptr %2, align 16, !tbaa !168
+  %187 = load ptr, ptr %2, align 16, !tbaa !166
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 5
   %189 = add nuw nsw i32 %185, 8
   %190 = call i32 @BuildTls13Message(ptr noundef nonnull %0, ptr noundef %187, i32 noundef 614, ptr noundef nonnull %188, i32 noundef %189, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 poison)
@@ -6430,7 +6430,7 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
   br i1 %191, label %.thread, label %192
 
 192:                                              ; preds = %.thread130
-  store i32 %190, ptr %11, align 8, !tbaa !166
+  store i32 %190, ptr %11, align 8, !tbaa !164
   %193 = load i32, ptr %17, align 16, !tbaa !108
   %194 = add i32 %193, %190
   store i32 %194, ptr %17, align 16, !tbaa !108
@@ -6447,13 +6447,13 @@ EncodeSigAlg.exit:                                ; preds = %43, %.thread133
 .thread:                                          ; preds = %54, %116, %136, %86, %72, %68, %61, %37, %35, %30, %32, %27, %13, %197, %192, %.thread130, %148, %10
   %.9 = phi i32 [ %12, %10 ], [ %161, %148 ], [ %190, %.thread130 ], [ 0, %192 ], [ %198, %197 ], [ %96, %86 ], [ %78, %72 ], [ -125, %68 ], [ %64, %61 ], [ -133, %37 ], [ -317, %35 ], [ -132, %30 ], [ -132, %32 ], [ %29, %27 ], [ -317, %13 ], [ %.6, %136 ], [ %129, %116 ], [ -125, %54 ]
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %200 = load ptr, ptr %199, align 16, !tbaa !176
+  %200 = load ptr, ptr %199, align 16, !tbaa !174
   %.not.i = icmp eq ptr %200, null
   br i1 %.not.i, label %FreeScv13Args.exit, label %201
 
 201:                                              ; preds = %.thread
   call void @wolfSSL_Free(ptr noundef nonnull %200) #11
-  store ptr null, ptr %199, align 16, !tbaa !176
+  store ptr null, ptr %199, align 16, !tbaa !174
   br label %FreeScv13Args.exit
 
 FreeScv13Args.exit:                               ; preds = %.thread, %201
@@ -6748,16 +6748,16 @@ define range(i32 -344, 1) i32 @wolfSSL_CTX_no_ticket_TLSv13(ptr noundef readonly
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !182
+  %4 = load ptr, ptr %0, align 8, !tbaa !180
   %5 = load i16, ptr %4, align 1
   %6 = tail call i32 @IsAtLeastTLSv1_3(i16 %5) #11
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !182
+  %8 = load ptr, ptr %0, align 8, !tbaa !180
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %10 = load i8, ptr %9, align 1, !tbaa !183
+  %10 = load i8, ptr %9, align 1, !tbaa !181
   %11 = icmp eq i8 %10, 1
   %. = select i1 %11, i32 -344, i32 0
   br label %12
@@ -6798,7 +6798,7 @@ define range(i32 -173, 1) i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef readonly captu
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !182
+  %4 = load ptr, ptr %0, align 8, !tbaa !180
   %5 = load i16, ptr %4, align 1
   %6 = tail call i32 @IsAtLeastTLSv1_3(i16 %5) #11
   %.not = icmp eq i32 %6, 0
@@ -6834,7 +6834,7 @@ define range(i32 -173, 1) i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef readonly cap
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !182
+  %4 = load ptr, ptr %0, align 8, !tbaa !180
   %5 = load i16, ptr %4, align 1
   %6 = tail call i32 @IsAtLeastTLSv1_3(i16 %5) #11
   %.not = icmp eq i32 %6, 0
@@ -7037,7 +7037,7 @@ define i32 @wolfSSL_accept_TLSv13(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.edge:                                      ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %31 = load i8, ptr %30, align 1, !tbaa !185
+  %31 = load i8, ptr %30, align 1, !tbaa !183
   %32 = icmp ult i8 %31, 15
   %switch.cast = zext nneg i8 %31 to i15
   %switch.downshift = lshr i15 -8212, %switch.cast
@@ -7061,9 +7061,9 @@ switch.edge:                                      ; preds = %27
   br i1 %or.cond, label %44, label %.thread
 
 44:                                               ; preds = %40
-  %45 = load i8, ptr %30, align 1, !tbaa !185
+  %45 = load i8, ptr %30, align 1, !tbaa !183
   %46 = add i8 %45, 1
-  store i8 %46, ptr %30, align 1, !tbaa !185
+  store i8 %46, ptr %30, align 1, !tbaa !183
   tail call void @FreeAsyncCtx(ptr noundef nonnull %0, i8 noundef zeroext 0) #11
   br label %.thread
 
@@ -7084,7 +7084,7 @@ switch.edge:                                      ; preds = %27
 
 52:                                               ; preds = %.thread
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1049
-  %54 = load i8, ptr %53, align 1, !tbaa !185
+  %54 = load i8, ptr %53, align 1, !tbaa !183
   switch i8 %54, label %.loopexit [
     i8 0, label %.preheader
     i8 2, label %69
@@ -7117,10 +7117,10 @@ switch.edge:                                      ; preds = %27
   %61 = tail call i32 @ProcessReply(ptr noundef nonnull %0) #11
   store i32 %61, ptr %56, align 8, !tbaa !127
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %.loopexit, label %57, !llvm.loop !186
+  br i1 %62, label %.loopexit, label %57, !llvm.loop !184
 
 63:                                               ; preds = %57
-  store i8 2, ptr %53, align 1, !tbaa !185
+  store i8 2, ptr %53, align 1, !tbaa !183
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 710
   %65 = load i16, ptr %64, align 2
   %66 = tail call i32 @IsAtLeastTLSv1_3(i16 %65) #11
@@ -7145,7 +7145,7 @@ switch.edge:                                      ; preds = %27
   br i1 %.not131, label %76, label %.loopexit
 
 76:                                               ; preds = %69, %73, %52
-  store i8 4, ptr %53, align 1, !tbaa !185
+  store i8 4, ptr %53, align 1, !tbaa !183
   br label %77
 
 77:                                               ; preds = %76, %52
@@ -7169,10 +7169,10 @@ thread-pre-split:                                 ; preds = %85
   %86 = tail call i32 @ProcessReply(ptr noundef nonnull %0) #11
   store i32 %86, ptr %83, align 8, !tbaa !127
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.loopexit, label %thread-pre-split, !llvm.loop !187
+  br i1 %87, label %.loopexit, label %thread-pre-split, !llvm.loop !185
 
 .loopexit158:                                     ; preds = %thread-pre-split, %77
-  store i8 5, ptr %53, align 1, !tbaa !185
+  store i8 5, ptr %53, align 1, !tbaa !183
   br label %88
 
 88:                                               ; preds = %.loopexit158, %52
@@ -7183,7 +7183,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not132, label %91, label %.loopexit
 
 91:                                               ; preds = %88, %52
-  store i8 7, ptr %53, align 1, !tbaa !185
+  store i8 7, ptr %53, align 1, !tbaa !183
   br label %92
 
 92:                                               ; preds = %91, %52
@@ -7200,7 +7200,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not134, label %97, label %.loopexit
 
 97:                                               ; preds = %95
-  store i8 8, ptr %53, align 1, !tbaa !185
+  store i8 8, ptr %53, align 1, !tbaa !183
   br label %98
 
 98:                                               ; preds = %97, %52
@@ -7227,7 +7227,7 @@ thread-pre-split:                                 ; preds = %85
   br label %108
 
 108:                                              ; preds = %106, %103, %98
-  store i8 9, ptr %53, align 1, !tbaa !185
+  store i8 9, ptr %53, align 1, !tbaa !183
   br label %109
 
 109:                                              ; preds = %108, %52
@@ -7247,7 +7247,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not140, label %116, label %.loopexit
 
 116:                                              ; preds = %113, %109
-  store i8 10, ptr %53, align 1, !tbaa !185
+  store i8 10, ptr %53, align 1, !tbaa !183
   br label %117
 
 117:                                              ; preds = %116, %52
@@ -7267,7 +7267,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not143, label %124, label %.loopexit
 
 124:                                              ; preds = %121, %117
-  store i8 11, ptr %53, align 1, !tbaa !185
+  store i8 11, ptr %53, align 1, !tbaa !183
   br label %125
 
 125:                                              ; preds = %124, %52
@@ -7278,7 +7278,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not144, label %128, label %.loopexit
 
 128:                                              ; preds = %125, %52
-  store i8 13, ptr %53, align 1, !tbaa !185
+  store i8 13, ptr %53, align 1, !tbaa !183
   br label %129
 
 129:                                              ; preds = %128, %52
@@ -7295,10 +7295,10 @@ thread-pre-split:                                 ; preds = %85
   %136 = tail call i32 @ProcessReply(ptr noundef nonnull %0) #11
   store i32 %136, ptr %131, align 8, !tbaa !127
   %137 = icmp slt i32 %136, 0
-  br i1 %137, label %.loopexit, label %132, !llvm.loop !188
+  br i1 %137, label %.loopexit, label %132, !llvm.loop !186
 
 138:                                              ; preds = %132
-  store i8 14, ptr %53, align 1, !tbaa !185
+  store i8 14, ptr %53, align 1, !tbaa !183
   br label %139
 
 139:                                              ; preds = %138, %52
@@ -7319,7 +7319,7 @@ thread-pre-split:                                 ; preds = %85
   br i1 %.not149, label %.loopexit, label %147
 
 147:                                              ; preds = %144
-  store i8 15, ptr %53, align 1, !tbaa !185
+  store i8 15, ptr %53, align 1, !tbaa !183
   br label %148
 
 148:                                              ; preds = %147, %52
@@ -7530,7 +7530,7 @@ define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull init
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %10 = load i32, ptr %9, align 4, !tbaa !189
+  %10 = load i32, ptr %9, align 4, !tbaa !187
   call void @InitSuitesHashSigAlgo(ptr noundef null, i32 noundef 31, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %3) #11
   %11 = load i16, ptr %3, align 2, !tbaa !119
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -7541,7 +7541,7 @@ define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull init
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 10
-  %18 = load i32, ptr %9, align 4, !tbaa !189
+  %18 = load i32, ptr %9, align 4, !tbaa !187
   call void @InitSuitesHashSigAlgo(ptr noundef nonnull %17, i32 noundef 31, i32 noundef 1, i32 noundef %18, ptr noundef nonnull %3) #11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %20 = load ptr, ptr %12, align 16, !tbaa !43
@@ -7979,30 +7979,28 @@ attributes #12 = { nounwind willreturn memory(none) }
 !160 = !{!4, !14, i64 608}
 !161 = !{!4, !25, i64 600}
 !162 = !{!25, !25, i64 0}
-!163 = distinct !{!163, !164}
-!164 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!165 = distinct !{!165, !56}
-!166 = !{!167, !14, i64 24}
-!167 = !{!"Scv13Args", !19, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !30, i64 28, !7, i64 30, !19, i64 32, !30, i64 40, !19, i64 48, !14, i64 56}
-!168 = !{!167, !19, i64 0}
-!169 = !{!4, !14, i64 408}
-!170 = !{!167, !14, i64 16}
-!171 = !{!167, !19, i64 8}
-!172 = !{!167, !14, i64 20}
-!173 = !{!4, !14, i64 232}
-!174 = !{!167, !7, i64 30}
-!175 = !{!4, !7, i64 1039}
-!176 = !{!167, !19, i64 32}
-!177 = !{!167, !30, i64 40}
-!178 = !{!4, !6, i64 224}
-!179 = !{!167, !30, i64 28}
-!180 = !{!167, !19, i64 48}
-!181 = !{!167, !14, i64 56}
-!182 = !{!86, !87, i64 0}
-!183 = !{!184, !7, i64 2}
-!184 = !{!"WOLFSSL_METHOD", !33, i64 0, !7, i64 2, !7, i64 3}
-!185 = !{!4, !7, i64 1049}
+!163 = distinct !{!163, !56}
+!164 = !{!165, !14, i64 24}
+!165 = !{!"Scv13Args", !19, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !30, i64 28, !7, i64 30, !19, i64 32, !30, i64 40, !19, i64 48, !14, i64 56}
+!166 = !{!165, !19, i64 0}
+!167 = !{!4, !14, i64 408}
+!168 = !{!165, !14, i64 16}
+!169 = !{!165, !19, i64 8}
+!170 = !{!165, !14, i64 20}
+!171 = !{!4, !14, i64 232}
+!172 = !{!165, !7, i64 30}
+!173 = !{!4, !7, i64 1039}
+!174 = !{!165, !19, i64 32}
+!175 = !{!165, !30, i64 40}
+!176 = !{!4, !6, i64 224}
+!177 = !{!165, !30, i64 28}
+!178 = !{!165, !19, i64 48}
+!179 = !{!165, !14, i64 56}
+!180 = !{!86, !87, i64 0}
+!181 = !{!182, !7, i64 2}
+!182 = !{!"WOLFSSL_METHOD", !33, i64 0, !7, i64 2, !7, i64 3}
+!183 = !{!4, !7, i64 1049}
+!184 = distinct !{!184, !56}
+!185 = distinct !{!185, !56}
 !186 = distinct !{!186, !56}
-!187 = distinct !{!187, !56}
-!188 = distinct !{!188, !56}
-!189 = !{!4, !14, i64 588}
+!187 = !{!4, !14, i64 588}

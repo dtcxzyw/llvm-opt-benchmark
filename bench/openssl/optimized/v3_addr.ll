@@ -3122,7 +3122,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   %181 = load ptr, ptr %142, align 8, !tbaa !75
   %182 = tail call i32 @OPENSSL_sk_num(ptr noundef %181) #15
   %183 = icmp slt i32 %180, %182
-  br i1 %183, label %.lr.ph236.split, label %.critedge165, !llvm.loop !103
+  br i1 %183, label %.lr.ph236.split, label %.critedge165, !llvm.loop !101
 
 .critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %131, %132, %98, %100, %.lr.ph230, %.critedge172, %.lr.ph236.split, %177, %.critedge172.us, %.lr.ph236.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
   %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %24 ], [ 1, %.preheader ], [ 1, %.critedge172.us ], [ 0, %.lr.ph236.split.us ], [ 0, %161 ], [ 1, %.critedge172 ], [ 0, %.lr.ph236.split ], [ 0, %177 ], [ 0, %.lr.ph230 ], [ 0, %100 ], [ 0, %98 ], [ 0, %132 ], [ 0, %131 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
@@ -3647,7 +3647,7 @@ addr_expand.exit39:                               ; preds = %53, %54, %65, %72
   %89 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.next
   %90 = load i8, ptr %89, align 2, !tbaa !16
   %91 = icmp eq i8 %90, 0
-  br i1 %91, label %82, label %.critedge, !llvm.loop !104
+  br i1 %91, label %82, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %83, %88
   %92 = icmp sgt i64 %indvars.iv, 0
@@ -3673,7 +3673,7 @@ addr_expand.exit39:                               ; preds = %53, %54, %65, %72
   %105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %102, ptr noundef nonnull %104) #15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 2
   %106 = icmp samesign ult i64 %indvars.iv.next50, %93
-  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %107 = icmp samesign ult i64 %indvars.iv49, 14
@@ -3701,7 +3701,7 @@ addr_expand.exit39:                               ; preds = %53, %54, %65, %72
   %119 = load i32, ptr %3, align 8, !tbaa !15
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next53, %120
-  br i1 %121, label %112, label %._crit_edge47, !llvm.loop !106
+  br i1 %121, label %112, label %._crit_edge47, !llvm.loop !104
 
 ._crit_edge47:                                    ; preds = %112, %.preheader
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3857,9 +3857,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !98 = distinct !{!98, !22}
 !99 = distinct !{!99, !22}
 !100 = distinct !{!100, !22}
-!101 = distinct !{!101, !22, !102}
-!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!101 = distinct !{!101, !22}
+!102 = distinct !{!102, !22}
 !103 = distinct !{!103, !22}
 !104 = distinct !{!104, !22}
-!105 = distinct !{!105, !22}
-!106 = distinct !{!106, !22}

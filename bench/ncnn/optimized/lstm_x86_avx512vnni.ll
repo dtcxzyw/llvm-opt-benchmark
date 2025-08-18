@@ -7244,7 +7244,7 @@ define internal void @_ZN4ncnnL9lstm_int8ERKNS_3MatES2_RS0_iS2_S2_S2_S2_S3_S3_RK
   store float %46, ptr %48, align 4, !tbaa !51
   %49 = add nuw i32 %.03438.us, 1
   %exitcond45.not = icmp eq i32 %.03438.us, %22
-  br i1 %exitcond45.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !129
+  br i1 %exitcond45.not, label %._crit_edge41, label %.lr.ph.us
 
 .lr.ph40.split:                                   ; preds = %.lr.ph40, %.lr.ph40.split
   %.03438 = phi i32 [ %54, %.lr.ph40.split ], [ %23, %.lr.ph40 ]
@@ -7505,5 +7505,3 @@ attributes #17 = { noreturn nounwind }
 !126 = distinct !{!126, !40}
 !127 = distinct !{!127, !40}
 !128 = distinct !{!128, !40}
-!129 = distinct !{!129, !130}
-!130 = !{!"llvm.loop.unswitch.nontrivial.disable"}

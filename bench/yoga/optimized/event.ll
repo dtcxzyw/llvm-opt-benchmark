@@ -45,7 +45,7 @@ define void @_ZN8facebook4yoga5Event5resetEv() local_unnamed_addr #1 align 2 per
   %1 = load atomic i64, ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE monotonic, align 8
   %2 = cmpxchg weak ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE, i64 %1, i64 0 release monotonic, align 8
   %3 = extractvalue { i64, i1 } %2, 1
-  br i1 %3, label %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit, label %.split3.us.i, !llvm.loop !4
+  br i1 %3, label %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit, label %.split3.us.i
 
 _ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit: ; preds = %.split3.us.i
   %.not4 = icmp eq i64 %1, 0
@@ -58,9 +58,9 @@ _ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit: ; preds = %.split3.us.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit
   %.05 = phi ptr [ %6, %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit ], [ %4, %.lr.ph.preheader ]
   %5 = getelementptr inbounds nuw i8, ptr %.05, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !6
+  %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %.05, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit, label %9
 
@@ -78,7 +78,7 @@ _ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit: ; preds = %.split3.us.i
 _ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit:    ; preds = %.lr.ph, %9
   tail call void @_ZdlPvm(ptr noundef nonnull %.05, i64 noundef 40) #12
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN8facebook4yoga12_GLOBAL__N_14NodeD2Ev.exit, %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit
   ret void
@@ -93,30 +93,30 @@ define void @_ZN8facebook4yoga5Event9subscribeEOSt8functionIFvPK6YGNodeNS1_4Type
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false)
-  %5 = load ptr, ptr %4, align 8, !tbaa !17
-  store ptr %5, ptr %3, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  store ptr %5, ptr %3, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
   %.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.not.i.i, label %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !18
-  store ptr %7, ptr %9, align 8, !tbaa !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 16, i1 false), !tbaa.struct !16
+  store ptr %7, ptr %9, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit
 
 _ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit: ; preds = %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8, !tbaa !6
+  store ptr null, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %2 to i64
   br label %.split.i
 
 .split.i:                                         ; preds = %_ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit, %.split.i
   %12 = load atomic i64, ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE monotonic, align 8
   %13 = inttoptr i64 %12 to ptr
-  store ptr %13, ptr %10, align 8, !tbaa !6
+  store ptr %13, ptr %10, align 8, !tbaa !4
   %14 = cmpxchg weak ptr @_ZN8facebook4yoga12_GLOBAL__N_111subscribersE, i64 %12, i64 %11 release monotonic, align 8
   %15 = extractvalue { i64, i1 } %14, 1
   br i1 %15, label %_ZN8facebook4yoga12_GLOBAL__N_14pushEPNS1_4NodeE.exit, label %.split.i
@@ -148,15 +148,15 @@ define void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit
   %.06 = phi ptr [ %15, %_ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit ], [ %8, %.lr.ph.preheader ]
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !20
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.0.0.copyload, ptr %4, align 8
-  store ptr %0, ptr %5, align 8, !tbaa !21
-  store i32 %1, ptr %6, align 4, !tbaa !23
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store i32 %1, ptr %6, align 4, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %.06, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %11, label %_ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit
 
@@ -166,15 +166,15 @@ define void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr
 
 _ZNKSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEEclES2_S6_S7_.exit: ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.06, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
   call void %13(ptr noundef nonnull align 8 dereferenceable(32) %.06, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %.06, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !6
+  %15 = load ptr, ptr %14, align 8, !tbaa !4
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -228,25 +228,23 @@ attributes #15 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = !{!7, !13, i64 32}
-!7 = !{!"_ZTSN8facebook4yoga12_GLOBAL__N_14NodeE", !8, i64 0, !13, i64 32}
-!8 = !{!"_ZTSSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEE", !9, i64 0, !12, i64 24}
-!9 = !{!"_ZTSSt14_Function_base", !10, i64 0, !12, i64 16}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C++ TBAA"}
-!12 = !{!"any pointer", !10, i64 0}
-!13 = !{!"p1 _ZTSN8facebook4yoga12_GLOBAL__N_14NodeE", !12, i64 0}
-!14 = !{!9, !12, i64 16}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!8, !12, i64 24}
-!18 = !{i64 0, i64 16, !19}
-!19 = !{!10, !10, i64 0}
-!20 = !{!12, !12, i64 0}
+!4 = !{!5, !11, i64 32}
+!5 = !{!"_ZTSN8facebook4yoga12_GLOBAL__N_14NodeE", !6, i64 0, !11, i64 32}
+!6 = !{!"_ZTSSt8functionIFvPK6YGNodeN8facebook4yoga5Event4TypeENS5_4DataEEE", !7, i64 0, !10, i64 24}
+!7 = !{!"_ZTSSt14_Function_base", !8, i64 0, !10, i64 16}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"any pointer", !8, i64 0}
+!11 = !{!"p1 _ZTSN8facebook4yoga12_GLOBAL__N_14NodeE", !10, i64 0}
+!12 = !{!7, !10, i64 16}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!6, !10, i64 24}
+!16 = !{i64 0, i64 16, !17}
+!17 = !{!8, !8, i64 0}
+!18 = !{!10, !10, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS6YGNode", !10, i64 0}
 !21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS6YGNode", !12, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"_ZTSN8facebook4yoga5Event4TypeE", !10, i64 0}
-!25 = distinct !{!25, !16}
+!22 = !{!"_ZTSN8facebook4yoga5Event4TypeE", !8, i64 0}
+!23 = distinct !{!23, !14}

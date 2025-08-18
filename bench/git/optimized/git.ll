@@ -2645,7 +2645,7 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 14:                                               ; preds = %.split, %10
   %15 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %15, 142
-  br i1 %exitcond.not, label %.split11.us, label %.split, !llvm.loop !74
+  br i1 %exitcond.not, label %.split11.us, label %.split, !llvm.loop !72
 }
 
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2757,7 +2757,7 @@ match_token.exit44:                               ; preds = %12
   %40 = phi i64 [ %.pre.i, %35 ], [ %30, %37 ]
   %.1.i = phi i64 [ %.06.i, %35 ], [ %38, %37 ]
   %41 = icmp ult i64 %.1.i, %40
-  br i1 %41, label %.lr.ph.i, label %list_builtins.exit, !llvm.loop !75
+  br i1 %41, label %.lr.ph.i, label %list_builtins.exit, !llvm.loop !73
 
 match_token.exit48:                               ; preds = %12
   %42 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.02761, ptr noundef nonnull dereferenceable(6) @.str.229, i64 noundef 5) #17
@@ -2814,7 +2814,7 @@ list_builtins.exit:                               ; preds = %39, %.split.us.i, %
   %spec.select = getelementptr inbounds nuw i8, ptr %55, i64 %spec.select.idx
   %58 = load i8, ptr %spec.select, align 1, !tbaa !16
   %.not = icmp eq i8 %58, 0
-  br i1 %.not, label %.preheader, label %12, !llvm.loop !76
+  br i1 %.not, label %.preheader, label %12, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %1, %.preheader
   call void @string_list_clear(ptr noundef nonnull %2, i32 noundef 0) #16
@@ -2831,7 +2831,7 @@ list_builtins.exit:                               ; preds = %39, %.split.us.i, %
   %63 = add nuw i64 %.062, 1
   %64 = load i64, ptr %11, align 8, !tbaa !33
   %65 = icmp ult i64 %63, %64
-  br i1 %65, label %.lr.ph63, label %._crit_edge, !llvm.loop !77
+  br i1 %65, label %.lr.ph63, label %._crit_edge, !llvm.loop !75
 }
 
 declare void @set_git_attr_source(ptr noundef) local_unnamed_addr #1
@@ -2988,9 +2988,7 @@ attributes #20 = { cold nounwind }
 !69 = !{!70, !5, i64 24}
 !70 = !{!"stat", !25, i64 0, !25, i64 8, !25, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !25, i64 40, !25, i64 48, !25, i64 56, !25, i64 64, !71, i64 72, !71, i64 88, !71, i64 104, !6, i64 120}
 !71 = !{!"timespec", !25, i64 0, !25, i64 8}
-!72 = distinct !{!72, !15, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!72 = distinct !{!72, !15}
+!73 = distinct !{!73, !15}
 !74 = distinct !{!74, !15}
 !75 = distinct !{!75, !15}
-!76 = distinct !{!76, !15}
-!77 = distinct !{!77, !15}

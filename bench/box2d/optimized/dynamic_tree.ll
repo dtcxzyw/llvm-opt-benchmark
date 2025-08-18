@@ -2568,7 +2568,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %56 = load i32, ptr %55, align 4, !tbaa !39
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds %struct.b2TreeNode, ptr %30, i64 %57
-  br label %.outer.us, !llvm.loop !62
+  br label %.outer.us
 
 .lr.ph.us:                                        ; preds = %.outer.us, %68
   %.05259.us.us = phi i32 [ %.1.us.us, %68 ], [ %.052.ph.us, %.outer.us ]
@@ -2607,7 +2607,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 36
   %80 = load i16, ptr %79, align 4, !tbaa !33
   %81 = icmp eq i16 %80, 0
-  br i1 %81, label %._crit_edge62.split.us.us, label %.lr.ph.us, !llvm.loop !64
+  br i1 %81, label %._crit_edge62.split.us.us, label %.lr.ph.us
 
 .outer:                                           ; preds = %26, %123
   %indvars.iv = phi i64 [ %indvars.iv.next, %123 ], [ 0, %26 ]
@@ -2721,16 +2721,16 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %140 = load ptr, ptr %35, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %141 = tail call fastcc i32 @b2AllocateNode(ptr noundef nonnull %0)
-  store i32 %141, ptr %3, align 16, !tbaa !65
+  store i32 %141, ptr %3, align 16, !tbaa !62
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 -1, ptr %142, align 4, !tbaa !67
+  store i32 -1, ptr %142, align 4, !tbaa !64
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %143, align 8, !tbaa !68
+  store i32 0, ptr %143, align 8, !tbaa !65
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.us-phi70, ptr %144, align 16, !tbaa !69
+  store i32 %.us-phi70, ptr %144, align 16, !tbaa !66
   %145 = tail call fastcc i32 @b2PartitionMid(ptr noundef %131, ptr noundef %140, i32 noundef range(i32 -2147483647, -2147483648) %.us-phi70)
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %145, ptr %146, align 4, !tbaa !70
+  store i32 %145, ptr %146, align 4, !tbaa !67
   br label %.outer92
 
 .outer92:                                         ; preds = %.outer92.backedge, %139
@@ -2744,7 +2744,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
 150:                                              ; preds = %.outer92, %227
   %151 = phi i32 [ %152, %227 ], [ %.ph, %.outer92 ]
   %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %149, align 4, !tbaa !67
+  store i32 %152, ptr %149, align 4, !tbaa !64
   switch i32 %151, label %209 [
     i32 1, label %153
     i32 -1, label %210
@@ -2758,13 +2758,13 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %156 = add nsw i32 %.098.i.ph, -1
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds %struct.b2RebuildItem, ptr %3, i64 %157
-  %159 = load i32, ptr %158, align 4, !tbaa !65
+  %159 = load i32, ptr %158, align 4, !tbaa !62
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds %struct.b2TreeNode, ptr %130, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  %163 = load i32, ptr %162, align 4, !tbaa !67
+  %163 = load i32, ptr %162, align 4, !tbaa !64
   %164 = icmp eq i32 %163, 0
-  %165 = load i32, ptr %148, align 4, !tbaa !65
+  %165 = load i32, ptr %148, align 4, !tbaa !62
   br i1 %164, label %166, label %168
 
 166:                                              ; preds = %155
@@ -2859,7 +2859,7 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %216 = sext i32 %.099.i to i64
   %217 = getelementptr inbounds i32, ptr %131, i64 %216
   %218 = load i32, ptr %217, align 4, !tbaa !39
-  %219 = load i32, ptr %148, align 4, !tbaa !65
+  %219 = load i32, ptr %148, align 4, !tbaa !62
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds %struct.b2TreeNode, ptr %130, i64 %220
   %222 = icmp eq i32 %152, 0
@@ -2886,24 +2886,24 @@ define i32 @b2DynamicTree_Rebuild(ptr noundef captures(none) %0, i1 noundef zero
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds %struct.b2RebuildItem, ptr %3, i64 %232
   %234 = tail call fastcc i32 @b2AllocateNode(ptr noundef nonnull %0)
-  store i32 %234, ptr %233, align 4, !tbaa !65
+  store i32 %234, ptr %233, align 4, !tbaa !62
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  store i32 -1, ptr %235, align 4, !tbaa !67
+  store i32 -1, ptr %235, align 4, !tbaa !64
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 %.099.i, ptr %236, align 4, !tbaa !68
+  store i32 %.099.i, ptr %236, align 4, !tbaa !65
   %237 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  store i32 %.0100.i, ptr %237, align 4, !tbaa !69
+  store i32 %.0100.i, ptr %237, align 4, !tbaa !66
   %238 = sext i32 %.099.i to i64
   %239 = getelementptr inbounds i32, ptr %131, i64 %238
   %240 = getelementptr inbounds %struct.b2Vec2, ptr %140, i64 %238
   %241 = tail call fastcc i32 @b2PartitionMid(ptr noundef %239, ptr noundef %240, i32 noundef %213)
   %242 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %243 = add nsw i32 %241, %.099.i
-  store i32 %243, ptr %242, align 4, !tbaa !70
+  store i32 %243, ptr %242, align 4, !tbaa !67
   br label %.outer92.backedge
 
 244:                                              ; preds = %153
-  %245 = load i32, ptr %3, align 16, !tbaa !65
+  %245 = load i32, ptr %3, align 16, !tbaa !62
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds %struct.b2TreeNode, ptr %130, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 28
@@ -3022,7 +3022,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.sroa.02.4.vec.insert.i126 = insertelement <2 x float> %.sroa.02.0.vec.insert.i123, float %26, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %8, label %16, !llvm.loop !71
+  br i1 %exitcond.not, label %8, label %16, !llvm.loop !68
 
 .preheader:                                       ; preds = %8, %.critedge113
   %.0103146 = phi i32 [ %.2, %.critedge113 ], [ %2, %8 ]
@@ -3036,14 +3036,14 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 30:                                               ; preds = %.preheader, %34
   %indvars.iv165 = phi i64 [ %27, %.preheader ], [ %indvars.iv.next166, %34 ]
   %31 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv165
-  %32 = load float, ptr %31, align 4, !tbaa !72
+  %32 = load float, ptr %31, align 4, !tbaa !69
   %33 = fcmp olt float %32, %12
   br i1 %33, label %34, label %.critedge.split.loop.exit181
 
 34:                                               ; preds = %30
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
   %35 = icmp slt i64 %indvars.iv.next166, %28
-  br i1 %35, label %30, label %.critedge, !llvm.loop !73
+  br i1 %35, label %30, label %.critedge, !llvm.loop !70
 
 .critedge.split.loop.exit181:                     ; preds = %30
   %36 = trunc nsw i64 %indvars.iv165 to i32
@@ -3062,9 +3062,9 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 40:                                               ; preds = %38
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, -1
   %41 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next170
-  %42 = load float, ptr %41, align 4, !tbaa !72
+  %42 = load float, ptr %41, align 4, !tbaa !69
   %43 = fcmp ult float %42, %12
-  br i1 %43, label %.critedge2, label %38, !llvm.loop !74
+  br i1 %43, label %.critedge2, label %38, !llvm.loop !71
 
 .critedge2:                                       ; preds = %40
   %44 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next170
@@ -3087,7 +3087,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.2.in = phi i64 [ %indvars.iv.next170, %.critedge2 ], [ %indvars.iv169, %38 ]
   %.2 = trunc i64 %.2.in to i32
   %53 = icmp slt i32 %.2107, %.2
-  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !75
+  br i1 %53, label %.preheader, label %.loopexit, !llvm.loop !72
 
 .preheader128:                                    ; preds = %8, %.critedge114
   %.3142 = phi i32 [ %.5, %.critedge114 ], [ %2, %8 ]
@@ -3101,14 +3101,14 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 57:                                               ; preds = %.preheader128, %61
   %indvars.iv159 = phi i64 [ %54, %.preheader128 ], [ %indvars.iv.next160, %61 ]
   %58 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv159, i32 1
-  %59 = load float, ptr %58, align 4, !tbaa !76
+  %59 = load float, ptr %58, align 4, !tbaa !73
   %60 = fcmp olt float %59, %14
   br i1 %60, label %61, label %.critedge4.split.loop.exit179
 
 61:                                               ; preds = %57
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %62 = icmp slt i64 %indvars.iv.next160, %55
-  br i1 %62, label %57, label %.critedge4, !llvm.loop !77
+  br i1 %62, label %57, label %.critedge4, !llvm.loop !74
 
 .critedge4.split.loop.exit179:                    ; preds = %57
   %63 = trunc nsw i64 %indvars.iv159 to i32
@@ -3127,9 +3127,9 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
 67:                                               ; preds = %65
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, -1
   %68 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %indvars.iv.next163, i32 1
-  %69 = load float, ptr %68, align 4, !tbaa !76
+  %69 = load float, ptr %68, align 4, !tbaa !73
   %70 = fcmp ult float %69, %14
-  br i1 %70, label %.critedge6, label %65, !llvm.loop !78
+  br i1 %70, label %.critedge6, label %65, !llvm.loop !75
 
 .critedge6:                                       ; preds = %67
   %71 = getelementptr inbounds i32, ptr %0, i64 %64
@@ -3152,7 +3152,7 @@ define internal fastcc range(i32 -1073741824, 2147483647) i32 @b2PartitionMid(pt
   %.5.in = phi i64 [ %indvars.iv.next163, %.critedge6 ], [ %indvars.iv162, %65 ]
   %.5 = trunc i64 %.5.in to i32
   %80 = icmp slt i32 %.6, %.5
-  br i1 %80, label %.preheader128, label %.loopexit, !llvm.loop !79
+  br i1 %80, label %.preheader128, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.critedge114, %.critedge113
   %.3108 = phi i32 [ %.2107, %.critedge113 ], [ %.6, %.critedge114 ]
@@ -3265,21 +3265,18 @@ attributes #13 = { nounwind }
 !59 = !{i64 0, i64 64, !16, i64 64, i64 4, !39, i64 68, i64 4, !37, i64 72, i64 4, !37, i64 76, i64 4, !37, i64 80, i64 4, !37}
 !60 = distinct !{!60, !20}
 !61 = distinct !{!61, !20}
-!62 = distinct !{!62, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !63}
-!65 = !{!66, !9, i64 0}
-!66 = !{!"b2RebuildItem", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16}
-!67 = !{!66, !9, i64 4}
-!68 = !{!66, !9, i64 8}
-!69 = !{!66, !9, i64 16}
-!70 = !{!66, !9, i64 12}
+!62 = !{!63, !9, i64 0}
+!63 = !{!"b2RebuildItem", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16}
+!64 = !{!63, !9, i64 4}
+!65 = !{!63, !9, i64 8}
+!66 = !{!63, !9, i64 16}
+!67 = !{!63, !9, i64 12}
+!68 = distinct !{!68, !20}
+!69 = !{!29, !30, i64 0}
+!70 = distinct !{!70, !20}
 !71 = distinct !{!71, !20}
-!72 = !{!29, !30, i64 0}
-!73 = distinct !{!73, !20}
+!72 = distinct !{!72, !20}
+!73 = !{!29, !30, i64 4}
 !74 = distinct !{!74, !20}
 !75 = distinct !{!75, !20}
-!76 = !{!29, !30, i64 4}
-!77 = distinct !{!77, !20}
-!78 = distinct !{!78, !20}
-!79 = distinct !{!79, !20}
+!76 = distinct !{!76, !20}

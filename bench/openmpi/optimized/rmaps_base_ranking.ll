@@ -1212,12 +1212,12 @@ pmix_pointer_array_get_item.exit.us:              ; preds = %32, %pmix_pointer_a
 
 30:                                               ; preds = %26
   %31 = add i16 %.02437.us, 1
-  br label %pmix_pointer_array_get_item.exit.lr.ph.us, !llvm.loop !91
+  br label %pmix_pointer_array_get_item.exit.lr.ph.us
 
 32:                                               ; preds = %26, %pmix_pointer_array_get_item.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %pmix_pointer_array_get_item.exit.us, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %pmix_pointer_array_get_item.exit.us, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %32
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 414
@@ -1270,7 +1270,7 @@ pmix_pointer_array_get_item.exit32:               ; preds = %pmix_pointer_array_
   %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next50, %58
-  br i1 %59, label %pmix_pointer_array_get_item.exit32, label %._crit_edge40, !llvm.loop !94
+  br i1 %59, label %pmix_pointer_array_get_item.exit32, label %._crit_edge40, !llvm.loop !92
 
 ._crit_edge40:                                    ; preds = %49, %54, %._crit_edge.thread
   %.0.lcssa = phi i16 [ 0, %._crit_edge.thread ], [ %.044, %54 ], [ %50, %49 ]
@@ -1407,7 +1407,5 @@ attributes #11 = { noreturn nounwind }
 !88 = !{!89, !9, i64 4}
 !89 = !{!"", !8, i64 0, !8, i64 1, !9, i64 4, !8, i64 8, !9, i64 12, !10, i64 16, !10, i64 24, !9, i64 32, !10, i64 40, !9, i64 48, !8, i64 52, !8, i64 53, !8, i64 54, !8, i64 55, !10, i64 56, !9, i64 64, !9, i64 68}
 !90 = !{!43, !5, i64 414}
-!91 = distinct !{!91, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!93 = distinct !{!93, !52}
-!94 = distinct !{!94, !52}
+!91 = distinct !{!91, !52}
+!92 = distinct !{!92, !52}

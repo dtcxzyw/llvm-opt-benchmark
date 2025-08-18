@@ -1110,7 +1110,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
 
 77:                                               ; preds = %54
   %78 = icmp eq i32 %55, 0
-  br i1 %78, label %.split, label %.split20.us, !llvm.loop !32
+  br i1 %78, label %.split, label %.split20.us, !llvm.loop !30
 
 .split20.us:                                      ; preds = %77, %43
   %.us-phi21 = phi ptr [ %10, %43 ], [ %45, %77 ]
@@ -1264,7 +1264,7 @@ define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef initializ
   store ptr %28, ptr %8, align 8
   %30 = add i32 %11, -1
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %36, label %10, !llvm.loop !33
+  br i1 %31, label %36, label %10, !llvm.loop !31
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %8, align 8
@@ -1350,7 +1350,7 @@ define internal i32 @run_io_job(ptr noundef %0) #2 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @throttle_spinlock) #9
   %33 = load volatile i32, ptr %30, align 4
   %34 = icmp ugt i32 %33, 99
-  br i1 %34, label %.loopexit, label %35, !prof !34
+  br i1 %34, label %.loopexit, label %35, !prof !32
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1396,7 +1396,7 @@ define internal i32 @run_io_job(ptr noundef %0) #2 align 16 {
 
 60:                                               ; preds = %57
   %61 = lshr i32 %54, 10
-  %62 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %61, i32 -1) #11, !srcloc !35
+  %62 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %61, i32 -1) #11, !srcloc !33
   %63 = add i32 %62, 1
   %64 = lshr i32 %54, %63
   store i32 %64, ptr %39, align 4
@@ -1413,7 +1413,7 @@ define internal i32 @run_io_job(ptr noundef %0) #2 align 16 {
   %72 = icmp sgt i32 %71, 0
   %73 = icmp samesign ult i32 %42, 10
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %75, label %.loopexit, !prof !36
+  br i1 %74, label %75, label %.loopexit, !prof !34
 
 75:                                               ; preds = %66
   %76 = add nuw nsw i32 %42, 1
@@ -1422,7 +1422,7 @@ define internal i32 @run_io_job(ptr noundef %0) #2 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @throttle_spinlock) #9
   %77 = load volatile i32, ptr %30, align 4
   %78 = icmp ugt i32 %77, 99
-  br i1 %78, label %.loopexit, label %40, !prof !37
+  br i1 %78, label %.loopexit, label %40, !prof !35
 
 .loopexit:                                        ; preds = %75, %66, %32
   %79 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -1696,11 +1696,9 @@ attributes #11 = { nounwind memory(read) }
 !27 = !{i64 2147783152, i64 2147783191, i64 2147783212, i64 2147783249, i64 2147783272, i64 2147783281, i64 2147783355}
 !28 = distinct !{!28, !6, !7}
 !29 = !{ptr @run_complete_job, ptr @run_io_job, ptr @run_pages_job}
-!30 = distinct !{!30, !6, !7, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = !{!"branch_weights", i32 1999, i32 1}
-!35 = !{i64 1704347}
-!36 = !{!"branch_weights", i32 1, i32 4001}
-!37 = !{!"branch_weights", i32 1, i32 0}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = !{!"branch_weights", i32 1999, i32 1}
+!33 = !{i64 1704347}
+!34 = !{!"branch_weights", i32 1, i32 4001}
+!35 = !{!"branch_weights", i32 1, i32 0}

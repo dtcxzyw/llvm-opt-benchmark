@@ -189,15 +189,16 @@ GetJVMPath.exit:                                  ; preds = %44, %46
   %66 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.clientPattern) #14
   %67 = icmp ne ptr %66, null
   %68 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
-  %69 = icmp ne ptr %68, null
-  %70 = select i1 %67, i1 true, i1 %69
+  %.fr36.i.i = freeze ptr %68
+  %69 = icmp ne ptr %.fr36.i.i, null
+  %70 = or i1 %67, %69
   br i1 %70, label %71, label %RequiresSetenv.exit.thread71
 
 RequiresSetenv.exit.thread71:                     ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
-  br label %136
+  br label %141
 
 71:                                               ; preds = %65
   %72 = call ptr @JLI_StringDup(ptr noundef nonnull %51) #12
@@ -208,182 +209,203 @@ RequiresSetenv.exit.thread71:                     ; preds = %65
 .lr.ph.i.i:                                       ; preds = %71
   br i1 %67, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %84
-  %.01929.us.i.i = phi ptr [ %85, %84 ], [ %73, %.lr.ph.i.i ]
-  %74 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.clientPattern) #14
-  %.not21.us.i.i = icmp eq ptr %74, null
-  br i1 %.not21.us.i.i, label %78, label %75
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
+  br i1 %69, label %.lr.ph.split.us.split.us.i.i, label %.lr.ph.split.us.split.i.i
 
-75:                                               ; preds = %.lr.ph.split.us.i.i
+.lr.ph.split.us.split.us.i.i:                     ; preds = %.lr.ph.split.us.i.i, %83
+  %.01929.us.us.i.i = phi ptr [ %84, %83 ], [ %73, %.lr.ph.split.us.i.i ]
+  %74 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.clientPattern) #14
+  %.not21.us.us.i.i = icmp eq ptr %74, null
+  br i1 %.not21.us.us.i.i, label %78, label %75
+
+75:                                               ; preds = %.lr.ph.split.us.split.us.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.i.i, ptr noundef nonnull @.str.27) #12
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.us.i.i, ptr noundef nonnull @.str.27) #12
   %77 = call i32 @stat64(ptr noundef nonnull %11, ptr noundef nonnull %12) #12
-  %.not26.us.i.i = icmp eq i32 %77, 0
+  %.not26.us.us.i.i = icmp eq i32 %77, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.not26.us.i.i, label %RequiresSetenv.exit, label %78
+  br i1 %.not26.us.us.i.i, label %RequiresSetenv.exit, label %78
 
-78:                                               ; preds = %75, %.lr.ph.split.us.i.i
-  br i1 %69, label %79, label %84
+78:                                               ; preds = %75, %.lr.ph.split.us.split.us.i.i
+  %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
+  %.not23.us.us.i.i = icmp eq ptr %79, null
+  br i1 %.not23.us.us.i.i, label %83, label %80
 
-79:                                               ; preds = %78
-  %80 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
-  %.not23.us.i.i = icmp eq ptr %80, null
-  br i1 %.not23.us.i.i, label %84, label %81
-
-81:                                               ; preds = %79
+80:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.i.i, ptr noundef nonnull @.str.27) #12
-  %83 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
-  %.not27.us.i.i = icmp eq i32 %83, 0
+  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.us.i.i, ptr noundef nonnull @.str.27) #12
+  %82 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
+  %.not27.us.us.i.i = icmp eq i32 %82, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not27.us.i.i, label %RequiresSetenv.exit, label %84
+  br i1 %.not27.us.us.i.i, label %RequiresSetenv.exit, label %83
 
-84:                                               ; preds = %81, %79, %78
-  %85 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
-  %.not.us.i.i = icmp eq ptr %85, null
-  br i1 %.not.us.i.i, label %.critedge75, label %.lr.ph.split.us.i.i, !llvm.loop !6
+83:                                               ; preds = %80, %78
+  %84 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
+  %.not.us.us.i.i = icmp eq ptr %84, null
+  br i1 %.not.us.us.i.i, label %.critedge75, label %.lr.ph.split.us.split.us.i.i, !llvm.loop !6
+
+.lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.split.us.i.i, %89
+  %.01929.us.i.i = phi ptr [ %90, %89 ], [ %73, %.lr.ph.split.us.i.i ]
+  %85 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.clientPattern) #14
+  %.not21.us.i.i = icmp eq ptr %85, null
+  br i1 %.not21.us.i.i, label %89, label %86
+
+86:                                               ; preds = %.lr.ph.split.us.split.i.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us.i.i, ptr noundef nonnull @.str.27) #12
+  %88 = call i32 @stat64(ptr noundef nonnull %11, ptr noundef nonnull %12) #12
+  %.not26.us.i.i = icmp eq i32 %88, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br i1 %.not26.us.i.i, label %RequiresSetenv.exit, label %89
+
+89:                                               ; preds = %86, %.lr.ph.split.us.split.i.i
+  %90 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
+  %.not.us.i.i = icmp eq ptr %90, null
+  br i1 %.not.us.i.i, label %.critedge75, label %.lr.ph.split.us.split.i.i, !llvm.loop !6
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   br i1 %69, label %.lr.ph.split.split.us.i.i, label %.lr.ph.split.split.i.i
 
-.lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.split.i.i, %90
-  %.01929.us32.i.i = phi ptr [ %91, %90 ], [ %73, %.lr.ph.split.i.i ]
-  %86 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us32.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
-  %.not23.us33.i.i = icmp eq ptr %86, null
-  br i1 %.not23.us33.i.i, label %90, label %87
+.lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.split.i.i, %95
+  %.01929.us32.i.i = phi ptr [ %96, %95 ], [ %73, %.lr.ph.split.i.i ]
+  %91 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01929.us32.i.i, ptr noundef nonnull dereferenceable(1) @__const.ContainsLibJVM.serverPattern) #14
+  %.not23.us33.i.i = icmp eq ptr %91, null
+  br i1 %.not23.us33.i.i, label %95, label %92
 
-87:                                               ; preds = %.lr.ph.split.split.us.i.i
+92:                                               ; preds = %.lr.ph.split.split.us.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us32.i.i, ptr noundef nonnull @.str.27) #12
-  %89 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
-  %.not27.us34.i.i = icmp eq i32 %89, 0
+  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4096, ptr noundef nonnull @.str.26, ptr noundef nonnull %.01929.us32.i.i, ptr noundef nonnull @.str.27) #12
+  %94 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #12
+  %.not27.us34.i.i = icmp eq i32 %94, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not27.us34.i.i, label %RequiresSetenv.exit, label %90
+  br i1 %.not27.us34.i.i, label %RequiresSetenv.exit, label %95
 
-90:                                               ; preds = %87, %.lr.ph.split.split.us.i.i
-  %91 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
-  %.not.us35.i.i = icmp eq ptr %91, null
-  br i1 %.not.us35.i.i, label %.critedge75, label %.lr.ph.split.split.us.i.i, !llvm.loop !9
+95:                                               ; preds = %92, %.lr.ph.split.split.us.i.i
+  %96 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
+  %.not.us35.i.i = icmp eq ptr %96, null
+  br i1 %.not.us35.i.i, label %.critedge75, label %.lr.ph.split.split.us.i.i, !llvm.loop !6
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.split.i.i, %.lr.ph.split.split.i.i
-  %92 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
-  %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !10
+  %97 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %13) #12
+  %.not.i.i = icmp eq ptr %97, null
+  br i1 %.not.i.i, label %.critedge75, label %.lr.ph.split.split.i.i, !llvm.loop !6
 
 RequiresSetenv.exit.thread:                       ; preds = %50, %56, %53, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
-  br label %136
+  br label %141
 
-RequiresSetenv.exit:                              ; preds = %87, %75, %81
+RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
   call void @JLI_MemFree(ptr noundef %72) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #12
-  %93 = call ptr @getenv(ptr noundef nonnull @.str.10) #12
-  %94 = call ptr @JLI_StringDup(ptr noundef nonnull %4) #12
-  %.not65 = icmp eq ptr %93, null
-  br i1 %.not65, label %98, label %95
+  %98 = call ptr @getenv(ptr noundef nonnull @.str.10) #12
+  %99 = call ptr @JLI_StringDup(ptr noundef nonnull %4) #12
+  %.not65 = icmp eq ptr %98, null
+  br i1 %.not65, label %103, label %100
 
-95:                                               ; preds = %RequiresSetenv.exit
-  %96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #14
-  %97 = add i64 %96, 52
-  br label %98
+100:                                              ; preds = %RequiresSetenv.exit
+  %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #14
+  %102 = add i64 %101, 52
+  br label %103
 
-98:                                               ; preds = %RequiresSetenv.exit, %95
-  %99 = phi i64 [ %97, %95 ], [ 52, %RequiresSetenv.exit ]
-  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
-  %101 = shl i64 %100, 1
-  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #14
-  %103 = add i64 %99, %101
-  %104 = add i64 %103, %102
-  %105 = call ptr @JLI_MemAlloc(i64 noundef %104) #12
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %94, i32 noundef 47) #14
-  %.not66 = icmp eq ptr %107, null
-  br i1 %.not66, label %109, label %108
+103:                                              ; preds = %RequiresSetenv.exit, %100
+  %104 = phi i64 [ %102, %100 ], [ 52, %RequiresSetenv.exit ]
+  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
+  %106 = shl i64 %105, 1
+  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #14
+  %108 = add i64 %104, %106
+  %109 = add i64 %108, %107
+  %110 = call ptr @JLI_MemAlloc(i64 noundef %109) #12
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 47) #14
+  %.not66 = icmp eq ptr %112, null
+  br i1 %.not66, label %114, label %113
 
-108:                                              ; preds = %98
-  store i8 0, ptr %107, align 1
-  br label %109
+113:                                              ; preds = %103
+  store i8 0, ptr %112, align 1
+  br label %114
 
-109:                                              ; preds = %108, %98
-  %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef %104, ptr noundef nonnull @.str.11, ptr noundef nonnull %94, ptr noundef nonnull %2, ptr noundef nonnull %2) #12
-  call void @JLI_MemFree(ptr noundef nonnull %94) #12
-  br i1 %.not65, label %.critedge, label %111
+114:                                              ; preds = %113, %103
+  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %110, i64 noundef %109, ptr noundef nonnull @.str.11, ptr noundef nonnull %99, ptr noundef nonnull %2, ptr noundef nonnull %2) #12
+  call void @JLI_MemFree(ptr noundef nonnull %99) #12
+  br i1 %.not65, label %.critedge, label %116
 
-111:                                              ; preds = %109
-  %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #14
-  %113 = call i32 @strncmp(ptr noundef nonnull %106, ptr noundef nonnull %93, i64 noundef %112) #14
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %119
+116:                                              ; preds = %114
+  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #14
+  %118 = call i32 @strncmp(ptr noundef nonnull %111, ptr noundef nonnull %98, i64 noundef %117) #14
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %124
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %93, i64 %112
-  %117 = load i8, ptr %116, align 1
-  switch i8 %117, label %119 [
-    i8 0, label %118
-    i8 58, label %118
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds i8, ptr %98, i64 %117
+  %122 = load i8, ptr %121, align 1
+  switch i8 %122, label %124 [
+    i8 0, label %123
+    i8 58, label %123
   ]
 
-118:                                              ; preds = %115, %115
-  call void @JLI_MemFree(ptr noundef nonnull %105) #12
-  br label %136
+123:                                              ; preds = %120, %120
+  call void @JLI_MemFree(ptr noundef nonnull %110) #12
+  br label %141
 
-119:                                              ; preds = %111, %115
-  %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #14
-  %121 = add i64 %120, 2
-  %122 = icmp ugt i64 %121, %104
-  br i1 %122, label %123, label %124
+124:                                              ; preds = %116, %120
+  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #14
+  %126 = add i64 %125, 2
+  %127 = icmp ugt i64 %126, %109
+  br i1 %127, label %128, label %129
 
-123:                                              ; preds = %119
+128:                                              ; preds = %124
   call void (ptr, ...) @JLI_ReportErrorMessageSys(ptr noundef nonnull @.str.12) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-124:                                              ; preds = %119
-  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %105)
-  %endptr = getelementptr inbounds i8, ptr %105, i64 %strlen
+129:                                              ; preds = %124
+  %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %110)
+  %endptr = getelementptr inbounds i8, ptr %110, i64 %strlen
   store i16 58, ptr %endptr, align 1
-  %125 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %93) #12
+  %130 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %98) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %109, %124
-  %126 = call i32 @putenv(ptr noundef %105) #12
-  %.not67 = icmp eq i32 %126, 0
-  br i1 %.not67, label %128, label %127
+.critedge:                                        ; preds = %114, %129
+  %131 = call i32 @putenv(ptr noundef %110) #12
+  %.not67 = icmp eq i32 %131, 0
+  br i1 %.not67, label %133, label %132
 
-127:                                              ; preds = %.critedge
+132:                                              ; preds = %.critedge
   call void @exit(i32 noundef 1) #13
   unreachable
 
-128:                                              ; preds = %.critedge
-  %129 = load ptr, ptr @environ, align 8
-  %130 = load ptr, ptr @execname, align 8
+133:                                              ; preds = %.critedge
+  %134 = load ptr, ptr @environ, align 8
+  %135 = load ptr, ptr @execname, align 8
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.14) #12
-  %131 = load ptr, ptr @stdout, align 8
-  %132 = call i32 @fflush(ptr noundef %131)
-  %133 = load ptr, ptr @stderr, align 8
-  %134 = call i32 @fflush(ptr noundef %133)
-  %135 = call i32 @execve(ptr noundef %130, ptr noundef %17, ptr noundef %129) #12
-  call void (ptr, ...) @JLI_ReportErrorMessageSys(ptr noundef nonnull @.str.15, ptr noundef %130) #12
+  %136 = load ptr, ptr @stdout, align 8
+  %137 = call i32 @fflush(ptr noundef %136)
+  %138 = load ptr, ptr @stderr, align 8
+  %139 = call i32 @fflush(ptr noundef %138)
+  %140 = call i32 @execve(ptr noundef %135, ptr noundef %17, ptr noundef %134) #12
+  call void (ptr, ...) @JLI_ReportErrorMessageSys(ptr noundef nonnull @.str.15, ptr noundef %135) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-.critedge75:                                      ; preds = %.lr.ph.split.split.i.i, %90, %84, %71
+.critedge75:                                      ; preds = %.lr.ph.split.split.i.i, %95, %89, %83, %71
   call void @JLI_MemFree(ptr noundef %72) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void (ptr, ...) @JLI_TraceLauncher(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #12
-  br label %136
+  br label %141
 
-136:                                              ; preds = %.critedge75, %RequiresSetenv.exit.thread71, %RequiresSetenv.exit.thread, %118
+141:                                              ; preds = %.critedge75, %RequiresSetenv.exit.thread71, %RequiresSetenv.exit.thread, %123
   ret void
 }
 
@@ -796,8 +818,5 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7}

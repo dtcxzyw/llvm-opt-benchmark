@@ -2407,7 +2407,7 @@ define internal fastcc void @evalPositions(ptr noundef %0, ptr noundef readnone 
   %58 = load i32, ptr %57, align 4, !tbaa !90
   %59 = sext i32 %58 to i64
   %.not37.not = icmp slt i64 %indvars.iv, %59
-  br i1 %.not37.not, label %.lr.ph43.split, label %._crit_edge, !llvm.loop !163
+  br i1 %.not37.not, label %.lr.ph43.split, label %._crit_edge, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph43.split, %.lr.ph43.split.us, %.loopexit.thread50, %.loopexit.thread, %.loopexit
   ret void
@@ -2458,7 +2458,7 @@ define internal fastcc void @setBB(ptr noundef readonly captures(none) %0) unnam
   %28 = load i32, ptr %27, align 4, !tbaa !90
   %29 = sext i32 %28 to i64
   %.not.not = icmp slt i64 %indvars.iv, %29
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !164
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -2875,7 +2875,5 @@ attributes #25 = { nounwind willreturn memory(read) }
 !158 = distinct !{!158, !76}
 !159 = distinct !{!159, !76}
 !160 = distinct !{!160, !76}
-!161 = distinct !{!161, !76, !162}
-!162 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!163 = distinct !{!163, !76}
-!164 = distinct !{!164, !76}
+!161 = distinct !{!161, !76}
+!162 = distinct !{!162, !76}

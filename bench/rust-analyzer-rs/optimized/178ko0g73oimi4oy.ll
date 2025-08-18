@@ -16158,8 +16158,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %4
   %463 = add i64 %462, %.sroa.6.0.i.i.i
   %464 = icmp ugt i64 %463, %.pn3.i.i45
   %465 = add i64 %.sroa.6.0.i.i.i, %447
-  %or.cond83.i.not.i.i = icmp ult i64 %465, %.pn3.i.i45
-  br i1 %or.cond83.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i.i.i", label %466
+  %or.cond.i.not.i.i = icmp ult i64 %465, %.pn3.i.i45
+  br i1 %or.cond.i.not.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i.i.i", label %466
 
 466:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebcb70db04445b9fE.exit.i.i.i", %461
   %467 = sub nuw i64 %.pn3.i.i45, %463

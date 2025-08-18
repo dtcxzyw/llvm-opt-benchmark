@@ -750,7 +750,7 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
   %104 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not35 = icmp eq ptr %105, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %103, %77
   %.030.lcssa = phi i32 [ %.1.us, %77 ], [ %.1, %103 ]
@@ -834,6 +834,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!12 = distinct !{!12, !7}

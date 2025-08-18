@@ -244,14 +244,14 @@ define internal void @put_tpel_pixels_mc20_c(ptr noundef writeonly captures(none
   %22 = getelementptr inbounds nuw i8, ptr %.01620.us, i64 %indvars.iv
   store i8 %21, ptr %22, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %9
   %23 = getelementptr inbounds i8, ptr %.01719.us, i64 %8
   %24 = getelementptr inbounds i8, ptr %.01620.us, i64 %8
   %25 = add nuw nsw i32 %.01521.us, 1
   %exitcond25.not = icmp eq i32 %25, %4
-  br i1 %exitcond25.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !21
+  br i1 %exitcond25.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !20
 
 ._crit_edge22:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -296,14 +296,14 @@ define internal void @put_tpel_pixels_mc01_c(ptr noundef writeonly captures(none
   store i8 %20, ptr %21, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !21
 
 ._crit_edge.us:                                   ; preds = %9
   %22 = getelementptr inbounds i8, ptr %.01820.us, i64 %8
   %23 = getelementptr inbounds i8, ptr %.01721.us, i64 %8
   %24 = add nuw nsw i32 %.01622.us, 1
   %exitcond26.not = icmp eq i32 %24, %4
-  br i1 %exitcond26.not, label %._crit_edge23, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond26.not, label %._crit_edge23, label %.preheader.us, !llvm.loop !22
 
 ._crit_edge23:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -357,14 +357,14 @@ define internal void @put_tpel_pixels_mc11_c(ptr noundef writeonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %.02227.us, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02326.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.02227.us, i64 %8
   %29 = add nuw nsw i32 %.02128.us, 1
   %exitcond32.not = icmp eq i32 %29, %4
-  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !25
+  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !24
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -418,14 +418,14 @@ define internal void @put_tpel_pixels_mc21_c(ptr noundef writeonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %.02227.us, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02326.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.02227.us, i64 %8
   %29 = add nuw nsw i32 %.02128.us, 1
   %exitcond32.not = icmp eq i32 %29, %4
-  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !27
+  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !26
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -470,14 +470,14 @@ define internal void @put_tpel_pixels_mc02_c(ptr noundef writeonly captures(none
   store i8 %20, ptr %21, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !27
 
 ._crit_edge.us:                                   ; preds = %9
   %22 = getelementptr inbounds i8, ptr %.01820.us, i64 %8
   %23 = getelementptr inbounds i8, ptr %.01721.us, i64 %8
   %24 = add nuw nsw i32 %.01622.us, 1
   %exitcond26.not = icmp eq i32 %24, %4
-  br i1 %exitcond26.not, label %._crit_edge23, label %.preheader.us, !llvm.loop !29
+  br i1 %exitcond26.not, label %._crit_edge23, label %.preheader.us, !llvm.loop !28
 
 ._crit_edge23:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -531,14 +531,14 @@ define internal void @put_tpel_pixels_mc12_c(ptr noundef writeonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %.02227.us, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !29
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02326.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.02227.us, i64 %8
   %29 = add nuw nsw i32 %.02128.us, 1
   %exitcond32.not = icmp eq i32 %29, %4
-  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !31
+  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !30
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -592,14 +592,14 @@ define internal void @put_tpel_pixels_mc22_c(ptr noundef writeonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %.02227.us, i64 %indvars.iv
   store i8 %25, ptr %26, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !31
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02326.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.02227.us, i64 %8
   %29 = add nuw nsw i32 %.02128.us, 1
   %exitcond32.not = icmp eq i32 %29, %4
-  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !33
+  br i1 %exitcond32.not, label %._crit_edge29, label %.preheader.us, !llvm.loop !32
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -637,7 +637,7 @@ define internal void @avg_tpel_pixels_mc00_c(ptr noundef captures(none) %0, ptr 
   %19 = getelementptr inbounds i8, ptr %.0912.i, i64 %9
   %20 = add nuw nsw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %20, %4
-  br i1 %exitcond.not.i, label %avg_pixels2_8_c.exit, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %avg_pixels2_8_c.exit, label %.lr.ph.i, !llvm.loop !33
 
 21:                                               ; preds = %5
   %22 = sext i32 %2 to i64
@@ -660,7 +660,7 @@ define internal void @avg_tpel_pixels_mc00_c(ptr noundef captures(none) %0, ptr 
   %32 = getelementptr inbounds i8, ptr %.0912.i18, i64 %22
   %33 = add nuw nsw i32 %.013.i17, 1
   %exitcond.not.i20 = icmp eq i32 %33, %4
-  br i1 %exitcond.not.i20, label %avg_pixels2_8_c.exit, label %.lr.ph.i16, !llvm.loop !35
+  br i1 %exitcond.not.i20, label %avg_pixels2_8_c.exit, label %.lr.ph.i16, !llvm.loop !34
 
 34:                                               ; preds = %5
   %35 = sext i32 %2 to i64
@@ -693,7 +693,7 @@ define internal void @avg_tpel_pixels_mc00_c(ptr noundef captures(none) %0, ptr 
   %54 = getelementptr inbounds i8, ptr %.01215.i, i64 %35
   %55 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i22 = icmp eq i32 %55, %4
-  br i1 %exitcond.not.i22, label %avg_pixels2_8_c.exit, label %.lr.ph.i21, !llvm.loop !36
+  br i1 %exitcond.not.i22, label %avg_pixels2_8_c.exit, label %.lr.ph.i21, !llvm.loop !35
 
 56:                                               ; preds = %5
   %57 = sext i32 %2 to i64
@@ -726,7 +726,7 @@ define internal void @avg_tpel_pixels_mc00_c(ptr noundef captures(none) %0, ptr 
   %76 = getelementptr inbounds i8, ptr %.01215.i.i, i64 %57
   %77 = add nuw nsw i32 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %77, %4
-  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i, label %avg_pixels8_8_c.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -759,7 +759,7 @@ avg_pixels8_8_c.exit.i:                           ; preds = %.lr.ph.i.i
   %97 = getelementptr inbounds i8, ptr %.01215.i9.i, i64 %57
   %98 = add nuw nsw i32 %.016.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %98, %4
-  br i1 %exitcond.not.i11.i, label %avg_pixels2_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !36
+  br i1 %exitcond.not.i11.i, label %avg_pixels2_8_c.exit, label %.lr.ph.i7.i, !llvm.loop !35
 
 avg_pixels2_8_c.exit:                             ; preds = %.lr.ph.i7.i, %.lr.ph.i21, %.lr.ph.i16, %.lr.ph.i, %56, %34, %21, %8, %5
   ret void
@@ -808,14 +808,14 @@ define internal void @avg_tpel_pixels_mc10_c(ptr noundef captures(none) %0, ptr 
   %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %9
   %28 = getelementptr inbounds i8, ptr %.01921.us, i64 %8
   %29 = getelementptr inbounds i8, ptr %.01822.us, i64 %8
   %30 = add nuw nsw i32 %.01723.us, 1
   %exitcond27.not = icmp eq i32 %30, %4
-  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !38
+  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -864,14 +864,14 @@ define internal void @avg_tpel_pixels_mc20_c(ptr noundef captures(none) %0, ptr 
   %27 = trunc nuw i32 %26 to i8
   store i8 %27, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !38
 
 ._crit_edge.us:                                   ; preds = %9
   %28 = getelementptr inbounds i8, ptr %.01921.us, i64 %8
   %29 = getelementptr inbounds i8, ptr %.01822.us, i64 %8
   %30 = add nuw nsw i32 %.01723.us, 1
   %exitcond27.not = icmp eq i32 %30, %4
-  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !40
+  br i1 %exitcond27.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !39
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -921,14 +921,14 @@ define internal void @avg_tpel_pixels_mc01_c(ptr noundef captures(none) %0, ptr 
   store i8 %26, ptr %10, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02022.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.01923.us, i64 %8
   %29 = add nuw nsw i32 %.01824.us, 1
   %exitcond28.not = icmp eq i32 %29, %4
-  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !42
+  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !41
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -987,14 +987,14 @@ define internal void @avg_tpel_pixels_mc11_c(ptr noundef captures(none) %0, ptr 
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !42
 
 ._crit_edge.us:                                   ; preds = %9
   %32 = getelementptr inbounds i8, ptr %.02528.us, i64 %8
   %33 = getelementptr inbounds i8, ptr %.02429.us, i64 %8
   %34 = add nuw nsw i32 %.02330.us, 1
   %exitcond34.not = icmp eq i32 %34, %4
-  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !44
+  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !43
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -1053,14 +1053,14 @@ define internal void @avg_tpel_pixels_mc21_c(ptr noundef captures(none) %0, ptr 
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %9
   %32 = getelementptr inbounds i8, ptr %.02528.us, i64 %8
   %33 = getelementptr inbounds i8, ptr %.02429.us, i64 %8
   %34 = add nuw nsw i32 %.02330.us, 1
   %exitcond34.not = icmp eq i32 %34, %4
-  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !46
+  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !45
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -1110,14 +1110,14 @@ define internal void @avg_tpel_pixels_mc02_c(ptr noundef captures(none) %0, ptr 
   store i8 %26, ptr %10, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %9
   %27 = getelementptr inbounds i8, ptr %.02022.us, i64 %8
   %28 = getelementptr inbounds i8, ptr %.01923.us, i64 %8
   %29 = add nuw nsw i32 %.01824.us, 1
   %exitcond28.not = icmp eq i32 %29, %4
-  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !48
+  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !47
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -1176,14 +1176,14 @@ define internal void @avg_tpel_pixels_mc12_c(ptr noundef captures(none) %0, ptr 
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %9
   %32 = getelementptr inbounds i8, ptr %.02528.us, i64 %8
   %33 = getelementptr inbounds i8, ptr %.02429.us, i64 %8
   %34 = add nuw nsw i32 %.02330.us, 1
   %exitcond34.not = icmp eq i32 %34, %4
-  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !50
+  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !49
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -1242,14 +1242,14 @@ define internal void @avg_tpel_pixels_mc22_c(ptr noundef captures(none) %0, ptr 
   %31 = trunc nuw i32 %30 to i8
   store i8 %31, ptr %10, align 1, !tbaa !8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %9
   %32 = getelementptr inbounds i8, ptr %.02528.us, i64 %8
   %33 = getelementptr inbounds i8, ptr %.02429.us, i64 %8
   %34 = add nuw nsw i32 %.02330.us, 1
   %exitcond34.not = icmp eq i32 %34, %4
-  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !52
+  br i1 %exitcond34.not, label %._crit_edge31, label %.preheader.us, !llvm.loop !51
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -1282,38 +1282,37 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
 !20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12, !19}
+!21 = distinct !{!21, !12}
 !22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12, !19}
+!23 = distinct !{!23, !12}
 !24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12, !19}
+!25 = distinct !{!25, !12}
 !26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12, !19}
+!27 = distinct !{!27, !12}
 !28 = distinct !{!28, !12}
-!29 = distinct !{!29, !12, !19}
+!29 = distinct !{!29, !12}
 !30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12, !19}
+!31 = distinct !{!31, !12}
 !32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12, !19}
+!33 = distinct !{!33, !12}
 !34 = distinct !{!34, !12}
 !35 = distinct !{!35, !12}
 !36 = distinct !{!36, !12}
 !37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12, !19}
+!38 = distinct !{!38, !12}
 !39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12, !19}
+!40 = distinct !{!40, !12}
 !41 = distinct !{!41, !12}
-!42 = distinct !{!42, !12, !19}
+!42 = distinct !{!42, !12}
 !43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12, !19}
+!44 = distinct !{!44, !12}
 !45 = distinct !{!45, !12}
-!46 = distinct !{!46, !12, !19}
+!46 = distinct !{!46, !12}
 !47 = distinct !{!47, !12}
-!48 = distinct !{!48, !12, !19}
+!48 = distinct !{!48, !12}
 !49 = distinct !{!49, !12}
-!50 = distinct !{!50, !12, !19}
+!50 = distinct !{!50, !12}
 !51 = distinct !{!51, !12}
-!52 = distinct !{!52, !12, !19}

@@ -1323,7 +1323,7 @@ add_ocsp_serial.exit:                             ; preds = %199
   store ptr null, ptr %6, align 8, !tbaa !11
   %377 = call fastcc i32 @do_responder(ptr noundef %6, ptr noundef %3, ptr noundef %.1, i32 noundef %.0240.lcssa124612991425)
   %378 = icmp eq i32 %377, 0
-  br i1 %378, label %.outer.split.us, label %.split.us, !llvm.loop !28
+  br i1 %378, label %.outer.split.us, label %.split.us
 
 .split.us:                                        ; preds = %376
   %379 = load ptr, ptr %6, align 8, !tbaa !11
@@ -1844,7 +1844,7 @@ define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly c
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = call i32 @stat(ptr noundef %5, ptr noundef nonnull %2) #9
   %.not7 = icmp eq i32 %6, -1
   br i1 %.not7, label %27, label %7
@@ -1852,31 +1852,31 @@ define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly c
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i64, ptr %9, align 8, !tbaa !36
+  %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %12 = load i64, ptr %11, align 8, !tbaa !37
+  %12 = load i64, ptr %11, align 8, !tbaa !35
   %.not8 = icmp eq i64 %10, %12
   br i1 %.not8, label %13, label %26
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = load i64, ptr %14, align 8, !tbaa !38
+  %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %17 = load i64, ptr %16, align 8, !tbaa !39
+  %17 = load i64, ptr %16, align 8, !tbaa !37
   %.not9 = icmp eq i64 %15, %17
   br i1 %.not9, label %18, label %26
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i64, ptr %19, align 8, !tbaa !40
+  %20 = load i64, ptr %19, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !41
+  %22 = load i64, ptr %21, align 8, !tbaa !39
   %.not10 = icmp eq i64 %20, %22
   br i1 %.not10, label %23, label %26
 
 23:                                               ; preds = %18
-  %24 = load i64, ptr %8, align 8, !tbaa !42
-  %25 = load i64, ptr %2, align 8, !tbaa !43
+  %24 = load i64, ptr %8, align 8, !tbaa !40
+  %25 = load i64, ptr %2, align 8, !tbaa !41
   %.not11 = icmp eq i64 %24, %25
   br i1 %.not11, label %27, label %26
 
@@ -1931,7 +1931,7 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %22 = alloca ptr, align 8
   %23 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store ptr null, ptr %17, align 8, !tbaa !44
+  store ptr null, ptr %17, align 8, !tbaa !42
   %24 = tail call i32 @OCSP_request_onereq_count(ptr noundef %2) #9
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %26, label %28
@@ -1967,7 +1967,7 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %38 = call ptr @OCSP_request_onereq_get0(ptr noundef %2, i32 noundef %.098140) #9
   %39 = call ptr @OCSP_onereq_get0_id(ptr noundef %38) #9
   %40 = call i32 @OCSP_id_get0_info(ptr noundef null, ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef %39) #9
-  %41 = load ptr, ptr %19, align 8, !tbaa !46
+  %41 = load ptr, ptr %19, align 8, !tbaa !44
   %42 = call i32 @OBJ_obj2nid(ptr noundef %41) #9
   %43 = call ptr @OBJ_nid2sn(i32 noundef %42) #9
   %44 = call ptr @EVP_get_digestbyname(ptr noundef %43) #9
@@ -1993,7 +1993,7 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %53 = call i32 @OPENSSL_sk_num(ptr noundef %4) #9
   %54 = icmp slt i32 %52, %53
   %55 = and i1 %51, %54
-  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !48
+  br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !46
 
 56:                                               ; preds = %37
   %57 = call ptr @OCSP_response_create(i32 noundef 2, ptr noundef null) #9
@@ -2020,13 +2020,13 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %66 = call i32 @OPENSSL_sk_num(ptr noundef %4) #9
   %67 = icmp slt i32 %65, %66
   %68 = and i1 %61, %67
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
+  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %64, %.lr.ph.split.us, %.preheader135
   %.0100.lcssa = phi ptr [ null, %.preheader135 ], [ null, %.lr.ph.split.us ], [ %.1101, %64 ]
   %.not119.lcssa = phi i1 [ true, %.preheader135 ], [ %51, %.lr.ph.split.us ], [ %61, %64 ]
   %69 = call i32 @OCSP_id_get0_info(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %18, ptr noundef %39) #9
-  %70 = load ptr, ptr %18, align 8, !tbaa !50
+  %70 = load ptr, ptr %18, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, i8 0, i64 48, i1 false), !tbaa !19
   %71 = call ptr @ASN1_INTEGER_to_BN(ptr noundef %70, ptr noundef null) #9
@@ -2059,7 +2059,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   %.012.i = phi ptr [ %76, %75 ], [ %79, %78 ]
   store ptr %.012.i, ptr %35, align 8, !tbaa !19
   call void @BN_free(ptr noundef nonnull %71) #9
-  %80 = load ptr, ptr %36, align 8, !tbaa !52
+  %80 = load ptr, ptr %36, align 8, !tbaa !49
   %81 = call ptr @TXT_DB_get_by_index(ptr noundef %80, i32 noundef 3, ptr noundef nonnull %16) #9
   call void @CRYPTO_free(ptr noundef %.012.i, ptr noundef nonnull @.str.200, i32 noundef 1195) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2093,18 +2093,18 @@ lookup_serial.exit:                               ; preds = %75, %78
 
 94:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store ptr null, ptr %20, align 8, !tbaa !46
+  store ptr null, ptr %20, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store ptr null, ptr %21, align 8, !tbaa !50
+  store ptr null, ptr %21, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store ptr null, ptr %22, align 8, !tbaa !50
+  store ptr null, ptr %22, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 -1, ptr %23, align 4, !tbaa !21
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !19
   %97 = call i32 @unpack_revinfo(ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef %96) #9
   %98 = load i32, ptr %23, align 4, !tbaa !21
-  %99 = load ptr, ptr %21, align 8, !tbaa !50
+  %99 = load ptr, ptr %21, align 8, !tbaa !47
   %100 = call ptr @OCSP_basic_add1_status(ptr noundef %29, ptr noundef %82, i32 noundef 1, i32 noundef %98, ptr noundef %99, ptr noundef %30, ptr noundef %.1) #9
   %.not123 = icmp eq ptr %100, null
   br i1 %.not123, label %.thread, label %102
@@ -2119,7 +2119,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   br label %.thread128
 
 102:                                              ; preds = %94
-  %103 = load ptr, ptr %22, align 8, !tbaa !50
+  %103 = load ptr, ptr %22, align 8, !tbaa !47
   %.not121 = icmp eq ptr %103, null
   br i1 %.not121, label %106, label %104
 
@@ -2128,7 +2128,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   br label %110
 
 106:                                              ; preds = %102
-  %107 = load ptr, ptr %20, align 8, !tbaa !46
+  %107 = load ptr, ptr %20, align 8, !tbaa !44
   %.not122 = icmp eq ptr %107, null
   br i1 %.not122, label %110, label %108
 
@@ -2137,11 +2137,11 @@ lookup_serial.exit:                               ; preds = %75, %78
   br label %110
 
 110:                                              ; preds = %104, %108, %106
-  %111 = load ptr, ptr %20, align 8, !tbaa !46
+  %111 = load ptr, ptr %20, align 8, !tbaa !44
   call void @ASN1_OBJECT_free(ptr noundef %111) #9
-  %112 = load ptr, ptr %21, align 8, !tbaa !50
+  %112 = load ptr, ptr %21, align 8, !tbaa !47
   call void @ASN1_TIME_free(ptr noundef %112) #9
-  %113 = load ptr, ptr %22, align 8, !tbaa !50
+  %113 = load ptr, ptr %22, align 8, !tbaa !47
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef %113) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -2163,7 +2163,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %116 = add nuw nsw i32 %.098140, 1
   %exitcond.not = icmp eq i32 %116, %24
-  br i1 %exitcond.not, label %._crit_edge143, label %37, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge143, label %37, !llvm.loop !50
 
 ._crit_edge143:                                   ; preds = %115
   %117 = call i32 @OCSP_copy_nonce(ptr noundef %29, ptr noundef %2) #9
@@ -2190,12 +2190,12 @@ lookup_serial.exit:                               ; preds = %75, %78
   %127 = add nuw nsw i32 %.199144, 1
   %128 = call i32 @OPENSSL_sk_num(ptr noundef %8) #9
   %129 = icmp slt i32 %127, %128
-  br i1 %129, label %.lr.ph145, label %._crit_edge146, !llvm.loop !54
+  br i1 %129, label %.lr.ph145, label %._crit_edge146, !llvm.loop !51
 
 .lr.ph145:                                        ; preds = %.preheader, %126
   %.199144 = phi i32 [ %127, %126 ], [ 0, %.preheader ]
   %130 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %.199144) #9
-  %131 = load ptr, ptr %17, align 8, !tbaa !44
+  %131 = load ptr, ptr %17, align 8, !tbaa !42
   %132 = call i32 @pkey_ctrl_string(ptr noundef %131, ptr noundef %130) #9
   %133 = icmp slt i32 %132, 1
   br i1 %133, label %134, label %126
@@ -2352,8 +2352,8 @@ define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, p
   br i1 %.not37, label %.sink.split, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = load ptr, ptr %11, align 8, !tbaa !50
-  %26 = load ptr, ptr %12, align 8, !tbaa !50
+  %25 = load ptr, ptr %11, align 8, !tbaa !47
+  %26 = load ptr, ptr %12, align 8, !tbaa !47
   %27 = call i32 @OCSP_check_validity(ptr noundef %25, ptr noundef %26, i64 noundef %5, i64 noundef %6) #9
   %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %28, label %30
@@ -2369,16 +2369,16 @@ define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, p
   %33 = call ptr @OCSP_cert_status_str(i64 noundef %32) #9
   %34 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.241, ptr noundef %33) #9
   %35 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.242) #9
-  %36 = load ptr, ptr %11, align 8, !tbaa !50
+  %36 = load ptr, ptr %11, align 8, !tbaa !47
   %37 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %36) #9
   %38 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.243) #9
-  %39 = load ptr, ptr %12, align 8, !tbaa !50
+  %39 = load ptr, ptr %12, align 8, !tbaa !47
   %.not39 = icmp eq ptr %39, null
   br i1 %.not39, label %45, label %40
 
 40:                                               ; preds = %30
   %41 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.244) #9
-  %42 = load ptr, ptr %12, align 8, !tbaa !50
+  %42 = load ptr, ptr %12, align 8, !tbaa !47
   %43 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %42) #9
   %44 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.243) #9
   br label %45
@@ -2401,7 +2401,7 @@ define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, p
 
 53:                                               ; preds = %49, %47
   %54 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.246) #9
-  %55 = load ptr, ptr %10, align 8, !tbaa !50
+  %55 = load ptr, ptr %10, align 8, !tbaa !47
   %56 = call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %55) #9
   br label %.sink.split
 
@@ -2416,7 +2416,7 @@ define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, p
   %59 = add nuw nsw i32 %.03242, 1
   %60 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %4) #9
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !55
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %58, %.preheader, %16, %7, %14
   %.033 = phi i32 [ 1, %14 ], [ 1, %7 ], [ 0, %16 ], [ 1, %.preheader ], [ %.1, %58 ]
@@ -2619,31 +2619,28 @@ attributes #11 = { noreturn nounwind }
 !25 = !{!7, !7, i64 0}
 !26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = !{!31, !20, i64 16}
-!31 = !{!"ca_db_st", !32, i64 0, !33, i64 8, !20, i64 16, !34, i64 24}
-!32 = !{!"db_attr_st", !22, i64 0}
-!33 = !{!"p1 _ZTS9txt_db_st", !6, i64 0}
-!34 = !{!"stat", !24, i64 0, !24, i64 8, !24, i64 16, !22, i64 24, !22, i64 28, !22, i64 32, !22, i64 36, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !35, i64 72, !35, i64 88, !35, i64 104, !7, i64 120}
-!35 = !{!"timespec", !24, i64 0, !24, i64 8}
-!36 = !{!31, !24, i64 112}
-!37 = !{!34, !24, i64 88}
-!38 = !{!31, !24, i64 128}
-!39 = !{!34, !24, i64 104}
-!40 = !{!31, !24, i64 32}
-!41 = !{!34, !24, i64 8}
-!42 = !{!31, !24, i64 24}
-!43 = !{!34, !24, i64 0}
+!28 = !{!29, !20, i64 16}
+!29 = !{!"ca_db_st", !30, i64 0, !31, i64 8, !20, i64 16, !32, i64 24}
+!30 = !{!"db_attr_st", !22, i64 0}
+!31 = !{!"p1 _ZTS9txt_db_st", !6, i64 0}
+!32 = !{!"stat", !24, i64 0, !24, i64 8, !24, i64 16, !22, i64 24, !22, i64 28, !22, i64 32, !22, i64 36, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !33, i64 72, !33, i64 88, !33, i64 104, !7, i64 120}
+!33 = !{!"timespec", !24, i64 0, !24, i64 8}
+!34 = !{!29, !24, i64 112}
+!35 = !{!32, !24, i64 88}
+!36 = !{!29, !24, i64 128}
+!37 = !{!32, !24, i64 104}
+!38 = !{!29, !24, i64 32}
+!39 = !{!32, !24, i64 8}
+!40 = !{!29, !24, i64 24}
+!41 = !{!32, !24, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS15evp_pkey_ctx_st", !6, i64 0}
 !44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS15evp_pkey_ctx_st", !6, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!48 = distinct !{!48, !27, !29}
-!49 = distinct !{!49, !27}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!52 = !{!31, !33, i64 8}
-!53 = distinct !{!53, !27}
-!54 = distinct !{!54, !27}
-!55 = distinct !{!55, !27}
+!45 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!46 = distinct !{!46, !27}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!49 = !{!29, !31, i64 8}
+!50 = distinct !{!50, !27}
+!51 = distinct !{!51, !27}
+!52 = distinct !{!52, !27}

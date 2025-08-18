@@ -1033,7 +1033,7 @@ _ZN13MonitorLocker4waitEl.exit2.us:               ; preds = %.lr.ph, %_ZN13Monit
   %46 = call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 0) #13
   %47 = load ptr, ptr @_ZN8VMThread18_next_vm_operationE, align 8
   %48 = icmp eq ptr %47, %0
-  br i1 %48, label %_ZN13MonitorLocker4waitEl.exit2.us, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !19
+  br i1 %48, label %_ZN13MonitorLocker4waitEl.exit2.us, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !18
 
 _ZN8VMThread18set_next_operationEP12VM_Operation.exit: ; preds = %_ZN8VMThread18set_next_operationEP12VM_Operation.exit.lr.ph, %_ZN13MonitorLocker4waitEl.exit
   %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE174ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1048,13 +1048,13 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN8VMThread18set_n
   %51 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 0) #13
   %52 = load ptr, ptr @_ZN8VMThread18_next_vm_operationE, align 8
   %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %._crit_edge, label %_ZN8VMThread18set_next_operationEP12VM_Operation.exit, !llvm.loop !20
+  br i1 %.not.i, label %._crit_edge, label %_ZN8VMThread18set_next_operationEP12VM_Operation.exit, !llvm.loop !17
 
 _ZN13MonitorLocker4waitEl.exit2:                  ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit2
   %53 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 0) #13
   %54 = load ptr, ptr @_ZN8VMThread18_next_vm_operationE, align 8
   %55 = icmp eq ptr %54, %0
-  br i1 %55, label %_ZN13MonitorLocker4waitEl.exit2, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !21
+  br i1 %55, label %_ZN13MonitorLocker4waitEl.exit2, label %_ZN13MonitorLockerD2Ev.exit, !llvm.loop !18
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit2, %_ZN13MonitorLocker4waitEl.exit2.us, %27
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #13
@@ -1373,7 +1373,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %26, %21, %40
   %45 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %3, i64 noundef %44) #13
   %46 = load i8, ptr @_ZN8VMThread17_should_terminateE, align 1
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %_ZN13MonitorLockerD2Ev.exit, label %8, !llvm.loop !22
+  br i1 %47, label %_ZN13MonitorLockerD2Ev.exit, label %8, !llvm.loop !19
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZL23self_destruct_if_neededv.exit, %38, %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %43
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #13
@@ -1908,7 +1908,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !23
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !20
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #13
@@ -3375,10 +3375,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !14 = !{i64 2153625188, i64 2153625366, i64 2153625495, i64 2153625559, i64 2153625627, i64 2153625709, i64 2153625769, i64 2153625808}
 !15 = !{i64 2153630351, i64 2153630401, i64 2153630512, i64 2153630593, i64 2153630634, i64 2153630674, i64 2153630713, i64 2153630751, i64 2153630797, i64 2153630909, i64 2153630992, i64 2153631039, i64 2153631077, i64 2153631122, i64 2153631209, i64 2153631283, i64 2153631329, i64 2153631441, i64 2153631537, i64 2153631584, i64 2153631624, i64 2153631662, i64 2153631707, i64 2153631745, i64 2153631790, i64 2153631857, i64 2153631911, i64 2153631950, i64 2153632056, i64 2153632138, i64 2153632234, i64 2153632325, i64 2153632384, i64 2153632443, i64 2153632509, i64 2153632597, i64 2153632704, i64 2153632842, i64 2153633366, i64 2153633440, i64 2153633514, i64 2153633667, i64 2153633800, i64 2153634156, i64 2153634230, i64 2153634304, i64 2153634457, i64 2153634590, i64 2153634946, i64 2153635020, i64 2153635094, i64 2153635247, i64 2153635358, i64 2153635623, i64 2153635680, i64 2153635737, i64 2153635794, i64 2153635851, i64 2153635904, i64 2153635951}
 !16 = !{i64 2153639375, i64 2153639553, i64 2153639682, i64 2153639746, i64 2153639814, i64 2153639896, i64 2153639956, i64 2153639995}
-!17 = distinct !{!17, !9, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !9, !18}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = !{!"branch_weights", i32 1, i32 1048575}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!"branch_weights", i32 1, i32 1048575}

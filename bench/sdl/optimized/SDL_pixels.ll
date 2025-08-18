@@ -3273,7 +3273,7 @@ Map1toN.exit.thread107:                           ; preds = %.preheader.i91
 317:                                              ; preds = %279, %264, %.thread.i, %.thread131.i, %187
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i93
-  br i1 %exitcond.not.i96, label %Map1toN.exit, label %162, !llvm.loop !18
+  br i1 %exitcond.not.i96, label %Map1toN.exit, label %162, !llvm.loop !17
 
 Map1toN.exit.thread:                              ; preds = %121, %137
   store ptr null, ptr %12, align 8
@@ -3435,6 +3435,5 @@ attributes #16 = { nounwind allocsize(0,1) }
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}

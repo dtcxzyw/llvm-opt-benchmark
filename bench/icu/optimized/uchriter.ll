@@ -1156,7 +1156,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %48 = phi i32 [ %46, %45 ], [ %33, %39 ], [ %33, %.critedge2 ]
   %49 = add nsw i32 %.02859, -1
   %50 = icmp sgt i32 %.02859, 1
-  br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !30
+  br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !27
 
 51:                                               ; preds = %3
   %52 = icmp sgt i32 %1, 0
@@ -1210,7 +1210,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %73 = phi i32 [ %71, %70 ], [ %61, %64 ], [ %61, %.critedge6.us ]
   %74 = add nsw i32 %.02756.us, -1
   %75 = icmp sgt i32 %.02756.us, 1
-  br i1 %75, label %.preheader48.split.us, label %.critedge, !llvm.loop !31
+  br i1 %75, label %.preheader48.split.us, label %.critedge, !llvm.loop !29
 
 .preheader48.split:                               ; preds = %.preheader48, %92
   %76 = phi i32 [ %93, %92 ], [ %.promoted57, %.preheader48 ]
@@ -1247,7 +1247,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %93 = phi i32 [ %91, %90 ], [ %78, %84 ], [ %78, %.critedge6 ]
   %94 = add nsw i32 %.02756, -1
   %95 = icmp sgt i32 %.02756, 1
-  br i1 %95, label %.preheader48.split, label %.critedge, !llvm.loop !32
+  br i1 %95, label %.preheader48.split, label %.critedge, !llvm.loop !29
 
 96:                                               ; preds = %51
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1299,7 +1299,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %125 = phi i32 [ %123, %122 ], [ %108, %115 ], [ %108, %107 ]
   %126 = add nsw i32 %.02654, -1
   %127 = icmp sgt i32 %.02654, 1
-  br i1 %127, label %104, label %.critedge, !llvm.loop !33
+  br i1 %127, label %104, label %.critedge, !llvm.loop !30
 
 128:                                              ; preds = %3
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1353,7 +1353,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %160 = phi i32 [ %158, %157 ], [ %143, %150 ], [ %143, %142 ]
   %161 = add nsw i32 %.052, -1
   %162 = icmp sgt i32 %.052, 1
-  br i1 %162, label %139, label %.critedge, !llvm.loop !34
+  br i1 %162, label %139, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %139, %159, %124, %104, %92, %.preheader48.split, %72, %.preheader48.split.us, %47, %.preheader.split, %27, %.preheader.split.us, %96, %3, %128, %4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1463,11 +1463,8 @@ attributes #14 = { nounwind }
 !24 = !{!8, !11, i64 20}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"char16_t", !12, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !28}
 !30 = distinct !{!30, !28}
-!31 = distinct !{!31, !28, !29}
-!32 = distinct !{!32, !28}
-!33 = distinct !{!33, !28}
-!34 = distinct !{!34, !28}
+!31 = distinct !{!31, !28}

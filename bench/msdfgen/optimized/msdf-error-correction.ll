@@ -1432,10 +1432,10 @@ call5.i.i.i.i.i.i.noexc468.us.i:                  ; preds = %_ZNKSt6vectorISt4pa
 for.body.i.i.i.i.i.i453.us.i:                     ; preds = %call5.i.i.i.i.i.i.noexc468.us.i, %for.body.i.i.i.i.i.i453.us.i
   %__cur.07.i.i.i.i.i.i454.us.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i457.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %call5.i.i.i.i.i.i469.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
   %__first.addr.06.i.i.i.i.i.i455.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i456.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %clashes.sroa.0.5601.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %149 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !18, !noalias !15
-  store i64 %149, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !15, !noalias !18
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %149 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !17, !noalias !14
+  store i64 %149, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !14, !noalias !17
   %incdec.ptr.i.i.i.i.i.i456.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i457.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i454.us.i, i64 8
   %cmp.not.i.i.i.i.i.i458.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i456.us.i, %clashes.sroa.10.4600.us.i
@@ -1461,11 +1461,11 @@ for.inc152.us.i:                                  ; preds = %_ZNSt6vectorISt4pai
   %clashes.sroa.0.6.us.i = phi ptr [ %clashes.sroa.0.5601.us.i, %_ZN7msdfgenL11detectClashEPKfS1_d.exit428.us.i ], [ %clashes.sroa.0.5601.us.i, %lor.lhs.false128.us.i ], [ %call5.i.i.i.i.i.i469.us.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i464.us.i ], [ %clashes.sroa.0.5601.us.i, %if.then.i.i436.us.i ], [ %clashes.sroa.0.5601.us.i, %if.end16.i407.us.i ], [ %clashes.sroa.0.5601.us.i, %land.lhs.true.i415.us.i ]
   %indvars.iv.next637.i = add nuw nsw i64 %indvars.iv636.i, 1
   %exitcond644.not.i = icmp eq i64 %indvars.iv.next637.i, %wide.trip.count.i
-  br i1 %exitcond644.not.i, label %for.cond76.for.inc155_crit_edge.us.i, label %for.body78.us.i, !llvm.loop !20
+  br i1 %exitcond644.not.i, label %for.cond76.for.inc155_crit_edge.us.i, label %for.body78.us.i, !llvm.loop !19
 
 for.cond76.for.inc155_crit_edge.us.i:             ; preds = %for.inc152.us.i
   %exitcond651.not.i = icmp eq i64 %indvars.iv.next646.i, %wide.trip.count634.i
-  br i1 %exitcond651.not.i, label %for.cond162.preheader.i, label %for.cond76.preheader.us.i, !llvm.loop !21
+  br i1 %exitcond651.not.i, label %for.cond162.preheader.i, label %for.cond76.preheader.us.i, !llvm.loop !20
 
 lpad.loopexit.split.us.i:                         ; preds = %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i443.us.i
   %lpad.loopexit548.us.i = landingpad { ptr, i32 }
@@ -1502,7 +1502,7 @@ invoke.cont63.i:                                  ; preds = %for.cond51.preheade
   store float %cond.i8.i.i, ptr %arrayidx62.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %clash.sroa.0.0597.i, i64 8
   %cmp.i225.not.i = icmp eq ptr %incdec.ptr.i.i, %clashes.sroa.10.2.us.i
-  br i1 %cmp.i225.not.i, label %for.cond76.preheader.us.i.preheader, label %invoke.cont63.i, !llvm.loop !22
+  br i1 %cmp.i225.not.i, label %for.cond76.preheader.us.i.preheader, label %invoke.cont63.i, !llvm.loop !21
 
 for.cond162.preheader.i:                          ; preds = %for.cond76.for.inc155_crit_edge.us.i
   %cmp.i472.not619.i = icmp eq ptr %clashes.sroa.0.6.us.i, %clashes.sroa.10.5.us.i
@@ -1545,7 +1545,7 @@ invoke.cont179.i:                                 ; preds = %for.cond162.prehead
   store float %cond.i8.i486.i, ptr %arrayidx178.i, align 4
   %incdec.ptr.i487.i = getelementptr inbounds nuw i8, ptr %clash158.sroa.0.0620.i, i64 8
   %cmp.i472.not.i = icmp eq ptr %incdec.ptr.i487.i, %clashes.sroa.10.5.us.i
-  br i1 %cmp.i472.not.i, label %for.end186.i, label %invoke.cont179.i, !llvm.loop !23
+  br i1 %cmp.i472.not.i, label %for.end186.i, label %invoke.cont179.i, !llvm.loop !22
 
 for.end186.i:                                     ; preds = %invoke.cont179.i, %for.cond162.preheader.i
   %tobool.not.i.i.i488.i = icmp eq ptr %clashes.sroa.0.6.us.i, null
@@ -1966,10 +1966,10 @@ call5.i.i.i.i.i.i.noexc.us.i:                     ; preds = %_ZNKSt6vectorISt4pa
 for.body.i.i.i.i.i.i.us.i:                        ; preds = %call5.i.i.i.i.i.i.noexc.us.i, %for.body.i.i.i.i.i.i.us.i
   %__cur.07.i.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ], [ %call5.i.i.i.i.i.i224.us.i, %call5.i.i.i.i.i.i.noexc.us.i ]
   %__first.addr.06.i.i.i.i.i.i.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ], [ %clashes.sroa.0.1578.us.i, %call5.i.i.i.i.i.i.noexc.us.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %72 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !27, !noalias !24
-  store i64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !24, !noalias !27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %72 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !26, !noalias !23
+  store i64 %72, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !23, !noalias !26
   %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i.us.i, i64 8
   %cmp.not.i.i.i.i.i.i.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us.i, %clashes.sroa.10.1577.us.i
@@ -1995,11 +1995,11 @@ for.inc.us.i:                                     ; preds = %_ZNSt6vectorISt4pai
   %clashes.sroa.0.3.us.i = phi ptr [ %clashes.sroa.0.1578.us.i, %_ZN7msdfgenL11detectClashEPKfS1_d.exit223.us.i ], [ %clashes.sroa.0.1578.us.i, %lor.lhs.false28.us.i ], [ %call5.i.i.i.i.i.i224.us.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.us.i ], [ %clashes.sroa.0.1578.us.i, %if.then.i.i.us.i ], [ %clashes.sroa.0.1578.us.i, %if.end16.i202.us.i ], [ %clashes.sroa.0.1578.us.i, %land.lhs.true.i210.us.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.cond1.for.inc42_crit_edge.us.i, label %for.body3.us.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %for.cond1.for.inc42_crit_edge.us.i, label %for.body3.us.i, !llvm.loop !28
 
 for.cond1.for.inc42_crit_edge.us.i:               ; preds = %for.inc.us.i
   %exitcond635.not.i = icmp eq i64 %indvars.iv.next631.i, %wide.trip.count634.i
-  br i1 %exitcond635.not.i, label %for.cond47.preheader.i, label %for.cond1.preheader.us.i, !llvm.loop !30
+  br i1 %exitcond635.not.i, label %for.cond47.preheader.i, label %for.cond1.preheader.us.i, !llvm.loop !29
 
 lpad.loopexit.split-lp.loopexit.split.us.i:       ; preds = %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.us.i
   %lpad.loopexit550.us.i = landingpad { ptr, i32 }
@@ -2442,10 +2442,10 @@ call5.i.i.i.i.i.i.noexc468.us.i:                  ; preds = %_ZNKSt6vectorISt4pa
 for.body.i.i.i.i.i.i453.us.i:                     ; preds = %call5.i.i.i.i.i.i.noexc468.us.i, %for.body.i.i.i.i.i.i453.us.i
   %__cur.07.i.i.i.i.i.i454.us.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i457.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %call5.i.i.i.i.i.i469.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
   %__first.addr.06.i.i.i.i.i.i455.us.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i456.us.i, %for.body.i.i.i.i.i.i453.us.i ], [ %clashes.sroa.0.5601.us.i, %call5.i.i.i.i.i.i.noexc468.us.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %149 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !34, !noalias !31
-  store i64 %149, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !31, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  %149 = load i64, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, align 4, !alias.scope !33, !noalias !30
+  store i64 %149, ptr %__cur.07.i.i.i.i.i.i454.us.i, align 4, !alias.scope !30, !noalias !33
   %incdec.ptr.i.i.i.i.i.i456.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i455.us.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i457.us.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i454.us.i, i64 8
   %cmp.not.i.i.i.i.i.i458.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i456.us.i, %clashes.sroa.10.4600.us.i
@@ -2471,11 +2471,11 @@ for.inc144.us.i:                                  ; preds = %_ZNSt6vectorISt4pai
   %clashes.sroa.0.6.us.i = phi ptr [ %clashes.sroa.0.5601.us.i, %_ZN7msdfgenL11detectClashEPKfS1_d.exit428.us.i ], [ %clashes.sroa.0.5601.us.i, %lor.lhs.false121.us.i ], [ %call5.i.i.i.i.i.i469.us.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i464.us.i ], [ %clashes.sroa.0.5601.us.i, %if.then.i.i436.us.i ], [ %clashes.sroa.0.5601.us.i, %if.end16.i407.us.i ], [ %clashes.sroa.0.5601.us.i, %land.lhs.true.i415.us.i ]
   %indvars.iv.next637.i = add nuw nsw i64 %indvars.iv636.i, 1
   %exitcond644.not.i = icmp eq i64 %indvars.iv.next637.i, %wide.trip.count.i
-  br i1 %exitcond644.not.i, label %for.cond72.for.inc147_crit_edge.us.i, label %for.body74.us.i, !llvm.loop !36
+  br i1 %exitcond644.not.i, label %for.cond72.for.inc147_crit_edge.us.i, label %for.body74.us.i, !llvm.loop !35
 
 for.cond72.for.inc147_crit_edge.us.i:             ; preds = %for.inc144.us.i
   %exitcond651.not.i = icmp eq i64 %indvars.iv.next646.i, %wide.trip.count634.i
-  br i1 %exitcond651.not.i, label %for.cond154.preheader.i, label %for.cond72.preheader.us.i, !llvm.loop !37
+  br i1 %exitcond651.not.i, label %for.cond154.preheader.i, label %for.cond72.preheader.us.i, !llvm.loop !36
 
 lpad.loopexit.split.us.i:                         ; preds = %_ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i443.us.i
   %lpad.loopexit548.us.i = landingpad { ptr, i32 }
@@ -2512,7 +2512,7 @@ invoke.cont59.i:                                  ; preds = %for.cond47.preheade
   store float %cond.i8.i.i, ptr %arrayidx58.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %clash.sroa.0.0597.i, i64 8
   %cmp.i225.not.i = icmp eq ptr %incdec.ptr.i.i, %clashes.sroa.10.2.us.i
-  br i1 %cmp.i225.not.i, label %for.cond72.preheader.us.i.preheader, label %invoke.cont59.i, !llvm.loop !38
+  br i1 %cmp.i225.not.i, label %for.cond72.preheader.us.i.preheader, label %invoke.cont59.i, !llvm.loop !37
 
 for.cond154.preheader.i:                          ; preds = %for.cond72.for.inc147_crit_edge.us.i
   %cmp.i472.not619.i = icmp eq ptr %clashes.sroa.0.6.us.i, %clashes.sroa.10.5.us.i
@@ -2555,7 +2555,7 @@ invoke.cont171.i:                                 ; preds = %for.cond154.prehead
   store float %cond.i8.i486.i, ptr %arrayidx170.i, align 4
   %incdec.ptr.i487.i = getelementptr inbounds nuw i8, ptr %clash150.sroa.0.0620.i, i64 8
   %cmp.i472.not.i = icmp eq ptr %incdec.ptr.i487.i, %clashes.sroa.10.5.us.i
-  br i1 %cmp.i472.not.i, label %for.end178.i, label %invoke.cont171.i, !llvm.loop !39
+  br i1 %cmp.i472.not.i, label %for.end178.i, label %invoke.cont171.i, !llvm.loop !38
 
 for.end178.i:                                     ; preds = %invoke.cont171.i, %for.cond154.preheader.i
   %tobool.not.i.i.i488.i = icmp eq ptr %clashes.sroa.0.6.us.i, null
@@ -2666,30 +2666,29 @@ attributes #12 = { noreturn }
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!17 = distinct !{!17, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
-!18 = !{!19}
-!19 = distinct !{!19, !17, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!13 = distinct !{!13, !11}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!19 = distinct !{!19, !11}
 !20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11, !14}
+!21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!26 = distinct !{!26, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
-!27 = !{!28}
-!28 = distinct !{!28, !26, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!25 = distinct !{!25, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
+!26 = !{!27}
+!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!28 = distinct !{!28, !11}
 !29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11, !14}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
-!33 = distinct !{!33, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
-!34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__dest"}
+!32 = distinct !{!32, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_"}
+!33 = !{!34}
+!34 = distinct !{!34, !32, !"_ZSt19__relocate_object_aISt4pairIiiES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
+!35 = distinct !{!35, !11}
 !36 = distinct !{!36, !11}
-!37 = distinct !{!37, !11, !14}
+!37 = distinct !{!37, !11}
 !38 = distinct !{!38, !11}
-!39 = distinct !{!39, !11}

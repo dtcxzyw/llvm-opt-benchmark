@@ -422,7 +422,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @guest_free(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %91, label %3
+  br i1 %.not, label %95, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -503,139 +503,149 @@ mlist_find_key.exit.i:                            ; preds = %7
 mlist_sort_insert.exit.i:                         ; preds = %33, %29
   %36 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i, label %37, label %.split.split.i.i, !prof !13
+  br i1 %.not.i.i.i, label %.split.us.i.i, label %.split.split.i.i, !prof !13
 
-37:                                               ; preds = %mlist_sort_insert.exit.i
-  %38 = getelementptr i8, ptr %.0.i.i, i64 16
-  %.pre.i.i = load ptr, ptr %16, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  %.pre48.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %.pre49.i.i = load ptr, ptr %.pre48.i.i, align 8
-  %.pre50.i.i = load ptr, ptr %.0.i.i, align 8
-  %.not.us.i.i = icmp eq ptr %.pre49.i.i, null
-  br i1 %.not.us.i.i, label %45, label %39
+.split.us.i.i:                                    ; preds = %mlist_sort_insert.exit.i
+  %37 = getelementptr i8, ptr %.0.i.i, i64 16
+  %38 = load ptr, ptr %16, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %.0.i.i, align 8
+  %.not.us.us.i.i = icmp eq ptr %41, null
+  %.not22.us.us.i.i = icmp eq ptr %42, null
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  br i1 %.not.us.us.i.i, label %.split.us.split.us.split.us.i.i, label %.split.us.split.us.split.i.i
 
-39:                                               ; preds = %37
-  %40 = getelementptr i8, ptr %.pre49.i.i, i64 16
-  %.val.us.i.i = load i64, ptr %40, align 8
-  %41 = getelementptr i8, ptr %.pre49.i.i, i64 24
-  %.val24.us.i.i = load i64, ptr %41, align 8
-  %42 = add i64 %.val24.us.i.i, %.val.us.i.i
-  %43 = load i64, ptr %14, align 8
-  %44 = icmp eq i64 %42, %43
-  br i1 %44, label %.split31.us.i.i, label %45
+.split.us.split.us.split.us.i.i:                  ; preds = %.split.us.i.i
+  br i1 %.not22.us.us.i.i, label %mlist_free.exit, label %.split.us.split.us.split.us.split.i.i
 
-45:                                               ; preds = %39, %37
-  %.not22.us.i.i = icmp eq ptr %.pre50.i.i, null
-  br i1 %.not22.us.i.i, label %mlist_free.exit, label %46
+.split.us.split.us.split.us.split.i.i:            ; preds = %.split.us.split.us.split.us.i.i
+  %.118.val.us.us.us.i.i = load i64, ptr %37, align 8
+  %.118.val25.us.us.us.i.i = load i64, ptr %14, align 8
+  %44 = add i64 %.118.val25.us.us.us.i.i, %.118.val.us.us.us.i.i
+  %45 = load i64, ptr %43, align 8
+  %46 = icmp eq i64 %44, %45
+  br i1 %46, label %.split33.us.i.i, label %mlist_free.exit
 
-46:                                               ; preds = %45
-  %.118.val.us.i.i = load i64, ptr %38, align 8
-  %.118.val25.us.i.i = load i64, ptr %14, align 8
-  %47 = add i64 %.118.val25.us.i.i, %.118.val.us.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.pre50.i.i, i64 24
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp eq i64 %47, %49
-  br i1 %50, label %.split33.us.i.i, label %mlist_free.exit
+.split.us.split.us.split.i.i:                     ; preds = %.split.us.i.i
+  %47 = getelementptr i8, ptr %41, i64 24
+  %48 = getelementptr i8, ptr %41, i64 16
+  %.val.us.us.i.i = load i64, ptr %48, align 8
+  %.val24.us.us.i.i = load i64, ptr %47, align 8
+  %49 = add i64 %.val24.us.us.i.i, %.val.us.us.i.i
+  %50 = load i64, ptr %14, align 8
+  %51 = icmp eq i64 %49, %50
+  br i1 %51, label %.split31.us.i.i, label %.split.us.split.us.split.split.i.i
 
-.split.split.i.i:                                 ; preds = %mlist_sort_insert.exit.i, %87
-  %.017.i.i = phi ptr [ %.118.i.i, %87 ], [ %.0.i.i, %mlist_sort_insert.exit.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %.017.i.i, align 8
-  %.not.i22.i = icmp eq ptr %55, null
-  br i1 %.not.i22.i, label %71, label %57
+.split.us.split.us.split.split.i.i:               ; preds = %.split.us.split.us.split.i.i
+  br i1 %.not22.us.us.i.i, label %mlist_free.exit, label %.split.us.split.us.split.split.split.i.i
 
-57:                                               ; preds = %.split.split.i.i
-  %58 = getelementptr i8, ptr %55, i64 16
-  %.val.i.i = load i64, ptr %58, align 8
-  %59 = getelementptr i8, ptr %55, i64 24
-  %.val24.i.i = load i64, ptr %59, align 8
-  %60 = add i64 %.val24.i.i, %.val.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 24
-  %62 = load i64, ptr %61, align 8
-  %63 = icmp eq i64 %60, %62
-  br i1 %63, label %mlist_join.exit.i.i, label %71
+.split.us.split.us.split.split.split.i.i:         ; preds = %.split.us.split.us.split.split.i.i
+  %.118.val.us.us.i.i = load i64, ptr %37, align 8
+  %52 = add i64 %.118.val.us.us.i.i, %50
+  %53 = load i64, ptr %43, align 8
+  %54 = icmp eq i64 %52, %53
+  br i1 %54, label %.split33.us.i.i, label %mlist_free.exit
 
-mlist_join.exit.i.i:                              ; preds = %57
-  %64 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
-  %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, %.val.i.i
-  store i64 %66, ptr %58, align 8
-  %67 = load ptr, ptr %.017.i.i, align 8
-  %.not17.i.i.i.i = icmp eq ptr %67, null
-  %68 = load ptr, ptr %51, align 8
-  %..i.i.i.i = select i1 %.not17.i.i.i.i, ptr %36, ptr %67
-  %69 = getelementptr inbounds nuw i8, ptr %..i.i.i.i, i64 8
-  store ptr %68, ptr %69, align 8
-  %70 = load ptr, ptr %.017.i.i, align 8
-  store ptr %70, ptr %68, align 8
+.split.split.i.i:                                 ; preds = %mlist_sort_insert.exit.i, %91
+  %.017.i.i = phi ptr [ %.118.i.i, %91 ], [ %.0.i.i, %mlist_sort_insert.exit.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %.017.i.i, align 8
+  %.not.i22.i = icmp eq ptr %59, null
+  br i1 %.not.i22.i, label %75, label %61
+
+61:                                               ; preds = %.split.split.i.i
+  %62 = getelementptr i8, ptr %59, i64 16
+  %.val.i.i = load i64, ptr %62, align 8
+  %63 = getelementptr i8, ptr %59, i64 24
+  %.val24.i.i = load i64, ptr %63, align 8
+  %64 = add i64 %.val24.i.i, %.val.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 24
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp eq i64 %64, %66
+  br i1 %67, label %mlist_join.exit.i.i, label %75
+
+mlist_join.exit.i.i:                              ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %69, %.val.i.i
+  store i64 %70, ptr %62, align 8
+  %71 = load ptr, ptr %.017.i.i, align 8
+  %.not17.i.i.i.i = icmp eq ptr %71, null
+  %72 = load ptr, ptr %55, align 8
+  %..i.i.i.i = select i1 %.not17.i.i.i.i, ptr %36, ptr %71
+  %73 = getelementptr inbounds nuw i8, ptr %..i.i.i.i, i64 8
+  store ptr %72, ptr %73, align 8
+  %74 = load ptr, ptr %.017.i.i, align 8
+  store ptr %74, ptr %72, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.017.i.i, i8 0, i64 16, i1 false)
   tail call void @g_free(ptr noundef nonnull %.017.i.i) #7
-  br label %71
+  br label %75
 
-.split31.us.i.i:                                  ; preds = %39
+.split31.us.i.i:                                  ; preds = %.split.us.split.us.split.i.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #8
   unreachable
 
-71:                                               ; preds = %mlist_join.exit.i.i, %57, %.split.split.i.i
-  %.118.i.i = phi ptr [ %55, %mlist_join.exit.i.i ], [ %.017.i.i, %57 ], [ %.017.i.i, %.split.split.i.i ]
-  %.0.i23.i = phi i8 [ 1, %mlist_join.exit.i.i ], [ 0, %57 ], [ 0, %.split.split.i.i ]
-  %.not22.i.i = icmp eq ptr %56, null
-  br i1 %.not22.i.i, label %87, label %72
+75:                                               ; preds = %mlist_join.exit.i.i, %61, %.split.split.i.i
+  %.118.i.i = phi ptr [ %59, %mlist_join.exit.i.i ], [ %.017.i.i, %61 ], [ %.017.i.i, %.split.split.i.i ]
+  %.0.i23.i = phi i8 [ 1, %mlist_join.exit.i.i ], [ 0, %61 ], [ 0, %.split.split.i.i ]
+  %.not22.i.i = icmp eq ptr %60, null
+  br i1 %.not22.i.i, label %91, label %76
 
-72:                                               ; preds = %71
-  %73 = getelementptr i8, ptr %.118.i.i, i64 16
-  %.118.val.i.i = load i64, ptr %73, align 8
-  %74 = getelementptr i8, ptr %.118.i.i, i64 24
-  %.118.val25.i.i = load i64, ptr %74, align 8
-  %75 = add i64 %.118.val25.i.i, %.118.val.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %77 = load i64, ptr %76, align 8
-  %78 = icmp eq i64 %75, %77
-  br i1 %78, label %mlist_join.exit29.i.i, label %87
+76:                                               ; preds = %75
+  %77 = getelementptr i8, ptr %.118.i.i, i64 16
+  %.118.val.i.i = load i64, ptr %77, align 8
+  %78 = getelementptr i8, ptr %.118.i.i, i64 24
+  %.118.val25.i.i = load i64, ptr %78, align 8
+  %79 = add i64 %.118.val25.i.i, %.118.val.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp eq i64 %79, %81
+  br i1 %82, label %mlist_join.exit29.i.i, label %91
 
-mlist_join.exit29.i.i:                            ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, %.118.val.i.i
-  store i64 %81, ptr %73, align 8
-  %82 = load ptr, ptr %56, align 8
-  %.not17.i.i27.i.i = icmp eq ptr %82, null
-  %83 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %..i.i28.i.i = select i1 %.not17.i.i27.i.i, ptr %36, ptr %82
-  %85 = getelementptr inbounds nuw i8, ptr %..i.i28.i.i, i64 8
-  store ptr %84, ptr %85, align 8
-  %86 = load ptr, ptr %56, align 8
-  store ptr %86, ptr %84, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %56) #7
-  br label %87
+mlist_join.exit29.i.i:                            ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %84 = load i64, ptr %83, align 8
+  %85 = add i64 %84, %.118.val.i.i
+  store i64 %85, ptr %77, align 8
+  %86 = load ptr, ptr %60, align 8
+  %.not17.i.i27.i.i = icmp eq ptr %86, null
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %..i.i28.i.i = select i1 %.not17.i.i27.i.i, ptr %36, ptr %86
+  %89 = getelementptr inbounds nuw i8, ptr %..i.i28.i.i, i64 8
+  store ptr %88, ptr %89, align 8
+  %90 = load ptr, ptr %60, align 8
+  store ptr %90, ptr %88, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  tail call void @g_free(ptr noundef nonnull %60) #7
+  br label %91
 
-.split33.us.i.i:                                  ; preds = %46
+.split33.us.i.i:                                  ; preds = %.split.us.split.us.split.split.split.i.i, %.split.us.split.us.split.us.split.i.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #8
   unreachable
 
-87:                                               ; preds = %mlist_join.exit29.i.i, %72, %71
-  %.1.i.i = phi i8 [ 1, %mlist_join.exit29.i.i ], [ %.0.i23.i, %72 ], [ %.0.i23.i, %71 ]
+91:                                               ; preds = %mlist_join.exit29.i.i, %76, %75
+  %.1.i.i = phi i8 [ 1, %mlist_join.exit29.i.i ], [ %.0.i23.i, %76 ], [ %.0.i23.i, %75 ]
   %.not23.i.i = icmp eq i8 %.1.i.i, 0
   br i1 %.not23.i.i, label %mlist_free.exit, label %.split.split.i.i, !llvm.loop !14
 
-mlist_free.exit:                                  ; preds = %87, %45, %46
-  %88 = load i32, ptr %0, align 8
-  %89 = and i32 %88, 4
-  %.not4 = icmp eq i32 %89, 0
-  br i1 %.not4, label %91, label %90
+mlist_free.exit:                                  ; preds = %91, %.split.us.split.us.split.us.i.i, %.split.us.split.us.split.us.split.i.i, %.split.us.split.us.split.split.i.i, %.split.us.split.us.split.split.split.i.i
+  %92 = load i32, ptr %0, align 8
+  %93 = and i32 %92, 4
+  %.not4 = icmp eq i32 %93, 0
+  br i1 %.not4, label %95, label %94
 
-90:                                               ; preds = %mlist_free.exit
+94:                                               ; preds = %mlist_free.exit
   tail call fastcc void @mlist_check(ptr noundef nonnull %0)
-  br label %91
+  br label %95
 
-91:                                               ; preds = %2, %90, %mlist_free.exit
+95:                                               ; preds = %2, %94, %mlist_free.exit
   ret void
 }
 

@@ -3998,155 +3998,220 @@ define linkonce_odr hidden void @_ZN5boost6detail31make_partial_xor_products_tab
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
   %8 = trunc i64 %7 to i32
-  %.not.i.i = icmp eq i32 %5, 0
   %9 = shl nuw i32 1, %5
   br i1 %3, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %4, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us
-  %.013.us = phi i16 [ %56, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us ], [ 0, %4 ]
-  br label %.lr.ph.i.i.i.us
+.split.us:                                        ; preds = %4
+  %.not.i.i = icmp eq i32 %5, 0
+  br i1 %.not.i.i, label %.split.us.split.us, label %.split.us.split
 
-.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us, %.split.us
-  %10 = phi i32 [ %21, %.lr.ph.i.i.i.us ], [ 1, %.split.us ]
-  %11 = phi i32 [ %19, %.lr.ph.i.i.i.us ], [ 128, %.split.us ]
-  %.024.i.i.i.us = phi i16 [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.013.us, %.split.us ]
-  %.01723.i.i.i.us = phi i32 [ %20, %.lr.ph.i.i.i.us ], [ 1, %.split.us ]
-  %12 = or i32 %.01723.i.i.i.us, %11
+.split.us.split.us:                               ; preds = %.split.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us
+  %.013.us.us = phi i16 [ %48, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us ], [ 0, %.split.us ]
+  br label %.lr.ph.i.i.i.us.us
+
+.lr.ph.i.i.i.us.us:                               ; preds = %.lr.ph.i.i.i.us.us, %.split.us.split.us
+  %10 = phi i32 [ %21, %.lr.ph.i.i.i.us.us ], [ 1, %.split.us.split.us ]
+  %11 = phi i32 [ %19, %.lr.ph.i.i.i.us.us ], [ 128, %.split.us.split.us ]
+  %.024.i.i.i.us.us = phi i16 [ %.1.i.i.i.us.us, %.lr.ph.i.i.i.us.us ], [ %.013.us.us, %.split.us.split.us ]
+  %.01723.i.i.i.us.us = phi i32 [ %20, %.lr.ph.i.i.i.us.us ], [ 1, %.split.us.split.us ]
+  %12 = or i32 %.01723.i.i.i.us.us, %11
   %13 = trunc i32 %12 to i16
-  %14 = and i16 %.024.i.i.i.us, %13
+  %14 = and i16 %.024.i.i.i.us.us, %13
   %15 = zext i16 %14 to i32
   %16 = icmp eq i32 %11, %15
   %17 = icmp eq i32 %10, %15
-  %or.cond.i.i.i.us = or i1 %16, %17
-  %18 = select i1 %or.cond.i.i.i.us, i16 %13, i16 0
-  %.1.i.i.i.us = xor i16 %18, %.024.i.i.i.us
+  %or.cond.i.i.i.us.us = or i1 %16, %17
+  %18 = select i1 %or.cond.i.i.i.us.us, i16 %13, i16 0
+  %.1.i.i.i.us.us = xor i16 %18, %.024.i.i.i.us.us
   %19 = lshr i32 %11, 1
   %20 = shl nuw nsw i32 %10, 1
   %21 = and i32 %20, 65534
   %22 = icmp samesign ugt i32 %19, %21
-  br i1 %22, label %.lr.ph.i.i.i.us, label %.lr.ph.i.us, !llvm.loop !53
+  br i1 %22, label %.lr.ph.i.i.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !53
+
+.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.i.i.us.us, %.lr.ph.i.us.us
+  %.021.i.us.us = phi i16 [ %32, %.lr.ph.i.us.us ], [ %.1.i.i.i.us.us, %.lr.ph.i.i.i.us.us ]
+  %.01620.i.us.us = phi i32 [ %31, %.lr.ph.i.us.us ], [ 8, %.lr.ph.i.i.i.us.us ]
+  %23 = phi i32 [ %30, %.lr.ph.i.us.us ], [ 0, %.lr.ph.i.i.i.us.us ]
+  %24 = and i16 %.021.i.us.us, 1
+  %25 = zext nneg i16 %24 to i32
+  %26 = xor i32 %23, %25
+  %27 = and i32 %26, 1
+  %.not18.i.us.us = icmp eq i32 %27, 0
+  %28 = shl i32 %26, 1
+  %29 = select i1 %.not18.i.us.us, i32 0, i32 %2
+  %30 = xor i32 %29, %28
+  %31 = add nsw i32 %.01620.i.us.us, -1
+  %32 = lshr i16 %.021.i.us.us, 1
+  %.not.i.us.us = icmp eq i32 %31, 0
+  br i1 %.not.i.us.us, label %.lr.ph.i.i9.us.us, label %.lr.ph.i.us.us, !llvm.loop !54
+
+.lr.ph.i.i9.us.us:                                ; preds = %.lr.ph.i.us.us, %.lr.ph.i.i9.us.us
+  %33 = phi i32 [ %44, %.lr.ph.i.i9.us.us ], [ 1, %.lr.ph.i.us.us ]
+  %34 = phi i32 [ %42, %.lr.ph.i.i9.us.us ], [ 128, %.lr.ph.i.us.us ]
+  %.024.i.i.us.us = phi i16 [ %.1.i.i11.us.us, %.lr.ph.i.i9.us.us ], [ %.013.us.us, %.lr.ph.i.us.us ]
+  %.01723.i.i.us.us = phi i32 [ %43, %.lr.ph.i.i9.us.us ], [ 1, %.lr.ph.i.us.us ]
+  %35 = or i32 %.01723.i.i.us.us, %34
+  %36 = trunc i32 %35 to i16
+  %37 = and i16 %.024.i.i.us.us, %36
+  %38 = zext i16 %37 to i32
+  %39 = icmp eq i32 %34, %38
+  %40 = icmp eq i32 %33, %38
+  %or.cond.i.i10.us.us = or i1 %39, %40
+  %41 = select i1 %or.cond.i.i10.us.us, i16 %36, i16 0
+  %.1.i.i11.us.us = xor i16 %41, %.024.i.i.us.us
+  %42 = lshr i32 %34, 1
+  %43 = shl nuw nsw i32 %33, 1
+  %44 = and i32 %43, 65534
+  %45 = icmp samesign ugt i32 %42, %44
+  br i1 %45, label %.lr.ph.i.i9.us.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us, !llvm.loop !53
+
+_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %.lr.ph.i.i9.us.us
+  %46 = zext i16 %.1.i.i11.us.us to i64
+  %47 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %46
+  store i32 %30, ptr %47, align 4
+  %48 = add nuw nsw i16 %.013.us.us, 1
+  %exitcond22.not = icmp eq i16 %48, 256
+  br i1 %exitcond22.not, label %.split15.us, label %.split.us.split.us, !llvm.loop !55
+
+.split.us.split:                                  ; preds = %.split.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us
+  %.013.us = phi i16 [ %95, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us ], [ 0, %.split.us ]
+  br label %.lr.ph.i.i.i.us
+
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us, %.split.us.split
+  %49 = phi i32 [ %60, %.lr.ph.i.i.i.us ], [ 1, %.split.us.split ]
+  %50 = phi i32 [ %58, %.lr.ph.i.i.i.us ], [ 128, %.split.us.split ]
+  %.024.i.i.i.us = phi i16 [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.013.us, %.split.us.split ]
+  %.01723.i.i.i.us = phi i32 [ %59, %.lr.ph.i.i.i.us ], [ 1, %.split.us.split ]
+  %51 = or i32 %.01723.i.i.i.us, %50
+  %52 = trunc i32 %51 to i16
+  %53 = and i16 %.024.i.i.i.us, %52
+  %54 = zext i16 %53 to i32
+  %55 = icmp eq i32 %50, %54
+  %56 = icmp eq i32 %49, %54
+  %or.cond.i.i.i.us = or i1 %55, %56
+  %57 = select i1 %or.cond.i.i.i.us, i16 %52, i16 0
+  %.1.i.i.i.us = xor i16 %57, %.024.i.i.i.us
+  %58 = lshr i32 %50, 1
+  %59 = shl nuw nsw i32 %49, 1
+  %60 = and i32 %59, 65534
+  %61 = icmp samesign ugt i32 %58, %60
+  br i1 %61, label %.lr.ph.i.i.i.us, label %.lr.ph.i.us, !llvm.loop !53
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.i.i.us, %.lr.ph.i.us
-  %.021.i.us = phi i16 [ %32, %.lr.ph.i.us ], [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ]
-  %.01620.i.us = phi i32 [ %31, %.lr.ph.i.us ], [ 8, %.lr.ph.i.i.i.us ]
-  %23 = phi i32 [ %30, %.lr.ph.i.us ], [ 0, %.lr.ph.i.i.i.us ]
-  %24 = and i16 %.021.i.us, 1
-  %.not17.i.us = icmp eq i16 %24, 0
-  %25 = select i1 %.not17.i.us, i32 0, i32 %8
-  %26 = xor i32 %25, %23
-  %27 = and i32 %26, %8
-  %.not18.i.us = icmp eq i32 %27, 0
-  %28 = shl i32 %26, 1
-  %29 = select i1 %.not18.i.us, i32 0, i32 %2
-  %30 = xor i32 %29, %28
-  %31 = add nsw i32 %.01620.i.us, -1
-  %32 = lshr i16 %.021.i.us, 1
-  %.not.i.us = icmp eq i32 %31, 0
-  br i1 %.not.i.us, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us, label %.lr.ph.i.us, !llvm.loop !54
+  %.021.i.us = phi i16 [ %71, %.lr.ph.i.us ], [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ]
+  %.01620.i.us = phi i32 [ %70, %.lr.ph.i.us ], [ 8, %.lr.ph.i.i.i.us ]
+  %62 = phi i32 [ %69, %.lr.ph.i.us ], [ 0, %.lr.ph.i.i.i.us ]
+  %63 = and i16 %.021.i.us, 1
+  %.not17.i.us = icmp eq i16 %63, 0
+  %64 = select i1 %.not17.i.us, i32 0, i32 %8
+  %65 = xor i32 %64, %62
+  %66 = and i32 %65, %8
+  %.not18.i.us = icmp eq i32 %66, 0
+  %67 = shl i32 %65, 1
+  %68 = select i1 %.not18.i.us, i32 0, i32 %2
+  %69 = xor i32 %68, %67
+  %70 = add nsw i32 %.01620.i.us, -1
+  %71 = lshr i16 %.021.i.us, 1
+  %.not.i.us = icmp eq i32 %70, 0
+  br i1 %.not.i.us, label %.lr.ph.i.i.us, label %.lr.ph.i.us, !llvm.loop !54
 
-_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us: ; preds = %.lr.ph.i.us
-  br i1 %.not.i.i, label %.loopexit.us, label %.lr.ph.i.i.us
+.lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.us, %.lr.ph.i.i.us
+  %.022.i.i.us = phi i32 [ %.1.i.i.us, %.lr.ph.i.i.us ], [ %69, %.lr.ph.i.us ]
+  %.01721.i.i.us = phi i32 [ %78, %.lr.ph.i.i.us ], [ 1, %.lr.ph.i.us ]
+  %.01820.i.i.us = phi i32 [ %77, %.lr.ph.i.i.us ], [ %9, %.lr.ph.i.us ]
+  %72 = or i32 %.01820.i.i.us, %.01721.i.i.us
+  %73 = and i32 %72, %.022.i.i.us
+  %74 = icmp eq i32 %73, %.01820.i.i.us
+  %75 = icmp eq i32 %73, %.01721.i.i.us
+  %or.cond.i.i.us = or i1 %74, %75
+  %76 = select i1 %or.cond.i.i.us, i32 %72, i32 0
+  %.1.i.i.us = xor i32 %76, %.022.i.i.us
+  %77 = lshr i32 %.01820.i.i.us, 1
+  %78 = shl nuw i32 %.01721.i.i.us, 1
+  %79 = icmp ugt i32 %77, %78
+  br i1 %79, label %.lr.ph.i.i.us, label %.lr.ph.i.i9.us, !llvm.loop !37
 
-.lr.ph.i.i.us:                                    ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us, %.lr.ph.i.i.us
-  %.022.i.i.us = phi i32 [ %.1.i.i.us, %.lr.ph.i.i.us ], [ %30, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us ]
-  %.01721.i.i.us = phi i32 [ %39, %.lr.ph.i.i.us ], [ 1, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us ]
-  %.01820.i.i.us = phi i32 [ %38, %.lr.ph.i.i.us ], [ %9, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us ]
-  %33 = or i32 %.01820.i.i.us, %.01721.i.i.us
-  %34 = and i32 %33, %.022.i.i.us
-  %35 = icmp eq i32 %34, %.01820.i.i.us
-  %36 = icmp eq i32 %34, %.01721.i.i.us
-  %or.cond.i.i.us = or i1 %35, %36
-  %37 = select i1 %or.cond.i.i.us, i32 %33, i32 0
-  %.1.i.i.us = xor i32 %37, %.022.i.i.us
-  %38 = lshr i32 %.01820.i.i.us, 1
-  %39 = shl nuw i32 %.01721.i.i.us, 1
-  %40 = icmp ugt i32 %38, %39
-  br i1 %40, label %.lr.ph.i.i.us, label %.loopexit.us, !llvm.loop !37
-
-.loopexit.us:                                     ; preds = %.lr.ph.i.i.us, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us
-  %.ph.us = phi i32 [ %30, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit.us ], [ %.1.i.i.us, %.lr.ph.i.i.us ]
-  br label %.lr.ph.i.i9.us
-
-.lr.ph.i.i9.us:                                   ; preds = %.lr.ph.i.i9.us, %.loopexit.us
-  %41 = phi i32 [ %52, %.lr.ph.i.i9.us ], [ 1, %.loopexit.us ]
-  %42 = phi i32 [ %50, %.lr.ph.i.i9.us ], [ 128, %.loopexit.us ]
-  %.024.i.i.us = phi i16 [ %.1.i.i11.us, %.lr.ph.i.i9.us ], [ %.013.us, %.loopexit.us ]
-  %.01723.i.i.us = phi i32 [ %51, %.lr.ph.i.i9.us ], [ 1, %.loopexit.us ]
-  %43 = or i32 %.01723.i.i.us, %42
-  %44 = trunc i32 %43 to i16
-  %45 = and i16 %.024.i.i.us, %44
-  %46 = zext i16 %45 to i32
-  %47 = icmp eq i32 %42, %46
-  %48 = icmp eq i32 %41, %46
-  %or.cond.i.i10.us = or i1 %47, %48
-  %49 = select i1 %or.cond.i.i10.us, i16 %44, i16 0
-  %.1.i.i11.us = xor i16 %49, %.024.i.i.us
-  %50 = lshr i32 %42, 1
-  %51 = shl nuw nsw i32 %41, 1
-  %52 = and i32 %51, 65534
-  %53 = icmp samesign ugt i32 %50, %52
-  br i1 %53, label %.lr.ph.i.i9.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, !llvm.loop !53
+.lr.ph.i.i9.us:                                   ; preds = %.lr.ph.i.i.us, %.lr.ph.i.i9.us
+  %80 = phi i32 [ %91, %.lr.ph.i.i9.us ], [ 1, %.lr.ph.i.i.us ]
+  %81 = phi i32 [ %89, %.lr.ph.i.i9.us ], [ 128, %.lr.ph.i.i.us ]
+  %.024.i.i.us = phi i16 [ %.1.i.i11.us, %.lr.ph.i.i9.us ], [ %.013.us, %.lr.ph.i.i.us ]
+  %.01723.i.i.us = phi i32 [ %90, %.lr.ph.i.i9.us ], [ 1, %.lr.ph.i.i.us ]
+  %82 = or i32 %.01723.i.i.us, %81
+  %83 = trunc i32 %82 to i16
+  %84 = and i16 %.024.i.i.us, %83
+  %85 = zext i16 %84 to i32
+  %86 = icmp eq i32 %81, %85
+  %87 = icmp eq i32 %80, %85
+  %or.cond.i.i10.us = or i1 %86, %87
+  %88 = select i1 %or.cond.i.i10.us, i16 %83, i16 0
+  %.1.i.i11.us = xor i16 %88, %.024.i.i.us
+  %89 = lshr i32 %81, 1
+  %90 = shl nuw nsw i32 %80, 1
+  %91 = and i32 %90, 65534
+  %92 = icmp samesign ugt i32 %89, %91
+  br i1 %92, label %.lr.ph.i.i9.us, label %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, !llvm.loop !53
 
 _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr.ph.i.i9.us
-  %54 = zext i16 %.1.i.i11.us to i64
-  %55 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %54
-  store i32 %.ph.us, ptr %55, align 4
-  %56 = add nuw nsw i16 %.013.us, 1
-  %exitcond19.not = icmp eq i16 %56, 256
-  br i1 %exitcond19.not, label %.split15.us, label %.split.us, !llvm.loop !55
+  %93 = zext i16 %.1.i.i11.us to i64
+  %94 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %93
+  store i32 %.1.i.i.us, ptr %94, align 4
+  %95 = add nuw nsw i16 %.013.us, 1
+  %exitcond21.not = icmp eq i16 %95, 256
+  br i1 %exitcond21.not, label %.split15.us, label %.split.us.split, !llvm.loop !55
 
-.split15.us:                                      ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us
+.split15.us:                                      ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us
   ret void
 
 .split:                                           ; preds = %4, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit ], [ 0, %4 ]
-  %57 = trunc nuw nsw i64 %indvars.iv to i16
+  %96 = trunc nuw nsw i64 %indvars.iv to i16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.split
-  %58 = phi i32 [ %69, %.lr.ph.i.i.i ], [ 1, %.split ]
-  %59 = phi i32 [ %67, %.lr.ph.i.i.i ], [ 128, %.split ]
-  %.024.i.i.i = phi i16 [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %57, %.split ]
-  %.01723.i.i.i = phi i32 [ %68, %.lr.ph.i.i.i ], [ 1, %.split ]
-  %60 = or i32 %.01723.i.i.i, %59
-  %61 = trunc i32 %60 to i16
-  %62 = and i16 %.024.i.i.i, %61
-  %63 = zext i16 %62 to i32
-  %64 = icmp eq i32 %59, %63
-  %65 = icmp eq i32 %58, %63
-  %or.cond.i.i.i = or i1 %64, %65
-  %66 = select i1 %or.cond.i.i.i, i16 %61, i16 0
-  %.1.i.i.i = xor i16 %66, %.024.i.i.i
-  %67 = lshr i32 %59, 1
-  %68 = shl nuw nsw i32 %58, 1
-  %69 = and i32 %68, 65534
-  %70 = icmp samesign ugt i32 %67, %69
-  br i1 %70, label %.lr.ph.i.i.i, label %.lr.ph.i, !llvm.loop !53
+  %97 = phi i32 [ %108, %.lr.ph.i.i.i ], [ 1, %.split ]
+  %98 = phi i32 [ %106, %.lr.ph.i.i.i ], [ 128, %.split ]
+  %.024.i.i.i = phi i16 [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %96, %.split ]
+  %.01723.i.i.i = phi i32 [ %107, %.lr.ph.i.i.i ], [ 1, %.split ]
+  %99 = or i32 %.01723.i.i.i, %98
+  %100 = trunc i32 %99 to i16
+  %101 = and i16 %.024.i.i.i, %100
+  %102 = zext i16 %101 to i32
+  %103 = icmp eq i32 %98, %102
+  %104 = icmp eq i32 %97, %102
+  %or.cond.i.i.i = or i1 %103, %104
+  %105 = select i1 %or.cond.i.i.i, i16 %100, i16 0
+  %.1.i.i.i = xor i16 %105, %.024.i.i.i
+  %106 = lshr i32 %98, 1
+  %107 = shl nuw nsw i32 %97, 1
+  %108 = and i32 %107, 65534
+  %109 = icmp samesign ugt i32 %106, %108
+  br i1 %109, label %.lr.ph.i.i.i, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i, %.lr.ph.i
-  %.021.i = phi i16 [ %80, %.lr.ph.i ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
-  %.01620.i = phi i32 [ %79, %.lr.ph.i ], [ 8, %.lr.ph.i.i.i ]
-  %71 = phi i32 [ %78, %.lr.ph.i ], [ 0, %.lr.ph.i.i.i ]
-  %72 = and i16 %.021.i, 1
-  %.not17.i = icmp eq i16 %72, 0
-  %73 = select i1 %.not17.i, i32 0, i32 %8
-  %74 = xor i32 %73, %71
-  %75 = and i32 %74, %8
-  %.not18.i = icmp eq i32 %75, 0
-  %76 = shl i32 %74, 1
-  %77 = select i1 %.not18.i, i32 0, i32 %2
-  %78 = xor i32 %77, %76
-  %79 = add nsw i32 %.01620.i, -1
-  %80 = lshr i16 %.021.i, 1
-  %.not.i = icmp eq i32 %79, 0
+  %.021.i = phi i16 [ %119, %.lr.ph.i ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
+  %.01620.i = phi i32 [ %118, %.lr.ph.i ], [ 8, %.lr.ph.i.i.i ]
+  %110 = phi i32 [ %117, %.lr.ph.i ], [ 0, %.lr.ph.i.i.i ]
+  %111 = and i16 %.021.i, 1
+  %.not17.i = icmp eq i16 %111, 0
+  %112 = select i1 %.not17.i, i32 0, i32 %8
+  %113 = xor i32 %112, %110
+  %114 = and i32 %113, %8
+  %.not18.i = icmp eq i32 %114, 0
+  %115 = shl i32 %113, 1
+  %116 = select i1 %.not18.i, i32 0, i32 %2
+  %117 = xor i32 %116, %115
+  %118 = add nsw i32 %.01620.i, -1
+  %119 = lshr i16 %.021.i, 1
+  %.not.i = icmp eq i32 %118, 0
   br i1 %.not.i, label %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, label %.lr.ph.i, !llvm.loop !54
 
 _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.ph.i
-  %81 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv
-  store i32 %78, ptr %81, align 4
+  %120 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %indvars.iv
+  store i32 %117, ptr %120, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.split15.us, label %.split, !llvm.loop !57
+  br i1 %exitcond.not, label %.split15.us, label %.split, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -5524,44 +5589,44 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 .lr.ph.i.i.i.i:                                   ; preds = %36, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %55, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %23, %36 ]
   %.0911.i.i.i.i = phi ptr [ %54, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %7, %36 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
-  store ptr %41, ptr %.012.i.i.i.i, align 8, !alias.scope !58, !noalias !61
-  %42 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !61, !noalias !58
+  store ptr %41, ptr %.012.i.i.i.i, align 8, !alias.scope !56, !noalias !59
+  %42 = load ptr, ptr %.0911.i.i.i.i, align 8, !alias.scope !59, !noalias !56
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
   %44 = icmp eq ptr %42, %43
   br i1 %44, label %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 45:                                               ; preds = %.lr.ph.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %47 = load i64, ptr %46, align 8, !alias.scope !61, !noalias !58
+  %47 = load i64, ptr %46, align 8, !alias.scope !59, !noalias !56
   %48 = icmp ult i64 %47, 16
   call void @llvm.assume(i1 %48)
   %49 = add nuw nsw i64 %47, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %49, i1 false), !alias.scope !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(1) %43, i64 %49, i1 false), !alias.scope !61
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  store ptr %42, ptr %.012.i.i.i.i, align 8, !alias.scope !58, !noalias !61
-  %50 = load i64, ptr %43, align 8, !alias.scope !61, !noalias !58
-  store i64 %50, ptr %41, align 8, !alias.scope !58, !noalias !61
+  store ptr %42, ptr %.012.i.i.i.i, align 8, !alias.scope !56, !noalias !59
+  %50 = load i64, ptr %43, align 8, !alias.scope !59, !noalias !56
+  store i64 %50, ptr %41, align 8, !alias.scope !56, !noalias !59
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !61, !noalias !58
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !59, !noalias !56
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %45
   %51 = phi i64 [ %47, %45 ], [ %.pre.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  store i64 %51, ptr %53, align 8, !alias.scope !58, !noalias !61
-  store ptr %43, ptr %.0911.i.i.i.i, align 8, !alias.scope !61, !noalias !58
-  store i64 0, ptr %52, align 8, !alias.scope !61, !noalias !58
-  store i8 0, ptr %43, align 8, !alias.scope !61, !noalias !58
+  store i64 %51, ptr %53, align 8, !alias.scope !56, !noalias !59
+  store ptr %43, ptr %.0911.i.i.i.i, align 8, !alias.scope !59, !noalias !56
+  store i64 0, ptr %52, align 8, !alias.scope !59, !noalias !56
+  store i8 0, ptr %43, align 8, !alias.scope !59, !noalias !56
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !64
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !62
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i, %36
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %36 ], [ %55, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i ]
@@ -5572,44 +5637,44 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i.i27:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33
   %.012.i.i.i.i28 = phi ptr [ %71, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33 ], [ %56, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i.i29 = phi ptr [ %70, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 16
-  store ptr %57, ptr %.012.i.i.i.i28, align 8, !alias.scope !65, !noalias !68
-  %58 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !68, !noalias !65
+  store ptr %57, ptr %.012.i.i.i.i28, align 8, !alias.scope !63, !noalias !66
+  %58 = load ptr, ptr %.0911.i.i.i.i29, align 8, !alias.scope !66, !noalias !63
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 16
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30
 
 61:                                               ; preds = %.lr.ph.i.i.i.i27
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
-  %63 = load i64, ptr %62, align 8, !alias.scope !68, !noalias !65
+  %63 = load i64, ptr %62, align 8, !alias.scope !66, !noalias !63
   %64 = icmp ult i64 %63, 16
   call void @llvm.assume(i1 %64)
   %65 = add nuw nsw i64 %63, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(1) %59, i64 %65, i1 false), !alias.scope !70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(1) %59, i64 %65, i1 false), !alias.scope !68
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
-  store ptr %58, ptr %.012.i.i.i.i28, align 8, !alias.scope !65, !noalias !68
-  %66 = load i64, ptr %59, align 8, !alias.scope !68, !noalias !65
-  store i64 %66, ptr %57, align 8, !alias.scope !65, !noalias !68
+  store ptr %58, ptr %.012.i.i.i.i28, align 8, !alias.scope !63, !noalias !66
+  %66 = load i64, ptr %59, align 8, !alias.scope !66, !noalias !63
+  store i64 %66, ptr %57, align 8, !alias.scope !63, !noalias !66
   %.phi.trans.insert.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
-  %.pre.i.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i.i31, align 8, !alias.scope !68, !noalias !65
+  %.pre.i.i.i.i.i32 = load i64, ptr %.phi.trans.insert.i.i.i.i.i31, align 8, !alias.scope !66, !noalias !63
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30, %61
   %67 = phi i64 [ %63, %61 ], [ %.pre.i.i.i.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i30 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 8
-  store i64 %67, ptr %69, align 8, !alias.scope !65, !noalias !68
-  store ptr %59, ptr %.0911.i.i.i.i29, align 8, !alias.scope !68, !noalias !65
-  store i64 0, ptr %68, align 8, !alias.scope !68, !noalias !65
-  store i8 0, ptr %59, align 8, !alias.scope !68, !noalias !65
+  store i64 %67, ptr %69, align 8, !alias.scope !63, !noalias !66
+  store ptr %59, ptr %.0911.i.i.i.i29, align 8, !alias.scope !66, !noalias !63
+  store i64 0, ptr %68, align 8, !alias.scope !66, !noalias !63
+  store i8 0, ptr %59, align 8, !alias.scope !66, !noalias !63
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 32
   %.not.i.i.i.i34 = icmp eq ptr %70, %6
-  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, label %.lr.ph.i.i.i.i27, !llvm.loop !64
+  br i1 %.not.i.i.i.i34, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, label %.lr.ph.i.i.i.i27, !llvm.loop !62
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i.i35 = phi ptr [ %56, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %71, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i.i33 ]
@@ -5777,19 +5842,17 @@ attributes #33 = { nounwind willreturn memory(read) }
 !52 = !{!50, !47}
 !53 = distinct !{!53, !22}
 !54 = distinct !{!54, !22}
-!55 = distinct !{!55, !22, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !22}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!60 = distinct !{!60, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!61 = !{!62}
-!62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!63 = !{!59, !62}
-!64 = distinct !{!64, !22}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!67 = distinct !{!67, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!68 = !{!69}
-!69 = distinct !{!69, !67, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!70 = !{!66, !69}
+!55 = distinct !{!55, !22}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!58 = distinct !{!58, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!59 = !{!60}
+!60 = distinct !{!60, !58, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!61 = !{!57, !60}
+!62 = distinct !{!62, !22}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!65 = distinct !{!65, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!66 = !{!67}
+!67 = distinct !{!67, !65, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!68 = !{!64, !67}

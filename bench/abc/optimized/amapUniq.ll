@@ -1475,7 +1475,7 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr noundef readonly captures(none)
   %.val50.us.us = load i32, ptr %26, align 4, !tbaa !19
   %39 = sext i32 %.val50.us.us to i64
   %40 = icmp slt i64 %indvars.iv.next78, %39
-  br i1 %40, label %35, label %.critedge4.us.loopexit, !llvm.loop !47
+  br i1 %40, label %35, label %.critedge4.us.loopexit, !llvm.loop !46
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.critedge4
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.critedge4 ], [ 0, %.lr.ph66 ]
@@ -1517,7 +1517,7 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr noundef readonly captures(none)
   %.val50 = load i32, ptr %47, align 4, !tbaa !19
   %62 = sext i32 %.val50 to i64
   %63 = icmp slt i64 %indvars.iv.next72, %62
-  br i1 %63, label %54, label %.critedge4.loopexit, !llvm.loop !48
+  br i1 %63, label %54, label %.critedge4.loopexit, !llvm.loop !46
 
 .critedge4.loopexit:                              ; preds = %54
   %64 = and i64 %indvars.iv.next72, 4294967295
@@ -1533,7 +1533,7 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr noundef readonly captures(none)
   %.val56 = load i32, ptr %3, align 4, !tbaa !33
   %67 = sext i32 %.val56 to i64
   %68 = icmp slt i64 %indvars.iv.next75, %67
-  br i1 %68, label %.lr.ph66.split, label %.critedge2, !llvm.loop !49
+  br i1 %68, label %.lr.ph66.split, label %.critedge2, !llvm.loop !45
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %.critedge
   ret ptr %16
@@ -1608,8 +1608,5 @@ attributes #11 = { nounwind allocsize(0) }
 !42 = !{!36, !37, i64 8}
 !43 = distinct !{!43, !24}
 !44 = !{!21, !21, i64 0}
-!45 = distinct !{!45, !24, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !24, !46}
-!48 = distinct !{!48, !24}
-!49 = distinct !{!49, !24}
+!45 = distinct !{!45, !24}
+!46 = distinct !{!46, !24}

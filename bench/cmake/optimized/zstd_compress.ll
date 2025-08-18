@@ -15583,7 +15583,7 @@ ZSTD_estimateBlockSize_symbolType.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
   %.2.i.i.i = add i64 %.139.i.i.i, %.pn.i.i.i
   %102 = getelementptr inbounds nuw i8, ptr %.03438.i.i.i, i64 1
   %103 = icmp ult ptr %102, %85
-  br i1 %103, label %.lr.ph.split.i.i.i, label %._crit_edge.i31.i.i, !llvm.loop !431
+  br i1 %103, label %.lr.ph.split.i.i.i, label %._crit_edge.i31.i.i, !llvm.loop !429
 
 ._crit_edge.i31.i.i:                              ; preds = %.lr.ph.split.i.i.i, %.preheader.i27.i.i
   %.1.lcssa.i32.i.i = phi i64 [ %.042.i28.i.i, %.preheader.i27.i.i ], [ %.2.i.i.i, %.lr.ph.split.i.i.i ]
@@ -15645,7 +15645,7 @@ ZSTD_estimateBlockSize_symbolType.exit36.i.i:     ; preds = %._crit_edge.i31.i.i
   %.2.i46.i.i = add i64 %.139.i42.i.i, %.pn.i45.i.i
   %125 = getelementptr inbounds nuw i8, ptr %.03438.i43.i.i, i64 1
   %126 = icmp ult ptr %125, %108
-  br i1 %126, label %.lr.ph.split.i41.i.i, label %._crit_edge.i47.i.i, !llvm.loop !431
+  br i1 %126, label %.lr.ph.split.i41.i.i, label %._crit_edge.i47.i.i, !llvm.loop !429
 
 ._crit_edge.i47.i.i:                              ; preds = %.lr.ph.split.i41.i.i, %.preheader.i37.i.i
   %.1.lcssa.i48.i.i = phi i64 [ %.042.i38.i.i, %.preheader.i37.i.i ], [ %.2.i46.i.i, %.lr.ph.split.i41.i.i ]
@@ -15656,7 +15656,7 @@ ZSTD_estimateBlockSize.exit:                      ; preds = %120, %._crit_edge.i
   %.033.i49.i.i = phi i64 [ %121, %120 ], [ %127, %._crit_edge.i47.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 5192
-  %129 = load i64, ptr %128, align 8, !tbaa !432
+  %129 = load i64, ptr %128, align 8, !tbaa !430
   %130 = icmp ugt i64 %37, 32511
   %131 = icmp ugt i64 %37, 127
   %132 = select i1 %131, i64 3, i64 2
@@ -15903,7 +15903,7 @@ define internal fastcc void @ZSTD_copyBlockSequences(ptr noundef captures(none) 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %14 = load ptr, ptr %13, align 8, !tbaa !192
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %16 = load ptr, ptr %15, align 8, !tbaa !433
+  %16 = load ptr, ptr %15, align 8, !tbaa !431
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %18 = load i64, ptr %17, align 8, !tbaa !203
   %19 = getelementptr inbounds nuw %struct.ZSTD_Sequence, ptr %16, i64 %18
@@ -15949,7 +15949,7 @@ define internal fastcc void @ZSTD_copyBlockSequences(ptr noundef captures(none) 
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %44, ptr %45, align 4, !tbaa !206
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 0, ptr %46, align 4, !tbaa !434
+  store i32 0, ptr %46, align 4, !tbaa !432
   %47 = icmp eq i64 %.06978, %25
   br i1 %47, label %48, label %54
 
@@ -15976,7 +15976,7 @@ define internal fastcc void @ZSTD_copyBlockSequences(ptr noundef captures(none) 
   br i1 %56, label %57, label %71
 
 57:                                               ; preds = %54
-  store i32 %34, ptr %46, align 4, !tbaa !434
+  store i32 %34, ptr %46, align 4, !tbaa !432
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %63, label %58
 
@@ -16049,7 +16049,7 @@ ZSTD_updateRep.exit:                              ; preds = %72, %.sink.split.i
   %90 = add i64 %.07077, %89
   %91 = add nuw i64 %.06978, 1
   %exitcond.not = icmp eq i64 %91, %10
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !435
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !433
 
 ._crit_edge:                                      ; preds = %ZSTD_updateRep.exit, %1
   %.070.lcssa = phi i64 [ 0, %1 ], [ %90, %ZSTD_updateRep.exit ]
@@ -16063,7 +16063,7 @@ ZSTD_updateRep.exit:                              ; preds = %72, %.sink.split.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 %96, ptr %98, align 4, !tbaa !207
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  store i32 0, ptr %99, align 4, !tbaa !434
+  store i32 0, ptr %99, align 4, !tbaa !432
   store i32 0, ptr %97, align 4, !tbaa !204
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 0, ptr %100, align 4, !tbaa !206
@@ -16318,7 +16318,7 @@ ZSTD_window_update.exit116:                       ; preds = %ZSTD_window_update.
 
 96:                                               ; preds = %ZSTD_window_update.exit116
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !436
+  %98 = load ptr, ptr %97, align 8, !tbaa !434
   %99 = ptrtoint ptr %9 to i64
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
@@ -16328,7 +16328,7 @@ ZSTD_window_update.exit116:                       ; preds = %ZSTD_window_update.
 103:                                              ; preds = %ZSTD_window_update.exit116, %96
   %104 = phi i32 [ %102, %96 ], [ 0, %ZSTD_window_update.exit116 ]
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %104, ptr %105, align 8, !tbaa !437
+  store i32 %104, ptr %105, align 8, !tbaa !435
   tail call void @ZSTD_ldm_fillHashTable(ptr noundef nonnull %1, ptr noundef nonnull %.091, ptr noundef nonnull %9, ptr noundef nonnull %10) #28
   %.pre = load i32, ptr %15, align 4, !tbaa !89
   br label %106
@@ -16971,12 +16971,10 @@ attributes #30 = { nounwind allocsize(0,1) }
 !426 = distinct !{!426, !135}
 !427 = !{!40, !9, i64 0}
 !428 = !{!41, !15, i64 136}
-!429 = distinct !{!429, !135, !430}
-!430 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!431 = distinct !{!431, !135}
-!432 = !{!42, !15, i64 152}
-!433 = !{!8, !18, i64 896}
-!434 = !{!205, !9, i64 12}
-!435 = distinct !{!435, !135}
-!436 = !{!27, !26, i64 8}
-!437 = !{!27, !9, i64 48}
+!429 = distinct !{!429, !135}
+!430 = !{!42, !15, i64 152}
+!431 = !{!8, !18, i64 896}
+!432 = !{!205, !9, i64 12}
+!433 = distinct !{!433, !135}
+!434 = !{!27, !26, i64 8}
+!435 = !{!27, !9, i64 48}

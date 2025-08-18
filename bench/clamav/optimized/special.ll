@@ -645,7 +645,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   store i32 %35, ptr %32, align 4, !tbaa !26
   %36 = add nuw nsw i64 %.142.us, 1
   %exitcond47.not = icmp eq i64 %36, 10
-  br i1 %exitcond47.not, label %.split44.us, label %.split.us, !llvm.loop !42
+  br i1 %exitcond47.not, label %.split44.us, label %.split.us
 
 .split:                                           ; preds = %29, %46
   %37 = phi i8 [ %47, %46 ], [ %30, %29 ]
@@ -670,7 +670,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %48 = phi i8 [ %.pre, %43 ], [ 0, %.split ]
   %49 = add nuw nsw i64 %.142, 1
   %exitcond46.not = icmp eq i64 %49, 10
-  br i1 %exitcond46.not, label %.split44.us.loopexit45, label %.split, !llvm.loop !44
+  br i1 %exitcond46.not, label %.split44.us.loopexit45, label %.split, !llvm.loop !42
 
 .split44.us.loopexit45:                           ; preds = %46
   %50 = icmp eq i8 %47, 0
@@ -765,7 +765,7 @@ swizz_j48_global.exit:                            ; preds = %53, %55, %59, %62, 
 94:                                               ; preds = %swizz_j48_global.exit, %91, %28
   %.029.shrunk = phi i1 [ %.0.shrunk.i, %91 ], [ %.0.shrunk.i, %swizz_j48_global.exit ], [ false, %28 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 35168
-  %96 = load i32, ptr %95, align 4, !tbaa !46
+  %96 = load i32, ptr %95, align 4, !tbaa !44
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 35172
   %98 = load i32, ptr %97, align 4, !tbaa !29
   %99 = icmp sgt i32 %96, %98
@@ -879,7 +879,5 @@ attributes #8 = { nounwind willreturn memory(none) }
 !40 = !{!30, !14, i64 35160}
 !41 = !{!30, !14, i64 35164}
 !42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
-!46 = !{!30, !14, i64 35168}
+!43 = !{!"llvm.loop.unswitch.partial.disable"}
+!44 = !{!30, !14, i64 35168}

@@ -41507,7 +41507,7 @@ lean_int_dec_eq.exit.us:                          ; preds = %24
   br i1 %53, label %.split.us.backedge, label %.thread
 
 .split.us.backedge:                               ; preds = %.backedge.us, %51
-  br label %.split.us, !llvm.loop !19
+  br label %.split.us
 
 .split:                                           ; preds = %3, %.split.backedge
   %.048 = phi ptr [ %94, %.split.backedge ], [ %1, %3 ]
@@ -43098,7 +43098,7 @@ lean_dec.exit116.thread:                          ; preds = %210
   br label %lean_dec.exit116
 
 lean_dec.exit116:                                 ; preds = %241, %240, %238
-  br i1 %.not233, label %.critedge.i196, label %lean_dec.exit116.thread220, !prof !21
+  br i1 %.not233, label %.critedge.i196, label %lean_dec.exit116.thread220, !prof !19
 
 lean_dec.exit116.thread220:                       ; preds = %212, %227, %232, %lean_dec.exit116
   %.1.i191214223 = phi ptr [ %235, %lean_dec.exit116 ], [ %233, %232 ], [ %231, %227 ], [ inttoptr (i64 1 to ptr), %212 ]
@@ -123408,7 +123408,7 @@ lean_obj_tag.exit.thread.us:                      ; preds = %lean_dec.exit18.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %34, %33, %32, %lean_obj_tag.exit.us
-  br label %.split.us, !llvm.loop !22
+  br label %.split.us
 
 lean_inc.exit:                                    ; preds = %3, %lean_inc.exit.backedge
   %.015 = phi ptr [ %38, %lean_inc.exit.backedge ], [ %1, %3 ]
@@ -137290,7 +137290,7 @@ lean_dec.exit331:                                 ; preds = %93, %92, %90, %83
 95:                                               ; preds = %lean_dec.exit331
   %96 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !11
-  %98 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !23
+  %98 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !20
   %99 = load ptr, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_traceAssignment___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %100 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -137312,9 +137312,9 @@ lean_alloc_ctor.exit:                             ; preds = %95
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %99, ptr %106, align 8, !tbaa !11
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store double %98, ptr %107, align 8, !tbaa !23
+  store double %98, ptr %107, align 8, !tbaa !20
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store double %98, ptr %108, align 8, !tbaa !23
+  store double %98, ptr %108, align 8, !tbaa !20
   %109 = load ptr, ptr @l_Lean_Meta_Grind_Arith_Cutsat_getDiseqValues___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %110 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -137518,7 +137518,7 @@ lean_inc.exit358:                                 ; preds = %177, %176, %174, %1
   br label %lean_dec.exit328
 
 lean_dec.exit328:                                 ; preds = %184, %183, %181, %lean_inc.exit358
-  %185 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !23
+  %185 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !20
   %186 = load ptr, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_traceAssignment___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %187 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -137540,9 +137540,9 @@ lean_alloc_ctor.exit425:                          ; preds = %lean_dec.exit328
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 16
   store ptr %186, ptr %193, align 8, !tbaa !11
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  store double %185, ptr %194, align 8, !tbaa !23
+  store double %185, ptr %194, align 8, !tbaa !20
   %195 = getelementptr inbounds nuw i8, ptr %187, i64 32
-  store double %185, ptr %195, align 8, !tbaa !23
+  store double %185, ptr %195, align 8, !tbaa !20
   %196 = load ptr, ptr @l_Lean_Meta_Grind_Arith_Cutsat_getDiseqValues___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %197 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -138052,7 +138052,7 @@ lean_ctor_release.exit468:                        ; preds = %368, %375, %377, %3
 
 lean_dec_ref.exit388:                             ; preds = %384, %383, %381, %lean_ctor_release.exit468
   %.0321 = phi ptr [ %59, %lean_ctor_release.exit468 ], [ inttoptr (i64 1 to ptr), %381 ], [ inttoptr (i64 1 to ptr), %383 ], [ inttoptr (i64 1 to ptr), %384 ]
-  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !23
+  %385 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !20
   %386 = load ptr, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_traceAssignment___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %387 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -138074,9 +138074,9 @@ lean_alloc_ctor.exit470:                          ; preds = %lean_dec_ref.exit38
   %393 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store ptr %386, ptr %393, align 8, !tbaa !11
   %394 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  store double %385, ptr %394, align 8, !tbaa !23
+  store double %385, ptr %394, align 8, !tbaa !20
   %395 = getelementptr inbounds nuw i8, ptr %387, i64 32
-  store double %385, ptr %395, align 8, !tbaa !23
+  store double %385, ptr %395, align 8, !tbaa !20
   %396 = load ptr, ptr @l_Lean_Meta_Grind_Arith_Cutsat_getDiseqValues___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %397 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -138913,7 +138913,7 @@ lean_ctor_release.exit546:                        ; preds = %693, %700, %702, %7
 
 lean_dec_ref.exit382:                             ; preds = %709, %708, %706, %lean_ctor_release.exit546
   %.0326 = phi ptr [ %59, %lean_ctor_release.exit546 ], [ inttoptr (i64 1 to ptr), %706 ], [ inttoptr (i64 1 to ptr), %708 ], [ inttoptr (i64 1 to ptr), %709 ]
-  %710 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !23
+  %710 = load double, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !20
   %711 = load ptr, ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_traceAssignment___closed__7, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %712 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
@@ -138935,9 +138935,9 @@ lean_alloc_ctor.exit548:                          ; preds = %lean_dec_ref.exit38
   %718 = getelementptr inbounds nuw i8, ptr %712, i64 16
   store ptr %711, ptr %718, align 8, !tbaa !11
   %719 = getelementptr inbounds nuw i8, ptr %712, i64 24
-  store double %710, ptr %719, align 8, !tbaa !23
+  store double %710, ptr %719, align 8, !tbaa !20
   %720 = getelementptr inbounds nuw i8, ptr %712, i64 32
-  store double %710, ptr %720, align 8, !tbaa !23
+  store double %710, ptr %720, align 8, !tbaa !20
   %721 = load ptr, ptr @l_Lean_Meta_Grind_Arith_Cutsat_getDiseqValues___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
   %722 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
@@ -149709,9 +149709,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit1193
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_DiseqCnstr_split___lambda__1___boxed, ptr %32, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 13, ptr %33, align 8, !tbaa !25
+  store i16 13, ptr %33, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 1, ptr %34, align 2, !tbaa !25
+  store i16 1, ptr %34, align 2, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %0, ptr %35, align 8, !tbaa !11
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 128
@@ -152251,9 +152251,9 @@ lean_alloc_closure.exit1595:                      ; preds = %lean_inc.exit1145
   %1027 = getelementptr inbounds nuw i8, ptr %1023, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_DiseqCnstr_split___lambda__1___boxed, ptr %1027, align 8, !tbaa !11
   %1028 = getelementptr inbounds nuw i8, ptr %1023, i64 16
-  store i16 13, ptr %1028, align 8, !tbaa !25
+  store i16 13, ptr %1028, align 8, !tbaa !22
   %1029 = getelementptr inbounds nuw i8, ptr %1023, i64 18
-  store i16 1, ptr %1029, align 2, !tbaa !25
+  store i16 1, ptr %1029, align 2, !tbaa !22
   %1030 = getelementptr inbounds nuw i8, ptr %1023, i64 24
   store ptr %0, ptr %1030, align 8, !tbaa !11
   %1031 = getelementptr inbounds nuw i8, ptr %16, i64 128
@@ -164975,9 +164975,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit218
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_processVar___lambda__3___boxed, ptr %89, align 8, !tbaa !11
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i16 20, ptr %90, align 8, !tbaa !25
+  store i16 20, ptr %90, align 8, !tbaa !22
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 18
-  store i16 8, ptr %91, align 2, !tbaa !25
+  store i16 8, ptr %91, align 2, !tbaa !22
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %0, ptr %92, align 8, !tbaa !11
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 32
@@ -231411,7 +231411,7 @@ lean_dec_ref.exit:                                ; preds = %77, %79, %80
   store ptr %131, ptr @l_Lean_Meta_Grind_Arith_Cutsat_resolveCooperUnary___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %131) #6
   %132 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  store double %132, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !23
+  store double %132, ptr @l_Lean_addTrace___at_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___spec__2___closed__1, align 8, !tbaa !20
   %133 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.15, i64 noundef 1, i64 noundef 1) #6
   store ptr %133, ptr @l_Lean_Meta_Grind_Arith_Cutsat_resolveCooperPred___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %133) #6
@@ -231948,9 +231948,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_assignElimVars___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !25
+  store i16 10, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232009,9 +232009,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_findDiseq_x3f___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !25
+  store i16 1, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232279,9 +232279,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_resolveRealLowerUpperConflict___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !25
+  store i16 10, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232359,9 +232359,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_instInhabitedReaderT___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !25
+  store i16 2, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !25
+  store i16 1, ptr %8, align 2, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !11
   ret ptr %2
@@ -232460,9 +232460,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_instInhabitedReaderT___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !25
+  store i16 2, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !25
+  store i16 1, ptr %8, align 2, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !11
   ret ptr %2
@@ -232498,9 +232498,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_instInhabitedReaderT___rarg___boxed, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !25
+  store i16 2, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 1, ptr %8, align 2, !tbaa !25
+  store i16 1, ptr %8, align 2, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !11
   ret ptr %2
@@ -232524,9 +232524,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_findCase___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 12, ptr %6, align 8, !tbaa !25
+  store i16 12, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232548,9 +232548,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_resolveConflict___lambda__3___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 12, ptr %6, align 8, !tbaa !25
+  store i16 12, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232622,9 +232622,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Loop_forIn_loop___at___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_searchAssigmentMain___spec__3___lambda__2, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !25
+  store i16 1, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232646,9 +232646,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Loop_forIn_loop___at___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_searchAssigmentMain___spec__3___lambda__3, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !25
+  store i16 1, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232734,9 +232734,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lean_Meta_Tactic_Grind_Arith_Cutsat_Search_0__Lean_Meta_Grind_Arith_Cutsat_resetDecisionStack___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 12, ptr %6, align 8, !tbaa !25
+  store i16 12, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -232972,9 +232972,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_Cutsat_searchAssigment___lambda__1___boxed, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 10, ptr %6, align 8, !tbaa !25
+  store i16 10, ptr %6, align 8, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !25
+  store i16 0, ptr %7, align 2, !tbaa !22
   ret ptr %1
 }
 
@@ -233011,11 +233011,8 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!"branch_weights", i32 4001, i32 4000000}
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!"branch_weights", !"expected", i32 1072001, i32 2146411647}
-!22 = distinct !{!22, !20}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !9, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !9, i64 0}
+!19 = !{!"branch_weights", !"expected", i32 1072001, i32 2146411647}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !9, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !9, i64 0}

@@ -33756,7 +33756,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit95: ; preds = %.split, %_ZNKSt9b
   %260 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %259)
   %261 = add nuw nsw i64 %.0168, 1
   %exitcond174.not = icmp eq i64 %261, 4
-  br i1 %exitcond174.not, label %.split170.us, label %.split, !llvm.loop !727
+  br i1 %exitcond174.not, label %.split170.us, label %.split, !llvm.loop !725
 
 262:                                              ; preds = %.split170.us
   %263 = load ptr, ptr %171, align 8, !tbaa !35
@@ -34542,7 +34542,7 @@ define internal void @_GLOBAL__sub_I_RGBDOdometry.cpp() #27 section ".text.start
   %10 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN5Eigen12placeholdersL6lastp1E)
   %11 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5Eigen12placeholdersL3allE)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false), !tbaa.struct !728
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false), !tbaa.struct !726
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -34554,7 +34554,7 @@ define internal void @_GLOBAL__sub_I_RGBDOdometry.cpp() #27 section ".text.start
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEED2Ev, ptr nonnull @_ZN6open3d13visualization7gl_utilL19texture_format_map_E, ptr nonnull @__dso_handle) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) @constinit.5, i64 24, i1 false), !tbaa.struct !728
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) @constinit.5, i64 24, i1 false), !tbaa.struct !726
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -35390,7 +35390,5 @@ attributes #36 = { nounwind willreturn memory(read) }
 !722 = distinct !{!722, !18}
 !723 = !{!97, !11, i64 16}
 !724 = !{!700, !9, i64 224}
-!725 = distinct !{!725, !18, !726}
-!726 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!727 = distinct !{!727, !18}
-!728 = !{i64 0, i64 24, !31}
+!725 = distinct !{!725, !18}
+!726 = !{i64 0, i64 24, !31}

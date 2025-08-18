@@ -112,7 +112,7 @@ Tru_ManReadOne.exit29.us:                         ; preds = %Tru_ManEqual.exit.u
 53:                                               ; preds = %.lr.ph.i21.us
   %indvars.iv.next.i24.us = add nuw nsw i64 %indvars.iv.i22.us, 1
   %exitcond.not.i25.us = icmp eq i64 %indvars.iv.next.i24.us, %wide.trip.count.i20
-  br i1 %exitcond.not.i25.us, label %Tru_ManEqual.exit.thread, label %.lr.ph.i21.us, !llvm.loop !28
+  br i1 %exitcond.not.i25.us, label %Tru_ManEqual.exit.thread, label %.lr.ph.i21.us, !llvm.loop !27
 
 Tru_ManEqual.exit.thread:                         ; preds = %Tru_ManEqual.exit.us, %Tru_ManReadOne.exit29.us, %53, %Tru_ManHash.exit, %.lr.ph, %Tru_ManReadOne.exit
   %.034 = phi ptr [ %20, %Tru_ManReadOne.exit ], [ %20, %.lr.ph ], [ %20, %Tru_ManHash.exit ], [ %.037.us, %53 ], [ %40, %Tru_ManReadOne.exit29.us ], [ %40, %Tru_ManEqual.exit.us ]
@@ -169,9 +169,9 @@ Tru_ManReadOne.exit:                              ; preds = %13
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i64, ptr %.sink, i64 %25
   %.02746.in = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %.02746 = load i32, ptr %.02746.in, align 4, !tbaa !29
+  %.02746 = load i32, ptr %.02746.in, align 4, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %27, align 4, !tbaa !29
+  store i32 0, ptr %27, align 4, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %12, align 4, !tbaa !12
   %30 = load i32, ptr %4, align 4, !tbaa !13
@@ -265,11 +265,11 @@ Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.u
 69:                                               ; preds = %.lr.ph.i21.us.i
   %indvars.iv.next.i24.us.i = add nuw nsw i64 %indvars.iv.i22.us.i, 1
   %exitcond.not.i25.us.i = icmp eq i64 %indvars.iv.next.i24.us.i, %wide.trip.count.i20.i
-  br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !28
+  br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !27
 
 Tru_ManLookup.exit:                               ; preds = %Tru_ManEqual.exit.us.i, %Tru_ManReadOne.exit29.us.i, %69, %Tru_ManHash.exit.i, %Tru_ManReadOne.exit.i, %.lr.ph.i
   %.034.i = phi ptr [ %42, %Tru_ManReadOne.exit.i ], [ %42, %.lr.ph.i ], [ %42, %Tru_ManHash.exit.i ], [ %.037.us.i, %69 ], [ %60, %Tru_ManReadOne.exit29.us.i ], [ %60, %Tru_ManEqual.exit.us.i ]
-  %70 = load i32, ptr %26, align 8, !tbaa !31
+  %70 = load i32, ptr %26, align 8, !tbaa !30
   store i32 %70, ptr %.034.i, align 4, !tbaa !16
   %.not.i35 = icmp eq i32 %.02746, 0
   br i1 %.not.i35, label %._crit_edge, label %Tru_ManReadOne.exit38
@@ -284,12 +284,12 @@ Tru_ManReadOne.exit38:                            ; preds = %Tru_ManLookup.exit
   %76 = getelementptr inbounds ptr, ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %.not34 = icmp eq ptr %77, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %Tru_ManLookup.exit, %Tru_ManReadOne.exit38, %13, %Tru_ManReadOne.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge52, label %13, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge52, label %13, !llvm.loop !32
 
 ._crit_edge52:                                    ; preds = %._crit_edge, %1
   %.not = icmp eq ptr %3, null
@@ -323,7 +323,7 @@ define i32 @Tru_ManInsert(ptr noundef captures(none) %0, ptr noundef captures(no
 6:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Tru_ManEqual0.exit.thread, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %Tru_ManEqual0.exit.thread, label %.lr.ph.i, !llvm.loop !33
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
@@ -335,7 +335,7 @@ define i32 @Tru_ManInsert(ptr noundef captures(none) %0, ptr noundef captures(no
 9:                                                ; preds = %.lr.ph.i36
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %Tru_ManEqual0.exit.thread, label %.lr.ph.i36, !llvm.loop !35
+  br i1 %exitcond.not.i40, label %Tru_ManEqual0.exit.thread, label %.lr.ph.i36, !llvm.loop !34
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i, %9
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i39, %9 ], [ 0, %.lr.ph.i ]
@@ -346,13 +346,13 @@ define i32 @Tru_ManInsert(ptr noundef captures(none) %0, ptr noundef captures(no
 
 Tru_ManEqual1.exit:                               ; preds = %.lr.ph.i36
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = load i32, ptr %12, align 8, !tbaa !36
+  %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %12, align 8, !tbaa !36
+  store i32 %14, ptr %12, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = getelementptr i8, ptr %16, i64 8
-  %.val = load i32, ptr %17, align 8, !tbaa !37
+  %.val = load i32, ptr %17, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !13
   %20 = shl nsw i32 %19, 1
@@ -394,7 +394,7 @@ Tru_ManNot.exit.thread:                           ; preds = %27
   store i64 %34, ptr %32, align 8, !tbaa !14
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %Tru_ManNot.exit.thread89, label %.lr.ph.i43, !llvm.loop !38
+  br i1 %exitcond.not.i46, label %Tru_ManNot.exit.thread89, label %.lr.ph.i43, !llvm.loop !37
 
 Tru_ManNot.exit.thread89:                         ; preds = %.lr.ph.i43
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -501,21 +501,21 @@ Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.u
 81:                                               ; preds = %.lr.ph.i21.us.i
   %indvars.iv.next.i24.us.i = add nuw nsw i64 %indvars.iv.i22.us.i, 1
   %exitcond.not.i25.us.i = icmp eq i64 %indvars.iv.next.i24.us.i, %wide.trip.count.i20.i
-  br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !28
+  br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !27
 
 Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.us.i, %Tru_ManHash.exit.i
   %.034.i70 = phi ptr [ %57, %Tru_ManHash.exit.i ], [ %72, %Tru_ManEqual.exit.us.i ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !39
+  %83 = load i32, ptr %82, align 8, !tbaa !38
   %84 = add nsw i32 %83, 1
   %85 = ashr i32 %84, 1
   %86 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %87 = load i32, ptr %86, align 8, !tbaa !37
+  %87 = load i32, ptr %86, align 8, !tbaa !36
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %86, align 8, !tbaa !37
+  store i32 %88, ptr %86, align 8, !tbaa !36
   %89 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %90 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
-  %91 = load i32, ptr %90, align 4, !tbaa !40
+  %91 = load i32, ptr %90, align 4, !tbaa !39
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %.pre86, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !24
@@ -528,9 +528,9 @@ Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.u
 
 98:                                               ; preds = %Tru_ManLookup.exit.thread
   %99 = add nsw i32 %91, 1
-  store i32 %99, ptr %90, align 4, !tbaa !40
+  store i32 %99, ptr %90, align 4, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  %101 = load i32, ptr %100, align 4, !tbaa !41
+  %101 = load i32, ptr %100, align 4, !tbaa !40
   %102 = icmp eq i32 %99, %101
   br i1 %102, label %103, label %113
 
@@ -540,14 +540,14 @@ Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.u
   %106 = shl nsw i64 %105, 3
   %107 = tail call ptr @realloc(ptr noundef nonnull %.pre86, i64 noundef %106) #12
   store ptr %107, ptr %89, align 8, !tbaa !20
-  %108 = load i32, ptr %100, align 4, !tbaa !41
+  %108 = load i32, ptr %100, align 4, !tbaa !40
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds ptr, ptr %107, i64 %109
   %111 = shl nsw i64 %109, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %110, i8 0, i64 %111, i1 false)
   %112 = shl nsw i32 %108, 1
-  store i32 %112, ptr %100, align 4, !tbaa !41
-  %.pre.i = load i32, ptr %90, align 4, !tbaa !40
+  store i32 %112, ptr %100, align 4, !tbaa !40
+  %.pre.i = load i32, ptr %90, align 4, !tbaa !39
   %.pre1.pre.pre.i = load i32, ptr %.pre, align 8, !tbaa !23
   br label %113
 
@@ -627,12 +627,12 @@ Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit,
   store i64 %154, ptr %155, align 8, !tbaa !14
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i51
-  br i1 %exitcond.not.i55, label %Tru_ManCopy.exit, label %.lr.ph.i52, !llvm.loop !42
+  br i1 %exitcond.not.i55, label %Tru_ManCopy.exit, label %.lr.ph.i52, !llvm.loop !41
 
 Tru_ManCopy.exit:                                 ; preds = %.lr.ph.i52, %Tru_ManReadOne.exit
-  store i32 %136, ptr %149, align 8, !tbaa !31
+  store i32 %136, ptr %149, align 8, !tbaa !30
   %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  store i32 0, ptr %156, align 4, !tbaa !29
+  store i32 0, ptr %156, align 4, !tbaa !28
   br label %Tru_ManLookup.exit
 
 Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit29.us.i, %81, %.lr.ph.i47, %Tru_ManReadOne.exit.i, %Tru_ManCopy.exit
@@ -654,7 +654,7 @@ Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit
   store i64 %161, ptr %159, align 8, !tbaa !14
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
-  br i1 %exitcond.not.i61, label %Tru_ManNot.exit62, label %.lr.ph.i58, !llvm.loop !38
+  br i1 %exitcond.not.i61, label %Tru_ManNot.exit62, label %.lr.ph.i58, !llvm.loop !37
 
 Tru_ManNot.exit62:                                ; preds = %.lr.ph.i58, %Tru_ManLookup.exit
   %162 = load i32, ptr %.034.i71, align 4, !tbaa !16
@@ -682,7 +682,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 -4294967296, ptr %7, align 8
   %8 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #10
-  store i32 %0, ptr %8, align 8, !tbaa !43
+  store i32 %0, ptr %8, align 8, !tbaa !42
   %9 = icmp slt i32 %0, 6
   %10 = add nsw i32 %0, -6
   %11 = shl nuw i32 1, %10
@@ -695,7 +695,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %17 = lshr exact i64 %16, 2
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %18, ptr %19, align 8, !tbaa !39
+  store i32 %18, ptr %19, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 8147, ptr %20, align 4, !tbaa !13
   %21 = tail call noalias dereferenceable_or_null(32588) ptr @calloc(i64 noundef 8147, i64 noundef 4) #10
@@ -706,7 +706,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 65535, ptr %24, align 4, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 256, ptr %25, align 4, !tbaa !41
+  store i32 256, ptr %25, align 4, !tbaa !40
   %26 = tail call noalias dereferenceable_or_null(2048) ptr @calloc(i64 noundef 256, i64 noundef 8) #10
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %26, ptr %27, align 8, !tbaa !20
@@ -719,7 +719,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   store ptr %23, ptr %30, align 8, !tbaa !19
   %31 = tail call noalias ptr @malloc(i64 noundef %15) #13
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %31, ptr %32, align 8, !tbaa !44
+  store ptr %31, ptr %32, align 8, !tbaa !43
   %33 = icmp sgt i32 %0, 0
   br i1 %33, label %.preheader.lr.ph, label %._crit_edge38
 
@@ -735,7 +735,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %36, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre = load ptr, ptr %32, align 8, !tbaa !44
+  %.pre = load ptr, ptr %32, align 8, !tbaa !43
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -747,13 +747,13 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %35 to i64
-  %41 = load ptr, ptr %32, align 8, !tbaa !44
+  %41 = load ptr, ptr %32, align 8, !tbaa !43
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %42 = getelementptr inbounds nuw [6 x i64], ptr %2, i64 0, i64 %indvars.iv46
   %43 = load i64, ptr %42, align 8, !tbaa !14
-  %44 = load ptr, ptr %32, align 8, !tbaa !44
+  %44 = load ptr, ptr %32, align 8, !tbaa !43
   %wide.trip.count44 = zext nneg i32 %35 to i64
   br label %45
 
@@ -763,7 +763,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   store i64 %43, ptr %46, align 8, !tbaa !14
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge, label %45, !llvm.loop !45
+  br i1 %exitcond45.not, label %._crit_edge, label %45, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -775,7 +775,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   store i64 %., ptr %49, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %45, %.preheader.._crit_edge_crit_edge
   %50 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %44, %45 ], [ %41, %.lr.ph.split ]
@@ -784,7 +784,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   store i32 %51, ptr %52, align 4, !tbaa !16
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge38.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %exitcond50.not, label %._crit_edge38.loopexit, label %.preheader, !llvm.loop !45
 
 ._crit_edge38.loopexit:                           ; preds = %._crit_edge
   %.pre51 = load i32, ptr %13, align 4, !tbaa !12
@@ -796,7 +796,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %54, label %.lr.ph.preheader.i, label %Tru_ManClear.exit
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge38
-  %55 = load ptr, ptr %32, align 8, !tbaa !44
+  %55 = load ptr, ptr %32, align 8, !tbaa !43
   %56 = zext nneg i32 %53 to i64
   %57 = shl nuw nsw i64 %56, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %57, i1 false), !tbaa !14
@@ -816,11 +816,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load i32, ptr %2, align 8, !tbaa !36
+  %3 = load i32, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr i8, ptr %5, i64 8
-  %.val = load i32, ptr %6, align 8, !tbaa !37
+  %.val = load i32, ptr %6, align 8, !tbaa !36
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %.val)
   %8 = load ptr, ptr %4, align 8, !tbaa !19
   %9 = icmp eq ptr %8, null
@@ -828,7 +828,7 @@ define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !41
+  %12 = load i32, ptr %11, align 4, !tbaa !40
   %13 = icmp sgt i32 %12, 0
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre.i.i = load ptr, ptr %14, align 8, !tbaa !20
@@ -848,7 +848,7 @@ define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %20 = load ptr, ptr %14, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i
   store ptr null, ptr %21, align 8, !tbaa !24
-  %.pre18.i.i = load i32, ptr %11, align 4, !tbaa !41
+  %.pre18.i.i = load i32, ptr %11, align 4, !tbaa !40
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph.i.i
@@ -857,7 +857,7 @@ define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %25 = sext i32 %23 to i64
   %26 = icmp slt i64 %indvars.iv.next.i.i, %25
-  br i1 %26, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !48
+  br i1 %26, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !46
 
 ._crit_edge.i.i:                                  ; preds = %10
   %.not.i.i = icmp eq ptr %.pre.i.i, null
@@ -874,13 +874,13 @@ Vec_SetFree_.exit.i:                              ; preds = %._crit_edge.thread.
 
 Vec_SetFree.exit:                                 ; preds = %1, %Vec_SetFree_.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !44
+  %29 = load ptr, ptr %28, align 8, !tbaa !43
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %Vec_SetFree.exit
   tail call void @free(ptr noundef nonnull %29) #11
-  store ptr null, ptr %28, align 8, !tbaa !44
+  store ptr null, ptr %28, align 8, !tbaa !43
   br label %31
 
 31:                                               ; preds = %Vec_SetFree.exit, %30
@@ -940,7 +940,7 @@ define ptr @Tru_ManFunc(ptr noundef readonly captures(none) %0, i32 noundef %1) 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %5, align 8, !tbaa !43
   br label %20
 
 Tru_ManReadOne.exit:                              ; preds = %2
@@ -1018,26 +1018,24 @@ attributes #13 = { nounwind allocsize(0) }
 !23 = !{!21, !5, i64 0}
 !24 = !{!11, !11, i64 0}
 !25 = !{!21, !5, i64 4}
-!26 = distinct !{!26, !18, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !18}
-!29 = !{!30, !5, i64 4}
-!30 = !{!"Tru_One_t_", !5, i64 0, !5, i64 4, !6, i64 8}
-!31 = !{!30, !5, i64 0}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = !{!29, !5, i64 4}
+!29 = !{!"Tru_One_t_", !5, i64 0, !5, i64 4, !6, i64 8}
+!30 = !{!29, !5, i64 0}
+!31 = distinct !{!31, !18}
 !32 = distinct !{!32, !18}
 !33 = distinct !{!33, !18}
 !34 = distinct !{!34, !18}
-!35 = distinct !{!35, !18}
-!36 = !{!4, !5, i64 104}
-!37 = !{!21, !5, i64 8}
-!38 = distinct !{!38, !18}
-!39 = !{!4, !5, i64 8}
-!40 = !{!21, !5, i64 12}
-!41 = !{!21, !5, i64 20}
-!42 = distinct !{!42, !18}
-!43 = !{!4, !5, i64 0}
-!44 = !{!4, !11, i64 32}
-!45 = distinct !{!45, !18, !27}
+!35 = !{!4, !5, i64 104}
+!36 = !{!21, !5, i64 8}
+!37 = distinct !{!37, !18}
+!38 = !{!4, !5, i64 8}
+!39 = !{!21, !5, i64 12}
+!40 = !{!21, !5, i64 20}
+!41 = distinct !{!41, !18}
+!42 = !{!4, !5, i64 0}
+!43 = !{!4, !11, i64 32}
+!44 = distinct !{!44, !18}
+!45 = distinct !{!45, !18}
 !46 = distinct !{!46, !18}
-!47 = distinct !{!47, !18}
-!48 = distinct !{!48, !18}

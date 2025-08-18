@@ -2624,7 +2624,7 @@ on2avc_decode_band_scales.exit.i:                 ; preds = %267
   %353 = zext i32 %352 to i64
   %354 = getelementptr inbounds nuw %struct.VLCElem, ptr %321, i64 %353
   %355 = load i16, ptr %354, align 2, !tbaa !38
-  %356 = sext i16 %355 to i32
+  %356 = zext i16 %355 to i32
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 2
   %358 = load i16, ptr %357, align 2, !tbaa !38
   %359 = sext i16 %358 to i32
@@ -3100,9 +3100,9 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
 
 645:                                              ; preds = %.lr.ph137, %on2avc_reconstruct_channel.exit
   %indvars.iv164 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next165, %on2avc_reconstruct_channel.exit ]
-  %.val = load ptr, ptr %616, align 8, !tbaa !119
+  %.val = load ptr, ptr %616, align 8, !tbaa !118
   %646 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv164
-  %647 = load ptr, ptr %646, align 8, !tbaa !120
+  %647 = load ptr, ptr %646, align 8, !tbaa !119
   %648 = getelementptr inbounds float, ptr %647, i64 %617
   %649 = getelementptr inbounds nuw [2 x [1024 x float]], ptr %618, i64 0, i64 %indvars.iv164
   %650 = getelementptr inbounds nuw [2 x [1024 x float]], ptr %619, i64 0, i64 %indvars.iv164
@@ -3115,21 +3115,21 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
   ]
 
 652:                                              ; preds = %645, %645, %645
-  %653 = load ptr, ptr %624, align 8, !tbaa !121
-  %654 = load ptr, ptr %625, align 16, !tbaa !122
+  %653 = load ptr, ptr %624, align 8, !tbaa !120
+  %654 = load ptr, ptr %625, align 16, !tbaa !121
   tail call void %653(ptr noundef %654, ptr noundef nonnull %620, ptr noundef nonnull %649, i64 noundef 4) #11
   br label %.loopexit.i65
 
 .preheader.i62:                                   ; preds = %645, %.preheader.i62
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i64, %.preheader.i62 ], [ 0, %645 ]
-  %655 = load ptr, ptr %622, align 8, !tbaa !123
-  %656 = load ptr, ptr %623, align 16, !tbaa !124
+  %655 = load ptr, ptr %622, align 8, !tbaa !122
+  %656 = load ptr, ptr %623, align 16, !tbaa !123
   %657 = getelementptr inbounds nuw float, ptr %620, i64 %indvars.iv.i63
   %658 = getelementptr inbounds nuw float, ptr %649, i64 %indvars.iv.i63
   tail call void %655(ptr noundef %656, ptr noundef nonnull %657, ptr noundef nonnull %658, i64 noundef 4) #11
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 128
   %659 = icmp samesign ult i64 %indvars.iv.i63, 896
-  br i1 %659, label %.preheader.i62, label %.loopexit.i65, !llvm.loop !125
+  br i1 %659, label %.preheader.i62, label %.loopexit.i65, !llvm.loop !124
 
 .loopexit.i65:                                    ; preds = %.preheader.i62, %652, %645
   %660 = load i32, ptr %18, align 4, !tbaa !86
@@ -3146,7 +3146,7 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
 663:                                              ; preds = %661, %661
   %664 = load ptr, ptr %626, align 8, !tbaa !50
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 40
-  %666 = load ptr, ptr %665, align 8, !tbaa !126
+  %666 = load ptr, ptr %665, align 8, !tbaa !125
   tail call void %666(ptr noundef %648, ptr noundef nonnull %650, ptr noundef nonnull %620, ptr noundef nonnull %627, i32 noundef 512) #11
   br label %694
 
@@ -3157,7 +3157,7 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
   %670 = icmp eq i32 %669, 3
   %671 = load ptr, ptr %626, align 8, !tbaa !50
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 40
-  %673 = load ptr, ptr %672, align 8, !tbaa !126
+  %673 = load ptr, ptr %672, align 8, !tbaa !125
   %674 = getelementptr inbounds nuw i8, ptr %650, i64 1792
   tail call void %673(ptr noundef nonnull %668, ptr noundef nonnull %674, ptr noundef nonnull %620, ptr noundef nonnull %628, i32 noundef 64) #11
   br i1 %670, label %675, label %692
@@ -3165,22 +3165,22 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
 675:                                              ; preds = %667
   %676 = load ptr, ptr %626, align 8, !tbaa !50
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 40
-  %678 = load ptr, ptr %677, align 8, !tbaa !126
+  %678 = load ptr, ptr %677, align 8, !tbaa !125
   %679 = getelementptr inbounds nuw i8, ptr %648, i64 2304
   tail call void %678(ptr noundef nonnull %679, ptr noundef nonnull %629, ptr noundef nonnull %630, ptr noundef nonnull %628, i32 noundef 64) #11
   %680 = load ptr, ptr %626, align 8, !tbaa !50
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 40
-  %682 = load ptr, ptr %681, align 8, !tbaa !126
+  %682 = load ptr, ptr %681, align 8, !tbaa !125
   %683 = getelementptr inbounds nuw i8, ptr %648, i64 2816
   tail call void %682(ptr noundef nonnull %683, ptr noundef nonnull %631, ptr noundef nonnull %632, ptr noundef nonnull %628, i32 noundef 64) #11
   %684 = load ptr, ptr %626, align 8, !tbaa !50
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 40
-  %686 = load ptr, ptr %685, align 8, !tbaa !126
+  %686 = load ptr, ptr %685, align 8, !tbaa !125
   %687 = getelementptr inbounds nuw i8, ptr %648, i64 3328
   tail call void %686(ptr noundef nonnull %687, ptr noundef nonnull %633, ptr noundef nonnull %634, ptr noundef nonnull %628, i32 noundef 64) #11
   %688 = load ptr, ptr %626, align 8, !tbaa !50
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 40
-  %690 = load ptr, ptr %689, align 8, !tbaa !126
+  %690 = load ptr, ptr %689, align 8, !tbaa !125
   tail call void %690(ptr noundef nonnull %621, ptr noundef nonnull %635, ptr noundef nonnull %636, ptr noundef nonnull %628, i32 noundef 64) #11
   %691 = getelementptr inbounds nuw i8, ptr %648, i64 3840
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %691, ptr noundef nonnull align 4 dereferenceable(256) %621, i64 256, i1 false)
@@ -3204,17 +3204,17 @@ on2avc_apply_ms.exit:                             ; preds = %._crit_edge.us.i, %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %650, ptr noundef nonnull align 4 dereferenceable(256) %638, i64 256, i1 false)
   %697 = load ptr, ptr %626, align 8, !tbaa !50
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 40
-  %699 = load ptr, ptr %698, align 8, !tbaa !126
+  %699 = load ptr, ptr %698, align 8, !tbaa !125
   %700 = getelementptr inbounds nuw i8, ptr %650, i64 256
   tail call void %699(ptr noundef nonnull %700, ptr noundef nonnull %639, ptr noundef nonnull %640, ptr noundef nonnull %628, i32 noundef 64) #11
   %701 = load ptr, ptr %626, align 8, !tbaa !50
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 40
-  %703 = load ptr, ptr %702, align 8, !tbaa !126
+  %703 = load ptr, ptr %702, align 8, !tbaa !125
   %704 = getelementptr inbounds nuw i8, ptr %650, i64 768
   tail call void %703(ptr noundef nonnull %704, ptr noundef nonnull %641, ptr noundef nonnull %642, ptr noundef nonnull %628, i32 noundef 64) #11
   %705 = load ptr, ptr %626, align 8, !tbaa !50
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 40
-  %707 = load ptr, ptr %706, align 8, !tbaa !126
+  %707 = load ptr, ptr %706, align 8, !tbaa !125
   %708 = getelementptr inbounds nuw i8, ptr %650, i64 1280
   tail call void %707(ptr noundef nonnull %708, ptr noundef nonnull %643, ptr noundef nonnull %644, ptr noundef nonnull %628, i32 noundef 64) #11
   %709 = getelementptr inbounds nuw i8, ptr %650, i64 1792
@@ -3238,7 +3238,7 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   %715 = load i32, ptr %714, align 4, !tbaa !27
   %716 = sext i32 %715 to i64
   %717 = icmp slt i64 %indvars.iv.next165, %716
-  br i1 %717, label %645, label %on2avc_read_channel_data.exit, !llvm.loop !128
+  br i1 %717, label %645, label %on2avc_read_channel_data.exit, !llvm.loop !127
 
 718:                                              ; preds = %on2avc_apply_ms.exit
   br i1 %615, label %.lr.ph.i67, label %on2avc_read_channel_data.exit
@@ -3263,9 +3263,9 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
 
 734:                                              ; preds = %.loopexit.i71, %.lr.ph.i67
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph.i67 ], [ %indvars.iv.next81.i, %.loopexit.i71 ]
-  %735 = load ptr, ptr %719, align 8, !tbaa !119
+  %735 = load ptr, ptr %719, align 8, !tbaa !118
   %736 = getelementptr inbounds nuw ptr, ptr %735, i64 %indvars.iv80.i
-  %737 = load ptr, ptr %736, align 8, !tbaa !120
+  %737 = load ptr, ptr %736, align 8, !tbaa !119
   %738 = getelementptr inbounds float, ptr %737, i64 %720
   %739 = getelementptr inbounds nuw [2 x [1024 x float]], ptr %721, i64 0, i64 %indvars.iv80.i
   %740 = getelementptr inbounds nuw [2 x [1024 x float]], ptr %722, i64 0, i64 %indvars.iv80.i
@@ -3279,8 +3279,8 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   ]
 
 743:                                              ; preds = %734
-  %744 = load ptr, ptr %728, align 8, !tbaa !121
-  %745 = load ptr, ptr %729, align 16, !tbaa !122
+  %744 = load ptr, ptr %728, align 8, !tbaa !120
+  %745 = load ptr, ptr %729, align 16, !tbaa !121
   tail call void %744(ptr noundef %745, ptr noundef nonnull %723, ptr noundef nonnull %739, i64 noundef 4) #11
   br label %.loopexit.i71
 
@@ -3292,8 +3292,8 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
 748:                                              ; preds = %734
   %749 = load ptr, ptr %726, align 16, !tbaa !48
   tail call void %749(ptr noundef nonnull %0, ptr noundef nonnull %723, ptr noundef nonnull %739, i32 noundef 512) #11
-  %750 = load ptr, ptr %724, align 16, !tbaa !129
-  %751 = load ptr, ptr %725, align 8, !tbaa !130
+  %750 = load ptr, ptr %724, align 16, !tbaa !128
+  %751 = load ptr, ptr %725, align 8, !tbaa !129
   %752 = getelementptr inbounds nuw i8, ptr %739, i64 2048
   tail call void %750(ptr noundef %751, ptr noundef nonnull %727, ptr noundef nonnull %752, i64 noundef 4) #11
   br label %753
@@ -3310,11 +3310,11 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   store float %756, ptr %758, align 4, !tbaa !42
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 256
-  br i1 %exitcond79.not.i, label %.loopexit.i71, label %753, !llvm.loop !131
+  br i1 %exitcond79.not.i, label %.loopexit.i71, label %753, !llvm.loop !130
 
 760:                                              ; preds = %734
-  %761 = load ptr, ptr %724, align 16, !tbaa !129
-  %762 = load ptr, ptr %725, align 8, !tbaa !130
+  %761 = load ptr, ptr %724, align 16, !tbaa !128
+  %762 = load ptr, ptr %725, align 8, !tbaa !129
   tail call void %761(ptr noundef %762, ptr noundef nonnull %723, ptr noundef nonnull %739, i64 noundef 4) #11
   br label %763
 
@@ -3329,7 +3329,7 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   store float %766, ptr %767, align 4, !tbaa !42
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 256
-  br i1 %exitcond.not.i70, label %769, label %763, !llvm.loop !132
+  br i1 %exitcond.not.i70, label %769, label %763, !llvm.loop !131
 
 769:                                              ; preds = %763
   %770 = load ptr, ptr %726, align 16, !tbaa !48
@@ -3341,7 +3341,7 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1792) %738, ptr noundef nonnull align 4 dereferenceable(1792) %740, i64 1792, i1 false)
   %772 = load ptr, ptr %730, align 8, !tbaa !50
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 40
-  %774 = load ptr, ptr %773, align 8, !tbaa !126
+  %774 = load ptr, ptr %773, align 8, !tbaa !125
   %775 = getelementptr inbounds nuw i8, ptr %740, i64 1792
   tail call void %774(ptr noundef nonnull %741, ptr noundef nonnull %775, ptr noundef nonnull %723, ptr noundef nonnull %731, i32 noundef 64) #11
   %776 = getelementptr inbounds nuw i8, ptr %738, i64 2304
@@ -3354,7 +3354,7 @@ on2avc_reconstruct_channel.exit:                  ; preds = %694, %696, %710, %7
   %779 = load i32, ptr %778, align 4, !tbaa !27
   %780 = sext i32 %779 to i64
   %781 = icmp slt i64 %indvars.iv.next81.i, %780
-  br i1 %781, label %734, label %on2avc_read_channel_data.exit, !llvm.loop !133
+  br i1 %781, label %734, label %on2avc_read_channel_data.exit, !llvm.loop !132
 
 on2avc_read_channel_data.exit:                    ; preds = %.loopexit.i71, %on2avc_reconstruct_channel.exit, %.preheader, %718, %on2avc_decode_band_scales.exit.i, %on2avc_decode_band_types.exit.i, %5, %13
   %.044 = phi i32 [ -1094995529, %13 ], [ -1094995529, %5 ], [ -1094995529, %on2avc_decode_band_types.exit.i ], [ -1094995529, %on2avc_decode_band_scales.exit.i ], [ 0, %718 ], [ 0, %.preheader ], [ 0, %on2avc_reconstruct_channel.exit ], [ 0, %.loopexit.i71 ]
@@ -3387,7 +3387,7 @@ define internal fastcc void @on2avc_free_vlcs(ptr noundef %0) unnamed_addr #0 {
   tail call void @ff_vlc_free(ptr noundef nonnull %5) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %6, label %4, !llvm.loop !134
+  br i1 %exitcond.not, label %6, label %4, !llvm.loop !133
 
 6:                                                ; preds = %4
   ret void
@@ -3544,21 +3544,20 @@ attributes #13 = { cold }
 !114 = distinct !{!114, !44}
 !115 = distinct !{!115, !44}
 !116 = distinct !{!116, !44}
-!117 = distinct !{!117, !44, !118}
-!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!119 = !{!56, !57, i64 96}
-!120 = !{!14, !14, i64 0}
-!121 = !{!29, !7, i64 72}
-!122 = !{!29, !32, i64 16}
-!123 = !{!29, !7, i64 88}
-!124 = !{!29, !32, i64 32}
-!125 = distinct !{!125, !44}
-!126 = !{!127, !7, i64 40}
-!127 = !{!"AVFloatDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
-!128 = distinct !{!128, !44}
-!129 = !{!29, !7, i64 80}
-!130 = !{!29, !32, i64 24}
+!117 = distinct !{!117, !44}
+!118 = !{!56, !57, i64 96}
+!119 = !{!14, !14, i64 0}
+!120 = !{!29, !7, i64 72}
+!121 = !{!29, !32, i64 16}
+!122 = !{!29, !7, i64 88}
+!123 = !{!29, !32, i64 32}
+!124 = distinct !{!124, !44}
+!125 = !{!126, !7, i64 40}
+!126 = !{!"AVFloatDSPContext", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88}
+!127 = distinct !{!127, !44}
+!128 = !{!29, !7, i64 80}
+!129 = !{!29, !32, i64 24}
+!130 = distinct !{!130, !44}
 !131 = distinct !{!131, !44}
 !132 = distinct !{!132, !44}
 !133 = distinct !{!133, !44}
-!134 = distinct !{!134, !44}

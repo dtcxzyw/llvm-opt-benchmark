@@ -1150,7 +1150,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   %38 = shl nuw i64 1, %37
   %39 = and i64 %38, -2
   %40 = icmp ult i64 %39, %2
-  br i1 %40, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
+  br i1 %40, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit.i.i, %23
   %41 = load atomic i64, ptr %15 acquire, align 8
@@ -1170,7 +1170,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   store ptr %.0.i.i.i, ptr %44, align 8
   %47 = add nuw nsw i64 %.01825.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %47, 3
-  br i1 %exitcond.not.i.i, label %48, label %.noexc, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %48, label %.noexc, !llvm.loop !28
 
 48:                                               ; preds = %.noexc
   %scevgep.i.i = getelementptr i8, ptr %43, i64 24
@@ -1228,7 +1228,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %65, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %64, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.0.i, %65 ]
   %67 = load atomic i64, ptr %15 acquire, align 8
   %68 = icmp eq i64 %16, %67
-  br i1 %68, label %54, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit, !llvm.loop !30
+  br i1 %68, label %54, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit, !llvm.loop !29
 
 _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
   %.0.i.i24.le = inttoptr i64 %67 to ptr
@@ -1290,7 +1290,7 @@ _ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %92, i8 0, i64 128, i1 false)
   %93 = add nuw i64 %storemerge6.i, 1
   %exitcond.not.i = icmp eq i64 %93, %3
-  br i1 %exitcond.not.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE23internal_loop_constructIJEEEvPSt6atomicIPSC_EmmDpRKT_.exit, label %_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE23internal_loop_constructIJEEEvPSt6atomicIPSD_EmmDpRKT_EUlvE_ED2Ev.exit.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE23internal_loop_constructIJEEEvPSt6atomicIPSC_EmmDpRKT_.exit, label %_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE23internal_loop_constructIJEEEvPSt6atomicIPSD_EmmDpRKT_EUlvE_ED2Ev.exit.i, !llvm.loop !30
 
 _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE23internal_loop_constructIJEEEvPSt6atomicIPSC_EmmDpRKT_.exit: ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE23internal_loop_constructIJEEEvPSt6atomicIPSD_EmmDpRKT_EUlvE_ED2Ev.exit.i, %90
   %94 = or i64 %2, 1
@@ -1368,7 +1368,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   %22 = shl nuw i64 1, %21
   %23 = and i64 %22, -2
   %24 = icmp ult i64 %23, %7
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !28
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit.i, %1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1390,7 +1390,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   store ptr %.0.i.i, ptr %30, align 8
   %33 = add nuw nsw i64 %.01825.i, 1
   %exitcond.not.i = icmp eq i64 %33, 3
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %29, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %29, !llvm.loop !28
 
 .preheader.preheader.i:                           ; preds = %29
   %scevgep.i = getelementptr i8, ptr %28, i64 24
@@ -1498,7 +1498,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %.sroa.5.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 1, ptr %35, align 8, !alias.scope !32
+  store i8 1, ptr %35, align 8, !alias.scope !31
   %36 = shl i64 %34, 7
   %37 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef %36)
           to label %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE_E12on_exceptionIZNSG_14create_segmentESK_mmEUlvE0_EEvT_.exit unwind label %38
@@ -1567,7 +1567,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
   %57 = add nuw i64 %.01594, 1
   %58 = load i64, ptr %9, align 8
   %59 = icmp ult i64 %57, %58
-  br i1 %59, label %.lr.ph, label %.preheader, !llvm.loop !35
+  br i1 %59, label %.lr.ph, label %.preheader, !llvm.loop !34
 
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %60 = phi i1 [ false, %.lr.ph96 ], [ true, %.preheader ]
@@ -1577,7 +1577,7 @@ _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal
   %62 = add nuw nsw i64 %.01495, 1
   %63 = icmp ult i64 %62, %58
   %64 = and i1 %63, %60
-  br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit, !llvm.loop !36
+  br i1 %64, label %.lr.ph96, label %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit, !llvm.loop !35
 
 65:                                               ; preds = %_ZN3tbb6detail2d014try_call_proxyIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE_E12on_exceptionIZNSG_14create_segmentESK_mmEUlvE0_EEvT_.exit
   %66 = load ptr, ptr %0, align 8
@@ -1738,7 +1738,7 @@ define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2d117concurrent_vec
   store atomic i64 %29, ptr %27 release, align 8
   %30 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %30, %24
-  br i1 %exitcond.not.i, label %_ZZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE14create_segmentEPSt6atomicIPSC_EmmENKUlvE0_clEv.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %_ZZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE14create_segmentEPSt6atomicIPSC_EmmENKUlvE0_clEv.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE14create_segmentEPSt6atomicIPSC_EmmENKUlvE0_clEv.exit: ; preds = %.lr.ph.i, %19, %5, %1
   ret void
@@ -1811,7 +1811,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   %29 = shl nuw i64 1, %28
   %30 = and i64 %29, -2
   %31 = icmp ult i64 %30, %1
-  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !28
+  br i1 %31, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEZNS1_18spin_wait_while_eqISD_SD_EET_RKSt6atomicISF_ET0_St12memory_orderEUlSD_E_EESF_SJ_SK_SL_.exit.i.i
   %32 = load atomic i64, ptr %6 acquire, align 8
@@ -1831,7 +1831,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPNS1_6paddedINS0_2d111ets_elementIN32pxrInter
   store ptr %.0.i.i.i, ptr %35, align 8
   %38 = add nuw nsw i64 %.01825.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, 3
-  br i1 %exitcond.not.i.i, label %39, label %.noexc, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %39, label %.noexc, !llvm.loop !28
 
 39:                                               ; preds = %.noexc
   %scevgep.i.i = getelementptr i8, ptr %34, i64 24
@@ -1889,7 +1889,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %56, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %55, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.0.i, %56 ]
   %58 = load atomic i64, ptr %6 acquire, align 8
   %59 = icmp eq i64 %7, %58
-  br i1 %59, label %45, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit, !llvm.loop !30
+  br i1 %59, label %45, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit, !llvm.loop !29
 
 _ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EENS1_17concurrent_vectorISC_SE_EELm3EE25extend_table_if_necessaryERPSt6atomicIPSC_Emm.exit.loopexit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
   %.0.i.i.le = inttoptr i64 %58 to ptr
@@ -1981,7 +1981,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11
   %14 = add nuw i64 %.012.i, 1
   %15 = load atomic i64, ptr %7 seq_cst, align 8
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %.lr.ph.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE15nullify_segmentEPSt6atomicIPSC_Em.exit, !llvm.loop !38
+  br i1 %16, label %.lr.ph.i, label %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE15nullify_segmentEPSt6atomicIPSC_Em.exit, !llvm.loop !37
 
 _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE15nullify_segmentEPSt6atomicIPSC_Em.exit: ; preds = %.lr.ph.i, %9, %10, %.preheader.i
   %.0.i.i6 = inttoptr i64 %6 to ptr
@@ -2047,7 +2047,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_20UsdStageCacheC
 _ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEEEE7destroyISD_EEvRSE_PT_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_20UsdStageCacheContextELb1EE12_StackHolderD2Ev.exit.i.i.i.i.i.i.i, %.lr.ph.i8
   %46 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %46, %.012.i.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !39
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorINS1_2d06paddedINS2_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEEEEE7destroyISD_EEvRSE_PT_.exit.i, %_ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS6_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS1_23cache_aligned_allocatorISC_EEE29number_of_elements_in_segmentEm.exit.i, %27
   %47 = load atomic i64, ptr %7 monotonic, align 8
@@ -2125,12 +2125,12 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %32 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %29, %11
   %35 = load ptr, ptr %.05273, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge75, label %11, !llvm.loop !41
+  br i1 %.not, label %._crit_edge75, label %11, !llvm.loop !40
 
 ._crit_edge75:                                    ; preds = %._crit_edge, %_ZNKSt4hashINSt6thread2idEEclERKS1_.exit
   store i8 0, ptr %1, align 1
@@ -2163,7 +2163,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %50 = shl nuw i64 1, %49
   %51 = icmp ugt i64 %41, %50
   %52 = add i64 %.055, 1
-  br i1 %51, label %.critedge, label %53, !llvm.loop !42
+  br i1 %51, label %.critedge, label %53, !llvm.loop !41
 
 53:                                               ; preds = %.critedge
   %54 = shl i64 16, %.055
@@ -2193,7 +2193,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8
   %.not58 = icmp ult i64 %71, %.055
-  br i1 %.not58, label %63, label %72, !llvm.loop !43
+  br i1 %.not58, label %63, label %72, !llvm.loop !42
 
 72:                                               ; preds = %67
   %73 = load i64, ptr %60, align 8
@@ -2239,7 +2239,7 @@ _ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23co
 95:                                               ; preds = %86, %90
   %96 = add i64 %.051, 1
   %97 = and i64 %96, %82
-  br label %86, !llvm.loop !44
+  br label %86, !llvm.loop !43
 
 98:                                               ; preds = %24, %93
   %.0 = phi ptr [ %.050, %93 ], [ %28, %24 ]
@@ -2332,15 +2332,15 @@ attributes #25 = { nounwind willreturn memory(none) }
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE0_EENS1_10raii_guardIT_EESN_: argument 0"}
-!34 = distinct !{!34, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE0_EENS1_10raii_guardIT_EESN_"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE0_EENS1_10raii_guardIT_EESN_: argument 0"}
+!33 = distinct !{!33, !"_ZN3tbb6detail2d015make_raii_guardIZNS0_2d117concurrent_vectorINS1_6paddedINS3_11ets_elementIN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS7_20UsdStageCacheContextELb1EE12_StackHolderEEELm128EEENS3_23cache_aligned_allocatorISD_EEE14create_segmentEPSt6atomicIPSD_EmmEUlvE0_EENS1_10raii_guardIT_EESN_"}
+!34 = distinct !{!34, !8}
 !35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
@@ -2350,4 +2350,3 @@ attributes #25 = { nounwind willreturn memory(none) }
 !41 = distinct !{!41, !8}
 !42 = distinct !{!42, !8}
 !43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}

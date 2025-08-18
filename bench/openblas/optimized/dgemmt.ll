@@ -108,33 +108,36 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %69 = sext i32 %23 to i64
   %70 = sext i32 %62 to i64
   %71 = getelementptr inbounds [2 x ptr], ptr @__const.dgemmt_.gemv, i64 0, i64 %67
-  %72 = zext nneg i32 %19 to i64
-  %73 = sext i32 %25 to i64
-  %wide.trip.count272 = zext nneg i32 %19 to i64
   br i1 %65, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %72 = zext nneg i32 %19 to i64
+  %73 = sext i32 %25 to i64
+  %wide.trip.count = zext nneg i32 %19 to i64
   %74 = select i1 %.not, i64 1, i64 %69
-  %narrow284 = select i1 %.not244, i32 %24, i32 1
-  %75 = sext i32 %narrow284 to i64
+  %narrow286 = select i1 %.not244, i32 %24, i32 1
+  %75 = sext i32 %narrow286 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %82
-  %indvars.iv269 = phi i64 [ %indvars.iv.next270, %82 ], [ 0, %.lr.ph ]
-  br i1 %64, label %76, label %82
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %64, label %.lr.ph.split.us.split.us.preheader, label %.loopexit
 
-76:                                               ; preds = %.lr.ph.split.us
-  %77 = mul nsw i64 %indvars.iv269, %73
-  %78 = getelementptr inbounds double, ptr %11, i64 %77
-  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv269
-  %80 = sub nsw i64 %72, %indvars.iv269
-  %81 = tail call i32 @dscal_k(i64 noundef %80, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %79, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
-  br label %82
+.lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
+  %76 = zext nneg i32 %19 to i64
+  %77 = sext i32 %25 to i64
+  %wide.trip.count274 = zext nneg i32 %19 to i64
+  br label %.lr.ph.split.us.split.us
 
-82:                                               ; preds = %76, %.lr.ph.split.us
-  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
-  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !10
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.lr.ph.split.us.split.us
+  %indvars.iv271 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next272, %.lr.ph.split.us.split.us ]
+  %78 = sub nsw i64 %76, %indvars.iv271
+  %79 = mul nsw i64 %indvars.iv271, %77
+  %80 = getelementptr inbounds double, ptr %11, i64 %79
+  %81 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv271
+  %82 = tail call i32 @dscal_k(i64 noundef %78, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %81, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
+  %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
+  br i1 %exitcond275.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !10
 
 .preheader:                                       ; preds = %61
   br i1 %63, label %.lr.ph262, label %.loopexit
@@ -148,243 +151,245 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %88 = sext i32 %23 to i64
   %89 = sext i32 %62 to i64
   %90 = getelementptr inbounds [2 x ptr], ptr @__const.dgemmt_.gemv, i64 0, i64 %86
-  %91 = sext i32 %25 to i64
-  %wide.trip.count282 = zext nneg i32 %19 to i64
   br i1 %84, label %.lr.ph262.split.us, label %.lr.ph262.split.preheader
 
 .lr.ph262.split.preheader:                        ; preds = %.lr.ph262
-  %narrow285 = select i1 %.not244, i32 %24, i32 1
-  %92 = sext i32 %narrow285 to i64
+  %91 = sext i32 %25 to i64
+  %wide.trip.count279 = zext nneg i32 %19 to i64
+  %narrow287 = select i1 %.not244, i32 %24, i32 1
+  %92 = sext i32 %narrow287 to i64
   br label %.lr.ph262.split
 
-.lr.ph262.split.us:                               ; preds = %.lr.ph262, %97
-  %indvars.iv279 = phi i64 [ %indvars.iv.next280, %97 ], [ 0, %.lr.ph262 ]
-  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
-  br i1 %83, label %93, label %97
+.lr.ph262.split.us:                               ; preds = %.lr.ph262
+  br i1 %83, label %.lr.ph262.split.us.split.us.preheader, label %.loopexit
 
-93:                                               ; preds = %.lr.ph262.split.us
-  %94 = mul nsw i64 %indvars.iv279, %91
+.lr.ph262.split.us.split.us.preheader:            ; preds = %.lr.ph262.split.us
+  %93 = sext i32 %25 to i64
+  %wide.trip.count284 = zext nneg i32 %19 to i64
+  br label %.lr.ph262.split.us.split.us
+
+.lr.ph262.split.us.split.us:                      ; preds = %.lr.ph262.split.us.split.us.preheader, %.lr.ph262.split.us.split.us
+  %indvars.iv281 = phi i64 [ 0, %.lr.ph262.split.us.split.us.preheader ], [ %indvars.iv.next282, %.lr.ph262.split.us.split.us ]
+  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
+  %94 = mul nsw i64 %indvars.iv281, %93
   %95 = getelementptr inbounds double, ptr %11, i64 %94
-  %96 = tail call i32 @dscal_k(i64 noundef %indvars.iv.next280, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %95, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
-  br label %97
+  %96 = tail call i32 @dscal_k(i64 noundef %indvars.iv.next282, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %95, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
+  %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
+  br i1 %exitcond285.not, label %.loopexit, label %.lr.ph262.split.us.split.us, !llvm.loop !12
 
-97:                                               ; preds = %93, %.lr.ph262.split.us
-  %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
-  br i1 %exitcond283.not, label %.loopexit, label %.lr.ph262.split.us, !llvm.loop !13
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %140
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %140 ]
-  %98 = sub nsw i64 %72, %indvars.iv
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %139
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %139 ]
+  %97 = sub nsw i64 %72, %indvars.iv
   %.pn249 = mul nsw i64 %indvars.iv, %74
   %.0234 = getelementptr inbounds double, ptr %6, i64 %.pn249
   %.pn250 = mul nsw i64 %indvars.iv, %75
   %.0232 = getelementptr inbounds double, ptr %8, i64 %.pn250
-  %99 = mul nsw i64 %indvars.iv, %73
-  %100 = getelementptr inbounds double, ptr %11, i64 %99
-  %101 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv
-  br i1 %64, label %102, label %104
+  %98 = mul nsw i64 %indvars.iv, %73
+  %99 = getelementptr inbounds double, ptr %11, i64 %98
+  %100 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv
+  br i1 %64, label %101, label %103
 
-102:                                              ; preds = %.lr.ph.split
-  %103 = call i32 @dscal_k(i64 noundef %98, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %101, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
-  br label %104
+101:                                              ; preds = %.lr.ph.split
+  %102 = call i32 @dscal_k(i64 noundef %97, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %100, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
+  br label %103
 
-104:                                              ; preds = %102, %.lr.ph.split
-  %105 = trunc i64 %98 to i32
-  %.tr = add i32 %20, %105
-  %106 = shl i32 %.tr, 1
-  %107 = add i32 %106, 19
-  %108 = and i32 %107, -4
+103:                                              ; preds = %101, %.lr.ph.split
+  %104 = trunc i64 %97 to i32
+  %.tr = add i32 %20, %104
+  %105 = shl i32 %.tr, 1
+  %106 = add i32 %105, 19
+  %107 = and i32 %106, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store volatile i32 %108, ptr %15, align 4, !tbaa !3
+  store volatile i32 %107, ptr %15, align 4, !tbaa !3
   %.0..0..0..0.14 = load volatile i32, ptr %15, align 4, !tbaa !3
-  %109 = icmp ugt i32 %.0..0..0..0.14, 256
-  br i1 %109, label %110, label %111
+  %108 = icmp ugt i32 %.0..0..0..0.14, 256
+  br i1 %108, label %109, label %110
 
-110:                                              ; preds = %104
+109:                                              ; preds = %103
   store volatile i32 0, ptr %15, align 4, !tbaa !3
-  br label %111
+  br label %110
 
-111:                                              ; preds = %110, %104
+110:                                              ; preds = %109, %103
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile i32 2143294004, ptr %16, align 4, !tbaa !3
   %.0..0..0..0.15 = load volatile i32, ptr %15, align 4, !tbaa !3
   %.not251 = icmp eq i32 %.0..0..0..0.15, 0
-  br i1 %.not251, label %114, label %112
+  br i1 %.not251, label %113, label %111
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   %.0..0..0..0.16 = load volatile i32, ptr %15, align 4, !tbaa !3
-  %113 = zext i32 %.0..0..0..0.16 to i64
-  br label %114
+  %112 = zext i32 %.0..0..0..0.16 to i64
+  br label %113
 
-114:                                              ; preds = %111, %112
-  %115 = phi i64 [ %113, %112 ], [ 1, %111 ]
-  %116 = call ptr @llvm.stacksave.p0()
-  %117 = alloca double, i64 %115, align 32
+113:                                              ; preds = %110, %111
+  %114 = phi i64 [ %112, %111 ], [ 1, %110 ]
+  %115 = call ptr @llvm.stacksave.p0()
+  %116 = alloca double, i64 %114, align 32
   %.0..0..0..0.17 = load volatile i32, ptr %15, align 4, !tbaa !3
   %.not252 = icmp eq i32 %.0..0..0..0.17, 0
-  br i1 %.not252, label %118, label %120
+  br i1 %.not252, label %117, label %119
 
-118:                                              ; preds = %114
-  %119 = call ptr @blas_memory_alloc(i32 noundef 1) #5
-  br label %120
+117:                                              ; preds = %113
+  %118 = call ptr @blas_memory_alloc(i32 noundef 1) #5
+  br label %119
 
-120:                                              ; preds = %114, %118
-  %121 = phi ptr [ %119, %118 ], [ %117, %114 ]
-  %122 = mul nsw i64 %98, %66
-  %123 = icmp slt i64 %122, 9216
-  br i1 %123, label %.thread, label %124
+119:                                              ; preds = %113, %117
+  %120 = phi ptr [ %118, %117 ], [ %116, %113 ]
+  %121 = mul nsw i64 %97, %66
+  %122 = icmp slt i64 %121, 9216
+  br i1 %122, label %.thread, label %123
 
-124:                                              ; preds = %120
-  %125 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
-  %126 = icmp eq i32 %125, 1
-  br i1 %126, label %.thread, label %132
+123:                                              ; preds = %119
+  %124 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  %125 = icmp eq i32 %124, 1
+  br i1 %125, label %.thread, label %131
 
-.thread:                                          ; preds = %120, %124
-  %127 = load ptr, ptr %71, align 8, !tbaa !14
-  br i1 %.not, label %128, label %130
+.thread:                                          ; preds = %119, %123
+  %126 = load ptr, ptr %71, align 8, !tbaa !13
+  br i1 %.not, label %127, label %129
 
-128:                                              ; preds = %.thread
-  %129 = call i32 %127(i64 noundef %98, i64 noundef %66, i64 noundef 0, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %101, i64 noundef 1, ptr noundef %121) #5
-  br label %138
+127:                                              ; preds = %.thread
+  %128 = call i32 %126(i64 noundef %97, i64 noundef %66, i64 noundef 0, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %100, i64 noundef 1, ptr noundef %120) #5
+  br label %137
 
-130:                                              ; preds = %.thread
-  %131 = call i32 %127(i64 noundef %66, i64 noundef %98, i64 noundef 0, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %101, i64 noundef 1, ptr noundef %121) #5
-  br label %138
+129:                                              ; preds = %.thread
+  %130 = call i32 %126(i64 noundef %66, i64 noundef %97, i64 noundef 0, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %100, i64 noundef 1, ptr noundef %120) #5
+  br label %137
 
-132:                                              ; preds = %124
-  %133 = load ptr, ptr %68, align 8, !tbaa !14
-  br i1 %.not, label %134, label %136
+131:                                              ; preds = %123
+  %132 = load ptr, ptr %68, align 8, !tbaa !13
+  br i1 %.not, label %133, label %135
 
-134:                                              ; preds = %132
-  %135 = call i32 %133(i64 noundef %98, i64 noundef %66, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %101, i64 noundef 1, ptr noundef %121, i32 noundef %125) #5
-  br label %138
+133:                                              ; preds = %131
+  %134 = call i32 %132(i64 noundef %97, i64 noundef %66, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %100, i64 noundef 1, ptr noundef %120, i32 noundef %124) #5
+  br label %137
 
-136:                                              ; preds = %132
-  %137 = call i32 %133(i64 noundef %66, i64 noundef %98, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %101, i64 noundef 1, ptr noundef %121, i32 noundef %125) #5
-  br label %138
+135:                                              ; preds = %131
+  %136 = call i32 %132(i64 noundef %66, i64 noundef %97, double noundef %.fr264, ptr noundef %.0234, i64 noundef %69, ptr noundef %.0232, i64 noundef %70, ptr noundef %100, i64 noundef 1, ptr noundef %120, i32 noundef %124) #5
+  br label %137
 
-138:                                              ; preds = %134, %136, %128, %130
+137:                                              ; preds = %133, %135, %127, %129
   %.0..0..0..0.18 = load volatile i32, ptr %15, align 4, !tbaa !3
   %.not253 = icmp eq i32 %.0..0..0..0.18, 0
-  br i1 %.not253, label %139, label %140
+  br i1 %.not253, label %138, label %139
 
-139:                                              ; preds = %138
-  call void @blas_memory_free(ptr noundef %121) #5
-  br label %140
+138:                                              ; preds = %137
+  call void @blas_memory_free(ptr noundef %120) #5
+  br label %139
 
-140:                                              ; preds = %139, %138
-  call void @llvm.stackrestore.p0(ptr %116)
+139:                                              ; preds = %138, %137
+  call void @llvm.stackrestore.p0(ptr %115)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count272
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
-.lr.ph262.split:                                  ; preds = %.lr.ph262.split.preheader, %181
-  %indvars.iv274 = phi i64 [ 0, %.lr.ph262.split.preheader ], [ %indvars.iv.next275, %181 ]
-  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %spec.select254 = mul nsw i64 %indvars.iv274, %92
+.lr.ph262.split:                                  ; preds = %.lr.ph262.split.preheader, %180
+  %indvars.iv276 = phi i64 [ 0, %.lr.ph262.split.preheader ], [ %indvars.iv.next277, %180 ]
+  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
+  %spec.select254 = mul nsw i64 %indvars.iv276, %92
   %.1233 = getelementptr inbounds double, ptr %8, i64 %spec.select254
-  %141 = mul nsw i64 %indvars.iv274, %91
-  %142 = getelementptr inbounds double, ptr %11, i64 %141
-  br i1 %83, label %143, label %145
+  %140 = mul nsw i64 %indvars.iv276, %91
+  %141 = getelementptr inbounds double, ptr %11, i64 %140
+  br i1 %83, label %142, label %144
 
-143:                                              ; preds = %.lr.ph262.split
-  %144 = call i32 @dscal_k(i64 noundef %indvars.iv.next275, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %142, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
-  br label %145
+142:                                              ; preds = %.lr.ph262.split
+  %143 = call i32 @dscal_k(i64 noundef %indvars.iv.next277, i64 noundef 0, i64 noundef 0, double noundef %22, ptr noundef %141, i64 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #5
+  br label %144
 
-145:                                              ; preds = %143, %.lr.ph262.split
-  %146 = trunc i64 %indvars.iv.next275 to i32
-  %.tr286 = add i32 %20, %146
-  %147 = shl i32 %.tr286, 1
-  %148 = add i32 %147, 19
-  %149 = and i32 %148, -4
+144:                                              ; preds = %142, %.lr.ph262.split
+  %145 = trunc i64 %indvars.iv.next277 to i32
+  %.tr288 = add i32 %20, %145
+  %146 = shl i32 %.tr288, 1
+  %147 = add i32 %146, 19
+  %148 = and i32 %147, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store volatile i32 %149, ptr %17, align 4, !tbaa !3
+  store volatile i32 %148, ptr %17, align 4, !tbaa !3
   %.0..0..0..0.8 = load volatile i32, ptr %17, align 4, !tbaa !3
-  %150 = icmp ugt i32 %.0..0..0..0.8, 256
-  br i1 %150, label %151, label %152
+  %149 = icmp ugt i32 %.0..0..0..0.8, 256
+  br i1 %149, label %150, label %151
 
-151:                                              ; preds = %145
+150:                                              ; preds = %144
   store volatile i32 0, ptr %17, align 4, !tbaa !3
-  br label %152
+  br label %151
 
-152:                                              ; preds = %151, %145
+151:                                              ; preds = %150, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store volatile i32 2143294004, ptr %18, align 4, !tbaa !3
   %.0..0..0..0.9 = load volatile i32, ptr %17, align 4, !tbaa !3
   %.not246 = icmp eq i32 %.0..0..0..0.9, 0
-  br i1 %.not246, label %155, label %153
+  br i1 %.not246, label %154, label %152
 
-153:                                              ; preds = %152
+152:                                              ; preds = %151
   %.0..0..0..0.10 = load volatile i32, ptr %17, align 4, !tbaa !3
-  %154 = zext i32 %.0..0..0..0.10 to i64
-  br label %155
+  %153 = zext i32 %.0..0..0..0.10 to i64
+  br label %154
 
-155:                                              ; preds = %152, %153
-  %156 = phi i64 [ %154, %153 ], [ 1, %152 ]
-  %157 = call ptr @llvm.stacksave.p0()
-  %158 = alloca double, i64 %156, align 32
+154:                                              ; preds = %151, %152
+  %155 = phi i64 [ %153, %152 ], [ 1, %151 ]
+  %156 = call ptr @llvm.stacksave.p0()
+  %157 = alloca double, i64 %155, align 32
   %.0..0..0..0.11 = load volatile i32, ptr %17, align 4, !tbaa !3
   %.not247 = icmp eq i32 %.0..0..0..0.11, 0
-  br i1 %.not247, label %159, label %161
+  br i1 %.not247, label %158, label %160
 
-159:                                              ; preds = %155
-  %160 = call ptr @blas_memory_alloc(i32 noundef 1) #5
-  br label %161
+158:                                              ; preds = %154
+  %159 = call ptr @blas_memory_alloc(i32 noundef 1) #5
+  br label %160
 
-161:                                              ; preds = %155, %159
-  %162 = phi ptr [ %160, %159 ], [ %158, %155 ]
-  %163 = mul nsw i64 %indvars.iv.next275, %85
-  %164 = icmp slt i64 %163, 9216
-  br i1 %164, label %.thread256, label %165
+160:                                              ; preds = %154, %158
+  %161 = phi ptr [ %159, %158 ], [ %157, %154 ]
+  %162 = mul nsw i64 %indvars.iv.next277, %85
+  %163 = icmp slt i64 %162, 9216
+  br i1 %163, label %.thread256, label %164
 
-165:                                              ; preds = %161
-  %166 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %.thread256, label %173
+164:                                              ; preds = %160
+  %165 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
+  %166 = icmp eq i32 %165, 1
+  br i1 %166, label %.thread256, label %172
 
-.thread256:                                       ; preds = %161, %165
-  %168 = load ptr, ptr %90, align 8, !tbaa !14
-  br i1 %.not, label %169, label %171
+.thread256:                                       ; preds = %160, %164
+  %167 = load ptr, ptr %90, align 8, !tbaa !13
+  br i1 %.not, label %168, label %170
 
-169:                                              ; preds = %.thread256
-  %170 = call i32 %168(i64 noundef %indvars.iv.next275, i64 noundef %85, i64 noundef 0, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %142, i64 noundef 1, ptr noundef %162) #5
-  br label %179
+168:                                              ; preds = %.thread256
+  %169 = call i32 %167(i64 noundef %indvars.iv.next277, i64 noundef %85, i64 noundef 0, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %141, i64 noundef 1, ptr noundef %161) #5
+  br label %178
 
-171:                                              ; preds = %.thread256
-  %172 = call i32 %168(i64 noundef %85, i64 noundef %indvars.iv.next275, i64 noundef 0, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %142, i64 noundef 1, ptr noundef %162) #5
-  br label %179
+170:                                              ; preds = %.thread256
+  %171 = call i32 %167(i64 noundef %85, i64 noundef %indvars.iv.next277, i64 noundef 0, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %141, i64 noundef 1, ptr noundef %161) #5
+  br label %178
 
-173:                                              ; preds = %165
-  %174 = load ptr, ptr %87, align 8, !tbaa !14
-  br i1 %.not, label %175, label %177
+172:                                              ; preds = %164
+  %173 = load ptr, ptr %87, align 8, !tbaa !13
+  br i1 %.not, label %174, label %176
 
-175:                                              ; preds = %173
-  %176 = call i32 %174(i64 noundef %indvars.iv.next275, i64 noundef %85, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %142, i64 noundef 1, ptr noundef %162, i32 noundef %166) #5
-  br label %179
+174:                                              ; preds = %172
+  %175 = call i32 %173(i64 noundef %indvars.iv.next277, i64 noundef %85, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %141, i64 noundef 1, ptr noundef %161, i32 noundef %165) #5
+  br label %178
 
-177:                                              ; preds = %173
-  %178 = call i32 %174(i64 noundef %85, i64 noundef %indvars.iv.next275, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %142, i64 noundef 1, ptr noundef %162, i32 noundef %166) #5
-  br label %179
+176:                                              ; preds = %172
+  %177 = call i32 %173(i64 noundef %85, i64 noundef %indvars.iv.next277, double noundef %.fr264, ptr noundef %6, i64 noundef %88, ptr noundef %.1233, i64 noundef %89, ptr noundef %141, i64 noundef 1, ptr noundef %161, i32 noundef %165) #5
+  br label %178
 
-179:                                              ; preds = %175, %177, %169, %171
+178:                                              ; preds = %174, %176, %168, %170
   %.0..0..0..0.12 = load volatile i32, ptr %17, align 4, !tbaa !3
   %.not248 = icmp eq i32 %.0..0..0..0.12, 0
-  br i1 %.not248, label %180, label %181
+  br i1 %.not248, label %179, label %180
 
-180:                                              ; preds = %179
-  call void @blas_memory_free(ptr noundef %162) #5
-  br label %181
+179:                                              ; preds = %178
+  call void @blas_memory_free(ptr noundef %161) #5
+  br label %180
 
-181:                                              ; preds = %180, %179
-  call void @llvm.stackrestore.p0(ptr %157)
+180:                                              ; preds = %179, %178
+  call void @llvm.stackrestore.p0(ptr %156)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count282
-  br i1 %exitcond278.not, label %.loopexit, label %.lr.ph262.split, !llvm.loop !17
+  %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
+  br i1 %exitcond280.not, label %.loopexit, label %.lr.ph262.split, !llvm.loop !12
 
-.loopexit:                                        ; preds = %140, %82, %181, %97, %.preheader258, %.preheader, %59, %57
+.loopexit:                                        ; preds = %139, %.lr.ph.split.us.split.us, %180, %.lr.ph262.split.us.split.us, %.lr.ph262.split.us, %.lr.ph.split.us, %.preheader258, %.preheader, %59, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
@@ -439,11 +444,8 @@ attributes #5 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}

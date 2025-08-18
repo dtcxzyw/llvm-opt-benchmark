@@ -160,7 +160,7 @@ put_bits.exit:                                    ; preds = %53, %60, %67
   %69 = add nuw nsw i32 %.147, 1
   %70 = getelementptr inbounds nuw i8, ptr %.12946, i64 2
   %exitcond.not = icmp eq i32 %69, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %put_bits.exit, %put_bits.exit.us
   %.sroa.20.0.lcssa = phi ptr [ %.sroa.20.1.us, %put_bits.exit.us ], [ %.sroa.20.1, %put_bits.exit ]
@@ -193,7 +193,7 @@ put_bits.exit:                                    ; preds = %53, %60, %67
   %80 = shl i32 %.sroa.0.1, 8
   %81 = add nsw i32 %.sroa.11.1, 8
   %82 = icmp slt i32 %.sroa.11.1, 24
-  br i1 %82, label %73, label %flush_put_bits.exit, !llvm.loop !12
+  br i1 %82, label %73, label %flush_put_bits.exit, !llvm.loop !10
 
 flush_put_bits.exit:                              ; preds = %76, %17, %._crit_edge
   %.sroa.20.3 = phi ptr [ %.sroa.20.0.lcssa, %._crit_edge ], [ %spec.select.i, %17 ], [ %79, %76 ]
@@ -214,10 +214,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !13
+  %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !18
-  %7 = load ptr, ptr %1, align 8, !tbaa !19
+  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %7 = load ptr, ptr %1, align 8, !tbaa !17
   %8 = lshr i32 %4, 3
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
@@ -228,7 +228,7 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %15 = and i32 %14, -65536
   %16 = add i32 %4, 16
   %17 = tail call i32 @llvm.umin.i32(i32 %6, i32 %16)
-  store i32 %17, ptr %3, align 8, !tbaa !13
+  store i32 %17, ptr %3, align 8, !tbaa !11
   %18 = lshr i32 %17, 3
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 %19
@@ -239,7 +239,7 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %25 = lshr i32 %24, 16
   %26 = add i32 %17, 16
   %27 = tail call i32 @llvm.umin.i32(i32 %6, i32 %26)
-  store i32 %27, ptr %3, align 8, !tbaa !13
+  store i32 %27, ptr %3, align 8, !tbaa !11
   %28 = or disjoint i32 %25, %15
   %.not = icmp eq i32 %28, 2147385345
   br i1 %.not, label %29, label %350
@@ -255,10 +255,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %36 = zext i8 %33 to i32
   %37 = and i32 %27, 7
   %38 = shl nuw nsw i32 %36, %37
-  store i32 %spec.select.i, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i, ptr %3, align 8, !tbaa !11
   %39 = trunc i32 %38 to i8
   %40 = lshr i8 %39, 7
-  store i8 %40, ptr %0, align 2, !tbaa !20
+  store i8 %40, ptr %0, align 2, !tbaa !18
   %41 = lshr i32 %spec.select.i, 3
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 %42
@@ -269,11 +269,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %48 = lshr i32 %47, 27
   %49 = add i32 %spec.select.i, 5
   %50 = tail call i32 @llvm.umin.i32(i32 %6, i32 %49)
-  store i32 %50, ptr %3, align 8, !tbaa !13
+  store i32 %50, ptr %3, align 8, !tbaa !11
   %51 = trunc nuw nsw i32 %48 to i8
   %52 = add nuw nsw i8 %51, 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %52, ptr %53, align 1, !tbaa !23
+  store i8 %52, ptr %53, align 1, !tbaa !21
   %.not59 = icmp eq i8 %52, 32
   br i1 %.not59, label %54, label %350
 
@@ -288,11 +288,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %61 = zext i8 %58 to i32
   %62 = and i32 %50, 7
   %63 = shl nuw nsw i32 %61, %62
-  store i32 %spec.select.i66, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i66, ptr %3, align 8, !tbaa !11
   %64 = trunc i32 %63 to i8
   %65 = lshr i8 %64, 7
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %65, ptr %66, align 2, !tbaa !24
+  store i8 %65, ptr %66, align 2, !tbaa !22
   %67 = lshr i32 %spec.select.i66, 3
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 %68
@@ -303,11 +303,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %74 = lshr i32 %73, 25
   %75 = add i32 %spec.select.i66, 7
   %76 = tail call i32 @llvm.umin.i32(i32 %6, i32 %75)
-  store i32 %76, ptr %3, align 8, !tbaa !13
+  store i32 %76, ptr %3, align 8, !tbaa !11
   %77 = trunc nuw nsw i32 %74 to i8
   %78 = add nuw i8 %77, 1
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %78, ptr %79, align 1, !tbaa !25
+  store i8 %78, ptr %79, align 1, !tbaa !23
   %80 = and i8 %78, 7
   %.not60 = icmp eq i8 %80, 0
   br i1 %.not60, label %81, label %350
@@ -323,11 +323,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %89 = lshr i32 %88, 18
   %90 = add i32 %76, 14
   %91 = tail call i32 @llvm.umin.i32(i32 %6, i32 %90)
-  store i32 %91, ptr %3, align 8, !tbaa !13
+  store i32 %91, ptr %3, align 8, !tbaa !11
   %92 = trunc nuw nsw i32 %89 to i16
   %93 = add nuw nsw i16 %92, 1
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 %93, ptr %94, align 2, !tbaa !26
+  store i16 %93, ptr %94, align 2, !tbaa !24
   %95 = icmp ult i32 %88, 24903680
   br i1 %95, label %350, label %96
 
@@ -342,10 +342,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %104 = lshr i32 %103, 26
   %105 = add i32 %91, 6
   %106 = tail call i32 @llvm.umin.i32(i32 %6, i32 %105)
-  store i32 %106, ptr %3, align 8, !tbaa !13
+  store i32 %106, ptr %3, align 8, !tbaa !11
   %107 = trunc nuw nsw i32 %104 to i8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i8 %107, ptr %108, align 2, !tbaa !27
+  store i8 %107, ptr %108, align 2, !tbaa !25
   %109 = icmp ugt i32 %103, 671088639
   br i1 %109, label %350, label %110
 
@@ -360,13 +360,13 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %118 = lshr i32 %117, 28
   %119 = add i32 %106, 4
   %120 = tail call i32 @llvm.umin.i32(i32 %6, i32 %119)
-  store i32 %120, ptr %3, align 8, !tbaa !13
+  store i32 %120, ptr %3, align 8, !tbaa !11
   %121 = trunc nuw nsw i32 %118 to i8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  store i8 %121, ptr %122, align 1, !tbaa !28
+  store i8 %121, ptr %122, align 1, !tbaa !26
   %123 = zext nneg i32 %118 to i64
   %124 = getelementptr inbounds nuw [16 x i32], ptr @ff_dca_sample_rates, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !29
+  %125 = load i32, ptr %124, align 4, !tbaa !27
   %.not61 = icmp eq i32 %125, 0
   br i1 %.not61, label %350, label %126
 
@@ -381,10 +381,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %134 = lshr i32 %133, 27
   %135 = add i32 %120, 5
   %136 = tail call i32 @llvm.umin.i32(i32 %6, i32 %135)
-  store i32 %136, ptr %3, align 8, !tbaa !13
+  store i32 %136, ptr %3, align 8, !tbaa !11
   %137 = trunc nuw nsw i32 %134 to i8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %137, ptr %138, align 2, !tbaa !30
+  store i8 %137, ptr %138, align 2, !tbaa !28
   %139 = lshr i32 %136, 3
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 %140
@@ -394,7 +394,7 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %spec.select.i67 = add i32 %136, %144
   %145 = zext i8 %142 to i32
   %146 = and i32 %136, 7
-  store i32 %spec.select.i67, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i67, ptr %3, align 8, !tbaa !11
   %147 = lshr exact i32 128, %146
   %148 = and i32 %147, %145
   %.not62 = icmp eq i32 %148, 0
@@ -411,11 +411,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %156 = zext i8 %153 to i32
   %157 = and i32 %spec.select.i67, 7
   %158 = shl nuw nsw i32 %156, %157
-  store i32 %spec.select.i68, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i68, ptr %3, align 8, !tbaa !11
   %159 = trunc i32 %158 to i8
   %160 = lshr i8 %159, 7
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %160, ptr %161, align 1, !tbaa !31
+  store i8 %160, ptr %161, align 1, !tbaa !29
   %162 = lshr i32 %spec.select.i68, 3
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 %163
@@ -426,11 +426,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %168 = zext i8 %165 to i32
   %169 = and i32 %spec.select.i68, 7
   %170 = shl nuw nsw i32 %168, %169
-  store i32 %spec.select.i69, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i69, ptr %3, align 8, !tbaa !11
   %171 = trunc i32 %170 to i8
   %172 = lshr i8 %171, 7
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %172, ptr %173, align 2, !tbaa !32
+  store i8 %172, ptr %173, align 2, !tbaa !30
   %174 = lshr i32 %spec.select.i69, 3
   %175 = zext nneg i32 %174 to i64
   %176 = getelementptr inbounds nuw i8, ptr %7, i64 %175
@@ -441,11 +441,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %180 = zext i8 %177 to i32
   %181 = and i32 %spec.select.i69, 7
   %182 = shl nuw nsw i32 %180, %181
-  store i32 %spec.select.i70, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i70, ptr %3, align 8, !tbaa !11
   %183 = trunc i32 %182 to i8
   %184 = lshr i8 %183, 7
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %184, ptr %185, align 1, !tbaa !33
+  store i8 %184, ptr %185, align 1, !tbaa !31
   %186 = lshr i32 %spec.select.i70, 3
   %187 = zext nneg i32 %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 %187
@@ -456,11 +456,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %192 = zext i8 %189 to i32
   %193 = and i32 %spec.select.i70, 7
   %194 = shl nuw nsw i32 %192, %193
-  store i32 %spec.select.i71, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i71, ptr %3, align 8, !tbaa !11
   %195 = trunc i32 %194 to i8
   %196 = lshr i8 %195, 7
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %196, ptr %197, align 2, !tbaa !34
+  store i8 %196, ptr %197, align 2, !tbaa !32
   %198 = lshr i32 %spec.select.i71, 3
   %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 %199
@@ -471,10 +471,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %205 = lshr i32 %204, 29
   %206 = add i32 %spec.select.i71, 3
   %207 = tail call i32 @llvm.umin.i32(i32 %6, i32 %206)
-  store i32 %207, ptr %3, align 8, !tbaa !13
+  store i32 %207, ptr %3, align 8, !tbaa !11
   %208 = trunc nuw nsw i32 %205 to i8
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %208, ptr %209, align 1, !tbaa !35
+  store i8 %208, ptr %209, align 1, !tbaa !33
   %210 = lshr i32 %207, 3
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 %211
@@ -485,11 +485,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %216 = zext i8 %213 to i32
   %217 = and i32 %207, 7
   %218 = shl nuw nsw i32 %216, %217
-  store i32 %spec.select.i72, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i72, ptr %3, align 8, !tbaa !11
   %219 = trunc i32 %218 to i8
   %220 = lshr i8 %219, 7
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %220, ptr %221, align 2, !tbaa !36
+  store i8 %220, ptr %221, align 2, !tbaa !34
   %222 = lshr i32 %spec.select.i72, 3
   %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds nuw i8, ptr %7, i64 %223
@@ -500,11 +500,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %228 = zext i8 %225 to i32
   %229 = and i32 %spec.select.i72, 7
   %230 = shl nuw nsw i32 %228, %229
-  store i32 %spec.select.i73, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i73, ptr %3, align 8, !tbaa !11
   %231 = trunc i32 %230 to i8
   %232 = lshr i8 %231, 7
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %232, ptr %233, align 1, !tbaa !37
+  store i8 %232, ptr %233, align 1, !tbaa !35
   %234 = lshr i32 %spec.select.i73, 3
   %235 = zext nneg i32 %234 to i64
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 %235
@@ -515,10 +515,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %241 = lshr i32 %240, 30
   %242 = add i32 %spec.select.i73, 2
   %243 = tail call i32 @llvm.umin.i32(i32 %6, i32 %242)
-  store i32 %243, ptr %3, align 8, !tbaa !13
+  store i32 %243, ptr %3, align 8, !tbaa !11
   %244 = trunc nuw nsw i32 %241 to i8
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %244, ptr %245, align 2, !tbaa !38
+  store i8 %244, ptr %245, align 2, !tbaa !36
   %246 = icmp eq i32 %241, 3
   br i1 %246, label %350, label %247
 
@@ -533,18 +533,18 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %254 = zext i8 %251 to i32
   %255 = and i32 %243, 7
   %256 = shl nuw nsw i32 %254, %255
-  store i32 %spec.select.i74, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i74, ptr %3, align 8, !tbaa !11
   %257 = trunc i32 %256 to i8
   %258 = lshr i8 %257, 7
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %258, ptr %259, align 1, !tbaa !39
+  store i8 %258, ptr %259, align 1, !tbaa !37
   %.not63 = icmp sgt i8 %64, -1
   br i1 %.not63, label %263, label %260
 
 260:                                              ; preds = %247
   %261 = add i32 %spec.select.i74, 16
   %262 = tail call i32 @llvm.umin.i32(i32 %6, i32 %261)
-  store i32 %262, ptr %3, align 8, !tbaa !13
+  store i32 %262, ptr %3, align 8, !tbaa !11
   br label %263
 
 263:                                              ; preds = %260, %247
@@ -559,11 +559,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %271 = zext i8 %268 to i32
   %272 = and i32 %264, 7
   %273 = shl nuw nsw i32 %271, %272
-  store i32 %spec.select.i75, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i75, ptr %3, align 8, !tbaa !11
   %274 = trunc i32 %273 to i8
   %275 = lshr i8 %274, 7
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %275, ptr %276, align 2, !tbaa !40
+  store i8 %275, ptr %276, align 2, !tbaa !38
   %277 = lshr i32 %spec.select.i75, 3
   %278 = zext nneg i32 %277 to i64
   %279 = getelementptr inbounds nuw i8, ptr %7, i64 %278
@@ -574,10 +574,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %284 = lshr i32 %283, 28
   %285 = add i32 %spec.select.i75, 4
   %286 = tail call i32 @llvm.umin.i32(i32 %6, i32 %285)
-  store i32 %286, ptr %3, align 8, !tbaa !13
+  store i32 %286, ptr %3, align 8, !tbaa !11
   %287 = trunc nuw nsw i32 %284 to i8
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %287, ptr %288, align 1, !tbaa !41
+  store i8 %287, ptr %288, align 1, !tbaa !39
   %289 = lshr i32 %286, 3
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw i8, ptr %7, i64 %290
@@ -588,10 +588,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %296 = lshr i32 %295, 30
   %297 = add i32 %286, 2
   %298 = tail call i32 @llvm.umin.i32(i32 %6, i32 %297)
-  store i32 %298, ptr %3, align 8, !tbaa !13
+  store i32 %298, ptr %3, align 8, !tbaa !11
   %299 = trunc nuw nsw i32 %296 to i8
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %299, ptr %300, align 2, !tbaa !42
+  store i8 %299, ptr %300, align 2, !tbaa !40
   %301 = lshr i32 %298, 3
   %302 = zext nneg i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %7, i64 %302
@@ -602,10 +602,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %308 = lshr i32 %307, 29
   %309 = add i32 %298, 3
   %310 = tail call i32 @llvm.umin.i32(i32 %6, i32 %309)
-  store i32 %310, ptr %3, align 8, !tbaa !13
+  store i32 %310, ptr %3, align 8, !tbaa !11
   %311 = trunc nuw nsw i32 %308 to i8
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 %311, ptr %312, align 1, !tbaa !43
+  store i8 %311, ptr %312, align 1, !tbaa !41
   switch i32 %308, label %313 [
     i32 7, label %350
     i32 4, label %350
@@ -622,11 +622,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %320 = zext i8 %317 to i32
   %321 = and i32 %310, 7
   %322 = shl nuw nsw i32 %320, %321
-  store i32 %spec.select.i76, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i76, ptr %3, align 8, !tbaa !11
   %323 = trunc i32 %322 to i8
   %324 = lshr i8 %323, 7
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 %324, ptr %325, align 2, !tbaa !44
+  store i8 %324, ptr %325, align 2, !tbaa !42
   %326 = lshr i32 %spec.select.i76, 3
   %327 = zext nneg i32 %326 to i64
   %328 = getelementptr inbounds nuw i8, ptr %7, i64 %327
@@ -637,11 +637,11 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %332 = zext i8 %329 to i32
   %333 = and i32 %spec.select.i76, 7
   %334 = shl nuw nsw i32 %332, %333
-  store i32 %spec.select.i77, ptr %3, align 8, !tbaa !13
+  store i32 %spec.select.i77, ptr %3, align 8, !tbaa !11
   %335 = trunc i32 %334 to i8
   %336 = lshr i8 %335, 7
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 %336, ptr %337, align 1, !tbaa !45
+  store i8 %336, ptr %337, align 1, !tbaa !43
   %338 = lshr i32 %spec.select.i77, 3
   %339 = zext nneg i32 %338 to i64
   %340 = getelementptr inbounds nuw i8, ptr %7, i64 %339
@@ -652,10 +652,10 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %345 = lshr i32 %344, 28
   %346 = add i32 %spec.select.i77, 4
   %347 = tail call i32 @llvm.umin.i32(i32 %6, i32 %346)
-  store i32 %347, ptr %3, align 8, !tbaa !13
+  store i32 %347, ptr %3, align 8, !tbaa !11
   %348 = trunc nuw nsw i32 %345 to i8
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %348, ptr %349, align 2, !tbaa !46
+  store i8 %348, ptr %349, align 2, !tbaa !44
   br label %350
 
 350:                                              ; preds = %263, %263, %149, %126, %110, %96, %81, %54, %29, %2, %313
@@ -676,18 +676,18 @@ define range(i32 -1094995529, 1) i32 @avpriv_dca_parse_core_frame_header(ptr nou
   %.018.i.i = select i1 %or.cond3.i.i, i32 %6, i32 0
   %.017.i.i = select i1 %or.cond.i.i, ptr %1, ptr null
   %8 = lshr exact i32 %.018.i.i, 3
-  store ptr %.017.i.i, ptr %4, align 8, !tbaa !19
+  store ptr %.017.i.i, ptr %4, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.018.i.i, ptr %9, align 4, !tbaa !47
+  store i32 %.018.i.i, ptr %9, align 4, !tbaa !45
   %10 = add nuw nsw i32 %.018.i.i, 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %10, ptr %11, align 8, !tbaa !18
+  store i32 %10, ptr %11, align 8, !tbaa !16
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !48
+  store ptr %13, ptr %14, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %15, align 8, !tbaa !13
+  store i32 0, ptr %15, align 8, !tbaa !11
   br i1 %or.cond3.i.i, label %16, label %19
 
 16:                                               ; preds = %3
@@ -746,43 +746,41 @@ attributes #8 = { noreturn nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{!14, !17, i64 16}
-!14 = !{!"GetBitContext", !15, i64 0, !15, i64 8, !17, i64 16, !17, i64 20, !17, i64 24}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!14, !17, i64 24}
-!19 = !{!14, !15, i64 0}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"DCACoreFrameHeader", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !22, i64 4, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13, !5, i64 14, !5, i64 15, !5, i64 16, !5, i64 17, !5, i64 18, !5, i64 19, !5, i64 20, !5, i64 21, !5, i64 22, !5, i64 23, !5, i64 24}
-!22 = !{!"short", !5, i64 0}
-!23 = !{!21, !5, i64 1}
-!24 = !{!21, !5, i64 2}
-!25 = !{!21, !5, i64 3}
-!26 = !{!21, !22, i64 4}
-!27 = !{!21, !5, i64 6}
-!28 = !{!21, !5, i64 7}
-!29 = !{!17, !17, i64 0}
-!30 = !{!21, !5, i64 8}
-!31 = !{!21, !5, i64 9}
-!32 = !{!21, !5, i64 10}
-!33 = !{!21, !5, i64 11}
-!34 = !{!21, !5, i64 12}
-!35 = !{!21, !5, i64 13}
-!36 = !{!21, !5, i64 14}
-!37 = !{!21, !5, i64 15}
-!38 = !{!21, !5, i64 16}
-!39 = !{!21, !5, i64 17}
-!40 = !{!21, !5, i64 18}
-!41 = !{!21, !5, i64 19}
-!42 = !{!21, !5, i64 20}
-!43 = !{!21, !5, i64 21}
-!44 = !{!21, !5, i64 22}
-!45 = !{!21, !5, i64 23}
-!46 = !{!21, !5, i64 24}
-!47 = !{!14, !17, i64 20}
-!48 = !{!14, !15, i64 8}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !15, i64 16}
+!12 = !{!"GetBitContext", !13, i64 0, !13, i64 8, !15, i64 16, !15, i64 20, !15, i64 24}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!12, !15, i64 24}
+!17 = !{!12, !13, i64 0}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"DCACoreFrameHeader", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !20, i64 4, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13, !5, i64 14, !5, i64 15, !5, i64 16, !5, i64 17, !5, i64 18, !5, i64 19, !5, i64 20, !5, i64 21, !5, i64 22, !5, i64 23, !5, i64 24}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!19, !5, i64 1}
+!22 = !{!19, !5, i64 2}
+!23 = !{!19, !5, i64 3}
+!24 = !{!19, !20, i64 4}
+!25 = !{!19, !5, i64 6}
+!26 = !{!19, !5, i64 7}
+!27 = !{!15, !15, i64 0}
+!28 = !{!19, !5, i64 8}
+!29 = !{!19, !5, i64 9}
+!30 = !{!19, !5, i64 10}
+!31 = !{!19, !5, i64 11}
+!32 = !{!19, !5, i64 12}
+!33 = !{!19, !5, i64 13}
+!34 = !{!19, !5, i64 14}
+!35 = !{!19, !5, i64 15}
+!36 = !{!19, !5, i64 16}
+!37 = !{!19, !5, i64 17}
+!38 = !{!19, !5, i64 18}
+!39 = !{!19, !5, i64 19}
+!40 = !{!19, !5, i64 20}
+!41 = !{!19, !5, i64 21}
+!42 = !{!19, !5, i64 22}
+!43 = !{!19, !5, i64 23}
+!44 = !{!19, !5, i64 24}
+!45 = !{!12, !15, i64 20}
+!46 = !{!12, !13, i64 8}

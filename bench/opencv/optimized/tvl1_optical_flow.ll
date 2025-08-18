@@ -1452,13 +1452,13 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %54 = sext i32 %51 to i64
   %55 = icmp slt i64 %indvars.iv.next71, %54
-  br i1 %55, label %.preheader, label %._crit_edge58, !llvm.loop !81
+  br i1 %55, label %.preheader, label %._crit_edge58, !llvm.loop !80
 
 .lr.ph:                                           ; preds = %.preheader, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
   %56 = phi i32 [ %149, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ %48, %.preheader ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ 0, %.preheader ]
-  %57 = load ptr, ptr %41, align 8, !tbaa !83
-  %58 = load ptr, ptr %42, align 8, !tbaa !84
+  %57 = load ptr, ptr %41, align 8, !tbaa !82
+  %58 = load ptr, ptr %42, align 8, !tbaa !83
   %59 = load i64, ptr %58, align 8, !tbaa !10
   %60 = mul i64 %59, %indvars.iv70
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 %60
@@ -1481,23 +1481,23 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa75
   %71 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa75
-  call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %72 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !85
+  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  %72 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !84
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %74, label %76, !prof !88
+  br i1 %73, label %74, label %76, !prof !87
 
 74:                                               ; preds = %69
-  %75 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #22, !noalias !85
+  %75 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #22, !noalias !84
   %.not.i = icmp eq i32 %75, 0
   br i1 %.not.i, label %76, label %.preheader95.preheader.i
 
 .preheader95.preheader.i:                         ; preds = %74
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(660) @_ZZL12computeColorffE10colorWheel, i8 0, i64 660, i1 false), !tbaa !57, !noalias !85
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #22, !noalias !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(660) @_ZZL12computeColorffE10colorWheel, i8 0, i64 660, i1 false), !tbaa !57, !noalias !84
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZL12computeColorffE10colorWheel) #22, !noalias !84
   br label %76
 
 76:                                               ; preds = %.preheader95.preheader.i, %74, %69
-  %.b.i = load i1, ptr @_ZZL12computeColorffE5first, align 1, !noalias !85
+  %.b.i = load i1, ptr @_ZZL12computeColorffE5first, align 1, !noalias !84
   br i1 %.b.i, label %103, label %.preheader94.i
 
 .preheader94.i:                                   ; preds = %76, %.preheader94.i
@@ -1505,14 +1505,14 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %indvars115.i = trunc i64 %indvars.iv.i to i32
   %77 = mul nuw nsw i32 %indvars115.i, 17
   %78 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv.i
-  store i32 255, ptr %78, align 4, !noalias !85
+  store i32 255, ptr %78, align 4, !noalias !84
   %.sroa.482.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 %77, ptr %.sroa.482.0..sroa_idx.i, align 4, !noalias !85
+  store i32 %77, ptr %.sroa.482.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 0, ptr %.sroa.583.0..sroa_idx.i, align 4, !noalias !85
+  store i32 0, ptr %.sroa.583.0..sroa_idx.i, align 4, !noalias !84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %.preheader93.i, label %.preheader94.i, !llvm.loop !89
+  br i1 %exitcond.not.i, label %.preheader93.i, label %.preheader94.i, !llvm.loop !88
 
 .preheader93.i:                                   ; preds = %.preheader94.i, %.preheader93.i
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %.preheader93.i ], [ 15, %.preheader94.i ]
@@ -1523,15 +1523,15 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %.zext.i = zext nneg i16 %80 to i32
   %81 = sub nuw nsw i32 255, %.zext.i
   %82 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv116.i
-  store i32 %81, ptr %82, align 4, !noalias !85
+  store i32 %81, ptr %82, align 4, !noalias !84
   %.sroa.479.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 255, ptr %.sroa.479.0..sroa_idx.i, align 4, !noalias !85
+  store i32 255, ptr %.sroa.479.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.580.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i32 0, ptr %.sroa.580.0..sroa_idx.i, align 4, !noalias !85
+  store i32 0, ptr %.sroa.580.0..sroa_idx.i, align 4, !noalias !84
   %83 = add nuw nsw i32 %.06198.i, 1
   %indvars.iv.next117.i = add nuw nsw i64 %indvars.iv116.i, 1
   %exitcond119.not.i = icmp eq i32 %83, 6
-  br i1 %exitcond119.not.i, label %.preheader92.i, label %.preheader93.i, !llvm.loop !90
+  br i1 %exitcond119.not.i, label %.preheader92.i, label %.preheader93.i, !llvm.loop !89
 
 .preheader92.i:                                   ; preds = %.preheader93.i, %.preheader92.i
   %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.preheader92.i ], [ 21, %.preheader93.i ]
@@ -1539,15 +1539,15 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %84 = mul nuw nsw i32 %.062100.i, 255
   %85 = lshr i32 %84, 2
   %86 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv120.i
-  store i32 0, ptr %86, align 4, !noalias !85
+  store i32 0, ptr %86, align 4, !noalias !84
   %.sroa.476.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i32 255, ptr %.sroa.476.0..sroa_idx.i, align 4, !noalias !85
+  store i32 255, ptr %.sroa.476.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.577.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store i32 %85, ptr %.sroa.577.0..sroa_idx.i, align 4, !noalias !85
+  store i32 %85, ptr %.sroa.577.0..sroa_idx.i, align 4, !noalias !84
   %87 = add nuw nsw i32 %.062100.i, 1
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
   %exitcond123.not.i = icmp eq i32 %87, 4
-  br i1 %exitcond123.not.i, label %.preheader91.i, label %.preheader92.i, !llvm.loop !91
+  br i1 %exitcond123.not.i, label %.preheader91.i, label %.preheader92.i, !llvm.loop !90
 
 .preheader91.i:                                   ; preds = %.preheader92.i, %.preheader91.i
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %.preheader91.i ], [ 25, %.preheader92.i ]
@@ -1558,15 +1558,15 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %.zext85.i = zext nneg i16 %89 to i32
   %90 = sub nuw nsw i32 255, %.zext85.i
   %91 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv124.i
-  store i32 0, ptr %91, align 4, !noalias !85
+  store i32 0, ptr %91, align 4, !noalias !84
   %.sroa.473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 4
-  store i32 %90, ptr %.sroa.473.0..sroa_idx.i, align 4, !noalias !85
+  store i32 %90, ptr %.sroa.473.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.574.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i32 255, ptr %.sroa.574.0..sroa_idx.i, align 4, !noalias !85
+  store i32 255, ptr %.sroa.574.0..sroa_idx.i, align 4, !noalias !84
   %92 = add nuw nsw i32 %.063102.i, 1
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond127.not.i = icmp eq i32 %92, 11
-  br i1 %exitcond127.not.i, label %.preheader90.i, label %.preheader91.i, !llvm.loop !92
+  br i1 %exitcond127.not.i, label %.preheader90.i, label %.preheader91.i, !llvm.loop !91
 
 .preheader90.i:                                   ; preds = %.preheader91.i, %.preheader90.i
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %.preheader90.i ], [ 36, %.preheader91.i ]
@@ -1576,18 +1576,18 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %94 = udiv i16 %.lhs.trunc86.i, 13
   %.zext87.i = zext nneg i16 %94 to i32
   %95 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv128.i
-  store i32 %.zext87.i, ptr %95, align 4, !noalias !85
+  store i32 %.zext87.i, ptr %95, align 4, !noalias !84
   %.sroa.470.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store i32 0, ptr %.sroa.470.0..sroa_idx.i, align 4, !noalias !85
+  store i32 0, ptr %.sroa.470.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.571.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i32 255, ptr %.sroa.571.0..sroa_idx.i, align 4, !noalias !85
+  store i32 255, ptr %.sroa.571.0..sroa_idx.i, align 4, !noalias !84
   %96 = add nuw nsw i32 %.064104.i, 1
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond131.not.i = icmp eq i32 %96, 13
-  br i1 %exitcond131.not.i, label %.preheader.i, label %.preheader90.i, !llvm.loop !93
+  br i1 %exitcond131.not.i, label %.preheader.i, label %.preheader90.i, !llvm.loop !92
 
 97:                                               ; preds = %.preheader.i
-  store i1 true, ptr @_ZZL12computeColorffE5first, align 1, !noalias !85
+  store i1 true, ptr @_ZZL12computeColorffE5first, align 1, !noalias !84
   br label %103
 
 .preheader.i:                                     ; preds = %.preheader90.i, %.preheader.i
@@ -1599,15 +1599,15 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %.zext89.i = zext nneg i16 %99 to i32
   %100 = sub nuw nsw i32 255, %.zext89.i
   %101 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %indvars.iv132.i
-  store i32 255, ptr %101, align 4, !noalias !85
+  store i32 255, ptr %101, align 4, !noalias !84
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 4
-  store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !85
+  store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !84
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 %100, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !85
+  store i32 %100, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !84
   %102 = add nuw nsw i32 %.065106.i, 1
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %exitcond135.not.i = icmp eq i32 %102, 6
-  br i1 %exitcond135.not.i, label %97, label %.preheader.i, !llvm.loop !94
+  br i1 %exitcond135.not.i, label %97, label %.preheader.i, !llvm.loop !93
 
 103:                                              ; preds = %97, %76
   %104 = fmul float %71, %71
@@ -1615,7 +1615,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %sqrt.i = call float @llvm.sqrt.f32(float %105)
   %106 = fneg float %71
   %107 = fneg float %70
-  %108 = call noundef float @atan2f(float noundef %106, float noundef %107) #22, !tbaa !57, !noalias !85
+  %108 = call noundef float @atan2f(float noundef %106, float noundef %107) #22, !tbaa !57, !noalias !84
   %109 = fdiv float %108, 0x400921FB60000000
   %110 = fadd float %109, 1.000000e+00
   %111 = fmul float %110, 5.000000e-01
@@ -1625,7 +1625,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %115 = srem i32 %114, 55
   %116 = sitofp i32 %113 to float
   %117 = fsub float %112, %116
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !tbaa !14, !alias.scope !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !tbaa !14, !alias.scope !84
   %118 = sext i32 %113 to i64
   %119 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %118
   %120 = sext i32 %115 to i64
@@ -1638,11 +1638,11 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
 125:                                              ; preds = %125, %103
   %indvars.iv136.i = phi i64 [ 0, %103 ], [ %indvars.iv.next137.i, %125 ]
   %126 = getelementptr inbounds nuw [3 x i32], ptr %119, i64 0, i64 %indvars.iv136.i
-  %127 = load i32, ptr %126, align 4, !tbaa !57, !noalias !85
+  %127 = load i32, ptr %126, align 4, !tbaa !57, !noalias !84
   %128 = sitofp i32 %127 to float
   %129 = fdiv float %128, 2.550000e+02
   %130 = getelementptr inbounds nuw [3 x i32], ptr %121, i64 0, i64 %indvars.iv136.i
-  %131 = load i32, ptr %130, align 4, !tbaa !57, !noalias !85
+  %131 = load i32, ptr %130, align 4, !tbaa !57, !noalias !84
   %132 = sitofp i32 %131 to float
   %133 = fdiv float %132, 2.550000e+02
   %134 = fmul float %117, %133
@@ -1655,14 +1655,14 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %140 = fptoui float %139 to i8
   %141 = sub nuw nsw i64 2, %indvars.iv136.i
   %142 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %141
-  store i8 %140, ptr %142, align 1, !tbaa !14, !alias.scope !85
+  store i8 %140, ptr %142, align 1, !tbaa !14, !alias.scope !84
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next137.i, 3
-  br i1 %exitcond139.not.i, label %_ZL12computeColorff.exit, label %125, !llvm.loop !95
+  br i1 %exitcond139.not.i, label %_ZL12computeColorff.exit, label %125, !llvm.loop !94
 
 _ZL12computeColorff.exit:                         ; preds = %125
-  %143 = load ptr, ptr %43, align 8, !tbaa !83
-  %144 = load ptr, ptr %44, align 8, !tbaa !84
+  %143 = load ptr, ptr %43, align 8, !tbaa !82
+  %144 = load ptr, ptr %44, align 8, !tbaa !83
   %145 = load i64, ptr %144, align 8, !tbaa !10
   %146 = mul i64 %145, %indvars.iv70
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 %146
@@ -1677,7 +1677,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread:   ; preds = %.lr.ph, %64, %_ZL12
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next68, %150
-  br i1 %151, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !96
+  br i1 %151, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -1749,13 +1749,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %1
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %31 = sext i32 %29 to i64
   %32 = icmp slt i64 %indvars.iv.next8, %31
-  br i1 %32, label %.preheader, label %._crit_edge4, !llvm.loop !97
+  br i1 %32, label %.preheader, label %._crit_edge4, !llvm.loop !96
 
 .lr.ph:                                           ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %33 = load ptr, ptr %12, align 8, !tbaa !83
-  %34 = load ptr, ptr %13, align 8, !tbaa !84
+  %33 = load ptr, ptr %12, align 8, !tbaa !82
+  %34 = load ptr, ptr %13, align 8, !tbaa !83
   %35 = load i64, ptr %34, align 8, !tbaa !10
   %36 = mul i64 %35, %indvars.iv7
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 %36
@@ -1775,7 +1775,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %1
   %44 = load i32, ptr %5, align 4, !tbaa !76
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !98
+  br i1 %46, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !97
 
 47:                                               ; preds = %41, %.lr.ph
   %48 = landingpad { ptr, i32 }
@@ -1800,7 +1800,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7optflow19DualTVL1OpticalFlowELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !98
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1812,9 +1812,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7optflow19DualTVL1Optic
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !100
+  store i32 0, ptr %5, align 8, !tbaa !99
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !102
+  store i32 0, ptr %10, align 4, !tbaa !101
   %11 = load ptr, ptr %3, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1842,7 +1842,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7optflow19DualTVL1Optic
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !103
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !102
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
@@ -2092,16 +2092,16 @@ attributes #23 = { noreturn }
 !76 = !{!59, !34, i64 12}
 !77 = distinct !{!77, !78}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = distinct !{!79, !78, !80}
-!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!81 = distinct !{!81, !78, !82}
-!82 = !{!"llvm.loop.unswitch.partial.disable"}
-!83 = !{!59, !6, i64 16}
-!84 = !{!59, !63, i64 72}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZL12computeColorff: argument 0"}
-!87 = distinct !{!87, !"_ZL12computeColorff"}
-!88 = !{!"branch_weights", i32 1, i32 1048575}
+!79 = distinct !{!79, !78}
+!80 = distinct !{!80, !78, !81}
+!81 = !{!"llvm.loop.unswitch.partial.disable"}
+!82 = !{!59, !6, i64 16}
+!83 = !{!59, !63, i64 72}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZL12computeColorff: argument 0"}
+!86 = distinct !{!86, !"_ZL12computeColorff"}
+!87 = !{!"branch_weights", i32 1, i32 1048575}
+!88 = distinct !{!88, !78}
 !89 = distinct !{!89, !78}
 !90 = distinct !{!90, !78}
 !91 = distinct !{!91, !78}
@@ -2109,11 +2109,10 @@ attributes #23 = { noreturn }
 !93 = distinct !{!93, !78}
 !94 = distinct !{!94, !78}
 !95 = distinct !{!95, !78}
-!96 = distinct !{!96, !78}
-!97 = distinct !{!97, !78, !82}
-!98 = distinct !{!98, !78}
-!99 = !{!67, !68, i64 0}
-!100 = !{!101, !34, i64 8}
-!101 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !34, i64 8, !34, i64 12}
-!102 = !{!101, !34, i64 12}
-!103 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!96 = distinct !{!96, !78, !81}
+!97 = distinct !{!97, !78}
+!98 = !{!67, !68, i64 0}
+!99 = !{!100, !34, i64 8}
+!100 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !34, i64 8, !34, i64 12}
+!101 = !{!100, !34, i64 12}
+!102 = !{!"branch_weights", !"expected", i32 1, i32 2000}

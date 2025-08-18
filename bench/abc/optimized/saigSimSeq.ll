@@ -1522,7 +1522,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   store i32 %46, ptr %47, align 4, !tbaa !36
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
   %48 = load i32, ptr %24, align 4, !tbaa !36
@@ -1563,7 +1563,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = sext i32 %.val41 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph48.split, label %._crit_edge49, !llvm.loop !86
+  br i1 %66, label %.lr.ph48.split, label %._crit_edge49, !llvm.loop !83
 
 ._crit_edge49:                                    ; preds = %64, %43, %.preheader44
   %.val4167 = phi i32 [ %.val4166, %.preheader44 ], [ %.val41.us, %43 ], [ %.val41, %64 ]
@@ -1572,7 +1572,7 @@ define noundef ptr @Raig_ManGenerateCounter(ptr noundef readonly captures(none) 
   %68 = load i32, ptr %20, align 4, !tbaa !82
   %69 = add nsw i32 %68, %.052
   %exitcond63.not = icmp eq i32 %.03551, %1
-  br i1 %exitcond63.not, label %._crit_edge, label %.preheader44, !llvm.loop !87
+  br i1 %exitcond63.not, label %._crit_edge, label %.preheader44, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %._crit_edge49, %.preheader44.lr.ph, %6
   %.not38 = icmp eq ptr %17, null
@@ -1604,10 +1604,10 @@ define range(i32 0, 2) i32 @Raig_ManSimulate(ptr noundef %0, i32 noundef %1, i32
   br i1 %15, label %Abc_Clock.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = load i64, ptr %11, align 8, !tbaa !89
+  %17 = load i64, ptr %11, align 8, !tbaa !87
   %18 = mul nsw i64 %17, 1000000
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !91
+  %20 = load i64, ptr %19, align 8, !tbaa !89
   %21 = sdiv i64 %20, 1000
   %22 = add nsw i64 %21, %18
   br label %Abc_Clock.exit
@@ -1664,9 +1664,9 @@ Abc_Clock.exit:                                   ; preds = %6, %16
   br i1 %41, label %Abc_Clock.exit46, label %42
 
 42:                                               ; preds = %39
-  %43 = load i64, ptr %10, align 8, !tbaa !89
+  %43 = load i64, ptr %10, align 8, !tbaa !87
   %.neg60 = mul i64 %43, -1000000
-  %44 = load i64, ptr %34, align 8, !tbaa !91
+  %44 = load i64, ptr %34, align 8, !tbaa !89
   %.neg = sdiv i64 %44, -1000
   %.neg61 = add i64 %.neg, %.neg60
   br label %Abc_Clock.exit46
@@ -1688,9 +1688,9 @@ Abc_Clock.exit46:                                 ; preds = %39, %42
   br i1 %52, label %Abc_Clock.exit48, label %53
 
 53:                                               ; preds = %48
-  %54 = load i64, ptr %9, align 8, !tbaa !89
+  %54 = load i64, ptr %9, align 8, !tbaa !87
   %55 = mul nsw i64 %54, 1000000
-  %56 = load i64, ptr %35, align 8, !tbaa !91
+  %56 = load i64, ptr %35, align 8, !tbaa !89
   %57 = sdiv i64 %56, 1000
   %58 = add nsw i64 %57, %55
   %59 = sitofp i64 %58 to double
@@ -1748,7 +1748,7 @@ Raig_ManFindPo.exit:                              ; preds = %78, %65, %.critedge
   %82 = load ptr, ptr %81, align 8, !tbaa !30
   %83 = call ptr @Raig_ManGenerateCounter(ptr noundef %0, i32 noundef %.03869, i32 noundef %.08.i, i32 noundef %1, i32 noundef %80, ptr noundef %82)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %83, ptr %84, align 8, !tbaa !92
+  store ptr %83, ptr %84, align 8, !tbaa !90
   br i1 %.not, label %.thread, label %.thread56
 
 .thread56:                                        ; preds = %Raig_ManFindPo.exit
@@ -1762,9 +1762,9 @@ Raig_ManFindPo.exit:                              ; preds = %78, %65, %.critedge
   br i1 %88, label %Abc_Clock.exit50, label %89
 
 89:                                               ; preds = %86
-  %90 = load i64, ptr %8, align 8, !tbaa !89
+  %90 = load i64, ptr %8, align 8, !tbaa !87
   %91 = mul nsw i64 %90, 1000000
-  %92 = load i64, ptr %37, align 8, !tbaa !91
+  %92 = load i64, ptr %37, align 8, !tbaa !89
   %93 = sdiv i64 %92, 1000
   %94 = add nsw i64 %93, %91
   br label %Abc_Clock.exit50
@@ -1784,7 +1784,7 @@ Abc_Clock.exit50:                                 ; preds = %86, %89
 
 100:                                              ; preds = %Abc_Clock.exit50
   %exitcond.not = icmp eq i32 %97, %2
-  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !91
 
 .loopexit:                                        ; preds = %100, %29, %98
   %.1 = phi i32 [ %47, %98 ], [ 0, %29 ], [ %47, %100 ]
@@ -1813,10 +1813,10 @@ Abc_Clock.exit50:                                 ; preds = %86, %89
   br i1 %116, label %Abc_Clock.exit52, label %117
 
 117:                                              ; preds = %101
-  %118 = load i64, ptr %7, align 8, !tbaa !89
+  %118 = load i64, ptr %7, align 8, !tbaa !87
   %119 = mul nsw i64 %118, 1000000
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %121 = load i64, ptr %120, align 8, !tbaa !91
+  %121 = load i64, ptr %120, align 8, !tbaa !89
   %122 = sdiv i64 %121, 1000
   %123 = add nsw i64 %122, %119
   br label %Abc_Clock.exit52
@@ -1865,7 +1865,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !94
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !92
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -1873,7 +1873,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !94, !noalias !96
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !92, !noalias !94
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -2024,19 +2024,17 @@ attributes #21 = { nounwind willreturn memory(read) }
 !80 = !{!79, !12, i64 0}
 !81 = !{!79, !12, i64 8}
 !82 = !{!79, !12, i64 12}
-!83 = distinct !{!83, !27, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!85 = distinct !{!85, !27}
-!86 = distinct !{!86, !27}
-!87 = distinct !{!87, !27, !88}
-!88 = !{!"llvm.loop.unswitch.partial.disable"}
-!89 = !{!90, !20, i64 0}
-!90 = !{!"timespec", !20, i64 0, !20, i64 8}
-!91 = !{!90, !20, i64 8}
-!92 = !{!4, !18, i64 408}
-!93 = distinct !{!93, !27}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"vprintf: argument 0"}
-!98 = distinct !{!98, !"vprintf"}
+!83 = distinct !{!83, !27}
+!84 = distinct !{!84, !27}
+!85 = distinct !{!85, !27, !86}
+!86 = !{!"llvm.loop.unswitch.partial.disable"}
+!87 = !{!88, !20, i64 0}
+!88 = !{!"timespec", !20, i64 0, !20, i64 8}
+!89 = !{!88, !20, i64 8}
+!90 = !{!4, !18, i64 408}
+!91 = distinct !{!91, !27}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"vprintf: argument 0"}
+!96 = distinct !{!96, !"vprintf"}

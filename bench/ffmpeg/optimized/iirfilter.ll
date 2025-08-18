@@ -485,7 +485,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %68 = tail call nsz float @llvm.fmuladd.f32(float %64, float %67, float %.0199.us)
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
-  br i1 %exitcond257.not, label %..preheader_crit_edge.us, label %58, !llvm.loop !31
+  br i1 %exitcond257.not, label %..preheader_crit_edge.us, label %58, !llvm.loop !30
 
 69:                                               ; preds = %.lr.ph197.us, %69
   %indvars.iv248 = phi i64 [ 0, %.lr.ph197.us ], [ %indvars.iv.next249, %69 ]
@@ -497,7 +497,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %74 = tail call nsz float @llvm.fmuladd.f32(float %71, float %73, float %.0170196.us)
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %.lr.ph201.us, label %69, !llvm.loop !32
+  br i1 %exitcond252.not, label %.lr.ph201.us, label %69, !llvm.loop !31
 
 .lr.ph197.us:                                     ; preds = %.lr.ph210.split.us
   %75 = load ptr, ptr %31, align 8, !tbaa !15
@@ -537,7 +537,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %83 = getelementptr inbounds float, ptr %.0172209.us211, i64 %6
   %84 = add nuw nsw i32 %.0174207.us213, 1
   %exitcond247.not = icmp eq i32 %84, %2
-  br i1 %exitcond247.not, label %.loopexit, label %.lr.ph197.us219, !llvm.loop !33
+  br i1 %exitcond247.not, label %.loopexit, label %.lr.ph197.us219, !llvm.loop !29
 
 85:                                               ; preds = %.lr.ph197.us219, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph197.us219 ], [ %indvars.iv.next, %85 ]
@@ -549,7 +549,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %90 = tail call nsz float @llvm.fmuladd.f32(float %87, float %89, float %.0170196.us217)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond242.not, label %._crit_edge.us220, label %85, !llvm.loop !32
+  br i1 %exitcond242.not, label %._crit_edge.us220, label %85, !llvm.loop !31
 
 ._crit_edge.us220:                                ; preds = %85
   %91 = load float, ptr %1, align 4, !tbaa !25
@@ -585,7 +585,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %109 = getelementptr inbounds float, ptr %.0180191, i64 %6
   %110 = add nuw nsw i32 %.0175193, 1
   %exitcond.not = icmp eq i32 %110, %2
-  br i1 %exitcond.not, label %.loopexit, label %95, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %95, !llvm.loop !32
 
 111:                                              ; preds = %.lr.ph, %111
   %112 = phi float [ %.pre, %.lr.ph ], [ %189, %111 ]
@@ -686,7 +686,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %196 = getelementptr inbounds float, ptr %175, i64 %6
   %197 = add nuw nsw i32 %.0179188, 4
   %198 = icmp slt i32 %197, %2
-  br i1 %198, label %111, label %.loopexit, !llvm.loop !35
+  br i1 %198, label %111, label %.loopexit, !llvm.loop !33
 
 .preheader:                                       ; preds = %.lr.ph210.split, %.preheader
   %.0172209 = phi ptr [ %207, %.preheader ], [ %5, %.lr.ph210.split ]
@@ -705,7 +705,7 @@ define internal void @iir_filter_flt(ptr noundef readonly captures(none) %0, ptr
   %207 = getelementptr inbounds float, ptr %.0172209, i64 %6
   %208 = add nuw nsw i32 %.0174207, 1
   %exitcond238.not = icmp eq i32 %208, %2
-  br i1 %exitcond238.not, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %exitcond238.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %111, %95, %.preheader, %._crit_edge205.us223, %._crit_edge205.us, %.preheader186, %.preheader184, %.preheader183
   ret void
@@ -783,11 +783,8 @@ attributes #9 = { cold }
 !26 = distinct !{!26, !19}
 !27 = !{!28, !6, i64 0}
 !28 = !{!"FFIIRFilterContext", !6, i64 0}
-!29 = distinct !{!29, !19, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
 !31 = distinct !{!31, !19}
 !32 = distinct !{!32, !19}
-!33 = distinct !{!33, !19, !30}
-!34 = distinct !{!34, !19}
-!35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
+!33 = distinct !{!33, !19}

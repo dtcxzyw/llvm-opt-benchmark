@@ -4375,7 +4375,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   store ptr %45, ptr %70, align 8, !tbaa !60
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !141
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !139
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3
   ret void
@@ -4571,7 +4571,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
   %1 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 8), align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 24), align 8, !tbaa !142
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 24), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 16), align 16, !tbaa !45
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 32), align 16, !tbaa !14
@@ -4582,7 +4582,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 4:                                                ; preds = %0
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 40), align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 56), align 8, !tbaa !142
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 56), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) @constinit.2, i64 96, i1 false)
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 48), align 16, !tbaa !45
   store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 64), align 16, !tbaa !14
@@ -4593,7 +4593,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 7:                                                ; preds = %4
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 72), align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 88), align 8, !tbaa !142
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 88), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) @constinit.4, i64 48, i1 false)
   store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 80), align 16, !tbaa !45
   store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 96), align 16, !tbaa !14
@@ -4604,7 +4604,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 10:                                               ; preds = %7
   store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 104), align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 120), align 8, !tbaa !142
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 120), align 8, !tbaa !140
   store i64 50331804, ptr %9, align 8
   %.sroa.590.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %.sroa.590.0..sroa_idx.i, align 8
@@ -4617,7 +4617,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 13:                                               ; preds = %10
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 136), align 8, !tbaa !6
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 152), align 8, !tbaa !142
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 152), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) @constinit.7, i64 48, i1 false)
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 144), align 16, !tbaa !45
   store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 160), align 16, !tbaa !14
@@ -4628,7 +4628,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 16:                                               ; preds = %13
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 168), align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 184), align 8, !tbaa !142
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 184), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 176), align 16, !tbaa !45
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 192), align 16, !tbaa !14
@@ -4639,7 +4639,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 19:                                               ; preds = %16
   store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 200), align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 216), align 8, !tbaa !142
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 216), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) @constinit.11, i64 96, i1 false)
   store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 208), align 16, !tbaa !45
   store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 224), align 16, !tbaa !14
@@ -4650,7 +4650,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 22:                                               ; preds = %19
   store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 232), align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 128
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 248), align 8, !tbaa !142
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 248), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(128) @constinit.13, i64 128, i1 false)
   store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 240), align 16, !tbaa !45
   store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 256), align 16, !tbaa !14
@@ -4661,7 +4661,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 25:                                               ; preds = %22
   store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 264), align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 280), align 8, !tbaa !142
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 280), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) @constinit.15, i64 32, i1 false)
   store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 272), align 16, !tbaa !45
   store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 288), align 16, !tbaa !14
@@ -4672,7 +4672,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 28:                                               ; preds = %25
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 296), align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 312), align 8, !tbaa !142
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 312), align 8, !tbaa !140
   store i64 50331708, ptr %27, align 8
   %.sroa.581.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %.sroa.581.0..sroa_idx.i, align 8
@@ -4685,7 +4685,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 31:                                               ; preds = %28
   store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 328), align 8, !tbaa !6
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 344), align 8, !tbaa !142
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 344), align 8, !tbaa !140
   store i64 50331695, ptr %30, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -4698,7 +4698,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #19 section ".text.startup" p
 34:                                               ; preds = %31
   store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 360), align 8, !tbaa !6
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 376), align 8, !tbaa !142
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 376), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) @constinit.19, i64 32, i1 false)
   store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 368), align 16, !tbaa !45
   store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 384), align 16, !tbaa !14
@@ -4793,7 +4793,7 @@ _ZN10CipherTestD2Ev.exit.i:                       ; preds = %65, %.preheader.i
 __cxx_global_var_init.exit:                       ; preds = %34
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 392), align 8, !tbaa !6
   %67 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 408), align 8, !tbaa !142
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 408), align 8, !tbaa !140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) @constinit.21, i64 64, i1 false)
   store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 400), align 16, !tbaa !45
   %68 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #28
@@ -5006,7 +5006,5 @@ attributes #33 = { nounwind willreturn memory(read) }
 !136 = distinct !{!136, !47}
 !137 = distinct !{!137, !47}
 !138 = distinct !{!138, !47}
-!139 = distinct !{!139, !47, !140}
-!140 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!141 = distinct !{!141, !47}
-!142 = !{!7, !8, i64 16}
+!139 = distinct !{!139, !47}
+!140 = !{!7, !8, i64 16}

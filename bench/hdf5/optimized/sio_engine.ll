@@ -1816,7 +1816,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   br i1 %.not, label %.loopexit, label %36
 
 36:                                               ; preds = %34
-  %37 = load i32, ptr %19, align 4, !tbaa !50
+  %37 = load i32, ptr %19, align 4, !tbaa !49
   %.not48 = icmp eq i32 %37, 0
   br i1 %.not48, label %.loopexit, label %38
 
@@ -1881,7 +1881,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %69, %.preheader50, %36, %34
   %73 = load i64, ptr @h5dset_space_id, align 8, !tbaa !17
@@ -1933,7 +1933,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   %105 = add i64 %104, %.04355
   %106 = load i64, ptr %13, align 8, !tbaa !17
   %107 = icmp ult i64 %105, %106
-  br i1 %107, label %.lr.ph57.split, label %.loopexit51, !llvm.loop !52
+  br i1 %107, label %.lr.ph57.split, label %.loopexit51, !llvm.loop !48
 
 .loopexit51:                                      ; preds = %103, %.lr.ph57.split.us, %4, %97, %76, %66, %59, %44
   %.045 = phi i32 [ -1, %66 ], [ -1, %59 ], [ -1, %97 ], [ -1, %76 ], [ -1, %44 ], [ 0, %4 ], [ 0, %.lr.ph57.split.us ], [ 0, %103 ]
@@ -1974,7 +1974,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
   %16 = add nuw i64 %.0401, 1
   %17 = load i64, ptr %12, align 8, !tbaa !17
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %19, label %.loopexit, !llvm.loop !53
+  br i1 %18, label %19, label %.loopexit, !llvm.loop !51
 
 19:                                               ; preds = %.lr.ph, %15
   %.0401 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
@@ -2011,7 +2011,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
   %30 = mul nsw i64 %29, %.0393
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, %wide.trip.count20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph5, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph5, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph5, %26
   %.039.lcssa = phi i64 [ 1, %26 ], [ %30, %.lr.ph5 ]
@@ -2024,7 +2024,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
   %37 = add nsw i64 %36, %.0386
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
-  br i1 %exitcond21.not, label %._crit_edge10, label %26, !llvm.loop !55
+  br i1 %exitcond21.not, label %._crit_edge10, label %26, !llvm.loop !53
 
 ._crit_edge10:                                    ; preds = %._crit_edge, %22
   %.038.lcssa = phi i64 [ 0, %22 ], [ %37, %._crit_edge ]
@@ -2112,7 +2112,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -21
   %22 = add i64 %21, %.0314.us
   %23 = load i64, ptr %11, align 8, !tbaa !17
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.lr.ph7.split.us, label %.loopexit, !llvm.loop !56
+  br i1 %24, label %.lr.ph7.split.us, label %.loopexit, !llvm.loop !54
 
 .lr.ph7.split:                                    ; preds = %.lr.ph7, %60
   %.0314 = phi i64 [ %62, %60 ], [ 0, %.lr.ph7 ]
@@ -2188,7 +2188,7 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -21
   %62 = add i64 %61, %.0314
   %63 = load i64, ptr %11, align 8, !tbaa !17
   %64 = icmp ult i64 %62, %63
-  br i1 %64, label %.lr.ph7.split, label %.loopexit, !llvm.loop !57
+  br i1 %64, label %.lr.ph7.split, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %60, %.lr.ph7.split.us, %4, %54, %35
   %.1 = phi i32 [ -1, %54 ], [ -1, %35 ], [ 0, %4 ], [ %20, %.lr.ph7.split.us ], [ 0, %60 ]
@@ -2223,7 +2223,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %16 = add nuw i64 %.0401, 1
   %17 = load i64, ptr %12, align 8, !tbaa !17
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %19, label %.loopexit, !llvm.loop !58
+  br i1 %18, label %19, label %.loopexit, !llvm.loop !55
 
 19:                                               ; preds = %.lr.ph, %15
   %.0401 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
@@ -2260,7 +2260,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %31 = mul nsw i64 %30, %.0394
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph6, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph6, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph6, %27
   %.039.lcssa = phi i64 [ 1, %27 ], [ %31, %.lr.ph6 ]
@@ -2273,7 +2273,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %38 = add nsw i64 %37, %.0388
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge12, label %27, !llvm.loop !60
+  br i1 %exitcond24.not, label %._crit_edge12, label %27, !llvm.loop !57
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %23
   %.038.lcssa = phi i64 [ 0, %23 ], [ %38, %._crit_edge ]
@@ -2437,16 +2437,13 @@ attributes #23 = { cold }
 !45 = !{!5, !9, i64 968}
 !46 = !{!5, !9, i64 976}
 !47 = distinct !{!47, !21}
-!48 = distinct !{!48, !21, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = !{!5, !6, i64 956}
+!48 = distinct !{!48, !21}
+!49 = !{!5, !6, i64 956}
+!50 = distinct !{!50, !21}
 !51 = distinct !{!51, !21}
 !52 = distinct !{!52, !21}
 !53 = distinct !{!53, !21}
 !54 = distinct !{!54, !21}
 !55 = distinct !{!55, !21}
-!56 = distinct !{!56, !21, !49}
+!56 = distinct !{!56, !21}
 !57 = distinct !{!57, !21}
-!58 = distinct !{!58, !21}
-!59 = distinct !{!59, !21}
-!60 = distinct !{!60, !21}

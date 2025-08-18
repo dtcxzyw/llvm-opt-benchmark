@@ -521,7 +521,7 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
   %56 = load i32, ptr %14, align 8
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
 59:                                               ; preds = %3, %8, %._crit_edge
   %.0 = phi ptr [ %36, %._crit_edge ], [ null, %8 ], [ null, %3 ]
@@ -704,6 +704,4 @@ attributes #7 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
+!11 = distinct !{!11, !7}

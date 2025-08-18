@@ -485,7 +485,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %104 = or disjoint i64 %101, %103
   %105 = add nsw i32 %.026.i, -1
   %.not30.i = icmp eq i32 %105, 0
-  br i1 %.not30.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !40
+  br i1 %.not30.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !38
 
 .split.us.i:                                      ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i
   %.us-phi.i = phi i64 [ %67, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i ]
@@ -550,6 +550,4 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !33}
+!38 = distinct !{!38, !33}

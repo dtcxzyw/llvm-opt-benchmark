@@ -214,7 +214,7 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
   %.6 = phi i32 [ %51, %46 ], [ %.589, %.preheader ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next95, 1024
-  br i1 %exitcond97.not, label %53, label %.preheader, !llvm.loop !22
+  br i1 %exitcond97.not, label %53, label %.preheader, !llvm.loop !21
 
 53:                                               ; preds = %52
   %54 = sext i32 %.6 to i64
@@ -310,7 +310,7 @@ define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef reado
   %.3.i.i = or i8 %49, %39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %PaletteHasNonMonotonousDeltas.exit.i, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %PaletteHasNonMonotonousDeltas.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
 PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %.022.lcssa.i.i = phi i8 [ 0, %23 ], [ %.3.i.i, %.lr.ph.i.i ]
@@ -391,7 +391,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %spec.select40.i = tail call i32 @llvm.umin.i32(i32 %.03144.i, i32 %94)
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count51.i
-  br i1 %exitcond.not.i, label %97, label %66, !llvm.loop !24
+  br i1 %exitcond.not.i, label %97, label %66, !llvm.loop !23
 
 97:                                               ; preds = %66
   %98 = sext i32 %spec.select.i to i64
@@ -403,7 +403,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   store i32 %101, ptr %100, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count51.i
-  br i1 %exitcond52.not.i, label %PaletteSortMinimizeDeltas.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond52.not.i, label %PaletteSortMinimizeDeltas.exit, label %.preheader.i, !llvm.loop !24
 
 103:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -575,7 +575,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.preheader.i.us.i.i
   %179 = load i32, ptr %114, align 8, !tbaa !9
   %180 = sext i32 %179 to i64
   %181 = icmp slt i64 %indvars.iv.next96.i.i, %180
-  br i1 %181, label %.lr.ph.split.us.i.i, label %PrepareMapToPalette.exit.i.i, !llvm.loop !26
+  br i1 %181, label %.lr.ph.split.us.i.i, label %PrepareMapToPalette.exit.i.i, !llvm.loop !25
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i27, %229
   %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i30, %229 ], [ 0, %.lr.ph.i.i27 ]
@@ -670,7 +670,7 @@ SearchColorNoIdx.exit.i.i:                        ; preds = %.preheader.i.i.i, %
   %230 = load i32, ptr %114, align 8, !tbaa !9
   %231 = sext i32 %230 to i64
   %232 = icmp slt i64 %indvars.iv.next.i.i30, %231
-  br i1 %232, label %.lr.ph.split.i.i, label %PrepareMapToPalette.exit.i.i, !llvm.loop !27
+  br i1 %232, label %.lr.ph.split.i.i, label %PrepareMapToPalette.exit.i.i, !llvm.loop !25
 
 PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.preheader.i.i
   %233 = phi i32 [ %145, %.preheader.i.i ], [ %179, %178 ], [ %230, %229 ]
@@ -682,7 +682,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %237 = add nuw nsw i32 %.06682.i.i, 1
   %238 = load i32, ptr %136, align 4, !tbaa !15
   %239 = icmp slt i32 %237, %238
-  br i1 %239, label %.preheader.i.i, label %.loopexit120.i, !llvm.loop !28
+  br i1 %239, label %.preheader.i.i, label %.loopexit120.i, !llvm.loop !26
 
 240:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -714,7 +714,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %249 = add i32 %248, %.040.i.i
   %indvars.iv.next.i114.i = add nuw nsw i64 %indvars.iv.i113.i, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i114.i, %122
-  br i1 %exitcond.not.i.i20, label %250, label %243, !llvm.loop !30
+  br i1 %exitcond.not.i.i20, label %250, label %243, !llvm.loop !28
 
 250:                                              ; preds = %243
   %251 = icmp ugt i32 %249, %.03541.i.i
@@ -723,7 +723,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %spec.select151.i = call i32 @llvm.umax.i32(i32 %249, i32 %.03541.i.i)
   %253 = add nuw i32 %.03342.i.i, 1
   %exitcond46.not.i.i = icmp eq i32 %253, %3
-  br i1 %exitcond46.not.i.i, label %254, label %.preheader.i112.i, !llvm.loop !31
+  br i1 %exitcond46.not.i.i, label %254, label %.preheader.i112.i, !llvm.loop !29
 
 254:                                              ; preds = %250
   store i8 %spec.select150.i, ptr %8, align 16
@@ -746,7 +746,7 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   %spec.select153.i = call i32 @llvm.umax.i32(i32 %263, i32 %.03144.i.i)
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next.i22, %122
-  br i1 %exitcond47.not.i.i, label %CoOccurrenceFindMax.exit.i, label %257, !llvm.loop !32
+  br i1 %exitcond47.not.i.i, label %CoOccurrenceFindMax.exit.i, label %257, !llvm.loop !30
 
 CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %266 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -756,9 +756,9 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   br i1 %.not106.i, label %.lr.ph149.preheader.i, label %268
 
 268:                                              ; preds = %CoOccurrenceFindMax.exit.i
-  store i8 0, ptr %9, align 16, !tbaa !33
+  store i8 0, ptr %9, align 16, !tbaa !31
   %269 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %269, align 4, !tbaa !35
+  store i32 0, ptr %269, align 4, !tbaa !33
   %270 = zext i8 %spec.select152.i to i32
   %271 = zext i8 %spec.select152.i to i64
   %272 = zext i8 %spec.select150.i to i64
@@ -778,7 +778,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %278 = trunc i64 %indvars.iv162.i to i8
   %279 = zext i32 %.088132.i to i64
   %280 = getelementptr inbounds nuw [256 x %struct.Sum], ptr %9, i64 0, i64 %279
-  store i8 %278, ptr %280, align 8, !tbaa !33
+  store i8 %278, ptr %280, align 8, !tbaa !31
   %281 = mul i32 %3, %277
   %282 = add i32 %281, %255
   %283 = zext i32 %282 to i64
@@ -790,9 +790,9 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %289 = load i32, ptr %288, align 4, !tbaa !3
   %290 = add i32 %289, %285
   %291 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  store i32 %290, ptr %291, align 4, !tbaa !35
+  store i32 %290, ptr %291, align 4, !tbaa !33
   %292 = getelementptr inbounds nuw i8, ptr %.091131.i, i64 4
-  %293 = load i32, ptr %292, align 4, !tbaa !35
+  %293 = load i32, ptr %292, align 4, !tbaa !33
   %294 = icmp ugt i32 %290, %293
   %spec.select.i23 = select i1 %294, ptr %280, ptr %.091131.i
   %295 = add i32 %.088132.i, 1
@@ -803,7 +803,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %.189.i = phi i32 [ %.088132.i, %273 ], [ %295, %276 ]
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next163.i, %122
-  br i1 %exitcond.not.i24, label %.preheader.preheader.i25, label %273, !llvm.loop !36
+  br i1 %exitcond.not.i24, label %.preheader.preheader.i25, label %273, !llvm.loop !34
 
 .preheader.preheader.i25:                         ; preds = %296
   %297 = add i32 %3, -3
@@ -821,7 +821,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %.3146.i = phi ptr [ %.192.i, %.preheader.preheader.i25 ], [ %spec.select111.i, %.loopexit117.i ]
   %.095144.i = phi i32 [ 1, %.preheader.preheader.i25 ], [ %.196.i, %.loopexit117.i ]
   %.198143.i = phi i32 [ 0, %.preheader.preheader.i25 ], [ %.299.i, %.loopexit117.i ]
-  %300 = load i8, ptr %.3146.i, align 4, !tbaa !33
+  %300 = load i8, ptr %.3146.i, align 4, !tbaa !31
   %301 = add i32 %.095144.i, 1
   %302 = urem i32 %.198143.i, %3
   %.not108134.i = icmp eq i32 %302, %301
@@ -855,7 +855,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %323 = add i32 %322, %.198143.i
   %324 = urem i32 %323, %3
   %.not108.i = icmp eq i32 %324, %301
-  br i1 %.not108.i, label %._crit_edge.i, label %308, !llvm.loop !37
+  br i1 %.not108.i, label %._crit_edge.i, label %308, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %308
   %325 = icmp sgt i32 %321, 0
@@ -890,23 +890,23 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   %indvars.iv165.i = phi i64 [ 0, %.lr.ph141.i ], [ %indvars.iv.next166.i, %336 ]
   %.4138.i = phi ptr [ %9, %.lr.ph141.i ], [ %spec.select111.i, %336 ]
   %337 = getelementptr inbounds nuw [256 x %struct.Sum], ptr %9, i64 0, i64 %indvars.iv165.i
-  %338 = load i8, ptr %337, align 8, !tbaa !33
+  %338 = load i8, ptr %337, align 8, !tbaa !31
   %339 = zext i8 %338 to i32
   %340 = add i32 %335, %339
   %341 = zext i32 %340 to i64
   %342 = getelementptr inbounds nuw i32, ptr %108, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !3
   %344 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  %345 = load i32, ptr %344, align 4, !tbaa !35
+  %345 = load i32, ptr %344, align 4, !tbaa !33
   %346 = add i32 %345, %343
-  store i32 %346, ptr %344, align 4, !tbaa !35
+  store i32 %346, ptr %344, align 4, !tbaa !33
   %347 = getelementptr inbounds nuw i8, ptr %.4138.i, i64 4
-  %348 = load i32, ptr %347, align 4, !tbaa !35
+  %348 = load i32, ptr %347, align 4, !tbaa !33
   %349 = icmp ugt i32 %346, %348
   %spec.select111.i = select i1 %349, ptr %337, ptr %.4138.i
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %exitcond171.not.i = icmp eq i64 %indvars.iv.next166.i, %indvars.iv172.i
-  br i1 %exitcond171.not.i, label %.loopexit117.i, label %336, !llvm.loop !38
+  br i1 %exitcond171.not.i, label %.loopexit117.i, label %336, !llvm.loop !36
 
 .lr.ph149.preheader.i:                            ; preds = %._crit_edge.thread.i, %CoOccurrenceFindMax.exit.i
   %.097.i = phi i32 [ 0, %CoOccurrenceFindMax.exit.i ], [ %.299.i, %._crit_edge.thread.i ]
@@ -928,7 +928,7 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
   store i32 %358, ptr %359, align 4, !tbaa !3
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond184.not.i = icmp eq i64 %indvars.iv.next180.i, %122
-  br i1 %exitcond184.not.i, label %PaletteSortModifiedZeng.exit, label %.lr.ph149.i, !llvm.loop !39
+  br i1 %exitcond184.not.i, label %PaletteSortModifiedZeng.exit, label %.lr.ph149.i, !llvm.loop !37
 
 PaletteSortModifiedZeng.exit:                     ; preds = %.lr.ph149.i, %103, %105, %240
   %.0.i = phi i32 [ 0, %240 ], [ 1, %103 ], [ 0, %105 ], [ 1, %.lr.ph149.i ]
@@ -993,23 +993,21 @@ attributes #10 = { nounwind }
 !17 = !{!5, !5, i64 0}
 !18 = distinct !{!18, !8}
 !19 = !{!10, !4, i64 80}
-!20 = distinct !{!20, !8, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8, !21}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8, !29}
-!29 = !{!"llvm.loop.unswitch.partial.disable"}
+!26 = distinct !{!26, !8, !27}
+!27 = !{!"llvm.loop.unswitch.partial.disable"}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
 !30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = !{!34, !5, i64 0}
-!34 = !{!"Sum", !5, i64 0, !4, i64 4}
-!35 = !{!34, !4, i64 4}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"Sum", !5, i64 0, !4, i64 4}
+!33 = !{!32, !4, i64 4}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}

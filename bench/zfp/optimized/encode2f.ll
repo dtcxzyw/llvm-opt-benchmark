@@ -1190,7 +1190,7 @@ pad_block_float.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   %18 = add nuw i64 %.039.us.i, 1
   %19 = getelementptr inbounds float, ptr %24, i64 %9
   %exitcond75.not.i = icmp eq i64 %18, %3
-  br i1 %exitcond75.not.i, label %.preheader.i, label %.preheader35.us.i, !llvm.loop !41
+  br i1 %exitcond75.not.i, label %.preheader.i, label %.preheader35.us.i
 
 20:                                               ; preds = %20, %.preheader35.us.i
   %.02337.us.i = phi i64 [ 0, %.preheader35.us.i ], [ %23, %20 ]
@@ -1238,7 +1238,7 @@ pad_block_float.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   store float %.pre.i33.i.us, ptr %29, align 4, !tbaa !12
   %30 = add nuw nsw i64 %.168.i.us6, 1
   %exitcond79.not.i.us8 = icmp eq i64 %30, 4
-  br i1 %exitcond79.not.i.us8, label %gather_partial_float_2.exit, label %._crit_edge.i32.i.us, !llvm.loop !43
+  br i1 %exitcond79.not.i.us8, label %gather_partial_float_2.exit, label %._crit_edge.i32.i.us
 
 ._crit_edge15.i29.i.us:                           ; preds = %.preheader.i, %._crit_edge15.i29.i.us
   %.168.i.us10 = phi i64 [ %35, %._crit_edge15.i29.i.us ], [ 0, %.preheader.i ]
@@ -1252,7 +1252,7 @@ pad_block_float.exit.us.i:                        ; preds = %._crit_edge.us.i, %
   store float %33, ptr %34, align 4, !tbaa !12
   %35 = add nuw nsw i64 %.168.i.us10, 1
   %exitcond79.not.i.us12 = icmp eq i64 %35, 4
-  br i1 %exitcond79.not.i.us12, label %gather_partial_float_2.exit, label %._crit_edge15.i29.i.us, !llvm.loop !44
+  br i1 %exitcond79.not.i.us12, label %gather_partial_float_2.exit, label %._crit_edge15.i29.i.us
 
 pad_block_float.exit34.i.us15:                    ; preds = %.preheader.i, %pad_block_float.exit34.i.us15
   %.168.i.us14 = phi i64 [ %39, %pad_block_float.exit34.i.us15 ], [ 0, %.preheader.i ]
@@ -1262,7 +1262,7 @@ pad_block_float.exit34.i.us15:                    ; preds = %.preheader.i, %pad_
   store float %37, ptr %38, align 4, !tbaa !12
   %39 = add nuw nsw i64 %.168.i.us14, 1
   %exitcond79.not.i.us16 = icmp eq i64 %39, 4
-  br i1 %exitcond79.not.i.us16, label %gather_partial_float_2.exit, label %pad_block_float.exit34.i.us15, !llvm.loop !45
+  br i1 %exitcond79.not.i.us16, label %gather_partial_float_2.exit, label %pad_block_float.exit34.i.us15
 
 gather_partial_float_2.exit:                      ; preds = %._crit_edge15.i29.i.us, %._crit_edge.i32.i.us, %pad_block_float.exit34.i.us15, %.preheader.i, %.preheader.i.split.us
   %40 = call i64 @zfp_encode_block_float_2(ptr noundef %0, ptr noundef nonnull %7)
@@ -1353,8 +1353,3 @@ attributes #11 = { nounwind }
 !38 = !{!39}
 !39 = distinct !{!39, !37, !"encode_few_ints_prec_uint32: argument 1"}
 !40 = !{!36, !39}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
-!45 = distinct !{!45, !42}

@@ -763,7 +763,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit: ; preds = %110, %11
 _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit, %117
   %.0.i22 = phi ptr [ %.0.i.i.i.i21, %117 ], [ null, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit ]
   %123 = icmp eq ptr %.0.i, %.0.i22
-  br i1 %123, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split, label %.critedge, !llvm.loop !13
+  br i1 %123, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split
   %.us-phi = phi ptr [ %109, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split ], [ %109, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %71, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us ], [ %71, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ]
@@ -1244,7 +1244,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i = icmp eq i64 %64, 0
   %65 = icmp ne i64 %60, 0
   %66 = and i1 %65, %.not.i.i
-  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !14
+  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !12
 
 67:                                               ; preds = %2
   br i1 %.not.i.i24, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %68
@@ -1595,7 +1595,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit: ; preds = %50, %51
 _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit, %57
   %.0.i22 = phi ptr [ %.0.i.i.i.i21, %57 ], [ null, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit ]
   %63 = icmp eq ptr %.0.i, %.0.i22
-  br i1 %63, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %.critedge, !llvm.loop !15
+  br i1 %63, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23
   %64 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %0, i64 noundef %1, ptr noundef %49, ptr noundef null)
@@ -1855,8 +1855,6 @@ attributes #7 = { noreturn nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{i64 2145392468}
-!11 = distinct !{!11, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}

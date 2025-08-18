@@ -294,7 +294,7 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   store double %40, ptr %41, align 8, !tbaa !12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond56.not, label %.split.us, label %.thread.us, !llvm.loop !14
+  br i1 %exitcond56.not, label %.split.us, label %.thread.us
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %58
   %indvars.iv = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next, %58 ]
@@ -529,21 +529,21 @@ check_retval.exit19:                              ; preds = %check_retval.exit17
 
 check_retval.exit21:                              ; preds = %check_retval.exit19, %49
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %52 = load i64, ptr %2, align 8, !tbaa !16
-  %53 = load i64, ptr %3, align 8, !tbaa !16
+  %52 = load i64, ptr %2, align 8, !tbaa !14
+  %53 = load i64, ptr %3, align 8, !tbaa !14
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %52, i64 noundef %53)
-  %55 = load i64, ptr %10, align 8, !tbaa !16
-  %56 = load i64, ptr %11, align 8, !tbaa !16
+  %55 = load i64, ptr %10, align 8, !tbaa !14
+  %56 = load i64, ptr %11, align 8, !tbaa !14
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %55, i64 noundef %56)
-  %58 = load i64, ptr %4, align 8, !tbaa !16
-  %59 = load i64, ptr %5, align 8, !tbaa !16
+  %58 = load i64, ptr %4, align 8, !tbaa !14
+  %59 = load i64, ptr %5, align 8, !tbaa !14
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %58, i64 noundef %59)
   %putchar = call i32 @putchar(i32 10)
-  %61 = load i64, ptr %6, align 8, !tbaa !16
-  %62 = load i64, ptr %7, align 8, !tbaa !16
+  %61 = load i64, ptr %6, align 8, !tbaa !14
+  %62 = load i64, ptr %7, align 8, !tbaa !14
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %61, i64 noundef %62)
-  %64 = load i64, ptr %8, align 8, !tbaa !16
-  %65 = load i64, ptr %9, align 8, !tbaa !16
+  %64 = load i64, ptr %8, align 8, !tbaa !14
+  %65 = load i64, ptr %9, align 8, !tbaa !14
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %64, i64 noundef %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -629,7 +629,5 @@ attributes #7 = { cold nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"double", !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}

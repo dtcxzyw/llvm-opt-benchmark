@@ -2630,7 +2630,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   store float %193, ptr %195, align 4
   %196 = add nuw i64 %.04263, 1
   %exitcond.not = icmp eq i64 %196, %umax88
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
 
 197:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
   %198 = landingpad { ptr, i32 }
@@ -2775,11 +2775,11 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i, i64 12, i1 false), !alias.scope !50
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !54
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -3043,22 +3043,22 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds %class.CVertexO, ptr %84, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %90 = load float, ptr %89, align 4, !noalias !57
+  %90 = load float, ptr %89, align 4, !noalias !55
   %91 = fpext float %90 to double
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 28
-  %94 = load float, ptr %93, align 4, !noalias !57
+  %94 = load float, ptr %93, align 4, !noalias !55
   %95 = fpext float %94 to double
-  %96 = load float, ptr %92, align 4, !noalias !57
+  %96 = load float, ptr %92, align 4, !noalias !55
   %97 = fpext float %96 to double
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %99 = load float, ptr %98, align 4, !noalias !60
+  %99 = load float, ptr %98, align 4, !noalias !58
   %100 = fpext float %99 to double
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  %103 = load float, ptr %102, align 4, !noalias !60
+  %103 = load float, ptr %102, align 4, !noalias !58
   %104 = fpext float %103 to double
-  %105 = load float, ptr %101, align 4, !noalias !60
+  %105 = load float, ptr %101, align 4, !noalias !58
   %106 = fpext float %105 to double
   %gep = getelementptr inbounds nuw %"class.vcg::Point3", ptr %invariant.gep, i64 %82
   %107 = load float, ptr %gep, align 4
@@ -3086,7 +3086,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %129 = tail call double @llvm.fmuladd.f64(double %108, double %128, double %.087190)
   %130 = add nuw i32 %.089188, 1
   %exitcond.not = icmp eq i32 %130, %12
-  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit, %.preheader
   %.sroa.10.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %121, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit ]
@@ -3171,11 +3171,11 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %188 = fsub double %.sroa.0137.1.lcssa, %185
   %189 = fsub double %.sroa.6140.1.lcssa, %186
   %190 = fsub double %.sroa.10.1.lcssa, %187
-  %191 = load double, ptr %54, align 8, !noalias !64
+  %191 = load double, ptr %54, align 8, !noalias !62
   %192 = fmul double %.088.lcssa, %191
-  %193 = load double, ptr %55, align 8, !noalias !64
+  %193 = load double, ptr %55, align 8, !noalias !62
   %194 = fmul double %.088.lcssa, %193
-  %195 = load double, ptr %56, align 8, !noalias !64
+  %195 = load double, ptr %56, align 8, !noalias !62
   %196 = fmul double %.088.lcssa, %195
   %197 = fsub double %188, %192
   %198 = fsub double %189, %194
@@ -3196,11 +3196,11 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   %213 = load double, ptr %57, align 8
   %214 = tail call double @llvm.fmuladd.f64(double %.088.lcssa, double %213, double %212)
   %215 = fmul double %214, %34
-  %216 = load float, ptr %1, align 4, !noalias !67
+  %216 = load float, ptr %1, align 4, !noalias !65
   %217 = fpext float %216 to double
-  %218 = load float, ptr %58, align 4, !noalias !67
+  %218 = load float, ptr %58, align 4, !noalias !65
   %219 = fpext float %218 to double
-  %220 = load float, ptr %59, align 4, !noalias !67
+  %220 = load float, ptr %59, align 4, !noalias !65
   %221 = fpext float %220 to double
   %222 = fmul double %201, %219
   %223 = tail call double @llvm.fmuladd.f64(double %200, double %217, double %222)
@@ -3238,7 +3238,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNK7GaelMls12Neigh
   store double %174, ptr %245, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond219.not, label %246, label %.preheader, !llvm.loop !70
+  br i1 %exitcond219.not, label %246, label %.preheader, !llvm.loop !68
 
 246:                                              ; preds = %._crit_edge
   ret i1 true
@@ -3414,26 +3414,26 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %130
   %136 = load ptr, ptr %114, align 8
   %137 = getelementptr inbounds %class.CVertexO, ptr %136, i64 %135
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %139 = load float, ptr %138, align 4, !noalias !71
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  %139 = load float, ptr %138, align 4, !noalias !69
   %140 = fpext float %139 to double
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 12
-  %142 = load float, ptr %141, align 4, !noalias !71
+  %142 = load float, ptr %141, align 4, !noalias !69
   %143 = fpext float %142 to double
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %145 = load float, ptr %144, align 4, !noalias !71
+  %145 = load float, ptr %144, align 4, !noalias !69
   %146 = fpext float %145 to double
-  store double %140, ptr %6, align 8, !alias.scope !71
-  store double %143, ptr %55, align 8, !alias.scope !71
-  store double %146, ptr %56, align 8, !alias.scope !71
+  store double %140, ptr %6, align 8, !alias.scope !69
+  store double %143, ptr %55, align 8, !alias.scope !69
+  store double %146, ptr %56, align 8, !alias.scope !69
   %147 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %148 = load float, ptr %147, align 4, !noalias !74
+  %148 = load float, ptr %147, align 4, !noalias !72
   %149 = fpext float %148 to double
   %150 = getelementptr inbounds nuw i8, ptr %137, i64 28
-  %151 = load float, ptr %150, align 4, !noalias !74
+  %151 = load float, ptr %150, align 4, !noalias !72
   %152 = fpext float %151 to double
   %153 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %154 = load float, ptr %153, align 4, !noalias !74
+  %154 = load float, ptr %153, align 4, !noalias !72
   %155 = fpext float %154 to double
   %156 = zext i32 %.0184317 to i64
   %.not.i.i = icmp ugt i64 %120, %156
@@ -3499,7 +3499,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %198 = call double @llvm.fmuladd.f64(double %.0183, double %197, double %.0181319)
   %199 = add nuw i32 %.0184317, 1
   %exitcond.not = icmp eq i32 %199, %16
-  br i1 %exitcond.not, label %._crit_edge, label %130, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %130, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %177, %.preheader
   %.sroa.9.2.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %190, %177 ]
@@ -3668,23 +3668,23 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %354 = fsub double %349, %353
   %355 = fmul double %203, %104
   %356 = fsub double %350, %355
-  %357 = load double, ptr %72, align 8, !noalias !78
+  %357 = load double, ptr %72, align 8, !noalias !76
   %358 = fmul double %.0182.lcssa, %357
-  %359 = load double, ptr %73, align 8, !noalias !78
+  %359 = load double, ptr %73, align 8, !noalias !76
   %360 = fmul double %.0182.lcssa, %359
-  %361 = load double, ptr %74, align 8, !noalias !78
+  %361 = load double, ptr %74, align 8, !noalias !76
   %362 = fmul double %.0182.lcssa, %361
   %363 = fsub double %352, %358
   %364 = fsub double %354, %360
   %365 = fsub double %356, %362
   %366 = getelementptr inbounds nuw [3 x %"class.vcg::Point3.31"], ptr %50, i64 0, i64 %indvars.iv
-  %367 = load double, ptr %366, align 8, !noalias !81
+  %367 = load double, ptr %366, align 8, !noalias !79
   %368 = fmul double %224, %367
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %370 = load double, ptr %369, align 8, !noalias !81
+  %370 = load double, ptr %369, align 8, !noalias !79
   %371 = fmul double %224, %370
   %372 = getelementptr inbounds nuw i8, ptr %366, i64 16
-  %373 = load double, ptr %372, align 8, !noalias !81
+  %373 = load double, ptr %372, align 8, !noalias !79
   %374 = fmul double %224, %373
   %375 = fsub double %363, %368
   %376 = fsub double %364, %371
@@ -3730,11 +3730,11 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   %416 = fpext float %415 to double
   %417 = call double @llvm.fmuladd.f64(double %106, double %416, double %413)
   %418 = fadd double %417, %411
-  %419 = load float, ptr %1, align 4, !noalias !84
+  %419 = load float, ptr %1, align 4, !noalias !82
   %420 = fpext float %419 to double
-  %421 = load float, ptr %76, align 4, !noalias !84
+  %421 = load float, ptr %76, align 4, !noalias !82
   %422 = fpext float %421 to double
-  %423 = load float, ptr %77, align 4, !noalias !84
+  %423 = load float, ptr %77, align 4, !noalias !82
   %424 = fpext float %423 to double
   %425 = fmul double %379, %422
   %426 = call double @llvm.fmuladd.f64(double %378, double %420, double %425)
@@ -3762,12 +3762,12 @@ _ZNSt6vectorIfSaIfEE2atEm.exit186:                ; preds = %171
   store float %445, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond356.not, label %446, label %.preheader, !llvm.loop !87
+  br i1 %exitcond356.not, label %446, label %.preheader, !llvm.loop !85
 
 446:                                              ; preds = %._crit_edge
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond360.not = icmp eq i64 %indvars.iv.next358, 3
-  br i1 %exitcond360.not, label %447, label %78, !llvm.loop !88
+  br i1 %exitcond360.not, label %447, label %78, !llvm.loop !86
 
 447:                                              ; preds = %446
   ret i1 true
@@ -3923,7 +3923,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   store float %84, ptr %86, align 4
   %87 = add nuw i64 %.01931, 1
   %exitcond.not = icmp eq i64 %87, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   ret void
@@ -5588,44 +5588,42 @@ attributes #27 = { builtin allocsize(0) }
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZNK7GaelMls10MlsSurfaceI6CMeshOE9positionsEv: argument 0"}
 !48 = distinct !{!48, !"_ZNK7GaelMls10MlsSurfaceI6CMeshOE9positionsEv"}
-!49 = distinct !{!49, !12, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !12}
-!52 = !{!53, !55}
-!53 = distinct !{!53, !54, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!54 = distinct !{!54, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!55 = distinct !{!55, !54, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!56 = distinct !{!56, !12}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!59 = distinct !{!59, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!62 = distinct !{!62, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
-!63 = distinct !{!63, !12}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
-!66 = distinct !{!66, !"_ZNK3vcg6Point3IdEmlEd"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!69 = distinct !{!69, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
-!70 = distinct !{!70, !12}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!73 = distinct !{!73, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!76 = distinct !{!76, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
-!77 = distinct !{!77, !12}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
-!80 = distinct !{!80, !"_ZNK3vcg6Point3IdEmlEd"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
-!83 = distinct !{!83, !"_ZNK3vcg6Point3IdEmlEd"}
-!84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
-!86 = distinct !{!86, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!49 = distinct !{!49, !12}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!53 = distinct !{!53, !52, !"_ZSt19__relocate_object_aIN3vcg6Point3IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!54 = distinct !{!54, !12}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!57 = distinct !{!57, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!60 = distinct !{!60, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!61 = distinct !{!61, !12}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
+!64 = distinct !{!64, !"_ZNK3vcg6Point3IdEmlEd"}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!67 = distinct !{!67, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!68 = distinct !{!68, !12}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!71 = distinct !{!71, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!74 = distinct !{!74, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!75 = distinct !{!75, !12}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
+!78 = distinct !{!78, !"_ZNK3vcg6Point3IdEmlEd"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZNK3vcg6Point3IdEmlEd: argument 0"}
+!81 = distinct !{!81, !"_ZNK3vcg6Point3IdEmlEd"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE: argument 0"}
+!84 = distinct !{!84, !"_ZN3vcg6Point3IdE9ConstructIfEES1_RKNS0_IT_EE"}
+!85 = distinct !{!85, !12}
+!86 = distinct !{!86, !12}
 !87 = distinct !{!87, !12}
-!88 = distinct !{!88, !12}
-!89 = distinct !{!89, !12}

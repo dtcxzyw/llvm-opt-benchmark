@@ -98,7 +98,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %69 = fcmp olt double %61, %67
   %70 = zext i1 %69 to i64
   %.not265.us = icmp sgt i64 %indvars.iv351, %70
-  br i1 %.not265.us, label %.preheader270.split295.us, label %.lr.ph283, !llvm.loop !9
+  br i1 %.not265.us, label %.preheader270.split295.us, label %.lr.ph283
 
 71:                                               ; preds = %.lr.ph312
   %72 = sext i32 %39 to i64
@@ -147,7 +147,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.2 = add nuw nsw i32 %.1276, %96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %86
   %97 = zext nneg i32 %.2 to i64
@@ -175,7 +175,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %104 = fcmp olt double %61, %102
   %105 = zext i1 %104 to i64
   %106 = icmp samesign ugt i64 %indvars.iv351, %105
-  br i1 %106, label %.lr.ph301, label %.split.us.loopexit, !llvm.loop !13
+  br i1 %106, label %.lr.ph301, label %.split.us.loopexit
 
 107:                                              ; preds = %._crit_edge
   %108 = tail call double @llvm.fmuladd.f64(double %63, double %.0222, double %.1255)
@@ -207,7 +207,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.5 = add nuw nsw i32 %.4290, %122
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
-  br i1 %exitcond350.not, label %._crit_edge293, label %112, !llvm.loop !14
+  br i1 %exitcond350.not, label %._crit_edge293, label %112, !llvm.loop !11
 
 ._crit_edge293:                                   ; preds = %112
   %123 = zext nneg i32 %.5 to i64
@@ -251,7 +251,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %.0254, ptr %136, align 8, !tbaa !7
   store double %.0234, ptr %135, align 8, !tbaa !7
   %exitcond354.not = icmp eq i32 %lftr.wideiv.pre-phi, %37
-  br i1 %exitcond354.not, label %.preheader, label %.lr.ph312, !llvm.loop !15
+  br i1 %exitcond354.not, label %.preheader, label %.lr.ph312, !llvm.loop !12
 
 137:                                              ; preds = %.preheader, %._crit_edge331
   %.0253 = phi i32 [ %209, %._crit_edge331 ], [ 0, %.preheader ]
@@ -298,7 +298,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.6230.us = phi i32 [ %149, %144 ], [ %.4228328.us, %151 ], [ %.4228328.us, %152 ]
   %154 = add nuw i32 %.0236327.us, 1
   %exitcond361.not = icmp eq i32 %.0236327.us, %.2250
-  br i1 %exitcond361.not, label %._crit_edge331.thread, label %144, !llvm.loop !16
+  br i1 %exitcond361.not, label %._crit_edge331.thread, label %144, !llvm.loop !13
 
 .lr.ph330.split:                                  ; preds = %.lr.ph330, %206
   %.4228328 = phi i32 [ %.6230, %206 ], [ %.3227, %.lr.ph330 ]
@@ -381,7 +381,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.8 = add nuw nsw i32 %.7318, %203
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !17
+  br i1 %exitcond359.not, label %._crit_edge321, label %.lr.ph320, !llvm.loop !14
 
 ._crit_edge321:                                   ; preds = %.lr.ph320, %188
   %.7.lcssa = phi i32 [ %.6, %188 ], [ %.8, %.lr.ph320 ]
@@ -402,7 +402,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.6230 = phi i32 [ %159, %179 ], [ %.4228328, %182 ], [ %.4228328, %183 ], [ %.4228328, %205 ], [ %.4228328, %204 ]
   %207 = add nuw i32 %.0236327, 1
   %exitcond360.not = icmp eq i32 %.0236327, %.2250
-  br i1 %exitcond360.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !18
+  br i1 %exitcond360.not, label %._crit_edge331, label %.lr.ph330.split, !llvm.loop !13
 
 ._crit_edge331:                                   ; preds = %206
   %208 = icmp sgt i32 %.4252, 0
@@ -455,7 +455,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next363 = add nsw i64 %indvars.iv362, 1
   %lftr.wideiv365 = trunc i64 %indvars.iv.next363 to i32
   %exitcond366.not = icmp eq i32 %212, %lftr.wideiv365
-  br i1 %exitcond366.not, label %.loopexit, label %.lr.ph339, !llvm.loop !19
+  br i1 %exitcond366.not, label %.loopexit, label %.lr.ph339, !llvm.loop !15
 
 .loopexit:                                        ; preds = %235, %._crit_edge331.thread, %14
   ret void
@@ -484,13 +484,9 @@ attributes #3 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
 !13 = distinct !{!13, !10}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12, !10}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}

@@ -1485,7 +1485,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %19, %18, %17, %12
-  br label %.split.us, !llvm.loop !16
+  br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.017 = phi ptr [ %40, %.split.backedge ], [ %3, %4 ]
@@ -6776,7 +6776,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %.not = icmp eq i64 %6, 0
   %.reass = and i64 %invariant.op, %5
   %or.cond.not = icmp eq i64 %.reass, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %7, !prof !18
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %7, !prof !16
 
 7:                                                ; preds = %lean_dec.exit
   %8 = icmp ult ptr %.015, %1
@@ -6833,7 +6833,7 @@ lean_dec.exit:                                    ; preds = %lean_dec.exit.backe
   %.not = icmp eq i64 %6, 0
   %.reass = and i64 %invariant.op, %5
   %or.cond.not = icmp eq i64 %.reass, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %7, !prof !18
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %7, !prof !16
 
 7:                                                ; preds = %lean_dec.exit
   %8 = icmp ult ptr %.015, %1
@@ -6974,7 +6974,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit.i.bac
   %29 = ptrtoint ptr %.015.i to i64
   %30 = and i64 %29, 1
   %.not.i777 = icmp eq i64 %30, 0
-  br i1 %.not.i777, label %lean_nat_lt.exit.i, label %31, !prof !18
+  br i1 %.not.i777, label %lean_nat_lt.exit.i, label %31, !prof !16
 
 31:                                               ; preds = %lean_dec.exit.i
   %32 = icmp ult ptr %.015.i, %28
@@ -7378,7 +7378,7 @@ lean_dec.exit534:                                 ; preds = %183, %182, %180, %1
   %184 = ptrtoint ptr %.015.i795 to i64
   %185 = and i64 %184, 1
   %.not.i796 = icmp eq i64 %185, 0
-  br i1 %.not.i796, label %lean_nat_lt.exit.i802, label %186, !prof !18
+  br i1 %.not.i796, label %lean_nat_lt.exit.i802, label %186, !prof !16
 
 186:                                              ; preds = %.preheader
   %187 = icmp ult ptr %.015.i795, %84
@@ -7531,7 +7531,7 @@ lean_dec.exit.i813:                               ; preds = %lean_dec.exit.i813.
   %241 = ptrtoint ptr %.015.i808 to i64
   %242 = and i64 %241, 1
   %.not.i809 = icmp eq i64 %242, 0
-  br i1 %.not.i809, label %lean_nat_lt.exit.i815, label %243, !prof !18
+  br i1 %.not.i809, label %lean_nat_lt.exit.i815, label %243, !prof !16
 
 243:                                              ; preds = %lean_dec.exit.i813
   %244 = icmp ult ptr %.015.i808, %240
@@ -8622,7 +8622,7 @@ lean_dec.exit.i865:                               ; preds = %lean_dec.exit.i865.
   %640 = ptrtoint ptr %.015.i860 to i64
   %641 = and i64 %640, 1
   %.not.i861 = icmp eq i64 %641, 0
-  br i1 %.not.i861, label %lean_nat_lt.exit.i867, label %642, !prof !18
+  br i1 %.not.i861, label %lean_nat_lt.exit.i867, label %642, !prof !16
 
 642:                                              ; preds = %lean_dec.exit.i865
   %643 = icmp ult ptr %.015.i860, %639
@@ -9055,7 +9055,7 @@ lean_alloc_ctor.exit890:                          ; preds = %lean_dec.exit487
   %805 = ptrtoint ptr %.015.i892 to i64
   %806 = and i64 %805, 1
   %.not.i893 = icmp eq i64 %806, 0
-  br i1 %.not.i893, label %lean_nat_lt.exit.i899, label %807, !prof !18
+  br i1 %.not.i893, label %lean_nat_lt.exit.i899, label %807, !prof !16
 
 807:                                              ; preds = %.preheader1048
   %808 = icmp ult ptr %.015.i892, %695
@@ -9204,7 +9204,7 @@ lean_dec.exit.i911:                               ; preds = %lean_dec.exit.i911.
   %860 = ptrtoint ptr %.015.i906 to i64
   %861 = and i64 %860, 1
   %.not.i907 = icmp eq i64 %861, 0
-  br i1 %.not.i907, label %lean_nat_lt.exit.i913, label %862, !prof !18
+  br i1 %.not.i907, label %lean_nat_lt.exit.i913, label %862, !prof !16
 
 862:                                              ; preds = %lean_dec.exit.i911
   %863 = icmp ult ptr %.015.i906, %859
@@ -10356,7 +10356,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit.i.bac
   %.not.i9 = icmp eq i64 %6, 0
   %.reass.i = and i64 %invariant.op.i, %5
   %or.cond.not.i = icmp eq i64 %.reass.i, 0
-  br i1 %or.cond.not.i, label %lean_nat_lt.exit.i, label %7, !prof !18
+  br i1 %or.cond.not.i, label %lean_nat_lt.exit.i, label %7, !prof !16
 
 7:                                                ; preds = %lean_dec.exit.i
   %8 = icmp ult ptr %.015.i, %1
@@ -10459,7 +10459,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit.i.bac
   %.not.i9 = icmp eq i64 %6, 0
   %.reass.i = and i64 %invariant.op.i, %5
   %or.cond.not.i = icmp eq i64 %.reass.i, 0
-  br i1 %or.cond.not.i, label %lean_nat_lt.exit.i, label %7, !prof !18
+  br i1 %or.cond.not.i, label %lean_nat_lt.exit.i, label %7, !prof !16
 
 7:                                                ; preds = %lean_dec.exit.i
   %8 = icmp ult ptr %.015.i, %1
@@ -10833,9 +10833,9 @@ _init_l___private_Lean_Server_FileWorker_ExampleHover_0__Lean_Server_FileWorker_
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @l___private_Lean_Server_FileWorker_ExampleHover_0__Lean_Server_FileWorker_Hover_lines___lambda__1___boxed, ptr %25, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i16 2, ptr %26, align 8, !tbaa !19
+  store i16 2, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 18
-  store i16 0, ptr %27, align 2, !tbaa !19
+  store i16 0, ptr %27, align 2, !tbaa !17
   store ptr %21, ptr @l___private_Lean_Server_FileWorker_ExampleHover_0__Lean_Server_FileWorker_Hover_lines___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %21) #3
   %28 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 3, i64 noundef 3) #3
@@ -11026,8 +11026,6 @@ attributes #4 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !8, i64 0}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!"branch_weights", i32 4001, i32 4000000}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !8, i64 0}
+!16 = !{!"branch_weights", i32 4001, i32 4000000}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !8, i64 0}

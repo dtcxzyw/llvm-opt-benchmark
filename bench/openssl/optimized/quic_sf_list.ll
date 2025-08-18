@@ -375,7 +375,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
   %125 = load ptr, ptr %124, align 8, !tbaa !20
   tail call void @ossl_qrx_pkt_release(ptr noundef %125) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %.080114, ptr noundef nonnull @.str, i32 noundef 27) #8
-  br i1 %.not93, label %.critedge98, label %stream_frame_new.exit102.split, !llvm.loop !35
+  br i1 %.not93, label %.critedge98, label %stream_frame_new.exit102.split, !llvm.loop !33
 
 .critedge2.thread:                                ; preds = %stream_frame_new.exit102.split
   %126 = getelementptr inbounds nuw i8, ptr %.080114, i64 16
@@ -426,7 +426,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %141 = load i32, ptr %140, align 8, !tbaa !36
+  %141 = load i32, ptr %140, align 8, !tbaa !34
   %142 = icmp ne i32 %141, 0
   %143 = zext i1 %142 to i32
   br label %144
@@ -434,7 +434,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
 144:                                              ; preds = %139, %138
   %145 = phi i32 [ 1, %138 ], [ %143, %139 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %145, ptr %146, align 8, !tbaa !36
+  store i32 %145, ptr %146, align 8, !tbaa !34
   br label %.critedge97
 
 .critedge97:                                      ; preds = %.lr.ph138, %.preheader, %59, %37, %stream_frame_new.exit.thread, %144
@@ -444,7 +444,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #3 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !37
+  %6 = load ptr, ptr %1, align 8, !tbaa !35
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -467,27 +467,27 @@ define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr noundef readonly captures(
   %17 = getelementptr inbounds nuw i8, ptr %.033, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = icmp ult i64 %.0, %18
-  br i1 %19, label %28, label %20, !prof !38
+  br i1 %19, label %28, label %20, !prof !36
 
 20:                                               ; preds = %16, %12
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.0, ptr %21, align 8, !tbaa !24
-  store ptr null, ptr %3, align 8, !tbaa !39
-  store ptr null, ptr %1, align 8, !tbaa !37
+  store ptr null, ptr %3, align 8, !tbaa !37
+  store ptr null, ptr %1, align 8, !tbaa !35
   br label %26
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.0, ptr %23, align 8, !tbaa !24
-  store ptr null, ptr %3, align 8, !tbaa !39
-  store ptr null, ptr %1, align 8, !tbaa !37
+  store ptr null, ptr %3, align 8, !tbaa !37
+  store ptr null, ptr %1, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !36
+  %25 = load i32, ptr %24, align 8, !tbaa !34
   br label %26
 
 26:                                               ; preds = %20, %22
   %27 = phi i32 [ %25, %22 ], [ 0, %20 ]
-  store i32 %27, ptr %4, align 4, !tbaa !40
+  store i32 %27, ptr %4, align 4, !tbaa !38
   br label %42
 
 28:                                               ; preds = %16
@@ -499,7 +499,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr noundef readonly captures(
   %32 = sub i64 %.0, %14
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   %storemerge = select i1 %.not, ptr null, ptr %33
-  store ptr %storemerge, ptr %3, align 8, !tbaa !39
+  store ptr %storemerge, ptr %3, align 8, !tbaa !37
   %34 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !11
   %36 = icmp eq ptr %35, null
@@ -507,13 +507,13 @@ define range(i32 0, 2) i32 @ossl_sframe_list_peek(ptr noundef readonly captures(
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i32, ptr %38, align 8, !tbaa !36
+  %39 = load i32, ptr %38, align 8, !tbaa !34
   br label %40
 
 40:                                               ; preds = %28, %37
   %41 = phi i32 [ %39, %37 ], [ 0, %28 ]
-  store i32 %41, ptr %4, align 4, !tbaa !40
-  store ptr %.033, ptr %1, align 8, !tbaa !37
+  store i32 %41, ptr %4, align 4, !tbaa !38
+  store ptr %.033, ptr %1, align 8, !tbaa !35
   br label %42
 
 42:                                               ; preds = %40, %26
@@ -526,7 +526,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr noundef captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !23
   %.not = icmp ult i64 %1, %4
-  br i1 %.not, label %37, label %5, !prof !41
+  br i1 %.not, label %37, label %5, !prof !39
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -538,11 +538,11 @@ define range(i32 0, 2) i32 @ossl_sframe_list_drop_frames(ptr noundef captures(no
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !18
   %.not36 = icmp ugt i64 %1, %11
-  br i1 %.not36, label %37, label %.critedge34, !prof !41
+  br i1 %.not36, label %37, label %.critedge34, !prof !39
 
 12:                                               ; preds = %5
   %13 = icmp eq i64 %1, %4
-  br i1 %13, label %.critedge34, label %37, !prof !38
+  br i1 %13, label %.critedge34, label %37, !prof !36
 
 .critedge34:                                      ; preds = %9, %12
   store i64 %1, ptr %3, align 8, !tbaa !23
@@ -591,7 +591,7 @@ stream_frame_free.exit:                           ; preds = %20, %25, %28
   tail call void @ossl_qrx_pkt_release(ptr noundef %33) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %.02539, ptr noundef nonnull @.str, i32 noundef 27) #8
   %.not29 = icmp eq ptr %22, null
-  br i1 %.not29, label %._crit_edge, label %17, !llvm.loop !42
+  br i1 %.not29, label %._crit_edge, label %17, !llvm.loop !40
 
 34:                                               ; preds = %17
   store ptr %.02539, ptr %0, align 8, !tbaa !3
@@ -604,7 +604,7 @@ stream_frame_free.exit:                           ; preds = %20, %25, %28
 
 35:                                               ; preds = %._crit_edge, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %36, align 8, !tbaa !43
+  store i32 0, ptr %36, align 8, !tbaa !41
   br label %37
 
 37:                                               ; preds = %2, %9, %12, %35
@@ -615,7 +615,7 @@ stream_frame_free.exit:                           ; preds = %20, %25, %28
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ossl_sframe_list_lock_head(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !43
+  %6 = load i32, ptr %5, align 8, !tbaa !41
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %39
 
@@ -637,25 +637,25 @@ define range(i32 0, 2) i32 @ossl_sframe_list_lock_head(ptr noundef captures(none
   %15 = getelementptr inbounds nuw i8, ptr %.033.i, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !18
   %17 = icmp ult i64 %.0.i, %16
-  br i1 %17, label %25, label %18, !prof !38
+  br i1 %17, label %25, label %18, !prof !36
 
 18:                                               ; preds = %14, %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.0.i, ptr %19, align 8, !tbaa !24
-  store ptr null, ptr %2, align 8, !tbaa !39
+  store ptr null, ptr %2, align 8, !tbaa !37
   br label %ossl_sframe_list_peek.exit.thread
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.0.i, ptr %21, align 8, !tbaa !24
-  store ptr null, ptr %2, align 8, !tbaa !39
+  store ptr null, ptr %2, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !36
+  %23 = load i32, ptr %22, align 8, !tbaa !34
   br label %ossl_sframe_list_peek.exit.thread
 
 ossl_sframe_list_peek.exit.thread:                ; preds = %18, %20
   %24 = phi i32 [ %23, %20 ], [ 0, %18 ]
-  store i32 %24, ptr %3, align 4, !tbaa !40
+  store i32 %24, ptr %3, align 4, !tbaa !38
   br label %39
 
 25:                                               ; preds = %14
@@ -667,7 +667,7 @@ ossl_sframe_list_peek.exit.thread:                ; preds = %18, %20
   %29 = sub i64 %.0.i, %12
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   %storemerge.i = select i1 %.not.i, ptr null, ptr %30
-  store ptr %storemerge.i, ptr %2, align 8, !tbaa !39
+  store ptr %storemerge.i, ptr %2, align 8, !tbaa !37
   %31 = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = icmp eq ptr %32, null
@@ -675,13 +675,13 @@ ossl_sframe_list_peek.exit.thread:                ; preds = %18, %20
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !36
+  %36 = load i32, ptr %35, align 8, !tbaa !34
   br label %37
 
 37:                                               ; preds = %34, %25
   %38 = phi i32 [ %36, %34 ], [ 0, %25 ]
-  store i32 %38, ptr %3, align 4, !tbaa !40
-  store i32 1, ptr %5, align 8, !tbaa !43
+  store i32 %38, ptr %3, align 4, !tbaa !38
+  store i32 1, ptr %5, align 8, !tbaa !41
   br label %39
 
 39:                                               ; preds = %ossl_sframe_list_peek.exit.thread, %37, %4
@@ -692,7 +692,7 @@ ossl_sframe_list_peek.exit.thread:                ; preds = %18, %20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ossl_sframe_list_is_head_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !43
+  %3 = load i32, ptr %2, align 8, !tbaa !41
   ret i32 %3
 }
 
@@ -706,7 +706,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr noundef captures(none
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !43
+  %10 = load i32, ptr %9, align 8, !tbaa !41
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.lr.ph, label %11
 
@@ -829,7 +829,7 @@ stream_frame_free.exit:                           ; preds = %52, %55, %57
   %63 = getelementptr inbounds nuw i8, ptr %.259.ph, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !11
   %.not65 = icmp eq ptr %64, null
-  br i1 %.not65, label %.loopexit, label %17, !llvm.loop !44
+  br i1 %.not65, label %.loopexit, label %17, !llvm.loop !42
 
 .loopexit:                                        ; preds = %62, %21, %11, %3
   %.050 = phi i32 [ 1, %3 ], [ 1, %11 ], [ 1, %62 ], [ 0, %21 ]
@@ -897,15 +897,13 @@ attributes #8 = { nounwind }
 !30 = !{!5, !5, i64 0}
 !31 = !{!12, !5, i64 0}
 !32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !22}
-!36 = !{!4, !9, i64 16}
-!37 = !{!6, !6, i64 0}
-!38 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!39 = !{!15, !15, i64 0}
-!40 = !{!9, !9, i64 0}
-!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!33 = distinct !{!33, !22}
+!34 = !{!4, !9, i64 16}
+!35 = !{!6, !6, i64 0}
+!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!37 = !{!15, !15, i64 0}
+!38 = !{!9, !9, i64 0}
+!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!40 = distinct !{!40, !22}
+!41 = !{!4, !9, i64 40}
 !42 = distinct !{!42, !22}
-!43 = !{!4, !9, i64 40}
-!44 = distinct !{!44, !22}

@@ -899,7 +899,7 @@ bytestream2_get_byte.exit117:                     ; preds = %146, %147
   store i8 %161, ptr %162, align 1, !tbaa !42
   %163 = add nsw i32 %139, -1
   %.not107 = icmp eq i32 %139, 0
-  br i1 %.not107, label %.loopexit.loopexit150, label %.preheader131.split, !llvm.loop !54
+  br i1 %.not107, label %.loopexit.loopexit150, label %.preheader131.split, !llvm.loop !52
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %164 = trunc nuw i64 %indvars.iv.next171 to i32
@@ -921,12 +921,12 @@ bytestream2_get_byte.exit117:                     ; preds = %146, %147
   %168 = ptrtoint ptr %.pre175 to i64
   %169 = sub i64 %167, %168
   %170 = icmp slt i64 %169, 1
-  br i1 %170, label %.thread, label %bytestream2_get_byte.exit111, !llvm.loop !55
+  br i1 %170, label %.thread, label %bytestream2_get_byte.exit111, !llvm.loop !53
 
 171:                                              ; preds = %bytestream2_get_byte.exit111
   %172 = add nsw i32 %.0148, %9
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.loopexit134, label %27, !llvm.loop !56
+  br i1 %.not, label %.loopexit134, label %27, !llvm.loop !54
 
 .loopexit134:                                     ; preds = %171, %59, %.thread, %4, %137, %108, %77, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1155,7 +1155,7 @@ bytestream2_get_byte.exit92:                      ; preds = %90, %91
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 3
   store i8 %.0.i91, ptr %104, align 1, !tbaa !42
   %.not79 = icmp eq i32 %100, 0
-  br i1 %.not79, label %.loopexit.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %.not79, label %.loopexit.loopexit, label %.preheader, !llvm.loop !55
 
 105:                                              ; preds = %67
   %106 = add nuw nsw i32 %sext, %.071182
@@ -1192,12 +1192,12 @@ bytestream2_get_byte.exit92:                      ; preds = %90, %91
   %120 = ptrtoint ptr %.pre132 to i64
   %121 = sub i64 %119, %120
   %122 = icmp slt i64 %121, 1
-  br i1 %122, label %.thread, label %bytestream2_get_byte.exit82, !llvm.loop !58
+  br i1 %122, label %.thread, label %bytestream2_get_byte.exit82, !llvm.loop !56
 
 123:                                              ; preds = %bytestream2_get_byte.exit82
   %124 = add nsw i32 %.0118, %7
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.loopexit106, label %15, !llvm.loop !59
+  br i1 %.not, label %.loopexit106, label %15, !llvm.loop !57
 
 .loopexit106:                                     ; preds = %123, %47, %.thread, %3, %108, %98, %65, %38
   ret void
@@ -1368,10 +1368,10 @@ bytestream2_get_be16.exit72:                      ; preds = %67, %68
   %.058105 = phi i32 [ %65, %.preheader.preheader ], [ %77, %.preheader ]
   %77 = add nsw i32 %.058105, -1
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv136
-  store i16 %.0.i71, ptr %78, align 2, !tbaa !60
+  store i16 %.0.i71, ptr %78, align 2, !tbaa !58
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 2
   %.not69 = icmp eq i32 %77, 0
-  br i1 %.not69, label %.loopexit.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %.not69, label %.loopexit.loopexit, label %.preheader, !llvm.loop !60
 
 79:                                               ; preds = %62
   %80 = add nuw nsw i32 %sext, %.059172
@@ -1411,10 +1411,10 @@ bytestream2_get_be16.exit:                        ; preds = %90, %91
   %95 = phi ptr [ %15, %90 ], [ %92, %91 ]
   %.0.i = phi i16 [ 0, %90 ], [ %94, %91 ]
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i16 %.0.i, ptr %96, align 2, !tbaa !60
+  store i16 %.0.i, ptr %96, align 2, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not68 = icmp eq i32 %86, 0
-  br i1 %.not68, label %.loopexit.loopexit119, label %84, !llvm.loop !63
+  br i1 %.not68, label %.loopexit.loopexit119, label %84, !llvm.loop !61
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %97 = trunc nuw i64 %indvars.iv.next137 to i32
@@ -1430,12 +1430,12 @@ bytestream2_get_be16.exit:                        ; preds = %90, %91
   %99 = ptrtoint ptr %.promoted108 to i64
   %100 = sub i64 %17, %99
   %101 = icmp slt i64 %100, 1
-  br i1 %101, label %.thread, label %bytestream2_get_byte.exit75, !llvm.loop !64
+  br i1 %101, label %.thread, label %bytestream2_get_byte.exit75, !llvm.loop !62
 
 102:                                              ; preds = %bytestream2_get_byte.exit75
   %103 = add nsw i32 %.0113, %7
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %.loopexit93, label %20, !llvm.loop !65
+  br i1 %.not, label %.loopexit93, label %20, !llvm.loop !63
 
 .loopexit93:                                      ; preds = %102, %43, %.thread, %3, %83, %76, %61, %38
   ret void
@@ -1626,7 +1626,7 @@ bytestream2_get_byte.exit92:                      ; preds = %76, %77
   store i8 %.0.i91, ptr %91, align 1, !tbaa !42
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 3
   %.not85 = icmp eq i32 %89, 0
-  br i1 %.not85, label %.loopexit.loopexit, label %88, !llvm.loop !66
+  br i1 %.not85, label %.loopexit.loopexit, label %88, !llvm.loop !64
 
 92:                                               ; preds = %66
   %93 = mul nuw nsw i32 %45, 3
@@ -1698,7 +1698,7 @@ bytestream2_get_le16.exit97:                      ; preds = %119, %120
   store i16 %.0.i96, ptr %123, align 1, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 6
   %.not83 = icmp eq i32 %101, 0
-  br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %bytestream2_get_le16.exit97
   %124 = trunc nuw i64 %indvars.iv.next to i32
@@ -1770,12 +1770,12 @@ bytestream2_get_byte.exit94:                      ; preds = %144, %145
   %154 = ptrtoint ptr %.pre144 to i64
   %155 = sub i64 %153, %154
   %156 = icmp slt i64 %155, 1
-  br i1 %156, label %.thread, label %bytestream2_get_byte.exit88, !llvm.loop !68
+  br i1 %156, label %.thread, label %bytestream2_get_byte.exit88, !llvm.loop !66
 
 157:                                              ; preds = %bytestream2_get_byte.exit88
   %158 = add nsw i32 %.0124, %7
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.loopexit109, label %15, !llvm.loop !69
+  br i1 %.not, label %.loopexit109, label %15, !llvm.loop !67
 
 .loopexit109:                                     ; preds = %157, %46, %.thread, %3, %96, %86, %64, %38
   ret void
@@ -1951,7 +1951,7 @@ bytestream2_get_le32.exit:                        ; preds = %72, %73
   store i32 %.0.i81, ptr %83, align 4, !tbaa !42
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 4
   %.not75 = icmp eq i32 %82, 0
-  br i1 %.not75, label %.loopexit.loopexit, label %.preheader, !llvm.loop !70
+  br i1 %.not75, label %.loopexit.loopexit, label %.preheader, !llvm.loop !68
 
 84:                                               ; preds = %67
   %85 = add nuw nsw i32 %sext, %.065179
@@ -2000,7 +2000,7 @@ bytestream2_get_le64.exit:                        ; preds = %99, %100
   store i64 %.0.i84, ptr %103, align 1, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not73 = icmp eq i32 %92, 0
-  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %bytestream2_get_le64.exit
   %104 = trunc nuw i64 %indvars.iv.next to i32
@@ -2048,12 +2048,12 @@ bytestream2_get_le32.exit83:                      ; preds = %112, %113
   %121 = ptrtoint ptr %.pre133 to i64
   %122 = sub i64 %120, %121
   %123 = icmp slt i64 %122, 1
-  br i1 %123, label %.thread, label %bytestream2_get_byte.exit78, !llvm.loop !72
+  br i1 %123, label %.thread, label %bytestream2_get_byte.exit78, !llvm.loop !70
 
 124:                                              ; preds = %bytestream2_get_byte.exit78
   %125 = add nsw i32 %.0113, %7
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.loopexit98, label %15, !llvm.loop !73
+  br i1 %.not, label %.loopexit98, label %15, !llvm.loop !71
 
 .loopexit98:                                      ; preds = %124, %47, %.thread, %3, %87, %80, %65, %38
   ret void
@@ -2155,16 +2155,16 @@ attributes #9 = { noreturn nounwind }
 !49 = distinct !{!49, !47}
 !50 = distinct !{!50, !47}
 !51 = distinct !{!51, !47}
-!52 = distinct !{!52, !47, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !47}
+!53 = distinct !{!53, !47}
 !54 = distinct !{!54, !47}
 !55 = distinct !{!55, !47}
 !56 = distinct !{!56, !47}
 !57 = distinct !{!57, !47}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"short", !8, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"short", !8, i64 0}
+!60 = distinct !{!60, !47}
+!61 = distinct !{!61, !47}
 !62 = distinct !{!62, !47}
 !63 = distinct !{!63, !47}
 !64 = distinct !{!64, !47}
@@ -2175,5 +2175,3 @@ attributes #9 = { noreturn nounwind }
 !69 = distinct !{!69, !47}
 !70 = distinct !{!70, !47}
 !71 = distinct !{!71, !47}
-!72 = distinct !{!72, !47}
-!73 = distinct !{!73, !47}

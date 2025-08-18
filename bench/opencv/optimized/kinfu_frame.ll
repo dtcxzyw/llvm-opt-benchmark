@@ -5550,7 +5550,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu23PyrDownBilateralInvokerclERKNS_5
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next102, %34
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph72.us.us, !llvm.loop !263
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph72.us.us, !llvm.loop !262
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %._crit_edge.us.us.us
   %indvars.iv98 = phi i64 [ %39, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next99, %._crit_edge.us.us.us ]
@@ -5575,12 +5575,12 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu23PyrDownBilateralInvokerclERKNS_5
   %.2.us.us.us = add i32 %.165.us.us.us, %79
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %80 = icmp slt i64 %indvars.iv.next93, %63
-  br i1 %80, label %72, label %._crit_edge.us.us.us, !llvm.loop !264
+  br i1 %80, label %72, label %._crit_edge.us.us.us, !llvm.loop !263
 
 ._crit_edge.us.us.us:                             ; preds = %72
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %81 = icmp slt i64 %indvars.iv.next99, %52
-  br i1 %81, label %.lr.ph.us.us.us, label %._crit_edge73.us.us, !llvm.loop !265
+  br i1 %81, label %.lr.ph.us.us.us, label %._crit_edge73.us.us, !llvm.loop !264
 
 ._crit_edge84:                                    ; preds = %._crit_edge.us, %.lr.ph83, %2
   ret void
@@ -5625,7 +5625,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !266
+  %21 = load i32, ptr %20, align 4, !tbaa !265
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 4, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -5698,7 +5698,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !266
+  %21 = load i32, ptr %20, align 4, !tbaa !265
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 4, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -5763,7 +5763,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !266
+  %21 = load i32, ptr %20, align 4, !tbaa !265
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -5834,7 +5834,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !266
+  %23 = load i32, ptr %22, align 4, !tbaa !265
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 4, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_INS_3VecIfLi4EEEEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -6240,9 +6240,8 @@ attributes #23 = { noreturn nounwind }
 !258 = distinct !{!258, !82}
 !259 = !{!85, !20, i64 16}
 !260 = !{!85, !20, i64 8}
-!261 = distinct !{!261, !82, !262}
-!262 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!263 = distinct !{!263, !82, !262}
+!261 = distinct !{!261, !82}
+!262 = distinct !{!262, !82}
+!263 = distinct !{!263, !82}
 !264 = distinct !{!264, !82}
-!265 = distinct !{!265, !82, !262}
-!266 = !{!32, !16, i64 4}
+!265 = !{!32, !16, i64 4}

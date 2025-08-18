@@ -161,7 +161,7 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr noundef captures(none)
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %36 = load i32, ptr %35, align 4
-  %.fr176 = freeze i32 %36
+  %.fr178 = freeze i32 %36
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -179,19 +179,19 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr noundef captures(none)
   br i1 %.not152168, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %50 = icmp eq i32 %.fr176, 0
-  %51 = sext i32 %.fr176 to i64
+  %50 = icmp eq i32 %.fr178, 0
+  %51 = sext i32 %.fr178 to i64
   %.fr = freeze i32 %30
   %52 = sext i32 %.fr to i64
-  br i1 %50, label %.lr.ph.split.us, label %.lr.ph.split.split
+  br i1 %50, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %mcast_stream_info_cmp.exit.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %mcast_stream_info_cmp.exit.us
   %.0145169.us = phi ptr [ %83, %mcast_stream_info_cmp.exit.us ], [ %49, %.lr.ph ]
   %53 = load ptr, ptr %.0145169.us, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %mcast_stream_info_cmp.exit.us, label %55
 
-55:                                               ; preds = %.lr.ph.split.us
+55:                                               ; preds = %.lr.ph.split.us.split
   %56 = load i32, ptr %53, align 8
   %57 = icmp eq i32 %34, %56
   br i1 %57, label %58, label %mcast_stream_info_cmp.exit.us
@@ -233,11 +233,11 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr noundef captures(none)
   %81 = icmp eq i16 %80, %46
   br i1 %81, label %.thread164, label %mcast_stream_info_cmp.exit.us
 
-mcast_stream_info_cmp.exit.us:                    ; preds = %78, %74, %70, %66, %62, %58, %55, %.lr.ph.split.us
+mcast_stream_info_cmp.exit.us:                    ; preds = %78, %74, %70, %66, %62, %58, %55, %.lr.ph.split.us.split
   %82 = getelementptr inbounds nuw i8, ptr %.0145169.us, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not152.us = icmp eq ptr %83, null
-  br i1 %.not152.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not152.us, label %.thread, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %mcast_stream_info_cmp.exit
   %.0145169 = phi ptr [ %118, %mcast_stream_info_cmp.exit ], [ %49, %.lr.ph ]
@@ -253,7 +253,7 @@ mcast_stream_info_cmp.exit.us:                    ; preds = %78, %74, %70, %66, 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %.fr176, %91
+  %92 = icmp eq i32 %.fr178, %91
   br i1 %92, label %93, label %mcast_stream_info_cmp.exit
 
 93:                                               ; preds = %89
@@ -298,7 +298,7 @@ mcast_stream_info_cmp.exit:                       ; preds = %86, %89, %93, %97, 
   %117 = getelementptr inbounds nuw i8, ptr %.0145169, i64 8
   %118 = load ptr, ptr %117, align 8
   %.not152 = icmp eq ptr %118, null
-  br i1 %.not152, label %.thread, label %.lr.ph.split.split, !llvm.loop !10
+  br i1 %.not152, label %.thread, label %.lr.ph.split.split, !llvm.loop !8
 
 .thread:                                          ; preds = %mcast_stream_info_cmp.exit, %mcast_stream_info_cmp.exit.us, %28
   %119 = tail call noalias dereferenceable_or_null(208) ptr @g_malloc0(i64 noundef 208) #9
@@ -439,10 +439,10 @@ copy_address_wmem.exit154:                        ; preds = %copy_address_wmem.e
   br label %202
 
 202:                                              ; preds = %.thread164, %196
-  %.sink187 = phi double [ %198, %196 ], [ 0.000000e+00, %.thread164 ]
+  %.sink193 = phi double [ %198, %196 ], [ 0.000000e+00, %.thread164 ]
   %.sink = phi double [ %201, %196 ], [ 0.000000e+00, %.thread164 ]
   %203 = getelementptr inbounds nuw i8, ptr %.1, i64 64
-  store double %.sink187, ptr %203, align 8
+  store double %.sink193, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   store double %.sink, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -727,7 +727,7 @@ define internal fastcc void @slidingwindow(ptr noundef captures(none) %0, ptr no
   %storemerge50 = select i1 %46, i32 %47, i32 %45
   store i32 %storemerge50, ptr %8, align 8
   %48 = add i32 %.1, -1
-  br label %33, !llvm.loop !11
+  br label %33, !llvm.loop !9
 
 49:                                               ; preds = %33
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -793,7 +793,7 @@ define hidden void @remove_tap_listener_mcast_stream(ptr noundef %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
+  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -816,7 +816,7 @@ define hidden ptr @register_tap_listener_mcast_stream(ptr noundef %0) local_unna
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i8, ptr %3, align 8, !range !12, !noundef !13
+  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %10, label %6
 
@@ -925,9 +925,7 @@ attributes #10 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}

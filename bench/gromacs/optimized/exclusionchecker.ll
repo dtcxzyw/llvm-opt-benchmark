@@ -145,13 +145,13 @@ _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %46, %40, %34
   %spec.select.i = add nsw i32 %.144.us.i, %63
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.043.us.i, i64 4
   %.not40.us.i = icmp eq ptr %64, %58
-  br i1 %.not40.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !53
+  br i1 %.not40.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 ._crit_edge.i:                                    ; preds = %84, %.lr.ph.split.us.i, %_Z9PERTURBEDRK6t_atom.exit.i
   %.1.lcssa.i = phi i32 [ %.02747.i, %_Z9PERTURBEDRK6t_atom.exit.i ], [ %spec.select.i, %.lr.ph.split.us.i ], [ %.2.i, %84 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %28
-  br i1 %exitcond.not.i, label %._crit_edge50.i, label %34, !llvm.loop !55
+  br i1 %exitcond.not.i, label %._crit_edge50.i, label %34, !llvm.loop !53
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %84
   %.144.i = phi i32 [ %.2.i, %84 ], [ %.02747.i, %.lr.ph.i ]
@@ -198,7 +198,7 @@ _Z9PERTURBEDRK6t_atom.exit32.thread.i:            ; preds = %_Z9PERTURBEDRK6t_at
 _ZL35computeNumGlobalPerturbedExclusionsRK10gmx_mtop_t.exit: ; preds = %._crit_edge50.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %32, %._crit_edge50.i ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.0.lcssa.i, ptr %86, align 8, !tbaa !57
+  store i32 %.0.lcssa.i, ptr %86, align 8, !tbaa !55
   ret void
 }
 
@@ -226,10 +226,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 define void @_ZN16ExclusionCheckerC2EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.54", align 8
   %6 = alloca %"class.std::function.57", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !58
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !56
   invoke void @_ZN16ExclusionChecker4ImplC1EPK9t_commrecRK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2)
-          to label %_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %8, !noalias !58
+          to label %_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %8, !noalias !56
 
 common.resume:                                    ; preds = %59, %8
   %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %.pn, %59 ]
@@ -238,25 +238,25 @@ common.resume:                                    ; preds = %59, %8
 8:                                                ; preds = %4
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 64) #17, !noalias !58
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 64) #17, !noalias !56
   br label %common.resume
 
 _ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %4
-  store ptr %7, ptr %0, align 8, !tbaa !61, !alias.scope !58
+  store ptr %7, ptr %0, align 8, !tbaa !59, !alias.scope !56
   %10 = icmp eq ptr %1, null
   br i1 %10, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread, label %11
 
 11:                                               ; preds = %_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  %13 = load ptr, ptr %12, align 8, !tbaa !61
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit
 
 _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !81
+  %15 = load i32, ptr %14, align 8, !tbaa !79
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !82
+  %17 = load i32, ptr %16, align 4, !tbaa !80
   %18 = sub nsw i32 %15, %17
   %19 = icmp sgt i32 %18, 1
   br i1 %19, label %20, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread
@@ -279,22 +279,22 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %26, align 8
-  store i64 %23, ptr %5, align 8, !tbaa !61
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %25, align 8, !tbaa !83
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %24, align 8, !tbaa !85
+  store i64 %23, ptr %5, align 8, !tbaa !59
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %25, align 8, !tbaa !81
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation", ptr %24, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %29, align 8
-  store i64 %23, ptr %6, align 8, !tbaa !61
-  store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %28, align 8, !tbaa !86
-  store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %27, align 8, !tbaa !85
+  store i64 %23, ptr %6, align 8, !tbaa !59
+  store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %28, align 8, !tbaa !84
+  store ptr @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %27, align 8, !tbaa !83
   invoke void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvOS1_IFNS_24ObservablesReducerStatusENS_20ReductionRequirementEEENS_8ArrayRefIdEEEEOS1_IFvlEE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %30 unwind label %45
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr %27, align 8, !tbaa !85
+  %31 = load ptr, ptr %27, align 8, !tbaa !83
   %.not.i11 = icmp eq ptr %31, null
   br i1 %.not.i11, label %_ZNSt14_Function_baseD2Ev.exit, label %32
 
@@ -311,7 +311,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %11
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %37 = load ptr, ptr %24, align 8, !tbaa !85
+  %37 = load ptr, ptr %24, align 8, !tbaa !83
   %.not.i12 = icmp eq ptr %37, null
   br i1 %.not.i12, label %_ZNSt14_Function_baseD2Ev.exit13, label %38
 
@@ -341,7 +341,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %11, %_ZSt11ma
 45:                                               ; preds = %22
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %27, align 8, !tbaa !85
+  %47 = load ptr, ptr %27, align 8, !tbaa !83
   %.not.i14 = icmp eq ptr %47, null
   br i1 %.not.i14, label %_ZNSt14_Function_baseD2Ev.exit15, label %48
 
@@ -358,7 +358,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %11, %_ZSt11ma
 
 _ZNSt14_Function_baseD2Ev.exit15:                 ; preds = %45, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %53 = load ptr, ptr %24, align 8, !tbaa !85
+  %53 = load ptr, ptr %24, align 8, !tbaa !83
   %.not.i16 = icmp eq ptr %53, null
   br i1 %.not.i16, label %_ZNSt14_Function_baseD2Ev.exit17, label %54
 
@@ -387,13 +387,13 @@ declare void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !59
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %4, align 8, !tbaa !83
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit, label %6
 
@@ -414,7 +414,7 @@ _ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit: ; preds = %3, %6
   br label %12
 
 12:                                               ; preds = %_ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !61
+  store ptr null, ptr %0, align 8, !tbaa !59
   ret void
 }
 
@@ -432,9 +432,9 @@ define internal void @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24Observabl
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !88
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !85
+  %8 = load ptr, ptr %7, align 8, !tbaa !83
   %.not.i.i.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i, label %11
 
@@ -442,7 +442,7 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
   %.sroa.0.0.copyload3.i.i = load ptr, ptr %2, align 8
   %.sroa.2.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload5.i.i = load ptr, ptr %.sroa.2.0..sroa_idx4.i.i, align 8
-  %9 = load ptr, ptr %0, align 8, !tbaa !89
+  %9 = load ptr, ptr %0, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
@@ -453,7 +453,7 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %12 = load ptr, ptr %0, align 8, !tbaa !89
+  %12 = load ptr, ptr %0, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
@@ -466,19 +466,19 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
   %.sroa.0.0.copyload7.i.i = phi ptr [ %.sroa.0.0.copyload3.i.i, %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i ], [ %.sroa.0.0.copyload.i.i, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 16, i1 false), !tbaa.struct !91
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !89
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 16, i1 false), !tbaa.struct !89
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !89
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !93
-  store ptr %19, ptr %17, align 8, !tbaa !93
-  store ptr %8, ptr %18, align 8, !tbaa !93
+  %19 = load ptr, ptr %18, align 8, !tbaa !91
+  store ptr %19, ptr %17, align 8, !tbaa !91
+  store ptr %8, ptr %18, align 8, !tbaa !91
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !93
-  store ptr %21, ptr %14, align 8, !tbaa !93
-  store ptr %6, ptr %20, align 8, !tbaa !93
+  %21 = load ptr, ptr %20, align 8, !tbaa !91
+  store ptr %21, ptr %14, align 8, !tbaa !91
+  store ptr %6, ptr %20, align 8, !tbaa !91
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0JSt8functionIFNS7_24ObservablesReducerStatusENS7_20ReductionRequirementEEENS7_8ArrayRefIdEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit", label %22
 
@@ -495,7 +495,7 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
 
 "_ZSt10__invoke_rIvRZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0JSt8functionIFNS7_24ObservablesReducerStatusENS7_20ReductionRequirementEEENS7_8ArrayRefIdEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %27 = load ptr, ptr %0, align 8, !tbaa !89
+  %27 = load ptr, ptr %0, align 8, !tbaa !87
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.sroa.0.0.copyload7.i.i, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -512,16 +512,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvOSt8functionIFN3
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0", ptr %0, align 8, !tbaa !94
+  store ptr @"_ZTIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0", ptr %0, align 8, !tbaa !92
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !93
+  store ptr %1, ptr %0, align 8, !tbaa !91
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !61
-  store i64 %.val.i, ptr %0, align 8, !tbaa !61
+  %.val.i = load i64, ptr %1, align 8, !tbaa !59
+  store i64 %.val.i, ptr %0, align 8, !tbaa !59
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -530,29 +530,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvOSt8functionIFN3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvlEZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr nonnull readonly align 8 captures(none) %1) #5 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !96
+  %.val = load ptr, ptr %0, align 8, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load double, ptr %5, align 8, !tbaa !98
+  %6 = load double, ptr %5, align 8, !tbaa !96
   %7 = fptosi double %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !57
+  %9 = load i32, ptr %8, align 8, !tbaa !55
   %.not.i.i.i.i = icmp eq i32 %9, %7
   br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %.val, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !100
+  %13 = load ptr, ptr %12, align 8, !tbaa !98
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  %15 = load i32, ptr %14, align 4, !tbaa !101
+  %15 = load i32, ptr %14, align 4, !tbaa !99
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %19 = load i32, ptr %18, align 8, !tbaa !102
+  %19 = load i32, ptr %18, align 8, !tbaa !100
   %20 = icmp slt i32 %19, 2
   br label %21
 
@@ -575,16 +575,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN16ExclusionC
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1", ptr %0, align 8, !tbaa !94
+  store ptr @"_ZTIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1", ptr %0, align 8, !tbaa !92
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !93
+  store ptr %1, ptr %0, align 8, !tbaa !91
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !61
-  store i64 %.val.i, ptr %0, align 8, !tbaa !61
+  %.val.i = load i64, ptr %1, align 8, !tbaa !59
+  store i64 %.val.i, ptr %0, align 8, !tbaa !59
   br label %"_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -594,22 +594,22 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvlEZN16ExclusionC
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16ExclusionChecker4Impl5checkEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !55
   %.not = icmp eq i32 %1, %4
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !100
+  %8 = load ptr, ptr %7, align 8, !tbaa !98
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %10 = load i32, ptr %9, align 4, !tbaa !101
+  %10 = load i32, ptr %9, align 4, !tbaa !99
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !102
+  %14 = load i32, ptr %13, align 8, !tbaa !100
   %15 = icmp slt i32 %14, 2
   br label %16
 
@@ -625,13 +625,13 @@ define void @_ZN16ExclusionChecker4Impl5checkEi(ptr noundef nonnull readonly ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16ExclusionCheckerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !61
+  %2 = load ptr, ptr %0, align 8, !tbaa !59
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %4, align 8, !tbaa !83
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit.i, label %6
 
@@ -652,30 +652,30 @@ _ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit.i: ; preds = %6, %
   br label %_ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !61
+  store ptr null, ptr %0, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN16ExclusionCheckerC2EOS_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #11 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !61
-  store i64 %3, ptr %0, align 8, !tbaa !61
-  store ptr null, ptr %1, align 8, !tbaa !61
+  %3 = load i64, ptr %1, align 8, !tbaa !59
+  store i64 %3, ptr %0, align 8, !tbaa !59
+  store ptr null, ptr %1, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16ExclusionCheckeraSEOS_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !61
-  store ptr null, ptr %1, align 8, !tbaa !61
-  %4 = load ptr, ptr %0, align 8, !tbaa !61
-  store ptr %3, ptr %0, align 8, !tbaa !61
+  %3 = load ptr, ptr %1, align 8, !tbaa !59
+  store ptr null, ptr %1, align 8, !tbaa !59
+  %4 = load ptr, ptr %0, align 8, !tbaa !59
+  store ptr %3, ptr %0, align 8, !tbaa !59
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EEaSEOS4_.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !83
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN16ExclusionChecker4ImplEEclEPS1_.exit.i.i.i.i, label %8
 
@@ -705,39 +705,39 @@ declare void @_Z20gmx_fatal_collectiveiPKciP10tmpi_comm_bS0_z(i32 noundef, ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16ExclusionChecker25scheduleCheckOfExclusionsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr %0, align 8, !tbaa !61
+  %4 = load ptr, ptr %0, align 8, !tbaa !59
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit
 
 _ZL25havePPDomainDecompositionPK9t_commrec.exit:  ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !81
+  %9 = load i32, ptr %8, align 8, !tbaa !79
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !82
+  %11 = load i32, ptr %10, align 4, !tbaa !80
   %12 = sub nsw i32 %9, %11
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %29, label %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread
 
 _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %2, %_ZL25havePPDomainDecompositionPK9t_commrec.exit
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %15 = load i32, ptr %14, align 8, !tbaa !57
+  %15 = load i32, ptr %14, align 8, !tbaa !55
   %.not.i2 = icmp eq i32 %1, %15
   br i1 %.not.i2, label %_ZN16ExclusionChecker4Impl5checkEi.exit, label %16
 
 16:                                               ; preds = %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !98
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %20 = load i32, ptr %19, align 4, !tbaa !101
+  %20 = load i32, ptr %19, align 4, !tbaa !99
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %24 = load i32, ptr %23, align 8, !tbaa !102
+  %24 = load i32, ptr %23, align 8, !tbaa !100
   %25 = icmp slt i32 %24, 2
   br label %26
 
@@ -752,11 +752,11 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %2, %_ZL25have
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
-  store double %30, ptr %33, align 8, !tbaa !98
+  store double %30, ptr %33, align 8, !tbaa !96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 1, ptr %3, align 4, !tbaa !103
+  store i32 1, ptr %3, align 4, !tbaa !101
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !85
+  %35 = load ptr, ptr %34, align 8, !tbaa !83
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %36, label %_ZNKSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEclES2_.exit
 
@@ -767,7 +767,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %2, %_ZL25have
 _ZNKSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEclES2_.exit: ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !88
+  %39 = load ptr, ptr %38, align 8, !tbaa !86
   %40 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16ExclusionChecker4Impl5checkEi.exit
@@ -864,54 +864,52 @@ attributes #18 = { noreturn }
 !51 = !{!43, !45, i64 16}
 !52 = !{!15, !15, i64 0}
 !53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = distinct !{!55, !56}
-!56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!5, !15, i64 56}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!60 = distinct !{!60, !"_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTSN16ExclusionChecker4ImplE", !7, i64 0}
-!63 = !{!64, !73, i64 112}
-!64 = !{!"_ZTS9t_commrec", !40, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !65, i64 24, !65, i64 32, !15, i64 40, !65, i64 48, !15, i64 56, !15, i64 60, !66, i64 64, !67, i64 96, !74, i64 104, !73, i64 112, !80, i64 120, !15, i64 128}
-!65 = !{!"p1 _ZTS10tmpi_comm_", !7, i64 0}
-!66 = !{!"_ZTS14gmx_nodecomm_t", !40, i64 0, !65, i64 8, !15, i64 16, !65, i64 24}
-!67 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !68, i64 0}
-!68 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !69, i64 0}
-!69 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !70, i64 0}
-!70 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !71, i64 0}
-!71 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !72, i64 0}
-!72 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !73, i64 0}
-!73 = !{!"p1 _ZTS12gmx_domdec_t", !7, i64 0}
-!74 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !75, i64 0}
-!75 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !76, i64 0}
-!76 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !77, i64 0}
-!77 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !78, i64 0}
-!78 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !79, i64 0}
-!79 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !80, i64 0}
-!80 = !{!"p1 _ZTS16gmxNvshmemHandle", !7, i64 0}
-!81 = !{!64, !15, i64 8}
-!82 = !{!64, !15, i64 12}
-!83 = !{!84, !7, i64 24}
-!84 = !{!"_ZTSSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEE", !14, i64 0, !7, i64 24}
-!85 = !{!14, !7, i64 16}
-!86 = !{!87, !7, i64 24}
-!87 = !{!"_ZTSSt8functionIFvlEE", !14, i64 0, !7, i64 24}
-!88 = !{!13, !7, i64 24}
-!89 = !{!90, !62, i64 0}
-!90 = !{!"_ZTSZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0", !62, i64 0}
-!91 = !{i64 0, i64 16, !92}
-!92 = !{!8, !8, i64 0}
-!93 = !{!7, !7, i64 0}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"p1 _ZTSSt9type_info", !7, i64 0}
-!96 = !{!97, !62, i64 0}
-!97 = !{!"_ZTSZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1", !62, i64 0}
-!98 = !{!99, !99, i64 0}
-!99 = !{!"double", !8, i64 0}
-!100 = !{!64, !65, i64 32}
-!101 = !{!64, !15, i64 60}
-!102 = !{!64, !15, i64 56}
-!103 = !{!104, !104, i64 0}
-!104 = !{!"_ZTSN3gmx20ReductionRequirementE", !8, i64 0}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!5, !15, i64 56}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!58 = distinct !{!58, !"_ZSt11make_uniqueIN16ExclusionChecker4ImplEJRPK9t_commrecRK10gmx_mtop_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN16ExclusionChecker4ImplE", !7, i64 0}
+!61 = !{!62, !71, i64 112}
+!62 = !{!"_ZTS9t_commrec", !40, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !63, i64 24, !63, i64 32, !15, i64 40, !63, i64 48, !15, i64 56, !15, i64 60, !64, i64 64, !65, i64 96, !72, i64 104, !71, i64 112, !78, i64 120, !15, i64 128}
+!63 = !{!"p1 _ZTS10tmpi_comm_", !7, i64 0}
+!64 = !{!"_ZTS14gmx_nodecomm_t", !40, i64 0, !63, i64 8, !15, i64 16, !63, i64 24}
+!65 = !{!"_ZTSSt10unique_ptrI12gmx_domdec_tSt14default_deleteIS0_EE", !66, i64 0}
+!66 = !{!"_ZTSSt15__uniq_ptr_dataI12gmx_domdec_tSt14default_deleteIS0_ELb1ELb1EE", !67, i64 0}
+!67 = !{!"_ZTSSt15__uniq_ptr_implI12gmx_domdec_tSt14default_deleteIS0_EE", !68, i64 0}
+!68 = !{!"_ZTSSt5tupleIJP12gmx_domdec_tSt14default_deleteIS0_EEE", !69, i64 0}
+!69 = !{!"_ZTSSt11_Tuple_implILm0EJP12gmx_domdec_tSt14default_deleteIS0_EEE", !70, i64 0}
+!70 = !{!"_ZTSSt10_Head_baseILm0EP12gmx_domdec_tLb0EE", !71, i64 0}
+!71 = !{!"p1 _ZTS12gmx_domdec_t", !7, i64 0}
+!72 = !{!"_ZTSSt10unique_ptrI16gmxNvshmemHandleSt14default_deleteIS0_EE", !73, i64 0}
+!73 = !{!"_ZTSSt15__uniq_ptr_dataI16gmxNvshmemHandleSt14default_deleteIS0_ELb1ELb1EE", !74, i64 0}
+!74 = !{!"_ZTSSt15__uniq_ptr_implI16gmxNvshmemHandleSt14default_deleteIS0_EE", !75, i64 0}
+!75 = !{!"_ZTSSt5tupleIJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !76, i64 0}
+!76 = !{!"_ZTSSt11_Tuple_implILm0EJP16gmxNvshmemHandleSt14default_deleteIS0_EEE", !77, i64 0}
+!77 = !{!"_ZTSSt10_Head_baseILm0EP16gmxNvshmemHandleLb0EE", !78, i64 0}
+!78 = !{!"p1 _ZTS16gmxNvshmemHandle", !7, i64 0}
+!79 = !{!62, !15, i64 8}
+!80 = !{!62, !15, i64 12}
+!81 = !{!82, !7, i64 24}
+!82 = !{!"_ZTSSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEE", !14, i64 0, !7, i64 24}
+!83 = !{!14, !7, i64 16}
+!84 = !{!85, !7, i64 24}
+!85 = !{!"_ZTSSt8functionIFvlEE", !14, i64 0, !7, i64 24}
+!86 = !{!13, !7, i64 24}
+!87 = !{!88, !60, i64 0}
+!88 = !{!"_ZTSZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_0", !60, i64 0}
+!89 = !{i64 0, i64 16, !90}
+!90 = !{!8, !8, i64 0}
+!91 = !{!7, !7, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSSt9type_info", !7, i64 0}
+!94 = !{!95, !60, i64 0}
+!95 = !{!"_ZTSZN16ExclusionCheckerC1EPK9t_commrecRK10gmx_mtop_tPN3gmx25ObservablesReducerBuilderEE3$_1", !60, i64 0}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"double", !8, i64 0}
+!98 = !{!62, !63, i64 32}
+!99 = !{!62, !15, i64 60}
+!100 = !{!62, !15, i64 56}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"_ZTSN3gmx20ReductionRequirementE", !8, i64 0}

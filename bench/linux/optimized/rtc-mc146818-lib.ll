@@ -141,7 +141,7 @@ define dso_local noundef zeroext i1 @mc146818_avoid_UIP(ptr noundef readonly cap
   %52 = add i32 %30, 1
   %53 = sdiv i32 %52, 10
   %54 = icmp slt i32 %53, %1
-  br i1 %54, label %.split, label %.loopexit, !llvm.loop !9
+  br i1 %54, label %.split, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %51, %25, %48, %.split10.us, %3
   %55 = phi i1 [ true, %.split10.us ], [ true, %48 ], [ false, %3 ], [ false, %25 ], [ false, %51 ]
@@ -171,7 +171,7 @@ define dso_local noundef range(i32 -110, 1) i32 @mc146818_get_time(ptr noundef %
   %3 = alloca %struct.mc146818_get_time_callback_param, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %4, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !8
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 0, ptr %5, align 1
@@ -444,9 +444,7 @@ attributes #8 = { nounwind willreturn memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !6, !7}
-!10 = !{!"auto-init"}
+!8 = !{!"auto-init"}

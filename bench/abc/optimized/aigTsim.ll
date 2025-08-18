@@ -1509,97 +1509,120 @@ define ptr @Aig_ManConstReduce(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %.not20 = icmp eq i32 %4, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %18
-  %.01922.us = phi ptr [ %12, %18 ], [ %0, %.lr.ph ]
-  %9 = tail call ptr @Aig_ManTernarySimulate(ptr noundef nonnull %.01922.us, i32 noundef %4, i32 noundef %5)
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not20, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %Vec_PtrFree.exit.us.us
+  %.01922.us.us = phi ptr [ %12, %Vec_PtrFree.exit.us.us ], [ %0, %.lr.ph.split.us ]
+  %9 = tail call ptr @Aig_ManTernarySimulate(ptr noundef nonnull %.01922.us.us, i32 noundef 0, i32 noundef %5)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %11
 
-11:                                               ; preds = %.lr.ph.split.us
-  %12 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922.us, ptr noundef nonnull %9) #17
+11:                                               ; preds = %.lr.ph.split.us.split.us
+  %12 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922.us.us, ptr noundef nonnull %9) #17
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !28
-  %.not.i.us = icmp eq ptr %14, null
-  br i1 %.not.i.us, label %Vec_PtrFree.exit.us, label %15
+  %.not.i.us.us = icmp eq ptr %14, null
+  br i1 %.not.i.us.us, label %Vec_PtrFree.exit.us.us, label %15
 
 15:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %14) #17
-  br label %Vec_PtrFree.exit.us
+  br label %Vec_PtrFree.exit.us.us
 
-Vec_PtrFree.exit.us:                              ; preds = %15, %11
+Vec_PtrFree.exit.us.us:                           ; preds = %15, %11
   tail call void @free(ptr noundef nonnull %9) #17
   %16 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %12) #17
-  br i1 %.not20, label %18, label %17
+  tail call void @Aig_ManStop(ptr noundef nonnull %.01922.us.us) #17
+  %17 = getelementptr i8, ptr %12, i64 104
+  %.019.val.us.us = load i32, ptr %17, align 8, !tbaa !13
+  %18 = icmp sgt i32 %.019.val.us.us, 0
+  br i1 %18, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !63
 
-17:                                               ; preds = %Vec_PtrFree.exit.us
-  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.01922.us, ptr noundef %12) #17
-  br label %18
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %Vec_PtrFree.exit.us
+  %.01922.us = phi ptr [ %22, %Vec_PtrFree.exit.us ], [ %0, %.lr.ph.split.us ]
+  %19 = tail call ptr @Aig_ManTernarySimulate(ptr noundef nonnull %.01922.us, i32 noundef %4, i32 noundef %5)
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %._crit_edge, label %21
 
-18:                                               ; preds = %17, %Vec_PtrFree.exit.us
+21:                                               ; preds = %.lr.ph.split.us.split
+  %22 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922.us, ptr noundef nonnull %19) #17
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !28
+  %.not.i.us = icmp eq ptr %24, null
+  br i1 %.not.i.us, label %Vec_PtrFree.exit.us, label %25
+
+25:                                               ; preds = %21
+  tail call void @free(ptr noundef nonnull %24) #17
+  br label %Vec_PtrFree.exit.us
+
+Vec_PtrFree.exit.us:                              ; preds = %25, %21
+  tail call void @free(ptr noundef nonnull %19) #17
+  %26 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %22) #17
+  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.01922.us, ptr noundef %22) #17
   tail call void @Aig_ManStop(ptr noundef nonnull %.01922.us) #17
-  %19 = getelementptr i8, ptr %12, i64 104
-  %.019.val.us = load i32, ptr %19, align 8, !tbaa !13
-  %20 = icmp sgt i32 %.019.val.us, 0
-  br i1 %20, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !63
+  %27 = getelementptr i8, ptr %22, i64 104
+  %.019.val.us = load i32, ptr %27, align 8, !tbaa !13
+  %28 = icmp sgt i32 %.019.val.us, 0
+  br i1 %28, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not20, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %Vec_PtrFree.exit.us28
-  %.01922.us26 = phi ptr [ %24, %Vec_PtrFree.exit.us28 ], [ %0, %.lr.ph.split ]
-  %21 = tail call ptr @Saig_MvManSimulate(ptr noundef nonnull %.01922.us26, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %5) #17
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %._crit_edge, label %23
+  %.01922.us26 = phi ptr [ %32, %Vec_PtrFree.exit.us28 ], [ %0, %.lr.ph.split ]
+  %29 = tail call ptr @Saig_MvManSimulate(ptr noundef nonnull %.01922.us26, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %5) #17
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %._crit_edge, label %31
 
-23:                                               ; preds = %.lr.ph.split.split.us
-  %24 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922.us26, ptr noundef nonnull %21) #17
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
-  %.not.i.us27 = icmp eq ptr %26, null
-  br i1 %.not.i.us27, label %Vec_PtrFree.exit.us28, label %27
+31:                                               ; preds = %.lr.ph.split.split.us
+  %32 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922.us26, ptr noundef nonnull %29) #17
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %.not.i.us27 = icmp eq ptr %34, null
+  br i1 %.not.i.us27, label %Vec_PtrFree.exit.us28, label %35
 
-27:                                               ; preds = %23
-  tail call void @free(ptr noundef nonnull %26) #17
+35:                                               ; preds = %31
+  tail call void @free(ptr noundef nonnull %34) #17
   br label %Vec_PtrFree.exit.us28
 
-Vec_PtrFree.exit.us28:                            ; preds = %27, %23
-  tail call void @free(ptr noundef nonnull %21) #17
-  %28 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %24) #17
+Vec_PtrFree.exit.us28:                            ; preds = %35, %31
+  tail call void @free(ptr noundef nonnull %29) #17
+  %36 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %32) #17
   tail call void @Aig_ManStop(ptr noundef nonnull %.01922.us26) #17
-  %29 = getelementptr i8, ptr %24, i64 104
-  %.019.val.us29 = load i32, ptr %29, align 8, !tbaa !13
-  %30 = icmp sgt i32 %.019.val.us29, 0
-  br i1 %30, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !65
+  %37 = getelementptr i8, ptr %32, i64 104
+  %.019.val.us29 = load i32, ptr %37, align 8, !tbaa !13
+  %38 = icmp sgt i32 %.019.val.us29, 0
+  br i1 %38, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !63
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %Vec_PtrFree.exit
-  %.01922 = phi ptr [ %34, %Vec_PtrFree.exit ], [ %0, %.lr.ph.split ]
-  %31 = tail call ptr @Saig_MvManSimulate(ptr noundef nonnull %.01922, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #17
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %._crit_edge, label %33
+  %.01922 = phi ptr [ %42, %Vec_PtrFree.exit ], [ %0, %.lr.ph.split ]
+  %39 = tail call ptr @Saig_MvManSimulate(ptr noundef nonnull %.01922, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #17
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %._crit_edge, label %41
 
-33:                                               ; preds = %.lr.ph.split.split
-  %34 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922, ptr noundef nonnull %31) #17
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %37
+41:                                               ; preds = %.lr.ph.split.split
+  %42 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.01922, ptr noundef nonnull %39) #17
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %45
 
-37:                                               ; preds = %33
-  tail call void @free(ptr noundef nonnull %36) #17
+45:                                               ; preds = %41
+  tail call void @free(ptr noundef nonnull %44) #17
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %33, %37
-  tail call void @free(ptr noundef nonnull %31) #17
-  %38 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %34) #17
-  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.01922, ptr noundef %34) #17
+Vec_PtrFree.exit:                                 ; preds = %41, %45
+  tail call void @free(ptr noundef nonnull %39) #17
+  %46 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %42) #17
+  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.01922, ptr noundef %42) #17
   tail call void @Aig_ManStop(ptr noundef nonnull %.01922) #17
-  %39 = getelementptr i8, ptr %34, i64 104
-  %.019.val = load i32, ptr %39, align 8, !tbaa !13
-  %40 = icmp sgt i32 %.019.val, 0
-  br i1 %40, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !66
+  %47 = getelementptr i8, ptr %42, i64 104
+  %.019.val = load i32, ptr %47, align 8, !tbaa !13
+  %48 = icmp sgt i32 %.019.val, 0
+  br i1 %48, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %Vec_PtrFree.exit, %.lr.ph.split.split, %Vec_PtrFree.exit.us28, %.lr.ph.split.split.us, %18, %.lr.ph.split.us, %6
-  %.019.lcssa = phi ptr [ %0, %6 ], [ %.01922.us, %.lr.ph.split.us ], [ %12, %18 ], [ %.01922.us26, %.lr.ph.split.split.us ], [ %24, %Vec_PtrFree.exit.us28 ], [ %.01922, %.lr.ph.split.split ], [ %34, %Vec_PtrFree.exit ]
+._crit_edge:                                      ; preds = %Vec_PtrFree.exit, %.lr.ph.split.split, %Vec_PtrFree.exit.us28, %.lr.ph.split.split.us, %Vec_PtrFree.exit.us, %.lr.ph.split.us.split, %Vec_PtrFree.exit.us.us, %.lr.ph.split.us.split.us, %6
+  %.019.lcssa = phi ptr [ %0, %6 ], [ %.01922.us.us, %.lr.ph.split.us.split.us ], [ %12, %Vec_PtrFree.exit.us.us ], [ %.01922.us, %.lr.ph.split.us.split ], [ %22, %Vec_PtrFree.exit.us ], [ %.01922.us26, %.lr.ph.split.split.us ], [ %32, %Vec_PtrFree.exit.us28 ], [ %.01922, %.lr.ph.split.split ], [ %42, %Vec_PtrFree.exit ]
   ret ptr %.019.lcssa
 }
 
@@ -1710,7 +1733,4 @@ attributes #18 = { nounwind allocsize(1) }
 !60 = distinct !{!60, !32}
 !61 = distinct !{!61, !32}
 !62 = distinct !{!62, !32}
-!63 = distinct !{!63, !32, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !32, !64}
-!66 = distinct !{!66, !32}
+!63 = distinct !{!63, !32}

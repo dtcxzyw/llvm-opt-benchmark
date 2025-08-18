@@ -155,7 +155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38
   %55 = add nuw nsw i32 %.01830.us35, 1
   %56 = icmp samesign ult i32 %.01830.us35, 19
   %or.cond51 = select i1 %54, i1 %56, i1 false
-  br i1 %or.cond51, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !7
+  br i1 %or.cond51, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 .split.split:                                     ; preds = %.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
   %.01830 = phi i32 [ %98, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ 0, %.split ]
@@ -224,7 +224,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; pre
   %.035..i = select i1 %94, double %.0354.i, double %89
   %95 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %95, 20
-  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i, !llvm.loop !6
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; preds = %.split.split
   %96 = tail call double @llvm.fabs.f64(double %63)
@@ -232,7 +232,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; p
   %98 = add nuw nsw i32 %.01830, 1
   %99 = icmp samesign ult i32 %.01830, 19
   %or.cond53 = select i1 %97, i1 %99, i1 false
-  br i1 %or.cond53, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !9
+  br i1 %or.cond53, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %92, %.preheader.i, %78, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
   %.0 = phi double [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %7, %75 ], [ -1.000000e+00, %78 ], [ %85, %.preheader.i ], [ %85, %92 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
@@ -393,9 +393,6 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5}

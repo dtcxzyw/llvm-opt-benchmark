@@ -3276,7 +3276,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %106 = load i16, ptr %61, align 4, !tbaa !102
   %107 = sext i16 %106 to i64
   %.not174.not = icmp slt i64 %indvars.iv, %107
-  br i1 %.not174.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !108
+  br i1 %.not174.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %73
   br i1 %31, label %108, label %174
@@ -3434,7 +3434,7 @@ Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Win
   %180 = getelementptr inbounds nuw i8, ptr %.0190, i64 72
   %181 = load ptr, ptr %180, align 8, !tbaa !65
   %.not180 = icmp eq ptr %181, %0
-  br i1 %.not180, label %.critedge185, label %.preheader, !llvm.loop !109
+  br i1 %.not180, label %.critedge185, label %.preheader, !llvm.loop !107
 
 .critedge185:                                     ; preds = %.preheader, %.thread187, %69, %70, %.critedge, %2, %3, %174
   %.4 = phi i1 [ false, %3 ], [ false, %2 ], [ true, %174 ], [ false, %.critedge ], [ false, %70 ], [ false, %69 ], [ false, %.thread187 ], [ true, %.preheader ]
@@ -3594,7 +3594,7 @@ declare i32 @winnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -11, 1) i32 @PN_Next_Page(ptr noundef captures(address) %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 26
-  %.val = load i16, ptr %2, align 2, !tbaa !110
+  %.val = load i16, ptr %2, align 2, !tbaa !108
   %3 = getelementptr i8, ptr %0, i64 28
   %.val2 = load i16, ptr %3, align 4, !tbaa !47
   %4 = sext i16 %.val2 to i32
@@ -3614,7 +3614,7 @@ define internal range(i32 -11, 1) i32 @PN_Previous_Page(ptr noundef captures(add
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %6 = load i16, ptr %5, align 2, !tbaa !110
+  %6 = load i16, ptr %5, align 2, !tbaa !108
   br label %Previous_Page_Number.exit
 
 Previous_Page_Number.exit:                        ; preds = %1, %4
@@ -3634,7 +3634,7 @@ define internal range(i32 -11, 1) i32 @PN_First_Page(ptr noundef captures(addres
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -11, 1) i32 @PN_Last_Page(ptr noundef captures(address) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %3 = load i16, ptr %2, align 2, !tbaa !110
+  %3 = load i16, ptr %2, align 2, !tbaa !108
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %4, -1
   %6 = tail call i32 @_nc_Set_Form_Page(ptr noundef %0, i32 noundef %5, ptr noundef null)
@@ -3726,7 +3726,7 @@ define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef captures(ad
   %33 = icmp eq i32 %32, 3
   %.not.i = icmp eq ptr %3, %29
   %or.cond.i = or i1 %.not.i, %33
-  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !111
+  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !109
 
 Previous_Field_On_Page.exit:                      ; preds = %25
   %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %29)
@@ -3782,7 +3782,7 @@ define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef captures(addres
   %43 = icmp eq i32 %42, 3
   %.not.i = icmp eq ptr %13, %39
   %or.cond.i = or i1 %.not.i, %43
-  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !111
+  br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !109
 
 Previous_Field_On_Page.exit:                      ; preds = %35
   %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %39)
@@ -3805,7 +3805,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Next_Field(ptr noundef captures
   %10 = icmp eq i32 %9, 3
   %.not.i = icmp eq ptr %6, %3
   %or.cond.i = or i1 %.not.i, %10
-  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %4, !llvm.loop !112
+  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %4, !llvm.loop !110
 
 Sorted_Next_Field.exit:                           ; preds = %4
   %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %6)
@@ -3821,14 +3821,14 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Previous_Field(ptr noundef capt
 4:                                                ; preds = %4, %1
   %.0.i = phi ptr [ %3, %1 ], [ %6, %4 ]
   %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !113
+  %6 = load ptr, ptr %5, align 8, !tbaa !111
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !19
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 3
   %.not.i = icmp eq ptr %6, %3
   %or.cond.i = or i1 %.not.i, %10
-  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %4, !llvm.loop !114
+  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %4, !llvm.loop !112
 
 Sorted_Previous_Field.exit:                       ; preds = %4
   %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %6)
@@ -3845,7 +3845,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef capture
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
   %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8, i32 3
-  %10 = load i16, ptr %9, align 2, !tbaa !115
+  %10 = load i16, ptr %9, align 2, !tbaa !113
   %11 = sext i16 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !81
@@ -3861,7 +3861,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef capture
   %20 = icmp eq i32 %19, 3
   %.not.i = icmp eq ptr %16, %13
   %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !112
+  br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !110
 
 Sorted_Next_Field.exit:                           ; preds = %14
   %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
@@ -3887,14 +3887,14 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef captures
 14:                                               ; preds = %14, %1
   %.0.i = phi ptr [ %13, %1 ], [ %16, %14 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !113
+  %16 = load ptr, ptr %15, align 8, !tbaa !111
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8, !tbaa !19
   %19 = and i32 %18, 3
   %20 = icmp eq i32 %19, 3
   %.not.i = icmp eq ptr %16, %13
   %or.cond.i = or i1 %.not.i, %20
-  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !114
+  br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !112
 
 Sorted_Previous_Field.exit:                       ; preds = %14
   %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
@@ -3916,20 +3916,20 @@ define internal range(i32 -11, 1) i32 @FN_Left_Field(ptr noundef captures(addres
 7:                                                ; preds = %7, %6
   %.0.i.i = phi ptr [ %.0.i, %6 ], [ %9, %7 ]
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 3
   %.not.i.i = icmp eq ptr %9, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %13
-  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %7, !llvm.loop !114
+  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %7, !llvm.loop !112
 
 Sorted_Previous_Field.exit.i:                     ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %15 = load i16, ptr %14, align 2, !tbaa !28
   %.not.i = icmp eq i16 %15, %5
-  br i1 %.not.i, label %Left_Neighbour_Field.exit, label %6, !llvm.loop !116
+  br i1 %.not.i, label %Left_Neighbour_Field.exit, label %6, !llvm.loop !114
 
 Left_Neighbour_Field.exit:                        ; preds = %Sorted_Previous_Field.exit.i
   %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9)
@@ -3958,13 +3958,13 @@ define internal range(i32 -11, 1) i32 @FN_Right_Field(ptr noundef captures(addre
   %13 = icmp eq i32 %12, 3
   %.not.i.i = icmp eq ptr %9, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %13
-  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %7, !llvm.loop !112
+  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %7, !llvm.loop !110
 
 Sorted_Next_Field.exit.i:                         ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %15 = load i16, ptr %14, align 2, !tbaa !28
   %.not.i = icmp eq i16 %15, %5
-  br i1 %.not.i, label %Right_Neighbour_Field.exit, label %6, !llvm.loop !117
+  br i1 %.not.i, label %Right_Neighbour_Field.exit, label %6, !llvm.loop !115
 
 Right_Neighbour_Field.exit:                       ; preds = %Sorted_Next_Field.exit.i
   %16 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %9)
@@ -3988,14 +3988,14 @@ define internal range(i32 -11, 1) i32 @FN_Up_Field(ptr noundef captures(address)
 9:                                                ; preds = %9, %8
   %.0.i.i = phi ptr [ %.0.i, %8 ], [ %11, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !113
+  %11 = load ptr, ptr %10, align 8, !tbaa !111
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = and i32 %13, 3
   %15 = icmp eq i32 %14, 3
   %.not.i.i = icmp eq ptr %11, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %15
-  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %9, !llvm.loop !114
+  br i1 %or.cond.i.i, label %Sorted_Previous_Field.exit.i, label %9, !llvm.loop !112
 
 Sorted_Previous_Field.exit.i:                     ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 6
@@ -4007,7 +4007,7 @@ Sorted_Previous_Field.exit.i:                     ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i16, ptr %20, align 8, !tbaa !30
   %.not.i = icmp eq i16 %21, %7
-  br i1 %.not.i, label %Upper_Neighbour_Field.exit, label %8, !llvm.loop !118
+  br i1 %.not.i, label %Upper_Neighbour_Field.exit, label %8, !llvm.loop !116
 
 .lr.ph.i:                                         ; preds = %Sorted_Previous_Field.exit.i, %Sorted_Previous_Field.exit27.i
   %.239.i = phi ptr [ %26, %Sorted_Previous_Field.exit27.i ], [ %11, %Sorted_Previous_Field.exit.i ]
@@ -4019,20 +4019,20 @@ Sorted_Previous_Field.exit.i:                     ; preds = %9
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
   %.0.i24.i = phi ptr [ %26, %.preheader.i ], [ %.239.i, %.lr.ph.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i24.i, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !113
+  %26 = load ptr, ptr %25, align 8, !tbaa !111
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %29 = and i32 %28, 3
   %30 = icmp eq i32 %29, 3
   %.not.i25.i = icmp eq ptr %26, %.239.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
-  br i1 %or.cond.i26.i, label %Sorted_Previous_Field.exit27.i, label %.preheader.i, !llvm.loop !114
+  br i1 %or.cond.i26.i, label %Sorted_Previous_Field.exit27.i, label %.preheader.i, !llvm.loop !112
 
 Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %32 = load i16, ptr %31, align 2, !tbaa !28
   %33 = icmp eq i16 %32, %17
-  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !119
+  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !117
 
 .critedge2.i:                                     ; preds = %Sorted_Previous_Field.exit27.i, %.critedge2.i
   %.0.i28.i = phi ptr [ %35, %.critedge2.i ], [ %26, %Sorted_Previous_Field.exit27.i ]
@@ -4044,7 +4044,7 @@ Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   %39 = icmp eq i32 %38, 3
   %.not.i29.i = icmp eq ptr %35, %26
   %or.cond.i30.i = or i1 %.not.i29.i, %39
-  br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !112
+  br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !110
 
 Upper_Neighbour_Field.exit:                       ; preds = %19, %.lr.ph.i, %.critedge2.i
   %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
@@ -4076,7 +4076,7 @@ define internal range(i32 -11, 1) i32 @FN_Down_Field(ptr noundef captures(addres
   %15 = icmp eq i32 %14, 3
   %.not.i.i = icmp eq ptr %11, %.0.i
   %or.cond.i.i = or i1 %.not.i.i, %15
-  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %9, !llvm.loop !112
+  br i1 %or.cond.i.i, label %Sorted_Next_Field.exit.i, label %9, !llvm.loop !110
 
 Sorted_Next_Field.exit.i:                         ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 6
@@ -4088,7 +4088,7 @@ Sorted_Next_Field.exit.i:                         ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i16, ptr %20, align 8, !tbaa !30
   %.not.i = icmp eq i16 %21, %7
-  br i1 %.not.i, label %Down_Neighbour_Field.exit, label %8, !llvm.loop !120
+  br i1 %.not.i, label %Down_Neighbour_Field.exit, label %8, !llvm.loop !118
 
 .lr.ph.i:                                         ; preds = %Sorted_Next_Field.exit.i, %Sorted_Next_Field.exit27.i
   %.239.i = phi ptr [ %26, %Sorted_Next_Field.exit27.i ], [ %11, %Sorted_Next_Field.exit.i ]
@@ -4107,25 +4107,25 @@ Sorted_Next_Field.exit.i:                         ; preds = %9
   %30 = icmp eq i32 %29, 3
   %.not.i25.i = icmp eq ptr %26, %.239.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
-  br i1 %or.cond.i26.i, label %Sorted_Next_Field.exit27.i, label %.preheader.i, !llvm.loop !112
+  br i1 %or.cond.i26.i, label %Sorted_Next_Field.exit27.i, label %.preheader.i, !llvm.loop !110
 
 Sorted_Next_Field.exit27.i:                       ; preds = %.preheader.i
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %32 = load i16, ptr %31, align 2, !tbaa !28
   %33 = icmp eq i16 %32, %17
-  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !121
+  br i1 %33, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !119
 
 .critedge2.i:                                     ; preds = %Sorted_Next_Field.exit27.i, %.critedge2.i
   %.0.i28.i = phi ptr [ %35, %.critedge2.i ], [ %26, %Sorted_Next_Field.exit27.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.0.i28.i, i64 64
-  %35 = load ptr, ptr %34, align 8, !tbaa !113
+  %35 = load ptr, ptr %34, align 8, !tbaa !111
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load i32, ptr %36, align 8, !tbaa !19
   %38 = and i32 %37, 3
   %39 = icmp eq i32 %38, 3
   %.not.i29.i = icmp eq ptr %35, %26
   %or.cond.i30.i = or i1 %.not.i29.i, %39
-  br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !114
+  br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !112
 
 Down_Neighbour_Field.exit:                        ; preds = %19, %.lr.ph.i, %.critedge2.i
   %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
@@ -4359,7 +4359,7 @@ define internal noundef i32 @IFN_Next_Word(ptr noundef captures(none) %0) #0 {
 29:                                               ; preds = %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %31 = icmp ult ptr %30, %26
-  br i1 %31, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !122
+  br i1 %31, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !120
 
 Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %29, %1
   %.0.lcssa.i = phi ptr [ %17, %1 ], [ %.010.i, %.lr.ph.i ], [ %30, %29 ]
@@ -4475,7 +4475,7 @@ After_End_Of_Data.exit:                           ; preds = %23, %25
   %37 = getelementptr inbounds i8, ptr %.0.i25, i64 -1
   %38 = load i8, ptr %37, align 1, !tbaa !54
   %.not.i = icmp eq i8 %38, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %34, !llvm.loop !123
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %34, !llvm.loop !121
 
 After_Last_Whitespace_Character.exit:             ; preds = %34, %36
   br i1 %29, label %39, label %After_Last_Whitespace_Character.exit30
@@ -4516,7 +4516,7 @@ After_End_Of_Data.exit27:                         ; preds = %44, %46
   %57 = getelementptr inbounds i8, ptr %.0.i28, i64 -1
   %58 = load i8, ptr %57, align 1, !tbaa !54
   %.not.i29 = icmp eq i8 %58, 32
-  br i1 %.not.i29, label %After_Last_Whitespace_Character.exit30, label %54, !llvm.loop !123
+  br i1 %.not.i29, label %After_Last_Whitespace_Character.exit30, label %54, !llvm.loop !121
 
 After_Last_Whitespace_Character.exit30:           ; preds = %56, %54, %After_Last_Whitespace_Character.exit
   %.024 = phi ptr [ %.0.i25, %After_Last_Whitespace_Character.exit ], [ %.0.i28, %54 ], [ %.0.i28, %56 ]
@@ -5470,7 +5470,7 @@ define internal range(i32 -12, 1) i32 @FE_Delete_Word(ptr noundef captures(none)
   %28 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %29 = load i8, ptr %28, align 1, !tbaa !54
   %.not.i = icmp eq i8 %29, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %25, !llvm.loop !123
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %25, !llvm.loop !121
 
 After_Last_Whitespace_Character.exit:             ; preds = %25, %27
   %30 = load ptr, ptr %2, align 8, !tbaa !14
@@ -5522,7 +5522,7 @@ Adjust_Cursor_Position.exit:                      ; preds = %After_Last_Whitespa
 60:                                               ; preds = %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %62 = icmp ult ptr %61, %57
-  br i1 %62, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !122
+  br i1 %62, label %.lr.ph.i, label %Get_First_Whitespace_Character.exit, !llvm.loop !120
 
 Get_First_Whitespace_Character.exit:              ; preds = %.lr.ph.i, %60, %Adjust_Cursor_Position.exit
   %.0.lcssa.i = phi ptr [ %16, %Adjust_Cursor_Position.exit ], [ %.010.i, %.lr.ph.i ], [ %61, %60 ]
@@ -6432,7 +6432,7 @@ Window_To_Buffer.exit:                            ; preds = %84, %.critedge.thre
   %93 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %94 = load i8, ptr %93, align 1, !tbaa !54
   %.not.i56 = icmp eq i8 %94, 32
-  br i1 %.not.i56, label %After_Last_Whitespace_Character.exit, label %90, !llvm.loop !123
+  br i1 %.not.i56, label %After_Last_Whitespace_Character.exit, label %90, !llvm.loop !121
 
 After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   %95 = ptrtoint ptr %.0.i to i64
@@ -6666,7 +6666,7 @@ Get_Start_Of_Data.exit:                           ; preds = %.lr.ph.i, %62, %51
   %75 = getelementptr inbounds i8, ptr %.0.i77, i64 -1
   %76 = load i8, ptr %75, align 1, !tbaa !54
   %.not.i = icmp eq i8 %76, 32
-  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %72, !llvm.loop !123
+  br i1 %.not.i, label %After_Last_Whitespace_Character.exit, label %72, !llvm.loop !121
 
 After_Last_Whitespace_Character.exit:             ; preds = %72, %74
   %77 = ptrtoint ptr %.0.i77 to i64
@@ -6753,7 +6753,7 @@ tailrecurse:                                      ; preds = %9
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %.tr21, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !124
+  %20 = load ptr, ptr %19, align 8, !tbaa !122
   %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #13
   br label %.loopexit
 
@@ -6798,7 +6798,7 @@ tailrecurse:                                      ; preds = %9
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %.tr21, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !125
+  %20 = load ptr, ptr %19, align 8, !tbaa !123
   %21 = tail call zeroext i1 %20(ptr noundef %1, ptr noundef %.tr1722) #13
   br label %.loopexit
 
@@ -6944,23 +6944,21 @@ attributes #16 = { nounwind allocsize(0) }
 !103 = distinct !{!103, !41}
 !104 = distinct !{!104, !41}
 !105 = distinct !{!105, !41}
-!106 = distinct !{!106, !41, !107}
-!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!108 = distinct !{!108, !41}
+!106 = distinct !{!106, !41}
+!107 = distinct !{!107, !41}
+!108 = !{!5, !6, i64 26}
 !109 = distinct !{!109, !41}
-!110 = !{!5, !6, i64 26}
-!111 = distinct !{!111, !41}
+!110 = distinct !{!110, !41}
+!111 = !{!20, !13, i64 64}
 !112 = distinct !{!112, !41}
-!113 = !{!20, !13, i64 64}
+!113 = !{!80, !6, i64 6}
 !114 = distinct !{!114, !41}
-!115 = !{!80, !6, i64 6}
+!115 = distinct !{!115, !41}
 !116 = distinct !{!116, !41}
 !117 = distinct !{!117, !41}
 !118 = distinct !{!118, !41}
 !119 = distinct !{!119, !41}
 !120 = distinct !{!120, !41}
 !121 = distinct !{!121, !41}
-!122 = distinct !{!122, !41}
-!123 = distinct !{!123, !41}
-!124 = !{!69, !11, i64 72}
-!125 = !{!69, !11, i64 80}
+!122 = !{!69, !11, i64 72}
+!123 = !{!69, !11, i64 80}

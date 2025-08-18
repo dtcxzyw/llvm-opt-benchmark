@@ -20801,7 +20801,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %18, %17, %16, %11
-  br label %.split.us, !llvm.loop !19
+  br label %.split.us
 
 .split:                                           ; preds = %3, %.split.backedge
   %.017 = phi ptr [ %39, %.split.backedge ], [ %2, %3 ]
@@ -20951,7 +20951,7 @@ lean_nat_lt.exit.thread37.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %26, %25, %24, %19
-  br label %.split.us, !llvm.loop !21
+  br label %.split.us
 
 .split:                                           ; preds = %3, %.split.backedge
   %.019 = phi ptr [ %48, %.split.backedge ], [ %2, %3 ]
@@ -25954,12 +25954,12 @@ lean_dec_ref.exit:                                ; preds = %87, %89, %90
   store ptr %185, ptr @l_Lake_InitTemplate_ofString_x3f___closed__8, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %185) #6
   %186 = load ptr, ptr @l_Lake_mainFileName___closed__2, align 8, !tbaa !4
-  %187 = load i32, ptr @l_Lean_idBeginEscape, align 4, !tbaa !22
+  %187 = load i32, ptr @l_Lean_idBeginEscape, align 4, !tbaa !19
   %188 = tail call ptr @lean_string_push(ptr noundef %186, i32 noundef %187) #6
   store ptr %188, ptr @l_Lake_escapeIdent___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %188) #6
   %189 = load ptr, ptr @l_Lake_mainFileName___closed__2, align 8, !tbaa !4
-  %190 = load i32, ptr @l_Lean_idEndEscape, align 4, !tbaa !22
+  %190 = load i32, ptr @l_Lean_idEndEscape, align 4, !tbaa !19
   %191 = tail call ptr @lean_string_push(ptr noundef %189, i32 noundef %190) #6
   store ptr %191, ptr @l_Lake_escapeIdent___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %191) #6
@@ -27544,7 +27544,4 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !20}
-!22 = !{!10, !10, i64 0}
+!19 = !{!10, !10, i64 0}

@@ -466,7 +466,7 @@ define internal fastcc i32 @__io_async_cancel(ptr noundef %0, ptr noundef readon
 .thread:                                          ; preds = %.preheader.split, %57, %61
   %49 = load ptr, ptr %51, align 8
   %50 = icmp eq ptr %49, %20
-  br i1 %50, label %.loopexit, label %.preheader.split, !llvm.loop !18
+  br i1 %50, label %.loopexit, label %.preheader.split, !llvm.loop !15
 
 .preheader.split:                                 ; preds = %.preheader, %.thread
   %51 = phi ptr [ %49, %.thread ], [ %21, %.preheader ]
@@ -489,7 +489,7 @@ define internal fastcc i32 @__io_async_cancel(ptr noundef %0, ptr noundef readon
   %64 = icmp ne i32 %63, 0
   %65 = tail call i32 @io_wq_cancel_cb(ptr noundef nonnull %59, ptr noundef nonnull @io_cancel_cb, ptr noundef %0, i1 noundef zeroext %64) #10
   %.not10 = icmp eq i32 %65, 2
-  br i1 %.not10, label %.thread, label %.loopexit.loopexit.split.loop.exit, !llvm.loop !18
+  br i1 %.not10, label %.thread, label %.loopexit.loopexit.split.loop.exit, !llvm.loop !15
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %61
   %66 = icmp eq i32 %65, 1
@@ -534,7 +534,7 @@ define dso_local void @init_hash_table(ptr noundef readonly captures(none) %0, i
   store ptr null, ptr %11, align 8
   %12 = add nuw nsw i64 %7, 1
   %13 = icmp eq i64 %12, %5
-  br i1 %13, label %.loopexit, label %6, !llvm.loop !19
+  br i1 %13, label %.loopexit, label %6, !llvm.loop !17
 
 .loopexit:                                        ; preds = %6, %2
   ret void
@@ -592,7 +592,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 30:                                               ; preds = %35
   %31 = add nuw nsw i64 %36, 1
   %32 = icmp eq i64 %31, 7
-  br i1 %32, label %33, label %35, !llvm.loop !20
+  br i1 %32, label %33, label %35, !llvm.loop !18
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -608,7 +608,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 40:                                               ; preds = %43
   %41 = add nuw nsw i64 %44, 1
   %42 = icmp eq i64 %41, 3
-  br i1 %42, label %48, label %43, !llvm.loop !21
+  br i1 %42, label %48, label %43, !llvm.loop !19
 
 43:                                               ; preds = %40, %33
   %44 = phi i64 [ 0, %33 ], [ %41, %40 ]
@@ -659,7 +659,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 72:                                               ; preds = %68
   %73 = sext i32 %66 to i64
   %74 = zext i32 %70 to i64
-  %75 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %74, i64 %73) #10, !srcloc !22
+  %75 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %74, i64 %73) #10, !srcloc !20
   %76 = trunc i64 %75 to i32
   %77 = and i32 %66, %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -696,7 +696,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %102 = icmp sgt i64 %95, 9223372035
   %103 = mul i64 %95, 1000000000
   %104 = add i64 %103, %98
-  %105 = select i1 %102, i64 9223372036854775807, i64 %104, !prof !23
+  %105 = select i1 %102, i64 9223372036854775807, i64 %104, !prof !21
   %106 = call i64 @ktime_get() #10
   %107 = add i64 %106, %105
   store i64 %107, ptr %4, align 8
@@ -728,7 +728,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 123:                                              ; preds = %119
   %124 = sext i32 %114 to i64
   %125 = zext i32 %121 to i64
-  %126 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %124) #10, !srcloc !22
+  %126 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %125, i64 %124) #10, !srcloc !20
   %127 = trunc i64 %126 to i32
   %128 = and i32 %114, %127
   %129 = getelementptr inbounds nuw i8, ptr %115, i64 136
@@ -764,7 +764,7 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
 
 146:                                              ; preds = %143
   call void @mutex_lock(ptr noundef nonnull %12) #10
-  br label %110, !llvm.loop !24
+  br label %110, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %137, %140, %143
   %.ph = phi i32 [ %138, %137 ], [ %141, %140 ], [ -62, %143 ]
@@ -957,13 +957,11 @@ attributes #10 = { nounwind }
 !12 = !{i64 2149043549, i64 2149043588, i64 2149043609, i64 2149043646, i64 2149043669, i64 2149043678}
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = distinct !{!15, !16, !14, !17}
+!15 = distinct !{!15, !16, !14}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !16, !14}
 !18 = distinct !{!18, !16, !14}
 !19 = distinct !{!19, !16, !14}
-!20 = distinct !{!20, !16, !14}
-!21 = distinct !{!21, !16, !14}
-!22 = !{i64 250930}
-!23 = !{!"branch_weights", i32 1, i32 2000}
-!24 = distinct !{!24, !14}
+!20 = !{i64 250930}
+!21 = !{!"branch_weights", i32 1, i32 2000}
+!22 = distinct !{!22, !14}

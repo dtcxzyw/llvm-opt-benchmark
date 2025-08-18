@@ -1526,12 +1526,11 @@ define noundef ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %6 = and i32 %5, 15
   %7 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef %6)
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %29, label %8
+  br i1 %.not, label %30, label %8
 
 8:                                                ; preds = %3
   %.val70 = load i32, ptr %4, align 4
-  %.val70.fr = freeze i32 %.val70
-  %9 = and i32 %.val70.fr, 15
+  %9 = and i32 %.val70, 15
   switch i32 %9, label %13 [
     i32 5, label %10
     i32 2, label %10
@@ -1540,7 +1539,7 @@ define noundef ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %1, i32 noundef %2
 10:                                               ; preds = %8, %8
   %.val71 = load i32, ptr %0, align 8, !tbaa !57
   %.not92 = icmp eq i32 %.val71, 1
-  br i1 %.not92, label %29, label %11
+  br i1 %.not92, label %30, label %11
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %1, align 8, !tbaa !24
@@ -1556,7 +1555,7 @@ define noundef ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %1, i32 noundef %2
 15:                                               ; preds = %13
   %.val72 = load i32, ptr %0, align 8, !tbaa !57
   %.not93 = icmp eq i32 %.val72, 1
-  br i1 %.not93, label %29, label %16
+  br i1 %.not93, label %30, label %16
 
 16:                                               ; preds = %15
   %.not94 = icmp eq i32 %9, 3
@@ -1569,135 +1568,133 @@ define noundef ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not.i87, label %.sink.split.sink.split, label %.sink.split
 
 19:                                               ; preds = %13
-  %20 = and i32 %.val70.fr, 14
+  %20 = and i32 %.val70, 14
   %switch.i = icmp eq i32 %20, 8
-  br i1 %switch.i, label %.sink.split, label %switch.early.test
-
-switch.early.test:                                ; preds = %19
-  switch i32 %9, label %29 [
-    i32 10, label %.sink.split
-    i32 6, label %.sink.split
-  ]
+  %21 = icmp eq i32 %9, 10
+  %narrow.i89.not.not107 = or i1 %switch.i, %21
+  %.not96 = icmp eq i32 %9, 6
+  %or.cond = or i1 %.not96, %narrow.i89.not.not107
+  br i1 %or.cond, label %.sink.split, label %30
 
 .sink.split.sink.split:                           ; preds = %17, %11
   %.sink111 = phi i64 [ 48, %11 ], [ 32, %17 ]
   %.sink110 = phi ptr [ %12, %11 ], [ %18, %17 ]
-  %21 = getelementptr i8, ptr %1, i64 %.sink111
-  %.val3.i = load ptr, ptr %21, align 8, !tbaa !58
-  %22 = getelementptr i8, ptr %.sink110, i64 32
-  %.val.val.i = load ptr, ptr %22, align 8, !tbaa !31
+  %22 = getelementptr i8, ptr %1, i64 %.sink111
+  %.val3.i = load ptr, ptr %22, align 8, !tbaa !58
+  %23 = getelementptr i8, ptr %.sink110, i64 32
+  %.val.val.i = load ptr, ptr %23, align 8, !tbaa !31
   %.val3.val.i88 = load i32, ptr %.val3.i, align 4, !tbaa !37
-  %23 = getelementptr i8, ptr %.val.val.i, i64 8
-  %.val.val.val.i = load ptr, ptr %23, align 8, !tbaa !35
-  %24 = sext i32 %.val3.val.i88 to i64
-  %25 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %24 = getelementptr i8, ptr %.val.val.i, i64 8
+  %.val.val.val.i = load ptr, ptr %24, align 8, !tbaa !35
+  %25 = sext i32 %.val3.val.i88 to i64
+  %26 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %19, %switch.early.test, %switch.early.test, %16, %17, %11
-  %.sink108 = phi ptr [ %1, %11 ], [ %1, %17 ], [ %1, %16 ], [ %1, %switch.early.test ], [ %1, %switch.early.test ], [ %1, %19 ], [ %26, %.sink.split.sink.split ]
-  %27 = tail call ptr @Abc_ObjName(ptr noundef %.sink108) #10
-  %28 = tail call ptr @Abc_ObjAssignName(ptr noundef %7, ptr noundef %27, ptr noundef null) #10
-  br label %29
+.sink.split:                                      ; preds = %.sink.split.sink.split, %19, %16, %17, %11
+  %.sink108 = phi ptr [ %1, %11 ], [ %1, %17 ], [ %1, %16 ], [ %1, %19 ], [ %27, %.sink.split.sink.split ]
+  %28 = tail call ptr @Abc_ObjName(ptr noundef %.sink108) #10
+  %29 = tail call ptr @Abc_ObjAssignName(ptr noundef %7, ptr noundef %28, ptr noundef null) #10
+  br label %30
 
-29:                                               ; preds = %.sink.split, %switch.early.test, %10, %15, %3
+30:                                               ; preds = %.sink.split, %19, %10, %15, %3
   %.val69 = load i32, ptr %4, align 4
-  %30 = and i32 %.val69, 15
-  switch i32 %30, label %78 [
-    i32 7, label %31
-    i32 8, label %74
+  %31 = and i32 %.val69, 15
+  switch i32 %31, label %79 [
+    i32 7, label %32
+    i32 8, label %75
   ]
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !51
-  %34 = load ptr, ptr %1, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !51
-  %37 = icmp eq i32 %33, %36
-  br i1 %37, label %38, label %78
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !51
+  %35 = load ptr, ptr %1, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = load i32, ptr %36, align 4, !tbaa !51
+  %38 = icmp eq i32 %34, %37
+  br i1 %38, label %39, label %79
 
-38:                                               ; preds = %31
+39:                                               ; preds = %32
   %.val78 = load i32, ptr %0, align 8, !tbaa !57
   %.not98 = icmp eq i32 %.val78, 3
-  br i1 %.not98, label %78, label %39
+  br i1 %.not98, label %79, label %40
 
-39:                                               ; preds = %38
-  switch i32 %33, label %78 [
-    i32 1, label %40
-    i32 5, label %40
-    i32 2, label %47
-    i32 3, label %56
-    i32 4, label %66
+40:                                               ; preds = %39
+  switch i32 %34, label %79 [
+    i32 1, label %41
+    i32 5, label %41
+    i32 2, label %48
+    i32 3, label %57
+    i32 4, label %67
   ]
 
-40:                                               ; preds = %39, %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %42 = load ptr, ptr %41, align 8, !tbaa !52
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %44 = load ptr, ptr %43, align 8, !tbaa !43
-  %45 = tail call ptr @Abc_SopRegister(ptr noundef %42, ptr noundef %44) #10
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %45, ptr %46, align 8, !tbaa !43
-  br label %78
+41:                                               ; preds = %40, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %43 = load ptr, ptr %42, align 8, !tbaa !52
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %45 = load ptr, ptr %44, align 8, !tbaa !43
+  %46 = tail call ptr @Abc_SopRegister(ptr noundef %43, ptr noundef %45) #10
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %46, ptr %47, align 8, !tbaa !43
+  br label %79
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %34, i64 256
-  %49 = load ptr, ptr %48, align 8, !tbaa !52
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %53 = load ptr, ptr %52, align 8, !tbaa !43
-  %54 = tail call ptr @Cudd_bddTransfer(ptr noundef %49, ptr noundef %51, ptr noundef %53) #10
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %54, ptr %55, align 8, !tbaa !43
-  tail call void @Cudd_Ref(ptr noundef %54) #10
-  br label %78
+48:                                               ; preds = %40
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 256
+  %50 = load ptr, ptr %49, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %52 = load ptr, ptr %51, align 8, !tbaa !52
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %54 = load ptr, ptr %53, align 8, !tbaa !43
+  %55 = tail call ptr @Cudd_bddTransfer(ptr noundef %50, ptr noundef %52, ptr noundef %54) #10
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %55, ptr %56, align 8, !tbaa !43
+  tail call void @Cudd_Ref(ptr noundef %55) #10
+  br label %79
 
-56:                                               ; preds = %39
-  %57 = getelementptr inbounds nuw i8, ptr %34, i64 256
-  %58 = load ptr, ptr %57, align 8, !tbaa !52
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %60 = load ptr, ptr %59, align 8, !tbaa !52
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %62 = load ptr, ptr %61, align 8, !tbaa !43
-  %63 = getelementptr i8, ptr %1, i64 28
-  %.val82 = load i32, ptr %63, align 4, !tbaa !59
-  %64 = tail call ptr @Hop_Transfer(ptr noundef %58, ptr noundef %60, ptr noundef %62, i32 noundef %.val82) #10
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %64, ptr %65, align 8, !tbaa !43
-  br label %78
+57:                                               ; preds = %40
+  %58 = getelementptr inbounds nuw i8, ptr %35, i64 256
+  %59 = load ptr, ptr %58, align 8, !tbaa !52
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %61 = load ptr, ptr %60, align 8, !tbaa !52
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %63 = load ptr, ptr %62, align 8, !tbaa !43
+  %64 = getelementptr i8, ptr %1, i64 28
+  %.val82 = load i32, ptr %64, align 4, !tbaa !59
+  %65 = tail call ptr @Hop_Transfer(ptr noundef %59, ptr noundef %61, ptr noundef %63, i32 noundef %.val82) #10
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %65, ptr %66, align 8, !tbaa !43
+  br label %79
 
-66:                                               ; preds = %39
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %68 = load ptr, ptr %67, align 8, !tbaa !43
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %68, ptr %69, align 8, !tbaa !43
-  %.not68 = icmp eq ptr %68, null
-  %70 = zext i1 %.not68 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %72 = load i32, ptr %71, align 8, !tbaa !60
-  %73 = add nsw i32 %72, %70
-  store i32 %73, ptr %71, align 8, !tbaa !60
-  br label %78
+67:                                               ; preds = %40
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %69 = load ptr, ptr %68, align 8, !tbaa !43
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %69, ptr %70, align 8, !tbaa !43
+  %.not68 = icmp eq ptr %69, null
+  %71 = zext i1 %.not68 to i32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %73 = load i32, ptr %72, align 8, !tbaa !60
+  %74 = add nsw i32 %73, %71
+  store i32 %74, ptr %72, align 8, !tbaa !60
+  br label %79
 
-74:                                               ; preds = %29
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %76 = load ptr, ptr %75, align 8, !tbaa !43
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %76, ptr %77, align 8, !tbaa !43
-  br label %78
+75:                                               ; preds = %30
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %77 = load ptr, ptr %76, align 8, !tbaa !43
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %77, ptr %78, align 8, !tbaa !43
+  br label %79
 
-78:                                               ; preds = %29, %39, %74, %31, %40, %56, %66, %47, %38
-  %79 = load i32, ptr %4, align 4
-  %80 = and i32 %79, 512
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, -513
-  %84 = or disjoint i32 %83, %80
-  store i32 %84, ptr %81, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %7, ptr %85, align 8, !tbaa !43
+79:                                               ; preds = %30, %40, %75, %32, %41, %57, %67, %48, %39
+  %80 = load i32, ptr %4, align 4
+  %81 = and i32 %80, 512
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %83 = load i32, ptr %82, align 4
+  %84 = and i32 %83, -513
+  %85 = or disjoint i32 %84, %81
+  store i32 %85, ptr %82, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %7, ptr %86, align 8, !tbaa !43
   ret ptr %7
 }
 

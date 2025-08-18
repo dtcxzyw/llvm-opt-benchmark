@@ -1866,7 +1866,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %.170.i = phi i32 [ %248, %.lr.ph.split.i ], [ %244, %.lr.ph.split.i.preheader ]
   %248 = call fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.170.i, ptr noundef %20, i1 noundef zeroext false, i8 noundef zeroext range(i8 4, 7) %.0194)
   %249 = icmp sgt i32 %245, %248
-  br i1 %249, label %.lr.ph.split.i, label %dissect_ospf_hello.exit.thread238.thread, !llvm.loop !14
+  br i1 %249, label %.lr.ph.split.i, label %dissect_ospf_hello.exit.thread238.thread, !llvm.loop !12
 
 250:                                              ; preds = %144
   %251 = trunc nuw nsw i32 %switch.select206 to i16
@@ -1924,7 +1924,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %284 = call ptr @proto_tree_add_item(ptr noundef %256, i32 noundef %282, ptr noundef %0, i32 noundef %283, i32 noundef 4, i32 noundef 0)
   %285 = add nuw nsw i32 %.038.i, 12
   %286 = icmp samesign ugt i32 %254, %285
-  br i1 %286, label %.lr.ph.i214, label %dissect_ospf_hello.exit, !llvm.loop !15
+  br i1 %286, label %.lr.ph.i214, label %dissect_ospf_hello.exit, !llvm.loop !13
 
 287:                                              ; preds = %144
   %288 = trunc nuw nsw i32 %switch.select206 to i16
@@ -1948,7 +1948,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %297 = call fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.02627.us.i, ptr noundef %292, i1 noundef zeroext true)
   %298 = add nuw i32 %.028.us.i, 1
   %exitcond30.not.i = icmp eq i32 %298, %293
-  br i1 %exitcond30.not.i, label %ospf_has_at_block.exit.thread, label %.lr.ph.split.us.i220, !llvm.loop !16
+  br i1 %exitcond30.not.i, label %ospf_has_at_block.exit.thread, label %.lr.ph.split.us.i220, !llvm.loop !14
 
 .lr.ph.split.i219:                                ; preds = %.lr.ph.i218, %.lr.ph.split.i219
   %.028.i = phi i32 [ %300, %.lr.ph.split.i219 ], [ 0, %.lr.ph.i218 ]
@@ -1956,7 +1956,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %299 = call fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.02627.i, ptr noundef %292, i1 noundef zeroext true, i8 noundef zeroext range(i8 4, 7) %.0194)
   %300 = add nuw i32 %.028.i, 1
   %exitcond.not.i = icmp eq i32 %300, %293
-  br i1 %exitcond.not.i, label %ospf_has_at_block.exit.thread, label %.lr.ph.split.i219, !llvm.loop !17
+  br i1 %exitcond.not.i, label %ospf_has_at_block.exit.thread, label %.lr.ph.split.i219, !llvm.loop !14
 
 .preheader.i222:                                  ; preds = %144
   %301 = trunc nuw nsw i32 %switch.select206 to i16
@@ -1973,13 +1973,13 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   %.017.us.i = phi i32 [ %305, %.lr.ph.split.us.i226 ], [ 24, %.lr.ph.i224 ]
   %305 = call fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.017.us.i, ptr noundef %20, i1 noundef zeroext false)
   %306 = icmp sgt i32 %304, %305
-  br i1 %306, label %.lr.ph.split.us.i226, label %ospf_has_at_block.exit.thread, !llvm.loop !18
+  br i1 %306, label %.lr.ph.split.us.i226, label %ospf_has_at_block.exit.thread, !llvm.loop !15
 
 .lr.ph.split.i225:                                ; preds = %.lr.ph.i224, %.lr.ph.split.i225
   %.017.i = phi i32 [ %307, %.lr.ph.split.i225 ], [ %switch.select, %.lr.ph.i224 ]
   %307 = call fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, i32 noundef %.017.i, ptr noundef %20, i1 noundef zeroext false, i8 noundef zeroext range(i8 4, 7) %.0194)
   %308 = icmp sgt i32 %304, %307
-  br i1 %308, label %.lr.ph.split.i225, label %ospf_has_at_block.exit.thread, !llvm.loop !19
+  br i1 %308, label %.lr.ph.split.i225, label %ospf_has_at_block.exit.thread, !llvm.loop !15
 
 309:                                              ; preds = %144
   %310 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %switch.select206)
@@ -2115,7 +2115,7 @@ dissect_ospfv2_lls_tlv.exit.us.i:                 ; preds = %._crit_edge.i.us.i,
   %.pre-phi.i.us.i = phi i32 [ %.pre.i.us.i, %._crit_edge.i.us.i ], [ %359, %357 ], [ %363, %361 ], [ %370, %369 ]
   %374 = add nsw i32 %.pre-phi.i.us.i, %347
   %375 = icmp sgt i32 %341, %374
-  br i1 %375, label %.lr.ph.split.us.i232, label %dissect_ospf_lls_data_block.exit, !llvm.loop !20
+  br i1 %375, label %.lr.ph.split.us.i232, label %dissect_ospf_lls_data_block.exit, !llvm.loop !16
 
 .lr.ph.split.i231:                                ; preds = %.lr.ph.i230, %dissect_ospfv3_lls_tlv.exit.i
   %.040.i = phi i32 [ %438, %dissect_ospfv3_lls_tlv.exit.i ], [ %343, %.lr.ph.i230 ]
@@ -2219,7 +2219,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %414 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %413, ptr noundef %0, i32 noundef %.1138.i.i, i32 noundef 4, i32 noundef 0)
   %.1.i.i = add nsw i32 %.1138.i.i, 4
   %.not116.i.i = icmp slt i32 %399, %.1.i.i
-  br i1 %.not116.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph139.i.i, !llvm.loop !21
+  br i1 %.not116.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph139.i.i, !llvm.loop !17
 
 415:                                              ; preds = %392
   %416 = add nsw i32 %.040.i, 4
@@ -2246,7 +2246,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %428 = add i8 %.0108133.i.i, -1
   %429 = add nsw i32 %.2134.i.i, 4
   %.not114.i.i = icmp slt i32 %425, %429
-  br i1 %.not114.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph135.i.i, !llvm.loop !22
+  br i1 %.not114.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph135.i.i, !llvm.loop !18
 
 430:                                              ; preds = %392
   %431 = load i32, ptr @hf_ospf_v3_lls_willingness, align 4
@@ -2260,7 +2260,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %435 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %434, ptr noundef %0, i32 noundef %.3130.i.i, i32 noundef 4, i32 noundef 0)
   %.3.i.i = add nsw i32 %.3130.i.i, 4
   %.not113.i.i = icmp slt i32 %398, %.3.i.i
-  br i1 %.not113.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph131.i.i, !llvm.loop !23
+  br i1 %.not113.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph131.i.i, !llvm.loop !19
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.4127.i.i = phi i32 [ %.4.i.i, %.lr.ph.i.i ], [ %.4125.i.i, %.lr.ph.preheader.i.i ]
@@ -2268,13 +2268,13 @@ switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %437 = call ptr @proto_tree_add_item(ptr noundef %.1111.i.i, i32 noundef %436, ptr noundef %0, i32 noundef %.4127.i.i, i32 noundef 4, i32 noundef 0)
   %.4.i.i = add nsw i32 %.4127.i.i, 4
   %.not112.i.i = icmp slt i32 %397, %.4.i.i
-  br i1 %.not112.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not112.i.i, label %dissect_ospfv3_lls_tlv.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 dissect_ospfv3_lls_tlv.exit.i:                    ; preds = %.lr.ph.i.i, %.lr.ph131.i.i, %.lr.ph135.i.i, %.lr.ph139.i.i, %430, %415, %405, %400, %.preheader.i.i, %.preheader121.i.i, %.preheader123.i.i, %392
   %.0.i.i = phi i32 [ %.040.i, %392 ], [ %.040.i, %400 ], [ %.040.i, %405 ], [ %.040.i, %430 ], [ %.040.i, %.preheader.i.i ], [ %424, %415 ], [ %.040.i, %.preheader121.i.i ], [ %.040.i, %.preheader123.i.i ], [ %.040.i, %.lr.ph139.i.i ], [ %429, %.lr.ph135.i.i ], [ %.040.i, %.lr.ph131.i.i ], [ %.040.i, %.lr.ph.i.i ]
   %438 = add i32 %.0.i.i, %380
   %439 = icmp sgt i32 %341, %438
-  br i1 %439, label %.lr.ph.split.i231, label %dissect_ospf_lls_data_block.exit, !llvm.loop !25
+  br i1 %439, label %.lr.ph.split.i231, label %dissect_ospf_lls_data_block.exit, !llvm.loop !16
 
 dissect_ospf_lls_data_block.exit:                 ; preds = %dissect_ospfv3_lls_tlv.exit.i, %dissect_ospfv2_lls_tlv.exit.us.i, %.preheader.i229, %329, %ospf_has_lls_block.exit
   switch i8 %12, label %ospf_has_at_block.exit.thread [
@@ -2705,7 +2705,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %164 = add i32 %.1277, 4
   %165 = add nuw nsw i16 %.0233276, 1
   %exitcond.not = icmp eq i16 %165, %154
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph278, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph278, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph278, %121
   %.1.lcssa = phi i32 [ %153, %121 ], [ %164, %.lr.ph278 ]
@@ -2713,7 +2713,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %167 = zext i16 %166 to i32
   %168 = load i32, ptr %17, align 4
   %169 = icmp ugt i32 %168, %167
-  br i1 %169, label %121, label %.loopexit, !llvm.loop !27
+  br i1 %169, label %121, label %.loopexit, !llvm.loop !22
 
 170:                                              ; preds = %110
   %171 = load i32, ptr @hf_ospf_ls_network_netmask, align 4
@@ -2736,7 +2736,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %180 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %179, ptr noundef %0, i32 noundef %.3273, i32 noundef 4, i32 noundef 0)
   %181 = add i32 %.3273, 4
   %182 = icmp slt i32 %181, %23
-  br i1 %182, label %.lr.ph274, label %.loopexit, !llvm.loop !28
+  br i1 %182, label %.lr.ph274, label %.loopexit, !llvm.loop !23
 
 183:                                              ; preds = %110, %110
   %184 = load i32, ptr @hf_ospf_ls_asbr_netmask, align 4
@@ -2764,7 +2764,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %198 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %197, ptr noundef %0, i32 noundef %196, i32 noundef 3, i32 noundef 0)
   %199 = add i32 %.4270, 4
   %200 = icmp slt i32 %199, %23
-  br i1 %200, label %.lr.ph271, label %.loopexit, !llvm.loop !29
+  br i1 %200, label %.lr.ph271, label %.loopexit, !llvm.loop !24
 
 201:                                              ; preds = %110, %110
   %202 = load i32, ptr @hf_ospf_ls_asext_netmask, align 4
@@ -2800,7 +2800,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %224 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef 0)
   %225 = add i32 %.5269, 12
   %226 = icmp slt i32 %225, %23
-  br i1 %226, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %226, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 227:                                              ; preds = %110, %110, %110
   %228 = zext i16 %109 to i32
@@ -2903,7 +2903,7 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %278 = add i32 %241, %.065.i.i
   %279 = sub i32 %.06164.i.i, %241
   %.not62.i.i = icmp eq i32 %279, 0
-  br i1 %.not62.i.i, label %dissect_ospf_lsa_opaque.exit, label %233, !llvm.loop !31
+  br i1 %.not62.i.i, label %dissect_ospf_lsa_opaque.exit, label %233, !llvm.loop !26
 
 280:                                              ; preds = %227
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3215,14 +3215,14 @@ proto_item_set_hidden.exit:                       ; preds = %53, %50, %ospf_ls_t
   %474 = and i32 %473, 131068
   %475 = add i32 %.pre-phi.i.i, %474
   %476 = icmp slt i32 %475, %293
-  br i1 %476, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !32
+  br i1 %476, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !27
 
 .loopexit.i.i:                                    ; preds = %472, %391, %.thread210.i.i
   %477 = add nuw nsw i32 %291, 3
   %478 = and i32 %477, 131068
   %479 = add i32 %478, %292
   %480 = icmp slt i32 %479, %281
-  br i1 %480, label %286, label %dissect_ospf_lsa_ext_prefix.exit.i, !llvm.loop !33
+  br i1 %480, label %286, label %dissect_ospf_lsa_ext_prefix.exit.i, !llvm.loop !28
 
 dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %379, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3459,7 +3459,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %379
   %618 = add i32 %.0244269.i.i, 2
   %619 = add i16 %.0270.i.i, -2
   %620 = icmp ugt i16 %619, 1
-  br i1 %620, label %.lr.ph.i40.i, label %.loopexit.i38.i, !llvm.loop !34
+  br i1 %620, label %.lr.ph.i40.i, label %.loopexit.i38.i, !llvm.loop !29
 
 621:                                              ; preds = %.lr.ph273.i.i
   %622 = load i32, ptr @hf_ospf_ls_remote_ipv4_addr, align 4
@@ -3583,7 +3583,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %379
   %691 = call ptr @proto_tree_add_item(ptr noundef %683, i32 noundef %689, ptr noundef %0, i32 noundef %690, i32 noundef 4, i32 noundef 0)
   %692 = add nuw nsw i32 %.0124.i.i.i, 4
   %693 = icmp samesign ult i32 %692, %680
-  br i1 %693, label %.lr.ph.i.i.i, label %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, !llvm.loop !35
+  br i1 %693, label %.lr.ph.i.i.i, label %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, !llvm.loop !30
 
 694:                                              ; preds = %.lr.ph126.i.i.i
   %695 = load i32, ptr @hf_ospf_ls_unidir_link_flags, align 4
@@ -3703,7 +3703,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %379
   %760 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %683, i32 noundef %759, ptr noundef %0, i32 noundef %757, i32 noundef 4, i32 noundef %758, ptr noundef nonnull @.str.867, i32 noundef %.012.i.i.i.i, i32 noundef %758)
   %761 = add nuw nsw i32 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %761, %755
-  br i1 %exitcond.not.i.i.i.i, label %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !31
 
 762:                                              ; preds = %.lr.ph126.i.i.i
   %763 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %688, i32 noundef 0)
@@ -3727,7 +3727,7 @@ dissect_ospf_subtlv_ext_admin_group.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i, %.l
   %772 = and i32 %771, 131068
   %773 = add i32 %772, %688
   %774 = icmp slt i32 %773, %673
-  br i1 %774, label %.lr.ph126.i.i.i, label %dissect_ospf_lsa_app_link_attributes.exit.i.i, !llvm.loop !37
+  br i1 %774, label %.lr.ph126.i.i.i, label %dissect_ospf_lsa_app_link_attributes.exit.i.i, !llvm.loop !32
 
 dissect_ospf_lsa_app_link_attributes.exit.i.i:    ; preds = %dissect_ospf_subtlv_ext_admin_group.exit.i.i.i, %671
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3747,7 +3747,7 @@ dissect_ospf_lsa_app_link_attributes.exit.i.i:    ; preds = %dissect_ospf_subtlv
   %782 = add i32 %781, %780
   %783 = add i32 %782, 4
   %.not261.i.i = icmp sgt i32 %783, %494
-  br i1 %.not261.i.i, label %.loopexit268.i.i, label %.lr.ph273.i.i, !llvm.loop !38
+  br i1 %.not261.i.i, label %.loopexit268.i.i, label %.lr.ph273.i.i, !llvm.loop !33
 
 784:                                              ; preds = %487
   %785 = sub i32 %482, %.0249274.i.i
@@ -3771,7 +3771,7 @@ dissect_ospf_lsa_app_link_attributes.exit.i.i:    ; preds = %dissect_ospf_subtlv
   %798 = and i32 %797, 131068
   %799 = add i32 %798, %493
   %800 = icmp slt i32 %799, %482
-  br i1 %800, label %487, label %dissect_ospf_lsa_ext_link.exit.i, !llvm.loop !39
+  br i1 %800, label %487, label %dissect_ospf_lsa_ext_link.exit.i, !llvm.loop !34
 
 dissect_ospf_lsa_ext_link.exit.i:                 ; preds = %.loopexit268.i.i, %784, %481
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3913,7 +3913,7 @@ dissect_ospf_lsa_ext_link.exit.i:                 ; preds = %.loopexit268.i.i, %
   %882 = add i32 %881, %842
   %883 = add i32 %882, 4
   %.not128.i.i = icmp sgt i32 %883, %814
-  br i1 %.not128.i.i, label %.loopexit.i42.i, label %.lr.ph.i44.i, !llvm.loop !40
+  br i1 %.not128.i.i, label %.loopexit.i42.i, label %.lr.ph.i44.i, !llvm.loop !35
 
 884:                                              ; preds = %807
   %885 = sub i32 %802, %.0143.i.i
@@ -3938,7 +3938,7 @@ dissect_ospf_lsa_ext_link.exit.i:                 ; preds = %.loopexit268.i.i, %
   %899 = add i32 %898, %813
   %900 = add i32 %899, 4
   %.not.i43.i = icmp sgt i32 %900, %802
-  br i1 %.not.i43.i, label %dissect_ospf_lsa_ext_ia_asbr.exit.i, label %807, !llvm.loop !41
+  br i1 %.not.i43.i, label %dissect_ospf_lsa_ext_ia_asbr.exit.i, label %807, !llvm.loop !36
 
 dissect_ospf_lsa_ext_ia_asbr.exit.i:              ; preds = %.loopexit.i42.i, %884, %854, %827, %801
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -4123,7 +4123,7 @@ proto_item_set_hidden.exit:                       ; preds = %47, %44, %38, %6
   %106 = add i32 %.1404421, 16
   %107 = add i16 %.0422, -16
   %.not257 = icmp eq i16 %107, 0
-  br i1 %.not257, label %.loopexit, label %.lr.ph424, !llvm.loop !42
+  br i1 %.not257, label %.loopexit, label %.lr.ph424, !llvm.loop !37
 
 108:                                              ; preds = %67
   %109 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %65)
@@ -4154,7 +4154,7 @@ dissect_ospf_v3_network_lsa_common.exit:          ; preds = %108, %112
   %122 = add i16 %.1417, -4
   %123 = add i32 %.2416, 4
   %.not255 = icmp eq i16 %122, 0
-  br i1 %.not255, label %.loopexit, label %.lr.ph418, !llvm.loop !43
+  br i1 %.not255, label %.loopexit, label %.lr.ph418, !llvm.loop !38
 
 124:                                              ; preds = %67
   %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %65)
@@ -4361,7 +4361,7 @@ dissect_ospf_v3_network_lsa_common.exit:          ; preds = %108, %112
   %263 = add i32 %262, -1
   store i32 %263, ptr %8, align 4
   %.not247 = icmp eq i32 %263, 0
-  br i1 %.not247, label %.loopexit, label %.lr.ph413, !llvm.loop !44
+  br i1 %.not247, label %.loopexit, label %.lr.ph413, !llvm.loop !39
 
 264:                                              ; preds = %67
   %265 = load i32, ptr @hf_ospf_v3_lsa_num_prefixes, align 4
@@ -4403,7 +4403,7 @@ dissect_ospf_v3_network_lsa_common.exit:          ; preds = %108, %112
   %294 = add i32 %293, -1
   store i32 %294, ptr %8, align 4
   %.not246 = icmp eq i32 %294, 0
-  br i1 %.not246, label %.loopexit, label %.lr.ph, !llvm.loop !45
+  br i1 %.not246, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 295:                                              ; preds = %67
   %296 = zext i16 %66 to i32
@@ -4684,7 +4684,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 4, i32 noundef 0)
   %99 = add nuw nsw i32 %.09551023, 4
   %100 = icmp samesign ult i32 %99, %50
-  br i1 %100, label %93, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !46
+  br i1 %100, label %93, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !41
 
 101:                                              ; preds = %.lr.ph1028
   %102 = add nuw nsw i32 %50, 4
@@ -4737,7 +4737,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %137 = shl i32 %.09561021, 1
   %138 = add nuw nsw i32 %.11022, 1
   %exitcond1049.not = icmp eq i32 %138, 32
-  br i1 %exitcond1049.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.preheader, !llvm.loop !47
+  br i1 %exitcond1049.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.preheader, !llvm.loop !42
 
 139:                                              ; preds = %.lr.ph1028, %.lr.ph1028
   %140 = add nuw nsw i32 %50, 4
@@ -4785,7 +4785,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %177 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %164, i32 noundef %174, ptr noundef %0, i32 noundef %172, i32 noundef 4, float noundef %173, ptr noundef nonnull @.str.820, i32 noundef %.21020, double noundef %175, double noundef %176)
   %178 = add nuw nsw i32 %.21020, 1
   %exitcond1048.not = icmp eq i32 %178, 8
-  br i1 %exitcond1048.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %170, !llvm.loop !48
+  br i1 %exitcond1048.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %170, !llvm.loop !43
 
 179:                                              ; preds = %.lr.ph1028
   %180 = add nuw nsw i32 %50, 4
@@ -4849,7 +4849,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %217 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %182, i32 noundef %214, ptr noundef %0, i32 noundef %212, i32 noundef 4, float noundef %213, ptr noundef nonnull @.str.825, i32 noundef %.31018, double noundef %215, double noundef %216)
   %218 = add nuw nsw i32 %.31018, 1
   %exitcond1047.not = icmp eq i32 %218, %201
-  br i1 %exitcond1047.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %210, !llvm.loop !49
+  br i1 %exitcond1047.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %210, !llvm.loop !44
 
 219:                                              ; preds = %.lr.ph1028
   %220 = add nuw nsw i32 %50, 4
@@ -4900,7 +4900,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %260 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %240, i32 noundef %257, ptr noundef %0, i32 noundef %255, i32 noundef 4, float noundef %256, ptr noundef nonnull @.str.827, i32 noundef %.41008, double noundef %258, double noundef %259)
   %261 = add nuw nsw i32 %.41008, 1
   %exitcond1045.not = icmp eq i32 %261, 8
-  br i1 %exitcond1045.not, label %262, label %253, !llvm.loop !50
+  br i1 %exitcond1045.not, label %262, label %253, !llvm.loop !45
 
 262:                                              ; preds = %253
   %263 = add i8 %246, -1
@@ -4998,7 +4998,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %332 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %331, ptr noundef %0, i32 noundef %.09581009, i32 noundef 4, i32 noundef 0)
   %333 = add i32 %.09581009, 4
   %334 = icmp slt i32 %333, %319
-  br i1 %334, label %.lr.ph1010, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !51
+  br i1 %334, label %.lr.ph1010, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !46
 
 335:                                              ; preds = %274
   %.pre = add i32 %.09621026, 40
@@ -5098,7 +5098,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %404 = tail call ptr @proto_tree_add_item(ptr noundef %342, i32 noundef %403, ptr noundef %0, i32 noundef %.19591011, i32 noundef 4, i32 noundef 0)
   %405 = add i32 %.19591011, 4
   %406 = icmp slt i32 %405, %361
-  br i1 %406, label %.lr.ph1013, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !52
+  br i1 %406, label %.lr.ph1013, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !47
 
 407:                                              ; preds = %274
   %.pre1061 = add i32 %.09621026, 40
@@ -5146,7 +5146,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %438 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %437, ptr noundef %0, i32 noundef %.29601015, i32 noundef 4, i32 noundef 0)
   %439 = add i32 %.29601015, 4
   %440 = icmp slt i32 %439, %416
-  br i1 %440, label %.lr.ph1017, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !53
+  br i1 %440, label %.lr.ph1017, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !48
 
 441:                                              ; preds = %.lr.ph1028
   %442 = add nuw nsw i32 %50, 4
@@ -5183,7 +5183,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %464 = tail call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %462, ptr noundef %0, i32 noundef %463, i32 noundef 4, i32 noundef 0)
   %465 = add nuw nsw i32 %.51006, 4
   %466 = icmp samesign ult i32 %465, %50
-  br i1 %466, label %461, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !54
+  br i1 %466, label %461, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !49
 
 467:                                              ; preds = %.lr.ph1028
   %468 = add nuw nsw i32 %50, 4
@@ -5207,7 +5207,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %481 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %470, i32 noundef %480, ptr noundef %0, i32 noundef %478, i32 noundef 4, i32 noundef %479, ptr noundef nonnull @.str.867, i32 noundef %.012.i, i32 noundef %479)
   %482 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %482, %476
-  br i1 %exitcond.not.i, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !31
 
 483:                                              ; preds = %.lr.ph1028
   %484 = add nuw nsw i32 %50, 4
@@ -5377,7 +5377,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %611 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %584, i32 noundef %601, ptr noundef %0, i32 noundef %603, i32 noundef 4, i32 noundef %605, ptr noundef nonnull @.str.836, ptr noundef %608, i32 noundef %610)
   %612 = add nuw nsw i32 %.61004, 1
   %exitcond.not = icmp eq i32 %612, %smax
-  br i1 %exitcond.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %600, !llvm.loop !55
+  br i1 %exitcond.not, label %dissect_ospf_subtlv_ext_admin_group.exit, label %600, !llvm.loop !50
 
 613:                                              ; preds = %.lr.ph1028
   %614 = add nuw nsw i32 %50, 4
@@ -5399,7 +5399,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %600, %.lr.ph.i, %46
   %627 = and i32 %626, 131068
   %628 = add i32 %627, %.09621026
   %629 = icmp slt i32 %628, %24
-  br i1 %629, label %.lr.ph1028, label %.loopexit, !llvm.loop !56
+  br i1 %629, label %.lr.ph1028, label %.loopexit, !llvm.loop !51
 
 630:                                              ; preds = %18
   %631 = add nuw nsw i32 %22, 4
@@ -5516,7 +5516,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %600, %.lr.ph.i, %46
   %717 = and i32 %716, 131068
   %718 = add i32 %717, %.19631003
   %719 = icmp slt i32 %718, %24
-  br i1 %719, label %.lr.ph, label %.loopexit, !llvm.loop !57
+  br i1 %719, label %.lr.ph, label %.loopexit, !llvm.loop !52
 
 720:                                              ; preds = %18
   %721 = zext i16 %19 to i32
@@ -5538,7 +5538,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %600, %.lr.ph.i, %46
   %733 = add i32 %.pre-phi, %.01030
   %734 = sub i32 %.09571029, %.pre-phi
   %.not = icmp eq i32 %734, 0
-  br i1 %.not, label %.loopexit999, label %18, !llvm.loop !58
+  br i1 %.not, label %.loopexit999, label %18, !llvm.loop !53
 
 .loopexit999:                                     ; preds = %.loopexit, %115
   ret void
@@ -5624,7 +5624,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %54 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0)
   %55 = add nuw nsw i32 %.0267293, 1
   %exitcond.not = icmp eq i32 %55, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph294, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph294, !llvm.loop !54
 
 56:                                               ; preds = %.lr.ph296, %.lr.ph296
   %57 = add nuw nsw i32 %16, 4
@@ -5720,7 +5720,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %114 = and i32 %113, 131068
   %115 = add i32 %.pre-phi304, %114
   %116 = icmp slt i32 %115, %18
-  br i1 %116, label %.lr.ph292, label %.loopexit, !llvm.loop !60
+  br i1 %116, label %.lr.ph292, label %.loopexit, !llvm.loop !55
 
 117:                                              ; preds = %.lr.ph296
   %118 = add nuw nsw i32 %16, 4
@@ -5766,7 +5766,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %148 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef 0)
   %149 = add i32 %143, 2
   %.not = icmp sgt i32 %149, %18
-  br i1 %.not, label %.loopexit, label %.lr.ph290, !llvm.loop !61
+  br i1 %.not, label %.loopexit, label %.lr.ph290, !llvm.loop !56
 
 150:                                              ; preds = %.lr.ph296
   %151 = add nuw nsw i32 %16, 4
@@ -5838,7 +5838,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %194 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %182, i32 noundef %193, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef %192, ptr noundef nonnull @.str.867, i32 noundef %.012.i, i32 noundef %192)
   %195 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %195, %189
-  br i1 %exitcond.not.i, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %dissect_ospf_subtlv_ext_admin_group.exit, label %.lr.ph.i, !llvm.loop !31
 
 196:                                              ; preds = %.lr.ph287
   %197 = add i32 %.1286, 4
@@ -5854,7 +5854,7 @@ define internal fastcc void @dissect_ospf_lsa_opaque_ri(ptr noundef %0, ptr noun
   %203 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %201, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef 0)
   %204 = add nuw nsw i32 %.0268285, 4
   %205 = icmp samesign ult i32 %204, %179
-  br i1 %205, label %.lr.ph, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !62
+  br i1 %205, label %.lr.ph, label %dissect_ospf_subtlv_ext_admin_group.exit, !llvm.loop !57
 
 206:                                              ; preds = %.lr.ph287
   %207 = load i32, ptr @hf_ospf_tlv_value, align 4
@@ -5868,7 +5868,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %.lr.ph, %.lr.ph.i, 
   %211 = and i32 %210, 131068
   %212 = add i32 %.pre-phi306, %211
   %213 = icmp slt i32 %212, %18
-  br i1 %213, label %.lr.ph287, label %.loopexit, !llvm.loop !63
+  br i1 %213, label %.lr.ph287, label %.loopexit, !llvm.loop !58
 
 214:                                              ; preds = %.lr.ph296
   %215 = sub i32 %8, %.0269295
@@ -5893,7 +5893,7 @@ dissect_ospf_subtlv_ext_admin_group.exit:         ; preds = %.lr.ph, %.lr.ph.i, 
   %229 = and i32 %228, 131068
   %230 = add i32 %17, %229
   %231 = icmp slt i32 %230, %8
-  br i1 %231, label %.lr.ph296, label %._crit_edge, !llvm.loop !64
+  br i1 %231, label %.lr.ph296, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %214, %.loopexit, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6112,7 +6112,7 @@ define internal fastcc void @dissect_ospf6_e_lsa_tlv(ptr noundef %0, ptr noundef
   %.pn.in = and i32 %.pn.in.in, 131068
   %.1 = add i32 %.pn.pre-phi, %.pn.in
   %82 = icmp slt i32 %.1, %7
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %81, %6
   ret void
@@ -6170,15 +6170,15 @@ attributes #6 = { nounwind }
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
 !15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10, !13}
+!16 = distinct !{!16, !10}
 !17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10, !13}
+!18 = distinct !{!18, !10}
 !19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10, !13}
+!20 = distinct !{!20, !10}
 !21 = distinct !{!21, !10}
 !22 = distinct !{!22, !10}
 !23 = distinct !{!23, !10}
@@ -6219,8 +6219,3 @@ attributes #6 = { nounwind }
 !58 = distinct !{!58, !10}
 !59 = distinct !{!59, !10}
 !60 = distinct !{!60, !10}
-!61 = distinct !{!61, !10}
-!62 = distinct !{!62, !10}
-!63 = distinct !{!63, !10}
-!64 = distinct !{!64, !10}
-!65 = distinct !{!65, !10}

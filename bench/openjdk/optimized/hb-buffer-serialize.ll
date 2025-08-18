@@ -843,7 +843,7 @@ _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !22
 
 ._crit_edge.loopexit.split.loop.exit75.i:         ; preds = %42
   %72 = trunc nuw i64 %indvars.iv66.i to i32
@@ -930,7 +930,7 @@ _ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize
   br i1 %.not.i52.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i39, label %107
 
 107:                                              ; preds = %105
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %106, i1 false), !alias.scope !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %106, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i39
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %107, %105
@@ -949,7 +949,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %lftr.wideiv73.i = trunc i64 %indvars.iv.next71.i to i32
   %exitcond74.not.i = icmp eq i32 %14, %lftr.wideiv73.i
-  br i1 %exitcond74.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !29
+  br i1 %exitcond74.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !27
 
 .lr.ph.split.i25:                                 ; preds = %.lr.ph.i24, %_ZL9hb_memcpyPvPKvm.exit.i30.cont
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %83, %.lr.ph.i24 ]
@@ -990,7 +990,7 @@ _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm
   br i1 %.not.i52.i, label %_ZL9hb_memcpyPvPKvm.exit.i30, label %127
 
 127:                                              ; preds = %125
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %126, i1 false), !alias.scope !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %126, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.i30
 
 _ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %127, %125
@@ -1009,7 +1009,7 @@ _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i26, 1
   %lftr.wideiv.i32 = trunc i64 %indvars.iv.next.i31 to i32
   %exitcond.not.i33 = icmp eq i32 %14, %lftr.wideiv.i32
-  br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !30
+  br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !27
 
 ._crit_edge.loopexit.split.loop.exit79.i:         ; preds = %100
   %131 = trunc nuw i64 %indvars.iv70.i to i32
@@ -1185,7 +1185,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
 58:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %59 = getelementptr inbounds nuw i8, ptr %.0201485.i, i64 1
   %60 = icmp ult ptr %59, %55
-  br i1 %60, label %.lr.ph.i, label %.critedge232.i, !llvm.loop !31
+  br i1 %60, label %.lr.ph.i, label %.critedge232.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %61 = sext i8 %57 to i32
@@ -2073,7 +2073,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
 38:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %.0138298, i64 1
   %40 = icmp ult ptr %39, %35
-  br i1 %40, label %.lr.ph, label %.critedge154, !llvm.loop !32
+  br i1 %40, label %.lr.ph, label %.critedge154, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph
   %41 = sext i8 %37 to i32
@@ -2813,7 +2813,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
 35:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %.09616.i, i64 1
   %37 = icmp ult ptr %36, %33
-  br i1 %37, label %.lr.ph.i, label %.critedge121.i, !llvm.loop !33
+  br i1 %37, label %.lr.ph.i, label %.critedge121.i, !llvm.loop !30
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %38 = sext i8 %34 to i32
@@ -3244,15 +3244,12 @@ attributes #11 = { nounwind }
 !19 = distinct !{!19, !20, !"_ZL9hb_memcpyPvPKvm: argument 0"}
 !20 = distinct !{!20, !"_ZL9hb_memcpyPvPKvm"}
 !21 = distinct !{!21, !20, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!22 = distinct !{!22, !11, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !11}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZL9hb_memcpyPvPKvm: argument 0"}
-!27 = distinct !{!27, !"_ZL9hb_memcpyPvPKvm"}
-!28 = distinct !{!28, !27, !"_ZL9hb_memcpyPvPKvm: argument 1"}
-!29 = distinct !{!29, !11, !23}
+!22 = distinct !{!22, !11}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZL9hb_memcpyPvPKvm: argument 0"}
+!25 = distinct !{!25, !"_ZL9hb_memcpyPvPKvm"}
+!26 = distinct !{!26, !25, !"_ZL9hb_memcpyPvPKvm: argument 1"}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
 !30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}

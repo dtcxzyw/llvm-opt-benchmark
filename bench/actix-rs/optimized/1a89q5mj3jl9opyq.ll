@@ -1510,8 +1510,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %33,
   %41 = add i64 %40, %.sroa.6.0.i.i
   %42 = icmp ugt i64 %41, %2
   %43 = add i64 %.sroa.6.0.i.i, %24
-  %or.cond83.i.i.not = icmp ult i64 %43, %2
-  br i1 %or.cond83.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h30d04cb2171eb123E.exit.i.i", label %44
+  %or.cond.i.i.not = icmp ult i64 %43, %2
+  br i1 %or.cond.i.i.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h30d04cb2171eb123E.exit.i.i", label %44
 
 44:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h30d04cb2171eb123E.exit.i.i", %39
   br i1 %42, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e5c2224201b0165E.exit.i", label %.lr.ph.split.split.i.i

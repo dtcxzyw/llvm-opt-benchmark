@@ -5822,80 +5822,96 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
   %17 = icmp ult i32 %16, 10001
   %18 = sitofp i32 %3 to double
   %19 = fmul double %18, 1.000000e-05
+  br i1 %17, label %.split.us, label %.preheader40
+
+.split.us:                                        ; preds = %4
   %.not39 = icmp eq i32 %2, 0
-  br i1 %17, label %.preheader.us, label %.preheader40
+  br i1 %.not39, label %.preheader.us.us, label %.preheader.us
 
-.preheader.us:                                    ; preds = %4, %.loopexit.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.loopexit.us ], [ 0, %4 ]
+.preheader.us.us:                                 ; preds = %.split.us, %.loopexit.split.us.us.us
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.loopexit.split.us.us.us ], [ 0, %.split.us ]
   %20 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv66
+  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv72
   store ptr %20, ptr %21, align 8
-  %22 = trunc nuw nsw i64 %indvars.iv66 to i32
-  br i1 %.not39, label %.preheader.split.us.us, label %.preheader.split.us48
+  %22 = trunc nuw nsw i64 %indvars.iv72 to i32
+  br label %23
 
-.preheader.split.us48:                            ; preds = %.preheader.us, %.preheader.split.us48
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader.split.us48 ], [ 0, %.preheader.us ]
-  %23 = trunc nuw nsw i64 %indvars.iv58 to i32
-  %24 = shl nuw nsw i32 %23, %5
-  %25 = add i32 %24, %22
-  %26 = mul i32 %25, 65535
-  %27 = add i32 %26, %12
-  %28 = udiv i32 %27, %8
-  %29 = trunc i32 %28 to i16
-  %30 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv58
-  store i16 %29, ptr %30, align 2
+23:                                               ; preds = %23, %.preheader.us.us
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %23 ], [ 0, %.preheader.us.us ]
+  %24 = trunc nuw nsw i64 %indvars.iv68 to i32
+  %25 = shl nuw nsw i32 %24, %5
+  %26 = add i32 %25, %22
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv68
+  store i16 %27, ptr %28, align 2
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 256
+  br i1 %exitcond71.not, label %.loopexit.split.us.us.us, label %23, !llvm.loop !95
+
+.loopexit.split.us.us.us:                         ; preds = %23
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next73, %13
+  br i1 %exitcond77.not, label %.split50.us, label %.preheader.us.us, !llvm.loop !96
+
+.preheader.us:                                    ; preds = %.split.us, %.loopexit.split.us47
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.loopexit.split.us47 ], [ 0, %.split.us ]
+  %29 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
+  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv62
+  store ptr %29, ptr %30, align 8
+  %31 = trunc nuw nsw i64 %indvars.iv62 to i32
+  br label %32
+
+32:                                               ; preds = %.preheader.us, %32
+  %indvars.iv58 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next59, %32 ]
+  %33 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %34 = shl nuw nsw i32 %33, %5
+  %35 = add i32 %34, %31
+  %36 = mul i32 %35, 65535
+  %37 = add i32 %36, %12
+  %38 = udiv i32 %37, %8
+  %39 = trunc i32 %38 to i16
+  %40 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv58
+  store i16 %39, ptr %40, align 2
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 256
-  br i1 %exitcond61.not, label %.loopexit.us, label %.preheader.split.us48, !llvm.loop !95
+  br i1 %exitcond61.not, label %.loopexit.split.us47, label %32, !llvm.loop !95
 
-.loopexit.us:                                     ; preds = %.preheader.split.us48, %.preheader.split.us.us
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next67, %13
-  br i1 %exitcond71.not, label %.split50.us, label %.preheader.us, !llvm.loop !96
-
-.preheader.split.us.us:                           ; preds = %.preheader.us, %.preheader.split.us.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.preheader.split.us.us ], [ 0, %.preheader.us ]
-  %31 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %32 = shl nuw nsw i32 %31, %5
-  %33 = add i32 %32, %22
-  %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv62
-  store i16 %34, ptr %35, align 2
+.loopexit.split.us47:                             ; preds = %32
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 256
-  br i1 %exitcond65.not, label %.loopexit.us, label %.preheader.split.us.us, !llvm.loop !98
+  %exitcond67.not = icmp eq i64 %indvars.iv.next63, %13
+  br i1 %exitcond67.not, label %.split50.us, label %.preheader.us, !llvm.loop !96
 
 .preheader40:                                     ; preds = %4, %.loopexit41
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.loopexit41 ], [ 0, %4 ]
-  %36 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
-  %37 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
-  store ptr %36, ptr %37, align 8
-  %38 = trunc nuw nsw i64 %indvars.iv54 to i32
-  br label %39
+  %41 = tail call noalias ptr @png_malloc(ptr noundef %0, i64 noundef 512) #30
+  %42 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
+  store ptr %41, ptr %42, align 8
+  %43 = trunc nuw nsw i64 %indvars.iv54 to i32
+  br label %44
 
-39:                                               ; preds = %.preheader40, %39
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %39 ]
-  %40 = trunc nuw nsw i64 %indvars.iv to i32
-  %41 = shl nuw nsw i32 %40, %5
-  %42 = add i32 %41, %38
-  %43 = uitofp i32 %42 to double
-  %44 = fmul double %10, %43
-  %45 = tail call double @pow(double noundef %44, double noundef %19) #30
-  %46 = tail call double @llvm.fmuladd.f64(double %45, double 6.553500e+04, double 5.000000e-01)
-  %47 = tail call double @llvm.floor.f64(double %46)
-  %48 = fptoui double %47 to i16
-  %49 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv
-  store i16 %48, ptr %49, align 2
+44:                                               ; preds = %.preheader40, %44
+  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %44 ]
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  %46 = shl nuw nsw i32 %45, %5
+  %47 = add i32 %46, %43
+  %48 = uitofp i32 %47 to double
+  %49 = fmul double %10, %48
+  %50 = tail call double @pow(double noundef %49, double noundef %19) #30
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 6.553500e+04, double 5.000000e-01)
+  %52 = tail call double @llvm.floor.f64(double %51)
+  %53 = fptoui double %52 to i16
+  %54 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
+  store i16 %53, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit41, label %39, !llvm.loop !99
+  br i1 %exitcond.not, label %.loopexit41, label %44, !llvm.loop !97
 
-.loopexit41:                                      ; preds = %39
+.loopexit41:                                      ; preds = %44
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %13
-  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !100
+  br i1 %exitcond57.not, label %.split50.us, label %.preheader40, !llvm.loop !96
 
-.split50.us:                                      ; preds = %.loopexit41, %.loopexit.us
+.split50.us:                                      ; preds = %.loopexit41, %.loopexit.split.us47, %.loopexit.split.us.us.us
   ret void
 }
 
@@ -6396,8 +6412,5 @@ attributes #31 = { nounwind returns_twice }
 !93 = distinct !{!93, !7}
 !94 = distinct !{!94, !7}
 !95 = distinct !{!95, !7}
-!96 = distinct !{!96, !7, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !7, !97}
-!99 = distinct !{!99, !7}
-!100 = distinct !{!100, !7}
+!96 = distinct !{!96, !7}
+!97 = distinct !{!97, !7}

@@ -3187,7 +3187,7 @@ default.unreachable1536:                          ; preds = %188
   %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 52
   %1386 = load i32, ptr %1385, align 4, !tbaa !34
   %1387 = icmp ult i32 %1386, %1204
-  br i1 %1387, label %.lr.ph1337.split, label %._crit_edge1338, !llvm.loop !84
+  br i1 %1387, label %.lr.ph1337.split, label %._crit_edge1338, !llvm.loop !82
 
 ._crit_edge1338:                                  ; preds = %1378, %1317, %1274
   %.lcssa1327 = phi ptr [ %1279, %1274 ], [ %1323, %1317 ], [ %1384, %1378 ]
@@ -3531,7 +3531,7 @@ default.unreachable1536:                          ; preds = %188
   %1592 = load i32, ptr %1591, align 8, !tbaa !34
   %1593 = zext i32 %1592 to i64
   %1594 = icmp samesign ult i64 %indvars.iv.next, %1593
-  br i1 %1594, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+  br i1 %1594, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 1595:                                             ; preds = %._crit_edge
   %.mask1031 = and i32 %.lcssa1334, 1073741823
@@ -4507,7 +4507,7 @@ switch.lookup:                                    ; preds = %103
   store i8 0, ptr %321, align 1, !tbaa !34
   %322 = add nuw nsw i64 %.0347398, 1
   %exitcond418.not = icmp eq i64 %322, %316
-  br i1 %exitcond418.not, label %._crit_edge401, label %.lr.ph400, !llvm.loop !86
+  br i1 %exitcond418.not, label %._crit_edge401, label %.lr.ph400, !llvm.loop !84
 
 ._crit_edge401:                                   ; preds = %.lr.ph400, %311
   %323 = load ptr, ptr %0, align 8, !tbaa !14
@@ -4627,7 +4627,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %388 = load i32, ptr %387, align 4, !tbaa !34
   %389 = zext i32 %388 to i64
   %390 = icmp samesign ult i64 %indvars.iv.next416, %389
-  br i1 %390, label %391, label %.thread, !llvm.loop !87
+  br i1 %390, label %391, label %.thread, !llvm.loop !85
 
 391:                                              ; preds = %.lr.ph397, %385
   %indvars.iv415 = phi i64 [ 0, %.lr.ph397 ], [ %indvars.iv.next416, %385 ]
@@ -4676,7 +4676,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %.0345 = add i64 %.0345388, 1
   %416 = and i64 %.0345, 7
   %.not357 = icmp eq i64 %416, 0
-  br i1 %.not357, label %417, label %.lr.ph389, !llvm.loop !88
+  br i1 %.not357, label %417, label %.lr.ph389, !llvm.loop !86
 
 417:                                              ; preds = %.lr.ph389
   %.pre424.pre = load ptr, ptr %12, align 8, !tbaa !42
@@ -4708,7 +4708,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %431 = add nuw nsw i64 %.0338393, 1
   %432 = lshr i32 %.0339392, 8
   %exitcond.not = icmp eq i64 %431, %384
-  br i1 %exitcond.not, label %.loopexit448, label %428, !llvm.loop !89
+  br i1 %exitcond.not, label %.loopexit448, label %428, !llvm.loop !87
 
 433:                                              ; preds = %.thread433, %417
   %434 = phi ptr [ %410, %.thread433 ], [ %420, %417 ]
@@ -4837,7 +4837,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   store ptr %507, ptr %0, align 8, !tbaa !14
   %508 = add nuw nsw i32 %.0336395, 1
   %exitcond414.not = icmp eq i32 %508, 4
-  br i1 %exitcond414.not, label %.loopexit.loopexit, label %498, !llvm.loop !90
+  br i1 %exitcond414.not, label %.loopexit.loopexit, label %498, !llvm.loop !88
 
 .loopexit.loopexit:                               ; preds = %498
   %.pre426 = load ptr, ptr %12, align 8, !tbaa !42
@@ -4939,7 +4939,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %.1346 = add i64 %.1346377, 1
   %570 = and i64 %.1346, 7
   %.not356 = icmp eq i64 %570, 0
-  br i1 %.not356, label %._crit_edge379.loopexit, label %.lr.ph378, !llvm.loop !91
+  br i1 %.not356, label %._crit_edge379.loopexit, label %.lr.ph378, !llvm.loop !89
 
 ._crit_edge379.loopexit:                          ; preds = %.lr.ph378
   %.pre422.pre = load ptr, ptr %12, align 8, !tbaa !42
@@ -4961,7 +4961,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %576 = load i32, ptr %575, align 4, !tbaa !34
   %577 = zext i32 %576 to i64
   %578 = icmp samesign ult i64 %indvars.iv.next412, %577
-  br i1 %578, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !92
+  br i1 %578, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !90
 
 ._crit_edge383.loopexit:                          ; preds = %573
   %579 = zext i32 %576 to i64
@@ -5119,7 +5119,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %682 = load i32, ptr %681, align 8, !tbaa !34
   %683 = zext i32 %682 to i64
   %684 = icmp samesign ult i64 %indvars.iv.next, %683
-  br i1 %684, label %.lr.ph, label %._crit_edge, !llvm.loop !93
+  br i1 %684, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %685 = icmp eq i32 %682, 0
@@ -5164,7 +5164,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 56
   %708 = load i32, ptr %707, align 8, !tbaa !34
   %709 = icmp ult i32 %705, %708
-  br i1 %709, label %.lr.ph374, label %.loopexit368, !llvm.loop !94
+  br i1 %709, label %.lr.ph374, label %.loopexit368, !llvm.loop !92
 
 .loopexit368:                                     ; preds = %.lr.ph374, %._crit_edge, %644
   %710 = phi ptr [ %680, %._crit_edge ], [ %645, %644 ], [ %706, %.lr.ph374 ]
@@ -5247,7 +5247,7 @@ tailrecurse:                                      ; preds = %.split51.us, %1
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %.lr.ph.split.us, label %.split.us, !prof !95
+  br i1 %7, label %.lr.ph.split.us, label %.split.us, !prof !93
 
 .lr.ph.split.us:                                  ; preds = %tailrecurse, %tailrecurse.us
   %.tr22.us = phi ptr [ %13, %tailrecurse.us ], [ %.tr, %tailrecurse ]
@@ -5273,7 +5273,7 @@ tailrecurse.us:                                   ; preds = %.lr.ph.split.us
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %14 = add i64 %accumulator.tr21.us, 8
-  br label %.lr.ph.split.us, !llvm.loop !96
+  br label %.lr.ph.split.us
 
 .split35.us:                                      ; preds = %.lr.ph.split.us
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -5413,7 +5413,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %93 = add i64 %.3.us, %84
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %.split.us, label %.lr.ph64.split.us, !llvm.loop !97
+  br i1 %exitcond106.not, label %.split.us, label %.lr.ph64.split.us, !llvm.loop !94
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64, %.lr.ph64.split
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph64.split ], [ 0, %.lr.ph64 ]
@@ -5431,7 +5431,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %102 = add i64 %.3, %.
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
-  br i1 %exitcond101.not, label %.split.us, label %.lr.ph64.split, !llvm.loop !98
+  br i1 %exitcond101.not, label %.split.us, label %.lr.ph64.split, !llvm.loop !94
 
 .split43.us:                                      ; preds = %.lr.ph.split.us
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -5463,7 +5463,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %.5.us = add i64 %117, %.454.us
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph56.split.us, !llvm.loop !99
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph56.split.us, !llvm.loop !95
 
 .lr.ph56.split:                                   ; preds = %.lr.ph56, %.lr.ph56.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph56.split ], [ 0, %.lr.ph56 ]
@@ -5476,7 +5476,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %.5 = add i64 %122, %.454
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count95
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph56.split, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph56.split, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %.split43.us
   %.pre-phi = phi i64 [ 0, %.split43.us ], [ %wide.trip.count95, %.lr.ph56.split.us ], [ %wide.trip.count95, %.lr.ph56.split ]
@@ -5657,7 +5657,7 @@ switch.lookup:                                    ; preds = %12
   %68 = load i32, ptr %67, align 4, !tbaa !34
   %69 = zext i32 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next23, %69
-  br i1 %70, label %46, label %.loopexit, !llvm.loop !101
+  br i1 %70, label %46, label %.loopexit, !llvm.loop !96
 
 71:                                               ; preds = %21
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.114, i32 noundef %2, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.115) #16
@@ -5720,7 +5720,7 @@ switch.lookup:                                    ; preds = %12
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i64, ptr %118, align 8, !tbaa !67
   %120 = icmp ult i64 %112, %119
-  br i1 %120, label %.lr.ph5, label %._crit_edge6, !llvm.loop !102
+  br i1 %120, label %.lr.ph5, label %._crit_edge6, !llvm.loop !97
 
 ._crit_edge6:                                     ; preds = %.lr.ph5, %.lr.ph9
   %fputc = call i32 @fputc(i32 10, ptr %1)
@@ -5730,7 +5730,7 @@ switch.lookup:                                    ; preds = %12
   %123 = load i32, ptr %122, align 4, !tbaa !34
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next20, %124
-  br i1 %125, label %.lr.ph9, label %.loopexit, !llvm.loop !103
+  br i1 %125, label %.lr.ph9, label %.loopexit, !llvm.loop !98
 
 126:                                              ; preds = %21
   %127 = getelementptr inbounds nuw i8, ptr %33, i64 48
@@ -5965,7 +5965,7 @@ switch.lookup:                                    ; preds = %12
   %211 = load i32, ptr %210, align 8, !tbaa !34
   %212 = zext i32 %211 to i64
   %213 = icmp samesign ult i64 %indvars.iv.next, %212
-  br i1 %213, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+  br i1 %213, label %.lr.ph, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %194
   %214 = call i64 @fwrite(ptr nonnull @.str.148, i64 2, i64 1, ptr %1)
@@ -6318,8 +6318,8 @@ attributes #19 = { nounwind willreturn memory(read) }
 !79 = distinct !{!79, !71}
 !80 = distinct !{!80, !71}
 !81 = !{!47, !48, i64 32}
-!82 = distinct !{!82, !71, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!82 = distinct !{!82, !71}
+!83 = distinct !{!83, !71}
 !84 = distinct !{!84, !71}
 !85 = distinct !{!85, !71}
 !86 = distinct !{!86, !71}
@@ -6329,15 +6329,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !90 = distinct !{!90, !71}
 !91 = distinct !{!91, !71}
 !92 = distinct !{!92, !71}
-!93 = distinct !{!93, !71}
+!93 = !{!"branch_weights", i32 127, i32 1}
 !94 = distinct !{!94, !71}
-!95 = !{!"branch_weights", i32 127, i32 1}
-!96 = distinct !{!96, !83}
-!97 = distinct !{!97, !71, !83}
+!95 = distinct !{!95, !71}
+!96 = distinct !{!96, !71}
+!97 = distinct !{!97, !71}
 !98 = distinct !{!98, !71}
-!99 = distinct !{!99, !71, !83}
-!100 = distinct !{!100, !71}
-!101 = distinct !{!101, !71}
-!102 = distinct !{!102, !71}
-!103 = distinct !{!103, !71}
-!104 = distinct !{!104, !71}
+!99 = distinct !{!99, !71}

@@ -526,7 +526,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
 
 22:                                               ; preds = %.split
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br i1 %12, label %.split, label %.split23.us, !llvm.loop !16
+  br i1 %12, label %.split, label %.split23.us, !llvm.loop !14
 
 .split23.us:                                      ; preds = %22, %11
   br i1 %.not17, label %.critedge, label %23
@@ -586,6 +586,4 @@ attributes #9 = { nounwind }
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!5, !5, i64 0}
 !13 = !{!9, !9, i64 0}
-!14 = distinct !{!14, !11, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !11}
+!14 = distinct !{!14, !11}

@@ -475,7 +475,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
 106:                                              ; preds = %100, %85, %83
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count234
-  br i1 %exitcond229.not, label %.critedge.i, label %83, !llvm.loop !18
+  br i1 %exitcond229.not, label %.critedge.i, label %83, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %106
   %107 = tail call fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %.0.i147.us, ptr noundef %1)
@@ -597,10 +597,10 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
 
 175:                                              ; preds = %.loopexit187.thread
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 0, ptr %176, align 1, !tbaa !19
+  store i8 0, ptr %176, align 1, !tbaa !18
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 0, ptr %177, align 1, !tbaa !19
-  store i8 0, ptr %3, align 1, !tbaa !19
+  store i8 0, ptr %177, align 1, !tbaa !18
+  store i8 0, ptr %3, align 1, !tbaa !18
   br label %.preheader186
 
 .preheader186:                                    ; preds = %175, %.loopexit
@@ -627,7 +627,7 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
   %.1.i = phi i32 [ %186, %182 ], [ %.0.i106213, %178 ]
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 3
-  br i1 %exitcond239.not, label %188, label %178, !llvm.loop !20
+  br i1 %exitcond239.not, label %188, label %178, !llvm.loop !19
 
 188:                                              ; preds = %187
   %189 = shl nuw i32 1, %.1.i
@@ -645,38 +645,38 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
 
 195:                                              ; preds = %.preheader
   %196 = getelementptr inbounds nuw [3 x i8], ptr %3, i64 0, i64 %indvars.iv240
-  %197 = load i8, ptr %196, align 1, !tbaa !19
+  %197 = load i8, ptr %196, align 1, !tbaa !18
   %198 = add i8 %197, 1
-  store i8 %198, ptr %196, align 1, !tbaa !19
+  store i8 %198, ptr %196, align 1, !tbaa !18
   br label %199
 
 199:                                              ; preds = %195, %.preheader
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 3
-  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %199, %188
   %200 = add nuw nsw i32 %.159.i215, 1
   %exitcond244.not = icmp eq i32 %200, 8
-  br i1 %exitcond244.not, label %201, label %.preheader186, !llvm.loop !22
+  br i1 %exitcond244.not, label %201, label %.preheader186, !llvm.loop !21
 
 201:                                              ; preds = %.loopexit
   %202 = load i32, ptr %4, align 16, !tbaa !12
-  %203 = load i8, ptr %3, align 1, !tbaa !19
+  %203 = load i8, ptr %3, align 1, !tbaa !18
   %204 = icmp eq i8 %203, 1
   %205 = shl i32 %202, 9
   %206 = select i1 %204, i32 256, i32 0
   %.masked = and i32 %205, 3584
   %207 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %208 = load i32, ptr %207, align 4, !tbaa !12
-  %209 = load i8, ptr %177, align 1, !tbaa !19
+  %209 = load i8, ptr %177, align 1, !tbaa !18
   %210 = icmp eq i8 %209, 1
   %211 = shl i32 %208, 13
   %212 = select i1 %210, i32 4096, i32 0
   %.masked178 = and i32 %211, 57344
   %213 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %214 = load i32, ptr %213, align 8, !tbaa !12
-  %215 = load i8, ptr %176, align 1, !tbaa !19
+  %215 = load i8, ptr %176, align 1, !tbaa !18
   %216 = icmp eq i8 %215, 1
   %217 = shl i32 %214, 17
   %218 = select i1 %216, i32 65536, i32 0
@@ -877,7 +877,7 @@ Ivy_DecSetVar.exit:                               ; preds = %289, %294, %299, %3
   %.sroa.0.3 = phi i32 [ %.sroa.0.1193, %.lr.ph ], [ %317, %314 ], [ %313, %309 ], [ %308, %304 ], [ %303, %299 ], [ %298, %294 ], [ %293, %289 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count
-  br i1 %exitcond223.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond223.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %Ivy_DecSetVar.exit, %267
   %.sroa.0.1.lcssa = phi i32 [ %273, %267 ], [ %.sroa.0.3, %Ivy_DecSetVar.exit ]
@@ -1189,7 +1189,7 @@ Ivy_DecGetVar.exit:                               ; preds = %52, %53, %54, %55, 
   %62 = and i32 %.pn, %.051111
   %63 = add nuw nsw i32 %.053110, 1
   %exitcond141.not = icmp eq i32 %63, %22
-  br i1 %exitcond141.not, label %._crit_edge113, label %52, !llvm.loop !24
+  br i1 %exitcond141.not, label %._crit_edge113, label %52, !llvm.loop !23
 
 ._crit_edge113:                                   ; preds = %Ivy_DecGetVar.exit, %.preheader
   %.051.lcssa = phi i32 [ -1, %.preheader ], [ %62, %Ivy_DecGetVar.exit ]
@@ -1235,7 +1235,7 @@ Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, 
   %75 = xor i32 %74, %.152109
   %76 = add nuw nsw i32 %.154108, 1
   %exitcond.not = icmp eq i32 %76, %9
-  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %Ivy_DecGetVar.exit71, %.preheader84
   %.152.lcssa = phi i32 [ 0, %.preheader84 ], [ %75, %Ivy_DecGetVar.exit71 ]
@@ -1401,7 +1401,7 @@ Ivy_DecGetVar.exit:                               ; preds = %39, %40, %41, %42, 
 50:                                               ; preds = %Ivy_DecGetVar.exit, %49
   %51 = add nuw nsw i32 %.088, 1
   %exitcond94.not = icmp eq i32 %51, %26
-  br i1 %exitcond94.not, label %._crit_edge91, label %39, !llvm.loop !26
+  br i1 %exitcond94.not, label %._crit_edge91, label %39, !llvm.loop !25
 
 ._crit_edge91:                                    ; preds = %50, %23
   %52 = and i32 %7, 16
@@ -1475,7 +1475,7 @@ Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, 
 80:                                               ; preds = %Ivy_DecGetVar.exit73, %79
   %81 = add nuw nsw i32 %.187, 1
   %exitcond.not = icmp eq i32 %81, %58
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %80, %55
   %82 = and i32 %7, 16
@@ -1551,7 +1551,7 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 11:                                               ; preds = %4
   %12 = getelementptr i8, ptr %0, i64 32
-  %.val49 = load ptr, ptr %12, align 8, !tbaa !28
+  %.val49 = load ptr, ptr %12, align 8, !tbaa !27
   %13 = lshr i32 %9, 4
   %14 = and i32 %13, 1
   %15 = ptrtoint ptr %.val49 to i64
@@ -1566,12 +1566,12 @@ define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   %21 = getelementptr inbounds i32, ptr %.val, i64 %7
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = getelementptr i8, ptr %0, i64 24
-  %.val50 = load ptr, ptr %23, align 8, !tbaa !36
+  %.val50 = load ptr, ptr %23, align 8, !tbaa !35
   %24 = getelementptr i8, ptr %.val50, i64 8
-  %.val50.val = load ptr, ptr %24, align 8, !tbaa !37
+  %.val50.val = load ptr, ptr %24, align 8, !tbaa !36
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds ptr, ptr %.val50.val, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !39
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
   %28 = lshr i32 %9, 4
   %29 = and i32 %28, 1
   %30 = ptrtoint ptr %27 to i64
@@ -1653,10 +1653,10 @@ Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, 
   %71 = xor i64 %70, %69
   %72 = inttoptr i64 %71 to ptr
   %73 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %72, ptr %73, align 8, !tbaa !40
+  store ptr %72, ptr %73, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %Ivy_DecGetVar.exit, %44
   %74 = icmp eq i32 %10, 3
@@ -1743,7 +1743,7 @@ define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.val11 = load i32, ptr %4, align 4, !tbaa !3
   %11 = sext i32 %.val11 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %7, label %.critedge, !llvm.loop !42
+  br i1 %12, label %7, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %7, %3
   %13 = getelementptr i8, ptr %2, i64 4
@@ -1755,7 +1755,7 @@ define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_TruthDsdComputePrint(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !43
+  %2 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !42
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %9
 
@@ -1767,7 +1767,7 @@ define void @Ivy_TruthDsdComputePrint(i32 noundef %0) local_unnamed_addr #0 {
   %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !11
-  store ptr %5, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !43
+  store ptr %5, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !42
   br label %9
 
 9:                                                ; preds = %4, %1
@@ -1777,8 +1777,8 @@ define void @Ivy_TruthDsdComputePrint(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !44
-  %14 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !43
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %14 = load ptr, ptr @Ivy_TruthDsdComputePrint.vTree, align 8, !tbaa !42
   %15 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 4, i64 1, ptr %13)
   %16 = getelementptr i8, ptr %14, i64 4
   %.val.i = load i32, ptr %16, align 4, !tbaa !3
@@ -1799,7 +1799,7 @@ define void @Ivy_TruthDsdComputePrint(i32 noundef %0) local_unnamed_addr #0 {
 define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4, !tbaa !12
-  %3 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !43
+  %3 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !42
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %10
 
@@ -1811,7 +1811,7 @@ define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   %8 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !11
-  store ptr %6, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !43
+  store ptr %6, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !42
   br label %10
 
 10:                                               ; preds = %5, %1
@@ -1825,11 +1825,11 @@ define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr @Ivy_TruthTestOne.Counter, align 4, !tbaa !12
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %14)
-  %17 = load ptr, ptr @stdout, align 8, !tbaa !44
+  %17 = load ptr, ptr @stdout, align 8, !tbaa !43
   call void @Extra_PrintBinary(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 32) #11
   %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
-  %19 = load ptr, ptr @stdout, align 8, !tbaa !44
-  %20 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !43
+  %19 = load ptr, ptr @stdout, align 8, !tbaa !43
+  %20 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !42
   %21 = call i64 @fwrite(ptr nonnull @.str.13, i64 4, i64 1, ptr %19)
   %22 = getelementptr i8, ptr %20, i64 4
   %.val.i = load i32, ptr %22, align 4, !tbaa !3
@@ -1837,7 +1837,7 @@ define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   call void @Ivy_TruthDsdPrint_rec(ptr noundef %19, i32 noundef %23, ptr noundef %20)
   %fputc.i = call i32 @fputc(i32 10, ptr %19)
   %24 = load i32, ptr %2, align 4, !tbaa !12
-  %25 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !43
+  %25 = load ptr, ptr @Ivy_TruthTestOne.vTree, align 8, !tbaa !42
   %26 = getelementptr i8, ptr %25, i64 4
   %.val.i2 = load i32, ptr %26, align 4, !tbaa !3
   %27 = add nsw i32 %.val.i2, -1
@@ -1910,10 +1910,10 @@ attributes #11 = { nounwind }
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !14}
-!19 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = !{!6, !6, i64 0}
+!19 = distinct !{!19, !14}
 !20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
 !22 = distinct !{!22, !14}
@@ -1921,22 +1921,21 @@ attributes #11 = { nounwind }
 !24 = distinct !{!24, !14}
 !25 = distinct !{!25, !14}
 !26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = !{!29, !31, i64 32}
-!29 = !{!"Ivy_Man_t_", !30, i64 0, !30, i64 8, !30, i64 16, !30, i64 24, !31, i64 32, !32, i64 40, !6, i64 120, !5, i64 152, !5, i64 156, !8, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !33, i64 184, !5, i64 192, !9, i64 200, !9, i64 208, !34, i64 216, !5, i64 224, !30, i64 232, !30, i64 240, !31, i64 248, !35, i64 256, !35, i64 264}
-!30 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
-!31 = !{!"p1 _ZTS10Ivy_Obj_t_", !9, i64 0}
-!32 = !{!"Ivy_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 9, !5, i64 12, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72}
-!33 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!34 = !{!"p1 _ZTS10Ivy_Man_t_", !9, i64 0}
-!35 = !{!"long", !6, i64 0}
-!36 = !{!29, !30, i64 24}
-!37 = !{!38, !9, i64 8}
-!38 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
-!39 = !{!9, !9, i64 0}
-!40 = !{!31, !31, i64 0}
+!27 = !{!28, !30, i64 32}
+!28 = !{!"Ivy_Man_t_", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24, !30, i64 32, !31, i64 40, !6, i64 120, !5, i64 152, !5, i64 156, !8, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !32, i64 184, !5, i64 192, !9, i64 200, !9, i64 208, !33, i64 216, !5, i64 224, !29, i64 232, !29, i64 240, !30, i64 248, !34, i64 256, !34, i64 264}
+!29 = !{!"p1 _ZTS10Vec_Ptr_t_", !9, i64 0}
+!30 = !{!"p1 _ZTS10Ivy_Obj_t_", !9, i64 0}
+!31 = !{!"Ivy_Obj_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 8, !5, i64 9, !5, i64 9, !5, i64 9, !5, i64 12, !30, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !30, i64 72}
+!32 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
+!33 = !{!"p1 _ZTS10Ivy_Man_t_", !9, i64 0}
+!34 = !{!"long", !6, i64 0}
+!35 = !{!28, !29, i64 24}
+!36 = !{!37, !9, i64 8}
+!37 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
+!38 = !{!9, !9, i64 0}
+!39 = !{!30, !30, i64 0}
+!40 = distinct !{!40, !14}
 !41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14}
-!43 = !{!33, !33, i64 0}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!42 = !{!32, !32, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}

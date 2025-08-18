@@ -2987,7 +2987,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %148 = load volatile i64, ptr %126, align 8
   %149 = and i64 %148, 8
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %.split, label %.critedge8, !llvm.loop !76
+  br i1 %150, label %.split, label %.critedge8, !llvm.loop !74
 
 151:                                              ; preds = %53
   tail call void @__rcu_read_unlock() #15
@@ -3055,7 +3055,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 187:                                              ; preds = %184, %180
   %188 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %189 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !77
+  %189 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !75
   %190 = load volatile i64, ptr %10, align 8
   %191 = and i64 %190, 1
   %192 = icmp eq i64 %191, 0
@@ -3084,11 +3084,11 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 204:                                              ; preds = %202
   %205 = call i64 @io_schedule_timeout(i64 noundef %195) #15
-  %206 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !77
+  %206 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !75
   %207 = load volatile i64, ptr %10, align 8
   %208 = and i64 %207, 1
   %209 = icmp eq i64 %208, 0
-  br i1 %209, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !78
+  br i1 %209, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !76
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %228
   %210 = phi i64 [ %229, %228 ], [ %2, %.lr.ph ]
@@ -3125,11 +3125,11 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 228:                                              ; preds = %226
   %229 = call i64 @io_schedule_timeout(i64 noundef %210) #15
-  %230 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !77
+  %230 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %188, i32 %8, ptr nonnull elementtype(i32) %188) #15, !srcloc !75
   %231 = load volatile i64, ptr %10, align 8
   %232 = and i64 %231, 1
   %233 = icmp eq i64 %232, 0
-  br i1 %233, label %.lr.ph.split, label %.loopexit, !llvm.loop !79
+  br i1 %233, label %.lr.ph.split, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %228, %218, %222, %226, %204, %202, %187, %.split22.us
   %234 = phi i64 [ %.us-phi, %.split22.us ], [ %2, %187 ], [ %205, %204 ], [ -62, %202 ], [ %229, %228 ], [ -512, %218 ], [ -512, %222 ], [ -62, %226 ]
@@ -3148,7 +3148,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
           to label %260 [label %240], !srcloc !19
 
 240:                                              ; preds = %.loopexit11
-  %241 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !80
+  %241 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !77
   %242 = zext i32 %241 to i64
   %243 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %242) #15, !srcloc !21
   %244 = icmp ult i8 %243, 2
@@ -3158,7 +3158,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 246:                                              ; preds = %240
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !81
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !78
   %247 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_request_wait_end, i64 72), align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %253, label %249
@@ -3170,7 +3170,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   br label %253
 
 253:                                              ; preds = %249, %246
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !82
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !79
   %254 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !25
   %255 = icmp ult i8 %254, 2
   call void @llvm.assume(i1 %255)
@@ -3179,7 +3179,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 257:                                              ; preds = %253
   %258 = call i64 @llvm.read_register.i64(metadata !0)
-  %259 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %258) #15, !srcloc !83
+  %259 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %258) #15, !srcloc !80
   call void @llvm.write_register.i64(metadata !0, i64 %259)
   br label %260
 
@@ -3437,7 +3437,7 @@ define dso_local range(i32 1, 5) i32 @i915_test_request_state(ptr noundef %0) lo
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr %79(ptr noundef %75, i32 noundef %74) #15
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %.loopexit, label %82, !llvm.loop !84
+  br i1 %81, label %.loopexit, label %82, !llvm.loop !81
 
 82:                                               ; preds = %73, %50
   %83 = phi ptr [ %48, %50 ], [ %80, %73 ]
@@ -3460,7 +3460,7 @@ define dso_local range(i32 1, 5) i32 @i915_test_request_state(ptr noundef %0) lo
   %100 = trunc i64 %97 to i32
   %101 = add i32 %99, %100
   %102 = icmp eq i32 %92, %101
-  br i1 %102, label %.loopexit, label %73, !llvm.loop !84
+  br i1 %102, label %.loopexit, label %73, !llvm.loop !81
 
 103:                                              ; preds = %6
   tail call void @__rcu_read_unlock() #15
@@ -3643,7 +3643,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__await_execution(ptr noun
   %43 = getelementptr i8, ptr %48, i64 8
   %44 = load volatile ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit4, label %46, !llvm.loop !85
+  br i1 %45, label %.loopexit4, label %46, !llvm.loop !82
 
 46:                                               ; preds = %42, %40
   %47 = phi ptr [ %38, %40 ], [ %44, %42 ]
@@ -3769,7 +3769,7 @@ define internal fastcc i32 @i915_request_await_start(ptr noundef %0, ptr noundef
 52:                                               ; preds = %.preheader
   %53 = extractvalue { i8, i32 } %49, 1
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread, label %.preheader, !llvm.loop !86
+  br i1 %54, label %.thread, label %.preheader, !llvm.loop !83
 
 .thread:                                          ; preds = %.preheader, %52, %42
   %55 = phi i32 [ 0, %42 ], [ %47, %.preheader ], [ 0, %52 ]
@@ -4316,16 +4316,13 @@ attributes #17 = { nounwind memory(read) }
 !71 = !{i64 2159663902}
 !72 = !{i64 2148098065}
 !73 = !{i64 2089360}
-!74 = distinct !{!74, !10, !11, !75}
-!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!76 = distinct !{!76, !10, !11}
-!77 = !{i64 2159673047}
-!78 = distinct !{!78, !11, !75}
-!79 = distinct !{!79, !11}
-!80 = !{i64 2159141051}
-!81 = !{i64 2159143919}
-!82 = !{i64 2159150686}
-!83 = !{i64 2159150845}
-!84 = distinct !{!84, !10, !11}
-!85 = distinct !{!85, !10, !11}
-!86 = distinct !{!86, !10, !11}
+!74 = distinct !{!74, !10, !11}
+!75 = !{i64 2159673047}
+!76 = distinct !{!76, !11}
+!77 = !{i64 2159141051}
+!78 = !{i64 2159143919}
+!79 = !{i64 2159150686}
+!80 = !{i64 2159150845}
+!81 = distinct !{!81, !10, !11}
+!82 = distinct !{!82, !10, !11}
+!83 = distinct !{!83, !10, !11}

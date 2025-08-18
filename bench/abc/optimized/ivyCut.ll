@@ -3233,7 +3233,7 @@ define range(i32 0, 2) i32 @Ivy_NodeCutFindOrAddFilter(ptr noundef captures(none
 Ivy_CutCheckDominance.exit60:                     ; preds = %._crit_edge.us.i57, %._crit_edge.us.i, %64, %49, %.preheader, %.loopexit, %53, %38, %17, %._crit_edge, %9
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge87, label %9, !llvm.loop !63
+  br i1 %exitcond100.not, label %._crit_edge87, label %9, !llvm.loop !62
 
 ._crit_edge87:                                    ; preds = %Ivy_CutCheckDominance.exit60, %2
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3283,7 +3283,7 @@ define void @Ivy_NodeCompactCuts(ptr noundef captures(none) %0) local_unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %5, label %._crit_edge, !llvm.loop !64
+  br i1 %18, label %5, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %15, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %15 ]
@@ -3314,7 +3314,7 @@ define void @Ivy_NodePrintCut(ptr noundef readonly captures(none) %0) local_unna
   %13 = load i16, ptr %2, align 4, !tbaa !53
   %14 = sext i16 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %._crit_edge, !llvm.loop !65
+  br i1 %15, label %9, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %9, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -3355,7 +3355,7 @@ define void @Ivy_NodePrintCuts(ptr noundef readonly captures(none) %0) local_unn
   %20 = load i16, ptr %9, align 4, !tbaa !53
   %21 = sext i16 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %22, label %16, label %Ivy_NodePrintCut.exit, !llvm.loop !65
+  br i1 %22, label %16, label %Ivy_NodePrintCut.exit, !llvm.loop !64
 
 Ivy_NodePrintCut.exit:                            ; preds = %16, %.lr.ph
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -3363,7 +3363,7 @@ Ivy_NodePrintCut.exit:                            ; preds = %16, %.lr.ph
   %23 = load i32, ptr %0, align 4, !tbaa !48
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !66
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %Ivy_NodePrintCut.exit, %1
   ret void
@@ -3374,13 +3374,13 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr noundef readonly captures(no
 .lr.ph160:
   %3 = alloca %struct.Ivy_Cut_t_, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 256, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 8), align 4, !tbaa !67
+  store i32 256, ptr getelementptr inbounds nuw (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 8), align 4, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 1, ptr %5, align 4, !tbaa !53
   %6 = trunc i32 %2 to i16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 %6, ptr %7, align 2, !tbaa !68
+  store i16 %6, ptr %7, align 2, !tbaa !67
   %8 = load i32, ptr %1, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %8, ptr %9, align 4, !tbaa !21
@@ -3487,7 +3487,7 @@ tailrecurse.i57:                                  ; preds = %Ivy_ObjRealFanin.ex
 Ivy_ObjRealFanin.exit62:                          ; preds = %tailrecurse.i57, %Ivy_ObjRealFanin.exit
   %.tr.lcssa.i56 = phi ptr [ %50, %Ivy_ObjRealFanin.exit ], [ %56, %tailrecurse.i57 ]
   %.val44 = load i32, ptr %.tr.lcssa.i56, align 8, !tbaa !23
-  %59 = load i16, ptr %21, align 2, !tbaa !68
+  %59 = load i16, ptr %21, align 2, !tbaa !67
   %60 = icmp slt i16 %.pr176, %59
   br i1 %60, label %Ivy_NodeCutPrescreen.exit, label %.preheader.i63
 
@@ -3502,7 +3502,7 @@ Ivy_ObjRealFanin.exit62:                          ; preds = %tailrecurse.i57, %I
 62:                                               ; preds = %63
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i65
-  br i1 %exitcond.not.i68, label %Ivy_NodeCutPrescreen.exit.thread, label %63, !llvm.loop !69
+  br i1 %exitcond.not.i68, label %Ivy_NodeCutPrescreen.exit.thread, label %63, !llvm.loop !68
 
 63:                                               ; preds = %62, %.lr.ph.i64
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %62 ]
@@ -3595,7 +3595,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.1.i = phi i32 [ %.074.i, %71 ], [ %96, %95 ]
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %wide.trip.count.i73
-  br i1 %exitcond.not.i76, label %._crit_edge.i69, label %71, !llvm.loop !70
+  br i1 %exitcond.not.i76, label %._crit_edge.i69, label %71, !llvm.loop !69
 
 ._crit_edge.i69:                                  ; preds = %102
   %.not.i71 = icmp eq i32 %.163.i, 2147483647
@@ -3709,7 +3709,7 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   %.1.i106 = phi i32 [ %.074.i91, %118 ], [ %143, %142 ]
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i90, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, %wide.trip.count.i89
-  br i1 %exitcond.not.i108, label %._crit_edge.i77, label %118, !llvm.loop !70
+  br i1 %exitcond.not.i108, label %._crit_edge.i77, label %118, !llvm.loop !69
 
 ._crit_edge.i77:                                  ; preds = %149, %117
   %.062.lcssa.i78 = phi i32 [ %.val43, %117 ], [ %.163.i103, %149 ]
@@ -3900,7 +3900,7 @@ Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %1
 Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.i, %._crit_edge.us.i.i, %217, %203, %.loopexit.i, %207, %193, %._crit_edge.i118, %.preheader.i113, %176, %169
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
-  br i1 %exitcond100.not.i, label %._crit_edge87.i, label %169, !llvm.loop !63
+  br i1 %exitcond100.not.i, label %._crit_edge87.i, label %169, !llvm.loop !62
 
 ._crit_edge87.i:                                  ; preds = %Ivy_CutCheckDominance.exit60.i, %Ivy_NodeCutDeriveNew.exit
   %221 = add nsw i32 %25, 1
@@ -3929,7 +3929,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %230 = sext i16 %.pr to i64
   %231 = icmp slt i64 %indvars.iv.next, %230
-  br i1 %231, label %22, label %._crit_edge, !llvm.loop !71
+  br i1 %231, label %22, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %Ivy_NodeCutPrescreen.exit.thread, %.preheader
   %232 = phi i32 [ %14, %.preheader ], [ %227, %Ivy_NodeCutPrescreen.exit.thread ]
@@ -3942,7 +3942,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %236 = sext i32 %235 to i64
   %237 = icmp slt i64 %indvars.iv.next174, %236
-  br i1 %237, label %13, label %._crit_edge161, !llvm.loop !72
+  br i1 %237, label %13, label %._crit_edge161, !llvm.loop !71
 
 ._crit_edge161:                                   ; preds = %234
   %238 = icmp sgt i32 %235, 0
@@ -3976,7 +3976,7 @@ Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFin
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i124, 1
   %250 = sext i32 %249 to i64
   %251 = icmp slt i64 %indvars.iv.next.i127, %250
-  br i1 %251, label %.lr.ph.i123, label %Ivy_NodeCompactCuts.exit, !llvm.loop !64
+  br i1 %251, label %.lr.ph.i123, label %Ivy_NodeCompactCuts.exit, !llvm.loop !63
 
 Ivy_NodeCompactCuts.exit:                         ; preds = %248, %._crit_edge161
   %.0.lcssa.i122 = phi i32 [ 0, %._crit_edge161 ], [ %.1.i126, %248 ]
@@ -3995,10 +3995,10 @@ define void @Ivy_ManTestCutsAll(ptr noundef readonly captures(none) %0) local_un
   br i1 %5, label %Abc_Clock.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %3, align 8, !tbaa !73
+  %7 = load i64, ptr %3, align 8, !tbaa !72
   %.neg35 = mul i64 %7, -1000000
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !75
+  %9 = load i64, ptr %8, align 8, !tbaa !74
   %.neg = sdiv i64 %9, -1000
   %.neg36 = add i64 %.neg, %.neg35
   br label %Abc_Clock.exit
@@ -4061,7 +4061,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val26 = load i32, ptr %37, align 4, !tbaa !33
   %38 = sext i32 %.val26 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !76
+  br i1 %39, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !75
 
 .critedge.loopexit:                               ; preds = %35
   %.val30.pre = load i32, ptr %10, align 4, !tbaa !21
@@ -4086,10 +4086,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %45, label %Abc_Clock.exit34, label %46
 
 46:                                               ; preds = %.critedge
-  %47 = load i64, ptr %2, align 8, !tbaa !73
+  %47 = load i64, ptr %2, align 8, !tbaa !72
   %48 = mul nsw i64 %47, 1000000
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !75
+  %50 = load i64, ptr %49, align 8, !tbaa !74
   %51 = sdiv i64 %50, 1000
   %52 = add nsw i64 %51, %48
   br label %Abc_Clock.exit34
@@ -4121,7 +4121,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !77
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !76
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -4129,7 +4129,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !77, !noalias !79
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !76, !noalias !78
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -4274,24 +4274,23 @@ attributes #22 = { nounwind willreturn memory(read) }
 !58 = !{!6, !6, i64 0}
 !59 = distinct !{!59, !26}
 !60 = distinct !{!60, !26}
-!61 = distinct !{!61, !26, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !26}
+!62 = distinct !{!62, !26}
 !63 = distinct !{!63, !26}
 !64 = distinct !{!64, !26}
 !65 = distinct !{!65, !26}
-!66 = distinct !{!66, !26}
-!67 = !{!49, !5, i64 8}
-!68 = !{!51, !52, i64 6}
+!66 = !{!49, !5, i64 8}
+!67 = !{!51, !52, i64 6}
+!68 = distinct !{!68, !26}
 !69 = distinct !{!69, !26}
 !70 = distinct !{!70, !26}
 !71 = distinct !{!71, !26}
-!72 = distinct !{!72, !26}
-!73 = !{!74, !18, i64 0}
-!74 = !{!"timespec", !18, i64 0, !18, i64 8}
-!75 = !{!74, !18, i64 8}
-!76 = distinct !{!76, !26}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"vprintf: argument 0"}
-!81 = distinct !{!81, !"vprintf"}
+!72 = !{!73, !18, i64 0}
+!73 = !{!"timespec", !18, i64 0, !18, i64 8}
+!74 = !{!73, !18, i64 8}
+!75 = distinct !{!75, !26}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"vprintf: argument 0"}
+!80 = distinct !{!80, !"vprintf"}

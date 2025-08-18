@@ -1110,7 +1110,7 @@ sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace
   %.not10.not = icmp ne i32 %64, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %or.cond29 = and i1 %.not10.not, %38
-  br i1 %or.cond29, label %.split, label %.loopexit, !llvm.loop !67
+  br i1 %or.cond29, label %.split, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %63, %36, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %36 ], [ 1, %63 ]
@@ -1521,7 +1521,7 @@ ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_eq
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %or.cond22 = and i1 %.not11.not, %38
-  br i1 %or.cond22, label %37, label %.loopexit, !llvm.loop !68
+  br i1 %or.cond22, label %37, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %ff_fmt_equal.exit.thread15, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %ff_fmt_equal.exit.thread15 ]
@@ -1613,7 +1613,5 @@ attributes #10 = { nounwind willreturn memory(none) }
 !62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
 !64 = !{!21, !11, i64 44}
-!65 = distinct !{!65, !63, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !63}
-!68 = distinct !{!68, !63}
+!65 = distinct !{!65, !63}
+!66 = distinct !{!66, !63}

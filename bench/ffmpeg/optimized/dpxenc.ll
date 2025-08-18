@@ -362,7 +362,7 @@ write32_internal.exit135:                         ; preds = %61, %write32_intern
   store ptr %166, ptr %163, align 8, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %158, label %160, !llvm.loop !55
+  br i1 %exitcond.not.i, label %158, label %160, !llvm.loop !54
 
 .preheader30.i:                                   ; preds = %.preheader30.i.preheader, %219
   %167 = phi i32 [ %169, %219 ], [ %155, %.preheader30.i.preheader ]
@@ -433,7 +433,7 @@ write32_internal.exit.i:                          ; preds = %189, %.thread.i
   %209 = load i32, ptr %69, align 8, !tbaa !41
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next40.i, %210
-  br i1 %211, label %.lr.ph.i, label %.preheader.i, !llvm.loop !56
+  br i1 %211, label %.lr.ph.i, label %.preheader.i, !llvm.loop !55
 
 212:                                              ; preds = %212, %.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next43.i, %212 ]
@@ -446,13 +446,13 @@ write32_internal.exit.i:                          ; preds = %189, %.thread.i
   store ptr %218, ptr %215, align 8, !tbaa !48
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 3
-  br i1 %exitcond45.not.i, label %219, label %212, !llvm.loop !55
+  br i1 %exitcond45.not.i, label %219, label %212, !llvm.loop !54
 
 219:                                              ; preds = %212
   %220 = add nuw nsw i32 %.02635.i, 1
   %221 = load i32, ptr %74, align 4, !tbaa !40
   %222 = icmp slt i32 %220, %221
-  br i1 %222, label %.preheader30.i, label %encode_gbrp10.exit, !llvm.loop !57
+  br i1 %222, label %.preheader30.i, label %encode_gbrp10.exit, !llvm.loop !56
 
 encode_gbrp10.exit:                               ; preds = %158, %219, %143
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -541,7 +541,7 @@ write32_internal.exit.i171:                       ; preds = %254, %.thread.i174
   %274 = load i32, ptr %69, align 8, !tbaa !41
   %275 = sext i32 %274 to i64
   %276 = icmp slt i64 %indvars.iv.next.i173, %275
-  br i1 %276, label %.lr.ph.i167, label %._crit_edge.loopexit.i, !llvm.loop !59
+  br i1 %276, label %.lr.ph.i167, label %._crit_edge.loopexit.i, !llvm.loop !58
 
 ._crit_edge.loopexit.i:                           ; preds = %write32_internal.exit.i171
   %.pre.i = load i32, ptr %74, align 4, !tbaa !40
@@ -556,21 +556,21 @@ write32_internal.exit.i171:                       ; preds = %254, %.thread.i174
   %281 = getelementptr inbounds i8, ptr %.02834.i165, i64 %280
   %282 = add nuw nsw i32 %.02635.i164, 1
   %283 = icmp slt i32 %282, %277
-  br i1 %283, label %.preheader.i163, label %encode_rgb48_10bit.exit, !llvm.loop !60
+  br i1 %283, label %.preheader.i163, label %encode_rgb48_10bit.exit, !llvm.loop !59
 
 284:                                              ; preds = %write32_internal.exit135
   %285 = load ptr, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %286 = load ptr, ptr %2, align 8, !tbaa !48
-  store ptr %286, ptr %5, align 16, !tbaa !61
+  store ptr %286, ptr %5, align 16, !tbaa !60
   %287 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %289 = load ptr, ptr %288, align 8, !tbaa !48
-  store ptr %289, ptr %287, align 8, !tbaa !61
+  store ptr %289, ptr %287, align 8, !tbaa !60
   %290 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %291 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %292 = load ptr, ptr %291, align 8, !tbaa !48
-  store ptr %292, ptr %290, align 16, !tbaa !61
+  store ptr %292, ptr %290, align 16, !tbaa !60
   %293 = load i32, ptr %74, align 4, !tbaa !40
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.preheader41.lr.ph.i, label %encode_gbrp12.exit
@@ -617,28 +617,28 @@ write32_internal.exit.i171:                       ; preds = %254, %.thread.i174
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %314 = load i32, ptr %285, align 4, !tbaa !30
   %.not.i178 = icmp eq i32 %314, 0
-  %315 = load ptr, ptr %5, align 16, !tbaa !61
+  %315 = load ptr, ptr %5, align 16, !tbaa !60
   %316 = getelementptr inbounds nuw i16, ptr %315, i64 %indvars.iv55.i
   %317 = load i16, ptr %316, align 1, !tbaa !44
   br i1 %.not.i178, label %328, label %318
 
 318:                                              ; preds = %.lr.ph.i177
   %319 = tail call i16 @llvm.bswap.i16(i16 %317)
-  %320 = load ptr, ptr %287, align 8, !tbaa !61
+  %320 = load ptr, ptr %287, align 8, !tbaa !60
   %321 = getelementptr inbounds nuw i16, ptr %320, i64 %indvars.iv55.i
   %322 = load i16, ptr %321, align 1, !tbaa !44
   %323 = tail call i16 @llvm.bswap.i16(i16 %322)
-  %324 = load ptr, ptr %290, align 16, !tbaa !61
+  %324 = load ptr, ptr %290, align 16, !tbaa !60
   %325 = getelementptr inbounds nuw i16, ptr %324, i64 %indvars.iv55.i
   %326 = load i16, ptr %325, align 1, !tbaa !44
   %327 = tail call i16 @llvm.bswap.i16(i16 %326)
   br label %335
 
 328:                                              ; preds = %.lr.ph.i177
-  %329 = load ptr, ptr %287, align 8, !tbaa !61
+  %329 = load ptr, ptr %287, align 8, !tbaa !60
   %330 = getelementptr inbounds nuw i16, ptr %329, i64 %indvars.iv55.i
   %331 = load i16, ptr %330, align 1, !tbaa !44
-  %332 = load ptr, ptr %290, align 16, !tbaa !61
+  %332 = load ptr, ptr %290, align 16, !tbaa !60
   %333 = getelementptr inbounds nuw i16, ptr %332, i64 %indvars.iv55.i
   %334 = load i16, ptr %333, align 1, !tbaa !44
   br label %335
@@ -649,10 +649,10 @@ write32_internal.exit.i171:                       ; preds = %254, %.thread.i174
   %storemerge.in.i = phi i16 [ %334, %328 ], [ %327, %318 ]
   %.sink = shl i16 %.sink.in, 4
   %.sink197 = shl i16 %.sink197.in, 4
-  store i16 %.sink197, ptr %302, align 2, !tbaa !62
-  store i16 %.sink, ptr %303, align 2, !tbaa !62
+  store i16 %.sink197, ptr %302, align 2, !tbaa !61
+  store i16 %.sink, ptr %303, align 2, !tbaa !61
   %storemerge.i179 = shl i16 %storemerge.in.i, 4
-  store i16 %storemerge.i179, ptr %6, align 2, !tbaa !62
+  store i16 %storemerge.i179, ptr %6, align 2, !tbaa !61
   br label %write16_internal.exit.i
 
 write16_internal.exit.i:                          ; preds = %write16_internal.exit.i, %335
@@ -660,7 +660,7 @@ write16_internal.exit.i:                          ; preds = %write16_internal.ex
   %.23942.i = phi ptr [ %.13844.i, %335 ], [ %340, %write16_internal.exit.i ]
   %336 = load i32, ptr %285, align 4, !tbaa !30
   %337 = getelementptr inbounds nuw [3 x i16], ptr %6, i64 0, i64 %indvars.iv.i180
-  %338 = load i16, ptr %337, align 2, !tbaa !62
+  %338 = load i16, ptr %337, align 2, !tbaa !61
   %.not.i.i = icmp eq i32 %336, 0
   %339 = tail call i16 @llvm.bswap.i16(i16 %338)
   %spec.select.i = select i1 %.not.i.i, i16 %338, i16 %339
@@ -668,7 +668,7 @@ write16_internal.exit.i:                          ; preds = %write16_internal.ex
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i180, 1
   %340 = getelementptr inbounds nuw i8, ptr %.23942.i, i64 2
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, 3
-  br i1 %exitcond.not.i182, label %341, label %write16_internal.exit.i, !llvm.loop !64
+  br i1 %exitcond.not.i182, label %341, label %write16_internal.exit.i, !llvm.loop !63
 
 341:                                              ; preds = %write16_internal.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -676,7 +676,7 @@ write16_internal.exit.i:                          ; preds = %write16_internal.ex
   %342 = load i32, ptr %69, align 8, !tbaa !41
   %343 = sext i32 %342 to i64
   %344 = icmp slt i64 %indvars.iv.next56.i, %343
-  br i1 %344, label %.lr.ph.i177, label %.preheader40.i, !llvm.loop !65
+  br i1 %344, label %.lr.ph.i177, label %.preheader40.i, !llvm.loop !64
 
 .preheader.i176:                                  ; preds = %.lr.ph48.preheader.i, %.preheader40.i
   %.3.lcssa.i = phi ptr [ %.138.lcssa.i, %.preheader40.i ], [ %scevgep.i, %.lr.ph48.preheader.i ]
@@ -688,19 +688,19 @@ write16_internal.exit.i:                          ; preds = %write16_internal.ex
   %347 = load i32, ptr %346, align 4, !tbaa !49
   %348 = sdiv i32 %347, 2
   %349 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %indvars.iv58.i
-  %350 = load ptr, ptr %349, align 8, !tbaa !61
+  %350 = load ptr, ptr %349, align 8, !tbaa !60
   %351 = sext i32 %348 to i64
   %352 = getelementptr inbounds i16, ptr %350, i64 %351
-  store ptr %352, ptr %349, align 8, !tbaa !61
+  store ptr %352, ptr %349, align 8, !tbaa !60
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, 3
-  br i1 %exitcond61.not.i, label %353, label %345, !llvm.loop !66
+  br i1 %exitcond61.not.i, label %353, label %345, !llvm.loop !65
 
 353:                                              ; preds = %345
   %354 = add nuw nsw i32 %.03552.i, 1
   %355 = load i32, ptr %74, align 4, !tbaa !40
   %356 = icmp slt i32 %354, %355
-  br i1 %356, label %.preheader41.i, label %encode_gbrp12.exit, !llvm.loop !67
+  br i1 %356, label %.preheader41.i, label %encode_gbrp12.exit, !llvm.loop !66
 
 encode_gbrp12.exit:                               ; preds = %353, %284
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -816,18 +816,17 @@ attributes #7 = { nounwind }
 !50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
 !52 = !{!43, !10, i64 32}
-!53 = distinct !{!53, !51, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !51}
+!54 = distinct !{!54, !51}
 !55 = distinct !{!55, !51}
-!56 = distinct !{!56, !51}
-!57 = distinct !{!57, !51, !58}
-!58 = !{!"llvm.loop.unswitch.partial.disable"}
-!59 = distinct !{!59, !51}
-!60 = distinct !{!60, !51, !58}
-!61 = !{!17, !17, i64 0}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"short", !8, i64 0}
+!56 = distinct !{!56, !51, !57}
+!57 = !{!"llvm.loop.unswitch.partial.disable"}
+!58 = distinct !{!58, !51}
+!59 = distinct !{!59, !51, !57}
+!60 = !{!17, !17, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"short", !8, i64 0}
+!63 = distinct !{!63, !51}
 !64 = distinct !{!64, !51}
 !65 = distinct !{!65, !51}
 !66 = distinct !{!66, !51}
-!67 = distinct !{!67, !51}

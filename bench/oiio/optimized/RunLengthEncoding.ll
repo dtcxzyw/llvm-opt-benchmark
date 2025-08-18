@@ -120,6 +120,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
   %19 = load i32, ptr %18, align 4, !tbaa !18
   %20 = icmp eq i32 %19, -1
   %..i = select i1 %20, i32 0, i32 %19
+  %..i.fr = freeze i32 %..i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !6
   %23 = icmp eq ptr %22, null
@@ -128,7 +129,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 23
   %25 = load i8, ptr %24, align 1, !tbaa !19
-  %.not = icmp eq i32 %..i, 0
+  %.not = icmp eq i32 %..i.fr, 0
   br i1 %.not, label %26, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
@@ -139,13 +140,13 @@ switch.early.test:                                ; preds = %_ZNK3dpx13GenericHe
 
 26:                                               ; preds = %switch.early.test, %switch.early.test, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
   %27 = icmp eq i8 %25, 16
-  %28 = and i32 %..i, -3
+  %28 = and i32 %..i.fr, -3
   %29 = icmp ne i32 %28, 0
   %or.cond7 = and i1 %29, %27
   %30 = add i32 %6, -3
   %or.cond9 = icmp ult i32 %30, 2
-  %or.cond76 = or i1 %or.cond9, %or.cond7
-  br i1 %or.cond76, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %or.cond77 = or i1 %or.cond9, %or.cond7
+  br i1 %or.cond77, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
 _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %26
   %31 = sext i32 %15 to i64
@@ -165,7 +166,7 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %26
   tail call void @_ZdaPv(ptr noundef nonnull %39) #8
   br label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
-_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %7, %26, %switch.early.test, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %switch.early.test, %7, %26, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
   %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %26 ], [ false, %switch.early.test ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %7 ]
   ret i1 %.0
 }

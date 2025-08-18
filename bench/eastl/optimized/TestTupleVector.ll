@@ -25494,75 +25494,148 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %arrayidx8.i.i9 = getelementptr inbounds nuw i8, ptr %first2, i64 24
   %10 = load ptr, ptr %arrayidx8.i.i9, align 8
   %cmp5.i4.fr = freeze i1 %cmp5.i4
-  br i1 %cmp5.i4.fr, label %land.rhs.us, label %land.rhs.lr.ph.split
+  br i1 %cmp5.i4.fr, label %land.rhs.lr.ph.split.us, label %land.rhs.lr.ph.split
 
-land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
-  %inc.i5561.us = phi i64 [ %inc.i.us, %for.inc.us ], [ %first1.promoted, %land.rhs.lr.ph ]
-  %inc.i375760.us = phi i64 [ %inc.i37.us, %for.inc.us ], [ %first2.promoted, %land.rhs.lr.ph ]
+land.rhs.lr.ph.split.us:                          ; preds = %land.rhs.lr.ph
+  br i1 %cmp5.i.fr, label %land.rhs.lr.ph.split.us.split.us, label %land.rhs.us.preheader
+
+land.rhs.us.preheader:                            ; preds = %land.rhs.lr.ph.split.us
+  %11 = add i64 %first2.promoted, %0
+  %12 = sub i64 %11, %first1.promoted
+  br label %land.rhs.us
+
+land.rhs.lr.ph.split.us.split.us:                 ; preds = %land.rhs.lr.ph.split.us
+  %arrayidx2.i.i.us.us137 = getelementptr inbounds i8, ptr %1, i64 %first1.promoted
+  %arrayidx2.i.i6.us.us140 = getelementptr inbounds i8, ptr %5, i64 %first2.promoted
+  %13 = load i8, ptr %arrayidx2.i.i.us.us137, align 1
+  %14 = and i8 %13, 1
+  %15 = load i8, ptr %arrayidx2.i.i6.us.us140, align 1
+  %16 = and i8 %15, 1
+  %cmp.i.i.i.i.us.us143 = icmp samesign ult i8 %14, %16
+  br i1 %cmp.i.i.i.i.us.us143, label %return, label %lor.rhs.i.i.i.us.us
+
+lor.rhs.i.i.i.us.us:                              ; preds = %land.rhs.lr.ph.split.us.split.us, %for.inc.us.us
+  %17 = phi i8 [ %30, %for.inc.us.us ], [ %16, %land.rhs.lr.ph.split.us.split.us ]
+  %18 = phi i8 [ %28, %for.inc.us.us ], [ %14, %land.rhs.lr.ph.split.us.split.us ]
+  %inc.i375760.us.us145 = phi i64 [ %inc.i37.us.us, %for.inc.us.us ], [ %first2.promoted, %land.rhs.lr.ph.split.us.split.us ]
+  %inc.i5561.us.us144 = phi i64 [ %inc.i.us.us, %for.inc.us.us ], [ %first1.promoted, %land.rhs.lr.ph.split.us.split.us ]
+  %arrayidx6.i.i.us.us146 = getelementptr inbounds %struct.TestObject, ptr %7, i64 %inc.i5561.us.us144
+  %arrayidx10.i.i.us.us147 = getelementptr inbounds float, ptr %8, i64 %inc.i5561.us.us144
+  %arrayidx6.i.i8.us.us148 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760.us.us145
+  %arrayidx10.i.i10.us.us149 = getelementptr inbounds float, ptr %10, i64 %inc.i375760.us.us145
+  %cmp.i5.i.i.i.us.us = icmp samesign ult i8 %17, %18
+  br i1 %cmp.i5.i.i.i.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us
+
+_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us: ; preds = %lor.rhs.i.i.i.us.us
+  %19 = load i32, ptr %arrayidx6.i.i.us.us146, align 8
+  %20 = load i32, ptr %arrayidx6.i.i8.us.us148, align 8
+  %cmp.i7.i.i.i.us.us = icmp slt i32 %19, %20
+  br i1 %cmp.i7.i.i.i.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us.us
+
+_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us
+  %cmp.i7.i11.i.i.us.us = icmp slt i32 %20, %19
+  br i1 %cmp.i7.i11.i.i.us.us, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us
+
+_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us.us
+  %21 = load float, ptr %arrayidx10.i.i.us.us147, align 4
+  %22 = load float, ptr %arrayidx10.i.i10.us.us149, align 4
+  %cmp.i.i.us.us = fcmp olt float %21, %22
+  br i1 %cmp.i.i.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us
+
+_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us: ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us.us
+  %23 = load i32, ptr %arrayidx6.i.i8.us.us148, align 8
+  %24 = load i32, ptr %arrayidx6.i.i.us.us146, align 8
+  %cmp.i7.i.i.i29.us.us = icmp slt i32 %23, %24
+  br i1 %cmp.i7.i.i.i29.us.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us.us
+
+_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us
+  %cmp.i7.i11.i.i31.us.us = icmp slt i32 %24, %23
+  br i1 %cmp.i7.i11.i.i31.us.us, label %for.inc.us.us, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us
+
+_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us.us
+  %25 = load float, ptr %arrayidx10.i.i10.us.us149, align 4
+  %26 = load float, ptr %arrayidx10.i.i.us.us147, align 4
+  %cmp.i.i35.us.us = fcmp olt float %25, %26
+  br i1 %cmp.i.i35.us.us, label %return, label %for.inc.us.us
+
+for.inc.us.us:                                    ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us.us
+  %inc.i.us.us = add i64 %inc.i5561.us.us144, 1
+  %inc.i37.us.us = add i64 %inc.i375760.us.us145, 1
+  %arrayidx2.i.i.us.us = getelementptr inbounds i8, ptr %1, i64 %inc.i.us.us
+  %arrayidx2.i.i6.us.us = getelementptr inbounds i8, ptr %5, i64 %inc.i37.us.us
+  %27 = load i8, ptr %arrayidx2.i.i.us.us, align 1
+  %28 = and i8 %27, 1
+  %29 = load i8, ptr %arrayidx2.i.i6.us.us, align 1
+  %30 = and i8 %29, 1
+  %cmp.i.i.i.i.us.us = icmp samesign ult i8 %28, %30
+  br i1 %cmp.i.i.i.i.us.us, label %return, label %lor.rhs.i.i.i.us.us
+
+land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %for.inc.us
+  %inc.i5561.us = phi i64 [ %inc.i.us, %for.inc.us ], [ %first1.promoted, %land.rhs.us.preheader ]
+  %inc.i375760.us = phi i64 [ %inc.i37.us, %for.inc.us ], [ %first2.promoted, %land.rhs.us.preheader ]
   %arrayidx2.i.i.us = getelementptr inbounds i8, ptr %1, i64 %inc.i5561.us
   %arrayidx6.i.i.us = getelementptr inbounds %struct.TestObject, ptr %7, i64 %inc.i5561.us
   %arrayidx10.i.i.us = getelementptr inbounds float, ptr %8, i64 %inc.i5561.us
   %arrayidx2.i.i6.us = getelementptr inbounds i8, ptr %5, i64 %inc.i375760.us
   %arrayidx6.i.i8.us = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760.us
   %arrayidx10.i.i10.us = getelementptr inbounds float, ptr %10, i64 %inc.i375760.us
-  %11 = load i8, ptr %arrayidx2.i.i.us, align 1
-  %12 = and i8 %11, 1
-  %13 = load i8, ptr %arrayidx2.i.i6.us, align 1
-  %14 = and i8 %13, 1
-  %cmp.i.i.i.i.us = icmp samesign ult i8 %12, %14
+  %31 = load i8, ptr %arrayidx2.i.i.us, align 1
+  %32 = and i8 %31, 1
+  %33 = load i8, ptr %arrayidx2.i.i6.us, align 1
+  %34 = and i8 %33, 1
+  %cmp.i.i.i.i.us = icmp samesign ult i8 %32, %34
   br i1 %cmp.i.i.i.i.us, label %return, label %lor.rhs.i.i.i.us
 
 lor.rhs.i.i.i.us:                                 ; preds = %land.rhs.us
-  %cmp.i5.i.i.i.us = icmp samesign ult i8 %14, %12
+  %cmp.i5.i.i.i.us = icmp samesign ult i8 %34, %32
   br i1 %cmp.i5.i.i.i.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us: ; preds = %lor.rhs.i.i.i.us
-  %15 = load i32, ptr %arrayidx6.i.i.us, align 8
-  %16 = load i32, ptr %arrayidx6.i.i8.us, align 8
-  %cmp.i7.i.i.i.us = icmp slt i32 %15, %16
+  %35 = load i32, ptr %arrayidx6.i.i.us, align 8
+  %36 = load i32, ptr %arrayidx6.i.i8.us, align 8
+  %cmp.i7.i.i.i.us = icmp slt i32 %35, %36
   br i1 %cmp.i7.i.i.i.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us
-  %cmp.i7.i11.i.i.us = icmp slt i32 %16, %15
+  %cmp.i7.i11.i.i.us = icmp slt i32 %36, %35
   br i1 %cmp.i7.i11.i.i.us, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us
-  %17 = load float, ptr %arrayidx10.i.i.us, align 4
-  %18 = load float, ptr %arrayidx10.i.i10.us, align 4
-  %cmp.i.i.us = fcmp olt float %17, %18
+  %37 = load float, ptr %arrayidx10.i.i.us, align 4
+  %38 = load float, ptr %arrayidx10.i.i10.us, align 4
+  %cmp.i.i.us = fcmp olt float %37, %38
   br i1 %cmp.i.i.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us: ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us
-  %19 = load i32, ptr %arrayidx6.i.i8.us, align 8
-  %20 = load i32, ptr %arrayidx6.i.i.us, align 8
-  %cmp.i7.i.i.i29.us = icmp slt i32 %19, %20
+  %39 = load i32, ptr %arrayidx6.i.i8.us, align 8
+  %40 = load i32, ptr %arrayidx6.i.i.us, align 8
+  %cmp.i7.i.i.i29.us = icmp slt i32 %39, %40
   br i1 %cmp.i7.i.i.i29.us, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us
-  %cmp.i7.i11.i.i31.us = icmp slt i32 %20, %19
+  %cmp.i7.i11.i.i31.us = icmp slt i32 %40, %39
   br i1 %cmp.i7.i11.i.i31.us, label %for.inc.us, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us
-  %21 = load float, ptr %arrayidx10.i.i10.us, align 4
-  %22 = load float, ptr %arrayidx10.i.i.us, align 4
-  %cmp.i.i35.us = fcmp olt float %21, %22
+  %41 = load float, ptr %arrayidx10.i.i10.us, align 4
+  %42 = load float, ptr %arrayidx10.i.i.us, align 4
+  %cmp.i.i35.us = fcmp olt float %41, %42
   br i1 %cmp.i.i35.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us
   %inc.i.us = add i64 %inc.i5561.us, 1
   %inc.i37.us = add i64 %inc.i375760.us, 1
-  %cmp.not.i.us = icmp ne i64 %inc.i.us, %0
-  %23 = or i1 %cmp.not.i.us, %cmp5.i.fr
-  br i1 %23, label %land.rhs.us, label %for.end, !llvm.loop !848
+  %cmp.not.i.us.not = icmp eq i64 %inc.i.us, %0
+  br i1 %cmp.not.i.us.not, label %for.end, label %land.rhs.us, !llvm.loop !848
 
 land.rhs.lr.ph.split:                             ; preds = %land.rhs.lr.ph
   br i1 %cmp5.i.fr, label %land.rhs.lr.ph.split.split.us, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %land.rhs.lr.ph.split
-  %24 = add i64 %first2.promoted, %0
-  %25 = sub i64 %24, %first1.promoted
-  %26 = add i64 %4, %first1.promoted
-  %27 = sub i64 %26, %first2.promoted
+  %43 = add i64 %first2.promoted, %0
+  %44 = sub i64 %43, %first1.promoted
+  %45 = add i64 %4, %first1.promoted
+  %46 = sub i64 %45, %first2.promoted
   br label %land.rhs
 
 land.rhs.lr.ph.split.split.us:                    ; preds = %land.rhs.lr.ph.split
@@ -25570,8 +25643,8 @@ land.rhs.lr.ph.split.split.us:                    ; preds = %land.rhs.lr.ph.spli
   br i1 %cmp.not.i1.us124.not, label %for.end, label %for.body.us84.preheader
 
 for.body.us84.preheader:                          ; preds = %land.rhs.lr.ph.split.split.us
-  %28 = add i64 %4, %first1.promoted
-  %29 = sub i64 %28, %first2.promoted
+  %47 = add i64 %4, %first1.promoted
+  %48 = sub i64 %47, %first2.promoted
   br label %for.body.us84
 
 for.body.us84:                                    ; preds = %for.body.us84.preheader, %for.inc.us108
@@ -25583,54 +25656,54 @@ for.body.us84:                                    ; preds = %for.body.us84.prehe
   %arrayidx2.i.i6.us88 = getelementptr inbounds i8, ptr %5, i64 %inc.i375760.us83126
   %arrayidx6.i.i8.us89 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760.us83126
   %arrayidx10.i.i10.us90 = getelementptr inbounds float, ptr %10, i64 %inc.i375760.us83126
-  %30 = load i8, ptr %arrayidx2.i.i.us85, align 1
-  %31 = and i8 %30, 1
-  %32 = load i8, ptr %arrayidx2.i.i6.us88, align 1
-  %33 = and i8 %32, 1
-  %cmp.i.i.i.i.us91 = icmp samesign ult i8 %31, %33
+  %49 = load i8, ptr %arrayidx2.i.i.us85, align 1
+  %50 = and i8 %49, 1
+  %51 = load i8, ptr %arrayidx2.i.i6.us88, align 1
+  %52 = and i8 %51, 1
+  %cmp.i.i.i.i.us91 = icmp samesign ult i8 %50, %52
   br i1 %cmp.i.i.i.i.us91, label %return, label %lor.rhs.i.i.i.us92
 
 lor.rhs.i.i.i.us92:                               ; preds = %for.body.us84
-  %cmp.i5.i.i.i.us93 = icmp samesign ult i8 %33, %31
+  %cmp.i5.i.i.i.us93 = icmp samesign ult i8 %52, %50
   br i1 %cmp.i5.i.i.i.us93, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94: ; preds = %lor.rhs.i.i.i.us92
-  %34 = load i32, ptr %arrayidx6.i.i.us86, align 8
-  %35 = load i32, ptr %arrayidx6.i.i8.us89, align 8
-  %cmp.i7.i.i.i.us95 = icmp slt i32 %34, %35
+  %53 = load i32, ptr %arrayidx6.i.i.us86, align 8
+  %54 = load i32, ptr %arrayidx6.i.i8.us89, align 8
+  %cmp.i7.i.i.i.us95 = icmp slt i32 %53, %54
   br i1 %cmp.i7.i.i.i.us95, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us96
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us96: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94
-  %cmp.i7.i11.i.i.us97 = icmp slt i32 %35, %34
+  %cmp.i7.i11.i.i.us97 = icmp slt i32 %54, %53
   br i1 %cmp.i7.i11.i.i.us97, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us96
-  %36 = load float, ptr %arrayidx10.i.i.us87, align 4
-  %37 = load float, ptr %arrayidx10.i.i10.us90, align 4
-  %cmp.i.i.us99 = fcmp olt float %36, %37
+  %55 = load float, ptr %arrayidx10.i.i.us87, align 4
+  %56 = load float, ptr %arrayidx10.i.i10.us90, align 4
+  %cmp.i.i.us99 = fcmp olt float %55, %56
   br i1 %cmp.i.i.us99, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102: ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i.us96
-  %38 = load i32, ptr %arrayidx6.i.i8.us89, align 8
-  %39 = load i32, ptr %arrayidx6.i.i.us86, align 8
-  %cmp.i7.i.i.i29.us103 = icmp slt i32 %38, %39
+  %57 = load i32, ptr %arrayidx6.i.i8.us89, align 8
+  %58 = load i32, ptr %arrayidx6.i.i.us86, align 8
+  %cmp.i7.i.i.i29.us103 = icmp slt i32 %57, %58
   br i1 %cmp.i7.i.i.i29.us103, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us104
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us104: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102
-  %cmp.i7.i11.i.i31.us105 = icmp slt i32 %39, %38
+  %cmp.i7.i11.i.i31.us105 = icmp slt i32 %58, %57
   br i1 %cmp.i7.i11.i.i31.us105, label %for.inc.us108, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us104
-  %40 = load float, ptr %arrayidx10.i.i10.us90, align 4
-  %41 = load float, ptr %arrayidx10.i.i.us87, align 4
-  %cmp.i.i35.us107 = fcmp olt float %40, %41
+  %59 = load float, ptr %arrayidx10.i.i10.us90, align 4
+  %60 = load float, ptr %arrayidx10.i.i.us87, align 4
+  %cmp.i.i35.us107 = fcmp olt float %59, %60
   br i1 %cmp.i.i35.us107, label %return, label %for.inc.us108
 
 for.inc.us108:                                    ; preds = %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30.us104
   %inc.i.us109 = add i64 %inc.i5561.us82125, 1
   %inc.i37.us110 = add i64 %inc.i375760.us83126, 1
   %cmp.not.i1.us.not = icmp eq i64 %inc.i37.us110, %4
-  br i1 %cmp.not.i1.us.not, label %for.end, label %for.body.us84, !llvm.loop !850
+  br i1 %cmp.not.i1.us.not, label %for.end, label %for.body.us84
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
   %inc.i5561 = phi i64 [ %inc.i, %for.inc ], [ %first1.promoted, %land.rhs.preheader ]
@@ -25645,76 +25718,76 @@ for.body:                                         ; preds = %land.rhs
   %arrayidx2.i.i6 = getelementptr inbounds i8, ptr %5, i64 %inc.i375760
   %arrayidx6.i.i8 = getelementptr inbounds %struct.TestObject, ptr %9, i64 %inc.i375760
   %arrayidx10.i.i10 = getelementptr inbounds float, ptr %10, i64 %inc.i375760
-  %42 = load i8, ptr %arrayidx2.i.i, align 1
-  %43 = and i8 %42, 1
-  %44 = load i8, ptr %arrayidx2.i.i6, align 1
-  %45 = and i8 %44, 1
-  %cmp.i.i.i.i = icmp samesign ult i8 %43, %45
+  %61 = load i8, ptr %arrayidx2.i.i, align 1
+  %62 = and i8 %61, 1
+  %63 = load i8, ptr %arrayidx2.i.i6, align 1
+  %64 = and i8 %63, 1
+  %cmp.i.i.i.i = icmp samesign ult i8 %62, %64
   br i1 %cmp.i.i.i.i, label %return, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %for.body
-  %cmp.i5.i.i.i = icmp samesign ult i8 %45, %43
+  %cmp.i5.i.i.i = icmp samesign ult i8 %64, %62
   br i1 %cmp.i5.i.i.i, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i: ; preds = %lor.rhs.i.i.i
-  %46 = load i32, ptr %arrayidx6.i.i, align 8
-  %47 = load i32, ptr %arrayidx6.i.i8, align 8
-  %cmp.i7.i.i.i = icmp slt i32 %46, %47
+  %65 = load i32, ptr %arrayidx6.i.i, align 8
+  %66 = load i32, ptr %arrayidx6.i.i8, align 8
+  %cmp.i7.i.i.i = icmp slt i32 %65, %66
   br i1 %cmp.i7.i.i.i, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i
-  %cmp.i7.i11.i.i = icmp slt i32 %47, %46
+  %cmp.i7.i11.i.i = icmp slt i32 %66, %65
   br i1 %cmp.i7.i11.i.i, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i
-  %48 = load float, ptr %arrayidx10.i.i, align 4
-  %49 = load float, ptr %arrayidx10.i.i10, align 4
-  %cmp.i.i = fcmp olt float %48, %49
+  %67 = load float, ptr %arrayidx10.i.i, align 4
+  %68 = load float, ptr %arrayidx10.i.i10, align 4
+  %cmp.i.i = fcmp olt float %67, %68
   br i1 %cmp.i.i, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit
-  %50 = load i32, ptr %arrayidx6.i.i8, align 8
-  %51 = load i32, ptr %arrayidx6.i.i, align 8
-  %cmp.i7.i.i.i29 = icmp slt i32 %50, %51
+  %69 = load i32, ptr %arrayidx6.i.i8, align 8
+  %70 = load i32, ptr %arrayidx6.i.i, align 8
+  %cmp.i7.i.i.i29 = icmp slt i32 %69, %70
   br i1 %cmp.i7.i.i.i29, label %return, label %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30
 
 _ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26
-  %cmp.i7.i11.i.i31 = icmp slt i32 %51, %50
+  %cmp.i7.i11.i.i31 = icmp slt i32 %70, %69
   br i1 %cmp.i7.i11.i.i31, label %for.inc, label %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36
 
 _ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36: ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30
-  %52 = load float, ptr %arrayidx10.i.i10, align 4
-  %53 = load float, ptr %arrayidx10.i.i, align 4
-  %cmp.i.i35 = fcmp olt float %52, %53
+  %71 = load float, ptr %arrayidx10.i.i10, align 4
+  %72 = load float, ptr %arrayidx10.i.i, align 4
+  %cmp.i.i35 = fcmp olt float %71, %72
   br i1 %cmp.i.i35, label %return, label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit12.i.i30, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36
   %inc.i = add i64 %inc.i5561, 1
   %inc.i37 = add i64 %inc.i375760, 1
   %cmp.not.i.not = icmp eq i64 %inc.i, %0
-  br i1 %cmp.not.i.not, label %for.end, label %land.rhs, !llvm.loop !851
+  br i1 %cmp.not.i.not, label %for.end, label %land.rhs, !llvm.loop !848
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %for.inc.us108, %for.inc.us, %land.rhs.lr.ph.split.split.us, %entry
-  %54 = phi i64 [ %first2.promoted, %entry ], [ %first2.promoted, %land.rhs.lr.ph.split.split.us ], [ %inc.i37.us, %for.inc.us ], [ %4, %for.inc.us108 ], [ %25, %for.inc ], [ %4, %land.rhs ]
-  %inc.i55.lcssa = phi i64 [ %0, %entry ], [ %first1.promoted, %land.rhs.lr.ph.split.split.us ], [ %0, %for.inc.us ], [ %29, %for.inc.us108 ], [ %0, %for.inc ], [ %27, %land.rhs ]
+  %73 = phi i64 [ %first2.promoted, %entry ], [ %first2.promoted, %land.rhs.lr.ph.split.split.us ], [ %12, %for.inc.us ], [ %4, %for.inc.us108 ], [ %44, %for.inc ], [ %4, %land.rhs ]
+  %inc.i55.lcssa = phi i64 [ %0, %entry ], [ %first1.promoted, %land.rhs.lr.ph.split.split.us ], [ %0, %for.inc.us ], [ %48, %for.inc.us108 ], [ %0, %for.inc ], [ %46, %land.rhs ]
   %cmp.i = icmp eq i64 %inc.i55.lcssa, %0
   %cmp5.i40 = icmp eq ptr %1, %2
-  %55 = select i1 %cmp.i, i1 %cmp5.i40, i1 false
-  br i1 %55, label %land.rhs12, label %return
+  %74 = select i1 %cmp.i, i1 %cmp5.i40, i1 false
+  br i1 %74, label %land.rhs12, label %return
 
 land.rhs12:                                       ; preds = %for.end
-  %56 = load i64, ptr %last2, align 8
-  %cmp.not.i41 = icmp ne i64 %54, %56
+  %75 = load i64, ptr %last2, align 8
+  %cmp.not.i41 = icmp ne i64 %73, %75
   %mpData.i42 = getelementptr inbounds nuw i8, ptr %first2, i64 8
-  %57 = load ptr, ptr %mpData.i42, align 8
+  %76 = load ptr, ptr %mpData.i42, align 8
   %mpData3.i43 = getelementptr inbounds nuw i8, ptr %last2, i64 8
-  %58 = load ptr, ptr %mpData3.i43, align 8
-  %cmp5.i44 = icmp ne ptr %57, %58
-  %59 = select i1 %cmp.not.i41, i1 true, i1 %cmp5.i44
+  %77 = load ptr, ptr %mpData3.i43, align 8
+  %cmp5.i44 = icmp ne ptr %76, %77
+  %78 = select i1 %cmp.not.i41, i1 true, i1 %cmp5.i44
   br label %return
 
-return:                                           ; preds = %lor.rhs.i.i.i, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26, %for.body, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit, %lor.rhs.i.i.i.us92, %for.body.us84, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106, %lor.rhs.i.i.i.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us, %land.rhs.us, %for.end, %land.rhs12
-  %retval.0 = phi i1 [ false, %for.end ], [ %59, %land.rhs12 ], [ false, %lor.rhs.i.i.i.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us ], [ true, %land.rhs.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us ], [ false, %lor.rhs.i.i.i.us92 ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98 ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94 ], [ true, %for.body.us84 ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102 ], [ false, %lor.rhs.i.i.i ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i ], [ true, %for.body ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26 ]
+return:                                           ; preds = %lor.rhs.i.i.i, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26, %for.body, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit, %lor.rhs.i.i.i.us92, %for.body.us84, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106, %lor.rhs.i.i.i.us, %land.rhs.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us, %lor.rhs.i.i.i.us.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us, %for.inc.us.us, %land.rhs.lr.ph.split.us.split.us, %for.end, %land.rhs12
+  %retval.0 = phi i1 [ false, %for.end ], [ %78, %land.rhs12 ], [ true, %land.rhs.lr.ph.split.us.split.us ], [ false, %lor.rhs.i.i.i.us.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us.us ], [ true, %for.inc.us.us ], [ false, %lor.rhs.i.i.i.us ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us ], [ true, %land.rhs.us ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us ], [ false, %lor.rhs.i.i.i.us92 ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit.us98 ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36.us106 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i.us94 ], [ true, %for.body.us84 ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26.us102 ], [ false, %lor.rhs.i.i.i ], [ true, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit ], [ false, %_ZN5eastlltIJRKbRK10TestObjectRKfEJS2_S5_S7_EEEbRKNS_5tupleIJDpT_EEERKNS8_IJDpT0_EEE.exit36 ], [ true, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i ], [ true, %for.body ], [ false, %_ZN5eastl8Internal9TupleLessILm2EEclINS_5tupleIJRKbRK10TestObjectRKfEEESC_EEbRKT_RKT0_.exit.i.i26 ]
   ret i1 %retval.0
 }
 
@@ -26855,7 +26928,4 @@ attributes #14 = { noreturn nounwind }
 !845 = !{!846}
 !846 = distinct !{!846, !847, !"_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5eraseENS0_12TupleVecIterIS4_JKbKS5_KfEEESB_: %agg.result"}
 !847 = distinct !{!847, !"_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5eraseENS0_12TupleVecIterIS4_JKbKS5_KfEEESB_"}
-!848 = distinct !{!848, !21, !849}
-!849 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!850 = distinct !{!850, !849}
-!851 = distinct !{!851, !21}
+!848 = distinct !{!848, !21}

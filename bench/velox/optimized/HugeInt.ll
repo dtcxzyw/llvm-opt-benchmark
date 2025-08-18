@@ -177,7 +177,7 @@ if.end64:                                         ; preds = %if.else58, %if.end4
   %inc66 = add nuw i64 %idx.252, 1
   %call26 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #8
   %cmp27 = icmp ult i64 %inc66, %call26
-  br i1 %cmp27, label %for.body28, label %for.end67, !llvm.loop !8
+  br i1 %cmp27, label %for.body28, label %for.end67, !llvm.loop !6
 
 for.end67:                                        ; preds = %if.end64, %if.end64.us, %if.end21
   %result.0.lcssa = phi i128 [ 0, %if.end21 ], [ %add.us, %if.end64.us ], [ %add, %if.end64 ]
@@ -277,7 +277,7 @@ while.body:                                       ; preds = %if.end, %invoke.con
 invoke.cont6:                                     ; preds = %while.body
   %x.addr.07.off = add i128 %x.addr.07, 9
   %cmp3.not = icmp ult i128 %x.addr.07.off, 19
-  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !9
+  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !7
 
 lpad5.loopexit:                                   ; preds = %while.body
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -320,7 +320,7 @@ while.body.i.i:                                   ; preds = %if.end10, %while.bo
   %incdec.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i, i64 1
   %__last.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -1
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i2.i.i, %__last.sroa.0.0.i.i
-  br i1 %cmp.i1.i.i, label %while.body.i.i, label %return, !llvm.loop !10
+  br i1 %cmp.i1.i.i, label %while.body.i.i, label %return, !llvm.loop !8
 
 return:                                           ; preds = %while.body.i.i, %if.end10, %invoke.cont
   ret void
@@ -482,8 +482,6 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

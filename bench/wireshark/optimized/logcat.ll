@@ -271,7 +271,7 @@ get_priority.exit.thread:                         ; preds = %56, %65, %71, %68
   %.1 = phi i16 [ %25, %68 ], [ %25, %71 ], [ %25, %65 ], [ %.05279, %56 ]
   %78 = add nuw nsw i32 %.05578, 1
   %exitcond.not = icmp eq i32 %78, 3
-  br i1 %exitcond.not, label %.split85.us, label %56, !llvm.loop !10
+  br i1 %exitcond.not, label %.split85.us, label %56, !llvm.loop !8
 
 .split85.us:                                      ; preds = %get_priority.exit.thread, %get_priority.exit.thread.us
   call void @g_free(ptr noundef %22)
@@ -571,6 +571,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

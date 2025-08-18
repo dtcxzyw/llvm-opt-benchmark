@@ -92,7 +92,7 @@ define internal void @synth_filter_float(ptr noundef %0, ptr noundef %1, ptr nou
   %51 = tail call nsz float @llvm.fmuladd.f32(float %47, float %50, float %.1113.us)
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 64
   %52 = icmp samesign ult i64 %indvars.iv146, 448
-  br i1 %52, label %.lr.ph114.us, label %._crit_edge.us, !llvm.loop !19
+  br i1 %52, label %.lr.ph114.us, label %._crit_edge.us, !llvm.loop !18
 
 53:                                               ; preds = %.lr.ph.us, %53
   %indvars.iv144 = phi i64 [ 64, %.lr.ph.us ], [ %indvars.iv.next145, %53 ]
@@ -129,7 +129,7 @@ define internal void @synth_filter_float(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 64
   %78 = icmp samesign ult i64 %indvars.iv.next141, %16
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 64
-  br i1 %78, label %53, label %..preheader_crit_edge.us, !llvm.loop !20
+  br i1 %78, label %53, label %..preheader_crit_edge.us, !llvm.loop !19
 
 ..preheader_crit_edge.us:                         ; preds = %53
   %79 = icmp samesign ult i64 %indvars.iv140, 448
@@ -184,7 +184,7 @@ define internal void @synth_filter_float(ptr noundef %0, ptr noundef %1, ptr nou
   %111 = tail call nsz float @llvm.fmuladd.f32(float %107, float %110, float %.1113)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %112 = icmp samesign ult i64 %indvars.iv, 448
-  br i1 %112, label %85, label %._crit_edge, !llvm.loop !19
+  br i1 %112, label %85, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %85
   %113 = fmul nsz float %7, %94
@@ -197,7 +197,7 @@ define internal void @synth_filter_float(ptr noundef %0, ptr noundef %1, ptr nou
   store float %111, ptr %83, align 4, !tbaa !14
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, 16
-  br i1 %exitcond.not, label %.split121.us, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.split121.us, label %.preheader, !llvm.loop !16
 
 .split121.us:                                     ; preds = %._crit_edge, %._crit_edge.us
   %117 = add i32 %13, 480
@@ -246,7 +246,7 @@ define internal void @synth_filter_float_64(ptr noundef %0, ptr noundef %1, ptr 
   store float %.1.lcssa.us, ptr %20, align 4, !tbaa !14
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 32
-  br i1 %exitcond153.not, label %.split121.us, label %.lr.ph.us, !llvm.loop !22
+  br i1 %exitcond153.not, label %.split121.us, label %.lr.ph.us, !llvm.loop !20
 
 .lr.ph114.us:                                     ; preds = %.lr.ph114.us.preheader, %.lr.ph114.us
   %indvars.iv146 = phi i64 [ %indvars.iv144, %.lr.ph114.us.preheader ], [ %indvars.iv.next147, %.lr.ph114.us ]
@@ -283,7 +283,7 @@ define internal void @synth_filter_float_64(ptr noundef %0, ptr noundef %1, ptr 
   %51 = tail call nsz float @llvm.fmuladd.f32(float %47, float %50, float %.1113.us)
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 128
   %52 = icmp samesign ult i64 %indvars.iv146, 896
-  br i1 %52, label %.lr.ph114.us, label %._crit_edge.us, !llvm.loop !23
+  br i1 %52, label %.lr.ph114.us, label %._crit_edge.us, !llvm.loop !21
 
 53:                                               ; preds = %.lr.ph.us, %53
   %indvars.iv144 = phi i64 [ 128, %.lr.ph.us ], [ %indvars.iv.next145, %53 ]
@@ -320,7 +320,7 @@ define internal void @synth_filter_float_64(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 128
   %78 = icmp samesign ult i64 %indvars.iv.next141, %16
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 128
-  br i1 %78, label %53, label %..preheader_crit_edge.us, !llvm.loop !24
+  br i1 %78, label %53, label %..preheader_crit_edge.us, !llvm.loop !22
 
 ..preheader_crit_edge.us:                         ; preds = %53
   %79 = icmp samesign ult i64 %indvars.iv140, 896
@@ -375,7 +375,7 @@ define internal void @synth_filter_float_64(ptr noundef %0, ptr noundef %1, ptr 
   %111 = tail call nsz float @llvm.fmuladd.f32(float %107, float %110, float %.1113)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 128
   %112 = icmp samesign ult i64 %indvars.iv, 896
-  br i1 %112, label %85, label %._crit_edge, !llvm.loop !23
+  br i1 %112, label %85, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %85
   %113 = fmul nsz float %7, %94
@@ -388,7 +388,7 @@ define internal void @synth_filter_float_64(ptr noundef %0, ptr noundef %1, ptr 
   store float %111, ptr %83, align 4, !tbaa !14
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, 32
-  br i1 %exitcond.not, label %.split121.us, label %.preheader, !llvm.loop !25
+  br i1 %exitcond.not, label %.split121.us, label %.preheader, !llvm.loop !20
 
 .split121.us:                                     ; preds = %._crit_edge, %._crit_edge.us
   %117 = add i32 %13, 960
@@ -402,7 +402,7 @@ define internal void @synth_filter_fixed(ptr noundef readonly captures(none) %0,
   %8 = load i32, ptr %2, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %1, i64 %9
-  %11 = load ptr, ptr %0, align 8, !tbaa !26
+  %11 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void %11(ptr noundef %10, ptr noundef %6) #4
   br label %12
 
@@ -485,7 +485,7 @@ define internal void @synth_filter_fixed(ptr noundef readonly captures(none) %0,
   %62 = add nsw i64 %61, %.0102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
   %63 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %63, label %.lr.ph, label %.preheader, !llvm.loop !27
+  br i1 %63, label %.lr.ph, label %.preheader, !llvm.loop !24
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv128 = phi i64 [ %27, %.lr.ph112.preheader ], [ %indvars.iv.next129, %.lr.ph112 ]
@@ -533,7 +533,7 @@ define internal void @synth_filter_fixed(ptr noundef readonly captures(none) %0,
   %100 = add nsw i64 %99, %.1111
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 64
   %101 = icmp samesign ult i64 %indvars.iv128, 448
-  br i1 %101, label %.lr.ph112, label %._crit_edge, !llvm.loop !28
+  br i1 %101, label %.lr.ph112, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %.preheader
   %.190.lcssa = phi i64 [ %36, %.preheader ], [ %73, %.lr.ph112 ]
@@ -564,7 +564,7 @@ define internal void @synth_filter_fixed(ptr noundef readonly captures(none) %0,
   store i32 %117, ptr %18, align 4, !tbaa !12
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next133, 16
-  br i1 %exitcond.not, label %118, label %12, !llvm.loop !29
+  br i1 %exitcond.not, label %118, label %12, !llvm.loop !26
 
 118:                                              ; preds = %._crit_edge
   %119 = load i32, ptr %2, align 4, !tbaa !12
@@ -580,7 +580,7 @@ define internal void @synth_filter_fixed_64(ptr noundef readonly captures(none) 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   tail call void %12(ptr noundef %10, ptr noundef %6) #4
   br label %13
 
@@ -663,7 +663,7 @@ define internal void @synth_filter_fixed_64(ptr noundef readonly captures(none) 
   %63 = add nsw i64 %62, %.0102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 128
   %64 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %64, label %.lr.ph, label %.preheader, !llvm.loop !30
+  br i1 %64, label %.lr.ph, label %.preheader, !llvm.loop !27
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv128 = phi i64 [ %28, %.lr.ph112.preheader ], [ %indvars.iv.next129, %.lr.ph112 ]
@@ -711,7 +711,7 @@ define internal void @synth_filter_fixed_64(ptr noundef readonly captures(none) 
   %101 = add nsw i64 %100, %.1111
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 128
   %102 = icmp samesign ult i64 %indvars.iv128, 896
-  br i1 %102, label %.lr.ph112, label %._crit_edge, !llvm.loop !31
+  br i1 %102, label %.lr.ph112, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %.preheader
   %.190.lcssa = phi i64 [ %37, %.preheader ], [ %74, %.lr.ph112 ]
@@ -742,7 +742,7 @@ define internal void @synth_filter_fixed_64(ptr noundef readonly captures(none) 
   store i32 %118, ptr %19, align 4, !tbaa !12
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next133, 32
-  br i1 %exitcond.not, label %119, label %13, !llvm.loop !32
+  br i1 %exitcond.not, label %119, label %13, !llvm.loop !29
 
 119:                                              ; preds = %._crit_edge
   %120 = load i32, ptr %2, align 4, !tbaa !12
@@ -785,20 +785,17 @@ attributes #4 = { nounwind }
 !13 = !{!"int", !7, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"float", !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !17}
 !19 = distinct !{!19, !17}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17}
+!22 = distinct !{!22, !17}
+!23 = !{!6, !6, i64 0}
 !24 = distinct !{!24, !17}
 !25 = distinct !{!25, !17}
-!26 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !17}
 !27 = distinct !{!27, !17}
 !28 = distinct !{!28, !17}
 !29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17}
-!32 = distinct !{!32, !17}

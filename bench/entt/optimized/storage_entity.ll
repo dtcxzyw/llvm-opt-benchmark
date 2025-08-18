@@ -59438,71 +59438,93 @@ _ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6ent
   br i1 %or.cond, label %.thread.i.us, label %55
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %72 = icmp eq i64 %22, 0
-  %73 = getelementptr inbounds i8, ptr %13, i64 -8
-  br i1 %21, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
+  %72 = getelementptr inbounds i8, ptr %13, i64 -8
+  br i1 %21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  %73 = icmp eq i64 %22, 0
+  br i1 %73, label %.lr.ph.split.split.us.split.us.preheader, label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split.us.preheader:         ; preds = %.lr.ph.split.split.us
   %74 = getelementptr inbounds i8, ptr %13, i64 -8
-  br label %.lr.ph.split.split.us
+  br label %.lr.ph.split.split.us.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %84
-  %.sroa.05.07.us8 = phi ptr [ %75, %84 ], [ %10, %.lr.ph.split.split.us.preheader ]
-  %75 = getelementptr inbounds i8, ptr %.sroa.05.07.us8, i64 -4
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us.split.us.preheader, %82
+  %.sroa.05.07.us8.us = phi ptr [ %75, %82 ], [ %10, %.lr.ph.split.split.us.split.us.preheader ]
+  %75 = getelementptr inbounds i8, ptr %.sroa.05.07.us8.us, i64 -4
   %76 = load i32, ptr %75, align 4, !tbaa !87
   %77 = load i32, ptr %14, align 4, !tbaa !87
   %78 = icmp ult i32 %76, %77
-  br i1 %78, label %._crit_edge.i.i.us9, label %84
+  br i1 %78, label %._crit_edge.i.i.us9.us, label %82
 
-._crit_edge.i.i.us9:                              ; preds = %.lr.ph.split.split.us
+._crit_edge.i.i.us9.us:                           ; preds = %.lr.ph.split.split.us.split.us
   store i32 %77, ptr %75, align 4, !tbaa !87
-  br i1 %72, label %.thread.i.us10, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us16
-
-.thread.i.us10:                                   ; preds = %._crit_edge.i.i.us9
-  %79 = load i32, ptr %73, align 4, !tbaa !87
+  %79 = load i32, ptr %72, align 4, !tbaa !87
   store i32 %79, ptr %14, align 4, !tbaa !87
   %80 = icmp ult i32 %79, %76
-  br i1 %80, label %81, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us16
+  br i1 %80, label %81, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.loopexit.us18.us
 
-81:                                               ; preds = %.thread.i.us10
+81:                                               ; preds = %._crit_edge.i.i.us9.us
   store i32 %79, ptr %74, align 4, !tbaa !87
-  br label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us16
+  br label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.loopexit.us18.us
 
-_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us16: ; preds = %.thread.i.us10, %81, %._crit_edge.i.i.us9
-  %.09.lcssa.i.i.i.us17.neg = phi i64 [ 0, %._crit_edge.i.i.us9 ], [ 0, %81 ], [ -1, %.thread.i.us10 ]
-  %82 = getelementptr inbounds i32, ptr %13, i64 %.09.lcssa.i.i.i.us17.neg
-  %83 = getelementptr inbounds i8, ptr %82, i64 -4
-  store i32 %76, ptr %83, align 4, !tbaa !87
-  br label %84
+82:                                               ; preds = %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.loopexit.us18.us, %.lr.ph.split.split.us.split.us
+  %83 = icmp ult ptr %.sroa.0.0.copyload.i.i, %75
+  br i1 %83, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !869
 
-84:                                               ; preds = %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.us16, %.lr.ph.split.split.us
-  %85 = icmp ult ptr %.sroa.0.0.copyload.i.i, %75
-  br i1 %85, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !871
+_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SG_SG_RT0_.exit.loopexit.us18.us: ; preds = %81, %._crit_edge.i.i.us9.us
+  %.09.lcssa.i.i.i.ph.us19.us.neg = phi i64 [ -1, %._crit_edge.i.i.us9.us ], [ 0, %81 ]
+  %84 = getelementptr inbounds i32, ptr %13, i64 %.09.lcssa.i.i.i.ph.us19.us.neg
+  %85 = getelementptr inbounds i8, ptr %84, i64 -4
+  store i32 %76, ptr %85, align 4, !tbaa !87
+  br label %82
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.pre = load i32, ptr %14, align 4, !tbaa !87
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
+  %.pre27 = load i32, ptr %14, align 4, !tbaa !87
   br label %86
 
-._crit_edge:                                      ; preds = %91, %84, %69, %3
-  ret void
-
-86:                                               ; preds = %.lr.ph.split.split, %91
-  %87 = phi i32 [ %.pre, %.lr.ph.split.split ], [ %92, %91 ]
-  %.sroa.05.07 = phi ptr [ %10, %.lr.ph.split.split ], [ %88, %91 ]
-  %88 = getelementptr inbounds i8, ptr %.sroa.05.07, i64 -4
+86:                                               ; preds = %91, %.lr.ph.split.split.us.split
+  %87 = phi i32 [ %.pre27, %.lr.ph.split.split.us.split ], [ %92, %91 ]
+  %.sroa.05.07.us8 = phi ptr [ %10, %.lr.ph.split.split.us.split ], [ %88, %91 ]
+  %88 = getelementptr inbounds i8, ptr %.sroa.05.07.us8, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !87
   %90 = icmp ult i32 %89, %87
-  br i1 %90, label %._crit_edge.i.i, label %91
+  br i1 %90, label %._crit_edge.i.i.us9, label %91
 
-._crit_edge.i.i:                                  ; preds = %86
+._crit_edge.i.i.us9:                              ; preds = %86
   store i32 %87, ptr %88, align 4, !tbaa !87
   store i32 %89, ptr %14, align 4, !tbaa !87
   br label %91
 
-91:                                               ; preds = %86, %._crit_edge.i.i
-  %92 = phi i32 [ %87, %86 ], [ %89, %._crit_edge.i.i ]
+91:                                               ; preds = %._crit_edge.i.i.us9, %86
+  %92 = phi i32 [ %89, %._crit_edge.i.i.us9 ], [ %87, %86 ]
   %93 = icmp ult ptr %.sroa.0.0.copyload.i.i, %88
-  br i1 %93, label %86, label %._crit_edge, !llvm.loop !872
+  br i1 %93, label %86, label %._crit_edge, !llvm.loop !869
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  %.pre = load i32, ptr %14, align 4, !tbaa !87
+  br label %94
+
+._crit_edge:                                      ; preds = %99, %91, %82, %69, %3
+  ret void
+
+94:                                               ; preds = %.lr.ph.split.split, %99
+  %95 = phi i32 [ %.pre, %.lr.ph.split.split ], [ %100, %99 ]
+  %.sroa.05.07 = phi ptr [ %10, %.lr.ph.split.split ], [ %96, %99 ]
+  %96 = getelementptr inbounds i8, ptr %.sroa.05.07, i64 -4
+  %97 = load i32, ptr %96, align 4, !tbaa !87
+  %98 = icmp ult i32 %97, %95
+  br i1 %98, label %._crit_edge.i.i, label %99
+
+._crit_edge.i.i:                                  ; preds = %94
+  store i32 %95, ptr %96, align 4, !tbaa !87
+  store i32 %97, ptr %14, align 4, !tbaa !87
+  br label %99
+
+99:                                               ; preds = %94, %._crit_edge.i.i
+  %100 = phi i32 [ %95, %94 ], [ %97, %._crit_edge.i.i ]
+  %101 = icmp ult ptr %.sroa.0.0.copyload.i.i, %96
+  br i1 %101, label %94, label %._crit_edge, !llvm.loop !869
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59603,7 +59625,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6
   store i32 %27, ptr %62, align 4, !tbaa !87
   %.not.us = icmp eq i64 %.08.us, 0
   %63 = add nsw i64 %.08.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !873
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !870
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit
   %.08 = phi i64 [ %107, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit ], [ %11, %.split.preheader ]
@@ -59682,7 +59704,7 @@ _ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6
   store i32 %67, ptr %106, align 4, !tbaa !87
   %.not = icmp eq i64 %.08, 0
   %107 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !874
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !870
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit.us, %_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SH_T1_T2_.exit, %3
   ret void
@@ -59883,7 +59905,7 @@ define internal void @_GLOBAL__sub_I_storage_entity.cpp() #21 section ".text.sta
   store i8 0, ptr %149, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   %150 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  store i32 17, ptr %150, align 8, !tbaa !875
+  store i32 17, ptr %150, align 8, !tbaa !871
   %151 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %152 unwind label %175
 
@@ -59990,7 +60012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i: ; preds = %_
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
-  store ptr %159, ptr @_ZN31StorageEntity_Constructors_Test10test_info_E, align 8, !tbaa !877
+  store ptr %159, ptr @_ZN31StorageEntity_Constructors_Test10test_info_E, align 8, !tbaa !873
   %189 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN31StorageEntity_Constructors_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
@@ -60053,7 +60075,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %209, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
   %210 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  store i32 31, ptr %210, align 8, !tbaa !875
+  store i32 31, ptr %210, align 8, !tbaa !871
   %211 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %212 unwind label %235
 
@@ -60156,7 +60178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i: ; preds = %_
 
 __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
-  store ptr %219, ptr @_ZN23StorageEntity_Move_Test10test_info_E, align 8, !tbaa !877
+  store ptr %219, ptr @_ZN23StorageEntity_Move_Test10test_info_E, align 8, !tbaa !873
   %249 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN23StorageEntity_Move_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
@@ -60219,7 +60241,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %269, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
   %270 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  store i32 82, ptr %270, align 8, !tbaa !875
+  store i32 82, ptr %270, align 8, !tbaa !871
   %271 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %272 unwind label %295
 
@@ -60322,7 +60344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i13: ; preds = 
 
 __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
-  store ptr %279, ptr @_ZN23StorageEntity_Swap_Test10test_info_E, align 8, !tbaa !877
+  store ptr %279, ptr @_ZN23StorageEntity_Swap_Test10test_info_E, align 8, !tbaa !873
   %309 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN23StorageEntity_Swap_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %119)
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
@@ -60385,7 +60407,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %329, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   %330 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  store i32 110, ptr %330, align 8, !tbaa !875
+  store i32 110, ptr %330, align 8, !tbaa !871
   %331 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %332 unwind label %355
 
@@ -60488,7 +60510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i28: ; preds = 
 
 __cxx_global_var_init.34.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i33
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
-  store ptr %339, ptr @_ZN26StorageEntity_Getters_Test10test_info_E, align 8, !tbaa !877
+  store ptr %339, ptr @_ZN26StorageEntity_Getters_Test10test_info_E, align 8, !tbaa !873
   %369 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN26StorageEntity_Getters_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
@@ -60551,7 +60573,7 @@ __cxx_global_var_init.34.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %389, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %390 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  store i32 129, ptr %390, align 8, !tbaa !875
+  store i32 129, ptr %390, align 8, !tbaa !871
   %391 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %392 unwind label %415
 
@@ -60654,7 +60676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i43: ; preds = 
 
 __cxx_global_var_init.41.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i48
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
-  store ptr %399, ptr @_ZN44StorageEntityDeathTest_DISABLED_Getters_Test10test_info_E, align 8, !tbaa !877
+  store ptr %399, ptr @_ZN44StorageEntityDeathTest_DISABLED_Getters_Test10test_info_E, align 8, !tbaa !873
   %429 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN44StorageEntityDeathTest_DISABLED_Getters_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -60717,7 +60739,7 @@ __cxx_global_var_init.41.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %449, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   %450 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  store i32 140, ptr %450, align 8, !tbaa !875
+  store i32 140, ptr %450, align 8, !tbaa !871
   %451 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %452 unwind label %475
 
@@ -60820,7 +60842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i58: ; preds = 
 
 __cxx_global_var_init.50.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i63
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
-  store ptr %459, ptr @_ZN27StorageEntity_Generate_Test10test_info_E, align 8, !tbaa !877
+  store ptr %459, ptr @_ZN27StorageEntity_Generate_Test10test_info_E, align 8, !tbaa !873
   %489 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN27StorageEntity_Generate_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
@@ -60883,7 +60905,7 @@ __cxx_global_var_init.50.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %509, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %510 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  store i32 175, ptr %510, align 8, !tbaa !875
+  store i32 175, ptr %510, align 8, !tbaa !871
   %511 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %512 unwind label %535
 
@@ -60986,7 +61008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i73: ; preds = 
 
 __cxx_global_var_init.82.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i78
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
-  store ptr %519, ptr @_ZN31StorageEntity_EmplaceInUse_Test10test_info_E, align 8, !tbaa !877
+  store ptr %519, ptr @_ZN31StorageEntity_EmplaceInUse_Test10test_info_E, align 8, !tbaa !873
   %549 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN31StorageEntity_EmplaceInUse_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
@@ -61049,7 +61071,7 @@ __cxx_global_var_init.82.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %569, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   %570 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store i32 194, ptr %570, align 8, !tbaa !875
+  store i32 194, ptr %570, align 8, !tbaa !871
   %571 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %572 unwind label %595
 
@@ -61152,7 +61174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i88: ; preds = 
 
 __cxx_global_var_init.86.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i93
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
-  store ptr %579, ptr @_ZN29StorageEntity_TryEmplace_Test10test_info_E, align 8, !tbaa !877
+  store ptr %579, ptr @_ZN29StorageEntity_TryEmplace_Test10test_info_E, align 8, !tbaa !873
   %609 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN29StorageEntity_TryEmplace_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
@@ -61215,7 +61237,7 @@ __cxx_global_var_init.86.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %629, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   %630 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store i32 237, ptr %630, align 8, !tbaa !875
+  store i32 237, ptr %630, align 8, !tbaa !871
   %631 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %632 unwind label %655
 
@@ -61318,7 +61340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i103: ; preds =
 
 __cxx_global_var_init.112.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i108
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
-  store ptr %639, ptr @_ZN34StorageEntity_TryEmplaceInUse_Test10test_info_E, align 8, !tbaa !877
+  store ptr %639, ptr @_ZN34StorageEntity_TryEmplaceInUse_Test10test_info_E, align 8, !tbaa !873
   %669 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN34StorageEntity_TryEmplaceInUse_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
@@ -61381,7 +61403,7 @@ __cxx_global_var_init.112.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %689, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %690 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store i32 256, ptr %690, align 8, !tbaa !875
+  store i32 256, ptr %690, align 8, !tbaa !871
   %691 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %692 unwind label %715
 
@@ -61484,7 +61506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i118: ; preds =
 
 __cxx_global_var_init.117.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i123
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
-  store ptr %699, ptr @_ZN24StorageEntity_Patch_Test10test_info_E, align 8, !tbaa !877
+  store ptr %699, ptr @_ZN24StorageEntity_Patch_Test10test_info_E, align 8, !tbaa !873
   %729 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN24StorageEntity_Patch_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
@@ -61547,7 +61569,7 @@ __cxx_global_var_init.117.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %749, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %750 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store i32 272, ptr %750, align 8, !tbaa !875
+  store i32 272, ptr %750, align 8, !tbaa !871
   %751 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %752 unwind label %775
 
@@ -61650,7 +61672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i133: ; preds =
 
 __cxx_global_var_init.122.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i138
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  store ptr %759, ptr @_ZN42StorageEntityDeathTest_DISABLED_Patch_Test10test_info_E, align 8, !tbaa !877
+  store ptr %759, ptr @_ZN42StorageEntityDeathTest_DISABLED_Patch_Test10test_info_E, align 8, !tbaa !873
   %789 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN42StorageEntityDeathTest_DISABLED_Patch_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -61713,7 +61735,7 @@ __cxx_global_var_init.122.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %809, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %810 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store i32 278, ptr %810, align 8, !tbaa !875
+  store i32 278, ptr %810, align 8, !tbaa !871
   %811 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %812 unwind label %835
 
@@ -61816,7 +61838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i148: ; preds =
 
 __cxx_global_var_init.125.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i153
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
-  store ptr %819, ptr @_ZN25StorageEntity_Insert_Test10test_info_E, align 8, !tbaa !877
+  store ptr %819, ptr @_ZN25StorageEntity_Insert_Test10test_info_E, align 8, !tbaa !873
   %849 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN25StorageEntity_Insert_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
@@ -61879,7 +61901,7 @@ __cxx_global_var_init.125.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %869, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %870 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store i32 307, ptr %870, align 8, !tbaa !875
+  store i32 307, ptr %870, align 8, !tbaa !871
   %871 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %872 unwind label %895
 
@@ -61982,7 +62004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i163: ; preds =
 
 __cxx_global_var_init.129.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i169, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i168
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
-  store ptr %879, ptr @_ZN23StorageEntity_Pack_Test10test_info_E, align 8, !tbaa !877
+  store ptr %879, ptr @_ZN23StorageEntity_Pack_Test10test_info_E, align 8, !tbaa !873
   %909 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN23StorageEntity_Pack_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -62045,7 +62067,7 @@ __cxx_global_var_init.129.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %929, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %930 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i32 333, ptr %930, align 8, !tbaa !875
+  store i32 333, ptr %930, align 8, !tbaa !871
   %931 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %932 unwind label %955
 
@@ -62148,7 +62170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i178: ; preds =
 
 __cxx_global_var_init.138.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i183
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
-  store ptr %939, ptr @_ZN27StorageEntity_FreeList_Test10test_info_E, align 8, !tbaa !877
+  store ptr %939, ptr @_ZN27StorageEntity_FreeList_Test10test_info_E, align 8, !tbaa !873
   %969 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN27StorageEntity_FreeList_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -62211,7 +62233,7 @@ __cxx_global_var_init.138.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %989, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %990 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store i32 352, ptr %990, align 8, !tbaa !875
+  store i32 352, ptr %990, align 8, !tbaa !871
   %991 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %992 unwind label %1015
 
@@ -62314,7 +62336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i193: ; preds =
 
 __cxx_global_var_init.140.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i199, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i198
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  store ptr %999, ptr @_ZN45StorageEntityDeathTest_DISABLED_FreeList_Test10test_info_E, align 8, !tbaa !877
+  store ptr %999, ptr @_ZN45StorageEntityDeathTest_DISABLED_FreeList_Test10test_info_E, align 8, !tbaa !873
   %1029 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN45StorageEntityDeathTest_DISABLED_FreeList_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -62377,7 +62399,7 @@ __cxx_global_var_init.140.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1049, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %1050 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 360, ptr %1050, align 8, !tbaa !875
+  store i32 360, ptr %1050, align 8, !tbaa !871
   %1051 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1052 unwind label %1075
 
@@ -62480,7 +62502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i208: ; preds =
 
 __cxx_global_var_init.143.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i214, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i213
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  store ptr %1059, ptr @_ZN27StorageEntity_Iterable_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1059, ptr @_ZN27StorageEntity_Iterable_Test10test_info_E, align 8, !tbaa !873
   %1089 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN27StorageEntity_Iterable_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -62543,7 +62565,7 @@ __cxx_global_var_init.143.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1109, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %1110 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store i32 404, ptr %1110, align 8, !tbaa !875
+  store i32 404, ptr %1110, align 8, !tbaa !871
   %1111 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1112 unwind label %1135
 
@@ -62646,7 +62668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i223: ; preds =
 
 __cxx_global_var_init.160.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i228
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  store ptr %1119, ptr @_ZN32StorageEntity_ConstIterable_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1119, ptr @_ZN32StorageEntity_ConstIterable_Test10test_info_E, align 8, !tbaa !873
   %1149 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN32StorageEntity_ConstIterable_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
@@ -62709,7 +62731,7 @@ __cxx_global_var_init.160.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1169, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %1170 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store i32 448, ptr %1170, align 8, !tbaa !875
+  store i32 448, ptr %1170, align 8, !tbaa !871
   %1171 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1172 unwind label %1195
 
@@ -62812,7 +62834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i238: ; preds =
 
 __cxx_global_var_init.164.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i244, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i243
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  store ptr %1179, ptr @_ZN45StorageEntity_IterableIteratorConversion_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1179, ptr @_ZN45StorageEntity_IterableIteratorConversion_Test10test_info_E, align 8, !tbaa !873
   %1209 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN45StorageEntity_IterableIteratorConversion_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -62875,7 +62897,7 @@ __cxx_global_var_init.164.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1229, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %1230 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i32 462, ptr %1230, align 8, !tbaa !875
+  store i32 462, ptr %1230, align 8, !tbaa !871
   %1231 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1232 unwind label %1255
 
@@ -62978,7 +63000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i253: ; preds =
 
 __cxx_global_var_init.169.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i259, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i258
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  store ptr %1239, ptr @_ZN49StorageEntity_IterableAlgorithmCompatibility_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1239, ptr @_ZN49StorageEntity_IterableAlgorithmCompatibility_Test10test_info_E, align 8, !tbaa !873
   %1269 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN49StorageEntity_IterableAlgorithmCompatibility_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -63041,7 +63063,7 @@ __cxx_global_var_init.169.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1289, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %1290 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store i32 472, ptr %1290, align 8, !tbaa !875
+  store i32 472, ptr %1290, align 8, !tbaa !871
   %1291 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1292 unwind label %1315
 
@@ -63144,7 +63166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i268: ; preds =
 
 __cxx_global_var_init.172.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i274, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i273
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  store ptr %1299, ptr @_ZN34StorageEntity_ReverseIterable_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1299, ptr @_ZN34StorageEntity_ReverseIterable_Test10test_info_E, align 8, !tbaa !873
   %1329 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN34StorageEntity_ReverseIterable_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -63207,7 +63229,7 @@ __cxx_global_var_init.172.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1349, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1350 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i32 516, ptr %1350, align 8, !tbaa !875
+  store i32 516, ptr %1350, align 8, !tbaa !871
   %1351 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1352 unwind label %1375
 
@@ -63310,7 +63332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i283: ; preds =
 
 __cxx_global_var_init.179.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i289, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i288
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  store ptr %1359, ptr @_ZN39StorageEntity_ReverseConstIterable_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1359, ptr @_ZN39StorageEntity_ReverseConstIterable_Test10test_info_E, align 8, !tbaa !873
   %1389 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN39StorageEntity_ReverseConstIterable_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -63373,7 +63395,7 @@ __cxx_global_var_init.179.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1409, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %1410 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store i32 560, ptr %1410, align 8, !tbaa !875
+  store i32 560, ptr %1410, align 8, !tbaa !871
   %1411 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1412 unwind label %1435
 
@@ -63476,7 +63498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i298: ; preds =
 
 __cxx_global_var_init.181.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i304, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i303
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  store ptr %1419, ptr @_ZN52StorageEntity_ReverseIterableIteratorConversion_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1419, ptr @_ZN52StorageEntity_ReverseIterableIteratorConversion_Test10test_info_E, align 8, !tbaa !873
   %1449 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN52StorageEntity_ReverseIterableIteratorConversion_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -63539,7 +63561,7 @@ __cxx_global_var_init.181.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1469, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %1470 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store i32 574, ptr %1470, align 8, !tbaa !875
+  store i32 574, ptr %1470, align 8, !tbaa !871
   %1471 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1472 unwind label %1495
 
@@ -63642,7 +63664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i313: ; preds =
 
 __cxx_global_var_init.183.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i319, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i318
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  store ptr %1479, ptr @_ZN56StorageEntity_ReverseIterableAlgorithmCompatibility_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1479, ptr @_ZN56StorageEntity_ReverseIterableAlgorithmCompatibility_Test10test_info_E, align 8, !tbaa !873
   %1509 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN56StorageEntity_ReverseIterableAlgorithmCompatibility_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -63705,7 +63727,7 @@ __cxx_global_var_init.183.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1529, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %1530 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 584, ptr %1530, align 8, !tbaa !875
+  store i32 584, ptr %1530, align 8, !tbaa !871
   %1531 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1532 unwind label %1555
 
@@ -63808,7 +63830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i328: ; preds =
 
 __cxx_global_var_init.185.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i334, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i333
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  store ptr %1539, ptr @_ZN30StorageEntity_SortOrdered_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1539, ptr @_ZN30StorageEntity_SortOrdered_Test10test_info_E, align 8, !tbaa !873
   %1569 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN30StorageEntity_SortOrdered_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -63871,7 +63893,7 @@ __cxx_global_var_init.185.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1589, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1590 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i32 594, ptr %1590, align 8, !tbaa !875
+  store i32 594, ptr %1590, align 8, !tbaa !871
   %1591 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1592 unwind label %1615
 
@@ -63974,7 +63996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i343: ; preds =
 
 __cxx_global_var_init.188.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i349, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i348
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  store ptr %1599, ptr @_ZN30StorageEntity_SortReverse_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1599, ptr @_ZN30StorageEntity_SortReverse_Test10test_info_E, align 8, !tbaa !873
   %1629 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN30StorageEntity_SortReverse_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -64037,7 +64059,7 @@ __cxx_global_var_init.188.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1649, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %1650 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i32 604, ptr %1650, align 8, !tbaa !875
+  store i32 604, ptr %1650, align 8, !tbaa !871
   %1651 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1652 unwind label %1675
 
@@ -64140,7 +64162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i358: ; preds =
 
 __cxx_global_var_init.191.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i364, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i363
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  store ptr %1659, ptr @_ZN32StorageEntity_SortUnordered_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1659, ptr @_ZN32StorageEntity_SortUnordered_Test10test_info_E, align 8, !tbaa !873
   %1689 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN32StorageEntity_SortUnordered_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -64203,7 +64225,7 @@ __cxx_global_var_init.191.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1709, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %1710 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 618, ptr %1710, align 8, !tbaa !875
+  store i32 618, ptr %1710, align 8, !tbaa !871
   %1711 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1712 unwind label %1735
 
@@ -64306,7 +64328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i373: ; preds =
 
 __cxx_global_var_init.200.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i379, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i378
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  store ptr %1719, ptr @_ZN24StorageEntity_SortN_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1719, ptr @_ZN24StorageEntity_SortN_Test10test_info_E, align 8, !tbaa !873
   %1749 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN24StorageEntity_SortN_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -64369,7 +64391,7 @@ __cxx_global_var_init.200.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1769, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %1770 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 643, ptr %1770, align 8, !tbaa !875
+  store i32 643, ptr %1770, align 8, !tbaa !871
   %1771 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1772 unwind label %1795
 
@@ -64472,7 +64494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i388: ; preds =
 
 __cxx_global_var_init.202.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i394, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i393
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  store ptr %1779, ptr @_ZN33StorageEntity_SortAsDisjoint_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1779, ptr @_ZN33StorageEntity_SortAsDisjoint_Test10test_info_E, align 8, !tbaa !873
   %1809 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN33StorageEntity_SortAsDisjoint_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -64535,7 +64557,7 @@ __cxx_global_var_init.202.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1829, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1830 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i32 657, ptr %1830, align 8, !tbaa !875
+  store i32 657, ptr %1830, align 8, !tbaa !871
   %1831 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1832 unwind label %1855
 
@@ -64638,7 +64660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i403: ; preds =
 
 __cxx_global_var_init.205.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i409, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i408
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  store ptr %1839, ptr @_ZN32StorageEntity_SortAsOverlap_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1839, ptr @_ZN32StorageEntity_SortAsOverlap_Test10test_info_E, align 8, !tbaa !873
   %1869 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN32StorageEntity_SortAsOverlap_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -64701,7 +64723,7 @@ __cxx_global_var_init.205.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1889, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1890 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 676, ptr %1890, align 8, !tbaa !875
+  store i32 676, ptr %1890, align 8, !tbaa !871
   %1891 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1892 unwind label %1915
 
@@ -64804,7 +64826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i418: ; preds =
 
 __cxx_global_var_init.215.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i424, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i423
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  store ptr %1899, ptr @_ZN32StorageEntity_SortAsOrdered_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1899, ptr @_ZN32StorageEntity_SortAsOrdered_Test10test_info_E, align 8, !tbaa !873
   %1929 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN32StorageEntity_SortAsOrdered_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -64867,7 +64889,7 @@ __cxx_global_var_init.215.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1949, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1950 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 693, ptr %1950, align 8, !tbaa !875
+  store i32 693, ptr %1950, align 8, !tbaa !871
   %1951 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %1952 unwind label %1975
 
@@ -64970,7 +64992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i433: ; preds =
 
 __cxx_global_var_init.217.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i439, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i438
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store ptr %1959, ptr @_ZN32StorageEntity_SortAsReverse_Test10test_info_E, align 8, !tbaa !877
+  store ptr %1959, ptr @_ZN32StorageEntity_SortAsReverse_Test10test_info_E, align 8, !tbaa !873
   %1989 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN32StorageEntity_SortAsReverse_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -65033,7 +65055,7 @@ __cxx_global_var_init.217.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %2009, align 1, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %2010 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 715, ptr %2010, align 8, !tbaa !875
+  store i32 715, ptr %2010, align 8, !tbaa !871
   %2011 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %2012 unwind label %2035
 
@@ -65136,7 +65158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i448: ; preds =
 
 __cxx_global_var_init.231.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i454, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i453
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store ptr %2019, ptr @_ZN34StorageEntity_SortAsUnordered_Test10test_info_E, align 8, !tbaa !877
+  store ptr %2019, ptr @_ZN34StorageEntity_SortAsUnordered_Test10test_info_E, align 8, !tbaa !873
   %2049 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN34StorageEntity_SortAsUnordered_Test10test_info_E)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -66063,13 +66085,9 @@ attributes #30 = { builtin allocsize(0) }
 !866 = distinct !{!866, !"_ZSt22__copy_move_backward_aILb1ESt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEESA_ET1_T0_SC_SB_"}
 !867 = distinct !{!867, !868, !"_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_: argument 0"}
 !868 = distinct !{!868, !"_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEESA_ET0_T_SC_SB_"}
-!869 = distinct !{!869, !100, !870}
-!870 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!871 = distinct !{!871, !100, !870}
-!872 = distinct !{!872, !100}
-!873 = distinct !{!873, !100, !870}
-!874 = distinct !{!874, !100}
-!875 = !{!876, !16, i64 32}
-!876 = !{!"_ZTSN7testing8internal12CodeLocationE", !51, i64 0, !16, i64 32}
-!877 = !{!878, !878, i64 0}
-!878 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}
+!869 = distinct !{!869, !100}
+!870 = distinct !{!870, !100}
+!871 = !{!872, !16, i64 32}
+!872 = !{!"_ZTSN7testing8internal12CodeLocationE", !51, i64 0, !16, i64 32}
+!873 = !{!874, !874, i64 0}
+!874 = !{!"p1 _ZTSN7testing8TestInfoE", !14, i64 0}

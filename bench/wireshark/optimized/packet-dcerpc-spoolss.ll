@@ -3638,7 +3638,7 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
   %99 = add nuw i32 %.03940.us44, 1
   %100 = load i32, ptr %13, align 4
   %101 = icmp ult i32 %99, %100
-  br i1 %101, label %.lr.ph.split.us42, label %._crit_edge, !llvm.loop !12
+  br i1 %101, label %.lr.ph.split.us42, label %._crit_edge, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03940 = phi i32 [ %105, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -3648,7 +3648,7 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
   %105 = add nuw i32 %.03940, 1
   %106 = load i32, ptr %13, align 4
   %107 = icmp ult i32 %105, %106
-  br i1 %107, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %107, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us42, %.lr.ph.split.us, %.lr.ph.split, %6
   %108 = load i32, ptr @hf_rc, align 4
@@ -3931,7 +3931,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   %29 = add nuw i32 %.05659.us, 1
   %30 = load i32, ptr %7, align 4
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %31, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split.us61:                                ; preds = %.lr.ph, %.lr.ph.split.us61
   %.060.us62 = phi i32 [ %34, %.lr.ph.split.us61 ], [ 0, %.lr.ph ]
@@ -3942,7 +3942,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   %35 = add nuw i32 %.05659.us63, 1
   %36 = load i32, ptr %7, align 4
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %.lr.ph.split.us61, label %.loopexit, !llvm.loop !15
+  br i1 %37, label %.lr.ph.split.us61, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split.us65:                                ; preds = %.lr.ph, %.lr.ph.split.us65
   %.060.us66 = phi i32 [ %40, %.lr.ph.split.us65 ], [ 0, %.lr.ph ]
@@ -3953,7 +3953,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   %41 = add nuw i32 %.05659.us67, 1
   %42 = load i32, ptr %7, align 4
   %43 = icmp ult i32 %41, %42
-  br i1 %43, label %.lr.ph.split.us65, label %.loopexit, !llvm.loop !16
+  br i1 %43, label %.lr.ph.split.us65, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split.us69:                                ; preds = %.lr.ph, %.lr.ph.split.us69
   %.060.us70 = phi i32 [ %46, %.lr.ph.split.us69 ], [ 0, %.lr.ph ]
@@ -3964,7 +3964,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   %47 = add nuw i32 %.05659.us71, 1
   %48 = load i32, ptr %7, align 4
   %49 = icmp ult i32 %47, %48
-  br i1 %49, label %.lr.ph.split.us69, label %.loopexit, !llvm.loop !17
+  br i1 %49, label %.lr.ph.split.us69, label %.loopexit, !llvm.loop !11
 
 .lr.ph.split.us73:                                ; preds = %.lr.ph, %.lr.ph.split.us73
   %.060.us74 = phi i32 [ %52, %.lr.ph.split.us73 ], [ 0, %.lr.ph ]
@@ -3975,7 +3975,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   %53 = add nuw i32 %.05659.us75, 1
   %54 = load i32, ptr %7, align 4
   %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.lr.ph.split.us73, label %.loopexit, !llvm.loop !18
+  br i1 %55, label %.lr.ph.split.us73, label %.loopexit, !llvm.loop !11
 
 .split.us:                                        ; preds = %.lr.ph
   %56 = load ptr, ptr %8, align 8
@@ -4976,7 +4976,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %17, %20
   %38 = add nuw i32 %.043, 1
   %39 = load i32, ptr %8, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %34, label %._crit_edge, !llvm.loop !19
+  br i1 %40, label %34, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %34, %proto_item_set_hidden.exit
   %41 = load i32, ptr @hf_rc, align 4
@@ -6303,7 +6303,7 @@ dissect_spoolss_printer_enum_values.exit:         ; preds = %86, %93, %dissect_s
   %143 = add nuw i32 %.049, 1
   %144 = load i32, ptr %16, align 4
   %145 = icmp ult i32 %143, %144
-  br i1 %145, label %39, label %.loopexit, !llvm.loop !20
+  br i1 %145, label %39, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %dissect_spoolss_printer_enum_values.exit, %34, %proto_item_set_hidden.exit
   %146 = load i32, ptr %15, align 4
@@ -6480,7 +6480,7 @@ dissect_CORE_PRINTER_DRIVER.exit:                 ; preds = %dissect_spoolss_uin
   %64 = add nuw i32 %.028, 1
   %65 = load i32, ptr %7, align 4
   %66 = icmp ult i32 %64, %65
-  br i1 %66, label %16, label %._crit_edge, !llvm.loop !21
+  br i1 %66, label %16, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_CORE_PRINTER_DRIVER.exit, %6
   %.026.lcssa = phi i32 [ %11, %6 ], [ %.1.i, %dissect_CORE_PRINTER_DRIVER.exit ]
@@ -7465,7 +7465,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %26, %33
   %42 = icmp sgt i32 %.0.i, 0
   %43 = icmp slt i32 %.0.i, %.0
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %26, label %.loopexit, !llvm.loop !22
+  br i1 %44, label %26, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %dissect_spoolss_uint16uni.exit, %21, %6
   %.022 = phi i32 [ %1, %6 ], [ %13, %21 ], [ %.0.i, %dissect_spoolss_uint16uni.exit ]
@@ -7511,16 +7511,9 @@ attributes #6 = { nounwind }
 !7 = !{}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9, !11}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9, !11}
-!15 = distinct !{!15, !9, !11}
-!16 = distinct !{!16, !9, !11}
-!17 = distinct !{!17, !9, !11}
-!18 = distinct !{!18, !9, !11}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

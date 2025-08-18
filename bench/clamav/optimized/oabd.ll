@@ -239,7 +239,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly captures(address_is_nu
   %115 = ashr exact i64 %sext.us.i, 32
   %116 = sub i64 %.02133.us.i, %115
   %.not.us.i = icmp eq i64 %116, 0
-  br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !30
+  br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i
 
 .loopexit:                                        ; preds = %114, %108
   %117 = load i32, ptr %50, align 8, !tbaa !29
@@ -254,7 +254,7 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
 .thread.thread174:                                ; preds = %copy_fh.exit, %51, %87, %54, %91, %92, %101, %.loopexit, %106, %.lr.ph.split.us.i, %35, %28
   %.094150181 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.us.i ], [ 0, %copy_fh.exit ], [ 3, %51 ], [ 8, %87 ], [ 8, %54 ], [ 8, %91 ], [ %95, %92 ], [ 6, %101 ], [ 9, %.loopexit ], [ %107, %106 ]
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !32
+  %120 = load ptr, ptr %119, align 8, !tbaa !30
   call void %120(ptr noundef nonnull %27) #6
   br label %.thread.thread.thread
 
@@ -262,7 +262,7 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
   %.092151172186 = phi ptr [ %34, %.thread.thread174 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
   %.094150173184 = phi i32 [ %.094150181, %.thread.thread174 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !32
+  %122 = load ptr, ptr %121, align 8, !tbaa !30
   call void %122(ptr noundef nonnull %12) #6
   br label %.thread.thread.thread188
 
@@ -270,7 +270,7 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
   %.092151172187 = phi ptr [ %.092151172186, %.thread.thread.thread ], [ null, %8 ]
   %.094150173185 = phi i32 [ %.094150173184, %.thread.thread.thread ], [ 2, %8 ]
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %124 = load ptr, ptr %123, align 8, !tbaa !33
+  %124 = load ptr, ptr %123, align 8, !tbaa !31
   call void %124(ptr noundef %.092151172187) #6
   br label %125
 
@@ -472,7 +472,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly captures(a
   %109 = ashr exact i64 %sext.us.i, 32
   %110 = sub i64 %.02133.us.i, %109
   %.not.us.i = icmp eq i64 %110, 0
-  br i1 %.not.us.i, label %copy_fh.exit, label %.lr.ph.split.us.i, !llvm.loop !30
+  br i1 %.not.us.i, label %copy_fh.exit, label %.lr.ph.split.us.i
 
 copy_fh.exit:                                     ; preds = %108, %102
   %111 = load i32, ptr %52, align 8, !tbaa !29
@@ -487,7 +487,7 @@ copy_fh.exit:                                     ; preds = %108, %102
 .thread.thread175:                                ; preds = %55, %58, %95, %copy_fh.exit, %53, %.lr.ph.split.us.i, %39, %112, %32
   %.099159183 = phi i32 [ 6, %32 ], [ %.2.ph, %112 ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 8, %58 ], [ 3, %55 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !32
+  %114 = load ptr, ptr %113, align 8, !tbaa !30
   call void %114(ptr noundef nonnull %31) #6
   br label %.thread.thread.thread191
 
@@ -495,7 +495,7 @@ copy_fh.exit:                                     ; preds = %108, %102
   %.099159173197 = phi i32 [ %.099159183, %.thread.thread175 ], [ 2, %29 ]
   %.0106158174196 = phi ptr [ %38, %.thread.thread175 ], [ null, %29 ]
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !32
+  %116 = load ptr, ptr %115, align 8, !tbaa !30
   call void %116(ptr noundef nonnull %28) #6
   br label %.thread.thread.thread.thread
 
@@ -503,7 +503,7 @@ copy_fh.exit:                                     ; preds = %108, %102
   %.0106158174189203 = phi ptr [ %.0106158174196, %.thread.thread.thread191 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
   %.099159173190201 = phi i32 [ %.099159173197, %.thread.thread.thread191 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !32
+  %118 = load ptr, ptr %117, align 8, !tbaa !30
   call void %118(ptr noundef nonnull %13) #6
   br label %.thread.thread.thread.thread205
 
@@ -511,7 +511,7 @@ copy_fh.exit:                                     ; preds = %108, %102
   %.0106158174189204 = phi ptr [ %.0106158174189203, %.thread.thread.thread.thread ], [ null, %9 ]
   %.099159173190202 = phi i32 [ %.099159173190201, %.thread.thread.thread.thread ], [ 2, %9 ]
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %120 = load ptr, ptr %119, align 8, !tbaa !33
+  %120 = load ptr, ptr %119, align 8, !tbaa !31
   call void %120(ptr noundef %.0106158174189204) #6
   br label %121
 
@@ -552,7 +552,7 @@ define void @mspack_destroy_oab_decompressor(ptr noundef %0) local_unnamed_addr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   tail call void %6(ptr noundef nonnull %0) #6
   br label %7
 
@@ -617,7 +617,7 @@ define internal i32 @oabd_sys_write(ptr noundef captures(none) %0, ptr noundef %
   %.narrow.i = xor i8 %17, %.06.tr.i
   %18 = zext i8 %.narrow.i to i64
   %19 = getelementptr inbounds nuw [256 x i32], ptr @crc32_table, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !34
+  %20 = load i32, ptr %19, align 4, !tbaa !32
   %21 = lshr i32 %.068.i, 8
   %22 = xor i32 %20, %21
   %23 = icmp samesign ugt i32 %.059.i, 1
@@ -657,7 +657,7 @@ define internal fastcc range(i32 0, 5) i32 @copy_fh(ptr noundef readonly capture
   %13 = ashr exact i64 %sext.us, 32
   %14 = sub i64 %.02133.us, %13
   %.not.us = icmp eq i64 %14, 0
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %20
   %.02133 = phi i64 [ %22, %20 ], [ %3, %.lr.ph ]
@@ -746,8 +746,6 @@ attributes #6 = { nounwind }
 !27 = !{!6, !6, i64 0}
 !28 = !{!23, !25, i64 24}
 !29 = !{!23, !12, i64 16}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = !{!4, !5, i64 8}
-!33 = !{!4, !5, i64 64}
-!34 = !{!12, !12, i64 0}
+!30 = !{!4, !5, i64 8}
+!31 = !{!4, !5, i64 64}
+!32 = !{!12, !12, i64 0}

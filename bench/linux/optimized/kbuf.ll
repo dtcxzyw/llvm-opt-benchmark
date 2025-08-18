@@ -1466,12 +1466,12 @@ define internal fastcc i32 @io_alloc_pbuf_ring(ptr noundef %0, i32 %.8.val, ptr 
   %.us-phi8 = phi i64 [ %15, %.split.us ], [ %27, %25 ]
   %.us-phi9 = phi ptr [ %9, %.split.us ], [ %21, %25 ]
   %31 = icmp eq i64 %.us-phi8, %4
-  br i1 %31, label %.thread, label %.outer, !llvm.loop !32
+  br i1 %31, label %.thread, label %.outer, !llvm.loop !30
 
 32:                                               ; preds = %25, %.lr.ph.split
   %33 = load ptr, ptr %21, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %34, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 .outer._crit_edge:                                ; preds = %.outer, %32
   %35 = icmp eq ptr %.ph1.fr, null
@@ -1632,7 +1632,7 @@ define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, 
 8:                                                ; preds = %11
   %9 = add nuw nsw i64 %12, 1
   %10 = icmp eq i64 %9, 8
-  br i1 %10, label %16, label %11, !llvm.loop !33
+  br i1 %10, label %16, label %11, !llvm.loop !31
 
 11:                                               ; preds = %8, %6
   %12 = phi i64 [ 0, %6 ], [ %9, %8 ]
@@ -1693,7 +1693,7 @@ define dso_local range(i32 -22, 1) i32 @io_register_pbuf_status(ptr noundef %0, 
 define dso_local ptr @io_pbuf_get_address(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
   %5 = icmp ne ptr %4, null
   %6 = and i64 %1, 4294967232
   %7 = icmp eq i64 %6, 0
@@ -1725,7 +1725,7 @@ define dso_local ptr @io_pbuf_get_address(ptr noundef %0, i64 noundef %1) local_
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %25 = load volatile i8, ptr %24, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !33
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %30, label %27
 
@@ -1771,7 +1771,7 @@ define dso_local void @io_kbuf_mmap_list_free(ptr noundef readonly captures(none
   %17 = load ptr, ptr %13, align 8
   store volatile ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
-  br i1 %18, label %.critedge, label %.lr.ph, !llvm.loop !36
+  br i1 %18, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
   %.lcssa2 = phi ptr [ %3, %.preheader ], [ %11, %.lr.ph ]
@@ -1898,10 +1898,8 @@ attributes #10 = { nounwind allocsize(2) }
 !27 = !{i64 2156955321}
 !28 = !{i64 2156938011}
 !29 = !{i32 0, i32 33}
-!30 = distinct !{!30, !8, !9, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !8, !9}
-!33 = distinct !{!33, !8, !9}
-!34 = !{i64 2157022440}
-!35 = !{i64 2157027344}
-!36 = distinct !{!36, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = !{i64 2157022440}
+!33 = !{i64 2157027344}
+!34 = distinct !{!34, !8, !9}

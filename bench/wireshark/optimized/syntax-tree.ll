@@ -1092,7 +1092,7 @@ indent.exit86:                                    ; preds = %.lr.ph, %67
   tail call void @wmem_strbuf_append_c(ptr noundef %0, i8 noundef signext 10)
   %.pre = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %.pre, null
-  br i1 %.not, label %.loopexit, label %indent.exit86, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %indent.exit86, !llvm.loop !9
 
 stnode_type_id.exit82.thread:                     ; preds = %stnode_type_id.exit, %3
   %68 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext false)
@@ -1192,6 +1192,4 @@ attributes #15 = { noreturn }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
+!9 = distinct !{!9, !7}

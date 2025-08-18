@@ -7265,7 +7265,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; pr
   %.sroa.09.3 = phi ptr [ %.sroa.09.2, %39 ], [ %.sroa.09.2, %_ZN4llvm12is_containedIRNS_8ArrayRefIPKN5clang4ento9MemRegionEEES6_EEbOT_RKT0_.exit.us.i ], [ %54, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.us.i ], [ %54, %56 ], [ %.sroa.09.2, %._crit_edge._crit_edge52.i.i.i.i.us.i ], [ %.sroa.09.2, %._crit_edge.i.i.i.i.us.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.01818.us.i, i64 8
   %.not24.us.i = icmp eq ptr %57, %33
-  br i1 %.not24.us.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %39, !llvm.loop !609
+  br i1 %.not24.us.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %39
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %58 = getelementptr inbounds nuw i8, ptr %scevgep.i.i.i.i.i, i64 8
@@ -7307,7 +7307,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28.us.i: ; pr
   %76 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %77 = add nsw i64 %.047.i.i.i.i.i, -1
   %78 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %78, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !611
+  br i1 %78, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !609
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %75
   switch i64 %37, label %default.unreachable [
@@ -8117,6 +8117,4 @@ attributes #25 = { nounwind willreturn memory(read) }
 !606 = !{!607}
 !607 = distinct !{!607, !608, !"_ZNK12_GLOBAL__N_111MoveChecker18checkRegionChangesEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEENS1_8ArrayRefIPKNS4_9MemRegionEEESL_PKNS3_15LocationContextEPKNS4_9CallEventE: argument 0"}
 !608 = distinct !{!608, !"_ZNK12_GLOBAL__N_111MoveChecker18checkRegionChangesEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEENS1_8ArrayRefIPKNS4_9MemRegionEEESL_PKNS3_15LocationContextEPKNS4_9CallEventE"}
-!609 = distinct !{!609, !610}
-!610 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!611 = distinct !{!611, !69}
+!609 = distinct !{!609, !69}

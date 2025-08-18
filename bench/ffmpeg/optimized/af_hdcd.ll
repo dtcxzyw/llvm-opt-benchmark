@@ -1817,7 +1817,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   store i32 %37, ptr %35, align 4, !tbaa !41
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !127
+  br i1 %exitcond165.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !125
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %or.cond3, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -1831,7 +1831,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   store i32 %41, ptr %39, align 4, !tbaa !41
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count164
-  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !128
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !125
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
@@ -1842,7 +1842,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   store i32 %45, ptr %43, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count164
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %9
   %.not = icmp sgt i32 %3, %4
@@ -1887,7 +1887,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   %68 = getelementptr inbounds i32, ptr %.0121.us, i64 %51
   %69 = add nuw nsw i32 %.1103119.us, 1
   %exitcond171.not = icmp eq i32 %69, %48
-  br i1 %exitcond171.not, label %.loopexit115, label %.lr.ph123.split.us, !llvm.loop !130
+  br i1 %exitcond171.not, label %.loopexit115, label %.lr.ph123.split.us, !llvm.loop !126
 
 70:                                               ; preds = %._crit_edge
   %71 = sub nsw i32 %3, %4
@@ -1930,7 +1930,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   %93 = getelementptr inbounds i32, ptr %.2128.us, i64 %75
   %94 = add nuw nsw i32 %.2104126.us, 1
   %exitcond173.not = icmp eq i32 %94, %.
-  br i1 %exitcond173.not, label %._crit_edge131, label %.lr.ph130.split.us, !llvm.loop !131
+  br i1 %exitcond173.not, label %._crit_edge131, label %.lr.ph130.split.us, !llvm.loop !127
 
 ._crit_edge131:                                   ; preds = %.lr.ph130.split.us, %.lr.ph130.split.preheader, %70
   %.2100.lcssa = phi i32 [ %3, %70 ], [ %77, %.lr.ph130.split.preheader ], [ %83, %.lr.ph130.split.us ]
@@ -1982,7 +1982,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   %116 = getelementptr inbounds i32, ptr %.3136.us, i64 %105
   %117 = add nsw i32 %110, -1
   %.not182 = icmp eq i32 %110, 0
-  br i1 %.not182, label %.loopexit, label %.lr.ph137.split.us, !llvm.loop !132
+  br i1 %.not182, label %.loopexit, label %.lr.ph137.split.us, !llvm.loop !128
 
 118:                                              ; preds = %.loopexit115
   br i1 %98, label %119, label %.loopexit
@@ -2075,7 +2075,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   store i32 %.0103, ptr %17, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit120, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %.loopexit120, label %.lr.ph, !llvm.loop !129
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
   %indvars.iv147 = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next148, %.lr.ph125 ]
@@ -2086,7 +2086,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   store i32 %37, ptr %35, align 4, !tbaa !41
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %.loopexit120, label %.lr.ph125, !llvm.loop !134
+  br i1 %exitcond151.not, label %.loopexit120, label %.lr.ph125, !llvm.loop !130
 
 .loopexit120:                                     ; preds = %33, %.lr.ph125, %.preheader121, %.preheader119
   %.not116 = icmp sgt i32 %4, %5
@@ -2120,7 +2120,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   %53 = getelementptr inbounds i32, ptr %.0128, i64 %42
   %54 = add nuw nsw i32 %.299126, 1
   %exitcond155.not = icmp eq i32 %54, %40
-  br i1 %exitcond155.not, label %.loopexit118.loopexit, label %44, !llvm.loop !135
+  br i1 %exitcond155.not, label %.loopexit118.loopexit, label %44, !llvm.loop !131
 
 55:                                               ; preds = %.loopexit120
   %56 = sub nsw i32 %4, %5
@@ -2151,7 +2151,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   %70 = getelementptr inbounds i32, ptr %.2133, i64 %59
   %71 = add nuw nsw i32 %.3100131, 1
   %exitcond159.not = icmp eq i32 %71, %.
-  br i1 %exitcond159.not, label %._crit_edge.loopexit, label %61, !llvm.loop !136
+  br i1 %exitcond159.not, label %._crit_edge.loopexit, label %61, !llvm.loop !132
 
 ._crit_edge.loopexit:                             ; preds = %61
   %72 = trunc nsw i64 %indvars.iv.next157 to i32
@@ -2210,7 +2210,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   store i32 %94, ptr %.3138, align 4, !tbaa !41
   %95 = getelementptr inbounds i32, ptr %.3138, i64 %82
   %96 = icmp samesign ugt i32 %.192137, 1
-  br i1 %96, label %88, label %.loopexit, !llvm.loop !137
+  br i1 %96, label %88, label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %88, %.preheader, %84, %83
   %.4 = phi ptr [ %87, %84 ], [ %.1, %83 ], [ %.1, %.preheader ], [ %95, %88 ]
@@ -2400,16 +2400,12 @@ attributes #10 = { noreturn nounwind }
 !122 = distinct !{!122, !43}
 !123 = distinct !{!123, !43}
 !124 = distinct !{!124, !43}
-!125 = distinct !{!125, !43, !126}
-!126 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!127 = distinct !{!127, !43, !126}
-!128 = distinct !{!128, !43, !126}
+!125 = distinct !{!125, !43}
+!126 = distinct !{!126, !43}
+!127 = distinct !{!127, !43}
+!128 = distinct !{!128, !43}
 !129 = distinct !{!129, !43}
-!130 = distinct !{!130, !43, !126}
-!131 = distinct !{!131, !43, !126}
-!132 = distinct !{!132, !43, !126}
+!130 = distinct !{!130, !43}
+!131 = distinct !{!131, !43}
+!132 = distinct !{!132, !43}
 !133 = distinct !{!133, !43}
-!134 = distinct !{!134, !43}
-!135 = distinct !{!135, !43}
-!136 = distinct !{!136, !43}
-!137 = distinct !{!137, !43}

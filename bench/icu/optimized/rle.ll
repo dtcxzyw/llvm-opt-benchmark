@@ -113,7 +113,7 @@ define dso_local i32 @usArrayToRLEString(ptr noundef readonly captures(none) %0,
   %.2.i = phi ptr [ %41, %40 ], [ %.04046.i, %42 ]
   %44 = add nuw nsw i32 %.047.i, 1
   %exitcond.not.i = icmp eq i32 %44, %.03769
-  br i1 %exitcond.not.i, label %encodeRunShort.exit, label %.lr.ph.split.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %encodeRunShort.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 45:                                               ; preds = %24
   %46 = icmp eq i32 %.03769, 42405
@@ -200,7 +200,7 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
   %.1 = phi ptr [ %.071, %22 ], [ %.071, %.preheader.i ], [ %73, %72 ], [ %.8.i, %74 ], [ %.2.us.i, %37 ], [ %.2.i, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %encodeRunShort.exit
   %75 = icmp slt i32 %.138, 4
@@ -271,7 +271,7 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
   %.2.i57 = phi ptr [ %91, %90 ], [ %.04046.i56, %92 ]
   %94 = add nuw nsw i32 %.047.i55, 1
   %exitcond.not.i58 = icmp eq i32 %94, %.037.lcssa8086
-  br i1 %exitcond.not.i58, label %encodeRunShort.exit65, label %.lr.ph.split.i54, !llvm.loop !13
+  br i1 %exitcond.not.i58, label %encodeRunShort.exit65, label %.lr.ph.split.i54, !llvm.loop !10
 
 95:                                               ; preds = %._crit_edge
   %96 = icmp eq i32 %.138, 42405
@@ -388,7 +388,7 @@ define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %
   br i1 %.not, label %43, label %14
 
 14:                                               ; preds = %10
-  %15 = load i8, ptr %0, align 1, !tbaa !15
+  %15 = load i8, ptr %0, align 1, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   %16 = trunc i32 %1 to i16
@@ -407,7 +407,7 @@ define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %
   %.04051 = phi i32 [ 1, %.lr.ph.preheader ], [ %.141, %27 ]
   %.04250 = phi i8 [ %15, %.lr.ph.preheader ], [ %.143, %27 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = icmp eq i8 %20, %.04250
   %22 = icmp slt i32 %.04051, 255
   %or.cond = select i1 %21, i1 %22, i1 false
@@ -427,14 +427,14 @@ define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %
   %.1 = phi ptr [ %.053, %23 ], [ %26, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %27, %14
   %.042.lcssa = phi i8 [ %15, %14 ], [ %.143, %27 ]
   %.040.lcssa = phi i32 [ 1, %14 ], [ %.141, %27 ]
   %.0.lcssa = phi ptr [ %17, %14 ], [ %.1, %27 ]
   %28 = call fastcc ptr @encodeRunByte(ptr noundef %.0.lcssa, ptr noundef nonnull %8, i8 noundef zeroext %.042.lcssa, i32 noundef %.040.lcssa, ptr noundef %6, ptr noundef %4)
-  %29 = load i8, ptr %6, align 2, !tbaa !15
+  %29 = load i8, ptr %6, align 2, !tbaa !13
   %.not49 = icmp eq i8 %29, 0
   br i1 %.not49, label %appendEncodedByte.exit, label %30
 
@@ -453,7 +453,7 @@ define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !15
+  %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = zext i8 %38 to i16
   %40 = shl nuw i16 %39, 8
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 2
@@ -509,17 +509,17 @@ define internal fastcc ptr @encodeRunByte(ptr noundef writeonly captures(address
   %13 = icmp eq i8 %2, -91
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = zext i8 %2 to i16
-  br i1 %13, label %.lr.ph.split.us, label %appendEncodedByte.exit
+  br i1 %13, label %.lr.ph.split.us.split, label %appendEncodedByte.exit
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %appendEncodedByte.exit53.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %appendEncodedByte.exit53.us
   %.094.us = phi i32 [ %41, %appendEncodedByte.exit53.us ], [ 0, %.lr.ph ]
   %.04493.us = phi ptr [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %0, %.lr.ph ]
   %16 = load i32, ptr %5, align 4, !tbaa !8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %appendEncodedByte.exit53.us, label %18
 
-18:                                               ; preds = %.lr.ph.split.us
-  %19 = load i8, ptr %4, align 1, !tbaa !15
+18:                                               ; preds = %.lr.ph.split.us.split
+  %19 = load i8, ptr %4, align 1, !tbaa !13
   %.not19.i.us.not = icmp eq i8 %19, 0
   br i1 %.not19.i.us.not, label %appendEncodedByte.exit.us, label %20
 
@@ -532,7 +532,7 @@ define internal fastcc ptr @encodeRunByte(ptr noundef writeonly captures(address
   br label %appendEncodedByte.exit.us.thread
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr %14, align 1, !tbaa !15
+  %24 = load i8, ptr %14, align 1, !tbaa !13
   %25 = zext i8 %24 to i16
   %26 = shl nuw i16 %25, 8
   %27 = or disjoint i16 %26, 165
@@ -541,17 +541,17 @@ define internal fastcc ptr @encodeRunByte(ptr noundef writeonly captures(address
   br label %appendEncodedByte.exit.us.thread
 
 appendEncodedByte.exit.us:                        ; preds = %18
-  store i8 1, ptr %4, align 1, !tbaa !15
-  store i8 -91, ptr %14, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
+  store i8 -91, ptr %14, align 1, !tbaa !13
   %.pr.us = load i32, ptr %5, align 4, !tbaa !8
   %29 = icmp sgt i32 %.pr.us, 0
   br i1 %29, label %appendEncodedByte.exit53.us, label %31
 
 appendEncodedByte.exit.us.thread:                 ; preds = %22, %23
   %.016.i.us = phi ptr [ %28, %23 ], [ %.04493.us, %22 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
-  %.pr.us107 = load i32, ptr %5, align 4, !tbaa !8
-  %30 = icmp sgt i32 %.pr.us107, 0
+  store i8 0, ptr %4, align 1, !tbaa !13
+  %.pr.us109 = load i32, ptr %5, align 4, !tbaa !8
+  %30 = icmp sgt i32 %.pr.us109, 0
   br i1 %30, label %appendEncodedByte.exit53.us, label %.thread
 
 31:                                               ; preds = %appendEncodedByte.exit.us
@@ -563,7 +563,7 @@ appendEncodedByte.exit.us.thread:                 ; preds = %22, %23
   br label %40
 
 34:                                               ; preds = %31
-  %35 = load i8, ptr %14, align 1, !tbaa !15
+  %35 = load i8, ptr %14, align 1, !tbaa !13
   %36 = zext i8 %35 to i16
   %37 = shl nuw i16 %36, 8
   %38 = or disjoint i16 %37, 165
@@ -573,19 +573,19 @@ appendEncodedByte.exit.us.thread:                 ; preds = %22, %23
 
 40:                                               ; preds = %34, %33
   %.016.i51.us = phi ptr [ %39, %34 ], [ %.04493.us, %33 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   br label %appendEncodedByte.exit53.us
 
 .thread:                                          ; preds = %appendEncodedByte.exit.us.thread
-  store i8 1, ptr %4, align 1, !tbaa !15
-  store i8 -91, ptr %14, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
+  store i8 -91, ptr %14, align 1, !tbaa !13
   br label %appendEncodedByte.exit53.us
 
-appendEncodedByte.exit53.us:                      ; preds = %appendEncodedByte.exit.us.thread, %.thread, %40, %appendEncodedByte.exit.us, %.lr.ph.split.us
-  %.0.i52.us = phi ptr [ %.016.i51.us, %40 ], [ %.016.i.us, %.thread ], [ null, %appendEncodedByte.exit.us ], [ null, %.lr.ph.split.us ], [ null, %appendEncodedByte.exit.us.thread ]
+appendEncodedByte.exit53.us:                      ; preds = %appendEncodedByte.exit.us.thread, %.thread, %40, %appendEncodedByte.exit.us, %.lr.ph.split.us.split
+  %.0.i52.us = phi ptr [ %.016.i51.us, %40 ], [ %.016.i.us, %.thread ], [ null, %appendEncodedByte.exit.us ], [ null, %.lr.ph.split.us.split ], [ null, %appendEncodedByte.exit.us.thread ]
   %41 = add nuw nsw i32 %.094.us, 1
-  %exitcond105.not = icmp eq i32 %41, %3
-  br i1 %exitcond105.not, label %appendEncodedByte.exit78, label %.lr.ph.split.us, !llvm.loop !17
+  %exitcond107.not = icmp eq i32 %41, %3
+  br i1 %exitcond107.not, label %appendEncodedByte.exit78, label %.lr.ph.split.us.split, !llvm.loop !15
 
 appendEncodedByte.exit:                           ; preds = %.lr.ph, %appendEncodedByte.exit53
   %.094 = phi i32 [ %56, %appendEncodedByte.exit53 ], [ 0, %.lr.ph ]
@@ -595,7 +595,7 @@ appendEncodedByte.exit:                           ; preds = %.lr.ph, %appendEnco
   br i1 %42, label %appendEncodedByte.exit53, label %43
 
 43:                                               ; preds = %appendEncodedByte.exit
-  %44 = load i8, ptr %4, align 1, !tbaa !15
+  %44 = load i8, ptr %4, align 1, !tbaa !13
   %.not19.i50 = icmp eq i8 %44, 0
   br i1 %.not19.i50, label %55, label %45
 
@@ -604,7 +604,7 @@ appendEncodedByte.exit:                           ; preds = %.lr.ph, %appendEnco
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %45
-  %48 = load i8, ptr %14, align 1, !tbaa !15
+  %48 = load i8, ptr %14, align 1, !tbaa !13
   %49 = zext i8 %48 to i16
   %50 = shl nuw i16 %49, 8
   %51 = or disjoint i16 %50, %15
@@ -618,19 +618,19 @@ appendEncodedByte.exit:                           ; preds = %.lr.ph, %appendEnco
 
 54:                                               ; preds = %53, %47
   %.016.i51 = phi ptr [ %52, %47 ], [ %.04493, %53 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   br label %appendEncodedByte.exit53
 
 55:                                               ; preds = %43
-  store i8 1, ptr %4, align 1, !tbaa !15
-  store i8 %2, ptr %14, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
+  store i8 %2, ptr %14, align 1, !tbaa !13
   br label %appendEncodedByte.exit53
 
 appendEncodedByte.exit53:                         ; preds = %appendEncodedByte.exit, %54, %55
   %.0.i52 = phi ptr [ %.016.i51, %54 ], [ %.04493, %55 ], [ null, %appendEncodedByte.exit ]
   %56 = add nuw nsw i32 %.094, 1
   %exitcond.not = icmp eq i32 %56, %3
-  br i1 %exitcond.not, label %appendEncodedByte.exit78, label %appendEncodedByte.exit, !llvm.loop !18
+  br i1 %exitcond.not, label %appendEncodedByte.exit78, label %appendEncodedByte.exit, !llvm.loop !17
 
 57:                                               ; preds = %10
   %58 = icmp eq i32 %3, 165
@@ -641,7 +641,7 @@ appendEncodedByte.exit53:                         ; preds = %appendEncodedByte.e
   br i1 %60, label %61, label %appendEncodedByte.exit58
 
 61:                                               ; preds = %59
-  %62 = load i8, ptr %4, align 1, !tbaa !15
+  %62 = load i8, ptr %4, align 1, !tbaa !13
   %.not19.i55 = icmp eq i8 %62, 0
   br i1 %.not19.i55, label %74, label %63
 
@@ -651,7 +651,7 @@ appendEncodedByte.exit53:                         ; preds = %appendEncodedByte.e
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !15
+  %67 = load i8, ptr %66, align 1, !tbaa !13
   %68 = zext i8 %67 to i16
   %69 = shl nuw i16 %68, 8
   %70 = or disjoint i16 %69, 165
@@ -665,13 +665,13 @@ appendEncodedByte.exit53:                         ; preds = %appendEncodedByte.e
 
 73:                                               ; preds = %72, %65
   %.016.i56 = phi ptr [ %71, %65 ], [ %0, %72 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   br label %appendEncodedByte.exit58
 
 74:                                               ; preds = %61
-  store i8 1, ptr %4, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 -91, ptr %75, align 1, !tbaa !15
+  store i8 -91, ptr %75, align 1, !tbaa !13
   br label %appendEncodedByte.exit58
 
 appendEncodedByte.exit58:                         ; preds = %59, %73, %74
@@ -681,7 +681,7 @@ appendEncodedByte.exit58:                         ; preds = %59, %73, %74
   br i1 %77, label %appendEncodedByte.exit78, label %78
 
 78:                                               ; preds = %appendEncodedByte.exit58
-  %79 = load i8, ptr %4, align 1, !tbaa !15
+  %79 = load i8, ptr %4, align 1, !tbaa !13
   %.not19.i60 = icmp eq i8 %79, 0
   br i1 %.not19.i60, label %92, label %80
 
@@ -691,7 +691,7 @@ appendEncodedByte.exit58:                         ; preds = %59, %73, %74
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %84 = load i8, ptr %83, align 1, !tbaa !15
+  %84 = load i8, ptr %83, align 1, !tbaa !13
   %85 = zext i8 %84 to i16
   %86 = shl nuw i16 %85, 8
   %87 = zext i8 %2 to i16
@@ -706,13 +706,13 @@ appendEncodedByte.exit58:                         ; preds = %59, %73, %74
 
 91:                                               ; preds = %90, %82
   %.016.i61 = phi ptr [ %89, %82 ], [ %.4, %90 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   br label %appendEncodedByte.exit63
 
 92:                                               ; preds = %78
-  store i8 1, ptr %4, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %2, ptr %93, align 1, !tbaa !15
+  store i8 %2, ptr %93, align 1, !tbaa !13
   br label %appendEncodedByte.exit63
 
 appendEncodedByte.exit63:                         ; preds = %57, %91, %92
@@ -723,7 +723,7 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
   br i1 %94, label %appendEncodedByte.exit78, label %95
 
 95:                                               ; preds = %appendEncodedByte.exit63
-  %96 = load i8, ptr %4, align 1, !tbaa !15
+  %96 = load i8, ptr %4, align 1, !tbaa !13
   %.not19.i65.not = icmp eq i8 %96, 0
   br i1 %.not19.i65.not, label %107, label %97
 
@@ -733,31 +733,31 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %101 = load i8, ptr %100, align 1, !tbaa !15
+  %101 = load i8, ptr %100, align 1, !tbaa !13
   %102 = zext i8 %101 to i16
   %103 = shl nuw i16 %102, 8
   %104 = or disjoint i16 %103, 165
   %105 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 2
   store i16 %104, ptr %.3.ph, align 2, !tbaa !4
-  br label %.thread111
+  br label %.thread113
 
 106:                                              ; preds = %97
   store i32 15, ptr %5, align 4, !tbaa !8
-  br label %.thread111
+  br label %.thread113
 
 107:                                              ; preds = %95
-  store i8 1, ptr %4, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 -91, ptr %108, align 1, !tbaa !15
+  store i8 -91, ptr %108, align 1, !tbaa !13
   %.pr84 = load i32, ptr %5, align 4, !tbaa !8
   %109 = icmp sgt i32 %.pr84, 0
   br i1 %109, label %appendEncodedByte.exit78, label %111
 
-.thread111:                                       ; preds = %99, %106
+.thread113:                                       ; preds = %99, %106
   %.016.i66 = phi ptr [ %105, %99 ], [ %.3.ph, %106 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
-  %.pr84113 = load i32, ptr %5, align 4, !tbaa !8
-  %110 = icmp sgt i32 %.pr84113, 0
+  store i8 0, ptr %4, align 1, !tbaa !13
+  %.pr84115 = load i32, ptr %5, align 4, !tbaa !8
+  %110 = icmp sgt i32 %.pr84115, 0
   br i1 %110, label %appendEncodedByte.exit78, label %appendEncodedByte.exit73.thread
 
 111:                                              ; preds = %107
@@ -766,7 +766,7 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !15
+  %115 = load i8, ptr %114, align 1, !tbaa !13
   %116 = zext i8 %115 to i16
   %117 = shl nuw i16 %116, 8
   %118 = trunc i32 %.045.ph to i16
@@ -782,27 +782,27 @@ appendEncodedByte.exit63:                         ; preds = %57, %91, %92
 
 appendEncodedByte.exit73:                         ; preds = %113, %122
   %.016.i71 = phi ptr [ %121, %113 ], [ %.3.ph, %122 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   %.pr87.pr = load i32, ptr %5, align 4, !tbaa !8
   %123 = icmp sgt i32 %.pr87.pr, 0
   br i1 %123, label %appendEncodedByte.exit78, label %138
 
-appendEncodedByte.exit73.thread:                  ; preds = %.thread111
+appendEncodedByte.exit73.thread:                  ; preds = %.thread113
   %124 = trunc i32 %.045.ph to i8
-  store i8 1, ptr %4, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %124, ptr %125, align 1, !tbaa !15
-  %.pr87.pr119 = load i32, ptr %5, align 4, !tbaa !8
-  %126 = icmp sgt i32 %.pr87.pr119, 0
-  br i1 %126, label %appendEncodedByte.exit78, label %.thread121
+  store i8 %124, ptr %125, align 1, !tbaa !13
+  %.pr87.pr121 = load i32, ptr %5, align 4, !tbaa !8
+  %126 = icmp sgt i32 %.pr87.pr121, 0
+  br i1 %126, label %appendEncodedByte.exit78, label %.thread123
 
-.thread121:                                       ; preds = %appendEncodedByte.exit73.thread
+.thread123:                                       ; preds = %appendEncodedByte.exit73.thread
   %127 = icmp ult ptr %.016.i66, %1
   br i1 %127, label %128, label %136
 
-128:                                              ; preds = %.thread121
+128:                                              ; preds = %.thread123
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %130 = load i8, ptr %129, align 1, !tbaa !15
+  %130 = load i8, ptr %129, align 1, !tbaa !13
   %131 = zext i8 %130 to i16
   %132 = shl nuw i16 %131, 8
   %133 = zext i8 %2 to i16
@@ -811,23 +811,23 @@ appendEncodedByte.exit73.thread:                  ; preds = %.thread111
   store i16 %134, ptr %.016.i66, align 2, !tbaa !4
   br label %137
 
-136:                                              ; preds = %.thread121
+136:                                              ; preds = %.thread123
   store i32 15, ptr %5, align 4, !tbaa !8
   br label %137
 
 137:                                              ; preds = %136, %128
   %.016.i76 = phi ptr [ %135, %128 ], [ %.016.i66, %136 ]
-  store i8 0, ptr %4, align 1, !tbaa !15
+  store i8 0, ptr %4, align 1, !tbaa !13
   br label %appendEncodedByte.exit78
 
 138:                                              ; preds = %appendEncodedByte.exit73
-  store i8 1, ptr %4, align 1, !tbaa !15
+  store i8 1, ptr %4, align 1, !tbaa !13
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %2, ptr %139, align 1, !tbaa !15
+  store i8 %2, ptr %139, align 1, !tbaa !13
   br label %appendEncodedByte.exit78
 
-appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.exit53, %appendEncodedByte.exit53.us, %appendEncodedByte.exit73.thread, %.thread111, %.preheader, %appendEncodedByte.exit63, %appendEncodedByte.exit58, %107, %138, %137, %appendEncodedByte.exit73, %6, %7
-  %.043 = phi ptr [ null, %7 ], [ null, %6 ], [ %.016.i76, %137 ], [ %.016.i71, %138 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ null, %appendEncodedByte.exit63 ], [ %0, %.preheader ], [ null, %.thread111 ], [ null, %appendEncodedByte.exit73.thread ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %.0.i52, %appendEncodedByte.exit53 ]
+appendEncodedByte.exit78:                         ; preds = %appendEncodedByte.exit53, %appendEncodedByte.exit53.us, %appendEncodedByte.exit73.thread, %.thread113, %.preheader, %appendEncodedByte.exit63, %appendEncodedByte.exit58, %107, %138, %137, %appendEncodedByte.exit73, %6, %7
+  %.043 = phi ptr [ null, %7 ], [ null, %6 ], [ %.016.i76, %137 ], [ %.016.i71, %138 ], [ null, %appendEncodedByte.exit73 ], [ null, %107 ], [ null, %appendEncodedByte.exit58 ], [ null, %appendEncodedByte.exit63 ], [ %0, %.preheader ], [ null, %.thread113 ], [ null, %appendEncodedByte.exit73.thread ], [ %.0.i52.us, %appendEncodedByte.exit53.us ], [ %.0.i52, %appendEncodedByte.exit53 ]
   ret ptr %.043
 }
 
@@ -914,7 +914,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
   store i16 %45, ptr %47, align 2, !tbaa !4
   %48 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %48, %35
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !18
 
 49:                                               ; preds = %.lr.ph56
   %50 = add nsw i32 %.04454, 1
@@ -932,7 +932,7 @@ define dso_local i32 @rleStringToUCharArray(ptr noundef %0, i32 noundef %1, ptr 
   %.1 = phi i32 [ %31, %37 ], [ %.04355, %49 ], [ %42, %41 ], [ %42, %.loopexit.loopexit ]
   %54 = add nsw i32 %.1, 1
   %55 = icmp slt i32 %54, %.042
-  br i1 %55, label %.lr.ph56, label %._crit_edge, !llvm.loop !21
+  br i1 %55, label %.lr.ph56, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not51 = icmp eq i32 %.2, %22
@@ -1030,7 +1030,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
 34:                                               ; preds = %33
   %.049.mask81.us = and i16 %.049.in.us, 255
   %35 = icmp eq i16 %.049.mask81.us, 165
-  br i1 %35, label %.lr.ph.split.us, label %.split141.us, !llvm.loop !22
+  br i1 %35, label %.lr.ph.split.us, label %.split141.us
 
 .split141.us:                                     ; preds = %34
   %.049.le = trunc i16 %.049.in.us to i8
@@ -1046,13 +1046,13 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   %37 = add nsw i32 %.051.ph91161, 1
   %38 = sext i32 %.051.ph91161 to i64
   %39 = getelementptr inbounds i8, ptr %2, i64 %38
-  store i8 %.sink, ptr %39, align 1, !tbaa !15
+  store i8 %.sink, ptr %39, align 1, !tbaa !13
   br label %.outer86.backedge
 
 .outer86.backedge:                                ; preds = %33, %.outer86.backedge.sink.split
   %.051.ph91.be = phi i32 [ %37, %.outer86.backedge.sink.split ], [ %.051.ph91161, %33 ]
   %40 = icmp slt i32 %.051.ph91.be, %3
-  br i1 %40, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %40, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !20
 
 .outer:                                           ; preds = %.split.us172, %.split.us
   %.us-phi190 = phi i32 [ %.051.ph91161, %.split.us ], [ %.051.ph91161.us, %.split.us172 ]
@@ -1062,7 +1062,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   %.us-phi194 = phi i32 [ %.154.us, %.split.us ], [ %.154.us.us, %.split.us172 ]
   %41 = zext nneg i16 %.us-phi191 to i32
   %42 = icmp slt i32 %.us-phi190, %3
-  br i1 %42, label %.lr.ph.lr.ph, label %.sink.split, !llvm.loop !23
+  br i1 %42, label %.lr.ph.lr.ph, label %.sink.split, !llvm.loop !20
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader85, %.outer
   %.051.ph200 = phi i32 [ %.us-phi190, %.outer ], [ 0, %.preheader85 ]
@@ -1092,16 +1092,16 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
 44:                                               ; preds = %43
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %45 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  store i8 %.049.le122.us, ptr %45, align 1, !tbaa !15
+  store i8 %.049.le122.us, ptr %45, align 1, !tbaa !13
   %46 = add nuw i32 %.0154.us, 1
   %exitcond246.not = icmp eq i32 %46, %.055.ph198.fr
-  br i1 %exitcond246.not, label %.outer86.backedge.us.loopexit, label %43, !llvm.loop !24
+  br i1 %exitcond246.not, label %.outer86.backedge.us.loopexit, label %43, !llvm.loop !21
 
 47:                                               ; preds = %.split.us172
   %48 = add nsw i32 %.051.ph91161.us, 1
   %49 = sext i32 %.051.ph91161.us to i64
   %50 = getelementptr inbounds i8, ptr %2, i64 %49
-  store i8 -91, ptr %50, align 1, !tbaa !15
+  store i8 -91, ptr %50, align 1, !tbaa !13
   br label %.outer86.backedge.us
 
 .outer86.backedge.us.loopexit:                    ; preds = %44
@@ -1111,7 +1111,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
 .outer86.backedge.us:                             ; preds = %.outer86.backedge.us.loopexit, %.split141.us174, %47
   %.051.ph91.be.us = phi i32 [ %56, %.split141.us174 ], [ %48, %47 ], [ %51, %.outer86.backedge.us.loopexit ]
   %52 = icmp slt i32 %.051.ph91.be.us, %3
-  br i1 %52, label %.lr.ph.split.us.us.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %52, label %.lr.ph.split.us.us.preheader, label %.loopexit, !llvm.loop !20
 
 .split.us172:                                     ; preds = %65
   %.049.mask.us = and i16 %.049.in.us.us, 255
@@ -1130,7 +1130,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
   %56 = add nsw i32 %.051.ph91161.us, 1
   %57 = sext i32 %.051.ph91161.us to i64
   %58 = getelementptr inbounds i8, ptr %2, i64 %57
-  store i8 %.049.le.us, ptr %58, align 1, !tbaa !15
+  store i8 %.049.le.us, ptr %58, align 1, !tbaa !13
   br label %.outer86.backedge.us
 
 .lr.ph.split.us.us:                               ; preds = %66, %.lr.ph.split.us.us.preheader
@@ -1163,7 +1163,7 @@ define dso_local i32 @rleStringToByteArray(ptr noundef %0, i32 noundef %1, ptr n
 66:                                               ; preds = %65
   %.049.mask81.us.us = and i16 %.049.in.us.us, 255
   %67 = icmp eq i16 %.049.mask81.us.us, 165
-  br i1 %67, label %.lr.ph.split.us.us, label %.split141.us174, !llvm.loop !22
+  br i1 %67, label %.lr.ph.split.us.us, label %.split141.us174
 
 .thread:                                          ; preds = %43
   %68 = trunc nsw i64 %indvars.iv to i32
@@ -1218,19 +1218,15 @@ attributes #6 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11}
+!12 = distinct !{!12, !11}
+!13 = !{!6, !6, i64 0}
 !14 = distinct !{!14, !11}
-!15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !11, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !11, !16}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
 !20 = distinct !{!20, !11}
 !21 = distinct !{!21, !11}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11, !12}

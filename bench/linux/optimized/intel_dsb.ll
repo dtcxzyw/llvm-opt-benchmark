@@ -1253,7 +1253,7 @@ define dso_local void @intel_dsb_wait(ptr noundef %0) local_unnamed_addr #0 alig
   %264 = add i32 %263, 15
   %265 = and i32 %264, -16
   %266 = icmp ult i32 %262, %265
-  br i1 %266, label %.split, label %.loopexit.thread22, !llvm.loop !34
+  br i1 %266, label %.split, label %.loopexit.thread22, !llvm.loop !32
 
 .loopexit:                                        ; preds = %225
   br i1 %221, label %.loopexit.thread, label %.loopexit.thread22
@@ -1387,7 +1387,7 @@ define dso_local noundef ptr @intel_dsb_prepare(ptr noundef %0, i32 noundef %1) 
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @skl_watermark_max_latency(ptr noundef %31) #8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4932
-  %34 = load i8, ptr %33, align 4, !range !35, !noundef !36
+  %34 = load i8, ptr %33, align 4, !range !33, !noundef !34
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %38, label %36
 
@@ -1576,8 +1576,6 @@ attributes #10 = { nounwind allocsize(2) }
 !29 = !{i64 2159396170}
 !30 = !{i64 2154405402}
 !31 = !{i64 2161854414}
-!32 = distinct !{!32, !13, !14, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !13, !14}
-!35 = !{i8 0, i8 2}
-!36 = !{}
+!32 = distinct !{!32, !13, !14}
+!33 = !{i8 0, i8 2}
+!34 = !{}

@@ -1791,12 +1791,12 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_co
 
 24:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_codeEPKNS1_4pathESB_.exit
   %25 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %145 unwind label %26
+          to label %144 unwind label %26
 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %152
 
 28:                                               ; preds = %_ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_codeEPKNS1_4pathESB_.exit
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -1809,311 +1809,310 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIbEC2B8ne210000EPKcPNS_10error_co
 34:                                               ; preds = %36
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %152
 
 36:                                               ; preds = %28
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
   store i32 95, ptr %9, align 8, !tbaa !26
   store ptr %37, ptr %22, align 8, !tbaa !28
   %38 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %145 unwind label %34
+          to label %144 unwind label %34
 
 39:                                               ; preds = %28
   %40 = and i16 %2, 1
-  %41 = icmp ne i16 %40, 0
-  %42 = and i16 %2, 4
-  %.not77 = icmp eq i16 %42, 0
-  %43 = and i16 %2, 2
-  %.not78 = icmp eq i16 %43, 0
+  %.not77 = icmp eq i16 %40, 0
+  %41 = and i16 %2, 4
+  %.not78 = icmp eq i16 %41, 0
+  %42 = and i16 %2, 2
+  %.not79 = icmp eq i16 %42, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !69
   store i32 0, ptr %7, align 8, !tbaa !8, !noalias !69
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.pre-phi, ptr %44, align 8, !tbaa !13, !noalias !69
-  %45 = load i8, ptr %1, align 8, !noalias !69
-  %46 = and i8 %45, 1
-  %.not.i.i.i.i.i = icmp eq i8 %46, 0
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8, !noalias !69
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %50 = select i1 %.not.i.i.i.i.i, ptr %49, ptr %48
-  %51 = call i32 @stat(ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(144) %11) #30, !noalias !69
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %53, label %57
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.pre-phi, ptr %43, align 8, !tbaa !13, !noalias !69
+  %44 = load i8, ptr %1, align 8, !noalias !69
+  %45 = and i8 %44, 1
+  %.not.i.i.i.i.i = icmp eq i8 %45, 0
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = load ptr, ptr %46, align 8, !noalias !69
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %49 = select i1 %.not.i.i.i.i.i, ptr %48, ptr %47
+  %50 = call i32 @stat(ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(144) %11) #30, !noalias !69
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %52, label %56
 
-53:                                               ; preds = %39
-  %54 = tail call ptr @__errno_location() #29
-  %55 = load i32, ptr %54, align 4, !tbaa !26, !noalias !69
-  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
-  store i32 %55, ptr %7, align 8, !tbaa !26, !noalias !69
-  store ptr %56, ptr %44, align 8, !tbaa !28, !noalias !69
-  br label %57
+52:                                               ; preds = %39
+  %53 = tail call ptr @__errno_location() #29
+  %54 = load i32, ptr %53, align 4, !tbaa !26, !noalias !69
+  %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
+  store i32 %54, ptr %7, align 8, !tbaa !26, !noalias !69
+  store ptr %55, ptr %43, align 8, !tbaa !28, !noalias !69
+  br label %56
 
-57:                                               ; preds = %53, %39
+56:                                               ; preds = %52, %39
   invoke void @_ZNSt3__14__fs10filesystem6detail18create_file_statusB8ne210000ERNS_10error_codeERKNS1_4pathERK4statPS3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::__fs::filesystem::file_status") align 4 %12, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull %9)
-          to label %58 unwind label %62
+          to label %57 unwind label %61
 
-58:                                               ; preds = %57
+57:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !69
-  %59 = load i64, ptr %12, align 8
-  %.sroa.054.0.extract.trunc = trunc i64 %59 to i8
-  %.not79 = icmp eq i8 %.sroa.054.0.extract.trunc, 0
-  br i1 %.not79, label %60, label %66
+  %58 = load i64, ptr %12, align 8
+  %.sroa.054.0.extract.trunc = trunc i64 %58 to i8
+  %.not80 = icmp eq i8 %.sroa.054.0.extract.trunc, 0
+  br i1 %.not80, label %59, label %65
 
-60:                                               ; preds = %58
-  %61 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75" unwind label %64
+59:                                               ; preds = %57
+  %60 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75" unwind label %63
 
-62:                                               ; preds = %57
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %56
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-64:                                               ; preds = %60
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %59
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-66:                                               ; preds = %58
-  %67 = and i64 %59, 255
-  %.not.i50 = icmp ne i64 %67, 0
-  %68 = icmp ne i64 %67, 255
-  %69 = and i1 %.not.i50, %68
-  switch i8 %.sroa.054.0.extract.trunc, label %70 [
+65:                                               ; preds = %57
+  %66 = and i64 %58, 255
+  %.not.i50 = icmp ne i64 %66, 0
+  %67 = icmp ne i64 %66, 255
+  %68 = and i1 %.not.i50, %67
+  switch i8 %.sroa.054.0.extract.trunc, label %69 [
     i8 -1, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
-    i8 1, label %77
+    i8 1, label %76
   ]
 
-70:                                               ; preds = %66
+69:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
+  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
   store i32 95, ptr %6, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %71, ptr %72, align 8
-  %73 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %74 unwind label %75
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %70, ptr %71, align 8
+  %72 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %73 unwind label %74
 
-74:                                               ; preds = %70
+73:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
 
-75:                                               ; preds = %70
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %69
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
-77:                                               ; preds = %66
-  %78 = load i64, ptr %31, align 8, !tbaa !49
-  %79 = load i64, ptr %11, align 8, !tbaa !49
-  %80 = icmp eq i64 %78, %79
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp eq i64 %82, %84
-  %86 = select i1 %80, i1 %85, i1 false
-  br i1 %86, label %87, label %92
+76:                                               ; preds = %65
+  %77 = load i64, ptr %31, align 8, !tbaa !49
+  %78 = load i64, ptr %11, align 8, !tbaa !49
+  %79 = icmp eq i64 %77, %78
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %81 = load i64, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp eq i64 %81, %83
+  %85 = select i1 %79, i1 %84, i1 false
+  br i1 %85, label %86, label %91
 
-87:                                               ; preds = %77
+86:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 17, ptr %13, align 4, !tbaa !53
-  %88 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_4errcE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %89 unwind label %90
+  %87 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_4errcE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %88 unwind label %89
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
 
-90:                                               ; preds = %87
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %86
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %144
+  br label %143
 
-92:                                               ; preds = %77
-  %or.cond = and i1 %41, %69
-  br i1 %or.cond, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75", label %93
+91:                                               ; preds = %76
+  br i1 %.not77, label %92, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
+
+92:                                               ; preds = %91
+  br i1 %.not78, label %97, label %93
 
 93:                                               ; preds = %92
-  br i1 %.not77, label %98, label %94
+  %94 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %.sroa.0.0.copyload.i.i = load i64, ptr %94, align 8, !tbaa !72
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %.sroa.0.0.copyload.i8.i = load i64, ptr %95, align 8, !tbaa !72
+  %96 = icmp slt i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i8.i
+  br i1 %96, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75", label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit"
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %.sroa.0.0.copyload.i.i = load i64, ptr %95, align 8, !tbaa !72
-  %96 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %.sroa.0.0.copyload.i8.i = load i64, ptr %96, align 8, !tbaa !72
-  %97 = icmp slt i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i8.i
-  br i1 %97, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75", label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit"
+97:                                               ; preds = %92
+  br i1 %.not79, label %98, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
 
-98:                                               ; preds = %93
-  br i1 %.not78, label %99, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
-
-99:                                               ; preds = %98
+98:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
+  %99 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__116generic_categoryEv() #29
   store i32 17, ptr %5, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %100, ptr %101, align 8
-  %102 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %.noexc unwind label %104
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %99, ptr %100, align 8
+  %101 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %.noexc unwind label %103
 
-.noexc:                                           ; preds = %99
+.noexc:                                           ; preds = %98
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %102, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread", label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
+  br i1 %101, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread", label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
 
-"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit": ; preds = %94
+"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit": ; preds = %93
   %.sroa.2.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %11, i64 96
   %.sroa.2.0.copyload.i10.i = load i64, ptr %.sroa.2.0..sroa_idx.i9.i, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 112
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !72
-  %103 = icmp ne i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i8.i
+  %102 = icmp ne i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i8.i
   %.not.i51 = icmp sgt i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i10.i
-  %or.cond.i = select i1 %103, i1 true, i1 %.not.i51
+  %or.cond.i = select i1 %102, i1 true, i1 %.not.i51
   br i1 %or.cond.i, label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread", label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
 
-104:                                              ; preds = %99
-  %105 = landingpad { ptr, i32 }
-          cleanup
-  br label %144
-
-"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread": ; preds = %66, %98, %.noexc, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit"
-  %spec.select = select i1 %69, i32 1, i32 65
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %106 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %107 = load i32, ptr %106, align 8, !tbaa !73
-  invoke void @_ZNSt3__14__fs10filesystem6detail14FileDescriptor18create_with_statusB8ne210000IJijEEES3_PKNS1_4pathERNS_10error_codeEDpT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::__fs::filesystem::detail::FileDescriptor") align 8 %14, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %spec.select, i32 noundef %107)
-          to label %108 unwind label %110
-
-108:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
-  %109 = load i32, ptr %9, align 8, !tbaa !8
-  %.not81 = icmp eq i32 %109, 0
-  br i1 %.not81, label %114, label %.invoke
-
-110:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
-  %111 = landingpad { ptr, i32 }
+103:                                              ; preds = %98
+  %104 = landingpad { ptr, i32 }
           cleanup
   br label %143
 
-112:                                              ; preds = %.invoke, %137, %134, %131
-  %113 = landingpad { ptr, i32 }
+"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread": ; preds = %65, %97, %.noexc, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit"
+  %spec.select = select i1 %68, i32 1, i32 65
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %106 = load i32, ptr %105, align 8, !tbaa !73
+  invoke void @_ZNSt3__14__fs10filesystem6detail14FileDescriptor18create_with_statusB8ne210000IJijEEES3_PKNS1_4pathERNS_10error_codeEDpT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::__fs::filesystem::detail::FileDescriptor") align 8 %14, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %spec.select, i32 noundef %106)
+          to label %107 unwind label %109
+
+107:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
+  %108 = load i32, ptr %9, align 8, !tbaa !8
+  %.not83 = icmp eq i32 %108, 0
+  br i1 %.not83, label %113, label %.invoke
+
+109:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread"
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %142
 
-114:                                              ; preds = %108
-  switch i8 %.sroa.054.0.extract.trunc, label %115 [
-    i8 -1, label %137
-    i8 0, label %137
+111:                                              ; preds = %.invoke, %136, %133, %130
+  %112 = landingpad { ptr, i32 }
+          cleanup
+  br label %141
+
+113:                                              ; preds = %107
+  switch i8 %.sroa.054.0.extract.trunc, label %114 [
+    i8 -1, label %136
+    i8 0, label %136
   ]
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %117 = load i64, ptr %11, align 8, !tbaa !49
-  %118 = load i64, ptr %116, align 8, !tbaa !49
-  %119 = icmp eq i64 %117, %118
-  %120 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %123 = load i64, ptr %122, align 8
-  %124 = icmp eq i64 %121, %123
-  %125 = select i1 %119, i1 %124, i1 false
-  br i1 %125, label %131, label %126
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %116 = load i64, ptr %11, align 8, !tbaa !49
+  %117 = load i64, ptr %115, align 8, !tbaa !49
+  %118 = icmp eq i64 %116, %117
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %122 = load i64, ptr %121, align 8
+  %123 = icmp eq i64 %120, %122
+  %124 = select i1 %118, i1 %123, i1 false
+  br i1 %124, label %130, label %125
 
-126:                                              ; preds = %115
+125:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 9, ptr %15, align 4, !tbaa !53
-  %127 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_4errcE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %128 unwind label %129
+  %126 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_4errcE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %127 unwind label %128
 
-128:                                              ; preds = %126
+127:                                              ; preds = %125
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br label %140
+
+128:                                              ; preds = %125
+  %129 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %141
 
-129:                                              ; preds = %126
-  %130 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %142
+130:                                              ; preds = %114
+  %131 = invoke noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail12posix_fchmodB8ne210000ERKNS2_14FileDescriptorERK4statRNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(144) %31, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %132 unwind label %111
 
-131:                                              ; preds = %115
-  %132 = invoke noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail12posix_fchmodB8ne210000ERKNS2_14FileDescriptorERK4statRNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(144) %31, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %133 unwind label %112
+132:                                              ; preds = %130
+  br i1 %131, label %.invoke, label %133
 
-133:                                              ; preds = %131
-  br i1 %132, label %.invoke, label %134
+133:                                              ; preds = %132
+  %134 = invoke noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail15posix_ftruncateB8ne210000ERKNS2_14FileDescriptorElRNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %14, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %135 unwind label %111
 
-134:                                              ; preds = %133
-  %135 = invoke noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail15posix_ftruncateB8ne210000ERKNS2_14FileDescriptorElRNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %14, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %136 unwind label %112
+135:                                              ; preds = %133
+  br i1 %134, label %.invoke, label %136
 
-136:                                              ; preds = %134
-  br i1 %135, label %.invoke, label %137
+136:                                              ; preds = %113, %113, %135
+  %137 = invoke fastcc noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_114copy_file_implERNS2_14FileDescriptorES5_RNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %138 unwind label %111
 
-137:                                              ; preds = %114, %114, %136
-  %138 = invoke fastcc noundef zeroext i1 @_ZNSt3__14__fs10filesystem6detail12_GLOBAL__N_114copy_file_implERNS2_14FileDescriptorES5_RNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %139 unwind label %112
+138:                                              ; preds = %136
+  br i1 %137, label %140, label %.invoke
 
-139:                                              ; preds = %137
-  br i1 %138, label %141, label %.invoke
+.invoke:                                          ; preds = %107, %138, %135, %132
+  %139 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %140 unwind label %111
 
-.invoke:                                          ; preds = %108, %139, %136, %133
-  %140 = invoke noundef zeroext i1 @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIbE6reportB8ne210000ERKNS_10error_codeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %141 unwind label %112
-
-141:                                              ; preds = %.invoke, %139, %128
-  %.5 = phi i1 [ %127, %128 ], [ true, %139 ], [ %140, %.invoke ]
+140:                                              ; preds = %.invoke, %138, %127
+  %.5 = phi i1 [ %126, %127 ], [ true, %138 ], [ %139, %.invoke ]
   call void @_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(168) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75"
 
-142:                                              ; preds = %129, %112
-  %.pn = phi { ptr, i32 } [ %113, %112 ], [ %130, %129 ]
+141:                                              ; preds = %128, %111
+  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %129, %128 ]
   call void @_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(168) %14) #30
+  br label %142
+
+142:                                              ; preds = %141, %109
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %141 ], [ %110, %109 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %143
 
-143:                                              ; preds = %142, %110
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %142 ], [ %111, %110 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75": ; preds = %91, %93, %73, %88, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit", %140, %.noexc, %59
+  %.2 = phi i1 [ %60, %59 ], [ %72, %73 ], [ %87, %88 ], [ %.5, %140 ], [ false, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit" ], [ false, %.noexc ], [ false, %93 ], [ false, %91 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %144
 
-"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75": ; preds = %94, %74, %89, %92, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit", %141, %.noexc, %60
-  %.2 = phi i1 [ %61, %60 ], [ %73, %74 ], [ %88, %89 ], [ false, %92 ], [ %.5, %141 ], [ false, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit" ], [ false, %.noexc ], [ false, %94 ]
+143:                                              ; preds = %63, %103, %142, %89, %74, %61
+  %.pn43.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %75, %74 ], [ %90, %89 ], [ %.pn.pn, %142 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %145
+  br label %152
 
-144:                                              ; preds = %64, %104, %143, %90, %75, %62
-  %.pn43.pn = phi { ptr, i32 } [ %63, %62 ], [ %65, %64 ], [ %76, %75 ], [ %91, %90 ], [ %.pn.pn, %143 ], [ %105, %104 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %153
-
-145:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75", %36, %24
+144:                                              ; preds = %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75", %36, %24
   %.022 = phi i1 [ %25, %24 ], [ %.2, %"_ZZNSt3__14__fs10filesystem11__copy_fileERKNS1_4pathES4_NS1_12copy_optionsEPNS_10error_codeEENK3$_0clEv.exit.thread75" ], [ %38, %36 ]
-  %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %147 = load i32, ptr %146, align 8, !tbaa !74
-  %.not.i.i = icmp eq i32 %147, -1
-  br i1 %.not.i.i, label %_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit, label %148
+  %145 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %146 = load i32, ptr %145, align 8, !tbaa !74
+  %.not.i.i = icmp eq i32 %146, -1
+  br i1 %.not.i.i, label %_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit, label %147
 
-148:                                              ; preds = %145
-  %149 = invoke i32 @close(i32 noundef %147)
-          to label %_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit unwind label %150
+147:                                              ; preds = %144
+  %148 = invoke i32 @close(i32 noundef %146)
+          to label %_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit unwind label %149
 
-150:                                              ; preds = %148
-  %151 = landingpad { ptr, i32 }
+149:                                              ; preds = %147
+  %150 = landingpad { ptr, i32 }
           catch ptr null
-  %152 = extractvalue { ptr, i32 } %151, 0
-  call void @__clang_call_terminate(ptr %152) #33
+  %151 = extractvalue { ptr, i32 } %150, 0
+  call void @__clang_call_terminate(ptr %151) #33
   unreachable
 
-_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit: ; preds = %145, %148
+_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev.exit: ; preds = %144, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.022
 
-153:                                              ; preds = %34, %144, %26
-  %.pn48 = phi { ptr, i32 } [ %27, %26 ], [ %35, %34 ], [ %.pn43.pn, %144 ]
+152:                                              ; preds = %34, %143, %26
+  %.pn48 = phi { ptr, i32 } [ %27, %26 ], [ %35, %34 ], [ %.pn43.pn, %143 ]
   call void @_ZNSt3__14__fs10filesystem6detail14FileDescriptorD2B8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(168) %10) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

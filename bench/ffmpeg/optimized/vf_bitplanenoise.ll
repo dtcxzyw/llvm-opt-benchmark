@@ -287,7 +287,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %168 = add nsw i32 %167, -1
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next499, %169
-  br i1 %170, label %.lr.ph442.split, label %._crit_edge443.loopexit, !llvm.loop !49
+  br i1 %170, label %.lr.ph442.split, label %._crit_edge443.loopexit, !llvm.loop !46
 
 ._crit_edge443.loopexit:                          ; preds = %.lr.ph442.split
   %171 = trunc nuw nsw i64 %indvars.iv.next499 to i32
@@ -351,7 +351,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %213 = load i32, ptr %49, align 4, !tbaa !41
   %214 = add nsw i32 %213, -1
   %215 = icmp slt i32 %212, %214
-  br i1 %215, label %73, label %._crit_edge453, !llvm.loop !50
+  br i1 %215, label %73, label %._crit_edge453, !llvm.loop !48
 
 ._crit_edge453:                                   ; preds = %211, %66
   %.0385.lcssa = phi ptr [ %61, %66 ], [ %83, %211 ]
@@ -457,7 +457,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %291 = add nsw i32 %287, -1
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %indvars.iv.next507, %292
-  br i1 %293, label %.lr.ph458, label %._crit_edge459.loopexit, !llvm.loop !51
+  br i1 %293, label %.lr.ph458, label %._crit_edge459.loopexit, !llvm.loop !49
 
 ._crit_edge459.loopexit:                          ; preds = %286
   %294 = trunc nuw nsw i64 %indvars.iv.next507 to i32
@@ -516,7 +516,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %332 = load i32, ptr %35, align 8, !tbaa !40
   %333 = sext i32 %332 to i64
   %334 = icmp slt i64 %indvars.iv.next510, %333
-  br i1 %334, label %48, label %.loopexit, !llvm.loop !52
+  br i1 %334, label %48, label %.loopexit, !llvm.loop !50
 
 335:                                              ; preds = %.lr.ph439, %590
   %indvars.iv493 = phi i64 [ 0, %.lr.ph439 ], [ %indvars.iv.next494, %590 ]
@@ -570,24 +570,24 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.0421 = phi ptr [ %352, %.lr.ph423 ], [ %.1, %.critedge407 ]
   %.0379419 = phi ptr [ %354, %.lr.ph423 ], [ %375, %.critedge407 ]
   %.1387418 = phi i32 [ 0, %.lr.ph423 ], [ %484, %.critedge407 ]
-  %366 = load i16, ptr %.0379419, align 2, !tbaa !53
+  %366 = load i16, ptr %.0379419, align 2, !tbaa !51
   %367 = zext i16 %366 to i32
   %368 = and i32 %17, %367
   %369 = getelementptr inbounds nuw i8, ptr %.0379419, i64 2
-  %370 = load i16, ptr %369, align 2, !tbaa !53
+  %370 = load i16, ptr %369, align 2, !tbaa !51
   %371 = zext i16 %370 to i32
   %372 = and i32 %17, %371
   %373 = icmp eq i32 %368, %372
   %374 = zext i1 %373 to i32
   %375 = getelementptr i16, ptr %.0379419, i64 %355
   %376 = getelementptr i8, ptr %375, i64 2
-  %377 = load i16, ptr %376, align 2, !tbaa !53
+  %377 = load i16, ptr %376, align 2, !tbaa !51
   %378 = zext i16 %377 to i32
   %379 = and i32 %17, %378
   %380 = icmp eq i32 %368, %379
   %381 = zext i1 %380 to i32
   %382 = add nuw nsw i32 %381, %374
-  %383 = load i16, ptr %375, align 2, !tbaa !53
+  %383 = load i16, ptr %375, align 2, !tbaa !51
   %384 = zext i16 %383 to i32
   %385 = and i32 %17, %384
   %386 = icmp eq i32 %368, %385
@@ -604,7 +604,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .thread528:                                       ; preds = %365
   %393 = select i1 %389, i16 %42, i16 0
-  store i16 %393, ptr %.0421, align 2, !tbaa !53
+  store i16 %393, ptr %.0421, align 2, !tbaa !51
   %394 = uitofp i1 %389 to float
   %395 = fadd nsz float %storemerge399.lcssa411427, %394
   br i1 %360, label %.lr.ph.split.preheader, label %._crit_edge
@@ -614,7 +614,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %390
-  %.pre515 = load i16, ptr %369, align 2, !tbaa !53
+  %.pre515 = load i16, ptr %369, align 2, !tbaa !51
   %invariant.gep539 = getelementptr i16, ptr %.0379419, i64 %355
   br label %.lr.ph.split.us
 
@@ -626,21 +626,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %398 = zext i16 %396 to i32
   %399 = and i32 %17, %398
   %400 = getelementptr i8, ptr %397, i64 -2
-  %401 = load i16, ptr %400, align 2, !tbaa !53
+  %401 = load i16, ptr %400, align 2, !tbaa !51
   %402 = zext i16 %401 to i32
   %403 = and i32 %17, %402
   %404 = icmp eq i32 %399, %403
   %405 = zext i1 %404 to i32
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %406 = getelementptr inbounds nuw i16, ptr %.0379419, i64 %indvars.iv.next483
-  %407 = load i16, ptr %406, align 2, !tbaa !53
+  %407 = load i16, ptr %406, align 2, !tbaa !51
   %408 = zext i16 %407 to i32
   %409 = and i32 %17, %408
   %410 = icmp eq i32 %399, %409
   %411 = zext i1 %410 to i32
   %412 = add nuw nsw i32 %411, %405
   %gep540 = getelementptr i16, ptr %invariant.gep539, i64 %indvars.iv482
-  %413 = load i16, ptr %gep540, align 2, !tbaa !53
+  %413 = load i16, ptr %gep540, align 2, !tbaa !51
   %414 = zext i16 %413 to i32
   %415 = and i32 %17, %414
   %416 = icmp eq i32 %399, %415
@@ -650,31 +650,31 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %420 = uitofp i1 %419 to float
   %421 = fadd nsz float %storemerge399412.us, %420
   %exitcond486.not = icmp eq i64 %indvars.iv.next483, %wide.trip.count485
-  br i1 %exitcond486.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !55
+  br i1 %exitcond486.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !53
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %storemerge399412 = phi float [ %395, %.lr.ph.split.preheader ], [ %449, %.lr.ph.split ]
   %422 = getelementptr inbounds nuw i16, ptr %.0379419, i64 %indvars.iv
-  %423 = load i16, ptr %422, align 2, !tbaa !53
+  %423 = load i16, ptr %422, align 2, !tbaa !51
   %424 = zext i16 %423 to i32
   %425 = and i32 %17, %424
   %426 = getelementptr i8, ptr %422, i64 -2
-  %427 = load i16, ptr %426, align 2, !tbaa !53
+  %427 = load i16, ptr %426, align 2, !tbaa !51
   %428 = zext i16 %427 to i32
   %429 = and i32 %17, %428
   %430 = icmp eq i32 %425, %429
   %431 = zext i1 %430 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %432 = getelementptr inbounds nuw i16, ptr %.0379419, i64 %indvars.iv.next
-  %433 = load i16, ptr %432, align 2, !tbaa !53
+  %433 = load i16, ptr %432, align 2, !tbaa !51
   %434 = zext i16 %433 to i32
   %435 = and i32 %17, %434
   %436 = icmp eq i32 %425, %435
   %437 = zext i1 %436 to i32
   %438 = add nuw nsw i32 %437, %431
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %439 = load i16, ptr %gep, align 2, !tbaa !53
+  %439 = load i16, ptr %gep, align 2, !tbaa !51
   %440 = zext i16 %439 to i32
   %441 = and i32 %17, %440
   %442 = icmp eq i32 %425, %441
@@ -683,22 +683,22 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %445 = icmp samesign ugt i32 %444, 1
   %446 = select i1 %445, i16 %42, i16 0
   %447 = getelementptr inbounds nuw i16, ptr %.0421, i64 %indvars.iv
-  store i16 %446, ptr %447, align 2, !tbaa !53
+  store i16 %446, ptr %447, align 2, !tbaa !51
   %448 = uitofp i1 %445 to float
   %449 = fadd nsz float %storemerge399412, %448
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread528, %390
   %storemerge399.lcssa = phi float [ %392, %390 ], [ %395, %.thread528 ], [ %421, %.lr.ph.split.us ], [ %449, %.lr.ph.split ]
   %.2390.lcssa = phi i32 [ 1, %390 ], [ 1, %.thread528 ], [ %363, %.lr.ph.split.us ], [ %359, %.lr.ph.split ]
   %450 = zext nneg i32 %.2390.lcssa to i64
   %451 = getelementptr inbounds nuw i16, ptr %.0379419, i64 %450
-  %452 = load i16, ptr %451, align 2, !tbaa !53
+  %452 = load i16, ptr %451, align 2, !tbaa !51
   %453 = zext i16 %452 to i32
   %454 = and i32 %17, %453
   %455 = getelementptr i8, ptr %451, i64 -2
-  %456 = load i16, ptr %455, align 2, !tbaa !53
+  %456 = load i16, ptr %455, align 2, !tbaa !51
   %457 = zext i16 %456 to i32
   %458 = and i32 %17, %457
   %459 = icmp eq i32 %454, %458
@@ -706,7 +706,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %461 = add nsw i32 %361, %.2390.lcssa
   %462 = sext i32 %461 to i64
   %463 = getelementptr inbounds i16, ptr %.0379419, i64 %462
-  %464 = load i16, ptr %463, align 2, !tbaa !53
+  %464 = load i16, ptr %463, align 2, !tbaa !51
   %465 = zext i16 %464 to i32
   %466 = and i32 %17, %465
   %467 = icmp eq i32 %454, %466
@@ -715,7 +715,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %470 = add nsw i32 %.2390.lcssa, %344
   %471 = sext i32 %470 to i64
   %472 = getelementptr inbounds i16, ptr %.0379419, i64 %471
-  %473 = load i16, ptr %472, align 2, !tbaa !53
+  %473 = load i16, ptr %472, align 2, !tbaa !51
   %474 = zext i16 %473 to i32
   %475 = and i32 %17, %474
   %476 = icmp eq i32 %454, %475
@@ -727,7 +727,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 480:                                              ; preds = %._crit_edge
   %481 = select i1 %479, i16 %42, i16 0
   %482 = getelementptr inbounds nuw i16, ptr %.0421, i64 %450
-  store i16 %481, ptr %482, align 2, !tbaa !53
+  store i16 %481, ptr %482, align 2, !tbaa !51
   %483 = getelementptr inbounds i16, ptr %.0421, i64 %362
   br label %.critedge407
 
@@ -737,7 +737,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %storemerge399.lcssa411428 = fadd nsz float %storemerge399.lcssa, %.pn
   %484 = add nuw nsw i32 %.1387418, 1
   %exitcond487.not = icmp eq i32 %.1387418, %364
-  br i1 %exitcond487.not, label %._crit_edge424, label %365, !llvm.loop !57
+  br i1 %exitcond487.not, label %._crit_edge424, label %365, !llvm.loop !54
 
 ._crit_edge424:                                   ; preds = %.critedge407
   store float %storemerge399.lcssa411428, ptr %356, align 4, !tbaa !44
@@ -746,11 +746,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 485:                                              ; preds = %._crit_edge424, %351
   %.0379.lcssa = phi ptr [ %375, %._crit_edge424 ], [ %354, %351 ]
   %.0.lcssa = phi ptr [ %.1, %._crit_edge424 ], [ %352, %351 ]
-  %486 = load i16, ptr %.0379.lcssa, align 2, !tbaa !53
+  %486 = load i16, ptr %.0379.lcssa, align 2, !tbaa !51
   %487 = zext i16 %486 to i32
   %488 = and i32 %17, %487
   %489 = getelementptr inbounds nuw i8, ptr %.0379.lcssa, i64 2
-  %490 = load i16, ptr %489, align 2, !tbaa !53
+  %490 = load i16, ptr %489, align 2, !tbaa !51
   %491 = zext i16 %490 to i32
   %492 = and i32 %17, %491
   %493 = icmp eq i32 %488, %492
@@ -758,7 +758,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %495 = sub nsw i32 1, %344
   %496 = sext i32 %495 to i64
   %497 = getelementptr inbounds i16, ptr %.0379.lcssa, i64 %496
-  %498 = load i16, ptr %497, align 2, !tbaa !53
+  %498 = load i16, ptr %497, align 2, !tbaa !51
   %499 = zext i16 %498 to i32
   %500 = and i32 %17, %499
   %501 = icmp eq i32 %488, %500
@@ -767,7 +767,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %504 = sub nsw i32 0, %344
   %505 = sext i32 %504 to i64
   %506 = getelementptr inbounds i16, ptr %.0379.lcssa, i64 %505
-  %507 = load i16, ptr %506, align 2, !tbaa !53
+  %507 = load i16, ptr %506, align 2, !tbaa !51
   %508 = zext i16 %507 to i32
   %509 = and i32 %17, %508
   %510 = icmp eq i32 %488, %509
@@ -779,7 +779,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 514:                                              ; preds = %485
   %515 = select i1 %513, i16 %42, i16 0
-  store i16 %515, ptr %.0.lcssa, align 2, !tbaa !53
+  store i16 %515, ptr %.0.lcssa, align 2, !tbaa !51
   br label %516
 
 516:                                              ; preds = %514, %485
@@ -802,18 +802,18 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv488 = phi i64 [ 1, %.lr.ph433.preheader ], [ %indvars.iv.next489, %555 ]
   %storemerge430 = phi float [ %520, %.lr.ph433.preheader ], [ %557, %555 ]
   %526 = getelementptr inbounds nuw i16, ptr %.0379.lcssa, i64 %indvars.iv488
-  %527 = load i16, ptr %526, align 2, !tbaa !53
+  %527 = load i16, ptr %526, align 2, !tbaa !51
   %528 = zext i16 %527 to i32
   %529 = and i32 %17, %528
   %530 = getelementptr i8, ptr %526, i64 -2
-  %531 = load i16, ptr %530, align 2, !tbaa !53
+  %531 = load i16, ptr %530, align 2, !tbaa !51
   %532 = zext i16 %531 to i32
   %533 = and i32 %17, %532
   %534 = icmp eq i32 %529, %533
   %535 = zext i1 %534 to i32
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %536 = getelementptr inbounds nuw i16, ptr %.0379.lcssa, i64 %indvars.iv.next489
-  %537 = load i16, ptr %536, align 2, !tbaa !53
+  %537 = load i16, ptr %536, align 2, !tbaa !51
   %538 = zext i16 %537 to i32
   %539 = and i32 %17, %538
   %540 = icmp eq i32 %529, %539
@@ -821,7 +821,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %542 = add nuw nsw i32 %541, %535
   %543 = sub nsw i64 %indvars.iv488, %525
   %544 = getelementptr inbounds i16, ptr %.0379.lcssa, i64 %543
-  %545 = load i16, ptr %544, align 2, !tbaa !53
+  %545 = load i16, ptr %544, align 2, !tbaa !51
   %546 = zext i16 %545 to i32
   %547 = and i32 %17, %546
   %548 = icmp eq i32 %529, %547
@@ -833,14 +833,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 552:                                              ; preds = %.lr.ph433
   %553 = select i1 %551, i16 %42, i16 0
   %554 = getelementptr inbounds nuw i16, ptr %.0.lcssa, i64 %indvars.iv488
-  store i16 %553, ptr %554, align 2, !tbaa !53
+  store i16 %553, ptr %554, align 2, !tbaa !51
   br label %555
 
 555:                                              ; preds = %552, %.lr.ph433
   %556 = uitofp i1 %551 to float
   %557 = fadd nsz float %storemerge430, %556
   %exitcond492.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count491
-  br i1 %exitcond492.not, label %._crit_edge434.loopexit, label %.lr.ph433, !llvm.loop !58
+  br i1 %exitcond492.not, label %._crit_edge434.loopexit, label %.lr.ph433, !llvm.loop !55
 
 ._crit_edge434.loopexit:                          ; preds = %555
   %.pre524 = sub nsw i32 %523, %344
@@ -853,11 +853,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.3.lcssa = phi i32 [ %523, %._crit_edge434.loopexit ], [ 1, %516 ]
   %558 = zext nneg i32 %.3.lcssa to i64
   %559 = getelementptr inbounds nuw i16, ptr %.0379.lcssa, i64 %558
-  %560 = load i16, ptr %559, align 2, !tbaa !53
+  %560 = load i16, ptr %559, align 2, !tbaa !51
   %561 = zext i16 %560 to i32
   %562 = and i32 %17, %561
   %563 = getelementptr i8, ptr %559, i64 -2
-  %564 = load i16, ptr %563, align 2, !tbaa !53
+  %564 = load i16, ptr %563, align 2, !tbaa !51
   %565 = zext i16 %564 to i32
   %566 = and i32 %17, %565
   %567 = icmp eq i32 %562, %566
@@ -866,14 +866,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %570 = add nsw i32 %.3.lcssa, %569
   %571 = sext i32 %570 to i64
   %572 = getelementptr inbounds i16, ptr %.0379.lcssa, i64 %571
-  %573 = load i16, ptr %572, align 2, !tbaa !53
+  %573 = load i16, ptr %572, align 2, !tbaa !51
   %574 = zext i16 %573 to i32
   %575 = and i32 %17, %574
   %576 = icmp eq i32 %562, %575
   %577 = zext i1 %576 to i32
   %578 = add nuw nsw i32 %577, %568
   %579 = getelementptr inbounds i16, ptr %.0379.lcssa, i64 %.pre-phi527
-  %580 = load i16, ptr %579, align 2, !tbaa !53
+  %580 = load i16, ptr %579, align 2, !tbaa !51
   %581 = zext i16 %580 to i32
   %582 = and i32 %17, %581
   %583 = icmp eq i32 %562, %582
@@ -885,7 +885,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 587:                                              ; preds = %._crit_edge434
   %588 = select i1 %586, i16 %42, i16 0
   %589 = getelementptr inbounds nuw i16, ptr %.0.lcssa, i64 %558
-  store i16 %588, ptr %589, align 2, !tbaa !53
+  store i16 %588, ptr %589, align 2, !tbaa !51
   br label %590
 
 590:                                              ; preds = %587, %._crit_edge434
@@ -894,7 +894,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store float %592, ptr %518, align 4, !tbaa !44
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %exitcond497.not = icmp eq i64 %indvars.iv.next494, %wide.trip.count496
-  br i1 %exitcond497.not, label %.lr.ph465, label %335, !llvm.loop !59
+  br i1 %exitcond497.not, label %.lr.ph465, label %335, !llvm.loop !56
 
 .loopexit:                                        ; preds = %328
   %593 = icmp sgt i32 %332, 0
@@ -934,7 +934,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %617 = load i32, ptr %594, align 8, !tbaa !40
   %618 = sext i32 %617 to i64
   %619 = icmp slt i64 %indvars.iv.next513, %618
-  br i1 %619, label %598, label %._crit_edge466, !llvm.loop !60
+  br i1 %619, label %598, label %._crit_edge466, !llvm.loop !57
 
 ._crit_edge466:                                   ; preds = %598, %.preheader, %.preheader409, %.loopexit
   %620 = load ptr, ptr %3, align 8, !tbaa !4
@@ -959,14 +959,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %3 = load i32, ptr %2, align 4, !tbaa !61
+  %3 = load i32, ptr %2, align 4, !tbaa !58
   %4 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i8, ptr %9, align 8, !tbaa !62
+  %10 = load i8, ptr %9, align 8, !tbaa !59
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %11, ptr %12, align 8, !tbaa !40
@@ -974,7 +974,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %14 = load i32, ptr %13, align 4, !tbaa !39
   %15 = sub nsw i32 0, %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %17 = load i8, ptr %16, align 2, !tbaa !65
+  %17 = load i8, ptr %16, align 2, !tbaa !62
   %18 = zext nneg i8 %17 to i32
   %19 = ashr i32 %15, %18
   %20 = sub nsw i32 0, %19
@@ -992,7 +992,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %28 = load i32, ptr %27, align 8, !tbaa !38
   %29 = sub nsw i32 0, %28
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %31 = load i8, ptr %30, align 1, !tbaa !66
+  %31 = load i8, ptr %30, align 1, !tbaa !63
   %32 = zext nneg i8 %31 to i32
   %33 = ashr i32 %29, %32
   %34 = sub nsw i32 0, %33
@@ -1007,7 +1007,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   store i32 %39, ptr %40, align 8, !tbaa !41
   store i32 %39, ptr %35, align 4, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %42 = load i32, ptr %41, align 8, !tbaa !67
+  %42 = load i32, ptr %41, align 8, !tbaa !64
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 %42, ptr %43, align 4, !tbaa !36
   ret i32 0
@@ -1101,26 +1101,23 @@ attributes #6 = { nounwind }
 !43 = !{!7, !7, i64 0}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"float", !7, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !47}
 !49 = distinct !{!49, !47}
 !50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
-!52 = distinct !{!52, !47}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"short", !7, i64 0}
-!55 = distinct !{!55, !47, !48}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"short", !7, i64 0}
+!53 = distinct !{!53, !47}
+!54 = distinct !{!54, !47}
+!55 = distinct !{!55, !47}
 !56 = distinct !{!56, !47}
 !57 = distinct !{!57, !47}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = distinct !{!60, !47}
-!61 = !{!10, !13, i64 36}
-!62 = !{!63, !7, i64 8}
-!63 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !64, i64 16, !7, i64 24, !25, i64 104}
-!64 = !{!"long", !7, i64 0}
-!65 = !{!63, !7, i64 10}
-!66 = !{!63, !7, i64 9}
-!67 = !{!68, !13, i64 16}
-!68 = !{!"AVComponentDescriptor", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}
+!58 = !{!10, !13, i64 36}
+!59 = !{!60, !7, i64 8}
+!60 = !{!"AVPixFmtDescriptor", !25, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !61, i64 16, !7, i64 24, !25, i64 104}
+!61 = !{!"long", !7, i64 0}
+!62 = !{!60, !7, i64 10}
+!63 = !{!60, !7, i64 9}
+!64 = !{!65, !13, i64 16}
+!65 = !{!"AVComponentDescriptor", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}

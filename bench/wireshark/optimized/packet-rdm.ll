@@ -3337,7 +3337,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_rdm_pd_supported_parameters(
   %9 = add nuw nsw i32 %.1.us, 2
   %10 = add i8 %.0.us, -2
   %.old2.us = icmp ugt i8 %10, 1
-  br i1 %.old2.us, label %.preheader.split.us, label %.loopexit, !llvm.loop !9
+  br i1 %.old2.us, label %.preheader.split.us, label %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %.1 = phi i32 [ %14, %.preheader.split ], [ 23, %.preheader ]
@@ -4515,7 +4515,7 @@ define internal fastcc range(i32 3, 0) i32 @dissect_rdm_pd_endpoint_list(ptr nou
   %15 = add nuw nsw i32 %.117, 3
   %16 = add i8 %.018, -3
   %17 = icmp ugt i8 %16, 2
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %4
   %.016 = phi i32 [ 23, %4 ], [ 27, %5 ], [ %15, %.lr.ph ]
@@ -4881,7 +4881,7 @@ define internal fastcc range(i32 6, 0) i32 @dissect_rdm_pd_endpoint_responders(p
   %16 = add nuw nsw i32 %.122, 6
   %.0 = add i8 %.023, -6
   %17 = icmp ugt i8 %.0, 5
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %5, %4
   %.020 = phi i32 [ 23, %4 ], [ 25, %5 ], [ 29, %8 ], [ %16, %.lr.ph ]
@@ -4919,7 +4919,7 @@ define internal fastcc range(i32 23, 0) i32 @dissect_rdm_pd_tcp_comms_status(ptr
   %20 = add nuw nsw i32 %.128, 87
   %21 = add i8 %.029, -87
   %22 = icmp ugt i8 %21, 86
-  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 23:                                               ; preds = %4
   %24 = load i32, ptr @hf_rdm_pd_tcp_comms_status_scope_string, align 4
@@ -5441,7 +5441,7 @@ define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config(pt
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef %.13738, i32 noundef 1, i32 noundef 0)
   %17 = add nuw nsw i32 %.13738, 1
   %exitcond.not = icmp eq i32 %17, 49
-  br i1 %exitcond.not, label %18, label %14, !llvm.loop !14
+  br i1 %exitcond.not, label %18, label %14, !llvm.loop !12
 
 18:                                               ; preds = %14
   %19 = load i32, ptr @hf_etc_pd_sequence_config_step_link_times, align 4
@@ -5458,7 +5458,7 @@ define internal fastcc range(i32 23, 101) i32 @dissect_etc_pd_sequence_config(pt
   %26 = add nuw nsw i32 %.240, 2
   %27 = add nuw nsw i32 %.141, 1
   %exitcond43.not = icmp eq i32 %27, 24
-  br i1 %exitcond43.not, label %28, label %23, !llvm.loop !15
+  br i1 %exitcond43.not, label %28, label %23, !llvm.loop !13
 
 28:                                               ; preds = %23
   %29 = load i32, ptr @hf_etc_pd_sequence_config_rate, align 4
@@ -5725,10 +5725,8 @@ attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

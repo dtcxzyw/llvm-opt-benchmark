@@ -95,7 +95,7 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr noundef 
   %40 = getelementptr i8, ptr %39, i64 3
   %41 = load i8, ptr %40, align 1, !tbaa !11
   %.not.us.i = icmp eq i8 %41, 0
-  br i1 %.not.us.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.us.i, !llvm.loop !16
+  br i1 %.not.us.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.us.i, !llvm.loop !15
 
 .preheader26.i:                                   ; preds = %.preheader26.lr.ph.i, %.split.i
   %.02133.i = phi ptr [ %51, %.split.i ], [ %15, %.preheader26.lr.ph.i ]
@@ -121,14 +121,14 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr noundef 
   %49 = getelementptr i8, ptr %48, i64 3
   %.pr.i = load i8, ptr %49, align 1, !tbaa !11
   %.not25.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not25.i, label %.split.i, label %42, !llvm.loop !17
+  br i1 %.not25.i, label %.split.i, label %42, !llvm.loop !14
 
 .split.i:                                         ; preds = %47
   %50 = getelementptr i8, ptr %.02133.i, i64 %22
   %51 = getelementptr i8, ptr %50, i64 3
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %.not.i = icmp eq i8 %52, 0
-  br i1 %.not.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.i, !llvm.loop !18
+  br i1 %.not.i, label %Fxu_CountPairDiffs.exit, label %.preheader26.i, !llvm.loop !15
 
 Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.us.us.i, %16
   %53 = tail call i32 @Abc_SopGetCubeNum(ptr noundef nonnull %15) #9
@@ -148,7 +148,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %11, label %._crit_edge, !llvm.loop !19
+  br i1 %62, label %11, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %59
   %63 = icmp eq i32 %.1109, -1
@@ -174,15 +174,15 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %71 = load i8, ptr %70, align 1, !tbaa !11
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw i32, ptr %68, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !20
+  %74 = load i32, ptr %73, align 4, !tbaa !17
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 4, !tbaa !20
+  store i32 %75, ptr %73, align 4, !tbaa !17
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge150, label %.lr.ph149, !llvm.loop !18
 
 ._crit_edge150:                                   ; preds = %.lr.ph149
-  %.pre207 = load i32, ptr %68, align 4, !tbaa !20
+  %.pre207 = load i32, ptr %68, align 4, !tbaa !17
   %76 = icmp eq i32 %.pre207, 0
   br i1 %76, label %._crit_edge150.thread, label %77
 
@@ -194,7 +194,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 
 ._crit_edge150.thread:                            ; preds = %._crit_edge.thread, %._crit_edge150
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !20
+  %79 = load i32, ptr %78, align 4, !tbaa !17
   %.not123 = icmp eq i32 %79, 0
   br i1 %.not123, label %.preheader137, label %81
 
@@ -223,7 +223,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %indvars.iv190 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next191, %90 ]
   %.0107151 = phi i32 [ 0, %.lr.ph153.preheader ], [ %86, %90 ]
   %84 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv190
-  %85 = load i32, ptr %84, align 4, !tbaa !20
+  %85 = load i32, ptr %84, align 4, !tbaa !17
   %86 = add nsw i32 %85, %.0107151
   %.not124 = icmp slt i32 %86, %3
   br i1 %.not124, label %90, label %87
@@ -236,7 +236,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 90:                                               ; preds = %.lr.ph153
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.loopexit138, label %.lr.ph153, !llvm.loop !22
+  br i1 %exitcond194.not, label %.loopexit138, label %.lr.ph153, !llvm.loop !19
 
 .loopexit138:                                     ; preds = %90, %.preheader137, %87
   %.0106 = phi i32 [ %88, %87 ], [ -1, %.preheader137 ], [ -1, %90 ]
@@ -284,7 +284,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %.1100 = phi i32 [ %101, %100 ], [ %.099155, %98 ], [ %.1100.ph, %.sink.split ]
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.preheader136, label %.lr.ph158, !llvm.loop !23
+  br i1 %exitcond199.not, label %.preheader136, label %.lr.ph158, !llvm.loop !20
 
 103:                                              ; preds = %.lr.ph179, %.loopexit
   %104 = phi i32 [ %65, %.lr.ph179 ], [ %130, %.loopexit ]
@@ -297,15 +297,15 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   br i1 %.not126, label %.loopexit, label %108
 
 108:                                              ; preds = %103
-  %109 = load ptr, ptr %93, align 8, !tbaa !24
+  %109 = load ptr, ptr %93, align 8, !tbaa !21
   %.idx = shl nuw nsw i64 %indvars.iv204, 4
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !41
+  %112 = load ptr, ptr %111, align 8, !tbaa !38
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !42
+  %114 = load ptr, ptr %113, align 8, !tbaa !39
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %116 = load i32, ptr %115, align 4, !tbaa !46
+  %116 = load i32, ptr %115, align 4, !tbaa !43
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %.lr.ph162, label %.loopexit
 
@@ -317,16 +317,16 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %.3160 = phi i32 [ %120, %.lr.ph162 ], [ 0, %108 ]
   %.0112159 = phi ptr [ %119, %.lr.ph162 ], [ %114, %108 ]
   %118 = getelementptr inbounds nuw i8, ptr %.0112159, i64 56
-  %119 = load ptr, ptr %118, align 8, !tbaa !47
+  %119 = load ptr, ptr %118, align 8, !tbaa !44
   %120 = add nuw nsw i32 %.3160, 1
   %exitcond200.not = icmp eq i32 %120, %116
-  br i1 %exitcond200.not, label %.preheader, label %.lr.ph162, !llvm.loop !49
+  br i1 %exitcond200.not, label %.preheader, label %.lr.ph162, !llvm.loop !46
 
 .lr.ph175:                                        ; preds = %.preheader, %._crit_edge170
   %.5174 = phi i32 [ %.6.lcssa, %._crit_edge170 ], [ %.4177, %.preheader ]
   %.0111173 = phi ptr [ %129, %._crit_edge170 ], [ %114, %.preheader ]
   %121 = getelementptr inbounds nuw i8, ptr %.0111173, i64 56
-  %.0110164 = load ptr, ptr %121, align 8, !tbaa !47
+  %.0110164 = load ptr, ptr %121, align 8, !tbaa !44
   %.not128165 = icmp eq ptr %.0110164, %119
   br i1 %.not128165, label %._crit_edge170, label %.lr.ph169.preheader
 
@@ -349,20 +349,20 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 
 126:                                              ; preds = %.lr.ph169, %125
   %127 = getelementptr inbounds nuw i8, ptr %.0110167, i64 56
-  %.0110 = load ptr, ptr %127, align 8, !tbaa !47
+  %.0110 = load ptr, ptr %127, align 8, !tbaa !44
   %.not128 = icmp eq ptr %.0110, %119
-  br i1 %.not128, label %._crit_edge170.loopexit, label %.lr.ph169, !llvm.loop !50
+  br i1 %.not128, label %._crit_edge170.loopexit, label %.lr.ph169, !llvm.loop !47
 
 ._crit_edge170.loopexit:                          ; preds = %126
   %128 = trunc nsw i64 %indvars.iv.next202 to i32
-  %.pre208 = load ptr, ptr %121, align 8, !tbaa !47
+  %.pre208 = load ptr, ptr %121, align 8, !tbaa !44
   br label %._crit_edge170
 
 ._crit_edge170:                                   ; preds = %._crit_edge170.loopexit, %.lr.ph175
   %129 = phi ptr [ %.0110164, %.lr.ph175 ], [ %.pre208, %._crit_edge170.loopexit ]
   %.6.lcssa = phi i32 [ %.5174, %.lr.ph175 ], [ %128, %._crit_edge170.loopexit ]
   %.not127 = icmp eq ptr %129, %119
-  br i1 %.not127, label %.loopexit.loopexit, label %.lr.ph175, !llvm.loop !51
+  br i1 %.not127, label %.loopexit.loopexit, label %.lr.ph175, !llvm.loop !48
 
 .loopexit.loopexit:                               ; preds = %._crit_edge170
   %.pre209 = load i32, ptr %7, align 4, !tbaa !3
@@ -374,7 +374,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next205, %131
-  br i1 %132, label %103, label %._crit_edge180, !llvm.loop !52
+  br i1 %132, label %103, label %._crit_edge180, !llvm.loop !49
 
 ._crit_edge180:                                   ; preds = %.loopexit, %.preheader136
   %.not125 = icmp eq ptr %6, null
@@ -441,42 +441,39 @@ attributes #10 = { nounwind allocsize(0,1) }
 !11 = !{!6, !6, i64 0}
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !13, !15}
-!17 = distinct !{!17, !13}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = !{!5, !5, i64 0}
 !18 = distinct !{!18, !13}
 !19 = distinct !{!19, !13}
-!20 = !{!5, !5, i64 0}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = !{!25, !30, i64 48}
-!25 = !{!"FxuMatrix", !26, i64 0, !28, i64 24, !30, i64 48, !31, i64 56, !5, i64 64, !5, i64 68, !5, i64 72, !32, i64 80, !33, i64 88, !35, i64 112, !5, i64 120, !5, i64 124, !36, i64 128, !37, i64 136, !27, i64 144, !38, i64 152, !29, i64 160, !30, i64 168, !39, i64 176, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !40, i64 200}
-!26 = !{!"FxuListCube", !27, i64 0, !27, i64 8, !5, i64 16}
-!27 = !{!"p1 _ZTS7FxuCube", !8, i64 0}
-!28 = !{!"FxuListVar", !29, i64 0, !29, i64 8, !5, i64 16}
-!29 = !{!"p1 _ZTS6FxuVar", !8, i64 0}
-!30 = !{!"p2 _ZTS6FxuVar", !8, i64 0}
-!31 = !{!"p1 _ZTS13FxuListDouble", !8, i64 0}
-!32 = !{!"p1 _ZTS13FxuHeapDouble", !8, i64 0}
-!33 = !{!"FxuListSingle", !34, i64 0, !34, i64 8, !5, i64 16}
-!34 = !{!"p1 _ZTS9FxuSingle", !8, i64 0}
-!35 = !{!"p1 _ZTS13FxuHeapSingle", !8, i64 0}
-!36 = !{!"p3 _ZTS7FxuPair", !8, i64 0}
-!37 = !{!"p2 _ZTS7FxuPair", !8, i64 0}
-!38 = !{!"p2 _ZTS7FxuCube", !8, i64 0}
-!39 = !{!"p1 _ZTS10Vec_Ptr_t_", !8, i64 0}
-!40 = !{!"p1 _ZTS16Extra_MmFixed_t_", !8, i64 0}
-!41 = !{!29, !29, i64 0}
-!42 = !{!43, !27, i64 8}
-!43 = !{!"FxuVar", !5, i64 0, !5, i64 4, !27, i64 8, !36, i64 16, !44, i64 24, !29, i64 48, !29, i64 56, !29, i64 64}
-!44 = !{!"FxuListLit", !45, i64 0, !45, i64 8, !5, i64 16}
-!45 = !{!"p1 _ZTS6FxuLit", !8, i64 0}
-!46 = !{!43, !5, i64 4}
-!47 = !{!48, !27, i64 56}
-!48 = !{!"FxuCube", !5, i64 0, !27, i64 8, !29, i64 16, !44, i64 24, !27, i64 48, !27, i64 56, !27, i64 64}
+!20 = distinct !{!20, !13}
+!21 = !{!22, !27, i64 48}
+!22 = !{!"FxuMatrix", !23, i64 0, !25, i64 24, !27, i64 48, !28, i64 56, !5, i64 64, !5, i64 68, !5, i64 72, !29, i64 80, !30, i64 88, !32, i64 112, !5, i64 120, !5, i64 124, !33, i64 128, !34, i64 136, !24, i64 144, !35, i64 152, !26, i64 160, !27, i64 168, !36, i64 176, !5, i64 184, !5, i64 188, !5, i64 192, !5, i64 196, !37, i64 200}
+!23 = !{!"FxuListCube", !24, i64 0, !24, i64 8, !5, i64 16}
+!24 = !{!"p1 _ZTS7FxuCube", !8, i64 0}
+!25 = !{!"FxuListVar", !26, i64 0, !26, i64 8, !5, i64 16}
+!26 = !{!"p1 _ZTS6FxuVar", !8, i64 0}
+!27 = !{!"p2 _ZTS6FxuVar", !8, i64 0}
+!28 = !{!"p1 _ZTS13FxuListDouble", !8, i64 0}
+!29 = !{!"p1 _ZTS13FxuHeapDouble", !8, i64 0}
+!30 = !{!"FxuListSingle", !31, i64 0, !31, i64 8, !5, i64 16}
+!31 = !{!"p1 _ZTS9FxuSingle", !8, i64 0}
+!32 = !{!"p1 _ZTS13FxuHeapSingle", !8, i64 0}
+!33 = !{!"p3 _ZTS7FxuPair", !8, i64 0}
+!34 = !{!"p2 _ZTS7FxuPair", !8, i64 0}
+!35 = !{!"p2 _ZTS7FxuCube", !8, i64 0}
+!36 = !{!"p1 _ZTS10Vec_Ptr_t_", !8, i64 0}
+!37 = !{!"p1 _ZTS16Extra_MmFixed_t_", !8, i64 0}
+!38 = !{!26, !26, i64 0}
+!39 = !{!40, !24, i64 8}
+!40 = !{!"FxuVar", !5, i64 0, !5, i64 4, !24, i64 8, !33, i64 16, !41, i64 24, !26, i64 48, !26, i64 56, !26, i64 64}
+!41 = !{!"FxuListLit", !42, i64 0, !42, i64 8, !5, i64 16}
+!42 = !{!"p1 _ZTS6FxuLit", !8, i64 0}
+!43 = !{!40, !5, i64 4}
+!44 = !{!45, !24, i64 56}
+!45 = !{!"FxuCube", !5, i64 0, !24, i64 8, !26, i64 16, !41, i64 24, !24, i64 48, !24, i64 56, !24, i64 64}
+!46 = distinct !{!46, !13}
+!47 = distinct !{!47, !13}
+!48 = distinct !{!48, !13}
 !49 = distinct !{!49, !13}
-!50 = distinct !{!50, !13}
-!51 = distinct !{!51, !13}
-!52 = distinct !{!52, !13}

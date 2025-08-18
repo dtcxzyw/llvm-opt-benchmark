@@ -922,7 +922,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   %58 = add nsw i64 %.122.i, %.04917
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !23
 
 .thread:                                          ; preds = %57, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
   %.049.lcssa = phi i64 [ %41, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 ], [ %58, %57 ]
@@ -991,7 +991,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   %85 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
   store i8 %80, ptr %85, align 1, !tbaa !11
   %86 = add nuw nsw i64 %.020.i, 1
-  br label %.preheader.split.i, !llvm.loop !25
+  br label %.preheader.split.i, !llvm.loop !22
 
 .split.us.thread.i:                               ; preds = %.preheader.split.i
   %87 = getelementptr inbounds nuw i8, ptr %.039, i64 %.020.i
@@ -1011,7 +1011,7 @@ _ZL9yytnamerrPcPKc.exit68:                        ; preds = %64, %.preheader, %.
   %.1 = phi i32 [ %70, %.thread.thread.i ], [ %70, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %64 ]
   %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
   %93 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader, !llvm.loop !24
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.critedge.i.i, %61, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
   %.041 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %61 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
@@ -1079,8 +1079,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"_ZTS15yysymbol_kind_t", !7, i64 0}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
 !24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}

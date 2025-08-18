@@ -899,7 +899,7 @@ thread-pre-split:                                 ; preds = %.preheader
 540:                                              ; preds = %505, %539, %533, %.split
   %541 = add nuw nsw i64 %474, 1
   %542 = icmp eq i64 %541, %432
-  br i1 %542, label %.loopexit, label %.split, !llvm.loop !27
+  br i1 %542, label %.loopexit, label %.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %540, %471, %.thread43
   call void @kfree(ptr noundef nonnull %42) #9
@@ -1049,6 +1049,4 @@ attributes #11 = { cold nounwind }
 !22 = distinct !{!22, !11, !12}
 !23 = distinct !{!23, !11, !12}
 !24 = !{i64 2148819055, i64 2148819094, i64 2148819115, i64 2148819152, i64 2148819175, i64 2148819184, i64 2148819258}
-!25 = distinct !{!25, !11, !12, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !11, !12}
+!25 = distinct !{!25, !11, !12}

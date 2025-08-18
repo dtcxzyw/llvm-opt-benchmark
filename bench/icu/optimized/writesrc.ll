@@ -1512,7 +1512,7 @@ define void @usrc_writeUCPMap(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %24 = add nuw nsw i32 %16, 1
   %25 = call i32 @ucpmap_getRange_77(ptr noundef %1, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
+  br i1 %26, label %.lr.ph.split, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %27 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %0)
@@ -1591,7 +1591,7 @@ define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = add nsw i32 %.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %30, %9
   %.not43 = icmp eq ptr %4, null
@@ -1623,7 +1623,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_77
   %11 = select i1 %6, i32 %10, i32 %8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %12, align 8, !tbaa !70
+  store ptr %1, ptr %12, align 8, !tbaa !68
   %13 = icmp sgt i32 %11, 0
   br i1 %13, label %14, label %_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
 
@@ -1714,7 +1714,7 @@ define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6AppendEPKci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !62
@@ -1861,11 +1861,9 @@ attributes #30 = { noreturn }
 !63 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !61, i64 0, !21, i64 8, !7, i64 16}
 !64 = !{!63, !5, i64 0}
 !65 = distinct !{!65, !23}
-!66 = distinct !{!66, !23, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !23}
-!69 = distinct !{!69, !23}
-!70 = !{!71, !73, i64 8}
-!71 = !{!"_ZTSN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !72, i64 0, !73, i64 8}
-!72 = !{!"_ZTSN6icu_778ByteSinkE"}
-!73 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!66 = distinct !{!66, !23}
+!67 = distinct !{!67, !23}
+!68 = !{!69, !71, i64 8}
+!69 = !{!"_ZTSN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !70, i64 0, !71, i64 8}
+!70 = !{!"_ZTSN6icu_778ByteSinkE"}
+!71 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}

@@ -505,7 +505,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   call void @msleep(i32 noundef 50) #8
   %97 = add nuw nsw i32 %69, 1
   %98 = icmp eq i32 %97, 20
-  br i1 %98, label %.thread, label %.split, !llvm.loop !18
+  br i1 %98, label %.thread, label %.split, !llvm.loop !14
 
 .thread8:                                         ; preds = %91, %61
   %99 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -693,8 +693,6 @@ attributes #10 = { cold nounwind }
 !11 = !{i64 2148483486, i64 2148483525, i64 2148483546, i64 2148483583, i64 2148483606, i64 2148483476}
 !12 = !{i64 2148495796, i64 2148495835, i64 2148495856, i64 2148495893, i64 2148495916, i64 2148495925}
 !13 = !{i64 2150724859}
-!14 = distinct !{!14, !15, !16, !17}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !15, !16}

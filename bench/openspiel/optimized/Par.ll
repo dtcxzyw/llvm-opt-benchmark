@@ -1145,7 +1145,7 @@ _Z8rawscoreiii.exit506:                           ; preds = %_Z13VulnerDefSideii
   %325 = add nsw i32 %.0539642, -1
   %.0539.neg = sub nsw i32 1, %.0539642
   %326 = icmp sgt i32 %.0539642, 1
-  br i1 %326, label %320, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !20
+  br i1 %326, label %320, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !18
 
 .lr.ph654:                                        ; preds = %_Z8rawscoreiii.exit506, %_Z8rawscoreiii.exit506.us
   %.0539.lcssa = phi i32 [ %.0539642.us, %_Z8rawscoreiii.exit506.us ], [ %.0539642, %_Z8rawscoreiii.exit506 ]
@@ -1186,7 +1186,7 @@ _Z8rawscoreiii.exit521:                           ; preds = %_Z13VulnerDefSideii
 336:                                              ; preds = %_Z8rawscoreiii.exit521
   %337 = add nsw i32 %.1540652, -1
   %338 = icmp sgt i32 %.1540652, 1
-  br i1 %338, label %.lr.ph654.split, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !21
+  br i1 %338, label %.lr.ph654.split, label %_Z8rawscoreiii.exit521._crit_edge, !llvm.loop !19
 
 _Z8rawscoreiii.exit521._crit_edge:                ; preds = %324, %317, %336, %_Z8rawscoreiii.exit521, %.thread, %309, %.lr.ph654
   %.1540.lcssa = phi i32 [ %.0539.lcssa, %.lr.ph654 ], [ %312, %.thread ], [ %310, %309 ], [ %.1540652, %_Z8rawscoreiii.exit521 ], [ 0, %336 ], [ 0, %317 ], [ 0, %324 ]
@@ -1306,11 +1306,11 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
   store i32 %372, ptr %373, align 4
   %indvars.iv.next736 = add nuw nsw i64 %indvars.iv735, 1
   %exitcond739.not = icmp eq i64 %indvars.iv.next736, %wide.trip.count738
-  br i1 %exitcond739.not, label %.loopexit605, label %274, !llvm.loop !22
+  br i1 %exitcond739.not, label %.loopexit605, label %274, !llvm.loop !20
 
 .loopexit605:                                     ; preds = %_Z14CalcOverTricksiiiiP16parResultsMaster.exit, %_Z9SideSeatsiiiiiP16parResultsMaster.exit, %.preheader607, %.preheader604
   %.3449 = phi i32 [ %.0446678, %.preheader604 ], [ %.2448, %.preheader607 ], [ %.0446678, %_Z9SideSeatsiiiiiP16parResultsMaster.exit ], [ %.2448, %_Z14CalcOverTricksiiiiP16parResultsMaster.exit ]
-  br i1 %195, label %194, label %374, !llvm.loop !23
+  br i1 %195, label %194, label %374, !llvm.loop !21
 
 374:                                              ; preds = %.loopexit605
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false)
@@ -1377,7 +1377,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
   %408 = phi i32 [ %387, %402 ], [ %395, %406 ], [ %387, %399 ], [ %387, %397 ]
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count764
-  br i1 %exitcond760.not, label %._crit_edge684, label %.lr.ph683.split.us, !llvm.loop !24
+  br i1 %exitcond760.not, label %._crit_edge684, label %.lr.ph683.split.us, !llvm.loop !22
 
 .lr.ph683.split:                                  ; preds = %.lr.ph683, %430
   %indvars.iv761 = phi i64 [ %indvars.iv.next762, %430 ], [ 0, %.lr.ph683 ]
@@ -1417,7 +1417,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
   %431 = phi i32 [ %409, %424 ], [ %417, %429 ], [ %409, %421 ], [ %409, %419 ]
   %indvars.iv.next762 = add nuw nsw i64 %indvars.iv761, 1
   %exitcond765.not = icmp eq i64 %indvars.iv.next762, %wide.trip.count764
-  br i1 %exitcond765.not, label %._crit_edge684, label %.lr.ph683.split, !llvm.loop !25
+  br i1 %exitcond765.not, label %._crit_edge684, label %.lr.ph683.split, !llvm.loop !22
 
 ._crit_edge684:                                   ; preds = %407, %430
   %.us-phi686 = phi i32 [ %431, %430 ], [ %408, %407 ]
@@ -1425,7 +1425,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
   br label %432
 
 432:                                              ; preds = %._crit_edge684, %375
-  br i1 %376, label %375, label %433, !llvm.loop !26
+  br i1 %376, label %375, label %433, !llvm.loop !23
 
 433:                                              ; preds = %432
   %434 = load i32, ptr %10, align 8
@@ -1491,7 +1491,7 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
 468:                                              ; preds = %460, %462, %465
   %indvars.iv.next767 = add nuw nsw i64 %indvars.iv766, 1
   %exitcond770.not = icmp eq i64 %indvars.iv.next767, %wide.trip.count769
-  br i1 %exitcond770.not, label %.lr.ph696, label %450, !llvm.loop !27
+  br i1 %exitcond770.not, label %.lr.ph696, label %450, !llvm.loop !24
 
 469:                                              ; preds = %.lr.ph696, %481
   %470 = phi i32 [ %442, %.lr.ph696 ], [ %482, %481 ]
@@ -1520,12 +1520,12 @@ _Z14CalcOverTricksiiiiP16parResultsMaster.exit:   ; preds = %350, %351, %352, %3
   %indvars.iv.next772 = add nuw nsw i64 %indvars.iv771, 1
   %483 = sext i32 %482 to i64
   %484 = icmp slt i64 %indvars.iv.next772, %483
-  br i1 %484, label %469, label %._crit_edge697, !llvm.loop !28
+  br i1 %484, label %469, label %._crit_edge697, !llvm.loop !25
 
 ._crit_edge697:                                   ; preds = %481, %.preheader603
   %.0.lcssa = phi i32 [ 0, %.preheader603 ], [ %.1, %481 ]
   store i32 %.0.lcssa, ptr %441, align 4
-  br i1 %439, label %.preheader603, label %.loopexit, !llvm.loop !29
+  br i1 %439, label %.preheader603, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %_Z8rawscoreiii.exit521._crit_edge, %._crit_edge697, %433, %189
   %.0416 = phi i32 [ 1, %189 ], [ 1, %433 ], [ 1, %._crit_edge697 ], [ -1, %_Z8rawscoreiii.exit521._crit_edge ]
@@ -1966,7 +1966,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
 30:                                               ; preds = %.sink.split, %.preheader103
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.preheader103, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader, label %.preheader103, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
@@ -1989,7 +1989,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   %38 = getelementptr inbounds [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %indvars.iv118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %38, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false)
   %39 = icmp eq i64 %indvars.iv.next119, 0
-  br i1 %39, label %.critedge, label %32, !llvm.loop !31
+  br i1 %39, label %.critedge, label %32, !llvm.loop !28
 
 .critedge:                                        ; preds = %37, %32
   %.0.lcssa = phi i64 [ 0, %37 ], [ %indvars.iv118, %32 ]
@@ -2001,7 +2001,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2127,7 +2127,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr noundef writeonly captures(none) %1
 96:                                               ; preds = %77, %94
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %.loopexit, label %49, !llvm.loop !33
+  br i1 %exitcond128.not, label %.loopexit, label %49, !llvm.loop !30
 
 .loopexit:                                        ; preds = %49, %96, %._crit_edge.thread, %4, %17
   %.088 = phi i32 [ 1, %17 ], [ %7, %4 ], [ 1, %._crit_edge.thread ], [ -1, %49 ], [ 1, %96 ]
@@ -2276,10 +2276,10 @@ switch.lookup:                                    ; preds = %16
   %50 = load i32, ptr %9, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %16, label %._crit_edge, !llvm.loop !34
+  br i1 %52, label %16, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %49, %.preheader
-  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !35
+  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %._crit_edge, %3
   %.078 = phi i32 [ %6, %3 ], [ 1, %._crit_edge ]
@@ -2413,7 +2413,7 @@ switch.lookup:                                    ; preds = %22
   %42 = load i32, ptr %6, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %10, label %._crit_edge, !llvm.loop !36
+  br i1 %44, label %10, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %12, %41, %22, %2
   %.047 = phi i32 [ 1, %2 ], [ 1, %41 ], [ -1, %22 ], [ -1, %12 ]
@@ -2599,7 +2599,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   %59 = load i32, ptr %19, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %23, label %._crit_edge, !llvm.loop !37
+  br i1 %61, label %23, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %58, %13
   br i1 %14, label %62, label %.loopexit154
@@ -2630,7 +2630,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
 72:                                               ; preds = %94
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph165, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph165, !llvm.loop !35
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %72
   %indvars.iv174 = phi i64 [ 0, %.lr.ph165.preheader ], [ %indvars.iv.next175, %72 ]
@@ -2678,7 +2678,7 @@ define range(i32 -1, 2) i32 @ConvertToSidesTextFormat(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %.loopexit.sink.split, %69
-  br label %13, !llvm.loop !39
+  br label %13, !llvm.loop !36
 
 .loopexit154:                                     ; preds = %._crit_edge, %35, %25, %12
   %.0120 = phi i32 [ 1, %12 ], [ -1, %25 ], [ -1, %35 ], [ 1, %._crit_edge ]
@@ -2733,13 +2733,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5, !19}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
@@ -2752,6 +2752,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}

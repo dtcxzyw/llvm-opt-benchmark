@@ -177,7 +177,7 @@ ByteReverseWords.exit71.loopexit72:               ; preds = %.lr.ph.i62
   %56 = add i32 %.15274, -64
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
   %57 = icmp ugt i32 %56, 63
-  br i1 %57, label %.lr.ph.i62.preheader, label %._crit_edge, !llvm.loop !18
+  br i1 %57, label %.lr.ph.i62.preheader, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %ByteReverseWords.exit71.loopexit72, %ByteReverseWords.exit71.loopexit.us, %42
   %.152.lcssa = phi i32 [ %.051, %42 ], [ %50, %ByteReverseWords.exit71.loopexit.us ], [ %56, %ByteReverseWords.exit71.loopexit72 ]
@@ -1277,7 +1277,7 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
   store i32 %10, ptr %0, align 8, !tbaa !10
   %11 = zext nneg i32 %7 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  store i8 -128, ptr %12, align 1, !tbaa !19
+  store i8 -128, ptr %12, align 1, !tbaa !17
   %13 = icmp samesign ugt i32 %7, 55
   br i1 %13, label %14, label %._crit_edge
 
@@ -1538,7 +1538,5 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !14}
-!19 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!6, !6, i64 0}

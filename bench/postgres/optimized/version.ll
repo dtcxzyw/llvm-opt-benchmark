@@ -139,7 +139,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %44 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.7, ptr noundef %41, ptr noundef %43) #7
   %45 = add nuw nsw i32 %.04452, 1
   %exitcond.not = icmp eq i32 %45, %25
-  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.split:                                ; preds = %39
   call void @PQclear(ptr noundef %24) #7
@@ -156,7 +156,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %47 = load i32, ptr %4, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph63.split, label %._crit_edge64, !llvm.loop !8
+  br i1 %49, label %.lr.ph63.split, label %._crit_edge64, !llvm.loop !4
 
 ._crit_edge64.thread:                             ; preds = %.lr.ph63.split.us
   br i1 %spec.select, label %53, label %._crit_edge64.thread.thread
@@ -316,7 +316,7 @@ define internal void @process_extension_updates(ptr noundef readonly captures(no
   %26 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %23, ptr noundef nonnull @.str.18, ptr noundef %25) #7
   %27 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %27, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -352,9 +352,7 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

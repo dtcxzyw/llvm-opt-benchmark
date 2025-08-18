@@ -2164,7 +2164,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.us57: ; preds = %.lr.ph.
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %.fr65) #20
   %32 = load ptr, ptr %.sroa.022.055.us59, align 8, !tbaa !10
   %.not.us60 = icmp eq ptr %32, %0
-  br i1 %.not.us60, label %._crit_edge, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.us57, !llvm.loop !80
+  br i1 %.not.us60, label %._crit_edge, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.us57
 
 .loopexit.split.us:                               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.us57
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -2173,7 +2173,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.us57: ; preds = %.lr.ph.
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit.i, %.lr.ph.i.us.preheader, %.lr.ph, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit
   %.0.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit ], [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated42.us, %.lr.ph.i.us.preheader ], [ %.sroa.speculated42, %._crit_edge.loopexit.i ]
-  %33 = tail call noundef float @sqrtf(float noundef %.0.lcssa) #19, !tbaa !82
+  %33 = tail call noundef float @sqrtf(float noundef %.0.lcssa) #19, !tbaa !80
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %34
 
@@ -2223,7 +2223,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.lr.ph.split
   %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %46, float %.07.i)
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
   %.not.i = icmp eq ptr %48, %45
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !84
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !82
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %49 = fcmp olt float %.056, %47
@@ -2365,8 +2365,6 @@ attributes #21 = { noreturn nounwind }
 !77 = !{!78}
 !78 = distinct !{!78, !79, !"_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_: argument 0"}
 !79 = distinct !{!79, !"_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_"}
-!80 = distinct !{!80, !81}
-!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"int", !8, i64 0}
-!84 = distinct !{!84, !36}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"int", !8, i64 0}
+!82 = distinct !{!82, !36}

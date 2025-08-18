@@ -571,7 +571,7 @@ define internal void @filter_channel_dbl(ptr noundef readonly captures(none) %0,
   store double %145, ptr %146, align 8, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
-  br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -692,6 +692,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !74 = !{!11, !11, i64 0}
 !75 = !{!59, !59, i64 0}
 !76 = distinct !{!76, !28}
-!77 = distinct !{!77, !28, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!79 = distinct !{!79, !28}
+!77 = distinct !{!77, !28}

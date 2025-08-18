@@ -2203,7 +2203,7 @@ define range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) 
   %242 = getelementptr inbounds nuw i8, ptr %.0225398, i64 1
   %243 = load i8, ptr %242, align 1, !tbaa !3
   %.not297 = icmp eq i8 %243, 0
-  br i1 %.not297, label %.thread349, label %.lr.ph399.split, !llvm.loop !38
+  br i1 %.not297, label %.thread349, label %.lr.ph399.split, !llvm.loop !36
 
 244:                                              ; preds = %180
   %245 = call i32 @Curl_dyn_add(ptr noundef nonnull %7, ptr noundef nonnull %2) #10
@@ -2294,7 +2294,7 @@ switch.early.test387:                             ; preds = %256
 267:                                              ; preds = %250, %260, %switch.early.test, %switch.early.test387, %263
   %.sink = phi i64 [ 3, %263 ], [ 1, %switch.early.test387 ], [ 1, %switch.early.test ], [ 1, %260 ], [ 1, %250 ]
   %268 = getelementptr inbounds nuw i8, ptr %.0223, i64 %.sink
-  br label %250, !llvm.loop !39
+  br label %250, !llvm.loop !37
 
 .thread349:                                       ; preds = %250, %208, %241, %.preheader
   %269 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #10
@@ -2687,7 +2687,7 @@ Curl_is_absolute_url.exit.thread302.i:            ; preds = %35
   %101 = icmp samesign ult i32 %.0186.i, 4
   %102 = select i1 %100, i1 %101, i1 false
   %103 = add nuw nsw i32 %.0186.i, 1
-  br i1 %102, label %.preheader, label %104, !llvm.loop !40
+  br i1 %102, label %.preheader, label %104, !llvm.loop !38
 
 104:                                              ; preds = %.preheader
   %105 = call ptr @Curl_get_scheme_handler(ptr noundef nonnull %4) #10
@@ -3095,7 +3095,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %41, %
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %293 = load ptr, ptr %292, align 8, !tbaa !31
   call void %291(ptr noundef %293) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !tbaa.struct !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false), !tbaa.struct !39
   br label %294
 
 294:                                              ; preds = %parseurl.exit, %262
@@ -3317,7 +3317,7 @@ sub_0:                                            ; preds = %11
   store i8 %24, ptr %29, align 1, !tbaa !3
   %30 = load i8, ptr %28, align 1, !tbaa !3
   %.not58 = icmp eq i8 %30, 0
-  br i1 %.not58, label %.thread66, label %.lr.ph, !llvm.loop !43
+  br i1 %.not58, label %.thread66, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph
   %.not59 = icmp ne i64 %indvars.iv, 0
@@ -3668,7 +3668,7 @@ sub_2139:                                         ; preds = %sub_1138
   %89 = getelementptr inbounds i8, ptr %.365, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !3
   %91 = icmp eq i8 %90, 47
-  br i1 %91, label %92, label %86, !llvm.loop !44
+  br i1 %91, label %92, label %86, !llvm.loop !42
 
 92:                                               ; preds = %88, %86
   %.466 = phi ptr [ %89, %88 ], [ %.365, %86 ]
@@ -3697,7 +3697,7 @@ sub_2139:                                         ; preds = %sub_1138
   %100 = getelementptr inbounds i8, ptr %.5, i64 -1
   %101 = load i8, ptr %100, align 1, !tbaa !3
   %102 = icmp eq i8 %101, 47
-  br i1 %102, label %103, label %97, !llvm.loop !45
+  br i1 %102, label %103, label %97, !llvm.loop !43
 
 103:                                              ; preds = %99, %97
   %.6 = phi ptr [ %100, %99 ], [ %.5, %97 ]
@@ -3728,7 +3728,7 @@ sub_2139:                                         ; preds = %sub_1138
   %.163 = phi ptr [ %108, %.critedge ], [ %.062, %60 ], [ %.466, %92 ], [ %.062, %15 ], [ %.062, %26 ]
   %.1 = phi ptr [ %107, %.critedge ], [ %61, %60 ], [ %85, %92 ], [ %16, %15 ], [ %27, %26 ]
   %110 = icmp ult ptr %.1, %4
-  br i1 %110, label %11, label %.thread97, !llvm.loop !46
+  br i1 %110, label %11, label %.thread97, !llvm.loop !44
 
 .thread97:                                        ; preds = %.thread, %80, %103, %50
   store ptr %9, ptr %2, align 8, !tbaa !16
@@ -3803,14 +3803,12 @@ attributes #12 = { nounwind willreturn memory(none) }
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = !{i64 0, i64 8, !16, i64 8, i64 8, !16, i64 16, i64 8, !16, i64 24, i64 8, !16, i64 32, i64 8, !16, i64 40, i64 8, !16, i64 48, i64 8, !16, i64 56, i64 8, !16, i64 64, i64 8, !16, i64 72, i64 8, !16, i64 80, i64 2, !42, i64 82, i64 1, !3}
-!42 = !{!12, !12, i64 0}
+!39 = !{i64 0, i64 8, !16, i64 8, i64 8, !16, i64 16, i64 8, !16, i64 24, i64 8, !16, i64 32, i64 8, !16, i64 40, i64 8, !16, i64 48, i64 8, !16, i64 56, i64 8, !16, i64 64, i64 8, !16, i64 72, i64 8, !16, i64 80, i64 2, !40, i64 82, i64 1, !3}
+!40 = !{!12, !12, i64 0}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}

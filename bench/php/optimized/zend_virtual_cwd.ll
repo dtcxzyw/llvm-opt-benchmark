@@ -436,7 +436,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !17
   %.not.us = icmp eq ptr %30, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %31 = phi i64 [ %74, %73 ], [ %14, %.lr.ph ]
@@ -447,7 +447,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 
 33:                                               ; preds = %.lr.ph.split
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %35 = load i64, ptr %34, align 8, !tbaa !33
+  %35 = load i64, ptr %34, align 8, !tbaa !31
   %36 = icmp slt i64 %35, %2
   br i1 %36, label %37, label %59
 
@@ -516,7 +516,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %.1 = phi ptr [ %.02535, %58 ], [ %72, %71 ]
   %75 = load ptr, ptr %.1, align 8, !tbaa !17
   %.not = icmp eq ptr %75, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %67, %73, %24, %28, %realpath_cache_key.exit
   %.lcssa = phi ptr [ null, %realpath_cache_key.exit ], [ null, %28 ], [ %16, %24 ], [ null, %73 ], [ %32, %67 ]
@@ -707,7 +707,7 @@ define dso_local range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nound
 89:                                               ; preds = %77
   %90 = load ptr, ptr %0, align 8, !tbaa !4
   call void @_efree(ptr noundef %90) #22
-  store ptr %80, ptr %0, align 8, !tbaa !36
+  store ptr %80, ptr %0, align 8, !tbaa !34
   store i64 %78, ptr %76, align 8, !tbaa !22
   br label %98
 
@@ -1004,7 +1004,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   %.0246.shrunk = phi i1 [ true, %.thread ], [ false, %127 ], [ false, %130 ]
   %133 = add i64 %.0244295, 1
   %134 = icmp ugt i64 %133, 32768
-  br i1 %134, label %135, label %137, !prof !37
+  br i1 %134, label %135, label %137, !prof !35
 
 135:                                              ; preds = %132
   %136 = tail call noalias ptr @_emalloc(i64 noundef %133) #24
@@ -1021,7 +1021,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
 
 141:                                              ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %143 = load i32, ptr %142, align 8, !tbaa !38
+  %143 = load i32, ptr %142, align 8, !tbaa !36
   %144 = and i32 %143, 61440
   %145 = icmp eq i32 %144, 40960
   br i1 %145, label %146, label %181
@@ -1039,7 +1039,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %146, %150
-  br i1 %134, label %154, label %263, !prof !37
+  br i1 %134, label %154, label %263, !prof !35
 
 154:                                              ; preds = %153
   call void @_efree(ptr noundef %140) #22
@@ -1058,7 +1058,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %161, label %162, label %178
 
 162:                                              ; preds = %159
-  br i1 %134, label %163, label %263, !prof !37
+  br i1 %134, label %163, label %263, !prof !35
 
 163:                                              ; preds = %162
   call void @_efree(ptr noundef %140) #22
@@ -1070,7 +1070,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %166, label %167, label %169
 
 167:                                              ; preds = %164
-  br i1 %134, label %168, label %263, !prof !37
+  br i1 %134, label %168, label %263, !prof !35
 
 168:                                              ; preds = %167
   call void @_efree(ptr noundef %140) #22
@@ -1089,7 +1089,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %169
-  br i1 %134, label %177, label %263, !prof !37
+  br i1 %134, label %177, label %263, !prof !35
 
 177:                                              ; preds = %176
   call void @_efree(ptr noundef %140) #22
@@ -1122,7 +1122,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %or.cond11.not, label %187, label %.critedge284
 
 187:                                              ; preds = %185
-  br i1 %134, label %188, label %263, !prof !37
+  br i1 %134, label %188, label %263, !prof !35
 
 188:                                              ; preds = %187
   call void @_efree(ptr noundef %140) #22
@@ -1161,7 +1161,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 
   br i1 %.not271, label %205, label %203
 
 203:                                              ; preds = %199, %.thread285
-  br i1 %134, label %204, label %263, !prof !37
+  br i1 %134, label %204, label %263, !prof !35
 
 204:                                              ; preds = %203
   call void @_efree(ptr noundef %140) #22
@@ -1271,7 +1271,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i
   %255 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 32), align 8, !tbaa !16
   %256 = add nsw i64 %255, %216
   %257 = getelementptr inbounds nuw i8, ptr %226, i64 32
-  store i64 %256, ptr %257, align 8, !tbaa !33
+  store i64 %256, ptr %257, align 8, !tbaa !31
   %258 = and i64 %247, 1023
   %259 = getelementptr inbounds nuw [1024 x ptr], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 0, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !17
@@ -1282,7 +1282,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i
   br label %realpath_cache_add.exit
 
 realpath_cache_add.exit:                          ; preds = %246, %225, %222, %211
-  br i1 %134, label %262, label %263, !prof !37
+  br i1 %134, label %262, label %263, !prof !35
 
 262:                                              ; preds = %realpath_cache_add.exit
   call void @_efree(ptr noundef %140) #22
@@ -1318,7 +1318,7 @@ define internal range(i32 0, 2) i32 @php_is_dir_ok(ptr noundef readonly captures
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !38
+  %8 = load i32, ptr %7, align 8, !tbaa !36
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 16384
   br i1 %10, label %12, label %11
@@ -1368,7 +1368,7 @@ define dso_local i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %.critedge
   %16 = icmp ugt i64 %6, 32767
-  br i1 %16, label %17, label %19, !prof !41
+  br i1 %16, label %17, label %19, !prof !39
 
 17:                                               ; preds = %15
   %18 = tail call noalias ptr @_emalloc(i64 noundef %.056) #24
@@ -1388,7 +1388,7 @@ define dso_local i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.166
   store i8 0, ptr %25, align 1, !tbaa !11
   %26 = call i32 %1(ptr noundef %24) #22
-  br i1 %23, label %27, label %28, !prof !37
+  br i1 %23, label %27, label %28, !prof !35
 
 27:                                               ; preds = %22
   call void @_efree(ptr noundef nonnull %24) #22
@@ -1483,7 +1483,7 @@ define dso_local range(i32 -1, 2) i32 @virtual_filepath_ex(ptr noundef readonly 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %11, i1 false)
   %12 = call i32 @virtual_file_ex(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %2, i32 noundef 1)
   %13 = load ptr, ptr %4, align 8, !tbaa !4
-  store ptr %13, ptr %1, align 8, !tbaa !36
+  store ptr %13, ptr %1, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %12
 }
@@ -1505,7 +1505,7 @@ virtual_filepath_ex.exit:
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 %7, i64 %9, i1 false)
   %10 = call range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef nonnull %2, ptr noundef readonly %0, ptr noundef nonnull @php_is_file_ok, i32 noundef 1)
   %11 = load ptr, ptr %2, align 8, !tbaa !4
-  store ptr %11, ptr %1, align 8, !tbaa !36
+  store ptr %11, ptr %1, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %10
 }
@@ -1522,7 +1522,7 @@ define internal range(i32 0, 2) i32 @php_is_file_ok(ptr noundef readonly capture
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !38
+  %8 = load i32, ptr %7, align 8, !tbaa !36
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 32768
   br i1 %10, label %12, label %11
@@ -2389,14 +2389,12 @@ attributes #26 = { nounwind allocsize(1) }
 !28 = !{!20, !6, i64 16}
 !29 = !{!14, !10, i64 16}
 !30 = !{!20, !21, i64 42}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!20, !10, i64 32}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.partial.disable"}
-!36 = !{!6, !6, i64 0}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = !{!39, !24, i64 24}
-!39 = !{!"stat", !10, i64 0, !10, i64 8, !10, i64 16, !24, i64 24, !24, i64 28, !24, i64 32, !24, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !40, i64 72, !40, i64 88, !40, i64 104, !8, i64 120}
-!40 = !{!"timespec", !10, i64 0, !10, i64 8}
-!41 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
+!31 = !{!20, !10, i64 32}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = !{!6, !6, i64 0}
+!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = !{!37, !24, i64 24}
+!37 = !{!"stat", !10, i64 0, !10, i64 8, !10, i64 16, !24, i64 24, !24, i64 28, !24, i64 32, !24, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !38, i64 72, !38, i64 88, !38, i64 104, !8, i64 120}
+!38 = !{!"timespec", !10, i64 0, !10, i64 8}
+!39 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}

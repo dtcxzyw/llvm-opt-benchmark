@@ -616,7 +616,7 @@ define dso_local void @send_sideband(i32 noundef %0, i32 noundef %1, ptr noundef
   %22 = sub nsw i64 %.01924, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   ret void
@@ -703,6 +703,4 @@ attributes #12 = { nounwind willreturn memory(read) }
 !24 = distinct !{!24, !11}
 !25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !11}
+!27 = distinct !{!27, !11}

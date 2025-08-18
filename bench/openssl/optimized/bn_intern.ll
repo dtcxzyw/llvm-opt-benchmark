@@ -129,7 +129,7 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %58 = shl nsw i32 %57, %1
   %59 = add nsw i32 %58, %54
   %60 = icmp sgt i32 %59, %13
-  br i1 %60, label %.thread.sink.split, label %.split.us, !llvm.loop !14
+  br i1 %60, label %.thread.sink.split, label %.split.us
 
 .split:                                           ; preds = %28, %.critedge.thread
   %.069 = phi i32 [ %85, %.critedge.thread ], [ %32, %28 ]
@@ -254,7 +254,7 @@ define i32 @bn_get_top(ptr noundef readonly captures(none) %0) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @bn_get_dmax(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !16
+  %3 = load i32, ptr %2, align 4, !tbaa !14
   ret i32 %3
 }
 
@@ -263,7 +263,7 @@ define void @bn_set_all_zero(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !16
+  %5 = load i32, ptr %4, align 4, !tbaa !14
   %6 = icmp slt i32 %3, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -329,13 +329,13 @@ define void @bn_set_static_words(ptr noundef initializes((0, 20)) %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %2, ptr %5, align 4, !tbaa !16
+  store i32 %2, ptr %5, align 4, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %6, align 8, !tbaa !17
+  store i32 0, ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !18
+  %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = or i32 %8, 2
-  store i32 %9, ptr %7, align 4, !tbaa !18
+  store i32 %9, ptr %7, align 4, !tbaa !16
   tail call void @bn_correct_top(ptr noundef nonnull %0) #7
   ret void
 }
@@ -396,8 +396,6 @@ attributes #7 = { nounwind }
 !11 = !{!"any pointer", !4, i64 0}
 !12 = !{!"int", !4, i64 0}
 !13 = !{!9, !12, i64 8}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!9, !12, i64 12}
-!17 = !{!9, !12, i64 16}
-!18 = !{!9, !12, i64 20}
+!14 = !{!9, !12, i64 12}
+!15 = !{!9, !12, i64 16}
+!16 = !{!9, !12, i64 20}

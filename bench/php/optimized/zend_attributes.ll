@@ -1673,7 +1673,7 @@ zend_string_release.exit25.us:                    ; preds = %50, %49, %42, %38, 
   %52 = load i32, ptr %33, align 4, !tbaa !4
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next32, %53
-  br i1 %54, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !89
+  br i1 %54, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_string_release.exit25, %zend_string_release.exit25.us, %zend_string_release.exit22
   br i1 %.not, label %75, label %74
@@ -1740,7 +1740,7 @@ declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
-  %3 = load i8, ptr %0, align 8, !tbaa !91
+  %3 = load i8, ptr %0, align 8, !tbaa !89
   %.not = icmp eq i8 %3, 1
   br i1 %.not, label %5, label %4
 
@@ -1750,7 +1750,7 @@ define dso_local noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %7 = load ptr, ptr %6, align 8, !tbaa !102
+  %7 = load ptr, ptr %6, align 8, !tbaa !100
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !58
   %.not2628 = icmp eq i32 %9, 0
@@ -1780,7 +1780,7 @@ define dso_local noundef ptr @zend_mark_internal_attribute(ptr noundef %0) local
   %24 = load ptr, ptr %23, align 8, !tbaa !88
   %25 = load ptr, ptr @zend_ce_attribute, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !101
   %28 = icmp eq ptr %24, %27
   br i1 %28, label %zend_string_equals.exit.thread, label %29
 
@@ -1798,16 +1798,16 @@ zend_string_equals.exit:                          ; preds = %29
 
 zend_string_equals.exit.thread:                   ; preds = %22, %zend_string_equals.exit
   %36 = tail call noalias dereferenceable_or_null(24) ptr @__zend_malloc(i64 noundef 24) #17
-  store ptr %0, ptr %36, align 8, !tbaa !104
+  store ptr %0, ptr %36, align 8, !tbaa !102
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = trunc i64 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 %39, ptr %40, align 8, !tbaa !106
+  store i32 %39, ptr %40, align 8, !tbaa !104
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr null, ptr %41, align 8, !tbaa !107
+  store ptr null, ptr %41, align 8, !tbaa !105
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !103
+  %43 = load ptr, ptr %42, align 8, !tbaa !101
   %44 = tail call ptr @zend_string_tolower_ex(ptr noundef %43, i1 noundef zeroext true) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %36, ptr %2, align 8, !tbaa !11
@@ -1865,8 +1865,8 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 define dso_local noundef ptr @zend_internal_attribute_register(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @zend_ce_attribute, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
-  %6 = load i8, ptr %0, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %6 = load i8, ptr %0, align 8, !tbaa !89
   %.not.i = icmp ne i8 %6, 2
   %7 = zext i1 %.not.i to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1887,7 +1887,7 @@ define dso_local noundef ptr @zend_internal_attribute_get(ptr noundef %0) local_
   br i1 %.not.i, label %zend_hash_find_ptr.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %2, align 8, !tbaa !11, !nonnull !108, !noundef !108
+  %4 = load ptr, ptr %2, align 8, !tbaa !11, !nonnull !106, !noundef !106
   br label %zend_hash_find_ptr.exit
 
 zend_hash_find_ptr.exit:                          ; preds = %1, %3
@@ -1940,12 +1940,12 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %13, i8 0, i64 520, i1 false)
-  %32 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %32 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %33 = tail call ptr %32(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %33, ptr %34, align 8, !tbaa !103
+  store ptr %33, ptr %34, align 8, !tbaa !101
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 360
-  store ptr @std_object_handlers, ptr %35, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %35, align 8, !tbaa !108
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 504
   store ptr @class_Attribute_methods, ptr %36, align 8, !tbaa !11
   %37 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %13, ptr noundef null, i32 noundef 32) #16
@@ -1953,11 +1953,11 @@ define hidden void @zend_register_attribute_ce() local_unnamed_addr #0 {
   store i64 1, ptr %14, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %38, align 8, !tbaa !11
-  %39 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %39 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %40 = call ptr %39(ptr noundef nonnull @.str.12, i64 noundef 12, i1 noundef zeroext true) #16
-  store ptr null, ptr %15, align 8, !tbaa !111
+  store ptr null, ptr %15, align 8, !tbaa !109
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 16, ptr %41, align 8, !tbaa !113
+  store i32 16, ptr %41, align 8, !tbaa !111
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 0, ptr %42, align 4
   %43 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %40, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %15) #16
@@ -1994,11 +1994,11 @@ zend_string_release.exit81.i:                     ; preds = %55, %54, %47, %0
   store i64 2, ptr %16, align 8, !tbaa !11
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %56, align 8, !tbaa !11
-  %57 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %57 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %58 = call ptr %57(ptr noundef nonnull @.str.13, i64 noundef 15, i1 noundef zeroext true) #16
-  store ptr null, ptr %17, align 8, !tbaa !111
+  store ptr null, ptr %17, align 8, !tbaa !109
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 16, ptr %59, align 8, !tbaa !113
+  store i32 16, ptr %59, align 8, !tbaa !111
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %60, align 4
   %61 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %58, ptr noundef nonnull %16, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %17) #16
@@ -2035,11 +2035,11 @@ zend_string_release.exit78.i:                     ; preds = %73, %72, %65, %zend
   store i64 4, ptr %18, align 8, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 4, ptr %74, align 8, !tbaa !11
-  %75 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %75 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %76 = call ptr %75(ptr noundef nonnull @.str.14, i64 noundef 13, i1 noundef zeroext true) #16
-  store ptr null, ptr %19, align 8, !tbaa !111
+  store ptr null, ptr %19, align 8, !tbaa !109
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 16, ptr %77, align 8, !tbaa !113
+  store i32 16, ptr %77, align 8, !tbaa !111
   %78 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %78, align 4
   %79 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %76, ptr noundef nonnull %18, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %19) #16
@@ -2076,11 +2076,11 @@ zend_string_release.exit75.i:                     ; preds = %91, %90, %83, %zend
   store i64 8, ptr %20, align 8, !tbaa !11
   %92 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 4, ptr %92, align 8, !tbaa !11
-  %93 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %93 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %94 = call ptr %93(ptr noundef nonnull @.str.15, i64 noundef 15, i1 noundef zeroext true) #16
-  store ptr null, ptr %21, align 8, !tbaa !111
+  store ptr null, ptr %21, align 8, !tbaa !109
   %95 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 16, ptr %95, align 8, !tbaa !113
+  store i32 16, ptr %95, align 8, !tbaa !111
   %96 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 0, ptr %96, align 4
   %97 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %94, ptr noundef nonnull %20, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %21) #16
@@ -2117,11 +2117,11 @@ zend_string_release.exit72.i:                     ; preds = %109, %108, %101, %z
   store i64 16, ptr %22, align 8, !tbaa !11
   %110 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 4, ptr %110, align 8, !tbaa !11
-  %111 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %111 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %112 = call ptr %111(ptr noundef nonnull @.str.16, i64 noundef 21, i1 noundef zeroext true) #16
-  store ptr null, ptr %23, align 8, !tbaa !111
+  store ptr null, ptr %23, align 8, !tbaa !109
   %113 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 16, ptr %113, align 8, !tbaa !113
+  store i32 16, ptr %113, align 8, !tbaa !111
   %114 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %114, align 4
   %115 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %112, ptr noundef nonnull %22, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %23) #16
@@ -2158,11 +2158,11 @@ zend_string_release.exit69.i:                     ; preds = %127, %126, %119, %z
   store i64 32, ptr %24, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 4, ptr %128, align 8, !tbaa !11
-  %129 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %129 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %130 = call ptr %129(ptr noundef nonnull @.str.17, i64 noundef 16, i1 noundef zeroext true) #16
-  store ptr null, ptr %25, align 8, !tbaa !111
+  store ptr null, ptr %25, align 8, !tbaa !109
   %131 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 16, ptr %131, align 8, !tbaa !113
+  store i32 16, ptr %131, align 8, !tbaa !111
   %132 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 0, ptr %132, align 4
   %133 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %130, ptr noundef nonnull %24, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %25) #16
@@ -2199,11 +2199,11 @@ zend_string_release.exit66.i:                     ; preds = %145, %144, %137, %z
   store i64 63, ptr %26, align 8, !tbaa !11
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 4, ptr %146, align 8, !tbaa !11
-  %147 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %147 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %148 = call ptr %147(ptr noundef nonnull @.str.18, i64 noundef 10, i1 noundef zeroext true) #16
-  store ptr null, ptr %27, align 8, !tbaa !111
+  store ptr null, ptr %27, align 8, !tbaa !109
   %149 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 16, ptr %149, align 8, !tbaa !113
+  store i32 16, ptr %149, align 8, !tbaa !111
   %150 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 0, ptr %150, align 4
   %151 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %148, ptr noundef nonnull %26, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %27) #16
@@ -2240,11 +2240,11 @@ zend_string_release.exit63.i:                     ; preds = %163, %162, %155, %z
   store i64 64, ptr %28, align 8, !tbaa !11
   %164 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 4, ptr %164, align 8, !tbaa !11
-  %165 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %165 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %166 = call ptr %165(ptr noundef nonnull @.str.19, i64 noundef 13, i1 noundef zeroext true) #16
-  store ptr null, ptr %29, align 8, !tbaa !111
+  store ptr null, ptr %29, align 8, !tbaa !109
   %167 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 16, ptr %167, align 8, !tbaa !113
+  store i32 16, ptr %167, align 8, !tbaa !111
   %168 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 0, ptr %168, align 4
   %169 = call ptr @zend_declare_typed_class_constant(ptr noundef %37, ptr noundef %166, ptr noundef nonnull %28, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %29) #16
@@ -2292,9 +2292,9 @@ zend_string_release.exit60.i:                     ; preds = %181, %180, %173, %z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %187, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 29
   store i8 0, ptr %188, align 1, !tbaa !11
-  store ptr null, ptr %31, align 8, !tbaa !111
+  store ptr null, ptr %31, align 8, !tbaa !109
   %189 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 16, ptr %189, align 8, !tbaa !113
+  store i32 16, ptr %189, align 8, !tbaa !111
   %190 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %190, align 4
   %191 = call ptr @zend_declare_typed_property(ptr noundef %37, ptr noundef nonnull %183, ptr noundef nonnull %30, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %31) #16
@@ -2326,9 +2326,9 @@ zend_string_release.exit60.i:                     ; preds = %181, %180, %173, %z
   br label %zend_string_release.exit57.i
 
 zend_string_release.exit57.i:                     ; preds = %202, %201, %194, %zend_string_release.exit60.i
-  %203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %204 = call ptr %203(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %205 = load i8, ptr %37, align 8, !tbaa !91
+  %205 = load i8, ptr %37, align 8, !tbaa !89
   %.not.i82.i = icmp ne i8 %205, 2
   %206 = zext i1 %.not.i82.i to i32
   %207 = getelementptr inbounds nuw i8, ptr %37, i64 472
@@ -2389,18 +2389,18 @@ register_class_Attribute.exit:                    ; preds = %zend_string_release
   %223 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %12, i8 0, i64 520, i1 false)
-  %224 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %224 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %225 = call ptr %224(ptr noundef nonnull @.str.24, i64 noundef 20, i1 noundef zeroext true) #16
   %226 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %225, ptr %226, align 8, !tbaa !103
+  store ptr %225, ptr %226, align 8, !tbaa !101
   %227 = getelementptr inbounds nuw i8, ptr %12, i64 360
-  store ptr @std_object_handlers, ptr %227, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %227, align 8, !tbaa !108
   %228 = getelementptr inbounds nuw i8, ptr %12, i64 504
   store ptr @class_ReturnTypeWillChange_methods, ptr %228, align 8, !tbaa !11
   %229 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %12, ptr noundef null, i32 noundef 32) #16
-  %230 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %230 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %231 = call ptr %230(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %232 = load i8, ptr %229, align 8, !tbaa !91
+  %232 = load i8, ptr %229, align 8, !tbaa !89
   %.not.i12.i = icmp ne i8 %232, 2
   %233 = zext i1 %.not.i12.i to i32
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 472
@@ -2443,18 +2443,18 @@ register_class_ReturnTypeWillChange.exit:         ; preds = %register_class_Attr
   %250 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %229)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %11, i8 0, i64 520, i1 false)
-  %251 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %251 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %252 = call ptr %251(ptr noundef nonnull @.str.25, i64 noundef 22, i1 noundef zeroext true) #16
   %253 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %252, ptr %253, align 8, !tbaa !103
+  store ptr %252, ptr %253, align 8, !tbaa !101
   %254 = getelementptr inbounds nuw i8, ptr %11, i64 360
-  store ptr @std_object_handlers, ptr %254, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %254, align 8, !tbaa !108
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 504
   store ptr @class_AllowDynamicProperties_methods, ptr %255, align 8, !tbaa !11
   %256 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %11, ptr noundef null, i32 noundef 32) #16
-  %257 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %257 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %258 = call ptr %257(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %259 = load i8, ptr %256, align 8, !tbaa !91
+  %259 = load i8, ptr %256, align 8, !tbaa !89
   %.not.i12.i3 = icmp ne i8 %259, 2
   %260 = zext i1 %.not.i12.i3 to i32
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 472
@@ -2496,21 +2496,21 @@ register_class_AllowDynamicProperties.exit:       ; preds = %register_class_Retu
   store ptr %256, ptr @zend_ce_allow_dynamic_properties, align 8, !tbaa !52
   %277 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %256)
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  store ptr @validate_allow_dynamic_properties, ptr %278, align 8, !tbaa !107
+  store ptr @validate_allow_dynamic_properties, ptr %278, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %10, i8 0, i64 520, i1 false)
-  %279 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %279 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %280 = call ptr %279(ptr noundef nonnull @.str.30, i64 noundef 18, i1 noundef zeroext true) #16
   %281 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %280, ptr %281, align 8, !tbaa !103
+  store ptr %280, ptr %281, align 8, !tbaa !101
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  store ptr @std_object_handlers, ptr %282, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %282, align 8, !tbaa !108
   %283 = getelementptr inbounds nuw i8, ptr %10, i64 504
   store ptr @class_SensitiveParameter_methods, ptr %283, align 8, !tbaa !11
   %284 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %10, ptr noundef null, i32 noundef 8224) #16
-  %285 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %285 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %286 = call ptr %285(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %287 = load i8, ptr %284, align 8, !tbaa !91
+  %287 = load i8, ptr %284, align 8, !tbaa !89
   %.not.i12.i6 = icmp ne i8 %287, 2
   %288 = zext i1 %.not.i12.i6 to i32
   %289 = getelementptr inbounds nuw i8, ptr %284, i64 472
@@ -2552,16 +2552,16 @@ register_class_SensitiveParameter.exit:           ; preds = %register_class_Allo
   store ptr %284, ptr @zend_ce_sensitive_parameter, align 8, !tbaa !52
   %305 = call ptr @zend_mark_internal_attribute(ptr noundef nonnull %284)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @attributes_object_handlers_sensitive_parameter_value, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 192, i1 false)
-  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @attributes_object_handlers_sensitive_parameter_value, i64 192), align 8, !tbaa !114
+  store ptr @attributes_sensitive_parameter_value_get_properties_for, ptr getelementptr inbounds nuw (i8, ptr @attributes_object_handlers_sensitive_parameter_value, i64 192), align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %7, i8 0, i64 520, i1 false)
-  %306 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %306 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %307 = call ptr %306(ptr noundef nonnull @.str.31, i64 noundef 23, i1 noundef zeroext true) #16
   %308 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %307, ptr %308, align 8, !tbaa !103
+  store ptr %307, ptr %308, align 8, !tbaa !101
   %309 = getelementptr inbounds nuw i8, ptr %7, i64 360
-  store ptr @std_object_handlers, ptr %309, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %309, align 8, !tbaa !108
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 504
   store ptr @class_SensitiveParameterValue_methods, ptr %310, align 8, !tbaa !11
   %311 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %7, ptr noundef null, i32 noundef 536879136) #16
@@ -2571,9 +2571,9 @@ register_class_SensitiveParameter.exit:           ; preds = %register_class_Allo
   %313 = load ptr, ptr @zend_known_strings, align 8, !tbaa !53
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 168
   %315 = load ptr, ptr %314, align 8, !tbaa !55
-  store ptr null, ptr %9, align 8, !tbaa !111
+  store ptr null, ptr %9, align 8, !tbaa !109
   %316 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 1022, ptr %316, align 8, !tbaa !113
+  store i32 1022, ptr %316, align 8, !tbaa !111
   %317 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %317, align 4
   %318 = call ptr @zend_declare_typed_property(ptr noundef %311, ptr noundef %315, ptr noundef nonnull %8, i32 noundef 132, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #16
@@ -2582,21 +2582,21 @@ register_class_SensitiveParameter.exit:           ; preds = %register_class_Allo
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %311, ptr @zend_ce_sensitive_parameter_value, align 8, !tbaa !52
   %319 = getelementptr inbounds nuw i8, ptr %311, i64 360
-  store ptr @attributes_object_handlers_sensitive_parameter_value, ptr %319, align 8, !tbaa !110
+  store ptr @attributes_object_handlers_sensitive_parameter_value, ptr %319, align 8, !tbaa !108
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %6, i8 0, i64 520, i1 false)
-  %320 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %320 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %321 = call ptr %320(ptr noundef nonnull @.str.38, i64 noundef 8, i1 noundef zeroext true) #16
   %322 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %321, ptr %322, align 8, !tbaa !103
+  store ptr %321, ptr %322, align 8, !tbaa !101
   %323 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  store ptr @std_object_handlers, ptr %323, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %323, align 8, !tbaa !108
   %324 = getelementptr inbounds nuw i8, ptr %6, i64 504
   store ptr @class_Override_methods, ptr %324, align 8, !tbaa !11
   %325 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %6, ptr noundef null, i32 noundef 8224) #16
-  %326 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %326 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %327 = call ptr %326(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %328 = load i8, ptr %325, align 8, !tbaa !91
+  %328 = load i8, ptr %325, align 8, !tbaa !89
   %.not.i12.i9 = icmp ne i8 %328, 2
   %329 = zext i1 %.not.i12.i9 to i32
   %330 = getelementptr inbounds nuw i8, ptr %325, i64 472
@@ -2641,12 +2641,12 @@ register_class_Override.exit:                     ; preds = %register_class_Sens
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %1, i8 0, i64 520, i1 false)
-  %347 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %347 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %348 = call ptr %347(ptr noundef nonnull @.str.39, i64 noundef 10, i1 noundef zeroext true) #16
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %348, ptr %349, align 8, !tbaa !103
+  store ptr %348, ptr %349, align 8, !tbaa !101
   %350 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  store ptr @std_object_handlers, ptr %350, align 8, !tbaa !110
+  store ptr @std_object_handlers, ptr %350, align 8, !tbaa !108
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 504
   store ptr @class_Deprecated_methods, ptr %351, align 8, !tbaa !11
   %352 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %1, ptr noundef null, i32 noundef 8224) #16
@@ -2656,9 +2656,9 @@ register_class_Override.exit:                     ; preds = %register_class_Sens
   %354 = load ptr, ptr @zend_known_strings, align 8, !tbaa !53
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 208
   %356 = load ptr, ptr %355, align 8, !tbaa !55
-  store ptr null, ptr %3, align 8, !tbaa !111
+  store ptr null, ptr %3, align 8, !tbaa !109
   %357 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 66, ptr %357, align 8, !tbaa !113
+  store i32 66, ptr %357, align 8, !tbaa !111
   %358 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %358, align 4
   %359 = call ptr @zend_declare_typed_property(ptr noundef %352, ptr noundef %356, ptr noundef nonnull %2, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %3) #16
@@ -2668,15 +2668,15 @@ register_class_Override.exit:                     ; preds = %register_class_Sens
   %361 = load ptr, ptr @zend_known_strings, align 8, !tbaa !53
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 608
   %363 = load ptr, ptr %362, align 8, !tbaa !55
-  store ptr null, ptr %5, align 8, !tbaa !111
+  store ptr null, ptr %5, align 8, !tbaa !109
   %364 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 66, ptr %364, align 8, !tbaa !113
+  store i32 66, ptr %364, align 8, !tbaa !111
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %365, align 4
   %366 = call ptr @zend_declare_typed_property(ptr noundef %352, ptr noundef %363, ptr noundef nonnull %4, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #16
-  %367 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !109
+  %367 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !107
   %368 = call ptr %367(ptr noundef nonnull @.str.11, i64 noundef 9, i1 noundef zeroext true) #16
-  %369 = load i8, ptr %352, align 8, !tbaa !91
+  %369 = load i8, ptr %352, align 8, !tbaa !89
   %.not.i14.i = icmp ne i8 %369, 2
   %370 = zext i1 %.not.i14.i to i32
   %371 = getelementptr inbounds nuw i8, ptr %352, i64 472
@@ -2734,14 +2734,14 @@ define internal void @free_internal_attribute(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define internal void @validate_allow_dynamic_properties(ptr readnone captures(none) %0, i32 %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !116
+  %5 = load i32, ptr %4, align 4, !tbaa !114
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.26, ptr noundef nonnull %10) #20
   unreachable
@@ -2753,7 +2753,7 @@ define internal void @validate_allow_dynamic_properties(ptr readnone captures(no
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !103
+  %15 = load ptr, ptr %14, align 8, !tbaa !101
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef nonnull %16) #20
   unreachable
@@ -2765,7 +2765,7 @@ define internal void @validate_allow_dynamic_properties(ptr readnone captures(no
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !103
+  %21 = load ptr, ptr %20, align 8, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.28, ptr noundef nonnull %22) #20
   unreachable
@@ -2777,14 +2777,14 @@ define internal void @validate_allow_dynamic_properties(ptr readnone captures(no
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !101
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.29, ptr noundef nonnull %28) #20
   unreachable
 
 29:                                               ; preds = %23
   %30 = or i32 %5, 32768
-  store i32 %30, ptr %4, align 4, !tbaa !116
+  store i32 %30, ptr %4, align 4, !tbaa !114
   ret void
 }
 
@@ -2962,31 +2962,29 @@ attributes #20 = { noreturn nounwind }
 !86 = !{!46, !46, i64 0}
 !87 = !{!23, !23, i64 0}
 !88 = !{!5, !6, i64 0}
-!89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!91 = !{!92, !8, i64 0}
-!92 = !{!"_zend_class_entry", !8, i64 0, !6, i64 8, !8, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !24, i64 40, !24, i64 48, !24, i64 56, !19, i64 64, !19, i64 120, !19, i64 176, !93, i64 232, !94, i64 240, !95, i64 248, !67, i64 256, !67, i64 264, !67, i64 272, !67, i64 280, !67, i64 288, !67, i64 296, !67, i64 304, !67, i64 312, !67, i64 320, !67, i64 328, !67, i64 336, !67, i64 344, !67, i64 352, !96, i64 360, !97, i64 368, !98, i64 376, !8, i64 384, !7, i64 392, !7, i64 400, !7, i64 408, !7, i64 416, !10, i64 424, !10, i64 428, !10, i64 432, !10, i64 436, !8, i64 440, !99, i64 448, !100, i64 456, !101, i64 464, !23, i64 472, !10, i64 480, !23, i64 488, !6, i64 496, !8, i64 504}
-!93 = !{!"p1 _ZTS24_zend_class_mutable_data", !7, i64 0}
-!94 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !7, i64 0}
-!95 = !{!"p2 _ZTS19_zend_property_info", !7, i64 0}
-!96 = !{!"p1 _ZTS21_zend_object_handlers", !7, i64 0}
-!97 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !7, i64 0}
-!98 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !7, i64 0}
-!99 = !{!"p1 _ZTS16_zend_class_name", !7, i64 0}
-!100 = !{!"p2 _ZTS17_zend_trait_alias", !7, i64 0}
-!101 = !{!"p2 _ZTS22_zend_trait_precedence", !7, i64 0}
-!102 = !{!92, !23, i64 472}
-!103 = !{!92, !6, i64 8}
-!104 = !{!105, !27, i64 0}
-!105 = !{!"_zend_internal_attribute", !27, i64 0, !10, i64 8, !7, i64 16}
-!106 = !{!105, !10, i64 8}
-!107 = !{!105, !7, i64 16}
-!108 = !{}
-!109 = !{!7, !7, i64 0}
-!110 = !{!92, !96, i64 360}
-!111 = !{!112, !7, i64 0}
-!112 = !{!"", !7, i64 0, !10, i64 8}
-!113 = !{!112, !10, i64 8}
-!114 = !{!115, !7, i64 192}
-!115 = !{!"_zend_object_handlers", !10, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192}
-!116 = !{!92, !10, i64 28}
+!89 = !{!90, !8, i64 0}
+!90 = !{!"_zend_class_entry", !8, i64 0, !6, i64 8, !8, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !24, i64 40, !24, i64 48, !24, i64 56, !19, i64 64, !19, i64 120, !19, i64 176, !91, i64 232, !92, i64 240, !93, i64 248, !67, i64 256, !67, i64 264, !67, i64 272, !67, i64 280, !67, i64 288, !67, i64 296, !67, i64 304, !67, i64 312, !67, i64 320, !67, i64 328, !67, i64 336, !67, i64 344, !67, i64 352, !94, i64 360, !95, i64 368, !96, i64 376, !8, i64 384, !7, i64 392, !7, i64 400, !7, i64 408, !7, i64 416, !10, i64 424, !10, i64 428, !10, i64 432, !10, i64 436, !8, i64 440, !97, i64 448, !98, i64 456, !99, i64 464, !23, i64 472, !10, i64 480, !23, i64 488, !6, i64 496, !8, i64 504}
+!91 = !{!"p1 _ZTS24_zend_class_mutable_data", !7, i64 0}
+!92 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !7, i64 0}
+!93 = !{!"p2 _ZTS19_zend_property_info", !7, i64 0}
+!94 = !{!"p1 _ZTS21_zend_object_handlers", !7, i64 0}
+!95 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !7, i64 0}
+!96 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !7, i64 0}
+!97 = !{!"p1 _ZTS16_zend_class_name", !7, i64 0}
+!98 = !{!"p2 _ZTS17_zend_trait_alias", !7, i64 0}
+!99 = !{!"p2 _ZTS22_zend_trait_precedence", !7, i64 0}
+!100 = !{!90, !23, i64 472}
+!101 = !{!90, !6, i64 8}
+!102 = !{!103, !27, i64 0}
+!103 = !{!"_zend_internal_attribute", !27, i64 0, !10, i64 8, !7, i64 16}
+!104 = !{!103, !10, i64 8}
+!105 = !{!103, !7, i64 16}
+!106 = !{}
+!107 = !{!7, !7, i64 0}
+!108 = !{!90, !94, i64 360}
+!109 = !{!110, !7, i64 0}
+!110 = !{!"", !7, i64 0, !10, i64 8}
+!111 = !{!110, !10, i64 8}
+!112 = !{!113, !7, i64 192}
+!113 = !{!"_zend_object_handlers", !10, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !7, i64 192}
+!114 = !{!90, !10, i64 28}

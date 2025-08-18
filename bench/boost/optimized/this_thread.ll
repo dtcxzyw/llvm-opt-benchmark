@@ -2222,18 +2222,18 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !55
-  %25 = load ptr, ptr %11, align 8, !tbaa !55
+  %24 = load ptr, ptr %23, align 8, !tbaa !54
+  %25 = load ptr, ptr %11, align 8, !tbaa !54
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit, label %27
 
 27:                                               ; preds = %22
-  %28 = load i8, ptr %24, align 1, !tbaa !57
+  %28 = load i8, ptr %24, align 1, !tbaa !56
   %.not.i.i = icmp eq i8 %28, 42
   br i1 %.not.i.i, label %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit, label %_ZNKSt9type_infoeqERKS_.exit.i
 
 _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %27
-  %29 = load i8, ptr %25, align 1, !tbaa !57
+  %29 = load i8, ptr %25, align 1, !tbaa !56
   %30 = icmp eq i8 %29, 42
   %.idx.i.i.i = zext i1 %30 to i64
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i
@@ -2245,13 +2245,13 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   %34 = getelementptr inbounds nuw i8, ptr %.01750, i64 32
   %.017 = load ptr, ptr %34, align 8, !tbaa !18
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEE4lockEv.exit, label %.lr.ph.split, !llvm.loop !58
+  br i1 %.not, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEE4lockEv.exit, label %.lr.ph.split, !llvm.loop !52
 
 _ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEE4lockEv.exit: ; preds = %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit, %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit.us, %4
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   %36 = tail call noundef ptr %2(ptr noundef %3)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !57
   %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #5
   %.151 = load ptr, ptr %7, align 8, !tbaa !18
   %.not2152 = icmp eq ptr %.151, null
@@ -2279,7 +2279,7 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   %46 = getelementptr inbounds nuw i8, ptr %.153.us, i64 32
   %.1.us = load ptr, ptr %46, align 8, !tbaa !18
   %.not21.us = icmp eq ptr %.1.us, null
-  br i1 %.not21.us, label %.thread, label %.lr.ph54.split.us, !llvm.loop !60
+  br i1 %.not21.us, label %.thread, label %.lr.ph54.split.us, !llvm.loop !58
 
 .lr.ph54.split:                                   ; preds = %.lr.ph54, %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit31
   %.153 = phi ptr [ %.1, %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit31 ], [ %.151, %.lr.ph54 ]
@@ -2298,18 +2298,18 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !55
-  %56 = load ptr, ptr %42, align 8, !tbaa !55
+  %55 = load ptr, ptr %54, align 8, !tbaa !54
+  %56 = load ptr, ptr %42, align 8, !tbaa !54
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %.split.us, label %58
 
 58:                                               ; preds = %53
-  %59 = load i8, ptr %55, align 1, !tbaa !57
+  %59 = load i8, ptr %55, align 1, !tbaa !56
   %.not.i.i26 = icmp eq i8 %59, 42
   br i1 %.not.i.i26, label %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit31, label %_ZNKSt9type_infoeqERKS_.exit.i27
 
 _ZNKSt9type_infoeqERKS_.exit.i27:                 ; preds = %58
-  %60 = load i8, ptr %56, align 1, !tbaa !57
+  %60 = load i8, ptr %56, align 1, !tbaa !56
   %61 = icmp eq i8 %60, 42
   %.idx.i.i.i28 = zext i1 %61 to i64
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i28
@@ -2321,12 +2321,12 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   %65 = getelementptr inbounds nuw i8, ptr %.153, i64 32
   %.1 = load ptr, ptr %65, align 8, !tbaa !18
   %.not21 = icmp eq ptr %.1, null
-  br i1 %.not21, label %.thread, label %.lr.ph54.split, !llvm.loop !61
+  br i1 %.not21, label %.thread, label %.lr.ph54.split, !llvm.loop !58
 
 .thread:                                          ; preds = %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit31, %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit31.us, %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEE4lockEv.exit
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %.151, ptr %66, align 8, !tbaa !50
-  store ptr %36, ptr %7, align 8, !tbaa !62
+  store ptr %36, ptr %7, align 8, !tbaa !59
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit
 
 .split.us:                                        ; preds = %.lr.ph54.split, %53, %_ZNKSt9type_infoeqERKS_.exit.i27, %.lr.ph54.split.us
@@ -2431,7 +2431,7 @@ _ZNK5boost4asio9execution6detail20any_executor_contextINS1_12any_executorIJNS1_1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !63
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
   %41 = icmp eq ptr %38, %40
   br i1 %41, label %42, label %_ZNSt8optionalIN5boost4asio15any_io_executorEE5resetEv.exit
 
@@ -2605,15 +2605,12 @@ attributes #26 = { builtin allocsize(0) }
 !49 = !{!46, !40, i64 20}
 !50 = !{!51, !13, i64 32}
 !51 = !{!"_ZTSN5boost4asio17execution_context7serviceE", !30, i64 8, !13, i64 24, !13, i64 32}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = !{!56, !13, i64 8}
-!56 = !{!"_ZTSSt9type_info", !13, i64 8}
-!57 = !{!5, !5, i64 0}
+!54 = !{!55, !13, i64 8}
+!55 = !{!"_ZTSSt9type_info", !13, i64 8}
+!56 = !{!5, !5, i64 0}
+!57 = !{i64 0, i64 8, !18, i64 8, i64 8, !18}
 !58 = distinct !{!58, !53}
-!59 = !{i64 0, i64 8, !18, i64 8, i64 8, !18}
-!60 = distinct !{!60, !53, !54}
-!61 = distinct !{!61, !53}
-!62 = !{!33, !13, i64 56}
-!63 = !{!51, !13, i64 24}
+!59 = !{!33, !13, i64 56}
+!60 = !{!51, !13, i64 24}

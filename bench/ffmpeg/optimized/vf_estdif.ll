@@ -602,9 +602,10 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %24 = load i32, ptr %13, align 4, !tbaa !51
   %25 = sub nsw i32 0, %10
   %26 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
-  %27 = icmp samesign ugt i32 %26, %10
+  %.fr214 = freeze i32 %26
+  %27 = icmp sgt i32 %.fr214, %10
   %.not181 = icmp sgt i32 %10, -1
-  %or.cond182 = select i1 %.not181, i1 %27, i1 false
+  %or.cond182 = and i1 %.not181, %27
   br i1 %or.cond182, label %.lr.ph188, label %.critedge.preheader
 
 .lr.ph188:                                        ; preds = %14
@@ -617,13 +618,13 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %33 = getelementptr inbounds i8, ptr %3, i64 %29
   %34 = load i8, ptr %33, align 1, !tbaa !78
   %35 = zext i8 %34 to i32
-  br i1 %.not165178, label %.lr.ph188.split.us, label %.lr.ph
+  br i1 %.not165178, label %.lr.ph188.split.us.split, label %.lr.ph
 
-.lr.ph188.split.us:                               ; preds = %.lr.ph188, %.lr.ph188.split.us
-  %.0186.us = phi i32 [ %.1.us, %.lr.ph188.split.us ], [ 0, %.lr.ph188 ]
-  %.0144185.us = phi i32 [ %.1145.us, %.lr.ph188.split.us ], [ -1, %.lr.ph188 ]
-  %.0153184.us = phi i32 [ %.1154.us, %.lr.ph188.split.us ], [ 0, %.lr.ph188 ]
-  %.0157183.us = phi i32 [ %61, %.lr.ph188.split.us ], [ %25, %.lr.ph188 ]
+.lr.ph188.split.us.split:                         ; preds = %.lr.ph188, %.lr.ph188.split.us.split
+  %.0186.us = phi i32 [ %.1.us, %.lr.ph188.split.us.split ], [ 0, %.lr.ph188 ]
+  %.0144185.us = phi i32 [ %.1145.us, %.lr.ph188.split.us.split ], [ -1, %.lr.ph188 ]
+  %.0153184.us = phi i32 [ %.1154.us, %.lr.ph188.split.us.split ], [ 0, %.lr.ph188 ]
+  %.0157183.us = phi i32 [ %61, %.lr.ph188.split.us.split ], [ %25, %.lr.ph188 ]
   %36 = add nsw i32 %.0157183.us, %8
   %37 = icmp slt i32 %36, 0
   %..i7.i.i.us = tail call i32 @llvm.smin.i32(i32 %36, i32 range(i32 -2147483648, 2147483647) %23)
@@ -656,11 +657,11 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.1154.us = select i1 %60, i32 %.0157183.us, i32 %.0153184.us
   %.1145.us = tail call i32 @llvm.umin.i32(i32 %.0144185.us, i32 %59)
   %.1.us = select i1 %60, i32 1, i32 %.0186.us
-  %61 = add nsw i32 %.0157183.us, 1
-  %.not.us = icmp slt i32 %.0157183.us, %10
-  br i1 %.not.us, label %.lr.ph188.split.us, label %.lr.ph206.thread, !llvm.loop !79
+  %61 = add i32 %.0157183.us, 1
+  %exitcond219.not = icmp eq i32 %.0157183.us, %10
+  br i1 %exitcond219.not, label %.lr.ph209.thread, label %.lr.ph188.split.us.split, !llvm.loop !79
 
-.lr.ph206.thread:                                 ; preds = %.lr.ph188.split.us
+.lr.ph209.thread:                                 ; preds = %.lr.ph188.split.us.split
   %62 = sext i32 %8 to i64
   %63 = getelementptr inbounds i8, ptr %2, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !78
@@ -674,16 +675,16 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.0153.lcssa = phi i32 [ 0, %14 ], [ %.1154, %._crit_edge ]
   %.0144.lcssa = phi i32 [ -1, %14 ], [ %.1145, %._crit_edge ]
   %.0.lcssa = phi i32 [ 0, %14 ], [ %.1, %._crit_edge ]
-  %.not162201 = icmp slt i32 %10, 0
-  br i1 %.not162201, label %.critedge.preheader..critedge._crit_edge_crit_edge, label %.lr.ph206
+  %.not162204 = icmp slt i32 %10, 0
+  br i1 %.not162204, label %.critedge.preheader..critedge._crit_edge_crit_edge, label %.lr.ph209
 
 .critedge.preheader..critedge._crit_edge_crit_edge: ; preds = %.critedge.preheader
   %.pre = sext i32 %8 to i64
   br label %.critedge._crit_edge
 
-.lr.ph206:                                        ; preds = %.critedge.preheader
+.lr.ph209:                                        ; preds = %.critedge.preheader
   %69 = sub nsw i32 0, %11
-  %.not164194 = icmp slt i32 %11, 0
+  %.not164197 = icmp slt i32 %11, 0
   %70 = add nsw i32 %24, %8
   %71 = sext i32 %8 to i64
   %72 = getelementptr inbounds i8, ptr %2, i64 %71
@@ -692,23 +693,23 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %75 = getelementptr inbounds i8, ptr %3, i64 %71
   %76 = load i8, ptr %75, align 1, !tbaa !78
   %77 = zext i8 %76 to i32
-  br i1 %.not164194, label %.critedge.us.preheader, label %.lr.ph198
+  br i1 %.not164197, label %.critedge.us.preheader, label %.lr.ph201
 
-.critedge.us.preheader:                           ; preds = %.lr.ph206.thread, %.lr.ph206
-  %78 = phi i32 [ %68, %.lr.ph206.thread ], [ %77, %.lr.ph206 ]
-  %79 = phi i32 [ %65, %.lr.ph206.thread ], [ %74, %.lr.ph206 ]
-  %80 = phi i64 [ %62, %.lr.ph206.thread ], [ %71, %.lr.ph206 ]
-  %.0153.lcssa222231 = phi i32 [ %.1154.us, %.lr.ph206.thread ], [ %.0153.lcssa, %.lr.ph206 ]
-  %.0144.lcssa223230 = phi i32 [ %.1145.us, %.lr.ph206.thread ], [ %.0144.lcssa, %.lr.ph206 ]
-  %.0.lcssa224229 = phi i32 [ %.1.us, %.lr.ph206.thread ], [ %.0.lcssa, %.lr.ph206 ]
+.critedge.us.preheader:                           ; preds = %.lr.ph209.thread, %.lr.ph209
+  %78 = phi i32 [ %68, %.lr.ph209.thread ], [ %77, %.lr.ph209 ]
+  %79 = phi i32 [ %65, %.lr.ph209.thread ], [ %74, %.lr.ph209 ]
+  %80 = phi i64 [ %62, %.lr.ph209.thread ], [ %71, %.lr.ph209 ]
+  %.0153.lcssa228237 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
+  %.0144.lcssa229236 = phi i32 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0.lcssa230235 = phi i32 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.critedge.us
-  %.2205.us = phi i32 [ %.3.us, %.critedge.us ], [ %.0.lcssa224229, %.critedge.us.preheader ]
-  %.2146204.us = phi i32 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa223230, %.critedge.us.preheader ]
-  %.0150203.us = phi i32 [ %107, %.critedge.us ], [ %25, %.critedge.us.preheader ]
-  %.0151202.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
-  %81 = add nsw i32 %.0150203.us, %24
+  %.2208.us = phi i32 [ %.3.us, %.critedge.us ], [ %.0.lcssa230235, %.critedge.us.preheader ]
+  %.2146207.us = phi i32 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa229236, %.critedge.us.preheader ]
+  %.0150206.us = phi i32 [ %107, %.critedge.us ], [ %25, %.critedge.us.preheader ]
+  %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
+  %81 = add nsw i32 %.0150206.us, %24
   %82 = add nsw i32 %81, %8
   %83 = icmp slt i32 %82, 0
   %..i7.i.i173.us = tail call i32 @llvm.smin.i32(i32 %82, i32 range(i32 -2147483648, 2147483647) %23)
@@ -737,13 +738,13 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %103 = tail call i32 @llvm.abs.i32(i32 %81, i1 true)
   %104 = mul nsw i32 %103, %20
   %105 = add i32 %104, %102
-  %106 = icmp ugt i32 %.2146204.us, %105
-  %.1152.us = select i1 %106, i32 %.0150203.us, i32 %.0151202.us
-  %.3147.us = tail call i32 @llvm.umin.i32(i32 %.2146204.us, i32 %105)
-  %.3.us = select i1 %106, i32 0, i32 %.2205.us
-  %107 = add i32 %.0150203.us, 1
-  %exitcond216.not = icmp eq i32 %.0150203.us, %10
-  br i1 %exitcond216.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !81
+  %106 = icmp ugt i32 %.2146207.us, %105
+  %.1152.us = select i1 %106, i32 %.0150206.us, i32 %.0151205.us
+  %.3147.us = tail call i32 @llvm.umin.i32(i32 %.2146207.us, i32 %105)
+  %.3.us = select i1 %106, i32 0, i32 %.2208.us
+  %107 = add i32 %.0150206.us, 1
+  %exitcond222.not = icmp eq i32 %.0150206.us, %10
+  br i1 %exitcond222.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !80
 
 .lr.ph:                                           ; preds = %.lr.ph188, %._crit_edge
   %.0186 = phi i32 [ %.1, %._crit_edge ], [ 0, %.lr.ph188 ]
@@ -789,7 +790,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %.1 = select i1 %134, i32 1, i32 %.0186
   %135 = add nsw i32 %.0157183, 1
   %.not = icmp slt i32 %.0157183, %10
-  br i1 %.not, label %.lr.ph, label %.critedge.preheader, !llvm.loop !82
+  br i1 %.not, label %.lr.ph, label %.critedge.preheader, !llvm.loop !79
 
 136:                                              ; preds = %.lr.ph, %136
   %.0155180 = phi i32 [ %28, %.lr.ph ], [ %170, %136 ]
@@ -833,16 +834,16 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %169 = add i32 %160, %168
   %170 = add i32 %.0155180, 1
   %exitcond.not = icmp eq i32 %.0155180, %11
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !81
 
-.critedge._crit_edge:                             ; preds = %._crit_edge199, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
-  %.0153.lcssa221 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa222231, %.critedge.us ], [ %.0153.lcssa, %._crit_edge199 ]
-  %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %80, %.critedge.us ], [ %71, %._crit_edge199 ]
-  %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge199 ]
-  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge199 ]
+.critedge._crit_edge:                             ; preds = %._crit_edge202, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
+  %.0153.lcssa227 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa228237, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
+  %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %80, %.critedge.us ], [ %71, %._crit_edge202 ]
+  %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
+  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i32 %.2.lcssa, 0
   %171 = add nsw i32 %.0151.lcssa, %24
-  %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa221
+  %172 = select i1 %.not163, i32 %171, i32 %.0153.lcssa227
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %174 = sext i32 %16 to i64
   %175 = getelementptr inbounds [3 x ptr], ptr %173, i64 0, i64 %174
@@ -854,17 +855,17 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   store i32 %172, ptr %13, align 4, !tbaa !51
   ret void
 
-.lr.ph198:                                        ; preds = %.lr.ph206, %._crit_edge199
-  %.2205 = phi i32 [ %.3, %._crit_edge199 ], [ %.0.lcssa, %.lr.ph206 ]
-  %.2146204 = phi i32 [ %.3147, %._crit_edge199 ], [ %.0144.lcssa, %.lr.ph206 ]
-  %.0150203 = phi i32 [ %209, %._crit_edge199 ], [ %25, %.lr.ph206 ]
-  %.0151202 = phi i32 [ %.1152, %._crit_edge199 ], [ 0, %.lr.ph206 ]
-  %180 = add nsw i32 %70, %.0150203
-  %181 = add i32 %24, %.0150203
+.lr.ph201:                                        ; preds = %.lr.ph209, %._crit_edge202
+  %.2208 = phi i32 [ %.3, %._crit_edge202 ], [ %.0.lcssa, %.lr.ph209 ]
+  %.2146207 = phi i32 [ %.3147, %._crit_edge202 ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0150206 = phi i32 [ %209, %._crit_edge202 ], [ %25, %.lr.ph209 ]
+  %.0151205 = phi i32 [ %.1152, %._crit_edge202 ], [ 0, %.lr.ph209 ]
+  %180 = add nsw i32 %70, %.0150206
+  %181 = add i32 %24, %.0150206
   %182 = sub i32 %8, %181
   br label %210
 
-._crit_edge199:                                   ; preds = %210
+._crit_edge202:                                   ; preds = %210
   %183 = mul i32 %243, %18
   %184 = add nsw i32 %181, %8
   %185 = icmp slt i32 %184, 0
@@ -894,22 +895,22 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %205 = mul nsw i32 %204, %20
   %206 = add i32 %183, %205
   %207 = add i32 %206, %203
-  %208 = icmp ugt i32 %.2146204, %207
-  %.1152 = select i1 %208, i32 %.0150203, i32 %.0151202
-  %.3147 = tail call i32 @llvm.umin.i32(i32 %.2146204, i32 %207)
-  %.3 = select i1 %208, i32 0, i32 %.2205
-  %209 = add i32 %.0150203, 1
-  %exitcond215.not = icmp eq i32 %.0150203, %10
-  br i1 %exitcond215.not, label %.critedge._crit_edge, label %.lr.ph198, !llvm.loop !84
+  %208 = icmp ugt i32 %.2146207, %207
+  %.1152 = select i1 %208, i32 %.0150206, i32 %.0151205
+  %.3147 = tail call i32 @llvm.umin.i32(i32 %.2146207, i32 %207)
+  %.3 = select i1 %208, i32 0, i32 %.2208
+  %209 = add i32 %.0150206, 1
+  %exitcond221.not = icmp eq i32 %.0150206, %10
+  br i1 %exitcond221.not, label %.critedge._crit_edge, label %.lr.ph201, !llvm.loop !80
 
-210:                                              ; preds = %.lr.ph198, %210
-  %.0148196 = phi i32 [ %69, %.lr.ph198 ], [ %244, %210 ]
-  %.0149195 = phi i32 [ 0, %.lr.ph198 ], [ %243, %210 ]
-  %211 = add nsw i32 %180, %.0148196
+210:                                              ; preds = %.lr.ph201, %210
+  %.0148199 = phi i32 [ %69, %.lr.ph201 ], [ %244, %210 ]
+  %.0149198 = phi i32 [ 0, %.lr.ph201 ], [ %243, %210 ]
+  %211 = add nsw i32 %180, %.0148199
   %212 = icmp slt i32 %211, 0
   %..i169 = tail call i32 @llvm.smin.i32(i32 %211, i32 %23)
   %.0.i170 = select i1 %212, i32 0, i32 %..i169
-  %213 = add nsw i32 %182, %.0148196
+  %213 = add nsw i32 %182, %.0148199
   %214 = icmp slt i32 %213, 0
   %..i171 = tail call i32 @llvm.smin.i32(i32 %213, i32 %23)
   %.0.i172 = select i1 %214, i32 0, i32 %..i171
@@ -923,7 +924,7 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %222 = zext i8 %221 to i32
   %223 = sub nsw i32 %218, %222
   %224 = tail call range(i32 0, 256) i32 @llvm.abs.i32(i32 %223, i1 true)
-  %225 = add i32 %224, %.0149195
+  %225 = add i32 %224, %.0149198
   %226 = getelementptr inbounds i8, ptr %4, i64 %215
   %227 = load i8, ptr %226, align 1, !tbaa !78
   %228 = zext i8 %227 to i32
@@ -942,9 +943,9 @@ define internal void @interpolate_8(ptr noundef readonly captures(none) %0, ptr 
   %241 = sub nsw i32 %237, %240
   %242 = tail call range(i32 0, 256) i32 @llvm.abs.i32(i32 %241, i1 true)
   %243 = add i32 %234, %242
-  %244 = add i32 %.0148196, 1
-  %exitcond214.not = icmp eq i32 %.0148196, %11
-  br i1 %exitcond214.not, label %._crit_edge199, label %210, !llvm.loop !85
+  %244 = add i32 %.0148199, 1
+  %exitcond220.not = icmp eq i32 %.0148199, %11
+  br i1 %exitcond220.not, label %._crit_edge202, label %210, !llvm.loop !82
 }
 
 ; Function Attrs: nounwind uwtable
@@ -961,9 +962,10 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %24 = load i32, ptr %13, align 4, !tbaa !51
   %25 = sub nsw i32 0, %10
   %26 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
-  %27 = icmp samesign ugt i32 %26, %10
+  %.fr214 = freeze i32 %26
+  %27 = icmp sgt i32 %.fr214, %10
   %.not181 = icmp sgt i32 %10, -1
-  %or.cond182 = select i1 %.not181, i1 %27, i1 false
+  %or.cond182 = and i1 %.not181, %27
   br i1 %or.cond182, label %.lr.ph188, label %.critedge.preheader
 
 .lr.ph188:                                        ; preds = %14
@@ -972,25 +974,25 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %29 = sext i32 %18 to i64
   %30 = sext i32 %8 to i64
   %31 = getelementptr inbounds i16, ptr %2, i64 %30
-  %32 = load i16, ptr %31, align 2, !tbaa !86
+  %32 = load i16, ptr %31, align 2, !tbaa !83
   %33 = zext i16 %32 to i32
   %34 = getelementptr inbounds i16, ptr %3, i64 %30
-  %35 = load i16, ptr %34, align 2, !tbaa !86
+  %35 = load i16, ptr %34, align 2, !tbaa !83
   %36 = zext i16 %35 to i32
-  br i1 %.not165178, label %.lr.ph188.split.us, label %.lr.ph
+  br i1 %.not165178, label %.lr.ph188.split.us.split, label %.lr.ph
 
-.lr.ph188.split.us:                               ; preds = %.lr.ph188, %.lr.ph188.split.us
-  %.0186.us = phi i64 [ %.1.us, %.lr.ph188.split.us ], [ 0, %.lr.ph188 ]
-  %.0144185.us = phi i64 [ %.1145.us, %.lr.ph188.split.us ], [ -1, %.lr.ph188 ]
-  %.0153184.us = phi i32 [ %.1154.us, %.lr.ph188.split.us ], [ 0, %.lr.ph188 ]
-  %.0157183.us = phi i32 [ %64, %.lr.ph188.split.us ], [ %25, %.lr.ph188 ]
+.lr.ph188.split.us.split:                         ; preds = %.lr.ph188, %.lr.ph188.split.us.split
+  %.0186.us = phi i64 [ %.1.us, %.lr.ph188.split.us.split ], [ 0, %.lr.ph188 ]
+  %.0144185.us = phi i64 [ %.1145.us, %.lr.ph188.split.us.split ], [ -1, %.lr.ph188 ]
+  %.0153184.us = phi i32 [ %.1154.us, %.lr.ph188.split.us.split ], [ 0, %.lr.ph188 ]
+  %.0157183.us = phi i32 [ %64, %.lr.ph188.split.us.split ], [ %25, %.lr.ph188 ]
   %37 = add nsw i32 %.0157183.us, %8
   %38 = icmp slt i32 %37, 0
   %..i7.i.i.us = tail call i32 @llvm.smin.i32(i32 %37, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i.us = select i1 %38, i32 0, i32 %..i7.i.i.us
   %39 = sext i32 %.0.i8.i.i.us to i64
   %40 = getelementptr inbounds i16, ptr %2, i64 %39
-  %41 = load i16, ptr %40, align 2, !tbaa !86
+  %41 = load i16, ptr %40, align 2, !tbaa !83
   %42 = zext i16 %41 to i32
   %43 = sub nsw i32 %8, %.0157183.us
   %44 = icmp slt i32 %43, 0
@@ -998,7 +1000,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0.i.i.i.us = select i1 %44, i32 0, i32 %..i.i.i.us
   %45 = sext i32 %.0.i.i.i.us to i64
   %46 = getelementptr inbounds i16, ptr %3, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !86
+  %47 = load i16, ptr %46, align 2, !tbaa !83
   %48 = zext i16 %47 to i32
   %49 = add nuw nsw i32 %42, 1
   %50 = add nuw nsw i32 %49, %48
@@ -1018,17 +1020,17 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.1154.us = select i1 %63, i32 %.0157183.us, i32 %.0153184.us
   %.1145.us = tail call i64 @llvm.umin.i64(i64 %.0144185.us, i64 %62)
   %.1.us = select i1 %63, i64 1, i64 %.0186.us
-  %64 = add nsw i32 %.0157183.us, 1
-  %.not.us = icmp slt i32 %.0157183.us, %10
-  br i1 %.not.us, label %.lr.ph188.split.us, label %.lr.ph206.thread, !llvm.loop !88
+  %64 = add i32 %.0157183.us, 1
+  %exitcond219.not = icmp eq i32 %.0157183.us, %10
+  br i1 %exitcond219.not, label %.lr.ph209.thread, label %.lr.ph188.split.us.split, !llvm.loop !85
 
-.lr.ph206.thread:                                 ; preds = %.lr.ph188.split.us
+.lr.ph209.thread:                                 ; preds = %.lr.ph188.split.us.split
   %65 = sext i32 %8 to i64
   %66 = getelementptr inbounds i16, ptr %2, i64 %65
-  %67 = load i16, ptr %66, align 2, !tbaa !86
+  %67 = load i16, ptr %66, align 2, !tbaa !83
   %68 = zext i16 %67 to i32
   %69 = getelementptr inbounds i16, ptr %3, i64 %65
-  %70 = load i16, ptr %69, align 2, !tbaa !86
+  %70 = load i16, ptr %69, align 2, !tbaa !83
   %71 = zext i16 %70 to i32
   br label %.critedge.us.preheader
 
@@ -1036,49 +1038,49 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0153.lcssa = phi i32 [ 0, %14 ], [ %.1154, %._crit_edge ]
   %.0144.lcssa = phi i64 [ -1, %14 ], [ %.1145, %._crit_edge ]
   %.0.lcssa = phi i64 [ 0, %14 ], [ %.1, %._crit_edge ]
-  %.not162201 = icmp slt i32 %10, 0
-  br i1 %.not162201, label %.critedge.preheader..critedge._crit_edge_crit_edge, label %.lr.ph206
+  %.not162204 = icmp slt i32 %10, 0
+  br i1 %.not162204, label %.critedge.preheader..critedge._crit_edge_crit_edge, label %.lr.ph209
 
 .critedge.preheader..critedge._crit_edge_crit_edge: ; preds = %.critedge.preheader
   %.pre = sext i32 %8 to i64
   br label %.critedge._crit_edge
 
-.lr.ph206:                                        ; preds = %.critedge.preheader
+.lr.ph209:                                        ; preds = %.critedge.preheader
   %72 = sub nsw i32 0, %11
-  %.not164194 = icmp slt i32 %11, 0
+  %.not164197 = icmp slt i32 %11, 0
   %73 = add nsw i32 %24, %8
   %74 = sext i32 %18 to i64
   %75 = sext i32 %8 to i64
   %76 = getelementptr inbounds i16, ptr %2, i64 %75
-  %77 = load i16, ptr %76, align 2, !tbaa !86
+  %77 = load i16, ptr %76, align 2, !tbaa !83
   %78 = zext i16 %77 to i32
   %79 = getelementptr inbounds i16, ptr %3, i64 %75
-  %80 = load i16, ptr %79, align 2, !tbaa !86
+  %80 = load i16, ptr %79, align 2, !tbaa !83
   %81 = zext i16 %80 to i32
-  br i1 %.not164194, label %.critedge.us.preheader, label %.lr.ph198
+  br i1 %.not164197, label %.critedge.us.preheader, label %.lr.ph201
 
-.critedge.us.preheader:                           ; preds = %.lr.ph206.thread, %.lr.ph206
-  %82 = phi i32 [ %71, %.lr.ph206.thread ], [ %81, %.lr.ph206 ]
-  %83 = phi i32 [ %68, %.lr.ph206.thread ], [ %78, %.lr.ph206 ]
-  %84 = phi i64 [ %65, %.lr.ph206.thread ], [ %75, %.lr.ph206 ]
-  %.0153.lcssa222231 = phi i32 [ %.1154.us, %.lr.ph206.thread ], [ %.0153.lcssa, %.lr.ph206 ]
-  %.0144.lcssa223230 = phi i64 [ %.1145.us, %.lr.ph206.thread ], [ %.0144.lcssa, %.lr.ph206 ]
-  %.0.lcssa224229 = phi i64 [ %.1.us, %.lr.ph206.thread ], [ %.0.lcssa, %.lr.ph206 ]
+.critedge.us.preheader:                           ; preds = %.lr.ph209.thread, %.lr.ph209
+  %82 = phi i32 [ %71, %.lr.ph209.thread ], [ %81, %.lr.ph209 ]
+  %83 = phi i32 [ %68, %.lr.ph209.thread ], [ %78, %.lr.ph209 ]
+  %84 = phi i64 [ %65, %.lr.ph209.thread ], [ %75, %.lr.ph209 ]
+  %.0153.lcssa228237 = phi i32 [ %.1154.us, %.lr.ph209.thread ], [ %.0153.lcssa, %.lr.ph209 ]
+  %.0144.lcssa229236 = phi i64 [ %.1145.us, %.lr.ph209.thread ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0.lcssa230235 = phi i64 [ %.1.us, %.lr.ph209.thread ], [ %.0.lcssa, %.lr.ph209 ]
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.critedge.us
-  %.2205.us = phi i64 [ %.3.us, %.critedge.us ], [ %.0.lcssa224229, %.critedge.us.preheader ]
-  %.2146204.us = phi i64 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa223230, %.critedge.us.preheader ]
-  %.0150203.us = phi i32 [ %113, %.critedge.us ], [ %25, %.critedge.us.preheader ]
-  %.0151202.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
-  %85 = add nsw i32 %.0150203.us, %24
+  %.2208.us = phi i64 [ %.3.us, %.critedge.us ], [ %.0.lcssa230235, %.critedge.us.preheader ]
+  %.2146207.us = phi i64 [ %.3147.us, %.critedge.us ], [ %.0144.lcssa229236, %.critedge.us.preheader ]
+  %.0150206.us = phi i32 [ %113, %.critedge.us ], [ %25, %.critedge.us.preheader ]
+  %.0151205.us = phi i32 [ %.1152.us, %.critedge.us ], [ 0, %.critedge.us.preheader ]
+  %85 = add nsw i32 %.0150206.us, %24
   %86 = add nsw i32 %85, %8
   %87 = icmp slt i32 %86, 0
   %..i7.i.i173.us = tail call i32 @llvm.smin.i32(i32 %86, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i8.i.i174.us = select i1 %87, i32 0, i32 %..i7.i.i173.us
   %88 = sext i32 %.0.i8.i.i174.us to i64
   %89 = getelementptr inbounds i16, ptr %2, i64 %88
-  %90 = load i16, ptr %89, align 2, !tbaa !86
+  %90 = load i16, ptr %89, align 2, !tbaa !83
   %91 = zext i16 %90 to i32
   %92 = sub nsw i32 %8, %85
   %93 = icmp slt i32 %92, 0
@@ -1086,7 +1088,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0.i.i.i176.us = select i1 %93, i32 0, i32 %..i.i.i175.us
   %94 = sext i32 %.0.i.i.i176.us to i64
   %95 = getelementptr inbounds i16, ptr %3, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !86
+  %96 = load i16, ptr %95, align 2, !tbaa !83
   %97 = zext i16 %96 to i32
   %98 = add nuw nsw i32 %91, 1
   %99 = add nuw nsw i32 %98, %97
@@ -1102,13 +1104,13 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %109 = mul nsw i32 %108, %20
   %110 = sext i32 %109 to i64
   %111 = add nsw i64 %110, %107
-  %112 = icmp ugt i64 %.2146204.us, %111
-  %.1152.us = select i1 %112, i32 %.0150203.us, i32 %.0151202.us
-  %.3147.us = tail call i64 @llvm.umin.i64(i64 %.2146204.us, i64 %111)
-  %.3.us = select i1 %112, i64 0, i64 %.2205.us
-  %113 = add i32 %.0150203.us, 1
-  %exitcond216.not = icmp eq i32 %.0150203.us, %10
-  br i1 %exitcond216.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !89
+  %112 = icmp ugt i64 %.2146207.us, %111
+  %.1152.us = select i1 %112, i32 %.0150206.us, i32 %.0151205.us
+  %.3147.us = tail call i64 @llvm.umin.i64(i64 %.2146207.us, i64 %111)
+  %.3.us = select i1 %112, i64 0, i64 %.2208.us
+  %113 = add i32 %.0150206.us, 1
+  %exitcond222.not = icmp eq i32 %.0150206.us, %10
+  br i1 %exitcond222.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !86
 
 .lr.ph:                                           ; preds = %.lr.ph188, %._crit_edge
   %.0186 = phi i64 [ %.1, %._crit_edge ], [ 0, %.lr.ph188 ]
@@ -1126,14 +1128,14 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0.i8.i.i = select i1 %117, i32 0, i32 %..i7.i.i
   %118 = sext i32 %.0.i8.i.i to i64
   %119 = getelementptr inbounds i16, ptr %2, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !86
+  %120 = load i16, ptr %119, align 2, !tbaa !83
   %121 = zext i16 %120 to i32
   %122 = icmp slt i32 %115, 0
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 %115, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i = select i1 %122, i32 0, i32 %..i.i.i
   %123 = sext i32 %.0.i.i.i to i64
   %124 = getelementptr inbounds i16, ptr %3, i64 %123
-  %125 = load i16, ptr %124, align 2, !tbaa !86
+  %125 = load i16, ptr %124, align 2, !tbaa !83
   %126 = zext i16 %125 to i32
   %127 = add nuw nsw i32 %121, 1
   %128 = add nuw nsw i32 %127, %126
@@ -1156,7 +1158,7 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.1 = select i1 %142, i64 1, i64 %.0186
   %143 = add nsw i32 %.0157183, 1
   %.not = icmp slt i32 %.0157183, %10
-  br i1 %.not, label %.lr.ph, label %.critedge.preheader, !llvm.loop !90
+  br i1 %.not, label %.lr.ph, label %.critedge.preheader, !llvm.loop !85
 
 144:                                              ; preds = %.lr.ph, %144
   %.0155180 = phi i32 [ %28, %.lr.ph ], [ %181, %144 ]
@@ -1171,31 +1173,31 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0.i168 = select i1 %148, i32 0, i32 %..i167
   %149 = sext i32 %.0.i to i64
   %150 = getelementptr inbounds i16, ptr %2, i64 %149
-  %151 = load i16, ptr %150, align 2, !tbaa !86
+  %151 = load i16, ptr %150, align 2, !tbaa !83
   %152 = zext i16 %151 to i32
   %153 = sext i32 %.0.i168 to i64
   %154 = getelementptr inbounds i16, ptr %3, i64 %153
-  %155 = load i16, ptr %154, align 2, !tbaa !86
+  %155 = load i16, ptr %154, align 2, !tbaa !83
   %156 = zext i16 %155 to i32
   %157 = sub nsw i32 %152, %156
   %158 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %157, i1 true)
   %159 = zext nneg i32 %158 to i64
   %160 = add i64 %.0156179, %159
   %161 = getelementptr inbounds i16, ptr %4, i64 %149
-  %162 = load i16, ptr %161, align 2, !tbaa !86
+  %162 = load i16, ptr %161, align 2, !tbaa !83
   %163 = zext i16 %162 to i32
   %164 = getelementptr inbounds i16, ptr %2, i64 %153
-  %165 = load i16, ptr %164, align 2, !tbaa !86
+  %165 = load i16, ptr %164, align 2, !tbaa !83
   %166 = zext i16 %165 to i32
   %167 = sub nsw i32 %163, %166
   %168 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %167, i1 true)
   %169 = zext nneg i32 %168 to i64
   %170 = add i64 %160, %169
   %171 = getelementptr inbounds i16, ptr %3, i64 %149
-  %172 = load i16, ptr %171, align 2, !tbaa !86
+  %172 = load i16, ptr %171, align 2, !tbaa !83
   %173 = zext i16 %172 to i32
   %174 = getelementptr inbounds i16, ptr %5, i64 %153
-  %175 = load i16, ptr %174, align 2, !tbaa !86
+  %175 = load i16, ptr %174, align 2, !tbaa !83
   %176 = zext i16 %175 to i32
   %177 = sub nsw i32 %173, %176
   %178 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %177, i1 true)
@@ -1203,16 +1205,16 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %180 = add i64 %170, %179
   %181 = add i32 %.0155180, 1
   %exitcond.not = icmp eq i32 %.0155180, %11
-  br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !87
 
-.critedge._crit_edge:                             ; preds = %._crit_edge199, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
-  %.0153.lcssa221 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa222231, %.critedge.us ], [ %.0153.lcssa, %._crit_edge199 ]
-  %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %84, %.critedge.us ], [ %75, %._crit_edge199 ]
-  %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge199 ]
-  %.2.lcssa = phi i64 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge199 ]
+.critedge._crit_edge:                             ; preds = %._crit_edge202, %.critedge.us, %.critedge.preheader..critedge._crit_edge_crit_edge
+  %.0153.lcssa227 = phi i32 [ %.0153.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.0153.lcssa228237, %.critedge.us ], [ %.0153.lcssa, %._crit_edge202 ]
+  %.pre-phi = phi i64 [ %.pre, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %84, %.critedge.us ], [ %75, %._crit_edge202 ]
+  %.0151.lcssa = phi i32 [ 0, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.1152.us, %.critedge.us ], [ %.1152, %._crit_edge202 ]
+  %.2.lcssa = phi i64 [ %.0.lcssa, %.critedge.preheader..critedge._crit_edge_crit_edge ], [ %.3.us, %.critedge.us ], [ %.3, %._crit_edge202 ]
   %.not163 = icmp eq i64 %.2.lcssa, 0
   %182 = add nsw i32 %.0151.lcssa, %24
-  %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa221
+  %183 = select i1 %.not163, i32 %182, i32 %.0153.lcssa227
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = sext i32 %16 to i64
   %186 = getelementptr inbounds [3 x ptr], ptr %184, i64 0, i64 %185
@@ -1220,21 +1222,21 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %188 = tail call i32 %187(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %23, i32 noundef %8, i32 noundef %183, i32 noundef %12) #11
   %189 = trunc i32 %188 to i16
   %190 = getelementptr inbounds i16, ptr %1, i64 %.pre-phi
-  store i16 %189, ptr %190, align 2, !tbaa !86
+  store i16 %189, ptr %190, align 2, !tbaa !83
   store i32 %183, ptr %13, align 4, !tbaa !51
   ret void
 
-.lr.ph198:                                        ; preds = %.lr.ph206, %._crit_edge199
-  %.2205 = phi i64 [ %.3, %._crit_edge199 ], [ %.0.lcssa, %.lr.ph206 ]
-  %.2146204 = phi i64 [ %.3147, %._crit_edge199 ], [ %.0144.lcssa, %.lr.ph206 ]
-  %.0150203 = phi i32 [ %222, %._crit_edge199 ], [ %25, %.lr.ph206 ]
-  %.0151202 = phi i32 [ %.1152, %._crit_edge199 ], [ 0, %.lr.ph206 ]
-  %191 = add nsw i32 %73, %.0150203
-  %192 = add i32 %24, %.0150203
+.lr.ph201:                                        ; preds = %.lr.ph209, %._crit_edge202
+  %.2208 = phi i64 [ %.3, %._crit_edge202 ], [ %.0.lcssa, %.lr.ph209 ]
+  %.2146207 = phi i64 [ %.3147, %._crit_edge202 ], [ %.0144.lcssa, %.lr.ph209 ]
+  %.0150206 = phi i32 [ %222, %._crit_edge202 ], [ %25, %.lr.ph209 ]
+  %.0151205 = phi i32 [ %.1152, %._crit_edge202 ], [ 0, %.lr.ph209 ]
+  %191 = add nsw i32 %73, %.0150206
+  %192 = add i32 %24, %.0150206
   %193 = sub i32 %8, %192
   br label %223
 
-._crit_edge199:                                   ; preds = %223
+._crit_edge202:                                   ; preds = %223
   %194 = mul i64 %259, %74
   %195 = add nsw i32 %192, %8
   %196 = icmp slt i32 %195, 0
@@ -1242,14 +1244,14 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %.0.i8.i.i174 = select i1 %196, i32 0, i32 %..i7.i.i173
   %197 = sext i32 %.0.i8.i.i174 to i64
   %198 = getelementptr inbounds i16, ptr %2, i64 %197
-  %199 = load i16, ptr %198, align 2, !tbaa !86
+  %199 = load i16, ptr %198, align 2, !tbaa !83
   %200 = zext i16 %199 to i32
   %201 = icmp slt i32 %193, 0
   %..i.i.i175 = tail call i32 @llvm.smin.i32(i32 %193, i32 range(i32 -2147483648, 2147483647) %23)
   %.0.i.i.i176 = select i1 %201, i32 0, i32 %..i.i.i175
   %202 = sext i32 %.0.i.i.i176 to i64
   %203 = getelementptr inbounds i16, ptr %3, i64 %202
-  %204 = load i16, ptr %203, align 2, !tbaa !86
+  %204 = load i16, ptr %203, align 2, !tbaa !83
   %205 = zext i16 %204 to i32
   %206 = add nuw nsw i32 %200, 1
   %207 = add nuw nsw i32 %206, %205
@@ -1266,60 +1268,60 @@ define internal void @interpolate_16(ptr noundef readonly captures(none) %0, ptr
   %218 = sext i32 %217 to i64
   %219 = add i64 %194, %218
   %220 = add i64 %219, %215
-  %221 = icmp ugt i64 %.2146204, %220
-  %.1152 = select i1 %221, i32 %.0150203, i32 %.0151202
-  %.3147 = tail call i64 @llvm.umin.i64(i64 %.2146204, i64 %220)
-  %.3 = select i1 %221, i64 0, i64 %.2205
-  %222 = add i32 %.0150203, 1
-  %exitcond215.not = icmp eq i32 %.0150203, %10
-  br i1 %exitcond215.not, label %.critedge._crit_edge, label %.lr.ph198, !llvm.loop !92
+  %221 = icmp ugt i64 %.2146207, %220
+  %.1152 = select i1 %221, i32 %.0150206, i32 %.0151205
+  %.3147 = tail call i64 @llvm.umin.i64(i64 %.2146207, i64 %220)
+  %.3 = select i1 %221, i64 0, i64 %.2208
+  %222 = add i32 %.0150206, 1
+  %exitcond221.not = icmp eq i32 %.0150206, %10
+  br i1 %exitcond221.not, label %.critedge._crit_edge, label %.lr.ph201, !llvm.loop !86
 
-223:                                              ; preds = %.lr.ph198, %223
-  %.0148196 = phi i32 [ %72, %.lr.ph198 ], [ %260, %223 ]
-  %.0149195 = phi i64 [ 0, %.lr.ph198 ], [ %259, %223 ]
-  %224 = add nsw i32 %191, %.0148196
+223:                                              ; preds = %.lr.ph201, %223
+  %.0148199 = phi i32 [ %72, %.lr.ph201 ], [ %260, %223 ]
+  %.0149198 = phi i64 [ 0, %.lr.ph201 ], [ %259, %223 ]
+  %224 = add nsw i32 %191, %.0148199
   %225 = icmp slt i32 %224, 0
   %..i169 = tail call i32 @llvm.smin.i32(i32 %224, i32 %23)
   %.0.i170 = select i1 %225, i32 0, i32 %..i169
-  %226 = add nsw i32 %193, %.0148196
+  %226 = add nsw i32 %193, %.0148199
   %227 = icmp slt i32 %226, 0
   %..i171 = tail call i32 @llvm.smin.i32(i32 %226, i32 %23)
   %.0.i172 = select i1 %227, i32 0, i32 %..i171
   %228 = sext i32 %.0.i170 to i64
   %229 = getelementptr inbounds i16, ptr %2, i64 %228
-  %230 = load i16, ptr %229, align 2, !tbaa !86
+  %230 = load i16, ptr %229, align 2, !tbaa !83
   %231 = zext i16 %230 to i32
   %232 = sext i32 %.0.i172 to i64
   %233 = getelementptr inbounds i16, ptr %3, i64 %232
-  %234 = load i16, ptr %233, align 2, !tbaa !86
+  %234 = load i16, ptr %233, align 2, !tbaa !83
   %235 = zext i16 %234 to i32
   %236 = sub nsw i32 %231, %235
   %237 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %236, i1 true)
   %238 = zext nneg i32 %237 to i64
-  %239 = add i64 %.0149195, %238
+  %239 = add i64 %.0149198, %238
   %240 = getelementptr inbounds i16, ptr %4, i64 %228
-  %241 = load i16, ptr %240, align 2, !tbaa !86
+  %241 = load i16, ptr %240, align 2, !tbaa !83
   %242 = zext i16 %241 to i32
   %243 = getelementptr inbounds i16, ptr %2, i64 %232
-  %244 = load i16, ptr %243, align 2, !tbaa !86
+  %244 = load i16, ptr %243, align 2, !tbaa !83
   %245 = zext i16 %244 to i32
   %246 = sub nsw i32 %242, %245
   %247 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %246, i1 true)
   %248 = zext nneg i32 %247 to i64
   %249 = add i64 %239, %248
   %250 = getelementptr inbounds i16, ptr %3, i64 %228
-  %251 = load i16, ptr %250, align 2, !tbaa !86
+  %251 = load i16, ptr %250, align 2, !tbaa !83
   %252 = zext i16 %251 to i32
   %253 = getelementptr inbounds i16, ptr %5, i64 %232
-  %254 = load i16, ptr %253, align 2, !tbaa !86
+  %254 = load i16, ptr %253, align 2, !tbaa !83
   %255 = zext i16 %254 to i32
   %256 = sub nsw i32 %252, %255
   %257 = tail call range(i32 0, 65536) i32 @llvm.abs.i32(i32 %256, i1 true)
   %258 = zext nneg i32 %257 to i64
   %259 = add i64 %249, %258
-  %260 = add i32 %.0148196, 1
-  %exitcond214.not = icmp eq i32 %.0148196, %11
-  br i1 %exitcond214.not, label %._crit_edge199, label %223, !llvm.loop !93
+  %260 = add i32 %.0148199, 1
+  %exitcond220.not = icmp eq i32 %.0148199, %11
+  br i1 %exitcond220.not, label %._crit_edge202, label %223, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1476,7 +1478,7 @@ define internal range(i32 0, 65536) i32 @mid2_16(ptr noundef readonly captures(n
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
   %14 = getelementptr inbounds i16, ptr %0, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !86
+  %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
   %18 = icmp slt i32 %17, 0
@@ -1484,7 +1486,7 @@ define internal range(i32 0, 65536) i32 @mid2_16(ptr noundef readonly captures(n
   %.0.i8 = select i1 %18, i32 0, i32 %..i7
   %19 = sext i32 %.0.i8 to i64
   %20 = getelementptr inbounds i16, ptr %1, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !86
+  %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %16, 1
   %24 = add nuw nsw i32 %23, %22
@@ -1500,7 +1502,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
   %14 = getelementptr inbounds i16, ptr %0, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !86
+  %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
   %18 = icmp slt i32 %17, 0
@@ -1508,7 +1510,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %.0.i17 = select i1 %18, i32 0, i32 %..i16
   %19 = sext i32 %.0.i17 to i64
   %20 = getelementptr inbounds i16, ptr %1, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !86
+  %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, %16
   %24 = mul nuw nsw i32 %23, 9
@@ -1519,7 +1521,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %.0.i19 = select i1 %27, i32 0, i32 %..i18
   %28 = sext i32 %.0.i19 to i64
   %29 = getelementptr inbounds i16, ptr %2, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !86
+  %30 = load i16, ptr %29, align 2, !tbaa !83
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %7, %25
   %33 = icmp slt i32 %32, 0
@@ -1527,7 +1529,7 @@ define internal range(i32 -8192, -2147483648) i32 @mid4_16(ptr noundef readonly 
   %.0.i21 = select i1 %33, i32 0, i32 %..i20
   %34 = sext i32 %.0.i21 to i64
   %35 = getelementptr inbounds i16, ptr %3, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !86
+  %36 = load i16, ptr %35, align 2, !tbaa !83
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %31, %37
   %reass.sub = sub nsw i32 %24, %38
@@ -1551,7 +1553,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i = select i1 %12, i32 0, i32 %..i
   %13 = sext i32 %.0.i to i64
   %14 = getelementptr inbounds i16, ptr %0, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !86
+  %15 = load i16, ptr %14, align 2, !tbaa !83
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %7, %8
   %18 = icmp slt i32 %17, 0
@@ -1559,7 +1561,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i25 = select i1 %18, i32 0, i32 %..i24
   %19 = sext i32 %.0.i25 to i64
   %20 = getelementptr inbounds i16, ptr %1, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !86
+  %21 = load i16, ptr %20, align 2, !tbaa !83
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %22, %16
   %24 = mul nuw nsw i32 %23, 20
@@ -1570,7 +1572,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i27 = select i1 %27, i32 0, i32 %..i26
   %28 = sext i32 %.0.i27 to i64
   %29 = getelementptr inbounds i16, ptr %2, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !86
+  %30 = load i16, ptr %29, align 2, !tbaa !83
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %7, %25
   %33 = icmp slt i32 %32, 0
@@ -1578,7 +1580,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i29 = select i1 %33, i32 0, i32 %..i28
   %34 = sext i32 %.0.i29 to i64
   %35 = getelementptr inbounds i16, ptr %3, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !86
+  %36 = load i16, ptr %35, align 2, !tbaa !83
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %37, %31
   %.neg = mul nsw i32 %38, -5
@@ -1589,7 +1591,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i31 = select i1 %41, i32 0, i32 %..i30
   %42 = sext i32 %.0.i31 to i64
   %43 = getelementptr inbounds i16, ptr %4, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !86
+  %44 = load i16, ptr %43, align 2, !tbaa !83
   %45 = zext i16 %44 to i32
   %46 = sub nsw i32 %7, %39
   %47 = icmp slt i32 %46, 0
@@ -1597,7 +1599,7 @@ define internal range(i32 -20480, -2147483648) i32 @mid6_16(ptr noundef readonly
   %.0.i33 = select i1 %47, i32 0, i32 %..i32
   %48 = sext i32 %.0.i33 to i64
   %49 = getelementptr inbounds i16, ptr %5, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !86
+  %50 = load i16, ptr %49, align 2, !tbaa !83
   %51 = zext i16 %50 to i32
   %52 = add nuw nsw i32 %24, 16
   %53 = add nuw nsw i32 %52, %45
@@ -1619,17 +1621,17 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !94
+  %2 = load ptr, ptr %0, align 8, !tbaa !89
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !95
+  %6 = load i32, ptr %5, align 8, !tbaa !90
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !96
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = tail call i32 @ff_request_frame(ptr noundef %10) #11
   %12 = icmp eq i32 %11, -541478725
@@ -1662,8 +1664,8 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
   %30 = add nsw i64 %29, %21
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store i64 %30, ptr %31, align 8, !tbaa !40
-  store i32 1, ptr %5, align 8, !tbaa !95
-  %32 = load ptr, ptr %8, align 8, !tbaa !96
+  store i32 1, ptr %5, align 8, !tbaa !90
+  %32 = load ptr, ptr %8, align 8, !tbaa !91
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %34 = tail call i32 @filter_frame(ptr noundef %33, ptr noundef nonnull %17)
   br label %.critedge
@@ -1675,9 +1677,9 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #2 {
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @config_output(ptr noundef captures(none) initializes((96, 104)) %0) #7 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !94
+  %2 = load ptr, ptr %0, align 8, !tbaa !89
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -1832,21 +1834,16 @@ attributes #13 = { nounwind willreturn memory(none) }
 !76 = !{!30, !15, i64 36}
 !77 = !{!30, !15, i64 32}
 !78 = !{!8, !8, i64 0}
-!79 = distinct !{!79, !70, !80}
-!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!81 = distinct !{!81, !70, !80}
+!79 = distinct !{!79, !70}
+!80 = distinct !{!80, !70}
+!81 = distinct !{!81, !70}
 !82 = distinct !{!82, !70}
-!83 = distinct !{!83, !70}
-!84 = distinct !{!84, !70}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"short", !8, i64 0}
 !85 = distinct !{!85, !70}
-!86 = !{!87, !87, i64 0}
-!87 = !{!"short", !8, i64 0}
-!88 = distinct !{!88, !70, !80}
-!89 = distinct !{!89, !70, !80}
-!90 = distinct !{!90, !70}
-!91 = distinct !{!91, !70}
-!92 = distinct !{!92, !70}
-!93 = distinct !{!93, !70}
-!94 = !{!21, !22, i64 0}
-!95 = !{!30, !15, i64 96}
-!96 = !{!5, !13, i64 32}
+!86 = distinct !{!86, !70}
+!87 = distinct !{!87, !70}
+!88 = distinct !{!88, !70}
+!89 = !{!21, !22, i64 0}
+!90 = !{!30, !15, i64 96}
+!91 = !{!5, !13, i64 32}

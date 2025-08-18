@@ -174,7 +174,7 @@ gv_calloc.exit77:                                 ; preds = %23
   store double %68, ptr %69, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.preheader78.split.us.preheader, label %.lr.ph82, !llvm.loop !21
+  br i1 %exitcond100.not, label %.preheader78.split.us.preheader, label %.lr.ph82, !llvm.loop !20
 
 .preheader78.split:                               ; preds = %.preheader78.split.preheader.critedge, %76
   %.0 = phi i32 [ %77, %76 ], [ 0, %.preheader78.split.preheader.critedge ]
@@ -194,7 +194,7 @@ gv_calloc.exit77:                                 ; preds = %23
 76:                                               ; preds = %._crit_edge85, %.preheader78.split
   %77 = add nuw nsw i32 %.0, 1
   %exitcond116.not = icmp eq i32 %77, 101
-  br i1 %exitcond116.not, label %.critedge.loopexit, label %.preheader78.split, !llvm.loop !22
+  br i1 %exitcond116.not, label %.critedge.loopexit, label %.preheader78.split, !llvm.loop !19
 
 .critedge.loopexit:                               ; preds = %76
   %.pre118 = load ptr, ptr %4, align 8, !tbaa !9
@@ -285,7 +285,5 @@ attributes #15 = { cold noreturn nounwind }
 !16 = !{!"int", !7, i64 0}
 !17 = distinct !{!17, !14}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
+!19 = distinct !{!19, !14}
+!20 = distinct !{!20, !14}

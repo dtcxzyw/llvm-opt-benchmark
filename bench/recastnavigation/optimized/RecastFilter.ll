@@ -340,7 +340,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %.289.us = phi i32 [ %.188122.us, %84 ], [ %94, %93 ], [ %.188122.us, %96 ]
   %.286.us = phi i32 [ %.185123.us, %84 ], [ %95, %93 ], [ %.185123.us, %96 ]
   %.3.us = phi i32 [ %.2124.us, %84 ], [ %91, %93 ], [ %91, %96 ]
-  br i1 %.not105.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !9
+  br i1 %.not105.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %96, %98, %62
   %.188.lcssa.us = phi i32 [ %.087132.us, %62 ], [ %.289.us, %98 ], [ %.188122.us, %96 ]
@@ -348,22 +348,22 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %9, %13
   %.4.us = phi i32 [ %.082135.us, %62 ], [ %.3.us, %98 ], [ %91, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit.us, label %47, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit.us, label %47, !llvm.loop !9
 
 99:                                               ; preds = %.lr.ph140.us._crit_edge, %73, %71, %68
   %.081.us = phi ptr [ %.081.us.pre, %.lr.ph140.us._crit_edge ], [ %39, %73 ], [ %39, %71 ], [ %39, %68 ]
   %.not.us = icmp eq ptr %.081.us, null
-  br i1 %.not.us, label %._crit_edge141.us, label %.lr.ph140.us, !llvm.loop !11
+  br i1 %.not.us, label %._crit_edge141.us, label %.lr.ph140.us, !llvm.loop !10
 
 ._crit_edge141.us:                                ; preds = %99, %28
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, %25
-  br i1 %exitcond152.not, label %._crit_edge144.us, label %28, !llvm.loop !12
+  br i1 %exitcond152.not, label %._crit_edge144.us, label %28, !llvm.loop !11
 
 ._crit_edge144.us:                                ; preds = %._crit_edge141.us
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge146, label %.preheader112.us, !llvm.loop !13
+  br i1 %exitcond157.not, label %._crit_edge146, label %.preheader112.us, !llvm.loop !12
 
 ._crit_edge146:                                   ; preds = %._crit_edge144.us, %.preheader112.lr.ph, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %100 = load i8, ptr %10, align 1
@@ -473,17 +473,17 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %12
   br label %42
 
 42:                                               ; preds = %40, %36
-  br i1 %.not30.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !14
+  br i1 %.not30.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %42, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge36.us, label %24, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge36.us, label %24, !llvm.loop !14
 
 ._crit_edge36.us:                                 ; preds = %._crit_edge.us
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond45.not, label %._crit_edge38, label %.preheader.us, !llvm.loop !15
 
 ._crit_edge38:                                    ; preds = %._crit_edge36.us, %.preheader.lr.ph, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %43 = load i8, ptr %9, align 1
@@ -546,13 +546,12 @@ attributes #6 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !8}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !8}

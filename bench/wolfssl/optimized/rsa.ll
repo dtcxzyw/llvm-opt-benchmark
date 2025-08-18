@@ -2880,19 +2880,19 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   %6 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @wc_HashGetDigestSize(i32 noundef %0) #12
-  %.fr6 = freeze i32 %7
-  %8 = icmp slt i32 %.fr6, 0
+  %.fr7 = freeze i32 %7
+  %8 = icmp slt i32 %.fr7, 0
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = add i32 %2, 4
   %11 = icmp ugt i32 %10, 68
-  %12 = icmp samesign ugt i32 %.fr6, 68
+  %12 = icmp samesign ugt i32 %.fr7, 68
   %or.cond = or i1 %11, %12
   br i1 %or.cond, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @llvm.umax.i32(i32 %10, i32 %.fr6)
+  %14 = tail call i32 @llvm.umax.i32(i32 %10, i32 %.fr7)
   %15 = icmp ugt i32 %14, 512
   br i1 %15, label %.thread, label %16
 
@@ -2909,40 +2909,46 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   %25 = add i32 %2, 3
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %26
-  %.not7 = icmp eq i32 %.fr6, 0
-  br i1 %.not7, label %.split.us, label %.split.preheader
+  %.not8 = icmp eq i32 %.fr7, 0
+  br i1 %.not8, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %16
-  %28 = add nsw i32 %.fr6, -1
-  %29 = zext nneg i32 %.fr6 to i64
+  %28 = add nsw i32 %.fr7, -1
+  %29 = zext nneg i32 %.fr7 to i64
   %30 = zext i32 %4 to i64
   br label %.split
 
 .split.us:                                        ; preds = %16
-  %.not8 = icmp eq i32 %4, 0
-  br label %31
+  %.not9 = icmp eq i32 %4, 0
+  br i1 %.not9, label %.split.us.split, label %.preheader.us.us, !llvm.loop !41
 
-31:                                               ; preds = %.preheader.us, %.split.us
-  %.041.us = phi i32 [ 0, %.split.us ], [ %40, %.preheader.us ]
+.preheader.us.us:                                 ; preds = %.split.us, %.preheader.us.us
+  %.041.us.us = phi i32 [ %39, %.preheader.us.us ], [ 0, %.split.us ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %17, i1 false)
-  %32 = lshr i32 %.041.us, 24
-  %33 = trunc nuw i32 %32 to i8
-  store i8 %33, ptr %18, align 1, !tbaa !20
-  %34 = lshr i32 %.041.us, 16
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %21, align 1, !tbaa !20
-  %36 = lshr i32 %.041.us, 8
-  %37 = trunc i32 %36 to i8
-  store i8 %37, ptr %24, align 1, !tbaa !20
-  %38 = trunc i32 %.041.us to i8
-  store i8 %38, ptr %27, align 1, !tbaa !20
-  %39 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
-  %.not.us = icmp eq i32 %39, 0
-  br i1 %.not.us, label %.preheader.us, label %.thread
+  %31 = lshr i32 %.041.us.us, 24
+  %32 = trunc nuw i32 %31 to i8
+  store i8 %32, ptr %18, align 1, !tbaa !20
+  %33 = lshr i32 %.041.us.us, 16
+  %34 = trunc i32 %33 to i8
+  store i8 %34, ptr %21, align 1, !tbaa !20
+  %35 = lshr i32 %.041.us.us, 8
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %24, align 1, !tbaa !20
+  %37 = trunc i32 %.041.us.us to i8
+  store i8 %37, ptr %27, align 1, !tbaa !20
+  %38 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
+  %.not.us.us = icmp eq i32 %38, 0
+  %39 = add i32 %.041.us.us, 1
+  br i1 %.not.us.us, label %.preheader.us.us, label %.thread
 
-.preheader.us:                                    ; preds = %31
-  %40 = add i32 %.041.us, 1
-  br i1 %.not8, label %.thread, label %31, !llvm.loop !41
+.split.us.split:                                  ; preds = %.split.us
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %1, i64 %17, i1 false)
+  store i8 0, ptr %18, align 1, !tbaa !20
+  store i8 0, ptr %21, align 1, !tbaa !20
+  store i8 0, ptr %24, align 1, !tbaa !20
+  store i8 0, ptr %27, align 1, !tbaa !20
+  %40 = call i32 @wc_Hash(i32 noundef %0, ptr noundef nonnull %6, i32 noundef %10, ptr noundef nonnull %6, i32 noundef %.046) #12
+  br label %.thread
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge
   %.041 = phi i32 [ %59, %._crit_edge ], [ 0, %.split.preheader ]
@@ -2979,27 +2985,27 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv11 = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next12, %.lr.ph ]
+  %indvars.iv12 = phi i64 [ %50, %.lr.ph.preheader ], [ %indvars.iv.next13, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
+  %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = icmp samesign ult i64 %indvars.iv.next, %29
-  %56 = icmp samesign ult i64 %indvars.iv.next12, %30
+  %56 = icmp samesign ult i64 %indvars.iv.next13, %30
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
+  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %58 = trunc nuw i64 %indvars.iv.next12 to i32
+  %58 = trunc nuw i64 %indvars.iv.next13 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.2.lcssa = phi i32 [ %.040, %.preheader ], [ %58, %._crit_edge.loopexit ]
   %59 = add i32 %.041, 1
   %60 = icmp ult i32 %.2.lcssa, %4
-  br i1 %60, label %.split, label %.thread, !llvm.loop !44
+  br i1 %60, label %.split, label %.thread, !llvm.loop !41
 
-.thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us, %31, %13, %5
-  %.043 = phi i32 [ %.fr6, %5 ], [ -173, %13 ], [ %39, %31 ], [ 0, %.preheader.us ], [ %48, %.split ], [ 0, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us.us, %.split.us.split, %13, %5
+  %.043 = phi i32 [ %.fr7, %5 ], [ -173, %13 ], [ %40, %.split.us.split ], [ %38, %.preheader.us.us ], [ %48, %.split ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.043
 }
@@ -3114,25 +3120,25 @@ define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %0, ptr nound
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 3120
-  %39 = load i16, ptr %38, align 8, !tbaa !45
+  %39 = load i16, ptr %38, align 8, !tbaa !43
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %53, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4160
-  %43 = load i16, ptr %42, align 8, !tbaa !46
+  %43 = load i16, ptr %42, align 8, !tbaa !44
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %53, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 5200
-  %47 = load i16, ptr %46, align 8, !tbaa !47
+  %47 = load i16, ptr %46, align 8, !tbaa !45
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 6240
-  %51 = load i16, ptr %50, align 8, !tbaa !48
+  %51 = load i16, ptr %50, align 8, !tbaa !46
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %53, label %56
 
@@ -3318,11 +3324,9 @@ attributes #12 = { nounwind }
 !38 = !{!4, !6, i64 0}
 !39 = !{!4, !11, i64 8340}
 !40 = distinct !{!40, !22}
-!41 = distinct !{!41, !22, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !22}
-!44 = distinct !{!44, !22}
-!45 = !{!4, !6, i64 3120}
-!46 = !{!4, !6, i64 4160}
-!47 = !{!4, !6, i64 5200}
-!48 = !{!4, !6, i64 6240}
+!41 = distinct !{!41, !22}
+!42 = distinct !{!42, !22}
+!43 = !{!4, !6, i64 3120}
+!44 = !{!4, !6, i64 4160}
+!45 = !{!4, !6, i64 5200}
+!46 = !{!4, !6, i64 6240}

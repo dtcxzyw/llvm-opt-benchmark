@@ -1134,7 +1134,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 171:                                              ; preds = %.preheader69.split
   %172 = load ptr, ptr %167, align 8
   %173 = icmp eq ptr %172, %156
-  br i1 %173, label %.thread51, label %.preheader69.split, !llvm.loop !28
+  br i1 %173, label %.thread51, label %.preheader69.split, !llvm.loop !26
 
 .loopexit70:                                      ; preds = %139, %.preheader69.split.us, %.preheader69.split, %147
   %174 = phi ptr [ %115, %147 ], [ %167, %.preheader69.split ], [ %159, %.preheader69.split.us ], [ %135, %139 ]
@@ -1331,7 +1331,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
 273:                                              ; preds = %.preheader67
   %274 = add nuw i32 %276, 1
   %275 = icmp eq i32 %274, %261
-  br i1 %275, label %.loopexit66, label %.preheader67, !llvm.loop !29
+  br i1 %275, label %.loopexit66, label %.preheader67, !llvm.loop !27
 
 .preheader67:                                     ; preds = %263, %273
   %276 = phi i32 [ %274, %273 ], [ 0, %263 ]
@@ -1355,7 +1355,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   store i32 %282, ptr %288, align 4
   %289 = add i32 %284, 1
   %290 = icmp sgt i32 %289, %256
-  br i1 %290, label %.loopexit66, label %.preheader65, !llvm.loop !30
+  br i1 %290, label %.loopexit66, label %.preheader65, !llvm.loop !28
 
 .loopexit66:                                      ; preds = %273, %.preheader65, %281, %271, %251
   %291 = phi i32 [ %255, %251 ], [ %269, %271 ], [ %269, %281 ], [ %269, %.preheader65 ], [ %269, %273 ]
@@ -1365,7 +1365,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %295 = add nuw i32 %256, 1
   %296 = load i32, ptr %116, align 8
   %297 = icmp ult i32 %295, %296
-  br i1 %297, label %251, label %249, !llvm.loop !31
+  br i1 %297, label %251, label %249, !llvm.loop !29
 
 .preheader168:                                    ; preds = %249, %.loopexit64
   %298 = phi i32 [ %317, %.loopexit64 ], [ %296, %249 ]
@@ -1391,7 +1391,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %315 = load i32, ptr %314, align 8
   %316 = icmp ult i32 %312, %315
-  br i1 %316, label %.preheader63, label %.loopexit64.loopexit, !llvm.loop !32
+  br i1 %316, label %.preheader63, label %.loopexit64.loopexit, !llvm.loop !30
 
 .loopexit64.loopexit:                             ; preds = %.preheader63
   %.pre133 = load i32, ptr %116, align 8
@@ -1401,7 +1401,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %317 = phi i32 [ %.pre133, %.loopexit64.loopexit ], [ %298, %.preheader168 ]
   %318 = add nuw i32 %299, 1
   %319 = icmp ult i32 %318, %317
-  br i1 %319, label %.preheader168, label %.thread53, !llvm.loop !33
+  br i1 %319, label %.preheader168, label %.thread53, !llvm.loop !31
 
 .thread53:                                        ; preds = %.loopexit64, %215, %249
   %320 = phi ptr [ %177, %215 ], [ %247, %249 ], [ %247, %.loopexit64 ]
@@ -1431,11 +1431,11 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %333 = phi ptr [ %320, %326 ], [ %115, %.preheader73 ]
   %334 = load ptr, ptr %114, align 8
   %335 = icmp eq ptr %334, %111
-  br i1 %335, label %.loopexit74, label %.preheader73, !llvm.loop !34
+  br i1 %335, label %.loopexit74, label %.preheader73, !llvm.loop !32
 
 .loopexit74:                                      ; preds = %332, %109
   %336 = phi ptr [ %104, %109 ], [ %333, %332 ]
-  br i1 %103, label %101, label %.thread54, !llvm.loop !35
+  br i1 %103, label %101, label %.thread54, !llvm.loop !33
 
 .thread54:                                        ; preds = %105, %.loopexit74
   %337 = load ptr, ptr %43, align 8
@@ -1536,7 +1536,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %401 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %402 = load i32, ptr %401, align 8
   %403 = icmp ult i32 %400, %402
-  br i1 %403, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !36
+  br i1 %403, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !34
 
 .loopexit.loopexit.i:                             ; preds = %396
   %.pre11.i = load i32, ptr %342, align 8
@@ -1548,7 +1548,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   %.ph3.i = phi i8 [ %350, %360 ], [ %350, %347 ], [ %399, %.loopexit.loopexit.i ]
   %405 = add nuw i32 %349, 1
   %406 = icmp ult i32 %405, %404
-  br i1 %406, label %347, label %407, !llvm.loop !37
+  br i1 %406, label %347, label %407, !llvm.loop !35
 
 407:                                              ; preds = %.loopexit.i
   %.not56 = icmp eq i8 %.ph.i, 0
@@ -1644,7 +1644,7 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   %464 = getelementptr inbounds nuw i8, ptr %461, i64 24
   %465 = load i32, ptr %464, align 8
   %466 = icmp ult i32 %463, %465
-  br i1 %466, label %.preheader.i44, label %.loopexit.loopexit.i45, !llvm.loop !36
+  br i1 %466, label %.preheader.i44, label %.loopexit.loopexit.i45, !llvm.loop !34
 
 .loopexit.loopexit.i45:                           ; preds = %460
   %.pre11.i46 = load i32, ptr %342, align 8
@@ -1655,12 +1655,12 @@ __hidinput_change_resolution_multipliers.exit:    ; preds = %379
   %.ph3.i43 = phi i8 [ %416, %425 ], [ %416, %.preheader165 ], [ %462, %.loopexit.loopexit.i45 ]
   %468 = add nuw i32 %415, 1
   %469 = icmp ult i32 %468, %467
-  br i1 %469, label %.preheader165, label %__hidinput_change_resolution_multipliers.exit48, !llvm.loop !37
+  br i1 %469, label %.preheader165, label %__hidinput_change_resolution_multipliers.exit48, !llvm.loop !35
 
 __hidinput_change_resolution_multipliers.exit.thread: ; preds = %340, %407, %408, %__hidinput_change_resolution_multipliers.exit
   %470 = load ptr, ptr %341, align 8
   %471 = icmp eq ptr %470, %43
-  br i1 %471, label %.loopexit62, label %340, !llvm.loop !38
+  br i1 %471, label %.loopexit62, label %340, !llvm.loop !36
 
 .loopexit62:                                      ; preds = %__hidinput_change_resolution_multipliers.exit.thread, %.thread54
   tail call void @hid_setup_resolution_multiplier(ptr noundef %0) #11
@@ -1722,7 +1722,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   %512 = or i64 %511, %509
   %513 = add nuw nsw i64 %508, 1
   %514 = icmp eq i64 %513, 12
-  br i1 %514, label %490, label %507, !llvm.loop !39
+  br i1 %514, label %490, label %507, !llvm.loop !37
 
 515:                                              ; preds = %515, %490
   %516 = phi i1 [ true, %490 ], [ false, %515 ]
@@ -1731,7 +1731,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   %519 = getelementptr [2 x i64], ptr %506, i64 0, i64 %517
   %520 = load i64, ptr %519, align 8
   %521 = or i64 %520, %518
-  br i1 %516, label %515, label %522, !llvm.loop !40
+  br i1 %516, label %515, label %522, !llvm.loop !38
 
 522:                                              ; preds = %515
   %523 = getelementptr inbounds nuw i8, ptr %486, i64 200
@@ -1778,7 +1778,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
 .loopexit:                                        ; preds = %565, %.preheader
   %547 = load ptr, ptr %549, align 8
   %548 = icmp eq ptr %547, %544
-  br i1 %548, label %.loopexit57, label %.preheader, !llvm.loop !41
+  br i1 %548, label %.loopexit57, label %.preheader, !llvm.loop !39
 
 .preheader:                                       ; preds = %542, %.loopexit
   %549 = phi ptr [ %547, %.loopexit ], [ %545, %542 ]
@@ -1811,10 +1811,10 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   %566 = phi i32 [ %.pre134, %564 ], [ %556, %555 ]
   %567 = add nuw i32 %557, 1
   %568 = icmp ult i32 %567, %566
-  br i1 %568, label %555, label %.loopexit, !llvm.loop !42
+  br i1 %568, label %555, label %.loopexit, !llvm.loop !40
 
 .loopexit57:                                      ; preds = %.loopexit, %542
-  br i1 %537, label %535, label %.thread55, !llvm.loop !43
+  br i1 %537, label %535, label %.thread55, !llvm.loop !41
 
 .thread55:                                        ; preds = %538, %.loopexit57
   tail call void @kfree(ptr noundef %477) #11
@@ -1832,7 +1832,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
 
 574:                                              ; preds = %572, %.thread55
   %575 = icmp eq ptr %478, %5
-  br i1 %575, label %.loopexit59, label %476, !llvm.loop !44
+  br i1 %575, label %.loopexit59, label %476, !llvm.loop !42
 
 .loopexit59:                                      ; preds = %574, %__hidinput_change_resolution_multipliers.exit48
   %576 = load volatile ptr, ptr %5, align 8
@@ -1880,7 +1880,7 @@ __hidinput_change_resolution_multipliers.exit48:  ; preds = %.loopexit.i41, %443
   tail call void @kfree(ptr noundef %594) #11
   tail call void @kfree(ptr noundef %580) #11
   %595 = icmp eq ptr %581, %5
-  br i1 %595, label %hidinput_disconnect.exit, label %.preheader.i49, !llvm.loop !45
+  br i1 %595, label %hidinput_disconnect.exit, label %.preheader.i49, !llvm.loop !43
 
 hidinput_disconnect.exit:                         ; preds = %592, %.loopexit58
   %596 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %7) #11
@@ -2045,7 +2045,7 @@ define dso_local void @hidinput_disconnect(ptr noundef %0) #1 align 16 {
   tail call void @kfree(ptr noundef %19) #11
   tail call void @kfree(ptr noundef %5) #11
   %20 = icmp eq ptr %6, %2
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !45
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %17, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 6296
@@ -2114,7 +2114,7 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
 .loopexit7:                                       ; preds = %.loopexit, %.preheader
   %13 = load ptr, ptr %15, align 8
   %14 = icmp eq ptr %13, %10
-  br i1 %14, label %.thread, label %.preheader, !llvm.loop !46
+  br i1 %14, label %.thread, label %.preheader, !llvm.loop !44
 
 .preheader:                                       ; preds = %9, %.loopexit7
   %15 = phi ptr [ %13, %.loopexit7 ], [ %11, %9 ]
@@ -2161,12 +2161,12 @@ define internal i32 @hidinput_input_event(ptr noundef %0, i32 noundef %1, i32 no
 44:                                               ; preds = %39, %32
   %45 = add nuw i32 %33, 1
   %46 = icmp eq i32 %45, %27
-  br i1 %46, label %.loopexit, label %32, !llvm.loop !47
+  br i1 %46, label %.loopexit, label %32, !llvm.loop !45
 
 .loopexit:                                        ; preds = %44, %21
   %47 = add nuw i32 %22, 1
   %48 = icmp eq i32 %47, %17
-  br i1 %48, label %.loopexit7, label %21, !llvm.loop !48
+  br i1 %48, label %.loopexit7, label %21, !llvm.loop !46
 
 49:                                               ; preds = %39
   %50 = icmp eq i32 %33, -1
@@ -2237,10 +2237,10 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %2, align 4
   %24 = zext i32 %23 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %24) #11, !srcloc !49
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %24) #11, !srcloc !47
   %25 = load i16, ptr %21, align 2
   %26 = zext i16 %25 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %26) #11, !srcloc !50
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %26) #11, !srcloc !48
   %27 = load i32, ptr %2, align 4
   %28 = getelementptr i8, ptr %5, i64 88
   br label %29
@@ -2256,7 +2256,7 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
 .loopexit8:                                       ; preds = %.loopexit, %.preheader
   %34 = load ptr, ptr %36, align 8
   %35 = icmp eq ptr %34, %31
-  br i1 %35, label %.loopexit9, label %.preheader, !llvm.loop !51
+  br i1 %35, label %.loopexit9, label %.preheader, !llvm.loop !49
 
 .preheader:                                       ; preds = %29, %.loopexit8
   %36 = phi ptr [ %34, %.loopexit8 ], [ %32, %29 ]
@@ -2303,15 +2303,15 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
 65:                                               ; preds = %60, %54
   %66 = add nuw nsw i64 %55, 1
   %67 = icmp eq i64 %66, %53
-  br i1 %67, label %.loopexit, label %54, !llvm.loop !52
+  br i1 %67, label %.loopexit, label %54, !llvm.loop !50
 
 .loopexit:                                        ; preds = %65, %43
   %68 = add nuw nsw i64 %44, 1
   %69 = icmp eq i64 %68, %42
-  br i1 %69, label %.loopexit8, label %43, !llvm.loop !53
+  br i1 %69, label %.loopexit8, label %43, !llvm.loop !51
 
 .loopexit9:                                       ; preds = %.loopexit8, %29
-  br i1 %30, label %29, label %.loopexit10, !llvm.loop !54
+  br i1 %30, label %29, label %.loopexit10, !llvm.loop !52
 
 70:                                               ; preds = %60
   %71 = icmp eq ptr %56, null
@@ -2319,7 +2319,7 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_setkeycode(ptr noundef %
 
 72:                                               ; preds = %70
   %73 = zext nneg i32 %27 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %73) #11, !srcloc !50
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %73) #11, !srcloc !48
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %.loopexit9, %72, %70, %3
@@ -2333,7 +2333,7 @@ define internal noundef range(i32 -22, 1) i32 @hidinput_getkeycode(ptr noundef r
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !annotation !55
+  store i32 0, ptr %3, align 4, !annotation !53
   %6 = call fastcc ptr @hidinput_locate_usage(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %3)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %25, label %8
@@ -2396,7 +2396,7 @@ declare dso_local void @hid_hw_close(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 0, ptr %4, align 4, !annotation !55
+  store i32 0, ptr %4, align 4, !annotation !53
   %5 = load i8, ptr %1, align 4
   %6 = and i8 %5, 1
   %7 = icmp eq i8 %6, 0
@@ -2422,7 +2422,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
   %19 = phi i32 [ %23, %.preheader19 ], [ %59, %.loopexit17 ]
   %20 = load ptr, ptr %22, align 8
   %21 = icmp eq ptr %20, %16
-  br i1 %21, label %.loopexit20, label %.preheader19, !llvm.loop !51
+  br i1 %21, label %.loopexit20, label %.preheader19, !llvm.loop !49
 
 .preheader19:                                     ; preds = %13, %.loopexit18
   %22 = phi ptr [ %20, %.loopexit18 ], [ %17, %13 ]
@@ -2478,17 +2478,17 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
   %56 = phi i32 [ %54, %53 ], [ %44, %42 ]
   %57 = add nuw nsw i64 %43, 1
   %58 = icmp eq i64 %57, %41
-  br i1 %58, label %.loopexit17, label %42, !llvm.loop !52
+  br i1 %58, label %.loopexit17, label %42, !llvm.loop !50
 
 .loopexit17:                                      ; preds = %55, %30
   %59 = phi i32 [ %32, %30 ], [ %56, %55 ]
   %60 = add nuw nsw i64 %31, 1
   %61 = icmp eq i64 %60, %29
-  br i1 %61, label %.loopexit18, label %30, !llvm.loop !53
+  br i1 %61, label %.loopexit18, label %30, !llvm.loop !51
 
 .loopexit20:                                      ; preds = %.loopexit18, %13
   %62 = phi i32 [ %15, %13 ], [ %19, %.loopexit18 ]
-  br i1 %14, label %13, label %.loopexit16, !llvm.loop !54
+  br i1 %14, label %13, label %.loopexit16, !llvm.loop !52
 
 63:                                               ; preds = %3
   %64 = call i32 @input_scancode_to_scalar(ptr noundef %1, ptr noundef nonnull %4) #11
@@ -2513,7 +2513,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
   %75 = phi i32 [ %79, %.preheader ], [ %116, %.loopexit ]
   %76 = load ptr, ptr %78, align 8
   %77 = icmp eq ptr %76, %72
-  br i1 %77, label %.loopexit15, label %.preheader, !llvm.loop !51
+  br i1 %77, label %.loopexit15, label %.preheader, !llvm.loop !49
 
 .preheader:                                       ; preds = %69, %.loopexit14
   %78 = phi ptr [ %76, %.loopexit14 ], [ %73, %69 ]
@@ -2570,17 +2570,17 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly captures(
   %113 = phi i32 [ %111, %110 ], [ %100, %98 ]
   %114 = add nuw nsw i64 %99, 1
   %115 = icmp eq i64 %114, %97
-  br i1 %115, label %.loopexit, label %98, !llvm.loop !52
+  br i1 %115, label %.loopexit, label %98, !llvm.loop !50
 
 .loopexit:                                        ; preds = %112, %86
   %116 = phi i32 [ %88, %86 ], [ %113, %112 ]
   %117 = add nuw nsw i64 %87, 1
   %118 = icmp eq i64 %117, %85
-  br i1 %118, label %.loopexit14, label %86, !llvm.loop !53
+  br i1 %118, label %.loopexit14, label %86, !llvm.loop !51
 
 .loopexit15:                                      ; preds = %.loopexit14, %69
   %119 = phi i32 [ %71, %69 ], [ %75, %.loopexit14 ]
-  br i1 %70, label %69, label %.loopexit16, !llvm.loop !54
+  br i1 %70, label %69, label %.loopexit16, !llvm.loop !52
 
 120:                                              ; preds = %108, %51
   %121 = phi i32 [ %11, %51 ], [ %100, %108 ]
@@ -2643,7 +2643,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 30:                                               ; preds = %.preheader
   %31 = add nuw nsw i64 %26, 1
   %32 = icmp eq i64 %31, 5
-  br i1 %32, label %.thread.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %32, label %.thread.loopexit, label %.preheader, !llvm.loop !54
 
 33:                                               ; preds = %.preheader
   %34 = trunc i64 %26 to i32
@@ -2737,7 +2737,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %75, i32 16, ptr elementtype(i8) %75) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %75, i32 16, ptr elementtype(i8) %75) #11, !srcloc !55
   %76 = load i32, ptr %2, align 4
   %77 = and i32 %76, 65535
   %78 = icmp samesign ult i32 %77, 256
@@ -2963,7 +2963,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 116, ptr %173, align 2
   store i32 767, ptr %5, align 4
   store ptr %171, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %171, i64 116) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %171, i64 116) #11, !srcloc !47
   br label %1331
 
 174:                                              ; preds = %168
@@ -2975,7 +2975,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 142, ptr %177, align 2
   store i32 767, ptr %5, align 4
   store ptr %175, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %175, i64 142) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %175, i64 142) #11, !srcloc !47
   br label %1331
 
 178:                                              ; preds = %168
@@ -2987,7 +2987,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 143, ptr %181, align 2
   store i32 767, ptr %5, align 4
   store ptr %179, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %179, i64 143) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %179, i64 143) #11, !srcloc !47
   br label %1331
 
 182:                                              ; preds = %168
@@ -2999,7 +2999,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 438, ptr %185, align 2
   store i32 767, ptr %5, align 4
   store ptr %183, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %183, i64 438) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %183, i64 438) #11, !srcloc !47
   br label %1331
 
 186:                                              ; preds = %168
@@ -3011,7 +3011,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 139, ptr %189, align 2
   store i32 767, ptr %5, align 4
   store ptr %187, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %187, i64 139) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %187, i64 139) #11, !srcloc !47
   br label %1331
 
 190:                                              ; preds = %168
@@ -3023,7 +3023,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 148, ptr %193, align 2
   store i32 767, ptr %5, align 4
   store ptr %191, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %191, i64 148) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %191, i64 148) #11, !srcloc !47
   br label %1331
 
 194:                                              ; preds = %168
@@ -3035,7 +3035,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 138, ptr %197, align 2
   store i32 767, ptr %5, align 4
   store ptr %195, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %195, i64 138) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %195, i64 138) #11, !srcloc !47
   br label %1331
 
 198:                                              ; preds = %168
@@ -3047,7 +3047,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 174, ptr %201, align 2
   store i32 767, ptr %5, align 4
   store ptr %199, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %199, i64 174) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %199, i64 174) #11, !srcloc !47
   br label %1331
 
 202:                                              ; preds = %168
@@ -3059,7 +3059,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 353, ptr %205, align 2
   store i32 767, ptr %5, align 4
   store ptr %203, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %203, i64 353) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %203, i64 353) #11, !srcloc !47
   br label %1331
 
 206:                                              ; preds = %168
@@ -3071,7 +3071,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 106, ptr %209, align 2
   store i32 767, ptr %5, align 4
   store ptr %207, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %207, i64 106) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %207, i64 106) #11, !srcloc !47
   br label %1331
 
 210:                                              ; preds = %168
@@ -3083,7 +3083,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 105, ptr %213, align 2
   store i32 767, ptr %5, align 4
   store ptr %211, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %211, i64 105) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %211, i64 105) #11, !srcloc !47
   br label %1331
 
 214:                                              ; preds = %168
@@ -3095,7 +3095,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 103, ptr %217, align 2
   store i32 767, ptr %5, align 4
   store ptr %215, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %215, i64 103) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %215, i64 103) #11, !srcloc !47
   br label %1331
 
 218:                                              ; preds = %168
@@ -3107,7 +3107,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 108, ptr %221, align 2
   store i32 767, ptr %5, align 4
   store ptr %219, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %219, i64 108) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %219, i64 108) #11, !srcloc !47
   br label %1331
 
 222:                                              ; preds = %168
@@ -3119,7 +3119,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 356, ptr %225, align 2
   store i32 767, ptr %5, align 4
   store ptr %223, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %223, i64 356) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %223, i64 356) #11, !srcloc !47
   br label %1331
 
 226:                                              ; preds = %168
@@ -3131,7 +3131,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 408, ptr %229, align 2
   store i32 767, ptr %5, align 4
   store ptr %227, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %227, i64 408) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %227, i64 408) #11, !srcloc !47
   br label %1331
 
 230:                                              ; preds = %165
@@ -3148,7 +3148,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 248, ptr %236, align 2
   store i32 767, ptr %5, align 4
   store ptr %234, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %234, i64 248) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %234, i64 248) #11, !srcloc !47
   br label %1331
 
 237:                                              ; preds = %165
@@ -3165,7 +3165,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 227, ptr %243, align 2
   store i32 767, ptr %5, align 4
   store ptr %241, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %241, i64 227) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %241, i64 227) #11, !srcloc !47
   br label %1331
 
 244:                                              ; preds = %165
@@ -3263,7 +3263,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 280:                                              ; preds = %276
   %281 = getelementptr i8, ptr %8, i64 145
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %281, i32 1, ptr elementtype(i8) %281) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %281, i32 1, ptr elementtype(i8) %281) #11, !srcloc !55
   %.val252 = load ptr, ptr %7, align 8
   %282 = getelementptr inbounds nuw i8, ptr %.val252, i64 144
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3325,7 +3325,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 315, ptr %311, align 2
   store i32 767, ptr %5, align 4
   store ptr %309, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %309, i64 315) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %309, i64 315) #11, !srcloc !47
   br label %1331
 
 312:                                              ; preds = %266
@@ -3337,7 +3337,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 314, ptr %315, align 2
   store i32 767, ptr %5, align 4
   store ptr %313, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %313, i64 314) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %313, i64 314) #11, !srcloc !47
   br label %1331
 
 316:                                              ; preds = %266
@@ -3353,7 +3353,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 247, ptr %321, align 2
   store i32 767, ptr %5, align 4
   store ptr %319, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %319, i64 247) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %319, i64 247) #11, !srcloc !47
   %322 = load i32, ptr %12, align 4
   %323 = or i32 %322, 4
   store i32 %323, ptr %12, align 4
@@ -3485,12 +3485,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
 
 374:                                              ; preds = %370
   %375 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %375, i64 0) #11, !srcloc !58
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %375, i64 0) #11, !srcloc !56
   br label %378
 
 376:                                              ; preds = %370
   %377 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %377, i64 1) #11, !srcloc !58
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %377, i64 1) #11, !srcloc !56
   br label %378
 
 378:                                              ; preds = %376, %374, %370
@@ -3528,9 +3528,9 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   %389 = or i32 %388, 2
   store i32 %389, ptr %387, align 4
   %390 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %390, i32 2, ptr nonnull elementtype(i8) %390) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %390, i32 2, ptr nonnull elementtype(i8) %390) #11, !srcloc !55
   %391 = getelementptr i8, ptr %8, i64 89
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %391, i32 4, ptr elementtype(i8) %391) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %391, i32 4, ptr elementtype(i8) %391) #11, !srcloc !55
   br label %392
 
 392:                                              ; preds = %386, %381
@@ -3542,7 +3542,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 24, ptr %395, align 2
   store i32 63, ptr %5, align 4
   store ptr %393, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %393, i64 24) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %393, i64 24) #11, !srcloc !47
   br label %1331
 
 396:                                              ; preds = %378
@@ -3586,14 +3586,14 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 325, ptr %412, align 2
   store i32 767, ptr %5, align 4
   store ptr %410, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %410, i64 325) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %410, i64 325) #11, !srcloc !47
   br label %1331
 
 414:                                              ; preds = %406
   store i16 320, ptr %412, align 2
   store i32 767, ptr %5, align 4
   store ptr %410, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %410, i64 320) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %410, i64 320) #11, !srcloc !47
   br label %1331
 
 415:                                              ; preds = %396
@@ -3623,7 +3623,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 321, ptr %427, align 2
   store i32 767, ptr %5, align 4
   store ptr %425, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %425, i64 321) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %425, i64 321) #11, !srcloc !47
   br label %1331
 
 428:                                              ; preds = %378
@@ -3635,7 +3635,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 26, ptr %431, align 2
   store i32 63, ptr %5, align 4
   store ptr %429, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %429, i64 26) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %429, i64 26) #11, !srcloc !47
   br label %1331
 
 432:                                              ; preds = %378
@@ -3647,7 +3647,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 27, ptr %435, align 2
   store i32 63, ptr %5, align 4
   store ptr %433, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %433, i64 27) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %433, i64 27) #11, !srcloc !47
   br label %1331
 
 436:                                              ; preds = %378, %378, %378
@@ -3663,7 +3663,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 330, ptr %442, align 2
   store i32 767, ptr %5, align 4
   store ptr %440, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %440, i64 330) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %440, i64 330) #11, !srcloc !47
   br label %1331
 
 443:                                              ; preds = %378
@@ -3675,7 +3675,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 331, ptr %446, align 2
   store i32 767, ptr %5, align 4
   store ptr %444, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %444, i64 331) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %444, i64 331) #11, !srcloc !47
   br label %1331
 
 447:                                              ; preds = %378
@@ -3690,7 +3690,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   %454 = load i32, ptr %453, align 4
   %455 = or i32 %454, 2097152
   store i32 %455, ptr %453, align 4
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %448, i32 2, ptr elementtype(i8) %448) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %448, i32 2, ptr elementtype(i8) %448) #11, !srcloc !55
   br label %456
 
 456:                                              ; preds = %452, %447
@@ -3702,7 +3702,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 330, ptr %459, align 2
   store i32 767, ptr %5, align 4
   store ptr %457, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %457, i64 330) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %457, i64 330) #11, !srcloc !47
   br label %1331
 
 460:                                              ; preds = %378, %378
@@ -3714,7 +3714,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 332, ptr %463, align 2
   store i32 767, ptr %5, align 4
   store ptr %461, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %461, i64 332) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %461, i64 332) #11, !srcloc !47
   br label %1331
 
 464:                                              ; preds = %378, %378
@@ -3757,7 +3757,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 248, ptr %473, align 2
   store i32 767, ptr %5, align 4
   store ptr %471, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %471, i64 248) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %471, i64 248) #11, !srcloc !47
   br label %1331
 
 474:                                              ; preds = %468
@@ -3769,7 +3769,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 512, ptr %477, align 2
   store i32 767, ptr %5, align 4
   store ptr %475, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %475, i64 512) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %475, i64 512) #11, !srcloc !47
   br label %1331
 
 478:                                              ; preds = %468
@@ -3781,7 +3781,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 513, ptr %481, align 2
   store i32 767, ptr %5, align 4
   store ptr %479, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %479, i64 513) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %479, i64 513) #11, !srcloc !47
   br label %1331
 
 482:                                              ; preds = %468
@@ -3793,7 +3793,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 514, ptr %485, align 2
   store i32 767, ptr %5, align 4
   store ptr %483, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %483, i64 514) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %483, i64 514) #11, !srcloc !47
   br label %1331
 
 486:                                              ; preds = %468
@@ -3805,7 +3805,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 515, ptr %489, align 2
   store i32 767, ptr %5, align 4
   store ptr %487, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %487, i64 515) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %487, i64 515) #11, !srcloc !47
   br label %1331
 
 490:                                              ; preds = %468
@@ -3817,7 +3817,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 516, ptr %493, align 2
   store i32 767, ptr %5, align 4
   store ptr %491, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %491, i64 516) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %491, i64 516) #11, !srcloc !47
   br label %1331
 
 494:                                              ; preds = %468
@@ -3829,7 +3829,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 517, ptr %497, align 2
   store i32 767, ptr %5, align 4
   store ptr %495, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %495, i64 517) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %495, i64 517) #11, !srcloc !47
   br label %1331
 
 498:                                              ; preds = %468
@@ -3841,7 +3841,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 518, ptr %501, align 2
   store i32 767, ptr %5, align 4
   store ptr %499, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %499, i64 518) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %499, i64 518) #11, !srcloc !47
   br label %1331
 
 502:                                              ; preds = %468
@@ -3853,7 +3853,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 519, ptr %505, align 2
   store i32 767, ptr %5, align 4
   store ptr %503, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %503, i64 519) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %503, i64 519) #11, !srcloc !47
   br label %1331
 
 506:                                              ; preds = %468
@@ -3865,7 +3865,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 520, ptr %509, align 2
   store i32 767, ptr %5, align 4
   store ptr %507, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %507, i64 520) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %507, i64 520) #11, !srcloc !47
   br label %1331
 
 510:                                              ; preds = %468
@@ -3877,7 +3877,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 521, ptr %513, align 2
   store i32 767, ptr %5, align 4
   store ptr %511, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %511, i64 521) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %511, i64 521) #11, !srcloc !47
   br label %1331
 
 514:                                              ; preds = %468
@@ -3889,7 +3889,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 522, ptr %517, align 2
   store i32 767, ptr %5, align 4
   store ptr %515, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %515, i64 522) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %515, i64 522) #11, !srcloc !47
   br label %1331
 
 518:                                              ; preds = %468
@@ -3901,7 +3901,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 523, ptr %521, align 2
   store i32 767, ptr %5, align 4
   store ptr %519, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %519, i64 523) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %519, i64 523) #11, !srcloc !47
   br label %1331
 
 522:                                              ; preds = %468
@@ -3913,7 +3913,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 524, ptr %525, align 2
   store i32 767, ptr %5, align 4
   store ptr %523, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %523, i64 524) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %523, i64 524) #11, !srcloc !47
   br label %1331
 
 526:                                              ; preds = %468
@@ -3925,7 +3925,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 525, ptr %529, align 2
   store i32 767, ptr %5, align 4
   store ptr %527, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %527, i64 525) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %527, i64 525) #11, !srcloc !47
   br label %1331
 
 530:                                              ; preds = %468
@@ -3937,7 +3937,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 526, ptr %533, align 2
   store i32 767, ptr %5, align 4
   store ptr %531, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %531, i64 526) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %531, i64 526) #11, !srcloc !47
   br label %1331
 
 534:                                              ; preds = %468
@@ -3949,7 +3949,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 527, ptr %537, align 2
   store i32 767, ptr %5, align 4
   store ptr %535, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %535, i64 527) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %535, i64 527) #11, !srcloc !47
   br label %1331
 
 538:                                              ; preds = %71
@@ -4133,7 +4133,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 116, ptr %543, align 2
   store i32 767, ptr %5, align 4
   store ptr %541, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %541, i64 116) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %541, i64 116) #11, !srcloc !47
   br label %1331
 
 544:                                              ; preds = %538
@@ -4145,7 +4145,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 408, ptr %547, align 2
   store i32 767, ptr %5, align 4
   store ptr %545, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %545, i64 408) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %545, i64 408) #11, !srcloc !47
   br label %1331
 
 548:                                              ; preds = %538
@@ -4157,7 +4157,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 142, ptr %551, align 2
   store i32 767, ptr %5, align 4
   store ptr %549, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %549, i64 142) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %549, i64 142) #11, !srcloc !47
   br label %1331
 
 552:                                              ; preds = %538
@@ -4169,7 +4169,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 142, ptr %555, align 2
   store i32 767, ptr %5, align 4
   store ptr %553, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %553, i64 142) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %553, i64 142) #11, !srcloc !47
   br label %1331
 
 556:                                              ; preds = %538
@@ -4181,7 +4181,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 228, ptr %559, align 2
   store i32 767, ptr %5, align 4
   store ptr %557, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %557, i64 228) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %557, i64 228) #11, !srcloc !47
   br label %1331
 
 560:                                              ; preds = %538
@@ -4193,7 +4193,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 256, ptr %563, align 2
   store i32 767, ptr %5, align 4
   store ptr %561, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %561, i64 256) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %561, i64 256) #11, !srcloc !47
   br label %1331
 
 564:                                              ; preds = %538
@@ -4205,7 +4205,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 139, ptr %567, align 2
   store i32 767, ptr %5, align 4
   store ptr %565, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %565, i64 139) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %565, i64 139) #11, !srcloc !47
   br label %1331
 
 568:                                              ; preds = %538
@@ -4217,7 +4217,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 353, ptr %571, align 2
   store i32 767, ptr %5, align 4
   store ptr %569, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %569, i64 353) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %569, i64 353) #11, !srcloc !47
   br label %1331
 
 572:                                              ; preds = %538
@@ -4229,7 +4229,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 103, ptr %575, align 2
   store i32 767, ptr %5, align 4
   store ptr %573, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %573, i64 103) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %573, i64 103) #11, !srcloc !47
   br label %1331
 
 576:                                              ; preds = %538
@@ -4241,7 +4241,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 108, ptr %579, align 2
   store i32 767, ptr %5, align 4
   store ptr %577, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %577, i64 108) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %577, i64 108) #11, !srcloc !47
   br label %1331
 
 580:                                              ; preds = %538
@@ -4253,7 +4253,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 105, ptr %583, align 2
   store i32 767, ptr %5, align 4
   store ptr %581, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %581, i64 105) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %581, i64 105) #11, !srcloc !47
   br label %1331
 
 584:                                              ; preds = %538
@@ -4265,7 +4265,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 106, ptr %587, align 2
   store i32 767, ptr %5, align 4
   store ptr %585, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %585, i64 106) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %585, i64 106) #11, !srcloc !47
   br label %1331
 
 588:                                              ; preds = %538
@@ -4277,7 +4277,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 1, ptr %591, align 2
   store i32 767, ptr %5, align 4
   store ptr %589, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %589, i64 1) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %589, i64 1) #11, !srcloc !47
   br label %1331
 
 592:                                              ; preds = %538
@@ -4289,7 +4289,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 78, ptr %595, align 2
   store i32 767, ptr %5, align 4
   store ptr %593, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %593, i64 78) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %593, i64 78) #11, !srcloc !47
   br label %1331
 
 596:                                              ; preds = %538
@@ -4301,7 +4301,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 74, ptr %599, align 2
   store i32 767, ptr %5, align 4
   store ptr %597, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %597, i64 74) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %597, i64 74) #11, !srcloc !47
   br label %1331
 
 600:                                              ; preds = %538
@@ -4313,7 +4313,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 358, ptr %603, align 2
   store i32 767, ptr %5, align 4
   store ptr %601, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %601, i64 358) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %601, i64 358) #11, !srcloc !47
   br label %1331
 
 604:                                              ; preds = %538
@@ -4325,7 +4325,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 370, ptr %607, align 2
   store i32 767, ptr %5, align 4
   store ptr %605, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %605, i64 370) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %605, i64 370) #11, !srcloc !47
   br label %1331
 
 608:                                              ; preds = %538
@@ -4337,7 +4337,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 379, ptr %611, align 2
   store i32 767, ptr %5, align 4
   store ptr %609, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %609, i64 379) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %609, i64 379) #11, !srcloc !47
   br label %1331
 
 612:                                              ; preds = %538
@@ -4349,7 +4349,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 212, ptr %615, align 2
   store i32 767, ptr %5, align 4
   store ptr %613, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %613, i64 212) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %613, i64 212) #11, !srcloc !47
   br label %1331
 
 616:                                              ; preds = %538
@@ -4361,7 +4361,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 398, ptr %619, align 2
   store i32 767, ptr %5, align 4
   store ptr %617, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %617, i64 398) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %617, i64 398) #11, !srcloc !47
   br label %1331
 
 620:                                              ; preds = %538
@@ -4373,7 +4373,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 399, ptr %623, align 2
   store i32 767, ptr %5, align 4
   store ptr %621, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %621, i64 399) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %621, i64 399) #11, !srcloc !47
   br label %1331
 
 624:                                              ; preds = %538
@@ -4385,7 +4385,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 401, ptr %627, align 2
   store i32 767, ptr %5, align 4
   store ptr %625, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %625, i64 401) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %625, i64 401) #11, !srcloc !47
   br label %1331
 
 628:                                              ; preds = %538
@@ -4397,7 +4397,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 400, ptr %631, align 2
   store i32 767, ptr %5, align 4
   store ptr %629, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %629, i64 400) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %629, i64 400) #11, !srcloc !47
   br label %1331
 
 632:                                              ; preds = %538
@@ -4409,7 +4409,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 375, ptr %635, align 2
   store i32 767, ptr %5, align 4
   store ptr %633, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %633, i64 375) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %633, i64 375) #11, !srcloc !47
   br label %1331
 
 636:                                              ; preds = %538
@@ -4421,7 +4421,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 225, ptr %639, align 2
   store i32 767, ptr %5, align 4
   store ptr %637, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %637, i64 225) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %637, i64 225) #11, !srcloc !47
   br label %1331
 
 640:                                              ; preds = %538
@@ -4433,7 +4433,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 224, ptr %643, align 2
   store i32 767, ptr %5, align 4
   store ptr %641, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %641, i64 224) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %641, i64 224) #11, !srcloc !47
   br label %1331
 
 644:                                              ; preds = %538
@@ -4445,7 +4445,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 431, ptr %647, align 2
   store i32 767, ptr %5, align 4
   store ptr %645, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %645, i64 431) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %645, i64 431) #11, !srcloc !47
   br label %1331
 
 648:                                              ; preds = %538
@@ -4457,7 +4457,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 592, ptr %651, align 2
   store i32 767, ptr %5, align 4
   store ptr %649, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %649, i64 592) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %649, i64 592) #11, !srcloc !47
   br label %1331
 
 652:                                              ; preds = %538
@@ -4469,7 +4469,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 593, ptr %655, align 2
   store i32 767, ptr %5, align 4
   store ptr %653, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %653, i64 593) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %653, i64 593) #11, !srcloc !47
   br label %1331
 
 656:                                              ; preds = %538
@@ -4481,7 +4481,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 244, ptr %659, align 2
   store i32 767, ptr %5, align 4
   store ptr %657, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %657, i64 244) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %657, i64 244) #11, !srcloc !47
   br label %1331
 
 660:                                              ; preds = %538
@@ -4493,7 +4493,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 587, ptr %663, align 2
   store i32 767, ptr %5, align 4
   store ptr %661, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %661, i64 587) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %661, i64 587) #11, !srcloc !47
   br label %1331
 
 664:                                              ; preds = %538
@@ -4505,7 +4505,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 588, ptr %667, align 2
   store i32 767, ptr %5, align 4
   store ptr %665, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %665, i64 588) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %665, i64 588) #11, !srcloc !47
   br label %1331
 
 668:                                              ; preds = %538
@@ -4517,7 +4517,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 589, ptr %671, align 2
   store i32 767, ptr %5, align 4
   store ptr %669, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %669, i64 589) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %669, i64 589) #11, !srcloc !47
   br label %1331
 
 672:                                              ; preds = %538
@@ -4529,7 +4529,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 230, ptr %675, align 2
   store i32 767, ptr %5, align 4
   store ptr %673, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %673, i64 230) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %673, i64 230) #11, !srcloc !47
   br label %1331
 
 676:                                              ; preds = %538
@@ -4541,7 +4541,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 229, ptr %679, align 2
   store i32 767, ptr %5, align 4
   store ptr %677, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %677, i64 229) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %677, i64 229) #11, !srcloc !47
   br label %1331
 
 680:                                              ; preds = %538
@@ -4553,7 +4553,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 228, ptr %683, align 2
   store i32 767, ptr %5, align 4
   store ptr %681, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %681, i64 228) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %681, i64 228) #11, !srcloc !47
   br label %1331
 
 684:                                              ; preds = %538
@@ -4565,7 +4565,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 241, ptr %687, align 2
   store i32 767, ptr %5, align 4
   store ptr %685, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %685, i64 241) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %685, i64 241) #11, !srcloc !47
   br label %1331
 
 688:                                              ; preds = %538
@@ -4577,7 +4577,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 405, ptr %691, align 2
   store i32 767, ptr %5, align 4
   store ptr %689, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %689, i64 405) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %689, i64 405) #11, !srcloc !47
   br label %1331
 
 692:                                              ; preds = %538
@@ -4589,7 +4589,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 28, ptr %695, align 2
   store i32 767, ptr %5, align 4
   store ptr %693, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %693, i64 28) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %693, i64 28) #11, !srcloc !47
   br label %1331
 
 696:                                              ; preds = %538
@@ -4601,7 +4601,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 376, ptr %699, align 2
   store i32 767, ptr %5, align 4
   store ptr %697, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %697, i64 376) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %697, i64 376) #11, !srcloc !47
   br label %1331
 
 700:                                              ; preds = %538
@@ -4613,7 +4613,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 377, ptr %703, align 2
   store i32 767, ptr %5, align 4
   store ptr %701, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %701, i64 377) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %701, i64 377) #11, !srcloc !47
   br label %1331
 
 704:                                              ; preds = %538
@@ -4625,7 +4625,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 150, ptr %707, align 2
   store i32 767, ptr %5, align 4
   store ptr %705, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %705, i64 150) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %705, i64 150) #11, !srcloc !47
   br label %1331
 
 708:                                              ; preds = %538
@@ -4637,7 +4637,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 389, ptr %711, align 2
   store i32 767, ptr %5, align 4
   store ptr %709, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %709, i64 389) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %709, i64 389) #11, !srcloc !47
   br label %1331
 
 712:                                              ; preds = %538
@@ -4649,7 +4649,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 169, ptr %715, align 2
   store i32 767, ptr %5, align 4
   store ptr %713, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %713, i64 169) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %713, i64 169) #11, !srcloc !47
   br label %1331
 
 716:                                              ; preds = %538
@@ -4661,7 +4661,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 362, ptr %719, align 2
   store i32 767, ptr %5, align 4
   store ptr %717, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %717, i64 362) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %717, i64 362) #11, !srcloc !47
   br label %1331
 
 720:                                              ; preds = %538
@@ -4673,7 +4673,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 416, ptr %723, align 2
   store i32 767, ptr %5, align 4
   store ptr %721, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %721, i64 416) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %721, i64 416) #11, !srcloc !47
   br label %1331
 
 724:                                              ; preds = %538
@@ -4685,7 +4685,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 417, ptr %727, align 2
   store i32 767, ptr %5, align 4
   store ptr %725, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %725, i64 417) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %725, i64 417) #11, !srcloc !47
   br label %1331
 
 728:                                              ; preds = %538
@@ -4697,7 +4697,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 396, ptr %731, align 2
   store i32 767, ptr %5, align 4
   store ptr %729, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %729, i64 396) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %729, i64 396) #11, !srcloc !47
   br label %1331
 
 732:                                              ; preds = %538
@@ -4709,7 +4709,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 383, ptr %735, align 2
   store i32 767, ptr %5, align 4
   store ptr %733, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %733, i64 383) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %733, i64 383) #11, !srcloc !47
   br label %1331
 
 736:                                              ; preds = %538
@@ -4721,7 +4721,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 379, ptr %739, align 2
   store i32 767, ptr %5, align 4
   store ptr %737, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %737, i64 379) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %737, i64 379) #11, !srcloc !47
   br label %1331
 
 740:                                              ; preds = %538
@@ -4733,7 +4733,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 386, ptr %743, align 2
   store i32 767, ptr %5, align 4
   store ptr %741, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %741, i64 386) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %741, i64 386) #11, !srcloc !47
   br label %1331
 
 744:                                              ; preds = %538
@@ -4745,7 +4745,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 174, ptr %747, align 2
   store i32 767, ptr %5, align 4
   store ptr %745, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %745, i64 174) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %745, i64 174) #11, !srcloc !47
   br label %1331
 
 748:                                              ; preds = %538
@@ -4757,7 +4757,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 138, ptr %751, align 2
   store i32 767, ptr %5, align 4
   store ptr %749, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %749, i64 138) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %749, i64 138) #11, !srcloc !47
   br label %1331
 
 752:                                              ; preds = %538
@@ -4769,7 +4769,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 384, ptr %755, align 2
   store i32 767, ptr %5, align 4
   store ptr %753, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %753, i64 384) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %753, i64 384) #11, !srcloc !47
   br label %1331
 
 756:                                              ; preds = %538
@@ -4781,7 +4781,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 378, ptr %759, align 2
   store i32 767, ptr %5, align 4
   store ptr %757, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %757, i64 378) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %757, i64 378) #11, !srcloc !47
   br label %1331
 
 760:                                              ; preds = %538
@@ -4793,7 +4793,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 381, ptr %763, align 2
   store i32 767, ptr %5, align 4
   store ptr %761, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %761, i64 381) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %761, i64 381) #11, !srcloc !47
   br label %1331
 
 764:                                              ; preds = %538
@@ -4805,7 +4805,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 366, ptr %767, align 2
   store i32 767, ptr %5, align 4
   store ptr %765, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %765, i64 366) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %765, i64 366) #11, !srcloc !47
   br label %1331
 
 768:                                              ; preds = %538
@@ -4817,7 +4817,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 402, ptr %771, align 2
   store i32 767, ptr %5, align 4
   store ptr %769, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %769, i64 402) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %769, i64 402) #11, !srcloc !47
   br label %1331
 
 772:                                              ; preds = %538
@@ -4829,7 +4829,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 403, ptr %775, align 2
   store i32 767, ptr %5, align 4
   store ptr %773, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %773, i64 403) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %773, i64 403) #11, !srcloc !47
   br label %1331
 
 776:                                              ; preds = %538
@@ -4841,7 +4841,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 380, ptr %779, align 2
   store i32 767, ptr %5, align 4
   store ptr %777, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %777, i64 380) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %777, i64 380) #11, !srcloc !47
   br label %1331
 
 780:                                              ; preds = %538
@@ -4853,7 +4853,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 207, ptr %783, align 2
   store i32 767, ptr %5, align 4
   store ptr %781, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %781, i64 207) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %781, i64 207) #11, !srcloc !47
   br label %1331
 
 784:                                              ; preds = %538
@@ -4865,7 +4865,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 119, ptr %787, align 2
   store i32 767, ptr %5, align 4
   store ptr %785, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %785, i64 119) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %785, i64 119) #11, !srcloc !47
   br label %1331
 
 788:                                              ; preds = %538
@@ -4877,7 +4877,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 167, ptr %791, align 2
   store i32 767, ptr %5, align 4
   store ptr %789, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %789, i64 167) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %789, i64 167) #11, !srcloc !47
   br label %1331
 
 792:                                              ; preds = %538
@@ -4889,7 +4889,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 208, ptr %795, align 2
   store i32 767, ptr %5, align 4
   store ptr %793, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %793, i64 208) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %793, i64 208) #11, !srcloc !47
   br label %1331
 
 796:                                              ; preds = %538
@@ -4901,7 +4901,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 168, ptr %799, align 2
   store i32 767, ptr %5, align 4
   store ptr %797, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %797, i64 168) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %797, i64 168) #11, !srcloc !47
   br label %1331
 
 800:                                              ; preds = %538
@@ -4913,7 +4913,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 163, ptr %803, align 2
   store i32 767, ptr %5, align 4
   store ptr %801, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %801, i64 163) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %801, i64 163) #11, !srcloc !47
   br label %1331
 
 804:                                              ; preds = %538
@@ -4925,7 +4925,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 165, ptr %807, align 2
   store i32 767, ptr %5, align 4
   store ptr %805, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %805, i64 165) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %805, i64 165) #11, !srcloc !47
   br label %1331
 
 808:                                              ; preds = %538
@@ -4937,7 +4937,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 166, ptr %811, align 2
   store i32 767, ptr %5, align 4
   store ptr %809, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %809, i64 166) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %809, i64 166) #11, !srcloc !47
   br label %1331
 
 812:                                              ; preds = %538
@@ -4949,7 +4949,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 161, ptr %815, align 2
   store i32 767, ptr %5, align 4
   store ptr %813, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %813, i64 161) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %813, i64 161) #11, !srcloc !47
   br label %1331
 
 816:                                              ; preds = %538
@@ -4961,7 +4961,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 439, ptr %819, align 2
   store i32 767, ptr %5, align 4
   store ptr %817, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %817, i64 439) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %817, i64 439) #11, !srcloc !47
   br label %1331
 
 820:                                              ; preds = %538
@@ -4973,7 +4973,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 410, ptr %823, align 2
   store i32 767, ptr %5, align 4
   store ptr %821, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %821, i64 410) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %821, i64 410) #11, !srcloc !47
   br label %1331
 
 824:                                              ; preds = %538
@@ -4985,7 +4985,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 409, ptr %827, align 2
   store i32 767, ptr %5, align 4
   store ptr %825, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %825, i64 409) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %825, i64 409) #11, !srcloc !47
   br label %1331
 
 828:                                              ; preds = %538
@@ -4997,7 +4997,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 164, ptr %831, align 2
   store i32 767, ptr %5, align 4
   store ptr %829, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %829, i64 164) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %829, i64 164) #11, !srcloc !47
   br label %1331
 
 832:                                              ; preds = %538
@@ -5009,7 +5009,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 582, ptr %835, align 2
   store i32 767, ptr %5, align 4
   store ptr %833, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %833, i64 582) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %833, i64 582) #11, !srcloc !47
   br label %1331
 
 836:                                              ; preds = %538
@@ -5021,7 +5021,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 586, ptr %839, align 2
   store i32 767, ptr %5, align 4
   store ptr %837, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %837, i64 586) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %837, i64 586) #11, !srcloc !47
   br label %1331
 
 840:                                              ; preds = %538
@@ -5033,7 +5033,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 585, ptr %843, align 2
   store i32 767, ptr %5, align 4
   store ptr %841, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %841, i64 585) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %841, i64 585) #11, !srcloc !47
   br label %1331
 
 844:                                              ; preds = %538
@@ -5045,7 +5045,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 32, ptr %847, align 2
   store i32 63, ptr %5, align 4
   store ptr %845, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %845, i64 32) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %845, i64 32) #11, !srcloc !47
   br label %1331
 
 848:                                              ; preds = %538
@@ -5057,7 +5057,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 113, ptr %851, align 2
   store i32 767, ptr %5, align 4
   store ptr %849, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %849, i64 113) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %849, i64 113) #11, !srcloc !47
   br label %1331
 
 852:                                              ; preds = %538
@@ -5069,7 +5069,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 209, ptr %855, align 2
   store i32 767, ptr %5, align 4
   store ptr %853, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %853, i64 209) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %853, i64 209) #11, !srcloc !47
   br label %1331
 
 856:                                              ; preds = %538
@@ -5081,7 +5081,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 115, ptr %859, align 2
   store i32 767, ptr %5, align 4
   store ptr %857, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %857, i64 115) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %857, i64 115) #11, !srcloc !47
   br label %1331
 
 860:                                              ; preds = %538
@@ -5093,7 +5093,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 114, ptr %863, align 2
   store i32 767, ptr %5, align 4
   store ptr %861, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %861, i64 114) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %861, i64 114) #11, !srcloc !47
   br label %1331
 
 864:                                              ; preds = %538
@@ -5105,7 +5105,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 409, ptr %867, align 2
   store i32 767, ptr %5, align 4
   store ptr %865, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %865, i64 409) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %865, i64 409) #11, !srcloc !47
   br label %1331
 
 868:                                              ; preds = %538
@@ -5117,7 +5117,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 576, ptr %871, align 2
   store i32 767, ptr %5, align 4
   store ptr %869, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %869, i64 576) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %869, i64 576) #11, !srcloc !47
   br label %1331
 
 872:                                              ; preds = %538
@@ -5129,7 +5129,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 156, ptr %875, align 2
   store i32 767, ptr %5, align 4
   store ptr %873, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %873, i64 156) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %873, i64 156) #11, !srcloc !47
   br label %1331
 
 876:                                              ; preds = %538
@@ -5141,7 +5141,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 171, ptr %879, align 2
   store i32 767, ptr %5, align 4
   store ptr %877, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %877, i64 171) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %877, i64 171) #11, !srcloc !47
   br label %1331
 
 880:                                              ; preds = %538
@@ -5153,7 +5153,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 421, ptr %883, align 2
   store i32 767, ptr %5, align 4
   store ptr %881, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %881, i64 421) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %881, i64 421) #11, !srcloc !47
   br label %1331
 
 884:                                              ; preds = %538
@@ -5165,7 +5165,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 422, ptr %887, align 2
   store i32 767, ptr %5, align 4
   store ptr %885, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %885, i64 422) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %885, i64 422) #11, !srcloc !47
   br label %1331
 
 888:                                              ; preds = %538
@@ -5177,7 +5177,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 423, ptr %891, align 2
   store i32 767, ptr %5, align 4
   store ptr %889, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 423) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 423) #11, !srcloc !47
   br label %1331
 
 892:                                              ; preds = %538
@@ -5189,7 +5189,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 424, ptr %895, align 2
   store i32 767, ptr %5, align 4
   store ptr %893, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %893, i64 424) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %893, i64 424) #11, !srcloc !47
   br label %1331
 
 896:                                              ; preds = %538
@@ -5201,7 +5201,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 425, ptr %899, align 2
   store i32 767, ptr %5, align 4
   store ptr %897, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %897, i64 425) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %897, i64 425) #11, !srcloc !47
   br label %1331
 
 900:                                              ; preds = %538
@@ -5213,7 +5213,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 426, ptr %903, align 2
   store i32 767, ptr %5, align 4
   store ptr %901, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %901, i64 426) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %901, i64 426) #11, !srcloc !47
   br label %1331
 
 904:                                              ; preds = %538
@@ -5225,7 +5225,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 155, ptr %907, align 2
   store i32 767, ptr %5, align 4
   store ptr %905, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %905, i64 155) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %905, i64 155) #11, !srcloc !47
   br label %1331
 
 908:                                              ; preds = %538
@@ -5237,7 +5237,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 427, ptr %911, align 2
   store i32 767, ptr %5, align 4
   store ptr %909, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %909, i64 427) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %909, i64 427) #11, !srcloc !47
   br label %1331
 
 912:                                              ; preds = %538
@@ -5249,7 +5249,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 428, ptr %915, align 2
   store i32 767, ptr %5, align 4
   store ptr %913, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %913, i64 428) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %913, i64 428) #11, !srcloc !47
   br label %1331
 
 916:                                              ; preds = %538
@@ -5261,7 +5261,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 429, ptr %919, align 2
   store i32 767, ptr %5, align 4
   store ptr %917, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %917, i64 429) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %917, i64 429) #11, !srcloc !47
   br label %1331
 
 920:                                              ; preds = %538
@@ -5273,7 +5273,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 397, ptr %923, align 2
   store i32 767, ptr %5, align 4
   store ptr %921, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %921, i64 397) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %921, i64 397) #11, !srcloc !47
   br label %1331
 
 924:                                              ; preds = %538
@@ -5285,7 +5285,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 577, ptr %927, align 2
   store i32 767, ptr %5, align 4
   store ptr %925, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %925, i64 577) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %925, i64 577) #11, !srcloc !47
   br label %1331
 
 928:                                              ; preds = %538
@@ -5297,7 +5297,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 578, ptr %931, align 2
   store i32 767, ptr %5, align 4
   store ptr %929, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %929, i64 578) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %929, i64 578) #11, !srcloc !47
   br label %1331
 
 932:                                              ; preds = %538
@@ -5309,7 +5309,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 219, ptr %935, align 2
   store i32 767, ptr %5, align 4
   store ptr %933, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %933, i64 219) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %933, i64 219) #11, !srcloc !47
   br label %1331
 
 936:                                              ; preds = %538
@@ -5321,7 +5321,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 140, ptr %939, align 2
   store i32 767, ptr %5, align 4
   store ptr %937, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %937, i64 140) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %937, i64 140) #11, !srcloc !47
   br label %1331
 
 940:                                              ; preds = %538
@@ -5333,7 +5333,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 387, ptr %943, align 2
   store i32 767, ptr %5, align 4
   store ptr %941, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %941, i64 387) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %941, i64 387) #11, !srcloc !47
   br label %1331
 
 944:                                              ; preds = %538
@@ -5345,7 +5345,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 144, ptr %947, align 2
   store i32 767, ptr %5, align 4
   store ptr %945, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %945, i64 144) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %945, i64 144) #11, !srcloc !47
   br label %1331
 
 948:                                              ; preds = %538
@@ -5357,7 +5357,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 150, ptr %951, align 2
   store i32 767, ptr %5, align 4
   store ptr %949, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %949, i64 150) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %949, i64 150) #11, !srcloc !47
   br label %1331
 
 952:                                              ; preds = %538
@@ -5369,7 +5369,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 216, ptr %955, align 2
   store i32 767, ptr %5, align 4
   store ptr %953, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %953, i64 216) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %953, i64 216) #11, !srcloc !47
   br label %1331
 
 956:                                              ; preds = %538
@@ -5381,7 +5381,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 433, ptr %959, align 2
   store i32 767, ptr %5, align 4
   store ptr %957, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %957, i64 433) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %957, i64 433) #11, !srcloc !47
   br label %1331
 
 960:                                              ; preds = %538
@@ -5393,7 +5393,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 152, ptr %963, align 2
   store i32 767, ptr %5, align 4
   store ptr %961, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %961, i64 152) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %961, i64 152) #11, !srcloc !47
   br label %1331
 
 964:                                              ; preds = %538
@@ -5405,7 +5405,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 579, ptr %967, align 2
   store i32 767, ptr %5, align 4
   store ptr %965, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %965, i64 579) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %965, i64 579) #11, !srcloc !47
   br label %1331
 
 968:                                              ; preds = %538
@@ -5417,7 +5417,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 580, ptr %971, align 2
   store i32 767, ptr %5, align 4
   store ptr %969, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %969, i64 580) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %969, i64 580) #11, !srcloc !47
   br label %1331
 
 972:                                              ; preds = %538
@@ -5429,7 +5429,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 407, ptr %975, align 2
   store i32 767, ptr %5, align 4
   store ptr %973, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %973, i64 407) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %973, i64 407) #11, !srcloc !47
   br label %1331
 
 976:                                              ; preds = %538
@@ -5441,7 +5441,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 412, ptr %979, align 2
   store i32 767, ptr %5, align 4
   store ptr %977, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %977, i64 412) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %977, i64 412) #11, !srcloc !47
   br label %1331
 
 980:                                              ; preds = %538
@@ -5453,7 +5453,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 138, ptr %983, align 2
   store i32 767, ptr %5, align 4
   store ptr %981, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %981, i64 138) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %981, i64 138) #11, !srcloc !47
   br label %1331
 
 984:                                              ; preds = %538
@@ -5465,7 +5465,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 235, ptr %987, align 2
   store i32 767, ptr %5, align 4
   store ptr %985, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %985, i64 235) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %985, i64 235) #11, !srcloc !47
   br label %1331
 
 988:                                              ; preds = %538
@@ -5477,7 +5477,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 432, ptr %991, align 2
   store i32 767, ptr %5, align 4
   store ptr %989, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %989, i64 432) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %989, i64 432) #11, !srcloc !47
   br label %1331
 
 992:                                              ; preds = %538
@@ -5489,7 +5489,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 374, ptr %995, align 2
   store i32 767, ptr %5, align 4
   store ptr %993, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %993, i64 374) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %993, i64 374) #11, !srcloc !47
   br label %1331
 
 996:                                              ; preds = %538
@@ -5501,7 +5501,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 581, ptr %999, align 2
   store i32 767, ptr %5, align 4
   store ptr %997, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %997, i64 581) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %997, i64 581) #11, !srcloc !47
   br label %1331
 
 1000:                                             ; preds = %538
@@ -5513,7 +5513,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 144, ptr %1003, align 2
   store i32 767, ptr %5, align 4
   store ptr %1001, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1001, i64 144) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1001, i64 144) #11, !srcloc !47
   br label %1331
 
 1004:                                             ; preds = %538
@@ -5525,7 +5525,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 442, ptr %1007, align 2
   store i32 767, ptr %5, align 4
   store ptr %1005, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1005, i64 442) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1005, i64 442) #11, !srcloc !47
   br label %1331
 
 1008:                                             ; preds = %538
@@ -5537,7 +5537,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 392, ptr %1011, align 2
   store i32 767, ptr %5, align 4
   store ptr %1009, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1009, i64 392) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1009, i64 392) #11, !srcloc !47
   br label %1331
 
 1012:                                             ; preds = %538
@@ -5549,7 +5549,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 393, ptr %1015, align 2
   store i32 767, ptr %5, align 4
   store ptr %1013, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1013, i64 393) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1013, i64 393) #11, !srcloc !47
   br label %1331
 
 1016:                                             ; preds = %538
@@ -5561,7 +5561,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 430, ptr %1019, align 2
   store i32 767, ptr %5, align 4
   store ptr %1017, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1017, i64 430) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1017, i64 430) #11, !srcloc !47
   br label %1331
 
 1020:                                             ; preds = %538
@@ -5573,7 +5573,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 358, ptr %1023, align 2
   store i32 767, ptr %5, align 4
   store ptr %1021, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1021, i64 358) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1021, i64 358) #11, !srcloc !47
   br label %1331
 
 1024:                                             ; preds = %538
@@ -5585,7 +5585,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 583, ptr %1027, align 2
   store i32 767, ptr %5, align 4
   store ptr %1025, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1025, i64 583) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1025, i64 583) #11, !srcloc !47
   br label %1331
 
 1028:                                             ; preds = %538
@@ -5597,7 +5597,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 181, ptr %1031, align 2
   store i32 767, ptr %5, align 4
   store ptr %1029, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1029, i64 181) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1029, i64 181) #11, !srcloc !47
   br label %1331
 
 1032:                                             ; preds = %538
@@ -5609,7 +5609,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 134, ptr %1035, align 2
   store i32 767, ptr %5, align 4
   store ptr %1033, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1033, i64 134) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1033, i64 134) #11, !srcloc !47
   br label %1331
 
 1036:                                             ; preds = %538
@@ -5621,7 +5621,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 206, ptr %1039, align 2
   store i32 767, ptr %5, align 4
   store ptr %1037, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1037, i64 206) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1037, i64 206) #11, !srcloc !47
   br label %1331
 
 1040:                                             ; preds = %538
@@ -5633,7 +5633,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 174, ptr %1043, align 2
   store i32 767, ptr %5, align 4
   store ptr %1041, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1041, i64 174) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1041, i64 174) #11, !srcloc !47
   br label %1331
 
 1044:                                             ; preds = %538
@@ -5645,7 +5645,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 234, ptr %1047, align 2
   store i32 767, ptr %5, align 4
   store ptr %1045, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1045, i64 234) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1045, i64 234) #11, !srcloc !47
   br label %1331
 
 1048:                                             ; preds = %538
@@ -5657,7 +5657,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 210, ptr %1051, align 2
   store i32 767, ptr %5, align 4
   store ptr %1049, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1049, i64 210) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1049, i64 210) #11, !srcloc !47
   br label %1331
 
 1052:                                             ; preds = %538
@@ -5669,7 +5669,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 130, ptr %1055, align 2
   store i32 767, ptr %5, align 4
   store ptr %1053, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1053, i64 130) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1053, i64 130) #11, !srcloc !47
   br label %1331
 
 1056:                                             ; preds = %538
@@ -5681,7 +5681,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 131, ptr %1059, align 2
   store i32 767, ptr %5, align 4
   store ptr %1057, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1057, i64 131) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1057, i64 131) #11, !srcloc !47
   br label %1331
 
 1060:                                             ; preds = %538
@@ -5693,7 +5693,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 133, ptr %1063, align 2
   store i32 767, ptr %5, align 4
   store ptr %1061, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1061, i64 133) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1061, i64 133) #11, !srcloc !47
   br label %1331
 
 1064:                                             ; preds = %538
@@ -5705,7 +5705,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 137, ptr %1067, align 2
   store i32 767, ptr %5, align 4
   store ptr %1065, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1065, i64 137) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1065, i64 137) #11, !srcloc !47
   br label %1331
 
 1068:                                             ; preds = %538
@@ -5717,7 +5717,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 135, ptr %1071, align 2
   store i32 767, ptr %5, align 4
   store ptr %1069, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1069, i64 135) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1069, i64 135) #11, !srcloc !47
   br label %1331
 
 1072:                                             ; preds = %538
@@ -5729,7 +5729,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 136, ptr %1075, align 2
   store i32 767, ptr %5, align 4
   store ptr %1073, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1073, i64 136) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1073, i64 136) #11, !srcloc !47
   br label %1331
 
 1076:                                             ; preds = %538
@@ -5741,7 +5741,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 217, ptr %1079, align 2
   store i32 767, ptr %5, align 4
   store ptr %1077, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1077, i64 217) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1077, i64 217) #11, !srcloc !47
   br label %1331
 
 1080:                                             ; preds = %538
@@ -5753,7 +5753,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 354, ptr %1083, align 2
   store i32 767, ptr %5, align 4
   store ptr %1081, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1081, i64 354) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1081, i64 354) #11, !srcloc !47
   br label %1331
 
 1084:                                             ; preds = %538
@@ -5765,7 +5765,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 172, ptr %1087, align 2
   store i32 767, ptr %5, align 4
   store ptr %1085, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1085, i64 172) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1085, i64 172) #11, !srcloc !47
   br label %1331
 
 1088:                                             ; preds = %538
@@ -5777,7 +5777,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 158, ptr %1091, align 2
   store i32 767, ptr %5, align 4
   store ptr %1089, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1089, i64 158) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1089, i64 158) #11, !srcloc !47
   br label %1331
 
 1092:                                             ; preds = %538
@@ -5789,7 +5789,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 159, ptr %1095, align 2
   store i32 767, ptr %5, align 4
   store ptr %1093, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1093, i64 159) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1093, i64 159) #11, !srcloc !47
   br label %1331
 
 1096:                                             ; preds = %538
@@ -5801,7 +5801,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 128, ptr %1099, align 2
   store i32 767, ptr %5, align 4
   store ptr %1097, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1097, i64 128) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1097, i64 128) #11, !srcloc !47
   br label %1331
 
 1100:                                             ; preds = %538
@@ -5813,7 +5813,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 173, ptr %1103, align 2
   store i32 767, ptr %5, align 4
   store ptr %1101, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1101, i64 173) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1101, i64 173) #11, !srcloc !47
   br label %1331
 
 1104:                                             ; preds = %538
@@ -5825,7 +5825,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 156, ptr %1107, align 2
   store i32 767, ptr %5, align 4
   store ptr %1105, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1105, i64 156) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1105, i64 156) #11, !srcloc !47
   br label %1331
 
 1108:                                             ; preds = %538
@@ -5837,7 +5837,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 418, ptr %1111, align 2
   store i32 767, ptr %5, align 4
   store ptr %1109, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1109, i64 418) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1109, i64 418) #11, !srcloc !47
   br label %1331
 
 1112:                                             ; preds = %538
@@ -5849,7 +5849,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 419, ptr %1115, align 2
   store i32 767, ptr %5, align 4
   store ptr %1113, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1113, i64 419) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1113, i64 419) #11, !srcloc !47
   br label %1331
 
 1116:                                             ; preds = %538
@@ -5861,7 +5861,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 420, ptr %1119, align 2
   store i32 767, ptr %5, align 4
   store ptr %1117, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1117, i64 420) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1117, i64 420) #11, !srcloc !47
   br label %1331
 
 1120:                                             ; preds = %538
@@ -5873,7 +5873,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 372, ptr %1123, align 2
   store i32 767, ptr %5, align 4
   store ptr %1121, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1121, i64 372) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1121, i64 372) #11, !srcloc !47
   br label %1331
 
 1124:                                             ; preds = %538
@@ -5885,7 +5885,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 177, ptr %1127, align 2
   store i32 767, ptr %5, align 4
   store ptr %1125, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1125, i64 177) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1125, i64 177) #11, !srcloc !47
   br label %1331
 
 1128:                                             ; preds = %538
@@ -5897,12 +5897,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 178, ptr %1131, align 2
   store i32 767, ptr %5, align 4
   store ptr %1129, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1129, i64 178) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1129, i64 178) #11, !srcloc !47
   br label %1331
 
 1132:                                             ; preds = %538
   %1133 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1133, i32 64, ptr nonnull elementtype(i8) %1133) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1133, i32 64, ptr nonnull elementtype(i8) %1133) #11, !srcloc !55
   %.val272 = load ptr, ptr %7, align 8
   %1134 = getelementptr inbounds nuw i8, ptr %.val272, i64 144
   %1135 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5920,7 +5920,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 176, ptr %1140, align 2
   store i32 767, ptr %5, align 4
   store ptr %1138, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1138, i64 176) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1138, i64 176) #11, !srcloc !47
   br label %1331
 
 1141:                                             ; preds = %538
@@ -5932,7 +5932,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 223, ptr %1144, align 2
   store i32 767, ptr %5, align 4
   store ptr %1142, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1142, i64 223) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1142, i64 223) #11, !srcloc !47
   br label %1331
 
 1145:                                             ; preds = %538
@@ -5944,7 +5944,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 110, ptr %1148, align 2
   store i32 767, ptr %5, align 4
   store ptr %1146, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1146, i64 110) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1146, i64 110) #11, !srcloc !47
   br label %1331
 
 1149:                                             ; preds = %538
@@ -5956,7 +5956,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 111, ptr %1152, align 2
   store i32 767, ptr %5, align 4
   store ptr %1150, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1150, i64 111) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1150, i64 111) #11, !srcloc !47
   br label %1331
 
 1153:                                             ; preds = %538
@@ -5968,7 +5968,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 182, ptr %1156, align 2
   store i32 767, ptr %5, align 4
   store ptr %1154, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1154, i64 182) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1154, i64 182) #11, !srcloc !47
   br label %1331
 
 1157:                                             ; preds = %538
@@ -5980,7 +5980,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 232, ptr %1160, align 2
   store i32 767, ptr %5, align 4
   store ptr %1158, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1158, i64 232) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1158, i64 232) #11, !srcloc !47
   br label %1331
 
 1161:                                             ; preds = %538
@@ -5992,7 +5992,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 233, ptr %1164, align 2
   store i32 767, ptr %5, align 4
   store ptr %1162, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1162, i64 233) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1162, i64 233) #11, !srcloc !47
   br label %1331
 
 1165:                                             ; preds = %538
@@ -6004,7 +6004,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 231, ptr %1168, align 2
   store i32 767, ptr %5, align 4
   store ptr %1166, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1166, i64 231) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1166, i64 231) #11, !srcloc !47
   br label %1331
 
 1169:                                             ; preds = %538
@@ -6016,7 +6016,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 584, ptr %1172, align 2
   store i32 767, ptr %5, align 4
   store ptr %1170, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1170, i64 584) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1170, i64 584) #11, !srcloc !47
   br label %1331
 
 1173:                                             ; preds = %538
@@ -6028,7 +6028,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 204, ptr %1176, align 2
   store i32 767, ptr %5, align 4
   store ptr %1174, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1174, i64 204) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1174, i64 204) #11, !srcloc !47
   br label %1331
 
 1177:                                             ; preds = %538
@@ -6040,7 +6040,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 608, ptr %1180, align 2
   store i32 767, ptr %5, align 4
   store ptr %1178, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1178, i64 608) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1178, i64 608) #11, !srcloc !47
   br label %1331
 
 1181:                                             ; preds = %538
@@ -6052,7 +6052,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 609, ptr %1184, align 2
   store i32 767, ptr %5, align 4
   store ptr %1182, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1182, i64 609) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1182, i64 609) #11, !srcloc !47
   br label %1331
 
 1185:                                             ; preds = %538
@@ -6064,7 +6064,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 610, ptr %1188, align 2
   store i32 767, ptr %5, align 4
   store ptr %1186, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1186, i64 610) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1186, i64 610) #11, !srcloc !47
   br label %1331
 
 1189:                                             ; preds = %538
@@ -6076,7 +6076,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 611, ptr %1192, align 2
   store i32 767, ptr %5, align 4
   store ptr %1190, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1190, i64 611) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1190, i64 611) #11, !srcloc !47
   br label %1331
 
 1193:                                             ; preds = %538
@@ -6088,7 +6088,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 612, ptr %1196, align 2
   store i32 767, ptr %5, align 4
   store ptr %1194, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1194, i64 612) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1194, i64 612) #11, !srcloc !47
   br label %1331
 
 1197:                                             ; preds = %538
@@ -6100,7 +6100,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 613, ptr %1200, align 2
   store i32 767, ptr %5, align 4
   store ptr %1198, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1198, i64 613) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1198, i64 613) #11, !srcloc !47
   br label %1331
 
 1201:                                             ; preds = %538
@@ -6112,7 +6112,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 120, ptr %1204, align 2
   store i32 767, ptr %5, align 4
   store ptr %1202, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1202, i64 120) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1202, i64 120) #11, !srcloc !47
   br label %1331
 
 1205:                                             ; preds = %538
@@ -6124,7 +6124,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 240, ptr %1208, align 2
   store i32 767, ptr %5, align 4
   store ptr %1206, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1206, i64 240) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1206, i64 240) #11, !srcloc !47
   br label %1331
 
 1209:                                             ; preds = %71
@@ -6168,7 +6168,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 528, ptr %1223, align 2
   store i32 767, ptr %5, align 4
   store ptr %1221, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1221, i64 528) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1221, i64 528) #11, !srcloc !47
   br label %1331
 
 1224:                                             ; preds = %1218
@@ -6180,12 +6180,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 212, ptr %1227, align 2
   store i32 767, ptr %5, align 4
   store ptr %1225, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1225, i64 212) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1225, i64 212) #11, !srcloc !47
   br label %1331
 
 1228:                                             ; preds = %71
   %1229 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1229, i32 16, ptr elementtype(i8) %1229) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1229, i32 16, ptr elementtype(i8) %1229) #11, !srcloc !55
   %1230 = load i32, ptr %2, align 4
   %1231 = trunc i32 %1230 to i16
   switch i16 %1231, label %.loopexit287.thread [
@@ -6212,7 +6212,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 210, ptr %1235, align 2
   store i32 767, ptr %5, align 4
   store ptr %1233, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1233, i64 210) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1233, i64 210) #11, !srcloc !47
   br label %1331
 
 1236:                                             ; preds = %1228
@@ -6224,7 +6224,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 211, ptr %1239, align 2
   store i32 767, ptr %5, align 4
   store ptr %1237, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1237, i64 211) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1237, i64 211) #11, !srcloc !47
   br label %1331
 
 1240:                                             ; preds = %1228
@@ -6236,7 +6236,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 212, ptr %1243, align 2
   store i32 767, ptr %5, align 4
   store ptr %1241, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1241, i64 212) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1241, i64 212) #11, !srcloc !47
   br label %1331
 
 1244:                                             ; preds = %1228
@@ -6248,7 +6248,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 213, ptr %1247, align 2
   store i32 767, ptr %5, align 4
   store ptr %1245, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1245, i64 213) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1245, i64 213) #11, !srcloc !47
   br label %1331
 
 1248:                                             ; preds = %1228
@@ -6260,7 +6260,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 214, ptr %1251, align 2
   store i32 767, ptr %5, align 4
   store ptr %1249, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1249, i64 214) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1249, i64 214) #11, !srcloc !47
   br label %1331
 
 1252:                                             ; preds = %1228
@@ -6272,7 +6272,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 215, ptr %1255, align 2
   store i32 767, ptr %5, align 4
   store ptr %1253, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1253, i64 215) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1253, i64 215) #11, !srcloc !47
   br label %1331
 
 1256:                                             ; preds = %1228
@@ -6284,7 +6284,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 216, ptr %1259, align 2
   store i32 767, ptr %5, align 4
   store ptr %1257, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1257, i64 216) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1257, i64 216) #11, !srcloc !47
   br label %1331
 
 1260:                                             ; preds = %1228
@@ -6296,7 +6296,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 217, ptr %1263, align 2
   store i32 767, ptr %5, align 4
   store ptr %1261, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1261, i64 217) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1261, i64 217) #11, !srcloc !47
   br label %1331
 
 1264:                                             ; preds = %1228
@@ -6308,7 +6308,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 218, ptr %1267, align 2
   store i32 767, ptr %5, align 4
   store ptr %1265, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1265, i64 218) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1265, i64 218) #11, !srcloc !47
   br label %1331
 
 1268:                                             ; preds = %1228
@@ -6320,7 +6320,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 219, ptr %1271, align 2
   store i32 767, ptr %5, align 4
   store ptr %1269, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1269, i64 219) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1269, i64 219) #11, !srcloc !47
   br label %1331
 
 1272:                                             ; preds = %1228
@@ -6332,7 +6332,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 220, ptr %1275, align 2
   store i32 767, ptr %5, align 4
   store ptr %1273, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1273, i64 220) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1273, i64 220) #11, !srcloc !47
   br label %1331
 
 1276:                                             ; preds = %1228
@@ -6344,12 +6344,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 221, ptr %1279, align 2
   store i32 767, ptr %5, align 4
   store ptr %1277, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1277, i64 221) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1277, i64 221) #11, !srcloc !47
   br label %1331
 
 1280:                                             ; preds = %71
   %1281 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1281, i32 16, ptr elementtype(i8) %1281) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1281, i32 16, ptr elementtype(i8) %1281) #11, !srcloc !55
   %1282 = load i32, ptr %2, align 4
   %1283 = trunc i32 %1282 to i16
   switch i16 %1283, label %.loopexit287.thread [
@@ -6367,7 +6367,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 248, ptr %1287, align 2
   store i32 767, ptr %5, align 4
   store ptr %1285, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1285, i64 248) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1285, i64 248) #11, !srcloc !47
   br label %1331
 
 1288:                                             ; preds = %1280
@@ -6379,7 +6379,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 224, ptr %1291, align 2
   store i32 767, ptr %5, align 4
   store ptr %1289, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1289, i64 224) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1289, i64 224) #11, !srcloc !47
   br label %1331
 
 1292:                                             ; preds = %1280
@@ -6391,12 +6391,12 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 225, ptr %1295, align 2
   store i32 767, ptr %5, align 4
   store ptr %1293, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1293, i64 225) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1293, i64 225) #11, !srcloc !47
   br label %1331
 
 1296:                                             ; preds = %71
   %1297 = getelementptr i8, ptr %8, i64 42
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1297, i32 16, ptr elementtype(i8) %1297) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1297, i32 16, ptr elementtype(i8) %1297) #11, !srcloc !55
   br label %.loopexit287.thread
 
 1298:                                             ; preds = %71
@@ -6413,7 +6413,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, pt
   store i16 303, ptr %1304, align 2
   store i32 767, ptr %5, align 4
   store ptr %1302, ptr %6, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1302, i64 303) #11, !srcloc !49
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1302, i64 303) #11, !srcloc !47
   br label %1331
 
 default.unreachable308:                           ; preds = %168
@@ -6498,7 +6498,7 @@ default.unreachable308:                           ; preds = %168
   %1342 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %1343 = load i8, ptr %1341, align 4
   %1344 = zext i8 %1343 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1342, i64 %1344) #11, !srcloc !50
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1342, i64 %1344) #11, !srcloc !48
   %1345 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %1346 = load i16, ptr %1345, align 2
   %1347 = zext i16 %1346 to i32
@@ -6514,7 +6514,7 @@ default.unreachable308:                           ; preds = %168
   %1353 = phi i16 [ %1346, %1350 ], [ %1371, %1363 ]
   %1354 = zext i16 %1353 to i64
   %1355 = load ptr, ptr %6, align 8
-  %1356 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1355, i64 %1354, ptr elementtype(i64) %1355) #11, !srcloc !59
+  %1356 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1355, i64 %1354, ptr elementtype(i64) %1355) #11, !srcloc !57
   %1357 = icmp ult i8 %1356, 2
   call void @llvm.assume(i1 %1357)
   %1358 = icmp eq i8 %1356, 0
@@ -6545,7 +6545,7 @@ default.unreachable308:                           ; preds = %168
   %1373 = and i32 %1372, 65535
   %1374 = load i32, ptr %5, align 4
   %1375 = icmp slt i32 %1374, %1373
-  br i1 %1375, label %.loopexit287, label %1352, !llvm.loop !60
+  br i1 %1375, label %.loopexit287, label %1352, !llvm.loop !58
 
 1376:                                             ; preds = %1359
   %1377 = getelementptr inbounds nuw i8, ptr %10, i64 7144
@@ -6672,7 +6672,7 @@ default.unreachable308:                           ; preds = %168
   %1445 = phi i64 [ %1443, %1441 ], [ %1447, %1444 ]
   %1446 = trunc nuw nsw i64 %1445 to i32
   call void @input_set_abs_params(ptr noundef %8, i32 noundef %1446, i32 noundef -1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1442, i64 %1445) #11, !srcloc !50
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1442, i64 %1445) #11, !srcloc !48
   %1447 = add nuw nsw i64 %1445, 1
   %1448 = load i16, ptr %1345, align 2
   %1449 = zext i16 %1448 to i64
@@ -6682,7 +6682,7 @@ default.unreachable308:                           ; preds = %168
   %1453 = sext i32 %1452 to i64
   %1454 = icmp slt i64 %1445, %1453
   %1455 = select i1 %1451, i1 %1454, i1 false
-  br i1 %1455, label %1444, label %.loopexit, !llvm.loop !61
+  br i1 %1455, label %1444, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %1444, %1437
   %1456 = phi i16 [ %1438, %1437 ], [ %1448, %1444 ]
@@ -6719,8 +6719,8 @@ default.unreachable308:                           ; preds = %168
 
 1474:                                             ; preds = %1471
   %1475 = getelementptr i8, ptr %8, i64 62
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1475, i32 8, ptr elementtype(i8) %1475) #11, !srcloc !57
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1475, i32 4, ptr elementtype(i8) %1475) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1475, i32 8, ptr elementtype(i8) %1475) #11, !srcloc !55
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1475, i32 4, ptr elementtype(i8) %1475) #11, !srcloc !55
   %.pr286.pre = load i8, ptr %1341, align 4
   br label %thread-pre-split285
 
@@ -6730,9 +6730,9 @@ thread-pre-split285:                              ; preds = %1474, %1425, %1381,
   br i1 %1477, label %1478, label %thread-pre-split285.thread
 
 1478:                                             ; preds = %thread-pre-split285
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1342, i32 16, ptr nonnull elementtype(i8) %1342) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1342, i32 16, ptr nonnull elementtype(i8) %1342) #11, !srcloc !55
   %1479 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1479, i32 16, ptr nonnull elementtype(i8) %1479) #11, !srcloc !57
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %1479, i32 16, ptr nonnull elementtype(i8) %1479) #11, !srcloc !55
   br label %thread-pre-split285.thread
 
 .loopexit287.thread:                              ; preds = %20, %1340, %65, %.loopexit287, %1376, %1298, %1296, %1280, %1228, %1218, %538, %468, %378, %324, %260, %244, %237, %230, %143, %79, %71, %71, %71, %71, %71, %16, %4
@@ -6774,7 +6774,7 @@ default.unreachable1:                             ; preds = %5
   %.sink = phi i64 [ 48, %9 ], [ 144, %8 ], [ 152, %5 ]
   %11 = phi i32 [ 767, %9 ], [ 15, %8 ], [ 63, %5 ]
   %12 = icmp samesign ult i32 %11, %6
-  br i1 %12, label %13, label %19, !prof !62
+  br i1 %12, label %13, label %19, !prof !60
 
 13:                                               ; preds = %10
   %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #11
@@ -6800,7 +6800,7 @@ default.unreachable1:                             ; preds = %5
   store ptr %20, ptr %1, align 8
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %24) #11, !srcloc !49
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %20, i64 %24) #11, !srcloc !47
   br label %25
 
 25:                                               ; preds = %.thread, %19
@@ -6834,7 +6834,7 @@ define internal fastcc void @hid_map_usage(ptr %.24.val, ptr noundef writeonly c
   %.sink = phi i64 [ 160, %10 ], [ 168, %9 ], [ 48, %8 ], [ 144, %7 ], [ 152, %5 ]
   %12 = phi i32 [ 7, %10 ], [ 15, %9 ], [ 767, %8 ], [ 15, %7 ], [ 63, %5 ]
   %13 = icmp samesign ult i32 %12, %4
-  br i1 %13, label %.thread, label %19, !prof !63
+  br i1 %13, label %.thread, label %19, !prof !61
 
 .thread:                                          ; preds = %5, %11
   %14 = tail call i32 @___ratelimit(ptr noundef nonnull @hid_map_usage._rs, ptr noundef nonnull @__func__.hid_map_usage) #11
@@ -6941,8 +6941,8 @@ attributes #13 = { cold nounwind }
 !23 = !{!"llvm.loop.unswitch.partial.disable"}
 !24 = distinct !{!24, !6, !7}
 !25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
 !28 = distinct !{!28, !6, !7}
 !29 = distinct !{!29, !6, !7}
 !30 = distinct !{!30, !6, !7}
@@ -6962,20 +6962,18 @@ attributes #13 = { cold nounwind }
 !44 = distinct !{!44, !6, !7}
 !45 = distinct !{!45, !6, !7}
 !46 = distinct !{!46, !6, !7}
-!47 = distinct !{!47, !6, !7}
-!48 = distinct !{!48, !6, !7}
-!49 = !{i64 2148526939, i64 2148526978, i64 2148526999, i64 2148527036, i64 2148527059, i64 2148526929}
-!50 = !{i64 2148525651, i64 2148525690, i64 2148525711, i64 2148525748, i64 2148525771, i64 2148525641}
+!47 = !{i64 2148526939, i64 2148526978, i64 2148526999, i64 2148527036, i64 2148527059, i64 2148526929}
+!48 = !{i64 2148525651, i64 2148525690, i64 2148525711, i64 2148525748, i64 2148525771, i64 2148525641}
+!49 = distinct !{!49, !6, !7}
+!50 = distinct !{!50, !6, !7}
 !51 = distinct !{!51, !6, !7}
 !52 = distinct !{!52, !6, !7}
-!53 = distinct !{!53, !6, !7}
+!53 = !{!"auto-init"}
 !54 = distinct !{!54, !6, !7}
-!55 = !{!"auto-init"}
-!56 = distinct !{!56, !6, !7}
-!57 = !{i64 2148525366, i64 2148525405, i64 2148525426, i64 2148525463, i64 2148525486, i64 2148525356}
-!58 = !{i64 2148526292}
-!59 = !{i64 2148531817, i64 2148531856, i64 2148531877, i64 2148531914, i64 2148531937, i64 2148531946, i64 2148532049}
-!60 = distinct !{!60, !6, !7}
-!61 = distinct !{!61, !6, !7}
-!62 = !{!"branch_weights", i32 1, i32 2000}
-!63 = !{!"branch_weights", i32 0, i32 -2147483648}
+!55 = !{i64 2148525366, i64 2148525405, i64 2148525426, i64 2148525463, i64 2148525486, i64 2148525356}
+!56 = !{i64 2148526292}
+!57 = !{i64 2148531817, i64 2148531856, i64 2148531877, i64 2148531914, i64 2148531937, i64 2148531946, i64 2148532049}
+!58 = distinct !{!58, !6, !7}
+!59 = distinct !{!59, !6, !7}
+!60 = !{!"branch_weights", i32 1, i32 2000}
+!61 = !{!"branch_weights", i32 0, i32 -2147483648}

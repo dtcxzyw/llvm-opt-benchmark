@@ -1969,12 +1969,12 @@ _mpd_add_pad.exit.thread123:                      ; preds = %178
   store i8 %223, ptr %224, align 1, !tbaa !11
   %225 = add nuw i64 %.195.us.i, 1
   %exitcond105.not.i = icmp eq i64 %225, %182
-  br i1 %exitcond105.not.i, label %._crit_edge.us98.i, label %221, !llvm.loop !66
+  br i1 %exitcond105.not.i, label %._crit_edge.us98.i, label %221, !llvm.loop !65
 
 ._crit_edge.us98.i:                               ; preds = %221
   %226 = add nuw i64 %.17596.us.i, 1
   %exitcond106.not.i = icmp eq i64 %226, %.07988.i
-  br i1 %exitcond106.not.i, label %_mpd_add_pad.exit, label %.preheader.us.i, !llvm.loop !67
+  br i1 %exitcond106.not.i, label %_mpd_add_pad.exit, label %.preheader.us.i, !llvm.loop !66
 
 _mpd_add_pad.exit:                                ; preds = %._crit_edge.us98.i, %.preheader91.lr.ph.i, %._crit_edge94.i
   %227 = getelementptr i8, ptr %188, i64 %186
@@ -2127,7 +2127,7 @@ define hidden noundef i32 @mpd_snprint_flags(ptr noundef initializes((0, 1)) %0,
   %.1 = phi ptr [ %16, %14 ], [ %.02230, %4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %19, label %4, !llvm.loop !68
+  br i1 %exitcond.not, label %19, label %4, !llvm.loop !67
 
 19:                                               ; preds = %18
   %.not = icmp eq ptr %.1, %0
@@ -2195,7 +2195,7 @@ define hidden noundef i32 @mpd_lsnprint_flags(ptr noundef initializes((0, 2)) %0
   %.1 = phi ptr [ %20, %18 ], [ %.02836, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %23, label %8, !llvm.loop !69
+  br i1 %exitcond.not, label %23, label %8, !llvm.loop !68
 
 23:                                               ; preds = %22
   %.not = icmp eq ptr %.1, %6
@@ -2268,7 +2268,7 @@ define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef initializes((0, 2)) 
   %.3.ph = phi i32 [ %.03260, %8 ], [ %.234, %21 ], [ 1, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %26, label %8, !llvm.loop !70
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !69
 
 26:                                               ; preds = %25
   %.not = icmp eq ptr %.241.ph, %6
@@ -2332,7 +2332,7 @@ define hidden void @mpd_print(ptr noundef %0) local_unnamed_addr #0 {
   br label %10
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !71
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !70
   %9 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 25, i64 1, ptr %8) #22
   br label %10
 
@@ -2812,7 +2812,7 @@ define internal fastcc void @_mpd_add_sep_dot(ptr noundef nonnull captures(none)
   store i64 %6, ptr %0, align 8, !tbaa !57
   store i64 %6, ptr %15, align 8, !tbaa !59
   %16 = sub i64 %13, %6
-  store i64 %16, ptr %14, align 8, !tbaa !73
+  store i64 %16, ptr %14, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i = icmp eq ptr %18, null
@@ -2832,7 +2832,7 @@ define internal fastcc void @_mpd_add_sep_dot(ptr noundef nonnull captures(none)
   store i8 %25, ptr %26, align 1, !tbaa !11
   %27 = add nsw i64 %23, -1
   %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %_mbstr_copy_ascii.exit, label %.lr.ph.i.i, !llvm.loop !74
+  br i1 %.not.i.i, label %_mbstr_copy_ascii.exit, label %.lr.ph.i.i, !llvm.loop !73
 
 _mbstr_copy_ascii.exit:                           ; preds = %.lr.ph.i.i, %8, %19
   %.not69 = icmp eq ptr %4, null
@@ -2848,9 +2848,9 @@ _mbstr_copy_ascii.exit:                           ; preds = %.lr.ph.i.i, %8, %19
   %34 = load i64, ptr %15, align 8, !tbaa !59
   %35 = add i64 %34, %33
   store i64 %35, ptr %15, align 8, !tbaa !59
-  %36 = load i64, ptr %14, align 8, !tbaa !73
+  %36 = load i64, ptr %14, align 8, !tbaa !72
   %37 = sub i64 %36, %29
-  store i64 %37, ptr %14, align 8, !tbaa !73
+  store i64 %37, ptr %14, align 8, !tbaa !72
   %38 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i74 = icmp eq ptr %38, null
   br i1 %.not.i74, label %_mbstr_copy_char.exit, label %39
@@ -2869,7 +2869,7 @@ _mbstr_copy_ascii.exit:                           ; preds = %.lr.ph.i.i, %8, %19
   store i8 %45, ptr %46, align 1, !tbaa !11
   %47 = add nsw i64 %43, -1
   %.not.i.i76 = icmp eq i64 %43, 0
-  br i1 %.not.i.i76, label %_mbstr_copy_char.exit, label %.lr.ph.i.i75, !llvm.loop !74
+  br i1 %.not.i.i76, label %_mbstr_copy_char.exit, label %.lr.ph.i.i75, !llvm.loop !73
 
 _mbstr_copy_char.exit:                            ; preds = %.lr.ph.i.i75, %39, %28, %_mbstr_copy_ascii.exit
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -2923,9 +2923,9 @@ _mbstr_copy_char.exit:                            ; preds = %.lr.ph.i.i75, %39, 
   %63 = load i64, ptr %15, align 8, !tbaa !59
   %64 = add i64 %63, %.158
   store i64 %64, ptr %15, align 8, !tbaa !59
-  %65 = load i64, ptr %14, align 8, !tbaa !73
+  %65 = load i64, ptr %14, align 8, !tbaa !72
   %66 = sub i64 %65, %.158
-  store i64 %66, ptr %14, align 8, !tbaa !73
+  store i64 %66, ptr %14, align 8, !tbaa !72
   %67 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i77 = icmp ne ptr %67, null
   %68 = add i64 %.158, -1
@@ -2946,9 +2946,9 @@ _mbstr_copy_char.exit:                            ; preds = %.lr.ph.i.i75, %39, 
   %75 = load i64, ptr %15, align 8, !tbaa !59
   %76 = add i64 %75, %.158
   store i64 %76, ptr %15, align 8, !tbaa !59
-  %77 = load i64, ptr %14, align 8, !tbaa !73
+  %77 = load i64, ptr %14, align 8, !tbaa !72
   %78 = sub i64 %77, %.158
-  store i64 %78, ptr %14, align 8, !tbaa !73
+  store i64 %78, ptr %14, align 8, !tbaa !72
   %79 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i78 = icmp eq ptr %79, null
   br i1 %.not.i78, label %_mbstr_copy_pad.exit, label %80
@@ -2967,7 +2967,7 @@ _mbstr_copy_char.exit:                            ; preds = %.lr.ph.i.i75, %39, 
   store i8 %86, ptr %87, align 1, !tbaa !11
   %88 = add nsw i64 %84, -1
   %.not.i.i80 = icmp eq i64 %84, 0
-  br i1 %.not.i.i80, label %_mbstr_copy_pad.exit, label %.lr.ph.i.i79, !llvm.loop !74
+  br i1 %.not.i.i80, label %_mbstr_copy_pad.exit, label %.lr.ph.i.i79, !llvm.loop !73
 
 _mbstr_copy_pad.exit:                             ; preds = %.lr.ph.i.i79, %80, %71, %.lr.ph.preheader.i, %60
   %89 = icmp eq i64 %58, 0
@@ -3007,9 +3007,9 @@ _mbstr_copy_pad.exit:                             ; preds = %.lr.ph.i.i79, %80, 
   %110 = load i64, ptr %15, align 8, !tbaa !59
   %111 = add i64 %110, 1
   store i64 %111, ptr %15, align 8, !tbaa !59
-  %112 = load i64, ptr %14, align 8, !tbaa !73
+  %112 = load i64, ptr %14, align 8, !tbaa !72
   %113 = sub i64 %112, %12
-  store i64 %113, ptr %14, align 8, !tbaa !73
+  store i64 %113, ptr %14, align 8, !tbaa !72
   %114 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i82 = icmp eq ptr %114, null
   br i1 %.not.i82, label %_mbstr_copy_char.exit85, label %115
@@ -3026,7 +3026,7 @@ _mbstr_copy_pad.exit:                             ; preds = %.lr.ph.i.i79, %80, 
   %120 = getelementptr i8, ptr %116, i64 %117
   store i8 %119, ptr %120, align 1, !tbaa !11
   %.not.i.i84 = icmp eq i64 %117, 0
-  br i1 %.not.i.i84, label %_mbstr_copy_char.exit85, label %.lr.ph.i.i83, !llvm.loop !74
+  br i1 %.not.i.i84, label %_mbstr_copy_char.exit85, label %.lr.ph.i.i83, !llvm.loop !73
 
 _mbstr_copy_char.exit85:                          ; preds = %.lr.ph.i.i83, %104, %103
   %.160 = phi i64 [ %58, %103 ], [ %spec.select, %104 ], [ %spec.select, %.lr.ph.i.i83 ]
@@ -3053,9 +3053,9 @@ _mbstr_copy_char.exit85:                          ; preds = %.lr.ph.i.i83, %104,
   %130 = load i64, ptr %15, align 8, !tbaa !59
   %131 = add i64 %130, 1
   store i64 %131, ptr %15, align 8, !tbaa !59
-  %132 = load i64, ptr %14, align 8, !tbaa !73
+  %132 = load i64, ptr %14, align 8, !tbaa !72
   %133 = add i64 %132, -1
-  store i64 %133, ptr %14, align 8, !tbaa !73
+  store i64 %133, ptr %14, align 8, !tbaa !72
   %.not.i86 = icmp eq ptr %.pr.pre101, null
   br i1 %.not.i86, label %_mbstr_copy_ascii.exit89.thread, label %.lr.ph.i.i87
 
@@ -3197,14 +3197,13 @@ attributes #22 = { cold }
 !61 = !{!58, !27, i64 24}
 !62 = distinct !{!62, !13}
 !63 = distinct !{!63, !13}
-!64 = distinct !{!64, !13, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !13}
+!65 = distinct !{!65, !13}
 !66 = distinct !{!66, !13}
-!67 = distinct !{!67, !13, !65}
+!67 = distinct !{!67, !13}
 !68 = distinct !{!68, !13}
 !69 = distinct !{!69, !13}
-!70 = distinct !{!70, !13}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!73 = !{!58, !7, i64 16}
-!74 = distinct !{!74, !13}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!72 = !{!58, !7, i64 16}
+!73 = distinct !{!73, !13}

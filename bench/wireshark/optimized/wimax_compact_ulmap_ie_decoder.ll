@@ -766,7 +766,7 @@ wimax_compact_ulmap_rcid_ie_decoder.exit627:      ; preds = %112, %.sink.split.i
   %232 = add i32 %.11670, 1
   %233 = add nuw nsw i32 %.0546671, 1
   %exitcond.not = icmp eq i32 %233, %.0547
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %.11.lcssa = phi i32 [ %.9, %.preheader ], [ %223, %.lr.ph.split.us ], [ %232, %.lr.ph.split ]
@@ -1437,7 +1437,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
   %.2.us = phi i32 [ %77, %69 ], [ %63, %66 ], [ %63, %65 ]
   %79 = add nuw nsw i32 %.0207.us, 2
   %80 = icmp samesign ult i32 %79, %.0202
-  br i1 %80, label %.split.us, label %.loopexit, !llvm.loop !10
+  br i1 %80, label %.split.us, label %.loopexit, !llvm.loop !8
 
 .split:                                           ; preds = %.split.preheader, %103
   %.0207 = phi i32 [ %104, %103 ], [ 0, %.split.preheader ]
@@ -1476,7 +1476,7 @@ define hidden range(i32 2, 33) i32 @wimax_extended_uiuc_dependent_ie_decoder(ptr
   %.2 = phi i32 [ %98, %89 ], [ %85, %100 ], [ %85, %99 ]
   %104 = add nuw nsw i32 %.0207, 2
   %105 = icmp samesign ult i32 %104, %.0202
-  br i1 %105, label %.split, label %.loopexit, !llvm.loop !11
+  br i1 %105, label %.split, label %.loopexit, !llvm.loop !8
 
 106:                                              ; preds = %28
   %107 = load i32, ptr @hf_extended_uiuc_ie_aas_ul, align 4
@@ -1690,9 +1690,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
+!8 = distinct !{!8, !7}

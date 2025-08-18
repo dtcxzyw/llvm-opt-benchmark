@@ -923,7 +923,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43: ; preds = %.lr.ph.split
   %53 = add nsw i32 %.140.us41, %15
   %54 = sdiv i32 %53, 2
   %55 = icmp slt i32 %54, %31
-  br i1 %55, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %.loopexit, !llvm.loop !31
+  br i1 %55, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %.loopexit, !llvm.loop !29
 
 _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35
   %.140 = phi i32 [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ], [ %.026535562, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader ]
@@ -938,7 +938,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25comp
   %..1 = select i1 %.not49, i32 %.140, i32 %57
   %61 = add nsw i32 %.027., -1
   %62 = icmp slt i32 %..1, %61
-  br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !32
+  br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37, %5, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %5 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63 ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
@@ -1026,7 +1026,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !26 = !{!"p1 omnipotent char", !6, i64 0}
 !27 = distinct !{!27, !20}
 !28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !20, !30}
-!32 = distinct !{!32, !20}
+!29 = distinct !{!29, !20}

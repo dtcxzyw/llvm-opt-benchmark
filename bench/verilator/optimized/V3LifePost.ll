@@ -6084,7 +6084,7 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12Lif
   %32 = getelementptr inbounds nuw i8, ptr %.02436, i64 %.sink48
   %.024 = load ptr, ptr %32, align 8, !tbaa !248
   %.not = icmp eq ptr %.024, null
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !251
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us
   %.023.lcssa = phi ptr [ %.02436.us, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us ], [ %.02436, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread ]
@@ -6335,9 +6335,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %25, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %3, ptr %26, align 8, !tbaa !252
+  store double %3, ptr %26, align 8, !tbaa !250
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %4, ptr %27, align 8, !tbaa !254
+  store i32 %4, ptr %27, align 8, !tbaa !252
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %29, ptr %28, align 8, !tbaa !15
@@ -6386,11 +6386,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %45 = zext i1 %6 to i8
   %46 = zext i1 %5 to i8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %46, ptr %47, align 8, !tbaa !255
+  store i8 %46, ptr %47, align 8, !tbaa !253
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  store i8 %45, ptr %48, align 1, !tbaa !256
+  store i8 %45, ptr %48, align 1, !tbaa !254
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i8 1, ptr %49, align 2, !tbaa !257
+  store i8 1, ptr %49, align 2, !tbaa !255
   ret void
 
 50:                                               ; preds = %.noexc.i9
@@ -7085,12 +7085,10 @@ attributes #28 = { builtin allocsize(0) }
 !246 = !{!130, !88, i64 152}
 !247 = !{!74, !80, i64 72}
 !248 = !{!29, !29, i64 0}
-!249 = distinct !{!249, !121, !250}
-!250 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!251 = distinct !{!251, !121}
-!252 = !{!253, !103, i64 40}
-!253 = !{!"_ZTS11V3Statistic", !6, i64 8, !103, i64 40, !17, i64 48, !6, i64 56, !46, i64 88, !46, i64 89, !46, i64 90}
-!254 = !{!253, !17, i64 48}
-!255 = !{!253, !46, i64 88}
-!256 = !{!253, !46, i64 89}
-!257 = !{!253, !46, i64 90}
+!249 = distinct !{!249, !121}
+!250 = !{!251, !103, i64 40}
+!251 = !{!"_ZTS11V3Statistic", !6, i64 8, !103, i64 40, !17, i64 48, !6, i64 56, !46, i64 88, !46, i64 89, !46, i64 90}
+!252 = !{!251, !17, i64 48}
+!253 = !{!251, !46, i64 88}
+!254 = !{!251, !46, i64 89}
+!255 = !{!251, !46, i64 90}

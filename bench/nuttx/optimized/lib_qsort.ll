@@ -63,7 +63,7 @@ swapfunc.exit.us.us:                              ; preds = %.lr.ph417.us
   store i64 %27, ptr %.0231416.us.us, align 8
   store i64 %26, ptr %23, align 8
   %28 = icmp ugt ptr %23, %.0.lcssa
-  br i1 %28, label %.lr.ph417.us, label %.critedge.us, !llvm.loop !9
+  br i1 %28, label %.lr.ph417.us, label %.critedge.us, !llvm.loop !8
 
 .preheader326.lr.ph.split:                        ; preds = %.preheader326.lr.ph
   br i1 %or.cond.lcssa, label %.preheader326.us426, label %.preheader326
@@ -76,7 +76,7 @@ swapfunc.exit.us.us:                              ; preds = %.lr.ph417.us
 .critedge.us428:                                  ; preds = %swapfunc.exit.loopexit.us.us, %.lr.ph417.us430, %.preheader326.us426
   %.0237.us429 = getelementptr inbounds i8, ptr %.0237422.us427, i64 %2
   %30 = icmp ult ptr %.0237.us429, %16
-  br i1 %30, label %.preheader326.us426, label %.loopexit, !llvm.loop !10
+  br i1 %30, label %.preheader326.us426, label %.loopexit, !llvm.loop !6
 
 .lr.ph417.us430:                                  ; preds = %.preheader326.us426, %swapfunc.exit.loopexit.us.us
   %.0231416.us419.us = phi ptr [ %31, %swapfunc.exit.loopexit.us.us ], [ %.0237422.us427, %.preheader326.us426 ]
@@ -97,11 +97,11 @@ swapfunc.exit.us.us:                              ; preds = %.lr.ph417.us
   store i64 %34, ptr %.022.i.us.us, align 8
   %38 = add nsw i64 %.0.i.us.us, -1
   %39 = icmp samesign ugt i64 %.0.i.us.us, 1
-  br i1 %39, label %.preheader431, label %swapfunc.exit.loopexit.us.us, !llvm.loop !11
+  br i1 %39, label %.preheader431, label %swapfunc.exit.loopexit.us.us, !llvm.loop !9
 
 swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader431
   %40 = icmp ugt ptr %31, %.0.lcssa
-  br i1 %40, label %.lr.ph417.us430, label %.critedge.us428, !llvm.loop !12
+  br i1 %40, label %.lr.ph417.us430, label %.critedge.us428, !llvm.loop !8
 
 .preheader326:                                    ; preds = %.preheader326.lr.ph.split, %.critedge
   %.0237422 = phi ptr [ %.0237, %.critedge ], [ %.0237421, %.preheader326.lr.ph.split ]
@@ -127,16 +127,16 @@ swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader431
   store i8 %45, ptr %.018.i, align 1
   %49 = add nsw i64 %.020.i, -1
   %50 = icmp sgt i64 %.020.i, 1
-  br i1 %50, label %.preheader, label %swapfunc.exit.loopexit325, !llvm.loop !13
+  br i1 %50, label %.preheader, label %swapfunc.exit.loopexit325, !llvm.loop !10
 
 swapfunc.exit.loopexit325:                        ; preds = %.preheader
   %51 = icmp ugt ptr %42, %.0.lcssa
-  br i1 %51, label %.lr.ph417, label %.critedge, !llvm.loop !14
+  br i1 %51, label %.lr.ph417, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %swapfunc.exit.loopexit325, %.lr.ph417, %.preheader326
   %.0237 = getelementptr inbounds i8, ptr %.0237422, i64 %2
   %52 = icmp ult ptr %.0237, %16
-  br i1 %52, label %.preheader326, label %.loopexit, !llvm.loop !15
+  br i1 %52, label %.preheader326, label %.loopexit, !llvm.loop !6
 
 53:                                               ; preds = %.lr.ph398, %333
   %54 = phi i32 [ %11, %.lr.ph398 ], [ %340, %333 ]
@@ -308,7 +308,7 @@ med3.exit268:                                     ; preds = %137, %135, %131, %1
   store i64 %146, ptr %.022.i272, align 8
   %150 = add nsw i64 %.0.i274, -1
   %151 = icmp samesign ugt i64 %.0.i274, 1
-  br i1 %151, label %.preheader451, label %swapfunc.exit275, !llvm.loop !11
+  br i1 %151, label %.preheader451, label %swapfunc.exit275, !llvm.loop !9
 
 .preheader343:                                    ; preds = %145, %.preheader343
   %.020.i269 = phi i64 [ %156, %.preheader343 ], [ %13, %145 ]
@@ -322,7 +322,7 @@ med3.exit268:                                     ; preds = %137, %135, %131, %1
   store i8 %152, ptr %.018.i271, align 1
   %156 = add nsw i64 %.020.i269, -1
   %157 = icmp sgt i64 %.020.i269, 1
-  br i1 %157, label %.preheader343, label %swapfunc.exit275, !llvm.loop !13
+  br i1 %157, label %.preheader343, label %swapfunc.exit275, !llvm.loop !10
 
 swapfunc.exit275:                                 ; preds = %.preheader343, %.preheader451, %142
   %158 = getelementptr inbounds i8, ptr %.0395, i64 %2
@@ -368,7 +368,7 @@ swapfunc.exit282.us:                              ; preds = %165
   %.2.us = phi ptr [ %169, %swapfunc.exit282.us ], [ %.1365.us, %165 ]
   %171 = getelementptr inbounds i8, ptr %.1225363.us, i64 %2
   %.not261.us = icmp ugt ptr %171, %.0226
-  br i1 %.not261.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not261.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %190
   %.1365 = phi ptr [ %.2, %190 ], [ %.0223, %.lr.ph ]
@@ -397,7 +397,7 @@ swapfunc.exit282.us:                              ; preds = %165
   store i64 %177, ptr %.022.i279, align 8
   %181 = add nsw i64 %.0.i281, -1
   %182 = icmp samesign ugt i64 %.0.i281, 1
-  br i1 %182, label %.preheader440, label %swapfunc.exit282, !llvm.loop !11
+  br i1 %182, label %.preheader440, label %swapfunc.exit282, !llvm.loop !9
 
 .preheader335:                                    ; preds = %176, %.preheader335
   %.020.i276 = phi i64 [ %187, %.preheader335 ], [ %13, %176 ]
@@ -411,7 +411,7 @@ swapfunc.exit282.us:                              ; preds = %165
   store i8 %183, ptr %.018.i278, align 1
   %187 = add nsw i64 %.020.i276, -1
   %188 = icmp sgt i64 %.020.i276, 1
-  br i1 %188, label %.preheader335, label %swapfunc.exit282, !llvm.loop !13
+  br i1 %188, label %.preheader335, label %swapfunc.exit282, !llvm.loop !10
 
 swapfunc.exit282:                                 ; preds = %.preheader335, %.preheader440
   %189 = getelementptr inbounds i8, ptr %.1365, i64 %2
@@ -422,7 +422,7 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   %.2 = phi ptr [ %189, %swapfunc.exit282 ], [ %.1365, %174 ]
   %191 = getelementptr inbounds i8, ptr %.1225363, i64 %2
   %.not261 = icmp ugt ptr %191, %.0226
-  br i1 %.not261, label %.critedge2, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not261, label %.critedge2, label %.lr.ph.split, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.lr.ph.split, %190, %.lr.ph.split.us, %170, %162
   %.1235.lcssa = phi i32 [ %.0234, %162 ], [ %.2236.us, %170 ], [ %.1235362.us, %.lr.ph.split.us ], [ %.2236, %190 ], [ %.1235362, %.lr.ph.split ]
@@ -468,7 +468,7 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   store i64 %201, ptr %.022.i286, align 8
   %205 = add nsw i64 %.0.i288, -1
   %206 = icmp samesign ugt i64 %.0.i288, 1
-  br i1 %206, label %.preheader438, label %swapfunc.exit289, !llvm.loop !11
+  br i1 %206, label %.preheader438, label %swapfunc.exit289, !llvm.loop !9
 
 .preheader333:                                    ; preds = %200, %.preheader333
   %.020.i283 = phi i64 [ %211, %.preheader333 ], [ %13, %200 ]
@@ -482,7 +482,7 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   store i8 %207, ptr %.018.i285, align 1
   %211 = add nsw i64 %.020.i283, -1
   %212 = icmp sgt i64 %.020.i283, 1
-  br i1 %212, label %.preheader333, label %swapfunc.exit289, !llvm.loop !13
+  br i1 %212, label %.preheader333, label %swapfunc.exit289, !llvm.loop !10
 
 swapfunc.exit289:                                 ; preds = %.preheader333, %.preheader438, %197
   %213 = getelementptr inbounds i8, ptr %.1229379, i64 %5
@@ -493,7 +493,7 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
   %.2230 = phi ptr [ %213, %swapfunc.exit289 ], [ %.1229379, %194 ]
   %215 = getelementptr inbounds i8, ptr %.1227380, i64 %5
   %.not262 = icmp ugt ptr %.1225.lcssa, %215
-  br i1 %.not262, label %.critedge2._crit_edge, label %.lr.ph382, !llvm.loop !18
+  br i1 %.not262, label %.critedge2._crit_edge, label %.lr.ph382, !llvm.loop !12
 
 .critedge4:                                       ; preds = %.lr.ph382
   br i1 %141, label %216, label %219
@@ -520,7 +520,7 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
   store i64 %220, ptr %.022.i293, align 8
   %224 = add nsw i64 %.0.i295, -1
   %225 = icmp samesign ugt i64 %.0.i295, 1
-  br i1 %225, label %.preheader442, label %swapfunc.exit296, !llvm.loop !11
+  br i1 %225, label %.preheader442, label %swapfunc.exit296, !llvm.loop !9
 
 .preheader337:                                    ; preds = %219, %.preheader337
   %.020.i290 = phi i64 [ %230, %.preheader337 ], [ %13, %219 ]
@@ -534,7 +534,7 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
   store i8 %226, ptr %.018.i292, align 1
   %230 = add nsw i64 %.020.i290, -1
   %231 = icmp sgt i64 %.020.i290, 1
-  br i1 %231, label %.preheader337, label %swapfunc.exit296, !llvm.loop !13
+  br i1 %231, label %.preheader337, label %swapfunc.exit296, !llvm.loop !10
 
 swapfunc.exit296:                                 ; preds = %.preheader337, %.preheader442, %216
   %232 = getelementptr inbounds i8, ptr %.1225.lcssa, i64 %2
@@ -565,7 +565,7 @@ swapfunc.exit296:                                 ; preds = %.preheader337, %.pr
 .critedge6.us:                                    ; preds = %swapfunc.exit303.us.us, %.lr.ph404.us, %.preheader330.us
   %239 = getelementptr inbounds i8, ptr %.3240408.us, i64 %2
   %240 = icmp ult ptr %239, %236
-  br i1 %240, label %.preheader330.us, label %.loopexit, !llvm.loop !19
+  br i1 %240, label %.preheader330.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph404.us:                                     ; preds = %.preheader330.us, %swapfunc.exit303.us.us
   %.2233403.us.us = phi ptr [ %241, %swapfunc.exit303.us.us ], [ %.3240408.us, %.preheader330.us ]
@@ -580,7 +580,7 @@ swapfunc.exit303.us.us:                           ; preds = %.lr.ph404.us
   store i64 %245, ptr %.2233403.us.us, align 8
   store i64 %244, ptr %241, align 8
   %246 = icmp ugt ptr %241, %.0395
-  br i1 %246, label %.lr.ph404.us, label %.critedge6.us, !llvm.loop !20
+  br i1 %246, label %.lr.ph404.us, label %.critedge6.us, !llvm.loop !14
 
 .preheader330.lr.ph.split:                        ; preds = %.preheader330.lr.ph
   br i1 %or.cond396, label %.preheader330.us412, label %.preheader330
@@ -593,7 +593,7 @@ swapfunc.exit303.us.us:                           ; preds = %.lr.ph404.us
 .critedge6.us414:                                 ; preds = %swapfunc.exit303.loopexit.us.us, %.lr.ph404.us415, %.preheader330.us412
   %248 = getelementptr inbounds i8, ptr %.3240408.us413, i64 %2
   %249 = icmp ult ptr %248, %236
-  br i1 %249, label %.preheader330.us412, label %.loopexit, !llvm.loop !21
+  br i1 %249, label %.preheader330.us412, label %.loopexit, !llvm.loop !13
 
 .lr.ph404.us415:                                  ; preds = %.preheader330.us412, %swapfunc.exit303.loopexit.us.us
   %.2233403.us406.us = phi ptr [ %250, %swapfunc.exit303.loopexit.us.us ], [ %.3240408.us413, %.preheader330.us412 ]
@@ -614,11 +614,11 @@ swapfunc.exit303.us.us:                           ; preds = %.lr.ph404.us
   store i64 %253, ptr %.022.i300.us.us, align 8
   %257 = add nsw i64 %.0.i302.us.us, -1
   %258 = icmp samesign ugt i64 %.0.i302.us.us, 1
-  br i1 %258, label %.preheader435, label %swapfunc.exit303.loopexit.us.us, !llvm.loop !11
+  br i1 %258, label %.preheader435, label %swapfunc.exit303.loopexit.us.us, !llvm.loop !9
 
 swapfunc.exit303.loopexit.us.us:                  ; preds = %.preheader435
   %259 = icmp ugt ptr %250, %.0395
-  br i1 %259, label %.lr.ph404.us415, label %.critedge6.us414, !llvm.loop !22
+  br i1 %259, label %.lr.ph404.us415, label %.critedge6.us414, !llvm.loop !14
 
 .preheader330:                                    ; preds = %.preheader330.lr.ph.split, %.critedge6
   %.3240408 = phi ptr [ %271, %.critedge6 ], [ %158, %.preheader330.lr.ph.split ]
@@ -644,16 +644,16 @@ swapfunc.exit303.loopexit.us.us:                  ; preds = %.preheader435
   store i8 %264, ptr %.018.i299, align 1
   %268 = add nsw i64 %.020.i297, -1
   %269 = icmp sgt i64 %.020.i297, 1
-  br i1 %269, label %.preheader328, label %swapfunc.exit303.loopexit329, !llvm.loop !13
+  br i1 %269, label %.preheader328, label %swapfunc.exit303.loopexit329, !llvm.loop !10
 
 swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   %270 = icmp ugt ptr %261, %.0395
-  br i1 %270, label %.lr.ph404, label %.critedge6, !llvm.loop !23
+  br i1 %270, label %.lr.ph404, label %.critedge6, !llvm.loop !14
 
 .critedge6:                                       ; preds = %swapfunc.exit303.loopexit329, %.lr.ph404, %.preheader330
   %271 = getelementptr inbounds i8, ptr %.3240408, i64 %2
   %272 = icmp ult ptr %271, %236
-  br i1 %272, label %.preheader330, label %.loopexit, !llvm.loop !24
+  br i1 %272, label %.preheader330, label %.loopexit, !llvm.loop !13
 
 273:                                              ; preds = %.critedge2._crit_edge
   %274 = ptrtoint ptr %.1.lcssa to i64
@@ -687,7 +687,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   store i64 %287, ptr %.022.i307, align 8
   %291 = add nsw i64 %.0.i309, -1
   %292 = icmp samesign ugt i64 %.0.i309, 1
-  br i1 %292, label %286, label %swapfunc.exit310, !llvm.loop !11
+  br i1 %292, label %286, label %swapfunc.exit310, !llvm.loop !9
 
 .preheader341:                                    ; preds = %280, %.preheader341
   %.020.i304 = phi i64 [ %297, %.preheader341 ], [ %281, %280 ]
@@ -701,7 +701,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   store i8 %293, ptr %.018.i306, align 1
   %297 = add nsw i64 %.020.i304, -1
   %298 = icmp samesign ugt i64 %.020.i304, 1
-  br i1 %298, label %.preheader341, label %swapfunc.exit310, !llvm.loop !13
+  br i1 %298, label %.preheader341, label %swapfunc.exit310, !llvm.loop !10
 
 swapfunc.exit310:                                 ; preds = %.preheader341, %286, %273
   %299 = ptrtoint ptr %.1229.lcssa to i64
@@ -737,7 +737,7 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   store i64 %314, ptr %.022.i314, align 8
   %318 = add nsw i64 %.0.i316, -1
   %319 = icmp samesign ugt i64 %.0.i316, 1
-  br i1 %319, label %313, label %swapfunc.exit317, !llvm.loop !11
+  br i1 %319, label %313, label %swapfunc.exit317, !llvm.loop !9
 
 .preheader339:                                    ; preds = %307, %.preheader339
   %.020.i311 = phi i64 [ %324, %.preheader339 ], [ %308, %307 ]
@@ -751,7 +751,7 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
   store i8 %320, ptr %.018.i313, align 1
   %324 = add nsw i64 %.020.i311, -1
   %325 = icmp samesign ugt i64 %.020.i311, 1
-  br i1 %325, label %.preheader339, label %swapfunc.exit317, !llvm.loop !13
+  br i1 %325, label %.preheader339, label %swapfunc.exit317, !llvm.loop !10
 
 swapfunc.exit317:                                 ; preds = %.preheader339, %313, %swapfunc.exit310
   %sext263 = shl i64 %277, 32
@@ -805,22 +805,12 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !8}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}

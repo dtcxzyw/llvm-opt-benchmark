@@ -1758,7 +1758,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %.split.backedge unwind label %.loopexit.split
 
 .split.backedge:                                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %183
-  br label %.split, !llvm.loop !90
+  br label %.split, !llvm.loop !87
 
 .split128.us:                                     ; preds = %182, %164
   br i1 %spec.select, label %197, label %219
@@ -2238,19 +2238,19 @@ define internal void @_GLOBAL__sub_I_cmExecProgramCommand.cxx() #10 section ".te
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  store i32 0, ptr %1, align 4, !tbaa !91
+  store i32 0, ptr %1, align 4, !tbaa !89
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !91
+  store i32 1, ptr %3, align 4, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !91
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !93
+  store i32 2, ptr %4, align 4, !tbaa !89
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !91
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !91
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !89
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -2395,11 +2395,9 @@ attributes #16 = { noreturn }
 !84 = distinct !{!84, !"_ZZ8cmStrCatIRA9_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJcEES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESJ_"}
 !85 = !{!86, !86, i64 0}
 !86 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!87 = distinct !{!87, !88, !89}
+!87 = distinct !{!87, !88}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!90 = distinct !{!90, !88}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !7, i64 0}
-!93 = !{!94, !13, i64 0}
-!94 = !{!"_ZTSSt12_Base_bitsetILm1EE", !13, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !7, i64 0}
+!91 = !{!92, !13, i64 0}
+!92 = !{!"_ZTSSt12_Base_bitsetILm1EE", !13, i64 0}

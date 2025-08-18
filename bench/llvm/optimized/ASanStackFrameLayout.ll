@@ -1938,7 +1938,7 @@ _ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15
   %30 = sub i64 %9, %29
   %31 = sdiv exact i64 %30, 56
   %.not = icmp slt i64 %31, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_.exit.loopexit, %_ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_.exit.us, %4
   %.0.lcssa = phi ptr [ %0, %4 ], [ %13, %_ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_.exit.us ], [ %18, %_ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_.exit.loopexit ]
@@ -2128,6 +2128,4 @@ attributes #18 = { builtin nounwind }
 !75 = distinct !{!75, !13}
 !76 = distinct !{!76, !13}
 !77 = distinct !{!77, !13}
-!78 = distinct !{!78, !13, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !13}
+!78 = distinct !{!78, !13}

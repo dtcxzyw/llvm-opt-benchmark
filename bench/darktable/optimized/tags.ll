@@ -1234,7 +1234,7 @@ define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, 
   %19 = getelementptr inbounds nuw i8, ptr %.021.us, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !62
   %.not.us = icmp eq ptr %20, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !69
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
@@ -1620,12 +1620,12 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %84, label %7
+  br i1 %.not, label %90, label %7
 
 7:                                                ; preds = %4
   %8 = load i8, ptr %0, align 1, !tbaa !6
   %.not23 = icmp eq i8 %8, 0
-  br i1 %.not23, label %84, label %9
+  br i1 %.not23, label %90, label %9
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1715,74 +1715,85 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
   %55 = inttoptr i64 %54 to ptr
   br i1 %52, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %dt_tag_detach.exit.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not.i, label %dt_tag_detach.exit.us.us, label %dt_tag_detach.exit.us
+
+dt_tag_detach.exit.us.us:                         ; preds = %.lr.ph.split.us, %dt_tag_detach.exit.us.us
   %56 = load ptr, ptr %6, align 8, !tbaa !52
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = call ptr @g_list_prepend(ptr noundef null, ptr noundef nonnull %55) #11
   store ptr %58, ptr %5, align 8, !tbaa !63
-  br i1 %.not.i, label %dt_tag_detach.exit.us, label %59
+  %59 = call i32 @dt_tag_detach_images(i32 noundef %57, ptr noundef %58, i32 noundef %2)
+  %60 = load ptr, ptr %5, align 8, !tbaa !63
+  call void @g_list_free(ptr noundef %60) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %61 = load ptr, ptr %6, align 8, !tbaa !52
+  %62 = call i32 @sqlite3_step(ptr noundef %61) #11
+  %63 = icmp eq i32 %62, 100
+  br i1 %63, label %dt_tag_detach.exit.us.us, label %._crit_edge
 
-59:                                               ; preds = %.lr.ph.split.us
+dt_tag_detach.exit.us:                            ; preds = %.lr.ph.split.us, %dt_tag_detach.exit.us
+  %64 = load ptr, ptr %6, align 8, !tbaa !52
+  %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 0) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %66 = call ptr @g_list_prepend(ptr noundef null, ptr noundef nonnull %55) #11
+  store ptr %66, ptr %5, align 8, !tbaa !63
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
   %.pre.i.us = load ptr, ptr %5, align 8, !tbaa !63
-  br label %dt_tag_detach.exit.us
-
-dt_tag_detach.exit.us:                            ; preds = %59, %.lr.ph.split.us
-  %60 = phi ptr [ %.pre.i.us, %59 ], [ %58, %.lr.ph.split.us ]
-  %61 = call i32 @dt_tag_detach_images(i32 noundef %57, ptr noundef %60, i32 noundef %2)
-  %62 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @g_list_free(ptr noundef %62) #11
+  %67 = call i32 @dt_tag_detach_images(i32 noundef %65, ptr noundef %.pre.i.us, i32 noundef %2)
+  %68 = load ptr, ptr %5, align 8, !tbaa !63
+  call void @g_list_free(ptr noundef %68) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %63 = load ptr, ptr %6, align 8, !tbaa !52
-  %64 = call i32 @sqlite3_step(ptr noundef %63) #11
-  %65 = icmp eq i32 %64, 100
-  br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !71
+  %69 = load ptr, ptr %6, align 8, !tbaa !52
+  %70 = call i32 @sqlite3_step(ptr noundef %69) #11
+  %71 = icmp eq i32 %70, 100
+  br i1 %71, label %dt_tag_detach.exit.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not.i, label %dt_tag_detach.exit.us29, label %dt_tag_detach.exit
 
 dt_tag_detach.exit.us29:                          ; preds = %.lr.ph.split, %dt_tag_detach.exit.us29
-  %66 = load ptr, ptr %6, align 8, !tbaa !52
-  %67 = call i32 @sqlite3_column_int(ptr noundef %66, i32 noundef 0) #11
+  %72 = load ptr, ptr %6, align 8, !tbaa !52
+  %73 = call i32 @sqlite3_column_int(ptr noundef %72, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
-  store ptr %68, ptr %5, align 8, !tbaa !63
-  %69 = call i32 @dt_tag_detach_images(i32 noundef %67, ptr noundef %68, i32 noundef %2)
-  %70 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @g_list_free(ptr noundef %70) #11
+  %74 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
+  store ptr %74, ptr %5, align 8, !tbaa !63
+  %75 = call i32 @dt_tag_detach_images(i32 noundef %73, ptr noundef %74, i32 noundef %2)
+  %76 = load ptr, ptr %5, align 8, !tbaa !63
+  call void @g_list_free(ptr noundef %76) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %71 = load ptr, ptr %6, align 8, !tbaa !52
-  %72 = call i32 @sqlite3_step(ptr noundef %71) #11
-  %73 = icmp eq i32 %72, 100
-  br i1 %73, label %dt_tag_detach.exit.us29, label %._crit_edge, !llvm.loop !72
+  %77 = load ptr, ptr %6, align 8, !tbaa !52
+  %78 = call i32 @sqlite3_step(ptr noundef %77) #11
+  %79 = icmp eq i32 %78, 100
+  br i1 %79, label %dt_tag_detach.exit.us29, label %._crit_edge
 
 dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_tag_detach.exit
-  %74 = load ptr, ptr %6, align 8, !tbaa !52
-  %75 = call i32 @sqlite3_column_int(ptr noundef %74, i32 noundef 0) #11
+  %80 = load ptr, ptr %6, align 8, !tbaa !52
+  %81 = call i32 @sqlite3_column_int(ptr noundef %80, i32 noundef 0) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %76 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
-  store ptr %76, ptr %5, align 8, !tbaa !63
+  %82 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
+  store ptr %82, ptr %5, align 8, !tbaa !63
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !63
-  %77 = call i32 @dt_tag_detach_images(i32 noundef %75, ptr noundef %.pre.i, i32 noundef %2)
-  %78 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @g_list_free(ptr noundef %78) #11
+  %83 = call i32 @dt_tag_detach_images(i32 noundef %81, ptr noundef %.pre.i, i32 noundef %2)
+  %84 = load ptr, ptr %5, align 8, !tbaa !63
+  call void @g_list_free(ptr noundef %84) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %79 = load ptr, ptr %6, align 8, !tbaa !52
-  %80 = call i32 @sqlite3_step(ptr noundef %79) #11
-  %81 = icmp eq i32 %80, 100
-  br i1 %81, label %dt_tag_detach.exit, label %._crit_edge
+  %85 = load ptr, ptr %6, align 8, !tbaa !52
+  %86 = call i32 @sqlite3_step(ptr noundef %85) #11
+  %87 = icmp eq i32 %86, 100
+  br i1 %87, label %dt_tag_detach.exit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %dt_tag_detach.exit, %dt_tag_detach.exit.us29, %dt_tag_detach.exit.us, %48
-  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit ]
-  %82 = load ptr, ptr %6, align 8, !tbaa !52
-  %83 = call i32 @sqlite3_finalize(ptr noundef %82) #11
+._crit_edge:                                      ; preds = %dt_tag_detach.exit, %dt_tag_detach.exit.us29, %dt_tag_detach.exit.us, %dt_tag_detach.exit.us.us, %48
+  %.019.lcssa = phi i32 [ 0, %48 ], [ 1, %dt_tag_detach.exit.us.us ], [ 1, %dt_tag_detach.exit.us ], [ 1, %dt_tag_detach.exit.us29 ], [ 1, %dt_tag_detach.exit ]
+  %88 = load ptr, ptr %6, align 8, !tbaa !52
+  %89 = call i32 @sqlite3_finalize(ptr noundef %88) #11
   call void @g_free(ptr noundef %24) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %84
+  br label %90
 
-84:                                               ; preds = %4, %7, %._crit_edge
+90:                                               ; preds = %4, %7, %._crit_edge
   %.0 = phi i32 [ %.019.lcssa, %._crit_edge ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
@@ -1922,7 +1933,7 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   br label %35
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !73
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !69
   %10 = tail call ptr @dt_selection_get_list_query(ptr noundef %9, i32 noundef 0, i32 noundef 0) #11
   %11 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef %10) #11
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
@@ -2023,7 +2034,7 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   %62 = call ptr @sqlite3_column_text(ptr noundef %61, i32 noundef 1) #11
   %63 = call noalias ptr @g_strdup(ptr noundef %62) #11
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %63, ptr %64, align 8, !tbaa !74
+  store ptr %63, ptr %64, align 8, !tbaa !70
   %65 = call ptr @g_strrstr(ptr noundef %63, ptr noundef nonnull @.str.31) #11
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %.not49 = icmp eq ptr %65, null
@@ -2034,32 +2045,32 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
   br label %71
 
 69:                                               ; preds = %57
-  %70 = load ptr, ptr %64, align 8, !tbaa !74
+  %70 = load ptr, ptr %64, align 8, !tbaa !70
   br label %71
 
 71:                                               ; preds = %69, %67
   %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
-  store ptr %72, ptr %66, align 8, !tbaa !75
+  store ptr %72, ptr %66, align 8, !tbaa !71
   %73 = load ptr, ptr %4, align 8, !tbaa !52
   %74 = call i32 @sqlite3_column_int(ptr noundef %73, i32 noundef 2) #11
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store i32 %74, ptr %75, align 8, !tbaa !76
+  store i32 %74, ptr %75, align 8, !tbaa !72
   %76 = load ptr, ptr %4, align 8, !tbaa !52
   %77 = call ptr @sqlite3_column_text(ptr noundef %76, i32 noundef 3) #11
   %78 = call noalias ptr @g_strdup(ptr noundef %77) #11
   %79 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr %78, ptr %79, align 8, !tbaa !77
+  store ptr %78, ptr %79, align 8, !tbaa !73
   %80 = load ptr, ptr %4, align 8, !tbaa !52
   %81 = call i32 @sqlite3_column_int(ptr noundef %80, i32 noundef 4) #11
   %82 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  store i32 %81, ptr %82, align 8, !tbaa !78
+  store i32 %81, ptr %82, align 8, !tbaa !74
   %83 = icmp eq i32 %81, %.0
   %84 = icmp ne i32 %81, 0
   %85 = zext i1 %84 to i32
   %86 = select i1 %83, i32 2, i32 %85
   %87 = select i1 %56, i32 0, i32 %86
   %88 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  store i32 %87, ptr %88, align 4, !tbaa !79
+  store i32 %87, ptr %88, align 4, !tbaa !75
   %89 = load ptr, ptr %1, align 8, !tbaa !63
   %90 = call ptr @g_list_append(ptr noundef %89, ptr noundef nonnull %58) #11
   store ptr %90, ptr %1, align 8, !tbaa !63
@@ -2109,7 +2120,7 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.02736 = phi ptr [ %16, %14 ], [ %0, %.preheader ]
   %6 = load ptr, ptr %.02736, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !70
   br label %9
 
 9:                                                ; preds = %12, %.lr.ph
@@ -2138,7 +2149,7 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.02538 = phi ptr [ %27, %25 ], [ %5, %._crit_edge ]
   %17 = load ptr, ptr %.02538, align 8, !tbaa !58
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !74
+  %19 = load ptr, ptr %18, align 8, !tbaa !70
   br label %20
 
 20:                                               ; preds = %23, %.lr.ph40
@@ -2177,9 +2188,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_tag_by_path(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   ret i32 %7
 }
@@ -2187,9 +2198,9 @@ define internal i32 @sort_tag_by_path(ptr noundef readonly captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_tag_by_leave(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   ret i32 %7
 }
@@ -2197,9 +2208,9 @@ define internal i32 @sort_tag_by_leave(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !78
+  %4 = load i32, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !78
+  %6 = load i32, ptr %5, align 8, !tbaa !74
   %7 = sub i32 %4, %6
   ret i32 %7
 }
@@ -2229,7 +2240,7 @@ thread-pre-split:                                 ; preds = %1
   %6 = phi ptr [ %20, %18 ], [ %.pr, %.lr.ph45 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = tail call ptr @g_strsplit(ptr noundef %9, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.not29.us = icmp eq ptr %10, null
   br i1 %.not29.us, label %18, label %.preheader.us
@@ -2256,7 +2267,7 @@ thread-pre-split:                                 ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !62
   %.not.us = icmp eq ptr %20, null
-  br i1 %.not.us, label %dt_tag_free_result.exit, label %.lr.ph45.split.us, !llvm.loop !80
+  br i1 %.not.us, label %dt_tag_free_result.exit, label %.lr.ph45.split.us
 
 .critedge.thread.loopexit.us:                     ; preds = %.lr.ph.us, %.preheader.us
   %.4.lcssa.us = phi ptr [ %.02344.us, %.preheader.us ], [ %14, %.lr.ph.us ]
@@ -2268,7 +2279,7 @@ thread-pre-split:                                 ; preds = %1
   %21 = phi ptr [ %35, %33 ], [ %.pr, %.lr.ph45 ]
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !74
+  %24 = load ptr, ptr %23, align 8, !tbaa !70
   %25 = tail call ptr @g_strsplit(ptr noundef %24, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.not29 = icmp eq ptr %25, null
   br i1 %.not29, label %33, label %thread-pre-split36
@@ -2367,7 +2378,7 @@ dt_tag_free_result.exit:                          ; preds = %.preheader, %._crit
   %.01215 = phi ptr [ %11, %.lr.ph ], [ null, %.preheader ]
   %7 = load ptr, ptr %.01116, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = tail call noalias ptr @g_strdup(ptr noundef %9) #11
   %11 = tail call ptr @g_list_prepend(ptr noundef %.01215, ptr noundef %10) #11
   %12 = getelementptr inbounds nuw i8, ptr %.01116, i64 8
@@ -2403,7 +2414,7 @@ define internal fastcc ptr @_tag_get_tags(i32 noundef %0, i32 noundef range(i32 
   br label %11
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !73
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !69
   %10 = tail call ptr @dt_selection_get_list_query(ptr noundef %9, i32 noundef 0, i32 noundef 0) #11
   br label %11
 
@@ -2540,7 +2551,7 @@ _tag_get_attached_export.exit.thread90:           ; preds = %30
   %40 = call ptr @sqlite3_column_text(ptr noundef %39, i32 noundef 1) #11
   %41 = call noalias ptr @g_strdup(ptr noundef %40) #11
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !74
+  store ptr %41, ptr %42, align 8, !tbaa !70
   %43 = call ptr @g_strrstr(ptr noundef %41, ptr noundef nonnull @.str.31) #11
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.not24.i = icmp eq ptr %43, null
@@ -2551,21 +2562,21 @@ _tag_get_attached_export.exit.thread90:           ; preds = %30
   br label %49
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = load ptr, ptr %42, align 8, !tbaa !74
+  %48 = load ptr, ptr %42, align 8, !tbaa !70
   br label %49
 
 49:                                               ; preds = %47, %45
   %50 = phi ptr [ %46, %45 ], [ %48, %47 ]
-  store ptr %50, ptr %44, align 8, !tbaa !75
+  store ptr %50, ptr %44, align 8, !tbaa !71
   %51 = load ptr, ptr %3, align 8, !tbaa !52
   %52 = call i32 @sqlite3_column_int(ptr noundef %51, i32 noundef 2) #11
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 %52, ptr %53, align 8, !tbaa !76
+  store i32 %52, ptr %53, align 8, !tbaa !72
   %54 = load ptr, ptr %3, align 8, !tbaa !52
   %55 = call ptr @sqlite3_column_text(ptr noundef %54, i32 noundef 3) #11
   %56 = call noalias ptr @g_strdup(ptr noundef %55) #11
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %56, ptr %57, align 8, !tbaa !77
+  store ptr %56, ptr %57, align 8, !tbaa !73
   %58 = call ptr @g_list_append(ptr noundef %.186, ptr noundef nonnull %36) #11
   %59 = add i32 %.01925.i, 1
   %60 = load ptr, ptr %3, align 8, !tbaa !52
@@ -2594,7 +2605,7 @@ _tag_get_attached_export.exit:                    ; preds = %49
   %.02736.i = phi ptr [ %79, %77 ], [ %58, %66 ]
   %69 = load ptr, ptr %.02736.i, align 8, !tbaa !58
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !74
+  %71 = load ptr, ptr %70, align 8, !tbaa !70
   br label %72
 
 72:                                               ; preds = %75, %.lr.ph.i79
@@ -2623,7 +2634,7 @@ _tag_get_attached_export.exit:                    ; preds = %49
   %.02538.i = phi ptr [ %90, %88 ], [ %68, %._crit_edge.i81 ]
   %80 = load ptr, ptr %.02538.i, align 8, !tbaa !58
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !74
+  %82 = load ptr, ptr %81, align 8, !tbaa !70
   br label %83
 
 83:                                               ; preds = %86, %.lr.ph40.i
@@ -2660,7 +2671,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 .lr.ph:                                           ; preds = %.preheader94
   %92 = load ptr, ptr %91, align 8, !tbaa !58
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  %.promoted = load i32, ptr %93, align 8, !tbaa !76
+  %.promoted = load i32, ptr %93, align 8, !tbaa !72
   br label %94
 
 94:                                               ; preds = %.lr.ph, %94
@@ -2672,7 +2683,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 
 .loopexit95.thread:                               ; preds = %94
   %97 = and i32 %.promoted, -3
-  store i32 %97, ptr %93, align 8, !tbaa !76
+  store i32 %97, ptr %93, align 8, !tbaa !72
   br label %.lr.ph112
 
 .loopexit95:                                      ; preds = %dt_sort_tag.exit
@@ -2688,7 +2699,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %.058110 = phi ptr [ %91, %.lr.ph112 ], [ %155, %153 ]
   %99 = load ptr, ptr %.058110, align 8, !tbaa !58
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %101 = load i32, ptr %100, align 8, !tbaa !76
+  %101 = load i32, ptr %100, align 8, !tbaa !72
   %102 = and i32 %101, 2
   %.not67 = icmp eq i32 %102, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not67
@@ -2699,7 +2710,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !75
+  %106 = load ptr, ptr %105, align 8, !tbaa !71
   %107 = call noalias ptr @g_strdup(ptr noundef %106) #11
   %108 = call ptr @g_list_prepend(ptr noundef %.056111, ptr noundef %107) #11
   br i1 %.not69, label %109, label %.loopexit93
@@ -2709,7 +2720,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %111 = load ptr, ptr %110, align 8, !tbaa !62
   %.fr = freeze ptr %111
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !74
+  %113 = load ptr, ptr %112, align 8, !tbaa !70
   %114 = call ptr @g_strrstr(ptr noundef %113, ptr noundef nonnull @.str.31) #11
   %.not70100 = icmp eq ptr %114, null
   br i1 %.not70100, label %.loopexit93, label %.lr.ph103
@@ -2722,7 +2733,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %.3102.us = phi ptr [ %124, %121 ], [ %108, %.lr.ph103 ]
   %.057101.us = phi ptr [ %116, %121 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101.us, align 1, !tbaa !6
-  %115 = load ptr, ptr %112, align 8, !tbaa !74
+  %115 = load ptr, ptr %112, align 8, !tbaa !70
   %116 = call ptr @g_strrstr(ptr noundef %115, ptr noundef nonnull @.str.31) #11
   %.not73.us = icmp eq ptr %116, null
   br i1 %.not73.us, label %119, label %117
@@ -2732,20 +2743,20 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   br label %121
 
 119:                                              ; preds = %.lr.ph103.split.us
-  %120 = load ptr, ptr %112, align 8, !tbaa !74
+  %120 = load ptr, ptr %112, align 8, !tbaa !70
   br label %121
 
 121:                                              ; preds = %119, %117
   %122 = phi ptr [ %118, %117 ], [ %120, %119 ]
   %123 = call noalias ptr @g_strdup(ptr noundef %122) #11
   %124 = call ptr @g_list_prepend(ptr noundef %.3102.us, ptr noundef %123) #11
-  br i1 %.not73.us, label %.loopexit93, label %.lr.ph103.split.us, !llvm.loop !81
+  br i1 %.not73.us, label %.loopexit93, label %.lr.ph103.split.us
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %137
   %.3102 = phi ptr [ %.4, %137 ], [ %108, %.lr.ph103 ]
   %.057101 = phi ptr [ %126, %137 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101, align 1, !tbaa !6
-  %125 = load ptr, ptr %112, align 8, !tbaa !74
+  %125 = load ptr, ptr %112, align 8, !tbaa !70
   %126 = call ptr @g_strrstr(ptr noundef %125, ptr noundef nonnull @.str.31) #11
   %127 = call ptr @g_list_find_custom(ptr noundef nonnull %.fr, ptr noundef nonnull %99, ptr noundef nonnull @_is_not_exportable_tag) #11
   %.not72 = icmp eq ptr %127, null
@@ -2760,7 +2771,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   br label %133
 
 131:                                              ; preds = %128
-  %132 = load ptr, ptr %112, align 8, !tbaa !74
+  %132 = load ptr, ptr %112, align 8, !tbaa !70
   br label %133
 
 133:                                              ; preds = %131, %129
@@ -2780,7 +2791,7 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 
 138:                                              ; preds = %.loopexit93
   %139 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %140 = load ptr, ptr %139, align 8, !tbaa !77
+  %140 = load ptr, ptr %139, align 8, !tbaa !73
   %.not75 = icmp eq ptr %140, null
   br i1 %.not75, label %153, label %141
 
@@ -2848,16 +2859,16 @@ declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_is_not_exportable_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !74
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %7 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef %6) #11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !76
+  %11 = load i32, ptr %10, align 8, !tbaa !72
   %12 = and i32 %11, 3
   %13 = icmp eq i32 %12, 0
   %14 = sext i1 %13 to i32
@@ -2892,14 +2903,14 @@ define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local
   %.01318.us = phi ptr [ %.1.us, %17 ], [ null, %.lr.ph ]
   %8 = load ptr, ptr %.01219.us, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !76
+  %10 = load i32, ptr %9, align 8, !tbaa !72
   %11 = and i32 %10, 2
   %.not15.us = icmp eq i32 %11, 0
   br i1 %.not15.us, label %12, label %17
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
+  %14 = load ptr, ptr %13, align 8, !tbaa !70
   %15 = tail call noalias ptr @g_strdup(ptr noundef %14) #11
   %16 = tail call ptr @g_list_prepend(ptr noundef %.01318.us, ptr noundef %15) #11
   br label %17
@@ -2909,7 +2920,7 @@ define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local
   %18 = getelementptr inbounds nuw i8, ptr %.01219.us, i64 8
   %.012.us = load ptr, ptr %18, align 8, !tbaa !63
   %.not.us = icmp eq ptr %.012.us, null
-  br i1 %.not.us, label %._crit_edge.thread23, label %.lr.ph.split.us, !llvm.loop !82
+  br i1 %.not.us, label %._crit_edge.thread23, label %.lr.ph.split.us
 
 ._crit_edge.thread23:                             ; preds = %.lr.ph.split, %17
   %.013.lcssa25 = phi ptr [ %.1.us, %17 ], [ %24, %.lr.ph.split ]
@@ -2926,7 +2937,7 @@ dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge.thr
   %.01318 = phi ptr [ %24, %.lr.ph.split ], [ null, %.lr.ph ]
   %20 = load ptr, ptr %.01219, align 8, !tbaa !58
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !74
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
   %23 = tail call noalias ptr @g_strdup(ptr noundef %22) #11
   %24 = tail call ptr @g_list_prepend(ptr noundef %.01318, ptr noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %.01219, i64 8
@@ -3192,7 +3203,7 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   %51 = call ptr @sqlite3_column_text(ptr noundef %50, i32 noundef 0) #11
   %52 = call noalias ptr @g_strdup(ptr noundef %51) #11
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %52, ptr %53, align 8, !tbaa !74
+  store ptr %52, ptr %53, align 8, !tbaa !70
   %54 = call ptr @g_strrstr(ptr noundef %52, ptr noundef nonnull @.str.31) #11
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %.not46 = icmp eq ptr %54, null
@@ -3203,19 +3214,19 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   br label %60
 
 58:                                               ; preds = %48
-  %59 = load ptr, ptr %53, align 8, !tbaa !74
+  %59 = load ptr, ptr %53, align 8, !tbaa !70
   br label %60
 
 60:                                               ; preds = %58, %56
   %61 = phi ptr [ %57, %56 ], [ %59, %58 ]
-  store ptr %61, ptr %55, align 8, !tbaa !75
+  store ptr %61, ptr %55, align 8, !tbaa !71
   %62 = load ptr, ptr %2, align 8, !tbaa !52
   %63 = call i32 @sqlite3_column_int(ptr noundef %62, i32 noundef 1) #11
   store i32 %63, ptr %49, align 8, !tbaa !60
   %64 = load ptr, ptr %2, align 8, !tbaa !52
   %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 2) #11
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i32 %65, ptr %66, align 8, !tbaa !78
+  store i32 %65, ptr %66, align 8, !tbaa !74
   %67 = load ptr, ptr %2, align 8, !tbaa !52
   %68 = call i32 @sqlite3_column_int(ptr noundef %67, i32 noundef 3) #11
   %69 = icmp eq i32 %68, %3
@@ -3224,16 +3235,16 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
   %72 = select i1 %69, i32 2, i32 %71
   %73 = select i1 %47, i32 0, i32 %72
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 36
-  store i32 %73, ptr %74, align 4, !tbaa !79
+  store i32 %73, ptr %74, align 4, !tbaa !75
   %75 = load ptr, ptr %2, align 8, !tbaa !52
   %76 = call i32 @sqlite3_column_int(ptr noundef %75, i32 noundef 4) #11
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store i32 %76, ptr %77, align 8, !tbaa !76
+  store i32 %76, ptr %77, align 8, !tbaa !72
   %78 = load ptr, ptr %2, align 8, !tbaa !52
   %79 = call ptr @sqlite3_column_text(ptr noundef %78, i32 noundef 5) #11
   %80 = call noalias ptr @g_strdup(ptr noundef %79) #11
   %81 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %80, ptr %81, align 8, !tbaa !77
+  store ptr %80, ptr %81, align 8, !tbaa !73
   %82 = load ptr, ptr %0, align 8, !tbaa !63
   %83 = call ptr @g_list_append(ptr noundef %82, ptr noundef nonnull %49) #11
   store ptr %83, ptr %0, align 8, !tbaa !63
@@ -3549,7 +3560,7 @@ define void @dt_tag_get_tags_images(ptr noundef %0, ptr noundef captures(none) %
   %64 = call ptr @sqlite3_column_text(ptr noundef %63, i32 noundef 1) #11
   %65 = call noalias ptr @g_strdup(ptr noundef %64) #11
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %65, ptr %66, align 8, !tbaa !74
+  store ptr %65, ptr %66, align 8, !tbaa !70
   %67 = load ptr, ptr %1, align 8, !tbaa !63
   %68 = call ptr @g_list_append(ptr noundef %67, ptr noundef nonnull %60) #11
   store ptr %68, ptr %1, align 8, !tbaa !63
@@ -3803,7 +3814,7 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   %43 = call ptr @sqlite3_column_text(ptr noundef %42, i32 noundef 0) #11
   %44 = call noalias ptr @g_strdup(ptr noundef %43) #11
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !74
+  store ptr %44, ptr %45, align 8, !tbaa !70
   %46 = call ptr @g_strrstr(ptr noundef %44, ptr noundef nonnull @.str.31) #11
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.not30 = icmp eq ptr %46, null
@@ -3814,19 +3825,19 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   br label %52
 
 50:                                               ; preds = %40
-  %51 = load ptr, ptr %45, align 8, !tbaa !74
+  %51 = load ptr, ptr %45, align 8, !tbaa !70
   br label %52
 
 52:                                               ; preds = %50, %48
   %53 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  store ptr %53, ptr %47, align 8, !tbaa !75
+  store ptr %53, ptr %47, align 8, !tbaa !71
   %54 = load ptr, ptr %2, align 8, !tbaa !52
   %55 = call i32 @sqlite3_column_int(ptr noundef %54, i32 noundef 1) #11
   store i32 %55, ptr %41, align 8, !tbaa !60
   %56 = load ptr, ptr %2, align 8, !tbaa !52
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 2) #11
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store i32 %57, ptr %58, align 8, !tbaa !78
+  store i32 %57, ptr %58, align 8, !tbaa !74
   %59 = load ptr, ptr %2, align 8, !tbaa !52
   %60 = call i32 @sqlite3_column_int(ptr noundef %59, i32 noundef 3) #11
   %61 = icmp eq i32 %60, %21
@@ -3835,16 +3846,16 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   %64 = select i1 %61, i32 2, i32 %63
   %65 = select i1 %39, i32 0, i32 %64
   %66 = getelementptr inbounds nuw i8, ptr %41, i64 36
-  store i32 %65, ptr %66, align 4, !tbaa !79
+  store i32 %65, ptr %66, align 4, !tbaa !75
   %67 = load ptr, ptr %2, align 8, !tbaa !52
   %68 = call i32 @sqlite3_column_int(ptr noundef %67, i32 noundef 4) #11
   %69 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store i32 %68, ptr %69, align 8, !tbaa !76
+  store i32 %68, ptr %69, align 8, !tbaa !72
   %70 = load ptr, ptr %2, align 8, !tbaa !52
   %71 = call ptr @sqlite3_column_text(ptr noundef %70, i32 noundef 5) #11
   %72 = call noalias ptr @g_strdup(ptr noundef %71) #11
   %73 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !77
+  store ptr %72, ptr %73, align 8, !tbaa !73
   %74 = load ptr, ptr %0, align 8, !tbaa !63
   %75 = call ptr @g_list_append(ptr noundef %74, ptr noundef nonnull %41) #11
   store ptr %75, ptr %0, align 8, !tbaa !63
@@ -4311,10 +4322,10 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @_free_result_item(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   tail call void @g_free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
   tail call void @g_free(ptr noundef %5) #11
   tail call void @g_free(ptr noundef %0) #11
   ret void
@@ -4338,7 +4349,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 0, ptr %3, align 8, !tbaa !83
+  store i64 0, ptr %3, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !54
   %7 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
@@ -4601,7 +4612,7 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
   %.02736.i = phi ptr [ %18, %16 ], [ %6, %4 ]
   %8 = load ptr, ptr %.02736.i, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !74
+  %10 = load ptr, ptr %9, align 8, !tbaa !70
   br label %11
 
 11:                                               ; preds = %14, %.lr.ph.i
@@ -4630,7 +4641,7 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
   %.02538.i = phi ptr [ %29, %27 ], [ %7, %._crit_edge.i ]
   %19 = load ptr, ptr %.02538.i, align 8, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !74
+  %21 = load ptr, ptr %20, align 8, !tbaa !70
   br label %22
 
 22:                                               ; preds = %25, %.lr.ph40.i
@@ -4680,11 +4691,11 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %.079135 = phi ptr [ %86, %.critedge3 ], [ %7, %27 ]
   %33 = load ptr, ptr %.079135, align 8, !tbaa !58
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %35 = load ptr, ptr %34, align 8, !tbaa !70
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !77
+  %37 = load ptr, ptr %36, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !76
+  %39 = load i32, ptr %38, align 8, !tbaa !72
   %40 = tail call ptr @g_strsplit(ptr noundef %35, ptr noundef nonnull @.str.31, i32 noundef -1) #11
   %.fr146 = freeze ptr %40
   %.not89 = icmp eq ptr %.078136, null
@@ -5378,18 +5389,11 @@ attributes #14 = { nounwind allocsize(0) }
 !66 = !{!"dt_undo_tags_t", !12, i64 0, !13, i64 8, !13, i64 16}
 !67 = !{!66, !13, i64 8}
 !68 = !{!66, !13, i64 16}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !70}
-!72 = distinct !{!72, !70}
-!73 = !{!10, !30, i64 168}
-!74 = !{!61, !39, i64 8}
-!75 = !{!61, !39, i64 16}
-!76 = !{!61, !12, i64 40}
-!77 = !{!61, !39, i64 24}
-!78 = !{!61, !12, i64 32}
-!79 = !{!61, !12, i64 36}
-!80 = distinct !{!80, !70}
-!81 = distinct !{!81, !70}
-!82 = distinct !{!82, !70}
-!83 = !{!45, !45, i64 0}
+!69 = !{!10, !30, i64 168}
+!70 = !{!61, !39, i64 8}
+!71 = !{!61, !39, i64 16}
+!72 = !{!61, !12, i64 40}
+!73 = !{!61, !39, i64 24}
+!74 = !{!61, !12, i64 32}
+!75 = !{!61, !12, i64 36}
+!76 = !{!45, !45, i64 0}

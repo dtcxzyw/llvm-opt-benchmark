@@ -992,7 +992,7 @@ lv_observer_remove.exit:                          ; preds = %.thread, %47
 51:                                               ; preds = %35, %lv_observer_remove.exit, %.lr.ph.split
   %52 = add nsw i32 %.019, -1
   %53 = icmp sgt i32 %.019, 0
-  br i1 %53, label %.lr.ph.split, label %._crit_edge, !llvm.loop !31
+  br i1 %53, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %51, %29, %2, %5
   %54 = tail call i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef null, ptr noundef %1) #9
@@ -1045,7 +1045,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %7, ptr %5, align 8
   %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.028) #9
   %.not21 = icmp eq ptr %8, null
-  br i1 %.not21, label %.preheader26, label %.lr.ph, !llvm.loop !32
+  br i1 %.not21, label %.preheader26, label %.lr.ph, !llvm.loop !30
 
 9:                                                ; preds = %.preheader26, %._crit_edge
   %10 = phi i32 [ %.pre, %.preheader26 ], [ %28, %._crit_edge ]
@@ -1085,13 +1085,13 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
 26:                                               ; preds = %.lr.ph31, %15, %23
   %27 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.130) #9
   %.not22 = icmp eq ptr %27, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph31, !llvm.loop !33
+  br i1 %.not22, label %._crit_edge, label %.lr.ph31, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %20, %26, %9
   %28 = load i32, ptr %4, align 8
   %29 = and i32 %28, 268435456
   %.not25 = icmp eq i32 %29, 0
-  br i1 %.not25, label %30, label %9, !llvm.loop !34
+  br i1 %.not25, label %30, label %9, !llvm.loop !32
 
 30:                                               ; preds = %._crit_edge
   ret void
@@ -1131,7 +1131,7 @@ define internal fastcc ptr @bind_to_bitfield(ptr noundef %0, ptr noundef %1, ptr
   br i1 %15, label %41, label %16
 
 16:                                               ; preds = %13
-  store i32 %3, ptr %14, align 8, !tbaa !35
+  store i32 %3, ptr %14, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %4, ptr %17, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1238,14 +1238,14 @@ define internal void @obj_flag_observer_cb(ptr noundef readonly captures(none) %
 30:                                               ; preds = %._crit_edge, %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = load i32, ptr %4, align 8, !tbaa !35
+  %33 = load i32, ptr %4, align 8, !tbaa !33
   tail call void @lv_obj_add_flag(ptr noundef %32, i32 noundef %33) #9
   br label %38
 
 34:                                               ; preds = %._crit_edge, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !14
-  %37 = load i32, ptr %4, align 8, !tbaa !35
+  %37 = load i32, ptr %4, align 8, !tbaa !33
   tail call void @lv_obj_remove_flag(ptr noundef %36, i32 noundef %37) #9
   br label %38
 
@@ -1341,7 +1341,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
 30:                                               ; preds = %._crit_edge, %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = load i32, ptr %4, align 8, !tbaa !35
+  %33 = load i32, ptr %4, align 8, !tbaa !33
   %34 = trunc i32 %33 to i16
   tail call void @lv_obj_add_state(ptr noundef %32, i16 noundef zeroext %34) #9
   br label %40
@@ -1349,7 +1349,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
 35:                                               ; preds = %._crit_edge, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !14
-  %38 = load i32, ptr %4, align 8, !tbaa !35
+  %38 = load i32, ptr %4, align 8, !tbaa !33
   %39 = trunc i32 %38 to i16
   tail call void @lv_obj_remove_state(ptr noundef %37, i16 noundef zeroext %39) #9
   br label %40
@@ -2082,11 +2082,9 @@ attributes #9 = { nounwind }
 !26 = !{!27, !8, i64 0}
 !27 = !{!"_lv_event_dsc_t", !8, i64 0, !8, i64 8, !11, i64 16}
 !28 = !{!27, !8, i64 8}
-!29 = distinct !{!29, !16, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !16}
+!30 = distinct !{!30, !16}
 !31 = distinct !{!31, !16}
 !32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16}
-!34 = distinct !{!34, !16}
-!35 = !{!36, !11, i64 0}
-!36 = !{!"", !11, i64 0, !4, i64 8, !11, i64 16, !11, i64 16}
+!33 = !{!34, !11, i64 0}
+!34 = !{!"", !11, i64 0, !4, i64 8, !11, i64 16, !11, i64 16}

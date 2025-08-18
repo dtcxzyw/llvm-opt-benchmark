@@ -161,7 +161,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 67:                                               ; preds = %61
   %68 = add nsw i64 %57, -1
   %69 = icmp sgt i64 %57, 0
-  br i1 %69, label %.split, label %.loopexit12, !llvm.loop !9
+  br i1 %69, label %.split, label %.loopexit12, !llvm.loop !5
 
 .loopexit12:                                      ; preds = %67, %54, %.thread26, %36
   %70 = lshr exact i16 %29, 3
@@ -210,7 +210,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %97 = load ptr, ptr %96, align 8
   %98 = add i32 %86, 1
   %99 = icmp eq ptr %97, null
-  br i1 %99, label %.loopexit, label %.split13.us, !llvm.loop !10
+  br i1 %99, label %.loopexit, label %.split13.us, !llvm.loop !8
 
 .split13:                                         ; preds = %83, %111
   %indvars.iv = phi i64 [ %indvars.iv.next, %111 ], [ 0, %83 ]
@@ -236,7 +236,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
   %113 = load ptr, ptr %112, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %.loopexit.loopexit19, label %.split13, !llvm.loop !11
+  br i1 %114, label %.loopexit.loopexit19, label %.split13, !llvm.loop !8
 
 .loopexit.loopexit19:                             ; preds = %111, %.split13
   %.ph20.in = phi i64 [ %indvars.iv, %.split13 ], [ %indvars.iv.next, %111 ]
@@ -545,10 +545,7 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7}
+!8 = distinct !{!8, !6, !7}

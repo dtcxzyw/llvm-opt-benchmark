@@ -5566,12 +5566,12 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
   store i32 %69, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge56, label %.preheader.us, !llvm.loop !13
+  br i1 %exitcond63.not, label %._crit_edge56, label %.preheader.us, !llvm.loop !12
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader53
   %72 = load ptr, ptr %0, align 8
@@ -5607,7 +5607,7 @@ define internal void @flush_gtk_event_loop() #0 {
   %2 = load ptr, ptr @fp_g_main_context_iteration, align 8
   %3 = tail call i32 %2(ptr noundef null, i32 noundef 0) #18
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %1, !llvm.loop !14
+  br i1 %.not, label %4, label %1, !llvm.loop !13
 
 4:                                                ; preds = %1
   ret void
@@ -5964,8 +5964,7 @@ attributes #22 = { nounwind allocsize(0) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !11}
-!14 = distinct !{!14, !7}
+!13 = distinct !{!13, !7}

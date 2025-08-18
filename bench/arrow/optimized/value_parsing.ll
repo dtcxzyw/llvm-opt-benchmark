@@ -3828,7 +3828,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = add nuw i64 %.02768, 1
   %exitcond.not = icmp eq i64 %113, %2
-  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !98
+  br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !96
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit: ; preds = %.lr.ph.split, %55, %66, %.critedge.i.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3852,7 +3852,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit: 
   %121 = add i16 %114, -1
   store i16 %121, ptr %6, align 8, !tbaa !79
   %.not.i51 = icmp eq i16 %121, 0
-  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !99
+  br i1 %.not.i51, label %.critedge32, label %.lr.ph.i50, !llvm.loop !97
 
 .critedge32:                                      ; preds = %120, %.lr.ph.i50, %28, %.critedge34, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit
   %.6 = phi i1 [ false, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit ], [ true, %.critedge34 ], [ false, %28 ], [ true, %.lr.ph.i50 ], [ true, %120 ]
@@ -3949,7 +3949,7 @@ _ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit: ; preds = %
   %.062.be = phi ptr [ %.old, %38 ], [ %37, %34 ]
   %39 = load i8, ptr %.062.be, align 1, !tbaa !6
   %40 = icmp eq i8 %39, 41
-  br i1 %40, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !100
+  br i1 %40, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !98
 
 .lr.ph.i46:                                       ; preds = %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit, %.lr.ph.i46
   %.011.i47 = phi i64 [ %47, %.lr.ph.i46 ], [ 0, %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit ]
@@ -4513,7 +4513,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_G
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !101
+  %7 = load ptr, ptr %6, align 8, !tbaa !99
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -4599,8 +4599,8 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeT
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i8, ptr %11, align 8, !tbaa !58, !range !36, !noundef !103
-  store i8 %12, ptr %5, align 1, !tbaa !104
+  %12 = load i8, ptr %11, align 8, !tbaa !58, !range !36, !noundef !101
+  store i8 %12, ptr %5, align 1, !tbaa !102
   br label %13
 
 13:                                               ; preds = %10, %6
@@ -4670,11 +4670,11 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeT
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %40 = load i32, ptr %39, align 4, !tbaa !105
+  %40 = load i32, ptr %39, align 4, !tbaa !103
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !107
+  %42 = load i32, ptr %41, align 8, !tbaa !105
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !108
+  %44 = load i32, ptr %43, align 4, !tbaa !106
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %44, i32 1)
   %45 = trunc i32 %42 to i8
   %.sroa.5.0.extract.trunc.i = add i8 %45, 1
@@ -4711,14 +4711,14 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_123StrptimeT
   %71 = sext i32 %70 to i64
   %72 = mul nsw i64 %71, 86400
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !108
+  %74 = load i32, ptr %73, align 8, !tbaa !106
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !108
+  %77 = load i32, ptr %76, align 4, !tbaa !106
   %78 = sext i32 %77 to i64
   %79 = mul nsw i64 %75, 60
   %80 = add nsw i64 %79, %78
-  %81 = load i32, ptr %9, align 8, !tbaa !108
+  %81 = load i32, ptr %9, align 8, !tbaa !106
   %82 = sext i32 %81 to i64
   %83 = mul nsw i64 %80, 60
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4832,7 +4832,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_G
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !101
+  %7 = load ptr, ptr %6, align 8, !tbaa !99
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -4872,39 +4872,39 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_113ISO8601Pa
   %8 = alloca %"class.std::chrono::duration", align 8
   %9 = alloca i32, align 4
   %10 = icmp ult i64 %2, 10
-  br i1 %10, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %11, !prof !109
+  br i1 %10, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %11, !prof !107
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i8, ptr %12, align 1, !tbaa !6
   %.not.i.i = icmp eq i8 %13, 45
-  br i1 %.not.i.i, label %14, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !110
+  br i1 %.not.i.i, label %14, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !108
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %16 = load i8, ptr %15, align 1, !tbaa !6
   %.not7.i.i = icmp eq i8 %16, 45
-  br i1 %.not7.i.i, label %17, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !110
+  br i1 %.not7.i.i, label %17, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !108
 
 17:                                               ; preds = %14
   %18 = load i8, ptr %1, align 1, !tbaa !6
   %19 = add i8 %18, -48
   %20 = icmp ult i8 %19, 10
-  br i1 %20, label %21, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %20, label %21, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !6
   %24 = add i8 %23, -48
   %25 = icmp ult i8 %24, 10
-  br i1 %25, label %26, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %25, label %26, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !6
   %29 = add i8 %28, -48
   %30 = icmp ult i8 %29, 10
-  br i1 %30, label %31, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %30, label %31, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 31:                                               ; preds = %26
   %narrow.i.i = mul nuw nsw i8 %19, 10
@@ -4920,14 +4920,14 @@ define internal noundef zeroext i1 @_ZNK5arrow8internal12_GLOBAL__N_113ISO8601Pa
   %40 = icmp ult i8 %38, 10
   %41 = zext nneg i8 %38 to i16
   %42 = add nuw nsw i16 %39, %41
-  br i1 %40, label %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %40, label %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.i.i: ; preds = %31
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %44 = load i8, ptr %43, align 1, !tbaa !6
   %45 = add i8 %44, -48
   %46 = icmp ult i8 %45, 10
-  br i1 %46, label %47, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %46, label %47, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 47:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.i.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -4936,14 +4936,14 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.i.i: ; preds = %31
   %narrow.i9.i.i = mul nuw nsw i8 %45, 10
   %51 = icmp ult i8 %50, 10
   %52 = add i8 %50, %narrow.i9.i.i
-  br i1 %51, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %51, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load i8, ptr %53, align 1, !tbaa !6
   %55 = add i8 %54, -48
   %56 = icmp ult i8 %55, 10
-  br i1 %56, label %57, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !111
+  br i1 %56, label %57, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, !prof !109
 
 57:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -4957,7 +4957,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %47
   %or.cond36.not40.i.i = select i1 %61, i1 true, i1 %spec.select.i.i.i.i
   %.not8.i.i.i = icmp eq i8 %62, 0
   %or.cond37.i.i = select i1 %or.cond36.not40.i.i, i1 true, i1 %.not8.i.i.i
-  br i1 %or.cond37.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %64, !prof !112
+  br i1 %or.cond37.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %64, !prof !110
 
 64:                                               ; preds = %57
   %.not.i.i.i.i = icmp eq i8 %52, 2
@@ -4985,7 +4985,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %47
 _ZNK14arrow_vendored4date14year_month_day2okEv.exit.i.i: ; preds = %.thread.i.i.i.i, %67
   %.sroa.03.0.i.i.i.i = phi i8 [ %75, %.thread.i.i.i.i ], [ 29, %67 ]
   %.not43.i.i = icmp ult i8 %.sroa.03.0.i.i.i.i, %62
-  br i1 %.not43.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %76, !prof !113
+  br i1 %.not43.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %76, !prof !111
 
 76:                                               ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit.i.i
   %77 = zext nneg i16 %42 to i32
@@ -5053,7 +5053,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   switch i8 %114, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit [
     i8 32, label %115
     i8 84, label %115
-  ], !prof !114
+  ], !prof !112
 
 115:                                              ; preds = %112, %112
   %.not74.i = icmp eq ptr %5, null
@@ -5069,7 +5069,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   br i1 %120, label %125, label %129
 
 .thread.i:                                        ; preds = %115
-  store i8 0, ptr %5, align 1, !tbaa !104
+  store i8 0, ptr %5, align 1, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %121 = getelementptr i8, ptr %1, i64 %2
@@ -5084,7 +5084,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
 
 127:                                              ; preds = %.thread.i
   %128 = add i64 %2, -1
-  store i8 1, ptr %5, align 1, !tbaa !104
+  store i8 1, ptr %5, align 1, !tbaa !102
   br label %198
 
 129:                                              ; preds = %.thread.i, %116
@@ -5102,7 +5102,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   %136 = load i8, ptr %135, align 1, !tbaa !6
   %137 = add i8 %136, -48
   %138 = icmp ult i8 %137, 10
-  br i1 %138, label %139, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %138, label %139, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 139:                                              ; preds = %134
   %140 = add i8 %130, -48
@@ -5111,7 +5111,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   %142 = add i8 %narrow.i.i.i, %140
   %143 = icmp ugt i8 %142, 23
   %or.cond.i.i = select i1 %141, i1 true, i1 %143
-  br i1 %or.cond.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %144, !prof !115
+  br i1 %or.cond.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %144, !prof !113
 
 144:                                              ; preds = %139
   %145 = zext nneg i8 %142 to i64
@@ -5123,7 +5123,7 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   br i1 %.not74.i, label %198, label %149
 
 149:                                              ; preds = %144
-  store i8 1, ptr %5, align 1, !tbaa !104
+  store i8 1, ptr %5, align 1, !tbaa !102
   br label %198
 
 150:                                              ; preds = %129
@@ -5140,34 +5140,34 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit.i: ; preds = %110, %1
   %156 = load i8, ptr %155, align 1, !tbaa !6
   %157 = add i8 %156, -48
   %158 = icmp ult i8 %157, 10
-  br i1 %158, label %159, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %158, label %159, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 159:                                              ; preds = %154
   %160 = add i8 %133, -48
   %narrow.i.i78.i = mul nuw nsw i8 %157, 10
   %161 = icmp ult i8 %160, 10
   %162 = add i8 %narrow.i.i78.i, %160
-  br i1 %161, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i79.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %161, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i79.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i79.i: ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %152, i64 3
   %164 = load i8, ptr %163, align 1, !tbaa !6
   %165 = add i8 %164, -48
   %166 = icmp ult i8 %165, 10
-  br i1 %166, label %167, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %166, label %167, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 167:                                              ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i79.i
   %168 = add i8 %130, -48
   %narrow.i8.i.i = mul nuw nsw i8 %165, 10
   %169 = icmp ult i8 %168, 10
   %170 = add i8 %narrow.i8.i.i, %168
-  br i1 %169, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %169, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   %171 = icmp ugt i8 %162, 23
   %172 = icmp ugt i8 %170, 59
   %or.cond6.i.i = select i1 %171, i1 true, i1 %172
-  br i1 %or.cond6.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %173, !prof !116
+  br i1 %or.cond6.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %173, !prof !114
 
 173:                                              ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i
   %174 = zext nneg i8 %162 to i64
@@ -5182,7 +5182,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   br i1 %.not74.i, label %198, label %181
 
 181:                                              ; preds = %173
-  store i8 1, ptr %5, align 1, !tbaa !104
+  store i8 1, ptr %5, align 1, !tbaa !102
   br label %198
 
 182:                                              ; preds = %150
@@ -5201,23 +5201,23 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
 188:                                              ; preds = %186
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 1
   %190 = call fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_(ptr noundef nonnull %189, ptr noundef %8)
-  br i1 %190, label %191, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !110
+  br i1 %190, label %191, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !108
 
 191:                                              ; preds = %188
   %192 = icmp eq i8 %185, 43
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = load i64, ptr %8, align 8, !tbaa !117
+  %194 = load i64, ptr %8, align 8, !tbaa !115
   %195 = sub nsw i64 0, %194
-  store i64 %195, ptr %8, align 8, !tbaa !117
+  store i64 %195, ptr %8, align 8, !tbaa !115
   br label %196
 
 196:                                              ; preds = %193, %191
   br i1 %.not74.i, label %198, label %197
 
 197:                                              ; preds = %196
-  store i8 1, ptr %5, align 1, !tbaa !104
+  store i8 1, ptr %5, align 1, !tbaa !102
   br label %198
 
 198:                                              ; preds = %197, %196, %186, %182, %181, %173, %149, %144, %127, %125
@@ -5242,7 +5242,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   %201 = load i8, ptr %200, align 1, !tbaa !6
   %202 = add i8 %201, -48
   %203 = icmp ult i8 %202, 10
-  br i1 %203, label %204, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %203, label %204, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 204:                                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5253,7 +5253,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit9.i.i: ; preds = %167
   %209 = add i8 %207, %narrow.i.i81.i
   %210 = icmp ugt i8 %209, 23
   %or.cond.i82.i = select i1 %208, i1 true, i1 %210
-  br i1 %or.cond.i82.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i, !prof !115
+  br i1 %or.cond.i82.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i, !prof !113
 
 _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i: ; preds = %204
   %211 = zext nneg i8 %209 to i64
@@ -5264,14 +5264,14 @@ _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbP
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %215 = load i8, ptr %214, align 1, !tbaa !6
   %.not.i84.i = icmp eq i8 %215, 58
-  br i1 %.not.i84.i, label %216, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !110
+  br i1 %.not.i84.i, label %216, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !108
 
 216:                                              ; preds = %213
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %218 = load i8, ptr %217, align 1, !tbaa !6
   %219 = add i8 %218, -48
   %220 = icmp ult i8 %219, 10
-  br i1 %220, label %221, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %220, label %221, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 221:                                              ; preds = %216
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5280,14 +5280,14 @@ _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbP
   %narrow.i.i86.i = mul nuw nsw i8 %219, 10
   %225 = icmp ult i8 %224, 10
   %226 = add i8 %224, %narrow.i.i86.i
-  br i1 %225, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %225, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i: ; preds = %221
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %228 = load i8, ptr %227, align 1, !tbaa !6
   %229 = add i8 %228, -48
   %230 = icmp ult i8 %229, 10
-  br i1 %230, label %231, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %230, label %231, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 231:                                              ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 15
@@ -5296,13 +5296,13 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i87.i: ; preds = %221
   %narrow.i10.i.i = mul nuw nsw i8 %229, 10
   %235 = icmp ult i8 %234, 10
   %236 = add i8 %234, %narrow.i10.i.i
-  br i1 %235, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %235, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i: ; preds = %231
   %237 = icmp ugt i8 %226, 23
   %238 = icmp ugt i8 %236, 59
   %or.cond8.i.i = select i1 %237, i1 true, i1 %238
-  br i1 %or.cond8.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, !prof !116
+  br i1 %or.cond8.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, !prof !114
 
 _ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i: ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11.i.i
   %239 = zext nneg i8 %226 to i64
@@ -5317,19 +5317,19 @@ _ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEE
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %247 = load i8, ptr %246, align 1, !tbaa !6
   %.not.i88.i = icmp eq i8 %247, 58
-  br i1 %.not.i88.i, label %248, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !110
+  br i1 %.not.i88.i, label %248, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !108
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %250 = load i8, ptr %249, align 1, !tbaa !6
   %.not7.i90.i = icmp eq i8 %250, 58
-  br i1 %.not7.i90.i, label %251, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !110
+  br i1 %.not7.i90.i, label %251, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !108
 
 251:                                              ; preds = %248
   %252 = load i8, ptr %245, align 1, !tbaa !6
   %253 = add i8 %252, -48
   %254 = icmp ult i8 %253, 10
-  br i1 %254, label %255, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %254, label %255, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -5338,14 +5338,14 @@ _ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEE
   %narrow.i.i91.i = mul nuw nsw i8 %253, 10
   %259 = icmp ult i8 %258, 10
   %260 = add i8 %258, %narrow.i.i91.i
-  br i1 %259, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i92.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %259, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i92.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i92.i: ; preds = %255
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %262 = load i8, ptr %261, align 1, !tbaa !6
   %263 = add i8 %262, -48
   %264 = icmp ult i8 %263, 10
-  br i1 %264, label %265, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %264, label %265, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 265:                                              ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i92.i
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 15
@@ -5354,14 +5354,14 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i92.i: ; preds = %255
   %narrow.i15.i.i = mul nuw nsw i8 %263, 10
   %269 = icmp ult i8 %268, 10
   %270 = add i8 %268, %narrow.i15.i.i
-  br i1 %269, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %269, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i: ; preds = %265
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %272 = load i8, ptr %271, align 1, !tbaa !6
   %273 = add i8 %272, -48
   %274 = icmp ult i8 %273, 10
-  br i1 %274, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !111
+  br i1 %274, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit16.i.i
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -5376,12 +5376,12 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   %or.cond11.i.i = select i1 %or.cond.i93.i, i1 true, i1 %281
   %282 = icmp ugt i8 %279, 59
   %or.cond13.i.i = select i1 %or.cond11.i.i, i1 true, i1 %282
-  br i1 %or.cond13.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %286, !prof !116
+  br i1 %or.cond13.i.i, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, label %286, !prof !114
 
 .thread117.i:                                     ; preds = %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i
   %.sroa.0.0.ph.i = phi i64 [ %243, %_ZN5arrow8internal6detailL10ParseHH_MMINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.i ], [ %212, %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit83.i ]
   %283 = add nsw i64 %.sroa.0.0.ph.i, %103
-  %284 = load i64, ptr %8, align 8, !tbaa !117
+  %284 = load i64, ptr %8, align 8, !tbaa !115
   %285 = add nsw i64 %283, %284
   br label %298
 
@@ -5392,7 +5392,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   %290 = add nuw nsw i64 %289, %288
   %291 = zext nneg i8 %279 to i64
   %292 = mul nuw nsw i64 %290, 60
-  %293 = load i64, ptr %8, align 8, !tbaa !117
+  %293 = load i64, ptr %8, align 8, !tbaa !115
   %294 = add nsw i64 %292, %103
   %295 = add nsw i64 %294, %291
   %296 = add nsw i64 %295, %293
@@ -5428,11 +5428,11 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %308 = load i8, ptr %307, align 1, !tbaa !6
   %.not75.i = icmp eq i8 %308, 46
-  br i1 %.not75.i, label %309, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !110
+  br i1 %.not75.i, label %309, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit.thread.i, !prof !108
 
 309:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 0, ptr %9, align 4, !tbaa !108
+  store i32 0, ptr %9, align 4, !tbaa !106
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %311 = add nsw i64 %.062.i, -20
   switch i32 %3, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i [
@@ -5443,26 +5443,26 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
 
 312:                                              ; preds = %309
   %313 = icmp samesign ugt i64 %311, 3
-  br i1 %313, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !109
+  br i1 %313, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !107
 
 314:                                              ; preds = %309
   %315 = icmp samesign ugt i64 %311, 6
-  br i1 %315, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !109
+  br i1 %315, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !107
 
 316:                                              ; preds = %314, %312, %309
   %.pn.i.i = phi i64 [ 3, %312 ], [ 6, %314 ], [ 9, %309 ]
   %317 = icmp eq i64 %.pn.i.i, %311
-  br i1 %317, label %318, label %320, !prof !110
+  br i1 %317, label %318, label %320, !prof !108
 
 318:                                              ; preds = %316
   %319 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %9)
-  br i1 %319, label %switch.lookup4, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !119
+  br i1 %319, label %switch.lookup4, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, !prof !117
 
 320:                                              ; preds = %316
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 0, ptr %7, align 4, !tbaa !108
+  store i32 0, ptr %7, align 4, !tbaa !106
   %321 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %310, i64 noundef range(i64 0, -20) %311, ptr noundef nonnull %7)
-  br i1 %321, label %322, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, !prof !110
+  br i1 %321, label %322, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, !prof !108
 
 322:                                              ; preds = %320
   %reass.sub = sub i64 %.pn.i.i, %.062.i
@@ -5473,9 +5473,9 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
 switch.lookup:                                    ; preds = %322
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb, i64 0, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
-  %324 = load i32, ptr %7, align 4, !tbaa !108
+  %324 = load i32, ptr %7, align 4, !tbaa !106
   %325 = mul i32 %324, %switch.load
-  store i32 %325, ptr %9, align 4, !tbaa !108
+  store i32 %325, ptr %9, align 4, !tbaa !106
   br label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i
 
 _ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread123.i: ; preds = %322, %switch.lookup
@@ -5492,7 +5492,7 @@ switch.lookup4:                                   ; preds = %_ZN5arrow8internal6
   %switch.gep6 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5arrow8internal12_GLOBAL__N_113ISO8601ParserclEPKcmNS_8TimeUnit4typeEPlPb.39, i64 0, i64 %326
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %327 = mul nsw i64 %switch.load7, %296
-  %328 = load i32, ptr %9, align 4, !tbaa !108
+  %328 = load i32, ptr %9, align 4, !tbaa !106
   %329 = zext i32 %328 to i64
   %330 = add nsw i64 %327, %329
   store i64 %330, ptr %4, align 8, !tbaa !17
@@ -5523,13 +5523,13 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_M
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i8, ptr %3, align 1, !tbaa !6
   %.not = icmp eq i8 %4, 58
-  br i1 %.not, label %5, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !110
+  br i1 %.not, label %5, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !108
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1, !tbaa !6
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
-  br i1 %8, label %9, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !111
+  br i1 %8, label %9, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !109
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5538,7 +5538,7 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow8internal6detailL10ParseHH_M
   %narrow.i = mul nuw nsw i8 %7, 10
   %13 = icmp ult i8 %12, 10
   %14 = add i8 %12, %narrow.i
-  br i1 %13, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !111
+  br i1 %13, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, !prof !109
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -5560,7 +5560,7 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11:  ; preds = %19
   %25 = icmp ugt i8 %14, 23
   %26 = icmp ugt i8 %24, 59
   %or.cond8 = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond8, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, label %27, !prof !116
+  br i1 %or.cond8, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread, label %27, !prof !114
 
 27:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit11
   %28 = zext nneg i8 %14 to i64
@@ -5707,7 +5707,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 83:                                               ; preds = %82
   %84 = icmp samesign ugt i32 %81, 429496729
-  br i1 %84, label %.critedge, label %85, !prof !109
+  br i1 %84, label %.critedge, label %85, !prof !107
 
 85:                                               ; preds = %83
   %86 = load i8, ptr %75, align 1, !tbaa !6
@@ -5715,7 +5715,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
   %.not145 = icmp ne i64 %1, 10
   %88 = icmp ugt i8 %87, 9
   %or.cond = or i1 %.not145, %88
-  br i1 %or.cond, label %.critedge, label %89, !prof !120
+  br i1 %or.cond, label %.critedge, label %89, !prof !118
 
 89:                                               ; preds = %85
   %90 = mul nuw i32 %81, 10
@@ -5727,7 +5727,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 93:                                               ; preds = %89, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
   %.196 = phi i32 [ %.146, %89 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
-  store i32 %.196, ptr %2, align 4, !tbaa !108
+  store i32 %.196, ptr %2, align 4, !tbaa !106
   br label %.critedge
 
 .critedge:                                        ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
@@ -5887,28 +5887,26 @@ attributes #25 = { noreturn }
 !93 = distinct !{!93, !19}
 !94 = distinct !{!94, !19}
 !95 = distinct !{!95, !19}
-!96 = distinct !{!96, !19, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!96 = distinct !{!96, !19}
+!97 = distinct !{!97, !19}
 !98 = distinct !{!98, !19}
-!99 = distinct !{!99, !19}
-!100 = distinct !{!100, !19}
-!101 = !{!102, !12, i64 8}
-!102 = !{!"_ZTSSt9type_info", !12, i64 8}
-!103 = !{}
-!104 = !{!14, !14, i64 0}
-!105 = !{!106, !49, i64 20}
-!106 = !{!"_ZTS2tm", !49, i64 0, !49, i64 4, !49, i64 8, !49, i64 12, !49, i64 16, !49, i64 20, !49, i64 24, !49, i64 28, !49, i64 32, !11, i64 40, !12, i64 48}
-!107 = !{!106, !49, i64 16}
-!108 = !{!49, !49, i64 0}
-!109 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!110 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!111 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!112 = !{!"branch_weights", i32 8579205, i32 -8579208}
-!113 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!114 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
-!115 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
-!116 = !{!"branch_weights", i32 0, i32 -2147483648}
-!117 = !{!118, !11, i64 0}
-!118 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
-!119 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!120 = !{!"branch_weights", i32 4001, i32 4000000}
+!99 = !{!100, !12, i64 8}
+!100 = !{!"_ZTSSt9type_info", !12, i64 8}
+!101 = !{}
+!102 = !{!14, !14, i64 0}
+!103 = !{!104, !49, i64 20}
+!104 = !{!"_ZTS2tm", !49, i64 0, !49, i64 4, !49, i64 8, !49, i64 12, !49, i64 16, !49, i64 20, !49, i64 24, !49, i64 28, !49, i64 32, !11, i64 40, !12, i64 48}
+!105 = !{!104, !49, i64 16}
+!106 = !{!49, !49, i64 0}
+!107 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!108 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!109 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!110 = !{!"branch_weights", i32 8579205, i32 -8579208}
+!111 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!112 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!113 = !{!"branch_weights", i32 -2147483648, i32 -2147483648}
+!114 = !{!"branch_weights", i32 0, i32 -2147483648}
+!115 = !{!116, !11, i64 0}
+!116 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !11, i64 0}
+!117 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!118 = !{!"branch_weights", i32 4001, i32 4000000}

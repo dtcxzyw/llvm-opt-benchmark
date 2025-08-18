@@ -41522,7 +41522,7 @@ define internal fastcc void @_ZN11polars_lazy13physical_plan9streaming11convert_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %93 = load i64, ptr %53, align 8, !noundef !4
   %94 = icmp eq i64 %93, 0
-  br i1 %94, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4893
+  br i1 %94, label %._crit_edge, label %.lr.ph.split.us
 
 .split.us:                                        ; preds = %82
   %95 = landingpad { ptr, i32 }
@@ -41645,7 +41645,7 @@ tailrecurse:                                      ; preds = %4, %2
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.02, i64 80
-  %17 = tail call fastcc noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype17h1af53809d91be733E(ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %.sroa.0.02, i1 noundef zeroext %1), !noalias !4895
+  %17 = tail call fastcc noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype17h1af53809d91be733E(ptr noalias noundef nonnull readonly align 16 dereferenceable(80) %.sroa.0.02, i1 noundef zeroext %1), !noalias !4893
   br i1 %17, label %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE.exit.loopexit20": ; preds = %tailrecurse
@@ -41780,7 +41780,7 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
 64:                                               ; preds = %90, %45
   %.sroa.029.3 = phi i8 [ 0, %90 ], [ 1, %45 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 71
-  %66 = load i8, ptr %65, align 1, !range !45, !alias.scope !4900, !noundef !4
+  %66 = load i8, ptr %65, align 1, !range !45, !alias.scope !4898, !noundef !4
   %67 = icmp eq i8 %66, -38
   br i1 %67, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E.exit", label %68
 
@@ -41864,36 +41864,36 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
           to label %93 unwind label %39
 
 93:                                               ; preds = %92
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4903)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4906)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4908
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %5, ptr noundef nonnull readonly align 16 dereferenceable(320) %18, i64 320, i1 false), !noalias !4903
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4901)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4904)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4906
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %5, ptr noundef nonnull readonly align 16 dereferenceable(320) %18, i64 320, i1 false), !noalias !4901
   %94 = invoke noundef i32 @"_ZN82_$LT$polars_plan..frame..opt_state..OptFlags$u20$as$u20$core..default..Default$GT$7default17h4af363ce16dd95d2E"()
-          to label %97 unwind label %95, !noalias !4908
+          to label %97 unwind label %95, !noalias !4906
 
 95:                                               ; preds = %97, %93
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$polars_plan..dsl..plan..DslPlan$GT$17hd31d8b253c75f90eE"(ptr noalias noundef align 16 dereferenceable(320) %5) #29
-          to label %.body unwind label %99, !noalias !4908
+          to label %.body unwind label %99, !noalias !4906
 
 97:                                               ; preds = %93
   %98 = invoke noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h5e05b768f1a2be56E"()
-          to label %101 unwind label %95, !noalias !4908
+          to label %101 unwind label %95, !noalias !4906
 
 99:                                               ; preds = %95
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4908
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4906
   unreachable
 
 101:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %19, ptr noundef nonnull readonly align 16 dereferenceable(320) %18, i64 320, i1 false), !alias.scope !4908
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %19, ptr noundef nonnull readonly align 16 dereferenceable(320) %18, i64 320, i1 false), !alias.scope !4906
   %102 = getelementptr inbounds nuw i8, ptr %19, i64 328
-  store i32 %94, ptr %102, align 8, !alias.scope !4903, !noalias !4906
+  store i32 %94, ptr %102, align 8, !alias.scope !4901, !noalias !4904
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 320
-  store ptr %98, ptr %103, align 16, !alias.scope !4903, !noalias !4906
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4908
+  store ptr %98, ptr %103, align 16, !alias.scope !4901, !noalias !4904
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4906
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.611)
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -41995,10 +41995,10 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
   br i1 %133, label %134, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE.exit"
 
 134:                                              ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E.exit"
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4909)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4912)
-  %135 = load ptr, ptr %21, align 8, !alias.scope !4915, !nonnull !4, !noundef !4
-  %136 = atomicrmw sub ptr %135, i64 1 release, align 8, !noalias !4915
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4907)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4910)
+  %135 = load ptr, ptr %21, align 8, !alias.scope !4913, !nonnull !4, !noundef !4
+  %136 = atomicrmw sub ptr %135, i64 1 release, align 8, !noalias !4913
   %137 = icmp eq i64 %136, 1
   br i1 %137, label %138, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE.exit"
 
@@ -42010,7 +42010,7 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
 139:                                              ; preds = %48
   %140 = landingpad { ptr, i32 }
           cleanup
-  %141 = atomicrmw sub ptr %51, i64 1 release, align 8, !noalias !4916
+  %141 = atomicrmw sub ptr %51, i64 1 release, align 8, !noalias !4914
   %142 = icmp eq i64 %141, 1
   br i1 %142, label %143, label %.thread67
 
@@ -42020,10 +42020,10 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
           to label %.thread67 unwind label %125
 
 .thread67:                                        ; preds = %143, %139
-  call void @llvm.experimental.noalias.scope.decl(metadata !4923)
-  call void @llvm.experimental.noalias.scope.decl(metadata !4926)
-  %144 = load ptr, ptr %16, align 8, !alias.scope !4929, !nonnull !4, !noundef !4
-  %145 = atomicrmw sub ptr %144, i64 1 release, align 8, !noalias !4929
+  call void @llvm.experimental.noalias.scope.decl(metadata !4921)
+  call void @llvm.experimental.noalias.scope.decl(metadata !4924)
+  %144 = load ptr, ptr %16, align 8, !alias.scope !4927, !nonnull !4, !noundef !4
+  %145 = atomicrmw sub ptr %144, i64 1 release, align 8, !noalias !4927
   %146 = icmp eq i64 %145, 1
   br i1 %146, label %147, label %.body
 
@@ -42042,10 +42042,10 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
   resume { ptr, i32 } %.pn5581
 
 150:                                              ; preds = %129
-  call void @llvm.experimental.noalias.scope.decl(metadata !4930)
-  call void @llvm.experimental.noalias.scope.decl(metadata !4933)
-  %151 = load ptr, ptr %21, align 8, !alias.scope !4936, !nonnull !4, !noundef !4
-  %152 = atomicrmw sub ptr %151, i64 1 release, align 8, !noalias !4936
+  call void @llvm.experimental.noalias.scope.decl(metadata !4928)
+  call void @llvm.experimental.noalias.scope.decl(metadata !4931)
+  %151 = load ptr, ptr %21, align 8, !alias.scope !4934, !nonnull !4, !noundef !4
+  %152 = atomicrmw sub ptr %151, i64 1 release, align 8, !noalias !4934
   %153 = icmp eq i64 %152, 1
   br i1 %153, label %154, label %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE.exit62"
 
@@ -42067,10 +42067,10 @@ define void @"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyF
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %10, align 8
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4937
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4937
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4935
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4935
   invoke void @_ZN11polars_lazy4scan3ipc13LazyIpcReader3new17h6107a743af2a2aacE(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %3)
-          to label %"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE.exit" unwind label %12, !noalias !4942
+          to label %"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE.exit" unwind label %12, !noalias !4940
 
 11:                                               ; preds = %12
   resume { ptr, i32 } %lpad.thr_comm.split-lp.i
@@ -42079,22 +42079,22 @@ define void @"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyF
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
-          to label %11 unwind label %13, !noalias !4943
+          to label %11 unwind label %13, !noalias !4941
 
 13:                                               ; preds = %12
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4943
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4941
   unreachable
 
 "_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE.exit": ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4937
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !4943
-  call void @"_ZN113_$LT$polars_lazy..scan..ipc..LazyIpcReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$12with_sources17hb137c030c6e9a51aE"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !4937
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4937
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4937
-  call void @"_ZN113_$LT$polars_lazy..scan..ipc..LazyIpcReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$6finish17ha98815b8a445007eE"(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %7), !noalias !4944
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4937
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4935
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !4941
+  call void @"_ZN113_$LT$polars_lazy..scan..ipc..LazyIpcReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$12with_sources17hb137c030c6e9a51aE"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !4935
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4935
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4935
+  call void @"_ZN113_$LT$polars_lazy..scan..ipc..LazyIpcReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$6finish17ha98815b8a445007eE"(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %7), !noalias !4942
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4935
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -42137,30 +42137,30 @@ define void @"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyF
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader9new_paths17hcf1376e70601276fE(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) initializes((0, 8), (16, 48), (135, 136), (167, 203)) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #14 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4945)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4943)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %4, align 8, !alias.scope !4948
+  store i64 0, ptr %4, align 8, !alias.scope !4946
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4948
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4946
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4948
+  store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4946
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 0, ptr %6, align 8, !alias.scope !4950, !noalias !4945
+  store i8 0, ptr %6, align 8, !alias.scope !4948, !noalias !4943
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  store i8 0, ptr %7, align 1, !alias.scope !4950, !noalias !4945
+  store i8 0, ptr %7, align 1, !alias.scope !4948, !noalias !4943
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 135
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !4950, !noalias !4945
-  store i8 -38, ptr %.sroa.3.0..sroa_idx.i, align 1, !alias.scope !4950, !noalias !4945
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !4948, !noalias !4943
+  store i8 -38, ptr %.sroa.3.0..sroa_idx.i, align 1, !alias.scope !4948, !noalias !4943
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 100, ptr %8, align 8, !alias.scope !4950, !noalias !4945
-  store i64 0, ptr %0, align 8, !alias.scope !4950, !noalias !4945
+  store i64 100, ptr %8, align 8, !alias.scope !4948, !noalias !4943
+  store i64 0, ptr %0, align 8, !alias.scope !4948, !noalias !4943
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  store i8 0, ptr %9, align 2, !alias.scope !4950, !noalias !4945
+  store i8 0, ptr %9, align 2, !alias.scope !4948, !noalias !4943
   %.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 167
-  store i8 -38, ptr %.sroa.32.0..sroa_idx.i, align 1, !alias.scope !4950, !noalias !4945
+  store i8 -38, ptr %.sroa.32.0..sroa_idx.i, align 1, !alias.scope !4948, !noalias !4943
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 3, ptr %10, align 8, !alias.scope !4950, !noalias !4945
+  store i64 3, ptr %10, align 8, !alias.scope !4948, !noalias !4943
   ret void
 }
 
@@ -42192,7 +42192,7 @@ define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources1
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader14with_row_index17h383d6c0db6913a79E(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 135
-  %6 = load i8, ptr %5, align 1, !range !45, !alias.scope !4951, !noundef !4
+  %6 = load i8, ptr %5, align 1, !range !45, !alias.scope !4949, !noundef !4
   %7 = icmp eq i8 %6, -38
   br i1 %7, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E.exit", label %8
 
@@ -42251,13 +42251,13 @@ define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader24with_infer_schema
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader11with_schema17h46af0d1b2cf0060cE(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4954)
-  %5 = load ptr, ptr %4, align 8, !alias.scope !4954, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4952)
+  %5 = load ptr, ptr %4, align 8, !alias.scope !4952, !noundef !4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E.exit", label %7
 
 7:                                                ; preds = %3
-  %8 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !4957
+  %8 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !4955
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E.exit"
 
@@ -42291,13 +42291,13 @@ define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader11with_schema17h46a
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader21with_schema_overwrite17hc8b9656b9bedf44aE(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4962)
-  %5 = load ptr, ptr %4, align 8, !alias.scope !4962, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4960)
+  %5 = load ptr, ptr %4, align 8, !alias.scope !4960, !noundef !4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E.exit", label %7
 
 7:                                                ; preds = %3
-  %8 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !4965
+  %8 = atomicrmw sub ptr %5, i64 1 release, align 8, !noalias !4963
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E.exit"
 
@@ -42348,7 +42348,7 @@ define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader15with_batch_size17
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader18with_cloud_options17hc8d39a1a59146321E(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load i64, ptr %4, align 8, !range !889, !alias.scope !4970, !noundef !4
+  %5 = load i64, ptr %4, align 8, !range !889, !alias.scope !4968, !noundef !4
   %6 = icmp eq i64 %5, 3
   br i1 %6, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE.exit", label %7
 
@@ -42382,7 +42382,7 @@ define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader18with_cloud_option
 define void @_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader23with_include_file_paths17h805669b2aa9fc4a7E(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 167
-  %6 = load i8, ptr %5, align 1, !range !45, !alias.scope !4973, !noundef !4
+  %6 = load i8, ptr %5, align 1, !range !45, !alias.scope !4971, !noundef !4
   %7 = icmp eq i8 %6, -38
   br i1 %7, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE.exit", label %8
 
@@ -42435,7 +42435,7 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load i64, ptr %11, align 8, !range !889, !alias.scope !4976, !noundef !4
+  %16 = load i64, ptr %11, align 8, !range !889, !alias.scope !4974, !noundef !4
   %17 = icmp eq i64 %16, 3
   br i1 %17, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE.exit", label %18
 
@@ -42508,8 +42508,8 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 57
   store i8 %43, ptr %.sroa.8.0..sroa_idx, align 1
   store i64 2, ptr %8, align 8
-  %49 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4979
-  %50 = tail call noalias noundef align 8 dereferenceable_or_null(224) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 497) 224, i64 noundef range(i64 8, 17) 8) #32, !noalias !4979
+  %49 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4977
+  %50 = tail call noalias noundef align 8 dereferenceable_or_null(224) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 497) 224, i64 noundef range(i64 8, 17) 8) #32, !noalias !4977
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %57, !prof !20
 
@@ -42542,8 +42542,8 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull align 8 dereferenceable(216) %12, i64 216, i1 false)
-  %59 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4982
-  %60 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 497) 216, i64 noundef range(i64 8, 17) 8) #32, !noalias !4982
+  %59 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4980
+  %60 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 497) 216, i64 noundef range(i64 8, 17) 8) #32, !noalias !4980
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %67, !prof !20
 
@@ -42585,35 +42585,35 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4985
-  store i64 7, ptr %3, align 16, !noalias !4989
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4983
+  store i64 7, ptr %3, align 16, !noalias !4987
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.543.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
   %.sroa.644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 2, ptr %.sroa.644.0..sroa_idx, align 16, !noalias !4989
+  store i64 2, ptr %.sroa.644.0..sroa_idx, align 16, !noalias !4987
   %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %60, ptr %.sroa.7.0..sroa_idx45, align 16, !noalias !4989
+  store ptr %60, ptr %.sroa.7.0..sroa_idx45, align 16, !noalias !4987
   %.sroa.8.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %50, ptr %.sroa.8.0..sroa_idx47, align 8, !noalias !4989
+  store ptr %50, ptr %.sroa.8.0..sroa_idx47, align 8, !noalias !4987
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %68, ptr %.sroa.9.0..sroa_idx, align 16, !noalias !4989
+  store ptr %68, ptr %.sroa.9.0..sroa_idx, align 16, !noalias !4987
   %72 = invoke noundef i32 @"_ZN82_$LT$polars_plan..frame..opt_state..OptFlags$u20$as$u20$core..default..Default$GT$7default17h4af363ce16dd95d2E"()
-          to label %75 unwind label %73, !noalias !4985
+          to label %75 unwind label %73, !noalias !4983
 
 73:                                               ; preds = %75, %71
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$polars_plan..dsl..plan..DslPlan$GT$17hd31d8b253c75f90eE"(ptr noalias noundef align 16 dereferenceable(320) %3) #29
-          to label %.critedge24 unwind label %77, !noalias !4985
+          to label %.critedge24 unwind label %77, !noalias !4983
 
 75:                                               ; preds = %71
   %76 = invoke noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h5e05b768f1a2be56E"()
-          to label %80 unwind label %73, !noalias !4985
+          to label %80 unwind label %73, !noalias !4983
 
 77:                                               ; preds = %73
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4985
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !4983
   unreachable
 
 79:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$polars_plan..plans..schema..FileInfo$GT$$GT$17h46a36524dba917dbE.exit"
@@ -42624,7 +42624,7 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 2, ptr %.sroa.0.sroa.5.0..sroa_idx, align 16
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4985
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4983
   store i64 7, ptr %0, align 16
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %60, ptr %.sroa.0.sroa.6.0..sroa_idx, align 16
@@ -42675,13 +42675,13 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  call void @llvm.experimental.noalias.scope.decl(metadata !4990)
-  %90 = load ptr, ptr %89, align 8, !alias.scope !4990, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !4988)
+  %90 = load ptr, ptr %89, align 8, !alias.scope !4988, !noundef !4
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.noexc34, label %92
 
 92:                                               ; preds = %88
-  %93 = atomicrmw sub ptr %90, i64 1 release, align 8, !noalias !4993
+  %93 = atomicrmw sub ptr %90, i64 1 release, align 8, !noalias !4991
   %94 = icmp eq i64 %93, 1
   br i1 %94, label %95, label %.noexc34
 
@@ -42692,13 +42692,13 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
 
 .noexc34:                                         ; preds = %95, %88, %92
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  call void @llvm.experimental.noalias.scope.decl(metadata !4998)
-  %97 = load ptr, ptr %96, align 8, !alias.scope !4998, !noundef !4
+  call void @llvm.experimental.noalias.scope.decl(metadata !4996)
+  %97 = load ptr, ptr %96, align 8, !alias.scope !4996, !noundef !4
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.critedge, label %99
 
 99:                                               ; preds = %.noexc34
-  %100 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !5001
+  %100 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !4999
   %101 = icmp eq i64 %100, 1
   br i1 %101, label %102, label %.critedge
 
@@ -42709,7 +42709,7 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
 
 .critedge:                                        ; preds = %102, %.noexc34, %99
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 135
-  %104 = load i8, ptr %103, align 1, !range !45, !alias.scope !5006, !noundef !4
+  %104 = load i8, ptr %103, align 1, !range !45, !alias.scope !5004, !noundef !4
   %105 = icmp eq i8 %104, -38
   br i1 %105, label %.critedge23, label %106
 
@@ -42724,7 +42724,7 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
 
 .critedge23:                                      ; preds = %106, %.critedge
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 167
-  %109 = load i8, ptr %108, align 1, !range !45, !alias.scope !5009, !noundef !4
+  %109 = load i8, ptr %108, align 1, !range !45, !alias.scope !5007, !noundef !4
   %110 = icmp eq i8 %109, -38
   br i1 %110, label %.critedge24, label %111
 
@@ -42767,8 +42767,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN121_$LT$polars_lazy.
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$12with_sources17hdfcf639ad0781d47E"(ptr dead_on_unwind noalias noundef writable writeonly sret([208 x i8]) align 8 captures(none) dereferenceable(208) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5012)
-  %5 = load i64, ptr %4, align 8, !range !605, !alias.scope !5012, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5010)
+  %5 = load i64, ptr %4, align 8, !range !605, !alias.scope !5010, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   switch i64 %5, label %7 [
     i64 0, label %12
@@ -42776,10 +42776,10 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
   ]
 
 7:                                                ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5015)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5018)
-  %8 = load ptr, ptr %6, align 8, !alias.scope !5021, !nonnull !4, !noundef !4
-  %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !5021
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5013)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5016)
+  %8 = load ptr, ptr %6, align 8, !alias.scope !5019, !nonnull !4, !noundef !4
+  %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !5019
   %10 = icmp eq i64 %9, 1
   br i1 %10, label %11, label %"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E.exit"
 
@@ -42789,10 +42789,10 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
           to label %"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E.exit" unwind label %22
 
 12:                                               ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5022)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5025)
-  %13 = load ptr, ptr %6, align 8, !alias.scope !5028, !nonnull !4, !noundef !4
-  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !5028
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5020)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5023)
+  %13 = load ptr, ptr %6, align 8, !alias.scope !5026, !nonnull !4, !noundef !4
+  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !5026
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %16, label %"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E.exit"
 
@@ -42802,10 +42802,10 @@ define void @"_ZN121_$LT$polars_lazy..scan..ndjson..LazyJsonLineReader$u20$as$u2
           to label %"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E.exit" unwind label %22
 
 17:                                               ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5029)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !5032)
-  %18 = load ptr, ptr %6, align 8, !alias.scope !5035, !nonnull !4, !noundef !4
-  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !5035
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5027)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !5030)
+  %18 = load ptr, ptr %6, align 8, !alias.scope !5033, !nonnull !4, !noundef !4
+  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !5033
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %21, label %"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E.exit"
 
@@ -42930,10 +42930,10 @@ define void @"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..L
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %10, align 8
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5036
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5036
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5034
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5034
   invoke void @_ZN11polars_lazy4scan7parquet17LazyParquetReader3new17h8ddd3f0631652d1dE(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %3)
-          to label %"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E.exit" unwind label %12, !noalias !5041
+          to label %"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E.exit" unwind label %12, !noalias !5039
 
 11:                                               ; preds = %12
   resume { ptr, i32 } %lpad.thr_comm.split-lp.i
@@ -42942,22 +42942,22 @@ define void @"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..L
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
-          to label %11 unwind label %13, !noalias !5042
+          to label %11 unwind label %13, !noalias !5040
 
 13:                                               ; preds = %12
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !5042
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !5040
   unreachable
 
 "_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E.exit": ; preds = %4
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5036
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !5042
-  call void @"_ZN121_$LT$polars_lazy..scan..parquet..LazyParquetReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$12with_sources17hd4994da611e7002dE"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !5036
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5036
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5036
-  call void @"_ZN121_$LT$polars_lazy..scan..parquet..LazyParquetReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$6finish17h9291c58cda8616c1E"(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %7), !noalias !5043
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5036
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5034
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !5040
+  call void @"_ZN121_$LT$polars_lazy..scan..parquet..LazyParquetReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$12with_sources17hd4994da611e7002dE"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !5034
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5034
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5034
+  call void @"_ZN121_$LT$polars_lazy..scan..parquet..LazyParquetReader$u20$as$u20$polars_lazy..scan..file_list_reader..LazyFileListReader$GT$6finish17h9291c58cda8616c1E"(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(208) %7), !noalias !5041
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5034
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -49254,154 +49254,152 @@ attributes #32 = { nounwind }
 !4890 = distinct !{!4890, !4891, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp10StackFrame11new_subtree17h908d36c32eb575fbE: argument 0"}
 !4891 = distinct !{!4891, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp10StackFrame11new_subtree17h908d36c32eb575fbE"}
 !4892 = !{!4882}
-!4893 = distinct !{!4893, !4894}
-!4894 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!4895 = !{!4896, !4898}
-!4896 = distinct !{!4896, !4897, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h59feecf6d3113fd3E: argument 0"}
-!4897 = distinct !{!4897, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h59feecf6d3113fd3E"}
-!4898 = distinct !{!4898, !4899, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE: argument 0"}
-!4899 = distinct !{!4899, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE"}
-!4900 = !{!4901}
-!4901 = distinct !{!4901, !4902, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
-!4902 = distinct !{!4902, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
-!4903 = !{!4904}
-!4904 = distinct !{!4904, !4905, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 0"}
-!4905 = distinct !{!4905, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E"}
-!4906 = !{!4907}
-!4907 = distinct !{!4907, !4905, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 1"}
-!4908 = !{!4904, !4907}
-!4909 = !{!4910}
-!4910 = distinct !{!4910, !4911, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
-!4911 = distinct !{!4911, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
-!4912 = !{!4913}
-!4913 = distinct !{!4913, !4914, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
-!4914 = distinct !{!4914, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
-!4915 = !{!4913, !4910}
-!4916 = !{!4917, !4919, !4921}
-!4917 = distinct !{!4917, !4918, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
-!4918 = distinct !{!4918, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
-!4919 = distinct !{!4919, !4920, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
-!4920 = distinct !{!4920, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
-!4921 = distinct !{!4921, !4922, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
-!4922 = distinct !{!4922, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
-!4923 = !{!4924}
-!4924 = distinct !{!4924, !4925, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
-!4925 = distinct !{!4925, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
-!4926 = !{!4927}
-!4927 = distinct !{!4927, !4928, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
-!4928 = distinct !{!4928, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
-!4929 = !{!4927, !4924}
-!4930 = !{!4931}
-!4931 = distinct !{!4931, !4932, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
-!4932 = distinct !{!4932, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
-!4933 = !{!4934}
-!4934 = distinct !{!4934, !4935, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
-!4935 = distinct !{!4935, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
-!4936 = !{!4934, !4931}
-!4937 = !{!4938, !4940, !4941}
-!4938 = distinct !{!4938, !4939, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 0"}
-!4939 = distinct !{!4939, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE"}
-!4940 = distinct !{!4940, !4939, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 1"}
-!4941 = distinct !{!4941, !4939, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 2"}
-!4942 = !{!4938, !4940}
-!4943 = !{!4938, !4941}
-!4944 = !{!4940, !4941}
-!4945 = !{!4946}
-!4946 = distinct !{!4946, !4947, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E: argument 1"}
-!4947 = distinct !{!4947, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E"}
-!4948 = !{!4949, !4946}
-!4949 = distinct !{!4949, !4947, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E: argument 0"}
-!4950 = !{!4949}
-!4951 = !{!4952}
-!4952 = distinct !{!4952, !4953, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
-!4953 = distinct !{!4953, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
-!4954 = !{!4955}
-!4955 = distinct !{!4955, !4956, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
-!4956 = distinct !{!4956, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
-!4957 = !{!4958, !4960, !4955}
-!4958 = distinct !{!4958, !4959, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
-!4959 = distinct !{!4959, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
-!4960 = distinct !{!4960, !4961, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
-!4961 = distinct !{!4961, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
-!4962 = !{!4963}
-!4963 = distinct !{!4963, !4964, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
-!4964 = distinct !{!4964, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
-!4965 = !{!4966, !4968, !4963}
-!4966 = distinct !{!4966, !4967, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
-!4967 = distinct !{!4967, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
-!4968 = distinct !{!4968, !4969, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
-!4969 = distinct !{!4969, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
-!4970 = !{!4971}
-!4971 = distinct !{!4971, !4972, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE: argument 0"}
-!4972 = distinct !{!4972, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE"}
-!4973 = !{!4974}
-!4974 = distinct !{!4974, !4975, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE: argument 0"}
-!4975 = distinct !{!4975, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE"}
-!4976 = !{!4977}
-!4977 = distinct !{!4977, !4978, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE: argument 0"}
-!4978 = distinct !{!4978, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE"}
-!4979 = !{!4980}
-!4980 = distinct !{!4980, !4981, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hff3a99a2fb4e2290E: argument 0"}
-!4981 = distinct !{!4981, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hff3a99a2fb4e2290E"}
-!4982 = !{!4983}
-!4983 = distinct !{!4983, !4984, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h660dcd86bd15a9beE: argument 0"}
-!4984 = distinct !{!4984, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h660dcd86bd15a9beE"}
-!4985 = !{!4986, !4988}
-!4986 = distinct !{!4986, !4987, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 0"}
-!4987 = distinct !{!4987, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E"}
-!4988 = distinct !{!4988, !4987, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 1"}
-!4989 = !{!4986}
-!4990 = !{!4991}
-!4991 = distinct !{!4991, !4992, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
-!4992 = distinct !{!4992, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
-!4993 = !{!4994, !4996, !4991}
-!4994 = distinct !{!4994, !4995, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
-!4995 = distinct !{!4995, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
-!4996 = distinct !{!4996, !4997, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
-!4997 = distinct !{!4997, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
-!4998 = !{!4999}
-!4999 = distinct !{!4999, !5000, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
-!5000 = distinct !{!5000, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
-!5001 = !{!5002, !5004, !4999}
-!5002 = distinct !{!5002, !5003, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
-!5003 = distinct !{!5003, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
-!5004 = distinct !{!5004, !5005, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
-!5005 = distinct !{!5005, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
-!5006 = !{!5007}
-!5007 = distinct !{!5007, !5008, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
-!5008 = distinct !{!5008, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
-!5009 = !{!5010}
-!5010 = distinct !{!5010, !5011, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE: argument 0"}
-!5011 = distinct !{!5011, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE"}
-!5012 = !{!5013}
-!5013 = distinct !{!5013, !5014, !"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E: argument 0"}
-!5014 = distinct !{!5014, !"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E"}
-!5015 = !{!5016}
-!5016 = distinct !{!5016, !5017, !"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..mmap..private..MemSlice$u5d$$GT$$GT$17h49fbd8fbe6ae48d2E: argument 0"}
-!5017 = distinct !{!5017, !"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..mmap..private..MemSlice$u5d$$GT$$GT$17h49fbd8fbe6ae48d2E"}
-!5018 = !{!5019}
-!5019 = distinct !{!5019, !5020, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9e35eace74d27d6E: argument 0"}
-!5020 = distinct !{!5020, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9e35eace74d27d6E"}
-!5021 = !{!5019, !5016, !5013}
-!5022 = !{!5023}
-!5023 = distinct !{!5023, !5024, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$17h1afd39f0144e4e1aE: argument 0"}
-!5024 = distinct !{!5024, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$17h1afd39f0144e4e1aE"}
-!5025 = !{!5026}
-!5026 = distinct !{!5026, !5027, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3182cba8cb693946E: argument 0"}
-!5027 = distinct !{!5027, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3182cba8cb693946E"}
-!5028 = !{!5026, !5023, !5013}
-!5029 = !{!5030}
-!5030 = distinct !{!5030, !5031, !"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..fs..File$u5d$$GT$$GT$17h2b5f3ca1c55bcfb3E: argument 0"}
-!5031 = distinct !{!5031, !"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..fs..File$u5d$$GT$$GT$17h2b5f3ca1c55bcfb3E"}
-!5032 = !{!5033}
-!5033 = distinct !{!5033, !5034, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11420ebf81c6ee8cE: argument 0"}
-!5034 = distinct !{!5034, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11420ebf81c6ee8cE"}
-!5035 = !{!5033, !5030, !5013}
-!5036 = !{!5037, !5039, !5040}
-!5037 = distinct !{!5037, !5038, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 0"}
-!5038 = distinct !{!5038, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E"}
-!5039 = distinct !{!5039, !5038, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 1"}
-!5040 = distinct !{!5040, !5038, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 2"}
-!5041 = !{!5037, !5039}
-!5042 = !{!5037, !5040}
-!5043 = !{!5039, !5040}
+!4893 = !{!4894, !4896}
+!4894 = distinct !{!4894, !4895, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h59feecf6d3113fd3E: argument 0"}
+!4895 = distinct !{!4895, !"_ZN11polars_lazy13physical_plan9streaming11convert_alp22insert_streaming_nodes13allowed_dtype28_$u7b$$u7b$closure$u7d$$u7d$17h59feecf6d3113fd3E"}
+!4896 = distinct !{!4896, !4897, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE: argument 0"}
+!4897 = distinct !{!4897, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hfcfb31e2f6374a5dE"}
+!4898 = !{!4899}
+!4899 = distinct !{!4899, !4900, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
+!4900 = distinct !{!4900, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
+!4901 = !{!4902}
+!4902 = distinct !{!4902, !4903, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 0"}
+!4903 = distinct !{!4903, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E"}
+!4904 = !{!4905}
+!4905 = distinct !{!4905, !4903, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 1"}
+!4906 = !{!4902, !4905}
+!4907 = !{!4908}
+!4908 = distinct !{!4908, !4909, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
+!4909 = distinct !{!4909, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
+!4910 = !{!4911}
+!4911 = distinct !{!4911, !4912, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
+!4912 = distinct !{!4912, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
+!4913 = !{!4911, !4908}
+!4914 = !{!4915, !4917, !4919}
+!4915 = distinct !{!4915, !4916, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
+!4916 = distinct !{!4916, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
+!4917 = distinct !{!4917, !4918, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
+!4918 = distinct !{!4918, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
+!4919 = distinct !{!4919, !4920, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
+!4920 = distinct !{!4920, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
+!4921 = !{!4922}
+!4922 = distinct !{!4922, !4923, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
+!4923 = distinct !{!4923, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
+!4924 = !{!4925}
+!4925 = distinct !{!4925, !4926, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
+!4926 = distinct !{!4926, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
+!4927 = !{!4925, !4922}
+!4928 = !{!4929}
+!4929 = distinct !{!4929, !4930, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE: argument 0"}
+!4930 = distinct !{!4930, !"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$polars_plan..plans..anonymous_scan..AnonymousScan$GT$$GT$17hdecfb6ec1750760bE"}
+!4931 = !{!4932}
+!4932 = distinct !{!4932, !4933, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E: argument 0"}
+!4933 = distinct !{!4933, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha3659ac55e2ad2d2E"}
+!4934 = !{!4932, !4929}
+!4935 = !{!4936, !4938, !4939}
+!4936 = distinct !{!4936, !4937, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 0"}
+!4937 = distinct !{!4937, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE"}
+!4938 = distinct !{!4938, !4937, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 1"}
+!4939 = distinct !{!4939, !4937, !"_ZN11polars_lazy4scan3ipc47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$16scan_ipc_sources17hd5ba6a6f103d4cedE: argument 2"}
+!4940 = !{!4936, !4938}
+!4941 = !{!4936, !4939}
+!4942 = !{!4938, !4939}
+!4943 = !{!4944}
+!4944 = distinct !{!4944, !4945, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E: argument 1"}
+!4945 = distinct !{!4945, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E"}
+!4946 = !{!4947, !4944}
+!4947 = distinct !{!4947, !4945, !"_ZN11polars_lazy4scan6ndjson18LazyJsonLineReader16new_with_sources17h2b0d50ac294b1572E: argument 0"}
+!4948 = !{!4947}
+!4949 = !{!4950}
+!4950 = distinct !{!4950, !4951, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
+!4951 = distinct !{!4951, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
+!4952 = !{!4953}
+!4953 = distinct !{!4953, !4954, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
+!4954 = distinct !{!4954, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
+!4955 = !{!4956, !4958, !4953}
+!4956 = distinct !{!4956, !4957, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
+!4957 = distinct !{!4957, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
+!4958 = distinct !{!4958, !4959, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
+!4959 = distinct !{!4959, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
+!4960 = !{!4961}
+!4961 = distinct !{!4961, !4962, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
+!4962 = distinct !{!4962, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
+!4963 = !{!4964, !4966, !4961}
+!4964 = distinct !{!4964, !4965, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
+!4965 = distinct !{!4965, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
+!4966 = distinct !{!4966, !4967, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
+!4967 = distinct !{!4967, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
+!4968 = !{!4969}
+!4969 = distinct !{!4969, !4970, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE: argument 0"}
+!4970 = distinct !{!4970, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE"}
+!4971 = !{!4972}
+!4972 = distinct !{!4972, !4973, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE: argument 0"}
+!4973 = distinct !{!4973, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE"}
+!4974 = !{!4975}
+!4975 = distinct !{!4975, !4976, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE: argument 0"}
+!4976 = distinct !{!4976, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_io..cloud..options..CloudOptions$GT$$GT$17hcceb573c55e2144eE"}
+!4977 = !{!4978}
+!4978 = distinct !{!4978, !4979, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hff3a99a2fb4e2290E: argument 0"}
+!4979 = distinct !{!4979, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hff3a99a2fb4e2290E"}
+!4980 = !{!4981}
+!4981 = distinct !{!4981, !4982, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h660dcd86bd15a9beE: argument 0"}
+!4982 = distinct !{!4982, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h660dcd86bd15a9beE"}
+!4983 = !{!4984, !4986}
+!4984 = distinct !{!4984, !4985, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 0"}
+!4985 = distinct !{!4985, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E"}
+!4986 = distinct !{!4986, !4985, !"_ZN108_$LT$polars_lazy..frame..LazyFrame$u20$as$u20$core..convert..From$LT$polars_plan..dsl..plan..DslPlan$GT$$GT$4from17hfeab19f32395bb19E: argument 1"}
+!4987 = !{!4984}
+!4988 = !{!4989}
+!4989 = distinct !{!4989, !4990, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
+!4990 = distinct !{!4990, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
+!4991 = !{!4992, !4994, !4989}
+!4992 = distinct !{!4992, !4993, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
+!4993 = distinct !{!4993, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
+!4994 = distinct !{!4994, !4995, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
+!4995 = distinct !{!4995, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
+!4996 = !{!4997}
+!4997 = distinct !{!4997, !4998, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E: argument 0"}
+!4998 = distinct !{!4998, !"_ZN4core3ptr149drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$$GT$17h442ac113e9b064f8E"}
+!4999 = !{!5000, !5002, !4997}
+!5000 = distinct !{!5000, !5001, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E: argument 0"}
+!5001 = distinct !{!5001, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1b976ce23b2536a4E"}
+!5002 = distinct !{!5002, !5003, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E: argument 0"}
+!5003 = distinct !{!5003, !"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17h8f152ecbf2966451E"}
+!5004 = !{!5005}
+!5005 = distinct !{!5005, !5006, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E: argument 0"}
+!5006 = distinct !{!5006, !"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$polars_io..options..RowIndex$GT$$GT$17he702df744e5046e2E"}
+!5007 = !{!5008}
+!5008 = distinct !{!5008, !5009, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE: argument 0"}
+!5009 = distinct !{!5009, !"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h06d1e0c5ae4d67bfE"}
+!5010 = !{!5011}
+!5011 = distinct !{!5011, !5012, !"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E: argument 0"}
+!5012 = distinct !{!5012, !"_ZN4core3ptr64drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSources$GT$17hf2b92a8da5d3d062E"}
+!5013 = !{!5014}
+!5014 = distinct !{!5014, !5015, !"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..mmap..private..MemSlice$u5d$$GT$$GT$17h49fbd8fbe6ae48d2E: argument 0"}
+!5015 = distinct !{!5015, !"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..mmap..private..MemSlice$u5d$$GT$$GT$17h49fbd8fbe6ae48d2E"}
+!5016 = !{!5017}
+!5017 = distinct !{!5017, !5018, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9e35eace74d27d6E: argument 0"}
+!5018 = distinct !{!5018, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9e35eace74d27d6E"}
+!5019 = !{!5017, !5014, !5011}
+!5020 = !{!5021}
+!5021 = distinct !{!5021, !5022, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$17h1afd39f0144e4e1aE: argument 0"}
+!5022 = distinct !{!5022, !"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$17h1afd39f0144e4e1aE"}
+!5023 = !{!5024}
+!5024 = distinct !{!5024, !5025, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3182cba8cb693946E: argument 0"}
+!5025 = distinct !{!5025, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3182cba8cb693946E"}
+!5026 = !{!5024, !5021, !5011}
+!5027 = !{!5028}
+!5028 = distinct !{!5028, !5029, !"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..fs..File$u5d$$GT$$GT$17h2b5f3ca1c55bcfb3E: argument 0"}
+!5029 = distinct !{!5029, !"_ZN4core3ptr68drop_in_place$LT$alloc..sync..Arc$LT$$u5b$std..fs..File$u5d$$GT$$GT$17h2b5f3ca1c55bcfb3E"}
+!5030 = !{!5031}
+!5031 = distinct !{!5031, !5032, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11420ebf81c6ee8cE: argument 0"}
+!5032 = distinct !{!5032, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h11420ebf81c6ee8cE"}
+!5033 = !{!5031, !5028, !5011}
+!5034 = !{!5035, !5037, !5038}
+!5035 = distinct !{!5035, !5036, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 0"}
+!5036 = distinct !{!5036, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E"}
+!5037 = distinct !{!5037, !5036, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 1"}
+!5038 = distinct !{!5038, !5036, !"_ZN11polars_lazy4scan7parquet47_$LT$impl$u20$polars_lazy..frame..LazyFrame$GT$20scan_parquet_sources17h2ebd60f034eff373E: argument 2"}
+!5039 = !{!5035, !5037}
+!5040 = !{!5035, !5038}
+!5041 = !{!5037, !5038}

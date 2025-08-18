@@ -2345,7 +2345,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %119 = getelementptr i8, ptr %112, i64 %.idx.us
   %120 = load i8, ptr %119, align 1, !range !6, !noundef !7
   %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %.lr.ph310, label %.split303.us, !llvm.loop !18
+  br i1 %121, label %.lr.ph310, label %.split303.us, !llvm.loop !17
 
 .lr.ph310:                                        ; preds = %.lr.ph299.split.us, %117
   %122 = phi ptr [ %131, %117 ], [ %.promoted289, %.lr.ph299.split.us ]
@@ -2367,7 +2367,7 @@ list_length.exit218.us:                           ; preds = %124, %.lr.ph310
   %131 = tail call ptr @lappend(ptr noundef %122, ptr noundef %130) #11
   %.3.us = add i32 %.3298.us309, 1
   %.not201.us = icmp sgt i32 %.3.us, %88
-  br i1 %.not201.us, label %.thread221.loopexit, label %117, !llvm.loop !18
+  br i1 %.not201.us, label %.thread221.loopexit, label %117, !llvm.loop !17
 
 .preheader.split:                                 ; preds = %.preheader, %159
   %132 = phi i8 [ 1, %159 ], [ %.promoted271, %.preheader ]
@@ -2418,7 +2418,7 @@ list_length.exit218.us:                           ; preds = %124, %.lr.ph310
   %162 = tail call ptr @lappend(ptr noundef %133, ptr noundef %161) #11
   %.pre = load i8, ptr %149, align 1, !range !6
   %163 = trunc nuw i8 %.pre to i1
-  br i1 %163, label %.preheader.split, label %.split277.us, !llvm.loop !19
+  br i1 %163, label %.preheader.split, label %.split277.us, !llvm.loop !16
 
 .split277.us:                                     ; preds = %101, %141, %159
   %.us-phi278 = phi i8 [ %132, %141 ], [ 1, %159 ], [ %.promoted271, %101 ]
@@ -2484,7 +2484,7 @@ list_length.exit218.us:                           ; preds = %124, %.lr.ph310
 196:                                              ; preds = %.lr.ph299.split
   %.3 = add i32 %.3298, 1
   %.not201 = icmp sgt i32 %.3, %88
-  br i1 %.not201, label %.thread221.loopexit, label %.lr.ph299.split, !llvm.loop !20
+  br i1 %.not201, label %.thread221.loopexit, label %.lr.ph299.split, !llvm.loop !17
 
 197:                                              ; preds = %74
   %198 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2987,8 +2987,5 @@ attributes #13 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !5, !17}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

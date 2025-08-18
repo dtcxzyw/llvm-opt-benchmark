@@ -689,7 +689,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   %.1 = phi i32 [ %.024, %35 ], [ %.024, %37 ], [ %.024, %39 ], [ 0, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.split26.us, label %.split, !llvm.loop !29
+  br i1 %exitcond.not, label %.split26.us, label %.split, !llvm.loop !27
 
 .split26.us:                                      ; preds = %44, %28
   %.us-phi = phi i32 [ %.1.us, %28 ], [ %.1, %44 ]
@@ -760,6 +760,4 @@ attributes #10 = { cold nounwind }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
 !26 = !{!11, !11, i64 0}
-!27 = distinct !{!27, !5, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !5}
+!27 = distinct !{!27, !5}

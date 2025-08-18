@@ -363,7 +363,7 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = add nsw i32 %.1175244, 1
   %.not197.not = icmp slt i32 %183, %167
   %indvar.next = add i32 %indvar, 1
-  br i1 %.not197.not, label %.lr.ph, label %._crit_edge247, !llvm.loop !12
+  br i1 %.not197.not, label %.lr.ph, label %._crit_edge247, !llvm.loop !11
 
 ._crit_edge247:                                   ; preds = %.lr.ph, %.lr.ph246, %147
   %184 = load i32, ptr %11, align 4, !tbaa !3
@@ -373,7 +373,7 @@ define void @dorgql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %188 = icmp sge i32 %185, %187
   %189 = icmp sle i32 %185, %187
   %.in = select i1 %186, i1 %188, i1 %189
-  br i1 %.in, label %.lr.ph251, label %.loopexit, !llvm.loop !13
+  br i1 %.in, label %.lr.ph251, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge247, %103, %.thread223
   %190 = sitofp i32 %.0222 to double
@@ -437,8 +437,7 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}

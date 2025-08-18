@@ -2419,7 +2419,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   store i32 0, ptr %80, align 4, !tbaa !16
   %81 = add nsw i32 %.03373, -1
   %82 = icmp samesign ugt i32 %.03373, 1
-  br i1 %82, label %.split, label %.split77.us, !llvm.loop !53
+  br i1 %82, label %.split, label %.split77.us, !llvm.loop !51
 
 .split75.us:                                      ; preds = %.split, %.split.us
   %83 = load ptr, ptr @stderr, align 8, !tbaa !14
@@ -2506,7 +2506,7 @@ define noundef range(i32 -1, 1) i32 @_Z18xdr_xtc_seek_frameiP8_IO_FILEP3XDRi(i32
   br i1 %.not.i, label %.backedge, label %_ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread
 
 .backedge:                                        ; preds = %25, %20
-  br label %20, !llvm.loop !54
+  br label %20, !llvm.loop !52
 
 _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit.thread: ; preds = %.preheader, %22, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2538,7 +2538,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   %37 = and i64 %36, 9223372036854775804
   %38 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %37, i32 noundef 0)
   %.not45 = icmp eq i32 %38, 0
-  br i1 %.not45, label %.preheader, label %.loopexit, !llvm.loop !55
+  br i1 %.not45, label %.preheader, label %.loopexit, !llvm.loop !53
 
 39:                                               ; preds = %28, %29
   %40 = icmp samesign ult i64 %.0, 17
@@ -2613,7 +2613,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !56
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !54
 
 .preheader:                                       ; preds = %5, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %5 ]
@@ -2647,7 +2647,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
 21:                                               ; preds = %22
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 10
-  br i1 %exitcond46.not, label %28, label %22, !llvm.loop !57
+  br i1 %exitcond46.not, label %28, label %22, !llvm.loop !55
 
 22:                                               ; preds = %.preheader47, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 0, %.preheader47 ]
@@ -2752,7 +2752,7 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
 
 .preheader:                                       ; preds = %17
   %23 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
-  %24 = load i8, ptr %8, align 1, !tbaa !58, !range !60, !noundef !61
+  %24 = load i8, ptr %8, align 1, !tbaa !56, !range !58, !noundef !59
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.lr.ph, label %.loopexit
 
@@ -2797,7 +2797,7 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
   ]
 
 41:                                               ; preds = %39
-  store i8 1, ptr %8, align 1, !tbaa !58
+  store i8 1, ptr %8, align 1, !tbaa !56
   %42 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %35, i32 noundef 0)
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %45, label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread
@@ -2888,7 +2888,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 80:                                               ; preds = %78
   %81 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
   %82 = fcmp une float %81, %26
-  %83 = load i8, ptr %8, align 1, !range !60
+  %83 = load i8, ptr %8, align 1, !range !58
   %84 = trunc nuw i8 %83 to i1
   %or.cond13 = select i1 %82, i1 %84, i1 false
   br i1 %or.cond13, label %85, label %87
@@ -2910,9 +2910,9 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
   %.293 = phi i64 [ %.192, %73 ], [ %.091111, %87 ]
   %.190 = phi i64 [ %76, %73 ], [ %.089112, %87 ]
   %92 = call fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %8)
-  %93 = load i8, ptr %8, align 1, !tbaa !58, !range !60, !noundef !61
+  %93 = load i8, ptr %8, align 1, !tbaa !56, !range !58, !noundef !59
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !62
+  br i1 %94, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .thread:                                          ; preds = %60, %87, %78
   %95 = icmp slt i64 %.089112, 17
@@ -2938,21 +2938,21 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) initializes((0, 1)) %3) unnamed_addr #3 {
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   %7 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %4
   %10 = tail call fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
-  %11 = load i8, ptr %3, align 1, !tbaa !58, !range !60, !noundef !61
+  %11 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   %14 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit, label %16
@@ -2969,13 +2969,13 @@ define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb
   ]
 
 20:                                               ; preds = %18
-  store i8 1, ptr %3, align 1, !tbaa !58
+  store i8 1, ptr %3, align 1, !tbaa !56
   %21 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %14, i32 noundef 0)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %23, label %22
 
 22:                                               ; preds = %20
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit
 
 23:                                               ; preds = %20
@@ -2990,7 +2990,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %2
   %.0.i = phi float [ -1.000000e+00, %22 ], [ %24, %23 ], [ -1.000000e+00, %25 ], [ -1.000000e+00, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = load i8, ptr %3, align 1, !tbaa !58, !range !60, !noundef !61
+  %27 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %34
 
@@ -3000,7 +3000,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %2
   br i1 %.not, label %32, label %31
 
 31:                                               ; preds = %29
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %34
 
 32:                                               ; preds = %29
@@ -3018,7 +3018,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   %6 = alloca float, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   %7 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %.loopexit, label %.preheader
@@ -3031,13 +3031,13 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   ]
 
 10:                                               ; preds = %.preheader
-  store i8 1, ptr %3, align 1, !tbaa !58
+  store i8 1, ptr %3, align 1, !tbaa !56
   %11 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %7, i32 noundef 0)
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %13, label %12
 
 12:                                               ; preds = %10
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %.loopexit
 
 13:                                               ; preds = %10
@@ -3051,7 +3051,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
 17:                                               ; preds = %.preheader
   %18 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef -8, i32 noundef 1)
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !63
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %17, %4, %15, %13, %12
   %.0 = phi float [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %17 ]
@@ -3062,7 +3062,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 1)) %3) local_unnamed_addr #3 {
-  store i8 1, ptr %3, align 1, !tbaa !58
+  store i8 1, ptr %3, align 1, !tbaa !56
   %5 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.sink.split, label %7
@@ -3074,7 +3074,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
 
 9:                                                ; preds = %7
   %10 = tail call fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
-  %11 = load i8, ptr %3, align 1, !tbaa !58, !range !60, !noundef !61
+  %11 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %15
 
@@ -3084,7 +3084,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
   br i1 %.not16, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %13, %7, %4
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %15
 
 15:                                               ; preds = %.sink.split, %13, %9
@@ -3096,7 +3096,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
 define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 1)) %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
-  store i8 1, ptr %3, align 1, !tbaa !58
+  store i8 1, ptr %3, align 1, !tbaa !56
   %7 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %.sink.split, label %9
@@ -3109,7 +3109,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   %12 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %13 = icmp slt i64 %12, 0
   br i1 %13, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, label %.preheader.i
@@ -3123,13 +3123,13 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
   ]
 
 15:                                               ; preds = %.preheader.i
-  store i8 1, ptr %3, align 1, !tbaa !58
+  store i8 1, ptr %3, align 1, !tbaa !56
   %16 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %12, i32 noundef 0)
   %.not16.i = icmp eq i32 %16, 0
   br i1 %.not16.i, label %18, label %17
 
 17:                                               ; preds = %15
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit
 
 18:                                               ; preds = %15
@@ -3143,7 +3143,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
 22:                                               ; preds = %.preheader.i
   %23 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef -8, i32 noundef 1)
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %.preheader.i, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, !llvm.loop !64
+  br i1 %.not.i, label %.preheader.i, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, !llvm.loop !62
 
 default.unreachable:                              ; preds = %.preheader.i
   unreachable
@@ -3152,7 +3152,7 @@ _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %1
   %.0.i = phi i32 [ -1, %17 ], [ %19, %18 ], [ -1, %20 ], [ -1, %11 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %24 = load i8, ptr %3, align 1, !tbaa !58, !range !60, !noundef !61
+  %24 = load i8, ptr %3, align 1, !tbaa !56, !range !58, !noundef !59
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %28
 
@@ -3162,7 +3162,7 @@ _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %1
   br i1 %.not15, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %9, %4
-  store i8 0, ptr %3, align 1, !tbaa !58
+  store i8 0, ptr %3, align 1, !tbaa !56
   br label %28
 
 28:                                               ; preds = %.sink.split, %26, %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit
@@ -3275,17 +3275,15 @@ attributes #21 = { nounwind }
 !48 = distinct !{!48, !23}
 !49 = distinct !{!49, !23}
 !50 = distinct !{!50, !23}
-!51 = distinct !{!51, !23, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !23}
+!52 = distinct !{!52, !23}
 !53 = distinct !{!53, !23}
 !54 = distinct !{!54, !23}
 !55 = distinct !{!55, !23}
-!56 = distinct !{!56, !23}
-!57 = distinct !{!57, !23}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"bool", !7, i64 0}
-!60 = !{i8 0, i8 2}
-!61 = !{}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"bool", !7, i64 0}
+!58 = !{i8 0, i8 2}
+!59 = !{}
+!60 = distinct !{!60, !23}
+!61 = distinct !{!61, !23}
 !62 = distinct !{!62, !23}
-!63 = distinct !{!63, !23}
-!64 = distinct !{!64, !23}

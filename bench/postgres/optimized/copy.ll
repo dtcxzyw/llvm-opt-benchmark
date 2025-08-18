@@ -688,7 +688,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef captures(
 9:                                                ; preds = %8, %.lr.ph.split.us
   %10 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #11
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %11, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %12 = phi i32 [ %23, %22 ], [ %5, %.lr.ph ]
@@ -983,7 +983,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   store ptr %97, ptr %3, align 8
   %98 = call i32 @PQresultStatus(ptr noundef %97) #11
   %99 = icmp eq i32 %98, 4
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %88
   %.8.lcssa = phi i8 [ %.0, %88 ], [ 0, %.lr.ph ]
@@ -1092,6 +1092,4 @@ attributes #14 = { nounwind returns_twice }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5}
+!8 = distinct !{!8, !5}

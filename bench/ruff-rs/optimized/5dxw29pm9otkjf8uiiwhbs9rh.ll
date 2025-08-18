@@ -513,7 +513,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE.exit: ; preds = 
 _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us: ; preds = %79, %63, %61, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.split.us, !llvm.loop !24
+  br label %.split.us
 
 .loopexit.split.us:                               ; preds = %75, %73, %57, %50, %48, %.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -595,7 +595,7 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit.us: ; 
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 %.sroa.0.0.i.i.fr
-  %111 = load i8, ptr %110, align 1, !alias.scope !26, !noundef !3
+  %111 = load i8, ptr %110, align 1, !alias.scope !24, !noundef !3
   %112 = icmp sgt i8 %111, -65
   br i1 %112, label %120, label %123
 
@@ -660,62 +660,62 @@ define void @_ZN18ruff_python_trivia8textwrap9dedent_to17h127ec6fac58e06dfE(ptr 
   %16 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @"_ZN69_$LT$str$u20$as$u20$ruff_source_file..newlines..UniversalNewlines$GT$18universal_newlines17he54d8483dcfddcb7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !29
-  call fastcc void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7a996f614563365E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !33
-  %17 = load ptr, ptr %9, align 8, !noalias !29, !noundef !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !27
+  call fastcc void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7a996f614563365E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !31
+  %17 = load ptr, ptr %9, align 8, !noalias !27, !noundef !3
   %.not6.i = icmp eq ptr %17, null
   br i1 %.not6.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread: ; preds = %5
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
   br label %.thread
 
 .lr.ph.i:                                         ; preds = %5, %32
   %.sroa.7.0 = phi i64 [ %.sroa.7.1, %32 ], [ undef, %5 ]
   %.sroa.0.0 = phi i1 [ %.sroa.0.1, %32 ], [ false, %5 ]
   %18 = phi i64 [ %33, %32 ], [ 0, %5 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !29
-  %19 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !34
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !27
+  %19 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !32
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = call { ptr, i64 } @"_ZN72_$LT$str$u20$as$u20$ruff_python_trivia..whitespace..PythonWhitespace$GT$21trim_whitespace_start17h8c40b61729d70011E"(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21), !noalias !34
+  %22 = call { ptr, i64 } @"_ZN72_$LT$str$u20$as$u20$ruff_python_trivia..whitespace..PythonWhitespace$GT$21trim_whitespace_start17h8c40b61729d70011E"(ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %21), !noalias !32
   %23 = extractvalue { ptr, i64 } %22, 1
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %.lr.ph.i
   %26 = extractvalue { ptr, i64 } %22, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !37
-  store i32 35, ptr %7, align 4, !noalias !37
-  %27 = call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9bb86f40cfe8878eE"(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %23, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1), !noalias !34
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !35
+  store i32 35, ptr %7, align 4, !noalias !35
+  %27 = call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9bb86f40cfe8878eE"(ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %23, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !35
   %.not.i.i.i = icmp eq i64 %18, 0
   %or.cond.i = select i1 %27, i1 %.not.i.i.i, i1 false
-  %28 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !34
+  %28 = call { ptr, i64 } @"_ZN76_$LT$ruff_source_file..newlines..Line$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3242ba751f65c703E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !32
   %29 = extractvalue { ptr, i64 } %28, 1
   %30 = sub i64 %29, %23
   br i1 %or.cond.i, label %32, label %31
 
 31:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !34
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
   br label %.thread59
 
 32:                                               ; preds = %25, %.lr.ph.i
   %.sroa.7.1 = phi i64 [ %.sroa.7.0, %.lr.ph.i ], [ %30, %25 ]
   %.sroa.0.1 = phi i1 [ %.sroa.0.0, %.lr.ph.i ], [ true, %25 ]
   %33 = phi i64 [ %18, %.lr.ph.i ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !34
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !29
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !29
-  call fastcc void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7a996f614563365E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !33
-  %34 = load ptr, ptr %9, align 8, !noalias !29, !noundef !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !27
+  call fastcc void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7a996f614563365E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !31
+  %34 = load ptr, ptr %9, align 8, !noalias !27, !noundef !3
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; preds = %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
   br i1 %.sroa.0.1, label %.thread59, label %.thread
 
 .thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread
@@ -895,7 +895,7 @@ _ZN16ruff_source_file8newlines4Line11line_ending17hbc4cad4a84dd9127E.exit: ; pre
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 %38
-  %101 = load i8, ptr %100, align 1, !alias.scope !40, !noundef !3
+  %101 = load i8, ptr %100, align 1, !alias.scope !38, !noundef !3
   %102 = icmp sgt i8 %101, -65
   br i1 %102, label %105, label %107
 
@@ -1052,22 +1052,20 @@ attributes #13 = { cold noreturn nounwind }
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE: argument 0"}
 !23 = distinct !{!23, !"_ZN4core4iter6traits8iterator8Iterator4fold17h82110a0b6ca0d62fE"}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
-!28 = distinct !{!28, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE: argument 0"}
-!31 = distinct !{!31, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE"}
-!32 = distinct !{!32, !31, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE: argument 1"}
-!33 = !{!32}
-!34 = !{!35, !30, !32}
-!35 = distinct !{!35, !36, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h93081fdc5b87fa20E: argument 0"}
-!36 = distinct !{!36, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h93081fdc5b87fa20E"}
-!37 = !{!38, !35, !30, !32}
-!38 = distinct !{!38, !39, !"_ZN18ruff_python_trivia8textwrap9dedent_to28_$u7b$$u7b$closure$u7d$$u7d$17h5536b98b6d07a454E: argument 0"}
-!39 = distinct !{!39, !"_ZN18ruff_python_trivia8textwrap9dedent_to28_$u7b$$u7b$closure$u7d$$u7d$17h5536b98b6d07a454E"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
-!42 = distinct !{!42, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
+!26 = distinct !{!26, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE: argument 0"}
+!29 = distinct !{!29, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE"}
+!30 = distinct !{!30, !29, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE: argument 1"}
+!31 = !{!30}
+!32 = !{!33, !28, !30}
+!33 = distinct !{!33, !34, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h93081fdc5b87fa20E: argument 0"}
+!34 = distinct !{!34, !"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h93081fdc5b87fa20E"}
+!35 = !{!36, !33, !28, !30}
+!36 = distinct !{!36, !37, !"_ZN18ruff_python_trivia8textwrap9dedent_to28_$u7b$$u7b$closure$u7d$$u7d$17h5536b98b6d07a454E: argument 0"}
+!37 = distinct !{!37, !"_ZN18ruff_python_trivia8textwrap9dedent_to28_$u7b$$u7b$closure$u7d$$u7d$17h5536b98b6d07a454E"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
+!40 = distinct !{!40, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}

@@ -888,7 +888,7 @@ ext4_inode_block_valid.exit:                      ; preds = %124
   %133 = load i64, ptr %28, align 8
   %.not6 = icmp eq i64 %133, %132
   tail call void @__rcu_read_unlock() #7
-  br i1 %.not6, label %140, label %ext4_inode_block_valid.exit.thread, !prof !19
+  br i1 %.not6, label %140, label %ext4_inode_block_valid.exit.thread, !prof !18
 
 ext4_inode_block_valid.exit.thread5:              ; preds = %70
   tail call void @__rcu_read_unlock() #7
@@ -912,7 +912,7 @@ ext4_inode_block_valid.exit.thread:               ; preds = %ext4_inode_block_va
 
 140:                                              ; preds = %ext4_inode_block_valid.exit.thread4, %ext4_inode_block_valid.exit, %.preheader7.split
   %141 = icmp ult ptr %84, %25
-  br i1 %141, label %.preheader7.split, label %.loopexit, !llvm.loop !20
+  br i1 %141, label %.preheader7.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %140, %81, %ext4_inode_block_valid.exit.thread, %23, %16
   %142 = phi i32 [ -117, %ext4_inode_block_valid.exit.thread ], [ 0, %16 ], [ 0, %23 ], [ 0, %81 ], [ 0, %140 ]
@@ -1012,7 +1012,5 @@ attributes #9 = { cold nounwind }
 !14 = distinct !{!14, !8, !9}
 !15 = distinct !{!15, !8, !9}
 !16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!"branch_weights", i32 -2147483648, i32 0}
-!20 = distinct !{!20, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = !{!"branch_weights", i32 -2147483648, i32 0}

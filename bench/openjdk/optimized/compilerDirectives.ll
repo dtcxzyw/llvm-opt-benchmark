@@ -3890,7 +3890,7 @@ _ZN18CompilerDirectives5matchERK12methodHandle.exit.thread: ; preds = %_ZN18Comp
   %.0 = phi ptr [ %37, %36 ], [ %.0.pre, %_ZN18CompilerDirectives5matchERK12methodHandle.exit._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread_crit_edge ], [ %22, %24 ]
   %.2 = phi ptr [ %.0.i15, %36 ], [ %.01322, %_ZN18CompilerDirectives5matchERK12methodHandle.exit._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread_crit_edge ], [ %.01322, %24 ]
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !40
 
 .loopexit:                                        ; preds = %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %.split.us
   %.1 = phi ptr [ %.us-phi, %.split.us ], [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.2.us, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us ], [ %.2, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread ]
@@ -4080,7 +4080,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !43
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !41
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4096,7 +4096,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !44
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !42
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4202,8 +4202,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !37 = !{!"llvm.loop.unswitch.partial.disable"}
 !38 = distinct !{!38, !10}
 !39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !10}
+!41 = distinct !{!41, !10}
 !42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}

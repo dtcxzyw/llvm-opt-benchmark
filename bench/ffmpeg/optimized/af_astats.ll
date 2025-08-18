@@ -5462,7 +5462,7 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   %235 = getelementptr inbounds double, ptr %201, i64 %234
   %236 = load double, ptr %235, align 8, !tbaa !88
   %237 = fcmp nsz ult double %205, %236
-  br i1 %237, label %.critedge.i, label %.lr.ph88.i, !llvm.loop !158
+  br i1 %237, label %.critedge.i, label %.lr.ph88.i
 
 .critedge.i:                                      ; preds = %232, %.lr.ph82.split.us.i
   %.us-phi.i = phi i32 [ %207, %.lr.ph82.split.us.i ], [ %spec.store.select.us.i, %232 ]
@@ -5553,7 +5553,7 @@ declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !160
+  %2 = load ptr, ptr %0, align 8, !tbaa !158
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -5567,9 +5567,9 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = load double, ptr %11, align 8, !tbaa !161
+  %12 = load double, ptr %11, align 8, !tbaa !159
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !162
+  %14 = load i32, ptr %13, align 8, !tbaa !160
   %15 = sitofp i32 %14 to double
   %16 = tail call nsz double @llvm.fmuladd.f64(double %12, double %15, double 5.000000e-01)
   %17 = fcmp nsz ogt double %16, 1.000000e+00
@@ -5588,7 +5588,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   %24 = load i32, ptr %22, align 8, !tbaa !20
   %25 = sext i32 %24 to i64
   %.not46 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not46, label %.lr.ph, label %.critedge47.loopexit, !llvm.loop !163
+  br i1 %.not46, label %.lr.ph, label %.critedge47.loopexit, !llvm.loop !161
 
 .lr.ph:                                           ; preds = %10, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %10 ]
@@ -5610,8 +5610,8 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %.not45.not, label %.critedge, label %23
 
 .critedge47.loopexit:                             ; preds = %23
-  %.pre = load double, ptr %11, align 8, !tbaa !161
-  %.pre54 = load i32, ptr %13, align 8, !tbaa !162
+  %.pre = load double, ptr %11, align 8, !tbaa !159
+  %.pre54 = load i32, ptr %13, align 8, !tbaa !160
   %.pre55 = sitofp i32 %.pre54 to double
   br label %.critedge47
 
@@ -5939,9 +5939,7 @@ attributes #13 = { memory(none) }
 !155 = !{!21, !24, i64 40}
 !156 = !{!27, !23, i64 65824}
 !157 = !{!27, !15, i64 65844}
-!158 = distinct !{!158, !159}
-!159 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!160 = !{!70, !71, i64 0}
-!161 = !{!21, !24, i64 32}
-!162 = !{!70, !15, i64 64}
-!163 = distinct !{!163, !44}
+!158 = !{!70, !71, i64 0}
+!159 = !{!21, !24, i64 32}
+!160 = !{!70, !15, i64 64}
+!161 = distinct !{!161, !44}

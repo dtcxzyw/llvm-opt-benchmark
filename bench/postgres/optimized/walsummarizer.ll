@@ -488,7 +488,7 @@ HandleWalSummarizerInterrupts.exit.i:             ; preds = %149, %147
 .critedge.i:                                      ; preds = %160, %.split.i, %123, %.split.us.i
   %.us-phi.i = phi ptr [ %.136.us.i, %.split.us.i ], [ %.2.us.i, %123 ], [ %.136.i, %.split.i ], [ %.2.i, %160 ]
   %.not.i28 = icmp eq ptr %.us-phi.i, null
-  br i1 %.not.i28, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i28, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i, !llvm.loop !8
 
 152:                                              ; preds = %HandleWalSummarizerInterrupts.exit.i
   %153 = add nsw i32 %.sroa.7.034.i, 1
@@ -514,7 +514,7 @@ HandleWalSummarizerInterrupts.exit.i:             ; preds = %149, %147
   %.sroa.0.1.i = phi ptr [ %.sroa.0.035.i, %152 ], [ %159, %158 ]
   %.2.i = phi ptr [ %.136.i, %152 ], [ %159, %158 ]
   %.not27.i = icmp eq ptr %.sroa.0.1.i, null
-  br i1 %.not27.i, label %.critedge.i, label %.split.i, !llvm.loop !10
+  br i1 %.not27.i, label %.critedge.i, label %.split.i, !llvm.loop !6
 
 MaybeRemoveOldWalSummaries.exit:                  ; preds = %.critedge.i, %HandleWalSummarizerInterrupts.exit, %61
   %161 = call zeroext i1 @RecoveryInProgress() #11
@@ -843,7 +843,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %67 = load i32, ptr %66, align 8
   %68 = call i64 @XLogGetOldestSegno(i32 noundef %67) #11
   %.not54 = icmp eq i64 %68, 0
-  br i1 %.not54, label %60, label %.thread, !llvm.loop !11
+  br i1 %.not54, label %60, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %63
   %69 = load i32, ptr @wal_segment_size, align 4
@@ -1332,7 +1332,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %172 = load i32, ptr %165, align 4
   %173 = sext i32 %172 to i64
   %174 = icmp slt i64 %indvars.iv.next.i, %173
-  br i1 %174, label %169, label %._crit_edge.i, !llvm.loop !12
+  br i1 %174, label %169, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %169, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1426,14 +1426,14 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 214:                                              ; preds = %211, %210
   %215 = add nuw nsw i32 %.0344.i, 1
   %exitcond8.not.i = icmp eq i32 %215, 4
-  br i1 %exitcond8.not.i, label %216, label %210, !llvm.loop !13
+  br i1 %exitcond8.not.i, label %216, label %210, !llvm.loop !11
 
 216:                                              ; preds = %214
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %217 = load i32, ptr %72, align 8
   %218 = sext i32 %217 to i64
   %219 = icmp slt i64 %indvars.iv.next10.i, %218
-  br i1 %219, label %.preheader.i, label %._crit_edge6.i, !llvm.loop !14
+  br i1 %219, label %.preheader.i, label %._crit_edge6.i, !llvm.loop !12
 
 ._crit_edge6.i:                                   ; preds = %216, %205
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1466,14 +1466,14 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 229:                                              ; preds = %226, %225
   %230 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %230, 4
-  br i1 %exitcond.not.i, label %231, label %225, !llvm.loop !15
+  br i1 %exitcond.not.i, label %231, label %225, !llvm.loop !13
 
 231:                                              ; preds = %229
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
   %232 = load i32, ptr %70, align 8
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next.i125, %233
-  br i1 %234, label %.preheader1.i, label %._crit_edge.i122, !llvm.loop !16
+  br i1 %234, label %.preheader1.i, label %._crit_edge.i122, !llvm.loop !14
 
 ._crit_edge.i122:                                 ; preds = %231, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1519,7 +1519,7 @@ SummarizeDbaseRecord.exit:                        ; preds = %137, %121
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 84
   %249 = load i32, ptr %248, align 4
   %.not115 = icmp sgt i32 %246, %249
-  br i1 %.not115, label %SummarizeDbaseRecord.exit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %.not115, label %SummarizeDbaseRecord.exit.thread, label %.lr.ph, !llvm.loop !15
 
 SummarizeDbaseRecord.exit.thread:                 ; preds = %245, %.preheader, %142, %SummarizeDbaseRecord.exit
   %.4143 = phi i8 [ 1, %SummarizeDbaseRecord.exit ], [ 1, %142 ], [ 0, %.preheader ], [ 0, %245 ]
@@ -1737,7 +1737,7 @@ define dso_local void @WaitForWalSummarization(i64 noundef %0) local_unnamed_add
   %.0 = phi i64 [ %2, %1 ], [ %.2, %57 ]
   %7 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %9, label %8, !prof !18
+  br i1 %.not, label %9, label %8, !prof !16
 
 8:                                                ; preds = %6
   tail call void @ProcessInterrupts() #11
@@ -2140,9 +2140,9 @@ attributes #14 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
@@ -2150,6 +2150,4 @@ attributes #14 = { cold nounwind }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}

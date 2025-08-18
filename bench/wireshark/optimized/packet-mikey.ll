@@ -438,7 +438,7 @@ dissect_payload.exit.us:                          ; preds = %27
   %34 = add i32 %30, %.069100.us
   %.not76.us = icmp eq i8 %20, 0
   %or.cond = select i1 %33, i1 true, i1 %.not76.us
-  br i1 %or.cond, label %.thread92, label %.thread.us, !llvm.loop !8
+  br i1 %or.cond, label %.thread92, label %.thread.us
 
 .split:                                           ; preds = %14, %63
   %.065102 = phi i32 [ %36, %63 ], [ -1, %14 ]
@@ -679,14 +679,14 @@ dissect_payload_cs_id.exit.thread.us:             ; preds = %dissect_payload_cs_
   %35 = add i32 %33, %.05463.us
   %36 = add nuw nsw i32 %.05662.us, 1
   %exitcond69.not = icmp eq i32 %36, %30
-  br i1 %exitcond69.not, label %._crit_edge, label %dissect_payload_cs_id.exit.us, !llvm.loop !10
+  br i1 %exitcond69.not, label %._crit_edge, label %dissect_payload_cs_id.exit.us, !llvm.loop !8
 
 dissect_payload_cs_id.exit.thread:                ; preds = %.lr.ph, %dissect_payload_cs_id.exit.thread
   %.05662 = phi i32 [ %38, %dissect_payload_cs_id.exit.thread ], [ 0, %.lr.ph ]
   %37 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 10)
   %38 = add nuw nsw i32 %.05662, 1
   %exitcond.not = icmp eq i32 %38, %30
-  br i1 %exitcond.not, label %._crit_edge, label %dissect_payload_cs_id.exit.thread, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %dissect_payload_cs_id.exit.thread, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_payload_cs_id.exit.thread, %dissect_payload_cs_id.exit.us, %dissect_payload_cs_id.exit.thread.us, %29
   %.2 = phi i32 [ 10, %29 ], [ %35, %dissect_payload_cs_id.exit.thread.us ], [ 0, %dissect_payload_cs_id.exit.us ], [ 10, %dissect_payload_cs_id.exit.thread ]
@@ -1025,7 +1025,7 @@ define internal range(i32 5, 65541) i32 @dissect_payload_sp(ptr readnone capture
   %26 = add nsw i32 %.03743.us, 2
   %27 = add nsw i32 %26, %.pre.i.us
   %28 = icmp slt i32 %27, %20
-  br i1 %28, label %._crit_edge.i.us, label %._crit_edge, !llvm.loop !12
+  br i1 %28, label %._crit_edge.i.us, label %._crit_edge
 
 dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_payload_sp_param.exit
   %.03743 = phi i32 [ %48, %dissect_payload_sp_param.exit ], [ 0, %.lr.ph ]
@@ -1388,8 +1388,4 @@ attributes #4 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !9}
+!8 = distinct !{!8, !7}

@@ -22158,7 +22158,7 @@ _ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i: ; preds = %_ZNSt13__
   %16 = and i32 %15, 2147483647
   %17 = icmp ne i32 %16, 1
   %or.cond.not.us.i.i = and i1 %14, %17
-  br i1 %or.cond.not.us.i.i, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, !llvm.loop !982
+  br i1 %or.cond.not.us.i.i, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -22197,7 +22197,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit8:  ; preds = %24, %27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt14__basic_futureIvE6_ResetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !984
+  %2 = load ptr, ptr %0, align 8, !tbaa !982
   store ptr null, ptr %2, align 8, !tbaa !205
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -23481,7 +23481,5 @@ attributes #46 = { cold }
 !979 = !{!"_ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZ4mainE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEE", !828, i64 0, !7, i64 8}
 !980 = !{!981, !981, i64 0}
 !981 = !{!"p1 _ZTSNSt13__future_base12_Task_setterISt10unique_ptrINS_7_ResultIvEENS_12_Result_base8_DeleterEEZNS_11_Task_stateIZ4mainE3$_3SaIiEFvvEE14_M_run_delayedESt8weak_ptrINS_13_State_baseV2EEEUlvE_vEE", !7, i64 0}
-!982 = distinct !{!982, !983}
-!983 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!984 = !{!985, !204, i64 0}
-!985 = !{!"_ZTSNSt14__basic_futureIvE6_ResetE", !204, i64 0}
+!982 = !{!983, !204, i64 0}
+!983 = !{!"_ZTSNSt14__basic_futureIvE6_ResetE", !204, i64 0}

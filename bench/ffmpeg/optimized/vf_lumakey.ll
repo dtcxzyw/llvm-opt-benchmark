@@ -552,5 +552,4 @@ attributes #6 = { nounwind willreturn memory(read) }
 !60 = !{!61, !61, i64 0}
 !61 = !{!"short", !8, i64 0}
 !62 = distinct !{!62, !57}
-!63 = distinct !{!63, !57, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !57}

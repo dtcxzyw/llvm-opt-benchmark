@@ -28,7 +28,7 @@ lean_nat_lt.exit.us:                              ; preds = %.split.us
   br i1 %9, label %.thread.us, label %.split28.us
 
 .thread.us:                                       ; preds = %lean_nat_lt.exit.us
-  br i1 %8, label %.split.us, label %10, !llvm.loop !5
+  br i1 %8, label %.split.us, label %10
 
 10:                                               ; preds = %.thread.us
   %11 = lshr i64 %6, 1
@@ -51,9 +51,9 @@ lean_nat_lt.exit.thread22.us:                     ; preds = %.split.us
 
 19:                                               ; preds = %lean_nat_lt.exit.thread22.us
   %20 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.us.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
-  %21 = load i32, ptr %.09.us.ph, align 4, !tbaa !7
+  %21 = load i32, ptr %.09.us.ph, align 4, !tbaa !5
   %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %25, label %23, !prof !12
+  br i1 %22, label %25, label %23, !prof !10
 
 23:                                               ; preds = %19
   %.not.i.us = icmp eq i32 %21, 0
@@ -65,12 +65,12 @@ lean_nat_lt.exit.thread22.us:                     ; preds = %.split.us
 
 25:                                               ; preds = %19
   %26 = add nsw i32 %21, -1
-  store i32 %26, ptr %.09.us.ph, align 4, !tbaa !7
+  store i32 %26, ptr %.09.us.ph, align 4, !tbaa !5
   br label %.split.us.outer.backedge
 
 .split.us.outer.backedge:                         ; preds = %25, %23, %24, %13, %15
   %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %24 ], [ %20, %23 ], [ %20, %25 ]
-  br label %.split.us.outer, !llvm.loop !5
+  br label %.split.us.outer
 
 .split:                                           ; preds = %.split.outer, %.thread
   br i1 %.not, label %lean_nat_lt.exit.thread22, label %lean_nat_lt.exit.thread, !prof !4
@@ -103,13 +103,13 @@ lean_nat_lt.exit.thread22:                        ; preds = %.split
 
 37:                                               ; preds = %lean_nat_lt.exit.thread22
   %38 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
-  %39 = load i32, ptr %.09.ph, align 4, !tbaa !7
+  %39 = load i32, ptr %.09.ph, align 4, !tbaa !5
   %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %41, label %46, !prof !12
+  br i1 %40, label %41, label %46, !prof !10
 
 41:                                               ; preds = %37
   %42 = add nsw i32 %39, -1
-  store i32 %42, ptr %.09.ph, align 4, !tbaa !7
+  store i32 %42, ptr %.09.ph, align 4, !tbaa !5
   br label %.split.outer.backedge
 
 .split.outer.backedge:                            ; preds = %41, %46, %47, %35, %31
@@ -147,13 +147,13 @@ define ptr @l_Nat_nextPowerOfTwo_go___boxed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %7, label %lean_dec.exit
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %0, align 4, !tbaa !7
+  %8 = load i32, ptr %0, align 4, !tbaa !5
   %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !12
+  br i1 %9, label %10, label %12, !prof !10
 
 10:                                               ; preds = %7
   %11 = add nsw i32 %8, -1
-  store i32 %11, ptr %0, align 4, !tbaa !7
+  store i32 %11, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
 12:                                               ; preds = %7
@@ -183,13 +183,13 @@ define ptr @l_Nat_nextPowerOfTwo___boxed(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %lean_dec.exit
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !7
+  %6 = load i32, ptr %0, align 4, !tbaa !5
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !12
+  br i1 %7, label %8, label %10, !prof !10
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !7
+  store i32 %9, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
 10:                                               ; preds = %5
@@ -229,13 +229,13 @@ define ptr @initialize_Init_Data_Nat_Power2(i8 noundef zeroext %0, ptr noundef r
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %8, align 4, !tbaa !7
+  %12 = load i32, ptr %8, align 4, !tbaa !5
   %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !12
+  br i1 %13, label %14, label %16, !prof !10
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
-  store i32 %15, ptr %8, align 4, !tbaa !7
+  store i32 %15, ptr %8, align 4, !tbaa !5
   br label %lean_dec_ref.exit
 
 16:                                               ; preds = %11
@@ -259,12 +259,12 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
   %.sink9 = phi ptr [ %4, %3 ], [ %18, %lean_dec_ref.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
+  store i32 1, ptr %.sink9, align 4, !tbaa !5
   store i32 131096, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !11
   br label %24
 
 24:                                               ; preds = %.sink.split, %7
@@ -302,13 +302,11 @@ attributes #4 = { noreturn nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"", !9, i64 0, !9, i64 4, !9, i64 6, !9, i64 7}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !10, i64 0}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"", !7, i64 0, !7, i64 4, !7, i64 6, !7, i64 7}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}

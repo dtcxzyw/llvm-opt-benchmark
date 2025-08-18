@@ -537,10 +537,10 @@ define dso_local void @_ZNK4llvm13SSPLayoutInfo22copyToMachineFrameInfoERNS_16Ma
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %.fr18 = freeze i32 %21
-  %22 = icmp eq i32 %.fr18, 0
-  %23 = add i32 %.fr18, -1
-  %24 = zext i32 %.fr18 to i64
+  %.fr19 = freeze i32 %21
+  %22 = icmp eq i32 %.fr19, 0
+  %23 = add i32 %.fr19, -1
+  %24 = zext i32 %.fr19 to i64
   %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %19, i64 %24
   br i1 %22, label %.loopexit, label %.lr.ph.split.preheader
 

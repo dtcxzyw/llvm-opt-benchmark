@@ -38,7 +38,7 @@ define i32 @avcodec_find_best_pix_fmt_of_list(ptr noundef readonly captures(none
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %.not = icmp eq i32 %15, -1
-  br i1 %.not, label %._crit_edge.thread28, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not, label %._crit_edge.thread28, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %4
   br i1 %.not14, label %._crit_edge.thread, label %._crit_edge.thread28
@@ -78,7 +78,5 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9}

@@ -850,7 +850,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %107 = getelementptr inbounds i8, ptr %.0154.us157, i64 %105
   %108 = add nuw nsw i32 %.0116151.us159, 1
   %exitcond200.not = icmp eq i32 %108, %.
-  br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph156.split.split.us, !llvm.loop !81
+  br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph156.split.split.us, !llvm.loop !79
 
 .lr.ph156.split.split:                            ; preds = %.lr.ph156.split, %.loopexit
   %109 = phi i32 [ %116, %.loopexit ], [ %46, %.lr.ph156.split ]
@@ -878,7 +878,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %119 = getelementptr inbounds i8, ptr %.0112152, i64 %118
   %120 = add nuw nsw i32 %.0116151, 1
   %exitcond199.not = icmp eq i32 %120, %.
-  br i1 %exitcond199.not, label %._crit_edge, label %.lr.ph156.split.split, !llvm.loop !82
+  br i1 %exitcond199.not, label %._crit_edge, label %.lr.ph156.split.split, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.loopexit.us162, %.loopexit, %..loopexit_crit_edge.us
   %121 = phi i32 [ %91, %..loopexit_crit_edge.us ], [ %116, %.loopexit ], [ %104, %.loopexit.us162 ]
@@ -910,7 +910,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   store i8 %129, ptr %127, align 1, !tbaa !45
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge166.us, label %124, !llvm.loop !83
+  br i1 %exitcond210.not, label %._crit_edge166.us, label %124, !llvm.loop !80
 
 ._crit_edge166.us:                                ; preds = %124
   %130 = load i32, ptr %32, align 8, !tbaa !34
@@ -918,7 +918,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %132 = getelementptr inbounds i8, ptr %.1169.us, i64 %131
   %133 = add nuw nsw i32 %.1117167.us, 1
   %exitcond211.not = icmp eq i32 %133, %.
-  br i1 %exitcond211.not, label %.loopexit145, label %.preheader.us, !llvm.loop !84
+  br i1 %exitcond211.not, label %.loopexit145, label %.preheader.us, !llvm.loop !81
 
 .loopexit145:                                     ; preds = %._crit_edge166.us, %45, %._crit_edge
   %134 = phi i32 [ %121, %._crit_edge ], [ %46, %45 ], [ %130, %._crit_edge166.us ]
@@ -926,7 +926,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %135 = load i32, ptr %33, align 8, !tbaa !50
   %136 = add nsw i32 %135, %.0124172
   %137 = icmp slt i32 %136, %134
-  br i1 %137, label %45, label %._crit_edge176.loopexit, !llvm.loop !85
+  br i1 %137, label %45, label %._crit_edge176.loopexit, !llvm.loop !82
 
 ._crit_edge176.loopexit:                          ; preds = %.loopexit145
   %138 = trunc nsw i64 %indvars.iv.next213 to i32
@@ -947,7 +947,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %146 = getelementptr inbounds i8, ptr %.0123180, i64 %144
   %147 = add nsw i32 %140, %.0125179
   %148 = icmp slt i32 %147, %139
-  br i1 %148, label %.lr.ph185.split, label %._crit_edge186.loopexit, !llvm.loop !86
+  br i1 %148, label %.lr.ph185.split, label %._crit_edge186.loopexit, !llvm.loop !83
 
 ._crit_edge186.loopexit:                          ; preds = %._crit_edge176
   %.pre219 = load ptr, ptr %2, align 8, !tbaa !41
@@ -1115,16 +1115,16 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i16, ptr %.0143.us, i64 %indvars.iv
-  %79 = load i16, ptr %78, align 2, !tbaa !88
+  %79 = load i16, ptr %78, align 2, !tbaa !85
   br label %80
 
 80:                                               ; preds = %74, %77
   %.sink = phi i16 [ %79, %77 ], [ 0, %74 ]
   %81 = getelementptr inbounds nuw i16, ptr %.0107141.us, i64 %indvars.iv
-  store i16 %.sink, ptr %81, align 2, !tbaa !88
+  store i16 %.sink, ptr %81, align 2, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond188.not, label %..loopexit_crit_edge.us, label %74, !llvm.loop !90
+  br i1 %exitcond188.not, label %..loopexit_crit_edge.us, label %74, !llvm.loop !87
 
 82:                                               ; preds = %69, %.lr.ph145.split.us
   tail call void @llvm.memset.p0.i64(ptr align 2 %.0107141.us, i8 0, i64 %64, i1 false)
@@ -1137,7 +1137,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %86 = getelementptr inbounds i16, ptr %.0143.us, i64 %84
   %87 = add nuw nsw i32 %.0111140.us, 1
   %exitcond189.not = icmp eq i32 %87, %.
-  br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !91
+  br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !88
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145
   br i1 %58, label %.lr.ph145.split.split, label %.lr.ph145.split.split.us
@@ -1175,7 +1175,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %99 = getelementptr inbounds i16, ptr %.0143.us146, i64 %97
   %100 = add nuw nsw i32 %.0111140.us148, 1
   %exitcond186.not = icmp eq i32 %100, %.
-  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !92
+  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !88
 
 .lr.ph145.split.split:                            ; preds = %.lr.ph145.split, %.loopexit
   %101 = phi i32 [ %108, %.loopexit ], [ %36, %.lr.ph145.split ]
@@ -1203,7 +1203,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %111 = getelementptr inbounds i16, ptr %.0107141, i64 %110
   %112 = add nuw nsw i32 %.0111140, 1
   %exitcond.not = icmp eq i32 %112, %.
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.loopexit.us151, %.loopexit, %..loopexit_crit_edge.us
   %113 = phi i32 [ %83, %..loopexit_crit_edge.us ], [ %108, %.loopexit ], [ %96, %.loopexit.us151 ]
@@ -1231,21 +1231,21 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 118:                                              ; preds = %.preheader.us, %118
   %indvars.iv190 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next191, %118 ]
   %.4154.us = phi ptr [ %.3157.us, %.preheader.us ], [ %123, %118 ]
-  %119 = load i16, ptr %.4154.us, align 2, !tbaa !88
+  %119 = load i16, ptr %.4154.us, align 2, !tbaa !85
   %120 = getelementptr inbounds nuw i16, ptr %.1158.us, i64 %indvars.iv190
-  %121 = load i16, ptr %120, align 2, !tbaa !88
+  %121 = load i16, ptr %120, align 2, !tbaa !85
   %122 = xor i16 %121, %119
-  store i16 %122, ptr %120, align 2, !tbaa !88
+  store i16 %122, ptr %120, align 2, !tbaa !85
   %123 = getelementptr inbounds nuw i8, ptr %.4154.us, i64 2
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge155.us, label %118, !llvm.loop !94
+  br i1 %exitcond194.not, label %._crit_edge155.us, label %118, !llvm.loop !89
 
 ._crit_edge155.us:                                ; preds = %118
   %124 = getelementptr inbounds i16, ptr %.1158.us, i64 %117
   %125 = add nuw nsw i32 %.1112156.us, 1
   %exitcond195.not = icmp eq i32 %125, %.
-  br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !95
+  br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !90
 
 .loopexit138:                                     ; preds = %._crit_edge155.us, %35, %.preheader.lr.ph, %._crit_edge
   %126 = phi i32 [ %113, %._crit_edge ], [ %113, %.preheader.lr.ph ], [ %36, %35 ], [ %113, %._crit_edge155.us ]
@@ -1253,7 +1253,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %127 = load i32, ptr %19, align 8, !tbaa !50
   %128 = add nsw i32 %127, %.0118161
   %129 = icmp slt i32 %128, %126
-  br i1 %129, label %35, label %._crit_edge165.loopexit, !llvm.loop !96
+  br i1 %129, label %35, label %._crit_edge165.loopexit, !llvm.loop !91
 
 ._crit_edge165.loopexit:                          ; preds = %.loopexit138
   %130 = trunc nsw i64 %indvars.iv.next197 to i32
@@ -1274,7 +1274,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %138 = getelementptr inbounds i16, ptr %.0117169, i64 %136
   %139 = add nsw i32 %132, %.0119168
   %140 = icmp slt i32 %139, %131
-  br i1 %140, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !97
+  br i1 %140, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !92
 
 ._crit_edge175.loopexit:                          ; preds = %._crit_edge165
   %.pre203 = load ptr, ptr %2, align 8, !tbaa !41
@@ -1451,7 +1451,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   store i32 %.sink, ptr %82, align 4, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond188.not, label %..loopexit_crit_edge.us, label %.lr.ph.us, !llvm.loop !98
+  br i1 %exitcond188.not, label %..loopexit_crit_edge.us, label %.lr.ph.us, !llvm.loop !93
 
 83:                                               ; preds = %69, %.lr.ph145.split.us
   tail call void @llvm.memset.p0.i64(ptr align 4 %.0107141.us, i8 0, i64 %64, i1 false)
@@ -1464,7 +1464,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %87 = getelementptr inbounds i32, ptr %.0143.us, i64 %85
   %88 = add nuw nsw i32 %.0111140.us, 1
   %exitcond189.not = icmp eq i32 %88, %.
-  br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !99
+  br i1 %exitcond189.not, label %._crit_edge, label %.lr.ph145.split.us, !llvm.loop !94
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145
   br i1 %58, label %.lr.ph145.split.split, label %.lr.ph145.split.split.us
@@ -1502,7 +1502,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %100 = getelementptr inbounds i32, ptr %.0143.us146, i64 %98
   %101 = add nuw nsw i32 %.0111140.us148, 1
   %exitcond186.not = icmp eq i32 %101, %.
-  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !100
+  br i1 %exitcond186.not, label %._crit_edge, label %.lr.ph145.split.split.us, !llvm.loop !94
 
 .lr.ph145.split.split:                            ; preds = %.lr.ph145.split, %.loopexit
   %102 = phi i32 [ %109, %.loopexit ], [ %36, %.lr.ph145.split ]
@@ -1530,7 +1530,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %112 = getelementptr inbounds i32, ptr %.0107141, i64 %111
   %113 = add nuw nsw i32 %.0111140, 1
   %exitcond.not = icmp eq i32 %113, %.
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145.split.split, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.loopexit.us151, %.loopexit, %..loopexit_crit_edge.us
   %114 = phi i32 [ %84, %..loopexit_crit_edge.us ], [ %109, %.loopexit ], [ %97, %.loopexit.us151 ]
@@ -1562,7 +1562,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %122 = getelementptr inbounds nuw i8, ptr %.4154.us, i64 4
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge155.us, label %117, !llvm.loop !102
+  br i1 %exitcond194.not, label %._crit_edge155.us, label %117, !llvm.loop !95
 
 ._crit_edge155.us:                                ; preds = %117
   %123 = load i32, ptr %18, align 8, !tbaa !34
@@ -1570,7 +1570,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %125 = getelementptr inbounds i32, ptr %.1158.us, i64 %124
   %126 = add nuw nsw i32 %.1112156.us, 1
   %exitcond195.not = icmp eq i32 %126, %.
-  br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !103
+  br i1 %exitcond195.not, label %.loopexit138, label %.preheader.us, !llvm.loop !96
 
 .loopexit138:                                     ; preds = %._crit_edge155.us, %35, %._crit_edge
   %127 = phi i32 [ %114, %._crit_edge ], [ %36, %35 ], [ %123, %._crit_edge155.us ]
@@ -1578,7 +1578,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %128 = load i32, ptr %19, align 8, !tbaa !50
   %129 = add nsw i32 %128, %.0118161
   %130 = icmp slt i32 %129, %127
-  br i1 %130, label %35, label %._crit_edge165.loopexit, !llvm.loop !104
+  br i1 %130, label %35, label %._crit_edge165.loopexit, !llvm.loop !97
 
 ._crit_edge165.loopexit:                          ; preds = %.loopexit138
   %131 = trunc nsw i64 %indvars.iv.next197 to i32
@@ -1599,7 +1599,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %139 = getelementptr inbounds i32, ptr %.0117169, i64 %137
   %140 = add nsw i32 %133, %.0119168
   %141 = icmp slt i32 %140, %132
-  br i1 %141, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !105
+  br i1 %141, label %.lr.ph174.split, label %._crit_edge175.loopexit, !llvm.loop !98
 
 ._crit_edge175.loopexit:                          ; preds = %._crit_edge165
   %.pre203 = load ptr, ptr %2, align 8, !tbaa !41
@@ -1741,30 +1741,23 @@ attributes #6 = { nounwind }
 !76 = !{!10, !10, i64 0}
 !77 = distinct !{!77, !75}
 !78 = distinct !{!78, !75}
-!79 = distinct !{!79, !75, !80}
-!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!81 = distinct !{!81, !75, !80}
+!79 = distinct !{!79, !75}
+!80 = distinct !{!80, !75}
+!81 = distinct !{!81, !75}
 !82 = distinct !{!82, !75}
-!83 = distinct !{!83, !75}
-!84 = distinct !{!84, !75, !80}
-!85 = distinct !{!85, !75}
-!86 = distinct !{!86, !75, !87}
-!87 = !{!"llvm.loop.unswitch.partial.disable"}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"short", !8, i64 0}
+!83 = distinct !{!83, !75, !84}
+!84 = !{!"llvm.loop.unswitch.partial.disable"}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"short", !8, i64 0}
+!87 = distinct !{!87, !75}
+!88 = distinct !{!88, !75}
+!89 = distinct !{!89, !75}
 !90 = distinct !{!90, !75}
-!91 = distinct !{!91, !75, !80}
-!92 = distinct !{!92, !75, !80}
+!91 = distinct !{!91, !75}
+!92 = distinct !{!92, !75, !84}
 !93 = distinct !{!93, !75}
 !94 = distinct !{!94, !75}
-!95 = distinct !{!95, !75, !80}
+!95 = distinct !{!95, !75}
 !96 = distinct !{!96, !75}
-!97 = distinct !{!97, !75, !87}
-!98 = distinct !{!98, !75}
-!99 = distinct !{!99, !75, !80}
-!100 = distinct !{!100, !75, !80}
-!101 = distinct !{!101, !75}
-!102 = distinct !{!102, !75}
-!103 = distinct !{!103, !75, !80}
-!104 = distinct !{!104, !75}
-!105 = distinct !{!105, !75, !87}
+!97 = distinct !{!97, !75}
+!98 = distinct !{!98, !75, !84}

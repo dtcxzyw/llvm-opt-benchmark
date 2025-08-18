@@ -2332,7 +2332,7 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
 ProcessIncomingNotify.exit:                       ; preds = %.lr.ph.split, %22, %25, %27
   %29 = load volatile i32, ptr @notifyInterruptPending, align 4
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !18
 
 .loopexit:                                        ; preds = %ProcessIncomingNotify.exit, %ProcessIncomingNotify.exit.us, %.preheader, %1
   ret void
@@ -2351,16 +2351,16 @@ define dso_local void @NotifyMyFrontEnd(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @pq_beginmessage(ptr noundef nonnull %4, i8 noundef signext 65) #16
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %8 = call i32 @llvm.bswap.i32(i32 %2)
-  %9 = load ptr, ptr %4, align 8, !alias.scope !21
+  %9 = load ptr, ptr %4, align 8, !alias.scope !20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i32, ptr %10, align 8, !alias.scope !21
+  %11 = load i32, ptr %10, align 8, !alias.scope !20
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  store i32 %8, ptr %13, align 1, !noalias !21
+  store i32 %8, ptr %13, align 1, !noalias !20
   %14 = add i32 %11, 4
-  store i32 %14, ptr %10, align 8, !alias.scope !21
+  store i32 %14, ptr %10, align 8, !alias.scope !20
   call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %0) #16
   call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %1) #16
   call void @pq_endmessage(ptr noundef nonnull %4) #16
@@ -2696,7 +2696,7 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
-  br i1 %57, label %.loopexit.i.thread, label %47, !llvm.loop !24
+  br i1 %57, label %.loopexit.i.thread, label %47, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %47, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
@@ -2712,7 +2712,7 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   br i1 %90, label %91, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.loopexit.i.thread, %asyncQueueProcessPageEntries.exit, %91
-  br label %.backedge, !llvm.loop !25
+  br label %.backedge, !llvm.loop !24
 
 91:                                               ; preds = %.loopexit.i.thread, %.loopexit.i
   %.139.i43 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
@@ -2941,12 +2941,11 @@ attributes #20 = { noreturn nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint32: argument 0"}
-!23 = distinct !{!23, !"pq_writeint32"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"pq_writeint32: argument 0"}
+!22 = distinct !{!22, !"pq_writeint32"}
+!23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}

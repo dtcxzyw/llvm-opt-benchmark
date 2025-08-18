@@ -2415,7 +2415,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   %100 = load i8, ptr %99, align 1, !tbaa !25
   %101 = sext i8 %100 to i32
   %102 = call zeroext i1 @lv_text_is_cmd(ptr noundef nonnull %4, i32 noundef %101) #7
-  br i1 %102, label %94, label %.split, !llvm.loop !72
+  br i1 %102, label %94, label %.split, !llvm.loop !70
 
 .split:                                           ; preds = %96
   %103 = load i32, ptr %6, align 4, !tbaa !48
@@ -2436,7 +2436,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 110:                                              ; preds = %.split
   %111 = add nsw i32 %107, %.sroa.0.0.extract.trunc.i103
   %112 = load i32, ptr %5, align 4, !tbaa !48
-  br label %.outer, !llvm.loop !72
+  br label %.outer, !llvm.loop !70
 
 .loopexit:                                        ; preds = %94, %.outer.us, %.preheader105.split.us, %.split110.us, %74
   %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115140, %.outer.us ], [ %.180.ph, %94 ]
@@ -2818,6 +2818,4 @@ attributes #7 = { nounwind }
 !67 = !{!7, !7, i64 0}
 !68 = distinct !{!68, !27}
 !69 = distinct !{!69, !27}
-!70 = distinct !{!70, !27, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !27}
+!70 = distinct !{!70, !27}

@@ -606,7 +606,7 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
   store double %91, ptr %92, align 8
   %93 = add i16 %.1237311, 1
   %.not252 = icmp ugt i16 %93, %68
-  br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !10
+  br i1 %.not252, label %._crit_edge313, label %.lr.ph312.split, !llvm.loop !8
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
@@ -656,7 +656,7 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
   %.2234 = phi double [ %105, %110 ], [ %.1233314.fr, %float8_lt.exit ], [ %.1233314.fr, %103 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %111 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %111, label %98, label %.lr.ph331.preheader, !llvm.loop !11
+  br i1 %111, label %98, label %.lr.ph331.preheader, !llvm.loop !9
 
 112:                                              ; preds = %98
   %113 = trunc nsw i64 %indvars.iv to i32
@@ -685,7 +685,7 @@ float8_lt.exit.thread:                            ; preds = %103, %110, %float8_
 123:                                              ; preds = %.lr.ph321.split
   %indvars.iv.next366 = add nsw i64 %indvars.iv365, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next366, %67
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph321.split, !llvm.loop !10
 
 .critedge2.loopexit.split.loop.exit383:           ; preds = %.lr.ph321.split
   %124 = trunc nsw i64 %indvars.iv365 to i32
@@ -741,7 +741,7 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, -1
   %143 = trunc nuw i64 %indvars.iv368 to i32
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %130, label %._crit_edge332, !llvm.loop !13
+  br i1 %144, label %130, label %._crit_edge332, !llvm.loop !11
 
 .critedge4:                                       ; preds = %130
   %145 = trunc nuw i64 %indvars.iv368 to i32
@@ -767,7 +767,7 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
 156:                                              ; preds = %.lr.ph335
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
   %157 = icmp sgt i64 %indvars.iv371, 0
-  br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !14
+  br i1 %157, label %.lr.ph335, label %.critedge6, !llvm.loop !12
 
 .critedge6.loopexit.split.loop.exit385:           ; preds = %.lr.ph335
   %158 = trunc nuw nsw i64 %indvars.iv371 to i32
@@ -788,10 +788,10 @@ float8_gt.exit.thread:                            ; preds = %136, %142, %float8_
   br label %._crit_edge332
 
 ._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge
-  br i1 %70, label %.preheader, label %162, !llvm.loop !15
+  br i1 %70, label %.preheader, label %162, !llvm.loop !13
 
 162:                                              ; preds = %._crit_edge332
-  %163 = load i8, ptr %62, align 8, !range !16, !noundef !17
+  %163 = load i8, ptr %62, align 8, !range !14, !noundef !15
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %282
 
@@ -1020,7 +1020,7 @@ adjustBox.exit50.i:                               ; preds = %273, %float8_gt.exi
   %277 = add i16 %.054.i, 1
   %278 = zext i16 %277 to i32
   %.not.i = icmp ugt i16 %277, %179
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %180, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %276
   %279 = ptrtoint ptr %.2.i to i64
@@ -1271,7 +1271,7 @@ adjustBox.exit270:                                ; preds = %395, %float8_gt.exi
   %403 = add i16 %.2238346, 1
   %404 = zext i16 %403 to i32
   %.not249 = icmp ugt i16 %403, %306
-  br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !19
+  br i1 %.not249, label %._crit_edge349, label %307, !llvm.loop !17
 
 ._crit_edge349:                                   ; preds = %402
   %405 = icmp sgt i32 %.1242, 0
@@ -1318,7 +1318,7 @@ float8_mi.exit:                                   ; preds = %411, %424
   %431 = add i16 %.3239351, 1
   %432 = zext i16 %431 to i32
   %433 = icmp samesign ugt i32 %.1242, %432
-  br i1 %433, label %411, label %434, !llvm.loop !20
+  br i1 %433, label %411, label %434, !llvm.loop !18
 
 434:                                              ; preds = %float8_mi.exit
   %435 = zext nneg i32 %.1242 to i64
@@ -1704,7 +1704,7 @@ adjustBox.exit302:                                ; preds = %613, %float8_gt.exi
   %622 = add i16 %.4352, 1
   %623 = zext i16 %622 to i32
   %624 = icmp samesign ugt i32 %.1242, %623
-  br i1 %624, label %442, label %.loopexit, !llvm.loop !21
+  br i1 %624, label %442, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %619, %282, %._crit_edge349
   %625 = ptrtoint ptr %289 to i64
@@ -1907,7 +1907,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
 float8_div.exit:                                  ; preds = %80, %82
   %87 = fptrunc double %75 to float
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %89 = load i8, ptr %88, align 8, !range !16, !noundef !17
+  %89 = load i8, ptr %88, align 8, !range !14, !noundef !15
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %.critedge, label %91
 
@@ -2066,7 +2066,7 @@ define dso_local i64 @gist_poly_compress(ptr noundef readonly captures(none) %0)
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
+  %6 = load i8, ptr %5, align 2, !range !14, !noundef !15
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %27
 
@@ -2154,7 +2154,7 @@ define dso_local i64 @gist_circle_compress(ptr noundef readonly captures(none) %
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
+  %6 = load i8, ptr %5, align 2, !range !14, !noundef !15
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %74
 
@@ -2401,7 +2401,7 @@ define dso_local i64 @gist_point_compress(ptr noundef readonly captures(none) %0
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %6 = load i8, ptr %5, align 2, !range !16, !noundef !17
+  %6 = load i8, ptr %5, align 2, !range !14, !noundef !15
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %26
 
@@ -3087,7 +3087,7 @@ define dso_local noundef i64 @gist_point_sortsupport(ptr noundef readonly captur
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load i8, ptr %5, align 8, !range !16, !noundef !17
+  %6 = load i8, ptr %5, align 8, !range !14, !noundef !15
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %12
 
@@ -3530,17 +3530,15 @@ attributes #17 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = !{i8 0, i8 2}
-!17 = !{}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

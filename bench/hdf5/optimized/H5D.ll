@@ -4584,7 +4584,7 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
 149:                                              ; preds = %143
   %150 = sub nsw i64 %.070143, %127
   %151 = icmp sgt i64 %150, 0
-  br i1 %151, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
+  br i1 %151, label %.lr.ph.split, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %149, %.lr.ph149, %.preheader, %.split.us, %145, %.thread
   %152 = phi i1 [ true, %.split.us ], [ true, %145 ], [ true, %.thread ], [ false, %.preheader ], [ false, %.lr.ph149 ], [ false, %149 ]
@@ -4889,7 +4889,7 @@ define i32 @H5Diterate(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br label %.thread37
 
 80:                                               ; preds = %73
-  store i32 0, ptr %6, align 8, !tbaa !43
+  store i32 0, ptr %6, align 8, !tbaa !41
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %81, align 8, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5243,7 +5243,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__set_extent_api_common(i64 noun
   br label %41
 
 31:                                               ; preds = %24
-  store i32 0, ptr %5, align 8, !tbaa !45
+  store i32 0, ptr %5, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %32, align 8, !tbaa !18
   br i1 %.not, label %.cont15, label %.else16
@@ -5474,7 +5474,7 @@ define range(i32 -1, 1) i32 @H5Dflush(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread29
 
 51:                                               ; preds = %44
-  store i32 1, ptr %2, align 8, !tbaa !45
+  store i32 1, ptr %2, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %52, align 8, !tbaa !18
   %53 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
@@ -5596,7 +5596,7 @@ define range(i32 -1, 1) i32 @H5Drefresh(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread29
 
 51:                                               ; preds = %44
-  store i32 2, ptr %2, align 8, !tbaa !45
+  store i32 2, ptr %2, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %52, align 8, !tbaa !18
   %53 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
@@ -6657,10 +6657,8 @@ attributes #8 = { nounwind allocsize(0) }
 !37 = !{!"branch_weights", i32 1114702, i32 2146368946}
 !38 = distinct !{!38, !34}
 !39 = !{!"branch_weights", i32 1079484, i32 2146404164}
-!40 = distinct !{!40, !34, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !34}
+!40 = distinct !{!40, !34}
+!41 = !{!42, !23, i64 0}
+!42 = !{!"H5S_sel_iter_op_t", !23, i64 0, !5, i64 8}
 !43 = !{!44, !23, i64 0}
-!44 = !{!"H5S_sel_iter_op_t", !23, i64 0, !5, i64 8}
-!45 = !{!46, !23, i64 0}
-!46 = !{!"H5VL_dataset_specific_args_t", !23, i64 0, !5, i64 8}
+!44 = !{!"H5VL_dataset_specific_args_t", !23, i64 0, !5, i64 8}

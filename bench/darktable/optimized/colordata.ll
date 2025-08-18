@@ -967,7 +967,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   store float %88, ptr %94, align 4, !tbaa !83
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12
-  br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !87
+  br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !85
 
 95:                                               ; preds = %.split.us
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 153304
@@ -977,7 +977,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 97:                                               ; preds = %45, %37
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 792
-  br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !88
+  br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !86
 
 .critedge61:                                      ; preds = %97, %.split, %67, %95, %4
   %.0 = phi i32 [ 1, %4 ], [ 1, %67 ], [ 1, %95 ], [ 1, %.split ], [ 0, %97 ]
@@ -1028,7 +1028,7 @@ define void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 captures(non
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %15, i1 false), !tbaa !83
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond.not, label %.split15.us, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond.not, label %.split15.us, label %.preheader.us, !llvm.loop !87
 
 .split15.us:                                      ; preds = %.preheader.us, %2
   ret void
@@ -1144,8 +1144,6 @@ attributes #9 = { nounwind willreturn memory(read) }
 !82 = !{!7, !15, i64 381484}
 !83 = !{!20, !20, i64 0}
 !84 = !{!16, !16, i64 0}
-!85 = distinct !{!85, !73, !86}
-!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !73}
+!86 = distinct !{!86, !73}
 !87 = distinct !{!87, !73}
-!88 = distinct !{!88, !73}
-!89 = distinct !{!89, !73, !86}

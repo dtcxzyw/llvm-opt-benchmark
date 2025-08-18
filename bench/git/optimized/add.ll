@@ -1429,7 +1429,7 @@ _.exit.i185:                                      ; preds = %567, %565
   %574 = load i32, ptr %573, align 4, !tbaa !119
   %575 = zext i32 %574 to i64
   %576 = icmp samesign ult i64 %571, %575
-  br i1 %576, label %.lr.ph.split.i, label %chmod_pathspec.exit, !llvm.loop !140
+  br i1 %576, label %.lr.ph.split.i, label %chmod_pathspec.exit, !llvm.loop !138
 
 chmod_pathspec.exit:                              ; preds = %570, %531, %491
   %.020.lcssa.i = phi i32 [ 0, %491 ], [ %.1.us.i, %531 ], [ %.1.i187, %570 ]
@@ -1610,7 +1610,7 @@ define internal noundef i32 @ignore_removal_cb(ptr noundef readonly captures(non
   %.not2 = icmp ne i32 %2, 0
   %6 = zext i1 %.not2 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !141
+  %8 = load ptr, ptr %7, align 8, !tbaa !139
   store i32 %6, ptr %8, align 4, !tbaa !4
   ret i32 0
 }
@@ -1846,8 +1846,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !135 = !{!21, !21, i64 0}
 !136 = !{!20, !21, i64 0}
 !137 = distinct !{!137, !106}
-!138 = distinct !{!138, !106, !139}
-!139 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!140 = distinct !{!140, !106}
-!141 = !{!142, !10, i64 16}
-!142 = !{!"option", !5, i64 0, !5, i64 4, !9, i64 8, !10, i64 16, !9, i64 24, !9, i64 32, !5, i64 40, !10, i64 48, !21, i64 56, !10, i64 64, !21, i64 72, !10, i64 80}
+!138 = distinct !{!138, !106}
+!139 = !{!140, !10, i64 16}
+!140 = !{!"option", !5, i64 0, !5, i64 4, !9, i64 8, !10, i64 16, !9, i64 24, !9, i64 32, !5, i64 40, !10, i64 48, !21, i64 56, !10, i64 64, !21, i64 72, !10, i64 80}

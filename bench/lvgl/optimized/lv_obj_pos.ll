@@ -3171,7 +3171,7 @@ define void @lv_obj_move_children_by(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @lv_obj_move_children_by(ptr noundef %29, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %25, %4
   ret void
@@ -3194,45 +3194,50 @@ define void @lv_obj_transform_point_array(ptr noundef %0, ptr noundef %1, i64 no
   %5 = and i32 %3, 1
   %.not26 = icmp eq i32 %5, 0
   %6 = and i32 %3, 2
-  %.not27 = icmp eq i32 %6, 0
-  br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not27 = icmp ne i32 %6, 0
+  br i1 %.not27, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %tailrecurse.us
-  %.tr33.us = phi ptr [ %11, %tailrecurse.us ], [ %0, %.lr.ph ]
-  %7 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us) #8
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
+  %7 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %0) #8
   %8 = icmp eq i32 %7, 2
-  br i1 %8, label %9, label %10
+  br i1 %8, label %.loopexit.sink.split, label %.loopexit
 
-9:                                                ; preds = %.lr.ph.split.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %tailrecurse.us
+  %.tr33.us = phi ptr [ %12, %tailrecurse.us ], [ %0, %.lr.ph.split.us ]
+  %9 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us) #8
+  %10 = icmp eq i32 %9, 2
+  br i1 %10, label %11, label %tailrecurse.us
+
+11:                                               ; preds = %.lr.ph.split.us.split
   tail call fastcc void @transform_point_array(ptr noundef %.tr33.us, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false)
-  br label %10
+  br label %tailrecurse.us
 
-10:                                               ; preds = %9, %.lr.ph.split.us
-  br i1 %.not26, label %.loopexit, label %tailrecurse.us
-
-tailrecurse.us:                                   ; preds = %10
-  %11 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us) #8
-  %.not.us = icmp eq ptr %11, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !69
+tailrecurse.us:                                   ; preds = %11, %.lr.ph.split.us.split
+  %12 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us) #8
+  %.not.us = icmp eq ptr %12, null
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %12 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %0) #8
-  %13 = icmp eq i32 %12, 2
-  br i1 %.not26, label %16, label %14
+  %13 = tail call i32 @lv_obj_get_layer_type(ptr noundef nonnull %0) #8
+  %14 = icmp eq i32 %13, 2
+  br i1 %.not26, label %17, label %15
 
-14:                                               ; preds = %.lr.ph.split
-  %15 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %0) #8
-  tail call void @lv_obj_transform_point_array(ptr noundef %15, ptr noundef %1, i64 noundef %2, i32 noundef %3)
-  br label %16
+15:                                               ; preds = %.lr.ph.split
+  %16 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %0) #8
+  tail call void @lv_obj_transform_point_array(ptr noundef %16, ptr noundef %1, i64 noundef %2, i32 noundef %3)
+  br label %17
 
-16:                                               ; preds = %14, %.lr.ph.split
-  br i1 %13, label %17, label %.loopexit
+17:                                               ; preds = %15, %.lr.ph.split
+  br i1 %14, label %.loopexit.sink.split, label %.loopexit
 
-17:                                               ; preds = %16
-  tail call fastcc void @transform_point_array(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true)
+.loopexit.sink.split:                             ; preds = %17, %.lr.ph.split.us.split.us
+  tail call fastcc void @transform_point_array(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %.not27)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.us, %10, %4, %17, %16
+.loopexit:                                        ; preds = %tailrecurse.us, %.loopexit.sink.split, %4, %.lr.ph.split.us.split.us, %17
   ret void
 }
 
@@ -3470,7 +3475,7 @@ define noundef zeroext i1 @lv_obj_area_is_visible(ptr noundef %0, ptr noundef %1
   %5 = alloca %struct.lv_area_t, align 4
   %6 = alloca %struct.lv_area_t, align 4
   %7 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %0, i32 noundef 1) #8
-  br i1 %7, label %146, label %8
+  br i1 %7, label %144, label %8
 
 8:                                                ; preds = %2
   %9 = tail call ptr @lv_obj_get_screen(ptr noundef %0) #8
@@ -3497,7 +3502,7 @@ define noundef zeroext i1 @lv_obj_area_is_visible(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %16
   %19 = tail call ptr @lv_display_get_layer_sys(ptr noundef %10) #8
   %.not44 = icmp eq ptr %9, %19
-  br i1 %.not44, label %20, label %146
+  br i1 %.not44, label %20, label %144
 
 20:                                               ; preds = %18, %16, %14, %12, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3539,7 +3544,7 @@ define noundef zeroext i1 @lv_obj_area_is_visible(ptr noundef %0, ptr noundef %1
   %42 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !65
   %.not.not.i = icmp eq ptr %43, null
-  br i1 %.not.not.i, label %is_transformed.exit, label %.lr.ph.i, !llvm.loop !70
+  br i1 %.not.not.i, label %is_transformed.exit, label %.lr.ph.i, !llvm.loop !67
 
 .lr.ph.i54:                                       ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3567,198 +3572,198 @@ define noundef zeroext i1 @lv_obj_area_is_visible(ptr noundef %0, ptr noundef %1
   store i32 %56, ptr %58, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %52, ptr %59, align 4, !tbaa !34
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.i:                                ; preds = %63, %.lr.ph.i54
-  %.tr33.us.i = phi ptr [ %64, %63 ], [ %0, %.lr.ph.i54 ]
+.lr.ph.split.us.split.i:                          ; preds = %tailrecurse.us.i, %.lr.ph.i54
+  %.tr33.us.i = phi ptr [ %63, %tailrecurse.us.i ], [ %0, %.lr.ph.i54 ]
   %60 = call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us.i) #8
   %61 = icmp eq i32 %60, 2
-  br i1 %61, label %62, label %63
+  br i1 %61, label %62, label %tailrecurse.us.i
 
-62:                                               ; preds = %.lr.ph.split.us.i
+62:                                               ; preds = %.lr.ph.split.us.split.i
   call fastcc void @transform_point_array(ptr noundef %.tr33.us.i, ptr noundef nonnull %4, i64 noundef 4, i1 noundef zeroext false)
-  br label %63
+  br label %tailrecurse.us.i
 
-63:                                               ; preds = %62, %.lr.ph.split.us.i
-  %64 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us.i) #8
-  %.not.us.i = icmp eq ptr %64, null
-  br i1 %.not.us.i, label %lv_obj_transform_point_array.exit, label %.lr.ph.split.us.i, !llvm.loop !69
+tailrecurse.us.i:                                 ; preds = %62, %.lr.ph.split.us.split.i
+  %63 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us.i) #8
+  %.not.us.i = icmp eq ptr %63, null
+  br i1 %.not.us.i, label %lv_obj_transform_point_array.exit, label %.lr.ph.split.us.split.i
 
-lv_obj_transform_point_array.exit:                ; preds = %63
-  %65 = load i32, ptr %4, align 16, !tbaa !25
-  %66 = load i32, ptr %48, align 8, !tbaa !25
-  %67 = call i32 @llvm.smin.i32(i32 %65, i32 %66)
-  %68 = load i32, ptr %53, align 16, !tbaa !25
-  %69 = load i32, ptr %58, align 8, !tbaa !25
-  %70 = call i32 @llvm.smin.i32(i32 %68, i32 %69)
-  %..i = call i32 @llvm.smin.i32(i32 %67, i32 %70)
+lv_obj_transform_point_array.exit:                ; preds = %tailrecurse.us.i
+  %64 = load i32, ptr %4, align 16, !tbaa !25
+  %65 = load i32, ptr %48, align 8, !tbaa !25
+  %66 = call i32 @llvm.smin.i32(i32 %64, i32 %65)
+  %67 = load i32, ptr %53, align 16, !tbaa !25
+  %68 = load i32, ptr %58, align 8, !tbaa !25
+  %69 = call i32 @llvm.smin.i32(i32 %67, i32 %68)
+  %..i = call i32 @llvm.smin.i32(i32 %66, i32 %69)
   store i32 %..i, ptr %1, align 4, !tbaa !38
-  %71 = call i32 @llvm.smax.i32(i32 %65, i32 %66)
-  %72 = call i32 @llvm.smax.i32(i32 %68, i32 %69)
-  %73 = call i32 @llvm.smax.i32(i32 %71, i32 %72)
-  store i32 %73, ptr %54, align 4, !tbaa !40
-  %74 = load i32, ptr %45, align 4, !tbaa !34
-  %75 = load i32, ptr %49, align 4, !tbaa !34
-  %76 = call i32 @llvm.smin.i32(i32 %74, i32 %75)
-  %77 = load i32, ptr %57, align 4, !tbaa !34
-  %78 = load i32, ptr %59, align 4, !tbaa !34
-  %79 = call i32 @llvm.smin.i32(i32 %77, i32 %78)
-  %80 = call i32 @llvm.smin.i32(i32 %76, i32 %79)
-  store i32 %80, ptr %46, align 4, !tbaa !39
-  %81 = call i32 @llvm.smax.i32(i32 %74, i32 %75)
-  %82 = call i32 @llvm.smax.i32(i32 %77, i32 %78)
-  %83 = call i32 @llvm.smax.i32(i32 %81, i32 %82)
-  store i32 %83, ptr %50, align 4, !tbaa !41
+  %70 = call i32 @llvm.smax.i32(i32 %64, i32 %65)
+  %71 = call i32 @llvm.smax.i32(i32 %67, i32 %68)
+  %72 = call i32 @llvm.smax.i32(i32 %70, i32 %71)
+  store i32 %72, ptr %54, align 4, !tbaa !40
+  %73 = load i32, ptr %45, align 4, !tbaa !34
+  %74 = load i32, ptr %49, align 4, !tbaa !34
+  %75 = call i32 @llvm.smin.i32(i32 %73, i32 %74)
+  %76 = load i32, ptr %57, align 4, !tbaa !34
+  %77 = load i32, ptr %59, align 4, !tbaa !34
+  %78 = call i32 @llvm.smin.i32(i32 %76, i32 %77)
+  %79 = call i32 @llvm.smin.i32(i32 %75, i32 %78)
+  store i32 %79, ptr %46, align 4, !tbaa !39
+  %80 = call i32 @llvm.smax.i32(i32 %73, i32 %74)
+  %81 = call i32 @llvm.smax.i32(i32 %76, i32 %77)
+  %82 = call i32 @llvm.smax.i32(i32 %80, i32 %81)
+  store i32 %82, ptr %50, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %is_transformed.exit
 
 is_transformed.exit:                              ; preds = %41, %lv_obj_transform_point_array.exit
-  %84 = call ptr @lv_obj_get_parent(ptr noundef %0) #8
-  %.not4563 = icmp eq ptr %84, null
-  br i1 %.not4563, label %.loopexit, label %.lr.ph
+  %83 = call ptr @lv_obj_get_parent(ptr noundef %0) #8
+  %.not4564 = icmp eq ptr %83, null
+  br i1 %.not4564, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %is_transformed.exit
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  br label %95
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  br label %94
 
-95:                                               ; preds = %.lr.ph, %144
-  %.03764 = phi ptr [ %84, %.lr.ph ], [ %145, %144 ]
-  %96 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03764, i32 noundef 1) #8
-  br i1 %96, label %.loopexit.loopexit, label %97
+94:                                               ; preds = %.lr.ph, %142
+  %.03765 = phi ptr [ %83, %.lr.ph ], [ %143, %142 ]
+  %95 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03765, i32 noundef 1) #8
+  br i1 %95, label %.loopexit.loopexit, label %96
 
-97:                                               ; preds = %95
+96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %98 = getelementptr inbounds nuw i8, ptr %.03764, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !71
-  %99 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03764, i32 noundef 1048576) #8
-  br i1 %99, label %100, label %.lr.ph.i47.preheader
+  %97 = getelementptr inbounds nuw i8, ptr %.03765, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false), !tbaa.struct !68
+  %98 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.03765, i32 noundef 1048576) #8
+  br i1 %98, label %99, label %.lr.ph.i47.preheader
 
-100:                                              ; preds = %97
-  %101 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %.03764) #8
-  call void @lv_area_increase(ptr noundef nonnull %6, i32 noundef %101, i32 noundef %101) #8
+99:                                               ; preds = %96
+  %100 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %.03765) #8
+  call void @lv_area_increase(ptr noundef nonnull %6, i32 noundef %100, i32 noundef %100) #8
   br label %.lr.ph.i47.preheader
 
-.lr.ph.i47.preheader:                             ; preds = %100, %97
+.lr.ph.i47.preheader:                             ; preds = %99, %96
   br label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %.lr.ph.i47.preheader, %109
-  %.09.i48 = phi ptr [ %111, %109 ], [ %.03764, %.lr.ph.i47.preheader ]
-  %102 = getelementptr inbounds nuw i8, ptr %.09.i48, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !6
-  %.not7.i49 = icmp eq ptr %103, null
-  br i1 %.not7.i49, label %109, label %104
+.lr.ph.i47:                                       ; preds = %.lr.ph.i47.preheader, %108
+  %.09.i48 = phi ptr [ %110, %108 ], [ %.03765, %.lr.ph.i47.preheader ]
+  %101 = getelementptr inbounds nuw i8, ptr %.09.i48, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !6
+  %.not7.i49 = icmp eq ptr %102, null
+  br i1 %.not7.i49, label %108, label %103
 
-104:                                              ; preds = %.lr.ph.i47
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 66
-  %106 = load i16, ptr %105, align 2
-  %107 = and i16 %106, 3072
-  %108 = icmp eq i16 %107, 2048
-  br i1 %108, label %.lr.ph.i56, label %109
+103:                                              ; preds = %.lr.ph.i47
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 66
+  %105 = load i16, ptr %104, align 2
+  %106 = and i16 %105, 3072
+  %107 = icmp eq i16 %106, 2048
+  br i1 %107, label %.lr.ph.i56, label %108
 
-109:                                              ; preds = %104, %.lr.ph.i47
-  %110 = getelementptr inbounds nuw i8, ptr %.09.i48, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !65
-  %.not.not.i50 = icmp eq ptr %111, null
-  br i1 %.not.not.i50, label %is_transformed.exit52, label %.lr.ph.i47, !llvm.loop !70
+108:                                              ; preds = %103, %.lr.ph.i47
+  %109 = getelementptr inbounds nuw i8, ptr %.09.i48, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !65
+  %.not.not.i50 = icmp eq ptr %110, null
+  br i1 %.not.not.i50, label %is_transformed.exit52, label %.lr.ph.i47, !llvm.loop !67
 
-is_transformed.exit52:                            ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false), !tbaa.struct !71
-  br label %142
+is_transformed.exit52:                            ; preds = %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false), !tbaa.struct !68
+  br label %140
 
-.lr.ph.i56:                                       ; preds = %104
+.lr.ph.i56:                                       ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %112 = load i32, ptr %6, align 4, !tbaa !38
-  store i32 %112, ptr %3, align 16, !tbaa !25
-  %113 = load i32, ptr %86, align 4, !tbaa !39
-  store i32 %113, ptr %85, align 4, !tbaa !34
-  store i32 %112, ptr %87, align 8, !tbaa !25
-  %114 = load i32, ptr %89, align 4, !tbaa !41
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %88, align 4, !tbaa !34
-  %116 = load i32, ptr %91, align 4, !tbaa !40
-  %117 = add nsw i32 %116, 1
-  store i32 %117, ptr %90, align 16, !tbaa !25
-  store i32 %113, ptr %92, align 4, !tbaa !34
-  store i32 %117, ptr %93, align 8, !tbaa !25
-  store i32 %115, ptr %94, align 4, !tbaa !34
-  br label %.lr.ph.split.us.i57
+  %111 = load i32, ptr %6, align 4, !tbaa !38
+  store i32 %111, ptr %3, align 16, !tbaa !25
+  %112 = load i32, ptr %85, align 4, !tbaa !39
+  store i32 %112, ptr %84, align 4, !tbaa !34
+  store i32 %111, ptr %86, align 8, !tbaa !25
+  %113 = load i32, ptr %88, align 4, !tbaa !41
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %87, align 4, !tbaa !34
+  %115 = load i32, ptr %90, align 4, !tbaa !40
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %89, align 16, !tbaa !25
+  store i32 %112, ptr %91, align 4, !tbaa !34
+  store i32 %116, ptr %92, align 8, !tbaa !25
+  store i32 %114, ptr %93, align 4, !tbaa !34
+  br label %.lr.ph.split.us.split.i57
 
-.lr.ph.split.us.i57:                              ; preds = %121, %.lr.ph.i56
-  %.tr33.us.i58 = phi ptr [ %122, %121 ], [ %.03764, %.lr.ph.i56 ]
-  %118 = call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us.i58) #8
-  %119 = icmp eq i32 %118, 2
-  br i1 %119, label %120, label %121
+.lr.ph.split.us.split.i57:                        ; preds = %tailrecurse.us.i59, %.lr.ph.i56
+  %.tr33.us.i58 = phi ptr [ %120, %tailrecurse.us.i59 ], [ %.03765, %.lr.ph.i56 ]
+  %117 = call i32 @lv_obj_get_layer_type(ptr noundef nonnull %.tr33.us.i58) #8
+  %118 = icmp eq i32 %117, 2
+  br i1 %118, label %119, label %tailrecurse.us.i59
 
-120:                                              ; preds = %.lr.ph.split.us.i57
+119:                                              ; preds = %.lr.ph.split.us.split.i57
   call fastcc void @transform_point_array(ptr noundef %.tr33.us.i58, ptr noundef nonnull %3, i64 noundef 4, i1 noundef zeroext false)
-  br label %121
+  br label %tailrecurse.us.i59
 
-121:                                              ; preds = %120, %.lr.ph.split.us.i57
-  %122 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us.i58) #8
-  %.not.us.i59 = icmp eq ptr %122, null
-  br i1 %.not.us.i59, label %lv_obj_transform_point_array.exit60, label %.lr.ph.split.us.i57, !llvm.loop !69
+tailrecurse.us.i59:                               ; preds = %119, %.lr.ph.split.us.split.i57
+  %120 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.tr33.us.i58) #8
+  %.not.us.i60 = icmp eq ptr %120, null
+  br i1 %.not.us.i60, label %lv_obj_transform_point_array.exit61, label %.lr.ph.split.us.split.i57
 
-lv_obj_transform_point_array.exit60:              ; preds = %121
-  %123 = load i32, ptr %3, align 16, !tbaa !25
-  %124 = load i32, ptr %87, align 8, !tbaa !25
-  %125 = call i32 @llvm.smin.i32(i32 %123, i32 %124)
-  %126 = load i32, ptr %90, align 16, !tbaa !25
-  %127 = load i32, ptr %93, align 8, !tbaa !25
-  %128 = call i32 @llvm.smin.i32(i32 %126, i32 %127)
-  %..i53 = call i32 @llvm.smin.i32(i32 %125, i32 %128)
+lv_obj_transform_point_array.exit61:              ; preds = %tailrecurse.us.i59
+  %121 = load i32, ptr %3, align 16, !tbaa !25
+  %122 = load i32, ptr %86, align 8, !tbaa !25
+  %123 = call i32 @llvm.smin.i32(i32 %121, i32 %122)
+  %124 = load i32, ptr %89, align 16, !tbaa !25
+  %125 = load i32, ptr %92, align 8, !tbaa !25
+  %126 = call i32 @llvm.smin.i32(i32 %124, i32 %125)
+  %..i53 = call i32 @llvm.smin.i32(i32 %123, i32 %126)
   store i32 %..i53, ptr %6, align 4, !tbaa !38
-  %129 = call i32 @llvm.smax.i32(i32 %123, i32 %124)
-  %130 = call i32 @llvm.smax.i32(i32 %126, i32 %127)
-  %131 = call i32 @llvm.smax.i32(i32 %129, i32 %130)
-  store i32 %131, ptr %91, align 4, !tbaa !40
-  %132 = load i32, ptr %85, align 4, !tbaa !34
-  %133 = load i32, ptr %88, align 4, !tbaa !34
-  %134 = call i32 @llvm.smin.i32(i32 %132, i32 %133)
-  %135 = load i32, ptr %92, align 4, !tbaa !34
-  %136 = load i32, ptr %94, align 4, !tbaa !34
-  %137 = call i32 @llvm.smin.i32(i32 %135, i32 %136)
-  %138 = call i32 @llvm.smin.i32(i32 %134, i32 %137)
-  store i32 %138, ptr %86, align 4, !tbaa !39
-  %139 = call i32 @llvm.smax.i32(i32 %132, i32 %133)
-  %140 = call i32 @llvm.smax.i32(i32 %135, i32 %136)
-  %141 = call i32 @llvm.smax.i32(i32 %139, i32 %140)
-  store i32 %141, ptr %89, align 4, !tbaa !41
+  %127 = call i32 @llvm.smax.i32(i32 %121, i32 %122)
+  %128 = call i32 @llvm.smax.i32(i32 %124, i32 %125)
+  %129 = call i32 @llvm.smax.i32(i32 %127, i32 %128)
+  store i32 %129, ptr %90, align 4, !tbaa !40
+  %130 = load i32, ptr %84, align 4, !tbaa !34
+  %131 = load i32, ptr %87, align 4, !tbaa !34
+  %132 = call i32 @llvm.smin.i32(i32 %130, i32 %131)
+  %133 = load i32, ptr %91, align 4, !tbaa !34
+  %134 = load i32, ptr %93, align 4, !tbaa !34
+  %135 = call i32 @llvm.smin.i32(i32 %133, i32 %134)
+  %136 = call i32 @llvm.smin.i32(i32 %132, i32 %135)
+  store i32 %136, ptr %85, align 4, !tbaa !39
+  %137 = call i32 @llvm.smax.i32(i32 %130, i32 %131)
+  %138 = call i32 @llvm.smax.i32(i32 %133, i32 %134)
+  %139 = call i32 @llvm.smax.i32(i32 %137, i32 %138)
+  store i32 %139, ptr %88, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %142
+  br label %140
 
-142:                                              ; preds = %lv_obj_transform_point_array.exit60, %is_transformed.exit52
-  %143 = call zeroext i1 @lv_area_intersect(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %6) #8
-  br i1 %143, label %144, label %.critedge
+140:                                              ; preds = %lv_obj_transform_point_array.exit61, %is_transformed.exit52
+  %141 = call zeroext i1 @lv_area_intersect(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %6) #8
+  br i1 %141, label %142, label %.critedge
 
-144:                                              ; preds = %142
-  %145 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.03764) #8
+142:                                              ; preds = %140
+  %143 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.03765) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not45 = icmp eq ptr %145, null
-  br i1 %.not45, label %.loopexit.loopexit, label %95, !llvm.loop !73
+  %.not45 = icmp eq ptr %143, null
+  br i1 %.not45, label %.loopexit.loopexit, label %94, !llvm.loop !70
 
-.critedge:                                        ; preds = %142
+.critedge:                                        ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %95, %144
-  %.2.ph = xor i1 %96, true
+.loopexit.loopexit:                               ; preds = %94, %142
+  %.2.ph = xor i1 %95, true
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %is_transformed.exit, %.critedge, %20
   %.2 = phi i1 [ false, %20 ], [ false, %.critedge ], [ true, %is_transformed.exit ], [ %.2.ph, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %146
+  br label %144
 
-146:                                              ; preds = %.loopexit, %18, %2
+144:                                              ; preds = %.loopexit, %18, %2
   %.0 = phi i1 [ false, %2 ], [ %.2, %.loopexit ], [ false, %18 ]
   ret i1 %.0
 }
@@ -3830,7 +3835,7 @@ define void @lv_obj_set_ext_click_area(ptr noundef %0, i32 noundef %1) local_unn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 %1, ptr %6, align 8, !tbaa !74
+  store i32 %1, ptr %6, align 8, !tbaa !71
   ret void
 }
 
@@ -3860,7 +3865,7 @@ define void @lv_obj_get_click_area(ptr noundef readonly captures(none) %0, ptr n
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %18 = load i32, ptr %17, align 8, !tbaa !74
+  %18 = load i32, ptr %17, align 8, !tbaa !71
   tail call void @lv_area_increase(ptr noundef nonnull %1, i32 noundef %18, i32 noundef %18) #8
   br label %19
 
@@ -3899,7 +3904,7 @@ define zeroext i1 @lv_obj_hit_test(ptr noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %22 = load i32, ptr %21, align 8, !tbaa !74
+  %22 = load i32, ptr %21, align 8, !tbaa !71
   call void @lv_area_increase(ptr noundef nonnull %3, i32 noundef %22, i32 noundef %22) #8
   br label %lv_obj_get_click_area.exit
 
@@ -3913,11 +3918,11 @@ lv_obj_get_click_area.exit:                       ; preds = %6, %20
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %1, ptr %4, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 1, ptr %27, align 8, !tbaa !77
+  store i8 1, ptr %27, align 8, !tbaa !74
   %28 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull %4) #8
-  %29 = load i8, ptr %27, align 8, !tbaa !77, !range !61, !noundef !62
+  %29 = load i8, ptr %27, align 8, !tbaa !74, !range !61, !noundef !62
   %30 = trunc nuw i8 %29 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
@@ -4053,15 +4058,12 @@ attributes #8 = { nounwind }
 !63 = distinct !{!63, !31}
 !64 = distinct !{!64, !31}
 !65 = !{!7, !10, i64 8}
-!66 = distinct !{!66, !31, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !31}
-!69 = distinct !{!69, !67}
+!66 = distinct !{!66, !31}
+!67 = distinct !{!67, !31}
+!68 = !{i64 0, i64 4, !69, i64 4, i64 4, !69, i64 8, i64 4, !69, i64 12, i64 4, !69}
+!69 = !{!14, !14, i64 0}
 !70 = distinct !{!70, !31}
-!71 = !{i64 0, i64 4, !72, i64 4, i64 4, !72, i64 8, i64 4, !72, i64 12, i64 4, !72}
-!72 = !{!14, !14, i64 0}
-!73 = distinct !{!73, !31}
-!74 = !{!17, !14, i64 56}
-!75 = !{!76, !9, i64 0}
-!76 = !{!"_lv_hit_test_info_t", !9, i64 0, !23, i64 8}
-!77 = !{!76, !23, i64 8}
+!71 = !{!17, !14, i64 56}
+!72 = !{!73, !9, i64 0}
+!73 = !{!"_lv_hit_test_info_t", !9, i64 0, !23, i64 8}
+!74 = !{!73, !23, i64 8}

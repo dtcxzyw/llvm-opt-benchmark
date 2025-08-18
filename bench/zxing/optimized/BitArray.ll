@@ -199,7 +199,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
 .split30.us.us:                                   ; preds = %50
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond56.not, label %._crit_edge, label %.preheader.us, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split30
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.split30 ], [ 0, %.preheader.lr.ph ]
@@ -212,7 +212,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   %58 = trunc nsw i64 %indvars.iv.next to i32
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count55
-  br i1 %exitcond50.not, label %._crit_edge, label %.preheader, !llvm.loop !17
+  br i1 %exitcond50.not, label %._crit_edge, label %.preheader, !llvm.loop !15
 
 59:                                               ; preds = %.preheader, %60
   %indvars.iv = phi i64 [ %57, %.preheader ], [ %indvars.iv.next, %60 ]
@@ -241,7 +241,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   store i8 %67, ptr %56, align 1, !tbaa !10
   %68 = add nuw nsw i32 %.025, 1
   %exitcond.not = icmp eq i32 %68, 8
-  br i1 %exitcond.not, label %.split30, label %59, !llvm.loop !18
+  br i1 %exitcond.not, label %.split30, label %59, !llvm.loop !14
 
 69:                                               ; preds = %.split.us
   %70 = landingpad { ptr, i32 }
@@ -305,8 +305,5 @@ attributes #11 = { builtin nounwind }
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!4, !5, i64 16}
-!14 = distinct !{!14, !12, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !12, !15}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}

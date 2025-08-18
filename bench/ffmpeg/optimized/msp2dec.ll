@@ -258,7 +258,7 @@ bytestream2_get_byte.exit85:                      ; preds = %100, %104
   %122 = icmp ne i64 %121, 0
   %123 = icmp ult i32 %118, %12
   %124 = select i1 %122, i1 %123, i1 false
-  br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %117, %68
   %125 = phi ptr [ %70, %68 ], [ %71, %117 ]
@@ -273,7 +273,7 @@ bytestream2_get_byte.exit85:                      ; preds = %100, %104
   %128 = add nuw i32 %.069126, 1
   %129 = load i32, ptr %13, align 4, !tbaa !30
   %130 = icmp ult i32 %128, %129
-  br i1 %130, label %.lr.ph129.split, label %._crit_edge130, !llvm.loop !39
+  br i1 %130, label %.lr.ph129.split, label %._crit_edge130, !llvm.loop !35
 
 ._crit_edge130:                                   ; preds = %49, %127, %bytestream2_init.exit
   %.071.lcssa = phi i32 [ %27, %bytestream2_init.exit ], [ %.172, %127 ], [ %.172.us, %49 ]
@@ -355,8 +355,6 @@ attributes #7 = { noreturn nounwind }
 !32 = !{!8, !8, i64 0}
 !33 = !{!11, !11, i64 0}
 !34 = !{!12, !12, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !36}
-!39 = distinct !{!39, !36}
+!37 = distinct !{!37, !36}

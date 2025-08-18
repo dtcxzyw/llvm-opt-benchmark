@@ -586,7 +586,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   %.2 = phi i32 [ %.177147, %.lr.ph.split ], [ %.3, %38 ], [ %.3, %41 ], [ %31, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count171
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %42
   %43 = trunc nuw i8 %.192 to i1
@@ -627,7 +627,7 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   %.583 = tail call i32 @llvm.smin.i32(i32 %52, i32 %.482159)
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %.loopexit.thread, label %.lr.ph162, !llvm.loop !8
+  br i1 %exitcond177.not, label %.loopexit.thread, label %.lr.ph162, !llvm.loop !6
 
 .loopexit.thread:                                 ; preds = %.lr.ph162, %._crit_edge, %45
   %.4191 = phi i32 [ %46, %45 ], [ %.2, %._crit_edge ], [ %.6, %.lr.ph162 ]
@@ -1070,7 +1070,7 @@ ComputeOutCode.exit284:                           ; preds = %191, %189, %132, %1
   %193 = icmp ne i32 %.1187, 0
   %194 = icmp ne i32 %.1, 0
   %195 = select i1 %193, i1 true, i1 %194
-  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %ComputeOutCode.exit284, %ComputeOutCode.exit
   %.0201.lcssa = phi i32 [ %40, %ComputeOutCode.exit ], [ %.1202, %ComputeOutCode.exit284 ]
@@ -1525,7 +1525,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count160
   %or.cond187 = select i1 %or.cond117.us.not, i1 true, i1 %exitcond161.not
-  br i1 %or.cond187, label %.thread, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %or.cond187, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
@@ -1583,7 +1583,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %.2 = phi float [ %.177136, %.lr.ph.split ], [ %.3, %51 ], [ %.3, %49 ], [ %.3, %47 ], [ %33, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count160
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %52
   %53 = trunc nuw i8 %.192 to i1
@@ -1642,7 +1642,7 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %.583 = phi float [ %.482148, %71 ], [ %.482148, %69 ], [ %62, %67 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %.loopexit, label %.lr.ph151, !llvm.loop !12
+  br i1 %exitcond166.not, label %.loopexit, label %.lr.ph151, !llvm.loop !9
 
 .loopexit:                                        ; preds = %72, %._crit_edge
   %.399 = phi float [ %.298, %._crit_edge ], [ %.5101, %72 ]
@@ -2141,7 +2141,7 @@ ComputeOutCodeFloat.exit262:                      ; preds = %230, %228, %226, %1
   %232 = icmp ne i32 %.1187, 0
   %233 = icmp ne i32 %.1, 0
   %234 = select i1 %232, i1 true, i1 %233
-  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %ComputeOutCodeFloat.exit262, %ComputeOutCodeFloat.exit259
   %.0201.lcssa = phi float [ %41, %ComputeOutCodeFloat.exit259 ], [ %.1202, %ComputeOutCodeFloat.exit262 ]
@@ -2182,12 +2182,9 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !6}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!10 = distinct !{!10, !4}

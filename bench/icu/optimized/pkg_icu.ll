@@ -117,7 +117,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 .critedge2.us:                                    ; preds = %.lr.ph.us, %.lr.ph.us
   store i8 0, ptr %33, align 1, !tbaa !3
   %35 = icmp ult ptr %5, %33
-  br i1 %35, label %.lr.ph.us, label %.critedge.us, !llvm.loop !16
+  br i1 %35, label %.lr.ph.us, label %.critedge.us, !llvm.loop !15
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %.critedge2.us, %31, %30
   %36 = call ptr @u_skipWhitespace(ptr noundef nonnull %5)
@@ -134,7 +134,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 .backedge.us:                                     ; preds = %45, %.loopexit.us.us.thread, %.critedge.us, %39
   %41 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %26)
   %.not65.us = icmp eq ptr %41, null
-  br i1 %.not65.us, label %._crit_edge, label %.lr.ph81.split.us, !llvm.loop !17
+  br i1 %.not65.us, label %._crit_edge, label %.lr.ph81.split.us, !llvm.loop !16
 
 .preheader.us:                                    ; preds = %39, %45
   %42 = phi i8 [ %48, %45 ], [ %37, %39 ]
@@ -161,12 +161,12 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
   %47 = call ptr @u_skipWhitespace(ptr noundef nonnull %46)
   %48 = load i8, ptr %47, align 1, !tbaa !3
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.backedge.us, label %.preheader.us, !llvm.loop !18
+  br i1 %49, label %.backedge.us, label %.preheader.us, !llvm.loop !17
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %.1.us.us, i64 1
   %.pre85 = load i8, ptr %51, align 1, !tbaa !3
-  br label %43, !llvm.loop !19
+  br label %43, !llvm.loop !18
 
 52:                                               ; preds = %_ZL14isListTextFilePKc.exit
   %53 = load ptr, ptr @stderr, align 8, !tbaa !6
@@ -206,7 +206,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   store i8 0, ptr %59, align 1, !tbaa !3
   %61 = icmp ult ptr %5, %59
-  br i1 %61, label %.lr.ph, label %.critedge, !llvm.loop !16
+  br i1 %61, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %57, %56
   %62 = call ptr @u_skipWhitespace(ptr noundef nonnull %5)
@@ -223,7 +223,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 .backedge:                                        ; preds = %73, %.loopexit.thread, %.critedge, %65
   %67 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %26)
   %.not65 = icmp eq ptr %67, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph81.split, !llvm.loop !20
+  br i1 %.not65, label %._crit_edge, label %.lr.ph81.split, !llvm.loop !16
 
 .preheader:                                       ; preds = %65, %73
   %68 = phi i8 [ %76, %73 ], [ %63, %65 ]
@@ -246,7 +246,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pre = load i8, ptr %72, align 1, !tbaa !3
-  br label %69, !llvm.loop !19
+  br label %69, !llvm.loop !18
 
 73:                                               ; preds = %69, %69
   store i8 0, ptr %.1, align 1, !tbaa !3
@@ -255,7 +255,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
   %75 = call ptr @u_skipWhitespace(ptr noundef nonnull %74)
   %76 = load i8, ptr %75, align 1, !tbaa !3
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %.backedge, label %.preheader, !llvm.loop !21
+  br i1 %77, label %.backedge, label %.preheader, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %.preheader76
   %78 = call i32 @fclose(ptr noundef nonnull %26)
@@ -269,7 +269,7 @@ _ZL14isListTextFilePKc.exit:                      ; preds = %.split.us.i
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %.057, i64 1170
-  store i8 1, ptr %82, align 2, !tbaa !22
+  store i8 1, ptr %82, align 2, !tbaa !19
   tail call void @_ZN6icu_777Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %.057, ptr noundef nonnull %1)
   br label %85
 
@@ -334,9 +334,9 @@ define range(i32 0, 2) i32 @writePackageDatFile(ptr noundef %0, ptr noundef %1, 
   %7 = alloca %"class.icu_77::LocalPointer", align 8
   %8 = alloca %"class.icu_77::LocalPointer", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !25
+  store ptr null, ptr %7, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr null, ptr %8, align 8, !tbaa !25
+  store ptr null, ptr %8, align 8, !tbaa !22
   %9 = icmp eq ptr %4, null
   br i1 %9, label %10, label %20
 
@@ -360,12 +360,12 @@ define range(i32 0, 2) i32 @writePackageDatFile(ptr noundef %0, ptr noundef %1, 
   br label %27
 
 17:                                               ; preds = %12
-  store ptr %11, ptr %7, align 8, !tbaa !25
+  store ptr %11, ptr %7, align 8, !tbaa !22
   %18 = invoke ptr @readList(ptr noundef %2, ptr noundef %3, i8 noundef signext 1, ptr noundef null)
           to label %_ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_.exit18 unwind label %13
 
 _ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_.exit18: ; preds = %17
-  store ptr %18, ptr %8, align 8, !tbaa !25
+  store ptr %18, ptr %8, align 8, !tbaa !22
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN6icu_7712LocalPointerINS_7PackageEED2Ev.exit.thread, label %19
 
@@ -425,7 +425,7 @@ declare void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -491,18 +491,15 @@ attributes #18 = { cold noreturn nounwind }
 !10 = !{!"_ZTS3$_0", !11, i64 0, !12, i64 8}
 !11 = !{!"p1 omnipotent char", !8, i64 0}
 !12 = !{!"int", !4, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !14}
 !16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = !{!23, !4, i64 1170}
-!23 = !{!"_ZTSN6icu_777PackageE", !4, i64 0, !4, i64 64, !11, i64 128, !4, i64 136, !12, i64 1160, !12, i64 1164, !4, i64 1168, !4, i64 1169, !4, i64 1170, !4, i64 1171, !12, i64 1172, !12, i64 1176, !24, i64 1184, !12, i64 1192, !12, i64 1196, !4, i64 1200, !4, i64 101200, !12, i64 201200, !11, i64 201208, !11, i64 201216, !12, i64 201224, !12, i64 201228, !12, i64 201232, !4, i64 201236}
-!24 = !{!"p1 _ZTSN6icu_774ItemE", !8, i64 0}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_7PackageEEE", !27, i64 0}
-!27 = !{!"p1 _ZTSN6icu_777PackageE", !8, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = !{!20, !4, i64 1170}
+!20 = !{!"_ZTSN6icu_777PackageE", !4, i64 0, !4, i64 64, !11, i64 128, !4, i64 136, !12, i64 1160, !12, i64 1164, !4, i64 1168, !4, i64 1169, !4, i64 1170, !4, i64 1171, !12, i64 1172, !12, i64 1176, !21, i64 1184, !12, i64 1192, !12, i64 1196, !4, i64 1200, !4, i64 101200, !12, i64 201200, !11, i64 201208, !11, i64 201216, !12, i64 201224, !12, i64 201228, !12, i64 201232, !4, i64 201236}
+!21 = !{!"p1 _ZTSN6icu_774ItemE", !8, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_7PackageEEE", !24, i64 0}
+!24 = !{!"p1 _ZTSN6icu_777PackageE", !8, i64 0}

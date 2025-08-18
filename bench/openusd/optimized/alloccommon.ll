@@ -406,7 +406,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   %40 = load i32, ptr %4, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.preheader35, label %._crit_edge, !llvm.loop !14
+  br i1 %42, label %.preheader35, label %._crit_edge, !llvm.loop !12
 
 .preheader:                                       ; preds = %._crit_edge.us, %1
   %43 = icmp sgt i32 %3, 0
@@ -425,7 +425,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   store ptr null, ptr %46, align 8
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %45, !llvm.loop !15
+  br i1 %exitcond51.not, label %._crit_edge, label %45, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.preheader35, %45, %.preheader
   %48 = load ptr, ptr %0, align 8
@@ -471,7 +471,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 13:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !14
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
@@ -515,7 +515,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 24:                                               ; preds = %32
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge59.us, label %32, !llvm.loop !17
+  br i1 %exitcond81.not, label %._crit_edge59.us, label %32, !llvm.loop !15
 
 25:                                               ; preds = %._crit_edge59.us
   %26 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
@@ -544,7 +544,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 40:                                               ; preds = %25
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.loopexit, label %.preheader.us, !llvm.loop !18
+  br i1 %exitcond86.not, label %.loopexit, label %.preheader.us, !llvm.loop !16
 
 ._crit_edge59.us:                                 ; preds = %24
   %41 = tail call ptr @aom_calloc(i64 noundef %22, i64 noundef 1) #4
@@ -560,7 +560,7 @@ define hidden range(i32 0, 2) i32 @av1_alloc_above_context_buffers(ptr noundef c
 47:                                               ; preds = %54
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count85
-  br i1 %exitcond76.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond76.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %47
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %47 ], [ 0, %.preheader.lr.ph ]
@@ -719,11 +719,8 @@ attributes #4 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !13}
-!19 = distinct !{!19, !5}

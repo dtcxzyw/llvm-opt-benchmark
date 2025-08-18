@@ -104,27 +104,27 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
   %39 = getelementptr inbounds nuw [8 x ptr], ptr %28, i64 0, i64 %indvars.iv.i.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !50
+  %40 = load ptr, ptr %39, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw [8 x i32], ptr %35, i64 0, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !46
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %40, i64 %43
-  store ptr %44, ptr %39, align 8, !tbaa !50
+  store ptr %44, ptr %39, align 8, !tbaa !49
   %45 = shl nsw i32 %42, 1
   store i32 %45, ptr %41, align 4, !tbaa !46
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count17.i.i
-  br i1 %exitcond.not.i.i, label %extract_field.exit.i, label %.lr.ph.split.i.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %extract_field.exit.i, label %.lr.ph.split.i.i, !llvm.loop !47
 
 extract_field.exit.i:                             ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %29
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  %47 = load i64, ptr %46, align 8, !tbaa !52
+  %47 = load i64, ptr %46, align 8, !tbaa !50
   %.not35.i = icmp eq i64 %47, -9223372036854775808
   br i1 %.not35.i, label %52, label %48
 
 48:                                               ; preds = %extract_field.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %50 = load i64, ptr %49, align 8, !tbaa !52
+  %50 = load i64, ptr %49, align 8, !tbaa !50
   %.not36.i = icmp eq i64 %50, -9223372036854775808
   %51 = add nsw i64 %50, %47
   %spec.select.i = select i1 %.not36.i, i64 -9223372036854775808, i64 %51
@@ -132,7 +132,7 @@ extract_field.exit.i:                             ; preds = %.lr.ph.split.i.i, %
 
 52:                                               ; preds = %48, %extract_field.exit.i
   %storemerge.i = phi i64 [ -9223372036854775808, %extract_field.exit.i ], [ %spec.select.i, %48 ]
-  store i64 %storemerge.i, ptr %46, align 8, !tbaa !52
+  store i64 %storemerge.i, ptr %46, align 8, !tbaa !50
   %53 = call i32 @ff_filter_frame(ptr noundef nonnull %.val.val.val, ptr noundef nonnull %28) #4
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %filter_frame.exit, label %55
@@ -169,27 +169,27 @@ extract_field.exit.i:                             ; preds = %.lr.ph.split.i.i, %
 .lr.ph.split.i44.i:                               ; preds = %.lr.ph.i41.i, %.lr.ph.split.i44.i
   %indvars.iv.i45.i = phi i64 [ %indvars.iv.next.i46.i, %.lr.ph.split.i44.i ], [ 0, %.lr.ph.i41.i ]
   %66 = getelementptr inbounds nuw [8 x ptr], ptr %17, i64 0, i64 %indvars.iv.i45.i
-  %67 = load ptr, ptr %66, align 8, !tbaa !50
+  %67 = load ptr, ptr %66, align 8, !tbaa !49
   %68 = getelementptr inbounds nuw [8 x i32], ptr %62, i64 0, i64 %indvars.iv.i45.i
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
-  store ptr %71, ptr %66, align 8, !tbaa !50
+  store ptr %71, ptr %66, align 8, !tbaa !49
   %72 = shl nsw i32 %69, 1
   store i32 %72, ptr %68, align 4, !tbaa !46
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count17.i43.i
-  br i1 %exitcond.not.i47.i, label %extract_field.exit52.i, label %.lr.ph.split.i44.i, !llvm.loop !51
+  br i1 %exitcond.not.i47.i, label %extract_field.exit52.i, label %.lr.ph.split.i44.i, !llvm.loop !47
 
 extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48.i, %.lr.ph.split.i44.i, %57
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %74 = load i64, ptr %73, align 8, !tbaa !52
+  %74 = load i64, ptr %73, align 8, !tbaa !50
   %.not40.i = icmp eq i64 %74, -9223372036854775808
   br i1 %.not40.i, label %77, label %75
 
 75:                                               ; preds = %extract_field.exit52.i
   %76 = shl nsw i64 %74, 1
-  store i64 %76, ptr %73, align 8, !tbaa !52
+  store i64 %76, ptr %73, align 8, !tbaa !50
   br label %77
 
 77:                                               ; preds = %75, %extract_field.exit52.i
@@ -205,8 +205,8 @@ extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48
   br i1 %or.cond, label %84, label %113
 
 84:                                               ; preds = %79
-  %85 = load i64, ptr %3, align 8, !tbaa !53
-  %86 = load ptr, ptr %10, align 8, !tbaa !54
+  %85 = load i64, ptr %3, align 8, !tbaa !51
+  %86 = load ptr, ptr %10, align 8, !tbaa !52
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %88 = load ptr, ptr %87, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -216,9 +216,9 @@ extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48
 
 91:                                               ; preds = %84
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 136
-  %93 = load i64, ptr %92, align 8, !tbaa !52
+  %93 = load i64, ptr %92, align 8, !tbaa !50
   %94 = add nsw i64 %93, %85
-  store i64 %94, ptr %92, align 8, !tbaa !52
+  store i64 %94, ptr %92, align 8, !tbaa !50
   %95 = load i32, ptr %88, align 8, !tbaa !45
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph.i.i29, label %extract_field.exit.i27
@@ -245,17 +245,17 @@ extract_field.exit52.i:                           ; preds = %.lr.ph.split.us.i48
 .lr.ph.split.i.i32:                               ; preds = %.lr.ph.i.i29, %.lr.ph.split.i.i32
   %indvars.iv.i.i33 = phi i64 [ %indvars.iv.next.i.i34, %.lr.ph.split.i.i32 ], [ 0, %.lr.ph.i.i29 ]
   %104 = getelementptr inbounds nuw [8 x ptr], ptr %90, i64 0, i64 %indvars.iv.i.i33
-  %105 = load ptr, ptr %104, align 8, !tbaa !50
+  %105 = load ptr, ptr %104, align 8, !tbaa !49
   %106 = getelementptr inbounds nuw [8 x i32], ptr %100, i64 0, i64 %indvars.iv.i.i33
   %107 = load i32, ptr %106, align 4, !tbaa !46
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i8, ptr %105, i64 %108
-  store ptr %109, ptr %104, align 8, !tbaa !50
+  store ptr %109, ptr %104, align 8, !tbaa !49
   %110 = shl nsw i32 %107, 1
   store i32 %110, ptr %106, align 4, !tbaa !46
   %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i33, 1
   %exitcond.not.i.i35 = icmp eq i64 %indvars.iv.next.i.i34, %wide.trip.count17.i.i31
-  br i1 %exitcond.not.i.i35, label %extract_field.exit.i27, label %.lr.ph.split.i.i32, !llvm.loop !51
+  br i1 %exitcond.not.i.i35, label %extract_field.exit.i27, label %.lr.ph.split.i.i32, !llvm.loop !47
 
 extract_field.exit.i27:                           ; preds = %.lr.ph.split.i.i32, %.lr.ph.split.us.i.i36, %91
   %111 = call i32 @ff_filter_frame(ptr noundef nonnull %10, ptr noundef nonnull %90) #4
@@ -289,14 +289,14 @@ filter_frame.exit:                                ; preds = %77, %55, %52, %12, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1094995529, 1) i32 @config_props_output(ptr noundef captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !54
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !55
+  %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %9) #4
   store i32 %10, ptr %4, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -311,27 +311,27 @@ define internal range(i32 -1094995529, 1) i32 @config_props_output(ptr noundef c
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %17 = load i32, ptr %16, align 8, !tbaa !56
+  %17 = load i32, ptr %16, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %17, ptr %18, align 8, !tbaa !56
+  store i32 %17, ptr %18, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %20 = load i32, ptr %19, align 4, !tbaa !57
+  %20 = load i32, ptr %19, align 4, !tbaa !55
   %21 = shl nsw i32 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %21, ptr %22, align 4, !tbaa !57
+  store i32 %21, ptr %22, align 4, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %24 = load i32, ptr %23, align 8, !tbaa !58
+  %24 = load i32, ptr %23, align 8, !tbaa !56
   %25 = shl nsw i32 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %25, ptr %26, align 8, !tbaa !58
+  store i32 %25, ptr %26, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 268
-  %28 = load i32, ptr %27, align 4, !tbaa !60
+  %28 = load i32, ptr %27, align 4, !tbaa !58
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 %28, ptr %29, align 4, !tbaa !60
+  store i32 %28, ptr %29, align 4, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !61
+  %31 = load i32, ptr %30, align 8, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %31, ptr %32, align 8, !tbaa !61
+  store i32 %31, ptr %32, align 8, !tbaa !59
   %33 = ashr exact i32 %12, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %33, ptr %34, align 4, !tbaa !35
@@ -427,18 +427,16 @@ attributes #4 = { nounwind }
 !44 = !{!"SeparateFieldsContext", !15, i64 0, !25, i64 8}
 !45 = !{!44, !15, i64 0}
 !46 = !{!15, !15, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = !{!11, !11, i64 0}
-!51 = distinct !{!51, !48}
-!52 = !{!37, !39, i64 136}
-!53 = !{!39, !39, i64 0}
-!54 = !{!27, !28, i64 0}
-!55 = !{!27, !15, i64 36}
-!56 = !{!27, !15, i64 96}
-!57 = !{!27, !15, i64 100}
-!58 = !{!59, !15, i64 264}
-!59 = !{!"FilterLink", !27, i64 0, !16, i64 200, !39, i64 208, !39, i64 216, !15, i64 224, !15, i64 228, !39, i64 232, !39, i64 240, !39, i64 248, !39, i64 256, !29, i64 264, !19, i64 272}
-!60 = !{!59, !15, i64 268}
-!61 = !{!27, !15, i64 40}
+!49 = !{!11, !11, i64 0}
+!50 = !{!37, !39, i64 136}
+!51 = !{!39, !39, i64 0}
+!52 = !{!27, !28, i64 0}
+!53 = !{!27, !15, i64 36}
+!54 = !{!27, !15, i64 96}
+!55 = !{!27, !15, i64 100}
+!56 = !{!57, !15, i64 264}
+!57 = !{!"FilterLink", !27, i64 0, !16, i64 200, !39, i64 208, !39, i64 216, !15, i64 224, !15, i64 228, !39, i64 232, !39, i64 240, !39, i64 248, !39, i64 256, !29, i64 264, !19, i64 272}
+!58 = !{!57, !15, i64 268}
+!59 = !{!27, !15, i64 40}

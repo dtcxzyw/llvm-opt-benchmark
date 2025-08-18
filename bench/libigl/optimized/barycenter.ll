@@ -14834,7 +14834,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %272 = lshr i128 %270, 64
   %273 = add nuw i64 %.0148.us, 1
   %exitcond.not = icmp eq i64 %273, %11
-  br i1 %exitcond.not, label %._crit_edge.us, label %259, !llvm.loop !232
+  br i1 %exitcond.not, label %._crit_edge.us, label %259, !llvm.loop !231
 
 ._crit_edge.us:                                   ; preds = %259
   %.not.us = icmp ult i128 %270, 18446744073709551616
@@ -14979,11 +14979,11 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends17eval_mul
   br i1 %.not.i123, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit, label %40
 
 40:                                               ; preds = %38
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !233
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !233
-  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !233
-  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !233
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !233
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !232
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !232
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !232
+  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !232
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !232
   %41 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev, ptr nonnull @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result) #24
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit
@@ -15042,11 +15042,11 @@ _ZN5boost14multiprecision8backends7eval_eqILm0ELm0ELNS0_16cpp_integer_typeE1ELNS
   br i1 %.not.i125, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit126, label %68
 
 68:                                               ; preds = %66
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !236
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !236
-  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !236
-  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !236
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !236
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !235
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !235
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !235
+  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !235
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !235
   %69 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev, ptr nonnull @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result) #24
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit126
@@ -16432,7 +16432,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 0, ptr %151, align 8, !tbaa !149
   %152 = add nuw i64 %.035167, 1
   %153 = icmp ult i64 %152, %91
-  br i1 %153, label %.lr.ph.split, label %._crit_edge, !llvm.loop !239
+  br i1 %153, label %.lr.ph.split, label %._crit_edge, !llvm.loop !238
 
 154:                                              ; preds = %._crit_edge
   %155 = load i64, ptr %134, align 16, !tbaa !143
@@ -16471,7 +16471,7 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
   store i64 0, ptr %171, align 8, !tbaa !149
   %172 = add nuw i64 %.0168, 1
   %173 = icmp ult i64 %172, %157
-  br i1 %173, label %.lr.ph170.split, label %._crit_edge171, !llvm.loop !240
+  br i1 %173, label %.lr.ph170.split, label %._crit_edge171, !llvm.loop !239
 
 174:                                              ; preds = %._crit_edge171
   invoke void @_ZN5boost14multiprecision8backends12add_unsignedINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEES7_S7_EEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(27) %12, ptr noundef nonnull align 16 dereferenceable(27) %6, ptr noundef nonnull align 16 dereferenceable(27) %9)
@@ -16951,11 +16951,11 @@ _ZN5boost14multiprecision8backends13eval_get_signILm0ELm0ELNS0_16cpp_integer_typ
   br i1 %.not.i, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit, label %30
 
 30:                                               ; preds = %28
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !241
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !241
-  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !241
-  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !241
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !241
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !240
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !240
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !240
+  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !240
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !240
   %31 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev, ptr nonnull @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, ptr nonnull @__dso_handle) #24
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result) #24
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit
@@ -17255,11 +17255,11 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends21eval_add
   br i1 %.not.i, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit, label %41
 
 41:                                               ; preds = %39
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !244
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !244
-  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !244
-  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !244
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !244
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !243
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !243
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !243
+  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !243
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !243
   %42 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev, ptr nonnull @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result) #24
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit
@@ -17597,11 +17597,11 @@ _ZN5boost14multiprecision8backends8eval_addILm0ELm0ELNS0_16cpp_integer_typeE1ELN
   br i1 %.not.i86, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit87, label %205
 
 205:                                              ; preds = %203
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !247
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !247
-  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !247
-  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !247
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !247
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 25), align 1, !tbaa !146, !alias.scope !246
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 26), align 2, !tbaa !188, !alias.scope !246
+  store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 16), align 16, !tbaa !143, !alias.scope !246
+  store i64 1, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, align 16, !tbaa !149, !alias.scope !246
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, i64 24), align 8, !tbaa !157, !alias.scope !246
   %206 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev, ptr nonnull @_ZZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result, ptr nonnull @__dso_handle) #24
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEvE6result) #24
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE3oneEv.exit87
@@ -18017,69 +18017,69 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %9 = load ptr, ptr %1, align 8, !tbaa !32, !noalias !250
-  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !250
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
+  %9 = load ptr, ptr %1, align 8, !tbaa !32, !noalias !249
+  %10 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !249
   %.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i, label %16
 
 _ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i: ; preds = %2
-  %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !250
-  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !253
+  %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !249
+  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !252
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %8, ptr %13, align 8, !tbaa !65, !alias.scope !253
+  store i64 %8, ptr %13, align 8, !tbaa !65, !alias.scope !252
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %9, ptr %14, align 8, !tbaa !32, !alias.scope !253
-  %15 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !256
+  store ptr %9, ptr %14, align 8, !tbaa !32, !alias.scope !252
+  %15 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !255
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit, label %31
 
 16:                                               ; preds = %2
-  %17 = load atomic i32, ptr %11 monotonic, align 4, !noalias !250
+  %17 = load atomic i32, ptr %11 monotonic, align 4, !noalias !249
   %18 = add nsw i32 %17, 1
-  store atomic i32 %18, ptr %11 monotonic, align 4, !noalias !250
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !256
+  store atomic i32 %18, ptr %11 monotonic, align 4, !noalias !249
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
+  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !255
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %8, ptr %19, align 8, !tbaa !65, !alias.scope !256
+  store i64 %8, ptr %19, align 8, !tbaa !65, !alias.scope !255
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %9, ptr %20, align 8, !tbaa !32, !alias.scope !256
-  %21 = load atomic i32, ptr %11 monotonic, align 4, !noalias !256
+  store ptr %9, ptr %20, align 8, !tbaa !32, !alias.scope !255
+  %21 = load atomic i32, ptr %11 monotonic, align 4, !noalias !255
   %22 = add nsw i32 %21, 1
-  store atomic i32 %22, ptr %11 monotonic, align 4, !noalias !256
-  %23 = load atomic i32, ptr %11 monotonic, align 4, !noalias !250
+  store atomic i32 %22, ptr %11 monotonic, align 4, !noalias !255
+  %23 = load atomic i32, ptr %11 monotonic, align 4, !noalias !249
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %16
-  %26 = load ptr, ptr %9, align 8, !tbaa !45, !noalias !250
+  %26 = load ptr, ptr %9, align 8, !tbaa !45, !noalias !249
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !250
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(12) %9) #24, !noalias !250
+  %28 = load ptr, ptr %27, align 8, !noalias !249
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(12) %9) #24, !noalias !249
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit
 
 29:                                               ; preds = %16
   %30 = add nsw i32 %23, -1
-  store atomic i32 %30, ptr %11 monotonic, align 4, !noalias !250
+  store atomic i32 %30, ptr %11 monotonic, align 4, !noalias !249
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit
 
 31:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i
-  %32 = load atomic i32, ptr %11 monotonic, align 4, !noalias !250
+  %32 = load atomic i32, ptr %11 monotonic, align 4, !noalias !249
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = atomicrmw sub ptr %11, i32 1 release, align 4, !noalias !250
+  %35 = atomicrmw sub ptr %11, i32 1 release, align 4, !noalias !249
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit
 
 37:                                               ; preds = %34, %31
   fence acquire
-  %38 = load ptr, ptr %9, align 8, !tbaa !45, !noalias !250
+  %38 = load ptr, ptr %9, align 8, !tbaa !45, !noalias !249
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !noalias !250
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(12) %9) #24, !noalias !250
+  %40 = load ptr, ptr %39, align 8, !noalias !249
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(12) %9) #24, !noalias !249
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i, %25, %29, %34, %37
@@ -18402,7 +18402,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5Eigen8internal27construct_element
   %5 = getelementptr inbounds nuw %"class.CGAL::Lazy_exact_nt", ptr %0, i64 %.012
   %6 = load i8, ptr @_ZGVZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEvE1z, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %_ZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEv.exit.i.i, !prof !259
+  br i1 %7, label %8, label %_ZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EEE4zeroEv.exit.i.i, !prof !258
 
 8:                                                ; preds = %4
   %9 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #33
@@ -18442,7 +18442,7 @@ _ZN4CGAL4LazyINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backend
 _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEC2Ev.exit: ; preds = %20, %17
   %22 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !260
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !259
 
 23:                                               ; preds = %8
   %24 = landingpad { ptr, i32 }
@@ -18733,20 +18733,20 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14
   %22 = load ptr, ptr %0, align 8, !tbaa !21
   %23 = mul nsw i64 %20, %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !261
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !261
+  %25 = load ptr, ptr %24, align 8, !tbaa !32, !noalias !260
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !260
   %.not.i.i.i.i.i = icmp eq i8 %26, 0
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br i1 %.not.i.i.i.i.i, label %31, label %28
 
 28:                                               ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opISI_EESJ_EESI_SI_EEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit
-  %29 = load atomic i32, ptr %27 monotonic, align 4, !noalias !261
+  %29 = load atomic i32, ptr %27 monotonic, align 4, !noalias !260
   %30 = add nsw i32 %29, 1
-  store atomic i32 %30, ptr %27 monotonic, align 4, !noalias !261
+  store atomic i32 %30, ptr %27 monotonic, align 4, !noalias !260
   br label %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
 
 31:                                               ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opISI_EESJ_EESI_SI_EEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit
-  %32 = atomicrmw add ptr %27, i32 1 monotonic, align 4, !noalias !261
+  %32 = atomicrmw add ptr %27, i32 1 monotonic, align 4, !noalias !260
   br label %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
 
 _ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit: ; preds = %28, %31
@@ -18824,7 +18824,7 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
   store ptr %25, ptr %.06.i.i.i.i, align 8, !tbaa !32
   %64 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %64, %34
-  br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !264
+  br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !263
 
 _ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit: ; preds = %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.i.i.i.i, %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
   %.not.i.i = icmp eq ptr %25, null
@@ -19105,13 +19105,13 @@ define linkonce_odr dso_local void @_ZNK4CGAL14Lazy_exact_AddIN5boost14multiprec
   %9 = load ptr, ptr %8, align 16, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %9, ptr %6, align 8, !tbaa !265
+  store ptr %9, ptr %6, align 8, !tbaa !264
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %6, ptr %5, align 8, !tbaa !268
+  store ptr %6, ptr %5, align 8, !tbaa !267
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %5, ptr %11, align 8, !tbaa !268
+  store ptr %5, ptr %11, align 8, !tbaa !267
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !268
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !267
   %13 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i unwind label %16
 
@@ -19129,14 +19129,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
 16:                                               ; preds = %14, %1
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 18:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -19146,11 +19146,11 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
   %22 = load ptr, ptr %21, align 16, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %22, ptr %4, align 8, !tbaa !265
+  store ptr %22, ptr %4, align 8, !tbaa !264
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %4, ptr %3, align 8, !tbaa !268
-  store ptr %3, ptr %11, align 8, !tbaa !268
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !268
+  store ptr %4, ptr %3, align 8, !tbaa !267
+  store ptr %3, ptr %11, align 8, !tbaa !267
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !267
   %24 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i5 unwind label %27
 
@@ -19168,14 +19168,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 27:                                               ; preds = %25, %18
   %28 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i5
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -19356,9 +19356,9 @@ declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  %2 = load ptr, ptr %1, align 8, !tbaa !268
-  %3 = load ptr, ptr %2, align 8, !tbaa !269
-  %4 = load ptr, ptr %3, align 8, !tbaa !265
+  %2 = load ptr, ptr %1, align 8, !tbaa !267
+  %3 = load ptr, ptr %2, align 8, !tbaa !268
+  %4 = load ptr, ptr %3, align 8, !tbaa !264
   %5 = load ptr, ptr %4, align 16, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -19372,25 +19372,25 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #13
 define linkonce_odr dso_local { double, double } @_ZNK4CGAL12RET_boost_mpIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEN4mpl_4int_ILi2EEEE11To_intervalclERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(64) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::multiprecision::number.77", align 16
   %4 = alloca %"class.boost::multiprecision::number.77", align 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  store i64 0, ptr %3, align 16, !tbaa !35, !alias.scope !271
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
+  store i64 0, ptr %3, align 16, !tbaa !35, !alias.scope !270
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %7 = load i8, ptr %6, align 2, !tbaa !188, !range !147, !noalias !271, !noundef !148
+  %7 = load i8, ptr %6, align 2, !tbaa !188, !range !147, !noalias !270, !noundef !148
   %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 16, !noalias !271
+  %10 = load i64, ptr %9, align 16, !noalias !270
   %11 = select i1 %8, i64 %10, i64 0
-  store i64 %11, ptr %5, align 16, !tbaa !143, !alias.scope !271
+  store i64 %11, ptr %5, align 16, !tbaa !143, !alias.scope !270
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i8, ptr %13, align 8, !tbaa !157, !range !147, !noalias !271, !noundef !148
-  store i8 %14, ptr %12, align 8, !tbaa !157, !alias.scope !271
+  %14 = load i8, ptr %13, align 8, !tbaa !157, !range !147, !noalias !270, !noundef !148
+  store i8 %14, ptr %12, align 8, !tbaa !157, !alias.scope !270
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %not..i.i.i = xor i8 %7, 1
-  store i8 %not..i.i.i, ptr %15, align 1, !tbaa !146, !alias.scope !271
+  store i8 %not..i.i.i, ptr %15, align 1, !tbaa !146, !alias.scope !270
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  store i8 %7, ptr %16, align 2, !tbaa !188, !alias.scope !271
+  store i8 %7, ptr %16, align 2, !tbaa !188, !alias.scope !270
   br i1 %8, label %17, label %18
 
 17:                                               ; preds = %2
@@ -19405,47 +19405,47 @@ define linkonce_odr dso_local { double, double } @_ZNK4CGAL12RET_boost_mpIN5boos
 _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i: ; preds = %18
   %.sroa.speculated18.i.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i.i, i64 8)
   %20 = shl nuw nsw i64 %.sroa.speculated18.i.i, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #33, !noalias !271
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #33, !noalias !270
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 0, ptr %15, align 1, !tbaa !146, !alias.scope !271
-  store i64 %.sroa.speculated18.i.i, ptr %3, align 16, !tbaa !35, !alias.scope !271
-  store ptr %21, ptr %22, align 8, !tbaa !35, !alias.scope !271
+  store i8 0, ptr %15, align 1, !tbaa !146, !alias.scope !270
+  store i64 %.sroa.speculated18.i.i, ptr %3, align 16, !tbaa !35, !alias.scope !270
+  store ptr %21, ptr %22, align 8, !tbaa !35, !alias.scope !270
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i: ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i, %18
   %23 = phi ptr [ %21, %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i ], [ %3, %18 ]
-  store i64 %spec.select.i.i, ptr %5, align 16, !tbaa !143, !alias.scope !271
+  store i64 %spec.select.i.i, ptr %5, align 16, !tbaa !143, !alias.scope !270
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %25 = load i8, ptr %24, align 1, !tbaa !146, !range !147, !noalias !271, !noundef !148
+  %25 = load i8, ptr %24, align 1, !tbaa !146, !range !147, !noalias !270, !noundef !148
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !271
+  %28 = load ptr, ptr %27, align 8, !noalias !270
   %29 = select i1 %26, ptr %1, ptr %28
   %30 = shl i64 %10, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %29, i64 %30, i1 false)
   br label %_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE.exit
 
 _ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE.exit: ; preds = %17, %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 0, ptr %4, align 16, !tbaa !35, !alias.scope !274
+  store i64 0, ptr %4, align 16, !tbaa !35, !alias.scope !273
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %34 = load i8, ptr %33, align 2, !tbaa !188, !range !147, !noalias !274, !noundef !148
+  %34 = load i8, ptr %33, align 2, !tbaa !188, !range !147, !noalias !273, !noundef !148
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %37 = load i64, ptr %36, align 16, !noalias !274
+  %37 = load i64, ptr %36, align 16, !noalias !273
   %38 = select i1 %35, i64 %37, i64 0
-  store i64 %38, ptr %32, align 16, !tbaa !143, !alias.scope !274
+  store i64 %38, ptr %32, align 16, !tbaa !143, !alias.scope !273
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %41 = load i8, ptr %40, align 8, !tbaa !157, !range !147, !noalias !274, !noundef !148
-  store i8 %41, ptr %39, align 8, !tbaa !157, !alias.scope !274
+  %41 = load i8, ptr %40, align 8, !tbaa !157, !range !147, !noalias !273, !noundef !148
+  store i8 %41, ptr %39, align 8, !tbaa !157, !alias.scope !273
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %not..i.i.i5 = xor i8 %34, 1
-  store i8 %not..i.i.i5, ptr %42, align 1, !tbaa !146, !alias.scope !274
+  store i8 %not..i.i.i5, ptr %42, align 1, !tbaa !146, !alias.scope !273
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 %34, ptr %43, align 2, !tbaa !188, !alias.scope !274
+  store i8 %34, ptr %43, align 2, !tbaa !188, !alias.scope !273
   br i1 %35, label %44, label %45
 
 44:                                               ; preds = %_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE.exit
@@ -19465,19 +19465,19 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i7: ; preds = %45
 
 .noexc:                                           ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i7
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %42, align 1, !tbaa !146, !alias.scope !274
-  store i64 %.sroa.speculated18.i.i8, ptr %4, align 16, !tbaa !35, !alias.scope !274
-  store ptr %48, ptr %49, align 8, !tbaa !35, !alias.scope !274
+  store i8 0, ptr %42, align 1, !tbaa !146, !alias.scope !273
+  store i64 %.sroa.speculated18.i.i8, ptr %4, align 16, !tbaa !35, !alias.scope !273
+  store ptr %48, ptr %49, align 8, !tbaa !35, !alias.scope !273
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i9
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i9: ; preds = %.noexc, %45
   %50 = phi ptr [ %48, %.noexc ], [ %4, %45 ]
-  store i64 %spec.select.i.i6, ptr %32, align 16, !tbaa !143, !alias.scope !274
+  store i64 %spec.select.i.i6, ptr %32, align 16, !tbaa !143, !alias.scope !273
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %52 = load i8, ptr %51, align 1, !tbaa !146, !range !147, !noalias !274, !noundef !148
+  %52 = load i8, ptr %51, align 1, !tbaa !146, !range !147, !noalias !273, !noundef !148
   %53 = trunc nuw i8 %52 to i1
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %55 = load ptr, ptr %54, align 8, !noalias !274
+  %55 = load ptr, ptr %54, align 8, !noalias !273
   %56 = select i1 %53, ptr %31, ptr %55
   %57 = shl i64 %37, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr align 8 %56, i64 %57, i1 false)
@@ -19632,13 +19632,13 @@ _ZN4CGAL11is_positiveIN5boost14multiprecision6numberINS2_8backends15cpp_int_back
 
 45:                                               ; preds = %_ZN4CGAL11is_positiveIN5boost14multiprecision6numberINS2_8backends15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEELNS2_26expression_template_optionE1EEEEENS_22Real_embeddable_traitsIT_E11Is_positive11result_typeERKSD_.exit51
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %0, ptr %10, align 8, !tbaa !200, !alias.scope !277
+  store ptr %0, ptr %10, align 8, !tbaa !200, !alias.scope !276
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSB_6negateES9_vvvEEEEvRKT_RKSD_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %1, ptr %11, align 8, !tbaa !200, !alias.scope !280
+  store ptr %1, ptr %11, align 8, !tbaa !200, !alias.scope !279
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSB_6negateES9_vvvEEEEvRKT_RKSD_(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19651,7 +19651,7 @@ _ZN4CGAL11is_positiveIN5boost14multiprecision6numberINS2_8backends15cpp_int_back
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store ptr %0, ptr %12, align 8, !tbaa !200, !alias.scope !283
+  store ptr %0, ptr %12, align 8, !tbaa !200, !alias.scope !282
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSB_6negateES9_vvvEEEEvRKT_RKSD_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -19664,7 +19664,7 @@ _ZN4CGAL11is_positiveIN5boost14multiprecision6numberINS2_8backends15cpp_int_back
 
 49:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store ptr %1, ptr %13, align 8, !tbaa !200, !alias.scope !286
+  store ptr %1, ptr %13, align 8, !tbaa !200, !alias.scope !285
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE9do_assignINS0_6detail10expressionINSB_6negateES9_vvvEEEEvRKT_RKSD_(ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20324,7 +20324,7 @@ _ZN5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multipreci
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELin1ELi1ELi1ELin1EEEEEEENS0_13div_assign_opISK_SK_EELi0EE11assignCoeffEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.CGAL::Lazy_exact_nt", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !289
+  %4 = load ptr, ptr %0, align 8, !tbaa !288
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !65
@@ -20332,25 +20332,25 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal31generic_dense_assignment
   %9 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %5, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !291
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !301
-  store ptr %12, ptr %3, align 8, !tbaa !32, !alias.scope !301
-  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !301
+  %11 = load ptr, ptr %10, align 8, !tbaa !290
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
+  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !300
+  store ptr %12, ptr %3, align 8, !tbaa !32, !alias.scope !300
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !300
   %.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %.not.i.i.i.i.i.i.i, label %18, label %15
 
 15:                                               ; preds = %2
-  %16 = load atomic i32, ptr %14 monotonic, align 4, !noalias !301
+  %16 = load atomic i32, ptr %14 monotonic, align 4, !noalias !300
   %17 = add nsw i32 %16, 1
-  store atomic i32 %17, ptr %14 monotonic, align 4, !noalias !301
+  store atomic i32 %17, ptr %14 monotonic, align 4, !noalias !300
   br label %_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_.exit
 
 18:                                               ; preds = %2
-  %19 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !301
+  %19 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !300
   br label %_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_.exit
 
 _ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_.exit: ; preds = %15, %18
@@ -20526,16 +20526,16 @@ define linkonce_odr dso_local void @_ZN4CGAL14Lazy_exact_DivIN5boost14multipreci
 30:                                               ; preds = %29, %26, %22
   %.024.i = phi double [ %19, %29 ], [ %19, %26 ], [ %21, %22 ]
   %.023.i = phi double [ %21, %29 ], [ %19, %26 ], [ %19, %22 ]
-  %31 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %24) #24, !srcloc !302
-  %32 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.024.i) #24, !srcloc !302
+  %31 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %24) #24, !srcloc !301
+  %32 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.024.i) #24, !srcloc !301
   %33 = fdiv double %31, %32
-  %34 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %33) #24, !srcloc !302
+  %34 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %33) #24, !srcloc !301
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %36 = load double, ptr %35, align 8
-  %37 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %36) #24, !srcloc !302
-  %38 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.023.i) #24, !srcloc !302
+  %37 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %36) #24, !srcloc !301
+  %38 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.023.i) #24, !srcloc !301
   %39 = fdiv double %37, %38
-  %40 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %39) #24, !srcloc !302
+  %40 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %39) #24, !srcloc !301
   %41 = insertelement <2 x double> poison, double %34, i64 0
   %42 = insertelement <2 x double> %41, double %40, i64 1
   br label %_ZN4CGALdvERKNS_11Interval_ntILb0EEES3_.exit
@@ -20561,18 +20561,18 @@ define linkonce_odr dso_local void @_ZN4CGAL14Lazy_exact_DivIN5boost14multipreci
 53:                                               ; preds = %52, %50, %45
   %.022.i = phi double [ %19, %52 ], [ %21, %50 ], [ %21, %45 ]
   %.0.i = phi double [ %21, %52 ], [ %21, %50 ], [ %19, %45 ]
-  %54 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %49) #24, !srcloc !302
+  %54 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %49) #24, !srcloc !301
   %55 = fneg double %.022.i
-  %56 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %55) #24, !srcloc !302
+  %56 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %55) #24, !srcloc !301
   %57 = fdiv double %54, %56
-  %58 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %57) #24, !srcloc !302
+  %58 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %57) #24, !srcloc !301
   %59 = load <2 x double>, ptr %14, align 16, !tbaa !35
   %60 = extractelement <2 x double> %59, i64 0
   %61 = fneg double %60
-  %62 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %61) #24, !srcloc !302
-  %63 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.0.i) #24, !srcloc !302
+  %62 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %61) #24, !srcloc !301
+  %63 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %.0.i) #24, !srcloc !301
   %64 = fdiv double %62, %63
-  %65 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %64) #24, !srcloc !302
+  %65 = call noundef double asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(double %64) #24, !srcloc !301
   %66 = insertelement <2 x double> poison, double %58, i64 0
   %67 = insertelement <2 x double> %66, double %65, i64 1
   br label %_ZN4CGALdvERKNS_11Interval_ntILb0EEES3_.exit
@@ -20817,13 +20817,13 @@ define linkonce_odr dso_local void @_ZNK4CGAL14Lazy_exact_DivIN5boost14multiprec
   %9 = load ptr, ptr %8, align 16, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %9, ptr %6, align 8, !tbaa !265
+  store ptr %9, ptr %6, align 8, !tbaa !264
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %6, ptr %5, align 8, !tbaa !268
+  store ptr %6, ptr %5, align 8, !tbaa !267
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %5, ptr %11, align 8, !tbaa !268
+  store ptr %5, ptr %11, align 8, !tbaa !267
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !268
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !267
   %13 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i unwind label %16
 
@@ -20841,14 +20841,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
 16:                                               ; preds = %14, %1
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 18:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -20858,11 +20858,11 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %1
   %22 = load ptr, ptr %21, align 16, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %22, ptr %4, align 8, !tbaa !265
+  store ptr %22, ptr %4, align 8, !tbaa !264
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %4, ptr %3, align 8, !tbaa !268
-  store ptr %3, ptr %11, align 8, !tbaa !268
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !268
+  store ptr %4, ptr %3, align 8, !tbaa !267
+  store ptr %3, ptr %11, align 8, !tbaa !267
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_11Interval_ntILb0EEEN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEENS3_11To_intervalISJ_EELi1EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSP_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !267
   %24 = invoke noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit.i.i.i5 unwind label %27
 
@@ -20880,14 +20880,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i5:           ; preds = %18
 27:                                               ; preds = %25, %18
   %28 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i5
-  store ptr null, ptr %11, align 8, !tbaa !268
-  store ptr null, ptr %12, align 8, !tbaa !268
+  store ptr null, ptr %11, align 8, !tbaa !267
+  store ptr null, ptr %12, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -21170,65 +21170,65 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !113
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
-  %7 = load ptr, ptr %1, align 8, !tbaa !32, !noalias !303
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !303
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
+  %7 = load ptr, ptr %1, align 8, !tbaa !32, !noalias !302
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !302
   %.not.i.i.i.i.i.i = icmp eq i8 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i, label %13
 
 _ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i: ; preds = %2
-  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !303
-  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !306
+  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !302
+  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !305
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %11, align 8, !tbaa !32, !alias.scope !306
-  %12 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !309
+  store ptr %7, ptr %11, align 8, !tbaa !32, !alias.scope !305
+  %12 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !308
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit, label %27
 
 13:                                               ; preds = %2
-  %14 = load atomic i32, ptr %9 monotonic, align 4, !noalias !303
+  %14 = load atomic i32, ptr %9 monotonic, align 4, !noalias !302
   %15 = add nsw i32 %14, 1
-  store atomic i32 %15, ptr %9 monotonic, align 4, !noalias !303
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !309
+  store atomic i32 %15, ptr %9 monotonic, align 4, !noalias !302
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
+  store i64 %6, ptr %4, align 8, !tbaa !65, !alias.scope !308
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %16, align 8, !tbaa !32, !alias.scope !309
-  %17 = load atomic i32, ptr %9 monotonic, align 4, !noalias !309
+  store ptr %7, ptr %16, align 8, !tbaa !32, !alias.scope !308
+  %17 = load atomic i32, ptr %9 monotonic, align 4, !noalias !308
   %18 = add nsw i32 %17, 1
-  store atomic i32 %18, ptr %9 monotonic, align 4, !noalias !309
-  %19 = load atomic i32, ptr %9 monotonic, align 4, !noalias !303
+  store atomic i32 %18, ptr %9 monotonic, align 4, !noalias !308
+  %19 = load atomic i32, ptr %9 monotonic, align 4, !noalias !302
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %7, align 8, !tbaa !45, !noalias !303
+  %22 = load ptr, ptr %7, align 8, !tbaa !45, !noalias !302
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !noalias !303
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %7) #24, !noalias !303
+  %24 = load ptr, ptr %23, align 8, !noalias !302
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %7) #24, !noalias !302
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit
 
 25:                                               ; preds = %13
   %26 = add nsw i32 %19, -1
-  store atomic i32 %26, ptr %9 monotonic, align 4, !noalias !303
+  store atomic i32 %26, ptr %9 monotonic, align 4, !noalias !302
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit
 
 27:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i
-  %28 = load atomic i32, ptr %9 monotonic, align 4, !noalias !303
+  %28 = load atomic i32, ptr %9 monotonic, align 4, !noalias !302
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = atomicrmw sub ptr %9, i32 1 release, align 4, !noalias !303
+  %31 = atomicrmw sub ptr %9, i32 1 release, align 4, !noalias !302
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit
 
 33:                                               ; preds = %30, %27
   fence acquire
-  %34 = load ptr, ptr %7, align 8, !tbaa !45, !noalias !303
+  %34 = load ptr, ptr %7, align 8, !tbaa !45, !noalias !302
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8, !noalias !303
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(12) %7) #24, !noalias !303
+  %36 = load ptr, ptr %35, align 8, !noalias !302
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(12) %7) #24, !noalias !302
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_.exit: ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_.exit.i, %21, %25, %30, %33
@@ -21375,20 +21375,20 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14
   %8 = phi i64 [ %4, %3 ], [ %.pre, %7 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !95
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !312
-  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !312
+  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !311
+  %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !311
   %.not.i.i.i.i.i = icmp eq i8 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %.not.i.i.i.i.i, label %17, label %14
 
 14:                                               ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opISI_EESJ_EESI_SI_EEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit
-  %15 = load atomic i32, ptr %13 monotonic, align 4, !noalias !312
+  %15 = load atomic i32, ptr %13 monotonic, align 4, !noalias !311
   %16 = add nsw i32 %15, 1
-  store atomic i32 %16, ptr %13 monotonic, align 4, !noalias !312
+  store atomic i32 %16, ptr %13 monotonic, align 4, !noalias !311
   br label %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
 
 17:                                               ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS6_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS6_16cpp_integer_typeE1ELNS6_18cpp_int_check_typeE0ESaIyEEEEELNS6_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEENS_14CwiseNullaryOpINS0_18scalar_constant_opISI_EESJ_EESI_SI_EEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit
-  %18 = atomicrmw add ptr %13, i32 1 monotonic, align 4, !noalias !312
+  %18 = atomicrmw add ptr %13, i32 1 monotonic, align 4, !noalias !311
   br label %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
 
 _ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit: ; preds = %14, %17
@@ -21466,7 +21466,7 @@ _ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_a
   store ptr %11, ptr %.06.i.i.i.i, align 8, !tbaa !32
   %50 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %50, %20
-  br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !264
+  br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !263
 
 _ZSt6fill_nIPN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS3_16cpp_integer_typeE1ELNS3_18cpp_int_check_typeE0ESaIyEEEEELNS3_26expression_template_optionE1EEEEElSF_ET_SH_T0_RKT1_.exit: ; preds = %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.i.i.i.i, %_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv.exit
   %.not.i.i = icmp eq ptr %11, null
@@ -21518,34 +21518,34 @@ _ZN4CGAL6HandleD2Ev.exit:                         ; preds = %56, %60, %63, %66, 
 define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_LinearTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS3_INS4_IKSM_Li1ELi3ELb0EEEEENS0_13add_assign_opISL_SL_EELi0EEELi1ELi3EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.CGAL::Lazy_exact_nt", align 8
   %3 = alloca %"class.CGAL::Lazy_exact_nt", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !315
+  %4 = load ptr, ptr %0, align 8, !tbaa !314
   %5 = load ptr, ptr %4, align 8, !tbaa !114
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !65
   %8 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %5, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !317
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
-  %11 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !318
+  %10 = load ptr, ptr %9, align 8, !tbaa !316
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
+  %11 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !317
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !65, !noalias !318
+  %13 = load i64, ptr %12, align 8, !tbaa !65, !noalias !317
   %14 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %11, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !32, !noalias !318
-  store ptr %15, ptr %3, align 8, !tbaa !32, !alias.scope !318
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !318
+  %15 = load ptr, ptr %14, align 8, !tbaa !32, !noalias !317
+  store ptr %15, ptr %3, align 8, !tbaa !32, !alias.scope !317
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !317
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br i1 %.not.i.i.i.i.i.i, label %21, label %18
 
 18:                                               ; preds = %1
-  %19 = load atomic i32, ptr %17 monotonic, align 4, !noalias !318
+  %19 = load atomic i32, ptr %17 monotonic, align 4, !noalias !317
   %20 = add nsw i32 %19, 1
-  store atomic i32 %20, ptr %17 monotonic, align 4, !noalias !318
+  store atomic i32 %20, ptr %17 monotonic, align 4, !noalias !317
   br label %_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i
 
 21:                                               ; preds = %1
-  %22 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !318
+  %22 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !317
   br label %_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i
 
 _ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i: ; preds = %21, %18
@@ -21614,35 +21614,35 @@ common.resume:                                    ; preds = %93, %48
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS3_IKSL_Li1ELi3ELb0EEEEENS0_13add_assign_opISK_SK_EELi0EE11assignCoeffEl.exit: ; preds = %_ZNK5Eigen8internal13add_assign_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEESH_E11assignCoeffERSH_RKSH_.exit.i, %31, %35, %38, %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %50 = load ptr, ptr %0, align 8, !tbaa !315
+  %50 = load ptr, ptr %0, align 8, !tbaa !314
   %51 = load ptr, ptr %50, align 8, !tbaa !114
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !65
   %.idx.i = shl nsw i64 %53, 5
   %54 = getelementptr inbounds i8, ptr %51, i64 %.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %55 = load ptr, ptr %9, align 8, !tbaa !317
-  call void @llvm.experimental.noalias.scope.decl(metadata !321)
-  %56 = load ptr, ptr %55, align 8, !tbaa !111, !noalias !321
+  %55 = load ptr, ptr %9, align 8, !tbaa !316
+  call void @llvm.experimental.noalias.scope.decl(metadata !320)
+  %56 = load ptr, ptr %55, align 8, !tbaa !111, !noalias !320
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !65, !noalias !321
+  %58 = load i64, ptr %57, align 8, !tbaa !65, !noalias !320
   %.idx2.i = shl nsw i64 %58, 5
   %59 = getelementptr inbounds i8, ptr %56, i64 %.idx2.i
-  %60 = load ptr, ptr %59, align 8, !tbaa !32, !noalias !321
-  store ptr %60, ptr %2, align 8, !tbaa !32, !alias.scope !321
-  %61 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !321
+  %60 = load ptr, ptr %59, align 8, !tbaa !32, !noalias !320
+  store ptr %60, ptr %2, align 8, !tbaa !32, !alias.scope !320
+  %61 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !320
   %.not.i.i.i.i.i.i.i = icmp eq i8 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   br i1 %.not.i.i.i.i.i.i.i, label %66, label %63
 
 63:                                               ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS3_IKSL_Li1ELi3ELb0EEEEENS0_13add_assign_opISK_SK_EELi0EE11assignCoeffEl.exit
-  %64 = load atomic i32, ptr %62 monotonic, align 4, !noalias !321
+  %64 = load atomic i32, ptr %62 monotonic, align 4, !noalias !320
   %65 = add nsw i32 %64, 1
-  store atomic i32 %65, ptr %62 monotonic, align 4, !noalias !321
+  store atomic i32 %65, ptr %62 monotonic, align 4, !noalias !320
   br label %_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i.i
 
 66:                                               ; preds = %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS3_IKSL_Li1ELi3ELb0EEEEENS0_13add_assign_opISK_SK_EELi0EE11assignCoeffEl.exit
-  %67 = atomicrmw add ptr %62, i32 1 monotonic, align 4, !noalias !321
+  %67 = atomicrmw add ptr %62, i32 1 monotonic, align 4, !noalias !320
   br label %_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i.i
 
 _ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl.exit.i.i: ; preds = %66, %63
@@ -21799,14 +21799,14 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal26call_dense_assignment_lo
   store ptr %17, ptr %5, align 8, !tbaa !114
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !324
+  %20 = load ptr, ptr %19, align 8, !tbaa !323
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !113
   store i64 %22, ptr %18, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !116
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %23, align 8, !tbaa !325
+  store ptr %4, ptr %23, align 8, !tbaa !324
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %24, align 8, !tbaa !90
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -21948,7 +21948,7 @@ _ZN5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multipreci
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELi3ELi1ELi1ELi3EEEEEEENS0_13div_assign_opISK_SK_EELi0EE11assignCoeffEl(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.CGAL::Lazy_exact_nt", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !327
+  %4 = load ptr, ptr %0, align 8, !tbaa !326
   %5 = load ptr, ptr %4, align 8, !tbaa !114
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !65
@@ -21956,25 +21956,25 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal31generic_dense_assignment
   %9 = getelementptr inbounds %"class.CGAL::Lazy_exact_nt", ptr %5, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !329
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !339
-  store ptr %12, ptr %3, align 8, !tbaa !32, !alias.scope !339
-  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !339
+  %11 = load ptr, ptr %10, align 8, !tbaa !328
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
+  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !338
+  store ptr %12, ptr %3, align 8, !tbaa !32, !alias.scope !338
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35, !noalias !338
   %.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %.not.i.i.i.i.i.i.i, label %18, label %15
 
 15:                                               ; preds = %2
-  %16 = load atomic i32, ptr %14 monotonic, align 4, !noalias !339
+  %16 = load atomic i32, ptr %14 monotonic, align 4, !noalias !338
   %17 = add nsw i32 %16, 1
-  store atomic i32 %17, ptr %14 monotonic, align 4, !noalias !339
+  store atomic i32 %17, ptr %14 monotonic, align 4, !noalias !338
   br label %_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_.exit
 
 18:                                               ; preds = %2
-  %19 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !339
+  %19 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !338
   br label %_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_.exit
 
 _ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_.exit: ; preds = %15, %18
@@ -22110,38 +22110,38 @@ define internal void @_GLOBAL__sub_I_barycenter.cpp() #30 section ".text.startup
   %5 = fadd double %4, 1.000000e+00
   store double %5, ptr @_ZN4COREL6relEpsE, align 8, !tbaa !142
   %6 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL6relEpsE)
-  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !342
+  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !341
   %7 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_ZEROE)
-  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !342
+  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !341
   %8 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_ONEE)
-  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !342
+  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !341
   %9 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_TWOE)
-  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !342
+  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !341
   %10 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_THREEE)
-  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !342
+  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !341
   %11 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FOURE)
-  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !342
+  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !341
   %12 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FIVEE)
-  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !342
+  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !341
   %13 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_SIXE)
-  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !342
+  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !341
   %14 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SEVENE)
-  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !342
+  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !341
   %15 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_EIGHTE)
-  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !342
+  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !341
   %16 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_BIGE)
-  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !340
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !342
+  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !339
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !341
   %17 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SMALLE)
   store double 0x4002934F0979A371, ptr @_ZN4COREL5log_5E, align 8, !tbaa !142
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
@@ -22453,116 +22453,115 @@ attributes #38 = { nounwind allocsize(0) }
 !227 = !{!228}
 !228 = distinct !{!228, !229, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
 !229 = distinct !{!229, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
-!230 = distinct !{!230, !49, !231}
-!231 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!232 = distinct !{!232, !49}
-!233 = !{!234}
-!234 = distinct !{!234, !235, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
-!235 = distinct !{!235, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
-!236 = !{!237}
-!237 = distinct !{!237, !238, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
-!238 = distinct !{!238, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!230 = distinct !{!230, !49}
+!231 = distinct !{!231, !49}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
+!234 = distinct !{!234, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
+!237 = distinct !{!237, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!238 = distinct !{!238, !49}
 !239 = distinct !{!239, !49}
-!240 = distinct !{!240, !49}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
-!243 = distinct !{!243, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
-!246 = distinct !{!246, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
-!249 = distinct !{!249, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
-!250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_: argument 0"}
-!252 = distinct !{!252, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_"}
-!253 = !{!254, !251}
-!254 = distinct !{!254, !255, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0:thread"}
-!255 = distinct !{!255, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_"}
-!256 = !{!257, !251}
-!257 = distinct !{!257, !255, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0"}
-!258 = !{!257}
-!259 = !{!"branch_weights", i32 1, i32 1023}
-!260 = distinct !{!260, !49}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
-!263 = distinct !{!263, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
-!264 = distinct !{!264, !49}
-!265 = !{!266, !267, i64 0}
-!266 = !{!"_ZTSZNK4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EE5exactEvEUlvE_", !267, i64 0}
-!267 = !{!"p1 _ZTSN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EEE", !7, i64 0}
-!268 = !{!7, !7, i64 0}
-!269 = !{!270, !7, i64 0}
-!270 = !{!"_ZTSZSt9call_onceIZNK4CGAL8Lazy_repINS0_11Interval_ntILb0EEEN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEENS0_11To_intervalISG_EELi1EE5exactEvEUlvE_JEEvRSt9once_flagOT_DpOT0_EUlvE_", !7, i64 0}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE: argument 0"}
-!273 = distinct !{!273, !"_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE"}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN5boost14multiprecision11denominatorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE: argument 0"}
-!276 = distinct !{!276, !"_ZN5boost14multiprecision11denominatorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE"}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
-!279 = distinct !{!279, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
-!282 = distinct !{!282, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
-!285 = distinct !{!285, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
-!288 = distinct !{!288, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
-!289 = !{!290, !87, i64 0}
-!290 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELin1ELi1ELi1ELin1EEEEEEENS0_13div_assign_opISK_SK_EELi0EEE", !87, i64 0, !89, i64 8, !91, i64 16, !93, i64 24}
-!291 = !{!290, !89, i64 8}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_: argument 0"}
-!294 = distinct !{!294, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_"}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_: argument 0"}
-!297 = distinct !{!297, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_"}
-!298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
-!300 = distinct !{!300, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
-!301 = !{!299, !296, !293}
-!302 = !{i64 15872521}
-!303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_: argument 0"}
-!305 = distinct !{!305, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_"}
-!306 = !{!307, !304}
-!307 = distinct !{!307, !308, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0:thread"}
-!308 = distinct !{!308, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_"}
-!309 = !{!310, !304}
-!310 = distinct !{!310, !308, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0"}
-!311 = !{!310}
-!312 = !{!313}
-!313 = distinct !{!313, !314, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
-!314 = distinct !{!314, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
-!315 = !{!316, !117, i64 0}
-!316 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS3_IKSL_Li1ELi3ELb0EEEEENS0_13add_assign_opISK_SK_EELi0EEE", !117, i64 0, !119, i64 8, !121, i64 16, !123, i64 24}
-!317 = !{!316, !119, i64 8}
-!318 = !{!319}
-!319 = distinct !{!319, !320, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl: argument 0"}
-!320 = distinct !{!320, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl"}
-!321 = !{!322}
-!322 = distinct !{!322, !323, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl: argument 0"}
-!323 = distinct !{!323, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl"}
-!324 = !{!109, !107, i64 16}
-!325 = !{!326, !326, i64 0}
-!326 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEEE", !7, i64 0}
-!327 = !{!328, !117, i64 0}
-!328 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELi3ELi1ELi1ELi3EEEEEEENS0_13div_assign_opISK_SK_EELi0EEE", !117, i64 0, !326, i64 8, !91, i64 16, !123, i64 24}
-!329 = !{!328, !326, i64 8}
-!330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_: argument 0"}
-!332 = distinct !{!332, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_: argument 0"}
-!335 = distinct !{!335, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_"}
-!336 = !{!337}
-!337 = distinct !{!337, !338, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
-!338 = distinct !{!338, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
-!339 = !{!337, !334, !331}
-!340 = !{!341, !10, i64 0}
-!341 = !{!"_ZTSN4CORE7extLongE", !10, i64 0, !20, i64 8}
-!342 = !{!341, !20, i64 8}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
+!242 = distinct !{!242, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
+!245 = distinct !{!245, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!246 = !{!247}
+!247 = distinct !{!247, !248, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv: argument 0"}
+!248 = distinct !{!248, !"_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7get_oneEv"}
+!249 = !{!250}
+!250 = distinct !{!250, !251, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_: argument 0"}
+!251 = distinct !{!251, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE8ConstantEllRKSH_"}
+!252 = !{!253, !250}
+!253 = distinct !{!253, !254, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0:thread"}
+!254 = distinct !{!254, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_"}
+!255 = !{!256, !250}
+!256 = distinct !{!256, !254, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0"}
+!257 = !{!256}
+!258 = !{!"branch_weights", i32 1, i32 1023}
+!259 = distinct !{!259, !49}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
+!262 = distinct !{!262, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
+!263 = distinct !{!263, !49}
+!264 = !{!265, !266, i64 0}
+!265 = !{!"_ZTSZNK4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EE5exactEvEUlvE_", !266, i64 0}
+!266 = !{!"p1 _ZTSN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEENS_11To_intervalISF_EELi1EEE", !7, i64 0}
+!267 = !{!7, !7, i64 0}
+!268 = !{!269, !7, i64 0}
+!269 = !{!"_ZTSZSt9call_onceIZNK4CGAL8Lazy_repINS0_11Interval_ntILb0EEEN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEENS0_11To_intervalISG_EELi1EE5exactEvEUlvE_JEEvRSt9once_flagOT_DpOT0_EUlvE_", !7, i64 0}
+!270 = !{!271}
+!271 = distinct !{!271, !272, !"_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE: argument 0"}
+!272 = distinct !{!272, !"_ZN5boost14multiprecision9numeratorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE"}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_ZN5boost14multiprecision11denominatorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE: argument 0"}
+!275 = distinct !{!275, !"_ZN5boost14multiprecision11denominatorINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEENS0_6numberIT_XT0_EEERKNS9_INS2_16rational_adaptorISA_EEXT0_EEE"}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
+!278 = distinct !{!278, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
+!281 = distinct !{!281, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
+!282 = !{!283}
+!283 = distinct !{!283, !284, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
+!284 = distinct !{!284, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
+!285 = !{!286}
+!286 = distinct !{!286, !287, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_: argument 0"}
+!287 = distinct !{!287, !"_ZN5boost14multiprecisionngINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEENS0_6detail10expressionINS8_6negateENS0_6numberIT_LNS0_26expression_template_optionE1EEEvvvEERKSE_"}
+!288 = !{!289, !87, i64 0}
+!289 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELin1ELi1ELi1ELin1EEEEEEENS0_13div_assign_opISK_SK_EELi0EEE", !87, i64 0, !89, i64 8, !91, i64 16, !93, i64 24}
+!290 = !{!289, !89, i64 8}
+!291 = !{!292}
+!292 = distinct !{!292, !293, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_: argument 0"}
+!293 = distinct !{!293, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELin1ELi1ELi1ELin1EEEEEE5coeffIlEEKSJ_T_"}
+!294 = !{!295}
+!295 = distinct !{!295, !296, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_: argument 0"}
+!296 = distinct !{!296, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_"}
+!297 = !{!298}
+!298 = distinct !{!298, !299, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
+!299 = distinct !{!299, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
+!300 = !{!298, !295, !292}
+!301 = !{i64 15872521}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_: argument 0"}
+!304 = distinct !{!304, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE8ConstantEllRKSH_"}
+!305 = !{!306, !303}
+!306 = distinct !{!306, !307, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0:thread"}
+!307 = distinct !{!307, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_"}
+!308 = !{!309, !303}
+!309 = distinct !{!309, !307, !"_ZN5Eigen9DenseBaseINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEEE11NullaryExprINS_8internal18scalar_constant_opISH_EEEEKNS_14CwiseNullaryOpIT_SI_EEllRKSP_: argument 0"}
+!310 = !{!309}
+!311 = !{!312}
+!312 = distinct !{!312, !313, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
+!313 = distinct !{!313, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
+!314 = !{!315, !117, i64 0}
+!315 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS3_IKSL_Li1ELi3ELb0EEEEENS0_13add_assign_opISK_SK_EELi0EEE", !117, i64 0, !119, i64 8, !121, i64 16, !123, i64 24}
+!316 = !{!315, !119, i64 8}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl: argument 0"}
+!319 = distinct !{!319, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl: argument 0"}
+!322 = distinct !{!322, !"_ZNK5Eigen8internal17mapbase_evaluatorINS_5BlockIKNS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEENS3_ISJ_Li1ELi3ELi1ELi1ELi3EEEE5coeffEl"}
+!323 = !{!109, !107, i64 16}
+!324 = !{!325, !325, i64 0}
+!325 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEEE", !7, i64 0}
+!326 = !{!327, !117, i64 0}
+!327 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEELin1ELi3ELi0ELin1ELi3EEELi1ELi3ELb0EEEEENS2_INS_14CwiseNullaryOpINS0_18scalar_constant_opISK_EENS4_ISK_Li1ELi3ELi1ELi1ELi3EEEEEEENS0_13div_assign_opISK_SK_EELi0EEE", !117, i64 0, !325, i64 8, !91, i64 16, !123, i64 24}
+!328 = !{!327, !325, i64 8}
+!329 = !{!330}
+!330 = distinct !{!330, !331, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_: argument 0"}
+!331 = distinct !{!331, !"_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS7_8backends16rational_adaptorINS9_15cpp_int_backendILm0ELm0ELNS7_16cpp_integer_typeE1ELNS7_18cpp_int_check_typeE0ESaIyEEEEELNS7_26expression_template_optionE1EEEEEEENS_6MatrixISJ_Li1ELi3ELi1ELi1ELi3EEEEEE5coeffIlEEKSJ_T_"}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_: argument 0"}
+!334 = distinct !{!334, !"_ZNK5Eigen8internal15nullary_wrapperIKN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEENS0_18scalar_constant_opISH_EELb1ELb0ELb0EEclIlEESI_RKSK_T_SP_"}
+!335 = !{!336}
+!336 = distinct !{!336, !337, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv: argument 0"}
+!337 = distinct !{!337, !"_ZNK5Eigen8internal18scalar_constant_opIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEclEv"}
+!338 = !{!336, !333, !330}
+!339 = !{!340, !10, i64 0}
+!340 = !{!"_ZTSN4CORE7extLongE", !10, i64 0, !20, i64 8}
+!341 = !{!340, !20, i64 8}

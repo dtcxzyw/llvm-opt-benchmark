@@ -248,7 +248,7 @@ pg_qsort_swapn.exit223.loopexit:                  ; preds = %.lr.ph.i220
   %.2183 = phi ptr [ %95, %pg_qsort_swapn.exit223.loopexit ], [ %.1182275, %88 ]
   %97 = getelementptr inbounds i8, ptr %.1185273, i64 %5
   %.not205 = icmp ugt ptr %.1187.lcssa, %97
-  br i1 %.not205, label %.critedge2._crit_edge, label %.lr.ph276.split, !llvm.loop !12
+  br i1 %.not205, label %.critedge2._crit_edge, label %.lr.ph276.split, !llvm.loop !10
 
 .critedge4:                                       ; preds = %.lr.ph276.split, %.lr.ph276.split.us
   %.us-phi285 = phi ptr [ %.1185273.us, %.lr.ph276.split.us ], [ %.1185273, %.lr.ph276.split ]
@@ -439,6 +439,4 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5}
+!10 = distinct !{!10, !5}

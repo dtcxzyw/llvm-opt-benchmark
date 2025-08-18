@@ -144,7 +144,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %29 = load ptr, ptr %28, align 16, !tbaa !19
+  %29 = load ptr, ptr %28, align 16, !tbaa !18
   %30 = tail call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef %29) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.split14.us, label %32
@@ -152,7 +152,7 @@ define ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef %0, ptr noundef %1, p
 32:                                               ; preds = %.split, %22, %27
   %33 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %33, 14
-  br i1 %exitcond.not, label %.split14.us, label %.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split14.us, label %.split, !llvm.loop !17
 
 .split14.us:                                      ; preds = %27, %32, %10, %15
   %.us-phi = phi ptr [ %5, %10 ], [ null, %15 ], [ %17, %27 ], [ null, %32 ]
@@ -197,7 +197,7 @@ define i32 @ossl_ffc_named_group_get_keylength(ptr noundef readonly captures(add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -212,7 +212,7 @@ define ptr @ossl_ffc_named_group_get_q(ptr noundef readonly captures(address_is_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -231,16 +231,16 @@ define range(i32 0, 2) i32 @ossl_ffc_named_group_set(ptr noundef %0, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   tail call void @ossl_ffc_params_set0_pqg(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %9, ptr noundef %11) #4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !21
+  %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %13, ptr %14, align 8, !tbaa !22
+  store i32 %13, ptr %14, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %15, align 4, !tbaa !25
+  store i32 0, ptr %15, align 4, !tbaa !23
   br label %16
 
 16:                                               ; preds = %2, %5
@@ -275,12 +275,10 @@ attributes #4 = { nounwind }
 !14 = !{!6, !11, i64 8}
 !15 = !{!6, !12, i64 24}
 !16 = !{!6, !12, i64 40}
-!17 = distinct !{!17, !4, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!6, !12, i64 32}
-!20 = distinct !{!20, !4}
-!21 = !{!6, !11, i64 16}
-!22 = !{!23, !11, i64 88}
-!23 = !{!"ffc_params_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !7, i64 32, !24, i64 40, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !7, i64 72, !7, i64 80, !11, i64 88}
-!24 = !{!"long", !9, i64 0}
-!25 = !{!23, !11, i64 52}
+!17 = distinct !{!17, !4}
+!18 = !{!6, !12, i64 32}
+!19 = !{!6, !11, i64 16}
+!20 = !{!21, !11, i64 88}
+!21 = !{!"ffc_params_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !7, i64 32, !22, i64 40, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !7, i64 72, !7, i64 80, !11, i64 88}
+!22 = !{!"long", !9, i64 0}
+!23 = !{!21, !11, i64 52}

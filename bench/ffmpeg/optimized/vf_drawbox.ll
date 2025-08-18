@@ -765,7 +765,7 @@ define internal void @draw_region(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
   %lftr.wideiv162 = trunc i64 %indvars.iv.next160 to i32
   %exitcond163.not = icmp eq i32 %4, %lftr.wideiv162
-  br i1 %exitcond163.not, label %.loopexit127.us, label %.preheader124.us, !llvm.loop !91
+  br i1 %exitcond163.not, label %.loopexit127.us, label %.preheader124.us, !llvm.loop !90
 
 79:                                               ; preds = %10, %7
   %80 = icmp slt i32 %3, %5
@@ -835,7 +835,7 @@ define internal void @draw_region(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
   %lftr.wideiv168 = trunc i64 %indvars.iv.next166 to i32
   %exitcond169.not = icmp eq i32 %4, %lftr.wideiv168
-  br i1 %exitcond169.not, label %.loopexit, label %.lr.ph140, !llvm.loop !92
+  br i1 %exitcond169.not, label %.loopexit, label %.lr.ph140, !llvm.loop !91
 
 .lr.ph142:                                        ; preds = %.preheader, %158
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %158 ], [ %94, %.preheader ]
@@ -888,12 +888,12 @@ define internal void @draw_region(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next171 = add nsw i64 %indvars.iv170, 1
   %lftr.wideiv173 = trunc i64 %indvars.iv.next171 to i32
   %exitcond174.not = icmp eq i32 %4, %lftr.wideiv173
-  br i1 %exitcond174.not, label %.loopexit, label %.lr.ph142, !llvm.loop !93
+  br i1 %exitcond174.not, label %.loopexit, label %.lr.ph142, !llvm.loop !92
 
 .loopexit:                                        ; preds = %120, %158, %.preheader121, %.preheader
   %159 = add i32 %.1143, 1
   %exitcond175.not = icmp eq i32 %159, %5
-  br i1 %exitcond175.not, label %.loopexit123, label %95, !llvm.loop !94
+  br i1 %exitcond175.not, label %.loopexit123, label %95, !llvm.loop !93
 
 .loopexit123:                                     ; preds = %.loopexit127.us, %.loopexit, %.lr.ph135, %.preheader128, %79
   ret void
@@ -987,12 +987,12 @@ define internal void @draw_region_rgb_packed(ptr noundef readonly captures(none)
   %indvars.iv.next194 = add nsw i64 %indvars.iv193, 1
   %lftr.wideiv196 = trunc i64 %indvars.iv.next194 to i32
   %exitcond197.not = icmp eq i32 %4, %lftr.wideiv196
-  br i1 %exitcond197.not, label %.loopexit166.us, label %.lr.ph.us, !llvm.loop !95
+  br i1 %exitcond197.not, label %.loopexit166.us, label %.lr.ph.us, !llvm.loop !94
 
 .loopexit166.us:                                  ; preds = %60, %74
   %61 = add i32 %.0152172.us, 1
   %exitcond203.not = icmp eq i32 %61, %5
-  br i1 %exitcond203.not, label %.loopexit162, label %.lr.ph174.split.us, !llvm.loop !96
+  br i1 %exitcond203.not, label %.loopexit162, label %.lr.ph174.split.us, !llvm.loop !95
 
 .preheader163.us:                                 ; preds = %.lr.ph174.split.us, %74
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %74 ], [ %27, %.lr.ph174.split.us ]
@@ -1021,7 +1021,7 @@ define internal void @draw_region_rgb_packed(ptr noundef readonly captures(none)
   %indvars.iv.next199 = add nsw i64 %indvars.iv198, 1
   %lftr.wideiv201 = trunc i64 %indvars.iv.next199 to i32
   %exitcond202.not = icmp eq i32 %4, %lftr.wideiv201
-  br i1 %exitcond202.not, label %.loopexit166.us, label %.preheader163.us, !llvm.loop !97
+  br i1 %exitcond202.not, label %.loopexit166.us, label %.preheader163.us, !llvm.loop !96
 
 75:                                               ; preds = %12, %7
   %76 = icmp slt i32 %3, %5
@@ -1095,7 +1095,7 @@ define internal void @draw_region_rgb_packed(ptr noundef readonly captures(none)
   %indvars.iv.next205 = add nsw i64 %indvars.iv204, 1
   %lftr.wideiv207 = trunc i64 %indvars.iv.next205 to i32
   %exitcond208.not = icmp eq i32 %4, %lftr.wideiv207
-  br i1 %exitcond208.not, label %.loopexit, label %.lr.ph179, !llvm.loop !98
+  br i1 %exitcond208.not, label %.loopexit, label %.lr.ph179, !llvm.loop !97
 
 .lr.ph181:                                        ; preds = %.preheader, %151
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %151 ], [ %87, %.preheader ]
@@ -1143,12 +1143,12 @@ define internal void @draw_region_rgb_packed(ptr noundef readonly captures(none)
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, 1
   %lftr.wideiv212 = trunc i64 %indvars.iv.next210 to i32
   %exitcond213.not = icmp eq i32 %4, %lftr.wideiv212
-  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph181, !llvm.loop !99
+  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph181, !llvm.loop !98
 
 .loopexit:                                        ; preds = %118, %151, %.preheader160, %.preheader
   %152 = add i32 %.0149182, 1
   %exitcond214.not = icmp eq i32 %152, %5
-  br i1 %exitcond214.not, label %.loopexit162, label %89, !llvm.loop !100
+  br i1 %exitcond214.not, label %.loopexit162, label %89, !llvm.loop !99
 
 .loopexit162:                                     ; preds = %.loopexit166.us, %.loopexit, %.lr.ph174, %.preheader167, %75
   ret void
@@ -1340,15 +1340,14 @@ attributes #12 = { noreturn nounwind }
 !86 = !{!11, !11, i64 0}
 !87 = !{!15, !15, i64 0}
 !88 = distinct !{!88, !64}
-!89 = distinct !{!89, !64, !90}
-!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!89 = distinct !{!89, !64}
+!90 = distinct !{!90, !64}
 !91 = distinct !{!91, !64}
 !92 = distinct !{!92, !64}
 !93 = distinct !{!93, !64}
 !94 = distinct !{!94, !64}
 !95 = distinct !{!95, !64}
-!96 = distinct !{!96, !64, !90}
+!96 = distinct !{!96, !64}
 !97 = distinct !{!97, !64}
 !98 = distinct !{!98, !64}
 !99 = distinct !{!99, !64}
-!100 = distinct !{!100, !64}

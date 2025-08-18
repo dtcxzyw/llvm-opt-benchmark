@@ -9567,7 +9567,7 @@ _ZNK17base_macro_solver9get_qinfoEP10quantifier.exit.us: ; preds = %.lr.ph88.spl
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = getelementptr inbounds nuw i8, ptr %.02987.us, i64 8
   %.not43.us = icmp eq ptr %168, %147
-  br i1 %.not43.us, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph88.split.us, !llvm.loop !330
+  br i1 %.not43.us, label %_ZNK14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %.lr.ph88.split.us
 
 .split.us:                                        ; preds = %166, %165, %.lr.ph88.split.us
   %169 = landingpad { ptr, i32 }
@@ -10628,7 +10628,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   %.1 = phi ptr [ %.04465, %27 ], [ %.04564, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.04564, i64 8
   %.not = icmp eq ptr %41, %25
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !332
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !330
 
 .lr.ph69:                                         ; preds = %.preheader, %56
   %.268 = phi ptr [ %.3, %56 ], [ %.044.lcssa, %.preheader ]
@@ -10674,7 +10674,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI4exprE12ob
   %.3 = phi ptr [ %.268, %43 ], [ %.14667, %.lr.ph69 ]
   %57 = getelementptr inbounds nuw i8, ptr %.14667, i64 8
   %.not47 = icmp eq ptr %57, %23
-  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !333
+  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !331
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 405, ptr noundef nonnull @.str.13)
@@ -10745,7 +10745,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11all
 25:                                               ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.034.i, i64 8
   %.not29.i = icmp eq ptr %26, %13
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !334
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !332
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %30
   %.136.i = phi ptr [ %31, %30 ], [ %7, %.preheader.i ]
@@ -10760,7 +10760,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11all
 30:                                               ; preds = %.lr.ph37.i
   %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
   %.not30.i = icmp eq ptr %31, %21
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !335
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !333
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 213, ptr noundef nonnull @.str.13)
@@ -10770,7 +10770,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11all
 32:                                               ; preds = %._crit_edge.i, %29, %24, %.lr.ph41.i
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 8
   %.not.i = icmp eq ptr %33, %12
-  br i1 %.not.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE10move_tableEPS2_jS8_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !336
+  br i1 %.not.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE10move_tableEPS2_jS8_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !334
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE10move_tableEPS2_jS8_j.exit.loopexit: ; preds = %32
   %.pre = load ptr, ptr %0, align 8, !tbaa !110
@@ -10957,7 +10957,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !337
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !335
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #24
@@ -11725,7 +11725,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
   br i1 %or.cond, label %32, label %40
 
 32:                                               ; preds = %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04564, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04564, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !336
   br label %58
 
 33:                                               ; preds = %.lr.ph
@@ -11740,7 +11740,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
 
 37:                                               ; preds = %33, %34
   %.043 = phi ptr [ %.04465, %34 ], [ %.04564, %33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.043, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.043, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !336
   %38 = load i32, ptr %3, align 4, !tbaa !144
   %39 = add i32 %38, 1
   store i32 %39, ptr %3, align 4, !tbaa !144
@@ -11750,7 +11750,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
   %.1 = phi ptr [ %.04465, %27 ], [ %.04564, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.04564, i64 16
   %.not = icmp eq ptr %41, %25
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !339
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !337
 
 .lr.ph69:                                         ; preds = %.preheader, %56
   %.268 = phi ptr [ %.3, %56 ], [ %.044.lcssa, %.preheader ]
@@ -11771,7 +11771,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
   br i1 %or.cond53, label %48, label %56
 
 48:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.14667, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.14667, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !336
   br label %58
 
 49:                                               ; preds = %.lr.ph69
@@ -11786,7 +11786,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
 
 53:                                               ; preds = %49, %50
   %.0 = phi ptr [ %.268, %50 ], [ %.14667, %49 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !336
   %54 = load i32, ptr %3, align 4, !tbaa !144
   %55 = add i32 %54, 1
   store i32 %55, ptr %3, align 4, !tbaa !144
@@ -11796,7 +11796,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP13obj_
   %.3 = phi ptr [ %.268, %43 ], [ %.14667, %.lr.ph69 ]
   %57 = getelementptr inbounds nuw i8, ptr %.14667, i64 16
   %.not47 = icmp eq ptr %57, %23
-  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !340
+  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !338
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 405, ptr noundef nonnull @.str.13)
@@ -11860,13 +11860,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !336
   br label %31
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %.not29.i = icmp eq ptr %25, %13
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !341
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !339
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %29
   %.136.i = phi ptr [ %30, %29 ], [ %7, %.preheader.i ]
@@ -11875,13 +11875,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %.lr.ph37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !338
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !336
   br label %31
 
 29:                                               ; preds = %.lr.ph37.i
   %30 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   %.not30.i = icmp eq ptr %30, %20
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !342
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !340
 
 ._crit_edge.i:                                    ; preds = %29, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 213, ptr noundef nonnull @.str.13)
@@ -11891,7 +11891,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE
 31:                                               ; preds = %._crit_edge.i, %28, %23, %.lr.ph41.i
   %32 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
   %.not.i = icmp eq ptr %32, %12
-  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !343
+  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !341
 
 _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI4exprEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit: ; preds = %31
   %.pre = load ptr, ptr %0, align 8, !tbaa !100
@@ -12120,7 +12120,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.04563, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.04563, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !342
   br label %75
 
 44:                                               ; preds = %31
@@ -12135,7 +12135,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
 
 48:                                               ; preds = %44, %45
   %.043 = phi ptr [ %.04464, %45 ], [ %.04563, %44 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.043, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.043, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !342
   %49 = load i32, ptr %3, align 4, !tbaa !140
   %50 = add i32 %49, 1
   store i32 %50, ptr %3, align 4, !tbaa !140
@@ -12145,7 +12145,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
   %.1 = phi ptr [ %.04464, %37 ], [ %.04464, %33 ], [ %.04563, %31 ]
   %52 = getelementptr inbounds nuw i8, ptr %.04563, i64 32
   %.not = icmp eq ptr %52, %24
-  br i1 %.not, label %.preheader, label %31, !llvm.loop !345
+  br i1 %.not, label %.preheader, label %31, !llvm.loop !343
 
 53:                                               ; preds = %.lr.ph68, %73
   %.267 = phi ptr [ %.044.lcssa, %.lr.ph68 ], [ %.3, %73 ]
@@ -12172,7 +12172,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
   br i1 %64, label %65, label %73
 
 65:                                               ; preds = %59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.14666, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.14666, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !342
   br label %75
 
 66:                                               ; preds = %53
@@ -12187,7 +12187,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
 
 70:                                               ; preds = %66, %67
   %.0 = phi ptr [ %.267, %67 ], [ %.14666, %66 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !342
   %71 = load i32, ptr %3, align 4, !tbaa !140
   %72 = add i32 %71, 1
   store i32 %72, ptr %3, align 4, !tbaa !140
@@ -12197,7 +12197,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN12obj_pair_mapI9func_decl4
   %.3 = phi ptr [ %.267, %59 ], [ %.267, %55 ], [ %.14666, %53 ]
   %74 = getelementptr inbounds nuw i8, ptr %.14666, i64 32
   %.not47 = icmp eq ptr %74, %22
-  br i1 %.not47, label %._crit_edge, label %53, !llvm.loop !346
+  br i1 %.not47, label %._crit_edge, label %53, !llvm.loop !344
 
 ._crit_edge:                                      ; preds = %73, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 405, ptr noundef nonnull @.str.13)
@@ -12268,13 +12268,13 @@ _ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifier
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.034.i, ptr noundef nonnull align 8 dereferenceable(32) %.02839.i, i64 32, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.034.i, ptr noundef nonnull align 8 dereferenceable(32) %.02839.i, i64 32, i1 false), !tbaa.struct !342
   br label %34
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr inbounds nuw i8, ptr %.034.i, i64 32
   %.not29.i = icmp eq ptr %28, %16
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !347
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !345
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %32
   %.136.i = phi ptr [ %33, %32 ], [ %7, %.preheader.i ]
@@ -12283,13 +12283,13 @@ _ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifier
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %.lr.ph37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.136.i, ptr noundef nonnull align 8 dereferenceable(32) %.02839.i, i64 32, i1 false), !tbaa.struct !344
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.136.i, ptr noundef nonnull align 8 dereferenceable(32) %.02839.i, i64 32, i1 false), !tbaa.struct !342
   br label %34
 
 32:                                               ; preds = %.lr.ph37.i
   %33 = getelementptr inbounds nuw i8, ptr %.136.i, i64 32
   %.not30.i = icmp eq ptr %33, %23
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !348
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !346
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 213, ptr noundef nonnull @.str.13)
@@ -12299,7 +12299,7 @@ _ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifier
 34:                                               ; preds = %._crit_edge.i, %31, %26, %.lr.ph41.i
   %35 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 32
   %.not.i = icmp eq ptr %35, %15
-  br i1 %.not.i, label %_ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE10move_tableEPS8_jSF_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !349
+  br i1 %.not.i, label %_ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE10move_tableEPS8_jSF_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !347
 
 _ZN14core_hashtableIN12obj_pair_mapI9func_decl4exprP13obj_hashtableI10quantifierEE5entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE10move_tableEPS8_jSF_j.exit.loopexit: ; preds = %34
   %.pre = load ptr, ptr %0, align 8, !tbaa !125
@@ -12789,7 +12789,7 @@ _ZNK6vectorISt4pairIN17backtrackable_setI13obj_hashtableI10quantifierEPS3_10defa
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %61 = icmp eq ptr %59, %57
-  br i1 %61, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !350
+  br i1 %61, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !348
 
 _ZSt20uninitialized_move_nIPSt4pairIN17backtrackable_setI13obj_hashtableI10quantifierEPS3_10default_ehIS5_EE10trail_kindES5_EjSB_ES0_IT_T1_ESC_T0_SD_.exit: ; preds = %46
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -12953,7 +12953,7 @@ _ZNK6vectorISt4pairIN17backtrackable_setI13obj_hashtableI10quantifierEPS3_N17hin
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 16
   %61 = icmp eq ptr %59, %57
-  br i1 %61, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !351
+  br i1 %61, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !349
 
 _ZSt20uninitialized_move_nIPSt4pairIN17backtrackable_setI13obj_hashtableI10quantifierEPS3_N17hint_macro_solver10ev_handlerEE10trail_kindES5_EjSB_ES0_IT_T1_ESC_T0_SD_.exit: ; preds = %46
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -13168,7 +13168,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
   br i1 %or.cond, label %32, label %40
 
 32:                                               ; preds = %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04564, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04564, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !350
   br label %58
 
 33:                                               ; preds = %.lr.ph
@@ -13183,7 +13183,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
 
 37:                                               ; preds = %33, %34
   %.043 = phi ptr [ %.04465, %34 ], [ %.04564, %33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.043, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.043, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !350
   %38 = load i32, ptr %3, align 4, !tbaa !218
   %39 = add i32 %38, 1
   store i32 %39, ptr %3, align 4, !tbaa !218
@@ -13193,7 +13193,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
   %.1 = phi ptr [ %.04465, %27 ], [ %.04564, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %.04564, i64 16
   %.not = icmp eq ptr %41, %25
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !353
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !351
 
 .lr.ph69:                                         ; preds = %.preheader, %56
   %.268 = phi ptr [ %.3, %56 ], [ %.044.lcssa, %.preheader ]
@@ -13214,7 +13214,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
   br i1 %or.cond53, label %48, label %56
 
 48:                                               ; preds = %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.14667, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.14667, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !350
   br label %58
 
 49:                                               ; preds = %.lr.ph69
@@ -13229,7 +13229,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
 
 53:                                               ; preds = %49, %50
   %.0 = phi ptr [ %.268, %50 ], [ %.14667, %49 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !350
   %54 = load i32, ptr %3, align 4, !tbaa !218
   %55 = add i32 %54, 1
   store i32 %55, ptr %3, align 4, !tbaa !218
@@ -13239,7 +13239,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
   %.3 = phi ptr [ %.268, %43 ], [ %.14667, %.lr.ph69 ]
   %57 = getelementptr inbounds nuw i8, ptr %.14667, i64 16
   %.not47 = icmp eq ptr %57, %23
-  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !354
+  br i1 %.not47, label %._crit_edge, label %.lr.ph69, !llvm.loop !352
 
 ._crit_edge:                                      ; preds = %56, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 405, ptr noundef nonnull @.str.13)
@@ -13303,13 +13303,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !350
   br label %31
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %.not29.i = icmp eq ptr %25, %13
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !355
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !353
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %29
   %.136.i = phi ptr [ %30, %29 ], [ %7, %.preheader.i ]
@@ -13318,13 +13318,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %.lr.ph37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !350
   br label %31
 
 29:                                               ; preds = %.lr.ph37.i
   %30 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   %.not30.i = icmp eq ptr %30, %20
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !356
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !354
 
 ._crit_edge.i:                                    ; preds = %29, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 213, ptr noundef nonnull @.str.13)
@@ -13334,7 +13334,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
 31:                                               ; preds = %._crit_edge.i, %28, %23, %.lr.ph41.i
   %32 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
   %.not.i = icmp eq ptr %32, %12
-  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !357
+  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !355
 
 _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit: ; preds = %31
   %.pre = load ptr, ptr %0, align 8, !tbaa !179
@@ -13399,7 +13399,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
 21:                                               ; preds = %.lr.ph, %16
   %22 = getelementptr inbounds nuw i8, ptr %.02946, i64 16
   %.not = icmp eq ptr %22, %14
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !358
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !356
 
 .lr.ph49:                                         ; preds = %.preheader, %29
   %.248 = phi ptr [ %30, %29 ], [ %10, %.preheader ]
@@ -13421,7 +13421,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE
 29:                                               ; preds = %.lr.ph49, %24
   %30 = getelementptr inbounds nuw i8, ptr %.248, i64 16
   %.not32 = icmp eq ptr %30, %12
-  br i1 %.not32, label %.loopexit, label %.lr.ph49, !llvm.loop !359
+  br i1 %.not32, label %.loopexit, label %.lr.ph49, !llvm.loop !357
 
 .loopexit39:                                      ; preds = %16, %24
   %.1 = phi ptr [ %.248, %24 ], [ %.02946, %16 ]
@@ -13519,13 +13519,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !350
   br label %32
 
 25:                                               ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %.not29.i = icmp eq ptr %26, %14
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !355
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !353
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %30
   %.136.i = phi ptr [ %31, %30 ], [ %8, %.preheader.i ]
@@ -13534,13 +13534,13 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.lr.ph37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !352
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !350
   br label %32
 
 30:                                               ; preds = %.lr.ph37.i
   %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   %.not30.i = icmp eq ptr %31, %21
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !356
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !354
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.12, i32 noundef 213, ptr noundef nonnull @.str.13)
@@ -13550,7 +13550,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
 32:                                               ; preds = %._crit_edge.i, %29, %24, %.lr.ph41.i
   %33 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
   %.not.i = icmp eq ptr %33, %13
-  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !357
+  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !355
 
 _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit.loopexit: ; preds = %32
   %.pre = load ptr, ptr %0, align 8, !tbaa !179
@@ -13578,7 +13578,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_Z18for_each_expr_coreIN17hint_macro_solver12occurs_checkE8obj_markI4expr10bit_vector14default_t2uintIS3_EELb1ELb0EEvRT_RT0_PS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.sbuffer, align 8
-  %5 = load i32, ptr %2, align 4, !tbaa !360
+  %5 = load i32, ptr %2, align 4, !tbaa !358
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !222
   %8 = icmp ult i32 %5, %7
@@ -13616,14 +13616,14 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; pre
   store i32 %25, ptr %23, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %26, ptr %4, align 8, !tbaa !361
+  store ptr %26, ptr %4, align 8, !tbaa !359
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 16, ptr %28, align 4, !tbaa !364
+  store i32 16, ptr %28, align 4, !tbaa !362
   store ptr %2, ptr %26, align 8
   %.sroa.5179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %.sroa.5179.0..sroa_idx, align 8
-  store i32 1, ptr %27, align 8, !tbaa !365
+  store i32 1, ptr %27, align 8, !tbaa !363
   br label %.preheader
 
 thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, %205, %.lr.ph39.i.i.i.i111, %218, %226, %.thread-pre-split_crit_edge, %.preheader.i.i.i.i109, %.thread190, %40
@@ -13638,10 +13638,10 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, 
 
 32:                                               ; preds = %.preheader, %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
   %33 = phi i32 [ %31, %.preheader ], [ %308, %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134 ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !361
+  %34 = load ptr, ptr %4, align 8, !tbaa !359
   %35 = zext i32 %33 to i64
   %36 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %34, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !366
+  %37 = load ptr, ptr %36, align 8, !tbaa !364
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %trunc = trunc i32 %39 to i16
@@ -13652,7 +13652,7 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, 
   ]
 
 40:                                               ; preds = %32
-  store i32 %33, ptr %27, align 8, !tbaa !365
+  store i32 %33, ptr %27, align 8, !tbaa !363
   br label %thread-pre-split
 
 41:                                               ; preds = %305, %304
@@ -13662,9 +13662,9 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, 
 
 43:                                               ; preds = %32
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %45 = load i32, ptr %44, align 8, !tbaa !368
+  %45 = load i32, ptr %44, align 8, !tbaa !366
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !372
+  %47 = load i32, ptr %46, align 8, !tbaa !370
   %48 = icmp ult i32 %47, %45
   br i1 %48, label %.lr.ph, label %._crit_edge
 
@@ -13678,8 +13678,8 @@ thread-pre-split:                                 ; preds = %.lr.ph.i.i.i.i105, 
   %53 = getelementptr inbounds nuw [0 x ptr], ptr %49, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !121
   %55 = add nuw i32 %51, 1
-  store i32 %55, ptr %46, align 8, !tbaa !372
-  %56 = load i32, ptr %54, align 4, !tbaa !360
+  store i32 %55, ptr %46, align 8, !tbaa !370
+  %56 = load i32, ptr %54, align 4, !tbaa !358
   %57 = load i32, ptr %6, align 8, !tbaa !222
   %58 = icmp ult i32 %56, %57
   br i1 %58, label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58, label %69
@@ -13694,7 +13694,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
   %65 = shl nuw i32 1, %64
   %66 = and i32 %63, %65
   %.not198 = icmp eq i32 %66, 0
-  br i1 %.not198, label %.thread183, label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit, !llvm.loop !373
+  br i1 %.not198, label %.thread183, label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit, !llvm.loop !371
 
 67:                                               ; preds = %.loopexit.i129
   %68 = landingpad { ptr, i32 }
@@ -13742,13 +13742,13 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
   ]
 
 77:                                               ; preds = %.thread183
-  %78 = load i32, ptr %27, align 8, !tbaa !365
-  %79 = load i32, ptr %28, align 4, !tbaa !364
+  %78 = load i32, ptr %27, align 8, !tbaa !363
+  %79 = load i32, ptr %28, align 4, !tbaa !362
   %.not.i62 = icmp ult i32 %78, %79
   br i1 %.not.i62, label %._crit_edge.i76, label %80
 
 ._crit_edge.i76:                                  ; preds = %77
-  %.pre.i77 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i77 = load ptr, ptr %4, align 8, !tbaa !359
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 80:                                               ; preds = %77
@@ -13759,9 +13759,9 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
           to label %.noexc78 unwind label %91
 
 .noexc78:                                         ; preds = %80
-  %85 = load i32, ptr %27, align 8, !tbaa !365
+  %85 = load i32, ptr %27, align 8, !tbaa !363
   %.not.i.i63 = icmp eq i32 %85, 0
-  %.pre.i.i64 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i.i64 = load ptr, ptr %4, align 8, !tbaa !359
   br i1 %.not.i.i63, label %._crit_edge.i.i70, label %.lr.ph.i.i65
 
 .lr.ph.i.i65:                                     ; preds = %.noexc78
@@ -13779,7 +13779,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
           to label %.noexc79 unwind label %91
 
 .noexc79:                                         ; preds = %87
-  %.pre2.pre.i73 = load i32, ptr %27, align 8, !tbaa !365
+  %.pre2.pre.i73 = load i32, ptr %27, align 8, !tbaa !363
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74
 
 88:                                               ; preds = %88, %.lr.ph.i.i65
@@ -13789,12 +13789,12 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false)
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i67, 1
   %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, %wide.trip.count.i.i66
-  br i1 %exitcond.not.i.i69, label %._crit_edge.i.i70, label %88, !llvm.loop !374
+  br i1 %exitcond.not.i.i69, label %._crit_edge.i.i70, label %88, !llvm.loop !372
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74: ; preds = %.noexc79, %._crit_edge.i.i70
   %.pre2.i75 = phi i32 [ %85, %._crit_edge.i.i70 ], [ %.pre2.pre.i73, %.noexc79 ]
-  store ptr %84, ptr %4, align 8, !tbaa !361
-  store i32 %81, ptr %28, align 4, !tbaa !364
+  store ptr %84, ptr %4, align 8, !tbaa !359
+  store i32 %81, ptr %28, align 4, !tbaa !362
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 91:                                               ; preds = %87, %80
@@ -13804,15 +13804,15 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74: ; preds = %.noexc79, %.
 
 93:                                               ; preds = %.thread183
   %94 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %95 = load i32, ptr %94, align 8, !tbaa !368
+  %95 = load i32, ptr %94, align 8, !tbaa !366
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %156
 
 97:                                               ; preds = %93
-  %98 = load ptr, ptr %0, align 8, !tbaa !375
+  %98 = load ptr, ptr %0, align 8, !tbaa !373
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 256
   %100 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !377
+  %101 = load ptr, ptr %100, align 8, !tbaa !375
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %103 = load i32, ptr %102, align 4, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 264
@@ -13948,13 +13948,13 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i: ; preds = %114, %122
   unreachable
 
 156:                                              ; preds = %93
-  %157 = load i32, ptr %27, align 8, !tbaa !365
-  %158 = load i32, ptr %28, align 4, !tbaa !364
+  %157 = load i32, ptr %27, align 8, !tbaa !363
+  %158 = load i32, ptr %28, align 4, !tbaa !362
   %.not.i84 = icmp ult i32 %157, %158
   br i1 %.not.i84, label %._crit_edge.i98, label %159
 
 ._crit_edge.i98:                                  ; preds = %156
-  %.pre.i99 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i99 = load ptr, ptr %4, align 8, !tbaa !359
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 159:                                              ; preds = %156
@@ -13965,9 +13965,9 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i: ; preds = %114, %122
           to label %.noexc100 unwind label %170
 
 .noexc100:                                        ; preds = %159
-  %164 = load i32, ptr %27, align 8, !tbaa !365
+  %164 = load i32, ptr %27, align 8, !tbaa !363
   %.not.i.i85 = icmp eq i32 %164, 0
-  %.pre.i.i86 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i.i86 = load ptr, ptr %4, align 8, !tbaa !359
   br i1 %.not.i.i85, label %._crit_edge.i.i92, label %.lr.ph.i.i87
 
 .lr.ph.i.i87:                                     ; preds = %.noexc100
@@ -13985,7 +13985,7 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i: ; preds = %114, %122
           to label %.noexc101 unwind label %170
 
 .noexc101:                                        ; preds = %166
-  %.pre2.pre.i95 = load i32, ptr %27, align 8, !tbaa !365
+  %.pre2.pre.i95 = load i32, ptr %27, align 8, !tbaa !363
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96
 
 167:                                              ; preds = %167, %.lr.ph.i.i87
@@ -13995,12 +13995,12 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i: ; preds = %114, %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false)
   %indvars.iv.next.i.i90 = add nuw nsw i64 %indvars.iv.i.i89, 1
   %exitcond.not.i.i91 = icmp eq i64 %indvars.iv.next.i.i90, %wide.trip.count.i.i88
-  br i1 %exitcond.not.i.i91, label %._crit_edge.i.i92, label %167, !llvm.loop !374
+  br i1 %exitcond.not.i.i91, label %._crit_edge.i.i92, label %167, !llvm.loop !372
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96: ; preds = %.noexc101, %._crit_edge.i.i92
   %.pre2.i97 = phi i32 [ %164, %._crit_edge.i.i92 ], [ %.pre2.pre.i95, %.noexc101 ]
-  store ptr %163, ptr %4, align 8, !tbaa !361
-  store i32 %160, ptr %28, align 4, !tbaa !364
+  store ptr %163, ptr %4, align 8, !tbaa !359
+  store i32 %160, ptr %28, align 4, !tbaa !362
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 170:                                              ; preds = %166, %159
@@ -14017,22 +14017,22 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96: ; preds = %.noexc101, %
           to label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit unwind label %.loopexit
 
 _ZN17hint_macro_solver12occurs_checkclEP3app.exit: ; preds = %.lr.ph.i.i.i.i, %127, %.lr.ph39.i.i.i.i, %140, %148, %.preheader.i.i.i.i, %.thread183, %173, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58
-  %174 = load i32, ptr %46, align 8, !tbaa !372
+  %174 = load i32, ptr %46, align 8, !tbaa !370
   %175 = icmp ult i32 %174, %45
   br i1 %175, label %50, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %_ZN17hint_macro_solver12occurs_checkclEP3app.exit
-  %.pre298 = load i32, ptr %27, align 8, !tbaa !365
+  %.pre298 = load i32, ptr %27, align 8, !tbaa !363
   %.pre315 = add i32 %.pre298, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43, %._crit_edge.loopexit
   %.pre-phi316 = phi i32 [ %.pre315, %._crit_edge.loopexit ], [ %33, %43 ]
-  store i32 %.pre-phi316, ptr %27, align 8, !tbaa !365
-  %176 = load ptr, ptr %0, align 8, !tbaa !375
+  store i32 %.pre-phi316, ptr %27, align 8, !tbaa !363
+  %176 = load ptr, ptr %0, align 8, !tbaa !373
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 256
   %178 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %179 = load ptr, ptr %178, align 8, !tbaa !377
+  %179 = load ptr, ptr %178, align 8, !tbaa !375
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !11
   %182 = getelementptr inbounds nuw i8, ptr %176, i64 264
@@ -14169,13 +14169,13 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i116: ; preds = %192, %200
 
 234:                                              ; preds = %32
   %235 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %236 = load i32, ptr %235, align 8, !tbaa !378
+  %236 = load i32, ptr %235, align 8, !tbaa !376
   %237 = add i32 %236, 1
   %238 = getelementptr inbounds nuw i8, ptr %37, i64 76
-  %239 = load i32, ptr %238, align 4, !tbaa !381
+  %239 = load i32, ptr %238, align 4, !tbaa !379
   %240 = add i32 %237, %239
   %241 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.promoted = load i32, ptr %241, align 8, !tbaa !372
+  %.promoted = load i32, ptr %241, align 8, !tbaa !370
   %242 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %243 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %244 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -14202,7 +14202,7 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i116: ; preds = %192, %200
   br i1 %.not.i135, label %261, label %254
 
 254:                                              ; preds = %253
-  %255 = load i32, ptr %243, align 4, !tbaa !382
+  %255 = load i32, ptr %243, align 4, !tbaa !380
   %256 = zext i32 %255 to i64
   %257 = getelementptr inbounds nuw ptr, ptr %242, i64 %256
   %258 = getelementptr inbounds nuw %class.symbol, ptr %257, i64 %256
@@ -14213,7 +14213,7 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i116: ; preds = %192, %200
 261:                                              ; preds = %253
   %262 = trunc nuw i64 %indvars.iv to i32
   %263 = add i32 %262, %249
-  %264 = load i32, ptr %243, align 4, !tbaa !382
+  %264 = load i32, ptr %243, align 4, !tbaa !380
   %265 = zext i32 %264 to i64
   %266 = getelementptr inbounds nuw ptr, ptr %242, i64 %265
   %267 = getelementptr inbounds nuw %class.symbol, ptr %266, i64 %265
@@ -14226,8 +14226,8 @@ _ZNK7obj_mapI9func_declP4exprE8containsEPS0_.exit.i116: ; preds = %192, %200
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %271, ptr %241, align 8, !tbaa !372
-  %272 = load i32, ptr %.0.i, align 4, !tbaa !360
+  store i32 %271, ptr %241, align 8, !tbaa !370
+  %272 = load i32, ptr %.0.i, align 4, !tbaa !358
   %273 = icmp ult i32 %272, %245
   br i1 %273, label %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136, label %283
 
@@ -14240,7 +14240,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136: ; 
   %279 = shl nuw i32 1, %278
   %280 = and i32 %277, %279
   %.not197 = icmp eq i32 %280, 0
-  br i1 %.not197, label %.thread187, label %250, !llvm.loop !383
+  br i1 %.not197, label %.thread187, label %250, !llvm.loop !381
 
 281:                                              ; preds = %283
   %282 = landingpad { ptr, i32 }
@@ -14267,13 +14267,13 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136: ; 
   %287 = load i32, ptr %286, align 4, !tbaa !39
   %288 = or i32 %287, %.pre-phi324
   store i32 %288, ptr %286, align 4, !tbaa !39
-  %289 = load i32, ptr %27, align 8, !tbaa !365
-  %290 = load i32, ptr %28, align 4, !tbaa !364
+  %289 = load i32, ptr %27, align 8, !tbaa !363
+  %290 = load i32, ptr %28, align 4, !tbaa !362
   %.not.i140 = icmp ult i32 %289, %290
   br i1 %.not.i140, label %._crit_edge.i154, label %291
 
 ._crit_edge.i154:                                 ; preds = %.thread187
-  %.pre.i155 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i155 = load ptr, ptr %4, align 8, !tbaa !359
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 291:                                              ; preds = %.thread187
@@ -14284,9 +14284,9 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136: ; 
           to label %.noexc156 unwind label %302
 
 .noexc156:                                        ; preds = %291
-  %296 = load i32, ptr %27, align 8, !tbaa !365
+  %296 = load i32, ptr %27, align 8, !tbaa !363
   %.not.i.i141 = icmp eq i32 %296, 0
-  %.pre.i.i142 = load ptr, ptr %4, align 8, !tbaa !361
+  %.pre.i.i142 = load ptr, ptr %4, align 8, !tbaa !359
   br i1 %.not.i.i141, label %._crit_edge.i.i148, label %.lr.ph.i.i143
 
 .lr.ph.i.i143:                                    ; preds = %.noexc156
@@ -14304,7 +14304,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136: ; 
           to label %.noexc157 unwind label %302
 
 .noexc157:                                        ; preds = %298
-  %.pre2.pre.i151 = load i32, ptr %27, align 8, !tbaa !365
+  %.pre2.pre.i151 = load i32, ptr %27, align 8, !tbaa !363
   br label %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i152
 
 299:                                              ; preds = %299, %.lr.ph.i.i143
@@ -14314,12 +14314,12 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit136: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef nonnull align 8 dereferenceable(16) %301, i64 16, i1 false)
   %indvars.iv.next.i.i146 = add nuw nsw i64 %indvars.iv.i.i145, 1
   %exitcond.not.i.i147 = icmp eq i64 %indvars.iv.next.i.i146, %wide.trip.count.i.i144
-  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i148, label %299, !llvm.loop !374
+  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i148, label %299, !llvm.loop !372
 
 _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i152: ; preds = %.noexc157, %._crit_edge.i.i148
   %.pre2.i153 = phi i32 [ %296, %._crit_edge.i.i148 ], [ %.pre2.pre.i151, %.noexc157 ]
-  store ptr %295, ptr %4, align 8, !tbaa !361
-  store i32 %292, ptr %28, align 4, !tbaa !364
+  store ptr %295, ptr %4, align 8, !tbaa !359
+  store i32 %292, ptr %28, align 4, !tbaa !362
   br label %_ZN17hint_macro_solver12occurs_checkclEP3app.exit134
 
 302:                                              ; preds = %298, %291
@@ -14328,7 +14328,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i152: ; preds = %.noexc157, 
   br label %318
 
 .thread190:                                       ; preds = %250
-  store i32 %33, ptr %27, align 8, !tbaa !365
+  store i32 %33, ptr %27, align 8, !tbaa !363
   br label %thread-pre-split
 
 304:                                              ; preds = %32
@@ -14340,7 +14340,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i152: ; preds = %.noexc157, 
           to label %.thread-pre-split_crit_edge unwind label %41
 
 .thread-pre-split_crit_edge:                      ; preds = %305
-  %.pr.pre = load i32, ptr %27, align 8, !tbaa !365
+  %.pr.pre = load i32, ptr %27, align 8, !tbaa !363
   br label %thread-pre-split
 
 _ZN17hint_macro_solver12occurs_checkclEP3app.exit134: ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i152, %._crit_edge.i154, %._crit_edge.i98, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i96, %._crit_edge.i76, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74
@@ -14352,13 +14352,13 @@ _ZN17hint_macro_solver12occurs_checkclEP3app.exit134: ; preds = %_ZN6bufferISt4p
   store ptr %.0.i340.sink, ptr %307, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %308 = load i32, ptr %27, align 8, !tbaa !365
+  %308 = load i32, ptr %27, align 8, !tbaa !363
   %309 = add i32 %308, 1
-  store i32 %309, ptr %27, align 8, !tbaa !365
+  store i32 %309, ptr %27, align 8, !tbaa !363
   br label %32
 
 310:                                              ; preds = %thread-pre-split
-  %311 = load ptr, ptr %4, align 8, !tbaa !361
+  %311 = load ptr, ptr %4, align 8, !tbaa !359
   %.not.i.i.i159 = icmp eq ptr %311, %26
   %312 = icmp eq ptr %311, null
   %or.cond.i.i.i160 = or i1 %.not.i.i.i159, %312
@@ -14391,7 +14391,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %310, %313
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !361
+  %2 = load ptr, ptr %0, align 8, !tbaa !359
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %2, %3
   %4 = icmp eq ptr %2, null
@@ -14908,57 +14908,55 @@ attributes #26 = { builtin allocsize(0) }
 !327 = !{!326, !13, i64 8}
 !328 = !{!326, !13, i64 12}
 !329 = distinct !{!329, !24}
-!330 = distinct !{!330, !331}
-!331 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!330 = distinct !{!330, !24}
+!331 = distinct !{!331, !24}
 !332 = distinct !{!332, !24}
 !333 = distinct !{!333, !24}
 !334 = distinct !{!334, !24}
-!335 = distinct !{!335, !24}
-!336 = distinct !{!336, !24}
-!337 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!338 = !{i64 0, i64 8, !148, i64 8, i64 8, !120}
+!335 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!336 = !{i64 0, i64 8, !148, i64 8, i64 8, !120}
+!337 = distinct !{!337, !24}
+!338 = distinct !{!338, !24}
 !339 = distinct !{!339, !24}
 !340 = distinct !{!340, !24}
 !341 = distinct !{!341, !24}
-!342 = distinct !{!342, !24}
+!342 = !{i64 0, i64 8, !148, i64 8, i64 8, !121, i64 16, i64 8, !96, i64 24, i64 4, !39}
 !343 = distinct !{!343, !24}
-!344 = !{i64 0, i64 8, !148, i64 8, i64 8, !121, i64 16, i64 8, !96, i64 24, i64 4, !39}
+!344 = distinct !{!344, !24}
 !345 = distinct !{!345, !24}
 !346 = distinct !{!346, !24}
 !347 = distinct !{!347, !24}
 !348 = distinct !{!348, !24}
 !349 = distinct !{!349, !24}
-!350 = distinct !{!350, !24}
+!350 = !{i64 0, i64 8, !148, i64 8, i64 8, !121}
 !351 = distinct !{!351, !24}
-!352 = !{i64 0, i64 8, !148, i64 8, i64 8, !121}
+!352 = distinct !{!352, !24}
 !353 = distinct !{!353, !24}
 !354 = distinct !{!354, !24}
 !355 = distinct !{!355, !24}
 !356 = distinct !{!356, !24}
 !357 = distinct !{!357, !24}
-!358 = distinct !{!358, !24}
-!359 = distinct !{!359, !24}
-!360 = !{!12, !13, i64 0}
-!361 = !{!362, !363, i64 0}
-!362 = !{!"_ZTS6bufferISt4pairIP4exprjELb0ELj16EE", !363, i64 0, !13, i64 8, !13, i64 12, !7, i64 16}
-!363 = !{!"p1 _ZTSSt4pairIP4exprjE", !6, i64 0}
-!364 = !{!362, !13, i64 12}
-!365 = !{!362, !13, i64 8}
-!366 = !{!367, !63, i64 0}
-!367 = !{!"_ZTSSt4pairIP4exprjE", !63, i64 0, !13, i64 8}
-!368 = !{!369, !13, i64 24}
-!369 = !{!"_ZTS3app", !370, i64 0, !21, i64 16, !13, i64 24, !371, i64 28, !7, i64 32}
-!370 = !{!"_ZTS4expr", !12, i64 0}
-!371 = !{!"_ZTS9app_flags", !13, i64 0, !13, i64 2, !13, i64 2, !13, i64 2}
-!372 = !{!367, !13, i64 8}
-!373 = distinct !{!373, !24}
-!374 = distinct !{!374, !24}
-!375 = !{!376, !215, i64 0}
-!376 = !{!"_ZTSN17hint_macro_solver12occurs_checkE", !215, i64 0}
-!377 = !{!369, !21, i64 16}
-!378 = !{!379, !13, i64 72}
-!379 = !{!"_ZTS10quantifier", !370, i64 0, !380, i64 16, !13, i64 20, !63, i64 24, !34, i64 32, !13, i64 40, !13, i64 44, !64, i64 48, !64, i64 49, !31, i64 56, !31, i64 64, !13, i64 72, !13, i64 76, !7, i64 80}
-!380 = !{!"_ZTS15quantifier_kind", !7, i64 0}
-!381 = !{!379, !13, i64 76}
-!382 = !{!379, !13, i64 20}
-!383 = distinct !{!383, !24}
+!358 = !{!12, !13, i64 0}
+!359 = !{!360, !361, i64 0}
+!360 = !{!"_ZTS6bufferISt4pairIP4exprjELb0ELj16EE", !361, i64 0, !13, i64 8, !13, i64 12, !7, i64 16}
+!361 = !{!"p1 _ZTSSt4pairIP4exprjE", !6, i64 0}
+!362 = !{!360, !13, i64 12}
+!363 = !{!360, !13, i64 8}
+!364 = !{!365, !63, i64 0}
+!365 = !{!"_ZTSSt4pairIP4exprjE", !63, i64 0, !13, i64 8}
+!366 = !{!367, !13, i64 24}
+!367 = !{!"_ZTS3app", !368, i64 0, !21, i64 16, !13, i64 24, !369, i64 28, !7, i64 32}
+!368 = !{!"_ZTS4expr", !12, i64 0}
+!369 = !{!"_ZTS9app_flags", !13, i64 0, !13, i64 2, !13, i64 2, !13, i64 2}
+!370 = !{!365, !13, i64 8}
+!371 = distinct !{!371, !24}
+!372 = distinct !{!372, !24}
+!373 = !{!374, !215, i64 0}
+!374 = !{!"_ZTSN17hint_macro_solver12occurs_checkE", !215, i64 0}
+!375 = !{!367, !21, i64 16}
+!376 = !{!377, !13, i64 72}
+!377 = !{!"_ZTS10quantifier", !368, i64 0, !378, i64 16, !13, i64 20, !63, i64 24, !34, i64 32, !13, i64 40, !13, i64 44, !64, i64 48, !64, i64 49, !31, i64 56, !31, i64 64, !13, i64 72, !13, i64 76, !7, i64 80}
+!378 = !{!"_ZTS15quantifier_kind", !7, i64 0}
+!379 = !{!377, !13, i64 76}
+!380 = !{!377, !13, i64 20}
+!381 = distinct !{!381, !24}

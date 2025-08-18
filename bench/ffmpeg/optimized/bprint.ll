@@ -900,7 +900,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #9
 define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   switch i32 %spec.store.select, label %.preheader [
-    i32 2, label %21
+    i32 2, label %27
     i32 3, label %.preheader61
   ]
 
@@ -911,182 +911,212 @@ define void @av_bprint_escape(ptr noundef captures(address) %0, ptr noundef read
   %.not48 = icmp eq i32 %7, 0
   br i1 %.not47, label %.preheader61.split.us, label %.preheader61.split
 
-.preheader61.split.us:                            ; preds = %.preheader61, %15
-  %.1.us = phi ptr [ %16, %15 ], [ %1, %.preheader61 ]
-  %8 = load i8, ptr %.1.us, align 1, !tbaa !14
-  switch i8 %8, label %14 [
+.preheader61.split.us:                            ; preds = %.preheader61
+  br i1 %.not48, label %.preheader61.split.us.split.us, label %.preheader61.split.us.split
+
+.preheader61.split.us.split.us:                   ; preds = %.preheader61.split.us, %13
+  %.1.us.us = phi ptr [ %14, %13 ], [ %1, %.preheader61.split.us ]
+  %8 = load i8, ptr %.1.us.us, align 1, !tbaa !14
+  switch i8 %8, label %12 [
     i8 0, label %.loopexit
-    i8 38, label %13
-    i8 60, label %12
-    i8 62, label %11
-    i8 39, label %9
+    i8 38, label %11
+    i8 60, label %10
+    i8 62, label %9
   ]
 
-9:                                                ; preds = %.preheader61.split.us
-  br i1 %.not48, label %14, label %10
-
-10:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5)
-  br label %15
-
-11:                                               ; preds = %.preheader61.split.us
+9:                                                ; preds = %.preheader61.split.us.split.us
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
-  br label %15
+  br label %13
 
-12:                                               ; preds = %.preheader61.split.us
+10:                                               ; preds = %.preheader61.split.us.split.us
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
-  br label %15
+  br label %13
 
-13:                                               ; preds = %.preheader61.split.us
+11:                                               ; preds = %.preheader61.split.us.split.us
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %15
+  br label %13
 
-14:                                               ; preds = %9, %.preheader61.split.us
+12:                                               ; preds = %.preheader61.split.us.split.us
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %8, i32 noundef 1)
-  br label %15
+  br label %13
 
-15:                                               ; preds = %14, %13, %12, %11, %10
-  %16 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
-  br label %.preheader61.split.us, !llvm.loop !17
+13:                                               ; preds = %12, %11, %10, %9
+  %14 = getelementptr inbounds nuw i8, ptr %.1.us.us, i64 1
+  br label %.preheader61.split.us.split.us, !llvm.loop !17
+
+.preheader61.split.us.split:                      ; preds = %.preheader61.split.us, %21
+  %.1.us = phi ptr [ %22, %21 ], [ %1, %.preheader61.split.us ]
+  %15 = load i8, ptr %.1.us, align 1, !tbaa !14
+  switch i8 %15, label %20 [
+    i8 0, label %.loopexit
+    i8 38, label %19
+    i8 60, label %18
+    i8 62, label %17
+    i8 39, label %16
+  ]
+
+16:                                               ; preds = %.preheader61.split.us.split
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5)
+  br label %21
+
+17:                                               ; preds = %.preheader61.split.us.split
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
+  br label %21
+
+18:                                               ; preds = %.preheader61.split.us.split
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
+  br label %21
+
+19:                                               ; preds = %.preheader61.split.us.split
+  tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
+  br label %21
+
+20:                                               ; preds = %.preheader61.split.us.split
+  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %15, i32 noundef 1)
+  br label %21
+
+21:                                               ; preds = %20, %19, %18, %17, %16
+  %22 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
+  br label %.preheader61.split.us.split, !llvm.loop !17
 
 .preheader:                                       ; preds = %5
-  %17 = load i8, ptr %1, align 1, !tbaa !14
-  %.not5063 = icmp eq i8 %17, 0
+  %23 = load i8, ptr %1, align 1, !tbaa !14
+  %.not5063 = icmp eq i8 %23, 0
   br i1 %.not5063, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not53 = icmp eq ptr %2, null
-  %18 = and i32 %4, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = and i32 %4, 2
-  %.not55 = icmp eq i32 %20, 0
-  br label %39
+  %24 = and i32 %4, 1
+  %25 = icmp ne i32 %24, 0
+  %26 = and i32 %4, 2
+  %.not55 = icmp eq i32 %26, 0
+  br label %45
 
-21:                                               ; preds = %5
+27:                                               ; preds = %5
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext 39, i32 noundef 1)
-  br label %22
+  br label %28
 
-22:                                               ; preds = %26, %21
-  %.0 = phi ptr [ %1, %21 ], [ %27, %26 ]
-  %23 = load i8, ptr %.0, align 1, !tbaa !14
-  switch i8 %23, label %25 [
-    i8 0, label %28
-    i8 39, label %24
+28:                                               ; preds = %32, %27
+  %.0 = phi ptr [ %1, %27 ], [ %33, %32 ]
+  %29 = load i8, ptr %.0, align 1, !tbaa !14
+  switch i8 %29, label %31 [
+    i8 0, label %34
+    i8 39, label %30
   ]
 
-24:                                               ; preds = %22
+30:                                               ; preds = %28
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str.1)
-  br label %26
+  br label %32
 
-25:                                               ; preds = %22
-  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %23, i32 noundef 1)
-  br label %26
+31:                                               ; preds = %28
+  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %29, i32 noundef 1)
+  br label %32
 
-26:                                               ; preds = %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %22, !llvm.loop !20
+32:                                               ; preds = %30, %31
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br label %28, !llvm.loop !19
 
-28:                                               ; preds = %22
+34:                                               ; preds = %28
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext 39, i32 noundef 1)
   br label %.loopexit
 
-.preheader61.split:                               ; preds = %.preheader61, %37
-  %.1 = phi ptr [ %38, %37 ], [ %1, %.preheader61 ]
-  %29 = load i8, ptr %.1, align 1, !tbaa !14
-  switch i8 %29, label %36 [
+.preheader61.split:                               ; preds = %.preheader61, %43
+  %.1 = phi ptr [ %44, %43 ], [ %1, %.preheader61 ]
+  %35 = load i8, ptr %.1, align 1, !tbaa !14
+  switch i8 %35, label %42 [
     i8 0, label %.loopexit
-    i8 38, label %30
-    i8 60, label %31
-    i8 62, label %32
-    i8 39, label %33
-    i8 34, label %35
+    i8 38, label %36
+    i8 60, label %37
+    i8 62, label %38
+    i8 39, label %39
+    i8 34, label %41
   ]
 
-30:                                               ; preds = %.preheader61.split
+36:                                               ; preds = %.preheader61.split
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
-  br label %37
+  br label %43
 
-31:                                               ; preds = %.preheader61.split
+37:                                               ; preds = %.preheader61.split
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
-  br label %37
+  br label %43
 
-32:                                               ; preds = %.preheader61.split
+38:                                               ; preds = %.preheader61.split
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
-  br label %37
+  br label %43
 
-33:                                               ; preds = %.preheader61.split
-  br i1 %.not48, label %36, label %34
+39:                                               ; preds = %.preheader61.split
+  br i1 %.not48, label %42, label %40
 
-34:                                               ; preds = %33
+40:                                               ; preds = %39
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5)
-  br label %37
+  br label %43
 
-35:                                               ; preds = %.preheader61.split
+41:                                               ; preds = %.preheader61.split
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6)
-  br label %37
+  br label %43
 
-36:                                               ; preds = %.preheader61.split, %33
-  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %29, i32 noundef 1)
-  br label %37
+42:                                               ; preds = %.preheader61.split, %39
+  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %35, i32 noundef 1)
+  br label %43
 
-37:                                               ; preds = %30, %31, %32, %34, %35, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader61.split, !llvm.loop !21
+43:                                               ; preds = %36, %37, %38, %40, %41, %42
+  %44 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %.preheader61.split, !llvm.loop !17
 
-39:                                               ; preds = %.lr.ph, %55
-  %40 = phi i8 [ %17, %.lr.ph ], [ %58, %55 ]
-  %.264 = phi ptr [ %1, %.lr.ph ], [ %57, %55 ]
-  %41 = icmp eq ptr %.264, %1
-  br i1 %41, label %45, label %42
+45:                                               ; preds = %.lr.ph, %61
+  %46 = phi i8 [ %23, %.lr.ph ], [ %64, %61 ]
+  %.264 = phi ptr [ %1, %.lr.ph ], [ %63, %61 ]
+  %47 = icmp eq ptr %.264, %1
+  br i1 %47, label %51, label %48
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %.264, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !14
-  %.not51 = icmp eq i8 %44, 0
-  br label %45
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %.264, i64 1
+  %50 = load i8, ptr %49, align 1, !tbaa !14
+  %.not51 = icmp eq i8 %50, 0
+  br label %51
 
-45:                                               ; preds = %42, %39
-  %46 = phi i1 [ true, %39 ], [ %.not51, %42 ]
-  %47 = sext i8 %40 to i32
-  %48 = and i32 %47, 255
-  %49 = zext nneg i32 %48 to i64
-  %memchr.bounds = icmp samesign ult i32 %48, 64
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %50, 4294977025
-  %memchr.bits = icmp ne i64 %51, 0
+51:                                               ; preds = %48, %45
+  %52 = phi i1 [ true, %45 ], [ %.not51, %48 ]
+  %53 = sext i8 %46 to i32
+  %54 = and i32 %53, 255
+  %55 = zext nneg i32 %54 to i64
+  %memchr.bounds = icmp samesign ult i32 %54, 64
+  %56 = shl nuw i64 1, %55
+  %57 = and i64 %56, 4294977025
+  %memchr.bits = icmp ne i64 %57, 0
   %memchr52 = select i1 %memchr.bounds, i1 %memchr.bits, i1 false
-  br i1 %.not53, label %.thread, label %52
+  br i1 %.not53, label %.thread, label %58
 
-52:                                               ; preds = %45
-  %53 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %47) #13
-  %.not = icmp eq ptr %53, null
+58:                                               ; preds = %51
+  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %53) #13
+  %.not = icmp eq ptr %59, null
   br i1 %.not, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %45, %52
-  %switch.selectcmp.case1 = icmp eq i8 %40, 39
-  %switch.selectcmp.case2 = icmp eq i8 %40, 92
+.thread:                                          ; preds = %51, %58
+  %switch.selectcmp.case1 = icmp eq i8 %46, 39
+  %switch.selectcmp.case2 = icmp eq i8 %46, 92
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %54 = and i1 %19, %memchr52
-  %spec.select = select i1 %switch.selectcmp, i1 true, i1 %54
-  %or.cond = select i1 %memchr52, i1 %46, i1 false
+  %60 = and i1 %25, %memchr52
+  %spec.select = select i1 %switch.selectcmp, i1 true, i1 %60
+  %or.cond = select i1 %memchr52, i1 %52, i1 false
   %or.cond56 = select i1 %spec.select, i1 true, i1 %or.cond
   %or.cond57 = select i1 %.not55, i1 %or.cond56, i1 false
-  br i1 %or.cond57, label %.critedge, label %55
+  br i1 %or.cond57, label %.critedge, label %61
 
-.critedge:                                        ; preds = %.thread, %52
+.critedge:                                        ; preds = %.thread, %58
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext 92, i32 noundef 1)
   %.pre = load i8, ptr %.264, align 1, !tbaa !14
-  br label %55
+  br label %61
 
-55:                                               ; preds = %.critedge, %.thread
-  %56 = phi i8 [ %.pre, %.critedge ], [ %40, %.thread ]
-  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %56, i32 noundef 1)
-  %57 = getelementptr inbounds nuw i8, ptr %.264, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !14
-  %.not50 = icmp eq i8 %58, 0
-  br i1 %.not50, label %.loopexit, label %39, !llvm.loop !22
+61:                                               ; preds = %.critedge, %.thread
+  %62 = phi i8 [ %.pre, %.critedge ], [ %46, %.thread ]
+  tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %62, i32 noundef 1)
+  %63 = getelementptr inbounds nuw i8, ptr %.264, i64 1
+  %64 = load i8, ptr %63, align 1, !tbaa !14
+  %.not50 = icmp eq i8 %64, 0
+  br i1 %.not50, label %.loopexit, label %45, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.preheader61.split, %.preheader61.split.us, %55, %.preheader, %28
+.loopexit:                                        ; preds = %.preheader61.split, %.preheader61.split.us.split, %.preheader61.split.us.split.us, %61, %.preheader, %34
   ret void
 }
 
@@ -1145,9 +1175,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !14 = !{!8, !8, i64 0}
 !15 = !{!10, !10, i64 0}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !18}
 !20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}

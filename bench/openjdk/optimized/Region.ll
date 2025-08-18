@@ -678,9 +678,9 @@ Region_EndIteration.exit:                         ; preds = %106, %107
   br label %.preheader
 
 .split.us:                                        ; preds = %111
-  br i1 %or.cond98.not102, label %Region_EndIteration.exit63, label %Region_NextIteration.exit.us.lr.ph
+  br i1 %or.cond98.not102, label %Region_EndIteration.exit63, label %Region_NextIteration.exit.us.us
 
-Region_NextIteration.exit.us.lr.ph:               ; preds = %.split.us
+Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   %112 = trunc i32 %30 to i16
   %113 = trunc i32 %35 to i16
   %114 = sub nsw i32 %40, %30
@@ -808,8 +808,8 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   tail call void %170(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
   br label %Region_EndIteration.exit63
 
-Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.lr.ph, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
-  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i118124, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.lr.ph ]
+Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
+  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i118124, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
   ret i32 %.045
 }
 

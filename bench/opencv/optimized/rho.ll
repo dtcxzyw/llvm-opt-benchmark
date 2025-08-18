@@ -2561,12 +2561,12 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %48 = fmul double %47, %13
   %49 = fptoui double %48 to i32
   store i32 %49, ptr %37, align 4, !tbaa !54
-  br label %.lr.ph.us.i, !llvm.loop !126
+  br label %.lr.ph.us.i
 
 .critedge.i:                                      ; preds = %39, %.preheader35.i
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, 4
-  br i1 %exitcond52.not.i, label %_ZN2cv13RHO_HEST_REFC7rndSmplEjPjj.exit, label %.preheader35.i, !llvm.loop !128
+  br i1 %exitcond52.not.i, label %_ZN2cv13RHO_HEST_REFC7rndSmplEjPjj.exit, label %.preheader35.i, !llvm.loop !126
 
 50:                                               ; preds = %1
   %51 = add i32 %10, -1
@@ -2642,12 +2642,12 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC15getPROSACSampleEv(ptr no
   %88 = fmul double %87, %53
   %89 = fptoui double %88 to i32
   store i32 %89, ptr %77, align 4, !tbaa !54
-  br label %.lr.ph.us.i5, !llvm.loop !126
+  br label %.lr.ph.us.i5
 
 .critedge.i9:                                     ; preds = %79, %.preheader35.i2
   %indvars.iv.next49.i10 = add nuw nsw i64 %indvars.iv48.i3, 1
   %exitcond52.not.i11 = icmp eq i64 %indvars.iv.next49.i10, 3
-  br i1 %exitcond52.not.i11, label %_ZN2cv13RHO_HEST_REFC7rndSmplEjPjj.exit18, label %.preheader35.i2, !llvm.loop !128
+  br i1 %exitcond52.not.i11, label %_ZN2cv13RHO_HEST_REFC7rndSmplEjPjj.exit18, label %.preheader35.i2, !llvm.loop !126
 
 _ZN2cv13RHO_HEST_REFC7rndSmplEjPjj.exit18:        ; preds = %.critedge.i9, %68
   %90 = load i32, ptr %9, align 4, !tbaa !69
@@ -2673,7 +2673,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC18isSampleDegenerat
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %12 = load ptr, ptr %11, align 8, !tbaa !129
+  %12 = load ptr, ptr %11, align 8, !tbaa !127
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2862,7 +2862,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC18isSampleDegenerat
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC13generateModelEv(ptr noundef nonnull align 8 dereferenceable(452) %0) local_unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %3 = load ptr, ptr %2, align 8, !tbaa !129
+  %3 = load ptr, ptr %2, align 8, !tbaa !127
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3478,7 +3478,7 @@ define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPf
   %.1.us = phi float [ %.0189195.us, %.lr.ph.split.us ], [ %98, %132 ], [ %98, %133 ]
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !130
+  br i1 %exitcond204.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !106
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %239
   %indvars.iv = phi i64 [ %indvars.iv.next, %239 ], [ 0, %.lr.ph ]
@@ -3564,7 +3564,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIjEEvRPT_mt(pt
   %14 = alloca %"class.std::allocator.12", align 1
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.12", align 1
-  %17 = load ptr, ptr %1, align 8, !tbaa !131
+  %17 = load ptr, ptr %1, align 8, !tbaa !128
   %18 = icmp eq ptr %17, null
   br i1 %18, label %32, label %19
 
@@ -3876,7 +3876,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIfEEvRPT_mt(pt
   %14 = alloca %"class.std::allocator.12", align 1
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.12", align 1
-  %17 = load ptr, ptr %1, align 8, !tbaa !132
+  %17 = load ptr, ptr %1, align 8, !tbaa !129
   %18 = icmp eq ptr %17, null
   br i1 %18, label %32, label %19
 
@@ -4188,7 +4188,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !133
+  %12 = load ptr, ptr %11, align 8, !tbaa !130
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -4267,7 +4267,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIj
   %41 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %41, ptr %4, align 8, !tbaa !111
   %42 = getelementptr inbounds nuw i32, ptr %32, i64 %30
-  store ptr %42, ptr %11, align 8, !tbaa !133
+  store ptr %42, ptr %11, align 8, !tbaa !130
   br label %43
 
 43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36, %2
@@ -4575,11 +4575,8 @@ attributes #26 = { noreturn nounwind }
 !123 = !{!12, !8, i64 152}
 !124 = distinct !{!124, !74}
 !125 = distinct !{!125, !74}
-!126 = distinct !{!126, !127}
-!127 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!128 = distinct !{!128, !74}
-!129 = !{!12, !16, i64 160}
-!130 = distinct !{!130, !74, !127}
-!131 = !{!8, !8, i64 0}
-!132 = !{!16, !16, i64 0}
-!133 = !{!7, !8, i64 16}
+!126 = distinct !{!126, !74}
+!127 = !{!12, !16, i64 160}
+!128 = !{!8, !8, i64 0}
+!129 = !{!16, !16, i64 0}
+!130 = !{!7, !8, i64 16}

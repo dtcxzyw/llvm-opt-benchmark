@@ -1231,7 +1231,7 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   %.pre = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7
   %.pre22 = load i8, ptr %19, align 8, !tbaa !108, !range !7
   %54 = trunc nuw i8 %.pre22 to i1
-  br i1 %54, label %.split, label %.split16.us, !llvm.loop !112
+  br i1 %54, label %.split, label %.split16.us, !llvm.loop !110
 
 .split16.us:                                      ; preds = %.split, %53, %.split.us, %36
   %55 = load i8, ptr %20, align 2, !tbaa !109, !range !7, !noundef !8
@@ -1266,7 +1266,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %11 = load i8, ptr %10, align 2, !tbaa !113, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 2, !tbaa !111, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %17
 
@@ -1278,7 +1278,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load i8, ptr %18, align 8, !tbaa !114, !range !7, !noundef !8
+  %19 = load i8, ptr %18, align 8, !tbaa !112, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %25
 
@@ -1290,7 +1290,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load i8, ptr %26, align 8, !tbaa !115, !range !7, !noundef !8
+  %27 = load i8, ptr %26, align 8, !tbaa !113, !range !7, !noundef !8
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %31
 
@@ -1301,7 +1301,7 @@ define internal range(i32 -1, 1) i32 @H5C__evict_tagged_entries_cb(ptr noundef %
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %33 = load i8, ptr %32, align 8, !tbaa !116, !range !7, !noundef !8
+  %33 = load i8, ptr %32, align 8, !tbaa !114, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %45, label %35
 
@@ -1443,19 +1443,19 @@ define internal range(i32 -1, 1) i32 @H5C__flush_tagged_entries_cb(ptr noundef %
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load i8, ptr %10, align 8, !tbaa !114, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 8, !tbaa !112, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %51
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 524624
-  %15 = load i8, ptr %14, align 8, !tbaa !117, !range !7, !noundef !8
+  %15 = load i8, ptr %14, align 8, !tbaa !115, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %51
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 524712
-  %19 = load ptr, ptr %18, align 8, !tbaa !118
+  %19 = load ptr, ptr %18, align 8, !tbaa !116
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = tail call i32 @H5SL_insert(ptr noundef %19, ptr noundef nonnull %0, ptr noundef nonnull %20) #11
   %22 = icmp slt i32 %21, 0
@@ -1469,29 +1469,29 @@ define internal range(i32 -1, 1) i32 @H5C__flush_tagged_entries_cb(ptr noundef %
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 1, ptr %28, align 1, !tbaa !119
+  store i8 1, ptr %28, align 1, !tbaa !117
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 524625
-  store i8 1, ptr %29, align 1, !tbaa !120
+  store i8 1, ptr %29, align 1, !tbaa !118
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 524628
-  %31 = load i32, ptr %30, align 4, !tbaa !121
+  %31 = load i32, ptr %30, align 4, !tbaa !119
   %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 4, !tbaa !121
+  store i32 %32, ptr %30, align 4, !tbaa !119
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !122
+  %34 = load i64, ptr %33, align 8, !tbaa !120
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 524632
-  %36 = load i64, ptr %35, align 8, !tbaa !123
+  %36 = load i64, ptr %35, align 8, !tbaa !121
   %37 = add i64 %36, %34
-  store i64 %37, ptr %35, align 8, !tbaa !123
+  store i64 %37, ptr %35, align 8, !tbaa !121
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 524640
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = load i32, ptr %39, align 8, !tbaa !124
+  %40 = load i32, ptr %39, align 8, !tbaa !122
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds [6 x i32], ptr %38, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !125
+  %43 = load i32, ptr %42, align 4, !tbaa !123
   %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !125
+  store i32 %44, ptr %42, align 4, !tbaa !123
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 524664
-  %46 = load i32, ptr %39, align 8, !tbaa !124
+  %46 = load i32, ptr %39, align 8, !tbaa !122
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds [6 x i64], ptr %45, i64 0, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !45
@@ -1646,7 +1646,7 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
   %104 = load i64, ptr %87, align 8, !tbaa !38
   %105 = sub i64 0, %104
   %106 = getelementptr inbounds i8, ptr %102, i64 %105
-  br label %88, !llvm.loop !126
+  br label %88, !llvm.loop !124
 
 107:                                              ; preds = %96
   %108 = getelementptr inbounds nuw i8, ptr %.1670, i64 84
@@ -2028,13 +2028,13 @@ define noundef i32 @H5C_retag_entries(ptr noundef captures(none) %0, i64 noundef
 329:                                              ; preds = %327, %323
   store ptr %.0570672, ptr %310, align 8, !tbaa !36
   %.not620 = icmp eq ptr %305, null
-  br i1 %.not620, label %._crit_edge, label %.lr.ph673, !llvm.loop !127
+  br i1 %.not620, label %._crit_edge, label %.lr.ph673, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %329, %299
   %330 = phi i32 [ %300, %299 ], [ %324, %329 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge677, label %299, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge677, label %299, !llvm.loop !126
 
 ._crit_edge677:                                   ; preds = %._crit_edge, %282
   tail call void @free(ptr noundef %.pre686) #11
@@ -2233,11 +2233,11 @@ define range(i32 -1, 1) i32 @H5C_expunge_tag_type_metadata(ptr noundef %0, i64 n
   %16 = load ptr, ptr %15, align 8, !tbaa !81
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8, !tbaa !87
-  store ptr %0, ptr %5, align 8, !tbaa !129
+  store ptr %0, ptr %5, align 8, !tbaa !127
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %19, align 8, !tbaa !131
+  store i32 %2, ptr %19, align 8, !tbaa !129
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %3, ptr %20, align 4, !tbaa !132
+  store i32 %3, ptr %20, align 4, !tbaa !130
   %21 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr noundef readonly %18, i64 noundef %1, ptr noundef nonnull @H5C__expunge_tag_type_metadata_cb, ptr noundef nonnull %5)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %H5C__iter_tagged_entries.exit
@@ -2269,19 +2269,19 @@ define internal range(i32 -1, 1) i32 @H5C__expunge_tag_type_metadata_cb(ptr noun
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !133
-  %12 = load i32, ptr %11, align 8, !tbaa !134
+  %11 = load ptr, ptr %10, align 8, !tbaa !131
+  %12 = load i32, ptr %11, align 8, !tbaa !132
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !131
+  %14 = load i32, ptr %13, align 8, !tbaa !129
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %9
-  %17 = load ptr, ptr %1, align 8, !tbaa !129
+  %17 = load ptr, ptr %1, align 8, !tbaa !127
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !136
+  %19 = load i64, ptr %18, align 8, !tbaa !134
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !132
+  %21 = load i32, ptr %20, align 4, !tbaa !130
   %22 = tail call i32 @H5C_expunge_entry(ptr noundef %17, ptr noundef nonnull %11, i64 noundef %19, i32 noundef %21) #11
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
@@ -2470,30 +2470,28 @@ attributes #12 = { nounwind allocsize(0) }
 !107 = !{!106, !4, i64 9}
 !108 = !{!106, !4, i64 8}
 !109 = !{!106, !4, i64 10}
-!110 = distinct !{!110, !44, !111}
-!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!112 = distinct !{!112, !44}
-!113 = !{!69, !4, i64 50}
-!114 = !{!69, !4, i64 48}
-!115 = !{!69, !4, i64 56}
-!116 = !{!69, !4, i64 216}
-!117 = !{!12, !4, i64 524624}
-!118 = !{!12, !19, i64 524712}
-!119 = !{!69, !4, i64 57}
-!120 = !{!12, !4, i64 524625}
-!121 = !{!12, !15, i64 524628}
-!122 = !{!69, !17, i64 16}
-!123 = !{!12, !17, i64 524632}
-!124 = !{!69, !15, i64 64}
-!125 = !{!15, !15, i64 0}
+!110 = distinct !{!110, !44}
+!111 = !{!69, !4, i64 50}
+!112 = !{!69, !4, i64 48}
+!113 = !{!69, !4, i64 56}
+!114 = !{!69, !4, i64 216}
+!115 = !{!12, !4, i64 524624}
+!116 = !{!12, !19, i64 524712}
+!117 = !{!69, !4, i64 57}
+!118 = !{!12, !4, i64 524625}
+!119 = !{!12, !15, i64 524628}
+!120 = !{!69, !17, i64 16}
+!121 = !{!12, !17, i64 524632}
+!122 = !{!69, !15, i64 64}
+!123 = !{!15, !15, i64 0}
+!124 = distinct !{!124, !44}
+!125 = distinct !{!125, !44}
 !126 = distinct !{!126, !44}
-!127 = distinct !{!127, !44}
-!128 = distinct !{!128, !44}
-!129 = !{!130, !86, i64 0}
-!130 = !{!"", !86, i64 0, !15, i64 8, !15, i64 12}
-!131 = !{!130, !15, i64 8}
-!132 = !{!130, !15, i64 12}
-!133 = !{!69, !71, i64 40}
-!134 = !{!135, !15, i64 0}
-!135 = !{!"H5C_class_t", !15, i64 0, !83, i64 8, !15, i64 16, !15, i64 20, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96}
-!136 = !{!69, !17, i64 8}
+!127 = !{!128, !86, i64 0}
+!128 = !{!"", !86, i64 0, !15, i64 8, !15, i64 12}
+!129 = !{!128, !15, i64 8}
+!130 = !{!128, !15, i64 12}
+!131 = !{!69, !71, i64 40}
+!132 = !{!133, !15, i64 0}
+!133 = !{!"H5C_class_t", !15, i64 0, !83, i64 8, !15, i64 16, !15, i64 20, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96}
+!134 = !{!69, !17, i64 8}

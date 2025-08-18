@@ -1048,7 +1048,7 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
   br i1 %13, label %.lr.ph.i, label %merge_map_updates.exit
 
 .lr.ph.i:                                         ; preds = %10
-  %14 = load i8, ptr @allowSystemTableMods, align 1, !range !19, !noundef !20
+  %14 = load i8, ptr @allowSystemTableMods, align 1, !range !18, !noundef !19
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1152,7 +1152,7 @@ apply_map_update.exit.us21.i:                     ; preds = %48
   store i32 %47, ptr %54, align 4
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next38.i, %43
-  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.i.us16.i, !llvm.loop !21
+  br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.i.us16.i, !llvm.loop !17
 
 ._crit_edge.i.loopexit26.i:                       ; preds = %.lr.ph.split.i
   %.pre43.i = load i32, ptr %16, align 4
@@ -1477,8 +1477,6 @@ attributes #14 = { nounwind willreturn memory(none) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !5, !18}
+!17 = distinct !{!17, !5}
+!18 = !{i8 0, i8 2}
+!19 = !{}

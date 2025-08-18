@@ -3530,7 +3530,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenIn
   %31 = and i64 %.0.copyload.i.i.i.i47.us.us, -64
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %32, i64 %indvars.iv79
-  %.sroa.05.0.copyload.us.us = load i64, ptr %33, align 8, !tbaa !322
+  %.sroa.05.0.copyload.us.us = load i64, ptr %33, align 8, !tbaa !321
   %34 = load i32, ptr %14, align 4, !tbaa !18
   %.not.i.i.not.i48.us.us = icmp ult i32 %28, %34
   br i1 %.not.i.i.not.i48.us.us, label %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50.us.us, label %35, !prof !219
@@ -3553,23 +3553,23 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   store i32 %43, ptr %13, align 8, !tbaa !17
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %.not45.us.us = icmp eq i64 %indvars.iv79, %26
-  br i1 %.not45.us.us, label %44, label %27, !llvm.loop !323
+  br i1 %.not45.us.us, label %44, label %27, !llvm.loop !322
 
 44:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50.us.us
   %45 = load ptr, ptr %4, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %45, i64 %indvars.iv82
-  %.sroa.04.0.copyload.us.us = load i64, ptr %46, align 8, !tbaa !322
+  %.sroa.04.0.copyload.us.us = load i64, ptr %46, align 8, !tbaa !321
   call void %21(ptr noundef nonnull align 8 dereferenceable(112) %19, i64 %.sroa.04.0.copyload.us.us, i32 noundef %.03763.us) #13
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %.not44.us.us = icmp eq i64 %indvars.iv.next83, %23
-  br i1 %.not44.us.us, label %._crit_edge60.split.us.us, label %.lr.ph59.us, !llvm.loop !324
+  br i1 %.not44.us.us, label %._crit_edge60.split.us.us, label %.lr.ph59.us, !llvm.loop !323
 
 47:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
   %50 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %17, i64 0, i64 %49
-  %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !322
+  %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !321
   %51 = load i32, ptr %11, align 4, !tbaa !18
   %.not.i.i.not.i = icmp ult i32 %48, %51
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit, label %52, !prof !219
@@ -3593,7 +3593,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %61 = add i32 %.054, 1
   %62 = load i32, ptr %15, align 4, !tbaa !38
   %.not = icmp eq i32 %61, %62
-  br i1 %.not, label %._crit_edge.loopexit, label %47, !llvm.loop !325
+  br i1 %.not, label %._crit_edge.loopexit, label %47, !llvm.loop !324
 
 ._crit_edge66:                                    ; preds = %._crit_edge60.split, %._crit_edge60.split.us.us, %._crit_edge
   %63 = load i32, ptr %10, align 8, !tbaa !17
@@ -3612,11 +3612,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.lr.ph70.split.us ], [ 0, %.lr.ph70 ]
   %68 = load ptr, ptr %4, align 8, !tbaa !14
   %69 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %68, i64 %indvars.iv88
-  %.sroa.0.0.copyload.us = load i64, ptr %69, align 8, !tbaa !322
+  %.sroa.0.0.copyload.us = load i64, ptr %69, align 8, !tbaa !321
   call void %66(ptr noundef nonnull align 8 dereferenceable(112) %64, i64 %.sroa.0.0.copyload.us, i32 noundef 0) #13
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %.not42.us = icmp eq i64 %indvars.iv.next89, %67
-  br i1 %.not42.us, label %._crit_edge71, label %.lr.ph70.split.us, !llvm.loop !326
+  br i1 %.not42.us, label %._crit_edge71, label %.lr.ph70.split.us, !llvm.loop !325
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %._crit_edge60.split
   %.03763 = phi i32 [ %.037, %._crit_edge60.split ], [ %.03761, %.lr.ph65 ]
@@ -3633,7 +3633,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   call void @_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %.037 = add i32 %.03763, -1
   %.not41 = icmp eq i32 %.037, 0
-  br i1 %.not41, label %._crit_edge66, label %.lr.ph65.split, !llvm.loop !327
+  br i1 %.not41, label %._crit_edge66, label %.lr.ph65.split, !llvm.loop !320
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %75
   %indvars.iv76 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next77, %75 ]
@@ -3651,11 +3651,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %79 = load ptr, ptr %78, align 8, !nosanitize !13
   %80 = load ptr, ptr %4, align 8, !tbaa !14
   %81 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %80, i64 %indvars.iv76
-  %.sroa.04.0.copyload = load i64, ptr %81, align 8, !tbaa !322
+  %.sroa.04.0.copyload = load i64, ptr %81, align 8, !tbaa !321
   call void %79(ptr noundef nonnull align 8 dereferenceable(112) %19, i64 %.sroa.04.0.copyload, i32 noundef %.03763) #13
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %.not44 = icmp eq i64 %indvars.iv.next77, %71
-  br i1 %.not44, label %._crit_edge60.split, label %.lr.ph59, !llvm.loop !328
+  br i1 %.not44, label %._crit_edge60.split, label %.lr.ph59, !llvm.loop !323
 
 82:                                               ; preds = %.lr.ph59, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50
   %83 = phi i32 [ %.pre91, %.lr.ph59 ], [ %98, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50 ]
@@ -3666,7 +3666,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %86 = and i64 %.0.copyload.i.i.i.i47, -64
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %87, i64 %indvars.iv
-  %.sroa.05.0.copyload = load i64, ptr %88, align 8, !tbaa !322
+  %.sroa.05.0.copyload = load i64, ptr %88, align 8, !tbaa !321
   %89 = load i32, ptr %14, align 4, !tbaa !18
   %.not.i.i.not.i48 = icmp ult i32 %83, %89
   br i1 %.not.i.i.not.i48, label %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50, label %90, !prof !219
@@ -3689,7 +3689,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   store i32 %98, ptr %13, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not45 = icmp eq i64 %indvars.iv, %74
-  br i1 %.not45, label %75, label %82, !llvm.loop !323
+  br i1 %.not45, label %75, label %82, !llvm.loop !322
 
 ._crit_edge71:                                    ; preds = %.lr.ph70.split, %.lr.ph70.split.us, %._crit_edge66
   %99 = load ptr, ptr %5, align 8, !tbaa !14
@@ -3722,11 +3722,11 @@ _ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit51: ; preds = %
   %108 = load ptr, ptr %107, align 8, !nosanitize !13
   %109 = load ptr, ptr %4, align 8, !tbaa !14
   %110 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %109, i64 %indvars.iv85
-  %.sroa.0.0.copyload = load i64, ptr %110, align 8, !tbaa !322
+  %.sroa.0.0.copyload = load i64, ptr %110, align 8, !tbaa !321
   call void %108(ptr noundef nonnull align 8 dereferenceable(112) %64, i64 %.sroa.0.0.copyload, i32 noundef 0) #13
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.not42 = icmp eq i64 %indvars.iv.next86, %67
-  br i1 %.not42, label %._crit_edge71, label %.lr.ph70.split, !llvm.loop !329
+  br i1 %.not42, label %._crit_edge71, label %.lr.ph70.split, !llvm.loop !325
 
 111:                                              ; preds = %3, %_ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit51
   ret void
@@ -3739,7 +3739,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenIn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = load ptr, ptr %7, align 8, !tbaa !277
-  store ptr %8, ptr %5, align 64, !tbaa !330
+  store ptr %8, ptr %5, align 64, !tbaa !326
   store ptr %5, ptr %7, align 8, !tbaa !277
   ret void
 }
@@ -3833,13 +3833,13 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE7reserveEm.exit40: ; pre
   %46 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %45, i64 %.03648
   %47 = load ptr, ptr %1, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %47, i64 %.03648
-  %.sroa.0.0.copyload.i = load i64, ptr %46, align 8, !tbaa !322
-  %49 = load i64, ptr %48, align 8, !tbaa !322
-  store i64 %49, ptr %46, align 8, !tbaa !322
-  store i64 %.sroa.0.0.copyload.i, ptr %48, align 8, !tbaa !322
+  %.sroa.0.0.copyload.i = load i64, ptr %46, align 8, !tbaa !321
+  %49 = load i64, ptr %48, align 8, !tbaa !321
+  store i64 %49, ptr %46, align 8, !tbaa !321
+  store i64 %.sroa.0.0.copyload.i, ptr %48, align 8, !tbaa !321
   %50 = add nuw nsw i64 %.03648, 1
   %.not = icmp eq i64 %50, %spec.select
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !332
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !328
 
 51:                                               ; preds = %._crit_edge
   %52 = sub nuw i32 %41, %40
@@ -3925,7 +3925,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %16, i64 noundef %15, i64 noundef 16) #13
   %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %17, %7
-  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !333
+  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !329
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit: ; preds = %.lr.ph.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3940,9 +3940,9 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 .lr.ph.i1:                                        ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, %.lr.ph.i1
   %.011.i = phi ptr [ %27, %.lr.ph.i1 ], [ %19, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit ]
-  %24 = load ptr, ptr %.011.i, align 8, !tbaa !334
+  %24 = load ptr, ptr %.011.i, align 8, !tbaa !330
   %25 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !336
+  %26 = load i64, ptr %25, align 8, !tbaa !332
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %24, i64 noundef %26, i64 noundef 16) #13
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i2 = icmp eq ptr %27, %23
@@ -4342,20 +4342,16 @@ attributes #16 = { builtin nounwind allocsize(0) }
 !317 = distinct !{!317, !182}
 !318 = distinct !{!318, !182}
 !319 = distinct !{!319, !182}
-!320 = distinct !{!320, !182, !321}
-!321 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!322 = !{!7, !7, i64 0}
+!320 = distinct !{!320, !182}
+!321 = !{!7, !7, i64 0}
+!322 = distinct !{!322, !182}
 !323 = distinct !{!323, !182}
-!324 = distinct !{!324, !182, !321}
+!324 = distinct !{!324, !182}
 !325 = distinct !{!325, !182}
-!326 = distinct !{!326, !182, !321}
-!327 = distinct !{!327, !182}
+!326 = !{!327, !64, i64 0}
+!327 = !{!"_ZTSN4llvm8RecyclerIcLm192ELm64EE8FreeNodeE", !64, i64 0}
 !328 = distinct !{!328, !182}
 !329 = distinct !{!329, !182}
-!330 = !{!331, !64, i64 0}
-!331 = !{!"_ZTSN4llvm8RecyclerIcLm192ELm64EE8FreeNodeE", !64, i64 0}
-!332 = distinct !{!332, !182}
-!333 = distinct !{!333, !182}
-!334 = !{!335, !6, i64 0}
-!335 = !{!"_ZTSSt4pairIPvmE", !6, i64 0, !34, i64 8}
-!336 = !{!335, !34, i64 8}
+!330 = !{!331, !6, i64 0}
+!331 = !{!"_ZTSSt4pairIPvmE", !6, i64 0, !34, i64 8}
+!332 = !{!331, !34, i64 8}

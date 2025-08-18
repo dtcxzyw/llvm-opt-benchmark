@@ -482,7 +482,7 @@ skip_prefix.exit.thread.us.i:                     ; preds = %79, %86, %.lr.ph45.
   %88 = load i32, ptr %28, align 4, !tbaa !27
   %89 = tail call ptr @packet_read_line(i32 noundef %88, ptr noundef null) #12
   %.not27.us.i = icmp eq ptr %89, null
-  br i1 %.not27.us.i, label %handshake_capabilities.exit, label %.preheader.us.i, !llvm.loop !40
+  br i1 %.not27.us.i, label %handshake_capabilities.exit, label %.preheader.us.i
 
 skip_prefix.exit.preheader.us.i:                  ; preds = %78
   %90 = load ptr, ptr %4, align 8, !tbaa !35
@@ -535,7 +535,7 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
 
 .critedge.i:                                      ; preds = %.lr.ph45.i
   %104 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv63.i, i32 1
-  %105 = load i32, ptr %104, align 8, !tbaa !42
+  %105 = load i32, ptr %104, align 8, !tbaa !40
   %106 = load i32, ptr %5, align 4, !tbaa !30
   %107 = or i32 %106, %105
   store i32 %107, ptr %5, align 4, !tbaa !30
@@ -544,8 +544,8 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
 skip_prefix.exit.preheader._crit_edge.i:          ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18, %skip_prefix.exit.preheader.us.i, %skip_prefix.exit.us.i
   %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !43
-  %110 = load ptr, ptr %109, align 8, !tbaa !44
+  %109 = load ptr, ptr %108, align 8, !tbaa !41
+  %110 = load ptr, ptr %109, align 8, !tbaa !42
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %110, ptr noundef nonnull %.07.i.lcssa.lcssa.i) #13
   unreachable
 
@@ -595,7 +595,7 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %0, ptr nounde
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !44
+  %8 = load ptr, ptr %3, align 8, !tbaa !42
   %9 = load i8, ptr %8, align 1, !tbaa !24
   %.not7 = icmp eq i8 %9, 0
   %10 = icmp ne ptr %8, %0
@@ -692,8 +692,6 @@ attributes #14 = { nounwind willreturn memory(none) }
 !37 = distinct !{!37, !32}
 !38 = distinct !{!38, !32}
 !39 = distinct !{!39, !32}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = !{!36, !11, i64 8}
-!43 = !{!13, !15, i64 0}
-!44 = !{!12, !12, i64 0}
+!40 = !{!36, !11, i64 8}
+!41 = !{!13, !15, i64 0}
+!42 = !{!12, !12, i64 0}

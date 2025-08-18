@@ -19710,7 +19710,7 @@ lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__5(ptr poison, ptr noundef nonnull %1, ptr noundef %.02034.us, ptr noundef %11)
   %26 = add i64 %.01835.us, 1
   %.not.us = icmp eq i64 %26, %4
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01835 = phi i64 [ %38, %lean_array_uget.exit ], [ %3, %.lr.ph ]
@@ -19838,7 +19838,7 @@ lean_dec.exit.us:                                 ; preds = %23, %22, %21
   %25 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_SharedCoefficients_compute___spec__5(ptr poison, ptr noundef nonnull %1, ptr noundef %.02034.us, ptr noundef %11)
   %26 = add i64 %.01835.us, 1
   %.not.us = icmp eq i64 %26, %4
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01835 = phi i64 [ %38, %lean_array_uget.exit ], [ %3, %.lr.ph ]
@@ -22361,7 +22361,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_qsort_sort___at_Lean_Elab_Tactic_BVDec
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %.critedge.i, !prof !24
+  br i1 %or.cond, label %13, label %.critedge.i, !prof !21
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -22558,7 +22558,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_CoefficientsMap_toExpr___spec__4(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !25
+  br i1 %.not88, label %80, label %69, !prof !22
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -23651,7 +23651,7 @@ define nonnull ptr @l_Array_qsort_sort___at_Lean_Elab_Tactic_BVDecide_Frontend_N
   %11 = and i64 %10, 1
   %12 = icmp ne i64 %11, 0
   %or.cond.i = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !24
+  br i1 %or.cond.i, label %13, label %.critedge.i.i, !prof !21
 
 13:                                               ; preds = %2
   %14 = icmp ult ptr %4, %6
@@ -25745,7 +25745,7 @@ lean_alloc_ctor.exit:                             ; preds = %25, %20
   store double %.sink57, ptr %33, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %.sink68, i64 32
   store double %.sink54, ptr %34, align 8, !tbaa !18
-  store i8 %1, ptr %30, align 8, !tbaa !26
+  store i8 %1, ptr %30, align 8, !tbaa !23
   %35 = tail call ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonicalizeWithSharing___spec__2___lambda__1(ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef nonnull %.sink68, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   ret ptr %35
 }
@@ -26107,7 +26107,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonical
   store double %.sink57.i, ptr %145, align 8, !tbaa !18
   %146 = getelementptr inbounds nuw i8, ptr %.sink68.i, i64 32
   store double %.sink54.i, ptr %146, align 8, !tbaa !18
-  store i8 %1, ptr %142, align 8, !tbaa !26
+  store i8 %1, ptr %142, align 8, !tbaa !23
   %147 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonicalizeWithSharing___spec__2___lambda__1(ptr noundef %3, ptr noundef %20, ptr noundef %105, ptr noundef %4, ptr noundef nonnull %.sink68.i, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef %115)
   br i1 %.not177, label %148, label %lean_dec.exit105
 
@@ -26345,7 +26345,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonical
   store double %.sink57.i174, ptr %230, align 8, !tbaa !18
   %231 = getelementptr inbounds nuw i8, ptr %.sink68.i173, i64 32
   store double %.sink54.i175, ptr %231, align 8, !tbaa !18
-  store i8 %1, ptr %227, align 8, !tbaa !26
+  store i8 %1, ptr %227, align 8, !tbaa !23
   %232 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonicalizeWithSharing___spec__2___lambda__1(ptr noundef %3, ptr noundef %20, ptr noundef %215, ptr noundef %4, ptr noundef nonnull %.sink68.i173, ptr nonnull poison, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef %16, ptr noundef %199)
   br i1 %.not177, label %233, label %lean_dec.exit97
 
@@ -36235,7 +36235,7 @@ lean_obj_tag.exit1510:                            ; preds = %452, %455
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 16
   store ptr %464, ptr %468, align 8, !tbaa !4
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 24
-  store i8 1, ptr %469, align 8, !tbaa !26
+  store i8 1, ptr %469, align 8, !tbaa !23
   %470 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   store ptr %466, ptr %471, align 8, !tbaa !4
@@ -36327,7 +36327,7 @@ lean_dec.exit1206:                                ; preds = %499, %498, %496, %l
   %504 = getelementptr inbounds nuw i8, ptr %502, i64 16
   store ptr %500, ptr %504, align 8, !tbaa !4
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 24
-  store i8 1, ptr %505, align 8, !tbaa !26
+  store i8 1, ptr %505, align 8, !tbaa !23
   %506 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
   store ptr %502, ptr %507, align 8, !tbaa !4
@@ -36556,7 +36556,7 @@ lean_obj_tag.exit1529:                            ; preds = %582, %585
   %596 = getelementptr inbounds nuw i8, ptr %594, i64 16
   store ptr %399, ptr %596, align 8, !tbaa !4
   %597 = getelementptr inbounds nuw i8, ptr %594, i64 24
-  store i8 1, ptr %597, align 8, !tbaa !26
+  store i8 1, ptr %597, align 8, !tbaa !23
   %598 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
   store ptr %594, ptr %599, align 8, !tbaa !4
@@ -36646,7 +36646,7 @@ lean_dec.exit1202:                                ; preds = %627, %626, %624, %l
   %630 = getelementptr inbounds nuw i8, ptr %628, i64 16
   store ptr %399, ptr %630, align 8, !tbaa !4
   %631 = getelementptr inbounds nuw i8, ptr %628, i64 24
-  store i8 1, ptr %631, align 8, !tbaa !26
+  store i8 1, ptr %631, align 8, !tbaa !23
   %632 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 8
   store ptr %628, ptr %633, align 8, !tbaa !4
@@ -37289,7 +37289,7 @@ lean_obj_tag.exit1578:                            ; preds = %863, %866
   %877 = getelementptr inbounds nuw i8, ptr %875, i64 16
   store ptr %398, ptr %877, align 8, !tbaa !4
   %878 = getelementptr inbounds nuw i8, ptr %875, i64 24
-  store i8 1, ptr %878, align 8, !tbaa !26
+  store i8 1, ptr %878, align 8, !tbaa !23
   %879 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 8
   store ptr %875, ptr %880, align 8, !tbaa !4
@@ -37379,7 +37379,7 @@ lean_dec.exit1195:                                ; preds = %908, %907, %905, %l
   %911 = getelementptr inbounds nuw i8, ptr %909, i64 16
   store ptr %398, ptr %911, align 8, !tbaa !4
   %912 = getelementptr inbounds nuw i8, ptr %909, i64 24
-  store i8 1, ptr %912, align 8, !tbaa !26
+  store i8 1, ptr %912, align 8, !tbaa !23
   %913 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 8
   store ptr %909, ptr %914, align 8, !tbaa !4
@@ -38028,7 +38028,7 @@ lean_obj_tag.exit1624:                            ; preds = %1145, %1148
   %1159 = getelementptr inbounds nuw i8, ptr %1157, i64 16
   store ptr %399, ptr %1159, align 8, !tbaa !4
   %1160 = getelementptr inbounds nuw i8, ptr %1157, i64 24
-  store i8 1, ptr %1160, align 8, !tbaa !26
+  store i8 1, ptr %1160, align 8, !tbaa !23
   store ptr %1157, ptr %1128, align 8, !tbaa !4
   %1161 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 8
@@ -38116,7 +38116,7 @@ lean_dec.exit1187:                                ; preds = %1188, %1187, %1185,
   %1191 = getelementptr inbounds nuw i8, ptr %1189, i64 16
   store ptr %399, ptr %1191, align 8, !tbaa !4
   %1192 = getelementptr inbounds nuw i8, ptr %1189, i64 24
-  store i8 1, ptr %1192, align 8, !tbaa !26
+  store i8 1, ptr %1192, align 8, !tbaa !23
   store ptr %1189, ptr %1128, align 8, !tbaa !4
   %1193 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %1194 = getelementptr inbounds nuw i8, ptr %1193, i64 8
@@ -38446,7 +38446,7 @@ lean_dec_ref.exit1365:                            ; preds = %1310, %1309, %1307,
   %1315 = getelementptr inbounds nuw i8, ptr %1313, i64 16
   store ptr %1311, ptr %1315, align 8, !tbaa !4
   %1316 = getelementptr inbounds nuw i8, ptr %1313, i64 24
-  store i8 1, ptr %1316, align 8, !tbaa !26
+  store i8 1, ptr %1316, align 8, !tbaa !23
   store ptr %1313, ptr %1128, align 8, !tbaa !4
   %1317 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 8
@@ -45904,7 +45904,7 @@ l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonical
   store double %.sink57.i, ptr %92, align 8, !tbaa !18
   %93 = getelementptr inbounds nuw i8, ptr %.sink68.i, i64 32
   store double %.sink54.i, ptr %93, align 8, !tbaa !18
-  store i8 %39, ptr %89, align 8, !tbaa !26
+  store i8 %39, ptr %89, align 8, !tbaa !23
   %94 = tail call noalias noundef nonnull ptr @l_Lean_withTraceNode___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_canonicalizeWithSharing___spec__2___lambda__1(ptr noundef %8, ptr noundef %10, ptr noundef %20, ptr noundef %12, ptr noundef nonnull %.sink68.i, ptr nonnull poison, ptr noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36)
   %95 = ptrtoint ptr %34 to i64
   %96 = and i64 %95, 1
@@ -49910,19 +49910,19 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit198
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %44, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i8 0, ptr %45, align 8, !tbaa !26
+  store i8 0, ptr %45, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 25
-  store i8 1, ptr %46, align 1, !tbaa !26
+  store i8 1, ptr %46, align 1, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 26
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %47, i8 0, i64 10, i1 false)
-  store i8 1, ptr %48, align 4, !tbaa !26
+  store i8 1, ptr %48, align 4, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 37
-  store i8 1, ptr %49, align 1, !tbaa !26
+  store i8 1, ptr %49, align 1, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 38
-  store i8 0, ptr %50, align 2, !tbaa !26
+  store i8 0, ptr %50, align 2, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 39
-  store i8 0, ptr %51, align 1, !tbaa !26
+  store i8 0, ptr %51, align 1, !tbaa !23
   %52 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bvAcNfTarget___closed__1, align 8, !tbaa !4
   %53 = tail call ptr @l_Lean_Meta_Simp_mkContext(ptr noundef nonnull %38, ptr noundef %52, ptr noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %20) #5
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -51689,19 +51689,19 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit296
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr inttoptr (i64 5 to ptr), ptr %45, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store i8 0, ptr %46, align 8, !tbaa !26
+  store i8 0, ptr %46, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 25
-  store i8 1, ptr %47, align 1, !tbaa !26
+  store i8 1, ptr %47, align 1, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 26
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %48, i8 0, i64 10, i1 false)
-  store i8 1, ptr %49, align 4, !tbaa !26
+  store i8 1, ptr %49, align 4, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 37
-  store i8 1, ptr %50, align 1, !tbaa !26
+  store i8 1, ptr %50, align 1, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 38
-  store i8 0, ptr %51, align 2, !tbaa !26
+  store i8 0, ptr %51, align 2, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 39
-  store i8 0, ptr %52, align 1, !tbaa !26
+  store i8 0, ptr %52, align 1, !tbaa !23
   %53 = load ptr, ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_bvAcNfTarget___closed__1, align 8, !tbaa !4
   %54 = tail call ptr @l_Lean_Meta_Simp_mkContext(ptr noundef nonnull %39, ptr noundef %53, ptr noundef %11, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %21) #5
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -60638,9 +60638,6 @@ attributes #6 = { noreturn nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"double", !6, i64 0}
 !20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !22}
-!24 = !{!"branch_weights", i32 4000000, i32 4001}
-!25 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
-!26 = !{!6, !6, i64 0}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!23 = !{!6, !6, i64 0}

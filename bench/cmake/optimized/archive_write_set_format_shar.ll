@@ -1269,7 +1269,7 @@ define internal fastcc void @shar_quote(ptr noundef %0, ptr noundef %1, i32 noun
   %18 = getelementptr inbounds nuw i8, ptr %.020.us, i64 %.sink
   %19 = load i8, ptr %18, align 1, !tbaa !30
   %.not.us = icmp eq i8 %19, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %20 = phi i8 [ %34, %32 ], [ %4, %.lr.ph ]
@@ -1420,7 +1420,7 @@ define internal fastcc range(i32 -30, 1) i32 @_uuencode_line(ptr noundef %0, ptr
   %54 = getelementptr inbounds nuw i8, ptr %.03137, i64 3
   %55 = getelementptr inbounds nuw i8, ptr %.02939, i64 4
   %56 = icmp ugt i64 %53, 2
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp eq i64 %53, 0
@@ -1571,6 +1571,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !40 = !{!26, !14, i64 104}
 !41 = distinct !{!41, !32}
 !42 = distinct !{!42, !32}
-!43 = distinct !{!43, !32, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !32}
+!43 = distinct !{!43, !32}

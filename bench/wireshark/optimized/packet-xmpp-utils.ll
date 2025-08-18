@@ -2207,7 +2207,7 @@ xmpp_steal_element_by_name_and_attr.exit:         ; preds = %42
   tail call void %50(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %47)
   %51 = load i32, ptr %21, align 8
   %.not127 = icmp eq i32 %51, 0
-  br i1 %.not127, label %.critedge, label %22, !llvm.loop !20
+  br i1 %.not127, label %.critedge, label %22, !llvm.loop !19
 
 52:                                               ; preds = %12
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2239,7 +2239,7 @@ xmpp_steal_element_by_name.exit:                  ; preds = %57
   tail call void %67(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %64)
   %68 = load i32, ptr %56, align 8
   %.not126 = icmp eq i32 %68, 0
-  br i1 %.not126, label %.critedge, label %57, !llvm.loop !21
+  br i1 %.not126, label %.critedge, label %57, !llvm.loop !20
 
 69:                                               ; preds = %12
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2305,7 +2305,7 @@ xmpp_steal_element_by_attr.exit:                  ; preds = %91
   tail call void %99(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %96)
   %100 = load i32, ptr %75, align 8
   %.not125 = icmp eq i32 %100, 0
-  br i1 %.not125, label %.critedge, label %76, !llvm.loop !22
+  br i1 %.not125, label %.critedge, label %76, !llvm.loop !21
 
 101:                                              ; preds = %12
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2356,12 +2356,12 @@ xmpp_steal_element_by_names.exit:                 ; preds = %xmpp_steal_element_
   tail call void %122(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %120)
   %123 = load i32, ptr %106, align 8
   %.not = icmp eq i32 %123, 0
-  br i1 %.not, label %.critedge, label %107, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %107, !llvm.loop !22
 
 .critedge:                                        ; preds = %107, %xmpp_steal_element_by_names.exit, %76, %xmpp_steal_element_by_attr.exit, %98, %57, %xmpp_steal_element_by_name.exit, %66, %22, %xmpp_steal_element_by_name_and_attr.exit, %49, %xmpp_steal_element_by_name.exit.thread.i, %.thread.i99, %.thread.i, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %124 = icmp samesign ult i64 %indvars.iv.next, %11
-  br i1 %124, label %12, label %._crit_edge, !llvm.loop !24
+  br i1 %124, label %12, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge, %6
   tail call void @xmpp_unknown(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1)
@@ -2387,7 +2387,7 @@ define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr nound
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
@@ -2561,11 +2561,10 @@ attributes #12 = { noreturn }
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}

@@ -1418,7 +1418,7 @@ _ZN5boost6locale3utf10utf_traitsIwLi4EE6encodeISt20back_insert_iteratorINSt7__cx
 52:                                               ; preds = %31, %_ZN5boost6locale3utf10utf_traitsIwLi4EE6encodeISt20back_insert_iteratorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEET_jSD_.exit
   %53 = load ptr, ptr %6, align 8, !tbaa !9
   %.not = icmp eq ptr %53, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %52, %_ZN5boost6locale3utf10utf_traitsIwLi4EE6encodeISt20back_insert_iteratorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEET_jSD_.exit.us, %.preheader
   ret void
@@ -1489,7 +1489,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
 
 17:                                               ; preds = %13
   %18 = icmp samesign ult i8 %7, -11
-  br i1 %18, label %24, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !57
+  br i1 %18, label %24, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !55
 
 19:                                               ; preds = %5
   %20 = zext nneg i8 %7 to i32
@@ -1564,7 +1564,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   %62 = and i32 %.2, 32736
   %or.cond.i = icmp ne i32 %62, 864
   %.0.i41 = and i1 %61, %or.cond.i
-  br i1 %.0.i41, label %63, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !57
+  br i1 %.0.i41, label %63, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !55
 
 63:                                               ; preds = %56
   %64 = icmp samesign ult i32 %.2, 2
@@ -1576,13 +1576,13 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
 
 67:                                               ; preds = %65
   %68 = icmp samesign ult i32 %.2, 1024
-  %..i42 = select i1 %68, i32 3, i32 4, !prof !57
+  %..i42 = select i1 %68, i32 3, i32 4, !prof !55
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %63, %65, %67
   %.0.i43 = phi i32 [ 1, %63 ], [ 2, %65 ], [ %..i42, %67 ]
   %.not = icmp eq i32 %.0.i43, %.0.i.ph.ph51
-  %.0. = select i1 %.not, i32 %60, i32 -1, !prof !57
+  %.0. = select i1 %.not, i32 %60, i32 -1, !prof !55
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit: ; preds = %9, %17, %19, %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, %56, %52, %49, %40, %37, %28, %24, %2
@@ -1745,7 +1745,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 69:                                               ; preds = %30
   %70 = icmp ult i32 %0, 65536
-  br i1 %70, label %71, label %126, !prof !57
+  br i1 %70, label %71, label %126, !prof !55
 
 71:                                               ; preds = %69
   %72 = lshr i32 %0, 12
@@ -1903,7 +1903,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !58
+  %3 = load ptr, ptr %0, align 8, !tbaa !56
   %4 = load i8, ptr %1, align 1, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !14
@@ -2842,9 +2842,7 @@ attributes #21 = { noreturn nounwind }
 !51 = distinct !{!51, !52, !"_ZN5boost6locale4conv10utf_to_utfIcwSaIcEEENSt7__cxx1112basic_stringIT_St11char_traitsIS6_ET1_EEPKT0_SD_NS1_11method_typeERKS9_: argument 0"}
 !52 = distinct !{!52, !"_ZN5boost6locale4conv10utf_to_utfIcwSaIcEEENSt7__cxx1112basic_stringIT_St11char_traitsIS6_ET1_EEPKT0_SD_NS1_11method_typeERKS9_"}
 !53 = !{!13, !13, i64 0}
-!54 = distinct !{!54, !46, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = distinct !{!56, !46}
-!57 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"_ZTSSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !5, i64 0}
+!54 = distinct !{!54, !46}
+!55 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!56 = !{!57, !5, i64 0}
+!57 = !{!"_ZTSSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !5, i64 0}

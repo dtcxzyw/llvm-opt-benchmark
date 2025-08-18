@@ -3585,7 +3585,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   %.2 = phi i32 [ %.1275, %349 ], [ %382, %Rtm_ObjGetDegreeFwd.exit ], [ %382, %Vec_PtrPush.exit198 ], [ %.1275, %.lr.ph.i180 ]
   %418 = add nuw nsw i32 %.0126274, 1
   %419 = icmp slt i32 %418, %415
-  br i1 %419, label %349, label %.critedge10.loopexit255, !llvm.loop !98
+  br i1 %419, label %349, label %.critedge10.loopexit255, !llvm.loop !97
 
 .critedge10.loopexit255:                          ; preds = %Rtm_ObjCheckRetimeFwd.exit, %.lr.ph286.split
   %420 = phi i32 [ %338, %.lr.ph286.split ], [ %416, %Rtm_ObjCheckRetimeFwd.exit ]
@@ -3594,7 +3594,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %422 = sext i32 %421 to i64
   %423 = icmp slt i64 %indvars.iv.next315, %422
-  br i1 %423, label %.lr.ph286.split, label %.critedge8, !llvm.loop !99
+  br i1 %423, label %.lr.ph286.split, label %.critedge8, !llvm.loop !96
 
 .critedge8:                                       ; preds = %.critedge10.loopexit255, %.critedge10.loopexit.us, %189, %137, %.critedge4
   %.lcssa281 = phi i32 [ %.promoted, %.critedge4 ], [ 0, %137 ], [ 0, %189 ], [ %334, %.critedge10.loopexit.us ], [ %421, %.critedge10.loopexit255 ]
@@ -3693,7 +3693,7 @@ Abc_Clock.exit233:                                ; preds = %Rtm_ManLatchMax.exi
 Vec_PtrFree.exit:                                 ; preds = %460, %462
   call void @free(ptr noundef nonnull %133) #23
   %463 = call ptr @Rtm_ManToAig(ptr noundef nonnull %17)
-  %464 = load ptr, ptr %0, align 8, !tbaa !100
+  %464 = load ptr, ptr %0, align 8, !tbaa !98
   %.not.i235 = icmp eq ptr %464, null
   br i1 %.not.i235, label %Abc_UtilStrsav.exit, label %465
 
@@ -3706,9 +3706,9 @@ Vec_PtrFree.exit:                                 ; preds = %460, %462
 
 Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit, %465
   %470 = phi ptr [ %468, %465 ], [ null, %Vec_PtrFree.exit ]
-  store ptr %470, ptr %463, align 8, !tbaa !100
+  store ptr %470, ptr %463, align 8, !tbaa !98
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %472 = load ptr, ptr %471, align 8, !tbaa !101
+  %472 = load ptr, ptr %471, align 8, !tbaa !99
   %.not.i236 = icmp eq ptr %472, null
   br i1 %.not.i236, label %Abc_UtilStrsav.exit237, label %473
 
@@ -3722,7 +3722,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Vec_PtrFree.exit, %
 Abc_UtilStrsav.exit237:                           ; preds = %Abc_UtilStrsav.exit, %473
   %478 = phi ptr [ %476, %473 ], [ null, %Abc_UtilStrsav.exit ]
   %479 = getelementptr inbounds nuw i8, ptr %463, i64 8
-  store ptr %478, ptr %479, align 8, !tbaa !101
+  store ptr %478, ptr %479, align 8, !tbaa !99
   call void @Rtm_ManFree(ptr noundef nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %480 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #23
@@ -3790,7 +3790,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #23
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !102
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !100
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #23
@@ -3798,7 +3798,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !102, !noalias !104
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !100, !noalias !102
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #23
   br label %17
 
@@ -3989,14 +3989,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !93 = distinct !{!93, !36}
 !94 = distinct !{!94, !36}
 !95 = distinct !{!95, !36}
-!96 = distinct !{!96, !36, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !36}
-!99 = distinct !{!99, !36}
-!100 = !{!4, !5, i64 0}
-!101 = !{!4, !5, i64 8}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!104 = !{!105}
-!105 = distinct !{!105, !106, !"vprintf: argument 0"}
-!106 = distinct !{!106, !"vprintf"}
+!96 = distinct !{!96, !36}
+!97 = distinct !{!97, !36}
+!98 = !{!4, !5, i64 0}
+!99 = !{!4, !5, i64 8}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"vprintf: argument 0"}
+!104 = distinct !{!104, !"vprintf"}

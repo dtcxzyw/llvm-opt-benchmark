@@ -1076,7 +1076,7 @@ _task_info_destroy.exit.i:                        ; preds = %38
   %45 = load i32, ptr %11, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %47, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !16
 
 _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -1274,7 +1274,7 @@ _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
   %121 = load i32, ptr %116, align 4
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next, %122
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %113
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2092,7 +2092,5 @@ attributes #11 = { noreturn nounwind }
 !13 = !{}
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

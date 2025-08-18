@@ -14632,7 +14632,7 @@ _ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_
   %37 = sub i64 %5, %36
   %38 = ashr exact i64 %37, 3
   %.not = icmp slt i64 %38, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !132
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_T0_.exit.loopexit, %_ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_T0_.exit.us, %4
   %.sroa.030.0.lcssa = phi ptr [ %0, %4 ], [ %9, %_ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_T0_.exit.us ], [ %14, %_ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S9_EEEEvT_SD_T0_.exit.loopexit ]
@@ -14744,7 +14744,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN5QListIP15QTreeWidgetItemE8it
   %20 = icmp ne ptr %.sroa.022.1.i, %14
   %21 = icmp ne ptr %.sroa.019.1.i, %15
   %or.cond.i = and i1 %20, %21
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !133
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !131
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %13
   %.sroa.019.0.lcssa.i = phi ptr [ %14, %13 ], [ %.sroa.019.1.i, %.lr.ph.i ]
@@ -14795,7 +14795,7 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
   %42 = sub i64 %7, %32
   %43 = ashr exact i64 %42, 3
   %.not = icmp slt i64 %43, %6
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !134
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, %5
   %.sroa.052.0.lcssa = phi ptr [ %0, %5 ], [ %15, %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
@@ -14827,7 +14827,7 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
   %51 = icmp ne ptr %.sroa.022.1.i41, %44
   %52 = icmp ne ptr %.sroa.019.1.i39, %1
   %or.cond.i43 = and i1 %51, %52
-  br i1 %or.cond.i43, label %.lr.ph.i33, label %.critedge.i18, !llvm.loop !133
+  br i1 %or.cond.i43, label %.lr.ph.i33, label %.critedge.i18, !llvm.loop !131
 
 .critedge.i18:                                    ; preds = %.lr.ph.i33, %._crit_edge
   %.sroa.019.0.lcssa.i19 = phi ptr [ %44, %._crit_edge ], [ %.sroa.019.1.i39, %.lr.ph.i33 ]
@@ -14919,7 +14919,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPP15QTreeWidgetItemN5QListIS1_
   %21 = icmp ne ptr %.1.i, %15
   %22 = icmp ne ptr %.117.i, %16
   %23 = and i1 %21, %22
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !135
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   %.sroa.024.0.lcssa.i = phi ptr [ %.sroa.021.064, %14 ], [ %20, %.lr.ph.i ]
@@ -14970,7 +14970,7 @@ _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_
   %44 = sub i64 %7, %34
   %45 = ashr exact i64 %44, 3
   %.not = icmp slt i64 %45, %6
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !136
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, %5
   %.0.lcssa = phi ptr [ %0, %5 ], [ %16, %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit ]
@@ -15002,7 +15002,7 @@ _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_
   %54 = icmp ne ptr %.1.i47, %46
   %55 = icmp ne ptr %.117.i45, %1
   %56 = and i1 %54, %55
-  br i1 %56, label %.lr.ph.i39, label %._crit_edge.i24, !llvm.loop !135
+  br i1 %56, label %.lr.ph.i39, label %._crit_edge.i24, !llvm.loop !133
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i39, %._crit_edge
   %.sroa.024.0.lcssa.i25 = phi ptr [ %.sroa.021.0.lcssa, %._crit_edge ], [ %53, %.lr.ph.i39 ]
@@ -15168,7 +15168,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46: ; preds 
   %59 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 8
   %60 = add nsw i64 %.09.i.i.i.i.i49, -1
   %61 = icmp samesign ugt i64 %.09.i.i.i.i.i49, 1
-  br i1 %61, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !137
+  br i1 %61, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !135
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i48, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46
   %62 = ptrtoint ptr %.0.lcssa.i.i.i.i.i41 to i64
@@ -15792,7 +15792,7 @@ _ZN9QtPrivate18ResultIteratorBase5valueIP15QTreeWidgetItemEERT_v.exit: ; preds =
 41:                                               ; preds = %_ZN9QtPrivate18ResultIteratorBase5valueIP15QTreeWidgetItemEERT_v.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = invoke { ptr, i32 } @_ZN9QtPrivate18ResultIteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable_or_null(12) %4)
-          to label %20 unwind label %.loopexit, !llvm.loop !138
+          to label %20 unwind label %.loopexit, !llvm.loop !136
 
 43:                                               ; preds = %8
   %44 = landingpad { ptr, i32 }
@@ -16239,12 +16239,10 @@ attributes #31 = { nounwind willreturn memory(read) }
 !127 = distinct !{!127, !39}
 !128 = distinct !{!128, !39}
 !129 = distinct !{!129, !39}
-!130 = distinct !{!130, !39, !131}
-!131 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!130 = distinct !{!130, !39}
+!131 = distinct !{!131, !39}
 !132 = distinct !{!132, !39}
 !133 = distinct !{!133, !39}
 !134 = distinct !{!134, !39}
 !135 = distinct !{!135, !39}
 !136 = distinct !{!136, !39}
-!137 = distinct !{!137, !39}
-!138 = distinct !{!138, !39}

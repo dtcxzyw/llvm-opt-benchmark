@@ -481,7 +481,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %57 = add i64 %56, 1
   %58 = load atomic i64, ptr %22 acquire, align 16
   %59 = icmp sgt i64 %57, %58
-  br i1 %59, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !120
+  br i1 %59, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %88
   %60 = phi i64 [ %90, %88 ], [ %24, %.lr.ph ]
@@ -751,5 +751,3 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !117 = !{!"p1 _ZTSN3tbb6detail2r19pm_clientE", !13, i64 0}
 !118 = distinct !{!118, !42}
 !119 = !{!22, !29, i64 80}
-!120 = distinct !{!120, !121}
-!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}

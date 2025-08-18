@@ -426,7 +426,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   %131 = lshr i32 %130, 26
   %132 = zext nneg i32 %131 to i64
   %133 = icmp samesign ult i64 %indvars.iv.next, %132
-  br i1 %133, label %.lr.ph.split, label %.critedge, !llvm.loop !58
+  br i1 %133, label %.lr.ph.split, label %.critedge, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph ]
@@ -450,15 +450,15 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
 .critedge:                                        ; preds = %129, %124, %108
   %.lcssa111 = phi i32 [ %115, %108 ], [ %125, %124 ], [ %130, %129 ]
   %.lcssa = phi i32 [ %116, %108 ], [ %126, %124 ], [ %131, %129 ]
-  %143 = load ptr, ptr %0, align 8, !tbaa !59
+  %143 = load ptr, ptr %0, align 8, !tbaa !57
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load i32, ptr %144, align 4, !tbaa !60
+  %145 = load i32, ptr %144, align 4, !tbaa !58
   %146 = icmp sgt i32 %145, 0
   br i1 %146, label %147, label %167
 
 147:                                              ; preds = %.critedge
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %149 = load i32, ptr %148, align 4, !tbaa !62
+  %149 = load i32, ptr %148, align 4, !tbaa !60
   %150 = icmp sgt i32 %.lcssa, %149
   br i1 %150, label %151, label %167
 
@@ -585,10 +585,8 @@ attributes #3 = { nounwind }
 !53 = !{!"p1 _ZTS10Tim_Man_t_", !9, i64 0}
 !54 = !{!34, !34, i64 0}
 !55 = !{!5, !5, i64 0}
-!56 = distinct !{!56, !16, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !16}
-!59 = !{!18, !19, i64 0}
-!60 = !{!61, !5, i64 8}
-!61 = !{!"Lpk_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44}
-!62 = !{!61, !5, i64 40}
+!56 = distinct !{!56, !16}
+!57 = !{!18, !19, i64 0}
+!58 = !{!59, !5, i64 8}
+!59 = !{!"Lpk_Par_t_", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44}
+!60 = !{!59, !5, i64 40}

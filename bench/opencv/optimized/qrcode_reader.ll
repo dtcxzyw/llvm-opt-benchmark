@@ -7063,7 +7063,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   tail call void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 dereferenceable(346) %6, i32 noundef %.06375, ptr noundef nonnull %16)
   %61 = add i32 %.06375, 1
   %exitcond.not = icmp eq i32 %61, %20
-  br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78.split, !llvm.loop !194
+  br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78.split, !llvm.loop !192
 
 ._crit_edge79:                                    ; preds = %.lr.ph78.split, %._crit_edge.us, %4
   %.062.lcssa = phi i32 [ 0, %4 ], [ %59, %._crit_edge.us ], [ 0, %.lr.ph78.split ]
@@ -7162,13 +7162,13 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   store i32 %36, ptr %37, align 4, !tbaa !155
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge.us, label %29, !llvm.loop !195
+  br i1 %exitcond82.not, label %._crit_edge.us, label %29, !llvm.loop !193
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %indvars.iv.next75 = add i32 %indvars.iv74, %4
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge64, label %.lr.ph60.us, !llvm.loop !196
+  br i1 %exitcond87.not, label %._crit_edge64, label %.lr.ph60.us, !llvm.loop !194
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %42, %.lr.ph ]
@@ -7185,7 +7185,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   store i32 %45, ptr %43, align 4, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !197
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !195
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63.split.preheader, %.lr.ph63.split
   %indvars.iv67 = phi i64 [ 1, %.lr.ph63.split.preheader ], [ %indvars.iv.next68, %.lr.ph63.split ]
@@ -7202,7 +7202,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   store i32 %54, ptr %55, align 4, !tbaa !155
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge64, label %.lr.ph63.split, !llvm.loop !198
+  br i1 %exitcond71.not, label %._crit_edge64, label %.lr.ph63.split, !llvm.loop !194
 
 ._crit_edge64:                                    ; preds = %.lr.ph63.split, %._crit_edge.us, %.preheader.thread, %.preheader
   tail call void @_ZdaPv(ptr noundef nonnull %14) #21
@@ -7261,12 +7261,12 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   store i32 %19, ptr %gep58, align 4, !tbaa !155
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %11
-  br i1 %exitcond51.not, label %._crit_edge.us, label %13, !llvm.loop !199
+  br i1 %exitcond51.not, label %._crit_edge.us, label %13, !llvm.loop !196
 
 ._crit_edge.us:                                   ; preds = %13
   %20 = add nuw nsw i32 %.03041.us, 1
   %exitcond55.not = icmp eq i32 %20, %6
-  br i1 %exitcond55.not, label %._crit_edge43, label %.lr.ph39.us, !llvm.loop !200
+  br i1 %exitcond55.not, label %._crit_edge43, label %.lr.ph39.us, !llvm.loop !197
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -7279,7 +7279,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   store i32 %24, ptr %25, align 4, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !201
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !198
 
 ._crit_edge43:                                    ; preds = %.lr.ph42.split, %._crit_edge.us, %.preheader.thread, %.preheader
   ret void
@@ -7289,14 +7289,14 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %26 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %3, i32 noundef %.03041)
   %27 = add nuw nsw i32 %.03041, 1
   %exitcond46.not = icmp eq i32 %27, %6
-  br i1 %exitcond46.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !202
+  br i1 %exitcond46.not, label %._crit_edge43, label %.lr.ph42.split, !llvm.loop !197
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv(ptr noundef nonnull align 8 captures(none) dereferenceable(148) %0) local_unnamed_addr #6 align 2 {
   %2 = tail call i64 @time(ptr noundef null) #20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load i32, ptr %3, align 8, !tbaa !203
+  %4 = load i32, ptr %3, align 8, !tbaa !199
   %5 = zext i32 %4 to i64
   %6 = sub nsw i64 %2, %5
   %7 = icmp sgt i64 %6, 30
@@ -7304,11 +7304,11 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSi
   br i1 %7, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
-  %.pre = load i32, ptr %8, align 4, !tbaa !204
+  %.pre = load i32, ptr %8, align 4, !tbaa !200
   br label %10
 
 9:                                                ; preds = %1
-  store i32 0, ptr %8, align 4, !tbaa !204
+  store i32 0, ptr %8, align 4, !tbaa !200
   br label %10
 
 10:                                               ; preds = %._crit_edge, %9
@@ -7322,7 +7322,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader11getDecodeIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i32, ptr %2, align 8, !tbaa !205
+  %3 = load i32, ptr %2, align 8, !tbaa !201
   ret i32 %3
 }
 
@@ -7331,26 +7331,26 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader11setDecodeIDEj(ptr noundef no
   %3 = tail call i64 @time(ptr noundef null) #20
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %4, ptr %5, align 8, !tbaa !203
+  store i32 %4, ptr %5, align 8, !tbaa !199
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %1, ptr %6, align 8, !tbaa !205
+  store i32 %1, ptr %6, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %8 = load i32, ptr %7, align 4, !tbaa !206
+  %8 = load i32, ptr %7, align 4, !tbaa !202
   %.not = icmp eq i32 %1, %8
   br i1 %.not, label %23, label %_ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit
 
 _ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit: ; preds = %2
-  store i32 %1, ptr %7, align 4, !tbaa !206
+  store i32 %1, ptr %7, align 4, !tbaa !202
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i32, ptr %9, align 8, !tbaa !97
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %10, ptr %11, align 4, !tbaa !207
+  store i32 %10, ptr %11, align 4, !tbaa !203
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %13 = load i32, ptr %12, align 4, !tbaa !208
+  %13 = load i32, ptr %12, align 4, !tbaa !204
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %13, ptr %14, align 8, !tbaa !209
+  store i32 %13, ptr %14, align 8, !tbaa !205
   %15 = tail call i64 @time(ptr noundef null) #20
-  %16 = load i32, ptr %5, align 8, !tbaa !203
+  %16 = load i32, ptr %5, align 8, !tbaa !199
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 %15, %17
   %19 = icmp sgt i64 %18, 30
@@ -7358,9 +7358,9 @@ _ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit: ; pre
   %.pre.i = load i32, ptr %20, align 4
   %21 = select i1 %19, i32 0, i32 %.pre.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %21, ptr %22, align 8, !tbaa !210
+  store i32 %21, ptr %22, align 8, !tbaa !206
   store i32 0, ptr %9, align 8, !tbaa !97
-  store i32 0, ptr %20, align 4, !tbaa !204
+  store i32 0, ptr %20, align 4, !tbaa !200
   br label %23
 
 23:                                               ; preds = %_ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit, %2
@@ -7764,7 +7764,7 @@ _ZNKSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
   %34 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %34, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !211
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !207
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %33, %27
   %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %27 ], [ %35, %33 ]
@@ -7792,7 +7792,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET
   %43 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 8
   %.not.i.i.i.i.i33 = icmp eq ptr %43, %5
-  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit35, label %.lr.ph.i.i.i.i.i29, !llvm.loop !211
+  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit35, label %.lr.ph.i.i.i.i.i29, !llvm.loop !207
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit35: ; preds = %42, %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
   %.0.lcssa.i.i.i.i.i34 = phi ptr [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6ResultEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %44, %42 ]
@@ -8236,23 +8236,19 @@ attributes #23 = { noreturn }
 !189 = !{!"_ZTSN5zxing8ArrayRefIiEE", !4, i64 0, !190, i64 16}
 !190 = !{!"p1 _ZTSN5zxing5ArrayIiEE", !21, i64 0}
 !191 = distinct !{!191, !55}
-!192 = distinct !{!192, !55, !193}
-!193 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!192 = distinct !{!192, !55}
+!193 = distinct !{!193, !55}
 !194 = distinct !{!194, !55}
 !195 = distinct !{!195, !55}
-!196 = distinct !{!196, !55, !193}
+!196 = distinct !{!196, !55}
 !197 = distinct !{!197, !55}
 !198 = distinct !{!198, !55}
-!199 = distinct !{!199, !55}
-!200 = distinct !{!200, !55, !193}
-!201 = distinct !{!201, !55}
-!202 = distinct !{!202, !55}
-!203 = !{!23, !5, i64 104}
-!204 = !{!23, !5, i64 140}
-!205 = !{!23, !5, i64 112}
-!206 = !{!23, !5, i64 108}
-!207 = !{!23, !5, i64 116}
-!208 = !{!23, !5, i64 132}
-!209 = !{!23, !5, i64 128}
-!210 = !{!23, !5, i64 136}
-!211 = distinct !{!211, !55}
+!199 = !{!23, !5, i64 104}
+!200 = !{!23, !5, i64 140}
+!201 = !{!23, !5, i64 112}
+!202 = !{!23, !5, i64 108}
+!203 = !{!23, !5, i64 116}
+!204 = !{!23, !5, i64 132}
+!205 = !{!23, !5, i64 128}
+!206 = !{!23, !5, i64 136}
+!207 = distinct !{!207, !55}

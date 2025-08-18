@@ -1311,7 +1311,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %109 = add i32 %.2125.us128, 1
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ugt i64 %1, %110
-  br i1 %111, label %.lr.ph127.split.split.us, label %.loopexit, !llvm.loop !20
+  br i1 %111, label %.lr.ph127.split.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph127.split.split:                            ; preds = %.lr.ph127.split, %.lr.ph127.split.split
   %112 = phi i64 [ %129, %.lr.ph127.split.split ], [ 0, %.lr.ph127.split ]
@@ -1338,7 +1338,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %128 = add i32 %.2125, 1
   %129 = zext i32 %128 to i64
   %130 = icmp samesign ugt i64 %1, %129
-  br i1 %130, label %.lr.ph127.split.split, label %.loopexit, !llvm.loop !21
+  br i1 %130, label %.lr.ph127.split.split, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %26, %.lr.ph127.split.split, %.lr.ph127.split.split.us, %.lr.ph127.split.us, %._crit_edge, %43, %7
   ret void
@@ -1348,10 +1348,10 @@ declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @lv_point_from_precise(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = load float, ptr %0, align 4, !tbaa !22
+  %2 = load float, ptr %0, align 4, !tbaa !19
   %3 = fptosi float %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load float, ptr %4, align 4, !tbaa !25
+  %5 = load float, ptr %4, align 4, !tbaa !22
   %6 = fptosi float %5 to i32
   %.sroa.2.0.insert.ext = zext i32 %6 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -1374,9 +1374,9 @@ define <2 x float> @lv_point_to_precise(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_point_precise_set(ptr noundef writeonly captures(none) initializes((0, 8)) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
-  store float %1, ptr %0, align 4, !tbaa !22
+  store float %1, ptr %0, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %2, ptr %4, align 4, !tbaa !25
+  store float %2, ptr %4, align 4, !tbaa !22
   ret void
 }
 
@@ -1491,11 +1491,8 @@ attributes #9 = { nounwind }
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !16, !19}
-!21 = distinct !{!21, !16}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"", !24, i64 0, !24, i64 4}
-!24 = !{!"float", !6, i64 0}
-!25 = !{!23, !24, i64 4}
+!18 = distinct !{!18, !16}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"", !21, i64 0, !21, i64 4}
+!21 = !{!"float", !6, i64 0}
+!22 = !{!20, !21, i64 4}

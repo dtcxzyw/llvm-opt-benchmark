@@ -196,7 +196,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 27:                                               ; preds = %.noexc31.us
   %28 = load i32, ptr %11, align 4, !tbaa !9
   %.not82 = icmp eq i32 %28, 0
-  br i1 %.not82, label %.critedge126, label %._crit_edge, !llvm.loop !13
+  br i1 %.not82, label %.critedge126, label %._crit_edge, !llvm.loop !10
 
 .split.split.us:                                  ; preds = %.critedge126
   %29 = landingpad { ptr, i32 }
@@ -273,7 +273,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 43:                                               ; preds = %.noexc29
   %44 = load i32, ptr %11, align 4, !tbaa !9
   %.not81 = icmp eq i32 %44, 0
-  br i1 %.not81, label %.critedge127, label %._crit_edge, !llvm.loop !14
+  br i1 %.not81, label %.critedge127, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %43, %27, %18, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
   %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]
@@ -367,7 +367,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %10) #7
   %.not2.i = icmp eq i32 %11, 0
-  br i1 %.not2.i, label %_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv.exit, label %12, !prof !15
+  br i1 %.not2.i, label %_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv.exit, label %12, !prof !12
 
 12:                                               ; preds = %9
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %11)
@@ -416,7 +416,7 @@ define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiter19Intern
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %5) #7
   %.not2 = icmp eq i32 %6, 0
-  br i1 %.not2, label %8, label %7, !prof !15
+  br i1 %.not2, label %8, label %7, !prof !12
 
 7:                                                ; preds = %4
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %6)
@@ -446,7 +446,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %7) #7
   %.not2.i = icmp eq i32 %8, 0
-  br i1 %.not2.i, label %_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv.exit, label %9, !prof !15
+  br i1 %.not2.i, label %_ZN4absl24synchronization_internal13PthreadWaiter19InternalCondVarPokeEv.exit, label %9, !prof !12
 
 9:                                                ; preds = %6
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 158, ptr noundef nonnull @.str.5, i32 noundef %8)
@@ -533,9 +533,6 @@ attributes #8 = { noreturn nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!"int", !6, i64 0}
 !9 = !{!5, !8, i64 92}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11}
-!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}

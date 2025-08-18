@@ -1273,8 +1273,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEE
   br i1 %59, label %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !149
 
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS4_iE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not7.us.i.i.i.i.i.i.not = icmp ne i32 %2, -1
-  %spec.select = zext i1 %.not7.us.i.i.i.i.i.i.not to i32
+  %.not7.us.us.i.i.i.i.i.i.not = icmp ne i32 %2, -1
+  %spec.select = zext i1 %.not7.us.us.i.i.i.i.i.i.not to i32
   br label %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread"
 
 "_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread": ; preds = %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_0EclINS2_12PredIteratorIS6_NS2_5Value18user_iterator_implIKNS2_4UserEEEEEEEbT_.exit.i.i.i.i.i.i", %56, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS4_iE3$_0EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12PredIteratorIKNS_10BasicBlockENS_5Value18user_iterator_implIKNS_4UserEEEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS4_iE3$_0EEbOT_T0_.exit.thread"
@@ -1305,9 +1305,9 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %63
   %73 = zext i32 %.val94652 to i64
   %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.val84553, i64 %73
   %75 = and i32 %68, -4
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i", label %.lr.ph.i.split.i.i.i.i.i
+  br i1 %71, label %.lr.ph.i.split.us.i.i.i.i.i, label %.lr.ph.i.split.i.i.i.i.i
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i15
+.lr.ph.i.split.us.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i15
   %.not175206.i.i.i.i.i.i = icmp eq i32 %2, -1
   br i1 %.not175206.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread"
 
@@ -1506,10 +1506,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEE
   %177 = icmp sgt i32 %.0188.i.i.i.i.i.i, 1
   br i1 %177, label %.lr.ph.i.split.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !162
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %174, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread", %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i", %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit
-  %.sink.i.i.i59 = phi i32 [ %68, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i" ], [ 0, %63 ], [ 0, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %68, %174 ]
-  %.0.i.i15.i58 = phi ptr [ %64, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i" ], [ null, %63 ], [ null, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %64, %174 ]
-  %.sroa.15.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %75, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i" ], [ 0, %63 ], [ 0, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %75, %174 ]
+._crit_edge.i.i.i.i.i.i:                          ; preds = %174, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread", %63, %.lr.ph.i.split.us.i.i.i.i.i, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit
+  %.sink.i.i.i59 = phi i32 [ %68, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %68, %.lr.ph.i.split.us.i.i.i.i.i ], [ 0, %63 ], [ 0, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %68, %174 ]
+  %.0.i.i15.i58 = phi ptr [ %64, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %64, %.lr.ph.i.split.us.i.i.i.i.i ], [ null, %63 ], [ null, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %64, %174 ]
+  %.sroa.15.0.lcssa.i.i.i.i.i.i = phi i32 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %75, %.lr.ph.i.split.us.i.i.i.i.i ], [ 0, %63 ], [ 0, %"_ZSt7find_ifIN4llvm12PredIteratorIKNS0_10BasicBlockENS0_5Value18user_iterator_implIKNS0_4UserEEEEEZNS0_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS3_iE3$_0ET_SE_SE_T0_.exit.loopexit8.i.i.i.thread" ], [ %75, %174 ]
   %178 = sub nsw i32 %.sink.i.i.i59, %.sroa.15.0.lcssa.i.i.i.i.i.i
   switch i32 %178, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread63" [
     i32 3, label %179
@@ -1707,7 +1707,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEiNS_12DenseMapInfoIS4_vEE
   %.not67 = icmp eq i32 %.sink.i.i.i60, %.sroa.9.0.i.i.i.i.i.i
   br i1 %.not67, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread63", label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPKNS2_10BasicBlockEiE3$_1EclINS2_12SuccIteratorIKNS2_11InstructionES6_EEEEbT_.exit.thread.i.us.i.preheader.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit"
+"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread": ; preds = %.lr.ph.i.split.us.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit"
   %274 = or disjoint i32 %.0, 2
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_12SuccIteratorIKNS_11InstructionEKNS_10BasicBlockEEEEEZNS_21BranchProbabilityInfo7SccInfo21calculateSccBlockTypeEPS6_iE3$_1EEbOT_T0_.exit.thread63"
 
@@ -8657,11 +8657,11 @@ define dso_local void @_ZN4llvm21BranchProbabilityInfo10eraseBlockEPKNS_10BasicB
 
 7:                                                ; preds = %2
   call void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
-  %.pre15.pre = load ptr, ptr %6, align 8, !tbaa !249
+  %.pre16.pre = load ptr, ptr %6, align 8, !tbaa !249
   br label %_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit
 
 _ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit: ; preds = %2, %2, %2, %7
-  %.pre15 = phi ptr [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %.pre15.pre, %7 ]
+  %.pre16 = phi ptr [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %.pre16.pre, %7 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHE, i64 16), ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %8, align 8, !tbaa !250
@@ -8672,7 +8672,7 @@ _ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit: ;
   br i1 %12, label %_ZN4llvm6detail12DenseSetImplINS_21BranchProbabilityInfo20BasicBlockCallbackVHENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS0_12DenseSetPairIS3_EEEES9_E5eraseERKS3_.exit, label %13
 
 13:                                               ; preds = %_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit
-  %14 = ptrtoint ptr %.pre15 to i64
+  %14 = ptrtoint ptr %.pre16 to i64
   %15 = trunc i64 %14 to i32
   %16 = lshr i32 %15, 4
   %17 = lshr i32 %15, 9
@@ -8683,7 +8683,7 @@ _ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit: ;
   %21 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %9, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !249
-  %24 = icmp eq ptr %.pre15, %23
+  %24 = icmp eq ptr %.pre16, %23
   br i1 %24, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !131
 
 .lr.ph.i.i.i:                                     ; preds = %13, %27
@@ -8701,7 +8701,7 @@ _ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit: ;
   %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %9, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !249
-  %34 = icmp eq ptr %.pre15, %33
+  %34 = icmp eq ptr %.pre16, %33
   br i1 %34, label %.loopexit.i.i, label %.lr.ph.i.i.i, !prof !132, !llvm.loop !464
 
 .loopexit.i.i:                                    ; preds = %27, %13
@@ -8724,7 +8724,7 @@ _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i.i: ; preds = %
   br label %_ZN4llvm10CallbackVHD2Ev.exit.i.i
 
 _ZN4llvm10CallbackVHD2Ev.exit.i.i:                ; preds = %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i.i, %.loopexit.i.i
-  %.pre = phi ptr [ %.pre.pre, %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i.i ], [ %.pre15, %.loopexit.i.i ]
+  %.pre = phi ptr [ %.pre.pre, %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i.i ], [ %.pre16, %.loopexit.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i.i, i64 32
   store ptr null, ptr %38, align 8, !tbaa !250
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8738,7 +8738,7 @@ _ZN4llvm10CallbackVHD2Ev.exit.i.i:                ; preds = %_ZN4llvm15ValueHand
   br label %_ZN4llvm6detail12DenseSetImplINS_21BranchProbabilityInfo20BasicBlockCallbackVHENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS0_12DenseSetPairIS3_EEEES9_E5eraseERKS3_.exit
 
 _ZN4llvm6detail12DenseSetImplINS_21BranchProbabilityInfo20BasicBlockCallbackVHENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIPNS_5ValueEvEENS0_12DenseSetPairIS3_EEEES9_E5eraseERKS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit, %_ZN4llvm10CallbackVHD2Ev.exit.i.i
-  %45 = phi ptr [ %.pre15, %_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit ], [ %.pre, %_ZN4llvm10CallbackVHD2Ev.exit.i.i ], [ %.pre15, %.lr.ph.i.i.i ]
+  %45 = phi ptr [ %.pre16, %_ZN4llvm21BranchProbabilityInfo20BasicBlockCallbackVHC2EPKNS_5ValueEPS0_.exit ], [ %.pre, %_ZN4llvm10CallbackVHD2Ev.exit.i.i ], [ %.pre16, %.lr.ph.i.i.i ]
   %magicptr.i.i = ptrtoint ptr %45 to i64
   switch i64 %magicptr.i.i, label %46 [
     i64 0, label %_ZN4llvm10CallbackVHD2Ev.exit

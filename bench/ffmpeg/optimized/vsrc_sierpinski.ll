@@ -382,7 +382,7 @@ define internal noundef i32 @draw_carpet_slice(ptr noundef readonly captures(non
   %45 = add i32 %.02.i.us, -3
   %46 = icmp ult i32 %45, -5
   %47 = select i1 %44, i1 %46, i1 false
-  br i1 %47, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !64
+  br i1 %47, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !63
 
 .loopexit.us:                                     ; preds = %37, %41, %26
   %.sink = phi i32 [ -1, %26 ], [ -1, %41 ], [ 0, %37 ]
@@ -391,7 +391,7 @@ define internal noundef i32 @draw_carpet_slice(ptr noundef readonly captures(non
   store i32 %.sink, ptr %49, align 1, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %26, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %50 = load i32, ptr %14, align 8, !tbaa !34
@@ -399,7 +399,7 @@ define internal noundef i32 @draw_carpet_slice(ptr noundef readonly captures(non
   %52 = getelementptr inbounds i8, ptr %.02934.us, i64 %51
   %53 = add nsw i32 %.02835.us, 1
   %exitcond39.not = icmp eq i32 %53, %13
-  br i1 %exitcond39.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !66
+  br i1 %exitcond39.not, label %._crit_edge36, label %.preheader.us, !llvm.loop !65
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -488,8 +488,7 @@ attributes #6 = { nounwind willreturn memory(read) }
 !59 = !{!8, !8, i64 0}
 !60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = distinct !{!62, !61, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !61}
+!63 = distinct !{!63, !61}
 !64 = distinct !{!64, !61}
 !65 = distinct !{!65, !61}
-!66 = distinct !{!66, !61, !63}

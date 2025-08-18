@@ -308,7 +308,7 @@ _ZN3ue2L11isDifferentEhhb.exit:                   ; preds = %111
 .thread247:                                       ; preds = %127, %125
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count365
-  br i1 %exitcond361.not, label %.thread285, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond361.not, label %.thread285, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit295:                                     ; preds = %.thread247.us, %.thread, %.split.us
   %.1153 = phi i32 [ %124, %.split.us ], [ 0, %.thread ], [ %.5157.us, %.thread247.us ]
@@ -499,7 +499,7 @@ _ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit218: ; p
   %.1.in.i.i.i.i = getelementptr i8, ptr %.03.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %221 = icmp eq ptr %.19.i.i.i.i, %206
@@ -549,7 +549,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   %.in.i.i.i.i = getelementptr i8, ptr %.02327.i.i.i.i, i64 %.in.v.i.i.i.i
   %.023.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
   %.not.i.i.i5.i = icmp eq ptr %.023.i.i.i.i, null
-  br i1 %.not.i.i.i5.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i4.i, !llvm.loop !14
+  br i1 %.not.i.i.i5.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i4.i, !llvm.loop !12
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i4.i
   br i1 %238, label %._crit_edge.thread.i.i.i.i, label %242
@@ -610,7 +610,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   %.in.i17.i.i.i = getelementptr i8, ptr %.02327.i15.i.i.i, i64 %.in.v.i16.i.i.i
   %.023.i18.i.i.i = load ptr, ptr %.in.i17.i.i.i, align 8
   %.not.i19.i.i.i = icmp eq ptr %.023.i18.i.i.i, null
-  br i1 %.not.i19.i.i.i, label %._crit_edge.i20.i.i.i, label %.lr.ph.i14.i.i.i, !llvm.loop !14
+  br i1 %.not.i19.i.i.i, label %._crit_edge.i20.i.i.i, label %.lr.ph.i14.i.i.i, !llvm.loop !12
 
 ._crit_edge.i20.i.i.i:                            ; preds = %.lr.ph.i14.i.i.i
   br i1 %264, label %._crit_edge.thread.i29.i.i.i, label %268
@@ -669,7 +669,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   %.in.i38.i.i.i = getelementptr i8, ptr %.02327.i36.i.i.i, i64 %.in.v.i37.i.i.i
   %.023.i39.i.i.i = load ptr, ptr %.in.i38.i.i.i, align 8
   %.not.i40.i.i.i = icmp eq ptr %.023.i39.i.i.i, null
-  br i1 %.not.i40.i.i.i, label %._crit_edge.i41.i.i.i, label %.lr.ph.i35.i.i.i, !llvm.loop !14
+  br i1 %.not.i40.i.i.i, label %._crit_edge.i41.i.i.i, label %.lr.ph.i35.i.i.i, !llvm.loop !12
 
 ._crit_edge.i41.i.i.i:                            ; preds = %.lr.ph.i35.i.i.i
   br i1 %289, label %._crit_edge.thread.i50.i.i.i, label %293
@@ -738,7 +738,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond370.not = icmp eq i64 %indvars.iv.next368, 256
-  br i1 %exitcond370.not, label %211, label %216, !llvm.loop !15
+  br i1 %exitcond370.not, label %211, label %216, !llvm.loop !13
 
 315:                                              ; preds = %.critedge.i
   %316 = landingpad { ptr, i32 }
@@ -747,7 +747,7 @@ _ZNSt3mapI8FDRFloodN3ue29CharReachENS1_12_GLOBAL__N_115FloodComparatorESaISt4pai
   br label %357
 
 317:                                              ; preds = %211
-  %318 = load ptr, ptr %0, align 8, !alias.scope !16
+  %318 = load ptr, ptr %0, align 8, !alias.scope !14
   call void @llvm.memset.p0.i64(ptr align 1 %318, i8 0, i64 %215, i1 false)
   %319 = load ptr, ptr %0, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 1024
@@ -788,7 +788,7 @@ _ZNSt6vectorI8FDRFloodSaIS0_EED2Ev.exit:          ; preds = %._crit_edge332, %31
 330:                                              ; preds = %327
   %331 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %331, 4
-  br i1 %exitcond.i.i, label %._crit_edge332, label %327, !llvm.loop !19
+  br i1 %exitcond.i.i, label %._crit_edge332, label %327, !llvm.loop !17
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %327
   %332 = shl nuw nsw i64 %.0710.i.i, 6
@@ -841,7 +841,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %327
   %350 = getelementptr inbounds nuw [4 x i64], ptr %324, i64 0, i64 %.0.i.i225
   %351 = load i64, ptr %350, align 8
   %.not22.i.i = icmp eq i64 %351, 0
-  br i1 %.not22.i.i, label %347, label %352, !llvm.loop !20
+  br i1 %.not22.i.i, label %347, label %352, !llvm.loop !18
 
 352:                                              ; preds = %349
   %353 = shl nuw nsw i64 %.0.i.i225, 6
@@ -931,7 +931,7 @@ define internal fastcc void @_ZNSt8_Rb_treeI8FDRFloodSt4pairIKS0_N3ue29CharReach
   %.0.val = load ptr, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #20
   %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1078,15 +1078,13 @@ attributes #21 = { noreturn nounwind }
 !7 = distinct !{!7, !6}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !6, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN3ue224make_zeroed_bytecode_ptrIhEENS_12bytecode_ptrIT_EEmm: argument 0"}
-!18 = distinct !{!18, !"_ZN3ue224make_zeroed_bytecode_ptrIhEENS_12bytecode_ptrIT_EEmm"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN3ue224make_zeroed_bytecode_ptrIhEENS_12bytecode_ptrIT_EEmm: argument 0"}
+!16 = distinct !{!16, !"_ZN3ue224make_zeroed_bytecode_ptrIhEENS_12bytecode_ptrIT_EEmm"}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}

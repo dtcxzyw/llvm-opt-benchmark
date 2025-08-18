@@ -1579,7 +1579,7 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
   call void @decrRefCount(ptr noundef %.0) #12
   %502 = call ptr @listNext(ptr noundef nonnull %9) #12
   %.not496 = icmp eq ptr %502, null
-  br i1 %.not496, label %.loopexit546, label %487, !llvm.loop !104
+  br i1 %.not496, label %.loopexit546, label %487, !llvm.loop !103
 
 503:                                              ; preds = %487
   call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef nonnull %.0408, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13, i32 noundef 574) #12
@@ -1590,7 +1590,7 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next688 = add nsw i64 %indvars.iv687, 1
   %.not493.not = icmp sgt i64 %.2380, %indvars.iv687
-  br i1 %.not493.not, label %.lr.ph642.split, label %._crit_edge643, !llvm.loop !105
+  br i1 %.not493.not, label %.lr.ph642.split, label %._crit_edge643, !llvm.loop !102
 
 ._crit_edge643:                                   ; preds = %.loopexit546, %.lr.ph642.split.us, %478
   %504 = and i64 %448, 4294967295
@@ -1603,7 +1603,7 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
   call void @setKey(ptr noundef %0, ptr noundef %506, ptr noundef nonnull %.0417.lcssa, ptr noundef %481, i32 noundef 0) #12
   %507 = load ptr, ptr %176, align 8, !tbaa !73
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 56
-  %509 = load i32, ptr %508, align 8, !tbaa !106
+  %509 = load i32, ptr %508, align 8, !tbaa !104
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0417.lcssa, i32 noundef %509) #12
   br label %.sink.split720
 
@@ -1618,15 +1618,15 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %514, ptr noundef nonnull %.0417.lcssa) #12
   %515 = load ptr, ptr %176, align 8, !tbaa !73
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 56
-  %517 = load i32, ptr %516, align 8, !tbaa !106
+  %517 = load i32, ptr %516, align 8, !tbaa !104
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0417.lcssa, i32 noundef %517) #12
   br label %.sink.split720
 
 .sink.split720:                                   ; preds = %505, %513
   %.sink723 = phi i64 [ 1, %513 ], [ %504, %505 ]
-  %518 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !108
+  %518 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !106
   %519 = add nsw i64 %518, %.sink723
-  store i64 %519, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !108
+  store i64 %519, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !106
   br label %520
 
 520:                                              ; preds = %.sink.split720, %510
@@ -1649,7 +1649,7 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
   call void @decrRefCount(ptr noundef %523) #12
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
   %exitcond700.not = icmp eq i64 %indvars.iv.next697, %wide.trip.count699
-  br i1 %exitcond700.not, label %._crit_edge655, label %.lr.ph654, !llvm.loop !109
+  br i1 %exitcond700.not, label %._crit_edge655, label %.lr.ph654, !llvm.loop !107
 
 ._crit_edge655:                                   ; preds = %.lr.ph654
   call void @decrRefCount(ptr noundef nonnull %.0408) #12
@@ -1675,7 +1675,7 @@ sdslen.exit512:                                   ; preds = %.lr.ph601, %363, %3
 527:                                              ; preds = %.lr.ph658.split, %526
   %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 1
   %exitcond705.not = icmp eq i64 %indvars.iv.next702, %wide.trip.count704
-  br i1 %exitcond705.not, label %._crit_edge659, label %.lr.ph658.split, !llvm.loop !110
+  br i1 %exitcond705.not, label %._crit_edge659, label %.lr.ph658.split, !llvm.loop !108
 
 ._crit_edge659.critedge:                          ; preds = %.loopexit
   call void @decrRefCount(ptr noundef nonnull %.0408) #12
@@ -1935,12 +1935,10 @@ attributes #15 = { nounwind willreturn memory(none) }
 !99 = !{!66, !11, i64 16}
 !100 = distinct !{!100, !82}
 !101 = distinct !{!101, !82}
-!102 = distinct !{!102, !82, !103}
-!103 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!104 = distinct !{!104, !82}
-!105 = distinct !{!105, !82}
-!106 = !{!107, !7, i64 56}
-!107 = !{!"redisDb", !45, i64 0, !45, i64 8, !11, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !27, i64 48, !7, i64 56, !30, i64 64, !20, i64 72, !31, i64 80}
-!108 = !{!23, !30, i64 6720}
-!109 = distinct !{!109, !82}
-!110 = distinct !{!110, !82}
+!102 = distinct !{!102, !82}
+!103 = distinct !{!103, !82}
+!104 = !{!105, !7, i64 56}
+!105 = !{!"redisDb", !45, i64 0, !45, i64 8, !11, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !27, i64 48, !7, i64 56, !30, i64 64, !20, i64 72, !31, i64 80}
+!106 = !{!23, !30, i64 6720}
+!107 = distinct !{!107, !82}
+!108 = distinct !{!108, !82}

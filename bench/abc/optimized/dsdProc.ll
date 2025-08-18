@@ -2498,7 +2498,7 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
 
 11:                                               ; preds = %5
   %12 = icmp sgt i32 %1, 0
-  br i1 %12, label %.lr.ph.split.us.preheader, label %._crit_edge
+  br i1 %12, label %.lr.ph.split.us, label %._crit_edge
 
 .thread:                                          ; preds = %5
   %13 = load ptr, ptr %6, align 8, !tbaa !55
@@ -2509,121 +2509,132 @@ define internal fastcc void @dsdKernelComputeSumOfComponents(ptr %.0.val, ptr no
 ._crit_edge.thread:                               ; preds = %.thread
   tail call void @Cudd_Deref(ptr noundef %10) #11
   store ptr %10, ptr %2, align 8, !tbaa !22
-  br label %61
+  br label %69
 
-.lr.ph.split.us.preheader:                        ; preds = %11
+.lr.ph.split.us:                                  ; preds = %11
   %.not47 = icmp eq i32 %4, 0
-  %wide.trip.count29 = zext nneg i32 %1 to i64
-  br label %.lr.ph.split.us
+  %wide.trip.count39 = zext nneg i32 %1 to i64
+  br i1 %.not47, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %30
-  %indvars.iv26 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next27, %30 ]
-  %.0392.us = phi ptr [ %10, %.lr.ph.split.us.preheader ], [ %.1.us, %30 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv26
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %.0392.us.us = phi ptr [ %26, %.lr.ph.split.us.split.us ], [ %10, %.lr.ph.split.us ]
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv36
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %.not46.us = icmp eq ptr %16, %19
+  %.not46.us.us = icmp eq ptr %16, %19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !58
   %22 = ptrtoint ptr %21 to i64
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
-  %25 = select i1 %.not46.us, ptr %21, ptr %24
-  br i1 %.not47, label %28, label %26
+  %25 = select i1 %.not46.us.us, ptr %21, ptr %24
+  %26 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us.us, ptr noundef %25) #11
+  tail call void @Cudd_Ref(ptr noundef %26) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us.us) #11
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
+  br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !78
 
-26:                                               ; preds = %.lr.ph.split.us
-  %27 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392.us, ptr noundef %25) #11
-  br label %30
-
-28:                                               ; preds = %.lr.ph.split.us
-  %29 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us, ptr noundef %25) #11
-  br label %30
-
-30:                                               ; preds = %28, %26
-  %.1.us = phi ptr [ %27, %26 ], [ %29, %28 ]
-  tail call void @Cudd_Ref(ptr noundef %.1.us) #11
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %.0392.us = phi ptr [ %38, %.lr.ph.split.us.split ], [ %10, %.lr.ph.split.us ]
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv31
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = ptrtoint ptr %28 to i64
+  %30 = and i64 %29, -2
+  %31 = inttoptr i64 %30 to ptr
+  %.not46.us = icmp eq ptr %28, %31
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !58
+  %34 = ptrtoint ptr %33 to i64
+  %35 = xor i64 %34, 1
+  %36 = inttoptr i64 %35 to ptr
+  %37 = select i1 %.not46.us, ptr %33, ptr %36
+  %38 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392.us, ptr noundef %37) #11
+  tail call void @Cudd_Ref(ptr noundef %38) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us) #11
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !78
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count39
+  br i1 %exitcond35.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !78
 
 .lr.ph.split:                                     ; preds = %.thread
-  %.not4734 = icmp eq i32 %4, 0
-  %wide.trip.count24 = zext nneg i32 %1 to i64
-  br i1 %.not4734, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.not4744 = icmp eq i32 %4, 0
+  %wide.trip.count29 = zext nneg i32 %1 to i64
+  br i1 %.not4744, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %.0392.us7 = phi ptr [ %42, %.lr.ph.split.split.us ], [ %10, %.lr.ph.split ]
-  %.1421.us8 = phi ptr [ %45, %.lr.ph.split.split.us ], [ %13, %.lr.ph.split ]
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv21
-  %32 = load ptr, ptr %31, align 8, !tbaa !24
-  %33 = ptrtoint ptr %32 to i64
-  %34 = and i64 %33, -2
-  %35 = inttoptr i64 %34 to ptr
-  %.not46.us9 = icmp eq ptr %32, %35
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !58
-  %38 = ptrtoint ptr %37 to i64
-  %39 = xor i64 %38, 1
-  %40 = inttoptr i64 %39 to ptr
-  %41 = select i1 %.not46.us9, ptr %37, ptr %40
-  %42 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us7, ptr noundef %41) #11
-  tail call void @Cudd_Ref(ptr noundef %42) #11
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %.0392.us7 = phi ptr [ %50, %.lr.ph.split.split.us ], [ %10, %.lr.ph.split ]
+  %.1421.us8 = phi ptr [ %53, %.lr.ph.split.split.us ], [ %13, %.lr.ph.split ]
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv26
+  %40 = load ptr, ptr %39, align 8, !tbaa !24
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, -2
+  %43 = inttoptr i64 %42 to ptr
+  %.not46.us9 = icmp eq ptr %40, %43
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !58
+  %46 = ptrtoint ptr %45 to i64
+  %47 = xor i64 %46, 1
+  %48 = inttoptr i64 %47 to ptr
+  %49 = select i1 %.not46.us9, ptr %45, ptr %48
+  %50 = tail call ptr @Cudd_bddOr(ptr noundef %.0.val, ptr noundef %.0392.us7, ptr noundef %49) #11
+  tail call void @Cudd_Ref(ptr noundef %50) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392.us7) #11
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !29
-  %45 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421.us8, ptr noundef %44) #11
-  tail call void @Cudd_Ref(ptr noundef %45) #11
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
+  %53 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421.us8, ptr noundef %52) #11
+  tail call void @Cudd_Ref(ptr noundef %53) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421.us8) #11
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !80
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
+  %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
+  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !78
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %.0392 = phi ptr [ %57, %.lr.ph.split.split ], [ %10, %.lr.ph.split ]
-  %.1421 = phi ptr [ %60, %.lr.ph.split.split ], [ %13, %.lr.ph.split ]
-  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !tbaa !24
-  %48 = ptrtoint ptr %47 to i64
-  %49 = and i64 %48, -2
-  %50 = inttoptr i64 %49 to ptr
-  %.not46 = icmp eq ptr %47, %50
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !58
-  %53 = ptrtoint ptr %52 to i64
-  %54 = xor i64 %53, 1
-  %55 = inttoptr i64 %54 to ptr
-  %56 = select i1 %.not46, ptr %52, ptr %55
-  %57 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392, ptr noundef %56) #11
-  tail call void @Cudd_Ref(ptr noundef %57) #11
+  %.0392 = phi ptr [ %65, %.lr.ph.split.split ], [ %10, %.lr.ph.split ]
+  %.1421 = phi ptr [ %68, %.lr.ph.split.split ], [ %13, %.lr.ph.split ]
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %55 = load ptr, ptr %54, align 8, !tbaa !24
+  %56 = ptrtoint ptr %55 to i64
+  %57 = and i64 %56, -2
+  %58 = inttoptr i64 %57 to ptr
+  %.not46 = icmp eq ptr %55, %58
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !58
+  %61 = ptrtoint ptr %60 to i64
+  %62 = xor i64 %61, 1
+  %63 = inttoptr i64 %62 to ptr
+  %64 = select i1 %.not46, ptr %60, ptr %63
+  %65 = tail call ptr @Cudd_bddXor(ptr noundef %.0.val, ptr noundef %.0392, ptr noundef %64) #11
+  tail call void @Cudd_Ref(ptr noundef %65) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.0392) #11
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !29
-  %60 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421, ptr noundef %59) #11
-  tail call void @Cudd_Ref(ptr noundef %60) #11
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !29
+  %68 = tail call ptr @Cudd_bddAnd(ptr noundef %.0.val, ptr noundef %.1421, ptr noundef %67) #11
+  tail call void @Cudd_Ref(ptr noundef %68) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %.0.val, ptr noundef %.1421) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !81
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %30, %11
-  %.142.lcssa = phi ptr [ null, %11 ], [ null, %30 ], [ %45, %.lr.ph.split.split.us ], [ %60, %.lr.ph.split.split ]
-  %.039.lcssa = phi ptr [ %10, %11 ], [ %.1.us, %30 ], [ %42, %.lr.ph.split.split.us ], [ %57, %.lr.ph.split.split ]
+._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %11
+  %.142.lcssa = phi ptr [ null, %11 ], [ null, %.lr.ph.split.us.split.us ], [ null, %.lr.ph.split.us.split ], [ %53, %.lr.ph.split.split.us ], [ %68, %.lr.ph.split.split ]
+  %.039.lcssa = phi ptr [ %10, %11 ], [ %26, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.us.split ], [ %50, %.lr.ph.split.split.us ], [ %65, %.lr.ph.split.split ]
   tail call void @Cudd_Deref(ptr noundef %.039.lcssa) #11
   store ptr %.039.lcssa, ptr %2, align 8, !tbaa !22
-  br i1 %.not, label %62, label %61
+  br i1 %.not, label %70, label %69
 
-61:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.142.lcssa39 = phi ptr [ %13, %._crit_edge.thread ], [ %.142.lcssa, %._crit_edge ]
-  tail call void @Cudd_Deref(ptr noundef %.142.lcssa39) #11
-  store ptr %.142.lcssa39, ptr %3, align 8, !tbaa !22
-  br label %62
+69:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.142.lcssa49 = phi ptr [ %13, %._crit_edge.thread ], [ %.142.lcssa, %._crit_edge ]
+  tail call void @Cudd_Deref(ptr noundef %.142.lcssa49) #11
+  store ptr %.142.lcssa49, ptr %3, align 8, !tbaa !22
+  br label %70
 
-62:                                               ; preds = %61, %._crit_edge
+70:                                               ; preds = %69, %._crit_edge
   ret void
 }
 
@@ -2756,7 +2767,4 @@ attributes #12 = { nounwind allocsize(0) }
 !75 = distinct !{!75, !33}
 !76 = distinct !{!76, !33}
 !77 = distinct !{!77, !33}
-!78 = distinct !{!78, !33, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !33, !79}
-!81 = distinct !{!81, !33}
+!78 = distinct !{!78, !33}

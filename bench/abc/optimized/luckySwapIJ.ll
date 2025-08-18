@@ -397,7 +397,7 @@ swap_ij_case2.exit:                               ; preds = %._crit_edge.i.loope
   %indvars.iv.next42.i38.us = add nsw i64 %indvars.iv41.i35.us, %100
   %108 = icmp slt i64 %indvars.iv.next42.i38.us, %101
   %indvars.iv.next.i39.us = add i32 %indvars.iv.i36.us, %88
-  br i1 %108, label %.lr.ph36.i.us, label %swap_ij_case1.exit, !llvm.loop !13
+  br i1 %108, label %.lr.ph36.i.us, label %swap_ij_case1.exit, !llvm.loop !12
 
 swap_ij_case1.exit:                               ; preds = %tailrecurse, %._crit_edge.i37.loopexit.us, %35, %.lr.ph36.preheader.i, %85, %12, %swap_ij_case2.exit, %83
   ret void
@@ -432,5 +432,3 @@ attributes #6 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}

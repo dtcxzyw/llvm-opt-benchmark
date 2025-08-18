@@ -1904,9 +1904,9 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   br i1 %.pr, label %._crit_edge, label %58
 
-._crit_edge:                                      ; preds = %426, %38
-  %.pre101 = load i8, ptr %44, align 1, !range !4
-  %57 = trunc nuw i8 %.pre101 to i1
+._crit_edge:                                      ; preds = %447, %38
+  %.pre111 = load i8, ptr %44, align 1, !range !4
+  %57 = trunc nuw i8 %.pre111 to i1
   br label %67
 
 58:                                               ; preds = %38
@@ -1917,7 +1917,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 61:                                               ; preds = %58
   %62 = load i64, ptr @flushedUpto, align 8
   %63 = icmp ult i64 %62, %43
-  br i1 %63, label %64, label %WaitForWALToBecomeAvailable.exit.thread71.thread103
+  br i1 %63, label %64, label %WaitForWALToBecomeAvailable.exit.thread71.thread113
 
 64:                                               ; preds = %61
   %65 = load i8, ptr %44, align 1, !range !4, !noundef !5
@@ -1961,9 +1961,9 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %.ph = phi i32 [ %.sink.i, %.sink.split.i ], [ %78, %80 ]
   br label %85
 
-85:                                               ; preds = %.preheader, %324
-  %86 = phi i32 [ %.pre.i, %324 ], [ %.ph, %.preheader ]
-  %.049.i = phi i1 [ %.251.i, %324 ], [ false, %.preheader ]
+85:                                               ; preds = %.preheader, %345
+  %86 = phi i32 [ %.pre.i, %345 ], [ %.ph, %.preheader ]
+  %.049.i = phi i1 [ %.251.i, %345 ], [ false, %.preheader ]
   %.b6668.i = load i1, ptr @lastSourceFailed, align 1
   br i1 %.b6668.i, label %87, label %128
 
@@ -1991,8 +1991,8 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br label %.loopexit
 
 95:                                               ; preds = %92
-  %.pre110.i = load i8, ptr @StandbyMode, align 1, !range !4
-  %96 = trunc nuw i8 %.pre110.i to i1
+  %.pre117.i = load i8, ptr @StandbyMode, align 1, !range !4
+  %96 = trunc nuw i8 %.pre117.i to i1
   br i1 %96, label %132, label %.loopexit
 
 97:                                               ; preds = %88
@@ -2056,14 +2056,14 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %130 = load i8, ptr @InArchiveRecovery, align 1, !range !4
   %131 = trunc nuw i8 %130 to i1
   %or.cond9.i = select i1 %129, i1 %131, i1 false
-  br i1 %or.cond9.i, label %132, label %.thread115.i
+  br i1 %or.cond9.i, label %132, label %.thread119.i
 
 132:                                              ; preds = %128, %123, %100, %95
-  %.sink128.i = phi i32 [ 1, %123 ], [ 3, %95 ], [ 1, %100 ], [ 1, %128 ]
+  %.sink137.i = phi i32 [ 1, %123 ], [ 3, %95 ], [ 1, %100 ], [ 1, %128 ]
   %.055.i = phi i8 [ 0, %123 ], [ 1, %95 ], [ 0, %100 ], [ 0, %128 ]
-  store i32 %.sink128.i, ptr @currentSource, align 4
-  %.not.i = icmp eq i32 %.sink128.i, %86
-  br i1 %.not.i, label %.thread115.i, label %133
+  store i32 %.sink137.i, ptr @currentSource, align 4
+  %.not.i = icmp eq i32 %.sink137.i, %86
+  br i1 %.not.i, label %.thread119.i, label %133
 
 133:                                              ; preds = %132
   %134 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
@@ -2085,19 +2085,19 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 thread-pre-split.i:                               ; preds = %135, %133
   %.pr.i = load i32, ptr @currentSource, align 4
-  br label %.thread115.i
+  br label %.thread119.i
 
-.thread115.i:                                     ; preds = %thread-pre-split.i, %132, %128
-  %.055118.i = phi i8 [ %.055.i, %thread-pre-split.i ], [ %.055.i, %132 ], [ 0, %128 ]
+.thread119.i:                                     ; preds = %thread-pre-split.i, %132, %128
+  %.055122.i = phi i8 [ %.055.i, %thread-pre-split.i ], [ %.055.i, %132 ], [ 0, %128 ]
   %145 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %86, %132 ], [ %86, %128 ]
   store i1 false, ptr @lastSourceFailed, align 1
-  switch i32 %145, label %316 [
+  switch i32 %145, label %337 [
     i32 1, label %146
     i32 2, label %146
-    i32 3, label %231
+    i32 3, label %252
   ]
 
-146:                                              ; preds = %.thread115.i, %.thread115.i
+146:                                              ; preds = %.thread119.i, %.thread119.i
   %147 = load i32, ptr @readFile, align 4
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %149, label %151
@@ -2131,609 +2131,670 @@ thread-pre-split.i:                               ; preds = %135, %133
   br i1 %.not44.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %159, %153
-  %.038103.i.i = phi ptr [ %161, %159 ], [ %158, %153 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.038103.i.i, i64 4
-  %163 = getelementptr inbounds nuw i8, ptr %.038103.i.i, i64 16
+  %.038139.i.i = phi ptr [ %161, %159 ], [ %158, %153 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.038139.i.i, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %.038139.i.i, i64 16
   %or.cond.i.i = icmp samesign ult i32 %157, 2
   %164 = and i32 %157, 1
   %or.cond4.i.i = icmp eq i32 %164, 0
-  br i1 %or.cond.i.i, label %.lr.ph.split.us.i.preheader.i, label %.lr.ph.split.i.i
+  br i1 %or.cond.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.preheader.i:                    ; preds = %.lr.ph.i.i
+.lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i
   %165 = load i32, ptr %162, align 4
   %166 = icmp sgt i32 %165, 0
-  br i1 %166, label %.lr.ph100.i, label %.critedge.i.i
+  br i1 %or.cond4.i.i, label %.lr.ph.split.us.split.us.split.i.i, label %.lr.ph.split.us.split.split.i.i
 
-.lr.ph100.i:                                      ; preds = %.lr.ph.split.us.i.preheader.i, %.thread55.us.i.i
-  %indvars.iv98.i99.i = phi i64 [ %indvars.iv.next99.i.i, %.thread55.us.i.i ], [ 0, %.lr.ph.split.us.i.preheader.i ]
-  %167 = load ptr, ptr %163, align 8
-  %168 = getelementptr inbounds nuw %union.ListCell, ptr %167, i64 %indvars.iv98.i99.i
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %169, align 8
-  %171 = load i32, ptr @curFileTLI, align 4
-  %172 = icmp ult i32 %170, %171
-  br i1 %172, label %.critedge.i.i, label %173
+.lr.ph.split.us.split.us.split.i.i:               ; preds = %.lr.ph.split.us.i.i
+  br i1 %166, label %.lr.ph106.preheader.i.i, label %.critedge.i.i
 
-173:                                              ; preds = %.lr.ph100.i
-  %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %175 = load i64, ptr %174, align 8
-  %.not46.us.i.i = icmp eq i64 %175, 0
-  br i1 %.not46.us.i.i, label %180, label %176
+.lr.ph106.preheader.i.i:                          ; preds = %.lr.ph.split.us.split.us.split.i.i
+  %.pre135.i.i = load i32, ptr @curFileTLI, align 4
+  br label %.lr.ph106.i.i
 
-176:                                              ; preds = %173
-  %177 = load i32, ptr @wal_segment_size, align 4
-  %178 = sext i32 %177 to i64
-  %179 = udiv i64 %175, %178
-  %.not47.us.i.i = icmp ult i64 %154, %179
-  br i1 %.not47.us.i.i, label %.thread55.us.i.i, label %180
+.lr.ph106.i.i:                                    ; preds = %.thread55.us.us.i.i, %.lr.ph106.preheader.i.i
+  %167 = phi i32 [ %165, %.lr.ph106.preheader.i.i ], [ %185, %.thread55.us.us.i.i ]
+  %168 = phi i32 [ %.pre135.i.i, %.lr.ph106.preheader.i.i ], [ %186, %.thread55.us.us.i.i ]
+  %indvars.iv121.i.i = phi i64 [ 0, %.lr.ph106.preheader.i.i ], [ %indvars.iv.next122.i.i, %.thread55.us.us.i.i ]
+  %169 = load ptr, ptr %163, align 8
+  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv121.i.i
+  %171 = load ptr, ptr %170, align 8
+  %172 = load i32, ptr %171, align 8
+  %173 = icmp ult i32 %172, %168
+  br i1 %173, label %.critedge.i.i, label %174
 
-180:                                              ; preds = %176, %173
-  %181 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %170, i32 noundef 1, i1 noundef zeroext true)
-  %.not48.us.i.i = icmp eq i32 %181, -1
-  br i1 %.not48.us.i.i, label %182, label %.split.us.i.i
+174:                                              ; preds = %.lr.ph106.i.i
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %176 = load i64, ptr %175, align 8
+  %.not46.us.us.i.i = icmp eq i64 %176, 0
+  br i1 %.not46.us.us.i.i, label %181, label %177
 
-182:                                              ; preds = %180
-  br i1 %or.cond4.i.i, label %183, label %.thread55.us.i.i
+177:                                              ; preds = %174
+  %178 = load i32, ptr @wal_segment_size, align 4
+  %179 = sext i32 %178 to i64
+  %180 = udiv i64 %176, %179
+  %.not47.us.us.i.i = icmp ult i64 %154, %180
+  br i1 %.not47.us.us.i.i, label %.thread55.us.us.i.i, label %181
 
-183:                                              ; preds = %182
-  %184 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %170, i32 noundef 2, i1 noundef zeroext true)
-  %.not49.us.i.i = icmp eq i32 %184, -1
-  br i1 %.not49.us.i.i, label %.thread55.us.i.i, label %.split76.us.i.i
+181:                                              ; preds = %177, %174
+  %182 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %172, i32 noundef 1, i1 noundef zeroext true)
+  %.not48.us.us.i.i = icmp eq i32 %182, -1
+  br i1 %.not48.us.us.i.i, label %183, label %.split.us.i.i
 
-.thread55.us.i.i:                                 ; preds = %183, %182, %176
-  %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i99.i, 1
-  %185 = load i32, ptr %162, align 4
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv.next99.i.i, %186
-  br i1 %187, label %.lr.ph100.i, label %.critedge.i.i
+183:                                              ; preds = %181
+  %184 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %172, i32 noundef 2, i1 noundef zeroext true)
+  %.not49.us.us.i.i = icmp eq i32 %184, -1
+  br i1 %.not49.us.us.i.i, label %..thread55.us.us_crit_edge.i.i, label %.split76.us.i.i
+
+..thread55.us.us_crit_edge.i.i:                   ; preds = %183
+  %.pre134.i.i = load i32, ptr @curFileTLI, align 4
+  %.pre136.i.i = load i32, ptr %162, align 4
+  br label %.thread55.us.us.i.i
+
+.thread55.us.us.i.i:                              ; preds = %..thread55.us.us_crit_edge.i.i, %177
+  %185 = phi i32 [ %.pre136.i.i, %..thread55.us.us_crit_edge.i.i ], [ %167, %177 ]
+  %186 = phi i32 [ %.pre134.i.i, %..thread55.us.us_crit_edge.i.i ], [ %168, %177 ]
+  %indvars.iv.next122.i.i = add nuw nsw i64 %indvars.iv121.i.i, 1
+  %187 = sext i32 %185 to i64
+  %188 = icmp slt i64 %indvars.iv.next122.i.i, %187
+  br i1 %188, label %.lr.ph106.i.i, label %.critedge.i.i
+
+.lr.ph.split.us.split.split.i.i:                  ; preds = %.lr.ph.split.us.i.i
+  br i1 %166, label %.lr.ph102.preheader.i.i, label %.critedge.i.i
+
+.lr.ph102.preheader.i.i:                          ; preds = %.lr.ph.split.us.split.split.i.i
+  %.pre129.i.i = load i32, ptr @curFileTLI, align 4
+  br label %.lr.ph102.i.i
+
+.lr.ph102.i.i:                                    ; preds = %.thread55.us.i.i, %.lr.ph102.preheader.i.i
+  %189 = phi i32 [ %165, %.lr.ph102.preheader.i.i ], [ %205, %.thread55.us.i.i ]
+  %190 = phi i32 [ %.pre129.i.i, %.lr.ph102.preheader.i.i ], [ %206, %.thread55.us.i.i ]
+  %indvars.iv118.i.i = phi i64 [ 0, %.lr.ph102.preheader.i.i ], [ %indvars.iv.next119.i.i, %.thread55.us.i.i ]
+  %191 = load ptr, ptr %163, align 8
+  %192 = getelementptr inbounds nuw %union.ListCell, ptr %191, i64 %indvars.iv118.i.i
+  %193 = load ptr, ptr %192, align 8
+  %194 = load i32, ptr %193, align 8
+  %195 = icmp ult i32 %194, %190
+  br i1 %195, label %.critedge.i.i, label %196
+
+196:                                              ; preds = %.lr.ph102.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %198 = load i64, ptr %197, align 8
+  %.not46.us.i.i = icmp eq i64 %198, 0
+  br i1 %.not46.us.i.i, label %203, label %199
+
+199:                                              ; preds = %196
+  %200 = load i32, ptr @wal_segment_size, align 4
+  %201 = sext i32 %200 to i64
+  %202 = udiv i64 %198, %201
+  %.not47.us.i.i = icmp ult i64 %154, %202
+  br i1 %.not47.us.i.i, label %.thread55.us.i.i, label %203
+
+203:                                              ; preds = %199, %196
+  %204 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %194, i32 noundef 1, i1 noundef zeroext true)
+  %.not48.us.i.i = icmp eq i32 %204, -1
+  br i1 %.not48.us.i.i, label %..thread55.us_crit_edge.i.i, label %.split.us.i.i
+
+..thread55.us_crit_edge.i.i:                      ; preds = %203
+  %.pre128.i.i = load i32, ptr @curFileTLI, align 4
+  %.pre130.i.i = load i32, ptr %162, align 4
+  br label %.thread55.us.i.i
+
+.thread55.us.i.i:                                 ; preds = %..thread55.us_crit_edge.i.i, %199
+  %205 = phi i32 [ %.pre130.i.i, %..thread55.us_crit_edge.i.i ], [ %189, %199 ]
+  %206 = phi i32 [ %.pre128.i.i, %..thread55.us_crit_edge.i.i ], [ %190, %199 ]
+  %indvars.iv.next119.i.i = add nuw nsw i64 %indvars.iv118.i.i, 1
+  %207 = sext i32 %205 to i64
+  %208 = icmp slt i64 %indvars.iv.next119.i.i, %207
+  br i1 %208, label %.lr.ph102.i.i, label %.critedge.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
-  br i1 %or.cond4.i.i, label %.lr.ph.split.split.us.i.preheader.i, label %.critedge.i.i
+  br i1 %or.cond4.i.i, label %.lr.ph.split.split.us.split.i.i, label %.critedge.i.i
 
-.lr.ph.split.split.us.i.preheader.i:              ; preds = %.lr.ph.split.i.i
-  %188 = load i32, ptr %162, align 4
-  %189 = icmp sgt i32 %188, 0
-  br i1 %189, label %.lr.ph.preheader.i, label %.critedge.i.i
+.lr.ph.split.split.us.split.i.i:                  ; preds = %.lr.ph.split.i.i
+  %209 = load i32, ptr %162, align 4
+  %210 = icmp sgt i32 %209, 0
+  br i1 %210, label %.lr.ph91.preheader.i.i, label %.critedge.i.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph.split.split.us.i.preheader.i
-  %.pre112.i = load i32, ptr @curFileTLI, align 4
-  br label %.lr.ph.i
+.lr.ph91.preheader.i.i:                           ; preds = %.lr.ph.split.split.us.split.i.i
+  %.pre125.i.i = load i32, ptr @curFileTLI, align 4
+  br label %.lr.ph91.i.i
 
-.lr.ph.i:                                         ; preds = %.thread55.us82.i.i, %.lr.ph.preheader.i
-  %190 = phi i32 [ %206, %.thread55.us82.i.i ], [ %188, %.lr.ph.preheader.i ]
-  %191 = phi i32 [ %207, %.thread55.us82.i.i ], [ %.pre112.i, %.lr.ph.preheader.i ]
-  %indvars.iv.i98.i = phi i64 [ %indvars.iv.next.i.i, %.thread55.us82.i.i ], [ 0, %.lr.ph.preheader.i ]
-  %192 = load ptr, ptr %163, align 8
-  %193 = getelementptr inbounds nuw %union.ListCell, ptr %192, i64 %indvars.iv.i98.i
-  %194 = load ptr, ptr %193, align 8
-  %195 = load i32, ptr %194, align 8
-  %196 = icmp ult i32 %195, %191
-  br i1 %196, label %.critedge.i.i, label %197
+.lr.ph91.i.i:                                     ; preds = %.thread55.us82.i.i, %.lr.ph91.preheader.i.i
+  %211 = phi i32 [ %209, %.lr.ph91.preheader.i.i ], [ %227, %.thread55.us82.i.i ]
+  %212 = phi i32 [ %.pre125.i.i, %.lr.ph91.preheader.i.i ], [ %228, %.thread55.us82.i.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph91.preheader.i.i ], [ %indvars.iv.next.i.i, %.thread55.us82.i.i ]
+  %213 = load ptr, ptr %163, align 8
+  %214 = getelementptr inbounds nuw %union.ListCell, ptr %213, i64 %indvars.iv.i.i
+  %215 = load ptr, ptr %214, align 8
+  %216 = load i32, ptr %215, align 8
+  %217 = icmp ult i32 %216, %212
+  br i1 %217, label %.critedge.i.i, label %218
 
-197:                                              ; preds = %.lr.ph.i
-  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %199 = load i64, ptr %198, align 8
-  %.not46.us79.i.i = icmp eq i64 %199, 0
-  br i1 %.not46.us79.i.i, label %204, label %200
+218:                                              ; preds = %.lr.ph91.i.i
+  %219 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %220 = load i64, ptr %219, align 8
+  %.not46.us79.i.i = icmp eq i64 %220, 0
+  br i1 %.not46.us79.i.i, label %225, label %221
 
-200:                                              ; preds = %197
-  %201 = load i32, ptr @wal_segment_size, align 4
-  %202 = sext i32 %201 to i64
-  %203 = udiv i64 %199, %202
-  %.not47.us80.i.i = icmp ult i64 %154, %203
-  br i1 %.not47.us80.i.i, label %.thread55.us82.i.i, label %204
+221:                                              ; preds = %218
+  %222 = load i32, ptr @wal_segment_size, align 4
+  %223 = sext i32 %222 to i64
+  %224 = udiv i64 %220, %223
+  %.not47.us80.i.i = icmp ult i64 %154, %224
+  br i1 %.not47.us80.i.i, label %.thread55.us82.i.i, label %225
 
-204:                                              ; preds = %200, %197
-  %205 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %195, i32 noundef 2, i1 noundef zeroext true)
-  %.not49.us81.i.i = icmp eq i32 %205, -1
-  br i1 %.not49.us81.i.i, label %..thread55.us82.i_crit_edge.i, label %.split76.us.i.i
+225:                                              ; preds = %221, %218
+  %226 = call fastcc i32 @XLogFileRead(i64 noundef %154, i32 noundef %216, i32 noundef 2, i1 noundef zeroext true)
+  %.not49.us81.i.i = icmp eq i32 %226, -1
+  br i1 %.not49.us81.i.i, label %..thread55.us82_crit_edge.i.i, label %.split76.us.i.i
 
-..thread55.us82.i_crit_edge.i:                    ; preds = %204
-  %.pre111.i = load i32, ptr @curFileTLI, align 4
-  %.pre113.i = load i32, ptr %162, align 4
+..thread55.us82_crit_edge.i.i:                    ; preds = %225
+  %.pre.i.i = load i32, ptr @curFileTLI, align 4
+  %.pre126.i.i = load i32, ptr %162, align 4
   br label %.thread55.us82.i.i
 
-.thread55.us82.i.i:                               ; preds = %..thread55.us82.i_crit_edge.i, %200
-  %206 = phi i32 [ %.pre113.i, %..thread55.us82.i_crit_edge.i ], [ %190, %200 ]
-  %207 = phi i32 [ %.pre111.i, %..thread55.us82.i_crit_edge.i ], [ %191, %200 ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i98.i, 1
-  %208 = sext i32 %206 to i64
-  %209 = icmp slt i64 %indvars.iv.next.i.i, %208
-  br i1 %209, label %.lr.ph.i, label %.critedge.i.i
+.thread55.us82.i.i:                               ; preds = %..thread55.us82_crit_edge.i.i, %221
+  %227 = phi i32 [ %.pre126.i.i, %..thread55.us82_crit_edge.i.i ], [ %211, %221 ]
+  %228 = phi i32 [ %.pre.i.i, %..thread55.us82_crit_edge.i.i ], [ %212, %221 ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %229 = sext i32 %227 to i64
+  %230 = icmp slt i64 %indvars.iv.next.i.i, %229
+  br i1 %230, label %.lr.ph91.i.i, label %.critedge.i.i
 
-.split.us.i.i:                                    ; preds = %180
-  %210 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
-  br i1 %210, label %211, label %213
+.split.us.i.i:                                    ; preds = %203, %181
+  %.us-phi92.i.i = phi i32 [ %182, %181 ], [ %204, %203 ]
+  %231 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  br i1 %231, label %232, label %234
 
-211:                                              ; preds = %.split.us.i.i
-  %212 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.171) #23
+232:                                              ; preds = %.split.us.i.i
+  %233 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.171) #23
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4354, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #23
-  br label %213
+  br label %234
 
-213:                                              ; preds = %211, %.split.us.i.i
-  %214 = load ptr, ptr @expectedTLEs, align 8
-  %.not51.i.i = icmp eq ptr %214, null
+234:                                              ; preds = %232, %.split.us.i.i
+  %235 = load ptr, ptr @expectedTLEs, align 8
+  %.not51.i.i = icmp eq ptr %235, null
   br i1 %.not51.i.i, label %XLogFileReadAnyTLI.exit.thread.sink.split.i, label %WaitForWALToBecomeAvailable.exit.thread71
 
-.split76.us.i.i:                                  ; preds = %204, %183
-  %.us-phi77.i.i = phi i32 [ %184, %183 ], [ %205, %204 ]
-  %215 = load ptr, ptr @expectedTLEs, align 8
-  %.not50.i.i = icmp eq ptr %215, null
+.split76.us.i.i:                                  ; preds = %225, %183
+  %.us-phi77.i.i = phi i32 [ %184, %183 ], [ %226, %225 ]
+  %236 = load ptr, ptr @expectedTLEs, align 8
+  %.not50.i.i = icmp eq ptr %236, null
   br i1 %.not50.i.i, label %XLogFileReadAnyTLI.exit.thread.sink.split.i, label %WaitForWALToBecomeAvailable.exit.thread71
 
-.critedge.i.i:                                    ; preds = %.thread55.us82.i.i, %.lr.ph.i, %.thread55.us.i.i, %.lr.ph100.i, %.lr.ph.split.split.us.i.preheader.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.preheader.i, %159
-  %216 = load i32, ptr @recoveryTargetTLI, align 4
-  %217 = load i32, ptr @wal_segment_size, align 4
-  %218 = sext i32 %217 to i64
-  %219 = udiv i64 4294967296, %218
-  %220 = udiv i64 %154, %219
-  %221 = trunc i64 %220 to i32
-  %222 = urem i64 %154, %219
-  %223 = trunc nuw i64 %222 to i32
-  %224 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %216, i32 noundef %221, i32 noundef %223) #23
-  %225 = tail call ptr @__errno_location() #25
-  store i32 2, ptr %225, align 4
-  %226 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
-  br i1 %226, label %227, label %230
+.critedge.i.i:                                    ; preds = %.thread55.us82.i.i, %.lr.ph91.i.i, %.thread55.us.i.i, %.lr.ph102.i.i, %.thread55.us.us.i.i, %.lr.ph106.i.i, %.lr.ph.split.split.us.split.i.i, %.lr.ph.split.i.i, %.lr.ph.split.us.split.split.i.i, %.lr.ph.split.us.split.us.split.i.i, %159
+  %237 = load i32, ptr @recoveryTargetTLI, align 4
+  %238 = load i32, ptr @wal_segment_size, align 4
+  %239 = sext i32 %238 to i64
+  %240 = udiv i64 4294967296, %239
+  %241 = udiv i64 %154, %240
+  %242 = trunc i64 %241 to i32
+  %243 = urem i64 %154, %240
+  %244 = trunc nuw i64 %243 to i32
+  %245 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %237, i32 noundef %242, i32 noundef %244) #23
+  %246 = tail call ptr @__errno_location() #25
+  store i32 2, ptr %246, align 4
+  %247 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
+  br i1 %247, label %248, label %251
 
-227:                                              ; preds = %.critedge.i.i
-  %228 = call i32 @errcode_for_file_access() #23
-  %229 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %6) #23
+248:                                              ; preds = %.critedge.i.i
+  %249 = call i32 @errcode_for_file_access() #23
+  %250 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %6) #23
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4378, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #23
-  br label %230
+  br label %251
 
-XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %213
-  %.3.i.ph.ph.i = phi i32 [ %181, %213 ], [ %.us-phi77.i.i, %.split76.us.i.i ]
-  store ptr %.038103.i.i, ptr @expectedTLEs, align 8
+XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %234
+  %.3.i.ph.ph.i = phi i32 [ %.us-phi92.i.i, %234 ], [ %.us-phi77.i.i, %.split76.us.i.i ]
+  store ptr %.038139.i.i, ptr @expectedTLEs, align 8
   br label %WaitForWALToBecomeAvailable.exit.thread71
 
-230:                                              ; preds = %227, %.critedge.i.i
+251:                                              ; preds = %248, %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 -1, ptr @readFile, align 4
   store i1 true, ptr @lastSourceFailed, align 1
   br label %.thread.i
 
-231:                                              ; preds = %.thread115.i
+252:                                              ; preds = %.thread119.i
   %.b70.i = load i1, ptr @pendingWalRcvRestart, align 1
   %.not3.i = xor i1 %.b70.i, true
-  %232 = trunc nuw i8 %.055118.i to i1
-  %or.cond5.i = select i1 %.not3.i, i1 true, i1 %232
-  br i1 %or.cond5.i, label %238, label %233
+  %253 = trunc nuw i8 %.055122.i to i1
+  %or.cond5.i = select i1 %.not3.i, i1 true, i1 %253
+  br i1 %or.cond5.i, label %259, label %254
 
-233:                                              ; preds = %231
+254:                                              ; preds = %252
   call void @XLogShutdownWalRcv() #23
-  %234 = load i32, ptr @recoveryTargetTimeLineGoal, align 4
-  %235 = icmp eq i32 %234, 1
-  br i1 %235, label %236, label %238
+  %255 = load i32, ptr @recoveryTargetTimeLineGoal, align 4
+  %256 = icmp eq i32 %255, 1
+  br i1 %256, label %257, label %259
 
-236:                                              ; preds = %233
-  %237 = call fastcc zeroext i1 @rescanLatestTimeLine(i32 noundef %73, i64 noundef %74)
-  br label %238
-
-238:                                              ; preds = %236, %233, %231
-  %.156.i = phi i8 [ %.055118.i, %231 ], [ 1, %236 ], [ 1, %233 ]
-  store i1 false, ptr @pendingWalRcvRestart, align 1
-  %239 = trunc nuw i8 %.156.i to i1
-  %240 = load ptr, ptr @PrimaryConnInfo, align 8
-  %241 = icmp ne ptr %240, null
-  %or.cond7.i = select i1 %239, i1 %241, i1 false
-  br i1 %or.cond7.i, label %242, label %264
-
-242:                                              ; preds = %238
-  %strcmpload.i = load i8, ptr %240, align 1
-  %.not71.i = icmp eq i8 %strcmpload.i, 0
-  br i1 %.not71.i, label %264, label %243
-
-243:                                              ; preds = %242
-  br i1 %72, label %244, label %247
-
-244:                                              ; preds = %243
-  %245 = load i64, ptr @RedoStartLSN, align 8
-  %246 = load i32, ptr @RedoStartTLI, align 4
+257:                                              ; preds = %254
+  %258 = call fastcc zeroext i1 @rescanLatestTimeLine(i32 noundef %73, i64 noundef %74)
   br label %259
 
-247:                                              ; preds = %243
-  %248 = load ptr, ptr @expectedTLEs, align 8
-  %249 = call i32 @tliOfPointInHistory(i64 noundef %3, ptr noundef %248) #23
-  %250 = load i32, ptr @curFileTLI, align 4
-  %.not72.i = icmp ne i32 %250, 0
-  %251 = icmp ult i32 %249, %250
-  %or.cond.i = select i1 %.not72.i, i1 %251, i1 false
-  br i1 %or.cond.i, label %252, label %259
+259:                                              ; preds = %257, %254, %252
+  %.156.i = phi i8 [ %.055122.i, %252 ], [ 1, %257 ], [ 1, %254 ]
+  store i1 false, ptr @pendingWalRcvRestart, align 1
+  %260 = trunc nuw i8 %.156.i to i1
+  %261 = load ptr, ptr @PrimaryConnInfo, align 8
+  %262 = icmp ne ptr %261, null
+  %or.cond7.i = select i1 %260, i1 %262, i1 false
+  br i1 %or.cond7.i, label %263, label %285
 
-252:                                              ; preds = %247
-  %253 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %253)
-  %254 = lshr i64 %3, 32
-  %255 = trunc nuw i64 %254 to i32
-  %256 = trunc i64 %3 to i32
-  %257 = load i32, ptr @curFileTLI, align 4
-  %258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.163, i32 noundef %255, i32 noundef %256, i32 noundef %249, i32 noundef %257) #23
+263:                                              ; preds = %259
+  %strcmpload.i = load i8, ptr %261, align 1
+  %.not71.i = icmp eq i8 %strcmpload.i, 0
+  br i1 %.not71.i, label %285, label %264
+
+264:                                              ; preds = %263
+  br i1 %72, label %265, label %268
+
+265:                                              ; preds = %264
+  %266 = load i64, ptr @RedoStartLSN, align 8
+  %267 = load i32, ptr @RedoStartTLI, align 4
+  br label %280
+
+268:                                              ; preds = %264
+  %269 = load ptr, ptr @expectedTLEs, align 8
+  %270 = call i32 @tliOfPointInHistory(i64 noundef %3, ptr noundef %269) #23
+  %271 = load i32, ptr @curFileTLI, align 4
+  %.not72.i = icmp ne i32 %271, 0
+  %272 = icmp ult i32 %270, %271
+  %or.cond.i = select i1 %.not72.i, i1 %272, i1 false
+  br i1 %or.cond.i, label %273, label %280
+
+273:                                              ; preds = %268
+  %274 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
+  call void @llvm.assume(i1 %274)
+  %275 = lshr i64 %3, 32
+  %276 = trunc nuw i64 %275 to i32
+  %277 = trunc i64 %3 to i32
+  %278 = load i32, ptr @curFileTLI, align 4
+  %279 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.163, i32 noundef %276, i32 noundef %277, i32 noundef %270, i32 noundef %278) #23
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3861, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
   unreachable
 
-259:                                              ; preds = %247, %244
-  %.045.i = phi i64 [ %245, %244 ], [ %43, %247 ]
-  %.044.i = phi i32 [ %246, %244 ], [ %249, %247 ]
+280:                                              ; preds = %268, %265
+  %.045.i = phi i64 [ %266, %265 ], [ %43, %268 ]
+  %.044.i = phi i32 [ %267, %265 ], [ %270, %268 ]
   store i32 %.044.i, ptr @curFileTLI, align 4
   call void @SetInstallXLogFileSegmentActive() #23
-  %260 = load ptr, ptr @PrimaryConnInfo, align 8
-  %261 = load ptr, ptr @PrimarySlotName, align 8
-  %262 = load i8, ptr @wal_receiver_create_temp_slot, align 1, !range !4, !noundef !5
-  %263 = trunc nuw i8 %262 to i1
-  call void @RequestXLogStreaming(i32 noundef %.044.i, i64 noundef %.045.i, ptr noundef %260, ptr noundef %261, i1 noundef zeroext %263) #23
+  %281 = load ptr, ptr @PrimaryConnInfo, align 8
+  %282 = load ptr, ptr @PrimarySlotName, align 8
+  %283 = load i8, ptr @wal_receiver_create_temp_slot, align 1, !range !4, !noundef !5
+  %284 = trunc nuw i8 %283 to i1
+  call void @RequestXLogStreaming(i32 noundef %.044.i, i64 noundef %.045.i, ptr noundef %281, ptr noundef %282, i1 noundef zeroext %284) #23
   store i64 0, ptr @flushedUpto, align 8
-  br label %264
+  br label %285
 
-264:                                              ; preds = %259, %242, %238
-  %265 = call zeroext i1 @WalRcvStreaming() #23
-  br i1 %265, label %267, label %266
+285:                                              ; preds = %280, %263, %259
+  %286 = call zeroext i1 @WalRcvStreaming() #23
+  br i1 %286, label %288, label %287
 
-266:                                              ; preds = %264
+287:                                              ; preds = %285
   store i1 true, ptr @lastSourceFailed, align 1
   br label %.thread.i
 
-267:                                              ; preds = %264
-  %268 = load i64, ptr @flushedUpto, align 8
-  %269 = icmp ult i64 %43, %268
-  br i1 %269, label %.critedge.i, label %270
+288:                                              ; preds = %285
+  %289 = load i64, ptr @flushedUpto, align 8
+  %290 = icmp ult i64 %43, %289
+  br i1 %290, label %.critedge.i, label %291
 
-270:                                              ; preds = %267
+291:                                              ; preds = %288
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %271 = call i64 @GetWalRcvFlushRecPtr(ptr noundef nonnull %7, ptr noundef nonnull @receiveTLI) #23
-  store i64 %271, ptr @flushedUpto, align 8
-  %272 = icmp ult i64 %43, %271
-  br i1 %272, label %273, label %292
+  %292 = call i64 @GetWalRcvFlushRecPtr(ptr noundef nonnull %7, ptr noundef nonnull @receiveTLI) #23
+  store i64 %292, ptr @flushedUpto, align 8
+  %293 = icmp ult i64 %43, %292
+  br i1 %293, label %294, label %313
 
-273:                                              ; preds = %270
-  %274 = load i32, ptr @receiveTLI, align 4
-  %275 = load i32, ptr @curFileTLI, align 4
-  %276 = icmp eq i32 %274, %275
-  br i1 %276, label %277, label %292
+294:                                              ; preds = %291
+  %295 = load i32, ptr @receiveTLI, align 4
+  %296 = load i32, ptr @curFileTLI, align 4
+  %297 = icmp eq i32 %295, %296
+  br i1 %297, label %298, label %313
 
-277:                                              ; preds = %273
-  %278 = load i64, ptr %7, align 8
-  %.not73.i = icmp ugt i64 %278, %43
-  br i1 %.not73.i, label %.critedge77.i, label %279
+298:                                              ; preds = %294
+  %299 = load i64, ptr %7, align 8
+  %.not73.i = icmp ugt i64 %299, %43
+  br i1 %.not73.i, label %.critedge77.i, label %300
 
-279:                                              ; preds = %277
-  %280 = call i64 @GetCurrentTimestamp() #23
-  store i64 %280, ptr @XLogReceiptTime, align 8
-  %281 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 96
-  %283 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %282, i8 1, ptr nonnull elementtype(i8) %282) #23, !srcloc !10
-  %.not.i78.i = icmp eq i8 %283, 0
-  br i1 %.not.i78.i, label %SetCurrentChunkStartTime.exit.i, label %284
+300:                                              ; preds = %298
+  %301 = call i64 @GetCurrentTimestamp() #23
+  store i64 %301, ptr @XLogReceiptTime, align 8
+  %302 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 96
+  %304 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %303, i8 1, ptr nonnull elementtype(i8) %303) #23, !srcloc !10
+  %.not.i78.i = icmp eq i8 %304, 0
+  br i1 %.not.i78.i, label %SetCurrentChunkStartTime.exit.i, label %305
 
-284:                                              ; preds = %279
-  %285 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 96
-  %287 = call i32 @s_lock(ptr noundef nonnull %286, ptr noundef nonnull @.str.6, i32 noundef 4628, ptr noundef nonnull @__func__.SetCurrentChunkStartTime) #23
+305:                                              ; preds = %300
+  %306 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 96
+  %308 = call i32 @s_lock(ptr noundef nonnull %307, ptr noundef nonnull @.str.6, i32 noundef 4628, ptr noundef nonnull @__func__.SetCurrentChunkStartTime) #23
   br label %SetCurrentChunkStartTime.exit.i
 
-SetCurrentChunkStartTime.exit.i:                  ; preds = %284, %279
-  %288 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 72
-  store i64 %280, ptr %289, align 8
+SetCurrentChunkStartTime.exit.i:                  ; preds = %305, %300
+  %309 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 72
+  store i64 %301, ptr %310, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !11
-  %290 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 96
-  store i8 0, ptr %291, align 8
+  %311 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 96
+  store i8 0, ptr %312, align 8
   br label %.critedge77.i
 
-292:                                              ; preds = %273, %270
+313:                                              ; preds = %294, %291
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %68, label %WaitForWALToBecomeAvailable.exit, label %304
+  br i1 %68, label %WaitForWALToBecomeAvailable.exit, label %325
 
-.critedge77.i:                                    ; preds = %SetCurrentChunkStartTime.exit.i, %277
+.critedge77.i:                                    ; preds = %SetCurrentChunkStartTime.exit.i, %298
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge77.i, %267
-  %293 = load i32, ptr @readFile, align 4
-  %294 = icmp slt i32 %293, 0
-  br i1 %294, label %295, label %WaitForWALToBecomeAvailable.exit.thread71.thread
+.critedge.i:                                      ; preds = %.critedge77.i, %288
+  %314 = load i32, ptr @readFile, align 4
+  %315 = icmp slt i32 %314, 0
+  br i1 %315, label %316, label %WaitForWALToBecomeAvailable.exit.thread71.thread
 
-295:                                              ; preds = %.critedge.i
-  %296 = load ptr, ptr @expectedTLEs, align 8
-  %.not74.i = icmp eq ptr %296, null
-  br i1 %.not74.i, label %297, label %300
+316:                                              ; preds = %.critedge.i
+  %317 = load ptr, ptr @expectedTLEs, align 8
+  %.not74.i = icmp eq ptr %317, null
+  br i1 %.not74.i, label %318, label %321
 
-297:                                              ; preds = %295
-  %298 = load i32, ptr @recoveryTargetTLI, align 4
-  %299 = call ptr @readTimeLineHistory(i32 noundef %298) #23
-  store ptr %299, ptr @expectedTLEs, align 8
-  br label %300
+318:                                              ; preds = %316
+  %319 = load i32, ptr @recoveryTargetTLI, align 4
+  %320 = call ptr @readTimeLineHistory(i32 noundef %319) #23
+  store ptr %320, ptr @expectedTLEs, align 8
+  br label %321
 
-300:                                              ; preds = %297, %295
-  %301 = load i64, ptr @readSegNo, align 8
-  %302 = load i32, ptr @receiveTLI, align 4
-  %303 = call fastcc i32 @XLogFileRead(i64 noundef %301, i32 noundef %302, i32 noundef 3, i1 noundef zeroext false)
-  store i32 %303, ptr @readFile, align 4
+321:                                              ; preds = %318, %316
+  %322 = load i64, ptr @readSegNo, align 8
+  %323 = load i32, ptr @receiveTLI, align 4
+  %324 = call fastcc i32 @XLogFileRead(i64 noundef %322, i32 noundef %323, i32 noundef 3, i1 noundef zeroext false)
+  store i32 %324, ptr @readFile, align 4
   br label %.thread.i
 
 WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   store i32 3, ptr @readSource, align 4
   store i32 3, ptr @XLogReceiptSource, align 4
-  br label %WaitForWALToBecomeAvailable.exit.thread71.thread103
+  br label %WaitForWALToBecomeAvailable.exit.thread71.thread113
 
-304:                                              ; preds = %292
-  %305 = call fastcc zeroext i1 @CheckForStandbyTrigger()
-  br i1 %305, label %306, label %307
+325:                                              ; preds = %313
+  %326 = call fastcc zeroext i1 @CheckForStandbyTrigger()
+  br i1 %326, label %327, label %328
 
-306:                                              ; preds = %304
+327:                                              ; preds = %325
   store i1 true, ptr @lastSourceFailed, align 1
   br label %.thread.i
 
-307:                                              ; preds = %304
-  br i1 %.049.i, label %309, label %308
+328:                                              ; preds = %325
+  br i1 %.049.i, label %330, label %329
 
-308:                                              ; preds = %307
+329:                                              ; preds = %328
   call void @WalRcvForceReply() #23
-  br label %309
+  br label %330
 
-309:                                              ; preds = %308, %307
+330:                                              ; preds = %329, %328
   call void @KnownAssignedTransactionIdsIdleMaintenance() #23
-  %310 = load ptr, ptr @xlogprefetcher, align 8
-  call void @XLogPrefetcherComputeStats(ptr noundef %310) #23
-  %311 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  %313 = call i32 @WaitLatch(ptr noundef nonnull %312, i32 noundef 33, i64 noundef -1, i32 noundef 83886089) #23
-  %314 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
-  call void @ResetLatch(ptr noundef nonnull %315) #23
+  %331 = load ptr, ptr @xlogprefetcher, align 8
+  call void @XLogPrefetcherComputeStats(ptr noundef %331) #23
+  %332 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
+  %334 = call i32 @WaitLatch(ptr noundef nonnull %333, i32 noundef 33, i64 noundef -1, i32 noundef 83886089) #23
+  %335 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
+  call void @ResetLatch(ptr noundef nonnull %336) #23
   br label %.thread.i
 
-316:                                              ; preds = %.thread115.i
-  %317 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %317)
-  %318 = load i32, ptr @currentSource, align 4
-  %319 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %318) #23
+337:                                              ; preds = %.thread119.i
+  %338 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
+  call void @llvm.assume(i1 %338)
+  %339 = load i32, ptr @currentSource, align 4
+  %340 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %339) #23
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4003, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
   unreachable
 
-.thread.i:                                        ; preds = %309, %306, %300, %266, %230
-  %.251.i = phi i1 [ %.049.i, %230 ], [ %.049.i, %266 ], [ true, %309 ], [ %.049.i, %306 ], [ %.049.i, %300 ]
-  %320 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 80
-  %322 = load volatile i32, ptr %321, align 8
-  %.not75.i = icmp eq i32 %322, 0
-  br i1 %.not75.i, label %324, label %323
+.thread.i:                                        ; preds = %330, %327, %321, %287, %251
+  %.251.i = phi i1 [ %.049.i, %251 ], [ %.049.i, %287 ], [ true, %330 ], [ %.049.i, %327 ], [ %.049.i, %321 ]
+  %341 = load ptr, ptr @XLogRecoveryCtl, align 8
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 80
+  %343 = load volatile i32, ptr %342, align 8
+  %.not75.i = icmp eq i32 %343, 0
+  br i1 %.not75.i, label %345, label %344
 
-323:                                              ; preds = %.thread.i
+344:                                              ; preds = %.thread.i
   call fastcc void @recoveryPausesHere(i1 noundef zeroext false)
-  br label %324
+  br label %345
 
-324:                                              ; preds = %323, %.thread.i
+345:                                              ; preds = %344, %.thread.i
   call void @HandleStartupProcInterrupts() #23
   %.pre.i = load i32, ptr @currentSource, align 4
   br label %85
 
 .loopexit:                                        ; preds = %89, %95, %94
-  %325 = load i32, ptr @readFile, align 4
-  %326 = icmp sgt i32 %325, -1
-  br i1 %326, label %327, label %329
+  %346 = load i32, ptr @readFile, align 4
+  %347 = icmp sgt i32 %346, -1
+  br i1 %347, label %348, label %350
 
-327:                                              ; preds = %.loopexit
-  %328 = call i32 @close(i32 noundef %325) #23
-  br label %329
+348:                                              ; preds = %.loopexit
+  %349 = call i32 @close(i32 noundef %346) #23
+  br label %350
 
-329:                                              ; preds = %327, %.loopexit
+350:                                              ; preds = %348, %.loopexit
   store i32 -1, ptr @readFile, align 4
   store i32 0, ptr @readLen, align 4
   store i32 0, ptr @readSource, align 4
   br label %WaitForWALToBecomeAvailable.exit
 
-WaitForWALToBecomeAvailable.exit.thread71:        ; preds = %213, %.split76.us.i.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i
-  %.3.i.ph.i = phi i32 [ %.us-phi77.i.i, %.split76.us.i.i ], [ %181, %213 ], [ %.3.i.ph.ph.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i ]
+WaitForWALToBecomeAvailable.exit.thread71:        ; preds = %234, %.split76.us.i.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i
+  %.3.i.ph.i = phi i32 [ %.us-phi77.i.i, %.split76.us.i.i ], [ %.us-phi92.i.i, %234 ], [ %.3.i.ph.ph.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.3.i.ph.i, ptr @readFile, align 4
   %.pr73.pr.pre = load i32, ptr @readSource, align 4
-  %330 = icmp eq i32 %.pr73.pr.pre, 3
-  br i1 %330, label %WaitForWALToBecomeAvailable.exit.thread71.thread103, label %.thread74
+  %351 = icmp eq i32 %.pr73.pr.pre, 3
+  br i1 %351, label %WaitForWALToBecomeAvailable.exit.thread71.thread113, label %.thread74
 
-WaitForWALToBecomeAvailable.exit.thread71.thread103: ; preds = %61, %WaitForWALToBecomeAvailable.exit.thread71.thread, %WaitForWALToBecomeAvailable.exit.thread71
-  %331 = load i64, ptr @flushedUpto, align 8
-  %.not.unshifted = xor i64 %331, %1
+WaitForWALToBecomeAvailable.exit.thread71.thread113: ; preds = %61, %WaitForWALToBecomeAvailable.exit.thread71.thread, %WaitForWALToBecomeAvailable.exit.thread71
+  %352 = load i64, ptr @flushedUpto, align 8
+  %.not.unshifted = xor i64 %352, %1
   %.not = icmp ult i64 %.not.unshifted, 8192
-  br i1 %.not, label %332, label %.thread74
+  br i1 %.not, label %353, label %.thread74
 
-332:                                              ; preds = %WaitForWALToBecomeAvailable.exit.thread71.thread103
-  %333 = load i32, ptr @wal_segment_size, align 4
-  %334 = add i32 %333, -1
-  %335 = trunc i64 %331 to i32
-  %336 = and i32 %334, %335
-  %337 = sub i32 %336, %15
+353:                                              ; preds = %WaitForWALToBecomeAvailable.exit.thread71.thread113
+  %354 = load i32, ptr @wal_segment_size, align 4
+  %355 = add i32 %354, -1
+  %356 = trunc i64 %352 to i32
+  %357 = and i32 %355, %356
+  %358 = sub i32 %357, %15
   br label %.thread74
 
-.thread74:                                        ; preds = %WaitForWALToBecomeAvailable.exit.thread71, %58, %WaitForWALToBecomeAvailable.exit.thread71.thread103, %332
-  %.sink = phi i32 [ %337, %332 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread103 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
+.thread74:                                        ; preds = %WaitForWALToBecomeAvailable.exit.thread71, %58, %WaitForWALToBecomeAvailable.exit.thread71.thread113, %353
+  %.sink = phi i32 [ %358, %353 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread113 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
   store i32 %.sink, ptr @readLen, align 4
   store i32 %15, ptr @readOff, align 4
-  %338 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
-  %339 = trunc nuw i8 %338 to i1
-  %340 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %339) #23
-  %341 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772231, ptr %341, align 4
-  %342 = load i32, ptr @readFile, align 4
-  %343 = load i32, ptr @readOff, align 4
-  %344 = zext i32 %343 to i64
-  %345 = call i64 @pread(i32 noundef %342, ptr noundef %4, i64 noundef 8192, i64 noundef %344) #23
-  %346 = trunc i64 %345 to i32
-  %.not60 = icmp eq i32 %346, 8192
-  br i1 %.not60, label %388, label %347
+  %359 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
+  %360 = trunc nuw i8 %359 to i1
+  %361 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %360) #23
+  %362 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772231, ptr %362, align 4
+  %363 = load i32, ptr @readFile, align 4
+  %364 = load i32, ptr @readOff, align 4
+  %365 = zext i32 %364 to i64
+  %366 = call i64 @pread(i32 noundef %363, ptr noundef %4, i64 noundef 8192, i64 noundef %365) #23
+  %367 = trunc i64 %366 to i32
+  %.not60 = icmp eq i32 %367, 8192
+  br i1 %.not60, label %409, label %368
 
-347:                                              ; preds = %.thread74
+368:                                              ; preds = %.thread74
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %348 = tail call ptr @__errno_location() #25
-  %349 = load i32, ptr %348, align 4
-  %350 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %350, align 4
-  %sext = shl i64 %345, 32
-  %351 = ashr exact i64 %sext, 32
-  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %340, i32 noundef 1, i64 noundef %351) #23
-  %352 = load i32, ptr @curFileTLI, align 4
-  %353 = load i64, ptr @readSegNo, align 8
-  %354 = load i32, ptr @wal_segment_size, align 4
-  %355 = sext i32 %354 to i64
-  %356 = udiv i64 4294967296, %355
-  %357 = udiv i64 %353, %356
-  %358 = trunc i64 %357 to i32
-  %359 = urem i64 %353, %356
-  %360 = trunc nuw i64 %359 to i32
-  %361 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %352, i32 noundef %358, i32 noundef %360) #23
-  %362 = icmp slt i32 %346, 0
-  br i1 %362, label %363, label %375
+  %369 = tail call ptr @__errno_location() #25
+  %370 = load i32, ptr %369, align 4
+  %371 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %371, align 4
+  %sext = shl i64 %366, 32
+  %372 = ashr exact i64 %sext, 32
+  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef %372) #23
+  %373 = load i32, ptr @curFileTLI, align 4
+  %374 = load i64, ptr @readSegNo, align 8
+  %375 = load i32, ptr @wal_segment_size, align 4
+  %376 = sext i32 %375 to i64
+  %377 = udiv i64 4294967296, %376
+  %378 = udiv i64 %374, %377
+  %379 = trunc i64 %378 to i32
+  %380 = urem i64 %374, %377
+  %381 = trunc nuw i64 %380 to i32
+  %382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %373, i32 noundef %379, i32 noundef %381) #23
+  %383 = icmp slt i32 %367, 0
+  br i1 %383, label %384, label %396
 
-363:                                              ; preds = %347
-  store i32 %349, ptr %348, align 4
-  %364 = load i32, ptr @readSource, align 4
-  %365 = icmp eq i32 %364, 2
-  %or.cond.i62 = and i1 %52, %365
-  br i1 %or.cond.i62, label %366, label %emode_for_corrupt_record.exit
+384:                                              ; preds = %368
+  store i32 %370, ptr %369, align 4
+  %385 = load i32, ptr @readSource, align 4
+  %386 = icmp eq i32 %385, 2
+  %or.cond.i62 = and i1 %52, %386
+  br i1 %or.cond.i62, label %387, label %emode_for_corrupt_record.exit
 
-366:                                              ; preds = %363
-  %367 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %368 = icmp eq i64 %43, %367
-  br i1 %368, label %emode_for_corrupt_record.exit, label %369
+387:                                              ; preds = %384
+  %388 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
+  %389 = icmp eq i64 %43, %388
+  br i1 %389, label %emode_for_corrupt_record.exit, label %390
 
-369:                                              ; preds = %366
+390:                                              ; preds = %387
   store i64 %43, ptr @emode_for_corrupt_record.lastComplaint, align 8
   br label %emode_for_corrupt_record.exit
 
-emode_for_corrupt_record.exit:                    ; preds = %363, %366, %369
-  %.0.i = phi i32 [ 15, %369 ], [ %11, %363 ], [ 14, %366 ]
-  %370 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #23
-  br i1 %370, label %371, label %387
+emode_for_corrupt_record.exit:                    ; preds = %384, %387, %390
+  %.0.i = phi i32 [ 15, %390 ], [ %11, %384 ], [ 14, %387 ]
+  %391 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #23
+  br i1 %391, label %392, label %408
 
-371:                                              ; preds = %emode_for_corrupt_record.exit
-  %372 = call i32 @errcode_for_file_access() #23
-  %373 = load i32, ptr @readOff, align 4
-  %374 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %373) #23
+392:                                              ; preds = %emode_for_corrupt_record.exit
+  %393 = call i32 @errcode_for_file_access() #23
+  %394 = load i32, ptr @readOff, align 4
+  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %394) #23
   br label %.sink.split
 
-375:                                              ; preds = %347
-  %376 = load i32, ptr @readSource, align 4
-  %377 = icmp eq i32 %376, 2
-  %or.cond.i63 = and i1 %52, %377
-  br i1 %or.cond.i63, label %378, label %emode_for_corrupt_record.exit65
+396:                                              ; preds = %368
+  %397 = load i32, ptr @readSource, align 4
+  %398 = icmp eq i32 %397, 2
+  %or.cond.i63 = and i1 %52, %398
+  br i1 %or.cond.i63, label %399, label %emode_for_corrupt_record.exit65
 
-378:                                              ; preds = %375
-  %379 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %380 = icmp eq i64 %43, %379
-  br i1 %380, label %emode_for_corrupt_record.exit65, label %381
+399:                                              ; preds = %396
+  %400 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
+  %401 = icmp eq i64 %43, %400
+  br i1 %401, label %emode_for_corrupt_record.exit65, label %402
 
-381:                                              ; preds = %378
+402:                                              ; preds = %399
   store i64 %43, ptr @emode_for_corrupt_record.lastComplaint, align 8
   br label %emode_for_corrupt_record.exit65
 
-emode_for_corrupt_record.exit65:                  ; preds = %375, %378, %381
-  %.0.i64 = phi i32 [ 15, %381 ], [ %11, %375 ], [ 14, %378 ]
-  %382 = call zeroext i1 @errstart(i32 noundef %.0.i64, ptr noundef null) #23
-  br i1 %382, label %383, label %387
+emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
+  %.0.i64 = phi i32 [ 15, %402 ], [ %11, %396 ], [ 14, %399 ]
+  %403 = call zeroext i1 @errstart(i32 noundef %.0.i64, ptr noundef null) #23
+  br i1 %403, label %404, label %408
 
-383:                                              ; preds = %emode_for_corrupt_record.exit65
-  %384 = call i32 @errcode(i32 noundef 16779816) #23
-  %385 = load i32, ptr @readOff, align 4
-  %386 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.157, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %385, i32 noundef %346, i64 noundef 8192) #23
+404:                                              ; preds = %emode_for_corrupt_record.exit65
+  %405 = call i32 @errcode(i32 noundef 16779816) #23
+  %406 = load i32, ptr @readOff, align 4
+  %407 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.157, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %406, i32 noundef %367, i64 noundef 8192) #23
   br label %.sink.split
 
-.sink.split:                                      ; preds = %371, %383
-  %.sink116 = phi i32 [ 3433, %383 ], [ 3426, %371 ]
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink116, ptr noundef nonnull @__func__.XLogPageRead) #23
-  br label %387
+.sink.split:                                      ; preds = %392, %404
+  %.sink131 = phi i32 [ 3433, %404 ], [ 3426, %392 ]
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink131, ptr noundef nonnull @__func__.XLogPageRead) #23
+  br label %408
 
-387:                                              ; preds = %.sink.split, %emode_for_corrupt_record.exit65, %emode_for_corrupt_record.exit
+408:                                              ; preds = %.sink.split, %emode_for_corrupt_record.exit65, %emode_for_corrupt_record.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %418
+  br label %439
 
-388:                                              ; preds = %.thread74
-  %389 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %389, align 4
-  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %340, i32 noundef 1, i64 noundef 8192) #23
-  %390 = load i32, ptr @curFileTLI, align 4
-  store i32 %390, ptr %55, align 8
-  %391 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
-  %392 = trunc nuw i8 %391 to i1
-  br i1 %392, label %393, label %416
+409:                                              ; preds = %.thread74
+  %410 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %410, align 4
+  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef 8192) #23
+  %411 = load i32, ptr @curFileTLI, align 4
+  store i32 %411, ptr %55, align 8
+  %412 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
+  %413 = trunc nuw i8 %412 to i1
+  br i1 %413, label %414, label %437
 
-393:                                              ; preds = %388
-  %394 = load i32, ptr @wal_segment_size, align 4
-  %395 = sext i32 %394 to i64
-  %396 = urem i64 %1, %395
-  %397 = icmp eq i64 %396, 0
-  br i1 %397, label %398, label %416
+414:                                              ; preds = %409
+  %415 = load i32, ptr @wal_segment_size, align 4
+  %416 = sext i32 %415 to i64
+  %417 = urem i64 %1, %416
+  %418 = icmp eq i64 %417, 0
+  br i1 %418, label %419, label %437
 
-398:                                              ; preds = %393
-  %399 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #23
-  br i1 %399, label %416, label %400
+419:                                              ; preds = %414
+  %420 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #23
+  br i1 %420, label %437, label %421
 
-400:                                              ; preds = %398
-  %401 = load ptr, ptr %56, align 8
-  %402 = load i8, ptr %401, align 1
-  %.not61 = icmp eq i8 %402, 0
-  br i1 %.not61, label %415, label %403
-
-403:                                              ; preds = %400
-  %404 = load i64, ptr %48, align 8
-  %405 = load i32, ptr @readSource, align 4
-  %406 = icmp eq i32 %405, 2
-  %or.cond.i66 = and i1 %52, %406
-  br i1 %or.cond.i66, label %407, label %emode_for_corrupt_record.exit68
-
-407:                                              ; preds = %403
-  %408 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  %409 = icmp eq i64 %404, %408
-  br i1 %409, label %emode_for_corrupt_record.exit68, label %410
-
-410:                                              ; preds = %407
-  store i64 %404, ptr @emode_for_corrupt_record.lastComplaint, align 8
-  br label %emode_for_corrupt_record.exit68
-
-emode_for_corrupt_record.exit68:                  ; preds = %403, %407, %410
-  %.0.i67 = phi i32 [ 15, %410 ], [ %11, %403 ], [ 14, %407 ]
-  %411 = call zeroext i1 @errstart(i32 noundef %.0.i67, ptr noundef null) #23
-  br i1 %411, label %412, label %415
-
-412:                                              ; preds = %emode_for_corrupt_record.exit68
-  %413 = load ptr, ptr %56, align 8
-  %414 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %413) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3489, ptr noundef nonnull @__func__.XLogPageRead) #23
-  br label %415
-
-415:                                              ; preds = %emode_for_corrupt_record.exit68, %412, %400
-  call void @XLogReaderResetError(ptr noundef nonnull %0) #23
-  br label %418
-
-416:                                              ; preds = %398, %393, %388
-  %417 = load i32, ptr @readLen, align 4
-  br label %WaitForWALToBecomeAvailable.exit
-
-418:                                              ; preds = %387, %415
-  %419 = load i8, ptr %44, align 1, !range !4, !noundef !5
-  %420 = trunc nuw i8 %419 to i1
-  br i1 %420, label %WaitForWALToBecomeAvailable.exit, label %421
-
-421:                                              ; preds = %418
-  store i1 true, ptr @lastSourceFailed, align 1
-  %422 = load i32, ptr @readFile, align 4
-  %423 = icmp sgt i32 %422, -1
-  br i1 %423, label %424, label %426
+421:                                              ; preds = %419
+  %422 = load ptr, ptr %56, align 8
+  %423 = load i8, ptr %422, align 1
+  %.not61 = icmp eq i8 %423, 0
+  br i1 %.not61, label %436, label %424
 
 424:                                              ; preds = %421
-  %425 = call i32 @close(i32 noundef %422) #23
-  br label %426
+  %425 = load i64, ptr %48, align 8
+  %426 = load i32, ptr @readSource, align 4
+  %427 = icmp eq i32 %426, 2
+  %or.cond.i66 = and i1 %52, %427
+  br i1 %or.cond.i66, label %428, label %emode_for_corrupt_record.exit68
 
-426:                                              ; preds = %424, %421
+428:                                              ; preds = %424
+  %429 = load i64, ptr @emode_for_corrupt_record.lastComplaint, align 8
+  %430 = icmp eq i64 %425, %429
+  br i1 %430, label %emode_for_corrupt_record.exit68, label %431
+
+431:                                              ; preds = %428
+  store i64 %425, ptr @emode_for_corrupt_record.lastComplaint, align 8
+  br label %emode_for_corrupt_record.exit68
+
+emode_for_corrupt_record.exit68:                  ; preds = %424, %428, %431
+  %.0.i67 = phi i32 [ 15, %431 ], [ %11, %424 ], [ 14, %428 ]
+  %432 = call zeroext i1 @errstart(i32 noundef %.0.i67, ptr noundef null) #23
+  br i1 %432, label %433, label %436
+
+433:                                              ; preds = %emode_for_corrupt_record.exit68
+  %434 = load ptr, ptr %56, align 8
+  %435 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %434) #23
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3489, ptr noundef nonnull @__func__.XLogPageRead) #23
+  br label %436
+
+436:                                              ; preds = %emode_for_corrupt_record.exit68, %433, %421
+  call void @XLogReaderResetError(ptr noundef nonnull %0) #23
+  br label %439
+
+437:                                              ; preds = %419, %414, %409
+  %438 = load i32, ptr @readLen, align 4
+  br label %WaitForWALToBecomeAvailable.exit
+
+439:                                              ; preds = %408, %436
+  %440 = load i8, ptr %44, align 1, !range !4, !noundef !5
+  %441 = trunc nuw i8 %440 to i1
+  br i1 %441, label %WaitForWALToBecomeAvailable.exit, label %442
+
+442:                                              ; preds = %439
+  store i1 true, ptr @lastSourceFailed, align 1
+  %443 = load i32, ptr @readFile, align 4
+  %444 = icmp sgt i32 %443, -1
+  br i1 %444, label %445, label %447
+
+445:                                              ; preds = %442
+  %446 = call i32 @close(i32 noundef %443) #23
+  br label %447
+
+447:                                              ; preds = %445, %442
   store i32 -1, ptr @readFile, align 4
   store i32 0, ptr @readLen, align 4
   store i32 0, ptr @readSource, align 4
-  %427 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
-  %428 = trunc nuw i8 %427 to i1
-  br i1 %428, label %._crit_edge, label %WaitForWALToBecomeAvailable.exit
+  %448 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
+  %449 = trunc nuw i8 %448 to i1
+  br i1 %449, label %._crit_edge, label %WaitForWALToBecomeAvailable.exit
 
-WaitForWALToBecomeAvailable.exit:                 ; preds = %292, %87, %426, %418, %64, %416, %329
-  %.0 = phi i32 [ %417, %416 ], [ -1, %329 ], [ -2, %64 ], [ -2, %418 ], [ -1, %426 ], [ -2, %87 ], [ -2, %292 ]
+WaitForWALToBecomeAvailable.exit:                 ; preds = %313, %87, %447, %439, %64, %437, %350
+  %.0 = phi i32 [ %438, %437 ], [ -1, %350 ], [ -2, %64 ], [ -2, %439 ], [ -1, %447 ], [ -2, %87 ], [ -2, %313 ]
   ret i32 %.0
 }
 

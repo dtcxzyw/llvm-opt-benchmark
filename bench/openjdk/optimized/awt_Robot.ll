@@ -1097,7 +1097,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr readnone captures(none) %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !11
+  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %67, %50, %54
   %72 = load ptr, ptr @awt_display, align 8
@@ -1221,7 +1221,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noun
   %32 = tail call i32 @XTestFakeButtonEvent(ptr noundef %31, i32 noundef %5, i32 noundef 0, i64 noundef 0) #8
   %33 = add nuw i32 %.034, 1
   %exitcond.not = icmp eq i32 %33, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %34 = load ptr, ptr @awt_display, align 8
@@ -1393,7 +1393,6 @@ attributes #9 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

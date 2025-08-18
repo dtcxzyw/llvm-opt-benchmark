@@ -76,7 +76,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 -1, ptr %36, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %38 = load i64, ptr %37, align 8, !tbaa !12
+  %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %45, label %40
 
@@ -92,7 +92,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %.1 = phi i32 [ %.095117, %.lr.ph.split ], [ %42, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count148
-  br i1 %exitcond.not, label %.preheader114, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader114, label %.lr.ph.split, !llvm.loop !9
 
 46:                                               ; preds = %._crit_edge135, %.preheader114
   %.0 = phi i32 [ %181, %._crit_edge135 ], [ 1, %.preheader114 ]
@@ -107,18 +107,18 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %49 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %indvars.iv150
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = trunc nuw nsw i64 %indvars.iv150 to i32
-  store i32 %51, ptr %50, align 8, !tbaa !15
+  store i32 %51, ptr %50, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv150
   %53 = load i16, ptr %52, align 2, !tbaa !7
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw i64, ptr %1, i64 %54
-  %56 = load i64, ptr %55, align 8, !tbaa !12
+  %56 = load i64, ptr %55, align 8, !tbaa !11
   %57 = shl i64 %56, 14
   %58 = add i64 %57, %47
-  store i64 %58, ptr %49, align 8, !tbaa !18
+  store i64 %58, ptr %49, align 8, !tbaa !16
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge, label %48, !llvm.loop !19
+  br i1 %exitcond154.not, label %._crit_edge, label %48, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %48
   br i1 %23, label %.lr.ph122, label %.preheader113.thread
@@ -134,12 +134,12 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 
 .lr.ph.i103.us:                                   ; preds = %.lr.ph124, %heap_sift.exit112.loopexit.us
   %.096123.us = phi i32 [ %118, %heap_sift.exit112.loopexit.us ], [ %.095.lcssa, %.lr.ph124 ]
-  %59 = load i64, ptr %9, align 8, !tbaa !18
-  %60 = load i32, ptr %32, align 8, !tbaa !15
+  %59 = load i64, ptr %9, align 8, !tbaa !16
+  %60 = load i32, ptr %32, align 8, !tbaa !13
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %10, i64 %61
-  store i32 %.096123.us, ptr %62, align 4, !tbaa !20
-  store i64 9223372036854775807, ptr %9, align 8, !tbaa !18
+  store i32 %.096123.us, ptr %62, align 4, !tbaa !18
+  store i64 9223372036854775807, ptr %9, align 8, !tbaa !16
   br label %63
 
 63:                                               ; preds = %84, %.lr.ph.i103.us
@@ -152,11 +152,11 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 67:                                               ; preds = %63
   %68 = zext nneg i32 %64 to i64
   %69 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %68
-  %70 = load i64, ptr %69, align 8, !tbaa !18
+  %70 = load i64, ptr %69, align 8, !tbaa !16
   %71 = add nuw nsw i32 %65, 2
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %72
-  %74 = load i64, ptr %73, align 8, !tbaa !18
+  %74 = load i64, ptr %73, align 8, !tbaa !16
   %75 = icmp ugt i64 %70, %74
   %spec.select.i106.us = select i1 %75, i32 %71, i32 %64
   br label %76
@@ -165,18 +165,18 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %.023.i105.us = phi i32 [ %64, %63 ], [ %spec.select.i106.us, %67 ]
   %77 = zext nneg i32 %.02430.i104.us to i64
   %78 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %77
-  %79 = load i64, ptr %78, align 8, !tbaa !18
+  %79 = load i64, ptr %78, align 8, !tbaa !16
   %80 = zext nneg i32 %.023.i105.us to i64
   %81 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %80
-  %82 = load i64, ptr %81, align 8, !tbaa !18
+  %82 = load i64, ptr %81, align 8, !tbaa !16
   %83 = icmp ugt i64 %79, %82
   br i1 %83, label %84, label %heap_sift.exit107.us
 
 84:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = shl nuw nsw i32 %.023.i105.us, 1
   %86 = or disjoint i32 %85, 1
@@ -184,14 +184,14 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   br i1 %87, label %63, label %heap_sift.exit107.us
 
 heap_sift.exit107.us:                             ; preds = %84, %76
-  %88 = load i32, ptr %32, align 8, !tbaa !15
+  %88 = load i32, ptr %32, align 8, !tbaa !13
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i32, ptr %10, i64 %89
-  store i32 %.096123.us, ptr %90, align 4, !tbaa !20
-  store i32 %.096123.us, ptr %32, align 8, !tbaa !15
-  %91 = load i64, ptr %9, align 8, !tbaa !18
+  store i32 %.096123.us, ptr %90, align 4, !tbaa !18
+  store i32 %.096123.us, ptr %32, align 8, !tbaa !13
+  %91 = load i64, ptr %9, align 8, !tbaa !16
   %92 = add i64 %91, %59
-  store i64 %92, ptr %9, align 8, !tbaa !18
+  store i64 %92, ptr %9, align 8, !tbaa !16
   br label %93
 
 93:                                               ; preds = %114, %heap_sift.exit107.us
@@ -204,11 +204,11 @@ heap_sift.exit107.us:                             ; preds = %84, %76
 97:                                               ; preds = %93
   %98 = zext nneg i32 %94 to i64
   %99 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %98
-  %100 = load i64, ptr %99, align 8, !tbaa !18
+  %100 = load i64, ptr %99, align 8, !tbaa !16
   %101 = add nuw nsw i32 %95, 2
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %102
-  %104 = load i64, ptr %103, align 8, !tbaa !18
+  %104 = load i64, ptr %103, align 8, !tbaa !16
   %105 = icmp ugt i64 %100, %104
   %spec.select.i111.us = select i1 %105, i32 %101, i32 %94
   br label %106
@@ -217,18 +217,18 @@ heap_sift.exit107.us:                             ; preds = %84, %76
   %.023.i110.us = phi i32 [ %94, %93 ], [ %spec.select.i111.us, %97 ]
   %107 = zext nneg i32 %.02430.i109.us to i64
   %108 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %107
-  %109 = load i64, ptr %108, align 8, !tbaa !18
+  %109 = load i64, ptr %108, align 8, !tbaa !16
   %110 = zext nneg i32 %.023.i110.us to i64
   %111 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %110
-  %112 = load i64, ptr %111, align 8, !tbaa !18
+  %112 = load i64, ptr %111, align 8, !tbaa !16
   %113 = icmp ugt i64 %109, %112
   br i1 %113, label %114, label %heap_sift.exit112.loopexit.us
 
 114:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %115 = shl nuw nsw i32 %.023.i110.us, 1
   %116 = or disjoint i32 %115, 1
@@ -238,11 +238,11 @@ heap_sift.exit107.us:                             ; preds = %84, %76
 heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
   %118 = add nuw nsw i32 %.096123.us, 1
   %exitcond156.not = icmp eq i32 %118, %25
-  br i1 %exitcond156.not, label %._crit_edge125, label %.lr.ph.i103.us, !llvm.loop !22
+  br i1 %exitcond156.not, label %._crit_edge125, label %.lr.ph.i103.us, !llvm.loop !20
 
 .lr.ph124.split:                                  ; preds = %.preheader113.thread, %.lr.ph124
-  %.promoted = load i64, ptr %9, align 8, !tbaa !18
-  %.pre = load i32, ptr %32, align 8, !tbaa !15
+  %.promoted = load i64, ptr %9, align 8, !tbaa !16
+  %.pre = load i32, ptr %32, align 8, !tbaa !13
   br label %heap_sift.exit107.thread
 
 .lr.ph122:                                        ; preds = %._crit_edge, %heap_sift.exit
@@ -263,11 +263,11 @@ heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
 125:                                              ; preds = %.lr.ph.i
   %126 = zext nneg i32 %122 to i64
   %127 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %126
-  %128 = load i64, ptr %127, align 8, !tbaa !18
+  %128 = load i64, ptr %127, align 8, !tbaa !16
   %129 = add nuw nsw i32 %123, 2
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %130
-  %132 = load i64, ptr %131, align 8, !tbaa !18
+  %132 = load i64, ptr %131, align 8, !tbaa !16
   %133 = icmp ugt i64 %128, %132
   %spec.select.i = select i1 %133, i32 %129, i32 %122
   br label %134
@@ -276,18 +276,18 @@ heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
   %.023.i = phi i32 [ %122, %.lr.ph.i ], [ %spec.select.i, %125 ]
   %135 = zext nneg i32 %.02430.i to i64
   %136 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %135
-  %137 = load i64, ptr %136, align 8, !tbaa !18
+  %137 = load i64, ptr %136, align 8, !tbaa !16
   %138 = zext nneg i32 %.023.i to i64
   %139 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %138
-  %140 = load i64, ptr %139, align 8, !tbaa !18
+  %140 = load i64, ptr %139, align 8, !tbaa !16
   %141 = icmp ugt i64 %137, %140
   br i1 %141, label %142, label %heap_sift.exit
 
 142:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %136, i64 16, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %143 = shl nuw nsw i32 %.023.i, 1
   %144 = or disjoint i32 %143, 1
@@ -296,7 +296,7 @@ heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
 
 heap_sift.exit:                                   ; preds = %134, %142, %.lr.ph122
   %146 = icmp sgt i32 %.2.in120, 1
-  br i1 %146, label %.lr.ph122, label %.preheader113, !llvm.loop !23
+  br i1 %146, label %.lr.ph122, label %.preheader113, !llvm.loop !21
 
 heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %heap_sift.exit107.thread
   %147 = phi i32 [ %.pre, %.lr.ph124.split ], [ %.096123, %heap_sift.exit107.thread ]
@@ -304,19 +304,19 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
   %.096123 = phi i32 [ %.095.lcssa, %.lr.ph124.split ], [ %155, %heap_sift.exit107.thread ]
   %149 = sext i32 %147 to i64
   %150 = getelementptr inbounds i32, ptr %10, i64 %149
-  store i32 %.096123, ptr %150, align 4, !tbaa !20
-  %151 = load i32, ptr %32, align 8, !tbaa !15
+  store i32 %.096123, ptr %150, align 4, !tbaa !18
+  %151 = load i32, ptr %32, align 8, !tbaa !13
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i32, ptr %10, i64 %152
-  store i32 %.096123, ptr %153, align 4, !tbaa !20
-  store i32 %.096123, ptr %32, align 8, !tbaa !15
+  store i32 %.096123, ptr %153, align 4, !tbaa !18
+  store i32 %.096123, ptr %32, align 8, !tbaa !13
   %154 = add i64 %148, 9223372036854775807
   %155 = add nsw i32 %.096123, 1
   %exitcond155.not = icmp eq i32 %155, %25
-  br i1 %exitcond155.not, label %._crit_edge125.split, label %heap_sift.exit107.thread, !llvm.loop !24
+  br i1 %exitcond155.not, label %._crit_edge125.split, label %heap_sift.exit107.thread, !llvm.loop !20
 
 ._crit_edge125.split:                             ; preds = %heap_sift.exit107.thread
-  store i64 %154, ptr %9, align 8, !tbaa !18
+  store i64 %154, ptr %9, align 8, !tbaa !16
   br label %._crit_edge125
 
 ._crit_edge125:                                   ; preds = %heap_sift.exit112.loopexit.us, %.preheader113.thread, %._crit_edge125.split, %.preheader113
@@ -329,7 +329,7 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
 .lr.ph132:                                        ; preds = %._crit_edge125, %.lr.ph132
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph132 ], [ %34, %._crit_edge125 ]
   %156 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv157
-  %157 = load i32, ptr %156, align 4, !tbaa !20
+  %157 = load i32, ptr %156, align 4, !tbaa !18
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %11, i64 %158
   %160 = load i8, ptr %159, align 1, !tbaa !4
@@ -338,12 +338,12 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
   store i8 %161, ptr %162, align 1, !tbaa !4
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, -1
   %.not.not = icmp sgt i64 %indvars.iv157, %35
-  br i1 %.not.not, label %.lr.ph132, label %.preheader, !llvm.loop !25
+  br i1 %.not.not, label %.lr.ph132, label %.preheader, !llvm.loop !22
 
 .lr.ph134:                                        ; preds = %.preheader, %178
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %178 ], [ 0, %.preheader ]
   %163 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv160
-  %164 = load i32, ptr %163, align 4, !tbaa !20
+  %164 = load i32, ptr %163, align 4, !tbaa !18
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i8, ptr %11, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !4
@@ -363,7 +363,7 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
 178:                                              ; preds = %.lr.ph134
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph134, !llvm.loop !26
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph134, !llvm.loop !23
 
 ._crit_edge135.loopexit:                          ; preds = %.lr.ph134
   %179 = trunc nuw nsw i64 %indvars.iv160 to i32
@@ -406,16 +406,16 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %.0186224 = phi i64 [ 0, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %13 = trunc i64 %indvars.iv to i16
   %14 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv
-  store i16 %13, ptr %14, align 4, !tbaa !27
+  store i16 %13, ptr %14, align 4, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 -2, ptr %15, align 2, !tbaa !29
+  store i16 -2, ptr %15, align 2, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !30
+  %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = zext i32 %17 to i64
   %19 = add nuw nsw i64 %.0186224, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %20 = icmp samesign ult i64 %19, 2147483648
@@ -427,12 +427,12 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr %4, ptr %11, align 16, !tbaa !32
+  store ptr %4, ptr %11, align 16, !tbaa !29
   %22 = sext i32 %2 to i64
   %23 = getelementptr inbounds %struct.Node, ptr %4, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %24, ptr %25, align 8, !tbaa !32
+  store ptr %24, ptr %25, align 8, !tbaa !29
   br label %26
 
 26:                                               ; preds = %._crit_edge.thread, %.thread
@@ -440,9 +440,9 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %27 = add nsw i32 %.0182245, -1
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 16, !tbaa !32
+  %30 = load ptr, ptr %29, align 16, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
+  %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = icmp ult ptr %30, %32
   br i1 %33, label %.lr.ph240.preheader, label %.thread
 
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %.1225, i64 8
   %.not201 = icmp ugt ptr %77, %.0171231
-  br i1 %.not201, label %.critedge, label %73, !llvm.loop !34
+  br i1 %.not201, label %.critedge, label %73, !llvm.loop !31
 
 .critedge:                                        ; preds = %76, %73
   %.1.lcssa = phi ptr [ %77, %76 ], [ %.1225, %73 ]
@@ -559,7 +559,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 80:                                               ; preds = %.lr.ph228
   %81 = getelementptr inbounds i8, ptr %.1172227, i64 -8
   %.not202 = icmp ugt ptr %.1.lcssa, %81
-  br i1 %.not202, label %.critedge203, label %.lr.ph228, !llvm.loop !35
+  br i1 %.not202, label %.critedge203, label %.lr.ph228, !llvm.loop !32
 
 .critedge2:                                       ; preds = %.lr.ph228
   %82 = load i64, ptr %.1172227, align 4
@@ -574,7 +574,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %.2173 = phi ptr [ %85, %.critedge2 ], [ %.0171231, %.critedge ], [ %81, %80 ]
   %.2 = phi ptr [ %84, %.critedge2 ], [ %.1.lcssa, %.critedge ], [ %.1.lcssa, %80 ]
   %.not199 = icmp ugt ptr %.2, %.2173
-  br i1 %.not199, label %._crit_edge233.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %.not199, label %._crit_edge233.loopexit, label %.preheader, !llvm.loop !33
 
 ._crit_edge233.loopexit:                          ; preds = %.critedge203
   %.pre = load i64, ptr %36, align 4
@@ -606,7 +606,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %94 = getelementptr inbounds nuw i8, ptr %.0169, i64 8
   %95 = tail call i32 %5(ptr noundef %.0169, ptr noundef nonnull %94) #5
   %96 = icmp slt i32 %95, 1
-  br i1 %96, label %.preheader217, label %.critedge4, !llvm.loop !37
+  br i1 %96, label %.preheader217, label %.critedge4, !llvm.loop !34
 
 .critedge4:                                       ; preds = %.preheader217, %93
   %97 = icmp eq ptr %.0169, %.0176238
@@ -621,18 +621,18 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %indvars.iv281
-  store ptr %.0179237, ptr %104, align 16, !tbaa !32
+  store ptr %.0179237, ptr %104, align 16, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %.0171.lcssa, ptr %105, align 8, !tbaa !32
+  store ptr %.0171.lcssa, ptr %105, align 8, !tbaa !29
   %106 = getelementptr inbounds nuw i8, ptr %.0170.lcssa, i64 8
   br label %111
 
 107:                                              ; preds = %98
   %108 = getelementptr inbounds nuw i8, ptr %.0170.lcssa, i64 8
   %109 = getelementptr inbounds [64 x [2 x ptr]], ptr %11, i64 0, i64 %indvars.iv281
-  store ptr %108, ptr %109, align 16, !tbaa !32
+  store ptr %108, ptr %109, align 16, !tbaa !29
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %.0176238, ptr %110, align 8, !tbaa !32
+  store ptr %.0176238, ptr %110, align 8, !tbaa !29
   br label %111
 
 111:                                              ; preds = %103, %107
@@ -663,7 +663,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %.thread.loopexit, %26, %113, %117
   %.1183222 = phi i32 [ %114, %113 ], [ %114, %117 ], [ %27, %26 ], [ %.1183222.ph, %.thread.loopexit ]
   %.not197 = icmp eq i32 %.1183222, 0
-  br i1 %.not197, label %120, label %26, !llvm.loop !38
+  br i1 %.not197, label %120, label %26, !llvm.loop !35
 
 120:                                              ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -671,7 +671,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %122 = add nsw i32 %121, -1
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds %struct.Node, ptr %4, i64 %123, i32 2
-  store i32 0, ptr %124, align 4, !tbaa !30
+  store i32 0, ptr %124, align 4, !tbaa !27
   br i1 %12, label %.lr.ph265, label %._crit_edge266
 
 .lr.ph265:                                        ; preds = %120
@@ -684,10 +684,10 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv302 = phi i32 [ %indvars.iv.next303, %._crit_edge249.us ], [ 2, %.lr.ph265 ]
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %._crit_edge249.us ], [ %22, %.lr.ph265 ]
   %126 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv306, i32 2
-  %127 = load i32, ptr %126, align 4, !tbaa !30
+  %127 = load i32, ptr %126, align 4, !tbaa !27
   %128 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv306
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
-  %130 = load i32, ptr %129, align 4, !tbaa !30
+  %130 = load i32, ptr %129, align 4, !tbaa !27
   %131 = add i32 %130, %127
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 2
   %sext315 = shl i64 %indvars.iv298, 32
@@ -699,7 +699,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %137 ], [ %indvars.iv298, %.lr.ph265.split.us ]
   %134 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv300
   %135 = getelementptr i8, ptr %134, i64 -4
-  %136 = load i32, ptr %135, align 4, !tbaa !30
+  %136 = load i32, ptr %135, align 4, !tbaa !27
   %or.cond273.not = icmp ult i32 %131, %136
   br i1 %or.cond273.not, label %137, label %._crit_edge249.us.loopexit.split.loop.exit
 
@@ -709,7 +709,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   store i64 %139, ptr %134, align 4
   %indvars.iv.next301 = add nsw i64 %indvars.iv300, -1
   %140 = icmp sgt i64 %indvars.iv.next301, %indvars.iv.next307
-  br i1 %140, label %.lr.ph248.us, label %._crit_edge249.us.loopexit, !llvm.loop !39
+  br i1 %140, label %.lr.ph248.us, label %._crit_edge249.us.loopexit, !llvm.loop !36
 
 ._crit_edge249.us.loopexit.split.loop.exit:       ; preds = %.lr.ph248.us
   %141 = trunc nuw nsw i64 %indvars.iv300 to i32
@@ -723,26 +723,26 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 ._crit_edge249.us:                                ; preds = %._crit_edge249.us.loopexit, %.lr.ph265.split.us
   %.pre-phi = phi i64 [ %.pre312, %._crit_edge249.us.loopexit ], [ %132, %.lr.ph265.split.us ]
   %142 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi
-  store i16 -1, ptr %142, align 4, !tbaa !27
+  store i16 -1, ptr %142, align 4, !tbaa !24
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store i32 %131, ptr %143, align 4, !tbaa !30
+  store i32 %131, ptr %143, align 4, !tbaa !27
   %144 = trunc i64 %indvars.iv306 to i16
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 2
-  store i16 %144, ptr %145, align 2, !tbaa !29
+  store i16 %144, ptr %145, align 2, !tbaa !26
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %146 = icmp slt i64 %indvars.iv.next307, %123
   %indvars.iv.next303 = add nuw i32 %indvars.iv302, 2
-  br i1 %146, label %.lr.ph265.split.us, label %._crit_edge266, !llvm.loop !40
+  br i1 %146, label %.lr.ph265.split.us, label %._crit_edge266, !llvm.loop !37
 
 .lr.ph265.split:                                  ; preds = %.lr.ph265, %._crit_edge252.split.us
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %._crit_edge252.split.us ], [ 0, %.lr.ph265 ]
   %indvars.iv288 = phi i32 [ %indvars.iv.next289, %._crit_edge252.split.us ], [ 2, %.lr.ph265 ]
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %._crit_edge252.split.us ], [ %22, %.lr.ph265 ]
   %147 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv292, i32 2
-  %148 = load i32, ptr %147, align 4, !tbaa !30
+  %148 = load i32, ptr %147, align 4, !tbaa !27
   %149 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv292
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  %151 = load i32, ptr %150, align 4, !tbaa !30
+  %151 = load i32, ptr %150, align 4, !tbaa !27
   %152 = add i32 %151, %148
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 2
   %sext = shl i64 %indvars.iv284, 32
@@ -754,7 +754,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %159 ], [ %indvars.iv284, %.lr.ph265.split ]
   %155 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv286
   %156 = getelementptr i8, ptr %155, i64 -4
-  %157 = load i32, ptr %156, align 4, !tbaa !30
+  %157 = load i32, ptr %156, align 4, !tbaa !27
   %158 = icmp ugt i32 %152, %157
   br i1 %158, label %._crit_edge252.split.us.loopexit.split.loop.exit, label %159
 
@@ -764,7 +764,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   store i64 %161, ptr %155, align 4
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, -1
   %162 = icmp sgt i64 %indvars.iv.next287, %indvars.iv.next293
-  br i1 %162, label %.lr.ph248, label %._crit_edge252.split.us.loopexit, !llvm.loop !41
+  br i1 %162, label %.lr.ph248, label %._crit_edge252.split.us.loopexit, !llvm.loop !36
 
 ._crit_edge252.split.us.loopexit.split.loop.exit: ; preds = %.lr.ph248
   %163 = trunc nuw nsw i64 %indvars.iv286 to i32
@@ -778,16 +778,16 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 ._crit_edge252.split.us:                          ; preds = %._crit_edge252.split.us.loopexit, %.lr.ph265.split
   %.pre-phi314 = phi i64 [ %.pre313, %._crit_edge252.split.us.loopexit ], [ %153, %.lr.ph265.split ]
   %164 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi314
-  store i16 -1, ptr %164, align 4, !tbaa !27
+  store i16 -1, ptr %164, align 4, !tbaa !24
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store i32 %152, ptr %165, align 4, !tbaa !30
+  store i32 %152, ptr %165, align 4, !tbaa !27
   %166 = trunc i64 %indvars.iv292 to i16
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 2
-  store i16 %166, ptr %167, align 2, !tbaa !29
+  store i16 %166, ptr %167, align 2, !tbaa !26
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %168 = icmp slt i64 %indvars.iv.next293, %123
   %indvars.iv.next289 = add nuw i32 %indvars.iv288, 2
-  br i1 %168, label %.lr.ph265.split, label %._crit_edge266, !llvm.loop !42
+  br i1 %168, label %.lr.ph265.split, label %._crit_edge266, !llvm.loop !37
 
 ._crit_edge266:                                   ; preds = %._crit_edge252.split.us, %._crit_edge249.us, %120
   %169 = add nsw i32 %121, -2
@@ -797,9 +797,9 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i32 0, ptr %10, align 4, !tbaa !20
+  store i32 0, ptr %10, align 4, !tbaa !18
   call fastcc void @get_tree_codes(ptr noundef %8, ptr noundef %9, ptr noundef nonnull readonly %4, i32 noundef range(i32 -2147483648, 2147483646) %169, i32 noundef 0, ptr noundef %10, i32 noundef %171)
-  %172 = load i32, ptr %10, align 4, !tbaa !20
+  %172 = load i32, ptr %10, align 4, !tbaa !18
   %173 = call i32 @ff_vlc_init_from_lengths(ptr noundef %1, i32 noundef %3, i32 noundef %172, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef %0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -825,7 +825,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc void @get_tree_codes(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -2147483648, 2147483646) %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #3 {
   %8 = sext i32 %3 to i64
   %9 = getelementptr inbounds %struct.Node, ptr %2, i64 %8
-  %10 = load i16, ptr %9, align 4, !tbaa !27
+  %10 = load i16, ptr %9, align 4, !tbaa !24
   %.not38 = icmp eq i16 %10, -1
   br i1 %.not38, label %.lr.ph, label %._crit_edge
 
@@ -840,20 +840,20 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %19
   %.sink45 = phi i32 [ 1, %19 ], [ 0, %.lr.ph ]
   %12 = add nsw i32 %.tr3539, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %14 = load i16, ptr %13, align 2, !tbaa !29
+  %14 = load i16, ptr %13, align 2, !tbaa !26
   %15 = sext i16 %14 to i32
   tail call fastcc void @get_tree_codes(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %15, i32 noundef %12, ptr noundef %5, i32 noundef %.sink45)
-  %.tr34.be.in.in = load i16, ptr %13, align 2, !tbaa !29
+  %.tr34.be.in.in = load i16, ptr %13, align 2, !tbaa !26
   %.tr34.be.in = sext i16 %.tr34.be.in.in to i64
   %16 = getelementptr %struct.Node, ptr %2, i64 %.tr34.be.in
   %17 = getelementptr i8, ptr %16, i64 8
-  %18 = load i16, ptr %17, align 4, !tbaa !27
+  %18 = load i16, ptr %17, align 4, !tbaa !24
   %.not = icmp eq i16 %18, -1
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !30
+  %21 = load i32, ptr %20, align 4, !tbaa !27
   %.not31 = icmp eq i32 %21, 0
   br i1 %.not31, label %._crit_edge, label %tailrecurse.backedge
 
@@ -861,18 +861,18 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %19
   %.tr35.lcssa = phi i32 [ %4, %7 ], [ %.tr3539, %19 ], [ %12, %tailrecurse.backedge ]
   %.lcssa = phi i16 [ %10, %7 ], [ -1, %19 ], [ %18, %tailrecurse.backedge ]
   %22 = trunc i32 %.tr35.lcssa to i8
-  %23 = load i32, ptr %5, align 4, !tbaa !20
+  %23 = load i32, ptr %5, align 4, !tbaa !18
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   store i8 %22, ptr %25, align 1, !tbaa !4
   %26 = trunc i16 %.lcssa to i8
-  %27 = load i32, ptr %5, align 4, !tbaa !20
+  %27 = load i32, ptr %5, align 4, !tbaa !18
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !4
-  %30 = load i32, ptr %5, align 4, !tbaa !20
+  %30 = load i32, ptr %5, align 4, !tbaa !18
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %5, align 4, !tbaa !20
+  store i32 %31, ptr %5, align 4, !tbaa !18
   ret void
 }
 
@@ -902,37 +902,32 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !5, i64 0}
-!14 = distinct !{!14, !10}
-!15 = !{!16, !17, i64 8}
-!16 = !{!"HeapElem", !13, i64 0, !17, i64 8}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!16, !13, i64 0}
-!19 = distinct !{!19, !10}
-!20 = !{!17, !17, i64 0}
-!21 = !{i64 0, i64 8, !12, i64 8, i64 4, !20}
-!22 = distinct !{!22, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = !{!14, !15, i64 8}
+!14 = !{!"HeapElem", !12, i64 0, !15, i64 8}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!14, !12, i64 0}
+!17 = distinct !{!17, !10}
+!18 = !{!15, !15, i64 0}
+!19 = !{i64 0, i64 8, !11, i64 8, i64 4, !18}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
 !23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = !{!28, !8, i64 0}
-!28 = !{!"Node", !8, i64 0, !8, i64 2, !17, i64 4}
-!29 = !{!28, !8, i64 2}
-!30 = !{!28, !17, i64 4}
+!24 = !{!25, !8, i64 0}
+!25 = !{!"Node", !8, i64 0, !8, i64 2, !15, i64 4}
+!26 = !{!25, !8, i64 2}
+!27 = !{!25, !15, i64 4}
+!28 = distinct !{!28, !10}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"any pointer", !5, i64 0}
 !31 = distinct !{!31, !10}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"any pointer", !5, i64 0}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !10}
 !34 = distinct !{!34, !10}
 !35 = distinct !{!35, !10}
 !36 = distinct !{!36, !10}
 !37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10, !11}
-!41 = distinct !{!41, !10, !11}
-!42 = distinct !{!42, !10}

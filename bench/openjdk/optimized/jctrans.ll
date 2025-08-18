@@ -617,7 +617,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %106 = add nuw nsw i32 %.291.us, 1
   %107 = load i32, ptr %63, align 4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph93.us, label %._crit_edge94.us.loopexit, !llvm.loop !14
+  br i1 %108, label %.lr.ph93.us, label %._crit_edge94.us.loopexit, !llvm.loop !13
 
 109:                                              ; preds = %.lr.ph88.us, %109
   %indvars.iv123 = phi i64 [ %89, %.lr.ph88.us ], [ %indvars.iv.next124, %109 ]
@@ -629,7 +629,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   store ptr %.086.us, ptr %111, align 8
   %112 = add nuw nsw i32 %.07485.us, 1
   %exitcond.not = icmp eq i32 %112, %.fr112
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us.loopexit, label %109, !llvm.loop !15
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us.loopexit, label %109, !llvm.loop !14
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99, %._crit_edge94
   %113 = phi i32 [ %128, %._crit_edge94 ], [ %72, %.lr.ph99 ]
@@ -659,7 +659,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %124 = add nuw nsw i32 %.291, 1
   %125 = load i32, ptr %63, align 4
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %.lr.ph93, label %._crit_edge94.loopexit, !llvm.loop !14
+  br i1 %126, label %.lr.ph93, label %._crit_edge94.loopexit, !llvm.loop !13
 
 ._crit_edge94.loopexit:                           ; preds = %.lr.ph93
   %127 = trunc nsw i64 %indvars.iv.next121 to i32
@@ -672,7 +672,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %.4.lcssa = phi i32 [ %.17896, %.lr.ph99.split ], [ %127, %._crit_edge94.loopexit ]
   %130 = add nuw nsw i32 %.07397, 1
   %131 = icmp slt i32 %130, %128
-  br i1 %131, label %.lr.ph99.split, label %._crit_edge100, !llvm.loop !16
+  br i1 %131, label %.lr.ph99.split, label %._crit_edge100, !llvm.loop !12
 
 ._crit_edge100:                                   ; preds = %._crit_edge94, %._crit_edge94.us, %69
   %.178.lcssa = phi i32 [ %.077102, %69 ], [ %.4.lcssa.us, %._crit_edge94.us ], [ %.4.lcssa, %._crit_edge94 ]
@@ -680,7 +680,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %132 = load i32, ptr %13, align 4
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next133, %133
-  br i1 %134, label %60, label %._crit_edge105, !llvm.loop !17
+  br i1 %134, label %60, label %._crit_edge105, !llvm.loop !15
 
 ._crit_edge105:                                   ; preds = %._crit_edge100, %.preheader
   %135 = load ptr, ptr %50, align 8
@@ -700,7 +700,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %142 = add nuw i32 %.071106, 1
   %143 = load i32, ptr %7, align 8
   %144 = icmp ult i32 %142, %143
-  br i1 %144, label %.preheader, label %._crit_edge107.loopexit, !llvm.loop !18
+  br i1 %144, label %.preheader, label %._crit_edge107.loopexit, !llvm.loop !16
 
 ._crit_edge107.loopexit:                          ; preds = %141
   %.pre140 = load i32, ptr %43, align 4
@@ -712,7 +712,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next136, %146
-  br i1 %147, label %52, label %._crit_edge111, !llvm.loop !19
+  br i1 %147, label %52, label %._crit_edge111, !llvm.loop !17
 
 ._crit_edge111:                                   ; preds = %._crit_edge107, %._crit_edge
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -785,11 +785,9 @@ attributes #3 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}

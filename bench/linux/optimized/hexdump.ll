@@ -501,7 +501,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %36 = add i32 %28, %11
   %37 = sext i32 %36 to i64
   %38 = icmp ugt i64 %6, %37
-  br i1 %38, label %.split.us2, label %.loopexit, !llvm.loop !19
+  br i1 %38, label %.split.us2, label %.loopexit, !llvm.loop !17
 
 .split:                                           ; preds = %13, %.split
   %39 = phi i64 [ %49, %.split ], [ 0, %13 ]
@@ -516,7 +516,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
   %48 = add i32 %40, %11
   %49 = sext i32 %48 to i64
   %50 = icmp ugt i64 %6, %49
-  br i1 %50, label %.split, label %.loopexit, !llvm.loop !20
+  br i1 %50, label %.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.split.us2, %.split.us, %.split, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -575,7 +575,4 @@ attributes #10 = { cold nounwind }
 !14 = distinct !{!14, !7, !8}
 !15 = distinct !{!15, !7, !8}
 !16 = !{!"auto-init"}
-!17 = distinct !{!17, !7, !8, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !8, !18}
-!20 = distinct !{!20, !7, !8}
+!17 = distinct !{!17, !7, !8}

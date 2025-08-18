@@ -1753,14 +1753,14 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   store ptr %151, ptr %138, align 8, !tbaa !84
   %152 = add nuw nsw i64 %.1208291.us, 1
   %exitcond391.not = icmp eq i64 %152, %36
-  br i1 %exitcond391.not, label %._crit_edge293.us, label %133, !llvm.loop !89
+  br i1 %exitcond391.not, label %._crit_edge293.us, label %133, !llvm.loop !88
 
 ._crit_edge293.us:                                ; preds = %133
   %153 = getelementptr inbounds nuw i8, ptr %.1298.us, i64 32
   %154 = add i64 %.4230296.us, 32
   %155 = add i64 %.3221297.us, -32
   %156 = icmp ugt i64 %155, 31
-  br i1 %156, label %.preheader267.us, label %.loopexit266, !llvm.loop !90
+  br i1 %156, label %.preheader267.us, label %.loopexit266, !llvm.loop !89
 
 157:                                              ; preds = %128
   br i1 %29, label %.preheader270.lr.ph, label %186
@@ -1813,14 +1813,14 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   store ptr %180, ptr %167, align 8, !tbaa !84
   %181 = add nuw nsw i64 %.2209282.us, 1
   %exitcond389.not = icmp eq i64 %181, %36
-  br i1 %exitcond389.not, label %._crit_edge284.us, label %162, !llvm.loop !91
+  br i1 %exitcond389.not, label %._crit_edge284.us, label %162, !llvm.loop !90
 
 ._crit_edge284.us:                                ; preds = %162
   %182 = getelementptr inbounds nuw i8, ptr %.2289.us, i64 32
   %183 = add i64 %.5231287.us, 32
   %184 = add i64 %.4288.us, -32
   %185 = icmp ugt i64 %184, 31
-  br i1 %185, label %.preheader270.us, label %.loopexit266, !llvm.loop !92
+  br i1 %185, label %.preheader270.us, label %.loopexit266, !llvm.loop !91
 
 186:                                              ; preds = %157
   br i1 %32, label %.preheader273, label %.loopexit266
@@ -1915,7 +1915,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 .thread258.us:                                    ; preds = %219
   %223 = add nuw i64 %.3210314.us, 1
   %exitcond399.not = icmp eq i64 %223, %umax394
-  br i1 %exitcond399.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us, !llvm.loop !93
+  br i1 %exitcond399.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us, !llvm.loop !92
 
 .lr.ph316.split.us325:                            ; preds = %.lr.ph316, %.thread258.us329
   %.3210314.us326 = phi i64 [ %235, %.thread258.us329 ], [ %.0225256, %.lr.ph316 ]
@@ -1941,7 +1941,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 .thread258.us329:                                 ; preds = %231
   %235 = add nuw i64 %.3210314.us326, 1
   %exitcond397.not = icmp eq i64 %235, %umax394
-  br i1 %exitcond397.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us325, !llvm.loop !94
+  br i1 %exitcond397.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us325, !llvm.loop !92
 
 .lr.ph316.split.us334:                            ; preds = %.lr.ph316, %.thread258.us338
   %.3210314.us335 = phi i64 [ %245, %.thread258.us338 ], [ 1, %.lr.ph316 ]
@@ -1963,7 +1963,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %244 = xor i8 %243, %.1212313.us336
   %245 = add nuw i64 %.3210314.us335, 1
   %exitcond395.not = icmp eq i64 %245, %umax394
-  br i1 %exitcond395.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us334, !llvm.loop !95
+  br i1 %exitcond395.not, label %._crit_edge317.split.us, label %.lr.ph316.split.us334, !llvm.loop !92
 
 default.unreachable:                              ; preds = %.lr.ph316
   unreachable
@@ -1974,7 +1974,7 @@ default.unreachable:                              ; preds = %.lr.ph316
   store i8 %.2213, ptr %246, align 1, !tbaa !5
   %247 = add i64 %.7351, 1
   %exitcond400.not = icmp eq i64 %247, %.1223
-  br i1 %exitcond400.not, label %.loopexit, label %204, !llvm.loop !96
+  br i1 %exitcond400.not, label %.loopexit, label %204, !llvm.loop !93
 
 .loopexit:                                        ; preds = %._crit_edge317.split.us, %201, %._crit_edge
   %.0222.lcssa406 = phi i64 [ 0, %._crit_edge ], [ %.1223, %201 ], [ %.1223, %._crit_edge317.split.us ]
@@ -1995,7 +1995,7 @@ default.unreachable:                              ; preds = %.lr.ph316
 251:                                              ; preds = %.lr.ph359, %250
   %252 = add nuw i64 %.8357, 1
   %exitcond402.not = icmp eq i64 %252, %36
-  br i1 %exitcond402.not, label %._crit_edge360, label %.lr.ph359, !llvm.loop !97
+  br i1 %exitcond402.not, label %._crit_edge360, label %.lr.ph359, !llvm.loop !94
 
 ._crit_edge360:                                   ; preds = %251, %.thread
   %.0217413 = phi ptr [ null, %.thread ], [ %.0217, %251 ]
@@ -2215,7 +2215,7 @@ getObjectReadOnlyString.exit:                     ; preds = %.critedge24.i
   %72 = getelementptr inbounds i8, ptr %48, i64 -17
   %73 = load i64, ptr %72, align 1, !tbaa !11
   %74 = icmp slt i64 %73, 1152921504606846976
-  br i1 %74, label %getObjectReadOnlyString.exit.thread, label %75, !prof !98
+  br i1 %74, label %getObjectReadOnlyString.exit.thread, label %75, !prof !95
 
 75:                                               ; preds = %getObjectReadOnlyString.exit
   call void @_serverAssert(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str, i32 noundef 851) #18
@@ -3054,18 +3054,18 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %96 = load i64, ptr %4, align 8, !tbaa !11
   %97 = sext i32 %.0186424 to i64
   %98 = getelementptr inbounds %struct.bitfieldOp, ptr %95, i64 %97
-  store i64 %96, ptr %98, align 8, !tbaa !99
+  store i64 %96, ptr %98, align 8, !tbaa !96
   %99 = load i64, ptr %7, align 8, !tbaa !31
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 %99, ptr %100, align 8, !tbaa !101
+  store i64 %99, ptr %100, align 8, !tbaa !98
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i32 %.0213, ptr %101, align 8, !tbaa !102
+  store i32 %.0213, ptr %101, align 8, !tbaa !99
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 20
-  store i32 %.0204422, ptr %102, align 4, !tbaa !103
+  store i32 %.0204422, ptr %102, align 4, !tbaa !100
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store i32 %73, ptr %103, align 8, !tbaa !104
+  store i32 %73, ptr %103, align 8, !tbaa !101
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 28
-  store i32 %storemerge.i, ptr %104, align 4, !tbaa !105
+  store i32 %storemerge.i, ptr %104, align 4, !tbaa !102
   %105 = add nsw i32 %91, %.0185425
   %.pre = load i32, ptr %10, align 8, !tbaa !80
   br label %106
@@ -3086,7 +3086,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %108 = add nsw i32 %.1, 1
   %109 = icmp slt i32 %108, %107
-  br i1 %109, label %14, label %._crit_edge, !llvm.loop !106
+  br i1 %109, label %14, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %106
   %110 = icmp eq i32 %.1211, 0
@@ -3156,18 +3156,18 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %.0331433 = phi i64 [ undef, %.lr.ph437 ], [ %.2333, %410 ]
   %134 = getelementptr inbounds nuw %struct.bitfieldOp, ptr %.0202.lcssa459, i64 %indvars.iv451
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %136 = load i32, ptr %135, align 8, !tbaa !102
+  %136 = load i32, ptr %135, align 8, !tbaa !99
   %.off = add i32 %136, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %137, label %322
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 28
-  %139 = load i32, ptr %138, align 4, !tbaa !105
+  %139 = load i32, ptr %138, align 4, !tbaa !102
   %.not232 = icmp eq i32 %139, 0
   %140 = load ptr, ptr %131, align 8, !tbaa !26
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %142 = load i32, ptr %141, align 8, !tbaa !104
+  %142 = load i32, ptr %141, align 8, !tbaa !101
   %143 = sext i32 %142 to i64
   %.not.i276 = icmp eq i32 %142, 0
   br i1 %.not232, label %247, label %144
@@ -3176,7 +3176,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not.i276, label %getUnsignedBitfield.exit.thread.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %144
-  %145 = load i64, ptr %134, align 8, !tbaa !99
+  %145 = load i64, ptr %134, align 8, !tbaa !96
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -3219,9 +3219,9 @@ getSignedBitfield.exit:                           ; preds = %getUnsignedBitfield
   %.0.i257 = phi i64 [ %164, %162 ], [ %.0.lcssa.i10.i, %getUnsignedBitfield.exit.thread.i ], [ %155, %getUnsignedBitfield.exit.i ]
   %165 = icmp eq i32 %136, 2
   %166 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !101
+  %167 = load i64, ptr %166, align 8, !tbaa !98
   %168 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  %169 = load i32, ptr %168, align 4, !tbaa !103
+  %169 = load i32, ptr %168, align 4, !tbaa !100
   %170 = icmp ne i32 %142, 64
   %171 = add nsw i64 %143, -1
   %172 = shl nuw i64 1, %171
@@ -3345,13 +3345,13 @@ checkSignedBitfieldOverflow.exit272:              ; preds = %210, %211, %212, %2
   %.1332367 = phi i64 [ %.0331433, %checkSignedBitfieldOverflow.exit272.thread ], [ %.0331433, %checkSignedBitfieldOverflow.exit ], [ %.0331433, %208 ], [ %174, %185 ], [ %175, %192 ], [ %.1.i, %196 ], [ %194, %193 ], [ %.1.i271, %214 ], [ %167, %212 ], [ %175, %211 ], [ %174, %210 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0199371) #18
   %221 = load ptr, ptr %131, align 8, !tbaa !26
-  %222 = load i32, ptr %141, align 8, !tbaa !104
+  %222 = load i32, ptr %141, align 8, !tbaa !101
   %223 = sext i32 %222 to i64
   %.not.i.i273 = icmp eq i32 %222, 0
   br i1 %.not.i.i273, label %setSignedBitfield.exit, label %.lr.ph.i.i274.preheader
 
 .lr.ph.i.i274.preheader:                          ; preds = %checkSignedBitfieldOverflow.exit272
-  %224 = load i64, ptr %134, align 8, !tbaa !99
+  %224 = load i64, ptr %134, align 8, !tbaa !96
   br label %.lr.ph.i.i274
 
 .lr.ph.i.i274:                                    ; preds = %.lr.ph.i.i274.preheader, %.lr.ph.i.i274
@@ -3396,7 +3396,7 @@ setSignedBitfield.exit:                           ; preds = %.lr.ph.i.i274, %che
   br i1 %.not.i276, label %getUnsignedBitfield.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %247
-  %248 = load i64, ptr %134, align 8, !tbaa !99
+  %248 = load i64, ptr %134, align 8, !tbaa !96
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -3422,13 +3422,13 @@ getUnsignedBitfield.exit:                         ; preds = %.lr.ph.i, %247
   %.0.lcssa.i = phi i64 [ 0, %247 ], [ %258, %.lr.ph.i ]
   %261 = icmp eq i32 %136, 2
   %262 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %263 = load i64, ptr %262, align 8, !tbaa !101
+  %263 = load i64, ptr %262, align 8, !tbaa !98
   br i1 %261, label %264, label %284
 
 264:                                              ; preds = %getUnsignedBitfield.exit
   %265 = add i64 %263, %.0.lcssa.i
   %266 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  %267 = load i32, ptr %266, align 4, !tbaa !103
+  %267 = load i32, ptr %266, align 4, !tbaa !100
   %268 = icmp eq i32 %142, 64
   %notmask.i = shl nsw i64 -1, %143
   %269 = xor i64 %notmask.i, -1
@@ -3476,7 +3476,7 @@ getUnsignedBitfield.exit:                         ; preds = %.lr.ph.i, %247
 
 289:                                              ; preds = %284
   %290 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  %291 = load i32, ptr %290, align 4, !tbaa !103
+  %291 = load i32, ptr %290, align 4, !tbaa !100
   switch i32 %291, label %checkUnsignedBitfieldOverflow.exit [
     i32 0, label %292
     i32 1, label %checkUnsignedBitfieldOverflow.exit.thread381
@@ -3497,13 +3497,13 @@ checkUnsignedBitfieldOverflow.exit.thread381:     ; preds = %289, %277, %281, %2
   %.1193386 = phi i64 [ 0, %checkUnsignedBitfieldOverflow.exit ], [ %265, %278 ], [ %263, %284 ], [ %293, %292 ], [ %283, %282 ], [ %270, %277 ], [ 0, %281 ], [ %286, %289 ]
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0191387) #18
   %296 = load ptr, ptr %131, align 8, !tbaa !26
-  %297 = load i32, ptr %141, align 8, !tbaa !104
+  %297 = load i32, ptr %141, align 8, !tbaa !101
   %298 = sext i32 %297 to i64
   %.not.i292 = icmp eq i32 %297, 0
   br i1 %.not.i292, label %setUnsignedBitfield.exit, label %.lr.ph.i293.preheader
 
 .lr.ph.i293.preheader:                            ; preds = %checkUnsignedBitfieldOverflow.exit.thread381
-  %299 = load i64, ptr %134, align 8, !tbaa !99
+  %299 = load i64, ptr %134, align 8, !tbaa !96
   br label %.lr.ph.i293
 
 .lr.ph.i293:                                      ; preds = %.lr.ph.i293.preheader, %.lr.ph.i293
@@ -3615,14 +3615,14 @@ setUnsignedBitfield.exit:                         ; preds = %.lr.ph.i293, %check
 
 getObjectReadOnlyString.exit:                     ; preds = %322
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
-  %357 = load i64, ptr %134, align 8, !tbaa !99
+  %357 = load i64, ptr %134, align 8, !tbaa !96
   br label %._crit_edge431
 
 .lr.ph430.split.preheader:                        ; preds = %331, %339, %342, %346, %350, %354, %.critedge24.i
   %.0328.ph = phi i64 [ 0, %.critedge24.i ], [ %356, %354 ], [ %353, %350 ], [ %349, %346 ], [ %345, %342 ], [ %341, %339 ], [ %334, %331 ]
   %.0189.ph = phi ptr [ %330, %.critedge24.i ], [ %330, %354 ], [ %330, %350 ], [ %330, %346 ], [ %330, %342 ], [ %330, %339 ], [ %9, %331 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
-  %358 = load i64, ptr %134, align 8, !tbaa !99
+  %358 = load i64, ptr %134, align 8, !tbaa !96
   %359 = lshr i64 %358, 3
   br label %.lr.ph430.split
 
@@ -3639,15 +3639,15 @@ getObjectReadOnlyString.exit:                     ; preds = %322
   store i8 %363, ptr %364, align 1, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %._crit_edge431, label %.lr.ph430.split, !llvm.loop !107
+  br i1 %exitcond, label %._crit_edge431, label %.lr.ph430.split, !llvm.loop !104
 
 ._crit_edge431:                                   ; preds = %361, %.lr.ph430.split, %getObjectReadOnlyString.exit
   %365 = phi i64 [ %357, %getObjectReadOnlyString.exit ], [ %358, %.lr.ph430.split ], [ %358, %361 ]
   %366 = getelementptr inbounds nuw i8, ptr %134, i64 28
-  %367 = load i32, ptr %366, align 4, !tbaa !105
+  %367 = load i32, ptr %366, align 4, !tbaa !102
   %.not231 = icmp eq i32 %367, 0
   %368 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %369 = load i32, ptr %368, align 8, !tbaa !104
+  %369 = load i32, ptr %368, align 8, !tbaa !101
   %370 = sext i32 %369 to i64
   %.not.i311 = icmp eq i32 %369, 0
   br i1 %.not231, label %394, label %371
@@ -3656,7 +3656,7 @@ getObjectReadOnlyString.exit:                     ; preds = %322
   br i1 %.not.i311, label %getUnsignedBitfield.exit.thread.i307, label %.lr.ph.i.i300.preheader
 
 .lr.ph.i.i300.preheader:                          ; preds = %371
-  %372 = load i64, ptr %134, align 8, !tbaa !99
+  %372 = load i64, ptr %134, align 8, !tbaa !96
   %373 = and i64 %365, -8
   %374 = sub i64 %372, %373
   br label %.lr.ph.i.i300
@@ -3701,7 +3701,7 @@ getUnsignedBitfield.exit.thread.i307:             ; preds = %getUnsignedBitfield
   br i1 %.not.i311, label %getSignedBitfield.exit310, label %.lr.ph.i312.preheader
 
 .lr.ph.i312.preheader:                            ; preds = %394
-  %395 = load i64, ptr %134, align 8, !tbaa !99
+  %395 = load i64, ptr %134, align 8, !tbaa !96
   %396 = and i64 %365, -8
   %397 = sub i64 %395, %396
   br label %.lr.ph.i312
@@ -3737,7 +3737,7 @@ getSignedBitfield.exit310:                        ; preds = %.lr.ph.i312, %394, 
   %.3 = phi i32 [ %.0195434, %getSignedBitfield.exit310 ], [ %.0195434, %246 ], [ %spec.select255, %setSignedBitfield.exit ], [ %spec.select256, %setUnsignedBitfield.exit ], [ %.0195434, %321 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count
-  br i1 %exitcond454.not, label %._crit_edge438, label %133, !llvm.loop !108
+  br i1 %exitcond454.not, label %._crit_edge438, label %133, !llvm.loop !105
 
 ._crit_edge438:                                   ; preds = %410
   %.not228 = icmp eq i32 %.3, 0
@@ -3958,25 +3958,22 @@ attributes #22 = { nounwind allocsize(1) }
 !84 = !{!85, !85, i64 0}
 !85 = !{!"p1 long", !28, i64 0}
 !86 = distinct !{!86, !9}
-!87 = distinct !{!87, !9, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = distinct !{!87, !9}
+!88 = distinct !{!88, !9}
 !89 = distinct !{!89, !9}
-!90 = distinct !{!90, !9, !88}
+!90 = distinct !{!90, !9}
 !91 = distinct !{!91, !9}
-!92 = distinct !{!92, !9, !88}
-!93 = distinct !{!93, !9, !88}
-!94 = distinct !{!94, !9, !88}
-!95 = distinct !{!95, !9, !88}
-!96 = distinct !{!96, !9}
-!97 = distinct !{!97, !9}
-!98 = !{!"branch_weights", !"expected", i32 2126874249, i32 20609399}
-!99 = !{!100, !12, i64 0}
-!100 = !{!"bitfieldOp", !12, i64 0, !12, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
-!101 = !{!100, !12, i64 8}
-!102 = !{!100, !15, i64 16}
-!103 = !{!100, !15, i64 20}
-!104 = !{!100, !15, i64 24}
-!105 = !{!100, !15, i64 28}
-!106 = distinct !{!106, !9}
-!107 = distinct !{!107, !9}
-!108 = distinct !{!108, !9}
+!92 = distinct !{!92, !9}
+!93 = distinct !{!93, !9}
+!94 = distinct !{!94, !9}
+!95 = !{!"branch_weights", !"expected", i32 2126874249, i32 20609399}
+!96 = !{!97, !12, i64 0}
+!97 = !{!"bitfieldOp", !12, i64 0, !12, i64 8, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28}
+!98 = !{!97, !12, i64 8}
+!99 = !{!97, !15, i64 16}
+!100 = !{!97, !15, i64 20}
+!101 = !{!97, !15, i64 24}
+!102 = !{!97, !15, i64 28}
+!103 = distinct !{!103, !9}
+!104 = distinct !{!104, !9}
+!105 = distinct !{!105, !9}

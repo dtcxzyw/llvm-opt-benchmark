@@ -4572,7 +4572,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
 41:                                               ; preds = %36, %29
   %42 = add nuw nsw i64 %30, 1
   %43 = icmp eq i64 %42, 9
-  br i1 %43, label %4, label %29, !llvm.loop !141
+  br i1 %43, label %4, label %29, !llvm.loop !140
 
 .split:                                           ; preds = %4, %63
   %44 = phi i64 [ %64, %63 ], [ 0, %4 ]
@@ -4606,7 +4606,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
 63:                                               ; preds = %61, %50, %.split
   %64 = add nuw nsw i64 %44, 1
   %65 = icmp eq i64 %64, 9
-  br i1 %65, label %.preheader.preheader, label %.split, !llvm.loop !142
+  br i1 %65, label %.preheader.preheader, label %.split, !llvm.loop !139
 
 66:                                               ; preds = %79
   %67 = getelementptr inbounds nuw i8, ptr %.fr4, i64 7368
@@ -4631,7 +4631,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
 79:                                               ; preds = %75, %.preheader
   %80 = add nuw nsw i64 %69, 1
   %81 = icmp eq i64 %80, 9
-  br i1 %81, label %66, label %.preheader, !llvm.loop !143
+  br i1 %81, label %66, label %.preheader, !llvm.loop !141
 
 82:                                               ; preds = %114, %66
   %83 = phi i64 [ 0, %66 ], [ %115, %114 ]
@@ -4650,7 +4650,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
   %94 = select i1 %90, i32 438488, i32 440536
   %95 = tail call i64 @ktime_get_raw() #11
   %96 = icmp sle i64 %95, %92
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !144
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !142
   %97 = load ptr, ptr %68, align 8
   %98 = tail call i32 %97(ptr noundef nonnull %67, i32 %94, i1 noundef zeroext true) #11
   %99 = and i32 %98, 131072
@@ -4662,7 +4662,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #11
   %102 = tail call i64 @ktime_get_raw() #11
   %103 = icmp sle i64 %102, %92
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !144
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !142
   %104 = load ptr, ptr %68, align 8
   %105 = tail call i32 %104(ptr noundef nonnull %67, i32 %94, i1 noundef zeroext true) #11
   %106 = and i32 %105, 131072
@@ -4689,7 +4689,7 @@ define internal fastcc void @wait_for_cmds_dispatched_to_panel(ptr noundef reado
 114:                                              ; preds = %112, %._crit_edge, %82
   %115 = add nuw nsw i64 %83, 1
   %116 = icmp eq i64 %115, 9
-  br i1 %116, label %117, label %82, !llvm.loop !145
+  br i1 %116, label %117, label %82, !llvm.loop !143
 
 117:                                              ; preds = %114
   ret void
@@ -4706,7 +4706,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %11 = tail call i64 @ktime_get_raw() #11
   %12 = icmp sle i64 %11, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !146
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !144
   %13 = load ptr, ptr %10, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #11
   %15 = lshr i32 %14, 8
@@ -4719,7 +4719,7 @@ define internal fastcc noundef zeroext i1 @wait_for_header_credits(ptr noundef %
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #11
   %19 = tail call i64 @ktime_get_raw() #11
   %20 = icmp sle i64 %19, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !146
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !144
   %21 = load ptr, ptr %10, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #11
   %23 = lshr i32 %22, 8
@@ -4762,7 +4762,7 @@ define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %11 = tail call i64 @ktime_get_raw() #11
   %12 = icmp sle i64 %11, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !147
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !145
   %13 = load ptr, ptr %10, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #11
   %15 = and i32 %14, 255
@@ -4774,7 +4774,7 @@ define internal fastcc noundef zeroext i1 @wait_for_payload_credits(ptr noundef 
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #11
   %18 = tail call i64 @ktime_get_raw() #11
   %19 = icmp sle i64 %18, %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !147
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !145
   %20 = load ptr, ptr %10, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #11
   %22 = and i32 %21, 255
@@ -4943,7 +4943,7 @@ define internal noundef i32 @gen11_dsi_host_detach(ptr readnone captures(none) %
 define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mipi_dsi_packet, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !148
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !146
   %4 = call i32 @mipi_dsi_create_packet(ptr noundef nonnull %3, ptr noundef %1) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
@@ -5023,7 +5023,7 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   %57 = or i32 %56, %50
   %58 = add nuw nsw i32 %51, 1
   %59 = icmp eq i32 %58, %47
-  br i1 %59, label %60, label %.preheader, !llvm.loop !149
+  br i1 %59, label %60, label %.preheader, !llvm.loop !147
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr i8, ptr %44, i64 1
@@ -5035,7 +5035,7 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   %66 = add nuw nsw i32 %45, 4
   %67 = icmp ult i32 %66, %25
   %68 = add i32 %43, -4
-  br i1 %67, label %42, label %.thread6, !llvm.loop !150
+  br i1 %67, label %42, label %.thread6, !llvm.loop !148
 
 .thread6:                                         ; preds = %60, %33, %8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5290,15 +5290,13 @@ attributes #14 = { nounwind memory(read) }
 !136 = !{i64 2162123583, i64 2162123394, i64 2162123444, i64 2162123490, i64 2162123518}
 !137 = !{i64 2162123889, i64 2162123700, i64 2162123750, i64 2162123796, i64 2162123824}
 !138 = distinct !{!138, !18, !19}
-!139 = distinct !{!139, !18, !19, !140}
-!140 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!139 = distinct !{!139, !18, !19}
+!140 = distinct !{!140, !18, !19}
 !141 = distinct !{!141, !18, !19}
-!142 = distinct !{!142, !18, !19}
+!142 = !{i64 2162043281}
 !143 = distinct !{!143, !18, !19}
-!144 = !{i64 2162043281}
-!145 = distinct !{!145, !18, !19}
-!146 = !{i64 2162002582}
-!147 = !{i64 2162021068}
-!148 = !{!"auto-init"}
-!149 = distinct !{!149, !18, !19}
-!150 = distinct !{!150, !18, !19}
+!144 = !{i64 2162002582}
+!145 = !{i64 2162021068}
+!146 = !{!"auto-init"}
+!147 = distinct !{!147, !18, !19}
+!148 = distinct !{!148, !18, !19}

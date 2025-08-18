@@ -318,7 +318,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
 ..loopexit_crit_edge.split.us:                    ; preds = %evolve.exit.us
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store i32 %spec.select.i.us, ptr %26, align 4, !tbaa !54
-  store i32 %spec.select.i.us39, ptr %37, align 8, !tbaa !57
+  store i32 %spec.select.i.us39, ptr %37, align 8, !tbaa !56
   store i64 %35, ptr %30, align 8, !tbaa !53
   br label %.loopexit
 
@@ -338,7 +338,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %42, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  store i32 %44, ptr %50, align 8, !tbaa !57
+  store i32 %44, ptr %50, align 8, !tbaa !56
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   %52 = load i32, ptr %51, align 4, !tbaa !31
   %53 = add nsw i32 %52, -1
@@ -436,7 +436,7 @@ evolve.exit.us:                                   ; preds = %evolve.exit.us, %.l
   %117 = load i32, ptr %45, align 8, !tbaa !20
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next.pre-phi.i, %118
-  br i1 %119, label %62, label %evolve.exit.loopexit, !llvm.loop !58
+  br i1 %119, label %62, label %evolve.exit.loopexit, !llvm.loop !57
 
 evolve.exit.loopexit:                             ; preds = %110
   %.pre = load i32, ptr %7, align 4, !tbaa !31
@@ -451,13 +451,13 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
   %124 = add nuw nsw i32 %.038, 1
   %125 = add nsw i32 %120, -1
   %126 = icmp slt i32 %124, %125
-  br i1 %126, label %.lr.ph.split, label %.loopexit, !llvm.loop !59
+  br i1 %126, label %.lr.ph.split, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %evolve.exit, %.preheader, %..loopexit_crit_edge.split.us, %15, %10
   %127 = load ptr, ptr %0, align 8, !tbaa !45
   %128 = getelementptr i8, ptr %127, i64 72
   %.val24 = load ptr, ptr %128, align 8, !tbaa !4
-  %129 = load ptr, ptr %9, align 8, !tbaa !61
+  %129 = load ptr, ptr %9, align 8, !tbaa !60
   %130 = getelementptr inbounds nuw i8, ptr %.val24, i64 108
   %131 = load i32, ptr %130, align 4, !tbaa !43
   %.not.i25 = icmp eq i32 %131, 0
@@ -549,7 +549,7 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i27, 1
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next.i, %178
-  br i1 %179, label %.lr.ph.i26, label %._crit_edge.loopexit.i, !llvm.loop !62
+  br i1 %179, label %.lr.ph.i26, label %._crit_edge.loopexit.i, !llvm.loop !61
 
 ._crit_edge.loopexit.i:                           ; preds = %176
   %.pre15.i = load i32, ptr %145, align 4, !tbaa !31
@@ -566,7 +566,7 @@ evolve.exit:                                      ; preds = %evolve.exit.loopexi
   %187 = getelementptr inbounds i8, ptr %.0326.i, i64 %186
   %188 = add nuw nsw i32 %.0297.i, 1
   %189 = icmp slt i32 %188, %180
-  br i1 %189, label %.lr.ph9.split.i, label %fill_picture.exit.loopexit, !llvm.loop !63
+  br i1 %189, label %.lr.ph9.split.i, label %fill_picture.exit.loopexit, !llvm.loop !62
 
 fill_picture.exit.loopexit:                       ; preds = %._crit_edge.i
   %.pre43 = load ptr, ptr %0, align 8, !tbaa !45
@@ -589,7 +589,7 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds i8, ptr %192, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %.val23, i64 56
-  store i32 %194, ptr %200, align 8, !tbaa !57
+  store i32 %194, ptr %200, align 8, !tbaa !56
   %201 = add nsw i32 %190, -1
   %202 = icmp eq i32 %194, %201
   %203 = add nsw i32 %194, 1
@@ -685,7 +685,7 @@ fill_picture.exit:                                ; preds = %fill_picture.exit.l
   %265 = load i32, ptr %195, align 8, !tbaa !20
   %266 = sext i32 %265 to i64
   %267 = icmp slt i64 %indvars.iv.next.pre-phi.i35, %266
-  br i1 %267, label %210, label %evolve.exit37, !llvm.loop !58
+  br i1 %267, label %210, label %evolve.exit37, !llvm.loop !57
 
 evolve.exit37:                                    ; preds = %258, %fill_picture.exit
   %268 = getelementptr inbounds nuw i8, ptr %.val23, i64 120
@@ -693,13 +693,13 @@ evolve.exit37:                                    ; preds = %258, %fill_picture.
   %270 = add nsw i64 %269, 1
   store i64 %270, ptr %268, align 8, !tbaa !53
   %271 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %272 = load i64, ptr %271, align 8, !tbaa !64
+  %272 = load i64, ptr %271, align 8, !tbaa !63
   %273 = add i64 %272, 1
-  store i64 %273, ptr %271, align 8, !tbaa !64
+  store i64 %273, ptr %271, align 8, !tbaa !63
   %274 = getelementptr inbounds nuw i8, ptr %9, i64 136
-  store i64 %272, ptr %274, align 8, !tbaa !65
+  store i64 %272, ptr %274, align 8, !tbaa !64
   %275 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  store i64 1, ptr %275, align 8, !tbaa !70
+  store i64 1, ptr %275, align 8, !tbaa !69
   %276 = tail call i32 @ff_filter_frame(ptr noundef nonnull %0, ptr noundef nonnull %9) #7
   br label %277
 
@@ -716,11 +716,11 @@ define internal noundef i32 @config_props(ptr noundef captures(none) initializes
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !71
+  store i32 %6, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %9, ptr %10, align 4, !tbaa !72
+  store i32 %9, ptr %10, align 4, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = load i64, ptr %12, align 8
@@ -919,21 +919,20 @@ attributes #8 = { nounwind willreturn memory(read) }
 !52 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
 !53 = !{!21, !22, i64 120}
 !54 = !{!21, !15, i64 60}
-!55 = distinct !{!55, !38, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = !{!21, !15, i64 56}
-!58 = distinct !{!58, !38}
-!59 = distinct !{!59, !38, !60}
-!60 = !{!"llvm.loop.unswitch.partial.disable"}
-!61 = !{!11, !11, i64 0}
-!62 = distinct !{!62, !38}
-!63 = distinct !{!63, !38, !60}
-!64 = !{!21, !22, i64 72}
-!65 = !{!66, !22, i64 136}
-!66 = !{!"AVFrame", !8, i64 0, !8, i64 64, !67, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !23, i64 124, !22, i64 136, !22, i64 144, !23, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !68, i64 248, !15, i64 256, !49, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !22, i64 304, !69, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !22, i64 368, !7, i64 376, !48, i64 384, !22, i64 408}
-!67 = !{!"p2 omnipotent char", !14, i64 0}
-!68 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!69 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!70 = !{!66, !22, i64 408}
-!71 = !{!46, !15, i64 40}
-!72 = !{!46, !15, i64 44}
+!55 = distinct !{!55, !38}
+!56 = !{!21, !15, i64 56}
+!57 = distinct !{!57, !38}
+!58 = distinct !{!58, !38, !59}
+!59 = !{!"llvm.loop.unswitch.partial.disable"}
+!60 = !{!11, !11, i64 0}
+!61 = distinct !{!61, !38}
+!62 = distinct !{!62, !38, !59}
+!63 = !{!21, !22, i64 72}
+!64 = !{!65, !22, i64 136}
+!65 = !{!"AVFrame", !8, i64 0, !8, i64 64, !66, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !23, i64 124, !22, i64 136, !22, i64 144, !23, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !67, i64 248, !15, i64 256, !49, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !22, i64 304, !68, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !22, i64 344, !22, i64 352, !22, i64 360, !22, i64 368, !7, i64 376, !48, i64 384, !22, i64 408}
+!66 = !{!"p2 omnipotent char", !14, i64 0}
+!67 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!68 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!69 = !{!65, !22, i64 408}
+!70 = !{!46, !15, i64 40}
+!71 = !{!46, !15, i64 44}

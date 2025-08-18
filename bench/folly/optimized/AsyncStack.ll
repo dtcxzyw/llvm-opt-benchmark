@@ -933,7 +933,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thr
   store i32 %30, ptr %1, align 4, !tbaa !13
   %31 = and i32 %30, %2
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i, !llvm.loop !73
+  br i1 %32, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE20futexWaitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
   %33 = phi i32 [ %41, %40 ], [ %15, %.lr.ph.i ]
@@ -1042,7 +1042,7 @@ __cxx_global_var_init.exit:                       ; preds = %0
   store volatile i64 %1, ptr @__folly_suspended_frame_cookie, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5follyL17detachedRootFrameE, i8 0, i64 24, i1 false)
   %5 = tail call fastcc noundef ptr @_ZN5follyL13detached_taskEv() #20
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5follyL17detachedRootFrameE, i64 8), align 8, !tbaa !75
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5follyL17detachedRootFrameE, i64 8), align 8, !tbaa !73
   ret void
 }
 
@@ -1165,6 +1165,4 @@ attributes #27 = { cold }
 !70 = distinct !{!70, !56}
 !71 = distinct !{!71, !56}
 !72 = distinct !{!72, !56}
-!73 = distinct !{!73, !74}
-!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!75 = !{!31, !10, i64 8}
+!73 = !{!31, !10, i64 8}

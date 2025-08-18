@@ -80,22 +80,22 @@ define internal void @restore_rgb_planes10_c(ptr noundef captures(none) %0, ptr 
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i16, ptr %.02632.us, i64 %indvars.iv
-  %13 = load i16, ptr %12, align 2, !tbaa !15
+  %13 = load i16, ptr %12, align 2, !tbaa !14
   %14 = getelementptr inbounds nuw i16, ptr %.02731.us, i64 %indvars.iv
-  %15 = load i16, ptr %14, align 2, !tbaa !15
+  %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = getelementptr inbounds nuw i16, ptr %.02830.us, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !15
+  %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = add i16 %15, %13
   %19 = and i16 %18, 1023
   %20 = xor i16 %19, 512
-  store i16 %20, ptr %12, align 2, !tbaa !15
+  store i16 %20, ptr %12, align 2, !tbaa !14
   %21 = add i16 %17, %15
   %22 = and i16 %21, 1023
   %23 = xor i16 %22, 512
-  store i16 %23, ptr %16, align 2, !tbaa !15
+  store i16 %23, ptr %16, align 2, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %11
   %24 = getelementptr inbounds i16, ptr %.02632.us, i64 %3
@@ -103,7 +103,7 @@ define internal void @restore_rgb_planes10_c(ptr noundef captures(none) %0, ptr 
   %26 = getelementptr inbounds i16, ptr %.02830.us, i64 %5
   %27 = add nuw nsw i32 %.033.us, 1
   %exitcond37.not = icmp eq i32 %27, %7
-  br i1 %exitcond37.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !18
+  br i1 %exitcond37.not, label %._crit_edge34, label %.preheader.us, !llvm.loop !17
 
 ._crit_edge34:                                    ; preds = %._crit_edge.us, %8
   ret void
@@ -127,9 +127,8 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !10 = !{!7, !7, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !7, i64 0}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}
+!16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12, !14}

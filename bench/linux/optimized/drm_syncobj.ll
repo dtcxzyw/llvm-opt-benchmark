@@ -3789,7 +3789,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 171:                                              ; preds = %.preheader26.split.split.us
   %172 = add nuw nsw i64 %167, 1
   %173 = icmp eq i64 %172, %10
-  br i1 %173, label %.loopexit27, label %.preheader26.split.split.us, !llvm.loop !54
+  br i1 %173, label %.loopexit27, label %.preheader26.split.split.us, !llvm.loop !52
 
 .preheader26.split.split:                         ; preds = %.preheader26.split, %.preheader26.split.split
   %174 = phi i64 [ %180, %.preheader26.split.split ], [ 0, %.preheader26.split ]
@@ -3801,7 +3801,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   %spec.select = add i32 %175, %179
   %180 = add nuw nsw i64 %174, 1
   %181 = icmp eq i64 %180, %10
-  br i1 %181, label %.loopexit27, label %.preheader26.split.split, !llvm.loop !55
+  br i1 %181, label %.loopexit27, label %.preheader26.split.split, !llvm.loop !52
 
 .split.us:                                        ; preds = %.preheader26.split.split.us, %160
   %.us-phi42 = phi i64 [ %131, %160 ], [ %167, %.preheader26.split.split.us ]
@@ -3836,7 +3836,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 196:                                              ; preds = %192
   %197 = call i64 @schedule_timeout(i64 noundef %129) #12
-  br label %.preheader26, !llvm.loop !56
+  br label %.preheader26, !llvm.loop !53
 
 .critedge:                                        ; preds = %.loopexit27, %186, %192, %188, %.split54.us, %183, %.split.us
   %198 = phi i64 [ %129, %183 ], [ %129, %.split.us ], [ %4, %.split54.us ], [ -512, %188 ], [ -512, %192 ], [ -62, %186 ], [ %129, %.loopexit27 ]
@@ -3911,7 +3911,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 .thread25:                                        ; preds = %229, %231, %232, %221
   %233 = add nuw nsw i64 %200, 1
   %234 = icmp eq i64 %233, %10
-  br i1 %234, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %234, label %.loopexit, label %.preheader, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.thread25, %.loopexit33
   call void @kfree(ptr noundef nonnull %25) #12
@@ -4083,9 +4083,6 @@ attributes #16 = { nounwind allocsize(0) }
 !49 = distinct !{!49, !11, !12}
 !50 = distinct !{!50, !11, !12}
 !51 = !{i64 2155824464}
-!52 = distinct !{!52, !11, !12, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !11, !12, !53}
-!55 = distinct !{!55, !11, !12}
-!56 = distinct !{!56, !12}
-!57 = distinct !{!57, !11, !12}
+!52 = distinct !{!52, !11, !12}
+!53 = distinct !{!53, !12}
+!54 = distinct !{!54, !11, !12}

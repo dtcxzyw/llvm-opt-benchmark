@@ -20,50 +20,46 @@ define void @_ZN6LibRaw22setOlympusBodyFeaturesEy(ptr noundef nonnull writeonly 
   store i64 %1, ptr %3, align 8, !tbaa !6
   %4 = and i64 %1, 1099494850560
   %5 = icmp eq i64 %4, 357287591936
-  br i1 %5, label %9, label %switch.early.test
+  br i1 %5, label %6, label %switch.early.test23
 
-switch.early.test:                                ; preds = %2
-  switch i64 %1, label %13 [
+switch.early.test23:                              ; preds = %2
+  switch i64 %1, label %11 [
     i64 322931012917, label %6
     i64 292933350449, label %6
     i64 292933350448, label %6
   ]
 
-6:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test
+6:                                                ; preds = %switch.early.test23, %switch.early.test23, %switch.early.test23, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i16 8, ptr %7, align 8, !tbaa !71
-  %8 = and i64 %1, -2
+  %8 = and i64 %1, -690600542210
   %switch = icmp eq i64 %8, 292933350448
-  br i1 %switch, label %15, label %switch.early.test22
+  %9 = add i64 %1, -357290750003
+  %or.cond17 = icmp ult i64 %9, 262
+  %or.cond22 = or i1 %switch, %or.cond17
+  br i1 %or.cond22, label %13, label %switch.early.test
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 8, ptr %10, align 8, !tbaa !71
-  %11 = add i64 %1, -357290750003
-  %or.cond17 = icmp ult i64 %11, 262
-  br i1 %or.cond17, label %15, label %switch.early.test22
-
-switch.early.test22:                              ; preds = %6, %9
-  switch i64 %1, label %12 [
-    i64 357290750771, label %15
-    i64 357290750768, label %15
-    i64 357290750521, label %15
-    i64 357290750515, label %15
+switch.early.test:                                ; preds = %6
+  switch i64 %1, label %10 [
+    i64 357290750771, label %13
+    i64 357290750768, label %13
+    i64 357290750521, label %13
+    i64 357290750515, label %13
   ]
 
-12:                                               ; preds = %switch.early.test22
-  br label %15
+10:                                               ; preds = %switch.early.test
+  br label %13
 
-13:                                               ; preds = %switch.early.test
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 43, ptr %14, align 2, !tbaa !72
-  br label %15
+11:                                               ; preds = %switch.early.test23
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 43, ptr %12, align 2, !tbaa !72
+  br label %13
 
-15:                                               ; preds = %9, %switch.early.test22, %switch.early.test22, %switch.early.test22, %switch.early.test22, %6, %12, %13
-  %.sink28 = phi i64 [ 1354, %12 ], [ 1338, %13 ], [ 1354, %6 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %switch.early.test22 ], [ 1354, %9 ]
-  %.sink = phi i16 [ 10, %12 ], [ 43, %13 ], [ 9, %6 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %switch.early.test22 ], [ 9, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink28
-  store i16 %.sink, ptr %16, align 2, !tbaa !73
+13:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %6, %10, %11
+  %.sink25 = phi i64 [ 1354, %10 ], [ 1338, %11 ], [ 1354, %6 ], [ 1354, %switch.early.test ], [ 1354, %switch.early.test ], [ 1354, %switch.early.test ], [ 1354, %switch.early.test ]
+  %.sink = phi i16 [ 10, %10 ], [ 43, %11 ], [ 9, %6 ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ], [ 9, %switch.early.test ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25
+  store i16 %.sink, ptr %14, align 2, !tbaa !73
   ret void
 }
 
@@ -72,7 +68,7 @@ define void @_ZN6LibRaw22getOlympus_CameraType2Ev(ptr noundef nonnull align 8 de
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 381528
   %3 = load i64, ptr %2, align 8, !tbaa !74
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %52
+  br i1 %.not, label %4, label %50
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 381416
@@ -137,7 +133,7 @@ define void @_ZN6LibRaw22getOlympus_CameraType2Ev(ptr noundef nonnull align 8 de
   store i64 %., ptr %33, align 8, !tbaa !81
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i64 %., ptr %34, align 8, !tbaa !6
-  br label %switch.early.test.i
+  br label %switch.early.test23.i
 
 35:                                               ; preds = %.critedge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 381520
@@ -146,55 +142,51 @@ define void @_ZN6LibRaw22getOlympus_CameraType2Ev(ptr noundef nonnull align 8 de
   store i64 %30, ptr %37, align 8, !tbaa !6
   %38 = and i64 %30, 1099494850560
   %39 = icmp eq i64 %38, 357287591936
-  br i1 %39, label %44, label %switch.early.test.i
+  br i1 %39, label %41, label %switch.early.test23.i
 
-switch.early.test.i:                              ; preds = %.thread, %35
+switch.early.test23.i:                            ; preds = %.thread, %35
   %40 = phi i64 [ %., %.thread ], [ %30, %35 ]
-  switch i64 %40, label %49 [
+  switch i64 %40, label %47 [
     i64 322931012917, label %41
     i64 292933350449, label %41
     i64 292933350448, label %41
   ]
 
-41:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 8, ptr %42, align 8, !tbaa !71
-  %43 = and i64 %40, -2
-  %switch.i = icmp eq i64 %43, 292933350448
-  br i1 %switch.i, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit, label %switch.early.test22.i
+41:                                               ; preds = %switch.early.test23.i, %switch.early.test23.i, %switch.early.test23.i, %35
+  %42 = phi i64 [ %40, %switch.early.test23.i ], [ %40, %switch.early.test23.i ], [ %40, %switch.early.test23.i ], [ %30, %35 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 8, ptr %43, align 8, !tbaa !71
+  %44 = and i64 %42, -690600542210
+  %switch.i = icmp eq i64 %44, 292933350448
+  %45 = add i64 %42, -357290750003
+  %or.cond17.i = icmp ult i64 %45, 262
+  %or.cond22.i = or i1 %switch.i, %or.cond17.i
+  br i1 %or.cond22.i, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit, label %switch.early.test.i
 
-44:                                               ; preds = %35
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 8, ptr %45, align 8, !tbaa !71
-  %46 = add i64 %30, -357290750003
-  %or.cond17.i = icmp ult i64 %46, 262
-  br i1 %or.cond17.i, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit, label %switch.early.test22.i
-
-switch.early.test22.i:                            ; preds = %44, %41
-  %47 = phi i64 [ %30, %44 ], [ %40, %41 ]
-  switch i64 %47, label %48 [
+switch.early.test.i:                              ; preds = %41
+  switch i64 %42, label %46 [
     i64 357290750771, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
     i64 357290750768, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
     i64 357290750521, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
     i64 357290750515, label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
   ]
 
-48:                                               ; preds = %switch.early.test22.i
+46:                                               ; preds = %switch.early.test.i
   br label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
 
-49:                                               ; preds = %switch.early.test.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 43, ptr %50, align 2, !tbaa !72
+47:                                               ; preds = %switch.early.test23.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 43, ptr %48, align 2, !tbaa !72
   br label %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
 
-_ZN6LibRaw22setOlympusBodyFeaturesEy.exit:        ; preds = %41, %44, %switch.early.test22.i, %switch.early.test22.i, %switch.early.test22.i, %switch.early.test22.i, %48, %49
-  %.sink28.i = phi i64 [ 1354, %48 ], [ 1338, %49 ], [ 1354, %41 ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %switch.early.test22.i ], [ 1354, %44 ]
-  %.sink.i = phi i16 [ 10, %48 ], [ 43, %49 ], [ 9, %41 ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %switch.early.test22.i ], [ 9, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink28.i
-  store i16 %.sink.i, ptr %51, align 2, !tbaa !73
-  br label %52
+_ZN6LibRaw22setOlympusBodyFeaturesEy.exit:        ; preds = %41, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %46, %47
+  %.sink25.i = phi i64 [ 1354, %46 ], [ 1338, %47 ], [ 1354, %41 ], [ 1354, %switch.early.test.i ], [ 1354, %switch.early.test.i ], [ 1354, %switch.early.test.i ], [ 1354, %switch.early.test.i ]
+  %.sink.i = phi i16 [ 10, %46 ], [ 43, %47 ], [ 9, %41 ], [ 9, %switch.early.test.i ], [ 9, %switch.early.test.i ], [ 9, %switch.early.test.i ], [ 9, %switch.early.test.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25.i
+  store i16 %.sink.i, ptr %49, align 2, !tbaa !73
+  br label %50
 
-52:                                               ; preds = %1, %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
+50:                                               ; preds = %1, %_ZN6LibRaw22setOlympusBodyFeaturesEy.exit
   ret void
 }
 

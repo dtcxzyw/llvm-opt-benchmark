@@ -495,7 +495,7 @@ prepcallclosemth.exit.us:                         ; preds = %62, %60
   %83 = getelementptr inbounds i8, ptr %82, i64 %9
   %84 = load ptr, ptr %41, align 8, !tbaa !16
   %.not.us = icmp ult ptr %84, %83
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !44
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %43, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -557,7 +557,7 @@ poptbclist.exit.us20:                             ; preds = %.lr.ph.i15.us18, %9
   %119 = getelementptr inbounds i8, ptr %118, i64 %9
   %120 = load ptr, ptr %41, align 8, !tbaa !16
   %.not.us24 = icmp ult ptr %120, %119
-  br i1 %.not.us24, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !46
+  br i1 %.not.us24, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %poptbclist.exit
   %121 = phi ptr [ %153, %poptbclist.exit ], [ %.pre35, %.lr.ph.split ]
@@ -629,11 +629,11 @@ define hidden ptr @luaF_newproto(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  store i8 0, ptr %5, align 2, !tbaa !47
+  store i8 0, ptr %5, align 2, !tbaa !44
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  store i8 0, ptr %6, align 1, !tbaa !56
+  store i8 0, ptr %6, align 1, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !57
+  store i8 0, ptr %7, align 4, !tbaa !54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   ret ptr %2
@@ -642,41 +642,41 @@ define hidden ptr @luaF_newproto(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 128, 296352743484) i64 @luaF_protosize(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !58
+  %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
   %6 = add nuw nsw i64 %5, 128
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !59
+  %8 = load i32, ptr %7, align 4, !tbaa !56
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %11 = load i32, ptr %10, align 4, !tbaa !60
+  %11 = load i32, ptr %10, align 4, !tbaa !57
   %12 = zext i32 %11 to i64
   %13 = add nuw nsw i64 %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !61
+  %15 = load i32, ptr %14, align 8, !tbaa !58
   %16 = zext i32 %15 to i64
   %17 = add nuw nsw i64 %13, %16
   %18 = shl nuw nsw i64 %17, 4
   %19 = add nuw nsw i64 %6, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %21 = load i8, ptr %20, align 1, !tbaa !56
+  %21 = load i8, ptr %20, align 1, !tbaa !53
   %22 = and i8 %21, 2
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %23, label %38
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !62
+  %25 = load i32, ptr %24, align 8, !tbaa !59
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 2
   %28 = add nuw nsw i64 %27, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !63
+  %30 = load i32, ptr %29, align 4, !tbaa !60
   %31 = zext i32 %30 to i64
   %32 = add nuw nsw i64 %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !64
+  %34 = load i32, ptr %33, align 8, !tbaa !61
   %35 = zext i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 3
   %37 = add nuw nsw i64 %32, %36
@@ -690,29 +690,29 @@ define hidden range(i64 128, 296352743484) i64 @luaF_protosize(ptr noundef reado
 ; Function Attrs: nounwind uwtable
 define hidden void @luaF_freeproto(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %4 = load i8, ptr %3, align 1, !tbaa !56
+  %4 = load i8, ptr %3, align 1, !tbaa !53
   %5 = and i8 %4, 2
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %24
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !62
+  %10 = load i32, ptr %9, align 8, !tbaa !59
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 2
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %8, i64 noundef %12) #7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !63
+  %16 = load i32, ptr %15, align 4, !tbaa !60
   %17 = sext i32 %16 to i64
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %14, i64 noundef %17) #7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %19 = load ptr, ptr %18, align 8, !tbaa !67
+  %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !64
+  %21 = load i32, ptr %20, align 8, !tbaa !61
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %19, i64 noundef %23) #7
@@ -720,30 +720,30 @@ define hidden void @luaF_freeproto(ptr noundef %0, ptr noundef %1) local_unnamed
 
 24:                                               ; preds = %6, %2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %26 = load ptr, ptr %25, align 8, !tbaa !68
+  %26 = load ptr, ptr %25, align 8, !tbaa !65
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %28 = load i32, ptr %27, align 8, !tbaa !58
+  %28 = load i32, ptr %27, align 8, !tbaa !55
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %26, i64 noundef %30) #7
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %32 = load ptr, ptr %31, align 8, !tbaa !69
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %34 = load i32, ptr %33, align 4, !tbaa !59
+  %34 = load i32, ptr %33, align 4, !tbaa !56
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 4
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %32, i64 noundef %36) #7
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !70
+  %38 = load ptr, ptr %37, align 8, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %40 = load i32, ptr %39, align 4, !tbaa !60
+  %40 = load i32, ptr %39, align 4, !tbaa !57
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 4
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %38, i64 noundef %42) #7
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %44 = load ptr, ptr %43, align 8, !tbaa !71
+  %44 = load ptr, ptr %43, align 8, !tbaa !68
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !61
+  %46 = load i32, ptr %45, align 8, !tbaa !58
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 4
   tail call void @luaM_free_(ptr noundef %0, ptr noundef %44, i64 noundef %48) #7
@@ -756,13 +756,13 @@ declare hidden void @luaM_free_(ptr noundef, ptr noundef, i64 noundef) local_unn
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !60
+  %5 = load i32, ptr %4, align 4, !tbaa !57
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load ptr, ptr %7, align 8, !tbaa !70
+  %8 = load ptr, ptr %7, align 8, !tbaa !67
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
 
@@ -771,13 +771,13 @@ define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32
   %.01821 = phi i32 [ %1, %.lr.ph ], [ %.1, %28 ]
   %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !72
+  %12 = load i32, ptr %11, align 8, !tbaa !69
   %.not = icmp sgt i32 %12, %2
   br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %15 = load i32, ptr %14, align 4, !tbaa !74
+  %15 = load i32, ptr %14, align 4, !tbaa !71
   %16 = icmp slt i32 %2, %15
   br i1 %16, label %17, label %28
 
@@ -787,15 +787,15 @@ define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %10, align 8, !tbaa !75
+  %21 = load ptr, ptr %10, align 8, !tbaa !72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 11
-  %23 = load i8, ptr %22, align 1, !tbaa !76
+  %23 = load i8, ptr %22, align 1, !tbaa !73
   %24 = icmp sgt i8 %23, -1
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   br i1 %24, label %.critedge, label %26
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %25, align 8, !tbaa !78
+  %27 = load ptr, ptr %25, align 8, !tbaa !75
   br label %.critedge
 
 28:                                               ; preds = %13, %17
@@ -881,38 +881,35 @@ attributes #8 = { noreturn nounwind }
 !41 = !{!23, !15, i64 56}
 !42 = !{!43, !8, i64 9}
 !43 = !{!"GCObject", !6, i64 0, !8, i64 8, !8, i64 9}
-!44 = distinct !{!44, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !45}
-!47 = !{!48, !8, i64 10}
-!48 = !{!"Proto", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !30, i64 16, !30, i64 20, !30, i64 24, !30, i64 28, !30, i64 32, !30, i64 36, !30, i64 40, !30, i64 44, !30, i64 48, !49, i64 56, !50, i64 64, !51, i64 72, !52, i64 80, !53, i64 88, !54, i64 96, !55, i64 104, !39, i64 112, !6, i64 120}
-!49 = !{!"p1 _ZTS6TValue", !7, i64 0}
-!50 = !{!"p1 int", !7, i64 0}
-!51 = !{!"p2 _ZTS5Proto", !7, i64 0}
-!52 = !{!"p1 _ZTS9Upvaldesc", !7, i64 0}
-!53 = !{!"p1 omnipotent char", !7, i64 0}
-!54 = !{!"p1 _ZTS11AbsLineInfo", !7, i64 0}
-!55 = !{!"p1 _ZTS6LocVar", !7, i64 0}
-!56 = !{!48, !8, i64 11}
-!57 = !{!48, !8, i64 12}
-!58 = !{!48, !30, i64 32}
-!59 = !{!48, !30, i64 20}
-!60 = !{!48, !30, i64 36}
-!61 = !{!48, !30, i64 16}
-!62 = !{!48, !30, i64 24}
-!63 = !{!48, !30, i64 28}
-!64 = !{!48, !30, i64 40}
-!65 = !{!48, !50, i64 64}
-!66 = !{!48, !53, i64 88}
-!67 = !{!48, !54, i64 96}
-!68 = !{!48, !51, i64 72}
-!69 = !{!48, !49, i64 56}
-!70 = !{!48, !55, i64 104}
-!71 = !{!48, !52, i64 80}
-!72 = !{!73, !30, i64 8}
-!73 = !{!"LocVar", !39, i64 0, !30, i64 8, !30, i64 12}
-!74 = !{!73, !30, i64 12}
-!75 = !{!73, !39, i64 0}
-!76 = !{!77, !8, i64 11}
-!77 = !{!"TString", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !30, i64 12, !8, i64 16, !53, i64 24, !7, i64 32, !7, i64 40}
-!78 = !{!77, !53, i64 24}
+!44 = !{!45, !8, i64 10}
+!45 = !{!"Proto", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 12, !30, i64 16, !30, i64 20, !30, i64 24, !30, i64 28, !30, i64 32, !30, i64 36, !30, i64 40, !30, i64 44, !30, i64 48, !46, i64 56, !47, i64 64, !48, i64 72, !49, i64 80, !50, i64 88, !51, i64 96, !52, i64 104, !39, i64 112, !6, i64 120}
+!46 = !{!"p1 _ZTS6TValue", !7, i64 0}
+!47 = !{!"p1 int", !7, i64 0}
+!48 = !{!"p2 _ZTS5Proto", !7, i64 0}
+!49 = !{!"p1 _ZTS9Upvaldesc", !7, i64 0}
+!50 = !{!"p1 omnipotent char", !7, i64 0}
+!51 = !{!"p1 _ZTS11AbsLineInfo", !7, i64 0}
+!52 = !{!"p1 _ZTS6LocVar", !7, i64 0}
+!53 = !{!45, !8, i64 11}
+!54 = !{!45, !8, i64 12}
+!55 = !{!45, !30, i64 32}
+!56 = !{!45, !30, i64 20}
+!57 = !{!45, !30, i64 36}
+!58 = !{!45, !30, i64 16}
+!59 = !{!45, !30, i64 24}
+!60 = !{!45, !30, i64 28}
+!61 = !{!45, !30, i64 40}
+!62 = !{!45, !47, i64 64}
+!63 = !{!45, !50, i64 88}
+!64 = !{!45, !51, i64 96}
+!65 = !{!45, !48, i64 72}
+!66 = !{!45, !46, i64 56}
+!67 = !{!45, !52, i64 104}
+!68 = !{!45, !49, i64 80}
+!69 = !{!70, !30, i64 8}
+!70 = !{!"LocVar", !39, i64 0, !30, i64 8, !30, i64 12}
+!71 = !{!70, !30, i64 12}
+!72 = !{!70, !39, i64 0}
+!73 = !{!74, !8, i64 11}
+!74 = !{!"TString", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !30, i64 12, !8, i64 16, !50, i64 24, !7, i64 32, !7, i64 40}
+!75 = !{!74, !50, i64 24}

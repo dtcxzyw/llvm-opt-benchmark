@@ -209,7 +209,7 @@ lean_inc.exit.us:                                 ; preds = %9, %8, %7
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %25, %24, %23, %16
-  br label %.split.us, !llvm.loop !12
+  br label %.split.us
 
 .split:                                           ; preds = %2
   %27 = load ptr, ptr @l_Lean_hasNeverExtractAttribute_visit___closed__1, align 8, !tbaa !9
@@ -489,9 +489,9 @@ _init_l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7.e
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____lambda__1___boxed, ptr %41, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i16 4, ptr %42, align 8, !tbaa !14
+  store i16 4, ptr %42, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 18
-  store i16 0, ptr %43, align 2, !tbaa !14
+  store i16 0, ptr %43, align 2, !tbaa !12
   store ptr %37, ptr @l_Lean_initFn____x40_Lean_Compiler_NeverExtractAttr___hyg_3____closed__7, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %37) #3
   %.not = icmp eq i8 %0, 0
@@ -603,7 +603,5 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"short", !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !7, i64 0}

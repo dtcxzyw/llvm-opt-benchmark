@@ -707,14 +707,14 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_hex_dump(ptr noundef capt
   %40 = add i32 %31, %11
   %41 = sext i32 %40 to i64
   %42 = icmp ugt i64 %6, %41
-  br i1 %42, label %.split.us3, label %.loopexit, !llvm.loop !49
+  br i1 %42, label %.split.us3, label %.loopexit, !llvm.loop !47
 
 43:                                               ; preds = %.split
   %44 = sub i32 %49, %11
   %45 = add i32 %50, %11
   %46 = sext i32 %45 to i64
   %47 = icmp ugt i64 %6, %46
-  br i1 %47, label %.split, label %.loopexit, !llvm.loop !50
+  br i1 %47, label %.split, label %.loopexit, !llvm.loop !47
 
 .split:                                           ; preds = %13, %43
   %48 = phi i64 [ %46, %43 ], [ 0, %13 ]
@@ -823,7 +823,4 @@ attributes #11 = { cold nounwind }
 !44 = !{i64 2149564115, i64 2149564144, i64 2149564190, i64 2149564248, i64 2149564302, i64 2149564356, i64 2149564411, i64 2149564442, i64 2149564750, i64 2149564756, i64 2149564803, i64 2149564826, i64 2149564852}
 !45 = !{i64 2149565307, i64 2149565123, i64 2149565173, i64 2149565219, i64 2149565247}
 !46 = !{i32 -1, i32 1}
-!47 = distinct !{!47, !11, !12, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !11, !12, !48}
-!50 = distinct !{!50, !11, !12}
+!47 = distinct !{!47, !11, !12}

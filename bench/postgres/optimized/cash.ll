@@ -622,7 +622,7 @@ define dso_local i64 @cash_out(ptr noundef readonly captures(none) %0) local_unn
   %77 = icmp ugt i64 %.0, 9
   %78 = icmp sgt i32 %76, -1
   %79 = or i1 %77, %78
-  br i1 %79, label %.split, label %.split131.us, !llvm.loop !15
+  br i1 %79, label %.split, label %.split131.us, !llvm.loop !13
 
 .split131.us:                                     ; preds = %70, %48
   %.us-phi = phi ptr [ %52, %48 ], [ %74, %70 ]
@@ -746,16 +746,16 @@ define dso_local i64 @cash_send(ptr noundef readonly captures(none) %0) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @pq_begintypsend(ptr noundef nonnull %2) #13
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %5 = call i64 @llvm.bswap.i64(i64 %4)
-  %6 = load ptr, ptr %2, align 8, !alias.scope !16
+  %6 = load ptr, ptr %2, align 8, !alias.scope !14
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8, !alias.scope !16
+  %8 = load i32, ptr %7, align 8, !alias.scope !14
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  store i64 %5, ptr %10, align 1, !noalias !16
+  store i64 %5, ptr %10, align 1, !noalias !14
   %11 = add i32 %8, 8
-  store i32 %11, ptr %7, align 8, !alias.scope !16
+  store i32 %11, ptr %7, align 8, !alias.scope !14
   %12 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %13 = ptrtoint ptr %12 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -850,7 +850,7 @@ define dso_local i64 @cash_pl(ptr noundef readonly captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %3, i64 %5)
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %8, label %cash_pl_cash.exit, !prof !19
+  br i1 %7, label %8, label %cash_pl_cash.exit, !prof !17
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -873,7 +873,7 @@ define dso_local i64 @cash_mi(ptr noundef readonly captures(none) %0) local_unna
   %5 = load i64, ptr %4, align 8
   %6 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %3, i64 %5)
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %8, label %cash_mi_cash.exit, !prof !19
+  br i1 %7, label %8, label %cash_mi_cash.exit, !prof !17
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -928,7 +928,7 @@ define dso_local i64 @cash_mul_flt8(ptr noundef readonly captures(none) %0) loca
   %7 = fmul double %5, %6
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp oeq double %8, 0x7FF0000000000000
-  br i1 %9, label %10, label %14, !prof !19
+  br i1 %9, label %10, label %14, !prof !17
 
 10:                                               ; preds = %1
   %11 = tail call double @llvm.fabs.f64(double %5)
@@ -941,7 +941,7 @@ define dso_local i64 @cash_mul_flt8(ptr noundef readonly captures(none) %0) loca
 
 14:                                               ; preds = %10, %1
   %15 = fcmp oeq double %7, 0.000000e+00
-  br i1 %15, label %16, label %float8_mul.exit.i, !prof !19
+  br i1 %15, label %16, label %float8_mul.exit.i, !prof !17
 
 16:                                               ; preds = %14
   %17 = icmp ne i64 %3, 0
@@ -962,7 +962,7 @@ float8_mul.exit.i:                                ; preds = %16, %14
   %23 = fcmp ult double %20, 0xC3E0000000000000
   %24 = fcmp uge double %20, 0x43E0000000000000
   %.not6.i = or i1 %23, %24
-  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %22, %float8_mul.exit.i
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -987,7 +987,7 @@ define dso_local i64 @flt8_mul_cash(ptr noundef readonly captures(none) %0) loca
   %7 = fmul double %3, %6
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp oeq double %8, 0x7FF0000000000000
-  br i1 %9, label %10, label %14, !prof !19
+  br i1 %9, label %10, label %14, !prof !17
 
 10:                                               ; preds = %1
   %11 = tail call double @llvm.fabs.f64(double %3)
@@ -1000,7 +1000,7 @@ define dso_local i64 @flt8_mul_cash(ptr noundef readonly captures(none) %0) loca
 
 14:                                               ; preds = %10, %1
   %15 = fcmp oeq double %7, 0.000000e+00
-  br i1 %15, label %16, label %float8_mul.exit.i, !prof !19
+  br i1 %15, label %16, label %float8_mul.exit.i, !prof !17
 
 16:                                               ; preds = %14
   %17 = icmp ne i64 %5, 0
@@ -1021,7 +1021,7 @@ float8_mul.exit.i:                                ; preds = %16, %14
   %23 = fcmp ult double %20, 0xC3E0000000000000
   %24 = fcmp uge double %20, 0x43E0000000000000
   %.not6.i = or i1 %23, %24
-  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %22, %float8_mul.exit.i
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1043,7 +1043,7 @@ define dso_local i64 @cash_div_flt8(ptr noundef readonly captures(none) %0) loca
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
   %6 = fcmp oeq double %5, 0.000000e+00
-  br i1 %6, label %7, label %8, !prof !19
+  br i1 %6, label %7, label %8, !prof !17
 
 7:                                                ; preds = %1
   tail call void @float_zero_divide_error() #17
@@ -1054,7 +1054,7 @@ define dso_local i64 @cash_div_flt8(ptr noundef readonly captures(none) %0) loca
   %10 = fdiv double %9, %5
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %14, !prof !19
+  br i1 %12, label %13, label %14, !prof !17
 
 13:                                               ; preds = %8
   tail call void @float_overflow_error() #17
@@ -1062,7 +1062,7 @@ define dso_local i64 @cash_div_flt8(ptr noundef readonly captures(none) %0) loca
 
 14:                                               ; preds = %8
   %15 = fcmp oeq double %10, 0.000000e+00
-  br i1 %15, label %16, label %float8_div.exit.i, !prof !19
+  br i1 %15, label %16, label %float8_div.exit.i, !prof !17
 
 16:                                               ; preds = %14
   %17 = icmp eq i64 %3, 0
@@ -1084,7 +1084,7 @@ float8_div.exit.i:                                ; preds = %16, %14
   %24 = fcmp ult double %21, 0xC3E0000000000000
   %25 = fcmp uge double %21, 0x43E0000000000000
   %.not6.i = or i1 %24, %25
-  br i1 %.not6.i, label %.critedge.i, label %cash_div_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_div_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %23, %float8_div.exit.i
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1112,7 +1112,7 @@ define dso_local i64 @cash_mul_flt4(ptr noundef readonly captures(none) %0) loca
   %10 = fmul double %9, %8
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %17, !prof !19
+  br i1 %12, label %13, label %17, !prof !17
 
 13:                                               ; preds = %1
   %14 = tail call double @llvm.fabs.f64(double %8)
@@ -1125,7 +1125,7 @@ define dso_local i64 @cash_mul_flt4(ptr noundef readonly captures(none) %0) loca
 
 17:                                               ; preds = %13, %1
   %18 = fcmp oeq double %10, 0.000000e+00
-  br i1 %18, label %19, label %float8_mul.exit.i, !prof !19
+  br i1 %18, label %19, label %float8_mul.exit.i, !prof !17
 
 19:                                               ; preds = %17
   %20 = icmp ne i64 %3, 0
@@ -1146,7 +1146,7 @@ float8_mul.exit.i:                                ; preds = %19, %17
   %26 = fcmp ult double %23, 0xC3E0000000000000
   %27 = fcmp uge double %23, 0x43E0000000000000
   %.not6.i = or i1 %26, %27
-  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %25, %float8_mul.exit.i
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1174,7 +1174,7 @@ define dso_local i64 @flt4_mul_cash(ptr noundef readonly captures(none) %0) loca
   %10 = fmul double %9, %8
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %17, !prof !19
+  br i1 %12, label %13, label %17, !prof !17
 
 13:                                               ; preds = %1
   %14 = tail call double @llvm.fabs.f64(double %8)
@@ -1187,7 +1187,7 @@ define dso_local i64 @flt4_mul_cash(ptr noundef readonly captures(none) %0) loca
 
 17:                                               ; preds = %13, %1
   %18 = fcmp oeq double %10, 0.000000e+00
-  br i1 %18, label %19, label %float8_mul.exit.i, !prof !19
+  br i1 %18, label %19, label %float8_mul.exit.i, !prof !17
 
 19:                                               ; preds = %17
   %20 = icmp ne i64 %7, 0
@@ -1208,7 +1208,7 @@ float8_mul.exit.i:                                ; preds = %19, %17
   %26 = fcmp ult double %23, 0xC3E0000000000000
   %27 = fcmp uge double %23, 0x43E0000000000000
   %.not6.i = or i1 %26, %27
-  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_mul_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %25, %float8_mul.exit.i
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1233,7 +1233,7 @@ define dso_local i64 @cash_div_flt4(ptr noundef readonly captures(none) %0) loca
   %7 = bitcast i32 %6 to float
   %8 = fpext float %7 to double
   %9 = fcmp oeq float %7, 0.000000e+00
-  br i1 %9, label %10, label %11, !prof !19
+  br i1 %9, label %10, label %11, !prof !17
 
 10:                                               ; preds = %1
   tail call void @float_zero_divide_error() #17
@@ -1244,7 +1244,7 @@ define dso_local i64 @cash_div_flt4(ptr noundef readonly captures(none) %0) loca
   %13 = fdiv double %12, %8
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %15, label %16, label %17, !prof !19
+  br i1 %15, label %16, label %17, !prof !17
 
 16:                                               ; preds = %11
   tail call void @float_overflow_error() #17
@@ -1252,7 +1252,7 @@ define dso_local i64 @cash_div_flt4(ptr noundef readonly captures(none) %0) loca
 
 17:                                               ; preds = %11
   %18 = fcmp oeq double %13, 0.000000e+00
-  br i1 %18, label %19, label %float8_div.exit.i, !prof !19
+  br i1 %18, label %19, label %float8_div.exit.i, !prof !17
 
 19:                                               ; preds = %17
   %20 = icmp eq i64 %3, 0
@@ -1274,7 +1274,7 @@ float8_div.exit.i:                                ; preds = %19, %17
   %27 = fcmp ult double %24, 0xC3E0000000000000
   %28 = fcmp uge double %24, 0x43E0000000000000
   %.not6.i = or i1 %27, %28
-  br i1 %.not6.i, label %.critedge.i, label %cash_div_float8.exit, !prof !19
+  br i1 %.not6.i, label %.critedge.i, label %cash_div_float8.exit, !prof !17
 
 .critedge.i:                                      ; preds = %26, %float8_div.exit.i
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1297,7 +1297,7 @@ define dso_local i64 @cash_mul_int8(ptr noundef readonly captures(none) %0) loca
   %5 = load i64, ptr %4, align 8
   %6 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %3, i64 %5)
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %8, label %cash_mul_int64.exit, !prof !19
+  br i1 %7, label %8, label %cash_mul_int64.exit, !prof !17
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1320,7 +1320,7 @@ define dso_local i64 @int8_mul_cash(ptr noundef readonly captures(none) %0) loca
   %5 = load i64, ptr %4, align 8
   %6 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %5, i64 %3)
   %7 = extractvalue { i64, i1 } %6, 1
-  br i1 %7, label %8, label %cash_mul_int64.exit, !prof !19
+  br i1 %7, label %8, label %cash_mul_int64.exit, !prof !17
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1340,7 +1340,7 @@ define dso_local i64 @cash_div_int8(ptr noundef readonly captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %cash_div_int64.exit, !prof !19
+  br i1 %4, label %5, label %cash_div_int64.exit, !prof !17
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1367,7 +1367,7 @@ define dso_local i64 @cash_mul_int4(ptr noundef readonly captures(none) %0) loca
   %6 = ashr exact i64 %sext, 32
   %7 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %3, i64 %6)
   %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !19
+  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !17
 
 9:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1392,7 +1392,7 @@ define dso_local i64 @int4_mul_cash(ptr noundef readonly captures(none) %0) loca
   %6 = ashr exact i64 %sext, 32
   %7 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %5, i64 %6)
   %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !19
+  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !17
 
 9:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1413,7 +1413,7 @@ define dso_local i64 @cash_div_int4(ptr noundef readonly captures(none) %0) loca
   %3 = load i64, ptr %2, align 8
   %sext = shl i64 %3, 32
   %4 = icmp eq i64 %sext, 0
-  br i1 %4, label %5, label %cash_div_int64.exit, !prof !19
+  br i1 %4, label %5, label %cash_div_int64.exit, !prof !17
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1441,7 +1441,7 @@ define dso_local i64 @cash_mul_int2(ptr noundef readonly captures(none) %0) loca
   %6 = ashr exact i64 %sext, 48
   %7 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %3, i64 %6)
   %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !19
+  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !17
 
 9:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1466,7 +1466,7 @@ define dso_local i64 @int2_mul_cash(ptr noundef readonly captures(none) %0) loca
   %6 = ashr exact i64 %sext, 48
   %7 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %5, i64 %6)
   %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !19
+  br i1 %8, label %9, label %cash_mul_int64.exit, !prof !17
 
 9:                                                ; preds = %1
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1487,7 +1487,7 @@ define dso_local i64 @cash_div_int2(ptr noundef readonly captures(none) %0) loca
   %3 = load i64, ptr %2, align 8
   %sext = shl i64 %3, 48
   %4 = icmp eq i64 %sext, 0
-  br i1 %4, label %5, label %cash_div_int64.exit, !prof !19
+  br i1 %4, label %5, label %cash_div_int64.exit, !prof !17
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1795,7 +1795,7 @@ define dso_local i64 @cash_numeric(ptr noundef readonly captures(none) %0) local
   %10 = mul i64 %.01920, 10
   %11 = add nuw nsw i32 %.01821, 1
   %exitcond.not = icmp eq i32 %11, %spec.store.select
-  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !18
 
 12:                                               ; preds = %.preheader
   %13 = tail call ptr @int64_to_numeric(i64 noundef %10) #13
@@ -1838,7 +1838,7 @@ define dso_local i64 @numeric_cash(ptr noundef readonly captures(none) %0) local
   %8 = mul i64 %.01314, 10
   %9 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %9, %spec.store.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.013.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
@@ -1874,7 +1874,7 @@ define dso_local i64 @int4_cash(ptr noundef readonly captures(none) %0) local_un
   %8 = mul i64 %.01112, 10
   %9 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %9, %spec.store.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.011.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
@@ -1905,7 +1905,7 @@ define dso_local i64 @int8_cash(ptr noundef readonly captures(none) %0) local_un
   %8 = mul i64 %.01112, 10
   %9 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %9, %spec.store.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.011.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
@@ -2002,14 +2002,12 @@ attributes #17 = { noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pq_writeint64: argument 0"}
-!18 = distinct !{!18, !"pq_writeint64"}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"pq_writeint64: argument 0"}
+!16 = distinct !{!16, !"pq_writeint64"}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

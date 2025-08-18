@@ -215,7 +215,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %116 = load i8, ptr %4, align 4, !tbaa !14
   %117 = sext i8 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph.split, label %.loopexit, !llvm.loop !22
+  br i1 %118, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %115, %59, %3
   %.051 = phi float [ %.56.val, %3 ], [ %.1.us, %59 ], [ %.1, %115 ]
@@ -241,16 +241,16 @@ define float @Map_SwitchCutDeref(ptr noundef readonly captures(none) %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !35
+  %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %59, %1
   %.033.lcssa = phi float [ 0.000000e+00, %1 ], [ %.134, %59 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !37
+  %8 = load i32, ptr %7, align 8, !tbaa !35
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph43, label %._crit_edge
 
@@ -262,7 +262,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %1 ]
   %11 = phi ptr [ %60, %59 ], [ %3, %1 ]
   %.03339 = phi float [ %.134, %59 ], [ 0.000000e+00, %1 ]
-  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -352,17 +352,17 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
 59:                                               ; preds = %.thread, %51, %55, %.lr.ph
   %.134 = phi float [ %.03339, %.lr.ph ], [ %58, %55 ], [ %.252, %51 ], [ %.252, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load ptr, ptr %2, align 8, !tbaa !23
+  %60 = load ptr, ptr %2, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !35
+  %62 = load i32, ptr %61, align 8, !tbaa !33
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %.preheader, !llvm.loop !39
+  br i1 %64, label %.lr.ph, label %.preheader, !llvm.loop !37
 
 65:                                               ; preds = %.lr.ph43, %80
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %80 ]
   %.441 = phi float [ %.033.lcssa, %.lr.ph43 ], [ %.5, %80 ]
-  %66 = load ptr, ptr %10, align 8, !tbaa !40
+  %66 = load ptr, ptr %10, align 8, !tbaa !38
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv46
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   %69 = tail call i32 @Map_NodeIsVar(ptr noundef %68) #2
@@ -370,7 +370,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
   br i1 %.not, label %80, label %70
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr %10, align 8, !tbaa !40
+  %71 = load ptr, ptr %10, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv46
   %73 = load ptr, ptr %72, align 8, !tbaa !16
   %74 = ptrtoint ptr %73 to i64
@@ -387,10 +387,10 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
 80:                                               ; preds = %65, %70, %76
   %.5 = phi float [ %.441, %70 ], [ %79, %76 ], [ %.441, %65 ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %81 = load i32, ptr %7, align 8, !tbaa !37
+  %81 = load i32, ptr %7, align 8, !tbaa !35
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next47, %82
-  br i1 %83, label %65, label %._crit_edge, !llvm.loop !41
+  br i1 %83, label %65, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %80, %.preheader
   %.4.lcssa = phi float [ %.033.lcssa, %.preheader ], [ %.5, %80 ]
@@ -428,26 +428,24 @@ attributes #2 = { nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!12, !12, i64 0}
 !18 = !{!10, !10, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !20}
-!23 = !{!24, !26, i64 56}
-!24 = !{!"Map_ManStruct_t_", !25, i64 0, !10, i64 8, !25, i64 16, !10, i64 24, !25, i64 32, !10, i64 40, !10, i64 44, !9, i64 48, !26, i64 56, !26, i64 64, !27, i64 72, !28, i64 80, !29, i64 88, !29, i64 96, !30, i64 104, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !11, i64 128, !11, i64 132, !11, i64 136, !11, i64 140, !10, i64 144, !10, i64 148, !11, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !31, i64 176, !7, i64 184, !7, i64 232, !7, i64 1512, !7, i64 1640, !26, i64 1768, !32, i64 1776, !32, i64 1784, !33, i64 1792, !28, i64 1800, !13, i64 1808, !10, i64 1816, !10, i64 1820, !10, i64 1824, !10, i64 1828, !10, i64 1832, !10, i64 1836, !34, i64 1840, !34, i64 1848, !34, i64 1856, !34, i64 1864, !34, i64 1872, !34, i64 1880, !34, i64 1888, !34, i64 1896, !34, i64 1904, !34, i64 1912, !34, i64 1920}
-!25 = !{!"p2 _ZTS17Map_NodeStruct_t_", !6, i64 0}
-!26 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !6, i64 0}
-!27 = !{!"p1 float", !6, i64 0}
-!28 = !{!"p2 omnipotent char", !6, i64 0}
-!29 = !{!"p1 _ZTS17Map_TimeStruct_t_", !6, i64 0}
-!30 = !{!"p1 int", !6, i64 0}
-!31 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !6, i64 0}
-!32 = !{!"p1 _ZTS16Extra_MmFixed_t_", !6, i64 0}
-!33 = !{!"p1 short", !6, i64 0}
-!34 = !{!"long", !7, i64 0}
-!35 = !{!36, !10, i64 8}
-!36 = !{!"Map_NodeVecStruct_t_", !25, i64 0, !10, i64 8, !10, i64 12}
-!37 = !{!24, !10, i64 40}
-!38 = !{!36, !25, i64 0}
+!21 = !{!22, !24, i64 56}
+!22 = !{!"Map_ManStruct_t_", !23, i64 0, !10, i64 8, !23, i64 16, !10, i64 24, !23, i64 32, !10, i64 40, !10, i64 44, !9, i64 48, !24, i64 56, !24, i64 64, !25, i64 72, !26, i64 80, !27, i64 88, !27, i64 96, !28, i64 104, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !11, i64 128, !11, i64 132, !11, i64 136, !11, i64 140, !10, i64 144, !10, i64 148, !11, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !29, i64 176, !7, i64 184, !7, i64 232, !7, i64 1512, !7, i64 1640, !24, i64 1768, !30, i64 1776, !30, i64 1784, !31, i64 1792, !26, i64 1800, !13, i64 1808, !10, i64 1816, !10, i64 1820, !10, i64 1824, !10, i64 1828, !10, i64 1832, !10, i64 1836, !32, i64 1840, !32, i64 1848, !32, i64 1856, !32, i64 1864, !32, i64 1872, !32, i64 1880, !32, i64 1888, !32, i64 1896, !32, i64 1904, !32, i64 1912, !32, i64 1920}
+!23 = !{!"p2 _ZTS17Map_NodeStruct_t_", !6, i64 0}
+!24 = !{!"p1 _ZTS20Map_NodeVecStruct_t_", !6, i64 0}
+!25 = !{!"p1 float", !6, i64 0}
+!26 = !{!"p2 omnipotent char", !6, i64 0}
+!27 = !{!"p1 _ZTS17Map_TimeStruct_t_", !6, i64 0}
+!28 = !{!"p1 int", !6, i64 0}
+!29 = !{!"p1 _ZTS21Map_SuperLibStruct_t_", !6, i64 0}
+!30 = !{!"p1 _ZTS16Extra_MmFixed_t_", !6, i64 0}
+!31 = !{!"p1 short", !6, i64 0}
+!32 = !{!"long", !7, i64 0}
+!33 = !{!34, !10, i64 8}
+!34 = !{!"Map_NodeVecStruct_t_", !23, i64 0, !10, i64 8, !10, i64 12}
+!35 = !{!22, !10, i64 40}
+!36 = !{!34, !23, i64 0}
+!37 = distinct !{!37, !20}
+!38 = !{!22, !23, i64 32}
 !39 = distinct !{!39, !20}
-!40 = !{!24, !25, i64 32}
-!41 = distinct !{!41, !20}

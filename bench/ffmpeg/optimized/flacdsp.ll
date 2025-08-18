@@ -137,7 +137,7 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
   store i32 %44, ptr %42, align 4, !tbaa !14
   %45 = add nsw i32 %.05467, 2
   %46 = icmp slt i32 %45, %6
-  br i1 %46, label %.lr.ph69.split, label %._crit_edge70, !llvm.loop !20
+  br i1 %46, label %.lr.ph69.split, label %._crit_edge70, !llvm.loop !18
 
 ._crit_edge70:                                    ; preds = %.lr.ph69.split, %._crit_edge.us, %5
   %.055.lcssa = phi ptr [ %0, %5 ], [ %32, %._crit_edge.us ], [ %42, %.lr.ph69.split ]
@@ -164,7 +164,7 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
   %54 = add i32 %53, %.075
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond92.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %55 = zext nneg i32 %2 to i64
@@ -217,7 +217,7 @@ define internal void @flac_lpc_32_c(ptr noundef captures(none) %0, ptr noundef r
   %18 = add nsw i64 %17, %.020.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %10
   %19 = ashr i64 %18, %8
@@ -229,7 +229,7 @@ define internal void @flac_lpc_32_c(ptr noundef captures(none) %0, ptr noundef r
   %24 = add nuw nsw i32 %.01723.us, 1
   %25 = getelementptr inbounds nuw i8, ptr %.01822.us, i64 4
   %exitcond28.not = icmp eq i32 %24, %4
-  br i1 %exitcond28.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond28.not, label %._crit_edge24, label %.preheader.us, !llvm.loop !21
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -268,12 +268,12 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds nuw i64, ptr %.02024.us, i64 %indvars.iv30
-  %18 = load i64, ptr %17, align 8, !tbaa !24
+  %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = mul i64 %18, %16
   %20 = add i64 %19, %.022.us
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge.us, label %13, !llvm.loop !26
+  br i1 %exitcond34.not, label %._crit_edge.us, label %13, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %13
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv35
@@ -282,11 +282,11 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
   %24 = ashr i64 %20, %9
   %25 = add nsw i64 %24, %23
   %26 = getelementptr inbounds nuw i64, ptr %.02024.us, i64 %12
-  store i64 %25, ptr %26, align 8, !tbaa !24
+  store i64 %25, ptr %26, align 8, !tbaa !22
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %27 = getelementptr inbounds nuw i8, ptr %.02024.us, i64 8
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge26, label %.preheader.us, !llvm.loop !27
+  br i1 %exitcond39.not, label %._crit_edge26, label %.preheader.us, !llvm.loop !25
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %10, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
@@ -294,11 +294,11 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
   %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = sext i32 %29 to i64
-  store i64 %30, ptr %.02024, align 8, !tbaa !24
+  store i64 %30, ptr %.02024, align 8, !tbaa !22
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw i8, ptr %.02024, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
-  br i1 %exitcond.not, label %._crit_edge26, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge26, label %.preheader, !llvm.loop !25
 
 ._crit_edge26:                                    ; preds = %.preheader, %._crit_edge.us, %6
   ret void
@@ -324,7 +324,7 @@ define internal void @flac_wasted_32_c(ptr noundef captures(none) %0, i32 nounde
   store i32 %7, ptr %5, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -347,10 +347,10 @@ define internal void @flac_wasted_33_c(ptr noundef writeonly captures(none) %0, 
   %10 = sext i32 %9 to i64
   %11 = shl i64 %10, %6
   %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  store i64 %11, ptr %12, align 8, !tbaa !24
+  store i64 %11, ptr %12, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -361,7 +361,7 @@ define internal void @flac_decorrelate_indep_c_32(ptr noundef readonly captures(
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge17
 
 .preheader.us.preheader:                          ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !31
+  %8 = load ptr, ptr %0, align 8, !tbaa !28
   %wide.trip.count23 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader.us
@@ -375,7 +375,7 @@ define internal void @flac_decorrelate_indep_c_32(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %.113.us = phi ptr [ %.01215.us, %.preheader.us ], [ %15, %9 ]
   %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv20
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = shl i32 %13, %4
@@ -383,12 +383,12 @@ define internal void @flac_decorrelate_indep_c_32(ptr noundef readonly captures(
   store i32 %14, ptr %.113.us, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %9
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !36
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !33
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -400,10 +400,10 @@ define internal void @flac_decorrelate_ls_c_32(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -423,7 +423,7 @@ define internal void @flac_decorrelate_ls_c_32(ptr noundef readonly captures(non
   store i32 %19, ptr %17, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -435,10 +435,10 @@ define internal void @flac_decorrelate_rs_c_32(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -458,7 +458,7 @@ define internal void @flac_decorrelate_rs_c_32(ptr noundef readonly captures(non
   store i32 %19, ptr %18, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -470,10 +470,10 @@ define internal void @flac_decorrelate_ms_c_32(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -495,7 +495,7 @@ define internal void @flac_decorrelate_ms_c_32(ptr noundef readonly captures(non
   store i32 %21, ptr %20, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -520,22 +520,22 @@ define internal void @flac_decorrelate_indep_c_32p(ptr noundef readonly captures
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv19
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = shl i32 %12, %4
   %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv19
   store i32 %13, ptr %16, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !41
+  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !38
 
 ._crit_edge16:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -547,12 +547,12 @@ define internal void @flac_decorrelate_ls_c_32p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -571,7 +571,7 @@ define internal void @flac_decorrelate_ls_c_32p(ptr noundef readonly captures(no
   store i32 %21, ptr %22, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -583,12 +583,12 @@ define internal void @flac_decorrelate_rs_c_32p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -607,7 +607,7 @@ define internal void @flac_decorrelate_rs_c_32p(ptr noundef readonly captures(no
   store i32 %21, ptr %22, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -619,12 +619,12 @@ define internal void @flac_decorrelate_ms_c_32p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -645,7 +645,7 @@ define internal void @flac_decorrelate_ms_c_32p(ptr noundef readonly captures(no
   store i32 %23, ptr %24, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -659,7 +659,7 @@ define internal void @flac_decorrelate_indep_c_16(ptr noundef readonly captures(
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge17
 
 .preheader.us.preheader:                          ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !31
+  %8 = load ptr, ptr %0, align 8, !tbaa !28
   %wide.trip.count23 = zext nneg i32 %3 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader.us
@@ -673,21 +673,21 @@ define internal void @flac_decorrelate_indep_c_16(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %.113.us = phi ptr [ %.01215.us, %.preheader.us ], [ %16, %9 ]
   %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv20
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = shl i32 %13, %4
   %15 = trunc i32 %14 to i16
   %16 = getelementptr inbounds nuw i8, ptr %.113.us, i64 2
-  store i16 %15, ptr %.113.us, align 2, !tbaa !45
+  store i16 %15, ptr %.113.us, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %9
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
-  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !48
+  br i1 %exitcond24.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !45
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -699,10 +699,10 @@ define internal void @flac_decorrelate_ls_c_16(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -716,15 +716,15 @@ define internal void @flac_decorrelate_ls_c_16(ptr noundef readonly captures(non
   %16 = shl i32 %13, %4
   %17 = trunc i32 %16 to i16
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 2
-  store i16 %17, ptr %.016, align 2, !tbaa !45
+  store i16 %17, ptr %.016, align 2, !tbaa !42
   %19 = sub i32 %13, %15
   %20 = shl i32 %19, %4
   %21 = trunc i32 %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 4
-  store i16 %21, ptr %18, align 2, !tbaa !45
+  store i16 %21, ptr %18, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -736,10 +736,10 @@ define internal void @flac_decorrelate_rs_c_16(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -754,14 +754,14 @@ define internal void @flac_decorrelate_rs_c_16(ptr noundef readonly captures(non
   %17 = shl i32 %16, %4
   %18 = trunc i32 %17 to i16
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 2
-  store i16 %18, ptr %.016, align 2, !tbaa !45
+  store i16 %18, ptr %.016, align 2, !tbaa !42
   %20 = shl i32 %15, %4
   %21 = trunc i32 %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %.016, i64 4
-  store i16 %21, ptr %19, align 2, !tbaa !45
+  store i16 %21, ptr %19, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -773,10 +773,10 @@ define internal void @flac_decorrelate_ms_c_16(ptr noundef readonly captures(non
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %1, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %11
 
@@ -793,14 +793,14 @@ define internal void @flac_decorrelate_ms_c_16(ptr noundef readonly captures(non
   %19 = shl i32 %18, %4
   %20 = trunc i32 %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %.018, i64 2
-  store i16 %20, ptr %.018, align 2, !tbaa !45
+  store i16 %20, ptr %.018, align 2, !tbaa !42
   %22 = shl i32 %17, %4
   %23 = trunc i32 %22 to i16
   %24 = getelementptr inbounds nuw i8, ptr %.018, i64 4
-  store i16 %23, ptr %21, align 2, !tbaa !45
+  store i16 %23, ptr %21, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %11, %5
   ret void
@@ -825,23 +825,23 @@ define internal void @flac_decorrelate_indep_c_16p(ptr noundef readonly captures
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv19
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = shl i32 %12, %4
   %14 = trunc i32 %13 to i16
   %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !52
+  %16 = load ptr, ptr %15, align 8, !tbaa !49
   %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv19
-  store i16 %14, ptr %17, align 2, !tbaa !45
+  store i16 %14, ptr %17, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.us, label %8, !llvm.loop !51
 
 ._crit_edge.us:                                   ; preds = %8
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
-  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !55
+  br i1 %exitcond23.not, label %._crit_edge16, label %.preheader.us, !llvm.loop !52
 
 ._crit_edge16:                                    ; preds = %._crit_edge.us, %5
   ret void
@@ -853,12 +853,12 @@ define internal void @flac_decorrelate_ls_c_16p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -871,15 +871,15 @@ define internal void @flac_decorrelate_ls_c_16p(ptr noundef readonly captures(no
   %18 = shl i32 %15, %4
   %19 = trunc i32 %18 to i16
   %20 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  store i16 %19, ptr %20, align 2, !tbaa !45
+  store i16 %19, ptr %20, align 2, !tbaa !42
   %21 = sub i32 %15, %17
   %22 = shl i32 %21, %4
   %23 = trunc i32 %22 to i16
   %24 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
-  store i16 %23, ptr %24, align 2, !tbaa !45
+  store i16 %23, ptr %24, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -891,12 +891,12 @@ define internal void @flac_decorrelate_rs_c_16p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -910,14 +910,14 @@ define internal void @flac_decorrelate_rs_c_16p(ptr noundef readonly captures(no
   %19 = shl i32 %18, %4
   %20 = trunc i32 %19 to i16
   %21 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  store i16 %20, ptr %21, align 2, !tbaa !45
+  store i16 %20, ptr %21, align 2, !tbaa !42
   %22 = shl i32 %17, %4
   %23 = trunc i32 %22 to i16
   %24 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
-  store i16 %23, ptr %24, align 2, !tbaa !45
+  store i16 %23, ptr %24, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -929,12 +929,12 @@ define internal void @flac_decorrelate_ms_c_16p(ptr noundef readonly captures(no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  %10 = load ptr, ptr %0, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = load ptr, ptr %0, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %13
 
@@ -950,14 +950,14 @@ define internal void @flac_decorrelate_ms_c_16p(ptr noundef readonly captures(no
   %21 = shl i32 %20, %4
   %22 = trunc i32 %21 to i16
   %23 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
-  store i16 %22, ptr %23, align 2, !tbaa !45
+  store i16 %22, ptr %23, align 2, !tbaa !42
   %24 = shl i32 %19, %4
   %25 = trunc i32 %24 to i16
   %26 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
-  store i16 %25, ptr %26, align 2, !tbaa !45
+  store i16 %25, ptr %26, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %13, %5
   ret void
@@ -987,44 +987,41 @@ attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !15 = !{!"int", !6, i64 0}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17, !19}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
 !26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17, !19}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 omnipotent char", !8, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 int", !8, i64 0}
+!27 = distinct !{!27, !17}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !8, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 int", !8, i64 0}
+!32 = distinct !{!32, !17}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}
 !35 = distinct !{!35, !17}
-!36 = distinct !{!36, !17, !19}
+!36 = distinct !{!36, !17}
 !37 = distinct !{!37, !17}
 !38 = distinct !{!38, !17}
 !39 = distinct !{!39, !17}
 !40 = distinct !{!40, !17}
-!41 = distinct !{!41, !17, !19}
-!42 = distinct !{!42, !17}
-!43 = distinct !{!43, !17}
+!41 = distinct !{!41, !17}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"short", !6, i64 0}
 !44 = distinct !{!44, !17}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"short", !6, i64 0}
+!45 = distinct !{!45, !17}
+!46 = distinct !{!46, !17}
 !47 = distinct !{!47, !17}
-!48 = distinct !{!48, !17, !19}
-!49 = distinct !{!49, !17}
-!50 = distinct !{!50, !17}
+!48 = distinct !{!48, !17}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 short", !8, i64 0}
 !51 = distinct !{!51, !17}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 short", !8, i64 0}
+!52 = distinct !{!52, !17}
+!53 = distinct !{!53, !17}
 !54 = distinct !{!54, !17}
-!55 = distinct !{!55, !17, !19}
-!56 = distinct !{!56, !17}
-!57 = distinct !{!57, !17}
-!58 = distinct !{!58, !17}
+!55 = distinct !{!55, !17}

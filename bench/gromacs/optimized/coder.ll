@@ -608,7 +608,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 .split.us.us:                                     ; preds = %._crit_edge236.us.us
   %39 = add nuw nsw i32 %.1138241.us, 1
   %exitcond288.not = icmp eq i32 %39, %5
-  br i1 %exitcond288.not, label %._crit_edge242, label %.preheader195.us, !llvm.loop !24
+  br i1 %exitcond288.not, label %._crit_edge242, label %.preheader195.us, !llvm.loop !23
 
 ._crit_edge242:                                   ; preds = %.split.us.us, %._crit_edge
   %40 = icmp sgt i32 %6, 4
@@ -646,9 +646,9 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %53, align 4, !tbaa !25
+  store i32 0, ptr %53, align 4, !tbaa !24
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %54, align 4, !tbaa !26
+  store i32 0, ptr %54, align 4, !tbaa !25
   %55 = load i32, ptr %2, align 4, !tbaa !19
   %56 = shl nsw i32 %55, 3
   %57 = sext i32 %56 to i64
@@ -708,7 +708,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %spec.select163 = tail call i32 @llvm.umax.i32(i32 %.0136, i32 %.0139212)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !26
 
 .lr.ph.preheader.i:                               ; preds = %79, %62
   %.0139.lcssa = phi i32 [ 0, %62 ], [ %spec.select163, %79 ]
@@ -755,7 +755,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %93 = shl nuw i32 %.0142214, 1
   %94 = add i32 %.0141215, 1
   %.not = icmp ult i32 %.0139.lcssa, %93
-  br i1 %.not, label %.preheader197, label %Ptngc_out8bits.exit, !llvm.loop !28
+  br i1 %.not, label %.preheader197, label %Ptngc_out8bits.exit, !llvm.loop !27
 
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.critedge
   %95 = phi i32 [ %91, %.lr.ph223.preheader ], [ %190, %.critedge ]
@@ -795,7 +795,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
 107:                                              ; preds = %.sink.split, %101
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next262, 3
-  br i1 %exitcond264.not, label %.preheader.i, label %97, !llvm.loop !29
+  br i1 %exitcond264.not, label %.preheader.i, label %97, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %107, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %107 ]
@@ -812,14 +812,14 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %110 = shl i32 %.13235.i, 1
   %111 = add i32 %.136.i, 1
   %.not.i = icmp ult i32 %109, %110
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i166, !llvm.loop !30
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i166, !llvm.loop !29
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i166, %.preheader.i
   %.132.lcssa.i = phi i32 [ %.03138.i, %.preheader.i ], [ %110, %.lr.ph.i166 ]
   %.1.lcssa.i = phi i32 [ %.02840.i, %.preheader.i ], [ %111, %.lr.ph.i166 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %112, label %.preheader.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %112, label %.preheader.i, !llvm.loop !30
 
 112:                                              ; preds = %._crit_edge.i
   %113 = add i32 %.1.lcssa.i, %4
@@ -970,7 +970,7 @@ Ptngc_write32bits.exit:                           ; preds = %.lr.ph.i.i.i177, %.
   %.19 = phi ptr [ %.14, %._crit_edge.i172 ], [ %.14, %172 ], [ %185, %.lr.ph.i.i.i177 ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 3
-  br i1 %exitcond47.not.i, label %.critedge, label %142, !llvm.loop !32
+  br i1 %exitcond47.not.i, label %.critedge, label %142, !llvm.loop !31
 
 pack_triplet.exit:                                ; preds = %115
   tail call void @free(ptr noundef %58) #9
@@ -981,7 +981,7 @@ pack_triplet.exit:                                ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %.critedge165, label %.lr.ph223, !llvm.loop !33
+  br i1 %exitcond269.not, label %.critedge165, label %.lr.ph223, !llvm.loop !32
 
 .lr.ph227:                                        ; preds = %.preheader196, %pack_stopbits_item.exit
   %indvars.iv270 = phi i64 [ %indvars.iv.next271, %pack_stopbits_item.exit ], [ 0, %.preheader196 ]
@@ -1024,9 +1024,9 @@ pack_triplet.exit:                                ; preds = %115
 
 210:                                              ; preds = %204
   %211 = or disjoint i32 %208, 1
-  %212 = load i32, ptr %54, align 4, !tbaa !26
+  %212 = load i32, ptr %54, align 4, !tbaa !25
   %213 = add nsw i32 %212, 1
-  store i32 %213, ptr %54, align 4, !tbaa !26
+  store i32 %213, ptr %54, align 4, !tbaa !25
   br label %214
 
 214:                                              ; preds = %210, %204
@@ -1066,17 +1066,17 @@ Ptngc_out8bits.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %214
   %.10 = phi ptr [ %.9, %214 ], [ %229, %.lr.ph.i.i.i ]
   %235 = tail call i32 @llvm.umax.i32(i32 %.021.i.i, i32 2)
   %spec.store.select.i.i = lshr i32 %235, 1
-  br i1 %.not.i.i, label %pack_stopbits_item.exit, label %204, !llvm.loop !34
+  br i1 %.not.i.i, label %pack_stopbits_item.exit, label %204, !llvm.loop !33
 
 pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit.i.i
-  %236 = load i32, ptr %53, align 4, !tbaa !25
+  %236 = load i32, ptr %53, align 4, !tbaa !24
   %237 = add nsw i32 %236, 1
-  store i32 %237, ptr %53, align 4, !tbaa !25
+  store i32 %237, ptr %53, align 4, !tbaa !24
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %238 = load i32, ptr %2, align 4, !tbaa !19
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next271, %239
-  br i1 %240, label %.lr.ph227, label %.critedge165, !llvm.loop !35
+  br i1 %240, label %.lr.ph227, label %.critedge165, !llvm.loop !34
 
 .critedge165:                                     ; preds = %.critedge, %pack_stopbits_item.exit, %.preheader196..critedge165_crit_edge, %.preheader197
   %241 = phi i32 [ %.pre, %.preheader196..critedge165_crit_edge ], [ %91, %.preheader197 ], [ %234, %pack_stopbits_item.exit ], [ %190, %.critedge ]
@@ -1194,7 +1194,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.3.i = getelementptr inbounds nuw i8, ptr %.2466.i, i64 %.3.idx.i
   %18 = add nuw nsw i32 %.0524.i, 1
   %exitcond.not.i = icmp eq i32 %18, %.039.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %.249.lcssa.i = phi i32 [ %.148.i, %10 ], [ %.350.i, %.lr.ph.i ]
@@ -1215,7 +1215,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %24 = ashr i32 %.039.i, 1
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
   %25 = add nsw i32 %spec.store.select.i, %.0.i
-  br label %10, !llvm.loop !37
+  br label %10, !llvm.loop !36
 
 26:                                               ; preds = %._crit_edge.i
   %27 = add i32 %.142.lcssa.i, 1
@@ -1228,7 +1228,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i32 %spec.select61.i, ptr %32, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond16.not.i, label %unpack_array_stop_bits.exit, label %.preheader.i, !llvm.loop !38
+  br i1 %exitcond16.not.i, label %unpack_array_stop_bits.exit, label %.preheader.i, !llvm.loop !37
 
 33:                                               ; preds = %7, %7, %7
   %34 = shl nuw i32 1, %5
@@ -1259,7 +1259,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %53 = shl i32 %.0553.i, 1
   %54 = add i32 %.0544.i, 1
   %.not.i41 = icmp ult i32 %51, %53
-  br i1 %.not.i41, label %._crit_edge.i42, label %.lr.ph.i40, !llvm.loop !39
+  br i1 %.not.i41, label %._crit_edge.i42, label %.lr.ph.i40, !llvm.loop !38
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i40, %33
   %.054.lcssa.i = phi i32 [ %5, %33 ], [ %54, %.lr.ph.i40 ]
@@ -1294,7 +1294,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.260.i = select i1 %.not72.i, i32 128, i32 %64
   %.2.idx.i = zext i1 %.not72.i to i64
   %.2.i = getelementptr inbounds nuw i8, ptr %.1577.i, i64 %.2.idx.i
-  br i1 %58, label %57, label %65, !llvm.loop !40
+  br i1 %58, label %57, label %65, !llvm.loop !39
 
 65:                                               ; preds = %57
   %66 = mul nuw nsw i64 %indvar.i, 12
@@ -1334,7 +1334,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %.5.us.i = getelementptr inbounds nuw i8, ptr %.410.us.i, i64 %.5.idx.us.i
   %76 = add nuw i32 %.04911.us.i, 1
   %exitcond.not.i46 = icmp eq i32 %76, %.051.i
-  br i1 %exitcond.not.i46, label %._crit_edge14.us.i, label %69, !llvm.loop !41
+  br i1 %exitcond.not.i46, label %._crit_edge14.us.i, label %69, !llvm.loop !40
 
 ._crit_edge14.us.i:                               ; preds = %69
   %77 = add i32 %spec.select73.us.i, 1
@@ -1345,14 +1345,14 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i32 %spec.select74.us.i, ptr %gep.i, align 4, !tbaa !19
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next.i47, 3
-  br i1 %exitcond31.not.i, label %.split22.us.i, label %.preheader.us.i, !llvm.loop !42
+  br i1 %exitcond31.not.i, label %.split22.us.i, label %.preheader.us.i, !llvm.loop !41
 
 .split22.us.i:                                    ; preds = %._crit_edge14.us.i, %.preheader.preheader.i48
   %.us-phi.i = phi i32 [ %.260.i, %.preheader.preheader.i48 ], [ %.563.us.i, %._crit_edge14.us.i ]
   %.us-phi23.i = phi ptr [ %.2.i, %.preheader.preheader.i48 ], [ %.5.us.i, %._crit_edge14.us.i ]
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond36.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count.i43
-  br i1 %exitcond36.not.i, label %unpack_array_stop_bits.exit, label %.preheader1.i, !llvm.loop !43
+  br i1 %exitcond36.not.i, label %unpack_array_stop_bits.exit, label %.preheader1.i, !llvm.loop !42
 
 80:                                               ; preds = %7
   %81 = tail call i32 @Ptngc_unpack_array_xtc2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #9
@@ -1410,17 +1410,17 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i32 %98, ptr %103, align 4, !tbaa !19
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next10.i, %wide.trip.count.i50
-  br i1 %exitcond.not.i53, label %._crit_edge.us.us.i, label %95, !llvm.loop !44
+  br i1 %exitcond.not.i53, label %._crit_edge.us.us.i, label %95, !llvm.loop !43
 
 ._crit_edge.us.us.i:                              ; preds = %95
   %104 = add nuw nsw i32 %.0285.us.us.i, 1
   %exitcond14.not.i = icmp eq i32 %104, 3
-  br i1 %exitcond14.not.i, label %.split.us.us.i, label %.preheader.us.us.i, !llvm.loop !45
+  br i1 %exitcond14.not.i, label %.split.us.us.i, label %.preheader.us.us.i, !llvm.loop !44
 
 .split.us.us.i:                                   ; preds = %._crit_edge.us.us.i
   %105 = add nuw nsw i32 %.07.us.i, 1
   %exitcond15.not.i = icmp eq i32 %105, %6
-  br i1 %exitcond15.not.i, label %unpack_array_bwlzh.exit, label %.preheader1.us.i, !llvm.loop !46
+  br i1 %exitcond15.not.i, label %unpack_array_bwlzh.exit, label %.preheader1.us.i, !llvm.loop !45
 
 unpack_array_bwlzh.exit:                          ; preds = %.split.us.us.i, %84
   tail call void @free(ptr noundef %87) #9
@@ -1498,11 +1498,11 @@ attributes #9 = { nounwind }
 !19 = !{!5, !5, i64 0}
 !20 = distinct !{!20, !14}
 !21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !14, !23}
-!25 = !{!4, !5, i64 12}
-!26 = !{!4, !5, i64 8}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = !{!4, !5, i64 12}
+!25 = !{!4, !5, i64 8}
+!26 = distinct !{!26, !14}
 !27 = distinct !{!27, !14}
 !28 = distinct !{!28, !14}
 !29 = distinct !{!29, !14}
@@ -1518,8 +1518,7 @@ attributes #9 = { nounwind }
 !39 = distinct !{!39, !14}
 !40 = distinct !{!40, !14}
 !41 = distinct !{!41, !14}
-!42 = distinct !{!42, !14, !23}
+!42 = distinct !{!42, !14}
 !43 = distinct !{!43, !14}
 !44 = distinct !{!44, !14}
-!45 = distinct !{!45, !14, !23}
-!46 = distinct !{!46, !14, !23}
+!45 = distinct !{!45, !14}

@@ -204,7 +204,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %41 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv.next309
   store i32 %40, ptr %41, align 4, !tbaa !15
   %exitcond311.not = icmp eq i64 %indvars.iv.next309, 15
-  br i1 %exitcond311.not, label %.preheader208, label %31, !llvm.loop !20
+  br i1 %exitcond311.not, label %.preheader208, label %31, !llvm.loop !19
 
 .lr.ph222.split:                                  ; preds = %.lr.ph222, %54
   %indvars.iv312 = phi i64 [ %indvars.iv.next313, %54 ], [ 0, %.lr.ph222 ]
@@ -226,13 +226,13 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   store i32 %51, ptr %47, align 4, !tbaa !15
   %52 = sext i32 %48 to i64
   %53 = getelementptr inbounds i16, ptr %4, i64 %52
-  store i16 %50, ptr %53, align 2, !tbaa !21
+  store i16 %50, ptr %53, align 2, !tbaa !20
   br label %54
 
 54:                                               ; preds = %49, %.lr.ph222.split
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count320
-  br i1 %exitcond316.not, label %._crit_edge223, label %.lr.ph222.split, !llvm.loop !23
+  br i1 %exitcond316.not, label %._crit_edge223, label %.lr.ph222.split, !llvm.loop !18
 
 ._crit_edge223:                                   ; preds = %54, %30, %.preheader208
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 60
@@ -245,7 +245,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not169, label %.critedge, label %59
 
 59:                                               ; preds = %58
-  %60 = load i16, ptr %4, align 2, !tbaa !21
+  %60 = load i16, ptr %4, align 2, !tbaa !20
   %.sroa.441.0.insert.ext = zext i16 %60 to i32
   %.sroa.441.0.insert.shift = shl nuw i32 %.sroa.441.0.insert.ext, 16
   %61 = sext i32 %8 to i64
@@ -257,7 +257,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %63 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %indvars.iv.next340
   store i32 %.sroa.441.0.insert.shift, ptr %63, align 2
   %64 = icmp sgt i64 %indvars.iv339, 1
-  br i1 %64, label %62, label %.critedge, !llvm.loop !24
+  br i1 %64, label %62, label %.critedge, !llvm.loop !22
 
 65:                                               ; preds = %._crit_edge223
   %66 = add nsw i32 %8, -1
@@ -285,7 +285,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %75 = add nsw i32 %69, %.0142232.us
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %.preheader204, label %.lr.ph238.split.us, !llvm.loop !25
+  br i1 %exitcond334.not, label %.preheader204, label %.lr.ph238.split.us, !llvm.loop !23
 
 .preheader204:                                    ; preds = %.loopexit, %74
   %.0144.lcssa = phi i32 [ 0, %74 ], [ %.2146.lcssa, %.loopexit ]
@@ -338,7 +338,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.2146224 = phi i32 [ %.0144231, %.lr.ph226 ], [ %106, %GetNextKey.exit ]
   %92 = phi i32 [ %82, %.lr.ph226 ], [ %107, %GetNextKey.exit ]
   %93 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv322
-  %94 = load i16, ptr %93, align 2, !tbaa !21
+  %94 = load i16, ptr %93, align 2, !tbaa !20
   %95 = zext i32 %.2146224 to i64
   %96 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %95
   %.sroa.45.0.insert.ext = zext i16 %94 to i32
@@ -353,14 +353,14 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %100 = getelementptr inbounds %struct.HuffmanCode, ptr %96, i64 %99
   store i32 %.sroa.03.0.insert.insert, ptr %100, align 2
   %101 = icmp sgt i32 %98, 0
-  br i1 %101, label %97, label %ReplicateValue.exit173, !llvm.loop !24
+  br i1 %101, label %97, label %ReplicateValue.exit173, !llvm.loop !22
 
 ReplicateValue.exit173:                           ; preds = %97, %ReplicateValue.exit173
   %.0.i174 = phi i32 [ %103, %ReplicateValue.exit173 ], [ %89, %97 ]
   %102 = and i32 %.0.i174, %.2146224
   %.not.i = icmp eq i32 %102, 0
   %103 = lshr i32 %.0.i174, 1
-  br i1 %.not.i, label %GetNextKey.exit, label %ReplicateValue.exit173, !llvm.loop !26
+  br i1 %.not.i, label %GetNextKey.exit, label %ReplicateValue.exit173, !llvm.loop !24
 
 GetNextKey.exit:                                  ; preds = %ReplicateValue.exit173
   %indvars.iv.next323 = add nsw i64 %indvars.iv322, 1
@@ -369,7 +369,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %106 = add i32 %105, %.0.i174
   %107 = add nsw i32 %92, -1
   %108 = icmp sgt i32 %92, 1
-  br i1 %108, label %91, label %..loopexit_crit_edge, !llvm.loop !27
+  br i1 %108, label %91, label %..loopexit_crit_edge, !llvm.loop !25
 
 ..loopexit_crit_edge:                             ; preds = %GetNextKey.exit
   %109 = trunc nsw i64 %indvars.iv.next323 to i32
@@ -382,7 +382,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %110 = shl i32 %.0149229, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count333
-  br i1 %exitcond329.not, label %.preheader204, label %.lr.ph238.split, !llvm.loop !28
+  br i1 %exitcond329.not, label %.preheader204, label %.lr.ph238.split, !llvm.loop !23
 
 111:                                              ; preds = %.lr.ph280, %._crit_edge253
   %indvars.iv335 = phi i64 [ %78, %.lr.ph280 ], [ %indvars.iv.next336, %._crit_edge253 ]
@@ -438,14 +438,14 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %128 = getelementptr inbounds %struct.HuffmanCode, ptr %.1121251.us, i64 %127
   %129 = zext nneg i32 %125 to i64
   %130 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %129
-  store i8 15, ptr %130, align 2, !tbaa !29
+  store i8 15, ptr %130, align 2, !tbaa !26
   %131 = ptrtoint ptr %128 to i64
   %132 = sub i64 %131, %77
   %133 = lshr exact i64 %132, 2
   %134 = sub nsw i64 %133, %129
   %135 = trunc i64 %134 to i16
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 2
-  store i16 %135, ptr %136, align 2, !tbaa !31
+  store i16 %135, ptr %136, align 2, !tbaa !28
   br label %138
 
 137:                                              ; preds = %.lr.ph252.split.us
@@ -458,7 +458,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %.2153195.us = phi i32 [ %125, %.thread189.us ], [ %.1152246.us, %137 ]
   %139 = sext i32 %.6249.us to i64
   %140 = getelementptr inbounds i16, ptr %4, i64 %139
-  %141 = load i16, ptr %140, align 2, !tbaa !21
+  %141 = load i16, ptr %140, align 2, !tbaa !20
   %142 = lshr i32 %.4148247.us, %1
   %143 = zext i32 %142 to i64
   %144 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2122198.us, i64 %143
@@ -474,7 +474,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %148 = getelementptr inbounds %struct.HuffmanCode, ptr %144, i64 %147
   store i32 %.sroa.0.0.insert.insert.us, ptr %148, align 2
   %149 = icmp sgt i32 %146, 0
-  br i1 %149, label %145, label %ReplicateValue.exit176.us.loopexit, !llvm.loop !24
+  br i1 %149, label %145, label %ReplicateValue.exit176.us.loopexit, !llvm.loop !22
 
 ReplicateValue.exit176.us.loopexit:               ; preds = %145
   %150 = add nsw i32 %.6249.us, 1
@@ -493,7 +493,7 @@ ReplicateValue.exit176.us:                        ; preds = %ReplicateValue.exit
   %152 = and i32 %.0.i177.us, %.4148247.us
   %.not.i178.us = icmp eq i32 %152, 0
   %153 = lshr i32 %.0.i177.us, 1
-  br i1 %.not.i178.us, label %GetNextKey.exit179.us, label %151, !llvm.loop !26
+  br i1 %.not.i178.us, label %GetNextKey.exit179.us, label %151, !llvm.loop !24
 
 GetNextKey.exit179.us:                            ; preds = %151
   %154 = add nsw i32 %.0.i177.us, -1
@@ -503,7 +503,7 @@ GetNextKey.exit179.us:                            ; preds = %151
   %158 = add nsw i32 %157, -1
   store i32 %158, ptr %114, align 4, !tbaa !15
   %159 = icmp sgt i32 %157, 1
-  br i1 %159, label %.lr.ph252.split.us, label %._crit_edge253, !llvm.loop !32
+  br i1 %159, label %.lr.ph252.split.us, label %._crit_edge253, !llvm.loop !29
 
 .lr.ph252.split:                                  ; preds = %.lr.ph252, %GetNextKey.exit179
   %.1121251 = phi ptr [ %.2122188, %GetNextKey.exit179 ], [ %.0120277, %.lr.ph252 ]
@@ -535,7 +535,7 @@ GetNextKey.exit179.us:                            ; preds = %151
   %168 = shl nuw i32 %165, 1
   %169 = and i64 %indvars.iv.next.i, 4294967295
   %exitcond.not.i = icmp eq i64 %169, 15
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
   %170 = trunc nsw i64 %indvars.iv.i to i32
@@ -552,14 +552,14 @@ GetNextKey.exit179.us:                            ; preds = %151
   %173 = trunc i32 %.010.lcssa.ph.i to i8
   %174 = zext nneg i32 %160 to i64
   %175 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %174
-  store i8 %173, ptr %175, align 2, !tbaa !29
+  store i8 %173, ptr %175, align 2, !tbaa !26
   %176 = ptrtoint ptr %162 to i64
   %177 = sub i64 %176, %77
   %178 = lshr exact i64 %177, 2
   %179 = sub nsw i64 %178, %174
   %180 = trunc i64 %179 to i16
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 2
-  store i16 %180, ptr %181, align 2, !tbaa !31
+  store i16 %180, ptr %181, align 2, !tbaa !28
   br label %183
 
 182:                                              ; preds = %.lr.ph252.split
@@ -572,7 +572,7 @@ GetNextKey.exit179.us:                            ; preds = %151
   %.2153195 = phi i32 [ %160, %.thread189 ], [ %.1152246, %182 ]
   %184 = sext i32 %.6249 to i64
   %185 = getelementptr inbounds i16, ptr %4, i64 %184
-  %186 = load i16, ptr %185, align 2, !tbaa !21
+  %186 = load i16, ptr %185, align 2, !tbaa !20
   %187 = lshr i32 %.4148247, %1
   %188 = zext i32 %187 to i64
   %189 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2122198, i64 %188
@@ -588,7 +588,7 @@ GetNextKey.exit179.us:                            ; preds = %151
   %193 = getelementptr inbounds %struct.HuffmanCode, ptr %189, i64 %192
   store i32 %.sroa.0.0.insert.insert, ptr %193, align 2
   %194 = icmp sgt i32 %191, 0
-  br i1 %194, label %190, label %ReplicateValue.exit176.loopexit, !llvm.loop !24
+  br i1 %194, label %190, label %ReplicateValue.exit176.loopexit, !llvm.loop !22
 
 ReplicateValue.exit176.loopexit:                  ; preds = %190
   %195 = add nsw i32 %.6249, 1
@@ -607,7 +607,7 @@ ReplicateValue.exit176:                           ; preds = %ReplicateValue.exit
   %197 = and i32 %.0.i177, %.4148247
   %.not.i178 = icmp eq i32 %197, 0
   %198 = lshr i32 %.0.i177, 1
-  br i1 %.not.i178, label %GetNextKey.exit179, label %196, !llvm.loop !26
+  br i1 %.not.i178, label %GetNextKey.exit179, label %196, !llvm.loop !24
 
 GetNextKey.exit179:                               ; preds = %196
   %199 = add i32 %.0.i177, -1
@@ -617,7 +617,7 @@ GetNextKey.exit179:                               ; preds = %196
   %203 = add nsw i32 %202, -1
   store i32 %203, ptr %114, align 4, !tbaa !15
   %204 = icmp sgt i32 %202, 1
-  br i1 %204, label %.lr.ph252.split, label %._crit_edge253, !llvm.loop !34
+  br i1 %204, label %.lr.ph252.split, label %._crit_edge253, !llvm.loop !29
 
 ._crit_edge253:                                   ; preds = %GetNextKey.exit179, %GetNextKey.exit179.us, %.preheader
   %.1152.lcssa = phi i32 [ %.0151267, %.preheader ], [ %.2153185.us, %GetNextKey.exit179.us ], [ %.2153185, %GetNextKey.exit179 ]
@@ -629,7 +629,7 @@ GetNextKey.exit179:                               ; preds = %196
   %205 = shl i32 %.1150268, 1
   %206 = and i64 %indvars.iv.next336, 4294967295
   %exitcond338.not = icmp eq i64 %206, 15
-  br i1 %exitcond338.not, label %._crit_edge281.loopexit, label %111, !llvm.loop !35
+  br i1 %exitcond338.not, label %._crit_edge281.loopexit, label %111, !llvm.loop !31
 
 ._crit_edge281.loopexit:                          ; preds = %._crit_edge253
   %.pre342 = load i32, ptr %55, align 4, !tbaa !15
@@ -700,7 +700,7 @@ define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef captures(address_is_
   tail call void @WebPSafeFree(ptr noundef %9) #6
   tail call void @WebPSafeFree(ptr noundef nonnull %.014) #6
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %1
   ret void
@@ -746,22 +746,18 @@ attributes #6 = { nounwind }
 !15 = !{!10, !10, i64 0}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !7, i64 0}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"short", !7, i64 0}
+!22 = distinct !{!22, !17}
 !23 = distinct !{!23, !17}
 !24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17, !19}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
-!29 = !{!30, !7, i64 0}
-!30 = !{!"", !7, i64 0, !22, i64 2}
-!31 = !{!30, !22, i64 2}
-!32 = distinct !{!32, !17, !19}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = distinct !{!35, !17}
-!36 = distinct !{!36, !17}
+!25 = distinct !{!25, !17}
+!26 = !{!27, !7, i64 0}
+!27 = !{!"", !7, i64 0, !21, i64 2}
+!28 = !{!27, !21, i64 2}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}

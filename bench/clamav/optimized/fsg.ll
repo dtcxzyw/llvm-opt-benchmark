@@ -110,7 +110,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 
 ..loopexit_crit_edge.us:                          ; preds = %29
   %.not103.us = icmp eq i32 %.293.us, 0
-  br i1 %.not103.us, label %.lr.ph123.preheader, label %.preheader112.us, !llvm.loop !14
+  br i1 %.not103.us, label %.lr.ph123.preheader, label %.preheader112.us
 
 31:                                               ; preds = %.lr.ph, %41
   %32 = phi ptr [ %1, %.lr.ph ], [ %44, %41 ]
@@ -238,5 +238,3 @@ attributes #3 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -781,7 +781,7 @@ bytestream2_get_byte.exit209:                     ; preds = %.loopexit
   %120 = and i32 %116, 240
   %121 = icmp eq i32 %120, 240
   %122 = select i1 %119, i1 %121, i1 false
-  br i1 %122, label %.lr.ph238, label %.loopexit230, !llvm.loop !62
+  br i1 %122, label %.lr.ph238, label %.loopexit230, !llvm.loop !61
 
 .loopexit230:                                     ; preds = %bytestream2_get_byte.exit209, %.preheader229, %bytestream2_get_byte.exit213
   %123 = phi ptr [ %44, %bytestream2_get_byte.exit213 ], [ %44, %.preheader229 ], [ %114, %bytestream2_get_byte.exit209 ]
@@ -840,7 +840,7 @@ bytestream2_get_byte.exit207:                     ; preds = %134, %135
   %.3 = phi ptr [ %143, %142 ], [ %.1246, %138 ]
   %147 = add nuw nsw i32 %.2156244, 1
   %exitcond277.not = icmp eq i32 %.2156244, %129
-  br i1 %exitcond277.not, label %.loopexit219, label %138, !llvm.loop !63
+  br i1 %exitcond277.not, label %.loopexit219, label %138, !llvm.loop !62
 
 148:                                              ; preds = %126
   %149 = icmp samesign ugt i32 %.0159, 191
@@ -899,7 +899,7 @@ bytestream2_get_byte.exit205:                     ; preds = %162, %163
   %.6 = phi ptr [ %170, %169 ], [ %.5242, %bytestream2_get_byte.exit205 ]
   %174 = add nuw nsw i32 %.3157240, 1
   %exitcond276.not = icmp eq i32 %.3157240, %151
-  br i1 %exitcond276.not, label %.loopexit219, label %.preheader220, !llvm.loop !64
+  br i1 %exitcond276.not, label %.loopexit219, label %.preheader220, !llvm.loop !63
 
 175:                                              ; preds = %148
   %176 = icmp samesign ugt i32 %.0159, 127
@@ -967,7 +967,7 @@ bytestream2_get_byte.exit203:                     ; preds = %196, %195, %185, %1
   %205 = getelementptr inbounds i8, ptr %.7, i64 %33
   %206 = add nsw i32 %.7151, -1
   %207 = icmp slt i32 %.7151, 1
-  br i1 %207, label %._crit_edge, label %202, !llvm.loop !65
+  br i1 %207, label %._crit_edge, label %202, !llvm.loop !64
 
 208:                                              ; preds = %175
   %.not189 = icmp eq i32 %.0159, 0
@@ -1005,7 +1005,7 @@ bytestream2_get_byte.exit203:                     ; preds = %196, %195, %185, %1
   %225 = icmp sgt i32 %224, 0
   %226 = icmp sgt i32 %.4148, -1
   %227 = select i1 %225, i1 %226, i1 false
-  br i1 %227, label %34, label %._crit_edge, !llvm.loop !66
+  br i1 %227, label %34, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit219, %.loopexit230, %150, %203, %169, %142, %.preheader231, %.loopexit232
   ret void
@@ -1115,10 +1115,9 @@ attributes #8 = { nounwind }
 !57 = distinct !{!57, !46}
 !58 = distinct !{!58, !46}
 !59 = distinct !{!59, !46}
-!60 = distinct !{!60, !46, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !46}
+!61 = distinct !{!61, !46}
 !62 = distinct !{!62, !46}
 !63 = distinct !{!63, !46}
 !64 = distinct !{!64, !46}
 !65 = distinct !{!65, !46}
-!66 = distinct !{!66, !46}

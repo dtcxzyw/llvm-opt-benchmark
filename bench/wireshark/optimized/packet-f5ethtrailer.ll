@@ -1631,7 +1631,7 @@ define internal noundef zeroext i1 @dissect_f5ethtrailer_heur(ptr noundef %0, pt
   %108 = add i32 %.06572.us.i.i, %93
   %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %73, i32 noundef %108)
   %110 = icmp sgt i32 %109, 7
-  br i1 %110, label %.lr.ph.split.us.i.i, label %dissect_dpt_trailer.exit.i, !llvm.loop !11
+  br i1 %110, label %.lr.ph.split.us.i.i, label %dissect_dpt_trailer.exit.i
 
 111:                                              ; preds = %74
   %112 = load i32, ptr @hf_data, align 4
@@ -1865,7 +1865,7 @@ define internal noundef zeroext i1 @dissect_f5ethtrailer_heur(ptr noundef %0, pt
   %248 = zext i8 %243 to i32
   %249 = zext i8 %237 to i32
   %250 = load ptr, ptr @f5eth_set_info_col, align 8
-  call void %250(ptr noundef %1, i32 noundef %249, i32 noundef %.0135.i.i.i, i32 noundef %248), !callees !13
+  call void %250(ptr noundef %1, i32 noundef %249, i32 noundef %.0135.i.i.i, i32 noundef %248), !callees !11
   br label %251
 
 251:                                              ; preds = %247, %235
@@ -2685,7 +2685,7 @@ dissect_low_trailer.exit.thread111.i.i:           ; preds = %696, %693, %proto_i
   %704 = add i32 %.sink147.i.i, %.079132.i.i
   %705 = call i32 @tvb_reported_length_remaining(ptr noundef %73, i32 noundef %704)
   %706 = icmp sgt i32 %705, 6
-  br i1 %706, label %169, label %dissect_dpt_trailer.exit.i, !llvm.loop !14
+  br i1 %706, label %169, label %dissect_dpt_trailer.exit.i, !llvm.loop !12
 
 dissect_dpt_trailer.exit.i:                       ; preds = %dissect_low_trailer.exit.thread111.i.i, %178, %169, %155, %107, %dissect_low_trailer.exit.thread.i.i, %159, %134, %.split.us.i.i, %111, %.preheader.i.i
   %.0111.i = phi i32 [ %76, %.preheader.i.i ], [ %76, %111 ], [ %76, %.split.us.i.i ], [ %76, %134 ], [ %.079132.i.i, %dissect_low_trailer.exit.thread.i.i ], [ 0, %159 ], [ %76, %107 ], [ %76, %155 ], [ %704, %dissect_low_trailer.exit.thread111.i.i ], [ %.079132.i.i, %169 ], [ %.079132.i.i, %178 ]
@@ -2931,7 +2931,7 @@ proto_item_set_generated.exit:                    ; preds = %30, %31, %34
 59:                                               ; preds = %41
   %60 = zext i8 %51 to i32
   %61 = load ptr, ptr @f5eth_set_info_col, align 8
-  tail call void %61(ptr noundef %1, i32 noundef %.0190, i32 noundef %48, i32 noundef %60), !callees !13
+  tail call void %61(ptr noundef %1, i32 noundef %.0190, i32 noundef %48, i32 noundef %60), !callees !11
   br label %62
 
 62:                                               ; preds = %59, %41
@@ -4280,7 +4280,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
   %or.cond94 = icmp ult i8 %49, -10
   %or.cond98 = and i1 %.not91, %or.cond94
   %50 = getelementptr i8, ptr %.0, i64 1
-  br i1 %or.cond98, label %.critedge3, label %.critedge.preheader, !llvm.loop !15
+  br i1 %or.cond98, label %.critedge3, label %.critedge.preheader, !llvm.loop !13
 
 .critedge.preheader:                              ; preds = %.critedge3, %.critedge
   %.1100 = phi ptr [ %64, %.critedge ], [ %.0, %.critedge3 ]
@@ -4313,7 +4313,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
   %.181 = phi i32 [ %56, %55 ], [ %.08099, %57 ]
   %64 = getelementptr i8, ptr %.1100, i64 1
   %65 = icmp ult i32 %.181, 6
-  br i1 %65, label %.critedge.preheader, label %.critedge5, !llvm.loop !16
+  br i1 %65, label %.critedge.preheader, label %.critedge5, !llvm.loop !14
 
 66:                                               ; preds = %39
   %67 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(7) @.str.318, i64 noundef 6) #10
@@ -4378,7 +4378,7 @@ define internal noundef zeroext i1 @dissect_f5fileinfo(ptr noundef %0, ptr nound
   %108 = add i32 %107, %.186102
   %109 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %108)
   %.not = icmp eq i32 %109, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge5, %23, %15
   %.186.lcssa = phi i32 [ 28, %15 ], [ %.186102, %23 ], [ %108, %.critedge5 ]
@@ -5277,10 +5277,8 @@ attributes #13 = { allocsize(2) }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = !{ptr @f5eth_set_info_col_inout, ptr @f5eth_set_info_col_noslot, ptr @f5eth_set_info_col_slot}
+!11 = !{ptr @f5eth_set_info_col_inout, ptr @f5eth_set_info_col_noslot, ptr @f5eth_set_info_col_slot}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}

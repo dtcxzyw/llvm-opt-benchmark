@@ -3028,7 +3028,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
   %.154.us = phi ptr [ %28, %27 ], [ %.05366.us, %.lr.ph.split.us ]
   %32 = getelementptr inbounds nuw i8, ptr %.05565.us, i64 1
   %33 = icmp ult ptr %32, %11
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !146
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %34 = phi i64 [ %52, %51 ], [ %7, %.lr.ph ]
@@ -3108,18 +3108,18 @@ define internal fastcc zeroext i1 @lxb_selectors_match_class(ptr noundef nonnull
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lxb_selectors_adapted_set_entry_id_ex(ptr noundef writeonly captures(none) initializes((0, 10)) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !148
+  %5 = load i64, ptr %4, align 8, !tbaa !146
   %6 = icmp eq i64 %5, 6
   br i1 %6, label %lxb_selectors_attrib_name_cmp.exit.i, label %lxb_selectors_attrib_name_cmp.exit.thread.i
 
 lxb_selectors_attrib_name_cmp.exit.i:             ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !149
+  %8 = load ptr, ptr %7, align 8, !tbaa !147
   %9 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.1, ptr noundef %8, i64 noundef 6) #8
   br i1 %9, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %lxb_selectors_attrib_name_cmp.exit.i
-  %.pr.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit.thread.i
 
 lxb_selectors_attrib_name_cmp.exit.thread.i:      ; preds = %thread-pre-split.i, %3
@@ -3129,12 +3129,12 @@ lxb_selectors_attrib_name_cmp.exit.thread.i:      ; preds = %thread-pre-split.i,
 
 lxb_selectors_attrib_name_cmp.exit46.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit.thread.i
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !149
+  %13 = load ptr, ptr %12, align 8, !tbaa !147
   %14 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.2, ptr noundef %13, i64 noundef 14) #8
   br i1 %14, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit46.i
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit46.thread.i
 
 lxb_selectors_attrib_name_cmp.exit46.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit46.lxb_selectors_attrib_name_cmp.exit46.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit.thread.i
@@ -3144,22 +3144,22 @@ lxb_selectors_attrib_name_cmp.exit46.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit47.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit46.thread.i
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !149
+  %18 = load ptr, ptr %17, align 8, !tbaa !147
   %19 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.3, ptr noundef %18, i64 noundef 5) #8
   br i1 %19, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %20
 
 20:                                               ; preds = %lxb_selectors_attrib_name_cmp.exit47.i
-  %.pr92.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr92.i = load i64, ptr %4, align 8, !tbaa !146
   %21 = icmp eq i64 %.pr92.i, 5
   br i1 %21, label %lxb_selectors_attrib_name_cmp.exit48.i, label %lxb_selectors_attrib_name_cmp.exit48.thread.i
 
 lxb_selectors_attrib_name_cmp.exit48.i:           ; preds = %20
-  %22 = load ptr, ptr %17, align 8, !tbaa !149
+  %22 = load ptr, ptr %17, align 8, !tbaa !147
   %23 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.4, ptr noundef %22, i64 noundef 5) #8
   br i1 %23, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i
 
 lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i: ; preds = %lxb_selectors_attrib_name_cmp.exit48.i
-  %.pr136.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr136.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit48.thread.i
 
 lxb_selectors_attrib_name_cmp.exit48.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit48.threadthread-pre-split.i, %20, %lxb_selectors_attrib_name_cmp.exit46.thread.i
@@ -3169,12 +3169,12 @@ lxb_selectors_attrib_name_cmp.exit48.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit49.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit48.thread.i
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !149
+  %27 = load ptr, ptr %26, align 8, !tbaa !147
   %28 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.5, ptr noundef %27, i64 noundef 4) #8
   br i1 %28, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split93.i
 
 thread-pre-split93.i:                             ; preds = %lxb_selectors_attrib_name_cmp.exit49.i
-  %.pr94.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr94.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit49.thread.i
 
 lxb_selectors_attrib_name_cmp.exit49.thread.i:    ; preds = %thread-pre-split93.i, %lxb_selectors_attrib_name_cmp.exit48.thread.i
@@ -3184,32 +3184,32 @@ lxb_selectors_attrib_name_cmp.exit49.thread.i:    ; preds = %thread-pre-split93.
 
 lxb_selectors_attrib_name_cmp.exit50.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit49.thread.i
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !149
+  %32 = load ptr, ptr %31, align 8, !tbaa !147
   %33 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.6, ptr noundef %32, i64 noundef 7) #8
   br i1 %33, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit50.thread.i
 
 lxb_selectors_attrib_name_cmp.exit50.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit50.i
-  %.pre138.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre138.i = load i64, ptr %4, align 8, !tbaa !146
   %34 = icmp eq i64 %.pre138.i, 7
   br i1 %34, label %lxb_selectors_attrib_name_cmp.exit51.i, label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit51.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit50.thread.i
-  %35 = load ptr, ptr %31, align 8, !tbaa !149
+  %35 = load ptr, ptr %31, align 8, !tbaa !147
   %36 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.7, ptr noundef %35, i64 noundef 7) #8
   br i1 %36, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %37
 
 37:                                               ; preds = %lxb_selectors_attrib_name_cmp.exit51.i
-  %.pr96.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr96.i = load i64, ptr %4, align 8, !tbaa !146
   %38 = icmp eq i64 %.pr96.i, 7
   br i1 %38, label %lxb_selectors_attrib_name_cmp.exit52.i, label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit52.i:           ; preds = %37
-  %39 = load ptr, ptr %31, align 8, !tbaa !149
+  %39 = load ptr, ptr %31, align 8, !tbaa !147
   %40 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.8, ptr noundef %39, i64 noundef 7) #8
   br i1 %40, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i
 
 lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i: ; preds = %lxb_selectors_attrib_name_cmp.exit52.i
-  %.pr137.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr137.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit52.thread.i
 
 lxb_selectors_attrib_name_cmp.exit52.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit52.threadthread-pre-split.i, %37, %lxb_selectors_attrib_name_cmp.exit50.thread.i, %lxb_selectors_attrib_name_cmp.exit49.thread.i
@@ -3219,12 +3219,12 @@ lxb_selectors_attrib_name_cmp.exit52.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit53.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit52.thread.i
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !149
+  %44 = load ptr, ptr %43, align 8, !tbaa !147
   %45 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.9, ptr noundef %44, i64 noundef 5) #8
   br i1 %45, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split98.i
 
 thread-pre-split98.i:                             ; preds = %lxb_selectors_attrib_name_cmp.exit53.i
-  %.pr99.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr99.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit53.thread.i
 
 lxb_selectors_attrib_name_cmp.exit53.thread.i:    ; preds = %thread-pre-split98.i, %lxb_selectors_attrib_name_cmp.exit52.thread.i
@@ -3234,12 +3234,12 @@ lxb_selectors_attrib_name_cmp.exit53.thread.i:    ; preds = %thread-pre-split98.
 
 lxb_selectors_attrib_name_cmp.exit54.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit53.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !149
+  %49 = load ptr, ptr %48, align 8, !tbaa !147
   %50 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.10, ptr noundef %49, i64 noundef 8) #8
   br i1 %50, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit54.i
-  %.pre139.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre139.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit54.thread.i
 
 lxb_selectors_attrib_name_cmp.exit54.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit54.lxb_selectors_attrib_name_cmp.exit54.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit53.thread.i
@@ -3249,12 +3249,12 @@ lxb_selectors_attrib_name_cmp.exit54.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit55.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit54.thread.i
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !149
+  %54 = load ptr, ptr %53, align 8, !tbaa !147
   %55 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.11, ptr noundef %54, i64 noundef 5) #8
   br i1 %55, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split100.i
 
 thread-pre-split100.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit55.i
-  %.pr101.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr101.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit55.thread.i
 
 lxb_selectors_attrib_name_cmp.exit55.thread.i:    ; preds = %thread-pre-split100.i, %lxb_selectors_attrib_name_cmp.exit54.thread.i
@@ -3264,22 +3264,22 @@ lxb_selectors_attrib_name_cmp.exit55.thread.i:    ; preds = %thread-pre-split100
 
 lxb_selectors_attrib_name_cmp.exit56.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit55.thread.i
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !149
+  %59 = load ptr, ptr %58, align 8, !tbaa !147
   %60 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.12, ptr noundef %59, i64 noundef 7) #8
   br i1 %60, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit56.thread.i
 
 lxb_selectors_attrib_name_cmp.exit56.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit56.i
-  %.pre140.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre140.i = load i64, ptr %4, align 8, !tbaa !146
   %61 = icmp eq i64 %.pre140.i, 7
   br i1 %61, label %lxb_selectors_attrib_name_cmp.exit57.i, label %lxb_selectors_attrib_name_cmp.exit57.thread.i
 
 lxb_selectors_attrib_name_cmp.exit57.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit56.thread.i
-  %62 = load ptr, ptr %58, align 8, !tbaa !149
+  %62 = load ptr, ptr %58, align 8, !tbaa !147
   %63 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.13, ptr noundef %62, i64 noundef 7) #8
   br i1 %63, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split102.i
 
 thread-pre-split102.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit57.i
-  %.pr103.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr103.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit57.thread.i
 
 lxb_selectors_attrib_name_cmp.exit57.thread.i:    ; preds = %thread-pre-split102.i, %lxb_selectors_attrib_name_cmp.exit56.thread.i, %lxb_selectors_attrib_name_cmp.exit55.thread.i
@@ -3289,12 +3289,12 @@ lxb_selectors_attrib_name_cmp.exit57.thread.i:    ; preds = %thread-pre-split102
 
 lxb_selectors_attrib_name_cmp.exit58.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit57.thread.i
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !149
+  %67 = load ptr, ptr %66, align 8, !tbaa !147
   %68 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.14, ptr noundef %67, i64 noundef 5) #8
   br i1 %68, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit58.i
-  %.pre141.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre141.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit58.thread.i
 
 lxb_selectors_attrib_name_cmp.exit58.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit58.lxb_selectors_attrib_name_cmp.exit58.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit57.thread.i
@@ -3304,12 +3304,12 @@ lxb_selectors_attrib_name_cmp.exit58.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit59.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit58.thread.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !149
+  %72 = load ptr, ptr %71, align 8, !tbaa !147
   %73 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.15, ptr noundef %72, i64 noundef 3) #8
   br i1 %73, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split104.i
 
 thread-pre-split104.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit59.i
-  %.pr105.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr105.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit59.thread.i
 
 lxb_selectors_attrib_name_cmp.exit59.thread.i:    ; preds = %thread-pre-split104.i, %lxb_selectors_attrib_name_cmp.exit58.thread.i
@@ -3319,12 +3319,12 @@ lxb_selectors_attrib_name_cmp.exit59.thread.i:    ; preds = %thread-pre-split104
 
 lxb_selectors_attrib_name_cmp.exit60.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit59.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !149
+  %77 = load ptr, ptr %76, align 8, !tbaa !147
   %78 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.16, ptr noundef %77, i64 noundef 9) #8
   br i1 %78, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit60.i
-  %.pre142.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre142.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit60.thread.i
 
 lxb_selectors_attrib_name_cmp.exit60.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit60.lxb_selectors_attrib_name_cmp.exit60.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit59.thread.i
@@ -3334,12 +3334,12 @@ lxb_selectors_attrib_name_cmp.exit60.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit61.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit60.thread.i
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !149
+  %82 = load ptr, ptr %81, align 8, !tbaa !147
   %83 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.17, ptr noundef %82, i64 noundef 8) #8
   br i1 %83, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split106.i
 
 thread-pre-split106.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit61.i
-  %.pr107.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr107.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit61.thread.i
 
 lxb_selectors_attrib_name_cmp.exit61.thread.i:    ; preds = %thread-pre-split106.i, %lxb_selectors_attrib_name_cmp.exit60.thread.i
@@ -3349,12 +3349,12 @@ lxb_selectors_attrib_name_cmp.exit61.thread.i:    ; preds = %thread-pre-split106
 
 lxb_selectors_attrib_name_cmp.exit62.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit61.thread.i
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !149
+  %87 = load ptr, ptr %86, align 8, !tbaa !147
   %88 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.18, ptr noundef %87, i64 noundef 7) #8
   br i1 %88, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit62.i
-  %.pre143.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre143.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit62.thread.i
 
 lxb_selectors_attrib_name_cmp.exit62.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit62.lxb_selectors_attrib_name_cmp.exit62.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit61.thread.i
@@ -3364,12 +3364,12 @@ lxb_selectors_attrib_name_cmp.exit62.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit63.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit62.thread.i
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !149
+  %92 = load ptr, ptr %91, align 8, !tbaa !147
   %93 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.19, ptr noundef %92, i64 noundef 4) #8
   br i1 %93, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split108.i
 
 thread-pre-split108.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit63.i
-  %.pr109.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr109.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit63.thread.i
 
 lxb_selectors_attrib_name_cmp.exit63.thread.i:    ; preds = %thread-pre-split108.i, %lxb_selectors_attrib_name_cmp.exit62.thread.i
@@ -3379,12 +3379,12 @@ lxb_selectors_attrib_name_cmp.exit63.thread.i:    ; preds = %thread-pre-split108
 
 lxb_selectors_attrib_name_cmp.exit64.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit63.thread.i
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !149
+  %97 = load ptr, ptr %96, align 8, !tbaa !147
   %98 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.20, ptr noundef %97, i64 noundef 5) #8
   br i1 %98, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit64.i
-  %.pre144.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre144.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit64.thread.i
 
 lxb_selectors_attrib_name_cmp.exit64.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit64.lxb_selectors_attrib_name_cmp.exit64.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit63.thread.i
@@ -3394,12 +3394,12 @@ lxb_selectors_attrib_name_cmp.exit64.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit65.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit64.thread.i
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !149
+  %102 = load ptr, ptr %101, align 8, !tbaa !147
   %103 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.21, ptr noundef %102, i64 noundef 8) #8
   br i1 %103, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split110.i
 
 thread-pre-split110.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit65.i
-  %.pr111.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr111.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit65.thread.i
 
 lxb_selectors_attrib_name_cmp.exit65.thread.i:    ; preds = %thread-pre-split110.i, %lxb_selectors_attrib_name_cmp.exit64.thread.i
@@ -3409,12 +3409,12 @@ lxb_selectors_attrib_name_cmp.exit65.thread.i:    ; preds = %thread-pre-split110
 
 lxb_selectors_attrib_name_cmp.exit66.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit65.thread.i
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !149
+  %107 = load ptr, ptr %106, align 8, !tbaa !147
   %108 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.22, ptr noundef %107, i64 noundef 10) #8
   br i1 %108, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit66.i
-  %.pre145.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre145.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit66.thread.i
 
 lxb_selectors_attrib_name_cmp.exit66.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit66.lxb_selectors_attrib_name_cmp.exit66.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit65.thread.i
@@ -3424,12 +3424,12 @@ lxb_selectors_attrib_name_cmp.exit66.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit67.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit66.thread.i
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !149
+  %112 = load ptr, ptr %111, align 8, !tbaa !147
   %113 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.23, ptr noundef %112, i64 noundef 4) #8
   br i1 %113, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split112.i
 
 thread-pre-split112.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit67.i
-  %.pr113.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr113.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit67.thread.i
 
 lxb_selectors_attrib_name_cmp.exit67.thread.i:    ; preds = %thread-pre-split112.i, %lxb_selectors_attrib_name_cmp.exit66.thread.i
@@ -3439,12 +3439,12 @@ lxb_selectors_attrib_name_cmp.exit67.thread.i:    ; preds = %thread-pre-split112
 
 lxb_selectors_attrib_name_cmp.exit68.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit67.thread.i
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !149
+  %117 = load ptr, ptr %116, align 8, !tbaa !147
   %118 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.24, ptr noundef %117, i64 noundef 8) #8
   br i1 %118, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit68.i
-  %.pre146.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre146.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit68.thread.i
 
 lxb_selectors_attrib_name_cmp.exit68.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit68.lxb_selectors_attrib_name_cmp.exit68.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit67.thread.i
@@ -3454,12 +3454,12 @@ lxb_selectors_attrib_name_cmp.exit68.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit69.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit68.thread.i
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !149
+  %122 = load ptr, ptr %121, align 8, !tbaa !147
   %123 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.25, ptr noundef %122, i64 noundef 4) #8
   br i1 %123, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split114.i
 
 thread-pre-split114.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit69.i
-  %.pr115.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr115.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit69.thread.i
 
 lxb_selectors_attrib_name_cmp.exit69.thread.i:    ; preds = %thread-pre-split114.i, %lxb_selectors_attrib_name_cmp.exit68.thread.i
@@ -3469,12 +3469,12 @@ lxb_selectors_attrib_name_cmp.exit69.thread.i:    ; preds = %thread-pre-split114
 
 lxb_selectors_attrib_name_cmp.exit70.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit69.thread.i
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !149
+  %127 = load ptr, ptr %126, align 8, !tbaa !147
   %128 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.26, ptr noundef %127, i64 noundef 5) #8
   br i1 %128, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit70.i
-  %.pre147.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre147.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit70.thread.i
 
 lxb_selectors_attrib_name_cmp.exit70.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit70.lxb_selectors_attrib_name_cmp.exit70.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit69.thread.i
@@ -3484,12 +3484,12 @@ lxb_selectors_attrib_name_cmp.exit70.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit71.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit70.thread.i
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !149
+  %132 = load ptr, ptr %131, align 8, !tbaa !147
   %133 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.27, ptr noundef %132, i64 noundef 6) #8
   br i1 %133, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split116.i
 
 thread-pre-split116.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit71.i
-  %.pr117.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr117.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit71.thread.i
 
 lxb_selectors_attrib_name_cmp.exit71.thread.i:    ; preds = %thread-pre-split116.i, %lxb_selectors_attrib_name_cmp.exit70.thread.i
@@ -3499,12 +3499,12 @@ lxb_selectors_attrib_name_cmp.exit71.thread.i:    ; preds = %thread-pre-split116
 
 lxb_selectors_attrib_name_cmp.exit72.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit71.thread.i
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !149
+  %137 = load ptr, ptr %136, align 8, !tbaa !147
   %138 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.28, ptr noundef %137, i64 noundef 8) #8
   br i1 %138, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit72.i
-  %.pre148.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre148.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit72.thread.i
 
 lxb_selectors_attrib_name_cmp.exit72.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit72.lxb_selectors_attrib_name_cmp.exit72.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit71.thread.i
@@ -3514,12 +3514,12 @@ lxb_selectors_attrib_name_cmp.exit72.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit73.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit72.thread.i
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !149
+  %142 = load ptr, ptr %141, align 8, !tbaa !147
   %143 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.29, ptr noundef %142, i64 noundef 6) #8
   br i1 %143, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split118.i
 
 thread-pre-split118.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit73.i
-  %.pr119.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr119.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit73.thread.i
 
 lxb_selectors_attrib_name_cmp.exit73.thread.i:    ; preds = %thread-pre-split118.i, %lxb_selectors_attrib_name_cmp.exit72.thread.i
@@ -3529,12 +3529,12 @@ lxb_selectors_attrib_name_cmp.exit73.thread.i:    ; preds = %thread-pre-split118
 
 lxb_selectors_attrib_name_cmp.exit74.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit73.thread.i
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !149
+  %147 = load ptr, ptr %146, align 8, !tbaa !147
   %148 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.30, ptr noundef %147, i64 noundef 8) #8
   br i1 %148, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit74.i
-  %.pre149.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre149.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit74.thread.i
 
 lxb_selectors_attrib_name_cmp.exit74.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit74.lxb_selectors_attrib_name_cmp.exit74.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit73.thread.i
@@ -3544,12 +3544,12 @@ lxb_selectors_attrib_name_cmp.exit74.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit75.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit74.thread.i
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !149
+  %152 = load ptr, ptr %151, align 8, !tbaa !147
   %153 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.31, ptr noundef %152, i64 noundef 7) #8
   br i1 %153, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split120.i
 
 thread-pre-split120.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit75.i
-  %.pr121.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr121.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit75.thread.i
 
 lxb_selectors_attrib_name_cmp.exit75.thread.i:    ; preds = %thread-pre-split120.i, %lxb_selectors_attrib_name_cmp.exit74.thread.i
@@ -3559,12 +3559,12 @@ lxb_selectors_attrib_name_cmp.exit75.thread.i:    ; preds = %thread-pre-split120
 
 lxb_selectors_attrib_name_cmp.exit76.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit75.thread.i
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !149
+  %157 = load ptr, ptr %156, align 8, !tbaa !147
   %158 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.32, ptr noundef %157, i64 noundef 6) #8
   br i1 %158, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit76.i
-  %.pre150.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre150.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit76.thread.i
 
 lxb_selectors_attrib_name_cmp.exit76.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit76.lxb_selectors_attrib_name_cmp.exit76.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit75.thread.i
@@ -3574,12 +3574,12 @@ lxb_selectors_attrib_name_cmp.exit76.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit77.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit76.thread.i
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !149
+  %162 = load ptr, ptr %161, align 8, !tbaa !147
   %163 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.33, ptr noundef %162, i64 noundef 8) #8
   br i1 %163, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split122.i
 
 thread-pre-split122.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit77.i
-  %.pr123.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr123.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit77.thread.i
 
 lxb_selectors_attrib_name_cmp.exit77.thread.i:    ; preds = %thread-pre-split122.i, %lxb_selectors_attrib_name_cmp.exit76.thread.i
@@ -3589,22 +3589,22 @@ lxb_selectors_attrib_name_cmp.exit77.thread.i:    ; preds = %thread-pre-split122
 
 lxb_selectors_attrib_name_cmp.exit78.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit77.thread.i
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !149
+  %167 = load ptr, ptr %166, align 8, !tbaa !147
   %168 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.34, ptr noundef %167, i64 noundef 3) #8
   br i1 %168, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit78.thread.i
 
 lxb_selectors_attrib_name_cmp.exit78.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit78.i
-  %.pre151.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre151.i = load i64, ptr %4, align 8, !tbaa !146
   %169 = icmp eq i64 %.pre151.i, 3
   br i1 %169, label %lxb_selectors_attrib_name_cmp.exit79.i, label %lxb_selectors_attrib_name_cmp.exit79.thread.i
 
 lxb_selectors_attrib_name_cmp.exit79.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit78.thread.i
-  %170 = load ptr, ptr %166, align 8, !tbaa !149
+  %170 = load ptr, ptr %166, align 8, !tbaa !147
   %171 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.35, ptr noundef %170, i64 noundef 3) #8
   br i1 %171, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split124.i
 
 thread-pre-split124.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit79.i
-  %.pr125.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr125.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit79.thread.i
 
 lxb_selectors_attrib_name_cmp.exit79.thread.i:    ; preds = %thread-pre-split124.i, %lxb_selectors_attrib_name_cmp.exit78.thread.i, %lxb_selectors_attrib_name_cmp.exit77.thread.i
@@ -3614,22 +3614,22 @@ lxb_selectors_attrib_name_cmp.exit79.thread.i:    ; preds = %thread-pre-split124
 
 lxb_selectors_attrib_name_cmp.exit80.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit79.thread.i
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !149
+  %175 = load ptr, ptr %174, align 8, !tbaa !147
   %176 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.36, ptr noundef %175, i64 noundef 5) #8
   br i1 %176, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit80.thread.i
 
 lxb_selectors_attrib_name_cmp.exit80.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit80.i
-  %.pre152.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre152.i = load i64, ptr %4, align 8, !tbaa !146
   %177 = icmp eq i64 %.pre152.i, 5
   br i1 %177, label %lxb_selectors_attrib_name_cmp.exit81.i, label %lxb_selectors_attrib_name_cmp.exit81.thread.i
 
 lxb_selectors_attrib_name_cmp.exit81.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit80.thread.i
-  %178 = load ptr, ptr %174, align 8, !tbaa !149
+  %178 = load ptr, ptr %174, align 8, !tbaa !147
   %179 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.37, ptr noundef %178, i64 noundef 5) #8
   br i1 %179, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split126.i
 
 thread-pre-split126.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit81.i
-  %.pr127.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr127.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit81.thread.i
 
 lxb_selectors_attrib_name_cmp.exit81.thread.i:    ; preds = %thread-pre-split126.i, %lxb_selectors_attrib_name_cmp.exit80.thread.i, %lxb_selectors_attrib_name_cmp.exit79.thread.i
@@ -3639,12 +3639,12 @@ lxb_selectors_attrib_name_cmp.exit81.thread.i:    ; preds = %thread-pre-split126
 
 lxb_selectors_attrib_name_cmp.exit82.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit81.thread.i
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %183 = load ptr, ptr %182, align 8, !tbaa !149
+  %183 = load ptr, ptr %182, align 8, !tbaa !147
   %184 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.38, ptr noundef %183, i64 noundef 9) #8
   br i1 %184, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit82.i
-  %.pre153.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre153.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit82.thread.i
 
 lxb_selectors_attrib_name_cmp.exit82.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit82.lxb_selectors_attrib_name_cmp.exit82.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit81.thread.i
@@ -3654,12 +3654,12 @@ lxb_selectors_attrib_name_cmp.exit82.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit83.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit82.thread.i
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %188 = load ptr, ptr %187, align 8, !tbaa !149
+  %188 = load ptr, ptr %187, align 8, !tbaa !147
   %189 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.39, ptr noundef %188, i64 noundef 8) #8
   br i1 %189, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split128.i
 
 thread-pre-split128.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit83.i
-  %.pr129.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr129.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit83.thread.i
 
 lxb_selectors_attrib_name_cmp.exit83.thread.i:    ; preds = %thread-pre-split128.i, %lxb_selectors_attrib_name_cmp.exit82.thread.i
@@ -3669,12 +3669,12 @@ lxb_selectors_attrib_name_cmp.exit83.thread.i:    ; preds = %thread-pre-split128
 
 lxb_selectors_attrib_name_cmp.exit84.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit83.thread.i
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !149
+  %193 = load ptr, ptr %192, align 8, !tbaa !147
   %194 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.40, ptr noundef %193, i64 noundef 5) #8
   br i1 %194, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit84.i
-  %.pre154.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre154.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit84.thread.i
 
 lxb_selectors_attrib_name_cmp.exit84.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit84.lxb_selectors_attrib_name_cmp.exit84.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit83.thread.i
@@ -3684,12 +3684,12 @@ lxb_selectors_attrib_name_cmp.exit84.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit85.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit84.thread.i
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !149
+  %198 = load ptr, ptr %197, align 8, !tbaa !147
   %199 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.41, ptr noundef %198, i64 noundef 6) #8
   br i1 %199, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split130.i
 
 thread-pre-split130.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit85.i
-  %.pr131.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr131.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit85.thread.i
 
 lxb_selectors_attrib_name_cmp.exit85.thread.i:    ; preds = %thread-pre-split130.i, %lxb_selectors_attrib_name_cmp.exit84.thread.i
@@ -3699,22 +3699,22 @@ lxb_selectors_attrib_name_cmp.exit85.thread.i:    ; preds = %thread-pre-split130
 
 lxb_selectors_attrib_name_cmp.exit86.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit85.thread.i
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load ptr, ptr %202, align 8, !tbaa !149
+  %203 = load ptr, ptr %202, align 8, !tbaa !147
   %204 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.42, ptr noundef %203, i64 noundef 4) #8
   br i1 %204, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit86.thread.i
 
 lxb_selectors_attrib_name_cmp.exit86.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit86.i
-  %.pre155.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre155.i = load i64, ptr %4, align 8, !tbaa !146
   %205 = icmp eq i64 %.pre155.i, 4
   br i1 %205, label %lxb_selectors_attrib_name_cmp.exit87.i, label %lxb_selectors_attrib_name_cmp.exit87.thread.i
 
 lxb_selectors_attrib_name_cmp.exit87.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit86.thread.i
-  %206 = load ptr, ptr %202, align 8, !tbaa !149
+  %206 = load ptr, ptr %202, align 8, !tbaa !147
   %207 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.43, ptr noundef %206, i64 noundef 4) #8
   br i1 %207, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split132.i
 
 thread-pre-split132.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit87.i
-  %.pr133.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr133.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit87.thread.i
 
 lxb_selectors_attrib_name_cmp.exit87.thread.i:    ; preds = %thread-pre-split132.i, %lxb_selectors_attrib_name_cmp.exit86.thread.i, %lxb_selectors_attrib_name_cmp.exit85.thread.i
@@ -3724,12 +3724,12 @@ lxb_selectors_attrib_name_cmp.exit87.thread.i:    ; preds = %thread-pre-split132
 
 lxb_selectors_attrib_name_cmp.exit88.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit87.thread.i
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !149
+  %211 = load ptr, ptr %210, align 8, !tbaa !147
   %212 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.44, ptr noundef %211, i64 noundef 6) #8
   br i1 %212, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i
 
 lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i: ; preds = %lxb_selectors_attrib_name_cmp.exit88.i
-  %.pre156.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pre156.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit88.thread.i
 
 lxb_selectors_attrib_name_cmp.exit88.thread.i:    ; preds = %lxb_selectors_attrib_name_cmp.exit88.lxb_selectors_attrib_name_cmp.exit88.thread_crit_edge.i, %lxb_selectors_attrib_name_cmp.exit87.thread.i
@@ -3739,12 +3739,12 @@ lxb_selectors_attrib_name_cmp.exit88.thread.i:    ; preds = %lxb_selectors_attri
 
 lxb_selectors_attrib_name_cmp.exit89.i:           ; preds = %lxb_selectors_attrib_name_cmp.exit88.thread.i
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %216 = load ptr, ptr %215, align 8, !tbaa !149
+  %216 = load ptr, ptr %215, align 8, !tbaa !147
   %217 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.45, ptr noundef %216, i64 noundef 9) #8
   br i1 %217, label %lxb_selectors_is_lowercased_html_attrib_name.exit, label %thread-pre-split134.i
 
 thread-pre-split134.i:                            ; preds = %lxb_selectors_attrib_name_cmp.exit89.i
-  %.pr135.i = load i64, ptr %4, align 8, !tbaa !148
+  %.pr135.i = load i64, ptr %4, align 8, !tbaa !146
   br label %lxb_selectors_attrib_name_cmp.exit89.thread.i
 
 lxb_selectors_attrib_name_cmp.exit89.thread.i:    ; preds = %thread-pre-split134.i, %lxb_selectors_attrib_name_cmp.exit88.thread.i
@@ -3754,7 +3754,7 @@ lxb_selectors_attrib_name_cmp.exit89.thread.i:    ; preds = %thread-pre-split134
 
 220:                                              ; preds = %lxb_selectors_attrib_name_cmp.exit89.thread.i
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %222 = load ptr, ptr %221, align 8, !tbaa !149
+  %222 = load ptr, ptr %221, align 8, !tbaa !147
   %223 = tail call zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef nonnull @.str.46, ptr noundef %222, i64 noundef 5) #8
   %224 = zext i1 %223 to i8
   br label %lxb_selectors_is_lowercased_html_attrib_name.exit
@@ -3770,14 +3770,14 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
 
 229:                                              ; preds = %lxb_selectors_is_lowercased_html_attrib_name.exit
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 152
-  %231 = load ptr, ptr %230, align 8, !tbaa !150
+  %231 = load ptr, ptr %230, align 8, !tbaa !148
   %.not17 = icmp eq ptr %231, null
   br i1 %.not17, label %.thread, label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %234 = load ptr, ptr %233, align 8, !tbaa !149
-  %235 = load i64, ptr %4, align 8, !tbaa !148
+  %234 = load ptr, ptr %233, align 8, !tbaa !147
+  %235 = load i64, ptr %4, align 8, !tbaa !146
   %236 = trunc i64 %235 to i32
   %237 = tail call ptr @xmlDictExists(ptr noundef nonnull %231, ptr noundef %234, i32 noundef %236) #8
   %.not18.not = icmp eq ptr %237, null
@@ -3785,7 +3785,7 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
 
 .thread:                                          ; preds = %232, %229, %lxb_selectors_is_lowercased_html_attrib_name.exit
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !149
+  %239 = load ptr, ptr %238, align 8, !tbaa !147
   br label %240
 
 240:                                              ; preds = %232, %.thread
@@ -3793,7 +3793,7 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
   %.sink = phi i8 [ 0, %.thread ], [ 1, %232 ]
   store ptr %.sink21, ptr %0, align 8, !tbaa !77
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %241, align 8, !tbaa !154
+  store i8 %.sink, ptr %241, align 8, !tbaa !152
   ret void
 }
 
@@ -4342,12 +4342,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !143 = !{!35, !37, i64 72}
 !144 = !{!145, !17, i64 16}
 !145 = !{!"_xmlNs", !37, i64 0, !11, i64 8, !17, i64 16, !17, i64 24, !6, i64 32, !36, i64 40}
-!146 = distinct !{!146, !147}
-!147 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!148 = !{!48, !28, i64 16}
-!149 = !{!48, !17, i64 8}
-!150 = !{!151, !153, i64 152}
-!151 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !36, i64 64, !11, i64 72, !11, i64 76, !152, i64 80, !152, i64 88, !37, i64 96, !17, i64 104, !17, i64 112, !6, i64 120, !6, i64 128, !17, i64 136, !11, i64 144, !153, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
-!152 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
-!153 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
-!154 = !{!15, !18, i64 8}
+!146 = !{!48, !28, i64 16}
+!147 = !{!48, !17, i64 8}
+!148 = !{!149, !151, i64 152}
+!149 = !{!"_xmlDoc", !6, i64 0, !11, i64 8, !17, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !36, i64 64, !11, i64 72, !11, i64 76, !150, i64 80, !150, i64 88, !37, i64 96, !17, i64 104, !17, i64 112, !6, i64 120, !6, i64 128, !17, i64 136, !11, i64 144, !151, i64 152, !6, i64 160, !11, i64 168, !11, i64 172}
+!150 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
+!151 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
+!152 = !{!15, !18, i64 8}

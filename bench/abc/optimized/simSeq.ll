@@ -395,7 +395,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %.val = load i32, ptr %71, align 4, !tbaa !24
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next75, %72
-  br i1 %73, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !46
+  br i1 %73, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !45
 
 .critedge2:                                       ; preds = %.lr.ph68, %.critedge2
   %.267 = phi i32 [ 0, %.lr.ph68 ], [ %76, %.critedge2 ]
@@ -404,7 +404,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   tail call fastcc void @Sim_SimulateSeqFrame(ptr noundef %6, ptr noundef %0, i32 noundef %.267, i32 noundef 1, i32 noundef %75)
   %76 = add nuw nsw i32 %.267, 1
   %exitcond77.not = icmp eq i32 %76, %1
-  br i1 %exitcond77.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !47
+  br i1 %exitcond77.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !46
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   ret ptr %6
@@ -468,7 +468,6 @@ attributes #3 = { nounwind }
 !41 = distinct !{!41, !34}
 !42 = !{!5, !5, i64 0}
 !43 = distinct !{!43, !34}
-!44 = distinct !{!44, !34, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
 !46 = distinct !{!46, !34}
-!47 = distinct !{!47, !34}

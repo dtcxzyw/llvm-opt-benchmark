@@ -233,7 +233,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
 67:                                               ; preds = %57, %58, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 68:                                               ; preds = %12
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -291,7 +291,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
 98:                                               ; preds = %93, %90, %86
   %99 = add nuw nsw i32 %.041.us, 1
   %exitcond63.not = icmp eq i32 %99, %16
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph42.split.us, !llvm.loop !10
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph42.split.us, !llvm.loop !8
 
 100:                                              ; preds = %74, %68
   store i32 2, ptr %9, align 8
@@ -355,7 +355,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
 127:                                              ; preds = %117, %118, %102
   %128 = add nuw nsw i32 %.041, 1
   %exitcond62.not = icmp eq i32 %128, %16
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph42.split, !llvm.loop !11
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph42.split, !llvm.loop !8
 
 .thread:                                          ; preds = %.split.us, %100, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30
   %.1.ph = phi i1 [ true, %_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30 ], [ false, %100 ], [ false, %.split.us ]
@@ -395,9 +395,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7}
+!8 = distinct !{!8, !7}

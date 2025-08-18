@@ -173,7 +173,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   %72 = getelementptr inbounds nuw i8, ptr %.07891, i64 120
   %.078 = load ptr, ptr %72, align 8, !tbaa !16
   %.not = icmp eq ptr %.078, %18
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %71, %55, %.thread, %15
   %.077.lcssa = phi i32 [ -2147483648, %15 ], [ -2147483648, %.thread ], [ %.1.us, %55 ], [ %.1, %71 ]
@@ -278,7 +278,5 @@ attributes #3 = { nounwind }
 !23 = !{!"pmix_mca_base_component_list_item_t", !17, i64 0, !11, i64 144}
 !24 = !{!25, !5, i64 176}
 !25 = !{!"pmix_mca_base_component_2_1_0_t", !9, i64 0, !9, i64 4, !9, i64 8, !6, i64 12, !9, i64 28, !9, i64 32, !9, i64 36, !6, i64 40, !9, i64 72, !9, i64 76, !9, i64 80, !6, i64 84, !9, i64 148, !9, i64 152, !9, i64 156, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !6, i64 192}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !27}

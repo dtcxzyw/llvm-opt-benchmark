@@ -4194,12 +4194,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPf
   store float %31, ptr %32, align 4, !tbaa !152
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %24
-  br i1 %exitcond95.not, label %._crit_edge.us76, label %26, !llvm.loop !295
+  br i1 %exitcond95.not, label %._crit_edge.us76, label %26, !llvm.loop !294
 
 ._crit_edge.us76:                                 ; preds = %26
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.preheader66.us, !llvm.loop !296
+  br i1 %exitcond100.not, label %.loopexit, label %.preheader66.us, !llvm.loop !295
 
 33:                                               ; preds = %6
   %34 = fcmp oeq float %2, 1.000000e+00
@@ -4231,12 +4231,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_127convert_array_to_real_arrayEPvPf
   store float %43, ptr %44, align 4, !tbaa !152
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %37
-  br i1 %exitcond105.not, label %._crit_edge.us79, label %39, !llvm.loop !297
+  br i1 %exitcond105.not, label %._crit_edge.us79, label %39, !llvm.loop !296
 
 ._crit_edge.us79:                                 ; preds = %39
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %.loopexit, label %.preheader.us, !llvm.loop !298
+  br i1 %exitcond110.not, label %.loopexit, label %.preheader.us, !llvm.loop !297
 
 45:                                               ; preds = %33
   %46 = sext i32 %4 to i64
@@ -4423,7 +4423,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %58 = add nuw nsw i64 %.0103209, 1
   %59 = load i64, ptr %4, align 8, !tbaa !31
   %60 = icmp slt i64 %58, %59
-  br i1 %60, label %.lr.ph210, label %.loopexit191, !llvm.loop !299
+  br i1 %60, label %.lr.ph210, label %.loopexit191, !llvm.loop !298
 
 .lr.ph207:                                        ; preds = %.lr.ph210, %._crit_edge204
   %.0102205 = phi i64 [ %70, %._crit_edge204 ], [ 0, %.lr.ph210 ]
@@ -4442,7 +4442,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %70 = add nuw nsw i64 %.0102205, 1
   %71 = load i64, ptr %5, align 8, !tbaa !31
   %72 = icmp slt i64 %70, %71
-  br i1 %72, label %.lr.ph207, label %._crit_edge208, !llvm.loop !300
+  br i1 %72, label %.lr.ph207, label %._crit_edge208, !llvm.loop !299
 
 .lr.ph203:                                        ; preds = %.lr.ph207, %.lr.ph203
   %.0101201 = phi i64 [ %81, %.lr.ph203 ], [ 0, %.lr.ph207 ]
@@ -4457,7 +4457,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %81 = add nuw nsw i64 %.0101201, 1
   %82 = load i64, ptr %6, align 8, !tbaa !31
   %83 = icmp slt i64 %81, %82
-  br i1 %83, label %.lr.ph203, label %._crit_edge204, !llvm.loop !301
+  br i1 %83, label %.lr.ph203, label %._crit_edge204, !llvm.loop !300
 
 84:                                               ; preds = %44
   %85 = load ptr, ptr %12, align 8, !tbaa !98
@@ -4483,7 +4483,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %98 = add nuw nsw i64 %.0100199, 1
   %99 = load i64, ptr %5, align 8, !tbaa !31
   %100 = icmp slt i64 %98, %99
-  br i1 %100, label %.lr.ph200, label %.loopexit191, !llvm.loop !302
+  br i1 %100, label %.lr.ph200, label %.loopexit191, !llvm.loop !301
 
 .lr.ph198:                                        ; preds = %.lr.ph200, %.lr.ph198
   %.099197 = phi i64 [ %109, %.lr.ph198 ], [ 0, %.lr.ph200 ]
@@ -4498,7 +4498,7 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %109 = add nuw nsw i64 %.099197, 1
   %110 = load i64, ptr %6, align 8, !tbaa !31
   %111 = icmp slt i64 %109, %110
-  br i1 %111, label %.lr.ph198, label %._crit_edge, !llvm.loop !303
+  br i1 %111, label %.lr.ph198, label %._crit_edge, !llvm.loop !302
 
 112:                                              ; preds = %84
   %113 = load ptr, ptr %12, align 8, !tbaa !98
@@ -4520,13 +4520,13 @@ define void @_Z29gmx_print_tng_molecule_systemP18gmx_tng_trajectoryP8_IO_FILE(pt
   %125 = add nuw nsw i64 %.098196, 1
   %126 = load i64, ptr %6, align 8, !tbaa !31
   %127 = icmp slt i64 %125, %126
-  br i1 %127, label %.lr.ph, label %.loopexit191, !llvm.loop !304
+  br i1 %127, label %.lr.ph, label %.loopexit191, !llvm.loop !303
 
 .loopexit191:                                     ; preds = %.lr.ph, %._crit_edge, %._crit_edge208, %112, %34
   %128 = add nuw nsw i64 %.0104211, 1
   %129 = load i64, ptr %3, align 8, !tbaa !31
   %130 = icmp slt i64 %128, %129
-  br i1 %130, label %.lr.ph212, label %._crit_edge213, !llvm.loop !305
+  br i1 %130, label %.lr.ph212, label %._crit_edge213, !llvm.loop !304
 
 131:                                              ; preds = %._crit_edge213
   %132 = invoke i32 @tng_particle_data_vector_get(ptr noundef %20, i64 noundef 268435460, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %18)
@@ -4607,7 +4607,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %135
   %162 = add nuw nsw i64 %.097215, 10
   %163 = load i64, ptr %6, align 8, !tbaa !31
   %164 = icmp slt i64 %162, %163
-  br i1 %164, label %.lr.ph217, label %.loopexit190, !llvm.loop !306
+  br i1 %164, label %.lr.ph217, label %.loopexit190, !llvm.loop !305
 
 165:                                              ; preds = %157
   %166 = getelementptr inbounds nuw float, ptr %.sroa.0156.3, i64 %158
@@ -4616,7 +4616,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %135
   %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, double noundef %168) #24
   %170 = add nuw nsw i64 %.096214, 1
   %exitcond.not = icmp eq i64 %170, 10
-  br i1 %exitcond.not, label %.critedge, label %157, !llvm.loop !307
+  br i1 %exitcond.not, label %.critedge, label %157, !llvm.loop !306
 
 .loopexit190:                                     ; preds = %.critedge, %149, %133
   %.sroa.0156.2 = phi ptr [ null, %133 ], [ %.sroa.0156.3, %149 ], [ %.sroa.0156.3, %.critedge ]
@@ -4699,7 +4699,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit122:            ; preds = %.noexc121, %174
   %201 = add nuw nsw i64 %.095219, 10
   %202 = load i64, ptr %6, align 8, !tbaa !31
   %203 = icmp slt i64 %201, %202
-  br i1 %203, label %.lr.ph221, label %.loopexit, !llvm.loop !308
+  br i1 %203, label %.lr.ph221, label %.loopexit, !llvm.loop !307
 
 204:                                              ; preds = %196
   %205 = getelementptr inbounds nuw float, ptr %.sroa.0.3, i64 %197
@@ -4708,7 +4708,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit122:            ; preds = %.noexc121, %174
   %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, double noundef %207) #24
   %209 = add nuw nsw i64 %.0218, 1
   %exitcond224.not = icmp eq i64 %209, 10
-  br i1 %exitcond224.not, label %.critedge2, label %196, !llvm.loop !309
+  br i1 %exitcond224.not, label %.critedge2, label %196, !llvm.loop !308
 
 .loopexit:                                        ; preds = %.critedge2, %188, %172
   %.sroa.0.2 = phi ptr [ null, %172 ], [ %.sroa.0.3, %188 ], [ %.sroa.0.3, %.critedge2 ]
@@ -5216,7 +5216,7 @@ _ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit: ; preds = 
   br label %150
 
 150:                                              ; preds = %101, %_ZN12_GLOBAL__N_122getDistanceScaleFactorEP18gmx_tng_trajectory.exit
-  store i8 1, ptr %10, align 1, !tbaa !310
+  store i8 1, ptr %10, align 1, !tbaa !309
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5609,12 +5609,12 @@ attributes #24 = { nounwind }
 !290 = !{!268, !57, i64 36}
 !291 = distinct !{!291, !139}
 !292 = distinct !{!292, !139}
-!293 = distinct !{!293, !139, !294}
-!294 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!293 = distinct !{!293, !139}
+!294 = distinct !{!294, !139}
 !295 = distinct !{!295, !139}
-!296 = distinct !{!296, !139, !294}
+!296 = distinct !{!296, !139}
 !297 = distinct !{!297, !139}
-!298 = distinct !{!298, !139, !294}
+!298 = distinct !{!298, !139}
 !299 = distinct !{!299, !139}
 !300 = distinct !{!300, !139}
 !301 = distinct !{!301, !139}
@@ -5625,5 +5625,4 @@ attributes #24 = { nounwind }
 !306 = distinct !{!306, !139}
 !307 = distinct !{!307, !139}
 !308 = distinct !{!308, !139}
-!309 = distinct !{!309, !139}
-!310 = !{!12, !12, i64 0}
+!309 = !{!12, !12, i64 0}

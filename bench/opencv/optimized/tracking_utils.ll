@@ -188,7 +188,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %87 = add i32 %86, %.0127179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge.us, %.lr.ph206, %68, %.preheader
   %.1128 = phi i32 [ 0, %.preheader ], [ 0, %68 ], [ 0, %.lr.ph206 ], [ %67, %._crit_edge.us ], [ %87, %.lr.ph ]
@@ -233,59 +233,59 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %112, align 8, !tbaa !28
+  store i32 0, ptr %112, align 8, !tbaa !27
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %113, align 4, !tbaa !30
-  store i32 16842752, ptr %4, align 8, !tbaa !31
+  store i32 0, ptr %113, align 4, !tbaa !29
+  store i32 16842752, ptr %4, align 8, !tbaa !30
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %114, align 8, !tbaa !33
+  store ptr %0, ptr %114, align 8, !tbaa !32
   call void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %115 = load double, ptr %3, align 8, !tbaa !34
+  %115 = load double, ptr %3, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %116, align 8, !tbaa !28
+  store i32 0, ptr %116, align 8, !tbaa !27
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %117, align 4, !tbaa !30
-  store i32 16842752, ptr %6, align 8, !tbaa !31
+  store i32 0, ptr %117, align 4, !tbaa !29
+  store i32 16842752, ptr %6, align 8, !tbaa !30
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %118, align 8, !tbaa !33
+  store ptr %1, ptr %118, align 8, !tbaa !32
   call void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %119 = load double, ptr %5, align 8, !tbaa !34
+  %119 = load double, ptr %5, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %120, align 8, !tbaa !28
+  store i32 0, ptr %120, align 8, !tbaa !27
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 0, ptr %121, align 4, !tbaa !30
-  store i32 16842752, ptr %7, align 8, !tbaa !31
+  store i32 0, ptr %121, align 4, !tbaa !29
+  store i32 16842752, ptr %7, align 8, !tbaa !30
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %0, ptr %122, align 8, !tbaa !33
+  store ptr %0, ptr %122, align 8, !tbaa !32
   %123 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %124 = call noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %123)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %125, align 8, !tbaa !28
+  store i32 0, ptr %125, align 8, !tbaa !27
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 0, ptr %126, align 4, !tbaa !30
-  store i32 16842752, ptr %8, align 8, !tbaa !31
+  store i32 0, ptr %126, align 4, !tbaa !29
+  store i32 16842752, ptr %8, align 8, !tbaa !30
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %127, align 8, !tbaa !33
+  store ptr %1, ptr %127, align 8, !tbaa !32
   %128 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
   %129 = call noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(24) %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %130, align 8, !tbaa !28
+  store i32 0, ptr %130, align 8, !tbaa !27
   %131 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %131, align 4, !tbaa !30
-  store i32 16842752, ptr %9, align 8, !tbaa !31
+  store i32 0, ptr %131, align 4, !tbaa !29
+  store i32 16842752, ptr %9, align 8, !tbaa !30
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %1, ptr %132, align 8, !tbaa !33
+  store ptr %1, ptr %132, align 8, !tbaa !32
   %133 = call noundef double @_ZNK2cv3Mat3dotERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %134 = fmul double %115, %115
@@ -388,14 +388,13 @@ attributes #9 = { nounwind }
 !22 = !{!6, !6, i64 0}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !24}
-!28 = !{!29, !5, i64 0}
-!29 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
-!30 = !{!29, !5, i64 4}
-!31 = !{!32, !5, i64 0}
-!32 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !29, i64 16}
-!33 = !{!32, !9, i64 8}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"double", !6, i64 0}
+!25 = distinct !{!25, !24}
+!26 = distinct !{!26, !24}
+!27 = !{!28, !5, i64 0}
+!28 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
+!29 = !{!28, !5, i64 4}
+!30 = !{!31, !5, i64 0}
+!31 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !28, i64 16}
+!32 = !{!31, !9, i64 8}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"double", !6, i64 0}

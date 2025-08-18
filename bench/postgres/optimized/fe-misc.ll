@@ -1365,7 +1365,7 @@ PQsocketPoll.exit.us26:                           ; preds = %.split, %30
   %31 = tail call ptr @__errno_location() #21
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 4
-  br i1 %33, label %PQsocketPoll.exit.us26, label %.critedge, !llvm.loop !15
+  br i1 %33, label %PQsocketPoll.exit.us26, label %.critedge, !llvm.loop !13
 
 .split.split:                                     ; preds = %.split, %46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1399,7 +1399,7 @@ PQsocketPoll.exit:                                ; preds = %.split.split, %40
   %47 = tail call ptr @__errno_location() #21
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.split.split, label %.critedge, !llvm.loop !16
+  br i1 %49, label %.split.split, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %30, %24, %46
   %50 = phi i32 [ %48, %46 ], [ %26, %24 ], [ %32, %30 ]
@@ -1579,7 +1579,7 @@ define void @libpq_append_error(ptr noundef %0, ptr noundef %1, ...) local_unnam
   call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #19
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br i1 %11, label %12, label %.preheader, !llvm.loop !17
+  br i1 %11, label %12, label %.preheader, !llvm.loop !14
 
 12:                                               ; preds = %.preheader
   call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 10) #19
@@ -1658,8 +1658,5 @@ attributes #21 = { nounwind willreturn memory(none) }
 !10 = !{}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !4, !14}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}

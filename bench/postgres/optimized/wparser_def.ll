@@ -2713,7 +2713,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
 
 .lr.ph.i.i.backedge:                              ; preds = %453, %449
   %.075.i.i.be = phi i32 [ %.old.i, %453 ], [ %452, %449 ]
-  br label %.lr.ph.i.i, !llvm.loop !28
+  br label %.lr.ph.i.i, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %453, %449
   %.not6777.i.i = icmp sgt i32 %.075.i.i, %storemerge390.i
@@ -2757,7 +2757,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.2364.i = add i32 %.0362.i, %466
   %467 = add i32 %.178.i.i, 1
   %.not67.i.i = icmp sgt i32 %467, %storemerge390.i
-  br i1 %.not67.i.i, label %.critedge.i.i, label %.lr.ph80.i.i, !llvm.loop !29
+  br i1 %.not67.i.i, label %.critedge.i.i, label %.lr.ph80.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %462, %.lr.ph80.i.i
   %.1363.i = phi i32 [ %.2364.i, %462 ], [ %.0362.i, %.lr.ph80.i.i ]
@@ -2804,7 +2804,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.14.i = phi i32 [ %478, %477 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ], [ %.13.i, %475 ]
   %480 = add i32 %.286.i.i, -1
   %.not68.i.i = icmp slt i32 %480, %.075.i.i
-  br i1 %.not68.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i, !llvm.loop !30
+  br i1 %.not68.i.i, label %get_next_fragment.exit.i, label %.lr.ph88.i.i, !llvm.loop !29
 
 get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i, %469, %.critedge.i.i, %._crit_edge.i.i
   %.3365.i = phi i32 [ 0, %._crit_edge.i.i ], [ %.1363.i, %469 ], [ %.1363.i, %.critedge.i.i ], [ %.1363.i, %.lr.ph88.i.i ], [ %.1363.i, %479 ]
@@ -2840,7 +2840,7 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %495 = add i32 %.2352.i, 1
   %storemerge.i = load i32, ptr %4, align 4
   %.not305.i = icmp sgt i32 %495, %storemerge.i
-  br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !31
+  br i1 %.not305.i, label %.loopexit.i, label %.lr.ph.i.preheader.i, !llvm.loop !30
 
 ._crit_edge455.i:                                 ; preds = %._crit_edge.i97.us, %._crit_edge452.i.us
   %.us-phi.ph = phi i32 [ %.0276454.i.us, %._crit_edge.i97.us ], [ %.084.lcssa195, %._crit_edge452.i.us ]
@@ -2887,7 +2887,7 @@ get_next_fragment.exit.i:                         ; preds = %479, %.lr.ph88.i.i,
   %511 = icmp samesign ult i64 %indvars.iv.next479.i, %503
   %512 = icmp slt i32 %.10.i, %.076.lcssa203
   %513 = select i1 %511, i1 %512, i1 false
-  br i1 %513, label %504, label %._crit_edge462.loopexit.i, !llvm.loop !32
+  br i1 %513, label %504, label %._crit_edge462.loopexit.i, !llvm.loop !31
 
 ._crit_edge462.loopexit.i:                        ; preds = %510
   %514 = trunc nuw nsw i64 %indvars.iv478.i to i32
@@ -3005,7 +3005,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
 15:                                               ; preds = %11
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %16 = icmp samesign ult i64 %indvars.iv.next36, %10
-  br i1 %16, label %11, label %._crit_edge, !llvm.loop !33
+  br i1 %16, label %11, label %._crit_edge, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
@@ -3059,7 +3059,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly capt
   %46 = load i32, ptr %4, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !34
+  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %45, %15, %3
   %.not = icmp eq ptr %2, null
@@ -3279,7 +3279,7 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(n
   %.125 = select i1 %38, ptr %39, ptr %.02429
   %.123 = select i1 %38, ptr %.02230, ptr %34
   %40 = icmp ult ptr %.125, %.123
-  br i1 %40, label %29, label %.thread, !llvm.loop !35
+  br i1 %40, label %29, label %.thread, !llvm.loop !33
 
 .thread:                                          ; preds = %37, %29, %10, %13, %1
   %.021 = phi i32 [ 1, %1 ], [ 0, %13 ], [ 0, %10 ], [ 0, %37 ], [ 1, %29 ]
@@ -3504,7 +3504,7 @@ TParserCopyInit.exit:                             ; preds = %30, %33
   tail call void @pfree(ptr noundef nonnull %78) #16
   store ptr %80, ptr %41, align 8
   %.not.i15 = icmp eq ptr %80, null
-  br i1 %.not.i15, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i15, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !34
 
 TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %76
   tail call void @pfree(ptr noundef nonnull %2) #16
@@ -3694,7 +3694,7 @@ newTParserPosition.exit:                          ; preds = %45, %46
   tail call void @pfree(ptr noundef nonnull %84) #16
   store ptr %86, ptr %41, align 8
   %.not.i18 = icmp eq ptr %86, null
-  br i1 %.not.i18, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i18, label %TParserCopyClose.exit, label %.lr.ph.i, !llvm.loop !34
 
 TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %82
   tail call void @pfree(ptr noundef nonnull %2) #16
@@ -3785,7 +3785,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
 24:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !35
 
 25:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
@@ -3854,7 +3854,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   %52 = load i32, ptr %37, align 8
   %53 = sub i32 %51, %52
   %.not133 = icmp sgt i32 %53, %spec.select
-  br i1 %.not133, label %43, label %54, !llvm.loop !38
+  br i1 %.not133, label %43, label %54, !llvm.loop !36
 
 54:                                               ; preds = %43, %46
   %.198 = phi i32 [ %53, %46 ], [ -1, %43 ]
@@ -3905,7 +3905,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures
   %.1 = phi i32 [ %.089195, %55 ], [ %.pre-phi229, %67 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count224
-  br i1 %exitcond225.not, label %._crit_edge198, label %55, !llvm.loop !39
+  br i1 %exitcond225.not, label %._crit_edge198, label %55, !llvm.loop !37
 
 ._crit_edge198:                                   ; preds = %68, %67
   %.089.lcssa = phi i32 [ %.1, %68 ], [ %.089195, %67 ]
@@ -4006,7 +4006,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   store i32 %28, ptr %23, align 8
   %29 = add i32 %.042.us, 1
   %.not.us = icmp sgt i32 %29, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !40
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %.042 = phi i32 [ %54, %45 ], [ %2, %.lr.ph ]
@@ -4060,7 +4060,7 @@ define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %
   store i32 %53, ptr %47, align 8
   %54 = add i32 %.042, 1
   %.not = icmp sgt i32 %54, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %45, %20, %4
   ret void
@@ -4134,19 +4134,16 @@ attributes #19 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !27}
+!33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7, !27}
-!41 = distinct !{!41, !7}

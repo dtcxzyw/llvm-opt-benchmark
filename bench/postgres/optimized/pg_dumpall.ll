@@ -2948,7 +2948,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %106, %282, %90, %.p
   tail call void @pfree(ptr noundef nonnull %34) #15
   tail call void @pg_free(ptr noundef %33) #15
   %287 = icmp slt i32 %.092.lcssa, %20
-  br i1 %287, label %.lr.ph, label %._crit_edge194, !llvm.loop !29
+  br i1 %287, label %.lr.ph, label %._crit_edge194, !llvm.loop !28
 
 ._crit_edge194:                                   ; preds = %._crit_edge, %19
   tail call void @PQclear(ptr noundef nonnull %11) #15
@@ -3003,7 +3003,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %0) unnamed_ad
   %25 = add nuw nsw i32 %.026, 1
   %26 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %21, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -3132,7 +3132,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef nonnull %0) unnamed_add
   %55 = add nuw nsw i32 %.074, 1
   %56 = tail call i32 @PQntuples(ptr noundef nonnull %2) #15
   %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %51, %8
   tail call void @PQclear(ptr noundef nonnull %2) #15
@@ -3263,7 +3263,7 @@ define internal fastcc void @dumpDatabases(ptr noundef nonnull %0) unnamed_addr 
   %54 = add nuw nsw i32 %.026, 1
   %55 = call i32 @PQntuples(ptr noundef nonnull %4) #15
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %53, %10
   call void @PQclear(ptr noundef nonnull %4) #15
@@ -3493,7 +3493,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, 
 81:                                               ; preds = %78
   %82 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, 8
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !32
 
 .critedge.i.i:                                    ; preds = %78
   switch i64 %.014.i.i, label %.sink.split.i.i6.i [
@@ -3587,7 +3587,7 @@ fasthash_accum.exit.i.i:                          ; preds = %.sink.split.i.i6.i,
   %.0.lcssa20.i.i = phi i64 [ %.0.lcssa23.i.i, %.sink.split.i.i6.i ], [ %.014.i.i, %.critedge.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.01216.i.i, i64 %.0.lcssa20.i.i
   %.not.i8.i = icmp eq i8 %131, 0
-  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !34
+  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !33
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %75
   %.sroa.19.4 = phi i64 [ %.sroa.19.3, %fasthash_accum_cstring_aligned.exit.i ], [ -8645972361240307355, %75 ], [ %.sroa.19.1, %fasthash_accum.exit.i.i ]
@@ -3727,11 +3727,10 @@ attributes #18 = { cold noreturn nounwind }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

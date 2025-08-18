@@ -2836,7 +2836,7 @@ get_bit.exit.i:                                   ; preds = %768
 .split26.us.i.i:                                  ; preds = %.split.us.i.i, %801
   %816 = add nuw nsw i64 %.02327.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %816, 16
-  br i1 %exitcond30.not.i.i, label %select_point.exit.i, label %801, !llvm.loop !25
+  br i1 %exitcond30.not.i.i, label %select_point.exit.i, label %801, !llvm.loop !24
 
 select_point.exit.i:                              ; preds = %.split26.us.i.i
   br i1 %.not70.i, label %817, label %818
@@ -2942,7 +2942,7 @@ get_bit.exit85.i:                                 ; preds = %818, %817
 .split26.us.i97.i:                                ; preds = %.split.us.i99.i, %869
   %884 = add nuw nsw i64 %.02327.i95.i, 1
   %exitcond30.not.i98.i = icmp eq i64 %884, 16
-  br i1 %exitcond30.not.i98.i, label %select_point.exit102.i, label %869, !llvm.loop !25
+  br i1 %exitcond30.not.i98.i, label %select_point.exit102.i, label %869, !llvm.loop !24
 
 select_point.exit102.i:                           ; preds = %.split26.us.i97.i
   call fastcc void @point_add(ptr noundef %11, ptr noundef %741, ptr noundef %742, ptr noundef %11, ptr noundef %741, ptr noundef %742, i32 noundef 1, ptr noundef %13, ptr noundef %749, ptr noundef %756)
@@ -3108,7 +3108,7 @@ get_bit.exit120.i:                                ; preds = %957, %get_bit.exit1
 .split26.us.i123.i:                               ; preds = %.split.us.i125.i, %966
   %981 = add nuw nsw i64 %.02327.i121.i, 1
   %exitcond30.not.i124.i = icmp eq i64 %981, 17
-  br i1 %exitcond30.not.i124.i, label %select_point.exit128.i, label %966, !llvm.loop !25
+  br i1 %exitcond30.not.i124.i, label %select_point.exit128.i, label %966, !llvm.loop !24
 
 select_point.exit128.i:                           ; preds = %.split26.us.i123.i
   %982 = load i64, ptr %749, align 16, !tbaa !18
@@ -3147,7 +3147,7 @@ select_point.exit128.i:                           ; preds = %.split26.us.i123.i
   store i128 %1006, ptr %1003, align 16, !tbaa !6
   %1007 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i129.i = icmp eq i64 %1007, 4
-  br i1 %exitcond.not.i129.i, label %copy_small_conditional.exit.i, label %998, !llvm.loop !26
+  br i1 %exitcond.not.i129.i, label %copy_small_conditional.exit.i, label %998, !llvm.loop !25
 
 copy_small_conditional.exit.i:                    ; preds = %998
   %1008 = load i128, ptr %765, align 16, !tbaa !6
@@ -3244,7 +3244,7 @@ copy_small_conditional.exit.i:                    ; preds = %998
   %1088 = select i1 %isneg.i.i, i64 %.057.i.i, i64 0
   %1089 = add nsw i64 %.04655.i.i, -1
   %1090 = icmp ult i64 %1089, 4
-  br i1 %1090, label %1062, label %felem_contract.exit.i, !llvm.loop !27
+  br i1 %1090, label %1062, label %felem_contract.exit.i, !llvm.loop !26
 
 felem_contract.exit.i:                            ; preds = %1062
   %1091 = or i64 %1088, %1073
@@ -3940,7 +3940,7 @@ define internal fastcc void @felem_contract(ptr noundef nonnull captures(none) i
   %89 = select i1 %isneg, i64 %.057, i64 0
   %90 = add nsw i64 %.04655, -1
   %91 = icmp ult i64 %90, 4
-  br i1 %91, label %63, label %92, !llvm.loop !27
+  br i1 %91, label %63, label %92, !llvm.loop !26
 
 92:                                               ; preds = %63
   %93 = or i64 %89, %74
@@ -6103,7 +6103,7 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
   store i128 %1768, ptr %1765, align 16, !tbaa !6
   %1769 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %1769, 4
-  br i1 %exitcond.not.i, label %copy_small_conditional.exit, label %1760, !llvm.loop !26
+  br i1 %exitcond.not.i, label %copy_small_conditional.exit, label %1760, !llvm.loop !25
 
 copy_small_conditional.exit:                      ; preds = %1760, %copy_small_conditional.exit
   %.09.i = phi i64 [ %1777, %copy_small_conditional.exit ], [ 0, %1760 ]
@@ -6117,7 +6117,7 @@ copy_small_conditional.exit:                      ; preds = %1760, %copy_small_c
   store i128 %1776, ptr %1772, align 16, !tbaa !6
   %1777 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i83 = icmp eq i64 %1777, 4
-  br i1 %exitcond.not.i83, label %copy_conditional.exit, label %copy_small_conditional.exit, !llvm.loop !28
+  br i1 %exitcond.not.i83, label %copy_conditional.exit, label %copy_small_conditional.exit, !llvm.loop !27
 
 copy_conditional.exit:                            ; preds = %copy_small_conditional.exit, %copy_conditional.exit
   %.010.i88 = phi i64 [ %1786, %copy_conditional.exit ], [ 0, %copy_small_conditional.exit ]
@@ -6132,7 +6132,7 @@ copy_conditional.exit:                            ; preds = %copy_small_conditio
   store i128 %1785, ptr %1782, align 16, !tbaa !6
   %1786 = add nuw nsw i64 %.010.i88, 1
   %exitcond.not.i89 = icmp eq i64 %1786, 4
-  br i1 %exitcond.not.i89, label %copy_small_conditional.exit90, label %copy_conditional.exit, !llvm.loop !26
+  br i1 %exitcond.not.i89, label %copy_small_conditional.exit90, label %copy_conditional.exit, !llvm.loop !25
 
 copy_small_conditional.exit90:                    ; preds = %copy_conditional.exit, %copy_small_conditional.exit90
   %.09.i95 = phi i64 [ %1794, %copy_small_conditional.exit90 ], [ 0, %copy_conditional.exit ]
@@ -6146,7 +6146,7 @@ copy_small_conditional.exit90:                    ; preds = %copy_conditional.ex
   store i128 %1793, ptr %1789, align 16, !tbaa !6
   %1794 = add nuw nsw i64 %.09.i95, 1
   %exitcond.not.i96 = icmp eq i64 %1794, 4
-  br i1 %exitcond.not.i96, label %copy_conditional.exit97, label %copy_small_conditional.exit90, !llvm.loop !28
+  br i1 %exitcond.not.i96, label %copy_conditional.exit97, label %copy_small_conditional.exit90, !llvm.loop !27
 
 copy_conditional.exit97:                          ; preds = %copy_small_conditional.exit90, %copy_conditional.exit97
   %.010.i102 = phi i64 [ %1803, %copy_conditional.exit97 ], [ 0, %copy_small_conditional.exit90 ]
@@ -6161,7 +6161,7 @@ copy_conditional.exit97:                          ; preds = %copy_small_conditio
   store i128 %1802, ptr %1799, align 16, !tbaa !6
   %1803 = add nuw nsw i64 %.010.i102, 1
   %exitcond.not.i103 = icmp eq i64 %1803, 4
-  br i1 %exitcond.not.i103, label %copy_small_conditional.exit104, label %copy_conditional.exit97, !llvm.loop !26
+  br i1 %exitcond.not.i103, label %copy_small_conditional.exit104, label %copy_conditional.exit97, !llvm.loop !25
 
 copy_small_conditional.exit104:                   ; preds = %copy_conditional.exit97, %copy_small_conditional.exit104
   %.09.i109 = phi i64 [ %1811, %copy_small_conditional.exit104 ], [ 0, %copy_conditional.exit97 ]
@@ -6175,7 +6175,7 @@ copy_small_conditional.exit104:                   ; preds = %copy_conditional.ex
   store i128 %1810, ptr %1806, align 16, !tbaa !6
   %1811 = add nuw nsw i64 %.09.i109, 1
   %exitcond.not.i110 = icmp eq i64 %1811, 4
-  br i1 %exitcond.not.i110, label %copy_conditional.exit111, label %copy_small_conditional.exit104, !llvm.loop !28
+  br i1 %exitcond.not.i110, label %copy_conditional.exit111, label %copy_small_conditional.exit104, !llvm.loop !27
 
 copy_conditional.exit111:                         ; preds = %copy_small_conditional.exit104
   %1812 = load i128, ptr %18, align 16, !tbaa !6
@@ -7113,9 +7113,8 @@ attributes #10 = { nounwind allocsize(0) }
 !20 = !{!8, !8, i64 0}
 !21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
 !25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
 !27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}

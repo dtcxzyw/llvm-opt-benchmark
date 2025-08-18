@@ -127,7 +127,7 @@ define internal range(i32 -32, 1) i32 @pdlopen_open(ptr noundef %0, i1 noundef z
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next
   %.025 = load ptr, ptr %42, align 8, !tbaa !15
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %do_pdlopen.exit40.thread, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %do_pdlopen.exit40.thread, label %.lr.ph.split, !llvm.loop !16
 
 43:                                               ; preds = %.split.us, %.sink.split.i
   %44 = phi ptr [ %37, %.split.us ], [ %32, %.sink.split.i ]
@@ -163,7 +163,7 @@ do_pdlopen.exit40:                                ; preds = %43, %.sink.split.i3
 51:                                               ; preds = %do_pdlopen.exit40
   %52 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #9
   store ptr %52, ptr %3, align 8, !tbaa !3
-  store ptr %.446, ptr %52, align 8, !tbaa !20
+  store ptr %.446, ptr %52, align 8, !tbaa !18
   br label %do_pdlopen.exit40.thread
 
 do_pdlopen.exit40.thread:                         ; preds = %40, %33, %20, %9, %do_pdlopen.exit40, %51, %.thread
@@ -173,7 +173,7 @@ do_pdlopen.exit40.thread:                         ; preds = %40, %33, %20, %9, %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pdlopen_close(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = tail call i32 @dlclose(ptr noundef %2) #8
   tail call void @free(ptr noundef %0) #8
   ret i32 %3
@@ -181,9 +181,9 @@ define internal i32 @pdlopen_close(ptr noundef captures(none) %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !20
+  %5 = load ptr, ptr %0, align 8, !tbaa !18
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #8
-  store ptr %6, ptr %2, align 8, !tbaa !22
+  store ptr %6, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
@@ -207,7 +207,7 @@ define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr noundef readonly ca
   %5 = alloca ptr, align 8
   %6 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 58) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread152, label %.lr.ph124
@@ -259,11 +259,11 @@ define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr noundef readonly ca
   br label %.thread103
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr %8, align 8, !tbaa !24
+  %28 = load i32, ptr %8, align 8, !tbaa !22
   %29 = and i32 %28, 61440
   %30 = icmp eq i32 %29, 32768
   %31 = load ptr, ptr %5, align 8, !tbaa !15
-  br i1 %30, label %32, label %.critedge2, !llvm.loop !28
+  br i1 %30, label %32, label %.critedge2, !llvm.loop !26
 
 32:                                               ; preds = %27
   %33 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 46) #10
@@ -273,12 +273,12 @@ define internal i32 @pdlopen_foreachfile(ptr noundef %0, ptr noundef readonly ca
 34:                                               ; preds = %32
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(4) @.str.3) #10
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.critedge2, label %37, !llvm.loop !28
+  br i1 %36, label %.critedge2, label %37, !llvm.loop !26
 
 37:                                               ; preds = %34
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(4) @.str.4) #10
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.critedge2, label %sub_0, !llvm.loop !28
+  br i1 %39, label %.critedge2, label %sub_0, !llvm.loop !26
 
 sub_0:                                            ; preds = %37
   %40 = load i8, ptr %33, align 1
@@ -295,16 +295,16 @@ sub_1:                                            ; preds = %sub_0
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.critedge2, label %.tail.thread, !llvm.loop !28
+  br i1 %45, label %.critedge2, label %.tail.thread, !llvm.loop !26
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  store i8 0, ptr %33, align 1, !tbaa !29
+  store i8 0, ptr %33, align 1, !tbaa !27
   %.pre.pre = load ptr, ptr %5, align 8, !tbaa !15
   br label %46
 
 46:                                               ; preds = %.tail.thread, %32
   %.pre = phi ptr [ %.pre.pre, %.tail.thread ], [ %31, %32 ]
-  %47 = load ptr, ptr %4, align 8, !tbaa !23
+  %47 = load ptr, ptr %4, align 8, !tbaa !21
   %.not72 = icmp eq ptr %47, null
   br i1 %.not72, label %.critedge79, label %.lr.ph
 
@@ -350,7 +350,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not69, label %._crit_edge125, label %.lr.ph164
 
 ._crit_edge125:                                   ; preds = %._crit_edge, %.lr.ph124
-  %.pre146 = load ptr, ptr %4, align 8, !tbaa !23
+  %.pre146 = load ptr, ptr %4, align 8, !tbaa !21
   %.not74 = icmp eq ptr %.pre146, null
   br i1 %.not74, label %.thread107, label %.preheader
 
@@ -361,11 +361,11 @@ sub_1:                                            ; preds = %sub_0
 
 61:                                               ; preds = %.lr.ph130
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %62 = load ptr, ptr %4, align 8, !tbaa !23
+  %62 = load ptr, ptr %4, align 8, !tbaa !21
   %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.next143
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %.not75 = icmp eq ptr %64, null
-  br i1 %.not75, label %.thread107, label %.lr.ph130, !llvm.loop !30
+  br i1 %.not75, label %.thread107, label %.lr.ph130, !llvm.loop !28
 
 .lr.ph130:                                        ; preds = %.preheader, %61
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %61 ], [ 0, %.preheader ]
@@ -383,7 +383,7 @@ sub_1:                                            ; preds = %sub_0
 .thread107:                                       ; preds = %.lr.ph164, %61, %.lr.ph130, %._crit_edge125, %.preheader, %.thread103
   %.6102105 = phi i32 [ %.5.ph, %.thread103 ], [ 0, %.preheader ], [ 0, %._crit_edge125 ], [ %66, %.lr.ph130 ], [ %66, %61 ], [ -26, %.lr.ph164 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
-  %.pr = load ptr, ptr %4, align 8, !tbaa !23
+  %.pr = load ptr, ptr %4, align 8, !tbaa !21
   %.not78 = icmp eq ptr %.pr, null
   br i1 %.not78, label %.thread152, label %68
 
@@ -477,18 +477,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 omnipotent char", !5, i64 0}
 !14 = !{!"p2 omnipotent char", !5, i64 0}
 !15 = !{!13, !13, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !17}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"pmix_pdl_handle_t", !5, i64 0}
-!22 = !{!5, !5, i64 0}
-!23 = !{!14, !14, i64 0}
-!24 = !{!25, !12, i64 24}
-!25 = !{!"stat", !26, i64 0, !26, i64 8, !26, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !26, i64 40, !26, i64 48, !26, i64 56, !26, i64 64, !27, i64 72, !27, i64 88, !27, i64 104, !6, i64 120}
-!26 = !{!"long", !6, i64 0}
-!27 = !{!"timespec", !26, i64 0, !26, i64 8}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"pmix_pdl_handle_t", !5, i64 0}
+!20 = !{!5, !5, i64 0}
+!21 = !{!14, !14, i64 0}
+!22 = !{!23, !12, i64 24}
+!23 = !{!"stat", !24, i64 0, !24, i64 8, !24, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !24, i64 40, !24, i64 48, !24, i64 56, !24, i64 64, !25, i64 72, !25, i64 88, !25, i64 104, !6, i64 120}
+!24 = !{!"long", !6, i64 0}
+!25 = !{!"timespec", !24, i64 0, !24, i64 8}
+!26 = distinct !{!26, !17}
+!27 = !{!6, !6, i64 0}
 !28 = distinct !{!28, !17}
-!29 = !{!6, !6, i64 0}
-!30 = distinct !{!30, !17}

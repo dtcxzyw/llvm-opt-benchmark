@@ -262,7 +262,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %116, ptr %117, align 4, !tbaa !3
   %118 = add nuw nsw i64 %.1316422, 1
   %exitcond485.not = icmp eq i64 %118, %indvars.iv483
-  br i1 %exitcond485.not, label %.thread508, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond485.not, label %.thread508, label %.lr.ph, !llvm.loop !11
 
 .thread508:                                       ; preds = %.lr.ph, %.preheader385
   %119 = getelementptr inbounds nuw float, ptr %.3338423, i64 %.1326425
@@ -313,7 +313,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %148 = add nuw nsw i64 %.1326425, 1
   %indvars.iv.next484 = add i64 %indvars.iv483, 1
   %exitcond486.not = icmp eq i64 %148, %0
-  br i1 %exitcond486.not, label %._crit_edge436, label %110, !llvm.loop !13
+  br i1 %exitcond486.not, label %._crit_edge436, label %110, !llvm.loop !12
 
 ._crit_edge436:                                   ; preds = %138, %99
   %.3338.lcssa = phi ptr [ %.0335.lcssa, %99 ], [ %147, %138 ]
@@ -372,7 +372,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %165, ptr %166, align 4, !tbaa !3
   %167 = add nuw nsw i64 %.2317437, 1
   %exitcond489.not = icmp eq i64 %167, %indvars.iv487
-  br i1 %exitcond489.not, label %.thread512, label %.lr.ph438, !llvm.loop !14
+  br i1 %exitcond489.not, label %.thread512, label %.lr.ph438, !llvm.loop !13
 
 .thread512:                                       ; preds = %.lr.ph438, %.preheader384
   %168 = getelementptr inbounds nuw float, ptr %.5440, i64 %.2327442
@@ -407,7 +407,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %185 = add nuw nsw i64 %.2327442, 1
   %indvars.iv.next488 = add i64 %indvars.iv487, 1
   %exitcond490.not = icmp eq i64 %185, %0
-  br i1 %exitcond490.not, label %._crit_edge449, label %159, !llvm.loop !15
+  br i1 %exitcond490.not, label %._crit_edge449, label %159, !llvm.loop !14
 
 ._crit_edge449:                                   ; preds = %179, %152
   %.5.lcssa = phi ptr [ %.2337, %152 ], [ %184, %179 ]
@@ -479,7 +479,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %209 = getelementptr inbounds nuw i8, ptr %.7456, i64 8
   %210 = add nuw nsw i64 %.3328459, 1
   %exitcond491.not = icmp eq i64 %210, %0
-  br i1 %exitcond491.not, label %._crit_edge465, label %194, !llvm.loop !16
+  br i1 %exitcond491.not, label %._crit_edge465, label %194, !llvm.loop !15
 
 ._crit_edge465:                                   ; preds = %206, %189
   %.7.lcssa = phi ptr [ %.4339, %189 ], [ %209, %206 ]
@@ -521,7 +521,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %221 = getelementptr inbounds nuw i8, ptr %.8467, i64 4
   %222 = add nuw nsw i64 %.4329469, 1
   %exitcond492.not = icmp eq i64 %222, %0
-  br i1 %exitcond492.not, label %.loopexit, label %.lr.ph471, !llvm.loop !17
+  br i1 %exitcond492.not, label %.loopexit, label %.lr.ph471, !llvm.loop !16
 
 .loopexit:                                        ; preds = %219, %212
   ret i32 0
@@ -541,11 +541,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwri
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}

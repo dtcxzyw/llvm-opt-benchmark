@@ -655,7 +655,7 @@ define dso_local noundef zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr n
 .thread3:                                         ; preds = %42, %.split
   %52 = add nuw nsw i64 %38, 1
   %53 = icmp eq i64 %52, 15
-  br i1 %53, label %.loopexit, label %.split, !llvm.loop !44
+  br i1 %53, label %.loopexit, label %.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.thread3, %.thread3.us, %27, %.thread, %16, %3
   %54 = phi i1 [ true, %3 ], [ false, %16 ], [ true, %.thread ], [ false, %.thread3.us ], [ true, %27 ], [ false, %.thread3 ]
@@ -668,7 +668,7 @@ define dso_local void @ieee80211_release_reorder_timeout(ptr noundef %0, i32 nou
   %4 = alloca %struct.ieee80211_rx_data, align 8
   %5 = alloca %struct.ieee80211_event, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !43
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
@@ -683,7 +683,7 @@ define dso_local void @ieee80211_release_reorder_timeout(ptr noundef %0, i32 nou
 
 12:                                               ; preds = %2
   %13 = zext i16 %10 to i32
-  %14 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %13, i32 -1) #19, !srcloc !46
+  %14 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %13, i32 -1) #19, !srcloc !44
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -802,7 +802,7 @@ define dso_local void @ieee80211_release_reorder_timeout(ptr noundef %0, i32 nou
 
 82:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !43
   store i32 3, ptr %5, align 8
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %83, align 8
@@ -988,7 +988,7 @@ define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %
   %110 = zext i16 %108 to i32
   %111 = urem i32 %109, %110
   %112 = icmp eq i32 %111, %48
-  br i1 %112, label %.loopexit22, label %.preheader, !llvm.loop !47
+  br i1 %112, label %.loopexit22, label %.preheader, !llvm.loop !45
 
 .loopexit22:                                      ; preds = %.loopexit21, %81
   tail call fastcc void @ieee80211_release_reorder_frame(ptr noundef %0, i32 noundef %48, ptr noundef %1)
@@ -1008,7 +1008,7 @@ define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %
   %122 = zext i16 %119 to i32
   %123 = urem i32 %121, %122
   %124 = icmp eq i32 %123, %9
-  br i1 %124, label %.loopexit20, label %44, !llvm.loop !48
+  br i1 %124, label %.loopexit20, label %44, !llvm.loop !46
 
 125:                                              ; preds = %.preheader54, %149
   %126 = phi i16 [ %151, %149 ], [ %6, %.preheader54 ]
@@ -1050,7 +1050,7 @@ define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %
   %153 = zext i16 %152 to i32
   %.pre32 = load ptr, ptr %10, align 8
   %.pre33 = load i64, ptr %18, align 8
-  br label %125, !llvm.loop !49
+  br label %125, !llvm.loop !47
 
 .loopexit20:                                      ; preds = %117, %144, %142, %36
   %154 = phi i16 [ %6, %36 ], [ %126, %142 ], [ %126, %144 ], [ %119, %117 ]
@@ -1099,7 +1099,7 @@ define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %
   %186 = icmp eq i32 %185, %163
   %187 = select i1 %186, i32 0, i32 %185
   %188 = icmp eq i32 %187, %164
-  br i1 %188, label %.loopexit, label %.split.us, !llvm.loop !50
+  br i1 %188, label %.loopexit, label %.split.us, !llvm.loop !48
 
 .split:                                           ; preds = %166, %207
   %189 = phi i32 [ %210, %207 ], [ %161, %166 ]
@@ -1131,7 +1131,7 @@ define internal fastcc void @ieee80211_sta_reorder_release(ptr noundef nonnull %
   %209 = icmp eq i32 %208, %163
   %210 = select i1 %209, i32 0, i32 %208
   %211 = icmp eq i32 %210, %164
-  br i1 %211, label %.loopexit, label %.split, !llvm.loop !51
+  br i1 %211, label %.loopexit, label %.split, !llvm.loop !48
 
 .loopexit:                                        ; preds = %73, %.split, %202, %207, %184, %179, %159
   %212 = phi i32 [ %161, %159 ], [ %171, %179 ], [ %164, %184 ], [ %190, %202 ], [ %164, %207 ], [ %190, %.split ], [ %48, %73 ]
@@ -1167,7 +1167,7 @@ define internal fastcc void @drv_event_callback(ptr noundef %0, ptr noundef %1, 
           to label %24 [label %4], !srcloc !21
 
 4:                                                ; preds = %3
-  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !52
+  %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !49
   %6 = zext i32 %5 to i64
   %7 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %6) #18, !srcloc !23
   %8 = icmp ult i8 %7, 2
@@ -1177,7 +1177,7 @@ define internal fastcc void @drv_event_callback(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %4
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !50
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_event_callback, i64 72), align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
@@ -1189,7 +1189,7 @@ define internal fastcc void @drv_event_callback(ptr noundef %0, ptr noundef %1, 
   br label %17
 
 17:                                               ; preds = %13, %10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !54
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !51
   %18 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !27
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
@@ -1198,7 +1198,7 @@ define internal fastcc void @drv_event_callback(ptr noundef %0, ptr noundef %1, 
 
 21:                                               ; preds = %17
   %22 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #18, !srcloc !55
+  %23 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %22) #18, !srcloc !52
   tail call void @llvm.write_register.i64(metadata !0, i64 %23)
   br label %24
 
@@ -1328,9 +1328,9 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   br i1 %56, label %57, label %58, !prof !6
 
 57:                                               ; preds = %46
-  call void asm sideeffect "3034: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3034) #18, !srcloc !56
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4131, i32 2307, i64 12) #18, !srcloc !57
-  call void asm sideeffect "3035: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3035b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3035) #18, !srcloc !58
+  call void asm sideeffect "3034: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3034) #18, !srcloc !53
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4131, i32 2307, i64 12) #18, !srcloc !54
+  call void asm sideeffect "3035: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3035b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3035) #18, !srcloc !55
   br label %.thread119
 
 58:                                               ; preds = %46
@@ -1527,7 +1527,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   br i1 %192, label %193, label %217
 
 193:                                              ; preds = %188
-  %194 = call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %149), !range !59
+  %194 = call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %149), !range !56
   %195 = getelementptr inbounds nuw i8, ptr %147, i64 156
   store i32 %194, ptr %195, align 4
   br label %217
@@ -1561,7 +1561,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   br i1 %213, label %214, label %217
 
 214:                                              ; preds = %208
-  %215 = call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %149), !range !59
+  %215 = call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %149), !range !56
   %216 = getelementptr inbounds nuw i8, ptr %147, i64 156
   store i32 %215, ptr %216, align 4
   br label %217
@@ -1670,7 +1670,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
 287:                                              ; preds = %285, %262
   %288 = add nuw nsw i64 %263, 1
   %289 = icmp eq i64 %288, 4
-  br i1 %289, label %.loopexit165, label %262, !llvm.loop !60
+  br i1 %289, label %.loopexit165, label %262, !llvm.loop !57
 
 .loopexit165:                                     ; preds = %287, %253
   %290 = load i16, ptr %151, align 2
@@ -1783,7 +1783,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
 
 353:                                              ; preds = %349, %346
   %354 = getelementptr inbounds nuw i8, ptr %146, i64 216
-  %355 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %354, i64 19, ptr nonnull elementtype(i64) %354) #18, !srcloc !61
+  %355 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %354, i64 19, ptr nonnull elementtype(i64) %354) #18, !srcloc !58
   %356 = icmp ult i8 %355, 2
   call void @llvm.assume(i1 %356)
   %357 = icmp eq i8 %355, 0
@@ -1844,7 +1844,7 @@ define internal fastcc void @ieee80211_rx_handlers(ptr noundef %0, ptr noundef %
   %395 = load i16, ptr %394, align 2
   %396 = call i32 @ieee80211_hdrlen(i16 noundef zeroext %395) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i8 0, ptr %10, align 1, !annotation !45
+  store i8 0, ptr %10, align 1, !annotation !43
   %397 = getelementptr inbounds nuw i8, ptr %369, i64 112
   %398 = load i32, ptr %397, align 8
   %399 = add i32 %396, 4
@@ -2139,7 +2139,7 @@ thread-pre-split:                                 ; preds = %499
 569:                                              ; preds = %572
   %570 = add nuw nsw i64 %573, 1
   %571 = icmp eq i64 %570, 4
-  br i1 %571, label %.loopexit164, label %572, !llvm.loop !62
+  br i1 %571, label %.loopexit164, label %572, !llvm.loop !59
 
 572:                                              ; preds = %569, %567
   %573 = phi i64 [ 0, %567 ], [ %570, %569 ]
@@ -2156,7 +2156,7 @@ thread-pre-split:                                 ; preds = %499
 579:                                              ; preds = %582
   %580 = add nuw nsw i64 %583, 1
   %581 = icmp eq i64 %580, 4
-  br i1 %581, label %.thread121, label %582, !llvm.loop !63
+  br i1 %581, label %.thread121, label %582, !llvm.loop !60
 
 582:                                              ; preds = %579, %.loopexit164
   %583 = phi i64 [ 0, %.loopexit164 ], [ %580, %579 ]
@@ -2193,7 +2193,7 @@ thread-pre-split:                                 ; preds = %499
   %603 = load i16, ptr %602, align 2
   %604 = call i32 @ieee80211_hdrlen(i16 noundef zeroext %603) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i8 0, ptr %9, align 1, !annotation !45
+  store i8 0, ptr %9, align 1, !annotation !43
   %605 = getelementptr inbounds nuw i8, ptr %600, i64 112
   %606 = load i32, ptr %605, align 8
   %607 = add i32 %604, 4
@@ -2552,7 +2552,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %806 = add nsw i64 %801, -1
   %807 = icmp eq i64 %801, 0
   %808 = or i1 %807, %805
-  br i1 %808, label %809, label %800, !llvm.loop !64
+  br i1 %808, label %809, label %800, !llvm.loop !61
 
 809:                                              ; preds = %800
   %810 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %8, ptr noundef nonnull dereferenceable(6) %28, i64 6)
@@ -2713,7 +2713,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %903 = icmp eq ptr %902, %776
   %904 = icmp eq ptr %902, null
   %905 = or i1 %903, %904
-  br i1 %905, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %905, label %.loopexit, label %.preheader, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.preheader, %883, %705
   %906 = load ptr, ptr %11, align 8
@@ -2757,7 +2757,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %932 = and i16 %927, 12
   %933 = icmp eq i16 %932, 8
   %934 = select i1 %931, i1 %933, i1 false
-  br i1 %934, label %935, label %.thread131, !prof !66
+  br i1 %934, label %935, label %.thread131, !prof !63
 
 935:                                              ; preds = %923
   %936 = and i16 %927, 72
@@ -2818,7 +2818,7 @@ thread-pre-split112:                              ; preds = %430, %650
   ]
 
 967:                                              ; preds = %961, %964
-  %968 = call fastcc i32 @__ieee80211_rx_h_amsdu(ptr noundef %0, i8 noundef zeroext 0), !range !67
+  %968 = call fastcc i32 @__ieee80211_rx_h_amsdu(ptr noundef %0, i8 noundef zeroext 0), !range !64
   %969 = icmp eq i32 %968, 1
   br i1 %969, label %..thread131_crit_edge, label %.thread119
 
@@ -2841,7 +2841,7 @@ thread-pre-split112:                              ; preds = %430, %650
   switch i16 %977, label %1223 [
     i16 8, label %978
     i16 4, label %1168
-  ], !prof !68
+  ], !prof !65
 
 978:                                              ; preds = %.thread131
   %979 = and i16 %970, 72
@@ -2869,7 +2869,7 @@ thread-pre-split112:                              ; preds = %430, %650
 
 990:                                              ; preds = %987
   %991 = getelementptr inbounds nuw i8, ptr %988, i64 216
-  %992 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %991, i64 19, ptr nonnull elementtype(i64) %991) #18, !srcloc !61
+  %992 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %991, i64 19, ptr nonnull elementtype(i64) %991) #18, !srcloc !58
   %993 = icmp ult i8 %992, 2
   call void @llvm.assume(i1 %993)
   %994 = icmp eq i8 %992, 0
@@ -3051,7 +3051,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1117 = load i32, ptr %1116, align 8
   %1118 = icmp ne i32 %1117, 4
   %1119 = or i1 %1052, %1118
-  br i1 %1119, label %1128, label %1120, !prof !69
+  br i1 %1119, label %1128, label %1120, !prof !66
 
 1120:                                             ; preds = %1114
   %1121 = getelementptr inbounds nuw i8, ptr %973, i64 1672
@@ -3131,7 +3131,7 @@ thread-pre-split112:                              ; preds = %430, %650
 
 1171:                                             ; preds = %1168
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 0, ptr %6, align 4, !annotation !45
+  store i32 0, ptr %6, align 4, !annotation !43
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 2, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %30, i8 0, i64 20, i1 false)
@@ -3159,7 +3159,7 @@ thread-pre-split112:                              ; preds = %430, %650
 1186:                                             ; preds = %1177
   %1187 = load ptr, ptr %23, align 8
   %1188 = getelementptr inbounds nuw i8, ptr %1187, i64 872
-  %1189 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1188, i64 %1182, ptr nonnull elementtype(i64) %1188) #18, !srcloc !61
+  %1189 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1188, i64 %1182, ptr nonnull elementtype(i64) %1188) #18, !srcloc !58
   %1190 = icmp ult i8 %1189, 2
   call void @llvm.assume(i1 %1190)
   %1191 = icmp eq i8 %1189, 0
@@ -4050,7 +4050,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1666 = phi ptr [ %.pre193, %1623 ], [ %1410, %1408 ], [ %1410, %1616 ], [ %1410, %1537 ], [ %1410, %1431 ], [ %1410, %1621 ], [ %1410, %1614 ], [ %1410, %1609 ], [ %1410, %1607 ], [ %1410, %1593 ], [ %1410, %1570 ], [ %1410, %1573 ], [ %1410, %1579 ], [ %1410, %1567 ], [ %1410, %1556 ], [ %1410, %1552 ], [ %1410, %1542 ], [ %1410, %1531 ], [ %1410, %1517 ], [ %1410, %1512 ], [ %1410, %._crit_edge187 ], [ %1410, %1584 ]
   %1667 = phi ptr [ %.pre191, %1623 ], [ %1411, %1408 ], [ %1411, %1616 ], [ %1411, %1537 ], [ %1411, %1431 ], [ %1411, %1621 ], [ %1411, %1614 ], [ %1411, %1609 ], [ %1411, %1607 ], [ %1411, %1593 ], [ %1411, %1570 ], [ %1411, %1573 ], [ %1411, %1579 ], [ %1411, %1567 ], [ %1411, %1556 ], [ %1411, %1552 ], [ %1411, %1542 ], [ %1411, %1531 ], [ %1411, %1517 ], [ %1411, %1512 ], [ %1411, %._crit_edge187 ], [ %1411, %1584 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false), !annotation !43
   %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 68
   %1669 = load i16, ptr %1668, align 4
   %1670 = and i16 %1669, 8191
@@ -4317,17 +4317,17 @@ thread-pre-split112:                              ; preds = %430, %650
   br label %.thread119
 
 1844:                                             ; preds = %1746, %1761, %1765, %1753
-  %1845 = call fastcc i32 @ieee80211_rx_h_action_return(ptr noundef %0), !range !70
+  %1845 = call fastcc i32 @ieee80211_rx_h_action_return(ptr noundef %0), !range !67
   %1846 = icmp eq i32 %1845, 1
   br i1 %1846, label %1847, label %.thread119
 
 1847:                                             ; preds = %1844
-  %1848 = call fastcc i32 @ieee80211_rx_h_ext(ptr noundef %0), !range !70
+  %1848 = call fastcc i32 @ieee80211_rx_h_ext(ptr noundef %0), !range !67
   %1849 = icmp eq i32 %1848, 1
   br i1 %1849, label %1850, label %.thread119
 
 1850:                                             ; preds = %1847
-  %1851 = call fastcc i32 @ieee80211_rx_h_mgmt(ptr noundef %0), !range !70
+  %1851 = call fastcc i32 @ieee80211_rx_h_mgmt(ptr noundef %0), !range !67
   br label %.thread119
 
 .thread119:                                       ; preds = %1423, %thread-pre-split110, %1392, %1378, %1377, %1348, %1322, %1402, %1403, %1350, %1327, %1293, %1364, %1232, %1226, %1168, %1221, %1043, %1012, %1034, %.thread134, %1002, %1058, %1070, %1067, %1108, %1083, %987, %990, %995, %978, %1167, %964, %964, %964, %953, %958, %941, %949, %945, %935, %.thread124, %732, %816, %822, %827, %771, %743, %763, %.thread217, %729, %720, %882, %853, %.thread105, %.thread82, %688, %693, %thread-pre-split112, %.thread116, %521, %496, %453, %458, %1842, %1744, %1635, %1652, %1660, %353, %358, %364, %142, %1850, %1847, %1844, %967, %920, %698, %57
@@ -4337,7 +4337,7 @@ thread-pre-split112:                              ; preds = %430, %650
   %1854 = icmp eq ptr %1853, %1
   %1855 = icmp eq ptr %1853, null
   %1856 = or i1 %1854, %1855
-  br i1 %1856, label %.loopexit166, label %46, !llvm.loop !71
+  br i1 %1856, label %.loopexit166, label %46, !llvm.loop !68
 
 .loopexit166:                                     ; preds = %.thread119, %2
   %1857 = load ptr, ptr %11, align 8
@@ -4364,14 +4364,14 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   br i1 %13, label %14, label %15, !prof !6
 
 14:                                               ; preds = %5
-  tail call void asm sideeffect "3042: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3042b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3042) #18, !srcloc !72
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4299, i32 2305, i64 12) #18, !srcloc !73
-  tail call void asm sideeffect "3043: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3043b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3043) #18, !srcloc !74
+  tail call void asm sideeffect "3042: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3042b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3042) #18, !srcloc !69
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4299, i32 2305, i64 12) #18, !srcloc !70
+  tail call void asm sideeffect "3043: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3043b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3043) #18, !srcloc !71
   br label %130
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %16, align 8, !annotation !45
+  store i64 0, ptr %16, align 8, !annotation !43
   store ptr %6, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %6, ptr %17, align 8
@@ -4391,14 +4391,14 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
 
 29:                                               ; preds = %15
   store i1 true, ptr @ieee80211_mark_rx_ba_filtered_frames.__already_done, align 1
-  call void asm sideeffect "3044: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3044b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3044) #18, !srcloc !75
+  call void asm sideeffect "3044: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3044b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3044) #18, !srcloc !72
   %30 = load i16, ptr %24, align 8
   %31 = zext i16 %30 to i32
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, i32 noundef %31) #18
-  call void asm sideeffect "3045: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3045) #18, !srcloc !76
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4309, i32 2313, i64 12) #18, !srcloc !77
-  call void asm sideeffect "3046: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3046b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3046) #18, !srcloc !78
-  call void asm sideeffect "3047: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3047) #18, !srcloc !79
+  call void asm sideeffect "3045: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3045) #18, !srcloc !73
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4309, i32 2313, i64 12) #18, !srcloc !74
+  call void asm sideeffect "3046: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3046b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3046) #18, !srcloc !75
+  call void asm sideeffect "3047: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3047) #18, !srcloc !76
   br label %32
 
 32:                                               ; preds = %29, %15
@@ -4466,7 +4466,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %74 = sub nsw i32 %73, %63
   %75 = and i32 %74, 4095
   %76 = icmp samesign ugt i32 %75, 2048
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !80
+  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %58
   store i16 %2, ptr %57, align 8
@@ -4496,7 +4496,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %93 = sub nsw i32 %92, %78
   %94 = and i32 %93, 4095
   %95 = icmp samesign ugt i32 %94, 2048
-  br i1 %95, label %86, label %.loopexit6, !llvm.loop !80
+  br i1 %95, label %86, label %.loopexit6, !llvm.loop !77
 
 .loopexit6:                                       ; preds = %86, %77, %.loopexit
   %.pre-phi10 = phi i32 [ %82, %77 ], [ 0, %.loopexit ], [ %94, %86 ]
@@ -4539,7 +4539,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %125 = select i1 %123, i64 %120, i64 %124
   %126 = add nuw nsw i64 %112, 1
   %exitcond.not = icmp eq i64 %126, %110
-  br i1 %exitcond.not, label %127, label %111, !llvm.loop !81
+  br i1 %exitcond.not, label %127, label %111, !llvm.loop !78
 
 127:                                              ; preds = %111
   store i64 %125, ptr %107, align 8
@@ -4590,7 +4590,7 @@ define internal fastcc void @ieee80211_release_reorder_frames(ptr noundef nonnul
   %20 = sub nsw i32 %19, %5
   %21 = and i32 %20, 4095
   %22 = icmp samesign ugt i32 %21, 2048
-  br i1 %22, label %13, label %.loopexit, !llvm.loop !80
+  br i1 %22, label %13, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -4850,7 +4850,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %142 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %141, i64 27, ptr nonnull elementtype(i64) %141) #18, !srcloc !61
+  %142 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %141, i64 27, ptr nonnull elementtype(i64) %141) #18, !srcloc !58
   %143 = icmp ult i8 %142, 2
   call void @llvm.assume(i1 %143)
   %144 = icmp eq i8 %142, 0
@@ -4858,7 +4858,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
 
 145:                                              ; preds = %133, %135
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %147 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 27, ptr nonnull elementtype(i64) %146) #18, !srcloc !82
+  %147 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 27, ptr nonnull elementtype(i64) %146) #18, !srcloc !79
   %148 = icmp ult i8 %147, 2
   call void @llvm.assume(i1 %148)
   %.not = icmp eq i8 %147, 0
@@ -4900,7 +4900,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
 
 173:                                              ; preds = %166
   store i1 true, ptr @drv_sta_set_decap_offload.__already_done, align 1
-  call void asm sideeffect "2935: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2935) #18, !srcloc !83
+  call void asm sideeffect "2935: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2935) #18, !srcloc !80
   %174 = getelementptr inbounds nuw i8, ptr %159, i64 1248
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
@@ -4909,10 +4909,10 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
   %179 = select i1 %176, ptr %178, ptr %177
   %180 = load i32, ptr %167, align 8
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %179, i32 noundef %180) #18
-  call void asm sideeffect "2936: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2936) #18, !srcloc !84
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1580, i32 2313, i64 12) #18, !srcloc !85
-  call void asm sideeffect "2937: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2937) #18, !srcloc !86
-  call void asm sideeffect "2938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2938) #18, !srcloc !87
+  call void asm sideeffect "2936: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2936) #18, !srcloc !81
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1580, i32 2313, i64 12) #18, !srcloc !82
+  call void asm sideeffect "2937: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2937) #18, !srcloc !83
+  call void asm sideeffect "2938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2938) #18, !srcloc !84
   br label %.thread12
 
 .thread12:                                        ; preds = %158, %173, %166
@@ -4927,7 +4927,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
           to label %206 [label %186], !srcloc !21
 
 186:                                              ; preds = %185
-  %187 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !88
+  %187 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !85
   %188 = zext i32 %187 to i64
   %189 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %188) #18, !srcloc !23
   %190 = icmp ult i8 %189, 2
@@ -4937,7 +4937,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
 
 192:                                              ; preds = %186
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !24
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !89
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !86
   %193 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_sta_set_decap_offload, i64 72), align 8
   %194 = icmp eq ptr %193, null
   br i1 %194, label %199, label %195
@@ -4949,7 +4949,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
   br label %199
 
 199:                                              ; preds = %195, %192
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !90
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !87
   %200 = call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !27
   %201 = icmp ult i8 %200, 2
   call void @llvm.assume(i1 %201)
@@ -4958,7 +4958,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
 
 203:                                              ; preds = %199
   %204 = call i64 @llvm.read_register.i64(metadata !0)
-  %205 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %204) #18, !srcloc !91
+  %205 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %204) #18, !srcloc !88
   call void @llvm.write_register.i64(metadata !0, i64 %205)
   br label %206
 
@@ -5020,7 +5020,7 @@ define dso_local void @ieee80211_check_fast_rx(ptr noundef %0) local_unnamed_add
   call void @_raw_spin_lock_bh(ptr noundef nonnull %236) #18
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %238 = load ptr, ptr %237, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !92
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !89
   store volatile ptr %124, ptr %237, align 8
   call void @_raw_spin_unlock_bh(ptr noundef nonnull %236) #18
   %239 = icmp eq ptr %238, null
@@ -5100,7 +5100,7 @@ define dso_local void @__ieee80211_check_fast_rx_iface(ptr noundef readonly capt
 22:                                               ; preds = %21, %18, %14
   %23 = load ptr, ptr %10, align 8
   %24 = icmp eq ptr %23, %4
-  br i1 %24, label %.loopexit, label %9, !llvm.loop !93
+  br i1 %24, label %.loopexit, label %9, !llvm.loop !90
 
 .loopexit:                                        ; preds = %22, %1
   ret void
@@ -5144,7 +5144,7 @@ define dso_local void @ieee80211_check_fast_rx_iface(ptr noundef readonly captur
 22:                                               ; preds = %21, %18, %14
   %23 = load ptr, ptr %10, align 8
   %24 = icmp eq ptr %23, %4
-  br i1 %24, label %.loopexit, label %9, !llvm.loop !93
+  br i1 %24, label %.loopexit, label %9, !llvm.loop !90
 
 .loopexit:                                        ; preds = %22, %1
   ret void
@@ -5157,15 +5157,15 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca %struct.anon.159, align 2
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !94
+  %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !91
   %11 = and i32 %10, 65280
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14, !prof !6
 
 13:                                               ; preds = %4
-  tail call void asm sideeffect "3077: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3077) #18, !srcloc !95
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5296, i32 2307, i64 12) #18, !srcloc !96
-  tail call void asm sideeffect "3078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3078) #18, !srcloc !97
+  tail call void asm sideeffect "3077: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3077) #18, !srcloc !92
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5296, i32 2307, i64 12) #18, !srcloc !93
+  tail call void asm sideeffect "3078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3078) #18, !srcloc !94
   br label %14
 
 14:                                               ; preds = %13, %4
@@ -5175,9 +5175,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %17, label %18, label %19, !prof !6
 
 18:                                               ; preds = %14
-  tail call void asm sideeffect "3079: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3079) #18, !srcloc !98
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5298, i32 2305, i64 12) #18, !srcloc !99
-  tail call void asm sideeffect "3080: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3080) #18, !srcloc !100
+  tail call void asm sideeffect "3079: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3079b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3079) #18, !srcloc !95
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5298, i32 2305, i64 12) #18, !srcloc !96
+  tail call void asm sideeffect "3080: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3080b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3080) #18, !srcloc !97
   br label %814
 
 19:                                               ; preds = %14
@@ -5191,9 +5191,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %26, label %27, label %28, !prof !6
 
 27:                                               ; preds = %19
-  tail call void asm sideeffect "3081: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3081) #18, !srcloc !101
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5302, i32 2305, i64 12) #18, !srcloc !102
-  tail call void asm sideeffect "3082: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3082b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3082) #18, !srcloc !103
+  tail call void asm sideeffect "3081: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3081b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3081) #18, !srcloc !98
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5302, i32 2305, i64 12) #18, !srcloc !99
+  tail call void asm sideeffect "3082: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3082b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3082) #18, !srcloc !100
   br label %814
 
 28:                                               ; preds = %19
@@ -5221,9 +5221,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %43, label %44, label %45, !prof !6
 
 44:                                               ; preds = %40
-  tail call void asm sideeffect "3083: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3083b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3083) #18, !srcloc !104
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5323, i32 2305, i64 12) #18, !srcloc !105
-  tail call void asm sideeffect "3084: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3084b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3084) #18, !srcloc !106
+  tail call void asm sideeffect "3083: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3083b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3083) #18, !srcloc !101
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5323, i32 2305, i64 12) #18, !srcloc !102
+  tail call void asm sideeffect "3084: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3084b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3084) #18, !srcloc !103
   br label %814
 
 45:                                               ; preds = %40
@@ -5252,14 +5252,14 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %57, label %58, label %148, !prof !6
 
 58:                                               ; preds = %54
-  tail call void asm sideeffect "3085: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3085b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3085) #18, !srcloc !107
+  tail call void asm sideeffect "3085: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3085b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3085) #18, !srcloc !104
   %59 = load i8, ptr %55, align 1
   %60 = zext i8 %59 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, i32 noundef %60, i32 noundef %60) #18
-  tail call void asm sideeffect "3086: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3086b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3086) #18, !srcloc !108
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5349, i32 2313, i64 12) #18, !srcloc !109
-  tail call void asm sideeffect "3087: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3087b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3087) #18, !srcloc !110
-  tail call void asm sideeffect "3088: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3088b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3088) #18, !srcloc !111
+  tail call void asm sideeffect "3086: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3086b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3086) #18, !srcloc !105
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5349, i32 2313, i64 12) #18, !srcloc !106
+  tail call void asm sideeffect "3087: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3087b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3087) #18, !srcloc !107
+  tail call void asm sideeffect "3088: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3088b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3088) #18, !srcloc !108
   br label %814
 
 61:                                               ; preds = %50
@@ -5284,17 +5284,17 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
 
 75:                                               ; preds = %70
   store i1 true, ptr @ieee80211_rx_list.__already_done, align 1
-  tail call void asm sideeffect "3089: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3089b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3089) #18, !srcloc !112
+  tail call void asm sideeffect "3089: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3089b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3089) #18, !srcloc !109
   %76 = load i8, ptr %62, align 1
   %77 = zext i8 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 74
   %79 = load i8, ptr %78, align 2
   %80 = zext i8 %79 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, i32 noundef %77, i32 noundef %80) #18
-  tail call void asm sideeffect "3090: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3090b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3090) #18, !srcloc !113
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5357, i32 2313, i64 12) #18, !srcloc !114
-  tail call void asm sideeffect "3091: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3091b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3091) #18, !srcloc !115
-  tail call void asm sideeffect "3092: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3092b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3092) #18, !srcloc !116
+  tail call void asm sideeffect "3090: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3090b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3090) #18, !srcloc !110
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5357, i32 2313, i64 12) #18, !srcloc !111
+  tail call void asm sideeffect "3091: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3091b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3091) #18, !srcloc !112
+  tail call void asm sideeffect "3092: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3092b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3092) #18, !srcloc !113
   br label %81
 
 81:                                               ; preds = %75, %70
@@ -5322,17 +5322,17 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
 
 96:                                               ; preds = %91
   store i1 true, ptr @ieee80211_rx_list.__already_done.4, align 1
-  tail call void asm sideeffect "3093: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3093b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3093) #18, !srcloc !117
+  tail call void asm sideeffect "3093: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3093b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3093) #18, !srcloc !114
   %97 = load i8, ptr %83, align 1
   %98 = zext i8 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 74
   %100 = load i8, ptr %99, align 2
   %101 = zext i8 %100 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.5, i32 noundef %98, i32 noundef %101) #18
-  tail call void asm sideeffect "3094: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3094b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3094) #18, !srcloc !118
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5365, i32 2313, i64 12) #18, !srcloc !119
-  tail call void asm sideeffect "3095: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3095b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3095) #18, !srcloc !120
-  tail call void asm sideeffect "3096: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3096b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3096) #18, !srcloc !121
+  tail call void asm sideeffect "3094: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3094b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3094) #18, !srcloc !115
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5365, i32 2313, i64 12) #18, !srcloc !116
+  tail call void asm sideeffect "3095: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3095b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3095) #18, !srcloc !117
+  tail call void asm sideeffect "3096: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3096b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3096) #18, !srcloc !118
   br label %102
 
 102:                                              ; preds = %96, %91
@@ -5367,7 +5367,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
 
 122:                                              ; preds = %117
   store i1 true, ptr @ieee80211_rx_list.__already_done.6, align 1
-  tail call void asm sideeffect "3097: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3097b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3097) #18, !srcloc !122
+  tail call void asm sideeffect "3097: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3097b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3097) #18, !srcloc !119
   %123 = load i8, ptr %104, align 1
   %124 = zext i8 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 74
@@ -5379,19 +5379,19 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %131 = and i8 %130, 3
   %132 = zext nneg i8 %131 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7, i32 noundef %124, i32 noundef %127, i32 noundef %132) #18
-  tail call void asm sideeffect "3098: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3098b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3098) #18, !srcloc !123
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5374, i32 2313, i64 12) #18, !srcloc !124
-  tail call void asm sideeffect "3099: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3099b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3099) #18, !srcloc !125
-  tail call void asm sideeffect "3100: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3100b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3100) #18, !srcloc !126
+  tail call void asm sideeffect "3098: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3098b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3098) #18, !srcloc !120
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5374, i32 2313, i64 12) #18, !srcloc !121
+  tail call void asm sideeffect "3099: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3099b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3099) #18, !srcloc !122
+  tail call void asm sideeffect "3100: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3100b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3100) #18, !srcloc !123
   br label %133
 
 133:                                              ; preds = %122, %117
   br i1 %118, label %814, label %148
 
 134:                                              ; preds = %50
-  tail call void asm sideeffect "3101: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3101b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3101) #18, !srcloc !127
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5378, i32 2307, i64 12) #18, !srcloc !128
-  tail call void asm sideeffect "3102: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3102b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3102) #18, !srcloc !129
+  tail call void asm sideeffect "3101: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3101b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3101) #18, !srcloc !124
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5378, i32 2307, i64 12) #18, !srcloc !125
+  tail call void asm sideeffect "3102: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3102b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3102) #18, !srcloc !126
   br label %135
 
 135:                                              ; preds = %134, %50
@@ -5404,9 +5404,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %141, label %143, label %142, !prof !28
 
 142:                                              ; preds = %135
-  tail call void asm sideeffect "3103: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3103b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3103) #18, !srcloc !130
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5381, i32 2305, i64 12) #18, !srcloc !131
-  tail call void asm sideeffect "3104: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3104b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3104) #18, !srcloc !132
+  tail call void asm sideeffect "3103: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3103b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3103) #18, !srcloc !127
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5381, i32 2305, i64 12) #18, !srcloc !128
+  tail call void asm sideeffect "3104: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3104b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3104) #18, !srcloc !129
   br label %814
 
 143:                                              ; preds = %135
@@ -5425,9 +5425,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %153, label %154, label %155, !prof !6
 
 154:                                              ; preds = %148
-  tail call void asm sideeffect "3105: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3105b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3105) #18, !srcloc !133
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5387, i32 2307, i64 12) #18, !srcloc !134
-  tail call void asm sideeffect "3106: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3106b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3106) #18, !srcloc !135
+  tail call void asm sideeffect "3105: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3105b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3105) #18, !srcloc !130
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5387, i32 2307, i64 12) #18, !srcloc !131
+  tail call void asm sideeffect "3106: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3106b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3106) #18, !srcloc !132
   br label %814
 
 155:                                              ; preds = %148
@@ -5452,9 +5452,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %168, label %169, label %170, !prof !6
 
 169:                                              ; preds = %165
-  tail call void asm sideeffect "2984: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2984b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2984) #18, !srcloc !136
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 780, i32 2307, i64 12) #18, !srcloc !137
-  tail call void asm sideeffect "2985: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2985) #18, !srcloc !138
+  tail call void asm sideeffect "2984: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2984b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2984) #18, !srcloc !133
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 780, i32 2307, i64 12) #18, !srcloc !134
+  tail call void asm sideeffect "2985: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2985) #18, !srcloc !135
   tail call void @consume_skb(ptr noundef %2) #18
   br label %.thread39
 
@@ -5509,9 +5509,9 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %209, label %211, label %210, !prof !28
 
 210:                                              ; preds = %205
-  tail call void asm sideeffect "2986: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2986) #18, !srcloc !139
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 813, i32 2305, i64 12) #18, !srcloc !140
-  tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #18, !srcloc !141
+  tail call void asm sideeffect "2986: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2986) #18, !srcloc !136
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 813, i32 2305, i64 12) #18, !srcloc !137
+  tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #18, !srcloc !138
   tail call void @consume_skb(ptr noundef %2) #18
   br label %.thread39
 
@@ -5611,7 +5611,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
 268:                                              ; preds = %.thread, %251
   %269 = phi i1 [ false, %.thread ], [ %252, %251 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %7, i8 0, i64 26, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %7, i8 0, i64 26, i1 false), !annotation !43
   %270 = icmp eq ptr %162, null
   br i1 %270, label %327, label %271
 
@@ -5787,12 +5787,12 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %391 = load i32, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %388, i64 160
   %393 = load ptr, ptr %392, align 8
-  %394 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %393) #19, !srcloc !142
+  %394 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %393) #19, !srcloc !139
   %395 = inttoptr i64 %394 to ptr
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = zext i32 %391 to i64
-  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 %397, ptr nonnull elementtype(i64) %396) #18, !srcloc !143
-  call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %395, ptr elementtype(i64) %395) #18, !srcloc !144
+  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %396, i64 %397, ptr nonnull elementtype(i64) %396) #18, !srcloc !140
+  call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %395, ptr elementtype(i64) %395) #18, !srcloc !141
   %398 = call i32 @netif_receive_skb(ptr noundef nonnull %385) #18
   br label %.thread35
 
@@ -5966,7 +5966,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
 
 500:                                              ; preds = %431
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false), !annotation !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false), !annotation !43
   %501 = getelementptr inbounds nuw i8, ptr %408, i64 200
   %502 = load ptr, ptr %501, align 8
   %503 = load i16, ptr %502, align 2
@@ -6081,7 +6081,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
     i8 80, label %571
     i8 -128, label %571
     i8 28, label %571
-  ], !prof !145
+  ], !prof !142
 
 571:                                              ; preds = %565, %565, %565
   call void @ieee80211_scan_rx(ptr noundef %0, ptr noundef nonnull %408) #18
@@ -6296,7 +6296,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %701 = getelementptr inbounds nuw i8, ptr %676, i64 8
   %702 = load volatile ptr, ptr %701, align 8
   %703 = icmp eq ptr %702, null
-  br i1 %703, label %.split68.us, label %.split.us, !llvm.loop !146
+  br i1 %703, label %.split68.us, label %.split.us, !llvm.loop !143
 
 .split:                                           ; preds = %668, %742
   %704 = phi ptr [ %745, %742 ], [ %666, %668 ]
@@ -6366,7 +6366,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %744 = getelementptr inbounds nuw i8, ptr %704, i64 8
   %745 = load volatile ptr, ptr %744, align 8
   %746 = icmp eq ptr %745, null
-  br i1 %746, label %.split68.us, label %.split, !llvm.loop !147
+  br i1 %746, label %.split68.us, label %.split, !llvm.loop !143
 
 .split68.us:                                      ; preds = %742, %699
   %.us-phi = phi ptr [ %700, %699 ], [ %743, %742 ]
@@ -6480,7 +6480,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %806 = phi ptr [ %793, %798 ], [ %792, %803 ], [ %793, %791 ], [ %793, %798 ], [ %792, %801 ]
   %807 = load volatile ptr, ptr %792, align 8
   %808 = icmp eq ptr %807, %786
-  br i1 %808, label %809, label %791, !llvm.loop !148
+  br i1 %808, label %809, label %791, !llvm.loop !144
 
 809:                                              ; preds = %805
   %810 = icmp eq ptr %806, null
@@ -6540,7 +6540,7 @@ define dso_local void @ieee80211_rx_napi(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr null, ptr %12, align 8
   %17 = call i32 @napi_gro_receive(ptr noundef nonnull %3, ptr noundef %12) #18
   %18 = icmp eq ptr %13, %5
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !149
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !145
 
 .loopexit:                                        ; preds = %.preheader, %9, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6563,7 +6563,7 @@ define dso_local void @ieee80211_rx_irqsafe(ptr noundef %0, ptr noundef %1) #0 a
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   tail call void @skb_queue_tail(ptr noundef nonnull %7, ptr noundef %1) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 0, ptr nonnull elementtype(i64) %8) #18, !srcloc !61
+  %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 0, ptr nonnull elementtype(i64) %8) #18, !srcloc !58
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
@@ -6720,7 +6720,7 @@ define internal fastcc void @ieee80211_release_reorder_frame(ptr noundef nonnull
   %72 = icmp eq ptr %71, %7
   %73 = icmp eq ptr %71, null
   %74 = or i1 %72, %73
-  br i1 %74, label %.loopexit, label %57, !llvm.loop !150
+  br i1 %74, label %.loopexit, label %57, !llvm.loop !146
 
 .loopexit:                                        ; preds = %57, %33, %45, %29, %3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7238,19 +7238,19 @@ define internal fastcc void @ieee80211_rx_handlers_result(ptr noundef captures(n
   %112 = load i32, ptr %84, align 8
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 160
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %114) #19, !srcloc !142
+  %115 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %114) #19, !srcloc !139
   %116 = inttoptr i64 %115 to ptr
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = zext i32 %112 to i64
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %117, i64 %118, ptr nonnull elementtype(i64) %117) #18, !srcloc !143
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %116, ptr elementtype(i64) %116) #18, !srcloc !144
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %117, i64 %118, ptr nonnull elementtype(i64) %117) #18, !srcloc !140
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %116, ptr elementtype(i64) %116) #18, !srcloc !141
   br label %119
 
 119:                                              ; preds = %109, %96, %92, %85
   %120 = phi ptr [ %87, %92 ], [ %111, %109 ], [ %87, %96 ], [ %87, %85 ]
   %121 = load volatile ptr, ptr %86, align 8
   %122 = icmp eq ptr %121, %80
-  br i1 %122, label %123, label %85, !llvm.loop !151
+  br i1 %122, label %123, label %85, !llvm.loop !147
 
 123:                                              ; preds = %119
   %124 = icmp eq ptr %120, null
@@ -7398,9 +7398,9 @@ define internal fastcc range(i32 0, 8388608) i32 @sta_stats_encode_rate(ptr noun
   br label %101
 
 100:                                              ; preds = %1
-  tail call void asm sideeffect "771: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 771b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 771) #18, !srcloc !152
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 1005, i32 2305, i64 12) #18, !srcloc !153
-  tail call void asm sideeffect "772: nop\0A\09.pushsection .discard.instr_end\0A\09.long 772b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 772) #18, !srcloc !154
+  tail call void asm sideeffect "771: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 771b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 771) #18, !srcloc !148
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 1005, i32 2305, i64 12) #18, !srcloc !149
+  tail call void asm sideeffect "772: nop\0A\09.pushsection .discard.instr_end\0A\09.long 772b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 772) #18, !srcloc !150
   br label %101
 
 101:                                              ; preds = %100, %76, %47, %34, %28, %15
@@ -7616,7 +7616,7 @@ define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i3
 .loopexit:                                        ; preds = %82, %34, %29, %24, %14, %59, %47, %39, %78
   %12 = add nuw nsw i32 %16, 1
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %94, label %14, !llvm.loop !155
+  br i1 %13, label %94, label %14, !llvm.loop !151
 
 14:                                               ; preds = %.loopexit, %5
   %15 = phi i32 [ %7, %5 ], [ %19, %.loopexit ]
@@ -7801,8 +7801,8 @@ define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(p
 33:                                               ; preds = %32, %31, %26, %21, %18, %2
   %34 = phi ptr [ %4, %18 ], [ null, %32 ], [ %4, %26 ], [ %4, %31 ], [ null, %21 ], [ null, %2 ]
   %35 = phi ptr [ %15, %18 ], [ null, %32 ], [ %15, %26 ], [ null, %31 ], [ %15, %21 ], [ null, %2 ]
-  store i64 0, ptr %14, align 8, !annotation !45
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %4, i8 0, i64 14, i1 false), !annotation !45
+  store i64 0, ptr %14, align 8, !annotation !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %4, i8 0, i64 14, i1 false), !annotation !43
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %8, ptr %36, align 8
   store ptr %3, ptr %3, align 8
@@ -7841,7 +7841,7 @@ define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(p
   %58 = phi i8 [ %52, %.preheader ], [ %53, %55 ]
   %59 = add nuw nsw i32 %51, 1
   %60 = icmp eq i32 %59, 3
-  br i1 %60, label %61, label %.preheader, !llvm.loop !156
+  br i1 %60, label %61, label %.preheader, !llvm.loop !152
 
 61:                                               ; preds = %57, %55
   %62 = phi i8 [ %58, %57 ], [ -1, %55 ]
@@ -7959,7 +7959,7 @@ define internal fastcc noundef range(i32 0, 65550) i32 @__ieee80211_rx_h_amsdu(p
 133:                                              ; preds = %136, %132
   %134 = load ptr, ptr %3, align 8
   %135 = icmp eq ptr %134, %3
-  br i1 %135, label %.loopexit, label %85, !llvm.loop !157
+  br i1 %135, label %.loopexit, label %85, !llvm.loop !153
 
 136:                                              ; preds = %._crit_edge, %129, %118, %115
   %137 = phi ptr [ %.pre8, %._crit_edge ], [ %86, %129 ], [ %86, %118 ], [ %86, %115 ]
@@ -7996,12 +7996,12 @@ define internal fastcc void @ieee80211_deliver_skb(ptr noundef readonly captures
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %13) #19, !srcloc !142
+  %14 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %13) #19, !srcloc !139
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = zext i32 %11 to i64
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 %17, ptr nonnull elementtype(i64) %16) #18, !srcloc !143
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, ptr elementtype(i64) %15) #18, !srcloc !144
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 %17, ptr nonnull elementtype(i64) %16) #18, !srcloc !140
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %15, ptr elementtype(i64) %15) #18, !srcloc !141
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -8595,7 +8595,7 @@ define internal fastcc i32 @ieee80211_rx_radiotap_hdrlen(ptr noundef %0, ptr nou
 
 7:                                                ; preds = %3
   %8 = zext i8 %5 to i32
-  %9 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %8) #23, !srcloc !158
+  %9 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %8) #23, !srcloc !154
   %10 = shl i32 %9, 2
   %11 = add i32 %10, 16
   br label %12
@@ -8671,7 +8671,7 @@ define internal fastcc i32 @ieee80211_rx_radiotap_hdrlen(ptr noundef %0, ptr nou
 
 79:                                               ; preds = %12
   %80 = zext i8 %5 to i32
-  %81 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %80) #23, !srcloc !158
+  %81 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %80) #23, !srcloc !154
   %82 = shl i32 %81, 1
   %83 = add i32 %82, %78
   br label %84
@@ -8746,9 +8746,9 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
   br i1 %30, label %32, label %31, !prof !28
 
 31:                                               ; preds = %14
-  tail call void asm sideeffect "2959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2959) #18, !srcloc !159
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 318, i32 2307, i64 12) #18, !srcloc !160
-  tail call void asm sideeffect "2960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2960) #18, !srcloc !161
+  tail call void asm sideeffect "2959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2959) #18, !srcloc !155
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 318, i32 2307, i64 12) #18, !srcloc !156
+  tail call void asm sideeffect "2960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2960) #18, !srcloc !157
   br label %32
 
 32:                                               ; preds = %31, %14, %5
@@ -8850,7 +8850,7 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
   br i1 %102, label %.thread, label %103
 
 103:                                              ; preds = %96
-  %104 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %101) #19, !srcloc !162
+  %104 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %101) #19, !srcloc !158
   %105 = trunc i64 %104 to i32
   %106 = icmp slt i32 %105, 4
   br i1 %106, label %107, label %.thread
@@ -8863,7 +8863,7 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
   %111 = add i64 %110, 4294967296
   %112 = ashr exact i64 %111, 32
   %113 = icmp ugt i64 %112, 3
-  br i1 %113, label %.thread, label %96, !prof !163, !llvm.loop !164
+  br i1 %113, label %.thread, label %96, !prof !159, !llvm.loop !160
 
 .thread:                                          ; preds = %96, %107, %103
   %.lcssa9 = phi i32 [ %99, %96 ], [ 2080, %107 ], [ %99, %103 ]
@@ -9462,16 +9462,16 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
 
 503:                                              ; preds = %501
   store i1 true, ptr @ieee80211_add_rx_radiotap_header.__already_done, align 1
-  tail call void asm sideeffect "2976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2976) #18, !srcloc !165
+  tail call void asm sideeffect "2976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2976) #18, !srcloc !161
   %504 = load i8, ptr %201, align 1
   %505 = lshr i8 %504, 3
   %506 = and i8 %505, 15
   %507 = zext nneg i8 %506 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.13, i32 noundef %507) #18
-  tail call void asm sideeffect "2977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2977) #18, !srcloc !166
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 664, i32 2313, i64 12) #18, !srcloc !167
-  tail call void asm sideeffect "2978: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2978) #18, !srcloc !168
-  tail call void asm sideeffect "2979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2979) #18, !srcloc !169
+  tail call void asm sideeffect "2977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2977) #18, !srcloc !162
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 664, i32 2313, i64 12) #18, !srcloc !163
+  tail call void asm sideeffect "2978: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2978) #18, !srcloc !164
+  tail call void asm sideeffect "2979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2979) #18, !srcloc !165
   br label %508
 
 508:                                              ; preds = %503, %501, %496, %494, %492, %490, %461
@@ -9572,7 +9572,7 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
   br i1 %566, label %.thread8, label %567
 
 567:                                              ; preds = %561
-  %568 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %565) #19, !srcloc !162
+  %568 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %565) #19, !srcloc !158
   %569 = trunc i64 %568 to i32
   %570 = icmp slt i32 %569, 4
   br i1 %570, label %571, label %.thread8
@@ -9590,7 +9590,7 @@ define internal fastcc void @ieee80211_add_rx_radiotap_header(ptr noundef %0, pt
   %579 = add i64 %572, 4294967296
   %580 = ashr exact i64 %579, 32
   %581 = icmp ugt i64 %580, 3
-  br i1 %581, label %.thread8, label %561, !prof !163, !llvm.loop !170
+  br i1 %581, label %.thread8, label %561, !prof !159, !llvm.loop !166
 
 .thread8:                                         ; preds = %561, %571, %567
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9701,7 +9701,7 @@ define internal fastcc noundef ptr @ieee80211_clean_skb(ptr noundef %0, i32 noun
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, -32756
   %53 = icmp eq i16 %52, -32768
-  br i1 %53, label %54, label %64, !prof !171
+  br i1 %53, label %54, label %64, !prof !167
 
 54:                                               ; preds = %45
   %55 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %51) #20
@@ -9796,9 +9796,9 @@ define internal fastcc void @ieee80211_rx_8023(ptr noundef readonly captures(non
   br i1 %20, label %21, label %25, !prof !6
 
 21:                                               ; preds = %15
-  tail call void asm sideeffect "3067: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3067b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3067) #18, !srcloc !172
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4720, i32 2307, i64 12) #18, !srcloc !173
-  tail call void asm sideeffect "3068: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3068b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3068) #18, !srcloc !174
+  tail call void asm sideeffect "3067: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3067b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3067) #18, !srcloc !168
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4720, i32 2307, i64 12) #18, !srcloc !169
+  tail call void asm sideeffect "3068: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3068b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3068) #18, !srcloc !170
   %22 = load ptr, ptr %4, align 8
   tail call void @consume_skb(ptr noundef %22) #18
   br label %190
@@ -9819,7 +9819,7 @@ define internal fastcc void @ieee80211_rx_8023(ptr noundef readonly captures(non
 32:                                               ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %34) #19, !srcloc !175
+  %35 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %34) #19, !srcloc !171
   %36 = inttoptr i64 %35 to ptr
   br label %37
 
@@ -9927,13 +9927,13 @@ define internal fastcc void @ieee80211_rx_8023(ptr noundef readonly captures(non
 105:                                              ; preds = %103, %86, %76
   %106 = add nuw nsw i64 %77, 1
   %107 = icmp eq i64 %106, 4
-  br i1 %107, label %.loopexit, label %76, !llvm.loop !176
+  br i1 %107, label %.loopexit, label %76, !llvm.loop !172
 
 .loopexit:                                        ; preds = %105, %67
   %108 = load volatile i64, ptr @jiffies, align 64
   %109 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %108, ptr %109, align 8
-  %110 = tail call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %6), !range !59
+  %110 = tail call fastcc i32 @sta_stats_encode_rate(ptr noundef nonnull %6), !range !56
   %111 = getelementptr inbounds nuw i8, ptr %38, i64 52
   store i32 %110, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -9950,12 +9950,12 @@ define internal fastcc void @ieee80211_rx_8023(ptr noundef readonly captures(non
   %120 = load i32, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 160
   %122 = load ptr, ptr %121, align 8
-  %123 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %122) #19, !srcloc !142
+  %123 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %122) #19, !srcloc !139
   %124 = inttoptr i64 %123 to ptr
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = zext i32 %120 to i64
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %125, i64 %126, ptr nonnull elementtype(i64) %125) #18, !srcloc !143
-  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %124, ptr elementtype(i64) %124) #18, !srcloc !144
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %125, i64 %126, ptr nonnull elementtype(i64) %125) #18, !srcloc !140
+  tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %124, ptr elementtype(i64) %124) #18, !srcloc !141
   %127 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %128 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -10109,7 +10109,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
   %43 = and i16 %29, 1100
   %44 = icmp eq i16 %43, 8
   %45 = and i1 %44, %42
-  br i1 %45, label %46, label %185, !prof !177
+  br i1 %45, label %46, label %185, !prof !173
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 22
@@ -10246,7 +10246,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 
 140:                                              ; preds = %.thread
   %141 = trunc nuw nsw i32 %74 to i8
-  %142 = tail call fastcc i32 @__ieee80211_rx_h_amsdu(ptr noundef %0, i8 noundef zeroext %141), !range !67
+  %142 = tail call fastcc i32 @__ieee80211_rx_h_amsdu(ptr noundef %0, i8 noundef zeroext %141), !range !64
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %ieee80211_is_our_addr.exit, label %168
 
@@ -10293,7 +10293,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 173:                                              ; preds = %168
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 96
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %175) #19, !srcloc !178
+  %176 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %175) #19, !srcloc !174
   %177 = inttoptr i64 %176 to ptr
   br label %180
 
@@ -10460,7 +10460,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 273:                                              ; preds = %257, %262
   %274 = add nuw nsw i64 %258, 1
   %275 = icmp eq i64 %274, 15
-  br i1 %275, label %ieee80211_is_our_addr.exit, label %257, !llvm.loop !44
+  br i1 %275, label %ieee80211_is_our_addr.exit, label %257, !llvm.loop !42
 
 276:                                              ; preds = %204
   %277 = icmp eq ptr %195, null
@@ -10718,7 +10718,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 463:                                              ; preds = %447, %452
   %464 = add nuw nsw i64 %448, 1
   %465 = icmp eq i64 %464, 15
-  br i1 %465, label %ieee80211_is_our_addr.exit, label %447, !llvm.loop !44
+  br i1 %465, label %ieee80211_is_our_addr.exit, label %447, !llvm.loop !42
 
 466:                                              ; preds = %426
   %467 = load i16, ptr %195, align 2
@@ -10776,7 +10776,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 .thread29:                                        ; preds = %497, %492
   %506 = add nuw nsw i64 %493, 1
   %507 = icmp eq i64 %506, 15
-  br i1 %507, label %.loopexit44, label %492, !llvm.loop !44
+  br i1 %507, label %.loopexit44, label %492, !llvm.loop !42
 
 .loopexit44:                                      ; preds = %.thread29, %486
   br i1 %205, label %ieee80211_is_our_addr.exit.thread, label %508
@@ -10826,7 +10826,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_prepare_and_rx_handle(ptr n
 .thread3.i:                                       ; preds = %524, %.split.i
   %534 = add nuw nsw i64 %520, 1
   %535 = icmp eq i64 %534, 15
-  br i1 %535, label %ieee80211_is_our_addr.exit, label %.split.i, !llvm.loop !44
+  br i1 %535, label %ieee80211_is_our_addr.exit, label %.split.i, !llvm.loop !42
 
 ieee80211_is_our_addr.exit.thread:                ; preds = %.thread.i, %508, %.loopexit44
   %536 = load i32, ptr %190, align 8
@@ -10904,9 +10904,9 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   ]
 
 577:                                              ; preds = %204
-  tail call void asm sideeffect "3051: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3051b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3051) #18, !srcloc !179
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4513, i32 2307, i64 12) #18, !srcloc !180
-  tail call void asm sideeffect "3052: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3052b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3052) #18, !srcloc !181
+  tail call void asm sideeffect "3051: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3051b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3051) #18, !srcloc !175
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 4513, i32 2307, i64 12) #18, !srcloc !176
+  tail call void asm sideeffect "3052: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3052b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3052) #18, !srcloc !177
   br label %ieee80211_is_our_addr.exit
 
 578:                                              ; preds = %403, %232
@@ -11094,7 +11094,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
 705:                                              ; preds = %702, %686, %666, %623, %623, %618, %614, %609
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %706 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %706, align 8, !annotation !45
+  store i64 0, ptr %706, align 8, !annotation !43
   store ptr %5, ptr %5, align 8
   %707 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %707, align 8
@@ -11220,7 +11220,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
 
 790:                                              ; preds = %785
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !annotation !45
+  store i16 0, ptr %4, align 2, !annotation !43
   %791 = load i16, ptr %765, align 2
   %792 = call i32 @ieee80211_hdrlen(i16 noundef zeroext %791) #20
   %793 = getelementptr inbounds nuw i8, ptr %766, i64 112
@@ -11321,7 +11321,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
 849:                                              ; preds = %844
   %850 = load ptr, ptr %611, align 8
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 872
-  %852 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %851, i64 %838, ptr nonnull elementtype(i64) %851) #18, !srcloc !61
+  %852 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %851, i64 %838, ptr nonnull elementtype(i64) %851) #18, !srcloc !58
   %853 = icmp ult i8 %852, 2
   call void @llvm.assume(i1 %853)
   %854 = icmp eq i8 %852, 0
@@ -11340,7 +11340,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %862 = icmp ne i16 %861, 0
   %863 = icmp eq i8 %835, 32
   %864 = or i1 %862, %863
-  br i1 %864, label %1013, label %865, !prof !182
+  br i1 %864, label %1013, label %865, !prof !178
 
 865:                                              ; preds = %860
   %866 = getelementptr inbounds nuw i8, ptr %840, i64 152
@@ -11483,7 +11483,7 @@ ieee80211_is_our_addr.exit.thread._crit_edge:     ; preds = %ieee80211_is_our_ad
   %952 = sub nsw i32 %951, %942
   %953 = and i32 %952, 4095
   %954 = icmp samesign ugt i32 %953, 2048
-  br i1 %954, label %.preheader, label %.loopexit.loopexit, !llvm.loop !80
+  br i1 %954, label %.preheader, label %.loopexit.loopexit, !llvm.loop !77
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre71 = load i16, ptr %919, align 2
@@ -11928,144 +11928,140 @@ attributes #23 = { nounwind memory(none) }
 !39 = distinct !{!39, !37, !38}
 !40 = distinct !{!40, !37, !38}
 !41 = distinct !{!41, !37, !38}
-!42 = distinct !{!42, !37, !38, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !37, !38}
-!45 = !{!"auto-init"}
-!46 = !{i64 999776}
+!42 = distinct !{!42, !37, !38}
+!43 = !{!"auto-init"}
+!44 = !{i64 999776}
+!45 = distinct !{!45, !37, !38}
+!46 = distinct !{!46, !37, !38}
 !47 = distinct !{!47, !37, !38}
 !48 = distinct !{!48, !37, !38}
-!49 = distinct !{!49, !37, !38}
-!50 = distinct !{!50, !37, !38, !43}
-!51 = distinct !{!51, !37, !38}
-!52 = !{i64 2163363177}
-!53 = !{i64 2163366082}
-!54 = !{i64 2163372718}
-!55 = !{i64 2163372877}
-!56 = !{i64 2167705338, i64 2167705142, i64 2167705194, i64 2167705240, i64 2167705268}
-!57 = !{i64 2167705415, i64 2167705444, i64 2167705490, i64 2167705548, i64 2167705602, i64 2167705656, i64 2167705711, i64 2167705742, i64 2167706050, i64 2167706056, i64 2167706103, i64 2167706126, i64 2167706152}
-!58 = !{i64 2167710669, i64 2167710475, i64 2167710525, i64 2167710571, i64 2167710599}
-!59 = !{i32 0, i32 8388608}
+!49 = !{i64 2163363177}
+!50 = !{i64 2163366082}
+!51 = !{i64 2163372718}
+!52 = !{i64 2163372877}
+!53 = !{i64 2167705338, i64 2167705142, i64 2167705194, i64 2167705240, i64 2167705268}
+!54 = !{i64 2167705415, i64 2167705444, i64 2167705490, i64 2167705548, i64 2167705602, i64 2167705656, i64 2167705711, i64 2167705742, i64 2167706050, i64 2167706056, i64 2167706103, i64 2167706126, i64 2167706152}
+!55 = !{i64 2167710669, i64 2167710475, i64 2167710525, i64 2167710571, i64 2167710599}
+!56 = !{i32 0, i32 8388608}
+!57 = distinct !{!57, !37, !38}
+!58 = !{i64 2148496165, i64 2148496204, i64 2148496225, i64 2148496262, i64 2148496285, i64 2148496294, i64 2148496397}
+!59 = distinct !{!59, !37, !38}
 !60 = distinct !{!60, !37, !38}
-!61 = !{i64 2148496165, i64 2148496204, i64 2148496225, i64 2148496262, i64 2148496285, i64 2148496294, i64 2148496397}
+!61 = distinct !{!61, !37, !38}
 !62 = distinct !{!62, !37, !38}
-!63 = distinct !{!63, !37, !38}
-!64 = distinct !{!64, !37, !38}
-!65 = distinct !{!65, !37, !38}
-!66 = !{!"branch_weights", i32 2000, i32 2002}
-!67 = !{i32 0, i32 65550}
-!68 = !{!"branch_weights", i32 2000, i32 4002000, i32 1}
-!69 = !{!"branch_weights", i32 4001, i32 1}
-!70 = !{i32 0, i32 131073}
-!71 = distinct !{!71, !37, !38}
-!72 = !{i64 2167726322, i64 2167726126, i64 2167726178, i64 2167726224, i64 2167726252}
-!73 = !{i64 2167726399, i64 2167726428, i64 2167726474, i64 2167726532, i64 2167726586, i64 2167726640, i64 2167726695, i64 2167726726, i64 2167727034, i64 2167727040, i64 2167727087, i64 2167727110, i64 2167727136}
-!74 = !{i64 2167727592, i64 2167727398, i64 2167727448, i64 2167727494, i64 2167727522}
-!75 = !{i64 2167730680, i64 2167730484, i64 2167730536, i64 2167730582, i64 2167730610}
-!76 = !{i64 2167731246, i64 2167731050, i64 2167731102, i64 2167731148, i64 2167731176}
-!77 = !{i64 2167731323, i64 2167731352, i64 2167731398, i64 2167731456, i64 2167731510, i64 2167731564, i64 2167731619, i64 2167731650, i64 2167731958, i64 2167731964, i64 2167732011, i64 2167732034, i64 2167732060}
-!78 = !{i64 2167732516, i64 2167732322, i64 2167732372, i64 2167732418, i64 2167732446}
-!79 = !{i64 2167732830, i64 2167732636, i64 2167732686, i64 2167732732, i64 2167732760}
-!80 = distinct !{!80, !37, !38}
-!81 = distinct !{!81, !37, !38}
-!82 = !{i64 2148499067, i64 2148499106, i64 2148499127, i64 2148499164, i64 2148499187, i64 2148499196, i64 2148499299}
-!83 = !{i64 2167387049, i64 2167386853, i64 2167386905, i64 2167386951, i64 2167386979}
-!84 = !{i64 2167387615, i64 2167387419, i64 2167387471, i64 2167387517, i64 2167387545}
-!85 = !{i64 2167387692, i64 2167387721, i64 2167387767, i64 2167387825, i64 2167387879, i64 2167387933, i64 2167387988, i64 2167388019, i64 2167388327, i64 2167388333, i64 2167388380, i64 2167388403, i64 2167388429}
-!86 = !{i64 2167388893, i64 2167388699, i64 2167388749, i64 2167388795, i64 2167388823}
-!87 = !{i64 2167389207, i64 2167389013, i64 2167389063, i64 2167389109, i64 2167389137}
-!88 = !{i64 2165459430}
-!89 = !{i64 2165462354}
-!90 = !{i64 2165469429}
-!91 = !{i64 2165469588}
-!92 = !{i64 2167761162}
-!93 = distinct !{!93, !37, !38}
-!94 = !{i64 2149695818}
-!95 = !{i64 2167836165, i64 2167835969, i64 2167836021, i64 2167836067, i64 2167836095}
-!96 = !{i64 2167836242, i64 2167836271, i64 2167836317, i64 2167836375, i64 2167836429, i64 2167836483, i64 2167836538, i64 2167836569, i64 2167836877, i64 2167836883, i64 2167836930, i64 2167836953, i64 2167836979}
-!97 = !{i64 2167837435, i64 2167837241, i64 2167837291, i64 2167837337, i64 2167837365}
-!98 = !{i64 2167838280, i64 2167838084, i64 2167838136, i64 2167838182, i64 2167838210}
-!99 = !{i64 2167838357, i64 2167838386, i64 2167838432, i64 2167838490, i64 2167838544, i64 2167838598, i64 2167838653, i64 2167838684, i64 2167838992, i64 2167838998, i64 2167839045, i64 2167839068, i64 2167839094}
-!100 = !{i64 2167843611, i64 2167843417, i64 2167843467, i64 2167843513, i64 2167843541}
-!101 = !{i64 2167844429, i64 2167844233, i64 2167844285, i64 2167844331, i64 2167844359}
-!102 = !{i64 2167844506, i64 2167844535, i64 2167844581, i64 2167844639, i64 2167844693, i64 2167844747, i64 2167844802, i64 2167844833, i64 2167845141, i64 2167845147, i64 2167845194, i64 2167845217, i64 2167845243}
-!103 = !{i64 2167845699, i64 2167845505, i64 2167845555, i64 2167845601, i64 2167845629}
-!104 = !{i64 2167846636, i64 2167846440, i64 2167846492, i64 2167846538, i64 2167846566}
-!105 = !{i64 2167846713, i64 2167846742, i64 2167846788, i64 2167846846, i64 2167846900, i64 2167846954, i64 2167847009, i64 2167847040, i64 2167847348, i64 2167847354, i64 2167847401, i64 2167847424, i64 2167847450}
-!106 = !{i64 2167847906, i64 2167847712, i64 2167847762, i64 2167847808, i64 2167847836}
-!107 = !{i64 2167849058, i64 2167848862, i64 2167848914, i64 2167848960, i64 2167848988}
-!108 = !{i64 2167849624, i64 2167849428, i64 2167849480, i64 2167849526, i64 2167849554}
-!109 = !{i64 2167849701, i64 2167849730, i64 2167849776, i64 2167849834, i64 2167849888, i64 2167849942, i64 2167849997, i64 2167850028, i64 2167850336, i64 2167850342, i64 2167850389, i64 2167850412, i64 2167850438}
-!110 = !{i64 2167850894, i64 2167850700, i64 2167850750, i64 2167850796, i64 2167850824}
-!111 = !{i64 2167851208, i64 2167851014, i64 2167851064, i64 2167851110, i64 2167851138}
-!112 = !{i64 2167853243, i64 2167853047, i64 2167853099, i64 2167853145, i64 2167853173}
-!113 = !{i64 2167853809, i64 2167853613, i64 2167853665, i64 2167853711, i64 2167853739}
-!114 = !{i64 2167853886, i64 2167853915, i64 2167853961, i64 2167854019, i64 2167854073, i64 2167854127, i64 2167854182, i64 2167854213, i64 2167854521, i64 2167854527, i64 2167854574, i64 2167854597, i64 2167854623}
-!115 = !{i64 2167855079, i64 2167854885, i64 2167854935, i64 2167854981, i64 2167855009}
-!116 = !{i64 2167855393, i64 2167855199, i64 2167855249, i64 2167855295, i64 2167855323}
-!117 = !{i64 2167857469, i64 2167857273, i64 2167857325, i64 2167857371, i64 2167857399}
-!118 = !{i64 2167858035, i64 2167857839, i64 2167857891, i64 2167857937, i64 2167857965}
-!119 = !{i64 2167858112, i64 2167858141, i64 2167858187, i64 2167858245, i64 2167858299, i64 2167858353, i64 2167858408, i64 2167858439, i64 2167858747, i64 2167858753, i64 2167858800, i64 2167858823, i64 2167858849}
-!120 = !{i64 2167859305, i64 2167859111, i64 2167859161, i64 2167859207, i64 2167859235}
-!121 = !{i64 2167859619, i64 2167859425, i64 2167859475, i64 2167859521, i64 2167859549}
-!122 = !{i64 2167861901, i64 2167861705, i64 2167861757, i64 2167861803, i64 2167861831}
-!123 = !{i64 2167862467, i64 2167862271, i64 2167862323, i64 2167862369, i64 2167862397}
-!124 = !{i64 2167862544, i64 2167862573, i64 2167862619, i64 2167862677, i64 2167862731, i64 2167862785, i64 2167862840, i64 2167862871, i64 2167863179, i64 2167863185, i64 2167863232, i64 2167863255, i64 2167863281}
-!125 = !{i64 2167863737, i64 2167863543, i64 2167863593, i64 2167863639, i64 2167863667}
-!126 = !{i64 2167864051, i64 2167863857, i64 2167863907, i64 2167863953, i64 2167863981}
-!127 = !{i64 2167864933, i64 2167864737, i64 2167864789, i64 2167864835, i64 2167864863}
-!128 = !{i64 2167865010, i64 2167865039, i64 2167865085, i64 2167865143, i64 2167865197, i64 2167865251, i64 2167865306, i64 2167865337, i64 2167865645, i64 2167865651, i64 2167865698, i64 2167865721, i64 2167865747}
-!129 = !{i64 2167866203, i64 2167866009, i64 2167866059, i64 2167866105, i64 2167866133}
-!130 = !{i64 2167867085, i64 2167866889, i64 2167866941, i64 2167866987, i64 2167867015}
-!131 = !{i64 2167867162, i64 2167867191, i64 2167867237, i64 2167867295, i64 2167867349, i64 2167867403, i64 2167867458, i64 2167867489, i64 2167867797, i64 2167867803, i64 2167867850, i64 2167867873, i64 2167867899}
-!132 = !{i64 2167868355, i64 2167868161, i64 2167868211, i64 2167868257, i64 2167868285}
-!133 = !{i64 2167869221, i64 2167869025, i64 2167869077, i64 2167869123, i64 2167869151}
-!134 = !{i64 2167869298, i64 2167869327, i64 2167869373, i64 2167869431, i64 2167869485, i64 2167869539, i64 2167869594, i64 2167869625, i64 2167869933, i64 2167869939, i64 2167869986, i64 2167870009, i64 2167870035}
-!135 = !{i64 2167870491, i64 2167870297, i64 2167870347, i64 2167870393, i64 2167870421}
-!136 = !{i64 2167513027, i64 2167512831, i64 2167512883, i64 2167512929, i64 2167512957}
-!137 = !{i64 2167513104, i64 2167513133, i64 2167513179, i64 2167513237, i64 2167513291, i64 2167513345, i64 2167513400, i64 2167513431, i64 2167513739, i64 2167513745, i64 2167513792, i64 2167513815, i64 2167513841}
-!138 = !{i64 2167514296, i64 2167514102, i64 2167514152, i64 2167514198, i64 2167514226}
-!139 = !{i64 2167515304, i64 2167515108, i64 2167515160, i64 2167515206, i64 2167515234}
-!140 = !{i64 2167515381, i64 2167515410, i64 2167515456, i64 2167515514, i64 2167515568, i64 2167515622, i64 2167515677, i64 2167515708, i64 2167516016, i64 2167516022, i64 2167516069, i64 2167516092, i64 2167516118}
-!141 = !{i64 2167516573, i64 2167516379, i64 2167516429, i64 2167516475, i64 2167516503}
-!142 = !{i64 2156464853}
-!143 = !{i64 2155631035}
-!144 = !{i64 2155630325}
-!145 = !{!"branch_weights", i32 -294967296, i32 2002000, i32 2001000, i32 2000000}
-!146 = distinct !{!146, !37, !38, !43}
+!63 = !{!"branch_weights", i32 2000, i32 2002}
+!64 = !{i32 0, i32 65550}
+!65 = !{!"branch_weights", i32 2000, i32 4002000, i32 1}
+!66 = !{!"branch_weights", i32 4001, i32 1}
+!67 = !{i32 0, i32 131073}
+!68 = distinct !{!68, !37, !38}
+!69 = !{i64 2167726322, i64 2167726126, i64 2167726178, i64 2167726224, i64 2167726252}
+!70 = !{i64 2167726399, i64 2167726428, i64 2167726474, i64 2167726532, i64 2167726586, i64 2167726640, i64 2167726695, i64 2167726726, i64 2167727034, i64 2167727040, i64 2167727087, i64 2167727110, i64 2167727136}
+!71 = !{i64 2167727592, i64 2167727398, i64 2167727448, i64 2167727494, i64 2167727522}
+!72 = !{i64 2167730680, i64 2167730484, i64 2167730536, i64 2167730582, i64 2167730610}
+!73 = !{i64 2167731246, i64 2167731050, i64 2167731102, i64 2167731148, i64 2167731176}
+!74 = !{i64 2167731323, i64 2167731352, i64 2167731398, i64 2167731456, i64 2167731510, i64 2167731564, i64 2167731619, i64 2167731650, i64 2167731958, i64 2167731964, i64 2167732011, i64 2167732034, i64 2167732060}
+!75 = !{i64 2167732516, i64 2167732322, i64 2167732372, i64 2167732418, i64 2167732446}
+!76 = !{i64 2167732830, i64 2167732636, i64 2167732686, i64 2167732732, i64 2167732760}
+!77 = distinct !{!77, !37, !38}
+!78 = distinct !{!78, !37, !38}
+!79 = !{i64 2148499067, i64 2148499106, i64 2148499127, i64 2148499164, i64 2148499187, i64 2148499196, i64 2148499299}
+!80 = !{i64 2167387049, i64 2167386853, i64 2167386905, i64 2167386951, i64 2167386979}
+!81 = !{i64 2167387615, i64 2167387419, i64 2167387471, i64 2167387517, i64 2167387545}
+!82 = !{i64 2167387692, i64 2167387721, i64 2167387767, i64 2167387825, i64 2167387879, i64 2167387933, i64 2167387988, i64 2167388019, i64 2167388327, i64 2167388333, i64 2167388380, i64 2167388403, i64 2167388429}
+!83 = !{i64 2167388893, i64 2167388699, i64 2167388749, i64 2167388795, i64 2167388823}
+!84 = !{i64 2167389207, i64 2167389013, i64 2167389063, i64 2167389109, i64 2167389137}
+!85 = !{i64 2165459430}
+!86 = !{i64 2165462354}
+!87 = !{i64 2165469429}
+!88 = !{i64 2165469588}
+!89 = !{i64 2167761162}
+!90 = distinct !{!90, !37, !38}
+!91 = !{i64 2149695818}
+!92 = !{i64 2167836165, i64 2167835969, i64 2167836021, i64 2167836067, i64 2167836095}
+!93 = !{i64 2167836242, i64 2167836271, i64 2167836317, i64 2167836375, i64 2167836429, i64 2167836483, i64 2167836538, i64 2167836569, i64 2167836877, i64 2167836883, i64 2167836930, i64 2167836953, i64 2167836979}
+!94 = !{i64 2167837435, i64 2167837241, i64 2167837291, i64 2167837337, i64 2167837365}
+!95 = !{i64 2167838280, i64 2167838084, i64 2167838136, i64 2167838182, i64 2167838210}
+!96 = !{i64 2167838357, i64 2167838386, i64 2167838432, i64 2167838490, i64 2167838544, i64 2167838598, i64 2167838653, i64 2167838684, i64 2167838992, i64 2167838998, i64 2167839045, i64 2167839068, i64 2167839094}
+!97 = !{i64 2167843611, i64 2167843417, i64 2167843467, i64 2167843513, i64 2167843541}
+!98 = !{i64 2167844429, i64 2167844233, i64 2167844285, i64 2167844331, i64 2167844359}
+!99 = !{i64 2167844506, i64 2167844535, i64 2167844581, i64 2167844639, i64 2167844693, i64 2167844747, i64 2167844802, i64 2167844833, i64 2167845141, i64 2167845147, i64 2167845194, i64 2167845217, i64 2167845243}
+!100 = !{i64 2167845699, i64 2167845505, i64 2167845555, i64 2167845601, i64 2167845629}
+!101 = !{i64 2167846636, i64 2167846440, i64 2167846492, i64 2167846538, i64 2167846566}
+!102 = !{i64 2167846713, i64 2167846742, i64 2167846788, i64 2167846846, i64 2167846900, i64 2167846954, i64 2167847009, i64 2167847040, i64 2167847348, i64 2167847354, i64 2167847401, i64 2167847424, i64 2167847450}
+!103 = !{i64 2167847906, i64 2167847712, i64 2167847762, i64 2167847808, i64 2167847836}
+!104 = !{i64 2167849058, i64 2167848862, i64 2167848914, i64 2167848960, i64 2167848988}
+!105 = !{i64 2167849624, i64 2167849428, i64 2167849480, i64 2167849526, i64 2167849554}
+!106 = !{i64 2167849701, i64 2167849730, i64 2167849776, i64 2167849834, i64 2167849888, i64 2167849942, i64 2167849997, i64 2167850028, i64 2167850336, i64 2167850342, i64 2167850389, i64 2167850412, i64 2167850438}
+!107 = !{i64 2167850894, i64 2167850700, i64 2167850750, i64 2167850796, i64 2167850824}
+!108 = !{i64 2167851208, i64 2167851014, i64 2167851064, i64 2167851110, i64 2167851138}
+!109 = !{i64 2167853243, i64 2167853047, i64 2167853099, i64 2167853145, i64 2167853173}
+!110 = !{i64 2167853809, i64 2167853613, i64 2167853665, i64 2167853711, i64 2167853739}
+!111 = !{i64 2167853886, i64 2167853915, i64 2167853961, i64 2167854019, i64 2167854073, i64 2167854127, i64 2167854182, i64 2167854213, i64 2167854521, i64 2167854527, i64 2167854574, i64 2167854597, i64 2167854623}
+!112 = !{i64 2167855079, i64 2167854885, i64 2167854935, i64 2167854981, i64 2167855009}
+!113 = !{i64 2167855393, i64 2167855199, i64 2167855249, i64 2167855295, i64 2167855323}
+!114 = !{i64 2167857469, i64 2167857273, i64 2167857325, i64 2167857371, i64 2167857399}
+!115 = !{i64 2167858035, i64 2167857839, i64 2167857891, i64 2167857937, i64 2167857965}
+!116 = !{i64 2167858112, i64 2167858141, i64 2167858187, i64 2167858245, i64 2167858299, i64 2167858353, i64 2167858408, i64 2167858439, i64 2167858747, i64 2167858753, i64 2167858800, i64 2167858823, i64 2167858849}
+!117 = !{i64 2167859305, i64 2167859111, i64 2167859161, i64 2167859207, i64 2167859235}
+!118 = !{i64 2167859619, i64 2167859425, i64 2167859475, i64 2167859521, i64 2167859549}
+!119 = !{i64 2167861901, i64 2167861705, i64 2167861757, i64 2167861803, i64 2167861831}
+!120 = !{i64 2167862467, i64 2167862271, i64 2167862323, i64 2167862369, i64 2167862397}
+!121 = !{i64 2167862544, i64 2167862573, i64 2167862619, i64 2167862677, i64 2167862731, i64 2167862785, i64 2167862840, i64 2167862871, i64 2167863179, i64 2167863185, i64 2167863232, i64 2167863255, i64 2167863281}
+!122 = !{i64 2167863737, i64 2167863543, i64 2167863593, i64 2167863639, i64 2167863667}
+!123 = !{i64 2167864051, i64 2167863857, i64 2167863907, i64 2167863953, i64 2167863981}
+!124 = !{i64 2167864933, i64 2167864737, i64 2167864789, i64 2167864835, i64 2167864863}
+!125 = !{i64 2167865010, i64 2167865039, i64 2167865085, i64 2167865143, i64 2167865197, i64 2167865251, i64 2167865306, i64 2167865337, i64 2167865645, i64 2167865651, i64 2167865698, i64 2167865721, i64 2167865747}
+!126 = !{i64 2167866203, i64 2167866009, i64 2167866059, i64 2167866105, i64 2167866133}
+!127 = !{i64 2167867085, i64 2167866889, i64 2167866941, i64 2167866987, i64 2167867015}
+!128 = !{i64 2167867162, i64 2167867191, i64 2167867237, i64 2167867295, i64 2167867349, i64 2167867403, i64 2167867458, i64 2167867489, i64 2167867797, i64 2167867803, i64 2167867850, i64 2167867873, i64 2167867899}
+!129 = !{i64 2167868355, i64 2167868161, i64 2167868211, i64 2167868257, i64 2167868285}
+!130 = !{i64 2167869221, i64 2167869025, i64 2167869077, i64 2167869123, i64 2167869151}
+!131 = !{i64 2167869298, i64 2167869327, i64 2167869373, i64 2167869431, i64 2167869485, i64 2167869539, i64 2167869594, i64 2167869625, i64 2167869933, i64 2167869939, i64 2167869986, i64 2167870009, i64 2167870035}
+!132 = !{i64 2167870491, i64 2167870297, i64 2167870347, i64 2167870393, i64 2167870421}
+!133 = !{i64 2167513027, i64 2167512831, i64 2167512883, i64 2167512929, i64 2167512957}
+!134 = !{i64 2167513104, i64 2167513133, i64 2167513179, i64 2167513237, i64 2167513291, i64 2167513345, i64 2167513400, i64 2167513431, i64 2167513739, i64 2167513745, i64 2167513792, i64 2167513815, i64 2167513841}
+!135 = !{i64 2167514296, i64 2167514102, i64 2167514152, i64 2167514198, i64 2167514226}
+!136 = !{i64 2167515304, i64 2167515108, i64 2167515160, i64 2167515206, i64 2167515234}
+!137 = !{i64 2167515381, i64 2167515410, i64 2167515456, i64 2167515514, i64 2167515568, i64 2167515622, i64 2167515677, i64 2167515708, i64 2167516016, i64 2167516022, i64 2167516069, i64 2167516092, i64 2167516118}
+!138 = !{i64 2167516573, i64 2167516379, i64 2167516429, i64 2167516475, i64 2167516503}
+!139 = !{i64 2156464853}
+!140 = !{i64 2155631035}
+!141 = !{i64 2155630325}
+!142 = !{!"branch_weights", i32 -294967296, i32 2002000, i32 2001000, i32 2000000}
+!143 = distinct !{!143, !37, !38}
+!144 = distinct !{!144, !37, !38}
+!145 = distinct !{!145, !37, !38}
+!146 = distinct !{!146, !37, !38}
 !147 = distinct !{!147, !37, !38}
-!148 = distinct !{!148, !37, !38}
-!149 = distinct !{!149, !37, !38}
-!150 = distinct !{!150, !37, !38}
+!148 = !{i64 2159643090, i64 2159642899, i64 2159642951, i64 2159642997, i64 2159643025}
+!149 = !{i64 2159643164, i64 2159643193, i64 2159643239, i64 2159643297, i64 2159643351, i64 2159643405, i64 2159643460, i64 2159643491, i64 2159643799, i64 2159643805, i64 2159643852, i64 2159643875, i64 2159643901}
+!150 = !{i64 2159644358, i64 2159644169, i64 2159644219, i64 2159644265, i64 2159644293}
 !151 = distinct !{!151, !37, !38}
-!152 = !{i64 2159643090, i64 2159642899, i64 2159642951, i64 2159642997, i64 2159643025}
-!153 = !{i64 2159643164, i64 2159643193, i64 2159643239, i64 2159643297, i64 2159643351, i64 2159643405, i64 2159643460, i64 2159643491, i64 2159643799, i64 2159643805, i64 2159643852, i64 2159643875, i64 2159643901}
-!154 = !{i64 2159644358, i64 2159644169, i64 2159644219, i64 2159644265, i64 2159644293}
-!155 = distinct !{!155, !37, !38}
-!156 = distinct !{!156, !37, !38}
-!157 = distinct !{!157, !37, !38}
-!158 = !{i64 2148507899, i64 2148507927, i64 2148507933, i64 2148507949, i64 2148507965, i64 2148507992, i64 2148508325, i64 2148507625, i64 2148508331, i64 2148508379, i64 2148508443, i64 2148508507, i64 2148508564, i64 2148507706, i64 2148507731, i64 2148508771, i64 2148508901, i64 2148508832, i64 2148508915, i64 2148507823}
-!159 = !{i64 2167446286, i64 2167446090, i64 2167446142, i64 2167446188, i64 2167446216}
-!160 = !{i64 2167446363, i64 2167446392, i64 2167446438, i64 2167446496, i64 2167446550, i64 2167446604, i64 2167446659, i64 2167446690, i64 2167446998, i64 2167447004, i64 2167447051, i64 2167447074, i64 2167447100}
-!161 = !{i64 2167447555, i64 2167447361, i64 2167447411, i64 2167447457, i64 2167447485}
-!162 = !{i64 998172}
-!163 = !{!"branch_weights", i32 1, i32 1999}
-!164 = distinct !{!164, !37, !38}
-!165 = !{i64 2167496553, i64 2167496357, i64 2167496409, i64 2167496455, i64 2167496483}
-!166 = !{i64 2167497119, i64 2167496923, i64 2167496975, i64 2167497021, i64 2167497049}
-!167 = !{i64 2167497196, i64 2167497225, i64 2167497271, i64 2167497329, i64 2167497383, i64 2167497437, i64 2167497492, i64 2167497523, i64 2167497831, i64 2167497837, i64 2167497884, i64 2167497907, i64 2167497933}
-!168 = !{i64 2167498388, i64 2167498194, i64 2167498244, i64 2167498290, i64 2167498318}
-!169 = !{i64 2167498702, i64 2167498508, i64 2167498558, i64 2167498604, i64 2167498632}
-!170 = distinct !{!170, !37, !38}
-!171 = !{!"branch_weights", i32 1, i32 4001}
-!172 = !{i64 2167778898, i64 2167778702, i64 2167778754, i64 2167778800, i64 2167778828}
-!173 = !{i64 2167778975, i64 2167779004, i64 2167779050, i64 2167779108, i64 2167779162, i64 2167779216, i64 2167779271, i64 2167779302, i64 2167779610, i64 2167779616, i64 2167779663, i64 2167779686, i64 2167779712}
-!174 = !{i64 2167780168, i64 2167779974, i64 2167780024, i64 2167780070, i64 2167780098}
-!175 = !{i64 2167780668}
-!176 = distinct !{!176, !37, !38}
-!177 = !{!"branch_weights", i32 2000, i32 6004}
-!178 = !{i64 2167782844}
-!179 = !{i64 2167741067, i64 2167740871, i64 2167740923, i64 2167740969, i64 2167740997}
-!180 = !{i64 2167741144, i64 2167741173, i64 2167741219, i64 2167741277, i64 2167741331, i64 2167741385, i64 2167741440, i64 2167741471, i64 2167741779, i64 2167741785, i64 2167741832, i64 2167741855, i64 2167741881}
-!181 = !{i64 2167742337, i64 2167742143, i64 2167742193, i64 2167742239, i64 2167742267}
-!182 = !{!"branch_weights", i32 2002, i32 2000}
+!152 = distinct !{!152, !37, !38}
+!153 = distinct !{!153, !37, !38}
+!154 = !{i64 2148507899, i64 2148507927, i64 2148507933, i64 2148507949, i64 2148507965, i64 2148507992, i64 2148508325, i64 2148507625, i64 2148508331, i64 2148508379, i64 2148508443, i64 2148508507, i64 2148508564, i64 2148507706, i64 2148507731, i64 2148508771, i64 2148508901, i64 2148508832, i64 2148508915, i64 2148507823}
+!155 = !{i64 2167446286, i64 2167446090, i64 2167446142, i64 2167446188, i64 2167446216}
+!156 = !{i64 2167446363, i64 2167446392, i64 2167446438, i64 2167446496, i64 2167446550, i64 2167446604, i64 2167446659, i64 2167446690, i64 2167446998, i64 2167447004, i64 2167447051, i64 2167447074, i64 2167447100}
+!157 = !{i64 2167447555, i64 2167447361, i64 2167447411, i64 2167447457, i64 2167447485}
+!158 = !{i64 998172}
+!159 = !{!"branch_weights", i32 1, i32 1999}
+!160 = distinct !{!160, !37, !38}
+!161 = !{i64 2167496553, i64 2167496357, i64 2167496409, i64 2167496455, i64 2167496483}
+!162 = !{i64 2167497119, i64 2167496923, i64 2167496975, i64 2167497021, i64 2167497049}
+!163 = !{i64 2167497196, i64 2167497225, i64 2167497271, i64 2167497329, i64 2167497383, i64 2167497437, i64 2167497492, i64 2167497523, i64 2167497831, i64 2167497837, i64 2167497884, i64 2167497907, i64 2167497933}
+!164 = !{i64 2167498388, i64 2167498194, i64 2167498244, i64 2167498290, i64 2167498318}
+!165 = !{i64 2167498702, i64 2167498508, i64 2167498558, i64 2167498604, i64 2167498632}
+!166 = distinct !{!166, !37, !38}
+!167 = !{!"branch_weights", i32 1, i32 4001}
+!168 = !{i64 2167778898, i64 2167778702, i64 2167778754, i64 2167778800, i64 2167778828}
+!169 = !{i64 2167778975, i64 2167779004, i64 2167779050, i64 2167779108, i64 2167779162, i64 2167779216, i64 2167779271, i64 2167779302, i64 2167779610, i64 2167779616, i64 2167779663, i64 2167779686, i64 2167779712}
+!170 = !{i64 2167780168, i64 2167779974, i64 2167780024, i64 2167780070, i64 2167780098}
+!171 = !{i64 2167780668}
+!172 = distinct !{!172, !37, !38}
+!173 = !{!"branch_weights", i32 2000, i32 6004}
+!174 = !{i64 2167782844}
+!175 = !{i64 2167741067, i64 2167740871, i64 2167740923, i64 2167740969, i64 2167740997}
+!176 = !{i64 2167741144, i64 2167741173, i64 2167741219, i64 2167741277, i64 2167741331, i64 2167741385, i64 2167741440, i64 2167741471, i64 2167741779, i64 2167741785, i64 2167741832, i64 2167741855, i64 2167741881}
+!177 = !{i64 2167742337, i64 2167742143, i64 2167742193, i64 2167742239, i64 2167742267}
+!178 = !{!"branch_weights", i32 2002, i32 2000}

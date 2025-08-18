@@ -1260,7 +1260,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   store double %28, ptr %.06.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %.not.i.i8 = icmp eq ptr %29, %13
-  br i1 %.not.i.i8, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7, !llvm.loop !15
+  br i1 %.not.i.i8, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7, !llvm.loop !13
 
 "_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit": ; preds = %.lr.ph.i.i7, %.lr.ph.i.i7.us
   ret void
@@ -1469,7 +1469,7 @@ define noundef zeroext i1 @_ZN10open_spiel21StrContainsIgnoreCaseERKNSt7__cxx111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %16 = icmp ugt i64 %15, %indvars.iv.next
-  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !16
+  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !14
 
 17:                                               ; preds = %2
   %18 = landingpad { ptr, i32 }
@@ -1509,7 +1509,7 @@ define noundef zeroext i1 @_ZN10open_spiel21StrContainsIgnoreCaseERKNSt7__cxx111
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %29 = icmp ugt i64 %28, %indvars.iv.next24
-  br i1 %29, label %.lr.ph20, label %._crit_edge, !llvm.loop !17
+  br i1 %29, label %.lr.ph20, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0) #21
@@ -1570,7 +1570,7 @@ _ZNK4absl7debian24SpanIKdEixEm.exit:              ; preds = %_ZNKSt8functionIFdv
 19:                                               ; preds = %_ZNK4absl7debian24SpanIKdEixEm.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK4absl7debian24SpanIKdEixEm.exit, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK4absl7debian24SpanIKdEixEm.exit, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %19, %_ZNKSt8functionIFdvEEclEv.exit
   %20 = and i64 %2, 4294967295
@@ -1596,7 +1596,7 @@ _ZNK4absl7debian24SpanIKdEixEm.exit22:            ; preds = %23
   %27 = getelementptr inbounds nuw double, ptr %1, i64 %24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %28, 0.000000e+00
-  br i1 %29, label %.loopexit, label %21, !llvm.loop !19
+  br i1 %29, label %.loopexit, label %21, !llvm.loop !17
 
 30:                                               ; preds = %21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
@@ -1856,10 +1856,8 @@ attributes #26 = { noreturn nounwind }
 !10 = distinct !{!10, !"_ZN4absl7debian29StrFormatIJdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}

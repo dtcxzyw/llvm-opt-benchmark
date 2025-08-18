@@ -42,7 +42,7 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
   %13 = tail call i64 @read(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %14 = trunc i64 %13 to i32
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %10, label %.split.us, !llvm.loop !7
+  br i1 %15, label %10, label %.split.us
 
 .split.us:                                        ; preds = %12, %.lr.ph.split.us
   %.us-phi = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
@@ -55,7 +55,7 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
   %17 = and i64 %.us-phi, 2147483647
   %18 = getelementptr inbounds nuw i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
-  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !9
+  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.outer, %.split.us, %10, %3
   %.012 = phi i32 [ 0, %3 ], [ -26, %10 ], [ 0, %.outer ], [ -24, %.split.us ]
@@ -97,7 +97,7 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
   %13 = tail call i64 @write(i32 noundef %0, ptr noundef %.0.ph26, i64 noundef %5) #10
   %14 = trunc i64 %13 to i32
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %10, label %.split.us, !llvm.loop !11
+  br i1 %15, label %10, label %.split.us
 
 .split.us:                                        ; preds = %12, %.lr.ph.split.us
   %.us-phi = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
@@ -110,7 +110,7 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
   %17 = and i64 %.us-phi, 2147483647
   %18 = getelementptr inbounds nuw i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
-  br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !12
+  br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !9
 
 .thread:                                          ; preds = %.split.us, %.outer, %10, %3
   %.011 = phi i32 [ 0, %3 ], [ -26, %10 ], [ 0, %.outer ], [ -26, %.split.us ]
@@ -205,7 +205,7 @@ define ptr @pmix_fd_get_peer_name(i32 noundef %0) local_unnamed_addr #3 {
   br label %13
 
 6:                                                ; preds = %1
-  %7 = load i16, ptr %2, align 2, !tbaa !13
+  %7 = load i16, ptr %2, align 2, !tbaa !10
   %8 = icmp eq i16 %7, 2
   br i1 %8, label %9, label %12
 
@@ -260,12 +260,12 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi ptr [ %7, %.lr.ph ], [ %19, %.backedge ]
-  %12 = load ptr, ptr %8, align 8, !tbaa !16
+  %12 = load ptr, ptr %8, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 19
-  %14 = load i8, ptr %13, align 1, !tbaa !19
+  %14 = load i8, ptr %13, align 1, !tbaa !16
   %15 = sext i8 %14 to i64
   %16 = getelementptr inbounds i16, ptr %12, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !20
+  %17 = load i16, ptr %16, align 2, !tbaa !17
   %18 = and i16 %17, 2048
   %.not27 = icmp eq i16 %18, 0
   br i1 %.not27, label %.backedge, label %20
@@ -273,7 +273,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 .backedge:                                        ; preds = %28, %29, %26, %10
   %19 = tail call ptr @readdir(ptr noundef nonnull %2) #10
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !18
 
 20:                                               ; preds = %10
   %21 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #10
@@ -351,7 +351,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
   %51 = phi i32 [ %47, %.lr.ph40 ], [ %.pre, %48 ]
   %52 = add nuw nsw i32 %.038, 1
   %53 = icmp slt i32 %52, %51
-  br i1 %53, label %.lr.ph40, label %.loopexit, !llvm.loop !22
+  br i1 %53, label %.lr.ph40, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %50, %44, %._crit_edge
   ret void
@@ -408,18 +408,15 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !10}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"sockaddr", !15, i64 0, !5, i64 2}
-!15 = !{!"short", !5, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 short", !18, i64 0}
-!18 = !{!"any pointer", !5, i64 0}
-!19 = !{!5, !5, i64 0}
-!20 = !{!15, !15, i64 0}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"sockaddr", !12, i64 0, !5, i64 2}
+!12 = !{!"short", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 short", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!5, !5, i64 0}
+!17 = !{!12, !12, i64 0}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}

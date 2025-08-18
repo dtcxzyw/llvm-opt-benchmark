@@ -1899,7 +1899,7 @@ define internal void @vgacon_invert_region(ptr readnone captures(none) %0, ptr n
   %27 = getelementptr i8, ptr %20, i64 2
   store i16 %26, ptr %20, align 2
   %28 = icmp eq i32 %21, 0
-  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !21
+  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %3
   ret void
@@ -2315,7 +2315,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %20 = tail call i32 @__SCT__cond_resched() #13
   %21 = add nuw nsw i64 %16, 1
   %22 = icmp eq i64 %21, 8192
-  br i1 %22, label %.loopexit8.thread, label %.preheader9, !llvm.loop !22
+  br i1 %22, label %.loopexit8.thread, label %.preheader9, !llvm.loop !20
 
 .preheader7:                                      ; preds = %14, %.preheader7
   %23 = phi i64 [ %28, %.preheader7 ], [ 0, %14 ]
@@ -2326,7 +2326,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %27 = tail call i32 @__SCT__cond_resched() #13
   %28 = add nuw nsw i64 %23, 1
   %29 = icmp eq i64 %28, 8192
-  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !23
+  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !21
 
 .loopexit8:                                       ; preds = %.preheader7
   br i1 %2, label %32, label %.loopexit4
@@ -2353,7 +2353,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %39 = tail call i32 @__SCT__cond_resched() #13
   %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq i64 %40, 8192
-  br i1 %41, label %.loopexit4, label %.preheader5, !llvm.loop !24
+  br i1 %41, label %.loopexit4, label %.preheader5, !llvm.loop !22
 
 .preheader:                                       ; preds = %32, %.preheader
   %42 = phi i64 [ %47, %.preheader ], [ 0, %32 ]
@@ -2364,7 +2364,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %46 = tail call i32 @__SCT__cond_resched() #13
   %47 = add nuw nsw i64 %42, 1
   %48 = icmp eq i64 %47, 8192
-  br i1 %48, label %.loopexit4, label %.preheader, !llvm.loop !25
+  br i1 %48, label %.loopexit4, label %.preheader, !llvm.loop !23
 
 .loopexit4:                                       ; preds = %.preheader5, %.preheader, %.loopexit8.thread, %.loopexit8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @vga_lock) #13
@@ -2461,7 +2461,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
 95:                                               ; preds = %93, %89, %84
   %96 = add nuw nsw i64 %85, 1
   %97 = icmp eq i64 %96, 63
-  br i1 %97, label %.loopexit, label %84, !llvm.loop !26
+  br i1 %97, label %.loopexit, label %84, !llvm.loop !24
 
 .loopexit:                                        ; preds = %95, %83, %3
   %98 = phi i32 [ -22, %3 ], [ 0, %83 ], [ 0, %95 ]
@@ -2590,7 +2590,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
 79:                                               ; preds = %75, %65, %60
   %80 = add nuw nsw i64 %61, 1
   %81 = icmp eq i64 %80, 63
-  br i1 %81, label %82, label %60, !llvm.loop !27
+  br i1 %81, label %82, label %60, !llvm.loop !25
 
 82:                                               ; preds = %79
   ret void
@@ -2648,12 +2648,10 @@ attributes #13 = { nounwind }
 !16 = !{i64 934382, i64 934388}
 !17 = distinct !{!17, !10, !11}
 !18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
 !21 = distinct !{!21, !10, !11}
 !22 = distinct !{!22, !10, !11}
 !23 = distinct !{!23, !10, !11}
 !24 = distinct !{!24, !10, !11}
 !25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}

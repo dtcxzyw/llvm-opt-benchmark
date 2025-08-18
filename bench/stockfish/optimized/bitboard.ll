@@ -498,7 +498,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread100.us: ; preds 
   store i64 %167, ptr %166, align 8
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 64
-  br i1 %exitcond169.not, label %.split134.us, label %.split.us135, !llvm.loop !21
+  br i1 %exitcond169.not, label %.split134.us, label %.split.us135, !llvm.loop !19
 
 .split.us141:                                     ; preds = %90, %229
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %229 ], [ 0, %90 ]
@@ -582,7 +582,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit.thread103.us: ; preds 
   store i64 %232, ptr %231, align 8
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 64
-  br i1 %exitcond165.not, label %.split134.us, label %.split.us141, !llvm.loop !22
+  br i1 %exitcond165.not, label %.split134.us, label %.split.us141, !llvm.loop !19
 
 .split:                                           ; preds = %90, %241
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %241 ], [ 0, %90 ]
@@ -613,7 +613,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40: ; preds = %.split
   store i64 %244, ptr %243, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 64
-  br i1 %exitcond177.not, label %.split134.us, label %.split, !llvm.loop !23
+  br i1 %exitcond177.not, label %.split134.us, label %.split, !llvm.loop !19
 
 .split134.us:                                     ; preds = %229, %164, %128, %241
   %.029.add = add nuw nsw i64 %.029.idx147, 4
@@ -623,7 +623,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit40: ; preds = %.split
 245:                                              ; preds = %.split134.us
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next179, 64
-  br i1 %exitcond181.not, label %246, label %23, !llvm.loop !24
+  br i1 %exitcond181.not, label %246, label %23, !llvm.loop !20
 
 246:                                              ; preds = %245
   ret void
@@ -677,7 +677,7 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i: ; preds = %.l
   %21 = or i64 %.119.i, %20
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %13
   %22 = icmp ult i64 %indvars.iv.next.i, 64
-  br i1 %22, label %.lr.ph.i, label %.critedge.i, !llvm.loop !25
+  br i1 %22, label %.lr.ph.i, label %.critedge.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, %.lr.ph.i, %9
   %.1.lcssa.i = phi i64 [ %.01724.i, %9 ], [ %21, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ], [ %.119.i, %.lr.ph.i ]
@@ -783,7 +783,7 @@ _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68: ; preds = %
   %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i65, %67
   %80 = icmp ult i64 %indvars.iv.next.i69, 64
   %81 = trunc nuw nsw i64 %indvars.iv.i65 to i32
-  br i1 %80, label %.lr.ph.i64, label %.critedge.i59, !llvm.loop !25
+  br i1 %80, label %.lr.ph.i64, label %.critedge.i59, !llvm.loop !21
 
 .critedge.i59:                                    ; preds = %77, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68, %.lr.ph.i64, %63
   %.1.lcssa.i60 = phi i64 [ %.01724.i57, %63 ], [ %.119.i67, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i68 ], [ %79, %77 ], [ %.119.i67, %.lr.ph.i64 ]
@@ -799,7 +799,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %84 = and i64 %83, %31
   %.not = icmp eq i64 %84, 0
   %indvars.iv.next100 = add nuw i32 %indvars.iv99, 1
-  br i1 %.not, label %85, label %61, !llvm.loop !26
+  br i1 %.not, label %85, label %61, !llvm.loop !22
 
 85:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70
   %86 = trunc nuw nsw i64 %indvars.iv to i32
@@ -861,7 +861,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %126 = add nuw nsw i32 %reass.add, %123
   %127 = add nuw nsw i32 %126, %125
   %128 = icmp samesign ult i32 %127, 6
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %93
   %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.089, %93 ], [ %116, %.lr.ph ]
@@ -906,7 +906,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 154:                                              ; preds = %143, %148
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit108, label %130, !llvm.loop !28
+  br i1 %exitcond.not, label %.split.loop.exit108, label %130, !llvm.loop !24
 
 .split.loop.exit:                                 ; preds = %148
   %155 = trunc nuw nsw i64 %indvars.iv97 to i32
@@ -915,12 +915,12 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 .split.loop.exit108:                              ; preds = %154, %.split.loop.exit
   %.1.lcssa = phi i32 [ %155, %.split.loop.exit ], [ %indvars.iv99, %154 ]
   %.not51 = icmp samesign ugt i32 %.1.lcssa, %86
-  br i1 %.not51, label %156, label %93, !llvm.loop !29
+  br i1 %.not51, label %156, label %93, !llvm.loop !25
 
 156:                                              ; preds = %.split.loop.exit108
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 64
-  br i1 %exitcond105.not, label %157, label %8, !llvm.loop !30
+  br i1 %exitcond105.not, label %157, label %8, !llvm.loop !26
 
 157:                                              ; preds = %156
   ret void
@@ -1025,15 +1025,11 @@ attributes #7 = { nounwind }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !6, !20}
-!22 = distinct !{!22, !6, !20}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
 !26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}

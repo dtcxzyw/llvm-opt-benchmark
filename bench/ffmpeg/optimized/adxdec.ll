@@ -408,7 +408,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @adx_decode_header(ptr noun
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 352
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %40) #8
-  store i32 0, ptr %40, align 8, !tbaa !57
+  store i32 0, ptr %40, align 8, !tbaa !56
   store i32 %34, ptr %37, align 4, !tbaa !29
   br label %41
 
@@ -417,7 +417,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @adx_decode_header(ptr noun
   %43 = load i32, ptr %42, align 1, !tbaa !39
   %44 = tail call i32 @llvm.bswap.i32(i32 %43)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 %44, ptr %45, align 8, !tbaa !58
+  store i32 %44, ptr %45, align 8, !tbaa !57
   %46 = icmp slt i32 %44, 1
   br i1 %46, label %62, label %47
 
@@ -432,7 +432,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @adx_decode_header(ptr noun
   %53 = lshr i32 %52, 5
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %54, ptr %55, align 8, !tbaa !59
+  store i64 %54, ptr %55, align 8, !tbaa !58
   %.not49 = icmp eq ptr %4, null
   br i1 %.not49, label %61, label %56
 
@@ -559,8 +559,7 @@ attributes #8 = { nounwind }
 !52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
 !54 = distinct !{!54, !53}
-!55 = distinct !{!55, !53, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = !{!5, !10, i64 352}
-!58 = !{!5, !10, i64 344}
-!59 = !{!5, !13, i64 56}
+!55 = distinct !{!55, !53}
+!56 = !{!5, !10, i64 352}
+!57 = !{!5, !10, i64 344}
+!58 = !{!5, !13, i64 56}

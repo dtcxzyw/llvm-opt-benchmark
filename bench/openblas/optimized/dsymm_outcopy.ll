@@ -107,7 +107,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %59 = add nsw i64 %.17194, -1
   %60 = add nsw i64 %.17493, -1
   %61 = icmp samesign ugt i64 %.17493, 1
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge88
   ret i32 0
@@ -126,6 +126,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

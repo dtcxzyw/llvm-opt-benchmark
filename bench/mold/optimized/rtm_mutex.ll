@@ -73,7 +73,7 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   %26 = add nsw i32 %.01.i.i.us.i, -1
   tail call void @llvm.x86.sse2.pause()
   %27 = icmp samesign ugt i32 %.01.i.i.us.i, 1
-  br i1 %27, label %.lr.ph.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !13
+  br i1 %27, label %.lr.ph.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !12
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i:  ; preds = %.lr.ph.i.i.us.i, %24
   %28 = shl nsw i32 %.sroa.0.09.us.i, 1
@@ -84,7 +84,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %29 = load atomic i8, ptr %0 acquire, align 128
   %30 = and i8 %29, 1
   %.not24 = icmp eq i8 %30, 0
-  br i1 %.not24, label %_ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit, label %.lr.ph.i18, !llvm.loop !14
+  br i1 %.not24, label %_ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit, label %.lr.ph.i18, !llvm.loop !13
 
 _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %18, %.preheader.split
   %31 = tail call noundef i32 @llvm.x86.xbegin()
@@ -102,8 +102,8 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
 
 36:                                               ; preds = %35, %.split.us
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %37, align 8, !tbaa !15
-  store ptr %0, ptr %1, align 8, !tbaa !20
+  store i32 1, ptr %37, align 8, !tbaa !14
+  store ptr %0, ptr %1, align 8, !tbaa !19
   br label %.thread
 
 38:                                               ; preds = %_ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit
@@ -112,7 +112,7 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   %41 = icmp ne i32 %40, 0
   %42 = icmp samesign ult i32 %.015, 9
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.preheader.split, label %.split26.us, !llvm.loop !21
+  br i1 %43, label %.preheader.split, label %.split26.us, !llvm.loop !10
 
 .split26.us:                                      ; preds = %38, %10
   br i1 %2, label %.thread, label %45
@@ -121,7 +121,7 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   br i1 %2, label %.thread, label %45
 
 45:                                               ; preds = %.split26.us, %44
-  store ptr %0, ptr %1, align 8, !tbaa !20
+  store ptr %0, ptr %1, align 8, !tbaa !19
   %46 = atomicrmw xchg ptr %0, i8 1 seq_cst, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %.lr.ph.i, label %_ZN3tbb6detail2d110spin_mutex4lockEv.exit
@@ -140,7 +140,7 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   %51 = add nsw i32 %.01.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %52 = icmp samesign ugt i32 %.01.i.i.i, 1
-  br i1 %52, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !13
+  br i1 %52, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !12
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %49
   %53 = shl nsw i32 %.sroa.0.02.i, 1
@@ -154,11 +154,11 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %54, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %53, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.02.i, %54 ]
   %56 = atomicrmw xchg ptr %0, i8 1 seq_cst, align 1
   %57 = trunc i8 %56 to i1
-  br i1 %57, label %.lr.ph.i, label %_ZN3tbb6detail2d110spin_mutex4lockEv.exit, !llvm.loop !22
+  br i1 %57, label %.lr.ph.i, label %_ZN3tbb6detail2d110spin_mutex4lockEv.exit, !llvm.loop !20
 
 _ZN3tbb6detail2d110spin_mutex4lockEv.exit:        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %45
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %58, align 8, !tbaa !15
+  store i32 2, ptr %58, align 8, !tbaa !14
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.split.us, %36, %.split26.us, %44, %_ZN3tbb6detail2d110spin_mutex4lockEv.exit
@@ -201,13 +201,13 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
 
 18:                                               ; preds = %17, %.split.us.i.i
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %19, align 8, !tbaa !15
-  store ptr %0, ptr %1, align 8, !tbaa !20
+  store i32 1, ptr %19, align 8, !tbaa !14
+  store ptr %0, ptr %1, align 8, !tbaa !19
   br label %_ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i
 
 _ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i: ; preds = %9, %.preheader.split.us.i.i, %18, %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !15
+  %21 = load i32, ptr %20, align 8, !tbaa !14
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %_ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit, label %23
 
@@ -217,8 +217,8 @@ _ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE
   br i1 %25, label %_ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit, label %26
 
 26:                                               ; preds = %23
-  store ptr %0, ptr %1, align 8, !tbaa !20
-  store i32 2, ptr %20, align 8, !tbaa !15
+  store ptr %0, ptr %1, align 8, !tbaa !19
+  store i32 2, ptr %20, align 8, !tbaa !14
   br label %_ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit
 
 _ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r114rtm_mutex_impl7acquireERNS0_2d19rtm_mutexERNS4_11scoped_lockEb.exit.i, %23, %26
@@ -229,7 +229,7 @@ _ZN3tbb6detail2r114rtm_mutex_impl11try_acquireERNS0_2d19rtm_mutexERNS4_11scoped_
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN3tbb6detail2r17releaseERNS0_2d19rtm_mutex11scoped_lockE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !15
+  %3 = load i32, ptr %2, align 8, !tbaa !14
   switch i32 %3, label %_ZN3tbb6detail2r114rtm_mutex_impl7releaseERNS0_2d19rtm_mutex11scoped_lockE.exit [
     i32 1, label %4
     i32 2, label %5
@@ -240,16 +240,16 @@ define void @_ZN3tbb6detail2r17releaseERNS0_2d19rtm_mutex11scoped_lockE(ptr noun
   br label %.sink.split.i
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !tbaa !20
+  %6 = load ptr, ptr %0, align 8, !tbaa !19
   store atomic i8 0, ptr %6 release, align 1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %5, %4
-  store ptr null, ptr %0, align 8, !tbaa !20
+  store ptr null, ptr %0, align 8, !tbaa !19
   br label %_ZN3tbb6detail2r114rtm_mutex_impl7releaseERNS0_2d19rtm_mutex11scoped_lockE.exit
 
 _ZN3tbb6detail2r114rtm_mutex_impl7releaseERNS0_2d19rtm_mutex11scoped_lockE.exit: ; preds = %1, %.sink.split.i
-  store i32 0, ptr %2, align 8, !tbaa !15
+  store i32 0, ptr %2, align 8, !tbaa !14
   ret void
 }
 
@@ -287,16 +287,14 @@ attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11, !12}
-!15 = !{!16, !19, i64 8}
-!16 = !{!"_ZTSN3tbb6detail2d19rtm_mutex11scoped_lockE", !17, i64 0, !19, i64 8}
-!17 = !{!"p1 _ZTSN3tbb6detail2d19rtm_mutexE", !18, i64 0}
-!18 = !{!"any pointer", !6, i64 0}
-!19 = !{!"_ZTSN3tbb6detail2d19rtm_mutex9rtm_stateE", !6, i64 0}
-!20 = !{!16, !17, i64 0}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
+!14 = !{!15, !18, i64 8}
+!15 = !{!"_ZTSN3tbb6detail2d19rtm_mutex11scoped_lockE", !16, i64 0, !18, i64 8}
+!16 = !{!"p1 _ZTSN3tbb6detail2d19rtm_mutexE", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!"_ZTSN3tbb6detail2d19rtm_mutex9rtm_stateE", !6, i64 0}
+!19 = !{!15, !16, i64 0}
+!20 = distinct !{!20, !11}

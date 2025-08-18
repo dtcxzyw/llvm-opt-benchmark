@@ -7763,7 +7763,7 @@ doNormal8.exit17.us:                              ; preds = %39, %35
   %.523.us = phi i32 [ %.119.us, %doNormal8.exit17.us ], [ %77, %75 ], [ %.119.us, %80 ], [ %.119.us, %58 ], [ %.119.us, %69 ]
   %.5.us = phi i32 [ %.115.us, %doNormal8.exit17.us ], [ %.1.i13.us, %75 ], [ %.115.us, %80 ], [ %.115.us, %58 ], [ %.115.us, %69 ]
   %83 = icmp ult ptr %.126.i12.us, %.0
-  br i1 %83, label %.split.us, label %.split131.us, !llvm.loop !6
+  br i1 %83, label %.split.us, label %.split131.us
 
 .lr.ph.us:                                        ; preds = %58
   %84 = getelementptr inbounds i8, ptr %66, i64 -60
@@ -7961,7 +7961,7 @@ doComplexReport.exit.i.us:                        ; preds = %168, %157, %179, %1
   %.1129.ph.us = phi i32 [ %.725.us, %179 ], [ %176, %174 ], [ %.725.us, %doNormal8.exit.us ], [ %.725.us, %157 ], [ %.725.us, %168 ]
   %.11.ph.us = phi i32 [ %.7.us, %179 ], [ %.1.i8.us, %174 ], [ %.7.us, %doNormal8.exit.us ], [ %.7.us, %157 ], [ %.7.us, %168 ]
   %182 = icmp ult ptr %.126.i.us, %11
-  br i1 %182, label %.split139.us, label %.thread96, !llvm.loop !8
+  br i1 %182, label %.split139.us, label %.thread96
 
 .lr.ph.us140:                                     ; preds = %157
   %183 = getelementptr inbounds i8, ptr %165, i64 -60
@@ -11589,6 +11589,3 @@ attributes #15 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}

@@ -1338,7 +1338,7 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
   %79 = getelementptr inbounds nuw i8, ptr %.0231, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !46
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !45
 
 .preheader:                                       ; preds = %70, %187
   %.1234 = phi ptr [ %188, %187 ], [ %5, %70 ]
@@ -1498,7 +1498,7 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
   %189 = getelementptr inbounds i16, ptr %.0205232, i64 %2
   %190 = add nuw nsw i32 %.1204233, 1
   %exitcond243.not = icmp eq i32 %190, 8
-  br i1 %exitcond243.not, label %191, label %.preheader, !llvm.loop !47
+  br i1 %exitcond243.not, label %191, label %.preheader, !llvm.loop !46
 
 191:                                              ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1562,7 +1562,7 @@ define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, pt
   %37 = getelementptr inbounds nuw i8, ptr %.096, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !48
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !47
 
 .preheader:                                       ; preds = %32, %81
   %.199 = phi ptr [ %82, %81 ], [ %5, %32 ]
@@ -1638,7 +1638,7 @@ define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, pt
   %83 = getelementptr inbounds i16, ptr %.08697, i64 %2
   %84 = add nuw nsw i32 %.18598, 1
   %exitcond102.not = icmp eq i32 %84, 4
-  br i1 %exitcond102.not, label %85, label %.preheader, !llvm.loop !49
+  br i1 %exitcond102.not, label %85, label %.preheader, !llvm.loop !48
 
 85:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1669,13 +1669,13 @@ define void @ff_ivi_dc_slant_2d(ptr noundef readonly captures(none) %0, ptr noun
   store i16 %8, ptr %11, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !49
 
 ._crit_edge.us:                                   ; preds = %10
   %12 = getelementptr inbounds i16, ptr %.016.us, i64 %2
   %13 = add nuw nsw i32 %.01115.us, 1
   %exitcond19.not = icmp eq i32 %13, %3
-  br i1 %exitcond19.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !51
+  br i1 %exitcond19.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !50
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %4
   ret void
@@ -1843,7 +1843,7 @@ define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr nound
   %115 = getelementptr inbounds i16, ptr %.0100119, i64 %2
   %116 = add nuw nsw i32 %.0101118, 1
   %exitcond.not = icmp eq i32 %116, 8
-  br i1 %exitcond.not, label %117, label %5, !llvm.loop !52
+  br i1 %exitcond.not, label %117, label %5, !llvm.loop !51
 
 117:                                              ; preds = %113
   ret void
@@ -1882,7 +1882,7 @@ define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr nou
   tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %12, i1 false), !tbaa !27
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond34.not = icmp eq i64 %indvar.next, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge28, label %.preheader.us, !llvm.loop !53
+  br i1 %exitcond34.not, label %._crit_edge28, label %.preheader.us, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -1890,7 +1890,7 @@ define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr nou
   store i16 %8, ptr %16, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader21, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %.preheader21, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge28:                                    ; preds = %.preheader.us, %4, %.preheader21
   ret void
@@ -2045,7 +2045,7 @@ define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr nound
   %114 = getelementptr inbounds nuw i8, ptr %.0125140, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %115, label %13, !llvm.loop !55
+  br i1 %exitcond.not, label %115, label %13, !llvm.loop !54
 
 115:                                              ; preds = %112
   ret void
@@ -2083,7 +2083,7 @@ define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr nou
   %16 = getelementptr inbounds i16, ptr %.017.us, i64 %2
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph.us, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph.us, !llvm.loop !55
 
 ._crit_edge20.loopexit:                           ; preds = %.lr.ph19
   store i16 %8, ptr %1, align 2, !tbaa !27
@@ -2171,7 +2171,7 @@ define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr nound
   %51 = getelementptr inbounds i16, ptr %.03947, i64 %2
   %52 = add nuw nsw i32 %.04046, 1
   %exitcond.not = icmp eq i32 %52, 4
-  br i1 %exitcond.not, label %53, label %5, !llvm.loop !57
+  br i1 %exitcond.not, label %53, label %5, !llvm.loop !56
 
 53:                                               ; preds = %49
   ret void
@@ -2251,7 +2251,7 @@ define void @ff_ivi_col_slant4(ptr noundef readonly captures(none) %0, ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %.04853, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %53, label %7, !llvm.loop !58
+  br i1 %exitcond.not, label %53, label %7, !llvm.loop !57
 
 53:                                               ; preds = %50
   ret void
@@ -2276,14 +2276,14 @@ define void @ff_ivi_put_pixels_8x8(ptr noundef readonly captures(none) %0, ptr n
   store i16 %8, ptr %9, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %5, !llvm.loop !59
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !58
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i16, ptr %.01214, i64 %2
   %12 = getelementptr inbounds nuw i8, ptr %.01115, i64 32
   %13 = add nuw nsw i32 %.016, 1
   %exitcond18.not = icmp eq i32 %13, 8
-  br i1 %exitcond18.not, label %14, label %.preheader, !llvm.loop !60
+  br i1 %exitcond18.not, label %14, label %.preheader, !llvm.loop !59
 
 14:                                               ; preds = %10
   ret void
@@ -2305,7 +2305,7 @@ define void @ff_ivi_put_dc_pixel_8x8(ptr noundef readonly captures(none) %0, ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.09, i8 0, i64 16, i1 false)
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 8
-  br i1 %exitcond.not, label %10, label %8, !llvm.loop !61
+  br i1 %exitcond.not, label %10, label %8, !llvm.loop !60
 
 10:                                               ; preds = %8
   ret void
@@ -2334,14 +2334,14 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   store i16 %7, ptr %8, align 2, !tbaa !27
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 8
-  br i1 %exitcond130.not.i, label %9, label %5, !llvm.loop !62
+  br i1 %exitcond130.not.i, label %9, label %5, !llvm.loop !61
 
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %.068110.i, 1
   %11 = getelementptr inbounds i16, ptr %.072109.i, i64 %2
   %12 = getelementptr inbounds i16, ptr %.076108.i, i64 %2
   %exitcond131.not.i = icmp eq i32 %10, 8
-  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !63
+  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
 .preheader82.i:                                   ; preds = %4, %24
   %.169106.i = phi i32 [ %25, %24 ], [ 0, %4 ]
@@ -2364,14 +2364,14 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %22, ptr %23, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
-  br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !64
+  br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !63
 
 24:                                               ; preds = %13
   %25 = add nuw nsw i32 %.169106.i, 1
   %26 = getelementptr inbounds i16, ptr %.173105.i, i64 %2
   %27 = getelementptr inbounds i16, ptr %.177104.i, i64 %2
   %exitcond126.not.i = icmp eq i32 %25, 8
-  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !65
+  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
 .preheader85.i:                                   ; preds = %4, %39
   %.pn111.i = phi ptr [ %.0102.i, %39 ], [ %1, %4 ]
@@ -2395,13 +2395,13 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   store i16 %37, ptr %38, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
-  br i1 %exitcond120.not.i, label %39, label %28, !llvm.loop !66
+  br i1 %exitcond120.not.i, label %39, label %28, !llvm.loop !65
 
 39:                                               ; preds = %28
   %40 = add nuw nsw i32 %.270101.i, 1
   %41 = getelementptr inbounds i16, ptr %.274100.i, i64 %2
   %exitcond121.not.i = icmp eq i32 %40, 8
-  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !67
+  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !66
 
 .preheader88.i:                                   ; preds = %4, %61
   %.pn.i = phi ptr [ %.196.i, %61 ], [ %1, %4 ]
@@ -2433,13 +2433,13 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %60 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !68
+  br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !67
 
 61:                                               ; preds = %42
   %62 = add nuw nsw i32 %.37195.i, 1
   %63 = getelementptr inbounds i16, ptr %.37594.i, i64 %2
   %exitcond116.not.i = icmp eq i32 %62, 8
-  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !69
+  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !68
 
 ivi_mc_8x8_no_delta.exit:                         ; preds = %61, %39, %24, %9, %4
   ret void
@@ -2476,14 +2476,14 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   store i16 %11, ptr %9, align 2, !tbaa !27
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 8
-  br i1 %exitcond130.not, label %12, label %6, !llvm.loop !70
+  br i1 %exitcond130.not, label %12, label %6, !llvm.loop !69
 
 12:                                               ; preds = %6
   %13 = add nuw nsw i32 %.068110, 1
   %14 = getelementptr inbounds i16, ptr %.072109, i64 %1
   %15 = getelementptr inbounds i16, ptr %.076108, i64 %3
   %exitcond131.not = icmp eq i32 %13, 8
-  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !70
 
 .preheader82:                                     ; preds = %5, %29
   %.169106 = phi i32 [ %30, %29 ], [ 0, %5 ]
@@ -2508,14 +2508,14 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   %28 = add i16 %26, %27
   store i16 %28, ptr %25, align 2, !tbaa !27
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 8
-  br i1 %exitcond125.not, label %29, label %16, !llvm.loop !72
+  br i1 %exitcond125.not, label %29, label %16, !llvm.loop !71
 
 29:                                               ; preds = %16
   %30 = add nuw nsw i32 %.169106, 1
   %31 = getelementptr inbounds i16, ptr %.173105, i64 %1
   %32 = getelementptr inbounds i16, ptr %.177104, i64 %3
   %exitcond126.not = icmp eq i32 %30, 8
-  br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !73
+  br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !72
 
 .preheader85:                                     ; preds = %5, %46
   %.pn111 = phi ptr [ %.0102, %46 ], [ %2, %5 ]
@@ -2541,13 +2541,13 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   store i16 %45, ptr %42, align 2, !tbaa !27
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 8
-  br i1 %exitcond120.not, label %46, label %33, !llvm.loop !74
+  br i1 %exitcond120.not, label %46, label %33, !llvm.loop !73
 
 46:                                               ; preds = %33
   %47 = add nuw nsw i32 %.270101, 1
   %48 = getelementptr inbounds i16, ptr %.274100, i64 %1
   %exitcond121.not = icmp eq i32 %47, 8
-  br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !75
+  br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !74
 
 .preheader88:                                     ; preds = %5, %70
   %.pn = phi ptr [ %.196, %70 ], [ %2, %5 ]
@@ -2581,13 +2581,13 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   %69 = add i16 %67, %68
   store i16 %69, ptr %66, align 2, !tbaa !27
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %70, label %49, !llvm.loop !76
+  br i1 %exitcond.not, label %70, label %49, !llvm.loop !75
 
 70:                                               ; preds = %49
   %71 = add nuw nsw i32 %.37195, 1
   %72 = getelementptr inbounds i16, ptr %.37594, i64 %1
   %exitcond116.not = icmp eq i32 %71, 8
-  br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !77
+  br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !76
 
 .loopexit:                                        ; preds = %70, %46, %29, %12, %5
   ret void
@@ -2616,14 +2616,14 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   store i16 %7, ptr %8, align 2, !tbaa !27
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 4
-  br i1 %exitcond130.not.i, label %9, label %5, !llvm.loop !78
+  br i1 %exitcond130.not.i, label %9, label %5, !llvm.loop !77
 
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %.068110.i, 1
   %11 = getelementptr inbounds i16, ptr %.072109.i, i64 %2
   %12 = getelementptr inbounds i16, ptr %.076108.i, i64 %2
   %exitcond131.not.i = icmp eq i32 %10, 4
-  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
 .preheader82.i:                                   ; preds = %4, %24
   %.169106.i = phi i32 [ %25, %24 ], [ 0, %4 ]
@@ -2646,14 +2646,14 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %23 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %22, ptr %23, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
-  br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !80
+  br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !79
 
 24:                                               ; preds = %13
   %25 = add nuw nsw i32 %.169106.i, 1
   %26 = getelementptr inbounds i16, ptr %.173105.i, i64 %2
   %27 = getelementptr inbounds i16, ptr %.177104.i, i64 %2
   %exitcond126.not.i = icmp eq i32 %25, 4
-  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !81
+  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
 .preheader85.i:                                   ; preds = %4, %39
   %.pn111.i = phi ptr [ %.0102.i, %39 ], [ %1, %4 ]
@@ -2677,13 +2677,13 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   store i16 %37, ptr %38, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
-  br i1 %exitcond120.not.i, label %39, label %28, !llvm.loop !82
+  br i1 %exitcond120.not.i, label %39, label %28, !llvm.loop !81
 
 39:                                               ; preds = %28
   %40 = add nuw nsw i32 %.270101.i, 1
   %41 = getelementptr inbounds i16, ptr %.274100.i, i64 %2
   %exitcond121.not.i = icmp eq i32 %40, 4
-  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !83
+  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !82
 
 .preheader88.i:                                   ; preds = %4, %61
   %.pn.i = phi ptr [ %.196.i, %61 ], [ %1, %4 ]
@@ -2715,13 +2715,13 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %60 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !84
+  br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !83
 
 61:                                               ; preds = %42
   %62 = add nuw nsw i32 %.37195.i, 1
   %63 = getelementptr inbounds i16, ptr %.37594.i, i64 %2
   %exitcond116.not.i = icmp eq i32 %62, 4
-  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !85
+  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !84
 
 ivi_mc_4x4_no_delta.exit:                         ; preds = %61, %39, %24, %9, %4
   ret void
@@ -2758,14 +2758,14 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   store i16 %11, ptr %9, align 2, !tbaa !27
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 4
-  br i1 %exitcond130.not, label %12, label %6, !llvm.loop !86
+  br i1 %exitcond130.not, label %12, label %6, !llvm.loop !85
 
 12:                                               ; preds = %6
   %13 = add nuw nsw i32 %.068110, 1
   %14 = getelementptr inbounds i16, ptr %.072109, i64 %1
   %15 = getelementptr inbounds i16, ptr %.076108, i64 %3
   %exitcond131.not = icmp eq i32 %13, 4
-  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !87
+  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !86
 
 .preheader82:                                     ; preds = %5, %29
   %.169106 = phi i32 [ %30, %29 ], [ 0, %5 ]
@@ -2790,14 +2790,14 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   %28 = add i16 %26, %27
   store i16 %28, ptr %25, align 2, !tbaa !27
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 4
-  br i1 %exitcond125.not, label %29, label %16, !llvm.loop !88
+  br i1 %exitcond125.not, label %29, label %16, !llvm.loop !87
 
 29:                                               ; preds = %16
   %30 = add nuw nsw i32 %.169106, 1
   %31 = getelementptr inbounds i16, ptr %.173105, i64 %1
   %32 = getelementptr inbounds i16, ptr %.177104, i64 %3
   %exitcond126.not = icmp eq i32 %30, 4
-  br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !89
+  br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !88
 
 .preheader85:                                     ; preds = %5, %46
   %.pn111 = phi ptr [ %.0102, %46 ], [ %2, %5 ]
@@ -2823,13 +2823,13 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   store i16 %45, ptr %42, align 2, !tbaa !27
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next118, 4
-  br i1 %exitcond120.not, label %46, label %33, !llvm.loop !90
+  br i1 %exitcond120.not, label %46, label %33, !llvm.loop !89
 
 46:                                               ; preds = %33
   %47 = add nuw nsw i32 %.270101, 1
   %48 = getelementptr inbounds i16, ptr %.274100, i64 %1
   %exitcond121.not = icmp eq i32 %47, 4
-  br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !91
+  br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !90
 
 .preheader88:                                     ; preds = %5, %70
   %.pn = phi ptr [ %.196, %70 ], [ %2, %5 ]
@@ -2863,13 +2863,13 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   %69 = add i16 %67, %68
   store i16 %69, ptr %66, align 2, !tbaa !27
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %70, label %49, !llvm.loop !92
+  br i1 %exitcond.not, label %70, label %49, !llvm.loop !91
 
 70:                                               ; preds = %49
   %71 = add nuw nsw i32 %.37195, 1
   %72 = getelementptr inbounds i16, ptr %.37594, i64 %1
   %exitcond116.not = icmp eq i32 %71, 4
-  br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !93
+  br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !92
 
 .loopexit:                                        ; preds = %70, %46, %29, %12, %5
   ret void
@@ -2899,7 +2899,7 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %9 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 16
   %10 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !63
+  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
 .preheader82.i:                                   ; preds = %6, %21
   %.169106.i = phi i32 [ %22, %21 ], [ 0, %6 ]
@@ -2922,14 +2922,14 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %20 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %19, ptr %20, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
-  br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !64
+  br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !63
 
 21:                                               ; preds = %11
   %22 = add nuw nsw i32 %.169106.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 16
   %24 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !65
+  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
 .preheader85.i:                                   ; preds = %6, %36
   %.pn111.i = phi ptr [ %.0102.i, %36 ], [ %1, %6 ]
@@ -2953,13 +2953,13 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   store i16 %34, ptr %35, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
-  br i1 %exitcond120.not.i, label %36, label %25, !llvm.loop !66
+  br i1 %exitcond120.not.i, label %36, label %25, !llvm.loop !65
 
 36:                                               ; preds = %25
   %37 = add nuw nsw i32 %.270101.i, 1
   %38 = getelementptr inbounds nuw i8, ptr %.274100.i, i64 16
   %exitcond121.not.i = icmp eq i32 %37, 8
-  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !67
+  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !66
 
 .preheader88.i:                                   ; preds = %.preheader88.i.preheader, %56
   %.pre = phi i16 [ %.pre31, %56 ], [ %.pre.pre, %.preheader88.i.preheader ]
@@ -2991,13 +2991,13 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %55 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %54, ptr %55, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !68
+  br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !67
 
 56:                                               ; preds = %39
   %57 = add nuw nsw i32 %.37195.i, 1
   %58 = getelementptr inbounds nuw i8, ptr %.37594.i, i64 16
   %exitcond116.not.i = icmp eq i32 %57, 8
-  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !69
+  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !68
 
 ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.preheader.i, %6
   call fastcc void @ivi_mc_8x8_delta(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %2, i64 noundef %3, i32 noundef %5)
@@ -3019,13 +3019,13 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   store i16 %64, ptr %65, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %66, label %60, !llvm.loop !94
+  br i1 %exitcond.not, label %66, label %60, !llvm.loop !93
 
 66:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %67 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !95
+  br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !94
 
 68:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3056,7 +3056,7 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 16
   %10 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %8, 8
-  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !63
+  br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
 .preheader82.i:                                   ; preds = %6, %21
   %.169106.i = phi i32 [ %22, %21 ], [ 0, %6 ]
@@ -3079,14 +3079,14 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %20 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %19, ptr %20, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
-  br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !64
+  br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !63
 
 21:                                               ; preds = %11
   %22 = add nuw nsw i32 %.169106.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 16
   %24 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !65
+  br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
 .preheader85.i:                                   ; preds = %6, %36
   %.pn111.i = phi ptr [ %.0102.i, %36 ], [ %1, %6 ]
@@ -3110,13 +3110,13 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   store i16 %34, ptr %35, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
-  br i1 %exitcond120.not.i, label %36, label %25, !llvm.loop !66
+  br i1 %exitcond120.not.i, label %36, label %25, !llvm.loop !65
 
 36:                                               ; preds = %25
   %37 = add nuw nsw i32 %.270101.i, 1
   %38 = getelementptr inbounds nuw i8, ptr %.274100.i, i64 16
   %exitcond121.not.i = icmp eq i32 %37, 8
-  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !67
+  br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !66
 
 .preheader88.i:                                   ; preds = %.preheader88.i.preheader, %56
   %.pre = phi i16 [ %.pre31, %56 ], [ %.pre.pre, %.preheader88.i.preheader ]
@@ -3148,13 +3148,13 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %55 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %54, ptr %55, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !68
+  br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !67
 
 56:                                               ; preds = %39
   %57 = add nuw nsw i32 %.37195.i, 1
   %58 = getelementptr inbounds nuw i8, ptr %.37594.i, i64 16
   %exitcond116.not.i = icmp eq i32 %57, 8
-  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !69
+  br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !68
 
 ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.preheader.i, %6
   call fastcc void @ivi_mc_8x8_delta(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %2, i64 noundef %3, i32 noundef %5)
@@ -3178,13 +3178,13 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   store i16 %67, ptr %65, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %68, label %60, !llvm.loop !96
+  br i1 %exitcond.not, label %68, label %60, !llvm.loop !95
 
 68:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %69 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
-  br i1 %exitcond30.not, label %70, label %.preheader, !llvm.loop !97
+  br i1 %exitcond30.not, label %70, label %.preheader, !llvm.loop !96
 
 70:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3216,7 +3216,7 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %10 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 8
   %11 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
 .preheader82.i:                                   ; preds = %6, %22
   %.169106.i = phi i32 [ %23, %22 ], [ 0, %6 ]
@@ -3239,14 +3239,14 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %21 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %20, ptr %21, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
-  br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !80
+  br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !79
 
 22:                                               ; preds = %12
   %23 = add nuw nsw i32 %.169106.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 8
   %25 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !81
+  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
 .preheader85.i:                                   ; preds = %6, %37
   %.pn111.i = phi ptr [ %.0102.i, %37 ], [ %1, %6 ]
@@ -3270,13 +3270,13 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   store i16 %35, ptr %36, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
-  br i1 %exitcond120.not.i, label %37, label %26, !llvm.loop !82
+  br i1 %exitcond120.not.i, label %37, label %26, !llvm.loop !81
 
 37:                                               ; preds = %26
   %38 = add nuw nsw i32 %.270101.i, 1
   %39 = getelementptr inbounds nuw i8, ptr %.274100.i, i64 8
   %exitcond121.not.i = icmp eq i32 %38, 4
-  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !83
+  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !82
 
 .preheader88.i:                                   ; preds = %.preheader88.i.preheader, %57
   %.pre = phi i16 [ %.pre31, %57 ], [ %.pre.pre, %.preheader88.i.preheader ]
@@ -3308,13 +3308,13 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %56 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %55, ptr %56, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !84
+  br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !83
 
 57:                                               ; preds = %40
   %58 = add nuw nsw i32 %.37195.i, 1
   %59 = getelementptr inbounds nuw i8, ptr %.37594.i, i64 8
   %exitcond116.not.i = icmp eq i32 %58, 4
-  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !85
+  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !84
 
 ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.preheader.i, %6
   call fastcc void @ivi_mc_4x4_delta(ptr noundef nonnull %7, i64 noundef 4, ptr noundef %2, i64 noundef %3, i32 noundef %5)
@@ -3336,13 +3336,13 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   store i16 %65, ptr %66, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %67, label %61, !llvm.loop !98
+  br i1 %exitcond.not, label %67, label %61, !llvm.loop !97
 
 67:                                               ; preds = %61
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %68 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
-  br i1 %exitcond30.not, label %69, label %.preheader, !llvm.loop !99
+  br i1 %exitcond30.not, label %69, label %.preheader, !llvm.loop !98
 
 69:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3374,7 +3374,7 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 8
   %11 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
 .preheader82.i:                                   ; preds = %6, %22
   %.169106.i = phi i32 [ %23, %22 ], [ 0, %6 ]
@@ -3397,14 +3397,14 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %21 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %20, ptr %21, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
-  br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !80
+  br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !79
 
 22:                                               ; preds = %12
   %23 = add nuw nsw i32 %.169106.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 8
   %25 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %23, 4
-  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !81
+  br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
 .preheader85.i:                                   ; preds = %6, %37
   %.pn111.i = phi ptr [ %.0102.i, %37 ], [ %1, %6 ]
@@ -3428,13 +3428,13 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   store i16 %35, ptr %36, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
-  br i1 %exitcond120.not.i, label %37, label %26, !llvm.loop !82
+  br i1 %exitcond120.not.i, label %37, label %26, !llvm.loop !81
 
 37:                                               ; preds = %26
   %38 = add nuw nsw i32 %.270101.i, 1
   %39 = getelementptr inbounds nuw i8, ptr %.274100.i, i64 8
   %exitcond121.not.i = icmp eq i32 %38, 4
-  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !83
+  br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !82
 
 .preheader88.i:                                   ; preds = %.preheader88.i.preheader, %57
   %.pre = phi i16 [ %.pre31, %57 ], [ %.pre.pre, %.preheader88.i.preheader ]
@@ -3466,13 +3466,13 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %56 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
   store i16 %55, ptr %56, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !84
+  br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !83
 
 57:                                               ; preds = %40
   %58 = add nuw nsw i32 %.37195.i, 1
   %59 = getelementptr inbounds nuw i8, ptr %.37594.i, i64 8
   %exitcond116.not.i = icmp eq i32 %58, 4
-  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !85
+  br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !84
 
 ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.preheader.i, %6
   call fastcc void @ivi_mc_4x4_delta(ptr noundef nonnull %7, i64 noundef 4, ptr noundef %2, i64 noundef %3, i32 noundef %5)
@@ -3496,13 +3496,13 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   store i16 %68, ptr %66, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %69, label %61, !llvm.loop !100
+  br i1 %exitcond.not, label %69, label %61, !llvm.loop !99
 
 69:                                               ; preds = %61
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %70 = getelementptr inbounds i16, ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
-  br i1 %exitcond30.not, label %71, label %.preheader, !llvm.loop !101
+  br i1 %exitcond30.not, label %71, label %.preheader, !llvm.loop !100
 
 71:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3570,19 +3570,19 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !41 = distinct !{!41, !30}
 !42 = distinct !{!42, !30}
 !43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !30}
+!45 = distinct !{!45, !30}
 !46 = distinct !{!46, !30}
 !47 = distinct !{!47, !30}
 !48 = distinct !{!48, !30}
 !49 = distinct !{!49, !30}
 !50 = distinct !{!50, !30}
-!51 = distinct !{!51, !30, !45}
+!51 = distinct !{!51, !30}
 !52 = distinct !{!52, !30}
-!53 = distinct !{!53, !30, !45}
+!53 = distinct !{!53, !30}
 !54 = distinct !{!54, !30}
 !55 = distinct !{!55, !30}
-!56 = distinct !{!56, !30, !45}
+!56 = distinct !{!56, !30}
 !57 = distinct !{!57, !30}
 !58 = distinct !{!58, !30}
 !59 = distinct !{!59, !30}
@@ -3627,4 +3627,3 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !98 = distinct !{!98, !30}
 !99 = distinct !{!99, !30}
 !100 = distinct !{!100, !30}
-!101 = distinct !{!101, !30}

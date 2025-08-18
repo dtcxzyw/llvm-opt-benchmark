@@ -561,7 +561,7 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
   %45 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %46 = add nuw i64 %.02837, 1
   %exitcond.not = icmp eq i64 %46, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %.030.lcssa = phi ptr [ %0, %.preheader ], [ %30, %.lr.ph.split.us ], [ %45, %.lr.ph.split ]
@@ -644,7 +644,7 @@ define noalias ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, 
   %42 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
   %43 = add nuw i64 %.02837.i, 1
   %exitcond.not.i = icmp eq i64 %43, %1
-  br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 buf2hexstr_sep.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.030.lcssa.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %42, %.lr.ph.split.i ]
@@ -741,7 +741,7 @@ define i32 @OPENSSL_strcasecmp(ptr noundef readonly captures(none) %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   %14 = load i8, ptr %.05, align 1, !tbaa !3
   %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %3, !llvm.loop !21
+  br i1 %15, label %16, label %3, !llvm.loop !19
 
 16:                                               ; preds = %3, %11
   %.lcssa = phi i32 [ %9, %3 ], [ %6, %11 ]
@@ -778,7 +778,7 @@ define i32 @OPENSSL_strncasecmp(ptr noundef readonly captures(none) %0, ptr noun
   %16 = add nuw i64 %.013, 1
   %17 = icmp ult i64 %16, %2
   %or.cond = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %3
   %.07 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %10, %.lr.ph ]
@@ -850,8 +850,6 @@ attributes #17 = { nounwind willreturn memory(none) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !4, i64 0}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}

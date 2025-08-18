@@ -366,7 +366,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not98.us123.us, label %.split120.split.us.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %72, %69
-  br label %.split.us, !llvm.loop !35
+  br label %.split.us, !llvm.loop !32
 
 .split120.split.us.us:                            ; preds = %72
   %74 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %.078) #4
@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br i1 %.not98, label %.split120.split, label %.split.backedge
 
 .split.backedge:                                  ; preds = %76, %83
-  br label %.split, !llvm.loop !36
+  br label %.split, !llvm.loop !32
 
 .split120.split:                                  ; preds = %76
   %78 = tail call i32 @EC_POINT_mul(ptr noundef nonnull %13, ptr noundef nonnull %39, ptr noundef nonnull %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %.078) #4
@@ -513,11 +513,11 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
 
 21:                                               ; preds = %17
   %22 = tail call ptr @BN_new() #4
-  store ptr %22, ptr %18, align 8, !tbaa !37
+  store ptr %22, ptr %18, align 8, !tbaa !34
   %23 = tail call ptr @BN_new() #4
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %23, ptr %24, align 8, !tbaa !39
-  %25 = load ptr, ptr %18, align 8, !tbaa !37
+  store ptr %23, ptr %24, align 8, !tbaa !36
+  %25 = load ptr, ptr %18, align 8, !tbaa !34
   %26 = icmp eq ptr %25, null
   %27 = icmp eq ptr %23, null
   %or.cond98 = select i1 %26, i1 true, i1 %27
@@ -631,7 +631,7 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
   br label %78
 
 73:                                               ; preds = %66
-  %74 = load ptr, ptr %18, align 8, !tbaa !37
+  %74 = load ptr, ptr %18, align 8, !tbaa !34
   %75 = tail call ptr @BN_copy(ptr noundef %74, ptr noundef nonnull %3) #4
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %78
@@ -645,14 +645,14 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
 78:                                               ; preds = %73, %71
   %79 = phi ptr [ %72, %71 ], [ %67, %73 ]
   %.072 = phi ptr [ %72, %71 ], [ %2, %73 ]
-  %80 = load ptr, ptr %18, align 8, !tbaa !37
-  %81 = load ptr, ptr %63, align 8, !tbaa !40
+  %80 = load ptr, ptr %18, align 8, !tbaa !34
+  %81 = load ptr, ptr %63, align 8, !tbaa !37
   %82 = tail call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %23, ptr noundef %80, ptr noundef %81, ptr noundef nonnull %32) #4
   %.not91 = icmp eq i32 %82, 0
   br i1 %.not91, label %86, label %83
 
 83:                                               ; preds = %78
-  %84 = load ptr, ptr %63, align 8, !tbaa !40
+  %84 = load ptr, ptr %63, align 8, !tbaa !37
   %85 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull %8, ptr noundef %84, ptr noundef nonnull %32) #4
   %.not92 = icmp eq i32 %85, 0
   br i1 %.not92, label %86, label %87
@@ -675,13 +675,13 @@ define ptr @ossl_ecdsa_simple_sign_sig(ptr noundef %0, i32 noundef %1, ptr nound
   br label %104
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %63, align 8, !tbaa !40
+  %91 = load ptr, ptr %63, align 8, !tbaa !37
   %92 = tail call i32 @bn_to_mont_fixed_top(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef %91, ptr noundef nonnull %32) #4
   %.not94 = icmp eq i32 %92, 0
   br i1 %.not94, label %96, label %93
 
 93:                                               ; preds = %90
-  %94 = load ptr, ptr %63, align 8, !tbaa !40
+  %94 = load ptr, ptr %63, align 8, !tbaa !37
   %95 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef %.072, ptr noundef %94, ptr noundef nonnull %32) #4
   %.not95 = icmp eq i32 %95, 0
   br i1 %.not95, label %96, label %97
@@ -785,7 +785,7 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !28
   %10 = tail call ptr @ECDSA_SIG_new() #4
-  store ptr %10, ptr %7, align 8, !tbaa !41
+  store ptr %10, ptr %7, align 8, !tbaa !38
   %11 = icmp eq ptr %10, null
   br i1 %11, label %26, label %12
 
@@ -796,7 +796,7 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %7, align 8, !tbaa !41
+  %17 = load ptr, ptr %7, align 8, !tbaa !38
   %18 = call i32 @i2d_ECDSA_SIG(ptr noundef %17, ptr noundef nonnull %9) #4
   %.not = icmp eq i32 %18, %4
   %.pre14 = load ptr, ptr %9, align 8, !tbaa !28
@@ -808,7 +808,7 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not13, label %20, label %23
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %7, align 8, !tbaa !41
+  %21 = load ptr, ptr %7, align 8, !tbaa !38
   %22 = call i32 @ECDSA_do_verify(ptr noundef %1, i32 noundef %2, ptr noundef %21, ptr noundef %5) #4
   %.pre = load ptr, ptr %9, align 8, !tbaa !28
   br label %23
@@ -817,7 +817,7 @@ define i32 @ossl_ecdsa_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   %24 = phi ptr [ null, %12 ], [ %.pre14, %16 ], [ %.pre14, %19 ], [ %.pre, %20 ]
   %.0 = phi i32 [ -1, %12 ], [ -1, %16 ], [ -1, %19 ], [ %22, %20 ]
   call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str, i32 noundef 439) #4
-  %25 = load ptr, ptr %7, align 8, !tbaa !41
+  %25 = load ptr, ptr %7, align 8, !tbaa !38
   call void @ECDSA_SIG_free(ptr noundef %25) #4
   br label %26
 
@@ -909,38 +909,38 @@ define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 no
   br label %103
 
 34:                                               ; preds = %30
-  %35 = load ptr, ptr %2, align 8, !tbaa !37
+  %35 = load ptr, ptr %2, align 8, !tbaa !34
   %36 = tail call i32 @BN_is_zero(ptr noundef %35) #4
   %.not84 = icmp eq i32 %36, 0
   br i1 %.not84, label %37, label %55
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %2, align 8, !tbaa !37
+  %38 = load ptr, ptr %2, align 8, !tbaa !34
   %39 = tail call i32 @BN_is_negative(ptr noundef %38) #4
   %.not85 = icmp eq i32 %39, 0
   br i1 %.not85, label %40, label %55
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr %2, align 8, !tbaa !37
+  %41 = load ptr, ptr %2, align 8, !tbaa !34
   %42 = tail call i32 @BN_ucmp(ptr noundef %41, ptr noundef nonnull %31) #4
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %55, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !39
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
   %47 = tail call i32 @BN_is_zero(ptr noundef %46) #4
   %.not86 = icmp eq i32 %47, 0
   br i1 %.not86, label %48, label %55
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %45, align 8, !tbaa !39
+  %49 = load ptr, ptr %45, align 8, !tbaa !36
   %50 = tail call i32 @BN_is_negative(ptr noundef %49) #4
   %.not87 = icmp eq i32 %50, 0
   br i1 %.not87, label %51, label %55
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %45, align 8, !tbaa !39
+  %52 = load ptr, ptr %45, align 8, !tbaa !36
   %53 = tail call i32 @BN_ucmp(ptr noundef %52, ptr noundef nonnull %31) #4
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %55, label %56
@@ -952,7 +952,7 @@ define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 no
   br label %103
 
 56:                                               ; preds = %51
-  %57 = load ptr, ptr %45, align 8, !tbaa !39
+  %57 = load ptr, ptr %45, align 8, !tbaa !36
   %58 = tail call i32 @ossl_ec_group_do_inverse_ord(ptr noundef nonnull %7, ptr noundef %25, ptr noundef %57, ptr noundef nonnull %20) #4
   %.not88 = icmp eq i32 %58, 0
   br i1 %.not88, label %59, label %60
@@ -1016,7 +1016,7 @@ define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 no
   br label %103
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %2, align 8, !tbaa !37
+  %82 = load ptr, ptr %2, align 8, !tbaa !34
   %83 = tail call i32 @BN_mod_mul(ptr noundef %25, ptr noundef %82, ptr noundef %25, ptr noundef nonnull %31, ptr noundef nonnull %20) #4
   %.not92 = icmp eq i32 %83, 0
   br i1 %.not92, label %84, label %85
@@ -1072,7 +1072,7 @@ define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 no
   br label %103
 
 98:                                               ; preds = %95
-  %99 = load ptr, ptr %2, align 8, !tbaa !37
+  %99 = load ptr, ptr %2, align 8, !tbaa !34
   %100 = tail call i32 @BN_ucmp(ptr noundef %24, ptr noundef %99) #4
   %101 = icmp eq i32 %100, 0
   %102 = zext i1 %101 to i32
@@ -1178,14 +1178,11 @@ attributes #4 = { nounwind }
 !29 = !{!10, !10, i64 0}
 !30 = !{!13, !13, i64 0}
 !31 = !{!4, !16, i64 80}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !33, !34}
-!36 = distinct !{!36, !33}
-!37 = !{!38, !13, i64 0}
-!38 = !{!"ECDSA_SIG_st", !13, i64 0, !13, i64 8}
-!39 = !{!38, !13, i64 8}
-!40 = !{!21, !23, i64 144}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS12ECDSA_SIG_st", !6, i64 0}
+!34 = !{!35, !13, i64 0}
+!35 = !{!"ECDSA_SIG_st", !13, i64 0, !13, i64 8}
+!36 = !{!35, !13, i64 8}
+!37 = !{!21, !23, i64 144}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS12ECDSA_SIG_st", !6, i64 0}

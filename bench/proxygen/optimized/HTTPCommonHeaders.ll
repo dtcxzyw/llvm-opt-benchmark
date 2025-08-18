@@ -403,7 +403,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18, ptr noundef %3)
   %inc = add nuw nsw i64 %j.09, 1
   %exitcond.not = icmp eq i64 %inc, 87
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %for.body.us
   ret ptr %.ptr
@@ -444,7 +444,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = load atomic i8, ptr @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11 acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %return, !prof !9
+  br i1 %guard.uninitialized, label %init.check, label %return, !prof !7
 
 init.check:                                       ; preds = %sw.bb
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11) #8
@@ -467,7 +467,7 @@ lpad:                                             ; preds = %init
 sw.bb1:                                           ; preds = %entry
   %3 = load atomic i8, ptr @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11 acquire, align 8
   %guard.uninitialized2 = icmp eq i8 %3, 0
-  br i1 %guard.uninitialized2, label %init.check3, label %return, !prof !9
+  br i1 %guard.uninitialized2, label %init.check3, label %return, !prof !7
 
 init.check3:                                      ; preds = %sw.bb1
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11) #8
@@ -556,7 +556,5 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", i32 1, i32 1048575}
+!6 = distinct !{!6, !5}
+!7 = !{!"branch_weights", i32 1, i32 1048575}

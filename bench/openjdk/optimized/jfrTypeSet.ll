@@ -2894,7 +2894,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15Sym
   %775 = phi i32 [ 1, %770 ], [ 0, %.lr.ph.i.i.i6.i ]
   %776 = add nuw nsw i32 %775, %.sroa.12.0.i
   %.not.i.i.i8.i = icmp eq ptr %766, null
-  br i1 %.not.i.i.i8.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.i, !llvm.loop !16
+  br i1 %.not.i.i.i8.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.i, !llvm.loop !14
 
 _ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i, %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
   %.sroa.12.1.i = phi i32 [ 0, %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i ], [ %764, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ %776, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ]
@@ -2998,7 +2998,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   %20 = load i32, ptr %15, align 4
   %21 = sext i32 %20 to i64
   %.not.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %21
-  br i1 %.not.i.i.i, label %22, label %.loopexit.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %22, label %.loopexit.i.i, !llvm.loop !15
 
 22:                                               ; preds = %19, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
@@ -3024,7 +3024,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   %33 = load i32, ptr %28, align 4
   %34 = sext i32 %33 to i64
   %.not.i7.i.i = icmp slt i64 %indvars.iv.next.i6.i.i, %34
-  br i1 %.not.i7.i.i, label %35, label %_ZL25clear_klasses_and_methodsv.exit, !llvm.loop !17
+  br i1 %.not.i7.i.i, label %35, label %_ZL25clear_klasses_and_methodsv.exit, !llvm.loop !15
 
 35:                                               ; preds = %32, %.lr.ph.i3.i.i
   %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i6.i.i, %32 ]
@@ -4999,7 +4999,7 @@ _ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass
 46:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
   %47 = load atomic i8, ptr @_ZGVZL16primitive_symbolPK5KlassE15void_class_name acquire, align 8
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %53, !prof !18
+  br i1 %48, label %49, label %53, !prof !16
 
 49:                                               ; preds = %46
   %50 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL16primitive_symbolPK5KlassE15void_class_name) #9
@@ -5675,7 +5675,7 @@ _ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredica
   %48 = load i32, ptr %4, align 4
   %49 = sext i32 %48 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %49
-  br i1 %.not.i, label %7, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit, !llvm.loop !19
+  br i1 %.not.i, label %7, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit, !llvm.loop !17
 
 _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit: ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i, %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5763,7 +5763,7 @@ _ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredica
   %95 = load i32, ptr %51, align 4
   %96 = sext i32 %95 to i64
   %.not.i12 = icmp slt i64 %indvars.iv.next.i11, %96
-  br i1 %.not.i12, label %54, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15, !llvm.loop !19
+  br i1 %.not.i12, label %54, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15, !llvm.loop !17
 
 _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15: ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i10, %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit
   ret void
@@ -7305,7 +7305,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
   %66 = load i32, ptr %61, align 4
   %67 = sext i32 %66 to i64
   %.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %67
-  br i1 %.not.i.i, label %68, label %.loopexit.i, !llvm.loop !20
+  br i1 %.not.i.i, label %68, label %.loopexit.i, !llvm.loop !18
 
 68:                                               ; preds = %65, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
@@ -7330,7 +7330,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
   %78 = load i32, ptr %73, align 4
   %79 = sext i32 %78 to i64
   %.not.i7.i = icmp slt i64 %indvars.iv.next.i6.i, %79
-  br i1 %.not.i7.i, label %80, label %_ZNK14JfrArtifactSet15iterate_klassesI16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateISA_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS4_9EmptyStubELb1EES5_IS6_IS7_ISA_18SerializePredicateISA_EXadL_Z13write__methodSE_SG_EEELj183EESL_Lb0EEEEEvRT_.exit, !llvm.loop !20
+  br i1 %.not.i7.i, label %80, label %_ZNK14JfrArtifactSet15iterate_klassesI16CompositeFunctorIPK5Klass18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateISA_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EE7WrapperIS4_9EmptyStubELb1EES5_IS6_IS7_ISA_18SerializePredicateISA_EXadL_Z13write__methodSE_SG_EEELj183EESL_Lb0EEEEEvRT_.exit, !llvm.loop !18
 
 80:                                               ; preds = %77, %.lr.ph.i3.i
   %indvars.iv.i4.i = phi i64 [ 0, %.lr.ph.i3.i ], [ %indvars.iv.next.i6.i, %77 ]
@@ -7498,14 +7498,14 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePre
   %67 = phi i8 [ %22, %.lr.ph ], [ %62, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %66, %17
   %.pre2225 = phi i8 [ %.pre22, %17 ], [ %.pre2227, %66 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0818, i64 376
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
-  br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread, label %17, !llvm.loop !22
+  br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread, label %17, !llvm.loop !20
 
 _ZN19MethodUsedPredicateclEPK5Klass.exit.thread:  ; preds = %._crit_edge, %_ZN19MethodUsedPredicateclEPK5Klass.exit, %2
   ret i1 true
@@ -7587,13 +7587,13 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
 41:                                               ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %41, %17
   %42 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 376
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %.loopexit.loopexit, label %17, !llvm.loop !24
+  br i1 %.not.i, label %.loopexit.loopexit, label %17, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %._crit_edge.i
   %.pre = load ptr, ptr %1, align 8
@@ -7850,7 +7850,7 @@ _ZN16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicate
   %120 = add nuw nsw i32 %119, %.sroa.14.0
   call fastcc void @_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEclERKS7_(ptr noundef nonnull align 8 dereferenceable(53) %3, ptr nonnull %storemerge2.i.i.i)
   %.not.i.i.i20 = icmp eq ptr %96, null
-  br i1 %.not.i.i.i20, label %_ZN14JfrArtifactSet15iterate_symbolsI16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS8_15SymbolPredicateIS8_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES9_ISA_IS8_SB_IS8_Lb0EEXadL_ZL13write__symbolSE_SG_EEELj184EEEEEvRT_.exit, label %94, !llvm.loop !25
+  br i1 %.not.i.i.i20, label %_ZN14JfrArtifactSet15iterate_symbolsI16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS8_15SymbolPredicateIS8_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES9_ISA_IS8_SB_IS8_Lb0EEXadL_ZL13write__symbolSE_SG_EEELj184EEEEEvRT_.exit, label %94, !llvm.loop !23
 
 _ZN14JfrArtifactSet15iterate_symbolsI16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS8_15SymbolPredicateIS8_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES9_ISA_IS8_SB_IS8_Lb0EEXadL_ZL13write__symbolSE_SG_EEELj184EEEEEvRT_.exit: ; preds = %_ZN16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS6_15SymbolPredicateIS6_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES7_IS8_IS6_S9_IS6_Lb0EEXadL_ZL13write__symbolSC_SE_EEELj184EEEclERKS6_.exit.i.i.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit
   %.sroa.14.1 = phi i32 [ 0, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit ], [ %120, %_ZN16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS6_15SymbolPredicateIS6_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES7_IS8_IS6_S9_IS6_Lb0EEXadL_ZL13write__symbolSC_SE_EEELj184EEEclERKS6_.exit.i.i.i ]
@@ -7918,7 +7918,7 @@ _ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeW
   %151 = phi i32 [ 1, %145 ], [ 0, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i.us ]
   %152 = add nuw nsw i32 %151, %.sroa.1248.0.us
   %.not.i.i.i27.us = icmp eq ptr %134, null
-  br i1 %.not.i.i.i27.us, label %_ZN14JfrArtifactSet15iterate_stringsI16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS7_15SymbolPredicateIS7_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES8_IS9_IS7_SA_IS7_Lb0EEXadL_ZL13write__stringSD_SF_EEELj184EEEEEvRT_.exit, label %.lr.ph.i.i.i22.us, !llvm.loop !26
+  br i1 %.not.i.i.i27.us, label %_ZN14JfrArtifactSet15iterate_stringsI16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS7_15SymbolPredicateIS7_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES8_IS9_IS7_SA_IS7_Lb0EEXadL_ZL13write__stringSD_SF_EEELj184EEEEEvRT_.exit, label %.lr.ph.i.i.i22.us, !llvm.loop !24
 
 .lr.ph.i.i.i22:                                   ; preds = %.lr.ph.i.i.i22.preheader, %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i
   %.sroa.1248.0 = phi i32 [ %171, %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i ], [ 0, %.lr.ph.i.i.i22.preheader ]
@@ -7962,7 +7962,7 @@ _ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeW
   %170 = phi i32 [ 1, %165 ], [ 0, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ]
   %171 = add nuw nsw i32 %170, %.sroa.1248.0
   %.not.i.i.i27 = icmp eq ptr %154, null
-  br i1 %.not.i.i.i27, label %_ZN14JfrArtifactSet15iterate_stringsI16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS7_15SymbolPredicateIS7_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES8_IS9_IS7_SA_IS7_Lb0EEXadL_ZL13write__stringSD_SF_EEELj184EEEEEvRT_.exit, label %.lr.ph.i.i.i22, !llvm.loop !27
+  br i1 %.not.i.i.i27, label %_ZN14JfrArtifactSet15iterate_stringsI16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS7_15SymbolPredicateIS7_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES8_IS9_IS7_SA_IS7_Lb0EEXadL_ZL13write__stringSD_SF_EEELj184EEEEEvRT_.exit, label %.lr.ph.i.i.i22, !llvm.loop !24
 
 _ZN14JfrArtifactSet15iterate_stringsI16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS7_15SymbolPredicateIS7_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES8_IS9_IS7_SA_IS7_Lb0EEXadL_ZL13write__stringSD_SF_EEELj184EEEEEvRT_.exit: ; preds = %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i, %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i.us, %_ZN14JfrArtifactSet15iterate_symbolsI16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS8_15SymbolPredicateIS8_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES9_ISA_IS8_SB_IS8_Lb0EEXadL_ZL13write__symbolSE_SG_EEELj184EEEEEvRT_.exit
   %.sroa.1248.1 = phi i32 [ 0, %_ZN14JfrArtifactSet15iterate_symbolsI16CompositeFunctorIPK9ListEntryIPK6SymbolmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS8_15SymbolPredicateIS8_Lb1EEXadL_ZL20write__symbol__leakpP19JfrCheckpointWriterPKvEEELj184EES9_ISA_IS8_SB_IS8_Lb0EEXadL_ZL13write__symbolSE_SG_EEELj184EEEEEvRT_.exit ], [ %152, %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i.us ], [ %171, %_ZN16CompositeFunctorIPK9ListEntryIPKcmE17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS5_15SymbolPredicateIS5_Lb1EEXadL_ZL20write__string__leakpP19JfrCheckpointWriterPKvEEELj184EES6_IS7_IS5_S8_IS5_Lb0EEXadL_ZL13write__stringSB_SD_EEELj184EEEclERKS5_.exit.i.i.i ]
@@ -8410,18 +8410,18 @@ _ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i: ; preds = %36, %.
   %52 = xor i8 %51, %50
   %53 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %52, i8 %51, ptr nonnull %27) #9, !srcloc !7
   %54 = icmp eq i8 %53, %51
-  br i1 %54, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %.split.i.i.i.i.i, !llvm.loop !28
+  br i1 %54, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %.split.i.i.i.i.i, !llvm.loop !25
 
 _ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit: ; preds = %.split.i.i.i.i.i, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, %14
   %55 = getelementptr inbounds nuw i8, ptr %.0823, i64 376
   %56 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit, label %14, !llvm.loop !30
+  br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit, label %14, !llvm.loop !27
 
 _ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit: ; preds = %._crit_edge
   %.pre = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
@@ -8567,11 +8567,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !9}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{!"branch_weights", i32 1, i32 1048575}
 !17 = distinct !{!17, !9}
-!18 = !{!"branch_weights", i32 1, i32 1048575}
+!18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
@@ -8579,8 +8579,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9, !15}
+!26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}

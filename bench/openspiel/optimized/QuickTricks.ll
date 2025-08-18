@@ -222,7 +222,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 125:                                              ; preds = %.split835, %89, %95, %99, %121, %111, %66, %75, %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split838.us, label %.split835, !llvm.loop !7
+  br i1 %exitcond.not, label %.split838.us, label %.split835, !llvm.loop !4
 
 .split838.us:                                     ; preds = %125, %59
   br i1 %.not, label %.thread903, label %126
@@ -439,7 +439,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 236:                                              ; preds = %.split840, %227, %230
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %exitcond888.not = icmp eq i64 %indvars.iv.next886, 4
-  br i1 %exitcond888.not, label %.loopexit827, label %.split840, !llvm.loop !8
+  br i1 %exitcond888.not, label %.loopexit827, label %.split840, !llvm.loop !6
 
 .loopexit827:                                     ; preds = %236, %223, %234
   %.0541 = phi i32 [ %235, %234 ], [ %.sroa.speculated751, %223 ], [ %.sroa.speculated751, %236 ]
@@ -568,7 +568,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 290:                                              ; preds = %.split843, %281, %284
   %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
   %exitcond892.not = icmp eq i64 %indvars.iv.next890, 4
-  br i1 %exitcond892.not, label %.loopexit826, label %.split843, !llvm.loop !9
+  br i1 %exitcond892.not, label %.loopexit826, label %.split843, !llvm.loop !7
 
 .loopexit826:                                     ; preds = %290, %278, %288
   %.0537 = phi i32 [ %289, %288 ], [ %.sroa.speculated745.fr, %278 ], [ %.sroa.speculated745.fr, %290 ]
@@ -862,7 +862,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 410:                                              ; preds = %.preheader
   %411 = add nsw i32 %.0533846, -1
   %412 = icmp samesign ugt i32 %.0533846, 2
-  br i1 %412, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %412, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.thread810, %410
   %.0533846 = phi i32 [ %411, %410 ], [ 14, %.thread810 ]
@@ -901,7 +901,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 428:                                              ; preds = %.preheader824
   %429 = add nsw i32 %.0532845, -1
   %430 = icmp samesign ugt i32 %.0532845, 2
-  br i1 %430, label %.preheader824, label %.loopexit825, !llvm.loop !11
+  br i1 %430, label %.preheader824, label %.loopexit825, !llvm.loop !9
 
 .preheader824:                                    ; preds = %424, %428
   %.0532845 = phi i32 [ %429, %428 ], [ 14, %424 ]
@@ -951,7 +951,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
   %.1547 = phi i32 [ %.0546, %193 ], [ %.0546, %207 ], [ %.0546, %211 ], [ %.0546, %259 ], [ %.0546, %263 ], [ %.0546, %325 ], [ %.0546, %341 ], [ 1, %382 ], [ %.2548, %403 ], [ %.3, %420 ], [ %.4, %438 ], [ %.0546, %218 ], [ %.0546, %273 ], [ %.0546, %308 ], [ %.0546, %444 ], [ %.0546, %217 ], [ %.0546, %272 ], [ %.0546, %307 ], [ %.0546, %443 ], [ %.0546, %197 ], [ %.0546, %331 ], [ %.0546, %348 ]
   %.2 = phi i32 [ %spec.select, %193 ], [ %spec.select675, %207 ], [ %spec.select676, %211 ], [ %spec.select688, %259 ], [ %spec.select689, %263 ], [ %spec.select704, %325 ], [ %spec.select710, %341 ], [ %spec.select714, %382 ], [ %spec.select715, %403 ], [ %spec.select716, %420 ], [ %spec.select717, %438 ], [ %spec.select723, %218 ], [ %spec.select724, %273 ], [ %spec.select725, %308 ], [ %spec.select726, %444 ], [ %.713, %217 ], [ %.713, %272 ], [ %.713, %307 ], [ %.713, %443 ], [ %spec.select866, %197 ], [ %spec.select867, %331 ], [ %spec.select868, %348 ]
   %449 = icmp slt i32 %.2, 4
-  br i1 %449, label %164, label %450, !llvm.loop !12
+  br i1 %449, label %164, label %450, !llvm.loop !10
 
 450:                                              ; preds = %448
   %451 = icmp eq i32 %.1551, 0
@@ -994,7 +994,7 @@ define noundef i32 @_Z11QuickTricksR3posiiiiRbRK10ThreadData(ptr noundef nonnull
 470:                                              ; preds = %461, %464, %456
   %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
   %exitcond896.not = icmp eq i64 %indvars.iv.next894, 4
-  br i1 %exitcond896.not, label %471, label %456, !llvm.loop !13
+  br i1 %exitcond896.not, label %471, label %456, !llvm.loop !11
 
 471:                                              ; preds = %470
   %472 = load i32, ptr %12, align 4
@@ -1551,7 +1551,7 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   %137 = or i16 %136, %.0175211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %138, label %135, !llvm.loop !14
+  br i1 %exitcond.not, label %138, label %135, !llvm.loop !12
 
 138:                                              ; preds = %135
   %139 = zext i16 %137 to i64
@@ -1754,7 +1754,7 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   %95 = or i16 %94, %.0127159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %96, label %93, !llvm.loop !15
+  br i1 %exitcond.not, label %96, label %93, !llvm.loop !13
 
 96:                                               ; preds = %93
   %97 = zext i16 %95 to i64
@@ -2078,7 +2078,7 @@ define noundef zeroext i1 @_Z21QuickTricksSecondHandR3posiiiiRK10ThreadData(ptr 
   %.2 = phi i32 [ %.1151, %141 ], [ %.1151, %143 ], [ %174, %168 ], [ %183, %182 ], [ %.1151, %178 ], [ %.1151, %175 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %141, !llvm.loop !14
 
 .loopexit:                                        ; preds = %190, %182, %168, %101, %124, %61, %76, %57, %6
   %.0129 = phi i1 [ false, %6 ], [ false, %57 ], [ false, %76 ], [ false, %61 ], [ %102, %101 ], [ true, %124 ], [ false, %190 ], [ true, %182 ], [ true, %168 ]
@@ -2119,9 +2119,9 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -2130,5 +2130,3 @@ attributes #7 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}

@@ -2039,7 +2039,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   %165 = icmp sgt i64 %.sroa.22.3.ph, 0
   %166 = icmp uge i64 %164, %24
   %167 = select i1 %165, i1 %166, i1 false
-  br i1 %167, label %51, label %.loopexit108, !llvm.loop !12
+  br i1 %167, label %51, label %.loopexit108, !llvm.loop !11
 
 .loopexit108:                                     ; preds = %.loopexit, %.preheader, %161
   %.092 = phi i64 [ %162, %161 ], [ %37, %.preheader ], [ %37, %.loopexit ]
@@ -2174,7 +2174,7 @@ SafeMult.exit:                                    ; preds = %16
   store i8 %64, ptr %65, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %22
-  br i1 %exitcond.not, label %IMA_ADPCM_DecodeBlockHeader.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not, label %IMA_ADPCM_DecodeBlockHeader.exit, label %.lr.ph.i, !llvm.loop !12
 
 IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %.sroa.68.3 = phi i64 [ %.sroa.68.0110, %57 ], [ %61, %.lr.ph.i ]
@@ -2228,7 +2228,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
 88:                                               ; preds = %98
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next.i43, %22
-  br i1 %exitcond94.not.i, label %._crit_edge.us.i, label %81, !llvm.loop !14
+  br i1 %exitcond94.not.i, label %._crit_edge.us.i, label %81, !llvm.loop !13
 
 89:                                               ; preds = %98, %81
   %90 = phi i8 [ %.promoted, %81 ], [ %108, %98 ]
@@ -2294,7 +2294,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   store i16 %.025.i.us.i, ptr %123, align 2
   %124 = add nuw nsw i64 %.06378.us.i, 1
   %exitcond.not.i = icmp eq i64 %124, %80
-  br i1 %exitcond.not.i, label %88, label %89, !llvm.loop !15
+  br i1 %exitcond.not.i, label %88, label %89, !llvm.loop !14
 
 ._crit_edge.us.i:                                 ; preds = %88
   %125 = mul nuw nsw i64 %80, %22
@@ -2302,7 +2302,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %127 = sub i64 %.sroa.23.1, %80
   %128 = sub nsw i64 %.385.us.i, %80
   %129 = icmp sgt i64 %128, 0
-  br i1 %129, label %.lr.ph.us.i, label %IMA_ADPCM_DecodeBlockData.exit, !llvm.loop !16
+  br i1 %129, label %.lr.ph.us.i, label %IMA_ADPCM_DecodeBlockData.exit, !llvm.loop !15
 
 .lr.ph87.split.i:                                 ; preds = %.lr.ph87.i, %.lr.ph87.split.i
   %130 = phi i64 [ %132, %.lr.ph87.split.i ], [ %66, %.lr.ph87.i ]
@@ -2311,7 +2311,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %132 = sub i64 %130, %131
   %133 = sub nsw i64 %.385.i, %131
   %134 = icmp sgt i64 %133, 0
-  br i1 %134, label %.lr.ph87.split.i, label %IMA_ADPCM_DecodeBlockData.exit, !llvm.loop !17
+  br i1 %134, label %.lr.ph87.split.i, label %IMA_ADPCM_DecodeBlockData.exit, !llvm.loop !15
 
 IMA_ADPCM_DecodeBlockData.exit:                   ; preds = %._crit_edge.us.i, %.lr.ph87.split.i, %78
   %.sroa.23.2 = phi i64 [ %66, %78 ], [ %132, %.lr.ph87.split.i ], [ %127, %._crit_edge.us.i ]
@@ -2350,7 +2350,7 @@ IMA_ADPCM_DecodeBlockData.exit:                   ; preds = %._crit_edge.us.i, %
   %149 = icmp sgt i64 %.sroa.23.2, 0
   %150 = icmp uge i64 %148, %23
   %151 = select i1 %149, i1 %150, i1 false
-  br i1 %151, label %49, label %.loopexit, !llvm.loop !18
+  br i1 %151, label %49, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %146, %.preheader, %144
   %.098 = phi i64 [ %145, %144 ], [ %34, %.preheader ], [ %34, %146 ]
@@ -2381,7 +2381,7 @@ define internal fastcc zeroext i16 @WaveGetFormatGUIDEncoding(ptr noundef nonnul
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.06, 1
   %exitcond.not = icmp eq i64 %4, 6
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !17
 
 5:                                                ; preds = %1, %3
   %.06 = phi i64 [ 0, %1 ], [ %4, %3 ]
@@ -2759,7 +2759,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   store i16 %103, ptr %105, align 2
   %106 = add nuw nsw i64 %.06174, 1
   %exitcond.not = icmp eq i64 %106, %80
-  br i1 %exitcond.not, label %107, label %81, !llvm.loop !20
+  br i1 %exitcond.not, label %107, label %81, !llvm.loop !18
 
 107:                                              ; preds = %102
   %108 = load i32, ptr %46, align 4
@@ -3201,14 +3201,12 @@ attributes #10 = { nounwind allocsize(0,1) }
 !7 = distinct !{!7, !4}
 !8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !11}
+!16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}

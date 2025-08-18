@@ -2178,7 +2178,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, %1
-  br i1 %10, label %86, label %11
+  br i1 %10, label %88, label %11
 
 11:                                               ; preds = %7, %5
   %12 = icmp eq i32 %2, -1
@@ -2188,7 +2188,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, %2
-  br i1 %16, label %17, label %86
+  br i1 %16, label %17, label %88
 
 17:                                               ; preds = %13, %11
   %18 = icmp eq i64 %3, -1
@@ -2198,7 +2198,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %21, %3
-  br i1 %22, label %23, label %86
+  br i1 %22, label %23, label %88
 
 23:                                               ; preds = %19, %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2216,7 +2216,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
 31:                                               ; preds = %29, %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %33 = load i32, ptr %32, align 8
-  switch i32 %33, label %85 [
+  switch i32 %33, label %87 [
     i32 5, label %34
     i32 2, label %34
   ]
@@ -2224,101 +2224,102 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_scan_host_selected(ptr noun
 34:                                               ; preds = %31, %31
   %35 = tail call i32 @scsi_autopm_get_host(ptr noundef %0) #17
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %85
+  br i1 %36, label %37, label %87
 
 37:                                               ; preds = %34
-  br i1 %6, label %38, label %64
+  br i1 %6, label %38, label %66
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  br i1 %12, label %.split.us.preheader, label %.split
+  br i1 %12, label %.split.us, label %.split
 
-.split.us.preheader:                              ; preds = %38
-  %.pre = load i32, ptr %41, align 4
-  br label %.split.us
+.split.us:                                        ; preds = %38
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %.loopexit7, label %.split.us.split
 
-.split.us:                                        ; preds = %.split.us.preheader, %.loopexit.us
-  %42 = phi i32 [ %56, %.loopexit.us ], [ %.pre, %.split.us.preheader ]
-  %43 = phi i32 [ %57, %.loopexit.us ], [ 0, %.split.us.preheader ]
-  %44 = icmp eq i32 %42, 0
-  br i1 %44, label %.loopexit.us, label %.preheader.us
+.split.us.split:                                  ; preds = %.split.us, %.loopexit.us
+  %44 = phi i32 [ %58, %.loopexit.us ], [ %42, %.split.us ]
+  %45 = phi i32 [ %59, %.loopexit.us ], [ 0, %.split.us ]
+  %46 = icmp eq i32 %44, 0
+  br i1 %46, label %.loopexit.us, label %.preheader.us
 
-.preheader.us:                                    ; preds = %.split.us, %.preheader.us
-  %45 = phi i32 [ %54, %.preheader.us ], [ %42, %.split.us ]
-  %46 = phi i32 [ %53, %.preheader.us ], [ 0, %.split.us ]
-  %47 = load i16, ptr %25, align 8
-  %48 = and i16 %47, 8
-  %49 = icmp eq i16 %48, 0
-  %50 = xor i32 %46, -1
-  %51 = add i32 %45, %50
-  %52 = select i1 %49, i32 %46, i32 %51
-  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %40, i32 noundef %43, i32 noundef %52, i64 noundef %3, i32 noundef %4)
-  %53 = add nuw i32 %46, 1
-  %54 = load i32, ptr %41, align 4
-  %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.preheader.us, label %.loopexit.us, !llvm.loop !27
+.preheader.us:                                    ; preds = %.split.us.split, %.preheader.us
+  %47 = phi i32 [ %56, %.preheader.us ], [ %44, %.split.us.split ]
+  %48 = phi i32 [ %55, %.preheader.us ], [ 0, %.split.us.split ]
+  %49 = load i16, ptr %25, align 8
+  %50 = and i16 %49, 8
+  %51 = icmp eq i16 %50, 0
+  %52 = xor i32 %48, -1
+  %53 = add i32 %47, %52
+  %54 = select i1 %51, i32 %48, i32 %53
+  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %40, i32 noundef %45, i32 noundef %54, i64 noundef %3, i32 noundef %4)
+  %55 = add nuw i32 %48, 1
+  %56 = load i32, ptr %41, align 4
+  %57 = icmp ult i32 %55, %56
+  br i1 %57, label %.preheader.us, label %.loopexit.us, !llvm.loop !27
 
-.loopexit.us:                                     ; preds = %.preheader.us, %.split.us
-  %56 = phi i32 [ 0, %.split.us ], [ %54, %.preheader.us ]
-  %57 = add i32 %43, 1
-  %58 = load i32, ptr %39, align 8
-  %59 = icmp ugt i32 %57, %58
-  br i1 %59, label %.loopexit7, label %.split.us, !llvm.loop !28
+.loopexit.us:                                     ; preds = %.preheader.us, %.split.us.split
+  %58 = phi i32 [ 0, %.split.us.split ], [ %56, %.preheader.us ]
+  %59 = add i32 %45, 1
+  %60 = load i32, ptr %39, align 8
+  %61 = icmp ugt i32 %59, %60
+  br i1 %61, label %.loopexit7, label %.split.us.split, !llvm.loop !28
 
 .split:                                           ; preds = %38, %.split
-  %60 = phi i32 [ %61, %.split ], [ 0, %38 ]
-  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %40, i32 noundef %60, i32 noundef %2, i64 noundef %3, i32 noundef %4)
-  %61 = add i32 %60, 1
-  %62 = load i32, ptr %39, align 8
-  %63 = icmp ugt i32 %61, %62
-  br i1 %63, label %.loopexit7, label %.split, !llvm.loop !30
+  %62 = phi i32 [ %63, %.split ], [ 0, %38 ]
+  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %40, i32 noundef %62, i32 noundef %2, i64 noundef %3, i32 noundef %4)
+  %63 = add i32 %62, 1
+  %64 = load i32, ptr %39, align 8
+  %65 = icmp ugt i32 %63, %64
+  br i1 %65, label %.loopexit7, label %.split, !llvm.loop !30
 
-64:                                               ; preds = %37
-  br i1 %12, label %65, label %83
+66:                                               ; preds = %37
+  br i1 %12, label %67, label %85
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.loopexit7, label %69
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %.loopexit7, label %71
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  br label %71
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  br label %73
 
-71:                                               ; preds = %71, %69
-  %72 = phi i32 [ %67, %69 ], [ %81, %71 ]
-  %73 = phi i32 [ 0, %69 ], [ %80, %71 ]
-  %74 = load i16, ptr %25, align 8
-  %75 = and i16 %74, 8
-  %76 = icmp eq i16 %75, 0
-  %77 = xor i32 %73, -1
-  %78 = add i32 %72, %77
-  %79 = select i1 %76, i32 %73, i32 %78
-  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %70, i32 noundef %1, i32 noundef %79, i64 noundef %3, i32 noundef %4)
-  %80 = add nuw i32 %73, 1
-  %81 = load i32, ptr %66, align 4
-  %82 = icmp ult i32 %80, %81
-  br i1 %82, label %71, label %.loopexit7, !llvm.loop !27
+73:                                               ; preds = %73, %71
+  %74 = phi i32 [ %69, %71 ], [ %83, %73 ]
+  %75 = phi i32 [ 0, %71 ], [ %82, %73 ]
+  %76 = load i16, ptr %25, align 8
+  %77 = and i16 %76, 8
+  %78 = icmp eq i16 %77, 0
+  %79 = xor i32 %75, -1
+  %80 = add i32 %74, %79
+  %81 = select i1 %78, i32 %75, i32 %80
+  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %72, i32 noundef %1, i32 noundef %81, i64 noundef %3, i32 noundef %4)
+  %82 = add nuw i32 %75, 1
+  %83 = load i32, ptr %68, align 4
+  %84 = icmp ult i32 %82, %83
+  br i1 %84, label %73, label %.loopexit7, !llvm.loop !27
 
-83:                                               ; preds = %64
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %84, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4)
+85:                                               ; preds = %66
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  tail call fastcc void @__scsi_scan_target(ptr noundef nonnull %86, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4)
   br label %.loopexit7
 
-.loopexit7:                                       ; preds = %71, %.split, %.loopexit.us, %83, %65
+.loopexit7:                                       ; preds = %73, %.split, %.loopexit.us, %.split.us, %85, %67
   tail call void @scsi_autopm_put_host(ptr noundef %0) #17
-  br label %85
+  br label %87
 
-85:                                               ; preds = %.loopexit7, %34, %31
+87:                                               ; preds = %.loopexit7, %34, %31
   tail call void @mutex_unlock(ptr noundef nonnull %24) #17
-  br label %86
+  br label %88
 
-86:                                               ; preds = %85, %19, %13, %7
-  %87 = phi i32 [ 0, %85 ], [ -22, %19 ], [ -22, %13 ], [ -22, %7 ]
-  ret i32 %87
+88:                                               ; preds = %87, %19, %13, %7
+  %89 = phi i32 [ 0, %87 ], [ -22, %19 ], [ -22, %13 ], [ -22, %7 ]
+  ret i32 %89
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -3261,7 +3262,7 @@ attributes #20 = { nounwind allocsize(1) }
 !26 = distinct !{!26, !6, !7}
 !27 = distinct !{!27, !6, !7}
 !28 = distinct !{!28, !6, !7, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = !{!"llvm.loop.unswitch.partial.disable"}
 !30 = distinct !{!30, !6, !7}
 !31 = distinct !{!31, !6, !7}
 !32 = !{i32 -22, i32 1}

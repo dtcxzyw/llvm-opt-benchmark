@@ -927,7 +927,7 @@ define internal noundef i32 @EmitAlphaYUV(ptr noundef readonly captures(none) %0
   %29 = getelementptr inbounds i8, ptr %.02228, i64 %28
   %30 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %30, %10
-  br i1 %exitcond.not, label %FillAlphaPlane.exit, label %23, !llvm.loop !69
+  br i1 %exitcond.not, label %FillAlphaPlane.exit, label %23, !llvm.loop !68
 
 31:                                               ; preds = %3
   %.not25 = icmp ne ptr %12, null
@@ -946,7 +946,7 @@ define internal noundef i32 @EmitAlphaYUV(ptr noundef readonly captures(none) %0
   %35 = getelementptr inbounds i8, ptr %.067.i, i64 %18
   %36 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %36, %10
-  br i1 %exitcond.not.i, label %FillAlphaPlane.exit, label %34, !llvm.loop !70
+  br i1 %exitcond.not.i, label %FillAlphaPlane.exit, label %34, !llvm.loop !69
 
 FillAlphaPlane.exit:                              ; preds = %23, %34, %.preheader, %31
   ret i32 0
@@ -1027,9 +1027,9 @@ define internal i32 @EmitRescaledRGB(ptr noundef readonly captures(none) %0, ptr
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %55 = load ptr, ptr %8, align 8, !tbaa !31
   %56 = getelementptr i8, ptr %55, i64 56
-  %.val.i27.i = load i32, ptr %56, align 8, !tbaa !71
+  %.val.i27.i = load i32, ptr %56, align 8, !tbaa !70
   %57 = getelementptr i8, ptr %55, i64 64
-  %.val2.i28.i = load i32, ptr %57, align 8, !tbaa !74
+  %.val2.i28.i = load i32, ptr %57, align 8, !tbaa !73
   %.not3.i29.i = icmp slt i32 %.val2.i28.i, %.val.i27.i
   br i1 %.not3.i29.i, label %WebPRescalerHasPendingOutput.exit.lr.ph.i, label %ExportRGB.exit
 
@@ -1050,22 +1050,22 @@ WebPRescalerHasPendingOutput.exit.i:              ; preds = %78, %WebPRescalerHa
   %.031.i = phi i32 [ 0, %WebPRescalerHasPendingOutput.exit.lr.ph.i ], [ %95, %78 ]
   %.01930.i = phi ptr [ %66, %WebPRescalerHasPendingOutput.exit.lr.ph.i ], [ %94, %78 ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !75
+  %69 = load i32, ptr %68, align 8, !tbaa !74
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %ExportRGB.exit, label %71
 
 71:                                               ; preds = %WebPRescalerHasPendingOutput.exit.i
   %72 = load ptr, ptr %11, align 8, !tbaa !32
   %73 = getelementptr i8, ptr %72, i64 56
-  %.val.i21.i = load i32, ptr %73, align 8, !tbaa !71
+  %.val.i21.i = load i32, ptr %73, align 8, !tbaa !70
   %74 = getelementptr i8, ptr %72, i64 64
-  %.val2.i22.i = load i32, ptr %74, align 8, !tbaa !74
+  %.val2.i22.i = load i32, ptr %74, align 8, !tbaa !73
   %.not3.i23.i = icmp slt i32 %.val2.i22.i, %.val.i21.i
   br i1 %.not3.i23.i, label %WebPRescalerHasPendingOutput.exit24.i, label %ExportRGB.exit
 
 WebPRescalerHasPendingOutput.exit24.i:            ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %76 = load i32, ptr %75, align 8, !tbaa !75
+  %76 = load i32, ptr %75, align 8, !tbaa !74
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %ExportRGB.exit, label %78
 
@@ -1077,15 +1077,15 @@ WebPRescalerHasPendingOutput.exit24.i:            ; preds = %71
   tail call void @WebPRescalerExportRow(ptr noundef %80) #6
   %81 = load ptr, ptr %8, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %83 = load ptr, ptr %82, align 8, !tbaa !76
+  %83 = load ptr, ptr %82, align 8, !tbaa !75
   %84 = load ptr, ptr %11, align 8, !tbaa !32
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
-  %86 = load ptr, ptr %85, align 8, !tbaa !76
+  %86 = load ptr, ptr %85, align 8, !tbaa !75
   %87 = load ptr, ptr %14, align 8, !tbaa !33
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
-  %89 = load ptr, ptr %88, align 8, !tbaa !76
+  %89 = load ptr, ptr %88, align 8, !tbaa !75
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 52
-  %91 = load i32, ptr %90, align 4, !tbaa !77
+  %91 = load i32, ptr %90, align 4, !tbaa !76
   tail call void %53(ptr noundef %83, ptr noundef %86, ptr noundef %89, ptr noundef %.01930.i, i32 noundef %91) #6
   %92 = load i32, ptr %54, align 8, !tbaa !52
   %93 = sext i32 %92 to i64
@@ -1093,18 +1093,18 @@ WebPRescalerHasPendingOutput.exit24.i:            ; preds = %71
   %95 = add nuw nsw i32 %.031.i, 1
   %96 = load ptr, ptr %8, align 8, !tbaa !31
   %97 = getelementptr i8, ptr %96, i64 56
-  %.val.i.i = load i32, ptr %97, align 8, !tbaa !71
+  %.val.i.i = load i32, ptr %97, align 8, !tbaa !70
   %98 = getelementptr i8, ptr %96, i64 64
-  %.val2.i.i = load i32, ptr %98, align 8, !tbaa !74
+  %.val2.i.i = load i32, ptr %98, align 8, !tbaa !73
   %.not3.i.i = icmp slt i32 %.val2.i.i, %.val.i.i
-  br i1 %.not3.i.i, label %WebPRescalerHasPendingOutput.exit.i, label %ExportRGB.exit, !llvm.loop !78
+  br i1 %.not3.i.i, label %WebPRescalerHasPendingOutput.exit.i, label %ExportRGB.exit, !llvm.loop !77
 
 ExportRGB.exit:                                   ; preds = %WebPRescalerHasPendingOutput.exit.i, %71, %WebPRescalerHasPendingOutput.exit24.i, %78, %48
   %99 = phi ptr [ %55, %48 ], [ %67, %WebPRescalerHasPendingOutput.exit24.i ], [ %67, %WebPRescalerHasPendingOutput.exit.i ], [ %96, %78 ], [ %67, %71 ]
   %.0.lcssa.i = phi i32 [ 0, %48 ], [ %.031.i, %WebPRescalerHasPendingOutput.exit24.i ], [ %.031.i, %WebPRescalerHasPendingOutput.exit.i ], [ %95, %78 ], [ %.031.i, %71 ]
   %100 = add nsw i32 %.0.lcssa.i, %.03739
   %101 = icmp slt i32 %27, %4
-  br i1 %101, label %17, label %._crit_edge, !llvm.loop !79
+  br i1 %101, label %17, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %ExportRGB.exit, %2
   %.037.lcssa = phi i32 [ 0, %2 ], [ %100, %ExportRGB.exit ]
@@ -1138,7 +1138,7 @@ define internal noundef i32 @EmitRescaledAlphaRGB(ptr noundef readonly captures(
 
 17:                                               ; preds = %.lr.ph, %17
   %.021 = phi i32 [ %2, %.lr.ph ], [ %35, %17 ]
-  %18 = load i32, ptr %13, align 4, !tbaa !80
+  %18 = load i32, ptr %13, align 4, !tbaa !79
   %19 = sext i32 %18 to i64
   %20 = load i32, ptr %14, align 8, !tbaa !51
   %21 = sext i32 %20 to i64
@@ -1157,7 +1157,7 @@ define internal noundef i32 @EmitRescaledAlphaRGB(ptr noundef readonly captures(
   %34 = tail call i32 %32(ptr noundef nonnull %1, i32 noundef %33, i32 noundef %.021) #6
   %35 = sub nsw i32 %.021, %34
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %17, label %.loopexit, !llvm.loop !81
+  br i1 %36, label %17, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %17, %6, %3
   ret i32 0
@@ -1178,14 +1178,14 @@ define internal i32 @ExportAlphaRGBA4444(ptr noundef readonly captures(none) %0,
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 52
-  %17 = load i32, ptr %16, align 4, !tbaa !77
+  %17 = load i32, ptr %16, align 4, !tbaa !76
   %.fr52 = freeze i32 %17
   %18 = add i32 %13, -7
   %narrow.i = icmp ult i32 %18, 4
   %19 = getelementptr i8, ptr %15, i64 56
-  %.val.i39 = load i32, ptr %19, align 8, !tbaa !71
+  %.val.i39 = load i32, ptr %19, align 8, !tbaa !70
   %20 = getelementptr i8, ptr %15, i64 64
-  %.val2.i40 = load i32, ptr %20, align 8, !tbaa !74
+  %.val2.i40 = load i32, ptr %20, align 8, !tbaa !73
   %.not3.i41 = icmp slt i32 %.val2.i40, %.val.i39
   br i1 %.not3.i41, label %WebPRescalerHasPendingOutput.exit.lr.ph, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
@@ -1204,7 +1204,7 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
   %.03543.us = phi i32 [ %42, %._crit_edge.us ], [ 15, %WebPRescalerHasPendingOutput.exit.us.preheader ]
   %.03642.us = phi i32 [ %46, %._crit_edge.us ], [ 0, %WebPRescalerHasPendingOutput.exit.us.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !75
+  %25 = load i32, ptr %24, align 8, !tbaa !74
   %26 = icmp slt i32 %25, 1
   %27 = icmp slt i32 %.03642.us, %2
   %28 = select i1 %26, i1 %27, i1 false
@@ -1219,7 +1219,7 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
   %.137.us = phi i32 [ %.03543.us, %.lr.ph.us ], [ %42, %29 ]
   %30 = load ptr, ptr %14, align 8, !tbaa !34
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %32 = load ptr, ptr %31, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !65
   %35 = lshr i8 %34, 4
@@ -1233,7 +1233,7 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
   %42 = and i32 %.137.us, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %29
   %43 = load i32, ptr %8, align 8, !tbaa !52
@@ -1242,17 +1242,17 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
   %46 = add nuw nsw i32 %.03642.us, 1
   %47 = load ptr, ptr %14, align 8, !tbaa !34
   %48 = getelementptr i8, ptr %47, i64 56
-  %.val.i.us = load i32, ptr %48, align 8, !tbaa !71
+  %.val.i.us = load i32, ptr %48, align 8, !tbaa !70
   %49 = getelementptr i8, ptr %47, i64 64
-  %.val2.i.us = load i32, ptr %49, align 8, !tbaa !74
+  %.val2.i.us = load i32, ptr %49, align 8, !tbaa !73
   %.not3.i.us = icmp slt i32 %.val2.i.us, %.val.i.us
-  br i1 %.not3.i.us, label %WebPRescalerHasPendingOutput.exit.us, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !83
+  br i1 %.not3.i.us, label %WebPRescalerHasPendingOutput.exit.us, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !82
 
 WebPRescalerHasPendingOutput.exit:                ; preds = %WebPRescalerHasPendingOutput.exit.lr.ph, %56
   %50 = phi ptr [ %58, %56 ], [ %15, %WebPRescalerHasPendingOutput.exit.lr.ph ]
   %.03642 = phi i32 [ %57, %56 ], [ 0, %WebPRescalerHasPendingOutput.exit.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load i32, ptr %51, align 8, !tbaa !75
+  %52 = load i32, ptr %51, align 8, !tbaa !74
   %53 = icmp slt i32 %52, 1
   %54 = icmp slt i32 %.03642, %2
   %55 = select i1 %53, i1 %54, i1 false
@@ -1263,11 +1263,11 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %WebPRescalerHasPend
   %57 = add nuw nsw i32 %.03642, 1
   %58 = load ptr, ptr %14, align 8, !tbaa !34
   %59 = getelementptr i8, ptr %58, i64 56
-  %.val.i = load i32, ptr %59, align 8, !tbaa !71
+  %.val.i = load i32, ptr %59, align 8, !tbaa !70
   %60 = getelementptr i8, ptr %58, i64 64
-  %.val2.i = load i32, ptr %60, align 8, !tbaa !74
+  %.val2.i = load i32, ptr %60, align 8, !tbaa !73
   %.not3.i = icmp slt i32 %.val2.i, %.val.i
-  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread.thread, !llvm.loop !84
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread.thread, !llvm.loop !82
 
 WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit.us, %._crit_edge.us
   %.036.lcssa.ph = phi i32 [ %.03642.us, %WebPRescalerHasPendingOutput.exit.us ], [ %46, %._crit_edge.us ]
@@ -1308,17 +1308,17 @@ define internal i32 @ExportAlpha(ptr noundef readonly captures(none) %0, i32 nou
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !34
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 52
-  %22 = load i32, ptr %21, align 4, !tbaa !77
+  %22 = load i32, ptr %21, align 4, !tbaa !76
   %23 = getelementptr i8, ptr %20, i64 56
-  %.val.i32 = load i32, ptr %23, align 8, !tbaa !71
+  %.val.i32 = load i32, ptr %23, align 8, !tbaa !70
   %24 = getelementptr i8, ptr %20, i64 64
-  %.val2.i33 = load i32, ptr %24, align 8, !tbaa !74
+  %.val2.i33 = load i32, ptr %24, align 8, !tbaa !73
   %.not3.i34 = icmp slt i32 %.val2.i33, %.val.i32
   br i1 %.not3.i34, label %WebPRescalerHasPendingOutput.exit.preheader, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 WebPRescalerHasPendingOutput.exit.preheader:      ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !75
+  %26 = load i32, ptr %25, align 8, !tbaa !74
   %27 = icmp slt i32 %26, 1
   %28 = icmp sgt i32 %2, 0
   %29 = and i1 %27, %28
@@ -1333,11 +1333,11 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %39
   %32 = sext i32 %47 to i64
   %33 = getelementptr inbounds i8, ptr %.03745, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !75
+  %35 = load i32, ptr %34, align 8, !tbaa !74
   %36 = icmp slt i32 %35, 1
   %37 = icmp slt i32 %48, %2
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %39, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !85
+  br i1 %38, label %39, label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !83
 
 39:                                               ; preds = %.lr.ph, %WebPRescalerHasPendingOutput.exit
   %.0313547 = phi i32 [ 0, %.lr.ph ], [ %48, %WebPRescalerHasPendingOutput.exit ]
@@ -1348,21 +1348,21 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %39
   %41 = load ptr, ptr @WebPDispatchAlpha, align 8, !tbaa !58
   %42 = load ptr, ptr %19, align 8, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %44 = load ptr, ptr %43, align 8, !tbaa !76
+  %44 = load ptr, ptr %43, align 8, !tbaa !75
   %45 = tail call i32 %41(ptr noundef %44, i32 noundef 0, i32 noundef %22, i32 noundef 1, ptr noundef %.03745, i32 noundef 0) #6
   %46 = or i32 %45, %.0303646
   %47 = load i32, ptr %8, align 8, !tbaa !52
   %48 = add nuw nsw i32 %.0313547, 1
   %49 = load ptr, ptr %19, align 8, !tbaa !34
   %50 = getelementptr i8, ptr %49, i64 56
-  %.val.i = load i32, ptr %50, align 8, !tbaa !71
+  %.val.i = load i32, ptr %50, align 8, !tbaa !70
   %51 = getelementptr i8, ptr %49, i64 64
-  %.val2.i = load i32, ptr %51, align 8, !tbaa !74
+  %.val2.i = load i32, ptr %51, align 8, !tbaa !73
   %.not3.i = icmp slt i32 %.val2.i, %.val.i
-  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %.WebPRescalerHasPendingOutput.exit.thread_crit_edge, !llvm.loop !85
+  br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %.WebPRescalerHasPendingOutput.exit.thread_crit_edge, !llvm.loop !83
 
 .WebPRescalerHasPendingOutput.exit.thread_crit_edge: ; preds = %39
-  br label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !85
+  br label %WebPRescalerHasPendingOutput.exit.thread, !llvm.loop !83
 
 WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge, %WebPRescalerHasPendingOutput.exit.preheader
   %52 = phi i32 [ %47, %.WebPRescalerHasPendingOutput.exit.thread_crit_edge ], [ %9, %WebPRescalerHasPendingOutput.exit.preheader ], [ %47, %WebPRescalerHasPendingOutput.exit ]
@@ -1451,7 +1451,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %2, %2, %2, %2, %2, 
   %33 = tail call i32 @WebPRescalerExport(ptr noundef %6) #6
   %34 = add nsw i32 %33, %.01215.i
   %35 = icmp sgt i32 %32, 0
-  br i1 %35, label %.lr.ph.i, label %Rescale.exit, !llvm.loop !86
+  br i1 %35, label %.lr.ph.i, label %Rescale.exit, !llvm.loop !84
 
 Rescale.exit:                                     ; preds = %.lr.ph.i, %20
   %.012.lcssa.i = phi i32 [ 0, %20 ], [ %34, %.lr.ph.i ]
@@ -1477,7 +1477,7 @@ Rescale.exit:                                     ; preds = %.lr.ph.i, %20
   %47 = sub nsw i32 %.01314.i28, %43
   %48 = tail call i32 @WebPRescalerExport(ptr noundef %39) #6
   %49 = icmp sgt i32 %47, 0
-  br i1 %49, label %.lr.ph.i25, label %Rescale.exit29, !llvm.loop !86
+  br i1 %49, label %.lr.ph.i25, label %Rescale.exit29, !llvm.loop !84
 
 Rescale.exit29:                                   ; preds = %.lr.ph.i25
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1497,7 +1497,7 @@ Rescale.exit29:                                   ; preds = %.lr.ph.i25
   %59 = sub nsw i32 %.01314.i34, %55
   %60 = tail call i32 @WebPRescalerExport(ptr noundef %54) #6
   %61 = icmp sgt i32 %59, 0
-  br i1 %61, label %.lr.ph.i31, label %Rescale.exit35, !llvm.loop !86
+  br i1 %61, label %.lr.ph.i31, label %Rescale.exit35, !llvm.loop !84
 
 Rescale.exit35:                                   ; preds = %.lr.ph.i31, %Rescale.exit
   ret i32 %.012.lcssa.i
@@ -1546,7 +1546,7 @@ define internal noundef i32 @EmitRescaledAlphaYUV(ptr noundef readonly captures(
   %33 = tail call i32 @WebPRescalerExport(ptr noundef %26) #6
   %34 = add nsw i32 %33, %.01215.i
   %35 = icmp sgt i32 %32, 0
-  br i1 %35, label %.lr.ph.i, label %Rescale.exit, !llvm.loop !86
+  br i1 %35, label %.lr.ph.i, label %Rescale.exit, !llvm.loop !84
 
 Rescale.exit:                                     ; preds = %.lr.ph.i
   %36 = icmp sgt i32 %34, 0
@@ -1560,7 +1560,7 @@ Rescale.exit:                                     ; preds = %.lr.ph.i
   %42 = load i32, ptr %10, align 4, !tbaa !44
   %43 = load ptr, ptr %25, align 8, !tbaa !34
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 52
-  %45 = load i32, ptr %44, align 4, !tbaa !77
+  %45 = load i32, ptr %44, align 4, !tbaa !76
   tail call void @WebPMultRows(ptr noundef %40, i32 noundef %41, ptr noundef %14, i32 noundef %42, i32 noundef %45, i32 noundef %34, i32 noundef 1) #6
   br label %FillAlphaPlane.exit
 
@@ -1583,7 +1583,7 @@ Rescale.exit:                                     ; preds = %.lr.ph.i
   %52 = getelementptr inbounds i8, ptr %.067.i, i64 %12
   %53 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %53, %2
-  br i1 %exitcond.not.i, label %FillAlphaPlane.exit, label %51, !llvm.loop !70
+  br i1 %exitcond.not.i, label %FillAlphaPlane.exit, label %51, !llvm.loop !69
 
 FillAlphaPlane.exit:                              ; preds = %51, %17, %Rescale.exit, %37, %46
   ret i32 0
@@ -1682,23 +1682,21 @@ attributes #6 = { nounwind }
 !64 = !{!4, !5, i64 0}
 !65 = !{!6, !6, i64 0}
 !66 = distinct !{!66, !60}
-!67 = distinct !{!67, !60, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !60}
+!68 = distinct !{!68, !60}
 !69 = distinct !{!69, !60}
-!70 = distinct !{!70, !60}
-!71 = !{!72, !5, i64 56}
-!72 = !{!"WebPRescaler", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !8, i64 72, !5, i64 80, !73, i64 88, !73, i64 96}
-!73 = !{!"p1 int", !9, i64 0}
-!74 = !{!72, !5, i64 64}
-!75 = !{!72, !5, i64 24}
-!76 = !{!72, !8, i64 72}
-!77 = !{!72, !5, i64 52}
+!70 = !{!71, !5, i64 56}
+!71 = !{!"WebPRescaler", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !8, i64 72, !5, i64 80, !72, i64 88, !72, i64 96}
+!72 = !{!"p1 int", !9, i64 0}
+!73 = !{!71, !5, i64 64}
+!74 = !{!71, !5, i64 24}
+!75 = !{!71, !8, i64 72}
+!76 = !{!71, !5, i64 52}
+!77 = distinct !{!77, !60}
 !78 = distinct !{!78, !60}
-!79 = distinct !{!79, !60}
-!80 = !{!72, !5, i64 60}
+!79 = !{!71, !5, i64 60}
+!80 = distinct !{!80, !60}
 !81 = distinct !{!81, !60}
 !82 = distinct !{!82, !60}
-!83 = distinct !{!83, !60, !68}
+!83 = distinct !{!83, !60}
 !84 = distinct !{!84, !60}
-!85 = distinct !{!85, !60}
-!86 = distinct !{!86, !60}

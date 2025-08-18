@@ -603,7 +603,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_prf_P_hash(ptr noundef nonnull 
   %37 = sub i64 %.04364.us, %12
   %38 = call i32 @EVP_MAC_final(ptr noundef nonnull %31, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 64) #7
   %.not55.us = icmp eq i32 %38, 0
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.thread, %56
   %.166 = phi ptr [ %47, %56 ], [ %15, %.thread ]
@@ -765,5 +765,3 @@ attributes #7 = { nounwind }
 !25 = !{!5, !5, i64 0}
 !26 = !{!10, !10, i64 0}
 !27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}

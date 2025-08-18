@@ -266,7 +266,7 @@ define range(i32 -46, 1) i32 @pmix_ifaddrtoname(ptr noundef %0, ptr noundef writ
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
   %51 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 1
   %exitcond.not.i = icmp eq i64 %49, %44
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !43
 
 pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %48, %.split.us
   %.08.lcssa.i = phi ptr [ %1, %.split.us ], [ %51, %48 ], [ %.0811.i, %.lr.ph.i ]
@@ -321,7 +321,7 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %48, %.sp
   %76 = getelementptr inbounds nuw i8, ptr %.0910.i49, i64 1
   %77 = getelementptr inbounds nuw i8, ptr %.0811.i48, i64 1
   %exitcond.not.i50 = icmp eq i64 %75, %70
-  br i1 %exitcond.not.i50, label %pmix_strncpy.exit52, label %.lr.ph.i46, !llvm.loop !44
+  br i1 %exitcond.not.i50, label %pmix_strncpy.exit52, label %.lr.ph.i46, !llvm.loop !43
 
 pmix_strncpy.exit52:                              ; preds = %.lr.ph.i46, %74, %68
   %.08.lcssa.i51 = phi ptr [ %1, %68 ], [ %77, %74 ], [ %.0811.i48, %.lr.ph.i46 ]
@@ -334,13 +334,13 @@ pmix_strncpy.exit52:                              ; preds = %.lr.ph.i46, %74, %6
   %80 = getelementptr inbounds nuw i8, ptr %.03256, i64 120
   %81 = load ptr, ptr %80, align 8, !tbaa !20
   %.not39 = icmp eq ptr %81, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not39, label %._crit_edge, label %39, !llvm.loop !45
+  br i1 %.not39, label %._crit_edge, label %39, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %79, %29
   %82 = getelementptr inbounds nuw i8, ptr %.03359, i64 40
   %.033 = load ptr, ptr %82, align 8, !tbaa !26
   %.not37 = icmp eq ptr %.033, null
-  br i1 %.not37, label %._crit_edge62.thread67, label %.lr.ph, !llvm.loop !46
+  br i1 %.not37, label %._crit_edge62.thread67, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge62.thread67:                           ; preds = %._crit_edge, %.lr.ph61
   call void @freeaddrinfo(ptr noundef nonnull %.03357) #19
@@ -430,7 +430,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %.03252, i64 410
-  %23 = load i16, ptr %22, align 2, !tbaa !47
+  %23 = load i16, ptr %22, align 2, !tbaa !45
   %24 = icmp eq i16 %23, 2
   br i1 %24, label %25, label %.thread43
 
@@ -447,7 +447,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %13, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %.03252, i64 552
-  %30 = load i32, ptr %29, align 8, !tbaa !48
+  %30 = load i32, ptr %29, align 8, !tbaa !46
   %31 = call zeroext i1 @pmix_net_samenetwork(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %30) #19
   br i1 %31, label %.thread, label %35
 
@@ -467,7 +467,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
 
 36:                                               ; preds = %19
   %37 = getelementptr inbounds nuw i8, ptr %.03252, i64 410
-  %38 = load i16, ptr %37, align 2, !tbaa !47
+  %38 = load i16, ptr %37, align 2, !tbaa !45
   %39 = icmp eq i16 %38, 10
   br i1 %39, label %40, label %.thread43
 
@@ -484,7 +484,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %12, i8 0, i64 100, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 8 dereferenceable(28) %43, i64 28, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %.03252, i64 552
-  %45 = load i32, ptr %44, align 8, !tbaa !48
+  %45 = load i32, ptr %44, align 8, !tbaa !46
   %46 = call zeroext i1 @pmix_net_samenetwork(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef %45) #19
   br i1 %46, label %.thread44, label %50
 
@@ -506,13 +506,13 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
   %51 = getelementptr inbounds nuw i8, ptr %.03252, i64 120
   %.032 = load ptr, ptr %51, align 8, !tbaa !20
   %.not39 = icmp eq ptr %.032, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not39, label %._crit_edge, label %19, !llvm.loop !49
+  br i1 %.not39, label %._crit_edge, label %19, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.thread43, %.preheader
   %52 = getelementptr inbounds nuw i8, ptr %.02955, i64 40
   %.029 = load ptr, ptr %52, align 8, !tbaa !26
   %.not37 = icmp eq ptr %.029, null
-  br i1 %.not37, label %._crit_edge56, label %.preheaderthread-pre-split, !llvm.loop !50
+  br i1 %.not37, label %._crit_edge56, label %.preheaderthread-pre-split, !llvm.loop !48
 
 ._crit_edge56:                                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %3, align 8, !tbaa !26
@@ -535,7 +535,7 @@ declare zeroext i1 @pmix_net_samenetwork(ptr noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
 define i32 @pmix_ifcount() local_unnamed_addr #8 {
-  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8, !tbaa !52
+  %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 264), align 8, !tbaa !50
   %2 = trunc i64 %1 to i32
   ret i32 %2
 }
@@ -582,7 +582,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 404
   %9 = load i32, ptr %8, align 4, !tbaa !16
   %10 = icmp eq i32 %9, %0
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !53
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !51
 
 11:                                               ; preds = %.lr.ph
   %.not20 = icmp eq ptr %.01529, null
@@ -596,7 +596,7 @@ define i32 @pmix_ifnext(i32 noundef %0) local_unnamed_addr #2 {
 15:                                               ; preds = %11, %12
   %16 = phi ptr [ %14, %12 ], [ null, %11 ]
   %.not = icmp eq ptr %16, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %15, %.thread, %.preheader, %1
   %.2 = phi i32 [ -1, %1 ], [ %9, %.thread ], [ -1, %.preheader ], [ -1, %15 ]
@@ -635,7 +635,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextoaddr(i32 noundef %0, ptr noundef writ
 16:                                               ; preds = %12, %13
   %17 = phi ptr [ %15, %13 ], [ null, %12 ]
   %.not = icmp eq ptr %17, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %16, %3, %8
   %.09 = phi i32 [ 0, %8 ], [ -1, %3 ], [ -1, %16 ]
@@ -675,7 +675,7 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoaddr(i32 noundef %0, ptr noundef wri
 17:                                               ; preds = %13, %14
   %18 = phi ptr [ %16, %14 ], [ null, %13 ]
   %.not = icmp eq ptr %18, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %17, %3, %9
   %.09 = phi i32 [ 0, %9 ], [ -1, %3 ], [ -1, %17 ]
@@ -713,7 +713,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomask(i32 noundef %0, ptr noundef writ
 15:                                               ; preds = %11, %12
   %16 = phi ptr [ %14, %12 ], [ null, %11 ]
   %.not = icmp eq ptr %16, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %15, %3, %8
   %.08 = phi i32 [ 0, %8 ], [ -1, %3 ], [ -1, %15 ]
@@ -750,7 +750,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomac(i32 noundef %0, ptr noundef write
 13:                                               ; preds = %9, %10
   %14 = phi ptr [ %12, %10 ], [ null, %9 ]
   %.not = icmp eq ptr %14, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %13, %2, %7
   %.07 = phi i32 [ 0, %7 ], [ -1, %2 ], [ -1, %13 ]
@@ -772,8 +772,8 @@ define range(i32 -1, 1) i32 @pmix_ifindextomtu(i32 noundef %0, ptr noundef write
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.011, i64 568
-  %9 = load i32, ptr %8, align 8, !tbaa !59
-  store i32 %9, ptr %1, align 4, !tbaa !60
+  %9 = load i32, ptr %8, align 8, !tbaa !57
+  store i32 %9, ptr %1, align 4, !tbaa !58
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph
@@ -788,7 +788,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextomtu(i32 noundef %0, ptr noundef write
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
   %.not = icmp eq ptr %15, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 .loopexit:                                        ; preds = %14, %2, %7
   %.07 = phi i32 [ 0, %7 ], [ -1, %2 ], [ -1, %14 ]
@@ -826,7 +826,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextoflags(i32 noundef %0, ptr noundef wri
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
   %.not = icmp eq ptr %15, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !60
 
 .loopexit:                                        ; preds = %14, %2, %7
   %.07 = phi i32 [ 0, %7 ], [ -1, %2 ], [ -1, %14 ]
@@ -872,7 +872,7 @@ define range(i32 -1, 1) i32 @pmix_ifindextoname(i32 noundef %0, ptr noundef writ
   %17 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
   %18 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 1
   %exitcond.not.i = icmp eq i64 %16, %11
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !43
 
 pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %15, %9
   %.08.lcssa.i = phi ptr [ %1, %9 ], [ %18, %15 ], [ %.0811.i, %.lr.ph.i ]
@@ -891,7 +891,7 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %15, %9
 23:                                               ; preds = %19, %20
   %24 = phi ptr [ %22, %20 ], [ null, %19 ]
   %.not = icmp eq ptr %24, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
 .loopexit:                                        ; preds = %23, %3, %pmix_strncpy.exit
   %.010 = phi i32 [ 0, %pmix_strncpy.exit ], [ -1, %3 ], [ -1, %23 ]
@@ -938,7 +938,7 @@ define range(i32 -1, 1) i32 @pmix_ifkindextoname(i32 noundef %0, ptr noundef wri
   %18 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
   %19 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 1
   %exitcond.not.i = icmp eq i64 %17, %12
-  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.lr.ph.i, !llvm.loop !43
 
 pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %16, %10
   %.08.lcssa.i = phi ptr [ %1, %10 ], [ %19, %16 ], [ %.0811.i, %.lr.ph.i ]
@@ -957,7 +957,7 @@ pmix_strncpy.exit:                                ; preds = %.lr.ph.i, %16, %10
 24:                                               ; preds = %20, %21
   %25 = phi ptr [ %23, %21 ], [ null, %20 ]
   %.not = icmp eq ptr %25, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
 .loopexit:                                        ; preds = %24, %3, %pmix_strncpy.exit
   %.010 = phi i32 [ 0, %pmix_strncpy.exit ], [ -1, %3 ], [ -1, %24 ]
@@ -984,7 +984,7 @@ define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef w
   br i1 %.not, label %59, label %8
 
 8:                                                ; preds = %3
-  store i32 -1, ptr %2, align 4, !tbaa !60
+  store i32 -1, ptr %2, align 4, !tbaa !58
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #18
   %.not39 = icmp eq ptr %9, null
   br i1 %.not39, label %.preheader, label %10
@@ -1007,8 +1007,8 @@ define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef w
   %15 = call i64 @strtoul(ptr noundef nonnull %.01319.i, ptr noundef nonnull %6, i32 noundef 10) #19
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i
-  store i32 %16, ptr %17, align 4, !tbaa !60
-  %18 = load ptr, ptr %6, align 8, !tbaa !65
+  store i32 %16, ptr %17, align 4, !tbaa !58
+  %18 = load ptr, ptr %6, align 8, !tbaa !63
   %19 = icmp eq ptr %18, %.01319.i
   br i1 %19, label %.split.loop.exit22.i, label %20
 
@@ -1021,31 +1021,31 @@ define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef w
   %22 = load i8, ptr %.1.i, align 1, !tbaa !15
   %cond.i = icmp eq i8 %22, 46
   %23 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br i1 %cond.i, label %.preheader.i, label %24, !llvm.loop !66
+  br i1 %cond.i, label %.preheader.i, label %24, !llvm.loop !64
 
 24:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split.loop.exit22.i, label %14, !llvm.loop !67
+  br i1 %exitcond.not.i, label %.split.loop.exit22.i, label %14, !llvm.loop !65
 
 .split.loop.exit22.i:                             ; preds = %14, %24
-  %25 = load i32, ptr %7, align 16, !tbaa !60
+  %25 = load i32, ptr %7, align 16, !tbaa !58
   %26 = shl i32 %25, 24
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !60
+  %28 = load i32, ptr %27, align 4, !tbaa !58
   %29 = shl i32 %28, 16
   %30 = and i32 %29, 16711680
   %31 = or disjoint i32 %30, %26
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !60
+  %33 = load i32, ptr %32, align 8, !tbaa !58
   %34 = shl i32 %33, 8
   %35 = and i32 %34, 65280
   %36 = or disjoint i32 %31, %35
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !60
+  %38 = load i32, ptr %37, align 4, !tbaa !58
   %39 = and i32 %38, 255
   %40 = or disjoint i32 %36, %39
-  store i32 %40, ptr %2, align 4, !tbaa !60
+  store i32 %40, ptr %2, align 4, !tbaa !58
   br label %parse_ipv4_dots.exit
 
 parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.exit22.i
@@ -1068,7 +1068,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
 46:                                               ; preds = %41
   %47 = sub nuw nsw i32 32, %43
   %48 = shl nsw i32 -1, %47
-  store i32 %48, ptr %2, align 4, !tbaa !60
+  store i32 %48, ptr %2, align 4, !tbaa !58
   br label %59
 
 .preheader:                                       ; preds = %8, %52
@@ -1087,7 +1087,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
 52:                                               ; preds = %.preheader, %50
   %.132 = phi i32 [ %51, %50 ], [ %.031, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %.preheader, !llvm.loop !68
+  br label %.preheader, !llvm.loop !66
 
 54:                                               ; preds = %.preheader
   switch i32 %.031, label %58 [
@@ -1098,15 +1098,15 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   ]
 
 55:                                               ; preds = %54
-  store i32 -256, ptr %2, align 4, !tbaa !60
+  store i32 -256, ptr %2, align 4, !tbaa !58
   br label %59
 
 56:                                               ; preds = %54
-  store i32 -65536, ptr %2, align 4, !tbaa !60
+  store i32 -65536, ptr %2, align 4, !tbaa !58
   br label %59
 
 57:                                               ; preds = %54
-  store i32 -16777216, ptr %2, align 4, !tbaa !60
+  store i32 -16777216, ptr %2, align 4, !tbaa !58
   br label %59
 
 58:                                               ; preds = %54
@@ -1130,8 +1130,8 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   %62 = call i64 @strtoul(ptr noundef %.01319.i44, ptr noundef nonnull %4, i32 noundef 10) #19
   %63 = trunc i64 %62 to i32
   %64 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i43
-  store i32 %63, ptr %64, align 4, !tbaa !60
-  %65 = load ptr, ptr %4, align 8, !tbaa !65
+  store i32 %63, ptr %64, align 4, !tbaa !58
+  %65 = load ptr, ptr %4, align 8, !tbaa !63
   %66 = icmp eq ptr %65, %.01319.i44
   br i1 %66, label %.split.loop.exit22.i50, label %67
 
@@ -1144,31 +1144,31 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   %69 = load i8, ptr %.1.i46, align 1, !tbaa !15
   %cond.i47 = icmp eq i8 %69, 46
   %70 = getelementptr inbounds nuw i8, ptr %.1.i46, i64 1
-  br i1 %cond.i47, label %.preheader.i45, label %71, !llvm.loop !66
+  br i1 %cond.i47, label %.preheader.i45, label %71, !llvm.loop !64
 
 71:                                               ; preds = %.preheader.i45
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 4
-  br i1 %exitcond.not.i49, label %.split.loop.exit22.i50, label %61, !llvm.loop !67
+  br i1 %exitcond.not.i49, label %.split.loop.exit22.i50, label %61, !llvm.loop !65
 
 .split.loop.exit22.i50:                           ; preds = %61, %71
-  %72 = load i32, ptr %5, align 16, !tbaa !60
+  %72 = load i32, ptr %5, align 16, !tbaa !58
   %73 = shl i32 %72, 24
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !60
+  %75 = load i32, ptr %74, align 4, !tbaa !58
   %76 = shl i32 %75, 16
   %77 = and i32 %76, 16711680
   %78 = or disjoint i32 %77, %73
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !60
+  %80 = load i32, ptr %79, align 8, !tbaa !58
   %81 = shl i32 %80, 8
   %82 = and i32 %81, 65280
   %83 = or disjoint i32 %78, %82
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %85 = load i32, ptr %84, align 4, !tbaa !60
+  %85 = load i32, ptr %84, align 4, !tbaa !58
   %86 = and i32 %85, 255
   %87 = or disjoint i32 %83, %86
-  store i32 %87, ptr %1, align 4, !tbaa !60
+  store i32 %87, ptr %1, align 4, !tbaa !58
   br label %parse_ipv4_dots.exit54
 
 parse_ipv4_dots.exit54:                           ; preds = %67, %.split.loop.exit22.i50
@@ -1205,7 +1205,7 @@ define noundef zeroext i1 @pmix_ifisloopback(i32 noundef %0) local_unnamed_addr 
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 412
-  %8 = load i32, ptr %7, align 4, !tbaa !69
+  %8 = load i32, ptr %7, align 4, !tbaa !67
   %9 = and i32 %8, 8
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %10, label %._crit_edge
@@ -1222,7 +1222,7 @@ define noundef zeroext i1 @pmix_ifisloopback(i32 noundef %0) local_unnamed_addr 
 14:                                               ; preds = %10, %11
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
   %.not.not = icmp eq ptr %15, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %6, %14, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ false, %14 ], [ true, %6 ]
@@ -1259,13 +1259,13 @@ define range(i32 -1363, 1) i32 @pmix_ifmatches(i32 noundef %0, ptr noundef reado
 14:                                               ; preds = %11, %10
   %15 = phi ptr [ %13, %11 ], [ null, %10 ]
   %.not.i = icmp eq ptr %15, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not.i, label %pmix_ifkindextoaddr.exit.thread, label %.lr.ph.i, !llvm.loop !56
+  br i1 %.not.i, label %pmix_ifkindextoaddr.exit.thread, label %.lr.ph.i, !llvm.loop !54
 
 16:                                               ; preds = %.lr.ph.i
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.013.i, i64 428
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %17 = tail call noundef i32 @llvm.bswap.i32(i32 %.sroa.3.0.copyload)
-  %18 = load ptr, ptr %1, align 8, !tbaa !65
+  %18 = load ptr, ptr %1, align 8, !tbaa !63
   %.not3252 = icmp eq ptr %18, null
   br i1 %.not3252, label %pmix_ifkindextoaddr.exit.thread, label %.preheader
 
@@ -1278,13 +1278,13 @@ define range(i32 -1363, 1) i32 @pmix_ifmatches(i32 noundef %0, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.preheader
   %21 = tail call ptr @__ctype_b_loc() #20
-  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %22 = load ptr, ptr %21, align 8, !tbaa !69
   br label %25
 
 23:                                               ; preds = %25
   %24 = add nuw i64 %.02750, 1
   %exitcond.not = icmp eq i64 %24, %20
-  br i1 %exitcond.not, label %.critedge, label %25, !llvm.loop !73
+  br i1 %exitcond.not, label %.critedge, label %25, !llvm.loop !71
 
 25:                                               ; preds = %.lr.ph, %23
   %.02750 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
@@ -1292,7 +1292,7 @@ define range(i32 -1363, 1) i32 @pmix_ifmatches(i32 noundef %0, ptr noundef reado
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = sext i8 %27 to i64
   %29 = getelementptr inbounds i16, ptr %22, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !74
+  %30 = load i16, ptr %29, align 2, !tbaa !72
   %31 = and i16 %30, 1024
   %.not33 = icmp eq i16 %31, 0
   %.not34 = icmp eq i8 %27, 46
@@ -1346,13 +1346,13 @@ pmix_ifnametokindex.exit:                         ; preds = %36
 
 51:                                               ; preds = %.critedge
   %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %53 = load ptr, ptr %52, align 8, !tbaa !65
+  %53 = load ptr, ptr %52, align 8, !tbaa !63
   %54 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %53) #19
   br label %pmix_ifkindextoaddr.exit.thread
 
 55:                                               ; preds = %.critedge
-  %56 = load i32, ptr %3, align 4, !tbaa !60
-  %57 = load i32, ptr %4, align 4, !tbaa !60
+  %56 = load i32, ptr %3, align 4, !tbaa !58
+  %57 = load i32, ptr %4, align 4, !tbaa !58
   %58 = and i32 %57, %17
   %59 = icmp eq i32 %56, %58
   br i1 %59, label %pmix_ifkindextoaddr.exit.thread, label %pmix_ifnametokindex.exit.thread
@@ -1360,9 +1360,9 @@ pmix_ifnametokindex.exit:                         ; preds = %36
 pmix_ifnametokindex.exit.thread:                  ; preds = %43, %32, %55, %pmix_ifnametokindex.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
-  %61 = load ptr, ptr %60, align 8, !tbaa !65
+  %61 = load ptr, ptr %60, align 8, !tbaa !63
   %.not32 = icmp eq ptr %61, null
-  br i1 %.not32, label %pmix_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !75
+  br i1 %.not32, label %pmix_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !73
 
 pmix_ifkindextoaddr.exit.thread:                  ; preds = %14, %pmix_ifnametokindex.exit, %55, %pmix_ifnametokindex.exit.thread, %16, %2, %51
   %.0 = phi i32 [ %50, %51 ], [ -1, %2 ], [ -46, %16 ], [ 0, %pmix_ifnametokindex.exit ], [ 0, %55 ], [ -46, %pmix_ifnametokindex.exit.thread ], [ -1, %14 ]
@@ -1390,14 +1390,14 @@ define void @pmix_ifgetaliases(ptr noundef %0) local_unnamed_addr #3 {
 .lr.ph:                                           ; preds = %1, %18
   %.011 = phi ptr [ %.0, %18 ], [ %.09, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %.011, i64 412
-  %4 = load i32, ptr %3, align 4, !tbaa !69
+  %4 = load i32, ptr %3, align 4, !tbaa !67
   %5 = and i32 %4, 8
   %.not7 = icmp eq i32 %5, 0
   br i1 %.not7, label %6, label %18
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 424
-  %8 = load i16, ptr %7, align 4, !tbaa !76
+  %8 = load i16, ptr %7, align 4, !tbaa !74
   %9 = icmp eq i16 %8, 2
   br i1 %9, label %10, label %18
 
@@ -1421,7 +1421,7 @@ define void @pmix_ifgetaliases(ptr noundef %0) local_unnamed_addr #3 {
   %19 = getelementptr inbounds nuw i8, ptr %.011, i64 120
   %.0 = load ptr, ptr %19, align 8, !tbaa !20
   %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %18, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1520,39 +1520,37 @@ attributes #20 = { nounwind willreturn memory(none) }
 !39 = !{!40, !10, i64 4}
 !40 = !{!"sockaddr_in", !18, i64 0, !18, i64 2, !41, i64 4, !6, i64 8}
 !41 = !{!"in_addr", !10, i64 0}
-!42 = distinct !{!42, !22, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !22}
+!43 = distinct !{!43, !22}
 !44 = distinct !{!44, !22}
-!45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22}
-!47 = !{!17, !18, i64 410}
-!48 = !{!17, !10, i64 552}
-!49 = distinct !{!49, !22}
-!50 = distinct !{!50, !22, !51}
-!51 = !{!"llvm.loop.unswitch.partial.disable"}
-!52 = !{!4, !14, i64 264}
+!45 = !{!17, !18, i64 410}
+!46 = !{!17, !10, i64 552}
+!47 = distinct !{!47, !22}
+!48 = distinct !{!48, !22, !49}
+!49 = !{!"llvm.loop.unswitch.partial.disable"}
+!50 = !{!4, !14, i64 264}
+!51 = distinct !{!51, !22}
+!52 = distinct !{!52, !22}
 !53 = distinct !{!53, !22}
 !54 = distinct !{!54, !22}
 !55 = distinct !{!55, !22}
 !56 = distinct !{!56, !22}
-!57 = distinct !{!57, !22}
-!58 = distinct !{!58, !22}
-!59 = !{!17, !10, i64 568}
-!60 = !{!10, !10, i64 0}
+!57 = !{!17, !10, i64 568}
+!58 = !{!10, !10, i64 0}
+!59 = distinct !{!59, !22}
+!60 = distinct !{!60, !22}
 !61 = distinct !{!61, !22}
 !62 = distinct !{!62, !22}
-!63 = distinct !{!63, !22}
+!63 = !{!35, !35, i64 0}
 !64 = distinct !{!64, !22}
-!65 = !{!35, !35, i64 0}
+!65 = distinct !{!65, !22}
 !66 = distinct !{!66, !22}
-!67 = distinct !{!67, !22}
+!67 = !{!17, !10, i64 412}
 !68 = distinct !{!68, !22}
-!69 = !{!17, !10, i64 412}
-!70 = distinct !{!70, !22}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 short", !9, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 short", !9, i64 0}
+!71 = distinct !{!71, !22}
+!72 = !{!18, !18, i64 0}
 !73 = distinct !{!73, !22}
-!74 = !{!18, !18, i64 0}
+!74 = !{!40, !18, i64 0}
 !75 = distinct !{!75, !22}
-!76 = !{!40, !18, i64 0}
-!77 = distinct !{!77, !22}

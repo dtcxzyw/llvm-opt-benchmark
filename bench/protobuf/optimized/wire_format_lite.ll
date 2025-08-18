@@ -1445,7 +1445,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44: ; preds = %wh
 if.end10:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44, %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
   %call2 = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
   %cmp = icmp sgt i32 %call2, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end10, %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us, %if.end
   tail call void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %call1)
@@ -3650,25 +3650,25 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont15:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
-  store i64 2, ptr %ref.tmp.i, align 8, !noalias !12
+  store i64 2, ptr %ref.tmp.i, align 8, !noalias !10
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr @.str.3, ptr %1, align 8, !noalias !12
+  store ptr @.str.3, ptr %1, align 8, !noalias !10
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store i64 %message_name.coerce0, ptr %arrayinit.element.i, align 8, !noalias !12
+  store i64 %message_name.coerce0, ptr %arrayinit.element.i, align 8, !noalias !10
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr %message_name.coerce1, ptr %2, align 8, !noalias !12
+  store ptr %message_name.coerce1, ptr %2, align 8, !noalias !10
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  store i64 1, ptr %arrayinit.element2.i, align 8, !noalias !12
+  store i64 1, ptr %arrayinit.element2.i, align 8, !noalias !10
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store ptr @.str.4, ptr %3, align 8, !noalias !12
+  store ptr @.str.4, ptr %3, align 8, !noalias !10
   %arrayinit.element4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  store i64 %field_name.coerce0, ptr %arrayinit.element4.i, align 8, !noalias !12
+  store i64 %field_name.coerce0, ptr %arrayinit.element4.i, align 8, !noalias !10
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr %field_name.coerce1, ptr %4, align 8, !noalias !12
+  store ptr %field_name.coerce1, ptr %4, align 8, !noalias !10
   %arrayinit.element6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
-  store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !12
+  store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !10
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
-  store ptr @.str.5, ptr %5, align 8, !noalias !12
+  store ptr @.str.5, ptr %5, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont16 unwind label %lpad5
 
@@ -3724,32 +3724,32 @@ cond.true.i.i:                                    ; preds = %invoke.cont34
 invoke.cont38:                                    ; preds = %invoke.cont34, %cond.true.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i15, %cond.true.i.i ], [ 0, %invoke.cont34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i19)
-  store i64 12, ptr %ref.tmp.i19, align 8, !noalias !15
+  store i64 12, ptr %ref.tmp.i19, align 8, !noalias !13
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 8
-  store ptr @.str.6, ptr %12, align 8, !noalias !15
+  store ptr @.str.6, ptr %12, align 8, !noalias !13
   %arrayinit.element.i23 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 16
-  store i64 %10, ptr %arrayinit.element.i23, align 8, !noalias !15
+  store i64 %10, ptr %arrayinit.element.i23, align 8, !noalias !13
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 24
-  store ptr %11, ptr %13, align 8, !noalias !15
+  store ptr %11, ptr %13, align 8, !noalias !13
   %arrayinit.element2.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 32
-  store i64 34, ptr %arrayinit.element2.i27, align 8, !noalias !15
+  store i64 34, ptr %arrayinit.element2.i27, align 8, !noalias !13
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 40
-  store ptr @.str.7, ptr %14, align 8, !noalias !15
+  store ptr @.str.7, ptr %14, align 8, !noalias !13
   %arrayinit.element4.i31 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 48
-  store i64 %retval.sroa.0.0.i.i, ptr %arrayinit.element4.i31, align 8, !noalias !15
+  store i64 %retval.sroa.0.0.i.i, ptr %arrayinit.element4.i31, align 8, !noalias !13
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 56
-  store ptr %operation_str, ptr %15, align 8, !noalias !15
+  store ptr %operation_str, ptr %15, align 8, !noalias !13
   %arrayinit.element6.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 64
-  store i64 74, ptr %arrayinit.element6.i35, align 8, !noalias !15
+  store i64 74, ptr %arrayinit.element6.i35, align 8, !noalias !13
   %16 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 72
-  store ptr @.str.8, ptr %16, align 8, !noalias !15
+  store ptr @.str.8, ptr %16, align 8, !noalias !13
   %arrayinit.element8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 80
-  %call.i.i39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace) #22, !noalias !15
+  %call.i.i39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace) #22, !noalias !13
   %17 = extractvalue { i64, ptr } %call.i.i39, 0
   %18 = extractvalue { i64, ptr } %call.i.i39, 1
-  store i64 %17, ptr %arrayinit.element8.i, align 8, !noalias !15
+  store i64 %17, ptr %arrayinit.element8.i, align 8, !noalias !13
   %19 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 88
-  store ptr %18, ptr %19, align 8, !noalias !15
+  store ptr %18, ptr %19, align 8, !noalias !13
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_message, ptr nonnull %ref.tmp.i19, i64 6)
           to label %invoke.cont39 unwind label %lpad5
 
@@ -3875,7 +3875,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %3 = mul i32 %add.i, 5
@@ -3921,7 +3921,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %for.body.i, !llvm.loop !17
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit: ; preds = %for.body.i, %entry
   %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %sum.4.i, %for.body.i ]
@@ -3964,7 +3964,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %for.body.i, !llvm.loop !18
 
 _ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit: ; preds = %for.body.i, %entry
   %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %sum.4.i, %for.body.i ]
@@ -4007,7 +4007,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %3 = mul i32 %add.i, 5
@@ -4048,7 +4048,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4082,7 +4082,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4119,7 +4119,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4511,18 +4511,16 @@ attributes #28 = { allocsize(0) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!14 = distinct !{!14, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!17 = distinct !{!17, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!9 = distinct !{!9, !5}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
+!12 = distinct !{!12, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
+!15 = distinct !{!15, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

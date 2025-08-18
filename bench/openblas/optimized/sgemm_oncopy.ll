@@ -147,7 +147,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %74 = getelementptr inbounds i8, ptr %.1153, i64 %.idx
   %75 = add nsw i64 %.0151, -1
   %76 = icmp sgt i64 %.0151, 1
-  br i1 %76, label %.preheader201, label %.loopexit206, !llvm.loop !13
+  br i1 %76, label %.preheader201, label %.loopexit206, !llvm.loop !11
 
 .loopexit206:                                     ; preds = %.loopexit202, %.loopexit202.us, %.preheader205.split.split.us.preheader, %5
   %.0173 = phi ptr [ %4, %5 ], [ %4, %.preheader205.split.split.us.preheader ], [ %.4177.us, %.loopexit202.us ], [ %71, %.loopexit202 ]
@@ -203,7 +203,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %106 = getelementptr inbounds nuw i8, ptr %.8181, i64 32
   %107 = add nsw i64 %.2, -1
   %108 = icmp samesign ugt i64 %.2, 1
-  br i1 %108, label %.preheader199, label %.loopexit200, !llvm.loop !14
+  br i1 %108, label %.preheader199, label %.loopexit200, !llvm.loop !12
 
 .loopexit200:                                     ; preds = %.preheader199, %78
   %.7180 = phi ptr [ %.0173, %78 ], [ %106, %.preheader199 ]
@@ -228,7 +228,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %115 = getelementptr inbounds nuw i8, ptr %.9, i64 8
   %116 = add nsw i64 %.3, -1
   %117 = icmp samesign ugt i64 %.3, 1
-  br i1 %117, label %.preheader197, label %.loopexit198, !llvm.loop !15
+  br i1 %117, label %.preheader197, label %.loopexit198, !llvm.loop !13
 
 .loopexit198:                                     ; preds = %.preheader197, %.loopexit200, %.loopexit206
   %.6179 = phi ptr [ %.7180, %.loopexit200 ], [ %.0173, %.loopexit206 ], [ %115, %.preheader197 ]
@@ -264,7 +264,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %133 = getelementptr inbounds nuw i8, ptr %.11, i64 16
   %134 = add nsw i64 %.4, -1
   %135 = icmp samesign ugt i64 %.4, 1
-  br i1 %135, label %.preheader195, label %.loopexit196, !llvm.loop !16
+  br i1 %135, label %.preheader195, label %.loopexit196, !llvm.loop !14
 
 .loopexit196:                                     ; preds = %.preheader195, %119
   %.10 = phi ptr [ %.6179, %119 ], [ %133, %.preheader195 ]
@@ -283,7 +283,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %139 = getelementptr inbounds nuw i8, ptr %.12, i64 4
   %140 = add nsw i64 %.5, -1
   %141 = icmp samesign ugt i64 %.5, 1
-  br i1 %141, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %141, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit196, %.loopexit198
   ret i32 0
@@ -304,10 +304,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !4, i64 0}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef %0, ptr n
   %20 = add nuw nsw i32 %.01317, 1
   %21 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #7
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
+  br i1 %22, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %18, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %6, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %6 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %18 ], [ 1, %.critedge ]
@@ -467,7 +467,7 @@ define range(i32 0, 2) i32 @ossl_cmp_sk_ASN1_UTF8STRING_push_str(ptr noundef %0,
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %15, !prof !17
+  br i1 %6, label %7, label %15, !prof !15
 
 7:                                                ; preds = %3
   %8 = tail call ptr @ASN1_UTF8STRING_new() #7
@@ -513,7 +513,7 @@ define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef captures
   br label %14
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !18
+  %6 = load ptr, ptr %0, align 8, !tbaa !16
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %14, label %8
 
@@ -527,14 +527,14 @@ define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef captures
   br i1 %11, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  %.pre = load ptr, ptr %0, align 8, !tbaa !18
+  %.pre = load ptr, ptr %0, align 8, !tbaa !16
   br label %12
 
 12:                                               ; preds = %._crit_edge, %8
   %13 = phi ptr [ %.pre, %._crit_edge ], [ %6, %8 ]
   %.0 = phi ptr [ %10, %._crit_edge ], [ null, %8 ]
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %13) #7
-  store ptr %.0, ptr %0, align 8, !tbaa !18
+  store ptr %.0, ptr %0, align 8, !tbaa !16
   br label %14
 
 14:                                               ; preds = %9, %5, %12, %4
@@ -577,9 +577,9 @@ define range(i32 0, 2) i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef ca
 
 13:                                               ; preds = %10, %6
   %.0 = phi ptr [ %8, %10 ], [ null, %6 ]
-  %14 = load ptr, ptr %0, align 8, !tbaa !18
+  %14 = load ptr, ptr %0, align 8, !tbaa !16
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %14) #7
-  store ptr %.0, ptr %0, align 8, !tbaa !18
+  store ptr %.0, ptr %0, align 8, !tbaa !16
   br label %15
 
 15:                                               ; preds = %13, %12, %5
@@ -633,10 +633,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !10 = !{!5, !5, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !14}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}

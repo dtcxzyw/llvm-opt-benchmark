@@ -2065,7 +2065,7 @@ proto_item_set_generated.exit203.us:              ; preds = %92, %89, %.lr.ph.sp
   %98 = add i32 %.1218.us220, 2
   %99 = add i16 %.3217.us221, 1
   %100 = icmp slt i32 %98, %5
-  br i1 %100, label %.lr.ph.split.us219, label %.loopexit, !llvm.loop !20
+  br i1 %100, label %.lr.ph.split.us219, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us224:                               ; preds = %.lr.ph, %proto_item_set_generated.exit206.us
   %.1218.us225 = phi i32 [ %116, %proto_item_set_generated.exit206.us ], [ 0, %.lr.ph ]
@@ -2098,7 +2098,7 @@ proto_item_set_generated.exit206.us:              ; preds = %110, %107, %.lr.ph.
   %116 = add i32 %.1218.us225, 4
   %117 = add i16 %.3217.us226, 2
   %118 = icmp slt i32 %116, %5
-  br i1 %118, label %.lr.ph.split.us224, label %.loopexit, !llvm.loop !21
+  br i1 %118, label %.lr.ph.split.us224, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us229:                               ; preds = %.lr.ph, %proto_item_set_generated.exit209.us
   %.1218.us230 = phi i32 [ %134, %proto_item_set_generated.exit209.us ], [ 0, %.lr.ph ]
@@ -2131,7 +2131,7 @@ proto_item_set_generated.exit209.us:              ; preds = %128, %125, %.lr.ph.
   %134 = add i32 %.1218.us230, 4
   %135 = add i16 %.3217.us231, 2
   %136 = icmp slt i32 %134, %5
-  br i1 %136, label %.lr.ph.split.us229, label %.loopexit, !llvm.loop !22
+  br i1 %136, label %.lr.ph.split.us229, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us234:                               ; preds = %.lr.ph, %proto_item_set_generated.exit212.us
   %.1218.us235 = phi i32 [ %153, %proto_item_set_generated.exit212.us ], [ 0, %.lr.ph ]
@@ -2165,7 +2165,7 @@ proto_item_set_generated.exit212.us:              ; preds = %147, %144, %.lr.ph.
   %153 = add i32 %.1218.us235, 4
   %154 = add i16 %.3217.us236, 2
   %155 = icmp slt i32 %153, %5
-  br i1 %155, label %.lr.ph.split.us234, label %.loopexit, !llvm.loop !23
+  br i1 %155, label %.lr.ph.split.us234, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us239:                               ; preds = %.lr.ph, %proto_item_set_generated.exit215.us
   %.1218.us240 = phi i32 [ %179, %proto_item_set_generated.exit215.us ], [ 0, %.lr.ph ]
@@ -2206,7 +2206,7 @@ proto_item_set_generated.exit215.us:              ; preds = %173, %170, %.lr.ph.
   %179 = add i32 %.1218.us240, 4
   %180 = add i16 %.3217.us241, 2
   %181 = icmp slt i32 %179, %5
-  br i1 %181, label %.lr.ph.split.us239, label %.loopexit, !llvm.loop !24
+  br i1 %181, label %.lr.ph.split.us239, label %.loopexit, !llvm.loop !18
 
 182:                                              ; preds = %27
   %183 = load ptr, ptr @modbus_data_dissector_table, align 8
@@ -2822,10 +2822,4 @@ attributes #6 = { allocsize(1) }
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !9, !19}
-!21 = distinct !{!21, !9, !19}
-!22 = distinct !{!22, !9, !19}
-!23 = distinct !{!23, !9, !19}
-!24 = distinct !{!24, !9, !19}
+!18 = distinct !{!18, !9}

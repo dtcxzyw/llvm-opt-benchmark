@@ -263,7 +263,7 @@ Compare.exit.us:                                  ; preds = %.loopexit42.i.loope
 
 .preheader44.i:                                   ; preds = %.critedge2.i
   %41 = tail call ptr @__ctype_toupper_loc() #11
-  %42 = load ptr, ptr %41, align 8, !tbaa !31
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   br label %43
 
 43:                                               ; preds = %53, %.preheader44.i
@@ -284,7 +284,7 @@ Compare.exit.us:                                  ; preds = %.loopexit42.i.loope
   %54 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %55 = getelementptr inbounds nuw i8, ptr %.231.i, i64 1
   %56 = icmp eq i8 %48, 0
-  br i1 %56, label %.critedge3.thread84, label %43, !llvm.loop !33
+  br i1 %56, label %.critedge3.thread84, label %43, !llvm.loop !32
 
 .loopexit42.i.loopexit93:                         ; preds = %43, %58
   %57 = phi i8 [ %.pre.i, %58 ], [ %48, %43 ]
@@ -380,7 +380,7 @@ Compare.exit62.us:                                ; preds = %.loopexit42.i54.loo
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %86 = load ptr, ptr %64, align 8, !tbaa !16
   %.not40.us = icmp eq ptr %86, null
-  br i1 %.not40.us, label %.critedge3.thread, label %.preheader.us, !llvm.loop !34
+  br i1 %.not40.us, label %.critedge3.thread, label %.preheader.us
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %Compare.exit62
   %87 = phi ptr [ %119, %Compare.exit62 ], [ %61, %.preheader.lr.ph ]
@@ -412,7 +412,7 @@ Compare.exit62.us:                                ; preds = %.loopexit42.i54.loo
 
 .preheader44.i51:                                 ; preds = %.critedge2.i50
   %97 = tail call ptr @__ctype_toupper_loc() #11
-  %98 = load ptr, ptr %97, align 8, !tbaa !31
+  %98 = load ptr, ptr %97, align 8, !tbaa !30
   br label %99
 
 99:                                               ; preds = %109, %.preheader44.i51
@@ -433,7 +433,7 @@ Compare.exit62.us:                                ; preds = %.loopexit42.i54.loo
   %110 = getelementptr inbounds nuw i8, ptr %.2.i53, i64 1
   %111 = getelementptr inbounds nuw i8, ptr %.231.i52, i64 1
   %112 = icmp eq i8 %104, 0
-  br i1 %112, label %.critedge3.thread84, label %99, !llvm.loop !33
+  br i1 %112, label %.critedge3.thread84, label %99, !llvm.loop !32
 
 .loopexit42.i54.loopexit88:                       ; preds = %99, %114
   %113 = phi i8 [ %.pre.i58, %114 ], [ %104, %99 ]
@@ -472,7 +472,7 @@ Compare.exit62:                                   ; preds = %.loopexit42.i54.loo
 Compare.exit:                                     ; preds = %.loopexit42.i.loopexit93, %39
   %121 = load ptr, ptr %33, align 8, !tbaa !16
   %.not38 = icmp eq ptr %121, null
-  br i1 %.not38, label %.critedge, label %.preheader95.preheader, !llvm.loop !35
+  br i1 %.not38, label %.critedge, label %.preheader95.preheader, !llvm.loop !29
 
 .critedge:                                        ; preds = %Compare.exit, %Compare.exit.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %2, %.critedge3.thread, %.critedge3.thread84
   %.029 = phi i1 [ true, %.critedge3.thread84 ], [ false, %.critedge3.thread ], [ false, %2 ], [ false, %.lr.ph.split.us.preheader ], [ false, %.lr.ph.split.preheader ], [ false, %Compare.exit.us ], [ false, %Compare.exit ]
@@ -534,7 +534,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
 
 .preheader44.i:                                   ; preds = %22
   %23 = tail call ptr @__ctype_toupper_loc() #11
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !30
   br label %32
 
 .preheader.i:                                     ; preds = %22, %28
@@ -569,7 +569,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
   %43 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %44 = getelementptr inbounds nuw i8, ptr %.231.i, i64 1
   %45 = icmp eq i8 %37, 0
-  br i1 %45, label %select.unfold, label %32, !llvm.loop !33
+  br i1 %45, label %select.unfold, label %32, !llvm.loop !32
 
 .loopexit42.i:                                    ; preds = %32, %.preheader.i
   %46 = phi i8 [ %25, %.preheader.i ], [ %33, %32 ]
@@ -596,7 +596,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
 
 Compare.exit:                                     ; preds = %48, %52, %20
   %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %.thread46, label %.lr.ph, !llvm.loop !36
+  br i1 %.not20, label %.thread46, label %.lr.ph, !llvm.loop !33
 
 select.unfold:                                    ; preds = %52, %20, %42, %28
   %54 = icmp slt i32 %.01787, 2
@@ -625,7 +625,7 @@ select.unfold:                                    ; preds = %52, %20, %42, %28
 
 .preheader44.i28:                                 ; preds = %63
   %64 = tail call ptr @__ctype_toupper_loc() #11
-  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  %65 = load ptr, ptr %64, align 8, !tbaa !30
   br label %73
 
 .preheader.i36:                                   ; preds = %63, %69
@@ -660,7 +660,7 @@ select.unfold:                                    ; preds = %52, %20, %42, %28
   %84 = getelementptr inbounds nuw i8, ptr %.2.i30, i64 1
   %85 = getelementptr inbounds nuw i8, ptr %.231.i29, i64 1
   %86 = icmp eq i8 %78, 0
-  br i1 %86, label %.thread43, label %73, !llvm.loop !33
+  br i1 %86, label %.thread43, label %73, !llvm.loop !32
 
 .loopexit42.i31:                                  ; preds = %73, %.preheader.i36
   %87 = phi i8 [ %66, %.preheader.i36 ], [ %74, %73 ]
@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
 
 .preheader44.i:                                   ; preds = %29
   %30 = tail call ptr @__ctype_toupper_loc() #11
-  %31 = load ptr, ptr %30, align 8, !tbaa !31
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
   br label %39
 
 .preheader.i:                                     ; preds = %29, %35
@@ -793,7 +793,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
   %50 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %51 = getelementptr inbounds nuw i8, ptr %.231.i, i64 1
   %52 = icmp eq i8 %44, 0
-  br i1 %52, label %select.unfold, label %39, !llvm.loop !33
+  br i1 %52, label %select.unfold, label %39, !llvm.loop !32
 
 .loopexit42.i:                                    ; preds = %39, %.preheader.i
   %53 = phi i8 [ %32, %.preheader.i ], [ %40, %39 ]
@@ -820,7 +820,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
 
 Compare.exit:                                     ; preds = %55, %59, %27
   %.not22 = icmp eq i32 %24, 0
-  br i1 %.not22, label %.thread48, label %.lr.ph, !llvm.loop !37
+  br i1 %.not22, label %.thread48, label %.lr.ph, !llvm.loop !34
 
 select.unfold:                                    ; preds = %59, %27, %49, %35
   %61 = icmp slt i32 %.01989, 2
@@ -853,7 +853,7 @@ select.unfold:                                    ; preds = %59, %27, %49, %35
 
 .preheader44.i30:                                 ; preds = %74
   %75 = tail call ptr @__ctype_toupper_loc() #11
-  %76 = load ptr, ptr %75, align 8, !tbaa !31
+  %76 = load ptr, ptr %75, align 8, !tbaa !30
   br label %84
 
 .preheader.i38:                                   ; preds = %74, %80
@@ -888,7 +888,7 @@ select.unfold:                                    ; preds = %59, %27, %49, %35
   %95 = getelementptr inbounds nuw i8, ptr %.2.i32, i64 1
   %96 = getelementptr inbounds nuw i8, ptr %.231.i31, i64 1
   %97 = icmp eq i8 %89, 0
-  br i1 %97, label %.thread45, label %84, !llvm.loop !33
+  br i1 %97, label %.thread45, label %84, !llvm.loop !32
 
 .loopexit42.i33:                                  ; preds = %84, %.preheader.i38
   %98 = phi i8 [ %77, %.preheader.i38 ], [ %85, %84 ]
@@ -984,12 +984,9 @@ attributes #11 = { nounwind willreturn memory(none) }
 !26 = distinct !{!26, !25}
 !27 = distinct !{!27, !25}
 !28 = distinct !{!28, !25}
-!29 = distinct !{!29, !25, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 int", !6, i64 0}
+!29 = distinct !{!29, !25}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 int", !6, i64 0}
+!32 = distinct !{!32, !25}
 !33 = distinct !{!33, !25}
-!34 = distinct !{!34, !30}
-!35 = distinct !{!35, !25}
-!36 = distinct !{!36, !25}
-!37 = distinct !{!37, !25}
+!34 = distinct !{!34, !25}

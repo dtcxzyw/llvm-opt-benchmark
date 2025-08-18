@@ -234,7 +234,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.pn.us = and i32 %120, -512
   %.2209.us = add i32 %.pn.us, %.1208237.us
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph240.split.us, !llvm.loop !18
+  br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph240.split.us
 
 .lr.ph240.split:                                  ; preds = %.lr.ph240, %131
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %131 ], [ 0, %.lr.ph240 ]
@@ -332,7 +332,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.1208.lcssa = phi i32 [ %.0207, %90 ], [ %.2209.us, %97 ], [ %.2209, %131 ]
   %.4.lcssa = phi i32 [ %.3, %90 ], [ %.5.us, %97 ], [ %.5, %131 ]
   %192 = getelementptr inbounds nuw i8, ptr %61, i64 288
-  store i32 %.4.lcssa, ptr %192, align 4, !tbaa !20
+  store i32 %.4.lcssa, ptr %192, align 4, !tbaa !18
   %193 = zext i32 %.1208.lcssa to i64
   %194 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %61, i64 noundef %193) #6
   %195 = icmp ne i64 %194, -1
@@ -391,6 +391,4 @@ attributes #6 = { nounwind }
 !15 = !{!6, !6, i64 0}
 !16 = !{!4, !5, i64 4}
 !17 = !{!4, !5, i64 8}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!10, !5, i64 80}
+!18 = !{!10, !5, i64 80}

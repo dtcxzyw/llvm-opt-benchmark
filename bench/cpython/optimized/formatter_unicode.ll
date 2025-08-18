@@ -1710,7 +1710,7 @@ PyUnicode_READ.exit.us30.i:                       ; preds = %.lr.ph.i, %106
 106:                                              ; preds = %PyUnicode_READ.exit.us30.i
   %107 = add nuw i64 %.026.us29.i, 1
   %exitcond.not.i = icmp eq i64 %107, %85
-  br i1 %exitcond.not.i, label %parse_number.exit, label %PyUnicode_READ.exit.us30.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %parse_number.exit, label %PyUnicode_READ.exit.us30.i, !llvm.loop !48
 
 PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %115
   %.026.i = phi i64 [ %116, %115 ], [ %.076, %.lr.ph.i ]
@@ -1727,7 +1727,7 @@ PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %115
 115:                                              ; preds = %PyUnicode_READ.exit.i
   %116 = add nuw i64 %.026.i, 1
   %exitcond47.not.i = icmp eq i64 %116, %85
-  br i1 %exitcond47.not.i, label %parse_number.exit, label %PyUnicode_READ.exit.i, !llvm.loop !52
+  br i1 %exitcond47.not.i, label %parse_number.exit, label %PyUnicode_READ.exit.i, !llvm.loop !48
 
 .critedge.i:                                      ; preds = %PyUnicode_READ.exit.us30.i, %PyUnicode_READ.exit.us.i, %PyUnicode_READ.exit.i
   %.us-phi.i = phi i64 [ %.026.i, %PyUnicode_READ.exit.i ], [ %.026.us.i, %PyUnicode_READ.exit.us.i ], [ %.026.us29.i, %PyUnicode_READ.exit.us30.i ]
@@ -2022,7 +2022,7 @@ define hidden i32 @_PyComplex_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
 
 34:                                               ; preds = %31, %31, %31, %31, %31, %31, %31, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %17, i64 56, i1 false), !tbaa.struct !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %17, i64 56, i1 false), !tbaa.struct !50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2264,9 +2264,9 @@ calc_padding.exit.i:                              ; preds = %131, %128, %126
 
 .critedge.i:                                      ; preds = %149, %148, %140
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %153 = load i32, ptr %152, align 8, !tbaa !54
+  %153 = load i32, ptr %152, align 8, !tbaa !51
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !55
+  %155 = load ptr, ptr %154, align 8, !tbaa !52
   call fastcc void @fill_padding(ptr noundef nonnull %0, i64 noundef %122, i32 noundef %42, i64 noundef %.sink28.i.i, i64 noundef %134)
   br i1 %.not163189203.i, label %167, label %156
 
@@ -2561,7 +2561,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.lr.ph, %28
   %31 = add i64 %.02430.us, 1
   %32 = add i32 %.02331.us, 1
   %exitcond77.not = icmp eq i64 %31, %2
-  br i1 %exitcond77.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit.us, !llvm.loop !56
+  br i1 %exitcond77.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit.us, !llvm.loop !53
 
 PyUnicode_READ.exit.us48:                         ; preds = %.lr.ph, %43
   %.02232.us45 = phi i64 [ %45, %43 ], [ 0, %.lr.ph ]
@@ -2587,7 +2587,7 @@ PyUnicode_READ.exit.us48:                         ; preds = %.lr.ph, %43
   %46 = add i64 %.02430.us47, 1
   %47 = add i32 %.02331.us46, 1
   %exitcond.not = icmp eq i64 %46, %2
-  br i1 %exitcond.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit.us48, !llvm.loop !57
+  br i1 %exitcond.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit.us48, !llvm.loop !53
 
 PyUnicode_READ.exit:                              ; preds = %.lr.ph, %59
   %.02232 = phi i64 [ %61, %59 ], [ 0, %.lr.ph ]
@@ -2619,7 +2619,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph, %59
   %62 = add i64 %.02430, 1
   %63 = add i32 %.02331, 1
   %exitcond78.not = icmp eq i64 %62, %2
-  br i1 %exitcond78.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit, !llvm.loop !58
+  br i1 %exitcond78.not, label %PyUnicode_READ.exit._crit_edge, label %PyUnicode_READ.exit, !llvm.loop !53
 
 PyUnicode_READ.exit._crit_edge:                   ; preds = %43, %PyUnicode_READ.exit.us48, %28, %PyUnicode_READ.exit.us, %59, %PyUnicode_READ.exit, %_PyUnicode_DATA.exit
   %.024.lcssa = phi i64 [ %5, %_PyUnicode_DATA.exit ], [ %.02430, %PyUnicode_READ.exit ], [ %2, %59 ], [ %.02430.us, %PyUnicode_READ.exit.us ], [ %2, %28 ], [ %.02430.us47, %PyUnicode_READ.exit.us48 ], [ %2, %43 ]
@@ -2792,7 +2792,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_locale_info(i32 noundef %0, ptr
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
   %11 = tail call ptr @_PyMem_Strdup(ptr noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %11, ptr %12, align 8, !tbaa !47
@@ -2805,7 +2805,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_locale_info(i32 noundef %0, ptr
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %11, ptr %17, align 8, !tbaa !61
+  store ptr %11, ptr %17, align 8, !tbaa !56
   br label %.thread
 
 18:                                               ; preds = %2, %2, %2
@@ -2828,11 +2828,11 @@ define internal fastcc range(i32 -1, 1) i32 @get_locale_info(i32 noundef %0, ptr
   br i1 %.not28, label %28, label %27
 
 27:                                               ; preds = %25
-  store ptr @.str.18, ptr %26, align 8, !tbaa !61
+  store ptr @.str.18, ptr %26, align 8, !tbaa !56
   br label %.thread
 
 28:                                               ; preds = %25
-  store ptr @.str.19, ptr %26, align 8, !tbaa !61
+  store ptr @.str.19, ptr %26, align 8, !tbaa !56
   br label %.thread
 
 29:                                               ; preds = %2
@@ -2849,7 +2849,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_locale_info(i32 noundef %0, ptr
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @no_grouping, ptr %35, align 8, !tbaa !61
+  store ptr @no_grouping, ptr %35, align 8, !tbaa !56
   br label %.thread
 
 .thread:                                          ; preds = %3, %14, %2, %34, %28, %27, %16, %29, %18
@@ -2866,10 +2866,10 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   %13 = sub i64 %4, %12
   %14 = add i64 %13, %.neg
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %14, ptr %15, align 8, !tbaa !62
-  store i64 0, ptr %0, align 8, !tbaa !64
+  store i64 %14, ptr %15, align 8, !tbaa !57
+  store i64 0, ptr %0, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %16, align 8, !tbaa !65
+  store i64 %1, ptr %16, align 8, !tbaa !60
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %10
@@ -2881,14 +2881,14 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
 20:                                               ; preds = %10, %17
   %21 = phi i64 [ %.val, %17 ], [ 0, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %21, ptr %22, align 8, !tbaa !66
+  store i64 %21, ptr %22, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %5, ptr %23, align 8, !tbaa !67
+  store i64 %5, ptr %23, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %27, align 8, !tbaa !68
+  store i64 0, ptr %27, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %24, i8 0, i64 17, i1 false)
   %29 = load i32, ptr %28, align 8, !tbaa !19
@@ -2898,13 +2898,13 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   ]
 
 30:                                               ; preds = %20
-  store i64 1, ptr %27, align 8, !tbaa !68
+  store i64 1, ptr %27, align 8, !tbaa !63
   %31 = icmp eq i32 %2, 45
   %32 = select i1 %31, i8 45, i8 43
   br label %.sink.split
 
 33:                                               ; preds = %20
-  store i64 1, ptr %27, align 8, !tbaa !68
+  store i64 1, ptr %27, align 8, !tbaa !63
   %34 = icmp eq i32 %2, 45
   %35 = select i1 %34, i8 45, i8 32
   br label %.sink.split
@@ -2914,12 +2914,12 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
-  store i64 1, ptr %27, align 8, !tbaa !68
+  store i64 1, ptr %27, align 8, !tbaa !63
   br label %.sink.split
 
 .sink.split:                                      ; preds = %30, %33, %38
   %.sink = phi i8 [ 45, %38 ], [ %35, %33 ], [ %32, %30 ]
-  store i8 %.sink, ptr %26, align 8, !tbaa !69
+  store i8 %.sink, ptr %26, align 8, !tbaa !64
   br label %39
 
 39:                                               ; preds = %.sink.split, %36
@@ -2946,24 +2946,24 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
 54:                                               ; preds = %39, %46, %50
   %.sink117 = phi i64 [ %53, %50 ], [ 0, %46 ], [ 0, %39 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sink117, ptr %55, align 8, !tbaa !70
+  store i64 %.sink117, ptr %55, align 8, !tbaa !65
   %56 = icmp eq i64 %14, 0
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %58, align 8, !tbaa !71
+  store i64 0, ptr %58, align 8, !tbaa !66
   br label %69
 
 59:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !61
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !46
   %64 = call i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef %14, i64 noundef %.sink117, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %11) #12
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %64, ptr %65, align 8, !tbaa !71
+  store i64 %64, ptr %65, align 8, !tbaa !66
   %.not93 = icmp eq i64 %64, -1
   br i1 %.not93, label %.critedge, label %66
 
@@ -2995,29 +2995,29 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   ]
 
 79:                                               ; preds = %76
-  store i64 %74, ptr %25, align 8, !tbaa !72
+  store i64 %74, ptr %25, align 8, !tbaa !67
   br label %thread-pre-split
 
 80:                                               ; preds = %76
   %81 = lshr i64 %74, 1
-  store i64 %81, ptr %0, align 8, !tbaa !64
+  store i64 %81, ptr %0, align 8, !tbaa !59
   %82 = sub nsw i64 %74, %81
-  store i64 %82, ptr %25, align 8, !tbaa !72
+  store i64 %82, ptr %25, align 8, !tbaa !67
   br label %85
 
 83:                                               ; preds = %76
-  store i64 %74, ptr %24, align 8, !tbaa !73
+  store i64 %74, ptr %24, align 8, !tbaa !68
   br label %thread-pre-split
 
 .thread:                                          ; preds = %76
-  store i64 %74, ptr %0, align 8, !tbaa !64
+  store i64 %74, ptr %0, align 8, !tbaa !59
   br label %91
 
 84:                                               ; preds = %76
   unreachable
 
 thread-pre-split:                                 ; preds = %69, %83, %79
-  %.pr = load i64, ptr %0, align 8, !tbaa !64
+  %.pr = load i64, ptr %0, align 8, !tbaa !59
   br label %85
 
 85:                                               ; preds = %thread-pre-split, %80
@@ -3026,12 +3026,12 @@ thread-pre-split:                                 ; preds = %69, %83, %79
   br i1 %.not94, label %87, label %91
 
 87:                                               ; preds = %85
-  %88 = load i64, ptr %24, align 8, !tbaa !73
+  %88 = load i64, ptr %24, align 8, !tbaa !68
   %.not95 = icmp eq i64 %88, 0
   br i1 %.not95, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = load i64, ptr %25, align 8, !tbaa !72
+  %90 = load i64, ptr %25, align 8, !tbaa !67
   %.not96 = icmp eq i64 %90, 0
   br i1 %.not96, label %95, label %91
 
@@ -3045,7 +3045,7 @@ thread-pre-split:                                 ; preds = %69, %83, %79
 
 95:                                               ; preds = %91, %89
   %96 = phi i64 [ %92, %91 ], [ 0, %89 ]
-  %97 = load i64, ptr %22, align 8, !tbaa !66
+  %97 = load i64, ptr %22, align 8, !tbaa !61
   %.not97 = icmp eq i64 %97, 0
   br i1 %.not97, label %104, label %98
 
@@ -3073,11 +3073,11 @@ PyUnicode_MAX_CHAR_VALUE.exit107:                 ; preds = %98, %PyUnicode_MAX_
   br label %104
 
 104:                                              ; preds = %PyUnicode_MAX_CHAR_VALUE.exit107, %95
-  %105 = load i64, ptr %27, align 8, !tbaa !68
-  %106 = load i64, ptr %16, align 8, !tbaa !65
-  %107 = load i64, ptr %24, align 8, !tbaa !73
-  %108 = load i64, ptr %23, align 8, !tbaa !67
-  %109 = load i64, ptr %25, align 8, !tbaa !72
+  %105 = load i64, ptr %27, align 8, !tbaa !63
+  %106 = load i64, ptr %16, align 8, !tbaa !60
+  %107 = load i64, ptr %24, align 8, !tbaa !68
+  %108 = load i64, ptr %23, align 8, !tbaa !62
+  %109 = load i64, ptr %25, align 8, !tbaa !67
   %110 = add i64 %96, %70
   %111 = add i64 %110, %97
   %112 = add i64 %111, %105
@@ -3099,10 +3099,10 @@ PyUnicode_MAX_CHAR_VALUE.exit107:                 ; preds = %98, %PyUnicode_MAX_
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 0, 2) %5, i32 noundef %6, ptr noundef nonnull readonly captures(none) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !54
+  %11 = load i32, ptr %10, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !55
-  %14 = load i64, ptr %1, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
+  %14 = load i64, ptr %1, align 8, !tbaa !59
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %22, label %15
 
@@ -3111,7 +3111,7 @@ define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %0, ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !30
   tail call void @_PyUnicode_FastFill(ptr noundef %16, i64 noundef %18, i64 noundef %14, i32 noundef %6) #12
-  %19 = load i64, ptr %1, align 8, !tbaa !64
+  %19 = load i64, ptr %1, align 8, !tbaa !59
   %20 = load i64, ptr %17, align 8, !tbaa !30
   %21 = add i64 %20, %19
   store i64 %21, ptr %17, align 8, !tbaa !30
@@ -3119,7 +3119,7 @@ define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %0, ptr nou
 
 22:                                               ; preds = %15, %9
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load i64, ptr %23, align 8, !tbaa !68
+  %24 = load i64, ptr %23, align 8, !tbaa !63
   %25 = icmp eq i64 %24, 1
   br i1 %25, label %26, label %41
 
@@ -3127,7 +3127,7 @@ define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %0, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load i8, ptr %29, align 8, !tbaa !69
+  %30 = load i8, ptr %29, align 8, !tbaa !64
   switch i32 %11, label %36 [
     i32 1, label %31
     i32 2, label %33
@@ -3159,7 +3159,7 @@ PyUnicode_WRITE.exit:                             ; preds = %31, %33, %36
 
 41:                                               ; preds = %PyUnicode_WRITE.exit, %22
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !65
+  %43 = load i64, ptr %42, align 8, !tbaa !60
   %.not114 = icmp eq i64 %43, 0
   br i1 %.not114, label %81, label %44
 
@@ -3169,7 +3169,7 @@ PyUnicode_WRITE.exit:                             ; preds = %31, %33, %36
   %47 = load i64, ptr %46, align 8, !tbaa !30
   tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %45, i64 noundef %47, ptr noundef %4, i64 noundef %5, i64 noundef %43) #12
   %.not115 = icmp ne i32 %8, 0
-  %.pre143 = load i64, ptr %42, align 8, !tbaa !65
+  %.pre143 = load i64, ptr %42, align 8, !tbaa !60
   %48 = icmp sgt i64 %.pre143, 0
   %or.cond = select i1 %.not115, i1 %48, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
@@ -3191,9 +3191,9 @@ PyUnicode_READ.exit.thread.us:                    ; preds = %.lr.ph, %PyUnicode_
   %55 = load i8, ptr %54, align 1, !tbaa !10
   store i8 %55, ptr %51, align 1, !tbaa !10
   %56 = add nuw nsw i64 %.0103131.us, 1
-  %57 = load i64, ptr %42, align 8, !tbaa !65
+  %57 = load i64, ptr %42, align 8, !tbaa !60
   %58 = icmp slt i64 %56, %57
-  br i1 %58, label %PyUnicode_READ.exit.thread.us, label %.loopexit, !llvm.loop !74
+  br i1 %58, label %PyUnicode_READ.exit.thread.us, label %.loopexit, !llvm.loop !69
 
 .lr.ph.split.us132:                               ; preds = %.lr.ph
   %59 = load i64, ptr %46, align 8, !tbaa !30
@@ -3212,7 +3212,7 @@ PyUnicode_READ.exit.thread128.us:                 ; preds = %PyUnicode_READ.exit
   store i16 %67, ptr %61, align 2, !tbaa !42
   %68 = add nuw nsw i64 %.0103131.us133, 1
   %exitcond.not = icmp eq i64 %68, %.pre143
-  br i1 %exitcond.not, label %.loopexit, label %PyUnicode_READ.exit.thread128.us, !llvm.loop !75
+  br i1 %exitcond.not, label %.loopexit, label %PyUnicode_READ.exit.thread128.us, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.pre142 = load i64, ptr %46, align 8, !tbaa !30
@@ -3231,7 +3231,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
   store i32 %76, ptr %70, align 4, !tbaa !43
   %77 = add nuw nsw i64 %.0103131, 1
   %exitcond141.not = icmp eq i64 %77, %.pre143
-  br i1 %exitcond141.not, label %.loopexit, label %PyUnicode_READ.exit, !llvm.loop !76
+  br i1 %exitcond141.not, label %.loopexit, label %PyUnicode_READ.exit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %PyUnicode_READ.exit.thread128.us, %PyUnicode_READ.exit.thread.us, %PyUnicode_READ.exit, %44
   %78 = phi i64 [ %.pre143, %44 ], [ %.pre143, %PyUnicode_READ.exit ], [ %57, %PyUnicode_READ.exit.thread.us ], [ %.pre143, %PyUnicode_READ.exit.thread128.us ]
@@ -3242,7 +3242,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
 
 81:                                               ; preds = %.loopexit, %41
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !73
+  %83 = load i64, ptr %82, align 8, !tbaa !68
   %.not116 = icmp eq i64 %83, 0
   br i1 %.not116, label %91, label %84
 
@@ -3251,7 +3251,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load i64, ptr %86, align 8, !tbaa !30
   tail call void @_PyUnicode_FastFill(ptr noundef %85, i64 noundef %87, i64 noundef %83, i32 noundef %6) #12
-  %88 = load i64, ptr %82, align 8, !tbaa !73
+  %88 = load i64, ptr %82, align 8, !tbaa !68
   %89 = load i64, ptr %86, align 8, !tbaa !30
   %90 = add i64 %89, %88
   store i64 %90, ptr %86, align 8, !tbaa !30
@@ -3259,17 +3259,17 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
 
 91:                                               ; preds = %84, %81
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %93 = load i64, ptr %92, align 8, !tbaa !62
+  %93 = load i64, ptr %92, align 8, !tbaa !57
   %.not117 = icmp eq i64 %93, 0
   br i1 %.not117, label %108, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %96 = load i64, ptr %95, align 8, !tbaa !71
+  %96 = load i64, ptr %95, align 8, !tbaa !66
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %98 = load i64, ptr %97, align 8, !tbaa !70
+  %98 = load i64, ptr %97, align 8, !tbaa !65
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !61
+  %100 = load ptr, ptr %99, align 8, !tbaa !56
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !46
   %103 = tail call i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef nonnull %0, i64 noundef %96, ptr noundef %2, i64 noundef %3, i64 noundef %93, i64 noundef %98, ptr noundef %100, ptr noundef %102, ptr noundef null) #12
@@ -3277,7 +3277,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
   br i1 %104, label %175, label %105
 
 105:                                              ; preds = %94
-  %106 = load i64, ptr %92, align 8, !tbaa !62
+  %106 = load i64, ptr %92, align 8, !tbaa !57
   %107 = add i64 %106, %3
   br label %108
 
@@ -3285,7 +3285,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph.split, %PyUn
   %.0104 = phi i64 [ %107, %105 ], [ %3, %91 ]
   %.not118 = icmp ne i32 %8, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.pre145 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !71
+  %.pre145 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !66
   %.not119135 = icmp sgt i64 %.pre145, 0
   %or.cond149 = select i1 %.not118, i1 %.not119135, i1 false
   br i1 %or.cond149, label %.lr.ph137, label %.critedge
@@ -3339,7 +3339,7 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
 131:                                              ; preds = %130
   %132 = getelementptr i8, ptr %13, i64 %113
   store i8 %128, ptr %132, align 1, !tbaa !10
-  %.pre144 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !71
+  %.pre144 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !66
   br label %139
 
 133:                                              ; preds = %130
@@ -3358,7 +3358,7 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
   %140 = phi i64 [ %111, %136 ], [ %111, %133 ], [ %.pre144, %131 ]
   %141 = add nuw nsw i64 %.0136, 1
   %.not119 = icmp slt i64 %141, %140
-  br i1 %.not119, label %110, label %.critedge, !llvm.loop !77
+  br i1 %.not119, label %110, label %.critedge, !llvm.loop !70
 
 142:                                              ; preds = %PyUnicode_READ.exit125
   %143 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !20
@@ -3372,7 +3372,7 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
   %147 = add i64 %146, %144
   store i64 %147, ptr %145, align 8, !tbaa !30
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %149 = load i64, ptr %148, align 8, !tbaa !66
+  %149 = load i64, ptr %148, align 8, !tbaa !61
   %.not120 = icmp eq i64 %149, 0
   br i1 %.not120, label %157, label %150
 
@@ -3380,7 +3380,7 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
   %151 = load ptr, ptr %0, align 8, !tbaa !31
   %152 = load ptr, ptr %7, align 8, !tbaa !44
   tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %151, i64 noundef %147, ptr noundef %152, i64 noundef 0, i64 noundef %149) #12
-  %153 = load i64, ptr %148, align 8, !tbaa !66
+  %153 = load i64, ptr %148, align 8, !tbaa !61
   %154 = load i64, ptr %145, align 8, !tbaa !30
   %155 = add i64 %154, %153
   store i64 %155, ptr %145, align 8, !tbaa !30
@@ -3391,14 +3391,14 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
   %158 = phi i64 [ %155, %150 ], [ %147, %.critedge ]
   %.1105 = phi i64 [ %156, %150 ], [ %.0104, %.critedge ]
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %160 = load i64, ptr %159, align 8, !tbaa !67
+  %160 = load i64, ptr %159, align 8, !tbaa !62
   %.not121 = icmp eq i64 %160, 0
   br i1 %.not121, label %166, label %161
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @_PyUnicode_FastCopyCharacters(ptr noundef %162, i64 noundef %158, ptr noundef %2, i64 noundef %.1105, i64 noundef %160) #12
-  %163 = load i64, ptr %159, align 8, !tbaa !67
+  %163 = load i64, ptr %159, align 8, !tbaa !62
   %164 = load i64, ptr %145, align 8, !tbaa !30
   %165 = add i64 %164, %163
   store i64 %165, ptr %145, align 8, !tbaa !30
@@ -3407,14 +3407,14 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
 166:                                              ; preds = %161, %157
   %167 = phi i64 [ %165, %161 ], [ %158, %157 ]
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %169 = load i64, ptr %168, align 8, !tbaa !72
+  %169 = load i64, ptr %168, align 8, !tbaa !67
   %.not122 = icmp eq i64 %169, 0
   br i1 %.not122, label %175, label %170
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @_PyUnicode_FastFill(ptr noundef %171, i64 noundef %167, i64 noundef %169, i32 noundef %6) #12
-  %172 = load i64, ptr %168, align 8, !tbaa !72
+  %172 = load i64, ptr %168, align 8, !tbaa !67
   %173 = load i64, ptr %145, align 8, !tbaa !30
   %174 = add i64 %173, %172
   store i64 %174, ptr %145, align 8, !tbaa !30
@@ -3514,7 +3514,7 @@ PyUnicode_READ.exit.us30:                         ; preds = %.lr.ph, %30
 30:                                               ; preds = %PyUnicode_READ.exit.us30
   %31 = add nuw i64 %.026.us29, 1
   %exitcond.not = icmp eq i64 %31, %2
-  br i1 %exitcond.not, label %.critedge20.thread, label %PyUnicode_READ.exit.us30, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge20.thread, label %PyUnicode_READ.exit.us30, !llvm.loop !48
 
 .critedge20.thread:                               ; preds = %30, %21, %39, %_PyUnicode_DATA.exit
   %.0.lcssa = phi i64 [ %1, %_PyUnicode_DATA.exit ], [ %2, %39 ], [ %2, %21 ], [ %2, %30 ]
@@ -3536,7 +3536,7 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph, %39
 39:                                               ; preds = %PyUnicode_READ.exit
   %40 = add nuw i64 %.026, 1
   %exitcond47.not = icmp eq i64 %40, %2
-  br i1 %exitcond47.not, label %.critedge20.thread, label %PyUnicode_READ.exit, !llvm.loop !52
+  br i1 %exitcond47.not, label %.critedge20.thread, label %PyUnicode_READ.exit, !llvm.loop !48
 
 .critedge:                                        ; preds = %PyUnicode_READ.exit.us30, %PyUnicode_READ.exit.us, %PyUnicode_READ.exit
   %.us-phi = phi i64 [ %.026, %PyUnicode_READ.exit ], [ %.026.us, %PyUnicode_READ.exit.us ], [ %.026.us29, %PyUnicode_READ.exit.us30 ]
@@ -3672,33 +3672,26 @@ attributes #13 = { nounwind willreturn memory(read) }
 !45 = !{!"", !21, i64 0, !21, i64 8, !35, i64 16, !35, i64 24}
 !46 = !{!45, !21, i64 8}
 !47 = !{!45, !35, i64 24}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !49, !50}
-!52 = distinct !{!52, !49}
-!53 = !{i64 0, i64 4, !43, i64 4, i64 4, !43, i64 8, i64 4, !43, i64 12, i64 4, !43, i64 16, i64 4, !43, i64 24, i64 8, !39, i64 32, i64 4, !43, i64 40, i64 8, !39, i64 48, i64 4, !43}
-!54 = !{!28, !13, i64 16}
-!55 = !{!28, !9, i64 8}
-!56 = distinct !{!56, !49, !50}
-!57 = distinct !{!57, !49, !50}
-!58 = distinct !{!58, !49}
-!59 = !{!60, !35, i64 16}
-!60 = !{!"lconv", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !35, i64 56, !35, i64 64, !35, i64 72, !6, i64 80, !6, i64 81, !6, i64 82, !6, i64 83, !6, i64 84, !6, i64 85, !6, i64 86, !6, i64 87, !6, i64 88, !6, i64 89, !6, i64 90, !6, i64 91, !6, i64 92, !6, i64 93}
-!61 = !{!45, !35, i64 16}
-!62 = !{!63, !14, i64 72}
-!63 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !6, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80}
-!64 = !{!63, !14, i64 0}
-!65 = !{!63, !14, i64 8}
-!66 = !{!63, !14, i64 56}
-!67 = !{!63, !14, i64 64}
-!68 = !{!63, !14, i64 40}
-!69 = !{!63, !6, i64 32}
-!70 = !{!63, !14, i64 80}
-!71 = !{!63, !14, i64 48}
-!72 = !{!63, !14, i64 24}
-!73 = !{!63, !14, i64 16}
-!74 = distinct !{!74, !49, !50}
-!75 = distinct !{!75, !49, !50}
-!76 = distinct !{!76, !49}
-!77 = distinct !{!77, !49}
+!50 = !{i64 0, i64 4, !43, i64 4, i64 4, !43, i64 8, i64 4, !43, i64 12, i64 4, !43, i64 16, i64 4, !43, i64 24, i64 8, !39, i64 32, i64 4, !43, i64 40, i64 8, !39, i64 48, i64 4, !43}
+!51 = !{!28, !13, i64 16}
+!52 = !{!28, !9, i64 8}
+!53 = distinct !{!53, !49}
+!54 = !{!55, !35, i64 16}
+!55 = !{!"lconv", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !35, i64 48, !35, i64 56, !35, i64 64, !35, i64 72, !6, i64 80, !6, i64 81, !6, i64 82, !6, i64 83, !6, i64 84, !6, i64 85, !6, i64 86, !6, i64 87, !6, i64 88, !6, i64 89, !6, i64 90, !6, i64 91, !6, i64 92, !6, i64 93}
+!56 = !{!45, !35, i64 16}
+!57 = !{!58, !14, i64 72}
+!58 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !6, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80}
+!59 = !{!58, !14, i64 0}
+!60 = !{!58, !14, i64 8}
+!61 = !{!58, !14, i64 56}
+!62 = !{!58, !14, i64 64}
+!63 = !{!58, !14, i64 40}
+!64 = !{!58, !6, i64 32}
+!65 = !{!58, !14, i64 80}
+!66 = !{!58, !14, i64 48}
+!67 = !{!58, !14, i64 24}
+!68 = !{!58, !14, i64 16}
+!69 = distinct !{!69, !49}
+!70 = distinct !{!70, !49}

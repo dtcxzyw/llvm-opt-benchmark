@@ -183,7 +183,7 @@ run_command_on_repo.exit:                         ; preds = %.lr.ph, %67
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !26
   %.not29 = icmp ult i64 %68, %71
-  br i1 %.not29, label %run_command_on_repo.exit, label %.loopexit, !llvm.loop !36
+  br i1 %.not29, label %run_command_on_repo.exit, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %65, %67, %51, %53, %.preheader, %37
   %.0 = phi i32 [ 0, %37 ], [ 0, %.preheader ], [ %58, %51 ], [ %.322.ph.us, %53 ], [ %64, %65 ], [ %.322.ph, %67 ]
@@ -203,7 +203,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #4 {
-  %2 = load i8, ptr %0, align 1, !tbaa !37
+  %2 = load i8, ptr %0, align 1, !tbaa !35
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -297,7 +297,5 @@ attributes #10 = { noreturn nounwind }
 !31 = !{!"string_list_item", !10, i64 0, !11, i64 8}
 !32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !33}
-!37 = !{!6, !6, i64 0}
+!34 = distinct !{!34, !33}
+!35 = !{!6, !6, i64 0}

@@ -3512,44 +3512,42 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %26, %29
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = and i32 %4, 255
+  %.fr8 = freeze i32 %4
+  %5 = and i32 %.fr8, 255
   %6 = icmp eq i32 %5, 12
   br i1 %6, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %trunc.i.i = trunc i32 %4 to i8
+  %trunc.i.i = trunc i32 %.fr8 to i8
   %8 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %8, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
-
-_ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %7
-  %9 = and i32 %4, 253
+  %9 = and i32 %.fr8, 253
   %spec.select.i = icmp eq i32 %9, 4
-  %10 = and i32 %4, 251
-  %11 = icmp eq i32 %10, 10
-  %or.cond6 = or i1 %spec.select.i, %11
-  br i1 %or.cond6, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %12
+  %or.cond9 = or i1 %or.cond, %spec.select.i
+  br i1 %or.cond9, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %switch.early.test
 
-12:                                               ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit
-  %.off = add nsw i32 %5, -15
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %14, label %13
-
-13:                                               ; preds = %12
-  switch i8 %trunc.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread [
-    i8 20, label %14
-    i8 18, label %14
-    i8 17, label %14
+switch.early.test:                                ; preds = %7
+  switch i8 %trunc.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split [
+    i8 14, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
+    i8 10, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
+    i8 15, label %10
+    i8 16, label %10
+    i8 20, label %10
+    i8 18, label %10
+    i8 17, label %10
   ]
 
-14:                                               ; preds = %13, %13, %13, %12
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #16
+10:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #16
   br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
 
-_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %7, %13, %2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %14
-  %.0 = phi i1 [ %15, %14 ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %2 ], [ false, %13 ], [ true, %7 ]
+_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split: ; preds = %switch.early.test
+  br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
+
+_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %7, %switch.early.test, %switch.early.test, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split, %2, %10
+  %.0 = phi i1 [ %11, %10 ], [ true, %switch.early.test ], [ true, %2 ], [ true, %switch.early.test ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split ], [ true, %7 ]
   ret i1 %.0
 }
 

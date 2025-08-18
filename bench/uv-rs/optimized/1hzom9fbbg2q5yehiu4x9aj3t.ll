@@ -8271,7 +8271,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !871)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
   %.not11 = icmp eq ptr %8, %5
-  br i1 %.not11, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us", label %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.us", !llvm.loop !876
+  br i1 %.not11, label %"._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us", label %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.us"
 
 "._ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit.loopexit7_crit_edge.split.us": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281.exit.us"
   store ptr %8, ptr %0, align 8, !alias.scope !868
@@ -8284,22 +8284,22 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !871)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !874)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load i8, ptr %11, align 8, !range !61, !alias.scope !878, !noalias !885, !noundef !3
+  %12 = load i8, ptr %11, align 8, !range !61, !alias.scope !876, !noalias !883, !noundef !3
   br label %13
 
 13:                                               ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101.exit.backedge.i.i.i", %.lr.ph.i.i.i
   %14 = phi ptr [ %1, %.lr.ph.i.i.i ], [ %15, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101.exit.backedge.i.i.i" ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !894)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i8, ptr %16, align 8, !range !61, !alias.scope !895, !noalias !896, !noundef !3
+  %17 = load i8, ptr %16, align 8, !range !61, !alias.scope !893, !noalias !894, !noundef !3
   %18 = icmp eq i8 %17, %12
   br i1 %18, label %19, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101.exit.backedge.i.i.i"
 
 19:                                               ; preds = %13
-  %20 = tail call noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.12621995378417537101"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9), !noalias !897
+  %20 = tail call noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.12621995378417537101"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9), !noalias !895
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101.exit.backedge.i.i.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101.exit.backedge.i.i.i": ; preds = %19, %13
@@ -8318,8 +8318,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #19 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !898, !nonnull !3, !noundef !3
-  %.promoted = load ptr, ptr %0, align 8, !alias.scope !898
+  %3 = load ptr, ptr %2, align 8, !alias.scope !896, !nonnull !3, !noundef !3
+  %.promoted = load ptr, ptr %0, align 8, !alias.scope !896
   br label %4
 
 4:                                                ; preds = %6, %1
@@ -8329,9 +8329,9 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %0, align 8, !alias.scope !898
+  store ptr %7, ptr %0, align 8, !alias.scope !896
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i8, ptr %8, align 8, !range !61, !alias.scope !901, !noundef !3
+  %9 = load i8, ptr %8, align 8, !range !61, !alias.scope !899, !noundef !3
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281.exit", label %4
 
@@ -10066,31 +10066,29 @@ attributes #35 = { nounwind }
 !873 = distinct !{!873, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h086b425ee0c34314E"}
 !874 = !{!875}
 !875 = distinct !{!875, !873, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h086b425ee0c34314E: argument 1"}
-!876 = distinct !{!876, !877}
-!877 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!878 = !{!879, !881, !872, !883}
-!879 = distinct !{!879, !880, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101: argument 1"}
-!880 = distinct !{!880, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101"}
-!881 = distinct !{!881, !882, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101: argument 1"}
-!882 = distinct !{!882, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101"}
-!883 = distinct !{!883, !884, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281: argument 1"}
-!884 = distinct !{!884, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281"}
-!885 = !{!886, !887, !889, !890, !875, !891}
-!886 = distinct !{!886, !880, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101: argument 0"}
-!887 = distinct !{!887, !888, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101: argument 0"}
-!888 = distinct !{!888, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101"}
-!889 = distinct !{!889, !888, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101: argument 1"}
-!890 = distinct !{!890, !882, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101: argument 0"}
-!891 = distinct !{!891, !884, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281: argument 0"}
-!892 = !{!889}
-!893 = !{!886}
-!894 = !{!879}
-!895 = !{!886, !889, !875}
-!896 = !{!879, !887, !890, !872, !891}
-!897 = !{!887, !890, !891}
-!898 = !{!899}
-!899 = distinct !{!899, !900, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281: argument 0"}
-!900 = distinct !{!900, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281"}
-!901 = !{!902}
-!902 = distinct !{!902, !903, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hc9c597d9ce132b69E.llvm.14237793921444769281: argument 0"}
-!903 = distinct !{!903, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hc9c597d9ce132b69E.llvm.14237793921444769281"}
+!876 = !{!877, !879, !872, !881}
+!877 = distinct !{!877, !878, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101: argument 1"}
+!878 = distinct !{!878, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101"}
+!879 = distinct !{!879, !880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101: argument 1"}
+!880 = distinct !{!880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101"}
+!881 = distinct !{!881, !882, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281: argument 1"}
+!882 = distinct !{!882, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281"}
+!883 = !{!884, !885, !887, !888, !875, !889}
+!884 = distinct !{!884, !878, !"_ZN79_$LT$uv_pypi_types..simple_json..HashDigest$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec437f79b1524b7bE.llvm.12621995378417537101: argument 0"}
+!885 = distinct !{!885, !886, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101: argument 0"}
+!886 = distinct !{!886, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101"}
+!887 = distinct !{!887, !886, !"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hfc952d1f4f73336fE.llvm.12621995378417537101: argument 1"}
+!888 = distinct !{!888, !880, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h901020c4a3a2cd24E.llvm.12621995378417537101: argument 0"}
+!889 = distinct !{!889, !882, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hbc52df9730ce9992E.llvm.14237793921444769281: argument 0"}
+!890 = !{!887}
+!891 = !{!884}
+!892 = !{!877}
+!893 = !{!884, !887, !875}
+!894 = !{!877, !885, !888, !872, !889}
+!895 = !{!885, !888, !889}
+!896 = !{!897}
+!897 = distinct !{!897, !898, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281: argument 0"}
+!898 = distinct !{!898, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28a889ab0e602f28E.llvm.14237793921444769281"}
+!899 = !{!900}
+!900 = distinct !{!900, !901, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hc9c597d9ce132b69E.llvm.14237793921444769281: argument 0"}
+!901 = distinct !{!901, !"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hc9c597d9ce132b69E.llvm.14237793921444769281"}

@@ -288,7 +288,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %24 = load i32, ptr %9, align 4
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %13, label %._crit_edge, !llvm.loop !9
+  br i1 %26, label %13, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %13, %8
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
@@ -348,7 +348,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %52, i32 noundef %58, i32 noundef %64)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge47.loopexit, label %45, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge47.loopexit, label %45, !llvm.loop !9
 
 ._crit_edge47.loopexit:                           ; preds = %45
   %.pre = load i32, ptr %27, align 8
@@ -359,7 +359,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next57, %66
-  br i1 %67, label %31, label %.loopexit, !llvm.loop !11
+  br i1 %67, label %31, label %.loopexit, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %3, %2
   %str.3.sink = phi ptr [ @str.2, %2 ], [ @str.3, %3 ]
@@ -481,7 +481,7 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
   %98 = load i32, ptr %17, align 8
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit.sink.split:                             ; preds = %3, %2
   %str.5.sink = phi ptr [ @str.4, %2 ], [ @str.5, %3 ]
@@ -678,7 +678,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   %134 = load i32, ptr %27, align 8
   %135 = sext i32 %134 to i64
   %136 = icmp slt i64 %indvars.iv.next, %135
-  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %117, %39, %114, %105, %37, %25, %22, %11, %5
   %.0 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %114 ], [ false, %105 ], [ false, %37 ], [ false, %11 ], [ false, %5 ], [ true, %39 ], [ true, %117 ]
@@ -1738,10 +1738,9 @@ attributes #11 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

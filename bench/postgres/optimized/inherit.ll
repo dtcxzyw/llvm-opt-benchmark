@@ -660,7 +660,7 @@ list_length.exit106:                              ; preds = %88
   %108 = load i32, ptr %40, align 8
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !10
+  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 111:                                              ; preds = %._crit_edge
   %112 = tail call noundef ptr @palloc0(i64 noundef 36) #7
@@ -1043,7 +1043,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %94 = sext i32 %93 to i64
   %.not118 = icmp slt i64 %indvars.iv.next223, %94
-  br i1 %.not118, label %75, label %.critedge124, !llvm.loop !11
+  br i1 %.not118, label %75, label %.critedge124, !llvm.loop !9
 
 .critedge124:                                     ; preds = %.critedge126, %.preheader, %._crit_edge
   %.694 = phi i32 [ %.088.lcssa, %._crit_edge ], [ %.088.lcssa, %.preheader ], [ %.896.lcssa, %.critedge126 ]
@@ -1121,7 +1121,7 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   %.1 = phi ptr [ %7, %6 ], [ %.027, %3 ]
   %9 = add nsw i32 %.02026, 1
   %exitcond.not = icmp eq i32 %9, 0
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !12
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !10
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i1 @bms_is_member(i32 noundef 7, ptr noundef %0) #7
@@ -1134,73 +1134,75 @@ define internal fastcc ptr @translate_col_privs(ptr noundef %0, ptr noundef read
   %.fr = freeze i1 %11
   %14 = load i32, ptr %12, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %.fr, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  br i1 %.fr, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %15, label %.lr.ph57, label %.critedge
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %15, label %.lr.ph51, label %.critedge
 
-.lr.ph57:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.230.us56 = phi ptr [ %.3.us, %.lr.ph.split.us ], [ %.1, %.lr.ph.split.us.preheader ]
-  %indvars.iv5055 = phi i64 [ %indvars.iv.next51, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv5055
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %.lr.ph.split.us, label %20
+.lr.ph51:                                         ; preds = %.lr.ph.split.us.split, %27
+  %16 = phi i32 [ %28, %27 ], [ %14, %.lr.ph.split.us.split ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %27 ], [ 0, %.lr.ph.split.us.split ]
+  %.230.us48 = phi ptr [ %.3.us, %27 ], [ %.1, %.lr.ph.split.us.split ]
+  %17 = load ptr, ptr %13, align 8
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv57
+  %19 = load ptr, ptr %18, align 8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %27, label %21
 
-20:                                               ; preds = %.lr.ph57
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load i16, ptr %21, align 8
-  %23 = sext i16 %22 to i32
-  %24 = add nsw i32 %23, 7
-  %25 = tail call ptr @bms_add_member(ptr noundef %.230.us56, i32 noundef %24) #7
-  br label %.lr.ph.split.us
+21:                                               ; preds = %.lr.ph51
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load i16, ptr %22, align 8
+  %24 = sext i16 %23 to i32
+  %25 = add nsw i32 %24, 7
+  %26 = tail call ptr @bms_add_member(ptr noundef %.230.us48, i32 noundef %25) #7
+  %.pre = load i32, ptr %12, align 4
+  br label %27
 
-.lr.ph.split.us:                                  ; preds = %20, %.lr.ph57
-  %.3.us = phi ptr [ %.230.us56, %.lr.ph57 ], [ %25, %20 ]
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv5055, 1
-  %26 = load i32, ptr %12, align 4
-  %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next51, %27
-  br i1 %28, label %.lr.ph57, label %.critedge
+27:                                               ; preds = %21, %.lr.ph51
+  %28 = phi i32 [ %16, %.lr.ph51 ], [ %.pre, %21 ]
+  %.3.us = phi ptr [ %.230.us48, %.lr.ph51 ], [ %26, %21 ]
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next58, %29
+  br i1 %30, label %.lr.ph51, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %15, label %.lr.ph45, label %.critedge
 
-.lr.ph45:                                         ; preds = %.lr.ph.split.split, %42
-  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph.split.split ]
-  %.23042 = phi ptr [ %.3, %42 ], [ %.1, %.lr.ph.split.split ]
-  %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
+.lr.ph45:                                         ; preds = %.lr.ph.split.split, %44
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph.split.split ]
+  %.23042 = phi ptr [ %.3, %44 ], [ %.1, %.lr.ph.split.split ]
+  %31 = load ptr, ptr %13, align 8
+  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %33 = load ptr, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %42, label %33
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %44, label %35
 
-.critedge:                                        ; preds = %42, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %10
-  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.split ], [ %.1, %.lr.ph.split.us.preheader ], [ %.3.us, %.lr.ph.split.us ], [ %.3, %42 ]
+.critedge:                                        ; preds = %44, %27, %.lr.ph.split.us.split, %.lr.ph.split.split, %10
+  %.2.lcssa = phi ptr [ %.1, %10 ], [ %.1, %.lr.ph.split.us.split ], [ %.1, %.lr.ph.split.split ], [ %.3.us, %27 ], [ %.3, %44 ]
   ret ptr %.2.lcssa
 
-33:                                               ; preds = %.lr.ph45
-  %indvars49 = trunc i64 %indvars.iv to i32
-  %34 = add nuw i32 %indvars49, 8
-  %35 = tail call zeroext i1 @bms_is_member(i32 noundef %34, ptr noundef %0) #7
-  br i1 %35, label %36, label %42
+35:                                               ; preds = %.lr.ph45
+  %indvars56 = trunc i64 %indvars.iv to i32
+  %36 = add nuw i32 %indvars56, 8
+  %37 = tail call zeroext i1 @bms_is_member(i32 noundef %36, ptr noundef %0) #7
+  br i1 %37, label %38, label %44
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %38 = load i16, ptr %37, align 8
-  %39 = sext i16 %38 to i32
-  %40 = add nsw i32 %39, 7
-  %41 = tail call ptr @bms_add_member(ptr noundef %.23042, i32 noundef %40) #7
-  br label %42
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %40 = load i16, ptr %39, align 8
+  %41 = sext i16 %40 to i32
+  %42 = add nsw i32 %41, 7
+  %43 = tail call ptr @bms_add_member(ptr noundef %.23042, i32 noundef %42) #7
+  br label %44
 
-42:                                               ; preds = %33, %36, %.lr.ph45
-  %.3 = phi ptr [ %.23042, %.lr.ph45 ], [ %41, %36 ], [ %.23042, %33 ]
-  %43 = load i32, ptr %12, align 4
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph45, label %.critedge
+44:                                               ; preds = %35, %38, %.lr.ph45
+  %.3 = phi ptr [ %.23042, %.lr.ph45 ], [ %43, %38 ], [ %.23042, %35 ]
+  %45 = load i32, ptr %12, align 4
+  %46 = sext i32 %45 to i64
+  %47 = icmp slt i64 %indvars.iv.next, %46
+  br i1 %47, label %.lr.ph45, label %.critedge
 }
 
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1256,8 +1258,6 @@ attributes #8 = { cold nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

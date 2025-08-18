@@ -1674,7 +1674,7 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readno
 149:                                              ; preds = %145, %144, %.split
   %150 = load volatile ptr, ptr %130, align 8
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %.thread12, label %.split, !llvm.loop !29
+  br i1 %151, label %.thread12, label %.split, !llvm.loop !27
 
 .thread12:                                        ; preds = %149, %127, %76
   call void @__rcu_read_unlock() #11
@@ -1804,9 +1804,9 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
   br i1 %62, label %63, label %64, !prof !10
 
 63:                                               ; preds = %60
-  tail call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !30
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1062, i32 2305, i64 12) #11, !srcloc !31
-  tail call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !32
+  tail call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1062, i32 2305, i64 12) #11, !srcloc !29
+  tail call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !30
   %.pre = load ptr, ptr %20, align 8
   br label %64
 
@@ -1823,7 +1823,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
   %71 = add i32 %30, 1
   %72 = load volatile ptr, ptr %29, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .thread:                                          ; preds = %36, %64, %58
   tail call void @__rcu_read_unlock() #11
@@ -1835,7 +1835,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(no
   %75 = add i32 %22, 1
   %76 = lshr i32 %75, %7
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %21, label %.loopexit5, !llvm.loop !34
+  br i1 %77, label %21, label %.loopexit5, !llvm.loop !32
 
 .loopexit5:                                       ; preds = %.loopexit, %2, %.thread
   %78 = phi i32 [ %10, %2 ], [ %22, %.thread ], [ %75, %.loopexit ]
@@ -1936,7 +1936,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %50 = getelementptr i8, ptr %40, i64 8
   %51 = lshr i32 %49, %37
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.split.us.i, label %tcp_metrics_flush_all.exit, !llvm.loop !35
+  br i1 %52, label %.split.us.i, label %tcp_metrics_flush_all.exit, !llvm.loop !26
 
 .preheader.us.i:                                  ; preds = %44, %63
   %53 = phi ptr [ %65, %63 ], [ %45, %44 ]
@@ -1960,7 +1960,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %64 = phi ptr [ %54, %60 ], [ %53, %.preheader.us.i ]
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit.split.us.us.i, label %.preheader.us.i, !llvm.loop !36
+  br i1 %66, label %.loopexit.split.us.us.i, label %.preheader.us.i, !llvm.loop !25
 
 .split.i:                                         ; preds = %36, %87
   %67 = phi ptr [ %89, %87 ], [ %38, %36 ]
@@ -2144,7 +2144,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 180:                                              ; preds = %176
   %181 = load ptr, ptr %134, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !37
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !33
   store volatile ptr %181, ptr %136, align 8
   %182 = getelementptr inbounds nuw i8, ptr %134, i64 128
   call void @kvfree_call_rcu(ptr noundef nonnull %182, ptr noundef nonnull %134) #11
@@ -2155,7 +2155,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %185 = phi i8 [ 1, %180 ], [ %135, %176 ], [ %135, %175 ], [ %135, %155 ], [ %135, %.split.us ], [ %135, %156 ]
   %186 = load ptr, ptr %184, align 8
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %.split19.us, label %.split.us, !llvm.loop !38
+  br i1 %187, label %.split19.us, label %.split.us, !llvm.loop !34
 
 .split:                                           ; preds = %131, %217
   %188 = phi ptr [ %220, %217 ], [ %129, %131 ]
@@ -2196,7 +2196,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
 
 214:                                              ; preds = %210
   %215 = load ptr, ptr %188, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !37
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !33
   store volatile ptr %215, ptr %190, align 8
   %216 = getelementptr inbounds nuw i8, ptr %188, i64 128
   call void @kvfree_call_rcu(ptr noundef nonnull %216, ptr noundef nonnull %188) #11
@@ -2207,7 +2207,7 @@ define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captu
   %219 = phi i8 [ 1, %214 ], [ %189, %210 ], [ %189, %209 ], [ %189, %.split ]
   %220 = load ptr, ptr %218, align 8
   %221 = icmp eq ptr %220, null
-  br i1 %221, label %.split19.us, label %.split, !llvm.loop !39
+  br i1 %221, label %.split19.us, label %.split, !llvm.loop !34
 
 .split19.us:                                      ; preds = %217, %183
   %.us-phi = phi i8 [ %185, %183 ], [ %219, %217 ]
@@ -2367,7 +2367,7 @@ select.unfold:                                    ; preds = %73, %53
   %82 = phi i32 [ %55, %53 ], [ %81, %73 ]
   %83 = add nuw nsw i64 %54, 1
   %84 = icmp eq i64 %83, 5
-  br i1 %84, label %85, label %53, !llvm.loop !40
+  br i1 %84, label %85, label %53, !llvm.loop !35
 
 85:                                               ; preds = %select.unfold
   %86 = icmp eq i32 %82, 0
@@ -2392,9 +2392,9 @@ select.unfold:                                    ; preds = %73, %53
   br i1 %99, label %100, label %101, !prof !10
 
 100:                                              ; preds = %96
-  call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !30
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1062, i32 2305, i64 12) #11, !srcloc !31
-  call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !32
+  call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #11, !srcloc !28
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1062, i32 2305, i64 12) #11, !srcloc !29
+  call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #11, !srcloc !30
   %.pre = load ptr, ptr %97, align 8
   br label %101
 
@@ -2432,7 +2432,7 @@ select.unfold:                                    ; preds = %73, %53
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
   %117 = load volatile i32, ptr @fastopen_seqlock, align 4
   %118 = icmp eq i32 %117, %116
-  br i1 %118, label %119, label %109, !llvm.loop !41
+  br i1 %118, label %119, label %109, !llvm.loop !36
 
 119:                                              ; preds = %.loopexit
   %120 = load i16, ptr %11, align 16
@@ -2601,18 +2601,13 @@ attributes #16 = { nounwind allocsize(0) }
 !24 = !{i64 2160694254}
 !25 = distinct !{!25, !7, !8}
 !26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !7, !8}
-!30 = !{i64 2157004733, i64 2157004542, i64 2157004594, i64 2157004640, i64 2157004668}
-!31 = !{i64 2157004807, i64 2157004836, i64 2157004882, i64 2157004940, i64 2157004994, i64 2157005048, i64 2157005103, i64 2157005134, i64 2157005442, i64 2157005448, i64 2157005495, i64 2157005518, i64 2157005544}
-!32 = !{i64 2157005999, i64 2157005810, i64 2157005860, i64 2157005906, i64 2157005934}
-!33 = distinct !{!33, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = !{i64 2157004733, i64 2157004542, i64 2157004594, i64 2157004640, i64 2157004668}
+!29 = !{i64 2157004807, i64 2157004836, i64 2157004882, i64 2157004940, i64 2157004994, i64 2157005048, i64 2157005103, i64 2157005134, i64 2157005442, i64 2157005448, i64 2157005495, i64 2157005518, i64 2157005544}
+!30 = !{i64 2157005999, i64 2157005810, i64 2157005860, i64 2157005906, i64 2157005934}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = !{i64 2160704128}
 !34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8, !28}
-!36 = distinct !{!36, !7, !8, !28}
-!37 = !{i64 2160704128}
-!38 = distinct !{!38, !7, !8, !28}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}

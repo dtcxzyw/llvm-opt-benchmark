@@ -531,7 +531,7 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
 
 .loopexit34.us:                                   ; preds = %..loopexit_crit_edge.us.us, %.lr.ph.split.us
   %exitcond44.not = icmp eq i32 %8, %3
-  br i1 %exitcond44.not, label %.loopexit33, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %exitcond44.not, label %.loopexit33, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph39.us:                                      ; preds = %.lr.ph.split.us
   %10 = load ptr, ptr %0, align 8, !tbaa !13
@@ -604,13 +604,13 @@ define range(i32 0, 2) i32 @Extra_BitMatrixIsClique(ptr noundef captures(none) %
   %53 = phi i32 [ %40, %29 ], [ %26, %.preheader.us.us ]
   %54 = add nuw nsw i32 %.036.us.us, 1
   %exitcond.not = icmp eq i32 %54, %3
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us.us, label %.preheader.us.us, !llvm.loop !33
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us.us, label %.preheader.us.us, !llvm.loop !32
 
 ..loopexit_crit_edge.us.us:                       ; preds = %52, %13
   %55 = phi i32 [ %15, %13 ], [ %53, %52 ]
   %56 = add nuw i32 %.02337.us.us, 1
   %exitcond43.not = icmp eq i32 %56, %3
-  br i1 %exitcond43.not, label %.loopexit34.us, label %13, !llvm.loop !34
+  br i1 %exitcond43.not, label %.loopexit34.us, label %13, !llvm.loop !33
 
 .loopexit33:                                      ; preds = %.loopexit34.us, %29, %1
   %.025 = phi i32 [ 1, %1 ], [ 0, %29 ], [ 1, %.loopexit34.us ]
@@ -679,8 +679,7 @@ attributes #16 = { nounwind }
 !27 = distinct !{!27, !17}
 !28 = distinct !{!28, !17}
 !29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !17, !31}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = distinct !{!32, !17}
 !33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17, !31}

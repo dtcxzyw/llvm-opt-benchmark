@@ -414,7 +414,7 @@ tailrecurse:                                      ; preds = %18
   br i1 %169, label %.thread.i, label %170
 
 170:                                              ; preds = %168
-  br i1 %.not113.i, label %.thread128.i, label %.split.i, !llvm.loop !68
+  br i1 %.not113.i, label %.thread128.i, label %.split.i, !llvm.loop !65
 
 .thread128.i:                                     ; preds = %143, %170, %166, %.split147.us.i
   %171 = phi i1 [ %164, %.split147.us.i ], [ %164, %166 ], [ false, %170 ], [ true, %143 ]
@@ -426,14 +426,14 @@ tailrecurse:                                      ; preds = %18
 
 175:                                              ; preds = %.thread128.i
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %177 = load ptr, ptr %176, align 8, !tbaa !69
+  %177 = load ptr, ptr %176, align 8, !tbaa !67
   %178 = sext i32 %.395144.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr nonnull align 1 %172, i64 %178, i1 false)
   %179 = shl i64 %106, 32
   %sext.i = add i64 %179, -4294967296
   %180 = ashr exact i64 %sext.i, 32
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %180, ptr %181, align 8, !tbaa !70
+  store i64 %180, ptr %181, align 8, !tbaa !68
   %182 = load i32, ptr %66, align 4, !tbaa !33
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %182, ptr %183, align 4, !tbaa !57
@@ -628,9 +628,7 @@ attributes #5 = { nounwind }
 !62 = !{!13, !18, i64 48}
 !63 = !{!64, !64, i64 0}
 !64 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !66}
-!69 = !{!43, !6, i64 24}
-!70 = !{!43, !22, i64 72}
+!67 = !{!43, !6, i64 24}
+!68 = !{!43, !22, i64 72}

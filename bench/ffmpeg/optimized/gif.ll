@@ -287,7 +287,7 @@ is_image_translucent.exit.i:                      ; preds = %71
 84:                                               ; preds = %85
   %indvars.iv.next.i221.i = add nuw nsw i64 %indvars.iv.i220.i, 1
   %exitcond.not.i222.i = icmp eq i64 %indvars.iv.next.i221.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i222.i, label %._crit_edge.us.i.i, label %85, !llvm.loop !52
+  br i1 %exitcond.not.i222.i, label %._crit_edge.us.i.i, label %85, !llvm.loop !51
 
 85:                                               ; preds = %84, %.preheader126.us.i.i
   %indvars.iv.i220.i = phi i64 [ 0, %.preheader126.us.i.i ], [ %indvars.iv.next.i221.i, %84 ]
@@ -300,7 +300,7 @@ is_image_translucent.exit.i:                      ; preds = %71
 ._crit_edge.us.i.i:                               ; preds = %84
   %indvars.iv.next162.i.i = add nuw nsw i64 %indvars.iv161.i.i, 1
   %exitcond157.i = icmp eq i64 %indvars.iv.next162.i.i, %wide.trip.count156.i
-  br i1 %exitcond157.i, label %.thread111.i.i, label %.preheader126.us.i.i, !llvm.loop !53
+  br i1 %exitcond157.i, label %.thread111.i.i, label %.preheader126.us.i.i
 
 .thread.i.i:                                      ; preds = %85
   %indvars155.le.i = trunc i64 %indvars.iv161.i.i to i32
@@ -325,7 +325,7 @@ is_image_translucent.exit.i:                      ; preds = %71
 94:                                               ; preds = %95
   %indvars.iv.next166.i.i = add nuw nsw i64 %indvars.iv165.i.i, 1
   %exitcond169.not.i.i = icmp eq i64 %indvars.iv.next166.i.i, %wide.trip.count.i.i
-  br i1 %exitcond169.not.i.i, label %._crit_edge.us135.i.i, label %95, !llvm.loop !54
+  br i1 %exitcond169.not.i.i, label %._crit_edge.us135.i.i, label %95, !llvm.loop !52
 
 95:                                               ; preds = %94, %.preheader.us.i218.i
   %indvars.iv165.i.i = phi i64 [ 0, %.preheader.us.i218.i ], [ %indvars.iv.next166.i.i, %94 ]
@@ -338,7 +338,7 @@ is_image_translucent.exit.i:                      ; preds = %71
 ._crit_edge.us135.i.i:                            ; preds = %94
   %indvars.iv.next171.i.i = add nsw i64 %indvars.iv170.i.i, -1
   %98 = icmp sgt i64 %indvars.iv.next171.i.i, %91
-  br i1 %98, label %.preheader.us.i218.i, label %.thread111.loopexit151.i.i, !llvm.loop !55
+  br i1 %98, label %.preheader.us.i218.i, label %.thread111.loopexit151.i.i
 
 .thread111.loopexit.i.i:                          ; preds = %95
   %99 = trunc nsw i64 %indvars.iv170.i.i to i32
@@ -381,12 +381,12 @@ is_image_translucent.exit.i:                      ; preds = %71
   %indvars.iv.next174.i.us.i = add nsw i64 %indvars.iv173.i.us.i, 1
   %lftr.wideiv176.i.us.i = trunc i64 %indvars.iv.next174.i.us.i to i32
   %exitcond177.not.i.us.i = icmp eq i32 %.083131.i.i, %lftr.wideiv176.i.us.i
-  br i1 %exitcond177.not.i.us.i, label %._crit_edge.i.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !56
+  br i1 %exitcond177.not.i.us.i, label %._crit_edge.i.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !53
 
 ._crit_edge.i.loopexit.us.i:                      ; preds = %106
   %indvars.iv.next179.i.us.i = add nuw i64 %indvars.iv178.i.us.i, 1
   %exitcond161.i = icmp eq i64 %indvars.iv.next179.i.us.i, %wide.trip.count160.i
-  br i1 %exitcond161.i, label %.thread118.i.i, label %.lr.ph138.i.us.i, !llvm.loop !57
+  br i1 %exitcond161.i, label %.thread118.i.i, label %.lr.ph138.i.us.i
 
 .thread115.i.i:                                   ; preds = %.lr.ph.i.us.i
   %indvars131.le = trunc i64 %indvars.iv178.i.us.i to i32
@@ -408,7 +408,7 @@ is_image_translucent.exit.i:                      ; preds = %71
   %indvars.iv.next184.i.i = add nsw i64 %indvars.iv183.i.i, 1
   %lftr.wideiv186.i.i = trunc i64 %indvars.iv.next184.i.i to i32
   %exitcond187.not.i.i = icmp eq i32 %.083131.i.i, %lftr.wideiv186.i.i
-  br i1 %exitcond187.not.i.i, label %._crit_edge142.us.i.i, label %111, !llvm.loop !58
+  br i1 %exitcond187.not.i.i, label %._crit_edge142.us.i.i, label %111, !llvm.loop !54
 
 111:                                              ; preds = %110, %.lr.ph141.us.i.i
   %indvars.iv183.i.i = phi i64 [ %102, %.lr.ph141.us.i.i ], [ %indvars.iv.next184.i.i, %110 ]
@@ -422,7 +422,7 @@ is_image_translucent.exit.i:                      ; preds = %71
 ._crit_edge142.us.i.i:                            ; preds = %110
   %indvars.iv.next189.i.i = add nsw i64 %indvars.iv188.i.i, -1
   %115 = icmp sgt i64 %indvars.iv.next189.i.i, %109
-  br i1 %115, label %.lr.ph141.us.i.i, label %.thread118.i.i, !llvm.loop !59
+  br i1 %115, label %.lr.ph141.us.i.i, label %.thread118.i.i
 
 .thread118.loopexit.i.i:                          ; preds = %111
   %116 = trunc nsw i64 %indvars.iv188.i.i to i32
@@ -476,13 +476,13 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
   %138 = getelementptr inbounds i8, ptr %48, i64 %137
   %bcmp.i.i = tail call i32 @bcmp(ptr %136, ptr readonly %138, i64 %134)
   %.not84.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not84.i.i, label %.lr.ph.i, label %._crit_edge.i225.loopexit.i, !llvm.loop !60
+  br i1 %.not84.i.i, label %.lr.ph.i, label %._crit_edge.i225.loopexit.i, !llvm.loop !55
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i229.i, %.lr.ph.i231.i
   %indvars.iv.i232106.i = phi i64 [ %indvars.iv.next.i233.i, %.lr.ph.i231.i ], [ 0, %.lr.ph.preheader.i229.i ]
   %indvars.iv.next.i233.i = add nuw nsw i64 %indvars.iv.i232106.i, 1
   %exitcond.not.i234.i = icmp eq i64 %indvars.iv.next.i233.i, %wide.trip.count.i230.i
-  br i1 %exitcond.not.i234.i, label %._crit_edge115.i.i, label %.lr.ph.i231.i, !llvm.loop !60
+  br i1 %exitcond.not.i234.i, label %._crit_edge115.i.i, label %.lr.ph.i231.i, !llvm.loop !55
 
 ._crit_edge.i225.loopexit.i:                      ; preds = %.lr.ph.i231.i
   %139 = trunc nsw i64 %indvars.iv.next.i233.i to i32
@@ -515,7 +515,7 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
 150:                                              ; preds = %145
   %indvars.iv.next143.i.i = add nsw i64 %indvars.iv142.i.i, -1
   %151 = icmp sgt i64 %indvars.iv.next143.i.i, %144
-  br i1 %151, label %145, label %._crit_edge115.i.i, !llvm.loop !61
+  br i1 %151, label %145, label %._crit_edge115.i.i, !llvm.loop !56
 
 ._crit_edge115.loopexit.split.loop.exit.i.i:      ; preds = %145
   %152 = trunc nsw i64 %indvars.iv142.i.i to i32
@@ -552,7 +552,7 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
   %indvars.iv.next146.i.i = add nsw i64 %indvars.iv145.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next146.i.i to i32
   %exitcond148.not.i.i = icmp eq i32 %157, %lftr.wideiv.i.i
-  br i1 %exitcond148.not.i.i, label %._crit_edge123.i.loopexit.i, label %.lr.ph122.i.i, !llvm.loop !62
+  br i1 %exitcond148.not.i.i, label %._crit_edge123.i.loopexit.i, label %.lr.ph122.i.i, !llvm.loop !57
 
 .lr.ph122.i.i:                                    ; preds = %159, %.lr.ph125.i.i
   %indvars.iv145.i.i = phi i64 [ %158, %.lr.ph125.i.i ], [ %indvars.iv.next146.i.i, %159 ]
@@ -590,7 +590,7 @@ is_image_translucent.exit.thread.i:               ; preds = %..critedge_crit_edg
   %indvars.iv.next155.i.i = add nsw i64 %indvars.iv154.i.i, 1
   %lftr.wideiv157.i.i = trunc i64 %indvars.iv.next155.i.i to i32
   %exitcond158.not.i.i = icmp eq i32 %157, %lftr.wideiv157.i.i
-  br i1 %exitcond158.not.i.i, label %._crit_edge130.i.i, label %167, !llvm.loop !63
+  br i1 %exitcond158.not.i.i, label %._crit_edge130.i.i, label %167, !llvm.loop !58
 
 167:                                              ; preds = %166, %.lr.ph129.i.i
   %indvars.iv154.i.i = phi i64 [ %158, %.lr.ph129.i.i ], [ %indvars.iv.next155.i.i, %166 ]
@@ -634,7 +634,7 @@ gif_crop_translucent.exit.i:                      ; preds = %.thread99.i.i, %120
 
 177:                                              ; preds = %gif_crop_translucent.exit.i
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %179 = load i64, ptr %178, align 8, !tbaa !64
+  %179 = load i64, ptr %178, align 8, !tbaa !59
   %.not204.i = icmp eq i64 %179, 0
   br i1 %.not204.i, label %180, label %.loopexit89.i
 
@@ -696,7 +696,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   %208 = icmp samesign ult i32 %spec.select17.i.i, 128
   %209 = select i1 %208, i32 %spec.select.i237.i, i32 -1
   %210 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %211 = load i32, ptr %210, align 8, !tbaa !65
+  %211 = load i32, ptr %210, align 8, !tbaa !60
   %212 = shl i32 %211, 7
   %.not206.i = icmp eq i32 %211, 0
   %213 = select i1 %.not206.i, i32 0, i32 7
@@ -712,7 +712,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   %221 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i8 %.0186.i, ptr %221, align 1, !tbaa !49
   %222 = getelementptr inbounds nuw i8, ptr %23, i64 13
-  %223 = load i32, ptr %210, align 8, !tbaa !65
+  %223 = load i32, ptr %210, align 8, !tbaa !60
   %.not207.i = icmp eq i32 %223, 0
   br i1 %.not207.i, label %.loopexit89.i, label %.preheader88.i
 
@@ -734,7 +734,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   %233 = getelementptr inbounds nuw i8, ptr %.087, i64 3
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next164.i, 256
-  br i1 %exitcond166.not.i, label %.loopexit89.i, label %.preheader88.i, !llvm.loop !66
+  br i1 %exitcond166.not.i, label %.loopexit89.i, label %.preheader88.i, !llvm.loop !61
 
 .loopexit89.i:                                    ; preds = %.preheader88.i, %get_palette_transparency_index.exit.i, %177
   %.1 = phi ptr [ %222, %get_palette_transparency_index.exit.i ], [ %23, %177 ], [ %233, %.preheader88.i ]
@@ -779,13 +779,13 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
   store i32 %251, ptr %249, align 4, !tbaa !32
   %indvars.iv.next.i244.i = add nuw nsw i64 %indvars.iv.i243.i, 1
   %exitcond.not.i245.i = icmp eq i64 %indvars.iv.next.i244.i, %wide.trip.count.i242.i
-  br i1 %exitcond.not.i245.i, label %._crit_edge.us.i246.i, label %245, !llvm.loop !67
+  br i1 %exitcond.not.i245.i, label %._crit_edge.us.i246.i, label %245, !llvm.loop !62
 
 ._crit_edge.us.i246.i:                            ; preds = %245
   %252 = getelementptr inbounds i8, ptr %.01721.us.i.i, i64 %244
   %253 = add nuw nsw i32 %.01422.us.i.i, 1
   %exitcond26.not.i.i = icmp eq i32 %253, %.257.i
-  br i1 %exitcond26.not.i.i, label %.preheader.i240.i.preheader, label %.preheader19.us.i.i, !llvm.loop !68
+  br i1 %exitcond26.not.i.i, label %.preheader.i240.i.preheader, label %.preheader19.us.i.i, !llvm.loop !63
 
 .preheader.i240.i.preheader:                      ; preds = %._crit_edge.us.i246.i, %.preheader19.lr.ph.i.i, %236
   br label %.preheader.i240.i
@@ -800,7 +800,7 @@ get_palette_transparency_index.exit.i:            ; preds = %.preheader.i.i
 256:                                              ; preds = %.preheader.i240.i
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 256
-  br i1 %exitcond30.not.i.i, label %.thread.i, label %.preheader.i240.i, !llvm.loop !69
+  br i1 %exitcond30.not.i.i, label %.thread.i, label %.preheader.i240.i, !llvm.loop !64
 
 .thread.i:                                        ; preds = %256
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -827,7 +827,7 @@ pick_palette_entry.exit.i:                        ; preds = %.preheader.i240.i
 
 263:                                              ; preds = %261
   %264 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %265 = load i32, ptr %264, align 8, !tbaa !65
+  %265 = load i32, ptr %264, align 8, !tbaa !60
   %.not209.i = icmp eq i32 %265, 0
   br i1 %.not209.i, label %266, label %shrink_palette.exit.thread.i
 
@@ -847,7 +847,7 @@ pick_palette_entry.exit.i:                        ; preds = %.preheader.i240.i
 269:                                              ; preds = %.lr.ph.i249.i
   %270 = add nuw i64 %.023.i.i, 1
   %exitcond.not.i250.i = icmp eq i64 %270, %.02124.i.i
-  br i1 %exitcond.not.i250.i, label %.critedge.i.i, label %.lr.ph.i249.i, !llvm.loop !70
+  br i1 %exitcond.not.i250.i, label %.critedge.i.i, label %.lr.ph.i249.i, !llvm.loop !65
 
 .lr.ph.i249.i:                                    ; preds = %.preheader.i247.i, %269
   %.023.i.i = phi i64 [ %270, %269 ], [ 0, %.preheader.i247.i ]
@@ -869,7 +869,7 @@ pick_palette_entry.exit.i:                        ; preds = %.preheader.i240.i
   %.1.i251.i = phi i64 [ %277, %.critedge.i.i ], [ %.02124.i.i, %.lr.ph.i249.i ]
   %278 = add nuw nsw i64 %.02025.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %278, 256
-  br i1 %exitcond27.not.i.i, label %shrink_palette.exit.i, label %.preheader.i247.i, !llvm.loop !71
+  br i1 %exitcond27.not.i.i, label %shrink_palette.exit.i, label %.preheader.i247.i, !llvm.loop !66
 
 shrink_palette.exit.i:                            ; preds = %.loopexit.i.i
   %or.cond8.i = or i1 %175, %262
@@ -958,7 +958,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %284, %shrink_palett
 
 317:                                              ; preds = %303
   %318 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %319 = load i32, ptr %318, align 8, !tbaa !65
+  %319 = load i32, ptr %318, align 8, !tbaa !60
   %.not211.i = icmp eq i32 %319, 0
   br i1 %.not211.i, label %320, label %346
 
@@ -1005,7 +1005,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %284, %shrink_palett
   %345 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond171.not.i = icmp eq i64 %indvars.iv.next168.i, %wide.trip.count170.i
-  br i1 %exitcond171.not.i, label %.loopexit87.i, label %335, !llvm.loop !72
+  br i1 %exitcond171.not.i, label %.loopexit87.i, label %335, !llvm.loop !67
 
 346:                                              ; preds = %317
   store i8 0, ptr %316, align 1, !tbaa !49
@@ -1028,7 +1028,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %284, %shrink_palett
 
 355:                                              ; preds = %.loopexit87.i
   %356 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %357 = load ptr, ptr %356, align 8, !tbaa !73
+  %357 = load ptr, ptr %356, align 8, !tbaa !68
   %.not213.i = icmp eq ptr %357, null
   br i1 %.not213.i, label %358, label %364
 
@@ -1037,7 +1037,7 @@ get_palette_transparency_index.exit261.i:         ; preds = %284, %shrink_palett
   %360 = mul nsw i32 %359, %50
   %361 = sext i32 %360 to i64
   %362 = tail call noalias ptr @av_malloc(i64 noundef %361) #9
-  store ptr %362, ptr %356, align 8, !tbaa !73
+  store ptr %362, ptr %356, align 8, !tbaa !68
   %.not214.i = icmp eq ptr %362, null
   br i1 %.not214.i, label %363, label %364
 
@@ -1078,15 +1078,15 @@ get_palette_transparency_index.exit261.i:         ; preds = %284, %shrink_palett
   store i8 %376, ptr %gep26.i.i, align 1, !tbaa !49
   %indvars.iv.next.i269.i = add nuw nsw i64 %indvars.iv.i267.i, 1
   %exitcond.not.i270.i = icmp eq i64 %indvars.iv.next.i269.i, %wide.trip.count.i264.i
-  br i1 %exitcond.not.i270.i, label %._crit_edge.us.i271.i, label %372, !llvm.loop !74
+  br i1 %exitcond.not.i270.i, label %._crit_edge.us.i271.i, label %372, !llvm.loop !69
 
 ._crit_edge.us.i271.i:                            ; preds = %372
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, %wide.trip.count23.i.i
-  br i1 %exitcond24.not.i.i, label %remap_frame_to_palette.exit.loopexit.i, label %.preheader.us.i265.i, !llvm.loop !75
+  br i1 %exitcond24.not.i.i, label %remap_frame_to_palette.exit.loopexit.i, label %.preheader.us.i265.i, !llvm.loop !70
 
 remap_frame_to_palette.exit.loopexit.i:           ; preds = %._crit_edge.us.i271.i
-  %.pre.i = load ptr, ptr %356, align 8, !tbaa !73
+  %.pre.i = load ptr, ptr %356, align 8, !tbaa !68
   br label %remap_frame_to_palette.exit.i
 
 remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_palette.exit.loopexit.i, %364, %.loopexit87.i
@@ -1155,7 +1155,7 @@ remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_pale
 410:                                              ; preds = %407, %.lr.ph118.i
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next174.i, %wide.trip.count176.i
-  br i1 %exitcond177.not.i, label %._crit_edge.i, label %.lr.ph118.i, !llvm.loop !76
+  br i1 %exitcond177.not.i, label %._crit_edge.i, label %.lr.ph118.i, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %410, %400
   %411 = load ptr, ptr %349, align 8, !tbaa !33
@@ -1166,7 +1166,7 @@ remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_pale
   %416 = getelementptr inbounds i8, ptr %.0174122.i, i64 %399
   %417 = add nuw nsw i32 %.0182120.i, 1
   %exitcond178.not.i = icmp eq i32 %417, %.257.i
-  br i1 %exitcond178.not.i, label %.loopexit.i, label %400, !llvm.loop !77
+  br i1 %exitcond178.not.i, label %.loopexit.i, label %400, !llvm.loop !72
 
 418:                                              ; preds = %418, %.lr.ph115.i
   %.2179114.i = phi i32 [ 0, %.lr.ph115.i ], [ %421, %418 ]
@@ -1178,7 +1178,7 @@ remap_frame_to_palette.exit.i:                    ; preds = %remap_frame_to_pale
   %422 = getelementptr inbounds i8, ptr %.2191112.i, i64 %383
   %423 = add nuw nsw i32 %.1183113.i, 1
   %exitcond172.not.i = icmp eq i32 %423, %.257.i
-  br i1 %exitcond172.not.i, label %.loopexit.i, label %418, !llvm.loop !78
+  br i1 %exitcond172.not.i, label %.loopexit.i, label %418, !llvm.loop !73
 
 .loopexit.i:                                      ; preds = %418, %._crit_edge.i, %384, %.preheader.i51
   %.1178.i = phi i32 [ 0, %384 ], [ 0, %.preheader.i51 ], [ %414, %._crit_edge.i ], [ %421, %418 ]
@@ -1276,15 +1276,15 @@ gif_image_write_image.exit:                       ; preds = %430, %363, %._crit_
 
 468:                                              ; preds = %462
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %470 = load i64, ptr %469, align 8, !tbaa !64
+  %470 = load i64, ptr %469, align 8, !tbaa !59
   %.not49 = icmp eq i64 %470, 0
   br i1 %.not49, label %471, label %475
 
 471:                                              ; preds = %.thread, %468, %462
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %473 = load i32, ptr %472, align 8, !tbaa !79
+  %473 = load i32, ptr %472, align 8, !tbaa !74
   %474 = or i32 %473, 1
-  store i32 %474, ptr %472, align 8, !tbaa !79
+  store i32 %474, ptr %472, align 8, !tbaa !74
   br label %475
 
 475:                                              ; preds = %471, %468
@@ -1429,33 +1429,28 @@ attributes #10 = { noreturn nounwind }
 !47 = !{!30, !10, i64 52}
 !48 = distinct !{!48, !44}
 !49 = !{!8, !8, i64 0}
-!50 = distinct !{!50, !44, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !44}
+!51 = distinct !{!51, !44}
 !52 = distinct !{!52, !44}
-!53 = distinct !{!53, !51}
+!53 = distinct !{!53, !44}
 !54 = distinct !{!54, !44}
-!55 = distinct !{!55, !51}
+!55 = distinct !{!55, !44}
 !56 = distinct !{!56, !44}
-!57 = distinct !{!57, !51}
+!57 = distinct !{!57, !44}
 !58 = distinct !{!58, !44}
-!59 = distinct !{!59, !51}
-!60 = distinct !{!60, !44}
+!59 = !{!5, !13, i64 824}
+!60 = !{!30, !10, i64 56}
 !61 = distinct !{!61, !44}
 !62 = distinct !{!62, !44}
 !63 = distinct !{!63, !44}
-!64 = !{!5, !13, i64 824}
-!65 = !{!30, !10, i64 56}
+!64 = distinct !{!64, !44}
+!65 = distinct !{!65, !44}
 !66 = distinct !{!66, !44}
 !67 = distinct !{!67, !44}
-!68 = distinct !{!68, !44, !51}
+!68 = !{!30, !14, i64 24}
 !69 = distinct !{!69, !44}
 !70 = distinct !{!70, !44}
 !71 = distinct !{!71, !44}
 !72 = distinct !{!72, !44}
-!73 = !{!30, !14, i64 24}
-!74 = distinct !{!74, !44}
-!75 = distinct !{!75, !44, !51}
-!76 = distinct !{!76, !44}
-!77 = distinct !{!77, !44}
-!78 = distinct !{!78, !44}
-!79 = !{!39, !10, i64 40}
+!73 = distinct !{!73, !44}
+!74 = !{!39, !10, i64 40}

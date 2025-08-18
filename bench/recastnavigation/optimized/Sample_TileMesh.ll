@@ -2367,7 +2367,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 196:                                              ; preds = %197
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !9
 
 197:                                              ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
@@ -2535,7 +2535,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   %299 = load i32, ptr %298, align 4
   %300 = sext i32 %299 to i64
   %301 = icmp slt i64 %indvars.iv.next91, %300
-  br i1 %301, label %.lr.ph82, label %._crit_edge83, !llvm.loop !11
+  br i1 %301, label %.lr.ph82, label %._crit_edge83, !llvm.loop !10
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %279
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2749,7 +2749,7 @@ switch.lookup:                                    ; preds = %395
   %406 = load i32, ptr %405, align 4
   %407 = sext i32 %406 to i64
   %408 = icmp slt i64 %indvars.iv.next94, %407
-  br i1 %408, label %.lr.ph86, label %._crit_edge87.loopexit, !llvm.loop !12
+  br i1 %408, label %.lr.ph86, label %._crit_edge87.loopexit, !llvm.loop !11
 
 ._crit_edge87.loopexit:                           ; preds = %403
   %.phi.trans.insert103 = getelementptr inbounds nuw i8, ptr %404, i64 40
@@ -3135,12 +3135,12 @@ define dso_local void @_ZN15Sample_TileMesh14removeAllTilesEv(ptr noundef nonnul
   %32 = call noundef i32 @_ZN9dtNavMesh10removeTileEjPPhPi(ptr noundef nonnull align 8 dereferenceable(100) %30, i32 noundef %31, ptr noundef null, ptr noundef null)
   %33 = add nuw nsw i32 %.018.us, 1
   %exitcond.not = icmp eq i32 %33, %23
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %29
   %34 = add nuw nsw i32 %.01419.us, 1
   %exitcond21.not = icmp eq i32 %34, %26
-  br i1 %exitcond21.not, label %.loopexit, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond21.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge.us, %9, %1, %6
   ret void
@@ -3543,10 +3543,9 @@ attributes #16 = { noreturn nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6, !9}

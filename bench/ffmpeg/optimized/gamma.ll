@@ -129,5 +129,4 @@ attributes #3 = { nounwind }
 !28 = !{!"short", !8, i64 0}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !30}

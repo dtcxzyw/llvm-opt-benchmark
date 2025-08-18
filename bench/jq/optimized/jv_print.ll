@@ -1854,7 +1854,7 @@ put_char.exit:                                    ; preds = %put_char.exit.prehe
   store ptr %15, ptr %8, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not11 = icmp eq i32 %12, 0
-  br i1 %.not11, label %.loopexit, label %put_char.exit, !llvm.loop !22
+  br i1 %.not11, label %.loopexit, label %put_char.exit, !llvm.loop !20
 
 16:                                               ; preds = %4
   %17 = lshr i32 %1, 8
@@ -1880,7 +1880,7 @@ put_char.exit14.us:                               ; preds = %.lr.ph20, %put_char
   %fputc.i13.us = tail call i32 @fputc(i32 32, ptr %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not10.us = icmp eq i32 %21, 0
-  br i1 %.not10.us, label %.loopexit, label %put_char.exit14.us, !llvm.loop !23
+  br i1 %.not10.us, label %.loopexit, label %put_char.exit14.us, !llvm.loop !21
 
 put_char.exit14:                                  ; preds = %put_char.exit14.preheader, %put_char.exit14
   %22 = phi ptr [ %27, %put_char.exit14 ], [ %.pre26, %put_char.exit14.preheader ]
@@ -1896,7 +1896,7 @@ put_char.exit14:                                  ; preds = %put_char.exit14.pre
   store ptr %27, ptr %20, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not10 = icmp eq i32 %24, 0
-  br i1 %.not10, label %.loopexit, label %put_char.exit14, !llvm.loop !24
+  br i1 %.not10, label %.loopexit, label %put_char.exit14, !llvm.loop !21
 
 .loopexit:                                        ; preds = %put_char.exit, %put_char.exit.us, %put_char.exit14, %put_char.exit14.us, %.preheader, %16
   ret void
@@ -1977,8 +1977,5 @@ attributes #11 = { nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"int", !7, i64 0}
 !19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13, !21}
-!24 = distinct !{!24, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}

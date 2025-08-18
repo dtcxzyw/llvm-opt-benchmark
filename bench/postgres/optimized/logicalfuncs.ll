@@ -223,7 +223,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %114 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #11
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %208
+  br i1 %115, label %116, label %221
 
 116:                                              ; preds = %111
   store ptr %6, ptr @PG_exception_stack, align 8
@@ -282,18 +282,21 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %147 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %134, label %.lr.ph90.split.us, label %.lr.ph90.split
 
-.lr.ph90.split.us:                                ; preds = %.lr.ph90, %160
-  %148 = phi ptr [ %161, %160 ], [ %142, %.lr.ph90 ]
+.lr.ph90.split.us:                                ; preds = %.lr.ph90
+  br i1 %.not82, label %.lr.ph90.split.us.split.us, label %.lr.ph90.split.us.split
+
+.lr.ph90.split.us.split.us:                       ; preds = %.lr.ph90.split.us, %157
+  %148 = phi ptr [ %158, %157 ], [ %142, %.lr.ph90.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %149 = call ptr @XLogReadRecord(ptr noundef nonnull %148, ptr noundef nonnull %8) #9
   %150 = load ptr, ptr %8, align 8
-  %.not78.us = icmp eq ptr %150, null
-  br i1 %.not78.us, label %151, label %.split.us
+  %.not78.us.us = icmp eq ptr %150, null
+  br i1 %.not78.us.us, label %151, label %.split.us
 
-151:                                              ; preds = %.lr.ph90.split.us
-  %.not79.us = icmp eq ptr %149, null
-  br i1 %.not79.us, label %154, label %152
+151:                                              ; preds = %.lr.ph90.split.us.split.us
+  %.not79.us.us = icmp eq ptr %149, null
+  br i1 %.not79.us.us, label %154, label %152
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %137, align 8
@@ -301,158 +304,190 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %154
 
 154:                                              ; preds = %152, %151
-  br i1 %.not82, label %157, label %155
+  %155 = load volatile i32, ptr @InterruptPending, align 4
+  %.not84.us.us = icmp eq i32 %155, 0
+  br i1 %.not84.us.us, label %157, label %156, !prof !8
 
-155:                                              ; preds = %154
-  %156 = load i64, ptr %147, align 8
-  %.not83.us = icmp slt i64 %156, %146
-  br i1 %.not83.us, label %157, label %.thread.loopexit
-
-157:                                              ; preds = %155, %154
-  %158 = load volatile i32, ptr @InterruptPending, align 4
-  %.not84.us = icmp eq i32 %158, 0
-  br i1 %.not84.us, label %160, label %159, !prof !8
-
-159:                                              ; preds = %157
+156:                                              ; preds = %154
   call void @ProcessInterrupts() #9
-  br label %160
+  br label %157
 
-160:                                              ; preds = %159, %157
+157:                                              ; preds = %156, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %161 = load ptr, ptr %137, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
-  %163 = load i64, ptr %162, align 8
-  %164 = icmp ult i64 %163, %.071
-  br i1 %164, label %.lr.ph90.split.us, label %.loopexit, !llvm.loop !9
+  %158 = load ptr, ptr %137, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
+  %160 = load i64, ptr %159, align 8
+  %161 = icmp ult i64 %160, %.071
+  br i1 %161, label %.lr.ph90.split.us.split.us, label %.loopexit
+
+.lr.ph90.split.us.split:                          ; preds = %.lr.ph90.split.us, %173
+  %162 = phi ptr [ %174, %173 ], [ %142, %.lr.ph90.split.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store ptr null, ptr %8, align 8
+  %163 = call ptr @XLogReadRecord(ptr noundef nonnull %162, ptr noundef nonnull %8) #9
+  %164 = load ptr, ptr %8, align 8
+  %.not78.us = icmp eq ptr %164, null
+  br i1 %.not78.us, label %165, label %.split.us
+
+165:                                              ; preds = %.lr.ph90.split.us.split
+  %.not79.us = icmp eq ptr %163, null
+  br i1 %.not79.us, label %168, label %166
+
+166:                                              ; preds = %165
+  %167 = load ptr, ptr %137, align 8
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %167) #9
+  br label %168
+
+168:                                              ; preds = %166, %165
+  %169 = load i64, ptr %147, align 8
+  %.not83.us = icmp slt i64 %169, %146
+  br i1 %.not83.us, label %170, label %.thread.loopexit
+
+170:                                              ; preds = %168
+  %171 = load volatile i32, ptr @InterruptPending, align 4
+  %.not84.us = icmp eq i32 %171, 0
+  br i1 %.not84.us, label %173, label %172, !prof !8
+
+172:                                              ; preds = %170
+  call void @ProcessInterrupts() #9
+  br label %173
+
+173:                                              ; preds = %172, %170
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %174 = load ptr, ptr %137, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 48
+  %176 = load i64, ptr %175, align 8
+  %177 = icmp ult i64 %176, %.071
+  br i1 %177, label %.lr.ph90.split.us.split, label %.loopexit
 
 .lr.ph90.split:                                   ; preds = %.lr.ph90
   br i1 %.not82, label %.lr.ph90.split.split.us, label %.lr.ph90.split.split
 
-.lr.ph90.split.split.us:                          ; preds = %.lr.ph90.split, %178
-  %165 = phi ptr [ %180, %178 ], [ %142, %.lr.ph90.split ]
+.lr.ph90.split.split.us:                          ; preds = %.lr.ph90.split, %191
+  %178 = phi ptr [ %193, %191 ], [ %142, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %166 = call ptr @XLogReadRecord(ptr noundef nonnull %165, ptr noundef nonnull %8) #9
-  %167 = load ptr, ptr %8, align 8
-  %.not78.us91 = icmp eq ptr %167, null
-  br i1 %.not78.us91, label %168, label %.split.us
+  %179 = call ptr @XLogReadRecord(ptr noundef nonnull %178, ptr noundef nonnull %8) #9
+  %180 = load ptr, ptr %8, align 8
+  %.not78.us91 = icmp eq ptr %180, null
+  br i1 %.not78.us91, label %181, label %.split.us
 
-168:                                              ; preds = %.lr.ph90.split.split.us
-  %.not79.us92 = icmp eq ptr %166, null
-  br i1 %.not79.us92, label %171, label %169
+181:                                              ; preds = %.lr.ph90.split.split.us
+  %.not79.us92 = icmp eq ptr %179, null
+  br i1 %.not79.us92, label %184, label %182
 
-169:                                              ; preds = %168
-  %170 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %170) #9
-  br label %171
+182:                                              ; preds = %181
+  %183 = load ptr, ptr %137, align 8
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %183) #9
+  br label %184
 
-171:                                              ; preds = %169, %168
-  %172 = load ptr, ptr %137, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
-  %174 = load i64, ptr %173, align 8
-  %.not81.us = icmp ugt i64 %.069, %174
-  br i1 %.not81.us, label %175, label %.thread
+184:                                              ; preds = %182, %181
+  %185 = load ptr, ptr %137, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 48
+  %187 = load i64, ptr %186, align 8
+  %.not81.us = icmp ugt i64 %.069, %187
+  br i1 %.not81.us, label %188, label %.thread
 
-175:                                              ; preds = %171
-  %176 = load volatile i32, ptr @InterruptPending, align 4
-  %.not84.us93 = icmp eq i32 %176, 0
-  br i1 %.not84.us93, label %178, label %177, !prof !8
+188:                                              ; preds = %184
+  %189 = load volatile i32, ptr @InterruptPending, align 4
+  %.not84.us93 = icmp eq i32 %189, 0
+  br i1 %.not84.us93, label %191, label %190, !prof !8
 
-177:                                              ; preds = %175
+190:                                              ; preds = %188
   call void @ProcessInterrupts() #9
-  %.pre101 = load ptr, ptr %137, align 8
-  %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %.pre101, i64 48
-  %.pre103 = load i64, ptr %.phi.trans.insert102, align 8
-  br label %178
+  %.pre104 = load ptr, ptr %137, align 8
+  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 48
+  %.pre106 = load i64, ptr %.phi.trans.insert105, align 8
+  br label %191
 
-178:                                              ; preds = %177, %175
-  %179 = phi i64 [ %.pre103, %177 ], [ %174, %175 ]
-  %180 = phi ptr [ %.pre101, %177 ], [ %172, %175 ]
+191:                                              ; preds = %190, %188
+  %192 = phi i64 [ %.pre106, %190 ], [ %187, %188 ]
+  %193 = phi ptr [ %.pre104, %190 ], [ %185, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %181 = icmp ult i64 %179, %.071
-  br i1 %181, label %.lr.ph90.split.split.us, label %.loopexit, !llvm.loop !11
+  %194 = icmp ult i64 %192, %.071
+  br i1 %194, label %.lr.ph90.split.split.us, label %.loopexit
 
-.lr.ph90.split.split:                             ; preds = %.lr.ph90.split, %200
-  %182 = phi ptr [ %202, %200 ], [ %142, %.lr.ph90.split ]
+.lr.ph90.split.split:                             ; preds = %.lr.ph90.split, %213
+  %195 = phi ptr [ %215, %213 ], [ %142, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %183 = call ptr @XLogReadRecord(ptr noundef nonnull %182, ptr noundef nonnull %8) #9
-  %184 = load ptr, ptr %8, align 8
-  %.not78 = icmp eq ptr %184, null
-  br i1 %.not78, label %188, label %.split.us
+  %196 = call ptr @XLogReadRecord(ptr noundef nonnull %195, ptr noundef nonnull %8) #9
+  %197 = load ptr, ptr %8, align 8
+  %.not78 = icmp eq ptr %197, null
+  br i1 %.not78, label %201, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph90.split.split, %.lr.ph90.split.split.us, %.lr.ph90.split.us
-  %185 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %185)
-  %186 = load ptr, ptr %8, align 8
-  %187 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %186) #9
+.split.us:                                        ; preds = %.lr.ph90.split.split, %.lr.ph90.split.split.us, %.lr.ph90.split.us.split, %.lr.ph90.split.us.split.us
+  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %198)
+  %199 = load ptr, ptr %8, align 8
+  %200 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %199) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
   unreachable
 
-188:                                              ; preds = %.lr.ph90.split.split
-  %.not79 = icmp eq ptr %183, null
-  br i1 %.not79, label %191, label %189
+201:                                              ; preds = %.lr.ph90.split.split
+  %.not79 = icmp eq ptr %196, null
+  br i1 %.not79, label %204, label %202
 
-189:                                              ; preds = %188
-  %190 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %190) #9
-  br label %191
+202:                                              ; preds = %201
+  %203 = load ptr, ptr %137, align 8
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %203) #9
+  br label %204
 
-191:                                              ; preds = %189, %188
-  %192 = load ptr, ptr %137, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 48
-  %194 = load i64, ptr %193, align 8
-  %.not81 = icmp ugt i64 %.069, %194
-  br i1 %.not81, label %195, label %.thread
+204:                                              ; preds = %202, %201
+  %205 = load ptr, ptr %137, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 48
+  %207 = load i64, ptr %206, align 8
+  %.not81 = icmp ugt i64 %.069, %207
+  br i1 %.not81, label %208, label %.thread
 
-195:                                              ; preds = %191
-  %196 = load i64, ptr %147, align 8
-  %.not83 = icmp slt i64 %196, %146
-  br i1 %.not83, label %197, label %.thread
+208:                                              ; preds = %204
+  %209 = load i64, ptr %147, align 8
+  %.not83 = icmp slt i64 %209, %146
+  br i1 %.not83, label %210, label %.thread
 
-197:                                              ; preds = %195
-  %198 = load volatile i32, ptr @InterruptPending, align 4
-  %.not84 = icmp eq i32 %198, 0
-  br i1 %.not84, label %200, label %199, !prof !8
+210:                                              ; preds = %208
+  %211 = load volatile i32, ptr @InterruptPending, align 4
+  %.not84 = icmp eq i32 %211, 0
+  br i1 %.not84, label %213, label %212, !prof !8
 
-199:                                              ; preds = %197
+212:                                              ; preds = %210
   call void @ProcessInterrupts() #9
   %.pre = load ptr, ptr %137, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre100 = load i64, ptr %.phi.trans.insert, align 8
-  br label %200
+  %.pre103 = load i64, ptr %.phi.trans.insert, align 8
+  br label %213
 
-.thread.loopexit:                                 ; preds = %155
-  %.pre104.pre = load ptr, ptr %137, align 8
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre104.pre, i64 48
-  %.pre106.pre = load i64, ptr %.phi.trans.insert105.phi.trans.insert, align 8
+.thread.loopexit:                                 ; preds = %168
+  %.pre107.pre = load ptr, ptr %137, align 8
+  %.phi.trans.insert108.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre107.pre, i64 48
+  %.pre109.pre = load i64, ptr %.phi.trans.insert108.phi.trans.insert, align 8
   br label %.thread
 
-.thread:                                          ; preds = %191, %195, %171, %.thread.loopexit
-  %.pre106 = phi i64 [ %.pre106.pre, %.thread.loopexit ], [ %174, %171 ], [ %194, %195 ], [ %194, %191 ]
+.thread:                                          ; preds = %204, %208, %184, %.thread.loopexit
+  %.pre109 = phi i64 [ %.pre109.pre, %.thread.loopexit ], [ %187, %184 ], [ %207, %208 ], [ %207, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-200:                                              ; preds = %197, %199
-  %201 = phi i64 [ %194, %197 ], [ %.pre100, %199 ]
-  %202 = phi ptr [ %192, %197 ], [ %.pre, %199 ]
+213:                                              ; preds = %210, %212
+  %214 = phi i64 [ %207, %210 ], [ %.pre103, %212 ]
+  %215 = phi ptr [ %205, %210 ], [ %.pre, %212 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %203 = icmp ult i64 %201, %.071
-  br i1 %203, label %.lr.ph90.split.split, label %.loopexit
+  %216 = icmp ult i64 %214, %.071
+  br i1 %216, label %.lr.ph90.split.split, label %.loopexit
 
-.loopexit:                                        ; preds = %200, %178, %160, %133, %.thread
-  %204 = phi i64 [ %144, %133 ], [ %.pre106, %.thread ], [ %163, %160 ], [ %179, %178 ], [ %201, %200 ]
+.loopexit:                                        ; preds = %213, %191, %173, %157, %133, %.thread
+  %217 = phi i64 [ %144, %133 ], [ %.pre109, %.thread ], [ %160, %157 ], [ %176, %173 ], [ %192, %191 ], [ %214, %213 ]
   store ptr %12, ptr @CurrentResourceOwner, align 8
-  %205 = icmp ne i64 %204, 0
-  %or.cond = and i1 %1, %205
-  br i1 %or.cond, label %206, label %207
+  %218 = icmp ne i64 %217, 0
+  %or.cond = and i1 %1, %218
+  br i1 %or.cond, label %219, label %220
 
-206:                                              ; preds = %.loopexit
-  call void @LogicalConfirmReceivedLocation(i64 noundef %204) #9
+219:                                              ; preds = %.loopexit
+  call void @LogicalConfirmReceivedLocation(i64 noundef %217) #9
   call void @ReplicationSlotMarkDirty() #9
-  br label %207
+  br label %220
 
-207:                                              ; preds = %206, %.loopexit
+220:                                              ; preds = %219, %.loopexit
   call void @FreeDecodingContext(ptr noundef nonnull %119) #9
   call void @ReplicationSlotRelease() #9
   call void @InvalidateSystemCaches() #9
@@ -461,7 +496,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-208:                                              ; preds = %111
+221:                                              ; preds = %111
   store ptr %112, ptr @PG_exception_stack, align 8
   store ptr %113, ptr @error_context_stack, align 8
   call void @InvalidateSystemCaches() #9
@@ -734,6 +769,3 @@ attributes #12 = { noreturn nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !10}

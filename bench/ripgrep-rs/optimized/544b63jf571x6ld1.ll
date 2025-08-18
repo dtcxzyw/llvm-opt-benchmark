@@ -1319,7 +1319,7 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 1, !noalias !34
   %.sroa.6.1.copyload.us = load i8, ptr %44, align 1, !noalias !38
   %.not.i.us = icmp ugt i8 %3, %.sroa.6.1.copyload.us
-  br i1 %.not.i.us, label %36, label %45, !llvm.loop !39
+  br i1 %.not.i.us, label %36, label %45
 
 45:                                               ; preds = %42
   %.sroa.814.1..sroa_idx.us = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -1518,18 +1518,18 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 13:                                               ; preds = %9
   %14 = zext i32 %10 to i64
-  %15 = load i64, ptr %7, align 8, !noalias !41, !noundef !5
+  %15 = load i64, ptr %7, align 8, !noalias !39, !noundef !5
   %16 = icmp ugt i64 %15, %14
   br i1 %16, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i", label %17, !prof !18
 
 17:                                               ; preds = %13
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %14, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !41
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %14, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !39
   unreachable
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i": ; preds = %13
-  %18 = load ptr, ptr %8, align 8, !noalias !41, !nonnull !5, !noundef !5
+  %18 = load ptr, ptr %8, align 8, !noalias !39, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %18, i64 0, i64 %14, i32 1
-  %20 = load i32, ptr %19, align 4, !noalias !41, !noundef !5
+  %20 = load i32, ptr %19, align 4, !noalias !39, !noundef !5
   %exitcond.not.i.i = icmp eq i64 %11, %2
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i, label %9
 
@@ -1543,12 +1543,12 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thre
   tail call void @llvm.assume(i1 %24)
   %25 = zext i32 %21 to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %27 = load i64, ptr %26, align 8, !noalias !50, !noundef !5
+  %27 = load i64, ptr %26, align 8, !noalias !48, !noundef !5
   %28 = icmp ugt i64 %27, %25
   br i1 %28, label %30, label %29, !prof !18
 
 29:                                               ; preds = %23
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %25, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !50
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %25, i64 noundef %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !48
   unreachable
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ; preds = %9, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i
@@ -1557,9 +1557,9 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ;
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %32 = load ptr, ptr %31, align 8, !noalias !50, !nonnull !5, !noundef !5
+  %32 = load ptr, ptr %31, align 8, !noalias !48, !nonnull !5, !noundef !5
   %33 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %32, i64 0, i64 %25
-  %34 = load i32, ptr %33, align 4, !noalias !50, !noundef !5
+  %34 = load i32, ptr %33, align 4, !noalias !48, !noundef !5
   ret i32 %34
 }
 
@@ -1609,16 +1609,16 @@ define internal noundef zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous.
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17hb3b29505b8c25df8E"(ptr noalias noundef readonly align 8 dereferenceable(440) %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = tail call { ptr, i32 } @_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches17h7f042216a7b047c9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(440) %0, i32 noundef %1)
   %4 = extractvalue { ptr, i32 } %3, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %6 = extractvalue { ptr, i32 } %3, 0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %8 = load i64, ptr %7, align 8, !alias.scope !55, !noalias !58, !noundef !5
+  %8 = load i64, ptr %7, align 8, !alias.scope !53, !noalias !56, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %10 = load ptr, ptr %9, align 8, !alias.scope !55, !nonnull !5
+  %10 = load ptr, ptr %9, align 8, !alias.scope !53, !nonnull !5
   br label %11
 
 11:                                               ; preds = %15, %.lr.ph.i
@@ -1629,12 +1629,12 @@ define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   br i1 %13, label %15, label %14, !prof !18
 
 14:                                               ; preds = %11
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %12, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !63
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %12, i64 noundef %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !61
   unreachable
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %10, i64 0, i64 %12, i32 1
-  %17 = load i32, ptr %16, align 4, !noalias !63, !noundef !5
+  %17 = load i32, ptr %16, align 4, !noalias !61, !noundef !5
   %18 = add i64 %.015.i, 1
   %19 = icmp eq i32 %17, 0
   br i1 %19, label %_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E.exit, label %11
@@ -1820,28 +1820,26 @@ attributes #15 = { cold }
 !36 = distinct !{!36, !"_ZN12aho_corasick3nfa13noncontiguous3NFA10iter_trans28_$u7b$$u7b$closure$u7d$$u7d$17hd874b75e946b7d89E"}
 !37 = distinct !{!37, !36, !"_ZN12aho_corasick3nfa13noncontiguous3NFA10iter_trans28_$u7b$$u7b$closure$u7d$$u7d$17hd874b75e946b7d89E: argument 1"}
 !38 = !{!37}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = !{!42, !44, !46, !48}
-!42 = distinct !{!42, !43, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
-!43 = distinct !{!43, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
-!44 = distinct !{!44, !45, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
-!45 = distinct !{!45, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
-!46 = distinct !{!46, !47, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE: argument 0"}
-!47 = distinct !{!47, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE"}
-!48 = distinct !{!48, !49, !"_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E: argument 0"}
-!49 = distinct !{!49, !"_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E"}
-!50 = !{!51, !53, !48}
-!51 = distinct !{!51, !52, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
-!52 = distinct !{!52, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
-!53 = distinct !{!53, !54, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
-!54 = distinct !{!54, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E: argument 0"}
-!57 = distinct !{!57, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E"}
-!58 = !{!59, !61}
-!59 = distinct !{!59, !60, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
-!60 = distinct !{!60, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
-!61 = distinct !{!61, !62, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
-!62 = distinct !{!62, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
-!63 = !{!59, !61, !56}
+!39 = !{!40, !42, !44, !46}
+!40 = distinct !{!40, !41, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
+!41 = distinct !{!41, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
+!42 = distinct !{!42, !43, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
+!43 = distinct !{!43, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
+!44 = distinct !{!44, !45, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE: argument 0"}
+!45 = distinct !{!45, !"_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE"}
+!46 = distinct !{!46, !47, !"_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E: argument 0"}
+!47 = distinct !{!47, !"_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E"}
+!48 = !{!49, !51, !46}
+!49 = distinct !{!49, !50, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
+!50 = distinct !{!50, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
+!51 = distinct !{!51, !52, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
+!52 = distinct !{!52, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E: argument 0"}
+!55 = distinct !{!55, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6a81e71325cffd99E"}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE: argument 0"}
+!58 = distinct !{!58, !"_ZN12aho_corasick3nfa13noncontiguous3NFA12iter_matches28_$u7b$$u7b$closure$u7d$$u7d$17h5a5f623d3e30d86fE"}
+!59 = distinct !{!59, !60, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE: argument 0"}
+!60 = distinct !{!60, !"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE"}
+!61 = !{!57, !59, !54}

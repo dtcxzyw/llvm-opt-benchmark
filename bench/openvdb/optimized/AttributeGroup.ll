@@ -736,7 +736,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.051, 1
   %18 = load i32, ptr %mSize.i, align 8
   %cmp = icmp ult i32 %inc, %18
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 return.sink.split:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31, %if.else, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then3
   %or17.sink = phi i8 [ %or17, %if.then3 ], [ %or17, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ], [ %and, %if.else ], [ %and, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31 ]
@@ -782,7 +782,7 @@ for.cond:                                         ; preds = %for.body
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %7
   %cond.i = mul i32 %mul.i, %8
   %cmp = icmp ult i32 %inc, %cond.i
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %if.end, %for.cond
   %i.07 = phi i32 [ %inc, %for.cond ], [ 1, %if.end ]
@@ -1619,7 +1619,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %cond.i = mul i32 %mul.i, %18
   %19 = zext i32 %cond.i to i64
   %cmp = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !11
+  br i1 %cmp, label %for.body, label %if.end9, !llvm.loop !9
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit10: ; preds = %if.else.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   %20 = landingpad { ptr, i32 }
@@ -1675,8 +1675,6 @@ attributes #19 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

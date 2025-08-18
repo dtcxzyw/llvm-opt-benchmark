@@ -744,7 +744,7 @@ fdt_check_node_offset_.exit:                      ; preds = %9
 
 .backedge:                                        ; preds = %21, %.split
   %.pre = load i32, ptr %5, align 4
-  br label %.split, !llvm.loop !8
+  br label %.split, !llvm.loop !6
 
 .split27.us:                                      ; preds = %.split
   %19 = load i32, ptr %2, align 4
@@ -825,7 +825,7 @@ fdt_check_node_offset_.exit.i:                    ; preds = %8
 
 .backedge.i:                                      ; preds = %.split.i
   %.pre.i = load i32, ptr %4, align 4
-  br label %.split.i, !llvm.loop !8
+  br label %.split.i, !llvm.loop !6
 
 14:                                               ; preds = %.split.i
   %15 = load i32, ptr %4, align 4
@@ -1098,7 +1098,7 @@ fdt_next_tag.exit:                                ; preds = %.critedge.i
   %or.cond.i11 = or i1 %154, %155
   %156 = icmp ugt i32 %153, -5
   %or.cond = or i1 %or.cond.i11, %156
-  br i1 %or.cond, label %fdt_next_node.exit.thread, label %72, !llvm.loop !8
+  br i1 %or.cond, label %fdt_next_node.exit.thread, label %72, !llvm.loop !6
 
 157:                                              ; preds = %fdt_next_tag.exit
   %158 = add i32 %.143, -1
@@ -1112,7 +1112,7 @@ fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
 161:                                              ; preds = %fdt_next_node.exit
   %162 = add nuw nsw i32 %.143, 1
   %.not49 = icmp eq i32 %.143, 0
-  br i1 %.not49, label %fdt_next_node.exit.thread, label %20, !llvm.loop !9
+  br i1 %.not49, label %fdt_next_node.exit.thread, label %20, !llvm.loop !7
 
 fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %157, %94, %72, %.backedge.i, %.critedge.i, %fdt_offset_ptr.exit13._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %fdt_check_node_offset_.exit.thread.i
   %.05 = phi i32 [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %120 ], [ -1, %.preheader.i ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit13._crit_edge ], [ -1, %.critedge.i ], [ -1, %.backedge.i ], [ -1, %72 ], [ -1, %94 ], [ -1, %157 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
@@ -1140,7 +1140,7 @@ define dso_local ptr @fdt_find_string_(ptr noundef readonly captures(address, re
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %.not = icmp ugt ptr %12, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %3
   %.012 = phi ptr [ null, %3 ], [ null, %11 ], [ %.014, %.lr.ph ]
@@ -1230,8 +1230,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

@@ -710,17 +710,17 @@ generate.exit.us:                                 ; preds = %.preheader127.us.lv
   store i8 %.0.i.i.us, ptr %391, align 1, !tbaa !9
   %indvars.iv.next.i120.us = add nuw nsw i64 %indvars.iv.i119.us, 1
   %exitcond.not.i121.us = icmp eq i64 %indvars.iv.next.i120.us, %wide.trip.count.i
-  br i1 %exitcond.not.i121.us, label %add_8x8_clip_c.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !56
+  br i1 %exitcond.not.i121.us, label %add_8x8_clip_c.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !55
 
 add_8x8_clip_c.exit.loopexit.us:                  ; preds = %.lr.ph.i.us
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.loopexit132, label %.lr.ph.preheader.i.us, !llvm.loop !57
+  br i1 %exitcond190.not, label %.loopexit132, label %.lr.ph.preheader.i.us, !llvm.loop !56
 
 .loopexit132:                                     ; preds = %add_8x8_clip_c.exit.loopexit.us, %.preheader130.lr.ph, %.loopexit134, %70
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 3
-  br i1 %exitcond194.not, label %.loopexit136, label %35, !llvm.loop !58
+  br i1 %exitcond194.not, label %.loopexit136, label %35, !llvm.loop !57
 
 .loopexit136:                                     ; preds = %.loopexit132, %9, %4
   %.098 = phi i32 [ -1163346256, %4 ], [ -1163346256, %9 ], [ 0, %.loopexit132 ]
@@ -818,8 +818,7 @@ attributes #6 = { nounwind }
 !51 = distinct !{!51, !33}
 !52 = distinct !{!52, !33}
 !53 = distinct !{!53, !33}
-!54 = distinct !{!54, !33, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!54 = distinct !{!54, !33}
+!55 = distinct !{!55, !33}
 !56 = distinct !{!56, !33}
-!57 = distinct !{!57, !33, !55}
-!58 = distinct !{!58, !33}
+!57 = distinct !{!57, !33}

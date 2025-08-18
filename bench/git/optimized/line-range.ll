@@ -263,7 +263,7 @@ match_funcname.exit.thread.us.i:                  ; preds = %switch.early.test.i
 
 73:                                               ; preds = %62
   %74 = getelementptr inbounds nuw i8, ptr %.027.us.i, i64 1
-  br label %62, !llvm.loop !27
+  br label %62, !llvm.loop !26
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %match_funcname.exit.thread.i
   %.03355.i = phi ptr [ %spec.select42.i, %match_funcname.exit.thread.i ], [ %28, %.lr.ph.i ]
@@ -322,18 +322,18 @@ match_funcname.exit.thread.us.i:                  ; preds = %switch.early.test.i
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
-  br label %91, !llvm.loop !27
+  br label %91, !llvm.loop !26
 
 .critedge2.i:                                     ; preds = %91, %91
   %95 = icmp eq i8 %92, 10
   %spec.select42.idx.i = zext i1 %95 to i64
   %spec.select42.i = getelementptr inbounds nuw i8, ptr %.027.i, i64 %spec.select42.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %96 = load ptr, ptr %45, align 8, !tbaa !28
+  %96 = load ptr, ptr %45, align 8, !tbaa !27
   %97 = ptrtoint ptr %spec.select42.i to i64
   %98 = ptrtoint ptr %spec.select.i to i64
   %99 = sub i64 %97, %98
-  %100 = load ptr, ptr %46, align 8, !tbaa !30
+  %100 = load ptr, ptr %46, align 8, !tbaa !29
   %101 = call i64 %96(ptr noundef nonnull %spec.select.i, i64 noundef %99, ptr noundef nonnull %11, i64 noundef 1, ptr noundef %100) #8
   %102 = icmp sgt i64 %101, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -342,7 +342,7 @@ match_funcname.exit.thread.us.i:                  ; preds = %switch.early.test.i
 match_funcname.exit.thread.i:                     ; preds = %.critedge2.i
   %103 = load i8, ptr %spec.select42.i, align 1, !tbaa !8
   %.not.i = icmp eq i8 %103, 0
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !31
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !25
 
 find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, %switch.early.test.i.us.i, %switch.early.test.i.us.i
   %.232.i = phi ptr [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %66 ], [ %spec.select.i, %.critedge2.i ]
@@ -363,7 +363,7 @@ find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, 
   store i64 %107, ptr %5, align 8, !tbaa !4
   %108 = call ptr %1(ptr noundef %2, i64 noundef %107) #8
   %109 = icmp ugt ptr %.232.i, %108
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %find_funcname_matching_regexp.exit
   %110 = load i64, ptr %5, align 8, !tbaa !4
@@ -409,7 +409,7 @@ match_funcname.exit.thread.us:                    ; preds = %switch.early.test.i
   %storemerge108.us = add nsw i64 %123, 1
   store i64 %storemerge108.us, ptr %6, align 8, !tbaa !4
   %124 = icmp slt i64 %storemerge108.us, %3
-  br i1 %124, label %.lr.ph126.split.us, label %.thread, !llvm.loop !33
+  br i1 %124, label %.lr.ph126.split.us, label %.thread
 
 125:                                              ; preds = %._crit_edge
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %26) #9
@@ -422,11 +422,11 @@ match_funcname.exit:                              ; preds = %.lr.ph126, %match_f
   %128 = add nsw i64 %127, 1
   %129 = call ptr %1(ptr noundef %2, i64 noundef %128) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %130 = load ptr, ptr %45, align 8, !tbaa !28
+  %130 = load ptr, ptr %45, align 8, !tbaa !27
   %131 = ptrtoint ptr %129 to i64
   %132 = ptrtoint ptr %126 to i64
   %133 = sub i64 %131, %132
-  %134 = load ptr, ptr %46, align 8, !tbaa !30
+  %134 = load ptr, ptr %46, align 8, !tbaa !29
   %135 = call i64 %130(ptr noundef %126, i64 noundef %133, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %134) #8
   %136 = icmp sgt i64 %135, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -491,7 +491,7 @@ define internal fastcc ptr @parse_loc(ptr noundef %0, ptr noundef readonly captu
 14:                                               ; preds = %12, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %16 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %7, i32 noundef 10) #8
-  %17 = load ptr, ptr %7, align 8, !tbaa !34
+  %17 = load ptr, ptr %7, align 8, !tbaa !31
   %.not90 = icmp eq ptr %17, %15
   br i1 %.not90, label %.loopexit, label %18
 
@@ -532,7 +532,7 @@ define internal fastcc ptr @parse_loc(ptr noundef %0, ptr noundef readonly captu
 
 34:                                               ; preds = %12, %6
   %35 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 10) #8
-  %36 = load ptr, ptr %7, align 8, !tbaa !34
+  %36 = load ptr, ptr %7, align 8, !tbaa !31
   %.not = icmp eq ptr %36, %0
   br i1 %.not, label %42, label %37
 
@@ -588,7 +588,7 @@ thread-pre-split:                                 ; preds = %42, %48
 
 54:                                               ; preds = %58, %52
   %storemerge = phi ptr [ %53, %52 ], [ %59, %58 ]
-  store ptr %storemerge, ptr %7, align 8, !tbaa !34
+  store ptr %storemerge, ptr %7, align 8, !tbaa !31
   %55 = load i8, ptr %storemerge, align 1, !tbaa !8
   switch i8 %55, label %58 [
     i8 92, label %56
@@ -598,13 +598,13 @@ thread-pre-split:                                 ; preds = %42, %48
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  store ptr %57, ptr %7, align 8, !tbaa !34
+  store ptr %57, ptr %7, align 8, !tbaa !31
   br label %58
 
 58:                                               ; preds = %54, %56
   %storemerge94 = phi ptr [ %storemerge, %54 ], [ %57, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %storemerge94, i64 1
-  br label %54, !llvm.loop !35
+  br label %54, !llvm.loop !32
 
 60:                                               ; preds = %54
   %.not85 = icmp eq ptr %5, null
@@ -645,12 +645,12 @@ thread-pre-split:                                 ; preds = %42, %48
   %.not88 = icmp ule ptr %.063, %72
   %78 = icmp ult ptr %72, %77
   %or.cond = select i1 %.not88, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %73, !llvm.loop !36
+  br i1 %or.cond, label %79, label %73, !llvm.loop !33
 
 79:                                               ; preds = %76, %73
   store i64 %74, ptr %5, align 8, !tbaa !4
   call void @regfree(ptr noundef nonnull %8) #8
-  %80 = load ptr, ptr %7, align 8, !tbaa !34
+  %80 = load ptr, ptr %7, align 8, !tbaa !31
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store i8 47, ptr %80, align 1, !tbaa !8
   br label %.loopexit
@@ -724,7 +724,7 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
 18:                                               ; preds = %2, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 10) #8
-  %20 = load ptr, ptr %4, align 8, !tbaa !34
+  %20 = load ptr, ptr %4, align 8, !tbaa !31
   %.not.i = icmp eq ptr %20, %0
   br i1 %.not.i, label %21, label %parse_loc.exit
 
@@ -747,7 +747,7 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
 .preheader:                                       ; preds = %25, %.preheader.backedge
   %.060.i.pn = phi ptr [ %.060.i.pn.be, %.preheader.backedge ], [ %.060.i, %25 ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.060.i.pn, i64 1
-  store ptr %storemerge.i, ptr %4, align 8, !tbaa !34
+  store ptr %storemerge.i, ptr %4, align 8, !tbaa !31
   %27 = load i8, ptr %storemerge.i, align 1, !tbaa !8
   switch i8 %27, label %.preheader.backedge [
     i8 92, label %28
@@ -757,12 +757,12 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
 
 28:                                               ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %.060.i.pn, i64 2
-  store ptr %29, ptr %4, align 8, !tbaa !34
+  store ptr %29, ptr %4, align 8, !tbaa !31
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %28, %.preheader
   %.060.i.pn.be = phi ptr [ %storemerge.i, %.preheader ], [ %29, %28 ]
-  br label %.preheader, !llvm.loop !35
+  br label %.preheader, !llvm.loop !32
 
 30:                                               ; preds = %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %.060.i.pn, i64 2
@@ -779,7 +779,7 @@ parse_loc.exit:                                   ; preds = %.preheader, %18, %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = call i64 @strtol(ptr noundef nonnull %35, ptr noundef nonnull %3, i32 noundef 10) #8
-  %37 = load ptr, ptr %3, align 8, !tbaa !34
+  %37 = load ptr, ptr %3, align 8, !tbaa !31
   %.not.i13 = icmp eq ptr %37, %35
   br i1 %.not.i13, label %38, label %parse_loc.exit20
 
@@ -794,7 +794,7 @@ parse_loc.exit:                                   ; preds = %.preheader, %18, %2
 
 41:                                               ; preds = %45, %39
   %storemerge.i18 = phi ptr [ %40, %39 ], [ %46, %45 ]
-  store ptr %storemerge.i18, ptr %3, align 8, !tbaa !34
+  store ptr %storemerge.i18, ptr %3, align 8, !tbaa !31
   %42 = load i8, ptr %storemerge.i18, align 1, !tbaa !8
   switch i8 %42, label %45 [
     i8 92, label %43
@@ -804,13 +804,13 @@ parse_loc.exit:                                   ; preds = %.preheader, %18, %2
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %storemerge.i18, i64 1
-  store ptr %44, ptr %3, align 8, !tbaa !34
+  store ptr %44, ptr %3, align 8, !tbaa !31
   br label %45
 
 45:                                               ; preds = %43, %41
   %storemerge94.i19 = phi ptr [ %storemerge.i18, %41 ], [ %44, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %storemerge94.i19, i64 1
-  br label %41, !llvm.loop !35
+  br label %41, !llvm.loop !32
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %storemerge.i18, i64 1
@@ -900,15 +900,12 @@ attributes #9 = { noreturn nounwind }
 !22 = !{!"", !16, i64 0, !16, i64 4}
 !23 = !{!22, !16, i64 4}
 !24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !10}
-!28 = !{!29, !14, i64 24}
-!29 = !{!"s_xdemitconf", !5, i64 0, !5, i64 8, !5, i64 16, !14, i64 24, !14, i64 32, !14, i64 40}
-!30 = !{!29, !14, i64 32}
-!31 = distinct !{!31, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = !{!28, !14, i64 24}
+!28 = !{!"s_xdemitconf", !5, i64 0, !5, i64 8, !5, i64 16, !14, i64 24, !14, i64 32, !14, i64 40}
+!29 = !{!28, !14, i64 32}
+!30 = distinct !{!30, !10}
+!31 = !{!13, !13, i64 0}
 !32 = distinct !{!32, !10}
-!33 = distinct !{!33, !26}
-!34 = !{!13, !13, i64 0}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
+!33 = distinct !{!33, !10}

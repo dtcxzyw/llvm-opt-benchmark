@@ -569,7 +569,7 @@ HIDAPI_Driver8BitDo_HandleOldStatePacket.exit:    ; preds = %132, %136
   %252 = mul nuw i16 %251, 257
   %253 = xor i16 %252, -32768
   call void @SDL_SendJoystickAxis(i64 noundef %53, ptr noundef nonnull %13, i8 noundef zeroext 5, i16 noundef signext %253) #9
-  %254 = load i8, ptr %33, align 8, !range !7, !noundef !8
+  %254 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %255 = trunc nuw i8 %254 to i1
   br i1 %255, label %256, label %264
 
@@ -602,7 +602,7 @@ default.unreachable:                              ; preds = %256
   br label %264
 
 264:                                              ; preds = %263, %244
-  %265 = load i8, ptr %35, align 1, !range !7, !noundef !8
+  %265 = load i8, ptr %35, align 1, !range !6, !noundef !7
   %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %267, label %298
 
@@ -664,7 +664,7 @@ HIDAPI_Driver8BitDo_HandleStatePacket.exit:       ; preds = %HIDAPI_Driver8BitDo
   %301 = load ptr, ptr %14, align 8
   %302 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %301, ptr noundef nonnull %3, i64 noundef 64, i32 noundef 0) #9
   %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %303, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %HIDAPI_Driver8BitDo_HandleStatePacket.exit, %.backedge.us, %9
   %.lcssa = phi i32 [ %16, %9 ], [ %49, %.backedge.us ], [ %302, %HIDAPI_Driver8BitDo_HandleStatePacket.exit ]
@@ -713,7 +713,7 @@ define internal noundef zeroext i1 @HIDAPI_Driver8BitDo_OpenJoystick(ptr noundef
   store i32 6, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 1, ptr %12, align 8
-  %13 = load i8, ptr %4, align 8, !range !7, !noundef !8
+  %13 = load i8, ptr %4, align 8, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %18
 
@@ -736,7 +736,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_RumbleJoystick(ptr noundef %0, p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load i8, ptr %8, align 4, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %22
 
@@ -784,10 +784,10 @@ define internal range(i32 0, 19) i32 @HIDAPI_Driver8BitDo_GetJoystickCapabilitie
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load i8, ptr %5, align 4, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 4, !range !6, !noundef !7
   %7 = shl nuw nsw i8 %6, 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %9 = load i8, ptr %8, align 2, !range !7, !noundef !8
+  %9 = load i8, ptr %8, align 2, !range !6, !noundef !7
   %10 = shl nuw nsw i8 %9, 1
   %.15 = or disjoint i8 %10, %7
   %.1 = zext nneg i8 %.15 to i32
@@ -810,7 +810,7 @@ define internal zeroext i1 @HIDAPI_Driver8BitDo_SendJoystickEffect(ptr readnone 
 define internal zeroext i1 @HIDAPI_Driver8BitDo_SetJoystickSensorsEnabled(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %11
 
@@ -916,8 +916,6 @@ attributes #10 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !4}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}

@@ -885,7 +885,7 @@ decode_msg.exit.us:                               ; preds = %.lr.ph.split.us, %2
 
 decode_msg.exit.thread.us:                        ; preds = %.lr.ph.split.us, %33, %decode_msg.exit.us
   %35 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 16, ptr noundef %5, ptr noundef %6)
-  br i1 %35, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !12
+  br i1 %35, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %decode_msg.exit.thread
   %36 = load i8, ptr %8, align 16
@@ -1333,7 +1333,7 @@ get_ofdm_rate.exit.i:                             ; preds = %78, %switch.lookup,
 242:                                              ; preds = %231, %227, %224, %215, %210, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %find_signature.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %find_signature.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 find_signature.exit.i:                            ; preds = %242, %231, %215
   %.032.i.ph.i = phi i32 [ 42, %242 ], [ %202, %231 ], [ %202, %215 ]
@@ -2121,7 +2121,7 @@ get_legacy_rate.exit.i:                           ; preds = %605, %603, %601, %6
 751:                                              ; preds = %740, %736, %733, %724, %719, %.lr.ph.i.i51
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i52, 1
   %exitcond.not.i.i54 = icmp eq i64 %indvars.iv.next.i.i53, %wide.trip.count.i.i50
-  br i1 %exitcond.not.i.i54, label %find_signature.exit.i42, label %.lr.ph.i.i51, !llvm.loop !14
+  br i1 %exitcond.not.i.i54, label %find_signature.exit.i42, label %.lr.ph.i.i51, !llvm.loop !12
 
 find_signature.exit.i42:                          ; preds = %751, %740, %724, %619
   %.032.i.i = phi i32 [ 42, %619 ], [ 42, %751 ], [ %711, %740 ], [ %711, %724 ]
@@ -2547,7 +2547,7 @@ get_signature_ts.exit.i43:                        ; preds = %758, %756, %find_si
   store i8 %982, ptr %983, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split975.us.thread.i, label %.split.us.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.split975.us.thread.i, label %.split.us.i, !llvm.loop !13
 
 .split975.us.i:                                   ; preds = %975
   %scevgep.i = getelementptr i8, ptr %955, i64 4
@@ -3015,7 +3015,7 @@ get_legacy_rate.exit.i66:                         ; preds = %1149, %1147, %1145,
 1300:                                             ; preds = %1289, %1285, %1282, %1273, %1268, %.lr.ph.i.i78
   %indvars.iv.next.i.i80 = add nuw nsw i64 %indvars.iv.i.i79, 1
   %exitcond.not.i.i81 = icmp eq i64 %indvars.iv.next.i.i80, %wide.trip.count.i.i77
-  br i1 %exitcond.not.i.i81, label %find_signature.exit.loopexit.i, label %.lr.ph.i.i78, !llvm.loop !14
+  br i1 %exitcond.not.i.i81, label %find_signature.exit.loopexit.i, label %.lr.ph.i.i78, !llvm.loop !12
 
 find_signature.exit.loopexit.i:                   ; preds = %1300, %1289, %1273
   %.032.i.ph.i82 = phi i32 [ 42, %1300 ], [ %1260, %1289 ], [ %1260, %1273 ]
@@ -3252,7 +3252,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next998.i = add nuw nsw i64 %indvars.iv997.i, 2
   %indvars.iv.next1000.i = add nuw nsw i64 %indvars.iv999.i, 1
   %exitcond1004.not.i = icmp eq i64 %indvars.iv.next1000.i, 4
-  br i1 %exitcond1004.not.i, label %.preheader972.i.preheader, label %1401, !llvm.loop !16
+  br i1 %exitcond1004.not.i, label %.preheader972.i.preheader, label %1401, !llvm.loop !14
 
 .preheader972.i.preheader:                        ; preds = %1412
   %1414 = or disjoint i64 %.0682916.i, 20
@@ -3289,7 +3289,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1008.i = add nuw nsw i64 %indvars.iv1007.i, 2
   %indvars.iv.next1010.i = add nuw nsw i64 %indvars.iv1009.i, 1
   %exitcond1014.not.i = icmp eq i64 %indvars.iv.next1010.i, 4
-  br i1 %exitcond1014.not.i, label %.preheader971.i.preheader, label %.preheader972.i, !llvm.loop !17
+  br i1 %exitcond1014.not.i, label %.preheader971.i.preheader, label %.preheader972.i, !llvm.loop !15
 
 .preheader971.i.preheader:                        ; preds = %1426
   %1428 = or disjoint i64 %.0682916.i, 28
@@ -3325,7 +3325,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1020.i = add nuw nsw i64 %indvars.iv1019.i, 2
   %indvars.iv.next1022.i = add nuw nsw i64 %indvars.iv1021.i, 1
   %exitcond1026.not.i = icmp eq i64 %indvars.iv.next1022.i, 4
-  br i1 %exitcond1026.not.i, label %.preheader970.i.preheader, label %.preheader971.i, !llvm.loop !18
+  br i1 %exitcond1026.not.i, label %.preheader970.i.preheader, label %.preheader971.i, !llvm.loop !16
 
 .preheader970.i.preheader:                        ; preds = %1439
   %1441 = add nuw nsw i64 %.0682916.i, 36
@@ -3361,7 +3361,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1034.i = add nuw nsw i64 %indvars.iv1033.i, 2
   %indvars.iv.next1036.i = add nuw nsw i64 %indvars.iv1035.i, 1
   %exitcond1040.not.i = icmp eq i64 %indvars.iv.next1036.i, 4
-  br i1 %exitcond1040.not.i, label %.preheader969.i.preheader, label %.preheader970.i, !llvm.loop !19
+  br i1 %exitcond1040.not.i, label %.preheader969.i.preheader, label %.preheader970.i, !llvm.loop !17
 
 .preheader969.i.preheader:                        ; preds = %1452
   %1454 = add nuw nsw i64 %.0682916.i, 44
@@ -3397,7 +3397,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1050.i = add nuw nsw i64 %indvars.iv1049.i, 2
   %indvars.iv.next1052.i = add nuw nsw i64 %indvars.iv1051.i, 1
   %exitcond1056.not.i = icmp eq i64 %indvars.iv.next1052.i, 4
-  br i1 %exitcond1056.not.i, label %.preheader968.i, label %.preheader969.i, !llvm.loop !20
+  br i1 %exitcond1056.not.i, label %.preheader968.i, label %.preheader969.i, !llvm.loop !18
 
 .preheader968.i:                                  ; preds = %1465, %1477
   %indvars.iv1069.i = phi i64 [ %indvars.iv.next1070.i, %1477 ], [ 0, %1465 ]
@@ -3429,7 +3429,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1068.i = add nuw nsw i64 %indvars.iv1067.i, 2
   %indvars.iv.next1070.i = add nuw nsw i64 %indvars.iv1069.i, 1
   %exitcond1074.not.i = icmp eq i64 %indvars.iv.next1070.i, 4
-  br i1 %exitcond1074.not.i, label %.preheader967.i.preheader, label %.preheader968.i, !llvm.loop !21
+  br i1 %exitcond1074.not.i, label %.preheader967.i.preheader, label %.preheader968.i, !llvm.loop !19
 
 .preheader967.i.preheader:                        ; preds = %1477
   %1479 = add nuw nsw i64 %.0682916.i, 52
@@ -3465,7 +3465,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1088.i = add nuw nsw i64 %indvars.iv1087.i, 2
   %indvars.iv.next1090.i = add nuw nsw i64 %indvars.iv1089.i, 1
   %exitcond1094.not.i = icmp eq i64 %indvars.iv.next1090.i, 4
-  br i1 %exitcond1094.not.i, label %.preheader966.i.preheader, label %.preheader967.i, !llvm.loop !22
+  br i1 %exitcond1094.not.i, label %.preheader966.i.preheader, label %.preheader967.i, !llvm.loop !20
 
 .preheader966.i.preheader:                        ; preds = %1490
   %1492 = add nuw nsw i64 %.0682916.i, 60
@@ -3501,7 +3501,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1110.i = add nuw nsw i64 %indvars.iv1109.i, 2
   %indvars.iv.next1112.i = add nuw nsw i64 %indvars.iv1111.i, 1
   %exitcond1116.not.i = icmp eq i64 %indvars.iv.next1112.i, 4
-  br i1 %exitcond1116.not.i, label %.preheader.i.preheader, label %.preheader966.i, !llvm.loop !23
+  br i1 %exitcond1116.not.i, label %.preheader.i.preheader, label %.preheader966.i, !llvm.loop !21
 
 .preheader.i.preheader:                           ; preds = %1503
   %1505 = or disjoint i64 %.0682916.i, 68
@@ -3537,7 +3537,7 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   %indvars.iv.next1134.i = add nuw nsw i64 %indvars.iv1133.i, 2
   %indvars.iv.next1136.i = add nuw nsw i64 %indvars.iv1135.i, 1
   %exitcond1138.not.i = icmp eq i64 %indvars.iv.next1136.i, 4
-  br i1 %exitcond1138.not.i, label %1518, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond1138.not.i, label %1518, label %.preheader.i, !llvm.loop !22
 
 1518:                                             ; preds = %1516
   %1519 = trunc nuw nsw i64 %indvars.iv.next1134.i to i32
@@ -4139,7 +4139,7 @@ vwr_read_s3_W_rec.exit:                           ; preds = %922, %944, %951, %1
 1937:                                             ; preds = %1926, %1922, %1919, %1910, %1905, %.lr.ph.i.i109
   %indvars.iv.next.i.i111 = add nuw nsw i64 %indvars.iv.i.i110, 1
   %exitcond.not.i.i112 = icmp eq i64 %indvars.iv.next.i.i111, %wide.trip.count.i.i108
-  br i1 %exitcond.not.i.i112, label %find_signature.exit.i99, label %.lr.ph.i.i109, !llvm.loop !14
+  br i1 %exitcond.not.i.i112, label %find_signature.exit.i99, label %.lr.ph.i.i109, !llvm.loop !12
 
 find_signature.exit.i99:                          ; preds = %1937, %1926, %1910, %1886
   %.032.i.i100 = phi i32 [ %1887, %1886 ], [ %1887, %1937 ], [ %1897, %1926 ], [ %1897, %1910 ]
@@ -4431,10 +4431,10 @@ attributes #10 = { noreturn }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !13}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
@@ -4442,5 +4442,3 @@ attributes #10 = { noreturn }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}

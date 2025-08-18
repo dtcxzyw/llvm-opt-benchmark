@@ -710,7 +710,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %328, %.lr.ph.split.
   %.val37.val.i72 = load i32, ptr %341, align 4, !tbaa !24
   %342 = sext i32 %.val37.val.i72 to i64
   %343 = icmp slt i64 %indvars.iv.next.i71, %342
-  br i1 %343, label %.lr.ph.split.i, label %.critedge.i60, !llvm.loop !50
+  br i1 %343, label %.lr.ph.split.i, label %.critedge.i60, !llvm.loop !48
 
 .critedge.i60:                                    ; preds = %340, %318, %297
   tail call void @Extra_ProgressBarStop(ptr noundef %301) #6
@@ -748,21 +748,21 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %328, %.lr.ph.split.
   %.val.i = load i32, ptr %360, align 4, !tbaa !24
   %361 = sext i32 %.val.i to i64
   %362 = icmp slt i64 %indvars.iv.next55.i, %361
-  br i1 %362, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit, !llvm.loop !51
+  br i1 %362, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit, !llvm.loop !49
 
 Abc_NtkMultiInt.exit:                             ; preds = %358, %.critedge.i60
   tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %286) #6
   %363 = tail call i32 @Abc_NtkMinimumBase(ptr noundef %286) #6
   %364 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %286, i32 noundef 0) #6
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %366 = load ptr, ptr %365, align 8, !tbaa !52
+  %366 = load ptr, ptr %365, align 8, !tbaa !50
   %.not32 = icmp eq ptr %366, null
   br i1 %.not32, label %370, label %367
 
 367:                                              ; preds = %Abc_NtkMultiInt.exit
   %368 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %366) #6
   %369 = getelementptr inbounds nuw i8, ptr %286, i64 328
-  store ptr %368, ptr %369, align 8, !tbaa !52
+  store ptr %368, ptr %369, align 8, !tbaa !50
   br label %370
 
 370:                                              ; preds = %367, %Abc_NtkMultiInt.exit
@@ -788,7 +788,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr noundef readonly captures
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !24
-  store i32 10, ptr %3, align 8, !tbaa !53
+  store i32 10, ptr %3, align 8, !tbaa !51
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !27
@@ -847,7 +847,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr noundef readonly captures
   %.val46 = load i32, ptr %33, align 4, !tbaa !24
   %34 = sext i32 %.val46 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !54
+  br i1 %35, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !52
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge2
   %.pre = load ptr, ptr %7, align 8, !tbaa !3
@@ -888,7 +888,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr noundef readonly captures
   %.val56.val = load i32, ptr %51, align 4, !tbaa !24
   %52 = sext i32 %.val56.val to i64
   %53 = icmp slt i64 %indvars.iv.next72, %52
-  br i1 %53, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !55
+  br i1 %53, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !53
 
 .lr.ph68:                                         ; preds = %.critedge4.preheader, %.critedge4
   %54 = phi ptr [ %63, %.critedge4 ], [ %36, %.critedge4.preheader ]
@@ -911,7 +911,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr noundef readonly captures
   store i32 0, ptr %4, align 4, !tbaa !24
   %62 = tail call range(i32 0, 2) i32 @Abc_NtkMultiLimit_rec(ptr noundef nonnull %57, ptr noundef nonnull %3, i32 noundef %2, i32 noundef 1, i32 noundef 1)
   %.not44 = icmp eq i32 %62, 0
-  br i1 %.not44, label %.critedge4.loopexit, label %.preheader, !llvm.loop !56
+  br i1 %.not44, label %.critedge4.loopexit, label %.preheader, !llvm.loop !54
 
 .critedge4.loopexit:                              ; preds = %.preheader
   %.pre77 = load ptr, ptr %7, align 8, !tbaa !3
@@ -924,7 +924,7 @@ define internal fastcc void @Abc_NtkMultiSetBounds(ptr noundef readonly captures
   %.val47 = load i32, ptr %64, align 4, !tbaa !24
   %65 = sext i32 %.val47 to i64
   %66 = icmp slt i64 %indvars.iv.next75, %65
-  br i1 %66, label %.lr.ph68, label %.critedge6.loopexit, !llvm.loop !57
+  br i1 %66, label %.lr.ph68, label %.critedge6.loopexit, !llvm.loop !55
 
 .critedge6.loopexit:                              ; preds = %.critedge4
   %.pre78 = load ptr, ptr %6, align 8, !tbaa !27
@@ -993,7 +993,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 17:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !58
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %18, !llvm.loop !56
 
 18:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
@@ -1003,7 +1003,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %21, label %Vec_PtrPushUnique.exit, label %17
 
 ._crit_edge.i:                                    ; preds = %17, %12
-  %22 = load i32, ptr %1, align 8, !tbaa !53
+  %22 = load i32, ptr %1, align 8, !tbaa !51
   %23 = icmp eq i32 %13, %22
   br i1 %23, label %24, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
@@ -1033,7 +1033,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 Vec_PtrGrow.exit.i.i:                             ; preds = %31, %29
   %33 = phi ptr [ %30, %29 ], [ %32, %31 ]
   store ptr %33, ptr %27, align 8, !tbaa !27
-  store i32 16, ptr %1, align 8, !tbaa !53
+  store i32 16, ptr %1, align 8, !tbaa !51
   br label %Vec_PtrPush.exit.i
 
 34:                                               ; preds = %24
@@ -1056,7 +1056,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %31, %29
 44:                                               ; preds = %42, %40
   %45 = phi ptr [ %41, %40 ], [ %43, %42 ]
   store ptr %45, ptr %36, align 8, !tbaa !27
-  store i32 %35, ptr %1, align 8, !tbaa !53
+  store i32 %35, ptr %1, align 8, !tbaa !51
   br label %Vec_PtrPush.exit.i
 
 Vec_PtrPush.exit.i:                               ; preds = %44, %Vec_PtrGrow.exit.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i
@@ -1220,7 +1220,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %12, !llvm.loop !58
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %12, !llvm.loop !56
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
@@ -1230,7 +1230,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %15, label %Vec_PtrPushUnique.exit, label %11
 
 ._crit_edge.i:                                    ; preds = %11, %tailrecurse._crit_edge
-  %16 = load i32, ptr %1, align 8, !tbaa !53
+  %16 = load i32, ptr %1, align 8, !tbaa !51
   %17 = icmp eq i32 %7, %16
   br i1 %17, label %18, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
@@ -1260,7 +1260,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 Vec_PtrGrow.exit.i.i:                             ; preds = %25, %23
   %27 = phi ptr [ %24, %23 ], [ %26, %25 ]
   store ptr %27, ptr %21, align 8, !tbaa !27
-  store i32 16, ptr %1, align 8, !tbaa !53
+  store i32 16, ptr %1, align 8, !tbaa !51
   br label %Vec_PtrPush.exit.i
 
 28:                                               ; preds = %18
@@ -1283,7 +1283,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %25, %23
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %30, align 8, !tbaa !27
-  store i32 %29, ptr %1, align 8, !tbaa !53
+  store i32 %29, ptr %1, align 8, !tbaa !51
   br label %Vec_PtrPush.exit.i
 
 Vec_PtrPush.exit.i:                               ; preds = %38, %Vec_PtrGrow.exit.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i
@@ -1349,7 +1349,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
 5:                                                ; preds = %2
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 10, ptr %6, align 8, !tbaa !53
+  store i32 10, ptr %6, align 8, !tbaa !51
   %8 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !27
@@ -1396,7 +1396,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   tail call void @Abc_ObjAddFanin(ptr noundef %24, ptr noundef %30) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %31, label %.lr.ph, label %.lr.ph.i.preheader, !llvm.loop !59
+  br i1 %31, label %.lr.ph, label %.lr.ph.i.preheader, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1425,7 +1425,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   store i32 %44, ptr %42, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = icmp samesign ult i64 %indvars.iv.next.i, %36
-  br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !60
+  br i1 %45, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge
   %46 = phi ptr [ %33, %._crit_edge ], [ %35, %.lr.ph.i ]
@@ -1451,7 +1451,7 @@ define internal fastcc ptr @Abc_NtkMulti_rec(ptr noundef %0, ptr noundef %1) unn
   %58 = load i32, ptr %7, align 4, !tbaa !24
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next30.i, %59
-  br i1 %60, label %.lr.ph26.i, label %Abc_NtkMultiDeriveBdd.exit, !llvm.loop !61
+  br i1 %60, label %.lr.ph26.i, label %Abc_NtkMultiDeriveBdd.exit, !llvm.loop !59
 
 Abc_NtkMultiDeriveBdd.exit:                       ; preds = %.lr.ph26.i, %._crit_edge.i
   tail call void @Cudd_Deref(ptr noundef %47) #6
@@ -1507,7 +1507,7 @@ common.ret:                                       ; preds = %3
   store i32 %10, ptr %4, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !24
-  %13 = load i32, ptr %2, align 8, !tbaa !53
+  %13 = load i32, ptr %2, align 8, !tbaa !51
   %14 = icmp eq i32 %12, %13
   br i1 %14, label %15, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -1537,7 +1537,7 @@ common.ret:                                       ; preds = %3
 Vec_PtrGrow.exit.i:                               ; preds = %22, %20
   %24 = phi ptr [ %21, %20 ], [ %23, %22 ]
   store ptr %24, ptr %18, align 8, !tbaa !27
-  store i32 16, ptr %2, align 8, !tbaa !53
+  store i32 16, ptr %2, align 8, !tbaa !51
   br label %Vec_PtrPush.exit
 
 25:                                               ; preds = %15
@@ -1560,7 +1560,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
 35:                                               ; preds = %33, %31
   %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
   store ptr %36, ptr %27, align 8, !tbaa !27
-  store i32 %26, ptr %2, align 8, !tbaa !53
+  store i32 %26, ptr %2, align 8, !tbaa !51
   br label %Vec_PtrPush.exit
 
 common.ret34:                                     ; preds = %Vec_PtrPush.exit, %common.ret
@@ -1706,17 +1706,15 @@ attributes #8 = { nounwind allocsize(1) }
 !45 = !{!6, !6, i64 0}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!48 = distinct !{!48, !36, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !36}
-!51 = distinct !{!51, !36}
-!52 = !{!4, !12, i64 328}
-!53 = !{!25, !5, i64 0}
+!48 = distinct !{!48, !36}
+!49 = distinct !{!49, !36}
+!50 = !{!4, !12, i64 328}
+!51 = !{!25, !5, i64 0}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}
 !54 = distinct !{!54, !36}
 !55 = distinct !{!55, !36}
 !56 = distinct !{!56, !36}
 !57 = distinct !{!57, !36}
 !58 = distinct !{!58, !36}
 !59 = distinct !{!59, !36}
-!60 = distinct !{!60, !36}
-!61 = distinct !{!61, !36}

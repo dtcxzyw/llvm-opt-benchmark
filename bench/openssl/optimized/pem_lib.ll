@@ -1561,7 +1561,7 @@ sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loop
 81:                                               ; preds = %.lr.ph.i63
   %82 = add nsw i32 %.255.i, -1
   %83 = icmp sgt i32 %.255.i, 0
-  br i1 %83, label %.lr.ph.i63, label %.critedge.i, !llvm.loop !29
+  br i1 %83, label %.lr.ph.i63, label %.critedge.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %81, %.lr.ph.i63
   %.2.lcssa.ph.i = phi i32 [ %.255.i, %.lr.ph.i63 ], [ -1, %81 ]
@@ -1590,7 +1590,7 @@ sanitize_line.exit.us:                            ; preds = %53, %.loopexit.loop
 .critedge.backedge.i:                             ; preds = %93, %.critedge.i
   %98 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %32, i32 noundef 255) #10
   %99 = icmp slt i32 %98, 1
-  br i1 %99, label %.loopexit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %99, label %.loopexit, label %.lr.ph.i, !llvm.loop !27
 
 .split.us:                                        ; preds = %93, %62
   %.us-phi = phi i32 [ %.3.i.us, %62 ], [ %84, %93 ]
@@ -1709,7 +1709,7 @@ pem_malloc.exit.i57:                              ; preds = %109, %106
 135:                                              ; preds = %.lr.ph.i.i
   %136 = add nsw i32 %.255.i.i, -1
   %137 = icmp sgt i32 %.255.i.i, 0
-  br i1 %137, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !29
+  br i1 %137, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %135, %.lr.ph.i.i
   %.2.lcssa.ph.i.i = phi i32 [ %.255.i.i, %.lr.ph.i.i ], [ -1, %135 ]
@@ -1744,7 +1744,7 @@ pem_malloc.exit.i57:                              ; preds = %109, %106
 149:                                              ; preds = %147
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count80.i.i
-  br i1 %exitcond.not.i.i, label %sanitize_line.exit.i, label %.lr.ph59.i.i, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %sanitize_line.exit.i, label %.lr.ph59.i.i, !llvm.loop !29
 
 .lr.ph68.i.i:                                     ; preds = %139, %156
   %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %156 ], [ 0, %139 ]
@@ -1898,8 +1898,8 @@ get_header_and_data.exit:                         ; preds = %200, %201
 
 202:                                              ; preds = %get_header_and_data.exit
   %203 = call i64 @BIO_ctrl(ptr noundef %.179, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %9) #10
-  %204 = load ptr, ptr %9, align 8, !tbaa !32
-  %205 = load i64, ptr %204, align 8, !tbaa !34
+  %204 = load ptr, ptr %9, align 8, !tbaa !30
+  %205 = load i64, ptr %204, align 8, !tbaa !32
   %206 = trunc i64 %205 to i32
   store i32 %206, ptr %7, align 4, !tbaa !20
   %207 = icmp eq i32 %206, 0
@@ -1918,17 +1918,17 @@ get_header_and_data.exit:                         ; preds = %200, %201
 
 212:                                              ; preds = %208
   call void @EVP_DecodeInit(ptr noundef nonnull %209) #10
-  %213 = load ptr, ptr %9, align 8, !tbaa !32
+  %213 = load ptr, ptr %9, align 8, !tbaa !30
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %215 = load ptr, ptr %214, align 8, !tbaa !36
+  %215 = load ptr, ptr %214, align 8, !tbaa !34
   %216 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %209, ptr noundef %215, ptr noundef nonnull %7, ptr noundef %215, i32 noundef %206) #10
   %217 = icmp slt i32 %216, 0
   br i1 %217, label %227, label %218
 
 218:                                              ; preds = %212
-  %219 = load ptr, ptr %9, align 8, !tbaa !32
+  %219 = load ptr, ptr %9, align 8, !tbaa !30
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8, !tbaa !36
+  %221 = load ptr, ptr %220, align 8, !tbaa !34
   %222 = load i32, ptr %7, align 4, !tbaa !20
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds i8, ptr %221, i64 %223
@@ -1948,8 +1948,8 @@ get_header_and_data.exit:                         ; preds = %200, %201
   %231 = add nsw i32 %230, %229
   store i32 %231, ptr %7, align 4, !tbaa !20
   %232 = sext i32 %231 to i64
-  %233 = load ptr, ptr %9, align 8, !tbaa !32
-  store i64 %232, ptr %233, align 8, !tbaa !34
+  %233 = load ptr, ptr %9, align 8, !tbaa !30
+  store i64 %232, ptr %233, align 8, !tbaa !32
   %234 = call i64 @BIO_ctrl(ptr noundef %.182, i32 noundef 3, i64 noundef 0, ptr noundef null) #10
   %235 = trunc i64 %234 to i32
   %236 = add nsw i32 %235, 1
@@ -2234,13 +2234,11 @@ attributes #10 = { nounwind }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
-!34 = !{!35, !12, i64 0}
-!35 = !{!"buf_mem_st", !12, i64 0, !9, i64 8, !12, i64 16, !12, i64 24}
-!36 = !{!35, !9, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
+!32 = !{!33, !12, i64 0}
+!33 = !{!"buf_mem_st", !12, i64 0, !9, i64 8, !12, i64 16, !12, i64 24}
+!34 = !{!33, !9, i64 8}

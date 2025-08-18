@@ -3152,8 +3152,8 @@ define internal range(i64 1, -7) i64 @enumerator_s_produce(i32 noundef %0, ptr n
   br i1 %8, label %11, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %7
-  %.not8 = icmp eq i32 %0, 0
-  br i1 %.not8, label %rb_scan_args_set.exit, label %.split.us
+  %.not10 = icmp eq i32 %0, 0
+  br i1 %.not10, label %rb_scan_args_set.exit, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %9 = load i64, ptr %1, align 8, !tbaa !7

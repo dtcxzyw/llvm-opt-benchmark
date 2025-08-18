@@ -384,7 +384,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   store double %100, ptr %135, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 7
-  br i1 %exitcond155.not, label %.split.us, label %.preheader.split, !llvm.loop !18
+  br i1 %exitcond155.not, label %.split.us, label %.preheader.split, !llvm.loop !16
 
 .split.us:                                        ; preds = %.preheader.split, %._crit_edge.us
   %136 = trunc nuw nsw i64 %indvars.iv169 to i32
@@ -402,7 +402,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %144 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef %143)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 7
-  br i1 %exitcond167.not, label %.loopexit, label %139, !llvm.loop !19
+  br i1 %exitcond167.not, label %.loopexit, label %139, !llvm.loop !17
 
 145:                                              ; preds = %81
   %146 = trunc nuw nsw i64 %indvars.iv169 to i32
@@ -416,13 +416,13 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %150 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.18, double noundef 0.000000e+00)
   %151 = add nuw nsw i32 %.4142, 1
   %exitcond168.not = icmp eq i32 %151, 7
-  br i1 %exitcond168.not, label %.loopexit, label %149, !llvm.loop !20
+  br i1 %exitcond168.not, label %.loopexit, label %149, !llvm.loop !18
 
 .loopexit:                                        ; preds = %139, %149
   %152 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 10
-  br i1 %exitcond172.not, label %153, label %81, !llvm.loop !21
+  br i1 %exitcond172.not, label %153, label %81, !llvm.loop !19
 
 153:                                              ; preds = %.loopexit
   %154 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19)
@@ -433,7 +433,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %156 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
   %157 = add nuw nsw i32 %.5144, 1
   %exitcond173.not = icmp eq i32 %157, 7
-  br i1 %exitcond173.not, label %158, label %155, !llvm.loop !22
+  br i1 %exitcond173.not, label %158, label %155, !llvm.loop !20
 
 158:                                              ; preds = %155
   %159 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.5)
@@ -521,10 +521,8 @@ attributes #12 = { cold noreturn nounwind }
 !13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
 !15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
 !18 = distinct !{!18, !10}
 !19 = distinct !{!19, !10}
 !20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}

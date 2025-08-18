@@ -2998,7 +2998,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 5
   %.not21.i = icmp eq i64 %66, %72
-  br i1 %.not21.i, label %.thread.i67, label %.lr.ph.split.i, !llvm.loop !24
+  br i1 %.not21.i, label %.thread.i67, label %.lr.ph.split.i, !llvm.loop !22
 
 .split42:                                         ; preds = %.lr.ph.split.us.i, %.split
   %phi.call.ph = phi ptr [ %20, %.split ], [ %25, %.lr.ph.split.us.i ]
@@ -3079,7 +3079,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %126 = sub i64 %124, %125
   %127 = ashr exact i64 %126, 5
   %.not21.i72 = icmp eq i64 %121, %127
-  br i1 %.not21.i72, label %.thread.i88, label %.lr.ph.split.i69, !llvm.loop !24
+  br i1 %.not21.i72, label %.thread.i88, label %.lr.ph.split.i69, !llvm.loop !22
 
 .split46:                                         ; preds = %.lr.ph.split.us.i60, %.split42
   %phi.call45.ph = phi ptr [ %81, %.split42 ], [ %86, %.lr.ph.split.us.i60 ]
@@ -3151,7 +3151,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlL
   %173 = sub i64 %171, %172
   %174 = ashr exact i64 %173, 5
   %.not21.i93 = icmp eq i64 %168, %174
-  br i1 %.not21.i93, label %.loopexit118, label %.lr.ph.split.i90, !llvm.loop !24
+  br i1 %.not21.i93, label %.loopexit118, label %.lr.ph.split.i90, !llvm.loop !22
 
 .loopexit118:                                     ; preds = %.lr.ph.split.i90, %.thread.i88
   %phi.call49 = phi ptr [ %158, %.thread.i88 ], [ %167, %.lr.ph.split.i90 ]
@@ -3374,7 +3374,7 @@ define linkonce_odr hidden void @_Z13makeExceptionRKN8tstrings3anyERK13SourceCod
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(376) %1), !noalias !25
+  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(376) %1), !noalias !23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNK8tstrings3any3strB5cxx11Ev.exit unwind label %7
 
@@ -3397,11 +3397,11 @@ _ZNK8tstrings3any3strB5cxx11Ev.exit:              ; preds = %3
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %_ZNK8tstrings3any3strB5cxx11Ev.exit
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11JpErrorBase, i64 16), ptr %0, align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11JpErrorBase, i64 16), ptr %0, align 8, !alias.scope !26
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %4) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 16), ptr %0, align 8, !alias.scope !28
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 64), ptr %9, align 8, !alias.scope !28
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 16), ptr %0, align 8, !alias.scope !26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 64), ptr %9, align 8, !alias.scope !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %2)
           to label %12 unwind label %.body.i
@@ -3469,7 +3469,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %14, %3
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !29
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = landingpad { ptr, i32 }
@@ -3623,13 +3623,11 @@ attributes #26 = { builtin allocsize(0) }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !7}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK8tstrings3any3strB5cxx11Ev: argument 0"}
-!27 = distinct !{!27, !"_ZNK8tstrings3any3strB5cxx11Ev"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos: argument 0"}
-!30 = distinct !{!30, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos"}
-!31 = distinct !{!31, !7}
+!22 = distinct !{!22, !7}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK8tstrings3any3strB5cxx11Ev: argument 0"}
+!25 = distinct !{!25, !"_ZNK8tstrings3any3strB5cxx11Ev"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos: argument 0"}
+!28 = distinct !{!28, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos"}
+!29 = distinct !{!29, !7}

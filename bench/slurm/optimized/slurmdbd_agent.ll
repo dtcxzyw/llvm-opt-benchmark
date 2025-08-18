@@ -424,7 +424,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   %57 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.60) #13
   %58 = call fastcc ptr @_load_dbd_rec(i32 noundef %7)
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.loopexit, label %49, !llvm.loop !11
+  br i1 %59, label %.loopexit, label %49, !llvm.loop !8
 
 .thread.split:                                    ; preds = %54
   %60 = load ptr, ptr @agent_list, align 8
@@ -432,7 +432,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   %61 = add nuw nsw i32 %.024.ph39, 1
   %62 = call fastcc ptr @_load_dbd_rec(i32 noundef %7)
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %63, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.us, %.thread.split, %56, %.thread, %34, %21
   %.125 = phi i32 [ 0, %21 ], [ 0, %34 ], [ 0, %.thread ], [ %.024.ph39, %56 ], [ %61, %.thread.split ], [ %45, %.lr.ph.us ]
@@ -1438,7 +1438,7 @@ _max_dbd_msg_action.exit:                         ; preds = %125, %128, %136
   %220 = load ptr, ptr %219, align 8
   %221 = load i64, ptr %220, align 8
   %222 = icmp eq i64 %221, 0
-  br i1 %222, label %52, label %.loopexit, !llvm.loop !12
+  br i1 %222, label %52, label %.loopexit, !llvm.loop !10
 
 223:                                              ; preds = %192
   %224 = load ptr, ptr @slurmdbd_conn, align 8
@@ -2086,7 +2086,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %.0.ph.i, i64 %30
   %34 = trunc i64 %30 to i32
   %35 = sub i32 %36, %34
-  br label %.outer.i, !llvm.loop !14
+  br label %.outer.i, !llvm.loop !12
 
 .outer.i:                                         ; preds = %19, %32
   %36 = phi i32 [ %35, %32 ], [ %.val37, %19 ]
@@ -2104,7 +2104,7 @@ define internal fastcc void @_save_dbd_state() unnamed_addr #0 {
   %42 = tail call ptr @__errno_location() #14
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 4
-  br i1 %44, label %.critedge, label %.sink.split.i, !llvm.loop !14
+  br i1 %44, label %.critedge, label %.sink.split.i, !llvm.loop !12
 
 45:                                               ; preds = %.outer.i
   %46 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %4, i64 noundef 4) #13
@@ -2152,7 +2152,7 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %58 = load ptr, ptr @agent_list, align 8
   %59 = call ptr @slurm_list_dequeue(ptr noundef %58) #13
   %.not34 = icmp eq ptr %59, null
-  br i1 %.not34, label %.loopexit, label %53, !llvm.loop !15
+  br i1 %.not34, label %.loopexit, label %53, !llvm.loop !13
 
 60:                                               ; preds = %53
   store i32 0, ptr %55, align 4
@@ -2182,7 +2182,7 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %70 = getelementptr inbounds nuw i8, ptr %.0.ph.i45, i64 %67
   %71 = trunc i64 %67 to i32
   %72 = sub i32 %73, %71
-  br label %.outer.i43, !llvm.loop !14
+  br label %.outer.i43, !llvm.loop !12
 
 .outer.i43:                                       ; preds = %64, %69
   %73 = phi i32 [ %72, %69 ], [ %56, %64 ]
@@ -2200,7 +2200,7 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %79 = tail call ptr @__errno_location() #14
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 4
-  br i1 %81, label %.critedge122, label %_save_dbd_rec.exit48, !llvm.loop !14
+  br i1 %81, label %.critedge122, label %_save_dbd_rec.exit48, !llvm.loop !12
 
 82:                                               ; preds = %.outer.i43
   %83 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %2, i64 noundef 4) #13
@@ -2222,7 +2222,7 @@ _save_dbd_rec.exit48:                             ; preds = %64, %82, %76, %78
   %86 = load ptr, ptr @agent_list, align 8
   %87 = call ptr @slurm_list_dequeue(ptr noundef %86) #13
   %.not3465 = icmp eq ptr %87, null
-  br i1 %.not3465, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not3465, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %.preheader, %49, %_save_dbd_rec.exit48
   %.0 = phi i32 [ 0, %49 ], [ %.1.ph68, %_save_dbd_rec.exit48 ], [ 0, %.preheader ], [ %.1.ph68, %.backedge ], [ %85, %.outer ]
@@ -2666,7 +2666,7 @@ define internal fastcc ptr @_load_dbd_rec(i32 noundef range(i32 0, -2147483648) 
   %21 = getelementptr inbounds nuw i8, ptr %.0.ph44, i64 %19
   %22 = sub nsw i64 %.029.ph43, %19
   %.not36 = icmp eq i64 %22, 0
-  br i1 %.not36, label %.outer._crit_edge, label %.outer.split, !llvm.loop !16
+  br i1 %.not36, label %.outer._crit_edge, label %.outer.split, !llvm.loop !14
 
 23:                                               ; preds = %18
   %24 = icmp eq i64 %19, -1
@@ -2676,7 +2676,7 @@ define internal fastcc ptr @_load_dbd_rec(i32 noundef range(i32 0, -2147483648) 
   %26 = tail call ptr @__errno_location() #14
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 4
-  br i1 %28, label %18, label %29, !llvm.loop !16
+  br i1 %28, label %18, label %29, !llvm.loop !14
 
 29:                                               ; preds = %25, %23
   %30 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.62) #13
@@ -2806,12 +2806,10 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !13, !9}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13, !9}
-!15 = distinct !{!15, !13, !9}
-!16 = distinct !{!16, !13, !9}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !9}
+!13 = distinct !{!13, !11, !9}
+!14 = distinct !{!14, !11, !9}

@@ -3493,7 +3493,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
 44:                                               ; preds = %.lr.ph.i.preheader.us, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us, %.lr.ph.split.us
   %45 = getelementptr inbounds nuw i8, ptr %.035.us, i64 16
   %.not24.us = icmp eq ptr %45, %27
-  br i1 %.not24.us, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph.split.us, !llvm.loop !160
+  br i1 %.not24.us, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %.035 = phi ptr [ %60, %59 ], [ %4, %.lr.ph ]
@@ -3633,7 +3633,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ;
 44:                                               ; preds = %.lr.ph.i.preheader.us, %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us, %.lr.ph.split.us
   %45 = getelementptr inbounds nuw i8, ptr %.035.us, i64 16
   %.not24.us = icmp eq ptr %45, %27
-  br i1 %.not24.us, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph.split.us, !llvm.loop !162
+  br i1 %.not24.us, label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %.035 = phi ptr [ %60, %59 ], [ %4, %.lr.ph ]
@@ -4009,6 +4009,3 @@ attributes #25 = { noreturn nounwind }
 !157 = !{!156, !14, i64 8}
 !158 = !{!156, !14, i64 4}
 !159 = !{!14, !14, i64 0}
-!160 = distinct !{!160, !161}
-!161 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!162 = distinct !{!162, !161}

@@ -7979,7 +7979,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   store i32 %45, ptr %70, align 4, !tbaa !104
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !204
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !202
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -8129,7 +8129,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %68 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %68, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !205
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -8273,7 +8273,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %68 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %68, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !206
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !204
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8414,7 +8414,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %68 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %68, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !207
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !205
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8555,7 +8555,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %68 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %68, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !208
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !206
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8696,7 +8696,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %68 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %68, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !209
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !207
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8768,7 +8768,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -8781,9 +8781,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -8835,7 +8835,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -8843,7 +8843,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !211
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !209
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -8915,7 +8915,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -8928,9 +8928,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -8982,7 +8982,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -8990,7 +8990,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !212
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !210
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -9068,7 +9068,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -9081,9 +9081,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9135,7 +9135,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -9143,7 +9143,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !213
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !211
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9215,7 +9215,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -9228,9 +9228,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9282,7 +9282,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -9290,7 +9290,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !214
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !212
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9362,7 +9362,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -9375,9 +9375,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9429,7 +9429,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -9437,7 +9437,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !215
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !213
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9509,7 +9509,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -9522,9 +9522,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9576,7 +9576,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -9584,7 +9584,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !216
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !214
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9656,7 +9656,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %42 = sub i64 %.pre-phi, %30
   %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %15, align 8, !tbaa !210
+  %45 = load ptr, ptr %15, align 8, !tbaa !208
   %46 = load ptr, ptr %16, align 8, !tbaa !44
   %.not.i = icmp eq ptr %45, %46
   br i1 %.not.i, label %50, label %47
@@ -9669,9 +9669,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %25, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !133
-  %48 = load ptr, ptr %15, align 8, !tbaa !210
+  %48 = load ptr, ptr %15, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %15, align 8, !tbaa !210
+  store ptr %49, ptr %15, align 8, !tbaa !208
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
 50:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9723,7 +9723,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %63, ptr %14, align 8, !tbaa !41
-  store ptr %67, ptr %15, align 8, !tbaa !210
+  store ptr %67, ptr %15, align 8, !tbaa !208
   %69 = getelementptr inbounds nuw %"struct.std::array.228", ptr %63, i64 %61
   store ptr %69, ptr %16, align 8, !tbaa !44
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
@@ -9731,7 +9731,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %47, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %70 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %70, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !217
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !215
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9805,7 +9805,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %44 = sub i64 %.pre-phi, %32
   %45 = lshr exact i64 %44, 2
   %46 = trunc i64 %45 to i32
-  %47 = load ptr, ptr %15, align 8, !tbaa !218
+  %47 = load ptr, ptr %15, align 8, !tbaa !216
   %48 = load ptr, ptr %16, align 8, !tbaa !76
   %.not.i = icmp eq ptr %47, %48
   br i1 %.not.i, label %52, label %49
@@ -9820,9 +9820,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %27, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 %46, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !133
-  %50 = load ptr, ptr %15, align 8, !tbaa !218
+  %50 = load ptr, ptr %15, align 8, !tbaa !216
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  store ptr %51, ptr %15, align 8, !tbaa !218
+  store ptr %51, ptr %15, align 8, !tbaa !216
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
 52:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -9876,7 +9876,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %65, ptr %14, align 8, !tbaa !73
-  store ptr %69, ptr %15, align 8, !tbaa !218
+  store ptr %69, ptr %15, align 8, !tbaa !216
   %71 = getelementptr inbounds nuw %"struct.std::array.251", ptr %65, i64 %63
   store ptr %71, ptr %16, align 8, !tbaa !76
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
@@ -9884,7 +9884,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit: ; preds = %49, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %72 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %72, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !219
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !217
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9958,7 +9958,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %44 = sub i64 %.pre-phi, %32
   %45 = lshr exact i64 %44, 2
   %46 = trunc i64 %45 to i32
-  %47 = load ptr, ptr %15, align 8, !tbaa !218
+  %47 = load ptr, ptr %15, align 8, !tbaa !216
   %48 = load ptr, ptr %16, align 8, !tbaa !76
   %.not.i = icmp eq ptr %47, %48
   br i1 %.not.i, label %52, label %49
@@ -9973,9 +9973,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %27, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 %46, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !133
-  %50 = load ptr, ptr %15, align 8, !tbaa !218
+  %50 = load ptr, ptr %15, align 8, !tbaa !216
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  store ptr %51, ptr %15, align 8, !tbaa !218
+  store ptr %51, ptr %15, align 8, !tbaa !216
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
 52:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -10029,7 +10029,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %65, ptr %14, align 8, !tbaa !73
-  store ptr %69, ptr %15, align 8, !tbaa !218
+  store ptr %69, ptr %15, align 8, !tbaa !216
   %71 = getelementptr inbounds nuw %"struct.std::array.251", ptr %65, i64 %63
   store ptr %71, ptr %16, align 8, !tbaa !76
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
@@ -10037,7 +10037,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit: ; preds = %49, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %72 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %72, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !220
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !218
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -10111,7 +10111,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %44 = sub i64 %.pre-phi, %32
   %45 = lshr exact i64 %44, 2
   %46 = trunc i64 %45 to i32
-  %47 = load ptr, ptr %15, align 8, !tbaa !218
+  %47 = load ptr, ptr %15, align 8, !tbaa !216
   %48 = load ptr, ptr %16, align 8, !tbaa !76
   %.not.i = icmp eq ptr %47, %48
   br i1 %.not.i, label %52, label %49
@@ -10126,9 +10126,9 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   store i32 %27, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 %46, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !133
-  %50 = load ptr, ptr %15, align 8, !tbaa !218
+  %50 = load ptr, ptr %15, align 8, !tbaa !216
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  store ptr %51, ptr %15, align 8, !tbaa !218
+  store ptr %51, ptr %15, align 8, !tbaa !216
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
 52:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
@@ -10182,7 +10182,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %65, ptr %14, align 8, !tbaa !73
-  store ptr %69, ptr %15, align 8, !tbaa !218
+  store ptr %69, ptr %15, align 8, !tbaa !216
   %71 = getelementptr inbounds nuw %"struct.std::array.251", ptr %65, i64 %63
   store ptr %71, ptr %16, align 8, !tbaa !76
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
@@ -10190,7 +10190,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit: ; preds = %49, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %72 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %72, %12
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !221
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !219
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -10434,23 +10434,21 @@ attributes #17 = { builtin allocsize(0) }
 !199 = distinct !{!199, !107}
 !200 = distinct !{!200, !107}
 !201 = distinct !{!201, !107}
-!202 = distinct !{!202, !107, !203}
-!203 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!202 = distinct !{!202, !107}
+!203 = distinct !{!203, !107}
 !204 = distinct !{!204, !107}
 !205 = distinct !{!205, !107}
 !206 = distinct !{!206, !107}
 !207 = distinct !{!207, !107}
-!208 = distinct !{!208, !107}
+!208 = !{!42, !43, i64 8}
 !209 = distinct !{!209, !107}
-!210 = !{!42, !43, i64 8}
+!210 = distinct !{!210, !107}
 !211 = distinct !{!211, !107}
 !212 = distinct !{!212, !107}
 !213 = distinct !{!213, !107}
 !214 = distinct !{!214, !107}
 !215 = distinct !{!215, !107}
-!216 = distinct !{!216, !107}
+!216 = !{!74, !75, i64 8}
 !217 = distinct !{!217, !107}
-!218 = !{!74, !75, i64 8}
+!218 = distinct !{!218, !107}
 !219 = distinct !{!219, !107}
-!220 = distinct !{!220, !107}
-!221 = distinct !{!221, !107}

@@ -866,7 +866,7 @@ overlaps_prefix.exit.thread22.us:                 ; preds = %get_ref_dir.exit.us
   %42 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !17
   %.not.i14 = icmp eq i8 %43, 0
-  br i1 %.not.i14, label %.loopexit, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not.i14, label %.loopexit, label %.lr.ph.i, !llvm.loop !50
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.not11.i = icmp eq i8 %38, 0
@@ -939,7 +939,7 @@ overlaps_prefix.exit.thread22:                    ; preds = %.critedge.i, %get_r
   %70 = load i32, ptr %0, align 8, !tbaa !4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
+  br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %overlaps_prefix.exit.thread22, %overlaps_prefix.exit.thread22.us, %2
   ret void
@@ -1052,7 +1052,7 @@ overlaps_prefix.exit.thread58:                    ; preds = %overlaps_prefix.exi
   %45 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !17
   %.not.i = icmp eq i8 %46, 0
-  br i1 %.not.i, label %overlaps_prefix.exit.thread, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not.i, label %overlaps_prefix.exit.thread, label %.lr.ph.i, !llvm.loop !50
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.not11.i = icmp eq i8 %41, 0
@@ -1152,18 +1152,18 @@ get_ref_dir.exit:                                 ; preds = %64, %77
 85:                                               ; preds = %overlaps_prefix.exit.thread
   %86 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %86, ptr %87, align 8, !tbaa !53
+  store ptr %86, ptr %87, align 8, !tbaa !51
   %88 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %90 = load ptr, ptr %89, align 8, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %90, ptr %91, align 8, !tbaa !54
+  store ptr %90, ptr %91, align 8, !tbaa !52
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %88, ptr %92, align 8, !tbaa !55
+  store ptr %88, ptr %92, align 8, !tbaa !53
   %93 = load i8, ptr %32, align 8, !tbaa !17
   %94 = zext i8 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %94, ptr %95, align 8, !tbaa !56
+  store i32 %94, ptr %95, align 8, !tbaa !54
   br label %96
 
 96:                                               ; preds = %25, %85
@@ -1176,7 +1176,7 @@ define internal range(i32 -1, 1) i32 @cache_ref_iterator_peel(ptr noundef readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !57
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = tail call i32 @peel_object(ptr noundef %4, ptr noundef %6, ptr noundef %1) #11
   %.not = icmp ne i32 %7, 0
   %8 = sext i1 %.not to i32
@@ -1275,12 +1275,10 @@ attributes #12 = { nounwind willreturn memory(read) }
 !46 = !{!32, !35, i64 56}
 !47 = !{!43, !6, i64 8}
 !48 = !{!32, !39, i64 72}
-!49 = distinct !{!49, !27, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !27}
-!52 = distinct !{!52, !27}
-!53 = !{!32, !35, i64 8}
-!54 = !{!32, !35, i64 16}
-!55 = !{!32, !36, i64 24}
-!56 = !{!32, !6, i64 32}
-!57 = !{!33, !36, i64 24}
+!49 = distinct !{!49, !27}
+!50 = distinct !{!50, !27}
+!51 = !{!32, !35, i64 8}
+!52 = !{!32, !35, i64 16}
+!53 = !{!32, !36, i64 24}
+!54 = !{!32, !6, i64 32}
+!55 = !{!33, !36, i64 24}

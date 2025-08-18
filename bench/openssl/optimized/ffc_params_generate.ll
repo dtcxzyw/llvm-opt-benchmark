@@ -602,22 +602,22 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
   %12 = load i32, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %2) #5
-  %.fr60 = freeze i32 %13
+  %.fr64 = freeze i32 %13
   %14 = tail call ptr @ossl_bn_get_libctx(ptr noundef nonnull %0) #5
-  %15 = icmp slt i32 %.fr60, 1
+  %15 = icmp slt i32 %.fr64, 1
   br i1 %15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10
   %.not44 = icmp eq i32 %6, 0
-  %16 = icmp sgt i32 %.fr60, %3
-  %17 = zext nneg i32 %.fr60 to i64
+  %16 = icmp sgt i32 %.fr64, %3
+  %17 = zext nneg i32 %.fr64 to i64
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 %17
   %19 = sext i32 %3 to i64
   %20 = sub nsw i64 0, %19
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %.037 = select i1 %16, ptr %21, ptr %11
-  %22 = icmp slt i32 %.fr60, %3
-  %23 = sub nsw i32 %3, %.fr60
+  %22 = icmp slt i32 %.fr64, %3
+  %23 = sub nsw i32 %3, %.fr64
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %.037, i64 %19
   %26 = getelementptr i8, ptr %25, i64 -1
@@ -626,124 +626,145 @@ define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef non
 .preheader.split.us:                              ; preds = %.preheader
   %27 = add nsw i32 %12, 1
   %28 = tail call i32 @BN_GENCB_call(ptr noundef %9, i32 noundef 0, i32 noundef %12) #5
-  %.not.us = icmp eq i32 %28, 0
-  br i1 %.not.us, label %.loopexit, label %29
+  %.not.us.us = icmp eq i32 %28, 0
+  br i1 %22, label %.preheader.split.us.split.us, label %.preheader.split.us.split
 
-29:                                               ; preds = %.preheader.split.us
+.preheader.split.us.split.us:                     ; preds = %.preheader.split.us
+  br i1 %.not.us.us, label %.loopexit, label %29
+
+29:                                               ; preds = %.preheader.split.us.split.us
   %30 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
-  %.not45.us = icmp eq i32 %30, 0
-  br i1 %.not45.us, label %.loopexit, label %31
+  %.not45.us.us = icmp eq i32 %30, 0
+  br i1 %.not45.us.us, label %.loopexit, label %31
 
 31:                                               ; preds = %29
-  br i1 %22, label %32, label %33
-
-32:                                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %24, i1 false)
-  br label %33
+  %32 = load i8, ptr %.037, align 1, !tbaa !23
+  %33 = or i8 %32, -128
+  store i8 %33, ptr %.037, align 1, !tbaa !23
+  %34 = load i8, ptr %26, align 1, !tbaa !23
+  %35 = or i8 %34, 1
+  store i8 %35, ptr %26, align 1, !tbaa !23
+  %36 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
+  %.not46.us.us = icmp eq ptr %36, null
+  br i1 %.not46.us.us, label %.loopexit, label %37
 
-33:                                               ; preds = %32, %31
-  %34 = load i8, ptr %.037, align 1, !tbaa !23
-  %35 = or i8 %34, -128
-  store i8 %35, ptr %.037, align 1, !tbaa !23
-  %36 = load i8, ptr %26, align 1, !tbaa !23
-  %37 = or i8 %36, 1
-  store i8 %37, ptr %26, align 1, !tbaa !23
-  %38 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
-  %.not46.us = icmp eq ptr %38, null
-  br i1 %.not46.us, label %.loopexit, label %39
+37:                                               ; preds = %31
+  %38 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.loopexit, label %.split.us
 
-39:                                               ; preds = %33
-  %40 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.loopexit, label %.split.us
+.preheader.split.us.split:                        ; preds = %.preheader.split.us
+  br i1 %.not.us.us, label %.loopexit, label %40
+
+40:                                               ; preds = %.preheader.split.us.split
+  %41 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
+  %.not45.us = icmp eq i32 %41, 0
+  br i1 %.not45.us, label %.loopexit, label %42
+
+42:                                               ; preds = %40
+  %43 = load i8, ptr %.037, align 1, !tbaa !23
+  %44 = or i8 %43, -128
+  store i8 %44, ptr %.037, align 1, !tbaa !23
+  %45 = load i8, ptr %26, align 1, !tbaa !23
+  %46 = or i8 %45, 1
+  store i8 %46, ptr %26, align 1, !tbaa !23
+  %47 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
+  %.not46.us = icmp eq ptr %47, null
+  br i1 %.not46.us, label %.loopexit, label %48
+
+48:                                               ; preds = %42
+  %49 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.loopexit, label %.split.us
 
 .preheader.split.split:                           ; preds = %.preheader
   br i1 %22, label %.preheader.split.split.split.us, label %.preheader.split.split.split
 
-.preheader.split.split.split.us:                  ; preds = %.preheader.split.split, %58
-  %.1.us51 = phi i32 [ %42, %58 ], [ %12, %.preheader.split.split ]
-  %42 = add nsw i32 %.1.us51, 1
-  %43 = call i32 @BN_GENCB_call(ptr noundef %9, i32 noundef 0, i32 noundef %.1.us51) #5
-  %.not.us52 = icmp eq i32 %43, 0
-  br i1 %.not.us52, label %.loopexit, label %44
+.preheader.split.split.split.us:                  ; preds = %.preheader.split.split, %67
+  %.1.us51 = phi i32 [ %51, %67 ], [ %12, %.preheader.split.split ]
+  %51 = add nsw i32 %.1.us51, 1
+  %52 = call i32 @BN_GENCB_call(ptr noundef %9, i32 noundef 0, i32 noundef %.1.us51) #5
+  %.not.us52 = icmp eq i32 %52, 0
+  br i1 %.not.us52, label %.loopexit, label %53
 
-44:                                               ; preds = %.preheader.split.split.split.us
-  %45 = call i32 @RAND_bytes_ex(ptr noundef %14, ptr noundef nonnull %4, i64 noundef %5, i32 noundef 0) #5
-  %46 = icmp slt i32 %45, 1
-  br i1 %46, label %.loopexit, label %47
+53:                                               ; preds = %.preheader.split.split.split.us
+  %54 = call i32 @RAND_bytes_ex(ptr noundef %14, ptr noundef nonnull %4, i64 noundef %5, i32 noundef 0) #5
+  %55 = icmp slt i32 %54, 1
+  br i1 %55, label %.loopexit, label %56
 
-47:                                               ; preds = %44
-  %48 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
-  %.not45.us53 = icmp eq i32 %48, 0
-  br i1 %.not45.us53, label %.loopexit, label %49
+56:                                               ; preds = %53
+  %57 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
+  %.not45.us53 = icmp eq i32 %57, 0
+  br i1 %.not45.us53, label %.loopexit, label %58
 
-49:                                               ; preds = %47
+58:                                               ; preds = %56
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %24, i1 false)
-  %50 = load i8, ptr %.037, align 1, !tbaa !23
-  %51 = or i8 %50, -128
-  store i8 %51, ptr %.037, align 1, !tbaa !23
-  %52 = load i8, ptr %26, align 1, !tbaa !23
-  %53 = or i8 %52, 1
-  store i8 %53, ptr %26, align 1, !tbaa !23
-  %54 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
-  %.not46.us54 = icmp eq ptr %54, null
-  br i1 %.not46.us54, label %.loopexit, label %55
+  %59 = load i8, ptr %.037, align 1, !tbaa !23
+  %60 = or i8 %59, -128
+  store i8 %60, ptr %.037, align 1, !tbaa !23
+  %61 = load i8, ptr %26, align 1, !tbaa !23
+  %62 = or i8 %61, 1
+  store i8 %62, ptr %26, align 1, !tbaa !23
+  %63 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
+  %.not46.us54 = icmp eq ptr %63, null
+  br i1 %.not46.us54, label %.loopexit, label %64
 
-55:                                               ; preds = %49
-  %56 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.loopexit, label %58
+64:                                               ; preds = %58
+  %65 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.loopexit, label %67
 
-58:                                               ; preds = %55
-  %.not47.us55 = icmp eq i32 %56, 0
-  br i1 %.not47.us55, label %.preheader.split.split.split.us, label %.loopexit, !llvm.loop !24
+67:                                               ; preds = %64
+  %.not47.us55 = icmp eq i32 %65, 0
+  br i1 %.not47.us55, label %.preheader.split.split.split.us, label %.loopexit
 
-.preheader.split.split.split:                     ; preds = %.preheader.split.split, %75
-  %.1 = phi i32 [ %59, %75 ], [ %12, %.preheader.split.split ]
-  %59 = add nsw i32 %.1, 1
-  %60 = call i32 @BN_GENCB_call(ptr noundef %9, i32 noundef 0, i32 noundef %.1) #5
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %.loopexit, label %61
+.preheader.split.split.split:                     ; preds = %.preheader.split.split, %84
+  %.1 = phi i32 [ %68, %84 ], [ %12, %.preheader.split.split ]
+  %68 = add nsw i32 %.1, 1
+  %69 = call i32 @BN_GENCB_call(ptr noundef %9, i32 noundef 0, i32 noundef %.1) #5
+  %.not = icmp eq i32 %69, 0
+  br i1 %.not, label %.loopexit, label %70
 
-61:                                               ; preds = %.preheader.split.split.split
-  %62 = call i32 @RAND_bytes_ex(ptr noundef %14, ptr noundef nonnull %4, i64 noundef %5, i32 noundef 0) #5
-  %63 = icmp slt i32 %62, 1
-  br i1 %63, label %.loopexit, label %64
+70:                                               ; preds = %.preheader.split.split.split
+  %71 = call i32 @RAND_bytes_ex(ptr noundef %14, ptr noundef nonnull %4, i64 noundef %5, i32 noundef 0) #5
+  %72 = icmp slt i32 %71, 1
+  br i1 %72, label %.loopexit, label %73
 
-64:                                               ; preds = %61
-  %65 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
-  %.not45 = icmp eq i32 %65, 0
-  br i1 %.not45, label %.loopexit, label %66
+73:                                               ; preds = %70
+  %74 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
+  %.not45 = icmp eq i32 %74, 0
+  br i1 %.not45, label %.loopexit, label %75
 
-66:                                               ; preds = %64
-  %67 = load i8, ptr %.037, align 1, !tbaa !23
-  %68 = or i8 %67, -128
-  store i8 %68, ptr %.037, align 1, !tbaa !23
-  %69 = load i8, ptr %26, align 1, !tbaa !23
-  %70 = or i8 %69, 1
-  store i8 %70, ptr %26, align 1, !tbaa !23
-  %71 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
-  %.not46 = icmp eq ptr %71, null
-  br i1 %.not46, label %.loopexit, label %72
+75:                                               ; preds = %73
+  %76 = load i8, ptr %.037, align 1, !tbaa !23
+  %77 = or i8 %76, -128
+  store i8 %77, ptr %.037, align 1, !tbaa !23
+  %78 = load i8, ptr %26, align 1, !tbaa !23
+  %79 = or i8 %78, 1
+  store i8 %79, ptr %26, align 1, !tbaa !23
+  %80 = call ptr @BN_bin2bn(ptr noundef nonnull %.037, i32 noundef %3, ptr noundef nonnull %1) #5
+  %.not46 = icmp eq ptr %80, null
+  br i1 %.not46, label %.loopexit, label %81
 
-72:                                               ; preds = %66
-  %73 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.loopexit, label %75
+81:                                               ; preds = %75
+  %82 = call i32 @BN_check_prime(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %9) #5
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %.loopexit, label %84
 
-75:                                               ; preds = %72
-  %.not47 = icmp eq i32 %73, 0
+84:                                               ; preds = %81
+  %.not47 = icmp eq i32 %82, 0
   br i1 %.not47, label %.preheader.split.split.split, label %.loopexit
 
-.split.us:                                        ; preds = %39
-  %76 = load i32, ptr %8, align 4, !tbaa !3
-  %77 = or i32 %76, 16
-  store i32 %77, ptr %8, align 4, !tbaa !3
+.split.us:                                        ; preds = %37, %48
+  %85 = load i32, ptr %8, align 4, !tbaa !3
+  %86 = or i32 %85, 16
+  store i32 %86, ptr %8, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %75, %66, %64, %61, %.preheader.split.split.split, %.preheader.split.split.split.us, %44, %47, %49, %55, %58, %39, %33, %29, %.preheader.split.us, %10, %.split.us
-  %.038 = phi i32 [ %12, %10 ], [ %27, %.split.us ], [ %27, %39 ], [ %27, %33 ], [ %27, %29 ], [ %27, %.preheader.split.us ], [ %42, %58 ], [ %42, %55 ], [ %42, %49 ], [ %42, %47 ], [ %42, %44 ], [ %42, %.preheader.split.split.split.us ], [ %59, %.preheader.split.split.split ], [ %59, %61 ], [ %59, %64 ], [ %59, %66 ], [ %59, %75 ], [ %59, %72 ]
-  %.0 = phi i32 [ 0, %10 ], [ 0, %.split.us ], [ 1, %39 ], [ 0, %33 ], [ 0, %29 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.split.split.us ], [ 0, %44 ], [ 0, %47 ], [ 0, %49 ], [ 1, %55 ], [ 0, %58 ], [ 1, %72 ], [ 0, %75 ], [ 0, %66 ], [ 0, %64 ], [ 0, %61 ], [ 0, %.preheader.split.split.split ]
+.loopexit:                                        ; preds = %81, %84, %75, %73, %70, %.preheader.split.split.split, %.preheader.split.split.split.us, %53, %56, %58, %64, %67, %.preheader.split.us.split, %40, %42, %48, %.preheader.split.us.split.us, %29, %31, %37, %10, %.split.us
+  %.038 = phi i32 [ %12, %10 ], [ %27, %.split.us ], [ %27, %37 ], [ %27, %31 ], [ %27, %29 ], [ %27, %.preheader.split.us.split.us ], [ %27, %48 ], [ %27, %42 ], [ %27, %40 ], [ %27, %.preheader.split.us.split ], [ %51, %67 ], [ %51, %64 ], [ %51, %58 ], [ %51, %56 ], [ %51, %53 ], [ %51, %.preheader.split.split.split.us ], [ %68, %.preheader.split.split.split ], [ %68, %70 ], [ %68, %73 ], [ %68, %75 ], [ %68, %84 ], [ %68, %81 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %.split.us ], [ 1, %37 ], [ 0, %31 ], [ 0, %29 ], [ 0, %.preheader.split.us.split.us ], [ 1, %48 ], [ 0, %42 ], [ 0, %40 ], [ 0, %.preheader.split.us.split ], [ 0, %.preheader.split.split.split.us ], [ 0, %53 ], [ 0, %56 ], [ 0, %58 ], [ 1, %64 ], [ 0, %67 ], [ 1, %81 ], [ 0, %84 ], [ 0, %75 ], [ 0, %73 ], [ 0, %70 ], [ 0, %.preheader.split.split.split ]
   store i32 %.038, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -808,7 +829,7 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
 33:                                               ; preds = %51
   %34 = add nuw i32 %.07096, 1
   %exitcond.not = icmp eq i32 %.07096, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %32, %33
   %.07096 = phi i32 [ %34, %33 ], [ 0, %32 ]
@@ -827,7 +848,7 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
   %42 = add i8 %41, 1
   store i8 %42, ptr %40, align 1, !tbaa !23
   %.not87 = icmp eq i8 %42, 0
-  br i1 %.not87, label %35, label %43, !llvm.loop !28
+  br i1 %.not87, label %35, label %43, !llvm.loop !26
 
 43:                                               ; preds = %38, %35
   %44 = call i32 @EVP_Digest(ptr noundef nonnull %4, i64 noundef %5, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %1, ptr noundef null) #5
@@ -907,7 +928,7 @@ define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %0, 
 75:                                               ; preds = %67, %74
   %76 = add nuw i32 %.06998, 1
   %exitcond107.not = icmp eq i32 %.06998, %2
-  br i1 %exitcond107.not, label %._crit_edge100, label %29, !llvm.loop !29
+  br i1 %exitcond107.not, label %._crit_edge100, label %29, !llvm.loop !27
 
 ._crit_edge100:                                   ; preds = %75, %.preheader
   %77 = load i32, ptr %11, align 4, !tbaa !3
@@ -954,7 +975,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_canonical_g(ptr noundef non
 20:                                               ; preds = %40
   %21 = add nuw nsw i32 %.02736, 1
   %exitcond.not = icmp eq i32 %21, 65536
-  br i1 %exitcond.not, label %44, label %22, !llvm.loop !30
+  br i1 %exitcond.not, label %44, label %22, !llvm.loop !28
 
 22:                                               ; preds = %.preheader, %20
   %.02736 = phi i32 [ 1, %.preheader ], [ %21, %20 ]
@@ -1332,7 +1353,7 @@ default_mdname.exit:                              ; preds = %27
   %130 = add i8 %129, 1
   store i8 %130, ptr %128, align 1, !tbaa !23
   %.not47.i = icmp eq i8 %130, 0
-  br i1 %.not47.i, label %123, label %131, !llvm.loop !31
+  br i1 %.not47.i, label %123, label %131, !llvm.loop !29
 
 131:                                              ; preds = %126, %123
   %132 = call i32 @EVP_Digest(ptr noundef nonnull %11, i64 noundef range(i64 0, 2305843009213693952) %45, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %36, ptr noundef null) #5
@@ -1357,7 +1378,7 @@ default_mdname.exit:                              ; preds = %27
   store i8 %139, ptr %137, align 1, !tbaa !23
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next5.i, %45
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %140 = load i8, ptr %10, align 16, !tbaa !23
@@ -1700,11 +1721,9 @@ attributes #5 = { nounwind }
 !22 = !{!8, !4, i64 60}
 !23 = !{!5, !5, i64 0}
 !24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}

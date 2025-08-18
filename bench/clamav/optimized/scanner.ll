@@ -1218,7 +1218,7 @@ define dso_local i32 @scanstream(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   %115 = load i32, ptr %7, align 4, !tbaa !39
   %116 = call i32 @writen(i32 noundef %115, ptr noundef nonnull %9, i32 noundef %112) #12
   %.not125.us = icmp eq i32 %116, %112
-  br i1 %.not125.us, label %.split.us.split, label %.split150.us, !llvm.loop !73
+  br i1 %.not125.us, label %.split.us.split, label %.split150.us
 
 .split:                                           ; preds = %104, %126
   %.0115 = phi i64 [ %128, %126 ], [ %.fr, %104 ]
@@ -1546,5 +1546,3 @@ attributes #14 = { nounwind allocsize(0,1) }
 !70 = !{!31, !10, i64 24}
 !71 = !{!67, !62, i64 0}
 !72 = !{!67, !17, i64 4}
-!73 = distinct !{!73, !74}
-!74 = !{!"llvm.loop.unswitch.nontrivial.disable"}

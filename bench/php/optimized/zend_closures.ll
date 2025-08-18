@@ -2004,7 +2004,7 @@ zend_string_release_ex.exit.us:                   ; preds = %201, %196, %.lr.ph1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %203 = add nuw i32 %.0115142.us, 1
   %exitcond149.not = icmp eq i32 %203, %spec.select
-  br i1 %exitcond149.not, label %._crit_edge146, label %.lr.ph145.split.us, !llvm.loop !127
+  br i1 %exitcond149.not, label %._crit_edge146, label %.lr.ph145.split.us
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145, %zend_string_release_ex.exit
   %.0143 = phi ptr [ %223, %zend_string_release_ex.exit ], [ %8, %.lr.ph145 ]
@@ -2066,7 +2066,7 @@ define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr noundef writeonly c
   %6 = load i8, ptr %5, align 8, !tbaa !15
   %.not = icmp eq i8 %6, 1
   %7 = select i1 %.not, ptr null, ptr %4
-  store ptr %7, ptr %1, align 8, !tbaa !129
+  store ptr %7, ptr %1, align 8, !tbaa !127
   %8 = load i8, ptr %5, align 8, !tbaa !15
   %.not11 = icmp ne i8 %8, 1
   %9 = zext i1 %.not11 to i32
@@ -2282,12 +2282,12 @@ zend_string_addref.exit:                          ; preds = %21, %30
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %98 = load i32, ptr %97, align 8, !tbaa !15
   %99 = sext i32 %98 to i64
-  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !130
-  %101 = load ptr, ptr %100, align 8, !tbaa !131
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !128
+  %101 = load ptr, ptr %100, align 8, !tbaa !129
   %102 = add nsw i64 %99, 7
   %103 = and i64 %102, -8
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !133
+  %105 = load ptr, ptr %104, align 8, !tbaa !131
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %101 to i64
   %108 = sub i64 %106, %107
@@ -2296,7 +2296,7 @@ zend_string_addref.exit:                          ; preds = %21, %30
 
 109:                                              ; preds = %96
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 %103
-  store ptr %110, ptr %100, align 8, !tbaa !131
+  store ptr %110, ptr %100, align 8, !tbaa !129
   br label %zend_arena_alloc.exit
 
 111:                                              ; preds = %96
@@ -2307,13 +2307,13 @@ zend_string_addref.exit:                          ; preds = %21, %30
   %115 = tail call noalias ptr @_emalloc(i64 noundef %..i) #14
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 %103
-  store ptr %117, ptr %115, align 8, !tbaa !131
+  store ptr %117, ptr %115, align 8, !tbaa !129
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 %..i
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store ptr %118, ptr %119, align 8, !tbaa !133
+  store ptr %118, ptr %119, align 8, !tbaa !131
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store ptr %100, ptr %120, align 8, !tbaa !134
-  store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !130
+  store ptr %100, ptr %120, align 8, !tbaa !132
+  store ptr %115, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !128
   br label %zend_arena_alloc.exit
 
 zend_arena_alloc.exit:                            ; preds = %109, %111
@@ -2376,7 +2376,7 @@ zend_arena_alloc.exit:                            ; preds = %109, %111
 
 150:                                              ; preds = %144
   %151 = getelementptr inbounds i8, ptr %1, i64 -40
-  %152 = load ptr, ptr %151, align 8, !tbaa !135
+  %152 = load ptr, ptr %151, align 8, !tbaa !133
   %153 = load ptr, ptr @zend_ce_closure, align 8, !tbaa !28
   %154 = icmp eq ptr %152, %153
   tail call void @llvm.assume(i1 %154)
@@ -2609,7 +2609,7 @@ zend_string_equals.exit.thread52:                 ; preds = %zend_string_equals.
 
 71:                                               ; preds = %zend_string_equals.exit.thread52
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @trampoline_arg_info, ptr %72, align 8, !tbaa !136
+  store ptr @trampoline_arg_info, ptr %72, align 8, !tbaa !134
   br label %73
 
 73:                                               ; preds = %zend_string_equals.exit.thread52, %71
@@ -2864,7 +2864,7 @@ define internal void @zend_closure_call_magic(ptr noundef readonly captures(none
   store ptr %82, ptr %83, align 8, !tbaa !39
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %82, ptr %84, align 8, !tbaa !40
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !137
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !135
   %86 = call ptr @zend_get_called_scope(ptr noundef %85) #13
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %86, ptr %87, align 8, !tbaa !37
@@ -3166,32 +3166,30 @@ attributes #14 = { nounwind allocsize(0) }
 !124 = !{!"", !7, i64 0, !22, i64 8}
 !125 = !{}
 !126 = !{!123, !22, i64 16}
-!127 = distinct !{!127, !128}
-!128 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!129 = !{!11, !11, i64 0}
-!130 = !{!115, !115, i64 0}
-!131 = !{!132, !72, i64 0}
-!132 = !{!"_zend_arena", !72, i64 0, !72, i64 8, !115, i64 16}
-!133 = !{!132, !72, i64 8}
-!134 = !{!132, !115, i64 16}
-!135 = !{!19, !23, i64 16}
-!136 = !{!76, !77, i64 40}
-!137 = !{!138, !10, i64 512}
-!138 = !{!"_zend_executor_globals", !13, i64 0, !13, i64 16, !8, i64 32, !139, i64 288, !139, i64 296, !49, i64 304, !49, i64 360, !140, i64 416, !22, i64 424, !106, i64 428, !13, i64 432, !22, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !11, i64 480, !11, i64 488, !141, i64 496, !33, i64 504, !10, i64 512, !23, i64 520, !22, i64 528, !10, i64 536, !22, i64 544, !33, i64 552, !22, i64 560, !22, i64 564, !22, i64 568, !106, i64 572, !106, i64 573, !142, i64 574, !142, i64 575, !14, i64 576, !33, i64 584, !7, i64 592, !7, i64 600, !49, i64 608, !49, i64 664, !22, i64 720, !106, i64 724, !13, i64 728, !13, i64 744, !104, i64 760, !104, i64 784, !104, i64 808, !23, i64 832, !22, i64 840, !22, i64 844, !33, i64 848, !14, i64 856, !14, i64 864, !143, i64 872, !144, i64 880, !146, i64 904, !30, i64 960, !30, i64 968, !6, i64 976, !8, i64 984, !79, i64 1080, !106, i64 1088, !8, i64 1089, !33, i64 1096, !22, i64 1104, !22, i64 1108, !147, i64 1112, !8, i64 1120, !7, i64 1376, !8, i64 1384, !148, i64 1640, !49, i64 1672, !33, i64 1728, !149, i64 1736, !150, i64 1760, !150, i64 1768, !151, i64 1776, !33, i64 1784, !106, i64 1792, !22, i64 1796, !152, i64 1800, !48, i64 1808, !33, i64 1816, !153, i64 1824, !33, i64 1840, !33, i64 1848, !154, i64 1856, !8, i64 1936}
-!139 = !{!"p2 _ZTS11_zend_array", !7, i64 0}
-!140 = !{!"p1 _ZTS13__jmp_buf_tag", !7, i64 0}
-!141 = !{!"p1 _ZTS14_zend_vm_stack", !7, i64 0}
-!142 = !{!"zend_atomic_bool_s", !8, i64 0}
-!143 = !{!"p1 _ZTS15_zend_ini_entry", !7, i64 0}
-!144 = !{!"_zend_objects_store", !145, i64 0, !22, i64 8, !22, i64 12, !22, i64 16}
-!145 = !{!"p2 _ZTS12_zend_object", !7, i64 0}
-!146 = !{!"_zend_lazy_objects_store", !49, i64 0}
-!147 = !{!"p1 _ZTS18_HashTableIterator", !7, i64 0}
-!148 = !{!"_zend_op", !7, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !22, i64 20, !22, i64 24, !8, i64 28, !8, i64 29, !8, i64 30, !8, i64 31}
-!149 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16}
-!150 = !{!"p1 _ZTS19_zend_fiber_context", !7, i64 0}
-!151 = !{!"p1 _ZTS11_zend_fiber", !7, i64 0}
-!152 = !{!"p2 _ZTS16_zend_error_info", !7, i64 0}
-!153 = !{!"_zend_call_stack", !7, i64 0, !33, i64 8}
-!154 = !{!"_zend_strtod_state", !8, i64 0, !155, i64 64, !72, i64 72}
-!155 = !{!"p1 _ZTS19_zend_strtod_bigint", !7, i64 0}
+!127 = !{!11, !11, i64 0}
+!128 = !{!115, !115, i64 0}
+!129 = !{!130, !72, i64 0}
+!130 = !{!"_zend_arena", !72, i64 0, !72, i64 8, !115, i64 16}
+!131 = !{!130, !72, i64 8}
+!132 = !{!130, !115, i64 16}
+!133 = !{!19, !23, i64 16}
+!134 = !{!76, !77, i64 40}
+!135 = !{!136, !10, i64 512}
+!136 = !{!"_zend_executor_globals", !13, i64 0, !13, i64 16, !8, i64 32, !137, i64 288, !137, i64 296, !49, i64 304, !49, i64 360, !138, i64 416, !22, i64 424, !106, i64 428, !13, i64 432, !22, i64 448, !14, i64 456, !14, i64 464, !14, i64 472, !11, i64 480, !11, i64 488, !139, i64 496, !33, i64 504, !10, i64 512, !23, i64 520, !22, i64 528, !10, i64 536, !22, i64 544, !33, i64 552, !22, i64 560, !22, i64 564, !22, i64 568, !106, i64 572, !106, i64 573, !140, i64 574, !140, i64 575, !14, i64 576, !33, i64 584, !7, i64 592, !7, i64 600, !49, i64 608, !49, i64 664, !22, i64 720, !106, i64 724, !13, i64 728, !13, i64 744, !104, i64 760, !104, i64 784, !104, i64 808, !23, i64 832, !22, i64 840, !22, i64 844, !33, i64 848, !14, i64 856, !14, i64 864, !141, i64 872, !142, i64 880, !144, i64 904, !30, i64 960, !30, i64 968, !6, i64 976, !8, i64 984, !79, i64 1080, !106, i64 1088, !8, i64 1089, !33, i64 1096, !22, i64 1104, !22, i64 1108, !145, i64 1112, !8, i64 1120, !7, i64 1376, !8, i64 1384, !146, i64 1640, !49, i64 1672, !33, i64 1728, !147, i64 1736, !148, i64 1760, !148, i64 1768, !149, i64 1776, !33, i64 1784, !106, i64 1792, !22, i64 1796, !150, i64 1800, !48, i64 1808, !33, i64 1816, !151, i64 1824, !33, i64 1840, !33, i64 1848, !152, i64 1856, !8, i64 1936}
+!137 = !{!"p2 _ZTS11_zend_array", !7, i64 0}
+!138 = !{!"p1 _ZTS13__jmp_buf_tag", !7, i64 0}
+!139 = !{!"p1 _ZTS14_zend_vm_stack", !7, i64 0}
+!140 = !{!"zend_atomic_bool_s", !8, i64 0}
+!141 = !{!"p1 _ZTS15_zend_ini_entry", !7, i64 0}
+!142 = !{!"_zend_objects_store", !143, i64 0, !22, i64 8, !22, i64 12, !22, i64 16}
+!143 = !{!"p2 _ZTS12_zend_object", !7, i64 0}
+!144 = !{!"_zend_lazy_objects_store", !49, i64 0}
+!145 = !{!"p1 _ZTS18_HashTableIterator", !7, i64 0}
+!146 = !{!"_zend_op", !7, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !22, i64 20, !22, i64 24, !8, i64 28, !8, i64 29, !8, i64 30, !8, i64 31}
+!147 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16}
+!148 = !{!"p1 _ZTS19_zend_fiber_context", !7, i64 0}
+!149 = !{!"p1 _ZTS11_zend_fiber", !7, i64 0}
+!150 = !{!"p2 _ZTS16_zend_error_info", !7, i64 0}
+!151 = !{!"_zend_call_stack", !7, i64 0, !33, i64 8}
+!152 = !{!"_zend_strtod_state", !8, i64 0, !153, i64 64, !72, i64 72}
+!153 = !{!"p1 _ZTS19_zend_strtod_bigint", !7, i64 0}

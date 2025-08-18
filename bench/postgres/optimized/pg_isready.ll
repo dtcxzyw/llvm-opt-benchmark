@@ -407,7 +407,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %130 = getelementptr inbounds nuw i8, ptr %.0120.us125, i64 56
   %131 = load ptr, ptr %130, align 8
   %.not93.us145 = icmp eq ptr %131, null
-  br i1 %.not93.us145, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
+  br i1 %.not93.us145, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !6
 
 132:                                              ; preds = %61
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17) #7
@@ -488,7 +488,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %161 = getelementptr inbounds nuw i8, ptr %.0120, i64 56
   %162 = load ptr, ptr %161, align 8
   %.not93 = icmp eq ptr %162, null
-  br i1 %.not93, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !9
+  br i1 %.not93, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %128, %159, %96, %.preheader
   %.070.lcssa = phi ptr [ null, %.preheader ], [ %.171.us, %96 ], [ %.171, %159 ], [ %.171.us140, %128 ]
@@ -598,7 +598,4 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5, !7}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5}

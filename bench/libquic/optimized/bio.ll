@@ -1138,7 +1138,7 @@ define hidden noundef ptr @BIO_find_type(ptr noundef readonly captures(address_i
   %17 = getelementptr inbounds nuw i8, ptr %.013, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %.not20 = icmp eq ptr %18, null
-  br i1 %.not20, label %.loopexit, label %.split, !llvm.loop !41
+  br i1 %.not20, label %.loopexit, label %.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %13, %16, %9, %6, %2
   %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ %.013.us, %6 ], [ null, %16 ], [ %.013, %13 ]
@@ -1160,7 +1160,7 @@ define hidden range(i32 0, 2) i32 @BIO_indent(ptr noundef %0, i32 noundef %1, i3
   %7 = add i32 %.1, -1
   %8 = tail call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 1, i64 noundef 16, i32 noundef 3, ptr noundef nonnull %4)
   %.not8 = icmp eq i32 %8, 1
-  br i1 %.not8, label %5, label %9, !llvm.loop !42
+  br i1 %.not8, label %5, label %9, !llvm.loop !40
 
 9:                                                ; preds = %5, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %5 ]
@@ -1199,9 +1199,9 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %.not, label %8, label %bio_read_all.exit.thread
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr %5, align 2, !tbaa !43
+  %9 = load i8, ptr %5, align 2, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !43
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %9 to i32
   %13 = and i32 %12, 31
   %14 = icmp eq i32 %13, 31
@@ -1350,12 +1350,12 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %73 = shl i32 %.05788, 8
   %74 = add nuw nsw i64 %indvars.iv, 2
   %75 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !43
+  %76 = load i8, ptr %75, align 1, !tbaa !41
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %73, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %79 = icmp ult i32 %78, 128
@@ -1489,9 +1489,7 @@ attributes #20 = { nounwind allocsize(1) }
 !36 = !{!7, !15, i64 64}
 !37 = !{!7, !15, i64 72}
 !38 = distinct !{!38, !24}
-!39 = distinct !{!39, !24, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !24}
+!39 = distinct !{!39, !24}
+!40 = distinct !{!40, !24}
+!41 = !{!10, !10, i64 0}
 !42 = distinct !{!42, !24}
-!43 = !{!10, !10, i64 0}
-!44 = distinct !{!44, !24}

@@ -200,82 +200,82 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %2, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %8, label %.lr.ph38, label %.critedge
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %8, label %.lr.ph31, label %.critedge
 
-.lr.ph38:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv3237 = phi i64 [ %indvars.iv.next33, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph31:                                         ; preds = %.lr.ph.split.us.split, %21
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %21 ], [ 0, %.lr.ph.split.us.split ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv3237
+  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv34
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
-  br i1 %12, label %.lr.ph.split.us, label %13
+  br i1 %12, label %21, label %13
 
-13:                                               ; preds = %.lr.ph38
+13:                                               ; preds = %.lr.ph31
   %14 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %11, i32 noundef %1) #5
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @get_rel_name(i32 noundef %11) #5
   %.not24.us = icmp eq ptr %16, null
-  br i1 %.not24.us, label %.lr.ph.split.us, label %.split.us
+  br i1 %.not24.us, label %21, label %.split.us
 
 17:                                               ; preds = %13
   %18 = zext i32 %11 to i64
   %19 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %18, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  br i1 %19, label %.lr.ph.split.us, label %20
+  br i1 %19, label %21, label %20
 
 20:                                               ; preds = %17
   tail call void @UnlockRelationOid(i32 noundef %11, i32 noundef %1) #5
-  br label %.lr.ph.split.us
+  br label %21
 
-.lr.ph.split.us:                                  ; preds = %20, %17, %15, %.lr.ph38
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv3237, 1
-  %21 = load i32, ptr %5, align 4
-  %22 = sext i32 %21 to i64
-  %23 = icmp slt i64 %indvars.iv.next33, %22
-  br i1 %23, label %.lr.ph38, label %.critedge
+21:                                               ; preds = %20, %17, %15, %.lr.ph31
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %22 = load i32, ptr %5, align 4
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next35, %23
+  br i1 %24, label %.lr.ph31, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %8, label %.lr.ph29, label %.critedge
 
-.lr.ph29:                                         ; preds = %.lr.ph.split.split, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph.split.split ]
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, %0
-  br i1 %27, label %35, label %28
+.lr.ph29:                                         ; preds = %.lr.ph.split.split, %36
+  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.split.split ]
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, %0
+  br i1 %28, label %36, label %29
 
-.critedge:                                        ; preds = %35, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %3
+.critedge:                                        ; preds = %36, %21, %.lr.ph.split.us.split, %.lr.ph.split.split, %3
   ret void
 
-28:                                               ; preds = %.lr.ph29
-  tail call void @LockRelationOid(i32 noundef %26, i32 noundef %1) #5
-  %29 = zext i32 %26 to i64
-  %30 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %29, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  br i1 %30, label %35, label %34
+29:                                               ; preds = %.lr.ph29
+  tail call void @LockRelationOid(i32 noundef %27, i32 noundef %1) #5
+  %30 = zext i32 %27 to i64
+  %31 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %30, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
+  br i1 %31, label %36, label %35
 
 .split.us:                                        ; preds = %15
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 50463045) #5
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #5
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  tail call void @llvm.assume(i1 %32)
+  %33 = tail call i32 @errcode(i32 noundef 50463045) #5
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #5
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.LockTableRecurse) #5
   unreachable
 
-34:                                               ; preds = %28
-  tail call void @UnlockRelationOid(i32 noundef %26, i32 noundef %1) #5
-  br label %35
+35:                                               ; preds = %29
+  tail call void @UnlockRelationOid(i32 noundef %27, i32 noundef %1) #5
+  br label %36
 
-35:                                               ; preds = %28, %.lr.ph29, %34
+36:                                               ; preds = %29, %.lr.ph29, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %5, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph29, label %.critedge
+  %37 = load i32, ptr %5, align 4
+  %38 = sext i32 %37 to i64
+  %39 = icmp slt i64 %indvars.iv.next, %38
+  br i1 %39, label %.lr.ph29, label %.critedge
 }
 
 ; Function Attrs: cold

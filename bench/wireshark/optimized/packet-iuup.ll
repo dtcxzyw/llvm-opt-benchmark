@@ -3993,7 +3993,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %74 = load i32, ptr %5, align 4
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
+  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %13
   %77 = load ptr, ptr %6, align 8
@@ -4013,7 +4013,7 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   store ptr %11, ptr %6, align 8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %.not67 = icmp sgt i8 %32, -1
-  br i1 %.not67, label %9, label %82, !llvm.loop !20
+  br i1 %.not67, label %9, label %82, !llvm.loop !18
 
 82:                                               ; preds = %81
   %83 = trunc nuw nsw i64 %indvars.iv10 to i32
@@ -4078,7 +4078,5 @@ attributes #10 = { noreturn }
 !14 = distinct !{!14, !9}
 !15 = distinct !{!15, !9}
 !16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}

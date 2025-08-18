@@ -1412,7 +1412,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %883, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.38, i32 noundef %887, i32 noundef %891, i32 noundef %895) #6
   %896 = add nuw nsw i64 %882, 1
   %897 = icmp eq i64 %896, 3
-  br i1 %897, label %.loopexit32, label %.split, !llvm.loop !17
+  br i1 %897, label %.loopexit32, label %.split, !llvm.loop !15
 
 898:                                              ; preds = %859
   %899 = and i64 %861, 2097152
@@ -1441,7 +1441,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %908, i32 noundef %912, i32 noundef %916) #6
   %917 = add nuw nsw i64 %904, 1
   %918 = icmp eq i64 %917, 3
-  br i1 %918, label %.loopexit32, label %.split34.us, !llvm.loop !18
+  br i1 %918, label %.loopexit32, label %.split34.us, !llvm.loop !15
 
 .split34:                                         ; preds = %901, %.split34
   %919 = phi i64 [ %933, %.split34 ], [ 0, %901 ]
@@ -1461,7 +1461,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %920, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %924, i32 noundef %928, i32 noundef %932) #6
   %933 = add nuw nsw i64 %919, 1
   %934 = icmp eq i64 %933, 3
-  br i1 %934, label %.loopexit32, label %.split34, !llvm.loop !17
+  br i1 %934, label %.loopexit32, label %.split34, !llvm.loop !15
 
 .loopexit32:                                      ; preds = %.split, %.split.us, %.split34, %.split34.us, %898, %857, %11
   %935 = icmp eq ptr %1, null
@@ -1632,7 +1632,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %1062 = load i32, ptr %1061, align 8
   %1063 = sext i32 %1062 to i64
   %1064 = icmp slt i64 %1059, %1063
-  br i1 %1064, label %945, label %.loopexit, !llvm.loop !19
+  br i1 %1064, label %945, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %1058, %936, %.loopexit32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1708,7 +1708,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly captures(address_
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %1, i32 noundef %24, i32 noundef %28, i32 noundef %32) #6
   %33 = add nuw nsw i64 %20, 1
   %34 = icmp eq i64 %33, 3
-  br i1 %34, label %.split3.us, label %.split.us, !llvm.loop !20
+  br i1 %34, label %.split3.us, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %8, %.split
   %35 = phi i64 [ %49, %.split ], [ 0, %8 ]
@@ -1728,7 +1728,7 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly captures(address_
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %1, i32 noundef %40, i32 noundef %44, i32 noundef %48) #6
   %49 = add nuw nsw i64 %35, 1
   %50 = icmp eq i64 %49, 3
-  br i1 %50, label %.split3.us.thread, label %.split, !llvm.loop !21
+  br i1 %50, label %.split3.us.thread, label %.split, !llvm.loop !17
 
 .split3.us:                                       ; preds = %.split.us
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2632
@@ -1807,10 +1807,6 @@ attributes #6 = { nounwind }
 !12 = !{i64 2160359700, i64 2160359509, i64 2160359561, i64 2160359607, i64 2160359635}
 !13 = !{i64 2160359774, i64 2160359803, i64 2160359849, i64 2160359907, i64 2160359961, i64 2160360015, i64 2160360070, i64 2160360101, i64 2160360409, i64 2160360415, i64 2160360462, i64 2160360485, i64 2160360511}
 !14 = !{i64 2160360996, i64 2160360807, i64 2160360857, i64 2160360903, i64 2160360931}
-!15 = distinct !{!15, !9, !10, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
 !17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10, !16}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10, !16}
-!21 = distinct !{!21, !9, !10}

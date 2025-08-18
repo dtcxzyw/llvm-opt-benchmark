@@ -178,16 +178,16 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %36, label %49, label %.critedge21
 
 .critedge21:                                      ; preds = %34
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !40
   %38 = tail call ptr @Abc_ObjName(ptr noundef nonnull %29) #7
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef %38) #7
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !40
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = tail call i32 @Cudd_DagSize(ptr noundef %42) #7
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef %43) #7
   tail call void @Abc_NodeBddReorder(ptr noundef %5, ptr noundef nonnull %29)
-  %45 = load ptr, ptr @stdout, align 8, !tbaa !41
+  %45 = load ptr, ptr @stdout, align 8, !tbaa !40
   %46 = load ptr, ptr %41, align 8, !tbaa !29
   %47 = tail call i32 @Cudd_DagSize(ptr noundef %46) #7
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.2, i32 noundef %47) #7
@@ -201,7 +201,7 @@ define void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %.val23 = load i32, ptr %51, align 4, !tbaa !35
   %52 = sext i32 %.val23 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph.split, label %.critedge, !llvm.loop !43
+  br i1 %53, label %.lr.ph.split, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %49, %21, %2
   tail call void @Extra_ReorderQuit(ptr noundef %5) #7
@@ -276,8 +276,6 @@ attributes #7 = { nounwind }
 !36 = !{!"Vec_Ptr_t_", !10, i64 0, !10, i64 4, !6, i64 8}
 !37 = !{!36, !6, i64 8}
 !38 = !{!6, !6, i64 0}
-!39 = distinct !{!39, !32, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!43 = distinct !{!43, !32}
+!39 = distinct !{!39, !32}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

@@ -426,7 +426,7 @@ sub_times.exit.us:                                ; preds = %.sub_times.exit.us_
   %.lobit = lshr i64 %72, 63
   %.sroa.0.2.us = add nsw i64 %72, %.lobit
   %.sroa.5.2.us = select i1 %73, i64 %74, i64 %storemerge.i.us
-  br label %php_network_set_limit_time.exit.split.us, !llvm.loop !39
+  br label %php_network_set_limit_time.exit.split.us
 
 php_network_set_limit_time.exit.split:            ; preds = %34
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -611,7 +611,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
   %24 = phi ptr [ %14, %.lr.ph ], [ %53, %51 ]
   %.03856 = phi i32 [ 0, %.lr.ph ], [ %.1, %51 ]
   %.03955 = phi ptr [ %13, %.lr.ph ], [ %52, %51 ]
-  %25 = load i16, ptr %24, align 2, !tbaa !41
+  %25 = load i16, ptr %24, align 2, !tbaa !39
   switch i16 %25, label %51 [
     i16 10, label %27
     i16 2, label %26
@@ -623,7 +623,7 @@ define dso_local i32 @php_network_bind_socket_to_local_addr(ptr noundef %0, i32 
 27:                                               ; preds = %23, %26
   %.037 = phi i32 [ 16, %26 ], [ 28, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  store i16 %rev.i52, ptr %28, align 2, !tbaa !43
+  store i16 %rev.i52, ptr %28, align 2, !tbaa !41
   %29 = zext nneg i16 %25 to i32
   %30 = call i32 @socket(i32 noundef %29, i32 noundef %2, i32 noundef 0) #19
   %31 = icmp eq i32 %30, -1
@@ -800,8 +800,8 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 31:                                               ; preds = %22
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %.044)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i, ptr %32, align 2, !tbaa !44
-  store i16 10, ptr %2, align 4, !tbaa !47
+  store i16 %rev.i, ptr %32, align 2, !tbaa !42
+  store i16 10, ptr %2, align 4, !tbaa !45
   store i32 28, ptr %3, align 4, !tbaa !14
   br label %zend_string_release_ex.exit
 
@@ -814,8 +814,8 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 37:                                               ; preds = %33
   %rev.i52 = tail call noundef i16 @llvm.bswap.i16(i16 %.044)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i52, ptr %38, align 2, !tbaa !48
-  store i16 2, ptr %2, align 4, !tbaa !51
+  store i16 %rev.i52, ptr %38, align 2, !tbaa !46
+  store i16 2, ptr %2, align 4, !tbaa !49
   store i32 16, ptr %3, align 4, !tbaa !14
   br label %zend_string_release_ex.exit
 
@@ -854,25 +854,25 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 55:                                               ; preds = %39
   %56 = load ptr, ptr %5, align 8, !tbaa !23
   %57 = load ptr, ptr %56, align 8, !tbaa !4
-  %58 = load i16, ptr %57, align 2, !tbaa !41
+  %58 = load i16, ptr %57, align 2, !tbaa !39
   switch i16 %58, label %.lr.ph.i.preheader [
     i16 10, label %59
     i16 2, label %60
   ]
 
 59:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %57, i64 28, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %57, i64 28, i1 false), !tbaa.struct !50
   br label %.preheader.i
 
 60:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !51
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %59, %60
   %storemerge = phi i32 [ 16, %60 ], [ 28, %59 ]
   %rev.i53 = call noundef i16 @llvm.bswap.i16(i16 %.044)
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i53, ptr %61, align 2, !tbaa !43
+  store i16 %rev.i53, ptr %61, align 2, !tbaa !41
   store i32 %storemerge, ptr %3, align 4, !tbaa !14
   %.pr = load ptr, ptr %56, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %.pr, null
@@ -938,7 +938,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 12:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %13 = load i16, ptr %0, align 2, !tbaa !41
+  %13 = load i16, ptr %0, align 2, !tbaa !39
   switch i16 %13, label %48 [
     i16 2, label %14
     i16 10, label %22
@@ -953,7 +953,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !48
+  %19 = load i16, ptr %18, align 2, !tbaa !46
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %19)
   %20 = zext i16 %rev.i to i32
   %21 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %16, i32 noundef %20) #19
@@ -967,7 +967,7 @@ define dso_local void @php_network_populate_name_from_sockaddr(ptr noundef %0, i
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !44
+  %27 = load i16, ptr %26, align 2, !tbaa !42
   %rev.i74 = call noundef i16 @llvm.bswap.i16(i16 %27)
   %28 = zext i16 %rev.i74 to i32
   %29 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %24, i32 noundef %28) #19
@@ -1265,7 +1265,7 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
   %47 = phi ptr [ %132, %.backedge ], [ %46, %php_network_set_limit_time.exit ]
   %.0609299 = phi ptr [ %131, %.backedge ], [ %36, %php_network_set_limit_time.exit ]
   %.0599398 = phi ptr [ %.05993.be, %.backedge ], [ %7, %php_network_set_limit_time.exit ]
-  %48 = load i16, ptr %47, align 2, !tbaa !41
+  %48 = load i16, ptr %47, align 2, !tbaa !39
   switch i16 %48, label %.backedge [
     i16 10, label %49
     i16 2, label %54
@@ -1282,12 +1282,12 @@ php_network_set_limit_time.exit:                  ; preds = %33, %22, %21
 
 52:                                               ; preds = %50, %49
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i88, ptr %53, align 2, !tbaa !44
+  store i16 %rev.i88, ptr %53, align 2, !tbaa !42
   br label %.tail.thread
 
 54:                                               ; preds = %.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 %rev.i88, ptr %55, align 2, !tbaa !48
+  store i16 %rev.i88, ptr %55, align 2, !tbaa !46
   %.not74 = icmp eq ptr %.0599398, null
   br i1 %.not74, label %.tail.thread, label %56
 
@@ -1325,7 +1325,7 @@ sub_0:                                            ; preds = %56
 67:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, i8 0, i64 28, i1 false)
-  %68 = load i16, ptr %47, align 2, !tbaa !41
+  %68 = load i16, ptr %47, align 2, !tbaa !39
   %69 = icmp eq i16 %68, 2
   br i1 %69, label %70, label %73
 
@@ -1341,7 +1341,7 @@ sub_0:                                            ; preds = %56
 
 76:                                               ; preds = %73, %70
   %.057 = phi i32 [ 16, %70 ], [ 28, %73 ]
-  %storemerge = load i16, ptr %47, align 2, !tbaa !41
+  %storemerge = load i16, ptr %47, align 2, !tbaa !39
   store i16 %storemerge, ptr %15, align 4, !tbaa !18
   store i16 %rev.i90, ptr %38, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1538,19 +1538,19 @@ define dso_local void @php_any_addr(i32 noundef %0, ptr noundef writeonly captur
   ]
 
 4:                                                ; preds = %3
-  store i16 10, ptr %1, align 4, !tbaa !47
+  store i16 10, ptr %1, align 4, !tbaa !45
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %rev.i, ptr %5, align 2, !tbaa !44
+  store i16 %rev.i, ptr %5, align 2, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false), !tbaa.struct !54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false), !tbaa.struct !52
   br label %9
 
 7:                                                ; preds = %3
-  store i16 2, ptr %1, align 4, !tbaa !51
+  store i16 2, ptr %1, align 4, !tbaa !49
   %rev.i11 = tail call noundef i16 @llvm.bswap.i16(i16 %2)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %rev.i11, ptr %8, align 2, !tbaa !48
+  store i16 %rev.i11, ptr %8, align 2, !tbaa !46
   br label %9
 
 9:                                                ; preds = %7, %4, %3
@@ -1559,7 +1559,7 @@ define dso_local void @php_any_addr(i32 noundef %0, ptr noundef writeonly captur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 111) i32 @php_sockaddr_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load i16, ptr %0, align 2, !tbaa !41
+  %2 = load i16, ptr %0, align 2, !tbaa !39
   switch i16 %2, label %5 [
     i16 2, label %6
     i16 10, label %3
@@ -1625,11 +1625,11 @@ define dso_local ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noun
   %8 = phi ptr [ %4, %3 ], [ %6, %5 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 1, ptr %9, align 4, !tbaa !55
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !57
+  store i8 1, ptr %9, align 4, !tbaa !53
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 24), align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !64
-  store i32 %0, ptr %8, align 8, !tbaa !65
+  store i64 %10, ptr %11, align 8, !tbaa !62
+  store i32 %0, ptr %8, align 8, !tbaa !63
   %12 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_generic_socket_ops, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull @.str.10) #19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -1647,9 +1647,9 @@ define dso_local ptr @_php_stream_sock_open_from_socket(i32 noundef %0, ptr noun
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 116
-  %19 = load i32, ptr %18, align 4, !tbaa !66
+  %19 = load i32, ptr %18, align 4, !tbaa !64
   %20 = or i32 %19, 16
-  store i32 %20, ptr %18, align 4, !tbaa !66
+  store i32 %20, ptr %18, align 4, !tbaa !64
   br label %21
 
 21:                                               ; preds = %15, %16, %17
@@ -1670,9 +1670,9 @@ define dso_local ptr @_php_stream_sock_open_host(ptr noundef %0, i16 noundef zer
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext i16 %1 to i32
   %8 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %7) #19
-  %9 = load ptr, ptr %6, align 8, !tbaa !76
+  %9 = load ptr, ptr %6, align 8, !tbaa !74
   %10 = call ptr @_php_stream_xport_create(ptr noundef %9, i64 noundef %8, i32 noundef 8, i32 noundef 2, ptr noundef %4, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #19
-  %11 = load ptr, ptr %6, align 8, !tbaa !76
+  %11 = load ptr, ptr %6, align 8, !tbaa !74
   call void @_efree(ptr noundef %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %10
@@ -1706,7 +1706,7 @@ define dso_local void @_php_emit_fd_setsize_warning(i32 noundef %0) local_unname
 define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !77
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !75
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -1718,9 +1718,9 @@ define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_ad
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
+  store i64 1024, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !76
   %7 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #21
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !74
   %8 = call i32 @gethostbyname_r(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), ptr noundef %7, i64 noundef 1024, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not1.i = icmp eq i32 %8, 0
   br i1 %.not1.i, label %.critedge13.i, label %.lr.ph.i
@@ -1735,19 +1735,19 @@ define dso_local ptr @php_network_gethostbyname(ptr noundef %0) local_unnamed_ad
   br i1 %12, label %13, label %gethostname_re.exit
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !76
   %15 = shl i64 %14, 1
-  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !76
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !74
   %17 = call ptr @realloc(ptr noundef %16, i64 noundef %15) #23
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !76
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !78
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 128), align 8, !tbaa !74
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 136), align 8, !tbaa !76
   %19 = call i32 @gethostbyname_r(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @file_globals, i64 96), ptr noundef %17, i64 noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #19
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %.critedge13.i, label %10
 
 .critedge13.i:                                    ; preds = %13, %6
-  %20 = load ptr, ptr %2, align 8, !tbaa !79
+  %20 = load ptr, ptr %2, align 8, !tbaa !77
   br label %gethostname_re.exit
 
 gethostname_re.exit:                              ; preds = %10, %.critedge13.i
@@ -1851,45 +1851,43 @@ attributes #23 = { nounwind allocsize(1) }
 !36 = !{!"short", !7, i64 0}
 !37 = !{!35, !36, i64 4}
 !38 = !{!35, !36, i64 6}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = !{!42, !36, i64 0}
-!42 = !{!"sockaddr", !36, i64 0, !7, i64 2}
-!43 = !{!36, !36, i64 0}
-!44 = !{!45, !36, i64 2}
-!45 = !{!"sockaddr_in6", !36, i64 0, !36, i64 2, !11, i64 4, !46, i64 8, !11, i64 24}
-!46 = !{!"in6_addr", !7, i64 0}
-!47 = !{!45, !36, i64 0}
-!48 = !{!49, !36, i64 2}
-!49 = !{!"sockaddr_in", !36, i64 0, !36, i64 2, !50, i64 4, !7, i64 8}
-!50 = !{!"in_addr", !11, i64 0}
-!51 = !{!49, !36, i64 0}
-!52 = !{i64 0, i64 2, !43, i64 2, i64 2, !43, i64 4, i64 4, !14, i64 8, i64 16, !18, i64 24, i64 4, !14}
-!53 = !{i64 0, i64 2, !43, i64 2, i64 2, !43, i64 4, i64 4, !14, i64 8, i64 8, !18}
-!54 = !{i64 0, i64 16, !18}
-!55 = !{!56, !7, i64 4}
-!56 = !{!"_php_netstream_data_t", !11, i64 0, !7, i64 4, !32, i64 8, !7, i64 24, !29, i64 32}
-!57 = !{!58, !29, i64 24}
-!58 = !{!"", !11, i64 0, !29, i64 8, !59, i64 16, !29, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !60, i64 56, !61, i64 64, !61, i64 72, !61, i64 80, !11, i64 88, !62, i64 96, !12, i64 128, !29, i64 136}
-!59 = !{!"_Bool", !7, i64 0}
-!60 = !{!"p1 _ZTS19_php_stream_context", !6, i64 0}
-!61 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
-!62 = !{!"hostent", !12, i64 0, !63, i64 8, !11, i64 16, !11, i64 20, !63, i64 24}
-!63 = !{!"p2 omnipotent char", !6, i64 0}
-!64 = !{!56, !29, i64 8}
-!65 = !{!56, !11, i64 0}
-!66 = !{!67, !11, i64 116}
-!67 = !{!"_php_stream", !68, i64 0, !6, i64 8, !69, i64 16, !69, i64 40, !72, i64 64, !6, i64 72, !73, i64 80, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 97, !7, i64 98, !11, i64 116, !74, i64 120, !75, i64 128, !12, i64 136, !74, i64 144, !29, i64 152, !12, i64 160, !29, i64 168, !29, i64 176, !29, i64 184, !29, i64 192, !71, i64 200}
-!68 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
-!69 = !{!"_php_stream_filter_chain", !70, i64 0, !70, i64 8, !71, i64 16}
-!70 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
-!71 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
-!72 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
-!73 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!74 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
-!75 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!76 = !{!12, !12, i64 0}
-!77 = !{!58, !12, i64 128}
-!78 = !{!29, !29, i64 0}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"p1 _ZTS7hostent", !6, i64 0}
+!39 = !{!40, !36, i64 0}
+!40 = !{!"sockaddr", !36, i64 0, !7, i64 2}
+!41 = !{!36, !36, i64 0}
+!42 = !{!43, !36, i64 2}
+!43 = !{!"sockaddr_in6", !36, i64 0, !36, i64 2, !11, i64 4, !44, i64 8, !11, i64 24}
+!44 = !{!"in6_addr", !7, i64 0}
+!45 = !{!43, !36, i64 0}
+!46 = !{!47, !36, i64 2}
+!47 = !{!"sockaddr_in", !36, i64 0, !36, i64 2, !48, i64 4, !7, i64 8}
+!48 = !{!"in_addr", !11, i64 0}
+!49 = !{!47, !36, i64 0}
+!50 = !{i64 0, i64 2, !41, i64 2, i64 2, !41, i64 4, i64 4, !14, i64 8, i64 16, !18, i64 24, i64 4, !14}
+!51 = !{i64 0, i64 2, !41, i64 2, i64 2, !41, i64 4, i64 4, !14, i64 8, i64 8, !18}
+!52 = !{i64 0, i64 16, !18}
+!53 = !{!54, !7, i64 4}
+!54 = !{!"_php_netstream_data_t", !11, i64 0, !7, i64 4, !32, i64 8, !7, i64 24, !29, i64 32}
+!55 = !{!56, !29, i64 24}
+!56 = !{!"", !11, i64 0, !29, i64 8, !57, i64 16, !29, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !58, i64 56, !59, i64 64, !59, i64 72, !59, i64 80, !11, i64 88, !60, i64 96, !12, i64 128, !29, i64 136}
+!57 = !{!"_Bool", !7, i64 0}
+!58 = !{!"p1 _ZTS19_php_stream_context", !6, i64 0}
+!59 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
+!60 = !{!"hostent", !12, i64 0, !61, i64 8, !11, i64 16, !11, i64 20, !61, i64 24}
+!61 = !{!"p2 omnipotent char", !6, i64 0}
+!62 = !{!54, !29, i64 8}
+!63 = !{!54, !11, i64 0}
+!64 = !{!65, !11, i64 116}
+!65 = !{!"_php_stream", !66, i64 0, !6, i64 8, !67, i64 16, !67, i64 40, !70, i64 64, !6, i64 72, !71, i64 80, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 96, !36, i64 97, !7, i64 98, !11, i64 116, !72, i64 120, !73, i64 128, !12, i64 136, !72, i64 144, !29, i64 152, !12, i64 160, !29, i64 168, !29, i64 176, !29, i64 184, !29, i64 192, !69, i64 200}
+!66 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
+!67 = !{!"_php_stream_filter_chain", !68, i64 0, !68, i64 8, !69, i64 16}
+!68 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
+!69 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
+!70 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
+!71 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!72 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
+!73 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!74 = !{!12, !12, i64 0}
+!75 = !{!56, !12, i64 128}
+!76 = !{!29, !29, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS7hostent", !6, i64 0}

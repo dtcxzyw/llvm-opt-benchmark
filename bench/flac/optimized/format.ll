@@ -757,7 +757,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 60:                                               ; preds = %50, %49
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !39
+  br i1 %exitcond133.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !38
 
 .split102:                                        ; preds = %20, %._crit_edge.split
   %.068101 = phi i32 [ %103, %._crit_edge.split ], [ 0, %20 ]
@@ -783,7 +783,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 .thread92:                                        ; preds = %65
   %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61
-  %69 = load i64, ptr %68, align 8, !tbaa !40
+  %69 = load i64, ptr %68, align 8, !tbaa !39
   %70 = urem i64 %69, 588
   %.not77 = icmp eq i64 %70, 0
   br i1 %.not77, label %73, label %.split108
@@ -835,7 +835,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 88:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
   %89 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv
-  %90 = load i64, ptr %89, align 8, !tbaa !41
+  %90 = load i64, ptr %89, align 8, !tbaa !40
   %91 = urem i64 %90, 588
   %.not78 = icmp eq i64 %91, 0
   br i1 %.not78, label %93, label %92
@@ -866,16 +866,16 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 102:                                              ; preds = %93, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %88, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge.split, label %88, !llvm.loop !38
 
 ._crit_edge.split:                                ; preds = %102, %85
   %103 = add nuw i32 %.068101, 1
   %exitcond128.not = icmp eq i32 %103, %17
-  br i1 %exitcond128.not, label %.loopexit, label %.split102, !llvm.loop !43
+  br i1 %exitcond128.not, label %.loopexit, label %.split102, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %.split.us, %92, %.split112.us, %.split110.us, %71, %.split106, %.split104.us, %27, %19, %11, %8
   %.str.53.sink = phi ptr [ @.str.42, %8 ], [ @.str.43, %11 ], [ @.str.44, %19 ], [ @.str.45, %27 ], [ @.str.46, %.split104.us ], [ @.str.47, %.split106 ], [ %.str.48..str.49, %71 ], [ @.str.50, %.split110.us ], [ @.str.51, %.split112.us ], [ @.str.52, %92 ], [ @.str.53, %.split.us ]
-  store ptr %.str.53.sink, ptr %2, align 8, !tbaa !44
+  store ptr %.str.53.sink, ptr %2, align 8, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.sink.split, %.split.us, %92, %.split112.us, %.split110.us, %.split108, %.split106, %.split104.us, %27, %19, %11, %8
@@ -886,7 +886,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load i8, ptr %4, align 1, !tbaa !22
   %.not30 = icmp eq i8 %5, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -895,7 +895,7 @@ define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %.01931, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !22
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %2, %6
   %9 = phi i8 [ %8, %6 ], [ %5, %2 ]
@@ -910,7 +910,7 @@ define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly c
 
 ._crit_edge:                                      ; preds = %6, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !49
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = load i8, ptr %13, align 1, !tbaa !22
   %.not2532 = icmp eq i8 %14, 0
   br i1 %.not2532, label %.thread, label %.lr.ph35
@@ -930,11 +930,11 @@ define range(i32 0, 2) i32 @FLAC__format_picture_is_legal(ptr noundef readonly c
   %19 = getelementptr inbounds nuw i8, ptr %.01733, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !22
   %.not25 = icmp eq i8 %20, 0
-  br i1 %.not25, label %.thread, label %.lr.ph35, !llvm.loop !50
+  br i1 %.not25, label %.thread, label %.lr.ph35, !llvm.loop !47
 
 .thread.sink.split:                               ; preds = %16, %11
   %.str.55.sink = phi ptr [ @.str.54, %11 ], [ @.str.55, %16 ]
-  store ptr %.str.55.sink, ptr %1, align 8, !tbaa !44
+  store ptr %.str.55.sink, ptr %1, align 8, !tbaa !41
   br label %.thread
 
 .thread:                                          ; preds = %17, %.thread.sink.split, %._crit_edge, %16, %11
@@ -955,7 +955,7 @@ define hidden range(i32 0, 16) i32 @FLAC__format_get_max_rice_partition_order_fr
   %4 = lshr exact i32 %.057, 1
   %5 = and i32 %.057, 2
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !51
+  br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !48
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %6 = tail call i32 @llvm.umin.i32(i32 %3, i32 15)
@@ -977,7 +977,7 @@ define hidden i32 @FLAC__format_get_max_rice_partition_order_from_blocksize_limi
   %.not7 = icmp ugt i32 %5, %2
   %or.cond = select i1 %.not, i1 true, i1 %.not7
   %6 = add i32 %.0, -1
-  br i1 %or.cond, label %.critedge, label %4, !llvm.loop !52
+  br i1 %or.cond, label %.critedge, label %4, !llvm.loop !49
 
 .critedge:                                        ; preds = %4
   ret i32 %.0
@@ -991,7 +991,7 @@ define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents_clear(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !50
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1001,7 +1001,7 @@ define hidden void @FLAC__format_entropy_coding_method_partitioned_rice_contents
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   %.not6 = icmp eq ptr %6, null
   br i1 %.not6, label %8, label %7
 
@@ -1020,16 +1020,16 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__format_entropy_coding_method_partitioned_rice_contents_ensure_size(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !54
   %5 = icmp ult i32 %4, %1
-  %.pre = load ptr, ptr %0, align 8, !tbaa !53
+  %.pre = load ptr, ptr %0, align 8, !tbaa !50
   %6 = icmp eq ptr %.pre, null
   %or.cond = select i1 %5, i1 true, i1 %6
   br i1 %or.cond, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %23
 
@@ -1043,26 +1043,26 @@ define hidden range(i32 0, 2) i32 @FLAC__format_entropy_coding_method_partitione
 
 safe_realloc_.exit.thread:                        ; preds = %11
   tail call void @free(ptr noundef %.pre) #16
-  store ptr null, ptr %0, align 8, !tbaa !53
+  store ptr null, ptr %0, align 8, !tbaa !50
   br label %23
 
 17:                                               ; preds = %11
-  store ptr %15, ptr %0, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !56
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef range(i64 -8589934592, 8589934589) %14) #17
   %21 = icmp eq ptr %20, null
   br i1 %21, label %safe_realloc_.exit15.thread, label %22
 
 safe_realloc_.exit15.thread:                      ; preds = %17
   tail call void @free(ptr noundef %19) #16
-  store ptr null, ptr %18, align 8, !tbaa !56
+  store ptr null, ptr %18, align 8, !tbaa !53
   br label %23
 
 22:                                               ; preds = %17
-  store ptr %20, ptr %18, align 8, !tbaa !56
+  store ptr %20, ptr %18, align 8, !tbaa !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 noundef 0, i64 noundef range(i64 -8589934592, 8589934589) %14, i1 noundef false) #16
-  store i32 %1, ptr %3, align 8, !tbaa !57
+  store i32 %1, ptr %3, align 8, !tbaa !54
   br label %23
 
 23:                                               ; preds = %safe_realloc_.exit15.thread, %safe_realloc_.exit.thread, %7, %22
@@ -1140,24 +1140,21 @@ attributes #17 = { nounwind allocsize(1) }
 !34 = !{!32, !8, i64 24}
 !35 = !{!36, !6, i64 8}
 !36 = !{!"", !12, i64 0, !6, i64 8}
-!37 = distinct !{!37, !14, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !14, !38}
-!40 = !{!32, !12, i64 0}
-!41 = !{!36, !12, i64 0}
-!42 = distinct !{!42, !14}
-!43 = distinct !{!43, !14}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 omnipotent char", !8, i64 0}
-!46 = !{!47, !45, i64 8}
-!47 = !{!"", !5, i64 0, !45, i64 8, !45, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !45, i64 48}
+!37 = distinct !{!37, !14}
+!38 = distinct !{!38, !14}
+!39 = !{!32, !12, i64 0}
+!40 = !{!36, !12, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 omnipotent char", !8, i64 0}
+!43 = !{!44, !42, i64 8}
+!44 = !{!"", !5, i64 0, !42, i64 8, !42, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !42, i64 48}
+!45 = distinct !{!45, !14}
+!46 = !{!44, !42, i64 16}
+!47 = distinct !{!47, !14}
 !48 = distinct !{!48, !14}
-!49 = !{!47, !45, i64 16}
-!50 = distinct !{!50, !14}
-!51 = distinct !{!51, !14}
-!52 = distinct !{!52, !14}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"", !55, i64 0, !55, i64 8, !5, i64 16}
-!55 = !{!"p1 int", !8, i64 0}
-!56 = !{!54, !55, i64 8}
-!57 = !{!54, !5, i64 16}
+!49 = distinct !{!49, !14}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"", !52, i64 0, !52, i64 8, !5, i64 16}
+!52 = !{!"p1 int", !8, i64 0}
+!53 = !{!51, !52, i64 8}
+!54 = !{!51, !5, i64 16}

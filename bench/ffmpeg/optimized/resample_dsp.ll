@@ -190,7 +190,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 2
   %76 = or disjoint i64 %indvars.iv.next159, 1
   %77 = icmp samesign ult i64 %76, %26
-  br i1 %77, label %60, label %._crit_edge.us, !llvm.loop !33
+  br i1 %77, label %60, label %._crit_edge.us, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %60
   %78 = trunc nuw nsw i64 %indvars.iv.next159 to i32
@@ -257,7 +257,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %.2.lcssa.us129 = phi i32 [ %.165105.us115, %.lr.ph107.split.split.us ], [ %105, %.lr.ph99.us130 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count164
-  br i1 %exitcond157.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !34
+  br i1 %exitcond157.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.06484 = phi i32 [ %107, %.lr.ph ], [ 0, %5 ]
@@ -265,7 +265,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %107 = add nuw nsw i32 %.06484, 1
   %108 = sub nsw i32 %.06883, %11
   %.not = icmp slt i32 %108, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !33
 
 .lr.ph107.split.split:                            ; preds = %.lr.ph107.split.split.preheader, %._crit_edge100
   %indvars.iv = phi i64 [ 0, %.lr.ph107.split.split.preheader ], [ %indvars.iv.next, %._crit_edge100 ]
@@ -295,7 +295,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %.2.lcssa = phi i32 [ %.165105, %.lr.ph107.split.split ], [ %113, %.lr.ph99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count164
-  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !31
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us131, %._crit_edge100.us, %.preheader
   %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us128, %._crit_edge100.us131 ], [ %.3.lcssa, %._crit_edge100 ]
@@ -378,14 +378,14 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %34 = add nsw i32 %.288.us, 1
   %35 = sub nsw i32 %.387.us, %11
   %.not74.us = icmp slt i32 %35, %11
-  br i1 %.not74.us, label %._crit_edge91.us, label %.lr.ph90.us, !llvm.loop !37
+  br i1 %.not74.us, label %._crit_edge91.us, label %.lr.ph90.us, !llvm.loop !34
 
 ._crit_edge91.us:                                 ; preds = %.lr.ph90.us, %._crit_edge.us
   %.3.lcssa.us = phi i32 [ %.266.us, %._crit_edge.us ], [ %35, %.lr.ph90.us ]
   %.2.lcssa.us = phi i32 [ %.196.us, %._crit_edge.us ], [ %34, %.lr.ph90.us ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge99, label %.lr.ph83.us, !llvm.loop !38
+  br i1 %exitcond123.not, label %._crit_edge99, label %.lr.ph83.us, !llvm.loop !35
 
 36:                                               ; preds = %.lr.ph83.us, %36
   %indvars.iv114 = phi i64 [ 0, %.lr.ph83.us ], [ %indvars.iv.next115, %36 ]
@@ -406,7 +406,7 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %47 = add nsw i32 %46, %.05881.us
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge.us, label %36, !llvm.loop !39
+  br i1 %exitcond118.not, label %._crit_edge.us, label %36, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %36
   %48 = sub nsw i32 %47, %43
@@ -438,7 +438,7 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %63 = add nuw nsw i32 %.06177, 1
   %64 = sub nsw i32 %.06476, %11
   %.not = icmp slt i32 %64, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !37
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98.split.preheader, %._crit_edge91
   %indvars.iv = phi i64 [ 0, %.lr.ph98.split.preheader ], [ %indvars.iv.next, %._crit_edge91 ]
@@ -461,14 +461,14 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %69 = add nsw i32 %.288, 1
   %70 = sub nsw i32 %.387, %11
   %.not74 = icmp slt i32 %70, %11
-  br i1 %.not74, label %._crit_edge91, label %.lr.ph90, !llvm.loop !37
+  br i1 %.not74, label %._crit_edge91, label %.lr.ph90, !llvm.loop !34
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %.lr.ph98.split
   %.3.lcssa = phi i32 [ %.266, %.lr.ph98.split ], [ %70, %.lr.ph90 ]
   %.2.lcssa = phi i32 [ %.196, %.lr.ph98.split ], [ %69, %.lr.ph90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %27
-  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !35
 
 ._crit_edge99:                                    ; preds = %._crit_edge91, %._crit_edge91.us, %.preheader
   %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge91.us ], [ %.3.lcssa, %._crit_edge91 ]
@@ -500,13 +500,13 @@ define internal void @resample_one_int32(ptr noundef writeonly captures(none) %0
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
   %8 = getelementptr inbounds i32, ptr %1, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !42
+  %9 = load i32, ptr %8, align 4, !tbaa !38
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  store i32 %9, ptr %10, align 4, !tbaa !42
+  store i32 %9, ptr %10, align 4, !tbaa !38
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -546,7 +546,7 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %20 = add nuw nsw i32 %.06484, 1
   %21 = sub nsw i32 %.06883, %11
   %.not = icmp slt i32 %21, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !40
 
 22:                                               ; preds = %.lr.ph106, %._crit_edge99
   %indvars.iv118 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next119, %._crit_edge99 ]
@@ -572,25 +572,25 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %.06187 = phi i64 [ 0, %.lr.ph89.preheader ], [ %45, %.lr.ph89 ]
   %.06286 = phi i64 [ 536870912, %.lr.ph89.preheader ], [ %37, %.lr.ph89 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %31 = load i32, ptr %gep, align 4, !tbaa !42
+  %31 = load i32, ptr %gep, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4, !tbaa !42
+  %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %32
   %37 = add nsw i64 %36, %.06286
   %38 = getelementptr i8, ptr %gep, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !42
+  %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !42
+  %42 = load i32, ptr %41, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
   %44 = mul nsw i64 %43, %40
   %45 = add nsw i64 %44, %.06187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %46 = or disjoint i64 %indvars.iv.next, 1
   %47 = icmp samesign ult i64 %46, %29
-  br i1 %47, label %.lr.ph89, label %._crit_edge.loopexit, !llvm.loop !45
+  br i1 %47, label %.lr.ph89, label %._crit_edge.loopexit, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph89
   %48 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -607,11 +607,11 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %51 = add nsw i32 %.0.lcssa, %.165104
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %2, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !42
+  %54 = load i32, ptr %53, align 4, !tbaa !38
   %55 = sext i32 %54 to i64
   %56 = zext nneg i32 %.0.lcssa to i64
   %57 = getelementptr inbounds nuw i32, ptr %26, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !42
+  %58 = load i32, ptr %57, align 4, !tbaa !38
   %59 = sext i32 %58 to i64
   %60 = mul nsw i64 %59, %55
   %61 = add nsw i64 %60, %.062.lcssa
@@ -625,7 +625,7 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 2147483647)
   %.0.i = trunc nsw i64 %66 to i32
   %67 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv118
-  store i32 %.0.i, ptr %67, align 4, !tbaa !42
+  store i32 %.0.i, ptr %67, align 4, !tbaa !38
   %68 = load i32, ptr %17, align 4, !tbaa !27
   %69 = add nsw i32 %68, %.066103
   %70 = load i32, ptr %18, align 8, !tbaa !28
@@ -646,14 +646,14 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %76 = add nsw i32 %.296, 1
   %77 = sub nsw i32 %.395, %75
   %.not80 = icmp slt i32 %77, %75
-  br i1 %.not80, label %._crit_edge99, label %.lr.ph98, !llvm.loop !46
+  br i1 %.not80, label %._crit_edge99, label %.lr.ph98, !llvm.loop !42
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %62
   %.3.lcssa = phi i32 [ %.270, %62 ], [ %77, %.lr.ph98 ]
   %.2.lcssa = phi i32 [ %.165104, %62 ], [ %76, %.lr.ph98 ]
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge107, label %22, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge107, label %22, !llvm.loop !43
 
 ._crit_edge107:                                   ; preds = %._crit_edge99, %.preheader
   %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa, %._crit_edge99 ]
@@ -705,7 +705,7 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %20 = add nuw nsw i32 %.06177, 1
   %21 = sub nsw i32 %.06476, %11
   %.not = icmp slt i32 %21, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !44
 
 22:                                               ; preds = %.lr.ph97, %._crit_edge90
   %indvars.iv108 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next109, %._crit_edge90 ]
@@ -733,21 +733,21 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %.05880 = phi i64 [ 536870912, %.lr.ph82.preheader ], [ %41, %.lr.ph82 ]
   %.05979 = phi i64 [ 536870912, %.lr.ph82.preheader ], [ %37, %.lr.ph82 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
-  %31 = load i32, ptr %gep, align 4, !tbaa !42
+  %31 = load i32, ptr %gep, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4, !tbaa !42
+  %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %32
   %37 = add nsw i64 %36, %.05979
   %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %indvars.iv
-  %38 = load i32, ptr %gep119, align 4, !tbaa !42
+  %38 = load i32, ptr %gep119, align 4, !tbaa !38
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %32
   %41 = add nsw i64 %40, %.05880
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %22
   %.059.lcssa = phi i64 [ 536870912, %22 ], [ %37, %.lr.ph82 ]
@@ -764,7 +764,7 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %51 = tail call i64 @llvm.smin.i64(i64 %50, i64 2147483647)
   %.0.i = trunc nsw i64 %51 to i32
   %52 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv108
-  store i32 %.0.i, ptr %52, align 4, !tbaa !42
+  store i32 %.0.i, ptr %52, align 4, !tbaa !38
   %53 = load i32, ptr %18, align 4, !tbaa !27
   %54 = add nsw i32 %53, %.06294
   %55 = load i32, ptr %19, align 8, !tbaa !28
@@ -785,14 +785,14 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %61 = add nsw i32 %.287, 1
   %62 = sub nsw i32 %.386, %60
   %.not74 = icmp slt i32 %62, %60
-  br i1 %.not74, label %._crit_edge90, label %.lr.ph89, !llvm.loop !50
+  br i1 %.not74, label %._crit_edge90, label %.lr.ph89, !llvm.loop !46
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge
   %.3.lcssa = phi i32 [ %.266, %._crit_edge ], [ %62, %.lr.ph89 ]
   %.2.lcssa = phi i32 [ %.195, %._crit_edge ], [ %61, %.lr.ph89 ]
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge98, label %22, !llvm.loop !51
+  br i1 %exitcond112.not, label %._crit_edge98, label %22, !llvm.loop !47
 
 ._crit_edge98:                                    ; preds = %._crit_edge90, %.preheader
   %.165.lcssa = phi i32 [ %.064.lcssa, %.preheader ], [ %.3.lcssa, %._crit_edge90 ]
@@ -824,13 +824,13 @@ define internal void @resample_one_float(ptr noundef writeonly captures(none) %0
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
   %8 = getelementptr inbounds float, ptr %1, i64 %7
-  %9 = load float, ptr %8, align 4, !tbaa !52
+  %9 = load float, ptr %8, align 4, !tbaa !48
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %9, ptr %10, align 4, !tbaa !52
+  store float %9, ptr %10, align 4, !tbaa !48
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -890,10 +890,10 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %32 = add nsw i32 %.165105.us, %61
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds float, ptr %2, i64 %33
-  %35 = load float, ptr %34, align 4, !tbaa !52
+  %35 = load float, ptr %34, align 4, !tbaa !48
   %36 = and i64 %indvars.iv.next157, 4294967294
   %37 = getelementptr inbounds nuw float, ptr %29, i64 %36
-  %38 = load float, ptr %37, align 4, !tbaa !52
+  %38 = load float, ptr %37, align 4, !tbaa !48
   %39 = tail call nsz float @llvm.fmuladd.f32(float %35, float %38, float %53)
   br label %40
 
@@ -901,7 +901,7 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %.1.us = phi nsz float [ %39, %31 ], [ %53, %._crit_edge.us ]
   %41 = fadd nsz float %58, %.1.us
   %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv159
-  store float %41, ptr %42, align 4, !tbaa !52
+  store float %41, ptr %42, align 4, !tbaa !48
   %43 = add nsw i32 %21, %.066104.us
   %44 = add nsw i32 %23, %.169103.us
   %.not79.us = icmp sge i32 %43, %25
@@ -918,33 +918,33 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %47 = add nsw i32 %.297.us, 1
   %48 = sub nsw i32 %.396.us, %11
   %.not80.us = icmp slt i32 %48, %11
-  br i1 %.not80.us, label %._crit_edge100.us, label %.lr.ph99.us, !llvm.loop !55
+  br i1 %.not80.us, label %._crit_edge100.us, label %.lr.ph99.us, !llvm.loop !51
 
 ._crit_edge100.us:                                ; preds = %.lr.ph99.us, %40
   %.3.lcssa.us = phi i32 [ %.270.us, %40 ], [ %48, %.lr.ph99.us ]
   %.2.lcssa.us = phi i32 [ %.165105.us, %40 ], [ %47, %.lr.ph99.us ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %._crit_edge108, label %.lr.ph90.us, !llvm.loop !56
+  br i1 %exitcond163.not, label %._crit_edge108, label %.lr.ph90.us, !llvm.loop !52
 
 49:                                               ; preds = %.lr.ph90.us, %49
   %indvars.iv156 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next157, %49 ]
   %.06188.us = phi float [ 0.000000e+00, %.lr.ph90.us ], [ %58, %49 ]
   %.06287.us = phi float [ 0.000000e+00, %.lr.ph90.us ], [ %53, %49 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv156
-  %50 = load float, ptr %gep, align 4, !tbaa !52
+  %50 = load float, ptr %gep, align 4, !tbaa !48
   %51 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv156
-  %52 = load float, ptr %51, align 4, !tbaa !52
+  %52 = load float, ptr %51, align 4, !tbaa !48
   %53 = tail call nsz float @llvm.fmuladd.f32(float %50, float %52, float %.06287.us)
   %54 = getelementptr i8, ptr %gep, i64 4
-  %55 = load float, ptr %54, align 4, !tbaa !52
+  %55 = load float, ptr %54, align 4, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %57 = load float, ptr %56, align 4, !tbaa !52
+  %57 = load float, ptr %56, align 4, !tbaa !48
   %58 = tail call nsz float @llvm.fmuladd.f32(float %55, float %57, float %.06188.us)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 2
   %59 = or disjoint i64 %indvars.iv.next157, 1
   %60 = icmp samesign ult i64 %59, %26
-  br i1 %60, label %49, label %._crit_edge.us, !llvm.loop !57
+  br i1 %60, label %49, label %._crit_edge.us, !llvm.loop !53
 
 ._crit_edge.us:                                   ; preds = %49
   %61 = trunc nuw nsw i64 %indvars.iv.next157 to i32
@@ -957,7 +957,7 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
 
 .lr.ph107.split.split.preheader:                  ; preds = %.lr.ph107.split
   %64 = shl nuw nsw i64 %wide.trip.count162, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %64, i1 false), !tbaa !52
+  tail call void @llvm.memset.p0.i64(ptr align 4 %1, i8 0, i64 %64, i1 false), !tbaa !48
   br label %.lr.ph107.split.split
 
 .lr.ph107.split.split.us:                         ; preds = %.lr.ph107.split, %._crit_edge100.us129
@@ -970,11 +970,11 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %67 = getelementptr inbounds float, ptr %14, i64 %66
   %68 = sext i32 %.165105.us115 to i64
   %69 = getelementptr inbounds float, ptr %2, i64 %68
-  %70 = load float, ptr %69, align 4, !tbaa !52
-  %71 = load float, ptr %67, align 4, !tbaa !52
+  %70 = load float, ptr %69, align 4, !tbaa !48
+  %71 = load float, ptr %67, align 4, !tbaa !48
   %72 = fmul nsz float %70, %71
   %73 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv151
-  store float %72, ptr %73, align 4, !tbaa !52
+  store float %72, ptr %73, align 4, !tbaa !48
   %74 = add nsw i32 %21, %.066104.us116
   %75 = add nsw i32 %23, %.169103.us117
   %.not79.us119 = icmp sge i32 %74, %25
@@ -991,14 +991,14 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %78 = add nsw i32 %.297.us123, 1
   %79 = sub nsw i32 %.396.us124, %11
   %.not80.us125 = icmp slt i32 %79, %11
-  br i1 %.not80.us125, label %._crit_edge100.us129, label %.lr.ph99.us128, !llvm.loop !55
+  br i1 %.not80.us125, label %._crit_edge100.us129, label %.lr.ph99.us128, !llvm.loop !51
 
 ._crit_edge100.us129:                             ; preds = %.lr.ph99.us128, %.lr.ph107.split.split.us
   %.3.lcssa.us126 = phi i32 [ %.270.us120, %.lr.ph107.split.split.us ], [ %79, %.lr.ph99.us128 ]
   %.2.lcssa.us127 = phi i32 [ %.165105.us115, %.lr.ph107.split.split.us ], [ %78, %.lr.ph99.us128 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count162
-  br i1 %exitcond155.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !58
+  br i1 %exitcond155.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.06484 = phi i32 [ %80, %.lr.ph ], [ 0, %5 ]
@@ -1006,7 +1006,7 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %80 = add nuw nsw i32 %.06484, 1
   %81 = sub nsw i32 %.06883, %11
   %.not = icmp slt i32 %81, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !54
 
 .lr.ph107.split.split:                            ; preds = %.lr.ph107.split.split.preheader, %._crit_edge100
   %indvars.iv = phi i64 [ 0, %.lr.ph107.split.split.preheader ], [ %indvars.iv.next, %._crit_edge100 ]
@@ -1029,14 +1029,14 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %86 = add nsw i32 %.297, 1
   %87 = sub nsw i32 %.396, %11
   %.not80 = icmp slt i32 %87, %11
-  br i1 %.not80, label %._crit_edge100, label %.lr.ph99, !llvm.loop !55
+  br i1 %.not80, label %._crit_edge100, label %.lr.ph99, !llvm.loop !51
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %.lr.ph107.split.split
   %.3.lcssa = phi i32 [ %.270, %.lr.ph107.split.split ], [ %87, %.lr.ph99 ]
   %.2.lcssa = phi i32 [ %.165105, %.lr.ph107.split.split ], [ %86, %.lr.ph99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count162
-  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !52
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us129, %._crit_edge100.us, %.preheader
   %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa, %._crit_edge100 ]
@@ -1114,30 +1114,30 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %33 = add nsw i32 %.26588.us, 1
   %34 = sub nsw i32 %.389.us, %15
   %.not75.us = icmp slt i32 %34, %15
-  br i1 %.not75.us, label %._crit_edge92.us, label %.lr.ph91.us, !llvm.loop !61
+  br i1 %.not75.us, label %._crit_edge92.us, label %.lr.ph91.us, !llvm.loop !55
 
 ._crit_edge92.us:                                 ; preds = %.lr.ph91.us, %._crit_edge.us
   %.265.lcssa.us = phi i32 [ %.16496.us, %._crit_edge.us ], [ %33, %.lr.ph91.us ]
   %.3.lcssa.us = phi i32 [ %.2.us, %._crit_edge.us ], [ %34, %.lr.ph91.us ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge100, label %.lr.ph84.us, !llvm.loop !62
+  br i1 %exitcond124.not, label %._crit_edge100, label %.lr.ph84.us, !llvm.loop !56
 
 35:                                               ; preds = %.lr.ph84.us, %35
   %indvars.iv115 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next116, %35 ]
   %.05982.us = phi float [ 0.000000e+00, %.lr.ph84.us ], [ %41, %35 ]
   %.06081.us = phi float [ 0.000000e+00, %.lr.ph84.us ], [ %39, %35 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv115
-  %36 = load float, ptr %gep, align 4, !tbaa !52
+  %36 = load float, ptr %gep, align 4, !tbaa !48
   %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv115
-  %38 = load float, ptr %37, align 4, !tbaa !52
+  %38 = load float, ptr %37, align 4, !tbaa !48
   %39 = tail call nsz float @llvm.fmuladd.f32(float %36, float %38, float %.06081.us)
   %gep134 = getelementptr float, ptr %invariant.gep133, i64 %indvars.iv115
-  %40 = load float, ptr %gep134, align 4, !tbaa !52
+  %40 = load float, ptr %gep134, align 4, !tbaa !48
   %41 = tail call nsz float @llvm.fmuladd.f32(float %36, float %40, float %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge.us, label %35, !llvm.loop !63
+  br i1 %exitcond119.not, label %._crit_edge.us, label %35, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %35
   %42 = fsub nsz float %41, %39
@@ -1148,7 +1148,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %47 = tail call nsz double @llvm.fmuladd.f64(double %44, double %45, double %46)
   %48 = fptrunc nsz double %47 to float
   %49 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv120
-  store float %48, ptr %49, align 4, !tbaa !52
+  store float %48, ptr %49, align 4, !tbaa !48
   %50 = add nsw i32 %25, %.06695.us
   %51 = add nsw i32 %27, %.197.us
   %.not74.us = icmp sge i32 %50, %11
@@ -1169,7 +1169,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %55 = add nuw nsw i32 %.06377, 1
   %56 = sub nsw i32 %.06278, %15
   %.not = icmp slt i32 %56, %15
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !58
 
 57:                                               ; preds = %.lr.ph99.split, %._crit_edge92
   %indvars.iv = phi i64 [ 0, %.lr.ph99.split ], [ %indvars.iv.next, %._crit_edge92 ]
@@ -1180,7 +1180,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %59 = fmul nsz double %54, %58
   %60 = fptrunc nsz double %59 to float
   %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %60, ptr %61, align 4, !tbaa !52
+  store float %60, ptr %61, align 4, !tbaa !48
   %62 = add nsw i32 %25, %.06695
   %63 = add nsw i32 %27, %.197
   %.not74 = icmp sge i32 %62, %11
@@ -1197,14 +1197,14 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %66 = add nsw i32 %.26588, 1
   %67 = sub nsw i32 %.389, %15
   %.not75 = icmp slt i32 %67, %15
-  br i1 %.not75, label %._crit_edge92, label %.lr.ph91, !llvm.loop !61
+  br i1 %.not75, label %._crit_edge92, label %.lr.ph91, !llvm.loop !55
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %57
   %.265.lcssa = phi i32 [ %.16496, %57 ], [ %66, %.lr.ph91 ]
   %.3.lcssa = phi i32 [ %.2, %57 ], [ %67, %.lr.ph91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count123
-  br i1 %exitcond.not, label %._crit_edge100, label %57, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge100, label %57, !llvm.loop !56
 
 ._crit_edge100:                                   ; preds = %._crit_edge92, %._crit_edge92.us, %.preheader
   %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us, %._crit_edge92.us ], [ %.167, %._crit_edge92 ]
@@ -1236,13 +1236,13 @@ define internal void @resample_one_double(ptr noundef writeonly captures(none) %
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
   %8 = getelementptr inbounds double, ptr %1, i64 %7
-  %9 = load double, ptr %8, align 8, !tbaa !66
+  %9 = load double, ptr %8, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  store double %9, ptr %10, align 8, !tbaa !66
+  store double %9, ptr %10, align 8, !tbaa !59
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -1302,10 +1302,10 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %32 = add nsw i32 %.165105.us, %61
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds double, ptr %2, i64 %33
-  %35 = load double, ptr %34, align 8, !tbaa !66
+  %35 = load double, ptr %34, align 8, !tbaa !59
   %36 = and i64 %indvars.iv.next157, 4294967294
   %37 = getelementptr inbounds nuw double, ptr %29, i64 %36
-  %38 = load double, ptr %37, align 8, !tbaa !66
+  %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = tail call nsz double @llvm.fmuladd.f64(double %35, double %38, double %53)
   br label %40
 
@@ -1313,7 +1313,7 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %.1.us = phi nsz double [ %39, %31 ], [ %53, %._crit_edge.us ]
   %41 = fadd nsz double %58, %.1.us
   %42 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv159
-  store double %41, ptr %42, align 8, !tbaa !66
+  store double %41, ptr %42, align 8, !tbaa !59
   %43 = add nsw i32 %21, %.066104.us
   %44 = add nsw i32 %23, %.169103.us
   %.not79.us = icmp sge i32 %43, %25
@@ -1330,33 +1330,33 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %47 = add nsw i32 %.297.us, 1
   %48 = sub nsw i32 %.396.us, %11
   %.not80.us = icmp slt i32 %48, %11
-  br i1 %.not80.us, label %._crit_edge100.us, label %.lr.ph99.us, !llvm.loop !68
+  br i1 %.not80.us, label %._crit_edge100.us, label %.lr.ph99.us, !llvm.loop !61
 
 ._crit_edge100.us:                                ; preds = %.lr.ph99.us, %40
   %.3.lcssa.us = phi i32 [ %.270.us, %40 ], [ %48, %.lr.ph99.us ]
   %.2.lcssa.us = phi i32 [ %.165105.us, %40 ], [ %47, %.lr.ph99.us ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %._crit_edge108, label %.lr.ph90.us, !llvm.loop !69
+  br i1 %exitcond163.not, label %._crit_edge108, label %.lr.ph90.us, !llvm.loop !62
 
 49:                                               ; preds = %.lr.ph90.us, %49
   %indvars.iv156 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next157, %49 ]
   %.06188.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %58, %49 ]
   %.06287.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %53, %49 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv156
-  %50 = load double, ptr %gep, align 8, !tbaa !66
+  %50 = load double, ptr %gep, align 8, !tbaa !59
   %51 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv156
-  %52 = load double, ptr %51, align 8, !tbaa !66
+  %52 = load double, ptr %51, align 8, !tbaa !59
   %53 = tail call nsz double @llvm.fmuladd.f64(double %50, double %52, double %.06287.us)
   %54 = getelementptr i8, ptr %gep, i64 8
-  %55 = load double, ptr %54, align 8, !tbaa !66
+  %55 = load double, ptr %54, align 8, !tbaa !59
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %57 = load double, ptr %56, align 8, !tbaa !66
+  %57 = load double, ptr %56, align 8, !tbaa !59
   %58 = tail call nsz double @llvm.fmuladd.f64(double %55, double %57, double %.06188.us)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 2
   %59 = or disjoint i64 %indvars.iv.next157, 1
   %60 = icmp samesign ult i64 %59, %26
-  br i1 %60, label %49, label %._crit_edge.us, !llvm.loop !70
+  br i1 %60, label %49, label %._crit_edge.us, !llvm.loop !63
 
 ._crit_edge.us:                                   ; preds = %49
   %61 = trunc nuw nsw i64 %indvars.iv.next157 to i32
@@ -1369,7 +1369,7 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
 
 .lr.ph107.split.split.preheader:                  ; preds = %.lr.ph107.split
   %64 = shl nuw nsw i64 %wide.trip.count162, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %64, i1 false), !tbaa !66
+  tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %64, i1 false), !tbaa !59
   br label %.lr.ph107.split.split
 
 .lr.ph107.split.split.us:                         ; preds = %.lr.ph107.split, %._crit_edge100.us129
@@ -1382,11 +1382,11 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %67 = getelementptr inbounds double, ptr %14, i64 %66
   %68 = sext i32 %.165105.us115 to i64
   %69 = getelementptr inbounds double, ptr %2, i64 %68
-  %70 = load double, ptr %69, align 8, !tbaa !66
-  %71 = load double, ptr %67, align 8, !tbaa !66
+  %70 = load double, ptr %69, align 8, !tbaa !59
+  %71 = load double, ptr %67, align 8, !tbaa !59
   %72 = fmul nsz double %70, %71
   %73 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv151
-  store double %72, ptr %73, align 8, !tbaa !66
+  store double %72, ptr %73, align 8, !tbaa !59
   %74 = add nsw i32 %21, %.066104.us116
   %75 = add nsw i32 %23, %.169103.us117
   %.not79.us119 = icmp sge i32 %74, %25
@@ -1403,14 +1403,14 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %78 = add nsw i32 %.297.us123, 1
   %79 = sub nsw i32 %.396.us124, %11
   %.not80.us125 = icmp slt i32 %79, %11
-  br i1 %.not80.us125, label %._crit_edge100.us129, label %.lr.ph99.us128, !llvm.loop !68
+  br i1 %.not80.us125, label %._crit_edge100.us129, label %.lr.ph99.us128, !llvm.loop !61
 
 ._crit_edge100.us129:                             ; preds = %.lr.ph99.us128, %.lr.ph107.split.split.us
   %.3.lcssa.us126 = phi i32 [ %.270.us120, %.lr.ph107.split.split.us ], [ %79, %.lr.ph99.us128 ]
   %.2.lcssa.us127 = phi i32 [ %.165105.us115, %.lr.ph107.split.split.us ], [ %78, %.lr.ph99.us128 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count162
-  br i1 %exitcond155.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !71
+  br i1 %exitcond155.not, label %._crit_edge108, label %.lr.ph107.split.split.us, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.06484 = phi i32 [ %80, %.lr.ph ], [ 0, %5 ]
@@ -1418,7 +1418,7 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %80 = add nuw nsw i32 %.06484, 1
   %81 = sub nsw i32 %.06883, %11
   %.not = icmp slt i32 %81, %11
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !72
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !64
 
 .lr.ph107.split.split:                            ; preds = %.lr.ph107.split.split.preheader, %._crit_edge100
   %indvars.iv = phi i64 [ 0, %.lr.ph107.split.split.preheader ], [ %indvars.iv.next, %._crit_edge100 ]
@@ -1441,14 +1441,14 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %86 = add nsw i32 %.297, 1
   %87 = sub nsw i32 %.396, %11
   %.not80 = icmp slt i32 %87, %11
-  br i1 %.not80, label %._crit_edge100, label %.lr.ph99, !llvm.loop !68
+  br i1 %.not80, label %._crit_edge100, label %.lr.ph99, !llvm.loop !61
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %.lr.ph107.split.split
   %.3.lcssa = phi i32 [ %.270, %.lr.ph107.split.split ], [ %87, %.lr.ph99 ]
   %.2.lcssa = phi i32 [ %.165105, %.lr.ph107.split.split ], [ %86, %.lr.ph99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count162
-  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge108, label %.lr.ph107.split.split, !llvm.loop !62
 
 ._crit_edge108:                                   ; preds = %._crit_edge100, %._crit_edge100.us129, %._crit_edge100.us, %.preheader
   %.169.lcssa = phi i32 [ %.068.lcssa, %.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ], [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.3.lcssa, %._crit_edge100 ]
@@ -1526,30 +1526,30 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %33 = add nsw i32 %.26588.us, 1
   %34 = sub nsw i32 %.389.us, %15
   %.not75.us = icmp slt i32 %34, %15
-  br i1 %.not75.us, label %._crit_edge92.us, label %.lr.ph91.us, !llvm.loop !74
+  br i1 %.not75.us, label %._crit_edge92.us, label %.lr.ph91.us, !llvm.loop !65
 
 ._crit_edge92.us:                                 ; preds = %.lr.ph91.us, %._crit_edge.us
   %.265.lcssa.us = phi i32 [ %.16496.us, %._crit_edge.us ], [ %33, %.lr.ph91.us ]
   %.3.lcssa.us = phi i32 [ %.2.us, %._crit_edge.us ], [ %34, %.lr.ph91.us ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge100, label %.lr.ph84.us, !llvm.loop !75
+  br i1 %exitcond124.not, label %._crit_edge100, label %.lr.ph84.us, !llvm.loop !66
 
 35:                                               ; preds = %.lr.ph84.us, %35
   %indvars.iv115 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next116, %35 ]
   %.05982.us = phi double [ 0.000000e+00, %.lr.ph84.us ], [ %41, %35 ]
   %.06081.us = phi double [ 0.000000e+00, %.lr.ph84.us ], [ %39, %35 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv115
-  %36 = load double, ptr %gep, align 8, !tbaa !66
+  %36 = load double, ptr %gep, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv115
-  %38 = load double, ptr %37, align 8, !tbaa !66
+  %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = tail call nsz double @llvm.fmuladd.f64(double %36, double %38, double %.06081.us)
   %gep134 = getelementptr double, ptr %invariant.gep133, i64 %indvars.iv115
-  %40 = load double, ptr %gep134, align 8, !tbaa !66
+  %40 = load double, ptr %gep134, align 8, !tbaa !59
   %41 = tail call nsz double @llvm.fmuladd.f64(double %36, double %40, double %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %._crit_edge.us, label %35, !llvm.loop !76
+  br i1 %exitcond119.not, label %._crit_edge.us, label %35, !llvm.loop !67
 
 ._crit_edge.us:                                   ; preds = %35
   %42 = fsub nsz double %41, %39
@@ -1557,7 +1557,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %44 = sitofp i32 %.06695.us to double
   %45 = tail call nsz double @llvm.fmuladd.f64(double %43, double %44, double %39)
   %46 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv120
-  store double %45, ptr %46, align 8, !tbaa !66
+  store double %45, ptr %46, align 8, !tbaa !59
   %47 = add nsw i32 %25, %.06695.us
   %48 = add nsw i32 %27, %.197.us
   %.not74.us = icmp sge i32 %47, %11
@@ -1578,7 +1578,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %52 = add nuw nsw i32 %.06377, 1
   %53 = sub nsw i32 %.06278, %15
   %.not = icmp slt i32 %53, %15
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !77
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !68
 
 54:                                               ; preds = %.lr.ph99.split, %._crit_edge92
   %indvars.iv = phi i64 [ 0, %.lr.ph99.split ], [ %indvars.iv.next, %._crit_edge92 ]
@@ -1588,7 +1588,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %55 = sitofp i32 %.06695 to double
   %56 = fmul nsz double %51, %55
   %57 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %56, ptr %57, align 8, !tbaa !66
+  store double %56, ptr %57, align 8, !tbaa !59
   %58 = add nsw i32 %25, %.06695
   %59 = add nsw i32 %27, %.197
   %.not74 = icmp sge i32 %58, %11
@@ -1605,14 +1605,14 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %62 = add nsw i32 %.26588, 1
   %63 = sub nsw i32 %.389, %15
   %.not75 = icmp slt i32 %63, %15
-  br i1 %.not75, label %._crit_edge92, label %.lr.ph91, !llvm.loop !74
+  br i1 %.not75, label %._crit_edge92, label %.lr.ph91, !llvm.loop !65
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %54
   %.265.lcssa = phi i32 [ %.16496, %54 ], [ %62, %.lr.ph91 ]
   %.3.lcssa = phi i32 [ %.2, %54 ], [ %63, %.lr.ph91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count123
-  br i1 %exitcond.not, label %._crit_edge100, label %54, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge100, label %54, !llvm.loop !66
 
 ._crit_edge100:                                   ; preds = %._crit_edge92, %._crit_edge92.us, %.preheader
   %.066.lcssa = phi i32 [ %9, %.preheader ], [ %.167.us, %._crit_edge92.us ], [ %.167, %._crit_edge92 ]
@@ -1691,51 +1691,41 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !28 = !{!5, !11, i64 32}
 !29 = !{!5, !11, i64 48}
 !30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}
 !33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20, !32}
+!34 = distinct !{!34, !20}
 !35 = distinct !{!35, !20}
 !36 = distinct !{!36, !20}
 !37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20, !32}
+!38 = !{!11, !11, i64 0}
 !39 = distinct !{!39, !20}
 !40 = distinct !{!40, !20}
 !41 = distinct !{!41, !20}
-!42 = !{!11, !11, i64 0}
+!42 = distinct !{!42, !20}
 !43 = distinct !{!43, !20}
 !44 = distinct !{!44, !20}
 !45 = distinct !{!45, !20}
 !46 = distinct !{!46, !20}
 !47 = distinct !{!47, !20}
-!48 = distinct !{!48, !20}
-!49 = distinct !{!49, !20}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"float", !8, i64 0}
 !50 = distinct !{!50, !20}
 !51 = distinct !{!51, !20}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"float", !8, i64 0}
+!52 = distinct !{!52, !20}
+!53 = distinct !{!53, !20}
 !54 = distinct !{!54, !20}
 !55 = distinct !{!55, !20}
-!56 = distinct !{!56, !20, !32}
+!56 = distinct !{!56, !20}
 !57 = distinct !{!57, !20}
-!58 = distinct !{!58, !20, !32}
-!59 = distinct !{!59, !20}
+!58 = distinct !{!58, !20}
+!59 = !{!12, !12, i64 0}
 !60 = distinct !{!60, !20}
 !61 = distinct !{!61, !20}
-!62 = distinct !{!62, !20, !32}
+!62 = distinct !{!62, !20}
 !63 = distinct !{!63, !20}
 !64 = distinct !{!64, !20}
 !65 = distinct !{!65, !20}
-!66 = !{!12, !12, i64 0}
+!66 = distinct !{!66, !20}
 !67 = distinct !{!67, !20}
 !68 = distinct !{!68, !20}
-!69 = distinct !{!69, !20, !32}
-!70 = distinct !{!70, !20}
-!71 = distinct !{!71, !20, !32}
-!72 = distinct !{!72, !20}
-!73 = distinct !{!73, !20}
-!74 = distinct !{!74, !20}
-!75 = distinct !{!75, !20, !32}
-!76 = distinct !{!76, !20}
-!77 = distinct !{!77, !20}
-!78 = distinct !{!78, !20}

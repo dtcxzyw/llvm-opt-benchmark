@@ -1415,7 +1415,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %531 = add i32 %.11.i, 2
   %532 = add nuw nsw i32 %.0872.i, 1
   %exitcond.not.i = icmp eq i32 %.0872.i, %511
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.split.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.split.i, !llvm.loop !12
 
 533:                                              ; preds = %496
   %534 = load i32, ptr @hf_ack_type_reserved, align 4
@@ -1426,7 +1426,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %533
   %.2.i = phi i32 [ %536, %533 ], [ %527, %.split.us.i ], [ %531, %.split.i ]
   %.not93.i = icmp sgt i16 %500, -1
-  br i1 %.not93.i, label %496, label %537, !llvm.loop !15
+  br i1 %.not93.i, label %496, label %537, !llvm.loop !13
 
 537:                                              ; preds = %.loopexit.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.315, i32 noundef %.2.i)
@@ -1517,7 +1517,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %585 = sub i32 %.8, %584
   %586 = add i32 %584, %.6
   %587 = icmp sgt i32 %585, 0
-  br i1 %587, label %316, label %.loopexit493, !llvm.loop !16
+  br i1 %587, label %316, label %.loopexit493, !llvm.loop !14
 
 .loopexit493:                                     ; preds = %.thread, %298, %69
   br i1 %32, label %588, label %604
@@ -1574,7 +1574,7 @@ define internal void @wimax_defragment_init() #0 {
   store i32 1, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %3, label %1, !llvm.loop !17
+  br i1 %exitcond.not, label %3, label %1, !llvm.loop !15
 
 3:                                                ; preds = %1
   store i32 0, ptr @cid_adj_array_size, align 4
@@ -1721,9 +1721,7 @@ attributes #4 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = !{i8 0, i8 2}
 !11 = !{}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

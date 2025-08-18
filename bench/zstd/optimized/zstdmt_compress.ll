@@ -1880,22 +1880,22 @@ ZSTDMT_getInputDataInUse.exit.i:                  ; preds = %38, %.thread.i.i, %
 
 64:                                               ; preds = %ZSTDMT_getInputDataInUse.exit.i
   %65 = load ptr, ptr %57, align 8, !tbaa !48
-  %.fr52.i.i = freeze ptr %65
+  %.fr53.i.i = freeze ptr %65
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %67 = load i64, ptr %66, align 8, !tbaa !111
   %.fr.i.i = freeze i64 %67
   %68 = icmp eq ptr %.sroa.0.0.i.i, null
-  %69 = icmp eq ptr %.fr52.i.i, null
+  %69 = icmp eq ptr %.fr53.i.i, null
   %or.cond.i.i = or i1 %68, %69
   br i1 %or.cond.i.i, label %ZSTDMT_isOverlapped.exit.thread.i, label %ZSTDMT_isOverlapped.exit.i
 
 ZSTDMT_isOverlapped.exit.i:                       ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %.fr52.i.i, i64 %.fr.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.fr53.i.i, i64 %.fr.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i
   %72 = icmp samesign eq i64 %.fr.i.i, 0
   %73 = icmp samesign eq i64 %.sroa.5.0.i.i, 0
   %or.cond19.not.i.not76.i = select i1 %72, i1 true, i1 %73
-  %74 = icmp uge ptr %.fr52.i.i, %71
+  %74 = icmp uge ptr %.fr53.i.i, %71
   %75 = icmp uge ptr %.sroa.0.0.i.i, %70
   %.not73.i = select i1 %or.cond19.not.i.not76.i, i1 true, i1 %74
   %narrow.i.not.i = select i1 %.not73.i, i1 true, i1 %75
@@ -1916,7 +1916,7 @@ ZSTDMT_isOverlapped.exit.thread.i:                ; preds = %ZSTDMT_isOverlapped
   %.sroa.5.0..sroa_idx.i36.i = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2984
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2988
-  %84 = getelementptr inbounds nuw i8, ptr %.fr52.i.i, i64 %.fr.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %.fr53.i.i, i64 %.fr.i.i
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %86 = icmp eq i64 %.fr.i.i, 0
   %or.cond.i37.i = or i1 %69, %86
@@ -1938,7 +1938,7 @@ ZSTDMT_isOverlapped.exit.i.i.i:                   ; preds = %.split.split.split.
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %91
   %93 = icmp eq i32 %.sroa.6.0.copyload.i.i, %.sroa.7.0.copyload.i.i
-  %94 = icmp uge ptr %.fr52.i.i, %92
+  %94 = icmp uge ptr %.fr53.i.i, %92
   %95 = icmp uge ptr %89, %84
   %.not16.i.i.i = select i1 %93, i1 true, i1 %94
   %narrow.i.not.i.i.i = select i1 %.not16.i.i.i, i1 true, i1 %95
@@ -1952,7 +1952,7 @@ ZSTDMT_doesOverlapWindow.exit.i.i:                ; preds = %ZSTDMT_isOverlapped
   %97 = zext i32 %.sroa.6.0.copyload.i.i to i64
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i.i, i64 %97
   %99 = icmp eq ptr %.sroa.0.0.copyload.i.i, %98
-  %100 = icmp uge ptr %.fr52.i.i, %.sroa.0.0.copyload.i.i
+  %100 = icmp uge ptr %.fr53.i.i, %.sroa.0.0.copyload.i.i
   %101 = icmp uge ptr %98, %84
   %.not12.i.i = or i1 %100, %99
   %narrow.i8.i.not.i.i = select i1 %.not12.i.i, i1 true, i1 %101
@@ -1968,8 +1968,8 @@ ZSTDMT_doesOverlapWindow.exit.thread.i.i:         ; preds = %ZSTDMT_doesOverlapW
 
 ZSTDMT_waitForLdmComplete.exit.i:                 ; preds = %ZSTDMT_doesOverlapWindow.exit.thread.i.i, %ZSTDMT_isOverlapped.exit.thread.i
   %104 = load ptr, ptr %76, align 8, !tbaa !110
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.fr52.i.i, ptr align 1 %104, i64 %.fr.i.i, i1 false)
-  store ptr %.fr52.i.i, ptr %76, align 8, !tbaa !110
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.fr53.i.i, ptr align 1 %104, i64 %.fr.i.i, i1 false)
+  store ptr %.fr53.i.i, ptr %76, align 8, !tbaa !110
   store i64 %.fr.i.i, ptr %59, align 8, !tbaa !109
   br label %105
 
@@ -1977,19 +1977,19 @@ ZSTDMT_waitForLdmComplete.exit.i:                 ; preds = %ZSTDMT_doesOverlapW
   %106 = phi i64 [ %.fr.i.i, %ZSTDMT_waitForLdmComplete.exit.i ], [ %60, %ZSTDMT_getInputDataInUse.exit.i ]
   %107 = load ptr, ptr %57, align 8, !tbaa !48
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %106
-  %.fr52.i44.i = freeze ptr %108
+  %.fr53.i44.i = freeze ptr %108
   %109 = icmp eq ptr %.sroa.0.0.i.i, null
   %110 = icmp eq ptr %107, null
   %or.cond.i38.i = select i1 %109, i1 true, i1 %110
   br i1 %or.cond.i38.i, label %ZSTDMT_isOverlapped.exit43.thread.i, label %ZSTDMT_isOverlapped.exit43.i
 
 ZSTDMT_isOverlapped.exit43.i:                     ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %.fr52.i44.i, i64 %.fr.i45.i
+  %111 = getelementptr inbounds nuw i8, ptr %.fr53.i44.i, i64 %.fr.i45.i
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.sroa.5.0.i.i
   %113 = icmp samesign eq i64 %.fr.i45.i, 0
   %114 = icmp samesign eq i64 %.sroa.5.0.i.i, 0
   %or.cond19.not.i39.not81.i = select i1 %113, i1 true, i1 %114
-  %115 = icmp uge ptr %.fr52.i44.i, %112
+  %115 = icmp uge ptr %.fr53.i44.i, %112
   %116 = icmp uge ptr %.sroa.0.0.i.i, %111
   %.not79.i = select i1 %or.cond19.not.i39.not81.i, i1 true, i1 %115
   %narrow.i40.not.i = select i1 %.not79.i, i1 true, i1 %116
@@ -2008,9 +2008,9 @@ ZSTDMT_isOverlapped.exit43.thread.i:              ; preds = %ZSTDMT_isOverlapped
   %.sroa.4.0..sroa_idx.i46.i = getelementptr inbounds nuw i8, ptr %0, i64 2968
   %.sroa.5.0..sroa_idx.i47.i = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %.sroa.6.0..sroa_idx.i48.i = getelementptr inbounds nuw i8, ptr %0, i64 2984
-  %124 = icmp eq ptr %.fr52.i44.i, null
+  %124 = icmp eq ptr %.fr53.i44.i, null
   %.sroa.7.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %0, i64 2988
-  %125 = getelementptr inbounds nuw i8, ptr %.fr52.i44.i, i64 %.fr.i45.i
+  %125 = getelementptr inbounds nuw i8, ptr %.fr53.i44.i, i64 %.fr.i45.i
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %127 = icmp eq i64 %.fr.i45.i, 0
   %or.cond.i50.i = or i1 %127, %124
@@ -2032,7 +2032,7 @@ ZSTDMT_isOverlapped.exit.i.i56.i:                 ; preds = %.split.split.split.
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 %132
   %134 = icmp eq i32 %.sroa.6.0.copyload.i55.i, %.sroa.7.0.copyload.i57.i
-  %135 = icmp uge ptr %.fr52.i44.i, %133
+  %135 = icmp uge ptr %.fr53.i44.i, %133
   %136 = icmp uge ptr %130, %125
   %.not16.i.i58.i = select i1 %134, i1 true, i1 %135
   %narrow.i.not.i.i59.i = select i1 %.not16.i.i58.i, i1 true, i1 %136
@@ -2046,7 +2046,7 @@ ZSTDMT_doesOverlapWindow.exit.i62.i:              ; preds = %ZSTDMT_isOverlapped
   %138 = zext i32 %.sroa.6.0.copyload.i55.i to i64
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i53.i, i64 %138
   %140 = icmp eq ptr %.sroa.0.0.copyload.i52.i, %139
-  %141 = icmp uge ptr %.fr52.i44.i, %.sroa.0.0.copyload.i52.i
+  %141 = icmp uge ptr %.fr53.i44.i, %.sroa.0.0.copyload.i52.i
   %142 = icmp uge ptr %139, %125
   %.not12.i63.i = or i1 %141, %140
   %narrow.i8.i.not.i64.i = select i1 %.not12.i63.i, i1 true, i1 %142
@@ -2061,7 +2061,7 @@ ZSTDMT_doesOverlapWindow.exit.thread.i65.i:       ; preds = %ZSTDMT_doesOverlapW
   br label %ZSTDMT_waitForLdmComplete.exit66.i
 
 ZSTDMT_waitForLdmComplete.exit66.i:               ; preds = %ZSTDMT_doesOverlapWindow.exit.thread.i65.i, %ZSTDMT_isOverlapped.exit43.thread.i
-  store ptr %.fr52.i44.i, ptr %19, align 8, !tbaa !12
+  store ptr %.fr53.i44.i, ptr %19, align 8, !tbaa !12
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 %.fr.i45.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !55
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2073,7 +2073,7 @@ ZSTDMT_tryGetInputRange.exitthread-pre-split:     ; preds = %ZSTDMT_isOverlapped
   br label %ZSTDMT_tryGetInputRange.exit
 
 ZSTDMT_tryGetInputRange.exit:                     ; preds = %ZSTDMT_tryGetInputRange.exitthread-pre-split, %ZSTDMT_waitForLdmComplete.exit66.i
-  %146 = phi ptr [ %.pr, %ZSTDMT_tryGetInputRange.exitthread-pre-split ], [ %.fr52.i44.i, %ZSTDMT_waitForLdmComplete.exit66.i ]
+  %146 = phi ptr [ %.pr, %ZSTDMT_tryGetInputRange.exitthread-pre-split ], [ %.fr53.i44.i, %ZSTDMT_waitForLdmComplete.exit66.i ]
   %.not59 = icmp eq ptr %146, null
   br i1 %.not59, label %239, label %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge
 

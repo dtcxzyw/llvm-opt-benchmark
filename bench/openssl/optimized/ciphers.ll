@@ -207,19 +207,19 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   %43 = tail call ptr @app_get0_propq() #4
   %44 = tail call ptr @SSL_CTX_new_ex(ptr noundef %42, ptr noundef %43, ptr noundef %4) #4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %142, label %46
+  br i1 %45, label %149, label %46
 
 46:                                               ; preds = %41
   %47 = zext nneg i32 %.082 to i64
   %48 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %44, i32 noundef 123, i64 noundef %47, ptr noundef null) #4
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %142, label %50
+  br i1 %49, label %149, label %50
 
 50:                                               ; preds = %46
   %51 = zext nneg i32 %.080 to i64
   %52 = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %44, i32 noundef 124, i64 noundef %51, ptr noundef null) #4
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %142, label %54
+  br i1 %53, label %149, label %54
 
 54:                                               ; preds = %50
   %.not106 = icmp eq i32 %.093, 0
@@ -258,7 +258,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
 64:                                               ; preds = %62, %61
   %65 = tail call ptr @SSL_new(ptr noundef nonnull %44) #4
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %142, label %67
+  br i1 %66, label %149, label %67
 
 67:                                               ; preds = %64
   %.not112 = icmp eq i32 %.084, 0
@@ -287,151 +287,166 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   %.not118 = icmp eq i32 %.090, 0
   br i1 %.not117, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %86
-  %.174159.us = phi i32 [ %87, %86 ], [ 0, %.lr.ph ]
-  %75 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159.us) #4
-  %.not116.us = icmp eq ptr %75, null
-  br i1 %.not116.us, label %86, label %76, !prof !13
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not118, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-76:                                               ; preds = %.lr.ph.split.us
-  br i1 %.not118, label %82, label %77
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %80
+  %.174159.us.us = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.us ]
+  %75 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159.us.us) #4
+  %.not116.us.us = icmp eq ptr %75, null
+  br i1 %.not116.us.us, label %80, label %76, !prof !13
 
-77:                                               ; preds = %76
-  %78 = call ptr @SSL_CIPHER_standard_name(ptr noundef nonnull %75) #4
-  %79 = icmp eq ptr %78, null
-  %spec.store.select.us = select i1 %79, ptr @.str.51, ptr %78
-  %80 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %81 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select.us) #4
-  br label %82
+76:                                               ; preds = %.lr.ph.split.us.split.us
+  %77 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %78 = call ptr @SSL_CIPHER_description(ptr noundef nonnull %75, ptr noundef nonnull %3, i32 noundef 512) #4
+  %79 = call i32 @BIO_puts(ptr noundef %77, ptr noundef %78) #4
+  br label %80
 
-82:                                               ; preds = %77, %76
-  %83 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %84 = call ptr @SSL_CIPHER_description(ptr noundef nonnull %75, ptr noundef nonnull %3, i32 noundef 512) #4
-  %85 = call i32 @BIO_puts(ptr noundef %83, ptr noundef %84) #4
-  br label %86
+80:                                               ; preds = %76, %.lr.ph.split.us.split.us
+  %81 = add nuw nsw i32 %.174159.us.us, 1
+  %82 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
+  %83 = icmp slt i32 %81, %82
+  br i1 %83, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !14
 
-86:                                               ; preds = %82, %.lr.ph.split.us
-  %87 = add nuw nsw i32 %.174159.us, 1
-  %88 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
-  %89 = icmp slt i32 %87, %88
-  br i1 %89, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %93
+  %.174159.us = phi i32 [ %94, %93 ], [ 0, %.lr.ph.split.us ]
+  %84 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159.us) #4
+  %.not116.us = icmp eq ptr %84, null
+  br i1 %.not116.us, label %93, label %85, !prof !13
+
+85:                                               ; preds = %.lr.ph.split.us.split
+  %86 = call ptr @SSL_CIPHER_standard_name(ptr noundef nonnull %84) #4
+  %87 = icmp eq ptr %86, null
+  %spec.store.select.us = select i1 %87, ptr @.str.51, ptr %86
+  %88 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %89 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %88, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select.us) #4
+  %90 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %91 = call ptr @SSL_CIPHER_description(ptr noundef nonnull %84, ptr noundef nonnull %3, i32 noundef 512) #4
+  %92 = call i32 @BIO_puts(ptr noundef %90, ptr noundef %91) #4
+  br label %93
+
+93:                                               ; preds = %85, %.lr.ph.split.us.split
+  %94 = add nuw nsw i32 %.174159.us, 1
+  %95 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %72
-  %90 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.lr.ph161, label %._crit_edge
+  %97 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %.lr.ph161, label %._crit_edge
 
-.lr.ph161:                                        ; preds = %.preheader, %103
-  %.073160 = phi i32 [ %104, %103 ], [ 0, %.preheader ]
-  %92 = tail call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.073160) #4
-  %.not114 = icmp eq ptr %92, null
-  br i1 %.not114, label %103, label %93, !prof !13
+.lr.ph161:                                        ; preds = %.preheader, %110
+  %.073160 = phi i32 [ %111, %110 ], [ 0, %.preheader ]
+  %99 = tail call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.073160) #4
+  %.not114 = icmp eq ptr %99, null
+  br i1 %.not114, label %110, label %100, !prof !13
 
-93:                                               ; preds = %.lr.ph161
-  %94 = tail call ptr @SSL_CIPHER_get_name(ptr noundef nonnull %92) #4
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %._crit_edge, label %96
+100:                                              ; preds = %.lr.ph161
+  %101 = tail call ptr @SSL_CIPHER_get_name(ptr noundef nonnull %99) #4
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %._crit_edge, label %103
 
-96:                                               ; preds = %93
+103:                                              ; preds = %100
   %.not115 = icmp eq i32 %.073160, 0
-  br i1 %.not115, label %100, label %97
+  br i1 %.not115, label %107, label %104
 
-97:                                               ; preds = %96
-  %98 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %99 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %98, ptr noundef nonnull @.str.46) #4
-  br label %100
+104:                                              ; preds = %103
+  %105 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %106 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %105, ptr noundef nonnull @.str.46) #4
+  br label %107
 
-100:                                              ; preds = %97, %96
-  %101 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %102 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %101, ptr noundef nonnull @.str.47, ptr noundef nonnull %94) #4
-  br label %103
+107:                                              ; preds = %104, %103
+  %108 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %109 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %108, ptr noundef nonnull @.str.47, ptr noundef nonnull %101) #4
+  br label %110
 
-103:                                              ; preds = %100, %.lr.ph161
-  %104 = add nuw nsw i32 %.073160, 1
-  %105 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
-  %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph161, label %._crit_edge, !llvm.loop !16
+110:                                              ; preds = %107, %.lr.ph161
+  %111 = add nuw nsw i32 %.073160, 1
+  %112 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
+  %113 = icmp slt i32 %111, %112
+  br i1 %113, label %.lr.ph161, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %103, %93, %.preheader
-  %107 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %108 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %107, ptr noundef nonnull @.str.48) #4
+._crit_edge:                                      ; preds = %110, %100, %.preheader
+  %114 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %115 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %114, ptr noundef nonnull @.str.48) #4
   br label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %136
-  %.174159 = phi i32 [ %137, %136 ], [ 0, %.lr.ph ]
-  %109 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159) #4
-  %.not116 = icmp eq ptr %109, null
-  br i1 %.not116, label %136, label %110, !prof !13
+.lr.ph.split:                                     ; preds = %.lr.ph, %143
+  %.174159 = phi i32 [ %144, %143 ], [ 0, %.lr.ph ]
+  %116 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159) #4
+  %.not116 = icmp eq ptr %116, null
+  br i1 %.not116, label %143, label %117, !prof !13
 
-110:                                              ; preds = %.lr.ph.split
-  %111 = call i32 @SSL_CIPHER_get_id(ptr noundef nonnull %109) #4
-  %112 = lshr i32 %111, 8
-  %113 = and i32 %112, 255
-  %114 = and i32 %111, 255
-  %115 = and i32 %111, -16777216
-  %116 = icmp eq i32 %115, 50331648
-  br i1 %116, label %117, label %120
+117:                                              ; preds = %.lr.ph.split
+  %118 = call i32 @SSL_CIPHER_get_id(ptr noundef nonnull %116) #4
+  %119 = lshr i32 %118, 8
+  %120 = and i32 %119, 255
+  %121 = and i32 %118, 255
+  %122 = and i32 %118, -16777216
+  %123 = icmp eq i32 %122, 50331648
+  br i1 %123, label %124, label %127
 
-117:                                              ; preds = %110
-  %118 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %119 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %118, ptr noundef nonnull @.str.49, i32 noundef %113, i32 noundef %114) #4
-  br label %126
+124:                                              ; preds = %117
+  %125 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %126 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %125, ptr noundef nonnull @.str.49, i32 noundef %120, i32 noundef %121) #4
+  br label %133
 
-120:                                              ; preds = %110
-  %121 = lshr i32 %111, 16
-  %122 = and i32 %121, 255
-  %123 = lshr i32 %111, 24
-  %124 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %125 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %124, ptr noundef nonnull @.str.50, i32 noundef %123, i32 noundef %122, i32 noundef %113, i32 noundef %114) #4
-  br label %126
+127:                                              ; preds = %117
+  %128 = lshr i32 %118, 16
+  %129 = and i32 %128, 255
+  %130 = lshr i32 %118, 24
+  %131 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %132 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %131, ptr noundef nonnull @.str.50, i32 noundef %130, i32 noundef %129, i32 noundef %120, i32 noundef %121) #4
+  br label %133
 
-126:                                              ; preds = %117, %120
-  br i1 %.not118, label %132, label %127
+133:                                              ; preds = %124, %127
+  br i1 %.not118, label %139, label %134
 
-127:                                              ; preds = %126
-  %128 = call ptr @SSL_CIPHER_standard_name(ptr noundef nonnull %109) #4
-  %129 = icmp eq ptr %128, null
-  %spec.store.select = select i1 %129, ptr @.str.51, ptr %128
-  %130 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %131 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %130, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select) #4
-  br label %132
+134:                                              ; preds = %133
+  %135 = call ptr @SSL_CIPHER_standard_name(ptr noundef nonnull %116) #4
+  %136 = icmp eq ptr %135, null
+  %spec.store.select = select i1 %136, ptr @.str.51, ptr %135
+  %137 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %138 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.52, ptr noundef nonnull %spec.store.select) #4
+  br label %139
 
-132:                                              ; preds = %127, %126
-  %133 = load ptr, ptr @bio_out, align 8, !tbaa !6
-  %134 = call ptr @SSL_CIPHER_description(ptr noundef nonnull %109, ptr noundef nonnull %3, i32 noundef 512) #4
-  %135 = call i32 @BIO_puts(ptr noundef %133, ptr noundef %134) #4
-  br label %136
+139:                                              ; preds = %134, %133
+  %140 = load ptr, ptr @bio_out, align 8, !tbaa !6
+  %141 = call ptr @SSL_CIPHER_description(ptr noundef nonnull %116, ptr noundef nonnull %3, i32 noundef 512) #4
+  %142 = call i32 @BIO_puts(ptr noundef %140, ptr noundef %141) #4
+  br label %143
 
-136:                                              ; preds = %.lr.ph.split, %132
-  %137 = add nuw nsw i32 %.174159, 1
-  %138 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
-  %139 = icmp slt i32 %137, %138
-  br i1 %139, label %.lr.ph.split, label %.loopexit, !llvm.loop !17
+143:                                              ; preds = %.lr.ph.split, %139
+  %144 = add nuw nsw i32 %.174159, 1
+  %145 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
+  %146 = icmp slt i32 %144, %145
+  br i1 %146, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
 
 .sink.split:                                      ; preds = %62, %59
   %.str.45.sink = phi ptr [ @.str.44, %59 ], [ @.str.45, %62 ]
-  %140 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  %141 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %140, ptr noundef nonnull %.str.45.sink) #4
-  br label %142
+  %147 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  %148 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %147, ptr noundef nonnull %.str.45.sink) #4
+  br label %149
 
-142:                                              ; preds = %.sink.split, %64, %50, %46, %41
-  %143 = load ptr, ptr @bio_err, align 8, !tbaa !6
-  tail call void @ERR_print_errors(ptr noundef %143) #4
+149:                                              ; preds = %.sink.split, %64, %50, %46, %41
+  %150 = load ptr, ptr @bio_err, align 8, !tbaa !6
+  tail call void @ERR_print_errors(ptr noundef %150) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %136, %86, %.preheader124, %._crit_edge, %142, %37, %10, %.loopexit125
-  %.072 = phi i32 [ 1, %.loopexit125 ], [ 0, %10 ], [ 0, %37 ], [ 1, %142 ], [ 0, %._crit_edge ], [ 0, %.preheader124 ], [ 0, %86 ], [ 0, %136 ], [ 1, %26 ]
-  %.070 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %142 ], [ %.171, %._crit_edge ], [ %.171, %.preheader124 ], [ %.171, %86 ], [ %.171, %136 ], [ null, %26 ]
-  %.069 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %142 ], [ %65, %._crit_edge ], [ %65, %.preheader124 ], [ %65, %86 ], [ %65, %136 ], [ null, %26 ]
-  %.0 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ %44, %142 ], [ %44, %._crit_edge ], [ %44, %.preheader124 ], [ %44, %86 ], [ %44, %136 ], [ null, %26 ]
+.loopexit:                                        ; preds = %26, %143, %93, %80, %.preheader124, %._crit_edge, %149, %37, %10, %.loopexit125
+  %.072 = phi i32 [ 1, %.loopexit125 ], [ 0, %10 ], [ 0, %37 ], [ 1, %149 ], [ 0, %._crit_edge ], [ 0, %.preheader124 ], [ 0, %80 ], [ 0, %93 ], [ 0, %143 ], [ 1, %26 ]
+  %.070 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %.171, %._crit_edge ], [ %.171, %.preheader124 ], [ %.171, %80 ], [ %.171, %93 ], [ %.171, %143 ], [ null, %26 ]
+  %.069 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %65, %._crit_edge ], [ %65, %.preheader124 ], [ %65, %80 ], [ %65, %93 ], [ %65, %143 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ %44, %149 ], [ %44, %._crit_edge ], [ %44, %.preheader124 ], [ %44, %80 ], [ %44, %93 ], [ %44, %143 ], [ null, %26 ]
   %.not120 = icmp eq i32 %.084, 0
-  br i1 %.not120, label %145, label %144
+  br i1 %.not120, label %152, label %151
 
-144:                                              ; preds = %.loopexit
+151:                                              ; preds = %.loopexit
   call void @OPENSSL_sk_free(ptr noundef %.070) #4
-  br label %145
+  br label %152
 
-145:                                              ; preds = %144, %.loopexit
+152:                                              ; preds = %151, %.loopexit
   call void @SSL_CTX_free(ptr noundef %.0) #4
   call void @SSL_free(ptr noundef %.069) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -537,7 +552,5 @@ attributes #4 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !8, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

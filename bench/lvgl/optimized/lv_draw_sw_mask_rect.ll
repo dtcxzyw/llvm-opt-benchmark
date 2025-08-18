@@ -182,7 +182,7 @@ define void @lv_draw_sw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_
   %105 = add nsw i32 %.06268, 1
   %106 = load i32, ptr %65, align 4, !tbaa !33
   %.not.not = icmp slt i32 %.06268, %106
-  br i1 %.not.not, label %.lr.ph69.split, label %._crit_edge, !llvm.loop !41
+  br i1 %.not.not, label %.lr.ph69.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader, %10
   call void @lv_free(ptr noundef %62) #4
@@ -277,6 +277,4 @@ attributes #4 = { nounwind }
 !36 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3}
 !37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !38}
+!39 = distinct !{!39, !38}

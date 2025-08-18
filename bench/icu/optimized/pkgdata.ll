@@ -1314,7 +1314,7 @@ thread-pre-split.i.i:                             ; preds = %348
   store i8 0, ptr %299, align 1, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.i.i, label %.critedge.i.i, label %298, !llvm.loop !50
+  br i1 %exitcond.i.i, label %.critedge.i.i, label %298, !llvm.loop !48
 
 .split.us:                                        ; preds = %298, %.preheader48.i.i.us
   %.us-phi = phi i64 [ %indvars.iv.i.i.us, %.preheader48.i.i.us ], [ %indvars.iv.i.i, %298 ]
@@ -1377,7 +1377,7 @@ thread-pre-split.i.i:                             ; preds = %348
   %327 = phi ptr [ %320, %.preheader.i.i ], [ %324, %323 ]
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, 17
-  br i1 %exitcond67.not.i.i, label %.loopexit47.i.i, label %.preheader.i.i, !llvm.loop !51
+  br i1 %exitcond67.not.i.i, label %.loopexit47.i.i, label %.preheader.i.i, !llvm.loop !49
 
 328:                                              ; preds = %315
   %329 = icmp slt i32 %318, 1
@@ -1415,12 +1415,12 @@ thread-pre-split.i.i:                             ; preds = %348
   %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.84, i32 noundef %346, ptr noundef %342, ptr noundef %345) #21
   %indvars.iv.next69.i.i = add nuw nsw i64 %indvars.iv68.i.i, 1
   %exitcond71.not.i.i = icmp eq i64 %indvars.iv.next69.i.i, 17
-  br i1 %exitcond71.not.i.i, label %337, label %339, !llvm.loop !52
+  br i1 %exitcond71.not.i.i, label %337, label %339, !llvm.loop !50
 
 348:                                              ; preds = %337, %.loopexit47.i.i
   %349 = load i32, ptr %17, align 4, !tbaa !14
   %350 = icmp eq i32 %349, 15
-  br i1 %350, label %thread-pre-split.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, !llvm.loop !53
+  br i1 %350, label %thread-pre-split.i.i, label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i, !llvm.loop !51
 
 _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %348, %296, %330, %._crit_edge.i.i, %.lr.ph.i.i, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1721,7 +1721,7 @@ _ZL21pkg_installCommonModePKcS0_.exit.i:          ; preds = %461, %458, %450, %4
   store i8 %469, ptr %471, align 1, !tbaa !22
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i113, 10
-  br i1 %exitcond.not.i, label %.loopexit.i108, label %.preheader.i111, !llvm.loop !54
+  br i1 %exitcond.not.i, label %.loopexit.i108, label %.preheader.i111, !llvm.loop !52
 
 474:                                              ; preds = %467
   %475 = and i8 %290, -9
@@ -2176,7 +2176,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
 
 708:                                              ; preds = %702, %701
   %indvars.iv.next.i226.i = add nuw nsw i64 %indvars.iv.i225.i, 1
-  br label %696, !llvm.loop !55
+  br label %696, !llvm.loop !53
 
 709:                                              ; preds = %705, %689
   %710 = load i8, ptr %7, align 16, !tbaa !22
@@ -2184,7 +2184,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
   %indvars.iv.next102.i.i = add nuw nsw i64 %indvars.iv101.i.i, 1
   %711 = icmp samesign ult i64 %indvars.iv101.i.i, 8
   %or.cond99.i.i = select i1 %.not79.i.i, i1 %711, i1 false
-  br i1 %or.cond99.i.i, label %689, label %712, !llvm.loop !56
+  br i1 %or.cond99.i.i, label %689, label %712, !llvm.loop !54
 
 712:                                              ; preds = %709
   br i1 %.not.i107, label %715, label %713
@@ -2239,9 +2239,9 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
 
 738:                                              ; preds = %736
   %739 = getelementptr inbounds nuw i8, ptr %.06698.i.i, i64 8
-  %740 = load ptr, ptr %739, align 8, !tbaa !57
+  %740 = load ptr, ptr %739, align 8, !tbaa !55
   %741 = getelementptr inbounds nuw i8, ptr %.06997.i.i, i64 8
-  %742 = load ptr, ptr %741, align 8, !tbaa !57
+  %742 = load ptr, ptr %741, align 8, !tbaa !55
   br label %743
 
 743:                                              ; preds = %738, %736
@@ -2249,7 +2249,7 @@ _ZL26pkg_createWithAssemblyCodePKccS0_.exit.i:    ; preds = %640
   %.167.ph.i.i = phi ptr [ %.06698.i.i, %736 ], [ %740, %738 ]
   %744 = add nuw i32 %.07396.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.07396.i.i, %663
-  br i1 %exitcond.not.i.i, label %.critedge.i230.i, label %.lr.ph.i224.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %.critedge.i230.i, label %.lr.ph.i224.i, !llvm.loop !56
 
 745:                                              ; preds = %733
   %746 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -2538,7 +2538,7 @@ _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %352, %_ZL19pkg_inst
   %881 = phi ptr [ %876, %.preheader ], [ %.pre299, %879 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 17
-  br i1 %exitcond290.not, label %882, label %.preheader, !llvm.loop !59
+  br i1 %exitcond290.not, label %882, label %.preheader, !llvm.loop !57
 
 882:                                              ; preds = %880
   call void @uprv_free_77(ptr noundef %881)
@@ -2987,7 +2987,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14getPkgDataPathPKc
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 0, ptr %6, align 8, !tbaa !60
+  store i32 0, ptr %6, align 8, !tbaa !58
   %7 = load ptr, ptr %3, align 8, !tbaa !4
   store i8 0, ptr %7, align 1, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3165,17 +3165,15 @@ attributes #27 = { cold noreturn nounwind }
 !45 = !{!46, !46, i64 0}
 !46 = !{!"p2 omnipotent char", !47, i64 0}
 !47 = !{!"any p2 pointer", !7, i64 0}
-!48 = distinct !{!48, !24, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !24}
+!49 = distinct !{!49, !24}
 !50 = distinct !{!50, !24}
 !51 = distinct !{!51, !24}
 !52 = distinct !{!52, !24}
 !53 = distinct !{!53, !24}
 !54 = distinct !{!54, !24}
-!55 = distinct !{!55, !24}
+!55 = !{!38, !35, i64 8}
 !56 = distinct !{!56, !24}
-!57 = !{!38, !35, i64 8}
-!58 = distinct !{!58, !24}
-!59 = distinct !{!59, !24}
-!60 = !{!61, !10, i64 56}
-!61 = !{!"_ZTSN6icu_7710CharStringE", !5, i64 0, !10, i64 56}
+!57 = distinct !{!57, !24}
+!58 = !{!59, !10, i64 56}
+!59 = !{!"_ZTSN6icu_7710CharStringE", !5, i64 0, !10, i64 56}

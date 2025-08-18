@@ -367,7 +367,7 @@ if.then13.i.us:                                   ; preds = %if.else.i.us
 if.end23.i.us:                                    ; preds = %if.then13.i.us, %if.else.i.us, %while.body.i.us
   %add.i.us = add i32 %BucketNo.0.i.us, %ProbeAmt.0.i.us
   %inc.i.us = add i32 %ProbeAmt.0.i.us, 1
-  br label %while.body.i.us, !llvm.loop !7
+  br label %while.body.i.us, !llvm.loop !6
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end23.i
   %ProbeAmt.0.i = phi i32 [ %inc.i, %if.end23.i ], [ 1, %while.body.i.preheader ]
@@ -524,7 +524,7 @@ do.body:                                          ; preds = %if.then26, %do.body
   %arrayidx50 = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
   %11 = load ptr, ptr %arrayidx50, align 8
   %tobool51.not = icmp eq ptr %11, null
-  br i1 %tobool51.not, label %do.end, label %do.body, !llvm.loop !9
+  br i1 %tobool51.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
   %arrayidx50.le = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
@@ -544,7 +544,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %NewBucketNo.1 = phi i32 [ %NewBucketNo.042, %for.body ], [ %NewBucketNo.042, %for.body ], [ %spec.select37, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp20.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %cmp20.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %cmp20.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_callocEmm.exit
   %NewBucketNo.0.lcssa = phi i32 [ %BucketNo, %_ZN4llvh11safe_callocEmm.exit ], [ %NewBucketNo.1, %for.inc ]
@@ -594,7 +594,5 @@ attributes #9 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

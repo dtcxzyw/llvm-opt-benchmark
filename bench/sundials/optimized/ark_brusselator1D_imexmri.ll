@@ -131,7 +131,7 @@ define dso_local range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef readonly
 check_retval.exit:                                ; preds = %2
   %23 = load ptr, ptr @stderr, align 8, !tbaa !12
   %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str, i32 noundef %21) #17
-  br label %737
+  br label %736
 
 25:                                               ; preds = %2
   %26 = icmp slt i32 %0, 2
@@ -139,7 +139,7 @@ check_retval.exit:                                ; preds = %2
 
 27:                                               ; preds = %25
   %puts568 = call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
-  br label %737
+  br label %736
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -154,7 +154,7 @@ check_retval.exit:                                ; preds = %2
 
 36:                                               ; preds = %28
   %puts567 = call i32 @puts(ptr nonnull dereferenceable(1) @str.14)
-  br label %737
+  br label %736
 
 37:                                               ; preds = %28
   %38 = icmp samesign ugt i32 %32, 1
@@ -164,7 +164,7 @@ check_retval.exit:                                ; preds = %2
 
 41:                                               ; preds = %37
   %puts566 = call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  br label %737
+  br label %736
 
 42:                                               ; preds = %37
   %43 = fdiv double %35, 1.000000e+01
@@ -231,7 +231,7 @@ default.unreachable:                              ; preds = %360, %127, %42
 check_retval.exit570:                             ; preds = %66
   %70 = load ptr, ptr @stderr, align 8, !tbaa !12
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.23) #17
-  br label %737
+  br label %736
 
 72:                                               ; preds = %66
   store i64 101, ptr %68, align 8, !tbaa !16
@@ -265,7 +265,7 @@ check_retval.exit570:                             ; preds = %66
 check_retval.exit572:                             ; preds = %72
   %87 = load ptr, ptr @stderr, align 8, !tbaa !12
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.24) #17
-  br label %737
+  br label %736
 
 89:                                               ; preds = %72
   call fastcc void @SetIC(ptr noundef nonnull %85, ptr noundef nonnull %68)
@@ -276,7 +276,7 @@ check_retval.exit572:                             ; preds = %72
 check_retval.exit576:                             ; preds = %89
   %92 = load ptr, ptr @stderr, align 8, !tbaa !12
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.24) #17
-  br label %737
+  br label %736
 
 94:                                               ; preds = %89
   %95 = call ptr @N_VClone(ptr noundef nonnull %85) #16
@@ -286,7 +286,7 @@ check_retval.exit576:                             ; preds = %89
 check_retval.exit578:                             ; preds = %94
   %97 = load ptr, ptr @stderr, align 8, !tbaa !12
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.24) #17
-  br label %737
+  br label %736
 
 99:                                               ; preds = %94
   %100 = call ptr @N_VClone(ptr noundef nonnull %85) #16
@@ -296,7 +296,7 @@ check_retval.exit578:                             ; preds = %94
 check_retval.exit580:                             ; preds = %99
   %102 = load ptr, ptr @stderr, align 8, !tbaa !12
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.24) #17
-  br label %737
+  br label %736
 
 104:                                              ; preds = %99
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %90) #16
@@ -307,14 +307,14 @@ check_retval.exit580:                             ; preds = %99
 check_retval.exit582.thread:                      ; preds = %104
   %107 = load ptr, ptr @stderr, align 8, !tbaa !12
   %108 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.26) #17
-  br label %737
+  br label %736
 
 check_retval.exit582:                             ; preds = %104, %check_retval.exit582
-  %.0430945 = phi i64 [ %110, %check_retval.exit582 ], [ 0, %104 ]
-  %.idx565 = mul nuw nsw i64 %.0430945, 24
+  %.0430949 = phi i64 [ %110, %check_retval.exit582 ], [ 0, %104 ]
+  %.idx565 = mul nuw nsw i64 %.0430949, 24
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx565
   store double 1.000000e+00, ptr %109, align 8, !tbaa !31
-  %110 = add nuw nsw i64 %.0430945, 1
+  %110 = add nuw nsw i64 %.0430949, 1
   %exitcond.not = icmp eq i64 %110, 101
   br i1 %exitcond.not, label %111, label %check_retval.exit582
 
@@ -327,17 +327,17 @@ check_retval.exit582:                             ; preds = %104, %check_retval.
 check_retval.exit584.thread:                      ; preds = %111
   %114 = load ptr, ptr @stderr, align 8, !tbaa !12
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.26) #17
-  br label %737
+  br label %736
 
 check_retval.exit584:                             ; preds = %111, %check_retval.exit584
-  %.1946 = phi i64 [ %118, %check_retval.exit584 ], [ 0, %111 ]
-  %.idx564 = mul nuw nsw i64 %.1946, 24
+  %.1950 = phi i64 [ %118, %check_retval.exit584 ], [ 0, %111 ]
+  %.idx564 = mul nuw nsw i64 %.1950, 24
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx564
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store double 1.000000e+00, ptr %117, align 8, !tbaa !31
-  %118 = add nuw nsw i64 %.1946, 1
-  %exitcond958.not = icmp eq i64 %118, 101
-  br i1 %exitcond958.not, label %119, label %check_retval.exit584
+  %118 = add nuw nsw i64 %.1950, 1
+  %exitcond962.not = icmp eq i64 %118, 101
+  br i1 %exitcond962.not, label %119, label %check_retval.exit584
 
 119:                                              ; preds = %check_retval.exit584
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %100) #16
@@ -348,17 +348,17 @@ check_retval.exit584:                             ; preds = %111, %check_retval.
 check_retval.exit586.thread:                      ; preds = %119
   %122 = load ptr, ptr @stderr, align 8, !tbaa !12
   %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.26) #17
-  br label %737
+  br label %736
 
 check_retval.exit586:                             ; preds = %119, %check_retval.exit586
-  %.2947 = phi i64 [ %126, %check_retval.exit586 ], [ 0, %119 ]
-  %.idx563 = mul nuw nsw i64 %.2947, 24
+  %.2951 = phi i64 [ %126, %check_retval.exit586 ], [ 0, %119 ]
+  %.idx563 = mul nuw nsw i64 %.2951, 24
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx563
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store double 1.000000e+00, ptr %125, align 8, !tbaa !31
-  %126 = add nuw nsw i64 %.2947, 1
-  %exitcond959.not = icmp eq i64 %126, 101
-  br i1 %exitcond959.not, label %127, label %check_retval.exit586
+  %126 = add nuw nsw i64 %.2951, 1
+  %exitcond963.not = icmp eq i64 %126, 101
+  br i1 %exitcond963.not, label %127, label %check_retval.exit586
 
 127:                                              ; preds = %check_retval.exit586
   switch i32 %32, label %default.unreachable [
@@ -382,7 +382,7 @@ check_retval.exit586:                             ; preds = %119, %check_retval.
 check_retval.exit588:                             ; preds = %128
   %132 = load ptr, ptr @stderr, align 8, !tbaa !12
   %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.27) #17
-  br label %737
+  br label %736
 
 134:                                              ; preds = %128
   %135 = call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 0) #16
@@ -392,7 +392,7 @@ check_retval.exit588:                             ; preds = %128
 check_retval.exit590:                             ; preds = %134
   %137 = load ptr, ptr @stderr, align 8, !tbaa !12
   %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.28) #17
-  br label %737
+  br label %736
 
 139:                                              ; preds = %134
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -430,7 +430,7 @@ check_retval.exit590:                             ; preds = %134
 check_retval.exit592:                             ; preds = %139
   %159 = load ptr, ptr @stderr, align 8, !tbaa !12
   %160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.29, i32 noundef %157) #17
-  br label %737
+  br label %736
 
 161:                                              ; preds = %139
   %162 = load ptr, ptr %20, align 8, !tbaa !10
@@ -441,7 +441,7 @@ check_retval.exit592:                             ; preds = %139
 check_retval.exit594:                             ; preds = %161
   %165 = load ptr, ptr @stderr, align 8, !tbaa !12
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 167:                                              ; preds = %161
   %168 = load ptr, ptr %20, align 8, !tbaa !10
@@ -452,7 +452,7 @@ check_retval.exit594:                             ; preds = %161
 check_retval.exit596:                             ; preds = %167
   %171 = load ptr, ptr @stderr, align 8, !tbaa !12
   %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 173:                                              ; preds = %167
   %174 = call i32 @ARKodeSStolerances(ptr noundef nonnull %130, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -462,7 +462,7 @@ check_retval.exit596:                             ; preds = %167
 check_retval.exit598:                             ; preds = %173
   %176 = load ptr, ptr @stderr, align 8, !tbaa !12
   %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %174) #17
-  br label %737
+  br label %736
 
 178:                                              ; preds = %173
   %179 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %130, ptr noundef nonnull %169, ptr noundef nonnull %163) #16
@@ -472,7 +472,7 @@ check_retval.exit598:                             ; preds = %173
 check_retval.exit600:                             ; preds = %178
   %181 = load ptr, ptr @stderr, align 8, !tbaa !12
   %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %179) #17
-  br label %737
+  br label %736
 
 183:                                              ; preds = %178
   %184 = call i32 @ARKodeSetMaxNonlinIters(ptr noundef nonnull %130, i32 noundef 10) #16
@@ -482,7 +482,7 @@ check_retval.exit600:                             ; preds = %178
 check_retval.exit602:                             ; preds = %183
   %186 = load ptr, ptr @stderr, align 8, !tbaa !12
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.34, i32 noundef %184) #17
-  br label %737
+  br label %736
 
 188:                                              ; preds = %183
   %189 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %130, ptr noundef nonnull @Jf) #16
@@ -492,7 +492,7 @@ check_retval.exit602:                             ; preds = %183
 check_retval.exit604:                             ; preds = %188
   %191 = load ptr, ptr @stderr, align 8, !tbaa !12
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %191, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %189) #17
-  br label %737
+  br label %736
 
 193:                                              ; preds = %127
   %194 = load ptr, ptr %20, align 8, !tbaa !10
@@ -504,7 +504,7 @@ check_retval.exit604:                             ; preds = %188
 check_retval.exit606:                             ; preds = %193
   %197 = load ptr, ptr @stderr, align 8, !tbaa !12
   %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.27) #17
-  br label %737
+  br label %736
 
 199:                                              ; preds = %193
   %200 = call i32 @ARKodeSetOrder(ptr noundef nonnull %195, i32 noundef 5) #16
@@ -514,7 +514,7 @@ check_retval.exit606:                             ; preds = %193
 check_retval.exit608:                             ; preds = %199
   %202 = load ptr, ptr @stderr, align 8, !tbaa !12
   %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %202, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.36, i32 noundef %200) #17
-  br label %737
+  br label %736
 
 204:                                              ; preds = %199
   %205 = load ptr, ptr %20, align 8, !tbaa !10
@@ -525,7 +525,7 @@ check_retval.exit608:                             ; preds = %199
 check_retval.exit610:                             ; preds = %204
   %208 = load ptr, ptr @stderr, align 8, !tbaa !12
   %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 210:                                              ; preds = %204
   %211 = load ptr, ptr %20, align 8, !tbaa !10
@@ -536,7 +536,7 @@ check_retval.exit610:                             ; preds = %204
 check_retval.exit612:                             ; preds = %210
   %214 = load ptr, ptr @stderr, align 8, !tbaa !12
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 216:                                              ; preds = %210
   %217 = call i32 @ARKodeSStolerances(ptr noundef nonnull %195, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -546,7 +546,7 @@ check_retval.exit612:                             ; preds = %210
 check_retval.exit614:                             ; preds = %216
   %219 = load ptr, ptr @stderr, align 8, !tbaa !12
   %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %217) #17
-  br label %737
+  br label %736
 
 221:                                              ; preds = %216
   %222 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %195, ptr noundef nonnull %212, ptr noundef nonnull %206) #16
@@ -556,7 +556,7 @@ check_retval.exit614:                             ; preds = %216
 check_retval.exit616:                             ; preds = %221
   %224 = load ptr, ptr @stderr, align 8, !tbaa !12
   %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %222) #17
-  br label %737
+  br label %736
 
 226:                                              ; preds = %221
   %227 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %195, ptr noundef nonnull @Jac) #16
@@ -566,7 +566,7 @@ check_retval.exit616:                             ; preds = %221
 check_retval.exit618:                             ; preds = %226
   %229 = load ptr, ptr @stderr, align 8, !tbaa !12
   %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %227) #17
-  br label %737
+  br label %736
 
 231:                                              ; preds = %127, %127
   %232 = load ptr, ptr %20, align 8, !tbaa !10
@@ -578,7 +578,7 @@ check_retval.exit618:                             ; preds = %226
 check_retval.exit620:                             ; preds = %231
   %235 = load ptr, ptr @stderr, align 8, !tbaa !12
   %236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.27) #17
-  br label %737
+  br label %736
 
 237:                                              ; preds = %231
   %238 = call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 1) #16
@@ -588,7 +588,7 @@ check_retval.exit620:                             ; preds = %231
 check_retval.exit622:                             ; preds = %237
   %240 = load ptr, ptr @stderr, align 8, !tbaa !12
   %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.28) #17
-  br label %737
+  br label %736
 
 242:                                              ; preds = %237
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 16
@@ -628,7 +628,7 @@ check_retval.exit622:                             ; preds = %237
 check_retval.exit624:                             ; preds = %242
   %264 = load ptr, ptr @stderr, align 8, !tbaa !12
   %265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.29, i32 noundef %262) #17
-  br label %737
+  br label %736
 
 266:                                              ; preds = %127
   %267 = load ptr, ptr %20, align 8, !tbaa !10
@@ -640,7 +640,7 @@ check_retval.exit624:                             ; preds = %242
 check_retval.exit626:                             ; preds = %266
   %270 = load ptr, ptr @stderr, align 8, !tbaa !12
   %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.27) #17
-  br label %737
+  br label %736
 
 272:                                              ; preds = %266
   %273 = call ptr @ARKodeButcherTable_Alloc(i32 noundef 4, i32 noundef 0) #16
@@ -650,7 +650,7 @@ check_retval.exit626:                             ; preds = %266
 check_retval.exit628:                             ; preds = %272
   %275 = load ptr, ptr @stderr, align 8, !tbaa !12
   %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.28) #17
-  br label %737
+  br label %736
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -691,7 +691,7 @@ check_retval.exit628:                             ; preds = %272
 check_retval.exit630:                             ; preds = %277
   %300 = load ptr, ptr @stderr, align 8, !tbaa !12
   %301 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.29, i32 noundef %298) #17
-  br label %737
+  br label %736
 
 302:                                              ; preds = %127
   %303 = load ptr, ptr %20, align 8, !tbaa !10
@@ -703,7 +703,7 @@ check_retval.exit630:                             ; preds = %277
 check_retval.exit632:                             ; preds = %302
   %306 = load ptr, ptr @stderr, align 8, !tbaa !12
   %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.27) #17
-  br label %737
+  br label %736
 
 308:                                              ; preds = %302
   %309 = call i32 @ARKStepSetTableNum(ptr noundef nonnull %304, i32 noundef 106, i32 noundef -1) #16
@@ -713,7 +713,7 @@ check_retval.exit632:                             ; preds = %302
 check_retval.exit634:                             ; preds = %308
   %311 = load ptr, ptr @stderr, align 8, !tbaa !12
   %312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.37, i32 noundef %309) #17
-  br label %737
+  br label %736
 
 313:                                              ; preds = %308
   %314 = load ptr, ptr %20, align 8, !tbaa !10
@@ -724,7 +724,7 @@ check_retval.exit634:                             ; preds = %308
 check_retval.exit636:                             ; preds = %313
   %317 = load ptr, ptr @stderr, align 8, !tbaa !12
   %318 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 319:                                              ; preds = %313
   %320 = load ptr, ptr %20, align 8, !tbaa !10
@@ -735,7 +735,7 @@ check_retval.exit636:                             ; preds = %313
 check_retval.exit638:                             ; preds = %319
   %323 = load ptr, ptr @stderr, align 8, !tbaa !12
   %324 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 325:                                              ; preds = %319
   %326 = call i32 @ARKodeSStolerances(ptr noundef nonnull %304, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -745,7 +745,7 @@ check_retval.exit638:                             ; preds = %319
 check_retval.exit640:                             ; preds = %325
   %328 = load ptr, ptr @stderr, align 8, !tbaa !12
   %329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %328, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %326) #17
-  br label %737
+  br label %736
 
 330:                                              ; preds = %325
   %331 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %304, ptr noundef nonnull %321, ptr noundef nonnull %315) #16
@@ -755,7 +755,7 @@ check_retval.exit640:                             ; preds = %325
 check_retval.exit642:                             ; preds = %330
   %333 = load ptr, ptr @stderr, align 8, !tbaa !12
   %334 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %333, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %331) #17
-  br label %737
+  br label %736
 
 335:                                              ; preds = %330
   %336 = call i32 @ARKodeSetMaxNonlinIters(ptr noundef nonnull %304, i32 noundef 10) #16
@@ -765,7 +765,7 @@ check_retval.exit642:                             ; preds = %330
 check_retval.exit644:                             ; preds = %335
   %338 = load ptr, ptr @stderr, align 8, !tbaa !12
   %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.34, i32 noundef %336) #17
-  br label %737
+  br label %736
 
 340:                                              ; preds = %335
   %341 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %304, ptr noundef nonnull @Jf) #16
@@ -775,7 +775,7 @@ check_retval.exit644:                             ; preds = %335
 check_retval.exit646:                             ; preds = %340
   %343 = load ptr, ptr @stderr, align 8, !tbaa !12
   %344 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %341) #17
-  br label %737
+  br label %736
 
 check_retval.exit604.thread:                      ; preds = %340, %277, %242, %226, %188
   %345 = phi ptr [ %130, %188 ], [ %195, %226 ], [ %233, %242 ], [ %268, %277 ], [ %304, %340 ]
@@ -789,7 +789,7 @@ check_retval.exit604.thread:                      ; preds = %340, %277, %242, %2
 check_retval.exit648:                             ; preds = %check_retval.exit604.thread
   %348 = load ptr, ptr @stderr, align 8, !tbaa !12
   %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.38, i32 noundef %346) #17
-  br label %737
+  br label %736
 
 350:                                              ; preds = %check_retval.exit604.thread
   %351 = call i32 @ARKodeSetFixedStep(ptr noundef nonnull %345, double noundef %43) #16
@@ -799,7 +799,7 @@ check_retval.exit648:                             ; preds = %check_retval.exit60
 check_retval.exit650:                             ; preds = %350
   %353 = load ptr, ptr @stderr, align 8, !tbaa !12
   %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %353, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.39, i32 noundef %351) #17
-  br label %737
+  br label %736
 
 355:                                              ; preds = %350
   %356 = call i32 @ARKodeCreateMRIStepInnerStepper(ptr noundef nonnull %345, ptr noundef nonnull %5) #16
@@ -809,7 +809,7 @@ check_retval.exit650:                             ; preds = %350
 check_retval.exit652:                             ; preds = %355
   %358 = load ptr, ptr @stderr, align 8, !tbaa !12
   %359 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.40, i32 noundef %356) #17
-  br label %737
+  br label %736
 
 360:                                              ; preds = %355
   switch i32 %32, label %default.unreachable [
@@ -834,7 +834,7 @@ check_retval.exit652:                             ; preds = %355
 check_retval.exit654:                             ; preds = %361
   %366 = load ptr, ptr @stderr, align 8, !tbaa !12
   %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %366, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41) #17
-  br label %737
+  br label %736
 
 368:                                              ; preds = %360
   %369 = load ptr, ptr %5, align 8, !tbaa !8
@@ -847,7 +847,7 @@ check_retval.exit654:                             ; preds = %361
 check_retval.exit656:                             ; preds = %368
   %373 = load ptr, ptr @stderr, align 8, !tbaa !12
   %374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41) #17
-  br label %737
+  br label %736
 
 375:                                              ; preds = %368
   %376 = call ptr @ARKodeButcherTable_Alloc(i32 noundef 2, i32 noundef 0) #16
@@ -857,7 +857,7 @@ check_retval.exit656:                             ; preds = %368
 check_retval.exit658:                             ; preds = %375
   %378 = load ptr, ptr @stderr, align 8, !tbaa !12
   %379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.28) #17
-  br label %737
+  br label %736
 
 380:                                              ; preds = %375
   %381 = getelementptr inbounds nuw i8, ptr %376, i64 16
@@ -882,7 +882,7 @@ check_retval.exit658:                             ; preds = %375
 check_retval.exit660:                             ; preds = %380
   %393 = load ptr, ptr @stderr, align 8, !tbaa !12
   %394 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %393, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.42) #17
-  br label %737
+  br label %736
 
 395:                                              ; preds = %380
   %396 = call i32 @MRIStepSetCoupling(ptr noundef nonnull %371, ptr noundef nonnull %391) #16
@@ -892,7 +892,7 @@ check_retval.exit660:                             ; preds = %380
 check_retval.exit662:                             ; preds = %395
   %398 = load ptr, ptr @stderr, align 8, !tbaa !12
   %399 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %398, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.43, i32 noundef %396) #17
-  br label %737
+  br label %736
 
 400:                                              ; preds = %360, %360
   %401 = load ptr, ptr %5, align 8, !tbaa !8
@@ -905,7 +905,7 @@ check_retval.exit662:                             ; preds = %395
 check_retval.exit664:                             ; preds = %400
   %405 = load ptr, ptr @stderr, align 8, !tbaa !12
   %406 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %405, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41) #17
-  br label %737
+  br label %736
 
 407:                                              ; preds = %400
   %408 = call ptr @MRIStepCoupling_LoadTable(i32 noundef 204) #16
@@ -915,7 +915,7 @@ check_retval.exit664:                             ; preds = %400
 check_retval.exit666:                             ; preds = %407
   %410 = load ptr, ptr @stderr, align 8, !tbaa !12
   %411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.44) #17
-  br label %737
+  br label %736
 
 412:                                              ; preds = %407
   %413 = call i32 @MRIStepSetCoupling(ptr noundef nonnull %403, ptr noundef nonnull %408) #16
@@ -925,7 +925,7 @@ check_retval.exit666:                             ; preds = %407
 check_retval.exit668:                             ; preds = %412
   %415 = load ptr, ptr @stderr, align 8, !tbaa !12
   %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %415, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.43, i32 noundef %413) #17
-  br label %737
+  br label %736
 
 417:                                              ; preds = %412
   %418 = load ptr, ptr %20, align 8, !tbaa !10
@@ -936,7 +936,7 @@ check_retval.exit668:                             ; preds = %412
 check_retval.exit670:                             ; preds = %417
   %421 = load ptr, ptr @stderr, align 8, !tbaa !12
   %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 423:                                              ; preds = %417
   %424 = load ptr, ptr %20, align 8, !tbaa !10
@@ -947,7 +947,7 @@ check_retval.exit670:                             ; preds = %417
 check_retval.exit672:                             ; preds = %423
   %427 = load ptr, ptr @stderr, align 8, !tbaa !12
   %428 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %427, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 429:                                              ; preds = %423
   %430 = call i32 @ARKodeSStolerances(ptr noundef nonnull %403, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -957,7 +957,7 @@ check_retval.exit672:                             ; preds = %423
 check_retval.exit674:                             ; preds = %429
   %432 = load ptr, ptr @stderr, align 8, !tbaa !12
   %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %432, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %430) #17
-  br label %737
+  br label %736
 
 434:                                              ; preds = %429
   %435 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %403, ptr noundef nonnull %425, ptr noundef nonnull %419) #16
@@ -967,7 +967,7 @@ check_retval.exit674:                             ; preds = %429
 check_retval.exit676:                             ; preds = %434
   %437 = load ptr, ptr @stderr, align 8, !tbaa !12
   %438 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %437, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %435) #17
-  br label %737
+  br label %736
 
 439:                                              ; preds = %434
   %440 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %403, ptr noundef nonnull @Js) #16
@@ -977,7 +977,7 @@ check_retval.exit676:                             ; preds = %434
 check_retval.exit678:                             ; preds = %439
   %442 = load ptr, ptr @stderr, align 8, !tbaa !12
   %443 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %442, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %440) #17
-  br label %737
+  br label %736
 
 444:                                              ; preds = %360, %360
   %445 = load ptr, ptr %5, align 8, !tbaa !8
@@ -990,7 +990,7 @@ check_retval.exit678:                             ; preds = %439
 check_retval.exit680:                             ; preds = %444
   %449 = load ptr, ptr @stderr, align 8, !tbaa !12
   %450 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %449, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41) #17
-  br label %737
+  br label %736
 
 451:                                              ; preds = %444
   %452 = call ptr @MRIStepCoupling_LoadTable(i32 noundef 207) #16
@@ -1000,7 +1000,7 @@ check_retval.exit680:                             ; preds = %444
 check_retval.exit682:                             ; preds = %451
   %454 = load ptr, ptr @stderr, align 8, !tbaa !12
   %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.44) #17
-  br label %737
+  br label %736
 
 456:                                              ; preds = %451
   %457 = call i32 @MRIStepSetCoupling(ptr noundef nonnull %447, ptr noundef nonnull %452) #16
@@ -1010,7 +1010,7 @@ check_retval.exit682:                             ; preds = %451
 check_retval.exit684:                             ; preds = %456
   %459 = load ptr, ptr @stderr, align 8, !tbaa !12
   %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %459, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.43, i32 noundef %457) #17
-  br label %737
+  br label %736
 
 461:                                              ; preds = %456
   %462 = load ptr, ptr %20, align 8, !tbaa !10
@@ -1021,7 +1021,7 @@ check_retval.exit684:                             ; preds = %456
 check_retval.exit686:                             ; preds = %461
   %465 = load ptr, ptr @stderr, align 8, !tbaa !12
   %466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 467:                                              ; preds = %461
   %468 = load ptr, ptr %20, align 8, !tbaa !10
@@ -1032,7 +1032,7 @@ check_retval.exit686:                             ; preds = %461
 check_retval.exit688:                             ; preds = %467
   %471 = load ptr, ptr @stderr, align 8, !tbaa !12
   %472 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %471, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 473:                                              ; preds = %467
   %474 = call i32 @ARKodeSStolerances(ptr noundef nonnull %447, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -1042,7 +1042,7 @@ check_retval.exit688:                             ; preds = %467
 check_retval.exit690:                             ; preds = %473
   %476 = load ptr, ptr @stderr, align 8, !tbaa !12
   %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %476, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %474) #17
-  br label %737
+  br label %736
 
 478:                                              ; preds = %473
   %479 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %447, ptr noundef nonnull %469, ptr noundef nonnull %463) #16
@@ -1052,7 +1052,7 @@ check_retval.exit690:                             ; preds = %473
 check_retval.exit692:                             ; preds = %478
   %481 = load ptr, ptr @stderr, align 8, !tbaa !12
   %482 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %479) #17
-  br label %737
+  br label %736
 
 483:                                              ; preds = %478
   %484 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %447, ptr noundef nonnull @Jsi) #16
@@ -1062,7 +1062,7 @@ check_retval.exit692:                             ; preds = %478
 check_retval.exit694:                             ; preds = %483
   %486 = load ptr, ptr @stderr, align 8, !tbaa !12
   %487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %486, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %484) #17
-  br label %737
+  br label %736
 
 488:                                              ; preds = %360, %360
   %489 = load ptr, ptr %5, align 8, !tbaa !8
@@ -1075,7 +1075,7 @@ check_retval.exit694:                             ; preds = %483
 check_retval.exit696:                             ; preds = %488
   %493 = load ptr, ptr @stderr, align 8, !tbaa !12
   %494 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %493, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41) #17
-  br label %737
+  br label %736
 
 495:                                              ; preds = %488
   %496 = call ptr @MRIStepCoupling_LoadTable(i32 noundef 208) #16
@@ -1085,7 +1085,7 @@ check_retval.exit696:                             ; preds = %488
 check_retval.exit698:                             ; preds = %495
   %498 = load ptr, ptr @stderr, align 8, !tbaa !12
   %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.44) #17
-  br label %737
+  br label %736
 
 500:                                              ; preds = %495
   %501 = call i32 @MRIStepSetCoupling(ptr noundef nonnull %491, ptr noundef nonnull %496) #16
@@ -1095,7 +1095,7 @@ check_retval.exit698:                             ; preds = %495
 check_retval.exit700:                             ; preds = %500
   %503 = load ptr, ptr @stderr, align 8, !tbaa !12
   %504 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %503, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.43, i32 noundef %501) #17
-  br label %737
+  br label %736
 
 505:                                              ; preds = %500
   %506 = load ptr, ptr %20, align 8, !tbaa !10
@@ -1106,7 +1106,7 @@ check_retval.exit700:                             ; preds = %500
 check_retval.exit702:                             ; preds = %505
   %509 = load ptr, ptr @stderr, align 8, !tbaa !12
   %510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %509, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.30) #17
-  br label %737
+  br label %736
 
 511:                                              ; preds = %505
   %512 = load ptr, ptr %20, align 8, !tbaa !10
@@ -1117,7 +1117,7 @@ check_retval.exit702:                             ; preds = %505
 check_retval.exit704:                             ; preds = %511
   %515 = load ptr, ptr @stderr, align 8, !tbaa !12
   %516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %515, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.31) #17
-  br label %737
+  br label %736
 
 517:                                              ; preds = %511
   %518 = call i32 @ARKodeSStolerances(ptr noundef nonnull %491, double noundef %.sink, double noundef 0x3D06849B86A12B9B) #16
@@ -1127,7 +1127,7 @@ check_retval.exit704:                             ; preds = %511
 check_retval.exit706:                             ; preds = %517
   %520 = load ptr, ptr @stderr, align 8, !tbaa !12
   %521 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %520, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.32, i32 noundef %518) #17
-  br label %737
+  br label %736
 
 522:                                              ; preds = %517
   %523 = call i32 @ARKodeSetLinearSolver(ptr noundef nonnull %491, ptr noundef nonnull %513, ptr noundef nonnull %507) #16
@@ -1137,7 +1137,7 @@ check_retval.exit706:                             ; preds = %517
 check_retval.exit708:                             ; preds = %522
   %525 = load ptr, ptr @stderr, align 8, !tbaa !12
   %526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %525, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.33, i32 noundef %523) #17
-  br label %737
+  br label %736
 
 527:                                              ; preds = %522
   %528 = call i32 @ARKodeSetJacFn(ptr noundef nonnull %491, ptr noundef nonnull @Jsi) #16
@@ -1147,7 +1147,7 @@ check_retval.exit708:                             ; preds = %522
 check_retval.exit710:                             ; preds = %527
   %530 = load ptr, ptr @stderr, align 8, !tbaa !12
   %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef %528) #17
-  br label %737
+  br label %736
 
 check_retval.exit654.thread:                      ; preds = %527, %483, %439, %395, %361
   %532 = phi ptr [ %364, %361 ], [ %371, %395 ], [ %403, %439 ], [ %447, %483 ], [ %491, %527 ]
@@ -1162,7 +1162,7 @@ check_retval.exit654.thread:                      ; preds = %527, %483, %439, %3
 check_retval.exit712:                             ; preds = %check_retval.exit654.thread
   %535 = load ptr, ptr @stderr, align 8, !tbaa !12
   %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.38, i32 noundef %533) #17
-  br label %737
+  br label %736
 
 537:                                              ; preds = %check_retval.exit654.thread
   %538 = call i32 @ARKodeSetFixedStep(ptr noundef nonnull %532, double noundef %35) #16
@@ -1172,7 +1172,7 @@ check_retval.exit712:                             ; preds = %check_retval.exit65
 check_retval.exit714:                             ; preds = %537
   %540 = load ptr, ptr @stderr, align 8, !tbaa !12
   %541 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.39, i32 noundef %538) #17
-  br label %737
+  br label %736
 
 542:                                              ; preds = %537
   %543 = call i32 @ARKodeSetMaxNumSteps(ptr noundef nonnull %532, i64 noundef 1000000) #16
@@ -1182,21 +1182,21 @@ check_retval.exit714:                             ; preds = %537
 check_retval.exit716:                             ; preds = %542
   %545 = load ptr, ptr @stderr, align 8, !tbaa !12
   %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.45, i32 noundef %543) #17
-  br label %737
+  br label %736
 
 547:                                              ; preds = %542
   %548 = call noalias ptr @fopen(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47)
   br label %549
 
 549:                                              ; preds = %547, %549
-  %.3948 = phi i64 [ 0, %547 ], [ %554, %549 ]
+  %.3952 = phi i64 [ 0, %547 ], [ %554, %549 ]
   %550 = load double, ptr %83, align 8, !tbaa !30
-  %551 = uitofp nneg i64 %.3948 to double
+  %551 = uitofp nneg i64 %.3952 to double
   %552 = fmul double %550, %551
   %553 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.48, double noundef %552) #16
-  %554 = add nuw nsw i64 %.3948, 1
-  %exitcond960.not = icmp eq i64 %554, 101
-  br i1 %exitcond960.not, label %555, label %549
+  %554 = add nuw nsw i64 %.3952, 1
+  %exitcond964.not = icmp eq i64 %554, 101
+  br i1 %exitcond964.not, label %555, label %549
 
 555:                                              ; preds = %549
   %556 = call i32 @fclose(ptr noundef %548)
@@ -1252,41 +1252,41 @@ check_retval.exit716:                             ; preds = %542
 check_retval.exit718.thread:                      ; preds = %555
   %574 = load ptr, ptr @stderr, align 8, !tbaa !12
   %575 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.26) #17
-  br label %737
+  br label %736
 
 check_retval.exit718:                             ; preds = %555, %check_retval.exit718
-  %.4949 = phi i64 [ %579, %check_retval.exit718 ], [ 0, %555 ]
-  %.idx562 = mul nuw nsw i64 %.4949, 24
+  %.4953 = phi i64 [ %579, %check_retval.exit718 ], [ 0, %555 ]
+  %.idx562 = mul nuw nsw i64 %.4953, 24
   %576 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx562
   %577 = load double, ptr %576, align 8, !tbaa !31
   %578 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %561, ptr noundef nonnull @.str.55, double noundef %577) #16
-  %579 = add nuw nsw i64 %.4949, 1
-  %exitcond961.not = icmp eq i64 %579, 101
-  br i1 %exitcond961.not, label %.preheader944, label %check_retval.exit718
+  %579 = add nuw nsw i64 %.4953, 1
+  %exitcond965.not = icmp eq i64 %579, 101
+  br i1 %exitcond965.not, label %.preheader948, label %check_retval.exit718
 
-.preheader944:                                    ; preds = %check_retval.exit718, %.preheader944
-  %.5950 = phi i64 [ %584, %.preheader944 ], [ 0, %check_retval.exit718 ]
-  %.idx561 = mul nuw nsw i64 %.5950, 24
+.preheader948:                                    ; preds = %check_retval.exit718, %.preheader948
+  %.5954 = phi i64 [ %584, %.preheader948 ], [ 0, %check_retval.exit718 ]
+  %.idx561 = mul nuw nsw i64 %.5954, 24
   %580 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx561
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = load double, ptr %581, align 8, !tbaa !31
   %583 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %566, ptr noundef nonnull @.str.55, double noundef %582) #16
-  %584 = add nuw nsw i64 %.5950, 1
-  %exitcond962.not = icmp eq i64 %584, 101
-  br i1 %exitcond962.not, label %.preheader943, label %.preheader944
+  %584 = add nuw nsw i64 %.5954, 1
+  %exitcond966.not = icmp eq i64 %584, 101
+  br i1 %exitcond966.not, label %.preheader947, label %.preheader948
 
-.preheader943:                                    ; preds = %.preheader944, %.preheader943
-  %.6951 = phi i64 [ %589, %.preheader943 ], [ 0, %.preheader944 ]
-  %.idx560 = mul nuw nsw i64 %.6951, 24
+.preheader947:                                    ; preds = %.preheader948, %.preheader947
+  %.6955 = phi i64 [ %589, %.preheader947 ], [ 0, %.preheader948 ]
+  %.idx560 = mul nuw nsw i64 %.6955, 24
   %585 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx560
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 16
   %587 = load double, ptr %586, align 8, !tbaa !31
   %588 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %571, ptr noundef nonnull @.str.55, double noundef %587) #16
-  %589 = add nuw nsw i64 %.6951, 1
-  %exitcond963.not = icmp eq i64 %589, 101
-  br i1 %exitcond963.not, label %590, label %.preheader943
+  %589 = add nuw nsw i64 %.6955, 1
+  %exitcond967.not = icmp eq i64 %589, 101
+  br i1 %exitcond967.not, label %590, label %.preheader947
 
-590:                                              ; preds = %.preheader943
+590:                                              ; preds = %.preheader947
   %fputc = call i32 @fputc(i32 10, ptr %561)
   %fputc547 = call i32 @fputc(i32 10, ptr %566)
   %fputc548 = call i32 @fputc(i32 10, ptr %571)
@@ -1296,9 +1296,9 @@ check_retval.exit718:                             ; preds = %555, %check_retval.
   br label %591
 
 591:                                              ; preds = %590, %629
-  %.0432956 = phi i32 [ 0, %590 ], [ %633, %629 ]
-  %.0438955 = phi double [ 1.000000e+00, %590 ], [ %632, %629 ]
-  %592 = call i32 @ARKodeEvolve(ptr noundef nonnull %532, double noundef %.0438955, ptr noundef nonnull %85, ptr noundef nonnull %6, i32 noundef 1) #16
+  %.0432960 = phi i32 [ 0, %590 ], [ %633, %629 ]
+  %.0438959 = phi double [ 1.000000e+00, %590 ], [ %632, %629 ]
+  %592 = call i32 @ARKodeEvolve(ptr noundef nonnull %532, double noundef %.0438959, ptr noundef nonnull %85, ptr noundef nonnull %6, i32 noundef 1) #16
   %593 = icmp slt i32 %592, 0
   br i1 %593, label %check_retval.exit720, label %596
 
@@ -1318,60 +1318,60 @@ check_retval.exit720:                             ; preds = %591
   %603 = fmul double %602, %602
   %604 = fdiv double %603, 1.010000e+02
   %605 = fcmp ugt double %604, 0.000000e+00
-  %sqrt940 = call double @llvm.sqrt.f64(double %604)
-  %606 = select i1 %605, double %sqrt940, double 0.000000e+00
+  %sqrt944 = call double @llvm.sqrt.f64(double %604)
+  %606 = select i1 %605, double %sqrt944, double 0.000000e+00
   %607 = call double @N_VWL2Norm(ptr noundef nonnull %85, ptr noundef nonnull %100) #16
   %608 = fmul double %607, %607
   %609 = fdiv double %608, 1.010000e+02
   %610 = fcmp ugt double %609, 0.000000e+00
-  %sqrt941 = call double @llvm.sqrt.f64(double %609)
-  %611 = select i1 %610, double %sqrt941, double 0.000000e+00
+  %sqrt945 = call double @llvm.sqrt.f64(double %609)
+  %611 = select i1 %610, double %sqrt945, double 0.000000e+00
   %612 = load double, ptr %6, align 8, !tbaa !31
   %613 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, double noundef %612, double noundef %601, double noundef %606, double noundef %611)
   br label %614
 
 614:                                              ; preds = %596, %614
-  %.7952 = phi i64 [ 0, %596 ], [ %618, %614 ]
-  %.idx556 = mul nuw nsw i64 %.7952, 24
+  %.7956 = phi i64 [ 0, %596 ], [ %618, %614 ]
+  %.idx556 = mul nuw nsw i64 %.7956, 24
   %615 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx556
   %616 = load double, ptr %615, align 8, !tbaa !31
   %617 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %561, ptr noundef nonnull @.str.55, double noundef %616) #16
-  %618 = add nuw nsw i64 %.7952, 1
-  %exitcond964.not = icmp eq i64 %618, 101
-  br i1 %exitcond964.not, label %.preheader942, label %614
+  %618 = add nuw nsw i64 %.7956, 1
+  %exitcond968.not = icmp eq i64 %618, 101
+  br i1 %exitcond968.not, label %.preheader946, label %614
 
-.preheader942:                                    ; preds = %614, %.preheader942
-  %.8953 = phi i64 [ %623, %.preheader942 ], [ 0, %614 ]
-  %.idx555 = mul nuw nsw i64 %.8953, 24
+.preheader946:                                    ; preds = %614, %.preheader946
+  %.8957 = phi i64 [ %623, %.preheader946 ], [ 0, %614 ]
+  %.idx555 = mul nuw nsw i64 %.8957, 24
   %619 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx555
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = load double, ptr %620, align 8, !tbaa !31
   %622 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %566, ptr noundef nonnull @.str.55, double noundef %621) #16
-  %623 = add nuw nsw i64 %.8953, 1
-  %exitcond965.not = icmp eq i64 %623, 101
-  br i1 %exitcond965.not, label %.preheader, label %.preheader942
+  %623 = add nuw nsw i64 %.8957, 1
+  %exitcond969.not = icmp eq i64 %623, 101
+  br i1 %exitcond969.not, label %.preheader, label %.preheader946
 
-.preheader:                                       ; preds = %.preheader942, %.preheader
-  %.9954 = phi i64 [ %628, %.preheader ], [ 0, %.preheader942 ]
-  %.idx = mul nuw nsw i64 %.9954, 24
+.preheader:                                       ; preds = %.preheader946, %.preheader
+  %.9958 = phi i64 [ %628, %.preheader ], [ 0, %.preheader946 ]
+  %.idx = mul nuw nsw i64 %.9958, 24
   %624 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 16
   %626 = load double, ptr %625, align 8, !tbaa !31
   %627 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %571, ptr noundef nonnull @.str.55, double noundef %626) #16
-  %628 = add nuw nsw i64 %.9954, 1
-  %exitcond966.not = icmp eq i64 %628, 101
-  br i1 %exitcond966.not, label %629, label %.preheader
+  %628 = add nuw nsw i64 %.9958, 1
+  %exitcond970.not = icmp eq i64 %628, 101
+  br i1 %exitcond970.not, label %629, label %.preheader
 
 629:                                              ; preds = %.preheader
-  %630 = fadd double %.0438955, 1.000000e+00
+  %630 = fadd double %.0438959, 1.000000e+00
   %631 = fcmp ogt double %630, 1.000000e+01
   %632 = select i1 %631, double 1.000000e+01, double %630
   %fputc552 = call i32 @fputc(i32 10, ptr %561)
   %fputc553 = call i32 @fputc(i32 10, ptr %566)
   %fputc554 = call i32 @fputc(i32 10, ptr %571)
-  %633 = add nuw nsw i32 %.0432956, 1
-  %exitcond967.not = icmp eq i32 %633, 10
-  br i1 %exitcond967.not, label %.loopexit, label %591
+  %633 = add nuw nsw i32 %.0432960, 1
+  %exitcond971.not = icmp eq i32 %633, 10
+  br i1 %exitcond971.not, label %.loopexit, label %591
 
 .loopexit:                                        ; preds = %629, %check_retval.exit720
   %puts557 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -1455,15 +1455,15 @@ check_retval.exit732:                             ; preds = %check_retval.exit73
 675:                                              ; preds = %671
   %676 = load i64, ptr %12, align 8, !tbaa !43
   %677 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, i64 noundef %673, i64 noundef %674, i64 noundef %676)
-  br label %695
+  br label %694
 
 678:                                              ; preds = %671
   %679 = load i64, ptr %11, align 8, !tbaa !43
   %680 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, i64 noundef %673, i64 noundef %674, i64 noundef %679)
-  br label %695
+  br label %694
 
 681:                                              ; preds = %check_retval.exit732
-  br i1 %38, label %682, label %691
+  br i1 %38, label %682, label %.thread940
 
 682:                                              ; preds = %681
   %683 = icmp eq i32 %32, 3
@@ -1473,109 +1473,101 @@ check_retval.exit732:                             ; preds = %check_retval.exit73
 685:                                              ; preds = %682
   %686 = load i64, ptr %12, align 8, !tbaa !43
   %687 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i64 noundef %684, i64 noundef %686)
-  br label %695
+  br label %694
 
 688:                                              ; preds = %682
   %689 = load i64, ptr %11, align 8, !tbaa !43
   %690 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i64 noundef %684, i64 noundef %689)
-  br label %695
+  br label %694
 
-691:                                              ; preds = %681
-  %692 = load i64, ptr %9, align 8, !tbaa !43
-  %693 = load i64, ptr %12, align 8, !tbaa !43
-  %694 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i64 noundef %692, i64 noundef %693)
-  br label %712
+.thread940:                                       ; preds = %681
+  %691 = load i64, ptr %9, align 8, !tbaa !43
+  %692 = load i64, ptr %12, align 8, !tbaa !43
+  %693 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i64 noundef %691, i64 noundef %692)
+  br label %714
 
-695:                                              ; preds = %688, %685, %675, %678
-  %696 = call i32 @ARKodeGetNonlinSolvStats(ptr noundef nonnull %532, ptr noundef nonnull %16, ptr noundef nonnull %17) #16
-  %697 = icmp slt i32 %696, 0
-  br i1 %697, label %698, label %check_retval.exit734
+694:                                              ; preds = %688, %685, %675, %678
+  %695 = call i32 @ARKodeGetNonlinSolvStats(ptr noundef nonnull %532, ptr noundef nonnull %16, ptr noundef nonnull %17) #16
+  %696 = icmp slt i32 %695, 0
+  br i1 %696, label %697, label %check_retval.exit734
 
-698:                                              ; preds = %695
-  %699 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %699, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.68, i32 noundef %696) #17
+697:                                              ; preds = %694
+  %698 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %699 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %698, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.68, i32 noundef %695) #17
   br label %check_retval.exit734
 
-check_retval.exit734:                             ; preds = %695, %698
-  %701 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %532, ptr noundef nonnull %18) #16
-  %702 = icmp slt i32 %701, 0
-  br i1 %702, label %703, label %check_retval.exit736
+check_retval.exit734:                             ; preds = %694, %697
+  %700 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %532, ptr noundef nonnull %18) #16
+  %701 = icmp slt i32 %700, 0
+  br i1 %701, label %702, label %check_retval.exit736
 
-703:                                              ; preds = %check_retval.exit734
-  %704 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %705 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %704, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.69, i32 noundef %701) #17
+702:                                              ; preds = %check_retval.exit734
+  %703 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %704 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %703, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.69, i32 noundef %700) #17
   br label %check_retval.exit736
 
-check_retval.exit736:                             ; preds = %check_retval.exit734, %703
-  %706 = load i64, ptr %16, align 8, !tbaa !43
-  %707 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i64 noundef %706)
-  %708 = load i64, ptr %17, align 8, !tbaa !43
-  %709 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i64 noundef %708)
-  %710 = load i64, ptr %18, align 8, !tbaa !43
-  %711 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i64 noundef %710)
-  br label %712
+check_retval.exit736:                             ; preds = %check_retval.exit734, %702
+  %705 = load i64, ptr %16, align 8, !tbaa !43
+  %706 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i64 noundef %705)
+  %707 = load i64, ptr %17, align 8, !tbaa !43
+  %708 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i64 noundef %707)
+  %709 = load i64, ptr %18, align 8, !tbaa !43
+  %710 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i64 noundef %709)
+  %711 = icmp eq i32 %32, 3
+  %712 = and i32 %32, 5
+  %713 = icmp eq i32 %712, 5
+  %or.cond33 = or i1 %711, %713
+  br i1 %or.cond33, label %714, label %731
 
-712:                                              ; preds = %691, %check_retval.exit736
-  %713 = and i32 %32, 5
-  %714 = icmp eq i32 %713, 5
-  br i1 %714, label %715, label %switch.early.test
+714:                                              ; preds = %.thread940, %check_retval.exit736
+  %715 = call i32 @ARKodeGetNonlinSolvStats(ptr noundef nonnull %345, ptr noundef nonnull %13, ptr noundef nonnull %14) #16
+  %716 = icmp slt i32 %715, 0
+  br i1 %716, label %717, label %check_retval.exit738
 
-switch.early.test:                                ; preds = %712
-  switch i32 %32, label %732 [
-    i32 3, label %715
-    i32 1, label %715
-    i32 0, label %715
-  ]
-
-715:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %712
-  %716 = call i32 @ARKodeGetNonlinSolvStats(ptr noundef nonnull %345, ptr noundef nonnull %13, ptr noundef nonnull %14) #16
-  %717 = icmp slt i32 %716, 0
-  br i1 %717, label %718, label %check_retval.exit738
-
-718:                                              ; preds = %715
-  %719 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %720 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %719, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.68, i32 noundef %716) #17
+717:                                              ; preds = %714
+  %718 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %719 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %718, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.68, i32 noundef %715) #17
   br label %check_retval.exit738
 
-check_retval.exit738:                             ; preds = %715, %718
-  %721 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %345, ptr noundef nonnull %15) #16
-  %722 = icmp slt i32 %721, 0
-  br i1 %722, label %723, label %check_retval.exit740
+check_retval.exit738:                             ; preds = %714, %717
+  %720 = call i32 @ARKodeGetNumJacEvals(ptr noundef nonnull %345, ptr noundef nonnull %15) #16
+  %721 = icmp slt i32 %720, 0
+  br i1 %721, label %722, label %check_retval.exit740
 
-723:                                              ; preds = %check_retval.exit738
-  %724 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %724, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.69, i32 noundef %721) #17
+722:                                              ; preds = %check_retval.exit738
+  %723 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %724 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %723, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.69, i32 noundef %720) #17
   br label %check_retval.exit740
 
-check_retval.exit740:                             ; preds = %check_retval.exit738, %723
-  %726 = load i64, ptr %13, align 8, !tbaa !43
-  %727 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i64 noundef %726)
-  %728 = load i64, ptr %14, align 8, !tbaa !43
-  %729 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i64 noundef %728)
-  %730 = load i64, ptr %15, align 8, !tbaa !43
-  %731 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i64 noundef %730)
-  br label %732
+check_retval.exit740:                             ; preds = %check_retval.exit738, %722
+  %725 = load i64, ptr %13, align 8, !tbaa !43
+  %726 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i64 noundef %725)
+  %727 = load i64, ptr %14, align 8, !tbaa !43
+  %728 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i64 noundef %727)
+  %729 = load i64, ptr %15, align 8, !tbaa !43
+  %730 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i64 noundef %729)
+  br label %731
 
-732:                                              ; preds = %switch.early.test, %check_retval.exit740
+731:                                              ; preds = %check_retval.exit736, %check_retval.exit740
   call void @free(ptr noundef %68) #16
   call void @ARKodeFree(ptr noundef nonnull %4) #16
-  %733 = call i32 @MRIStepInnerStepper_Free(ptr noundef nonnull %5) #16
+  %732 = call i32 @MRIStepInnerStepper_Free(ptr noundef nonnull %5) #16
   call void @ARKodeFree(ptr noundef nonnull %3) #16
   call void @ARKodeButcherTable_Free(ptr noundef %.1434) #16
   call void @MRIStepCoupling_Free(ptr noundef %.0435) #16
   call void @SUNMatDestroy(ptr noundef %.0436) #16
-  %734 = call i32 @SUNLinSolFree(ptr noundef %.0437) #16
-  %735 = call i32 @SUNLinSolFree(ptr noundef %.0440) #16
+  %733 = call i32 @SUNLinSolFree(ptr noundef %.0437) #16
+  %734 = call i32 @SUNLinSolFree(ptr noundef %.0440) #16
   call void @SUNMatDestroy(ptr noundef %.0441) #16
   call void @N_VDestroy(ptr noundef nonnull %85) #16
   call void @N_VDestroy(ptr noundef nonnull %90) #16
   call void @N_VDestroy(ptr noundef nonnull %95) #16
   call void @N_VDestroy(ptr noundef nonnull %100) #16
-  %736 = call i32 @SUNContext_Free(ptr noundef nonnull %20) #16
-  br label %737
+  %735 = call i32 @SUNContext_Free(ptr noundef nonnull %20) #16
+  br label %736
 
-737:                                              ; preds = %check_retval.exit718.thread, %check_retval.exit716, %check_retval.exit714, %check_retval.exit712, %check_retval.exit710, %check_retval.exit708, %check_retval.exit706, %check_retval.exit704, %check_retval.exit702, %check_retval.exit700, %check_retval.exit698, %check_retval.exit696, %check_retval.exit694, %check_retval.exit692, %check_retval.exit690, %check_retval.exit688, %check_retval.exit686, %check_retval.exit684, %check_retval.exit682, %check_retval.exit680, %check_retval.exit678, %check_retval.exit676, %check_retval.exit674, %check_retval.exit672, %check_retval.exit670, %check_retval.exit668, %check_retval.exit666, %check_retval.exit664, %check_retval.exit662, %check_retval.exit660, %check_retval.exit658, %check_retval.exit656, %check_retval.exit654, %check_retval.exit652, %check_retval.exit650, %check_retval.exit648, %check_retval.exit646, %check_retval.exit644, %check_retval.exit642, %check_retval.exit640, %check_retval.exit638, %check_retval.exit636, %check_retval.exit634, %check_retval.exit632, %check_retval.exit630, %check_retval.exit628, %check_retval.exit626, %check_retval.exit624, %check_retval.exit622, %check_retval.exit620, %check_retval.exit618, %check_retval.exit616, %check_retval.exit614, %check_retval.exit612, %check_retval.exit610, %check_retval.exit608, %check_retval.exit606, %check_retval.exit604, %check_retval.exit602, %check_retval.exit600, %check_retval.exit598, %check_retval.exit596, %check_retval.exit594, %check_retval.exit592, %check_retval.exit590, %check_retval.exit588, %check_retval.exit586.thread, %check_retval.exit584.thread, %check_retval.exit582.thread, %check_retval.exit580, %check_retval.exit578, %check_retval.exit576, %check_retval.exit572, %check_retval.exit570, %check_retval.exit, %732, %41, %36, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %36 ], [ -1, %41 ], [ 0, %732 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit570 ], [ 1, %check_retval.exit572 ], [ 1, %check_retval.exit576 ], [ 1, %check_retval.exit578 ], [ 1, %check_retval.exit580 ], [ 1, %check_retval.exit588 ], [ 1, %check_retval.exit590 ], [ 1, %check_retval.exit592 ], [ 1, %check_retval.exit594 ], [ 1, %check_retval.exit596 ], [ 1, %check_retval.exit598 ], [ 1, %check_retval.exit600 ], [ 1, %check_retval.exit602 ], [ 1, %check_retval.exit604 ], [ 1, %check_retval.exit606 ], [ 1, %check_retval.exit608 ], [ 1, %check_retval.exit610 ], [ 1, %check_retval.exit612 ], [ 1, %check_retval.exit614 ], [ 1, %check_retval.exit616 ], [ 1, %check_retval.exit618 ], [ 1, %check_retval.exit620 ], [ 1, %check_retval.exit622 ], [ 1, %check_retval.exit624 ], [ 1, %check_retval.exit626 ], [ 1, %check_retval.exit628 ], [ 1, %check_retval.exit630 ], [ 1, %check_retval.exit632 ], [ 1, %check_retval.exit634 ], [ 1, %check_retval.exit636 ], [ 1, %check_retval.exit638 ], [ 1, %check_retval.exit640 ], [ 1, %check_retval.exit642 ], [ 1, %check_retval.exit644 ], [ 1, %check_retval.exit646 ], [ 1, %check_retval.exit648 ], [ 1, %check_retval.exit650 ], [ 1, %check_retval.exit652 ], [ 1, %check_retval.exit654 ], [ 1, %check_retval.exit656 ], [ 1, %check_retval.exit658 ], [ 1, %check_retval.exit660 ], [ 1, %check_retval.exit662 ], [ 1, %check_retval.exit664 ], [ 1, %check_retval.exit666 ], [ 1, %check_retval.exit668 ], [ 1, %check_retval.exit670 ], [ 1, %check_retval.exit672 ], [ 1, %check_retval.exit674 ], [ 1, %check_retval.exit676 ], [ 1, %check_retval.exit678 ], [ 1, %check_retval.exit680 ], [ 1, %check_retval.exit682 ], [ 1, %check_retval.exit684 ], [ 1, %check_retval.exit686 ], [ 1, %check_retval.exit688 ], [ 1, %check_retval.exit690 ], [ 1, %check_retval.exit692 ], [ 1, %check_retval.exit694 ], [ 1, %check_retval.exit696 ], [ 1, %check_retval.exit698 ], [ 1, %check_retval.exit700 ], [ 1, %check_retval.exit702 ], [ 1, %check_retval.exit704 ], [ 1, %check_retval.exit706 ], [ 1, %check_retval.exit708 ], [ 1, %check_retval.exit710 ], [ 1, %check_retval.exit712 ], [ 1, %check_retval.exit714 ], [ 1, %check_retval.exit716 ], [ 1, %check_retval.exit582.thread ], [ 1, %check_retval.exit584.thread ], [ 1, %check_retval.exit586.thread ], [ 1, %check_retval.exit718.thread ]
+736:                                              ; preds = %check_retval.exit718.thread, %check_retval.exit716, %check_retval.exit714, %check_retval.exit712, %check_retval.exit710, %check_retval.exit708, %check_retval.exit706, %check_retval.exit704, %check_retval.exit702, %check_retval.exit700, %check_retval.exit698, %check_retval.exit696, %check_retval.exit694, %check_retval.exit692, %check_retval.exit690, %check_retval.exit688, %check_retval.exit686, %check_retval.exit684, %check_retval.exit682, %check_retval.exit680, %check_retval.exit678, %check_retval.exit676, %check_retval.exit674, %check_retval.exit672, %check_retval.exit670, %check_retval.exit668, %check_retval.exit666, %check_retval.exit664, %check_retval.exit662, %check_retval.exit660, %check_retval.exit658, %check_retval.exit656, %check_retval.exit654, %check_retval.exit652, %check_retval.exit650, %check_retval.exit648, %check_retval.exit646, %check_retval.exit644, %check_retval.exit642, %check_retval.exit640, %check_retval.exit638, %check_retval.exit636, %check_retval.exit634, %check_retval.exit632, %check_retval.exit630, %check_retval.exit628, %check_retval.exit626, %check_retval.exit624, %check_retval.exit622, %check_retval.exit620, %check_retval.exit618, %check_retval.exit616, %check_retval.exit614, %check_retval.exit612, %check_retval.exit610, %check_retval.exit608, %check_retval.exit606, %check_retval.exit604, %check_retval.exit602, %check_retval.exit600, %check_retval.exit598, %check_retval.exit596, %check_retval.exit594, %check_retval.exit592, %check_retval.exit590, %check_retval.exit588, %check_retval.exit586.thread, %check_retval.exit584.thread, %check_retval.exit582.thread, %check_retval.exit580, %check_retval.exit578, %check_retval.exit576, %check_retval.exit572, %check_retval.exit570, %check_retval.exit, %731, %41, %36, %27
+  %.0 = phi i32 [ -1, %27 ], [ -1, %36 ], [ -1, %41 ], [ 0, %731 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit570 ], [ 1, %check_retval.exit572 ], [ 1, %check_retval.exit576 ], [ 1, %check_retval.exit578 ], [ 1, %check_retval.exit580 ], [ 1, %check_retval.exit588 ], [ 1, %check_retval.exit590 ], [ 1, %check_retval.exit592 ], [ 1, %check_retval.exit594 ], [ 1, %check_retval.exit596 ], [ 1, %check_retval.exit598 ], [ 1, %check_retval.exit600 ], [ 1, %check_retval.exit602 ], [ 1, %check_retval.exit604 ], [ 1, %check_retval.exit606 ], [ 1, %check_retval.exit608 ], [ 1, %check_retval.exit610 ], [ 1, %check_retval.exit612 ], [ 1, %check_retval.exit614 ], [ 1, %check_retval.exit616 ], [ 1, %check_retval.exit618 ], [ 1, %check_retval.exit620 ], [ 1, %check_retval.exit622 ], [ 1, %check_retval.exit624 ], [ 1, %check_retval.exit626 ], [ 1, %check_retval.exit628 ], [ 1, %check_retval.exit630 ], [ 1, %check_retval.exit632 ], [ 1, %check_retval.exit634 ], [ 1, %check_retval.exit636 ], [ 1, %check_retval.exit638 ], [ 1, %check_retval.exit640 ], [ 1, %check_retval.exit642 ], [ 1, %check_retval.exit644 ], [ 1, %check_retval.exit646 ], [ 1, %check_retval.exit648 ], [ 1, %check_retval.exit650 ], [ 1, %check_retval.exit652 ], [ 1, %check_retval.exit654 ], [ 1, %check_retval.exit656 ], [ 1, %check_retval.exit658 ], [ 1, %check_retval.exit660 ], [ 1, %check_retval.exit662 ], [ 1, %check_retval.exit664 ], [ 1, %check_retval.exit666 ], [ 1, %check_retval.exit668 ], [ 1, %check_retval.exit670 ], [ 1, %check_retval.exit672 ], [ 1, %check_retval.exit674 ], [ 1, %check_retval.exit676 ], [ 1, %check_retval.exit678 ], [ 1, %check_retval.exit680 ], [ 1, %check_retval.exit682 ], [ 1, %check_retval.exit684 ], [ 1, %check_retval.exit686 ], [ 1, %check_retval.exit688 ], [ 1, %check_retval.exit690 ], [ 1, %check_retval.exit692 ], [ 1, %check_retval.exit694 ], [ 1, %check_retval.exit696 ], [ 1, %check_retval.exit698 ], [ 1, %check_retval.exit700 ], [ 1, %check_retval.exit702 ], [ 1, %check_retval.exit704 ], [ 1, %check_retval.exit706 ], [ 1, %check_retval.exit708 ], [ 1, %check_retval.exit710 ], [ 1, %check_retval.exit712 ], [ 1, %check_retval.exit714 ], [ 1, %check_retval.exit716 ], [ 1, %check_retval.exit582.thread ], [ 1, %check_retval.exit584.thread ], [ 1, %check_retval.exit586.thread ], [ 1, %check_retval.exit718.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

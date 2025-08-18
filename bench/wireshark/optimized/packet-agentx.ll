@@ -1114,7 +1114,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.not36.i = icmp eq i8 %10, 0
@@ -1149,7 +1149,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %42 = icmp samesign ult i64 %indvars.iv.next.i, %30
   %43 = icmp slt i32 %41, 2048
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !18
+  br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !16
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq i32 %41, 0
@@ -1362,7 +1362,5 @@ attributes #6 = { nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

@@ -855,7 +855,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %22 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 %.sink.i
   %.022.i = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %.022.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.021.lcssa.i = phi ptr [ %.02231.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02231.us.i, %.lr.ph.split.us.i ]
@@ -1082,7 +1082,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %42 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 %.sink.i
   %.022.i = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %.022.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i
   %.021.lcssa.i = phi ptr [ %.02231.i, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i ], [ %.02231.us.i, %.lr.ph.split.us.i ]
@@ -1229,7 +1229,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %109 = getelementptr inbounds nuw i8, ptr %.02231.i40, i64 %.sink.i43
   %.022.i44 = load ptr, ptr %109, align 8
   %.not.i45 = icmp eq ptr %.022.i44, null
-  br i1 %.not.i45, label %._crit_edge.i24, label %.lr.ph.split.i39, !llvm.loop !11
+  br i1 %.not.i45, label %._crit_edge.i24, label %.lr.ph.split.i39, !llvm.loop !9
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.split.us.i18, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42
   %.021.lcssa.i25 = phi ptr [ %.02231.i40, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i42 ], [ %.02231.us.i19, %.lr.ph.split.us.i18 ]
@@ -1357,7 +1357,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   %159 = getelementptr inbounds nuw i8, ptr %.02231.i78, i64 %.sink.i81
   %.022.i82 = load ptr, ptr %159, align 8
   %.not.i83 = icmp eq ptr %.022.i82, null
-  br i1 %.not.i83, label %._crit_edge.i62, label %.lr.ph.split.i77, !llvm.loop !11
+  br i1 %.not.i83, label %._crit_edge.i62, label %.lr.ph.split.i77, !llvm.loop !9
 
 ._crit_edge.i62:                                  ; preds = %.lr.ph.split.us.i56, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80
   %.021.lcssa.i63 = phi ptr [ %.02231.i78, %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.i80 ], [ %.02231.us.i57, %.lr.ph.split.us.i56 ]
@@ -1520,6 +1520,4 @@ attributes #21 = { noreturn }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5}
+!9 = distinct !{!9, !5}

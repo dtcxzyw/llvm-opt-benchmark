@@ -2194,120 +2194,142 @@ define hidden noundef zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = load i64, ptr %8, align 8, !tbaa !46
-  %.idx32 = mul nuw nsw i64 %9, 96
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx32
+  %.idx34 = mul nuw nsw i64 %9, 96
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx34
   %11 = load i32, ptr %7, align 8, !tbaa !22
   %12 = zext i32 %11 to i64
   %.idx = mul nuw nsw i64 %12, 96
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not33 = icmp ugt i64 %9, %12
-  br i1 %.not33, label %.lr.ph, label %._crit_edge
+  %.not35 = icmp ugt i64 %9, %12
+  br i1 %.not35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
   %14 = icmp slt i32 %1, 0
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.01517.us = phi ptr [ %27, %.critedge.us ], [ %13, %.lr.ph ]
-  %16 = getelementptr i8, ptr %.01517.us, i64 40
-  %.015.val.us = load i64, ptr %16, align 8, !tbaa !14
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %14, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.critedge.us.us
+  %.01517.us.us = phi ptr [ %21, %.critedge.us.us ], [ %13, %.lr.ph.split.us ]
+  %16 = getelementptr i8, ptr %.01517.us.us, i64 40
+  %.015.val.us.us = load i64, ptr %16, align 8, !tbaa !14
+  %.not.us.us = icmp eq i64 %.015.val.us.us, 0
+  br i1 %.not.us.us, label %.critedge.us.us, label %mi_segment_visit_page.exit.us.us
+
+mi_segment_visit_page.exit.us.us:                 ; preds = %.lr.ph.split.us.split.us
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %.01517.us.us) #11
+  %17 = load i64, ptr %15, align 8, !tbaa !98
+  %18 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %17, ptr noundef %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %18, label %.critedge.us.us, label %._crit_edge
+
+.critedge.us.us:                                  ; preds = %mi_segment_visit_page.exit.us.us, %.lr.ph.split.us.split.us
+  %19 = load i32, ptr %.01517.us.us, align 8, !tbaa !22
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517.us.us, i64 %20
+  %.not37 = icmp ult ptr %21, %10
+  br i1 %.not37, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !100
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
+  %.01517.us = phi ptr [ %32, %.critedge.us ], [ %13, %.lr.ph.split.us ]
+  %22 = getelementptr i8, ptr %.01517.us, i64 40
+  %.015.val.us = load i64, ptr %22, align 8, !tbaa !14
   %.not.us = icmp eq i64 %.015.val.us, 0
-  br i1 %.not.us, label %.critedge.us, label %17
+  br i1 %.not.us, label %.critedge.us, label %23
 
-17:                                               ; preds = %.lr.ph.split.us
-  br i1 %14, label %mi_segment_visit_page.exit.us, label %18
+23:                                               ; preds = %.lr.ph.split.us.split
+  %24 = getelementptr inbounds nuw i8, ptr %.01517.us, i64 35
+  %25 = load i8, ptr %24, align 1, !tbaa !44
+  %26 = zext i8 %25 to i32
+  %27 = icmp eq i32 %1, %26
+  br i1 %27, label %mi_segment_visit_page.exit.us, label %.critedge.us
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %.01517.us, i64 35
-  %20 = load i8, ptr %19, align 1, !tbaa !44
-  %21 = zext i8 %20 to i32
-  %22 = icmp eq i32 %1, %21
-  br i1 %22, label %mi_segment_visit_page.exit.us, label %.critedge.us
-
-mi_segment_visit_page.exit.us:                    ; preds = %18, %17
+mi_segment_visit_page.exit.us:                    ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %.01517.us) #11
-  %23 = load i64, ptr %15, align 8, !tbaa !98
-  %24 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %23, ptr noundef %4) #11
+  %28 = load i64, ptr %15, align 8, !tbaa !98
+  %29 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %28, ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %24, label %.critedge.us, label %._crit_edge
+  br i1 %29, label %.critedge.us, label %._crit_edge
 
-.critedge.us:                                     ; preds = %mi_segment_visit_page.exit.us, %18, %.lr.ph.split.us
-  %25 = load i32, ptr %.01517.us, align 8, !tbaa !22
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517.us, i64 %26
-  %.not34 = icmp ult ptr %27, %10
-  br i1 %.not34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !100
+.critedge.us:                                     ; preds = %mi_segment_visit_page.exit.us, %23, %.lr.ph.split.us.split
+  %30 = load i32, ptr %.01517.us, align 8, !tbaa !22
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517.us, i64 %31
+  %.not36 = icmp ult ptr %32, %10
+  br i1 %.not36, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !100
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us26
-  %.01517.us22 = phi ptr [ %36, %.critedge.us26 ], [ %13, %.lr.ph.split ]
-  %28 = getelementptr i8, ptr %.01517.us22, i64 40
-  %.015.val.us23 = load i64, ptr %28, align 8, !tbaa !14
+  %.01517.us22 = phi ptr [ %41, %.critedge.us26 ], [ %13, %.lr.ph.split ]
+  %33 = getelementptr i8, ptr %.01517.us22, i64 40
+  %.015.val.us23 = load i64, ptr %33, align 8, !tbaa !14
   %.not.us24 = icmp eq i64 %.015.val.us23, 0
-  br i1 %.not.us24, label %.critedge.us26, label %29
+  br i1 %.not.us24, label %.critedge.us26, label %34
 
-29:                                               ; preds = %.lr.ph.split.split.us
+34:                                               ; preds = %.lr.ph.split.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %.01517.us22) #11
-  %30 = load i64, ptr %15, align 8, !tbaa !98
-  %31 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %30, ptr noundef %4) #11
-  br i1 %31, label %32, label %._crit_edge.sink.split
+  %35 = load i64, ptr %15, align 8, !tbaa !98
+  %36 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %35, ptr noundef %4) #11
+  br i1 %36, label %37, label %._crit_edge.sink.split
 
-32:                                               ; preds = %29
-  %33 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %.01517.us22, ptr noundef %3, ptr noundef %4) #11
+37:                                               ; preds = %34
+  %38 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %.01517.us22, ptr noundef %3, ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %33, label %.critedge.us26, label %._crit_edge
+  br i1 %38, label %.critedge.us26, label %._crit_edge
 
-.critedge.us26:                                   ; preds = %32, %.lr.ph.split.split.us
-  %34 = load i32, ptr %.01517.us22, align 8, !tbaa !22
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517.us22, i64 %35
-  %.not36 = icmp ult ptr %36, %10
-  br i1 %.not36, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !102
+.critedge.us26:                                   ; preds = %37, %.lr.ph.split.split.us
+  %39 = load i32, ptr %.01517.us22, align 8, !tbaa !22
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517.us22, i64 %40
+  %.not39 = icmp ult ptr %41, %10
+  br i1 %.not39, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !100
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
-  %.01517 = phi ptr [ %50, %.critedge ], [ %13, %.lr.ph.split ]
-  %37 = getelementptr i8, ptr %.01517, i64 40
-  %.015.val = load i64, ptr %37, align 8, !tbaa !14
+  %.01517 = phi ptr [ %55, %.critedge ], [ %13, %.lr.ph.split ]
+  %42 = getelementptr i8, ptr %.01517, i64 40
+  %.015.val = load i64, ptr %42, align 8, !tbaa !14
   %.not = icmp eq i64 %.015.val, 0
-  br i1 %.not, label %.critedge, label %38
+  br i1 %.not, label %.critedge, label %43
 
-38:                                               ; preds = %.lr.ph.split.split
-  %39 = getelementptr inbounds nuw i8, ptr %.01517, i64 35
-  %40 = load i8, ptr %39, align 1, !tbaa !44
-  %41 = zext i8 %40 to i32
-  %42 = icmp eq i32 %1, %41
-  br i1 %42, label %43, label %.critedge
+43:                                               ; preds = %.lr.ph.split.split
+  %44 = getelementptr inbounds nuw i8, ptr %.01517, i64 35
+  %45 = load i8, ptr %44, align 1, !tbaa !44
+  %46 = zext i8 %45 to i32
+  %47 = icmp eq i32 %1, %46
+  br i1 %47, label %48, label %.critedge
 
-43:                                               ; preds = %38
+48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_mi_heap_area_init(ptr noundef nonnull %6, ptr noundef nonnull %.01517) #11
-  %44 = load i64, ptr %15, align 8, !tbaa !98
-  %45 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %44, ptr noundef %4) #11
-  br i1 %45, label %46, label %._crit_edge.sink.split
+  %49 = load i64, ptr %15, align 8, !tbaa !98
+  %50 = call zeroext i1 %3(ptr noundef null, ptr noundef nonnull %6, ptr noundef null, i64 noundef %49, ptr noundef %4) #11
+  br i1 %50, label %51, label %._crit_edge.sink.split
 
-46:                                               ; preds = %43
-  %47 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %.01517, ptr noundef %3, ptr noundef %4) #11
+51:                                               ; preds = %48
+  %52 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef nonnull %6, ptr noundef nonnull %.01517, ptr noundef %3, ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %47, label %.critedge, label %._crit_edge
+  br i1 %52, label %.critedge, label %._crit_edge
 
-.critedge:                                        ; preds = %46, %38, %.lr.ph.split.split
-  %48 = load i32, ptr %.01517, align 8, !tbaa !22
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517, i64 %49
-  %.not35 = icmp ult ptr %50, %10
-  br i1 %.not35, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !103
+.critedge:                                        ; preds = %51, %43, %.lr.ph.split.split
+  %53 = load i32, ptr %.01517, align 8, !tbaa !22
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw %struct.mi_page_s, ptr %.01517, i64 %54
+  %.not38 = icmp ult ptr %55, %10
+  br i1 %.not38, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !100
 
-._crit_edge.sink.split:                           ; preds = %43, %29
+._crit_edge.sink.split:                           ; preds = %48, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %mi_segment_visit_page.exit.us, %.critedge.us, %.critedge, %46, %.critedge.us26, %32, %._crit_edge.sink.split, %5
-  %.lcssa = phi i1 [ true, %5 ], [ false, %._crit_edge.sink.split ], [ false, %32 ], [ true, %.critedge.us26 ], [ false, %46 ], [ true, %.critedge ], [ true, %.critedge.us ], [ false, %mi_segment_visit_page.exit.us ]
+._crit_edge:                                      ; preds = %mi_segment_visit_page.exit.us, %.critedge.us, %mi_segment_visit_page.exit.us.us, %.critedge.us.us, %.critedge, %51, %.critedge.us26, %37, %._crit_edge.sink.split, %5
+  %.lcssa = phi i1 [ true, %5 ], [ false, %._crit_edge.sink.split ], [ false, %37 ], [ true, %.critedge.us26 ], [ false, %51 ], [ true, %.critedge ], [ true, %.critedge.us.us ], [ false, %mi_segment_visit_page.exit.us.us ], [ true, %.critedge.us ], [ false, %mi_segment_visit_page.exit.us ]
   ret i1 %.lcssa
 }
 
@@ -2329,7 +2351,7 @@ define internal fastcc void @mi_segment_purge(ptr noundef %0, ptr noundef %1, i6
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !104
+  store ptr null, ptr %4, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2367,13 +2389,13 @@ mi_commit_mask_is_empty.exit:                     ; preds = %12
   %26 = add nuw nsw i64 %.079.i, 1
   %exitcond.not.i = icmp eq i64 %26, 8
   %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %20, !llvm.loop !105
+  br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %20, !llvm.loop !102
 
 mi_commit_mask_any_set.exit:                      ; preds = %20
   br i1 %.not.not.i, label %27, label %56
 
 27:                                               ; preds = %mi_commit_mask_any_set.exit
-  %28 = load ptr, ptr %4, align 8, !tbaa !104
+  %28 = load ptr, ptr %4, align 8, !tbaa !101
   %29 = tail call zeroext i1 @_mi_os_purge(ptr noundef %28, i64 noundef %16) #11
   br i1 %29, label %30, label %56
 
@@ -2392,7 +2414,7 @@ mi_commit_mask_any_set.exit:                      ; preds = %20
   store i64 %36, ptr %37, align 8, !tbaa !3
   %38 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i10 = icmp eq i64 %38, 8
-  br i1 %exitcond.not.i10, label %mi_commit_mask_create_intersect.exit, label %31, !llvm.loop !106
+  br i1 %exitcond.not.i10, label %mi_commit_mask_create_intersect.exit, label %31, !llvm.loop !103
 
 mi_commit_mask_create_intersect.exit:             ; preds = %31, %.loopexit.i
   %.01118.i = phi i64 [ %45, %.loopexit.i ], [ 0, %31 ]
@@ -2440,7 +2462,7 @@ _mi_commit_mask_committed_size.exit:              ; preds = %.loopexit.i
   store i64 %54, ptr %52, align 8, !tbaa !3
   %55 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i13 = icmp eq i64 %55, 8
-  br i1 %exitcond.not.i13, label %mi_commit_mask_clear.exit, label %48, !llvm.loop !107
+  br i1 %exitcond.not.i13, label %mi_commit_mask_clear.exit, label %48, !llvm.loop !104
 
 mi_commit_mask_clear.exit:                        ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2461,7 +2483,7 @@ mi_commit_mask_clear.exit:                        ; preds = %48
   store i64 %64, ptr %62, align 8, !tbaa !3
   %65 = add nuw nsw i64 %.05.i14, 1
   %exitcond.not.i15 = icmp eq i64 %65, 8
-  br i1 %exitcond.not.i15, label %mi_commit_mask_clear.exit16, label %58, !llvm.loop !107
+  br i1 %exitcond.not.i15, label %mi_commit_mask_clear.exit16, label %58, !llvm.loop !104
 
 mi_commit_mask_clear.exit16:                      ; preds = %58, %mi_commit_mask_is_empty.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2513,7 +2535,7 @@ define internal fastcc void @mi_segment_commit_mask(ptr noundef %0, i1 noundef z
   %.1 = select i1 %.not56.not, i64 %.0, i64 %25
   %.150 = tail call i64 @llvm.umin.i64(i64 %.049, i64 %15)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
-  store ptr %26, ptr %4, align 8, !tbaa !104
+  store ptr %26, ptr %4, align 8, !tbaa !101
   %27 = tail call i64 @llvm.usub.sat.i64(i64 %.150, i64 %.1)
   store i64 %27, ptr %5, align 8, !tbaa !3
   %.not57 = icmp ugt i64 %.150, %.1
@@ -2566,7 +2588,7 @@ define internal fastcc void @mi_segment_commit_mask(ptr noundef %0, i1 noundef z
   %47 = sub i64 %.028.i, %41
   %48 = add i64 %.02127.i, 1
   %.not.i = icmp eq i64 %47, 0
-  br i1 %.not.i, label %mi_commit_mask_create.exit, label %39, !llvm.loop !108
+  br i1 %.not.i, label %mi_commit_mask_create.exit, label %39, !llvm.loop !105
 
 mi_commit_mask_create.exit:                       ; preds = %39, %36, %35, %13, %17, %7, %9
   ret void
@@ -2957,7 +2979,7 @@ mi_commit_mask_is_empty.exit.i:                   ; preds = %73
   store i64 %86, ptr %87, align 8, !tbaa !3
   %88 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %88, 8
-  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %81, !llvm.loop !106
+  br i1 %exitcond.not.i.i, label %mi_commit_mask_create_intersect.exit.i, label %81, !llvm.loop !103
 
 mi_commit_mask_create_intersect.exit.i:           ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2973,7 +2995,7 @@ mi_commit_mask_create_intersect.exit.i:           ; preds = %81
   store i64 %95, ptr %93, align 8, !tbaa !3
   %96 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i22.i = icmp eq i64 %96, 8
-  br i1 %exitcond.not.i22.i, label %mi_commit_mask_set.exit.i, label %90, !llvm.loop !109
+  br i1 %exitcond.not.i22.i, label %mi_commit_mask_set.exit.i, label %90, !llvm.loop !106
 
 mi_commit_mask_set.exit.i:                        ; preds = %90
   %97 = tail call i64 @_mi_clock_now() #11
@@ -3180,7 +3202,7 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %._crit_edge.i
 62:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 17
-  %64 = load i8, ptr %63, align 1, !tbaa !110, !range !30, !noundef !31
+  %64 = load i8, ptr %63, align 1, !tbaa !107, !range !30, !noundef !31
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %67
 
@@ -3219,7 +3241,7 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %._crit_edge.i
   %76 = sub i64 %.028.i.i, %71
   %77 = add i64 %.02127.i.i, 1
   %.not.i.i = icmp eq i64 %76, 0
-  br i1 %.not.i.i, label %mi_commit_mask_create.exit.i, label %70, !llvm.loop !108
+  br i1 %.not.i.i, label %mi_commit_mask_create.exit.i, label %70, !llvm.loop !105
 
 mi_commit_mask_create.exit.i:                     ; preds = %70, %69, %68
   %78 = and i64 %.052.in, -65536
@@ -3233,9 +3255,9 @@ mi_segment_os_alloc.exit.thread54:                ; preds = %mi_commit_mask_crea
   br label %199
 
 .critedge.i:                                      ; preds = %mi_commit_mask_create.exit.i, %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !108
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %81 = load i8, ptr %80, align 8, !tbaa !113, !range !30, !noundef !31
+  %81 = load i8, ptr %80, align 8, !tbaa !110, !range !30, !noundef !31
   %82 = trunc nuw i8 %81 to i1
   %83 = xor i8 %81, 1
   %84 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -3253,7 +3275,7 @@ mi_segment_os_alloc.exit.thread54:                ; preds = %mi_commit_mask_crea
   %91 = getelementptr inbounds nuw i8, ptr %60, i64 25
   store i8 %90, ptr %91, align 1, !tbaa !23
   %92 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store i64 %59, ptr %92, align 8, !tbaa !114
+  store i64 %59, ptr %92, align 8, !tbaa !111
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 904
   %94 = load ptr, ptr %93, align 8, !tbaa !85
   %95 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -3309,7 +3331,7 @@ mi_segment_os_alloc.exit.thread54:                ; preds = %mi_commit_mask_crea
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %121 = getelementptr inbounds nuw i8, ptr %60, i64 18
-  %122 = load i8, ptr %121, align 2, !tbaa !115, !range !30, !noundef !31
+  %122 = load i8, ptr %121, align 2, !tbaa !112, !range !30, !noundef !31
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %128, label %124
 
@@ -3330,10 +3352,10 @@ mi_segment_os_alloc.exit.thread54:                ; preds = %mi_commit_mask_crea
   %133 = getelementptr inbounds nuw i8, ptr %60, i64 280
   store atomic i64 %132, ptr %133 seq_cst, align 8, !tbaa !55
   %134 = ptrtoint ptr %60 to i64
-  %135 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !116
+  %135 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 32), align 8, !tbaa !113
   %136 = xor i64 %135, %134
   %137 = getelementptr inbounds nuw i8, ptr %60, i64 224
-  store i64 %136, ptr %137, align 8, !tbaa !117
+  store i64 %136, ptr %137, align 8, !tbaa !114
   %138 = getelementptr inbounds nuw i8, ptr %60, i64 272
   store i64 %129, ptr %138, align 8, !tbaa !46
   %139 = zext i1 %35 to i32
@@ -3474,7 +3496,7 @@ define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef
   %13 = add nuw nsw i64 %.057.i.i, 1
   %exitcond.i.i = icmp ne i64 %13, 8
   %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %10, label %mi_commit_mask_is_full.exit.i, !llvm.loop !118
+  br i1 %or.cond.not.i.i, label %10, label %mi_commit_mask_is_full.exit.i, !llvm.loop !115
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -3504,7 +3526,7 @@ mi_commit_mask_is_empty.exit.i:                   ; preds = %22
 
 26:                                               ; preds = %mi_commit_mask_is_empty.exit.i, %mi_commit_mask_is_full.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !104
+  store ptr null, ptr %4, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3538,7 +3560,7 @@ mi_commit_mask_is_empty.exit.i.i:                 ; preds = %27
   %38 = add nuw nsw i64 %.0911.i.i.i, 1
   %exitcond.i13.i.i = icmp ne i64 %38, 8
   %or.cond.not.i14.i.i = select i1 %.not.i12.i.i, i1 %exitcond.i13.i.i, i1 false
-  br i1 %or.cond.not.i14.i.i, label %.preheader.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !119
+  br i1 %or.cond.not.i14.i.i, label %.preheader.i, label %mi_commit_mask_all_set.exit.i.i, !llvm.loop !116
 
 mi_commit_mask_all_set.exit.i.i:                  ; preds = %.preheader.i
   br i1 %.not.i12.i.i, label %64, label %39
@@ -3560,7 +3582,7 @@ mi_commit_mask_all_set.exit.i.i:                  ; preds = %.preheader.i
   store i64 %45, ptr %46, align 8, !tbaa !3
   %47 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %47, 8
-  br i1 %exitcond.not.i.i.i, label %mi_commit_mask_create_intersect.exit.i.i, label %40, !llvm.loop !106
+  br i1 %exitcond.not.i.i.i, label %mi_commit_mask_create_intersect.exit.i.i, label %40, !llvm.loop !103
 
 mi_commit_mask_create_intersect.exit.i.i:         ; preds = %40, %.loopexit.i.i.i
   %.01118.i.i.i = phi i64 [ %54, %.loopexit.i.i.i ], [ 0, %40 ]
@@ -3594,7 +3616,7 @@ mi_commit_mask_create_intersect.exit.i.i:         ; preds = %40, %.loopexit.i.i.
 _mi_commit_mask_committed_size.exit.i.i:          ; preds = %.loopexit.i.i.i
   %55 = shl i64 %.1.i.i.i, 16
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %55) #11
-  %56 = load ptr, ptr %4, align 8, !tbaa !104
+  %56 = load ptr, ptr %4, align 8, !tbaa !101
   %57 = call zeroext i1 @_mi_os_commit(ptr noundef %56, i64 noundef %31, ptr noundef nonnull %7) #11
   br i1 %57, label %.preheader.i.i, label %mi_segment_ensure_committed.exit
 
@@ -3608,7 +3630,7 @@ _mi_commit_mask_committed_size.exit.i.i:          ; preds = %.loopexit.i.i.i
   store i64 %62, ptr %60, align 8, !tbaa !3
   %63 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i17.i.i = icmp eq i64 %63, 8
-  br i1 %exitcond.not.i17.i.i, label %mi_commit_mask_set.exit.i.i, label %.preheader.i.i, !llvm.loop !109
+  br i1 %exitcond.not.i17.i.i, label %mi_commit_mask_set.exit.i.i, label %.preheader.i.i, !llvm.loop !106
 
 mi_commit_mask_set.exit.i.i:                      ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3630,7 +3652,7 @@ mi_commit_mask_set.exit.i.i:                      ; preds = %.preheader.i.i
   %72 = add nuw nsw i64 %.079.i.i.i, 1
   %exitcond.not.i18.i.i = icmp eq i64 %72, 8
   %or.cond.i.i.i = select i1 %.not.not.i.i.i, i1 true, i1 %exitcond.not.i18.i.i
-  br i1 %or.cond.i.i.i, label %mi_commit_mask_any_set.exit.i.i, label %66, !llvm.loop !105
+  br i1 %or.cond.i.i.i, label %mi_commit_mask_any_set.exit.i.i, label %66, !llvm.loop !102
 
 mi_commit_mask_any_set.exit.i.i:                  ; preds = %66
   br i1 %.not.not.i.i.i, label %73, label %.preheader
@@ -3657,7 +3679,7 @@ mi_commit_mask_any_set.exit.i.i:                  ; preds = %66
   store i64 %84, ptr %82, align 8, !tbaa !3
   %85 = add nuw nsw i64 %.05.i19.i.i, 1
   %exitcond.not.i20.i.i = icmp eq i64 %85, 8
-  br i1 %exitcond.not.i20.i.i, label %mi_segment_ensure_committed.exit.thread57, label %78, !llvm.loop !107
+  br i1 %exitcond.not.i20.i.i, label %mi_segment_ensure_committed.exit.thread57, label %78, !llvm.loop !104
 
 mi_segment_ensure_committed.exit.thread57:        ; preds = %78, %mi_commit_mask_is_empty.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3719,7 +3741,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   store i64 1, ptr %104, align 8, !tbaa !14
   %105 = add nuw i64 %.04861, 1
   %exitcond = icmp eq i64 %105, %umax
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 
 106:                                              ; preds = %._crit_edge
   %107 = ptrtoint ptr %spec.select to i64
@@ -3901,24 +3923,21 @@ attributes #11 = { nounwind "no-builtin-malloc" }
 !97 = distinct !{!97, !8}
 !98 = !{!99, !4, i64 32}
 !99 = !{!"mi_heap_area_s", !19, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !16, i64 48}
-!100 = distinct !{!100, !8, !101}
-!101 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!102 = distinct !{!102, !8, !101}
+!100 = distinct !{!100, !8}
+!101 = !{!20, !20, i64 0}
+!102 = distinct !{!102, !8}
 !103 = distinct !{!103, !8}
-!104 = !{!20, !20, i64 0}
+!104 = distinct !{!104, !8}
 !105 = distinct !{!105, !8}
 !106 = distinct !{!106, !8}
-!107 = distinct !{!107, !8}
-!108 = distinct !{!108, !8}
-!109 = distinct !{!109, !8}
-!110 = !{!25, !26, i64 17}
-!111 = !{i64 0, i64 16, !35, i64 16, i64 1, !80, i64 17, i64 1, !80, i64 18, i64 1, !80, i64 20, i64 4, !112}
-!112 = !{!16, !16, i64 0}
-!113 = !{!25, !26, i64 16}
-!114 = !{!24, !4, i64 32}
-!115 = !{!24, !26, i64 18}
-!116 = !{!68, !4, i64 32}
-!117 = !{!24, !4, i64 224}
-!118 = distinct !{!118, !8}
-!119 = distinct !{!119, !8}
-!120 = distinct !{!120, !8}
+!107 = !{!25, !26, i64 17}
+!108 = !{i64 0, i64 16, !35, i64 16, i64 1, !80, i64 17, i64 1, !80, i64 18, i64 1, !80, i64 20, i64 4, !109}
+!109 = !{!16, !16, i64 0}
+!110 = !{!25, !26, i64 16}
+!111 = !{!24, !4, i64 32}
+!112 = !{!24, !26, i64 18}
+!113 = !{!68, !4, i64 32}
+!114 = !{!24, !4, i64 224}
+!115 = distinct !{!115, !8}
+!116 = distinct !{!116, !8}
+!117 = distinct !{!117, !8}

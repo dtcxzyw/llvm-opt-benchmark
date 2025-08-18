@@ -138,7 +138,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %58 = getelementptr inbounds nuw i8, ptr %.295.us, i64 4
   %59 = add i32 %.27694.us, 1
   %exitcond.not = icmp eq i32 %59, %1
-  br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !10
 
 .critedge2.us:                                    ; preds = %.lr.ph96.us
   %60 = trunc i32 %.17590.us to i16
@@ -159,7 +159,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %69 = getelementptr inbounds nuw i8, ptr %.17091.us, i64 4
   %70 = add nsw i32 %.17590.us, 1
   %71 = icmp slt i32 %70, %1
-  br i1 %71, label %18, label %.critedge.thread.us, !llvm.loop !12
+  br i1 %71, label %18, label %.critedge.thread.us, !llvm.loop !11
 
 .critedge.preheader.us:                           ; preds = %18
   %72 = icmp slt i32 %.17590.us, %1
@@ -206,7 +206,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

@@ -1042,7 +1042,7 @@ proto_item_set_hidden.exit79.us.i:                ; preds = %244, %241, %.prehea
 proto_item_set_hidden.exit76.us89.i:              ; preds = %253, %250, %proto_item_set_hidden.exit79.us.i
   %257 = add nuw nsw i32 %.086.us88.i, 1
   %exitcond.not.i87 = icmp eq i32 %257, 350
-  br i1 %exitcond.not.i87, label %dissect_UDPH1_new.exit, label %.preheader.split.us87.i, !llvm.loop !13
+  br i1 %exitcond.not.i87, label %dissect_UDPH1_new.exit, label %.preheader.split.us87.i, !llvm.loop !11
 
 258:                                              ; preds = %193
   %259 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef 1400)
@@ -1077,7 +1077,7 @@ proto_item_set_hidden.exit76.us89.i:              ; preds = %253, %250, %proto_i
 proto_item_set_hidden.exit76.i:                   ; preds = %271, %268, %.preheader.split.i
   %275 = add nuw nsw i32 %.086.i, 1
   %exitcond93.not.i = icmp eq i32 %275, 350
-  br i1 %exitcond93.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.i, !llvm.loop !14
+  br i1 %exitcond93.not.i, label %dissect_UDPH1_new.exit, label %.preheader.split.i, !llvm.loop !11
 
 276:                                              ; preds = %7
   %277 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -1172,7 +1172,7 @@ proto_item_set_hidden.exit43.i:                   ; preds = %314, %311, %proto_i
 proto_item_set_hidden.exit46.i:                   ; preds = %323, %320, %proto_item_set_hidden.exit43.i
   %327 = add nuw nsw i32 %.047.i, 1
   %exitcond.not.i93 = icmp eq i32 %327, 336
-  br i1 %exitcond.not.i93, label %dissect_GDSHP.exit, label %.preheader.i89, !llvm.loop !15
+  br i1 %exitcond.not.i93, label %dissect_GDSHP.exit, label %.preheader.i89, !llvm.loop !12
 
 dissect_GDSHP.exit:                               ; preds = %proto_item_set_hidden.exit46.i, %276, %290
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1855,8 +1855,5 @@ attributes #6 = { allocsize(1) }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !12}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

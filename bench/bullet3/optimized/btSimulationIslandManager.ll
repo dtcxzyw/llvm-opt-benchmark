@@ -1719,7 +1719,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i.us.us: ; preds = %31, %23
   %36 = phi i32 [ %35, %31 ], [ %29, %23 ]
   %37 = icmp slt i32 %36, %15
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
-  br i1 %37, label %23, label %.preheader.split.us.us, !llvm.loop !98
+  br i1 %37, label %23, label %.preheader.split.us.us, !llvm.loop !97
 
 .preheader.split.us.us:                           ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us
   %38 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv82
@@ -1748,7 +1748,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.
   %52 = phi i32 [ %51, %47 ], [ %45, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us ]
   %53 = icmp slt i32 %15, %52
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
-  br i1 %53, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !99
+  br i1 %53, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !98
 
 .split54.us.us:                                   ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us
   %54 = trunc nsw i64 %indvars.iv82 to i32
@@ -1791,7 +1791,7 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i:   ; preds = %69, %61
   %74 = phi i32 [ %73, %69 ], [ %67, %61 ]
   %75 = icmp slt i32 %74, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %75, label %61, label %.preheader.split, !llvm.loop !100
+  br i1 %75, label %61, label %.preheader.split, !llvm.loop !97
 
 .preheader.split:                                 ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i
   %76 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
@@ -1820,7 +1820,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; 
   %90 = phi i32 [ %89, %85 ], [ %83, %_Z11getIslandIdPK20btPersistentManifold.exit.i36 ]
   %91 = icmp slt i32 %59, %90
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  br i1 %91, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !101
+  br i1 %91, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !98
 
 .split54:                                         ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37
   %92 = trunc nsw i64 %indvars.iv to i32
@@ -1840,7 +1840,7 @@ _ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; 
   %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
   %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %.split67.us, label %.split, !llvm.loop !102
+  br i1 %.not35, label %.split67.us, label %.split, !llvm.loop !96
 
 .split67.us:                                      ; preds = %98, %22
   %.us-phi68 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
@@ -1985,10 +1985,6 @@ attributes #13 = { builtin nounwind }
 !93 = distinct !{!93, !58}
 !94 = distinct !{!94, !58}
 !95 = distinct !{!95, !58}
-!96 = distinct !{!96, !58, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !58, !97}
-!99 = distinct !{!99, !58, !97}
-!100 = distinct !{!100, !58}
-!101 = distinct !{!101, !58}
-!102 = distinct !{!102, !58}
+!96 = distinct !{!96, !58}
+!97 = distinct !{!97, !58}
+!98 = distinct !{!98, !58}

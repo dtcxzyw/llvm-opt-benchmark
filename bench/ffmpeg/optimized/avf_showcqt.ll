@@ -1696,8 +1696,8 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
 
 ._crit_edge.us:                                   ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond107.not, label %._crit_edge104, label %.lr.ph101.us, !llvm.loop !145
+  %exitcond108.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond108.not, label %._crit_edge104, label %.lr.ph101.us, !llvm.loop !145
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.099 = phi i32 [ %58, %.lr.ph ], [ 0, %4 ]
@@ -1717,7 +1717,7 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %57, i64 %18, i1 false)
   %58 = add nuw nsw i32 %.099, 1
   %exitcond.not = icmp eq i32 %58, %8
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !147
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !146
 
 ._crit_edge104:                                   ; preds = %._crit_edge.us, %4, %.preheader
   ret void
@@ -1726,7 +1726,7 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, float noundef %5) #7 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load i32, ptr %7, align 8, !tbaa !148
+  %8 = load i32, ptr %7, align 8, !tbaa !147
   %9 = sitofp i32 %4 to float
   %10 = fdiv nsz float 1.000000e+00, %9
   %11 = fdiv nsz float 1.000000e+00, %5
@@ -1764,8 +1764,8 @@ define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr n
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.04348.us, i64 1
-  store i8 0, ptr %.04348.us, align 1, !tbaa !149
-  store i8 0, ptr %29, align 1, !tbaa !149
+  store i8 0, ptr %.04348.us, align 1, !tbaa !148
+  store i8 0, ptr %29, align 1, !tbaa !148
   br label %54
 
 30:                                               ; preds = %24
@@ -1777,20 +1777,20 @@ define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr n
   %36 = fmul nsz float %11, %34
   %37 = select nsz i1 %35, float %36, float 1.000000e+00
   %38 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv
-  %39 = load float, ptr %38, align 4, !tbaa !149
+  %39 = load float, ptr %38, align 4, !tbaa !148
   %40 = fmul nsz float %39, %37
   %41 = tail call i64 @llvm.lrint.i64.f32(float %40)
   %42 = trunc i64 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %.04348.us, i64 1
-  store i8 %42, ptr %.04348.us, align 1, !tbaa !149
+  store i8 %42, ptr %.04348.us, align 1, !tbaa !148
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %45 = load float, ptr %44, align 4, !tbaa !149
+  %45 = load float, ptr %44, align 4, !tbaa !148
   %46 = fmul nsz float %37, %45
   %47 = tail call i64 @llvm.lrint.i64.f32(float %46)
   %48 = trunc i64 %47 to i8
-  store i8 %48, ptr %43, align 1, !tbaa !149
+  store i8 %48, ptr %43, align 1, !tbaa !148
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %50 = load float, ptr %49, align 4, !tbaa !149
+  %50 = load float, ptr %49, align 4, !tbaa !148
   %51 = fmul nsz float %37, %50
   %52 = tail call i64 @llvm.lrint.i64.f32(float %51)
   %53 = trunc i64 %52 to i8
@@ -1799,16 +1799,16 @@ define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr n
 54:                                               ; preds = %30, %28
   %.sink = phi i8 [ %53, %30 ], [ 0, %28 ]
   %55 = getelementptr inbounds nuw i8, ptr %.04348.us, i64 2
-  store i8 %.sink, ptr %55, align 1, !tbaa !149
+  store i8 %.sink, ptr %55, align 1, !tbaa !148
   %.1.us = getelementptr inbounds nuw i8, ptr %.04348.us, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !149
 
 ._crit_edge.us:                                   ; preds = %54
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge53, label %.lr.ph.us, !llvm.loop !151
+  br i1 %exitcond60.not, label %._crit_edge53, label %.lr.ph.us, !llvm.loop !150
 
 ._crit_edge53:                                    ; preds = %._crit_edge.us, %6
   ret void
@@ -1817,7 +1817,7 @@ define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @draw_axis_rgb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %6 = load i32, ptr %5, align 8, !tbaa !148
+  %6 = load i32, ptr %5, align 8, !tbaa !147
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %8 = load i32, ptr %7, align 4, !tbaa !142
   %9 = icmp sgt i32 %8, 0
@@ -1853,80 +1853,80 @@ define internal void @draw_axis_rgb(ptr noundef readonly captures(none) %0, ptr 
   %.059.us = phi ptr [ %23, %.lr.ph.us ], [ %83, %82 ]
   %.05258.us = phi ptr [ %18, %.lr.ph.us ], [ %.1.us, %82 ]
   %25 = getelementptr inbounds nuw i8, ptr %.059.us, i64 3
-  %26 = load i8, ptr %25, align 1, !tbaa !149
+  %26 = load i8, ptr %25, align 1, !tbaa !148
   switch i8 %26, label %50 [
     i8 0, label %35
     i8 -1, label %27
   ]
 
 27:                                               ; preds = %24
-  %28 = load i8, ptr %.059.us, align 1, !tbaa !149
+  %28 = load i8, ptr %.059.us, align 1, !tbaa !148
   %29 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 1
-  store i8 %28, ptr %.05258.us, align 1, !tbaa !149
+  store i8 %28, ptr %.05258.us, align 1, !tbaa !148
   %30 = getelementptr inbounds nuw i8, ptr %.059.us, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !149
+  %31 = load i8, ptr %30, align 1, !tbaa !148
   %32 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 2
-  store i8 %31, ptr %29, align 1, !tbaa !149
+  store i8 %31, ptr %29, align 1, !tbaa !148
   %33 = getelementptr inbounds nuw i8, ptr %.059.us, i64 2
-  %34 = load i8, ptr %33, align 1, !tbaa !149
-  store i8 %34, ptr %32, align 1, !tbaa !149
+  %34 = load i8, ptr %33, align 1, !tbaa !148
+  store i8 %34, ptr %32, align 1, !tbaa !148
   br label %82
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
-  %37 = load float, ptr %36, align 4, !tbaa !149
+  %37 = load float, ptr %36, align 4, !tbaa !148
   %38 = tail call i64 @llvm.lrint.i64.f32(float %37)
   %39 = trunc i64 %38 to i8
   %40 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 1
-  store i8 %39, ptr %.05258.us, align 1, !tbaa !149
+  store i8 %39, ptr %.05258.us, align 1, !tbaa !148
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %42 = load float, ptr %41, align 4, !tbaa !149
+  %42 = load float, ptr %41, align 4, !tbaa !148
   %43 = tail call i64 @llvm.lrint.i64.f32(float %42)
   %44 = trunc i64 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 2
-  store i8 %44, ptr %40, align 1, !tbaa !149
+  store i8 %44, ptr %40, align 1, !tbaa !148
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %47 = load float, ptr %46, align 4, !tbaa !149
+  %47 = load float, ptr %46, align 4, !tbaa !148
   %48 = tail call i64 @llvm.lrint.i64.f32(float %47)
   %49 = trunc i64 %48 to i8
-  store i8 %49, ptr %45, align 1, !tbaa !149
+  store i8 %49, ptr %45, align 1, !tbaa !148
   br label %82
 
 50:                                               ; preds = %24
   %51 = uitofp i8 %26 to float
   %52 = fmul nsz float %51, 0x3F70101020000000
-  %53 = load i8, ptr %.059.us, align 1, !tbaa !149
+  %53 = load i8, ptr %.059.us, align 1, !tbaa !148
   %54 = uitofp i8 %53 to float
   %55 = fsub nsz float 1.000000e+00, %52
   %56 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
-  %57 = load float, ptr %56, align 4, !tbaa !149
+  %57 = load float, ptr %56, align 4, !tbaa !148
   %58 = fmul nsz float %55, %57
   %59 = tail call nsz float @llvm.fmuladd.f32(float %52, float %54, float %58)
   %60 = tail call i64 @llvm.lrint.i64.f32(float %59)
   %61 = trunc i64 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 1
-  store i8 %61, ptr %.05258.us, align 1, !tbaa !149
+  store i8 %61, ptr %.05258.us, align 1, !tbaa !148
   %63 = getelementptr inbounds nuw i8, ptr %.059.us, i64 1
-  %64 = load i8, ptr %63, align 1, !tbaa !149
+  %64 = load i8, ptr %63, align 1, !tbaa !148
   %65 = uitofp i8 %64 to float
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %67 = load float, ptr %66, align 4, !tbaa !149
+  %67 = load float, ptr %66, align 4, !tbaa !148
   %68 = fmul nsz float %55, %67
   %69 = tail call nsz float @llvm.fmuladd.f32(float %52, float %65, float %68)
   %70 = tail call i64 @llvm.lrint.i64.f32(float %69)
   %71 = trunc i64 %70 to i8
   %72 = getelementptr inbounds nuw i8, ptr %.05258.us, i64 2
-  store i8 %71, ptr %62, align 1, !tbaa !149
+  store i8 %71, ptr %62, align 1, !tbaa !148
   %73 = getelementptr inbounds nuw i8, ptr %.059.us, i64 2
-  %74 = load i8, ptr %73, align 1, !tbaa !149
+  %74 = load i8, ptr %73, align 1, !tbaa !148
   %75 = uitofp i8 %74 to float
   %76 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %77 = load float, ptr %76, align 4, !tbaa !149
+  %77 = load float, ptr %76, align 4, !tbaa !148
   %78 = fmul nsz float %55, %77
   %79 = tail call nsz float @llvm.fmuladd.f32(float %52, float %75, float %78)
   %80 = tail call i64 @llvm.lrint.i64.f32(float %79)
   %81 = trunc i64 %80 to i8
-  store i8 %81, ptr %72, align 1, !tbaa !149
+  store i8 %81, ptr %72, align 1, !tbaa !148
   br label %82
 
 82:                                               ; preds = %50, %35, %27
@@ -1934,12 +1934,12 @@ define internal void @draw_axis_rgb(ptr noundef readonly captures(none) %0, ptr 
   %83 = getelementptr inbounds nuw i8, ptr %.059.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !152
+  br i1 %exitcond.not, label %._crit_edge.us, label %24, !llvm.loop !151
 
 ._crit_edge.us:                                   ; preds = %82
   %84 = add nuw nsw i32 %.05460.us, 1
   %exitcond66.not = icmp eq i32 %84, %8
-  br i1 %exitcond66.not, label %._crit_edge63, label %.lr.ph.us, !llvm.loop !153
+  br i1 %exitcond66.not, label %._crit_edge63, label %.lr.ph.us, !llvm.loop !152
 
 ._crit_edge63:                                    ; preds = %._crit_edge.us, %.lr.ph62, %4
   ret void
@@ -1948,7 +1948,7 @@ define internal void @draw_axis_rgb(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @update_sono_rgb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load i32, ptr %4, align 8, !tbaa !148
+  %5 = load i32, ptr %4, align 8, !tbaa !147
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1966,26 +1966,26 @@ define internal void @update_sono_rgb(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.017 = phi ptr [ %12, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %13 = getelementptr inbounds nuw %union.ColorFloat, ptr %1, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !149
+  %14 = load float, ptr %13, align 4, !tbaa !148
   %15 = tail call i64 @llvm.lrint.i64.f32(float %14)
   %16 = trunc i64 %15 to i8
   %17 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  store i8 %16, ptr %.017, align 1, !tbaa !149
+  store i8 %16, ptr %.017, align 1, !tbaa !148
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !149
+  %19 = load float, ptr %18, align 4, !tbaa !148
   %20 = tail call i64 @llvm.lrint.i64.f32(float %19)
   %21 = trunc i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %.017, i64 2
-  store i8 %21, ptr %17, align 1, !tbaa !149
+  store i8 %21, ptr %17, align 1, !tbaa !148
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %24 = load float, ptr %23, align 4, !tbaa !149
+  %24 = load float, ptr %23, align 4, !tbaa !148
   %25 = tail call i64 @llvm.lrint.i64.f32(float %24)
   %26 = trunc i64 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.017, i64 3
-  store i8 %26, ptr %22, align 1, !tbaa !149
+  store i8 %26, ptr %22, align 1, !tbaa !148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2012,7 +2012,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !143
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %23 = load i32, ptr %22, align 8, !tbaa !148
+  %23 = load i32, ptr %22, align 8, !tbaa !147
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %25 = load i32, ptr %24, align 4, !tbaa !137
   %26 = icmp eq i32 %25, 0
@@ -2062,8 +2062,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %.lr.ph360
-  store i8 16, ptr %.0303356, align 1, !tbaa !149
-  store i8 -128, ptr %.0293357, align 1, !tbaa !149
+  store i8 16, ptr %.0303356, align 1, !tbaa !148
+  store i8 -128, ptr %.0293357, align 1, !tbaa !148
   br label %78
 
 55:                                               ; preds = %.lr.ph360
@@ -2075,19 +2075,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %61 = fmul nsz float %9, %59
   %62 = select nsz i1 %60, float %61, float 1.000000e+00
   %63 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv380
-  %64 = load float, ptr %63, align 4, !tbaa !149
+  %64 = load float, ptr %63, align 4, !tbaa !148
   %65 = tail call nsz float @llvm.fmuladd.f32(float %62, float %64, float 1.600000e+01)
   %66 = tail call i64 @llvm.lrint.i64.f32(float %65)
   %67 = trunc i64 %66 to i8
-  store i8 %67, ptr %.0303356, align 1, !tbaa !149
+  store i8 %67, ptr %.0303356, align 1, !tbaa !148
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %69 = load float, ptr %68, align 4, !tbaa !149
+  %69 = load float, ptr %68, align 4, !tbaa !148
   %70 = tail call nsz float @llvm.fmuladd.f32(float %62, float %69, float 1.280000e+02)
   %71 = tail call i64 @llvm.lrint.i64.f32(float %70)
   %72 = trunc i64 %71 to i8
-  store i8 %72, ptr %.0293357, align 1, !tbaa !149
+  store i8 %72, ptr %.0293357, align 1, !tbaa !148
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %74 = load float, ptr %73, align 4, !tbaa !149
+  %74 = load float, ptr %73, align 4, !tbaa !148
   %75 = tail call nsz float @llvm.fmuladd.f32(float %62, float %74, float 1.280000e+02)
   %76 = tail call i64 @llvm.lrint.i64.f32(float %75)
   %77 = trunc i64 %76 to i8
@@ -2098,7 +2098,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.1289 = getelementptr inbounds nuw i8, ptr %.0288358, i64 1
   %.1294 = getelementptr inbounds nuw i8, ptr %.0293357, i64 1
   %.1304 = getelementptr inbounds nuw i8, ptr %.0303356, i64 1
-  store i8 %storemerge342, ptr %.0288358, align 1, !tbaa !149
+  store i8 %storemerge342, ptr %.0288358, align 1, !tbaa !148
   %79 = or disjoint i64 %indvars.iv380, 1
   %80 = getelementptr inbounds nuw float, ptr %1, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !61
@@ -2106,8 +2106,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %78
-  store i8 16, ptr %.1304, align 1, !tbaa !149
-  store i8 -128, ptr %.1294, align 1, !tbaa !149
+  store i8 16, ptr %.1304, align 1, !tbaa !148
+  store i8 -128, ptr %.1294, align 1, !tbaa !148
   br label %107
 
 84:                                               ; preds = %78
@@ -2119,19 +2119,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %90 = fmul nsz float %9, %88
   %91 = select nsz i1 %89, float %90, float 1.000000e+00
   %92 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %79
-  %93 = load float, ptr %92, align 4, !tbaa !149
+  %93 = load float, ptr %92, align 4, !tbaa !148
   %94 = tail call nsz float @llvm.fmuladd.f32(float %91, float %93, float 1.600000e+01)
   %95 = tail call i64 @llvm.lrint.i64.f32(float %94)
   %96 = trunc i64 %95 to i8
-  store i8 %96, ptr %.1304, align 1, !tbaa !149
+  store i8 %96, ptr %.1304, align 1, !tbaa !148
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %98 = load float, ptr %97, align 4, !tbaa !149
+  %98 = load float, ptr %97, align 4, !tbaa !148
   %99 = tail call nsz float @llvm.fmuladd.f32(float %91, float %98, float 1.280000e+02)
   %100 = tail call i64 @llvm.lrint.i64.f32(float %99)
   %101 = trunc i64 %100 to i8
-  store i8 %101, ptr %.1294, align 1, !tbaa !149
+  store i8 %101, ptr %.1294, align 1, !tbaa !148
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %103 = load float, ptr %102, align 4, !tbaa !149
+  %103 = load float, ptr %102, align 4, !tbaa !148
   %104 = tail call nsz float @llvm.fmuladd.f32(float %91, float %103, float 1.280000e+02)
   %105 = tail call i64 @llvm.lrint.i64.f32(float %104)
   %106 = trunc i64 %105 to i8
@@ -2142,10 +2142,10 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.2290 = getelementptr inbounds nuw i8, ptr %.0288358, i64 2
   %.2295 = getelementptr inbounds nuw i8, ptr %.0293357, i64 2
   %.2305 = getelementptr inbounds nuw i8, ptr %.0303356, i64 2
-  store i8 %storemerge343, ptr %.1289, align 1, !tbaa !149
+  store i8 %storemerge343, ptr %.1289, align 1, !tbaa !148
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 2
   %108 = icmp slt i64 %indvars.iv.next381, %31
-  br i1 %108, label %.lr.ph360, label %.loopexit349, !llvm.loop !155
+  br i1 %108, label %.lr.ph360, label %.loopexit349, !llvm.loop !154
 
 .lr.ph:                                           ; preds = %.preheader350, %154
   %indvars.iv = phi i64 [ %indvars.iv.next, %154 ], [ 0, %.preheader350 ]
@@ -2158,8 +2158,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %111, label %113, label %112
 
 112:                                              ; preds = %.lr.ph
-  store i8 16, ptr %.3306352, align 1, !tbaa !149
-  store i8 -128, ptr %.3296353, align 1, !tbaa !149
+  store i8 16, ptr %.3306352, align 1, !tbaa !148
+  store i8 -128, ptr %.3296353, align 1, !tbaa !148
   br label %136
 
 113:                                              ; preds = %.lr.ph
@@ -2171,19 +2171,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %119 = fmul nsz float %9, %117
   %120 = select nsz i1 %118, float %119, float 1.000000e+00
   %121 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv
-  %122 = load float, ptr %121, align 4, !tbaa !149
+  %122 = load float, ptr %121, align 4, !tbaa !148
   %123 = tail call nsz float @llvm.fmuladd.f32(float %120, float %122, float 1.600000e+01)
   %124 = tail call i64 @llvm.lrint.i64.f32(float %123)
   %125 = trunc i64 %124 to i8
-  store i8 %125, ptr %.3306352, align 1, !tbaa !149
+  store i8 %125, ptr %.3306352, align 1, !tbaa !148
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %127 = load float, ptr %126, align 4, !tbaa !149
+  %127 = load float, ptr %126, align 4, !tbaa !148
   %128 = tail call nsz float @llvm.fmuladd.f32(float %120, float %127, float 1.280000e+02)
   %129 = tail call i64 @llvm.lrint.i64.f32(float %128)
   %130 = trunc i64 %129 to i8
-  store i8 %130, ptr %.3296353, align 1, !tbaa !149
+  store i8 %130, ptr %.3296353, align 1, !tbaa !148
   %131 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %132 = load float, ptr %131, align 4, !tbaa !149
+  %132 = load float, ptr %131, align 4, !tbaa !148
   %133 = tail call nsz float @llvm.fmuladd.f32(float %120, float %132, float 1.280000e+02)
   %134 = tail call i64 @llvm.lrint.i64.f32(float %133)
   %135 = trunc i64 %134 to i8
@@ -2194,7 +2194,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.4292 = getelementptr inbounds nuw i8, ptr %.3291354, i64 1
   %.4297 = getelementptr inbounds nuw i8, ptr %.3296353, i64 1
   %.4307 = getelementptr inbounds nuw i8, ptr %.3306352, i64 1
-  store i8 %storemerge, ptr %.3291354, align 1, !tbaa !149
+  store i8 %storemerge, ptr %.3291354, align 1, !tbaa !148
   %137 = or disjoint i64 %indvars.iv, 1
   %138 = getelementptr inbounds nuw float, ptr %1, i64 %137
   %139 = load float, ptr %138, align 4, !tbaa !61
@@ -2210,7 +2210,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %147 = fmul nsz float %9, %145
   %148 = select nsz i1 %146, float %147, float 1.000000e+00
   %149 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %137
-  %150 = load float, ptr %149, align 4, !tbaa !149
+  %150 = load float, ptr %149, align 4, !tbaa !148
   %151 = tail call nsz float @llvm.fmuladd.f32(float %148, float %150, float 1.600000e+01)
   %152 = tail call i64 @llvm.lrint.i64.f32(float %151)
   %153 = trunc i64 %152 to i8
@@ -2219,10 +2219,10 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
 154:                                              ; preds = %136, %141
   %storemerge335 = phi i8 [ %153, %141 ], [ 16, %136 ]
   %.5308 = getelementptr inbounds nuw i8, ptr %.3306352, i64 2
-  store i8 %storemerge335, ptr %.4307, align 1, !tbaa !149
+  store i8 %storemerge335, ptr %.4307, align 1, !tbaa !148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %155 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %155, label %.lr.ph, label %.loopexit349, !llvm.loop !156
+  br i1 %155, label %.lr.ph, label %.loopexit349, !llvm.loop !155
 
 .loopexit349:                                     ; preds = %154, %107, %.preheader350, %.preheader348
   %156 = or disjoint i64 %indvars.iv392, 1
@@ -2252,8 +2252,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %169, label %171, label %170
 
 170:                                              ; preds = %.lr.ph373
-  store i8 16, ptr %.6309369, align 1, !tbaa !149
-  store i8 -128, ptr %.5298370, align 1, !tbaa !149
+  store i8 16, ptr %.6309369, align 1, !tbaa !148
+  store i8 -128, ptr %.5298370, align 1, !tbaa !148
   br label %194
 
 171:                                              ; preds = %.lr.ph373
@@ -2265,19 +2265,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %177 = fmul nsz float %9, %175
   %178 = select nsz i1 %176, float %177, float 1.000000e+00
   %179 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv389
-  %180 = load float, ptr %179, align 4, !tbaa !149
+  %180 = load float, ptr %179, align 4, !tbaa !148
   %181 = tail call nsz float @llvm.fmuladd.f32(float %178, float %180, float 1.600000e+01)
   %182 = tail call i64 @llvm.lrint.i64.f32(float %181)
   %183 = trunc i64 %182 to i8
-  store i8 %183, ptr %.6309369, align 1, !tbaa !149
+  store i8 %183, ptr %.6309369, align 1, !tbaa !148
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  %185 = load float, ptr %184, align 4, !tbaa !149
+  %185 = load float, ptr %184, align 4, !tbaa !148
   %186 = tail call nsz float @llvm.fmuladd.f32(float %178, float %185, float 1.280000e+02)
   %187 = tail call i64 @llvm.lrint.i64.f32(float %186)
   %188 = trunc i64 %187 to i8
-  store i8 %188, ptr %.5298370, align 1, !tbaa !149
+  store i8 %188, ptr %.5298370, align 1, !tbaa !148
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %190 = load float, ptr %189, align 4, !tbaa !149
+  %190 = load float, ptr %189, align 4, !tbaa !148
   %191 = tail call nsz float @llvm.fmuladd.f32(float %178, float %190, float 1.280000e+02)
   %192 = tail call i64 @llvm.lrint.i64.f32(float %191)
   %193 = trunc i64 %192 to i8
@@ -2288,7 +2288,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.6 = getelementptr inbounds nuw i8, ptr %.5371, i64 1
   %.6299 = getelementptr inbounds nuw i8, ptr %.5298370, i64 1
   %.7310 = getelementptr inbounds nuw i8, ptr %.6309369, i64 1
-  store i8 %storemerge340, ptr %.5371, align 1, !tbaa !149
+  store i8 %storemerge340, ptr %.5371, align 1, !tbaa !148
   %195 = or disjoint i64 %indvars.iv389, 1
   %196 = getelementptr inbounds nuw float, ptr %1, i64 %195
   %197 = load float, ptr %196, align 4, !tbaa !61
@@ -2296,8 +2296,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %198, label %200, label %199
 
 199:                                              ; preds = %194
-  store i8 16, ptr %.7310, align 1, !tbaa !149
-  store i8 -128, ptr %.6299, align 1, !tbaa !149
+  store i8 16, ptr %.7310, align 1, !tbaa !148
+  store i8 -128, ptr %.6299, align 1, !tbaa !148
   br label %223
 
 200:                                              ; preds = %194
@@ -2309,19 +2309,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %206 = fmul nsz float %9, %204
   %207 = select nsz i1 %205, float %206, float 1.000000e+00
   %208 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %195
-  %209 = load float, ptr %208, align 4, !tbaa !149
+  %209 = load float, ptr %208, align 4, !tbaa !148
   %210 = tail call nsz float @llvm.fmuladd.f32(float %207, float %209, float 1.600000e+01)
   %211 = tail call i64 @llvm.lrint.i64.f32(float %210)
   %212 = trunc i64 %211 to i8
-  store i8 %212, ptr %.7310, align 1, !tbaa !149
+  store i8 %212, ptr %.7310, align 1, !tbaa !148
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 4
-  %214 = load float, ptr %213, align 4, !tbaa !149
+  %214 = load float, ptr %213, align 4, !tbaa !148
   %215 = tail call nsz float @llvm.fmuladd.f32(float %207, float %214, float 1.280000e+02)
   %216 = tail call i64 @llvm.lrint.i64.f32(float %215)
   %217 = trunc i64 %216 to i8
-  store i8 %217, ptr %.6299, align 1, !tbaa !149
+  store i8 %217, ptr %.6299, align 1, !tbaa !148
   %218 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %219 = load float, ptr %218, align 4, !tbaa !149
+  %219 = load float, ptr %218, align 4, !tbaa !148
   %220 = tail call nsz float @llvm.fmuladd.f32(float %207, float %219, float 1.280000e+02)
   %221 = tail call i64 @llvm.lrint.i64.f32(float %220)
   %222 = trunc i64 %221 to i8
@@ -2332,10 +2332,10 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.7 = getelementptr inbounds nuw i8, ptr %.5371, i64 2
   %.7300 = getelementptr inbounds nuw i8, ptr %.5298370, i64 2
   %.8311 = getelementptr inbounds nuw i8, ptr %.6309369, i64 2
-  store i8 %storemerge341, ptr %.6, align 1, !tbaa !149
+  store i8 %storemerge341, ptr %.6, align 1, !tbaa !148
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 2
   %224 = icmp slt i64 %indvars.iv.next390, %31
-  br i1 %224, label %.lr.ph373, label %.loopexit, !llvm.loop !157
+  br i1 %224, label %.lr.ph373, label %.loopexit, !llvm.loop !156
 
 225:                                              ; preds = %.loopexit349
   br i1 %30, label %.preheader344, label %.preheader346
@@ -2357,8 +2357,8 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   br i1 %228, label %230, label %229
 
 229:                                              ; preds = %.lr.ph368
-  store i8 16, ptr %.9312364, align 1, !tbaa !149
-  store i8 -128, ptr %.8301365, align 1, !tbaa !149
+  store i8 16, ptr %.9312364, align 1, !tbaa !148
+  store i8 -128, ptr %.8301365, align 1, !tbaa !148
   br label %253
 
 230:                                              ; preds = %.lr.ph368
@@ -2370,19 +2370,19 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %236 = fmul nsz float %9, %234
   %237 = select nsz i1 %235, float %236, float 1.000000e+00
   %238 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv386
-  %239 = load float, ptr %238, align 4, !tbaa !149
+  %239 = load float, ptr %238, align 4, !tbaa !148
   %240 = tail call nsz float @llvm.fmuladd.f32(float %237, float %239, float 1.600000e+01)
   %241 = tail call i64 @llvm.lrint.i64.f32(float %240)
   %242 = trunc i64 %241 to i8
-  store i8 %242, ptr %.9312364, align 1, !tbaa !149
+  store i8 %242, ptr %.9312364, align 1, !tbaa !148
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 4
-  %244 = load float, ptr %243, align 4, !tbaa !149
+  %244 = load float, ptr %243, align 4, !tbaa !148
   %245 = tail call nsz float @llvm.fmuladd.f32(float %237, float %244, float 1.280000e+02)
   %246 = tail call i64 @llvm.lrint.i64.f32(float %245)
   %247 = trunc i64 %246 to i8
-  store i8 %247, ptr %.8301365, align 1, !tbaa !149
+  store i8 %247, ptr %.8301365, align 1, !tbaa !148
   %248 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %249 = load float, ptr %248, align 4, !tbaa !149
+  %249 = load float, ptr %248, align 4, !tbaa !148
   %250 = tail call nsz float @llvm.fmuladd.f32(float %237, float %249, float 1.280000e+02)
   %251 = tail call i64 @llvm.lrint.i64.f32(float %250)
   %252 = trunc i64 %251 to i8
@@ -2393,7 +2393,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %.9 = getelementptr inbounds nuw i8, ptr %.8366, i64 1
   %.9302 = getelementptr inbounds nuw i8, ptr %.8301365, i64 1
   %.10 = getelementptr inbounds nuw i8, ptr %.9312364, i64 1
-  store i8 %storemerge338, ptr %.8366, align 1, !tbaa !149
+  store i8 %storemerge338, ptr %.8366, align 1, !tbaa !148
   %254 = or disjoint i64 %indvars.iv386, 1
   %255 = getelementptr inbounds nuw float, ptr %1, i64 %254
   %256 = load float, ptr %255, align 4, !tbaa !61
@@ -2409,7 +2409,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %264 = fmul nsz float %9, %262
   %265 = select nsz i1 %263, float %264, float 1.000000e+00
   %266 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %254
-  %267 = load float, ptr %266, align 4, !tbaa !149
+  %267 = load float, ptr %266, align 4, !tbaa !148
   %268 = tail call nsz float @llvm.fmuladd.f32(float %265, float %267, float 1.600000e+01)
   %269 = tail call i64 @llvm.lrint.i64.f32(float %268)
   %270 = trunc i64 %269 to i8
@@ -2418,10 +2418,10 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
 271:                                              ; preds = %253, %258
   %storemerge339 = phi i8 [ %270, %258 ], [ 16, %253 ]
   %.11 = getelementptr inbounds nuw i8, ptr %.9312364, i64 2
-  store i8 %storemerge339, ptr %.10, align 1, !tbaa !149
+  store i8 %storemerge339, ptr %.10, align 1, !tbaa !148
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 2
   %272 = icmp slt i64 %indvars.iv.next387, %31
-  br i1 %272, label %.lr.ph368, label %.loopexit, !llvm.loop !158
+  br i1 %272, label %.lr.ph368, label %.loopexit, !llvm.loop !157
 
 .lr.ph363:                                        ; preds = %.preheader346, %307
   %indvars.iv383 = phi i64 [ %indvars.iv.next384, %307 ], [ 0, %.preheader346 ]
@@ -2440,7 +2440,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %282 = fmul nsz float %9, %280
   %283 = select nsz i1 %281, float %282, float 1.000000e+00
   %284 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %indvars.iv383
-  %285 = load float, ptr %284, align 4, !tbaa !149
+  %285 = load float, ptr %284, align 4, !tbaa !148
   %286 = tail call nsz float @llvm.fmuladd.f32(float %283, float %285, float 1.600000e+01)
   %287 = tail call i64 @llvm.lrint.i64.f32(float %286)
   %288 = trunc i64 %287 to i8
@@ -2449,7 +2449,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
 289:                                              ; preds = %.lr.ph363, %276
   %storemerge336 = phi i8 [ %288, %276 ], [ 16, %.lr.ph363 ]
   %.13 = getelementptr inbounds nuw i8, ptr %.12361, i64 1
-  store i8 %storemerge336, ptr %.12361, align 1, !tbaa !149
+  store i8 %storemerge336, ptr %.12361, align 1, !tbaa !148
   %290 = or disjoint i64 %indvars.iv383, 1
   %291 = getelementptr inbounds nuw float, ptr %1, i64 %290
   %292 = load float, ptr %291, align 4, !tbaa !61
@@ -2465,7 +2465,7 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
   %300 = fmul nsz float %9, %298
   %301 = select nsz i1 %299, float %300, float 1.000000e+00
   %302 = getelementptr inbounds nuw %union.ColorFloat, ptr %3, i64 %290
-  %303 = load float, ptr %302, align 4, !tbaa !149
+  %303 = load float, ptr %302, align 4, !tbaa !148
   %304 = tail call nsz float @llvm.fmuladd.f32(float %301, float %303, float 1.600000e+01)
   %305 = tail call i64 @llvm.lrint.i64.f32(float %304)
   %306 = trunc i64 %305 to i8
@@ -2474,15 +2474,15 @@ define internal void @draw_bar_yuv(ptr noundef readonly captures(none) %0, ptr n
 307:                                              ; preds = %289, %294
   %storemerge337 = phi i8 [ %306, %294 ], [ 16, %289 ]
   %.14 = getelementptr inbounds nuw i8, ptr %.12361, i64 2
-  store i8 %storemerge337, ptr %.13, align 1, !tbaa !149
+  store i8 %storemerge337, ptr %.13, align 1, !tbaa !148
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 2
   %308 = icmp slt i64 %indvars.iv.next384, %31
-  br i1 %308, label %.lr.ph363, label %.loopexit, !llvm.loop !159
+  br i1 %308, label %.lr.ph363, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %307, %271, %223, %.preheader346, %.preheader344, %.preheader
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 2
   %309 = icmp samesign ult i64 %indvars.iv.next393, %35
-  br i1 %309, label %36, label %._crit_edge, !llvm.loop !160
+  br i1 %309, label %36, label %._crit_edge, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   ret void
@@ -2528,7 +2528,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i32, ptr %37, align 8, !tbaa !143
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = load i32, ptr %39, align 8, !tbaa !148
+  %40 = load i32, ptr %39, align 8, !tbaa !147
   %41 = zext i1 %9 to i32
   %42 = icmp eq i32 %6, 5
   %43 = icmp eq i32 %6, 4
@@ -2581,7 +2581,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %.0569661 = phi ptr [ %195, %190 ], [ %71, %.preheader636 ]
   %.0574660 = phi ptr [ %196, %190 ], [ %73, %.preheader636 ]
   %.0579659 = phi ptr [ %197, %190 ], [ %75, %.preheader636 ]
-  %76 = load i8, ptr %.0579659, align 1, !tbaa !149
+  %76 = load i8, ptr %.0579659, align 1, !tbaa !148
   switch i8 %76, label %97 [
     i8 0, label %77
     i8 -1, label %93
@@ -2589,60 +2589,60 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 77:                                               ; preds = %.lr.ph667
   %78 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv701
-  %79 = load float, ptr %78, align 4, !tbaa !149
+  %79 = load float, ptr %78, align 4, !tbaa !148
   %80 = fadd nsz float %79, 1.600000e+01
   %81 = tail call i64 @llvm.lrint.i64.f32(float %80)
   %82 = trunc i64 %81 to i8
-  store i8 %82, ptr %.0547665, align 1, !tbaa !149
+  store i8 %82, ptr %.0547665, align 1, !tbaa !148
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %84 = load float, ptr %83, align 4, !tbaa !149
+  %84 = load float, ptr %83, align 4, !tbaa !148
   %85 = fadd nsz float %84, 1.280000e+02
   %86 = tail call i64 @llvm.lrint.i64.f32(float %85)
   %87 = trunc i64 %86 to i8
-  store i8 %87, ptr %.0553664, align 1, !tbaa !149
+  store i8 %87, ptr %.0553664, align 1, !tbaa !148
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %89 = load float, ptr %88, align 4, !tbaa !149
+  %89 = load float, ptr %88, align 4, !tbaa !148
   %90 = fadd nsz float %89, 1.280000e+02
   %91 = tail call i64 @llvm.lrint.i64.f32(float %90)
   %92 = trunc i64 %91 to i8
   br label %128
 
 93:                                               ; preds = %.lr.ph667
-  %94 = load i8, ptr %.0563662, align 1, !tbaa !149
-  store i8 %94, ptr %.0547665, align 1, !tbaa !149
-  %95 = load i8, ptr %.0569661, align 1, !tbaa !149
-  store i8 %95, ptr %.0553664, align 1, !tbaa !149
-  %96 = load i8, ptr %.0574660, align 1, !tbaa !149
+  %94 = load i8, ptr %.0563662, align 1, !tbaa !148
+  store i8 %94, ptr %.0547665, align 1, !tbaa !148
+  %95 = load i8, ptr %.0569661, align 1, !tbaa !148
+  store i8 %95, ptr %.0553664, align 1, !tbaa !148
+  %96 = load i8, ptr %.0574660, align 1, !tbaa !148
   br label %128
 
 97:                                               ; preds = %.lr.ph667
   %98 = uitofp i8 %76 to float
   %99 = fmul nsz float %98, 0x3F70101020000000
-  %100 = load i8, ptr %.0563662, align 1, !tbaa !149
+  %100 = load i8, ptr %.0563662, align 1, !tbaa !148
   %101 = uitofp i8 %100 to float
   %102 = fsub nsz float 1.000000e+00, %99
   %103 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv701
-  %104 = load float, ptr %103, align 4, !tbaa !149
+  %104 = load float, ptr %103, align 4, !tbaa !148
   %105 = fadd nsz float %104, 1.600000e+01
   %106 = fmul nsz float %102, %105
   %107 = tail call nsz float @llvm.fmuladd.f32(float %99, float %101, float %106)
   %108 = tail call i64 @llvm.lrint.i64.f32(float %107)
   %109 = trunc i64 %108 to i8
-  store i8 %109, ptr %.0547665, align 1, !tbaa !149
-  %110 = load i8, ptr %.0569661, align 1, !tbaa !149
+  store i8 %109, ptr %.0547665, align 1, !tbaa !148
+  %110 = load i8, ptr %.0569661, align 1, !tbaa !148
   %111 = uitofp i8 %110 to float
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %113 = load float, ptr %112, align 4, !tbaa !149
+  %113 = load float, ptr %112, align 4, !tbaa !148
   %114 = fadd nsz float %113, 1.280000e+02
   %115 = fmul nsz float %102, %114
   %116 = tail call nsz float @llvm.fmuladd.f32(float %99, float %111, float %115)
   %117 = tail call i64 @llvm.lrint.i64.f32(float %116)
   %118 = trunc i64 %117 to i8
-  store i8 %118, ptr %.0553664, align 1, !tbaa !149
-  %119 = load i8, ptr %.0574660, align 1, !tbaa !149
+  store i8 %118, ptr %.0553664, align 1, !tbaa !148
+  %119 = load i8, ptr %.0574660, align 1, !tbaa !148
   %120 = uitofp i8 %119 to float
   %121 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %122 = load float, ptr %121, align 4, !tbaa !149
+  %122 = load float, ptr %121, align 4, !tbaa !148
   %123 = fadd nsz float %122, 1.280000e+02
   %124 = fmul nsz float %102, %123
   %125 = tail call nsz float @llvm.fmuladd.f32(float %99, float %120, float %124)
@@ -2652,7 +2652,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 128:                                              ; preds = %93, %97, %77
   %.sink = phi i8 [ %96, %93 ], [ %127, %97 ], [ %92, %77 ]
-  store i8 %.sink, ptr %.0558663, align 1, !tbaa !149
+  store i8 %.sink, ptr %.0558663, align 1, !tbaa !148
   %129 = getelementptr inbounds nuw i8, ptr %.0547665, i64 1
   %130 = getelementptr inbounds nuw i8, ptr %.0553664, i64 1
   %131 = getelementptr inbounds nuw i8, ptr %.0558663, i64 1
@@ -2660,7 +2660,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %133 = getelementptr inbounds nuw i8, ptr %.0569661, i64 1
   %134 = getelementptr inbounds nuw i8, ptr %.0574660, i64 1
   %135 = getelementptr inbounds nuw i8, ptr %.0579659, i64 1
-  %136 = load i8, ptr %135, align 1, !tbaa !149
+  %136 = load i8, ptr %135, align 1, !tbaa !148
   switch i8 %136, label %158 [
     i8 0, label %137
     i8 -1, label %154
@@ -2669,61 +2669,61 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 137:                                              ; preds = %128
   %138 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv701
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  %140 = load float, ptr %139, align 4, !tbaa !149
+  %140 = load float, ptr %139, align 4, !tbaa !148
   %141 = fadd nsz float %140, 1.600000e+01
   %142 = tail call i64 @llvm.lrint.i64.f32(float %141)
   %143 = trunc i64 %142 to i8
-  store i8 %143, ptr %129, align 1, !tbaa !149
+  store i8 %143, ptr %129, align 1, !tbaa !148
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %145 = load float, ptr %144, align 4, !tbaa !149
+  %145 = load float, ptr %144, align 4, !tbaa !148
   %146 = fadd nsz float %145, 1.280000e+02
   %147 = tail call i64 @llvm.lrint.i64.f32(float %146)
   %148 = trunc i64 %147 to i8
-  store i8 %148, ptr %130, align 1, !tbaa !149
+  store i8 %148, ptr %130, align 1, !tbaa !148
   %149 = getelementptr inbounds nuw i8, ptr %138, i64 20
-  %150 = load float, ptr %149, align 4, !tbaa !149
+  %150 = load float, ptr %149, align 4, !tbaa !148
   %151 = fadd nsz float %150, 1.280000e+02
   %152 = tail call i64 @llvm.lrint.i64.f32(float %151)
   %153 = trunc i64 %152 to i8
   br label %190
 
 154:                                              ; preds = %128
-  %155 = load i8, ptr %132, align 1, !tbaa !149
-  store i8 %155, ptr %129, align 1, !tbaa !149
-  %156 = load i8, ptr %133, align 1, !tbaa !149
-  store i8 %156, ptr %130, align 1, !tbaa !149
-  %157 = load i8, ptr %134, align 1, !tbaa !149
+  %155 = load i8, ptr %132, align 1, !tbaa !148
+  store i8 %155, ptr %129, align 1, !tbaa !148
+  %156 = load i8, ptr %133, align 1, !tbaa !148
+  store i8 %156, ptr %130, align 1, !tbaa !148
+  %157 = load i8, ptr %134, align 1, !tbaa !148
   br label %190
 
 158:                                              ; preds = %128
   %159 = uitofp i8 %136 to float
   %160 = fmul nsz float %159, 0x3F70101020000000
-  %161 = load i8, ptr %132, align 1, !tbaa !149
+  %161 = load i8, ptr %132, align 1, !tbaa !148
   %162 = uitofp i8 %161 to float
   %163 = fsub nsz float 1.000000e+00, %160
   %164 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv701
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 12
-  %166 = load float, ptr %165, align 4, !tbaa !149
+  %166 = load float, ptr %165, align 4, !tbaa !148
   %167 = fadd nsz float %166, 1.600000e+01
   %168 = fmul nsz float %163, %167
   %169 = tail call nsz float @llvm.fmuladd.f32(float %160, float %162, float %168)
   %170 = tail call i64 @llvm.lrint.i64.f32(float %169)
   %171 = trunc i64 %170 to i8
-  store i8 %171, ptr %129, align 1, !tbaa !149
-  %172 = load i8, ptr %133, align 1, !tbaa !149
+  store i8 %171, ptr %129, align 1, !tbaa !148
+  %172 = load i8, ptr %133, align 1, !tbaa !148
   %173 = uitofp i8 %172 to float
   %174 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %175 = load float, ptr %174, align 4, !tbaa !149
+  %175 = load float, ptr %174, align 4, !tbaa !148
   %176 = fadd nsz float %175, 1.280000e+02
   %177 = fmul nsz float %163, %176
   %178 = tail call nsz float @llvm.fmuladd.f32(float %160, float %173, float %177)
   %179 = tail call i64 @llvm.lrint.i64.f32(float %178)
   %180 = trunc i64 %179 to i8
-  store i8 %180, ptr %130, align 1, !tbaa !149
-  %181 = load i8, ptr %134, align 1, !tbaa !149
+  store i8 %180, ptr %130, align 1, !tbaa !148
+  %181 = load i8, ptr %134, align 1, !tbaa !148
   %182 = uitofp i8 %181 to float
   %183 = getelementptr inbounds nuw i8, ptr %164, i64 20
-  %184 = load float, ptr %183, align 4, !tbaa !149
+  %184 = load float, ptr %183, align 4, !tbaa !148
   %185 = fadd nsz float %184, 1.280000e+02
   %186 = fmul nsz float %163, %185
   %187 = tail call nsz float @llvm.fmuladd.f32(float %160, float %182, float %186)
@@ -2733,7 +2733,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 190:                                              ; preds = %154, %158, %137
   %.sink724 = phi i8 [ %157, %154 ], [ %189, %158 ], [ %153, %137 ]
-  store i8 %.sink724, ptr %131, align 1, !tbaa !149
+  store i8 %.sink724, ptr %131, align 1, !tbaa !148
   %191 = getelementptr inbounds nuw i8, ptr %.0547665, i64 2
   %192 = getelementptr inbounds nuw i8, ptr %.0553664, i64 2
   %193 = getelementptr inbounds nuw i8, ptr %.0558663, i64 2
@@ -2743,7 +2743,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %197 = getelementptr inbounds nuw i8, ptr %.0579659, i64 2
   %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 2
   %198 = icmp slt i64 %indvars.iv.next702, %48
-  br i1 %198, label %.lr.ph667, label %.loopexit637, !llvm.loop !161
+  br i1 %198, label %.lr.ph667, label %.loopexit637, !llvm.loop !160
 
 199:                                              ; preds = %55
   br i1 %43, label %.preheader638, label %.preheader640
@@ -2763,7 +2763,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %.1570652 = phi ptr [ %278, %307 ], [ %71, %.preheader638 ]
   %.1575651 = phi ptr [ %279, %307 ], [ %73, %.preheader638 ]
   %.1580650 = phi ptr [ %310, %307 ], [ %75, %.preheader638 ]
-  %200 = load i8, ptr %.1580650, align 1, !tbaa !149
+  %200 = load i8, ptr %.1580650, align 1, !tbaa !148
   switch i8 %200, label %209 [
     i8 0, label %201
     i8 -1, label %207
@@ -2771,24 +2771,24 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 201:                                              ; preds = %.lr.ph658
   %202 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
-  %203 = load float, ptr %202, align 4, !tbaa !149
+  %203 = load float, ptr %202, align 4, !tbaa !148
   %204 = fadd nsz float %203, 1.600000e+01
   %205 = tail call i64 @llvm.lrint.i64.f32(float %204)
   %206 = trunc i64 %205 to i8
   br label %222
 
 207:                                              ; preds = %.lr.ph658
-  %208 = load i8, ptr %.1564653, align 1, !tbaa !149
+  %208 = load i8, ptr %.1564653, align 1, !tbaa !148
   br label %222
 
 209:                                              ; preds = %.lr.ph658
   %210 = uitofp i8 %200 to float
   %211 = fmul nsz float %210, 0x3F70101020000000
-  %212 = load i8, ptr %.1564653, align 1, !tbaa !149
+  %212 = load i8, ptr %.1564653, align 1, !tbaa !148
   %213 = uitofp i8 %212 to float
   %214 = fsub nsz float 1.000000e+00, %211
   %215 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
-  %216 = load float, ptr %215, align 4, !tbaa !149
+  %216 = load float, ptr %215, align 4, !tbaa !148
   %217 = fadd nsz float %216, 1.600000e+01
   %218 = fmul nsz float %214, %217
   %219 = tail call nsz float @llvm.fmuladd.f32(float %211, float %213, float %218)
@@ -2798,12 +2798,12 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 222:                                              ; preds = %207, %209, %201
   %.sink725 = phi i8 [ %208, %207 ], [ %221, %209 ], [ %206, %201 ]
-  store i8 %.sink725, ptr %.1548656, align 1, !tbaa !149
+  store i8 %.sink725, ptr %.1548656, align 1, !tbaa !148
   %223 = getelementptr inbounds nuw i8, ptr %.1548656, i64 1
   %224 = getelementptr inbounds nuw i8, ptr %.1564653, i64 1
-  %225 = load i8, ptr %.1580650, align 1, !tbaa !149
+  %225 = load i8, ptr %.1580650, align 1, !tbaa !148
   %.phi.trans.insert716 = getelementptr inbounds nuw i8, ptr %.1580650, i64 1
-  %.pre717 = load i8, ptr %.phi.trans.insert716, align 1, !tbaa !149
+  %.pre717 = load i8, ptr %.phi.trans.insert716, align 1, !tbaa !148
   switch i8 %225, label %.thread [
     i8 0, label %226
     i8 -1, label %239
@@ -2816,13 +2816,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 227:                                              ; preds = %226
   %228 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %230 = load float, ptr %229, align 4, !tbaa !149
+  %230 = load float, ptr %229, align 4, !tbaa !148
   %231 = fadd nsz float %230, 1.280000e+02
   %232 = tail call i64 @llvm.lrint.i64.f32(float %231)
   %233 = trunc i64 %232 to i8
-  store i8 %233, ptr %.1554655, align 1, !tbaa !149
+  store i8 %233, ptr %.1554655, align 1, !tbaa !148
   %234 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %235 = load float, ptr %234, align 4, !tbaa !149
+  %235 = load float, ptr %234, align 4, !tbaa !148
   %236 = fadd nsz float %235, 1.280000e+02
   %237 = tail call i64 @llvm.lrint.i64.f32(float %236)
   %238 = trunc i64 %237 to i8
@@ -2833,9 +2833,9 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br i1 %240, label %241, label %.thread
 
 241:                                              ; preds = %239
-  %242 = load i8, ptr %.1570652, align 1, !tbaa !149
-  store i8 %242, ptr %.1554655, align 1, !tbaa !149
-  %243 = load i8, ptr %.1575651, align 1, !tbaa !149
+  %242 = load i8, ptr %.1570652, align 1, !tbaa !148
+  store i8 %242, ptr %.1554655, align 1, !tbaa !148
+  %243 = load i8, ptr %.1575651, align 1, !tbaa !148
   br label %277
 
 .thread:                                          ; preds = %222, %226, %239
@@ -2845,30 +2845,30 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %247 = fmul nsz float %246, 0x3F60101020000000
   %248 = fsub nsz float 1.000000e+00, %245
   %249 = fsub nsz float %248, %247
-  %250 = load i8, ptr %.1570652, align 1, !tbaa !149
+  %250 = load i8, ptr %.1570652, align 1, !tbaa !148
   %251 = uitofp i8 %250 to float
   %252 = getelementptr inbounds nuw i8, ptr %.1570652, i64 1
-  %253 = load i8, ptr %252, align 1, !tbaa !149
+  %253 = load i8, ptr %252, align 1, !tbaa !148
   %254 = uitofp i8 %253 to float
   %255 = fmul nsz float %247, %254
   %256 = tail call nsz float @llvm.fmuladd.f32(float %245, float %251, float %255)
   %257 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
-  %259 = load float, ptr %258, align 4, !tbaa !149
+  %259 = load float, ptr %258, align 4, !tbaa !148
   %260 = fadd nsz float %259, 1.280000e+02
   %261 = tail call nsz float @llvm.fmuladd.f32(float %249, float %260, float %256)
   %262 = tail call i64 @llvm.lrint.i64.f32(float %261)
   %263 = trunc i64 %262 to i8
-  store i8 %263, ptr %.1554655, align 1, !tbaa !149
-  %264 = load i8, ptr %.1575651, align 1, !tbaa !149
+  store i8 %263, ptr %.1554655, align 1, !tbaa !148
+  %264 = load i8, ptr %.1575651, align 1, !tbaa !148
   %265 = uitofp i8 %264 to float
   %266 = getelementptr inbounds nuw i8, ptr %.1575651, i64 1
-  %267 = load i8, ptr %266, align 1, !tbaa !149
+  %267 = load i8, ptr %266, align 1, !tbaa !148
   %268 = uitofp i8 %267 to float
   %269 = fmul nsz float %247, %268
   %270 = tail call nsz float @llvm.fmuladd.f32(float %245, float %265, float %269)
   %271 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %272 = load float, ptr %271, align 4, !tbaa !149
+  %272 = load float, ptr %271, align 4, !tbaa !148
   %273 = fadd nsz float %272, 1.280000e+02
   %274 = tail call nsz float @llvm.fmuladd.f32(float %249, float %273, float %270)
   %275 = tail call i64 @llvm.lrint.i64.f32(float %274)
@@ -2877,13 +2877,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 277:                                              ; preds = %241, %.thread, %227
   %.sink726 = phi i8 [ %243, %241 ], [ %276, %.thread ], [ %238, %227 ]
-  store i8 %.sink726, ptr %.1559654, align 1, !tbaa !149
+  store i8 %.sink726, ptr %.1559654, align 1, !tbaa !148
   %278 = getelementptr inbounds nuw i8, ptr %.1570652, i64 2
   %279 = getelementptr inbounds nuw i8, ptr %.1575651, i64 2
   %280 = getelementptr inbounds nuw i8, ptr %.1580650, i64 1
   %281 = getelementptr inbounds nuw i8, ptr %.1554655, i64 1
   %282 = getelementptr inbounds nuw i8, ptr %.1559654, i64 1
-  %283 = load i8, ptr %280, align 1, !tbaa !149
+  %283 = load i8, ptr %280, align 1, !tbaa !148
   switch i8 %283, label %293 [
     i8 0, label %284
     i8 -1, label %291
@@ -2892,25 +2892,25 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 284:                                              ; preds = %277
   %285 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 12
-  %287 = load float, ptr %286, align 4, !tbaa !149
+  %287 = load float, ptr %286, align 4, !tbaa !148
   %288 = fadd nsz float %287, 1.600000e+01
   %289 = tail call i64 @llvm.lrint.i64.f32(float %288)
   %290 = trunc i64 %289 to i8
   br label %307
 
 291:                                              ; preds = %277
-  %292 = load i8, ptr %224, align 1, !tbaa !149
+  %292 = load i8, ptr %224, align 1, !tbaa !148
   br label %307
 
 293:                                              ; preds = %277
   %294 = uitofp i8 %283 to float
   %295 = fmul nsz float %294, 0x3F70101020000000
-  %296 = load i8, ptr %224, align 1, !tbaa !149
+  %296 = load i8, ptr %224, align 1, !tbaa !148
   %297 = uitofp i8 %296 to float
   %298 = fsub nsz float 1.000000e+00, %295
   %299 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 12
-  %301 = load float, ptr %300, align 4, !tbaa !149
+  %301 = load float, ptr %300, align 4, !tbaa !148
   %302 = fadd nsz float %301, 1.600000e+01
   %303 = fmul nsz float %298, %302
   %304 = tail call nsz float @llvm.fmuladd.f32(float %295, float %297, float %303)
@@ -2920,13 +2920,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 307:                                              ; preds = %291, %293, %284
   %.sink727 = phi i8 [ %292, %291 ], [ %306, %293 ], [ %290, %284 ]
-  store i8 %.sink727, ptr %223, align 1, !tbaa !149
+  store i8 %.sink727, ptr %223, align 1, !tbaa !148
   %308 = getelementptr inbounds nuw i8, ptr %.1548656, i64 2
   %309 = getelementptr inbounds nuw i8, ptr %.1564653, i64 2
   %310 = getelementptr inbounds nuw i8, ptr %.1580650, i64 2
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 2
   %311 = icmp slt i64 %indvars.iv.next699, %48
-  br i1 %311, label %.lr.ph658, label %.loopexit637, !llvm.loop !162
+  br i1 %311, label %.lr.ph658, label %.loopexit637, !llvm.loop !161
 
 .lr.ph:                                           ; preds = %.preheader640, %460
   %indvars.iv = phi i64 [ %indvars.iv.next, %460 ], [ 0, %.preheader640 ]
@@ -2937,7 +2937,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %.2571644 = phi ptr [ %431, %460 ], [ %71, %.preheader640 ]
   %.2576643 = phi ptr [ %432, %460 ], [ %73, %.preheader640 ]
   %.2581642 = phi ptr [ %463, %460 ], [ %75, %.preheader640 ]
-  %312 = load i8, ptr %.2581642, align 1, !tbaa !149
+  %312 = load i8, ptr %.2581642, align 1, !tbaa !148
   switch i8 %312, label %321 [
     i8 0, label %313
     i8 -1, label %319
@@ -2945,24 +2945,24 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 313:                                              ; preds = %.lr.ph
   %314 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
-  %315 = load float, ptr %314, align 4, !tbaa !149
+  %315 = load float, ptr %314, align 4, !tbaa !148
   %316 = fadd nsz float %315, 1.600000e+01
   %317 = tail call i64 @llvm.lrint.i64.f32(float %316)
   %318 = trunc i64 %317 to i8
   br label %334
 
 319:                                              ; preds = %.lr.ph
-  %320 = load i8, ptr %.2565645, align 1, !tbaa !149
+  %320 = load i8, ptr %.2565645, align 1, !tbaa !148
   br label %334
 
 321:                                              ; preds = %.lr.ph
   %322 = uitofp i8 %312 to float
   %323 = fmul nsz float %322, 0x3F70101020000000
-  %324 = load i8, ptr %.2565645, align 1, !tbaa !149
+  %324 = load i8, ptr %.2565645, align 1, !tbaa !148
   %325 = uitofp i8 %324 to float
   %326 = fsub nsz float 1.000000e+00, %323
   %327 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
-  %328 = load float, ptr %327, align 4, !tbaa !149
+  %328 = load float, ptr %327, align 4, !tbaa !148
   %329 = fadd nsz float %328, 1.600000e+01
   %330 = fmul nsz float %326, %329
   %331 = tail call nsz float @llvm.fmuladd.f32(float %323, float %325, float %330)
@@ -2972,12 +2972,12 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 334:                                              ; preds = %319, %321, %313
   %.sink728 = phi i8 [ %320, %319 ], [ %333, %321 ], [ %318, %313 ]
-  store i8 %.sink728, ptr %.2549648, align 1, !tbaa !149
+  store i8 %.sink728, ptr %.2549648, align 1, !tbaa !148
   %335 = getelementptr inbounds nuw i8, ptr %.2549648, i64 1
   %336 = getelementptr inbounds nuw i8, ptr %.2565645, i64 1
-  %337 = load i8, ptr %.2581642, align 1, !tbaa !149
+  %337 = load i8, ptr %.2581642, align 1, !tbaa !148
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.2581642, i64 1
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !149
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !148
   switch i8 %337, label %.thread630 [
     i8 0, label %338
     i8 -1, label %357
@@ -2989,26 +2989,26 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 339:                                              ; preds = %338
   %340 = getelementptr inbounds i8, ptr %.2581642, i64 %45
-  %341 = load i8, ptr %340, align 1, !tbaa !149
+  %341 = load i8, ptr %340, align 1, !tbaa !148
   %.not613 = icmp eq i8 %341, 0
   br i1 %.not613, label %342, label %.thread630
 
 342:                                              ; preds = %339
   %343 = getelementptr i8, ptr %340, i64 1
-  %344 = load i8, ptr %343, align 1, !tbaa !149
+  %344 = load i8, ptr %343, align 1, !tbaa !148
   %.not614 = icmp eq i8 %344, 0
   br i1 %.not614, label %345, label %.thread630
 
 345:                                              ; preds = %342
   %346 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
-  %348 = load float, ptr %347, align 4, !tbaa !149
+  %348 = load float, ptr %347, align 4, !tbaa !148
   %349 = fadd nsz float %348, 1.280000e+02
   %350 = tail call i64 @llvm.lrint.i64.f32(float %349)
   %351 = trunc i64 %350 to i8
-  store i8 %351, ptr %.2555647, align 1, !tbaa !149
+  store i8 %351, ptr %.2555647, align 1, !tbaa !148
   %352 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  %353 = load float, ptr %352, align 4, !tbaa !149
+  %353 = load float, ptr %352, align 4, !tbaa !148
   %354 = fadd nsz float %353, 1.280000e+02
   %355 = tail call i64 @llvm.lrint.i64.f32(float %354)
   %356 = trunc i64 %355 to i8
@@ -3020,20 +3020,20 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 359:                                              ; preds = %357
   %360 = getelementptr inbounds i8, ptr %.2581642, i64 %45
-  %361 = load i8, ptr %360, align 1, !tbaa !149
+  %361 = load i8, ptr %360, align 1, !tbaa !148
   %362 = icmp eq i8 %361, -1
   br i1 %362, label %363, label %.thread630
 
 363:                                              ; preds = %359
   %364 = getelementptr i8, ptr %360, i64 1
-  %365 = load i8, ptr %364, align 1, !tbaa !149
+  %365 = load i8, ptr %364, align 1, !tbaa !148
   %366 = icmp eq i8 %365, -1
   br i1 %366, label %367, label %.thread630
 
 367:                                              ; preds = %363
-  %368 = load i8, ptr %.2571644, align 1, !tbaa !149
-  store i8 %368, ptr %.2555647, align 1, !tbaa !149
-  %369 = load i8, ptr %.2576643, align 1, !tbaa !149
+  %368 = load i8, ptr %.2571644, align 1, !tbaa !148
+  store i8 %368, ptr %.2555647, align 1, !tbaa !148
+  %369 = load i8, ptr %.2576643, align 1, !tbaa !148
   br label %430
 
 .thread630:                                       ; preds = %334, %338, %339, %342, %363, %359, %357
@@ -3043,57 +3043,57 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %373 = uitofp i8 %370 to float
   %374 = fmul nsz float %373, 0x3F50101020000000
   %375 = getelementptr inbounds i8, ptr %.2581642, i64 %45
-  %376 = load i8, ptr %375, align 1, !tbaa !149
+  %376 = load i8, ptr %375, align 1, !tbaa !148
   %377 = uitofp i8 %376 to float
   %378 = fmul nsz float %377, 0x3F50101020000000
   %379 = getelementptr i8, ptr %375, i64 1
-  %380 = load i8, ptr %379, align 1, !tbaa !149
+  %380 = load i8, ptr %379, align 1, !tbaa !148
   %381 = uitofp i8 %380 to float
   %382 = fmul nsz float %381, 0x3F50101020000000
   %383 = fsub nsz float 1.000000e+00, %372
   %384 = fsub nsz float %383, %374
   %385 = fsub nsz float %384, %378
   %386 = fsub nsz float %385, %382
-  %387 = load i8, ptr %.2571644, align 1, !tbaa !149
+  %387 = load i8, ptr %.2571644, align 1, !tbaa !148
   %388 = uitofp i8 %387 to float
   %389 = getelementptr inbounds nuw i8, ptr %.2571644, i64 1
-  %390 = load i8, ptr %389, align 1, !tbaa !149
+  %390 = load i8, ptr %389, align 1, !tbaa !148
   %391 = uitofp i8 %390 to float
   %392 = fmul nsz float %374, %391
   %393 = tail call nsz float @llvm.fmuladd.f32(float %372, float %388, float %392)
   %394 = getelementptr inbounds i8, ptr %.2571644, i64 %46
-  %395 = load i8, ptr %394, align 1, !tbaa !149
+  %395 = load i8, ptr %394, align 1, !tbaa !148
   %396 = uitofp i8 %395 to float
   %397 = tail call nsz float @llvm.fmuladd.f32(float %378, float %396, float %393)
   %398 = getelementptr i8, ptr %394, i64 1
-  %399 = load i8, ptr %398, align 1, !tbaa !149
+  %399 = load i8, ptr %398, align 1, !tbaa !148
   %400 = uitofp i8 %399 to float
   %401 = tail call nsz float @llvm.fmuladd.f32(float %382, float %400, float %397)
   %402 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 4
-  %404 = load float, ptr %403, align 4, !tbaa !149
+  %404 = load float, ptr %403, align 4, !tbaa !148
   %405 = fadd nsz float %404, 1.280000e+02
   %406 = tail call nsz float @llvm.fmuladd.f32(float %386, float %405, float %401)
   %407 = tail call i64 @llvm.lrint.i64.f32(float %406)
   %408 = trunc i64 %407 to i8
-  store i8 %408, ptr %.2555647, align 1, !tbaa !149
-  %409 = load i8, ptr %.2576643, align 1, !tbaa !149
+  store i8 %408, ptr %.2555647, align 1, !tbaa !148
+  %409 = load i8, ptr %.2576643, align 1, !tbaa !148
   %410 = uitofp i8 %409 to float
   %411 = getelementptr inbounds nuw i8, ptr %.2576643, i64 1
-  %412 = load i8, ptr %411, align 1, !tbaa !149
+  %412 = load i8, ptr %411, align 1, !tbaa !148
   %413 = uitofp i8 %412 to float
   %414 = fmul nsz float %374, %413
   %415 = tail call nsz float @llvm.fmuladd.f32(float %372, float %410, float %414)
   %416 = getelementptr inbounds i8, ptr %.2576643, i64 %47
-  %417 = load i8, ptr %416, align 1, !tbaa !149
+  %417 = load i8, ptr %416, align 1, !tbaa !148
   %418 = uitofp i8 %417 to float
   %419 = tail call nsz float @llvm.fmuladd.f32(float %378, float %418, float %415)
   %420 = getelementptr i8, ptr %416, i64 1
-  %421 = load i8, ptr %420, align 1, !tbaa !149
+  %421 = load i8, ptr %420, align 1, !tbaa !148
   %422 = uitofp i8 %421 to float
   %423 = tail call nsz float @llvm.fmuladd.f32(float %382, float %422, float %419)
   %424 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  %425 = load float, ptr %424, align 4, !tbaa !149
+  %425 = load float, ptr %424, align 4, !tbaa !148
   %426 = fadd nsz float %425, 1.280000e+02
   %427 = tail call nsz float @llvm.fmuladd.f32(float %386, float %426, float %423)
   %428 = tail call i64 @llvm.lrint.i64.f32(float %427)
@@ -3102,13 +3102,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 430:                                              ; preds = %367, %.thread630, %345
   %.sink729 = phi i8 [ %369, %367 ], [ %429, %.thread630 ], [ %356, %345 ]
-  store i8 %.sink729, ptr %.2560646, align 1, !tbaa !149
+  store i8 %.sink729, ptr %.2560646, align 1, !tbaa !148
   %431 = getelementptr inbounds nuw i8, ptr %.2571644, i64 2
   %432 = getelementptr inbounds nuw i8, ptr %.2576643, i64 2
   %433 = getelementptr inbounds nuw i8, ptr %.2581642, i64 1
   %434 = getelementptr inbounds nuw i8, ptr %.2555647, i64 1
   %435 = getelementptr inbounds nuw i8, ptr %.2560646, i64 1
-  %436 = load i8, ptr %433, align 1, !tbaa !149
+  %436 = load i8, ptr %433, align 1, !tbaa !148
   switch i8 %436, label %446 [
     i8 0, label %437
     i8 -1, label %444
@@ -3117,25 +3117,25 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 437:                                              ; preds = %430
   %438 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 12
-  %440 = load float, ptr %439, align 4, !tbaa !149
+  %440 = load float, ptr %439, align 4, !tbaa !148
   %441 = fadd nsz float %440, 1.600000e+01
   %442 = tail call i64 @llvm.lrint.i64.f32(float %441)
   %443 = trunc i64 %442 to i8
   br label %460
 
 444:                                              ; preds = %430
-  %445 = load i8, ptr %336, align 1, !tbaa !149
+  %445 = load i8, ptr %336, align 1, !tbaa !148
   br label %460
 
 446:                                              ; preds = %430
   %447 = uitofp i8 %436 to float
   %448 = fmul nsz float %447, 0x3F70101020000000
-  %449 = load i8, ptr %336, align 1, !tbaa !149
+  %449 = load i8, ptr %336, align 1, !tbaa !148
   %450 = uitofp i8 %449 to float
   %451 = fsub nsz float 1.000000e+00, %448
   %452 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 12
-  %454 = load float, ptr %453, align 4, !tbaa !149
+  %454 = load float, ptr %453, align 4, !tbaa !148
   %455 = fadd nsz float %454, 1.600000e+01
   %456 = fmul nsz float %451, %455
   %457 = tail call nsz float @llvm.fmuladd.f32(float %448, float %450, float %456)
@@ -3145,13 +3145,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 460:                                              ; preds = %444, %446, %437
   %.sink730 = phi i8 [ %445, %444 ], [ %459, %446 ], [ %443, %437 ]
-  store i8 %.sink730, ptr %335, align 1, !tbaa !149
+  store i8 %.sink730, ptr %335, align 1, !tbaa !148
   %461 = getelementptr inbounds nuw i8, ptr %.2549648, i64 2
   %462 = getelementptr inbounds nuw i8, ptr %.2565645, i64 2
   %463 = getelementptr inbounds nuw i8, ptr %.2581642, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %464 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %464, label %.lr.ph, label %.loopexit637, !llvm.loop !163
+  br i1 %464, label %.lr.ph, label %.loopexit637, !llvm.loop !162
 
 .loopexit637:                                     ; preds = %460, %307, %190, %.preheader640, %.preheader638, %.preheader636
   %465 = add nsw i64 %58, 1
@@ -3184,7 +3184,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %.3572684 = phi ptr [ %600, %595 ], [ %476, %.preheader ]
   %.3577683 = phi ptr [ %601, %595 ], [ %478, %.preheader ]
   %.3582682 = phi ptr [ %602, %595 ], [ %480, %.preheader ]
-  %481 = load i8, ptr %.3582682, align 1, !tbaa !149
+  %481 = load i8, ptr %.3582682, align 1, !tbaa !148
   switch i8 %481, label %502 [
     i8 0, label %482
     i8 -1, label %498
@@ -3192,60 +3192,60 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 482:                                              ; preds = %.lr.ph690
   %483 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv710
-  %484 = load float, ptr %483, align 4, !tbaa !149
+  %484 = load float, ptr %483, align 4, !tbaa !148
   %485 = fadd nsz float %484, 1.600000e+01
   %486 = tail call i64 @llvm.lrint.i64.f32(float %485)
   %487 = trunc i64 %486 to i8
-  store i8 %487, ptr %.3550688, align 1, !tbaa !149
+  store i8 %487, ptr %.3550688, align 1, !tbaa !148
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 4
-  %489 = load float, ptr %488, align 4, !tbaa !149
+  %489 = load float, ptr %488, align 4, !tbaa !148
   %490 = fadd nsz float %489, 1.280000e+02
   %491 = tail call i64 @llvm.lrint.i64.f32(float %490)
   %492 = trunc i64 %491 to i8
-  store i8 %492, ptr %.3556687, align 1, !tbaa !149
+  store i8 %492, ptr %.3556687, align 1, !tbaa !148
   %493 = getelementptr inbounds nuw i8, ptr %483, i64 8
-  %494 = load float, ptr %493, align 4, !tbaa !149
+  %494 = load float, ptr %493, align 4, !tbaa !148
   %495 = fadd nsz float %494, 1.280000e+02
   %496 = tail call i64 @llvm.lrint.i64.f32(float %495)
   %497 = trunc i64 %496 to i8
   br label %533
 
 498:                                              ; preds = %.lr.ph690
-  %499 = load i8, ptr %.3566685, align 1, !tbaa !149
-  store i8 %499, ptr %.3550688, align 1, !tbaa !149
-  %500 = load i8, ptr %.3572684, align 1, !tbaa !149
-  store i8 %500, ptr %.3556687, align 1, !tbaa !149
-  %501 = load i8, ptr %.3577683, align 1, !tbaa !149
+  %499 = load i8, ptr %.3566685, align 1, !tbaa !148
+  store i8 %499, ptr %.3550688, align 1, !tbaa !148
+  %500 = load i8, ptr %.3572684, align 1, !tbaa !148
+  store i8 %500, ptr %.3556687, align 1, !tbaa !148
+  %501 = load i8, ptr %.3577683, align 1, !tbaa !148
   br label %533
 
 502:                                              ; preds = %.lr.ph690
   %503 = uitofp i8 %481 to float
   %504 = fmul nsz float %503, 0x3F70101020000000
-  %505 = load i8, ptr %.3566685, align 1, !tbaa !149
+  %505 = load i8, ptr %.3566685, align 1, !tbaa !148
   %506 = uitofp i8 %505 to float
   %507 = fsub nsz float 1.000000e+00, %504
   %508 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv710
-  %509 = load float, ptr %508, align 4, !tbaa !149
+  %509 = load float, ptr %508, align 4, !tbaa !148
   %510 = fadd nsz float %509, 1.600000e+01
   %511 = fmul nsz float %507, %510
   %512 = tail call nsz float @llvm.fmuladd.f32(float %504, float %506, float %511)
   %513 = tail call i64 @llvm.lrint.i64.f32(float %512)
   %514 = trunc i64 %513 to i8
-  store i8 %514, ptr %.3550688, align 1, !tbaa !149
-  %515 = load i8, ptr %.3572684, align 1, !tbaa !149
+  store i8 %514, ptr %.3550688, align 1, !tbaa !148
+  %515 = load i8, ptr %.3572684, align 1, !tbaa !148
   %516 = uitofp i8 %515 to float
   %517 = getelementptr inbounds nuw i8, ptr %508, i64 4
-  %518 = load float, ptr %517, align 4, !tbaa !149
+  %518 = load float, ptr %517, align 4, !tbaa !148
   %519 = fadd nsz float %518, 1.280000e+02
   %520 = fmul nsz float %507, %519
   %521 = tail call nsz float @llvm.fmuladd.f32(float %504, float %516, float %520)
   %522 = tail call i64 @llvm.lrint.i64.f32(float %521)
   %523 = trunc i64 %522 to i8
-  store i8 %523, ptr %.3556687, align 1, !tbaa !149
-  %524 = load i8, ptr %.3577683, align 1, !tbaa !149
+  store i8 %523, ptr %.3556687, align 1, !tbaa !148
+  %524 = load i8, ptr %.3577683, align 1, !tbaa !148
   %525 = uitofp i8 %524 to float
   %526 = getelementptr inbounds nuw i8, ptr %508, i64 8
-  %527 = load float, ptr %526, align 4, !tbaa !149
+  %527 = load float, ptr %526, align 4, !tbaa !148
   %528 = fadd nsz float %527, 1.280000e+02
   %529 = fmul nsz float %507, %528
   %530 = tail call nsz float @llvm.fmuladd.f32(float %504, float %525, float %529)
@@ -3255,7 +3255,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 533:                                              ; preds = %498, %502, %482
   %.sink731 = phi i8 [ %501, %498 ], [ %532, %502 ], [ %497, %482 ]
-  store i8 %.sink731, ptr %.3561686, align 1, !tbaa !149
+  store i8 %.sink731, ptr %.3561686, align 1, !tbaa !148
   %534 = getelementptr inbounds nuw i8, ptr %.3550688, i64 1
   %535 = getelementptr inbounds nuw i8, ptr %.3556687, i64 1
   %536 = getelementptr inbounds nuw i8, ptr %.3561686, i64 1
@@ -3263,7 +3263,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %538 = getelementptr inbounds nuw i8, ptr %.3572684, i64 1
   %539 = getelementptr inbounds nuw i8, ptr %.3577683, i64 1
   %540 = getelementptr inbounds nuw i8, ptr %.3582682, i64 1
-  %541 = load i8, ptr %540, align 1, !tbaa !149
+  %541 = load i8, ptr %540, align 1, !tbaa !148
   switch i8 %541, label %563 [
     i8 0, label %542
     i8 -1, label %559
@@ -3272,61 +3272,61 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 542:                                              ; preds = %533
   %543 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv710
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 12
-  %545 = load float, ptr %544, align 4, !tbaa !149
+  %545 = load float, ptr %544, align 4, !tbaa !148
   %546 = fadd nsz float %545, 1.600000e+01
   %547 = tail call i64 @llvm.lrint.i64.f32(float %546)
   %548 = trunc i64 %547 to i8
-  store i8 %548, ptr %534, align 1, !tbaa !149
+  store i8 %548, ptr %534, align 1, !tbaa !148
   %549 = getelementptr inbounds nuw i8, ptr %543, i64 16
-  %550 = load float, ptr %549, align 4, !tbaa !149
+  %550 = load float, ptr %549, align 4, !tbaa !148
   %551 = fadd nsz float %550, 1.280000e+02
   %552 = tail call i64 @llvm.lrint.i64.f32(float %551)
   %553 = trunc i64 %552 to i8
-  store i8 %553, ptr %535, align 1, !tbaa !149
+  store i8 %553, ptr %535, align 1, !tbaa !148
   %554 = getelementptr inbounds nuw i8, ptr %543, i64 20
-  %555 = load float, ptr %554, align 4, !tbaa !149
+  %555 = load float, ptr %554, align 4, !tbaa !148
   %556 = fadd nsz float %555, 1.280000e+02
   %557 = tail call i64 @llvm.lrint.i64.f32(float %556)
   %558 = trunc i64 %557 to i8
   br label %595
 
 559:                                              ; preds = %533
-  %560 = load i8, ptr %537, align 1, !tbaa !149
-  store i8 %560, ptr %534, align 1, !tbaa !149
-  %561 = load i8, ptr %538, align 1, !tbaa !149
-  store i8 %561, ptr %535, align 1, !tbaa !149
-  %562 = load i8, ptr %539, align 1, !tbaa !149
+  %560 = load i8, ptr %537, align 1, !tbaa !148
+  store i8 %560, ptr %534, align 1, !tbaa !148
+  %561 = load i8, ptr %538, align 1, !tbaa !148
+  store i8 %561, ptr %535, align 1, !tbaa !148
+  %562 = load i8, ptr %539, align 1, !tbaa !148
   br label %595
 
 563:                                              ; preds = %533
   %564 = uitofp i8 %541 to float
   %565 = fmul nsz float %564, 0x3F70101020000000
-  %566 = load i8, ptr %537, align 1, !tbaa !149
+  %566 = load i8, ptr %537, align 1, !tbaa !148
   %567 = uitofp i8 %566 to float
   %568 = fsub nsz float 1.000000e+00, %565
   %569 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv710
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 12
-  %571 = load float, ptr %570, align 4, !tbaa !149
+  %571 = load float, ptr %570, align 4, !tbaa !148
   %572 = fadd nsz float %571, 1.600000e+01
   %573 = fmul nsz float %568, %572
   %574 = tail call nsz float @llvm.fmuladd.f32(float %565, float %567, float %573)
   %575 = tail call i64 @llvm.lrint.i64.f32(float %574)
   %576 = trunc i64 %575 to i8
-  store i8 %576, ptr %534, align 1, !tbaa !149
-  %577 = load i8, ptr %538, align 1, !tbaa !149
+  store i8 %576, ptr %534, align 1, !tbaa !148
+  %577 = load i8, ptr %538, align 1, !tbaa !148
   %578 = uitofp i8 %577 to float
   %579 = getelementptr inbounds nuw i8, ptr %569, i64 16
-  %580 = load float, ptr %579, align 4, !tbaa !149
+  %580 = load float, ptr %579, align 4, !tbaa !148
   %581 = fadd nsz float %580, 1.280000e+02
   %582 = fmul nsz float %568, %581
   %583 = tail call nsz float @llvm.fmuladd.f32(float %565, float %578, float %582)
   %584 = tail call i64 @llvm.lrint.i64.f32(float %583)
   %585 = trunc i64 %584 to i8
-  store i8 %585, ptr %535, align 1, !tbaa !149
-  %586 = load i8, ptr %539, align 1, !tbaa !149
+  store i8 %585, ptr %535, align 1, !tbaa !148
+  %586 = load i8, ptr %539, align 1, !tbaa !148
   %587 = uitofp i8 %586 to float
   %588 = getelementptr inbounds nuw i8, ptr %569, i64 20
-  %589 = load float, ptr %588, align 4, !tbaa !149
+  %589 = load float, ptr %588, align 4, !tbaa !148
   %590 = fadd nsz float %589, 1.280000e+02
   %591 = fmul nsz float %568, %590
   %592 = tail call nsz float @llvm.fmuladd.f32(float %565, float %587, float %591)
@@ -3336,7 +3336,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 595:                                              ; preds = %559, %563, %542
   %.sink732 = phi i8 [ %562, %559 ], [ %594, %563 ], [ %558, %542 ]
-  store i8 %.sink732, ptr %536, align 1, !tbaa !149
+  store i8 %.sink732, ptr %536, align 1, !tbaa !148
   %596 = getelementptr inbounds nuw i8, ptr %.3550688, i64 2
   %597 = getelementptr inbounds nuw i8, ptr %.3556687, i64 2
   %598 = getelementptr inbounds nuw i8, ptr %.3561686, i64 2
@@ -3346,7 +3346,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %602 = getelementptr inbounds nuw i8, ptr %.3582682, i64 2
   %indvars.iv.next711 = add nuw nsw i64 %indvars.iv710, 2
   %603 = icmp slt i64 %indvars.iv.next711, %48
-  br i1 %603, label %.lr.ph690, label %.loopexit, !llvm.loop !164
+  br i1 %603, label %.lr.ph690, label %.loopexit, !llvm.loop !163
 
 604:                                              ; preds = %.loopexit637
   br i1 %43, label %.preheader632, label %.preheader634
@@ -3366,7 +3366,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %.4573675 = phi ptr [ %683, %712 ], [ %476, %.preheader632 ]
   %.4578674 = phi ptr [ %684, %712 ], [ %478, %.preheader632 ]
   %.4583673 = phi ptr [ %715, %712 ], [ %480, %.preheader632 ]
-  %605 = load i8, ptr %.4583673, align 1, !tbaa !149
+  %605 = load i8, ptr %.4583673, align 1, !tbaa !148
   switch i8 %605, label %614 [
     i8 0, label %606
     i8 -1, label %612
@@ -3374,24 +3374,24 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 606:                                              ; preds = %.lr.ph681
   %607 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
-  %608 = load float, ptr %607, align 4, !tbaa !149
+  %608 = load float, ptr %607, align 4, !tbaa !148
   %609 = fadd nsz float %608, 1.600000e+01
   %610 = tail call i64 @llvm.lrint.i64.f32(float %609)
   %611 = trunc i64 %610 to i8
   br label %627
 
 612:                                              ; preds = %.lr.ph681
-  %613 = load i8, ptr %.4567676, align 1, !tbaa !149
+  %613 = load i8, ptr %.4567676, align 1, !tbaa !148
   br label %627
 
 614:                                              ; preds = %.lr.ph681
   %615 = uitofp i8 %605 to float
   %616 = fmul nsz float %615, 0x3F70101020000000
-  %617 = load i8, ptr %.4567676, align 1, !tbaa !149
+  %617 = load i8, ptr %.4567676, align 1, !tbaa !148
   %618 = uitofp i8 %617 to float
   %619 = fsub nsz float 1.000000e+00, %616
   %620 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
-  %621 = load float, ptr %620, align 4, !tbaa !149
+  %621 = load float, ptr %620, align 4, !tbaa !148
   %622 = fadd nsz float %621, 1.600000e+01
   %623 = fmul nsz float %619, %622
   %624 = tail call nsz float @llvm.fmuladd.f32(float %616, float %618, float %623)
@@ -3401,12 +3401,12 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 627:                                              ; preds = %612, %614, %606
   %.sink733 = phi i8 [ %613, %612 ], [ %626, %614 ], [ %611, %606 ]
-  store i8 %.sink733, ptr %.4551679, align 1, !tbaa !149
+  store i8 %.sink733, ptr %.4551679, align 1, !tbaa !148
   %628 = getelementptr inbounds nuw i8, ptr %.4551679, i64 1
   %629 = getelementptr inbounds nuw i8, ptr %.4567676, i64 1
-  %630 = load i8, ptr %.4583673, align 1, !tbaa !149
+  %630 = load i8, ptr %.4583673, align 1, !tbaa !148
   %.phi.trans.insert718 = getelementptr inbounds nuw i8, ptr %.4583673, i64 1
-  %.pre719 = load i8, ptr %.phi.trans.insert718, align 1, !tbaa !149
+  %.pre719 = load i8, ptr %.phi.trans.insert718, align 1, !tbaa !148
   switch i8 %630, label %.thread631 [
     i8 0, label %631
     i8 -1, label %644
@@ -3419,13 +3419,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 632:                                              ; preds = %631
   %633 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 4
-  %635 = load float, ptr %634, align 4, !tbaa !149
+  %635 = load float, ptr %634, align 4, !tbaa !148
   %636 = fadd nsz float %635, 1.280000e+02
   %637 = tail call i64 @llvm.lrint.i64.f32(float %636)
   %638 = trunc i64 %637 to i8
-  store i8 %638, ptr %.4557678, align 1, !tbaa !149
+  store i8 %638, ptr %.4557678, align 1, !tbaa !148
   %639 = getelementptr inbounds nuw i8, ptr %633, i64 8
-  %640 = load float, ptr %639, align 4, !tbaa !149
+  %640 = load float, ptr %639, align 4, !tbaa !148
   %641 = fadd nsz float %640, 1.280000e+02
   %642 = tail call i64 @llvm.lrint.i64.f32(float %641)
   %643 = trunc i64 %642 to i8
@@ -3436,9 +3436,9 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br i1 %645, label %646, label %.thread631
 
 646:                                              ; preds = %644
-  %647 = load i8, ptr %.4573675, align 1, !tbaa !149
-  store i8 %647, ptr %.4557678, align 1, !tbaa !149
-  %648 = load i8, ptr %.4578674, align 1, !tbaa !149
+  %647 = load i8, ptr %.4573675, align 1, !tbaa !148
+  store i8 %647, ptr %.4557678, align 1, !tbaa !148
+  %648 = load i8, ptr %.4578674, align 1, !tbaa !148
   br label %682
 
 .thread631:                                       ; preds = %627, %631, %644
@@ -3448,30 +3448,30 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %652 = fmul nsz float %651, 0x3F60101020000000
   %653 = fsub nsz float 1.000000e+00, %650
   %654 = fsub nsz float %653, %652
-  %655 = load i8, ptr %.4573675, align 1, !tbaa !149
+  %655 = load i8, ptr %.4573675, align 1, !tbaa !148
   %656 = uitofp i8 %655 to float
   %657 = getelementptr inbounds nuw i8, ptr %.4573675, i64 1
-  %658 = load i8, ptr %657, align 1, !tbaa !149
+  %658 = load i8, ptr %657, align 1, !tbaa !148
   %659 = uitofp i8 %658 to float
   %660 = fmul nsz float %652, %659
   %661 = tail call nsz float @llvm.fmuladd.f32(float %650, float %656, float %660)
   %662 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 4
-  %664 = load float, ptr %663, align 4, !tbaa !149
+  %664 = load float, ptr %663, align 4, !tbaa !148
   %665 = fadd nsz float %664, 1.280000e+02
   %666 = tail call nsz float @llvm.fmuladd.f32(float %654, float %665, float %661)
   %667 = tail call i64 @llvm.lrint.i64.f32(float %666)
   %668 = trunc i64 %667 to i8
-  store i8 %668, ptr %.4557678, align 1, !tbaa !149
-  %669 = load i8, ptr %.4578674, align 1, !tbaa !149
+  store i8 %668, ptr %.4557678, align 1, !tbaa !148
+  %669 = load i8, ptr %.4578674, align 1, !tbaa !148
   %670 = uitofp i8 %669 to float
   %671 = getelementptr inbounds nuw i8, ptr %.4578674, i64 1
-  %672 = load i8, ptr %671, align 1, !tbaa !149
+  %672 = load i8, ptr %671, align 1, !tbaa !148
   %673 = uitofp i8 %672 to float
   %674 = fmul nsz float %652, %673
   %675 = tail call nsz float @llvm.fmuladd.f32(float %650, float %670, float %674)
   %676 = getelementptr inbounds nuw i8, ptr %662, i64 8
-  %677 = load float, ptr %676, align 4, !tbaa !149
+  %677 = load float, ptr %676, align 4, !tbaa !148
   %678 = fadd nsz float %677, 1.280000e+02
   %679 = tail call nsz float @llvm.fmuladd.f32(float %654, float %678, float %675)
   %680 = tail call i64 @llvm.lrint.i64.f32(float %679)
@@ -3480,13 +3480,13 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 682:                                              ; preds = %646, %.thread631, %632
   %.sink734 = phi i8 [ %648, %646 ], [ %681, %.thread631 ], [ %643, %632 ]
-  store i8 %.sink734, ptr %.4562677, align 1, !tbaa !149
+  store i8 %.sink734, ptr %.4562677, align 1, !tbaa !148
   %683 = getelementptr inbounds nuw i8, ptr %.4573675, i64 2
   %684 = getelementptr inbounds nuw i8, ptr %.4578674, i64 2
   %685 = getelementptr inbounds nuw i8, ptr %.4583673, i64 1
   %686 = getelementptr inbounds nuw i8, ptr %.4557678, i64 1
   %687 = getelementptr inbounds nuw i8, ptr %.4562677, i64 1
-  %688 = load i8, ptr %685, align 1, !tbaa !149
+  %688 = load i8, ptr %685, align 1, !tbaa !148
   switch i8 %688, label %698 [
     i8 0, label %689
     i8 -1, label %696
@@ -3495,25 +3495,25 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 689:                                              ; preds = %682
   %690 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %691 = getelementptr inbounds nuw i8, ptr %690, i64 12
-  %692 = load float, ptr %691, align 4, !tbaa !149
+  %692 = load float, ptr %691, align 4, !tbaa !148
   %693 = fadd nsz float %692, 1.600000e+01
   %694 = tail call i64 @llvm.lrint.i64.f32(float %693)
   %695 = trunc i64 %694 to i8
   br label %712
 
 696:                                              ; preds = %682
-  %697 = load i8, ptr %629, align 1, !tbaa !149
+  %697 = load i8, ptr %629, align 1, !tbaa !148
   br label %712
 
 698:                                              ; preds = %682
   %699 = uitofp i8 %688 to float
   %700 = fmul nsz float %699, 0x3F70101020000000
-  %701 = load i8, ptr %629, align 1, !tbaa !149
+  %701 = load i8, ptr %629, align 1, !tbaa !148
   %702 = uitofp i8 %701 to float
   %703 = fsub nsz float 1.000000e+00, %700
   %704 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 12
-  %706 = load float, ptr %705, align 4, !tbaa !149
+  %706 = load float, ptr %705, align 4, !tbaa !148
   %707 = fadd nsz float %706, 1.600000e+01
   %708 = fmul nsz float %703, %707
   %709 = tail call nsz float @llvm.fmuladd.f32(float %700, float %702, float %708)
@@ -3523,20 +3523,20 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 712:                                              ; preds = %696, %698, %689
   %.sink735 = phi i8 [ %697, %696 ], [ %711, %698 ], [ %695, %689 ]
-  store i8 %.sink735, ptr %628, align 1, !tbaa !149
+  store i8 %.sink735, ptr %628, align 1, !tbaa !148
   %713 = getelementptr inbounds nuw i8, ptr %.4551679, i64 2
   %714 = getelementptr inbounds nuw i8, ptr %.4567676, i64 2
   %715 = getelementptr inbounds nuw i8, ptr %.4583673, i64 2
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 2
   %716 = icmp slt i64 %indvars.iv.next708, %48
-  br i1 %716, label %.lr.ph681, label %.loopexit, !llvm.loop !165
+  br i1 %716, label %.lr.ph681, label %.loopexit, !llvm.loop !164
 
 .lr.ph672:                                        ; preds = %.preheader634, %767
   %indvars.iv704 = phi i64 [ %indvars.iv.next705, %767 ], [ 0, %.preheader634 ]
   %.5552670 = phi ptr [ %768, %767 ], [ %467, %.preheader634 ]
   %.5568669 = phi ptr [ %769, %767 ], [ %474, %.preheader634 ]
   %.5584668 = phi ptr [ %770, %767 ], [ %480, %.preheader634 ]
-  %717 = load i8, ptr %.5584668, align 1, !tbaa !149
+  %717 = load i8, ptr %.5584668, align 1, !tbaa !148
   switch i8 %717, label %726 [
     i8 0, label %718
     i8 -1, label %724
@@ -3544,24 +3544,24 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 718:                                              ; preds = %.lr.ph672
   %719 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
-  %720 = load float, ptr %719, align 4, !tbaa !149
+  %720 = load float, ptr %719, align 4, !tbaa !148
   %721 = fadd nsz float %720, 1.600000e+01
   %722 = tail call i64 @llvm.lrint.i64.f32(float %721)
   %723 = trunc i64 %722 to i8
   br label %739
 
 724:                                              ; preds = %.lr.ph672
-  %725 = load i8, ptr %.5568669, align 1, !tbaa !149
+  %725 = load i8, ptr %.5568669, align 1, !tbaa !148
   br label %739
 
 726:                                              ; preds = %.lr.ph672
   %727 = uitofp i8 %717 to float
   %728 = fmul nsz float %727, 0x3F70101020000000
-  %729 = load i8, ptr %.5568669, align 1, !tbaa !149
+  %729 = load i8, ptr %.5568669, align 1, !tbaa !148
   %730 = uitofp i8 %729 to float
   %731 = fsub nsz float 1.000000e+00, %728
   %732 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
-  %733 = load float, ptr %732, align 4, !tbaa !149
+  %733 = load float, ptr %732, align 4, !tbaa !148
   %734 = fadd nsz float %733, 1.600000e+01
   %735 = fmul nsz float %731, %734
   %736 = tail call nsz float @llvm.fmuladd.f32(float %728, float %730, float %735)
@@ -3571,11 +3571,11 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 739:                                              ; preds = %724, %726, %718
   %.sink736 = phi i8 [ %725, %724 ], [ %738, %726 ], [ %723, %718 ]
-  store i8 %.sink736, ptr %.5552670, align 1, !tbaa !149
+  store i8 %.sink736, ptr %.5552670, align 1, !tbaa !148
   %740 = getelementptr inbounds nuw i8, ptr %.5552670, i64 1
   %741 = getelementptr inbounds nuw i8, ptr %.5568669, i64 1
   %742 = getelementptr inbounds nuw i8, ptr %.5584668, i64 1
-  %743 = load i8, ptr %742, align 1, !tbaa !149
+  %743 = load i8, ptr %742, align 1, !tbaa !148
   switch i8 %743, label %753 [
     i8 0, label %744
     i8 -1, label %751
@@ -3584,25 +3584,25 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 744:                                              ; preds = %739
   %745 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 12
-  %747 = load float, ptr %746, align 4, !tbaa !149
+  %747 = load float, ptr %746, align 4, !tbaa !148
   %748 = fadd nsz float %747, 1.600000e+01
   %749 = tail call i64 @llvm.lrint.i64.f32(float %748)
   %750 = trunc i64 %749 to i8
   br label %767
 
 751:                                              ; preds = %739
-  %752 = load i8, ptr %741, align 1, !tbaa !149
+  %752 = load i8, ptr %741, align 1, !tbaa !148
   br label %767
 
 753:                                              ; preds = %739
   %754 = uitofp i8 %743 to float
   %755 = fmul nsz float %754, 0x3F70101020000000
-  %756 = load i8, ptr %741, align 1, !tbaa !149
+  %756 = load i8, ptr %741, align 1, !tbaa !148
   %757 = uitofp i8 %756 to float
   %758 = fsub nsz float 1.000000e+00, %755
   %759 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 12
-  %761 = load float, ptr %760, align 4, !tbaa !149
+  %761 = load float, ptr %760, align 4, !tbaa !148
   %762 = fadd nsz float %761, 1.600000e+01
   %763 = fmul nsz float %758, %762
   %764 = tail call nsz float @llvm.fmuladd.f32(float %755, float %757, float %763)
@@ -3612,18 +3612,18 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 767:                                              ; preds = %751, %753, %744
   %.sink737 = phi i8 [ %752, %751 ], [ %766, %753 ], [ %750, %744 ]
-  store i8 %.sink737, ptr %740, align 1, !tbaa !149
+  store i8 %.sink737, ptr %740, align 1, !tbaa !148
   %768 = getelementptr inbounds nuw i8, ptr %.5552670, i64 2
   %769 = getelementptr inbounds nuw i8, ptr %.5568669, i64 2
   %770 = getelementptr inbounds nuw i8, ptr %.5584668, i64 2
   %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 2
   %771 = icmp slt i64 %indvars.iv.next705, %48
-  br i1 %771, label %.lr.ph672, label %.loopexit, !llvm.loop !166
+  br i1 %771, label %.lr.ph672, label %.loopexit, !llvm.loop !165
 
 .loopexit:                                        ; preds = %767, %712, %595, %.preheader634, %.preheader632, %.preheader
   %indvars.iv.next714 = add nuw nsw i64 %indvars.iv713, 2
   %772 = icmp samesign ult i64 %indvars.iv.next714, %54
-  br i1 %772, label %55, label %._crit_edge, !llvm.loop !167
+  br i1 %772, label %55, label %._crit_edge, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void
@@ -3632,7 +3632,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @update_sono_yuv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = load i32, ptr %4, align 8, !tbaa !148
+  %5 = load i32, ptr %4, align 8, !tbaa !147
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -3669,50 +3669,50 @@ define internal void @update_sono_yuv(ptr noundef readonly captures(none) %0, pt
   %.03238.us = phi ptr [ %60, %.lr.ph.split.us ], [ %20, %.lr.ph ]
   %.03437.us = phi ptr [ %54, %.lr.ph.split.us ], [ %26, %.lr.ph ]
   %31 = getelementptr inbounds nuw %union.ColorFloat, ptr %1, i64 %indvars.iv42
-  %32 = load float, ptr %31, align 4, !tbaa !149
+  %32 = load float, ptr %31, align 4, !tbaa !148
   %33 = fadd nsz float %32, 1.600000e+01
   %34 = tail call i64 @llvm.lrint.i64.f32(float %33)
   %35 = trunc i64 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %.03437.us, i64 1
-  store i8 %35, ptr %.03437.us, align 1, !tbaa !149
+  store i8 %35, ptr %.03437.us, align 1, !tbaa !148
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %38 = load float, ptr %37, align 4, !tbaa !149
+  %38 = load float, ptr %37, align 4, !tbaa !148
   %39 = fadd nsz float %38, 1.280000e+02
   %40 = tail call i64 @llvm.lrint.i64.f32(float %39)
   %41 = trunc i64 %40 to i8
   %42 = getelementptr inbounds nuw i8, ptr %.03238.us, i64 1
-  store i8 %41, ptr %.03238.us, align 1, !tbaa !149
+  store i8 %41, ptr %.03238.us, align 1, !tbaa !148
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %44 = load float, ptr %43, align 4, !tbaa !149
+  %44 = load float, ptr %43, align 4, !tbaa !148
   %45 = fadd nsz float %44, 1.280000e+02
   %46 = tail call i64 @llvm.lrint.i64.f32(float %45)
   %47 = trunc i64 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %.039.us, i64 1
-  store i8 %47, ptr %.039.us, align 1, !tbaa !149
+  store i8 %47, ptr %.039.us, align 1, !tbaa !148
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %50 = load float, ptr %49, align 4, !tbaa !149
+  %50 = load float, ptr %49, align 4, !tbaa !148
   %51 = fadd nsz float %50, 1.600000e+01
   %52 = tail call i64 @llvm.lrint.i64.f32(float %51)
   %53 = trunc i64 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %.03437.us, i64 2
-  store i8 %53, ptr %36, align 1, !tbaa !149
+  store i8 %53, ptr %36, align 1, !tbaa !148
   %55 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %56 = load float, ptr %55, align 4, !tbaa !149
+  %56 = load float, ptr %55, align 4, !tbaa !148
   %57 = fadd nsz float %56, 1.280000e+02
   %58 = tail call i64 @llvm.lrint.i64.f32(float %57)
   %59 = trunc i64 %58 to i8
   %60 = getelementptr inbounds nuw i8, ptr %.03238.us, i64 2
-  store i8 %59, ptr %42, align 1, !tbaa !149
+  store i8 %59, ptr %42, align 1, !tbaa !148
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  %62 = load float, ptr %61, align 4, !tbaa !149
+  %62 = load float, ptr %61, align 4, !tbaa !148
   %63 = fadd nsz float %62, 1.280000e+02
   %64 = tail call i64 @llvm.lrint.i64.f32(float %63)
   %65 = trunc i64 %64 to i8
   %66 = getelementptr inbounds nuw i8, ptr %.039.us, i64 2
-  store i8 %65, ptr %48, align 1, !tbaa !149
+  store i8 %65, ptr %48, align 1, !tbaa !148
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 2
   %67 = icmp samesign ult i64 %indvars.iv.next43, %30
-  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !168
+  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !167
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -3720,36 +3720,36 @@ define internal void @update_sono_yuv(ptr noundef readonly captures(none) %0, pt
   %.03238 = phi ptr [ %79, %.lr.ph.split ], [ %20, %.lr.ph ]
   %.03437 = phi ptr [ %91, %.lr.ph.split ], [ %26, %.lr.ph ]
   %68 = getelementptr inbounds nuw %union.ColorFloat, ptr %1, i64 %indvars.iv
-  %69 = load float, ptr %68, align 4, !tbaa !149
+  %69 = load float, ptr %68, align 4, !tbaa !148
   %70 = fadd nsz float %69, 1.600000e+01
   %71 = tail call i64 @llvm.lrint.i64.f32(float %70)
   %72 = trunc i64 %71 to i8
   %73 = getelementptr inbounds nuw i8, ptr %.03437, i64 1
-  store i8 %72, ptr %.03437, align 1, !tbaa !149
+  store i8 %72, ptr %.03437, align 1, !tbaa !148
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %75 = load float, ptr %74, align 4, !tbaa !149
+  %75 = load float, ptr %74, align 4, !tbaa !148
   %76 = fadd nsz float %75, 1.280000e+02
   %77 = tail call i64 @llvm.lrint.i64.f32(float %76)
   %78 = trunc i64 %77 to i8
   %79 = getelementptr inbounds nuw i8, ptr %.03238, i64 1
-  store i8 %78, ptr %.03238, align 1, !tbaa !149
+  store i8 %78, ptr %.03238, align 1, !tbaa !148
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %81 = load float, ptr %80, align 4, !tbaa !149
+  %81 = load float, ptr %80, align 4, !tbaa !148
   %82 = fadd nsz float %81, 1.280000e+02
   %83 = tail call i64 @llvm.lrint.i64.f32(float %82)
   %84 = trunc i64 %83 to i8
   %85 = getelementptr inbounds nuw i8, ptr %.039, i64 1
-  store i8 %84, ptr %.039, align 1, !tbaa !149
+  store i8 %84, ptr %.039, align 1, !tbaa !148
   %86 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %87 = load float, ptr %86, align 4, !tbaa !149
+  %87 = load float, ptr %86, align 4, !tbaa !148
   %88 = fadd nsz float %87, 1.600000e+01
   %89 = tail call i64 @llvm.lrint.i64.f32(float %88)
   %90 = trunc i64 %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %.03437, i64 2
-  store i8 %90, ptr %73, align 1, !tbaa !149
+  store i8 %90, ptr %73, align 1, !tbaa !148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %92 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %92, label %.lr.ph.split, label %._crit_edge, !llvm.loop !169
+  br i1 %92, label %.lr.ph.split, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret void
@@ -3849,7 +3849,7 @@ convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %16
   %33 = load i32, ptr %18, align 8, !tbaa !33
   %34 = load ptr, ptr %15, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  store i32 %33, ptr %35, align 8, !tbaa !148
+  store i32 %33, ptr %35, align 8, !tbaa !147
   %36 = load i32, ptr %20, align 4, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 108
   store i32 %36, ptr %37, align 4, !tbaa !142
@@ -3912,7 +3912,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_axis_from_font(ptr no
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 26, ptr %12, align 4, !tbaa !137
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  store i32 1920, ptr %13, align 8, !tbaa !148
+  store i32 1920, ptr %13, align 8, !tbaa !147
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 32, ptr %14, align 4, !tbaa !142
   %15 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %10, i32 noundef 0) #15
@@ -3945,7 +3945,7 @@ alloc_frame_empty.exit.thread:                    ; preds = %17, %1
 
 .split33:                                         ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %27 = load ptr, ptr %26, align 8, !tbaa !170
+  %27 = load ptr, ptr %26, align 8, !tbaa !168
   %.not.i38 = icmp eq ptr %27, null
   br i1 %.not.i38, label %render_freetype.exit, label %28
 
@@ -3957,7 +3957,7 @@ alloc_frame_empty.exit.thread:                    ; preds = %17, %1
 
 render_freetype.exit:                             ; preds = %.split33, %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %32 = load ptr, ptr %31, align 8, !tbaa !171
+  %32 = load ptr, ptr %31, align 8, !tbaa !169
   %.not.i39 = icmp eq ptr %32, null
   br i1 %.not.i39, label %render_fontconfig.exit, label %33
 
@@ -3984,7 +3984,7 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   %40 = shl nuw nsw i64 %indvars.iv7.i, 5
   %invariant.gep.i = getelementptr i8, ptr %39, i64 %40
   %41 = getelementptr inbounds nuw i8, ptr @.str.35, i64 %indvars.iv7.i
-  %42 = load i8, ptr %41, align 1, !tbaa !149
+  %42 = load i8, ptr %41, align 1, !tbaa !148
   %43 = sext i8 %42 to i32
   %44 = shl nsw i32 %43, 4
   %45 = sext i32 %44 to i64
@@ -3996,7 +3996,7 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %47
   %48 = add nuw nsw i64 %indvars.iv.i, %45
   %49 = getelementptr inbounds [4096 x i8], ptr @avpriv_vga16_font, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !149
+  %50 = load i8, ptr %49, align 1, !tbaa !148
   %51 = zext i8 %50 to i32
   br label %52
 
@@ -4007,26 +4007,26 @@ render_fontconfig.exit:                           ; preds = %render_freetype.exi
   %.not30.i = icmp ne i32 %53, 0
   %spec.select.i = sext i1 %.not30.i to i8
   %54 = getelementptr inbounds nuw i8, ptr %.02.i, i64 3
-  store i8 %spec.select.i, ptr %54, align 1, !tbaa !149
+  store i8 %spec.select.i, ptr %54, align 1, !tbaa !148
   %55 = lshr i32 %.0291.i, 1
   %56 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
   %.not.i40 = icmp samesign ult i32 %.0291.i, 2
-  br i1 %.not.i40, label %57, label %52, !llvm.loop !172
+  br i1 %.not.i40, label %57, label %52, !llvm.loop !170
 
 57:                                               ; preds = %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %58, label %46, !llvm.loop !173
+  br i1 %exitcond.not.i, label %58, label %46, !llvm.loop !171
 
 58:                                               ; preds = %57
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, 12
-  br i1 %exitcond10.not.i, label %59, label %.preheader.i, !llvm.loop !174
+  br i1 %exitcond10.not.i, label %59, label %.preheader.i, !llvm.loop !172
 
 59:                                               ; preds = %58
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 96
   %60 = icmp samesign ult i64 %indvars.iv11.i, 864
-  br i1 %60, label %37, label %render_default_font.exit, !llvm.loop !175
+  br i1 %60, label %37, label %render_default_font.exit, !llvm.loop !173
 
 render_default_font.exit:                         ; preds = %59
   %61 = load ptr, ptr %9, align 8, !tbaa !51
@@ -4088,9 +4088,9 @@ render_default_font.exit:                         ; preds = %59
 
 create_freq_table.exit.i:                         ; preds = %.preheader, %76
   %88 = phi ptr [ %78, %76 ], [ %80, %.preheader ]
-  store ptr %88, ptr %6, align 8, !tbaa !176
+  store ptr %88, ptr %6, align 8, !tbaa !174
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %90 = load ptr, ptr %89, align 8, !tbaa !177
+  %90 = load ptr, ptr %89, align 8, !tbaa !175
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !20
   %93 = call i32 @av_expr_parse(ptr noundef nonnull %5, ptr noundef %90, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %92) #15
@@ -4123,7 +4123,7 @@ create_freq_table.exit.i:                         ; preds = %.preheader, %76
   %106 = load double, ptr %95, align 8, !tbaa !80
   store double %106, ptr %7, align 16, !tbaa !71
   store double %106, ptr %96, align 8, !tbaa !71
-  %107 = load ptr, ptr %6, align 8, !tbaa !176
+  %107 = load ptr, ptr %6, align 8, !tbaa !174
   %108 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv62.i
   %109 = load double, ptr %108, align 8, !tbaa !71
   store double %109, ptr %97, align 16, !tbaa !71
@@ -4149,26 +4149,26 @@ create_freq_table.exit.i:                         ; preds = %.preheader, %76
   %indvars.iv.i43 = phi i64 [ 0, %105 ], [ %indvars.iv.next.i45, %123 ]
   %124 = mul nsw i64 %indvars.iv.i43, %122
   %gep.i44 = getelementptr i8, ptr %invariant.gep.i42, i64 %124
-  store i8 %115, ptr %gep.i44, align 1, !tbaa !149
+  store i8 %115, ptr %gep.i44, align 1, !tbaa !148
   %125 = getelementptr i8, ptr %gep.i44, i64 1
-  store i8 %117, ptr %125, align 1, !tbaa !149
+  store i8 %117, ptr %125, align 1, !tbaa !148
   %126 = getelementptr i8, ptr %gep.i44, i64 2
-  store i8 %118, ptr %126, align 1, !tbaa !149
+  store i8 %118, ptr %126, align 1, !tbaa !148
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 16
-  br i1 %exitcond.not.i46, label %127, label %123, !llvm.loop !178
+  br i1 %exitcond.not.i46, label %127, label %123, !llvm.loop !176
 
 127:                                              ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 2
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next61.i, 960
-  br i1 %exitcond67.not.i, label %128, label %105, !llvm.loop !179
+  br i1 %exitcond67.not.i, label %128, label %105, !llvm.loop !177
 
 128:                                              ; preds = %127
   %129 = load ptr, ptr %5, align 8, !tbaa !74
   call void @av_expr_free(ptr noundef %129) #15
-  %130 = load ptr, ptr %6, align 8, !tbaa !176
+  %130 = load ptr, ptr %6, align 8, !tbaa !174
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %132 = load ptr, ptr %131, align 8, !tbaa !73
   %.not54.i = icmp eq ptr %130, %132
@@ -4228,7 +4228,7 @@ convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %134
   %151 = load i32, ptr %137, align 8, !tbaa !33
   %152 = load ptr, ptr %25, align 8, !tbaa !128
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 104
-  store i32 %151, ptr %153, align 8, !tbaa !148
+  store i32 %151, ptr %153, align 8, !tbaa !147
   %154 = load i32, ptr %139, align 4, !tbaa !35
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 108
   store i32 %154, ptr %155, align 4, !tbaa !142
@@ -4278,7 +4278,7 @@ define internal fastcc ptr @alloc_frame_empty(i32 noundef %0, i32 noundef %1, i3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 %0, ptr %7, align 4, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %1, ptr %8, align 8, !tbaa !148
+  store i32 %1, ptr %8, align 8, !tbaa !147
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 %2, ptr %9, align 4, !tbaa !142
   %10 = tail call i32 @av_frame_get_buffer(ptr noundef nonnull %5, i32 noundef 0) #15
@@ -4493,7 +4493,7 @@ declare ptr @av_default_item_name(ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_colormatrix(ptr noundef captures(none) initializes((208, 244)) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %3 = load i32, ptr %2, align 4, !tbaa !180
+  %3 = load i32, ptr %2, align 4, !tbaa !178
   %switch.tableidx = add i32 %3, -1
   %4 = icmp ult i32 %switch.tableidx, 9
   %switch.maskindex = trunc i32 %switch.tableidx to i16
@@ -4506,7 +4506,7 @@ define internal fastcc void @init_colormatrix(ptr noundef captures(none) initial
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 24, ptr noundef nonnull @.str.114) #15
-  store i32 2, ptr %2, align 4, !tbaa !180
+  store i32 2, ptr %2, align 4, !tbaa !178
   br label %10
 
 switch.lookup:                                    ; preds = %1
@@ -4567,7 +4567,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_cscheme(ptr noundef %0) unnam
   %2 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %4 = load ptr, ptr %3, align 8, !tbaa !181
+  %4 = load ptr, ptr %3, align 8, !tbaa !179
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -4581,7 +4581,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_cscheme(ptr noundef %0) unnam
 12:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !182
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !180
 
 .preheader:                                       ; preds = %1, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
@@ -4625,7 +4625,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %4 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !183
+  %6 = load ptr, ptr %5, align 8, !tbaa !181
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = load ptr, ptr %8, align 8, !tbaa !44
@@ -4712,7 +4712,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %62 = add i32 %61, %59
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next185, %63
-  br i1 %64, label %.lr.ph169, label %._crit_edge170, !llvm.loop !184
+  br i1 %64, label %.lr.ph169, label %._crit_edge170, !llvm.loop !182
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %37
   %65 = phi i32 [ %48, %37 ], [ %60, %.lr.ph169 ]
@@ -4724,19 +4724,19 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   store i64 %69, ptr %20, align 8, !tbaa !53
   %70 = load ptr, ptr %4, align 8, !tbaa !51
   %.not130 = icmp eq ptr %70, null
-  br i1 %.not130, label %21, label %71, !llvm.loop !185
+  br i1 %.not130, label %21, label %71, !llvm.loop !183
 
 71:                                               ; preds = %._crit_edge170
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 136
-  store i64 %69, ptr %72, align 8, !tbaa !186
+  store i64 %69, ptr %72, align 8, !tbaa !184
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 408
-  store i64 1, ptr %73, align 8, !tbaa !187
+  store i64 1, ptr %73, align 8, !tbaa !185
   %74 = tail call i32 @ff_filter_frame(ptr noundef %9, ptr noundef nonnull %70) #15
   br label %.loopexit
 
 75:                                               ; preds = %2
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %77 = load i32, ptr %76, align 8, !tbaa !188
+  %77 = load i32, ptr %76, align 8, !tbaa !186
   %78 = load ptr, ptr %1, align 8, !tbaa !130
   %.not131161 = icmp eq i32 %77, 0
   br i1 %.not131161, label %._crit_edge166.thread, label %.lr.ph165
@@ -4766,7 +4766,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %.0116162 = phi i32 [ 0, %.lr.ph165 ], [ %.1117, %.loopexit146 ]
   %94 = load ptr, ptr %3, align 8, !tbaa !51
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
-  %96 = load i32, ptr %95, align 8, !tbaa !188
+  %96 = load i32, ptr %95, align 8, !tbaa !186
   %97 = sub nsw i32 %96, %.0113163
   %98 = sdiv i32 %93, 2
   %99 = add nsw i32 %98, %92
@@ -4811,7 +4811,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   store float %117, ptr %118, align 4, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !189
+  br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %107, %.preheader147
   %.val136 = load ptr, ptr %7, align 8, !tbaa !46
@@ -4835,7 +4835,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
 126:                                              ; preds = %122
   %127 = load ptr, ptr %3, align 8, !tbaa !51
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
-  %129 = load i32, ptr %128, align 8, !tbaa !188
+  %129 = load i32, ptr %128, align 8, !tbaa !186
   %130 = load i32, ptr %80, align 8, !tbaa !90
   %131 = add i32 %124, %130
   %132 = sub i32 %129, %131
@@ -4847,14 +4847,14 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %135 = load i64, ptr %84, align 8
   %136 = tail call i64 @av_rescale_q(i64 noundef %133, i64 %.sroa.0.0.insert.insert.i, i64 %135) #16
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 136
-  %138 = load i64, ptr %137, align 8, !tbaa !186
+  %138 = load i64, ptr %137, align 8, !tbaa !184
   %139 = add nsw i64 %138, %136
   %140 = load i64, ptr %85, align 8
   %141 = tail call i64 @av_rescale_q(i64 noundef %139, i64 %135, i64 %140) #16
   %142 = getelementptr inbounds nuw i8, ptr %125, i64 136
-  store i64 %141, ptr %142, align 8, !tbaa !186
+  store i64 %141, ptr %142, align 8, !tbaa !184
   %143 = getelementptr inbounds nuw i8, ptr %125, i64 408
-  store i64 1, ptr %143, align 8, !tbaa !187
+  store i64 1, ptr %143, align 8, !tbaa !185
   %144 = tail call i32 @ff_filter_frame(ptr noundef %9, ptr noundef nonnull %125) #15
   %145 = icmp sgt i32 %144, -1
   br i1 %145, label %.thread, label %146
@@ -4906,7 +4906,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %172 = add i32 %171, %169
   %173 = sext i32 %172 to i64
   %174 = icmp slt i64 %indvars.iv.next177, %173
-  br i1 %174, label %.lr.ph157, label %.loopexit146, !llvm.loop !190
+  br i1 %174, label %.lr.ph157, label %.loopexit146, !llvm.loop !188
 
 175:                                              ; preds = %.lr.ph159, %175
   %indvars.iv179 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next180, %175 ]
@@ -4925,7 +4925,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   store float %185, ptr %186, align 4, !tbaa !134
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %.loopexit146.thread, label %175, !llvm.loop !191
+  br i1 %exitcond183.not, label %.loopexit146.thread, label %175, !llvm.loop !189
 
 .loopexit146.thread:                              ; preds = %175, %.preheader145
   %187 = sub nsw i32 %91, %.0113163
@@ -4937,7 +4937,7 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   %189 = phi i32 [ %156, %147 ], [ %168, %.lr.ph157 ]
   store i32 %154, ptr %81, align 4, !tbaa !118
   %.not131 = icmp eq i32 %124, 0
-  br i1 %.not131, label %._crit_edge166, label %90, !llvm.loop !192
+  br i1 %.not131, label %._crit_edge166, label %90, !llvm.loop !190
 
 ._crit_edge166:                                   ; preds = %.loopexit146, %.loopexit146.thread
   %.2118195 = phi i32 [ %.0116162, %.loopexit146.thread ], [ %.1117, %.loopexit146 ]
@@ -5018,12 +5018,12 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   store float %29, ptr %27, align 4, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !193
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !191
 
 .loopexit:                                        ; preds = %19, %..loopexit_crit_edge, %.preheader
   %30 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre14, %.preheader ], [ %.pre14, %19 ]
   %31 = getelementptr inbounds nuw i8, ptr %.72.val, i64 96
-  %32 = load ptr, ptr %31, align 8, !tbaa !194
+  %32 = load ptr, ptr %31, align 8, !tbaa !192
   %33 = getelementptr inbounds nuw i8, ptr %.72.val, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !89
   %35 = getelementptr inbounds nuw i8, ptr %.72.val, i64 128
@@ -5086,7 +5086,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   store float %75, ptr %76, align 4, !tbaa !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %66, !llvm.loop !195
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %66, !llvm.loop !193
 
 ._crit_edge.i:                                    ; preds = %66, %.preheader105.i
   %77 = getelementptr inbounds nuw i8, ptr %.72.val, i64 500
@@ -5128,7 +5128,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   %92 = fadd nsz float %.087108.us.i, %91
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %exitcond137.not.i = icmp eq i64 %indvars.iv.next134.i, %88
-  br i1 %exitcond137.not.i, label %._crit_edge110.us.i, label %90, !llvm.loop !196
+  br i1 %exitcond137.not.i, label %._crit_edge110.us.i, label %90, !llvm.loop !194
 
 ._crit_edge110.us.i:                              ; preds = %90
   %93 = fmul nsz float %82, %92
@@ -5136,7 +5136,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   store float %93, ptr %94, align 4, !tbaa !61
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %exitcond142.not.i = icmp eq i64 %indvars.iv.next139.i, %wide.trip.count141.i
-  br i1 %exitcond142.not.i, label %.loopexit104.i, label %.preheader103.us.i, !llvm.loop !197
+  br i1 %exitcond142.not.i, label %.loopexit104.i, label %.preheader103.us.i, !llvm.loop !195
 
 .loopexit104.i:                                   ; preds = %._crit_edge110.us.i, %._crit_edge..loopexit104_crit_edge.i
   %95 = phi i32 [ %.pre.i, %._crit_edge..loopexit104_crit_edge.i ], [ %84, %._crit_edge110.us.i ]
@@ -5156,7 +5156,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
   %indvars.iv143.i = phi i64 [ 0, %.lr.ph114.i ], [ %indvars.iv.next144.i, %calculate_gamma.exit.i ]
   %103 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv143.i
   %104 = load float, ptr %103, align 4, !tbaa !61
-  %105 = load float, ptr %99, align 4, !tbaa !198
+  %105 = load float, ptr %99, align 4, !tbaa !196
   %106 = fcmp nsz oeq float %105, 1.000000e+00
   br i1 %106, label %calculate_gamma.exit.i, label %107
 
@@ -5200,7 +5200,7 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
   store float %125, ptr %126, align 4, !tbaa !61
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count146.i
-  br i1 %exitcond147.not.i, label %.loopexit102.i, label %102, !llvm.loop !199
+  br i1 %exitcond147.not.i, label %.loopexit102.i, label %102, !llvm.loop !197
 
 .loopexit102.i:                                   ; preds = %calculate_gamma.exit.i, %.loopexit104.i, %80, %.loopexit
   %127 = icmp sgt i32 %59, 0
@@ -5228,7 +5228,7 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
   store float %140, ptr %138, align 4, !tbaa !134
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i
-  br i1 %exitcond152.not.i, label %._crit_edge118.i, label %131, !llvm.loop !200
+  br i1 %exitcond152.not.i, label %._crit_edge118.i, label %131, !llvm.loop !198
 
 ._crit_edge118.i:                                 ; preds = %131, %.loopexit102.i
   %141 = getelementptr inbounds nuw i8, ptr %.72.val, i64 500
@@ -5274,7 +5274,7 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
   %157 = fadd nsz float %.sroa.6.1121.us.i, %156
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next154.i, %150
-  br i1 %exitcond157.not.i, label %._crit_edge123.us.i, label %152, !llvm.loop !201
+  br i1 %exitcond157.not.i, label %._crit_edge123.us.i, label %152, !llvm.loop !199
 
 ._crit_edge123.us.i:                              ; preds = %152
   %158 = fmul nsz float %146, %154
@@ -5285,7 +5285,7 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
   store float %160, ptr %161, align 4, !tbaa !134
   %indvars.iv.next159.i = add nuw nsw i64 %indvars.iv158.i, 1
   %exitcond162.not.i = icmp eq i64 %indvars.iv.next159.i, %wide.trip.count161.i
-  br i1 %exitcond162.not.i, label %.loopexit.i, label %.preheader.us.i, !llvm.loop !202
+  br i1 %exitcond162.not.i, label %.loopexit.i, label %.preheader.us.i, !llvm.loop !200
 
 .loopexit.i:                                      ; preds = %._crit_edge123.us.i, %._crit_edge118.i..loopexit.i_crit_edge, %144
   %162 = phi i32 [ %.pre17, %._crit_edge118.i..loopexit.i_crit_edge ], [ %148, %144 ], [ %148, %._crit_edge123.us.i ]
@@ -5296,7 +5296,7 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
   %167 = getelementptr inbounds nuw i8, ptr %.72.val, i64 168
   %168 = load ptr, ptr %167, align 8, !tbaa !115
   %169 = getelementptr inbounds nuw i8, ptr %.72.val, i64 432
-  %170 = load float, ptr %169, align 8, !tbaa !203
+  %170 = load float, ptr %169, align 8, !tbaa !201
   br i1 %166, label %171, label %258
 
 171:                                              ; preds = %.loopexit.i
@@ -5363,7 +5363,7 @@ calculate_gamma.exit.i.i:                         ; preds = %204, %201, %198, %1
   %.0.i.i.i = phi nsz float [ %196, %195 ], [ %199, %198 ], [ %203, %201 ], [ %207, %204 ], [ %193, %183 ]
   %208 = fmul nsz float %.0.i.i.i, 2.550000e+02
   %209 = getelementptr inbounds nuw %union.ColorFloat, ptr %168, i64 %indvars.iv.i.i
-  store float %208, ptr %209, align 4, !tbaa !149
+  store float %208, ptr %209, align 4, !tbaa !148
   %210 = load float, ptr %179, align 4, !tbaa !61
   %211 = load float, ptr %185, align 4, !tbaa !132
   %212 = load float, ptr %180, align 4, !tbaa !61
@@ -5406,7 +5406,7 @@ calculate_gamma.exit51.i.i:                       ; preds = %228, %225, %222, %2
   %.0.i50.i.i = phi nsz float [ %220, %219 ], [ %223, %222 ], [ %227, %225 ], [ %231, %228 ], [ %217, %calculate_gamma.exit.i.i ]
   %232 = fmul nsz float %.0.i50.i.i, 2.550000e+02
   %233 = getelementptr inbounds nuw i8, ptr %209, i64 4
-  store float %232, ptr %233, align 4, !tbaa !149
+  store float %232, ptr %233, align 4, !tbaa !148
   %234 = load float, ptr %181, align 4, !tbaa !61
   %235 = load float, ptr %185, align 4, !tbaa !132
   %236 = load float, ptr %182, align 4, !tbaa !61
@@ -5449,10 +5449,10 @@ calculate_gamma.exit53.i.i:                       ; preds = %252, %249, %246, %2
   %.0.i52.i.i = phi nsz float [ %244, %243 ], [ %247, %246 ], [ %251, %249 ], [ %255, %252 ], [ %241, %calculate_gamma.exit51.i.i ]
   %256 = fmul nsz float %.0.i52.i.i, 2.550000e+02
   %257 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store float %256, ptr %257, align 4, !tbaa !149
+  store float %256, ptr %257, align 4, !tbaa !148
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %process_cqt.exit, label %183, !llvm.loop !204
+  br i1 %exitcond.not.i.i, label %process_cqt.exit, label %183, !llvm.loop !202
 
 258:                                              ; preds = %.loopexit.i
   %259 = getelementptr inbounds nuw i8, ptr %.72.val, i64 208
@@ -5608,7 +5608,7 @@ calculate_gamma.exit71.i.i:                       ; preds = %340, %337, %334, %3
   %348 = load float, ptr %272, align 4, !tbaa !61
   %349 = tail call nsz float @llvm.fmuladd.f32(float %348, float %.0.i70.i.i, float %347)
   %350 = getelementptr inbounds nuw %union.ColorFloat, ptr %168, i64 %indvars.iv.i96.i
-  store float %349, ptr %350, align 4, !tbaa !149
+  store float %349, ptr %350, align 4, !tbaa !148
   %351 = load float, ptr %273, align 4, !tbaa !61
   %352 = load float, ptr %274, align 4, !tbaa !61
   %353 = fmul nsz float %.0.i68.i.i, %352
@@ -5616,7 +5616,7 @@ calculate_gamma.exit71.i.i:                       ; preds = %340, %337, %334, %3
   %355 = load float, ptr %275, align 4, !tbaa !61
   %356 = tail call nsz float @llvm.fmuladd.f32(float %355, float %.0.i70.i.i, float %354)
   %357 = getelementptr inbounds nuw i8, ptr %350, i64 4
-  store float %356, ptr %357, align 4, !tbaa !149
+  store float %356, ptr %357, align 4, !tbaa !148
   %358 = load float, ptr %276, align 4, !tbaa !61
   %359 = load float, ptr %277, align 4, !tbaa !61
   %360 = fmul nsz float %.0.i68.i.i, %359
@@ -5624,10 +5624,10 @@ calculate_gamma.exit71.i.i:                       ; preds = %340, %337, %334, %3
   %362 = load float, ptr %278, align 4, !tbaa !61
   %363 = tail call nsz float @llvm.fmuladd.f32(float %362, float %.0.i70.i.i, float %361)
   %364 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  store float %363, ptr %364, align 4, !tbaa !149
+  store float %363, ptr %364, align 4, !tbaa !148
   %indvars.iv.next.i99.i = add nuw nsw i64 %indvars.iv.i96.i, 1
   %exitcond.not.i100.i = icmp eq i64 %indvars.iv.next.i99.i, %wide.trip.count.i95.i
-  br i1 %exitcond.not.i100.i, label %process_cqt.exit, label %279, !llvm.loop !205
+  br i1 %exitcond.not.i100.i, label %process_cqt.exit, label %279, !llvm.loop !203
 
 process_cqt.exit:                                 ; preds = %calculate_gamma.exit71.i.i, %calculate_gamma.exit53.i.i, %171, %258
   %365 = tail call i64 @av_gettime_relative() #15
@@ -5678,11 +5678,11 @@ process_cqt.exit:                                 ; preds = %calculate_gamma.exi
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 124
   store i64 4294967297, ptr %394, align 4
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 280
-  store i32 1, ptr %395, align 8, !tbaa !206
+  store i32 1, ptr %395, align 8, !tbaa !204
   %396 = getelementptr inbounds nuw i8, ptr %.72.val, i64 540
-  %397 = load i32, ptr %396, align 4, !tbaa !180
+  %397 = load i32, ptr %396, align 4, !tbaa !178
   %398 = getelementptr inbounds nuw i8, ptr %392, i64 292
-  store i32 %397, ptr %398, align 4, !tbaa !207
+  store i32 %397, ptr %398, align 4, !tbaa !205
   %399 = tail call i64 @av_gettime_relative() #15
   %400 = sub i64 %399, %.0108
   %401 = getelementptr inbounds nuw i8, ptr %.72.val, i64 352
@@ -5703,7 +5703,7 @@ process_cqt.exit:                                 ; preds = %calculate_gamma.exi
   %412 = load ptr, ptr %411, align 8, !tbaa !114
   %413 = load ptr, ptr %167, align 8, !tbaa !115
   %414 = getelementptr inbounds nuw i8, ptr %.72.val, i64 440
-  %415 = load float, ptr %414, align 8, !tbaa !208
+  %415 = load float, ptr %414, align 8, !tbaa !206
   tail call void %408(ptr noundef nonnull %392, ptr noundef %410, ptr noundef %412, ptr noundef %413, i32 noundef %405, float noundef %415) #15
   %416 = tail call i64 @av_gettime_relative() #15
   %417 = sub i64 %416, %399
@@ -5998,15 +5998,15 @@ attributes #16 = { nounwind willreturn memory(none) }
 !142 = !{!138, !15, i64 108}
 !143 = !{!15, !15, i64 0}
 !144 = distinct !{!144, !40}
-!145 = distinct !{!145, !40, !146}
-!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!147 = distinct !{!147, !40}
-!148 = !{!138, !15, i64 104}
-!149 = !{!8, !8, i64 0}
+!145 = distinct !{!145, !40}
+!146 = distinct !{!146, !40}
+!147 = !{!138, !15, i64 104}
+!148 = !{!8, !8, i64 0}
+!149 = distinct !{!149, !40}
 !150 = distinct !{!150, !40}
-!151 = distinct !{!151, !40, !146}
+!151 = distinct !{!151, !40}
 !152 = distinct !{!152, !40}
-!153 = distinct !{!153, !40, !146}
+!153 = distinct !{!153, !40}
 !154 = distinct !{!154, !40}
 !155 = distinct !{!155, !40}
 !156 = distinct !{!156, !40}
@@ -6021,44 +6021,42 @@ attributes #16 = { nounwind willreturn memory(none) }
 !165 = distinct !{!165, !40}
 !166 = distinct !{!166, !40}
 !167 = distinct !{!167, !40}
-!168 = distinct !{!168, !40, !146}
-!169 = distinct !{!169, !40}
-!170 = !{!21, !11, i64 504}
-!171 = !{!21, !11, i64 512}
+!168 = !{!21, !11, i64 504}
+!169 = !{!21, !11, i64 512}
+!170 = distinct !{!170, !40}
+!171 = distinct !{!171, !40}
 !172 = distinct !{!172, !40}
 !173 = distinct !{!173, !40}
-!174 = distinct !{!174, !40}
-!175 = distinct !{!175, !40}
-!176 = !{!18, !18, i64 0}
-!177 = !{!21, !11, i64 520}
-!178 = distinct !{!178, !40}
-!179 = distinct !{!179, !40}
-!180 = !{!21, !15, i64 540}
-!181 = !{!21, !11, i64 544}
+!174 = !{!18, !18, i64 0}
+!175 = !{!21, !11, i64 520}
+!176 = distinct !{!176, !40}
+!177 = distinct !{!177, !40}
+!178 = !{!21, !15, i64 540}
+!179 = !{!21, !11, i64 544}
+!180 = distinct !{!180, !40}
+!181 = !{!55, !22, i64 16}
 !182 = distinct !{!182, !40}
-!183 = !{!55, !22, i64 16}
-!184 = distinct !{!184, !40}
-!185 = distinct !{!185, !40}
-!186 = !{!138, !25, i64 136}
-!187 = !{!138, !25, i64 408}
-!188 = !{!138, !15, i64 112}
+!183 = distinct !{!183, !40}
+!184 = !{!138, !25, i64 136}
+!185 = !{!138, !25, i64 408}
+!186 = !{!138, !15, i64 112}
+!187 = distinct !{!187, !40}
+!188 = distinct !{!188, !40}
 !189 = distinct !{!189, !40}
 !190 = distinct !{!190, !40}
 !191 = distinct !{!191, !40}
-!192 = distinct !{!192, !40}
+!192 = !{!21, !7, i64 96}
 !193 = distinct !{!193, !40}
-!194 = !{!21, !7, i64 96}
+!194 = distinct !{!194, !40}
 !195 = distinct !{!195, !40}
-!196 = distinct !{!196, !40}
-!197 = distinct !{!197, !40, !146}
-!198 = !{!21, !30, i64 436}
+!196 = !{!21, !30, i64 436}
+!197 = distinct !{!197, !40}
+!198 = distinct !{!198, !40}
 !199 = distinct !{!199, !40}
 !200 = distinct !{!200, !40}
-!201 = distinct !{!201, !40}
-!202 = distinct !{!202, !40, !146}
-!203 = !{!21, !30, i64 432}
-!204 = distinct !{!204, !40}
-!205 = distinct !{!205, !40}
-!206 = !{!138, !15, i64 280}
-!207 = !{!138, !15, i64 292}
-!208 = !{!21, !30, i64 440}
+!201 = !{!21, !30, i64 432}
+!202 = distinct !{!202, !40}
+!203 = distinct !{!203, !40}
+!204 = !{!138, !15, i64 280}
+!205 = !{!138, !15, i64 292}
+!206 = !{!21, !30, i64 440}

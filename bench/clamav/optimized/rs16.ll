@@ -617,7 +617,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %58 = trunc nuw i8 %57 to i1
   %59 = icmp ult i32 %54, %31
   %or.cond = and i1 %59, %58
-  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !40
+  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %._crit_edge.us, %.preheader, %.preheader79
   %.174.lcssa = phi i32 [ %.07393, %.preheader79 ], [ %54, %.preheader ], [ %48, %._crit_edge.us ]
@@ -690,7 +690,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %103 = load i32, ptr %4, align 4, !tbaa !21
   %104 = zext i32 %103 to i64
   %105 = icmp samesign ult i64 %indvars.iv.next115, %104
-  br i1 %105, label %82, label %.preheader78, !llvm.loop !41
+  br i1 %105, label %82, label %.preheader78, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader78
   %106 = phi i32 [ %103, %.preheader78 ], [ %154, %.loopexit ]
@@ -698,7 +698,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %108 = add i32 %.07094, 1
   %109 = add i32 %.174.lcssa, 1
   %110 = icmp ult i32 %109, %106
-  br i1 %110, label %.preheader79, label %.critedge._crit_edge, !llvm.loop !42
+  br i1 %110, label %.preheader79, label %.critedge._crit_edge, !llvm.loop !40
 
 111:                                              ; preds = %.lr.ph92, %.loopexit
   %112 = phi i32 [ %103, %.lr.ph92 ], [ %154, %.loopexit ]
@@ -758,7 +758,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %151 = load i32, ptr %4, align 4, !tbaa !21
   %152 = zext i32 %151 to i64
   %153 = icmp samesign ult i64 %indvars.iv.next118, %152
-  br i1 %153, label %124, label %.loopexit.loopexit, !llvm.loop !43
+  br i1 %153, label %124, label %.loopexit.loopexit, !llvm.loop !41
 
 .loopexit.loopexit:                               ; preds = %124
   %.pre125 = load i32, ptr %2, align 4, !tbaa !23
@@ -770,7 +770,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %156 = phi i32 [ %151, %.loopexit.loopexit ], [ 0, %115 ], [ %114, %111 ]
   %157 = add nuw i32 %.07191, 1
   %158 = icmp ult i32 %157, %155
-  br i1 %158, label %111, label %._crit_edge, !llvm.loop !44
+  br i1 %158, label %111, label %._crit_edge, !llvm.loop !42
 
 .critedge._crit_edge:                             ; preds = %._crit_edge, %.critedge, %.preheader80
   %159 = phi i32 [ 0, %.preheader80 ], [ %106, %._crit_edge ], [ %31, %.critedge ]
@@ -796,7 +796,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %170 = mul i32 %169, %168
   %171 = zext i32 %170 to i64
   %172 = icmp samesign ult i64 %indvars.iv.next121, %171
-  br i1 %172, label %164, label %._crit_edge99, !llvm.loop !45
+  br i1 %172, label %164, label %._crit_edge99, !llvm.loop !43
 
 ._crit_edge99:                                    ; preds = %164, %.critedge._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %9) #8
@@ -894,7 +894,7 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i64, ptr %12, align 8, !tbaa !46
+  %13 = load i64, ptr %12, align 8, !tbaa !44
   %.not = icmp eq i64 %13, %5
   br i1 %.not, label %24, label %14
 
@@ -914,7 +914,7 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
   %22 = select i1 %20, i64 -1, i64 %21
   %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #7
   store ptr %23, ptr %15, align 8, !tbaa !18
-  store i64 %5, ptr %12, align 8, !tbaa !46
+  store i64 %5, ptr %12, align 8, !tbaa !44
   br label %24
 
 24:                                               ; preds = %11, %19
@@ -931,7 +931,7 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
 29:                                               ; preds = %.lr.ph, %29
   %.049 = phi i64 [ 0, %.lr.ph ], [ %36, %29 ]
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.049
-  %31 = load i16, ptr %30, align 2, !tbaa !47
+  %31 = load i16, ptr %30, align 2, !tbaa !45
   %32 = zext i16 %31 to i64
   %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !15
@@ -939,7 +939,7 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
   store i32 %34, ptr %35, align 4, !tbaa !15
   %36 = add nuw i64 %.049, 2
   %37 = icmp ult i64 %36, %5
-  br i1 %37, label %29, label %.loopexit, !llvm.loop !49
+  br i1 %37, label %29, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %29, %24, %9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -974,13 +974,13 @@ define void @_ZN9RSCoder169UpdateECCEjjPKhPhm(ptr noundef nonnull align 8 captur
   %60 = getelementptr inbounds nuw i32, ptr %52, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 %.04550
-  %63 = load i16, ptr %62, align 2, !tbaa !47
+  %63 = load i16, ptr %62, align 2, !tbaa !45
   %64 = trunc i32 %61 to i16
   %65 = xor i16 %63, %64
-  store i16 %65, ptr %62, align 2, !tbaa !47
+  store i16 %65, ptr %62, align 2, !tbaa !45
   %66 = add nuw i64 %.04550, 2
   %67 = icmp ult i64 %66, %5
-  br i1 %67, label %55, label %._crit_edge, !llvm.loop !50
+  br i1 %67, label %55, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %55, %.loopexit
   ret void
@@ -1039,16 +1039,14 @@ attributes #8 = { builtin nounwind }
 !35 = distinct !{!35, !17}
 !36 = distinct !{!36, !17}
 !37 = distinct !{!37, !17}
-!38 = distinct !{!38, !17, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !17}
+!39 = distinct !{!39, !17}
 !40 = distinct !{!40, !17}
 !41 = distinct !{!41, !17}
 !42 = distinct !{!42, !17}
 !43 = distinct !{!43, !17}
-!44 = distinct !{!44, !17}
-!45 = distinct !{!45, !17}
-!46 = !{!4, !12, i64 56}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"short", !7, i64 0}
-!49 = distinct !{!49, !17}
-!50 = distinct !{!50, !17}
+!44 = !{!4, !12, i64 56}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"short", !7, i64 0}
+!47 = distinct !{!47, !17}
+!48 = distinct !{!48, !17}

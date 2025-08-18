@@ -442,43 +442,40 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %35 = load ptr, ptr %3, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not27.i = icmp eq i64 %23, 0
-  br label %.split.us.i
+  br i1 %.not27.i, label %.split34.us.i, label %.split.us.split.i
 
-.split.us.i:                                      ; preds = %50, %34
-  %37 = phi i1 [ false, %50 ], [ true, %34 ]
-  %.030.us.i = phi i32 [ 1, %50 ], [ 0, %34 ]
-  br i1 %.not27.i, label %50, label %38
+.split.us.split.i:                                ; preds = %34, %49
+  %37 = phi i1 [ false, %49 ], [ true, %34 ]
+  %.030.us.i = phi i32 [ 1, %49 ], [ 0, %34 ]
+  %38 = load ptr, ptr %0, align 8, !tbaa !3
+  %39 = load ptr, ptr %36, align 8, !tbaa !15
+  %40 = load ptr, ptr %24, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = load i64, ptr %41, align 8, !tbaa !18
+  %43 = trunc i64 %42 to i32
+  %44 = load ptr, ptr %28, align 8, !tbaa !14
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !21
+  %47 = trunc i64 %46 to i32
+  %48 = call fastcc i32 @load_slot(ptr noundef %38, ptr noundef %39, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %.030.us.i, ptr noundef %35, i32 noundef %43, i32 noundef %47)
+  %.not28.us.i = icmp eq i32 %48, 0
+  br i1 %.not28.us.i, label %.split32.us.i, label %49
 
-38:                                               ; preds = %.split.us.i
-  %39 = load ptr, ptr %0, align 8, !tbaa !3
-  %40 = load ptr, ptr %36, align 8, !tbaa !15
-  %41 = load ptr, ptr %24, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load i64, ptr %42, align 8, !tbaa !18
-  %44 = trunc i64 %43 to i32
-  %45 = load ptr, ptr %28, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !21
-  %48 = trunc i64 %47 to i32
-  %49 = call fastcc i32 @load_slot(ptr noundef %39, ptr noundef %40, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %.030.us.i, ptr noundef %35, i32 noundef %44, i32 noundef %48)
-  %.not28.us.i = icmp eq i32 %49, 0
-  br i1 %.not28.us.i, label %.split32.us.i, label %50
+49:                                               ; preds = %.split.us.split.i
+  br i1 %37, label %.split.us.split.i, label %.split34.us.i, !llvm.loop !53
 
-50:                                               ; preds = %38, %.split.us.i
-  br i1 %37, label %.split.us.i, label %.split34.us.i, !llvm.loop !53
-
-.split34.us.i:                                    ; preds = %50
+.split34.us.i:                                    ; preds = %49, %34
   store i32 1, ptr %11, align 8, !tbaa !28
   br label %load_keys.exit
 
-.split32.us.i:                                    ; preds = %38
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !16
-  call void @EVP_PKEY_free(ptr noundef %52) #6
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !17
-  call void @EVP_PKEY_free(ptr noundef %54) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %51, i8 0, i64 20, i1 false)
+.split32.us.i:                                    ; preds = %.split.us.split.i
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %51 = load ptr, ptr %50, align 8, !tbaa !16
+  call void @EVP_PKEY_free(ptr noundef %51) #6
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !17
+  call void @EVP_PKEY_free(ptr noundef %53) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %50, i8 0, i64 20, i1 false)
   br label %load_keys.exit
 
 load_keys.exit:                                   ; preds = %2, %.split32.us.i, %.split34.us.i, %18, %14, %7, %ossl_param_is_empty.exit, %33, %13
@@ -623,12 +620,12 @@ ossl_param_is_empty.exit:                         ; preds = %4
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !55
+  %14 = load ptr, ptr %13, align 8, !tbaa !54
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 644) #6
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 645) #6
-  store ptr %17, ptr %13, align 8, !tbaa !55
+  store ptr %17, ptr %13, align 8, !tbaa !54
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ossl_param_is_empty.exit.thread, label %19
 
@@ -652,18 +649,18 @@ define internal ptr @mlx_kem_gen(ptr noundef captures(address_is_null) %0, ptr r
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !57
+  %7 = load i32, ptr %6, align 8, !tbaa !56
   %8 = and i32 %7, 3
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %45, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
-  store ptr null, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
+  store ptr null, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !58
-  %15 = load ptr, ptr %0, align 8, !tbaa !59
+  %14 = load i32, ptr %13, align 4, !tbaa !57
+  %15 = load ptr, ptr %0, align 8, !tbaa !58
   %16 = tail call i32 @ossl_prov_is_running() #6
   %17 = icmp eq i32 %16, 0
   %18 = zext i32 %14 to i64
@@ -683,7 +680,7 @@ mlx_kem_key_new.exit.thread:                      ; preds = %10, %20
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw [4 x %struct.ecdh_vinfo_st], ptr @hybrid_vtable, i64 0, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !60
+  %26 = load i32, ptr %25, align 4, !tbaa !59
   store ptr %15, ptr %21, align 8, !tbaa !3
   %27 = tail call ptr @ossl_ml_kem_get_vinfo(i32 noundef %26) #6
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -694,16 +691,16 @@ mlx_kem_key_new.exit.thread:                      ; preds = %10, %20
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   store ptr %12, ptr %31, align 8, !tbaa !15
-  %32 = load i32, ptr %6, align 8, !tbaa !57
+  %32 = load i32, ptr %6, align 8, !tbaa !56
   %33 = and i32 %32, 3
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %45, label %35
 
 35:                                               ; preds = %23
-  %36 = load ptr, ptr %27, align 8, !tbaa !61
+  %36 = load ptr, ptr %27, align 8, !tbaa !60
   %37 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %15, ptr noundef %12, ptr noundef %36) #6
   store ptr %37, ptr %30, align 8, !tbaa !16
-  %38 = load ptr, ptr %24, align 16, !tbaa !62
+  %38 = load ptr, ptr %24, align 16, !tbaa !61
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %15, ptr noundef %12, ptr noundef %38, ptr noundef %40) #6
@@ -738,7 +735,7 @@ define internal void @mlx_kem_gen_cleanup(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 727) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 728) #6
   br label %6
@@ -1484,69 +1481,69 @@ define internal fastcc range(i32 0, 2) i32 @load_keys(ptr noundef %0, ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not27 = icmp eq i64 %2, 0
   br i1 %.not26, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %5, %22
-  %9 = phi i1 [ false, %22 ], [ true, %5 ]
-  %.030.us = phi i32 [ 1, %22 ], [ 0, %5 ]
-  br i1 %.not27, label %22, label %10
+.split.us:                                        ; preds = %5
+  %.not27 = icmp eq i64 %2, 0
+  br i1 %.not27, label %.split34.us, label %.split.us.split
 
-10:                                               ; preds = %.split.us
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = load ptr, ptr %6, align 8, !tbaa !15
-  %13 = load ptr, ptr %7, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !18
-  %16 = trunc i64 %15 to i32
-  %17 = load ptr, ptr %8, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !21
-  %20 = trunc i64 %19 to i32
-  %21 = tail call fastcc i32 @load_slot(ptr noundef %11, ptr noundef %12, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %.030.us, ptr noundef %1, i32 noundef %16, i32 noundef %20)
-  %.not28.us = icmp eq i32 %21, 0
-  br i1 %.not28.us, label %.split32.us, label %22
+.split.us.split:                                  ; preds = %.split.us, %21
+  %9 = phi i1 [ false, %21 ], [ true, %.split.us ]
+  %.030.us = phi i32 [ 1, %21 ], [ 0, %.split.us ]
+  %10 = load ptr, ptr %0, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !15
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = load i64, ptr %13, align 8, !tbaa !18
+  %15 = trunc i64 %14 to i32
+  %16 = load ptr, ptr %8, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i64, ptr %17, align 8, !tbaa !21
+  %19 = trunc i64 %18 to i32
+  %20 = tail call fastcc i32 @load_slot(ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef %.030.us, ptr noundef %1, i32 noundef %15, i32 noundef %19)
+  %.not28.us = icmp eq i32 %20, 0
+  br i1 %.not28.us, label %.split32.us, label %21
 
-22:                                               ; preds = %10, %.split.us
-  br i1 %9, label %.split.us, label %.split34.us, !llvm.loop !53
+21:                                               ; preds = %.split.us.split
+  br i1 %9, label %.split.us.split, label %.split34.us, !llvm.loop !53
 
-.split:                                           ; preds = %5, %35
-  %23 = phi i1 [ false, %35 ], [ true, %5 ]
-  %.030 = phi i32 [ 1, %35 ], [ 0, %5 ]
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = load ptr, ptr %6, align 8, !tbaa !15
-  %26 = load ptr, ptr %7, align 8, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !23
-  %29 = trunc i64 %28 to i32
-  %30 = load ptr, ptr %8, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !24
-  %33 = trunc i64 %32 to i32
-  %34 = tail call fastcc i32 @load_slot(ptr noundef %24, ptr noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull %0, i32 noundef %.030, ptr noundef %3, i32 noundef %29, i32 noundef %33)
-  %.not29 = icmp eq i32 %34, 0
-  br i1 %.not29, label %.split32.us, label %35
+.split:                                           ; preds = %5, %34
+  %22 = phi i1 [ false, %34 ], [ true, %5 ]
+  %.030 = phi i32 [ 1, %34 ], [ 0, %5 ]
+  %23 = load ptr, ptr %0, align 8, !tbaa !3
+  %24 = load ptr, ptr %6, align 8, !tbaa !15
+  %25 = load ptr, ptr %7, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !23
+  %28 = trunc i64 %27 to i32
+  %29 = load ptr, ptr %8, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load i64, ptr %30, align 8, !tbaa !24
+  %32 = trunc i64 %31 to i32
+  %33 = tail call fastcc i32 @load_slot(ptr noundef %23, ptr noundef %24, ptr noundef nonnull @.str.11, ptr noundef nonnull %0, i32 noundef %.030, ptr noundef %3, i32 noundef %28, i32 noundef %32)
+  %.not29 = icmp eq i32 %33, 0
+  br i1 %.not29, label %.split32.us, label %34
 
-35:                                               ; preds = %.split
-  br i1 %23, label %.split, label %.split34.us, !llvm.loop !63
+34:                                               ; preds = %.split
+  br i1 %22, label %.split, label %.split34.us, !llvm.loop !53
 
-.split34.us:                                      ; preds = %35, %22
-  %36 = phi i32 [ 1, %22 ], [ 2, %35 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %36, ptr %37, align 8, !tbaa !28
-  br label %42
+.split34.us:                                      ; preds = %34, %21, %.split.us
+  %35 = phi i32 [ 1, %.split.us ], [ 1, %21 ], [ 2, %34 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %35, ptr %36, align 8, !tbaa !28
+  br label %41
 
-.split32.us:                                      ; preds = %.split, %10
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !16
-  tail call void @EVP_PKEY_free(ptr noundef %39) #6
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !17
-  tail call void @EVP_PKEY_free(ptr noundef %41) #6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, i8 0, i64 20, i1 false)
-  br label %42
+.split32.us:                                      ; preds = %.split, %.split.us.split
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  tail call void @EVP_PKEY_free(ptr noundef %38) #6
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %40 = load ptr, ptr %39, align 8, !tbaa !17
+  tail call void @EVP_PKEY_free(ptr noundef %40) #6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %37, i8 0, i64 20, i1 false)
+  br label %41
 
-42:                                               ; preds = %.split32.us, %.split34.us
+41:                                               ; preds = %.split32.us, %.split34.us
   %.025 = phi i32 [ 0, %.split32.us ], [ 1, %.split34.us ]
   ret i32 %.025
 }
@@ -1607,7 +1604,7 @@ define internal fastcc range(i32 0, 2) i32 @load_slot(ptr noundef %0, ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.18, ptr noundef nonnull %.033, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !62
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %37
 
@@ -1657,10 +1654,10 @@ define internal fastcc ptr @mlx_kem_gen_init(i32 noundef range(i32 0, 4) %0, ptr
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %0, ptr %12, align 4, !tbaa !58
-  store ptr %1, ptr %9, align 8, !tbaa !59
+  store i32 %0, ptr %12, align 4, !tbaa !57
+  store ptr %1, ptr %9, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %2, ptr %13, align 8, !tbaa !57
+  store i32 %2, ptr %13, align 8, !tbaa !56
   %14 = icmp eq ptr %3, null
   br i1 %14, label %mlx_kem_gen_set_params.exit.thread, label %ossl_param_is_empty.exit.i
 
@@ -1679,7 +1676,7 @@ ossl_param_is_empty.exit.i:                       ; preds = %11
   %20 = load i32, ptr %19, align 8, !tbaa !29
   %.not12.i = icmp eq i32 %20, 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   br i1 %.not12.i, label %23, label %mlx_kem_gen_cleanup.exit
 
 23:                                               ; preds = %18
@@ -1687,7 +1684,7 @@ ossl_param_is_empty.exit.i:                       ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 645) #6
-  store ptr %26, ptr %21, align 8, !tbaa !55
+  store ptr %26, ptr %21, align 8, !tbaa !54
   %27 = icmp eq ptr %26, null
   br i1 %27, label %mlx_kem_gen_cleanup.exit, label %mlx_kem_gen_set_params.exit.thread
 
@@ -1795,16 +1792,14 @@ attributes #6 = { nounwind }
 !50 = !{!35, !20, i64 56}
 !51 = !{!6, !6, i64 0}
 !52 = !{!30, !9, i64 0}
-!53 = distinct !{!53, !41, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = !{!56, !9, i64 8}
-!56 = !{!"mlx_kem_gen_ctx_st", !5, i64 0, !9, i64 8, !12, i64 16, !12, i64 20}
-!57 = !{!56, !12, i64 16}
-!58 = !{!56, !12, i64 20}
-!59 = !{!56, !5, i64 0}
-!60 = !{!22, !12, i64 44}
-!61 = !{!19, !9, i64 0}
-!62 = !{!22, !9, i64 0}
-!63 = distinct !{!63, !41}
-!64 = !{i64 0, i64 8, !45, i64 8, i64 4, !65, i64 16, i64 8, !51, i64 24, i64 8, !44, i64 32, i64 8, !44}
-!65 = !{!12, !12, i64 0}
+!53 = distinct !{!53, !41}
+!54 = !{!55, !9, i64 8}
+!55 = !{!"mlx_kem_gen_ctx_st", !5, i64 0, !9, i64 8, !12, i64 16, !12, i64 20}
+!56 = !{!55, !12, i64 16}
+!57 = !{!55, !12, i64 20}
+!58 = !{!55, !5, i64 0}
+!59 = !{!22, !12, i64 44}
+!60 = !{!19, !9, i64 0}
+!61 = !{!22, !9, i64 0}
+!62 = !{i64 0, i64 8, !45, i64 8, i64 4, !63, i64 16, i64 8, !51, i64 24, i64 8, !44, i64 32, i64 8, !44}
+!63 = !{!12, !12, i64 0}

@@ -277,8 +277,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %.lr.ph27, %2
   %29 = load ptr, ptr %3, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !53
-  %32 = load ptr, ptr %31, align 8, !tbaa !54
+  %31 = load ptr, ptr %30, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
   %33 = tail call i32 @ff_filter_frame(ptr noundef %32, ptr noundef %1) #7
   ret i32 %33
 }
@@ -367,8 +367,7 @@ attributes #8 = { noreturn nounwind }
 !48 = !{!49, !49, i64 0}
 !49 = !{!"short", !8, i64 0}
 !50 = distinct !{!50, !23}
-!51 = distinct !{!51, !23, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = !{!5, !13, i64 56}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!51 = distinct !{!51, !23}
+!52 = !{!5, !13, i64 56}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}

@@ -253,7 +253,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures
   %.1.i = phi ptr [ %67, %66 ], [ %139, %135 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count96.i
-  br i1 %exitcond.not.i, label %make_inh_translation_list.exit, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %make_inh_translation_list.exit, label %.lr.ph.split.i, !llvm.loop !6
 
 make_inh_translation_list.exit:                   ; preds = %144, %56, %4
   %.0.lcssa.i = phi ptr [ null, %4 ], [ %.1.us.i, %56 ], [ %.1.i, %144 ]
@@ -316,7 +316,7 @@ define internal ptr @adjust_appendrel_attrs_mutator(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %18
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
-  br i1 %exitcond289.not, label %._crit_edge, label %18, !llvm.loop !10
+  br i1 %exitcond289.not, label %._crit_edge, label %18, !llvm.loop !8
 
 18:                                               ; preds = %.lr.ph275, %17
   %indvars.iv285 = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next286, %17 ]
@@ -565,7 +565,7 @@ list_length.exit:                                 ; preds = %33
   %.1170 = phi i32 [ %156, %153 ], [ %.0169276, %.lr.ph279 ]
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
-  br i1 %exitcond294.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !11
+  br i1 %exitcond294.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !9
 
 ._crit_edge280:                                   ; preds = %157
   %.not178 = icmp eq i32 %.1170, 0
@@ -624,7 +624,7 @@ list_length.exit:                                 ; preds = %33
 192:                                              ; preds = %193
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %193, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %193, !llvm.loop !10
 
 193:                                              ; preds = %.lr.ph, %192
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %192 ]
@@ -689,7 +689,7 @@ list_length.exit:                                 ; preds = %33
   %.1.i = phi ptr [ %224, %219 ], [ %.01719.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %adjust_child_relids.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %adjust_child_relids.exit, label %.lr.ph.i, !llvm.loop !11
 
 adjust_child_relids.exit:                         ; preds = %225, %207
   %.017.lcssa.i = phi ptr [ null, %207 ], [ %.1.i, %225 ]
@@ -754,7 +754,7 @@ adjust_child_relids.exit:                         ; preds = %225, %207
   %.1.i198 = phi ptr [ %254, %249 ], [ %.01719.i197, %.lr.ph.i195 ]
   %indvars.iv.next.i199 = add nuw nsw i64 %indvars.iv.i196, 1
   %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, %wide.trip.count.i194
-  br i1 %exitcond.not.i200, label %adjust_child_relids.exit203, label %.lr.ph.i195, !llvm.loop !13
+  br i1 %exitcond.not.i200, label %adjust_child_relids.exit203, label %.lr.ph.i195, !llvm.loop !11
 
 adjust_child_relids.exit203:                      ; preds = %255, %226
   %.017.lcssa.i190 = phi ptr [ null, %226 ], [ %.1.i198, %255 ]
@@ -804,7 +804,7 @@ adjust_child_relids.exit203:                      ; preds = %255, %226
   %.1.i212 = phi ptr [ %275, %270 ], [ %.01719.i211, %.lr.ph.i209 ]
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i210, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, %wide.trip.count.i208
-  br i1 %exitcond.not.i214, label %adjust_child_relids.exit217, label %.lr.ph.i209, !llvm.loop !13
+  br i1 %exitcond.not.i214, label %adjust_child_relids.exit217, label %.lr.ph.i209, !llvm.loop !11
 
 adjust_child_relids.exit217:                      ; preds = %276, %adjust_child_relids.exit203
   %.017.lcssa.i204 = phi ptr [ null, %adjust_child_relids.exit203 ], [ %.1.i212, %276 ]
@@ -854,7 +854,7 @@ adjust_child_relids.exit217:                      ; preds = %276, %adjust_child_
   %.1.i226 = phi ptr [ %296, %291 ], [ %.01719.i225, %.lr.ph.i223 ]
   %indvars.iv.next.i227 = add nuw nsw i64 %indvars.iv.i224, 1
   %exitcond.not.i228 = icmp eq i64 %indvars.iv.next.i227, %wide.trip.count.i222
-  br i1 %exitcond.not.i228, label %adjust_child_relids.exit231, label %.lr.ph.i223, !llvm.loop !13
+  br i1 %exitcond.not.i228, label %adjust_child_relids.exit231, label %.lr.ph.i223, !llvm.loop !11
 
 adjust_child_relids.exit231:                      ; preds = %297, %adjust_child_relids.exit217
   %.017.lcssa.i218 = phi ptr [ null, %adjust_child_relids.exit217 ], [ %.1.i226, %297 ]
@@ -904,7 +904,7 @@ adjust_child_relids.exit231:                      ; preds = %297, %adjust_child_
   %.1.i240 = phi ptr [ %317, %312 ], [ %.01719.i239, %.lr.ph.i237 ]
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, %wide.trip.count.i236
-  br i1 %exitcond.not.i242, label %adjust_child_relids.exit245, label %.lr.ph.i237, !llvm.loop !13
+  br i1 %exitcond.not.i242, label %adjust_child_relids.exit245, label %.lr.ph.i237, !llvm.loop !11
 
 adjust_child_relids.exit245:                      ; preds = %318, %adjust_child_relids.exit231
   %.017.lcssa.i232 = phi ptr [ null, %adjust_child_relids.exit231 ], [ %.1.i240, %318 ]
@@ -954,7 +954,7 @@ adjust_child_relids.exit245:                      ; preds = %318, %adjust_child_
   %.1.i254 = phi ptr [ %338, %333 ], [ %.01719.i253, %.lr.ph.i251 ]
   %indvars.iv.next.i255 = add nuw nsw i64 %indvars.iv.i252, 1
   %exitcond.not.i256 = icmp eq i64 %indvars.iv.next.i255, %wide.trip.count.i250
-  br i1 %exitcond.not.i256, label %adjust_child_relids.exit259, label %.lr.ph.i251, !llvm.loop !13
+  br i1 %exitcond.not.i256, label %adjust_child_relids.exit259, label %.lr.ph.i251, !llvm.loop !11
 
 adjust_child_relids.exit259:                      ; preds = %339, %adjust_child_relids.exit245
   %.017.lcssa.i246 = phi ptr [ null, %adjust_child_relids.exit245 ], [ %.1.i254, %339 ]
@@ -1062,7 +1062,7 @@ define dso_local ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %1, pt
 17:                                               ; preds = %11
   %18 = tail call ptr @find_base_rel_ignore_join(ptr noundef nonnull %0, i32 noundef %12) #8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %27, label %20, !llvm.loop !14
+  br i1 %19, label %27, label %20, !llvm.loop !12
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1132,7 +1132,7 @@ define dso_local ptr @adjust_child_relids(ptr noundef %0, i32 noundef %1, ptr no
   %.1 = phi ptr [ %18, %13 ], [ %.01719, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %19, %3
   %.017.lcssa = phi ptr [ null, %3 ], [ %.1, %19 ]
@@ -1223,7 +1223,7 @@ define dso_local ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef
   %.1.i = phi ptr [ %37, %32 ], [ %.01719.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %adjust_child_relids.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %adjust_child_relids.exit, label %.lr.ph.i, !llvm.loop !11
 
 adjust_child_relids.exit:                         ; preds = %38, %18
   %.017.lcssa.i = phi ptr [ null, %18 ], [ %.1.i, %38 ]
@@ -1819,12 +1819,10 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}

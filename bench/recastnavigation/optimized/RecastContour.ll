@@ -423,7 +423,7 @@ _ZN10rcIntArrayC2Ei.exit349:                      ; preds = %181
   %.2282.lcssa.us = phi i32 [ %.1281867.us, %202 ], [ %.3283.us, %1873 ]
   %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
   %exitcond941.not = icmp eq i64 %indvars.iv.next938, %199
-  br i1 %exitcond941.not, label %._crit_edge869.us, label %202, !llvm.loop !10
+  br i1 %exitcond941.not, label %._crit_edge869.us, label %202, !llvm.loop !9
 
 .lr.ph864.us:                                     ; preds = %.lr.ph864.us.preheader, %1873
   %indvars.iv934 = phi i64 [ %211, %.lr.ph864.us.preheader ], [ %indvars.iv.next935, %1873 ]
@@ -475,7 +475,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit351.us: ; preds = %227, %221
   %236 = and i32 %235, %232
   %237 = icmp eq i32 %236, 0
   %238 = add i8 %.085.i.us, 1
-  br i1 %237, label %233, label %239, !llvm.loop !11
+  br i1 %237, label %233, label %239, !llvm.loop !10
 
 239:                                              ; preds = %233
   %240 = load ptr, ptr %185, align 8
@@ -732,7 +732,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit351.us: ; preds = %227, %221
   %or.cond.i.i.us = select i1 %spec.select.i.i.us, i1 %423, i1 false
   %429 = and i1 %424, %428
   %or.cond5.i.i.us = select i1 %or.cond.i.i.us, i1 %429, i1 false
-  br i1 %or.cond5.i.i.us, label %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us, label %404, !llvm.loop !12
+  br i1 %or.cond5.i.i.us, label %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us, label %404, !llvm.loop !11
 
 _ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us: ; preds = %427, %404
   %.1.i.i.us = zext i16 %.1.in.i.i.us to i32
@@ -851,7 +851,7 @@ _ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us: ; preds = %427, %4
   store i32 %485, ptr %483, align 4
   %486 = add nuw nsw i64 %.07.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %486, %.pre7.i.us
-  br i1 %exitcond.not.i.i.i.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.i.us
   %.pre.i582.us = load i64, ptr %21, align 8
@@ -952,7 +952,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.us: ; preds = %
   %529 = icmp eq i64 %indvars.iv934, %528
   %530 = icmp eq i8 %.085.i.us, %.2.i.us
   %or.cond.i.us = select i1 %529, i1 %530, i1 false
-  br i1 %or.cond.i.us, label %_ZL11walkContouriiiRK20rcCompactHeightfieldPhR10rcIntArray.exit.us, label %244, !llvm.loop !14
+  br i1 %or.cond.i.us, label %_ZL11walkContouriiiRK20rcCompactHeightfieldPhR10rcIntArray.exit.us, label %244, !llvm.loop !13
 
 _ZL11walkContouriiiRK20rcCompactHeightfieldPhR10rcIntArray.exit.us: ; preds = %526, %500, %244
   %531 = load i8, ptr %33, align 1
@@ -1186,7 +1186,7 @@ _ZN10rcIntArrayixEi.exit358.i.us:                 ; preds = %611, %.noexc378.us
   store i32 %635, ptr %633, align 4
   %636 = add nuw nsw i64 %.07.i.i.i676.us, 1
   %exitcond.not.i.i.i677.us = icmp eq i64 %636, %.pre7.i673.us
-  br i1 %exitcond.not.i.i.i677.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i678.us, label %.lr.ph.i.i.i675.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i677.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i678.us, label %.lr.ph.i.i.i675.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i678.us: ; preds = %.lr.ph.i.i.i675.us
   %.pre.i679.us = load i64, ptr %22, align 8
@@ -1288,7 +1288,7 @@ _ZN10rcIntArrayixEi.exit360.i.us:                 ; preds = %651, %.noexc381.us
   store i32 %675, ptr %673, align 4
   %676 = add nuw nsw i64 %.07.i.i.i659.us, 1
   %exitcond.not.i.i.i660.us = icmp eq i64 %676, %.pre7.i656.us
-  br i1 %exitcond.not.i.i.i660.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i661.us, label %.lr.ph.i.i.i658.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i660.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i661.us, label %.lr.ph.i.i.i658.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i661.us: ; preds = %.lr.ph.i.i.i658.us
   %.pre.i662.us = load i64, ptr %22, align 8
@@ -1390,7 +1390,7 @@ _ZN10rcIntArrayixEi.exit362.i.us:                 ; preds = %691, %.noexc384.us
   store i32 %715, ptr %713, align 4
   %716 = add nuw nsw i64 %.07.i.i.i642.us, 1
   %exitcond.not.i.i.i643.us = icmp eq i64 %716, %.pre7.i639.us
-  br i1 %exitcond.not.i.i.i643.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i644.us, label %.lr.ph.i.i.i641.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i643.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i644.us, label %.lr.ph.i.i.i641.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i644.us: ; preds = %.lr.ph.i.i.i641.us
   %.pre.i645.us = load i64, ptr %22, align 8
@@ -1433,7 +1433,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i640.us: ; preds 
 
 727:                                              ; preds = %.noexc387.us, %_ZN10rcIntArrayixEi.exit356.i.us
   %exitcond.not.i367.us = icmp eq i64 %indvars.iv.next609.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i367.us, label %.critedge.i.us, label %.lr.ph555.i.us, !llvm.loop !15
+  br i1 %exitcond.not.i367.us, label %.critedge.i.us, label %.lr.ph555.i.us, !llvm.loop !14
 
 728:                                              ; preds = %_ZN10rcIntArrayixEi.exit.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
@@ -1441,7 +1441,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i640.us: ; preds 
   %730 = trunc i64 %729 to i32
   %731 = trunc nuw i64 %indvars.iv.next.i.us to i32
   %732 = icmp slt i32 %731, %730
-  br i1 %732, label %.lr.ph.i.us, label %.critedge.i.us, !llvm.loop !16
+  br i1 %732, label %.lr.ph.i.us, label %.critedge.i.us, !llvm.loop !15
 
 .critedge.i.us:                                   ; preds = %728, %727, %556, %_ZN9rcContext10startTimerE12rcTimerLabel.exit359.us
   %733 = load i64, ptr %22, align 8
@@ -1674,7 +1674,7 @@ _ZN10rcIntArrayixEi.exit380.i.us:                 ; preds = %808, %.noexc404.us
   %829 = trunc i64 %828 to i32
   %830 = trunc nuw i64 %indvars.iv.next612.i.us to i32
   %831 = icmp slt i32 %830, %829
-  br i1 %831, label %.lr.ph565.i.us, label %._crit_edge.i.us, !llvm.loop !17
+  br i1 %831, label %.lr.ph565.i.us, label %._crit_edge.i.us, !llvm.loop !16
 
 ._crit_edge.i.us:                                 ; preds = %827, %_ZN10rcIntArrayixEi.exit374.i.us
   %.0302.lcssa.i.us = phi i32 [ 0, %_ZN10rcIntArrayixEi.exit374.i.us ], [ %.1303.i.us, %827 ]
@@ -1737,7 +1737,7 @@ _ZN10rcIntArrayixEi.exit380.i.us:                 ; preds = %808, %.noexc404.us
   store i32 %852, ptr %850, align 4
   %853 = add nuw nsw i64 %.07.i.i.i625.us, 1
   %exitcond.not.i.i.i626.us = icmp eq i64 %853, %.pre7.i622.us
-  br i1 %exitcond.not.i.i.i626.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i627.us, label %.lr.ph.i.i.i624.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i626.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i627.us, label %.lr.ph.i.i.i624.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit.i627.us: ; preds = %.lr.ph.i.i.i624.us
   %.pre.i628.us = load i64, ptr %22, align 8
@@ -2169,7 +2169,7 @@ _ZL13distancePtSegiiiiii.exit.i.us:               ; preds = %1029, %1027, %_ZN10
   %1039 = add nsw i32 %.1316574.i.us, %.0318.i.us
   %1040 = srem i32 %1039, %867
   %.not340.i.us = icmp eq i32 %1040, %.0317.i.us
-  br i1 %.not340.i.us, label %._crit_edge579.i.us, label %994, !llvm.loop !18
+  br i1 %.not340.i.us, label %._crit_edge579.i.us, label %994, !llvm.loop !17
 
 ._crit_edge579.i.us:                              ; preds = %_ZL13distancePtSegiiiiii.exit.i.us
   %.not341.i.us = icmp ne i32 %.2314.i.us, -1
@@ -2240,7 +2240,7 @@ _ZL13distancePtSegiiiiii.exit.i.us:               ; preds = %1029, %1027, %_ZN10
   store i32 %1067, ptr %1065, align 4
   %1068 = add nuw nsw i64 %.07.i.i.i610.us, 1
   %exitcond.not.i.i.i611.us = icmp eq i64 %1068, %1063
-  br i1 %exitcond.not.i.i.i611.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i608.us.loopexit, label %.lr.ph.i.i.i609.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i611.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i608.us.loopexit, label %.lr.ph.i.i.i609.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i608.us.loopexit: ; preds = %.lr.ph.i.i.i609.us
   %.pre966 = load ptr, ptr %192, align 8
@@ -2470,7 +2470,7 @@ _ZN10rcIntArrayixEi.exit416.i.us:                 ; preds = %1164, %1160, %.noex
   %indvars.iv.next615.i.us = add nsw i64 %indvars.iv614.i.us, -1
   %1167 = icmp sgt i64 %indvars.iv.next615.i.us, %1076
   %indvars.iv.next617.i.us = add nsw i64 %indvars.iv616.i.us, -1
-  br i1 %1167, label %.lr.ph586.i.us, label %._crit_edge587.i.us, !llvm.loop !19
+  br i1 %1167, label %.lr.ph586.i.us, label %._crit_edge587.i.us, !llvm.loop !18
 
 ._crit_edge587.i.us:                              ; preds = %_ZN10rcIntArrayixEi.exit416.i.us, %.noexc434.us
   %1168 = shl nsw i32 %.2314.i.us, 2
@@ -2649,7 +2649,7 @@ _ZN10rcIntArrayixEi.exit430.i.us:                 ; preds = %1245, %1241, %.noex
   %1249 = trunc i64 %1248 to i32
   %1250 = sdiv i32 %1249, 4
   %1251 = icmp slt i32 %.1306.i.us, %1250
-  br i1 %1251, label %872, label %._crit_edge591.i.us, !llvm.loop !20
+  br i1 %1251, label %872, label %._crit_edge591.i.us, !llvm.loop !19
 
 ._crit_edge591.i.us:                              ; preds = %.thread.i363.us, %863
   %.pre632.i.us.pre-phi = phi i32 [ %868, %863 ], [ %1249, %.thread.i363.us ]
@@ -2989,7 +2989,7 @@ _ZN10rcIntArrayixEi.exit446.i.us:                 ; preds = %1358, %1354, %.noex
   store i32 %1407, ptr %1405, align 4
   %1408 = add nuw nsw i64 %.07.i.i.i595.us, 1
   %exitcond.not.i.i.i596.us = icmp eq i64 %1408, %1403
-  br i1 %exitcond.not.i.i.i596.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i593.us.loopexit, label %.lr.ph.i.i.i594.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i596.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i593.us.loopexit, label %.lr.ph.i.i.i594.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i593.us.loopexit: ; preds = %.lr.ph.i.i.i594.us
   %.pre968 = load ptr, ptr %192, align 8
@@ -3219,7 +3219,7 @@ _ZN10rcIntArrayixEi.exit462.i.us:                 ; preds = %1504, %1500, %.noex
   %indvars.iv.next622.i.us = add nsw i64 %indvars.iv621.i.us, -1
   %1507 = icmp sgt i64 %indvars.iv.next622.i.us, %1416
   %indvars.iv.next624.i.us = add nsw i64 %indvars.iv623.i.us, -1
-  br i1 %1507, label %.lr.ph596.i.us, label %._crit_edge597.i.us, !llvm.loop !21
+  br i1 %1507, label %.lr.ph596.i.us, label %._crit_edge597.i.us, !llvm.loop !20
 
 ._crit_edge597.i.us:                              ; preds = %_ZN10rcIntArrayixEi.exit462.i.us, %.noexc481.us
   %1508 = shl nsw i32 %.0295.i.us, 2
@@ -3398,7 +3398,7 @@ _ZN10rcIntArrayixEi.exit476.i.us:                 ; preds = %1585, %1581, %.noex
   %1589 = trunc i64 %1588 to i32
   %1590 = sdiv i32 %1589, 4
   %1591 = icmp slt i32 %.1310.i.us, %1590
-  br i1 %1591, label %1255, label %.loopexit.i.us, !llvm.loop !22
+  br i1 %1591, label %1255, label %.loopexit.i.us, !llvm.loop !21
 
 .loopexit.i.us:                                   ; preds = %.thread505.i.us, %._crit_edge591.i.us
   %1592 = phi i64 [ %1252, %._crit_edge591.i.us ], [ %1588, %.thread505.i.us ]
@@ -3529,7 +3529,7 @@ _ZN10rcIntArrayixEi.exit486.i.us:                 ; preds = %1647, %.noexc520.us
   %1652 = sdiv i32 %1651, 4
   %1653 = sext i32 %1652 to i64
   %1654 = icmp slt i64 %indvars.iv.next629.i.us, %1653
-  br i1 %1654, label %.lr.ph602.i.us, label %_ZL15simplifyContourR10rcIntArrayS0_fii.exit.us, !llvm.loop !23
+  br i1 %1654, label %.lr.ph602.i.us, label %_ZL15simplifyContourR10rcIntArrayS0_fii.exit.us, !llvm.loop !22
 
 _ZL15simplifyContourR10rcIntArrayS0_fii.exit.us:  ; preds = %_ZN10rcIntArrayixEi.exit486.i.us, %.loopexit.i.us._ZL15simplifyContourR10rcIntArrayS0_fii.exit.us_crit_edge
   %.pre-phi982 = phi i32 [ %.pre981, %.loopexit.i.us._ZL15simplifyContourR10rcIntArrayS0_fii.exit.us_crit_edge ], [ %1651, %_ZN10rcIntArrayixEi.exit486.i.us ]
@@ -3771,7 +3771,7 @@ _ZN10rcIntArrayixEi.exit51.i.us:                  ; preds = %1762, %.noexc551.us
   %1767 = sdiv i32 %1766, 4
   %1768 = add nsw i32 %1767, -1
   %1769 = icmp sgt i32 %1768, %1692
-  br i1 %1769, label %.lr.ph.i532.us, label %._crit_edge.i529.us, !llvm.loop !24
+  br i1 %1769, label %.lr.ph.i532.us, label %._crit_edge.i529.us, !llvm.loop !23
 
 ._crit_edge.i529.us:                              ; preds = %_ZN10rcIntArrayixEi.exit51.i.us, %.preheader.i528.us
   %1770 = phi i64 [ %1686, %.preheader.i528.us ], [ %1765, %_ZN10rcIntArrayixEi.exit51.i.us ]
@@ -3836,7 +3836,7 @@ _ZN10rcIntArrayixEi.exit51.i.us:                  ; preds = %1762, %.noexc551.us
   store i32 %1794, ptr %1792, align 4
   %1795 = add nuw nsw i64 %.07.i.i.i694.us, 1
   %exitcond.not.i.i.i695.us = icmp eq i64 %1795, %1790
-  br i1 %exitcond.not.i.i.i695.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i692.us.loopexit, label %.lr.ph.i.i.i693.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i695.us, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i692.us.loopexit, label %.lr.ph.i.i.i693.us, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i692.us.loopexit: ; preds = %.lr.ph.i.i.i693.us
   %.pre970 = load ptr, ptr %192, align 8
@@ -3865,7 +3865,7 @@ _ZL6vequalPKiS0_.exit.thread.i.us:                ; preds = %.noexc553.us, %_ZL6
   %.pre-phi.i526.us = phi i64 [ %1658, %_ZN10rcIntArrayixEi.exit35.i.us ], [ %1658, %_ZL6vequalPKiS0_.exit.i.us ], [ %.pre.i531.us, %.noexc553.us ]
   %.1.i527.us = phi i32 [ %.03273.i.us, %_ZN10rcIntArrayixEi.exit35.i.us ], [ %.03273.i.us, %_ZL6vequalPKiS0_.exit.i.us ], [ %1797, %.noexc553.us ]
   %1798 = icmp slt i64 %indvars.iv.next.i523.us, %.pre-phi.i526.us
-  br i1 %1798, label %1657, label %_ZL24removeDegenerateSegmentsR10rcIntArray.exit.us, !llvm.loop !25
+  br i1 %1798, label %1657, label %_ZL24removeDegenerateSegmentsR10rcIntArray.exit.us, !llvm.loop !24
 
 _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.exit.thread.i.us, %.preheader.i.us, %_ZL15simplifyContourR10rcIntArrayS0_fii.exit.us
   %1799 = load i8, ptr %33, align 1
@@ -3929,7 +3929,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   %1825 = load i32, ptr %99, align 8
   %1826 = sext i32 %1825 to i64
   %1827 = icmp slt i64 %indvars.iv.next926, %1826
-  br i1 %1827, label %.lr.ph.us874, label %._crit_edge.us875, !llvm.loop !26
+  br i1 %1827, label %.lr.ph.us874, label %._crit_edge.us875, !llvm.loop !25
 
 1828:                                             ; preds = %._crit_edge972, %1809
   %.pre-phi980 = phi i32 [ %.pre979, %._crit_edge972 ], [ %1807, %1809 ]
@@ -4027,7 +4027,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   %.3283.us = phi i32 [ %.2282862.us, %216 ], [ %.4284.us, %.loopexit782.us ], [ %.2282862.us, %1805 ], [ %.2282862.us, %217 ]
   %indvars.iv.next935 = add nuw nsw i64 %indvars.iv934, 1
   %1874 = icmp samesign ult i64 %indvars.iv.next935, %212
-  br i1 %1874, label %.lr.ph864.us, label %._crit_edge865.us, !llvm.loop !27
+  br i1 %1874, label %.lr.ph864.us, label %._crit_edge865.us, !llvm.loop !26
 
 .lr.ph859.us:                                     ; preds = %.preheader781.us, %.lr.ph859.us
   %indvars.iv931 = phi i64 [ %indvars.iv.next932, %.lr.ph859.us ], [ 0, %.preheader781.us ]
@@ -4045,7 +4045,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   %1882 = load i32, ptr %1854, align 8
   %1883 = sext i32 %1882 to i64
   %1884 = icmp slt i64 %indvars.iv.next932, %1883
-  br i1 %1884, label %.lr.ph859.us, label %.loopexit782.us, !llvm.loop !28
+  br i1 %1884, label %.lr.ph859.us, label %.loopexit782.us, !llvm.loop !27
 
 .lr.ph857.us:                                     ; preds = %.preheader783.us, %.lr.ph857.us
   %indvars.iv928 = phi i64 [ %indvars.iv.next929, %.lr.ph857.us ], [ 0, %.preheader783.us ]
@@ -4063,7 +4063,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   %1892 = load i32, ptr %1835, align 8
   %1893 = sext i32 %1892 to i64
   %1894 = icmp slt i64 %indvars.iv.next929, %1893
-  br i1 %1894, label %.lr.ph857.us, label %.loopexit784.us, !llvm.loop !29
+  br i1 %1894, label %.lr.ph857.us, label %.loopexit784.us, !llvm.loop !28
 
 .preheader781.us:                                 ; preds = %1866
   %1895 = load i32, ptr %1854, align 8
@@ -4083,7 +4083,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
 ._crit_edge869.us:                                ; preds = %._crit_edge865.us
   %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
   %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
-  br i1 %exitcond946.not, label %._crit_edge873, label %.preheader809.us, !llvm.loop !30
+  br i1 %exitcond946.not, label %._crit_edge873, label %.preheader809.us, !llvm.loop !29
 
 .loopexit.split-lp770.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %1865, %1860, %.loopexit784.us, %1845, %1840, %1828, %1817, %._crit_edge.us875, %1811, %1801, %.noexc412.us, %.noexc411.us, %.noexc410.us, %.noexc409.us, %.noexc408.us, %.noexc407.us, %.noexc406.us, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i623.us, %.noexc631.us, %844, %.noexc629.us, %835, %779, %_ZN10rcIntArrayixEi.exit372.i.us, %771, %_ZN10rcIntArrayixEi.exit370.i.us, %764, %_ZN10rcIntArrayixEi.exit368.i.us, %756, %_ZN10rcIntArrayixEi.exit366.i.us, %748, %_ZN10rcIntArrayixEi.exit364.i.us, %741, %736, %539, %533, %227
   %lpad.loopexit807.us = landingpad { ptr, i32 }
@@ -4234,7 +4234,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   %indvars.iv.next.i567 = add nuw nsw i64 %indvars.iv.i566, 1
   %1937 = trunc nuw nsw i64 %indvars.iv.i566 to i32
   %exitcond.not.i568 = icmp eq i64 %indvars.iv.next.i567, %wide.trip.count.i564
-  br i1 %exitcond.not.i568, label %_ZL19calcAreaOfPolygon2DPKii.exit, label %.lr.ph.i565, !llvm.loop !31
+  br i1 %exitcond.not.i568, label %_ZL19calcAreaOfPolygon2DPKii.exit, label %.lr.ph.i565, !llvm.loop !30
 
 _ZL19calcAreaOfPolygon2DPKii.exit:                ; preds = %.lr.ph.i565
   %.inv = icmp sgt i32 %.fr, -3
@@ -4257,7 +4257,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %1944 = load i32, ptr %99, align 8
   %1945 = sext i32 %1944 to i64
   %1946 = icmp slt i64 %indvars.iv.next948, %1945
-  br i1 %1946, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %1946, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %1942
   %1947 = icmp sgt i32 %1943, 0
@@ -4387,7 +4387,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %1994 = load i32, ptr %99, align 8
   %1995 = sext i32 %1994 to i64
   %1996 = icmp slt i64 %indvars.iv.next951, %1995
-  br i1 %1996, label %.lr.ph896, label %.preheader764, !llvm.loop !33
+  br i1 %1996, label %.lr.ph896, label %.preheader764, !llvm.loop !32
 
 .preheader763:                                    ; preds = %2008
   %1997 = load i32, ptr %99, align 8
@@ -4415,7 +4415,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %.1279 = phi i32 [ %2007, %2003 ], [ %.0278897, %1999 ]
   %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
   %exitcond957.not = icmp eq i64 %indvars.iv.next954, %wide.trip.count956
-  br i1 %exitcond957.not, label %.preheader763, label %1999, !llvm.loop !34
+  br i1 %exitcond957.not, label %.preheader763, label %1999, !llvm.loop !33
 
 .lr.ph900:                                        ; preds = %.preheader763, %2027
   %2009 = phi i32 [ %2028, %2027 ], [ %1997, %.preheader763 ]
@@ -4449,7 +4449,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
   %2029 = sext i32 %2028 to i64
   %2030 = icmp slt i64 %indvars.iv.next959, %2029
-  br i1 %2030, label %.lr.ph900, label %.preheader.preheader, !llvm.loop !35
+  br i1 %2030, label %.lr.ph900, label %.preheader.preheader, !llvm.loop !34
 
 .preheader.preheader:                             ; preds = %2027, %.preheader763
   br label %.preheader
@@ -4479,7 +4479,7 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
 2039:                                             ; preds = %2036, %2037, %.preheader
   %indvars.iv.next962 = add nuw nsw i64 %indvars.iv961, 1
   %exitcond965.not = icmp eq i64 %indvars.iv.next962, %wide.trip.count956
-  br i1 %exitcond965.not, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %exitcond965.not, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %2039, %1965
   invoke void @_Z6rcFreePv(ptr noundef %1962)
@@ -4776,14 +4776,14 @@ define internal fastcc void @_ZL16mergeRegionHolesP9rcContextR15rcContourRegion(
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %.lr.ph.i, label %_ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit, !llvm.loop !37
+  br i1 %41, label %.lr.ph.i, label %_ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit, !llvm.loop !36
 
 _ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit:  ; preds = %36, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %3, align 8
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %7, label %._crit_edge, !llvm.loop !38
+  br i1 %44, label %7, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit, %.._crit_edge_crit_edge
   %.pre-phi217 = phi i64 [ %.pre216, %.._crit_edge_crit_edge ], [ %43, %_ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit ]
@@ -4812,7 +4812,7 @@ _ZL18findLeftMostVertexP9rcContourPiS1_S1_.exit:  ; preds = %36, %7
   %58 = add nsw i32 %57, %.0100151
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge154, label %53, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge154, label %53, !llvm.loop !38
 
 ._crit_edge154:                                   ; preds = %53, %._crit_edge
   %.0100.lcssa = phi i32 [ %49, %._crit_edge ], [ %58, %53 ]
@@ -5003,7 +5003,7 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
   %154 = phi i32 [ %90, %121 ], [ %90, %127 ], [ %90, %_ZL6inConeiiPKiS0_.exit ], [ %.pre, %_ZL6inConeiiPKiS0_.exit.thread ]
   %.1 = phi i32 [ %.0103156, %121 ], [ %.0103156, %127 ], [ %.0103156, %_ZL6inConeiiPKiS0_.exit ], [ %153, %_ZL6inConeiiPKiS0_.exit.thread ]
   %155 = icmp slt i64 %indvars.iv.next197, %.pre-phi215
-  br i1 %155, label %89, label %._crit_edge160, !llvm.loop !40
+  br i1 %155, label %89, label %._crit_edge160, !llvm.loop !39
 
 ._crit_edge160:                                   ; preds = %_ZL6inConeiiPKiS0_.exit.thread130, %81
   %.0103.lcssa = phi i32 [ 0, %81 ], [ %.1, %_ZL6inConeiiPKiS0_.exit.thread130 ]
@@ -5040,12 +5040,12 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
 171:                                              ; preds = %.lr.ph170.split.us
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %.thread, label %.lr.ph170.split.us, !llvm.loop !41
+  br i1 %exitcond212.not, label %.thread, label %.lr.ph170.split.us, !llvm.loop !40
 
 ._crit_edge167.thread:                            ; preds = %.lr.ph170.split, %._crit_edge167
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count211
-  br i1 %exitcond207.not, label %.thread, label %.lr.ph170.split, !llvm.loop !42
+  br i1 %exitcond207.not, label %.thread, label %.lr.ph170.split, !llvm.loop !40
 
 .lr.ph170.split:                                  ; preds = %.lr.ph170, %._crit_edge167.thread
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %._crit_edge167.thread ], [ 0, %.lr.ph170 ]
@@ -5068,7 +5068,7 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %184 = icmp sge i64 %indvars.iv.next202, %162
   %.not112 = or i1 %184, %183
-  br i1 %.not112, label %._crit_edge167, label %.lr.ph166, !llvm.loop !43
+  br i1 %.not112, label %._crit_edge167, label %.lr.ph166, !llvm.loop !41
 
 ._crit_edge167:                                   ; preds = %.lr.ph166
   br i1 %183, label %._crit_edge167.thread, label %.split.us
@@ -5084,7 +5084,7 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
   %187 = srem i32 %185, %186
   %188 = add nuw nsw i32 %.0104174, 1
   %189 = icmp slt i32 %188, %186
-  br i1 %189, label %81, label %_ZL13mergeContoursR9rcContourS0_ii.exit.invoke, !llvm.loop !44
+  br i1 %189, label %81, label %_ZL13mergeContoursR9rcContourS0_ii.exit.invoke, !llvm.loop !42
 
 190:                                              ; preds = %.split.us
   %191 = load ptr, ptr %1, align 8
@@ -5150,7 +5150,7 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i115, 1
   %222 = load i32, ptr %192, align 8
   %.not54.not.i = icmp sgt i32 %222, %indvars68.i
-  br i1 %.not54.not.i, label %.lr.ph.i114, label %.preheader.loopexit.i, !llvm.loop !45
+  br i1 %.not54.not.i, label %.lr.ph.i114, label %.preheader.loopexit.i, !llvm.loop !43
 
 .lr.ph63.i:                                       ; preds = %.lr.ph63.i, %.lr.ph63.preheader.i
   %indvars.iv69.i = phi i64 [ %203, %.lr.ph63.preheader.i ], [ %indvars.iv.next70.i, %.lr.ph63.i ]
@@ -5183,7 +5183,7 @@ _ZL6inConeiiPKiS0_.exit.thread130:                ; preds = %121, %127, %_ZL6inC
   %243 = add nuw nsw i32 %.04961.i, 1
   %244 = load i32, ptr %75, align 8
   %.not55.not.i = icmp slt i32 %.04961.i, %244
-  br i1 %.not55.not.i, label %.lr.ph63.i, label %._crit_edge.loopexit.i, !llvm.loop !46
+  br i1 %.not55.not.i, label %.lr.ph63.i, label %._crit_edge.loopexit.i, !llvm.loop !44
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph63.i
   %245 = trunc nuw i64 %indvars.iv.next70.i to i32
@@ -5218,7 +5218,7 @@ _ZL13mergeContoursR9rcContourS0_ii.exit.invoke:   ; preds = %.thread, %.noexc, %
   %251 = load i32, ptr %3, align 8
   %252 = sext i32 %251 to i64
   %253 = icmp slt i64 %indvars.iv.next200, %252
-  br i1 %253, label %71, label %.loopexit137, !llvm.loop !47
+  br i1 %253, label %71, label %.loopexit137, !llvm.loop !45
 
 .loopexit137:                                     ; preds = %250, %66, %62
   invoke void @_Z6rcFreePv(ptr noundef %61)
@@ -5268,7 +5268,7 @@ define linkonce_odr void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi
   store i32 %.pre.i, ptr %.06.i, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
   %17 = icmp ult ptr %16, %14
-  br i1 %17, label %.lr.ph.i, label %.sink.split, !llvm.loop !48
+  br i1 %17, label %.lr.ph.i, label %.sink.split, !llvm.loop !46
 
 18:                                               ; preds = %8
   %19 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
@@ -5308,7 +5308,7 @@ define linkonce_odr void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi
   store i32 %37, ptr %35, align 4
   %38 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, %33
-  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit: ; preds = %.lr.ph.i.i, %27, %30
   %.not27 = icmp eq ptr %2, null
@@ -5330,7 +5330,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit: ; preds = %.lr.p
   store i32 %.pre.i30, ptr %.06.i32, align 4
   %44 = getelementptr inbounds nuw i8, ptr %.06.i32, i64 4
   %45 = icmp ult ptr %44, %41
-  br i1 %45, label %.lr.ph.i31, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33, !llvm.loop !48
+  br i1 %45, label %.lr.ph.i31, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33, !llvm.loop !46
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33: ; preds = %.lr.ph.i31, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5405,7 +5405,7 @@ define linkonce_odr void @_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi(ptr
   store i32 %32, ptr %30, align 4
   %33 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %33, %.pre7
-  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.loopexit: ; preds = %.lr.ph.i.i
   %.pre = load i64, ptr %0, align 8
@@ -5763,7 +5763,7 @@ _ZL9intersectPKiS0_S0_S0_.exit:                   ; preds = %110
 
 _ZL9intersectPKiS0_S0_S0_.exit.thread38:          ; preds = %_ZL7betweenPKiS0_S0_.exit84.thread19.i, %108, %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL6vequalPKiS0_.exit, %_ZL6vequalPKiS0_.exit34, %_ZL6vequalPKiS0_.exit35, %_ZL6vequalPKiS0_.exit36, %11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %11, !llvm.loop !49
+  br i1 %exitcond.not, label %_ZL9intersectPKiS0_S0_S0_.exit.thread, label %11, !llvm.loop !47
 
 _ZL9intersectPKiS0_S0_S0_.exit.thread:            ; preds = %_ZL9intersectPKiS0_S0_S0_.exit, %_ZL9intersectPKiS0_S0_S0_.exit.thread38, %108, %_ZL13intersectPropPKiS0_S0_S0_.exit.i, %_ZL7betweenPKiS0_S0_.exit84.i, %_ZL7betweenPKiS0_S0_.exit67.i, %_ZL7betweenPKiS0_S0_.exit.i, %80, %90, %99, %107, %110, %79, %82, %89, %92, %98, %101, %5
   %.lcssa = phi i1 [ false, %5 ], [ true, %101 ], [ true, %98 ], [ true, %92 ], [ true, %89 ], [ true, %82 ], [ true, %79 ], [ true, %110 ], [ true, %107 ], [ true, %99 ], [ true, %90 ], [ true, %80 ], [ true, %_ZL7betweenPKiS0_S0_.exit.i ], [ true, %_ZL7betweenPKiS0_S0_.exit67.i ], [ true, %_ZL7betweenPKiS0_S0_.exit84.i ], [ true, %_ZL13intersectPropPKiS0_S0_S0_.exit.i ], [ true, %108 ], [ false, %_ZL9intersectPKiS0_S0_S0_.exit.thread38 ], [ true, %_ZL9intersectPKiS0_S0_S0_.exit ]
@@ -5821,8 +5821,8 @@ attributes #12 = { nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
@@ -5843,7 +5843,7 @@ attributes #12 = { nounwind }
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5, !9}
+!30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
@@ -5854,12 +5854,10 @@ attributes #12 = { nounwind }
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5, !9}
+!41 = distinct !{!41, !5}
 !42 = distinct !{!42, !5}
 !43 = distinct !{!43, !5}
 !44 = distinct !{!44, !5}
 !45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}

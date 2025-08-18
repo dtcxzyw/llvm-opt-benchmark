@@ -1008,7 +1008,7 @@ _check_better_path.exit:                          ; preds = %.lr.ph265.split, %3
   store i16 %417, ptr %392, align 2
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
   %exitcond32.not.i.i = icmp eq i64 %indvars.iv.next29.i.i, %wide.trip.count31.i.i
-  br i1 %exitcond32.not.i.i, label %_merge_switches_array.exit.i, label %.preheader.i.i, !llvm.loop !34
+  br i1 %exitcond32.not.i.i, label %_merge_switches_array.exit.i, label %.preheader.i.i, !llvm.loop !32
 
 _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %.preheader.i.i, %389
   %418 = load ptr, ptr @switch_record_table, align 8
@@ -1095,7 +1095,7 @@ _merge_switches_array.exit.i:                     ; preds = %.loopexit.us.i.i, %
   store i16 %457, ptr %430, align 2
   %indvars.iv.next29.i30.i = add nuw nsw i64 %indvars.iv28.i29.i, 1
   %exitcond32.not.i31.i = icmp eq i64 %indvars.iv.next29.i30.i, %wide.trip.count31.i16.i
-  br i1 %exitcond32.not.i31.i, label %_merge_switches_array.exit32.i, label %.preheader.i28.i, !llvm.loop !34
+  br i1 %exitcond32.not.i31.i, label %_merge_switches_array.exit32.i, label %.preheader.i28.i, !llvm.loop !32
 
 _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i, %.preheader.i28.i, %.lr.ph.i169
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
@@ -1105,7 +1105,7 @@ _merge_switches_array.exit32.i:                   ; preds = %.loopexit.us.i25.i,
   %461 = load i16, ptr %460, align 2
   %462 = zext i16 %461 to i64
   %463 = icmp samesign ult i64 %indvars.iv.next.i171, %462
-  br i1 %463, label %.lr.ph.i169, label %_find_desc_switches.exit, !llvm.loop !35
+  br i1 %463, label %.lr.ph.i169, label %_find_desc_switches.exit, !llvm.loop !33
 
 _find_desc_switches.exit:                         ; preds = %_merge_switches_array.exit32.i, %_merge_switches_array.exit.i, %.lr.ph271
   %464 = phi ptr [ %418, %_merge_switches_array.exit.i ], [ %386, %.lr.ph271 ], [ %458, %_merge_switches_array.exit32.i ]
@@ -1113,7 +1113,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %465 = load i32, ptr @switch_record_cnt, align 4
   %466 = sext i32 %465 to i64
   %467 = icmp slt i64 %indvars.iv.next331, %466
-  br i1 %467, label %.lr.ph271, label %._crit_edge272.loopexit, !llvm.loop !36
+  br i1 %467, label %.lr.ph271, label %._crit_edge272.loopexit, !llvm.loop !34
 
 ._crit_edge272.loopexit:                          ; preds = %_find_desc_switches.exit
   %.pre339 = load i32, ptr @switch_levels, align 4
@@ -1124,7 +1124,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %469 = phi i32 [ %465, %._crit_edge272.loopexit ], [ %384, %.preheader ]
   %470 = add nuw nsw i32 %.7274, 1
   %.not153.not = icmp slt i32 %.7274, %468
-  br i1 %.not153.not, label %.preheader, label %._crit_edge275, !llvm.loop !37
+  br i1 %.not153.not, label %.preheader, label %._crit_edge275, !llvm.loop !35
 
 ._crit_edge275:                                   ; preds = %._crit_edge272, %.preheader184
   br i1 %.0124.lcssa343345348, label %474, label %471
@@ -1189,7 +1189,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %498 = getelementptr inbounds nuw i8, ptr %.035.i, i64 72
   %499 = load i32, ptr @switch_record_cnt, align 4
   %500 = icmp slt i32 %497, %499
-  br i1 %500, label %.lr.ph.i173, label %.preheader33.i, !llvm.loop !38
+  br i1 %500, label %.lr.ph.i173, label %.preheader33.i, !llvm.loop !36
 
 .preheader32.i:                                   ; preds = %.preheader33.i, %517
   %501 = phi i32 [ %518, %517 ], [ %499, %.preheader33.i ]
@@ -1214,7 +1214,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %509 = load i32, ptr @switch_record_cnt, align 4
   %510 = sext i32 %509 to i64
   %511 = icmp slt i64 %indvars.iv.next.i177, %510
-  br i1 %511, label %.lr.ph38.i, label %._crit_edge.i, !llvm.loop !39
+  br i1 %511, label %.lr.ph38.i, label %._crit_edge.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph38.i, %.preheader32.i
   %512 = call i32 @get_log_level() #7
@@ -1233,7 +1233,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %518 = load i32, ptr @switch_record_cnt, align 4
   %519 = sext i32 %518 to i64
   %520 = icmp slt i64 %indvars.iv.next49.i, %519
-  br i1 %520, label %.preheader32.i, label %.preheader31.i, !llvm.loop !40
+  br i1 %520, label %.preheader32.i, label %.preheader31.i, !llvm.loop !38
 
 .preheader.i175:                                  ; preds = %.preheader31.i, %540
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %540 ], [ 0, %.preheader31.i ]
@@ -1259,7 +1259,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %532 = load i16, ptr %531, align 8
   %533 = zext i16 %532 to i64
   %534 = icmp samesign ult i64 %indvars.iv.next52.i, %533
-  br i1 %534, label %.lr.ph42.i, label %._crit_edge43.i, !llvm.loop !41
+  br i1 %534, label %.lr.ph42.i, label %._crit_edge43.i, !llvm.loop !39
 
 ._crit_edge43.i:                                  ; preds = %.lr.ph42.i, %.preheader.i175
   %535 = call i32 @get_log_level() #7
@@ -1278,7 +1278,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   %541 = load i32, ptr @switch_record_cnt, align 4
   %542 = sext i32 %541 to i64
   %543 = icmp slt i64 %indvars.iv.next55.i, %542
-  br i1 %543, label %.preheader.i175, label %_log_switches.exit, !llvm.loop !42
+  br i1 %543, label %.preheader.i175, label %_log_switches.exit, !llvm.loop !40
 
 _log_switches.exit:                               ; preds = %540, %474, %.preheader33.i, %.preheader31.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1508,14 +1508,12 @@ attributes #9 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !9, !10, !19}
 !30 = distinct !{!30, !9, !10, !19}
 !31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
 !34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
+!35 = distinct !{!35, !9, !10, !19}
 !36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10, !19}
+!37 = distinct !{!37, !9, !10}
 !38 = distinct !{!38, !9, !10}
 !39 = distinct !{!39, !9, !10}
 !40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}

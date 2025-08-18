@@ -1577,14 +1577,14 @@ invoke.cont24.us:                                 ; preds = %invoke.cont23.us
   %add27.us = fadd double %error.136.us, %5
   %inc.us = add nuw nsw i32 %subRow.035.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %scanlinesPerRow
-  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !16
+  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !15
 
 for.cond12.for.inc28_crit_edge.us:                ; preds = %invoke.cont24.us
   %inc29.us = add nuw nsw i32 %row.039.us, 1
   %6 = load i32, ptr %height, align 4
   %sub10.us = add nsw i32 %6, -1
   %cmp11.us = icmp slt i32 %inc29.us, %sub10.us
-  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !17
+  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !16
 
 lpad19.split.us:                                  ; preds = %invoke.cont23.us, %invoke.cont22.us, %invoke.cont20.us, %for.body14.us
   %7 = landingpad { ptr, i32 }
@@ -1728,14 +1728,14 @@ invoke.cont24.us:                                 ; preds = %invoke.cont23.us
   %add27.us = fadd double %error.136.us, %5
   %inc.us = add nuw nsw i32 %subRow.035.us, 1
   %exitcond.not = icmp eq i32 %inc.us, %scanlinesPerRow
-  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !18
+  br i1 %exitcond.not, label %for.cond12.for.inc28_crit_edge.us, label %for.body14.us, !llvm.loop !17
 
 for.cond12.for.inc28_crit_edge.us:                ; preds = %invoke.cont24.us
   %inc29.us = add nuw nsw i32 %row.039.us, 1
   %6 = load i32, ptr %height, align 4
   %sub10.us = add nsw i32 %6, -1
   %cmp11.us = icmp slt i32 %inc29.us, %sub10.us
-  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !19
+  br i1 %cmp11.us, label %for.cond12.preheader.us, label %for.end30, !llvm.loop !18
 
 lpad19.split.us:                                  ; preds = %invoke.cont23.us, %invoke.cont22.us, %invoke.cont20.us, %for.body14.us
   %7 = landingpad { ptr, i32 }
@@ -1915,9 +1915,8 @@ attributes #12 = { builtin nounwind }
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6, !15}
+!17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6, !15}

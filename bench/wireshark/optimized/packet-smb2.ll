@@ -11965,7 +11965,7 @@ proto_item_set_generated.exit95:                  ; preds = %90, %87, %84, %80
   %127 = add i32 %.07597, 24
   %128 = add i16 %110, -1
   %.not88 = icmp eq i16 %110, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %.not88, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %proto_item_set_generated.exit95
   %.075.lcssa = phi i32 [ %44, %proto_item_set_generated.exit95 ], [ %108, %.lr.ph.split.us ], [ %127, %.lr.ph.split ]
@@ -14971,7 +14971,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %42 = add nuw i32 %.012619, 1
   %43 = load i32, ptr %7, align 4
   %44 = icmp ult i32 %42, %43
-  br i1 %44, label %.lr.ph21, label %._crit_edge, !llvm.loop !33
+  br i1 %44, label %.lr.ph21, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %31
   %.0.lcssa = phi i32 [ %37, %31 ], [ %41, %.lr.ph21 ]
@@ -15009,7 +15009,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %61 = add nuw i32 %.112714.us, 1
   %62 = load i32, ptr %8, align 4
   %63 = icmp ult i32 %61, %62
-  br i1 %63, label %.lr.ph16.split.us, label %.loopexit, !llvm.loop !34
+  br i1 %63, label %.lr.ph16.split.us, label %.loopexit, !llvm.loop !32
 
 .lr.ph16.split:                                   ; preds = %.lr.ph16, %74
   %.215 = phi i32 [ %77, %74 ], [ %54, %.lr.ph16 ]
@@ -15042,7 +15042,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %78 = add nuw i32 %.112714, 1
   %79 = load i32, ptr %8, align 4
   %80 = icmp ult i32 %78, %79
-  br i1 %80, label %.lr.ph16.split, label %.loopexit, !llvm.loop !35
+  br i1 %80, label %.lr.ph16.split, label %.loopexit, !llvm.loop !32
 
 81:                                               ; preds = %4
   %82 = load i32, ptr @hf_smb2_comp_alg_count, align 4
@@ -15065,7 +15065,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %93 = add nuw i32 %.212810, 1
   %94 = load i32, ptr %9, align 4
   %95 = icmp ult i32 %93, %94
-  br i1 %95, label %.lr.ph12, label %.loopexit, !llvm.loop !36
+  br i1 %95, label %.lr.ph12, label %.loopexit, !llvm.loop !33
 
 96:                                               ; preds = %4
   %97 = load i32, ptr @hf_smb2_netname_neg_id, align 4
@@ -15104,7 +15104,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %120 = add nuw i32 %.31296, 1
   %121 = load i32, ptr %10, align 4
   %122 = icmp ult i32 %120, %121
-  br i1 %122, label %.lr.ph8, label %.loopexit, !llvm.loop !37
+  br i1 %122, label %.lr.ph8, label %.loopexit, !llvm.loop !34
 
 123:                                              ; preds = %4
   %124 = load i32, ptr @hf_smb2_signing_alg_count, align 4
@@ -15129,7 +15129,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %133 = add nuw i32 %.41304.us, 1
   %134 = load i32, ptr %11, align 4
   %135 = icmp ult i32 %133, %134
-  br i1 %135, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !38
+  br i1 %135, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %146
   %.55 = phi i32 [ %149, %146 ], [ %126, %.lr.ph ]
@@ -15162,7 +15162,7 @@ define internal fastcc i32 @dissect_smb2_negotiate_context(ptr noundef %0, ptr n
   %150 = add nuw i32 %.41304, 1
   %151 = load i32, ptr %11, align 4
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %.lr.ph.split, label %.loopexit, !llvm.loop !39
+  br i1 %152, label %.lr.ph.split, label %.loopexit, !llvm.loop !35
 
 153:                                              ; preds = %4
   %154 = load i32, ptr @hf_smb2_posix_reserved, align 4
@@ -15572,7 +15572,7 @@ define internal fastcc void @dissect_smb2_error_data(ptr noundef %0, ptr noundef
   %98 = add nuw i32 %.02.i, 1
   %99 = load i32, ptr %10, align 4
   %100 = icmp ult i32 %98, %99
-  br i1 %100, label %.lr.ph.i, label %dissect_smb2_share_redirect_error.exit, !llvm.loop !40
+  br i1 %100, label %.lr.ph.i, label %dissect_smb2_share_redirect_error.exit, !llvm.loop !36
 
 dissect_smb2_share_redirect_error.exit:           ; preds = %.lr.ph.i, %68
   %.040.lcssa.i = phi i32 [ 24, %68 ], [ %97, %.lr.ph.i ]
@@ -15611,7 +15611,7 @@ dissect_smb2_share_redirect_error.exit:           ; preds = %.lr.ph.i, %68
   %119 = add i32 %118, %117
   %120 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %120, %3
-  br i1 %exitcond.not, label %121, label %103, !llvm.loop !41
+  br i1 %exitcond.not, label %121, label %103, !llvm.loop !37
 
 121:                                              ; preds = %103
   call void @decrement_dissection_depth(ptr noundef %1)
@@ -15810,7 +15810,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
 49:                                               ; preds = %51
   %50 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %50, 17
-  br i1 %exitcond.not.i, label %get_create_context_data_tag_dissectors.exit, label %51, !llvm.loop !42
+  br i1 %exitcond.not.i, label %get_create_context_data_tag_dissectors.exit, label %51, !llvm.loop !38
 
 51:                                               ; preds = %49, %48
   %.06.i = phi i64 [ 0, %48 ], [ %50, %49 ]
@@ -16932,7 +16932,7 @@ default.unreachable142:                           ; preds = %6
   store i8 %230, ptr %231, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %222, label %226, !llvm.loop !43
+  br i1 %exitcond.not, label %222, label %226, !llvm.loop !39
 
 232:                                              ; preds = %222, %204
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -17055,7 +17055,7 @@ define internal void @dissect_smb2_rdma_v1_blob(ptr noundef %0, ptr readnone cap
   %21 = add nuw nsw i32 %.026, 16
   %22 = add nuw nsw i32 %.02325, 1
   %exitcond.not = icmp eq i32 %22, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   ret void
@@ -17441,7 +17441,7 @@ define internal void @dissect_smb2_find_data(ptr noundef %0, ptr noundef %1, ptr
   %14 = getelementptr i8, ptr %.02124, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %11
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %13, %.split
   %.lcssa20 = phi ptr [ @dissect_smb2_file_directory_info, %.split ], [ %18, %13 ]
@@ -17453,7 +17453,7 @@ define internal void @dissect_smb2_find_data(ptr noundef %0, ptr noundef %1, ptr
   %17 = getelementptr i8, ptr %.02124, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %.split23.us, label %13, !llvm.loop !45
+  br i1 %.not18, label %.split23.us, label %13, !llvm.loop !41
 
 .split23.us:                                      ; preds = %.lr.ph, %4, %7
   %19 = load i32, ptr @hf_smb2_unknown, align 4
@@ -17565,7 +17565,7 @@ define internal void @dissect_smb2_file_directory_info(ptr noundef %0, ptr nound
 68:                                               ; preds = %66
   %69 = add i32 %18, %.074
   %70 = icmp slt i32 %69, %.074
-  br i1 %70, label %71, label %8, !llvm.loop !46
+  br i1 %70, label %71, label %8, !llvm.loop !42
 
 71:                                               ; preds = %68
   %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.178, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %69, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -17682,7 +17682,7 @@ define internal void @dissect_smb2_full_directory_info(ptr noundef %0, ptr nound
 72:                                               ; preds = %70
   %73 = add i32 %18, %.081
   %74 = icmp slt i32 %73, %.081
-  br i1 %74, label %75, label %8, !llvm.loop !47
+  br i1 %74, label %75, label %8, !llvm.loop !43
 
 75:                                               ; preds = %72
   %76 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.185, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %73, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -17817,7 +17817,7 @@ define internal void @dissect_smb2_both_directory_info(ptr noundef %0, ptr nound
 85:                                               ; preds = %83
   %86 = add i32 %18, %.097
   %87 = icmp slt i32 %86, %.097
-  br i1 %87, label %88, label %8, !llvm.loop !48
+  br i1 %87, label %88, label %8, !llvm.loop !44
 
 88:                                               ; preds = %85
   %89 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.1101, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %86, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -17903,7 +17903,7 @@ define internal void @dissect_smb2_file_name_info(ptr noundef %0, ptr noundef %1
 44:                                               ; preds = %41
   %45 = add i32 %18, %.047
   %46 = icmp slt i32 %45, %.047
-  br i1 %46, label %47, label %8, !llvm.loop !49
+  br i1 %46, label %47, label %8, !llvm.loop !45
 
 47:                                               ; preds = %44
   %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.151, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %45, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -18044,7 +18044,7 @@ define internal void @dissect_smb2_id_both_directory_info(ptr noundef %0, ptr no
 91:                                               ; preds = %89
   %92 = add i32 %18, %.0105
   %93 = icmp slt i32 %92, %.0105
-  br i1 %93, label %94, label %8, !llvm.loop !50
+  br i1 %93, label %94, label %8, !llvm.loop !46
 
 94:                                               ; preds = %91
   %95 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.1109, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %92, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -18167,7 +18167,7 @@ define internal void @dissect_smb2_id_full_directory_info(ptr noundef %0, ptr no
 78:                                               ; preds = %76
   %79 = add i32 %18, %.089
   %80 = icmp slt i32 %79, %.089
-  br i1 %80, label %81, label %8, !llvm.loop !51
+  br i1 %80, label %81, label %8, !llvm.loop !47
 
 81:                                               ; preds = %78
   %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.193, ptr noundef %1, ptr noundef nonnull @ei_smb2_invalid_length, ptr noundef %0, i32 noundef %79, i32 noundef -1, ptr noundef nonnull @.str.1550)
@@ -18244,7 +18244,7 @@ define internal void @dissect_smb2_posix_directory_info(ptr noundef %0, ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %33)
   %39 = icmp sgt i32 %38, 4
-  br i1 %39, label %8, label %.loopexit, !llvm.loop !52
+  br i1 %39, label %8, label %.loopexit, !llvm.loop !48
 
 .critedge:                                        ; preds = %29, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -20021,15 +20021,15 @@ attributes #16 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7, !31}
+!34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7, !31}
+!38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
 !41 = distinct !{!41, !7}
@@ -20040,7 +20040,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !46 = distinct !{!46, !7}
 !47 = distinct !{!47, !7}
 !48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}

@@ -2746,7 +2746,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.188, i32 noundef %25, i32 noundef %31, i32 noundef %37, ptr noundef nonnull %.016.us, ptr noundef nonnull %12) #26
   %.015.us = load ptr, ptr %.01529.us, align 8
   %.not.us = icmp eq ptr %.015.us, %11
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %.01529 = phi ptr [ %.015, %62 ], [ %.01527, %.lr.ph ]
@@ -3564,5 +3564,3 @@ attributes #27 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}

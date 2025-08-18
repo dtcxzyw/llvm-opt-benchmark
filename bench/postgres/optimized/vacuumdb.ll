@@ -1313,7 +1313,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #10
   %178 = add nuw nsw i32 %.0132187, 1
   %exitcond192.not = icmp eq i32 %178, %158
-  br i1 %exitcond192.not, label %._crit_edge190, label %.lr.ph189.split, !llvm.loop !15
+  br i1 %exitcond192.not, label %._crit_edge190, label %.lr.ph189.split, !llvm.loop !13
 
 ._crit_edge190:                                   ; preds = %170, %.lr.ph189.split, %161
   call void @termPQExpBuffer(ptr noundef nonnull %10) #10
@@ -1631,7 +1631,7 @@ prepare_vacuum_command.exit:                      ; preds = %214, %215, %216, %2
 307:                                              ; preds = %301, %304
   %308 = load ptr, ptr %.1, align 8
   %.not161 = icmp eq ptr %308, null
-  br i1 %.not161, label %309, label %191, !llvm.loop !16
+  br i1 %.not161, label %309, label %191, !llvm.loop !14
 
 309:                                              ; preds = %307
   %310 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %185) #10
@@ -1810,7 +1810,5 @@ attributes #12 = { noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

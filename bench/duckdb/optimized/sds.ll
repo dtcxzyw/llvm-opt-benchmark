@@ -5885,7 +5885,7 @@ _ZN10duckdb_hll6sdscatEPcPKc.exit16:              ; preds = %_ZN10duckdb_hllL9sd
   %.1 = phi ptr [ %39, %_ZN10duckdb_hll6sdscatEPcPKc.exit ], [ null, %_ZN10duckdb_hllL6sdslenEPc.exit.i.i12 ], [ %85, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.i.i14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_hll6sdscatEPcPKc.exit16, %_ZN10duckdb_hll8sdsemptyEv.exit
   %.010.lcssa = phi ptr [ %.0.i.i, %_ZN10duckdb_hll8sdsemptyEv.exit ], [ %.1, %_ZN10duckdb_hll6sdscatEPcPKc.exit16 ]
@@ -6028,7 +6028,7 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %_ZN10duckdb_hllL9sd
   %.1 = phi ptr [ %17, %14 ], [ null, %_ZN10duckdb_hllL6sdslenEPc.exit.i ], [ %41, %_ZN10duckdb_hllL9sdssetlenEPcm.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_hll9sdscatlenEPcPKvm.exit, %_ZN10duckdb_hll8sdsemptyEv.exit
   %.011.lcssa = phi ptr [ %.0.i.i, %_ZN10duckdb_hll8sdsemptyEv.exit ], [ %.1, %_ZN10duckdb_hll9sdscatlenEPcPKvm.exit ]
@@ -6158,7 +6158,6 @@ attributes #31 = { nounwind allocsize(1) }
 !43 = distinct !{!43, !22}
 !44 = distinct !{!44, !22}
 !45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !22}
+!47 = distinct !{!47, !22}
 !48 = distinct !{!48, !22}
-!49 = distinct !{!49, !22}

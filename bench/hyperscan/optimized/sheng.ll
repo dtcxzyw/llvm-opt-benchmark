@@ -950,7 +950,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %.43.us = phi i32 [ %.42742.us, %.lr.ph746.split.us ], [ %.42742.us, %535 ], [ %532, %530 ], [ %.42742.us, %511 ], [ %.42742.us, %524 ]
   %538 = getelementptr inbounds nuw i8, ptr %.038.i744.us, i64 1
   %.not43.i.us = icmp eq ptr %538, %15
-  br i1 %.not43.i.us, label %runShengCb.exit, label %.lr.ph746.split.us, !prof !9, !llvm.loop !10
+  br i1 %.not43.i.us, label %runShengCb.exit, label %.lr.ph746.split.us, !prof !9
 
 .lr.ph739.us:                                     ; preds = %511
   %539 = getelementptr inbounds i8, ptr %521, i64 -60
@@ -1804,7 +1804,7 @@ sheng4_coa.exit:                                  ; preds = %805, %.critedge202.
   %.1219 = phi i32 [ 0, %574 ], [ 0, %809 ], [ %.62, %.critedge202.i126 ], [ %.51, %805 ]
   %.1 = phi ptr [ %.0168.i81, %574 ], [ %2, %809 ], [ %1017, %.critedge202.i126 ], [ %.2170.i97, %805 ]
   %.not.i140797 = icmp eq ptr %.1, %15
-  br i1 %.not.i140797, label %runShengCb.exit, label %.lr.ph802, !prof !12
+  br i1 %.not.i140797, label %runShengCb.exit, label %.lr.ph802, !prof !10
 
 .lr.ph802:                                        ; preds = %sheng4_coa.exit
   %1021 = insertelement <16 x i8> poison, i8 %.2302, i64 0
@@ -1886,7 +1886,7 @@ sheng4_coa.exit:                                  ; preds = %805, %.critedge202.
   %.70.us = phi i32 [ %.69799.us, %.lr.ph802.split.us ], [ %.69799.us, %1063 ], [ %1060, %1058 ], [ %.69799.us, %1039 ], [ %.69799.us, %1052 ]
   %1066 = getelementptr inbounds nuw i8, ptr %.038.i139801.us, i64 1
   %.not.i140.us = icmp eq ptr %1066, %15
-  br i1 %.not.i140.us, label %runShengCb.exit, label %.lr.ph802.split.us, !prof !9, !llvm.loop !13
+  br i1 %.not.i140.us, label %runShengCb.exit, label %.lr.ph802.split.us, !prof !9
 
 .lr.ph796.us:                                     ; preds = %1039
   %1067 = getelementptr inbounds i8, ptr %1049, i64 -60
@@ -2348,7 +2348,7 @@ sheng4_nmda.exit:                                 ; preds = %.lr.ph1387, %190, %
   %234 = insertelement <16 x i8> poison, i8 %.20640, i64 0
   %235 = shufflevector <16 x i8> %234, <16 x i8> poison, <16 x i32> zeroinitializer
   %.not43.i3081397 = icmp eq ptr %.10, %113
-  br i1 %.not43.i3081397, label %._crit_edge1402, label %.lr.ph1401, !prof !12
+  br i1 %.not43.i3081397, label %._crit_edge1402, label %.lr.ph1401, !prof !10
 
 .lr.ph1401:                                       ; preds = %233, %.lr.ph1401
   %.038.i3071399 = phi ptr [ %241, %.lr.ph1401 ], [ %.10, %233 ]
@@ -2415,7 +2415,7 @@ sheng4_nm.exit:                                   ; preds = %sheng4_nm.exit.loop
   %.0182.i309.in.lcssa = phi <16 x i8> [ %245, %243 ], [ %275, %sheng4_nm.exit.loopexit ]
   %.1169.i310.lcssa = phi ptr [ %112, %243 ], [ %271, %sheng4_nm.exit.loopexit ]
   %.not.i3131410 = icmp eq ptr %.1169.i310.lcssa, %113
-  br i1 %.not.i3131410, label %runShengSam.exit.thread971.thread, label %.lr.ph1413, !prof !12
+  br i1 %.not.i3131410, label %runShengSam.exit.thread971.thread, label %.lr.ph1413, !prof !10
 
 .lr.ph1413:                                       ; preds = %sheng4_nm.exit, %.lr.ph1413
   %.038.i3121412 = phi ptr [ %281, %.lr.ph1413 ], [ %.1169.i310.lcssa, %sheng4_nm.exit ]
@@ -4193,7 +4193,7 @@ sheng4_coa.exit:                                  ; preds = %1058, %.critedge202
   %.9506 = phi i32 [ %.2499, %829 ], [ %.2499, %1062 ], [ %.73, %.critedge202.i250 ], [ %.62, %1058 ]
   %.1 = phi ptr [ %.0168.i205, %829 ], [ %287, %1062 ], [ %1268, %.critedge202.i250 ], [ %.2170.i221, %1058 ]
   %.not.i2641374 = icmp eq ptr %.1, %288
-  br i1 %.not.i2641374, label %runShengSam.exit.thread971, label %.lr.ph1379, !prof !12
+  br i1 %.not.i2641374, label %runShengSam.exit.thread971, label %.lr.ph1379, !prof !10
 
 .lr.ph1379:                                       ; preds = %sheng4_coa.exit
   %1272 = insertelement <16 x i8> poison, i8 %.8628, i64 0
@@ -4779,7 +4779,7 @@ sheng4_samda.exit.thread:                         ; preds = %1392, %1416, %1467,
   %.24644.ph = phi i8 [ %.0620, %1505 ], [ %.0620, %1578 ], [ %1610, %1623 ], [ %1539, %1574 ]
   %.13.ph = phi ptr [ %.0129.i339, %1505 ], [ %1322, %1578 ], [ %1624, %1623 ], [ %.2131.i348, %1574 ]
   %.not.i3671508 = icmp eq ptr %.13.ph, %1323
-  br i1 %.not.i3671508, label %runShengSam.exit.thread971, label %.lr.ph1512.preheader, !prof !12
+  br i1 %.not.i3671508, label %runShengSam.exit.thread971, label %.lr.ph1512.preheader, !prof !10
 
 .lr.ph1512.preheader:                             ; preds = %._crit_edge1484
   %1628 = insertelement <16 x i8> poison, i8 %.24644.ph, i64 0
@@ -5320,7 +5320,4 @@ attributes #11 = { nounwind }
 !7 = !{!"branch_weights", i32 255873, i32 127}
 !8 = !{!"branch_weights", i32 129, i32 127}
 !9 = !{!"branch_weights", i32 127, i32 255873}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!"branch_weights", i32 1, i32 127}
-!13 = distinct !{!13, !11}
+!10 = !{!"branch_weights", i32 1, i32 127}

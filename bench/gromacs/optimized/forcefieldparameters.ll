@@ -189,7 +189,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %113 = sub i64 %111, %112
   %114 = sdiv exact i64 %113, 24
   %115 = icmp slt i64 %108, %114
-  br i1 %115, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !43
+  br i1 %115, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !41
 
 .lr.ph5.split.split.i:                            ; preds = %.lr.ph5.split.i, %.lr.ph5.split.split.i
   %.0433.i = phi i64 [ %118, %.lr.ph5.split.split.i ], [ 0, %.lr.ph5.split.i ]
@@ -204,7 +204,7 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
   %123 = sub i64 %121, %122
   %124 = sdiv exact i64 %123, 24
   %125 = icmp slt i64 %118, %124
-  br i1 %125, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !44
+  br i1 %125, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !41
 
 _ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %.lr.ph5.split.split.i, %.lr.ph5.split.split.us.i, %._crit_edge, %43
   ret void
@@ -216,15 +216,15 @@ _ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %
   %129 = select i1 %4, i32 %128, i32 -1
   %130 = load ptr, ptr %11, align 8, !tbaa !29
   %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv
-  %132 = load i32, ptr %131, align 4, !tbaa !45
+  %132 = load i32, ptr %131, align 4, !tbaa !42
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %133
-  %135 = load ptr, ptr %134, align 16, !tbaa !46
+  %135 = load ptr, ptr %134, align 16, !tbaa !43
   %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %129, ptr noundef %135) #5
   %137 = load ptr, ptr %11, align 8, !tbaa !29
   %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv
-  %139 = load i32, ptr %138, align 4, !tbaa !45
-  %140 = load ptr, ptr %30, align 8, !tbaa !49
+  %139 = load i32, ptr %138, align 4, !tbaa !42
+  %140 = load ptr, ptr %30, align 8, !tbaa !46
   %141 = getelementptr inbounds nuw %union.t_iparams, ptr %140, i64 %indvars.iv
   tail call void @_Z10pr_iparamsP8_IO_FILEiRK9t_iparams(ptr noundef %0, i32 noundef %139, ptr noundef nonnull align 4 dereferenceable(48) %141)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -236,7 +236,7 @@ _ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %
   %sext = shl i64 %146, 30
   %147 = ashr i64 %sext, 32
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %126, label %._crit_edge, !llvm.loop !50
+  br i1 %148, label %126, label %._crit_edge, !llvm.loop !47
 }
 
 declare noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -310,13 +310,10 @@ attributes #5 = { nounwind }
 !38 = !{!21, !21, i64 0}
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !40, !42}
-!44 = distinct !{!44, !40}
-!45 = !{!6, !6, i64 0}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"_ZTS22t_interaction_function", !48, i64 0, !48, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
-!48 = !{!"p1 omnipotent char", !14, i64 0}
-!49 = !{!18, !19, i64 0}
-!50 = distinct !{!50, !40}
+!41 = distinct !{!41, !40}
+!42 = !{!6, !6, i64 0}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"_ZTS22t_interaction_function", !45, i64 0, !45, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
+!45 = !{!"p1 omnipotent char", !14, i64 0}
+!46 = !{!18, !19, i64 0}
+!47 = distinct !{!47, !40}

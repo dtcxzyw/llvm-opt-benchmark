@@ -1937,11 +1937,11 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdg
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load float, ptr %4, align 8, !tbaa !145
+  %5 = load float, ptr %4, align 8, !tbaa !144
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !146
+  %7 = load i32, ptr %6, align 4, !tbaa !145
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !147
+  %9 = load i32, ptr %8, align 8, !tbaa !146
   tail call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram10createBinsEfii(ptr noundef nonnull align 8 dereferenceable(48) %2, float noundef %5, i32 noundef %7, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2026,7 +2026,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdg
 57:                                               ; preds = %45, %21, %46, %52, %51, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !148
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !147
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2087,12 +2087,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge194, %20
 
 21:                                               ; preds = %.lr.ph193, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit
   %indvars.iv207 = phi i64 [ 0, %.lr.ph193 ], [ %indvars.iv.next208, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit ]
-  %22 = load ptr, ptr %11, align 8, !tbaa !75, !noalias !149
+  %22 = load ptr, ptr %11, align 8, !tbaa !75, !noalias !148
   %23 = getelementptr inbounds nuw %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %22, i64 %indvars.iv207
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !46, !noalias !152
-  %27 = load ptr, ptr %24, align 8, !tbaa !48, !noalias !152
+  %26 = load ptr, ptr %25, align 8, !tbaa !46, !noalias !151
+  %27 = load ptr, ptr %24, align 8, !tbaa !48, !noalias !151
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
@@ -2118,7 +2118,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge194, %20
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %34, %.lr.ph.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %35, %34 ]
   %.sroa.04.08.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.04.08.i.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !49, !noalias !152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.04.08.i.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !49, !noalias !151
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 12
   %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %36, %26
@@ -2154,7 +2154,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge194, %20
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %45
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge194, label %21, !llvm.loop !155
+  br i1 %exitcond211.not, label %._crit_edge194, label %21, !llvm.loop !154
 
 .loopexit186:                                     ; preds = %34
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2366,7 +2366,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 171:                                              ; preds = %.lr.ph189, %167
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.loopexit, label %.lr.ph189, !llvm.loop !156
+  br i1 %exitcond201.not, label %.loopexit, label %.lr.ph189, !llvm.loop !155
 
 172:                                              ; preds = %149
   %173 = icmp sgt i32 %143, %146
@@ -2413,12 +2413,12 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 195:                                              ; preds = %186, %191
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %186, !llvm.loop !157
+  br i1 %exitcond.not, label %.loopexit, label %186, !llvm.loop !156
 
 .loopexit:                                        ; preds = %195, %171, %175, %152, %172, %88, %.thread179, %110, %80
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge, label %48, !llvm.loop !158
+  br i1 %exitcond206.not, label %._crit_edge, label %48, !llvm.loop !157
 
 _ZNSt6vectorIiSaIiEED2Ev.exit153:                 ; preds = %47, %46
   resume { ptr, i32 } %lpad.phi
@@ -2501,7 +2501,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncreme
 52:                                               ; preds = %32, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !159
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !158
 }
 
 ; Function Attrs: nounwind
@@ -2635,7 +2635,7 @@ _ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_E
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i.i ], [ %62, %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !49, !alias.scope !160
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i.i.i, i64 12, i1 false), !tbaa.struct !49, !alias.scope !159
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 12
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %64, %43
@@ -2660,7 +2660,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 
 69:                                               ; preds = %12
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %71 = load i32, ptr %70, align 4, !tbaa !146
+  %71 = load i32, ptr %70, align 4, !tbaa !145
   %72 = fsub float %19, %27
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %74 = load float, ptr %73, align 8, !tbaa !69
@@ -2726,7 +2726,7 @@ _ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_E
 .lr.ph.i.i.i.i.i.i.i.i27:                         ; preds = %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i22, %.lr.ph.i.i.i.i.i.i.i.i27
   %.012.i.i.i.i.i.i.i.i28 = phi ptr [ %108, %.lr.ph.i.i.i.i.i.i.i.i27 ], [ %105, %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i22 ]
   %.0911.i.i.i.i.i.i.i.i29 = phi ptr [ %107, %.lr.ph.i.i.i.i.i.i.i.i27 ], [ %93, %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i22 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i.i.i29, i64 12, i1 false), !tbaa.struct !49, !alias.scope !164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.012.i.i.i.i.i.i.i.i28, ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i.i.i.i.i.i.i29, i64 12, i1 false), !tbaa.struct !49, !alias.scope !163
   %107 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i29, i64 12
   %108 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i28, i64 12
   %.not.i.i.i.i.i.i.i.i30 = icmp eq ptr %107, %86
@@ -2820,12 +2820,12 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverse
   store float %28, ptr %29, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
-  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !168
+  br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !167
 
 ._crit_edge.us:                                   ; preds = %25
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
-  br i1 %exitcond29.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !169
+  br i1 %exitcond29.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !168
 
 ._crit_edge22:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %11
   ret void
@@ -2833,39 +2833,39 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverse
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6ParamsE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !170
+  %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26, !noalias !169
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %4, align 8, !tbaa !175, !noalias !170
+  store i32 1, ptr %4, align 8, !tbaa !174, !noalias !169
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %5, align 4, !tbaa !177, !noalias !170
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !13, !noalias !170
+  store i32 1, ptr %5, align 4, !tbaa !176, !noalias !169
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !13, !noalias !169
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6)
-          to label %.noexc.i.i.i.i.i unwind label %14, !noalias !170
+          to label %.noexc.i.i.i.i.i unwind label %14, !noalias !169
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
-  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 80), ptr %6, align 8, !tbaa !13, !noalias !170
+  store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 80), ptr %6, align 8, !tbaa !13, !noalias !169
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, i64 20, i1 false), !tbaa.struct !15, !noalias !170
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull readonly align 4 dereferenceable(20) %1, i64 20, i1 false), !tbaa.struct !15, !noalias !169
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !170
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !169
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %10, !noalias !170
+          to label %_ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %10, !noalias !169
 
 10:                                               ; preds = %.noexc.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = load ptr, ptr %8, align 8, !tbaa !18, !noalias !170
+  %12 = load ptr, ptr %8, align 8, !tbaa !18, !noalias !169
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #23, !noalias !170
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #23, !noalias !169
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %13, %10
-  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #24, !noalias !170
+  tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #24, !noalias !169
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i
 
 14:                                               ; preds = %2
@@ -2875,13 +2875,13 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %14, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %15, %14 ], [ %11, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EED2Ev.exit.i.i.i.i.i.i.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23, !noalias !170
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #23, !noalias !169
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
 _ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc.i.i.i.i.i
-  store ptr %6, ptr %0, align 8, !tbaa !178
+  store ptr %6, ptr %0, align 8, !tbaa !177
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %16, align 8, !tbaa !183
+  store ptr %3, ptr %16, align 8, !tbaa !182
   ret void
 }
 
@@ -2959,7 +2959,7 @@ define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapp
 _ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_.exit.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %9, %5
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !184
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !183
 
 _ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i: ; preds = %_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_.exit.i.i.i.i.i.i
   %.pr.i.i.i = load ptr, ptr %2, align 8, !tbaa !75
@@ -3013,7 +3013,7 @@ define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapp
 _ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, %5
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !184
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !183
 
 _ZSt8_DestroyIPN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i.i.i: ; preds = %_ZSt8_DestroyIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinEEvPT_.exit.i.i.i.i.i.i.i
   %.pr.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !75
@@ -3172,27 +3172,27 @@ _ZNSt16allocator_traitsISaIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %20, %.loopexit ]
   %.0911.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %6, %.loopexit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %44 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
-  store i64 %44, ptr %.012.i.i.i.i, align 8, !alias.scope !185, !noalias !188
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %44 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !187, !noalias !184
+  store i64 %44, ptr %.012.i.i.i.i, align 8, !alias.scope !184, !noalias !187
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !48, !alias.scope !188, !noalias !185
-  store ptr %47, ptr %45, align 8, !tbaa !48, !alias.scope !185, !noalias !188
+  %47 = load ptr, ptr %46, align 8, !tbaa !48, !alias.scope !187, !noalias !184
+  store ptr %47, ptr %45, align 8, !tbaa !48, !alias.scope !184, !noalias !187
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !46, !alias.scope !188, !noalias !185
-  store ptr %50, ptr %48, align 8, !tbaa !46, !alias.scope !185, !noalias !188
+  %50 = load ptr, ptr %49, align 8, !tbaa !46, !alias.scope !187, !noalias !184
+  store ptr %50, ptr %48, align 8, !tbaa !46, !alias.scope !184, !noalias !187
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !47, !alias.scope !188, !noalias !185
-  store ptr %53, ptr %51, align 8, !tbaa !47, !alias.scope !185, !noalias !188
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !188, !noalias !185
+  %53 = load ptr, ptr %52, align 8, !tbaa !47, !alias.scope !187, !noalias !184
+  store ptr %53, ptr %51, align 8, !tbaa !47, !alias.scope !184, !noalias !187
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false), !alias.scope !187, !noalias !184
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %54, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !189
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i.i, %.loopexit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %.loopexit ], [ %55, %.lr.ph.i.i.i.i ]
@@ -3203,27 +3203,27 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i.i28
   %.012.i.i.i.i29 = phi ptr [ %68, %.lr.ph.i.i.i.i28 ], [ %56, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i.i30 = phi ptr [ %67, %.lr.ph.i.i.i.i28 ], [ %1, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %57 = load i64, ptr %.0911.i.i.i.i30, align 8, !alias.scope !194, !noalias !191
-  store i64 %57, ptr %.012.i.i.i.i29, align 8, !alias.scope !191, !noalias !194
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %57 = load i64, ptr %.0911.i.i.i.i30, align 8, !alias.scope !193, !noalias !190
+  store i64 %57, ptr %.012.i.i.i.i29, align 8, !alias.scope !190, !noalias !193
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !48, !alias.scope !194, !noalias !191
-  store ptr %60, ptr %58, align 8, !tbaa !48, !alias.scope !191, !noalias !194
+  %60 = load ptr, ptr %59, align 8, !tbaa !48, !alias.scope !193, !noalias !190
+  store ptr %60, ptr %58, align 8, !tbaa !48, !alias.scope !190, !noalias !193
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !46, !alias.scope !194, !noalias !191
-  store ptr %63, ptr %61, align 8, !tbaa !46, !alias.scope !191, !noalias !194
+  %63 = load ptr, ptr %62, align 8, !tbaa !46, !alias.scope !193, !noalias !190
+  store ptr %63, ptr %61, align 8, !tbaa !46, !alias.scope !190, !noalias !193
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !47, !alias.scope !194, !noalias !191
-  store ptr %66, ptr %64, align 8, !tbaa !47, !alias.scope !191, !noalias !194
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false), !alias.scope !194, !noalias !191
+  %66 = load ptr, ptr %65, align 8, !tbaa !47, !alias.scope !193, !noalias !190
+  store ptr %66, ptr %64, align 8, !tbaa !47, !alias.scope !190, !noalias !193
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false), !alias.scope !193, !noalias !190
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i30, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i29, i64 32
   %.not.i.i.i.i31 = icmp eq ptr %67, %5
-  br i1 %.not.i.i.i.i31, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i.i28, !llvm.loop !190
+  br i1 %.not.i.i.i.i31, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, label %.lr.ph.i.i.i.i28, !llvm.loop !189
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33: ; preds = %.lr.ph.i.i.i.i28, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i.i32 = phi ptr [ %56, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %68, %.lr.ph.i.i.i.i28 ]
@@ -3306,7 +3306,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16pha
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !196
+  %7 = load ptr, ptr %6, align 8, !tbaa !195
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3530,58 +3530,57 @@ attributes #27 = { noreturn nounwind }
 !140 = distinct !{!140, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_"}
 !141 = distinct !{!141, !140, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
 !142 = distinct !{!142, !55}
-!143 = distinct !{!143, !55, !144}
-!144 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!145 = !{!87, !8, i64 16}
-!146 = !{!87, !5, i64 20}
-!147 = !{!87, !5, i64 24}
-!148 = distinct !{!148, !55}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi: argument 0"}
-!151 = distinct !{!151, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi"}
-!152 = !{!153, !150}
-!153 = distinct !{!153, !154, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv: argument 0"}
-!154 = distinct !{!154, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv"}
+!143 = distinct !{!143, !55}
+!144 = !{!87, !8, i64 16}
+!145 = !{!87, !5, i64 20}
+!146 = !{!87, !5, i64 24}
+!147 = distinct !{!147, !55}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi: argument 0"}
+!150 = distinct !{!150, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi"}
+!151 = !{!152, !149}
+!152 = distinct !{!152, !153, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv: argument 0"}
+!153 = distinct !{!153, !"_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv"}
+!154 = distinct !{!154, !55}
 !155 = distinct !{!155, !55}
 !156 = distinct !{!156, !55}
 !157 = distinct !{!157, !55}
 !158 = distinct !{!158, !55}
-!159 = distinct !{!159, !55}
-!160 = !{!161, !163}
-!161 = distinct !{!161, !162, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!162 = distinct !{!162, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_"}
-!163 = distinct !{!163, !162, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!164 = !{!165, !167}
-!165 = distinct !{!165, !166, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!166 = distinct !{!166, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_"}
-!167 = distinct !{!167, !166, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!159 = !{!160, !162}
+!160 = distinct !{!160, !161, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!161 = distinct !{!161, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_"}
+!162 = distinct !{!162, !161, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!163 = !{!164, !166}
+!164 = distinct !{!164, !165, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!165 = distinct !{!165, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_"}
+!166 = distinct !{!166, !165, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!167 = distinct !{!167, !55}
 !168 = distinct !{!168, !55}
-!169 = distinct !{!169, !55, !144}
-!170 = !{!171, !173}
-!171 = distinct !{!171, !172, !"_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
-!172 = distinct !{!172, !"_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!173 = distinct !{!173, !174, !"_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!174 = distinct !{!174, !"_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_"}
-!175 = !{!176, !5, i64 8}
-!176 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 8, !5, i64 12}
-!177 = !{!176, !5, i64 12}
-!178 = !{!179, !180, i64 0}
-!179 = !{!"_ZTSSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EE", !180, i64 0, !181, i64 8}
-!180 = !{!"p1 _ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE", !21, i64 0}
-!181 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !182, i64 0}
-!182 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0}
-!183 = !{!181, !182, i64 0}
-!184 = distinct !{!184, !55}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!187 = distinct !{!187, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_"}
-!188 = !{!189}
-!189 = distinct !{!189, !187, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!190 = distinct !{!190, !55}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!193 = distinct !{!193, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_"}
-!194 = !{!195}
-!195 = distinct !{!195, !193, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!196 = !{!197, !102, i64 8}
-!197 = !{!"_ZTSSt9type_info", !102, i64 8}
+!169 = !{!170, !172}
+!170 = distinct !{!170, !171, !"_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
+!171 = distinct !{!171, !"_ZSt11make_sharedIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJRKNS1_24HistogramPhaseUnwrapping6ParamsEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
+!172 = distinct !{!172, !173, !"_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_: argument 0"}
+!173 = distinct !{!173, !"_ZN2cvL7makePtrINS_16phase_unwrapping29HistogramPhaseUnwrapping_ImplEJNS1_24HistogramPhaseUnwrapping6ParamsEEEENS_3PtrIT_EEDpRKT0_"}
+!174 = !{!175, !5, i64 8}
+!175 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 8, !5, i64 12}
+!176 = !{!175, !5, i64 12}
+!177 = !{!178, !179, i64 0}
+!178 = !{!"_ZTSSt12__shared_ptrIN2cv16phase_unwrapping24HistogramPhaseUnwrappingELN9__gnu_cxx12_Lock_policyE2EE", !179, i64 0, !180, i64 8}
+!179 = !{!"p1 _ZTSN2cv16phase_unwrapping24HistogramPhaseUnwrappingE", !21, i64 0}
+!180 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !181, i64 0}
+!181 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !21, i64 0}
+!182 = !{!180, !181, i64 0}
+!183 = distinct !{!183, !55}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!186 = distinct !{!186, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_"}
+!187 = !{!188}
+!188 = distinct !{!188, !186, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!189 = distinct !{!189, !55}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!192 = distinct !{!192, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_"}
+!193 = !{!194}
+!194 = distinct !{!194, !192, !"_ZSt19__relocate_object_aIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!195 = !{!196, !102, i64 8}
+!196 = !{!"_ZTSSt9type_info", !102, i64 8}

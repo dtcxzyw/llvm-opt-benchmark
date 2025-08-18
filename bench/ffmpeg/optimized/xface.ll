@@ -270,47 +270,47 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %181
-  %indvars.iv132 = phi i64 [ 0, %2 ], [ %indvars.iv.next133, %181 ]
+  %indvars.iv135 = phi i64 [ 0, %2 ], [ %indvars.iv.next136, %181 ]
   %indvars.iv = phi i32 [ 1, %2 ], [ %indvars.iv.next, %181 ]
-  %3 = mul nuw nsw i64 %indvars.iv132, 48
-  %4 = trunc i64 %indvars.iv132 to i32
+  %3 = mul nuw nsw i64 %indvars.iv135, 48
+  %4 = trunc i64 %indvars.iv135 to i32
   %5 = add i32 %4, -2
-  %6 = trunc nuw nsw i64 %indvars.iv132 to i32
-  %7 = trunc nuw nsw i64 %indvars.iv132 to i32
-  %8 = trunc nuw nsw i64 %indvars.iv132 to i32
-  %9 = trunc nuw nsw i64 %indvars.iv132 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %9 = trunc nuw nsw i64 %indvars.iv135 to i32
   br label %10
 
 10:                                               ; preds = %.preheader, %180
-  %indvars.iv128 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next129, %180 ]
-  %indvars.iv125 = phi i32 [ 3, %.preheader ], [ %indvars.iv.next126, %180 ]
-  %11 = trunc i64 %indvars.iv128 to i32
+  %indvars.iv131 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next132, %180 ]
+  %indvars.iv128 = phi i32 [ 3, %.preheader ], [ %indvars.iv.next129, %180 ]
+  %11 = trunc i64 %indvars.iv131 to i32
   %12 = add i32 %11, -2
   br label %13
 
 13:                                               ; preds = %10, %.split101.us
-  %.091116 = phi i32 [ %12, %10 ], [ %42, %.split101.us ]
-  %.092115 = phi i32 [ 0, %10 ], [ %.us-phi, %.split101.us ]
-  %14 = add i32 %.091116, -1
-  %or.cond137 = icmp ult i32 %14, 48
-  br i1 %or.cond137, label %.split.split, label %.split101.us
+  %.091118 = phi i32 [ %12, %10 ], [ %42, %.split101.us ]
+  %.092117 = phi i32 [ 0, %10 ], [ %.us-phi, %.split101.us ]
+  %14 = add i32 %.091118, -1
+  %or.cond140 = icmp ult i32 %14, 48
+  br i1 %or.cond140, label %.split.split, label %.split101.us
 
 .split.split:                                     ; preds = %13
-  %15 = zext nneg i32 %.091116 to i64
-  %.not96 = icmp samesign ule i64 %indvars.iv128, %15
-  %.not96.fr = freeze i1 %.not96
-  br i1 %.not96.fr, label %.split.split.split, label %.split.split.split.us
+  %15 = zext nneg i32 %.091118 to i64
+  %.not96 = icmp samesign ule i64 %indvars.iv131, %15
+  %.not96.fr116 = freeze i1 %.not96
+  br i1 %.not96.fr116, label %.split.split.split, label %.split.split.split.us
 
 .split.split.split.us:                            ; preds = %.split.split, %26
   %.099.us108 = phi i32 [ %27, %26 ], [ %5, %.split.split ]
-  %.198.us109 = phi i32 [ %.2.us111, %26 ], [ %.092115, %.split.split ]
+  %.198.us109 = phi i32 [ %.2.us111, %26 ], [ %.092117, %.split.split ]
   %16 = icmp sgt i32 %.099.us108, 0
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %.split.split.split.us
   %18 = shl nsw i32 %.198.us109, 1
   %19 = mul nuw nsw i32 %.099.us108, 48
-  %20 = add nuw nsw i32 %19, %.091116
+  %20 = add nuw nsw i32 %19, %.091118
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !9
@@ -326,9 +326,9 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 
 .split.split.split:                               ; preds = %.split.split, %40
   %.099 = phi i32 [ %41, %40 ], [ %5, %.split.split ]
-  %.198 = phi i32 [ %.2, %40 ], [ %.092115, %.split.split ]
+  %.198 = phi i32 [ %.2, %40 ], [ %.092117, %.split.split ]
   %28 = zext i32 %.099 to i64
-  %29 = icmp ne i64 %indvars.iv132, %28
+  %29 = icmp ne i64 %indvars.iv135, %28
   %30 = icmp sgt i32 %.099, 0
   %or.cond = and i1 %29, %30
   br i1 %or.cond, label %31, label %40
@@ -336,7 +336,7 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 31:                                               ; preds = %.split.split.split
   %32 = shl nsw i32 %.198, 1
   %33 = mul nuw nsw i32 %.099, 48
-  %34 = add nuw nsw i32 %33, %.091116
+  %34 = add nuw nsw i32 %33, %.091118
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !9
@@ -347,18 +347,18 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
 40:                                               ; preds = %.split.split.split, %31
   %.2 = phi i32 [ %39, %31 ], [ %.198, %.split.split.split ]
   %41 = add nsw i32 %.099, 1
-  %exitcond124.not = icmp eq i32 %41, %indvars.iv
-  br i1 %exitcond124.not, label %.split101.us, label %.split.split.split, !llvm.loop !17
+  %exitcond127.not = icmp eq i32 %41, %indvars.iv
+  br i1 %exitcond127.not, label %.split101.us, label %.split.split.split, !llvm.loop !15
 
 .split101.us:                                     ; preds = %26, %40, %13
-  %.us-phi = phi i32 [ %.092115, %13 ], [ %.2, %40 ], [ %.2.us111, %26 ]
-  %42 = add nsw i32 %.091116, 1
-  %exitcond127 = icmp eq i32 %42, %indvars.iv125
-  br i1 %exitcond127, label %43, label %13, !llvm.loop !18
+  %.us-phi = phi i32 [ %.092117, %13 ], [ %.2, %40 ], [ %.2.us111, %26 ]
+  %42 = add nsw i32 %.091118, 1
+  %exitcond130 = icmp eq i32 %42, %indvars.iv128
+  br i1 %exitcond130, label %43, label %13, !llvm.loop !16
 
 43:                                               ; preds = %.split101.us
-  %44 = add nuw nsw i64 %indvars.iv128, %3
-  %45 = trunc nuw nsw i64 %indvars.iv128 to i32
+  %44 = add nuw nsw i64 %indvars.iv131, %3
+  %45 = trunc nuw nsw i64 %indvars.iv131 to i32
   switch i32 %45, label %142 [
     i32 1, label %46
     i32 2, label %70
@@ -553,16 +553,16 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   br label %180
 
 180:                                              ; preds = %46, %56, %47, %92, %78, %71, %128, %114, %107, %166, %152, %143
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %indvars.iv.next126 = add nuw nsw i32 %indvars.iv125, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 48
-  br i1 %exitcond131.not, label %181, label %10, !llvm.loop !19
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %indvars.iv.next129 = add nuw nsw i32 %indvars.iv128, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, 48
+  br i1 %exitcond134.not, label %181, label %10, !llvm.loop !17
 
 181:                                              ; preds = %180
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next133, 48
-  br i1 %exitcond135.not, label %182, label %.preheader, !llvm.loop !20
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, 48
+  br i1 %exitcond138.not, label %182, label %.preheader, !llvm.loop !18
 
 182:                                              ; preds = %181
   ret void
@@ -596,9 +596,7 @@ attributes #6 = { noreturn nounwind }
 !12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
 !18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}

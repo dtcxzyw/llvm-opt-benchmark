@@ -2137,7 +2137,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit272:     ; preds = %858, %862, %_ZN5dra
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit276:     ; preds = %900, %904, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit272
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %804, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge, label %804, !llvm.loop !142
 
 .lr.ph522.split:                                  ; preds = %.lr.ph522, %.critedge
   %925 = phi ptr [ %962, %.critedge ], [ %687, %.lr.ph522 ]
@@ -2232,7 +2232,7 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %970 = sdiv exact i64 %969, 12
   %971 = and i64 %970, 4294967295
   %972 = icmp samesign ult i64 %indvars.iv.next543, %971
-  br i1 %972, label %.lr.ph522.split, label %.critedge119, !llvm.loop !144
+  br i1 %972, label %.lr.ph522.split, label %.critedge119, !llvm.loop !141
 
 .critedge119:                                     ; preds = %.critedge, %944, %.thread.loopexit.us, %718, %.preheader, %._crit_edge
   %.4 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %718 ], [ true, %.thread.loopexit.us ], [ false, %944 ], [ true, %.critedge ]
@@ -2323,7 +2323,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %1008 = getelementptr inbounds i8, ptr %2, i64 %1007
   store ptr %1005, ptr %1008, align 8, !tbaa !19
   %1009 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %1009, align 8, !tbaa !145
+  store i64 0, ptr %1009, align 8, !tbaa !143
   %1010 = getelementptr inbounds nuw i8, ptr %2, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %1010) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2456,7 +2456,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %32 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %33 = add nsw i64 %.012.i.i.i.i.i, -1
   %34 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !147
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !145
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %35 = getelementptr inbounds i8, ptr %2, i64 %18
@@ -2475,7 +2475,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %42 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
-  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !147
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !145
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre = load ptr, ptr %11, align 8, !tbaa !18
@@ -2511,7 +2511,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %54 = add nsw i64 %.012.i.i.i.i.i59, -1
   %55 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
-  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !147
+  br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !145
 
 56:                                               ; preds = %5
   %57 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2825,10 +2825,8 @@ attributes #22 = { builtin allocsize(0) }
 !138 = !{!68, !28, i64 40}
 !139 = !{!68, !28, i64 48}
 !140 = distinct !{!140, !109}
-!141 = distinct !{!141, !109, !142}
-!142 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!143 = distinct !{!143, !109}
-!144 = distinct !{!144, !109}
-!145 = !{!146, !28, i64 8}
-!146 = !{!"_ZTSSi", !28, i64 8}
-!147 = distinct !{!147, !109}
+!141 = distinct !{!141, !109}
+!142 = distinct !{!142, !109}
+!143 = !{!144, !28, i64 8}
+!144 = !{!"_ZTSSi", !28, i64 8}
+!145 = distinct !{!145, !109}

@@ -424,12 +424,12 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf2_derive(ptr noundef %0, ptr nound
   store i8 %97, ptr %95, align 1, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond43.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !26
+  br i1 %exitcond43.not.i, label %._crit_edge.us.us.i, label %.preheader.us.us.i, !llvm.loop !25
 
 ._crit_edge.us.us.i:                              ; preds = %.preheader.us.us.i
   %98 = add nuw i64 %.0619.us.us.i, 1
   %exitcond44.not.i = icmp eq i64 %98, %31
-  br i1 %exitcond44.not.i, label %._crit_edge12.us.i, label %.lr.ph11.split.us.us.i, !llvm.loop !27
+  br i1 %exitcond44.not.i, label %._crit_edge12.us.i, label %.lr.ph11.split.us.us.i, !llvm.loop !22
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %113
   %.06017.i = phi i64 [ %116, %113 ], [ 1, %.lr.ph.i ]
@@ -473,7 +473,7 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf2_derive(ptr noundef %0, ptr nound
   %116 = add i64 %.06017.i, 1
   %117 = getelementptr inbounds i8, ptr %.06614.i, i64 %114
   %.not72.i = icmp eq i32 %115, 0
-  br i1 %.not72.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !28
+  br i1 %.not72.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %113, %111, %109, %107, %.lr.ph.split.i, %._crit_edge12.us.i, %75, %73, %71, %.lr.ph.split.us.i, %82, %80, %.lr.ph11.split.us32.i, %91, %89, %.lr.ph11.split.us.us.i, %.preheader6.i, %54, %51
   %.062.i = phi i32 [ 0, %54 ], [ 0, %51 ], [ 1, %.preheader6.i ], [ 0, %.lr.ph11.split.us.us.i ], [ 0, %89 ], [ 0, %91 ], [ 0, %.lr.ph11.split.us32.i ], [ 0, %80 ], [ 0, %82 ], [ 1, %._crit_edge12.us.i ], [ 0, %71 ], [ 0, %73 ], [ 0, %75 ], [ 0, %.lr.ph.split.us.i ], [ 1, %113 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %.lr.ph.split.i ]
@@ -510,7 +510,7 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf2_set_ctx_params(ptr noundef %0, p
   br i1 %7, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !29
+  %8 = load ptr, ptr %1, align 8, !tbaa !26
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %9
 
@@ -563,24 +563,24 @@ ossl_param_is_empty.exit:                         ; preds = %2
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %30, align 8, !tbaa !31
-  %33 = load i64, ptr %31, align 8, !tbaa !32
+  %32 = load ptr, ptr %30, align 8, !tbaa !28
+  %33 = load i64, ptr %31, align 8, !tbaa !29
   call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 167) #7
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %35 = load i64, ptr %34, align 8, !tbaa !33
+  %35 = load i64, ptr %34, align 8, !tbaa !30
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %29
   %38 = call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 172) #7
-  store ptr %38, ptr %30, align 8, !tbaa !31
+  store ptr %38, ptr %30, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
   br i1 %39, label %ossl_param_is_empty.exit.thread, label %pbkdf2_set_membuf.exit
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %42 = load ptr, ptr %41, align 8, !tbaa !31
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %pbkdf2_set_membuf.exit, label %43
 
@@ -602,7 +602,7 @@ pbkdf2_set_membuf.exit:                           ; preds = %43, %40, %37, %27
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !33
+  %51 = load i64, ptr %50, align 8, !tbaa !30
   %52 = icmp ult i64 %51, 16
   br i1 %52, label %53, label %54
 
@@ -615,24 +615,24 @@ pbkdf2_set_membuf.exit:                           ; preds = %43, %40, %37, %27
 54:                                               ; preds = %49, %46
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %57 = load ptr, ptr %55, align 8, !tbaa !31
-  %58 = load i64, ptr %56, align 8, !tbaa !32
+  %57 = load ptr, ptr %55, align 8, !tbaa !28
+  %58 = load i64, ptr %56, align 8, !tbaa !29
   call void @CRYPTO_clear_free(ptr noundef %57, i64 noundef %58, ptr noundef nonnull @.str, i32 noundef 167) #7
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  %60 = load i64, ptr %59, align 8, !tbaa !33
+  %60 = load i64, ptr %59, align 8, !tbaa !30
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %54
   %63 = call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 172) #7
-  store ptr %63, ptr %55, align 8, !tbaa !31
+  store ptr %63, ptr %55, align 8, !tbaa !28
   %64 = icmp eq ptr %63, null
   br i1 %64, label %ossl_param_is_empty.exit.thread, label %pbkdf2_set_membuf.exit48
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !34
+  %67 = load ptr, ptr %66, align 8, !tbaa !31
   %.not.i45 = icmp eq ptr %67, null
   br i1 %.not.i45, label %pbkdf2_set_membuf.exit48, label %68
 
@@ -656,7 +656,7 @@ pbkdf2_set_membuf.exit48:                         ; preds = %68, %65, %62, %pbkd
   %75 = load i32, ptr %74, align 8, !tbaa !16
   %.not44 = icmp eq i32 %75, 0
   %76 = select i1 %.not44, i64 1, i64 1000
-  %77 = load i64, ptr %4, align 8, !tbaa !32
+  %77 = load i64, ptr %4, align 8, !tbaa !29
   %78 = icmp ult i64 %77, %76
   br i1 %78, label %79, label %80
 
@@ -813,14 +813,11 @@ attributes #7 = { nounwind }
 !21 = !{!6, !6, i64 0}
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23, !25}
-!28 = distinct !{!28, !23}
-!29 = !{!30, !8, i64 0}
-!30 = !{!"ossl_param_st", !8, i64 0, !13, i64 8, !5, i64 16, !9, i64 24, !9, i64 32}
-!31 = !{!8, !8, i64 0}
-!32 = !{!9, !9, i64 0}
-!33 = !{!30, !9, i64 24}
-!34 = !{!30, !5, i64 16}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!27, !8, i64 0}
+!27 = !{!"ossl_param_st", !8, i64 0, !13, i64 8, !5, i64 16, !9, i64 24, !9, i64 32}
+!28 = !{!8, !8, i64 0}
+!29 = !{!9, !9, i64 0}
+!30 = !{!27, !9, i64 24}
+!31 = !{!27, !5, i64 16}

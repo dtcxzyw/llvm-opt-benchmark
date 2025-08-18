@@ -1466,8 +1466,8 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
 46:                                               ; preds = %41
   %47 = load ptr, ptr %42, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !46
-  %50 = load i32, ptr %49, align 8, !tbaa !47
+  %49 = load ptr, ptr %48, align 8, !tbaa !45
+  %50 = load i32, ptr %49, align 8, !tbaa !46
   %.not89 = icmp eq i32 %50, 12
   br i1 %.not89, label %52, label %.thread
 
@@ -1489,7 +1489,7 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %55 = add nuw nsw i32 %.075112, 1
   %56 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph.split.split, label %.loopexit150, !llvm.loop !49
+  br i1 %57, label %.lr.ph.split.split, label %.loopexit150, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %34, %52
   %.166 = phi i32 [ %54, %52 ], [ %35, %34 ]
@@ -1542,27 +1542,27 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   br i1 %76, label %do_check_string.exit.thread, label %77
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr %7, align 8, !tbaa !50
+  %78 = load ptr, ptr %7, align 8, !tbaa !48
   %79 = zext nneg i32 %75 to i64
-  %80 = call i32 %.064(ptr noundef %78, i64 noundef %79, ptr noundef nonnull %1, i64 noundef %.058, i32 noundef %.062) #12, !callees !51
+  %80 = call i32 %.064(ptr noundef %78, i64 noundef %79, ptr noundef nonnull %1, i64 noundef %.058, i32 noundef %.062) #12, !callees !49
   %81 = icmp sgt i32 %80, 0
   %or.cond3.i = and i1 %63, %81
   br i1 %or.cond3.i, label %82, label %88
 
 82:                                               ; preds = %77
-  %83 = load ptr, ptr %7, align 8, !tbaa !50
+  %83 = load ptr, ptr %7, align 8, !tbaa !48
   %84 = call noalias ptr @CRYPTO_strndup(ptr noundef %83, i64 noundef %79, ptr noundef nonnull @.str, i32 noundef 865) #12
-  store ptr %84, ptr %5, align 8, !tbaa !50
+  store ptr %84, ptr %5, align 8, !tbaa !48
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = load ptr, ptr %7, align 8, !tbaa !50
+  %87 = load ptr, ptr %7, align 8, !tbaa !48
   call void @CRYPTO_free(ptr noundef %87, ptr noundef nonnull @.str, i32 noundef 867) #12
   br label %do_check_string.exit.thread
 
 88:                                               ; preds = %82, %77
-  %89 = load ptr, ptr %7, align 8, !tbaa !50
+  %89 = load ptr, ptr %7, align 8, !tbaa !48
   call void @CRYPTO_free(ptr noundef %89, ptr noundef nonnull @.str, i32 noundef 871) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %do_check_string.exit
@@ -1574,7 +1574,7 @@ do_check_string.exit.thread:                      ; preds = %74, %86
 do_check_string.exit:                             ; preds = %67, %72, %88
   %.0.i = phi i32 [ 0, %72 ], [ 0, %67 ], [ %80, %88 ]
   %.not95 = icmp eq i32 %.0.i, 0
-  br i1 %.not95, label %64, label %.loopexit, !llvm.loop !52
+  br i1 %.not95, label %64, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %64, %do_check_string.exit, %._crit_edge, %do_check_string.exit.thread, %59, %.loopexit150
   %.0 = phi i32 [ %.166, %._crit_edge ], [ 0, %.loopexit150 ], [ 0, %59 ], [ -1, %do_check_string.exit.thread ], [ 0, %64 ], [ %.0.i, %do_check_string.exit ]
@@ -1673,19 +1673,19 @@ define range(i32 0, 17) i32 @ossl_a2i_ipadd(ptr noundef writeonly captures(none)
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %6, align 4, !tbaa !53
+  store i32 0, ptr %6, align 4, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 -1, ptr %7, align 4, !tbaa !55
+  store i32 -1, ptr %7, align 4, !tbaa !53
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %8, align 4, !tbaa !56
+  store i32 0, ptr %8, align 4, !tbaa !54
   %9 = call i32 @CONF_parse_list(ptr noundef nonnull %1, i32 noundef 58, i32 noundef 0, ptr noundef nonnull @ipv6_cb, ptr noundef nonnull %3) #12
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %41, label %10
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %7, align 4, !tbaa !55
+  %11 = load i32, ptr %7, align 4, !tbaa !53
   %12 = icmp eq i32 %11, -1
-  %13 = load i32, ptr %6, align 4, !tbaa !53
+  %13 = load i32, ptr %6, align 4, !tbaa !51
   %.not13.i = icmp eq i32 %13, 16
   br i1 %12, label %14, label %15
 
@@ -1696,7 +1696,7 @@ define range(i32 0, 17) i32 @ossl_a2i_ipadd(ptr noundef writeonly captures(none)
   br i1 %.not13.i, label %41, label %16
 
 16:                                               ; preds = %15
-  %17 = load i32, ptr %8, align 4, !tbaa !56
+  %17 = load i32, ptr %8, align 4, !tbaa !54
   %18 = icmp sgt i32 %17, 3
   br i1 %18, label %41, label %19
 
@@ -1817,7 +1817,7 @@ define noalias ptr @ossl_ipaddr_to_asc(ptr noundef readonly captures(none) %0, i
   %32 = getelementptr inbounds nuw i8, ptr %.02122, i64 %31
   %33 = icmp sgt i32 %28, -1
   %34 = select i1 %18, i1 %33, i1 false
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !57
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !55
 
 35:                                               ; preds = %2
   %36 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %3, i64 noundef 40, ptr noundef nonnull @.str.18, i32 noundef %1) #12
@@ -2119,7 +2119,7 @@ define range(i32 0, 2) i32 @X509V3_NAME_from_section(ptr noundef %0, ptr noundef
   %8 = add nuw nsw i32 %.02737, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #12
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %11, label %.loopexit35, !llvm.loop !58
+  br i1 %10, label %11, label %.loopexit35, !llvm.loop !56
 
 11:                                               ; preds = %.lr.ph, %7
   %.02737 = phi i32 [ 0, %.lr.ph ], [ %8, %7 ]
@@ -2140,7 +2140,7 @@ define range(i32 0, 2) i32 @X509V3_NAME_from_section(ptr noundef %0, ptr noundef
 
 .critedge:                                        ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %.025, i64 1
-  br label %15, !llvm.loop !59
+  br label %15, !llvm.loop !57
 
 switch.edge:                                      ; preds = %15, %15, %15
   %18 = getelementptr inbounds nuw i8, ptr %.025, i64 1
@@ -2195,7 +2195,7 @@ define noundef i32 @OSSL_GENERAL_NAMES_print(ptr noundef %0, ptr noundef %1, i32
   %14 = add nuw nsw i32 %.09, 1
   %15 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #12
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %7, label %._crit_edge, !llvm.loop !60
+  br i1 %16, label %7, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %10, %3
   ret i32 1
@@ -2264,8 +2264,8 @@ declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @sk_strcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !50
-  %4 = load ptr, ptr %1, align 8, !tbaa !50
+  %3 = load ptr, ptr %0, align 8, !tbaa !48
+  %4 = load ptr, ptr %1, align 8, !tbaa !48
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #11
   ret i32 %5
 }
@@ -2293,7 +2293,7 @@ define internal range(i32 0, 2) i32 @equal_email(ptr noundef readonly captures(n
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %13 = load i8, ptr %12, align 1, !tbaa !13
   %14 = icmp eq i8 %13, 64
-  br i1 %14, label %15, label %.preheader, !llvm.loop !61
+  br i1 %14, label %15, label %.preheader, !llvm.loop !59
 
 15:                                               ; preds = %11, %6
   %16 = sub i64 %1, %7
@@ -2384,7 +2384,7 @@ define internal range(i32 0, 2) i32 @equal_nocase(ptr noundef readonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %.01518.us.i, i64 1
   %14 = add i64 %.019.us.i, -1
   %15 = icmp ugt i64 %14, %3
-  br i1 %15, label %.lr.ph.split.us.i, label %.preheader, !llvm.loop !62
+  br i1 %15, label %.lr.ph.split.us.i, label %.preheader, !llvm.loop !60
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %17
   %.019.i = phi i64 [ %19, %17 ], [ %1, %.lr.ph.i ]
@@ -2399,7 +2399,7 @@ define internal range(i32 0, 2) i32 @equal_nocase(ptr noundef readonly captures(
   %18 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 1
   %19 = add i64 %.019.i, -1
   %20 = icmp ugt i64 %19, %3
-  br i1 %20, label %.lr.ph.split.i, label %.preheader, !llvm.loop !63
+  br i1 %20, label %.lr.ph.split.i, label %.preheader, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %.preheader.i
   %.015.lcssa.i = phi ptr [ %0, %.preheader.i ], [ %.01518.us.i, %.lr.ph.split.us.i ], [ %.01518.i, %.lr.ph.split.i ], [ %.01518.i, %.lr.ph.split.i ]
@@ -2582,7 +2582,7 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %.262.i = phi ptr [ %14, %32 ], [ %.06094.i, %45 ], [ %.06094.i, %50 ], [ %.06094.i, %54 ]
   %57 = add nuw i64 %.06991.i, 1
   %exitcond.not.i = icmp eq i64 %57, %1
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %13, !llvm.loop !64
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %13, !llvm.loop !61
 
 ._crit_edge.loopexit.i:                           ; preds = %56
   %58 = and i32 %.368.i, 5
@@ -2620,7 +2620,7 @@ valid_star.exit.thread:                           ; preds = %26, %24, %30, %47, 
   %70 = getelementptr inbounds nuw i8, ptr %.01518.us.i.i, i64 1
   %71 = add i64 %.019.us.i.i, -1
   %72 = icmp ugt i64 %71, %3
-  br i1 %72, label %.lr.ph.split.us.i.i, label %.preheader.i, !llvm.loop !62
+  br i1 %72, label %.lr.ph.split.us.i.i, label %.preheader.i, !llvm.loop !60
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %74
   %.019.i.i = phi i64 [ %76, %74 ], [ %1, %.lr.ph.i.i ]
@@ -2635,7 +2635,7 @@ valid_star.exit.thread:                           ; preds = %26, %24, %30, %47, 
   %75 = getelementptr inbounds nuw i8, ptr %.01518.i.i, i64 1
   %76 = add i64 %.019.i.i, -1
   %77 = icmp ugt i64 %76, %3
-  br i1 %77, label %.lr.ph.split.i.i, label %.preheader.i, !llvm.loop !63
+  br i1 %77, label %.lr.ph.split.i.i, label %.preheader.i, !llvm.loop !60
 
 .critedge.i.i:                                    ; preds = %.lr.ph.split.i.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %.preheader.i.i
   %.015.lcssa.i.i = phi ptr [ %0, %.preheader.i.i ], [ %.01518.us.i.i, %.lr.ph.split.us.i.i ], [ %.01518.i.i, %.lr.ph.split.i.i ], [ %.01518.i.i, %.lr.ph.split.i.i ]
@@ -2843,7 +2843,7 @@ equal_nocase.exit76.i:                            ; preds = %128, %equal_nocase.
 157:                                              ; preds = %153, %.lr.ph.i29
   %158 = getelementptr inbounds nuw i8, ptr %.04489.i, i64 1
   %.not53.i = icmp eq ptr %158, %118
-  br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i29, !llvm.loop !65
+  br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i29, !llvm.loop !62
 
 equal_nocase.exit:                                ; preds = %107, %.lr.ph.i.i28, %123, %.lr.ph.i65.i, %157, %153, %88, %83, %.lr.ph.i24, %149, %146, %140, %135, %92, %.preheader.i, %skip_prefix.exit.i
   %.021 = phi i32 [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %92 ], [ 0, %135 ], [ 0, %140 ], [ 1, %146 ], [ 1, %149 ], [ 0, %83 ], [ 0, %.lr.ph.i24 ], [ 1, %88 ], [ 0, %153 ], [ 1, %157 ], [ 0, %.lr.ph.i65.i ], [ 0, %123 ], [ 0, %.lr.ph.i.i28 ], [ 0, %107 ]
@@ -2878,7 +2878,7 @@ define internal range(i32 0, 2) i32 @equal_case(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %.01518.us.i, i64 1
   %14 = add i64 %.019.us.i, -1
   %15 = icmp ugt i64 %14, %3
-  br i1 %15, label %.lr.ph.split.us.i, label %skip_prefix.exit.thread, !llvm.loop !62
+  br i1 %15, label %.lr.ph.split.us.i, label %skip_prefix.exit.thread, !llvm.loop !60
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %17
   %.019.i = phi i64 [ %19, %17 ], [ %1, %.lr.ph.i ]
@@ -2893,7 +2893,7 @@ define internal range(i32 0, 2) i32 @equal_case(ptr noundef readonly captures(no
   %18 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 1
   %19 = add i64 %.019.i, -1
   %20 = icmp ugt i64 %19, %3
-  br i1 %20, label %.lr.ph.split.i, label %skip_prefix.exit.thread, !llvm.loop !63
+  br i1 %20, label %.lr.ph.split.i, label %skip_prefix.exit.thread, !llvm.loop !60
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %.preheader.i
   %.015.lcssa.i = phi ptr [ %0, %.preheader.i ], [ %.01518.us.i, %.lr.ph.split.us.i ], [ %.01518.i, %.lr.ph.split.i ], [ %.01518.i, %.lr.ph.split.i ]
@@ -2947,7 +2947,7 @@ define internal fastcc i32 @do_check_string(ptr noundef %0, i32 noundef %1, ptr 
 
 20:                                               ; preds = %18
   %21 = sext i32 %12 to i64
-  %22 = tail call i32 %2(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull %4, i64 noundef %5, i32 noundef %3) #12, !callees !51
+  %22 = tail call i32 %2(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull %4, i64 noundef %5, i32 noundef %3) #12, !callees !49
   br label %27
 
 23:                                               ; preds = %18
@@ -2973,7 +2973,7 @@ define internal fastcc i32 @do_check_string(ptr noundef %0, i32 noundef %1, ptr 
   %32 = load i32, ptr %0, align 8, !tbaa !40
   %33 = sext i32 %32 to i64
   %34 = tail call noalias ptr @CRYPTO_strndup(ptr noundef %31, i64 noundef %33, ptr noundef nonnull @.str, i32 noundef 848) #12
-  store ptr %34, ptr %6, align 8, !tbaa !50
+  store ptr %34, ptr %6, align 8, !tbaa !48
   %35 = icmp eq ptr %34, null
   %spec.select52 = select i1 %35, i32 -1, i32 %.041
   br label %.thread
@@ -2985,28 +2985,28 @@ define internal fastcc i32 @do_check_string(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %8, align 8, !tbaa !50
+  %40 = load ptr, ptr %8, align 8, !tbaa !48
   %41 = zext nneg i32 %37 to i64
-  %42 = call i32 %2(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4, i64 noundef %5, i32 noundef %3) #12, !callees !51
+  %42 = call i32 %2(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4, i64 noundef %5, i32 noundef %3) #12, !callees !49
   %43 = icmp sgt i32 %42, 0
   %44 = icmp ne ptr %6, null
   %or.cond3 = and i1 %44, %43
   br i1 %or.cond3, label %45, label %51
 
 45:                                               ; preds = %39
-  %46 = load ptr, ptr %8, align 8, !tbaa !50
+  %46 = load ptr, ptr %8, align 8, !tbaa !48
   %47 = call noalias ptr @CRYPTO_strndup(ptr noundef %46, i64 noundef %41, ptr noundef nonnull @.str, i32 noundef 865) #12
-  store ptr %47, ptr %6, align 8, !tbaa !50
+  store ptr %47, ptr %6, align 8, !tbaa !48
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %8, align 8, !tbaa !50
+  %50 = load ptr, ptr %8, align 8, !tbaa !48
   call void @CRYPTO_free(ptr noundef %50, ptr noundef nonnull @.str, i32 noundef 867) #12
   br label %.critedge
 
 51:                                               ; preds = %45, %39
-  %52 = load ptr, ptr %8, align 8, !tbaa !50
+  %52 = load ptr, ptr %8, align 8, !tbaa !48
   call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 871) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
@@ -3033,7 +3033,7 @@ declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !53
+  %5 = load i32, ptr %4, align 4, !tbaa !51
   %6 = icmp eq i32 %5, 16
   br i1 %6, label %ipv6_hex.exit.thread, label %7
 
@@ -3043,12 +3043,12 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !55
+  %11 = load i32, ptr %10, align 4, !tbaa !53
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
-  store i32 %5, ptr %10, align 4, !tbaa !55
+  store i32 %5, ptr %10, align 4, !tbaa !53
   br label %15
 
 14:                                               ; preds = %9
@@ -3057,9 +3057,9 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load i32, ptr %16, align 4, !tbaa !56
+  %17 = load i32, ptr %16, align 4, !tbaa !54
   %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %16, align 4, !tbaa !56
+  store i32 %18, ptr %16, align 4, !tbaa !54
   br label %ipv6_hex.exit.thread
 
 19:                                               ; preds = %7
@@ -3085,9 +3085,9 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
   br i1 %.not26, label %ipv6_hex.exit.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = load i32, ptr %4, align 4, !tbaa !53
+  %32 = load i32, ptr %4, align 4, !tbaa !51
   %33 = add nsw i32 %32, 4
-  store i32 %33, ptr %4, align 4, !tbaa !53
+  store i32 %33, ptr %4, align 4, !tbaa !51
   br label %ipv6_hex.exit.thread
 
 34:                                               ; preds = %19
@@ -3112,7 +3112,7 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
   %44 = ashr exact i32 %sext.i, 24
   %45 = or i32 %44, %42
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %46, label %.preheader.i, !llvm.loop !66
+  br i1 %.not.i, label %46, label %.preheader.i, !llvm.loop !63
 
 46:                                               ; preds = %40
   %47 = lshr i32 %45, 8
@@ -3121,9 +3121,9 @@ define internal range(i32 0, 2) i32 @ipv6_cb(ptr noundef readonly captures(none)
   %49 = trunc i32 %45 to i8
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %49, ptr %50, align 1, !tbaa !13
-  %51 = load i32, ptr %4, align 4, !tbaa !53
+  %51 = load i32, ptr %4, align 4, !tbaa !51
   %52 = add nsw i32 %51, 2
-  store i32 %52, ptr %4, align 4, !tbaa !53
+  store i32 %52, ptr %4, align 4, !tbaa !51
   br label %ipv6_hex.exit.thread
 
 ipv6_hex.exit.thread:                             ; preds = %.preheader.i, %15, %46, %31, %27, %23, %21, %14, %3
@@ -3208,26 +3208,23 @@ attributes #12 = { nounwind }
 !41 = !{!42, !35, i64 0}
 !42 = !{!"otherName_st", !35, i64 0, !43, i64 8}
 !43 = !{!"p1 _ZTS12asn1_type_st", !5, i64 0}
-!44 = distinct !{!44, !24, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = !{!42, !43, i64 8}
-!47 = !{!48, !18, i64 0}
-!48 = !{!"asn1_type_st", !18, i64 0, !6, i64 8}
-!49 = distinct !{!49, !24}
-!50 = !{!10, !10, i64 0}
-!51 = !{ptr @equal_case, ptr @equal_email, ptr @equal_nocase, ptr @equal_wildcard}
-!52 = distinct !{!52, !24}
-!53 = !{!54, !18, i64 16}
-!54 = !{!"", !6, i64 0, !18, i64 16, !18, i64 20, !18, i64 24}
-!55 = !{!54, !18, i64 20}
-!56 = !{!54, !18, i64 24}
+!44 = distinct !{!44, !24}
+!45 = !{!42, !43, i64 8}
+!46 = !{!47, !18, i64 0}
+!47 = !{!"asn1_type_st", !18, i64 0, !6, i64 8}
+!48 = !{!10, !10, i64 0}
+!49 = !{ptr @equal_case, ptr @equal_email, ptr @equal_nocase, ptr @equal_wildcard}
+!50 = distinct !{!50, !24}
+!51 = !{!52, !18, i64 16}
+!52 = !{!"", !6, i64 0, !18, i64 16, !18, i64 20, !18, i64 24}
+!53 = !{!52, !18, i64 20}
+!54 = !{!52, !18, i64 24}
+!55 = distinct !{!55, !24}
+!56 = distinct !{!56, !24}
 !57 = distinct !{!57, !24}
 !58 = distinct !{!58, !24}
 !59 = distinct !{!59, !24}
 !60 = distinct !{!60, !24}
 !61 = distinct !{!61, !24}
-!62 = distinct !{!62, !24, !45}
+!62 = distinct !{!62, !24}
 !63 = distinct !{!63, !24}
-!64 = distinct !{!64, !24}
-!65 = distinct !{!65, !24}
-!66 = distinct !{!66, !24}

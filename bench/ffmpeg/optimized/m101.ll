@@ -268,7 +268,7 @@ define internal i32 @m101_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %140 = zext nneg i8 %139 to i16
   %141 = or disjoint i16 %131, %140
   %142 = getelementptr inbounds nuw i16, ptr %109, i64 %123
-  store i16 %141, ptr %142, align 2, !tbaa !45
+  store i16 %141, ptr %142, align 2, !tbaa !44
   br label %169
 
 143:                                              ; preds = %125
@@ -276,7 +276,7 @@ define internal i32 @m101_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %145 = zext nneg i8 %144 to i16
   %146 = or disjoint i16 %131, %145
   %147 = getelementptr inbounds nuw i16, ptr %109, i64 %123
-  store i16 %146, ptr %147, align 2, !tbaa !45
+  store i16 %146, ptr %147, align 2, !tbaa !44
   %148 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %149 = load i8, ptr %148, align 1, !tbaa !28
   %150 = zext i8 %149 to i16
@@ -289,7 +289,7 @@ define internal i32 @m101_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %157 = lshr exact i64 %123, 1
   %158 = and i64 %157, 2147483647
   %159 = getelementptr inbounds nuw i16, ptr %112, i64 %158
-  store i16 %156, ptr %159, align 2, !tbaa !45
+  store i16 %156, ptr %159, align 2, !tbaa !44
   %160 = getelementptr inbounds nuw i8, ptr %128, i64 3
   %161 = load i8, ptr %160, align 1, !tbaa !28
   %162 = zext i8 %161 to i16
@@ -299,24 +299,24 @@ define internal i32 @m101_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %166 = zext nneg i8 %165 to i16
   %167 = or disjoint i16 %163, %166
   %168 = getelementptr inbounds nuw i16, ptr %115, i64 %158
-  store i16 %167, ptr %168, align 2, !tbaa !45
+  store i16 %167, ptr %168, align 2, !tbaa !44
   br label %169
 
 169:                                              ; preds = %143, %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.critedge, label %122, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge, label %122, !llvm.loop !46
 
 .critedge:                                        ; preds = %169, %122
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 16
   %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
-  br i1 %exitcond117.not, label %.loopexit, label %119, !llvm.loop !48
+  br i1 %exitcond117.not, label %.loopexit, label %119, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.critedge, %106
   %170 = add nuw nsw i32 %.091106, 1
   %exitcond118.not = icmp eq i32 %170, %50
-  br i1 %exitcond118.not, label %._crit_edge, label %100, !llvm.loop !49
+  br i1 %exitcond118.not, label %._crit_edge, label %100, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %66, %49
   store i32 1, ptr %2, align 4, !tbaa !41
@@ -387,11 +387,9 @@ attributes #4 = { nounwind }
 !39 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !40 = !{!14, !14, i64 0}
 !41 = !{!10, !10, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"short", !8, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"short", !8, i64 0}
+!46 = distinct !{!46, !43}
 !47 = distinct !{!47, !43}
-!48 = distinct !{!48, !43}
-!49 = distinct !{!49, !43}

@@ -1017,30 +1017,30 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
   %.in.in.v = select i1 %.not, i64 24, i64 25
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
   %.in = load i8, ptr %.in.in, align 1, !range !8, !noundef !9
-  %.not86 = icmp eq i8 %.in, 0
+  %.not94 = icmp eq i8 %.in, 0
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %.not86, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  br i1 %.not94, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %13, label %.lr.ph100, label %.critedge
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph92, label %.critedge
 
-.lr.ph100:                                        ; preds = %.lr.ph.split.us.preheader, %.critedge51.us
-  %indvars.iv9099 = phi i64 [ %indvars.iv.next91, %.critedge51.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph92:                                         ; preds = %.lr.ph.split.us.split, %.critedge51.us
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.critedge51.us ], [ 0, %.lr.ph.split.us.split ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv9099
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv98
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8
   %.not47.us = icmp eq i32 %18, %1
   br i1 %.not47.us, label %21, label %19, !prof !4
 
-19:                                               ; preds = %.lr.ph100
+19:                                               ; preds = %.lr.ph92
   %20 = icmp slt i32 %1, %18
   br i1 %20, label %.critedge, label %26
 
-21:                                               ; preds = %.lr.ph100
+21:                                               ; preds = %.lr.ph92
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %23 = load double, ptr %22, align 8
   %24 = fmul double %23, 1.010000e+00
@@ -1081,11 +1081,11 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
   br i1 %43, label %.critedge, label %.critedge51.us
 
 .critedge51.us:                                   ; preds = %41, %32
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv9099, 1
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %44 = load i32, ptr %10, align 4
   %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next91, %45
-  br i1 %46, label %.lr.ph100, label %.critedge
+  %46 = icmp slt i64 %indvars.iv.next99, %45
+  br i1 %46, label %.lr.ph92, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %13, label %.lr.ph84, label %.critedge
@@ -1158,8 +1158,8 @@ define dso_local noundef zeroext i1 @add_path_precheck(ptr noundef readonly capt
   %84 = icmp slt i64 %indvars.iv.next, %83
   br i1 %84, label %.lr.ph84, label %.critedge
 
-.critedge:                                        ; preds = %.critedge51, %52, %54, %79, %41, %21, %19, %.critedge51.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %6
-  %cond = phi i1 [ true, %6 ], [ true, %.lr.ph.split.split ], [ true, %.lr.ph.split.us.preheader ], [ true, %.critedge51.us ], [ true, %19 ], [ true, %21 ], [ false, %41 ], [ false, %79 ], [ true, %54 ], [ true, %52 ], [ true, %.critedge51 ]
+.critedge:                                        ; preds = %.critedge51, %52, %54, %79, %.critedge51.us, %19, %21, %41, %.lr.ph.split.us.split, %.lr.ph.split.split, %6
+  %cond = phi i1 [ true, %6 ], [ true, %.lr.ph.split.us.split ], [ true, %.lr.ph.split.split ], [ false, %41 ], [ true, %21 ], [ true, %19 ], [ true, %.critedge51.us ], [ false, %79 ], [ true, %54 ], [ true, %52 ], [ true, %.critedge51 ]
   ret i1 %cond
 }
 

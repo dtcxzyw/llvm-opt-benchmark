@@ -868,7 +868,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next145, %249
-  br i1 %250, label %.lr.ph136, label %._crit_edge, !llvm.loop !92
+  br i1 %250, label %.lr.ph136, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge139:                                   ; preds = %263, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104
   %251 = load ptr, ptr %0, align 8, !tbaa !70
@@ -903,7 +903,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %265 = sext i32 %264 to i64
   %266 = icmp slt i64 %indvars.iv.next148, %265
-  br i1 %266, label %.lr.ph138, label %._crit_edge139, !llvm.loop !93
+  br i1 %266, label %.lr.ph138, label %._crit_edge139, !llvm.loop !92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1411,7 +1411,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 .critedge.i.us:                                   ; preds = %18, %13
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %.lr.ph.i21.us, label %13, !llvm.loop !94
+  br i1 %exitcond.not.i.us, label %.lr.ph.i21.us, label %13, !llvm.loop !93
 
 .lr.ph.i21.us:                                    ; preds = %.critedge.i.us
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -1442,12 +1442,12 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 .critedge.i24.us:                                 ; preds = %32, %27
   %indvars.iv.next.i25.us = add nuw nsw i64 %indvars.iv.i23.us, 1
   %exitcond.not.i26.us = icmp eq i64 %indvars.iv.next.i25.us, %wide.trip.count.i
-  br i1 %exitcond.not.i26.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us, label %27, !llvm.loop !94
+  br i1 %exitcond.not.i26.us, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us, label %27, !llvm.loop !93
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us: ; preds = %.critedge.i24.us, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit30.thread.us
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -1480,7 +1480,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 .critedge.i36:                                    ; preds = %47, %42
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %.lr.ph.i45, label %42, !llvm.loop !94
+  br i1 %exitcond.not.i38, label %.lr.ph.i45, label %42, !llvm.loop !93
 
 .lr.ph.i45:                                       ; preds = %.critedge.i36
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 201
@@ -1511,7 +1511,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 .critedge.i48:                                    ; preds = %61, %56
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i34
-  br i1 %exitcond.not.i50, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42, label %56, !llvm.loop !94
+  br i1 %exitcond.not.i50, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42, label %56, !llvm.loop !93
 
 _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit42: ; preds = %18, %32, %47, %.critedge.i48, %61, %1
   %.sroa.013.3 = phi i8 [ -128, %1 ], [ -128, %.critedge.i48 ], [ %.sroa.0.0.copyload, %61 ], [ %.sroa.01.0.copyload, %47 ], [ %.sroa.02.0.copyload.us, %32 ], [ %.sroa.03.0.copyload.us, %18 ]
@@ -1574,7 +1574,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %16, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit, !llvm.loop !96
+  br i1 %28, label %16, label %_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit, !llvm.loop !95
 
 _ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegistersENS1_11RegisterX64ES3_.exit: ; preds = %25, %11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -1828,7 +1828,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426in
 .critedge:                                        ; preds = %13, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.critedge, %13, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %13 ], [ false, %.critedge ]
@@ -1968,7 +1968,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegis
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %10, label %._crit_edge, !llvm.loop !96
+  br i1 %22, label %10, label %._crit_edge, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2085,10 +2085,9 @@ attributes #11 = { nounwind }
 !87 = !{i8 0, i8 2}
 !88 = !{}
 !89 = distinct !{!89, !69}
-!90 = distinct !{!90, !69, !91}
-!91 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = distinct !{!90, !69}
+!91 = distinct !{!91, !69}
 !92 = distinct !{!92, !69}
 !93 = distinct !{!93, !69}
 !94 = distinct !{!94, !69}
-!95 = distinct !{!95, !69, !91}
-!96 = distinct !{!96, !69}
+!95 = distinct !{!95, !69}

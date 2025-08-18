@@ -1106,7 +1106,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   store double %196, ptr %197, align 8, !tbaa !43
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next263, 3
-  br i1 %exitcond.not, label %.loopexit227, label %.preheader, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit227, label %.preheader, !llvm.loop !51
 
 .loopexit227:                                     ; preds = %.preheader, %190
   %198 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef nonnull %24, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 8, ptr noundef nonnull @_Z10xdr_doubleP3XDRPd)
@@ -1121,7 +1121,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   store float %202, ptr %203, align 4, !tbaa !41
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next266, 3
-  br i1 %exitcond268.not, label %.loopexit, label %199, !llvm.loop !53
+  br i1 %exitcond268.not, label %.loopexit, label %199, !llvm.loop !52
 
 204:                                              ; preds = %184
   br i1 %.not176, label %.thread221, label %206
@@ -1154,7 +1154,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %214 = add nuw i64 %.0157241, 1
   %215 = icmp ult i64 %214, %2
   %216 = and i1 %215, %213
-  br i1 %216, label %211, label %.loopexit.loopexit248, !llvm.loop !54
+  br i1 %216, label %211, label %.loopexit.loopexit248, !llvm.loop !53
 
 .preheader233.split:                              ; preds = %.preheader233, %222
   %indvars.iv = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.preheader233 ]
@@ -1178,7 +1178,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %227 = icmp samesign ult i64 %indvars.iv, 2
   %228 = icmp ne i32 %224, 0
   %229 = and i1 %227, %228
-  br i1 %229, label %.preheader233.split, label %.loopexit, !llvm.loop !55
+  br i1 %229, label %.preheader233.split, label %.loopexit, !llvm.loop !49
 
 230:                                              ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -1317,7 +1317,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   %283 = icmp sgt i32 %280, 0
   %284 = icmp ne i64 %282, 0
   %285 = and i1 %283, %284
-  br i1 %285, label %.preheader235, label %.loopexit, !llvm.loop !56
+  br i1 %285, label %.preheader235, label %.loopexit, !llvm.loop !54
 
 default.unreachable269:                           ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit
   unreachable
@@ -1385,7 +1385,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
   %4 = alloca i64, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(127) %1) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !57
+  store ptr %6, ptr %0, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %5, ptr %4, align 8, !tbaa !40
   %7 = icmp ugt i64 %5, 15
@@ -1441,7 +1441,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %19, align 8, !tbaa !58
+  %26 = load ptr, ptr %19, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
@@ -1450,7 +1450,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
-  store ptr null, ptr %19, align 8, !tbaa !58
+  store ptr null, ptr %19, align 8, !tbaa !56
   br label %28
 
 28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
@@ -1480,7 +1480,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -1489,7 +1489,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !58
+  store ptr null, ptr %2, align 8, !tbaa !56
   %5 = load ptr, ptr %0, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
@@ -1666,11 +1666,11 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i8
-  store i8 %18, ptr %1, align 1, !tbaa !59
+  store i8 %18, ptr %1, align 1, !tbaa !57
   br label %26
 
 19:                                               ; preds = %5
-  %20 = load i8, ptr %1, align 1, !tbaa !59, !range !33, !noundef !34
+  %20 = load i8, ptr %1, align 1, !tbaa !57, !range !33, !noundef !34
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !35
@@ -2033,7 +2033,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_realP8t_fileioPfiPKcS3_i(ptr noundef
   %12 = phi i1 [ false, %.lr.ph ], [ %10, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %11, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %12, %11 ]
@@ -2080,7 +2080,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   %16 = phi i1 [ false, %.lr.ph.split.us ], [ %14, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us ]
   %17 = add nuw nsw i32 %.015.us, 1
   %exitcond19.not = icmp eq i32 %17, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !61
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -2121,7 +2121,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
   %30 = phi i1 [ false, %.lr.ph.split ], [ %28, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %29, %15, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %16, %15 ], [ %30, %29 ]
@@ -2168,7 +2168,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   %16 = phi i1 [ false, %.lr.ph.split.us ], [ %14, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us ]
   %17 = add nuw nsw i32 %.015.us, 1
   %exitcond19.not = icmp eq i32 %17, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -2209,7 +2209,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
   %30 = phi i1 [ false, %.lr.ph.split ], [ %28, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %29, %15, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %16, %15 ], [ %30, %29 ]
@@ -2266,12 +2266,12 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17
   %.025 = phi i8 [ %25, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
   %27 = phi i8 [ %23, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.025, ptr %28, align 1, !tbaa !59
+  store i8 %.025, ptr %28, align 1, !tbaa !57
   br label %40
 
 29:                                               ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !59, !range !33, !noundef !34
+  %31 = load i8, ptr %30, align 1, !tbaa !57, !range !33, !noundef !34
   %32 = zext nneg i8 %31 to i32
   %33 = trunc nuw i8 %.02028 to i1
   br i1 %33, label %34, label %40
@@ -2298,7 +2298,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22: ; preds = %34
   %.1 = phi i8 [ %27, %26 ], [ 0, %29 ], [ %39, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !61
 
 ._crit_edge.loopexit:                             ; preds = %40
   %41 = trunc nuw i8 %.1 to i1
@@ -2348,7 +2348,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   %16 = phi i1 [ false, %.lr.ph.split.us ], [ %14, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us ]
   %17 = add nuw nsw i32 %.015.us, 1
   %exitcond19.not = icmp eq i32 %17, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !62
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -2388,7 +2388,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
   %30 = phi i1 [ false, %.lr.ph.split ], [ %28, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %29, %15, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %16, %15 ], [ %30, %29 ]
@@ -2434,7 +2434,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   %16 = phi i1 [ false, %.lr.ph.split.us ], [ %14, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us ]
   %17 = add nuw nsw i32 %.015.us, 1
   %exitcond19.not = icmp eq i32 %17, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !68
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -2474,7 +2474,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
   %30 = phi i1 [ false, %.lr.ph.split ], [ %28, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %29, %15, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %16, %15 ], [ %30, %29 ]
@@ -2574,7 +2574,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us: ; preds = %11
   %16 = phi i1 [ false, %.lr.ph.split.us ], [ %14, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit.us ]
   %17 = add nuw nsw i32 %.015.us, 1
   %exitcond19.not = icmp eq i32 %17, %2
-  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !70
+  br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
@@ -2614,7 +2614,7 @@ _ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %24, %21
   %30 = phi i1 [ false, %.lr.ph.split ], [ %28, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %29, %15, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %16, %15 ], [ %30, %29 ]
@@ -2655,7 +2655,7 @@ define noundef zeroext i1 @_Z17gmx_fio_ndoe_ivecP8t_fileioPA3_iiPKcS4_i(ptr noun
   %12 = phi i1 [ false, %.lr.ph ], [ %10, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %11, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %12, %11 ]
@@ -2687,7 +2687,7 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_stringP8t_fileioPPciPKcS4_i(ptr noun
   %12 = phi i1 [ false, %.lr.ph ], [ %10, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %11, %6
   %.012.lcssa = phi i1 [ true, %6 ], [ %12, %11 ]
@@ -2697,7 +2697,7 @@ define noundef zeroext i1 @_Z19gmx_fio_ndoe_stringP8t_fileioPPciPKcS4_i(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19FileIOXdrSerializerC2EP8t_fileio(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3gmx19FileIOXdrSerializerE, i64 16), ptr %0, align 8, !tbaa !74
+  store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3gmx19FileIOXdrSerializerE, i64 16), ptr %0, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !4
   %.not = icmp eq ptr %1, null
@@ -2798,30 +2798,23 @@ attributes #17 = { nounwind willreturn memory(read) }
 !46 = !{!16, !19, i64 8}
 !47 = !{!12, !14, i64 9}
 !48 = !{!18, !18, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!51 = distinct !{!51, !50}
 !52 = distinct !{!52, !50}
 !53 = distinct !{!53, !50}
 !54 = distinct !{!54, !50}
-!55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50}
-!57 = !{!17, !18, i64 0}
-!58 = !{!27, !27, i64 0}
-!59 = !{!14, !14, i64 0}
+!55 = !{!17, !18, i64 0}
+!56 = !{!27, !27, i64 0}
+!57 = !{!14, !14, i64 0}
+!58 = distinct !{!58, !50}
+!59 = distinct !{!59, !50}
 !60 = distinct !{!60, !50}
-!61 = distinct !{!61, !50, !51}
+!61 = distinct !{!61, !50}
 !62 = distinct !{!62, !50}
-!63 = distinct !{!63, !50, !51}
+!63 = distinct !{!63, !50}
 !64 = distinct !{!64, !50}
 !65 = distinct !{!65, !50}
-!66 = distinct !{!66, !50, !51}
-!67 = distinct !{!67, !50}
-!68 = distinct !{!68, !50, !51}
-!69 = distinct !{!69, !50}
-!70 = distinct !{!70, !50, !51}
-!71 = distinct !{!71, !50}
-!72 = distinct !{!72, !50}
-!73 = distinct !{!73, !50}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"vtable pointer", !10, i64 0}
+!66 = distinct !{!66, !50}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"vtable pointer", !10, i64 0}

@@ -1182,7 +1182,7 @@ define internal fastcc noundef i32 @download_bundle_list(ptr noundef captures(no
   %11 = call fastcc i32 @fetch_bundle_uri_internal(ptr noundef %0, ptr noundef nonnull %.0913.i.us, i32 noundef %10, ptr noundef %2)
   %12 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #16
   %.not.i.us = icmp eq ptr %12, null
-  br i1 %.not.i.us, label %for_all_bundles_in_list.exit, label %.lr.ph.i.us, !llvm.loop !52
+  br i1 %.not.i.us, label %for_all_bundles_in_list.exit, label %.lr.ph.i.us, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %download_bundle_to_file.exit
   %.sroa.8.0 = phi i32 [ %.sroa.8.1, %download_bundle_to_file.exit ], [ 0, %.lr.ph.i.preheader ]
@@ -1238,13 +1238,13 @@ define dso_local noundef i32 @bundle_uri_command(ptr noundef %0, ptr noundef %1)
 6:                                                ; preds = %2
   %7 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   call void (ptr, ...) @die(ptr noundef %7, ptr noundef %9) #18
   unreachable
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !57
+  %12 = load i32, ptr %11, align 8, !tbaa !55
   %.not = icmp eq i32 %12, 2
   br i1 %.not, label %15, label %13
 
@@ -1276,7 +1276,7 @@ define internal noundef i32 @config_to_packet_line(ptr noundef %0, ptr noundef %
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr %3, align 8, !tbaa !58
+  %7 = load i32, ptr %3, align 8, !tbaa !56
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %7, ptr noundef nonnull @.str.53, ptr noundef %0, ptr noundef %1) #16
   br label %8
 
@@ -1483,7 +1483,7 @@ define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %0, 
   br label %.loopexit
 
 44:                                               ; preds = %.preheader, %37, %40
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !59
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !57
 
 45:                                               ; preds = %12
   %46 = load ptr, ptr %6, align 8, !tbaa !51
@@ -1629,11 +1629,11 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
   %7 = tail call i32 @fetch_pack_fsck_objects() #16
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, i32 2, i32 6
-  store i32 %8, ptr %5, align 8, !tbaa !60
+  store i32 %8, ptr %5, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %10, align 8, !tbaa !62
+  store ptr null, ptr %10, align 8, !tbaa !60
   %11 = call i32 @read_bundle_header(ptr noundef nonnull %1, ptr noundef nonnull %3) #16
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.critedge, label %13
@@ -1646,17 +1646,17 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
 15:                                               ; preds = %13
   call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.39, i64 noundef 13) #16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !63
+  %17 = load i64, ptr %16, align 8, !tbaa !61
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
+  %19 = load ptr, ptr %18, align 8, !tbaa !62
   %.not1724 = icmp eq ptr %19, null
   br i1 %.not1724, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = load ptr, ptr %18, align 8, !tbaa !64
-  %23 = load i64, ptr %20, align 8, !tbaa !70
+  %22 = load ptr, ptr %18, align 8, !tbaa !62
+  %23 = load i64, ptr %20, align 8, !tbaa !68
   %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %22, i64 %23
   %25 = icmp ult ptr %19, %24
   br i1 %25, label %.lr.ph29, label %.critedge
@@ -1664,9 +1664,9 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
 .lr.ph29:                                         ; preds = %.lr.ph, %skip_prefix.exit
   %.0132528 = phi ptr [ %52, %skip_prefix.exit ], [ %19, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %.0132528, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !71
+  %27 = load ptr, ptr %26, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %28 = load ptr, ptr %.0132528, align 8, !tbaa !73
+  %28 = load ptr, ptr %.0132528, align 8, !tbaa !71
   %scevgep = getelementptr i8, ptr %28, i64 11
   br label %29
 
@@ -1686,7 +1686,7 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
   br i1 %34, label %29, label %skip_prefix.exit, !llvm.loop !43
 
 35:                                               ; preds = %29
-  %36 = load i64, ptr %4, align 8, !tbaa !74
+  %36 = load i64, ptr %4, align 8, !tbaa !72
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %36, i64 1)
   %37 = icmp ugt i64 %17, %spec.select.i
   br i1 %37, label %38, label %39
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
   unreachable
 
 39:                                               ; preds = %35
-  store i64 %17, ptr %16, align 8, !tbaa !63
+  store i64 %17, ptr %16, align 8, !tbaa !61
   %40 = load ptr, ptr %21, align 8, !tbaa !34
   %.not9.i = icmp eq ptr %40, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %41
@@ -1724,8 +1724,8 @@ strbuf_setlen.exit:                               ; preds = %39, %41
 skip_prefix.exit:                                 ; preds = %30, %strbuf_setlen.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %.0132528, i64 16
-  %53 = load ptr, ptr %18, align 8, !tbaa !64
-  %54 = load i64, ptr %20, align 8, !tbaa !70
+  %53 = load ptr, ptr %18, align 8, !tbaa !62
+  %54 = load i64, ptr %20, align 8, !tbaa !68
   %55 = getelementptr inbounds nuw %struct.string_list_item, ptr %53, i64 %54
   %56 = icmp ult ptr %52, %55
   br i1 %56, label %.lr.ph29, label %.critedge
@@ -1887,26 +1887,24 @@ attributes #18 = { noreturn nounwind }
 !49 = !{!50, !50, i64 0}
 !50 = !{!"p1 _ZTS18remote_bundle_info", !11, i64 0}
 !51 = !{!12, !12, i64 0}
-!52 = distinct !{!52, !22, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = !{!55, !12, i64 48}
-!55 = !{!"packet_reader", !6, i64 0, !12, i64 8, !18, i64 16, !12, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !12, i64 48, !6, i64 56, !6, i64 60, !12, i64 64, !56, i64 72, !35, i64 80}
-!56 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
-!57 = !{!55, !6, i64 40}
-!58 = !{!55, !6, i64 0}
-!59 = distinct !{!59, !22}
-!60 = !{!61, !6, i64 0}
-!61 = !{!"unbundle_opts", !6, i64 0, !12, i64 8}
-!62 = !{!61, !12, i64 8}
-!63 = !{!35, !18, i64 8}
-!64 = !{!65, !67, i64 48}
-!65 = !{!"bundle_header", !6, i64 0, !66, i64 8, !66, i64 48, !56, i64 88, !68, i64 96}
-!66 = !{!"string_list", !67, i64 0, !18, i64 8, !18, i64 16, !6, i64 24, !11, i64 32}
-!67 = !{!"p1 _ZTS16string_list_item", !11, i64 0}
-!68 = !{!"list_objects_filter_options", !35, i64 0, !6, i64 24, !6, i64 28, !12, i64 32, !18, i64 40, !18, i64 48, !6, i64 56, !18, i64 64, !18, i64 72, !69, i64 80}
-!69 = !{!"p1 _ZTS27list_objects_filter_options", !11, i64 0}
-!70 = !{!65, !18, i64 56}
-!71 = !{!72, !11, i64 8}
-!72 = !{!"string_list_item", !12, i64 0, !11, i64 8}
-!73 = !{!72, !12, i64 0}
-!74 = !{!35, !18, i64 0}
+!52 = !{!53, !12, i64 48}
+!53 = !{!"packet_reader", !6, i64 0, !12, i64 8, !18, i64 16, !12, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !12, i64 48, !6, i64 56, !6, i64 60, !12, i64 64, !54, i64 72, !35, i64 80}
+!54 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
+!55 = !{!53, !6, i64 40}
+!56 = !{!53, !6, i64 0}
+!57 = distinct !{!57, !22}
+!58 = !{!59, !6, i64 0}
+!59 = !{!"unbundle_opts", !6, i64 0, !12, i64 8}
+!60 = !{!59, !12, i64 8}
+!61 = !{!35, !18, i64 8}
+!62 = !{!63, !65, i64 48}
+!63 = !{!"bundle_header", !6, i64 0, !64, i64 8, !64, i64 48, !54, i64 88, !66, i64 96}
+!64 = !{!"string_list", !65, i64 0, !18, i64 8, !18, i64 16, !6, i64 24, !11, i64 32}
+!65 = !{!"p1 _ZTS16string_list_item", !11, i64 0}
+!66 = !{!"list_objects_filter_options", !35, i64 0, !6, i64 24, !6, i64 28, !12, i64 32, !18, i64 40, !18, i64 48, !6, i64 56, !18, i64 64, !18, i64 72, !67, i64 80}
+!67 = !{!"p1 _ZTS27list_objects_filter_options", !11, i64 0}
+!68 = !{!63, !18, i64 56}
+!69 = !{!70, !11, i64 8}
+!70 = !{!"string_list_item", !12, i64 0, !11, i64 8}
+!71 = !{!70, !12, i64 0}
+!72 = !{!35, !18, i64 0}

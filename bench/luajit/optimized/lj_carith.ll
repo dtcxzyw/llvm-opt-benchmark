@@ -230,11 +230,11 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   br label %390
 
 .thread111.i.sink.split:                          ; preds = %94, %ctype_rawchild.exit.i, %86, %91
-  %.sink85 = phi ptr [ %93, %91 ], [ %88, %86 ], [ %.193.i, %ctype_rawchild.exit.i ], [ null, %94 ]
+  %.sink83 = phi ptr [ %93, %91 ], [ %88, %86 ], [ %.193.i, %ctype_rawchild.exit.i ], [ null, %94 ]
   %.sink = phi ptr [ null, %91 ], [ %.088124.i, %86 ], [ %.094.i, %ctype_rawchild.exit.i ], [ inttoptr (i64 1 to ptr), %94 ]
   %.5.i.ph = phi i32 [ %.089123.i, %91 ], [ %.089123.i, %86 ], [ %.089123.i, %ctype_rawchild.exit.i ], [ 0, %94 ]
   %123 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i
-  store ptr %.sink85, ptr %123, align 8, !tbaa !49
+  store ptr %.sink83, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
   br label %.thread111.i
 
@@ -752,7 +752,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   store i64 %389, ptr %386, align 8, !tbaa !36
   br label %lj_carith_meta.exit
 
-390:                                              ; preds = %switch.early.test, %switch.early.test, %carith_checkarg.exit, %carith_ptr.exit.thread, %carith_checkarg.exit.thread
+390:                                              ; preds = %carith_ptr.exit.thread, %carith_checkarg.exit.thread, %switch.early.test, %switch.early.test, %carith_checkarg.exit
   %391 = load ptr, ptr %16, align 8, !tbaa !34
   %392 = load i64, ptr %391, align 8, !tbaa !36
   %.mask.i27 = and i64 %392, -140737488355328

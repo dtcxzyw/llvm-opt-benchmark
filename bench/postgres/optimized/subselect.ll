@@ -1610,15 +1610,15 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   %27 = trunc i8 %.013.lcssa.i to i1
   %28 = load i32, ptr %25, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %27, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  br i1 %27, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %29, label %.lr.ph.split.us, label %.critedge.thread53
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %29, label %.lr.ph40, label %.critedge.thread
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv4655 = phi i64 [ %indvars.iv.next47, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph40:                                         ; preds = %.lr.ph.split.us.split, %.lr.ph40
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph40 ], [ 0, %.lr.ph.split.us.split ]
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv4655
+  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv48
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load double, ptr %33, align 8
@@ -1630,14 +1630,14 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   store double %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 33
   store i8 0, ptr %39, align 1
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv4655, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %40 = load i32, ptr %25, align 4
   %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next47, %41
-  br i1 %42, label %.lr.ph.split.us, label %.critedge.thread53
+  %42 = icmp slt i64 %indvars.iv.next49, %41
+  br i1 %42, label %.lr.ph40, label %.critedge.thread
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %29, label %.lr.ph38, label %.critedge.thread
+  br i1 %29, label %.lr.ph38, label %.critedge.thread56
 
 .lr.ph38:                                         ; preds = %.lr.ph.split.split, %.lr.ph38
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph38 ], [ 0, %.lr.ph.split.split ]
@@ -1656,36 +1656,36 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   %52 = load i32, ptr %25, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph38, label %.critedge.thread
+  br i1 %54, label %.lr.ph38, label %.critedge.thread56
 
 .critedge:                                        ; preds = %SS_compute_initplan_cost.exit
   %.pre = trunc nuw i8 %.013.lcssa.i to i1
-  br i1 %.pre, label %.critedge.thread53, label %.critedge.thread
+  br i1 %.pre, label %.critedge.thread, label %.critedge.thread56
 
-.critedge.thread53:                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph40, %.lr.ph.split.us.split, %.critedge
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 26
   store i8 0, ptr %56, align 2
   br label %.critedge31
 
-.critedge.thread:                                 ; preds = %.lr.ph38, %.lr.ph.split.split, %.critedge
+.critedge.thread56:                               ; preds = %.lr.ph38, %.lr.ph.split.split, %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.not28 = icmp eq ptr %58, null
-  br i1 %.not28, label %.critedge31, label %.lr.ph40
+  br i1 %.not28, label %.critedge31, label %.lr.ph42
 
-.lr.ph40:                                         ; preds = %.critedge.thread
+.lr.ph42:                                         ; preds = %.critedge.thread56
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load i32, ptr %59, align 4
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph43, label %.critedge31
+  br i1 %62, label %.lr.ph45, label %.critedge31
 
-.lr.ph43:                                         ; preds = %.lr.ph40, %.lr.ph43
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph43 ], [ 0, %.lr.ph40 ]
+.lr.ph45:                                         ; preds = %.lr.ph42, %.lr.ph45
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph45 ], [ 0, %.lr.ph42 ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv49
+  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv51
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load double, ptr %66, align 8
@@ -1695,13 +1695,13 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   %70 = load double, ptr %69, align 8
   %71 = fadd double %.0.lcssa.i, %70
   store double %71, ptr %69, align 8
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %72 = load i32, ptr %59, align 4
   %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next50, %73
-  br i1 %74, label %.lr.ph43, label %.critedge31
+  %74 = icmp slt i64 %indvars.iv.next52, %73
+  br i1 %74, label %.lr.ph45, label %.critedge31
 
-.critedge31:                                      ; preds = %.lr.ph43, %.critedge.thread, %.lr.ph40, %.critedge.thread53, %2
+.critedge31:                                      ; preds = %.lr.ph45, %.critedge.thread56, %.lr.ph42, %.critedge.thread, %2
   ret void
 }
 

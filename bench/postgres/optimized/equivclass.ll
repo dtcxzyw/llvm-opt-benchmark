@@ -5088,7 +5088,7 @@ define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.fr = freeze ptr %4
@@ -5100,76 +5100,73 @@ define dso_local noundef zeroext i1 @is_redundant_with_indexclauses(ptr noundef 
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not23 = icmp eq ptr %.fr, null
-  br i1 %.not23, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  %8 = icmp sgt i32 %6, 0
+  br i1 %.not23, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
-  %wide.trip.count58 = zext nneg i32 %smax to i64
-  %exitcond59.not.not65 = icmp slt i32 %6, 1
-  br i1 %exitcond59.not.not65, label %.critedge, label %.lr.ph67.preheader
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %8, label %.lr.ph54, label %.critedge
 
-.lr.ph67.preheader:                               ; preds = %.lr.ph.split.us.preheader
-  %8 = load ptr, ptr %7, align 8
-  br label %.lr.ph67
+.lr.ph54:                                         ; preds = %.lr.ph.split.us.split
+  %9 = load ptr, ptr %7, align 8
+  %wide.trip.count66 = zext nneg i32 %6 to i64
+  br label %10
 
-.lr.ph67:                                         ; preds = %.lr.ph67, %.lr.ph67.preheader
-  %indvars.iv5566 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next56, %.lr.ph67 ]
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv5566
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+10:                                               ; preds = %10, %.lr.ph54
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next64, %10 ]
+  %11 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv63
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
-  %15 = trunc nuw i8 %14 to i1
-  %16 = icmp ne ptr %0, %12
-  %or.cond.not = select i1 %15, i1 true, i1 %16
-  %or.cond.not.not = xor i1 %or.cond.not, true
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv5566, 1
-  %exitcond59.not.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  %or.cond = select i1 %or.cond.not.not, i1 true, i1 %exitcond59.not.not
-  br i1 %or.cond, label %.critedge.loopexit, label %.lr.ph67
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
+  %18 = icmp ne ptr %0, %14
+  %or.cond58.not = select i1 %17, i1 true, i1 %18
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp ne i64 %indvars.iv.next64, %wide.trip.count66
+  %or.cond.not = select i1 %or.cond58.not, i1 %exitcond67.not, i1 false
+  br i1 %or.cond.not, label %10, label %.critedge.loopexit
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  %17 = icmp sgt i32 %6, 0
-  br i1 %17, label %.lr.ph48, label %.critedge
+  br i1 %8, label %.lr.ph48, label %.critedge
 
 .lr.ph48:                                         ; preds = %.lr.ph.split.split
-  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %7, align 8
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %19
+  br label %20
 
-19:                                               ; preds = %.lr.ph48, %33
-  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %33 ]
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %33, label %27
+20:                                               ; preds = %.lr.ph48, %34
+  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %34 ]
+  %21 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %26 = load i8, ptr %25, align 8, !range !4, !noundef !5
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %34, label %28
 
-27:                                               ; preds = %19
-  %28 = icmp eq ptr %0, %23
-  br i1 %28, label %.critedge, label %29
+28:                                               ; preds = %20
+  %29 = icmp eq ptr %0, %24
+  br i1 %29, label %.critedge, label %30
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %.fr
-  br i1 %32, label %.critedge, label %33
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %.fr
+  br i1 %33, label %.critedge, label %34
 
-33:                                               ; preds = %29, %19
+34:                                               ; preds = %30, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %19
+  br i1 %exitcond.not, label %.critedge, label %20
 
-.critedge.loopexit:                               ; preds = %.lr.ph67
-  %.3.ph = xor i1 %or.cond.not, true
+.critedge.loopexit:                               ; preds = %10
+  %.3.ph = xor i1 %or.cond58.not, true
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %27, %29, %.critedge.loopexit, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %2
-  %.3 = phi i1 [ false, %2 ], [ false, %.lr.ph.split.split ], [ false, %.lr.ph.split.us.preheader ], [ %.3.ph, %.critedge.loopexit ], [ true, %29 ], [ true, %27 ], [ false, %33 ]
+.critedge:                                        ; preds = %34, %28, %30, %.critedge.loopexit, %.lr.ph.split.us.split, %.lr.ph.split.split, %2
+  %.3 = phi i1 [ false, %2 ], [ false, %.lr.ph.split.us.split ], [ false, %.lr.ph.split.split ], [ %.3.ph, %.critedge.loopexit ], [ true, %30 ], [ true, %28 ], [ false, %34 ]
   ret i1 %.3
 }
 
@@ -5218,9 +5215,6 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

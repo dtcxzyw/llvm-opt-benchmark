@@ -869,7 +869,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   store i32 %81, ptr %82, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %83, label %64, label %._crit_edge, !llvm.loop !94
+  br i1 %83, label %64, label %._crit_edge, !llvm.loop !93
 
 .preheader119:                                    ; preds = %._crit_edge124.us, %._crit_edge
   %84 = icmp sgt i32 %.pre, 0
@@ -908,7 +908,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   store double %100, ptr %101, align 8, !tbaa !39
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %.lr.ph129, label %89, !llvm.loop !95
+  br i1 %exitcond158.not, label %.lr.ph129, label %89, !llvm.loop !94
 
 .lr.ph129.split:                                  ; preds = %.lr.ph129.split.preheader, %.lr.ph129.split
   %indvars.iv159 = phi i64 [ 0, %.lr.ph129.split.preheader ], [ %indvars.iv.next160, %.lr.ph129.split ]
@@ -921,7 +921,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   store double %107, ptr %105, align 8, !tbaa !39
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.lr.ph133.preheader, label %.lr.ph129.split, !llvm.loop !96
+  br i1 %exitcond163.not, label %.lr.ph133.preheader, label %.lr.ph129.split, !llvm.loop !95
 
 .lr.ph133.preheader:                              ; preds = %.lr.ph129.split, %.lr.ph129
   %wide.trip.count167 = zext nneg i32 %.pre to i64
@@ -961,7 +961,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   %124 = fadd nsz double %.0109131, %123
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !97
+  br i1 %exitcond168.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !96
 
 ._crit_edge139:                                   ; preds = %._crit_edge134
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 160
@@ -991,7 +991,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   store double %140, ptr %138, align 8, !tbaa !39
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %.lr.ph142, label %135, !llvm.loop !98
+  br i1 %exitcond173.not, label %.lr.ph142, label %135, !llvm.loop !97
 
 ._crit_edge143:                                   ; preds = %set_meta.exit, %._crit_edge139
   %141 = fptrunc nsz double %110 to float
@@ -1059,11 +1059,11 @@ set_meta.exit:                                    ; preds = %165, %171
   %176 = load i32, ptr %27, align 8, !tbaa !31
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next175, %177
-  br i1 %178, label %149, label %._crit_edge143, !llvm.loop !99
+  br i1 %178, label %149, label %._crit_edge143, !llvm.loop !98
 
 .sink.split:                                      ; preds = %18, %._crit_edge143
   %179 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %180 = load ptr, ptr %179, align 8, !tbaa !100
+  %180 = load ptr, ptr %179, align 8, !tbaa !99
   %181 = load ptr, ptr %180, align 8, !tbaa !56
   %182 = load ptr, ptr %7, align 8, !tbaa !89
   %183 = call i32 @ff_filter_frame(ptr noundef %181, ptr noundef %182) #12
@@ -1227,12 +1227,11 @@ attributes #13 = { nounwind willreturn memory(read) }
 !89 = !{!90, !90, i64 0}
 !90 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
 !91 = distinct !{!91, !41}
-!92 = distinct !{!92, !41, !93}
-!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!92 = distinct !{!92, !41}
+!93 = distinct !{!93, !41}
 !94 = distinct !{!94, !41}
 !95 = distinct !{!95, !41}
 !96 = distinct !{!96, !41}
 !97 = distinct !{!97, !41}
 !98 = distinct !{!98, !41}
-!99 = distinct !{!99, !41}
-!100 = !{!5, !13, i64 56}
+!99 = !{!5, !13, i64 56}

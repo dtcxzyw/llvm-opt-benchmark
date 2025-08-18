@@ -780,7 +780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
   %.1.us = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us ], [ %.047.us, %.preheader.split.us ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.035.046.us, i64 32
   %.not.us = icmp eq ptr %34, %9
-  br i1 %.not.us, label %.split.us, label %.preheader.split.us, !llvm.loop !60
+  br i1 %.not.us, label %.split.us, label %.preheader.split.us
 
 _ZlsRSo23cmScriptGeneratorIndent.exit.loopexit.us: ; preds = %.noexc.us
   %35 = trunc nuw i8 %.047.us to i1
@@ -1337,7 +1337,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.073.083.i.i.i.i.i, i64 128
   %98 = add nsw i64 %.084.i.i.i.i.i, -1
   %99 = icmp sgt i64 %.084.i.i.i.i.i, 1
-  br i1 %99, label %33, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !62
+  br i1 %99, label %33, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !60
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %96
   %.pre.i.i.i.i.i = ptrtoint ptr %97 to i64
@@ -1711,6 +1711,4 @@ attributes #18 = { noreturn }
 !57 = !{i8 0, i8 2}
 !58 = !{}
 !59 = distinct !{!59, !31}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !31}
+!60 = distinct !{!60, !31}

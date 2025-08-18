@@ -5703,7 +5703,7 @@ define dso_local i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 nou
   call void @destroy_data_info(ptr noundef nonnull %34) #19
   %48 = call ptr @list_pop(ptr noundef nonnull %22) #19
   %.not36 = icmp eq ptr %48, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
+  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %47
   %.not37 = icmp eq ptr %.1, null
@@ -5961,6 +5961,4 @@ attributes #22 = { noreturn nounwind }
 !23 = distinct !{!23, !10}
 !24 = distinct !{!24, !9, !10}
 !25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !9, !10}
+!26 = distinct !{!26, !9, !10}

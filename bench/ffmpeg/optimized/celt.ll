@@ -575,7 +575,7 @@ opus_rc_tell_frac.exit664.us:                     ; preds = %113
   %111 = add nsw i32 %105, %.
   store i32 %111, ptr %81, align 4, !tbaa !33
   %112 = sub nsw i32 %.1533.us, %.
-  br label %.split.us, !llvm.loop !47
+  br label %.split.us
 
 113:                                              ; preds = %113, %.split.us
   %.0.i663724.us = phi i32 [ 0, %.split.us ], [ %120, %113 ]
@@ -666,7 +666,7 @@ opus_rc_tell_frac.exit664:                        ; preds = %134
   %158 = load i32, ptr %65, align 4, !tbaa !17
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next811, %159
-  br i1 %160, label %70, label %._crit_edge, !llvm.loop !49
+  br i1 %160, label %70, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.critedge, %61
   %.0532.lcssa = phi i32 [ %63, %61 ], [ %.us-phi, %.critedge ]
@@ -675,7 +675,7 @@ opus_rc_tell_frac.exit664:                        ; preds = %134
 
 161:                                              ; preds = %._crit_edge
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 33940
-  store i32 5, ptr %162, align 4, !tbaa !50
+  store i32 5, ptr %162, align 4, !tbaa !48
   br label %163
 
 163:                                              ; preds = %161, %._crit_edge
@@ -726,14 +726,14 @@ opus_rc_tell_frac.exit660:                        ; preds = %177
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 33940
-  %191 = load i32, ptr %190, align 4, !tbaa !50
+  %191 = load i32, ptr %190, align 4, !tbaa !48
   tail call void @ff_opus_rc_enc_cdf(ptr noundef nonnull %1, i32 noundef %191, ptr noundef nonnull @ff_celt_model_alloc_trim) #6
   br label %195
 
 192:                                              ; preds = %188
   %193 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef nonnull %1, ptr noundef nonnull @ff_celt_model_alloc_trim) #6
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 33940
-  store i32 %193, ptr %194, align 4, !tbaa !50
+  store i32 %193, ptr %194, align 4, !tbaa !48
   br label %195
 
 195:                                              ; preds = %189, %192, %opus_rc_tell_frac.exit660
@@ -782,7 +782,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 34040
   store i32 0, ptr %223, align 8, !tbaa !15
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 33924
-  %225 = load i32, ptr %224, align 4, !tbaa !51
+  %225 = load i32, ptr %224, align 4, !tbaa !49
   %.not611 = icmp eq i32 %225, 0
   br i1 %.not611, label %233, label %226
 
@@ -848,7 +848,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
 
 .lr.ph736:                                        ; preds = %249
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 33940
-  %252 = load i32, ptr %251, align 4, !tbaa !50
+  %252 = load i32, ptr %251, align 4, !tbaa !48
   %253 = add nsw i32 %252, -5
   %254 = load i32, ptr %38, align 4, !tbaa !20
   %255 = sub i32 %253, %254
@@ -894,7 +894,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   store i32 %spec.select708, ptr %277, align 4, !tbaa !33
   %indvars.iv.next816 = add nsw i64 %indvars.iv815, 1
   %exitcond818.not = icmp eq i64 %indvars.iv.next816, %wide.trip.count
-  br i1 %exitcond818.not, label %.preheader715, label %262, !llvm.loop !52
+  br i1 %exitcond818.not, label %.preheader715, label %262, !llvm.loop !50
 
 .backedge872:                                     ; preds = %.backedge872.backedge, %.preheader715
   %.0502748 = phi i32 [ 1, %.preheader715 ], [ %.0502748.be, %.backedge872.backedge ]
@@ -962,7 +962,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %.641.pn = phi i32 [ %.641, %309 ], [ %313, %312 ]
   %.1511 = add nsw i32 %.641.pn, %.0510741
   %.not633.not = icmp sgt i64 %indvars.iv.next820, %.pre-phi856
-  br i1 %.not633.not, label %286, label %._crit_edge745, !llvm.loop !53
+  br i1 %.not633.not, label %286, label %._crit_edge745, !llvm.loop !51
 
 ._crit_edge745:                                   ; preds = %314
   %315 = icmp sgt i32 %.1511, %.4536
@@ -976,7 +976,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
 .backedge872.backedge:                            ; preds = %._crit_edge745, %._crit_edge745.thread
   %.0502748.be = phi i32 [ %.1503, %._crit_edge745 ], [ %.1503860, %._crit_edge745.thread ]
   %.0506747.be = phi i32 [ %.1507, %._crit_edge745 ], [ %.1507859, %._crit_edge745.thread ]
-  br label %.backedge872, !llvm.loop !54
+  br label %.backedge872, !llvm.loop !52
 
 ._crit_edge745.thread:                            ; preds = %.backedge872
   %318 = add nsw i32 %282, -1
@@ -1082,7 +1082,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   store i32 %372, ptr %353, align 4, !tbaa !33
   %indvars.iv.next823 = add nsw i64 %indvars.iv822, 1
   %exitcond826.not = icmp eq i64 %indvars.iv.next823, %.pre-phi854
-  br i1 %exitcond826.not, label %.preheader714, label %328, !llvm.loop !55
+  br i1 %exitcond826.not, label %.preheader714, label %328, !llvm.loop !53
 
 .lr.ph771:                                        ; preds = %._crit_edge761
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 34348
@@ -1131,7 +1131,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %.646.pn = phi i32 [ %.646, %387 ], [ %391, %390 ]
   %.3513 = add nsw i32 %.646.pn, %.2512757
   %.not627.not = icmp sgt i64 %indvars.iv.next828, %.pre-phi856
-  br i1 %.not627.not, label %.lr.ph760, label %._crit_edge761, !llvm.loop !56
+  br i1 %.not627.not, label %.lr.ph760, label %._crit_edge761, !llvm.loop !54
 
 ._crit_edge761:                                   ; preds = %392
   %393 = icmp sgt i32 %.3513, %.4536
@@ -1145,7 +1145,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %.5765.be = phi i32 [ %394, %._crit_edge761 ], [ %395, %._crit_edge761.thread ]
   %.2504764.be = phi i32 [ %.2504., %._crit_edge761 ], [ %.2504.866, %._crit_edge761.thread ]
   %.2508763.be = phi i32 [ %..2508, %._crit_edge761 ], [ %..2508865, %._crit_edge761.thread ]
-  br label %.backedge, !llvm.loop !57
+  br label %.backedge, !llvm.loop !55
 
 ._crit_edge761.thread:                            ; preds = %.backedge
   %..2508865 = select i1 %327, i32 %375, i32 %.2508763
@@ -1192,7 +1192,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %416 = load i32, ptr %9, align 8, !tbaa !16
   %417 = sext i32 %416 to i64
   %.not615.not = icmp sgt i64 %indvars.iv.next832, %417
-  br i1 %.not615.not, label %396, label %._crit_edge772.loopexit, !llvm.loop !58
+  br i1 %.not615.not, label %396, label %._crit_edge772.loopexit, !llvm.loop !56
 
 ._crit_edge772.loopexit:                          ; preds = %411
   %.pre846 = load i32, ptr %65, align 4, !tbaa !17
@@ -1265,7 +1265,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   br i1 %.not609, label %465, label %461
 
 461:                                              ; preds = %460
-  %462 = load i32, ptr %423, align 4, !tbaa !59
+  %462 = load i32, ptr %423, align 4, !tbaa !57
   %463 = icmp sle i32 %storemerge774, %462
   %464 = zext i1 %463 to i32
   tail call void @ff_opus_rc_enc_log(ptr noundef %1, i32 noundef %464, i32 noundef 1) #6
@@ -1432,7 +1432,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %547 = load i32, ptr %419, align 16, !tbaa !32
   %548 = sext i32 %547 to i64
   %549 = icmp slt i64 %indvars.iv.next835, %548
-  br i1 %549, label %537, label %._crit_edge785, !llvm.loop !60
+  br i1 %549, label %537, label %._crit_edge785, !llvm.loop !58
 
 ._crit_edge785:                                   ; preds = %537
   %.pre849 = load i32, ptr %9, align 8, !tbaa !16
@@ -1600,7 +1600,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %656 = load i32, ptr %419, align 16, !tbaa !32
   %657 = sext i32 %656 to i64
   %658 = icmp slt i64 %indvars.iv.next838, %657
-  br i1 %658, label %556, label %._crit_edge791.loopexit, !llvm.loop !61
+  br i1 %658, label %556, label %._crit_edge791.loopexit, !llvm.loop !59
 
 ._crit_edge791.loopexit:                          ; preds = %655
   %659 = trunc nsw i64 %indvars.iv.next838 to i32
@@ -1641,7 +1641,7 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   %678 = load i32, ptr %65, align 4, !tbaa !17
   %679 = sext i32 %678 to i64
   %680 = icmp slt i64 %indvars.iv.next841, %679
-  br i1 %680, label %667, label %._crit_edge797, !llvm.loop !62
+  br i1 %680, label %667, label %._crit_edge797, !llvm.loop !60
 
 ._crit_edge797:                                   ; preds = %667, %._crit_edge791
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1739,19 +1739,17 @@ attributes #6 = { nounwind }
 !44 = !{!"CeltPVQ", !8, i64 0, !8, i64 1024, !7, i64 2048, !7, i64 2056}
 !45 = distinct !{!45, !29}
 !46 = distinct !{!46, !29}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !29}
-!50 = !{!5, !13, i64 33940}
-!51 = !{!5, !13, i64 33924}
+!47 = distinct !{!47, !29}
+!48 = !{!5, !13, i64 33940}
+!49 = !{!5, !13, i64 33924}
+!50 = distinct !{!50, !29}
+!51 = distinct !{!51, !29}
 !52 = distinct !{!52, !29}
 !53 = distinct !{!53, !29}
 !54 = distinct !{!54, !29}
 !55 = distinct !{!55, !29}
 !56 = distinct !{!56, !29}
-!57 = distinct !{!57, !29}
+!57 = !{!5, !13, i64 33932}
 !58 = distinct !{!58, !29}
-!59 = !{!5, !13, i64 33932}
+!59 = distinct !{!59, !29}
 !60 = distinct !{!60, !29}
-!61 = distinct !{!61, !29}
-!62 = distinct !{!62, !29}

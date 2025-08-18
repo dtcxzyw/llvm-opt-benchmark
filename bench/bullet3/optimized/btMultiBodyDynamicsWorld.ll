@@ -9181,7 +9181,7 @@ _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us: 
   %35 = phi i32 [ %34, %30 ], [ %28, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us ]
   %36 = icmp slt i32 %35, %15
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
-  br i1 %36, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !293
+  br i1 %36, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !292
 
 .preheader.split.us.us:                           ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us
   %37 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
@@ -9210,7 +9210,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36.us.us: ; preds = %47,
   %52 = phi i32 [ %51, %47 ], [ %45, %39 ]
   %53 = icmp slt i32 %15, %52
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  br i1 %53, label %39, label %.split54.us.us, !llvm.loop !294
+  br i1 %53, label %39, label %.split54.us.us, !llvm.loop !293
 
 .split54.us.us:                                   ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36.us.us
   %54 = trunc nsw i64 %indvars.iv81 to i32
@@ -9253,7 +9253,7 @@ _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit: ; pred
   %73 = phi i32 [ %72, %68 ], [ %66, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i ]
   %74 = icmp slt i32 %73, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %74, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !295
+  br i1 %74, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !292
 
 .preheader.split:                                 ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit
   %75 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
@@ -9282,7 +9282,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36: ; preds = %85, %77
   %90 = phi i32 [ %89, %85 ], [ %83, %77 ]
   %91 = icmp slt i32 %59, %90
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  br i1 %91, label %77, label %.split54, !llvm.loop !296
+  br i1 %91, label %77, label %.split54, !llvm.loop !293
 
 .split54:                                         ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36
   %92 = trunc nsw i64 %indvars.iv to i32
@@ -9302,7 +9302,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36: ; preds = %85, %77
   %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
   %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !297
+  br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !291
 
 .split66.us:                                      ; preds = %98, %22
   %.us-phi67 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
@@ -9370,7 +9370,7 @@ tailrecurse:                                      ; preds = %80, %4
   %37 = select i1 %36, i32 %35, i32 %31
   %38 = icmp slt i32 %37, %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %38, label %14, label %.preheader, !llvm.loop !298
+  br i1 %38, label %14, label %.preheader, !llvm.loop !294
 
 .preheader:                                       ; preds = %14
   %39 = sext i32 %.030 to i64
@@ -9403,7 +9403,7 @@ tailrecurse:                                      ; preds = %80, %4
   %63 = select i1 %62, i32 %61, i32 %57
   %64 = icmp slt i32 %63, %53
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  br i1 %64, label %40, label %65, !llvm.loop !299
+  br i1 %64, label %40, label %65, !llvm.loop !295
 
 65:                                               ; preds = %40
   %66 = trunc nsw i64 %indvars.iv to i32
@@ -9427,7 +9427,7 @@ tailrecurse:                                      ; preds = %80, %4
   %.232 = phi i32 [ %75, %68 ], [ %67, %65 ]
   %.2 = phi i32 [ %74, %68 ], [ %66, %65 ]
   %.not35 = icmp sgt i32 %.2, %.232
-  br i1 %.not35, label %77, label %12, !llvm.loop !300
+  br i1 %.not35, label %77, label %12, !llvm.loop !296
 
 77:                                               ; preds = %76
   %78 = icmp slt i32 %.tr37, %.232
@@ -9780,13 +9780,9 @@ attributes #22 = { builtin nounwind }
 !288 = distinct !{!288, !18}
 !289 = !{!87, !7, i64 96}
 !290 = distinct !{!290, !18}
-!291 = distinct !{!291, !18, !292}
-!292 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!293 = distinct !{!293, !18, !292}
-!294 = distinct !{!294, !18, !292}
+!291 = distinct !{!291, !18}
+!292 = distinct !{!292, !18}
+!293 = distinct !{!293, !18}
+!294 = distinct !{!294, !18}
 !295 = distinct !{!295, !18}
 !296 = distinct !{!296, !18}
-!297 = distinct !{!297, !18}
-!298 = distinct !{!298, !18}
-!299 = distinct !{!299, !18}
-!300 = distinct !{!300, !18}

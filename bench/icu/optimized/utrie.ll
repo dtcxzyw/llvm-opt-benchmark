@@ -1883,7 +1883,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %51 = add nsw i32 %.1182272.us.us, 1
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next322, 32
-  br i1 %exitcond324.not, label %.loopexit243.split.us.us, label %.preheader242.us, !llvm.loop !69
+  br i1 %exitcond324.not, label %.loopexit243.split.us.us, label %.preheader242.us, !llvm.loop !68
 
 .preheader240:                                    ; preds = %.loopexit243.split, %.loopexit243.split.us.us
   %.0340 = phi i32 [ %19, %.loopexit243.split.us.us ], [ 0, %.loopexit243.split ]
@@ -1986,7 +1986,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %81 = add nsw i32 %.1182272, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit243.split, label %.preheader242, !llvm.loop !70
+  br i1 %exitcond.not, label %.loopexit243.split, label %.preheader242, !llvm.loop !68
 
 .loopexit243.split:                               ; preds = %80, %61, %71
   %.4193 = phi i32 [ %.0189280, %61 ], [ %16, %71 ], [ %.3192, %80 ]
@@ -1995,7 +1995,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %.5 = phi i32 [ %.0160284, %61 ], [ %.1, %71 ], [ %.3, %80 ]
   %82 = add nsw i32 %.1164, 1
   %83 = icmp slt i32 %.2183, 65536
-  br i1 %83, label %.split, label %.preheader240, !llvm.loop !71
+  br i1 %83, label %.split, label %.preheader240, !llvm.loop !67
 
 84:                                               ; preds = %.preheader240, %.backedge
   %.6306 = phi i32 [ %.us-phi288, %.preheader240 ], [ %.6.be, %.backedge ]
@@ -2039,7 +2039,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %.0166.be = phi i32 [ %98, %97 ], [ %183, %.loopexit239 ]
   %.6.be = phi i32 [ %.7, %97 ], [ %.9, %.loopexit239 ]
   %100 = icmp slt i32 %.0166.be, 56320
-  br i1 %100, label %84, label %184, !llvm.loop !72
+  br i1 %100, label %84, label %184, !llvm.loop !69
 
 101:                                              ; preds = %84
   %102 = and i32 %.0166305, 31
@@ -2123,7 +2123,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %136 = trunc nuw i64 %indvars.iv336 to i32
   %137 = icmp sgt i32 %117, %136
-  br i1 %137, label %.preheader237.split.us, label %.loopexit239, !llvm.loop !73
+  br i1 %137, label %.preheader237.split.us, label %.loopexit239, !llvm.loop !70
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %146
   %indvars.iv332 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next333, %146 ]
@@ -2159,7 +2159,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %147 = add nuw nsw i32 %.6187290.us.us, 1
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond335.not = icmp eq i64 %indvars.iv.next333, 32
-  br i1 %exitcond335.not, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !74
+  br i1 %exitcond335.not, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !71
 
 148:                                              ; preds = %112
   %.not225 = icmp eq i32 %.5194302, %16
@@ -2258,7 +2258,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %180 = add nuw nsw i32 %.6187290, 1
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond328.not = icmp eq i64 %indvars.iv.next326, 32
-  br i1 %exitcond328.not, label %.loopexit.split, label %.preheader, !llvm.loop !75
+  br i1 %exitcond328.not, label %.loopexit.split, label %.preheader, !llvm.loop !71
 
 .loopexit.split:                                  ; preds = %179, %160, %170
   %.13202 = phi i32 [ %.9198, %160 ], [ %16, %170 ], [ %.12201, %179 ]
@@ -2268,7 +2268,7 @@ define void @utrie_enum_77(ptr noundef readonly captures(address_is_null) %0, pt
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %181 = trunc nuw i64 %indvars.iv329 to i32
   %182 = icmp sgt i32 %117, %181
-  br i1 %182, label %.preheader237.split, label %.loopexit239, !llvm.loop !76
+  br i1 %182, label %.preheader237.split, label %.loopexit239, !llvm.loop !70
 
 .loopexit239:                                     ; preds = %.loopexit.split, %.loopexit.split.us.us, %153
   %.8197 = phi i32 [ %16, %153 ], [ %.13202.us, %.loopexit.split.us.us ], [ %.13202, %.loopexit.split ]
@@ -2388,13 +2388,8 @@ attributes #14 = { allocsize(0) }
 !64 = distinct !{!64, !14}
 !65 = distinct !{!65, !14}
 !66 = distinct !{!66, !14}
-!67 = distinct !{!67, !14, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !14, !68}
+!67 = distinct !{!67, !14}
+!68 = distinct !{!68, !14}
+!69 = distinct !{!69, !14}
 !70 = distinct !{!70, !14}
 !71 = distinct !{!71, !14}
-!72 = distinct !{!72, !14}
-!73 = distinct !{!73, !14, !68}
-!74 = distinct !{!74, !14, !68}
-!75 = distinct !{!75, !14}
-!76 = distinct !{!76, !14}

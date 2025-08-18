@@ -208,7 +208,7 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
 
 48:                                               ; preds = %41
   %.not = icmp ugt ptr %42, %13
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %48, %.lr.ph.split.us, %35, %6, %4, %.split.us
   %.027 = phi i32 [ %47, %.split.us ], [ 0, %4 ], [ -1, %6 ], [ -1, %35 ], [ -1, %.lr.ph.split.us ], [ -1, %48 ], [ -1, %.lr.ph.split ]
@@ -276,7 +276,7 @@ _ZNK6Symbol16contains_utf8_atEiPKci.exit.i.i:     ; preds = %5
   store i8 %37, ptr %38, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %35, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %35, !llvm.loop !8
 
 _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %35, %14
   %.pre-phi.i.i = phi i64 [ 0, %14 ], [ %wide.trip.count.i.i, %35 ]
@@ -336,7 +336,7 @@ define hidden noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull readon
   store i8 %12, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK6Symbol11as_C_stringEPci.exit, label %10, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZNK6Symbol11as_C_stringEPci.exit, label %10, !llvm.loop !8
 
 _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %10, %1
   %.pre-phi.i = phi i64 [ 0, %1 ], [ %wide.trip.count.i, %10 ]
@@ -374,7 +374,7 @@ define hidden noundef ptr @_ZNK6Symbol11as_C_stringEPci(ptr noundef nonnull read
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %12, %5
   %.pre-phi = phi i64 [ 0, %5 ], [ %wide.trip.count, %12 ]
@@ -413,7 +413,7 @@ define hidden void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnu
   store i8 %13, ptr %14, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %11, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %11, !llvm.loop !8
 
 _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %11, %2
   %.pre-phi.i.i = phi i64 [ 0, %2 ], [ %wide.trip.count.i.i, %11 ]
@@ -573,7 +573,7 @@ define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef n
   store i8 %14, ptr %15, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK6Symbol11as_C_stringEPci.exit, label %12, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZNK6Symbol11as_C_stringEPci.exit, label %12, !llvm.loop !8
 
 _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %12, %5
   %.pre-phi.i = phi i64 [ 0, %5 ], [ %wide.trip.count.i, %12 ]
@@ -602,7 +602,7 @@ _ZNK6Symbol11as_C_stringEPci.exit:                ; preds = %12, %5
 24:                                               ; preds = %.lr.ph, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %_ZNK6Symbol11as_C_stringEPci.exit, %3
   ret ptr %1
@@ -636,7 +636,7 @@ define hidden noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef non
   store i8 %12, ptr %13, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %10, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZNK6Symbol11as_C_stringEv.exit, label %10, !llvm.loop !8
 
 _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %10, %1
   %.pre-phi.i.i = phi i64 [ 0, %1 ], [ %wide.trip.count.i.i, %10 ]
@@ -665,7 +665,7 @@ _ZNK6Symbol11as_C_stringEv.exit:                  ; preds = %10, %1
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %22, %_ZNK6Symbol11as_C_stringEv.exit
   ret ptr %6
@@ -742,7 +742,7 @@ define hidden void @_ZN6Symbol39print_as_signature_external_return_typeEP12outpu
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %40 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %40, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !13
+  br i1 %40, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
 41:                                               ; preds = %17
   %42 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %14) #17
@@ -753,7 +753,7 @@ _ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %1
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
   %43 = load i32, ptr %4, align 4
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %44, label %._crit_edge, label %10, !llvm.loop !12
 }
 
 declare void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i1 noundef zeroext) unnamed_addr #2
@@ -812,7 +812,7 @@ _ZN15SignatureStream17skip_array_prefixEv.exit:   ; preds = %2, %5
   tail call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %32 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %32, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !13
+  br i1 %32, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
 33:                                               ; preds = %_ZN15SignatureStream17skip_array_prefixEv.exit
   %34 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %7) #17
@@ -828,7 +828,7 @@ _ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %9
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.15) #17
   %36 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %36, %.0.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZL11print_classP12outputStreamRK15SignatureStream.exit
   ret void
@@ -909,7 +909,7 @@ define hidden void @_ZN6Symbol38print_as_signature_external_parametersEP12output
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %39 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %39, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !13
+  br i1 %39, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
 40:                                               ; preds = %16
   %41 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #17
@@ -922,7 +922,7 @@ _ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %1
   %43 = icmp slt i32 %42, 0
   %44 = icmp eq i32 %42, 3
   %or.cond = or i1 %43, %44
-  br i1 %or.cond, label %._crit_edge, label %11, !llvm.loop !16
+  br i1 %or.cond, label %._crit_edge, label %11, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL11print_classP12outputStreamRK15SignatureStream.exit, %2
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
@@ -982,7 +982,7 @@ define hidden void @_ZN6Symbol28print_as_field_external_typeEP12outputStream(ptr
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %33 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %33, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !13
+  br i1 %33, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
 34:                                               ; preds = %8
   %35 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %5) #17
@@ -1009,9 +1009,9 @@ define hidden noundef zeroext i1 @_ZN6Symbol22try_increment_refcountEv(ptr nound
 
 4:                                                ; preds = %3
   %5 = add i32 %.09, 1
-  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09, ptr nonnull %0) #17, !srcloc !17
+  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09, ptr nonnull %0) #17, !srcloc !15
   %7 = icmp eq i32 %6, %.09
-  br i1 %7, label %.loopexit.loopexit, label %3, !llvm.loop !18
+  br i1 %7, label %.loopexit.loopexit, label %3, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %3, %4
   br label %.loopexit
@@ -1036,9 +1036,9 @@ define hidden void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4
 
 4:                                                ; preds = %3
   %5 = add i32 %.09.i, 1
-  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09.i, ptr nonnull align 4 dereferenceable(8) %0) #17, !srcloc !17
+  %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.09.i, ptr nonnull align 4 dereferenceable(8) %0) #17, !srcloc !15
   %7 = icmp eq i32 %6, %.09.i
-  br i1 %7, label %9, label %3, !llvm.loop !18
+  br i1 %7, label %9, label %3, !llvm.loop !16
 
 _ZN6Symbol22try_increment_refcountEv.exit:        ; preds = %3
   tail call void @_ZNK6Symbol5printEv(ptr noundef nonnull align 4 dereferenceable(8) %0)
@@ -1088,9 +1088,9 @@ define hidden void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4
 
 6:                                                ; preds = %3
   %7 = add i32 %.0, -1
-  %8 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.0, ptr nonnull %0) #17, !srcloc !17
+  %8 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.0, ptr nonnull %0) #17, !srcloc !15
   %9 = icmp eq i32 %8, %.0
-  br i1 %9, label %10, label %3, !llvm.loop !19
+  br i1 %9, label %10, label %3, !llvm.loop !17
 
 10:                                               ; preds = %3, %6
   ret void
@@ -1118,9 +1118,9 @@ define hidden void @_ZN6Symbol14make_permanentEv(ptr noundef nonnull align 4 der
 
 6:                                                ; preds = %3
   %7 = or i32 %.0, 65535
-  %8 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.0, ptr nonnull %0) #17, !srcloc !17
+  %8 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, i32 %.0, ptr nonnull %0) #17, !srcloc !15
   %9 = icmp eq i32 %8, %.0
-  br i1 %9, label %10, label %3, !llvm.loop !20
+  br i1 %9, label %10, label %3, !llvm.loop !18
 
 10:                                               ; preds = %3, %6
   ret void
@@ -1392,18 +1392,16 @@ attributes #19 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!15 = !{i64 2145411161}
 !16 = distinct !{!16, !7}
-!17 = !{i64 2145411161}
+!17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}

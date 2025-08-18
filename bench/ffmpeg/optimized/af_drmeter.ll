@@ -413,8 +413,8 @@ update_stat.exit37.us:                            ; preds = %99, %87
 
 .loopexit:                                        ; preds = %._crit_edge.us, %31, %.lr.ph49, %76, %.preheader, %2
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !62
-  %133 = load ptr, ptr %132, align 8, !tbaa !63
+  %132 = load ptr, ptr %131, align 8, !tbaa !61
+  %133 = load ptr, ptr %132, align 8, !tbaa !62
   %134 = tail call i32 @ff_filter_frame(ptr noundef %133, ptr noundef %1) #5
   ret i32 %134
 }
@@ -438,11 +438,11 @@ declare i64 @llvm.lrint.i64.f32(float) #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !64
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %6 = load i32, ptr %5, align 4, !tbaa !66
+  %6 = load i32, ptr %5, align 4, !tbaa !65
   %7 = sext i32 %6 to i64
   %8 = tail call noalias ptr @av_calloc(i64 noundef %7, i64 noundef 262176) #5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -451,13 +451,13 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %5, align 4, !tbaa !66
+  %11 = load i32, ptr %5, align 4, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %11, ptr %12, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = load double, ptr %13, align 8, !tbaa !67
+  %14 = load double, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !68
+  %16 = load i32, ptr %15, align 8, !tbaa !67
   %17 = sitofp i32 %16 to double
   %18 = fmul nsz double %14, %17
   %19 = tail call i64 @llvm.lrint.i64.f64(double %18)
@@ -559,12 +559,11 @@ attributes #5 = { nounwind }
 !57 = !{!28, !28, i64 0}
 !58 = distinct !{!58, !34}
 !59 = distinct !{!59, !34}
-!60 = distinct !{!60, !34, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = !{!5, !13, i64 56}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!65 = !{!38, !39, i64 0}
-!66 = !{!38, !15, i64 76}
-!67 = !{!21, !24, i64 32}
-!68 = !{!38, !15, i64 64}
+!60 = distinct !{!60, !34}
+!61 = !{!5, !13, i64 56}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!64 = !{!38, !39, i64 0}
+!65 = !{!38, !15, i64 76}
+!66 = !{!21, !24, i64 32}
+!67 = !{!38, !15, i64 64}

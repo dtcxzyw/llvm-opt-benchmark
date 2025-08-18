@@ -5744,7 +5744,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !116
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %79 = load ptr, ptr %78, align 8, !tbaa !135
+  %79 = load ptr, ptr %78, align 8, !tbaa !134
   store float 1.000000e+00, ptr %77, align 4, !tbaa !75
   %80 = load i64, ptr %79, align 8, !tbaa !115
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 %80
@@ -5794,7 +5794,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !116
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %98 = load ptr, ptr %97, align 8, !tbaa !135
+  %98 = load ptr, ptr %97, align 8, !tbaa !134
   %99 = load float, ptr %96, align 4, !tbaa !75
   %100 = load i64, ptr %98, align 8, !tbaa !115
   %101 = shl i64 %100, 1
@@ -5806,7 +5806,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   %107 = fdiv float %106, %103
   %108 = sitofp i32 %1 to float
   %109 = load ptr, ptr %76, align 8, !tbaa !116
-  %110 = load ptr, ptr %78, align 8, !tbaa !135
+  %110 = load ptr, ptr %78, align 8, !tbaa !134
   store float %108, ptr %109, align 4, !tbaa !75
   %111 = load i64, ptr %110, align 8, !tbaa !115
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 %111
@@ -5854,7 +5854,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %126 = load ptr, ptr %95, align 8, !tbaa !116
-  %127 = load ptr, ptr %97, align 8, !tbaa !135
+  %127 = load ptr, ptr %97, align 8, !tbaa !134
   %128 = load float, ptr %126, align 4, !tbaa !75
   %129 = load i64, ptr %127, align 8, !tbaa !115
   %130 = shl i64 %129, 1
@@ -5865,7 +5865,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   %135 = load float, ptr %134, align 4, !tbaa !75
   %136 = fdiv float %135, %132
   %137 = load ptr, ptr %76, align 8, !tbaa !116
-  %138 = load ptr, ptr %78, align 8, !tbaa !135
+  %138 = load ptr, ptr %78, align 8, !tbaa !134
   store float 1.000000e+00, ptr %137, align 4, !tbaa !75
   %139 = sitofp i32 %2 to float
   %140 = load i64, ptr %138, align 8, !tbaa !115
@@ -5914,7 +5914,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %155 = load ptr, ptr %95, align 8, !tbaa !116
-  %156 = load ptr, ptr %97, align 8, !tbaa !135
+  %156 = load ptr, ptr %97, align 8, !tbaa !134
   %157 = load float, ptr %155, align 4, !tbaa !75
   %158 = load i64, ptr %156, align 8, !tbaa !115
   %159 = shl i64 %158, 1
@@ -5925,7 +5925,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   %164 = load float, ptr %163, align 4, !tbaa !75
   %165 = fdiv float %164, %161
   %166 = load ptr, ptr %76, align 8, !tbaa !116
-  %167 = load ptr, ptr %78, align 8, !tbaa !135
+  %167 = load ptr, ptr %78, align 8, !tbaa !134
   store float %108, ptr %166, align 4, !tbaa !75
   %168 = load i64, ptr %167, align 8, !tbaa !115
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 %168
@@ -5973,7 +5973,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %183 = load ptr, ptr %95, align 8, !tbaa !116
-  %184 = load ptr, ptr %97, align 8, !tbaa !135
+  %184 = load ptr, ptr %97, align 8, !tbaa !134
   %185 = load float, ptr %183, align 4, !tbaa !75
   %186 = load i64, ptr %184, align 8, !tbaa !115
   %187 = shl i64 %186, 1
@@ -6274,13 +6274,13 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   store ptr %1, ptr %0, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !136
+  %7 = load i32, ptr %6, align 4, !tbaa !135
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !135
+  %11 = load ptr, ptr %10, align 8, !tbaa !134
   %12 = zext nneg i32 %7 to i64
   %13 = getelementptr i64, ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
@@ -6398,7 +6398,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !136
+  %23 = load i32, ptr %22, align 4, !tbaa !135
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_IfEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -6524,7 +6524,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !136
+  %21 = load i32, ptr %20, align 4, !tbaa !135
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -6758,7 +6758,6 @@ attributes #25 = { nounwind willreturn memory(read) }
 !130 = distinct !{!130, !131, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
 !131 = distinct !{!131, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
 !132 = distinct !{!132, !118}
-!133 = distinct !{!133, !118, !134}
-!134 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!135 = !{!85, !90, i64 72}
-!136 = !{!85, !24, i64 4}
+!133 = distinct !{!133, !118}
+!134 = !{!85, !90, i64 72}
+!135 = !{!85, !24, i64 4}

@@ -706,7 +706,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrPush.exit.us
   %64 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.1122176) #14
   %65 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.1122176) #14
   %.not137 = icmp eq ptr %65, null
-  br i1 %.not137, label %._crit_edge179.thread, label %.loopexit161, !llvm.loop !78
+  br i1 %.not137, label %._crit_edge179.thread, label %.loopexit161, !llvm.loop !76
 
 ._crit_edge179.thread:                            ; preds = %.loopexit161
   %66 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
@@ -771,7 +771,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
 94:                                               ; preds = %72, %76
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count198
-  br i1 %exitcond199.not, label %.loopexit, label %72, !llvm.loop !79
+  br i1 %exitcond199.not, label %.loopexit, label %72, !llvm.loop !77
 
 .loopexit:                                        ; preds = %94, %._crit_edge179.thread, %._crit_edge179, %Vec_PtrPush.exit160
   %.val143 = load i32, ptr %4, align 4, !tbaa !20
@@ -801,7 +801,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   store ptr %102, ptr %105, align 8, !tbaa !40
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count204
-  br i1 %exitcond205.not, label %.critedge, label %100, !llvm.loop !80
+  br i1 %exitcond205.not, label %.critedge, label %100, !llvm.loop !78
 
 .critedge:                                        ; preds = %100, %.preheader
   store i32 %.val.fr, ptr %4, align 4, !tbaa !20
@@ -1012,6 +1012,42 @@ declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 56
+  %.val = load ptr, ptr %3, align 8, !tbaa !79
+  %4 = getelementptr i8, ptr %.val, i64 4
+  %.val.val = load i32, ptr %4, align 4, !tbaa !20
+  %5 = icmp sgt i32 %.val.val, 0
+  br i1 %5, label %.lr.ph, label %.critedge
+
+.lr.ph:                                           ; preds = %2
+  %6 = getelementptr i8, ptr %.val, i64 8
+  %.val9.val = load ptr, ptr %6, align 8, !tbaa !23
+  %wide.trip.count = zext nneg i32 %.val.val to i64
+  br label %7
+
+7:                                                ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = icmp eq ptr %9, %1
+  br i1 %10, label %.critedge.loopexit.split.loop.exit14, label %11
+
+11:                                               ; preds = %7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !80
+
+.critedge.loopexit.split.loop.exit14:             ; preds = %7
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge
+
+.critedge:                                        ; preds = %11, %.critedge.loopexit.split.loop.exit14, %2
+  %.08 = phi i32 [ -1, %2 ], [ %12, %.critedge.loopexit.split.loop.exit14 ], [ -1, %11 ]
+  ret i32 %.08
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCoId(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
+  %3 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %3, align 8, !tbaa !81
   %4 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %4, align 4, !tbaa !20
@@ -1045,42 +1081,6 @@ define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr noundef reado
   ret i32 %.08
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCoId(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #5 {
-  %3 = getelementptr i8, ptr %0, i64 48
-  %.val = load ptr, ptr %3, align 8, !tbaa !83
-  %4 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %4, align 4, !tbaa !20
-  %5 = icmp sgt i32 %.val.val, 0
-  br i1 %5, label %.lr.ph, label %.critedge
-
-.lr.ph:                                           ; preds = %2
-  %6 = getelementptr i8, ptr %.val, i64 8
-  %.val9.val = load ptr, ptr %6, align 8, !tbaa !23
-  %wide.trip.count = zext nneg i32 %.val.val to i64
-  br label %7
-
-7:                                                ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !40
-  %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.critedge.loopexit.split.loop.exit14, label %11
-
-11:                                               ; preds = %7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !84
-
-.critedge.loopexit.split.loop.exit14:             ; preds = %7
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.critedge
-
-.critedge:                                        ; preds = %11, %.critedge.loopexit.split.loop.exit14, %2
-  %.08 = phi i32 [ -1, %2 ], [ %12, %.critedge.loopexit.split.loop.exit14 ], [ -1, %11 ]
-  ret i32 %.08
-}
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
@@ -1095,9 +1095,9 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br i1 %.not, label %14, label %.preheader221
 
 .preheader221:                                    ; preds = %3
-  %10 = load ptr, ptr %4, align 8, !tbaa !85
+  %10 = load ptr, ptr %4, align 8, !tbaa !83
   %11 = getelementptr i8, ptr %10, i64 40
-  %.val190262 = load ptr, ptr %11, align 8, !tbaa !86
+  %.val190262 = load ptr, ptr %11, align 8, !tbaa !84
   %12 = getelementptr i8, ptr %.val190262, i64 4
   %.val190.val263 = load i32, ptr %12, align 4, !tbaa !20
   %13 = icmp sgt i32 %.val190.val263, 0
@@ -1141,12 +1141,12 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr null, ptr %36, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val190 = load ptr, ptr %11, align 8, !tbaa !86
+  %.val190 = load ptr, ptr %11, align 8, !tbaa !84
   %37 = getelementptr i8, ptr %.val190, i64 4
   %.val190.val = load i32, ptr %37, align 4, !tbaa !20
   %38 = sext i32 %.val190.val to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !87
+  br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader221
   %.val193273370 = phi ptr [ %.val190262, %.preheader221 ], [ %.val190, %.lr.ph ]
@@ -1177,7 +1177,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 48:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit219, label %.lr.ph.i, !llvm.loop !88
+  br i1 %exitcond.not.i, label %.loopexit219, label %.lr.ph.i, !llvm.loop !86
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %48 ]
@@ -1223,7 +1223,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %76 = ashr exact i64 %sext, 32
   %77 = getelementptr inbounds i8, ptr %44, i64 %76
   store i8 0, ptr %77, align 1, !tbaa !73
-  %78 = load ptr, ptr %4, align 8, !tbaa !85
+  %78 = load ptr, ptr %4, align 8, !tbaa !83
   %79 = call ptr @Abc_NtkFindNet(ptr noundef %78, ptr noundef nonnull %44) #14
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %100
@@ -1257,11 +1257,11 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 100:                                              ; preds = %69
-  %.val180 = load ptr, ptr %79, align 8, !tbaa !89
+  %.val180 = load ptr, ptr %79, align 8, !tbaa !87
   %101 = getelementptr i8, ptr %79, i64 32
-  %.val181 = load ptr, ptr %101, align 8, !tbaa !92
+  %.val181 = load ptr, ptr %101, align 8, !tbaa !90
   %102 = getelementptr i8, ptr %.val180, i64 32
-  %.val180.val = load ptr, ptr %102, align 8, !tbaa !93
+  %.val180.val = load ptr, ptr %102, align 8, !tbaa !91
   %.val181.val = load i32, ptr %.val181, align 4, !tbaa !67
   %103 = getelementptr i8, ptr %.val180.val, i64 8
   %.val180.val.val = load ptr, ptr %103, align 8, !tbaa !23
@@ -1278,9 +1278,9 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %110 = getelementptr inbounds i8, ptr %44, i64 %76
   %111 = trunc nuw nsw i64 %indvars.iv345 to i32
   store i8 61, ptr %110, align 1, !tbaa !73
-  %.pre = load ptr, ptr %4, align 8, !tbaa !85
+  %.pre = load ptr, ptr %4, align 8, !tbaa !83
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 40
-  %.val193273.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !86
+  %.val193273.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !84
   br label %.critedge2
 
 112:                                              ; preds = %100
@@ -1317,9 +1317,9 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 
 133:                                              ; preds = %112
   store ptr %71, ptr %113, align 8, !tbaa !73
-  %134 = load ptr, ptr %4, align 8, !tbaa !85
+  %134 = load ptr, ptr %4, align 8, !tbaa !83
   %135 = getelementptr i8, ptr %134, i64 40
-  %.val192 = load ptr, ptr %135, align 8, !tbaa !86
+  %.val192 = load ptr, ptr %135, align 8, !tbaa !84
   %136 = getelementptr i8, ptr %.val192, i64 4
   %.val192.val = load i32, ptr %136, align 4, !tbaa !20
   %137 = zext i32 %.val192.val to i64
@@ -1336,7 +1336,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val170 = load i32, ptr %41, align 4, !tbaa !20
   %143 = sext i32 %.val170 to i64
   %144 = icmp slt i64 %indvars.iv.next346, %143
-  br i1 %144, label %.lr.ph270, label %.critedge2, !llvm.loop !94
+  br i1 %144, label %.lr.ph270, label %.critedge2, !llvm.loop !92
 
 .critedge2:                                       ; preds = %142, %.preheader, %.critedge, %109, %139
   %.val193273 = phi ptr [ %.val192, %139 ], [ %.val193273.pre, %109 ], [ %.val193273370, %.critedge ], [ %.val193273370, %.preheader ], [ %.val192, %142 ]
@@ -1394,23 +1394,23 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 175:                                              ; preds = %.lr.ph277
-  %176 = load ptr, ptr %1, align 8, !tbaa !89
+  %176 = load ptr, ptr %1, align 8, !tbaa !87
   %177 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %176, ptr noundef nonnull %154) #14
   call void @Abc_ObjAddFanin(ptr noundef nonnull %1, ptr noundef %177) #14
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
-  %178 = load ptr, ptr %4, align 8, !tbaa !85
+  %178 = load ptr, ptr %4, align 8, !tbaa !83
   %179 = getelementptr i8, ptr %178, i64 40
-  %.val193 = load ptr, ptr %179, align 8, !tbaa !86
+  %.val193 = load ptr, ptr %179, align 8, !tbaa !84
   %180 = getelementptr i8, ptr %.val193, i64 4
   %.val193.val = load i32, ptr %180, align 4, !tbaa !20
   %181 = sext i32 %.val193.val to i64
   %182 = icmp slt i64 %indvars.iv.next349, %181
-  br i1 %182, label %.lr.ph277, label %.critedge4.preheader, !llvm.loop !95
+  br i1 %182, label %.lr.ph277, label %.critedge4.preheader, !llvm.loop !93
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge2, %.critedge4.preheader
   %.lcssa272383 = phi ptr [ %178, %.critedge4.preheader ], [ %145, %.critedge2 ], [ %178, %.critedge4 ]
   %183 = getelementptr i8, ptr %.lcssa272383, i64 48
-  %.val186285 = load ptr, ptr %183, align 8, !tbaa !83
+  %.val186285 = load ptr, ptr %183, align 8, !tbaa !81
   %184 = getelementptr i8, ptr %.val186285, i64 4
   %.val186.val286 = load i32, ptr %184, align 4, !tbaa !20
   %185 = icmp sgt i32 %.val186.val286, 0
@@ -1426,12 +1426,12 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 64
   store ptr null, ptr %189, align 8, !tbaa !73
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  %.val194 = load ptr, ptr %149, align 8, !tbaa !86
+  %.val194 = load ptr, ptr %149, align 8, !tbaa !84
   %190 = getelementptr i8, ptr %.val194, i64 4
   %.val194.val = load i32, ptr %190, align 4, !tbaa !20
   %191 = sext i32 %.val194.val to i64
   %192 = icmp slt i64 %indvars.iv.next352, %191
-  br i1 %192, label %.critedge4, label %.critedge6.preheader, !llvm.loop !96
+  br i1 %192, label %.critedge4, label %.critedge6.preheader, !llvm.loop !94
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %.val185295376 = phi ptr [ %.val186285, %.critedge6.preheader ], [ %.val186, %.critedge6 ]
@@ -1454,17 +1454,17 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 64
   store ptr null, ptr %199, align 8, !tbaa !73
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
-  %.val186 = load ptr, ptr %183, align 8, !tbaa !83
+  %.val186 = load ptr, ptr %183, align 8, !tbaa !81
   %200 = getelementptr i8, ptr %.val186, i64 4
   %.val186.val = load i32, ptr %200, align 4, !tbaa !20
   %201 = sext i32 %.val186.val to i64
   %202 = icmp slt i64 %indvars.iv.next355, %201
-  br i1 %202, label %.critedge6, label %.critedge8.preheader, !llvm.loop !97
+  br i1 %202, label %.critedge6, label %.critedge8.preheader, !llvm.loop !95
 
 .critedge10.preheader.loopexit:                   ; preds = %.critedge8
-  %.pre373 = load ptr, ptr %4, align 8, !tbaa !85
+  %.pre373 = load ptr, ptr %4, align 8, !tbaa !83
   %.phi.trans.insert374 = getelementptr i8, ptr %.pre373, i64 48
-  %.val185295.pre = load ptr, ptr %.phi.trans.insert374, align 8, !tbaa !83
+  %.val185295.pre = load ptr, ptr %.phi.trans.insert374, align 8, !tbaa !81
   br label %.critedge10.preheader
 
 .critedge10.preheader:                            ; preds = %.critedge10.preheader.loopexit, %.critedge8.preheader
@@ -1492,7 +1492,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 210:                                              ; preds = %.lr.ph.i206
   %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i207, 1
   %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i208, %wide.trip.count.i205
-  br i1 %exitcond.not.i209, label %.loopexit, label %.lr.ph.i206, !llvm.loop !88
+  br i1 %exitcond.not.i209, label %.loopexit, label %.lr.ph.i206, !llvm.loop !86
 
 .lr.ph.i206:                                      ; preds = %210, %.lr.ph.preheader.i204
   %indvars.iv.i207 = phi i64 [ 0, %.lr.ph.preheader.i204 ], [ %indvars.iv.next.i208, %210 ]
@@ -1538,7 +1538,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %238 = ashr exact i64 %sext167, 32
   %239 = getelementptr inbounds i8, ptr %206, i64 %238
   store i8 0, ptr %239, align 1, !tbaa !73
-  %240 = load ptr, ptr %4, align 8, !tbaa !85
+  %240 = load ptr, ptr %4, align 8, !tbaa !83
   %241 = call ptr @Abc_NtkFindNet(ptr noundef %240, ptr noundef nonnull %206) #14
   %242 = icmp eq ptr %241, null
   br i1 %242, label %243, label %262
@@ -1572,11 +1572,11 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 262:                                              ; preds = %231
-  %.val182 = load ptr, ptr %241, align 8, !tbaa !89
+  %.val182 = load ptr, ptr %241, align 8, !tbaa !87
   %263 = getelementptr i8, ptr %241, i64 48
-  %.val183 = load ptr, ptr %263, align 8, !tbaa !98
+  %.val183 = load ptr, ptr %263, align 8, !tbaa !96
   %264 = getelementptr i8, ptr %.val182, i64 32
-  %.val182.val = load ptr, ptr %264, align 8, !tbaa !93
+  %.val182.val = load ptr, ptr %264, align 8, !tbaa !91
   %.val183.val = load i32, ptr %.val183, align 4, !tbaa !67
   %265 = getelementptr i8, ptr %.val182.val, i64 8
   %.val182.val.val = load ptr, ptr %265, align 8, !tbaa !23
@@ -1620,7 +1620,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val169 = load i32, ptr %193, align 4, !tbaa !20
   %289 = sext i32 %.val169 to i64
   %290 = icmp slt i64 %indvars.iv.next358, %289
-  br i1 %290, label %.lr.ph292, label %.critedge10.preheader.loopexit, !llvm.loop !99
+  br i1 %290, label %.lr.ph292, label %.critedge10.preheader.loopexit, !llvm.loop !97
 
 .critedge12.preheader:                            ; preds = %.critedge10
   %291 = icmp sgt i32 %.val185.val, 0
@@ -1668,18 +1668,18 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 .critedge10:                                      ; preds = %.lr.ph299
-  %318 = load ptr, ptr %1, align 8, !tbaa !89
+  %318 = load ptr, ptr %1, align 8, !tbaa !87
   %319 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %318, ptr noundef nonnull %297) #14
   call void @Abc_ObjAddFanin(ptr noundef %319, ptr noundef nonnull %1) #14
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %320 = load ptr, ptr %4, align 8, !tbaa !85
+  %320 = load ptr, ptr %4, align 8, !tbaa !83
   %321 = getelementptr i8, ptr %320, i64 48
-  %.val185 = load ptr, ptr %321, align 8, !tbaa !83
+  %.val185 = load ptr, ptr %321, align 8, !tbaa !81
   %322 = getelementptr i8, ptr %.val185, i64 4
   %.val185.val = load i32, ptr %322, align 4, !tbaa !20
   %323 = sext i32 %.val185.val to i64
   %324 = icmp slt i64 %indvars.iv.next361, %323
-  br i1 %324, label %.lr.ph299, label %.critedge12.preheader, !llvm.loop !100
+  br i1 %324, label %.lr.ph299, label %.critedge12.preheader, !llvm.loop !98
 
 .critedge14.preheader:                            ; preds = %.critedge12, %.critedge10.preheader, %.critedge12.preheader
   %325 = load ptr, ptr %5, align 8, !tbaa !73
@@ -1698,12 +1698,12 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 64
   store ptr null, ptr %331, align 8, !tbaa !73
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %.val184 = load ptr, ptr %292, align 8, !tbaa !83
+  %.val184 = load ptr, ptr %292, align 8, !tbaa !81
   %332 = getelementptr i8, ptr %.val184, i64 4
   %.val184.val = load i32, ptr %332, align 4, !tbaa !20
   %333 = sext i32 %.val184.val to i64
   %334 = icmp slt i64 %indvars.iv.next364, %333
-  br i1 %334, label %.critedge12, label %.critedge14.preheader, !llvm.loop !101
+  br i1 %334, label %.critedge12, label %.critedge14.preheader, !llvm.loop !99
 
 .lr.ph308:                                        ; preds = %.critedge14.preheader, %.critedge14
   %335 = phi ptr [ %340, %.critedge14 ], [ %325, %.critedge14.preheader ]
@@ -1727,7 +1727,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val = load i32, ptr %341, align 4, !tbaa !20
   %342 = sext i32 %.val to i64
   %343 = icmp slt i64 %indvars.iv.next367, %342
-  br i1 %343, label %.lr.ph308, label %.critedge16, !llvm.loop !102
+  br i1 %343, label %.lr.ph308, label %.critedge16, !llvm.loop !100
 
 .critedge16:                                      ; preds = %.critedge14, %.critedge14.preheader
   %.lcssa = phi ptr [ %325, %.critedge14.preheader ], [ %340, %.critedge14 ]
@@ -1742,7 +1742,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge16, %346
   call void @free(ptr noundef nonnull %.lcssa) #14
-  %347 = load ptr, ptr %4, align 8, !tbaa !85
+  %347 = load ptr, ptr %4, align 8, !tbaa !83
   store ptr %347, ptr %5, align 8, !tbaa !73
   br label %Io_ReadBlifPrintErrorMessage.exit
 
@@ -1769,7 +1769,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr i8, ptr %5, i64 4
   %.val14 = load i32, ptr %6, align 4, !tbaa !20
   %7 = icmp sgt i32 %.val14, 0
@@ -1794,7 +1794,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, pt
   br i1 %.not11, label %._crit_edge, label %.loopexit
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = load ptr, ptr %4, align 8, !tbaa !103
+  %.pre = load ptr, ptr %4, align 8, !tbaa !101
   br label %16
 
 16:                                               ; preds = %._crit_edge, %.lr.ph
@@ -1804,7 +1804,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, pt
   %.val = load i32, ptr %18, align 4, !tbaa !20
   %19 = sext i32 %.val to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !104
+  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %16, %3
   tail call void @Abc_NtkFinalizeRead(ptr noundef nonnull %1) #14
@@ -1853,7 +1853,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly ca
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -1985,7 +1985,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %91 = load i32, ptr %32, align 4, !tbaa !20
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next96, %92
-  br i1 %93, label %.lr.ph81, label %.preheader73, !llvm.loop !106
+  br i1 %93, label %.lr.ph81, label %.preheader73, !llvm.loop !104
 
 .loopexit:                                        ; preds = %Vec_PtrPush.exit65, %119
   %94 = load ptr, ptr %25, align 8, !tbaa !17
@@ -2110,7 +2110,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %158 = load i32, ptr %100, align 4, !tbaa !20
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next99, %159
-  br i1 %160, label %.lr.ph84, label %.loopexit, !llvm.loop !107
+  br i1 %160, label %.lr.ph84, label %.loopexit, !llvm.loop !105
 
 .lr.ph88:                                         ; preds = %.preheader, %Vec_PtrPush.exit72
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %Vec_PtrPush.exit72 ], [ 0, %.preheader ]
@@ -2189,7 +2189,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   %197 = load i32, ptr %100, align 4, !tbaa !20
   %198 = sext i32 %197 to i64
   %199 = icmp slt i64 %indvars.iv.next102, %198
-  br i1 %199, label %.lr.ph88, label %.sink.split, !llvm.loop !108
+  br i1 %199, label %.lr.ph88, label %.sink.split, !llvm.loop !106
 
 .sink.split:                                      ; preds = %.loopexit, %Vec_PtrPush.exit72, %.preheader, %.preheader73
   %200 = load ptr, ptr %2, align 8, !tbaa !24
@@ -2217,7 +2217,7 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull initialize
   %11 = alloca ptr, align 8
   %12 = tail call ptr @Abc_NtkAlloc(i32 noundef 1, i32 noundef 1, i32 noundef 1) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %12, ptr %13, align 8, !tbaa !109
+  store ptr %12, ptr %13, align 8, !tbaa !107
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2279,12 +2279,12 @@ define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull initialize
 45:                                               ; preds = %41, %43
   %.1 = phi ptr [ %44, %43 ], [ %.094, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.095, i64 1
-  br label %41, !llvm.loop !110
+  br label %41, !llvm.loop !108
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %41
   %47 = tail call ptr @Extra_UtilStrsav(ptr noundef %.094) #14
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %47, ptr %48, align 8, !tbaa !111
+  store ptr %47, ptr %48, align 8, !tbaa !109
   br label %61
 
 49:                                               ; preds = %1
@@ -2303,7 +2303,7 @@ Io_ReadBlifPrintErrorMessage.exit:                ; preds = %41
   %59 = load ptr, ptr %58, align 8, !tbaa !40
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %52, i32 noundef %55, ptr noundef %59)
   tail call void @Abc_NtkDelete(ptr noundef %12) #14
-  store ptr null, ptr %13, align 8, !tbaa !109
+  store ptr null, ptr %13, align 8, !tbaa !107
   br label %Io_ReadBlifPrintErrorMessage.exit.thread
 
 61:                                               ; preds = %Io_ReadBlifPrintErrorMessage.exit, %49
@@ -2386,7 +2386,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %102, %99, %.critedg
   br i1 %.not110, label %108, label %556
 
 108:                                              ; preds = %Extra_ProgressBarUpdate.exit
-  %109 = load ptr, ptr %13, align 8, !tbaa !109
+  %109 = load ptr, ptr %13, align 8, !tbaa !107
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !20
   %112 = icmp slt i32 %111, 2
@@ -2416,7 +2416,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %102, %99, %.critedg
   %125 = add nsw i32 %111, -2
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
-  %128 = load ptr, ptr %127, align 8, !tbaa !112
+  %128 = load ptr, ptr %127, align 8, !tbaa !110
   %129 = tail call ptr @Io_ReadCreateNode(ptr noundef %109, ptr noundef %128, ptr noundef nonnull %124, i32 noundef %125) #14
   %130 = load ptr, ptr %88, align 8, !tbaa !29
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -2668,7 +2668,7 @@ Vec_StrPush.exit108.i:                            ; preds = %241, %Vec_StrGrow.e
   store i8 10, ptr %247, align 1, !tbaa !73
   %248 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not86.i = icmp eq ptr %248, null
-  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !113
+  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph167.i, !llvm.loop !111
 
 .lr.ph.i:                                         ; preds = %.preheader160.i, %Vec_StrPush.exit130.i
   %249 = phi ptr [ %412, %Vec_StrPush.exit130.i ], [ %134, %.preheader160.i ]
@@ -2784,7 +2784,7 @@ Vec_StrPush.exit.i.i:                             ; preds = %297, %Vec_StrGrow.e
   store i8 %276, ptr %303, align 1, !tbaa !73
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.loopexit.i, label %274, !llvm.loop !114
+  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.loopexit.i, label %274, !llvm.loop !112
 
 Vec_StrPrintStr.exit.loopexit.i:                  ; preds = %Vec_StrPush.exit.i.i
   %.pre.i = load ptr, ptr %250, align 8, !tbaa !23
@@ -3022,7 +3022,7 @@ Vec_StrPush.exit130.i:                            ; preds = %405, %Vec_StrGrow.e
   store i8 10, ptr %411, align 1, !tbaa !73
   %412 = tail call fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull %0)
   %.not.i130 = icmp eq ptr %412, null
-  br i1 %.not.i130, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !115
+  br i1 %.not.i130, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !113
 
 .loopexit.i:                                      ; preds = %Vec_StrPush.exit130.i, %.lr.ph.i, %Vec_StrPush.exit108.i, %.lr.ph167.i, %.preheader.i, %.preheader160.i
   %.080.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader160.i ], [ null, %Vec_StrPush.exit108.i ], [ %135, %.lr.ph167.i ], [ null, %Vec_StrPush.exit130.i ], [ %249, %.lr.ph.i ]
@@ -3272,7 +3272,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
   %526 = getelementptr inbounds i8, ptr %522, i64 %525
   store i8 0, ptr %526, align 1, !tbaa !73
   %527 = getelementptr inbounds nuw i8, ptr %109, i64 256
-  %528 = load ptr, ptr %527, align 8, !tbaa !116
+  %528 = load ptr, ptr %527, align 8, !tbaa !114
   %529 = load ptr, ptr %88, align 8, !tbaa !29
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %531 = load ptr, ptr %530, align 8, !tbaa !28
@@ -3280,7 +3280,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
   %533 = getelementptr inbounds nuw i8, ptr %129, i64 56
   store ptr %532, ptr %533, align 8, !tbaa !73
   %534 = getelementptr i8, ptr %129, i64 28
-  %.val.i = load i32, ptr %534, align 4, !tbaa !117
+  %.val.i = load i32, ptr %534, align 4, !tbaa !115
   %535 = tail call i32 @Abc_SopGetVarNum(ptr noundef %532) #14
   %.not88.i = icmp eq i32 %.val.i, %535
   br i1 %.not88.i, label %Io_ReadBlifNetworkNames.exit.thread, label %536
@@ -3289,12 +3289,12 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
   %537 = load ptr, ptr %72, align 8, !tbaa !17
   %538 = tail call i32 @Extra_FileReaderGetLineNumber(ptr noundef %537, i32 noundef 0) #14
   store i32 %538, ptr %75, align 8, !tbaa !41
-  %.val89.i = load i32, ptr %534, align 4, !tbaa !117
-  %.val92.i = load ptr, ptr %129, align 8, !tbaa !89
+  %.val89.i = load i32, ptr %534, align 4, !tbaa !115
+  %.val92.i = load ptr, ptr %129, align 8, !tbaa !87
   %539 = getelementptr i8, ptr %129, i64 48
-  %.val93.i = load ptr, ptr %539, align 8, !tbaa !98
+  %.val93.i = load ptr, ptr %539, align 8, !tbaa !96
   %540 = getelementptr i8, ptr %.val92.i, i64 32
-  %.val92.val.i = load ptr, ptr %540, align 8, !tbaa !93
+  %.val92.val.i = load ptr, ptr %540, align 8, !tbaa !91
   %.val93.val.i = load i32, ptr %.val93.i, align 4, !tbaa !67
   %541 = getelementptr i8, ptr %.val92.val.i, i64 8
   %.val92.val.val.i = load ptr, ptr %541, align 8, !tbaa !23
@@ -3406,7 +3406,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
   br label %Io_ReadBlifNetworkNames.exit
 
 606:                                              ; preds = %585
-  %607 = load ptr, ptr %13, align 8, !tbaa !109
+  %607 = load ptr, ptr %13, align 8, !tbaa !107
   %608 = getelementptr i8, ptr %607, i64 124
   %.val.i131 = load i32, ptr %608, align 4, !tbaa !67
   %609 = icmp eq i32 %.val.i131, 0
@@ -3414,13 +3414,13 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
 
 610:                                              ; preds = %606
   %611 = getelementptr inbounds nuw i8, ptr %607, i64 4
-  store i32 4, ptr %611, align 4, !tbaa !118
+  store i32 4, ptr %611, align 4, !tbaa !116
   %612 = getelementptr inbounds nuw i8, ptr %607, i64 256
-  %613 = load ptr, ptr %612, align 8, !tbaa !116
+  %613 = load ptr, ptr %612, align 8, !tbaa !114
   tail call void @Mem_FlexStop(ptr noundef %613, i32 noundef 0) #14
-  %614 = load ptr, ptr %13, align 8, !tbaa !109
+  %614 = load ptr, ptr %13, align 8, !tbaa !107
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 256
-  store ptr %559, ptr %615, align 8, !tbaa !116
+  store ptr %559, ptr %615, align 8, !tbaa !114
   br label %616
 
 616:                                              ; preds = %610, %606
@@ -3465,7 +3465,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
 636:                                              ; preds = %Io_ReadBlifCleanName.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i135, !llvm.loop !119
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i135, !llvm.loop !117
 
 .lr.ph.i135:                                      ; preds = %636, %.lr.ph.preheader.i
   %637 = phi ptr [ %.pre.i134, %.lr.ph.preheader.i ], [ %650, %636 ]
@@ -3484,7 +3484,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
 643:                                              ; preds = %.lr.ph.i.i137
   %indvars.iv.next.i.i139 = add nuw nsw i64 %indvars.iv.i.i138, 1
   %exitcond.not.i.i140 = icmp eq i64 %indvars.iv.next.i.i139, %wide.trip.count.i.i136
-  br i1 %exitcond.not.i.i140, label %Io_ReadBlifCleanName.exit.i, label %.lr.ph.i.i137, !llvm.loop !88
+  br i1 %exitcond.not.i.i140, label %Io_ReadBlifCleanName.exit.i, label %.lr.ph.i.i137, !llvm.loop !86
 
 .lr.ph.i.i137:                                    ; preds = %643, %.lr.ph.preheader.i.i
   %indvars.iv.i.i138 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i139, %643 ]
@@ -3536,10 +3536,10 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
 
 669:                                              ; preds = %._crit_edge.i
   %670 = add nsw i32 %666, -3
-  %671 = load ptr, ptr %13, align 8, !tbaa !109
+  %671 = load ptr, ptr %13, align 8, !tbaa !107
   %672 = sext i32 %670 to i64
   %673 = getelementptr inbounds ptr, ptr %668, i64 %672
-  %674 = load ptr, ptr %673, align 8, !tbaa !112
+  %674 = load ptr, ptr %673, align 8, !tbaa !110
   %675 = tail call ptr @Io_ReadCreateNode(ptr noundef %671, ptr noundef %674, ptr noundef nonnull %668, i32 noundef %670) #14
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 56
   store ptr %589, ptr %676, align 8, !tbaa !73
@@ -3549,12 +3549,12 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   %678 = add nsw i32 %666, -4
   %679 = sext i32 %678 to i64
   %680 = getelementptr inbounds ptr, ptr %668, i64 %679
-  %681 = load ptr, ptr %680, align 8, !tbaa !112
+  %681 = load ptr, ptr %680, align 8, !tbaa !110
   %.not79.i = icmp eq ptr %681, null
   br i1 %.not79.i, label %686, label %682
 
 682:                                              ; preds = %677
-  %683 = load ptr, ptr %13, align 8, !tbaa !109
+  %683 = load ptr, ptr %13, align 8, !tbaa !107
   %684 = tail call ptr @Io_ReadCreateNode(ptr noundef %683, ptr noundef nonnull %681, ptr noundef nonnull %668, i32 noundef %678) #14
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 56
   store ptr %589, ptr %685, align 8, !tbaa !73
@@ -3564,12 +3564,12 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   %687 = sext i32 %666 to i64
   %688 = getelementptr ptr, ptr %668, i64 %687
   %689 = getelementptr i8, ptr %688, i64 -24
-  %690 = load ptr, ptr %689, align 8, !tbaa !112
+  %690 = load ptr, ptr %689, align 8, !tbaa !110
   %.not80.i = icmp eq ptr %690, null
   br i1 %.not80.i, label %Io_ReadBlifNetworkNames.exit, label %691
 
 691:                                              ; preds = %686
-  %692 = load ptr, ptr %13, align 8, !tbaa !109
+  %692 = load ptr, ptr %13, align 8, !tbaa !107
   %693 = tail call ptr @Io_ReadCreateNode(ptr noundef %692, ptr noundef nonnull %690, ptr noundef nonnull %668, i32 noundef %678) #14
   %694 = tail call ptr @Mio_GateReadTwin(ptr noundef nonnull %589) #14
   %695 = getelementptr inbounds nuw i8, ptr %693, i64 56
@@ -3607,7 +3607,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   br label %Io_ReadBlifNetworkNames.exit
 
 712:                                              ; preds = %698
-  %713 = load ptr, ptr %13, align 8, !tbaa !109
+  %713 = load ptr, ptr %13, align 8, !tbaa !107
   %714 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %715 = load ptr, ptr %714, align 8, !tbaa !40
   %716 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -3692,7 +3692,7 @@ default.unreachable.i:                            ; preds = %746
 
 .lr.ph.i143:                                      ; preds = %753, %.lr.ph.i143
   %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i145, %.lr.ph.i143 ], [ 1, %753 ]
-  %757 = load ptr, ptr %13, align 8, !tbaa !109
+  %757 = load ptr, ptr %13, align 8, !tbaa !107
   %758 = load ptr, ptr %104, align 8, !tbaa !23
   %759 = getelementptr inbounds nuw ptr, ptr %758, i64 %indvars.iv.i144
   %760 = load ptr, ptr %759, align 8, !tbaa !40
@@ -3701,7 +3701,7 @@ default.unreachable.i:                            ; preds = %746
   %762 = load i32, ptr %754, align 4, !tbaa !20
   %763 = sext i32 %762 to i64
   %764 = icmp slt i64 %indvars.iv.next.i145, %763
-  br i1 %764, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !120
+  br i1 %764, label %.lr.ph.i143, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !118
 
 765:                                              ; preds = %751
   %766 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(9) @.str.18) #16
@@ -3716,7 +3716,7 @@ default.unreachable.i:                            ; preds = %746
 
 .lr.ph.i147:                                      ; preds = %767, %.lr.ph.i147
   %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i149, %.lr.ph.i147 ], [ 1, %767 ]
-  %771 = load ptr, ptr %13, align 8, !tbaa !109
+  %771 = load ptr, ptr %13, align 8, !tbaa !107
   %772 = load ptr, ptr %104, align 8, !tbaa !23
   %773 = getelementptr inbounds nuw ptr, ptr %772, i64 %indvars.iv.i148
   %774 = load ptr, ptr %773, align 8, !tbaa !40
@@ -3725,7 +3725,7 @@ default.unreachable.i:                            ; preds = %746
   %776 = load i32, ptr %768, align 4, !tbaa !20
   %777 = sext i32 %776 to i64
   %778 = icmp slt i64 %indvars.iv.next.i149, %777
-  br i1 %778, label %.lr.ph.i147, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !121
+  br i1 %778, label %.lr.ph.i147, label %Io_ReadBlifNetworkNames.exit, !llvm.loop !119
 
 779:                                              ; preds = %765
   %780 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(15) @.str.19) #16
@@ -3760,7 +3760,7 @@ default.unreachable.i:                            ; preds = %746
   br label %Io_ReadBlifNetworkInputArrival.exit
 
 794:                                              ; preds = %781
-  %795 = load ptr, ptr %13, align 8, !tbaa !109
+  %795 = load ptr, ptr %13, align 8, !tbaa !107
   %796 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %797 = load ptr, ptr %796, align 8, !tbaa !40
   %798 = tail call ptr @Abc_NtkFindNet(ptr noundef %795, ptr noundef %797) #14
@@ -3799,13 +3799,13 @@ default.unreachable.i:                            ; preds = %746
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
   %822 = load ptr, ptr %821, align 8, !tbaa !40
   %823 = call double @strtod(ptr noundef %822, ptr noundef nonnull %11) #14
-  %824 = load ptr, ptr %10, align 8, !tbaa !112
+  %824 = load ptr, ptr %10, align 8, !tbaa !110
   %825 = load i8, ptr %824, align 1, !tbaa !73
   %.not33.i = icmp eq i8 %825, 0
   br i1 %.not33.i, label %826, label %829
 
 826:                                              ; preds = %815
-  %827 = load ptr, ptr %11, align 8, !tbaa !112
+  %827 = load ptr, ptr %11, align 8, !tbaa !110
   %828 = load i8, ptr %827, align 1, !tbaa !73
   %.not34.i = icmp eq i8 %828, 0
   br i1 %.not34.i, label %846, label %829
@@ -3837,17 +3837,17 @@ default.unreachable.i:                            ; preds = %746
 
 846:                                              ; preds = %826
   %847 = getelementptr i8, ptr %798, i64 28
-  %.val.i152 = load i32, ptr %847, align 4, !tbaa !117
+  %.val.i152 = load i32, ptr %847, align 4, !tbaa !115
   %848 = icmp sgt i32 %.val.i152, 0
   br i1 %848, label %849, label %Io_ReadBlifNetworkInputArrival.exit
 
 849:                                              ; preds = %846
-  %850 = load ptr, ptr %13, align 8, !tbaa !109
-  %.val37.i = load ptr, ptr %798, align 8, !tbaa !89
+  %850 = load ptr, ptr %13, align 8, !tbaa !107
+  %.val37.i = load ptr, ptr %798, align 8, !tbaa !87
   %851 = getelementptr i8, ptr %798, i64 32
-  %.val38.i = load ptr, ptr %851, align 8, !tbaa !92
+  %.val38.i = load ptr, ptr %851, align 8, !tbaa !90
   %852 = getelementptr i8, ptr %.val37.i, i64 32
-  %.val37.val.i = load ptr, ptr %852, align 8, !tbaa !93
+  %.val37.val.i = load ptr, ptr %852, align 8, !tbaa !91
   %.val38.val.i = load i32, ptr %.val38.i, align 4, !tbaa !67
   %853 = getelementptr i8, ptr %.val37.val.i, i64 8
   %.val37.val.val.i = load ptr, ptr %853, align 8, !tbaa !23
@@ -3855,15 +3855,15 @@ default.unreachable.i:                            ; preds = %746
   %855 = getelementptr inbounds ptr, ptr %.val37.val.val.i, i64 %854
   %856 = load ptr, ptr %855, align 8, !tbaa !40
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 16
-  %858 = load i32, ptr %857, align 8, !tbaa !122
+  %858 = load i32, ptr %857, align 8, !tbaa !120
   %859 = fptrunc double %819 to float
   %860 = fptrunc double %823 to float
   tail call void @Abc_NtkTimeSetArrival(ptr noundef %850, i32 noundef %858, float noundef %859, float noundef %860) #14
   %861 = load ptr, ptr %87, align 8, !tbaa !35
-  %.val35.i = load ptr, ptr %798, align 8, !tbaa !89
-  %.val36.i = load ptr, ptr %851, align 8, !tbaa !92
+  %.val35.i = load ptr, ptr %798, align 8, !tbaa !87
+  %.val36.i = load ptr, ptr %851, align 8, !tbaa !90
   %862 = getelementptr i8, ptr %.val35.i, i64 32
-  %.val35.val.i = load ptr, ptr %862, align 8, !tbaa !93
+  %.val35.val.i = load ptr, ptr %862, align 8, !tbaa !91
   %.val36.val.i = load i32, ptr %.val36.i, align 4, !tbaa !67
   %863 = getelementptr i8, ptr %.val35.val.i, i64 8
   %.val35.val.val.i = load ptr, ptr %863, align 8, !tbaa !23
@@ -3871,7 +3871,7 @@ default.unreachable.i:                            ; preds = %746
   %865 = getelementptr inbounds ptr, ptr %.val35.val.val.i, i64 %864
   %866 = load ptr, ptr %865, align 8, !tbaa !40
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 16
-  %868 = load i32, ptr %867, align 8, !tbaa !122
+  %868 = load i32, ptr %867, align 8, !tbaa !120
   %869 = getelementptr inbounds nuw i8, ptr %861, i64 4
   %870 = load i32, ptr %869, align 4, !tbaa !30
   %871 = load i32, ptr %861, align 8, !tbaa !33
@@ -4113,7 +4113,7 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   br label %Io_ReadBlifNetworkOutputRequired.exit
 
 979:                                              ; preds = %966
-  %980 = load ptr, ptr %13, align 8, !tbaa !109
+  %980 = load ptr, ptr %13, align 8, !tbaa !107
   %981 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %982 = load ptr, ptr %981, align 8, !tbaa !40
   %983 = tail call ptr @Abc_NtkFindNet(ptr noundef %980, ptr noundef %982) #14
@@ -4152,13 +4152,13 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   %1007 = load ptr, ptr %1006, align 8, !tbaa !40
   %1008 = call double @strtod(ptr noundef %1007, ptr noundef nonnull %9) #14
-  %1009 = load ptr, ptr %8, align 8, !tbaa !112
+  %1009 = load ptr, ptr %8, align 8, !tbaa !110
   %1010 = load i8, ptr %1009, align 1, !tbaa !73
   %.not32.i = icmp eq i8 %1010, 0
   br i1 %.not32.i, label %1011, label %1014
 
 1011:                                             ; preds = %1000
-  %1012 = load ptr, ptr %9, align 8, !tbaa !112
+  %1012 = load ptr, ptr %9, align 8, !tbaa !110
   %1013 = load i8, ptr %1012, align 1, !tbaa !73
   %.not33.i159 = icmp eq i8 %1013, 0
   br i1 %.not33.i159, label %1031, label %1014
@@ -4189,12 +4189,12 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   br label %Io_ReadBlifNetworkOutputRequired.exit
 
 1031:                                             ; preds = %1011
-  %1032 = load ptr, ptr %13, align 8, !tbaa !109
-  %.val35.i160 = load ptr, ptr %983, align 8, !tbaa !89
+  %1032 = load ptr, ptr %13, align 8, !tbaa !107
+  %.val35.i160 = load ptr, ptr %983, align 8, !tbaa !87
   %1033 = getelementptr i8, ptr %983, i64 48
-  %.val36.i161 = load ptr, ptr %1033, align 8, !tbaa !98
+  %.val36.i161 = load ptr, ptr %1033, align 8, !tbaa !96
   %1034 = getelementptr i8, ptr %.val35.i160, i64 32
-  %.val35.val.i162 = load ptr, ptr %1034, align 8, !tbaa !93
+  %.val35.val.i162 = load ptr, ptr %1034, align 8, !tbaa !91
   %.val36.val.i163 = load i32, ptr %.val36.i161, align 4, !tbaa !67
   %1035 = getelementptr i8, ptr %.val35.val.i162, i64 8
   %.val35.val.val.i164 = load ptr, ptr %1035, align 8, !tbaa !23
@@ -4202,15 +4202,15 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   %1037 = getelementptr inbounds ptr, ptr %.val35.val.val.i164, i64 %1036
   %1038 = load ptr, ptr %1037, align 8, !tbaa !40
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 16
-  %1040 = load i32, ptr %1039, align 8, !tbaa !122
+  %1040 = load i32, ptr %1039, align 8, !tbaa !120
   %1041 = fptrunc double %1004 to float
   %1042 = fptrunc double %1008 to float
   tail call void @Abc_NtkTimeSetRequired(ptr noundef %1032, i32 noundef %1040, float noundef %1041, float noundef %1042) #14
   %1043 = load ptr, ptr %86, align 8, !tbaa !36
-  %.val.i165 = load ptr, ptr %983, align 8, !tbaa !89
-  %.val34.i = load ptr, ptr %1033, align 8, !tbaa !98
+  %.val.i165 = load ptr, ptr %983, align 8, !tbaa !87
+  %.val34.i = load ptr, ptr %1033, align 8, !tbaa !96
   %1044 = getelementptr i8, ptr %.val.i165, i64 32
-  %.val.val.i = load ptr, ptr %1044, align 8, !tbaa !93
+  %.val.val.i = load ptr, ptr %1044, align 8, !tbaa !91
   %.val34.val.i = load i32, ptr %.val34.i, align 4, !tbaa !67
   %1045 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %1045, align 8, !tbaa !23
@@ -4218,7 +4218,7 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   %1047 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %1046
   %1048 = load ptr, ptr %1047, align 8, !tbaa !40
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 16
-  %1050 = load i32, ptr %1049, align 8, !tbaa !122
+  %1050 = load i32, ptr %1049, align 8, !tbaa !120
   %1051 = getelementptr inbounds nuw i8, ptr %1043, i64 4
   %1052 = load i32, ptr %1051, align 4, !tbaa !30
   %1053 = load i32, ptr %1043, align 8, !tbaa !33
@@ -4467,13 +4467,13 @@ Io_ReadBlifNetworkOutputRequired.exit:            ; preds = %975, %977, %996, %9
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 16
   %1167 = load ptr, ptr %1166, align 8, !tbaa !40
   %1168 = call double @strtod(ptr noundef %1167, ptr noundef nonnull %7) #14
-  %1169 = load ptr, ptr %6, align 8, !tbaa !112
+  %1169 = load ptr, ptr %6, align 8, !tbaa !110
   %1170 = load i8, ptr %1169, align 1, !tbaa !73
   %.not18.i = icmp eq i8 %1170, 0
   br i1 %.not18.i, label %1171, label %1174
 
 1171:                                             ; preds = %1161
-  %1172 = load ptr, ptr %7, align 8, !tbaa !112
+  %1172 = load ptr, ptr %7, align 8, !tbaa !110
   %1173 = load i8, ptr %1172, align 1, !tbaa !73
   %.not19.i = icmp eq i8 %1173, 0
   br i1 %.not19.i, label %1191, label %1174
@@ -4557,13 +4557,13 @@ Io_ReadBlifNetworkDefaultInputArrival.exit:       ; preds = %1157, %1159, %1187,
   %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 16
   %1215 = load ptr, ptr %1214, align 8, !tbaa !40
   %1216 = call double @strtod(ptr noundef %1215, ptr noundef nonnull %5) #14
-  %1217 = load ptr, ptr %4, align 8, !tbaa !112
+  %1217 = load ptr, ptr %4, align 8, !tbaa !110
   %1218 = load i8, ptr %1217, align 1, !tbaa !73
   %.not18.i177 = icmp eq i8 %1218, 0
   br i1 %.not18.i177, label %1219, label %1222
 
 1219:                                             ; preds = %1209
-  %1220 = load ptr, ptr %5, align 8, !tbaa !112
+  %1220 = load ptr, ptr %5, align 8, !tbaa !110
   %1221 = load i8, ptr %1220, align 1, !tbaa !73
   %.not19.i178 = icmp eq i8 %1221, 0
   br i1 %.not19.i178, label %1239, label %1222
@@ -4640,7 +4640,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
   br label %Io_ReadBlifNetworkInputDrive.exit
 
 1257:                                             ; preds = %1244
-  %1258 = load ptr, ptr %13, align 8, !tbaa !109
+  %1258 = load ptr, ptr %13, align 8, !tbaa !107
   %1259 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %1260 = load ptr, ptr %1259, align 8, !tbaa !40
   %1261 = tail call ptr @Abc_NtkFindNet(ptr noundef %1258, ptr noundef %1260) #14
@@ -4679,13 +4679,13 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
   %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 24
   %1285 = load ptr, ptr %1284, align 8, !tbaa !40
   %1286 = call double @strtod(ptr noundef %1285, ptr noundef nonnull %3) #14
-  %1287 = load ptr, ptr %2, align 8, !tbaa !112
+  %1287 = load ptr, ptr %2, align 8, !tbaa !110
   %1288 = load i8, ptr %1287, align 1, !tbaa !73
   %.not30.i = icmp eq i8 %1288, 0
   br i1 %.not30.i, label %1289, label %1292
 
 1289:                                             ; preds = %1278
-  %1290 = load ptr, ptr %3, align 8, !tbaa !112
+  %1290 = load ptr, ptr %3, align 8, !tbaa !110
   %1291 = load i8, ptr %1290, align 1, !tbaa !73
   %.not31.i = icmp eq i8 %1291, 0
   br i1 %.not31.i, label %1309, label %1292
@@ -4717,12 +4717,12 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
 
 1309:                                             ; preds = %1289
   %1310 = load ptr, ptr %79, align 8, !tbaa !37
-  %1311 = load ptr, ptr %13, align 8, !tbaa !109
-  %.val.i181 = load ptr, ptr %1261, align 8, !tbaa !89
+  %1311 = load ptr, ptr %13, align 8, !tbaa !107
+  %.val.i181 = load ptr, ptr %1261, align 8, !tbaa !87
   %1312 = getelementptr i8, ptr %1261, i64 32
-  %.val32.i = load ptr, ptr %1312, align 8, !tbaa !92
+  %.val32.i = load ptr, ptr %1312, align 8, !tbaa !90
   %1313 = getelementptr i8, ptr %.val.i181, i64 32
-  %.val.val.i182 = load ptr, ptr %1313, align 8, !tbaa !93
+  %.val.val.i182 = load ptr, ptr %1313, align 8, !tbaa !91
   %.val32.val.i = load i32, ptr %.val32.i, align 4, !tbaa !67
   %1314 = getelementptr i8, ptr %.val.val.i182, i64 8
   %.val.val.val.i183 = load ptr, ptr %1314, align 8, !tbaa !23
@@ -4730,16 +4730,16 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
   %1316 = getelementptr inbounds ptr, ptr %.val.val.val.i183, i64 %1315
   %1317 = load ptr, ptr %1316, align 8, !tbaa !40
   %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 16
-  %1319 = load i32, ptr %1318, align 8, !tbaa !122
+  %1319 = load i32, ptr %1318, align 8, !tbaa !120
   %1320 = getelementptr i8, ptr %1311, i64 32
-  %.val33.i = load ptr, ptr %1320, align 8, !tbaa !93
+  %.val33.i = load ptr, ptr %1320, align 8, !tbaa !91
   %1321 = getelementptr i8, ptr %.val33.i, i64 8
   %.val33.val.i = load ptr, ptr %1321, align 8, !tbaa !23
   %1322 = sext i32 %1319 to i64
   %1323 = getelementptr inbounds ptr, ptr %.val33.val.i, i64 %1322
   %1324 = load ptr, ptr %1323, align 8, !tbaa !40
   %1325 = getelementptr i8, ptr %1311, i64 56
-  %.val.i.i = load ptr, ptr %1325, align 8, !tbaa !81
+  %.val.i.i = load ptr, ptr %1325, align 8, !tbaa !79
   %1326 = getelementptr i8, ptr %.val.i.i, i64 4
   %.val.val.i.i = load i32, ptr %1326, align 4, !tbaa !20
   %1327 = icmp sgt i32 %.val.val.i.i, 0
@@ -4761,7 +4761,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
 1333:                                             ; preds = %1329
   %indvars.iv.next.i.i194 = add nuw nsw i64 %indvars.iv.i.i193, 1
   %exitcond.not.i.i195 = icmp eq i64 %indvars.iv.next.i.i194, %wide.trip.count.i.i192
-  br i1 %exitcond.not.i.i195, label %Io_ReadFindCiId.exit.i, label %1329, !llvm.loop !82
+  br i1 %exitcond.not.i.i195, label %Io_ReadFindCiId.exit.i, label %1329, !llvm.loop !80
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %1329
   %1334 = trunc nuw nsw i64 %indvars.iv.i.i193 to i32
@@ -5036,11 +5036,11 @@ Io_ReadBlifNetworkInputDrive.exit:                ; preds = %1253, %1255, %1274,
   br i1 %.not126, label %1456, label %1458
 
 1456:                                             ; preds = %1454
-  store i32 1, ptr %12, align 8, !tbaa !123
-  store i32 6, ptr %73, align 4, !tbaa !118
-  %1457 = load ptr, ptr %74, align 8, !tbaa !116
+  store i32 1, ptr %12, align 8, !tbaa !121
+  store i32 6, ptr %73, align 4, !tbaa !116
+  %1457 = load ptr, ptr %74, align 8, !tbaa !114
   tail call void @Mem_FlexStop(ptr noundef %1457, i32 noundef 0) #14
-  store ptr null, ptr %74, align 8, !tbaa !116
+  store ptr null, ptr %74, align 8, !tbaa !114
   br label %Io_ReadBlifNetworkNames.exit
 
 1458:                                             ; preds = %1454
@@ -5058,7 +5058,7 @@ Io_ReadBlifNetworkNames.exit:                     ; preds = %.lr.ph.i147, %.lr.p
   br i1 %1463, label %.loopexit, label %1465
 
 Io_ReadBlifNetworkNames.exit.thread:              ; preds = %Vec_StrPush.exit158.i
-  store ptr %.080.i, ptr %14, align 8, !tbaa !124
+  store ptr %.080.i, ptr %14, align 8, !tbaa !122
   %1464 = icmp eq ptr %.080.i, null
   br i1 %1464, label %.loopexit, label %.thread
 
@@ -5074,7 +5074,7 @@ Io_ReadBlifNetworkNames.exit.thread:              ; preds = %Vec_StrPush.exit158
 .thread:                                          ; preds = %Io_ReadBlifNetworkNames.exit.thread, %1465
   %.199199205 = phi i32 [ %.199.ph, %1465 ], [ 1, %Io_ReadBlifNetworkNames.exit.thread ]
   %1467 = add nuw nsw i32 %.0100, 1
-  br label %89, !llvm.loop !125
+  br label %89, !llvm.loop !123
 
 .loopexit:                                        ; preds = %Io_ReadBlifNetworkNames.exit.thread, %Io_ReadBlifNetworkNames.exit, %1448, %90, %1452
   %1468 = load ptr, ptr %62, align 8, !tbaa !53
@@ -5139,7 +5139,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !109
+  %24 = load ptr, ptr %23, align 8, !tbaa !107
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -5185,13 +5185,13 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !40
   %59 = call double @strtod(ptr noundef %58, ptr noundef nonnull %4) #14
-  %60 = load ptr, ptr %3, align 8, !tbaa !112
+  %60 = load ptr, ptr %3, align 8, !tbaa !110
   %61 = load i8, ptr %60, align 1, !tbaa !73
   %.not30 = icmp eq i8 %61, 0
   br i1 %.not30, label %62, label %65
 
 62:                                               ; preds = %51
-  %63 = load ptr, ptr %4, align 8, !tbaa !112
+  %63 = load ptr, ptr %4, align 8, !tbaa !110
   %64 = load i8, ptr %63, align 1, !tbaa !73
   %.not31 = icmp eq i8 %64, 0
   br i1 %.not31, label %87, label %65
@@ -5229,12 +5229,12 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
 87:                                               ; preds = %62
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %89 = load ptr, ptr %88, align 8, !tbaa !38
-  %90 = load ptr, ptr %23, align 8, !tbaa !109
-  %.val = load ptr, ptr %29, align 8, !tbaa !89
+  %90 = load ptr, ptr %23, align 8, !tbaa !107
+  %.val = load ptr, ptr %29, align 8, !tbaa !87
   %91 = getelementptr i8, ptr %29, i64 48
-  %.val32 = load ptr, ptr %91, align 8, !tbaa !98
+  %.val32 = load ptr, ptr %91, align 8, !tbaa !96
   %92 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %92, align 8, !tbaa !93
+  %.val.val = load ptr, ptr %92, align 8, !tbaa !91
   %.val32.val = load i32, ptr %.val32, align 4, !tbaa !67
   %93 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %93, align 8, !tbaa !23
@@ -5242,16 +5242,16 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
   %95 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !40
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !122
+  %98 = load i32, ptr %97, align 8, !tbaa !120
   %99 = getelementptr i8, ptr %90, i64 32
-  %.val33 = load ptr, ptr %99, align 8, !tbaa !93
+  %.val33 = load ptr, ptr %99, align 8, !tbaa !91
   %100 = getelementptr i8, ptr %.val33, i64 8
   %.val33.val = load ptr, ptr %100, align 8, !tbaa !23
   %101 = sext i32 %98 to i64
   %102 = getelementptr inbounds ptr, ptr %.val33.val, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !40
   %104 = getelementptr i8, ptr %90, i64 48
-  %.val.i = load ptr, ptr %104, align 8, !tbaa !83
+  %.val.i = load ptr, ptr %104, align 8, !tbaa !81
   %105 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %105, align 4, !tbaa !20
   %106 = icmp sgt i32 %.val.val.i, 0
@@ -5273,7 +5273,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
 112:                                              ; preds = %108
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Io_ReadFindCoId.exit, label %108, !llvm.loop !84
+  br i1 %exitcond.not.i, label %Io_ReadFindCoId.exit, label %108, !llvm.loop !82
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %108
   %113 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -5537,13 +5537,13 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultInputDrive(
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !40
   %31 = call double @strtod(ptr noundef %30, ptr noundef nonnull %4) #14
-  %32 = load ptr, ptr %3, align 8, !tbaa !112
+  %32 = load ptr, ptr %3, align 8, !tbaa !110
   %33 = load i8, ptr %32, align 1, !tbaa !73
   %.not18 = icmp eq i8 %33, 0
   br i1 %.not18, label %34, label %37
 
 34:                                               ; preds = %22
-  %35 = load ptr, ptr %4, align 8, !tbaa !112
+  %35 = load ptr, ptr %4, align 8, !tbaa !110
   %36 = load i8, ptr %35, align 1, !tbaa !73
   %.not19 = icmp eq i8 %36, 0
   br i1 %.not19, label %59, label %37
@@ -5641,13 +5641,13 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkDefaultOutputLoad(
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !40
   %31 = call double @strtod(ptr noundef %30, ptr noundef nonnull %4) #14
-  %32 = load ptr, ptr %3, align 8, !tbaa !112
+  %32 = load ptr, ptr %3, align 8, !tbaa !110
   %33 = load i8, ptr %32, align 1, !tbaa !73
   %.not18 = icmp eq i8 %33, 0
   br i1 %.not18, label %34, label %37
 
 34:                                               ; preds = %22
-  %35 = load ptr, ptr %4, align 8, !tbaa !112
+  %35 = load ptr, ptr %4, align 8, !tbaa !110
   %36 = load i8, ptr %35, align 1, !tbaa !73
   %.not19 = icmp eq i8 %36, 0
   br i1 %.not19, label %59, label %37
@@ -5742,7 +5742,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr n
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !40
   %30 = call double @strtod(ptr noundef %29, ptr noundef nonnull %3) #14
-  %31 = load ptr, ptr %3, align 8, !tbaa !112
+  %31 = load ptr, ptr %3, align 8, !tbaa !110
   %32 = load i8, ptr %31, align 1, !tbaa !73
   %.not14 = icmp eq i8 %32, 0
   br i1 %.not14, label %53, label %33
@@ -5778,9 +5778,9 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkAndGateDelay(ptr n
 53:                                               ; preds = %25
   %54 = fptrunc double %30 to float
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !109
+  %56 = load ptr, ptr %55, align 8, !tbaa !107
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 280
-  store float %54, ptr %57, align 8, !tbaa !126
+  store float %54, ptr %57, align 8, !tbaa !124
   br label %Io_ReadBlifPrintErrorMessage.exit
 
 Io_ReadBlifPrintErrorMessage.exit:                ; preds = %51, %49, %23, %21, %53
@@ -5962,54 +5962,52 @@ attributes #17 = { nounwind allocsize(1) }
 !73 = !{!7, !7, i64 0}
 !74 = distinct !{!74, !69}
 !75 = distinct !{!75, !69}
-!76 = distinct !{!76, !69, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !69}
+!77 = distinct !{!77, !69}
 !78 = distinct !{!78, !69}
-!79 = distinct !{!79, !69}
+!79 = !{!44, !12, i64 56}
 !80 = distinct !{!80, !69}
-!81 = !{!44, !12, i64 56}
+!81 = !{!44, !12, i64 48}
 !82 = distinct !{!82, !69}
-!83 = !{!44, !12, i64 48}
-!84 = distinct !{!84, !69}
-!85 = !{!10, !10, i64 0}
-!86 = !{!44, !12, i64 40}
-!87 = distinct !{!87, !69}
-!88 = distinct !{!88, !69}
-!89 = !{!90, !10, i64 0}
-!90 = !{!"Abc_Obj_t_", !10, i64 0, !91, i64 8, !11, i64 16, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 21, !11, i64 21, !11, i64 21, !11, i64 21, !11, i64 21, !31, i64 24, !31, i64 40, !7, i64 56, !7, i64 64}
-!91 = !{!"p1 _ZTS10Abc_Obj_t_", !6, i64 0}
-!92 = !{!90, !32, i64 32}
-!93 = !{!44, !12, i64 32}
+!83 = !{!10, !10, i64 0}
+!84 = !{!44, !12, i64 40}
+!85 = distinct !{!85, !69}
+!86 = distinct !{!86, !69}
+!87 = !{!88, !10, i64 0}
+!88 = !{!"Abc_Obj_t_", !10, i64 0, !89, i64 8, !11, i64 16, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 20, !11, i64 21, !11, i64 21, !11, i64 21, !11, i64 21, !11, i64 21, !31, i64 24, !31, i64 40, !7, i64 56, !7, i64 64}
+!89 = !{!"p1 _ZTS10Abc_Obj_t_", !6, i64 0}
+!90 = !{!88, !32, i64 32}
+!91 = !{!44, !12, i64 32}
+!92 = distinct !{!92, !69}
+!93 = distinct !{!93, !69}
 !94 = distinct !{!94, !69}
 !95 = distinct !{!95, !69}
-!96 = distinct !{!96, !69}
+!96 = !{!88, !32, i64 48}
 !97 = distinct !{!97, !69}
-!98 = !{!90, !32, i64 48}
+!98 = distinct !{!98, !69}
 !99 = distinct !{!99, !69}
 !100 = distinct !{!100, !69}
-!101 = distinct !{!101, !69}
+!101 = !{!44, !12, i64 80}
 !102 = distinct !{!102, !69}
-!103 = !{!44, !12, i64 80}
+!103 = distinct !{!103, !69}
 !104 = distinct !{!104, !69}
 !105 = distinct !{!105, !69}
 !106 = distinct !{!106, !69}
-!107 = distinct !{!107, !69}
+!107 = !{!4, !10, i64 24}
 !108 = distinct !{!108, !69}
-!109 = !{!4, !10, i64 24}
-!110 = distinct !{!110, !69}
-!111 = !{!44, !5, i64 8}
-!112 = !{!5, !5, i64 0}
+!109 = !{!44, !5, i64 8}
+!110 = !{!5, !5, i64 0}
+!111 = distinct !{!111, !69}
+!112 = distinct !{!112, !69}
 !113 = distinct !{!113, !69}
-!114 = distinct !{!114, !69}
-!115 = distinct !{!115, !69}
-!116 = !{!44, !6, i64 256}
-!117 = !{!90, !11, i64 28}
-!118 = !{!44, !11, i64 4}
+!114 = !{!44, !6, i64 256}
+!115 = !{!88, !11, i64 28}
+!116 = !{!44, !11, i64 4}
+!117 = distinct !{!117, !69}
+!118 = distinct !{!118, !69}
 !119 = distinct !{!119, !69}
-!120 = distinct !{!120, !69}
-!121 = distinct !{!121, !69}
-!122 = !{!90, !11, i64 16}
-!123 = !{!44, !11, i64 0}
-!124 = !{!12, !12, i64 0}
-!125 = distinct !{!125, !69}
-!126 = !{!44, !15, i64 280}
+!120 = !{!88, !11, i64 16}
+!121 = !{!44, !11, i64 0}
+!122 = !{!12, !12, i64 0}
+!123 = distinct !{!123, !69}
+!124 = !{!44, !15, i64 280}

@@ -1714,7 +1714,7 @@ BufferGetPage.exit126._crit_edge:                 ; preds = %BufferGetPage.exit1
   %217 = load i16, ptr %154, align 4
   %218 = zext i16 %217 to i64
   %219 = icmp samesign ult i64 %indvars.iv.next, %218
-  br i1 %219, label %.lr.ph.split, label %._crit_edge.loopexit149, !llvm.loop !10
+  br i1 %219, label %.lr.ph.split, label %._crit_edge.loopexit149, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %188
   %220 = trunc nuw i64 %indvars.iv.next153 to i16
@@ -2047,7 +2047,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %18 = add i32 %.02122, 1
   %19 = getelementptr inbounds nuw i8, ptr %.023, i64 %13
   %20 = icmp ult ptr %19, %7
-  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !9
 
 21:                                               ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %9, %.preheader ], [ %indvars.iv.next, %23 ]
@@ -2067,7 +2067,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %31 = trunc i32 %30 to i16
   %32 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %0, ptr noundef %26, i64 noundef %29, i16 noundef zeroext %31, i32 noundef 0) #7
   %33 = icmp eq i16 %32, 0
-  br i1 %33, label %34, label %21, !llvm.loop !12
+  br i1 %33, label %34, label %21, !llvm.loop !10
 
 34:                                               ; preds = %23
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
@@ -2163,7 +2163,7 @@ define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr noundef read
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !11
 }
 
 declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2212,9 +2212,7 @@ attributes #8 = { cold nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

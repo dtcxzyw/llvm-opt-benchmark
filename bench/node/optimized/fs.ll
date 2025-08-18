@@ -1422,7 +1422,7 @@ land.lhs.true17.us.i.i:                           ; preds = %if.then14.us.i.i
   ]
 
 for.body.us.i.i.backedge:                         ; preds = %land.lhs.true17.us.i.i, %land.lhs.true17.us.i.i
-  br label %for.body.us.i.i, !llvm.loop !5
+  br label %for.body.us.i.i
 
 if.then14.us.i.i:                                 ; preds = %land.rhs.us81.i.i, %land.rhs.us.us.i.i
   %163 = phi i32 [ %164, %land.rhs.us.us.i.i ], [ %162, %land.rhs.us81.i.i ]
@@ -1440,7 +1440,7 @@ do.body.us.us.i.i:                                ; preds = %for.body.us.i.i, %l
 land.rhs.us.us.i.i:                               ; preds = %do.body.us.us.i.i
   %164 = load i32, ptr %call, align 4
   %cmp9.us.us.i.i = icmp eq i32 %164, 4
-  br i1 %cmp9.us.us.i.i, label %do.body.us.us.i.i, label %if.then14.us.i.i, !llvm.loop !7
+  br i1 %cmp9.us.us.i.i, label %do.body.us.us.i.i, label %if.then14.us.i.i
 
 for.cond28.preheader.i.i:                         ; preds = %do.body.us80.i.i, %do.body.us.us.i.i
   %use_pread.076.us152.i.i = phi i32 [ %use_pread.076.us.i.i, %do.body.us.us.i.i ], [ 0, %do.body.us80.i.i ]
@@ -4469,6 +4469,3 @@ attributes #18 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !6}

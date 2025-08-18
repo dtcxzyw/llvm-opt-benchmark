@@ -2270,7 +2270,7 @@ tailrecurse.us:                                   ; preds = %2, %12
   %13 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 512
   %14 = load ptr, ptr %13, align 8, !tbaa !160
   %.not.us = icmp eq ptr %14, null
-  br i1 %.not.us, label %.split16.us, label %tailrecurse.us, !llvm.loop !205
+  br i1 %.not.us, label %.split16.us, label %tailrecurse.us
 
 tailrecurse:                                      ; preds = %2, %36
   %.tr = phi ptr [ %38, %36 ], [ %0, %2 ]
@@ -2316,7 +2316,7 @@ fiber_current.exit:                               ; preds = %tailrecurse, %21
   %37 = getelementptr inbounds nuw i8, ptr %.tr, i64 512
   %38 = load ptr, ptr %37, align 8, !tbaa !160
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %.split16.us, label %tailrecurse, !llvm.loop !207
+  br i1 %.not, label %.split16.us, label %tailrecurse, !llvm.loop !205
 
 .split16.us:                                      ; preds = %12, %36
   %.us-phi18 = phi ptr [ %.tr, %36 ], [ %.tr.us, %12 ]
@@ -2379,23 +2379,23 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !114
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 9584
-  %7 = load i64, ptr %6, align 8, !tbaa !209
+  %7 = load i64, ptr %6, align 8, !tbaa !207
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 9592
-  %9 = load i64, ptr %8, align 8, !tbaa !210
+  %9 = load i64, ptr %8, align 8, !tbaa !208
   %10 = add i64 %9, %7
   %11 = tail call i64 @sysconf(i32 noundef 30) #9
   store i64 %11, ptr @pagesize, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  %15 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !211
+  %15 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !209
   store ptr %15, ptr %14, align 8, !tbaa !97
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @shared_fiber_pool, i8 0, i64 16, i1 false)
   %16 = load i64, ptr @pagesize, align 8, !tbaa !61
   %17 = udiv i64 %10, %16
   %18 = add i64 %17, 1
   %19 = mul i64 %18, %16
-  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 16), align 8, !tbaa !212
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 16), align 8, !tbaa !210
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 24), align 8, !tbaa !178
   store i64 32, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 32), align 8, !tbaa !177
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @shared_fiber_pool, i64 40), align 8, !tbaa !201
@@ -3195,7 +3195,7 @@ fiber_ptr.exit:                                   ; preds = %1
   %18 = call i64 @strlcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.62, i64 noundef 32) #9
   %19 = inttoptr i64 %17 to ptr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !213
+  %21 = load i64, ptr %20, align 8, !tbaa !211
   %22 = add i64 %21, -1
   call void @rb_str_set_len(i64 noundef %17, i64 noundef %22) #9
   %23 = call i64 @rb_str_cat_cstr(i64 noundef %17, ptr noundef nonnull %2) #9
@@ -3299,7 +3299,7 @@ define internal i64 @rb_fiber_s_schedule(i32 noundef %0, ptr noundef %1, i64 %2)
   %7 = getelementptr i8, ptr %6, i64 48
   %.val.i.i = load ptr, ptr %7, align 8, !tbaa !63
   %8 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 432
-  %9 = load i64, ptr %8, align 8, !tbaa !215
+  %9 = load i64, ptr %8, align 8, !tbaa !213
   %.not.i = icmp eq i64 %9, 4
   br i1 %.not.i, label %10, label %rb_fiber_s_schedule_kw.exit
 
@@ -3396,7 +3396,7 @@ define internal noundef i64 @rb_cont_call(i32 noundef %0, ptr noundef %1, i64 no
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %16 = load ptr, ptr %15, align 8, !tbaa !216
+  %16 = load ptr, ptr %15, align 8, !tbaa !214
   %.not10 = icmp eq ptr %16, null
   br i1 %.not10, label %24, label %17
 
@@ -3512,9 +3512,9 @@ define internal i64 @fiber_memsize(ptr noundef readonly captures(address) %0) #0
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i64, ptr %19, align 8, !tbaa !217
+  %20 = load i64, ptr %19, align 8, !tbaa !215
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load i64, ptr %21, align 8, !tbaa !218
+  %22 = load i64, ptr %21, align 8, !tbaa !216
   %23 = add i64 %22, %20
   %24 = shl i64 %23, 3
   %25 = add i64 %24, 496
@@ -3523,13 +3523,13 @@ define internal i64 @fiber_memsize(ptr noundef readonly captures(address) %0) #0
 26:                                               ; preds = %18, %15
   %.0.i = phi i64 [ %25, %18 ], [ 496, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !219
+  %28 = load ptr, ptr %27, align 8, !tbaa !217
   %.not9.i = icmp eq ptr %28, null
   br i1 %.not9.i, label %cont_memsize.exit, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load i64, ptr %30, align 8, !tbaa !220
+  %31 = load i64, ptr %30, align 8, !tbaa !218
   %32 = shl i64 %31, 3
   %33 = add i64 %32, %.0.i
   br label %cont_memsize.exit
@@ -3569,13 +3569,13 @@ define internal void @fiber_compact(ptr noundef %0) #0 {
 
 rb_fiber_update_self.exit:                        ; preds = %12, %10, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !221
+  %15 = load i64, ptr %14, align 8, !tbaa !219
   %.not.i7 = icmp eq i64 %15, 0
   br i1 %.not.i7, label %cont_compact.exit, label %16
 
 16:                                               ; preds = %rb_fiber_update_self.exit
   %17 = tail call i64 @rb_gc_location(i64 noundef %15) #9
-  store i64 %17, ptr %14, align 8, !tbaa !221
+  store i64 %17, ptr %14, align 8, !tbaa !219
   br label %cont_compact.exit
 
 cont_compact.exit:                                ; preds = %rb_fiber_update_self.exit, %16
@@ -3591,7 +3591,7 @@ cont_compact.exit:                                ; preds = %rb_fiber_update_sel
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cont_mark(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !221
+  %3 = load i64, ptr %2, align 8, !tbaa !219
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %5, label %4
 
@@ -3617,28 +3617,28 @@ define internal void @cont_mark(ptr noundef %0) #0 {
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !217
+  %15 = load i64, ptr %14, align 8, !tbaa !215
   %16 = getelementptr i64, ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load i64, ptr %17, align 8, !tbaa !218
+  %18 = load i64, ptr %17, align 8, !tbaa !216
   %19 = getelementptr i64, ptr %16, i64 %18
   tail call void @rb_gc_mark_locations(ptr noundef nonnull %12, ptr noundef %19) #9
   br label %20
 
 20:                                               ; preds = %13, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !219
+  %22 = load ptr, ptr %21, align 8, !tbaa !217
   %.not19 = icmp eq ptr %22, null
   br i1 %.not19, label %30, label %23
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr %0, align 8, !tbaa !222
+  %24 = load i32, ptr %0, align 8, !tbaa !220
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = load i64, ptr %27, align 8, !tbaa !220
+  %28 = load i64, ptr %27, align 8, !tbaa !218
   %29 = getelementptr i64, ptr %22, i64 %28
   tail call void @rb_gc_mark_locations(ptr noundef nonnull %22, ptr noundef %29) #9
   br label %30
@@ -3664,9 +3664,9 @@ define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #2 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i64, ptr %5, align 8, !tbaa !217
+  %6 = load i64, ptr %5, align 8, !tbaa !215
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i64, ptr %7, align 8, !tbaa !218
+  %8 = load i64, ptr %7, align 8, !tbaa !216
   %9 = add i64 %8, %6
   %10 = shl i64 %9, 3
   %11 = add i64 %10, 496
@@ -3675,13 +3675,13 @@ define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #2 {
 12:                                               ; preds = %4, %1
   %.0 = phi i64 [ %11, %4 ], [ 496, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !219
+  %14 = load ptr, ptr %13, align 8, !tbaa !217
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = load i64, ptr %16, align 8, !tbaa !220
+  %17 = load i64, ptr %16, align 8, !tbaa !218
   %18 = shl i64 %17, 3
   %19 = add i64 %18, %.0
   br label %20
@@ -3694,13 +3694,13 @@ define internal i64 @cont_memsize(ptr noundef readonly captures(none) %0) #2 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cont_compact(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !221
+  %3 = load i64, ptr %2, align 8, !tbaa !219
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i64 @rb_gc_location(i64 noundef %3) #9
-  store i64 %5, ptr %2, align 8, !tbaa !221
+  store i64 %5, ptr %2, align 8, !tbaa !219
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -3729,14 +3729,14 @@ define internal noundef i32 @fiber_storage_validate_each(i64 noundef %0, i64 %1,
   %8 = and i64 %0, 7
   %9 = icmp ne i64 %8, 0
   %10 = or i1 %7, %9
-  br i1 %10, label %RB_SYMBOL_P.exit.thread9.i, label %RB_SYMBOL_P.exit.i, !prof !223
+  br i1 %10, label %RB_SYMBOL_P.exit.thread9.i, label %RB_SYMBOL_P.exit.i, !prof !221
 
 RB_SYMBOL_P.exit.i:                               ; preds = %6
   %11 = inttoptr i64 %0 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !50
   %13 = and i64 %12, 31
   %14 = icmp eq i64 %13, 20
-  br i1 %14, label %Check_Type.exit, label %RB_SYMBOL_P.exit.thread9.i, !prof !224
+  br i1 %14, label %Check_Type.exit, label %RB_SYMBOL_P.exit.thread9.i, !prof !222
 
 RB_SYMBOL_P.exit.thread9.i:                       ; preds = %RB_SYMBOL_P.exit.i, %6
   tail call void @rb_unexpected_type(i64 noundef %0, i32 noundef 20) #36
@@ -3783,22 +3783,22 @@ declare void @rb_id_table_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cont_free(ptr noundef %0) #0 {
-  %2 = load i32, ptr %0, align 8, !tbaa !222
+  %2 = load i32, ptr %0, align 8, !tbaa !220
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !225
+  %6 = load ptr, ptr %5, align 8, !tbaa !223
   tail call void @ruby_xfree(ptr noundef %6) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !219
+  %8 = load ptr, ptr %7, align 8, !tbaa !217
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %50, label %9
 
 9:                                                ; preds = %4
   tail call void @ruby_xfree(ptr noundef nonnull %8) #9
-  store ptr null, ptr %7, align 8, !tbaa !219
+  store ptr null, ptr %7, align 8, !tbaa !217
   br label %50
 
 10:                                               ; preds = %1
@@ -3970,12 +3970,12 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %.pre, i64 144
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !189
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  store ptr %.pre18, ptr %10, align 8, !tbaa !226
+  store ptr %.pre18, ptr %10, align 8, !tbaa !224
   br label %30
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 152
-  %13 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !227
+  %13 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !225
   store ptr %13, ptr %12, align 8, !tbaa !97
   %14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -3994,7 +3994,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   %.pre20 = and i8 %.pre19, 3
   %25 = icmp eq i8 %.pre20, 3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  store ptr %16, ptr %26, align 8, !tbaa !226
+  store ptr %16, ptr %26, align 8, !tbaa !224
   br i1 %25, label %30, label %27
 
 27:                                               ; preds = %11
@@ -4005,7 +4005,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
 30:                                               ; preds = %.thread, %11, %27
   %31 = phi ptr [ %29, %27 ], [ null, %11 ], [ null, %.thread ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %31, ptr %32, align 8, !tbaa !228
+  store ptr %31, ptr %32, align 8, !tbaa !226
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %35 = tail call ptr @coroutine_transfer(ptr noundef nonnull %33, ptr noundef nonnull %34) #9
@@ -4030,7 +4030,7 @@ define internal fastcc void @fiber_setcontext(ptr noundef %0, ptr noundef initia
   %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !114
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %49 = load ptr, ptr %48, align 8, !tbaa !229
+  %49 = load ptr, ptr %48, align 8, !tbaa !227
   %50 = icmp eq ptr %49, %.val.i
   br i1 %50, label %51, label %fiber_restore_thread.exit
 
@@ -4070,7 +4070,7 @@ define internal fastcc void @fiber_restore_thread(ptr noundef captures(address) 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !229
+  %11 = load ptr, ptr %10, align 8, !tbaa !227
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %13, label %ec_switch.exit
 
@@ -4095,7 +4095,7 @@ declare void @rb_ec_initialize_vm_stack(ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal void @fiber_entry(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !230
+  %4 = load ptr, ptr %3, align 8, !tbaa !228
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   tail call fastcc void @fiber_restore_thread(ptr noundef %6, ptr noundef %4)
@@ -4106,7 +4106,7 @@ define internal void @fiber_entry(ptr readnone captures(none) %0, ptr noundef re
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @fiber_pool_expand(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !212
+  %4 = load i64, ptr %3, align 8, !tbaa !210
   %5 = load i64, ptr @pagesize, align 8, !tbaa !61
   %6 = add i64 %5, %4
   %7 = icmp ugt i64 %1, 1
@@ -4144,15 +4144,15 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !173
   %22 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #39
-  store ptr %10, ptr %22, align 8, !tbaa !231
+  store ptr %10, ptr %22, align 8, !tbaa !229
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %4, ptr %23, align 8, !tbaa !232
+  store i64 %4, ptr %23, align 8, !tbaa !230
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 %6, ptr %24, align 8, !tbaa !233
+  store i64 %6, ptr %24, align 8, !tbaa !231
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.044, ptr %25, align 8, !tbaa !234
+  store i64 %.044, ptr %25, align 8, !tbaa !232
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %0, ptr %26, align 8, !tbaa !235
+  store ptr %0, ptr %26, align 8, !tbaa !233
   %.not = icmp eq i64 %.044, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -4197,9 +4197,9 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool
   %45 = getelementptr i8, ptr %34, i64 %44
   %46 = sub i64 %4, %44
   %47 = getelementptr i8, ptr %34, i64 %4
-  store ptr %45, ptr %47, align 8, !tbaa !236
+  store ptr %45, ptr %47, align 8, !tbaa !234
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 %4, ptr %48, align 8, !tbaa !237
+  store i64 %4, ptr %48, align 8, !tbaa !235
   %49 = getelementptr i8, ptr %45, i64 %4
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -4208,12 +4208,12 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %11, %2, %fiber_pool
   store ptr %53, ptr %50, align 8, !tbaa !184
   store i64 %46, ptr %51, align 8, !tbaa !185
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store ptr %0, ptr %54, align 8, !tbaa !238
+  store ptr %0, ptr %54, align 8, !tbaa !236
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr %.055, ptr %55, align 8, !tbaa !179
   %56 = add nuw i64 %.03554, 1
   %exitcond.not = icmp eq i64 %56, %.044
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !239
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
 }
 
 ; Function Attrs: allocsize(0)
@@ -4302,7 +4302,7 @@ declare i64 @rb_fiber_scheduler_fiber(i64 noundef, i32 noundef, ptr noundef, i32
 define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #29 {
   %2 = alloca [1 x i64], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !240
+  %4 = load ptr, ptr %3, align 8, !tbaa !238
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
 
@@ -4317,7 +4317,7 @@ define internal fastcc void @cont_restore_0(ptr noundef %0) unnamed_addr #29 {
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = icmp ugt i64 %11, 2305843009213693951
-  br i1 %12, label %13, label %rbimpl_size_mul_or_raise.exit, !prof !241
+  br i1 %12, label %13, label %rbimpl_size_mul_or_raise.exit, !prof !239
 
 13:                                               ; preds = %7
   call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %11) #26
@@ -4344,7 +4344,7 @@ define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #29 {
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr i8, ptr %3, i64 48
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !63
-  %5 = load i32, ptr %0, align 8, !tbaa !222
+  %5 = load i32, ptr %0, align 8, !tbaa !220
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %84
 
@@ -4378,7 +4378,7 @@ define internal fastcc void @cont_restore_1(ptr noundef %0) unnamed_addr #29 {
   %20 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !114
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !229
+  %23 = load ptr, ptr %22, align 8, !tbaa !227
   %24 = icmp eq ptr %23, %.val.i.i
   br i1 %24, label %25, label %ec_switch.exit.i
 
@@ -4396,9 +4396,9 @@ ec_switch.exit.i:                                 ; preds = %28, %25, %16, %.thr
   %31 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
-  %34 = load ptr, ptr %33, align 8, !tbaa !242
+  %34 = load ptr, ptr %33, align 8, !tbaa !240
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %36 = load ptr, ptr %35, align 8, !tbaa !242
+  %36 = load ptr, ptr %35, align 8, !tbaa !240
   %.not41.i = icmp eq ptr %34, %36
   br i1 %.not41.i, label %39, label %37
 
@@ -4412,9 +4412,9 @@ ec_switch.exit.i:                                 ; preds = %28, %25, %16, %.thr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !193
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = load i64, ptr %43, align 8, !tbaa !217
+  %44 = load i64, ptr %43, align 8, !tbaa !215
   %45 = icmp ugt i64 %44, 2305843009213693951
-  br i1 %45, label %46, label %rbimpl_size_mul_or_raise.exit.i, !prof !241
+  br i1 %45, label %46, label %rbimpl_size_mul_or_raise.exit.i, !prof !239
 
 46:                                               ; preds = %39
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %44) #26
@@ -4430,7 +4430,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %39
   %.pre.i = load ptr, ptr %31, align 8, !tbaa !66
   %.pre49.i = load ptr, ptr %.pre.i, align 8, !tbaa !43
   %.pre50.i = load ptr, ptr %41, align 8, !tbaa !193
-  %.pre51.i = load i64, ptr %43, align 8, !tbaa !217
+  %.pre51.i = load i64, ptr %43, align 8, !tbaa !215
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %47, %rbimpl_size_mul_or_raise.exit.i
@@ -4442,12 +4442,12 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %47, %rbimpl_size_mu
   %54 = load i64, ptr %53, align 8, !tbaa !45
   %55 = getelementptr i64, ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !218
+  %57 = load i64, ptr %56, align 8, !tbaa !216
   %58 = sub i64 0, %57
   %59 = getelementptr i64, ptr %55, i64 %58
   %60 = getelementptr i64, ptr %50, i64 %49
   %61 = icmp ugt i64 %57, 2305843009213693951
-  br i1 %61, label %62, label %rbimpl_size_mul_or_raise.exit42.i, !prof !241
+  br i1 %61, label %62, label %rbimpl_size_mul_or_raise.exit42.i, !prof !239
 
 62:                                               ; preds = %ruby_nonempty_memcpy.exit.i
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %57) #26
@@ -4470,9 +4470,9 @@ ruby_nonempty_memcpy.exit45.i:                    ; preds = %63, %rbimpl_size_mu
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %67, ptr %68, align 8, !tbaa !44
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %70 = load i8, ptr %69, align 8, !tbaa !243
+  %70 = load i8, ptr %69, align 8, !tbaa !241
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 128
-  store i8 %70, ptr %71, align 8, !tbaa !243
+  store i8 %70, ptr %71, align 8, !tbaa !241
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %73 = load ptr, ptr %72, align 8, !tbaa !85
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -4503,7 +4503,7 @@ ruby_nonempty_memcpy.exit45.i:                    ; preds = %63, %rbimpl_size_mu
   %90 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !114
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %93 = load ptr, ptr %92, align 8, !tbaa !229
+  %93 = load ptr, ptr %92, align 8, !tbaa !227
   %94 = icmp eq ptr %93, %.val.i.i
   br i1 %94, label %95, label %cont_restore_thread.exit
 
@@ -4519,17 +4519,17 @@ ruby_nonempty_memcpy.exit45.i:                    ; preds = %63, %rbimpl_size_mu
 
 cont_restore_thread.exit:                         ; preds = %ruby_nonempty_memcpy.exit45.i, %84, %95, %98
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %102 = load ptr, ptr %101, align 8, !tbaa !240
+  %102 = load ptr, ptr %101, align 8, !tbaa !238
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %ruby_nonempty_memcpy.exit, label %103
 
 103:                                              ; preds = %cont_restore_thread.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %105 = load ptr, ptr %104, align 8, !tbaa !219
+  %105 = load ptr, ptr %104, align 8, !tbaa !217
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %107 = load i64, ptr %106, align 8, !tbaa !220
+  %107 = load i64, ptr %106, align 8, !tbaa !218
   %108 = icmp ugt i64 %107, 2305843009213693951
-  br i1 %108, label %109, label %rbimpl_size_mul_or_raise.exit, !prof !241
+  br i1 %108, label %109, label %rbimpl_size_mul_or_raise.exit, !prof !239
 
 109:                                              ; preds = %103
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %107) #26
@@ -4562,7 +4562,7 @@ define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #2
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store volatile ptr %0, ptr %3, align 8, !tbaa !244
+  store volatile ptr %0, ptr %3, align 8, !tbaa !242
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8, !tbaa !62
@@ -4604,14 +4604,14 @@ define internal fastcc i64 @cont_capture(ptr noundef nonnull %0) unnamed_addr #2
   %26 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %16, i64 noundef 496, ptr noundef nonnull @cont_data_type) #9
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !246
+  %29 = load i64, ptr %28, align 8, !tbaa !244
   %30 = and i64 %29, 2
   %.not.i.i = icmp eq i64 %30, 0
   %31 = getelementptr i8, ptr %27, i64 32
   br i1 %.not.i.i, label %32, label %RTYPEDDATA_GET_DATA.exit.i
 
 32:                                               ; preds = %25
-  %33 = load ptr, ptr %31, align 8, !tbaa !249
+  %33 = load ptr, ptr %31, align 8, !tbaa !247
   br label %RTYPEDDATA_GET_DATA.exit.i
 
 RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %32, %25
@@ -4619,7 +4619,7 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %32, %25
   store volatile i64 %26, ptr %2, align 8, !tbaa !61
   %.0..0..0..0..0..0.4.i = load volatile i64, ptr %2, align 8, !tbaa !61
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i64 %.0..0..0..0..0..0.4.i, ptr %35, align 8, !tbaa !221
+  store i64 %.0..0..0..0..0..0.4.i, ptr %35, align 8, !tbaa !219
   %.val.i9.i = load ptr, ptr %19, align 8, !tbaa !66
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(368) %36, ptr noundef nonnull readonly align 8 dereferenceable(368) %.val.i9.i, i64 368, i1 false), !tbaa.struct !87
@@ -4661,23 +4661,23 @@ cont_new.exit:                                    ; preds = %45, %48
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 488
   store ptr %42, ptr %51, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  store volatile ptr %34, ptr %4, align 8, !tbaa !250
-  %.0..0..0..0.13 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  store volatile ptr %34, ptr %4, align 8, !tbaa !248
+  %.0..0..0..0.13 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %52 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !221
+  %53 = load i64, ptr %52, align 8, !tbaa !219
   store volatile i64 %53, ptr %5, align 8, !tbaa !61
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !252
+  %57 = load ptr, ptr %56, align 8, !tbaa !250
   %58 = load ptr, ptr %10, align 8, !tbaa !43
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
-  %.0..0..0..0.14 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.14 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %63 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 40
-  store i64 %62, ptr %63, align 8, !tbaa !217
+  store i64 %62, ptr %63, align 8, !tbaa !215
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !45
   %66 = getelementptr i64, ptr %58, i64 %65
@@ -4685,29 +4685,29 @@ cont_new.exit:                                    ; preds = %45, %48
   %68 = ptrtoint ptr %55 to i64
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 3
-  %.0..0..0..0.15 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.15 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %71 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 48
-  store i64 %70, ptr %71, align 8, !tbaa !218
-  %.0..0..0..0.16 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  store i64 %70, ptr %71, align 8, !tbaa !216
+  %.0..0..0..0.16 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %72 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 40
-  %73 = load i64, ptr %72, align 8, !tbaa !217
-  %.0..0..0..0.17 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %73 = load i64, ptr %72, align 8, !tbaa !215
+  %.0..0..0..0.17 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %74 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 48
-  %75 = load i64, ptr %74, align 8, !tbaa !218
+  %75 = load i64, ptr %74, align 8, !tbaa !216
   %76 = add i64 %75, %73
   %77 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %76, i64 noundef 8) #35
-  %.0..0..0..0.18 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.18 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %78 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 32
   store ptr %77, ptr %78, align 8, !tbaa !193
-  %.0..0..0..0.19 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.19 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %79 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !193
   %81 = load ptr, ptr %10, align 8, !tbaa !43
-  %.0..0..0..0.20 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.20 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %82 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 40
-  %83 = load i64, ptr %82, align 8, !tbaa !217
+  %83 = load i64, ptr %82, align 8, !tbaa !215
   %84 = icmp ugt i64 %83, 2305843009213693951
-  br i1 %84, label %85, label %rbimpl_size_mul_or_raise.exit, !prof !241
+  br i1 %84, label %85, label %rbimpl_size_mul_or_raise.exit, !prof !239
 
 85:                                               ; preds = %cont_new.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %83) #26
@@ -4723,19 +4723,19 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %cont_new.exit
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %86
-  %.0..0..0..0.21 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.21 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %88 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.21, i64 32
   %89 = load ptr, ptr %88, align 8, !tbaa !193
-  %.0..0..0..0.22 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.22 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %90 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 40
-  %91 = load i64, ptr %90, align 8, !tbaa !217
+  %91 = load i64, ptr %90, align 8, !tbaa !215
   %92 = getelementptr i64, ptr %89, i64 %91
   %93 = load ptr, ptr %54, align 8, !tbaa !44
-  %.0..0..0..0.23 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.23 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %94 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 48
-  %95 = load i64, ptr %94, align 8, !tbaa !218
+  %95 = load i64, ptr %94, align 8, !tbaa !216
   %96 = icmp ugt i64 %95, 2305843009213693951
-  br i1 %96, label %97, label %rbimpl_size_mul_or_raise.exit36, !prof !241
+  br i1 %96, label %97, label %rbimpl_size_mul_or_raise.exit36, !prof !239
 
 97:                                               ; preds = %ruby_nonempty_memcpy.exit
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %95) #26
@@ -4751,13 +4751,13 @@ rbimpl_size_mul_or_raise.exit36:                  ; preds = %ruby_nonempty_memcp
   br label %ruby_nonempty_memcpy.exit39
 
 ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_raise.exit36, %98
-  %.0..0..0..0.24 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.24 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %100 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.24, i64 80
   tail call void @rb_ec_set_vm_stack(ptr noundef nonnull %100, ptr noundef null, i64 noundef 0) #9
-  %.0..0..0..0.25 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.25 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %101 = load ptr, ptr %9, align 8, !tbaa !66
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 152
-  %103 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !253
+  %103 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !251
   store ptr %103, ptr %102, align 8, !tbaa !97
   %104 = load ptr, ptr %9, align 8, !tbaa !66
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 144
@@ -4772,11 +4772,11 @@ ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_
   %112 = sub i64 %110, %111
   %.sink27.i = ashr exact i64 %112, 3
   %113 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 72
-  store i64 %.sink27.i, ptr %113, align 8, !tbaa !220
+  store i64 %.sink27.i, ptr %113, align 8, !tbaa !218
   %114 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 64
-  store ptr %.32.i, ptr %114, align 8, !tbaa !240
+  store ptr %.32.i, ptr %114, align 8, !tbaa !238
   %115 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 56
-  %116 = load ptr, ptr %115, align 8, !tbaa !219
+  %116 = load ptr, ptr %115, align 8, !tbaa !217
   %.not.i40 = icmp eq ptr %116, null
   br i1 %.not.i40, label %119, label %117
 
@@ -4790,10 +4790,10 @@ ruby_nonempty_memcpy.exit39:                      ; preds = %rbimpl_size_mul_or_
 
 121:                                              ; preds = %119, %117
   %storemerge.i = phi ptr [ %120, %119 ], [ %118, %117 ]
-  store ptr %storemerge.i, ptr %115, align 8, !tbaa !219
-  %122 = load ptr, ptr %114, align 8, !tbaa !240
+  store ptr %storemerge.i, ptr %115, align 8, !tbaa !217
+  %122 = load ptr, ptr %114, align 8, !tbaa !238
   %123 = icmp ugt i64 %.sink27.i, 2305843009213693951
-  br i1 %123, label %124, label %rbimpl_size_mul_or_raise.exit.i, !prof !241
+  br i1 %123, label %124, label %rbimpl_size_mul_or_raise.exit.i, !prof !239
 
 124:                                              ; preds = %121
   tail call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.sink27.i) #26
@@ -4808,7 +4808,7 @@ rbimpl_size_mul_or_raise.exit.i:                  ; preds = %121
   br label %cont_save_machine_stack.exit
 
 cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_raise.exit.i, %125
-  %.0..0..0..0.26 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.26 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %126 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.26, i64 448
   %127 = tail call ptr @llvm.frameaddress.p0(i32 0)
   store ptr %127, ptr %126, align 8
@@ -4820,12 +4820,12 @@ cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_
   br i1 %.not34, label %140, label %131
 
 131:                                              ; preds = %cont_save_machine_stack.exit
-  %.0..0..0..0.27 = load volatile ptr, ptr %4, align 8, !tbaa !250
-  store volatile ptr %.0..0..0..0.27, ptr %4, align 8, !tbaa !250
-  %.0..0..0..0.28 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.27 = load volatile ptr, ptr %4, align 8, !tbaa !248
+  store volatile ptr %.0..0..0..0.27, ptr %4, align 8, !tbaa !248
+  %.0..0..0..0.28 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %132 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.28, i64 24
   %133 = load i64, ptr %132, align 8, !tbaa !135
-  %.0..0..0..0.29 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.29 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %134 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.29, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !136
   %136 = icmp eq i32 %135, -1
@@ -4836,15 +4836,15 @@ cont_save_machine_stack.exit:                     ; preds = %rbimpl_size_mul_or_
   unreachable
 
 138:                                              ; preds = %131
-  %.0..0..0..0.30 = load volatile ptr, ptr %4, align 8, !tbaa !250
+  %.0..0..0..0.30 = load volatile ptr, ptr %4, align 8, !tbaa !248
   %139 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 24
   store i64 4, ptr %139, align 8, !tbaa !135
-  %.0..0..0..0.31 = load volatile ptr, ptr %3, align 8, !tbaa !244
+  %.0..0..0..0.31 = load volatile ptr, ptr %3, align 8, !tbaa !242
   store volatile i32 1, ptr %.0..0..0..0.31, align 4, !tbaa !91
   br label %141
 
 140:                                              ; preds = %cont_save_machine_stack.exit
-  %.0..0..0..0.32 = load volatile ptr, ptr %3, align 8, !tbaa !244
+  %.0..0..0..0.32 = load volatile ptr, ptr %3, align 8, !tbaa !242
   store volatile i32 0, ptr %.0..0..0..0.32, align 4, !tbaa !91
   %.0..0..0..0.8 = load volatile i64, ptr %5, align 8, !tbaa !61
   br label %141
@@ -5133,51 +5133,49 @@ attributes #40 = { nounwind allocsize(1,2) }
 !203 = !{!27, !15, i64 36}
 !204 = !{!22, !15, i64 4}
 !205 = distinct !{!205, !206}
-!206 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!207 = distinct !{!207, !208}
-!208 = !{!"llvm.loop.unswitch.partial.disable"}
-!209 = !{!117, !14, i64 9584}
-!210 = !{!117, !14, i64 9592}
-!211 = !{i64 2152618657}
-!212 = !{!8, !14, i64 16}
-!213 = !{!214, !14, i64 16}
-!214 = !{!"RString", !51, i64 0, !14, i64 16, !11, i64 24}
-!215 = !{!67, !14, i64 432}
-!216 = !{!23, !30, i64 120}
-!217 = !{!23, !14, i64 40}
-!218 = !{!23, !14, i64 48}
-!219 = !{!23, !25, i64 56}
-!220 = !{!23, !14, i64 72}
-!221 = !{!23, !14, i64 16}
-!222 = !{!23, !15, i64 0}
-!223 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!224 = !{!"branch_weights", !"expected", i32 2146409906, i32 1073742}
-!225 = !{!23, !25, i64 80}
-!226 = !{!22, !25, i64 224}
-!227 = !{i64 2152606584}
-!228 = !{!22, !25, i64 232}
-!229 = !{!117, !31, i64 40}
-!230 = !{!36, !10, i64 8}
-!231 = !{!17, !10, i64 0}
-!232 = !{!17, !14, i64 8}
-!233 = !{!17, !14, i64 16}
-!234 = !{!17, !14, i64 24}
-!235 = !{!17, !18, i64 32}
-!236 = !{!180, !10, i64 0}
-!237 = !{!180, !14, i64 16}
-!238 = !{!180, !18, i64 32}
-!239 = distinct !{!239, !20}
-!240 = !{!23, !25, i64 64}
-!241 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!242 = !{!27, !33, i64 104}
-!243 = !{!27, !11, i64 128}
-!244 = !{!245, !245, i64 0}
-!245 = !{!"p1 int", !10, i64 0}
-!246 = !{!247, !14, i64 24}
-!247 = !{!"RTypedData", !51, i64 0, !248, i64 16, !14, i64 24, !10, i64 32}
-!248 = !{!"p1 _ZTS19rb_data_type_struct", !10, i64 0}
-!249 = !{!247, !10, i64 32}
-!250 = !{!251, !251, i64 0}
-!251 = !{!"p1 _ZTS17rb_context_struct", !10, i64 0}
-!252 = !{!47, !25, i64 8}
-!253 = !{i64 2152603139}
+!206 = !{!"llvm.loop.unswitch.partial.disable"}
+!207 = !{!117, !14, i64 9584}
+!208 = !{!117, !14, i64 9592}
+!209 = !{i64 2152618657}
+!210 = !{!8, !14, i64 16}
+!211 = !{!212, !14, i64 16}
+!212 = !{!"RString", !51, i64 0, !14, i64 16, !11, i64 24}
+!213 = !{!67, !14, i64 432}
+!214 = !{!23, !30, i64 120}
+!215 = !{!23, !14, i64 40}
+!216 = !{!23, !14, i64 48}
+!217 = !{!23, !25, i64 56}
+!218 = !{!23, !14, i64 72}
+!219 = !{!23, !14, i64 16}
+!220 = !{!23, !15, i64 0}
+!221 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!222 = !{!"branch_weights", !"expected", i32 2146409906, i32 1073742}
+!223 = !{!23, !25, i64 80}
+!224 = !{!22, !25, i64 224}
+!225 = !{i64 2152606584}
+!226 = !{!22, !25, i64 232}
+!227 = !{!117, !31, i64 40}
+!228 = !{!36, !10, i64 8}
+!229 = !{!17, !10, i64 0}
+!230 = !{!17, !14, i64 8}
+!231 = !{!17, !14, i64 16}
+!232 = !{!17, !14, i64 24}
+!233 = !{!17, !18, i64 32}
+!234 = !{!180, !10, i64 0}
+!235 = !{!180, !14, i64 16}
+!236 = !{!180, !18, i64 32}
+!237 = distinct !{!237, !20}
+!238 = !{!23, !25, i64 64}
+!239 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!240 = !{!27, !33, i64 104}
+!241 = !{!27, !11, i64 128}
+!242 = !{!243, !243, i64 0}
+!243 = !{!"p1 int", !10, i64 0}
+!244 = !{!245, !14, i64 24}
+!245 = !{!"RTypedData", !51, i64 0, !246, i64 16, !14, i64 24, !10, i64 32}
+!246 = !{!"p1 _ZTS19rb_data_type_struct", !10, i64 0}
+!247 = !{!245, !10, i64 32}
+!248 = !{!249, !249, i64 0}
+!249 = !{!"p1 _ZTS17rb_context_struct", !10, i64 0}
+!250 = !{!47, !25, i64 8}
+!251 = !{i64 2152603139}

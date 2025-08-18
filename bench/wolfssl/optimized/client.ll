@@ -3414,7 +3414,7 @@ SetKeyShare.exit.us:                              ; preds = %.thread81, %94
 102:                                              ; preds = %.preheader.us
   %103 = call i32 @wolfSSL_get_error(ptr noundef nonnull %76, i32 noundef 0) #21
   %104 = icmp eq i32 %103, -108
-  br i1 %104, label %.preheader.us, label %.critedge, !llvm.loop !64
+  br i1 %104, label %.preheader.us, label %.critedge, !llvm.loop !63
 
 .critedge80.us:                                   ; preds = %.preheader.us
   br i1 %or.cond3.us, label %111, label %105
@@ -3457,7 +3457,7 @@ SetKeyShare.exit.us:                              ; preds = %.thread81, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %121 = add nuw nsw i32 %.06834.us, 1
   %exitcond.not = icmp eq i32 %121, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3587,7 +3587,7 @@ current_time.exit82:                              ; preds = %current_time.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %170 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #21
   %171 = icmp slt i32 %170, 0
-  br i1 %171, label %.split39.us, label %current_time.exit, !llvm.loop !66
+  br i1 %171, label %.split39.us, label %current_time.exit, !llvm.loop !62
 
 .split43.us.loopexit67:                           ; preds = %current_time.exit82
   %172 = load ptr, ptr %22, align 8, !tbaa !16
@@ -4018,7 +4018,7 @@ tcp_select.exit:                                  ; preds = %.critedge37, %51, %
   %73 = and i32 %.130, -2
   %74 = icmp eq i32 %73, 2
   %or.cond42 = select i1 %.not, i1 %74, i1 false
-  br i1 %or.cond42, label %25, label %.critedge, !llvm.loop !67
+  br i1 %or.cond42, label %25, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %64, %66, %72, %71, %1
   %.0.lcssa = phi i32 [ %8, %1 ], [ %.047, %71 ], [ %.047, %64 ], [ %.047, %66 ], [ %.1, %72 ]
@@ -4268,7 +4268,7 @@ current_time.exit.i:                              ; preds = %.loopexit
 .critedge.backedge.us.i:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i
   %74 = call i32 @wolfSSL_read(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 255) #21
   %75 = icmp slt i32 %74, 1
-  br i1 %75, label %.lr.ph.split.us.i, label %.critedge._crit_edge.i, !llvm.loop !68
+  br i1 %75, label %.lr.ph.split.us.i, label %.critedge._crit_edge.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.critedge.backedge.i
   %76 = call i32 @wolfSSL_get_error(ptr noundef nonnull %0, i32 noundef 0) #21
@@ -4617,10 +4617,7 @@ attributes #27 = { nounwind willreturn memory(none) }
 !59 = !{!56, !5, i64 36}
 !60 = !{!56, !5, i64 28}
 !61 = !{!56, !17, i64 8}
-!62 = distinct !{!62, !24, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !24}
+!63 = distinct !{!63, !24}
 !64 = distinct !{!64, !24}
 !65 = distinct !{!65, !24}
-!66 = distinct !{!66, !24}
-!67 = distinct !{!67, !24}
-!68 = distinct !{!68, !63}

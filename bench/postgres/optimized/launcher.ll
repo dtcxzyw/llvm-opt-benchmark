@@ -142,7 +142,7 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
 42:                                               ; preds = %34, %38, %.lr.ph.split, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %.thread16, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread16, label %.lr.ph.split, !llvm.loop !6
 
 .thread16:                                        ; preds = %42, %38, %26, %23, %3
   %.1 = phi ptr [ null, %3 ], [ %8, %23 ], [ null, %26 ], [ %27, %38 ], [ null, %42 ]
@@ -205,7 +205,7 @@ define dso_local ptr @logicalrep_workers_find(i32 noundef %0, i1 noundef zeroext
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %30 = sext i32 %28 to i64
   %31 = icmp slt i64 %indvars.iv.next18, %30
-  br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !10
+  br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %32 = phi i32 [ %46, %45 ], [ %9, %.lr.ph ]
@@ -238,7 +238,7 @@ define dso_local ptr @logicalrep_workers_find(i32 noundef %0, i1 noundef zeroext
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %49, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %45, %27, %8
   %.012.lcssa = phi ptr [ null, %8 ], [ %.1.us, %27 ], [ %.1, %45 ]
@@ -322,7 +322,7 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
 38:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.i, label %33, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph.i, label %33, !llvm.loop !9
 
 ._crit_edge.split.loop.exit136:                   ; preds = %33
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -362,7 +362,7 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
   %.1.i = phi i32 [ %.089.i, %47 ], [ %.089.i, %42 ], [ %spec.select.i, %50 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %logicalrep_sync_worker_count.exit, label %42, !llvm.loop !13
+  br i1 %exitcond.not.i, label %logicalrep_sync_worker_count.exit, label %42, !llvm.loop !10
 
 logicalrep_sync_worker_count.exit:                ; preds = %55, %28
   %.2121 = phi i32 [ %.072, %28 ], [ %.2, %55 ]
@@ -429,7 +429,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28
   %85 = load i32, ptr @max_logical_replication_workers, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next116, %86
-  br i1 %87, label %.lr.ph106, label %._crit_edge107, !llvm.loop !14
+  br i1 %87, label %.lr.ph106, label %._crit_edge107, !llvm.loop !11
 
 ._crit_edge107:                                   ; preds = %84
   br i1 %.1, label %28, label %._crit_edge107..critedge_crit_edge
@@ -487,7 +487,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28
   %.1.i91 = phi i32 [ %.089.i90, %102 ], [ %.089.i90, %97 ], [ %spec.select.i94, %105 ]
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i88
-  br i1 %exitcond.not.i93, label %logicalrep_pa_worker_count.exit, label %97, !llvm.loop !15
+  br i1 %exitcond.not.i93, label %logicalrep_pa_worker_count.exit, label %97, !llvm.loop !12
 
 logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   %.08.lcssa.i86 = phi i32 [ 0, %93 ], [ %.1.i91, %110 ]
@@ -654,7 +654,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %197 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %197, 0
-  br i1 %.not.i, label %199, label %198, !prof !16
+  br i1 %.not.i, label %199, label %198, !prof !13
 
 198:                                              ; preds = %196
   call void @ProcessInterrupts() #13
@@ -723,7 +723,7 @@ logicalrep_pa_worker_count.exit:                  ; preds = %110, %93
   call void @ResetLatch(ptr noundef %232) #13
   %233 = load volatile i32, ptr @InterruptPending, align 4
   %.not13.i = icmp eq i32 %233, 0
-  br i1 %.not13.i, label %235, label %234, !prof !16
+  br i1 %.not13.i, label %235, label %234, !prof !13
 
 234:                                              ; preds = %231
   call void @ProcessInterrupts() #13
@@ -796,7 +796,7 @@ define dso_local i32 @logicalrep_sync_worker_count(i32 noundef %0) local_unnamed
   %.1 = phi i32 [ %.089, %11 ], [ %.089, %6 ], [ %spec.select, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %.1, %19 ]
@@ -859,7 +859,7 @@ define dso_local void @logicalrep_worker_stop(i32 noundef %0, i32 noundef %1) lo
 25:                                               ; preds = %21, %17, %14, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i
-  br i1 %exitcond.not.i, label %logicalrep_worker_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %logicalrep_worker_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !6
 
 logicalrep_worker_find.exit:                      ; preds = %21
   tail call fastcc void @logicalrep_worker_stop_internal(ptr noundef nonnull %10, i32 noundef 15)
@@ -905,7 +905,7 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
   tail call void @ResetLatch(ptr noundef %17) #13
   %18 = load volatile i32, ptr @InterruptPending, align 4
   %.not16 = icmp eq i32 %18, 0
-  br i1 %.not16, label %20, label %19, !prof !16
+  br i1 %.not16, label %20, label %19, !prof !13
 
 19:                                               ; preds = %16
   tail call void @ProcessInterrupts() #13
@@ -958,7 +958,7 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
   tail call void @ResetLatch(ptr noundef %43) #13
   %44 = load volatile i32, ptr @InterruptPending, align 4
   %.not22 = icmp eq i32 %44, 0
-  br i1 %.not22, label %46, label %45, !prof !16
+  br i1 %.not22, label %46, label %45, !prof !13
 
 45:                                               ; preds = %42
   tail call void @ProcessInterrupts() #13
@@ -980,7 +980,7 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
 define dso_local void @logicalrep_pa_worker_stop(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !17
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !14
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %5
 
@@ -995,7 +995,7 @@ define dso_local void @logicalrep_pa_worker_stop(ptr noundef captures(none) %0) 
   %11 = load i16, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load i32, ptr %12, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   %14 = load ptr, ptr %2, align 8
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1243,7 +1243,7 @@ define internal void @logicalrep_worker_onexit(i32 %0, i64 %1) #1 {
   %indvars.iv.next18.i.i = add nuw nsw i64 %indvars.iv17.i.i, 1
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv.next18.i.i, %40
-  br i1 %41, label %.lr.ph.split.us.i.i, label %logicalrep_workers_find.exit.i, !llvm.loop !10
+  br i1 %41, label %.lr.ph.split.us.i.i, label %logicalrep_workers_find.exit.i, !llvm.loop !8
 
 logicalrep_workers_find.exit.i:                   ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %.1.us.i.i, i64 4
@@ -1428,14 +1428,14 @@ define dso_local void @ApplyLauncherShmemInit() local_unnamed_addr #1 {
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw [0 x %struct.LogicalRepWorker], ptr %20, i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, i8 0, i64 128, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i8 0, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr @max_logical_replication_workers, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1592,7 +1592,7 @@ define dso_local void @ApplyLauncherMain(i64 noundef %0) local_unnamed_addr #6 {
 11:                                               ; preds = %.backedge, %8
   %12 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %14, label %13, !prof !16
+  br i1 %.not, label %14, label %13, !prof !13
 
 13:                                               ; preds = %11
   call void @ProcessInterrupts() #13
@@ -1644,7 +1644,7 @@ define dso_local void @ApplyLauncherMain(i64 noundef %0) local_unnamed_addr #6 {
   store ptr %27, ptr @CurrentMemoryContext, align 8
   %43 = call ptr @heap_getnext(ptr noundef %19, i32 noundef 1) #13
   %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %get_subscription_list.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %get_subscription_list.exit, label %.lr.ph.i, !llvm.loop !18
 
 get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
   %.0.lcssa.i = phi ptr [ null, %14 ], [ %42, %.lr.ph.i ]
@@ -1730,7 +1730,7 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
 86:                                               ; preds = %82, %78, %75, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !6
 
 logicalrep_worker_find.exit:                      ; preds = %82
   %87 = load ptr, ptr @MainLWLockArray, align 8
@@ -1816,7 +1816,7 @@ ApplyLauncherGetWorkerStartTime.exit:             ; preds = %.loopexit
   call void @ResetLatch(ptr noundef %128) #13
   %129 = load volatile i32, ptr @InterruptPending, align 4
   %.not35 = icmp eq i32 %129, 0
-  br i1 %.not35, label %131, label %130, !prof !16
+  br i1 %.not35, label %131, label %130, !prof !13
 
 130:                                              ; preds = %127
   call void @ProcessInterrupts() #13
@@ -1924,7 +1924,7 @@ define dso_local i32 @GetLeaderApplyWorkerPid(i32 noundef %0) local_unnamed_addr
 27:                                               ; preds = %20, %17, %14, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !19
 
 .loopexit:                                        ; preds = %27, %1, %24
   %.1 = phi i32 [ %26, %24 ], [ -1, %1 ], [ -1, %27 ]
@@ -2164,7 +2164,7 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %91 = load i32, ptr @max_logical_replication_workers, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %38, label %._crit_edge, !llvm.loop !23
+  br i1 %93, label %38, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %90, %87, %11
   %94 = load ptr, ptr @MainLWLockArray, align 8
@@ -2272,21 +2272,18 @@ attributes #14 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !8}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!17 = !{i64 2232897, i64 2232913}
-!18 = !{i64 2151440025}
-!19 = !{i64 2151444613}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{i64 2232897, i64 2232913}
+!15 = !{i64 2151440025}
+!16 = !{i64 2151444613}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}

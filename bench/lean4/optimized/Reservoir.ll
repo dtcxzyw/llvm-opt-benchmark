@@ -9942,7 +9942,7 @@ lean_nat_lt.exit.thread31.us:                     ; preds = %.split.us
 
 lean_dec.exit20.us:                               ; preds = %18, %17, %16, %10
   %20 = tail call ptr @l_Lake_uriEncodeChar(i32 noundef %12, ptr noundef %.017.us)
-  br label %.split.us, !llvm.loop !17
+  br label %.split.us
 
 .split:                                           ; preds = %4, %lean_dec.exit20
   %.017 = phi ptr [ %40, %lean_dec.exit20 ], [ %3, %4 ]
@@ -17369,5 +17369,3 @@ attributes #8 = { noreturn nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"short", !7, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}

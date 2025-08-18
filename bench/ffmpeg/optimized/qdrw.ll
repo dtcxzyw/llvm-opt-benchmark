@@ -1716,7 +1716,7 @@ bytestream2_get_byte.exit76.split:                ; preds = %bytestream2_get_byt
   %spec.select = select i1 %.not93, i32 %60, i32 %61
   %62 = add nuw nsw i32 %.06381, 1
   %exitcond97.not = icmp eq i32 %62, %48
-  br i1 %exitcond97.not, label %.split.us, label %bytestream2_get_byte.exit76.split, !llvm.loop !57
+  br i1 %exitcond97.not, label %.split.us, label %bytestream2_get_byte.exit76.split, !llvm.loop !55
 
 .split.us.loopexit95:                             ; preds = %53
   %63 = trunc nsw i64 %indvars.iv.next to i32
@@ -1768,7 +1768,7 @@ bytestream2_get_byte.exit78:                      ; preds = %71, %72
   %.5 = select i1 %or.cond3, i32 %82, i32 %80
   %83 = add nuw nsw i32 %.16483, 1
   %exitcond98.not = icmp eq i32 %.16483, %.0.i74108
-  br i1 %exitcond98.not, label %84, label %.preheader, !llvm.loop !58
+  br i1 %exitcond98.not, label %84, label %.preheader, !llvm.loop !56
 
 84:                                               ; preds = %79
   %.neg79 = add nsw i32 %.06185, -2
@@ -1779,7 +1779,7 @@ bytestream2_get_byte.exit78:                      ; preds = %71, %72
   %.162 = phi i32 [ %64, %.split.us ], [ %85, %84 ]
   %.3 = phi i32 [ %.us-phi, %.split.us ], [ %.5, %84 ]
   %87 = icmp sgt i32 %.162, 0
-  br i1 %87, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !59
+  br i1 %87, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
 
 ._crit_edge.loopexit:                             ; preds = %86
   %.pre = load i32, ptr %8, align 4, !tbaa !40
@@ -1792,7 +1792,7 @@ bytestream2_get_byte.exit78:                      ; preds = %71, %72
   %91 = getelementptr inbounds i8, ptr %.06587, i64 %90
   %92 = add nuw nsw i32 %.06088, 1
   %93 = icmp slt i32 %92, %88
-  br i1 %93, label %17, label %.critedge, !llvm.loop !60
+  br i1 %93, label %17, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %._crit_edge, %bytestream2_get_be16.exit, %4
   %.259 = phi i32 [ 0, %4 ], [ -1094995529, %bytestream2_get_be16.exit ], [ 0, %._crit_edge ]
@@ -1883,9 +1883,7 @@ attributes #7 = { noreturn nounwind }
 !52 = distinct !{!52, !38}
 !53 = distinct !{!53, !38}
 !54 = distinct !{!54, !38}
-!55 = distinct !{!55, !38, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !38}
+!56 = distinct !{!56, !38}
 !57 = distinct !{!57, !38}
 !58 = distinct !{!58, !38}
-!59 = distinct !{!59, !38}
-!60 = distinct !{!60, !38}

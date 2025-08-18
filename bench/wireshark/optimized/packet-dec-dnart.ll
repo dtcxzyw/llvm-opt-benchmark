@@ -819,7 +819,7 @@ set_dnet_address.exit203:                         ; preds = %set_dnet_address.ex
   %285 = add i32 %.048.i, 6
   %286 = add i32 %.0.i209, -6
   %287 = icmp ugt i32 %286, 6
-  br i1 %287, label %.split.i, label %.preheader.i, !llvm.loop !9
+  br i1 %287, label %.split.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %.split.i, %.split.us.i
   %.us-phi.i = phi i32 [ %264, %.split.us.i ], [ %284, %.split.i ]
@@ -834,7 +834,7 @@ set_dnet_address.exit203:                         ; preds = %set_dnet_address.ex
   %289 = and i32 %.157.i, 65535
   %290 = add nuw nsw i32 %289, %288
   %.not.i210 = icmp samesign ult i32 %290, 65536
-  br i1 %.not.i210, label %do_routing_msg.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i210, label %do_routing_msg.exit, label %.lr.ph.i, !llvm.loop !8
 
 do_routing_msg.exit:                              ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.us-phi.i, %.preheader.i ], [ %290, %.lr.ph.i ]
@@ -1006,7 +1006,7 @@ dnet_ntoa.exit125.thread.i:                       ; preds = %382, %dnet_ntoa.exi
   %.1112.lcssa.i = phi i8 [ %411, %.lr.ph147.i ], [ %453, %dnet_ntoa.exit128.thread.i ]
   %.4.lcssa.i = phi i32 [ %410, %.lr.ph147.i ], [ %451, %dnet_ntoa.exit128.thread.i ]
   %.not119.i = icmp eq i8 %.1112.lcssa.i, 0
-  br i1 %.not119.i, label %do_initialization_msg.exit.thread, label %.lr.ph147.i, !llvm.loop !11
+  br i1 %.not119.i, label %do_initialization_msg.exit.thread, label %.lr.ph147.i, !llvm.loop !9
 
 .lr.ph147.i:                                      ; preds = %386, %.loopexit.i
   %.3146.i = phi i32 [ %.4.lcssa.i, %.loopexit.i ], [ %398, %386 ]
@@ -1087,7 +1087,7 @@ dnet_ntoa.exit128.thread.i:                       ; preds = %440, %dnet_ntoa.exi
   %452 = add i8 %.0110141.i, -7
   %453 = add i8 %.1112140.i, -7
   %.not120.i = icmp eq i8 %452, 0
-  br i1 %.not120.i, label %.loopexit.i, label %.lr.ph.i211, !llvm.loop !12
+  br i1 %.not120.i, label %.loopexit.i, label %.lr.ph.i211, !llvm.loop !10
 
 default.unreachable:                              ; preds = %183
   unreachable
@@ -1769,10 +1769,8 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

@@ -1643,7 +1643,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   store i32 %37, ptr %38, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.us.preheader, label %30, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader.us.preheader, label %30, !llvm.loop !50
 
 .split.us:                                        ; preds = %._crit_edge.us, %.critedge.preheader.split
   %.us-phi = phi i32 [ %sext, %.critedge.preheader.split ], [ %.1.us, %._crit_edge.us ]
@@ -1672,7 +1672,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph215
   %.val107 = load ptr, ptr %4, align 8, !tbaa !21
   %.not = icmp eq ptr %.val107, null
-  br i1 %.not, label %.critedge, label %.lr.ph215, !llvm.loop !52
+  br i1 %.not, label %.critedge, label %.lr.ph215, !llvm.loop !51
 
 .lr.ph215:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %.val107214 = phi ptr [ %.val107, %.lr.ph ], [ %.val107210, %.lr.ph.preheader ]
@@ -1695,10 +1695,10 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %17 = sub nsw i32 %.val98.val, %.val99
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !52
+  br i1 %19, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !51
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph215
-  br label %.critedge, !llvm.loop !52
+  br label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
   %.val98.lcssa = phi ptr [ %.val98128, %2 ], [ %.val98, %..critedge.loopexit_crit_edge ], [ %.val98128, %.lr.ph.preheader ], [ %.val98, %.lr.ph ]
@@ -1730,7 +1730,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   store i32 0, ptr %27, align 8, !tbaa !39
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %23, !llvm.loop !53
+  br i1 %exitcond.not, label %.critedge2, label %23, !llvm.loop !52
 
 .critedge2:                                       ; preds = %23, %.lr.ph141, %.critedge
   %28 = icmp sgt i32 %1, 0
@@ -1843,7 +1843,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   store i32 %70, ptr %71, align 4, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.us.preheader.i, label %63, !llvm.loop !51
+  br i1 %exitcond.not.i, label %.preheader.us.preheader.i, label %63, !llvm.loop !50
 
 Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %.critedge.preheader.split.i
   %.us-phi.i = phi i32 [ %sext.i, %.critedge.preheader.split.i ], [ %.1.us.i, %._crit_edge.us.i ]
@@ -1859,7 +1859,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %narrow.i = add nuw nsw i32 %75, %74
   %76 = add nuw nsw i32 %narrow.i, %.pre-phi207
   %77 = icmp slt i32 %76, %31
-  br i1 %77, label %.lr.ph144.split, label %.critedge4, !llvm.loop !54
+  br i1 %77, label %.lr.ph144.split, label %.critedge4, !llvm.loop !53
 
 .critedge4:                                       ; preds = %73, %.lr.ph144, %.preheader
   %78 = icmp sgt i32 %.val115, 0
@@ -1900,7 +1900,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   store i32 %94, ptr %95, align 8, !tbaa !39
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %.critedge6, label %81, !llvm.loop !55
+  br i1 %exitcond182.not, label %.critedge6, label %81, !llvm.loop !54
 
 .critedge6:                                       ; preds = %81, %.lr.ph147, %.critedge4
   %96 = getelementptr i8, ptr %.val102149, i64 4
@@ -1917,7 +1917,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
 .lr.ph155:                                        ; preds = %.lr.ph226
   %.val111 = load ptr, ptr %4, align 8, !tbaa !21
   %.not89 = icmp eq ptr %.val111, null
-  br i1 %.not89, label %.critedge8, label %.lr.ph226, !llvm.loop !56
+  br i1 %.not89, label %.critedge8, label %.lr.ph226, !llvm.loop !55
 
 .lr.ph226:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %.val111225 = phi ptr [ %.val111, %.lr.ph155 ], [ %.val111221, %.lr.ph155.preheader ]
@@ -1940,10 +1940,10 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %107 = sub nsw i32 %.val102.val, %.val103
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next184, %108
-  br i1 %109, label %.lr.ph155, label %..critedge8.loopexit_crit_edge, !llvm.loop !56
+  br i1 %109, label %.lr.ph155, label %..critedge8.loopexit_crit_edge, !llvm.loop !55
 
 ..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph226
-  br label %.critedge8, !llvm.loop !56
+  br label %.critedge8, !llvm.loop !55
 
 .critedge8:                                       ; preds = %.lr.ph155, %.lr.ph155.preheader, %..critedge8.loopexit_crit_edge, %.critedge6
   %.val102.lcssa = phi ptr [ %.val102149, %.critedge6 ], [ %.val102, %..critedge8.loopexit_crit_edge ], [ %.val102149, %.lr.ph155.preheader ], [ %.val102, %.lr.ph155 ]
@@ -1990,12 +1990,12 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   store i32 %126, ptr %127, align 8, !tbaa !39
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.critedge10, label %115, !llvm.loop !57
+  br i1 %exitcond190.not, label %.critedge10, label %115, !llvm.loop !56
 
 .critedge10:                                      ; preds = %115, %.lr.ph164, %.critedge8
   %128 = add nuw nsw i32 %.0168, 1
   %exitcond191.not = icmp eq i32 %128, %1
-  br i1 %exitcond191.not, label %._crit_edge, label %.preheader, !llvm.loop !58
+  br i1 %exitcond191.not, label %._crit_edge, label %.preheader, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.critedge10, %.critedge2
   %129 = phi ptr [ %.val98.lcssa, %.critedge2 ], [ %.val102.lcssa, %.critedge10 ]
@@ -2043,7 +2043,7 @@ Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %
   %.val95 = load i32, ptr %139, align 4, !tbaa !11
   %150 = sext i32 %.val95 to i64
   %151 = icmp slt i64 %indvars.iv.next193, %150
-  br i1 %151, label %142, label %.critedge12, !llvm.loop !59
+  br i1 %151, label %142, label %.critedge12, !llvm.loop !58
 
 .critedge12:                                      ; preds = %142, %.lr.ph172, %._crit_edge._crit_edge
   ret void
@@ -2097,7 +2097,7 @@ define void @Gli_ManSetDataSaved(ptr noundef readonly captures(none) %0, i32 nou
   %.val28 = load i32, ptr %28, align 4, !tbaa !11
   %29 = sext i32 %.val28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %8, label %.critedge, !llvm.loop !60
+  br i1 %30, label %8, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %8, %10, %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2179,7 +2179,7 @@ Gli_NodeComputeValue.exit:                        ; preds = %43, %39
   %narrow.i = add nuw nsw i32 %74, %73
   %75 = add nuw nsw i32 %narrow.i, %72
   %76 = icmp slt i32 %75, %70
-  br i1 %76, label %.lr.ph35, label %.critedge2, !llvm.loop !61
+  br i1 %76, label %.lr.ph35, label %.critedge2, !llvm.loop !60
 
 .critedge2:                                       ; preds = %.lr.ph35, %69, %.critedge
   ret void
@@ -2230,7 +2230,7 @@ define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float
   %.val51 = load i32, ptr %30, align 4, !tbaa !11
   %31 = sext i32 %.val51 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !62
+  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %9, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2267,7 +2267,7 @@ define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %.val60, i64 %46
   %.not47 = icmp eq ptr %.val60, null
-  br i1 %.not47, label %.critedge2, label %48, !llvm.loop !63
+  br i1 %.not47, label %.critedge2, label %48, !llvm.loop !62
 
 48:                                               ; preds = %.lr.ph103, %.lr.ph82
   %49 = phi ptr [ %42, %.lr.ph103 ], [ %47, %.lr.ph82 ]
@@ -2371,10 +2371,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %100 = sub nsw i32 %.val55.val, %.val56
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next92, %101
-  br i1 %102, label %.lr.ph82, label %..critedge2.loopexit_crit_edge, !llvm.loop !63
+  br i1 %102, label %.lr.ph82, label %..critedge2.loopexit_crit_edge, !llvm.loop !62
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %98
-  br label %.critedge2, !llvm.loop !63
+  br label %.critedge2, !llvm.loop !62
 
 .critedge2:                                       ; preds = %.lr.ph82, %.lr.ph82.preheader, %..critedge2.loopexit_crit_edge, %.critedge
   %.val6184 = phi i32 [ %.val5678, %.critedge ], [ %.val56, %..critedge2.loopexit_crit_edge ], [ %.val5678, %.lr.ph82.preheader ], [ %.val56, %.lr.ph82 ]
@@ -2507,7 +2507,7 @@ Vec_IntPush.exit72:                               ; preds = %.Vec_IntGrow.exit10
   %.val61 = phi i32 [ %.val6197, %104 ], [ %.val61.pre, %Vec_IntPush.exit72 ]
   %170 = add nuw nsw i32 %.286, 1
   %171 = icmp slt i32 %170, %.val61
-  br i1 %171, label %.lr.ph88, label %.critedge4, !llvm.loop !64
+  br i1 %171, label %.lr.ph88, label %.critedge4, !llvm.loop !63
 
 .critedge4:                                       ; preds = %169, %.lr.ph88, %.critedge2
   ret void
@@ -2523,10 +2523,10 @@ define void @Gli_ManSwitchesAndGlitches(ptr noundef captures(none) %0, i32 nound
   br i1 %8, label %Abc_Clock.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = load i64, ptr %6, align 8, !tbaa !65
+  %10 = load i64, ptr %6, align 8, !tbaa !64
   %.neg52 = mul i64 %10, -1000000
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !68
+  %12 = load i64, ptr %11, align 8, !tbaa !67
   %.neg = sdiv i64 %12, -1000
   %.neg53 = add i64 %.neg, %.neg52
   br label %Abc_Clock.exit
@@ -2668,7 +2668,7 @@ Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.
   call void @Gli_ManGlitching(ptr noundef %0)
   %82 = add nuw nsw i32 %.058, 1
   %exitcond65.not = icmp eq i32 %82, %1
-  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond65.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 83:                                               ; preds = %Gli_ManFinalize.exit
   %84 = ashr i32 %1, 5
@@ -2778,19 +2778,19 @@ Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131
   call void @Gli_ManGlitching(ptr noundef nonnull %0)
   %139 = add nuw nsw i32 %.02656.us, 1
   %exitcond63.not = icmp eq i32 %139, %88
-  br i1 %exitcond63.not, label %._crit_edge.us, label %90, !llvm.loop !70
+  br i1 %exitcond63.not, label %._crit_edge.us, label %90, !llvm.loop !69
 
 ._crit_edge.us:                                   ; preds = %Gli_ManSwitching.exit49.us
   %140 = add nuw nsw i32 %.157.us, 1
   %exitcond64.not = icmp eq i32 %140, 32
-  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !71
+  br i1 %exitcond64.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !70
 
 .split:                                           ; preds = %83, %.split
   %.157 = phi i32 [ %141, %.split ], [ 0, %83 ]
   call void @Gli_ManSetDataSaved(ptr noundef nonnull %0, i32 noundef %.157)
   %141 = add nuw nsw i32 %.157, 1
   %exitcond.not = icmp eq i32 %141, 32
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !72
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.split, %._crit_edge.us, %Gli_ManSwitching.exit, %.preheader
   %.not = icmp eq i32 %3, 0
@@ -2812,10 +2812,10 @@ Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131
   br i1 %150, label %Abc_Clock.exit51, label %151
 
 151:                                              ; preds = %142
-  %152 = load i64, ptr %5, align 8, !tbaa !65
+  %152 = load i64, ptr %5, align 8, !tbaa !64
   %153 = mul nsw i64 %152, 1000000
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %155 = load i64, ptr %154, align 8, !tbaa !68
+  %155 = load i64, ptr %154, align 8, !tbaa !67
   %156 = sdiv i64 %155, 1000
   %157 = add nsw i64 %156, %153
   br label %Abc_Clock.exit51
@@ -2850,7 +2850,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #15 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #24
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !73
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !71
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #26
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #24
@@ -2858,7 +2858,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #15 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !73, !noalias !75
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !71, !noalias !73
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #24
   br label %17
 
@@ -2983,8 +2983,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !46 = distinct !{!46, !28}
 !47 = distinct !{!47, !28}
 !48 = distinct !{!48, !28}
-!49 = distinct !{!49, !28, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !28}
+!50 = distinct !{!50, !28}
 !51 = distinct !{!51, !28}
 !52 = distinct !{!52, !28}
 !53 = distinct !{!53, !28}
@@ -2998,17 +2998,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !61 = distinct !{!61, !28}
 !62 = distinct !{!62, !28}
 !63 = distinct !{!63, !28}
-!64 = distinct !{!64, !28}
-!65 = !{!66, !67, i64 0}
-!66 = !{!"timespec", !67, i64 0, !67, i64 8}
-!67 = !{!"long", !7, i64 0}
-!68 = !{!66, !67, i64 8}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"timespec", !66, i64 0, !66, i64 8}
+!66 = !{!"long", !7, i64 0}
+!67 = !{!65, !66, i64 8}
+!68 = distinct !{!68, !28}
 !69 = distinct !{!69, !28}
 !70 = distinct !{!70, !28}
-!71 = distinct !{!71, !28, !50}
-!72 = distinct !{!72, !28}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"vprintf: argument 0"}
-!77 = distinct !{!77, !"vprintf"}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"vprintf: argument 0"}
+!75 = distinct !{!75, !"vprintf"}

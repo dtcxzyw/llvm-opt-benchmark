@@ -1388,7 +1388,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 203:                                              ; preds = %.preheader
   %204 = add nuw nsw i32 %.2208333, 1
   %exitcond348.not = icmp eq i32 %204, %185
-  br i1 %exitcond348.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond348.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph335.split, %203
   %.2208333 = phi i32 [ %204, %203 ], [ 0, %.lr.ph335.split ]
@@ -1398,7 +1398,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 .loopexit:                                        ; preds = %203
   %206 = load ptr, ptr %180, align 8
   %207 = icmp ugt ptr %201, %206
-  br i1 %207, label %.lr.ph335.split, label %._crit_edge, !llvm.loop !18
+  br i1 %207, label %.lr.ph335.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %195, %179
   %208 = call i64 @SDL_TellIO_REAL(ptr noundef nonnull %1) #4
@@ -1524,7 +1524,5 @@ attributes #4 = { nounwind }
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}

@@ -433,7 +433,7 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   %.2111.us = phi i32 [ 0, %64 ], [ %.1110.us, %63 ], [ %.1110.us, %62 ], [ 0, %.thread142.us ]
   %.2108.us = phi i32 [ %65, %64 ], [ %.1107.us, %63 ], [ %.1107.us, %62 ], [ 0, %.thread142.us ]
   %66 = getelementptr inbounds nuw i8, ptr %.3158.us, i64 1
-  br label %.split.us, !llvm.loop !55
+  br label %.split.us
 
 .split:                                           ; preds = %29, %.thread159
   %.0120 = phi ptr [ %.1121151, %.thread159 ], [ %37, %29 ]
@@ -647,7 +647,7 @@ define hidden i32 @phpdbg_do_help(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader105, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 8, !tbaa !57
+  %5 = load i32, ptr %0, align 8, !tbaa !55
   switch i32 %5, label %130 [
     i32 0, label %.preheader105
     i32 5, label %15
@@ -681,9 +681,9 @@ get_help.exit:                                    ; preds = %12, %9
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = load ptr, ptr %16, align 8, !tbaa !61
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load i64, ptr %18, align 8, !tbaa !62
+  %19 = load i64, ptr %18, align 8, !tbaa !60
   %20 = icmp eq i64 %19, 1
   %21 = load ptr, ptr @phpdbg_prompt_commands, align 8, !tbaa !9
   %.not3440.i = icmp eq ptr %21, null
@@ -787,8 +787,8 @@ get_help.exit28:                                  ; preds = %55, %52
 .lr.ph:                                           ; preds = %60, %75
   %62 = phi ptr [ %77, %75 ], [ %21, %60 ]
   %storemerge85 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %60 ]
-  %63 = load ptr, ptr %16, align 8, !tbaa !61
-  %64 = load i64, ptr %18, align 8, !tbaa !62
+  %63 = load ptr, ptr %16, align 8, !tbaa !59
+  %64 = load i64, ptr %18, align 8, !tbaa !60
   %65 = call i32 @strncmp(ptr noundef nonnull %62, ptr noundef %63, i64 noundef %64) #7
   %.not22 = icmp eq i32 %65, 0
   br i1 %.not22, label %66, label %75
@@ -908,7 +908,7 @@ get_command.exit48:                               ; preds = %.lr.ph.i35, %.lr.ph
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %.9, i64 40
-  %114 = load ptr, ptr %113, align 8, !tbaa !63
+  %114 = load ptr, ptr %113, align 8, !tbaa !61
   %115 = tail call i32 %114(ptr noundef nonnull %0) #6
   br label %130
 
@@ -1045,12 +1045,10 @@ attributes #8 = { nounwind allocsize(0) }
 !52 = !{!"branch_weights", i32 -104856028, i32 -98566144, i32 2097152, i32 2096626, i32 2096104}
 !53 = !{!"branch_weights", i32 -298965797, i32 -288964296, i32 2002000, i32 2001000, i32 2000000, i32 1999499, i32 1999000}
 !54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!55 = distinct !{!55, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = !{!58, !6, i64 0}
-!58 = !{!"_phpdbg_param", !6, i64 0, !13, i64 8, !13, i64 16, !59, i64 24, !60, i64 40, !11, i64 56, !13, i64 64, !33, i64 72, !33, i64 80}
-!59 = !{!"", !11, i64 0, !13, i64 8}
-!60 = !{!"", !11, i64 0, !11, i64 8}
-!61 = !{!58, !11, i64 56}
-!62 = !{!58, !13, i64 64}
-!63 = !{!10, !12, i64 40}
+!55 = !{!56, !6, i64 0}
+!56 = !{!"_phpdbg_param", !6, i64 0, !13, i64 8, !13, i64 16, !57, i64 24, !58, i64 40, !11, i64 56, !13, i64 64, !33, i64 72, !33, i64 80}
+!57 = !{!"", !11, i64 0, !13, i64 8}
+!58 = !{!"", !11, i64 0, !11, i64 8}
+!59 = !{!56, !11, i64 56}
+!60 = !{!56, !13, i64 64}
+!61 = !{!10, !12, i64 40}

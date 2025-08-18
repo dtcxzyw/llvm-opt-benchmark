@@ -4431,7 +4431,7 @@ define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %0, ptr noun
   %.161.us = phi ptr [ null, %.thread58.us ], [ %33, %29 ]
   store i64 %14, ptr %7, align 8, !tbaa !4
   %35 = icmp sgt i32 %28, 0
-  br i1 %35, label %.split.us, label %.lr.ph116, !llvm.loop !135
+  br i1 %35, label %.split.us, label %.lr.ph116
 
 .split.us:                                        ; preds = %34, %.lr.ph.split.us
   %.us-phi94 = phi i32 [ %15, %.lr.ph.split.us ], [ 0, %34 ]
@@ -4464,7 +4464,7 @@ define internal range(i32 -1, 1) i32 @cascade_filter_fn(ptr noundef %0, ptr noun
   %.046.ph.be = phi ptr [ %.us-phi97, %45 ], [ null, %57 ]
   %.047.ph.be = sub i64 %8, %.pn
   %51 = icmp ult i64 %.047.ph.be, %8
-  br i1 %51, label %.lr.ph.split.us, label %.loopexit66, !llvm.loop !137
+  br i1 %51, label %.lr.ph.split.us, label %.loopexit66, !llvm.loop !135
 
 .split100.us:                                     ; preds = %.thread58.us
   store i64 0, ptr %6, align 8, !tbaa !4
@@ -4524,7 +4524,7 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %11 = load i8, ptr %10, align 1, !tbaa !138
+  %11 = load i8, ptr %10, align 1, !tbaa !136
   %12 = icmp eq i8 %11, 13
   %13 = icmp ne ptr %1, null
   %or.cond = and i1 %13, %12
@@ -4621,7 +4621,7 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
   %49 = load i8, ptr %6, align 8
   %50 = or i8 %49, 1
   store i8 %50, ptr %6, align 8
-  store i8 %37, ptr %33, align 1, !tbaa !138
+  store i8 %37, ptr %33, align 1, !tbaa !136
   br label %55
 
 51:                                               ; preds = %43
@@ -4643,7 +4643,7 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
   %58 = icmp ult i64 %.3, %57
   %59 = icmp ult i64 %56, %23
   %60 = select i1 %58, i1 %59, i1 false
-  br i1 %60, label %34, label %._crit_edge, !llvm.loop !139
+  br i1 %60, label %34, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %55, %28
   %.152.lcssa = phi i64 [ %.05162, %28 ], [ %.3, %55 ]
@@ -4666,7 +4666,7 @@ define internal noundef i32 @lf_to_crlf_filter_fn(ptr noundef captures(none) %0,
   %69 = or disjoint i8 %64, 1
   store i8 %69, ptr %6, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 13, ptr %70, align 1, !tbaa !138
+  store i8 13, ptr %70, align 1, !tbaa !136
   br label %71
 
 71:                                               ; preds = %25, %68, %._crit_edge, %19
@@ -4858,8 +4858,6 @@ attributes #25 = { nounwind willreturn memory(none) }
 !132 = !{!111, !13, i64 24}
 !133 = distinct !{!133, !10}
 !134 = distinct !{!134, !10}
-!135 = distinct !{!135, !136}
-!136 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!135 = distinct !{!135, !10}
+!136 = !{!116, !6, i64 9}
 !137 = distinct !{!137, !10}
-!138 = !{!116, !6, i64 9}
-!139 = distinct !{!139, !10}

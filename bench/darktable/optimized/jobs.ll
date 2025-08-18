@@ -1560,7 +1560,7 @@ define internal noalias noundef ptr @_control_work_res(ptr noundef captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = call i32 (...) @dt_control_running() #16
   %.not.us = icmp eq i32 %28, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !93
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %91
   %29 = call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #16
@@ -1866,5 +1866,3 @@ attributes #17 = { nounwind allocsize(0,1) }
 !90 = !{!"worker_thread_parameters_t", !31, i64 0, !12, i64 8}
 !91 = !{!90, !12, i64 8}
 !92 = !{!67, !12, i64 9752}
-!93 = distinct !{!93, !94}
-!94 = !{!"llvm.loop.unswitch.nontrivial.disable"}

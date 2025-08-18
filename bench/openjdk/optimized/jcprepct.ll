@@ -154,7 +154,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %96 = load i32, ptr %25, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next.i, %97
-  br i1 %98, label %.lr.ph48.split.i, label %create_context_buffer.exit, !llvm.loop !10
+  br i1 %98, label %.lr.ph48.split.i, label %create_context_buffer.exit, !llvm.loop !8
 
 99:                                               ; preds = %8
   store ptr @pre_process_data, ptr %18, align 8
@@ -198,7 +198,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %128 = load i32, ptr %100, align 4
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %108, label %create_context_buffer.exit, !llvm.loop !11
+  br i1 %130, label %108, label %create_context_buffer.exit, !llvm.loop !9
 
 create_context_buffer.exit:                       ; preds = %.lr.ph48.split.i, %._crit_edge.us.i, %108, %99, %19
   ret void
@@ -313,7 +313,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
   %53 = add nuw nsw i32 %.083, 1
   %54 = load i32, ptr %10, align 4
   %.not78.not = icmp slt i32 %.083, %54
-  br i1 %.not78.not, label %49, label %._crit_edge85.loopexit, !llvm.loop !12
+  br i1 %.not78.not, label %49, label %._crit_edge85.loopexit, !llvm.loop !10
 
 ._crit_edge85.loopexit:                           ; preds = %49
   %.pre98 = load i32, ptr %18, align 4
@@ -325,7 +325,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %57 = sext i32 %55 to i64
   %58 = icmp slt i64 %indvars.iv.next95, %57
-  br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %58, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge85, %.preheader.lr.ph, %.preheader79, %28
   %59 = load i32, ptr %2, align 4
@@ -376,7 +376,7 @@ define internal void @pre_process_context(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @jCopySamples(ptr noundef %75, i32 noundef %80, ptr noundef %75, i32 noundef %.08.i, i32 noundef 1, i32 noundef %76) #4
   %82 = add i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %82, %78
-  br i1 %exitcond.not.i, label %expand_bottom_edge.exit.loopexit, label %81, !llvm.loop !15
+  br i1 %exitcond.not.i, label %expand_bottom_edge.exit.loopexit, label %81, !llvm.loop !13
 
 expand_bottom_edge.exit.loopexit:                 ; preds = %81
   %.pre = load i32, ptr %18, align 4
@@ -387,7 +387,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %85, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %expand_bottom_edge.exit
   %.pre97 = load i32, ptr %17, align 4
@@ -441,7 +441,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
 107:                                              ; preds = %103, %87
   %108 = phi i32 [ %.pre100, %103 ], [ %.pre101, %87 ]
   %109 = icmp ult i32 %108, %6
-  br i1 %109, label %25, label %._crit_edge89, !llvm.loop !17
+  br i1 %109, label %25, label %._crit_edge89, !llvm.loop !15
 
 ._crit_edge89:                                    ; preds = %107, %65, %7
   ret void
@@ -524,7 +524,7 @@ define internal void @pre_process_data(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @jCopySamples(ptr noundef %47, i32 noundef %52, ptr noundef %47, i32 noundef %.08.i, i32 noundef 1, i32 noundef %48) #4
   %54 = add i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %54, %50
-  br i1 %exitcond.not.i, label %expand_bottom_edge.exit.loopexit, label %53, !llvm.loop !15
+  br i1 %exitcond.not.i, label %expand_bottom_edge.exit.loopexit, label %53, !llvm.loop !13
 
 expand_bottom_edge.exit.loopexit:                 ; preds = %53
   %.pre = load i32, ptr %17, align 4
@@ -535,7 +535,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %57, label %.lr.ph.split, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %expand_bottom_edge.exit
   %.pre86 = load i32, ptr %12, align 4
@@ -611,7 +611,7 @@ expand_bottom_edge.exit:                          ; preds = %expand_bottom_edge.
   tail call void @jCopySamples(ptr noundef %83, i32 noundef %93, ptr noundef %83, i32 noundef %.08.i69, i32 noundef 1, i32 noundef %86) #4
   %95 = add i32 %.08.i69, 1
   %exitcond.not.i70 = icmp eq i32 %95, %91
-  br i1 %exitcond.not.i70, label %expand_bottom_edge.exit71.loopexit, label %94, !llvm.loop !15
+  br i1 %exitcond.not.i70, label %expand_bottom_edge.exit71.loopexit, label %94, !llvm.loop !13
 
 expand_bottom_edge.exit71.loopexit:               ; preds = %94
   %.pre89 = load i32, ptr %17, align 4
@@ -623,7 +623,7 @@ expand_bottom_edge.exit71:                        ; preds = %expand_bottom_edge.
   %97 = getelementptr inbounds nuw i8, ptr %.077, i64 96
   %98 = sext i32 %96 to i64
   %99 = icmp slt i64 %indvars.iv.next84, %98
-  br i1 %99, label %.lr.ph79, label %._crit_edge80, !llvm.loop !19
+  br i1 %99, label %.lr.ph79, label %._crit_edge80, !llvm.loop !17
 
 ._crit_edge80:                                    ; preds = %expand_bottom_edge.exit71, %76
   store i32 %6, ptr %5, align 4
@@ -632,7 +632,7 @@ expand_bottom_edge.exit71:                        ; preds = %expand_bottom_edge.
 100:                                              ; preds = %73, %70
   %101 = load i32, ptr %2, align 4
   %102 = icmp ult i32 %101, %3
-  br i1 %102, label %20, label %.critedge, !llvm.loop !20
+  br i1 %102, label %20, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %20, %100, %7, %._crit_edge80
   ret void
@@ -662,16 +662,14 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7, !12}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !14}
+!16 = distinct !{!16, !7, !12}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !14}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!18 = distinct !{!18, !7}

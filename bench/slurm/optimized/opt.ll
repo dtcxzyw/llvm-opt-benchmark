@@ -322,7 +322,7 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %28 = tail call ptr @list_next(ptr noundef %24) #17
   %.not29.us.i = icmp eq ptr %28, null
-  br i1 %.not29.us.i, label %.thread.i, label %.lr.ph.split.us.i, !llvm.loop !8
+  br i1 %.not29.us.i, label %.thread.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
   %29 = phi ptr [ %41, %40 ], [ %25, %.lr.ph.i ]
@@ -374,7 +374,7 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph.split.us.i9:                               ; preds = %.lr.ph.i8, %.lr.ph.split.us.i9
   %50 = tail call ptr @list_next(ptr noundef %46) #17
   %.not22.us.i = icmp eq ptr %50, null
-  br i1 %.not22.us.i, label %.thread.i10, label %.lr.ph.split.us.i9, !llvm.loop !10
+  br i1 %.not22.us.i, label %.thread.i10, label %.lr.ph.split.us.i9
 
 .lr.ph.split.i13:                                 ; preds = %.lr.ph.i8, %65
   %51 = phi ptr [ %66, %65 ], [ %47, %.lr.ph.i8 ]
@@ -383,7 +383,7 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 
 52:                                               ; preds = %.lr.ph.split.i13
   %53 = icmp eq ptr %43, %51
-  br label %65, !llvm.loop !11
+  br label %65, !llvm.loop !8
 
 54:                                               ; preds = %.lr.ph.split.i13
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -454,7 +454,7 @@ define dso_local i32 @get_max_het_group() local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.19, i32 %.020)
   %14 = tail call ptr @list_next(ptr noundef %3) #17
   %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %13 ]
@@ -525,7 +525,7 @@ define dso_local noundef i32 @initialize_and_process_args(i32 noundef %0, ptr no
   %24 = load ptr, ptr %10, align 8
   %25 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef %24, ptr noundef %19, ptr noundef nonnull %8) #17
   %.not.i = icmp eq i32 %25, -1
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   call void @slurm_option_table_destroy(ptr noundef %19) #17
@@ -609,7 +609,7 @@ _get_het_group.exit.thread:                       ; preds = %._crit_edge.i
   %57 = call ptr @hostlist_shift(ptr noundef nonnull %37) #17
   store ptr %57, ptr %9, align 8
   %.not24.i = icmp eq ptr %57, null
-  br i1 %.not24.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !16
+  br i1 %.not24.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !13
 
 ._crit_edge30.i:                                  ; preds = %54, %42
   call void @hostlist_destroy(ptr noundef nonnull %37) #17
@@ -711,7 +711,7 @@ _opt_default.exit:                                ; preds = %89, %92
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 648), align 8
   call void @slurm_reset_all_options(ptr noundef nonnull @opt, i1 noundef zeroext %94) #17
-  %95 = load i8, ptr @is_step, align 1, !range !17, !noundef !18
+  %95 = load i8, ptr @is_step, align 1, !range !14, !noundef !15
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %104, label %97
 
@@ -809,7 +809,7 @@ _opt_default.exit:                                ; preds = %89, %92
   %137 = getelementptr inbounds nuw i8, ptr %.027.us.i, i64 16
   %138 = load ptr, ptr %137, align 8
   %.not.us.i = icmp eq ptr %138, null
-  br i1 %.not.us.i, label %._crit_edge.i56, label %.lr.ph.split.us.i, !llvm.loop !19
+  br i1 %.not.us.i, label %._crit_edge.i56, label %.lr.ph.split.us.i, !llvm.loop !16
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i54, %144
   %139 = phi ptr [ %146, %144 ], [ %110, %.lr.ph.i54 ]
@@ -828,7 +828,7 @@ _opt_default.exit:                                ; preds = %89, %92
   %145 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
   %146 = load ptr, ptr %145, align 8
   %.not.i55 = icmp eq ptr %146, null
-  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.split.i, !llvm.loop !16
 
 ._crit_edge.i56:                                  ; preds = %144, %136, %109
   %147 = call i32 @spank_process_env_options() #17
@@ -861,7 +861,7 @@ _opt_env.exit:                                    ; preds = %._crit_edge.i56
   %155 = load ptr, ptr %6, align 8
   %156 = call i32 @getopt_long(i32 noundef %0, ptr noundef %1, ptr noundef %155, ptr noundef %150, ptr noundef nonnull %5) #17
   %.not.i59 = icmp eq i32 %156, -1
-  br i1 %.not.i59, label %_set_options.exit, label %.lr.ph.i58, !llvm.loop !21
+  br i1 %.not.i59, label %_set_options.exit, label %.lr.ph.i58, !llvm.loop !17
 
 _set_options.exit:                                ; preds = %.lr.ph.i58, %_opt_env.exit
   call void @slurm_option_table_destroy(ptr noundef %150) #17
@@ -952,7 +952,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   %192 = getelementptr inbounds nuw ptr, ptr %184, i64 %indvars.iv.next.i
   %193 = load ptr, ptr %192, align 8
   %.not63.i = icmp eq ptr %193, null
-  br i1 %.not63.i, label %.critedge.i, label %sub_0.i, !llvm.loop !22
+  br i1 %.not63.i, label %.critedge.i, label %sub_0.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %.tail.thread.i, %.tail.i, %182, %179
   %.0.i = phi ptr [ null, %179 ], [ %184, %182 ], [ %184, %.tail.i ], [ %184, %.tail.thread.i ]
@@ -990,7 +990,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
 
 209:                                              ; preds = %205
   %210 = icmp ne ptr %.0.i, null
-  %211 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 217), align 1, !range !17
+  %211 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 217), align 1, !range !14
   %212 = trunc nuw i8 %211 to i1
   %or.cond3.i = select i1 %210, i1 true, i1 %212
   br i1 %or.cond3.i, label %214, label %213
@@ -1027,7 +1027,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
   %227 = sext i32 %226 to i64
   %228 = icmp slt i64 %indvars.iv.next91.i, %227
-  br i1 %228, label %.lr.ph.split.i64, label %._crit_edge.loopexit.i, !llvm.loop !23
+  br i1 %228, label %.lr.ph.split.i64, label %._crit_edge.loopexit.i, !llvm.loop !19
 
 ._crit_edge.loopexit.i:                           ; preds = %222, %.lr.ph.split.i64
   %.039.lcssa.ph.in.i = phi i64 [ %indvars.iv.next91.i, %222 ], [ %indvars.iv90.i, %.lr.ph.split.i64 ]
@@ -1055,7 +1055,7 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
   br label %238
 
 236:                                              ; preds = %233
-  %.pre.i63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 216), align 8, !range !17
+  %.pre.i63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 216), align 8, !range !14
   %237 = trunc nuw i8 %.pre.i63 to i1
   br i1 %237, label %238, label %284
 
@@ -1157,14 +1157,14 @@ sub_0.i:                                          ; preds = %182, %.tail.thread.
 
 284:                                              ; preds = %280, %279, %274, %236
   %285 = call i32 @launch_g_handle_multi_prog_verify(i32 noundef %215, ptr noundef nonnull @opt) #17
-  %286 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 120), align 8, !range !17, !noundef !18
+  %286 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 120), align 8, !range !14, !noundef !15
   %287 = trunc nuw i8 %286 to i1
   br i1 %287, label %_opt_args.exit, label %288
 
 288:                                              ; preds = %284
-  %289 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 216), align 8, !range !17, !noundef !18
+  %289 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 216), align 8, !range !14, !noundef !15
   %290 = trunc nuw i8 %289 to i1
-  %291 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 32), align 8, !range !17
+  %291 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 32), align 8, !range !14
   %292 = trunc nuw i8 %291 to i1
   %or.cond5.i = select i1 %290, i1 true, i1 %292
   %293 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
@@ -1214,7 +1214,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 312:                                              ; preds = %311
   %313 = call ptr @getenv(ptr noundef nonnull @.str.3) #17
   %314 = icmp eq ptr %313, null
-  %315 = load i8, ptr @is_step, align 1, !range !17
+  %315 = load i8, ptr @is_step, align 1, !range !14
   %316 = trunc nuw i8 %315 to i1
   %or.cond3 = select i1 %314, i1 %316, i1 false
   %317 = load i32, ptr @optind, align 4
@@ -1232,7 +1232,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %323 = trunc nuw i64 %indvars.iv.next to i32
   %324 = icmp sgt i32 %0, %323
-  br i1 %324, label %.preheader, label %.loopexit, !llvm.loop !24
+  br i1 %324, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %.preheader.preheader, %322
   %indvars.iv = phi i64 [ %321, %.preheader.preheader ], [ %indvars.iv.next, %322 ]
@@ -1248,7 +1248,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 .loopexit:                                        ; preds = %322, %328, %312
   store i1 true, ptr @initialize_and_process_args.check_het_step, align 1
-  %329 = load i8, ptr @local_het_step, align 1, !range !17, !noundef !18
+  %329 = load i8, ptr @local_het_step, align 1, !range !14, !noundef !15
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %331, label %335
 
@@ -1278,7 +1278,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 341:                                              ; preds = %335
   %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 82
-  %344 = load i8, ptr %343, align 2, !range !17, !noundef !18
+  %344 = load i8, ptr %343, align 2, !range !14, !noundef !15
   %345 = trunc nuw i8 %344 to i1
   %.pre.i65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 252), align 4
   %346 = and i32 %.pre.i65, 65535
@@ -1319,7 +1319,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 362:                                              ; preds = %360
   %363 = call zeroext i1 @slurm_option_set_by_cli(ptr noundef nonnull @opt, i32 noundef 71) #17
-  %364 = load i8, ptr @is_step, align 1, !range !17
+  %364 = load i8, ptr @is_step, align 1, !range !14
   %365 = trunc nuw i8 %364 to i1
   %or.cond.i73 = select i1 %363, i1 %365, i1 false
   br i1 %or.cond.i73, label %366, label %368
@@ -1456,9 +1456,9 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   br label %428
 
 428:                                              ; preds = %424, %418
-  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 80), align 8, !range !17, !noundef !18
+  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 80), align 8, !range !14, !noundef !15
   %430 = trunc nuw i8 %429 to i1
-  %431 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 221), align 1, !range !17
+  %431 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 221), align 1, !range !14
   %432 = trunc nuw i8 %431 to i1
   %or.cond9.i = select i1 %430, i1 %432, i1 false
   br i1 %or.cond9.i, label %433, label %435
@@ -1469,7 +1469,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 435:                                              ; preds = %433, %428
   %.1.i = phi i1 [ false, %433 ], [ %or.cond5.not.i, %428 ]
-  %436 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !17, !noundef !18
+  %436 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !14, !noundef !15
   %437 = trunc nuw i8 %436 to i1
   %438 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 544), align 8
   %439 = icmp eq ptr %438, null
@@ -1478,7 +1478,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 440:                                              ; preds = %435
   %441 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136) #17
-  %.pre190.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !17
+  %.pre190.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !14
   br label %442
 
 442:                                              ; preds = %440, %435
@@ -1492,7 +1492,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
 
 447:                                              ; preds = %442
   %448 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.137) #17
-  %.pre191.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !17
+  %.pre191.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 128), align 8, !range !14
   br label %449
 
 449:                                              ; preds = %447, %442
@@ -1586,7 +1586,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   unreachable
 
 491:                                              ; preds = %486, %484, %482
-  %492 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 132), align 4, !range !17, !noundef !18
+  %492 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 132), align 4, !range !14, !noundef !15
   %493 = trunc nuw i8 %492 to i1
   br i1 %493, label %494, label %499
 
@@ -1626,7 +1626,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   br i1 %.not143.i, label %528, label %512
 
 512:                                              ; preds = %510
-  %513 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17, !noundef !18
+  %513 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14, !noundef !15
   %514 = trunc nuw i8 %513 to i1
   br i1 %514, label %515, label %517
 
@@ -1635,7 +1635,7 @@ _opt_args.exit:                                   ; preds = %284, %288, %295, %3
   br label %_valid_node_list.exit.i
 
 517:                                              ; preds = %512
-  %518 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !17, !noundef !18
+  %518 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !14, !noundef !15
   %519 = trunc nuw i8 %518 to i1
   br i1 %519, label %520, label %_valid_node_list.exit.i
 
@@ -1681,9 +1681,9 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br i1 %537, label %538, label %561
 
 538:                                              ; preds = %534
-  %539 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !17, !noundef !18
+  %539 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !14, !noundef !15
   %540 = trunc nuw i8 %539 to i1
-  %541 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17
+  %541 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14
   %542 = trunc nuw i8 %541 to i1
   %or.cond19.i = select i1 %540, i1 %542, i1 false
   br i1 %or.cond19.i, label %561, label %543
@@ -1705,7 +1705,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   unreachable
 
 550:                                              ; preds = %546
-  %551 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17, !noundef !18
+  %551 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14, !noundef !15
   %552 = trunc nuw i8 %551 to i1
   br i1 %552, label %555, label %553
 
@@ -1716,7 +1716,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br label %555
 
 555:                                              ; preds = %553, %550
-  %556 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !17, !noundef !18
+  %556 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !14, !noundef !15
   %557 = trunc nuw i8 %556 to i1
   br i1 %557, label %560, label %558
 
@@ -1733,7 +1733,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br label %561
 
 561:                                              ; preds = %560, %543, %538, %534
-  %562 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 68), align 4, !range !17, !noundef !18
+  %562 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 68), align 4, !range !14, !noundef !15
   %563 = trunc nuw i8 %562 to i1
   %564 = load i32, ptr @MPIR_being_debugged, align 4
   %565 = icmp ne i32 %564, 0
@@ -1745,7 +1745,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br label %568
 
 566:                                              ; preds = %561
-  %.pre193.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 156), align 4, !range !17
+  %.pre193.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 156), align 4, !range !14
   %567 = trunc nuw i8 %.pre193.i to i1
   br i1 %567, label %568, label %569
 
@@ -1767,7 +1767,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
 
 575:                                              ; preds = %573, %569
   %.8.i = phi i1 [ false, %573 ], [ %.7.i, %569 ]
-  %576 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 132), align 4, !range !17, !noundef !18
+  %576 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 132), align 4, !range !14, !noundef !15
   %577 = trunc nuw i8 %576 to i1
   %578 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 128), align 8
   %579 = icmp slt i32 %578, 1
@@ -1857,7 +1857,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
 616:                                              ; preds = %614, %611, %608
   %617 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 544), align 8
   %618 = icmp eq ptr %617, null
-  %619 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !17
+  %619 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !14
   %620 = trunc nuw i8 %619 to i1
   %or.cond25.i = select i1 %618, i1 true, i1 %620
   br i1 %or.cond25.i, label %628, label %621
@@ -1868,7 +1868,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   br i1 %.not151.i, label %623, label %._crit_edge194.i
 
 ._crit_edge194.i:                                 ; preds = %621
-  %.pre195.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !17
+  %.pre195.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 152), align 8, !range !14
   %.pre92 = trunc nuw i8 %.pre195.i to i1
   br label %628
 
@@ -1891,7 +1891,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
 
 628:                                              ; preds = %._crit_edge194.i, %616
   %.pre-phi = phi i1 [ %.pre92, %._crit_edge194.i ], [ %620, %616 ]
-  %629 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 224), align 8, !range !17
+  %629 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 224), align 8, !range !14
   %630 = trunc nuw i8 %629 to i1
   %or.cond27.i = select i1 %.pre-phi, i1 true, i1 %630
   br i1 %or.cond27.i, label %._crit_edge90, label %.thread.i68
@@ -1912,7 +1912,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   %637 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 180), align 4
   %638 = icmp ne i32 %637, -2
   %or.cond31.not154.i = select i1 %or.cond29.not157.i, i1 true, i1 %638
-  %639 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17
+  %639 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14
   %640 = trunc nuw i8 %639 to i1
   %or.cond33.i = select i1 %or.cond31.not154.i, i1 true, i1 %640
   br i1 %or.cond33.i, label %676, label %641
@@ -1977,7 +1977,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   %667 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 252), align 4
   %668 = and i32 %667, 65535
   %669 = icmp ne i32 %668, 3
-  %670 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17
+  %670 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14
   %671 = trunc nuw i8 %670 to i1
   %or.cond39.i = select i1 %669, i1 true, i1 %671
   br i1 %or.cond39.i, label %674, label %672
@@ -2047,7 +2047,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   call void @free(ptr noundef %694) #17
   %695 = add nuw nsw i32 %.099186.i, 1
   %exitcond.not.i = icmp eq i32 %695, %693
-  br i1 %exitcond.not.i, label %._crit_edge.i70.loopexit, label %.lr.ph.i71, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i70.loopexit, label %.lr.ph.i71, !llvm.loop !21
 
 ._crit_edge.i70.loopexit:                         ; preds = %.lr.ph.i71
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @opt, i64 544)) #17
@@ -2095,7 +2095,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   %714 = icmp sle i32 %713, %712
   %or.cond45.i = or i1 %.0100.i, %714
   %or.cond45.not.i = xor i1 %or.cond45.i, true
-  %715 = load i8, ptr @is_step, align 1, !range !17
+  %715 = load i8, ptr @is_step, align 1, !range !14
   %716 = trunc nuw i8 %715 to i1
   %or.cond47.i = select i1 %or.cond45.not.i, i1 %716, i1 false
   br i1 %or.cond47.i, label %717, label %718
@@ -2128,7 +2128,7 @@ _valid_node_list.exit.i:                          ; preds = %522, %520, %517, %5
   %.196.i = phi ptr [ %.095205.i, %706 ], [ %.095205.i, %704 ], [ %.095205.i, %676 ], [ %664, %674 ], [ %.095205.i, %658 ], [ %.095205.i, %719 ], [ %.095205.i, %718 ], [ %.095205.i, %.critedge.i69 ], [ null, %628 ], [ %.095205.i, %698 ]
   %725 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 180), align 4
   %726 = icmp eq i32 %725, -2
-  %727 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !17
+  %727 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 124), align 4, !range !14
   %728 = trunc nuw i8 %727 to i1
   %or.cond51.i = select i1 %726, i1 true, i1 %728
   br i1 %or.cond51.i, label %732, label %729
@@ -2282,7 +2282,7 @@ _opt_verify.exit:                                 ; preds = %770, %772
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next88 to i32
   %exitcond.not = icmp eq i32 %75, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %76, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %76, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %796
   %.pre91 = load ptr, ptr %12, align 8
@@ -2374,7 +2374,7 @@ define internal fastcc noundef ptr @_opt_copy() unnamed_addr #0 {
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 24), align 8
@@ -2614,7 +2614,7 @@ define dso_local void @init_spank_env() local_unnamed_addr #0 {
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %36, %.preheader, %5, %8
   ret void
@@ -2705,7 +2705,7 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %19, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %36, label %19, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %33
   %37 = and i64 %indvars.iv.next, 4294967295
@@ -2775,7 +2775,7 @@ define dso_local ptr @spank_get_job_env(ptr noundef %0) local_unnamed_addr #0 {
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %21, label %.loopexit, !llvm.loop !30
+  br i1 %20, label %21, label %.loopexit, !llvm.loop !26
 
 21:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
@@ -2882,7 +2882,7 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 656), align 8
   %34 = trunc nuw i64 %indvars.iv.next36 to i32
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph26, label %._crit_edge, !llvm.loop !31
+  br i1 %35, label %.lr.ph26, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph26, %23
   %.lcssa = phi i32 [ %27, %23 ], [ %33, %.lr.ph26 ]
@@ -2901,7 +2901,7 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  br i1 %42, label %17, label %.loopexit, !llvm.loop !32
+  br i1 %42, label %17, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %39, %11, %._crit_edge, %38, %9
   %.0 = phi i32 [ -1, %9 ], [ 0, %38 ], [ 0, %._crit_edge ], [ 0, %11 ], [ 0, %39 ]
@@ -3074,28 +3074,24 @@ attributes #20 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !12, !13}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unroll.disable"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !12, !13, !9}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
-!26 = distinct !{!26, !12, !13}
-!27 = distinct !{!27, !12, !13}
-!28 = distinct !{!28, !12, !13}
-!29 = distinct !{!29, !12, !13}
-!30 = distinct !{!30, !12, !13}
-!31 = distinct !{!31, !12, !13}
-!32 = distinct !{!32, !12, !13}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}

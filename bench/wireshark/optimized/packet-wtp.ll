@@ -795,7 +795,7 @@ wtp_handle_tpi.exit.us:                           ; preds = %226, %221
 wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %252
   %274 = add i32 %.0365, %.0369
   %.not396 = icmp sgt i8 %231, -1
-  br i1 %.not396, label %.loopexit, label %.preheader.split, !llvm.loop !11
+  br i1 %.not396, label %.loopexit, label %.preheader.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %wtp_handle_tpi.exit, %wtp_handle_tpi.exit.us, %216
   %.1374421 = phi ptr [ %113, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %113, %wtp_handle_tpi.exit ]
@@ -844,7 +844,7 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
 
 290:                                              ; preds = %288
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %292 = load i8, ptr %291, align 8, !range !12, !noundef !13
+  %292 = load i8, ptr %291, align 8, !range !10, !noundef !11
   store i8 1, ptr %291, align 8
   %293 = zext i16 %.0375 to i32
   %.not397 = icmp eq i8 %.0367, 0
@@ -1009,8 +1009,6 @@ attributes #6 = { allocsize(1) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}

@@ -15534,7 +15534,7 @@ _ZN11duckdb_zstdL33ZSTD_estimateBlockSize_symbolTypeENS_20symbolEncodingType_eEP
   %.2.i.i.i = add i64 %.139.i.i.i, %.pn.i.i.i
   %102 = getelementptr inbounds nuw i8, ptr %.03438.i.i.i, i64 1
   %103 = icmp ult ptr %102, %85
-  br i1 %103, label %.lr.ph.split.i.i.i, label %._crit_edge.i31.i.i, !llvm.loop !457
+  br i1 %103, label %.lr.ph.split.i.i.i, label %._crit_edge.i31.i.i, !llvm.loop !455
 
 ._crit_edge.i31.i.i:                              ; preds = %.lr.ph.split.i.i.i, %.preheader.i27.i.i
   %.1.lcssa.i32.i.i = phi i64 [ %.042.i28.i.i, %.preheader.i27.i.i ], [ %.2.i.i.i, %.lr.ph.split.i.i.i ]
@@ -15596,7 +15596,7 @@ _ZN11duckdb_zstdL33ZSTD_estimateBlockSize_symbolTypeENS_20symbolEncodingType_eEP
   %.2.i46.i.i = add i64 %.139.i42.i.i, %.pn.i45.i.i
   %125 = getelementptr inbounds nuw i8, ptr %.03438.i43.i.i, i64 1
   %126 = icmp ult ptr %125, %108
-  br i1 %126, label %.lr.ph.split.i41.i.i, label %._crit_edge.i47.i.i, !llvm.loop !457
+  br i1 %126, label %.lr.ph.split.i41.i.i, label %._crit_edge.i47.i.i, !llvm.loop !455
 
 ._crit_edge.i47.i.i:                              ; preds = %.lr.ph.split.i41.i.i, %.preheader.i37.i.i
   %.1.lcssa.i48.i.i = phi i64 [ %.042.i38.i.i, %.preheader.i37.i.i ], [ %.2.i46.i.i, %.lr.ph.split.i41.i.i ]
@@ -15607,7 +15607,7 @@ _ZN11duckdb_zstdL22ZSTD_estimateBlockSizeEPKhmS1_S1_S1_mPKNS_21ZSTD_entropyCTabl
   %.033.i49.i.i = phi i64 [ %121, %120 ], [ %127, %._crit_edge.i47.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 5216
-  %129 = load i64, ptr %128, align 8, !tbaa !458
+  %129 = load i64, ptr %128, align 8, !tbaa !456
   %130 = icmp ugt i64 %37, 32511
   %131 = icmp ugt i64 %37, 127
   %132 = select i1 %131, i64 3, i64 2
@@ -15855,14 +15855,14 @@ define internal fastcc noundef range(i64 -70, 1) i64 @_ZN11duckdb_zstdL23ZSTD_co
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !459
+  %19 = load i64, ptr %18, align 8, !tbaa !457
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !460
+  %21 = load ptr, ptr %20, align 8, !tbaa !458
   %22 = getelementptr inbounds nuw %"struct.duckdb_zstd::ZSTD_Sequence", ptr %21, i64 %19
   %23 = add nsw i64 %11, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !461
+  %25 = load i64, ptr %24, align 8, !tbaa !459
   %26 = sub i64 %25, %19
   %27 = icmp ugt i64 %23, %26
   br i1 %27, label %103, label %28
@@ -15904,7 +15904,7 @@ define internal fastcc noundef range(i64 -70, 1) i64 @_ZN11duckdb_zstdL23ZSTD_co
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %48, ptr %49, align 4, !tbaa !229
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 0, ptr %50, align 4, !tbaa !462
+  store i32 0, ptr %50, align 4, !tbaa !460
   %51 = icmp eq i64 %.07484, %31
   br i1 %51, label %52, label %58
 
@@ -15933,7 +15933,7 @@ define internal fastcc noundef range(i64 -70, 1) i64 @_ZN11duckdb_zstdL23ZSTD_co
   br i1 %or.cond, label %62, label %75
 
 62:                                               ; preds = %58
-  store i32 %60, ptr %50, align 4, !tbaa !462
+  store i32 %60, ptr %50, align 4, !tbaa !460
   %.not80 = icmp eq i32 %59, 0
   br i1 %.not80, label %67, label %63
 
@@ -16009,7 +16009,7 @@ _ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit:      ; preds = %78, %.sink.split.i
   %94 = add i64 %.07285, %93
   %95 = add nuw i64 %.07484, 1
   %exitcond.not = icmp eq i64 %95, %11
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !463
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !461
 
 ._crit_edge:                                      ; preds = %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit, %28
   %.072.lcssa = phi i64 [ 0, %28 ], [ %94, %_ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit ]
@@ -16023,7 +16023,7 @@ _ZN11duckdb_zstdL14ZSTD_updateRepEPjjj.exit:      ; preds = %78, %.sink.split.i
   store i32 0, ptr %101, align 4, !tbaa !229
   store i32 0, ptr %99, align 4, !tbaa !227
   %102 = add i64 %23, %19
-  store i64 %102, ptr %18, align 8, !tbaa !459
+  store i64 %102, ptr %18, align 8, !tbaa !457
   br label %103
 
 103:                                              ; preds = %3, %._crit_edge
@@ -16276,7 +16276,7 @@ _ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit117: ; preds
 
 96:                                               ; preds = %_ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit117
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !464
+  %98 = load ptr, ptr %97, align 8, !tbaa !462
   %99 = ptrtoint ptr %9 to i64
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
@@ -16286,7 +16286,7 @@ _ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit117: ; preds
 103:                                              ; preds = %_ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit117, %96
   %104 = phi i32 [ %102, %96 ], [ 0, %_ZN11duckdb_zstdL18ZSTD_window_updateEPNS_13ZSTD_window_tEPKvmi.exit117 ]
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %104, ptr %105, align 8, !tbaa !465
+  store i32 %104, ptr %105, align 8, !tbaa !463
   tail call void @_ZN11duckdb_zstd22ZSTD_ldm_fillHashTableEPNS_10ldmState_tEPKhS3_PKNS_11ldmParams_tE(ptr noundef nonnull %1, ptr noundef nonnull %.092, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.pre = load i32, ptr %15, align 4, !tbaa !108
   br label %106
@@ -16954,14 +16954,12 @@ attributes #29 = { nounwind allocsize(0,1) }
 !452 = distinct !{!452, !158}
 !453 = !{!53, !55, i64 0}
 !454 = !{!54, !17, i64 136}
-!455 = distinct !{!455, !158, !456}
-!456 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!457 = distinct !{!457, !158}
-!458 = !{!56, !17, i64 152}
-!459 = !{!31, !17, i64 16}
-!460 = !{!31, !24, i64 8}
-!461 = !{!31, !17, i64 24}
-!462 = !{!228, !11, i64 12}
-!463 = distinct !{!463, !158}
-!464 = !{!36, !34, i64 8}
-!465 = !{!36, !11, i64 48}
+!455 = distinct !{!455, !158}
+!456 = !{!56, !17, i64 152}
+!457 = !{!31, !17, i64 16}
+!458 = !{!31, !24, i64 8}
+!459 = !{!31, !17, i64 24}
+!460 = !{!228, !11, i64 12}
+!461 = distinct !{!461, !158}
+!462 = !{!36, !34, i64 8}
+!463 = !{!36, !11, i64 48}

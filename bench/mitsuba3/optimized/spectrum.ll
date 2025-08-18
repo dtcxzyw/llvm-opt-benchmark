@@ -8142,27 +8142,27 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit: ; preds = %_ZN5drjit12Dynam
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4mul_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr57 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.fr = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr57, i64 %.fr)
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr57, %.fr
-  %11 = icmp ne i64 %.fr57, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr57, %.fr
+  %13 = icmp ugt i64 %.fr64, %.fr
   %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.16, i64 noundef %.fr57, i64 noundef %.fr) #32
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.16, i64 noundef %.fr64, i64 noundef %.fr) #32
   unreachable
 
 16:                                               ; preds = %12
@@ -8184,67 +8184,94 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr57, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
   %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.noexc.i, %.lr.ph.split.us
-  %.049.us = phi i64 [ %34, %.lr.ph.split.us ], [ 0, %.noexc.i ]
-  %spec.store.select4.us = select i1 %26, i64 0, i64 %.049.us
-  %29 = getelementptr inbounds float, ptr %27, i64 %spec.store.select4.us
-  %30 = load float, ptr %25, align 4
-  %31 = load float, ptr %29, align 4
-  %32 = fmul contract float %30, %31
-  %spec.store.select5.us = select i1 %28, i64 0, i64 %.049.us
-  %33 = getelementptr inbounds float, ptr %22, i64 %spec.store.select5.us
-  store float %32, ptr %33, align 4
-  %34 = add nuw i64 %.049.us, 1
-  %exitcond63.not = icmp eq i64 %34, %8
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !64
+.lr.ph.split.us:                                  ; preds = %.noexc.i
+  br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
+  %29 = load float, ptr %25, align 4
+  %30 = load float, ptr %27, align 4
+  %31 = fmul contract float %29, %30
+  store float %31, ptr %22, align 4
+  br label %._crit_edge
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
+
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
+  %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
+  %32 = getelementptr inbounds float, ptr %27, i64 %.049.us
+  %33 = load float, ptr %25, align 4
+  %34 = load float, ptr %32, align 4
+  %35 = fmul contract float %33, %34
+  %36 = getelementptr inbounds float, ptr %22, i64 %.049.us
+  store float %35, ptr %36, align 4
+  %37 = add nuw i64 %.049.us, 1
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !64
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %.049.us50 = phi i64 [ %40, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %35 = getelementptr inbounds float, ptr %25, i64 %.049.us50
-  %36 = load float, ptr %35, align 4
-  %37 = load float, ptr %27, align 4
-  %38 = fmul contract float %36, %37
-  %spec.store.select5.us52 = select i1 %28, i64 0, i64 %.049.us50
-  %39 = getelementptr inbounds float, ptr %22, i64 %spec.store.select5.us52
-  store float %38, ptr %39, align 4
-  %40 = add nuw i64 %.049.us50, 1
-  %exitcond62.not = icmp eq i64 %40, %8
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !66
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
+  %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
+  %38 = getelementptr inbounds float, ptr %25, i64 %.049.us50
+  %39 = load float, ptr %38, align 4
+  %40 = load float, ptr %27, align 4
+  %41 = fmul contract float %39, %40
+  %42 = getelementptr inbounds float, ptr %22, i64 %.049.us50
+  store float %41, ptr %42, align 4
+  %43 = add nuw i64 %.049.us50, 1
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !64
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit60, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
-  %.049 = phi i64 [ %47, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %41 = getelementptr inbounds float, ptr %25, i64 %.049
-  %42 = getelementptr inbounds float, ptr %27, i64 %.049
-  %43 = load float, ptr %41, align 4
-  %44 = load float, ptr %42, align 4
-  %45 = fmul contract float %43, %44
-  %46 = getelementptr inbounds float, ptr %22, i64 %.049
-  store float %45, ptr %46, align 4
-  %47 = add nuw i64 %.049, 1
-  %exitcond.not = icmp eq i64 %47, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !67
+  %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
+  %44 = getelementptr inbounds float, ptr %25, i64 %.049
+  %45 = getelementptr inbounds float, ptr %27, i64 %.049
+  %46 = load float, ptr %44, align 4
+  %47 = load float, ptr %45, align 4
+  %48 = fmul contract float %46, %47
+  %49 = getelementptr inbounds float, ptr %22, i64 %.049
+  store float %48, ptr %49, align 4
+  %50 = add nuw i64 %.049, 1
+  %exitcond.not = icmp eq i64 %50, %8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !64
 
-._crit_edge.loopexit60:                           ; preds = %.lr.ph.split.split
-  %48 = load float, ptr %25, align 4
-  %49 = load float, ptr %27, align 4
-  %50 = fmul contract float %48, %49
-  store float %50, ptr %22, align 4
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
+  %51 = load float, ptr %25, align 4
+  %52 = load float, ptr %27, align 4
+  %53 = fmul contract float %51, %52
+  store float %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit60
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
+  %54 = load float, ptr %25, align 4
+  %55 = load float, ptr %27, align 4
+  %56 = fmul contract float %54, %55
+  store float %56, ptr %22, align 4
+  br label %._crit_edge
+
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
+  %57 = load float, ptr %25, align 4
+  %58 = load float, ptr %27, align 4
+  %59 = fmul contract float %57, %58
+  store float %59, ptr %22, align 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -8375,7 +8402,7 @@ define linkonce_odr hidden void @_ZN5drjit15StaticArrayImplINS_12DynamicArrayIfE
   store i8 1, ptr %21, align 8
   %31 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %31, 3
-  br i1 %exitcond.not, label %34, label %8, !llvm.loop !68
+  br i1 %exitcond.not, label %34, label %8, !llvm.loop !65
 
 32:                                               ; preds = %8
   %33 = landingpad { ptr, i32 }
@@ -8446,12 +8473,12 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %7
           to label %17 unwind label %24
 
 17:                                               ; preds = %.noexc
-  %18 = load i8, ptr %10, align 8, !noalias !69
+  %18 = load i8, ptr %10, align 8, !noalias !66
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8, !noalias !69
+  %21 = load ptr, ptr %5, align 8, !noalias !66
   %22 = icmp eq ptr %21, null
   br i1 %22, label %32, label %23
 
@@ -8462,12 +8489,12 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %7
 24:                                               ; preds = %.noexc
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load i8, ptr %10, align 8, !noalias !69
+  %26 = load i8, ptr %10, align 8, !noalias !66
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %.body
 
 28:                                               ; preds = %24
-  %29 = load ptr, ptr %5, align 8, !noalias !69
+  %29 = load ptr, ptr %5, align 8, !noalias !66
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.body, label %31
 
@@ -8506,7 +8533,7 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EEC2Ev.exit.preheader: ; preds = %7
 _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %32, %46
   %47 = add nuw nsw i64 %.046, 1
   %exitcond.not = icmp eq i64 %47, 3
-  br i1 %exitcond.not, label %62, label %13, !llvm.loop !72
+  br i1 %exitcond.not, label %62, label %13, !llvm.loop !69
 
 48:                                               ; preds = %13
   %49 = landingpad { ptr, i32 }
@@ -8550,27 +8577,27 @@ _ZN5drjit5ArrayINS_12DynamicArrayIfEELm3EED2Ev.exit: ; preds = %_ZN5drjit12Dynam
 define linkonce_odr hidden void @_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4add_ERKS2_(ptr dead_on_unwind noalias writable sret(%"struct.drjit::DynamicArray") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(17) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %.fr57 = freeze i64 %5
+  %.fr64 = freeze i64 %5
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.fr = freeze i64 %7
-  %8 = tail call i64 @llvm.umax.i64(i64 %.fr57, i64 %.fr)
+  %8 = tail call i64 @llvm.umax.i64(i64 %.fr64, i64 %.fr)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %9, align 8
-  %10 = icmp ult i64 %.fr57, %.fr
-  %11 = icmp ne i64 %.fr57, 1
+  %10 = icmp ult i64 %.fr64, %.fr
+  %11 = icmp ne i64 %.fr64, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %15, label %12
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %.fr57, %.fr
+  %13 = icmp ugt i64 %.fr64, %.fr
   %14 = icmp ne i64 %.fr, 1
   %or.cond3 = and i1 %13, %14
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %3
-  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.17, i64 noundef %.fr57, i64 noundef %.fr) #32
+  tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.17, i64 noundef %.fr64, i64 noundef %.fr) #32
   unreachable
 
 16:                                               ; preds = %12
@@ -8592,67 +8619,94 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit46.thread:     ; preds = %16
   store i8 1, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %23, align 8
-  %24 = icmp eq i64 %.fr57, 1
+  %24 = icmp eq i64 %.fr64, 1
   %25 = load ptr, ptr %1, align 8
   %26 = icmp eq i64 %.fr, 1
   %27 = load ptr, ptr %2, align 8
   %28 = icmp eq i64 %8, 1
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.noexc.i, %.lr.ph.split.us
-  %.049.us = phi i64 [ %34, %.lr.ph.split.us ], [ 0, %.noexc.i ]
-  %spec.store.select5.us = select i1 %26, i64 0, i64 %.049.us
-  %29 = getelementptr inbounds float, ptr %27, i64 %spec.store.select5.us
-  %30 = load float, ptr %25, align 4
-  %31 = load float, ptr %29, align 4
-  %32 = fadd contract float %30, %31
-  %spec.store.select4.us = select i1 %28, i64 0, i64 %.049.us
-  %33 = getelementptr inbounds float, ptr %22, i64 %spec.store.select4.us
-  store float %32, ptr %33, align 4
-  %34 = add nuw i64 %.049.us, 1
-  %exitcond63.not = icmp eq i64 %34, %8
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !73
+.lr.ph.split.us:                                  ; preds = %.noexc.i
+  br i1 %26, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
+  %29 = load float, ptr %25, align 4
+  %30 = load float, ptr %27, align 4
+  %31 = fadd contract float %29, %30
+  store float %31, ptr %22, align 4
+  br label %._crit_edge
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
+  br i1 %28, label %._crit_edge.loopexit67, label %.lr.ph.split.us.split.split
+
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
+  %.049.us = phi i64 [ %37, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
+  %32 = getelementptr inbounds float, ptr %27, i64 %.049.us
+  %33 = load float, ptr %25, align 4
+  %34 = load float, ptr %32, align 4
+  %35 = fadd contract float %33, %34
+  %36 = getelementptr inbounds float, ptr %22, i64 %.049.us
+  store float %35, ptr %36, align 4
+  %37 = add nuw i64 %.049.us, 1
+  %exitcond74.not = icmp eq i64 %37, %8
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.noexc.i
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %.049.us50 = phi i64 [ %40, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %35 = getelementptr inbounds float, ptr %25, i64 %.049.us50
-  %36 = load float, ptr %35, align 4
-  %37 = load float, ptr %27, align 4
-  %38 = fadd contract float %36, %37
-  %spec.store.select4.us52 = select i1 %28, i64 0, i64 %.049.us50
-  %39 = getelementptr inbounds float, ptr %22, i64 %spec.store.select4.us52
-  store float %38, ptr %39, align 4
-  %40 = add nuw i64 %.049.us50, 1
-  %exitcond62.not = icmp eq i64 %40, %8
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !74
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  br i1 %28, label %._crit_edge.loopexit69, label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
+  %.049.us50 = phi i64 [ %43, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
+  %38 = getelementptr inbounds float, ptr %25, i64 %.049.us50
+  %39 = load float, ptr %38, align 4
+  %40 = load float, ptr %27, align 4
+  %41 = fadd contract float %39, %40
+  %42 = getelementptr inbounds float, ptr %22, i64 %.049.us50
+  store float %41, ptr %42, align 4
+  %43 = add nuw i64 %.049.us50, 1
+  %exitcond73.not = icmp eq i64 %43, %8
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !70
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %28, label %._crit_edge.loopexit60, label %.lr.ph.split.split.split
+  br i1 %28, label %._crit_edge.loopexit71, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
-  %.049 = phi i64 [ %47, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %41 = getelementptr inbounds float, ptr %25, i64 %.049
-  %42 = getelementptr inbounds float, ptr %27, i64 %.049
-  %43 = load float, ptr %41, align 4
-  %44 = load float, ptr %42, align 4
-  %45 = fadd contract float %43, %44
-  %46 = getelementptr inbounds float, ptr %22, i64 %.049
-  store float %45, ptr %46, align 4
-  %47 = add nuw i64 %.049, 1
-  %exitcond.not = icmp eq i64 %47, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !75
+  %.049 = phi i64 [ %50, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
+  %44 = getelementptr inbounds float, ptr %25, i64 %.049
+  %45 = getelementptr inbounds float, ptr %27, i64 %.049
+  %46 = load float, ptr %44, align 4
+  %47 = load float, ptr %45, align 4
+  %48 = fadd contract float %46, %47
+  %49 = getelementptr inbounds float, ptr %22, i64 %.049
+  store float %48, ptr %49, align 4
+  %50 = add nuw i64 %.049, 1
+  %exitcond.not = icmp eq i64 %50, %8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !70
 
-._crit_edge.loopexit60:                           ; preds = %.lr.ph.split.split
-  %48 = load float, ptr %25, align 4
-  %49 = load float, ptr %27, align 4
-  %50 = fadd contract float %48, %49
-  store float %50, ptr %22, align 4
+._crit_edge.loopexit67:                           ; preds = %.lr.ph.split.us.split
+  %51 = load float, ptr %25, align 4
+  %52 = load float, ptr %27, align 4
+  %53 = fadd contract float %51, %52
+  store float %53, ptr %22, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit60
+._crit_edge.loopexit69:                           ; preds = %.lr.ph.split.split.us
+  %54 = load float, ptr %25, align 4
+  %55 = load float, ptr %27, align 4
+  %56 = fadd contract float %54, %55
+  store float %56, ptr %22, align 4
+  br label %._crit_edge
+
+._crit_edge.loopexit71:                           ; preds = %.lr.ph.split.split
+  %57 = load float, ptr %25, align 4
+  %58 = load float, ptr %27, align 4
+  %59 = fadd contract float %57, %58
+  store float %59, ptr %22, align 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.us.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us, %_ZN5drjit12DynamicArrayIfED2Ev.exit46.thread, %._crit_edge.loopexit71, %._crit_edge.loopexit69, %._crit_edge.loopexit67
   ret void
 }
 
@@ -8725,7 +8779,7 @@ _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit:          ; preds = %.lr.ph.i, %.prehead
 _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit, %27
   %28 = add nuw nsw i64 %.022, 1
   %exitcond23.not = icmp eq i64 %28, 3
-  br i1 %exitcond23.not, label %31, label %.preheader, !llvm.loop !76
+  br i1 %exitcond23.not, label %31, label %.preheader, !llvm.loop !71
 
 29:                                               ; preds = %.lr.ph.preheader.i
   %30 = landingpad { ptr, i32 }
@@ -8892,16 +8946,11 @@ attributes #34 = { nounwind allocsize(0) }
 !61 = distinct !{!61, !5}
 !62 = distinct !{!62, !5}
 !63 = distinct !{!63, !5}
-!64 = distinct !{!64, !5, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = distinct !{!66, !5, !65}
-!67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE6fmadd_ERKS2_S5_: argument 0"}
-!71 = distinct !{!71, !"_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE6fmadd_ERKS2_S5_"}
-!72 = distinct !{!72, !5}
-!73 = distinct !{!73, !5, !65}
-!74 = distinct !{!74, !5, !65}
-!75 = distinct !{!75, !5}
-!76 = distinct !{!76, !5}
+!64 = distinct !{!64, !5}
+!65 = distinct !{!65, !5}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE6fmadd_ERKS2_S5_: argument 0"}
+!68 = distinct !{!68, !"_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE6fmadd_ERKS2_S5_"}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}
+!71 = distinct !{!71, !5}

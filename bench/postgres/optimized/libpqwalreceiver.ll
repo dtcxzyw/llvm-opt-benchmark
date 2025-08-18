@@ -1603,7 +1603,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   %63 = add nuw nsw i32 %.050.i, 1
   %64 = call i32 @PQntuples(ptr noundef %15) #11
   %65 = icmp slt i32 %63, %64
-  br i1 %65, label %.lr.ph52.split.i, label %._crit_edge53.i, !llvm.loop !13
+  br i1 %65, label %.lr.ph52.split.i, label %._crit_edge53.i, !llvm.loop !11
 
 ._crit_edge53.i:                                  ; preds = %.lr.ph52.split.i, %._crit_edge49.us.i, %42
   call void @MemoryContextDelete(ptr noundef %44) #11
@@ -1970,6 +1970,4 @@ attributes #12 = { nounwind willreturn memory(read) }
 !8 = !{}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !4}
+!11 = distinct !{!11, !4}

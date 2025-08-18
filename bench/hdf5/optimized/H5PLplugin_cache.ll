@@ -295,7 +295,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 46:                                               ; preds = %40, %39, %33, %32, %.lr.ph.split.us60
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count99
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph.split.us60, !llvm.loop !31
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph.split.us60, !llvm.loop !29
 
 .lr.ph.split.us67:                                ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph ]
@@ -340,7 +340,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 69:                                               ; preds = %63, %62, %56, %55, %.lr.ph.split.us67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count99
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us67, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us67, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %92
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %92 ], [ 0, %.lr.ph ]
@@ -388,7 +388,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
 92:                                               ; preds = %.lr.ph.split
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
+  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %69, %46, %23, %92, %10, %72, %91, %87, %80, %3
   %.0 = phi i32 [ 0, %3 ], [ -1, %72 ], [ -1, %80 ], [ -1, %87 ], [ 0, %91 ], [ 0, %10 ], [ 0, %92 ], [ 0, %23 ], [ 0, %46 ], [ 0, %69 ]
@@ -448,8 +448,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !26 = !{!"H5PL_search_params_t", !11, i64 0, !27, i64 8}
 !27 = !{!"p1 _ZTS10H5PL_key_t", !14, i64 0}
 !28 = !{!26, !27, i64 8}
-!29 = distinct !{!29, !20, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !20, !30}
-!32 = distinct !{!32, !20, !30}
-!33 = distinct !{!33, !20}
+!29 = distinct !{!29, !20}

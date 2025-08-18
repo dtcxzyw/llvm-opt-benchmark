@@ -608,7 +608,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit21:    ; preds = %64, %66
   tail call void @_ZNK4llvm9MCOperand5printERNS_11raw_ostreamEPKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %48
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -690,6 +690,4 @@ attributes #6 = { nounwind }
 !52 = !{!53, !54, i64 0}
 !53 = !{!"_ZTSN4llvm6MCExprE", !54, i64 0, !20, i64 1, !39, i64 8}
 !54 = !{!"_ZTSN4llvm6MCExpr8ExprKindE", !6, i64 0}
-!55 = distinct !{!55, !49, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !49}
+!55 = distinct !{!55, !49}

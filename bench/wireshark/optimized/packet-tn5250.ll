@@ -2863,577 +2863,595 @@ dissect_tn5250_header.exit:                       ; preds = %29, %65
 .lr.ph:                                           ; preds = %dissect_tn5250_header.exit
   %70 = and i32 %31, 1
   %.not.i42 = icmp eq i32 %70, 0
-  %71 = and i32 %31, 128
-  %.not77.i = icmp eq i32 %71, 0
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 172
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %98 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 204
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %102 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 236
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %106 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %108 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %112 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 320
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 332
-  %116 = getelementptr inbounds nuw i8, ptr %5, i64 336
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 364
-  %120 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  %121 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 396
-  %124 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 416
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 428
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 448
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 456
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 460
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 464
-  %133 = getelementptr inbounds nuw i8, ptr %5, i64 480
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 488
-  %135 = getelementptr inbounds nuw i8, ptr %5, i64 492
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 524
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %141 = getelementptr inbounds nuw i8, ptr %5, i64 544
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 552
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 556
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 560
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 576
-  %146 = getelementptr inbounds nuw i8, ptr %5, i64 584
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 588
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 592
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 608
-  %150 = getelementptr inbounds nuw i8, ptr %5, i64 616
-  %151 = getelementptr inbounds nuw i8, ptr %5, i64 620
-  %152 = getelementptr inbounds nuw i8, ptr %5, i64 624
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 640
-  %154 = getelementptr inbounds nuw i8, ptr %5, i64 648
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 652
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 656
-  %157 = getelementptr inbounds nuw i8, ptr %5, i64 672
-  %158 = getelementptr inbounds nuw i8, ptr %5, i64 680
-  %159 = getelementptr inbounds nuw i8, ptr %5, i64 684
-  %160 = getelementptr inbounds nuw i8, ptr %5, i64 688
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %162 = getelementptr inbounds nuw i8, ptr %5, i64 712
-  %163 = getelementptr inbounds nuw i8, ptr %5, i64 716
-  %164 = getelementptr inbounds nuw i8, ptr %5, i64 720
-  %165 = getelementptr inbounds nuw i8, ptr %5, i64 736
-  %166 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %167 = getelementptr inbounds nuw i8, ptr %5, i64 748
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 752
-  %169 = getelementptr inbounds nuw i8, ptr %5, i64 760
-  %170 = getelementptr inbounds nuw i8, ptr %5, i64 764
-  %171 = getelementptr inbounds nuw i8, ptr %5, i64 768
-  %172 = getelementptr inbounds nuw i8, ptr %5, i64 776
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 780
-  %174 = getelementptr inbounds nuw i8, ptr %5, i64 784
-  %175 = getelementptr inbounds nuw i8, ptr %5, i64 792
-  %176 = getelementptr inbounds nuw i8, ptr %5, i64 796
-  %177 = getelementptr inbounds nuw i8, ptr %5, i64 800
-  %178 = getelementptr inbounds nuw i8, ptr %5, i64 808
-  %179 = getelementptr inbounds nuw i8, ptr %5, i64 812
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 816
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 832
-  %182 = getelementptr inbounds nuw i8, ptr %5, i64 840
-  %183 = getelementptr inbounds nuw i8, ptr %5, i64 844
-  %184 = getelementptr inbounds nuw i8, ptr %5, i64 848
-  %185 = getelementptr inbounds nuw i8, ptr %5, i64 864
-  %186 = getelementptr inbounds nuw i8, ptr %5, i64 872
-  %187 = getelementptr inbounds nuw i8, ptr %5, i64 876
-  %188 = getelementptr inbounds nuw i8, ptr %5, i64 880
-  %189 = getelementptr inbounds nuw i8, ptr %5, i64 896
-  %190 = getelementptr inbounds nuw i8, ptr %5, i64 904
-  %191 = getelementptr inbounds nuw i8, ptr %5, i64 908
-  %192 = getelementptr inbounds nuw i8, ptr %5, i64 912
-  %193 = getelementptr inbounds nuw i8, ptr %5, i64 928
-  %194 = getelementptr inbounds nuw i8, ptr %5, i64 936
-  %195 = getelementptr inbounds nuw i8, ptr %5, i64 940
-  %196 = getelementptr inbounds nuw i8, ptr %5, i64 944
-  %197 = getelementptr inbounds nuw i8, ptr %5, i64 960
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 968
-  %199 = getelementptr inbounds nuw i8, ptr %5, i64 972
-  %200 = getelementptr inbounds nuw i8, ptr %5, i64 976
-  %201 = getelementptr inbounds nuw i8, ptr %5, i64 992
-  %202 = getelementptr inbounds nuw i8, ptr %5, i64 1000
-  %203 = getelementptr inbounds nuw i8, ptr %5, i64 1004
-  %204 = getelementptr inbounds nuw i8, ptr %5, i64 1008
-  %205 = getelementptr inbounds nuw i8, ptr %5, i64 1024
-  %206 = getelementptr inbounds nuw i8, ptr %5, i64 1032
-  %207 = getelementptr inbounds nuw i8, ptr %5, i64 1036
-  %208 = getelementptr inbounds nuw i8, ptr %5, i64 1040
-  %209 = getelementptr inbounds nuw i8, ptr %5, i64 1056
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 1064
-  %211 = getelementptr inbounds nuw i8, ptr %5, i64 1068
-  %212 = getelementptr inbounds nuw i8, ptr %5, i64 1072
-  %213 = getelementptr inbounds nuw i8, ptr %5, i64 1080
-  %214 = getelementptr inbounds nuw i8, ptr %5, i64 1084
-  %215 = getelementptr inbounds nuw i8, ptr %5, i64 1088
-  %216 = getelementptr inbounds nuw i8, ptr %5, i64 1096
-  %217 = getelementptr inbounds nuw i8, ptr %5, i64 1100
-  %218 = getelementptr inbounds nuw i8, ptr %5, i64 1104
-  %219 = getelementptr inbounds nuw i8, ptr %5, i64 1112
-  %220 = getelementptr inbounds nuw i8, ptr %5, i64 1116
-  %221 = getelementptr inbounds nuw i8, ptr %5, i64 1120
-  %222 = getelementptr inbounds nuw i8, ptr %5, i64 1128
-  %223 = getelementptr inbounds nuw i8, ptr %5, i64 1132
-  %224 = getelementptr inbounds nuw i8, ptr %5, i64 1136
-  %225 = getelementptr inbounds nuw i8, ptr %5, i64 1152
-  %226 = getelementptr inbounds nuw i8, ptr %5, i64 1160
-  %227 = getelementptr inbounds nuw i8, ptr %5, i64 1164
-  %228 = getelementptr inbounds nuw i8, ptr %5, i64 1168
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 1184
-  %230 = getelementptr inbounds nuw i8, ptr %5, i64 1192
-  %231 = getelementptr inbounds nuw i8, ptr %5, i64 1196
-  %232 = getelementptr inbounds nuw i8, ptr %5, i64 1200
-  %233 = getelementptr inbounds nuw i8, ptr %5, i64 1216
-  %234 = getelementptr inbounds nuw i8, ptr %5, i64 1224
-  %235 = getelementptr inbounds nuw i8, ptr %5, i64 1228
-  %236 = getelementptr inbounds nuw i8, ptr %5, i64 1232
-  %237 = getelementptr inbounds nuw i8, ptr %5, i64 1248
-  %238 = getelementptr inbounds nuw i8, ptr %5, i64 1256
-  %239 = getelementptr inbounds nuw i8, ptr %5, i64 1260
-  %240 = getelementptr inbounds nuw i8, ptr %5, i64 1264
-  %241 = getelementptr inbounds nuw i8, ptr %5, i64 1280
-  %242 = getelementptr inbounds nuw i8, ptr %5, i64 1288
-  %243 = getelementptr inbounds nuw i8, ptr %5, i64 1292
-  %244 = getelementptr inbounds nuw i8, ptr %5, i64 1296
-  %245 = getelementptr inbounds nuw i8, ptr %5, i64 1312
-  %246 = getelementptr inbounds nuw i8, ptr %5, i64 1320
-  %247 = getelementptr inbounds nuw i8, ptr %5, i64 1324
-  %248 = getelementptr inbounds nuw i8, ptr %5, i64 1328
-  %249 = getelementptr inbounds nuw i8, ptr %5, i64 1344
-  %250 = getelementptr inbounds nuw i8, ptr %5, i64 1352
-  %251 = getelementptr inbounds nuw i8, ptr %5, i64 1356
-  %252 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  %253 = getelementptr inbounds nuw i8, ptr %5, i64 1376
-  %254 = getelementptr inbounds nuw i8, ptr %5, i64 1384
-  %255 = getelementptr inbounds nuw i8, ptr %5, i64 1388
-  %256 = getelementptr inbounds nuw i8, ptr %5, i64 1392
-  %257 = getelementptr inbounds nuw i8, ptr %5, i64 1408
-  %258 = getelementptr inbounds nuw i8, ptr %5, i64 1416
-  %259 = getelementptr inbounds nuw i8, ptr %5, i64 1420
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 1424
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 108
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 124
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 172
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 204
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 268
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 272
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 288
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 300
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 328
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 332
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 336
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 364
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 368
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 392
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 396
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 424
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 428
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 448
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 456
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 460
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 464
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 480
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 492
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 496
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 524
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 544
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 552
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 556
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 560
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 576
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 584
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 588
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 592
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 608
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 616
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 620
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 624
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 640
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 652
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 656
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 680
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 684
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 688
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 704
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 712
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 716
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 720
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 736
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 744
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 748
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 760
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 764
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 768
+  %171 = getelementptr inbounds nuw i8, ptr %5, i64 776
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 780
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 784
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 792
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 796
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 800
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 808
+  %178 = getelementptr inbounds nuw i8, ptr %5, i64 812
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 816
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 832
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 840
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 844
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 872
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 876
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 880
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 896
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 904
+  %190 = getelementptr inbounds nuw i8, ptr %5, i64 908
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 912
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 928
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 936
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 940
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 944
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 960
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 968
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 972
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 976
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 992
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 1000
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 1004
+  %203 = getelementptr inbounds nuw i8, ptr %5, i64 1008
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 1024
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 1032
+  %206 = getelementptr inbounds nuw i8, ptr %5, i64 1036
+  %207 = getelementptr inbounds nuw i8, ptr %5, i64 1040
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 1056
+  %209 = getelementptr inbounds nuw i8, ptr %5, i64 1064
+  %210 = getelementptr inbounds nuw i8, ptr %5, i64 1068
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 1072
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 1080
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 1084
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 1088
+  %215 = getelementptr inbounds nuw i8, ptr %5, i64 1096
+  %216 = getelementptr inbounds nuw i8, ptr %5, i64 1100
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 1104
+  %218 = getelementptr inbounds nuw i8, ptr %5, i64 1112
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 1116
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 1120
+  %221 = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 1132
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 1136
+  %224 = getelementptr inbounds nuw i8, ptr %5, i64 1152
+  %225 = getelementptr inbounds nuw i8, ptr %5, i64 1160
+  %226 = getelementptr inbounds nuw i8, ptr %5, i64 1164
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 1168
+  %228 = getelementptr inbounds nuw i8, ptr %5, i64 1184
+  %229 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 1196
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 1200
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 1216
+  %233 = getelementptr inbounds nuw i8, ptr %5, i64 1224
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 1228
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 1232
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 1248
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 1256
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 1260
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 1264
+  %240 = getelementptr inbounds nuw i8, ptr %5, i64 1280
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 1288
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 1292
+  %243 = getelementptr inbounds nuw i8, ptr %5, i64 1296
+  %244 = getelementptr inbounds nuw i8, ptr %5, i64 1312
+  %245 = getelementptr inbounds nuw i8, ptr %5, i64 1320
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 1324
+  %247 = getelementptr inbounds nuw i8, ptr %5, i64 1328
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 1344
+  %249 = getelementptr inbounds nuw i8, ptr %5, i64 1352
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 1356
+  %251 = getelementptr inbounds nuw i8, ptr %5, i64 1360
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 1376
+  %253 = getelementptr inbounds nuw i8, ptr %5, i64 1384
+  %254 = getelementptr inbounds nuw i8, ptr %5, i64 1388
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 1392
+  %256 = getelementptr inbounds nuw i8, ptr %5, i64 1408
+  %257 = getelementptr inbounds nuw i8, ptr %5, i64 1416
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 1420
+  %259 = getelementptr inbounds nuw i8, ptr %5, i64 1424
   br i1 %.not.i42, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_inbound_stream.exit.us
-  %.03845.us = phi i32 [ %.1.us, %dissect_inbound_stream.exit.us ], [ %63, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %260 = and i32 %31, 128
+  %.not77.i = icmp eq i32 %260, 0
+  br i1 %.not77.i, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %dissect_inbound_stream.exit.us.us
+  %.03845.us.us = phi i32 [ %.1.us.us, %dissect_inbound_stream.exit.us.us ], [ %63, %.lr.ph.split.us ]
   %261 = load i32, ptr %23, align 4
   %262 = load i32, ptr %25, align 8
   %263 = icmp eq i32 %261, %262
-  br i1 %263, label %319, label %264
+  br i1 %263, label %315, label %264
 
-264:                                              ; preds = %.lr.ph.split.us
-  br i1 %.not77.i, label %268, label %265
-
-265:                                              ; preds = %264
-  %266 = load i32, ptr @hf_tn5250_negative_response, align 4
-  %267 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %266, ptr noundef %0, i32 noundef %.03845.us, i32 noundef 4, i32 noundef 0)
-  br label %dissect_inbound_stream.exit.us
-
-268:                                              ; preds = %264
-  %269 = add i32 %.03845.us, 2
-  %270 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %269)
-  switch i8 %270, label %293 [
-    i8 -67, label %tn5250_is_valid_aid.exit.i.us
-    i8 -15, label %tn5250_is_valid_aid.exit.i.us
-    i8 -13, label %tn5250_is_valid_aid.exit.i.us
-    i8 -12, label %tn5250_is_valid_aid.exit.i.us
-    i8 -11, label %tn5250_is_valid_aid.exit.i.us
-    i8 -39, label %tn5250_is_valid_aid.exit.i.us
-    i8 -38, label %tn5250_is_valid_aid.exit.i.us
-    i8 -10, label %tn5250_is_valid_aid.exit.i.us
-    i8 -8, label %tn5250_is_valid_aid.exit.i.us
-    i8 63, label %tn5250_is_valid_aid.exit.i.us
-    i8 80, label %tn5250_is_valid_aid.exit.i.us
-    i8 108, label %tn5250_is_valid_aid.exit.i.us
-    i8 110, label %tn5250_is_valid_aid.exit.i.us
-    i8 107, label %tn5250_is_valid_aid.exit.i.us
-    i8 49, label %tn5250_is_valid_aid.exit.i.us
-    i8 50, label %tn5250_is_valid_aid.exit.i.us
-    i8 51, label %tn5250_is_valid_aid.exit.i.us
-    i8 52, label %tn5250_is_valid_aid.exit.i.us
-    i8 53, label %tn5250_is_valid_aid.exit.i.us
-    i8 54, label %tn5250_is_valid_aid.exit.i.us
-    i8 55, label %tn5250_is_valid_aid.exit.i.us
-    i8 56, label %tn5250_is_valid_aid.exit.i.us
-    i8 57, label %tn5250_is_valid_aid.exit.i.us
-    i8 58, label %tn5250_is_valid_aid.exit.i.us
-    i8 59, label %tn5250_is_valid_aid.exit.i.us
-    i8 60, label %tn5250_is_valid_aid.exit.i.us
-    i8 -79, label %tn5250_is_valid_aid.exit.i.us
-    i8 -78, label %tn5250_is_valid_aid.exit.i.us
-    i8 -77, label %tn5250_is_valid_aid.exit.i.us
-    i8 -76, label %tn5250_is_valid_aid.exit.i.us
-    i8 -75, label %tn5250_is_valid_aid.exit.i.us
-    i8 -74, label %tn5250_is_valid_aid.exit.i.us
-    i8 -73, label %tn5250_is_valid_aid.exit.i.us
-    i8 -72, label %tn5250_is_valid_aid.exit.i.us
-    i8 -71, label %tn5250_is_valid_aid.exit.i.us
-    i8 -70, label %tn5250_is_valid_aid.exit.i.us
-    i8 -69, label %tn5250_is_valid_aid.exit.i.us
-    i8 -68, label %tn5250_is_valid_aid.exit.i.us
-    i8 -120, label %tn5250_is_valid_aid.exit.i.us
-    i8 -1, label %tn5250_is_valid_aid.exit.i.us
+264:                                              ; preds = %.lr.ph.split.us.split.us
+  %265 = add i32 %.03845.us.us, 2
+  %266 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %265)
+  switch i8 %266, label %289 [
+    i8 -67, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -15, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -13, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -12, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -11, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -39, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -38, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -10, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -8, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 63, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 80, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 108, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 110, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 107, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 49, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 50, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 51, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 52, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 53, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 54, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 55, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 56, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 57, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 58, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 59, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 60, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -79, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -78, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -77, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -76, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -75, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -74, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -73, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -72, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -71, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -70, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -69, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -68, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -120, label %tn5250_is_valid_aid.exit.i.us.us
+    i8 -1, label %tn5250_is_valid_aid.exit.i.us.us
   ]
 
-tn5250_is_valid_aid.exit.i.us:                    ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
-  %.off.i.us = add i8 %270, 127
-  %switch.i.us = icmp ult i8 %.off.i.us, 3
-  br i1 %switch.i.us, label %277, label %271
+tn5250_is_valid_aid.exit.i.us.us:                 ; preds = %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264, %264
+  %.off.i.us.us = add i8 %266, 127
+  %switch.i.us.us = icmp ult i8 %.off.i.us.us, 3
+  br i1 %switch.i.us.us, label %273, label %267
 
-271:                                              ; preds = %tn5250_is_valid_aid.exit.i.us
-  %272 = load i32, ptr @hf_tn5250_buffer_x, align 4
-  %273 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %272, ptr noundef %0, i32 noundef %.03845.us, i32 noundef 1, i32 noundef 0)
-  %274 = add i32 %.03845.us, 1
-  %275 = load i32, ptr @hf_tn5250_buffer_y, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %275, ptr noundef %0, i32 noundef %274, i32 noundef 1, i32 noundef 0)
-  br label %280
+267:                                              ; preds = %tn5250_is_valid_aid.exit.i.us.us
+  %268 = load i32, ptr @hf_tn5250_buffer_x, align 4
+  %269 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %268, ptr noundef %0, i32 noundef %.03845.us.us, i32 noundef 1, i32 noundef 0)
+  %270 = add i32 %.03845.us.us, 1
+  %271 = load i32, ptr @hf_tn5250_buffer_y, align 4
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %271, ptr noundef %0, i32 noundef %270, i32 noundef 1, i32 noundef 0)
+  br label %276
 
-277:                                              ; preds = %tn5250_is_valid_aid.exit.i.us
-  %278 = load i32, ptr @hf_tn5250_image_fax_error, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %278, ptr noundef %0, i32 noundef %.03845.us, i32 noundef 2, i32 noundef 0)
-  br label %280
+273:                                              ; preds = %tn5250_is_valid_aid.exit.i.us.us
+  %274 = load i32, ptr @hf_tn5250_image_fax_error, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %274, ptr noundef %0, i32 noundef %.03845.us.us, i32 noundef 2, i32 noundef 0)
+  br label %276
 
-280:                                              ; preds = %277, %271
-  %281 = load i32, ptr @hf_tn5250_aid, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %281, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0)
-  %283 = add i32 %.03845.us, 3
-  %284 = icmp eq i8 %270, -120
-  br i1 %284, label %288, label %285
+276:                                              ; preds = %273, %267
+  %277 = load i32, ptr @hf_tn5250_aid, align 4
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %277, ptr noundef %0, i32 noundef %265, i32 noundef 1, i32 noundef 0)
+  %279 = add i32 %.03845.us.us, 3
+  %280 = icmp eq i8 %266, -120
+  br i1 %280, label %284, label %281
 
-285:                                              ; preds = %280
-  %286 = tail call fastcc i32 @dissect_tn5250_orders_and_data(ptr noundef %22, ptr noundef %0, i32 noundef %283)
-  %287 = add i32 %286, %283
-  br label %309
+281:                                              ; preds = %276
+  %282 = tail call fastcc i32 @dissect_tn5250_orders_and_data(ptr noundef %22, ptr noundef %0, i32 noundef %279)
+  %283 = add i32 %282, %279
+  br label %305
 
-288:                                              ; preds = %280
+284:                                              ; preds = %276
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @hf_tn5250_sf_length, ptr %5, align 16
-  store i32 0, ptr %72, align 8
-  store i32 2, ptr %73, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_sf_class, ptr %75, align 16
-  store i32 0, ptr %76, align 8
-  store i32 1, ptr %77, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_sf_type, ptr %79, align 16
-  store i32 0, ptr %80, align 8
-  store i32 1, ptr %81, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_flag, ptr %83, align 16
-  %289 = load i32, ptr @ett_tn5250_qr_mask, align 4
-  store i32 %289, ptr %84, align 8
-  store i32 1, ptr %85, align 4
-  store ptr @dissect_query_reply.byte, ptr %86, align 16
-  store i32 0, ptr %87, align 8
-  store i32 0, ptr %88, align 4
-  store ptr @hf_tn5250_qr_chc, ptr %89, align 16
-  store i32 0, ptr %90, align 8
-  store i32 2, ptr %91, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %92, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_ccl, ptr %93, align 16
-  store i32 0, ptr %94, align 8
-  store i32 3, ptr %95, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %97, align 16
-  store i32 0, ptr %98, align 8
-  store i32 1, ptr %99, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %100, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %101, align 16
-  store i32 0, ptr %102, align 8
-  store i32 1, ptr %103, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %105, align 16
-  store i32 0, ptr %106, align 8
-  store i32 1, ptr %107, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %108, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %109, align 16
-  store i32 0, ptr %110, align 8
-  store i32 1, ptr %111, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %113, align 16
-  store i32 0, ptr %114, align 8
-  store i32 1, ptr %115, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %116, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %117, align 16
-  store i32 0, ptr %118, align 8
-  store i32 1, ptr %119, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %120, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %121, align 16
-  store i32 0, ptr %122, align 8
-  store i32 1, ptr %123, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %124, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %125, align 16
-  store i32 0, ptr %126, align 8
-  store i32 1, ptr %127, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %128, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %129, align 16
-  store i32 0, ptr %130, align 8
-  store i32 1, ptr %131, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %132, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %133, align 16
-  store i32 0, ptr %134, align 8
-  store i32 1, ptr %135, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %136, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %137, align 16
-  store i32 0, ptr %138, align 8
-  store i32 1, ptr %139, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %140, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %141, align 16
-  store i32 0, ptr %142, align 8
-  store i32 1, ptr %143, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %144, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %145, align 16
-  store i32 0, ptr %146, align 8
-  store i32 1, ptr %147, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %148, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %149, align 16
-  store i32 0, ptr %150, align 8
-  store i32 1, ptr %151, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %152, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %153, align 16
-  store i32 0, ptr %154, align 8
-  store i32 1, ptr %155, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %156, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %157, align 16
-  store i32 0, ptr %158, align 8
-  store i32 1, ptr %159, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %160, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_dt, ptr %161, align 16
-  store i32 0, ptr %162, align 8
-  store i32 1, ptr %163, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %164, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_dtc, ptr %165, align 16
-  store i32 0, ptr %166, align 8
-  store i32 4, ptr %167, align 4
-  store ptr null, ptr %168, align 16
-  store i32 46, ptr %169, align 8
-  store i32 0, ptr %170, align 4
-  store ptr @hf_tn5250_qr_dm, ptr %171, align 16
-  store i32 0, ptr %172, align 8
-  store i32 3, ptr %173, align 4
-  store ptr null, ptr %174, align 16
-  store i32 46, ptr %175, align 8
-  store i32 0, ptr %176, align 4
-  store ptr @hf_tn5250_qr_ki, ptr %177, align 16
-  store i32 0, ptr %178, align 8
-  store i32 1, ptr %179, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %180, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_eki, ptr %181, align 16
-  store i32 0, ptr %182, align 8
-  store i32 1, ptr %183, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %184, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %185, align 16
-  store i32 0, ptr %186, align 8
-  store i32 1, ptr %187, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %188, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_dsn, ptr %189, align 16
-  store i32 0, ptr %190, align 8
-  store i32 4, ptr %191, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %192, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_mni, ptr %193, align 16
-  store i32 0, ptr %194, align 8
-  store i32 2, ptr %195, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %196, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %197, align 16
-  store i32 0, ptr %198, align 8
-  store i32 1, ptr %199, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %200, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %201, align 16
-  store i32 0, ptr %202, align 8
-  store i32 1, ptr %203, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %204, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %205, align 16
-  store i32 0, ptr %206, align 8
-  store i32 1, ptr %207, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %208, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_flag1, ptr %209, align 16
-  %290 = load i32, ptr @ett_tn5250_qr_mask, align 4
-  store i32 %290, ptr %210, align 8
-  store i32 1, ptr %211, align 4
-  store ptr @dissect_query_reply.byte1, ptr %212, align 16
-  store i32 0, ptr %213, align 8
-  store i32 0, ptr %214, align 4
-  store ptr @hf_tn5250_qr_flag2, ptr %215, align 16
-  store i32 %290, ptr %216, align 8
-  store i32 1, ptr %217, align 4
-  store ptr @dissect_query_reply.byte2, ptr %218, align 16
-  store i32 0, ptr %219, align 8
-  store i32 0, ptr %220, align 4
-  store ptr @hf_tn5250_qr_flag3, ptr %221, align 16
-  store i32 0, ptr %222, align 8
-  store i32 1, ptr %223, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %224, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_qr_flag4, ptr %225, align 16
-  store i32 0, ptr %226, align 8
-  store i32 1, ptr %227, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %228, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %229, align 16
-  store i32 0, ptr %230, align 8
-  store i32 1, ptr %231, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %233, align 16
-  store i32 0, ptr %234, align 8
-  store i32 1, ptr %235, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %236, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %237, align 16
-  store i32 0, ptr %238, align 8
-  store i32 1, ptr %239, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %240, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %241, align 16
-  store i32 0, ptr %242, align 8
-  store i32 1, ptr %243, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %244, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %245, align 16
-  store i32 0, ptr %246, align 8
-  store i32 1, ptr %247, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %248, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %249, align 16
-  store i32 0, ptr %250, align 8
-  store i32 1, ptr %251, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %252, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %253, align 16
-  store i32 0, ptr %254, align 8
-  store i32 1, ptr %255, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %256, i8 0, i64 16, i1 false)
-  store ptr @hf_tn5250_reserved, ptr %257, align 16
-  store i32 0, ptr %258, align 8
-  store i32 1, ptr %259, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %260, i8 0, i64 48, i1 false)
-  %291 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef %283, ptr noundef nonnull %5)
+  store i32 0, ptr %71, align 8
+  store i32 2, ptr %72, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_sf_class, ptr %74, align 16
+  store i32 0, ptr %75, align 8
+  store i32 1, ptr %76, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_sf_type, ptr %78, align 16
+  store i32 0, ptr %79, align 8
+  store i32 1, ptr %80, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %81, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_flag, ptr %82, align 16
+  %285 = load i32, ptr @ett_tn5250_qr_mask, align 4
+  store i32 %285, ptr %83, align 8
+  store i32 1, ptr %84, align 4
+  store ptr @dissect_query_reply.byte, ptr %85, align 16
+  store i32 0, ptr %86, align 8
+  store i32 0, ptr %87, align 4
+  store ptr @hf_tn5250_qr_chc, ptr %88, align 16
+  store i32 0, ptr %89, align 8
+  store i32 2, ptr %90, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_ccl, ptr %92, align 16
+  store i32 0, ptr %93, align 8
+  store i32 3, ptr %94, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %96, align 16
+  store i32 0, ptr %97, align 8
+  store i32 1, ptr %98, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %99, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %100, align 16
+  store i32 0, ptr %101, align 8
+  store i32 1, ptr %102, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %103, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %104, align 16
+  store i32 0, ptr %105, align 8
+  store i32 1, ptr %106, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %107, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %108, align 16
+  store i32 0, ptr %109, align 8
+  store i32 1, ptr %110, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %111, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %112, align 16
+  store i32 0, ptr %113, align 8
+  store i32 1, ptr %114, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %115, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %116, align 16
+  store i32 0, ptr %117, align 8
+  store i32 1, ptr %118, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %120, align 16
+  store i32 0, ptr %121, align 8
+  store i32 1, ptr %122, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %123, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %124, align 16
+  store i32 0, ptr %125, align 8
+  store i32 1, ptr %126, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %127, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %128, align 16
+  store i32 0, ptr %129, align 8
+  store i32 1, ptr %130, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %131, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %132, align 16
+  store i32 0, ptr %133, align 8
+  store i32 1, ptr %134, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %135, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %136, align 16
+  store i32 0, ptr %137, align 8
+  store i32 1, ptr %138, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %140, align 16
+  store i32 0, ptr %141, align 8
+  store i32 1, ptr %142, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %143, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %144, align 16
+  store i32 0, ptr %145, align 8
+  store i32 1, ptr %146, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %147, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %148, align 16
+  store i32 0, ptr %149, align 8
+  store i32 1, ptr %150, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %151, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %152, align 16
+  store i32 0, ptr %153, align 8
+  store i32 1, ptr %154, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %155, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %156, align 16
+  store i32 0, ptr %157, align 8
+  store i32 1, ptr %158, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %159, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_dt, ptr %160, align 16
+  store i32 0, ptr %161, align 8
+  store i32 1, ptr %162, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %163, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_dtc, ptr %164, align 16
+  store i32 0, ptr %165, align 8
+  store i32 4, ptr %166, align 4
+  store ptr null, ptr %167, align 16
+  store i32 46, ptr %168, align 8
+  store i32 0, ptr %169, align 4
+  store ptr @hf_tn5250_qr_dm, ptr %170, align 16
+  store i32 0, ptr %171, align 8
+  store i32 3, ptr %172, align 4
+  store ptr null, ptr %173, align 16
+  store i32 46, ptr %174, align 8
+  store i32 0, ptr %175, align 4
+  store ptr @hf_tn5250_qr_ki, ptr %176, align 16
+  store i32 0, ptr %177, align 8
+  store i32 1, ptr %178, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %179, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_eki, ptr %180, align 16
+  store i32 0, ptr %181, align 8
+  store i32 1, ptr %182, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %183, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %184, align 16
+  store i32 0, ptr %185, align 8
+  store i32 1, ptr %186, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %187, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_dsn, ptr %188, align 16
+  store i32 0, ptr %189, align 8
+  store i32 4, ptr %190, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %191, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_mni, ptr %192, align 16
+  store i32 0, ptr %193, align 8
+  store i32 2, ptr %194, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %195, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %196, align 16
+  store i32 0, ptr %197, align 8
+  store i32 1, ptr %198, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %199, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %200, align 16
+  store i32 0, ptr %201, align 8
+  store i32 1, ptr %202, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %203, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %204, align 16
+  store i32 0, ptr %205, align 8
+  store i32 1, ptr %206, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %207, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_flag1, ptr %208, align 16
+  %286 = load i32, ptr @ett_tn5250_qr_mask, align 4
+  store i32 %286, ptr %209, align 8
+  store i32 1, ptr %210, align 4
+  store ptr @dissect_query_reply.byte1, ptr %211, align 16
+  store i32 0, ptr %212, align 8
+  store i32 0, ptr %213, align 4
+  store ptr @hf_tn5250_qr_flag2, ptr %214, align 16
+  store i32 %286, ptr %215, align 8
+  store i32 1, ptr %216, align 4
+  store ptr @dissect_query_reply.byte2, ptr %217, align 16
+  store i32 0, ptr %218, align 8
+  store i32 0, ptr %219, align 4
+  store ptr @hf_tn5250_qr_flag3, ptr %220, align 16
+  store i32 0, ptr %221, align 8
+  store i32 1, ptr %222, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %223, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_qr_flag4, ptr %224, align 16
+  store i32 0, ptr %225, align 8
+  store i32 1, ptr %226, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %227, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %228, align 16
+  store i32 0, ptr %229, align 8
+  store i32 1, ptr %230, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %231, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %232, align 16
+  store i32 0, ptr %233, align 8
+  store i32 1, ptr %234, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %235, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %236, align 16
+  store i32 0, ptr %237, align 8
+  store i32 1, ptr %238, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %239, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %240, align 16
+  store i32 0, ptr %241, align 8
+  store i32 1, ptr %242, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %243, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %244, align 16
+  store i32 0, ptr %245, align 8
+  store i32 1, ptr %246, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %247, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %248, align 16
+  store i32 0, ptr %249, align 8
+  store i32 1, ptr %250, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %251, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %252, align 16
+  store i32 0, ptr %253, align 8
+  store i32 1, ptr %254, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %255, i8 0, i64 16, i1 false)
+  store ptr @hf_tn5250_reserved, ptr %256, align 16
+  store i32 0, ptr %257, align 8
+  store i32 1, ptr %258, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %259, i8 0, i64 48, i1 false)
+  %287 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef %279, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %292 = add i32 %291, 3
+  %288 = add i32 %287, 3
+  br label %dissect_inbound_stream.exit.us.us
+
+289:                                              ; preds = %264
+  %290 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03845.us.us)
+  %291 = icmp eq i8 %290, 4
+  br i1 %291, label %292, label %305
+
+292:                                              ; preds = %289
+  %293 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845.us.us)
+  %.not79.i.us.us = icmp eq i32 %293, 0
+  br i1 %.not79.i.us.us, label %305, label %294
+
+294:                                              ; preds = %292
+  %295 = add i32 %293, %.03845.us.us
+  %296 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %295)
+  %.not80.i.us.us = icmp eq i32 %296, 0
+  br i1 %.not80.i.us.us, label %303, label %297
+
+297:                                              ; preds = %294
+  %298 = load i32, ptr @hf_tn5250_unknown_data, align 4
+  %299 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %295)
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %298, ptr noundef %0, i32 noundef %295, i32 noundef %299, i32 noundef 0)
+  %301 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %295)
+  %302 = add i32 %301, %295
+  br label %303
+
+303:                                              ; preds = %297, %294
+  %.2.i.us.us = phi i32 [ %302, %297 ], [ %295, %294 ]
+  %304 = sub i32 %.2.i.us.us, %.03845.us.us
+  br label %dissect_inbound_stream.exit.us.us
+
+305:                                              ; preds = %292, %289, %281
+  %.1.i.us.us = phi i32 [ %283, %281 ], [ %.03845.us.us, %292 ], [ %.03845.us.us, %289 ]
+  %306 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us.us)
+  %.not81.i.us.us = icmp eq i32 %306, 0
+  br i1 %.not81.i.us.us, label %313, label %307
+
+307:                                              ; preds = %305
+  %308 = load i32, ptr @hf_tn5250_field_data, align 4
+  %309 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us.us)
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %308, ptr noundef %0, i32 noundef %.1.i.us.us, i32 noundef %309, i32 noundef 46)
+  %311 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us.us)
+  %312 = add i32 %311, %.1.i.us.us
+  br label %313
+
+313:                                              ; preds = %307, %305
+  %.3.i.us.us = phi i32 [ %312, %307 ], [ %.1.i.us.us, %305 ]
+  %314 = sub i32 %.3.i.us.us, %.03845.us.us
+  br label %dissect_inbound_stream.exit.us.us
+
+315:                                              ; preds = %.lr.ph.split.us.split.us
+  %316 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845.us.us)
+  br label %dissect_inbound_stream.exit.us.us
+
+dissect_inbound_stream.exit.us.us:                ; preds = %315, %313, %303, %284
+  %.pn.us.us = phi i32 [ %316, %315 ], [ %288, %284 ], [ %314, %313 ], [ %304, %303 ]
+  %.1.us.us = add i32 %.pn.us.us, %.03845.us.us
+  %317 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us.us)
+  %318 = icmp sgt i32 %317, 0
+  br i1 %318, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !6
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %dissect_inbound_stream.exit.us
+  %.03845.us = phi i32 [ %.1.us, %dissect_inbound_stream.exit.us ], [ %63, %.lr.ph.split.us ]
+  %319 = load i32, ptr %23, align 4
+  %320 = load i32, ptr %25, align 8
+  %321 = icmp eq i32 %319, %320
+  br i1 %321, label %325, label %322
+
+322:                                              ; preds = %.lr.ph.split.us.split
+  %323 = load i32, ptr @hf_tn5250_negative_response, align 4
+  %324 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %323, ptr noundef %0, i32 noundef %.03845.us, i32 noundef 4, i32 noundef 0)
   br label %dissect_inbound_stream.exit.us
 
-293:                                              ; preds = %268
-  %294 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03845.us)
-  %295 = icmp eq i8 %294, 4
-  br i1 %295, label %296, label %309
-
-296:                                              ; preds = %293
-  %297 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845.us)
-  %.not79.i.us = icmp eq i32 %297, 0
-  br i1 %.not79.i.us, label %309, label %298
-
-298:                                              ; preds = %296
-  %299 = add i32 %297, %.03845.us
-  %300 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %299)
-  %.not80.i.us = icmp eq i32 %300, 0
-  br i1 %.not80.i.us, label %307, label %301
-
-301:                                              ; preds = %298
-  %302 = load i32, ptr @hf_tn5250_unknown_data, align 4
-  %303 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %299)
-  %304 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %302, ptr noundef %0, i32 noundef %299, i32 noundef %303, i32 noundef 0)
-  %305 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %299)
-  %306 = add i32 %305, %299
-  br label %307
-
-307:                                              ; preds = %301, %298
-  %.2.i.us = phi i32 [ %306, %301 ], [ %299, %298 ]
-  %308 = sub i32 %.2.i.us, %.03845.us
+325:                                              ; preds = %.lr.ph.split.us.split
+  %326 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845.us)
   br label %dissect_inbound_stream.exit.us
 
-309:                                              ; preds = %296, %293, %285
-  %.1.i.us = phi i32 [ %287, %285 ], [ %.03845.us, %296 ], [ %.03845.us, %293 ]
-  %310 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us)
-  %.not81.i.us = icmp eq i32 %310, 0
-  br i1 %.not81.i.us, label %317, label %311
-
-311:                                              ; preds = %309
-  %312 = load i32, ptr @hf_tn5250_field_data, align 4
-  %313 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us)
-  %314 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %312, ptr noundef %0, i32 noundef %.1.i.us, i32 noundef %313, i32 noundef 46)
-  %315 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.us)
-  %316 = add i32 %315, %.1.i.us
-  br label %317
-
-317:                                              ; preds = %311, %309
-  %.3.i.us = phi i32 [ %316, %311 ], [ %.1.i.us, %309 ]
-  %318 = sub i32 %.3.i.us, %.03845.us
-  br label %dissect_inbound_stream.exit.us
-
-319:                                              ; preds = %.lr.ph.split.us
-  %320 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845.us)
-  br label %dissect_inbound_stream.exit.us
-
-dissect_inbound_stream.exit.us:                   ; preds = %319, %317, %307, %288, %265
-  %.pn.us = phi i32 [ %320, %319 ], [ 4, %265 ], [ %292, %288 ], [ %318, %317 ], [ %308, %307 ]
+dissect_inbound_stream.exit.us:                   ; preds = %325, %322
+  %.pn.us = phi i32 [ %326, %325 ], [ 4, %322 ]
   %.1.us = add i32 %.pn.us, %.03845.us
-  %321 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us)
-  %322 = icmp sgt i32 %321, 0
-  br i1 %322, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !6
+  %327 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us)
+  %328 = icmp sgt i32 %327, 0
+  br i1 %328, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_inbound_stream.exit
   %.03845 = phi i32 [ %.1, %dissect_inbound_stream.exit ], [ %63, %.lr.ph ]
-  %323 = load i32, ptr %23, align 4
-  %324 = load i32, ptr %25, align 8
-  %325 = icmp eq i32 %323, %324
-  br i1 %325, label %326, label %328
+  %329 = load i32, ptr %23, align 4
+  %330 = load i32, ptr %25, align 8
+  %331 = icmp eq i32 %329, %330
+  br i1 %331, label %332, label %334
 
-326:                                              ; preds = %.lr.ph.split
-  %327 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845)
+332:                                              ; preds = %.lr.ph.split
+  %333 = tail call fastcc i32 @dissect_outbound_stream(ptr noundef %22, ptr noundef %1, ptr noundef %0, i32 noundef %.03845)
   br label %dissect_inbound_stream.exit
 
-328:                                              ; preds = %.lr.ph.split
-  %329 = load i32, ptr @hf_tn5250_error_code, align 4
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %329, ptr noundef %0, i32 noundef %.03845, i32 noundef 2, i32 noundef 0)
+334:                                              ; preds = %.lr.ph.split
+  %335 = load i32, ptr @hf_tn5250_error_code, align 4
+  %336 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %335, ptr noundef %0, i32 noundef %.03845, i32 noundef 2, i32 noundef 0)
   br label %dissect_inbound_stream.exit
 
-dissect_inbound_stream.exit:                      ; preds = %328, %326
-  %.pn = phi i32 [ %327, %326 ], [ 2, %328 ]
+dissect_inbound_stream.exit:                      ; preds = %334, %332
+  %.pn = phi i32 [ %333, %332 ], [ 2, %334 ]
   %.1 = add i32 %.pn, %.03845
-  %331 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
-  %332 = icmp sgt i32 %331, 0
-  br i1 %332, label %.lr.ph.split, label %.loopexit, !llvm.loop !9
+  %337 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %338 = icmp sgt i32 %337, 0
+  br i1 %338, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %dissect_inbound_stream.exit, %dissect_inbound_stream.exit.us, %dissect_tn5250_header.exit, %11
-  %333 = tail call i32 @tvb_captured_length(ptr noundef %0)
+.loopexit:                                        ; preds = %dissect_inbound_stream.exit, %dissect_inbound_stream.exit.us, %dissect_inbound_stream.exit.us.us, %dissect_tn5250_header.exit, %11
+  %339 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %.thread
 
 .thread:                                          ; preds = %4, %8, %.loopexit
-  %.0 = phi i32 [ %333, %.loopexit ], [ 0, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ %339, %.loopexit ], [ 0, %8 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3570,7 +3588,7 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %54)
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 57:                                               ; preds = %4
   %58 = load i32, ptr @hf_tn5250_wectw_start_column, align 4
@@ -3822,7 +3840,7 @@ define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, 
   %36 = getelementptr %struct.hf_items, ptr %3, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %32, %4
   %.034.lcssa = phi i32 [ %2, %4 ], [ %33, %32 ]
@@ -4614,7 +4632,7 @@ dissect_erase_to_address.exit.thread:             ; preds = %714
   %734 = add i32 %.019.i, 1
   %735 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %734)
   %736 = icmp sgt i32 %735, 0
-  br i1 %736, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %736, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %733, %.thread.i
   %.0.lcssa.i = phi i32 [ %.019.i, %.thread.i ], [ %734, %733 ]
@@ -4678,7 +4696,7 @@ dissect_tn5250_ra_data.exit:                      ; preds = %._crit_edge._crit_e
   %760 = add i32 %.019.i99, 1
   %761 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %760)
   %762 = icmp sgt i32 %761, 0
-  br i1 %762, label %.lr.ph.i98, label %._crit_edge.i101, !llvm.loop !12
+  br i1 %762, label %.lr.ph.i98, label %._crit_edge.i101, !llvm.loop !10
 
 ._crit_edge.i101:                                 ; preds = %759, %.thread.i100
   %.0.lcssa.i102 = phi i32 [ %.019.i99, %.thread.i100 ], [ %760, %759 ]
@@ -4727,7 +4745,7 @@ dissect_tn5250_ra_data.exit103:                   ; preds = %._crit_edge._crit_e
   %787 = add nuw nsw i32 %.020.i, 1
   %.018.i = add i32 %.01821.i, 1
   %exitcond.not.i = icmp eq i32 %787, %781
-  br i1 %exitcond.not.i, label %dissect_erase_to_address.exit, label %.lr.ph.i105, !llvm.loop !13
+  br i1 %exitcond.not.i, label %dissect_erase_to_address.exit, label %.lr.ph.i105, !llvm.loop !11
 
 788:                                              ; preds = %714
   %789 = load i32, ptr @hf_tn5250_order_code, align 4
@@ -4912,7 +4930,7 @@ dissect_twobyte_length_and_data.exit:             ; preds = %812, %816, %818
   %865 = add i32 %.138.i, 2
   %866 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %865)
   %867 = icmp sgt i32 %866, 0
-  br i1 %867, label %.lr.ph.i108, label %.loopexit.i, !llvm.loop !14
+  br i1 %867, label %.lr.ph.i108, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %862, %.thread.i109, %855, %846
   %.0.i107 = phi i32 [ %849, %846 ], [ %857, %855 ], [ %.138.i, %.thread.i109 ], [ %865, %862 ]
@@ -4967,7 +4985,7 @@ dissect_start_of_field.exit:                      ; preds = %870, %874
   %885 = add i32 %.019.i115, 1
   %886 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %885)
   %887 = icmp sgt i32 %886, 0
-  br i1 %887, label %.lr.ph.i114, label %._crit_edge.i117, !llvm.loop !12
+  br i1 %887, label %.lr.ph.i114, label %._crit_edge.i117, !llvm.loop !10
 
 ._crit_edge.i117:                                 ; preds = %884, %.thread.i116
   %.0.lcssa.i118 = phi i32 [ %.019.i115, %.thread.i116 ], [ %885, %884 ]
@@ -5264,7 +5282,7 @@ dissect_tn5250_ra_data.exit119:                   ; preds = %._crit_edge._crit_e
   %.130.i.i = phi i32 [ %929, %927 ], [ %933, %930 ], [ %940, %935 ]
   %942 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.130.i.i)
   %943 = icmp sgt i32 %942, 0
-  br i1 %943, label %.lr.ph.i.i, label %dissect_create_window.exit.i, !llvm.loop !15
+  br i1 %943, label %.lr.ph.i.i, label %dissect_create_window.exit.i, !llvm.loop !13
 
 dissect_create_window.exit.i:                     ; preds = %941, %.thread.i.i, %916
   %.029.lcssa.i.i = phi i32 [ %921, %916 ], [ %.02932.i.i, %.thread.i.i ], [ %.130.i.i, %941 ]
@@ -5722,7 +5740,7 @@ dissect_create_window.exit.i:                     ; preds = %941, %.thread.i.i, 
   %.2.i.i = phi i32 [ %.1.i.i, %984 ], [ %991, %987 ], [ %994, %992 ], [ %997, %995 ], [ %1000, %998 ], [ %1003, %1001 ]
   %1005 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2.i.i)
   %1006 = icmp sgt i32 %1005, 0
-  br i1 %1006, label %.lr.ph.i93.i, label %dissect_define_selection.exit.i, !llvm.loop !16
+  br i1 %1006, label %.lr.ph.i93.i, label %dissect_define_selection.exit.i, !llvm.loop !14
 
 dissect_define_selection.exit.i:                  ; preds = %1004, %.thread.i94.i, %956
   %.0.lcssa.i.i = phi i32 [ %964, %956 ], [ %.066.i.i, %.thread.i94.i ], [ %.2.i.i, %1004 ]
@@ -5837,7 +5855,7 @@ dissect_define_selection.exit.i:                  ; preds = %1004, %.thread.i94.
   %1019 = add i32 %1018, %.01618.i.i
   %1020 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1019)
   %1021 = icmp sgt i32 %1020, 0
-  br i1 %1021, label %.lr.ph.i95.i, label %dissect_define_scrollbar.exit.i, !llvm.loop !17
+  br i1 %1021, label %.lr.ph.i95.i, label %dissect_define_scrollbar.exit.i, !llvm.loop !15
 
 dissect_define_scrollbar.exit.i:                  ; preds = %1017, %.thread.i96.i, %1007
   %.016.lcssa.i.i = phi i32 [ %1011, %1007 ], [ %.01618.i.i, %.thread.i96.i ], [ %1019, %1017 ]
@@ -5878,7 +5896,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1017, %.thread.i96.
   %1041 = add i32 %1040, %.2106.i
   %1042 = add i32 %.0107.i, 4
   %1043 = icmp slt i32 %1042, %1038
-  br i1 %1043, label %.lr.ph.i122, label %.loopexit.i121, !llvm.loop !18
+  br i1 %1043, label %.lr.ph.i122, label %.loopexit.i121, !llvm.loop !16
 
 1044:                                             ; preds = %914
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5981,7 +5999,7 @@ dissect_define_scrollbar.exit.i:                  ; preds = %1017, %.thread.i96.
   %1056 = add i32 %1055, %.01618.i99.i
   %1057 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %1056)
   %1058 = icmp sgt i32 %1057, 0
-  br i1 %1058, label %.lr.ph.i98.i, label %dissect_draw_erase_gridlines.exit.i, !llvm.loop !19
+  br i1 %1058, label %.lr.ph.i98.i, label %dissect_draw_erase_gridlines.exit.i, !llvm.loop !17
 
 dissect_draw_erase_gridlines.exit.i:              ; preds = %1054, %.thread.i100.i, %1044
   %.016.lcssa.i97.i = phi i32 [ %1048, %1044 ], [ %.01618.i99.i, %.thread.i100.i ], [ %1056, %1054 ]
@@ -5998,7 +6016,7 @@ dissect_draw_erase_gridlines.exit.i:              ; preds = %1054, %.thread.i100
   %.189.i = phi i32 [ %.029.lcssa.i.i, %dissect_create_window.exit.i ], [ %949, %944 ], [ %952, %950 ], [ %955, %953 ], [ %.0.lcssa.i.i, %dissect_define_selection.exit.i ], [ %.016.lcssa.i.i, %dissect_define_scrollbar.exit.i ], [ %1024, %1022 ], [ %1028, %1025 ], [ %1034, %1029 ], [ %.016.lcssa.i97.i, %dissect_draw_erase_gridlines.exit.i ], [ %1061, %1059 ], [ %1034, %1037 ], [ %1041, %.lr.ph.i122 ]
   %1062 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.189.i)
   %1063 = icmp sgt i32 %1062, 0
-  br i1 %1063, label %914, label %._crit_edge.i120, !llvm.loop !20
+  br i1 %1063, label %914, label %._crit_edge.i120, !llvm.loop !18
 
 ._crit_edge.i120:                                 ; preds = %.loopexit.i121, %.loopexit.thread.i, %894
   %.088.lcssa.i = phi i32 [ %909, %894 ], [ %909, %.loopexit.thread.i ], [ %.189.i, %.loopexit.i121 ]
@@ -6025,7 +6043,7 @@ dissect_erase_to_address.exit:                    ; preds = %.lr.ph.i105, %842, 
   %.1 = phi i32 [ %742, %dissect_tn5250_ra_data.exit ], [ %768, %dissect_tn5250_ra_data.exit103 ], [ %799, %788 ], [ %822, %dissect_twobyte_length_and_data.exit ], [ %893, %dissect_tn5250_ra_data.exit119 ], [ %1069, %dissect_wdsf_structured_field.exit ], [ %777, %769 ], [ %832, %823 ], [ %837, %833 ], [ %841, %838 ], [ %845, %842 ], [ %.018.i, %.lr.ph.i105 ]
   %1070 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1)
   %1071 = icmp sgt i32 %1070, 0
-  br i1 %1071, label %714, label %._crit_edge, !llvm.loop !21
+  br i1 %1071, label %714, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %dissect_erase_to_address.exit, %dissect_erase_to_address.exit.thread, %3
   %.0.lcssa = phi i32 [ %2, %3 ], [ %.0139, %dissect_erase_to_address.exit.thread ], [ %.1, %dissect_erase_to_address.exit ]
@@ -6383,13 +6401,13 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %176 = getelementptr %struct.hf_items, ptr %.sink23.i.us, i64 %175
   %177 = load ptr, ptr %176, align 16
   %.not.i.us = icmp eq ptr %177, null
-  br i1 %.not.i.us, label %tn5250_add_hf_items.exit.us, label %.lr.ph.i99.us, !llvm.loop !11
+  br i1 %.not.i.us, label %tn5250_add_hf_items.exit.us, label %.lr.ph.i99.us, !llvm.loop !9
 
 tn5250_add_hf_items.exit.us:                      ; preds = %172, %145
   %.034.lcssa.i.us = phi i32 [ %.01618.i.us, %145 ], [ %173, %172 ]
   %178 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.034.lcssa.i.us)
   %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %.lr.ph.i.us, label %dissect_write_single_structured_field_minor_fields.exit.us, !llvm.loop !22
+  br i1 %179, label %.lr.ph.i.us, label %dissect_write_single_structured_field_minor_fields.exit.us, !llvm.loop !20
 
 .thread.i.us:                                     ; preds = %.lr.ph.i.us
   %180 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.01618.i.us)
@@ -6401,7 +6419,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.016.lcssa.i.us)
   %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
+  br i1 %182, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us105:                               ; preds = %.lr.ph, %.lr.ph.split.us105
   %.0104.us106 = phi i32 [ %spec.select.us, %.lr.ph.split.us105 ], [ %109, %.lr.ph ]
@@ -6416,7 +6434,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %spec.select.us = add i32 %190, %184
   %191 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %spec.select.us)
   %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %.lr.ph.split.us105, label %._crit_edge, !llvm.loop !24
+  br i1 %192, label %.lr.ph.split.us105, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us113:                               ; preds = %.lr.ph, %.lr.ph.split.us113
   %.0104.us114 = phi i32 [ %spec.select97.us, %.lr.ph.split.us113 ], [ %109, %.lr.ph ]
@@ -6437,7 +6455,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %spec.select97.us = add i32 %206, %200
   %207 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %spec.select97.us)
   %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %.lr.ph.split.us113, label %._crit_edge, !llvm.loop !25
+  br i1 %208, label %.lr.ph.split.us113, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us121:                               ; preds = %.lr.ph, %.lr.ph.split.us121
   %.0104.us122 = phi i32 [ %214, %.lr.ph.split.us121 ], [ %109, %.lr.ph ]
@@ -6449,7 +6467,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %214 = add i32 %.0104.us122, 4
   %215 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %214)
   %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %.lr.ph.split.us121, label %._crit_edge, !llvm.loop !26
+  br i1 %216, label %.lr.ph.split.us121, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us129:                               ; preds = %.lr.ph, %.lr.ph.split.us129
   %.0104.us130 = phi i32 [ %spec.select98.us, %.lr.ph.split.us129 ], [ %109, %.lr.ph ]
@@ -6465,7 +6483,7 @@ dissect_write_single_structured_field_minor_fields.exit.us: ; preds = %tn5250_ad
   %spec.select98.us = add i32 %225, %219
   %226 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %spec.select98.us)
   %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %.lr.ph.split.us129, label %._crit_edge, !llvm.loop !27
+  br i1 %227, label %.lr.ph.split.us129, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %228 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %109)
@@ -7065,7 +7083,7 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph241
   %284 = add i32 %277, %280
   %285 = sub i32 %284, %2
   %286 = icmp slt i32 %285, %272
-  br i1 %286, label %.lr.ph235, label %dissect_unknown_data.exit.thread, !llvm.loop !28
+  br i1 %286, label %.lr.ph235, label %dissect_unknown_data.exit.thread, !llvm.loop !22
 
 287:                                              ; preds = %.lr.ph241
   %288 = load i32, ptr @hf_tn5250_dckf_id, align 4
@@ -7092,7 +7110,7 @@ dissect_unknown_data.exit.thread.thread:          ; preds = %.lr.ph241
   %303 = add i32 %296, %299
   %304 = sub i32 %303, %2
   %305 = icmp slt i32 %304, %291
-  br i1 %305, label %.lr.ph230, label %dissect_unknown_data.exit.thread, !llvm.loop !29
+  br i1 %305, label %.lr.ph230, label %dissect_unknown_data.exit.thread, !llvm.loop !23
 
 306:                                              ; preds = %.lr.ph241
   %307 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %254, ptr noundef nonnull %5)
@@ -7180,7 +7198,7 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph227, %tn5250_
   %.be = phi ptr [ %353, %348 ], [ %321, %tn5250_add_hf_items.exit.loopexit ]
   %.be296 = phi ptr [ %352, %348 ], [ %8, %tn5250_add_hf_items.exit.loopexit ]
   %.041.i.be = phi i32 [ %350, %348 ], [ 0, %tn5250_add_hf_items.exit.loopexit ]
-  br label %.lr.ph.i, !llvm.loop !30
+  br label %.lr.ph.i, !llvm.loop !24
 
 tn5250_add_hf_items.exit.loopexit:                ; preds = %348
   %354 = sub i32 %349, %2
@@ -7233,7 +7251,7 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %348
   %387 = add i32 %380, %383
   %388 = sub i32 %387, %2
   %389 = icmp slt i32 %388, %375
-  br i1 %389, label %.lr.ph222, label %dissect_unknown_data.exit.thread, !llvm.loop !31
+  br i1 %389, label %.lr.ph222, label %dissect_unknown_data.exit.thread, !llvm.loop !25
 
 390:                                              ; preds = %.lr.ph241
   %391 = load i32, ptr @hf_tn5250_dpt_id, align 4
@@ -7254,7 +7272,7 @@ tn5250_add_hf_items.exit.loopexit:                ; preds = %348
   %402 = add i32 %.6218, 5
   %403 = sub i32 %402, %2
   %404 = icmp slt i32 %403, %394
-  br i1 %404, label %.lr.ph219, label %dissect_unknown_data.exit.thread, !llvm.loop !32
+  br i1 %404, label %.lr.ph219, label %dissect_unknown_data.exit.thread, !llvm.loop !26
 
 405:                                              ; preds = %.lr.ph241
   %406 = tail call fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, i32 noundef %254, ptr noundef nonnull @__const.dissect_write_structured_field.dfdpck_fields)
@@ -7301,13 +7319,13 @@ dissect_unknown_data.exit:                        ; preds = %420
   %.8 = phi i32 [ %416, %414 ], [ %419, %417 ], [ %426, %dissect_unknown_data.exit ]
   %428 = sub i32 %.8, %2
   %429 = icmp slt i32 %428, %408
-  br i1 %429, label %.lr.ph, label %dissect_unknown_data.exit.thread, !llvm.loop !33
+  br i1 %429, label %.lr.ph, label %dissect_unknown_data.exit.thread, !llvm.loop !27
 
 dissect_unknown_data.exit.thread:                 ; preds = %427, %420, %.lr.ph219, %.lr.ph222, %382, %tn5250_add_hf_items.exit.loopexit, %.lr.ph230, %298, %.lr.ph235, %279, %405, %390, %371, %315, %287, %268, %356, %368, %364, %312, %309, %306, %265, %261, %256
   %.1 = phi i32 [ %.neg204, %256 ], [ %264, %261 ], [ %267, %265 ], [ %308, %306 ], [ %311, %309 ], [ %314, %312 ], [ %362, %356 ], [ %362, %364 ], [ %370, %368 ], [ %271, %268 ], [ %290, %287 ], [ %317, %315 ], [ %374, %371 ], [ %393, %390 ], [ %407, %405 ], [ %284, %279 ], [ %277, %.lr.ph235 ], [ %303, %298 ], [ %296, %.lr.ph230 ], [ %349, %tn5250_add_hf_items.exit.loopexit ], [ %387, %382 ], [ %380, %.lr.ph222 ], [ %402, %.lr.ph219 ], [ %.7215, %420 ], [ %.8, %427 ]
   %430 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1)
   %431 = icmp sgt i32 %430, 0
-  br i1 %431, label %.lr.ph241, label %._crit_edge.loopexit, !llvm.loop !34
+  br i1 %431, label %.lr.ph241, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %dissect_unknown_data.exit.thread, %dissect_unknown_data.exit.thread.thread
   %.1258 = phi i32 [ %254, %dissect_unknown_data.exit.thread.thread ], [ %.1, %dissect_unknown_data.exit.thread ]
@@ -7369,9 +7387,9 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
@@ -7386,15 +7404,9 @@ attributes #7 = { noreturn }
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}

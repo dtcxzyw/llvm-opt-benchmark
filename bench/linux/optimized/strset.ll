@@ -583,7 +583,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %.ph = phi i32 [ %57, %.split ], [ %93, %.thread ]
   %95 = add nuw nsw i64 %56, 1
   %96 = icmp eq i64 %95, 21
-  br i1 %96, label %.split8.us, label %.split, !llvm.loop !23
+  br i1 %96, label %.split8.us, label %.split, !llvm.loop !21
 
 .split8.us:                                       ; preds = %94, %86, %45, %53
   %.us-phi = phi i32 [ %.ph.us, %53 ], [ %49, %45 ], [ %.ph, %94 ], [ %90, %86 ]
@@ -773,17 +773,17 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   %123 = load i32, ptr %53, align 4
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %122, %124
-  br i1 %125, label %88, label %.loopexit9, !llvm.loop !24
+  br i1 %125, label %88, label %.loopexit9, !llvm.loop !22
 
 126:                                              ; preds = %104, %100
   %127 = load ptr, ptr %21, align 8
   %128 = icmp ugt ptr %127, %95
-  br i1 %128, label %129, label %130, !prof !25
+  br i1 %128, label %129, label %130, !prof !23
 
 129:                                              ; preds = %126
-  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !27
-  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !28
+  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !24
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !25
+  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !26
   %.pre21 = load ptr, ptr %21, align 8
   br label %130
 
@@ -823,12 +823,12 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 .loopexit:                                        ; preds = %74, %69, %65, %88, %130
   %153 = load ptr, ptr %21, align 8
   %154 = icmp ugt ptr %153, %60
-  br i1 %154, label %155, label %156, !prof !25
+  br i1 %154, label %155, label %156, !prof !23
 
 155:                                              ; preds = %.loopexit
-  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !27
-  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !28
+  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !24
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !25
+  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !26
   %.pre22 = load ptr, ptr %21, align 8
   br label %156
 
@@ -844,7 +844,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 162:                                              ; preds = %52, %144, %26, %38, %34
   %163 = add nuw nsw i64 %23, 1
   %164 = icmp eq i64 %163, 21
-  br i1 %164, label %165, label %22, !llvm.loop !29
+  br i1 %164, label %165, label %22, !llvm.loop !27
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %7, align 8
@@ -862,12 +862,12 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   %.ph = phi i32 [ -90, %156 ], [ -95, %48 ], [ -90, %56 ]
   %174 = load ptr, ptr %21, align 8
   %175 = icmp ugt ptr %174, %12
-  br i1 %175, label %176, label %177, !prof !25
+  br i1 %175, label %176, label %177, !prof !23
 
 176:                                              ; preds = %.loopexit10
-  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !27
-  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !28
+  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !24
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1062, i32 2305, i64 12) #8, !srcloc !25
+  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !26
   %.pre23 = load ptr, ptr %21, align 8
   br label %177
 
@@ -997,12 +997,10 @@ attributes #9 = { nounwind allocsize(0) }
 !18 = distinct !{!18, !13, !14}
 !19 = distinct !{!19, !13, !14}
 !20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !13, !14}
-!24 = distinct !{!24, !13, !14}
-!25 = !{!"branch_weights", i32 1, i32 2000}
-!26 = !{i64 2157132619, i64 2157132428, i64 2157132480, i64 2157132526, i64 2157132554}
-!27 = !{i64 2157132693, i64 2157132722, i64 2157132768, i64 2157132826, i64 2157132880, i64 2157132934, i64 2157132989, i64 2157133020, i64 2157133328, i64 2157133334, i64 2157133381, i64 2157133404, i64 2157133430}
-!28 = !{i64 2157133885, i64 2157133696, i64 2157133746, i64 2157133792, i64 2157133820}
-!29 = distinct !{!29, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = !{!"branch_weights", i32 1, i32 2000}
+!24 = !{i64 2157132619, i64 2157132428, i64 2157132480, i64 2157132526, i64 2157132554}
+!25 = !{i64 2157132693, i64 2157132722, i64 2157132768, i64 2157132826, i64 2157132880, i64 2157132934, i64 2157132989, i64 2157133020, i64 2157133328, i64 2157133334, i64 2157133381, i64 2157133404, i64 2157133430}
+!26 = !{i64 2157133885, i64 2157133696, i64 2157133746, i64 2157133792, i64 2157133820}
+!27 = distinct !{!27, !13, !14}

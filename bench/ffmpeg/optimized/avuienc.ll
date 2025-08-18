@@ -175,7 +175,7 @@ define internal range(i32 -2147483648, 1) i32 @avui_encode_frame(ptr noundef %0,
   %72 = add nuw nsw i32 %.05558.us, 2
   %73 = load i32, ptr %9, align 4, !tbaa !27
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !39
+  br i1 %74, label %.lr.ph.us, label %._crit_edge.us, !llvm.loop !38
 
 .lr.ph.preheader:                                 ; preds = %.split.preheader
   %75 = load i32, ptr %12, align 8, !tbaa !4
@@ -203,7 +203,7 @@ define internal range(i32 -2147483648, 1) i32 @avui_encode_frame(ptr noundef %0,
   %90 = add nuw nsw i32 %.05558, 1
   %91 = load i32, ptr %9, align 4, !tbaa !27
   %92 = icmp slt i32 %90, %91
-  br i1 %92, label %.lr.ph, label %.split64.us, !llvm.loop !39
+  br i1 %92, label %.lr.ph, label %.split64.us, !llvm.loop !38
 
 .split64.us:                                      ; preds = %.lr.ph, %._crit_edge.us, %.split.preheader
   store i32 1, ptr %3, align 4, !tbaa !35
@@ -275,7 +275,6 @@ attributes #6 = { nounwind }
 !33 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !34 = !{!14, !14, i64 0}
 !35 = !{!10, !10, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !37}
+!38 = distinct !{!38, !37}

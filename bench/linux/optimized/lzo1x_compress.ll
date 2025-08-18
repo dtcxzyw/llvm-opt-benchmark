@@ -113,7 +113,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i16 %67, ptr %61, align 2
   %68 = load i32, ptr %64, align 1
   %69 = icmp eq i32 %57, %68
-  br i1 %69, label %.loopexit31.split.us.i, label %.lr.ph68.i, !prof !7, !llvm.loop !8
+  br i1 %69, label %.loopexit31.split.us.i, label %.lr.ph68.i, !prof !7
 
 .lr.ph68.i:                                       ; preds = %.lr.ph.split.us.i, %56
   %70 = phi i64 [ %65, %56 ], [ %51, %.lr.ph.split.us.i ]
@@ -123,7 +123,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %74 = getelementptr i8, ptr %71, i64 %73
   %75 = getelementptr i8, ptr %74, i64 1
   %76 = icmp ult ptr %75, %30
-  br i1 %76, label %56, label %.loopexit12, !prof !10
+  br i1 %76, label %56, label %.loopexit12, !prof !8
 
 .loopexit31.split.us.i:                           ; preds = %56, %.lr.ph.split.us.i
   %.pre.pre-phi.i = phi i64 [ %51, %.lr.ph.split.us.i ], [ %65, %56 ]
@@ -138,7 +138,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %81 = getelementptr i8, ptr %134, i64 %80
   %82 = getelementptr i8, ptr %81, i64 1
   %83 = icmp ult ptr %82, %30
-  br i1 %83, label %84, label %.loopexit12, !prof !10
+  br i1 %83, label %84, label %.loopexit12, !prof !8
 
 84:                                               ; preds = %78
   %85 = load i32, ptr %82, align 1
@@ -176,7 +176,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %105 = load i64, ptr %104, align 1
   %106 = or i64 %103, %105
   %107 = icmp eq i64 %106, 0
-  br i1 %107, label %92, label %.preheader224, !llvm.loop !11
+  br i1 %107, label %92, label %.preheader224, !llvm.loop !9
 
 .preheader224:                                    ; preds = %96, %92
   br label %108
@@ -190,10 +190,10 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 112:                                              ; preds = %108
   %113 = load i64, ptr %109, align 1
   %114 = icmp eq i64 %113, 0
-  br i1 %114, label %108, label %115, !llvm.loop !14
+  br i1 %114, label %108, label %115, !llvm.loop !12
 
 115:                                              ; preds = %112
-  %116 = tail call i64 @llvm.cttz.i64(i64 %113, i1 true), !range !15
+  %116 = tail call i64 @llvm.cttz.i64(i64 %113, i1 true), !range !13
   %117 = lshr i64 %116, 3
   %118 = getelementptr i8, ptr %109, i64 %117
   br label %.loopexit30.i
@@ -212,7 +212,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 124:                                              ; preds = %.preheader28.i
   %125 = getelementptr i8, ptr %121, i64 1
   %126 = icmp ult ptr %125, %91
-  br i1 %126, label %.preheader28.i, label %.loopexit29.i, !prof !16, !llvm.loop !17
+  br i1 %126, label %.preheader28.i, label %.loopexit29.i, !prof !14, !llvm.loop !15
 
 .loopexit29.i:                                    ; preds = %124, %.preheader28.i, %.loopexit30.i
   %127 = phi ptr [ %119, %.loopexit30.i ], [ %121, %.preheader28.i ], [ %125, %124 ]
@@ -239,7 +239,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i16 %144, ptr %138, align 2
   %145 = load i32, ptr %141, align 1
   %146 = icmp eq i32 %133, %145
-  br i1 %146, label %.loopexit31.i.loopexit, label %78, !prof !18
+  br i1 %146, label %.loopexit31.i.loopexit, label %78, !prof !16
 
 .loopexit31.i.loopexit:                           ; preds = %.lr.ph.split.i
   %147 = getelementptr i8, ptr %17, i64 %140
@@ -306,7 +306,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %184 = add i64 %154, -18
   store i8 0, ptr %37, align 1
   %185 = icmp ugt i64 %184, 255
-  br i1 %185, label %186, label %200, !prof !19
+  br i1 %185, label %186, label %200, !prof !17
 
 186:                                              ; preds = %183
   %187 = add i64 %35, -274
@@ -352,7 +352,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %215 = getelementptr i8, ptr %208, i64 16
   %216 = add i64 %207, -16
   %217 = icmp ugt i64 %216, 15
-  br i1 %217, label %206, label %218, !llvm.loop !20
+  br i1 %217, label %206, label %218, !llvm.loop !18
 
 218:                                              ; preds = %206
   %219 = icmp eq i64 %216, 0
@@ -368,12 +368,12 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i8 %224, ptr %222, align 1
   %226 = add i64 %220, -1
   %227 = icmp eq i64 %226, 0
-  br i1 %227, label %.loopexit27.i, label %.preheader26.i, !llvm.loop !21
+  br i1 %227, label %.loopexit27.i, label %.preheader26.i, !llvm.loop !19
 
 .loopexit27.i:                                    ; preds = %.preheader26.i, %218, %168, %158, %.loopexit31.i
   %228 = phi ptr [ %165, %158 ], [ %176, %168 ], [ %214, %218 ], [ %37, %.loopexit31.i ], [ %225, %.preheader26.i ]
   %229 = icmp eq i32 %149, 0
-  br i1 %229, label %239, label %230, !prof !18
+  br i1 %229, label %239, label %230, !prof !16
 
 230:                                              ; preds = %.loopexit27.i
   %231 = zext nneg i32 %149 to i64
@@ -394,21 +394,21 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %243 = load i64, ptr %242, align 1
   %244 = xor i64 %243, %241
   %245 = icmp eq i64 %243, %241
-  br i1 %245, label %.preheader.i, label %256, !prof !22
+  br i1 %245, label %.preheader.i, label %256, !prof !20
 
 .preheader.i:                                     ; preds = %239, %250
   %246 = phi i64 [ %247, %250 ], [ 4, %239 ]
   %247 = add i64 %246, 8
   %248 = getelementptr i8, ptr %148, i64 %247
   %249 = icmp ult ptr %248, %30
-  br i1 %249, label %250, label %.loopexit.i, !prof !18
+  br i1 %249, label %250, label %.loopexit.i, !prof !16
 
 250:                                              ; preds = %.preheader.i
   %251 = load i64, ptr %248, align 1
   %252 = getelementptr i8, ptr %150, i64 %247
   %253 = load i64, ptr %252, align 1
   %254 = icmp eq i64 %253, %251
-  br i1 %254, label %.preheader.i, label %.loopexit25.i, !llvm.loop !23
+  br i1 %254, label %.preheader.i, label %.loopexit25.i, !llvm.loop !21
 
 .loopexit25.i:                                    ; preds = %250
   %255 = xor i64 %253, %251
@@ -417,7 +417,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 256:                                              ; preds = %.loopexit25.i, %239
   %257 = phi i64 [ 4, %239 ], [ %247, %.loopexit25.i ]
   %258 = phi i64 [ %244, %239 ], [ %255, %.loopexit25.i ]
-  %259 = tail call i64 @llvm.cttz.i64(i64 %258, i1 true), !range !15
+  %259 = tail call i64 @llvm.cttz.i64(i64 %258, i1 true), !range !13
   %260 = lshr i64 %259, 3
   %261 = add i64 %260, %257
   br label %.loopexit.i
@@ -470,7 +470,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i8 32, ptr %228, align 1
   %293 = getelementptr i8, ptr %228, i64 1
   %294 = icmp ugt i64 %292, 255
-  br i1 %294, label %295, label %305, !prof !19
+  br i1 %294, label %295, label %305, !prof !17
 
 295:                                              ; preds = %291
   %296 = add i64 %262, -289
@@ -528,12 +528,12 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %333 = add i64 %262, -261
   %334 = icmp ult i64 %333, 4
   %335 = and i1 %332, %334
-  br i1 %335, label %336, label %340, !prof !22
+  br i1 %335, label %336, label %340, !prof !20
 
 336:                                              ; preds = %330
   %337 = getelementptr i8, ptr %148, i64 260
-  %338 = select i1 %7, i64 %262, i64 260, !prof !22
-  %339 = select i1 %7, ptr %265, ptr %337, !prof !22
+  %338 = select i1 %7, i64 %262, i64 260, !prof !20
+  %339 = select i1 %7, ptr %265, ptr %337, !prof !20
   br label %340
 
 340:                                              ; preds = %336, %330
@@ -547,7 +547,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i8 %347, ptr %228, align 1
   %348 = getelementptr i8, ptr %228, i64 1
   %349 = icmp ugt i64 %343, 255
-  br i1 %349, label %350, label %360, !prof !19
+  br i1 %349, label %350, label %360, !prof !17
 
 350:                                              ; preds = %340
   %351 = add i64 %341, -265
@@ -589,7 +589,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %377 = phi ptr [ %238, %230 ], [ %318, %311 ], [ %374, %366 ], [ %280, %269 ]
   %378 = phi ptr [ %232, %230 ], [ %265, %311 ], [ %368, %366 ], [ %265, %269 ]
   %379 = icmp ult ptr %378, %30
-  br i1 %379, label %.preheader74, label %.loopexit12, !prof !16
+  br i1 %379, label %.preheader74, label %.loopexit12, !prof !14
 
 .loopexit12:                                      ; preds = %375, %.lr.ph68.i, %78, %28
   %.4 = phi i8 [ %.064, %28 ], [ %.3, %78 ], [ %.3, %.lr.ph68.i ], [ %376, %375 ]
@@ -717,7 +717,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %449 = getelementptr i8, ptr %441, i64 16
   %450 = add i64 %442, -16
   %451 = icmp ugt i64 %450, 15
-  br i1 %451, label %.preheader10, label %.loopexit11, !llvm.loop !24
+  br i1 %451, label %.preheader10, label %.loopexit11, !llvm.loop !22
 
 .loopexit11:                                      ; preds = %.preheader10
   %452 = icmp eq i64 %450, 0
@@ -739,7 +739,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   store i8 %457, ptr %455, align 1
   %459 = add i64 %454, -1
   %460 = icmp eq i64 %459, 0
-  br i1 %460, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %460, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit11, %.thread
   %461 = phi ptr [ %.lcssa59, %.thread ], [ %448, %.loopexit11 ], [ %458, %.preheader ]
@@ -791,21 +791,19 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !5 = !{!"branch_weights", i32 127, i32 1}
 !6 = !{!"branch_weights", i32 1999, i32 1}
 !7 = !{!"branch_weights", i32 1, i32 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = !{!"branch_weights", i32 16129, i32 127}
-!11 = distinct !{!11, !12, !13}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unroll.disable"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{i64 0, i64 65}
-!16 = !{!"branch_weights", i32 255873, i32 127}
-!17 = distinct !{!17, !12, !13}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{!"branch_weights", i32 1, i32 1999}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13}
-!22 = !{!"branch_weights", i32 1, i32 2000}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
-!25 = distinct !{!25, !12, !13}
+!8 = !{!"branch_weights", i32 16129, i32 127}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{i64 0, i64 65}
+!14 = !{!"branch_weights", i32 255873, i32 127}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{!"branch_weights", i32 1, i32 1999}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}

@@ -1107,13 +1107,13 @@ define internal void @BlitBtoNAlpha(ptr noundef readonly captures(none) %0) #1 {
   %778 = getelementptr inbounds nuw i8, ptr %.1366404.us, i64 %430
   %779 = add nuw nsw i32 %.0370403.us, 1
   %exitcond416.not = icmp eq i32 %779, %3
-  br i1 %exitcond416.not, label %._crit_edge.us410, label %434, !llvm.loop !7
+  br i1 %exitcond416.not, label %._crit_edge.us410, label %434, !llvm.loop !6
 
 ._crit_edge.us410:                                ; preds = %775
   %780 = getelementptr inbounds i8, ptr %.2.us, i64 %431
   %781 = getelementptr inbounds i8, ptr %778, i64 %432
   %.not388.us = icmp eq i32 %433, 0
-  br i1 %.not388.us, label %.loopexit, label %.preheader.us, !llvm.loop !8
+  br i1 %.not388.us, label %.loopexit, label %.preheader.us, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us410, %.preheader.lr.ph, %.preheader391.lr.ph, %.preheader392, %.preheader390
   ret void
@@ -1628,13 +1628,13 @@ define internal void @BlitBtoNAlphaKey(ptr noundef readonly captures(none) %0) #
   %415 = getelementptr inbounds nuw i8, ptr %.3373403.us, i64 %65
   %416 = add nuw nsw i32 %.1376402.us, 1
   %exitcond.not = icmp eq i32 %416, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %412
   %417 = getelementptr inbounds i8, ptr %.5.us, i64 %66
   %418 = getelementptr inbounds i8, ptr %415, i64 %67
   %.not.us = icmp eq i32 %68, 0
-  br i1 %.not.us, label %.loopexit, label %.preheader398.us, !llvm.loop !10
+  br i1 %.not.us, label %.loopexit, label %.preheader398.us, !llvm.loop !9
 
 .preheader397:                                    ; preds = %44
   br i1 %.not394414, label %.loopexit, label %.preheader.lr.ph
@@ -2073,13 +2073,13 @@ define internal void @BlitBtoNAlphaKey(ptr noundef readonly captures(none) %0) #
   %783 = getelementptr inbounds nuw i8, ptr %.1371411.us, i64 %433
   %784 = add nuw nsw i32 %.0375410.us, 1
   %exitcond423.not = icmp eq i32 %784, %3
-  br i1 %exitcond423.not, label %._crit_edge.us417, label %437, !llvm.loop !11
+  br i1 %exitcond423.not, label %._crit_edge.us417, label %437, !llvm.loop !10
 
 ._crit_edge.us417:                                ; preds = %780
   %785 = getelementptr inbounds i8, ptr %.2.us, i64 %434
   %786 = getelementptr inbounds i8, ptr %783, i64 %435
   %.not394.us = icmp eq i32 %436, 0
-  br i1 %.not394.us, label %.loopexit, label %.preheader.us, !llvm.loop !12
+  br i1 %.not394.us, label %.loopexit, label %.preheader.us, !llvm.loop !11
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us417, %.preheader.lr.ph, %.preheader398.lr.ph, %.preheader399, %.preheader397
   ret void
@@ -2159,13 +2159,13 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   %40 = shl i8 %.1112.i.us, 1
   %41 = add nuw nsw i32 %.1.i14.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i8, ptr %39, i64 %27
   %.not132.i.us = icmp eq i32 %28, 0
-  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !14
+  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !13
 
 .preheader6:                                      ; preds = %24
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader5.lr.ph
@@ -2209,13 +2209,13 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   %59 = lshr i8 %.1122.i.us, 1
   %60 = add nuw nsw i32 %.0.i22.us, 1
   %exitcond59.not = icmp eq i32 %60, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !15
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !14
 
 ._crit_edge.us27:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2109.i.us, i64 %45
   %62 = getelementptr inbounds i8, ptr %58, i64 %46
   %.not134.i.us = icmp eq i32 %47, 0
-  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !16
+  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !15
 
 63:                                               ; preds = %1
   br i1 %23, label %.preheader1, label %.preheader3
@@ -2259,13 +2259,13 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   %76 = shl i8 %.1100.i.us, 1
   %77 = add nuw nsw i32 %.3.i32.us, 1
   %exitcond60.not = icmp eq i32 %77, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !17
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !16
 
 ._crit_edge.us37:                                 ; preds = %73
   %78 = getelementptr inbounds i8, ptr %.11.i.us, i64 %65
   %79 = getelementptr inbounds i8, ptr %75, i64 %66
   %.not128.i.us = icmp eq i32 %67, 0
-  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !18
+  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !17
 
 .preheader1:                                      ; preds = %63
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader.lr.ph
@@ -2306,13 +2306,13 @@ define internal void @Blit1bto1(ptr noundef readonly captures(none) %0) #1 {
   %92 = lshr i8 %.1106.i.us, 1
   %93 = add nuw nsw i32 %.2.i42.us, 1
   %exitcond61.not = icmp eq i32 %93, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !19
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !18
 
 ._crit_edge.us47:                                 ; preds = %89
   %94 = getelementptr inbounds i8, ptr %.8.i.us, i64 %81
   %95 = getelementptr inbounds i8, ptr %91, i64 %82
   %.not130.i.us = icmp eq i32 %83, 0
-  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !20
+  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !19
 
 BlitBto1.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -2389,13 +2389,13 @@ define internal void @Blit1bto2(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.372.i5.us, i64 2
   %41 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i16, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !22
+  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !21
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto2.exit, label %.preheader.lr.ph
@@ -2439,13 +2439,13 @@ define internal void @Blit1bto2(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.170.i13.us, i64 2
   %60 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !23
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !22
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i16, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !24
+  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !23
 
 BlitBto2.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -2530,13 +2530,13 @@ define internal void @Blit1bto3(ptr noundef readonly captures(none) %0) #1 {
   %46 = getelementptr inbounds nuw i8, ptr %.3.i6.us, i64 3
   %47 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %47, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %33
   %48 = getelementptr inbounds i8, ptr %.5.i.us, i64 %25
   %49 = getelementptr inbounds i8, ptr %46, i64 %26
   %.not.i.us = icmp eq i32 %27, 0
-  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !26
+  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !25
 
 .preheader1:                                      ; preds = %1
   br i1 %.not91.i18, label %BlitBto3.exit, label %.preheader.lr.ph
@@ -2589,13 +2589,13 @@ define internal void @Blit1bto3(ptr noundef readonly captures(none) %0) #1 {
   %72 = getelementptr inbounds nuw i8, ptr %.182.i14.us, i64 3
   %73 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %73, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !27
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !26
 
 ._crit_edge.us21:                                 ; preds = %59
   %74 = getelementptr inbounds i8, ptr %.285.i.us, i64 %51
   %75 = getelementptr inbounds i8, ptr %72, i64 %52
   %.not91.i.us = icmp eq i32 %53, 0
-  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !28
+  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !27
 
 BlitBto3.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -2672,13 +2672,13 @@ define internal void @Blit1bto4(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.371.i5.us, i64 4
   %41 = add nuw nsw i32 %.167.i6.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i32, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !30
+  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !29
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto4.exit, label %.preheader.lr.ph
@@ -2722,13 +2722,13 @@ define internal void @Blit1bto4(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.169.i13.us, i64 4
   %60 = add nuw nsw i32 %.066.i14.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !31
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !30
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i32, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !32
+  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !31
 
 BlitBto4.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -2818,13 +2818,13 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = shl i8 %.1125.i.us, 1
   %46 = add nuw nsw i32 %.1130.i11.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i8, ptr %44, i64 %29
   %.not143.i.us = icmp eq i32 %30, 0
-  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !34
+  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !33
 
 .preheader6:                                      ; preds = %26
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader5.lr.ph
@@ -2876,13 +2876,13 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = lshr i8 %.1128.i.us, 1
   %68 = add nuw nsw i32 %.0129.i19.us, 1
   %exitcond59.not = icmp eq i32 %68, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !35
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !34
 
 ._crit_edge.us27:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2112.i.us, i64 %50
   %70 = getelementptr inbounds i8, ptr %66, i64 %51
   %.not146.i.us = icmp eq i32 %52, 0
-  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !36
+  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !35
 
 71:                                               ; preds = %1
   br i1 %25, label %.preheader1, label %.preheader3
@@ -2934,13 +2934,13 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %87 = shl i8 %.1109.i.us, 1
   %88 = add nuw nsw i32 %.3132.i29.us, 1
   %exitcond60.not = icmp eq i32 %88, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !37
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !36
 
 ._crit_edge.us37:                                 ; preds = %85
   %89 = getelementptr inbounds i8, ptr %.11.i.us, i64 %73
   %90 = getelementptr inbounds i8, ptr %86, i64 %74
   %.not137.i.us = icmp eq i32 %75, 0
-  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !38
+  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !37
 
 .preheader1:                                      ; preds = %71
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader.lr.ph
@@ -2989,13 +2989,13 @@ define internal void @Blit1bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %106 = lshr i8 %.1115.i.us, 1
   %107 = add nuw nsw i32 %.2131.i39.us, 1
   %exitcond61.not = icmp eq i32 %107, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !39
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !38
 
 ._crit_edge.us47:                                 ; preds = %104
   %108 = getelementptr inbounds i8, ptr %.8.i.us, i64 %92
   %109 = getelementptr inbounds i8, ptr %105, i64 %93
   %.not140.i.us = icmp eq i32 %94, 0
-  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !40
+  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !39
 
 BlitBto1Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -3082,13 +3082,13 @@ define internal void @Blit1bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 2
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i16, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !42
+  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !41
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto2Key.exit, label %.preheader.lr.ph
@@ -3140,13 +3140,13 @@ define internal void @Blit1bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 2
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !43
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !42
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i16, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !44
+  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !43
 
 BlitBto2Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -3232,13 +3232,13 @@ define internal void @Blit1bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %44 = getelementptr inbounds nuw i8, ptr %.376.i5.us, i64 3
   %45 = add nuw nsw i32 %.172.i6.us, 1
   %exitcond.not = icmp eq i32 %45, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %42
   %46 = getelementptr inbounds i8, ptr %.5.i.us, i64 %27
   %47 = getelementptr inbounds i8, ptr %44, i64 %28
   %.not.i.us = icmp eq i32 %29, 0
-  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !46
+  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !45
 
 .preheader1:                                      ; preds = %1
   br i1 %.not85.i18, label %BlitBto3Key.exit, label %.preheader.lr.ph
@@ -3290,13 +3290,13 @@ define internal void @Blit1bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %66 = getelementptr inbounds nuw i8, ptr %.174.i13.us, i64 3
   %67 = add nuw nsw i32 %.071.i14.us, 1
   %exitcond27.not = icmp eq i32 %67, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !47
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !46
 
 ._crit_edge.us21:                                 ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.2.i.us, i64 %49
   %69 = getelementptr inbounds i8, ptr %66, i64 %50
   %.not85.i.us = icmp eq i32 %51, 0
-  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !48
+  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !47
 
 BlitBto3Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -3383,13 +3383,13 @@ define internal void @Blit1bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 4
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i32, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !50
+  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !49
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto4Key.exit, label %.preheader.lr.ph
@@ -3441,13 +3441,13 @@ define internal void @Blit1bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 4
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !51
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !50
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i32, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !52
+  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !51
 
 BlitBto4Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -3530,13 +3530,13 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   %40 = shl i8 %.1112.i.us, 2
   %41 = add nuw nsw i32 %.1.i14.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i8, ptr %39, i64 %27
   %.not132.i.us = icmp eq i32 %28, 0
-  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !53
+  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !13
 
 .preheader6:                                      ; preds = %24
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader5.lr.ph
@@ -3580,13 +3580,13 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   %59 = lshr i8 %.1122.i.us, 2
   %60 = add nuw nsw i32 %.0.i22.us, 1
   %exitcond59.not = icmp eq i32 %60, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !15
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !14
 
 ._crit_edge.us27:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2109.i.us, i64 %45
   %62 = getelementptr inbounds i8, ptr %58, i64 %46
   %.not134.i.us = icmp eq i32 %47, 0
-  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !54
+  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !15
 
 63:                                               ; preds = %1
   br i1 %23, label %.preheader1, label %.preheader3
@@ -3630,13 +3630,13 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   %76 = shl i8 %.1100.i.us, 2
   %77 = add nuw nsw i32 %.3.i32.us, 1
   %exitcond60.not = icmp eq i32 %77, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !17
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !16
 
 ._crit_edge.us37:                                 ; preds = %73
   %78 = getelementptr inbounds i8, ptr %.11.i.us, i64 %65
   %79 = getelementptr inbounds i8, ptr %75, i64 %66
   %.not128.i.us = icmp eq i32 %67, 0
-  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !55
+  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !17
 
 .preheader1:                                      ; preds = %63
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader.lr.ph
@@ -3677,13 +3677,13 @@ define internal void @Blit2bto1(ptr noundef readonly captures(none) %0) #1 {
   %92 = lshr i8 %.1106.i.us, 2
   %93 = add nuw nsw i32 %.2.i42.us, 1
   %exitcond61.not = icmp eq i32 %93, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !19
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !18
 
 ._crit_edge.us47:                                 ; preds = %89
   %94 = getelementptr inbounds i8, ptr %.8.i.us, i64 %81
   %95 = getelementptr inbounds i8, ptr %91, i64 %82
   %.not130.i.us = icmp eq i32 %83, 0
-  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !56
+  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !19
 
 BlitBto1.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -3760,13 +3760,13 @@ define internal void @Blit2bto2(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.372.i5.us, i64 2
   %41 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i16, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !57
+  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !21
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto2.exit, label %.preheader.lr.ph
@@ -3810,13 +3810,13 @@ define internal void @Blit2bto2(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.170.i13.us, i64 2
   %60 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !23
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !22
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i16, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !58
+  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !23
 
 BlitBto2.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -3901,13 +3901,13 @@ define internal void @Blit2bto3(ptr noundef readonly captures(none) %0) #1 {
   %46 = getelementptr inbounds nuw i8, ptr %.3.i6.us, i64 3
   %47 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %47, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %33
   %48 = getelementptr inbounds i8, ptr %.5.i.us, i64 %25
   %49 = getelementptr inbounds i8, ptr %46, i64 %26
   %.not.i.us = icmp eq i32 %27, 0
-  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !59
+  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !25
 
 .preheader1:                                      ; preds = %1
   br i1 %.not91.i18, label %BlitBto3.exit, label %.preheader.lr.ph
@@ -3960,13 +3960,13 @@ define internal void @Blit2bto3(ptr noundef readonly captures(none) %0) #1 {
   %72 = getelementptr inbounds nuw i8, ptr %.182.i14.us, i64 3
   %73 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %73, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !27
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !26
 
 ._crit_edge.us21:                                 ; preds = %59
   %74 = getelementptr inbounds i8, ptr %.285.i.us, i64 %51
   %75 = getelementptr inbounds i8, ptr %72, i64 %52
   %.not91.i.us = icmp eq i32 %53, 0
-  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !60
+  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !27
 
 BlitBto3.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -4043,13 +4043,13 @@ define internal void @Blit2bto4(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.371.i5.us, i64 4
   %41 = add nuw nsw i32 %.167.i6.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i32, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !61
+  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !29
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto4.exit, label %.preheader.lr.ph
@@ -4093,13 +4093,13 @@ define internal void @Blit2bto4(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.169.i13.us, i64 4
   %60 = add nuw nsw i32 %.066.i14.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !31
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !30
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i32, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !62
+  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !31
 
 BlitBto4.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -4189,13 +4189,13 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = shl i8 %.1125.i.us, 2
   %46 = add nuw nsw i32 %.1130.i11.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i8, ptr %44, i64 %29
   %.not143.i.us = icmp eq i32 %30, 0
-  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !63
+  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !33
 
 .preheader6:                                      ; preds = %26
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader5.lr.ph
@@ -4247,13 +4247,13 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = lshr i8 %.1128.i.us, 2
   %68 = add nuw nsw i32 %.0129.i19.us, 1
   %exitcond59.not = icmp eq i32 %68, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !35
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !34
 
 ._crit_edge.us27:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2112.i.us, i64 %50
   %70 = getelementptr inbounds i8, ptr %66, i64 %51
   %.not146.i.us = icmp eq i32 %52, 0
-  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !64
+  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !35
 
 71:                                               ; preds = %1
   br i1 %25, label %.preheader1, label %.preheader3
@@ -4305,13 +4305,13 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %87 = shl i8 %.1109.i.us, 2
   %88 = add nuw nsw i32 %.3132.i29.us, 1
   %exitcond60.not = icmp eq i32 %88, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !37
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !36
 
 ._crit_edge.us37:                                 ; preds = %85
   %89 = getelementptr inbounds i8, ptr %.11.i.us, i64 %73
   %90 = getelementptr inbounds i8, ptr %86, i64 %74
   %.not137.i.us = icmp eq i32 %75, 0
-  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !65
+  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !37
 
 .preheader1:                                      ; preds = %71
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader.lr.ph
@@ -4360,13 +4360,13 @@ define internal void @Blit2bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %106 = lshr i8 %.1115.i.us, 2
   %107 = add nuw nsw i32 %.2131.i39.us, 1
   %exitcond61.not = icmp eq i32 %107, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !39
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !38
 
 ._crit_edge.us47:                                 ; preds = %104
   %108 = getelementptr inbounds i8, ptr %.8.i.us, i64 %92
   %109 = getelementptr inbounds i8, ptr %105, i64 %93
   %.not140.i.us = icmp eq i32 %94, 0
-  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !66
+  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !39
 
 BlitBto1Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -4453,13 +4453,13 @@ define internal void @Blit2bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 2
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i16, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !67
+  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !41
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto2Key.exit, label %.preheader.lr.ph
@@ -4511,13 +4511,13 @@ define internal void @Blit2bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 2
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !43
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !42
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i16, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !68
+  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !43
 
 BlitBto2Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -4603,13 +4603,13 @@ define internal void @Blit2bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %44 = getelementptr inbounds nuw i8, ptr %.376.i5.us, i64 3
   %45 = add nuw nsw i32 %.172.i6.us, 1
   %exitcond.not = icmp eq i32 %45, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %42
   %46 = getelementptr inbounds i8, ptr %.5.i.us, i64 %27
   %47 = getelementptr inbounds i8, ptr %44, i64 %28
   %.not.i.us = icmp eq i32 %29, 0
-  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !69
+  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !45
 
 .preheader1:                                      ; preds = %1
   br i1 %.not85.i18, label %BlitBto3Key.exit, label %.preheader.lr.ph
@@ -4661,13 +4661,13 @@ define internal void @Blit2bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %66 = getelementptr inbounds nuw i8, ptr %.174.i13.us, i64 3
   %67 = add nuw nsw i32 %.071.i14.us, 1
   %exitcond27.not = icmp eq i32 %67, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !47
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !46
 
 ._crit_edge.us21:                                 ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.2.i.us, i64 %49
   %69 = getelementptr inbounds i8, ptr %66, i64 %50
   %.not85.i.us = icmp eq i32 %51, 0
-  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !70
+  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !47
 
 BlitBto3Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -4754,13 +4754,13 @@ define internal void @Blit2bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 4
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i32, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !71
+  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !49
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto4Key.exit, label %.preheader.lr.ph
@@ -4812,13 +4812,13 @@ define internal void @Blit2bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 4
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !51
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !50
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i32, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !72
+  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !51
 
 BlitBto4Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -4898,13 +4898,13 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   %40 = shl i8 %.1112.i.us, 4
   %41 = add nuw nsw i32 %.1.i14.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i8, ptr %39, i64 %27
   %.not132.i.us = icmp eq i32 %28, 0
-  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !73
+  br i1 %.not132.i.us, label %BlitBto1.exit, label %.preheader8.us, !llvm.loop !13
 
 .preheader6:                                      ; preds = %24
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader5.lr.ph
@@ -4948,13 +4948,13 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   %59 = lshr i8 %.1122.i.us, 4
   %60 = add nuw nsw i32 %.0.i22.us, 1
   %exitcond59.not = icmp eq i32 %60, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !15
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %48, !llvm.loop !14
 
 ._crit_edge.us27:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2109.i.us, i64 %45
   %62 = getelementptr inbounds i8, ptr %58, i64 %46
   %.not134.i.us = icmp eq i32 %47, 0
-  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !74
+  br i1 %.not134.i.us, label %BlitBto1.exit, label %.preheader5.us, !llvm.loop !15
 
 63:                                               ; preds = %1
   br i1 %23, label %.preheader1, label %.preheader3
@@ -4998,13 +4998,13 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   %76 = shl i8 %.1100.i.us, 4
   %77 = add nuw nsw i32 %.3.i32.us, 1
   %exitcond60.not = icmp eq i32 %77, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !17
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %68, !llvm.loop !16
 
 ._crit_edge.us37:                                 ; preds = %73
   %78 = getelementptr inbounds i8, ptr %.11.i.us, i64 %65
   %79 = getelementptr inbounds i8, ptr %75, i64 %66
   %.not128.i.us = icmp eq i32 %67, 0
-  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !75
+  br i1 %.not128.i.us, label %BlitBto1.exit, label %.preheader2.us, !llvm.loop !17
 
 .preheader1:                                      ; preds = %63
   br i1 %.not130.i44, label %BlitBto1.exit, label %.preheader.lr.ph
@@ -5045,13 +5045,13 @@ define internal void @Blit4bto1(ptr noundef readonly captures(none) %0) #1 {
   %92 = lshr i8 %.1106.i.us, 4
   %93 = add nuw nsw i32 %.2.i42.us, 1
   %exitcond61.not = icmp eq i32 %93, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !19
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %84, !llvm.loop !18
 
 ._crit_edge.us47:                                 ; preds = %89
   %94 = getelementptr inbounds i8, ptr %.8.i.us, i64 %81
   %95 = getelementptr inbounds i8, ptr %91, i64 %82
   %.not130.i.us = icmp eq i32 %83, 0
-  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !76
+  br i1 %.not130.i.us, label %BlitBto1.exit, label %.preheader.us, !llvm.loop !19
 
 BlitBto1.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -5128,13 +5128,13 @@ define internal void @Blit4bto2(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.372.i5.us, i64 2
   %41 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i16, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !77
+  br i1 %.not.i.us, label %BlitBto2.exit, label %.preheader2.us, !llvm.loop !21
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto2.exit, label %.preheader.lr.ph
@@ -5178,13 +5178,13 @@ define internal void @Blit4bto2(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.170.i13.us, i64 2
   %60 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !23
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !22
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i16, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !78
+  br i1 %.not77.i.us, label %BlitBto2.exit, label %.preheader.us, !llvm.loop !23
 
 BlitBto2.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -5269,13 +5269,13 @@ define internal void @Blit4bto3(ptr noundef readonly captures(none) %0) #1 {
   %46 = getelementptr inbounds nuw i8, ptr %.3.i6.us, i64 3
   %47 = add nuw nsw i32 %.1.i8.us, 1
   %exitcond.not = icmp eq i32 %47, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %33
   %48 = getelementptr inbounds i8, ptr %.5.i.us, i64 %25
   %49 = getelementptr inbounds i8, ptr %46, i64 %26
   %.not.i.us = icmp eq i32 %27, 0
-  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !79
+  br i1 %.not.i.us, label %BlitBto3.exit, label %.preheader2.us, !llvm.loop !25
 
 .preheader1:                                      ; preds = %1
   br i1 %.not91.i18, label %BlitBto3.exit, label %.preheader.lr.ph
@@ -5328,13 +5328,13 @@ define internal void @Blit4bto3(ptr noundef readonly captures(none) %0) #1 {
   %72 = getelementptr inbounds nuw i8, ptr %.182.i14.us, i64 3
   %73 = add nuw nsw i32 %.0.i16.us, 1
   %exitcond27.not = icmp eq i32 %73, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !27
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %54, !llvm.loop !26
 
 ._crit_edge.us21:                                 ; preds = %59
   %74 = getelementptr inbounds i8, ptr %.285.i.us, i64 %51
   %75 = getelementptr inbounds i8, ptr %72, i64 %52
   %.not91.i.us = icmp eq i32 %53, 0
-  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !80
+  br i1 %.not91.i.us, label %BlitBto3.exit, label %.preheader.us, !llvm.loop !27
 
 BlitBto3.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -5411,13 +5411,13 @@ define internal void @Blit4bto4(ptr noundef readonly captures(none) %0) #1 {
   %40 = getelementptr inbounds nuw i8, ptr %.371.i5.us, i64 4
   %41 = add nuw nsw i32 %.167.i6.us, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %34
   %42 = getelementptr inbounds i8, ptr %.5.i.us, i64 %26
   %43 = getelementptr inbounds i32, ptr %40, i64 %27
   %.not.i.us = icmp eq i32 %28, 0
-  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !81
+  br i1 %.not.i.us, label %BlitBto4.exit, label %.preheader2.us, !llvm.loop !29
 
 .preheader1:                                      ; preds = %1
   br i1 %.not77.i18, label %BlitBto4.exit, label %.preheader.lr.ph
@@ -5461,13 +5461,13 @@ define internal void @Blit4bto4(ptr noundef readonly captures(none) %0) #1 {
   %59 = getelementptr inbounds nuw i8, ptr %.169.i13.us, i64 4
   %60 = add nuw nsw i32 %.066.i14.us, 1
   %exitcond27.not = icmp eq i32 %60, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !31
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %48, !llvm.loop !30
 
 ._crit_edge.us21:                                 ; preds = %53
   %61 = getelementptr inbounds i8, ptr %.2.i.us, i64 %45
   %62 = getelementptr inbounds i32, ptr %59, i64 %46
   %.not77.i.us = icmp eq i32 %47, 0
-  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !82
+  br i1 %.not77.i.us, label %BlitBto4.exit, label %.preheader.us, !llvm.loop !31
 
 BlitBto4.exit:                                    ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -5557,13 +5557,13 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = shl i8 %.1125.i.us, 4
   %46 = add nuw nsw i32 %.1130.i11.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i8, ptr %44, i64 %29
   %.not143.i.us = icmp eq i32 %30, 0
-  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !83
+  br i1 %.not143.i.us, label %BlitBto1Key.exit, label %.preheader8.us, !llvm.loop !33
 
 .preheader6:                                      ; preds = %26
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader5.lr.ph
@@ -5615,13 +5615,13 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = lshr i8 %.1128.i.us, 4
   %68 = add nuw nsw i32 %.0129.i19.us, 1
   %exitcond59.not = icmp eq i32 %68, %3
-  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !35
+  br i1 %exitcond59.not, label %._crit_edge.us27, label %53, !llvm.loop !34
 
 ._crit_edge.us27:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2112.i.us, i64 %50
   %70 = getelementptr inbounds i8, ptr %66, i64 %51
   %.not146.i.us = icmp eq i32 %52, 0
-  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !84
+  br i1 %.not146.i.us, label %BlitBto1Key.exit, label %.preheader5.us, !llvm.loop !35
 
 71:                                               ; preds = %1
   br i1 %25, label %.preheader1, label %.preheader3
@@ -5673,13 +5673,13 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %87 = shl i8 %.1109.i.us, 4
   %88 = add nuw nsw i32 %.3132.i29.us, 1
   %exitcond60.not = icmp eq i32 %88, %3
-  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !37
+  br i1 %exitcond60.not, label %._crit_edge.us37, label %76, !llvm.loop !36
 
 ._crit_edge.us37:                                 ; preds = %85
   %89 = getelementptr inbounds i8, ptr %.11.i.us, i64 %73
   %90 = getelementptr inbounds i8, ptr %86, i64 %74
   %.not137.i.us = icmp eq i32 %75, 0
-  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !85
+  br i1 %.not137.i.us, label %BlitBto1Key.exit, label %.preheader2.us, !llvm.loop !37
 
 .preheader1:                                      ; preds = %71
   br i1 %.not140.i44, label %BlitBto1Key.exit, label %.preheader.lr.ph
@@ -5728,13 +5728,13 @@ define internal void @Blit4bto1Key(ptr noundef readonly captures(none) %0) #1 {
   %106 = lshr i8 %.1115.i.us, 4
   %107 = add nuw nsw i32 %.2131.i39.us, 1
   %exitcond61.not = icmp eq i32 %107, %3
-  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !39
+  br i1 %exitcond61.not, label %._crit_edge.us47, label %95, !llvm.loop !38
 
 ._crit_edge.us47:                                 ; preds = %104
   %108 = getelementptr inbounds i8, ptr %.8.i.us, i64 %92
   %109 = getelementptr inbounds i8, ptr %105, i64 %93
   %.not140.i.us = icmp eq i32 %94, 0
-  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !86
+  br i1 %.not140.i.us, label %BlitBto1Key.exit, label %.preheader.us, !llvm.loop !39
 
 BlitBto1Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us27, %._crit_edge.us37, %._crit_edge.us47, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader5.lr.ph, %.preheader8.lr.ph, %.preheader9, %.preheader6, %.preheader3, %.preheader1
   ret void
@@ -5821,13 +5821,13 @@ define internal void @Blit4bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 2
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i16, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !87
+  br i1 %.not.i.us, label %BlitBto2Key.exit, label %.preheader2.us, !llvm.loop !41
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto2Key.exit, label %.preheader.lr.ph
@@ -5879,13 +5879,13 @@ define internal void @Blit4bto2Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 2
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !43
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !42
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i16, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !88
+  br i1 %.not84.i.us, label %BlitBto2Key.exit, label %.preheader.us, !llvm.loop !43
 
 BlitBto2Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -5971,13 +5971,13 @@ define internal void @Blit4bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %44 = getelementptr inbounds nuw i8, ptr %.376.i5.us, i64 3
   %45 = add nuw nsw i32 %.172.i6.us, 1
   %exitcond.not = icmp eq i32 %45, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %42
   %46 = getelementptr inbounds i8, ptr %.5.i.us, i64 %27
   %47 = getelementptr inbounds i8, ptr %44, i64 %28
   %.not.i.us = icmp eq i32 %29, 0
-  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !89
+  br i1 %.not.i.us, label %BlitBto3Key.exit, label %.preheader2.us, !llvm.loop !45
 
 .preheader1:                                      ; preds = %1
   br i1 %.not85.i18, label %BlitBto3Key.exit, label %.preheader.lr.ph
@@ -6029,13 +6029,13 @@ define internal void @Blit4bto3Key(ptr noundef readonly captures(none) %0) #1 {
   %66 = getelementptr inbounds nuw i8, ptr %.174.i13.us, i64 3
   %67 = add nuw nsw i32 %.071.i14.us, 1
   %exitcond27.not = icmp eq i32 %67, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !47
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %52, !llvm.loop !46
 
 ._crit_edge.us21:                                 ; preds = %64
   %68 = getelementptr inbounds i8, ptr %.2.i.us, i64 %49
   %69 = getelementptr inbounds i8, ptr %66, i64 %50
   %.not85.i.us = icmp eq i32 %51, 0
-  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !90
+  br i1 %.not85.i.us, label %BlitBto3Key.exit, label %.preheader.us, !llvm.loop !47
 
 BlitBto3Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -6122,13 +6122,13 @@ define internal void @Blit4bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %.377.i5.us, i64 4
   %46 = add nuw nsw i32 %.173.i6.us, 1
   %exitcond.not = icmp eq i32 %46, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.5.i.us, i64 %28
   %48 = getelementptr inbounds i32, ptr %45, i64 %29
   %.not.i.us = icmp eq i32 %30, 0
-  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !91
+  br i1 %.not.i.us, label %BlitBto4Key.exit, label %.preheader2.us, !llvm.loop !49
 
 .preheader1:                                      ; preds = %1
   br i1 %.not84.i18, label %BlitBto4Key.exit, label %.preheader.lr.ph
@@ -6180,13 +6180,13 @@ define internal void @Blit4bto4Key(ptr noundef readonly captures(none) %0) #1 {
   %67 = getelementptr inbounds nuw i8, ptr %.175.i13.us, i64 4
   %68 = add nuw nsw i32 %.072.i14.us, 1
   %exitcond27.not = icmp eq i32 %68, %3
-  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !51
+  br i1 %exitcond27.not, label %._crit_edge.us21, label %53, !llvm.loop !50
 
 ._crit_edge.us21:                                 ; preds = %65
   %69 = getelementptr inbounds i8, ptr %.2.i.us, i64 %50
   %70 = getelementptr inbounds i32, ptr %67, i64 %51
   %.not84.i.us = icmp eq i32 %52, 0
-  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !92
+  br i1 %.not84.i.us, label %BlitBto4Key.exit, label %.preheader.us, !llvm.loop !51
 
 BlitBto4Key.exit:                                 ; preds = %._crit_edge.us, %._crit_edge.us21, %.preheader.lr.ph, %.preheader2.lr.ph, %.preheader3, %.preheader1
   ret void
@@ -6203,91 +6203,50 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
 !7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4, !6}
+!8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4, !6}
+!10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4, !6}
+!12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !6}
+!14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !6}
+!16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4, !6}
+!18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4, !6}
+!20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4, !6}
+!22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4, !6}
+!24 = distinct !{!24, !4}
 !25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4, !6}
+!26 = distinct !{!26, !4}
 !27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4, !6}
+!28 = distinct !{!28, !4}
 !29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4, !6}
+!30 = distinct !{!30, !4}
 !31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4, !6}
+!32 = distinct !{!32, !4}
 !33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4, !6}
+!34 = distinct !{!34, !4}
 !35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4, !6}
+!36 = distinct !{!36, !4}
 !37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4, !6}
+!38 = distinct !{!38, !4}
 !39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4, !6}
+!40 = distinct !{!40, !4}
 !41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4, !6}
+!42 = distinct !{!42, !4}
 !43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4, !6}
+!44 = distinct !{!44, !4}
 !45 = distinct !{!45, !4}
-!46 = distinct !{!46, !4, !6}
+!46 = distinct !{!46, !4}
 !47 = distinct !{!47, !4}
-!48 = distinct !{!48, !4, !6}
+!48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
-!50 = distinct !{!50, !4, !6}
+!50 = distinct !{!50, !4}
 !51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4, !6}
-!53 = distinct !{!53, !4, !6}
-!54 = distinct !{!54, !4, !6}
-!55 = distinct !{!55, !4, !6}
-!56 = distinct !{!56, !4, !6}
-!57 = distinct !{!57, !4, !6}
-!58 = distinct !{!58, !4, !6}
-!59 = distinct !{!59, !4, !6}
-!60 = distinct !{!60, !4, !6}
-!61 = distinct !{!61, !4, !6}
-!62 = distinct !{!62, !4, !6}
-!63 = distinct !{!63, !4, !6}
-!64 = distinct !{!64, !4, !6}
-!65 = distinct !{!65, !4, !6}
-!66 = distinct !{!66, !4, !6}
-!67 = distinct !{!67, !4, !6}
-!68 = distinct !{!68, !4, !6}
-!69 = distinct !{!69, !4, !6}
-!70 = distinct !{!70, !4, !6}
-!71 = distinct !{!71, !4, !6}
-!72 = distinct !{!72, !4, !6}
-!73 = distinct !{!73, !4, !6}
-!74 = distinct !{!74, !4, !6}
-!75 = distinct !{!75, !4, !6}
-!76 = distinct !{!76, !4, !6}
-!77 = distinct !{!77, !4, !6}
-!78 = distinct !{!78, !4, !6}
-!79 = distinct !{!79, !4, !6}
-!80 = distinct !{!80, !4, !6}
-!81 = distinct !{!81, !4, !6}
-!82 = distinct !{!82, !4, !6}
-!83 = distinct !{!83, !4, !6}
-!84 = distinct !{!84, !4, !6}
-!85 = distinct !{!85, !4, !6}
-!86 = distinct !{!86, !4, !6}
-!87 = distinct !{!87, !4, !6}
-!88 = distinct !{!88, !4, !6}
-!89 = distinct !{!89, !4, !6}
-!90 = distinct !{!90, !4, !6}
-!91 = distinct !{!91, !4, !6}
-!92 = distinct !{!92, !4, !6}

@@ -362,7 +362,7 @@ define dso_local void @luaL_setfuncs(ptr noundef %0, ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %.01620, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !44
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge21, label %.preheader, !llvm.loop !50
+  br i1 %.not, label %._crit_edge21, label %.preheader, !llvm.loop !48
 
 ._crit_edge21:                                    ; preds = %.preheader, %._crit_edge.us, %3
   %20 = xor i32 %2, -1
@@ -419,7 +419,7 @@ libsize.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %.not.i3 = icmp eq ptr %16, null
-  br i1 %.not.i3, label %luaL_openlib.exit, label %.preheader.i, !llvm.loop !50
+  br i1 %.not.i3, label %luaL_openlib.exit, label %.preheader.i, !llvm.loop !48
 
 luaL_openlib.exit:                                ; preds = %.preheader.i, %9, %10
   tail call void @lua_settop(ptr noundef %0, i32 noundef -1) #13
@@ -436,11 +436,11 @@ define dso_local ptr @luaL_gsub(ptr noundef %0, ptr noundef %1, ptr noundef read
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %7, align 8, !tbaa !51
+  store ptr %0, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %8, ptr %5, align 8, !tbaa !53
+  store ptr %8, ptr %5, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %9, align 8, !tbaa !54
+  store i32 0, ptr %9, align 8, !tbaa !52
   %10 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #14
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -457,37 +457,37 @@ define dso_local ptr @luaL_gsub(ptr noundef %0, ptr noundef %1, ptr noundef read
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   %17 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %2) #14
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi ptr [ %1, %4 ], [ %16, %.lr.ph ]
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #14
   call void @luaL_addlstring(ptr noundef nonnull %5, ptr noundef nonnull %.0.lcssa, i64 noundef %18)
-  %19 = load ptr, ptr %5, align 8, !tbaa !53
+  %19 = load ptr, ptr %5, align 8, !tbaa !51
   %20 = icmp eq ptr %19, %8
   br i1 %20, label %.emptybuffer.exit_crit_edge.i, label %21
 
 .emptybuffer.exit_crit_edge.i:                    ; preds = %._crit_edge
-  %.pre.i = load i32, ptr %9, align 8, !tbaa !54
+  %.pre.i = load i32, ptr %9, align 8, !tbaa !52
   br label %luaL_pushresult.exit
 
 21:                                               ; preds = %._crit_edge
   %22 = ptrtoint ptr %8 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %23, %22
-  %25 = load ptr, ptr %7, align 8, !tbaa !51
+  %25 = load ptr, ptr %7, align 8, !tbaa !49
   call void @lua_pushlstring(ptr noundef %25, ptr noundef nonnull %8, i64 noundef %24) #13
-  store ptr %8, ptr %5, align 8, !tbaa !53
-  %26 = load i32, ptr %9, align 8, !tbaa !54
+  store ptr %8, ptr %5, align 8, !tbaa !51
+  %26 = load i32, ptr %9, align 8, !tbaa !52
   %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %9, align 8, !tbaa !54
+  store i32 %27, ptr %9, align 8, !tbaa !52
   br label %luaL_pushresult.exit
 
 luaL_pushresult.exit:                             ; preds = %.emptybuffer.exit_crit_edge.i, %21
   %28 = phi i32 [ %.pre.i, %.emptybuffer.exit_crit_edge.i ], [ %27, %21 ]
-  %29 = load ptr, ptr %7, align 8, !tbaa !51
+  %29 = load ptr, ptr %7, align 8, !tbaa !49
   call void @lua_concat(ptr noundef %29, i32 noundef %28) #13
-  store i32 1, ptr %9, align 8, !tbaa !54
+  store i32 1, ptr %9, align 8, !tbaa !52
   %30 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %30
@@ -496,11 +496,11 @@ luaL_pushresult.exit:                             ; preds = %.emptybuffer.exit_c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @luaL_buffinit(ptr noundef %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %0, ptr %3, align 8, !tbaa !49
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %4, ptr %1, align 8, !tbaa !53
+  store ptr %4, ptr %1, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %5, align 8, !tbaa !54
+  store i32 0, ptr %5, align 8, !tbaa !52
   ret void
 }
 
@@ -509,7 +509,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_addlstring(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !53
+  %4 = load ptr, ptr %0, align 8, !tbaa !51
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -520,9 +520,9 @@ define dso_local void @luaL_addlstring(ptr noundef %0, ptr noundef %1, i64 nound
 
 9:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %1, i64 %2, i1 false)
-  %10 = load ptr, ptr %0, align 8, !tbaa !53
+  %10 = load ptr, ptr %0, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %2
-  store ptr %11, ptr %0, align 8, !tbaa !53
+  store ptr %11, ptr %0, align 8, !tbaa !51
   br label %adjuststack.exit
 
 12:                                               ; preds = %3
@@ -532,28 +532,28 @@ define dso_local void @luaL_addlstring(ptr noundef %0, ptr noundef %1, i64 nound
 14:                                               ; preds = %12
   %15 = sub i64 %6, %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  %17 = load ptr, ptr %16, align 8, !tbaa !49
   tail call void @lua_pushlstring(ptr noundef %17, ptr noundef nonnull %5, i64 noundef %15) #13
-  store ptr %5, ptr %0, align 8, !tbaa !53
+  store ptr %5, ptr %0, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !54
+  %19 = load i32, ptr %18, align 8, !tbaa !52
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !54
+  store i32 %20, ptr %18, align 8, !tbaa !52
   br label %emptybuffer.exit
 
 emptybuffer.exit:                                 ; preds = %12, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %22 = load ptr, ptr %21, align 8, !tbaa !49
   tail call void @lua_pushlstring(ptr noundef %22, ptr noundef %1, i64 noundef %2) #13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !54
+  %24 = load i32, ptr %23, align 8, !tbaa !52
   %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %23, align 8, !tbaa !54
+  store i32 %25, ptr %23, align 8, !tbaa !52
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %27, label %adjuststack.exit
 
 27:                                               ; preds = %emptybuffer.exit
-  %28 = load ptr, ptr %21, align 8, !tbaa !51
+  %28 = load ptr, ptr %21, align 8, !tbaa !49
   %29 = tail call i64 @lua_objlen(ptr noundef %28, i32 noundef -1) #13
   br label %30
 
@@ -563,7 +563,7 @@ emptybuffer.exit:                                 ; preds = %12, %14
   %31 = add nuw nsw i32 %.019.i, 1
   %32 = xor i32 %.019.i, -1
   %33 = tail call i64 @lua_objlen(ptr noundef %28, i32 noundef %32) #13
-  %34 = load i32, ptr %23, align 8, !tbaa !54
+  %34 = load i32, ptr %23, align 8, !tbaa !52
   %35 = sub nsw i32 %34, %.019.i
   %36 = icmp sgt i32 %35, 8
   %37 = icmp ugt i64 %.020.i, %33
@@ -571,15 +571,15 @@ emptybuffer.exit:                                 ; preds = %12, %14
   %38 = add i64 %33, %.020.i
   %39 = icmp slt i32 %31, %34
   %or.cond22.i = select i1 %or.cond.i, i1 %39, i1 false
-  br i1 %or.cond22.i, label %30, label %40, !llvm.loop !56
+  br i1 %or.cond22.i, label %30, label %40, !llvm.loop !54
 
 40:                                               ; preds = %30
   %.1.i = select i1 %or.cond.i, i32 %31, i32 %.019.i
   tail call void @lua_concat(ptr noundef %28, i32 noundef %.1.i) #13
-  %41 = load i32, ptr %23, align 8, !tbaa !54
+  %41 = load i32, ptr %23, align 8, !tbaa !52
   %reass.sub = sub i32 %41, %.1.i
   %42 = add i32 %reass.sub, 1
-  store i32 %42, ptr %23, align 8, !tbaa !54
+  store i32 %42, ptr %23, align 8, !tbaa !52
   br label %adjuststack.exit
 
 adjuststack.exit:                                 ; preds = %40, %emptybuffer.exit, %9
@@ -595,14 +595,14 @@ define dso_local void @luaL_addstring(ptr noundef %0, ptr noundef %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_pushresult(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = icmp eq ptr %2, %3
   br i1 %4, label %.emptybuffer.exit_crit_edge, label %5
 
 .emptybuffer.exit_crit_edge:                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !54
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %emptybuffer.exit
 
 5:                                                ; preds = %1
@@ -610,22 +610,22 @@ define dso_local void @luaL_pushresult(ptr noundef %0) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %7, %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   tail call void @lua_pushlstring(ptr noundef %10, ptr noundef nonnull %3, i64 noundef %8) #13
-  store ptr %3, ptr %0, align 8, !tbaa !53
+  store ptr %3, ptr %0, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !54
+  %12 = load i32, ptr %11, align 8, !tbaa !52
   %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %11, align 8, !tbaa !54
+  store i32 %13, ptr %11, align 8, !tbaa !52
   br label %emptybuffer.exit
 
 emptybuffer.exit:                                 ; preds = %.emptybuffer.exit_crit_edge, %5
   %14 = phi i32 [ %.pre, %.emptybuffer.exit_crit_edge ], [ %13, %5 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !51
+  %16 = load ptr, ptr %15, align 8, !tbaa !49
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @lua_concat(ptr noundef %16, i32 noundef %14) #13
-  store i32 1, ptr %17, align 8, !tbaa !54
+  store i32 1, ptr %17, align 8, !tbaa !52
   ret void
 }
 
@@ -633,7 +633,7 @@ declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @luaL_prepbuffer(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = icmp eq ptr %2, %3
   br i1 %4, label %adjuststack.exit, label %5
@@ -643,18 +643,18 @@ define dso_local nonnull ptr @luaL_prepbuffer(ptr noundef %0) local_unnamed_addr
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %7, %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !51
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
   tail call void @lua_pushlstring(ptr noundef %10, ptr noundef nonnull %3, i64 noundef %8) #13
-  store ptr %3, ptr %0, align 8, !tbaa !53
+  store ptr %3, ptr %0, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !54
+  %12 = load i32, ptr %11, align 8, !tbaa !52
   %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %11, align 8, !tbaa !54
+  store i32 %13, ptr %11, align 8, !tbaa !52
   %14 = icmp sgt i32 %12, 0
   br i1 %14, label %15, label %adjuststack.exit
 
 15:                                               ; preds = %5
-  %16 = load ptr, ptr %9, align 8, !tbaa !51
+  %16 = load ptr, ptr %9, align 8, !tbaa !49
   %17 = tail call i64 @lua_objlen(ptr noundef %16, i32 noundef -1) #13
   br label %18
 
@@ -664,7 +664,7 @@ define dso_local nonnull ptr @luaL_prepbuffer(ptr noundef %0) local_unnamed_addr
   %19 = add nuw nsw i32 %.019.i, 1
   %20 = xor i32 %.019.i, -1
   %21 = tail call i64 @lua_objlen(ptr noundef %16, i32 noundef %20) #13
-  %22 = load i32, ptr %11, align 8, !tbaa !54
+  %22 = load i32, ptr %11, align 8, !tbaa !52
   %23 = sub nsw i32 %22, %.019.i
   %24 = icmp sgt i32 %23, 8
   %25 = icmp ugt i64 %.020.i, %21
@@ -672,15 +672,15 @@ define dso_local nonnull ptr @luaL_prepbuffer(ptr noundef %0) local_unnamed_addr
   %26 = add i64 %21, %.020.i
   %27 = icmp slt i32 %19, %22
   %or.cond22.i = select i1 %or.cond.i, i1 %27, i1 false
-  br i1 %or.cond22.i, label %18, label %28, !llvm.loop !56
+  br i1 %or.cond22.i, label %18, label %28, !llvm.loop !54
 
 28:                                               ; preds = %18
   %.1.i = select i1 %or.cond.i, i32 %19, i32 %.019.i
   tail call void @lua_concat(ptr noundef %16, i32 noundef %.1.i) #13
-  %29 = load i32, ptr %11, align 8, !tbaa !54
+  %29 = load i32, ptr %11, align 8, !tbaa !52
   %reass.sub = sub i32 %29, %.1.i
   %30 = add i32 %reass.sub, 1
-  store i32 %30, ptr %11, align 8, !tbaa !54
+  store i32 %30, ptr %11, align 8, !tbaa !52
   br label %adjuststack.exit
 
 adjuststack.exit:                                 ; preds = %1, %28, %5
@@ -696,11 +696,11 @@ declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local void @luaL_addvalue(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !51
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call ptr @lua_tolstring(ptr noundef %4, i32 noundef -1, ptr noundef nonnull %2) #13
-  %6 = load i64, ptr %2, align 8, !tbaa !57
-  %7 = load ptr, ptr %0, align 8, !tbaa !53
+  %6 = load i64, ptr %2, align 8, !tbaa !55
+  %7 = load ptr, ptr %0, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -711,10 +711,10 @@ define dso_local void @luaL_addvalue(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %5, i64 %6, i1 false)
-  %13 = load i64, ptr %2, align 8, !tbaa !57
-  %14 = load ptr, ptr %0, align 8, !tbaa !53
+  %13 = load i64, ptr %2, align 8, !tbaa !55
+  %14 = load ptr, ptr %0, align 8, !tbaa !51
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %13
-  store ptr %15, ptr %0, align 8, !tbaa !53
+  store ptr %15, ptr %0, align 8, !tbaa !51
   call void @lua_settop(ptr noundef %4, i32 noundef -2) #13
   br label %adjuststack.exit
 
@@ -724,26 +724,26 @@ define dso_local void @luaL_addvalue(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16
   %19 = sub i64 %9, %10
-  %20 = load ptr, ptr %3, align 8, !tbaa !51
+  %20 = load ptr, ptr %3, align 8, !tbaa !49
   call void @lua_pushlstring(ptr noundef %20, ptr noundef nonnull %8, i64 noundef %19) #13
-  store ptr %8, ptr %0, align 8, !tbaa !53
+  store ptr %8, ptr %0, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !54
+  %22 = load i32, ptr %21, align 8, !tbaa !52
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %21, align 8, !tbaa !54
+  store i32 %23, ptr %21, align 8, !tbaa !52
   call void @lua_insert(ptr noundef %4, i32 noundef -2) #13
   br label %emptybuffer.exit.thread
 
 emptybuffer.exit.thread:                          ; preds = %16, %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !54
+  %25 = load i32, ptr %24, align 8, !tbaa !52
   %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %24, align 8, !tbaa !54
+  store i32 %26, ptr %24, align 8, !tbaa !52
   %27 = icmp sgt i32 %25, 0
   br i1 %27, label %28, label %adjuststack.exit
 
 28:                                               ; preds = %emptybuffer.exit.thread
-  %29 = load ptr, ptr %3, align 8, !tbaa !51
+  %29 = load ptr, ptr %3, align 8, !tbaa !49
   %30 = call i64 @lua_objlen(ptr noundef %29, i32 noundef -1) #13
   br label %31
 
@@ -753,7 +753,7 @@ emptybuffer.exit.thread:                          ; preds = %16, %18
   %32 = add nuw nsw i32 %.019.i, 1
   %33 = xor i32 %.019.i, -1
   %34 = call i64 @lua_objlen(ptr noundef %29, i32 noundef %33) #13
-  %35 = load i32, ptr %24, align 8, !tbaa !54
+  %35 = load i32, ptr %24, align 8, !tbaa !52
   %36 = sub nsw i32 %35, %.019.i
   %37 = icmp sgt i32 %36, 8
   %38 = icmp ugt i64 %.020.i, %34
@@ -761,15 +761,15 @@ emptybuffer.exit.thread:                          ; preds = %16, %18
   %39 = add i64 %34, %.020.i
   %40 = icmp slt i32 %32, %35
   %or.cond22.i = select i1 %or.cond.i, i1 %40, i1 false
-  br i1 %or.cond22.i, label %31, label %41, !llvm.loop !56
+  br i1 %or.cond22.i, label %31, label %41, !llvm.loop !54
 
 41:                                               ; preds = %31
   %.1.i = select i1 %or.cond.i, i32 %32, i32 %.019.i
   call void @lua_concat(ptr noundef %29, i32 noundef %.1.i) #13
-  %42 = load i32, ptr %24, align 8, !tbaa !54
+  %42 = load i32, ptr %24, align 8, !tbaa !52
   %reass.sub = sub i32 %42, %.1.i
   %43 = add i32 %reass.sub, 1
-  store i32 %43, ptr %24, align 8, !tbaa !54
+  store i32 %43, ptr %24, align 8, !tbaa !52
   br label %adjuststack.exit
 
 adjuststack.exit:                                 ; preds = %41, %emptybuffer.exit.thread, %12
@@ -880,14 +880,14 @@ define dso_local ptr @luaL_newstate() local_unnamed_addr #0 {
   %4 = load i64, ptr %3, align 8, !tbaa !16
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store ptr @panic, ptr %6, align 8, !tbaa !58
+  store ptr @panic, ptr %6, align 8, !tbaa !56
   %7 = tail call ptr @luaL_findtable(ptr noundef nonnull %1, i32 noundef -10000, ptr noundef nonnull @.str.6, i32 noundef 4)
   tail call void @lua_pushcclosure(ptr noundef nonnull %1, ptr noundef nonnull @error_finalizer, i32 noundef 0) #13
   tail call void @lua_rawseti(ptr noundef nonnull %1, i32 noundef -2, i32 noundef -1765161920) #13
   %8 = load i64, ptr %3, align 8, !tbaa !16
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 147
-  store i8 16, ptr %10, align 1, !tbaa !59
+  store i8 16, ptr %10, align 1, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
@@ -903,17 +903,17 @@ declare ptr @lua_newstate(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold nounwind uwtable
 define internal noundef i32 @panic(ptr noundef %0) #8 {
   %2 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #13
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !58
   %4 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 45, i64 1, ptr %3) #16
   %.not = icmp eq ptr %2, null
   %5 = select i1 %.not, ptr @.str.8, ptr %2
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !58
   %7 = tail call i32 @fputs(ptr noundef nonnull %5, ptr noundef %6) #16
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !58
   %9 = tail call i32 @fputc(i32 noundef 41, ptr noundef %8)
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !58
   %11 = tail call i32 @fputc(i32 noundef 10, ptr noundef %10)
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !58
   %13 = tail call i32 @fflush(ptr noundef %12)
   ret i32 0
 }
@@ -921,15 +921,15 @@ define internal noundef i32 @panic(ptr noundef %0) #8 {
 ; Function Attrs: cold nounwind uwtable
 define internal noundef i32 @error_finalizer(ptr noundef %0) #8 {
   %2 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #13
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !58
   %4 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 20, i64 1, ptr %3) #16
   %.not = icmp eq ptr %2, null
   %5 = select i1 %.not, ptr @.str.8, ptr %2
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !58
   %7 = tail call i32 @fputs(ptr noundef nonnull %5, ptr noundef %6) #16
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !58
   %9 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !60
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !58
   %11 = tail call i32 @fflush(ptr noundef %10)
   ret i32 0
 }
@@ -1020,17 +1020,15 @@ attributes #16 = { cold }
 !45 = !{!"luaL_Reg", !25, i64 0, !12, i64 8}
 !46 = distinct !{!46, !43}
 !47 = !{!45, !12, i64 8}
-!48 = distinct !{!48, !43, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !43}
-!51 = !{!52, !36, i64 16}
-!52 = !{!"luaL_Buffer", !25, i64 0, !13, i64 8, !36, i64 16, !8, i64 24}
-!53 = !{!52, !25, i64 0}
-!54 = !{!52, !13, i64 8}
-!55 = distinct !{!55, !43}
-!56 = distinct !{!56, !43}
-!57 = !{!7, !7, i64 0}
-!58 = !{!19, !12, i64 352}
-!59 = !{!19, !8, i64 147}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!48 = distinct !{!48, !43}
+!49 = !{!50, !36, i64 16}
+!50 = !{!"luaL_Buffer", !25, i64 0, !13, i64 8, !36, i64 16, !8, i64 24}
+!51 = !{!50, !25, i64 0}
+!52 = !{!50, !13, i64 8}
+!53 = distinct !{!53, !43}
+!54 = distinct !{!54, !43}
+!55 = !{!7, !7, i64 0}
+!56 = !{!19, !12, i64 352}
+!57 = !{!19, !8, i64 147}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}

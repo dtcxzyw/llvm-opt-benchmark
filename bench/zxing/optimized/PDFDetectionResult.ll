@@ -599,13 +599,13 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i11.i.i: ; preds = %_ZN5ZXi
   %157 = icmp eq ptr %.sroa.01.0.i.i.i, %103
   %158 = icmp sgt i32 %.1.i.i.i, 1
   %or.cond.not.i.i.i = select i1 %157, i1 true, i1 %158
-  br i1 %or.cond.not.i.i.i, label %.critedge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !51
+  br i1 %or.cond.not.i.i.i, label %.critedge.i.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !49
 
 .critedge.i.i.i:                                  ; preds = %156, %133, %.lr.ph23.split.i.i.i
   %.123.i.i.i = phi i32 [ %.02222.i.i.i, %.lr.ph23.split.i.i.i ], [ %.3.us.i.i.i, %133 ], [ %.3.i.i.i, %156 ]
   %159 = add nuw i64 %.02519.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %159, %102
-  br i1 %exitcond.not.i.i.i, label %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.loopexit.i.i, label %.lr.ph23.split.i.i.i, !llvm.loop !52
+  br i1 %exitcond.not.i.i.i, label %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.loopexit.i.i, label %.lr.ph23.split.i.i.i, !llvm.loop !50
 
 _ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.loopexit.i.i: ; preds = %.critedge.i.i.i
   %.val4.pre.i.i = load ptr, ptr %3, align 8
@@ -705,7 +705,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i64.i.i: ; preds 
   %203 = icmp eq ptr %.sroa.01.0.us.i57.i.i, %161
   %204 = icmp sgt i32 %.1.us.i56.i.i, 1
   %or.cond.not.us.i58.i.i = select i1 %203, i1 true, i1 %204
-  br i1 %or.cond.not.us.i58.i.i, label %.critedge.i21.i.i, label %.lr.ph.split.us.i50.i.i, !llvm.loop !53
+  br i1 %or.cond.not.us.i58.i.i, label %.critedge.i21.i.i, label %.lr.ph.split.us.i50.i.i, !llvm.loop !51
 
 .lr.ph.split.i27.i.i:                             ; preds = %.lr.ph.i24.i.i, %225
   %.sroa.01.018.i28.i.i = phi ptr [ %.sroa.01.0.i34.i.i, %225 ], [ %.sroa.01.014.i17.i.i, %.lr.ph.i24.i.i ]
@@ -777,13 +777,13 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i: ; preds = %_ZN5ZXi
   %226 = icmp eq ptr %.sroa.01.0.i34.i.i, %161
   %227 = icmp sgt i32 %.1.i33.i.i, 1
   %or.cond.not.i35.i.i = select i1 %226, i1 true, i1 %227
-  br i1 %or.cond.not.i35.i.i, label %.critedge.i21.i.i, label %.lr.ph.split.i27.i.i, !llvm.loop !54
+  br i1 %or.cond.not.i35.i.i, label %.critedge.i21.i.i, label %.lr.ph.split.i27.i.i, !llvm.loop !51
 
 .critedge.i21.i.i:                                ; preds = %225, %202, %.lr.ph23.split.i18.i.i
   %.123.i22.i.i = phi i32 [ %.02222.i19.i.i, %.lr.ph23.split.i18.i.i ], [ %.3.us.i55.i.i, %202 ], [ %.3.i32.i.i, %225 ]
   %228 = add nuw i64 %.02519.i20.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %228, %172
-  br i1 %exitcond.not.i23.i.i, label %_ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i, label %.lr.ph23.split.i18.i.i, !llvm.loop !55
+  br i1 %exitcond.not.i23.i.i, label %_ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i, label %.lr.ph23.split.i18.i.i, !llvm.loop !52
 
 _ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i: ; preds = %.critedge.i21.i.i, %.lr.ph23.i16.i.i, %164, %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i
   %.0.i14.i.i = phi i32 [ 0, %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i ], [ 0, %164 ], [ 0, %.lr.ph23.i16.i.i ], [ %.123.i22.i.i, %.critedge.i21.i.i ]
@@ -882,32 +882,32 @@ _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds
   %279 = select i1 %278, ptr %257, ptr %256
   %280 = load ptr, ptr %256, align 8, !tbaa !19
   %281 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %280, i64 %indvars.iv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(24) %281, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(24) %281, i64 24, i1 false), !tbaa.struct !53
   %282 = load ptr, ptr %279, align 8, !tbaa !19
   %283 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %282, i64 %indvars.iv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(24) %283, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(24) %283, i64 24, i1 false), !tbaa.struct !53
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %.thread.i.i, label %284
 
 284:                                              ; preds = %_ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i
   %285 = add nsw i64 %indvars.iv.i, -1
   %286 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %248, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(24) %286, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(24) %286, i64 24, i1 false), !tbaa.struct !53
   %287 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %280, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(24) %287, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(24) %287, i64 24, i1 false), !tbaa.struct !53
   %288 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %282, i64 %285
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(24) %288, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(24) %288, i64 24, i1 false), !tbaa.struct !53
   %.not4.i.i = icmp eq i64 %indvars.iv.i, 1
   br i1 %.not4.i.i, label %.thread.i.i, label %289
 
 289:                                              ; preds = %284
   %290 = add nsw i64 %indvars.iv.i, -2
   %291 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %248, i64 %290
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %20, ptr noundef nonnull align 4 dereferenceable(24) %291, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %20, ptr noundef nonnull align 4 dereferenceable(24) %291, i64 24, i1 false), !tbaa.struct !53
   %292 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %280, i64 %290
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %21, ptr noundef nonnull align 4 dereferenceable(24) %292, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %21, ptr noundef nonnull align 4 dereferenceable(24) %292, i64 24, i1 false), !tbaa.struct !53
   %293 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %282, i64 %290
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %22, ptr noundef nonnull align 4 dereferenceable(24) %293, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %22, ptr noundef nonnull align 4 dereferenceable(24) %293, i64 24, i1 false), !tbaa.struct !53
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %289, %284, %_ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i
@@ -917,11 +917,11 @@ _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds
 295:                                              ; preds = %.thread.i.i
   %296 = add nuw nsw i64 %indvars.iv.i, 1
   %297 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %248, i64 %296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(24) %297, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(24) %297, i64 24, i1 false), !tbaa.struct !53
   %298 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %280, i64 %296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, ptr noundef nonnull align 4 dereferenceable(24) %298, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %24, ptr noundef nonnull align 4 dereferenceable(24) %298, i64 24, i1 false), !tbaa.struct !53
   %299 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %282, i64 %296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %25, ptr noundef nonnull align 4 dereferenceable(24) %299, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %25, ptr noundef nonnull align 4 dereferenceable(24) %299, i64 24, i1 false), !tbaa.struct !53
   br label %300
 
 300:                                              ; preds = %295, %.thread.i.i
@@ -931,11 +931,11 @@ _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds
 302:                                              ; preds = %300
   %303 = add nuw nsw i64 %indvars.iv.i, 2
   %304 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %248, i64 %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %26, ptr noundef nonnull align 4 dereferenceable(24) %304, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %26, ptr noundef nonnull align 4 dereferenceable(24) %304, i64 24, i1 false), !tbaa.struct !53
   %305 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %280, i64 %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %27, ptr noundef nonnull align 4 dereferenceable(24) %305, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %27, ptr noundef nonnull align 4 dereferenceable(24) %305, i64 24, i1 false), !tbaa.struct !53
   %306 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %282, i64 %303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %28, ptr noundef nonnull align 4 dereferenceable(24) %306, i64 24, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %28, ptr noundef nonnull align 4 dereferenceable(24) %306, i64 24, i1 false), !tbaa.struct !53
   br label %.split.i.preheader.i
 
 .split.i.preheader.i:                             ; preds = %302, %300
@@ -982,18 +982,18 @@ _ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResu
 321:                                              ; preds = %_ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EEiiRS1_INS2_INS0_8CodewordEEESaISA_EE.exit.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i, %261
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %261, !llvm.loop !58
+  br i1 %exitcond.not.i, label %.loopexit.i, label %261, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %321, %244, %240
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
-  br i1 %exitcond44.not.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit, label %240, !llvm.loop !59
+  br i1 %exitcond44.not.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit, label %240, !llvm.loop !56
 
 _ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit: ; preds = %.loopexit.i, %.preheader.i
   %322 = icmp sgt i32 %229, 0
   %323 = icmp slt i32 %229, %.0
   %324 = and i1 %322, %323
-  br i1 %324, label %29, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.thread, !llvm.loop !60
+  br i1 %324, label %29, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.thread, !llvm.loop !57
 
 _ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.thread: ; preds = %_ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i, %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit
   ret ptr %3
@@ -1218,34 +1218,34 @@ _ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResult
 .lr.ph.i.i.i37:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i37
   %.012.i.i.i = phi ptr [ %79, %.lr.ph.i.i.i37 ], [ %41, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %63 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !24, !range !39, !alias.scope !64, !noalias !61, !noundef !40
-  store i8 %63, ptr %.012.i.i.i, align 8, !tbaa !24, !alias.scope !61, !noalias !64
+  %63 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !24, !range !39, !alias.scope !61, !noalias !58, !noundef !40
+  store i8 %63, ptr %.012.i.i.i, align 8, !tbaa !24, !alias.scope !58, !noalias !61
   %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %64, ptr noundef nonnull align 8 dereferenceable(148) %65, i64 120, i1 false), !alias.scope !66
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(148) %64, ptr noundef nonnull align 8 dereferenceable(148) %65, i64 120, i1 false), !alias.scope !63
   %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 128
   %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 128
-  %68 = load ptr, ptr %67, align 8, !tbaa !19, !alias.scope !64, !noalias !61
-  store ptr %68, ptr %66, align 8, !tbaa !19, !alias.scope !61, !noalias !64
+  %68 = load ptr, ptr %67, align 8, !tbaa !19, !alias.scope !61, !noalias !58
+  store ptr %68, ptr %66, align 8, !tbaa !19, !alias.scope !58, !noalias !61
   %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 136
   %70 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 136
-  %71 = load ptr, ptr %70, align 8, !tbaa !41, !alias.scope !64, !noalias !61
-  store ptr %71, ptr %69, align 8, !tbaa !41, !alias.scope !61, !noalias !64
+  %71 = load ptr, ptr %70, align 8, !tbaa !41, !alias.scope !61, !noalias !58
+  store ptr %71, ptr %69, align 8, !tbaa !41, !alias.scope !58, !noalias !61
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 144
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 144
-  %74 = load ptr, ptr %73, align 8, !tbaa !22, !alias.scope !64, !noalias !61
-  store ptr %74, ptr %72, align 8, !tbaa !22, !alias.scope !61, !noalias !64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !64, !noalias !61
+  %74 = load ptr, ptr %73, align 8, !tbaa !22, !alias.scope !61, !noalias !58
+  store ptr %74, ptr %72, align 8, !tbaa !22, !alias.scope !58, !noalias !61
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false), !alias.scope !61, !noalias !58
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 152
   %76 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 152
-  %77 = load i32, ptr %76, align 8, !tbaa !37, !alias.scope !64, !noalias !61
-  store i32 %77, ptr %75, align 8, !tbaa !37, !alias.scope !61, !noalias !64
+  %77 = load i32, ptr %76, align 8, !tbaa !37, !alias.scope !61, !noalias !58
+  store i32 %77, ptr %75, align 8, !tbaa !37, !alias.scope !58, !noalias !61
   %78 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 160
   %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 160
   %.not.i.i.i38 = icmp eq ptr %78, %5
-  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i37, !llvm.loop !67
+  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i37, !llvm.loop !64
 
 _ZNSt6vectorIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i37, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEEmS4_ET_S6_T0_RSaIT1_E.exit35
   %.not.i40 = icmp eq ptr %6, null
@@ -1372,22 +1372,19 @@ attributes #18 = { builtin nounwind }
 !46 = !{!44, !5, i64 8}
 !47 = distinct !{!47, !17}
 !48 = distinct !{!48, !17}
-!49 = distinct !{!49, !17, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = distinct !{!49, !17}
+!50 = distinct !{!50, !17}
 !51 = distinct !{!51, !17}
 !52 = distinct !{!52, !17}
-!53 = distinct !{!53, !17, !50}
-!54 = distinct !{!54, !17}
+!53 = !{i64 0, i64 1, !54, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 4, !4, i64 20, i64 4, !4}
+!54 = !{!26, !26, i64 0}
 !55 = distinct !{!55, !17}
-!56 = !{i64 0, i64 1, !57, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 4, !4, i64 20, i64 4, !4}
-!57 = !{!26, !26, i64 0}
-!58 = distinct !{!58, !17}
-!59 = distinct !{!59, !17}
-!60 = distinct !{!60, !17}
+!56 = distinct !{!56, !17}
+!57 = distinct !{!57, !17}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!60 = distinct !{!60, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!63 = distinct !{!63, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_"}
-!64 = !{!65}
-!65 = distinct !{!65, !63, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!66 = !{!62, !65}
-!67 = distinct !{!67, !17}
+!62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aIN5ZXing8NullableINS0_6Pdf41721DetectionResultColumnEEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!63 = !{!59, !62}
+!64 = distinct !{!64, !17}

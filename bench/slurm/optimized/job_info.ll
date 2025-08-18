@@ -4241,7 +4241,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %307 = load i32, ptr @global_error_code, align 4
   %308 = icmp ne i32 %307, 0
   %or.cond3.us19.i = select i1 %306, i1 true, i1 %308
-  br i1 %or.cond3.us19.i, label %._crit_edge.i, label %.lr.ph.split.us18.i, !llvm.loop !34
+  br i1 %or.cond3.us19.i, label %._crit_edge.i, label %.lr.ph.split.us18.i, !llvm.loop !32
 
 .lr.ph.split.us22.i:                              ; preds = %.lr.ph.i, %321
   %309 = phi ptr [ %322, %321 ], [ %242, %.lr.ph.i ]
@@ -4277,7 +4277,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %324 = load i32, ptr @global_error_code, align 4
   %325 = icmp ne i32 %324, 0
   %or.cond3.us23.i = select i1 %323, i1 true, i1 %325
-  br i1 %or.cond3.us23.i, label %._crit_edge.i, label %.lr.ph.split.us22.i, !llvm.loop !35
+  br i1 %or.cond3.us23.i, label %._crit_edge.i, label %.lr.ph.split.us22.i, !llvm.loop !32
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %326 = call ptr @list_next(ptr noundef %241) #17
@@ -4285,7 +4285,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %328 = load i32, ptr @global_error_code, align 4
   %329 = icmp ne i32 %328, 0
   %or.cond3.i = select i1 %327, i1 true, i1 %329
-  br i1 %or.cond3.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !36
+  br i1 %or.cond3.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %321, %304, %_cancel_job_id.exit.us.i, %.lr.ph.split.i, %.thread.i
   %.lcssa14.i = phi i1 [ %245, %.thread.i ], [ %329, %.lr.ph.split.i ], [ %296, %_cancel_job_id.exit.us.i ], [ %308, %304 ], [ %325, %321 ]
@@ -4591,7 +4591,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 255
   %.not102 = icmp eq i32 %98, 1
-  br i1 %.not102, label %.preheader108, label %.loopexit, !llvm.loop !37
+  br i1 %.not102, label %.preheader108, label %.loopexit, !llvm.loop !33
 
 .preheader108:                                    ; preds = %.lr.ph119
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 528
@@ -4637,7 +4637,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %116 = load i32, ptr %115, align 4
   %117 = trunc nuw i64 %indvars.iv to i32
   %.not103.not = icmp sgt i32 %116, %117
-  br i1 %.not103.not, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %.not103.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %118 = phi ptr [ %103, %.preheader ], [ %114, %.lr.ph ]
@@ -4645,7 +4645,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.next125
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %120, -1
-  br i1 %121, label %.lr.ph115, label %.loopexit, !llvm.loop !39
+  br i1 %121, label %.lr.ph115, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader108, %.lr.ph119
   %.1 = phi i32 [ %.0117, %.lr.ph119 ], [ %.0117, %.preheader108 ], [ %.2., %._crit_edge ]
@@ -4846,7 +4846,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %29, align 4
   %38 = icmp eq i32 %36, %37
-  br i1 %38, label %39, label %.preheader, !llvm.loop !40
+  br i1 %38, label %39, label %.preheader, !llvm.loop !36
 
 39:                                               ; preds = %34
   %40 = call ptr @list_remove(ptr noundef nonnull %.0117) #17
@@ -5127,7 +5127,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %187 = zext i32 %186 to i64
   %188 = icmp samesign ult i64 %indvars.iv.next, %187
-  br i1 %188, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %188, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %185, %156
   br i1 %.1, label %191, label %189
@@ -5158,7 +5158,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   %199 = load i32, ptr %21, align 8
   %200 = zext i32 %199 to i64
   %201 = icmp samesign ult i64 %indvars.iv.next182, %200
-  br i1 %201, label %26, label %._crit_edge176, !llvm.loop !42
+  br i1 %201, label %26, label %._crit_edge176, !llvm.loop !38
 
 ._crit_edge176:                                   ; preds = %198, %20
   %202 = load ptr, ptr @_create_job_info_list.info_list, align 8
@@ -5241,7 +5241,7 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %16, i32 noundef 36, ptr noundef nonnull %3, i32 noundef -1) #17
   %17 = load ptr, ptr %3, align 8
   %.not35 = icmp eq ptr %17, null
-  br i1 %.not35, label %33, label %18, !llvm.loop !43
+  br i1 %.not35, label %33, label %18, !llvm.loop !39
 
 18:                                               ; preds = %15
   %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 40) #20
@@ -5305,7 +5305,7 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
 .backedge:                                        ; preds = %36, %.thread45, %33
   %45 = call ptr @list_next(ptr noundef %5) #17
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   call void @list_iterator_destroy(ptr noundef %5) #17
@@ -5369,7 +5369,7 @@ define dso_local void @set_menus_job(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %13
 
 13:                                               ; preds = %13, %12
-  br label %13, !llvm.loop !44
+  br label %13, !llvm.loop !40
 
 14:                                               ; preds = %9
   call void @popup_all_job(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 8)
@@ -5386,7 +5386,7 @@ define dso_local void @set_menus_job(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %18
 
 18:                                               ; preds = %18, %17
-  br label %18, !llvm.loop !45
+  br label %18, !llvm.loop !41
 
 19:                                               ; preds = %15, %14, %8, %7, %6
   ret void
@@ -5611,7 +5611,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
 95:                                               ; preds = %91, %.lr.ph
   %96 = call ptr @list_next(ptr noundef %86) #17
   %.not56 = icmp eq ptr %96, null
-  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %95, %84
   call void @list_iterator_destroy(ptr noundef %86) #17
@@ -5966,7 +5966,7 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
+  br i1 %13, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %18
   %14 = phi i32 [ %21, %18 ], [ %1, %.lr.ph ]
@@ -5985,7 +5985,7 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !48
+  br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %18, %9, %0
   %.b92.i = load i1, ptr @get_info_job.set_opts, align 1
@@ -6102,7 +6102,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
 27:                                               ; preds = %25, %25
   %28 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #17
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %25, label %.outer, !llvm.loop !49
+  br i1 %29, label %25, label %.outer
 
 .split24.us:                                      ; preds = %25
   call void @slurm_xfree(ptr noundef nonnull %3) #17
@@ -6113,7 +6113,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   %30 = trunc i64 %.us-phi to i32
   %31 = add i32 %.016.ph26, %30
   %32 = icmp slt i32 %31, %13
-  br i1 %32, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !50
+  br i1 %32, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.outer, %10, %.split24.us
   %33 = call i32 @close(i32 noundef %4) #17
@@ -7285,7 +7285,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   call fastcc void @_handle_task_check(ptr noundef %549, ptr noundef %542, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %spec.select, i1 noundef zeroext false)
   %550 = call ptr @list_next(ptr noundef %547) #17
   %.not25.i = icmp eq ptr %550, null
-  br i1 %.not25.i, label %_update_info_task.exit, label %.lr.ph, !llvm.loop !51
+  br i1 %.not25.i, label %_update_info_task.exit, label %.lr.ph, !llvm.loop !45
 
 _update_info_task.exit:                           ; preds = %.lr.ph, %544
   call void @list_iterator_destroy(ptr noundef %547) #17
@@ -7384,7 +7384,7 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #17
   %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #17
   %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %14, label %11, !llvm.loop !52
+  br i1 %.not22, label %14, label %11, !llvm.loop !46
 
 14:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
@@ -7425,7 +7425,7 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   call fastcc void @_handle_task_check(ptr noundef %28, ptr noundef %1, ptr noundef %6, ptr noundef %8, ptr noundef %3, i1 noundef zeroext false)
   %29 = tail call ptr @list_next(ptr noundef %26) #17
   %.not25 = icmp eq ptr %29, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   tail call void @list_iterator_destroy(ptr noundef %26) #17
@@ -7445,7 +7445,7 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   br i1 %.not28, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %31, %35
-  br label %.preheader, !llvm.loop !53
+  br label %.preheader, !llvm.loop !47
 
 35:                                               ; preds = %.preheader
   %36 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %8) #17
@@ -7480,7 +7480,7 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #17
   %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #17
   %.not38 = icmp eq i32 %13, 0
-  br i1 %.not38, label %14, label %11, !llvm.loop !54
+  br i1 %.not38, label %14, label %11, !llvm.loop !48
 
 14:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -7567,7 +7567,7 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   %.4 = phi ptr [ null, %.thread ], [ %.03552, %.thread48 ]
   %54 = call ptr @list_next(ptr noundef %18) #17
   %.not39 = icmp eq ptr %54, null
-  br i1 %.not39, label %._crit_edge, label %21, !llvm.loop !55
+  br i1 %.not39, label %._crit_edge, label %21, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %53, %15
   call void @list_iterator_destroy(ptr noundef %18) #17
@@ -7587,7 +7587,7 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   br i1 %.not42, label %.loopexit, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %56, %60
-  br label %.preheader, !llvm.loop !56
+  br label %.preheader, !llvm.loop !50
 
 60:                                               ; preds = %.preheader
   %61 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %7) #17
@@ -8164,28 +8164,22 @@ attributes #20 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !9, !10}
 !30 = distinct !{!30, !9, !10}
 !31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !9, !10, !33}
-!35 = distinct !{!35, !9, !10, !33}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
 !36 = distinct !{!36, !9, !10}
 !37 = distinct !{!37, !9, !10}
 !38 = distinct !{!38, !9, !10}
 !39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
+!40 = distinct !{!40, !10}
+!41 = distinct !{!41, !10}
 !42 = distinct !{!42, !9, !10}
 !43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !9, !10}
-!47 = distinct !{!47, !9, !10, !33}
-!48 = distinct !{!48, !9, !10}
-!49 = distinct !{!49, !33}
-!50 = distinct !{!50, !9, !10}
-!51 = distinct !{!51, !9, !10}
-!52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
-!55 = distinct !{!55, !9, !10}
-!56 = distinct !{!56, !10}
+!44 = distinct !{!44, !9, !10}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !10}
+!47 = distinct !{!47, !10}
+!48 = distinct !{!48, !10}
+!49 = distinct !{!49, !9, !10}
+!50 = distinct !{!50, !10}

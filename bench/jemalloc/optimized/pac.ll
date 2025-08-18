@@ -683,7 +683,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
   %90 = lshr i64 %.042.val.i, 12
   %91 = add i64 %.05.i, 1
   %92 = add i64 %90, %.0433.i
-  %93 = load i32, ptr %46, align 8, !tbaa !66
+  %93 = load i32, ptr %46, align 8, !tbaa !65
   %switch.not.i = icmp eq i32 %93, 1
   br i1 %switch.not.i, label %94, label %98
 
@@ -704,7 +704,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
 100:                                              ; preds = %98, %97
   %.1.i = phi i64 [ %99, %98 ], [ %.0414.i, %97 ]
   %.not.i = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i, !llvm.loop !67
+  br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i, !llvm.loop !63
 
 pac_decay_stashed.exit:                           ; preds = %100, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
   %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %69, %edata_list_inactive_remove.exit.us.i ], [ %92, %100 ]
@@ -799,7 +799,7 @@ define hidden zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %19
   %29 = getelementptr i8, ptr %2, i64 160
-  %.val = load i64, ptr %29, align 8, !tbaa !68
+  %.val = load i64, ptr %29, align 8, !tbaa !66
   %30 = icmp ugt i64 %24, %.val
   br i1 %30, label %31, label %pac_decay_try_purge.exit
 
@@ -919,7 +919,7 @@ define hidden void @je_pac_destroy(ptr noundef %0, ptr noundef %1) local_unnamed
   tail call void @je_extent_destroy_wrapper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %7) #9
   %8 = tail call ptr @je_ecache_evict(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %5, i64 noundef 0) #9
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1057,10 +1057,8 @@ attributes #9 = { nounwind }
 !60 = !{!16, !6, i64 58404}
 !61 = !{!29, !24, i64 112}
 !62 = !{!7, !7, i64 0}
-!63 = distinct !{!63, !64, !65}
+!63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = !{!18, !6, i64 19424}
+!65 = !{!18, !6, i64 19424}
+!66 = !{!29, !23, i64 160}
 !67 = distinct !{!67, !64}
-!68 = !{!29, !23, i64 160}
-!69 = distinct !{!69, !64}

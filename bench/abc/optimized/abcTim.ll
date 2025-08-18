@@ -2013,14 +2013,14 @@ Vec_IntPush.exit90:                               ; preds = %Vec_IntPush.exit90.
   store i32 %.0105, ptr %105, align 4, !tbaa !41
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count128
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph107.split, !llvm.loop !102
+  br i1 %exitcond.not, label %.critedge2, label %.lr.ph107.split, !llvm.loop !100
 
 .critedge2:                                       ; preds = %.lr.ph107.split, %.lr.ph107.split.us, %._crit_edge103
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %.val65 = load i32, ptr %4, align 4, !tbaa !46
   %106 = sext i32 %.val65 to i64
   %107 = icmp slt i64 %indvars.iv.next131, %106
-  br i1 %107, label %52, label %..critedge_crit_edge, !llvm.loop !103
+  br i1 %107, label %52, label %..critedge_crit_edge, !llvm.loop !101
 
 ..critedge_crit_edge:                             ; preds = %.critedge2
   store ptr %.pre.i79112, ptr %49, align 8
@@ -2056,7 +2056,7 @@ Vec_IntFree.exit92:                               ; preds = %Vec_IntFree.exit, %
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkTestTimByWritingFile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 208
-  %.val = load ptr, ptr %3, align 8, !tbaa !104
+  %.val = load ptr, ptr %3, align 8, !tbaa !102
   %.not19 = icmp eq ptr %.val, null
   br i1 %.not19, label %5, label %4
 
@@ -2067,7 +2067,7 @@ define void @Abc_NtkTestTimByWritingFile(ptr noundef %0, ptr noundef %1) local_u
 
 5:                                                ; preds = %4, %2
   tail call void @Gia_AigerWrite(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %.val17 = load ptr, ptr %3, align 8, !tbaa !104
+  %.val17 = load ptr, ptr %3, align 8, !tbaa !102
   %.not = icmp eq ptr %.val17, null
   br i1 %.not, label %7, label %6
 
@@ -2078,7 +2078,7 @@ define void @Abc_NtkTestTimByWritingFile(ptr noundef %0, ptr noundef %1) local_u
 7:                                                ; preds = %6, %5
   %8 = tail call ptr @Gia_AigerRead(ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #12
   %9 = getelementptr i8, ptr %8, i64 208
-  %.val18 = load ptr, ptr %9, align 8, !tbaa !104
+  %.val18 = load ptr, ptr %9, align 8, !tbaa !102
   %.not20 = icmp eq ptr %.val18, null
   br i1 %.not20, label %11, label %10
 
@@ -2153,7 +2153,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !92
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !105
+  %5 = load i32, ptr %4, align 4, !tbaa !103
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %47
 
@@ -2170,7 +2170,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %14 = load i32, ptr %13, align 4, !tbaa !106
+  %14 = load i32, ptr %13, align 4, !tbaa !104
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
@@ -2197,7 +2197,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 26:                                               ; preds = %24, %22
   %27 = phi ptr [ %23, %22 ], [ %25, %24 ]
   store ptr %27, ptr %18, align 8, !tbaa !89
-  %28 = load i32, ptr %4, align 4, !tbaa !105
+  %28 = load i32, ptr %4, align 4, !tbaa !103
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %27, i64 %29
   %31 = sub nsw i32 %9, %28
@@ -2205,7 +2205,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %33 = mul nsw i64 %32, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !107
+  %35 = load ptr, ptr %34, align 8, !tbaa !105
   %.not34 = icmp eq ptr %35, null
   br i1 %.not34, label %46, label %36
 
@@ -2213,8 +2213,8 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
   %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #13
-  store ptr %39, ptr %34, align 8, !tbaa !107
-  %40 = load i32, ptr %4, align 4, !tbaa !105
+  store ptr %39, ptr %34, align 8, !tbaa !105
+  %40 = load i32, ptr %4, align 4, !tbaa !103
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %39, i64 %41
   %43 = sub nsw i32 %9, %40
@@ -2224,7 +2224,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br label %46
 
 46:                                               ; preds = %36, %26
-  store i32 %9, ptr %4, align 4, !tbaa !105
+  store i32 %9, ptr %4, align 4, !tbaa !103
   br label %47
 
 47:                                               ; preds = %46, %1
@@ -2459,11 +2459,9 @@ attributes #15 = { cold noreturn nounwind }
 !97 = distinct !{!97, !44}
 !98 = distinct !{!98, !44}
 !99 = distinct !{!99, !44}
-!100 = distinct !{!100, !44, !101}
-!101 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!102 = distinct !{!102, !44}
-!103 = distinct !{!103, !44}
-!104 = !{!67, !17, i64 208}
-!105 = !{!67, !9, i64 28}
-!106 = !{!67, !9, i64 796}
-!107 = !{!67, !17, i64 40}
+!100 = distinct !{!100, !44}
+!101 = distinct !{!101, !44}
+!102 = !{!67, !17, i64 208}
+!103 = !{!67, !9, i64 28}
+!104 = !{!67, !9, i64 796}
+!105 = !{!67, !17, i64 40}

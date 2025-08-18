@@ -361,7 +361,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !69
+  %20 = load i32, ptr %19, align 8, !tbaa !68
   %21 = sitofp i32 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -374,19 +374,19 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr inbounds nuw %struct.ChannelParams, ptr %13, i64 %indvars.iv
-  %29 = load double, ptr %17, align 8, !tbaa !70
-  %30 = load double, ptr %18, align 8, !tbaa !71
-  %31 = load double, ptr %22, align 8, !tbaa !72
+  %29 = load double, ptr %17, align 8, !tbaa !69
+  %30 = load double, ptr %18, align 8, !tbaa !70
+  %31 = load double, ptr %22, align 8, !tbaa !71
   %32 = load double, ptr %23, align 8, !tbaa !64
   %33 = fdiv nsz double 1.200000e+01, %30
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store double %33, ptr %34, align 8, !tbaa !73
+  store double %33, ptr %34, align 8, !tbaa !72
   %35 = fsub nsz double 1.050000e+01, %29
   %36 = fdiv nsz double %33, %35
   %37 = fmul nsz double %36, 7.800000e+02
   %38 = fdiv nsz double %37, 3.300000e+01
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store double %38, ptr %39, align 8, !tbaa !74
+  store double %38, ptr %39, align 8, !tbaa !73
   %40 = fmul nsz double %33, %33
   %41 = tail call nsz double @llvm.fmuladd.f64(double %40, double 2.000000e+00, double -1.000000e+00)
   %42 = tail call nsz double @llvm.fabs.f64(double %41)
@@ -416,12 +416,12 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %63 = select nsz i1 %61, double %62, double 0.000000e+00
   %64 = fdiv nsz double %46, %63
   %65 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  store double %64, ptr %65, align 8, !tbaa !75
+  store double %64, ptr %65, align 8, !tbaa !74
   %66 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store double %26, ptr %66, align 8, !tbaa !61
   %67 = tail call nsz double @llvm.fmuladd.f64(double %64, double %64, double 1.000000e+00)
   %68 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store double %67, ptr %68, align 8, !tbaa !76
+  store double %67, ptr %68, align 8, !tbaa !75
   %69 = fneg nsz double %38
   %70 = tail call nsz double @llvm.fabs.f64(double %67)
   %71 = fcmp nsz ogt double %70, 1.000000e-08
@@ -448,7 +448,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %89 = select nsz i1 %87, double %88, double 0.000000e+00
   %90 = tail call nsz double @llvm.fmuladd.f64(double %74, double 2.000000e+00, double %89)
   %91 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store double %90, ptr %91, align 8, !tbaa !77
+  store double %90, ptr %91, align 8, !tbaa !76
   %92 = fadd nsz double %90, 1.000000e+00
   %93 = fdiv nsz double 2.000000e+00, %92
   %94 = getelementptr inbounds nuw i8, ptr %28, i64 112
@@ -504,7 +504,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   store double %129, ptr %133, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !77
 
 .loopexit:                                        ; preds = %27, %.preheader, %8
   %.016 = phi i32 [ -12, %8 ], [ 0, %.preheader ], [ 0, %27 ]
@@ -619,15 +619,14 @@ attributes #4 = { nounwind }
 !64 = !{!37, !38, i64 56}
 !65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = distinct !{!67, !66, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = !{!26, !15, i64 64}
-!70 = !{!37, !38, i64 40}
-!71 = !{!37, !38, i64 32}
-!72 = !{!37, !38, i64 48}
-!73 = !{!54, !38, i64 16}
-!74 = !{!54, !38, i64 24}
-!75 = !{!54, !38, i64 88}
-!76 = !{!54, !38, i64 104}
-!77 = !{!54, !38, i64 80}
-!78 = distinct !{!78, !66}
+!67 = distinct !{!67, !66}
+!68 = !{!26, !15, i64 64}
+!69 = !{!37, !38, i64 40}
+!70 = !{!37, !38, i64 32}
+!71 = !{!37, !38, i64 48}
+!72 = !{!54, !38, i64 16}
+!73 = !{!54, !38, i64 24}
+!74 = !{!54, !38, i64 88}
+!75 = !{!54, !38, i64 104}
+!76 = !{!54, !38, i64 80}
+!77 = distinct !{!77, !66}

@@ -3001,7 +3001,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %594, %._crit_edge9.
   %794 = add nuw nsw i32 %789, 65535
   %795 = and i32 %794, 65535
   %.not510.us7.i = icmp eq i32 %789, 1
-  br i1 %.not510.us7.i, label %.loopexit2.i, label %.lr.ph.split.split.us.i, !llvm.loop !14
+  br i1 %.not510.us7.i, label %.loopexit2.i, label %.lr.ph.split.split.us.i, !llvm.loop !12
 
 .loopexit2.i:                                     ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %766
   %.3.i = phi i16 [ %775, %766 ], [ %775, %.lr.ph.split.i ], [ %785, %.lr.ph.split.us.i ], [ %793, %.lr.ph.split.split.us.i ]
@@ -3059,7 +3059,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %594, %._crit_edge9.
   %832 = add i16 %.711.i, 16
   %833 = add nsw i16 %.049412.i, -1
   %.not511.i = icmp eq i16 %833, 0
-  br i1 %.not511.i, label %._crit_edge.i178, label %.lr.ph13.i, !llvm.loop !15
+  br i1 %.not511.i, label %._crit_edge.i178, label %.lr.ph13.i, !llvm.loop !13
 
 ._crit_edge.i178:                                 ; preds = %.lr.ph13.i, %818
   %.7.lcssa.i = phi i16 [ %827, %818 ], [ %832, %.lr.ph13.i ]
@@ -3345,7 +3345,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %594, %._crit_edge9.
   %1047 = add nuw nsw i32 %1037, 65535
   %1048 = and i32 %1047, 65535
   %.not518.i = icmp eq i32 %1037, 1
-  br i1 %.not518.i, label %.loopexit1.i, label %.lr.ph19.i, !llvm.loop !16
+  br i1 %.not518.i, label %.loopexit1.i, label %.lr.ph19.i, !llvm.loop !14
 
 .loopexit1.i:                                     ; preds = %.lr.ph19.i, %1030, %1024
   %.17.i = phi i16 [ %1029, %1024 ], [ %1035, %1030 ], [ %1046, %.lr.ph19.i ]
@@ -3456,7 +3456,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %594, %._crit_edge9.
   %1127 = add nuw nsw i32 %1119, 65535
   %1128 = and i32 %1127, 65535
   %.not521.i = icmp eq i32 %1119, 1
-  br i1 %.not521.i, label %.loopexit.i, label %.lr.ph25.i, !llvm.loop !17
+  br i1 %.not521.i, label %.loopexit.i, label %.lr.ph25.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %.lr.ph25.i, %1112, %1106
   %.21.i = phi i16 [ %1111, %1106 ], [ %1117, %1112 ], [ %1126, %.lr.ph25.i ]
@@ -3615,7 +3615,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1236 = add i16 %.15.i185, 16
   %1237 = add nsw i16 %.03154.i, -1
   %.not.i186 = icmp eq i16 %1237, 0
-  br i1 %.not.i186, label %._crit_edge.i187, label %.lr.ph.i184, !llvm.loop !18
+  br i1 %.not.i186, label %._crit_edge.i187, label %.lr.ph.i184, !llvm.loop !16
 
 ._crit_edge.i187:                                 ; preds = %.lr.ph.i184, %1226
   %.1.lcssa.i = phi i16 [ %1231, %1226 ], [ %1236, %.lr.ph.i184 ]
@@ -3925,7 +3925,7 @@ cdma2k_message_ORIGINATION.exit:                  ; preds = %._crit_edge.i178, %
   %1473 = add i16 %.138.i, 8
   %1474 = add nsw i16 %.03147.i, -1
   %.not325.i = icmp eq i16 %1474, 0
-  br i1 %.not325.i, label %.loopexit.i196, label %.lr.ph10.i, !llvm.loop !19
+  br i1 %.not325.i, label %.loopexit.i196, label %.lr.ph10.i, !llvm.loop !17
 
 .loopexit.i196:                                   ; preds = %.lr.ph10.i, %1458, %1451
   %.12.i197 = phi i16 [ %1456, %1451 ], [ %1463, %1458 ], [ %1473, %.lr.ph10.i ]
@@ -4643,14 +4643,14 @@ cdma2k_message_ORDER_CMD.exit:                    ; preds = %1505, %1532, %1545,
   %.1.i223 = phi ptr [ %1979, %1971 ], [ %.03.i220, %1968 ]
   %indvars.iv.next.i224 = add nuw nsw i32 %indvars.iv.i219, 1
   %exitcond.not.i225 = icmp eq i32 %indvars.iv.next.i224, %1953
-  br i1 %exitcond.not.i225, label %._crit_edge.i226, label %.lr.ph.i218, !llvm.loop !20
+  br i1 %exitcond.not.i225, label %._crit_edge.i226, label %.lr.ph.i218, !llvm.loop !18
 
 ._crit_edge.i226:                                 ; preds = %1981, %.lr.ph8.i213
   %.176.lcssa.i227 = phi i16 [ %.0756.i214, %.lr.ph8.i213 ], [ %.2.i222, %1981 ]
   %1982 = sub i32 %1950, %1953
   %1983 = and i32 %1982, 65535
   %.not.i228 = icmp eq i32 %1983, 0
-  br i1 %.not.i228, label %._crit_edge9.loopexit.i229, label %.lr.ph8.i213, !llvm.loop !21
+  br i1 %.not.i228, label %._crit_edge9.loopexit.i229, label %.lr.ph8.i213, !llvm.loop !19
 
 ._crit_edge9.loopexit.i229:                       ; preds = %._crit_edge.i226
   %.pre.i230 = load i32, ptr %2, align 4
@@ -4790,7 +4790,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2058, ptr %2, align 4
   %2059 = add nsw i16 %.037028.i, -1
   %.not380.i = icmp eq i16 %2059, 0
-  br i1 %.not380.i, label %.loopexit.i233, label %.lr.ph30.i, !llvm.loop !22
+  br i1 %.not380.i, label %.loopexit.i233, label %.lr.ph30.i, !llvm.loop !20
 
 2060:                                             ; preds = %.lr.ph34.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2046, ptr noundef nonnull @.str.1250)
@@ -4826,7 +4826,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2082, ptr %2, align 4
   %2083 = add i16 %.123.i, -1
   %2084 = icmp ugt i16 %2083, 1
-  br i1 %2084, label %.lr.ph25.i243, label %._crit_edge26.i, !llvm.loop !23
+  br i1 %2084, label %.lr.ph25.i243, label %._crit_edge26.i, !llvm.loop !21
 
 ._crit_edge26.i:                                  ; preds = %.lr.ph25.i243, %2060
   %2085 = phi i32 [ %.pre47.i, %2060 ], [ %2082, %.lr.ph25.i243 ]
@@ -4887,7 +4887,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2127, ptr %2, align 4
   %2128 = add i16 %.219.i, -1
   %2129 = icmp ugt i16 %2128, 1
-  br i1 %2129, label %.lr.ph21.i, label %._crit_edge22.i, !llvm.loop !24
+  br i1 %2129, label %.lr.ph21.i, label %._crit_edge22.i, !llvm.loop !22
 
 ._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %2092
   %2130 = phi i32 [ %.pre45.i, %2092 ], [ %2127, %.lr.ph21.i ]
@@ -4990,7 +4990,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2205, ptr %2, align 4
   %2206 = add i16 %.316.i, -1
   %2207 = icmp ugt i16 %2206, 1
-  br i1 %2207, label %.lr.ph18.i, label %.loopexit.i233, !llvm.loop !25
+  br i1 %2207, label %.lr.ph18.i, label %.loopexit.i233, !llvm.loop !23
 
 2208:                                             ; preds = %.lr.ph34.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2046, ptr noundef nonnull @.str.1258)
@@ -5040,7 +5040,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2243, ptr %2, align 4
   %2244 = add i16 %.413.i, -1
   %2245 = icmp ugt i16 %2244, 1
-  br i1 %2245, label %.lr.ph15.i, label %.loopexit.i233, !llvm.loop !26
+  br i1 %2245, label %.lr.ph15.i, label %.loopexit.i233, !llvm.loop !24
 
 2246:                                             ; preds = %.lr.ph34.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2046, ptr noundef nonnull @.str.1260)
@@ -5143,7 +5143,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2324, ptr %2, align 4
   %2325 = add i16 %.711.i242, -1
   %2326 = icmp ugt i16 %2325, 1
-  br i1 %2326, label %.lr.ph12.i, label %.loopexit.i233, !llvm.loop !27
+  br i1 %2326, label %.lr.ph12.i, label %.loopexit.i233, !llvm.loop !25
 
 2327:                                             ; preds = %.lr.ph34.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2046, ptr noundef nonnull @.str.1262)
@@ -5193,7 +5193,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   store i32 %2362, ptr %2, align 4
   %2363 = add i16 %.88.i, -1
   %2364 = icmp ugt i16 %2363, 1
-  br i1 %2364, label %.lr.ph10.i238, label %.loopexit.i233, !llvm.loop !28
+  br i1 %2364, label %.lr.ph10.i238, label %.loopexit.i233, !llvm.loop !26
 
 2365:                                             ; preds = %.lr.ph34.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2046, ptr noundef nonnull @.str.1264)
@@ -5314,7 +5314,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   %2456 = add nuw nsw i32 %2413, 65535
   %2457 = and i32 %2456, 65535
   %.not379.i = icmp eq i32 %2413, 1
-  br i1 %.not379.i, label %._crit_edge.i237, label %.lr.ph.i236, !llvm.loop !29
+  br i1 %.not379.i, label %._crit_edge.i237, label %.lr.ph.i236, !llvm.loop !27
 
 ._crit_edge.i237:                                 ; preds = %.lr.ph.i236, %2397
   %2458 = phi i32 [ %.pre40.i, %2397 ], [ %2455, %.lr.ph.i236 ]
@@ -5416,7 +5416,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1887, %._crit_edge9
   %2531 = phi i32 [ %.pre50.i, %2327 ], [ %.pre.i241, %.thread.i239 ], [ %.pre51.i, %2208 ], [ %.pre52.i, %2170 ], [ %.pre53.i, %2047 ], [ %2504, %2484 ], [ %2515, %2505 ], [ %.pre49.i, %2530 ], [ %2529, %2516 ], [ %2469, %._crit_edge.i237 ], [ %2396, %2365 ], [ %2169, %2162 ], [ %2161, %2137 ], [ %2136, %._crit_edge22.i ], [ %2091, %._crit_edge26.i ], [ %2058, %.lr.ph30.i ], [ %2205, %.lr.ph18.i ], [ %2243, %.lr.ph15.i ], [ %2324, %.lr.ph12.i ], [ %2362, %.lr.ph10.i238 ]
   %2532 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2531)
   %.not.i234 = icmp eq i32 %2532, 0
-  br i1 %.not.i234, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i, !llvm.loop !30
+  br i1 %.not.i234, label %cdma2k_message_GEN_PAGE_REQ.exit, label %.lr.ph34.i, !llvm.loop !28
 
 2533:                                             ; preds = %2013, %2013
   tail call fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %307, ptr noundef %2, i16 noundef zeroext %.0159)
@@ -5710,7 +5710,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %227 = add nuw nsw i32 %222, 65535
   %228 = and i32 %227, 65535
   %.not = icmp eq i32 %222, 1
-  br i1 %.not, label %.loopexit367, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit367, label %.lr.ph, !llvm.loop !29
 
 .loopexit367:                                     ; preds = %.lr.ph, %196, %184
   %.5 = phi i16 [ %194, %184 ], [ %216, %196 ], [ %226, %.lr.ph ]
@@ -5758,7 +5758,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %262 = add nuw nsw i32 %257, 65535
   %263 = and i32 %262, 65535
   %.not574 = icmp eq i32 %257, 1
-  br i1 %.not574, label %.loopexit366, label %.lr.ph378, !llvm.loop !32
+  br i1 %.not574, label %.loopexit366, label %.lr.ph378, !llvm.loop !30
 
 .loopexit366:                                     ; preds = %.lr.ph378, %236, %.loopexit367, %103
   %.7 = phi i16 [ %234, %.loopexit367 ], [ %108, %103 ], [ %252, %236 ], [ %261, %.lr.ph378 ]
@@ -5857,7 +5857,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %.9 = add i16 %.10, 4
   %exitcond.not = icmp eq i32 %indvars.iv, %298
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph385, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph385, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %324, %286
   %.9.in.lcssa = phi i16 [ %.8, %286 ], [ %.10, %324 ]
@@ -5915,7 +5915,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %363 = add i16 %.12, 4
   %indvars.iv.next425 = add nuw nsw i32 %indvars.iv424, 1
   %exitcond428.not = icmp eq i32 %indvars.iv424, %333
-  br i1 %exitcond428.not, label %.loopexit365, label %.lr.ph392, !llvm.loop !34
+  br i1 %exitcond428.not, label %.loopexit365, label %.lr.ph392, !llvm.loop !32
 
 .loopexit365:                                     ; preds = %359, %._crit_edge, %275
   %.13 = phi i16 [ %284, %275 ], [ %332, %._crit_edge ], [ %363, %359 ]
@@ -6006,7 +6006,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %427 = add i16 %.15, 9
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.i = icmp eq i32 %indvars.iv.i, %407
-  br i1 %exitcond.i, label %.loopexit12.i, label %409, !llvm.loop !35
+  br i1 %exitcond.i, label %.loopexit12.i, label %409, !llvm.loop !33
 
 .loopexit12.i:                                    ; preds = %409, %401
   %.16 = phi i16 [ %406, %401 ], [ %427, %409 ]
@@ -6043,7 +6043,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %451 = add i16 %.17, 6
   %indvars.iv.next51.i = add nuw nsw i32 %indvars.iv50.i, 1
   %exitcond53.i = icmp eq i32 %indvars.iv50.i, %433
-  br i1 %exitcond53.i, label %.loopexit10.i, label %.preheader9.i, !llvm.loop !36
+  br i1 %exitcond53.i, label %.loopexit10.i, label %.preheader9.i, !llvm.loop !34
 
 .loopexit10.i:                                    ; preds = %.preheader9.i, %.loopexit12.i, %392
   %.18 = phi i16 [ %389, %392 ], [ %432, %.loopexit12.i ], [ %451, %.preheader9.i ]
@@ -6134,7 +6134,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %512 = add nuw nsw i32 %507, 65535
   %513 = and i32 %512, 65535
   %.not495.i = icmp eq i32 %507, 1
-  br i1 %.not495.i, label %.loopexit8.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not495.i, label %.loopexit8.i, label %.lr.ph.i, !llvm.loop !35
 
 .loopexit8.i:                                     ; preds = %.lr.ph.i, %491, %484
   %.22 = phi i16 [ %501, %491 ], [ %489, %484 ], [ %511, %.lr.ph.i ]
@@ -6233,7 +6233,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.26 = phi i16 [ %574, %566 ], [ %564, %.lr.ph18.i ]
   %indvars.iv.next55.i = add nuw nsw i32 %indvars.iv54.i, 1
   %exitcond57.i = icmp eq i32 %indvars.iv.next55.i, %wide.trip.count.i
-  br i1 %exitcond57.i, label %.loopexit7.i, label %.lr.ph18.i, !llvm.loop !38
+  br i1 %exitcond57.i, label %.loopexit7.i, label %.lr.ph18.i, !llvm.loop !36
 
 .loopexit7.i:                                     ; preds = %575, %538, %537
   %576 = phi i16 [ %.24, %537 ], [ %544, %538 ], [ %.26, %575 ]
@@ -6242,7 +6242,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %577 = add i16 %.4.i, 1
   %578 = zext i16 %577 to i32
   %.not488.i = icmp samesign ugt i32 %578, %462
-  br i1 %.not488.i, label %._crit_edge.i, label %466, !llvm.loop !39
+  br i1 %.not488.i, label %._crit_edge.i, label %466, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.loopexit7.i, %.loopexit10.i
   %579 = phi i16 [ %461, %.loopexit10.i ], [ %576, %.loopexit7.i ]
@@ -6464,7 +6464,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.38 = phi i16 [ %721, %713 ], [ %711, %706 ]
   %723 = add i16 %.626.i, 1
   %.not494.i = icmp ugt i16 %723, %.0466.lcssa.i
-  br i1 %.not494.i, label %.loopexit4.i, label %.lr.ph27.i, !llvm.loop !40
+  br i1 %.not494.i, label %.loopexit4.i, label %.lr.ph27.i, !llvm.loop !38
 
 .loopexit4.i:                                     ; preds = %722, %673, %672
   %.39 = phi i16 [ %.35, %672 ], [ %678, %673 ], [ %.38, %722 ]
@@ -6472,7 +6472,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %724 = add i16 %.7.i, 1
   %725 = zext i16 %724 to i32
   %.not489.i = icmp samesign ugt i32 %725, %462
-  br i1 %.not489.i, label %.loopexit6.i, label %599, !llvm.loop !41
+  br i1 %.not489.i, label %.loopexit6.i, label %599, !llvm.loop !39
 
 .loopexit6.i:                                     ; preds = %.loopexit4.i, %597
   %726 = phi i16 [ %598, %597 ], [ %.39, %.loopexit4.i ]
@@ -6537,7 +6537,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %764 = add i16 %.43, 1
   %765 = add i16 %.933.i, 1
   %.not493.i = icmp ugt i16 %765, %.0466.lcssa.i
-  br i1 %.not493.i, label %._crit_edge36.loopexit.i, label %.lr.ph35.i, !llvm.loop !42
+  br i1 %.not493.i, label %._crit_edge36.loopexit.i, label %.lr.ph35.i, !llvm.loop !40
 
 ._crit_edge36.loopexit.i:                         ; preds = %.lr.ph35.i
   %766 = add i16 %.933.i, 2
@@ -6548,7 +6548,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %.44 = phi i16 [ %.42, %746 ], [ %764, %._crit_edge36.loopexit.i ]
   %.9.lcssa.i = phi i32 [ 2, %746 ], [ %767, %._crit_edge36.loopexit.i ]
   %.not490.i = icmp samesign ugt i32 %.9.lcssa.i, %462
-  br i1 %.not490.i, label %.loopexit2.i, label %746, !llvm.loop !43
+  br i1 %.not490.i, label %.loopexit2.i, label %746, !llvm.loop !41
 
 .loopexit2.i:                                     ; preds = %._crit_edge36.i, %745, %.loopexit6.i
   %.45 = phi i16 [ %.41, %745 ], [ %731, %.loopexit6.i ], [ %.44, %._crit_edge36.i ]
@@ -6632,7 +6632,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %819 = add i16 %.48, 12
   %indvars.iv.next59.i = add nuw nsw i32 %indvars.iv58.i, 1
   %exitcond61.i = icmp eq i32 %indvars.iv58.i, %462
-  br i1 %exitcond61.i, label %.loopexit.i, label %.lr.ph43.i, !llvm.loop !44
+  br i1 %exitcond61.i, label %.loopexit.i, label %.lr.ph43.i, !llvm.loop !42
 
 .loopexit.i:                                      ; preds = %.lr.ph43.i, %805, %.loopexit2.i
   %.49 = phi i16 [ %.47, %805 ], [ %.45, %.loopexit2.i ], [ %819, %.lr.ph43.i ]
@@ -6773,7 +6773,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %901 = add i16 %.55395, 8
   %902 = add nsw i16 %.0553396, -1
   %.not578 = icmp eq i16 %902, 0
-  br i1 %.not578, label %.loopexit364, label %.lr.ph398, !llvm.loop !45
+  br i1 %.not578, label %.loopexit364, label %.lr.ph398, !llvm.loop !43
 
 .loopexit364:                                     ; preds = %.lr.ph398, %886, %879, %875
   %.56 = phi i16 [ %884, %879 ], [ %.54, %875 ], [ %891, %886 ], [ %901, %.lr.ph398 ]
@@ -6829,7 +6829,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %937 = add i16 %.57401, %.450
   %indvars.iv.next430 = add nuw nsw i32 %indvars.iv429, 1
   %exitcond432 = icmp eq i32 %indvars.iv429, %915
-  br i1 %exitcond432, label %.loopexit, label %917, !llvm.loop !46
+  br i1 %exitcond432, label %.loopexit, label %917, !llvm.loop !44
 
 .loopexit:                                        ; preds = %917, %909, %.loopexit364
   %.58 = phi i16 [ %907, %.loopexit364 ], [ %914, %909 ], [ %937, %917 ]
@@ -7267,7 +7267,7 @@ cdma2k_message_ACTIVE_SET_RECORD_FIELDS.exit:     ; preds = %822, %.loopexit.i, 
   %1232 = add i16 %.3408, 1
   %1233 = zext i16 %1232 to i32
   %.not581 = icmp ugt i16 %1232, %1203
-  br i1 %.not581, label %.critedge584, label %1204, !llvm.loop !47
+  br i1 %.not581, label %.critedge584, label %1204, !llvm.loop !45
 
 .critedge584:                                     ; preds = %1231, %1201, %1173, %1175
   %.76 = phi i16 [ %1180, %1175 ], [ %1167, %1173 ], [ %.73, %1201 ], [ %.75, %1231 ]
@@ -7639,9 +7639,9 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !13}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
@@ -7673,5 +7673,3 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}

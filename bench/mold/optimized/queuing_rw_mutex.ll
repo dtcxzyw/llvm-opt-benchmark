@@ -234,7 +234,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i53: ; preds = %_ZN3tbb6detail
   %.sroa.0.1.us.i54 = phi i32 [ %83, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i55 ], [ %.sroa.0.09.us.i, %77 ]
   %84 = load atomic i64, ptr %5 acquire, align 8
   %85 = icmp eq i64 %84, 0
-  br i1 %85, label %.lr.ph.i52, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !19
+  br i1 %85, label %.lr.ph.i52, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i53, %73
   store atomic i8 8, ptr %7 monotonic, align 8
@@ -371,7 +371,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %28, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.09.i, %28 ]
   %30 = load atomic i64, ptr %12 monotonic, align 8
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph.split.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !20
+  br i1 %31, label %.lr.ph.split.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %19
   %32 = load atomic i64, ptr %12 acquire, align 8
@@ -397,7 +397,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicI
   tail call void @llvm.x86.sse2.pause()
   %42 = cmpxchg ptr %39, i8 0, i8 1 seq_cst seq_cst, align 1
   %43 = extractvalue { i8, i1 } %42, 1
-  br i1 %43, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.preheader.i, !llvm.loop !21
+  br i1 %43, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.preheader.i, !llvm.loop !19
 
 _ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit: ; preds = %.lr.ph.i.preheader.i, %38
   %44 = getelementptr inbounds nuw i8, ptr %.048, i64 8
@@ -441,7 +441,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i.i = phi i32 [ %56, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i ], [ %.sroa.0.010.us.i.i.i, %50 ]
   %57 = load atomic i8, ptr %39 acquire, align 2
   %.not.us.i.i.i = icmp eq i8 %57, 0
-  br i1 %.not.us.i.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not.us.i.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 58:                                               ; preds = %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit
   store atomic i8 0, ptr %39 release, align 2
@@ -489,7 +489,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
   tail call void @llvm.x86.sse2.pause()
   %77 = cmpxchg ptr %74, i8 0, i8 1 seq_cst seq_cst, align 1
   %78 = extractvalue { i8, i1 } %77, 1
-  br i1 %78, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit68, label %.lr.ph.i.preheader.i67, !llvm.loop !21
+  br i1 %78, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit68, label %.lr.ph.i.preheader.i67, !llvm.loop !19
 
 _ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit68: ; preds = %.lr.ph.i.preheader.i67, %73
   %79 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -539,7 +539,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.0.1.us.i = phi i32 [ %97, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %.sroa.0.09.us.i, %91 ]
   %98 = load atomic i64, ptr %80 acquire, align 8
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %.lr.ph.i89, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit90, !llvm.loop !19
+  br i1 %99, label %.lr.ph.i89, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit90, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit90: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %82, %87, %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit68
   %100 = load atomic i64, ptr %80 monotonic, align 8
@@ -569,7 +569,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicI
   tail call void @llvm.x86.sse2.pause()
   %110 = cmpxchg ptr %107, i8 0, i8 1 seq_cst seq_cst, align 1
   %111 = extractvalue { i8, i1 } %110, 1
-  br i1 %111, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit72, label %.lr.ph.i.preheader.i71, !llvm.loop !21
+  br i1 %111, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit72, label %.lr.ph.i.preheader.i71, !llvm.loop !19
 
 _ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit72: ; preds = %.lr.ph.i.preheader.i71, %._crit_edge
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -621,7 +621,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i95: ; preds = %129, %_ZN3tbb6det
   %.sroa.0.1.i96 = phi i32 [ %128, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i97 ], [ %.sroa.0.09.i94, %129 ]
   %131 = load atomic i64, ptr %112 monotonic, align 8
   %132 = icmp eq i64 %131, 0
-  br i1 %132, label %.lr.ph.split.i93, label %.loopexit, !llvm.loop !20
+  br i1 %132, label %.lr.ph.split.i93, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i95, %120
   %133 = load atomic i64, ptr %112 acquire, align 8
@@ -677,7 +677,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i80: ; preds = %_ZN3tbb6de
   %.sroa.0.1.us.i.i.i81 = phi i32 [ %149, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i83 ], [ %.sroa.0.010.us.i.i.i79, %143 ]
   %150 = load atomic i8, ptr %139 acquire, align 2
   %.not.us.i.i.i82 = icmp eq i8 %150, 0
-  br i1 %.not.us.i.i.i82, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i78, !llvm.loop !22
+  br i1 %.not.us.i.i.i82, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i78, !llvm.loop !20
 
 151:                                              ; preds = %.thread.thread, %.thread
   %152 = phi ptr [ %119, %.thread.thread ], [ %139, %.thread ]
@@ -718,7 +718,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i105: ; preds = %162, %_ZN3tbb6de
   %.sroa.0.1.i106 = phi i32 [ %161, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i107 ], [ %.sroa.0.09.i104, %162 ]
   %164 = load atomic i8, ptr %153 monotonic, align 1
   %165 = icmp eq i8 %164, 2
-  br i1 %165, label %.lr.ph.split.i103, label %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit, !llvm.loop !23
+  br i1 %165, label %.lr.ph.split.i103, label %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit, !llvm.loop !21
 
 _ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i105, %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit
   store ptr null, ptr %0, align 8, !tbaa !3
@@ -768,7 +768,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2r121queuing_rw_mutex_impl
   tail call void @llvm.x86.sse2.pause()
   %16 = cmpxchg ptr %10, i8 0, i8 1 seq_cst seq_cst, align 1
   %17 = extractvalue { i8, i1 } %16, 1
-  br i1 %17, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.preheader.i, !llvm.loop !21
+  br i1 %17, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.preheader.i, !llvm.loop !19
 
 _ZN3tbb6detail2r121queuing_rw_mutex_impl21acquire_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit: ; preds = %.lr.ph.i.preheader.i, %.loopexit148
   %18 = load ptr, ptr %0, align 8, !tbaa !3
@@ -809,7 +809,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %30, %_ZN3tbb6detail
   %.sroa.0.1.i = phi i32 [ %29, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i ], [ %.sroa.0.09.i, %30 ]
   %32 = load atomic i64, ptr %13 monotonic, align 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.split.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !20
+  br i1 %33, label %.lr.ph.split.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %21
   %34 = atomicrmw add ptr %13, i64 1 acquire, align 8
@@ -866,7 +866,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i.i: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i.i = phi i32 [ %55, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i ], [ %.sroa.0.010.us.i.i.i, %49 ]
   %56 = load atomic i8, ptr %10 acquire, align 2
   %.not.us.i.i.i = icmp eq i8 %56, 0
-  br i1 %.not.us.i.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not.us.i.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 57:                                               ; preds = %42
   store atomic i8 0, ptr %10 release, align 2
@@ -929,7 +929,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit:   ; preds = %_ZN3tbb6detail2d0L1
   %.sroa.0100.1 = phi i32 [ %74, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i ], [ %.sroa.0100.0165, %75 ]
   %77 = load atomic i64, ptr %13 monotonic, align 8
   %.not60 = icmp eq i64 %77, %60
-  br i1 %.not60, label %.lr.ph, label %.loopexit148.backedge, !llvm.loop !24
+  br i1 %.not60, label %.lr.ph, label %.loopexit148.backedge, !llvm.loop !22
 
 .thread132:                                       ; preds = %_ZN3tbb6detail2r121queuing_rw_mutex_impl32unblock_or_wait_on_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockEm.exit
   store atomic i64 %34, ptr %13 monotonic, align 8
@@ -1014,7 +1014,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i: ; preds = %_ZN3tbb6detail
   %.sroa.0.1.us.i.i = phi i32 [ %108, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i ], [ %.sroa.0.09.us.i.i, %102 ]
   %109 = load atomic i64, ptr %80 acquire, align 8
   %110 = icmp eq i64 %109, %87
-  br i1 %110, label %.lr.ph.i.i70, label %_ZN3tbb6detail2r121tricky_atomic_pointerINS0_2d116queuing_rw_mutex11scoped_lockEE18spin_wait_while_eqERKSt6atomicImEPKS5_.exit, !llvm.loop !25
+  br i1 %110, label %.lr.ph.i.i70, label %_ZN3tbb6detail2r121tricky_atomic_pointerINS0_2d116queuing_rw_mutex11scoped_lockEE18spin_wait_while_eqERKSt6atomicImEPKS5_.exit, !llvm.loop !23
 
 111:                                              ; preds = %94
   %112 = icmp eq i64 %98, %95
@@ -1048,7 +1048,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i73: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i74 = phi i32 [ %120, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i75 ], [ %.sroa.0.09.us.i.i72, %114 ]
   %121 = load atomic i64, ptr %80 acquire, align 8
   %122 = icmp eq i64 %121, %95
-  br i1 %122, label %.lr.ph.i.i71, label %.thread134, !llvm.loop !25
+  br i1 %122, label %.lr.ph.i.i71, label %.thread134, !llvm.loop !23
 
 .thread134:                                       ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i73, %111
   store atomic i8 0, ptr %89 release, align 1
@@ -1092,7 +1092,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i81: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i82 = phi i32 [ %133, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i83 ], [ %.sroa.0.09.us.i.i80, %127 ]
   %134 = load atomic i64, ptr %80 acquire, align 8
   %135 = icmp eq i64 %134, %87
-  br i1 %135, label %.lr.ph.i.i79, label %_ZN3tbb6detail2r121tricky_atomic_pointerINS0_2d116queuing_rw_mutex11scoped_lockEE18spin_wait_while_eqERKSt6atomicImEPKS5_.exit, !llvm.loop !25
+  br i1 %135, label %.lr.ph.i.i79, label %_ZN3tbb6detail2r121tricky_atomic_pointerINS0_2d116queuing_rw_mutex11scoped_lockEE18spin_wait_while_eqERKSt6atomicImEPKS5_.exit, !llvm.loop !23
 
 _ZN3tbb6detail2r121tricky_atomic_pointerINS0_2d116queuing_rw_mutex11scoped_lockEE18spin_wait_while_eqERKSt6atomicImEPKS5_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i81, %123, %99
   %136 = load atomic i64, ptr %80 monotonic, align 8
@@ -1136,7 +1136,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i88: ; preds = %_ZN3tbb6deta
   %.sroa.0.1.us.i.i89 = phi i32 [ %146, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i90 ], [ %.sroa.0.010.us.i.i, %140 ]
   %147 = load atomic i8, ptr %10 acquire, align 2
   %.not.us.i.i = icmp eq i8 %147, 0
-  br i1 %.not.us.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl33wait_for_release_of_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.i87, !llvm.loop !22
+  br i1 %.not.us.i.i, label %_ZN3tbb6detail2r121queuing_rw_mutex_impl33wait_for_release_of_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit, label %.lr.ph.i.i87, !llvm.loop !20
 
 _ZN3tbb6detail2r121queuing_rw_mutex_impl33wait_for_release_of_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i88, %.loopexit
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1172,7 +1172,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.0.1.us.i = phi i32 [ %158, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %.sroa.0.09.us.i, %152 ]
   %159 = load atomic i8, ptr %148 acquire, align 1
   %160 = icmp eq i8 %159, 2
-  br i1 %160, label %.lr.ph.i95, label %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit, !llvm.loop !26
+  br i1 %160, label %.lr.ph.i95, label %_ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit, !llvm.loop !21
 
 _ZN3tbb6detail2d015spin_wait_whileIhZNS1_18spin_wait_while_eqIhjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlhE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %_ZN3tbb6detail2r121queuing_rw_mutex_impl33wait_for_release_of_internal_lockERNS0_2d116queuing_rw_mutex11scoped_lockE.exit
   %161 = load atomic i8, ptr %2 seq_cst, align 8
@@ -1270,7 +1270,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i: ; preds = %28, %_ZN3tbb6deta
   %.sroa.0.1.i.i = phi i32 [ %27, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i ], [ %.sroa.0.09.i.i, %28 ]
   %30 = load atomic i64, ptr %10 monotonic, align 8
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph.split.i.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit.i, !llvm.loop !20
+  br i1 %31, label %.lr.ph.split.i.i, label %_ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit.i, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImjEET_RKSt6atomicIS4_ET0_St12memory_orderEUlmE_EES4_S8_S9_SA_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i, %19
   %32 = load atomic i64, ptr %10 acquire, align 8
@@ -1353,13 +1353,10 @@ attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 !14 = !{!6, !6, i64 0}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !16, !18}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
 !20 = distinct !{!20, !16}
 !21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16, !18}
+!22 = distinct !{!22, !16}
 !23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16, !18}
-!26 = distinct !{!26, !16, !18}

@@ -1070,7 +1070,7 @@ tailrecurse.us66:                                 ; preds = %46
   %.val46.us69 = load i32, ptr %52, align 8
   %53 = and i32 %.val46.us69, 15
   %.not48.us70 = icmp eq i32 %53, 1
-  br i1 %.not48.us70, label %.loopexit, label %.lr.ph93, !llvm.loop !48
+  br i1 %.not48.us70, label %.loopexit, label %.lr.ph93
 
 .split.split:                                     ; preds = %.split
   %.val4578 = load i32, ptr %5, align 8, !tbaa !3
@@ -1177,7 +1177,7 @@ define void @Ivy_ObjUpdateLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !17
-  store i32 10, ptr %3, align 8, !tbaa !50
+  store i32 10, ptr %3, align 8, !tbaa !48
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !19
@@ -1247,7 +1247,7 @@ define void @Ivy_ObjUpdateLevel_rec(ptr noundef %0, ptr noundef %1) local_unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %.val to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %.critedge, !llvm.loop !51
+  br i1 %41, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %39, %2
   %.pr = load ptr, ptr %6, align 8, !tbaa !19
@@ -1271,7 +1271,7 @@ define range(i32 -2147483648, 1000000) i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !17
-  store i32 10, ptr %3, align 8, !tbaa !50
+  store i32 10, ptr %3, align 8, !tbaa !48
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !19
@@ -1295,7 +1295,7 @@ define range(i32 -2147483648, 1000000) i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr
   br i1 %.not, label %.critedge.thread.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %8, align 8, !tbaa !52
+  %13 = load ptr, ptr %8, align 8, !tbaa !50
   %14 = load i32, ptr %11, align 8, !tbaa !26
   %15 = getelementptr i8, ptr %13, i64 8
   %.val18 = load ptr, ptr %15, align 8, !tbaa !30
@@ -1305,7 +1305,7 @@ define range(i32 -2147483648, 1000000) i32 @Ivy_ObjLevelRNew(ptr noundef %0, ptr
   %19 = tail call i32 @llvm.smin.i32(i32 %.022, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread.loopexit, label %9, !llvm.loop !53
+  br i1 %exitcond.not, label %.critedge.thread.loopexit, label %9, !llvm.loop !51
 
 .critedge:                                        ; preds = %2
   %.not.i = icmp eq ptr %.pr.pre, null
@@ -1354,7 +1354,7 @@ define void @Ivy_ObjUpdateLevelR_rec(ptr noundef readonly captures(none) %0, ptr
   %10 = ptrtoint ptr %.val to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %4, align 8, !tbaa !52
+  %13 = load ptr, ptr %4, align 8, !tbaa !50
   %14 = load i32, ptr %12, align 8, !tbaa !26
   %15 = getelementptr i8, ptr %13, i64 8
   %.val28 = load ptr, ptr %15, align 8, !tbaa !30
@@ -1383,7 +1383,7 @@ define void @Ivy_ObjUpdateLevelR_rec(ptr noundef readonly captures(none) %0, ptr
   %24 = ptrtoint ptr %.val26 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %4, align 8, !tbaa !52
+  %27 = load ptr, ptr %4, align 8, !tbaa !50
   %28 = load i32, ptr %26, align 8, !tbaa !26
   %29 = getelementptr i8, ptr %27, i64 8
   %.val27 = load ptr, ptr %29, align 8, !tbaa !30
@@ -1661,13 +1661,13 @@ Ivy_ObjFaninId0.exit117:                          ; preds = %Ivy_ObjFaninId0.exi
   %35 = ptrtoint ptr %.val91 to i64
   %36 = xor i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
-  store ptr %37, ptr %1, align 8, !tbaa !54
+  store ptr %37, ptr %1, align 8, !tbaa !52
   %38 = getelementptr i8, ptr %7, i64 24
   %.val92 = load ptr, ptr %38, align 8, !tbaa !25
   %39 = ptrtoint ptr %.val92 to i64
   %40 = xor i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
-  store ptr %41, ptr %2, align 8, !tbaa !54
+  store ptr %41, ptr %2, align 8, !tbaa !52
   %.val103 = load ptr, ptr %18, align 8, !tbaa !24
   br label %157
 
@@ -1677,13 +1677,13 @@ Ivy_ObjFaninId0.exit117:                          ; preds = %Ivy_ObjFaninId0.exi
   %44 = ptrtoint ptr %.val93 to i64
   %45 = xor i64 %44, 1
   %46 = inttoptr i64 %45 to ptr
-  store ptr %46, ptr %1, align 8, !tbaa !54
+  store ptr %46, ptr %1, align 8, !tbaa !52
   %47 = getelementptr i8, ptr %11, i64 24
   %.val94 = load ptr, ptr %47, align 8, !tbaa !25
   %48 = ptrtoint ptr %.val94 to i64
   %49 = xor i64 %48, 1
   %50 = inttoptr i64 %49 to ptr
-  store ptr %50, ptr %2, align 8, !tbaa !54
+  store ptr %50, ptr %2, align 8, !tbaa !52
   %.val104 = load ptr, ptr %12, align 8, !tbaa !24
   br label %157
 
@@ -1734,13 +1734,13 @@ Ivy_ObjFaninId1.exit:                             ; preds = %Ivy_ObjFaninId0.exi
   %73 = ptrtoint ptr %.val85 to i64
   %74 = xor i64 %73, 1
   %75 = inttoptr i64 %74 to ptr
-  store ptr %75, ptr %1, align 8, !tbaa !54
+  store ptr %75, ptr %1, align 8, !tbaa !52
   %76 = getelementptr i8, ptr %7, i64 24
   %.val95 = load ptr, ptr %76, align 8, !tbaa !25
   %77 = ptrtoint ptr %.val95 to i64
   %78 = xor i64 %77, 1
   %79 = inttoptr i64 %78 to ptr
-  store ptr %79, ptr %2, align 8, !tbaa !54
+  store ptr %79, ptr %2, align 8, !tbaa !52
   %.val96 = load ptr, ptr %57, align 8, !tbaa !25
   br label %157
 
@@ -1750,12 +1750,12 @@ Ivy_ObjFaninId1.exit:                             ; preds = %Ivy_ObjFaninId0.exi
   %82 = ptrtoint ptr %.val97 to i64
   %83 = xor i64 %82, 1
   %84 = inttoptr i64 %83 to ptr
-  store ptr %84, ptr %1, align 8, !tbaa !54
+  store ptr %84, ptr %1, align 8, !tbaa !52
   %.val106 = load ptr, ptr %18, align 8, !tbaa !24
   %85 = ptrtoint ptr %.val106 to i64
   %86 = xor i64 %85, 1
   %87 = inttoptr i64 %86 to ptr
-  store ptr %87, ptr %2, align 8, !tbaa !54
+  store ptr %87, ptr %2, align 8, !tbaa !52
   %.val107 = load ptr, ptr %12, align 8, !tbaa !24
   br label %157
 
@@ -1806,12 +1806,12 @@ Ivy_ObjFaninId0.exit128:                          ; preds = %Ivy_ObjFaninId1.exi
   %110 = ptrtoint ptr %.val90 to i64
   %111 = xor i64 %110, 1
   %112 = inttoptr i64 %111 to ptr
-  store ptr %112, ptr %1, align 8, !tbaa !54
+  store ptr %112, ptr %1, align 8, !tbaa !52
   %.val108 = load ptr, ptr %12, align 8, !tbaa !24
   %113 = ptrtoint ptr %.val108 to i64
   %114 = xor i64 %113, 1
   %115 = inttoptr i64 %114 to ptr
-  store ptr %115, ptr %2, align 8, !tbaa !54
+  store ptr %115, ptr %2, align 8, !tbaa !52
   %.val109 = load ptr, ptr %18, align 8, !tbaa !24
   br label %157
 
@@ -1819,12 +1819,12 @@ Ivy_ObjFaninId0.exit128:                          ; preds = %Ivy_ObjFaninId1.exi
   %117 = ptrtoint ptr %.val86 to i64
   %118 = xor i64 %117, 1
   %119 = inttoptr i64 %118 to ptr
-  store ptr %119, ptr %1, align 8, !tbaa !54
+  store ptr %119, ptr %1, align 8, !tbaa !52
   %.val99 = load ptr, ptr %57, align 8, !tbaa !25
   %120 = ptrtoint ptr %.val99 to i64
   %121 = xor i64 %120, 1
   %122 = inttoptr i64 %121 to ptr
-  store ptr %122, ptr %2, align 8, !tbaa !54
+  store ptr %122, ptr %2, align 8, !tbaa !52
   %.val100 = load ptr, ptr %89, align 8, !tbaa !25
   br label %157
 
@@ -1872,12 +1872,12 @@ Ivy_ObjFaninId1.exit134:                          ; preds = %Ivy_ObjFaninId1.exi
   %144 = ptrtoint ptr %.val85 to i64
   %145 = xor i64 %144, 1
   %146 = inttoptr i64 %145 to ptr
-  store ptr %146, ptr %1, align 8, !tbaa !54
+  store ptr %146, ptr %1, align 8, !tbaa !52
   %.val112 = load ptr, ptr %12, align 8, !tbaa !24
   %147 = ptrtoint ptr %.val112 to i64
   %148 = xor i64 %147, 1
   %149 = inttoptr i64 %148 to ptr
-  store ptr %149, ptr %2, align 8, !tbaa !54
+  store ptr %149, ptr %2, align 8, !tbaa !52
   %.val101 = load ptr, ptr %57, align 8, !tbaa !25
   br label %157
 
@@ -1885,12 +1885,12 @@ Ivy_ObjFaninId1.exit134:                          ; preds = %Ivy_ObjFaninId1.exi
   %151 = ptrtoint ptr %.val86 to i64
   %152 = xor i64 %151, 1
   %153 = inttoptr i64 %152 to ptr
-  store ptr %153, ptr %1, align 8, !tbaa !54
+  store ptr %153, ptr %1, align 8, !tbaa !52
   %.val114 = load ptr, ptr %18, align 8, !tbaa !24
   %154 = ptrtoint ptr %.val114 to i64
   %155 = xor i64 %154, 1
   %156 = inttoptr i64 %155 to ptr
-  store ptr %156, ptr %2, align 8, !tbaa !54
+  store ptr %156, ptr %2, align 8, !tbaa !52
   %.val102 = load ptr, ptr %89, align 8, !tbaa !25
   br label %157
 
@@ -2014,7 +2014,7 @@ define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef rea
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.val81)
   %.not64 = icmp eq i32 %2, 0
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %52 = load ptr, ptr %51, align 8, !tbaa !55
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
   %53 = icmp eq ptr %52, null
   br i1 %.not64, label %54, label %65
 
@@ -2056,7 +2056,7 @@ define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef rea
 70:                                               ; preds = %66
   %71 = load i32, ptr %1, align 8, !tbaa !26
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %71)
-  %73 = load ptr, ptr %51, align 8, !tbaa !55
+  %73 = load ptr, ptr %51, align 8, !tbaa !53
   %.not6692 = icmp eq ptr %73, %1
   br i1 %.not6692, label %._crit_edge96, label %.lr.ph95
 
@@ -2064,18 +2064,18 @@ define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef rea
   %.05393 = phi ptr [ %84, %.lr.ph95 ], [ %73, %70 ]
   %74 = load i32, ptr %.05393, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %.05393, i64 72
-  %76 = load ptr, ptr %75, align 8, !tbaa !55
+  %76 = load ptr, ptr %75, align 8, !tbaa !53
   %77 = ptrtoint ptr %76 to i64
   %78 = and i64 %77, 1
   %.not67 = icmp eq i64 %78, 0
   %79 = select i1 %.not67, ptr @.str.6, ptr @.str.5
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %74, ptr noundef nonnull %79)
-  %81 = load ptr, ptr %75, align 8, !tbaa !55
+  %81 = load ptr, ptr %75, align 8, !tbaa !53
   %82 = ptrtoint ptr %81 to i64
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
   %.not66 = icmp eq ptr %1, %84
-  br i1 %.not66, label %._crit_edge96, label %.lr.ph95, !llvm.loop !56
+  br i1 %.not66, label %._crit_edge96, label %.lr.ph95, !llvm.loop !54
 
 ._crit_edge96:                                    ; preds = %.lr.ph95, %70
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
@@ -2084,14 +2084,14 @@ define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef rea
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.191 = phi ptr [ %.1, %.lr.ph ], [ %.189, %.preheader ]
   %86 = getelementptr inbounds nuw i8, ptr %.191, i64 72
-  %87 = load ptr, ptr %86, align 8, !tbaa !55
+  %87 = load ptr, ptr %86, align 8, !tbaa !53
   %.1.in.in = ptrtoint ptr %87 to i64
   %.1.in = and i64 %.1.in.in, -2
   %.1 = inttoptr i64 %.1.in to ptr
   %88 = getelementptr i8, ptr %.1, i64 12
   %.1.val = load i32, ptr %88, align 4, !tbaa !47
   %89 = icmp eq i32 %.1.val, 0
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi ptr [ %.189, %.preheader ], [ %.1, %.lr.ph ]
@@ -2109,7 +2109,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  %4 = load ptr, ptr %0, align 8, !tbaa !58
+  %4 = load ptr, ptr %0, align 8, !tbaa !56
   %5 = getelementptr i8, ptr %4, i64 4
   %.val4758 = load i32, ptr %5, align 4, !tbaa !17
   %6 = icmp sgt i32 %.val4758, 0
@@ -2125,12 +2125,12 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %11 = load i32, ptr %10, align 8, !tbaa !26
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load ptr, ptr %0, align 8, !tbaa !58
+  %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = getelementptr i8, ptr %13, i64 4
   %.val47 = load i32, ptr %14, align 4, !tbaa !17
   %15 = sext i32 %.val47 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !59
+  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %putchar = tail call i32 @putchar(i32 10)
@@ -2157,7 +2157,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val46 = load i32, ptr %29, align 4, !tbaa !17
   %30 = sext i32 %.val46 to i64
   %31 = icmp slt i64 %indvars.iv.next72, %30
-  br i1 %31, label %.lr.ph62, label %.critedge2, !llvm.loop !60
+  br i1 %31, label %.lr.ph62, label %.critedge2, !llvm.loop !58
 
 .critedge2:                                       ; preds = %.lr.ph62, %.critedge
   %putchar40 = tail call i32 @putchar(i32 10)
@@ -2208,7 +2208,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val = load i32, ptr %57, align 4, !tbaa !17
   %58 = sext i32 %.val to i64
   %59 = icmp slt i64 %indvars.iv.next75, %58
-  br i1 %59, label %.lr.ph65, label %.critedge4, !llvm.loop !61
+  br i1 %59, label %.lr.ph65, label %.critedge4, !llvm.loop !59
 
 .critedge4:                                       ; preds = %55, %.critedge2
   %putchar41 = tail call i32 @putchar(i32 10)
@@ -2240,7 +2240,7 @@ define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.val52 = load i32, ptr %62, align 4, !tbaa !27
   %71 = sext i32 %.val52 to i64
   %72 = icmp slt i64 %indvars.iv.next78, %71
-  br i1 %72, label %.lr.ph68, label %.critedge6, !llvm.loop !62
+  br i1 %72, label %.lr.ph68, label %.critedge6, !llvm.loop !60
 
 .critedge6:                                       ; preds = %.lr.ph68, %70, %.critedge4
   %putchar42 = tail call i32 @putchar(i32 10)
@@ -2265,7 +2265,7 @@ define noundef i32 @Ivy_CutTruthPrint2(ptr noundef readnone captures(none) %0, p
   store i32 %2, ptr %4, align 4, !tbaa !31
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !63
+  %7 = load i16, ptr %6, align 4, !tbaa !61
   %8 = icmp sgt i16 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -2281,14 +2281,14 @@ define noundef i32 @Ivy_CutTruthPrint2(ptr noundef readnone captures(none) %0, p
   %14 = and i32 %12, 255
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %13, i32 noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i16, ptr %6, align 4, !tbaa !63
+  %16 = load i16, ptr %6, align 4, !tbaa !61
   %17 = sext i16 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %10, label %._crit_edge, !llvm.loop !66
+  br i1 %18, label %10, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %10, %3
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26)
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !67
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !65
   call void @Extra_PrintBinary(ptr noundef %20, ptr noundef nonnull %4, i32 noundef 16) #19
   %putchar = call i32 @putchar(i32 10)
   ret i32 0
@@ -2299,7 +2299,7 @@ declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i16, ptr %4, align 4, !tbaa !63
+  %5 = load i16, ptr %4, align 4, !tbaa !61
   %6 = icmp sgt i16 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -2317,14 +2317,14 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
   %12 = add nuw nsw i32 %11, %.053
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %8, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %8 ]
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4, !tbaa !17
-  store i32 100, ptr %13, align 8, !tbaa !50
+  store i32 100, ptr %13, align 8, !tbaa !48
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #18
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !19
@@ -2360,7 +2360,7 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
 28:                                               ; preds = %32
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %.critedge, label %29, !llvm.loop !70
+  br i1 %exitcond69.not, label %.critedge, label %29, !llvm.loop !68
 
 29:                                               ; preds = %.lr.ph56, %28
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next66, %28 ]
@@ -2383,10 +2383,10 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
 .critedge:                                        ; preds = %28, %29, %19, %35
   %.144 = phi i32 [ %36, %35 ], [ %.04358, %19 ], [ %.04358, %29 ], [ %.04358, %28 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %37 = load i16, ptr %4, align 4, !tbaa !63
+  %37 = load i16, ptr %4, align 4, !tbaa !61
   %38 = sext i16 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next71, %38
-  br i1 %39, label %19, label %._crit_edge62, !llvm.loop !71
+  br i1 %39, label %19, label %._crit_edge62, !llvm.loop !69
 
 ._crit_edge62:                                    ; preds = %.critedge, %._crit_edge
   %.043.lcssa = phi i32 [ 0, %._crit_edge ], [ %.144, %.critedge ]
@@ -2486,27 +2486,25 @@ attributes #19 = { nounwind }
 !45 = distinct !{!45, !23}
 !46 = distinct !{!46, !23}
 !47 = !{!10, !11, i64 12}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = !{!18, !11, i64 0}
+!48 = !{!18, !11, i64 0}
+!49 = distinct !{!49, !23}
+!50 = !{!4, !13, i64 184}
 !51 = distinct !{!51, !23}
-!52 = !{!4, !13, i64 184}
-!53 = distinct !{!53, !23}
-!54 = !{!9, !9, i64 0}
-!55 = !{!10, !9, i64 72}
-!56 = distinct !{!56, !23}
+!52 = !{!9, !9, i64 0}
+!53 = !{!10, !9, i64 72}
+!54 = distinct !{!54, !23}
+!55 = distinct !{!55, !23}
+!56 = !{!4, !5, i64 0}
 !57 = distinct !{!57, !23}
-!58 = !{!4, !5, i64 0}
+!58 = distinct !{!58, !23}
 !59 = distinct !{!59, !23}
 !60 = distinct !{!60, !23}
-!61 = distinct !{!61, !23}
-!62 = distinct !{!62, !23}
-!63 = !{!64, !65, i64 4}
-!64 = !{!"Ivy_Cut_t_", !11, i64 0, !65, i64 4, !65, i64 6, !7, i64 8, !11, i64 32}
-!65 = !{!"short", !7, i64 0}
-!66 = distinct !{!66, !23}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!61 = !{!62, !63, i64 4}
+!62 = !{!"Ivy_Cut_t_", !11, i64 0, !63, i64 4, !63, i64 6, !7, i64 8, !11, i64 32}
+!63 = !{!"short", !7, i64 0}
+!64 = distinct !{!64, !23}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!67 = distinct !{!67, !23}
+!68 = distinct !{!68, !23}
 !69 = distinct !{!69, !23}
-!70 = distinct !{!70, !23}
-!71 = distinct !{!71, !23}

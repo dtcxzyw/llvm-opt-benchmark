@@ -7164,7 +7164,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us354:    ; preds = %180
   %197 = zext i8 %181 to i32
   %198 = add nsw i32 %196, %197
   %199 = icmp slt i8 %.2230331.us352, 2
-  br i1 %199, label %.lr.ph.split.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge, !llvm.loop !186
+  br i1 %199, label %.lr.ph.split.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge, !llvm.loop !184
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %215
   %.6332 = phi ptr [ %216, %215 ], [ %.0207, %.lr.ph.split ]
@@ -7201,7 +7201,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %201
   %219 = zext i8 %202 to i32
   %220 = add nsw i32 %218, %219
   %221 = icmp slt i8 %217, %.1240.fr
-  br i1 %221, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !187
+  br i1 %221, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !184
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
   %.us-phi = phi i8 [ %.2230331.us, %.lr.ph.split.us ], [ %.2230331.us352, %.lr.ph.split.split.us ], [ %.2230331, %.lr.ph.split.split ]
@@ -7228,7 +7228,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %201
   %231 = getelementptr inbounds [7 x i8], ptr %227, i64 0, i64 %indvars.iv
   store i8 %230, ptr %231, align 1, !tbaa !28
   %232 = icmp samesign ult i64 %indvars.iv.next, %222
-  br i1 %232, label %228, label %._crit_edge386, !llvm.loop !188
+  br i1 %232, label %228, label %._crit_edge386, !llvm.loop !185
 
 ._crit_edge386:                                   ; preds = %228, %.split.us
   %.7.lcssa = phi ptr [ %225, %.split.us ], [ %229, %228 ]
@@ -7282,7 +7282,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %215, %171,
   %251 = getelementptr inbounds [7 x i8], ptr %247, i64 0, i64 %indvars.iv479
   store i8 %250, ptr %251, align 1, !tbaa !28
   %252 = icmp slt i64 %indvars.iv.next480, %243
-  br i1 %252, label %248, label %._crit_edge392, !llvm.loop !189
+  br i1 %252, label %248, label %._crit_edge392, !llvm.loop !186
 
 ._crit_edge392:                                   ; preds = %248, %242
   %.8.lcssa = phi ptr [ %245, %242 ], [ %249, %248 ]
@@ -7438,7 +7438,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %215, %171,
   %334 = add nsw i32 %332, %333
   %.10 = getelementptr inbounds nuw i8, ptr %.10402, i64 1
   %exitcond.not = icmp eq ptr %.10, %309
-  br i1 %exitcond.not, label %._crit_edge405, label %.lr.ph404, !llvm.loop !190
+  br i1 %exitcond.not, label %._crit_edge405, label %.lr.ph404, !llvm.loop !187
 
 ._crit_edge405:                                   ; preds = %.lr.ph404, %325
   %.6238.lcssa = phi i32 [ %314, %325 ], [ %334, %.lr.ph404 ]
@@ -7610,7 +7610,7 @@ define internal void @_ZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   store i8 %85, ptr %93, align 1, !tbaa !28
   %95 = add nsw i32 %.1220374, -1
   %exitcond.not = icmp eq ptr %84, %.0216
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph376, !llvm.loop !191
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph376, !llvm.loop !188
 
 96:                                               ; preds = %88
   %97 = load i16, ptr %27, align 2, !tbaa !17
@@ -7750,7 +7750,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us:       ; preds = %.lr.ph.split.us
   %181 = zext i8 %175 to i32
   %182 = add nsw i32 %180, %181
   %183 = icmp slt i8 %179, %.1248.fr
-  br i1 %183, label %.lr.ph.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !192
+  br i1 %183, label %.lr.ph.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !189
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %184 = icmp eq i8 %.1248.fr, 3
@@ -7790,7 +7790,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit.us334:    ; preds = %186
   %203 = zext i8 %187 to i32
   %204 = add nsw i32 %202, %203
   %205 = icmp slt i8 %.2239311.us332, 2
-  br i1 %205, label %.lr.ph.split.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge, !llvm.loop !193
+  br i1 %205, label %.lr.ph.split.split.us, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge, !llvm.loop !189
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %221
   %.7312 = phi ptr [ %222, %221 ], [ %.0215, %.lr.ph.split ]
@@ -7827,7 +7827,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %207
   %225 = zext i8 %208 to i32
   %226 = add nsw i32 %224, %225
   %227 = icmp slt i8 %223, %.1248.fr
-  br i1 %227, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !194
+  br i1 %227, label %.lr.ph.split.split, label %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread, !llvm.loop !189
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us
   %.us-phi = phi i8 [ %.2239311.us, %.lr.ph.split.us ], [ %.2239311.us332, %.lr.ph.split.split.us ], [ %.2239311, %.lr.ph.split.split ]
@@ -7854,7 +7854,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %207
   %237 = getelementptr inbounds [7 x i8], ptr %233, i64 0, i64 %indvars.iv
   store i8 %236, ptr %237, align 1, !tbaa !28
   %238 = icmp samesign ult i64 %indvars.iv.next, %228
-  br i1 %238, label %234, label %._crit_edge366, !llvm.loop !195
+  br i1 %238, label %234, label %._crit_edge366, !llvm.loop !190
 
 ._crit_edge366:                                   ; preds = %234, %.split.us
   %.8.lcssa = phi ptr [ %231, %.split.us ], [ %235, %234 ]
@@ -7908,7 +7908,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %221, %177,
   %257 = getelementptr inbounds [7 x i8], ptr %253, i64 0, i64 %indvars.iv427
   store i8 %256, ptr %257, align 1, !tbaa !28
   %258 = icmp slt i64 %indvars.iv.next428, %249
-  br i1 %258, label %254, label %._crit_edge372, !llvm.loop !196
+  br i1 %258, label %254, label %._crit_edge372, !llvm.loop !191
 
 ._crit_edge372:                                   ; preds = %254, %248
   %.9.lcssa = phi ptr [ %251, %248 ], [ %255, %254 ]
@@ -8005,7 +8005,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %221, %177,
   store ptr %307, ptr %4, align 8, !tbaa !61
   store i8 %.sink490, ptr %306, align 1, !tbaa !28
   %308 = add nsw i32 %.3222, %.sink
-  br label %.preheader, !llvm.loop !191
+  br label %.preheader, !llvm.loop !188
 
 309:                                              ; preds = %96, %286, %290, %161, %139
   %.2243 = phi i32 [ %141, %139 ], [ %163, %161 ], [ %246, %290 ], [ %246, %286 ], [ %86, %96 ]
@@ -8123,7 +8123,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %221, %177,
   %367 = add nsw i32 %365, %366
   %.11 = getelementptr inbounds nuw i8, ptr %.11381, i64 1
   %exitcond434.not = icmp eq ptr %.11, %342
-  br i1 %exitcond434.not, label %._crit_edge384, label %.lr.ph383, !llvm.loop !197
+  br i1 %exitcond434.not, label %._crit_edge384, label %.lr.ph383, !llvm.loop !192
 
 ._crit_edge384:                                   ; preds = %.lr.ph383, %358
   %.5246.lcssa = phi i32 [ %347, %358 ], [ %367, %.lr.ph383 ]
@@ -8186,7 +8186,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailByte
 14:                                               ; preds = %.preheader31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader, label %.preheader31, !llvm.loop !198
+  br i1 %exitcond.not, label %.preheader, label %.preheader31, !llvm.loop !193
 
 .preheader31:                                     ; preds = %9, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %9 ]
@@ -8215,7 +8215,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailByte
 26:                                               ; preds = %.preheader, %22
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 256
-  br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !199
+  br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !194
 
 .loopexit:                                        ; preds = %.preheader31, %26, %22, %9, %2
   %.021 = phi i8 [ 1, %2 ], [ 1, %9 ], [ 0, %26 ], [ 1, %22 ], [ 1, %.preheader31 ]
@@ -8453,19 +8453,14 @@ attributes #17 = { nounwind }
 !181 = distinct !{!181, !24}
 !182 = distinct !{!182, !24}
 !183 = distinct !{!183, !24}
-!184 = distinct !{!184, !24, !185}
-!185 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!186 = distinct !{!186, !24, !185}
+!184 = distinct !{!184, !24}
+!185 = distinct !{!185, !24}
+!186 = distinct !{!186, !24}
 !187 = distinct !{!187, !24}
 !188 = distinct !{!188, !24}
 !189 = distinct !{!189, !24}
 !190 = distinct !{!190, !24}
 !191 = distinct !{!191, !24}
-!192 = distinct !{!192, !24, !185}
-!193 = distinct !{!193, !24, !185}
+!192 = distinct !{!192, !24}
+!193 = distinct !{!193, !24}
 !194 = distinct !{!194, !24}
-!195 = distinct !{!195, !24}
-!196 = distinct !{!196, !24}
-!197 = distinct !{!197, !24}
-!198 = distinct !{!198, !24}
-!199 = distinct !{!199, !24}

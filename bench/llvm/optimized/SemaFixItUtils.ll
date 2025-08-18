@@ -345,31 +345,31 @@ switch.early.test:                                ; preds = %14
 
 34:                                               ; preds = %switch.early.test
   %35 = load i16, ptr %1, align 8
-  %.fr217 = freeze i16 %35
-  %36 = and i16 %.fr217, 511
+  %.fr211 = freeze i16 %35
+  %36 = and i16 %.fr211, 511
   %37 = icmp eq i16 %36, 22
-  br i1 %37, label %39, label %switch.early.test215
+  br i1 %37, label %39, label %switch.early.test208
 
-switch.early.test215:                             ; preds = %34
+switch.early.test208:                             ; preds = %34
   %38 = icmp samesign ult i16 %32, 22
   br i1 %38, label %switch.lookup, label %39
 
-switch.lookup:                                    ; preds = %switch.early.test215
+switch.lookup:                                    ; preds = %switch.early.test208
   %switch.cast = zext nneg i16 %32 to i22
   %switch.downshift = lshr i22 2088943, %switch.cast
   %switch.masked = trunc i22 %switch.downshift to i1
   br label %39
 
-39:                                               ; preds = %14, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %34, %switch.lookup, %switch.early.test215
-  %.079 = phi i1 [ true, %switch.early.test215 ], [ %switch.masked, %switch.lookup ], [ false, %34 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %14 ]
+39:                                               ; preds = %14, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %34, %switch.lookup, %switch.early.test208
+  %.079 = phi i1 [ true, %switch.early.test208 ], [ %switch.masked, %switch.lookup ], [ false, %34 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %14 ]
   %40 = and i64 %19, -16
   %41 = inttoptr i64 %40 to ptr
   %42 = load ptr, ptr %41, align 16, !tbaa !676
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 16
   %45 = icmp ne i8 %44, 41
-  %.not90209 = icmp eq ptr %42, null
-  %.not90 = or i1 %.not90209, %45
+  %.not90212 = icmp eq ptr %42, null
+  %.not90 = or i1 %.not90212, %45
   br i1 %.not90, label %.thread, label %46
 
 46:                                               ; preds = %39
@@ -396,8 +396,8 @@ switch.lookup:                                    ; preds = %switch.early.test21
 61:                                               ; preds = %57
   %62 = load i16, ptr %30, align 8
   %63 = and i16 %62, 511
-  %.not211 = icmp eq i16 %63, 4
-  br i1 %.not211, label %64, label %99
+  %.not214 = icmp eq i16 %63, 4
+  br i1 %.not214, label %64, label %99
 
 64:                                               ; preds = %61
   %65 = load i32, ptr %30, align 8
@@ -585,8 +585,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %_ZNKSt7__cxx1112bas
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load i8, ptr %137, align 16
   %139 = icmp ne i8 %138, 41
-  %.not93212 = icmp eq ptr %136, null
-  %.not93 = or i1 %.not93212, %139
+  %.not93215 = icmp eq ptr %136, null
+  %.not93 = or i1 %.not93215, %139
   br i1 %.not93, label %.thread183, label %140
 
 140:                                              ; preds = %.thread
@@ -617,8 +617,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %_ZNKSt7__cxx1112bas
 156:                                              ; preds = %150
   %157 = load i16, ptr %30, align 8
   %158 = and i16 %157, 511
-  %.not214 = icmp eq i16 %158, 4
-  br i1 %.not214, label %159, label %175
+  %.not217 = icmp eq i16 %158, 4
+  br i1 %.not217, label %159, label %175
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %30, align 8

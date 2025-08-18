@@ -1765,7 +1765,7 @@ _ZN12MeshDocument8nextMeshEP9MeshModel.exit.us:   ; preds = %.split.us
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   %spec.select = select i1 %9, ptr %.0.i.us, ptr null
-  br label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, !llvm.loop !15
+  br label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread
 
 .split:                                           ; preds = %2
   br i1 %.not.i, label %tailrecurse, label %tailrecurse.us13
@@ -1784,14 +1784,14 @@ tailrecurse.us13:                                 ; preds = %.split, %_ZN12MeshD
   br i1 %or.cond17.i.us, label %12, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us
 
 12:                                               ; preds = %.lr.ph.i.us
-  br i1 %.not11.i.us, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i.us, !llvm.loop !17
+  br i1 %.not11.i.us, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i.us, !llvm.loop !15
 
 _ZN12MeshDocument8nextMeshEP9MeshModel.exit.loopexit.us: ; preds = %.lr.ph.i.us
   %.0.i.us18 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.pre.i.us, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.pre.i.us, i64 1220
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %tailrecurse.us13, !llvm.loop !18
+  br i1 %15, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %tailrecurse.us13
 
 tailrecurse:                                      ; preds = %.split, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit
   %.tr10 = phi ptr [ %.0.i, %_ZN12MeshDocument8nextMeshEP9MeshModel.exit ], [ %1, %.split ]
@@ -1808,7 +1808,7 @@ tailrecurse:                                      ; preds = %.split, %_ZN12MeshD
   br i1 %or.cond17.i, label %18, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit
 
 18:                                               ; preds = %.lr.ph.i
-  br i1 %.not11.i, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not11.i, label %_ZN12MeshDocument8nextMeshEP9MeshModel.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 _ZN12MeshDocument8nextMeshEP9MeshModel.exit:      ; preds = %.lr.ph.i, %tailrecurse
   %.sroa.07.013.i.pn = phi ptr [ %.sroa.07.013.i.fr, %tailrecurse ], [ %.sroa.07.0.pre.i, %.lr.ph.i ]
@@ -1857,7 +1857,7 @@ define noundef ptr @_ZN12MeshDocument8nextMeshEP9MeshModel(ptr noundef nonnull r
 
 14:                                               ; preds = %.lr.ph
   %.not10 = icmp eq ptr %.sroa.07.0.pre, %6
-  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %14, %9, %12, %7
   %.0 = phi ptr [ %8, %7 ], [ %13, %12 ], [ null, %9 ], [ null, %14 ]
@@ -1898,7 +1898,7 @@ define noundef ptr @_ZN12MeshDocument10nextRasterEP11RasterModel(ptr noundef non
 
 14:                                               ; preds = %.lr.ph
   %.not10 = icmp eq ptr %.sroa.07.0.pre, %6
-  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not10, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %14, %9, %12, %7
   %.0 = phi ptr [ %8, %7 ], [ %13, %12 ], [ null, %9 ], [ null, %14 ]
@@ -2365,16 +2365,16 @@ define linkonce_odr void @_Z17nameDisambiguatorI9MeshModelE7QStringRNSt7__cxx114
 
 .lr.ph:                                           ; preds = %3, %239
   %.sroa.0177.0185 = phi ptr [ %.sroa.0177.0, %239 ], [ %.sroa.0177.0183, %3 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0185, i64 1232
-  %31 = load ptr, ptr %30, align 8, !noalias !20
+  %31 = load ptr, ptr %30, align 8, !noalias !17
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !20
+  %33 = load i32, ptr %32, align 4, !noalias !17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !17
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0185, i64 1224
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %36)
           to label %.noexc unwind label %95
@@ -2391,18 +2391,18 @@ define linkonce_odr void @_Z17nameDisambiguatorI9MeshModelE7QStringRNSt7__cxx114
 
 _ZNK9MeshModel9shortNameEv.exit.i:                ; preds = %.noexc
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17
   br label %_ZNK9MeshModel5labelEv.exit
 
 39:                                               ; preds = %.lr.ph
-  store ptr %31, ptr %6, align 8, !alias.scope !20
-  %40 = load atomic i32, ptr %31 monotonic, align 4, !noalias !20
+  store ptr %31, ptr %6, align 8, !alias.scope !17
+  %40 = load atomic i32, ptr %31 monotonic, align 4, !noalias !17
   %41 = add i32 %40, -1
   %or.cond.not.i.i.i = icmp ult i32 %41, -2
   br i1 %or.cond.not.i.i.i, label %42, label %_ZNK9MeshModel5labelEv.exit
 
 42:                                               ; preds = %39
-  %43 = atomicrmw add ptr %31, i32 1 seq_cst, align 4, !noalias !20
+  %43 = atomicrmw add ptr %31, i32 1 seq_cst, align 4, !noalias !17
   br label %_ZNK9MeshModel5labelEv.exit
 
 _ZNK9MeshModel5labelEv.exit:                      ; preds = %42, %39, %_ZNK9MeshModel9shortNameEv.exit.i
@@ -2432,15 +2432,15 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK9MeshModel5labe
   br i1 %44, label %49, label %239
 
 49:                                               ; preds = %_ZN7QStringD2Ev.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %50 = load ptr, ptr %30, align 8, !noalias !23
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %50 = load ptr, ptr %30, align 8, !noalias !20
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %52 = load i32, ptr %51, align 4, !noalias !23
+  %52 = load i32, ptr %51, align 4, !noalias !20
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0185, i64 1224
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %.noexc41 unwind label %95
@@ -2457,18 +2457,18 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK9MeshModel5labe
 
 _ZNK9MeshModel9shortNameEv.exit.i40:              ; preds = %.noexc41
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
   br label %_ZNK9MeshModel5labelEv.exit44
 
 58:                                               ; preds = %49
-  store ptr %50, ptr %8, align 8, !alias.scope !23
-  %59 = load atomic i32, ptr %50 monotonic, align 4, !noalias !23
+  store ptr %50, ptr %8, align 8, !alias.scope !20
+  %59 = load atomic i32, ptr %50 monotonic, align 4, !noalias !20
   %60 = add i32 %59, -1
   %or.cond.not.i.i.i39 = icmp ult i32 %60, -2
   br i1 %or.cond.not.i.i.i39, label %61, label %_ZNK9MeshModel5labelEv.exit44
 
 61:                                               ; preds = %58
-  %62 = atomicrmw add ptr %50, i32 1 seq_cst, align 4, !noalias !23
+  %62 = atomicrmw add ptr %50, i32 1 seq_cst, align 4, !noalias !20
   br label %_ZNK9MeshModel5labelEv.exit44
 
 _ZNK9MeshModel5labelEv.exit44:                    ; preds = %61, %58, %_ZNK9MeshModel9shortNameEv.exit.i40
@@ -2648,16 +2648,16 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %81, %_ZN9QtPrivate8
           to label %115 unwind label %147
 
 115:                                              ; preds = %114
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %116 = load ptr, ptr %17, align 8, !noalias !26
-  store ptr %116, ptr %16, align 8, !alias.scope !26
-  %117 = load atomic i32, ptr %116 monotonic, align 4, !noalias !26
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %116 = load ptr, ptr %17, align 8, !noalias !23
+  store ptr %116, ptr %16, align 8, !alias.scope !23
+  %117 = load atomic i32, ptr %116 monotonic, align 4, !noalias !23
   %118 = add i32 %117, -1
   %or.cond.not.i.i.i66 = icmp ult i32 %118, -2
   br i1 %or.cond.not.i.i.i66, label %119, label %_ZN7QStringC2ERKS_.exit.i
 
 119:                                              ; preds = %115
-  %120 = atomicrmw add ptr %116, i32 1 seq_cst, align 4, !noalias !26
+  %120 = atomicrmw add ptr %116, i32 1 seq_cst, align 4, !noalias !23
   br label %_ZN7QStringC2ERKS_.exit.i
 
 _ZN7QStringC2ERKS_.exit.i:                        ; preds = %119, %115
@@ -2819,16 +2819,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
           to label %155 unwind label %181
 
 155:                                              ; preds = %154
-  call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %156 = load ptr, ptr %22, align 8, !noalias !29
-  store ptr %156, ptr %21, align 8, !alias.scope !29
-  %157 = load atomic i32, ptr %156 monotonic, align 4, !noalias !29
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  %156 = load ptr, ptr %22, align 8, !noalias !26
+  store ptr %156, ptr %21, align 8, !alias.scope !26
+  %157 = load atomic i32, ptr %156 monotonic, align 4, !noalias !26
   %158 = add i32 %157, -1
   %or.cond.not.i.i.i99 = icmp ult i32 %158, -2
   br i1 %or.cond.not.i.i.i99, label %159, label %_ZN7QStringC2ERKS_.exit.i100
 
 159:                                              ; preds = %155
-  %160 = atomicrmw add ptr %156, i32 1 seq_cst, align 4, !noalias !29
+  %160 = atomicrmw add ptr %156, i32 1 seq_cst, align 4, !noalias !26
   br label %_ZN7QStringC2ERKS_.exit.i100
 
 _ZN7QStringC2ERKS_.exit.i100:                     ; preds = %159, %155
@@ -2990,16 +2990,16 @@ _ZN7QStringD2Ev.exit135:                          ; preds = %187, %_ZN9QtPrivate
           to label %194 unwind label %103
 
 194:                                              ; preds = %193
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %195 = load ptr, ptr %26, align 8, !noalias !32
-  store ptr %195, ptr %25, align 8, !alias.scope !32
-  %196 = load atomic i32, ptr %195 monotonic, align 4, !noalias !32
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  %195 = load ptr, ptr %26, align 8, !noalias !29
+  store ptr %195, ptr %25, align 8, !alias.scope !29
+  %196 = load atomic i32, ptr %195 monotonic, align 4, !noalias !29
   %197 = add i32 %196, -1
   %or.cond.not.i.i.i136 = icmp ult i32 %197, -2
   br i1 %or.cond.not.i.i.i136, label %198, label %_ZN7QStringC2ERKS_.exit.i137
 
 198:                                              ; preds = %194
-  %199 = atomicrmw add ptr %195, i32 1 seq_cst, align 4, !noalias !32
+  %199 = atomicrmw add ptr %195, i32 1 seq_cst, align 4, !noalias !29
   br label %_ZN7QStringC2ERKS_.exit.i137
 
 _ZN7QStringC2ERKS_.exit.i137:                     ; preds = %198, %194
@@ -3193,7 +3193,7 @@ _ZN7QStringD2Ev.exit176:                          ; preds = %_ZN7QStringD2Ev.exi
 239:                                              ; preds = %_ZN7QStringD2Ev.exit, %_ZN7QStringD2Ev.exit176
   %.sroa.0177.0 = load ptr, ptr %.sroa.0177.0185, align 8
   %.not = icmp eq ptr %.sroa.0177.0, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %239, %3
   ret void
@@ -3251,7 +3251,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %8
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30, !noalias !36
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30, !noalias !33
   %12 = trunc i64 %11 to i32
   br label %13
 
@@ -3382,7 +3382,7 @@ _ZN7QStringC2ERKS_.exit9:                         ; preds = %_ZN7QStringC2ERKS_.
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6QImageESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6QImageESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i, label %.noexc.i.i, !llvm.loop !36
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6QImageESt10_Select1stIS9_ESt4lessIS5_ESaIS9_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i: ; preds = %.noexc.i.i
   store ptr %.0.i.i.i.i.i.i, ptr %24, align 8
@@ -3393,7 +3393,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_6
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not.i.i8.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i8.i.i.i.i, label %37, label %34, !llvm.loop !40
+  br i1 %.not.i.i8.i.i.i.i, label %37, label %34, !llvm.loop !37
 
 37:                                               ; preds = %34
   store ptr %.0.i.i7.i.i.i.i, ptr %25, align 8
@@ -3508,7 +3508,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 37:                                               ; preds = %20, %17
   %38 = landingpad { ptr, i32 }
@@ -3607,7 +3607,7 @@ define noundef nonnull ptr @_ZN12MeshDocument12addOrGetMeshERK7QStringS2_b(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 1224
-  call void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !42
+  call void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !39
   invoke void @_ZNK9QFileInfo8fileNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZNK9MeshModel9shortNameEv.exit unwind label %11
 
@@ -3778,21 +3778,21 @@ _ZNSt7__cxx114listIP9MeshModelSaIS2_EE9push_backEOS2_.exit: ; preds = %3
   %16 = load ptr, ptr %.09.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i.i) #27
   %.not.i.i.i = icmp eq ptr %16, %0
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !45
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !42
 
 _ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit:  ; preds = %.lr.ph.i.i.i, %15
   resume { ptr, i32 } %lpad.loopexit
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1208
-  %19 = load ptr, ptr %18, align 8, !noalias !46
-  %20 = load atomic i32, ptr %19 monotonic, align 4, !noalias !46
+  %19 = load ptr, ptr %18, align 8, !noalias !43
+  %20 = load atomic i32, ptr %19 monotonic, align 4, !noalias !43
   %21 = add i32 %20, -1
   %or.cond.not.i.i.i = icmp ult i32 %21, -2
   br i1 %or.cond.not.i.i.i, label %22, label %_ZNK9MeshModel8fullNameEv.exit
 
 22:                                               ; preds = %17
-  %23 = atomicrmw add ptr %19, i32 1 seq_cst, align 4, !noalias !46
+  %23 = atomicrmw add ptr %19, i32 1 seq_cst, align 4, !noalias !43
   br label %_ZNK9MeshModel8fullNameEv.exit
 
 _ZNK9MeshModel8fullNameEv.exit:                   ; preds = %17, %22
@@ -3826,30 +3826,30 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK9MeshModel8full
 .lr.ph:                                           ; preds = %29, %57
   %.sroa.028.037 = phi ptr [ %.sroa.028.0, %57 ], [ %.sroa.028.035, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.028.037, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.028.037, i64 1224
-  %33 = load ptr, ptr %32, align 8, !noalias !49
-  store ptr %33, ptr %4, align 8, !alias.scope !49
-  %34 = load atomic i32, ptr %33 monotonic, align 4, !noalias !49
+  %33 = load ptr, ptr %32, align 8, !noalias !46
+  store ptr %33, ptr %4, align 8, !alias.scope !46
+  %34 = load atomic i32, ptr %33 monotonic, align 4, !noalias !46
   %35 = add i32 %34, -1
   %or.cond.not.i.i.i11 = icmp ult i32 %35, -2
   br i1 %or.cond.not.i.i.i11, label %36, label %_ZNK9MeshModel8fullNameEv.exit12
 
 36:                                               ; preds = %.lr.ph
-  %37 = atomicrmw add ptr %33, i32 1 seq_cst, align 4, !noalias !49
+  %37 = atomicrmw add ptr %33, i32 1 seq_cst, align 4, !noalias !46
   br label %_ZNK9MeshModel8fullNameEv.exit12
 
 _ZNK9MeshModel8fullNameEv.exit12:                 ; preds = %.lr.ph, %36
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %38 = load ptr, ptr %18, align 8, !noalias !52
-  store ptr %38, ptr %5, align 8, !alias.scope !52
-  %39 = load atomic i32, ptr %38 monotonic, align 4, !noalias !52
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %38 = load ptr, ptr %18, align 8, !noalias !49
+  store ptr %38, ptr %5, align 8, !alias.scope !49
+  %39 = load atomic i32, ptr %38 monotonic, align 4, !noalias !49
   %40 = add i32 %39, -1
   %or.cond.not.i.i.i13 = icmp ult i32 %40, -2
   br i1 %or.cond.not.i.i.i13, label %41, label %_ZNK9MeshModel8fullNameEv.exit14
 
 41:                                               ; preds = %_ZNK9MeshModel8fullNameEv.exit12
-  %42 = atomicrmw add ptr %38, i32 1 seq_cst, align 4, !noalias !52
+  %42 = atomicrmw add ptr %38, i32 1 seq_cst, align 4, !noalias !49
   br label %_ZNK9MeshModel8fullNameEv.exit14
 
 _ZNK9MeshModel8fullNameEv.exit14:                 ; preds = %_ZNK9MeshModel8fullNameEv.exit12, %41
@@ -3938,7 +3938,7 @@ define noundef zeroext i1 @_ZN12MeshDocument7delMeshEj(ptr noundef nonnull align
   %spec.select = select i1 %6, ptr %.sroa.04.011, ptr %.sroa.07.010
   %.sroa.04.0 = load ptr, ptr %.sroa.04.011, align 8
   %.not = icmp eq ptr %.sroa.04.0, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not13 = icmp eq ptr %spec.select, %3
@@ -4260,7 +4260,7 @@ define noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull ali
   %spec.select = select i1 %7, ptr %.sroa.05.013, ptr %.sroa.08.014
   %8 = load ptr, ptr %.sroa.05.013, align 8
   %.not = icmp eq ptr %8, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not18 = icmp eq ptr %spec.select, %3
@@ -7302,45 +7302,42 @@ attributes #32 = { noreturn }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZNK9MeshModel5labelEv: argument 0"}
+!19 = distinct !{!19, !"_ZNK9MeshModel5labelEv"}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZNK9MeshModel5labelEv: argument 0"}
 !22 = distinct !{!22, !"_ZNK9MeshModel5labelEv"}
 !23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK9MeshModel5labelEv: argument 0"}
-!25 = distinct !{!25, !"_ZNK9MeshModel5labelEv"}
+!24 = distinct !{!24, !25, !"_ZplRK7QStringS1_: argument 0"}
+!25 = distinct !{!25, !"_ZplRK7QStringS1_"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZplRK7QStringS1_: argument 0"}
 !28 = distinct !{!28, !"_ZplRK7QStringS1_"}
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"_ZplRK7QStringS1_: argument 0"}
 !31 = distinct !{!31, !"_ZplRK7QStringS1_"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZplRK7QStringS1_: argument 0"}
-!34 = distinct !{!34, !"_ZplRK7QStringS1_"}
-!35 = distinct !{!35, !6}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!38 = distinct !{!38, !"_ZN7QString8fromUtf8EPKci"}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK9MeshModel9shortNameEv: argument 0"}
-!44 = distinct !{!44, !"_ZNK9MeshModel9shortNameEv"}
-!45 = distinct !{!45, !6}
+!32 = distinct !{!32, !6}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!35 = distinct !{!35, !"_ZN7QString8fromUtf8EPKci"}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK9MeshModel9shortNameEv: argument 0"}
+!41 = distinct !{!41, !"_ZNK9MeshModel9shortNameEv"}
+!42 = distinct !{!42, !6}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNK9MeshModel8fullNameEv: argument 0"}
+!45 = distinct !{!45, !"_ZNK9MeshModel8fullNameEv"}
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZNK9MeshModel8fullNameEv: argument 0"}
 !48 = distinct !{!48, !"_ZNK9MeshModel8fullNameEv"}
 !49 = !{!50}
 !50 = distinct !{!50, !51, !"_ZNK9MeshModel8fullNameEv: argument 0"}
 !51 = distinct !{!51, !"_ZNK9MeshModel8fullNameEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK9MeshModel8fullNameEv: argument 0"}
-!54 = distinct !{!54, !"_ZNK9MeshModel8fullNameEv"}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}

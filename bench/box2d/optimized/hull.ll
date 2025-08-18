@@ -706,7 +706,7 @@ b2Normalize.exit.us:                              ; preds = %19, %7
 
 ..loopexit_crit_edge.us:                          ; preds = %32
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge, label %7, !llvm.loop !24
+  br i1 %exitcond124.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us
   %33 = load float, ptr @b2_lengthUnitsPerMeter, align 4, !tbaa !8
@@ -765,7 +765,7 @@ b2Normalize.exit97:                               ; preds = %36, %52
   %foldExtExtBinop164 = fsub <2 x float> %foldExtExtBinop159, %foldExtExtBinop162
   %57 = extractelement <2 x float> %foldExtExtBinop164, i64 0
   %58 = fcmp ugt float %57, %34
-  br i1 %58, label %35, label %.critedge, !llvm.loop !26
+  br i1 %58, label %35, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %27, %35, %b2Normalize.exit97, %1
   %.0 = phi i1 [ false, %1 ], [ %exitcond129.not, %b2Normalize.exit97 ], [ %exitcond129.not, %35 ], [ false, %27 ]
@@ -812,6 +812,4 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
 !23 = distinct !{!23, !11}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !11}
+!24 = distinct !{!24, !11}

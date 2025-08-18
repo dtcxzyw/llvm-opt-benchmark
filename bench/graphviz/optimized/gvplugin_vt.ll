@@ -669,7 +669,7 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   %56 = add i32 %.05173, %1
   %57 = load i32, ptr %6, align 4, !tbaa !30
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.preheader62, label %._crit_edge74, !llvm.loop !40
+  br i1 %58, label %.preheader62, label %._crit_edge74, !llvm.loop !39
 
 ._crit_edge69.loopexit:                           ; preds = %._crit_edge.us
   %59 = zext nneg i32 %50 to i64
@@ -678,13 +678,13 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
 ._crit_edge69:                                    ; preds = %._crit_edge69.loopexit, %.preheader61
   %.053.lcssa = phi i64 [ 0, %.preheader61 ], [ %59, %._crit_edge69.loopexit ]
   %60 = getelementptr inbounds nuw ptr, ptr %2, i64 %.053.lcssa
-  %61 = load ptr, ptr %60, align 8, !tbaa !41
+  %61 = load ptr, ptr %60, align 8, !tbaa !40
   %62 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef %61) #4
   %63 = add i32 %.05271, 2
   %64 = load i32, ptr %8, align 8, !tbaa !31
   %65 = icmp ult i32 %63, %64
   %indvars.iv.next79 = add i32 %indvars.iv78, -2
-  br i1 %65, label %.preheader61, label %._crit_edge, !llvm.loop !42
+  br i1 %65, label %.preheader61, label %._crit_edge, !llvm.loop !41
 }
 
 declare i32 @gvputs(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -755,8 +755,7 @@ attributes #4 = { nounwind }
 !35 = distinct !{!35, !33}
 !36 = distinct !{!36, !33}
 !37 = distinct !{!37, !33}
-!38 = distinct !{!38, !33, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !33}
-!41 = !{!12, !12, i64 0}
-!42 = distinct !{!42, !33}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = !{!12, !12, i64 0}
+!41 = distinct !{!41, !33}

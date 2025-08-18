@@ -771,7 +771,7 @@ define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_int64_2(pt
   %18 = getelementptr inbounds i64, ptr %15, i64 %10
   %19 = getelementptr inbounds nuw i64, ptr %16, i64 %11
   %exitcond32.not.i = icmp eq i64 %17, %3
-  br i1 %exitcond32.not.i, label %scatter_partial_int64_2.exit, label %.preheader.us.i, !llvm.loop !38
+  br i1 %exitcond32.not.i, label %scatter_partial_int64_2.exit, label %.preheader.us.i
 
 scatter_partial_int64_2.exit:                     ; preds = %._crit_edge.us.i, %6, %.preheader.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -843,5 +843,3 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !35 = !{!36}
 !36 = distinct !{!36, !34, !"decode_few_ints_prec_uint64: argument 1"}
 !37 = !{!33, !36}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}

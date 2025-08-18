@@ -12687,58 +12687,58 @@ switch.early.test:                                ; preds = %57
   %63 = tail call ptr @GetCA(ptr noundef %3, ptr noundef nonnull %62) #23
   store ptr %63, ptr %59, align 8, !tbaa !162
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %..thread_crit_edge, label %.thread176
+  br i1 %64, label %..thread_crit_edge, label %.thread177
 
 ..thread_crit_edge:                               ; preds = %61
-  %.pre205 = load i32, ptr %25, align 8
+  %.pre204 = load i32, ptr %25, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %58
-  %65 = phi i32 [ %.pre205, %..thread_crit_edge ], [ %55, %58 ]
+  %65 = phi i32 [ %.pre204, %..thread_crit_edge ], [ %55, %58 ]
   %66 = and i32 %65, 2
   %67 = icmp ne i32 %66, 0
   %68 = icmp ne i32 %2, 3
   %or.cond7 = and i1 %68, %67
-  br i1 %or.cond7, label %thread-pre-split, label %.thread212
+  br i1 %or.cond7, label %thread-pre-split, label %.thread211
 
 thread-pre-split:                                 ; preds = %.thread
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %70 = tail call ptr @GetCA(ptr noundef %3, ptr noundef nonnull %69) #23
   store ptr %70, ptr %59, align 8, !tbaa !162
   %.not157 = icmp eq ptr %70, null
-  br i1 %.not157, label %.thread212, label %.thread176
+  br i1 %.not157, label %.thread211, label %.thread177
 
-.thread176:                                       ; preds = %61, %thread-pre-split
+.thread177:                                       ; preds = %61, %thread-pre-split
   %71 = phi ptr [ %70, %thread-pre-split ], [ %63, %61 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %72, ptr noundef nonnull dereferenceable(20) %73, i64 20)
   %.not158 = icmp eq i32 %bcmp, 0
-  br i1 %.not158, label %._crit_edge208, label %.thread180
+  br i1 %.not158, label %._crit_edge207, label %.thread181
 
-.thread180:                                       ; preds = %.thread176
+.thread181:                                       ; preds = %.thread177
   store ptr null, ptr %59, align 8, !tbaa !162
-  br label %.thread212
+  br label %.thread211
 
-._crit_edge208:                                   ; preds = %.thread176
-  %.pre209 = load i32, ptr %25, align 8
+._crit_edge207:                                   ; preds = %.thread177
+  %.pre208 = load i32, ptr %25, align 8
   br label %77
 
-.thread212:                                       ; preds = %.thread, %thread-pre-split, %.thread180
+.thread211:                                       ; preds = %.thread, %thread-pre-split, %.thread181
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %75 = tail call ptr @GetCAByName(ptr noundef %3, ptr noundef nonnull %74) #23
   store ptr %75, ptr %59, align 8, !tbaa !162
   %.not159 = icmp eq ptr %75, null
-  %.pre210 = load i32, ptr %25, align 8
-  %76 = and i32 %.pre210, 4
+  %.pre209 = load i32, ptr %25, align 8
+  %76 = and i32 %.pre209, 4
   %.not160 = icmp eq i32 %76, 0
-  %or.cond217 = select i1 %.not159, i1 true, i1 %.not160
-  %spec.store.select = select i1 %or.cond217, ptr %75, ptr null
+  %or.cond216 = select i1 %.not159, i1 true, i1 %.not160
+  %spec.store.select = select i1 %or.cond216, ptr %75, ptr null
   store ptr %spec.store.select, ptr %59, align 8
   br label %77
 
-77:                                               ; preds = %.thread212, %._crit_edge208, %switch.early.test, %switch.early.test, %57
-  %78 = phi i32 [ %.pre209, %._crit_edge208 ], [ %55, %switch.early.test ], [ %55, %switch.early.test ], [ %55, %57 ], [ %.pre210, %.thread212 ]
+77:                                               ; preds = %.thread211, %._crit_edge207, %switch.early.test, %switch.early.test, %57
+  %78 = phi i32 [ %.pre208, %._crit_edge207 ], [ %55, %switch.early.test ], [ %55, %switch.early.test ], [ %55, %57 ], [ %.pre209, %.thread211 ]
   %79 = and i32 %78, 32
   %.not161 = icmp eq i32 %79, 0
   br i1 %.not161, label %84, label %80
@@ -12795,16 +12795,16 @@ thread-pre-split:                                 ; preds = %.thread
 
 109:                                              ; preds = %84, %101, %92, %88, %10
   %.0136 = phi i32 [ %.2, %101 ], [ %.2, %92 ], [ %.2, %88 ], [ %.2, %84 ], [ 0, %10 ]
-  %.not201 = icmp eq i32 %2, 0
-  br i1 %.not201, label %ConfirmNameConstraints.exit, label %switch.early.test200
+  %.not197 = icmp eq i32 %2, 0
+  br i1 %.not197, label %ConfirmNameConstraints.exit, label %switch.early.test174
 
-switch.early.test200:                             ; preds = %109
+switch.early.test174:                             ; preds = %109
   switch i32 %1, label %110 [
     i32 17, label %ConfirmNameConstraints.exit
     i32 6, label %ConfirmNameConstraints.exit
   ]
 
-110:                                              ; preds = %switch.early.test200
+110:                                              ; preds = %switch.early.test174
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %112 = load ptr, ptr %111, align 8, !tbaa !162
   %.not167 = icmp eq ptr %112, null
@@ -12859,7 +12859,7 @@ switch.early.test200:                             ; preds = %109
 
 147:                                              ; preds = %114
   %148 = load i32, ptr %12, align 4, !tbaa !103
-  switch i32 %148, label %ConfirmSignature.exit.thread187 [
+  switch i32 %148, label %ConfirmSignature.exit.thread186 [
     i32 0, label %149
     i32 1, label %158
     i32 2, label %180
@@ -12874,7 +12874,7 @@ switch.early.test200:                             ; preds = %109
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store ptr %151, ptr %152, align 8, !tbaa !100
   %153 = icmp eq ptr %151, null
-  br i1 %153, label %ConfirmSignature.exit.thread187, label %154
+  br i1 %153, label %ConfirmSignature.exit.thread186, label %154
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 996
@@ -12896,13 +12896,13 @@ switch.early.test200:                             ; preds = %109
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %164 = tail call fastcc i32 @DecodeRsaPssParams(ptr noundef %138, i32 noundef %140, ptr noundef %161, ptr noundef %162, ptr noundef %163)
   %.not147.i = icmp eq i32 %164, 0
-  br i1 %.not147.i, label %165, label %ConfirmSignature.exit.thread187
+  br i1 %.not147.i, label %165, label %ConfirmSignature.exit.thread186
 
 165:                                              ; preds = %160
   %166 = load i32, ptr %161, align 4, !tbaa !168
   %switch.tableidx = add i32 %166, -4
   %167 = icmp ult i32 %switch.tableidx, 5
-  br i1 %167, label %switch.lookup, label %ConfirmSignature.exit.thread187
+  br i1 %167, label %switch.lookup, label %ConfirmSignature.exit.thread186
 
 switch.lookup:                                    ; preds = %165
   %168 = zext nneg i32 %switch.tableidx to i64
@@ -12914,7 +12914,7 @@ switch.lookup:                                    ; preds = %165
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %173 = tail call fastcc i32 @HashForSignature(ptr noundef %122, i32 noundef %125, i32 noundef %switch.load, ptr noundef %170, ptr noundef %171, ptr noundef %172)
   %.not149.i = icmp eq i32 %173, 0
-  br i1 %.not149.i, label %RsaPssHashOidToSigOid.exit.i, label %ConfirmSignature.exit.thread187
+  br i1 %.not149.i, label %RsaPssHashOidToSigOid.exit.i, label %ConfirmSignature.exit.thread186
 
 174:                                              ; preds = %158
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -12923,14 +12923,14 @@ switch.lookup:                                    ; preds = %165
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %179 = tail call fastcc i32 @HashForSignature(ptr noundef %122, i32 noundef %125, i32 noundef %134, ptr noundef %176, ptr noundef %177, ptr noundef %178)
   %.not.i = icmp eq i32 %179, 0
-  br i1 %.not.i, label %RsaPssHashOidToSigOid.exit.i, label %ConfirmSignature.exit.thread187
+  br i1 %.not.i, label %RsaPssHashOidToSigOid.exit.i, label %ConfirmSignature.exit.thread186
 
 RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
   store i32 2, ptr %12, align 4, !tbaa !103
   br label %180
 
 180:                                              ; preds = %RsaPssHashOidToSigOid.exit.i, %147
-  switch i32 %116, label %ConfirmSignature.exit.thread187 [
+  switch i32 %116, label %ConfirmSignature.exit.thread186 [
     i32 654, label %181
     i32 645, label %181
     i32 518, label %202
@@ -12974,7 +12974,7 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
 .thread.i:                                        ; preds = %197, %195, %190, %185, %181
   %.3.ph.i = phi i32 [ %199, %197 ], [ -132, %195 ], [ -125, %190 ], [ %189, %185 ], [ -125, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %ConfirmSignature.exit.thread187
+  br label %ConfirmSignature.exit.thread186
 
 .thread20.i:                                      ; preds = %197
   %200 = load ptr, ptr %193, align 8, !tbaa !101
@@ -13006,14 +13006,14 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
 .thread15.i:                                      ; preds = %207, %202
   %.5.ph.i = phi i32 [ %211, %207 ], [ -125, %202 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %ConfirmSignature.exit.thread187
+  br label %ConfirmSignature.exit.thread186
 
 213:                                              ; preds = %207
   %214 = load ptr, ptr %205, align 8, !tbaa !3
   %215 = call i32 @wc_EccPublicKeyDecode(ptr noundef nonnull %127, ptr noundef nonnull %7, ptr noundef %214, i32 noundef %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not152.i = icmp eq i32 %215, 0
-  br i1 %.not152.i, label %216, label %ConfirmSignature.exit.thread187
+  br i1 %.not152.i, label %216, label %ConfirmSignature.exit.thread186
 
 216:                                              ; preds = %213, %.thread20.i
   store i32 3, ptr %12, align 4, !tbaa !103
@@ -13066,7 +13066,7 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
 246:                                              ; preds = %237, %233, %223, %217
   %.6.i = phi i32 [ %.0125.i, %217 ], [ %232, %223 ], [ %236, %233 ], [ %245, %237 ]
   %247 = icmp slt i32 %.6.i, 0
-  br i1 %247, label %ConfirmSignature.exit.thread187, label %248
+  br i1 %247, label %ConfirmSignature.exit.thread186, label %248
 
 248:                                              ; preds = %246
   store i32 4, ptr %12, align 4, !tbaa !103
@@ -13139,13 +13139,13 @@ RsaPssHashOidToSigOid.exit.i:                     ; preds = %174, %switch.lookup
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %288 = load i32, ptr %287, align 8, !tbaa !172
   %289 = icmp eq i32 %288, 1
-  br i1 %289, label %ConfirmSignature.exit.thread190, label %ConfirmSignature.exit.thread187
+  br i1 %289, label %ConfirmSignature.exit.thread189, label %ConfirmSignature.exit.thread186
 
-ConfirmSignature.exit.thread190:                  ; preds = %286
+ConfirmSignature.exit.thread189:                  ; preds = %286
   call void @FreeSignatureCtx(ptr noundef nonnull %11)
   br label %290
 
-ConfirmSignature.exit.thread187:                  ; preds = %165, %147, %213, %174, %149, %246, %286, %.thread.i, %.thread15.i, %switch.lookup, %160, %180
+ConfirmSignature.exit.thread186:                  ; preds = %165, %147, %213, %174, %149, %246, %286, %.thread.i, %.thread15.i, %switch.lookup, %160, %180
   %.8.i.ph = phi i32 [ -148, %180 ], [ %164, %160 ], [ %173, %switch.lookup ], [ -140, %165 ], [ %.5.ph.i, %.thread15.i ], [ %.3.ph.i, %.thread.i ], [ -155, %286 ], [ -155, %246 ], [ -125, %149 ], [ %179, %174 ], [ %215, %213 ], [ -155, %147 ]
   call void @FreeSignatureCtx(ptr noundef nonnull %11)
   br label %ConfirmSignature.exit.thread
@@ -13156,8 +13156,8 @@ ConfirmSignature.exit:                            ; preds = %249, %252, %285
   %.not168 = icmp eq i32 %.8.i, 0
   br i1 %.not168, label %290, label %ConfirmSignature.exit.thread
 
-290:                                              ; preds = %ConfirmSignature.exit.thread190, %113, %ConfirmSignature.exit
-  %.5 = phi i32 [ 0, %ConfirmSignature.exit ], [ %.0136, %113 ], [ 0, %ConfirmSignature.exit.thread190 ]
+290:                                              ; preds = %ConfirmSignature.exit.thread189, %113, %ConfirmSignature.exit
+  %.5 = phi i32 [ 0, %ConfirmSignature.exit ], [ %.0136, %113 ], [ 0, %ConfirmSignature.exit.thread189 ]
   switch i32 %2, label %ConfirmNameConstraints.exit [
     i32 5, label %291
     i32 4, label %291
@@ -13220,8 +13220,8 @@ ConfirmSignature.exit:                            ; preds = %249, %252, %285
 321:                                              ; preds = %311
   %322 = load ptr, ptr %303, align 8, !tbaa !97
   %323 = load ptr, ptr %304, align 8, !tbaa !107
-  %.not.i174 = icmp eq ptr %323, null
-  br i1 %.not.i174, label %326, label %324
+  %.not.i175 = icmp eq ptr %323, null
+  br i1 %.not.i175, label %326, label %324
 
 324:                                              ; preds = %321
   %325 = load i32, ptr %305, align 8, !tbaa !108
@@ -13230,8 +13230,8 @@ ConfirmSignature.exit:                            ; preds = %249, %252, %285
 326:                                              ; preds = %324, %321, %319, %316, %314
   %.sroa.8.1.i = phi i32 [ 0, %314 ], [ 0, %316 ], [ %320, %319 ], [ 0, %321 ], [ %325, %324 ]
   %.sroa.13.1.i = phi ptr [ null, %314 ], [ null, %316 ], [ %318, %319 ], [ null, %321 ], [ %323, %324 ]
-  %.0.i175 = phi ptr [ %315, %314 ], [ %317, %316 ], [ %317, %319 ], [ %322, %321 ], [ %322, %324 ]
-  %.not4194.i = icmp eq ptr %.0.i175, null
+  %.0.i176 = phi ptr [ %315, %314 ], [ %317, %316 ], [ %317, %319 ], [ %322, %321 ], [ %322, %324 ]
+  %.not4194.i = icmp eq ptr %.0.i176, null
   br i1 %.not4194.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %326
@@ -13239,7 +13239,7 @@ ConfirmSignature.exit:                            ; preds = %249, %252, %285
   br label %328
 
 328:                                              ; preds = %PermittedListOk.exit.thread.i, %.lr.ph.i
-  %.195.i = phi ptr [ %.0.i175, %.lr.ph.i ], [ %363, %PermittedListOk.exit.thread.i ]
+  %.195.i = phi ptr [ %.0.i176, %.lr.ph.i ], [ %363, %PermittedListOk.exit.thread.i ]
   %329 = getelementptr inbounds nuw i8, ptr %.195.i, i64 16
   br i1 %297, label %.loopexit.i, label %.lr.ph.i.i
 
@@ -13404,8 +13404,8 @@ PermittedListOk.exit67.i:                         ; preds = %394
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %ConfirmNameConstraints.exit, label %311, !llvm.loop !182
 
-ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %switch.early.test200, %switch.early.test200, %109, %99, %298, %290
-  %.4 = phi i32 [ %.5, %290 ], [ %.0136, %switch.early.test200 ], [ %.5, %298 ], [ %.2, %99 ], [ %.0136, %109 ], [ %.0136, %switch.early.test200 ], [ %.5, %.critedge.i ]
+ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %99, %298, %290, %switch.early.test174, %switch.early.test174, %109
+  %.4 = phi i32 [ %.5, %290 ], [ %.0136, %switch.early.test174 ], [ %.0136, %109 ], [ %.0136, %switch.early.test174 ], [ %.5, %298 ], [ %.2, %99 ], [ %.5, %.critedge.i ]
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %397 = load i32, ptr %396, align 8, !tbaa !161
   %398 = icmp ne i32 %397, 0
@@ -13420,8 +13420,8 @@ ConfirmNameConstraints.exit:                      ; preds = %.critedge.i, %switc
   %.4. = select i1 %.not170, i32 %.4, i32 %402
   br label %ConfirmSignature.exit.thread
 
-ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %311, %PermittedListOk.exit.i, %375, %339, %291, %114, %ConfirmSignature.exit.thread187, %400, %ConfirmNameConstraints.exit, %110, %99, %53, %28, %22, %5, %ConfirmSignature.exit
-  %.0 = phi i32 [ %.8.i, %ConfirmSignature.exit ], [ -173, %5 ], [ %17, %22 ], [ -226, %28 ], [ %.3, %53 ], [ -238, %99 ], [ -188, %110 ], [ %397, %ConfirmNameConstraints.exit ], [ %.4., %400 ], [ %.8.i.ph, %ConfirmSignature.exit.thread187 ], [ -173, %114 ], [ -198, %291 ], [ -198, %339 ], [ -198, %375 ], [ -198, %PermittedListOk.exit.i ], [ -198, %311 ], [ -198, %PermittedListOk.exit67.i ]
+ConfirmSignature.exit.thread:                     ; preds = %PermittedListOk.exit67.i, %311, %PermittedListOk.exit.i, %375, %339, %291, %114, %ConfirmSignature.exit.thread186, %400, %ConfirmNameConstraints.exit, %110, %99, %53, %28, %22, %5, %ConfirmSignature.exit
+  %.0 = phi i32 [ %.8.i, %ConfirmSignature.exit ], [ -173, %5 ], [ %17, %22 ], [ -226, %28 ], [ %.3, %53 ], [ -238, %99 ], [ -188, %110 ], [ %397, %ConfirmNameConstraints.exit ], [ %.4., %400 ], [ %.8.i.ph, %ConfirmSignature.exit.thread186 ], [ -173, %114 ], [ -198, %291 ], [ -198, %339 ], [ -198, %375 ], [ -198, %PermittedListOk.exit.i ], [ -198, %311 ], [ -198, %PermittedListOk.exit67.i ]
   ret i32 %.0
 }
 
@@ -14372,7 +14372,7 @@ switch.lookup:                                    ; preds = %7
   %.1.us = phi ptr [ @.str.15, %.lr.ph.split.us ], [ @.str.17, %17 ], [ @.str.19, %19 ], [ @.str.21, %21 ]
   %24 = tail call ptr @mystrnstr(ptr noundef %0, ptr noundef nonnull %.1116.us, i32 noundef %11) #23
   %.not91.us = icmp eq ptr %24, null
-  br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !203
+  br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %26
   %.0115128 = phi ptr [ @.str.12, %26 ], [ %switch.load, %.lr.ph ]
@@ -14411,7 +14411,7 @@ switch.lookup:                                    ; preds = %7
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %exitcond.not.i = icmp eq ptr %35, %10
-  br i1 %exitcond.not.i, label %SkipEndOfLineChars.exit, label %.lr.ph.i, !llvm.loop !205
+  br i1 %exitcond.not.i, label %SkipEndOfLineChars.exit, label %.lr.ph.i, !llvm.loop !203
 
 SkipEndOfLineChars.exit:                          ; preds = %.lr.ph.i, %.critedge2.i, %.critedge
   %.0.lcssa.i = phi ptr [ %29, %.critedge ], [ %scevgep.i, %.critedge2.i ], [ %.09.i, %.lr.ph.i ]
@@ -14447,7 +14447,7 @@ condstore.split:                                  ; preds = %SkipEndOfLineChars.
   br i1 %.not93, label %wc_PemGetHeaderFooter.exit.thread, label %49
 
 49:                                               ; preds = %48
-  store i64 %1, ptr %5, align 8, !tbaa !206
+  store i64 %1, ptr %5, align 8, !tbaa !204
   br label %wc_PemGetHeaderFooter.exit.thread
 
 50:                                               ; preds = %40
@@ -14474,7 +14474,7 @@ condstore.split:                                  ; preds = %SkipEndOfLineChars.
 .critedge2.i103:                                  ; preds = %.lr.ph.i101, %.lr.ph.i101
   %58 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 1
   %exitcond.not.i104 = icmp eq ptr %58, %10
-  br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !205
+  br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !203
 
 SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.critedge2.i103
   %.0.lcssa.i98 = phi ptr [ %.09.i102, %.lr.ph.i101 ], [ %scevgep.i100, %.critedge2.i103 ]
@@ -14497,7 +14497,7 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   %65 = ptrtoint ptr %.074 to i64
   %66 = ptrtoint ptr %0 to i64
   %67 = sub i64 %65, %66
-  store i64 %67, ptr %5, align 8, !tbaa !206
+  store i64 %67, ptr %5, align 8, !tbaa !204
   br label %68
 
 68:                                               ; preds = %64, %63
@@ -14977,7 +14977,7 @@ define range(i32 -132, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef %0, ptr noundef 
   %16 = add i32 %.02125, -1
   %17 = getelementptr inbounds nuw i8, ptr %.02224, i64 1
   %18 = icmp ugt i32 %16, 1
-  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !208
+  br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !206
 
 .critedge:                                        ; preds = %.lr.ph, %15, %6
   %.022.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %15 ], [ %.02224, %.lr.ph ]
@@ -15003,7 +15003,7 @@ define range(i32 -132, 1) i32 @StoreECC_DSA_Sig_Bin(ptr noundef %0, ptr noundef 
   %26 = add i32 %.01931, -1
   %27 = getelementptr inbounds nuw i8, ptr %.02030, i64 1
   %28 = icmp ugt i32 %26, 1
-  br i1 %28, label %.lr.ph32, label %.critedge2, !llvm.loop !209
+  br i1 %28, label %.lr.ph32, label %.critedge2, !llvm.loop !207
 
 .critedge2:                                       ; preds = %25, %.lr.ph32, %.critedge
   %.020.lcssa = phi ptr [ %4, %.critedge ], [ %.02030, %.lr.ph32 ], [ %scevgep38, %25 ]
@@ -15245,7 +15245,7 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
 ._crit_edge:                                      ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %17, align 8, !tbaa !210
+  %20 = load i32, ptr %17, align 8, !tbaa !208
   store i32 %20, ptr %7, align 4, !tbaa !22
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread89, label %21
@@ -15997,9 +15997,9 @@ GetASN_Sequence.exit.i:                           ; preds = %72
   %87 = and i8 %23, 31
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i8 %87, ptr %88, align 4, !tbaa !177
-  %89 = load ptr, ptr %2, align 8, !tbaa !211
+  %89 = load ptr, ptr %2, align 8, !tbaa !209
   store ptr %89, ptr %73, align 8, !tbaa !89
-  store ptr %73, ptr %2, align 8, !tbaa !211
+  store ptr %73, ptr %2, align 8, !tbaa !209
   br label %DecodeSubtreeGeneralName.exit
 
 DecodeSubtreeGeneralName.exit:                    ; preds = %81, %22
@@ -16195,7 +16195,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %26 = icmp ne i8 %25, 64
   %27 = icmp slt i32 %23, %4
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !212
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !210
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %27, label %.lr.ph105, label %.critedge
@@ -16213,7 +16213,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %32 = icmp ne i8 %31, 64
   %33 = icmp slt i32 %29, %4
   %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %.lr.ph95, label %._crit_edge96.loopexit, !llvm.loop !213
+  br i1 %34, label %.lr.ph95, label %._crit_edge96.loopexit, !llvm.loop !211
 
 ._crit_edge96.loopexit:                           ; preds = %.lr.ph95
   %35 = sub nuw nsw i32 -2, %.17593
@@ -16247,7 +16247,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %.2121 = phi ptr [ %.065, %43 ], [ %42, %.thread ], [ %1, %._crit_edge ], [ %1, %.preheader ]
   %.268120 = phi i32 [ %.066, %43 ], [ %4, %.thread ], [ %2, %._crit_edge ], [ %2, %.preheader ]
   %45 = tail call ptr @__ctype_tolower_loc() #25
-  %46 = load ptr, ptr %45, align 8, !tbaa !214
+  %46 = load ptr, ptr %45, align 8, !tbaa !212
   br label %47
 
 47:                                               ; preds = %.lr.ph105, %56
@@ -16270,7 +16270,7 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %58 = getelementptr inbounds nuw i8, ptr %.070101, i64 1
   %59 = add nsw i32 %.369102, -1
   %60 = icmp sgt i32 %.369102, 1
-  br i1 %60, label %47, label %.loopexit, !llvm.loop !216
+  br i1 %60, label %47, label %.loopexit, !llvm.loop !214
 
 .loopexit:                                        ; preds = %47, %56, %43, %14, %5, %10, %15
   %.0 = phi i32 [ %18, %15 ], [ 0, %14 ], [ 0, %10 ], [ 0, %5 ], [ 1, %43 ], [ 0, %47 ], [ 1, %56 ]
@@ -16536,17 +16536,15 @@ attributes #25 = { nounwind willreturn memory(none) }
 !200 = !{!198, !51, i64 8}
 !201 = !{!198, !50, i64 0}
 !202 = !{!198, !11, i64 16}
-!203 = distinct !{!203, !204}
-!204 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!205 = distinct !{!205, !7}
-!206 = !{!207, !53, i64 0}
-!207 = !{!"EncryptedInfo", !53, i64 0}
-!208 = distinct !{!208, !7}
-!209 = distinct !{!209, !7}
-!210 = !{!75, !11, i64 0}
-!211 = !{!65, !65, i64 0}
-!212 = distinct !{!212, !7}
-!213 = distinct !{!213, !7}
-!214 = !{!215, !215, i64 0}
-!215 = !{!"p1 int", !51, i64 0}
-!216 = distinct !{!216, !7}
+!203 = distinct !{!203, !7}
+!204 = !{!205, !53, i64 0}
+!205 = !{!"EncryptedInfo", !53, i64 0}
+!206 = distinct !{!206, !7}
+!207 = distinct !{!207, !7}
+!208 = !{!75, !11, i64 0}
+!209 = !{!65, !65, i64 0}
+!210 = distinct !{!210, !7}
+!211 = distinct !{!211, !7}
+!212 = !{!213, !213, i64 0}
+!213 = !{!"p1 int", !51, i64 0}
+!214 = distinct !{!214, !7}

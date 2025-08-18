@@ -1100,12 +1100,12 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
   store ptr %189, ptr %190, align 8, !tbaa !30
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206.not, label %._crit_edge, label %185, !llvm.loop !78
+  br i1 %exitcond206.not, label %._crit_edge, label %185, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %185, %172
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %.preheader, label %172, !llvm.loop !79
+  br i1 %exitcond211.not, label %.preheader, label %172, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph191, %.loopexit
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.loopexit ], [ 0, %.lr.ph191 ]
@@ -1113,7 +1113,7 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
   store volatile ptr null, ptr %191, align 8, !tbaa !35
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count225
-  br i1 %exitcond216.not, label %._crit_edge192, label %.loopexit, !llvm.loop !80
+  br i1 %exitcond216.not, label %._crit_edge192, label %.loopexit, !llvm.loop !76
 
 ._crit_edge192:                                   ; preds = %.loopexit, %..loopexit_crit_edge.us
   br i1 %95, label %192, label %._crit_edge192.thread
@@ -1373,8 +1373,6 @@ attributes #8 = { nounwind }
 !73 = distinct !{!73, !33}
 !74 = distinct !{!74, !33}
 !75 = distinct !{!75, !33}
-!76 = distinct !{!76, !33, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !33}
+!77 = distinct !{!77, !33}
 !78 = distinct !{!78, !33}
-!79 = distinct !{!79, !33}
-!80 = distinct !{!80, !33}

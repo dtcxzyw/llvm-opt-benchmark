@@ -2190,7 +2190,7 @@ _create_deleted_modules.exit.thread.thread:       ; preds = %8
   %123 = add nsw i32 %122, -1
   store i32 %123, ptr %121, align 8, !tbaa !183
   %.not.i5487.us = icmp eq ptr %116, null
-  br i1 %.not.i5487.us, label %_check_deleted_instances.exit, label %.outer.us, !llvm.loop !196
+  br i1 %.not.i5487.us, label %_check_deleted_instances.exit, label %.outer.us
 
 124:                                              ; preds = %144, %.outer.us
   %.064112.i.us.us = phi ptr [ %145, %144 ], [ %.0114.i.ph.us, %.outer.us ]
@@ -2230,7 +2230,7 @@ _create_deleted_modules.exit.thread.thread:       ; preds = %8
 144:                                              ; preds = %.thread.sink.split.i.us.us, %138, %132
   %145 = phi ptr [ %.pre, %.thread.sink.split.i.us.us ], [ %131, %138 ], [ %131, %132 ]
   %.not.i54.us.us = icmp eq ptr %145, null
-  br i1 %.not.i54.us.us, label %._crit_edge.i55, label %124, !llvm.loop !198
+  br i1 %.not.i54.us.us, label %._crit_edge.i55, label %124
 
 .thread102.i.loopexit100.split.us.us:             ; preds = %124
   %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
@@ -2454,7 +2454,7 @@ _check_deleted_instances.exit:                    ; preds = %.thread83, %.thread
 
 242:                                              ; preds = %230
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 280
-  %244 = load ptr, ptr %243, align 8, !tbaa !199
+  %244 = load ptr, ptr %243, align 8, !tbaa !196
   %245 = tail call i64 @gtk_toggle_button_get_type() #19
   %246 = call ptr @g_type_check_instance_cast(ptr noundef %244, i64 noundef %245) #17
   %247 = load i32, ptr %233, align 4, !tbaa !119
@@ -2735,7 +2735,7 @@ define internal range(i32 0, 2) i32 @_lib_history_button_clicked_callback(ptr no
   tail call void @dt_image_update_final_size(i32 noundef %6) #17
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 96
-  %64 = load ptr, ptr %63, align 16, !tbaa !200
+  %64 = load ptr, ptr %63, align 16, !tbaa !197
   tail call void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef %64, i32 noundef 0) #17
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   tail call void @dt_dev_undo_end_record(ptr noundef %65) #17
@@ -2834,7 +2834,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   %.0143225 = phi i32 [ 0, %.lr.ph227 ], [ %.1144, %57 ]
   %20 = load ptr, ptr %16, align 8, !tbaa !124
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv233
-  %22 = load ptr, ptr %21, align 8, !tbaa !201
+  %22 = load ptr, ptr %21, align 8, !tbaa !198
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !124
   %25 = load i8, ptr %24, align 1, !tbaa !124
@@ -2864,10 +2864,10 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
 36:                                               ; preds = %34
   %37 = load ptr, ptr %17, align 8, !tbaa !124
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 448
-  %39 = load ptr, ptr %38, align 8, !tbaa !202
+  %39 = load ptr, ptr %38, align 8, !tbaa !199
   %40 = tail call ptr %39() #17
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !204
+  %42 = load ptr, ptr %41, align 8, !tbaa !201
   %.not202 = icmp eq ptr %42, null
   br i1 %.not202, label %51, label %43
 
@@ -3059,8 +3059,8 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   br label %.critedge205.thread
 
 133:                                              ; preds = %4
-  %134 = load i16, ptr %8, align 2, !tbaa !205
-  %135 = load i16, ptr %7, align 2, !tbaa !205
+  %134 = load i16, ptr %8, align 2, !tbaa !202
+  %135 = load i16, ptr %7, align 2, !tbaa !202
   %.not190 = icmp eq i16 %134, %135
   br i1 %.not190, label %.critedge205.thread, label %136
 
@@ -3151,7 +3151,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
 
 184:                                              ; preds = %.lr.ph244
   %185 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !206
+  %186 = load ptr, ptr %185, align 8, !tbaa !203
   %187 = load i8, ptr %186, align 1, !tbaa !124
   %.not186 = icmp eq i8 %187, 0
   %spec.select = select i1 %.not186, ptr %180, ptr %186
@@ -3164,7 +3164,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
 
 190:                                              ; preds = %188
   %191 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !206
+  %192 = load ptr, ptr %191, align 8, !tbaa !203
   %193 = load i8, ptr %192, align 1, !tbaa !124
   %.not187 = icmp eq i8 %193, 0
   %spec.select208 = select i1 %.not187, ptr %180, ptr %192
@@ -3305,42 +3305,42 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br label %20
 
 20:                                               ; preds = %19, %14
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !207
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !204
   %22 = tail call ptr @dt_database_get(ptr noundef %21) #17
   %23 = call i32 @sqlite3_prepare_v2(ptr noundef %22, ptr noundef nonnull @.str.94, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #17
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %30, label %24
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr @stderr, align 8, !tbaa !208
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !207
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !205
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !204
   %27 = call ptr @dt_database_get(ptr noundef %26) #17
   %28 = call ptr @sqlite3_errmsg(ptr noundef %27) #17
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.9, i32 noundef 1180, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef nonnull @.str.94, ptr noundef %28) #22
   br label %30
 
 30:                                               ; preds = %24, %20
-  %31 = load ptr, ptr %2, align 8, !tbaa !210
+  %31 = load ptr, ptr %2, align 8, !tbaa !207
   %32 = call i32 @sqlite3_bind_int(ptr noundef %31, i32 noundef 1, i32 noundef %5) #17
   %.not12 = icmp eq i32 %32, 0
   br i1 %.not12, label %39, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !208
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !207
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !205
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !204
   %36 = call ptr @dt_database_get(ptr noundef %35) #17
   %37 = call ptr @sqlite3_errmsg(ptr noundef %36) #17
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.9, i32 noundef 1182, ptr noundef nonnull @__FUNCTION__._lib_history_truncate, ptr noundef %37) #22
   br label %39
 
 39:                                               ; preds = %33, %30
-  %40 = load ptr, ptr %2, align 8, !tbaa !210
+  %40 = load ptr, ptr %2, align 8, !tbaa !207
   %41 = call i32 @sqlite3_step(ptr noundef %40) #17
   %42 = icmp eq i32 %41, 100
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr %2, align 8, !tbaa !210
+  %44 = load ptr, ptr %2, align 8, !tbaa !207
   %45 = call i32 @sqlite3_column_int(ptr noundef %44, i32 noundef 0) #17
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2016
@@ -3348,7 +3348,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   br label %48
 
 48:                                               ; preds = %43, %39
-  %49 = load ptr, ptr %2, align 8, !tbaa !210
+  %49 = load ptr, ptr %2, align 8, !tbaa !207
   %50 = call i32 @sqlite3_finalize(ptr noundef %49) #17
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2016
@@ -3655,19 +3655,16 @@ attributes #22 = { cold nounwind }
 !193 = !{!"_cb_data", !73, i64 0, !9, i64 8}
 !194 = !{!193, !9, i64 8}
 !195 = !{!72, !28, i64 2064}
-!196 = distinct !{!196, !197}
-!197 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!198 = distinct !{!198, !197}
-!199 = !{!163, !16, i64 280}
-!200 = !{!72, !74, i64 96}
-!201 = !{!141, !141, i64 0}
-!202 = !{!203, !13, i64 448}
-!203 = !{!"dt_iop_module_so_t", !8, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !15, i64 488, !10, i64 496, !13, i64 520, !9, i64 528, !13, i64 536, !9, i64 544, !9, i64 548}
-!204 = !{!140, !114, i64 48}
-!205 = !{!79, !79, i64 0}
-!206 = !{!145, !12, i64 16}
-!207 = !{!26, !40, i64 136}
-!208 = !{!209, !209, i64 0}
-!209 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!210 = !{!211, !211, i64 0}
-!211 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
+!196 = !{!163, !16, i64 280}
+!197 = !{!72, !74, i64 96}
+!198 = !{!141, !141, i64 0}
+!199 = !{!200, !13, i64 448}
+!200 = !{!"dt_iop_module_so_t", !8, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !13, i64 416, !13, i64 424, !13, i64 432, !13, i64 440, !13, i64 448, !13, i64 456, !13, i64 464, !13, i64 472, !13, i64 480, !15, i64 488, !10, i64 496, !13, i64 520, !9, i64 528, !13, i64 536, !9, i64 544, !9, i64 548}
+!201 = !{!140, !114, i64 48}
+!202 = !{!79, !79, i64 0}
+!203 = !{!145, !12, i64 16}
+!204 = !{!26, !40, i64 136}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!207 = !{!208, !208, i64 0}
+!208 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}

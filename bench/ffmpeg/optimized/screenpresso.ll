@@ -221,16 +221,16 @@ sum_delta_flipped.exit.thread:                    ; preds = %45
 
 .thread:                                          ; preds = %sum_delta_flipped.exit.thread
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 1, ptr %90, align 8, !tbaa !46
+  store i32 1, ptr %90, align 8, !tbaa !45
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %92 = load i32, ptr %91, align 4, !tbaa !51
+  %92 = load i32, ptr %91, align 4, !tbaa !50
   %93 = or i32 %92, 2
-  store i32 %93, ptr %91, align 4, !tbaa !51
+  store i32 %93, ptr %91, align 4, !tbaa !50
   br label %96
 
 94:                                               ; preds = %sum_delta_flipped.exit
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 2, ptr %95, align 8, !tbaa !46
+  store i32 2, ptr %95, align 8, !tbaa !45
   br label %96
 
 96:                                               ; preds = %94, %.thread
@@ -332,11 +332,10 @@ attributes #4 = { nounwind }
 !41 = !{!10, !10, i64 0}
 !42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = !{!47, !10, i64 120}
-!47 = !{!"AVFrame", !8, i64 0, !8, i64 64, !48, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !49, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !50, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!48 = !{!"p2 omnipotent char", !26, i64 0}
-!49 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!50 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!51 = !{!47, !10, i64 276}
+!44 = distinct !{!44, !43}
+!45 = !{!46, !10, i64 120}
+!46 = !{!"AVFrame", !8, i64 0, !8, i64 64, !47, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !48, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !49, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!47 = !{!"p2 omnipotent char", !26, i64 0}
+!48 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!50 = !{!46, !10, i64 276}

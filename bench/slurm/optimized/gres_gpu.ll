@@ -602,7 +602,7 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge39.
 .backedge.i.i36:                                  ; preds = %186, %.lr.ph.split.i.i
   %185 = call ptr @slurm_list_next(ptr noundef %161) #12
   %.not27.i.i = icmp eq ptr %185, null
-  br i1 %.not27.i.i, label %._crit_edge.i.i37, label %.lr.ph.split.i.i, !llvm.loop !19
+  br i1 %.not27.i.i, label %._crit_edge.i.i37, label %.lr.ph.split.i.i, !llvm.loop !17
 
 186:                                              ; preds = %.lr.ph.split.i.i
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -627,7 +627,7 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge39.
   store i64 1, ptr %194, align 8
   %195 = call ptr @slurm_list_next(ptr noundef %191) #12
   %.not28.i.i = icmp eq ptr %195, null
-  br i1 %.not28.i.i, label %._crit_edge34.i.i, label %.lr.ph33.i.i, !llvm.loop !20
+  br i1 %.not28.i.i, label %._crit_edge34.i.i, label %.lr.ph33.i.i, !llvm.loop !18
 
 ._crit_edge34.i.i:                                ; preds = %.lr.ph33.i.i, %._crit_edge.i.i37
   call void @slurm_list_iterator_destroy(ptr noundef %191) #12
@@ -688,7 +688,7 @@ _normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, 
 _match_gres.exit.i:                               ; preds = %216, %210, %203
   %220 = call ptr @slurm_list_next(ptr noundef %197) #12
   %.not120.i = icmp eq ptr %220, null
-  br i1 %.not120.i, label %.critedge.i, label %203, !llvm.loop !21
+  br i1 %.not120.i, label %.critedge.i, label %203, !llvm.loop !19
 
 221:                                              ; preds = %216, %214
   %222 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -782,7 +782,7 @@ _validate_cpus_links.exitthread-pre-split.i:      ; preds = %237, %234, %231
 .backedge.i:                                      ; preds = %267, %265, %256, %_validate_cpus_links.exitthread-pre-split.i, %.critedge137.i
   %258 = call ptr @slurm_list_next(ptr noundef %196) #12
   %.not112.i = icmp eq ptr %258, null
-  br i1 %.not112.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !22
+  br i1 %.not112.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !20
 
 .critedge.i:                                      ; preds = %_match_gres.exit.i, %.lr.ph154.i
   %259 = getelementptr inbounds nuw i8, ptr %199, i64 40
@@ -831,7 +831,7 @@ _validate_cpus_links.exitthread-pre-split.i:      ; preds = %237, %234, %231
 275:                                              ; preds = %274, %.lr.ph158.i
   %276 = call ptr @slurm_list_next(ptr noundef %197) #12
   %.not113.i = icmp eq ptr %276, null
-  br i1 %.not113.i, label %._crit_edge159.i, label %.lr.ph158.i, !llvm.loop !23
+  br i1 %.not113.i, label %._crit_edge159.i, label %.lr.ph158.i, !llvm.loop !21
 
 ._crit_edge159.i:                                 ; preds = %275, %._crit_edge155.i
   call void @slurm_list_iterator_destroy(ptr noundef %197) #12
@@ -1150,7 +1150,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !24
+  br i1 %25, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph, %1
   ret ptr %2
@@ -1511,12 +1511,10 @@ attributes #14 = { noreturn nounwind }
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
 !19 = distinct !{!19, !9, !10}
 !20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10, !25}
-!25 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = distinct !{!22, !9, !10, !23}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}

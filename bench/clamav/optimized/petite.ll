@@ -153,7 +153,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 ..loopexit_crit_edge.us:                          ; preds = %65
   %.not923.us = icmp eq i32 %.2787.us, 0
-  br i1 %.not923.us, label %.lr.ph1471.preheader, label %.preheader1243.us, !llvm.loop !11
+  br i1 %.not923.us, label %.lr.ph1471.preheader, label %.preheader1243.us
 
 .lr.ph1471.preheader:                             ; preds = %..loopexit_crit_edge.us
   %smax = tail call i32 @llvm.smax.i32(i32 %50, i32 1)
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %.8.us = add i32 %spec.select.us, %106
   %107 = tail call i32 @llvm.fshl.i32(i32 %.8.us, i32 %.8.us, i32 29)
   %.not929.us = icmp ult ptr %102, %0
-  br i1 %.not929.us, label %.critedge, label %94, !llvm.loop !13
+  br i1 %.not929.us, label %.critedge, label %94
 
 .lr.ph1479.split:                                 ; preds = %.lr.ph1479, %123
   %.07521477 = phi ptr [ %113, %123 ], [ %90, %.lr.ph1479 ]
@@ -346,7 +346,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 133:                                              ; preds = %.lr.ph1514
   %134 = getelementptr %struct.cli_exe_section, ptr %.082214522054, i64 %indvars.iv1683
   %135 = getelementptr i8, ptr %134, i64 -28
-  %136 = load i32, ptr %135, align 4, !tbaa !14
+  %136 = load i32, ptr %135, align 4, !tbaa !11
   %137 = getelementptr i8, ptr %134, i64 -24
   %138 = load i32, ptr %137, align 4, !tbaa !9
   %139 = add i32 %138, %136
@@ -356,7 +356,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %141 = phi i32 [ %139, %133 ], [ 0, %.lr.ph1514 ]
   %142 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.082214522054, i64 %indvars.iv1683
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i32 %141, ptr %143, align 4, !tbaa !14
+  store i32 %141, ptr %143, align 4, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %145 = load i32, ptr %144, align 4, !tbaa !9
   %.not934 = icmp eq i32 %145, 0
@@ -393,12 +393,12 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
 
 161:                                              ; preds = %159
   %162 = getelementptr i8, ptr %142, i64 -28
-  %163 = load i32, ptr %162, align 4, !tbaa !14
+  %163 = load i32, ptr %162, align 4, !tbaa !11
   br label %164
 
 164:                                              ; preds = %159, %161
   %165 = phi i32 [ %163, %161 ], [ 0, %159 ]
-  store i32 %165, ptr %143, align 4, !tbaa !14
+  store i32 %165, ptr %143, align 4, !tbaa !11
   store i32 0, ptr %144, align 4, !tbaa !9
   br label %166
 
@@ -420,7 +420,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !10
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %172 = load i32, ptr %171, align 4, !tbaa !14
+  %172 = load i32, ptr %171, align 4, !tbaa !11
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %174 = load i32, ptr %173, align 4, !tbaa !9
   %175 = trunc nuw nsw i64 %indvars.iv1710 to i32
@@ -600,7 +600,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 4
   store i32 %spec.select1899, ptr %252, align 4, !tbaa !10
   %253 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i32 0, ptr %253, align 4, !tbaa !14
+  store i32 0, ptr %253, align 4, !tbaa !11
   %.not946 = icmp eq i32 %233, 0
   br i1 %.not946, label %.thread1183, label %254
 
@@ -1341,7 +1341,4 @@ attributes #5 = { nounwind }
 !8 = !{!6, !6, i64 0}
 !9 = !{!4, !5, i64 12}
 !10 = !{!4, !5, i64 4}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !12}
-!14 = !{!4, !5, i64 8}
+!11 = !{!4, !5, i64 8}

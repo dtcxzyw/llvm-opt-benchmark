@@ -98,7 +98,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
 20:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 2147483647, ptr %5, align 8, !tbaa !26
-  %21 = load ptr, ptr %3, align 8, !tbaa !31
+  %21 = load ptr, ptr %3, align 8, !tbaa !30
   %22 = icmp eq ptr %21, null
   %23 = getelementptr inbounds nuw i8, ptr %.01831, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
@@ -128,7 +128,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %.01831, i64 16
   %34 = icmp eq i32 %.221, -1
-  br i1 %34, label %.split, label %.critedge28, !llvm.loop !32
+  br i1 %34, label %.split, label %.critedge28, !llvm.loop !28
 
 .critedge:                                        ; preds = %.split, %.split.us
   call void @ERR_new() #3
@@ -178,7 +178,7 @@ define i32 @i2d_PrivateKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 192
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %15, label %13
 
@@ -188,7 +188,7 @@ define i32 @i2d_PrivateKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %.thread, label %18
 
@@ -325,10 +325,8 @@ attributes #3 = { nounwind }
 !25 = !{!"type_and_structure_st", !23, i64 0, !23, i64 8}
 !26 = !{!17, !17, i64 0}
 !27 = !{!25, !23, i64 8}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = !{!23, !23, i64 0}
-!32 = distinct !{!32, !29}
-!33 = !{!22, !9, i64 192}
-!34 = !{!22, !9, i64 72}
+!30 = !{!23, !23, i64 0}
+!31 = !{!22, !9, i64 192}
+!32 = !{!22, !9, i64 72}

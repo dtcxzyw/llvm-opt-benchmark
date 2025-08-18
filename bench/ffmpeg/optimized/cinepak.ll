@@ -936,7 +936,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   store i8 %.0.i71.us.i.i, ptr %481, align 1, !tbaa !45
   %495 = add nuw nsw i32 %.15894.us.i.i, 1
   %exitcond142.not.i.i = icmp eq i32 %495, 4
-  br i1 %exitcond142.not.i.i, label %.thread83.us.loopexit.i.i, label %476, !llvm.loop !66
+  br i1 %exitcond142.not.i.i, label %.thread83.us.loopexit.i.i, label %476, !llvm.loop !65
 
 .preheader.us.i.i:                                ; preds = %.thread.us.i.i, %.preheader.us.i.i
   %.393.us.i.i = phi ptr [ %497, %.preheader.us.i.i ], [ %.182.us.i.i, %.thread.us.i.i ]
@@ -948,7 +948,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %scevgep139.i.i = getelementptr i8, ptr %.25392.us.i.i, i64 3
   %498 = add nuw nsw i32 %.05791.us.i.i, 1
   %exitcond141.not.i.i = icmp eq i32 %498, 4
-  br i1 %exitcond141.not.i.i, label %465, label %.preheader.us.i.i, !llvm.loop !67
+  br i1 %exitcond141.not.i.i, label %465, label %.preheader.us.i.i, !llvm.loop !66
 
 .split.i.i:                                       ; preds = %.sink.split.i.i
   br i1 %.not63.i.i, label %.thread.us108.i.i, label %.split.split.i.i
@@ -964,7 +964,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
 .thread83.us114.i.i:                              ; preds = %.preheader.us125.i.i
   %501 = add nuw nsw i32 %.05097.us106.i.i, 1
   %exitcond137.not.i.i = icmp eq i32 %501, 256
-  br i1 %exitcond137.not.i.i, label %cinepak_decode_codebook.exit.i, label %.thread.us108.i.i, !llvm.loop !68
+  br i1 %exitcond137.not.i.i, label %cinepak_decode_codebook.exit.i, label %.thread.us108.i.i, !llvm.loop !64
 
 .preheader.us125.i.i:                             ; preds = %.thread.us108.i.i, %.preheader.us125.i.i
   %.393.us119.i.i = phi ptr [ %503, %.preheader.us125.i.i ], [ %.0100.us103.i.i, %.thread.us108.i.i ]
@@ -976,7 +976,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %scevgep135.i.i = getelementptr i8, ptr %.25392.us120.i.i, i64 3
   %504 = add nuw nsw i32 %.05791.us121.i.i, 1
   %exitcond136.not.i.i = icmp eq i32 %504, 4
-  br i1 %exitcond136.not.i.i, label %.thread83.us114.i.i, label %.preheader.us125.i.i, !llvm.loop !67
+  br i1 %exitcond136.not.i.i, label %.thread83.us114.i.i, label %.preheader.us125.i.i, !llvm.loop !66
 
 .split.split.i.i:                                 ; preds = %.split.i.i, %.thread83.i.i
   %.0100.i.i = phi ptr [ %.5.i.i, %.thread83.i.i ], [ %232, %.split.i.i ]
@@ -1021,7 +1021,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %scevgep.i.i = getelementptr i8, ptr %.25392.i.i, i64 3
   %518 = add nuw nsw i32 %.05791.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %518, 4
-  br i1 %exitcond.not.i.i, label %.thread83.i.i, label %.preheader.i.i, !llvm.loop !67
+  br i1 %exitcond.not.i.i, label %.thread83.i.i, label %.preheader.i.i, !llvm.loop !66
 
 519:                                              ; preds = %512
   %520 = getelementptr inbounds nuw i8, ptr %.05196.i.i, i64 12
@@ -1032,14 +1032,14 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %.5.i.i = phi ptr [ %.1.i.i, %519 ], [ %517, %.preheader.i.i ]
   %521 = add nuw nsw i32 %.05097.i.i, 1
   %exitcond134.not.i.i = icmp eq i32 %521, 256
-  br i1 %exitcond134.not.i.i, label %cinepak_decode_codebook.exit.i, label %.split.split.i.i, !llvm.loop !69
+  br i1 %exitcond134.not.i.i, label %cinepak_decode_codebook.exit.i, label %.split.split.i.i, !llvm.loop !64
 
 cinepak_decode_codebook.exit.i:                   ; preds = %.thread83.i.i, %.thread.i.i, %506, %.thread83.us114.i.i, %.thread.us108.i.i, %.thread83.us.i.i, %.thread.us.i.i, %453, %.cinepak_decode_codebook.exit_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.cinepak_decode_codebook.exit_crit_edge.i ], [ %446, %453 ], [ %446, %.thread.us.i.i ], [ %446, %.thread83.us.i.i ], [ %446, %.thread.us108.i.i ], [ %446, %.thread83.us114.i.i ], [ %446, %506 ], [ %446, %.thread.i.i ], [ %446, %.thread83.i.i ]
   %522 = getelementptr inbounds i8, ptr %232, i64 %.pre-phi.i
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 4
   %.not47.i.i = icmp ugt ptr %523, %218
-  br i1 %.not47.i.i, label %.loopexit, label %231, !llvm.loop !70
+  br i1 %.not47.i.i, label %.loopexit, label %231, !llvm.loop !67
 
 cinepak_decode_strip.exit.i:                      ; preds = %._crit_edge.i.i, %259
   %524 = phi i16 [ %263, %259 ], [ %441, %._crit_edge.i.i ]
@@ -1048,7 +1048,7 @@ cinepak_decode_strip.exit.i:                      ; preds = %._crit_edge.i.i, %2
   store ptr %526, ptr %11, align 8, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %cinepak_decode.exit, label %146, !llvm.loop !71
+  br i1 %exitcond.not.i, label %cinepak_decode.exit, label %146, !llvm.loop !68
 
 .loopexit:                                        ; preds = %146, %185, %226, %222, %216, %cinepak_decode_codebook.exit.i, %231, %302, %312, %364, %321
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
@@ -1197,11 +1197,8 @@ attributes #6 = { nounwind }
 !61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
 !63 = distinct !{!63, !62}
-!64 = distinct !{!64, !62, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !62}
+!65 = distinct !{!65, !62}
 !66 = distinct !{!66, !62}
 !67 = distinct !{!67, !62}
-!68 = distinct !{!68, !62, !65}
-!69 = distinct !{!69, !62}
-!70 = distinct !{!70, !62}
-!71 = distinct !{!71, !62}
+!68 = distinct !{!68, !62}

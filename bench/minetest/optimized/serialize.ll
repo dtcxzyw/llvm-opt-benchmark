@@ -1661,7 +1661,7 @@ invoke.cont34.us:                                 ; preds = %.noexc83.us, %_ZNKS
   ], !llvm.loop !25
 
 if.end45.fold.split.us:                           ; preds = %invoke.cont34.us
-  br label %for.cond.us, !llvm.loop !33
+  br label %for.cond.us, !llvm.loop !25
 
 lpad.loopexit.split.us:                           ; preds = %if.then.i79.us, %for.cond.us
   %lpad.loopexit102.us = landingpad { ptr, i32 }
@@ -1781,7 +1781,7 @@ while.body.i:                                     ; preds = %for.end, %cleanup.i
   %arrayidx.i.i86 = getelementptr inbounds i8, ptr %29, i64 %i.0142.i
   %30 = load i8, ptr %arrayidx.i.i86, align 1, !tbaa !12
   %cmp2.not.i = icmp eq i8 %30, 92
-  br i1 %cmp2.not.i, label %if.end.i, label %cleanup.i, !llvm.loop !35
+  br i1 %cmp2.not.i, label %if.end.i, label %cleanup.i, !llvm.loop !33
 
 if.end.i:                                         ; preds = %while.body.i
   %cmp5.not.i = icmp ult i64 %inc.i, %sub.i
@@ -2039,7 +2039,7 @@ switch.early.test:                                ; preds = %for.body
 for.inc:                                          ; preds = %switch.early.test
   %inc = add nuw i64 %i.038, 1
   %exitcond.not = icmp eq i64 %inc, %s.coerce0
-  br i1 %exitcond.not, label %if.end.i.i.i, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %if.end.i.i.i, label %for.body, !llvm.loop !34
 
 cleanup:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %for.body
   tail call void @_Z19serializeJsonStringB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %s.coerce0, ptr nonnull %s.coerce1)
@@ -2367,7 +2367,5 @@ attributes #22 = { noreturn nounwind }
 !30 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !11, i64 8}
 !31 = !{!"int", !7, i64 0}
 !32 = !{!"_ZTSSt6locale", !6, i64 0}
-!33 = distinct !{!33, !23, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !23}
-!36 = distinct !{!36, !23}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}

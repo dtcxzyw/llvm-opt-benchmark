@@ -1960,7 +1960,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   %41 = tail call double @llvm.fabs.f64(double %39)
   %42 = fmul double %41, 1.000000e-17
   %43 = fcmp olt double %40, %42
-  br i1 %43, label %.split45.us.sink.split, label %.split.us, !llvm.loop !625
+  br i1 %43, label %.split45.us.sink.split, label %.split.us
 
 .preheader.us:                                    ; preds = %28, %.preheader.us
   %.sroa.033.043.us = phi i64 [ %44, %.preheader.us ], [ 1, %28 ]
@@ -2754,5 +2754,3 @@ attributes #20 = { noreturn }
 !622 = distinct !{!622, !"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf4f663bf4e40436dE.llvm.12303340874314762014"}
 !623 = distinct !{!623, !624, !"_ZN4core3ptr125drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$statrs..distribution..empirical..NonNan$LT$f64$GT$$C$u64$GT$$GT$17ha0b136d671243fd2E.llvm.12303340874314762014: argument 0"}
 !624 = distinct !{!624, !"_ZN4core3ptr125drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$statrs..distribution..empirical..NonNan$LT$f64$GT$$C$u64$GT$$GT$17ha0b136d671243fd2E.llvm.12303340874314762014"}
-!625 = distinct !{!625, !626}
-!626 = !{!"llvm.loop.unswitch.nontrivial.disable"}

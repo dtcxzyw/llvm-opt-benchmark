@@ -1612,7 +1612,7 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_112RunnerModule3runEv(ptr nound
 
 58:                                               ; preds = %56
   %59 = add nuw nsw i32 %.0, 1
-  br i1 %57, label %.split, label %.split28.us, !llvm.loop !102
+  br i1 %57, label %.split, label %.split28.us, !llvm.loop !99
 
 .split28.us:                                      ; preds = %58, %41
   %.us-phi29 = phi i32 [ %42, %41 ], [ %59, %58 ]
@@ -1654,7 +1654,7 @@ _ZNSt10unique_ptrIN3gmx28TrajectoryAnalysisModuleDataESt14default_deleteIS1_EE5r
           to label %76 unwind label %.loopexit.split-lp
 
 76:                                               ; preds = %_ZNSt10unique_ptrIN3gmx28TrajectoryAnalysisModuleDataESt14default_deleteIS1_EE5resetEPS1_.exit
-  %77 = load ptr, ptr @stderr, align 8, !tbaa !103
+  %77 = load ptr, ptr @stderr, align 8, !tbaa !101
   br i1 %75, label %78, label %85
 
 78:                                               ; preds = %76
@@ -1663,7 +1663,7 @@ _ZNSt10unique_ptrIN3gmx28TrajectoryAnalysisModuleDataESt14default_deleteIS1_EE5r
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
-  %82 = load float, ptr %81, align 4, !tbaa !105
+  %82 = load float, ptr %81, align 4, !tbaa !103
   %83 = fpext float %82 to double
   %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str, i32 noundef %.us-phi29, double noundef %83) #21
   br label %87
@@ -2193,15 +2193,13 @@ attributes #22 = { cold }
 !96 = !{!"_ZTS7PbcType", !6, i64 0}
 !97 = !{!98, !98, i64 0}
 !98 = !{!"p1 _ZTSN3gmx28TrajectoryAnalysisModuleDataE", !8, i64 0}
-!99 = distinct !{!99, !100, !101}
+!99 = distinct !{!99, !100}
 !100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!102 = distinct !{!102, !100}
-!103 = !{!104, !104, i64 0}
-!104 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!105 = !{!106, !108, i64 28}
-!106 = !{!"_ZTS10t_trxframe", !51, i64 0, !76, i64 4, !51, i64 8, !76, i64 12, !107, i64 16, !76, i64 24, !108, i64 28, !76, i64 32, !76, i64 33, !108, i64 36, !51, i64 40, !76, i64 44, !90, i64 48, !76, i64 56, !108, i64 60, !76, i64 64, !109, i64 72, !76, i64 80, !109, i64 88, !76, i64 96, !109, i64 104, !76, i64 112, !6, i64 116, !76, i64 152, !96, i64 156, !76, i64 160, !110, i64 168}
-!107 = !{!"long", !6, i64 0}
-!108 = !{!"float", !6, i64 0}
-!109 = !{!"p1 float", !8, i64 0}
-!110 = !{!"p1 int", !8, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!103 = !{!104, !106, i64 28}
+!104 = !{!"_ZTS10t_trxframe", !51, i64 0, !76, i64 4, !51, i64 8, !76, i64 12, !105, i64 16, !76, i64 24, !106, i64 28, !76, i64 32, !76, i64 33, !106, i64 36, !51, i64 40, !76, i64 44, !90, i64 48, !76, i64 56, !106, i64 60, !76, i64 64, !107, i64 72, !76, i64 80, !107, i64 88, !76, i64 96, !107, i64 104, !76, i64 112, !6, i64 116, !76, i64 152, !96, i64 156, !76, i64 160, !108, i64 168}
+!105 = !{!"long", !6, i64 0}
+!106 = !{!"float", !6, i64 0}
+!107 = !{!"p1 float", !8, i64 0}
+!108 = !{!"p1 int", !8, i64 0}

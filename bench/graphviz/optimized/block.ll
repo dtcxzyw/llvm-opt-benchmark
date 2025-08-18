@@ -1058,7 +1058,7 @@ _ZL2gtPK10ConstraintS1_.exit.us10.i:              ; preds = %.thread19.i
   %201 = getelementptr inbounds ptr, ptr %.pre.i87, i64 %.019.i.i.us7.i
   store ptr %157, ptr %201, align 8, !tbaa !43
   %.not.i4.us11.i = icmp ult i64 %.0920.in.i.i.us8.i, 2
-  br i1 %.not.i4.us11.i, label %.loopexit, label %.lr.ph.i.i.us6.i, !llvm.loop !57
+  br i1 %.not.i4.us11.i, label %.loopexit, label %.lr.ph.i.i.us6.i, !llvm.loop !54
 
 .lr.ph.i.i.preheader.split.split.i:               ; preds = %.lr.ph.i.i.preheader.split.i
   %202 = getelementptr inbounds nuw i8, ptr %152, i64 24
@@ -1146,7 +1146,7 @@ _ZL2gtPK10ConstraintS1_.exit.i:                   ; preds = %247
   %261 = getelementptr inbounds ptr, ptr %.pre.i87, i64 %.019.i.i.i
   store ptr %214, ptr %261, align 8, !tbaa !43
   %.not.i4.i = icmp ult i64 %.0920.in.i.i.i, 2
-  br i1 %.not.i4.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i4.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !54
 
 .loopexit:                                        ; preds = %260, %_ZL2gtPK10ConstraintS1_.exit.i, %257, %251, %200, %194, %_ZL2gtPK10ConstraintS1_.exit.us10.i, %188, %150, %143, %_ZL2gtPK10ConstraintS1_.exit.us.i, %137, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %91, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.i ], [ %.019.i.i.us.i, %_ZL2gtPK10ConstraintS1_.exit.us.i ], [ 0, %150 ], [ %.019.i.i.us.i, %137 ], [ %.019.i.i.us.i, %143 ], [ %.019.i.i.us7.i, %_ZL2gtPK10ConstraintS1_.exit.us10.i ], [ 0, %200 ], [ %.019.i.i.us7.i, %188 ], [ %.019.i.i.us7.i, %194 ], [ %.019.i.i.i, %_ZL2gtPK10ConstraintS1_.exit.i ], [ 0, %260 ], [ %.019.i.i.i, %257 ], [ %.019.i.i.i, %251 ]
@@ -1235,17 +1235,17 @@ define void @_ZN5Block8mergeOutEPS_(ptr noundef nonnull align 8 dereferenceable(
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = icmp eq ptr %19, %23
-  br i1 %24, label %.lr.ph, label %_ZN5Block20findMinOutConstraintEv.exit, !llvm.loop !59
+  br i1 %24, label %.lr.ph, label %_ZN5Block20findMinOutConstraintEv.exit, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.preheader.i.preheader, %.preheader.i
   tail call fastcc void @_ZL9deleteMinRSt6vectorIP10ConstraintSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %25 = load ptr, ptr %4, align 8, !tbaa !41
   %26 = load ptr, ptr %6, align 8, !tbaa !41
   %27 = icmp eq ptr %25, %26
-  br i1 %27, label %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge, label %.preheader.i, !llvm.loop !59
+  br i1 %27, label %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge, label %.preheader.i, !llvm.loop !56
 
 ._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge: ; preds = %.lr.ph
-  br label %_ZN5Block20findMinOutConstraintEv.exit, !llvm.loop !59
+  br label %_ZN5Block20findMinOutConstraintEv.exit, !llvm.loop !56
 
 _ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.preheader.i, %.preheader.i.preheader, %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge, %2
   %28 = phi ptr [ %5, %2 ], [ %25, %._ZN5Block20findMinOutConstraintEv.exit.loopexit_crit_edge ], [ %5, %.preheader.i.preheader ], [ %25, %.preheader.i ]
@@ -1279,17 +1279,17 @@ _ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.preheader.i, %.pre
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = icmp eq ptr %45, %49
-  br i1 %50, label %.lr.ph22, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !59
+  br i1 %50, label %.lr.ph22, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
 
 .lr.ph22:                                         ; preds = %.preheader.i4.preheader, %.preheader.i4
   tail call fastcc void @_ZL9deleteMinRSt6vectorIP10ConstraintSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %30)
   %51 = load ptr, ptr %30, align 8, !tbaa !41
   %52 = load ptr, ptr %32, align 8, !tbaa !41
   %53 = icmp eq ptr %51, %52
-  br i1 %53, label %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, label %.preheader.i4, !llvm.loop !59
+  br i1 %53, label %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, label %.preheader.i4, !llvm.loop !56
 
 ._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge: ; preds = %.lr.ph22
-  br label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !59
+  br label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
 
 _ZN5Block20findMinOutConstraintEv.exit8.loopexit: ; preds = %.preheader.i4, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, %.preheader.i4.preheader
   %.val311 = phi ptr [ %52, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge ], [ %33, %.preheader.i4.preheader ], [ %52, %.preheader.i4 ]
@@ -1344,7 +1344,7 @@ define noundef ptr @_ZN5Block20findMinOutConstraintEv(ptr noundef nonnull align 
   %16 = load ptr, ptr %2, align 8, !tbaa !41
   %17 = load ptr, ptr %4, align 8, !tbaa !41
   %18 = icmp eq ptr %16, %17
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !56
 
 .loopexit:                                        ; preds = %15, %.preheader, %1
   %.05 = phi ptr [ null, %1 ], [ %.0, %.preheader ], [ null, %15 ]
@@ -1493,7 +1493,7 @@ _ZL2gtPK10ConstraintS1_.exit5:                    ; preds = %93, %101, %103
   %107 = getelementptr inbounds ptr, ptr %2, i64 %.036.i.i.i
   store ptr %106, ptr %107, align 8, !tbaa !43
   %108 = icmp slt i64 %spec.select.i.i.i, %17
-  br i1 %108, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !60
+  br i1 %108, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !57
 
 ._crit_edge.i.i.i:                                ; preds = %_ZL2gtPK10ConstraintS1_.exit5, %9
   %.0.lcssa.i.i.i = phi i64 [ 0, %9 ], [ %spec.select.i.i.i, %_ZL2gtPK10ConstraintS1_.exit5 ]
@@ -1605,7 +1605,7 @@ _ZL2gtPK10ConstraintS1_.exit.us:                  ; preds = %.thread
   %179 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i.us
   store ptr %134, ptr %179, align 8, !tbaa !43
   %.not9.i.i.us = icmp ult i64 %.0920.in.i.i.i.i.us, 2
-  br i1 %.not9.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us, !llvm.loop !61
+  br i1 %.not9.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us, !llvm.loop !54
 
 .lr.ph.i.i.preheader.i.i.split:                   ; preds = %.lr.ph.i.i.preheader.i.i
   %180 = load ptr, ptr %121, align 8, !tbaa !48
@@ -1682,7 +1682,7 @@ _ZL2gtPK10ConstraintS1_.exit.us10:                ; preds = %.thread19
   %229 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i.us7
   store ptr %185, ptr %229, align 8, !tbaa !43
   %.not9.i.i.us11 = icmp ult i64 %.0920.in.i.i.i.i.us8, 2
-  br i1 %.not9.i.i.us11, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us6, !llvm.loop !62
+  br i1 %.not9.i.i.us11, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.us6, !llvm.loop !54
 
 .lr.ph.i.i.preheader.i.i.split.split:             ; preds = %.lr.ph.i.i.preheader.i.i.split
   %230 = getelementptr inbounds nuw i8, ptr %180, i64 24
@@ -1770,7 +1770,7 @@ _ZL2gtPK10ConstraintS1_.exit:                     ; preds = %275
   %289 = getelementptr inbounds ptr, ptr %2, i64 %.019.i.i.i.i
   store ptr %242, ptr %289, align 8, !tbaa !43
   %.not9.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
-  br i1 %.not9.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not9.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !54
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %279, %285, %288, %_ZL2gtPK10ConstraintS1_.exit, %216, %_ZL2gtPK10ConstraintS1_.exit.us10, %222, %228, %178, %171, %_ZL2gtPK10ConstraintS1_.exit.us, %165, %120
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %120 ], [ %.019.i.i.i.i.us, %171 ], [ %.019.i.i.i.i.us, %165 ], [ 0, %178 ], [ %.019.i.i.i.i.us, %_ZL2gtPK10ConstraintS1_.exit.us ], [ %.019.i.i.i.i.us7, %222 ], [ %.019.i.i.i.i.us7, %216 ], [ 0, %228 ], [ %.019.i.i.i.i.us7, %_ZL2gtPK10ConstraintS1_.exit.us10 ], [ %.019.i.i.i.i, %279 ], [ %.019.i.i.i.i, %285 ], [ 0, %288 ], [ %.019.i.i.i.i, %_ZL2gtPK10ConstraintS1_.exit ]
@@ -1842,7 +1842,7 @@ define noundef double @_ZN5Block12compute_dfdvEP8VariableS1_RP10Constraint(ptr n
 
 _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %33 = load i8, ptr %32, align 8, !tbaa !50, !range !63, !noundef !64
+  %33 = load i8, ptr %32, align 8, !tbaa !50, !range !58, !noundef !59
   %34 = trunc nuw i8 %33 to i1
   %35 = icmp ne ptr %2, %28
   %spec.select.i = and i1 %35, %34
@@ -1851,7 +1851,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
 36:                                               ; preds = %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit
   %37 = tail call noundef double @_ZN5Block12compute_dfdvEP8VariableS1_RP10Constraint(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %28, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store double %37, ptr %38, align 8, !tbaa !65
+  store double %37, ptr %38, align 8, !tbaa !60
   %39 = fadd double %.048, %37
   %40 = load ptr, ptr %3, align 8, !tbaa !43
   %41 = icmp eq ptr %40, null
@@ -1859,7 +1859,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %44 = load double, ptr %43, align 8, !tbaa !65
+  %44 = load double, ptr %43, align 8, !tbaa !60
   %45 = fcmp olt double %37, %44
   br i1 %45, label %46, label %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread
 
@@ -1889,7 +1889,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread: ; preds = %.lr.
 
 _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph53
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %54 = load i8, ptr %53, align 8, !tbaa !50, !range !63, !noundef !64
+  %54 = load i8, ptr %53, align 8, !tbaa !50, !range !58, !noundef !59
   %55 = trunc nuw i8 %54 to i1
   %56 = icmp ne ptr %2, %49
   %spec.select.i37 = and i1 %56, %55
@@ -1899,7 +1899,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph53
   %58 = tail call noundef double @_ZN5Block12compute_dfdvEP8VariableS1_RP10Constraint(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %49, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %59 = fneg double %58
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store double %59, ptr %60, align 8, !tbaa !65
+  store double %59, ptr %60, align 8, !tbaa !60
   %61 = fadd double %.251, %58
   %62 = load ptr, ptr %3, align 8, !tbaa !43
   %63 = icmp eq ptr %62, null
@@ -1907,7 +1907,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph53
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %66 = load double, ptr %65, align 8, !tbaa !65
+  %66 = load double, ptr %65, align 8, !tbaa !60
   %67 = fcmp ogt double %66, %59
   br i1 %67, label %68, label %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread
 
@@ -1964,7 +1964,7 @@ define { double, ptr } @_ZN5Block20compute_dfdv_betweenEP8VariableS1_S1_NS_9Dire
 
 _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.us: ; preds = %.lr.ph.split.us
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %32 = load i8, ptr %31, align 8, !tbaa !50, !range !63, !noundef !64
+  %32 = load i8, ptr %31, align 8, !tbaa !50, !range !58, !noundef !59
   %33 = trunc nuw i8 %32 to i1
   %34 = icmp ne ptr %3, %27
   %spec.select.i.us = and i1 %34, %33
@@ -1979,7 +1979,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.us: ; preds = %.lr.ph.sp
   %39 = extractvalue { double, ptr } %37, 1
   %40 = fneg double %38
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store double %40, ptr %41, align 8, !tbaa !65
+  store double %40, ptr %41, align 8, !tbaa !60
   %42 = fadd double %.06786.us, %38
   %43 = icmp ne ptr %spec.select78.us, null
   %44 = icmp ne ptr %39, null
@@ -1994,7 +1994,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread.us: ; preds = %35
   %.1.us = phi ptr [ %.088.us, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.us ], [ %.088.us, %.lr.ph.split.us ], [ %spec.select78.us, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.060.084.us, i64 8
   %.not.us = icmp eq ptr %45, %24
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !66
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread.us, %6
   %.071.lcssa = phi ptr [ null, %6 ], [ %.172.us, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread.us ], [ %.172, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread ]
@@ -2027,7 +2027,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread.us: ; preds = %35
 
 _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.us: ; preds = %.lr.ph102.split.us
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %58 = load i8, ptr %57, align 8, !tbaa !50, !range !63, !noundef !64
+  %58 = load i8, ptr %57, align 8, !tbaa !50, !range !58, !noundef !59
   %59 = trunc nuw i8 %58 to i1
   %60 = icmp ne ptr %3, %53
   %spec.select.i55.us = and i1 %60, %59
@@ -2041,7 +2041,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.us: ; preds = %.lr.ph10
   %64 = extractvalue { double, ptr } %63, 0
   %65 = extractvalue { double, ptr } %63, 1
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store double %64, ptr %66, align 8, !tbaa !65
+  store double %64, ptr %66, align 8, !tbaa !60
   %67 = fadd double %.26998.us, %64
   %68 = icmp ne ptr %spec.select80.us, null
   %69 = icmp ne ptr %65, null
@@ -2050,7 +2050,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.us: ; preds = %.lr.ph10
 
 70:                                               ; preds = %61
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %72 = load double, ptr %71, align 8, !tbaa !65
+  %72 = load double, ptr %71, align 8, !tbaa !60
   %73 = fcmp olt double %64, %72
   br i1 %73, label %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread.us, label %74
 
@@ -2063,7 +2063,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread.us: ; preds = %6
   %.4.us = phi ptr [ %spec.select80.us, %61 ], [ %.3100.us, %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.us ], [ %.3100.us, %74 ], [ %.3100.us, %70 ], [ %.3100.us, %.lr.ph102.split.us ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.056.097.us, i64 8
   %.not82.us = icmp eq ptr %75, %49
-  br i1 %.not82.us, label %._crit_edge103, label %.lr.ph102.split.us, !llvm.loop !67
+  br i1 %.not82.us, label %._crit_edge103, label %.lr.ph102.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread
   %.088 = phi ptr [ %.1, %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread ], [ %1, %.lr.ph ]
@@ -2079,7 +2079,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread.us: ; preds = %6
 
 _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph.split
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %82 = load i8, ptr %81, align 8, !tbaa !50, !range !63, !noundef !64
+  %82 = load i8, ptr %81, align 8, !tbaa !50, !range !58, !noundef !59
   %83 = trunc nuw i8 %82 to i1
   %84 = icmp ne ptr %3, %77
   %spec.select.i = and i1 %84, %83
@@ -2094,7 +2094,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph.split
   %89 = extractvalue { double, ptr } %87, 1
   %90 = fneg double %88
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store double %90, ptr %91, align 8, !tbaa !65
+  store double %90, ptr %91, align 8, !tbaa !60
   %92 = fadd double %.06786, %88
   %93 = icmp ne ptr %spec.select78, null
   %94 = icmp ne ptr %89, null
@@ -2133,7 +2133,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread: ; preds = %85, %
 
 _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph102.split
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  %103 = load i8, ptr %102, align 8, !tbaa !50, !range !63, !noundef !64
+  %103 = load i8, ptr %102, align 8, !tbaa !50, !range !58, !noundef !59
   %104 = trunc nuw i8 %103 to i1
   %105 = icmp ne ptr %3, %98
   %spec.select.i55 = and i1 %105, %104
@@ -2148,7 +2148,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph102.s
   %110 = extractvalue { double, ptr } %109, 0
   %111 = extractvalue { double, ptr } %109, 1
   %112 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store double %110, ptr %112, align 8, !tbaa !65
+  store double %110, ptr %112, align 8, !tbaa !60
   %113 = fadd double %.26998, %110
   %114 = icmp ne ptr %spec.select80, null
   %115 = icmp ne ptr %111, null
@@ -2160,7 +2160,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph102.s
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %119 = load double, ptr %118, align 8, !tbaa !65
+  %119 = load double, ptr %118, align 8, !tbaa !60
   %120 = fcmp olt double %110, %119
   br i1 %120, label %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread, label %121
 
@@ -2206,7 +2206,7 @@ define void @_ZN5Block15reset_active_lmEP8VariableS1_(ptr noundef nonnull align 
 
 _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %19 = load i8, ptr %18, align 8, !tbaa !50, !range !63, !noundef !64
+  %19 = load i8, ptr %18, align 8, !tbaa !50, !range !58, !noundef !59
   %20 = trunc nuw i8 %19 to i1
   %21 = icmp ne ptr %2, %14
   %spec.select.i = and i1 %21, %20
@@ -2214,7 +2214,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
 
 22:                                               ; preds = %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double 0.000000e+00, ptr %23, align 8, !tbaa !65
+  store double 0.000000e+00, ptr %23, align 8, !tbaa !60
   tail call void @_ZN5Block15reset_active_lmEP8VariableS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %14, ptr noundef %1)
   br label %_ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread
 
@@ -2237,7 +2237,7 @@ _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit.thread: ; preds = %.lr.
 
 _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph31
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %31 = load i8, ptr %30, align 8, !tbaa !50, !range !63, !noundef !64
+  %31 = load i8, ptr %30, align 8, !tbaa !50, !range !58, !noundef !59
   %32 = trunc nuw i8 %31 to i1
   %33 = icmp ne ptr %2, %26
   %spec.select.i17 = and i1 %33, %32
@@ -2245,7 +2245,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph31
 
 34:                                               ; preds = %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store double 0.000000e+00, ptr %35, align 8, !tbaa !65
+  store double 0.000000e+00, ptr %35, align 8, !tbaa !60
   tail call void @_ZN5Block15reset_active_lmEP8VariableS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %26, ptr noundef %1)
   br label %_ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread
 
@@ -2310,7 +2310,7 @@ define void @_ZN5Block18populateSplitBlockEPS_P8VariableS2_(ptr noundef nonnull 
 
 _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %19 = load i8, ptr %18, align 8, !tbaa !50, !range !63, !noundef !64
+  %19 = load i8, ptr %18, align 8, !tbaa !50, !range !58, !noundef !59
   %20 = trunc nuw i8 %19 to i1
   %21 = icmp ne ptr %3, %14
   %spec.select.i = and i1 %21, %20
@@ -2340,7 +2340,7 @@ _ZN5Block13canFollowLeftEPK10ConstraintPK8Variable.exit.thread: ; preds = %.lr.p
 
 _ZN5Block14canFollowRightEPK10ConstraintPK8Variable.exit: ; preds = %.lr.ph33
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %31 = load i8, ptr %30, align 8, !tbaa !50, !range !63, !noundef !64
+  %31 = load i8, ptr %30, align 8, !tbaa !50, !range !58, !noundef !59
   %32 = trunc nuw i8 %31 to i1
   %33 = icmp ne ptr %3, %26
   %spec.select.i19 = and i1 %33, %32
@@ -2370,7 +2370,7 @@ define noundef ptr @_ZN5Block12splitBetweenEP8VariableS1_RPS_S3_(ptr noundef non
           to label %12 unwind label %17
 
 12:                                               ; preds = %5
-  store ptr %11, ptr %3, align 8, !tbaa !68
+  store ptr %11, ptr %3, align 8, !tbaa !61
   %13 = load ptr, ptr %9, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !48
@@ -2396,7 +2396,7 @@ define noundef ptr @_ZN5Block12splitBetweenEP8VariableS1_RPS_S3_(ptr noundef non
   resume { ptr, i32 } %.pn.i
 
 _ZN5Block5splitERPS_S1_P10Constraint.exit:        ; preds = %12
-  store ptr %16, ptr %4, align 8, !tbaa !68
+  store ptr %16, ptr %4, align 8, !tbaa !61
   %22 = load ptr, ptr %14, align 8, !tbaa !48
   %23 = load ptr, ptr %9, align 8, !tbaa !47
   tail call void @_ZN5Block18populateSplitBlockEPS_P8VariableS2_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %16, ptr noundef %22, ptr noundef %23)
@@ -2414,7 +2414,7 @@ define void @_ZN5Block5splitERPS_S1_P10Constraint(ptr noundef nonnull align 8 de
           to label %7 unwind label %15
 
 7:                                                ; preds = %4
-  store ptr %6, ptr %1, align 8, !tbaa !68
+  store ptr %6, ptr %1, align 8, !tbaa !61
   %8 = load ptr, ptr %3, align 8, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !48
@@ -2424,7 +2424,7 @@ define void @_ZN5Block5splitERPS_S1_P10Constraint(ptr noundef nonnull align 8 de
           to label %12 unwind label %17
 
 12:                                               ; preds = %7
-  store ptr %11, ptr %2, align 8, !tbaa !68
+  store ptr %11, ptr %2, align 8, !tbaa !61
   %13 = load ptr, ptr %9, align 8, !tbaa !48
   %14 = load ptr, ptr %3, align 8, !tbaa !47
   tail call void @_ZN5Block18populateSplitBlockEPS_P8VariableS2_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %11, ptr noundef %13, ptr noundef %14)
@@ -2499,7 +2499,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK5Block(ptr nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load i8, ptr %7, align 8, !tbaa !51, !range !63, !noundef !64
+  %8 = load i8, ptr %7, align 8, !tbaa !51, !range !58, !noundef !59
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %14, label %16
 
@@ -2660,7 +2660,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP10C
   %.09.us = phi i64 [ %44, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds ptr, ptr %0, i64 %.09.us
   %21 = load ptr, ptr %20, align 8, !tbaa !43
-  %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !69
+  %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !62
   %22 = icmp slt i64 %.09.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us
 
@@ -2680,7 +2680,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP10C
   %33 = getelementptr inbounds ptr, ptr %0, i64 %.036.i.us
   store ptr %32, ptr %33, align 8, !tbaa !43
   %34 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !60
+  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !57
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %35 = icmp sgt i64 %spec.select.i.us, %.09.us
@@ -2700,7 +2700,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP10C
   %41 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.us
   store ptr %40, ptr %41, align 8, !tbaa !43
   %42 = icmp sgt i64 %.0920.i.i.us, %.09.us
-  br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us, !llvm.loop !58
+  br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us, !llvm.loop !54
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
@@ -2708,13 +2708,13 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_Sa
   store ptr %21, ptr %43, align 8, !tbaa !43
   %.not.us = icmp eq i64 %.09.us, 0
   %44 = add nsw i64 %.09.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !70
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !63
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit
   %.09 = phi i64 [ %73, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit ], [ %11, %.split.preheader ]
   %45 = getelementptr inbounds ptr, ptr %0, i64 %.09
   %46 = load ptr, ptr %45, align 8, !tbaa !43
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !69
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !62
   %47 = icmp slt i64 %.09, %13
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i
 
@@ -2734,7 +2734,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_Sa
   %58 = getelementptr inbounds ptr, ptr %0, i64 %.036.i
   store ptr %57, ptr %58, align 8, !tbaa !43
   %59 = icmp slt i64 %spec.select.i, %13
-  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !60
+  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !57
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.09, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -2765,7 +2765,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_Sa
   %70 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
   store ptr %69, ptr %70, align 8, !tbaa !43
   %71 = icmp sgt i64 %.0920.i.i, %.09
-  br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit, !llvm.loop !58
+  br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit, !llvm.loop !54
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %68, %63
   %.0.lcssa.i.i = phi i64 [ %.1.i, %63 ], [ %.0920.i.i, %68 ], [ %.019.i.i, %.lr.ph.i.i ]
@@ -2773,7 +2773,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_Sa
   store ptr %46, ptr %72, align 8, !tbaa !43
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !71
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit, %3
   ret void
@@ -3047,21 +3047,13 @@ attributes #20 = { nounwind }
 !51 = !{!26, !11, i64 48}
 !52 = !{!26, !30, i64 56}
 !53 = !{!4, !5, i64 0}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !55, !56}
-!58 = distinct !{!58, !55}
-!59 = distinct !{!59, !55}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55, !56}
-!62 = distinct !{!62, !55, !56}
-!63 = !{i8 0, i8 2}
-!64 = !{}
-!65 = !{!46, !8, i64 24}
-!66 = distinct !{!66, !56}
-!67 = distinct !{!67, !56}
-!68 = !{!9, !9, i64 0}
-!69 = !{!10, !10, i64 0}
-!70 = distinct !{!70, !55, !56}
-!71 = distinct !{!71, !55}
+!56 = distinct !{!56, !55}
+!57 = distinct !{!57, !55}
+!58 = !{i8 0, i8 2}
+!59 = !{}
+!60 = !{!46, !8, i64 24}
+!61 = !{!9, !9, i64 0}
+!62 = !{!10, !10, i64 0}
+!63 = distinct !{!63, !55}

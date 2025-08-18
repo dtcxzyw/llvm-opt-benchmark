@@ -124,8 +124,8 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i: ; preds = %.
   %22 = add i64 %21, %.sroa.4.0.i26.i.i
   %.not13.i.i = icmp ugt i64 %22, %7
   %23 = add i64 %.sroa.4.0.i26.i.i, %9
-  %or.cond93.i.not.i = icmp ult i64 %23, %7
-  br i1 %or.cond93.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3683066c904efc4E.exit.i.i", label %24
+  %or.cond.i.not.i = icmp ult i64 %23, %7
+  br i1 %or.cond.i.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3683066c904efc4E.exit.i.i", label %24
 
 24:                                               ; preds = %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i
   br i1 %.not13.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hf16407f2e0ad3b47E.exit.thread", label %.lr.ph.split.split.i.i.backedge

@@ -2052,13 +2052,13 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   %67 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 8
   store ptr %.lcssa40.sink, ptr %67, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !58
+  %69 = load ptr, ptr %68, align 8, !tbaa !57
   %70 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 32
-  store ptr %69, ptr %70, align 8, !tbaa !58
+  store ptr %69, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !59
+  %72 = load ptr, ptr %71, align 8, !tbaa !58
   %73 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 40
-  store ptr %72, ptr %73, align 8, !tbaa !59
+  store ptr %72, ptr %73, align 8, !tbaa !58
   br label %.loopexit
 
 .split31:                                         ; preds = %62, %59, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread, %44, %.split
@@ -2092,7 +2092,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %82, %46
-  br label %.split, !llvm.loop !60
+  br label %.split, !llvm.loop !56
 
 .loopexit:                                        ; preds = %79, %43, %37, %16, %.split33.us
   %.0 = phi ptr [ %.lcssa41.sink, %.split33.us ], [ null, %16 ], [ null, %37 ], [ null, %43 ], [ null, %79 ]
@@ -2133,8 +2133,8 @@ define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %21 = load ptr, ptr %16, align 8, !tbaa !61
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  %21 = load ptr, ptr %16, align 8, !tbaa !59
+  %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = call noundef ptr %22(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %7)
   %.not41 = icmp eq ptr %23, null
   br i1 %.not41, label %.thread, label %24
@@ -2186,7 +2186,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 46:                                               ; preds = %44
   %47 = load i32, ptr %11, align 4, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store i32 %47, ptr %48, align 8, !tbaa !64
+  store i32 %47, ptr %48, align 8, !tbaa !62
   br label %.loopexit
 
 .thread:                                          ; preds = %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit, %44, %20
@@ -2216,7 +2216,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 
 55:                                               ; preds = %54
   %56 = add nsw i32 %.033.ph, 1
-  br label %.outer, !llvm.loop !65
+  br label %.outer, !llvm.loop !63
 
 57:                                               ; preds = %54
   %.not44 = icmp eq i8 %.032, 0
@@ -2288,7 +2288,7 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.i.i: ; preds = %68
 85:                                               ; preds = %80, %77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %86, label %77, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %86, label %77, !llvm.loop !64
 
 86:                                               ; preds = %85, %80
   %.not45 = phi i1 [ true, %85 ], [ false, %80 ]
@@ -2308,7 +2308,7 @@ _ZL13extendICUDataP10UErrorCode.exit.thread:      ; preds = %_ZL20udata_findCach
 
 _ZL13extendICUDataP10UErrorCode.exit:             ; preds = %86
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !65
+  br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !63
 
 .loopexit5:                                       ; preds = %57, %_ZL13extendICUDataP10UErrorCode.exit, %53, %_ZL13extendICUDataP10UErrorCode.exit.thread, %.loopexit, %52
   %.3 = phi ptr [ null, %52 ], [ %.2, %.loopexit ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
@@ -2358,7 +2358,7 @@ define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %14
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !67
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %13
   %.035 = phi i1 [ false, %13 ], [ true, %.preheader ], [ %.not, %.lr.ph ]
@@ -2465,7 +2465,7 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread: ; preds = %43, %_ZL20udat
 
 60:                                               ; preds = %59
   %61 = invoke signext i8 @uprv_mapFile_77(ptr noundef nonnull %5, ptr noundef nonnull %58, ptr noundef nonnull %2)
-          to label %53 unwind label %.loopexit55, !llvm.loop !68
+          to label %53 unwind label %.loopexit55, !llvm.loop !66
 
 .loopexit55:                                      ; preds = %53, %57, %60
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2626,16 +2626,14 @@ attributes #18 = { nounwind willreturn memory(read) }
 !53 = !{!"_ZTS10DataHeader", !54, i64 0, !41, i64 4}
 !54 = !{!"_ZTS10MappedData", !42, i64 0, !7, i64 2, !7, i64 3}
 !55 = !{!53, !7, i64 3}
-!56 = distinct !{!56, !29, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = !{!33, !6, i64 32}
-!59 = !{!33, !6, i64 40}
-!60 = distinct !{!60, !29}
-!61 = !{!33, !6, i64 0}
-!62 = !{!63, !6, i64 0}
-!63 = !{!"_ZTS15commonDataFuncs", !6, i64 0, !6, i64 8}
-!64 = !{!33, !9, i64 48}
+!56 = distinct !{!56, !29}
+!57 = !{!33, !6, i64 32}
+!58 = !{!33, !6, i64 40}
+!59 = !{!33, !6, i64 0}
+!60 = !{!61, !6, i64 0}
+!61 = !{!"_ZTS15commonDataFuncs", !6, i64 0, !6, i64 8}
+!62 = !{!33, !9, i64 48}
+!63 = distinct !{!63, !29}
+!64 = distinct !{!64, !29}
 !65 = distinct !{!65, !29}
 !66 = distinct !{!66, !29}
-!67 = distinct !{!67, !29}
-!68 = distinct !{!68, !29}

@@ -11037,7 +11037,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   store double %46, ptr %72, align 8, !tbaa !10
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !350
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !348
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, %3
   ret void
@@ -11456,6 +11456,4 @@ attributes #26 = { nounwind willreturn memory(none) }
 !345 = distinct !{!345, !9}
 !346 = distinct !{!346, !9}
 !347 = distinct !{!347, !9}
-!348 = distinct !{!348, !9, !349}
-!349 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!350 = distinct !{!350, !9}
+!348 = distinct !{!348, !9}

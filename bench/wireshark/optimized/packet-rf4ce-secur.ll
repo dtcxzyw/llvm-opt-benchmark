@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef %0,
 31:                                               ; preds = %.split, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !32
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %31, %21, %.split41.us, %10, %8, %3
   %.029 = phi i1 [ false, %3 ], [ false, %8 ], [ false, %10 ], [ true, %.split41.us ], [ false, %21 ], [ false, %31 ]
@@ -768,7 +768,7 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %34
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 33
   %.idx.neg.i = mul nsw i64 %indvars.iv.i21, -40
   %45 = add nsw i64 %.idx.neg.i, 2560
-  %46 = call ptr @__memcpy_chk(ptr noundef %39, ptr noundef nonnull readonly %2, i64 noundef 16, i64 noundef %45) #17, !alias.scope !33
+  %46 = call ptr @__memcpy_chk(ptr noundef %39, ptr noundef nonnull readonly %2, i64 noundef 16, i64 noundef %45) #17, !alias.scope !31
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %.07.i, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -783,7 +783,7 @@ nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %34
 51:                                               ; preds = %24, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %nwk_key_storage_add_entry.exit, label %17, !llvm.loop !37
+  br i1 %exitcond.not, label %nwk_key_storage_add_entry.exit, label %17, !llvm.loop !35
 
 nwk_key_storage_add_entry.exit:                   ; preds = %51, %38, %43, %nwk_key_storage_get_entry_by_key.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -856,7 +856,7 @@ define internal fastcc noundef zeroext i1 @key_exchange_calc_key_cont(ptr nounde
   store i8 %40, ptr %42, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %reverse.exit.i, label %38, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %reverse.exit.i, label %38, !llvm.loop !36
 
 reverse.exit.i:                                   ; preds = %38, %reverse.exit.i
   %indvars.iv.i21.i = phi i64 [ %indvars.iv.next.i22.i, %reverse.exit.i ], [ 0, %38 ]
@@ -867,7 +867,7 @@ reverse.exit.i:                                   ; preds = %38, %reverse.exit.i
   store i8 %44, ptr %46, align 1
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 8
-  br i1 %exitcond.not.i23.i, label %reverse.exit24.i, label %reverse.exit.i, !llvm.loop !38
+  br i1 %exitcond.not.i23.i, label %reverse.exit24.i, label %reverse.exit.i, !llvm.loop !36
 
 reverse.exit24.i:                                 ; preds = %reverse.exit.i
   %47 = load i64, ptr @key_exchange_context, align 8
@@ -1011,7 +1011,7 @@ calc_key_cmac.exit:                               ; preds = %rf4ce_aes_cmac.exit
 86:                                               ; preds = %calc_key_cmac.exit, %30, %24, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !37
 
 .loopexit:                                        ; preds = %86, %calc_key_cmac.exit.thread
   %87 = phi i1 [ true, %calc_key_cmac.exit.thread ], [ false, %86 ]
@@ -1038,7 +1038,7 @@ define hidden void @vendor_secret_storage_add_entry(ptr noundef readonly capture
 9:                                                ; preds = %7, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.preheader.preheader, label %2, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.preheader.preheader, label %2, !llvm.loop !38
 
 vendor_secret_storage_get_entry.exit:             ; preds = %7
   %.not = icmp eq ptr %3, null
@@ -1050,7 +1050,7 @@ vendor_secret_storage_get_entry.exit:             ; preds = %7
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.critedge8, label %.preheader, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge8, label %.preheader, !llvm.loop !39
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader.preheader ]
@@ -1065,7 +1065,7 @@ vendor_secret_storage_get_entry.exit:             ; preds = %7
   %15 = add nsw i64 %.idx.neg, 1088
   %16 = icmp ne i64 %15, -1
   tail call void @llvm.assume(i1 %16)
-  %17 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef %0, i64 noundef 16, i64 noundef %15) #17, !alias.scope !42
+  %17 = tail call ptr @__memcpy_chk(ptr noundef %14, ptr noundef %0, i64 noundef 16, i64 noundef %15) #17, !alias.scope !40
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 1, ptr %18, align 1
   br label %.critedge8
@@ -1094,7 +1094,7 @@ define hidden void @vendor_secret_storage_release_entry(ptr noundef readonly cap
 9:                                                ; preds = %7, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %vendor_secret_storage_get_entry.exit.thread, label %2, !llvm.loop !40
+  br i1 %exitcond.not.i, label %vendor_secret_storage_get_entry.exit.thread, label %2, !llvm.loop !38
 
 vendor_secret_storage_get_entry.exit:             ; preds = %7
   %.not = icmp eq ptr %3, null
@@ -1136,7 +1136,7 @@ define hidden void @rf4ce_secur_cleanup() local_unnamed_addr #11 {
 11:                                               ; preds = %10, %6, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %12, label %1, !llvm.loop !46
+  br i1 %exitcond.not, label %12, label %1, !llvm.loop !44
 
 12:                                               ; preds = %11
   ret void
@@ -1184,7 +1184,7 @@ define hidden noundef zeroext i1 @decrypt_data(ptr noundef %0, ptr noundef %1, i
   store i8 %28, ptr %30, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %reverse.exit, label %26, !llvm.loop !38
+  br i1 %exitcond.not.i, label %reverse.exit, label %26, !llvm.loop !36
 
 reverse.exit:                                     ; preds = %26
   %31 = load i32, ptr %13, align 1
@@ -1204,7 +1204,7 @@ reverse.exit:                                     ; preds = %26
   store i8 %34, ptr %36, align 1
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 8
-  br i1 %exitcond.not.i39, label %reverse.exit40, label %32, !llvm.loop !38
+  br i1 %exitcond.not.i39, label %reverse.exit40, label %32, !llvm.loop !36
 
 reverse.exit40:                                   ; preds = %32
   %37 = load i16, ptr %3, align 2
@@ -1231,7 +1231,7 @@ reverse.exit40:                                   ; preds = %32
 44:                                               ; preds = %.thread, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !45
 
 .loopexit:                                        ; preds = %44, %41, %6
   %.0 = phi i1 [ false, %6 ], [ true, %41 ], [ false, %44 ]
@@ -1365,21 +1365,19 @@ attributes #17 = { nounwind }
 !27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
 !28 = distinct !{!28, !"memcpy.inline"}
 !29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
-!30 = distinct !{!30, !7, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !7}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!30 = distinct !{!30, !7}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
-!44 = distinct !{!44, !"memcpy.inline"}
-!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"memcpy.inline: argument 0"}
+!42 = distinct !{!42, !"memcpy.inline"}
+!43 = distinct !{!43, !42, !"memcpy.inline: argument 1"}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}

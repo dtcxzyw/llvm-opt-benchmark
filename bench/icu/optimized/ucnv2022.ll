@@ -3217,7 +3217,7 @@ _ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArg
   %159 = load i32, ptr %1, align 4, !tbaa !24
   %160 = icmp slt i32 %159, 1
   %.promoted.pre = load ptr, ptr %5, align 8, !tbaa !76
-  br i1 %160, label %.preheader, label %161, !llvm.loop !116
+  br i1 %160, label %.preheader, label %161, !llvm.loop !114
 
 161:                                              ; preds = %156
   store ptr %.0, ptr %8, align 8, !tbaa !77
@@ -3340,7 +3340,7 @@ _ZL50UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGIC_IBMP23UConverterToUnicodeArg
   %227 = trunc i32 %.084 to i16
   %228 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   store i16 %227, ptr %.4, align 2, !tbaa !86
-  br label %.preheader, !llvm.loop !116
+  br label %.preheader, !llvm.loop !114
 
 229:                                              ; preds = %206
   %230 = load ptr, ptr %13, align 8, !tbaa !79
@@ -3822,7 +3822,7 @@ thread-pre-split:                                 ; preds = %120, %114
 244:                                              ; preds = %207, %187, %190, %199, %158, %149, %146
   %.6 = phi ptr [ %147, %146 ], [ %147, %149 ], [ %.3156, %158 ], [ %188, %187 ], [ %188, %190 ], [ %171, %199 ], [ %.3156, %207 ]
   %245 = icmp ult ptr %66, %9
-  br i1 %245, label %62, label %.loopexit, !llvm.loop !117
+  br i1 %245, label %62, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %244, %.preheader, %243, %240, %73
   %.2155 = phi ptr [ %.5, %240 ], [ %.1154187, %73 ], [ %.1154187, %243 ], [ %11, %.preheader ], [ %.6, %244 ]
@@ -4011,7 +4011,7 @@ define internal void @_ZL46UConverter_toUnicode_ISO_2022_CN_OFFSETS_LOGICP23UCon
 
 .backedge.us:                                     ; preds = %46, %45
   %exitcond.not = icmp eq ptr %41, %10
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !118
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !116
 
 .split214.us:                                     ; preds = %46
   store i8 0, ptr %38, align 8, !tbaa !51
@@ -4082,7 +4082,7 @@ define internal void @_ZL46UConverter_toUnicode_ISO_2022_CN_OFFSETS_LOGICP23UCon
 75:                                               ; preds = %62, %53
   %76 = icmp slt i32 %.pre239, 1
   %.promoted.pre = load ptr, ptr %4, align 8, !tbaa !76
-  br i1 %76, label %.preheader, label %77, !llvm.loop !119
+  br i1 %76, label %.preheader, label %77, !llvm.loop !116
 
 77:                                               ; preds = %.thread241, %75
   %.promoted.pre243 = phi ptr [ %.promoted.pre242, %.thread241 ], [ %.promoted.pre, %75 ]
@@ -4250,7 +4250,7 @@ select.unfold:                                    ; preds = %140, %.thread247, %
   %162 = trunc nuw i32 %.1127 to i16
   %163 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   store i16 %162, ptr %.3, align 2, !tbaa !86
-  br label %.preheader, !llvm.loop !119
+  br label %.preheader, !llvm.loop !116
 
 164:                                              ; preds = %select.unfold
   %165 = icmp ugt i32 %.1127, 65535
@@ -4317,7 +4317,7 @@ select.unfold:                                    ; preds = %140, %.thread247, %
 
 207:                                              ; preds = %195, %199
   %208 = getelementptr inbounds nuw i8, ptr %.3, i64 4
-  br label %.preheader, !llvm.loop !119
+  br label %.preheader, !llvm.loop !116
 
 209:                                              ; preds = %.thread, %173
   %210 = phi ptr [ %191, %.thread ], [ %174, %173 ]
@@ -4333,7 +4333,7 @@ select.unfold:                                    ; preds = %140, %.thread247, %
   %219 = sext i8 %217 to i64
   %220 = getelementptr inbounds [32 x i16], ptr %215, i64 0, i64 %219
   store i16 %213, ptr %220, align 2, !tbaa !86
-  br label %.preheader, !llvm.loop !119
+  br label %.preheader, !llvm.loop !116
 
 221:                                              ; preds = %164
   %222 = load ptr, ptr %12, align 8, !tbaa !79
@@ -4836,7 +4836,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %222 = icmp samesign ult i64 %indvars.iv.next, %106
   %223 = icmp slt i32 %.3168, 1
   %224 = select i1 %222, i1 %223, i1 false
-  br i1 %224, label %107, label %._crit_edge, !llvm.loop !120
+  br i1 %224, label %107, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %221
   %225 = icmp eq i32 %.3168, 0
@@ -4937,7 +4937,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   store i8 %263, ptr %.3241, align 1, !tbaa !23
   %265 = load ptr, ptr %5, align 8, !tbaa !93
   %.not211 = icmp eq ptr %265, null
-  br i1 %.not211, label %27, label %266, !llvm.loop !121
+  br i1 %.not211, label %27, label %266, !llvm.loop !118
 
 266:                                              ; preds = %262
   %267 = load ptr, ptr %15, align 8, !tbaa !90
@@ -4950,7 +4950,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %274 = getelementptr inbounds nuw i8, ptr %265, i64 4
   store ptr %274, ptr %5, align 8, !tbaa !93
   store i32 %273, ptr %265, align 4, !tbaa !56
-  br label %27, !llvm.loop !121
+  br label %27, !llvm.loop !118
 
 275:                                              ; preds = %261
   %276 = getelementptr inbounds nuw i8, ptr %.3241, i64 2
@@ -4966,7 +4966,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   store i8 %281, ptr %279, align 1, !tbaa !23
   %282 = load ptr, ptr %5, align 8, !tbaa !93
   %.not209 = icmp eq ptr %282, null
-  br i1 %.not209, label %27, label %283, !llvm.loop !121
+  br i1 %.not209, label %27, label %283, !llvm.loop !118
 
 283:                                              ; preds = %277
   %284 = load ptr, ptr %15, align 8, !tbaa !90
@@ -4983,7 +4983,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %293 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store ptr %293, ptr %5, align 8, !tbaa !93
   store i32 %291, ptr %292, align 4, !tbaa !56
-  br label %27, !llvm.loop !121
+  br label %27, !llvm.loop !118
 
 294:                                              ; preds = %261, %275
   %295 = load ptr, ptr %15, align 8, !tbaa !90
@@ -5002,7 +5002,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %304 = load i32, ptr %1, align 4, !tbaa !24
   %305 = icmp slt i32 %304, 1
-  br i1 %305, label %27, label %.thread306, !llvm.loop !121
+  br i1 %305, label %27, label %.thread306, !llvm.loop !118
 
 306:                                              ; preds = %29
   store i32 15, ptr %1, align 4, !tbaa !24
@@ -5252,11 +5252,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !111 = distinct !{!111, !48}
 !112 = distinct !{!112, !48}
 !113 = distinct !{!113, !48}
-!114 = distinct !{!114, !48, !115}
-!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!114 = distinct !{!114, !48}
+!115 = distinct !{!115, !48}
 !116 = distinct !{!116, !48}
 !117 = distinct !{!117, !48}
-!118 = distinct !{!118, !48, !115}
-!119 = distinct !{!119, !48}
-!120 = distinct !{!120, !48}
-!121 = distinct !{!121, !48}
+!118 = distinct !{!118, !48}

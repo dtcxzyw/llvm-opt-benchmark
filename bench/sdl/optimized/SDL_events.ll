@@ -2515,11 +2515,11 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
 
 .preheader:                                       ; preds = %19
   %20 = icmp sgt i32 %1, 0
-  br i1 %20, label %.lr.ph104.preheader, label %.critedge
+  br i1 %20, label %.lr.ph105.preheader, label %.critedge
 
-.lr.ph104.preheader:                              ; preds = %.preheader
+.lr.ph105.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph104
+  br label %.lr.ph105
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @SDL_EventQ, align 8
@@ -2528,19 +2528,19 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
   %24 = zext i1 %23 to i32
   br label %SDL_SendWakeupEvent.exit
 
-.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %SDL_AddEvent.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next, %SDL_AddEvent.exit ]
-  %.042102 = phi i32 [ 0, %.lr.ph104.preheader ], [ %248, %SDL_AddEvent.exit ]
+.lr.ph105:                                        ; preds = %.lr.ph105.preheader, %SDL_AddEvent.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next, %SDL_AddEvent.exit ]
+  %.042103 = phi i32 [ 0, %.lr.ph105.preheader ], [ %248, %SDL_AddEvent.exit ]
   %25 = getelementptr inbounds nuw %union.SDL_Event, ptr %0, i64 %indvars.iv
   %26 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 12)) #8
   %27 = icmp sgt i32 %26, 65534
   br i1 %27, label %28, label %30
 
-28:                                               ; preds = %.lr.ph104
+28:                                               ; preds = %.lr.ph105
   %29 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.174, i32 noundef %26) #8
   br label %SDL_AddEvent.exit
 
-30:                                               ; preds = %.lr.ph104
+30:                                               ; preds = %.lr.ph105
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 40), align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %36
@@ -3158,10 +3158,10 @@ SDL_TransferTemporaryMemoryToEvent.exit.i:        ; preds = %.preheader.i.i.i.i,
 
 SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   %.0.i = phi i32 [ 0, %28 ], [ 1, %245 ], [ 0, %33 ]
-  %248 = add nuw nsw i32 %.0.i, %.042102
+  %248 = add nuw nsw i32 %.0.i, %.042103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph104, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph105, !llvm.loop !12
 
 249:                                              ; preds = %17
   %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 24), align 8
@@ -3176,186 +3176,202 @@ SDL_AddEvent.exit:                                ; preds = %28, %33, %245
   %254 = zext i1 %or.cond to i32
   br i1 %251, label %.lr.ph.split.us.split, label %.lr.ph.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph, %266
-  %.04072.us = phi ptr [ %256, %266 ], [ %250, %.lr.ph ]
-  %.04171.us = phi i32 [ %.2.us, %266 ], [ 0, %.lr.ph ]
-  %.24470.us = phi i32 [ %.345.us, %266 ], [ 0, %.lr.ph ]
-  %255 = getelementptr inbounds nuw i8, ptr %.04072.us, i64 144
-  %256 = load ptr, ptr %255, align 8
-  %257 = load i32, ptr %.04072.us, align 8
-  %.not50.us = icmp ugt i32 %3, %257
-  %.not51.us = icmp ugt i32 %257, %4
-  %or.cond54.us = or i1 %.not50.us, %.not51.us
-  br i1 %or.cond54.us, label %266, label %258
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %5, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
-258:                                              ; preds = %.lr.ph.split.us.split
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %265
+  %.04072.us.us = phi ptr [ %256, %265 ], [ %250, %.lr.ph.split.us.split ]
+  %.04171.us.us = phi i32 [ %.2.us.us, %265 ], [ 0, %.lr.ph.split.us.split ]
+  %.24470.us.us = phi i32 [ %.345.us.us, %265 ], [ 0, %.lr.ph.split.us.split ]
+  %255 = getelementptr inbounds nuw i8, ptr %.04072.us.us, i64 144
+  %256 = load ptr, ptr %255, align 8
+  %257 = load i32, ptr %.04072.us.us, align 8
+  %.not50.us.us = icmp ugt i32 %3, %257
+  %.not51.us.us = icmp ugt i32 %257, %4
+  %or.cond54.us.us = or i1 %.not50.us.us, %.not51.us.us
+  br i1 %or.cond54.us.us, label %265, label %258
+
+258:                                              ; preds = %.lr.ph.split.us.split.split.us
   %259 = icmp eq i32 %257, 32512
-  br i1 %259, label %260, label %264
+  br i1 %259, label %260, label %263
 
 260:                                              ; preds = %258
-  br i1 %5, label %261, label %266
+  %spec.select.us.us = add nsw i32 %.04171.us.us, %254
+  %261 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sentinel_pending) #8
+  %262 = icmp sgt i32 %261, %spec.select.us.us
+  br i1 %262, label %265, label %263
 
-261:                                              ; preds = %260
-  %spec.select.us = add nsw i32 %.04171.us, %254
-  %262 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sentinel_pending) #8
-  %263 = icmp sgt i32 %262, %spec.select.us
-  br i1 %263, label %266, label %264
+263:                                              ; preds = %260, %258
+  %.1.us.us = phi i32 [ %spec.select.us.us, %260 ], [ %.04171.us.us, %258 ]
+  %264 = add nsw i32 %.24470.us.us, 1
+  br label %265
 
-264:                                              ; preds = %261, %258
-  %.1.us = phi i32 [ %spec.select.us, %261 ], [ %.04171.us, %258 ]
-  %265 = add nsw i32 %.24470.us, 1
-  br label %266
+265:                                              ; preds = %263, %260, %.lr.ph.split.us.split.split.us
+  %.345.us.us = phi i32 [ %.24470.us.us, %260 ], [ %264, %263 ], [ %.24470.us.us, %.lr.ph.split.us.split.split.us ]
+  %.2.us.us = phi i32 [ %spec.select.us.us, %260 ], [ %.1.us.us, %263 ], [ %.04171.us.us, %.lr.ph.split.us.split.split.us ]
+  %.not.us.us = icmp eq ptr %256, null
+  br i1 %.not.us.us, label %.critedge, label %.lr.ph.split.us.split.split.us, !llvm.loop !13
 
-266:                                              ; preds = %264, %261, %260, %.lr.ph.split.us.split
-  %.345.us = phi i32 [ %.24470.us, %261 ], [ %265, %264 ], [ %.24470.us, %260 ], [ %.24470.us, %.lr.ph.split.us.split ]
-  %.2.us = phi i32 [ %spec.select.us, %261 ], [ %.1.us, %264 ], [ %.04171.us, %260 ], [ %.04171.us, %.lr.ph.split.us.split ]
-  %.not.us = icmp eq ptr %256, null
-  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !13
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
+  %.04072.us = phi ptr [ %267, %.lr.ph.split.us.split.split ], [ %250, %.lr.ph.split.us.split ]
+  %.24470.us = phi i32 [ %.345.us, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
+  %266 = getelementptr inbounds nuw i8, ptr %.04072.us, i64 144
+  %267 = load ptr, ptr %266, align 8
+  %268 = load i32, ptr %.04072.us, align 8
+  %.not50.us = icmp ule i32 %3, %268
+  %.not51.us = icmp ule i32 %268, %4
+  %or.cond54.us.not110 = and i1 %.not50.us, %.not51.us
+  %269 = icmp ne i32 %268, 32512
+  %or.cond107.not = and i1 %or.cond54.us.not110, %269
+  %270 = zext i1 %or.cond107.not to i32
+  %.345.us = add nuw nsw i32 %.24470.us, %270
+  %.not.us = icmp eq ptr %267, null
+  br i1 %.not.us, label %.critedge, label %.lr.ph.split.us.split.split, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %5, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %283
-  %.04072.us76 = phi ptr [ %270, %283 ], [ %250, %.lr.ph.split ]
-  %.04171.us77 = phi i32 [ %.2.us85, %283 ], [ 0, %.lr.ph.split ]
-  %.24470.us78 = phi i32 [ %.345.us84, %283 ], [ 0, %.lr.ph.split ]
-  %267 = icmp slt i32 %.24470.us78, %1
-  br i1 %267, label %268, label %.critedge
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %287
+  %.04072.us76 = phi ptr [ %274, %287 ], [ %250, %.lr.ph.split ]
+  %.04171.us77 = phi i32 [ %.2.us85, %287 ], [ 0, %.lr.ph.split ]
+  %.24470.us78 = phi i32 [ %.345.us84, %287 ], [ 0, %.lr.ph.split ]
+  %271 = icmp slt i32 %.24470.us78, %1
+  br i1 %271, label %272, label %.critedge
 
-268:                                              ; preds = %.lr.ph.split.split.us
-  %269 = getelementptr inbounds nuw i8, ptr %.04072.us76, i64 144
-  %270 = load ptr, ptr %269, align 8
-  %271 = load i32, ptr %.04072.us76, align 8
-  %.not50.us79 = icmp ugt i32 %3, %271
-  %.not51.us80 = icmp ugt i32 %271, %4
+272:                                              ; preds = %.lr.ph.split.split.us
+  %273 = getelementptr inbounds nuw i8, ptr %.04072.us76, i64 144
+  %274 = load ptr, ptr %273, align 8
+  %275 = load i32, ptr %.04072.us76, align 8
+  %.not50.us79 = icmp ugt i32 %3, %275
+  %.not51.us80 = icmp ugt i32 %275, %4
   %or.cond54.us81 = or i1 %.not50.us79, %.not51.us80
-  br i1 %or.cond54.us81, label %283, label %272
+  br i1 %or.cond54.us81, label %287, label %276
 
-272:                                              ; preds = %268
-  %273 = sext i32 %.24470.us78 to i64
-  %274 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %273
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %274, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us76, i64 128, i1 false)
-  br i1 %252, label %275, label %276
+276:                                              ; preds = %272
+  %277 = sext i32 %.24470.us78 to i64
+  %278 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %277
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %278, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us76, i64 128, i1 false)
+  br i1 %252, label %279, label %280
 
-275:                                              ; preds = %272
+279:                                              ; preds = %276
   tail call fastcc void @SDL_CutEvent(ptr noundef %.04072.us76)
-  br label %276
+  br label %280
 
-276:                                              ; preds = %275, %272
-  %277 = icmp eq i32 %271, 32512
-  br i1 %277, label %278, label %281
+280:                                              ; preds = %279, %276
+  %281 = icmp eq i32 %275, 32512
+  br i1 %281, label %282, label %285
 
-278:                                              ; preds = %276
+282:                                              ; preds = %280
   %spec.select.us82 = add nsw i32 %.04171.us77, %254
-  %279 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sentinel_pending) #8
-  %280 = icmp sgt i32 %279, %spec.select.us82
-  br i1 %280, label %283, label %281
+  %283 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sentinel_pending) #8
+  %284 = icmp sgt i32 %283, %spec.select.us82
+  br i1 %284, label %287, label %285
 
-281:                                              ; preds = %278, %276
-  %.1.us83 = phi i32 [ %spec.select.us82, %278 ], [ %.04171.us77, %276 ]
-  %282 = add nsw i32 %.24470.us78, 1
-  br label %283
+285:                                              ; preds = %282, %280
+  %.1.us83 = phi i32 [ %spec.select.us82, %282 ], [ %.04171.us77, %280 ]
+  %286 = add nsw i32 %.24470.us78, 1
+  br label %287
 
-283:                                              ; preds = %281, %278, %268
-  %.345.us84 = phi i32 [ %.24470.us78, %278 ], [ %282, %281 ], [ %.24470.us78, %268 ]
-  %.2.us85 = phi i32 [ %spec.select.us82, %278 ], [ %.1.us83, %281 ], [ %.04171.us77, %268 ]
-  %.not.us86 = icmp eq ptr %270, null
-  br i1 %.not.us86, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !15
+287:                                              ; preds = %285, %282, %272
+  %.345.us84 = phi i32 [ %.24470.us78, %282 ], [ %286, %285 ], [ %.24470.us78, %272 ]
+  %.2.us85 = phi i32 [ %spec.select.us82, %282 ], [ %.1.us83, %285 ], [ %.04171.us77, %272 ]
+  %.not.us86 = icmp eq ptr %274, null
+  br i1 %.not.us86, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %252, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %294
-  %.04072.us91 = phi ptr [ %287, %294 ], [ %250, %.lr.ph.split.split ]
-  %.24470.us92 = phi i32 [ %.345.us96, %294 ], [ 0, %.lr.ph.split.split ]
-  %284 = icmp slt i32 %.24470.us92, %1
-  br i1 %284, label %285, label %.critedge
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %298
+  %.04072.us91 = phi ptr [ %291, %298 ], [ %250, %.lr.ph.split.split ]
+  %.24470.us92 = phi i32 [ %.345.us96, %298 ], [ 0, %.lr.ph.split.split ]
+  %288 = icmp slt i32 %.24470.us92, %1
+  br i1 %288, label %289, label %.critedge
 
-285:                                              ; preds = %.lr.ph.split.split.split.us
-  %286 = getelementptr inbounds nuw i8, ptr %.04072.us91, i64 144
-  %287 = load ptr, ptr %286, align 8
-  %288 = load i32, ptr %.04072.us91, align 8
-  %.not50.us93 = icmp ugt i32 %3, %288
-  %.not51.us94 = icmp ugt i32 %288, %4
+289:                                              ; preds = %.lr.ph.split.split.split.us
+  %290 = getelementptr inbounds nuw i8, ptr %.04072.us91, i64 144
+  %291 = load ptr, ptr %290, align 8
+  %292 = load i32, ptr %.04072.us91, align 8
+  %.not50.us93 = icmp ugt i32 %3, %292
+  %.not51.us94 = icmp ugt i32 %292, %4
   %or.cond54.us95 = or i1 %.not50.us93, %.not51.us94
-  br i1 %or.cond54.us95, label %294, label %289
+  br i1 %or.cond54.us95, label %298, label %293
 
-289:                                              ; preds = %285
-  %290 = sext i32 %.24470.us92 to i64
-  %291 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %290
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %291, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us91, i64 128, i1 false)
+293:                                              ; preds = %289
+  %294 = sext i32 %.24470.us92 to i64
+  %295 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %294
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %295, ptr noundef nonnull align 8 dereferenceable(128) %.04072.us91, i64 128, i1 false)
   tail call fastcc void @SDL_CutEvent(ptr noundef %.04072.us91)
-  %292 = icmp ne i32 %288, 32512
-  %293 = zext i1 %292 to i32
-  %spec.select = add nsw i32 %.24470.us92, %293
-  br label %294
+  %296 = icmp ne i32 %292, 32512
+  %297 = zext i1 %296 to i32
+  %spec.select = add nsw i32 %.24470.us92, %297
+  br label %298
 
-294:                                              ; preds = %289, %285
-  %.345.us96 = phi i32 [ %.24470.us92, %285 ], [ %spec.select, %289 ]
-  %.not.us97 = icmp eq ptr %287, null
-  br i1 %.not.us97, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !16
+298:                                              ; preds = %293, %289
+  %.345.us96 = phi i32 [ %.24470.us92, %289 ], [ %spec.select, %293 ]
+  %.not.us97 = icmp eq ptr %291, null
+  br i1 %.not.us97, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !13
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %305
-  %.04072 = phi ptr [ %298, %305 ], [ %250, %.lr.ph.split.split ]
-  %.24470 = phi i32 [ %.345, %305 ], [ 0, %.lr.ph.split.split ]
-  %295 = icmp slt i32 %.24470, %1
-  br i1 %295, label %296, label %.critedge
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %309
+  %.04072 = phi ptr [ %302, %309 ], [ %250, %.lr.ph.split.split ]
+  %.24470 = phi i32 [ %.345, %309 ], [ 0, %.lr.ph.split.split ]
+  %299 = icmp slt i32 %.24470, %1
+  br i1 %299, label %300, label %.critedge
 
-296:                                              ; preds = %.lr.ph.split.split.split
-  %297 = getelementptr inbounds nuw i8, ptr %.04072, i64 144
-  %298 = load ptr, ptr %297, align 8
-  %299 = load i32, ptr %.04072, align 8
-  %.not50 = icmp ugt i32 %3, %299
-  %.not51 = icmp ugt i32 %299, %4
+300:                                              ; preds = %.lr.ph.split.split.split
+  %301 = getelementptr inbounds nuw i8, ptr %.04072, i64 144
+  %302 = load ptr, ptr %301, align 8
+  %303 = load i32, ptr %.04072, align 8
+  %.not50 = icmp ugt i32 %3, %303
+  %.not51 = icmp ugt i32 %303, %4
   %or.cond54 = or i1 %.not50, %.not51
-  br i1 %or.cond54, label %305, label %300
+  br i1 %or.cond54, label %309, label %304
 
-300:                                              ; preds = %296
-  %301 = sext i32 %.24470 to i64
-  %302 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %301
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %302, ptr noundef nonnull align 8 dereferenceable(128) %.04072, i64 128, i1 false)
-  %303 = icmp ne i32 %299, 32512
-  %304 = zext i1 %303 to i32
-  %spec.select106 = add nsw i32 %.24470, %304
-  br label %305
+304:                                              ; preds = %300
+  %305 = sext i32 %.24470 to i64
+  %306 = getelementptr inbounds %union.SDL_Event, ptr %0, i64 %305
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %306, ptr noundef nonnull align 8 dereferenceable(128) %.04072, i64 128, i1 false)
+  %307 = icmp ne i32 %303, 32512
+  %308 = zext i1 %307 to i32
+  %spec.select108 = add nsw i32 %.24470, %308
+  br label %309
 
-305:                                              ; preds = %300, %296
-  %.345 = phi i32 [ %.24470, %296 ], [ %spec.select106, %300 ]
-  %.not = icmp eq ptr %298, null
-  br i1 %.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !17
+309:                                              ; preds = %304, %300
+  %.345 = phi i32 [ %.24470, %300 ], [ %spec.select108, %304 ]
+  %.not = icmp eq ptr %302, null
+  br i1 %.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !13
 
-.critedge:                                        ; preds = %305, %.lr.ph.split.split.split, %294, %.lr.ph.split.split.split.us, %283, %.lr.ph.split.split.us, %266, %SDL_AddEvent.exit, %249, %.preheader
-  %.143 = phi i32 [ 0, %.preheader ], [ 0, %249 ], [ %248, %SDL_AddEvent.exit ], [ %.345.us, %266 ], [ %.345.us84, %283 ], [ %.24470.us78, %.lr.ph.split.split.us ], [ %.345.us96, %294 ], [ %.24470.us92, %.lr.ph.split.split.split.us ], [ %.345, %305 ], [ %.24470, %.lr.ph.split.split.split ]
-  %306 = load ptr, ptr @SDL_EventQ, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %306) #8
-  %307 = icmp sgt i32 %.143, 0
-  %or.cond3 = and i1 %18, %307
-  br i1 %or.cond3, label %308, label %SDL_SendWakeupEvent.exit
+.critedge:                                        ; preds = %309, %.lr.ph.split.split.split, %298, %.lr.ph.split.split.split.us, %287, %.lr.ph.split.split.us, %.lr.ph.split.us.split.split, %265, %SDL_AddEvent.exit, %249, %.preheader
+  %.143 = phi i32 [ 0, %.preheader ], [ 0, %249 ], [ %248, %SDL_AddEvent.exit ], [ %.345.us.us, %265 ], [ %.345.us, %.lr.ph.split.us.split.split ], [ %.345.us84, %287 ], [ %.24470.us78, %.lr.ph.split.split.us ], [ %.345.us96, %298 ], [ %.24470.us92, %.lr.ph.split.split.split.us ], [ %.345, %309 ], [ %.24470, %.lr.ph.split.split.split ]
+  %310 = load ptr, ptr @SDL_EventQ, align 8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %310) #8
+  %311 = icmp sgt i32 %.143, 0
+  %or.cond3 = and i1 %18, %311
+  br i1 %or.cond3, label %312, label %SDL_SendWakeupEvent.exit
 
-308:                                              ; preds = %.critedge
-  %309 = call ptr @SDL_GetVideoDevice() #8
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %SDL_SendWakeupEvent.exit, label %311
+312:                                              ; preds = %.critedge
+  %313 = call ptr @SDL_GetVideoDevice() #8
+  %314 = icmp eq ptr %313, null
+  br i1 %314, label %SDL_SendWakeupEvent.exit, label %315
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw i8, ptr %309, i64 568
-  %313 = load ptr, ptr %312, align 8
-  %.not.i55 = icmp eq ptr %313, null
-  br i1 %.not.i55, label %SDL_SendWakeupEvent.exit, label %314
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 568
+  %317 = load ptr, ptr %316, align 8
+  %.not.i55 = icmp eq ptr %317, null
+  br i1 %.not.i55, label %SDL_SendWakeupEvent.exit, label %318
 
-314:                                              ; preds = %311
-  %315 = getelementptr inbounds nuw i8, ptr %309, i64 792
-  %316 = call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %315, ptr noundef null) #8
-  %.not8.i = icmp eq ptr %316, null
-  br i1 %.not8.i, label %SDL_SendWakeupEvent.exit, label %317
+318:                                              ; preds = %315
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 792
+  %320 = call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %319, ptr noundef null) #8
+  %.not8.i = icmp eq ptr %320, null
+  br i1 %.not8.i, label %SDL_SendWakeupEvent.exit, label %321
 
-317:                                              ; preds = %314
-  %318 = load ptr, ptr %312, align 8
-  call void %318(ptr noundef nonnull %309, ptr noundef nonnull %316) #8
+321:                                              ; preds = %318
+  %322 = load ptr, ptr %316, align 8
+  call void %322(ptr noundef nonnull %313, ptr noundef nonnull %320) #8
   br label %SDL_SendWakeupEvent.exit
 
-SDL_SendWakeupEvent.exit:                         ; preds = %317, %314, %311, %308, %.critedge, %21, %15
-  %.0 = phi i32 [ %24, %21 ], [ -1, %15 ], [ %.143, %.critedge ], [ %.143, %308 ], [ %.143, %311 ], [ %.143, %314 ], [ %.143, %317 ]
+SDL_SendWakeupEvent.exit:                         ; preds = %321, %318, %315, %312, %.critedge, %21, %15
+  %.0 = phi i32 [ %24, %21 ], [ -1, %15 ], [ %.143, %.critedge ], [ %.143, %312 ], [ %.143, %315 ], [ %.143, %318 ], [ %.143, %321 ]
   ret i32 %.0
 }
 
@@ -3374,7 +3390,7 @@ define hidden noundef zeroext i1 @SDL_HasEvent_REAL(i32 noundef %0) local_unname
   %6 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 144
   %.09.i = load ptr, ptr %6, align 8
   %.not.not.i = icmp eq ptr %.09.i, null
-  br i1 %.not.not.i, label %SDL_HasEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.not.i, label %SDL_HasEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %1, %5
   %.0916.i = phi ptr [ %.09.i, %5 ], [ %.0914.i, %1 ]
@@ -3404,7 +3420,7 @@ define hidden noundef zeroext i1 @SDL_HasEvents_REAL(i32 noundef %0, i32 noundef
   %7 = getelementptr inbounds nuw i8, ptr %.0916, i64 144
   %.09 = load ptr, ptr %7, align 8
   %.not.not = icmp eq ptr %.09, null
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %2, %6
   %.0916 = phi ptr [ %.09, %6 ], [ %.0914, %2 ]
@@ -3446,7 +3462,7 @@ define hidden void @SDL_FlushEvent_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %.lr.ph.i
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %SDL_FlushEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %SDL_FlushEvents_REAL.exit, label %.lr.ph.i, !llvm.loop !15
 
 SDL_FlushEvents_REAL.exit:                        ; preds = %10, %1
   %11 = load ptr, ptr @SDL_EventQ, align 8
@@ -3481,7 +3497,7 @@ define hidden void @SDL_FlushEvents_REAL(i32 noundef %0, i32 noundef %1) local_u
 
 11:                                               ; preds = %.lr.ph, %10
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %11, %2
   %12 = load ptr, ptr @SDL_EventQ, align 8
@@ -3905,7 +3921,7 @@ SDL_DestroyMainThreadCallback.exit.i:             ; preds = %.lr.ph.i3
 
 36:                                               ; preds = %SDL_DestroyMainThreadCallback.exit.i, %32
   %.not.i4 = icmp eq ptr %26, null
-  br i1 %.not.i4, label %SDL_RunMainThreadCallbacks.exit, label %.lr.ph.i3, !llvm.loop !20
+  br i1 %.not.i4, label %SDL_RunMainThreadCallbacks.exit, label %.lr.ph.i3, !llvm.loop !16
 
 SDL_RunMainThreadCallbacks.exit:                  ; preds = %36, %SDL_FreeTemporaryMemory.exit
   %37 = tail call ptr @SDL_GetVideoDevice() #8
@@ -4089,7 +4105,7 @@ define hidden zeroext i1 @SDL_WaitEventTimeoutNS(ptr noundef %0, i64 noundef %1)
   %.345.us84.i = phi i32 [ %.24470.us78.i, %36 ], [ %40, %39 ], [ %.24470.us78.i, %28 ]
   %.2.us85.i = phi i32 [ %spec.select.us82.i, %36 ], [ %.1.us83.i, %39 ], [ %.04171.us77.i, %28 ]
   %.not.us86.i = icmp eq ptr %30, null
-  br i1 %.not.us86.i, label %SDL_PeepEventsInternal.exit, label %.lr.ph.split.split.us.i, !llvm.loop !15
+  br i1 %.not.us86.i, label %SDL_PeepEventsInternal.exit, label %.lr.ph.split.split.us.i, !llvm.loop !13
 
 SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.split.us.i
   %.143.i.ph = phi i32 [ %.345.us84.i, %41 ], [ %.24470.us78.i, %.lr.ph.split.split.us.i ]
@@ -4154,7 +4170,7 @@ SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.s
   %65 = getelementptr inbounds nuw i8, ptr %.09.i, i64 416
   %.0.i67 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %.0.i67, null
-  br i1 %.not.i, label %SDL_WaitEventTimeout_Device.exit, label %.lr.ph.i66, !llvm.loop !21
+  br i1 %.not.i, label %SDL_WaitEventTimeout_Device.exit, label %.lr.ph.i66, !llvm.loop !17
 
 SDL_find_active_window.exit:                      ; preds = %.lr.ph.i66
   %66 = tail call i32 @SDL_WasInit_REAL(i32 noundef 512) #8
@@ -4186,130 +4202,152 @@ SDL_find_active_window.exit:                      ; preds = %.lr.ph.i66
 SDL_events_get_polling_interval.exit.i:           ; preds = %77, %72
   %.1.i.i = phi i64 [ %.0.i.i, %72 ], [ %spec.select.i.i, %77 ]
   %.1.i.fr.i = freeze i64 %.1.i.i
-  %.not61.i = icmp eq i64 %.1.i.fr.i, 9223372036854775807
+  %.not62.i = icmp eq i64 %.1.i.fr.i, 9223372036854775807
   %79 = getelementptr inbounds nuw i8, ptr %52, i64 792
-  br i1 %.not61.i, label %SDL_events_get_polling_interval.exit.split.i, label %SDL_events_get_polling_interval.exit.split.us.i
+  br i1 %.not62.i, label %SDL_events_get_polling_interval.exit.split.i, label %SDL_events_get_polling_interval.exit.split.us.i
 
-SDL_events_get_polling_interval.exit.split.us.i:  ; preds = %SDL_events_get_polling_interval.exit.i, %88
-  %.034.us.i = phi i64 [ %.438.us.i, %88 ], [ %1, %SDL_events_get_polling_interval.exit.i ]
+SDL_events_get_polling_interval.exit.split.us.i:  ; preds = %SDL_events_get_polling_interval.exit.i
+  br i1 %5, label %SDL_events_get_polling_interval.exit.split.us.split.us.i, label %SDL_events_get_polling_interval.exit.split.us.split.i
+
+SDL_events_get_polling_interval.exit.split.us.split.us.i: ; preds = %SDL_events_get_polling_interval.exit.split.us.i, %86
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
   %80 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %SDL_WaitEventTimeout_Device.exit.thread78, label %82
 
-82:                                               ; preds = %SDL_events_get_polling_interval.exit.split.us.i
-  %.not.us.i = icmp eq i32 %80, 0
-  br i1 %.not.us.i, label %83, label %SDL_WaitEventTimeout_Device.exit.thread78
+82:                                               ; preds = %SDL_events_get_polling_interval.exit.split.us.split.us.i
+  %.not.us.us.i = icmp eq i32 %80, 0
+  br i1 %.not.us.us.i, label %83, label %SDL_WaitEventTimeout_Device.exit.thread78
 
 83:                                               ; preds = %82
-  br i1 %5, label %84, label %88
+  %84 = tail call i64 @SDL_GetTicksNS_REAL() #8
+  %85 = sub i64 %84, %.045
+  %.not45.us.us.i = icmp slt i64 %85, %1
+  br i1 %.not45.us.us.i, label %86, label %SDL_WaitEventTimeout_Device.exit.thread78
 
-84:                                               ; preds = %83
-  %85 = tail call i64 @SDL_GetTicksNS_REAL() #8
-  %86 = sub i64 %85, %.045
-  %.not45.us.i = icmp slt i64 %86, %1
-  %87 = sub nsw i64 %1, %86
-  br i1 %.not45.us.i, label %88, label %SDL_WaitEventTimeout_Device.exit.thread78
+86:                                               ; preds = %83
+  %87 = sub nsw i64 %1, %85
+  %88 = tail call i64 @llvm.smin.i64(i64 %87, i64 %.1.i.fr.i)
+  %89 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
+  %90 = load ptr, ptr %54, align 8
+  %91 = tail call i32 %90(ptr noundef nonnull %52, i64 noundef %88) #8
+  %92 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
+  %93 = icmp ne i32 %91, 0
+  %94 = icmp sgt i64 %.1.i.fr.i, %87
+  %or.cond46.us.us.not.i = select i1 %93, i1 true, i1 %94
+  %95 = icmp slt i32 %91, 1
+  %or.cond54.us.us.i = and i1 %95, %or.cond46.us.us.not.i
+  br i1 %or.cond54.us.us.i, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.us.split.us.i
 
-88:                                               ; preds = %84, %83
-  %.236.us.i = phi i64 [ %87, %84 ], [ %.034.us.i, %83 ]
-  %89 = tail call i64 @llvm.smin.i64(i64 %.236.us.i, i64 %.1.i.fr.i)
-  %90 = icmp slt i64 %.236.us.i, 0
-  %.438.us.i = select i1 %90, i64 %.1.i.fr.i, i64 %89
-  %91 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
-  %92 = load ptr, ptr %54, align 8
-  %93 = tail call i32 %92(ptr noundef nonnull %52, i64 noundef %.438.us.i) #8
-  %94 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
-  %95 = icmp ne i32 %93, 0
-  %96 = icmp ne i64 %.438.us.i, %.1.i.fr.i
-  %or.cond46.us.not.i = select i1 %95, i1 true, i1 %96
-  %97 = icmp slt i32 %93, 1
-  %or.cond54.us.i = and i1 %97, %or.cond46.us.not.i
-  br i1 %or.cond54.us.i, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.us.i, !llvm.loop !22
+SDL_events_get_polling_interval.exit.split.us.split.i: ; preds = %SDL_events_get_polling_interval.exit.split.us.i, %97
+  %.034.us.i = phi i64 [ %.438.us.i, %97 ], [ %1, %SDL_events_get_polling_interval.exit.split.us.i ]
+  tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
+  %96 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %.not.us.i = icmp eq i32 %96, 0
+  br i1 %.not.us.i, label %97, label %SDL_WaitEventTimeout_Device.exit.thread78.loopexit168
+
+97:                                               ; preds = %SDL_events_get_polling_interval.exit.split.us.split.i
+  %98 = tail call i64 @llvm.smin.i64(i64 %.034.us.i, i64 %.1.i.fr.i)
+  %99 = icmp slt i64 %.034.us.i, 0
+  %.438.us.i = select i1 %99, i64 %.1.i.fr.i, i64 %98
+  %100 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
+  %101 = load ptr, ptr %54, align 8
+  %102 = tail call i32 %101(ptr noundef nonnull %52, i64 noundef %.438.us.i) #8
+  %103 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
+  %104 = icmp ne i32 %102, 0
+  %105 = icmp ne i64 %.438.us.i, %.1.i.fr.i
+  %or.cond46.us.not.i = select i1 %104, i1 true, i1 %105
+  %106 = icmp slt i32 %102, 1
+  %or.cond54.us.i = and i1 %106, %or.cond46.us.not.i
+  br i1 %or.cond54.us.i, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.us.split.i
 
 SDL_events_get_polling_interval.exit.split.i:     ; preds = %SDL_events_get_polling_interval.exit.i
   br i1 %5, label %SDL_events_get_polling_interval.exit.split.split.us.i, label %SDL_events_get_polling_interval.exit.split.split.i
 
-SDL_events_get_polling_interval.exit.split.split.us.i: ; preds = %SDL_events_get_polling_interval.exit.split.i, %104
+SDL_events_get_polling_interval.exit.split.split.us.i: ; preds = %SDL_events_get_polling_interval.exit.split.i, %113
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
-  %98 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %SDL_WaitEventTimeout_Device.exit.thread78, label %100
+  %107 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %SDL_WaitEventTimeout_Device.exit.thread78, label %109
 
-100:                                              ; preds = %SDL_events_get_polling_interval.exit.split.split.us.i
-  %.not.us56.i = icmp eq i32 %98, 0
-  br i1 %.not.us56.i, label %101, label %SDL_WaitEventTimeout_Device.exit.thread78
+109:                                              ; preds = %SDL_events_get_polling_interval.exit.split.split.us.i
+  %.not.us56.i = icmp eq i32 %107, 0
+  br i1 %.not.us56.i, label %110, label %SDL_WaitEventTimeout_Device.exit.thread78
 
-101:                                              ; preds = %100
-  %102 = tail call i64 @SDL_GetTicksNS_REAL() #8
-  %103 = sub i64 %102, %.045
-  %.not45.us57.i = icmp slt i64 %103, %1
-  br i1 %.not45.us57.i, label %104, label %SDL_WaitEventTimeout_Device.exit.thread78
+110:                                              ; preds = %109
+  %111 = tail call i64 @SDL_GetTicksNS_REAL() #8
+  %112 = sub i64 %111, %.045
+  %.not45.us57.i = icmp slt i64 %112, %1
+  br i1 %.not45.us57.i, label %113, label %SDL_WaitEventTimeout_Device.exit.thread78
 
-104:                                              ; preds = %101
-  %105 = sub nsw i64 %1, %103
-  %106 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
-  %107 = load ptr, ptr %54, align 8
-  %108 = tail call i32 %107(ptr noundef nonnull %52, i64 noundef %105) #8
-  %109 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
-  %110 = icmp slt i32 %108, 1
-  br i1 %110, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.us.i, !llvm.loop !23
+113:                                              ; preds = %110
+  %114 = sub nsw i64 %1, %112
+  %115 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
+  %116 = load ptr, ptr %54, align 8
+  %117 = tail call i32 %116(ptr noundef nonnull %52, i64 noundef %114) #8
+  %118 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
+  %119 = icmp slt i32 %117, 1
+  br i1 %119, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.us.i
 
-SDL_events_get_polling_interval.exit.split.split.i: ; preds = %SDL_events_get_polling_interval.exit.split.i, %112
+SDL_events_get_polling_interval.exit.split.split.i: ; preds = %SDL_events_get_polling_interval.exit.split.i, %121
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
-  %111 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
-  %.not.i68 = icmp eq i32 %111, 0
-  br i1 %.not.i68, label %112, label %SDL_WaitEventTimeout_Device.exit.thread78.loopexit142
+  %120 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %.not.i68 = icmp eq i32 %120, 0
+  br i1 %.not.i68, label %121, label %SDL_WaitEventTimeout_Device.exit.thread78.loopexit159
 
-112:                                              ; preds = %SDL_events_get_polling_interval.exit.split.split.i
-  %113 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
-  %114 = load ptr, ptr %54, align 8
-  %115 = tail call i32 %114(ptr noundef nonnull %52, i64 noundef range(i64 1, 0) %1) #8
-  %116 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
-  %117 = icmp slt i32 %115, 1
-  br i1 %117, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.i
+121:                                              ; preds = %SDL_events_get_polling_interval.exit.split.split.i
+  %122 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef nonnull %.09.i) #8
+  %123 = load ptr, ptr %54, align 8
+  %124 = tail call i32 %123(ptr noundef nonnull %52, i64 noundef range(i64 1, 0) %1) #8
+  %125 = tail call ptr @SDL_SetAtomicPointer_REAL(ptr noundef nonnull %79, ptr noundef null) #8
+  %126 = icmp slt i32 %124, 1
+  br i1 %126, label %.loopexit, label %SDL_events_get_polling_interval.exit.split.split.i
 
-.loopexit:                                        ; preds = %88, %112, %104
-  %.us-phi.i.ph = phi i32 [ %108, %104 ], [ %115, %112 ], [ %93, %88 ]
-  %118 = icmp eq i32 %.us-phi.i.ph, 0
-  br i1 %118, label %SDL_WaitEventTimeout_Device.exit.thread78, label %SDL_WaitEventTimeout_Device.exit
+.loopexit:                                        ; preds = %97, %86, %121, %113
+  %.us-phi.i.ph = phi i32 [ %117, %113 ], [ %124, %121 ], [ %91, %86 ], [ %102, %97 ]
+  %127 = icmp eq i32 %.us-phi.i.ph, 0
+  br i1 %127, label %SDL_WaitEventTimeout_Device.exit.thread78, label %SDL_WaitEventTimeout_Device.exit
 
 SDL_WaitEventTimeout_Device.exit:                 ; preds = %64, %59, %.loopexit, %56, %53, %51
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
-  %119 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph
+  %128 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %SDL_WaitEventTimeout_Device.exit
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %122
-  %121 = tail call i64 @SDL_GetTicksNS_REAL() #8
-  %.not64.us = icmp ult i64 %121, %.046
-  br i1 %.not64.us, label %122, label %SDL_WaitEventTimeout_Device.exit.thread78
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %131
+  %130 = tail call i64 @SDL_GetTicksNS_REAL() #8
+  %.not64.us = icmp ult i64 %130, %.046
+  br i1 %.not64.us, label %131, label %SDL_WaitEventTimeout_Device.exit.thread78
 
-122:                                              ; preds = %.lr.ph.split.us
-  %123 = sub nuw i64 %.046, %121
-  %124 = tail call i64 @llvm.umin.i64(i64 %123, i64 1000000)
-  tail call void @SDL_DelayNS_REAL(i64 noundef %124) #8
+131:                                              ; preds = %.lr.ph.split.us
+  %132 = sub nuw i64 %.046, %130
+  %133 = tail call i64 @llvm.umin.i64(i64 %132, i64 1000000)
+  tail call void @SDL_DelayNS_REAL(i64 noundef %133) #8
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
-  %125 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
-  %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split.us, !llvm.loop !24
+  %134 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   tail call void @SDL_DelayNS_REAL(i64 noundef 1000000) #8
   tail call fastcc void @SDL_PumpEventsInternal(i1 noundef zeroext true)
-  %127 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split
+  %136 = tail call fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0, i32 noundef 65535, i1 noundef zeroext false)
+  %137 = icmp sgt i32 %136, 0
+  br i1 %137, label %SDL_WaitEventTimeout_Device.exit.thread78, label %.lr.ph.split
 
-SDL_WaitEventTimeout_Device.exit.thread78.loopexit142: ; preds = %SDL_events_get_polling_interval.exit.split.split.i
-  %129 = icmp sgt i32 %111, -1
+SDL_WaitEventTimeout_Device.exit.thread78.loopexit159: ; preds = %SDL_events_get_polling_interval.exit.split.split.i
+  %138 = icmp sgt i32 %120, -1
   br label %SDL_WaitEventTimeout_Device.exit.thread78
 
-SDL_WaitEventTimeout_Device.exit.thread78:        ; preds = %SDL_events_get_polling_interval.exit.split.us.i, %84, %82, %SDL_events_get_polling_interval.exit.split.split.us.i, %101, %100, %.lr.ph.split, %122, %.lr.ph.split.us, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit142, %SDL_WaitEventTimeout_Device.exit, %18, %.loopexit, %49, %46, %13
-  %.0 = phi i1 [ false, %46 ], [ false, %13 ], [ %50, %49 ], [ false, %.loopexit ], [ %spec.select, %18 ], [ true, %SDL_WaitEventTimeout_Device.exit ], [ %129, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit142 ], [ %.not64.us, %.lr.ph.split.us ], [ %.not64.us, %122 ], [ true, %.lr.ph.split ], [ false, %SDL_events_get_polling_interval.exit.split.split.us.i ], [ false, %101 ], [ true, %100 ], [ false, %SDL_events_get_polling_interval.exit.split.us.i ], [ false, %84 ], [ true, %82 ]
+SDL_WaitEventTimeout_Device.exit.thread78.loopexit168: ; preds = %SDL_events_get_polling_interval.exit.split.us.split.i
+  %139 = icmp sgt i32 %96, -1
+  br label %SDL_WaitEventTimeout_Device.exit.thread78
+
+SDL_WaitEventTimeout_Device.exit.thread78:        ; preds = %SDL_events_get_polling_interval.exit.split.us.split.us.i, %83, %82, %SDL_events_get_polling_interval.exit.split.split.us.i, %110, %109, %.lr.ph.split, %131, %.lr.ph.split.us, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit168, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit159, %SDL_WaitEventTimeout_Device.exit, %18, %.loopexit, %49, %46, %13
+  %.0 = phi i1 [ false, %46 ], [ false, %13 ], [ %50, %49 ], [ false, %.loopexit ], [ %spec.select, %18 ], [ true, %SDL_WaitEventTimeout_Device.exit ], [ %138, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit159 ], [ %139, %SDL_WaitEventTimeout_Device.exit.thread78.loopexit168 ], [ %.not64.us, %.lr.ph.split.us ], [ %.not64.us, %131 ], [ true, %.lr.ph.split ], [ false, %SDL_events_get_polling_interval.exit.split.split.us.i ], [ false, %110 ], [ true, %109 ], [ false, %SDL_events_get_polling_interval.exit.split.us.split.us.i ], [ false, %83 ], [ true, %82 ]
   ret i1 %.0
 }
 
@@ -4402,7 +4440,7 @@ define hidden void @SDL_SetEventFilter_REAL(ptr noundef %0, ptr noundef %1) loca
 
 11:                                               ; preds = %.lr.ph, %10
   %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %11, %4
   %12 = load ptr, ptr @SDL_EventQ, align 8
@@ -4483,7 +4521,7 @@ define hidden void @SDL_FilterEvents_REAL(ptr noundef readonly captures(none) %0
 
 9:                                                ; preds = %.lr.ph, %8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %9, %2
   %10 = load ptr, ptr @SDL_EventQ, align 8
@@ -4647,7 +4685,7 @@ thread-pre-split.thread:                          ; preds = %56, %thread-pre-spl
 
 75:                                               ; preds = %74, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %SDL_FlushEvent_REAL.exit, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %.not.i.i, label %SDL_FlushEvent_REAL.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 SDL_FlushEvent_REAL.exit:                         ; preds = %75, %thread-pre-split.thread
   %76 = load ptr, ptr @SDL_EventQ, align 8
@@ -5066,7 +5104,7 @@ SDL_DestroyMainThreadCallback.exit.i:             ; preds = %.lr.ph.i
 
 12:                                               ; preds = %SDL_DestroyMainThreadCallback.exit.i, %8
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %SDL_QuitMainThreadCallbacks.exit, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i, label %SDL_QuitMainThreadCallbacks.exit, label %.lr.ph.i, !llvm.loop !20
 
 SDL_QuitMainThreadCallbacks.exit:                 ; preds = %12, %0
   %13 = load ptr, ptr @SDL_main_callbacks_lock, align 8
@@ -5209,18 +5247,11 @@ attributes #9 = { nounwind allocsize(0,1) }
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !4, !14}
-!16 = distinct !{!16, !4, !14}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}

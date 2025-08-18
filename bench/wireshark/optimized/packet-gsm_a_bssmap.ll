@@ -2058,7 +2058,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %48 = icmp ne i32 %4, %47
   %49 = icmp ne i16 %38, 0
   %50 = and i1 %49, %48
-  br i1 %50, label %.split, label %.split82.us, !llvm.loop !10
+  br i1 %50, label %.split, label %.split82.us, !llvm.loop !8
 
 .split82.us:                                      ; preds = %42
   %51 = sext i32 %6 to i64
@@ -2212,7 +2212,7 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   %reass.sub = sub i32 %.2, %3
   %50 = add i32 %reass.sub, 2
   %51 = icmp ult i32 %50, %4
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %7
   %52 = trunc i32 %4 to i16
@@ -2301,7 +2301,7 @@ define internal noundef zeroext i16 @be_res_avail(ptr noundef %0, ptr noundef %1
   tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %4)
   %17 = add i32 %.025, 4
   %exitcond.not = icmp eq i32 %12, 5
-  br i1 %exitcond.not, label %18, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %18, label %8, !llvm.loop !10
 
 18:                                               ; preds = %8
   %19 = trunc i32 %4 to i16
@@ -2896,7 +2896,7 @@ define internal noundef zeroext i16 @be_lsa_id_list(ptr noundef %0, ptr noundef 
   %17 = add i32 %.016, 3
   %18 = sub i32 %17, %3
   %19 = icmp ult i32 %18, %4
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %20 = trunc i32 %4 to i16
@@ -2934,7 +2934,7 @@ define internal noundef zeroext i16 @be_lsa_info(ptr noundef %0, ptr noundef %1,
   %27 = add i32 %.029, 4
   %28 = sub i32 %27, %3
   %29 = icmp ult i32 %28, %4
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %30 = trunc i32 %4 to i16
@@ -3035,7 +3035,7 @@ define internal zeroext i16 @be_pos_data(ptr noundef %0, ptr noundef %1, ptr rea
   %25 = add i8 %.02427, 1
   %26 = zext i8 %25 to i32
   %27 = icmp ugt i32 %18, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %7
   %.025 = phi i32 [ %15, %7 ], [ %15, %.preheader ], [ %24, %.lr.ph ]
@@ -3669,7 +3669,7 @@ define internal noundef zeroext i16 @be_speech_codec_lst(ptr noundef %0, ptr nou
   %91 = add i32 %.0112116, %.sink
   %92 = sub i32 %91, %3
   %93 = icmp ult i32 %92, %4
-  br i1 %93, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %93, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %90
   %.pre = load ptr, ptr %8, align 8
@@ -3803,7 +3803,7 @@ define internal noundef zeroext i16 @be_speech_codec(ptr noundef %0, ptr noundef
   %87 = add i32 %.0110114, %.sink
   %88 = sub i32 %87, %3
   %89 = icmp ult i32 %88, %4
-  br i1 %89, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %89, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %86
   %.pre = load ptr, ptr %8, align 8
@@ -3842,7 +3842,7 @@ define internal noundef zeroext i16 @be_call_id_lst(ptr noundef %0, ptr noundef 
   %13 = add i32 %.014, 4
   %14 = sub i32 %13, %3
   %15 = icmp ult i32 %14, %4
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
   %16 = trunc i32 %4 to i16
@@ -4108,7 +4108,7 @@ define hidden void @proto_register_gsm_a_bssmap() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 122
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !17
 
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 127, %6 ]
@@ -4119,7 +4119,7 @@ define hidden void @proto_register_gsm_a_bssmap() local_unnamed_addr #1 {
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next23, 243
-  br i1 %exitcond29.not, label %11, label %.preheader, !llvm.loop !20
+  br i1 %exitcond29.not, label %11, label %.preheader, !llvm.loop !18
 
 11:                                               ; preds = %.preheader
   %12 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.512, ptr noundef nonnull @.str.513, ptr noundef nonnull @.str.514)
@@ -9990,8 +9990,8 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -10001,5 +10001,3 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}

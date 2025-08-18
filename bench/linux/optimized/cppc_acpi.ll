@@ -2913,14 +2913,14 @@ define internal fastcc range(i32 -110, 1) i32 @check_pcc_chan(i32 noundef %0, i1
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 1
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.split, label %.loopexit.thread, !llvm.loop !39
+  br i1 %36, label %.split, label %.loopexit.thread, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.split
   %37 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %19) #13, !srcloc !28
   %38 = zext i16 %37 to i32
   %.pre = and i32 %38, 1
   %39 = icmp eq i32 %.pre, 0
-  br i1 %39, label %.thread, label %.loopexit.thread, !prof !40
+  br i1 %39, label %.thread, label %.loopexit.thread, !prof !38
 
 .loopexit.thread:                                 ; preds = %32, %.split.us, %9, %.loopexit
   %40 = phi i32 [ %38, %.loopexit ], [ %21, %9 ], [ %27, %.split.us ], [ %34, %32 ]
@@ -3543,7 +3543,5 @@ attributes #15 = { cold nounwind }
 !34 = !{i64 2150181261}
 !35 = !{!"branch_weights", i32 2000, i32 1}
 !36 = !{i64 1877141}
-!37 = distinct !{!37, !9, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !9}
-!40 = !{!"branch_weights", i32 6761191, i32 2140722457}
+!37 = distinct !{!37, !9}
+!38 = !{!"branch_weights", i32 6761191, i32 2140722457}

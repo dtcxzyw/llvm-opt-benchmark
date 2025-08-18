@@ -1259,7 +1259,7 @@ suspendAllHelper.exit.thread.us:                  ; preds = %.lr.ph.i.i.us, %.lo
   %136 = getelementptr inbounds nuw i8, ptr %.0814.i33.us, i64 232
   %.08.i37.us = load ptr, ptr %136, align 8
   %.not.i38.us = icmp eq ptr %.08.i37.us, null
-  br i1 %.not.i38.us, label %.loopexit, label %.lr.ph.i32.us, !llvm.loop !15
+  br i1 %.not.i38.us, label %.loopexit, label %.lr.ph.i32.us, !llvm.loop !11
 
 suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
   %137 = getelementptr inbounds nuw i8, ptr %.0814.i33, i64 232
@@ -2014,7 +2014,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   store i64 %271, ptr %269, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !17
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %262, %239
   tail call void @jvmtiDeallocate(ptr noundef %159) #6
@@ -2380,7 +2380,7 @@ getPopFrameEvent.exit.i:                          ; preds = %56
 68:                                               ; preds = %getPopFrameEvent.exit.i, %getPopFrameEvent.exit.thread.i
   %69 = load ptr, ptr @popFrameEventLock, align 8
   tail call void @debugMonitorWait(ptr noundef %69) #6
-  br label %56, !llvm.loop !18
+  br label %56, !llvm.loop !16
 
 70:                                               ; preds = %getPopFrameEvent.exit.i
   %71 = load ptr, ptr @popFrameProceedLock, align 8
@@ -2426,7 +2426,7 @@ popOneFrame.exit:                                 ; preds = %77, %81
   %89 = load ptr, ptr @popFrameProceedLock, align 8
   tail call void @debugMonitorExit(ptr noundef %89) #6
   %.not29 = icmp eq i32 %87, 0
-  br i1 %.not29, label %22, label %popOneFrame.exit.thread, !llvm.loop !19
+  br i1 %.not29, label %22, label %popOneFrame.exit.thread, !llvm.loop !17
 
 popOneFrame.exit.thread:                          ; preds = %48, %30, %popOneFrame.exit, %22
   %.1 = phi i32 [ %87, %popOneFrame.exit ], [ 0, %22 ], [ %54, %48 ], [ %36, %30 ]
@@ -3002,7 +3002,7 @@ removeEventMode.exit.i:                           ; preds = %152, %150
 153:                                              ; preds = %removeEventMode.exit.i, %115
   %.1.i = phi ptr [ %.01924.i, %removeEventMode.exit.i ], [ %.025.i, %115 ]
   %.not.i63 = icmp eq ptr %117, null
-  br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !20
+  br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !18
 
 154:                                              ; preds = %.thread
   %155 = getelementptr inbounds nuw i8, ptr %.045, i64 8
@@ -3152,7 +3152,7 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
   %31 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %31, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2156) #6
   tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #6
-  %32 = load ptr, ptr @gdata, align 8, !nonnull !21, !noundef !21
+  %32 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = icmp ne i8 %34, 0
@@ -3739,7 +3739,7 @@ removeResumed.exit:                               ; preds = %57, %enumerateOverT
   tail call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %61) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.07.i) #6
   %.not.i37 = icmp eq ptr %60, null
-  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !22
+  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !20
 
 freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %removeResumed.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @deferredEventModes, i8 0, i64 16, i1 false)
@@ -3827,7 +3827,7 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
 
 removeNode.exit.i:                                ; preds = %94, %92
   tail call fastcc void @clearThread(ptr noundef %1, ptr noundef nonnull %.08.i39)
-  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !23
+  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !21
 
 removeVThreads.exit:                              ; preds = %removeNode.exit.i, %76
   %97 = load ptr, ptr @threadLock, align 8
@@ -3979,7 +3979,7 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %.01225, i64 232
   %.012 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %.012, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader21
   %.011.lcssa = phi i32 [ 0, %.preheader21 ], [ %8, %.lr.ph ]
@@ -4011,7 +4011,7 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.129, i64 232
   %.1 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %.1, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !25
+  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph30, %12
   %19 = load ptr, ptr @threadLock, align 8
@@ -4140,7 +4140,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %.not17, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @gdata, align 8, !nonnull !21, !noundef !21
+  %18 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %.not19 = icmp eq i8 %20, 0
@@ -4349,7 +4349,7 @@ getPopFrameProceed.exit:                          ; preds = %6
 18:                                               ; preds = %getPopFrameProceed.exit.thread, %getPopFrameProceed.exit
   %19 = load ptr, ptr @popFrameProceedLock, align 8
   tail call void @debugMonitorWait(ptr noundef %19) #6
-  br label %6, !llvm.loop !26
+  br label %6, !llvm.loop !24
 
 20:                                               ; preds = %getPopFrameProceed.exit
   %21 = load ptr, ptr @popFrameProceedLock, align 8
@@ -4420,7 +4420,7 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph22.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph22.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph22.i, %21
   store i32 %26, ptr @debugThreadCount, align 4
@@ -4432,7 +4432,7 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  br i1 %33, label %.lr.ph.i, label %threadControl_removeDebugThread.exit, !llvm.loop !28
+  br i1 %33, label %.lr.ph.i, label %threadControl_removeDebugThread.exit, !llvm.loop !26
 
 threadControl_removeDebugThread.exit:             ; preds = %30, %12, %._crit_edge.i
   %34 = load ptr, ptr @threadLock, align 8
@@ -4488,17 +4488,15 @@ attributes #6 = { nounwind }
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!19 = !{}
 !20 = distinct !{!20, !7}
-!21 = !{}
+!21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}

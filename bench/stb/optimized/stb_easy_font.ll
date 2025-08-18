@@ -136,7 +136,7 @@ define i32 @stb_easy_font_draw_segs(float noundef %0, float noundef %1, ptr noun
   %.1 = phi i32 [ %.03545, %.lr.ph.split ], [ %66, %.loopexit.loopexit ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count61
-  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %9
   %.035.lcssa = phi i32 [ %8, %9 ], [ %.1.us, %.loopexit.us ], [ %.1, %.loopexit ]
@@ -206,27 +206,27 @@ define range(i32 0, 67108864) i32 @stb_easy_font_print(float noundef %0, float n
   %34 = add nsw i32 %33, -32
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !13
+  %37 = load i8, ptr %36, align 1, !tbaa !11
   %38 = zext i8 %37 to i32
   %39 = and i32 %38, 16
   %.not68 = icmp eq i32 %39, 0
   %40 = fadd float %.06075, 1.000000e+00
   %41 = select i1 %.not68, float %.06075, float %40
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !15
+  %43 = load i8, ptr %42, align 1, !tbaa !13
   %44 = zext i8 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !16
+  %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = zext i8 %46 to i32
   %48 = add nsw i32 %33, -31
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !15
+  %52 = load i8, ptr %51, align 1, !tbaa !13
   %53 = zext i8 %52 to i32
   %54 = sub nsw i32 %53, %44
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  %56 = load i8, ptr %55, align 1, !tbaa !16
+  %56 = load i8, ptr %55, align 1, !tbaa !14
   %57 = zext i8 %56 to i32
   %58 = sub nsw i32 %57, %47
   %59 = zext i8 %43 to i64
@@ -365,7 +365,7 @@ stb_easy_font_draw_segs.exit:                     ; preds = %.loopexit.us.i, %32
   %.1.i = phi i32 [ %.03545.i, %.lr.ph.split.i ], [ %120, %.loopexit.loopexit.i ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count61.i71
-  br i1 %exitcond53.not.i, label %stb_easy_font_draw_segs.exit72, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %exitcond53.not.i, label %stb_easy_font_draw_segs.exit72, label %.lr.ph.split.i, !llvm.loop !10
 
 stb_easy_font_draw_segs.exit72:                   ; preds = %.loopexit.i, %stb_easy_font_draw_segs.exit
   %.035.lcssa.i69 = phi i32 [ %.035.lcssa.i, %stb_easy_font_draw_segs.exit ], [ %.1.i, %.loopexit.i ]
@@ -385,7 +385,7 @@ stb_easy_font_draw_segs.exit72:                   ; preds = %.loopexit.i, %stb_e
   %129 = icmp ne i8 %128, 0
   %130 = icmp slt i32 %.164, %5
   %131 = select i1 %129, i1 %130, i1 false
-  br i1 %131, label %27, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %131, label %27, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %126
   %132 = lshr i32 %.164, 6
@@ -420,7 +420,7 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
   %8 = sext i8 %4 to i64
   %9 = add nsw i64 %8, -32
   %10 = getelementptr inbounds [96 x %struct.stb_easy_font_info_struct], ptr @stb_easy_font_charinfo, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !13
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = and i8 %11, 15
   %13 = uitofp nneg i8 %12 to float
   %14 = fadd float %.013, %13
@@ -431,7 +431,7 @@ define i32 @stb_easy_font_width(ptr noundef readonly captures(none) %0) local_un
   %.114 = phi float [ 0.000000e+00, %5 ], [ %15, %7 ]
   %.2 = phi float [ %.1, %5 ], [ %.0, %7 ]
   %17 = getelementptr inbounds nuw i8, ptr %.015, i64 1
-  br label %3, !llvm.loop !18
+  br label %3, !llvm.loop !16
 
 18:                                               ; preds = %3
   %19 = fcmp ogt float %.013, %.0
@@ -463,7 +463,7 @@ define i32 @stb_easy_font_height(ptr noundef readonly captures(none) %0) local_u
   %.16 = phi float [ %5, %4 ], [ %.05, %2 ]
   %.1 = phi i32 [ 0, %4 ], [ 1, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 1
-  br label %2, !llvm.loop !19
+  br label %2, !llvm.loop !17
 
 8:                                                ; preds = %2
   %.not9 = icmp eq i32 %.0, 0
@@ -497,13 +497,11 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"float", !4, i64 0}
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !9}
-!13 = !{!14, !4, i64 0}
-!14 = !{!"stb_easy_font_info_struct", !4, i64 0, !4, i64 1, !4, i64 2}
-!15 = !{!14, !4, i64 1}
-!16 = !{!14, !4, i64 2}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !4, i64 0}
+!12 = !{!"stb_easy_font_info_struct", !4, i64 0, !4, i64 1, !4, i64 2}
+!13 = !{!12, !4, i64 1}
+!14 = !{!12, !4, i64 2}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}

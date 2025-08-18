@@ -58,7 +58,7 @@ has_subclass.exit:                                ; preds = %5
   %18 = load i8, ptr %17, align 2, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %8) #5
-  br i1 %19, label %20, label %127
+  br i1 %19, label %20, label %200
 
 20:                                               ; preds = %has_subclass.exit
   %21 = tail call ptr @palloc(i64 noundef 128) #5
@@ -66,278 +66,440 @@ has_subclass.exit:                                ; preds = %5
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #5
   %23 = call ptr @systable_beginscan(ptr noundef %22, i32 noundef 2187, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6) #5
   %24 = call ptr @systable_getnext(ptr noundef %23) #5
-  %.not7278 = icmp eq ptr %24, null
-  br i1 %.not7278, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not7284 = icmp eq ptr %24, null
+  br i1 %.not7284, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %20
   %.not64 = icmp eq ptr %3, null
-  %.not65 = icmp eq ptr %4, null
-  br i1 %1, label %.lr.ph.us, label %.lr.ph.lr.ph.split
+  br i1 %1, label %.lr.ph.lr.ph.split.us, label %.lr.ph.lr.ph.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.outer.us
-  %25 = phi ptr [ %34, %.outer.us ], [ %24, %.lr.ph.lr.ph ]
-  %.054.ph82.us = phi i32 [ %31, %.outer.us ], [ 0, %.lr.ph.lr.ph ]
-  %.055.ph81.us = phi i32 [ %.156.us, %.outer.us ], [ 32, %.lr.ph.lr.ph ]
-  %.057.ph79.us = phi ptr [ %.158.us, %.outer.us ], [ %21, %.lr.ph.lr.ph ]
+.lr.ph.lr.ph.split.us:                            ; preds = %.lr.ph.lr.ph
+  %.not65 = icmp eq ptr %4, null
+  br i1 %.not65, label %.lr.ph.lr.ph.split.us.split.us, label %.lr.ph.us, !llvm.loop !6
+
+.lr.ph.lr.ph.split.us.split.us:                   ; preds = %.lr.ph.lr.ph.split.us
+  br i1 %.not64, label %.lr.ph.us.us.us, label %.lr.ph.us.us
+
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph.lr.ph.split.us.split.us, %.outer.us.us.us
+  %25 = phi ptr [ %34, %.outer.us.us.us ], [ %24, %.lr.ph.lr.ph.split.us.split.us ]
+  %.054.ph90.us.us.us = phi i32 [ %31, %.outer.us.us.us ], [ 0, %.lr.ph.lr.ph.split.us.split.us ]
+  %.055.ph89.us.us.us = phi i32 [ %.156.us.us.us, %.outer.us.us.us ], [ 32, %.lr.ph.lr.ph.split.us.split.us ]
+  %.057.ph85.us.us.us = phi ptr [ %.158.us.us.us, %.outer.us.us.us ], [ %21, %.lr.ph.lr.ph.split.us.split.us ]
   br label %35
 
-26:                                               ; preds = %.thread.split.us.us
-  %27 = shl i32 %.055.ph81.us, 1
+26:                                               ; preds = %.thread.split.us.split.us.split.us.us.us.us
+  %27 = shl i32 %.055.ph89.us.us.us, 1
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 2
-  %30 = call ptr @repalloc(ptr noundef %.057.ph79.us, i64 noundef %29) #5
-  br label %.outer.us
+  %30 = call ptr @repalloc(ptr noundef %.057.ph85.us.us.us, i64 noundef %29) #5
+  br label %.outer.us.us.us
 
-.outer.us:                                        ; preds = %.thread.split.us.us, %26
-  %.158.us = phi ptr [ %30, %26 ], [ %.057.ph79.us, %.thread.split.us.us ]
-  %.156.us = phi i32 [ %27, %26 ], [ %.055.ph81.us, %.thread.split.us.us ]
-  %31 = add i32 %.054.ph82.us, 1
-  %32 = sext i32 %.054.ph82.us to i64
-  %33 = getelementptr inbounds i32, ptr %.158.us, i64 %32
-  store i32 %74, ptr %33, align 4
+.outer.us.us.us:                                  ; preds = %.thread.split.us.split.us.split.us.us.us.us, %26
+  %.158.us.us.us = phi ptr [ %30, %26 ], [ %.057.ph85.us.us.us, %.thread.split.us.split.us.split.us.us.us.us ]
+  %.156.us.us.us = phi i32 [ %27, %26 ], [ %.055.ph89.us.us.us, %.thread.split.us.split.us.split.us.us.us.us ]
+  %31 = add i32 %.054.ph90.us.us.us, 1
+  %32 = sext i32 %.054.ph90.us.us.us to i64
+  %33 = getelementptr inbounds i32, ptr %.158.us.us.us, i64 %32
+  store i32 %61, ptr %33, align 4
   %34 = call ptr @systable_getnext(ptr noundef %23) #5
-  %.not72.us = icmp eq ptr %34, null
-  br i1 %.not72.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !6
+  %.not72.us.us.us = icmp eq ptr %34, null
+  br i1 %.not72.us.us.us, label %.outer._crit_edge, label %.lr.ph.us.us.us, !llvm.loop !6
 
-35:                                               ; preds = %68, %.lr.ph.us
-  %36 = phi ptr [ %25, %.lr.ph.us ], [ %69, %68 ]
+35:                                               ; preds = %55, %.lr.ph.us.us.us
+  %36 = phi ptr [ %25, %.lr.ph.us.us.us ], [ %56, %55 ]
   %37 = getelementptr i8, ptr %36, i64 16
-  %.val.us.us = load ptr, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %.val.us.us, i64 22
+  %.val.us.us.us.us.us.us = load ptr, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.val.us.us.us.us.us.us, i64 22
   %39 = load i8, ptr %38, align 2
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %.val.us.us, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %.val.us.us.us.us.us.us, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i8, ptr %42, align 4, !range !4, !noundef !5
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %.thread.split.us.us
+  br i1 %44, label %45, label %.thread.split.us.split.us.split.us.us.us.us
 
 45:                                               ; preds = %35
-  br i1 %.not64, label %47, label %46
+  %46 = call zeroext i1 @ActiveSnapshotSet() #5
+  %.val68.us.us.us.pre192 = load ptr, ptr %37, align 8
+  br i1 %46, label %47, label %.thread.split.us.split.us.split.us.us.us.us
 
-46:                                               ; preds = %45
+47:                                               ; preds = %45
+  %48 = getelementptr i8, ptr %.val68.us.us.us.pre192, i64 20
+  %.val.i69.us.us.us.us.us.us = load i16, ptr %48, align 4
+  %49 = and i16 %.val.i69.us.us.us.us.us.us, 768
+  %50 = icmp eq i16 %49, 768
+  br i1 %50, label %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us, label %51
+
+51:                                               ; preds = %47
+  %.val2.i.us.us.us.us.us.us = load i32, ptr %.val68.us.us.us.pre192, align 4
+  br label %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us
+
+HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us:    ; preds = %51, %47
+  %52 = phi i32 [ %.val2.i.us.us.us.us.us.us, %51 ], [ 2, %47 ]
+  %53 = call ptr @GetActiveSnapshot() #5
+  %54 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %52, ptr noundef %53) #5
+  br i1 %54, label %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge, label %55
+
+HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us
+  %.val68.us.us.us.pre = load ptr, ptr %37, align 8
+  br label %.thread.split.us.split.us.split.us.us.us.us
+
+55:                                               ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us
+  %56 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not.us.us.us.us.us.us = icmp eq ptr %56, null
+  br i1 %.not.us.us.us.us.us.us, label %.outer._crit_edge, label %35
+
+.thread.split.us.split.us.split.us.us.us.us:      ; preds = %45, %35, %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge
+  %.val68.us.us.us = phi ptr [ %.val68.us.us.us.pre, %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge ], [ %.val68.us.us.us.pre192, %45 ], [ %.val.us.us.us.us.us.us, %35 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.val68.us.us.us, i64 22
+  %58 = load i8, ptr %57, align 2
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %.val68.us.us.us, i64 %59
+  %61 = load i32, ptr %60, align 4
+  %.not67.us.us.us = icmp slt i32 %.054.ph90.us.us.us, %.055.ph89.us.us.us
+  br i1 %.not67.us.us.us, label %.outer.us.us.us, label %26
+
+.lr.ph.us.us:                                     ; preds = %.lr.ph.lr.ph.split.us.split.us, %.outer.us.us
+  %62 = phi ptr [ %71, %.outer.us.us ], [ %24, %.lr.ph.lr.ph.split.us.split.us ]
+  %.054.ph90.us.us = phi i32 [ %68, %.outer.us.us ], [ 0, %.lr.ph.lr.ph.split.us.split.us ]
+  %.055.ph89.us.us = phi i32 [ %.156.us.us, %.outer.us.us ], [ 32, %.lr.ph.lr.ph.split.us.split.us ]
+  %.057.ph85.us.us = phi ptr [ %.158.us.us, %.outer.us.us ], [ %21, %.lr.ph.lr.ph.split.us.split.us ]
+  br label %72
+
+63:                                               ; preds = %.thread.split.us.split.us.split.us109.us
+  %64 = shl i32 %.055.ph89.us.us, 1
+  %65 = sext i32 %64 to i64
+  %66 = shl nsw i64 %65, 2
+  %67 = call ptr @repalloc(ptr noundef %.057.ph85.us.us, i64 noundef %66) #5
+  br label %.outer.us.us
+
+.outer.us.us:                                     ; preds = %.thread.split.us.split.us.split.us109.us, %63
+  %.158.us.us = phi ptr [ %67, %63 ], [ %.057.ph85.us.us, %.thread.split.us.split.us.split.us109.us ]
+  %.156.us.us = phi i32 [ %64, %63 ], [ %.055.ph89.us.us, %.thread.split.us.split.us.split.us109.us ]
+  %68 = add i32 %.054.ph90.us.us, 1
+  %69 = sext i32 %.054.ph90.us.us to i64
+  %70 = getelementptr inbounds i32, ptr %.158.us.us, i64 %69
+  store i32 %98, ptr %70, align 4
+  %71 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not72.us.us = icmp eq ptr %71, null
+  br i1 %.not72.us.us, label %.outer._crit_edge, label %.lr.ph.us.us, !llvm.loop !6
+
+72:                                               ; preds = %.lr.ph.us.us, %92
+  %73 = phi ptr [ %62, %.lr.ph.us.us ], [ %93, %92 ]
+  %74 = getelementptr i8, ptr %73, i64 16
+  %.val.us.us.us104.us = load ptr, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.val.us.us.us104.us, i64 22
+  %76 = load i8, ptr %75, align 2
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %.val.us.us.us104.us, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %80 = load i8, ptr %79, align 4, !range !4, !noundef !5
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %.thread.split.us.split.us.split.us109.us
+
+82:                                               ; preds = %72
   store i8 1, ptr %3, align 1
-  br label %47
+  %83 = call zeroext i1 @ActiveSnapshotSet() #5
+  %.val68.us.us.pre189 = load ptr, ptr %74, align 8
+  br i1 %83, label %84, label %.thread.split.us.split.us.split.us109.us
 
-47:                                               ; preds = %46, %45
-  %48 = call zeroext i1 @ActiveSnapshotSet() #5
-  %.val68.us.pre128 = load ptr, ptr %37, align 8
-  br i1 %48, label %49, label %.thread.split.us.us
+84:                                               ; preds = %82
+  %85 = getelementptr i8, ptr %.val68.us.us.pre189, i64 20
+  %.val.i69.us.us.us105.us = load i16, ptr %85, align 4
+  %86 = and i16 %.val.i69.us.us.us105.us, 768
+  %87 = icmp eq i16 %86, 768
+  br i1 %87, label %HeapTupleHeaderGetXmin.exit.us.us.us107.us, label %88
 
-49:                                               ; preds = %47
-  %50 = getelementptr i8, ptr %.val68.us.pre128, i64 20
-  %.val.i69.us.us = load i16, ptr %50, align 4
-  %51 = and i16 %.val.i69.us.us, 768
-  %52 = icmp eq i16 %51, 768
-  br i1 %52, label %HeapTupleHeaderGetXmin.exit.us.us, label %53
+88:                                               ; preds = %84
+  %.val2.i.us.us.us106.us = load i32, ptr %.val68.us.us.pre189, align 4
+  br label %HeapTupleHeaderGetXmin.exit.us.us.us107.us
 
-53:                                               ; preds = %49
-  %.val2.i.us.us = load i32, ptr %.val68.us.pre128, align 4
-  br label %HeapTupleHeaderGetXmin.exit.us.us
+HeapTupleHeaderGetXmin.exit.us.us.us107.us:       ; preds = %88, %84
+  %89 = phi i32 [ %.val2.i.us.us.us106.us, %88 ], [ 2, %84 ]
+  %90 = call ptr @GetActiveSnapshot() #5
+  %91 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %89, ptr noundef %90) #5
+  br i1 %91, label %HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge, label %92
 
-HeapTupleHeaderGetXmin.exit.us.us:                ; preds = %53, %49
-  %54 = phi i32 [ %.val2.i.us.us, %53 ], [ 2, %49 ]
-  %55 = call ptr @GetActiveSnapshot() #5
-  %56 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %54, ptr noundef %55) #5
-  br i1 %56, label %HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge, label %57
+HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us107.us
+  %.val68.us.us.pre = load ptr, ptr %74, align 8
+  br label %.thread.split.us.split.us.split.us109.us
 
-HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us
-  %.val68.us.pre = load ptr, ptr %37, align 8
-  br label %.thread.split.us.us
+92:                                               ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us107.us
+  %93 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not.us.us.us108.us = icmp eq ptr %93, null
+  br i1 %.not.us.us.us108.us, label %.outer._crit_edge, label %72
 
-57:                                               ; preds = %HeapTupleHeaderGetXmin.exit.us.us
-  br i1 %.not65, label %68, label %58, !llvm.loop !9
+.thread.split.us.split.us.split.us109.us:         ; preds = %82, %72, %HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge
+  %.val68.us.us = phi ptr [ %.val68.us.us.pre, %HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge ], [ %.val68.us.us.pre189, %82 ], [ %.val.us.us.us104.us, %72 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.val68.us.us, i64 22
+  %95 = load i8, ptr %94, align 2
+  %96 = zext i8 %95 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %.val68.us.us, i64 %96
+  %98 = load i32, ptr %97, align 4
+  %.not67.us.us = icmp slt i32 %.054.ph90.us.us, %.055.ph89.us.us
+  br i1 %.not67.us.us, label %.outer.us.us, label %63
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr %4, align 4
-  %.not66.us.us = icmp eq i32 %59, 0
-  br i1 %.not66.us.us, label %.sink.split, label %60, !llvm.loop !9
+.lr.ph.us:                                        ; preds = %.lr.ph.lr.ph.split.us, %.outer.us
+  %99 = phi ptr [ %108, %.outer.us ], [ %24, %.lr.ph.lr.ph.split.us ]
+  %.054.ph90.us = phi i32 [ %105, %.outer.us ], [ 0, %.lr.ph.lr.ph.split.us ]
+  %.055.ph89.us = phi i32 [ %.156.us, %.outer.us ], [ 32, %.lr.ph.lr.ph.split.us ]
+  %.057.ph85.us = phi ptr [ %.158.us, %.outer.us ], [ %21, %.lr.ph.lr.ph.split.us ]
+  br label %109
 
-60:                                               ; preds = %58
-  %61 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
-  br i1 %61, label %62, label %64
+100:                                              ; preds = %.thread.split.us.split.us101
+  %101 = shl i32 %.055.ph89.us, 1
+  %102 = sext i32 %101 to i64
+  %103 = shl nsw i64 %102, 2
+  %104 = call ptr @repalloc(ptr noundef %.057.ph85.us, i64 noundef %103) #5
+  br label %.outer.us
 
-62:                                               ; preds = %60
-  %63 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
+.outer.us:                                        ; preds = %.thread.split.us.split.us101, %100
+  %.158.us = phi ptr [ %104, %100 ], [ %.057.ph85.us, %.thread.split.us.split.us101 ]
+  %.156.us = phi i32 [ %101, %100 ], [ %.055.ph89.us, %.thread.split.us.split.us101 ]
+  %105 = add i32 %.054.ph90.us, 1
+  %106 = sext i32 %.054.ph90.us to i64
+  %107 = getelementptr inbounds i32, ptr %.158.us, i64 %106
+  store i32 %147, ptr %107, align 4
+  %108 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not72.us = icmp eq ptr %108, null
+  br i1 %.not72.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !6
+
+109:                                              ; preds = %.lr.ph.us, %141
+  %110 = phi ptr [ %99, %.lr.ph.us ], [ %142, %141 ]
+  %111 = getelementptr i8, ptr %110, i64 16
+  %.val.us.us96 = load ptr, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %.val.us.us96, i64 22
+  %113 = load i8, ptr %112, align 2
+  %114 = zext i8 %113 to i64
+  %115 = getelementptr inbounds nuw i8, ptr %.val.us.us96, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
+  %117 = load i8, ptr %116, align 4, !range !4, !noundef !5
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %119, label %.thread.split.us.split.us101
+
+119:                                              ; preds = %109
+  br i1 %.not64, label %121, label %120
+
+120:                                              ; preds = %119
+  store i8 1, ptr %3, align 1
+  br label %121
+
+121:                                              ; preds = %120, %119
+  %122 = call zeroext i1 @ActiveSnapshotSet() #5
+  %.val68.us.pre186 = load ptr, ptr %111, align 8
+  br i1 %122, label %123, label %.thread.split.us.split.us101
+
+123:                                              ; preds = %121
+  %124 = getelementptr i8, ptr %.val68.us.pre186, i64 20
+  %.val.i69.us.us97 = load i16, ptr %124, align 4
+  %125 = and i16 %.val.i69.us.us97, 768
+  %126 = icmp eq i16 %125, 768
+  br i1 %126, label %HeapTupleHeaderGetXmin.exit.us.us99, label %127
+
+127:                                              ; preds = %123
+  %.val2.i.us.us98 = load i32, ptr %.val68.us.pre186, align 4
+  br label %HeapTupleHeaderGetXmin.exit.us.us99
+
+HeapTupleHeaderGetXmin.exit.us.us99:              ; preds = %127, %123
+  %128 = phi i32 [ %.val2.i.us.us98, %127 ], [ 2, %123 ]
+  %129 = call ptr @GetActiveSnapshot() #5
+  %130 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %128, ptr noundef %129) #5
+  br i1 %130, label %HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge, label %131
+
+HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us99
+  %.val68.us.pre = load ptr, ptr %111, align 8
+  br label %.thread.split.us.split.us101
+
+131:                                              ; preds = %HeapTupleHeaderGetXmin.exit.us.us99
+  %132 = load i32, ptr %4, align 4
+  %.not66.us.us = icmp eq i32 %132, 0
+  br i1 %.not66.us.us, label %.sink.split, label %133, !llvm.loop !6
+
+133:                                              ; preds = %131
+  %134 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %133
+  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.find_inheritance_children_extended) #5
-  br label %64
+  br label %137
 
-64:                                               ; preds = %62, %60
-  %65 = load i32, ptr %4, align 4
-  %66 = call zeroext i1 @TransactionIdFollows(i32 noundef %54, i32 noundef %65) #5
-  br i1 %66, label %67, label %68, !llvm.loop !9
+137:                                              ; preds = %135, %133
+  %138 = load i32, ptr %4, align 4
+  %139 = call zeroext i1 @TransactionIdFollows(i32 noundef %128, i32 noundef %138) #5
+  br i1 %139, label %140, label %141, !llvm.loop !6
 
-67:                                               ; preds = %64
-  br label %.sink.split, !llvm.loop !9
+140:                                              ; preds = %137
+  br label %.sink.split, !llvm.loop !6
 
-.sink.split:                                      ; preds = %58, %67
-  store i32 %54, ptr %4, align 4
-  br label %68
+.sink.split:                                      ; preds = %131, %140
+  store i32 %128, ptr %4, align 4
+  br label %141
 
-68:                                               ; preds = %.sink.split, %64, %57
-  %69 = call ptr @systable_getnext(ptr noundef %23) #5
-  %.not.us.us = icmp eq ptr %69, null
-  br i1 %.not.us.us, label %.outer._crit_edge, label %35, !llvm.loop !10
+141:                                              ; preds = %.sink.split, %137
+  %142 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not.us.us100 = icmp eq ptr %142, null
+  br i1 %.not.us.us100, label %.outer._crit_edge, label %109
 
-.thread.split.us.us:                              ; preds = %47, %35, %HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge
-  %.val68.us = phi ptr [ %.val68.us.pre, %HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge ], [ %.val68.us.pre128, %47 ], [ %.val.us.us, %35 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.val68.us, i64 22
-  %71 = load i8, ptr %70, align 2
-  %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %.val68.us, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %.not67.us = icmp slt i32 %.054.ph82.us, %.055.ph81.us
-  br i1 %.not67.us, label %.outer.us, label %26
+.thread.split.us.split.us101:                     ; preds = %121, %109, %HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge
+  %.val68.us = phi ptr [ %.val68.us.pre, %HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge ], [ %.val68.us.pre186, %121 ], [ %.val.us.us96, %109 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.val68.us, i64 22
+  %144 = load i8, ptr %143, align 2
+  %145 = zext i8 %144 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %.val68.us, i64 %145
+  %147 = load i32, ptr %146, align 4
+  %.not67.us = icmp slt i32 %.054.ph90.us, %.055.ph89.us
+  br i1 %.not67.us, label %.outer.us, label %100
 
 .lr.ph.lr.ph.split:                               ; preds = %.lr.ph.lr.ph
-  br i1 %.not64, label %.lr.ph.us90, label %.lr.ph
+  br i1 %.not64, label %.lr.ph.us124, label %.lr.ph
 
-.lr.ph.us90:                                      ; preds = %.lr.ph.lr.ph.split, %.outer.us96
-  %75 = phi ptr [ %90, %.outer.us96 ], [ %24, %.lr.ph.lr.ph.split ]
-  %.054.ph82.us91 = phi i32 [ %87, %.outer.us96 ], [ 0, %.lr.ph.lr.ph.split ]
-  %.055.ph81.us92 = phi i32 [ %.156.us98, %.outer.us96 ], [ 32, %.lr.ph.lr.ph.split ]
-  %.057.ph79.us93 = phi ptr [ %.158.us97, %.outer.us96 ], [ %21, %.lr.ph.lr.ph.split ]
-  %76 = getelementptr i8, ptr %75, i64 16
-  %.val68.us94 = load ptr, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.val68.us94, i64 22
-  %78 = load i8, ptr %77, align 2
-  %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %.val68.us94, i64 %79
-  %81 = load i32, ptr %80, align 4
-  %.not67.us95 = icmp slt i32 %.054.ph82.us91, %.055.ph81.us92
-  br i1 %.not67.us95, label %.outer.us96, label %82
+.lr.ph.us124:                                     ; preds = %.lr.ph.lr.ph.split, %.outer.us130
+  %148 = phi ptr [ %163, %.outer.us130 ], [ %24, %.lr.ph.lr.ph.split ]
+  %.054.ph90.us125 = phi i32 [ %160, %.outer.us130 ], [ 0, %.lr.ph.lr.ph.split ]
+  %.055.ph89.us126 = phi i32 [ %.156.us132, %.outer.us130 ], [ 32, %.lr.ph.lr.ph.split ]
+  %.057.ph85.us127 = phi ptr [ %.158.us131, %.outer.us130 ], [ %21, %.lr.ph.lr.ph.split ]
+  %149 = getelementptr i8, ptr %148, i64 16
+  %.val68.us128 = load ptr, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %.val68.us128, i64 22
+  %151 = load i8, ptr %150, align 2
+  %152 = zext i8 %151 to i64
+  %153 = getelementptr inbounds nuw i8, ptr %.val68.us128, i64 %152
+  %154 = load i32, ptr %153, align 4
+  %.not67.us129 = icmp slt i32 %.054.ph90.us125, %.055.ph89.us126
+  br i1 %.not67.us129, label %.outer.us130, label %155
 
-82:                                               ; preds = %.lr.ph.us90
-  %83 = shl i32 %.055.ph81.us92, 1
-  %84 = sext i32 %83 to i64
-  %85 = shl nsw i64 %84, 2
-  %86 = call ptr @repalloc(ptr noundef %.057.ph79.us93, i64 noundef %85) #5
-  br label %.outer.us96
+155:                                              ; preds = %.lr.ph.us124
+  %156 = shl i32 %.055.ph89.us126, 1
+  %157 = sext i32 %156 to i64
+  %158 = shl nsw i64 %157, 2
+  %159 = call ptr @repalloc(ptr noundef %.057.ph85.us127, i64 noundef %158) #5
+  br label %.outer.us130
 
-.outer.us96:                                      ; preds = %82, %.lr.ph.us90
-  %.158.us97 = phi ptr [ %86, %82 ], [ %.057.ph79.us93, %.lr.ph.us90 ]
-  %.156.us98 = phi i32 [ %83, %82 ], [ %.055.ph81.us92, %.lr.ph.us90 ]
-  %87 = add i32 %.054.ph82.us91, 1
-  %88 = sext i32 %.054.ph82.us91 to i64
-  %89 = getelementptr inbounds i32, ptr %.158.us97, i64 %88
-  store i32 %81, ptr %89, align 4
-  %90 = call ptr @systable_getnext(ptr noundef %23) #5
-  %.not72.us99 = icmp eq ptr %90, null
-  br i1 %.not72.us99, label %.outer._crit_edge, label %.lr.ph.us90, !llvm.loop !11
+.outer.us130:                                     ; preds = %155, %.lr.ph.us124
+  %.158.us131 = phi ptr [ %159, %155 ], [ %.057.ph85.us127, %.lr.ph.us124 ]
+  %.156.us132 = phi i32 [ %156, %155 ], [ %.055.ph89.us126, %.lr.ph.us124 ]
+  %160 = add i32 %.054.ph90.us125, 1
+  %161 = sext i32 %.054.ph90.us125 to i64
+  %162 = getelementptr inbounds i32, ptr %.158.us131, i64 %161
+  store i32 %154, ptr %162, align 4
+  %163 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not72.us133 = icmp eq ptr %163, null
+  br i1 %.not72.us133, label %.outer._crit_edge, label %.lr.ph.us124, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph.split, %.outer
-  %91 = phi ptr [ %111, %.outer ], [ %24, %.lr.ph.lr.ph.split ]
-  %.054.ph82 = phi i32 [ %108, %.outer ], [ 0, %.lr.ph.lr.ph.split ]
-  %.055.ph81 = phi i32 [ %.156, %.outer ], [ 32, %.lr.ph.lr.ph.split ]
-  %.057.ph79 = phi ptr [ %.158, %.outer ], [ %21, %.lr.ph.lr.ph.split ]
-  %92 = getelementptr i8, ptr %91, i64 16
-  %.val = load ptr, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %94 = load i8, ptr %93, align 2
-  %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %.val, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
-  %98 = load i8, ptr %97, align 4, !range !4, !noundef !5
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %.thread.split
+  %164 = phi ptr [ %184, %.outer ], [ %24, %.lr.ph.lr.ph.split ]
+  %.054.ph90 = phi i32 [ %181, %.outer ], [ 0, %.lr.ph.lr.ph.split ]
+  %.055.ph89 = phi i32 [ %.156, %.outer ], [ 32, %.lr.ph.lr.ph.split ]
+  %.057.ph85 = phi ptr [ %.158, %.outer ], [ %21, %.lr.ph.lr.ph.split ]
+  %165 = getelementptr i8, ptr %164, i64 16
+  %.val = load ptr, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %167 = load i8, ptr %166, align 2
+  %168 = zext i8 %167 to i64
+  %169 = getelementptr inbounds nuw i8, ptr %.val, i64 %168
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 12
+  %171 = load i8, ptr %170, align 4, !range !4, !noundef !5
+  %172 = trunc nuw i8 %171 to i1
+  br i1 %172, label %173, label %.thread.split
 
-100:                                              ; preds = %.lr.ph
+173:                                              ; preds = %.lr.ph
   store i8 1, ptr %3, align 1
-  %.val68.pre = load ptr, ptr %92, align 8
+  %.val68.pre = load ptr, ptr %165, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val68.pre, i64 22
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %.pre131 = zext i8 %.pre to i64
+  %.pre195 = zext i8 %.pre to i64
   br label %.thread.split
 
-.thread.split:                                    ; preds = %100, %.lr.ph
-  %.pre-phi = phi i64 [ %.pre131, %100 ], [ %95, %.lr.ph ]
-  %.val68 = phi ptr [ %.val68.pre, %100 ], [ %.val, %.lr.ph ]
-  %101 = getelementptr inbounds nuw i8, ptr %.val68, i64 %.pre-phi
-  %102 = load i32, ptr %101, align 4
-  %.not67 = icmp slt i32 %.054.ph82, %.055.ph81
-  br i1 %.not67, label %.outer, label %103
+.thread.split:                                    ; preds = %173, %.lr.ph
+  %.pre-phi = phi i64 [ %.pre195, %173 ], [ %168, %.lr.ph ]
+  %.val68 = phi ptr [ %.val68.pre, %173 ], [ %.val, %.lr.ph ]
+  %174 = getelementptr inbounds nuw i8, ptr %.val68, i64 %.pre-phi
+  %175 = load i32, ptr %174, align 4
+  %.not67 = icmp slt i32 %.054.ph90, %.055.ph89
+  br i1 %.not67, label %.outer, label %176
 
-103:                                              ; preds = %.thread.split
-  %104 = shl i32 %.055.ph81, 1
-  %105 = sext i32 %104 to i64
-  %106 = shl nsw i64 %105, 2
-  %107 = call ptr @repalloc(ptr noundef %.057.ph79, i64 noundef %106) #5
+176:                                              ; preds = %.thread.split
+  %177 = shl i32 %.055.ph89, 1
+  %178 = sext i32 %177 to i64
+  %179 = shl nsw i64 %178, 2
+  %180 = call ptr @repalloc(ptr noundef %.057.ph85, i64 noundef %179) #5
   br label %.outer
 
-.outer:                                           ; preds = %103, %.thread.split
-  %.158 = phi ptr [ %107, %103 ], [ %.057.ph79, %.thread.split ]
-  %.156 = phi i32 [ %104, %103 ], [ %.055.ph81, %.thread.split ]
-  %108 = add i32 %.054.ph82, 1
-  %109 = sext i32 %.054.ph82 to i64
-  %110 = getelementptr inbounds i32, ptr %.158, i64 %109
-  store i32 %102, ptr %110, align 4
-  %111 = call ptr @systable_getnext(ptr noundef %23) #5
-  %.not72 = icmp eq ptr %111, null
-  br i1 %.not72, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !9
+.outer:                                           ; preds = %176, %.thread.split
+  %.158 = phi ptr [ %180, %176 ], [ %.057.ph85, %.thread.split ]
+  %.156 = phi i32 [ %177, %176 ], [ %.055.ph89, %.thread.split ]
+  %181 = add i32 %.054.ph90, 1
+  %182 = sext i32 %.054.ph90 to i64
+  %183 = getelementptr inbounds i32, ptr %.158, i64 %182
+  store i32 %175, ptr %183, align 4
+  %184 = call ptr @systable_getnext(ptr noundef %23) #5
+  %.not72 = icmp eq ptr %184, null
+  br i1 %.not72, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.outer._crit_edge:                                ; preds = %.outer, %.outer.us96, %.outer.us, %68, %20
-  %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.057.ph79.us, %68 ], [ %.158.us, %.outer.us ], [ %.158.us97, %.outer.us96 ], [ %.158, %.outer ]
-  %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %.054.ph82.us, %68 ], [ %31, %.outer.us ], [ %87, %.outer.us96 ], [ %108, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %.outer.us130, %.outer.us, %141, %.outer.us.us, %92, %.outer.us.us.us, %55, %20
+  %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.057.ph85.us.us.us, %55 ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.057.ph85.us.us, %92 ], [ %.158.us.us, %.outer.us.us ], [ %.057.ph85.us, %141 ], [ %.158.us, %.outer.us ], [ %.158.us131, %.outer.us130 ], [ %.158, %.outer ]
+  %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %.054.ph90.us.us.us, %55 ], [ %31, %.outer.us.us.us ], [ %.054.ph90.us.us, %92 ], [ %68, %.outer.us.us ], [ %.054.ph90.us, %141 ], [ %105, %.outer.us ], [ %160, %.outer.us130 ], [ %181, %.outer ]
   call void @systable_endscan(ptr noundef %23) #5
   call void @table_close(ptr noundef %22, i32 noundef 1) #5
-  %112 = icmp sgt i32 %.054.ph.lcssa, 1
-  br i1 %112, label %.thread, label %114
+  %185 = icmp sgt i32 %.054.ph.lcssa, 1
+  br i1 %185, label %.thread, label %187
 
 .thread:                                          ; preds = %.outer._crit_edge
-  %113 = zext nneg i32 %.054.ph.lcssa to i64
-  call void @pg_qsort(ptr noundef %.057.ph.lcssa, i64 noundef %113, i64 noundef 4, ptr noundef nonnull @oid_cmp) #5
-  br label %.lr.ph106
+  %186 = zext nneg i32 %.054.ph.lcssa to i64
+  call void @pg_qsort(ptr noundef %.057.ph.lcssa, i64 noundef %186, i64 noundef 4, ptr noundef nonnull @oid_cmp) #5
+  br label %.lr.ph150
 
-114:                                              ; preds = %.outer._crit_edge
-  %115 = icmp eq i32 %.054.ph.lcssa, 1
-  br i1 %115, label %.lr.ph106, label %._crit_edge107
+187:                                              ; preds = %.outer._crit_edge
+  %188 = icmp eq i32 %.054.ph.lcssa, 1
+  br i1 %188, label %.lr.ph150, label %._crit_edge151
 
-.lr.ph106:                                        ; preds = %.thread, %114
+.lr.ph150:                                        ; preds = %.thread, %187
   %.not63 = icmp eq i32 %2, 0
-  %wide.trip.count125 = zext nneg i32 %.054.ph.lcssa to i64
-  br i1 %.not63, label %.lr.ph106.split.us, label %.lr.ph106.split
+  %wide.trip.count183 = zext nneg i32 %.054.ph.lcssa to i64
+  br i1 %.not63, label %.lr.ph150.split.us, label %.lr.ph150.split
 
-.lr.ph106.split.us:                               ; preds = %.lr.ph106, %.lr.ph106.split.us
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph106.split.us ], [ 0, %.lr.ph106 ]
-  %.051104.us = phi ptr [ %118, %.lr.ph106.split.us ], [ null, %.lr.ph106 ]
-  %116 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv122
-  %117 = load i32, ptr %116, align 4
-  %118 = call ptr @lappend_oid(ptr noundef %.051104.us, i32 noundef %117) #5
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge107, label %.lr.ph106.split.us, !llvm.loop !12
+.lr.ph150.split.us:                               ; preds = %.lr.ph150, %.lr.ph150.split.us
+  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.lr.ph150.split.us ], [ 0, %.lr.ph150 ]
+  %.051148.us = phi ptr [ %191, %.lr.ph150.split.us ], [ null, %.lr.ph150 ]
+  %189 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv180
+  %190 = load i32, ptr %189, align 4
+  %191 = call ptr @lappend_oid(ptr noundef %.051148.us, i32 noundef %190) #5
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %._crit_edge151, label %.lr.ph150.split.us, !llvm.loop !8
 
-.lr.ph106.split:                                  ; preds = %.lr.ph106, %126
-  %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph106 ]
-  %.051104 = phi ptr [ %.1, %126 ], [ null, %.lr.ph106 ]
-  %119 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv
-  %120 = load i32, ptr %119, align 4
-  call void @LockRelationOid(i32 noundef %120, i32 noundef %2) #5
-  %121 = zext i32 %120 to i64
-  %122 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %121, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  br i1 %122, label %124, label %123
+.lr.ph150.split:                                  ; preds = %.lr.ph150, %199
+  %indvars.iv = phi i64 [ %indvars.iv.next, %199 ], [ 0, %.lr.ph150 ]
+  %.051148 = phi ptr [ %.1, %199 ], [ null, %.lr.ph150 ]
+  %192 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv
+  %193 = load i32, ptr %192, align 4
+  call void @LockRelationOid(i32 noundef %193, i32 noundef %2) #5
+  %194 = zext i32 %193 to i64
+  %195 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %194, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
+  br i1 %195, label %197, label %196
 
-123:                                              ; preds = %.lr.ph106.split
-  call void @UnlockRelationOid(i32 noundef %120, i32 noundef %2) #5
-  br label %126
+196:                                              ; preds = %.lr.ph150.split
+  call void @UnlockRelationOid(i32 noundef %193, i32 noundef %2) #5
+  br label %199
 
-124:                                              ; preds = %.lr.ph106.split
-  %125 = call ptr @lappend_oid(ptr noundef %.051104, i32 noundef %120) #5
-  br label %126
+197:                                              ; preds = %.lr.ph150.split
+  %198 = call ptr @lappend_oid(ptr noundef %.051148, i32 noundef %193) #5
+  br label %199
 
-126:                                              ; preds = %124, %123
-  %.1 = phi ptr [ %125, %124 ], [ %.051104, %123 ]
+199:                                              ; preds = %197, %196
+  %.1 = phi ptr [ %198, %197 ], [ %.051148, %196 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count125
-  br i1 %exitcond.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count183
+  br i1 %exitcond.not, label %._crit_edge151, label %.lr.ph150.split, !llvm.loop !8
 
-._crit_edge107:                                   ; preds = %126, %.lr.ph106.split.us, %114
-  %.051.lcssa = phi ptr [ null, %114 ], [ %118, %.lr.ph106.split.us ], [ %.1, %126 ]
+._crit_edge151:                                   ; preds = %199, %.lr.ph150.split.us, %187
+  %.051.lcssa = phi ptr [ null, %187 ], [ %191, %.lr.ph150.split.us ], [ %.1, %199 ]
   call void @pfree(ptr noundef %.057.ph.lcssa) #5
-  br label %127
+  br label %200
 
-127:                                              ; preds = %has_subclass.exit, %._crit_edge107
-  %.0 = phi ptr [ %.051.lcssa, %._crit_edge107 ], [ null, %has_subclass.exit ]
+200:                                              ; preds = %has_subclass.exit, %._crit_edge151
+  %.0 = phi ptr [ %.051.lcssa, %._crit_edge151 ], [ null, %has_subclass.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -764,122 +926,139 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   %.not27 = icmp eq i32 %1, 0
   br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %10 = phi ptr [ %22, %20 ], [ %9, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %2, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %19
+  %10 = phi ptr [ %21, %19 ], [ %9, %.lr.ph.split.us ]
   %11 = getelementptr i8, ptr %10, i64 16
-  %.val30.us = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 22
+  %.val30.us.us = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.val30.us.us, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %.val30.us.us, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i8, ptr %16, align 4, !range !4, !noundef !5
   %18 = trunc nuw i8 %17 to i1
-  %.not.us = xor i1 %18, true
-  %or.cond.us = or i1 %2, %.not.us
-  br i1 %or.cond.us, label %19, label %.split.us
+  br i1 %18, label %19, label %.split36.us
 
-19:                                               ; preds = %.lr.ph.split.us
-  %or.cond4.us = and i1 %2, %.not.us
-  br i1 %or.cond4.us, label %.split36.us, label %20
+19:                                               ; preds = %.lr.ph.split.us.split.us
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %20) #5
+  %21 = call ptr @systable_getnext(ptr noundef %8) #5
+  %.not26.us.us = icmp eq ptr %21, null
+  br i1 %.not26.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
 
-20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %21) #5
-  %22 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not26.us = icmp eq ptr %22, null
-  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us, %31
+  %22 = phi ptr [ %33, %31 ], [ %9, %.lr.ph.split.us ]
+  %23 = getelementptr i8, ptr %22, i64 16
+  %.val30.us = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 22
+  %25 = load i8, ptr %24, align 2
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %29 = load i8, ptr %28, align 4, !range !4, !noundef !5
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %.split.us, label %31
+
+31:                                               ; preds = %.lr.ph.split.us.split.split
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %32) #5
+  %33 = call ptr @systable_getnext(ptr noundef %8) #5
+  %.not26.us = icmp eq ptr %33, null
+  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %38
-  %23 = phi ptr [ %39, %38 ], [ %9, %.lr.ph.split ]
-  %.034.us37 = phi i1 [ %.1.us42, %38 ], [ false, %.lr.ph.split ]
-  %24 = getelementptr i8, ptr %23, i64 16
-  %.val30.us38 = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 22
-  %26 = load i8, ptr %25, align 2
-  %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, %1
-  br i1 %31, label %32, label %38
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %49
+  %34 = phi ptr [ %50, %49 ], [ %9, %.lr.ph.split ]
+  %.034.us37 = phi i1 [ %.1.us42, %49 ], [ false, %.lr.ph.split ]
+  %35 = getelementptr i8, ptr %34, i64 16
+  %.val30.us38 = load ptr, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 22
+  %37 = load i8, ptr %36, align 2
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, %1
+  br i1 %42, label %43, label %49
 
-32:                                               ; preds = %.lr.ph.split.split.us
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %34 = load i8, ptr %33, align 4, !range !4, !noundef !5
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %.split36.us
+43:                                               ; preds = %.lr.ph.split.split.us
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %45 = load i8, ptr %44, align 4, !range !4, !noundef !5
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %.split36.us
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %37) #5
-  br label %38
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %48) #5
+  br label %49
 
-38:                                               ; preds = %36, %.lr.ph.split.split.us
-  %.1.us42 = phi i1 [ true, %36 ], [ %.034.us37, %.lr.ph.split.split.us ]
-  %39 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not26.us43 = icmp eq ptr %39, null
-  br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !15
+49:                                               ; preds = %47, %.lr.ph.split.split.us
+  %.1.us42 = phi i1 [ true, %47 ], [ %.034.us37, %.lr.ph.split.split.us ]
+  %50 = call ptr @systable_getnext(ptr noundef %8) #5
+  %.not26.us43 = icmp eq ptr %50, null
+  br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %66
-  %40 = phi ptr [ %67, %66 ], [ %9, %.lr.ph.split ]
-  %.034 = phi i1 [ %.1, %66 ], [ false, %.lr.ph.split ]
-  %41 = getelementptr i8, ptr %40, i64 16
-  %.val30 = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.val30, i64 22
-  %43 = load i8, ptr %42, align 2
-  %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %.val30, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %47, %1
-  br i1 %48, label %49, label %66
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %77
+  %51 = phi ptr [ %78, %77 ], [ %9, %.lr.ph.split ]
+  %.034 = phi i1 [ %.1, %77 ], [ false, %.lr.ph.split ]
+  %52 = getelementptr i8, ptr %51, i64 16
+  %.val30 = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.val30, i64 22
+  %54 = load i8, ptr %53, align 2
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %.val30, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %58, %1
+  br i1 %59, label %60, label %77
 
-49:                                               ; preds = %.lr.ph.split.split.split
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %51 = load i8, ptr %50, align 4, !range !4, !noundef !5
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %.split.us, label %59
+60:                                               ; preds = %.lr.ph.split.split.split
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %62 = load i8, ptr %61, align 4, !range !4, !noundef !5
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %.split.us, label %70
 
-.split.us:                                        ; preds = %49, %.lr.ph.split.us
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %53)
-  %54 = call i32 @errcode(i32 noundef 325) #5
+.split.us:                                        ; preds = %60, %.lr.ph.split.us.split.split
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %64)
+  %65 = call i32 @errcode(i32 noundef 325) #5
   %.not28 = icmp eq ptr %3, null
-  %55 = select i1 %.not28, ptr @.str.5, ptr %3
-  %56 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %55) #5
-  %57 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
-  %58 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
+  %66 = select i1 %.not28, ptr @.str.5, ptr %3
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %66) #5
+  %68 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
+  %69 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
   unreachable
 
-59:                                               ; preds = %49
-  %60 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %60) #5
-  br label %66
+70:                                               ; preds = %60
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %71) #5
+  br label %77
 
-.split36.us:                                      ; preds = %32, %19
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %61)
-  %62 = call i32 @errcode(i32 noundef 325) #5
+.split36.us:                                      ; preds = %43, %.lr.ph.split.us.split.us
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %72)
+  %73 = call i32 @errcode(i32 noundef 325) #5
   %.not29 = icmp eq ptr %3, null
-  %63 = select i1 %.not29, ptr @.str.5, ptr %3
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %63) #5
-  %65 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #5
+  %74 = select i1 %.not29, ptr @.str.5, ptr %3
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %74) #5
+  %76 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 601, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
   unreachable
 
-66:                                               ; preds = %59, %.lr.ph.split.split.split
-  %.1 = phi i1 [ true, %59 ], [ %.034, %.lr.ph.split.split.split ]
-  %67 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not26 = icmp eq ptr %67, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !16
+77:                                               ; preds = %70, %.lr.ph.split.split.split
+  %.1 = phi i1 [ true, %70 ], [ %.034, %.lr.ph.split.split.split ]
+  %78 = call ptr @systable_getnext(ptr noundef %8) #5
+  %.not26 = icmp eq ptr %78, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %66, %38, %20, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ true, %20 ], [ %.1.us42, %38 ], [ %.1, %66 ]
+._crit_edge:                                      ; preds = %77, %49, %31, %19, %4
+  %.0.lcssa = phi i1 [ false, %4 ], [ true, %19 ], [ true, %31 ], [ %.1.us42, %49 ], [ %.1, %77 ]
   call void @systable_endscan(ptr noundef %8) #5
   call void @table_close(ptr noundef %6, i32 noundef 3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -956,14 +1135,7 @@ attributes #6 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7}

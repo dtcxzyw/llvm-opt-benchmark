@@ -519,11 +519,11 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   store i64 %329, ptr %308, align 8, !tbaa !7
   %330 = add i64 %.0220, %159
   %331 = icmp ult i64 %330, %1
-  br i1 %331, label %301, label %.preheader, !llvm.loop !14
+  br i1 %331, label %301, label %.preheader, !llvm.loop !13
 
 ._crit_edge228:                                   ; preds = %._crit_edge.us
   %332 = shl i64 %.0124229, 1
-  br label %.lr.ph221, !llvm.loop !15
+  br label %.lr.ph221, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.preheader, %3, %.preheader218
   %umax.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
@@ -584,7 +584,7 @@ x64_mulmod2c.exit.us:                             ; preds = %276, %263, %251
   %361 = sub i64 %1, %360
   %362 = xor i64 %361, %.017.i
   %exitcond.not.i = icmp eq i64 %341, %umax.i
-  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !16
+  br i1 %exitcond.not.i, label %bitreverse_permute.exit, label %333, !llvm.loop !15
 
 bitreverse_permute.exit:                          ; preds = %340
   ret void
@@ -610,8 +610,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
 !15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}

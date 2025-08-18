@@ -205,7 +205,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 40:                                               ; preds = %.lr.ph.split
   %41 = ashr i32 %38, 1
   %42 = tail call ptr @Abc_NamStr(ptr noundef %1, i32 noundef %41) #14
-  %43 = load i8, ptr %42, align 1, !tbaa !18
+  %43 = load i8, ptr %42, align 1, !tbaa !17
   %.not146 = icmp eq i8 %43, 48
   br i1 %.not146, label %54, label %44
 
@@ -230,7 +230,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %.val128 = load i32, ptr %9, align 4, !tbaa !11
   %55 = sext i32 %.val128 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph.split, label %.critedge, !llvm.loop !19
+  br i1 %56, label %.lr.ph.split, label %.critedge, !llvm.loop !15
 
 57:                                               ; preds = %.lr.ph144, %125
   %indvars.iv155 = phi i64 [ 1, %.lr.ph144 ], [ %indvars.iv.next156, %125 ]
@@ -386,7 +386,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %127 = add i32 %126, 3
   %128 = icmp slt i32 %127, %.val129
   %indvars.iv.next154 = add i64 %indvars.iv153, 2
-  br i1 %128, label %57, label %.critedge, !llvm.loop !20
+  br i1 %128, label %57, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %54, %34, %125, %21, %.preheader, %12, %17, %18
   ret void
@@ -520,7 +520,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.val94 = load i32, ptr %11, align 4, !tbaa !11
   %51 = sext i32 %.val94 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %33, label %.critedge, !llvm.loop !21
+  br i1 %52, label %33, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %50, %27
   %53 = add i32 %30, -3
@@ -615,7 +615,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %102 = add i32 %101, 3
   %103 = icmp slt i32 %102, %.val92
   %indvars.iv.next109 = add i64 %indvars.iv108, 2
-  br i1 %103, label %70, label %.critedge2, !llvm.loop !22
+  br i1 %103, label %70, label %.critedge2, !llvm.loop !20
 
 .critedge2:                                       ; preds = %100, %63
   %104 = add i32 %67, -3
@@ -665,7 +665,7 @@ define noalias noundef ptr @Json_ReadPreprocess(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.029 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %19 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %8 = load i8, ptr %7, align 1, !tbaa !18
+  %8 = load i8, ptr %7, align 1, !tbaa !17
   switch i8 %8, label %15 [
     i8 123, label %9
     i8 125, label %9
@@ -676,26 +676,26 @@ define noalias noundef ptr @Json_ReadPreprocess(ptr noundef readonly captures(no
 9:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %10 = sext i32 %.029 to i64
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  store i8 32, ptr %11, align 1, !tbaa !18
+  store i8 32, ptr %11, align 1, !tbaa !17
   %12 = getelementptr i8, ptr %11, i64 1
-  store i8 %8, ptr %12, align 1, !tbaa !18
+  store i8 %8, ptr %12, align 1, !tbaa !17
   %13 = add nsw i32 %.029, 3
   %14 = getelementptr i8, ptr %11, i64 2
-  store i8 32, ptr %14, align 1, !tbaa !18
+  store i8 32, ptr %14, align 1, !tbaa !17
   br label %19
 
 15:                                               ; preds = %.lr.ph
   %16 = add nsw i32 %.029, 1
   %17 = sext i32 %.029 to i64
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
-  store i8 %8, ptr %18, align 1, !tbaa !18
+  store i8 %8, ptr %18, align 1, !tbaa !17
   br label %19
 
 19:                                               ; preds = %9, %15
   %.1 = phi i32 [ %13, %9 ], [ %16, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %19
   %20 = sext i32 %.1 to i64
@@ -704,7 +704,7 @@ define noalias noundef ptr @Json_ReadPreprocess(ptr noundef readonly captures(no
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %20, %._crit_edge.loopexit ]
   %21 = getelementptr inbounds i8, ptr %5, i64 %.0.lcssa
-  store i8 0, ptr %21, align 1, !tbaa !18
+  store i8 0, ptr %21, align 1, !tbaa !17
   ret ptr %5
 }
 
@@ -729,7 +729,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
   %12 = sext i32 %8 to i64
   %13 = tail call i64 @fread(ptr noundef %11, i64 noundef %12, i64 noundef 1, ptr noundef nonnull %3)
   %14 = getelementptr inbounds i8, ptr %11, i64 %12
-  store i8 0, ptr %14, align 1, !tbaa !18
+  store i8 0, ptr %14, align 1, !tbaa !17
   %15 = tail call i32 @fclose(ptr noundef nonnull %3)
   %16 = mul nsw i32 %8, 3
   %17 = sext i32 %16 to i64
@@ -745,7 +745,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
   %.029.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %32 ]
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
-  %21 = load i8, ptr %20, align 1, !tbaa !18
+  %21 = load i8, ptr %20, align 1, !tbaa !17
   switch i8 %21, label %28 [
     i8 123, label %22
     i8 125, label %22
@@ -756,26 +756,26 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
 22:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %23 = sext i32 %.029.i to i64
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
-  store i8 32, ptr %24, align 1, !tbaa !18
+  store i8 32, ptr %24, align 1, !tbaa !17
   %25 = getelementptr i8, ptr %24, i64 1
-  store i8 %21, ptr %25, align 1, !tbaa !18
+  store i8 %21, ptr %25, align 1, !tbaa !17
   %26 = add nsw i32 %.029.i, 3
   %27 = getelementptr i8, ptr %24, i64 2
-  store i8 32, ptr %27, align 1, !tbaa !18
+  store i8 32, ptr %27, align 1, !tbaa !17
   br label %32
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nsw i32 %.029.i, 1
   %30 = sext i32 %.029.i to i64
   %31 = getelementptr inbounds i8, ptr %18, i64 %30
-  store i8 %21, ptr %31, align 1, !tbaa !18
+  store i8 %21, ptr %31, align 1, !tbaa !17
   br label %32
 
 32:                                               ; preds = %28, %22
   %.1.i = phi i32 [ %26, %22 ], [ %29, %28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %32
   %33 = sext i32 %.1.i to i64
@@ -784,20 +784,20 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
 34:                                               ; preds = %7, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i64 [ 0, %7 ], [ %33, %._crit_edge.loopexit.i ]
   %35 = getelementptr inbounds i8, ptr %18, i64 %.0.lcssa.i
-  store i8 0, ptr %35, align 1, !tbaa !18
+  store i8 0, ptr %35, align 1, !tbaa !17
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #13
   tail call void @free(ptr noundef nonnull %11) #14
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i32 0, ptr %38, align 4, !tbaa !24
-  store i32 1000, ptr %37, align 8, !tbaa !25
+  store i32 0, ptr %38, align 4, !tbaa !22
+  store i32 1000, ptr %37, align 8, !tbaa !23
   %39 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #16
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8, !tbaa !12
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4, !tbaa !11
-  store i32 100, ptr %41, align 8, !tbaa !26
+  store i32 100, ptr %41, align 8, !tbaa !24
   %43 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #15
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !3
@@ -816,7 +816,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
 
 50:                                               ; preds = %.preheader100, %Json_CharIsSpace.exit.thread.i
   %.0.i = phi ptr [ %52, %Json_CharIsSpace.exit.thread.i ], [ %.058104, %.preheader100 ]
-  %51 = load i8, ptr %.0.i, align 1, !tbaa !18
+  %51 = load i8, ptr %.0.i, align 1, !tbaa !17
   switch i8 %51, label %.preheader [
     i8 32, label %Json_CharIsSpace.exit.thread.i
     i8 13, label %Json_CharIsSpace.exit.thread.i
@@ -828,7 +828,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr noundef writeonly capt
 
 Json_CharIsSpace.exit.thread.i:                   ; preds = %50, %50, %50, %50, %50
   %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %50, !llvm.loop !27
+  br label %50, !llvm.loop !25
 
 .preheader:                                       ; preds = %50, %54
   %53 = phi i8 [ %.pr, %54 ], [ %51, %50 ]
@@ -843,8 +843,8 @@ Json_CharIsSpace.exit.thread.i:                   ; preds = %50, %50, %50, %50, 
 
 54:                                               ; preds = %.preheader
   %55 = getelementptr inbounds nuw i8, ptr %.0.i72, i64 1
-  %.pr = load i8, ptr %55, align 1, !tbaa !18
-  br label %.preheader, !llvm.loop !28
+  %.pr = load i8, ptr %55, align 1, !tbaa !17
+  br label %.preheader, !llvm.loop !26
 
 Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   switch i8 %51, label %218 [
@@ -859,7 +859,7 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
 56:                                               ; preds = %Json_SkipNonSpaces.exit, %Json_SkipNonSpaces.exit
   %.val = load i32, ptr %42, align 4, !tbaa !11
   %57 = icmp sgt i32 %.val, 0
-  %.val71.pre110 = load i32, ptr %38, align 4, !tbaa !24
+  %.val71.pre110 = load i32, ptr %38, align 4, !tbaa !22
   br i1 %57, label %58, label %97
 
 58:                                               ; preds = %56
@@ -873,7 +873,7 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
   %65 = shl nsw i32 %.val71.pre110, 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !11
-  %68 = load i32, ptr %64, align 8, !tbaa !26
+  %68 = load i32, ptr %64, align 8, !tbaa !24
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -903,7 +903,7 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
 Vec_IntGrow.exit.i:                               ; preds = %77, %75
   %79 = phi ptr [ %76, %75 ], [ %78, %77 ]
   store ptr %79, ptr %73, align 8, !tbaa !3
-  store i32 16, ptr %64, align 8, !tbaa !26
+  store i32 16, ptr %64, align 8, !tbaa !24
   br label %Vec_IntPush.exit
 
 80:                                               ; preds = %70
@@ -926,7 +926,7 @@ Vec_IntGrow.exit.i:                               ; preds = %77, %75
 90:                                               ; preds = %88, %86
   %91 = phi ptr [ %87, %86 ], [ %89, %88 ]
   store ptr %91, ptr %82, align 8, !tbaa !3
-  store i32 %81, ptr %64, align 8, !tbaa !26
+  store i32 %81, ptr %64, align 8, !tbaa !24
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %90
@@ -938,13 +938,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %96 = getelementptr inbounds i32, ptr %92, i64 %95
   store i32 %65, ptr %96, align 4, !tbaa !10
   %.pr99 = load i32, ptr %42, align 4, !tbaa !11
-  %.val71.pre = load i32, ptr %38, align 4, !tbaa !24
+  %.val71.pre = load i32, ptr %38, align 4, !tbaa !22
   br label %97
 
 97:                                               ; preds = %Vec_IntPush.exit, %56
   %.val71 = phi i32 [ %.val71.pre, %Vec_IntPush.exit ], [ %.val71.pre110, %56 ]
   %98 = phi i32 [ %.pr99, %Vec_IntPush.exit ], [ %.val, %56 ]
-  %99 = load i32, ptr %41, align 8, !tbaa !26
+  %99 = load i32, ptr %41, align 8, !tbaa !24
   %100 = icmp eq i32 %98, %99
   br i1 %100, label %101, label %.Vec_IntGrow.exit10_crit_edge.i74
 
@@ -972,7 +972,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i79:                             ; preds = %107, %105
   %109 = phi ptr [ %106, %105 ], [ %108, %107 ]
   store ptr %109, ptr %44, align 8, !tbaa !3
-  store i32 16, ptr %41, align 8, !tbaa !26
+  store i32 16, ptr %41, align 8, !tbaa !24
   br label %Vec_IntPush.exit80
 
 110:                                              ; preds = %101
@@ -994,7 +994,7 @@ Vec_IntGrow.exit.i79:                             ; preds = %107, %105
 119:                                              ; preds = %117, %115
   %120 = phi ptr [ %116, %115 ], [ %118, %117 ]
   store ptr %120, ptr %44, align 8, !tbaa !3
-  store i32 %111, ptr %41, align 8, !tbaa !26
+  store i32 %111, ptr %41, align 8, !tbaa !24
   br label %Vec_IntPush.exit80
 
 Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i74, %Vec_IntGrow.exit.i79, %119
@@ -1004,8 +1004,8 @@ Vec_IntPush.exit80:                               ; preds = %.Vec_IntGrow.exit10
   %123 = sext i32 %98 to i64
   %124 = getelementptr inbounds i32, ptr %121, i64 %123
   store i32 %.val71, ptr %124, align 4, !tbaa !10
-  %125 = load i32, ptr %38, align 4, !tbaa !24
-  %126 = load i32, ptr %37, align 8, !tbaa !25
+  %125 = load i32, ptr %38, align 4, !tbaa !22
+  %126 = load i32, ptr %37, align 8, !tbaa !23
   %127 = icmp eq i32 %125, %126
   br i1 %127, label %128, label %Vec_WecPushLevel.exit
 
@@ -1063,17 +1063,17 @@ Vec_WecPushLevel.exit.sink.split:                 ; preds = %147, %Vec_WecGrow.e
   %151 = zext nneg i32 %.sink122 to i64
   %152 = shl nuw nsw i64 %151, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %.sink119, i8 0, i64 %152, i1 false)
-  store i32 %.sink, ptr %37, align 8, !tbaa !25
+  store i32 %.sink, ptr %37, align 8, !tbaa !23
   br label %Vec_WecPushLevel.exit
 
 Vec_WecPushLevel.exit:                            ; preds = %Vec_WecPushLevel.exit.sink.split, %Vec_IntPush.exit80
   %.val8.pre.i113 = phi ptr [ %49, %Vec_IntPush.exit80 ], [ %.val8.pre.i113.ph, %Vec_WecPushLevel.exit.sink.split ]
   %153 = add nsw i32 %125, 1
-  store i32 %153, ptr %38, align 4, !tbaa !24
+  store i32 %153, ptr %38, align 4, !tbaa !22
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val8.pre.i113, i64 %154
   %156 = getelementptr inbounds i8, ptr %155, i64 -16
-  %157 = load i32, ptr %156, align 8, !tbaa !26
+  %157 = load i32, ptr %156, align 8, !tbaa !24
   %.not.i = icmp slt i32 %157, 4
   br i1 %.not.i, label %158, label %Vec_IntGrow.exit
 
@@ -1092,7 +1092,7 @@ Vec_WecPushLevel.exit:                            ; preds = %Vec_WecPushLevel.ex
   br label %Vec_IntGrow.exit.thread
 
 Vec_IntGrow.exit:                                 ; preds = %Vec_WecPushLevel.exit
-  %165 = load i8, ptr %.0.i, align 1, !tbaa !18
+  %165 = load i8, ptr %.0.i, align 1, !tbaa !17
   %166 = icmp eq i8 %165, 91
   %167 = zext i1 %166 to i32
   %168 = getelementptr inbounds i8, ptr %155, i64 -12
@@ -1103,8 +1103,8 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_WecPushLevel.ex
 Vec_IntGrow.exit.thread:                          ; preds = %161, %163
   %171 = phi ptr [ %162, %161 ], [ %164, %163 ]
   store ptr %171, ptr %159, align 8, !tbaa !3
-  store i32 4, ptr %156, align 8, !tbaa !26
-  %172 = load i8, ptr %.0.i, align 1, !tbaa !18
+  store i32 4, ptr %156, align 8, !tbaa !24
+  %172 = load i8, ptr %.0.i, align 1, !tbaa !17
   %173 = icmp eq i8 %172, 91
   %174 = zext i1 %173 to i32
   %175 = getelementptr inbounds i8, ptr %155, i64 -12
@@ -1142,7 +1142,7 @@ Vec_IntGrow.exit.thread:                          ; preds = %161, %163
 Vec_IntGrow.exit.i87:                             ; preds = %188, %186
   %190 = phi ptr [ %187, %186 ], [ %189, %188 ]
   store ptr %190, ptr %184, align 8, !tbaa !3
-  store i32 16, ptr %156, align 8, !tbaa !26
+  store i32 16, ptr %156, align 8, !tbaa !24
   br label %Vec_IntPush.exit88
 
 191:                                              ; preds = %180
@@ -1165,7 +1165,7 @@ Vec_IntGrow.exit.i87:                             ; preds = %188, %186
 201:                                              ; preds = %199, %197
   %202 = phi ptr [ %198, %197 ], [ %200, %199 ]
   store ptr %202, ptr %193, align 8, !tbaa !3
-  store i32 %192, ptr %156, align 8, !tbaa !26
+  store i32 %192, ptr %156, align 8, !tbaa !24
   br label %Vec_IntPush.exit88
 
 Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i82, %Vec_IntGrow.exit.i87, %201
@@ -1186,7 +1186,7 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
   %.val65108 = phi ptr [ %.val8.pre.i113, %Vec_IntPush.exit88 ], [ %.val65, %212 ], [ %.val65, %216 ], [ %.val64, %Vec_IntPush.exit96 ]
   %.058.be = phi ptr [ %210, %Vec_IntPush.exit88 ], [ %215, %212 ], [ %217, %216 ], [ %.0.i72, %Vec_IntPush.exit96 ]
   %211 = icmp ult ptr %.058.be, %47
-  br i1 %211, label %.preheader100, label %.loopexit, !llvm.loop !29
+  br i1 %211, label %.preheader100, label %.loopexit, !llvm.loop !27
 
 212:                                              ; preds = %Json_SkipNonSpaces.exit, %Json_SkipNonSpaces.exit
   %213 = load i32, ptr %42, align 4, !tbaa !11
@@ -1204,11 +1204,11 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
   %spec.select.idx.i = zext i1 %219 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 %spec.select.idx.i
   %220 = getelementptr inbounds i8, ptr %.0.i72, i64 -1
-  %221 = load i8, ptr %220, align 1, !tbaa !18
+  %221 = load i8, ptr %220, align 1, !tbaa !17
   %222 = icmp eq i8 %221, 44
   %.010.i = select i1 %222, ptr %220, ptr %.0.i72
   %223 = getelementptr inbounds i8, ptr %.010.i, i64 -1
-  %224 = load i8, ptr %223, align 1, !tbaa !18
+  %224 = load i8, ptr %223, align 1, !tbaa !17
   %225 = icmp eq i8 %224, 34
   %.1.i89 = select i1 %225, ptr %223, ptr %.010.i
   %226 = tail call i32 @Abc_NamStrFindOrAddLim(ptr noundef %45, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %.1.i89, ptr noundef null) #14
@@ -1225,7 +1225,7 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
   %234 = or disjoint i32 %233, 1
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !11
-  %237 = load i32, ptr %232, align 8, !tbaa !26
+  %237 = load i32, ptr %232, align 8, !tbaa !24
   %238 = icmp eq i32 %236, %237
   br i1 %238, label %239, label %.Vec_IntGrow.exit10_crit_edge.i90
 
@@ -1255,7 +1255,7 @@ Vec_IntPush.exit88:                               ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i95:                             ; preds = %246, %244
   %248 = phi ptr [ %245, %244 ], [ %247, %246 ]
   store ptr %248, ptr %242, align 8, !tbaa !3
-  store i32 16, ptr %232, align 8, !tbaa !26
+  store i32 16, ptr %232, align 8, !tbaa !24
   br label %Vec_IntPush.exit96
 
 249:                                              ; preds = %239
@@ -1278,7 +1278,7 @@ Vec_IntGrow.exit.i95:                             ; preds = %246, %244
 259:                                              ; preds = %257, %255
   %260 = phi ptr [ %256, %255 ], [ %258, %257 ]
   store ptr %260, ptr %251, align 8, !tbaa !3
-  store i32 %250, ptr %232, align 8, !tbaa !26
+  store i32 %250, ptr %232, align 8, !tbaa !24
   br label %Vec_IntPush.exit96
 
 Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i90, %Vec_IntGrow.exit.i95, %259
@@ -1303,7 +1303,7 @@ Vec_IntPush.exit96:                               ; preds = %.Vec_IntGrow.exit10
 Vec_IntFree.exit:                                 ; preds = %.loopexit, %267
   tail call void @free(ptr noundef nonnull %41) #14
   tail call void @free(ptr noundef %18) #14
-  store ptr %45, ptr %1, align 8, !tbaa !30
+  store ptr %45, ptr %1, align 8, !tbaa !28
   br label %268
 
 268:                                              ; preds = %Vec_IntFree.exit, %5
@@ -1335,7 +1335,7 @@ define void @Json_ReadTest(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %4, label %30, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8, !tbaa !30
+  %6 = load ptr, ptr %2, align 8, !tbaa !28
   %7 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.35)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
@@ -1353,7 +1353,7 @@ define void @Json_ReadTest(ptr noundef %0) local_unnamed_addr #2 {
 
 Json_Write.exit:                                  ; preds = %9, %11
   tail call void @Abc_NamDeref(ptr noundef %6) #14
-  %14 = load i32, ptr %3, align 8, !tbaa !25
+  %14 = load i32, ptr %3, align 8, !tbaa !23
   %15 = icmp sgt i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i.i = load ptr, ptr %16, align 8, !tbaa !12
@@ -1373,7 +1373,7 @@ Json_Write.exit:                                  ; preds = %9, %11
   %22 = load ptr, ptr %16, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %22, i64 %indvars.iv.i.i, i32 2
   store ptr null, ptr %23, align 8, !tbaa !3
-  %.pre18.i.i = load i32, ptr %3, align 8, !tbaa !25
+  %.pre18.i.i = load i32, ptr %3, align 8, !tbaa !23
   br label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
@@ -1382,7 +1382,7 @@ Json_Write.exit:                                  ; preds = %9, %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = sext i32 %25 to i64
   %28 = icmp slt i64 %indvars.iv.next.i.i, %27
-  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !32
+  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.thread.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %Json_Write.exit
   %.not.i.i = icmp eq ptr %.pre.i.i, null
@@ -1466,21 +1466,19 @@ attributes #17 = { nounwind allocsize(1) }
 !12 = !{!13, !14, i64 8}
 !13 = !{!"Vec_Wec_t_", !5, i64 0, !5, i64 4, !14, i64 8}
 !14 = !{!"p1 _ZTS10Vec_Int_t_", !9, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!6, !6, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !16}
 !19 = distinct !{!19, !16}
 !20 = distinct !{!20, !16}
 !21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = !{!13, !5, i64 4}
-!25 = !{!13, !5, i64 0}
-!26 = !{!4, !5, i64 0}
+!22 = !{!13, !5, i64 4}
+!23 = !{!13, !5, i64 0}
+!24 = !{!4, !5, i64 0}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}
 !27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
-!32 = distinct !{!32, !16}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
+!30 = distinct !{!30, !16}

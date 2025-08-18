@@ -9539,7 +9539,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_
   store ptr %50, ptr %78, align 8
   %.not.i.i.i = icmp eq i64 %.011.i.i.i, 0
   %79 = add nsw i64 %.011.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i", label %.split.i.i.i, !llvm.loop !108
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i", label %.split.i.i.i, !llvm.loop !106
 
 "_ZSt11__make_heapIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN5QListIP17_dissector_info_tE8iteratorExS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
   %80 = icmp sgt i64 %.fr.i.i.i27.lcssa, 8
@@ -9629,7 +9629,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_
   %122 = getelementptr ptr, ptr %.fr28, i64 %.0.lcssa.i.i.i.i16.i
   store ptr %82, ptr %122, align 8
   %123 = icmp sgt i64 %85, 8
-  br i1 %123, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !109
+  br i1 %123, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !107
 
 .lr.ph44:                                         ; preds = %.lr.ph, %11
   %storemerge2543 = phi ptr [ %.sroa.010.1.i.i, %11 ], [ %.fr33, %.lr.ph ]
@@ -9727,7 +9727,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_
   %171 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %169, ptr noundef align 8 dereferenceable(24) %170)
   %172 = icmp slt i32 %171, 0
   %173 = getelementptr i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %172, label %168, label %.preheader.i.i, !llvm.loop !110
+  br i1 %172, label %168, label %.preheader.i.i, !llvm.loop !108
 
 .preheader.i.i:                                   ; preds = %168, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %168 ]
@@ -9736,7 +9736,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_
   %175 = load ptr, ptr %.sroa.0.1.i.i, align 8
   %176 = tail call noundef i32 @_ZNK7QString18localeAwareCompareERKS_(ptr noundef align 8 dereferenceable_or_null(24) %174, ptr noundef align 8 dereferenceable(24) %175)
   %177 = icmp slt i32 %176, 0
-  br i1 %177, label %.preheader.i.i, label %178, !llvm.loop !111
+  br i1 %177, label %.preheader.i.i, label %178, !llvm.loop !109
 
 178:                                              ; preds = %.preheader.i.i
   %179 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
@@ -9747,7 +9747,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_
   %182 = load ptr, ptr %.sroa.0.1.i.i, align 8
   store ptr %182, ptr %.sroa.010.1.i.i, align 8
   store ptr %181, ptr %.sroa.0.1.i.i, align 8
-  br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !112
+  br label %"_ZSt22__move_median_to_firstIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !110
 
 "_ZSt27__unguarded_partition_pivotIN5QListIP17_dissector_info_tE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %178
   tail call fastcc void @"_ZSt16__introsort_loopIN5QListIP17_dissector_info_tE8iteratorExN9__gnu_cxx5__ops15_Iter_comp_iterIZNK16DecodeAsDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndexE3$_0EEEvT_SJ_T0_T1_"(ptr %.sroa.010.1.i.i, ptr %storemerge2543, i64 noundef %125)
@@ -9931,10 +9931,8 @@ attributes #27 = { cold noreturn }
 !103 = distinct !{!103, !7}
 !104 = distinct !{!104, !7}
 !105 = distinct !{!105, !7}
-!106 = distinct !{!106, !7, !107}
-!107 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!106 = distinct !{!106, !7}
+!107 = distinct !{!107, !7}
 !108 = distinct !{!108, !7}
 !109 = distinct !{!109, !7}
 !110 = distinct !{!110, !7}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}

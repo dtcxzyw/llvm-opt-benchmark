@@ -741,7 +741,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
 111:                                              ; preds = %.split, %94
   %112 = add nuw nsw i32 %.0136154, 1
   %exitcond.not = icmp eq i32 %112, 4
-  br i1 %exitcond.not, label %.split156.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split156.us, label %.split, !llvm.loop !18
 
 113:                                              ; preds = %.split156.us
   %114 = and i32 %56, 15
@@ -862,7 +862,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %185 = add nsw i32 %.0126157, 1
   %186 = sext i32 %.0126157 to i64
   %187 = getelementptr inbounds i16, ptr %.1133, i64 %186
-  %188 = load i16, ptr %187, align 2, !tbaa !22
+  %188 = load i16, ptr %187, align 2, !tbaa !20
   %189 = zext i16 %188 to i32
   %190 = and i32 %189, 64512
   %191 = icmp eq i32 %190, 55296
@@ -873,7 +873,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %194 = add nsw i32 %.0126157, 2
   %195 = sext i32 %185 to i64
   %196 = getelementptr inbounds i16, ptr %.1133, i64 %195
-  %197 = load i16, ptr %196, align 2, !tbaa !22
+  %197 = load i16, ptr %196, align 2, !tbaa !20
   %198 = zext i16 %197 to i32
   %199 = add nsw i32 %193, -56613888
   %200 = add nuw nsw i32 %199, %198
@@ -886,7 +886,7 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   %203 = load ptr, ptr %1, align 8, !tbaa !11
   tail call void %202(ptr noundef %203, i32 noundef %.0)
   %204 = icmp slt i32 %.1, %.1131
-  br i1 %204, label %.lr.ph, label %.critedge, !llvm.loop !24
+  br i1 %204, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %201, %184, %58, %62, %67, %66, %41, %43
   ret void
@@ -1038,7 +1038,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 85:                                               ; preds = %73, %.split.us
   %86 = add nuw nsw i32 %.0130153.us, 1
   %exitcond161.not = icmp eq i32 %86, 4
-  br i1 %exitcond161.not, label %.split155.us, label %.split.us, !llvm.loop !25
+  br i1 %exitcond161.not, label %.split155.us, label %.split.us, !llvm.loop !23
 
 .split155.us:                                     ; preds = %107, %85
   %87 = and i32 %56, 16
@@ -1076,7 +1076,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
 107:                                              ; preds = %.split, %90
   %108 = add nuw nsw i32 %.0130153, 1
   %exitcond.not = icmp eq i32 %108, 4
-  br i1 %exitcond.not, label %.split155.us, label %.split, !llvm.loop !26
+  br i1 %exitcond.not, label %.split155.us, label %.split, !llvm.loop !23
 
 109:                                              ; preds = %.split155.us
   %110 = and i32 %56, 15
@@ -1212,7 +1212,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %184 = add nsw i32 %.0120156, 1
   %185 = sext i32 %.0120156 to i64
   %186 = getelementptr inbounds i16, ptr %.1125178, i64 %185
-  %187 = load i16, ptr %186, align 2, !tbaa !22
+  %187 = load i16, ptr %186, align 2, !tbaa !20
   %188 = zext i16 %187 to i32
   %189 = and i32 %188, 64512
   %190 = icmp eq i32 %189, 55296
@@ -1223,7 +1223,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %193 = add nsw i32 %.0120156, 2
   %194 = sext i32 %184 to i64
   %195 = getelementptr inbounds i16, ptr %.1125178, i64 %194
-  %196 = load i16, ptr %195, align 2, !tbaa !22
+  %196 = load i16, ptr %195, align 2, !tbaa !20
   %197 = zext i16 %196 to i32
   %198 = add nsw i32 %192, -56613888
   %199 = add nuw nsw i32 %198, %197
@@ -1236,7 +1236,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %202 = load ptr, ptr %1, align 8, !tbaa !11
   tail call void %201(ptr noundef %202, i32 noundef %.0)
   %203 = icmp slt i32 %.1, %.1123152179
-  br i1 %203, label %183, label %.critedge, !llvm.loop !27
+  br i1 %203, label %183, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %200, %135, %.thread, %58, %63, %57, %62, %41, %43
   ret void
@@ -1270,19 +1270,19 @@ define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_77(ptr noundef read
   %.013.i.us = phi ptr [ %12, %.preheader63.split.us ], [ %15, %20 ]
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.us, i64 2
   %15 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
-  %16 = load i16, ptr %.013.i.us, align 2, !tbaa !22
+  %16 = load i16, ptr %.013.i.us, align 2, !tbaa !20
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, label %18
 
 18:                                               ; preds = %13
-  %19 = load i16, ptr %.015.i.us, align 2, !tbaa !22
+  %19 = load i16, ptr %.015.i.us, align 2, !tbaa !20
   %.not.i.us = icmp eq i16 %19, %16
   br i1 %.not.i.us, label %20, label %_ZL9strcmpMaxPKDsiS0_i.exit.us
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %.014.i.us, -1
   %22 = icmp samesign ugt i32 %.014.i.us, 1
-  br i1 %22, label %13, label %.preheader, !llvm.loop !28
+  br i1 %22, label %13, label %.preheader, !llvm.loop !25
 
 _ZL9strcmpMaxPKDsiS0_i.exit.us:                   ; preds = %18
   %23 = icmp ult i16 %19, %16
@@ -1294,7 +1294,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %13, %_ZL9strcmpMaxP
   %.251.us = select i1 %.0.i60.us, i32 %9, i32 %.04969.us
   %.248.us = select i1 %.0.i60.us, i32 %.04670.us, i32 %24
   %25 = icmp slt i32 %.248.us, %.251.us
-  br i1 %25, label %.preheader63.split.us, label %.critedge, !llvm.loop !29
+  br i1 %25, label %.preheader63.split.us, label %.critedge
 
 .preheader63.split:                               ; preds = %.preheader63, %_ZL9strcmpMaxPKDsiS0_i.exit.thread
   %.04670 = phi i32 [ %.248, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ], [ 0, %.preheader63 ]
@@ -1312,13 +1312,13 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %13, %_ZL9strcmpMaxP
   %.013.i = phi ptr [ %30, %.preheader63.split ], [ %33, %41 ]
   %32 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
-  %34 = load i16, ptr %.013.i, align 2, !tbaa !22
+  %34 = load i16, ptr %.013.i, align 2, !tbaa !20
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread, label %36
 
 36:                                               ; preds = %31
   %37 = zext i16 %34 to i32
-  %38 = load i16, ptr %.015.i, align 2, !tbaa !22
+  %38 = load i16, ptr %.015.i, align 2, !tbaa !20
   %39 = zext i16 %38 to i32
   %40 = sub nsw i32 %39, %37
   %.not.i = icmp eq i32 %40, 0
@@ -1327,10 +1327,10 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %13, %_ZL9strcmpMaxP
 41:                                               ; preds = %36
   %42 = add nsw i32 %.014.i, -1
   %43 = icmp samesign ugt i32 %.014.i, 1
-  br i1 %43, label %31, label %44, !llvm.loop !28
+  br i1 %43, label %31, label %44, !llvm.loop !25
 
 44:                                               ; preds = %41
-  %45 = load i16, ptr %33, align 2, !tbaa !22
+  %45 = load i16, ptr %33, align 2, !tbaa !20
   %46 = icmp ne i16 %45, 0
   %spec.select.i = sext i1 %46 to i32
   br label %_ZL9strcmpMaxPKDsiS0_i.exit
@@ -1349,10 +1349,10 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
   %.04471 = phi i32 [ 3, %.preheader ], [ %.145, %66 ]
   %49 = sext i32 %.04471 to i64
   %50 = getelementptr inbounds i16, ptr %.us-phi, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !22
+  %51 = load i16, ptr %50, align 2, !tbaa !20
   %52 = zext i16 %51 to i32
   %.not = icmp eq i16 %51, 0
-  br i1 %.not, label %.critedge, label %53, !llvm.loop !30
+  br i1 %.not, label %.critedge, label %53, !llvm.loop !26
 
 53:                                               ; preds = %48
   %54 = add nsw i32 %.04471, 1
@@ -1365,7 +1365,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
   %59 = add nsw i32 %.04471, 2
   %60 = sext i32 %54 to i64
   %61 = getelementptr inbounds i16, ptr %.us-phi, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !22
+  %62 = load i16, ptr %61, align 2, !tbaa !20
   %63 = zext i16 %62 to i32
   %64 = add nsw i32 %58, -56613888
   %65 = add nuw nsw i32 %64, %63
@@ -1379,7 +1379,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
   tail call void %67(ptr noundef %68, i32 noundef %.0)
   tail call void @ucase_addCaseClosure_77(i32 noundef %.0, ptr noundef nonnull %2)
   %69 = icmp slt i32 %.145, 5
-  br i1 %69, label %48, label %.critedge, !llvm.loop !31
+  br i1 %69, label %48, label %.critedge, !llvm.loop !27
 
 _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %31, %_ZL9strcmpMaxPKDsiS0_i.exit
   %.0.i60 = phi i32 [ %.0.i, %_ZL9strcmpMaxPKDsiS0_i.exit ], [ 1, %31 ]
@@ -1398,63 +1398,63 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %31, %_ZL9strcmpMaxP
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7723FullCaseFoldingIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 73, ptr %2, align 8, !tbaa !32
+  store i32 73, ptr %2, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 5, ptr %3, align 4, !tbaa !35
+  store i32 5, ptr %3, align 4, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 3, ptr %4, align 8, !tbaa !36
+  store i32 3, ptr %4, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %5, align 4, !tbaa !37
+  store i32 0, ptr %5, align 4, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 3, ptr %6, align 8, !tbaa !38
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), ptr %0, align 8, !tbaa !39
+  store i32 3, ptr %6, align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), ptr %0, align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7723FullCaseFoldingIterator4nextERNS_13UnicodeStringE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::ConstChar16Ptr", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  %4 = load ptr, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !37
+  %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !35
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = mul nsw i32 %8, %6
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i16, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !38
+  %13 = load i32, ptr %12, align 8, !tbaa !34
   %.not = icmp slt i32 %13, %8
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %2
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds i16, ptr %11, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !22
+  %17 = load i16, ptr %16, align 2, !tbaa !20
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %14, %2
   %20 = add nsw i32 %6, 1
-  store i32 %20, ptr %5, align 4, !tbaa !37
+  store i32 %20, ptr %5, align 4, !tbaa !33
   %21 = sext i32 %8 to i64
   %22 = getelementptr inbounds i16, ptr %11, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !36
-  store i32 %24, ptr %12, align 8, !tbaa !38
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  store i32 %24, ptr %12, align 8, !tbaa !34
   br label %25
 
 25:                                               ; preds = %19, %14
   %26 = phi i32 [ %20, %19 ], [ %6, %14 ]
   %.018 = phi ptr [ %22, %19 ], [ %11, %14 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !32
+  %28 = load i32, ptr %27, align 8, !tbaa !28
   %.not21 = icmp slt i32 %26, %28
   br i1 %.not21, label %29, label %64
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !36
+  %31 = load i32, ptr %30, align 8, !tbaa !32
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %.critedge
 
@@ -1463,30 +1463,30 @@ define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7723FullCaseFoldingIterator4
   %33 = zext nneg i32 %.01922 to i64
   %34 = getelementptr i16, ptr %.018, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -2
-  %36 = load i16, ptr %35, align 2, !tbaa !22
+  %36 = load i16, ptr %35, align 2, !tbaa !20
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %.lr.ph
   %39 = add nsw i32 %.01922, -1
   %40 = icmp sgt i32 %.01922, 1
-  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !40
+  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %.lr.ph, %38, %29
   %.019.lcssa = phi i32 [ %31, %29 ], [ 0, %38 ], [ %.01922, %.lr.ph ]
-  store ptr %.018, ptr %3, align 8, !tbaa !41
+  store ptr %.018, ptr %3, align 8, !tbaa !37
   %41 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef signext 0, ptr noundef nonnull %3, i32 noundef %.019.lcssa)
           to label %42 unwind label %61
 
 42:                                               ; preds = %.critedge
-  %43 = load ptr, ptr %3, align 8, !tbaa !41
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #6, !srcloc !43
-  %44 = load i32, ptr %12, align 8, !tbaa !38
+  %43 = load ptr, ptr %3, align 8, !tbaa !37
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #6, !srcloc !39
+  %44 = load i32, ptr %12, align 8, !tbaa !34
   %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %12, align 8, !tbaa !38
+  store i32 %45, ptr %12, align 8, !tbaa !34
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds i16, ptr %.018, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !22
+  %48 = load i16, ptr %47, align 2, !tbaa !20
   %49 = zext i16 %48 to i32
   %50 = and i32 %49, 64512
   %51 = icmp eq i32 %50, 55296
@@ -1495,10 +1495,10 @@ define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7723FullCaseFoldingIterator4
 52:                                               ; preds = %42
   %53 = shl nuw nsw i32 %49, 10
   %54 = add nsw i32 %44, 2
-  store i32 %54, ptr %12, align 8, !tbaa !38
+  store i32 %54, ptr %12, align 8, !tbaa !34
   %55 = sext i32 %45 to i64
   %56 = getelementptr inbounds i16, ptr %.018, i64 %55
-  %57 = load i16, ptr %56, align 2, !tbaa !22
+  %57 = load i16, ptr %56, align 2, !tbaa !20
   %58 = zext i16 %57 to i32
   %59 = add nsw i32 %53, -56613888
   %60 = add nuw nsw i32 %59, %58
@@ -1507,8 +1507,8 @@ define noundef range(i32 -1, 10559488) i32 @_ZN6icu_7723FullCaseFoldingIterator4
 61:                                               ; preds = %.critedge
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %3, align 8, !tbaa !41
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #6, !srcloc !43
+  %63 = load ptr, ptr %3, align 8, !tbaa !37
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #6, !srcloc !39
   resume { ptr, i32 } %62
 
 64:                                               ; preds = %42, %52, %25
@@ -2163,7 +2163,7 @@ define range(i32 1, 7) i32 @ucase_getCaseLocale_77(ptr noundef readonly captures
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ucase_toFullLower_77(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
-  store ptr null, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %3, align 8, !tbaa !40
   %6 = icmp ult i32 %0, 55296
   br i1 %6, label %7, label %9
 
@@ -2350,7 +2350,7 @@ _ZL10getDotTypei.exit.i:                          ; preds = %106, %104
   switch i32 %.0.i.i, label %.loopexit [
     i32 64, label %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
     i32 96, label %.preheader.i
-  ], !llvm.loop !45
+  ], !llvm.loop !41
 
 .loopexit:                                        ; preds = %_ZL10getDotTypei.exit.i, %.preheader.i, %61
   switch i32 %0, label %120 [
@@ -2369,27 +2369,27 @@ _ZL21isFollowedByMoreAbovePFiPvaES_.exit:         ; preds = %_ZL10getDotTypei.ex
   ]
 
 114:                                              ; preds = %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL4iDot, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL4iDot, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 115:                                              ; preds = %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL4jDot, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL4jDot, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 116:                                              ; preds = %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL10iOgonekDot, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL10iOgonekDot, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 117:                                              ; preds = %60, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL9iDotGrave, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL9iDotGrave, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 118:                                              ; preds = %60, %.loopexit, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL9iDotAcute, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL9iDotAcute, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 119:                                              ; preds = %60, %.loopexit, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
-  store ptr @_ZL9iDotTilde, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL9iDotTilde, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 120:                                              ; preds = %.loopexit, %58
@@ -2494,7 +2494,7 @@ _ZL21isFollowedByMoreAbovePFiPvaES_.exit:         ; preds = %_ZL10getDotTypei.ex
 _ZL10getDotTypei.exit.i148:                       ; preds = %172, %170
   %.0.i.i149 = phi i32 [ %179, %172 ], [ %171, %170 ]
   %.not.i = icmp eq i32 %.0.i.i149, 96
-  br i1 %.not.i, label %.preheader.i142, label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread, !llvm.loop !46
+  br i1 %.not.i, label %.preheader.i142, label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread, !llvm.loop !42
 
 _ZL14isPrecededBy_IPFiPvaES_.exit.thread:         ; preds = %_ZL10getDotTypei.exit.i148, %.preheader.i142, %123
   %180 = icmp eq i32 %0, 73
@@ -2592,7 +2592,7 @@ _ZL14isPrecededBy_IPFiPvaES_.exit.thread:         ; preds = %_ZL10getDotTypei.ex
 _ZL10getDotTypei.exit.i156:                       ; preds = %228, %226
   %.0.i.i157 = phi i32 [ %235, %228 ], [ %227, %226 ]
   %.not.i158 = icmp eq i32 %.0.i.i157, 96
-  br i1 %.not.i158, label %.preheader.i150, label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167, !llvm.loop !47
+  br i1 %.not.i158, label %.preheader.i150, label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167, !llvm.loop !43
 
 _ZL20isFollowedByDotAbovePFiPvaES_.exit:          ; preds = %185, %_ZL14isPrecededBy_IPFiPvaES_.exit.thread
   br i1 %122, label %236, label %237
@@ -2601,7 +2601,7 @@ _ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172: ; preds = %125
   br i1 %122, label %236, label %.thread173
 
 236:                                              ; preds = %60, %_ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172, %_ZL20isFollowedByDotAbovePFiPvaES_.exit
-  store ptr @_ZL4iDot, ptr %3, align 8, !tbaa !44
+  store ptr @_ZL4iDot, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 237:                                              ; preds = %_ZL20isFollowedByDotAbovePFiPvaES_.exit
@@ -2644,7 +2644,7 @@ _ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172: ; preds = %125
 257:                                              ; preds = %245
   %258 = zext nneg i16 %256 to i32
   %259 = getelementptr inbounds nuw i8, ptr %.0122, i64 2
-  store ptr %259, ptr %3, align 8, !tbaa !44
+  store ptr %259, ptr %3, align 8, !tbaa !40
   br label %_ZL14isPrecededBy_IPFiPvaES_.exit.thread167
 
 .thread173:                                       ; preds = %60, %_ZL20isFollowedByDotAbovePFiPvaES_.exit.thread172, %243, %245, %237, %239, %241
@@ -2797,7 +2797,7 @@ ucase_getTypeOrIgnorable_77.exit:                 ; preds = %18, %20, %.sink.spl
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = and i16 %42, 7
   %.not = icmp samesign ugt i16 %43, 3
-  br i1 %.not, label %.preheader, label %.loopexit.split.loop.exit, !llvm.loop !48
+  br i1 %.not, label %.preheader, label %.loopexit.split.loop.exit, !llvm.loop !44
 
 .loopexit.split.loop.exit:                        ; preds = %ucase_getTypeOrIgnorable_77.exit
   %.not11.le = icmp ne i16 %43, 0
@@ -2817,7 +2817,7 @@ define noundef i32 @ucase_toFullUpper_77(i32 noundef %0, ptr noundef readonly ca
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4, i8 noundef signext range(i8 0, 2) %5) unnamed_addr #0 {
-  store ptr null, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %3, align 8, !tbaa !40
   %7 = icmp ult i32 %0, 55296
   br i1 %7, label %8, label %10
 
@@ -3000,7 +3000,7 @@ _ZL10getDotTypei.exit.i:                          ; preds = %111, %109
   switch i32 %.0.i.i, label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread [
     i32 32, label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131
     i32 96, label %.preheader.i
-  ], !llvm.loop !49
+  ], !llvm.loop !45
 
 _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread: ; preds = %.preheader.i, %_ZL10getDotTypei.exit.i, %63
   %119 = icmp eq i32 %0, 1415
@@ -3012,7 +3012,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread: ; preds = %.preheader.i, %_ZL1
   %.str.3..str.4 = select i1 %.not123, ptr @.str.4, ptr @.str.3
   %.str..str.2 = select i1 %.not123, ptr @.str.2, ptr @.str
   %storemerge = select i1 %121, ptr %.str..str.2, ptr %.str.3..str.4
-  store ptr %storemerge, ptr %3, align 8, !tbaa !44
+  store ptr %storemerge, ptr %3, align 8, !tbaa !40
   br label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131
 
 122:                                              ; preds = %52
@@ -3056,7 +3056,7 @@ _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread: ; preds = %.preheader.i, %_ZL1
   %147 = zext nneg i32 %146 to i64
   %.1105.idx = select i1 %.not113, i64 %147, i64 0
   %.1105 = getelementptr inbounds nuw i16, ptr %145, i64 %.1105.idx
-  store ptr %.1105, ptr %3, align 8, !tbaa !44
+  store ptr %.1105, ptr %3, align 8, !tbaa !40
   br label %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread131
 
 _ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread.thread: ; preds = %66, %122, %124, %_ZL22isPrecededBySoftDottedPFiPvaES_.exit.thread
@@ -3372,7 +3372,7 @@ define i32 @ucase_fold_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #2 {
-  store ptr null, ptr %1, align 8, !tbaa !44
+  store ptr null, ptr %1, align 8, !tbaa !40
   %4 = icmp ult i32 %0, 55296
   br i1 %4, label %5, label %7
 
@@ -3465,7 +3465,7 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   ]
 
 59:                                               ; preds = %58
-  store ptr @_ZL4iDot, ptr %1, align 8, !tbaa !44
+  store ptr @_ZL4iDot, ptr %1, align 8, !tbaa !40
   br label %.thread
 
 60:                                               ; preds = %55
@@ -3507,7 +3507,7 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   %79 = and i32 %.085, 15
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i16, ptr %78, i64 %80
-  store ptr %81, ptr %1, align 8, !tbaa !44
+  store ptr %81, ptr %1, align 8, !tbaa !40
   br label %.thread
 
 82:                                               ; preds = %60, %58, %62, %64
@@ -4260,35 +4260,31 @@ attributes #6 = { nounwind }
 !15 = !{!"short", !5, i64 0}
 !16 = !{!5, !5, i64 0}
 !17 = !{!8, !10, i64 24}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !19}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"char16_t", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"char16_t", !5, i64 0}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
 !24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19, !20}
+!25 = distinct !{!25, !19}
 !26 = distinct !{!26, !19}
 !27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !19}
-!31 = distinct !{!31, !19}
-!32 = !{!33, !13, i64 8}
-!33 = !{!"_ZTSN6icu_7723FullCaseFoldingIteratorE", !34, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24}
-!34 = !{!"p1 char16_t", !10, i64 0}
-!35 = !{!33, !13, i64 12}
-!36 = !{!33, !13, i64 16}
-!37 = !{!33, !13, i64 20}
-!38 = !{!33, !13, i64 24}
-!39 = !{!33, !34, i64 0}
-!40 = distinct !{!40, !19}
-!41 = !{!42, !34, i64 0}
-!42 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !34, i64 0}
-!43 = !{i64 2148882892}
-!44 = !{!34, !34, i64 0}
+!28 = !{!29, !13, i64 8}
+!29 = !{!"_ZTSN6icu_7723FullCaseFoldingIteratorE", !30, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24}
+!30 = !{!"p1 char16_t", !10, i64 0}
+!31 = !{!29, !13, i64 12}
+!32 = !{!29, !13, i64 16}
+!33 = !{!29, !13, i64 20}
+!34 = !{!29, !13, i64 24}
+!35 = !{!29, !30, i64 0}
+!36 = distinct !{!36, !19}
+!37 = !{!38, !30, i64 0}
+!38 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !30, i64 0}
+!39 = !{i64 2148882892}
+!40 = !{!30, !30, i64 0}
+!41 = distinct !{!41, !19}
+!42 = distinct !{!42, !19}
+!43 = distinct !{!43, !19}
+!44 = distinct !{!44, !19}
 !45 = distinct !{!45, !19}
-!46 = distinct !{!46, !19}
-!47 = distinct !{!47, !19}
-!48 = distinct !{!48, !19}
-!49 = distinct !{!49, !19}

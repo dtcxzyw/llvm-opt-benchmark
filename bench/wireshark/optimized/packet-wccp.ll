@@ -1683,7 +1683,7 @@ define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noun
 64:                                               ; preds = %72
   %65 = add nuw nsw i32 %.06980, 1
   %exitcond.not = icmp eq i32 %65, 8
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !13
 
 .split:                                           ; preds = %50, %64
   %.06881 = phi i32 [ %73, %64 ], [ %48, %50 ]
@@ -1811,7 +1811,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
   %56 = add i32 %.04559, 4
   %57 = add nuw nsw i32 %.04658, 1
   %exitcond.not = icmp eq i32 %57, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %50, %40, %48, %38, %29, %8
   %.0 = phi i32 [ %9, %8 ], [ %30, %29 ], [ %39, %38 ], [ %49, %48 ], [ %45, %40 ], [ %55, %50 ]
@@ -1893,7 +1893,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %.190 = add nsw i32 %.190131, -4
   %.184 = add i32 %.184132, 4
   %exitcond151.not = icmp eq i32 %36, %23
-  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %31
   %37 = icmp samesign ult i32 %.190131, 8
@@ -1947,7 +1947,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %59 = sub i32 %58, %55
   %60 = add nuw i32 %.194135, 1
   %exitcond152.not = icmp eq i32 %60, %40
-  br i1 %exitcond152.not, label %.thread, label %.lr.ph139, !llvm.loop !18
+  br i1 %exitcond152.not, label %.thread, label %.lr.ph139, !llvm.loop !16
 
 .thread:                                          ; preds = %57, %48, %._crit_edge.thread, %46, %dissect_wccp2_assignment_key_element.exit, %38, %28, %8
   %.0 = phi i32 [ %9, %8 ], [ %30, %28 ], [ %39, %38 ], [ 8, %dissect_wccp2_assignment_key_element.exit ], [ %47, %46 ], [ %43, %._crit_edge.thread ], [ %55, %48 ], [ %55, %57 ]
@@ -2024,7 +2024,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   %.064 = add nsw i32 %.06487, -8
   %.061 = add i32 %.06188, 8
   %exitcond108.not = icmp eq i32 %40, %14
-  br i1 %exitcond108.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond108.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %dissect_wccp2_router_identity_element.exit
   %41 = icmp samesign ult i32 %.06487, 12
@@ -2072,7 +2072,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   %57 = add nuw nsw i32 %.16394, 1
   %.165 = add nsw i32 %.16596, -4
   %exitcond109.not = icmp eq i32 %57, %44
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph98, !llvm.loop !20
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph98, !llvm.loop !18
 
 .loopexit:                                        ; preds = %51, %._crit_edge.thread, %49, %42, %19, %8
   %.0 = phi i32 [ %9, %8 ], [ %21, %19 ], [ %43, %42 ], [ %50, %49 ], [ %.16592, %._crit_edge.thread ], [ %.165, %51 ]
@@ -2141,7 +2141,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %.169 = add i32 %.169109, 12
   %.173 = add nsw i32 %.173110, -12
   %exitcond.not = icmp eq i32 %36, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2173,7 +2173,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 .lr.ph.i:                                         ; preds = %.lr.ph117
   %47 = icmp sgt i32 %.04518.i114, 7
-  br i1 %47, label %.lr.ph117, label %.lr.ph.i._crit_edge, !llvm.loop !22
+  br i1 %47, label %.lr.ph117, label %.lr.ph.i._crit_edge, !llvm.loop !20
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa97 = phi i32 [ %45, %.lr.ph.i.preheader ], [ %55, %.lr.ph.i ]
@@ -2199,7 +2199,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %.045.i = add nsw i32 %.04518.i114, -4
   %55 = load i32, ptr %7, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph117, %40
   %.042.lcssa.i = phi i32 [ %.04213.i, %40 ], [ %.042.i, %.lr.ph117 ]
@@ -2244,7 +2244,7 @@ assignment_bucket_name.exit.i:                    ; preds = %67, %62
   %75 = add i32 %.24422.i, 1
   %76 = add nsw i32 %.24721.i, -1
   %exitcond30.not.i = icmp eq i32 %74, 256
-  br i1 %exitcond30.not.i, label %dissect_wccp2_hash_buckets_assignment_element.exit, label %60, !llvm.loop !23
+  br i1 %exitcond30.not.i, label %dissect_wccp2_hash_buckets_assignment_element.exit, label %60, !llvm.loop !21
 
 dissect_wccp2_hash_buckets_assignment_element.exit.thread: ; preds = %38, %61
   %.0.i89.ph = phi i32 [ %.neg.i, %61 ], [ %39, %38 ]
@@ -2484,7 +2484,7 @@ dissect_wccp2_capability_element.exit:            ; preds = %27, %dissect_transm
   %106 = sub nsw i32 %.022, %.0.i
   %107 = add i32 %106, %.020
   %.not = icmp slt i32 %.020, %107
-  br i1 %.not, label %8, label %.thread, !llvm.loop !24
+  br i1 %.not, label %8, label %.thread, !llvm.loop !22
 
 .thread:                                          ; preds = %dissect_wccp2_capability_element.exit, %8, %105
   %.2 = phi i32 [ %106, %105 ], [ %.022, %8 ], [ %.0.i, %dissect_wccp2_capability_element.exit ]
@@ -2578,7 +2578,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   %56 = add i32 %.1103136, 12
   %57 = add nuw nsw i32 %.0106134, 1
   %exitcond.not = icmp eq i32 %57, %42
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %51, %41
   %.1105.lcssa = phi i32 [ %45, %41 ], [ %55, %51 ]
@@ -2623,7 +2623,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
 
 .lr.ph.i:                                         ; preds = %83
   %exitcond.i = icmp eq i32 %84, %66
-  br i1 %exitcond.i, label %.lr.ph.i._crit_edge, label %.lr.ph142, !llvm.loop !26
+  br i1 %exitcond.i, label %.lr.ph.i._crit_edge, label %.lr.ph142, !llvm.loop !24
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i
   %.neg61.i = sub i32 %66, %85
@@ -2637,7 +2637,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   %.05611.i140 = phi i32 [ %.056.i, %.lr.ph.i ], [ %.0567.i, %.lr.ph142.preheader ]
   %.05412.i139 = phi i32 [ %.054.i, %.lr.ph.i ], [ %.0548.i, %.lr.ph142.preheader ]
   %72 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.05412.i139)
-  %73 = load i8, ptr %5, align 8, !range !27, !noundef !28
+  %73 = load i8, ptr %5, align 8, !range !25, !noundef !26
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %79, label %75
 
@@ -2659,7 +2659,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   %.054.i = add i32 %.05412.i139, 4
   %85 = load i32, ptr %7, align 4
   %86 = icmp ult i32 %84, %85
-  br i1 %86, label %.lr.ph.i, label %.preheader.i, !llvm.loop !26
+  br i1 %86, label %.lr.ph.i, label %.preheader.i, !llvm.loop !24
 
 87:                                               ; preds = %assignment_bucket_name.exit.i, %.preheader.i
   %.116.i = phi i32 [ 0, %.preheader.i ], [ %102, %assignment_bucket_name.exit.i ]
@@ -2696,7 +2696,7 @@ assignment_bucket_name.exit.i:                    ; preds = %95, %90
   %103 = add i32 %.15515.i, 1
   %104 = add nsw i32 %.15714.i, -1
   %exitcond26.not.i = icmp eq i32 %102, 256
-  br i1 %exitcond26.not.i, label %dissect_wccp2_hash_assignment_info.exit, label %87, !llvm.loop !29
+  br i1 %exitcond26.not.i, label %dissect_wccp2_hash_assignment_info.exit, label %87, !llvm.loop !27
 
 dissect_wccp2_hash_assignment_info.exit:          ; preds = %assignment_bucket_name.exit.i, %60, %.lr.ph.i._crit_edge, %88
   %.0.i122 = phi i32 [ %61, %60 ], [ %71, %.lr.ph.i._crit_edge ], [ %89, %88 ], [ %104, %assignment_bucket_name.exit.i ]
@@ -2805,7 +2805,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = add nsw i32 %2, -8
   %25 = add i32 %1, 8
-  %26 = load i8, ptr %5, align 8, !range !27, !noundef !28
+  %26 = load i8, ptr %5, align 8, !range !25, !noundef !26
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %64
 
@@ -2903,7 +2903,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 73:                                               ; preds = %72
   %74 = load ptr, ptr %66, align 8
   %75 = tail call ptr @tvb_address_to_str(ptr noundef %74, ptr noundef %0, i32 noundef 2, i32 noundef %.099118)
-  %76 = load i8, ptr %5, align 8, !range !27, !noundef !28
+  %76 = load i8, ptr %5, align 8, !range !25, !noundef !26
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %106
 
@@ -2928,7 +2928,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 88:                                               ; preds = %72
   %89 = load ptr, ptr %66, align 8
   %90 = tail call ptr @tvb_address_to_str(ptr noundef %89, ptr noundef %0, i32 noundef 3, i32 noundef %.099118)
-  %91 = load i8, ptr %5, align 8, !range !27, !noundef !28
+  %91 = load i8, ptr %5, align 8, !range !25, !noundef !26
   %92 = icmp eq i8 %91, 0
   br i1 %92, label %93, label %106
 
@@ -2981,7 +2981,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge121 ], [ %109, %107 ], [ %109, %115 ]
   %118 = add i32 %.099118, %71
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %117
   %119 = mul nuw i32 %65, %71
@@ -3110,7 +3110,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.e_in6_addr, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = load i8, ptr %6, align 8, !range !27, !noundef !28
+  %9 = load i8, ptr %6, align 8, !range !25, !noundef !26
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %13, label %11
 
@@ -3371,7 +3371,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %83 = sub nsw i32 %.141.i.i, %80
   %84 = add i32 %83, %.137.i.i
   %.not49.i.i = icmp slt i32 %.137.i.i, %84
-  br i1 %.not49.i.i, label %79, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, !llvm.loop !31
+  br i1 %.not49.i.i, label %79, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, !llvm.loop !29
 
 85:                                               ; preds = %79
   %.not15.i.i = icmp eq i32 %80, 4
@@ -3463,7 +3463,7 @@ wccp_bucket_info.exit:                            ; preds = %15
   %24 = add i32 %.0245, 1
   %25 = add nuw nsw i32 %.0236, 1
   %exitcond.not = icmp eq i32 %25, 32
-  br i1 %exitcond.not, label %26, label %8, !llvm.loop !32
+  br i1 %exitcond.not, label %26, label %8, !llvm.loop !30
 
 26:                                               ; preds = %wccp_bucket_info.exit
   %27 = icmp slt i32 %7, 3
@@ -3571,7 +3571,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 19:                                               ; preds = %91
   %20 = add nuw i32 %.04538, 1
   %exitcond.not = icmp eq i32 %20, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %11, %19
   %.04040 = phi i32 [ %93, %19 ], [ %18, %11 ]
@@ -3693,7 +3693,7 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %dissect_wccp2_valu
   %86 = add nsw i32 %.16019.i, 16
   %87 = add nuw nsw i32 %.06218.i, 1
   %exitcond.not.i = icmp eq i32 %87, %33
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.loopexit.i:                           ; preds = %84
   %88 = add i32 %40, 16
@@ -3795,7 +3795,7 @@ define internal fastcc range(i32 -12, 2147483636) i32 @dissect_wccp2_mask_elemen
 define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = load i8, ptr %2, align 8, !range !27, !noundef !28
+  %5 = load i8, ptr %2, align 8, !range !25, !noundef !26
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %7
 
@@ -3967,7 +3967,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
 18:                                               ; preds = %79
   %19 = add nuw i32 %.04226, 1
   %exitcond.not = icmp eq i32 %19, %13
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %.03927 = phi i32 [ %81, %18 ], [ %17, %.lr.ph.preheader ]
@@ -4013,7 +4013,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %41 = add nuw i32 %.06820.i, 1
   %42 = add i32 %75, %.06919.i
   %exitcond.not.i = icmp eq i32 %41, %32
-  br i1 %exitcond.not.i, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread2, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread2, label %.lr.ph.i, !llvm.loop !34
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %.16621.i = phi i32 [ %76, %40 ], [ %39, %.lr.ph.preheader.i ]
@@ -4076,7 +4076,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %71 = add nsw i32 %.0393.i.i, -4
   %72 = add i32 %.0384.i.i, 4
   %exitcond8.not.i.i = icmp eq i32 %69, %58
-  br i1 %exitcond8.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.i, label %.lr.ph.i.i, !llvm.loop !37
+  br i1 %exitcond8.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 dissect_wccp2_web_cache_value_element.exit.i:     ; preds = %66, %64, %56
   %.037.i.i = phi i32 [ %65, %64 ], [ %61, %56 ], [ %71, %66 ]
@@ -4194,7 +4194,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not46 = icmp eq ptr %32, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %27
   %33 = icmp eq i8 %.1, 0
@@ -4222,7 +4222,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %43 = getelementptr %struct.capability_flag, ptr %4, i64 %42, i32 2
   %44 = load ptr, ptr %43, align 8
   %.not47 = icmp eq ptr %44, null
-  br i1 %.not47, label %.loopexit, label %.lr.ph55, !llvm.loop !39
+  br i1 %.not47, label %.loopexit, label %.lr.ph55, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph55, %._crit_edge.thread, %10
   ret void
@@ -4279,8 +4279,8 @@ attributes #10 = { nounwind }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
@@ -4291,10 +4291,10 @@ attributes #10 = { nounwind }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = !{i8 0, i8 2}
-!28 = !{}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
@@ -4304,5 +4304,3 @@ attributes #10 = { nounwind }
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}

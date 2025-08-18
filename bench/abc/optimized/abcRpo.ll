@@ -450,7 +450,7 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   store ptr %109, ptr %108, align 8, !tbaa !11
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i
-  br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !40
+  br i1 %exitcond.not.i47.i, label %Abc_TtStoreLoad.exit, label %107, !llvm.loop !39
 
 .critedge38.sink.split.i:                         ; preds = %._crit_edge.i.i, %Abc_TruthStoreAlloc.exit.i, %8
   %.1.ph.i = phi ptr [ %14, %Abc_TruthStoreAlloc.exit.i ], [ %14, %._crit_edge.i.i ], [ null, %8 ]
@@ -618,6 +618,5 @@ attributes #13 = { nounwind allocsize(0) }
 !35 = !{!"long", !6, i64 0}
 !36 = distinct !{!36, !24}
 !37 = distinct !{!37, !24}
-!38 = distinct !{!38, !24, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !24}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24}

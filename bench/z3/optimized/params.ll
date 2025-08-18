@@ -10759,7 +10759,7 @@ _ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_desc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0
   %73 = add nsw i64 %.015, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !140
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !138
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -11007,7 +11007,7 @@ _ZNK6vectorISt4pairI6symbolN6params5valueEELb0EjE4sizeEv.exit: ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 24
   %62 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 24
   %63 = icmp eq ptr %61, %59
-  br i1 %63, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !141
+  br i1 %63, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !139
 
 _ZSt20uninitialized_move_nIPSt4pairI6symbolN6params5valueEEjS5_ES0_IT_T1_ES6_T0_S7_.exit: ; preds = %49
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -11226,7 +11226,5 @@ attributes #27 = { nounwind willreturn memory(read) }
 !135 = distinct !{!135, !16}
 !136 = distinct !{!136, !16}
 !137 = distinct !{!137, !16}
-!138 = distinct !{!138, !16, !139}
-!139 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!140 = distinct !{!140, !16}
-!141 = distinct !{!141, !16}
+!138 = distinct !{!138, !16}
+!139 = distinct !{!139, !16}

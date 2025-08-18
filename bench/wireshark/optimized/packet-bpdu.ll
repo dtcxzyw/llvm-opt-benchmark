@@ -968,7 +968,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   %388 = add nsw i32 %.0459477.us479, -26
   %389 = add nuw nsw i32 %.0462476.us480, 26
   %390 = icmp samesign ugt i32 %.0459477.us479, 26
-  br i1 %390, label %.lr.ph.split.us478, label %._crit_edge, !llvm.loop !11
+  br i1 %390, label %.lr.ph.split.us478, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split
   br label %.lr.ph.split.split
@@ -1190,7 +1190,7 @@ define internal fastcc void @dissect_bpdu_pvst_tlv(ptr noundef %0, ptr noundef %
   %46 = add i32 %25, %15
   %47 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %46)
   %48 = icmp sgt i32 %47, 3
-  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %45, %28
   %.04750 = phi i8 [ %.04751, %28 ], [ %.1, %45 ]
@@ -1247,8 +1247,6 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9}
+!10 = distinct !{!10, !9}

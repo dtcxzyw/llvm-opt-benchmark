@@ -965,7 +965,7 @@ put_bits.exit115.i:                               ; preds = %399, %383, %364
   %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
   %402 = zext i8 %401 to i64
   %403 = icmp samesign ult i64 %indvars.iv.next208.i, %402
-  br i1 %403, label %364, label %._crit_edge166.loopexit.i, !llvm.loop !80
+  br i1 %403, label %364, label %._crit_edge166.loopexit.i, !llvm.loop !79
 
 ._crit_edge166.loopexit.i:                        ; preds = %put_bits.exit115.i
   %.pre223.i = load i8, ptr %14, align 8, !tbaa !44
@@ -981,7 +981,7 @@ put_bits.exit115.i:                               ; preds = %399, %383, %364
   %indvars.iv.next211.i = add nuw nsw i64 %indvars.iv210.i, 1
   %407 = zext i8 %404 to i64
   %408 = icmp samesign ult i64 %indvars.iv.next211.i, %407
-  br i1 %408, label %.preheader.i65, label %._crit_edge174.loopexit.i, !llvm.loop !81
+  br i1 %408, label %.preheader.i65, label %._crit_edge174.loopexit.i, !llvm.loop !80
 
 ._crit_edge174.loopexit.i:                        ; preds = %._crit_edge166.i
   %.pre224.i = load i8, ptr %17, align 1, !tbaa !37
@@ -997,7 +997,7 @@ put_bits.exit115.i:                               ; preds = %399, %383, %364
   %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
   %412 = zext i8 %409 to i64
   %413 = icmp samesign ult i64 %indvars.iv.next214.i, %412
-  br i1 %413, label %.preheader134.i, label %._crit_edge182.i, !llvm.loop !82
+  br i1 %413, label %.preheader134.i, label %._crit_edge182.i, !llvm.loop !81
 
 ._crit_edge182.i:                                 ; preds = %._crit_edge174.i, %.preheader135.i
   %.sroa.28.3.lcssa.i = phi ptr [ %.sroa.28.1.lcssa.i, %.preheader135.i ], [ %.sroa.28.4.lcssa.i, %._crit_edge174.i ]
@@ -1030,7 +1030,7 @@ put_bits.exit115.i:                               ; preds = %399, %383, %364
   %423 = shl i32 %.sroa.0.7.i, 8
   %424 = add nsw i32 %.sroa.15.7.i, 8
   %425 = icmp slt i32 %.sroa.15.7.i, 24
-  br i1 %425, label %416, label %sbc_pack_frame.exit, !llvm.loop !83
+  br i1 %425, label %416, label %sbc_pack_frame.exit, !llvm.loop !82
 
 sbc_pack_frame.exit:                              ; preds = %419, %._crit_edge182.i, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1170,9 +1170,8 @@ attributes #8 = { noreturn nounwind }
 !75 = distinct !{!75, !52}
 !76 = distinct !{!76, !52}
 !77 = distinct !{!77, !52}
-!78 = distinct !{!78, !52, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !52}
+!79 = distinct !{!79, !52}
 !80 = distinct !{!80, !52}
 !81 = distinct !{!81, !52}
 !82 = distinct !{!82, !52}
-!83 = distinct !{!83, !52}

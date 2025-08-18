@@ -638,7 +638,7 @@ bytestream2_init.exit:                            ; preds = %245
   store i8 %289, ptr %290, align 1, !tbaa !16
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %280
-  br i1 %exitcond587.not, label %._crit_edge.us541, label %282, !llvm.loop !47
+  br i1 %exitcond587.not, label %._crit_edge.us541, label %282, !llvm.loop !46
 
 ._crit_edge.us541:                                ; preds = %282
   %291 = getelementptr inbounds nuw i8, ptr %.7538.us, i64 %280
@@ -646,7 +646,7 @@ bytestream2_init.exit:                            ; preds = %245
   %293 = add nuw nsw i32 %.4396539.us, 1
   %294 = load i32, ptr %146, align 4, !tbaa !32
   %295 = icmp slt i32 %293, %294
-  br i1 %295, label %.preheader511.us, label %.loopexit, !llvm.loop !48
+  br i1 %295, label %.preheader511.us, label %.loopexit, !llvm.loop !47
 
 .preheader509:                                    ; preds = %263
   %296 = load i32, ptr %146, align 4, !tbaa !32
@@ -720,7 +720,7 @@ bytestream2_init.exit:                            ; preds = %245
   %337 = ashr i32 %336, 3
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next589, %338
-  br i1 %339, label %.lr.ph547, label %.preheader507, !llvm.loop !49
+  br i1 %339, label %.lr.ph547, label %.preheader507, !llvm.loop !48
 
 .lr.ph549:                                        ; preds = %.preheader507, %.lr.ph549
   %340 = phi i32 [ %355, %.lr.ph549 ], [ %302, %.preheader507 ]
@@ -743,7 +743,7 @@ bytestream2_init.exit:                            ; preds = %245
   %355 = load i32, ptr %140, align 8, !tbaa !31
   %356 = and i32 %355, 7
   %357 = icmp samesign ult i32 %354, %356
-  br i1 %357, label %.lr.ph549, label %._crit_edge, !llvm.loop !50
+  br i1 %357, label %.lr.ph549, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph549, %.preheader507
   %358 = phi i32 [ %302, %.preheader507 ], [ %355, %.lr.ph549 ]
@@ -752,7 +752,7 @@ bytestream2_init.exit:                            ; preds = %245
   %361 = add nuw nsw i32 %.2394551, 1
   %362 = load i32, ptr %146, align 4, !tbaa !32
   %363 = icmp slt i32 %361, %362
-  br i1 %363, label %.preheader508, label %.loopexit, !llvm.loop !51
+  br i1 %363, label %.preheader508, label %.loopexit, !llvm.loop !50
 
 364:                                              ; preds = %263, %263, %263
   %365 = load i32, ptr %146, align 4, !tbaa !32
@@ -774,7 +774,7 @@ bytestream2_init.exit:                            ; preds = %245
   %372 = add nuw nsw i32 %.3395543, 1
   %373 = load i32, ptr %146, align 4, !tbaa !32
   %374 = icmp slt i32 %372, %373
-  br i1 %374, label %369, label %.loopexit, !llvm.loop !52
+  br i1 %374, label %369, label %.loopexit, !llvm.loop !51
 
 375:                                              ; preds = %263
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #7
@@ -814,7 +814,7 @@ bytestream2_init.exit:                            ; preds = %245
 389:                                              ; preds = %390
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next592, %wide.trip.count594
-  br i1 %exitcond595.not, label %._crit_edge556.us, label %390, !llvm.loop !53
+  br i1 %exitcond595.not, label %._crit_edge556.us, label %390, !llvm.loop !52
 
 390:                                              ; preds = %.lr.ph555.us, %389
   %indvars.iv591 = phi i64 [ 0, %.lr.ph555.us ], [ %indvars.iv.next592, %389 ]
@@ -827,7 +827,7 @@ bytestream2_init.exit:                            ; preds = %245
 ._crit_edge556.us:                                ; preds = %389
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
   %exitcond600.not = icmp eq i64 %indvars.iv.next597, %wide.trip.count599
-  br i1 %exitcond600.not, label %.thread504.thread, label %.lr.ph555.us, !llvm.loop !54
+  br i1 %exitcond600.not, label %.thread504.thread, label %.lr.ph555.us, !llvm.loop !53
 
 .thread504.loopexit:                              ; preds = %390
   %394 = trunc nuw nsw i64 %indvars.iv596 to i32
@@ -840,7 +840,7 @@ bytestream2_init.exit:                            ; preds = %245
 
 .thread504.thread:                                ; preds = %._crit_edge556.us, %.lr.ph558, %.thread504
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  store i32 121, ptr %396, align 4, !tbaa !55
+  store i32 121, ptr %396, align 4, !tbaa !54
   store i32 121, ptr %86, align 8, !tbaa !17
   br label %397
 
@@ -939,18 +939,17 @@ attributes #8 = { noreturn nounwind }
 !42 = !{!43, !43, i64 0}
 !43 = !{!"short", !8, i64 0}
 !44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = distinct !{!45, !36}
+!46 = distinct !{!46, !36}
 !47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36, !46}
+!48 = distinct !{!48, !36}
 !49 = distinct !{!49, !36}
 !50 = distinct !{!50, !36}
 !51 = distinct !{!51, !36}
 !52 = distinct !{!52, !36}
 !53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36, !46}
-!55 = !{!56, !12, i64 116}
-!56 = !{!"AVFrame", !8, i64 0, !8, i64 64, !57, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !12, i64 120, !14, i64 124, !10, i64 136, !10, i64 144, !14, i64 152, !12, i64 160, !7, i64 168, !12, i64 176, !12, i64 180, !8, i64 184, !58, i64 248, !12, i64 256, !29, i64 264, !12, i64 272, !12, i64 276, !12, i64 280, !12, i64 284, !12, i64 288, !12, i64 292, !12, i64 296, !10, i64 304, !59, i64 312, !12, i64 320, !6, i64 328, !6, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !7, i64 376, !24, i64 384, !10, i64 408}
-!57 = !{!"p2 omnipotent char", !30, i64 0}
-!58 = !{!"p2 _ZTS11AVBufferRef", !30, i64 0}
-!59 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!54 = !{!55, !12, i64 116}
+!55 = !{!"AVFrame", !8, i64 0, !8, i64 64, !56, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !12, i64 120, !14, i64 124, !10, i64 136, !10, i64 144, !14, i64 152, !12, i64 160, !7, i64 168, !12, i64 176, !12, i64 180, !8, i64 184, !57, i64 248, !12, i64 256, !29, i64 264, !12, i64 272, !12, i64 276, !12, i64 280, !12, i64 284, !12, i64 288, !12, i64 292, !12, i64 296, !10, i64 304, !58, i64 312, !12, i64 320, !6, i64 328, !6, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !7, i64 376, !24, i64 384, !10, i64 408}
+!56 = !{!"p2 omnipotent char", !30, i64 0}
+!57 = !{!"p2 _ZTS11AVBufferRef", !30, i64 0}
+!58 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}

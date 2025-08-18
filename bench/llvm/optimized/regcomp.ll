@@ -5757,7 +5757,7 @@ nch.exit.thread.thread:                           ; preds = %nch.exit
 785:                                              ; preds = %.lr.ph39.split.split.us.i
   %786 = getelementptr inbounds nuw i8, ptr %.02937.us40.i, i64 32
   %787 = icmp ult ptr %786, %748
-  br i1 %787, label %.lr.ph39.split.split.us.i, label %freezeset.exit, !llvm.loop !101
+  br i1 %787, label %.lr.ph39.split.split.us.i, label %freezeset.exit, !llvm.loop !99
 
 .split.us.i:                                      ; preds = %._crit_edge.us.i, %772, %.lr.ph39.split.split.us.i
   %788 = phi ptr [ %748, %.lr.ph39.split.split.us.i ], [ %756, %772 ], [ %756, %._crit_edge.us.i ]
@@ -7203,6 +7203,4 @@ attributes #19 = { "function-inline-cost-multiplier"="2" }
 !96 = distinct !{!96, !38}
 !97 = distinct !{!97, !38}
 !98 = distinct !{!98, !38}
-!99 = distinct !{!99, !38, !100}
-!100 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!101 = distinct !{!101, !38, !100}
+!99 = distinct !{!99, !38}

@@ -4142,7 +4142,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE(ptr nound
   %22 = load i32, ptr %4, align 4, !tbaa !100
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %11, label %._crit_edge, !llvm.loop !168
+  br i1 %24, label %11, label %._crit_edge, !llvm.loop !167
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4453,13 +4453,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
 
 .preheader904.preheader:                          ; preds = %67
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !169
+  %90 = load ptr, ptr %89, align 8, !tbaa !168
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %92 = load i64, ptr %91, align 8, !tbaa !170
+  %92 = load i64, ptr %91, align 8, !tbaa !169
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !169
+  %94 = load ptr, ptr %93, align 8, !tbaa !168
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %96 = load i64, ptr %95, align 8, !tbaa !170
+  %96 = load i64, ptr %95, align 8, !tbaa !169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false), !tbaa !76
   br label %.preheader904
 
@@ -4805,7 +4805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
   br i1 %.not.i.i.i.us, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us, label %343
 
 343:                                              ; preds = %341
-  store ptr %342, ptr %109, align 8, !tbaa !171
+  store ptr %342, ptr %109, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us
 
 344:                                              ; preds = %327
@@ -4833,14 +4833,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
 
 .lr.ph.i.i.i.i.i.i.i.i.us:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.us, %355
   %.06.i.i.i.i.i.i.i.i.us = phi ptr [ %357, %.lr.ph.i.i.i.i.i.i.i.i.us ], [ %352, %355 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.us, ptr noundef nonnull align 4 dereferenceable(12) %.0.i.i.i.i934.us, i64 12, i1 false), !tbaa.struct !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i.i.us, ptr noundef nonnull align 4 dereferenceable(12) %.0.i.i.i.i934.us, i64 12, i1 false), !tbaa.struct !173
   %357 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.us, i64 12
   %.not.i.i.i.i.i.i.i.i.us = icmp eq ptr %357, %356
-  br i1 %.not.i.i.i.i.i.i.i.i.us, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit.i.us, label %.lr.ph.i.i.i.i.i.i.i.i.us, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i.i.i.us, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit.i.us, label %.lr.ph.i.i.i.i.i.i.i.i.us, !llvm.loop !174
 
 _ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.us, %351
   %.0.i.i.i.i.us = phi ptr [ %352, %351 ], [ %356, %.lr.ph.i.i.i.i.i.i.i.i.us ]
-  store ptr %.0.i.i.i.i.us, ptr %109, align 8, !tbaa !171
+  store ptr %.0.i.i.i.i.us, ptr %109, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us
 
 _ZNKSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.us: ; preds = %344
@@ -4865,10 +4865,10 @@ _ZNKSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE12_M_check_lenEmPKc.
 
 .lr.ph.i.i.i.i.i.i.i31.i.us:                      ; preds = %.lr.ph.i.i.i.i.i.i.i31.i.us, %364
   %.06.i.i.i.i.i.i.i32.i.us = phi ptr [ %367, %.lr.ph.i.i.i.i.i.i.i31.i.us ], [ %365, %364 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i32.i.us, ptr noundef nonnull align 4 dereferenceable(12) %361, i64 12, i1 false), !tbaa.struct !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i32.i.us, ptr noundef nonnull align 4 dereferenceable(12) %361, i64 12, i1 false), !tbaa.struct !173
   %367 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32.i.us, i64 12
   %.not.i.i.i.i.i.i.i33.i.us = icmp eq ptr %367, %366
-  br i1 %.not.i.i.i.i.i.i.i33.i.us, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35.i.us, label %.lr.ph.i.i.i.i.i.i.i31.i.us, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i.i33.i.us, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35.i.us, label %.lr.ph.i.i.i.i.i.i.i31.i.us, !llvm.loop !174
 
 _ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.i31.i.us, %.noexc837.us
   %368 = icmp sgt i64 %330, 0
@@ -4887,11 +4887,11 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE11_S_relocateEPS3_S6_
   br label %_ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38.i.us
 
 _ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38.i.us: ; preds = %370, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.us
-  store ptr %360, ptr %3, align 8, !tbaa !176
+  store ptr %360, ptr %3, align 8, !tbaa !175
   %371 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %361, i64 %345
-  store ptr %371, ptr %109, align 8, !tbaa !171
+  store ptr %371, ptr %109, align 8, !tbaa !170
   %372 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %360, i64 %358
-  store ptr %372, ptr %110, align 8, !tbaa !177
+  store ptr %372, ptr %110, align 8, !tbaa !176
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us: ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit.i.us, %_ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38.i.us, %343, %341, %339
@@ -4902,7 +4902,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us: 
   br i1 %375, label %376, label %377
 
 376:                                              ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us
-  store i32 0, ptr %374, align 4, !tbaa !178
+  store i32 0, ptr %374, align 4, !tbaa !177
   br label %377
 
 377:                                              ; preds = %376, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us
@@ -4921,14 +4921,14 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i.us: 
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, 1
   %382 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %374, i64 %indvars.iv.i.us
   %383 = trunc nsw i64 %indvars.iv.next.i.us to i32
-  store i32 %383, ptr %382, align 4, !tbaa !178
+  store i32 %383, ptr %382, align 4, !tbaa !177
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
-  br i1 %exitcond.not.i.us, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit.us, label %381, !llvm.loop !180
+  br i1 %exitcond.not.i.us, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit.us, label %381, !llvm.loop !179
 
 _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit.us: ; preds = %381, %377
   %384 = zext nneg i32 %378 to i64
   %385 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %374, i64 %384
-  store i32 0, ptr %385, align 4, !tbaa !178
+  store i32 0, ptr %385, align 4, !tbaa !177
   br label %386
 
 386:                                              ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit.us, %326
@@ -4938,34 +4938,34 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.3.us = phi i32 [ %.1929.us, %326 ], [ %.016.i.us, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit.us ]
   %389 = sext i32 %.3.us to i64
   %390 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %388, i64 %389
-  %391 = load i32, ptr %390, align 4, !tbaa !178
-  store i32 0, ptr %390, align 4, !tbaa !178
+  %391 = load i32, ptr %390, align 4, !tbaa !177
+  store i32 0, ptr %390, align 4, !tbaa !177
   %392 = add i64 %indvars.iv963, %114
   %393 = getelementptr inbounds nuw i8, ptr %390, i64 4
   %394 = trunc i64 %392 to i32
-  store i32 %394, ptr %393, align 4, !tbaa !181
+  store i32 %394, ptr %393, align 4, !tbaa !180
   %395 = add nsw i32 %186, %116
   %396 = getelementptr inbounds nuw i8, ptr %390, i64 8
-  store i32 %395, ptr %396, align 4, !tbaa !182
+  store i32 %395, ptr %396, align 4, !tbaa !181
   %397 = zext nneg i32 %.3586.us to i64
   %398 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 4
-  %400 = load i32, ptr %399, align 4, !tbaa !183
+  %400 = load i32, ptr %399, align 4, !tbaa !182
   %.not713.us = icmp eq i32 %400, 0
   br i1 %.not713.us, label %404, label %401
 
 401:                                              ; preds = %386
   %402 = sext i32 %400 to i64
   %403 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %388, i64 %402
-  store i32 %.3.us, ptr %403, align 4, !tbaa !178
+  store i32 %.3.us, ptr %403, align 4, !tbaa !177
   br label %405
 
 404:                                              ; preds = %386
-  store i32 %.3.us, ptr %398, align 8, !tbaa !185
+  store i32 %.3.us, ptr %398, align 8, !tbaa !184
   br label %405
 
 405:                                              ; preds = %404, %401
-  store i32 %.3.us, ptr %399, align 4, !tbaa !183
+  store i32 %.3.us, ptr %399, align 4, !tbaa !182
   store i32 -2, ptr %120, align 4, !tbaa !76
   br label %406
 
@@ -4976,12 +4976,12 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.2.us = phi i32 [ %391, %405 ], [ %.1929.us, %137 ], [ %.1929.us, %123 ]
   %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
   %exitcond966.not = icmp eq i64 %indvars.iv.next964, %wide.trip.count
-  br i1 %exitcond966.not, label %._crit_edge.us, label %117, !llvm.loop !186
+  br i1 %exitcond966.not, label %._crit_edge.us, label %117, !llvm.loop !185
 
 ._crit_edge.us:                                   ; preds = %406
   %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 1
   %exitcond971.not = icmp eq i64 %indvars.iv.next968, %wide.trip.count970
-  br i1 %exitcond971.not, label %.preheader902, label %.lr.ph.us, !llvm.loop !187
+  br i1 %exitcond971.not, label %.preheader902, label %.lr.ph.us, !llvm.loop !186
 
 .split954.us:                                     ; preds = %_ZNKSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.us
   %409 = landingpad { ptr, i32 }
@@ -4996,7 +4996,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   store i32 %412, ptr %410, align 4, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 513
-  br i1 %exitcond.not, label %.preheader903, label %.preheader904, !llvm.loop !188
+  br i1 %exitcond.not, label %.preheader903, label %.preheader904, !llvm.loop !187
 
 .preheader902:                                    ; preds = %.lr.ph941.split, %._crit_edge.us, %.preheader903
   %413 = phi ptr [ null, %.preheader903 ], [ %408, %._crit_edge.us ], [ null, %.lr.ph941.split ]
@@ -5012,7 +5012,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   store i32 0, ptr %414, align 4, !tbaa !76
   %416 = add nuw nsw i32 %.2596939, 1
   %exitcond962.not = icmp eq i32 %416, %100
-  br i1 %exitcond962.not, label %.preheader902, label %.lr.ph941.split, !llvm.loop !189
+  br i1 %exitcond962.not, label %.preheader902, label %.lr.ph941.split, !llvm.loop !186
 
 .split.us:                                        ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -5232,19 +5232,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit749: ; preds = %_Z
 477:                                              ; preds = %.preheader902, %480
   %indvars.iv972 = phi i64 [ 0, %.preheader902 ], [ %indvars.iv.next973, %480 ]
   %478 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %indvars.iv972
-  %479 = load i32, ptr %478, align 8, !tbaa !185
+  %479 = load i32, ptr %478, align 8, !tbaa !184
   %.not = icmp eq i32 %479, 0
   br i1 %.not, label %480, label %.thread846
 
 480:                                              ; preds = %477
   %indvars.iv.next973 = add nuw nsw i64 %indvars.iv972, 1
   %exitcond975.not = icmp eq i64 %indvars.iv.next973, 256
-  br i1 %exitcond975.not, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.thread, label %477, !llvm.loop !190
+  br i1 %exitcond975.not, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.thread, label %477, !llvm.loop !188
 
 .thread846:                                       ; preds = %477
   %481 = trunc nuw nsw i64 %indvars.iv972 to i32
-  %482 = load ptr, ptr %89, align 8, !tbaa !169
-  %483 = load ptr, ptr %93, align 8, !tbaa !169
+  %482 = load ptr, ptr %89, align 8, !tbaa !168
+  %483 = load ptr, ptr %93, align 8, !tbaa !168
   %484 = mul nsw i32 %100, %99
   %485 = mul nsw i32 %46, %99
   %.neg = mul i64 %98, -4294967296
@@ -5268,7 +5268,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit: ; preds = 
   %.4 = phi i32 [ %.0534.lcssa, %.thread846 ], [ %.4.be, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.backedge ]
   %496 = sext i32 %.0587 to i64
   %497 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %496
-  %498 = load i32, ptr %497, align 8, !tbaa !185
+  %498 = load i32, ptr %497, align 8, !tbaa !184
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %.preheader.preheader, label %.thread847
 
@@ -5285,9 +5285,9 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit: ; preds = 
 
 500:                                              ; preds = %.preheader
   %501 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %indvars.iv.next977
-  %502 = load i32, ptr %501, align 8, !tbaa !185
+  %502 = load i32, ptr %501, align 8, !tbaa !184
   %.not641 = icmp eq i32 %502, 0
-  br i1 %.not641, label %.preheader, label %.thread847.loopexit, !llvm.loop !191
+  br i1 %.not641, label %.preheader, label %.thread847.loopexit, !llvm.loop !189
 
 503:                                              ; preds = %.preheader
   %504 = trunc nsw i64 %indvars.iv.next977 to i32
@@ -5306,7 +5306,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.thread.thre
 
 507:                                              ; preds = %506
   call void @_ZdlPv(ptr noundef nonnull %495) #33
-  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !176
+  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.thread
 
 .thread847.loopexit:                              ; preds = %500
@@ -5317,25 +5317,25 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit.thread.thre
   %.1588 = phi i32 [ %.0587, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit ], [ %504, %503 ], [ %508, %.thread847.loopexit ]
   %509 = sext i32 %.1588 to i64
   %510 = getelementptr inbounds [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %509
-  %511 = load i32, ptr %510, align 8, !tbaa !185
+  %511 = load i32, ptr %510, align 8, !tbaa !184
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %495, i64 %512
-  %514 = load i32, ptr %513, align 4, !tbaa !178
-  store i32 %514, ptr %510, align 8, !tbaa !185
+  %514 = load i32, ptr %513, align 4, !tbaa !177
+  store i32 %514, ptr %510, align 8, !tbaa !184
   %.not642 = icmp eq i32 %514, 0
   br i1 %.not642, label %515, label %517
 
 515:                                              ; preds = %.thread847
   %516 = getelementptr inbounds nuw i8, ptr %510, i64 4
-  store i32 0, ptr %516, align 4, !tbaa !183
+  store i32 0, ptr %516, align 4, !tbaa !182
   br label %517
 
 517:                                              ; preds = %515, %.thread847
-  store i32 %.4, ptr %513, align 4, !tbaa !178
+  store i32 %.4, ptr %513, align 4, !tbaa !177
   %518 = getelementptr inbounds nuw i8, ptr %513, i64 4
-  %519 = load i32, ptr %518, align 4, !tbaa !181
+  %519 = load i32, ptr %518, align 4, !tbaa !180
   %520 = getelementptr inbounds nuw i8, ptr %513, i64 8
-  %521 = load i32, ptr %520, align 4, !tbaa !182
+  %521 = load i32, ptr %520, align 4, !tbaa !181
   %522 = icmp sgt i32 %519, -1
   %523 = icmp slt i32 %519, %99
   %or.cond714 = and i1 %522, %523
@@ -6087,7 +6087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774: ; preds = %_Z
   br i1 %.not671, label %948, label %985
 
 948:                                              ; preds = %947
-  %949 = load ptr, ptr %490, align 8, !tbaa !171
+  %949 = load ptr, ptr %490, align 8, !tbaa !170
   %950 = ptrtoint ptr %949 to i64
   %951 = ptrtoint ptr %495 to i64
   %952 = sub i64 %950, %951
@@ -6107,7 +6107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774: ; preds = %_Z
           to label %.noexc785 unwind label %983
 
 .noexc785:                                        ; preds = %961
-  %.pre.pre.pre.i784 = load ptr, ptr %3, align 8, !tbaa !176
+  %.pre.pre.pre.i784 = load ptr, ptr %3, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775
 
 963:                                              ; preds = %948
@@ -6120,7 +6120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774: ; preds = %_Z
   br i1 %.not.i.i.i783, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775, label %967
 
 967:                                              ; preds = %965
-  store ptr %966, ptr %490, align 8, !tbaa !171
+  store ptr %966, ptr %490, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775: ; preds = %967, %965, %963, %.noexc785
@@ -6133,7 +6133,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775: 
   br i1 %972, label %973, label %974
 
 973:                                              ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775
-  store i32 0, ptr %.pre.pre.i776, align 4, !tbaa !178
+  store i32 0, ptr %.pre.pre.i776, align 4, !tbaa !177
   br label %974
 
 974:                                              ; preds = %973, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775
@@ -6152,14 +6152,14 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i775: 
   %indvars.iv.next.i781 = add nsw i64 %indvars.iv.i780, 1
   %979 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i776, i64 %indvars.iv.i780
   %980 = trunc nsw i64 %indvars.iv.next.i781 to i32
-  store i32 %980, ptr %979, align 4, !tbaa !178
+  store i32 %980, ptr %979, align 4, !tbaa !177
   %exitcond.not.i782 = icmp eq i64 %indvars.iv.next.i781, %wide.trip.count.i779
-  br i1 %exitcond.not.i782, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit786, label %978, !llvm.loop !180
+  br i1 %exitcond.not.i782, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit786, label %978, !llvm.loop !179
 
 _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit786: ; preds = %978, %974
   %981 = zext nneg i32 %975 to i64
   %982 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i776, i64 %981
-  store i32 0, ptr %982, align 4, !tbaa !178
+  store i32 0, ptr %982, align 4, !tbaa !177
   br label %985
 
 983:                                              ; preds = %1321, %1203, %1084, %961
@@ -6175,33 +6175,33 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %989 = phi ptr [ %971, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit786 ], [ %494, %947 ]
   %.7 = phi i32 [ %.016.i777, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit786 ], [ %511, %947 ]
   %990 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %989, i64 %.pre-phi
-  %991 = load i32, ptr %990, align 4, !tbaa !178
-  store i32 0, ptr %990, align 4, !tbaa !178
+  %991 = load i32, ptr %990, align 4, !tbaa !177
+  store i32 0, ptr %990, align 4, !tbaa !177
   %992 = add nsw i32 %519, -1
   %993 = getelementptr inbounds nuw i8, ptr %990, i64 4
-  store i32 %992, ptr %993, align 4, !tbaa !181
+  store i32 %992, ptr %993, align 4, !tbaa !180
   %994 = add nsw i32 %521, -3
   %995 = getelementptr inbounds nuw i8, ptr %990, i64 8
-  store i32 %994, ptr %995, align 4, !tbaa !182
+  store i32 %994, ptr %995, align 4, !tbaa !181
   %996 = zext nneg i32 %933 to i64
   %997 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %996
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 4
-  %999 = load i32, ptr %998, align 4, !tbaa !183
+  %999 = load i32, ptr %998, align 4, !tbaa !182
   %.not672 = icmp eq i32 %999, 0
   br i1 %.not672, label %1003, label %1000
 
 1000:                                             ; preds = %985
   %1001 = sext i32 %999 to i64
   %1002 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %989, i64 %1001
-  store i32 %.7, ptr %1002, align 4, !tbaa !178
+  store i32 %.7, ptr %1002, align 4, !tbaa !177
   br label %1004
 
 1003:                                             ; preds = %985
-  store i32 %.7, ptr %997, align 8, !tbaa !185
+  store i32 %.7, ptr %997, align 8, !tbaa !184
   br label %1004
 
 1004:                                             ; preds = %1003, %1000
-  store i32 %.7, ptr %998, align 4, !tbaa !183
+  store i32 %.7, ptr %998, align 4, !tbaa !182
   %1005 = add i32 %.1588, 256
   %1006 = sub i32 %1005, %933
   %1007 = sext i32 %1006 to i64
@@ -6314,7 +6314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789: ; preds = %_Z
   br i1 %.not675, label %1071, label %1105
 
 1071:                                             ; preds = %1070
-  %1072 = load ptr, ptr %490, align 8, !tbaa !171
+  %1072 = load ptr, ptr %490, align 8, !tbaa !170
   %1073 = ptrtoint ptr %1072 to i64
   %1074 = ptrtoint ptr %1015 to i64
   %1075 = sub i64 %1073, %1074
@@ -6334,7 +6334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789: ; preds = %_Z
           to label %.noexc800 unwind label %983
 
 .noexc800:                                        ; preds = %1084
-  %.pre.pre.pre.i799 = load ptr, ptr %3, align 8, !tbaa !176
+  %.pre.pre.pre.i799 = load ptr, ptr %3, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790
 
 1086:                                             ; preds = %1071
@@ -6347,7 +6347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789: ; preds = %_Z
   br i1 %.not.i.i.i798, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790, label %1090
 
 1090:                                             ; preds = %1088
-  store ptr %1089, ptr %490, align 8, !tbaa !171
+  store ptr %1089, ptr %490, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790: ; preds = %1090, %1088, %1086, %.noexc800
@@ -6359,7 +6359,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790: 
   br i1 %1094, label %1095, label %1096
 
 1095:                                             ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790
-  store i32 0, ptr %.pre.pre.i791, align 4, !tbaa !178
+  store i32 0, ptr %.pre.pre.i791, align 4, !tbaa !177
   br label %1096
 
 1096:                                             ; preds = %1095, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790
@@ -6378,14 +6378,14 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i790: 
   %indvars.iv.next.i796 = add nsw i64 %indvars.iv.i795, 1
   %1101 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i791, i64 %indvars.iv.i795
   %1102 = trunc nsw i64 %indvars.iv.next.i796 to i32
-  store i32 %1102, ptr %1101, align 4, !tbaa !178
+  store i32 %1102, ptr %1101, align 4, !tbaa !177
   %exitcond.not.i797 = icmp eq i64 %indvars.iv.next.i796, %wide.trip.count.i794
-  br i1 %exitcond.not.i797, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit801, label %1100, !llvm.loop !180
+  br i1 %exitcond.not.i797, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit801, label %1100, !llvm.loop !179
 
 _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit801: ; preds = %1100, %1096
   %1103 = zext nneg i32 %1097 to i64
   %1104 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i791, i64 %1103
-  store i32 0, ptr %1104, align 4, !tbaa !178
+  store i32 0, ptr %1104, align 4, !tbaa !177
   br label %1105
 
 1105:                                             ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit801, %1070
@@ -6395,32 +6395,32 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.9 = phi i32 [ %.6, %1070 ], [ %.016.i792, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit801 ]
   %1109 = sext i32 %.9 to i64
   %1110 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1108, i64 %1109
-  %1111 = load i32, ptr %1110, align 4, !tbaa !178
-  store i32 0, ptr %1110, align 4, !tbaa !178
+  %1111 = load i32, ptr %1110, align 4, !tbaa !177
+  store i32 0, ptr %1110, align 4, !tbaa !177
   %1112 = getelementptr inbounds nuw i8, ptr %1110, i64 4
-  store i32 %526, ptr %1112, align 4, !tbaa !181
+  store i32 %526, ptr %1112, align 4, !tbaa !180
   %1113 = add nsw i32 %521, 3
   %1114 = getelementptr inbounds nuw i8, ptr %1110, i64 8
-  store i32 %1113, ptr %1114, align 4, !tbaa !182
+  store i32 %1113, ptr %1114, align 4, !tbaa !181
   %1115 = zext nneg i32 %1056 to i64
   %1116 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %1115
   %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 4
-  %1118 = load i32, ptr %1117, align 4, !tbaa !183
+  %1118 = load i32, ptr %1117, align 4, !tbaa !182
   %.not676 = icmp eq i32 %1118, 0
   br i1 %.not676, label %1122, label %1119
 
 1119:                                             ; preds = %1105
   %1120 = sext i32 %1118 to i64
   %1121 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1108, i64 %1120
-  store i32 %.9, ptr %1121, align 4, !tbaa !178
+  store i32 %.9, ptr %1121, align 4, !tbaa !177
   br label %1123
 
 1122:                                             ; preds = %1105
-  store i32 %.9, ptr %1116, align 8, !tbaa !185
+  store i32 %.9, ptr %1116, align 8, !tbaa !184
   br label %1123
 
 1123:                                             ; preds = %1122, %1119
-  store i32 %.9, ptr %1117, align 4, !tbaa !183
+  store i32 %.9, ptr %1117, align 4, !tbaa !182
   %1124 = add i32 %.3590, 256
   %1125 = sub i32 %1124, %1056
   %1126 = sext i32 %1125 to i64
@@ -6533,7 +6533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit804: ; preds = %_Z
   br i1 %.not682, label %1190, label %1223
 
 1190:                                             ; preds = %1189
-  %1191 = load ptr, ptr %490, align 8, !tbaa !171
+  %1191 = load ptr, ptr %490, align 8, !tbaa !170
   %1192 = ptrtoint ptr %1191 to i64
   %1193 = ptrtoint ptr %1133 to i64
   %1194 = sub i64 %1192, %1193
@@ -6553,7 +6553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit804: ; preds = %_Z
           to label %.noexc815 unwind label %983
 
 .noexc815:                                        ; preds = %1203
-  %.pre.pre.pre.i814 = load ptr, ptr %3, align 8, !tbaa !176
+  %.pre.pre.pre.i814 = load ptr, ptr %3, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805
 
 1205:                                             ; preds = %1190
@@ -6566,7 +6566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit804: ; preds = %_Z
   br i1 %.not.i.i.i813, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805, label %1209
 
 1209:                                             ; preds = %1207
-  store ptr %1208, ptr %490, align 8, !tbaa !171
+  store ptr %1208, ptr %490, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805: ; preds = %1209, %1207, %1205, %.noexc815
@@ -6577,7 +6577,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805: 
   br i1 %1212, label %1213, label %1214
 
 1213:                                             ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805
-  store i32 0, ptr %.pre.pre.i806, align 4, !tbaa !178
+  store i32 0, ptr %.pre.pre.i806, align 4, !tbaa !177
   br label %1214
 
 1214:                                             ; preds = %1213, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805
@@ -6596,14 +6596,14 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i805: 
   %indvars.iv.next.i811 = add nsw i64 %indvars.iv.i810, 1
   %1219 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i806, i64 %indvars.iv.i810
   %1220 = trunc nsw i64 %indvars.iv.next.i811 to i32
-  store i32 %1220, ptr %1219, align 4, !tbaa !178
+  store i32 %1220, ptr %1219, align 4, !tbaa !177
   %exitcond.not.i812 = icmp eq i64 %indvars.iv.next.i811, %wide.trip.count.i809
-  br i1 %exitcond.not.i812, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit816, label %1218, !llvm.loop !180
+  br i1 %exitcond.not.i812, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit816, label %1218, !llvm.loop !179
 
 _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit816: ; preds = %1218, %1214
   %1221 = zext nneg i32 %1215 to i64
   %1222 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i806, i64 %1221
-  store i32 0, ptr %1222, align 4, !tbaa !178
+  store i32 0, ptr %1222, align 4, !tbaa !177
   br label %1223
 
 1223:                                             ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit816, %1189
@@ -6612,33 +6612,33 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.11 = phi i32 [ %.8, %1189 ], [ %.016.i807, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit816 ]
   %1226 = sext i32 %.11 to i64
   %1227 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1225, i64 %1226
-  %1228 = load i32, ptr %1227, align 4, !tbaa !178
-  store i32 0, ptr %1227, align 4, !tbaa !178
+  %1228 = load i32, ptr %1227, align 4, !tbaa !177
+  store i32 0, ptr %1227, align 4, !tbaa !177
   %1229 = sub nsw i32 %519, %99
   %1230 = getelementptr inbounds nuw i8, ptr %1227, i64 4
-  store i32 %1229, ptr %1230, align 4, !tbaa !181
+  store i32 %1229, ptr %1230, align 4, !tbaa !180
   %1231 = sub nsw i32 %521, %97
   %1232 = getelementptr inbounds nuw i8, ptr %1227, i64 8
-  store i32 %1231, ptr %1232, align 4, !tbaa !182
+  store i32 %1231, ptr %1232, align 4, !tbaa !181
   %1233 = zext nneg i32 %1175 to i64
   %1234 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %1233
   %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 4
-  %1236 = load i32, ptr %1235, align 4, !tbaa !183
+  %1236 = load i32, ptr %1235, align 4, !tbaa !182
   %.not683 = icmp eq i32 %1236, 0
   br i1 %.not683, label %1240, label %1237
 
 1237:                                             ; preds = %1223
   %1238 = sext i32 %1236 to i64
   %1239 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1225, i64 %1238
-  store i32 %.11, ptr %1239, align 4, !tbaa !178
+  store i32 %.11, ptr %1239, align 4, !tbaa !177
   br label %1241
 
 1240:                                             ; preds = %1223
-  store i32 %.11, ptr %1234, align 8, !tbaa !185
+  store i32 %.11, ptr %1234, align 8, !tbaa !184
   br label %1241
 
 1241:                                             ; preds = %1240, %1237
-  store i32 %.11, ptr %1235, align 4, !tbaa !183
+  store i32 %.11, ptr %1235, align 4, !tbaa !182
   %1242 = add i32 %.4591, 256
   %1243 = sub i32 %1242, %1175
   %1244 = sext i32 %1243 to i64
@@ -6761,7 +6761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819: ; preds = %_Z
   br i1 %.not688, label %1308, label %1340
 
 1308:                                             ; preds = %1307
-  %1309 = load ptr, ptr %490, align 8, !tbaa !171
+  %1309 = load ptr, ptr %490, align 8, !tbaa !170
   %1310 = ptrtoint ptr %1309 to i64
   %1311 = ptrtoint ptr %1250 to i64
   %1312 = sub i64 %1310, %1311
@@ -6781,7 +6781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819: ; preds = %_Z
           to label %.noexc830 unwind label %983
 
 .noexc830:                                        ; preds = %1321
-  %.pre.pre.pre.i829 = load ptr, ptr %3, align 8, !tbaa !176
+  %.pre.pre.pre.i829 = load ptr, ptr %3, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820
 
 1323:                                             ; preds = %1308
@@ -6794,7 +6794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819: ; preds = %_Z
   br i1 %.not.i.i.i828, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820, label %1327
 
 1327:                                             ; preds = %1325
-  store ptr %1326, ptr %490, align 8, !tbaa !171
+  store ptr %1326, ptr %490, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820: ; preds = %1327, %1325, %1323, %.noexc830
@@ -6804,7 +6804,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820: 
   br i1 %1329, label %1330, label %1331
 
 1330:                                             ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820
-  store i32 0, ptr %.pre.pre.i821, align 4, !tbaa !178
+  store i32 0, ptr %.pre.pre.i821, align 4, !tbaa !177
   br label %1331
 
 1331:                                             ; preds = %1330, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820
@@ -6823,14 +6823,14 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit.i820: 
   %indvars.iv.next.i826 = add nsw i64 %indvars.iv.i825, 1
   %1336 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i821, i64 %indvars.iv.i825
   %1337 = trunc nsw i64 %indvars.iv.next.i826 to i32
-  store i32 %1337, ptr %1336, align 4, !tbaa !178
+  store i32 %1337, ptr %1336, align 4, !tbaa !177
   %exitcond.not.i827 = icmp eq i64 %indvars.iv.next.i826, %wide.trip.count.i824
-  br i1 %exitcond.not.i827, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit831, label %1335, !llvm.loop !180
+  br i1 %exitcond.not.i827, label %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit831, label %1335, !llvm.loop !179
 
 _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit831: ; preds = %1335, %1331
   %1338 = zext nneg i32 %1332 to i64
   %1339 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre.i821, i64 %1338
-  store i32 0, ptr %1339, align 4, !tbaa !178
+  store i32 0, ptr %1339, align 4, !tbaa !177
   br label %1340
 
 1340:                                             ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit831, %1307
@@ -6838,33 +6838,33 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %.13 = phi i32 [ %.10, %1307 ], [ %.016.i822, %_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.exit831 ]
   %1342 = sext i32 %.13 to i64
   %1343 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1341, i64 %1342
-  %1344 = load i32, ptr %1343, align 4, !tbaa !178
-  store i32 0, ptr %1343, align 4, !tbaa !178
+  %1344 = load i32, ptr %1343, align 4, !tbaa !177
+  store i32 0, ptr %1343, align 4, !tbaa !177
   %1345 = add nsw i32 %519, %99
   %1346 = getelementptr inbounds nuw i8, ptr %1343, i64 4
-  store i32 %1345, ptr %1346, align 4, !tbaa !181
+  store i32 %1345, ptr %1346, align 4, !tbaa !180
   %1347 = add nsw i32 %521, %97
   %1348 = getelementptr inbounds nuw i8, ptr %1343, i64 8
-  store i32 %1347, ptr %1348, align 4, !tbaa !182
+  store i32 %1347, ptr %1348, align 4, !tbaa !181
   %1349 = zext nneg i32 %1293 to i64
   %1350 = getelementptr inbounds nuw [256 x %"struct.cv::ximgproc::ScanSegmentImpl::WSQueue"], ptr %4, i64 0, i64 %1349
   %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 4
-  %1352 = load i32, ptr %1351, align 4, !tbaa !183
+  %1352 = load i32, ptr %1351, align 4, !tbaa !182
   %.not691 = icmp eq i32 %1352, 0
   br i1 %.not691, label %1356, label %1353
 
 1353:                                             ; preds = %1340
   %1354 = sext i32 %1352 to i64
   %1355 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %1341, i64 %1354
-  store i32 %.13, ptr %1355, align 4, !tbaa !178
+  store i32 %.13, ptr %1355, align 4, !tbaa !177
   br label %1357
 
 1356:                                             ; preds = %1340
-  store i32 %.13, ptr %1350, align 8, !tbaa !185
+  store i32 %.13, ptr %1350, align 8, !tbaa !184
   br label %1357
 
 1357:                                             ; preds = %1356, %1353
-  store i32 %.13, ptr %1351, align 4, !tbaa !183
+  store i32 %.13, ptr %1351, align 4, !tbaa !182
   %1358 = add i32 %.5592, 256
   %1359 = sub i32 %1358, %1293
   %1360 = sext i32 %1359 to i64
@@ -6893,7 +6893,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit833: ; preds
   %.pn709.pn.pn = phi { ptr, i32 } [ %.pn639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %409, %.split954.us ], [ %.pn706, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit749 ], [ %.pn704, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit746 ], [ %.pn702, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit743 ], [ %.pn698, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit740 ], [ %.pn696, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit737 ], [ %984, %983 ], [ %.pn686, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit819 ], [ %.pn680, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit804 ], [ %.pn673, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit789 ], [ %.pn669, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774 ], [ %.pn667, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit771 ], [ %.pn664, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit768 ], [ %.pn658, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit762 ], [ %.pn655, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765 ], [ %.pn651, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit756 ], [ %.pn649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit759 ], [ %.pn645, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %1366 = load ptr, ptr %3, align 8, !tbaa !176
+  %1366 = load ptr, ptr %3, align 8, !tbaa !175
   %.not.i.i.i834 = icmp eq ptr %1366, null
   br i1 %.not.i.i.i834, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit835, label %1367
 
@@ -6956,7 +6956,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE(ptr nound
   %28 = load i32, ptr %4, align 4, !tbaa !100
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %14, label %._crit_edge, !llvm.loop !192
+  br i1 %30, label %14, label %._crit_edge, !llvm.loop !190
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -7053,8 +7053,8 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl16calculateClusterEPiS2_ii(p
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 1, 0) i32 @_ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !171
-  %4 = load ptr, ptr %0, align 8, !tbaa !176
+  %3 = load ptr, ptr %2, align 8, !tbaa !170
+  %4 = load ptr, ptr %0, align 8, !tbaa !175
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
@@ -7071,7 +7071,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN2cv8ximgproc15ScanSegmentImpl12all
 16:                                               ; preds = %1
   %17 = sub nuw nsw i64 %14, %8
   tail call void @_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %17)
-  %.pre.pre.pre = load ptr, ptr %0, align 8, !tbaa !176
+  %.pre.pre.pre = load ptr, ptr %0, align 8, !tbaa !175
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit
 
 18:                                               ; preds = %1
@@ -7084,7 +7084,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN2cv8ximgproc15ScanSegmentImpl12all
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit, label %22
 
 22:                                               ; preds = %20
-  store ptr %21, ptr %2, align 8, !tbaa !171
+  store ptr %21, ptr %2, align 8, !tbaa !170
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
@@ -7093,7 +7093,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit: ; pre
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit
-  store i32 0, ptr %.pre.pre, align 4, !tbaa !178
+  store i32 0, ptr %.pre.pre, align 4, !tbaa !177
   br label %25
 
 25:                                               ; preds = %24, %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit
@@ -7110,7 +7110,7 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit: ; pre
 ._crit_edge:                                      ; preds = %31, %25
   %29 = zext nneg i32 %26 to i64
   %30 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre, i64 %29
-  store i32 0, ptr %30, align 4, !tbaa !178
+  store i32 0, ptr %30, align 4, !tbaa !177
   ret i32 %.016
 
 31:                                               ; preds = %.lr.ph, %31
@@ -7118,9 +7118,9 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE6resizeEm.exit: ; pre
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %.pre.pre, i64 %indvars.iv
   %33 = trunc nsw i64 %indvars.iv.next to i32
-  store i32 %33, ptr %32, align 4, !tbaa !178
+  store i32 %33, ptr %32, align 4, !tbaa !177
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !180
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !179
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -7149,13 +7149,13 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %10 = load i32, ptr %9, align 8, !tbaa !69
   tail call void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %8, i32 noundef %10, i32 noundef 0, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !193
+  %11 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !191
   %12 = icmp eq i32 %11, 65536
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !115, !noalias !193
+  %15 = load ptr, ptr %14, align 8, !tbaa !115, !noalias !191
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %15)
   br label %17
 
@@ -7220,13 +7220,13 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   br label %59
 
 45:                                               ; preds = %.split.us.us
-  %46 = load ptr, ptr %27, align 8, !tbaa !169
-  %47 = load ptr, ptr %28, align 8, !tbaa !196
-  %48 = load i64, ptr %47, align 8, !tbaa !170
+  %46 = load ptr, ptr %27, align 8, !tbaa !168
+  %47 = load ptr, ptr %28, align 8, !tbaa !194
+  %48 = load i64, ptr %47, align 8, !tbaa !169
   %49 = mul i64 %48, %indvars.iv65
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !170
+  %52 = load i64, ptr %51, align 8, !tbaa !169
   %53 = mul i64 %52, %indvars.iv62
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
   store i8 -1, ptr %54, align 1, !tbaa !103
@@ -7238,7 +7238,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next63, %57
-  br i1 %58, label %.preheader.us, label %._crit_edge, !llvm.loop !197
+  br i1 %58, label %.preheader.us, label %._crit_edge, !llvm.loop !195
 
 59:                                               ; preds = %79, %.preheader.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %79 ], [ 0, %.preheader.us ]
@@ -7276,7 +7276,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %.1.us.us = phi i32 [ %.03545.us.us, %67 ], [ %.03545.us.us, %59 ], [ %spec.select, %71 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 8
-  br i1 %exitcond61.not, label %.split.us.us, label %59, !llvm.loop !198
+  br i1 %exitcond61.not, label %.split.us.us, label %59, !llvm.loop !196
 
 .split.us.us:                                     ; preds = %79
   %80 = icmp sgt i32 %.1.us.us, 1
@@ -7321,7 +7321,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %99 = load i32, ptr %7, align 4, !tbaa !70
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next66, %100
-  br i1 %101, label %.preheader44, label %._crit_edge50, !llvm.loop !199
+  br i1 %101, label %.preheader44, label %._crit_edge50, !llvm.loop !197
 
 .split:                                           ; preds = %133
   %102 = icmp sgt i32 %.1, 1
@@ -7359,11 +7359,11 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
 
 122:                                              ; preds = %115
   %123 = zext nneg i32 %109 to i64
-  %124 = load i64, ptr %94, align 8, !tbaa !170
+  %124 = load i64, ptr %94, align 8, !tbaa !169
   %125 = mul i64 %124, %123
   %126 = getelementptr inbounds nuw i8, ptr %93, i64 %125
   %127 = zext nneg i32 %106 to i64
-  %128 = load i64, ptr %95, align 8, !tbaa !170
+  %128 = load i64, ptr %95, align 8, !tbaa !169
   %129 = mul i64 %128, %127
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !103
@@ -7376,13 +7376,13 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %.1 = phi i32 [ %.03545, %111 ], [ %.03545, %103 ], [ %.03545, %115 ], [ %spec.select51, %122 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.split, label %103, !llvm.loop !200
+  br i1 %exitcond.not, label %.split, label %103, !llvm.loop !196
 
 134:                                              ; preds = %.split
-  %135 = load i64, ptr %94, align 8, !tbaa !170
+  %135 = load i64, ptr %94, align 8, !tbaa !169
   %136 = mul i64 %135, %indvars.iv65
   %137 = getelementptr inbounds nuw i8, ptr %93, i64 %136
-  %138 = load i64, ptr %95, align 8, !tbaa !170
+  %138 = load i64, ptr %95, align 8, !tbaa !169
   %139 = mul i64 %138, %indvars.iv55
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 %139
   store i8 -1, ptr %140, align 1, !tbaa !103
@@ -7395,7 +7395,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImpl19getLabelContourMaskERKNS_1
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %indvars.iv.next56, %144
-  br i1 %145, label %.preheader, label %._crit_edge, !llvm.loop !201
+  br i1 %145, label %.preheader, label %._crit_edge, !llvm.loop !195
 }
 
 declare void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
@@ -7563,7 +7563,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv8ximg
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !202
+  %7 = load ptr, ptr %6, align 8, !tbaa !198
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -7600,7 +7600,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) #15 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !204
+  %.val = load ptr, ptr %0, align 8, !tbaa !200
   %3 = load i32, ptr %1, align 4, !tbaa !138
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !140
@@ -7613,7 +7613,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   %7 = add nsw i32 %.01.i.i.i, 1
   %8 = load i32, ptr %4, align 4, !tbaa !140
   %9 = icmp slt i32 %7, %8
-  br i1 %9, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !206
+  br i1 %9, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !202
 
 "_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %.lr.ph.i.i.i, %2
   ret void
@@ -7628,11 +7628,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_0", ptr %0, align 8, !tbaa !207
+  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_0", ptr %0, align 8, !tbaa !203
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !209
+  store ptr %1, ptr %0, align 8, !tbaa !205
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -7663,7 +7663,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 13:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEET_SJ_SJ_T0_.exit"
   %14 = icmp eq i64 %132, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph47, !llvm.loop !210
+  br i1 %14, label %._crit_edge, label %.lr.ph47, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
   %.fr.i.i.i29.lcssa = phi i64 [ %.fr.i.i.i26, %.lr.ph ], [ %.fr.i.i.i, %13 ]
@@ -7712,7 +7712,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %39, ptr %40, align 4, !tbaa !100
   %41 = icmp slt i64 %spec.select.i.us.i.i.i, %19
-  br i1 %41, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !211
+  br i1 %41, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !207
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %.lr.ph.i.us.i.i.i
   %.sroa.2.0.extract.shift.i.i.us.i.i.i = lshr i64 %.sroa.03.0.copyload.us.i.i.i, 32
@@ -7736,7 +7736,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %.val.i.i.i.us.i.i.i, ptr %48, align 4, !tbaa !100
   %49 = icmp sgt i64 %.0911.i.i.us.i.i.i, %.010.us.i.i.i
-  br i1 %49, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", !llvm.loop !212
+  br i1 %49, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", !llvm.loop !208
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.us.i.i.i": ; preds = %45, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
   %.0.lcssa.i.i.us.i.i.i = phi i64 [ %.010.us.i.i.i, %.split.us.i.i.i ], [ %.010.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.0911.i.i.us.i.i.i, %45 ]
@@ -7744,7 +7744,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %.sroa.03.0.copyload.us.i.i.i, ptr %50, align 4
   %.not.us.i.i.i = icmp eq i64 %.010.us.i.i.i, 0
   %51 = add nsw i64 %.010.us.i.i.i, -1
-  br i1 %.not.us.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i", label %.split.us.i.i.i, !llvm.loop !213
+  br i1 %.not.us.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i", label %.split.us.i.i.i, !llvm.loop !209
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
   %.010.i.i.i = phi i64 [ %82, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i" ], [ %17, %.split.preheader.i.i.i ]
@@ -7773,7 +7773,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %64, ptr %65, align 4, !tbaa !100
   %66 = icmp slt i64 %spec.select.i.i.i.i, %19
-  br i1 %66, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !211
+  br i1 %66, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !207
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.010.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -7811,7 +7811,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %.val.i.i.i.i.i.i, ptr %79, align 4, !tbaa !100
   %80 = icmp sgt i64 %.0911.i.i.i.i.i, %.010.i.i.i
-  br i1 %80, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !212
+  br i1 %80, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !208
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i": ; preds = %76, %.lr.ph.i.i.i.i.i, %71
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %71 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %76 ]
@@ -7819,7 +7819,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %81, align 4
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %82 = add nsw i64 %.010.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i", label %.split.i.i.i, !llvm.loop !214
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i", label %.split.i.i.i, !llvm.loop !209
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_T0_SK_T1_T2_.exit.i.i.i"
   %83 = icmp sgt i64 %.fr.i.i.i29.lcssa, 8
@@ -7862,7 +7862,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %104, ptr %105, align 4, !tbaa !100
   %106 = icmp slt i64 %spec.select.i.i.i23.i, %92
-  br i1 %106, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i, !llvm.loop !211
+  br i1 %106, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i, !llvm.loop !207
 
 ._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i19.i, %.lr.ph.i9.i
   %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ]
@@ -7916,14 +7916,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.val.i.i.i.i.i17.i, ptr %128, align 4, !tbaa !100
   %.not7.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
-  br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !212
+  br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !208
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %125, %.lr.ph.i.i.i.i14.i, %121
   %.0.lcssa.i.i.i.i18.i = phi i64 [ 0, %121 ], [ %.010.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %125 ]
   %129 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i.i18.i
   store i64 %.sroa.03.0.copyload.i.i10.i, ptr %129, align 4
   %130 = icmp sgt i64 %89, 8
-  br i1 %130, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_T0_.exit", !llvm.loop !215
+  br i1 %130, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_T0_.exit", !llvm.loop !210
 
 .lr.ph47:                                         ; preds = %.lr.ph, %13
   %storemerge2746 = phi ptr [ %.sroa.012.1.i.i, %13 ], [ %1, %.lr.ph ]
@@ -8032,7 +8032,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.val.i.i14.i = load i32, ptr %172, align 4, !tbaa !100
   %173 = icmp sgt i32 %.val.i.i14.i, %.val1.i.i13.i
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
-  br i1 %173, label %171, label %.preheader.i.i.preheader, !llvm.loop !216
+  br i1 %173, label %171, label %.preheader.i.i.preheader, !llvm.loop !211
 
 .preheader.i.i.preheader:                         ; preds = %171
   %175 = getelementptr i8, ptr %.sroa.012.1.i.i, i64 4
@@ -8044,7 +8044,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %176 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -4
   %.val1.i9.i.i = load i32, ptr %176, align 4, !tbaa !100
   %177 = icmp sgt i32 %.val1.i.i13.i, %.val1.i9.i.i
-  br i1 %177, label %.preheader.i.i, label %178, !llvm.loop !217
+  br i1 %177, label %.preheader.i.i, label %178, !llvm.loop !212
 
 178:                                              ; preds = %.preheader.i.i
   %179 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
@@ -8060,7 +8060,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %185 = load i32, ptr %181, align 4, !tbaa !76
   store i32 %185, ptr %175, align 4, !tbaa !76
   store i32 %184, ptr %181, align 4, !tbaa !76
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !218
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_SJ_T0_.exit.i", !llvm.loop !213
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEET_SJ_SJ_T0_.exit": ; preds = %178
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2746, i64 noundef %132)
@@ -8069,7 +8069,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.fr.i.i.i = freeze i64 %187
   %188 = ashr exact i64 %.fr.i.i.i, 3
   %189 = icmp sgt i64 %188, 16
-  br i1 %189, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_T0_.exit", !llvm.loop !210
+  br i1 %189, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_T0_.exit", !llvm.loop !206
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEET_SJ_SJ_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_SJ_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNSB_11_InputArrayEE3$_4EEEvT_SJ_RT0_.exit.i.i"
   ret void
@@ -8087,7 +8087,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   br i1 %6, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %.val = load ptr, ptr %0, align 8, !tbaa !219
+  %.val = load ptr, ptr %0, align 8, !tbaa !214
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 3664
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 4760
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 3688
@@ -8129,7 +8129,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   %32 = load i32, ptr %17, align 4, !tbaa !100
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i.i.i.i, %33
-  br i1 %34, label %21, label %_ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE.exit.loopexit.i.i.i, !llvm.loop !168
+  br i1 %34, label %21, label %_ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE.exit.loopexit.i.i.i, !llvm.loop !167
 
 _ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE.exit.loopexit.i.i.i: ; preds = %21
   %.pre.i.i.i = load i32, ptr %4, align 4, !tbaa !140
@@ -8140,7 +8140,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE.exit.i.i.i: ; preds = %_ZN2cv
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i.i.i, %36
-  br i1 %37, label %12, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !221
+  br i1 %37, label %12, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !216
 
 "_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl3OP2ERKSt4pairIiiE.exit.i.i.i, %2
   ret void
@@ -8155,11 +8155,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_1", ptr %0, align 8, !tbaa !207
+  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_1", ptr %0, align 8, !tbaa !203
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !209
+  store ptr %1, ptr %0, align 8, !tbaa !205
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -8173,7 +8173,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_2E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) #6 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !222
+  %.val = load ptr, ptr %0, align 8, !tbaa !217
   %3 = load i32, ptr %1, align 4, !tbaa !138
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !140
@@ -8186,7 +8186,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   %7 = add nsw i32 %.01.i.i.i, 1
   %8 = load i32, ptr %4, align 4, !tbaa !140
   %9 = icmp slt i32 %7, %8
-  br i1 %9, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_2JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !224
+  br i1 %9, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_2JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !219
 
 "_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_2JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %.lr.ph.i.i.i, %2
   ret void
@@ -8201,11 +8201,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_2", ptr %0, align 8, !tbaa !207
+  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_2", ptr %0, align 8, !tbaa !203
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !209
+  store ptr %1, ptr %0, align 8, !tbaa !205
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_2E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -8226,7 +8226,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   br i1 %6, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_3JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %.val = load ptr, ptr %0, align 8, !tbaa !225
+  %.val = load ptr, ptr %0, align 8, !tbaa !220
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 3664
   %8 = load ptr, ptr %7, align 8, !tbaa !95
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 5832
@@ -8279,7 +8279,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_8ximgproc15
   %38 = load i32, ptr %17, align 4, !tbaa !100
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next.i.i.i.i, %39
-  br i1 %40, label %24, label %_ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE.exit.loopexit.i.i.i, !llvm.loop !192
+  br i1 %40, label %24, label %_ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE.exit.loopexit.i.i.i, !llvm.loop !190
 
 _ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE.exit.loopexit.i.i.i: ; preds = %37
   %.pre.i.i.i = load i32, ptr %4, align 4, !tbaa !140
@@ -8290,7 +8290,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE.exit.i.i.i: ; preds = %_ZN2cv
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next.i.i.i, %42
-  br i1 %43, label %13, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_3JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !227
+  br i1 %43, label %13, label %"_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_3JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit", !llvm.loop !222
 
 "_ZSt10__invoke_rIvRZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS0_11_InputArrayEE3$_3JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %_ZN2cv8ximgproc15ScanSegmentImpl3OP4ERKSt4pairIiiE.exit.i.i.i, %2
   ret void
@@ -8305,11 +8305,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_3", ptr %0, align 8, !tbaa !207
+  store ptr @"_ZTIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_3", ptr %0, align 8, !tbaa !203
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !209
+  store ptr %1, ptr %0, align 8, !tbaa !205
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS1_11_InputArrayEE3$_3E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -8328,14 +8328,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSN
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !171
-  %6 = load ptr, ptr %0, align 8, !tbaa !176
+  %5 = load ptr, ptr %4, align 8, !tbaa !170
+  %6 = load ptr, ptr %0, align 8, !tbaa !175
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !177
+  %12 = load ptr, ptr %11, align 8, !tbaa !176
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = sdiv exact i64 %14, 12
@@ -8361,14 +8361,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSN
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %23 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !173
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !174
 
 _ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
-  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !171
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !170
   br label %45
 
 26:                                               ; preds = %3
@@ -8399,10 +8399,10 @@ _ZNKSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE12_M_check_lenEmPKc.
 
 .lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %36
   %.06.i.i.i.i.i.i.i32 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i31 ], [ %37, %36 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !174
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !173
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 12
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !174
 
 _ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -8421,11 +8421,11 @@ _ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE11_S_relocateEPS3_S6_
   br label %_ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38
 
 _ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %42
-  store ptr %32, ptr %0, align 8, !tbaa !176
+  store ptr %32, ptr %0, align 8, !tbaa !175
   %43 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %33, i64 %1
-  store ptr %43, ptr %4, align 8, !tbaa !171
+  store ptr %43, ptr %4, align 8, !tbaa !170
   %44 = getelementptr inbounds nuw %"struct.cv::ximgproc::ScanSegmentImpl::WSNode", ptr %32, i64 %30
-  store ptr %44, ptr %11, align 8, !tbaa !177
+  store ptr %44, ptr %11, align 8, !tbaa !176
   br label %45
 
 45:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv8ximgproc15ScanSegmentImpl6WSNodeEmS3_ET_S5_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE13_M_deallocateEPS3_m.exit38, %2
@@ -8670,65 +8670,60 @@ attributes #34 = { noreturn }
 !163 = distinct !{!163, !85}
 !164 = distinct !{!164, !85}
 !165 = distinct !{!165, !85}
-!166 = distinct !{!166, !85, !167}
-!167 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!168 = distinct !{!168, !85}
-!169 = !{!53, !44, i64 16}
-!170 = !{!31, !31, i64 0}
-!171 = !{!172, !173, i64 8}
-!172 = !{!"_ZTSNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE17_Vector_impl_dataE", !173, i64 0, !173, i64 8, !173, i64 16}
-!173 = !{!"p1 _ZTSN2cv8ximgproc15ScanSegmentImpl6WSNodeE", !19, i64 0}
-!174 = !{i64 0, i64 4, !76, i64 4, i64 4, !76, i64 8, i64 4, !76}
-!175 = distinct !{!175, !85}
-!176 = !{!172, !173, i64 0}
-!177 = !{!172, !173, i64 16}
-!178 = !{!179, !10, i64 0}
-!179 = !{!"_ZTSN2cv8ximgproc15ScanSegmentImpl6WSNodeE", !10, i64 0, !10, i64 4, !10, i64 8}
-!180 = distinct !{!180, !85}
-!181 = !{!179, !10, i64 4}
-!182 = !{!179, !10, i64 8}
-!183 = !{!184, !10, i64 4}
-!184 = !{!"_ZTSN2cv8ximgproc15ScanSegmentImpl7WSQueueE", !10, i64 0, !10, i64 4}
-!185 = !{!184, !10, i64 0}
+!166 = distinct !{!166, !85}
+!167 = distinct !{!167, !85}
+!168 = !{!53, !44, i64 16}
+!169 = !{!31, !31, i64 0}
+!170 = !{!171, !172, i64 8}
+!171 = !{!"_ZTSNSt12_Vector_baseIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EE17_Vector_impl_dataE", !172, i64 0, !172, i64 8, !172, i64 16}
+!172 = !{!"p1 _ZTSN2cv8ximgproc15ScanSegmentImpl6WSNodeE", !19, i64 0}
+!173 = !{i64 0, i64 4, !76, i64 4, i64 4, !76, i64 8, i64 4, !76}
+!174 = distinct !{!174, !85}
+!175 = !{!171, !172, i64 0}
+!176 = !{!171, !172, i64 16}
+!177 = !{!178, !10, i64 0}
+!178 = !{!"_ZTSN2cv8ximgproc15ScanSegmentImpl6WSNodeE", !10, i64 0, !10, i64 4, !10, i64 8}
+!179 = distinct !{!179, !85}
+!180 = !{!178, !10, i64 4}
+!181 = !{!178, !10, i64 8}
+!182 = !{!183, !10, i64 4}
+!183 = !{!"_ZTSN2cv8ximgproc15ScanSegmentImpl7WSQueueE", !10, i64 0, !10, i64 4}
+!184 = !{!183, !10, i64 0}
+!185 = distinct !{!185, !85}
 !186 = distinct !{!186, !85}
-!187 = distinct !{!187, !85, !167}
+!187 = distinct !{!187, !85}
 !188 = distinct !{!188, !85}
 !189 = distinct !{!189, !85}
 !190 = distinct !{!190, !85}
-!191 = distinct !{!191, !85}
-!192 = distinct !{!192, !85}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!195 = distinct !{!195, !"_ZNK2cv11_InputArray6getMatEi"}
-!196 = !{!53, !58, i64 72}
-!197 = distinct !{!197, !85, !167}
-!198 = distinct !{!198, !85, !167}
-!199 = distinct !{!199, !85, !88}
-!200 = distinct !{!200, !85}
-!201 = distinct !{!201, !85}
-!202 = !{!203, !44, i64 8}
-!203 = !{!"_ZTSSt9type_info", !44, i64 8}
-!204 = !{!205, !142, i64 0}
-!205 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_0", !142, i64 0}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!193 = distinct !{!193, !"_ZNK2cv11_InputArray6getMatEi"}
+!194 = !{!53, !58, i64 72}
+!195 = distinct !{!195, !85}
+!196 = distinct !{!196, !85}
+!197 = distinct !{!197, !85, !88}
+!198 = !{!199, !44, i64 8}
+!199 = !{!"_ZTSSt9type_info", !44, i64 8}
+!200 = !{!201, !142, i64 0}
+!201 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_0", !142, i64 0}
+!202 = distinct !{!202, !85}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSSt9type_info", !19, i64 0}
+!205 = !{!19, !19, i64 0}
 !206 = distinct !{!206, !85}
-!207 = !{!208, !208, i64 0}
-!208 = !{!"p1 _ZTSSt9type_info", !19, i64 0}
-!209 = !{!19, !19, i64 0}
+!207 = distinct !{!207, !85}
+!208 = distinct !{!208, !85}
+!209 = distinct !{!209, !85}
 !210 = distinct !{!210, !85}
 !211 = distinct !{!211, !85}
 !212 = distinct !{!212, !85}
-!213 = distinct !{!213, !85, !167}
-!214 = distinct !{!214, !85}
-!215 = distinct !{!215, !85}
+!213 = distinct !{!213, !85}
+!214 = !{!215, !142, i64 0}
+!215 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_1", !142, i64 0}
 !216 = distinct !{!216, !85}
-!217 = distinct !{!217, !85}
-!218 = distinct !{!218, !85}
-!219 = !{!220, !142, i64 0}
-!220 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_1", !142, i64 0}
-!221 = distinct !{!221, !85}
-!222 = !{!223, !142, i64 0}
-!223 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_2", !142, i64 0}
-!224 = distinct !{!224, !85}
-!225 = !{!226, !142, i64 0}
-!226 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_3", !142, i64 0}
-!227 = distinct !{!227, !85}
+!217 = !{!218, !142, i64 0}
+!218 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_2", !142, i64 0}
+!219 = distinct !{!219, !85}
+!220 = !{!221, !142, i64 0}
+!221 = !{!"_ZTSZN2cv8ximgproc15ScanSegmentImpl7iterateERKNS_11_InputArrayEE3$_3", !142, i64 0}
+!222 = distinct !{!222, !85}

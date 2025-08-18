@@ -719,10 +719,10 @@ define dso_local range(i32 0, 32770) i32 @hw_breakpoint_exceptions_notify(ptr no
 62:                                               ; preds = %56, %53, %48, %.split
   %63 = add nuw nsw i64 %42, 1
   %64 = icmp eq i64 %63, 4
-  br i1 %64, label %.split2.us, label %.split, !llvm.loop !53
+  br i1 %64, label %.split2.us, label %.split, !llvm.loop !51
 
 .split2.us:                                       ; preds = %62, %39
-  %65 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !54
+  %65 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !52
   %66 = inttoptr i64 %65 to ptr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2904
   %68 = load i64, ptr %67, align 8
@@ -821,7 +821,5 @@ attributes #8 = { nounwind memory(none) }
 !48 = !{i64 2155664095}
 !49 = !{i64 2155668653}
 !50 = !{i64 2155674034}
-!51 = distinct !{!51, !7, !8, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = distinct !{!53, !7, !8}
-!54 = !{i64 2148000168}
+!51 = distinct !{!51, !7, !8}
+!52 = !{i64 2148000168}

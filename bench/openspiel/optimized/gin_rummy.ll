@@ -18643,7 +18643,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5_
   store i64 %43, ptr %68, align 8
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1
-  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !97
+  br i1 %69, label %.loopexit, label %.split.split, !llvm.loop !95
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, %3
   ret void
@@ -18672,7 +18672,7 @@ define linkonce_odr void @_ZN4absl7debian216strings_internal13JoinAlgorithmIN9__
   %12 = add i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.not34 = icmp eq ptr %13, %2
-  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.012.lcssa = phi i64 [ %7, %6 ], [ %12, %.lr.ph ]
@@ -18707,7 +18707,7 @@ _ZN4absl7debian216strings_internal28STLStringResizeUninitializedINSt7__cxx1112ba
   %25 = getelementptr inbounds i8, ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.not35 = icmp eq ptr %26, %2
-  br i1 %.not35, label %.loopexit, label %.lr.ph40, !llvm.loop !99
+  br i1 %.not35, label %.loopexit, label %.lr.ph40, !llvm.loop !97
 
 27:                                               ; preds = %14
   %28 = landingpad { ptr, i32 }
@@ -19139,7 +19139,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 35:                                               ; preds = %19, %16
   %36 = landingpad { ptr, i32 }
@@ -19198,7 +19198,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %16 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
-  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !101
+  br i1 %.not11.i, label %18, label %.preheader.i, !llvm.loop !99
 
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
@@ -21490,7 +21490,7 @@ _ZNK4absl7debian213InlinedVectorIiLm4ESaIiEEixEm.exit.i: ; preds = %.lr.ph
   br label %_ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit18
 
 ._crit_edge:                                      ; preds = %41, %20
-  br i1 %21, label %20, label %54, !llvm.loop !102
+  br i1 %21, label %20, label %54, !llvm.loop !100
 
 54:                                               ; preds = %._crit_edge
   %55 = load i64, ptr %16, align 8
@@ -21661,7 +21661,7 @@ _ZNK10open_spiel10SpanTensor2atEi.exit:           ; preds = %20
   %26 = load i32, ptr %15, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %20, label %._crit_edge, !llvm.loop !103
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !101
 
 29:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   %30 = landingpad { ptr, i32 }
@@ -21952,7 +21952,7 @@ _ZNK10open_spiel10SpanTensor2atEi.exit:           ; preds = %20
   %26 = load i32, ptr %15, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %20, label %._crit_edge, !llvm.loop !104
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !102
 
 29:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   %30 = landingpad { ptr, i32 }
@@ -22101,7 +22101,7 @@ _ZNK4absl7debian213InlinedVectorIiLm4ESaIiEEixEm.exit.i: ; preds = %.lr.ph
   br label %_ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit18
 
 ._crit_edge:                                      ; preds = %41, %20
-  br i1 %21, label %20, label %54, !llvm.loop !105
+  br i1 %21, label %20, label %54, !llvm.loop !103
 
 54:                                               ; preds = %._crit_edge
   %55 = load i64, ptr %16, align 8
@@ -22408,7 +22408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49.i: 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_insert_unique_IRKSA_NSG_11_Alloc_nodeEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EOT_RT0_.exit.i.i.i: ; preds = %57, %.noexc.i.i
   %.07.i.i.add.i = add nuw nsw i64 %.07.i.i.idx.i, 144
   %.not.i.i.i = icmp eq i64 %.07.i.i.add.i, 1008
-  br i1 %.not.i.i.i, label %61, label %.lr.ph.i.i.i, !llvm.loop !106
+  br i1 %.not.i.i.i, label %61, label %.lr.ph.i.i.i, !llvm.loop !104
 
 .body50.i:                                        ; preds = %57, %.lr.ph.i.i.i
   %60 = landingpad { ptr, i32 }
@@ -22912,8 +22912,8 @@ attributes #30 = { nounwind willreturn memory(read) }
 !92 = distinct !{!92, !5}
 !93 = distinct !{!93, !5}
 !94 = distinct !{!94, !5}
-!95 = distinct !{!95, !5, !96}
-!96 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!95 = distinct !{!95, !5}
+!96 = distinct !{!96, !5}
 !97 = distinct !{!97, !5}
 !98 = distinct !{!98, !5}
 !99 = distinct !{!99, !5}
@@ -22922,5 +22922,3 @@ attributes #30 = { nounwind willreturn memory(read) }
 !102 = distinct !{!102, !5}
 !103 = distinct !{!103, !5}
 !104 = distinct !{!104, !5}
-!105 = distinct !{!105, !5}
-!106 = distinct !{!106, !5}

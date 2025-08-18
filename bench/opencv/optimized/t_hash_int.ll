@@ -757,7 +757,7 @@ _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
 .lr.ph.us:                                        ; preds = %.lr.ph44.split.us, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us
   %.02241.us.us = phi i64 [ %62, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us ], [ 0, %.lr.ph44.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 0, ptr %5, align 4, !tbaa !62
+  store i32 0, ptr %5, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %44 = tail call noalias ptr @malloc(i64 noundef %.fr45) #17
@@ -766,7 +766,7 @@ _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
 
 .critedge.us.us:                                  ; preds = %.lr.ph.us
   %45 = tail call i64 @fread(ptr noundef nonnull %44, i64 noundef %.fr45, i64 noundef 1, ptr noundef %0)
-  %46 = load i32, ptr %5, align 4, !tbaa !62
+  %46 = load i32, ptr %5, align 4, !tbaa !61
   %47 = load ptr, ptr %37, align 8, !tbaa !12
   %48 = tail call noundef i64 %47(i32 noundef %46)
   %49 = load i64, ptr %31, align 8, !tbaa !11
@@ -813,7 +813,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = add nuw i64 %.02241.us.us, 1
   %exitcond49.not = icmp eq i64 %62, %40
-  br i1 %exitcond49.not, label %.critedge33.us, label %.lr.ph.us, !llvm.loop !63
+  br i1 %exitcond49.not, label %.critedge33.us, label %.lr.ph.us, !llvm.loop !62
 
 .lr.ph44.split:                                   ; preds = %.lr.ph44, %.critedge33
   %.02343 = phi i64 [ %94, %.critedge33 ], [ 0, %.lr.ph44 ]
@@ -829,13 +829,13 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
 .critedge:                                        ; preds = %.lr.ph44.split, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit
   %.02241 = phi i64 [ %92, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit ], [ 0, %.lr.ph44.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 0, ptr %5, align 4, !tbaa !62
+  store i32 0, ptr %5, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !64
+  store ptr null, ptr %6, align 8, !tbaa !63
   %65 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %66 = call i64 @fread(ptr noundef nonnull %6, i64 noundef %.fr45, i64 noundef 1, ptr noundef %0)
-  %67 = load i32, ptr %5, align 4, !tbaa !62
-  %68 = load ptr, ptr %6, align 8, !tbaa !64
+  %67 = load i32, ptr %5, align 4, !tbaa !61
+  %68 = load ptr, ptr %6, align 8, !tbaa !63
   %69 = load ptr, ptr %37, align 8, !tbaa !12
   %70 = tail call noundef i64 %69(i32 noundef %67)
   %71 = load i64, ptr %31, align 8, !tbaa !11
@@ -919,13 +919,13 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %84, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %92 = add nuw i64 %.02241, 1
   %exitcond.not = icmp eq i64 %92, %64
-  br i1 %exitcond.not, label %.critedge33, label %.critedge, !llvm.loop !65
+  br i1 %exitcond.not, label %.critedge33, label %.critedge, !llvm.loop !62
 
 .critedge33:                                      ; preds = %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit, %.lr.ph44.split..critedge33_crit_edge
   %93 = phi i64 [ %.pre, %.lr.ph44.split..critedge33_crit_edge ], [ %71, %_ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit ]
   %94 = add nuw i64 %.02343, 1
   %.not31 = icmp ult i64 %94, %93
-  br i1 %.not31, label %.lr.ph44.split, label %.loopexit, !llvm.loop !66
+  br i1 %.not31, label %.lr.ph44.split, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.critedge33, %.critedge33.us, %_ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit, %_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE.exit
   %spec.select = phi ptr [ null, %_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE.exit ], [ %31, %_ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit ], [ %31, %.critedge33.us ], [ %31, %.critedge33 ]
@@ -1057,10 +1057,7 @@ attributes #20 = { noreturn }
 !57 = !{!6, !6, i64 0}
 !58 = distinct !{!58, !19}
 !59 = distinct !{!59, !19}
-!60 = distinct !{!60, !19, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = !{!17, !17, i64 0}
-!63 = distinct !{!63, !19, !61}
-!64 = !{!10, !10, i64 0}
-!65 = distinct !{!65, !19}
-!66 = distinct !{!66, !19}
+!60 = distinct !{!60, !19}
+!61 = !{!17, !17, i64 0}
+!62 = distinct !{!62, !19}
+!63 = !{!10, !10, i64 0}

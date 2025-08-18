@@ -2216,7 +2216,7 @@ define hidden void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef readonly captur
 .thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !16
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
   %53 = load ptr, ptr %0, align 8
@@ -4715,14 +4715,14 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 .thread53.us:                                     ; preds = %.preheader62.us, %39, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %.thread53.us
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %40 = load i32, ptr %29, align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next76, %41
-  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !19
+  br i1 %42, label %.preheader63.us, label %.preheader61, !llvm.loop !18
 
 .preheader61:                                     ; preds = %._crit_edge.us, %.preheader64
   %.not71 = icmp eq i32 %3, 0
@@ -4768,7 +4768,7 @@ define hidden void @SDL_BindGPUVertexSamplers_REAL(ptr noundef readonly captures
 .thread57:                                        ; preds = %.preheader, %52, %.lr.ph.split, %47
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !20
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.thread57, %.preheader63.lr.ph, %.lr.ph, %.preheader61, %25, %13
   %53 = load ptr, ptr %0, align 8
@@ -4857,14 +4857,14 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 .thread52.us:                                     ; preds = %.preheader61.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !20
 
 ._crit_edge.us:                                   ; preds = %.thread52.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !22
+  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !21
 
 .preheader64:                                     ; preds = %19, %.preheader64
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUVertexStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUVertexStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1895) #6
@@ -4921,7 +4921,7 @@ define hidden void @SDL_BindGPUVertexStorageTextures_REAL(ptr noundef readonly c
 .thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
   %49 = load ptr, ptr %0, align 8
@@ -5064,14 +5064,14 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 .thread52.us:                                     ; preds = %.preheader61.us, %33, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %.thread52.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %34 = load i32, ptr %23, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next75, %35
-  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !25
+  br i1 %36, label %.preheader62.us, label %.preheader60, !llvm.loop !24
 
 .preheader64:                                     ; preds = %19, %.preheader64
   %37 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_BindGPUFragmentStorageTextures_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_BindGPUFragmentStorageTextures_REAL, ptr noundef nonnull @.str.8, i32 noundef 1979) #6
@@ -5128,7 +5128,7 @@ define hidden void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef readonly
 .thread56:                                        ; preds = %.preheader, %48, %.lr.ph.split, %43
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !26
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread56, %.preheader62.lr.ph, %.lr.ph, %.preheader60, %13
   %49 = load ptr, ptr %0, align 8
@@ -5507,7 +5507,7 @@ define hidden ptr @SDL_BeginGPUComputePass_REAL(ptr noundef %0, ptr noundef %1, 
 53:                                               ; preds = %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge81, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge81, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
@@ -8080,17 +8080,16 @@ attributes #12 = { nounwind allocsize(1) }
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
 !13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !4, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}
+!17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !15}
-!20 = distinct !{!20, !4, !17}
+!19 = distinct !{!19, !4, !16}
+!20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4, !15}
-!23 = distinct !{!23, !4, !17}
+!22 = distinct !{!22, !4, !16}
+!23 = distinct !{!23, !4}
 !24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4, !15}
-!26 = distinct !{!26, !4, !17}
-!27 = distinct !{!27, !4}
+!25 = distinct !{!25, !4, !16}
+!26 = distinct !{!26, !4}

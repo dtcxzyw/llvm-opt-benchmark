@@ -623,7 +623,7 @@ default.unreachable:                              ; preds = %4
   %.4142 = add i32 %.11394, %69
   %86 = add nuw i32 %.01355, 1
   %exitcond.not = icmp eq i32 %86, %.1144
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit.sink.split:                             ; preds = %39, %65
   %.sink18 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %39 ]
@@ -704,7 +704,5 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}

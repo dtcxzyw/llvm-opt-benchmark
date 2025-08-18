@@ -352,7 +352,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %.1.us = phi i32 [ %68, %.critedge ], [ %62, %51 ]
   %70 = sub i32 %.1.us, %3
   %71 = icmp slt i32 %70, %22
-  br i1 %71, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
+  br i1 %71, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %350
   %.0328 = phi i32 [ %.1, %350 ], [ %3, %.lr.ph ]
@@ -1036,7 +1036,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %29 = load i32, ptr @hf_babel_subtlv_type, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0)
   %31 = add nuw i16 %.079, 1
-  br label %74, !llvm.loop !10
+  br label %74, !llvm.loop !8
 
 32:                                               ; preds = %10
   %33 = add nuw nsw i32 %7, 2
@@ -1064,7 +1064,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0)
   %44 = add nuw nsw i32 %.07178, 1
   %exitcond.not = icmp eq i32 %44, %13
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 45:                                               ; preds = %36
   %46 = add nuw nsw i32 %7, 2
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %2, 12
   %28 = zext nneg i32 %27 to i64
-  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !12
+  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !10
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -1199,7 +1199,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 
 44:                                               ; preds = %42
   %45 = zext nneg i32 %2 to i64
-  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !16
+  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !14
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -1304,15 +1304,13 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}

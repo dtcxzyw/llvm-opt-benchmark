@@ -765,7 +765,7 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
 65:                                               ; preds = %51, %59
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next99, 16
-  br i1 %exitcond103.not, label %.split88.us, label %.split, !llvm.loop !77
+  br i1 %exitcond103.not, label %.split88.us, label %.split, !llvm.loop !75
 
 .split88.us:                                      ; preds = %28, %65
   %66 = add nsw i32 %switch.select82, -2
@@ -784,7 +784,7 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
   %77 = getelementptr inbounds [61 x float], ptr @qcelp_g12ga, i64 0, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !31
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4016
-  store float %78, ptr %79, align 8, !tbaa !78
+  store float %78, ptr %79, align 8, !tbaa !76
   %80 = icmp eq i32 %.fr, 2
   br i1 %80, label %81, label %166
 
@@ -886,7 +886,7 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
   %142 = getelementptr inbounds nuw [61 x float], ptr @qcelp_g12ga, i64 0, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !31
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4016
-  %145 = load float, ptr %144, align 8, !tbaa !78
+  %145 = load float, ptr %144, align 8, !tbaa !76
   %146 = fsub nsz float %143, %145
   %147 = fpext nsz float %146 to double
   %148 = fmul nsz double %147, 5.000000e-01
@@ -899,7 +899,7 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
 
 153:                                              ; preds = %139, %153
   %indvars.iv = phi i64 [ 1, %139 ], [ %indvars.iv.next, %153 ]
-  %154 = load float, ptr %144, align 8, !tbaa !78
+  %154 = load float, ptr %144, align 8, !tbaa !76
   %155 = trunc nuw nsw i64 %indvars.iv to i32
   %156 = uitofp nneg i32 %155 to float
   %157 = tail call nsz float @llvm.fmuladd.f32(float %151, float %156, float %154)
@@ -908,13 +908,13 @@ define internal fastcc void @decode_gain_and_index(ptr noundef captures(none) %0
   store float %157, ptr %159, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %160, label %153, !llvm.loop !79
+  br i1 %exitcond.not, label %160, label %153, !llvm.loop !77
 
 160:                                              ; preds = %153
   %161 = getelementptr float, ptr %1, i64 %wide.trip.count
   %162 = getelementptr i8, ptr %161, i64 -8
   %163 = load float, ptr %162, align 4, !tbaa !31
-  store float %163, ptr %144, align 8, !tbaa !78
+  store float %163, ptr %144, align 8, !tbaa !76
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 4020
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 4024
   store i32 %140, ptr %164, align 4, !tbaa !27
@@ -976,12 +976,12 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   store float %25, ptr %.191128, align 4, !tbaa !31
   %27 = add nuw nsw i32 %.080129, 1
   %exitcond163.not = icmp eq i32 %27, 10
-  br i1 %exitcond163.not, label %28, label %18, !llvm.loop !80
+  br i1 %exitcond163.not, label %28, label %18, !llvm.loop !78
 
 28:                                               ; preds = %18
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 16
-  br i1 %exitcond167.not, label %.loopexit, label %8, !llvm.loop !81
+  br i1 %exitcond167.not, label %.loopexit, label %8, !llvm.loop !79
 
 29:                                               ; preds = %.preheader96, %47
   %indvars.iv159 = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next160, %47 ]
@@ -1010,12 +1010,12 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   store float %44, ptr %.393123, align 4, !tbaa !31
   %46 = add nuw nsw i32 %.181124, 1
   %exitcond158.not = icmp eq i32 %46, 40
-  br i1 %exitcond158.not, label %47, label %37, !llvm.loop !82
+  br i1 %exitcond158.not, label %47, label %37, !llvm.loop !80
 
 47:                                               ; preds = %37
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 4
-  br i1 %exitcond162.not, label %.loopexit, label %29, !llvm.loop !83
+  br i1 %exitcond162.not, label %.loopexit, label %29, !llvm.loop !81
 
 48:                                               ; preds = %3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1090,7 +1090,7 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   %101 = fptrunc nsz double %100 to float
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 10
-  br i1 %exitcond153.not, label %102, label %88, !llvm.loop !84
+  br i1 %exitcond153.not, label %102, label %88, !llvm.loop !82
 
 102:                                              ; preds = %88
   %103 = getelementptr inbounds i8, ptr %.1118, i64 -40
@@ -1105,12 +1105,12 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   %111 = getelementptr inbounds nuw i8, ptr %.1118, i64 4
   %112 = add nuw nsw i32 %.079116, 1
   %exitcond154.not = icmp eq i32 %112, 20
-  br i1 %exitcond154.not, label %113, label %84, !llvm.loop !85
+  br i1 %exitcond154.not, label %113, label %84, !llvm.loop !83
 
 113:                                              ; preds = %102
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next156, 8
-  br i1 %exitcond157.not, label %114, label %78, !llvm.loop !86
+  br i1 %exitcond157.not, label %114, label %78, !llvm.loop !84
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2616
@@ -1146,12 +1146,12 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   store float %130, ptr %.7107, align 4, !tbaa !31
   %132 = add nuw nsw i32 %.383108, 1
   %exitcond146.not = icmp eq i32 %132, 20
-  br i1 %exitcond146.not, label %133, label %126, !llvm.loop !87
+  br i1 %exitcond146.not, label %133, label %126, !llvm.loop !85
 
 133:                                              ; preds = %126
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next148, 8
-  br i1 %exitcond149.not, label %.loopexit, label %120, !llvm.loop !88
+  br i1 %exitcond149.not, label %.loopexit, label %120, !llvm.loop !86
 
 .preheader99:                                     ; preds = %3, %149
   %indvars.iv = phi i64 [ %indvars.iv.next, %149 ], [ 0, %3 ]
@@ -1179,12 +1179,12 @@ define internal fastcc void @compute_svector(ptr noundef captures(none) %0, ptr 
   store float %146, ptr %.9101, align 4, !tbaa !31
   %148 = add nuw nsw i32 %.484102, 1
   %exitcond.not = icmp eq i32 %148, 40
-  br i1 %exitcond.not, label %149, label %139, !llvm.loop !89
+  br i1 %exitcond.not, label %149, label %139, !llvm.loop !87
 
 149:                                              ; preds = %139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond145.not, label %.loopexit, label %.preheader99, !llvm.loop !90
+  br i1 %exitcond145.not, label %.loopexit, label %.preheader99, !llvm.loop !88
 
 150:                                              ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(640) %2, i8 0, i64 640, i1 false)
@@ -1216,9 +1216,9 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %14 = load i8, ptr %13, align 4, !tbaa !91
+  %14 = load i8, ptr %13, align 4, !tbaa !89
   %15 = add i8 %14, 1
-  store i8 %15, ptr %13, align 4, !tbaa !91
+  store i8 %15, ptr %13, align 4, !tbaa !89
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %18
@@ -1245,7 +1245,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   %33 = getelementptr inbounds nuw [10 x float], ptr %17, i64 0, i64 %indvars.iv134
   store float %31, ptr %33, align 4, !tbaa !31
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 10
-  br i1 %exitcond137.not, label %34, label %18, !llvm.loop !92
+  br i1 %exitcond137.not, label %34, label %18, !llvm.loop !90
 
 34:                                               ; preds = %18
   %35 = icmp ult i8 %15, 10
@@ -1278,7 +1278,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   %54 = getelementptr inbounds nuw [10 x float], ptr %44, i64 0, i64 %indvars.iv
   store float %52, ptr %54, align 4, !tbaa !31
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit122, label %45, !llvm.loop !93
+  br i1 %exitcond.not, label %.loopexit122, label %45, !llvm.loop !91
 
 .loopexit122:                                     ; preds = %45, %34
   %.0102 = phi nsz float [ %36, %34 ], [ 1.250000e-01, %45 ]
@@ -1303,7 +1303,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   store float %67, ptr %60, align 4, !tbaa !31
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 10
-  br i1 %exitcond141.not, label %68, label %59, !llvm.loop !94
+  br i1 %exitcond141.not, label %68, label %59, !llvm.loop !92
 
 68:                                               ; preds = %59
   %69 = getelementptr i8, ptr %1, i64 36
@@ -1329,7 +1329,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   store float %83, ptr %76, align 4, !tbaa !31
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, -1
   %84 = icmp samesign ugt i64 %indvars.iv142, 1
-  br i1 %84, label %74, label %85, !llvm.loop !95
+  br i1 %84, label %74, label %85, !llvm.loop !93
 
 85:                                               ; preds = %74
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1339,7 +1339,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
 
 88:                                               ; preds = %2
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i8 0, ptr %89, align 4, !tbaa !91
+  store i8 0, ptr %89, align 4, !tbaa !89
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %91
 
@@ -1347,7 +1347,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   %indvars.iv145 = phi i64 [ 0, %88 ], [ %indvars.iv.next146, %91 ]
   %.0103128 = phi float [ 0.000000e+00, %88 ], [ %111, %91 ]
   %92 = getelementptr inbounds nuw [5 x ptr], ptr @qcelp_lspvq, i64 0, i64 %indvars.iv145
-  %93 = load ptr, ptr %92, align 8, !tbaa !96
+  %93 = load ptr, ptr %92, align 8, !tbaa !94
   %94 = getelementptr inbounds nuw [10 x i8], ptr %90, i64 0, i64 %indvars.iv145
   %95 = load i8, ptr %94, align 1, !tbaa !28
   %96 = zext i8 %95 to i64
@@ -1372,7 +1372,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   store float %111, ptr %112, align 4, !tbaa !31
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 5
-  br i1 %exitcond148.not, label %113, label %91, !llvm.loop !97
+  br i1 %exitcond148.not, label %113, label %91, !llvm.loop !95
 
 113:                                              ; preds = %91
   %114 = icmp eq i32 %4, 2
@@ -1390,7 +1390,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
 121:                                              ; preds = %.preheader
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 10
-  br i1 %exitcond156.not, label %.loopexit, label %.preheader, !llvm.loop !98
+  br i1 %exitcond156.not, label %.loopexit, label %.preheader, !llvm.loop !96
 
 .preheader:                                       ; preds = %118, %121
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %121 ], [ 3, %118 ]
@@ -1413,7 +1413,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
 133:                                              ; preds = %.preheader119
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 10
-  br i1 %exitcond152.not, label %.loopexit, label %.preheader119, !llvm.loop !99
+  br i1 %exitcond152.not, label %.loopexit, label %.preheader119, !llvm.loop !97
 
 .preheader119:                                    ; preds = %130, %133
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %133 ], [ 4, %130 ]
@@ -1487,7 +1487,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   store i8 %32, ptr %33, align 1, !tbaa !28
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next97, 4
-  br i1 %exitcond99.not, label %.loopexit, label %18, !llvm.loop !100
+  br i1 %exitcond99.not, label %.loopexit, label %18, !llvm.loop !98
 
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 107
@@ -1517,7 +1517,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   store float %.0., ptr %47, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %50, label %46, !llvm.loop !101
+  br i1 %exitcond.not, label %50, label %46, !llvm.loop !99
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1580,7 +1580,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   store float %82, ptr %.14048.i, align 4, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.loopexit.i, label %71, !llvm.loop !102
+  br i1 %exitcond.not.i, label %.loopexit.i, label %71, !llvm.loop !100
 
 83:                                               ; preds = %68
   %84 = load float, ptr %.04247.i, align 4, !tbaa !31
@@ -1597,7 +1597,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   %90 = getelementptr inbounds nuw i8, ptr %.14048.i, i64 4
   %.1.add.i = add nuw nsw i64 %.1.idx49.i, 4
   %91 = icmp samesign ult i64 %.1.idx49.i, 156
-  br i1 %91, label %68, label %.loopexit45.i, !llvm.loop !103
+  br i1 %91, label %68, label %.loopexit45.i, !llvm.loop !101
 
 92:                                               ; preds = %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %.03952.i, ptr noundef nonnull align 4 dereferenceable(160) %.053.i, i64 160, i1 false)
@@ -1609,7 +1609,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   %.2.i = getelementptr i8, ptr %.053.i, i64 160
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 4
-  br i1 %exitcond58.not.i, label %do_pitchfilter.exit, label %56, !llvm.loop !104
+  br i1 %exitcond58.not.i, label %do_pitchfilter.exit, label %56, !llvm.loop !102
 
 do_pitchfilter.exit:                              ; preds = %.loopexit45.i
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1627,7 +1627,7 @@ do_pitchfilter.exit:                              ; preds = %.loopexit45.i
   store float %101, ptr %97, align 4, !tbaa !31
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 4
-  br i1 %exitcond103.not, label %102, label %96, !llvm.loop !105
+  br i1 %exitcond103.not, label %102, label %96, !llvm.loop !103
 
 102:                                              ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1976
@@ -1682,7 +1682,7 @@ do_pitchfilter.exit:                              ; preds = %.loopexit45.i
   store float %130, ptr %.14048.i73, align 4, !tbaa !31
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, 4
-  br i1 %exitcond.not.i79, label %.loopexit.i80, label %119, !llvm.loop !102
+  br i1 %exitcond.not.i79, label %.loopexit.i80, label %119, !llvm.loop !100
 
 131:                                              ; preds = %116
   %132 = load float, ptr %.04247.i74, align 4, !tbaa !31
@@ -1699,7 +1699,7 @@ do_pitchfilter.exit:                              ; preds = %.loopexit45.i
   %138 = getelementptr inbounds nuw i8, ptr %.14048.i73, i64 4
   %.1.add.i81 = add nuw nsw i64 %.1.idx49.i72, 4
   %139 = icmp samesign ult i64 %.1.idx49.i72, 156
-  br i1 %139, label %116, label %.loopexit45.i66, !llvm.loop !103
+  br i1 %139, label %116, label %.loopexit45.i66, !llvm.loop !101
 
 140:                                              ; preds = %104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %.03952.i65, ptr noundef nonnull align 4 dereferenceable(160) %.053.i64, i64 160, i1 false)
@@ -1711,7 +1711,7 @@ do_pitchfilter.exit:                              ; preds = %.loopexit45.i
   %.2.i68 = getelementptr i8, ptr %.053.i64, i64 160
   %indvars.iv.next56.i69 = add nuw nsw i64 %indvars.iv55.i63, 1
   %exitcond58.not.i70 = icmp eq i64 %indvars.iv.next56.i69, 4
-  br i1 %exitcond58.not.i70, label %do_pitchfilter.exit82, label %104, !llvm.loop !104
+  br i1 %exitcond58.not.i70, label %do_pitchfilter.exit82, label %104, !llvm.loop !102
 
 do_pitchfilter.exit82:                            ; preds = %.loopexit45.i66
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 1404
@@ -1728,7 +1728,7 @@ do_pitchfilter.exit82:                            ; preds = %.loopexit45.i66
   tail call void @ff_scale_vector_to_given_sum_of_squares(ptr noundef %147, ptr noundef nonnull %148, float noundef %146, i32 noundef 40) #9
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 40
   %149 = icmp samesign ult i64 %indvars.iv.i83, 120
-  br i1 %149, label %144, label %apply_gain_ctrl.exit, !llvm.loop !106
+  br i1 %149, label %144, label %apply_gain_ctrl.exit, !llvm.loop !104
 
 150:                                              ; preds = %9, %7
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1885,10 +1885,10 @@ attributes #9 = { nounwind }
 !72 = distinct !{!72, !33}
 !73 = distinct !{!73, !33}
 !74 = !{!44, !10, i64 4028}
-!75 = distinct !{!75, !33, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !33}
+!76 = !{!44, !16, i64 4016}
 !77 = distinct !{!77, !33}
-!78 = !{!44, !16, i64 4016}
+!78 = distinct !{!78, !33}
 !79 = distinct !{!79, !33}
 !80 = distinct !{!80, !33}
 !81 = distinct !{!81, !33}
@@ -1899,14 +1899,14 @@ attributes #9 = { nounwind }
 !86 = distinct !{!86, !33}
 !87 = distinct !{!87, !33}
 !88 = distinct !{!88, !33}
-!89 = distinct !{!89, !33}
+!89 = !{!44, !8, i64 108}
 !90 = distinct !{!90, !33}
-!91 = !{!44, !8, i64 108}
+!91 = distinct !{!91, !33}
 !92 = distinct !{!92, !33}
 !93 = distinct !{!93, !33}
-!94 = distinct !{!94, !33}
+!94 = !{!17, !17, i64 0}
 !95 = distinct !{!95, !33}
-!96 = !{!17, !17, i64 0}
+!96 = distinct !{!96, !33}
 !97 = distinct !{!97, !33}
 !98 = distinct !{!98, !33}
 !99 = distinct !{!99, !33}
@@ -1915,5 +1915,3 @@ attributes #9 = { nounwind }
 !102 = distinct !{!102, !33}
 !103 = distinct !{!103, !33}
 !104 = distinct !{!104, !33}
-!105 = distinct !{!105, !33}
-!106 = distinct !{!106, !33}

@@ -140151,7 +140151,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_WF_Guess
 12:                                               ; preds = %25, %26, %lean_array_uget.exit.thread.us, %lean_dec.exit.us
   %13 = add i64 %.01536.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %lean_dec.exit._crit_edge, label %.lr.ph.split.us
 
 lean_array_uget.exit.thread.us:                   ; preds = %.lr.ph.split.us
   %14 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %0, ptr noundef %9) #8
@@ -142386,7 +142386,7 @@ lean_dec.exit44:                                  ; preds = %66, %65, %63, %lean
 .thread:                                          ; preds = %lean_inc.exit41.thread74, %11
   %.val7173 = phi i32 [ %12, %11 ], [ %.val.pr75, %lean_inc.exit41.thread74 ]
   %67 = icmp sgt i32 %.val7173, 1
-  br i1 %67, label %68, label %70, !prof !23
+  br i1 %67, label %68, label %70, !prof !21
 
 68:                                               ; preds = %.thread
   %69 = add nsw i32 %.val7173, -1
@@ -208670,6 +208670,4 @@ attributes #9 = { noreturn nounwind }
 !18 = !{!"short", !6, i64 0}
 !19 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = !{!"branch_weights", !"expected", i32 2146812832, i32 670816}
+!21 = !{!"branch_weights", !"expected", i32 2146812832, i32 670816}

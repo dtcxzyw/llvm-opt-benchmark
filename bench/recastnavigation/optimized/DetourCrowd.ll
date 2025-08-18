@@ -1864,7 +1864,7 @@ _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit.thread: ; preds 
 _ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i.us: ; preds = %51, %46, %43, %43, %.lr.ph.i383.us
   %indvars.iv.next.i386.us = add nuw nsw i64 %indvars.iv.i384.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i386.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %.preheader.i, label %.lr.ph.i383.us, !llvm.loop !18
+  br i1 %exitcond.not.i.us, label %.preheader.i, label %.lr.ph.i383.us, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %_ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i, %_ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i.us
   br i1 %.not.i.i, label %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit, label %.lr.ph32.i
@@ -1945,7 +1945,7 @@ _ZL13addToOptQueueP12dtCrowdAgentPS0_ii.exit.i.thread: ; preds = %51, %.loopexit
   store float 0.000000e+00, ptr %61, align 4
   %92 = add nuw nsw i32 %.02231.i, 1
   %exitcond34.not.i = icmp eq i32 %92, %.1.i385438441
-  br i1 %exitcond34.not.i, label %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit, label %86, !llvm.loop !20
+  br i1 %exitcond34.not.i, label %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit, label %86, !llvm.loop !18
 
 _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit: ; preds = %86, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1981,7 +1981,7 @@ _ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit: ; preds = %86, 
   tail call void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 dereferenceable(52) %103, i16 noundef zeroext %104, float noundef %106, float noundef %109, float noundef %110, float noundef %111)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph476, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.lr.ph476, label %.lr.ph, !llvm.loop !19
 
 .lr.ph478:                                        ; preds = %.loopexit
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 5064
@@ -2160,7 +2160,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
 226:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i395, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i395, label %.lr.ph.i.i, !llvm.loop !20
 
 .loopexit.split.loop.exit54.i.i:                  ; preds = %.lr.ph.i.i
   %227 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -2208,7 +2208,7 @@ _ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i:  ; preds = %243, %220, %199, %1
   %.1.i391 = phi i32 [ %.033.i, %181 ], [ %.033.i, %188 ], [ %.033.i, %199 ], [ %246, %243 ], [ %.033.i, %220 ]
   %indvars.iv.next.i392 = add nuw nsw i64 %indvars.iv.i390, 1
   %exitcond.not.i393 = icmp eq i64 %indvars.iv.next.i392, %wide.trip.count.i389
-  br i1 %exitcond.not.i393, label %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit, label %181, !llvm.loop !23
+  br i1 %exitcond.not.i393, label %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit, label %181, !llvm.loop !21
 
 _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit: ; preds = %_ZL12addNeighbourifP16dtCrowdNeighbourii.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2235,12 +2235,12 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   %260 = load i32, ptr %247, align 8
   %261 = sext i32 %260 to i64
   %262 = icmp slt i64 %indvars.iv.next538, %261
-  br i1 %262, label %.lr.ph474, label %.loopexit, !llvm.loop !24
+  br i1 %262, label %.lr.ph474, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph474, %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit.thread, %_ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityGrid.exit, %120
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %exitcond544.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count543
-  br i1 %exitcond544.not, label %.lr.ph478, label %120, !llvm.loop !25
+  br i1 %exitcond544.not, label %.lr.ph478, label %120, !llvm.loop !23
 
 .lr.ph480:                                        ; preds = %315
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2332,7 +2332,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
 315:                                              ; preds = %272, %272, %301, %291, %314, %312, %267
   %indvars.iv.next546 = add nuw nsw i64 %indvars.iv545, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next546, %wide.trip.count548
-  br i1 %exitcond549.not, label %.lr.ph480, label %267, !llvm.loop !26
+  br i1 %exitcond549.not, label %.lr.ph480, label %267, !llvm.loop !24
 
 .lr.ph491:                                        ; preds = %_ZL21overOffmeshConnectionPK12dtCrowdAgentf.exit.thread
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2458,7 +2458,7 @@ _ZL21overOffmeshConnectionPK12dtCrowdAgentf.exit: ; preds = %338
 _ZL21overOffmeshConnectionPK12dtCrowdAgentf.exit.thread: ; preds = %331, %338, %325, %322, %322, %_ZL21overOffmeshConnectionPK12dtCrowdAgentf.exit, %317, %372
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
-  br i1 %exitcond554.not, label %.lr.ph491, label %317, !llvm.loop !27
+  br i1 %exitcond554.not, label %.lr.ph491, label %317, !llvm.loop !25
 
 .lr.ph499:                                        ; preds = %588
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 856
@@ -2715,7 +2715,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %.1 = phi float [ %.0337485, %544 ], [ %567, %558 ]
   %indvars.iv.next556 = add nuw nsw i64 %indvars.iv555, 1
   %exitcond559.not = icmp eq i64 %indvars.iv.next556, %wide.trip.count558
-  br i1 %exitcond559.not, label %._crit_edge, label %544, !llvm.loop !28
+  br i1 %exitcond559.not, label %._crit_edge, label %544, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %568
   %569 = fcmp ogt float %.1, 0x3F1A36E2E0000000
@@ -2755,7 +2755,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 588:                                              ; preds = %408, %403, %._crit_edge.thread
   %indvars.iv.next561 = add nuw nsw i64 %indvars.iv560, 1
   %exitcond564.not = icmp eq i64 %indvars.iv.next561, %wide.trip.count563
-  br i1 %exitcond564.not, label %.lr.ph499, label %403, !llvm.loop !29
+  br i1 %exitcond564.not, label %.lr.ph499, label %403, !llvm.loop !27
 
 .lr.ph501.preheader:                              ; preds = %681
   %wide.trip.count579 = zext nneg i32 %.09.lcssa.i to i64
@@ -2820,7 +2820,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %623 = load i32, ptr %601, align 8
   %624 = sext i32 %623 to i64
   %625 = icmp slt i64 %indvars.iv.next566, %624
-  br i1 %625, label %611, label %.preheader452, !llvm.loop !30
+  br i1 %625, label %611, label %.preheader452, !llvm.loop !28
 
 626:                                              ; preds = %.lr.ph496, %648
   %627 = phi i32 [ %606, %.lr.ph496 ], [ %649, %648 ]
@@ -2856,7 +2856,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %650 = sext i32 %649 to i64
   %651 = icmp slt i64 %indvars.iv.next569, %650
-  br i1 %651, label %626, label %._crit_edge497, !llvm.loop !31
+  br i1 %651, label %626, label %._crit_edge497, !llvm.loop !29
 
 ._crit_edge497:                                   ; preds = %648, %.preheader452
   %652 = icmp eq i64 %12, %indvars.iv571
@@ -2904,7 +2904,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 681:                                              ; preds = %655, %671, %589
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next572, %wide.trip.count574
-  br i1 %exitcond575.not, label %.lr.ph501.preheader, label %589, !llvm.loop !32
+  br i1 %exitcond575.not, label %.lr.ph501.preheader, label %589, !llvm.loop !30
 
 .preheader450:                                    ; preds = %_ZL9integrateP12dtCrowdAgentf.exit, %_ZN7dtCrowd26updateTopologyOptimizationEPP12dtCrowdAgentif.exit.thread
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2989,7 +2989,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %731, %721, %.lr.ph501
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count579
-  br i1 %exitcond580.not, label %.preheader450, label %.lr.ph501, !llvm.loop !33
+  br i1 %exitcond580.not, label %.preheader450, label %.lr.ph501, !llvm.loop !31
 
 .preheader449:                                    ; preds = %.preheader449.backedge, %.preheader450
   %.0353513 = phi i32 [ 0, %.preheader450 ], [ %.0353513.be, %.preheader449.backedge ]
@@ -3116,7 +3116,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %731, %721, %.lr.ph5
   %.1349 = phi float [ %.0348502, %758 ], [ %802, %798 ]
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %807 = icmp samesign ult i64 %indvars.iv.next582, %757
-  br i1 %807, label %758, label %._crit_edge506, !llvm.loop !34
+  br i1 %807, label %758, label %._crit_edge506, !llvm.loop !32
 
 ._crit_edge506:                                   ; preds = %803
   %808 = fcmp ogt float %.1349, 0x3F1A36E2E0000000
@@ -3135,7 +3135,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %731, %721, %.lr.ph5
 ._crit_edge506.thread:                            ; preds = %744, %._crit_edge506, %809, %.lr.ph509
   %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
   %exitcond588.not = icmp eq i64 %indvars.iv.next585, %wide.trip.count587
-  br i1 %exitcond588.not, label %.lr.ph511, label %.lr.ph509, !llvm.loop !35
+  br i1 %exitcond588.not, label %.lr.ph511, label %.lr.ph509, !llvm.loop !33
 
 .lr.ph511:                                        ; preds = %._crit_edge506.thread, %834
   %indvars.iv589 = phi i64 [ %indvars.iv.next590, %834 ], [ 0, %._crit_edge506.thread ]
@@ -3170,7 +3170,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %731, %721, %.lr.ph5
 834:                                              ; preds = %.lr.ph511, %818
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %._crit_edge512, label %.lr.ph511, !llvm.loop !36
+  br i1 %exitcond593.not, label %._crit_edge512, label %.lr.ph511, !llvm.loop !34
 
 ._crit_edge512:                                   ; preds = %834
   %835 = add nuw nsw i32 %.0353513, 1
@@ -3179,7 +3179,7 @@ _ZL9integrateP12dtCrowdAgentf.exit:               ; preds = %731, %721, %.lr.ph5
 
 .preheader449.backedge:                           ; preds = %._crit_edge512, %._crit_edge512.thread
   %.0353513.be = phi i32 [ %835, %._crit_edge512 ], [ %836, %._crit_edge512.thread ]
-  br label %.preheader449, !llvm.loop !37
+  br label %.preheader449, !llvm.loop !35
 
 ._crit_edge512.thread:                            ; preds = %.preheader449
   %836 = add nuw nsw i32 %.0353513, 1
@@ -3248,7 +3248,7 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit409:     ; preds = %861, %864
 870:                                              ; preds = %843, %_ZNK14dtPathCorridor12getFirstPolyEv.exit409, %838
   %indvars.iv.next596 = add nuw nsw i64 %indvars.iv595, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count598
-  br i1 %exitcond599.not, label %.lr.ph517, label %838, !llvm.loop !38
+  br i1 %exitcond599.not, label %.lr.ph517, label %838, !llvm.loop !36
 
 871:                                              ; preds = %.lr.ph517, %950
   %indvars.iv600 = phi i64 [ 0, %.lr.ph517 ], [ %indvars.iv.next601, %950 ]
@@ -3365,7 +3365,7 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit409:     ; preds = %861, %864
 950:                                              ; preds = %871, %935, %891
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count603
-  br i1 %exitcond604.not, label %._crit_edge518, label %871, !llvm.loop !39
+  br i1 %exitcond604.not, label %._crit_edge518, label %871, !llvm.loop !37
 
 ._crit_edge518:                                   ; preds = %._crit_edge512.thread, %950
   ret void
@@ -3465,8 +3465,8 @@ attributes #18 = { noreturn nounwind }
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
@@ -3485,5 +3485,3 @@ attributes #18 = { noreturn nounwind }
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}

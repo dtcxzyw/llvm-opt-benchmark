@@ -3482,7 +3482,7 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
 38:                                               ; preds = %.split
   %39 = add nuw nsw i64 %41, 1
   %40 = icmp eq i64 %39, %29
-  br i1 %40, label %.loopexit, label %.split, !llvm.loop !80
+  br i1 %40, label %.loopexit, label %.split, !llvm.loop !78
 
 .split:                                           ; preds = %24, %38
   %41 = phi i64 [ %39, %38 ], [ 0, %24 ]
@@ -3655,7 +3655,7 @@ define internal i64 @sysfs_blk_trace_attr_show(ptr noundef readonly captures(non
   %40 = phi ptr [ %38, %31 ], [ %26, %24 ]
   %41 = add nuw nsw i64 %25, 1
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %43, label %24, !llvm.loop !81
+  br i1 %42, label %43, label %24, !llvm.loop !79
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %40, i64 1
@@ -3760,7 +3760,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
 29:                                               ; preds = %26
   %30 = load i8, ptr %27, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %26, label %.preheader, !llvm.loop !82
+  br i1 %31, label %26, label %.preheader, !llvm.loop !80
 
 .preheader:                                       ; preds = %29, %43
   %32 = phi i64 [ %44, %43 ], [ 0, %29 ]
@@ -3776,12 +3776,12 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   %40 = or i32 %39, %25
   %41 = and i64 %32, 4294967295
   %42 = icmp eq i64 %41, 16
-  br i1 %42, label %.thread10, label %24, !llvm.loop !82
+  br i1 %42, label %.thread10, label %24, !llvm.loop !80
 
 43:                                               ; preds = %.preheader
   %44 = add nuw nsw i64 %32, 1
   %45 = icmp eq i64 %44, 16
-  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !83
+  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !81
 
 .thread10:                                        ; preds = %38, %43
   call void @kfree(ptr noundef nonnull %20) #21
@@ -3857,7 +3857,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   store i64 %.sink, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i64 %82, ptr %84, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
   store volatile ptr %64, ptr %53, align 8
   call fastcc void @get_probe_ref()
   br label %.thread14
@@ -3947,7 +3947,7 @@ define internal noundef i64 @sysfs_blk_trace_attr_store(ptr noundef readonly cap
   store i64 %.sink34, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store i64 %125, ptr %127, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !84
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !82
   store volatile ptr %106, ptr %101, align 8
   call fastcc void @get_probe_ref()
   %128 = load ptr, ptr %101, align 8
@@ -4153,10 +4153,8 @@ attributes #26 = { nounwind allocsize(0) }
 !75 = !{!"llvm.loop.unroll.disable"}
 !76 = !{ptr @blk_log_action, ptr @blk_log_action_classic}
 !77 = distinct !{!77, !74, !75}
-!78 = distinct !{!78, !74, !75, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !74, !75}
+!78 = distinct !{!78, !74, !75}
+!79 = distinct !{!79, !74, !75}
+!80 = distinct !{!80, !75}
 !81 = distinct !{!81, !74, !75}
-!82 = distinct !{!82, !75}
-!83 = distinct !{!83, !74, !75}
-!84 = !{i64 2158968009}
+!82 = !{i64 2158968009}

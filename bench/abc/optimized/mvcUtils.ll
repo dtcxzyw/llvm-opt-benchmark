@@ -88,7 +88,7 @@ define void @Mvc_CoverSupport(ptr noundef readonly captures(none) %0, ptr nounde
   store i32 %31, ptr %15, align 4, !tbaa !3
   %.033.us45 = load ptr, ptr %.03342.us44, align 8, !tbaa !7
   %.not.us46 = icmp eq ptr %.033.us45, null
-  br i1 %.not.us46, label %._crit_edge, label %23, !llvm.loop !13
+  br i1 %.not.us46, label %._crit_edge, label %23, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %.03342 = phi ptr [ %.033, %.loopexit ], [ %.03340, %.preheader.preheader ]
@@ -105,12 +105,12 @@ define void @Mvc_CoverSupport(ptr noundef readonly captures(none) %0, ptr nounde
   store i32 %38, ptr %34, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %39 = icmp sgt i64 %indvars.iv, 0
-  br i1 %39, label %33, label %.loopexit, !llvm.loop !14
+  br i1 %39, label %33, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %33
   %.033 = load ptr, ptr %.03342, align 8, !tbaa !7
   %.not = icmp eq ptr %.033, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %23, %18, %.loopexit, %.loopexit37
   ret void
@@ -190,7 +190,7 @@ define void @Mvc_CoverSupportAnd(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %35, ptr %27, align 8, !tbaa !3
   %.038.us = load ptr, ptr %.03846.us, align 8, !tbaa !7
   %.not.us = icmp eq ptr %.038.us, null
-  br i1 %.not.us, label %._crit_edge, label %31, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge, label %31, !llvm.loop !13
 
 .lr.ph47.split.us48:                              ; preds = %.lr.ph47
   %.promoted52 = load i32, ptr %27, align 8, !tbaa !3
@@ -211,7 +211,7 @@ define void @Mvc_CoverSupportAnd(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %44, ptr %28, align 4, !tbaa !3
   %.038.us50 = load ptr, ptr %.03846.us49, align 8, !tbaa !7
   %.not.us51 = icmp eq ptr %.038.us50, null
-  br i1 %.not.us51, label %._crit_edge, label %36, !llvm.loop !17
+  br i1 %.not.us51, label %._crit_edge, label %36, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %.03846 = phi ptr [ %.038, %.loopexit ], [ %.03844, %.preheader.preheader ]
@@ -228,12 +228,12 @@ define void @Mvc_CoverSupportAnd(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %51, ptr %47, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %52 = icmp sgt i64 %indvars.iv, 0
-  br i1 %52, label %46, label %.loopexit, !llvm.loop !18
+  br i1 %52, label %46, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %46
   %.038 = load ptr, ptr %.03846, align 8, !tbaa !7
   %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %36, %31, %.loopexit, %.loopexit41
   ret void
@@ -244,7 +244,7 @@ define i32 @Mvc_CoverSupportSizeBinary(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @Mvc_CubeAlloc(ptr noundef %0) #6
   tail call void @Mvc_CoverSupportAnd(ptr noundef %0, ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !20
+  %4 = load i32, ptr %3, align 8, !tbaa !15
   %5 = sdiv i32 %4, 2
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -272,7 +272,7 @@ define i32 @Mvc_CoverSupportSizeBinary(ptr noundef %0) local_unnamed_addr #1 {
   %spec.select = add nsw i32 %.021, %20
   %21 = add nuw nsw i32 %.01920, 1
   %exitcond.not = icmp eq i32 %21, %5
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi i32 [ %5, %1 ], [ %spec.select, %8 ]
@@ -380,7 +380,7 @@ define void @Mvc_CoverCommonCube(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %35, ptr %27, align 8, !tbaa !3
   %.038.us = load ptr, ptr %.03846.us, align 8, !tbaa !7
   %.not.us = icmp eq ptr %.038.us, null
-  br i1 %.not.us, label %._crit_edge, label %31, !llvm.loop !27
+  br i1 %.not.us, label %._crit_edge, label %31, !llvm.loop !22
 
 .lr.ph47.split.us48:                              ; preds = %.lr.ph47
   %.promoted52 = load i32, ptr %27, align 8, !tbaa !3
@@ -401,7 +401,7 @@ define void @Mvc_CoverCommonCube(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %44, ptr %28, align 4, !tbaa !3
   %.038.us50 = load ptr, ptr %.03846.us49, align 8, !tbaa !7
   %.not.us51 = icmp eq ptr %.038.us50, null
-  br i1 %.not.us51, label %._crit_edge, label %36, !llvm.loop !28
+  br i1 %.not.us51, label %._crit_edge, label %36, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %.03846 = phi ptr [ %.038, %.loopexit ], [ %.03844, %.preheader.preheader ]
@@ -418,12 +418,12 @@ define void @Mvc_CoverCommonCube(ptr noundef readonly captures(none) %0, ptr nou
   store i32 %51, ptr %47, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %52 = icmp sgt i64 %indvars.iv, 0
-  br i1 %52, label %46, label %.loopexit, !llvm.loop !29
+  br i1 %52, label %46, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %46
   %.038 = load ptr, ptr %.03846, align 8, !tbaa !7
   %.not = icmp eq ptr %.038, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %36, %31, %.loopexit, %.loopexit41
   ret void
@@ -433,9 +433,9 @@ define void @Mvc_CoverCommonCube(ptr noundef readonly captures(none) %0, ptr nou
 define range(i32 0, 2) i32 @Mvc_CoverIsCubeFree(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @Mvc_CoverAllocateMask(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void @Mvc_CoverCommonCube(ptr noundef %0, ptr noundef %3)
-  %4 = load ptr, ptr %2, align 8, !tbaa !31
+  %4 = load ptr, ptr %2, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
@@ -470,7 +470,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsCubeFree(ptr noundef %0) local_unnamed_ad
   %22 = add nsw i32 %.015, -1
   %23 = icmp sgt i32 %.015, 0
   %or.cond = and i1 %.not, %23
-  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %or.cond, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %12, %15, %9
   %.013.shrunk = phi i1 [ %11, %9 ], [ false, %12 ], [ %18, %15 ], [ %.not, %.preheader ]
@@ -484,7 +484,7 @@ declare void @Mvc_CoverAllocateMask(ptr noundef) local_unnamed_addr #2
 define void @Mvc_CoverMakeCubeFree(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @Mvc_CoverAllocateMask(ptr noundef %0) #6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void @Mvc_CoverCommonCube(ptr noundef %0, ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02528 = load ptr, ptr %4, align 8, !tbaa !7
@@ -503,7 +503,7 @@ define void @Mvc_CoverMakeCubeFree(ptr noundef %0) local_unnamed_addr #1 {
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %9 = load ptr, ptr %2, align 8, !tbaa !31
+  %9 = load ptr, ptr %2, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = and i32 %6, 16777215
   %12 = zext nneg i32 %11 to i64
@@ -511,7 +511,7 @@ define void @Mvc_CoverMakeCubeFree(ptr noundef %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.lr.ph
   %14 = load i32, ptr %8, align 8, !tbaa !3
-  %15 = load ptr, ptr %2, align 8, !tbaa !31
+  %15 = load ptr, ptr %2, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = xor i32 %17, -1
@@ -521,7 +521,7 @@ define void @Mvc_CoverMakeCubeFree(ptr noundef %0) local_unnamed_addr #1 {
 
 20:                                               ; preds = %.lr.ph
   %21 = load i32, ptr %8, align 8, !tbaa !3
-  %22 = load ptr, ptr %2, align 8, !tbaa !31
+  %22 = load ptr, ptr %2, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !3
   %25 = xor i32 %24, -1
@@ -547,12 +547,12 @@ define void @Mvc_CoverMakeCubeFree(ptr noundef %0) local_unnamed_addr #1 {
   store i32 %39, ptr %34, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not32 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not32, label %.loopexit, label %33, !llvm.loop !33
+  br i1 %.not32, label %.loopexit, label %33, !llvm.loop !26
 
 .loopexit:                                        ; preds = %33, %13, %20
   %.025 = load ptr, ptr %.02530, align 8, !tbaa !7
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -564,28 +564,28 @@ define noundef ptr @Mvc_CoverCommonCubeCover(ptr noundef %0) local_unnamed_addr 
   %3 = tail call ptr @Mvc_CubeAlloc(ptr noundef %2) #6
   tail call void @Mvc_CoverCommonCube(ptr noundef %0, ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  store ptr %3, ptr %4, align 8, !tbaa !35
+  store ptr %3, ptr %4, align 8, !tbaa !28
   br label %11
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
-  store ptr %3, ptr %10, align 8, !tbaa !37
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %3, ptr %10, align 8, !tbaa !30
   br label %11
 
 11:                                               ; preds = %8, %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %3, ptr %12, align 8, !tbaa !36
-  store ptr null, ptr %3, align 8, !tbaa !37
+  store ptr %3, ptr %12, align 8, !tbaa !29
+  store ptr null, ptr %3, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !39
+  %14 = load i32, ptr %13, align 8, !tbaa !32
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 8, !tbaa !39
+  store i32 %15, ptr %13, align 8, !tbaa !32
   ret ptr %2
 }
 
@@ -595,7 +595,7 @@ declare ptr @Mvc_CoverClone(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @Mvc_CoverCheckSuppContainment(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @Mvc_CoverAllocateMask(ptr noundef %0) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
@@ -674,7 +674,7 @@ define range(i32 0, 2) i32 @Mvc_CoverCheckSuppContainment(ptr noundef %0, ptr no
   store i32 %31, ptr %16, align 4, !tbaa !3
   %.033.us45.i = load ptr, ptr %.03342.us44.i, align 8, !tbaa !7
   %.not.us46.i = icmp eq ptr %.033.us45.i, null
-  br i1 %.not.us46.i, label %Mvc_CoverSupport.exit, label %23, !llvm.loop !13
+  br i1 %.not.us46.i, label %Mvc_CoverSupport.exit, label %23, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.preheader.preheader.i
   %.03342.i = phi ptr [ %.033.i, %.loopexit.i ], [ %.03340.i, %.preheader.preheader.i ]
@@ -691,17 +691,17 @@ define range(i32 0, 2) i32 @Mvc_CoverCheckSuppContainment(ptr noundef %0, ptr no
   store i32 %38, ptr %34, align 4, !tbaa !3
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %39 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %39, label %33, label %.loopexit.i, !llvm.loop !14
+  br i1 %39, label %33, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %33
   %.033.i = load ptr, ptr %.03342.i, align 8, !tbaa !7
   %.not.i = icmp eq ptr %.033.i, null
-  br i1 %.not.i, label %Mvc_CoverSupport.exit, label %.preheader.i, !llvm.loop !15
+  br i1 %.not.i, label %Mvc_CoverSupport.exit, label %.preheader.i, !llvm.loop !10
 
 Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit.i, %.loopexit37.i
   tail call void @Mvc_CoverAllocateMask(ptr noundef %1) #6
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  %41 = load ptr, ptr %40, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 16777215
@@ -780,7 +780,7 @@ Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit
   store i32 %68, ptr %53, align 4, !tbaa !3
   %.033.us45.i33 = load ptr, ptr %.03342.us44.i32, align 8, !tbaa !7
   %.not.us46.i34 = icmp eq ptr %.033.us45.i33, null
-  br i1 %.not.us46.i34, label %Mvc_CoverSupport.exit50.thread61, label %60, !llvm.loop !13
+  br i1 %.not.us46.i34, label %Mvc_CoverSupport.exit50.thread61, label %60, !llvm.loop !10
 
 .preheader.i41:                                   ; preds = %.loopexit.i45, %.preheader.preheader.i40
   %.03342.i42 = phi ptr [ %.033.i46, %.loopexit.i45 ], [ %.03340.i26, %.preheader.preheader.i40 ]
@@ -797,12 +797,12 @@ Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit
   store i32 %75, ptr %71, align 4, !tbaa !3
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i43, -1
   %76 = icmp sgt i64 %indvars.iv.i43, 0
-  br i1 %76, label %70, label %.loopexit.i45, !llvm.loop !14
+  br i1 %76, label %70, label %.loopexit.i45, !llvm.loop !12
 
 .loopexit.i45:                                    ; preds = %70
   %.033.i46 = load ptr, ptr %.03342.i42, align 8, !tbaa !7
   %.not.i47 = icmp eq ptr %.033.i46, null
-  br i1 %.not.i47, label %Mvc_CoverSupport.exit50, label %.preheader.i41, !llvm.loop !15
+  br i1 %.not.i47, label %Mvc_CoverSupport.exit50, label %.preheader.i41, !llvm.loop !10
 
 Mvc_CoverSupport.exit50:                          ; preds = %.loopexit.i45, %.loopexit37.i25
   switch i32 %44, label %.preheader [
@@ -811,13 +811,13 @@ Mvc_CoverSupport.exit50:                          ; preds = %.loopexit.i45, %.lo
   ]
 
 .preheader:                                       ; preds = %Mvc_CoverSupport.exit50
-  %77 = load ptr, ptr %3, align 8, !tbaa !31
+  %77 = load ptr, ptr %3, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   br label %99
 
 Mvc_CoverSupport.exit50.thread:                   ; preds = %55, %Mvc_CoverSupport.exit50
   %79 = load i32, ptr %45, align 8, !tbaa !3
-  %80 = load ptr, ptr %3, align 8, !tbaa !31
+  %80 = load ptr, ptr %3, align 8, !tbaa !24
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !3
   %83 = xor i32 %82, -1
@@ -827,7 +827,7 @@ Mvc_CoverSupport.exit50.thread:                   ; preds = %55, %Mvc_CoverSuppo
 
 Mvc_CoverSupport.exit50.thread61:                 ; preds = %60, %Mvc_CoverSupport.exit50
   %86 = load i32, ptr %45, align 8, !tbaa !3
-  %87 = load ptr, ptr %3, align 8, !tbaa !31
+  %87 = load ptr, ptr %3, align 8, !tbaa !24
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8, !tbaa !3
   %90 = xor i32 %89, -1
@@ -858,7 +858,7 @@ Mvc_CoverSupport.exit50.thread61:                 ; preds = %60, %Mvc_CoverSuppo
   %107 = add nsw i32 %.056, -1
   %108 = icmp sgt i32 %.056, 0
   %or.cond = and i1 %.not, %108
-  br i1 %or.cond, label %99, label %.loopexit, !llvm.loop !40
+  br i1 %or.cond, label %99, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %99, %Mvc_CoverSupport.exit50.thread61, %92, %Mvc_CoverSupport.exit50.thread
   %.021 = phi i1 [ %85, %Mvc_CoverSupport.exit50.thread ], [ false, %Mvc_CoverSupport.exit50.thread61 ], [ %.not51, %92 ], [ %.not, %99 ]
@@ -874,7 +874,7 @@ define noundef i32 @Mvc_CoverSetCubeSizes(ptr noundef readonly captures(none) %0
   br i1 %.not19, label %._crit_edge23, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !41
+  %3 = load i32, ptr %0, align 8, !tbaa !34
   %4 = shl i32 %3, 2
   %5 = sext i32 %4 to i64
   %6 = icmp sgt i32 %4, 0
@@ -889,22 +889,22 @@ define noundef i32 @Mvc_CoverSetCubeSizes(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.017 = phi i32 [ %14, %.lr.ph ], [ 0, %7 ]
   %.01516 = phi ptr [ %15, %.lr.ph ], [ %8, %7 ]
-  %10 = load i8, ptr %.01516, align 1, !tbaa !42
+  %10 = load i8, ptr %.01516, align 1, !tbaa !35
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = add nsw i32 %13, %.017
   %15 = getelementptr inbounds nuw i8, ptr %.01516, i64 1
   %16 = icmp ult ptr %15, %9
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ 0, %7 ], [ %14, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %.01420, i64 12
-  store i32 %.0.lcssa, ptr %17, align 4, !tbaa !44
+  store i32 %.0.lcssa, ptr %17, align 4, !tbaa !37
   %.014 = load ptr, ptr %.01420, align 8, !tbaa !7
   %.not = icmp eq ptr %.014, null
-  br i1 %.not, label %._crit_edge23, label %7, !llvm.loop !45
+  br i1 %.not, label %._crit_edge23, label %7, !llvm.loop !38
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %1
   ret i32 1
@@ -919,7 +919,7 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   br i1 %.not60, label %._crit_edge, label %.preheader48.lr.ph
 
 .preheader48.lr.ph:                               ; preds = %2
-  %5 = load i32, ptr %0, align 8, !tbaa !41
+  %5 = load i32, ptr %0, align 8, !tbaa !34
   %.fr = freeze i32 %5
   %6 = shl i32 %.fr, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -932,14 +932,14 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 .preheader48.us:                                  ; preds = %.preheader48.lr.ph, %.loopexit49.us
   %.04362.us = phi ptr [ %.043.us.pre, %.loopexit49.us ], [ %.04359, %.preheader48.lr.ph ]
   %.04161.us = phi i64 [ %indvars.iv.next75, %.loopexit49.us ], [ 0, %.preheader48.lr.ph ]
-  %.04453.us = load ptr, ptr %.04362.us, align 8, !tbaa !37
+  %.04453.us = load ptr, ptr %.04362.us, align 8, !tbaa !30
   %.not4754.us = icmp eq ptr %.04453.us, null
   br i1 %.not4754.us, label %._crit_edge, label %.lr.ph57.us
 
 .loopexit49.us:                                   ; preds = %._crit_edge.us.us
   %.043.us.pre = load ptr, ptr %.04362.us, align 8, !tbaa !7
   %.not.us = icmp eq ptr %.043.us.pre, null
-  br i1 %.not.us, label %._crit_edge, label %.preheader48.us, !llvm.loop !46
+  br i1 %.not.us, label %._crit_edge, label %.preheader48.us, !llvm.loop !39
 
 .lr.ph57.us:                                      ; preds = %.preheader48.us
   %12 = getelementptr inbounds nuw i8, ptr %.04362.us, i64 8
@@ -986,14 +986,14 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %.04252.us.us = phi i32 [ %37, %.lr.ph.us.us ], [ 0, %.lr.ph.us.us.preheader ]
   %.04551.us.us = phi ptr [ %38, %.lr.ph.us.us ], [ %7, %.lr.ph.us.us.preheader ]
-  %33 = load i8, ptr %.04551.us.us, align 1, !tbaa !42
+  %33 = load i8, ptr %.04551.us.us, align 1, !tbaa !35
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i32], ptr @bit_count, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = add nsw i32 %36, %.04252.us.us
   %38 = getelementptr inbounds nuw i8, ptr %.04551.us.us, i64 1
   %39 = icmp ult ptr %38, %10
-  br i1 %39, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !47
+  br i1 %39, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !40
 
 40:                                               ; preds = %.preheader.us.us, %40
   %indvars.iv71 = phi i64 [ %49, %.preheader.us.us ], [ %indvars.iv.next72, %40 ]
@@ -1006,7 +1006,7 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   store i32 %45, ptr %46, align 4, !tbaa !3
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
   %.not88 = icmp eq i64 %indvars.iv71, 0
-  br i1 %.not88, label %.lr.ph.us.us.preheader, label %40, !llvm.loop !48
+  br i1 %.not88, label %.lr.ph.us.us.preheader, label %40, !llvm.loop !41
 
 .preheader.us.us:                                 ; preds = %16
   %47 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 16
@@ -1018,20 +1018,20 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   %50 = trunc i32 %37 to i8
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %51 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv74
-  store i8 %50, ptr %51, align 1, !tbaa !42
-  %.044.us.us = load ptr, ptr %.04456.us.us, align 8, !tbaa !37
+  store i8 %50, ptr %51, align 1, !tbaa !35
+  %.044.us.us = load ptr, ptr %.04456.us.us, align 8, !tbaa !30
   %.not47.us.us = icmp eq ptr %.044.us.us, null
-  br i1 %.not47.us.us, label %.loopexit49.us, label %16, !llvm.loop !49
+  br i1 %.not47.us.us, label %.loopexit49.us, label %16, !llvm.loop !42
 
 .loopexit49:                                      ; preds = %.loopexit
   %.043.pre = load ptr, ptr %.04362, align 8, !tbaa !7
   %.not = icmp eq ptr %.043.pre, null
-  br i1 %.not, label %._crit_edge, label %.preheader48, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.preheader48, !llvm.loop !39
 
 .preheader48:                                     ; preds = %.preheader48.lr.ph, %.loopexit49
   %.04362 = phi ptr [ %.043.pre, %.loopexit49 ], [ %.04359, %.preheader48.lr.ph ]
   %.04161 = phi i64 [ %indvars.iv.next69, %.loopexit49 ], [ 0, %.preheader48.lr.ph ]
-  %.04453 = load ptr, ptr %.04362, align 8, !tbaa !37
+  %.04453 = load ptr, ptr %.04362, align 8, !tbaa !30
   %.not4754 = icmp eq ptr %.04453, null
   br i1 %.not4754, label %._crit_edge, label %.lr.ph57
 
@@ -1091,15 +1091,15 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
   store i32 %81, ptr %82, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not86 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not86, label %.loopexit, label %76, !llvm.loop !48
+  br i1 %.not86, label %.loopexit, label %76, !llvm.loop !41
 
 .loopexit:                                        ; preds = %76, %67, %62
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %83 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv68
-  store i8 0, ptr %83, align 1, !tbaa !42
-  %.044 = load ptr, ptr %.04456, align 8, !tbaa !37
+  store i8 0, ptr %83, align 1, !tbaa !35
+  %.044 = load ptr, ptr %.04456, align 8, !tbaa !30
   %.not47 = icmp eq ptr %.044, null
-  br i1 %.not47, label %.loopexit49, label %56, !llvm.loop !51
+  br i1 %.not47, label %.loopexit49, label %56, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit49, %.preheader48, %.preheader48.us, %.loopexit49.us, %2
   tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef %3) #6
@@ -1109,7 +1109,7 @@ define noundef i32 @Mvc_CoverCountCubePairDiffs(ptr noundef %0, ptr noundef writ
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverRemap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @Mvc_CoverAlloc(ptr noundef %5, i32 noundef %2) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.046 = load ptr, ptr %7, align 8, !tbaa !7
@@ -1174,28 +1174,28 @@ define ptr @Mvc_CoverRemap(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %22, %17
-  %37 = load ptr, ptr %8, align 8, !tbaa !35
+  %37 = load ptr, ptr %8, align 8, !tbaa !28
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.loopexit
-  store ptr %13, ptr %8, align 8, !tbaa !35
+  store ptr %13, ptr %8, align 8, !tbaa !28
   br label %42
 
 40:                                               ; preds = %.loopexit
-  %41 = load ptr, ptr %9, align 8, !tbaa !36
-  store ptr %13, ptr %41, align 8, !tbaa !37
+  %41 = load ptr, ptr %9, align 8, !tbaa !29
+  store ptr %13, ptr %41, align 8, !tbaa !30
   br label %42
 
 42:                                               ; preds = %40, %39
-  store ptr %13, ptr %9, align 8, !tbaa !36
-  store ptr null, ptr %13, align 8, !tbaa !37
-  %43 = load i32, ptr %10, align 8, !tbaa !39
+  store ptr %13, ptr %9, align 8, !tbaa !29
+  store ptr null, ptr %13, align 8, !tbaa !30
+  %43 = load i32, ptr %10, align 8, !tbaa !32
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %10, align 8, !tbaa !39
+  store i32 %44, ptr %10, align 8, !tbaa !32
   %.0 = load ptr, ptr %.048, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %12, !llvm.loop !53
+  br i1 %.not, label %.preheader, label %12, !llvm.loop !44
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %Mvc_CoverCopyColumn.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next, %Mvc_CoverCopyColumn.exit ]
@@ -1238,15 +1238,15 @@ define ptr @Mvc_CoverRemap(ptr noundef readonly captures(none) %0, ptr noundef r
   %69 = or i32 %67, %57
   %.sink.i = select i1 %.not18.i, i32 %68, i32 %69
   store i32 %.sink.i, ptr %66, align 4, !tbaa !3
-  %70 = load ptr, ptr %.01721.i, align 8, !tbaa !37
+  %70 = load ptr, ptr %.01721.i, align 8, !tbaa !30
   %.0.i = load ptr, ptr %.022.i, align 8, !tbaa !7
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %Mvc_CoverCopyColumn.exit, label %60, !llvm.loop !54
+  br i1 %.not.i, label %Mvc_CoverCopyColumn.exit, label %60, !llvm.loop !45
 
 Mvc_CoverCopyColumn.exit:                         ; preds = %60, %48, %.lr.ph51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %Mvc_CoverCopyColumn.exit, %.preheader
   ret ptr %6
@@ -1317,12 +1317,12 @@ define void @Mvc_CoverInverse(ptr noundef readonly captures(none) %0) local_unna
   %35 = xor i32 %34, -1
   store i32 %35, ptr %33, align 4, !tbaa !3
   %36 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !56
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %13
   %.017 = load ptr, ptr %.01722, align 8, !tbaa !7
   %.not = icmp eq ptr %.017, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph23, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -1341,7 +1341,7 @@ define ptr @Mvc_CoverRemoveDontCareLits(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @Mvc_CubeBitRemoveDcs(ptr noundef nonnull %.08) #6
   %.0 = load ptr, ptr %.08, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %2
@@ -1384,25 +1384,25 @@ define ptr @Mvc_CoverCofactor(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 
 22:                                               ; preds = %17
   %23 = tail call ptr @Mvc_CubeDup(ptr noundef %4, ptr noundef nonnull %.025) #6
-  %24 = load ptr, ptr %10, align 8, !tbaa !35
+  %24 = load ptr, ptr %10, align 8, !tbaa !28
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  store ptr %23, ptr %10, align 8, !tbaa !35
+  store ptr %23, ptr %10, align 8, !tbaa !28
   br label %29
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr %11, align 8, !tbaa !36
-  store ptr %23, ptr %28, align 8, !tbaa !37
+  %28 = load ptr, ptr %11, align 8, !tbaa !29
+  store ptr %23, ptr %28, align 8, !tbaa !30
   br label %29
 
 29:                                               ; preds = %27, %26
-  store ptr %23, ptr %11, align 8, !tbaa !36
-  store ptr null, ptr %23, align 8, !tbaa !37
-  %30 = load i32, ptr %12, align 8, !tbaa !39
+  store ptr %23, ptr %11, align 8, !tbaa !29
+  store ptr null, ptr %23, align 8, !tbaa !30
+  %30 = load i32, ptr %12, align 8, !tbaa !32
   %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %12, align 8, !tbaa !39
+  store i32 %31, ptr %12, align 8, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %33 = getelementptr inbounds [1 x i32], ptr %32, i64 0, i64 %16
   %34 = load i32, ptr %33, align 4, !tbaa !3
@@ -1413,7 +1413,7 @@ define ptr @Mvc_CoverCofactor(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 36:                                               ; preds = %17, %29
   %.0 = load ptr, ptr %.025, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %36, %3
   ret ptr %4
@@ -1448,25 +1448,25 @@ define ptr @Mvc_CoverFlipVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 19:                                               ; preds = %.lr.ph, %43
   %.044 = phi ptr [ %.042, %.lr.ph ], [ %.0, %43 ]
   %20 = tail call ptr @Mvc_CubeDup(ptr noundef %4, ptr noundef nonnull %.044) #6
-  %21 = load ptr, ptr %6, align 8, !tbaa !35
+  %21 = load ptr, ptr %6, align 8, !tbaa !28
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  store ptr %20, ptr %6, align 8, !tbaa !35
+  store ptr %20, ptr %6, align 8, !tbaa !28
   br label %26
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %7, align 8, !tbaa !36
-  store ptr %20, ptr %25, align 8, !tbaa !37
+  %25 = load ptr, ptr %7, align 8, !tbaa !29
+  store ptr %20, ptr %25, align 8, !tbaa !30
   br label %26
 
 26:                                               ; preds = %24, %23
-  store ptr %20, ptr %7, align 8, !tbaa !36
-  store ptr null, ptr %20, align 8, !tbaa !37
-  %27 = load i32, ptr %8, align 8, !tbaa !39
+  store ptr %20, ptr %7, align 8, !tbaa !29
+  store ptr null, ptr %20, align 8, !tbaa !30
+  %27 = load i32, ptr %8, align 8, !tbaa !32
   %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %8, align 8, !tbaa !39
+  store i32 %28, ptr %8, align 8, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %30 = getelementptr inbounds [1 x i32], ptr %29, i64 0, i64 %10
   %31 = load i32, ptr %30, align 4, !tbaa !3
@@ -1494,7 +1494,7 @@ define ptr @Mvc_CoverFlipVar(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 43:                                               ; preds = %.sink.split, %26
   %.0 = load ptr, ptr %.044, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %43, %3
   ret ptr %4
@@ -1558,25 +1558,25 @@ define ptr @Mvc_CoverUnivQuantify(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 49:                                               ; preds = %29
   %50 = tail call ptr @Mvc_CubeDup(ptr noundef %6, ptr noundef nonnull %.062) #6
-  %51 = load ptr, ptr %24, align 8, !tbaa !35
+  %51 = load ptr, ptr %24, align 8, !tbaa !28
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49
-  store ptr %50, ptr %24, align 8, !tbaa !35
+  store ptr %50, ptr %24, align 8, !tbaa !28
   br label %56
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr %25, align 8, !tbaa !36
-  store ptr %50, ptr %55, align 8, !tbaa !37
+  %55 = load ptr, ptr %25, align 8, !tbaa !29
+  store ptr %50, ptr %55, align 8, !tbaa !30
   br label %56
 
 56:                                               ; preds = %54, %53
-  store ptr %50, ptr %25, align 8, !tbaa !36
-  store ptr null, ptr %50, align 8, !tbaa !37
-  %57 = load i32, ptr %26, align 8, !tbaa !39
+  store ptr %50, ptr %25, align 8, !tbaa !29
+  store ptr null, ptr %50, align 8, !tbaa !30
+  %57 = load i32, ptr %26, align 8, !tbaa !32
   %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %26, align 8, !tbaa !39
+  store i32 %58, ptr %26, align 8, !tbaa !32
   %or.cond = and i1 %34, %42
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %60 = getelementptr inbounds [1 x i32], ptr %59, i64 0, i64 %9
@@ -1607,7 +1607,7 @@ define ptr @Mvc_CoverUnivQuantify(ptr noundef %0, i32 noundef %1, i32 noundef %2
 76:                                               ; preds = %29, %56
   %.0 = load ptr, ptr %.062, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %76, %5
   ret ptr %6
@@ -1616,11 +1616,11 @@ define ptr @Mvc_CoverUnivQuantify(ptr noundef %0, i32 noundef %1, i32 noundef %2
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverTranspose(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #6
   %5 = tail call ptr @Mvc_CoverAlloc(ptr noundef %3, i32 noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph50, label %._crit_edge51
 
@@ -1699,32 +1699,32 @@ define ptr @Mvc_CoverTranspose(ptr noundef %0) local_unnamed_addr #1 {
   %44 = add nuw nsw i32 %.03946, 1
   %.0 = load ptr, ptr %.047, align 8, !tbaa !7
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %43, %.loopexit
-  %45 = load ptr, ptr %10, align 8, !tbaa !35
+  %45 = load ptr, ptr %10, align 8, !tbaa !28
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %._crit_edge
-  store ptr %16, ptr %10, align 8, !tbaa !35
+  store ptr %16, ptr %10, align 8, !tbaa !28
   br label %50
 
 48:                                               ; preds = %._crit_edge
-  %49 = load ptr, ptr %11, align 8, !tbaa !36
-  store ptr %16, ptr %49, align 8, !tbaa !37
+  %49 = load ptr, ptr %11, align 8, !tbaa !29
+  store ptr %16, ptr %49, align 8, !tbaa !30
   br label %50
 
 50:                                               ; preds = %48, %47
-  store ptr %16, ptr %11, align 8, !tbaa !36
-  store ptr null, ptr %16, align 8, !tbaa !37
-  %51 = load i32, ptr %12, align 8, !tbaa !39
+  store ptr %16, ptr %11, align 8, !tbaa !29
+  store ptr null, ptr %16, align 8, !tbaa !30
+  %51 = load i32, ptr %12, align 8, !tbaa !32
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %12, align 8, !tbaa !39
+  store i32 %52, ptr %12, align 8, !tbaa !32
   %53 = add nuw nsw i32 %.04048, 1
-  %54 = load i32, ptr %6, align 8, !tbaa !20
+  %54 = load i32, ptr %6, align 8, !tbaa !15
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %13, label %._crit_edge51, !llvm.loop !63
+  br i1 %55, label %13, label %._crit_edge51, !llvm.loop !54
 
 ._crit_edge51:                                    ; preds = %50, %1
   ret ptr %5
@@ -1773,7 +1773,7 @@ define noundef i32 @Mvc_UtilsCheckUnusedZeros(ptr noundef %0) local_unnamed_addr
   %.1 = phi i32 [ %.015, %.lr.ph ], [ %20, %19 ]
   %.010 = load ptr, ptr %.01016, align 8, !tbaa !7
   %.not = icmp eq ptr %.010, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %21, %1
   ret i32 1
@@ -1807,58 +1807,49 @@ attributes #6 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 _ZTS13MvcCubeStruct", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = !{!21, !4, i64 8}
-!21 = !{!"MvcCoverStruct", !4, i64 0, !4, i64 4, !4, i64 8, !22, i64 16, !23, i64 40, !4, i64 48, !24, i64 56, !8, i64 64, !25, i64 72}
-!22 = !{!"MvcListStruct", !8, i64 0, !8, i64 8, !4, i64 16}
-!23 = !{!"p2 _ZTS13MvcCubeStruct", !9, i64 0}
-!24 = !{!"p1 int", !9, i64 0}
-!25 = !{!"p1 _ZTS16MvcManagerStruct", !9, i64 0}
+!15 = !{!16, !4, i64 8}
+!16 = !{!"MvcCoverStruct", !4, i64 0, !4, i64 4, !4, i64 8, !17, i64 16, !18, i64 40, !4, i64 48, !19, i64 56, !8, i64 64, !20, i64 72}
+!17 = !{!"MvcListStruct", !8, i64 0, !8, i64 8, !4, i64 16}
+!18 = !{!"p2 _ZTS13MvcCubeStruct", !9, i64 0}
+!19 = !{!"p1 int", !9, i64 0}
+!20 = !{!"p1 _ZTS16MvcManagerStruct", !9, i64 0}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = !{!16, !8, i64 64}
+!25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11, !12}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = !{!21, !8, i64 64}
-!32 = distinct !{!32, !11}
+!27 = distinct !{!27, !11}
+!28 = !{!17, !8, i64 0}
+!29 = !{!17, !8, i64 8}
+!30 = !{!31, !8, i64 0}
+!31 = !{!"MvcCubeStruct", !8, i64 0, !4, i64 8, !4, i64 11, !4, i64 11, !4, i64 11, !4, i64 12, !5, i64 16}
+!32 = !{!17, !4, i64 16}
 !33 = distinct !{!33, !11}
-!34 = distinct !{!34, !11}
-!35 = !{!22, !8, i64 0}
-!36 = !{!22, !8, i64 8}
-!37 = !{!38, !8, i64 0}
-!38 = !{!"MvcCubeStruct", !8, i64 0, !4, i64 8, !4, i64 11, !4, i64 11, !4, i64 11, !4, i64 12, !5, i64 16}
-!39 = !{!22, !4, i64 16}
+!34 = !{!16, !4, i64 0}
+!35 = !{!5, !5, i64 0}
+!36 = distinct !{!36, !11}
+!37 = !{!31, !4, i64 12}
+!38 = distinct !{!38, !11}
+!39 = distinct !{!39, !11}
 !40 = distinct !{!40, !11}
-!41 = !{!21, !4, i64 0}
-!42 = !{!5, !5, i64 0}
-!43 = distinct !{!43, !11}
-!44 = !{!38, !4, i64 12}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = !{!16, !20, i64 72}
+!44 = distinct !{!44, !11}
 !45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11, !12}
+!46 = distinct !{!46, !11}
 !47 = distinct !{!47, !11}
 !48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11, !12}
+!49 = distinct !{!49, !11}
 !50 = distinct !{!50, !11}
 !51 = distinct !{!51, !11}
-!52 = !{!21, !25, i64 72}
+!52 = distinct !{!52, !11}
 !53 = distinct !{!53, !11}
 !54 = distinct !{!54, !11}
 !55 = distinct !{!55, !11}
-!56 = distinct !{!56, !11}
-!57 = distinct !{!57, !11}
-!58 = distinct !{!58, !11}
-!59 = distinct !{!59, !11}
-!60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11}
-!62 = distinct !{!62, !11}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11}

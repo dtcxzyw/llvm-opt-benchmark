@@ -1012,14 +1012,14 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
   %51 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %.174.i) #9
   %52 = add nuw i32 %.06772.i, 1
   %exitcond.i = icmp eq i32 %52, %41
-  br i1 %exitcond.i, label %._crit_edge.i, label %47, !llvm.loop !77
+  br i1 %exitcond.i, label %._crit_edge.i, label %47, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %50
   %53 = add nsw i32 %.06476.i, %21
   %54 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %53) #9
   %55 = add nuw i32 %.06476.i, 1
   %exitcond91.i = icmp eq i32 %.06476.i, %42
-  br i1 %exitcond91.i, label %.preheader.i, label %.preheader70.i, !llvm.loop !78
+  br i1 %exitcond91.i, label %.preheader.i, label %.preheader70.i, !llvm.loop !75
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.26380.i = phi i32 [ %60, %.lr.ph.i ], [ %31, %.preheader.i ]
@@ -1032,7 +1032,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
   %60 = tail call i32 @cuddZddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #9
   %61 = add nuw nsw i32 %.16579.i, 1
   %exitcond94.not.i = icmp eq i32 %61, %39
-  br i1 %exitcond94.not.i, label %._crit_edge81.i, label %.lr.ph.i, !llvm.loop !79
+  br i1 %exitcond94.not.i, label %._crit_edge81.i, label %.lr.ph.i, !llvm.loop !77
 
 ._crit_edge81.i:                                  ; preds = %.lr.ph.i, %.preheader.i, %37
   %.263.lcssa.i = phi i32 [ %31, %.preheader.i ], [ %31, %37 ], [ %60, %.lr.ph.i ]
@@ -1055,7 +1055,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
   %71 = tail call i32 @cuddZddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #9
   %72 = add nuw nsw i32 %.26682.i, 1
   %exitcond95.not.i = icmp eq i32 %72, %38
-  br i1 %exitcond95.not.i, label %zddGroupMoveBackward.exit, label %.lr.ph85.i, !llvm.loop !80
+  br i1 %exitcond95.not.i, label %zddGroupMoveBackward.exit, label %.lr.ph85.i, !llvm.loop !78
 
 zddGroupMoveBackward.exit:                        ; preds = %.lr.ph85.i, %._crit_edge81.i
   %.2.lcssa.i = phi i32 [ %65, %._crit_edge81.i ], [ %71, %.lr.ph85.i ]
@@ -1069,7 +1069,7 @@ zddGroupMoveBackward.exit:                        ; preds = %.lr.ph85.i, %._crit
   %77 = getelementptr inbounds nuw i8, ptr %.143, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !57
   %.not31 = icmp eq ptr %78, null
-  br i1 %.not31, label %zddGroupMoveBackward.exit.thread, label %9, !llvm.loop !81
+  br i1 %.not31, label %zddGroupMoveBackward.exit.thread, label %9, !llvm.loop !79
 
 zddGroupMoveBackward.exit.thread:                 ; preds = %9, %27, %76, %47, %3
   %.027 = phi i32 [ 1, %3 ], [ 0, %47 ], [ 1, %9 ], [ 0, %27 ], [ 1, %76 ]
@@ -1156,7 +1156,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i3
   %spec.select67 = tail call i32 @llvm.smin.i32(i32 %.sink, i32 %.072)
   %48 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %14) #9
   %.not = icmp slt i32 %48, %2
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !82
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !80
 
 49:                                               ; preds = %38, %24, %21
   %.pr = load ptr, ptr %3, align 8, !tbaa !49
@@ -1179,7 +1179,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i3
   store ptr %52, ptr %57, align 8, !tbaa !59
   store ptr %55, ptr %3, align 8, !tbaa !49
   %.not66 = icmp eq ptr %55, null
-  br i1 %.not66, label %..loopexit_crit_edge, label %51, !llvm.loop !83
+  br i1 %.not66, label %..loopexit_crit_edge, label %51, !llvm.loop !81
 
 ..loopexit_crit_edge:                             ; preds = %51
   store ptr %53, ptr %50, align 8, !tbaa !56
@@ -1209,7 +1209,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   %12 = getelementptr inbounds %struct.DdSubtable, ptr %6, i64 %11, i32 6
   %13 = load i32, ptr %12, align 4, !tbaa !32
   %14 = icmp ult i32 %.089, %13
-  br i1 %14, label %10, label %15, !llvm.loop !84
+  br i1 %14, label %10, label %15, !llvm.loop !82
 
 15:                                               ; preds = %10
   %16 = sub i32 %1, %9
@@ -1239,7 +1239,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   %23 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %22) #9
   %24 = add nuw i32 %.093114.us, 1
   %exitcond143 = icmp eq i32 %.093114.us, %21
-  br i1 %exitcond143, label %.preheader, label %.preheader102.us, !llvm.loop !85
+  br i1 %exitcond143, label %.preheader, label %.preheader102.us, !llvm.loop !83
 
 .preheader102:                                    ; preds = %.preheader102.preheader, %._crit_edge
   %.087116 = phi i32 [ %32, %._crit_edge ], [ %1, %.preheader102.preheader ]
@@ -1265,14 +1265,14 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   %29 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %.188111) #9
   %30 = add nuw i32 %.096109, 1
   %exitcond = icmp eq i32 %30, %19
-  br i1 %exitcond, label %._crit_edge, label %25, !llvm.loop !86
+  br i1 %exitcond, label %._crit_edge, label %25, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %28
   %31 = add nsw i32 %.093114, %2
   %32 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %31) #9
   %33 = add nuw i32 %.093114, 1
   %exitcond141 = icmp eq i32 %.093114, %20
-  br i1 %exitcond141, label %.preheader, label %.preheader102, !llvm.loop !87
+  br i1 %exitcond141, label %.preheader, label %.preheader102, !llvm.loop !83
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.292123 = phi i32 [ %38, %.lr.ph ], [ %9, %.preheader ]
@@ -1285,7 +1285,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   %38 = tail call i32 @cuddZddNextHigh(ptr noundef %0, i32 noundef %.292123) #9
   %39 = add nuw nsw i32 %.194122, 1
   %exitcond144.not = icmp eq i32 %39, %17
-  br i1 %exitcond144.not, label %._crit_edge124, label %.lr.ph, !llvm.loop !88
+  br i1 %exitcond144.not, label %._crit_edge124, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge124:                                   ; preds = %.lr.ph, %15, %.preheader
   %.0.lcssa150 = phi i32 [ %.0.lcssa, %.preheader ], [ -1, %15 ], [ %.0.lcssa, %.lr.ph ]
@@ -1310,7 +1310,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   %49 = tail call i32 @cuddZddNextHigh(ptr noundef nonnull %0, i32 noundef %.2127) #9
   %50 = add nuw nsw i32 %.295126, 1
   %exitcond145.not = icmp eq i32 %50, %16
-  br i1 %exitcond145.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !89
+  br i1 %exitcond145.not, label %._crit_edge130, label %.lr.ph129, !llvm.loop !86
 
 ._crit_edge130:                                   ; preds = %.lr.ph129, %._crit_edge124
   %.2.lcssa = phi i32 [ %43, %._crit_edge124 ], [ %49, %.lr.ph129 ]
@@ -1359,7 +1359,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %66, ptr %71, align 8, !tbaa !59
   store ptr %69, ptr %3, align 8, !tbaa !49
   %.not101 = icmp eq ptr %69, null
-  br i1 %.not101, label %..loopexit_crit_edge, label %65, !llvm.loop !90
+  br i1 %.not101, label %..loopexit_crit_edge, label %65, !llvm.loop !87
 
 ..loopexit_crit_edge:                             ; preds = %65
   store ptr %67, ptr %64, align 8, !tbaa !56
@@ -1476,8 +1476,8 @@ attributes #10 = { nounwind allocsize(0) }
 !72 = distinct !{!72, !34}
 !73 = distinct !{!73, !34}
 !74 = distinct !{!74, !34}
-!75 = distinct !{!75, !34, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !34}
+!76 = distinct !{!76, !34}
 !77 = distinct !{!77, !34}
 !78 = distinct !{!78, !34}
 !79 = distinct !{!79, !34}
@@ -1486,9 +1486,6 @@ attributes #10 = { nounwind allocsize(0) }
 !82 = distinct !{!82, !34}
 !83 = distinct !{!83, !34}
 !84 = distinct !{!84, !34}
-!85 = distinct !{!85, !34, !76}
+!85 = distinct !{!85, !34}
 !86 = distinct !{!86, !34}
 !87 = distinct !{!87, !34}
-!88 = distinct !{!88, !34}
-!89 = distinct !{!89, !34}
-!90 = distinct !{!90, !34}

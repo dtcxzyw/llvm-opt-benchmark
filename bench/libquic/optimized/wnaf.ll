@@ -228,7 +228,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %107 = shl nsw i32 %106, %52
   %108 = add nsw i32 %107, %103
   %109 = icmp sgt i32 %108, %61
-  br i1 %109, label %.split137.us.i, label %.split.us.i, !llvm.loop !19
+  br i1 %109, label %.split137.us.i, label %.split.us.i
 
 .split.i:                                         ; preds = %78, %.critedge.thread.i
   %.073.i = phi i32 [ %134, %.critedge.thread.i ], [ %82, %78 ]
@@ -334,7 +334,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   store ptr %.072.i.ph, ptr %140, align 8, !tbaa !6
   %spec.select = tail call i64 @llvm.umax.i64(i64 %storemerge, i64 %.0200356)
   %exitcond.not = icmp eq i64 %49, %.0221
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %139
   %141 = trunc i64 %spec.select to i32
@@ -356,14 +356,14 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 
 148:                                              ; preds = %._crit_edge
   %149 = getelementptr inbounds nuw ptr, ptr %145, i64 %.0199.lcssa
-  store ptr null, ptr %149, align 8, !tbaa !23
+  store ptr null, ptr %149, align 8, !tbaa !21
   br i1 %.not398, label %._crit_edge365, label %.lr.ph364
 
 .lr.ph364:                                        ; preds = %148, %161
   %.0196362 = phi ptr [ %158, %161 ], [ %145, %148 ]
   %.1218361 = phi i64 [ %162, %161 ], [ 0, %148 ]
   %150 = getelementptr inbounds nuw ptr, ptr %25, i64 %.1218361
-  store ptr %.0196362, ptr %150, align 8, !tbaa !25
+  store ptr %.0196362, ptr %150, align 8, !tbaa !23
   %151 = getelementptr inbounds nuw i64, ptr %21, i64 %.1218361
   %152 = load i64, ptr %151, align 8, !tbaa !11
   %153 = add i64 %152, -1
@@ -373,7 +373,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.1197360 = phi ptr [ %.0196362, %.lr.ph364 ], [ %158, %157 ]
   %.0215359 = phi i64 [ 0, %.lr.ph364 ], [ %159, %157 ]
   %155 = tail call ptr @EC_POINT_new(ptr noundef %0) #5
-  store ptr %155, ptr %.1197360, align 8, !tbaa !23
+  store ptr %155, ptr %.1197360, align 8, !tbaa !21
   %156 = icmp eq ptr %155, null
   br i1 %156, label %.thread281, label %157
 
@@ -382,12 +382,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %159 = add i64 %.0215359, 1
   %.0215.highbits = lshr i64 %159, %153
   %160 = icmp eq i64 %.0215.highbits, 0
-  br i1 %160, label %154, label %161, !llvm.loop !27
+  br i1 %160, label %154, label %161, !llvm.loop !25
 
 161:                                              ; preds = %157
   %162 = add nuw nsw i64 %.1218361, 1
   %exitcond451.not = icmp eq i64 %162, %.0221
-  br i1 %exitcond451.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !28
+  br i1 %exitcond451.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !26
 
 ._crit_edge365:                                   ; preds = %161, %148
   %.0196.lcssa = phi ptr [ %145, %148 ], [ %158, %161 ]
@@ -412,16 +412,16 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %.lr.ph371
-  %169 = load ptr, ptr %25, align 8, !tbaa !25
-  %170 = load ptr, ptr %169, align 8, !tbaa !23
+  %169 = load ptr, ptr %25, align 8, !tbaa !23
+  %170 = load ptr, ptr %169, align 8, !tbaa !21
   %171 = tail call i32 @EC_POINT_copy(ptr noundef %170, ptr noundef %3) #5
   %.not259 = icmp eq i32 %171, 0
   br i1 %.not259, label %.thread281, label %177
 
 172:                                              ; preds = %.lr.ph371
   %173 = getelementptr inbounds nuw ptr, ptr %25, i64 %.2219370
-  %174 = load ptr, ptr %173, align 8, !tbaa !25
-  %175 = load ptr, ptr %174, align 8, !tbaa !23
+  %174 = load ptr, ptr %173, align 8, !tbaa !23
+  %175 = load ptr, ptr %174, align 8, !tbaa !21
   %176 = tail call i32 @EC_POINT_copy(ptr noundef %175, ptr noundef %.0192) #5
   %.not258 = icmp eq i32 %176, 0
   br i1 %.not258, label %.thread281, label %177
@@ -434,8 +434,8 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds nuw ptr, ptr %25, i64 %.2219370
-  %183 = load ptr, ptr %182, align 8, !tbaa !25
-  %184 = load ptr, ptr %183, align 8, !tbaa !23
+  %183 = load ptr, ptr %182, align 8, !tbaa !23
+  %184 = load ptr, ptr %183, align 8, !tbaa !21
   %185 = tail call i32 @EC_POINT_dbl(ptr noundef %0, ptr noundef nonnull %166, ptr noundef %184, ptr noundef nonnull %.0189) #5
   %.not260 = icmp eq i32 %185, 0
   br i1 %.not260, label %.thread281, label %.lr.ph369.preheader
@@ -448,14 +448,14 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %188 = add i64 %.1216368, 1
   %.1216.highbits = lshr i64 %188, %186
   %189 = icmp eq i64 %.1216.highbits, 0
-  br i1 %189, label %.lr.ph369, label %.loopexit290, !llvm.loop !29
+  br i1 %189, label %.lr.ph369, label %.loopexit290, !llvm.loop !27
 
 .lr.ph369:                                        ; preds = %.lr.ph369.preheader, %187
   %.1216368 = phi i64 [ %188, %187 ], [ 1, %.lr.ph369.preheader ]
   %190 = getelementptr inbounds nuw ptr, ptr %183, i64 %.1216368
-  %191 = load ptr, ptr %190, align 8, !tbaa !23
+  %191 = load ptr, ptr %190, align 8, !tbaa !21
   %192 = getelementptr i8, ptr %190, i64 -8
-  %193 = load ptr, ptr %192, align 8, !tbaa !23
+  %193 = load ptr, ptr %192, align 8, !tbaa !21
   %194 = tail call i32 @EC_POINT_add(ptr noundef %0, ptr noundef %191, ptr noundef %193, ptr noundef nonnull %166, ptr noundef nonnull %.0189) #5
   %.not261 = icmp eq i32 %194, 0
   br i1 %.not261, label %.thread281, label %187
@@ -463,7 +463,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 .loopexit290:                                     ; preds = %187, %177
   %195 = add nuw nsw i64 %.2219370, 1
   %exitcond452.not = icmp eq i64 %195, %.0221
-  br i1 %exitcond452.not, label %._crit_edge372, label %.lr.ph371, !llvm.loop !30
+  br i1 %exitcond452.not, label %._crit_edge372, label %.lr.ph371, !llvm.loop !28
 
 ._crit_edge372:                                   ; preds = %.loopexit290, %.preheader292
   %196 = tail call i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %.0199.lcssa, ptr noundef nonnull %145, ptr noundef nonnull %.0189) #5
@@ -536,11 +536,11 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.3212.us = phi i32 [ %217, %216 ], [ %.1210374.us, %210 ]
   %.not255.us = icmp eq i32 %.1207375.us, 0
   %219 = getelementptr inbounds nuw ptr, ptr %25, i64 %.3220373.us
-  %220 = load ptr, ptr %219, align 8, !tbaa !25
+  %220 = load ptr, ptr %219, align 8, !tbaa !23
   %221 = lshr i8 %212, 1
   %222 = zext nneg i8 %221 to i64
   %223 = getelementptr inbounds nuw ptr, ptr %220, i64 %222
-  %224 = load ptr, ptr %223, align 8, !tbaa !23
+  %224 = load ptr, ptr %223, align 8, !tbaa !21
   br i1 %.not255.us, label %227, label %225
 
 225:                                              ; preds = %218
@@ -558,12 +558,12 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.4.us = phi i32 [ %.1207375.us, %.lr.ph377.us ], [ 0, %227 ], [ %.1207375.us, %205 ], [ 0, %225 ]
   %230 = add nuw nsw i64 %.3220373.us, 1
   %exitcond453.not = icmp eq i64 %230, %.0221
-  br i1 %exitcond453.not, label %..loopexit_crit_edge.us, label %.lr.ph377.us, !llvm.loop !31
+  br i1 %exitcond453.not, label %..loopexit_crit_edge.us, label %.lr.ph377.us, !llvm.loop !29
 
 ..loopexit_crit_edge.us:                          ; preds = %229
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %231 = icmp sgt i64 %indvars.iv, 0
-  br i1 %231, label %.lr.ph385.split.us, label %._crit_edge386, !llvm.loop !32
+  br i1 %231, label %.lr.ph385.split.us, label %._crit_edge386, !llvm.loop !30
 
 ._crit_edge386:                                   ; preds = %..loopexit_crit_edge.us
   %232 = icmp eq i32 %.4.us, 0
@@ -614,7 +614,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %241 = getelementptr inbounds nuw i8, ptr %.0391, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !6
   %.not263 = icmp eq ptr %242, null
-  br i1 %.not263, label %._crit_edge393, label %.lr.ph392, !llvm.loop !33
+  br i1 %.not263, label %._crit_edge393, label %.lr.ph392, !llvm.loop !31
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %.preheader287
   tail call void @free(ptr noundef nonnull %.0204) #5
@@ -625,7 +625,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not264, label %248, label %.preheader
 
 .preheader:                                       ; preds = %243
-  %244 = load ptr, ptr %.0198, align 8, !tbaa !23
+  %244 = load ptr, ptr %.0198, align 8, !tbaa !21
   %.not265394 = icmp eq ptr %244, null
   br i1 %.not265394, label %._crit_edge397, label %.lr.ph396
 
@@ -634,9 +634,9 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   %.2395 = phi ptr [ %246, %.lr.ph396 ], [ %.0198, %.preheader ]
   tail call void @EC_POINT_clear_free(ptr noundef nonnull %245) #5
   %246 = getelementptr inbounds nuw i8, ptr %.2395, i64 8
-  %247 = load ptr, ptr %246, align 8, !tbaa !23
+  %247 = load ptr, ptr %246, align 8, !tbaa !21
   %.not265 = icmp eq ptr %247, null
-  br i1 %.not265, label %._crit_edge397, label %.lr.ph396, !llvm.loop !34
+  br i1 %.not265, label %._crit_edge397, label %.lr.ph396, !llvm.loop !32
 
 ._crit_edge397:                                   ; preds = %.lr.ph396, %.preheader
   tail call void @free(ptr noundef nonnull %.0198) #5
@@ -723,18 +723,16 @@ attributes #6 = { nounwind allocsize(0) }
 !17 = !{!"int", !9, i64 0}
 !18 = !{!15, !17, i64 8}
 !19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.mustprogress"}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS11ec_point_st", !8, i64 0}
 !23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS11ec_point_st", !8, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p2 _ZTS11ec_point_st", !8, i64 0}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22, !20}
-!33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
+!24 = !{!"p2 _ZTS11ec_point_st", !8, i64 0}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = distinct !{!32, !20}

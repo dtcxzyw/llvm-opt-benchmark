@@ -127,7 +127,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
   %58 = add i32 %.04044, 1
   %.not = icmp sgt i32 %58, %5
-  br i1 %.not, label %._crit_edge47, label %.lr.ph46.split, !llvm.loop !7
+  br i1 %.not, label %._crit_edge47, label %.lr.ph46.split, !llvm.loop !5
 
 .split.us:                                        ; preds = %.lr.ph46.split, %52, %55, %.lr.ph46.split.us, %38, %41
   %59 = call ptr @pg_hmac_error(ptr noundef nonnull %13) #8
@@ -437,6 +437,4 @@ attributes #9 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !4}
+!5 = distinct !{!5, !4}

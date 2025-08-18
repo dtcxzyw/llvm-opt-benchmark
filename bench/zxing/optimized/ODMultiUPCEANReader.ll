@@ -3569,7 +3569,7 @@ _ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEE
   %.mux.us35.i38 = select i1 %65, float %.025.us28.i17, float %.0.i.i.us32.i36
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 10
-  br i1 %exitcond.not.i40, label %_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm4EELm20EEEEiRKT_RKT0_ffb.exit, label %.lr.ph.i.i.i.i.preheader.us.i15, !llvm.loop !84
+  br i1 %exitcond.not.i40, label %_ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm4EELm20EEEEiRKT_RKT0_ffb.exit, label %.lr.ph.i.i.i.i.preheader.us.i15, !llvm.loop !83
 
 _ZN5ZXing4OneD9RowReader11DecodeDigitINS_11PatternViewESt5arrayIS4_IiLm4EELm20EEEEiRKT_RKT0_ffb.exit: ; preds = %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEEEfRKT_RKT0_f.exit.us31.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEEEfRKT_RKT0_f.exit.us31.i35
   %67 = phi i32 [ %.015.mux.us34.i37, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEEEfRKT_RKT0_f.exit.us31.i35 ], [ %.015.mux.us34.i, %_ZN5ZXing4OneD9RowReader20PatternMatchVarianceINS_11PatternViewESt5arrayIiLm4EEEEfRKT_RKT0_f.exit.us31.i ]
@@ -3733,11 +3733,11 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi3EZNS_13FindLeftGuardILi3EL
   br label %91
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !11, !noalias !85
+  %11 = load ptr, ptr %1, align 8, !tbaa !11, !noalias !84
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !66, !noalias !85
+  %13 = load ptr, ptr %12, align 8, !tbaa !66, !noalias !84
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !14, !noalias !85
+  %15 = load ptr, ptr %14, align 8, !tbaa !14, !noalias !84
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %17 = icmp eq ptr %11, %16
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
@@ -3865,7 +3865,7 @@ _ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %58, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us, %_ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18.us
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.044.us, i64 4
   %.not.us = icmp ult ptr %71, %45
-  br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !88
+  br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !87
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5ZXing11PatternView8skipPairEv.exit
   %.sroa.0.044 = phi ptr [ %90, %_ZN5ZXing11PatternView8skipPairEv.exit ], [ %11, %.lr.ph ]
@@ -3924,7 +3924,7 @@ _ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %78, %_ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 4
   %.not = icmp ult ptr %90, %45
-  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !89
+  br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit.us, %_ZZN5ZXing13FindLeftGuardILi3ELi3ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -4059,11 +4059,9 @@ attributes #23 = { nounwind }
 !79 = distinct !{!79, !47}
 !80 = distinct !{!80, !47}
 !81 = distinct !{!81, !47}
-!82 = distinct !{!82, !47, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !47, !83}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
-!87 = distinct !{!87, !"_ZNK5ZXing11PatternView7subViewEii"}
-!88 = distinct !{!88, !47, !83}
-!89 = distinct !{!89, !47}
+!82 = distinct !{!82, !47}
+!83 = distinct !{!83, !47}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK5ZXing11PatternView7subViewEii: argument 0"}
+!86 = distinct !{!86, !"_ZNK5ZXing11PatternView7subViewEii"}
+!87 = distinct !{!87, !47}

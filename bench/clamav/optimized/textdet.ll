@@ -139,7 +139,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !3
   %53 = icmp eq i8 %52, -2
-  br i1 %53, label %.thread59.i, label %.thread
+  br i1 %53, label %.thread62.i, label %.thread
 
 54:                                               ; preds = %td_isutf8.exit.thread.thread22
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -155,15 +155,15 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %60 = icmp ugt i32 %1, 3
   br i1 %60, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
-.thread59.i:                                      ; preds = %50
+.thread62.i:                                      ; preds = %50
   %61 = icmp ugt i32 %1, 3
-  br i1 %61, label %.lr.ph.split.us.i, label %._crit_edge.i
+  br i1 %61, label %.lr.ph.split.us.split.us.i, label %._crit_edge.i
 
-.lr.ph.split.us.i:                                ; preds = %.thread59.i, %81
-  %62 = phi i32 [ %83, %81 ], [ 3, %.thread59.i ]
-  %.02844.us.i = phi i32 [ %.129.us.i, %81 ], [ 0, %.thread59.i ]
-  %.03143.us.i = phi i32 [ %82, %81 ], [ 2, %.thread59.i ]
-  %63 = zext i32 %.03143.us.i to i64
+.lr.ph.split.us.split.us.i:                       ; preds = %.thread62.i, %81
+  %62 = phi i32 [ %83, %81 ], [ 3, %.thread62.i ]
+  %.02844.us.us.i = phi i32 [ %.129.us.us.i, %81 ], [ 0, %.thread62.i ]
+  %.03143.us.us.i = phi i32 [ %82, %81 ], [ 2, %.thread62.i ]
+  %63 = zext i32 %.03143.us.us.i to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = zext i8 %65 to i32
@@ -176,7 +176,7 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %73 = icmp eq i32 %72, 65534
   br i1 %73, label %select.unfold, label %74
 
-74:                                               ; preds = %.lr.ph.split.us.i
+74:                                               ; preds = %.lr.ph.split.us.split.us.i
   %75 = icmp samesign ult i32 %72, 128
   br i1 %75, label %76, label %81
 
@@ -184,17 +184,17 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %77 = zext nneg i32 %72 to i64
   %78 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !3
-  %.not39.us.i = icmp ne i8 %79, 1
-  %80 = zext i1 %.not39.us.i to i32
-  %spec.select.i = add i32 %.02844.us.i, %80
+  %.not39.us.us.i = icmp ne i8 %79, 1
+  %80 = zext i1 %.not39.us.us.i to i32
+  %spec.select.i = add i32 %.02844.us.us.i, %80
   br label %81
 
 81:                                               ; preds = %76, %74
-  %.129.us.i = phi i32 [ %.02844.us.i, %74 ], [ %spec.select.i, %76 ]
-  %82 = add i32 %.03143.us.i, 2
+  %.129.us.us.i = phi i32 [ %.02844.us.us.i, %74 ], [ %spec.select.i, %76 ]
+  %82 = add i32 %.03143.us.us.i, 2
   %83 = or disjoint i32 %82, 1
   %84 = icmp ult i32 %83, %1
-  br i1 %84, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !6
+  br i1 %84, label %.lr.ph.split.us.split.us.i, label %._crit_edge.i
 
 .lr.ph.split.split.us.i:                          ; preds = %58, %104
   %85 = phi i32 [ %106, %104 ], [ 3, %58 ]
@@ -223,15 +223,15 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %102 = load i8, ptr %101, align 1, !tbaa !3
   %.not39.us49.i = icmp ne i8 %102, 1
   %103 = zext i1 %.not39.us49.i to i32
-  %spec.select77.i = add i32 %.02844.us47.i, %103
+  %spec.select80.i = add i32 %.02844.us47.i, %103
   br label %104
 
 104:                                              ; preds = %99, %97
-  %.129.us51.i = phi i32 [ %.02844.us47.i, %97 ], [ %spec.select77.i, %99 ]
+  %.129.us51.i = phi i32 [ %.02844.us47.i, %97 ], [ %spec.select80.i, %99 ]
   %105 = add i32 %.03143.us48.i, 2
   %106 = or disjoint i32 %105, 1
   %107 = icmp ult i32 %106, %1
-  br i1 %107, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %107, label %.lr.ph.split.split.us.i, label %._crit_edge.i
 
 .lr.ph.split.split.i:                             ; preds = %.thread, %126
   %108 = phi i32 [ %128, %126 ], [ 3, %.thread ]
@@ -266,22 +266,22 @@ td_isutf8.exit.thread.thread22:                   ; preds = %42, %td_isutf8.exit
   %129 = icmp ult i32 %128, %1
   br i1 %129, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
-._crit_edge.i:                                    ; preds = %104, %81, %.thread59.i, %58
-  %.03364.i = phi i32 [ 2, %58 ], [ 1, %.thread59.i ], [ 1, %81 ], [ 2, %104 ]
-  %.028.lcssa.i = phi i32 [ 0, %58 ], [ 0, %.thread59.i ], [ %.129.us.i, %81 ], [ %.129.us51.i, %104 ]
+._crit_edge.i:                                    ; preds = %104, %81, %.thread62.i, %58
+  %.03367.i = phi i32 [ 2, %58 ], [ 1, %.thread62.i ], [ 1, %81 ], [ 2, %104 ]
+  %.028.lcssa.i = phi i32 [ 0, %58 ], [ 0, %.thread62.i ], [ %.129.us.us.i, %81 ], [ %.129.us51.i, %104 ]
   %130 = lshr i32 %1, 1
   %.not37.i.not = icmp ult i32 %.028.lcssa.i, %130
   br i1 %.not37.i.not, label %td_isutf16.exit, label %select.unfold
 
 td_isutf16.exit:                                  ; preds = %126, %.thread, %._crit_edge.i
-  %.034.i = phi i32 [ %.03364.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %126 ]
+  %.034.i = phi i32 [ %.03367.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %126 ]
   %131 = icmp eq i32 %.034.i, 1
   %132 = select i1 %131, ptr @.str.3, ptr @.str.4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %132) #2
   %133 = select i1 %131, i32 502, i32 503
   br label %134
 
-select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.split.i, %122, %._crit_edge.i, %td_isutf8.exit.thread
+select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.split.i, %122, %._crit_edge.i, %td_isutf8.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #2
   br label %134
 
@@ -304,6 +304,3 @@ attributes #2 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}

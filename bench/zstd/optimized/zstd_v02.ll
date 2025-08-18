@@ -7740,7 +7740,7 @@ define internal fastcc void @HUF_fillDTableX6LevelN(ptr noundef nonnull writeonl
   store i32 %.pre-phi, ptr %64, align 4, !tbaa !22
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count103
-  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph80.split, !llvm.loop !93
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph80.split, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %.loopexit75
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -7898,7 +7898,7 @@ BIT_reloadDStream.exit:                           ; preds = %23, %31
   %109 = zext i8 %108 to i64
   %110 = getelementptr inbounds nuw i8, ptr %95, i64 %109
   %111 = icmp ugt i32 %106, 64
-  br i1 %111, label %.preheader86, label %.lr.ph5, !llvm.loop !94
+  br i1 %111, label %.preheader86, label %.lr.ph5, !llvm.loop !92
 
 .lr.ph13:                                         ; preds = %.preheader86, %141
   %.312 = phi ptr [ %156, %141 ], [ %.0.lcssa, %.preheader86 ]
@@ -7978,7 +7978,7 @@ BIT_reloadDStream.exit77:                         ; preds = %116, %124
   %155 = zext i8 %154 to i64
   %156 = getelementptr inbounds nuw i8, ptr %.312, i64 %155
   %157 = icmp ugt i32 %152, 64
-  br i1 %157, label %.preheader85, label %.lr.ph13, !llvm.loop !95
+  br i1 %157, label %.preheader85, label %.lr.ph13, !llvm.loop !93
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader85
   %.val27.i99 = phi i32 [ %.val9.i79105, %.preheader85 ], [ %170, %.lr.ph ]
@@ -8012,7 +8012,7 @@ BIT_reloadDStream.exit77:                         ; preds = %116, %124
   %173 = zext i8 %172 to i64
   %174 = getelementptr inbounds nuw i8, ptr %.489, i64 %173
   %.not = icmp ugt ptr %174, %48
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !96
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !94
 
 175:                                              ; preds = %.lr.ph92, %HUF_decodeLastSymbolsX6.exit
   %.val27.i = phi i32 [ %.val27.i99, %.lr.ph92 ], [ %.val27.i98, %HUF_decodeLastSymbolsX6.exit ]
@@ -8068,7 +8068,7 @@ HUF_decodeLastSymbolsX6.exit:                     ; preds = %194, %.sink.split.i
   %202 = zext nneg i32 %.0.i84 to i64
   %203 = getelementptr inbounds nuw i8, ptr %.590, i64 %202
   %204 = icmp ult ptr %203, %2
-  br i1 %204, label %175, label %._crit_edge, !llvm.loop !97
+  br i1 %204, label %175, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %HUF_decodeLastSymbolsX6.exit, %.preheader
   ret void
@@ -8217,10 +8217,8 @@ attributes #21 = { nounwind }
 !88 = distinct !{!88, !24}
 !89 = distinct !{!89, !24}
 !90 = distinct !{!90, !24}
-!91 = distinct !{!91, !24, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !24}
+!92 = distinct !{!92, !24}
 !93 = distinct !{!93, !24}
 !94 = distinct !{!94, !24}
 !95 = distinct !{!95, !24}
-!96 = distinct !{!96, !24}
-!97 = distinct !{!97, !24}

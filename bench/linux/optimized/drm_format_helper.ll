@@ -221,7 +221,7 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %67 = getelementptr i8, ptr %63, i64 %60
   %68 = add nuw i32 %61, 1
   %69 = icmp eq i32 %68, %12
-  br i1 %69, label %.loopexit, label %.split.us, !llvm.loop !11
+  br i1 %69, label %.loopexit, label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %.split3, %.split
   %70 = phi i32 [ %77, %.split ], [ 0, %.split3 ]
@@ -234,14 +234,14 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
   %76 = getelementptr i8, ptr %72, i64 %60
   %77 = add nuw i32 %70, 1
   %78 = icmp eq i32 %77, %12
-  br i1 %78, label %.loopexit, label %.split, !llvm.loop !12
+  br i1 %78, label %.loopexit, label %.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.split, %.split.us
   %79 = add nuw nsw i64 %29, 1
   %80 = load i8, ptr %15, align 1
   %81 = zext i8 %80 to i64
   %82 = icmp samesign ult i64 %79, %81
-  br i1 %82, label %.split3, label %.loopexit2, !llvm.loop !13
+  br i1 %82, label %.split3, label %.loopexit2, !llvm.loop !7
 
 .loopexit2:                                       ; preds = %.loopexit, %.split3.us, %5
   ret void
@@ -325,7 +325,7 @@ define internal void @drm_fb_swab32_line(ptr noundef writeonly captures(none) %0
   %12 = getelementptr i8, ptr %8, i64 4
   store i32 %11, ptr %8, align 4
   %13 = icmp ult ptr %9, %5
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret void
@@ -347,7 +347,7 @@ define internal void @drm_fb_swab16_line(ptr noundef writeonly captures(none) %0
   %12 = getelementptr i8, ptr %8, i64 2
   store i16 %11, ptr %8, align 2
   %13 = icmp ult ptr %9, %5
-  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %13, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %3
   ret void
@@ -493,7 +493,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %95 = getelementptr i8, ptr %90, i64 %71
   %96 = add nuw i64 %89, 1
   %97 = icmp eq i64 %96, %88
-  br i1 %97, label %.thread, label %.split.us, !llvm.loop !16
+  br i1 %97, label %.thread, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %74, %.split
   %98 = phi i64 [ %105, %.split ], [ 0, %74 ]
@@ -508,7 +508,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %104 = getelementptr i8, ptr %99, i64 %71
   %105 = add nuw i64 %98, 1
   %106 = icmp eq i64 %105, %88
-  br i1 %106, label %.thread, label %.split, !llvm.loop !17
+  br i1 %106, label %.thread, label %.split, !llvm.loop !13
 
 107:                                              ; preds = %6
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -594,7 +594,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %162 = getelementptr i8, ptr %157, i64 %138
   %163 = add nuw i64 %156, 1
   %164 = icmp eq i64 %163, %155
-  br i1 %164, label %.thread, label %.split9.us, !llvm.loop !18
+  br i1 %164, label %.thread, label %.split9.us, !llvm.loop !14
 
 .split9:                                          ; preds = %141, %.split9
   %165 = phi i64 [ %172, %.split9 ], [ 0, %141 ]
@@ -608,7 +608,7 @@ define internal fastcc void @drm_fb_xfrm(ptr %.0.val, i8 %.8.val, ptr noundef re
   %171 = getelementptr i8, ptr %166, i64 %138
   %172 = add nuw i64 %165, 1
   %173 = icmp eq i64 %172, %155
-  br i1 %173, label %.thread, label %.split9, !llvm.loop !19
+  br i1 %173, label %.thread, label %.split9, !llvm.loop !14
 
 .thread:                                          ; preds = %.split, %.split.us, %.split9, %.split9.us, %122, %118, %39, %35, %137, %126, %67, %63
   ret void
@@ -650,7 +650,7 @@ define internal void @drm_fb_xrgb8888_to_rgb332_line(ptr noundef writeonly captu
   store i8 %19, ptr %20, align 1
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, %6
-  br i1 %22, label %.loopexit, label %7, !llvm.loop !20
+  br i1 %22, label %.loopexit, label %7, !llvm.loop !15
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -694,7 +694,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_swab_line(ptr noundef writeonly 
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
-  br i1 %23, label %.loopexit, label %7, !llvm.loop !21
+  br i1 %23, label %.loopexit, label %7, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -726,7 +726,7 @@ define internal void @drm_fb_xrgb8888_to_rgb565_line(ptr noundef writeonly captu
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, %6
-  br i1 %22, label %.loopexit, label %7, !llvm.loop !22
+  br i1 %22, label %.loopexit, label %7, !llvm.loop !17
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -768,7 +768,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb1555_line(ptr noundef writeonly cap
   store i16 %19, ptr %20, align 2
   %21 = add nuw nsw i64 %8, 1
   %22 = icmp eq i64 %21, %6
-  br i1 %22, label %.loopexit, label %7, !llvm.loop !23
+  br i1 %22, label %.loopexit, label %7, !llvm.loop !18
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -811,7 +811,7 @@ define internal void @drm_fb_xrgb8888_to_argb1555_line(ptr noundef writeonly cap
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
-  br i1 %23, label %.loopexit, label %7, !llvm.loop !24
+  br i1 %23, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -854,7 +854,7 @@ define internal void @drm_fb_xrgb8888_to_rgba5551_line(ptr noundef writeonly cap
   store i16 %20, ptr %21, align 2
   %22 = add nuw nsw i64 %8, 1
   %23 = icmp eq i64 %22, %6
-  br i1 %23, label %.loopexit, label %7, !llvm.loop !25
+  br i1 %23, label %.loopexit, label %7, !llvm.loop !20
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -897,7 +897,7 @@ define internal void @drm_fb_xrgb8888_to_rgb888_line(ptr noundef writeonly captu
   store i8 %18, ptr %16, align 1
   %20 = add nuw nsw i64 %8, 1
   %21 = icmp eq i64 %20, %6
-  br i1 %21, label %.loopexit, label %7, !llvm.loop !26
+  br i1 %21, label %.loopexit, label %7, !llvm.loop !21
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -931,7 +931,7 @@ define internal void @drm_fb_xrgb8888_to_argb8888_line(ptr noundef writeonly cap
   store i32 %11, ptr %12, align 4
   %13 = add nuw nsw i64 %8, 1
   %14 = icmp eq i64 %13, %6
-  br i1 %14, label %.loopexit, label %7, !llvm.loop !27
+  br i1 %14, label %.loopexit, label %7, !llvm.loop !22
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -976,7 +976,7 @@ define internal void @drm_fb_xrgb8888_to_xrgb2101010_line(ptr noundef writeonly 
   store i32 %22, ptr %9, align 4
   %24 = add nuw nsw i64 %8, 1
   %25 = icmp eq i64 %24, %6
-  br i1 %25, label %.loopexit, label %7, !llvm.loop !28
+  br i1 %25, label %.loopexit, label %7, !llvm.loop !23
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1022,7 +1022,7 @@ define internal void @drm_fb_xrgb8888_to_argb2101010_line(ptr noundef writeonly 
   store i32 %23, ptr %9, align 4
   %25 = add nuw nsw i64 %8, 1
   %26 = icmp eq i64 %25, %6
-  br i1 %26, label %.loopexit, label %7, !llvm.loop !29
+  br i1 %26, label %.loopexit, label %7, !llvm.loop !24
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1068,7 +1068,7 @@ define internal void @drm_fb_xrgb8888_to_gray8_line(ptr noundef writeonly captur
   store i8 %22, ptr %9, align 1
   %24 = add nuw nsw i64 %8, 1
   %25 = icmp eq i64 %24, %6
-  br i1 %25, label %.loopexit, label %7, !llvm.loop !30
+  br i1 %25, label %.loopexit, label %7, !llvm.loop !25
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1343,11 +1343,11 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %23 = load ptr, ptr %0, align 8
   %24 = load i32, ptr %17, align 4
   %25 = icmp eq i32 %24, 875713112
-  br i1 %25, label %39, label %26, !prof !31
+  br i1 %25, label %39, label %26, !prof !26
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %3, align 8
-  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #12, !srcloc !32
+  tail call void asm sideeffect "336: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 336b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 336) #12, !srcloc !27
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @dev_driver_string(ptr noundef %29) #12
@@ -1364,10 +1364,10 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
 37:                                               ; preds = %35, %26
   %38 = phi ptr [ %36, %35 ], [ %33, %26 ]
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef %30, ptr noundef %38, ptr noundef nonnull @.str.3) #12
-  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #12, !srcloc !33
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1132, i32 2313, i64 12) #12, !srcloc !34
-  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #12, !srcloc !35
-  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #12, !srcloc !36
+  tail call void asm sideeffect "337: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 337b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 337) #12, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 1132, i32 2313, i64 12) #12, !srcloc !29
+  tail call void asm sideeffect "338: nop\0A\09.pushsection .discard.instr_end\0A\09.long 338b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 338) #12, !srcloc !30
+  tail call void asm sideeffect "339: nop\0A\09.pushsection .discard.instr_end\0A\09.long 339b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 339) #12, !srcloc !31
   br label %.thread
 
 39:                                               ; preds = %6
@@ -1438,7 +1438,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %84 = getelementptr i8, ptr %81, i64 %83
   %85 = add nuw i32 %80, 1
   %86 = icmp eq i32 %85, %15
-  br i1 %86, label %.thread, label %.split.us, !llvm.loop !37
+  br i1 %86, label %.thread, label %.split.us, !llvm.loop !32
 
 .preheader9:                                      ; preds = %68, %.loopexit
   %87 = phi ptr [ %135, %.loopexit ], [ %23, %68 ]
@@ -1468,7 +1468,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   store i8 %105, ptr %92, align 1
   %107 = add nuw nsw i64 %91, 1
   %108 = icmp eq i64 %107, %78
-  br i1 %108, label %.preheader, label %90, !llvm.loop !30
+  br i1 %108, label %.preheader, label %90, !llvm.loop !25
 
 .preheader:                                       ; preds = %90, %127
   %109 = phi i32 [ %129, %127 ], [ %10, %90 ]
@@ -1491,7 +1491,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %124 = or i8 %123, %116
   %125 = add nuw nsw i64 %115, 1
   %126 = icmp eq i64 %125, %113
-  br i1 %126, label %127, label %114, !llvm.loop !38
+  br i1 %126, label %127, label %114, !llvm.loop !33
 
 127:                                              ; preds = %114
   %128 = getelementptr i8, ptr %111, i64 %113
@@ -1499,7 +1499,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %130 = getelementptr i8, ptr %110, i64 1
   store i8 %124, ptr %110, align 1
   %131 = icmp eq i32 %129, 0
-  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %127
   %132 = load i32, ptr %66, align 8
@@ -1508,7 +1508,7 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %135 = getelementptr i8, ptr %87, i64 %79
   %136 = add nuw i32 %88, 1
   %137 = icmp eq i32 %136, %15
-  br i1 %137, label %.thread, label %.preheader9, !llvm.loop !40
+  br i1 %137, label %.thread, label %.preheader9, !llvm.loop !32
 
 .thread:                                          ; preds = %.loopexit, %.split.us, %56, %52, %62, %60, %37
   ret void
@@ -1618,12 +1618,12 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   %42 = phi ptr [ %43, %45 ], [ %3, %39 ]
   %43 = getelementptr i8, ptr %42, i64 4
   %44 = icmp ult ptr %43, %21
-  br i1 %44, label %45, label %.critedge, !llvm.loop !41
+  br i1 %44, label %45, label %.critedge, !llvm.loop !35
 
 45:                                               ; preds = %.preheader16
   %46 = load i32, ptr %43, align 4
   %47 = icmp eq i32 %46, %37
-  br i1 %47, label %.loopexit17, label %.preheader16, !llvm.loop !41
+  br i1 %47, label %.loopexit17, label %.preheader16, !llvm.loop !35
 
 .critedge:                                        ; preds = %.preheader16, %36
   %48 = icmp eq ptr %21, %8
@@ -1661,7 +1661,7 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %62 = add nuw i64 %20, 1
   %63 = icmp eq i64 %62, %2
-  br i1 %63, label %.loopexit18, label %19, !llvm.loop !42
+  br i1 %63, label %.loopexit18, label %19, !llvm.loop !36
 
 64:                                               ; preds = %15
   %65 = load i32, ptr %3, align 4
@@ -1672,12 +1672,12 @@ define dso_local range(i64 -2305843009213693952, 2305843009213693952) i64 @drm_f
   %67 = phi ptr [ %68, %70 ], [ %3, %64 ]
   %68 = getelementptr i8, ptr %67, i64 4
   %69 = icmp ult ptr %68, %13
-  br i1 %69, label %70, label %.critedge15, !llvm.loop !41
+  br i1 %69, label %70, label %.critedge15, !llvm.loop !35
 
 70:                                               ; preds = %.preheader
   %71 = load i32, ptr %68, align 4
   %72 = icmp eq i32 %71, 875713112
-  br i1 %72, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %72, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .critedge15:                                      ; preds = %.preheader, %15
   br i1 %16, label %75, label %73
@@ -1745,7 +1745,7 @@ define internal void @drm_fb_xrgb8888_to_xbgr8888_line(ptr noundef writeonly cap
   store i32 %18, ptr %9, align 4
   %20 = add nuw nsw i64 %8, 1
   %21 = icmp eq i64 %20, %6
-  br i1 %21, label %.loopexit, label %7, !llvm.loop !43
+  br i1 %21, label %.loopexit, label %7, !llvm.loop !37
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1776,7 +1776,7 @@ define internal void @drm_fb_xrgb8888_to_abgr8888_line(ptr noundef writeonly cap
   store i32 %18, ptr %9, align 4
   %20 = add nuw nsw i64 %8, 1
   %21 = icmp eq i64 %20, %6
-  br i1 %21, label %.loopexit, label %7, !llvm.loop !44
+  br i1 %21, label %.loopexit, label %7, !llvm.loop !38
 
 .loopexit:                                        ; preds = %7, %3
   ret void
@@ -1815,18 +1815,18 @@ attributes #13 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
 !12 = distinct !{!12, !8, !9}
 !13 = distinct !{!13, !8, !9}
 !14 = distinct !{!14, !8, !9}
 !15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9, !10}
+!16 = distinct !{!16, !8, !9}
 !17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9, !10}
+!18 = distinct !{!18, !8, !9}
 !19 = distinct !{!19, !8, !9}
 !20 = distinct !{!20, !8, !9}
 !21 = distinct !{!21, !8, !9}
@@ -1834,22 +1834,16 @@ attributes #13 = { cold nounwind }
 !23 = distinct !{!23, !8, !9}
 !24 = distinct !{!24, !8, !9}
 !25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !8, !9}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9}
-!31 = !{!"branch_weights", i32 2000, i32 1}
-!32 = !{i64 2154635914, i64 2154635723, i64 2154635775, i64 2154635821, i64 2154635849}
-!33 = !{i64 2154636472, i64 2154636281, i64 2154636333, i64 2154636379, i64 2154636407}
-!34 = !{i64 2154636546, i64 2154636575, i64 2154636621, i64 2154636679, i64 2154636733, i64 2154636787, i64 2154636842, i64 2154636873, i64 2154637181, i64 2154637187, i64 2154637234, i64 2154637257, i64 2154637283}
-!35 = !{i64 2154637752, i64 2154637563, i64 2154637613, i64 2154637659, i64 2154637687}
-!36 = !{i64 2154638058, i64 2154637869, i64 2154637919, i64 2154637965, i64 2154637993}
-!37 = distinct !{!37, !8, !9, !10}
+!26 = !{!"branch_weights", i32 2000, i32 1}
+!27 = !{i64 2154635914, i64 2154635723, i64 2154635775, i64 2154635821, i64 2154635849}
+!28 = !{i64 2154636472, i64 2154636281, i64 2154636333, i64 2154636379, i64 2154636407}
+!29 = !{i64 2154636546, i64 2154636575, i64 2154636621, i64 2154636679, i64 2154636733, i64 2154636787, i64 2154636842, i64 2154636873, i64 2154637181, i64 2154637187, i64 2154637234, i64 2154637257, i64 2154637283}
+!30 = !{i64 2154637752, i64 2154637563, i64 2154637613, i64 2154637659, i64 2154637687}
+!31 = !{i64 2154638058, i64 2154637869, i64 2154637919, i64 2154637965, i64 2154637993}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}
 !38 = distinct !{!38, !8, !9}
-!39 = distinct !{!39, !8, !9}
-!40 = distinct !{!40, !8, !9}
-!41 = distinct !{!41, !8, !9}
-!42 = distinct !{!42, !8, !9}
-!43 = distinct !{!43, !8, !9}
-!44 = distinct !{!44, !8, !9}

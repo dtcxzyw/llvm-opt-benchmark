@@ -181,7 +181,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   %36 = load i32, ptr %16, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph.split, label %.loopexit65, !llvm.loop !12
+  br i1 %38, label %.lr.ph.split, label %.loopexit65, !llvm.loop !8
 
 .loopexit65.loopexit:                             ; preds = %.thread.us
   %39 = trunc nuw nsw i64 %indvars.iv.next79 to i32
@@ -254,7 +254,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %64, ptr noundef nonnull align 8 dereferenceable(232) %66, i64 232, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit93, label %63, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit93, label %63, !llvm.loop !11
 
 .loopexit93:                                      ; preds = %63, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -324,7 +324,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   call void @slurm_print_partition_info(ptr noundef %88, ptr noundef %90, i32 noundef %91) #7
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit.thread, label %.lr.ph73, !llvm.loop !14
+  br i1 %exitcond90.not, label %.loopexit.thread, label %.lr.ph73, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %87
   %92 = load ptr, ptr @mime_type, align 8
@@ -424,10 +424,8 @@ attributes #8 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}

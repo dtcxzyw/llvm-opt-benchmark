@@ -4977,7 +4977,7 @@ thread-pre-split:                                 ; preds = %10
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !26
   %.not69.us = icmp eq i32 %33, 1
-  br i1 %.not69.us, label %.split86.us, label %.thread71, !llvm.loop !121
+  br i1 %.not69.us, label %.split86.us, label %.thread71
 
 .lr.ph.us:                                        ; preds = %26, %.thread.us.us
   %.04484.us.us = phi ptr [ %.044.us.us, %.thread.us.us ], [ %.04482.us, %26 ]
@@ -4987,7 +4987,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %36, label %.thread.us.us, label %37
 
 37:                                               ; preds = %.lr.ph.us
-  %38 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !123
+  %38 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !121
   %39 = tail call zeroext i1 @php_dom_ns_is_fast_ex(ptr noundef nonnull %35, ptr noundef %38) #11
   br i1 %39, label %40, label %.thread.us.us
 
@@ -5000,7 +5000,7 @@ thread-pre-split:                                 ; preds = %10
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %.04484.us.us, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !125
+  %47 = load ptr, ptr %46, align 8, !tbaa !123
   %48 = tail call i32 @xmlStrEqual(ptr noundef %47, ptr noundef nonnull @.str) #11
   %.not66.us.us = icmp eq i32 %48, 0
   br i1 %.not66.us.us, label %.thread.us.us, label %.split.us
@@ -5009,7 +5009,7 @@ thread-pre-split:                                 ; preds = %10
   %49 = getelementptr inbounds nuw i8, ptr %.04484.us.us, i64 48
   %.044.us.us = load ptr, ptr %49, align 8, !tbaa !59
   %.not63.us.us = icmp eq ptr %.044.us.us, null
-  br i1 %.not63.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !126
+  br i1 %.not63.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us
 
 .split86:                                         ; preds = %.split86.preheader, %88
   %.046 = phi ptr [ %86, %88 ], [ %.tr, %.split86.preheader ]
@@ -5047,7 +5047,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %.lr.ph
-  %66 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !123
+  %66 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !121
   %67 = tail call zeroext i1 @php_dom_ns_is_fast_ex(ptr noundef nonnull %63, ptr noundef %66) #11
   br i1 %67, label %68, label %.thread
 
@@ -5061,7 +5061,7 @@ thread-pre-split:                                 ; preds = %10
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %.04484, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !125
+  %75 = load ptr, ptr %74, align 8, !tbaa !123
   %76 = tail call i32 @xmlStrEqual(ptr noundef %75, ptr noundef nonnull %19) #11
   %.not65 = icmp eq i32 %76, 0
   br i1 %.not65, label %.thread, label %.split.us
@@ -5268,7 +5268,7 @@ define hidden void @zim_Dom_Node_isDefaultNamespace(ptr noundef %0, ptr noundef 
   switch i8 %10, label %zend_parse_arg_str_ex.exit [
     i8 6, label %11
     i8 1, label %zend_parse_arg_str_ex.exit.thread
-  ], !prof !127
+  ], !prof !124
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %8, align 8, !tbaa !9
@@ -5285,7 +5285,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 zend_parse_arg_str_ex.exit.thread:                ; preds = %11, %7, %thread-pre-split
   %14 = phi ptr [ %.pr, %thread-pre-split ], [ %12, %11 ], [ null, %7 ]
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %.critedge.thread, label %.critedge, !prof !128
+  br i1 %.not.i, label %.critedge.thread, label %.critedge, !prof !125
 
 15:                                               ; preds = %zend_parse_arg_str_ex.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5373,7 +5373,7 @@ define hidden void @zim_DOMNode_lookupNamespaceURI(ptr noundef %0, ptr noundef w
   switch i8 %10, label %zend_parse_arg_str_ex.exit [
     i8 6, label %11
     i8 1, label %.thread107
-  ], !prof !127
+  ], !prof !124
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %8, align 8, !tbaa !9
@@ -5387,7 +5387,7 @@ define hidden void @zim_DOMNode_lookupNamespaceURI(ptr noundef %0, ptr noundef w
 zend_parse_arg_str_ex.exit:                       ; preds = %7
   %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #11
   %cond.fr87 = freeze i1 %13
-  br i1 %cond.fr87, label %.critedge, label %14, !prof !129
+  br i1 %cond.fr87, label %.critedge, label %14, !prof !126
 
 14:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread97
   %.066106 = phi i32 [ 0, %.thread97 ], [ 1, %zend_parse_arg_str_ex.exit ]
@@ -5649,7 +5649,7 @@ define internal fastcc void @dom_canonicalization(ptr noundef readonly captures(
 
 53:                                               ; preds = %46
   %54 = load ptr, ptr %47, align 8, !tbaa !9
-  %55 = load ptr, ptr @zend_known_strings, align 8, !tbaa !130
+  %55 = load ptr, ptr @zend_known_strings, align 8, !tbaa !127
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 288
   %57 = load ptr, ptr %56, align 8, !tbaa !36
   %58 = call ptr @zend_hash_find(ptr noundef %54, ptr noundef %57) #11
@@ -5697,7 +5697,7 @@ zend_hash_find_deref.exit:                        ; preds = %53
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = call ptr @xmlXPathNewContext(ptr noundef nonnull %42) #11
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %40, ptr %80, align 8, !tbaa !132
+  store ptr %40, ptr %80, align 8, !tbaa !129
   %81 = call ptr @zend_hash_str_find(ptr noundef %54, ptr noundef nonnull @.str.35, i64 noundef 10) #11
   %.not.i168 = icmp eq ptr %81, null
   br i1 %.not.i168, label %zend_hash_str_find_deref.exit, label %82
@@ -5733,7 +5733,7 @@ zend_hash_find_deref.exit:                        ; preds = %53
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !9
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %101 = load i32, ptr %100, align 8, !tbaa !139
+  %101 = load i32, ptr %100, align 8, !tbaa !136
   %102 = zext i32 %101 to i64
   %.idx = shl nuw nsw i64 %102, 5
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx
@@ -5749,7 +5749,7 @@ zend_hash_find_deref.exit:                        ; preds = %53
 
 107:                                              ; preds = %.lr.ph
   %108 = getelementptr inbounds nuw i8, ptr %.0135178, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !140
+  %109 = load ptr, ptr %108, align 8, !tbaa !137
   %110 = icmp eq i8 %105, 10
   br i1 %110, label %111, label %114, !prof !28
 
@@ -5782,18 +5782,18 @@ zend_hash_find_deref.exit:                        ; preds = %53
 
 zend_hash_str_find_deref.exit:                    ; preds = %123, %97, %76, %92, %89
   %125 = call ptr @xmlXPathEvalExpression(ptr noundef nonnull %78, ptr noundef %79) #11
-  store ptr null, ptr %80, align 8, !tbaa !132
+  store ptr null, ptr %80, align 8, !tbaa !129
   %.not152 = icmp eq ptr %125, null
   br i1 %.not152, label %.critedge, label %126
 
 126:                                              ; preds = %zend_hash_str_find_deref.exit
-  %127 = load i32, ptr %125, align 8, !tbaa !142
+  %127 = load i32, ptr %125, align 8, !tbaa !139
   %128 = icmp eq i32 %127, 1
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !146
+  %131 = load ptr, ptr %130, align 8, !tbaa !143
   br label %135
 
 132:                                              ; preds = %126
@@ -5825,14 +5825,14 @@ zend_hash_str_find_deref.exit:                    ; preds = %123, %97, %76, %92,
 140:                                              ; preds = %137
   %141 = load ptr, ptr %136, align 8, !tbaa !9
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 28
-  %143 = load i32, ptr %142, align 4, !tbaa !147
+  %143 = load i32, ptr %142, align 4, !tbaa !144
   %144 = add i32 %143, 1
   %145 = zext i32 %144 to i64
   %146 = call noalias ptr @_safe_emalloc(i64 noundef %145, i64 noundef 8, i64 noundef 0) #11
   %147 = load ptr, ptr %5, align 8, !tbaa !60
   %148 = load ptr, ptr %147, align 8, !tbaa !9
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load i32, ptr %149, align 8, !tbaa !139
+  %150 = load i32, ptr %149, align 8, !tbaa !136
   %.not156179 = icmp eq i32 %150, 0
   br i1 %.not156179, label %._crit_edge, label %.lr.ph183
 
@@ -5856,7 +5856,7 @@ zend_hash_str_find_deref.exit:                    ; preds = %123, %97, %76, %92,
   switch i8 %161, label %165 [
     i8 0, label %174
     i8 10, label %162
-  ], !prof !148
+  ], !prof !145
 
 162:                                              ; preds = %159
   %163 = load ptr, ptr %.0128182, align 8, !tbaa !9
@@ -6192,7 +6192,7 @@ define hidden void @zim_DOMNode_contains(ptr noundef %0, ptr noundef writeonly c
   switch i8 %10, label %zend_parse_arg_object.exit [
     i8 8, label %.critedge
     i8 1, label %11
-  ], !prof !149
+  ], !prof !146
 
 zend_parse_arg_object.exit:                       ; preds = %7, %6
   %.045 = phi ptr [ null, %6 ], [ %8, %7 ]
@@ -6471,7 +6471,7 @@ define hidden void @zim_DOMNode_getRootNode(ptr noundef %0, ptr noundef %1) loca
   switch i8 %13, label %14 [
     i8 7, label %.critedge
     i8 1, label %.critedge
-  ], !prof !149
+  ], !prof !146
 
 14:                                               ; preds = %10, %7
   %.044.ph = phi ptr [ null, %7 ], [ %11, %10 ]
@@ -7239,9 +7239,9 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %35, %38
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %52 = load ptr, ptr %51, align 8, !tbaa !150
+  %52 = load ptr, ptr %51, align 8, !tbaa !147
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !150
+  %54 = load ptr, ptr %53, align 8, !tbaa !147
   %55 = tail call fastcc zeroext i1 @php_dom_node_list_equality_check_unordered_xmlNs(ptr noundef %52, ptr noundef %54)
   br i1 %55, label %56, label %php_dom_node_list_equality_check_ordered_xmlNode.exit
 
@@ -7255,27 +7255,27 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %35, %38
 
 62:                                               ; preds = %10
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !151
+  %64 = load ptr, ptr %63, align 8, !tbaa !148
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !151
+  %66 = load ptr, ptr %65, align 8, !tbaa !148
   %67 = tail call i32 @xmlStrEqual(ptr noundef %64, ptr noundef %66) #11
   %.not81 = icmp eq i32 %67, 0
   br i1 %.not81, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %68
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %70 = load ptr, ptr %69, align 8, !tbaa !153
+  %70 = load ptr, ptr %69, align 8, !tbaa !150
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %72 = load ptr, ptr %71, align 8, !tbaa !153
+  %72 = load ptr, ptr %71, align 8, !tbaa !150
   %73 = tail call i32 @xmlStrEqual(ptr noundef %70, ptr noundef %72) #11
   %.not82 = icmp eq i32 %73, 0
   br i1 %.not82, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %74
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %76 = load ptr, ptr %75, align 8, !tbaa !154
+  %76 = load ptr, ptr %75, align 8, !tbaa !151
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %78 = load ptr, ptr %77, align 8, !tbaa !154
+  %78 = load ptr, ptr %77, align 8, !tbaa !151
   %79 = tail call i32 @xmlStrEqual(ptr noundef %76, ptr noundef %78) #11
   %80 = icmp ne i32 %79, 0
   br label %php_dom_node_list_equality_check_ordered_xmlNode.exit
@@ -7322,35 +7322,35 @@ php_dom_node_is_ns_uri_equal.exit:                ; preds = %35, %38
 
 110:                                              ; preds = %10, %10, %10
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %112 = load i32, ptr %111, align 4, !tbaa !155
+  %112 = load i32, ptr %111, align 4, !tbaa !152
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %114 = load i32, ptr %113, align 4, !tbaa !155
+  %114 = load i32, ptr %113, align 4, !tbaa !152
   %115 = icmp eq i32 %112, %114
   br i1 %115, label %116, label %php_dom_node_list_equality_check_ordered_xmlNode.exit
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !158
+  %118 = load ptr, ptr %117, align 8, !tbaa !155
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !158
+  %120 = load ptr, ptr %119, align 8, !tbaa !155
   %121 = tail call i32 @xmlStrEqual(ptr noundef %118, ptr noundef %120) #11
   %.not77 = icmp eq i32 %121, 0
   br i1 %.not77, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %122
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %124 = load ptr, ptr %123, align 8, !tbaa !159
+  %124 = load ptr, ptr %123, align 8, !tbaa !156
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %126 = load ptr, ptr %125, align 8, !tbaa !159
+  %126 = load ptr, ptr %125, align 8, !tbaa !156
   %127 = tail call i32 @xmlStrEqual(ptr noundef %124, ptr noundef %126) #11
   %.not78 = icmp eq i32 %127, 0
   br i1 %.not78, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %128
 
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %130 = load ptr, ptr %129, align 8, !tbaa !160
+  %130 = load ptr, ptr %129, align 8, !tbaa !157
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %132 = load ptr, ptr %131, align 8, !tbaa !160
+  %132 = load ptr, ptr %131, align 8, !tbaa !157
   %133 = tail call i32 @xmlStrEqual(ptr noundef %130, ptr noundef %132) #11
   %.not79 = icmp eq i32 %133, 0
   br i1 %.not79, label %php_dom_node_list_equality_check_ordered_xmlNode.exit, label %134
@@ -7511,7 +7511,7 @@ define internal fastcc noundef zeroext i1 @php_dom_node_list_equality_check_unor
   %.06.i = phi i64 [ %3, %.lr.ph.i ], [ 0, %2 ]
   %.035.i = phi ptr [ %4, %.lr.ph.i ], [ %0, %2 ]
   %3 = add i64 %.06.i, 1
-  %4 = load ptr, ptr %.035.i, align 8, !tbaa !161
+  %4 = load ptr, ptr %.035.i, align 8, !tbaa !158
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %php_dom_node_count_list_size_xmlNs.exit, label %.lr.ph.i
 
@@ -7524,7 +7524,7 @@ php_dom_node_count_list_size_xmlNs.exit:          ; preds = %.lr.ph.i, %2
   %.06.i29 = phi i64 [ %5, %.lr.ph.i28 ], [ 0, %php_dom_node_count_list_size_xmlNs.exit ]
   %.035.i30 = phi ptr [ %6, %.lr.ph.i28 ], [ %1, %php_dom_node_count_list_size_xmlNs.exit ]
   %5 = add i64 %.06.i29, 1
-  %6 = load ptr, ptr %.035.i30, align 8, !tbaa !161
+  %6 = load ptr, ptr %.035.i30, align 8, !tbaa !158
   %.not.i31 = icmp eq ptr %6, null
   br i1 %.not.i31, label %php_dom_node_count_list_size_xmlNs.exit33, label %.lr.ph.i28
 
@@ -7544,7 +7544,7 @@ php_dom_node_count_list_size_xmlNs.exit33:        ; preds = %.lr.ph.i28, %php_do
 7:                                                ; preds = %.preheader, %7
   %.037 = phi ptr [ %1, %.preheader ], [ %9, %7 ]
   %8 = tail call fastcc zeroext i1 @php_dom_node_is_equal_node(ptr noundef nonnull %.01839, ptr noundef nonnull %.037, i1 noundef zeroext false)
-  %9 = load ptr, ptr %.037, align 8, !tbaa !161
+  %9 = load ptr, ptr %.037, align 8, !tbaa !158
   %10 = icmp eq ptr %9, null
   %.not25 = select i1 %10, i1 true, i1 %8
   br i1 %.not25, label %._crit_edge, label %7
@@ -7553,7 +7553,7 @@ php_dom_node_count_list_size_xmlNs.exit33:        ; preds = %.lr.ph.i28, %php_do
   br i1 %8, label %11, label %.loopexit
 
 11:                                               ; preds = %._crit_edge
-  %12 = load ptr, ptr %.01839, align 8, !tbaa !161
+  %12 = load ptr, ptr %.01839, align 8, !tbaa !158
   %.not23 = icmp eq ptr %12, null
   br i1 %.not23, label %.loopexit, label %.preheader
 
@@ -7625,9 +7625,9 @@ define internal fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef nonnull %0,
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
+  %5 = load ptr, ptr %4, align 8, !tbaa !123
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !125
+  %7 = load ptr, ptr %6, align 8, !tbaa !123
   %8 = tail call i32 @xmlStrEqual(ptr noundef %5, ptr noundef %7) #11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %30, label %9
@@ -7903,44 +7903,41 @@ attributes #13 = { nounwind allocsize(0) }
 !118 = !{!105, !20, i64 72}
 !119 = !{!105, !18, i64 24}
 !120 = !{!15, !17, i64 80}
-!121 = distinct !{!121, !122}
-!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!123 = !{!124, !124, i64 0}
-!124 = !{!"p1 _ZTS22php_dom_ns_magic_token", !16, i64 0}
-!125 = !{!105, !17, i64 16}
-!126 = distinct !{!126, !122}
-!127 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!128 = !{!"branch_weights", i32 1, i32 4001}
-!129 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!130 = !{!131, !131, i64 0}
-!131 = !{!"p2 _ZTS12_zend_string", !16, i64 0}
-!132 = !{!133, !18, i64 8}
-!133 = !{!"_xmlXPathContext", !19, i64 0, !18, i64 8, !6, i64 16, !6, i64 20, !134, i64 24, !6, i64 32, !6, i64 36, !135, i64 40, !6, i64 48, !6, i64 52, !134, i64 56, !6, i64 64, !6, i64 68, !136, i64 72, !137, i64 80, !6, i64 88, !16, i64 96, !6, i64 104, !6, i64 108, !6, i64 112, !18, i64 120, !18, i64 128, !134, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !17, i64 168, !17, i64 176, !16, i64 184, !16, i64 192, !137, i64 200, !6, i64 208, !16, i64 216, !16, i64 224, !138, i64 232, !18, i64 320, !52, i64 328, !6, i64 336, !16, i64 344, !12, i64 352, !12, i64 360, !6, i64 368}
-!134 = !{!"p1 _ZTS13_xmlHashTable", !16, i64 0}
-!135 = !{!"p1 _ZTS13_xmlXPathType", !16, i64 0}
-!136 = !{!"p1 _ZTS13_xmlXPathAxis", !16, i64 0}
-!137 = !{!"p2 _ZTS6_xmlNs", !16, i64 0}
-!138 = !{!"_xmlError", !6, i64 0, !6, i64 4, !17, i64 8, !6, i64 16, !17, i64 24, !6, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !6, i64 64, !6, i64 68, !16, i64 72, !16, i64 80}
-!139 = !{!66, !6, i64 24}
-!140 = !{!141, !37, i64 24}
-!141 = !{!"_Bucket", !64, i64 0, !12, i64 16, !37, i64 24}
-!142 = !{!143, !6, i64 0}
-!143 = !{!"_xmlXPathObject", !6, i64 0, !144, i64 8, !6, i64 16, !145, i64 24, !17, i64 32, !16, i64 40, !6, i64 48, !16, i64 56, !6, i64 64}
-!144 = !{!"p1 _ZTS11_xmlNodeSet", !16, i64 0}
-!145 = !{!"double", !7, i64 0}
-!146 = !{!143, !144, i64 8}
-!147 = !{!66, !6, i64 28}
-!148 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
-!149 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
-!150 = !{!15, !20, i64 96}
-!151 = !{!152, !17, i64 16}
-!152 = !{!"_xmlDtd", !16, i64 0, !6, i64 8, !17, i64 16, !18, i64 24, !18, i64 32, !19, i64 40, !18, i64 48, !18, i64 56, !19, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !17, i64 104, !17, i64 112, !16, i64 120}
-!153 = !{!152, !17, i64 104}
-!154 = !{!152, !17, i64 112}
-!155 = !{!156, !6, i64 92}
-!156 = !{!"_xmlEntity", !16, i64 0, !6, i64 8, !17, i64 16, !18, i64 24, !18, i64 32, !51, i64 40, !18, i64 48, !18, i64 56, !19, i64 64, !17, i64 72, !17, i64 80, !6, i64 88, !6, i64 92, !17, i64 96, !17, i64 104, !157, i64 112, !17, i64 120, !6, i64 128, !6, i64 132}
-!157 = !{!"p1 _ZTS10_xmlEntity", !16, i64 0}
-!158 = !{!156, !17, i64 16}
-!159 = !{!156, !17, i64 96}
-!160 = !{!156, !17, i64 104}
-!161 = !{!25, !20, i64 0}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 _ZTS22php_dom_ns_magic_token", !16, i64 0}
+!123 = !{!105, !17, i64 16}
+!124 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!125 = !{!"branch_weights", i32 1, i32 4001}
+!126 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p2 _ZTS12_zend_string", !16, i64 0}
+!129 = !{!130, !18, i64 8}
+!130 = !{!"_xmlXPathContext", !19, i64 0, !18, i64 8, !6, i64 16, !6, i64 20, !131, i64 24, !6, i64 32, !6, i64 36, !132, i64 40, !6, i64 48, !6, i64 52, !131, i64 56, !6, i64 64, !6, i64 68, !133, i64 72, !134, i64 80, !6, i64 88, !16, i64 96, !6, i64 104, !6, i64 108, !6, i64 112, !18, i64 120, !18, i64 128, !131, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !17, i64 168, !17, i64 176, !16, i64 184, !16, i64 192, !134, i64 200, !6, i64 208, !16, i64 216, !16, i64 224, !135, i64 232, !18, i64 320, !52, i64 328, !6, i64 336, !16, i64 344, !12, i64 352, !12, i64 360, !6, i64 368}
+!131 = !{!"p1 _ZTS13_xmlHashTable", !16, i64 0}
+!132 = !{!"p1 _ZTS13_xmlXPathType", !16, i64 0}
+!133 = !{!"p1 _ZTS13_xmlXPathAxis", !16, i64 0}
+!134 = !{!"p2 _ZTS6_xmlNs", !16, i64 0}
+!135 = !{!"_xmlError", !6, i64 0, !6, i64 4, !17, i64 8, !6, i64 16, !17, i64 24, !6, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !6, i64 64, !6, i64 68, !16, i64 72, !16, i64 80}
+!136 = !{!66, !6, i64 24}
+!137 = !{!138, !37, i64 24}
+!138 = !{!"_Bucket", !64, i64 0, !12, i64 16, !37, i64 24}
+!139 = !{!140, !6, i64 0}
+!140 = !{!"_xmlXPathObject", !6, i64 0, !141, i64 8, !6, i64 16, !142, i64 24, !17, i64 32, !16, i64 40, !6, i64 48, !16, i64 56, !6, i64 64}
+!141 = !{!"p1 _ZTS11_xmlNodeSet", !16, i64 0}
+!142 = !{!"double", !7, i64 0}
+!143 = !{!140, !141, i64 8}
+!144 = !{!66, !6, i64 28}
+!145 = !{!"branch_weights", i32 4000000, i32 2001, i32 2000}
+!146 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!147 = !{!15, !20, i64 96}
+!148 = !{!149, !17, i64 16}
+!149 = !{!"_xmlDtd", !16, i64 0, !6, i64 8, !17, i64 16, !18, i64 24, !18, i64 32, !19, i64 40, !18, i64 48, !18, i64 56, !19, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !17, i64 104, !17, i64 112, !16, i64 120}
+!150 = !{!149, !17, i64 104}
+!151 = !{!149, !17, i64 112}
+!152 = !{!153, !6, i64 92}
+!153 = !{!"_xmlEntity", !16, i64 0, !6, i64 8, !17, i64 16, !18, i64 24, !18, i64 32, !51, i64 40, !18, i64 48, !18, i64 56, !19, i64 64, !17, i64 72, !17, i64 80, !6, i64 88, !6, i64 92, !17, i64 96, !17, i64 104, !154, i64 112, !17, i64 120, !6, i64 128, !6, i64 132}
+!154 = !{!"p1 _ZTS10_xmlEntity", !16, i64 0}
+!155 = !{!153, !17, i64 16}
+!156 = !{!153, !17, i64 96}
+!157 = !{!153, !17, i64 104}
+!158 = !{!25, !20, i64 0}

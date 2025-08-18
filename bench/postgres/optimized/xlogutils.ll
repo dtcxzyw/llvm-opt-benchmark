@@ -1021,7 +1021,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
 
 25:                                               ; preds = %24, %22
   call void @pg_usleep(i64 noundef 1000) #8
-  br label %.split.us, !llvm.loop !11
+  br label %.split.us
 
 .split:                                           ; preds = %5
   %26 = tail call zeroext i1 @RecoveryInProgress() #8
@@ -1217,5 +1217,3 @@ attributes #10 = { nounwind willreturn memory(none) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}

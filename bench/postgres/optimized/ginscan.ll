@@ -579,113 +579,123 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %45 = getelementptr inbounds [32 x i8], ptr %42, i64 0, i64 %44
   %.not74 = icmp eq ptr %8, null
   %.not = icmp eq ptr %9, null
-  %wide.trip.count86 = zext i32 %5 to i64
+  %wide.trip.count92 = zext i32 %5 to i64
   br i1 %.not74, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %53
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %53 ], [ 0, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv83
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
+  %46 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv89
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv83
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv89
   %49 = load i8, ptr %48, align 1
-  br i1 %.not, label %53, label %50
+  %50 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %47, i8 noundef signext %49, i1 noundef zeroext false, ptr noundef null)
+  %51 = load ptr, ptr %24, align 8
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv89
+  store ptr %50, ptr %52, align 8
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !12
 
-50:                                               ; preds = %.lr.ph.split.us
-  %51 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv83
-  %52 = load ptr, ptr %51, align 8
-  br label %53
-
-53:                                               ; preds = %50, %.lr.ph.split.us
-  %54 = phi ptr [ %52, %50 ], [ null, %.lr.ph.split.us ]
-  %55 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %47, i8 noundef signext %49, i1 noundef zeroext false, ptr noundef %54)
-  %56 = load ptr, ptr %24, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv83
-  store ptr %55, ptr %57, align 8
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
+  %53 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv84
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv84
+  %56 = load i8, ptr %55, align 1
+  %57 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv84
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %54, i8 noundef signext %56, i1 noundef zeroext false, ptr noundef %58)
+  %60 = load ptr, ptr %24, align 8
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv84
+  store ptr %59, ptr %61, align 8
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count92
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %68
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %68 ], [ 0, %.lr.ph.split ]
-  %58 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv78
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78
-  %61 = load i8, ptr %60, align 1
-  %62 = load i8, ptr %45, align 1, !range !6, !noundef !7
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %68
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %72
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %72 ], [ 0, %.lr.ph.split ]
+  %62 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv79
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv79
+  %65 = load i8, ptr %64, align 1
+  %66 = load i8, ptr %45, align 1, !range !6, !noundef !7
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %72
 
-64:                                               ; preds = %.lr.ph.split.split.us
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv78
-  %66 = load i8, ptr %65, align 1, !range !6, !noundef !7
-  %67 = icmp ne i8 %66, 0
-  br label %68
+68:                                               ; preds = %.lr.ph.split.split.us
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv79
+  %70 = load i8, ptr %69, align 1, !range !6, !noundef !7
+  %71 = icmp ne i8 %70, 0
+  br label %72
 
-68:                                               ; preds = %64, %.lr.ph.split.split.us
-  %69 = phi i1 [ %67, %64 ], [ false, %.lr.ph.split.split.us ]
-  %70 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %59, i8 noundef signext %61, i1 noundef zeroext %69, ptr noundef null)
-  %71 = load ptr, ptr %24, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv78
-  store ptr %70, ptr %72, align 8
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count86
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !14
+72:                                               ; preds = %68, %.lr.ph.split.split.us
+  %73 = phi i1 [ %71, %68 ], [ false, %.lr.ph.split.split.us ]
+  %74 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %63, i8 noundef signext %65, i1 noundef zeroext %73, ptr noundef null)
+  %75 = load ptr, ptr %24, align 8
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv79
+  store ptr %74, ptr %76, align 8
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count92
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !12
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
-  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph.split ]
-  %73 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
-  %76 = load i8, ptr %75, align 1
-  %77 = load i8, ptr %45, align 1, !range !6, !noundef !7
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %83
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %87
+  %indvars.iv = phi i64 [ %indvars.iv.next, %87 ], [ 0, %.lr.ph.split ]
+  %77 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
+  %80 = load i8, ptr %79, align 1
+  %81 = load i8, ptr %45, align 1, !range !6, !noundef !7
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %83, label %87
 
-79:                                               ; preds = %.lr.ph.split.split
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
-  %82 = icmp ne i8 %81, 0
-  br label %83
+83:                                               ; preds = %.lr.ph.split.split
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %85 = load i8, ptr %84, align 1, !range !6, !noundef !7
+  %86 = icmp ne i8 %85, 0
+  br label %87
 
-83:                                               ; preds = %.lr.ph.split.split, %79
-  %84 = phi i1 [ %82, %79 ], [ false, %.lr.ph.split.split ]
-  %85 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %74, i8 noundef signext %76, i1 noundef zeroext %84, ptr noundef %86)
-  %88 = load ptr, ptr %24, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
-  store ptr %87, ptr %89, align 8
+87:                                               ; preds = %.lr.ph.split.split, %83
+  %88 = phi i1 [ %86, %83 ], [ false, %.lr.ph.split.split ]
+  %89 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i64 noundef %78, i8 noundef signext %80, i1 noundef zeroext %88, ptr noundef %90)
+  %92 = load ptr, ptr %24, align 8
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
+  store ptr %91, ptr %93, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count86
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !15
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %83, %68, %53, %10
-  switch i32 %3, label %99 [
+._crit_edge:                                      ; preds = %87, %72, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %10
+  switch i32 %3, label %103 [
     i32 1, label %.sink.split
-    i32 3, label %90
+    i32 3, label %94
   ]
 
-90:                                               ; preds = %._crit_edge
+94:                                               ; preds = %._crit_edge
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %90
-  %.sink96 = phi i8 [ -1, %90 ], [ 2, %._crit_edge ]
-  %91 = load i32, ptr %17, align 8
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %17, align 8
-  %93 = load i16, ptr %33, align 8
-  %94 = load i32, ptr %32, align 4
-  %95 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %93, i16 noundef zeroext 0, i32 noundef %94, i64 noundef 0, i8 noundef signext %.sink96, i1 noundef zeroext false, ptr noundef null)
-  %96 = load ptr, ptr %24, align 8
-  %97 = sext i32 %91 to i64
-  %98 = getelementptr inbounds ptr, ptr %96, i64 %97
-  store ptr %95, ptr %98, align 8
-  br label %99
+.sink.split:                                      ; preds = %._crit_edge, %94
+  %.sink103 = phi i8 [ -1, %94 ], [ 2, %._crit_edge ]
+  %95 = load i32, ptr %17, align 8
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %17, align 8
+  %97 = load i16, ptr %33, align 8
+  %98 = load i32, ptr %32, align 4
+  %99 = tail call fastcc ptr @ginFillScanEntry(ptr noundef nonnull %0, i16 noundef zeroext %97, i16 noundef zeroext 0, i32 noundef %98, i64 noundef 0, i8 noundef signext %.sink103, i1 noundef zeroext false, ptr noundef null)
+  %100 = load ptr, ptr %24, align 8
+  %101 = sext i32 %95 to i64
+  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  store ptr %99, ptr %102, align 8
+  br label %103
 
-99:                                               ; preds = %.sink.split, %._crit_edge
+103:                                              ; preds = %.sink.split, %._crit_edge
   ret void
 }
 
@@ -820,7 +830,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %15, label %.loopexit, !llvm.loop !16
+  br i1 %48, label %15, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %45, %.preheader, %8
   %49 = tail call ptr @palloc(i64 noundef 224) #7
@@ -917,8 +927,5 @@ attributes #8 = { cold nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !5, !13}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

@@ -1025,7 +1025,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %22 = add i64 %.049.us, %12
   %or.cond3.us = or i1 %27, %32
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  br i1 %or.cond3.us, label %.split.us, label %.thread.thread101, !llvm.loop !60
+  br i1 %or.cond3.us, label %.split.us, label %.thread.thread101
 
 .preheader.us:                                    ; preds = %.split.us, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.split.us ]
@@ -1038,7 +1038,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = icmp samesign ult i64 %indvars.iv.next, %15
   %or.cond58.us = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond58.us, label %.preheader.us, label %..critedge_crit_edge.us, !llvm.loop !62
+  br i1 %or.cond58.us, label %.preheader.us, label %..critedge_crit_edge.us, !llvm.loop !60
 
 ..critedge_crit_edge.us:                          ; preds = %.preheader.us
   %29 = icmp eq i64 %indvars.iv84, 1
@@ -1097,7 +1097,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load i32, ptr %53, align 8, !tbaa !27
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %73, !llvm.loop !63
+  br i1 %55, label %56, label %73, !llvm.loop !61
 
 56:                                               ; preds = %.thread.thread101
   %57 = zext i8 %.14793 to i64
@@ -1116,7 +1116,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i32, ptr %70, align 8, !tbaa !27
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.critedge60, label %73, !llvm.loop !63
+  br i1 %72, label %.critedge60, label %73, !llvm.loop !61
 
 73:                                               ; preds = %.critedge60, %.thread.thread101, %56
   ret i1 %.not.not.not.not.not
@@ -1336,7 +1336,5 @@ attributes #21 = { nounwind }
 !57 = !{!"llvm.loop.unswitch.partial.disable"}
 !58 = distinct !{!58, !47}
 !59 = distinct !{!59, !47}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !47}
-!63 = distinct !{!63, !47}
+!60 = distinct !{!60, !47}
+!61 = distinct !{!61, !47}

@@ -109,7 +109,7 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0
   %39 = select i1 %36, i32 0, i32 %35
   %40 = sub i32 %28, %33
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.loopexit, label %.split, !llvm.loop !9
+  br i1 %41, label %.loopexit, label %.split, !llvm.loop !5
 
 .loopexit:                                        ; preds = %20, %.split, %2
   %42 = phi i32 [ 0, %2 ], [ %34, %.split ], [ %23, %20 ]
@@ -186,7 +186,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 18:                                               ; preds = %15, %5
   %19 = phi i32 [ %17, %15 ], [ 511, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false), !annotation !8
   %20 = icmp eq ptr %2, null
   br i1 %20, label %21, label %.thread.thread
 
@@ -371,7 +371,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 136:                                              ; preds = %131
   %137 = add nuw i64 %90, 1
   %138 = icmp eq i64 %137, %44
-  br i1 %138, label %.thread51, label %89, !llvm.loop !11
+  br i1 %138, label %.thread51, label %89, !llvm.loop !9
 
 139:                                              ; preds = %122, %119, %127, %131
   %140 = load i32, ptr %88, align 8
@@ -490,7 +490,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   br i1 %20, label %215, label %212
 
 212:                                              ; preds = %208
-  %213 = load i8, ptr %177, align 4, !range !12, !noundef !13
+  %213 = load i8, ptr %177, align 4, !range !10, !noundef !11
   %214 = shl nuw nsw i8 %213, 1
   br label %215
 
@@ -575,17 +575,17 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %267 = load i64, ptr %176, align 8
   %268 = add i64 %267, %266
   store i64 %268, ptr %176, align 8
-  %269 = load i8, ptr %170, align 1, !range !12, !noundef !13
+  %269 = load i8, ptr %170, align 1, !range !10, !noundef !11
   %270 = icmp eq i8 %269, 0
   br i1 %270, label %274, label %271
 
 271:                                              ; preds = %.thread61.us
-  %272 = load i8, ptr %177, align 4, !range !12, !noundef !13
+  %272 = load i8, ptr %177, align 4, !range !10, !noundef !11
   %273 = icmp eq i8 %272, 0
   br i1 %273, label %326, label %274
 
 274:                                              ; preds = %271, %.thread61.us
-  %275 = load i8, ptr %181, align 1, !range !12, !noundef !13
+  %275 = load i8, ptr %181, align 1, !range !10, !noundef !11
   %276 = icmp eq i8 %275, 0
   br i1 %276, label %372, label %277
 
@@ -651,14 +651,14 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   switch i32 %322, label %.split.us127 [
     i32 0, label %280
     i32 2, label %.thread68.us
-  ], !llvm.loop !14
+  ], !llvm.loop !12
 
 .thread68.us:                                     ; preds = %302, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread64.us
 
 323:                                              ; preds = %.thread58.us
-  %324 = load i8, ptr %170, align 1, !range !12, !noundef !13
+  %324 = load i8, ptr %170, align 1, !range !10, !noundef !11
   %325 = icmp eq i8 %324, 0
   br i1 %325, label %372, label %326
 
@@ -721,7 +721,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   switch i32 %371, label %.thread60 [
     i32 0, label %329
     i32 2, label %.thread64.us
-  ], !llvm.loop !14
+  ], !llvm.loop !12
 
 372:                                              ; preds = %323, %274
   %373 = load i8, ptr %196, align 8
@@ -744,7 +744,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 .thread64.us:                                     ; preds = %329, %351, %378, %.thread68.us
   %382 = getelementptr inbounds nuw i8, ptr %225, i64 64
   store ptr %196, ptr %382, align 8
-  %383 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %225), !range !15
+  %383 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %225), !range !13
   %384 = icmp eq i32 %383, 0
   br i1 %384, label %.thread79.us, label %.thread60
 
@@ -760,7 +760,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %389 = phi ptr [ %183, %.thread79.us ], [ %387, %386 ]
   %390 = load i64, ptr %175, align 8
   %391 = icmp eq i64 %390, 0
-  br i1 %391, label %.thread51, label %.thread.split.us, !llvm.loop !16
+  br i1 %391, label %.thread51, label %.thread.split.us, !llvm.loop !14
 
 .lr.ph115.split.us.us:                            ; preds = %231, %402
   %392 = phi i32 [ 0, %402 ], [ %190, %231 ]
@@ -780,7 +780,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 402:                                              ; preds = %398
   %403 = sub i32 %393, %395
   %404 = icmp eq i32 %403, 0
-  br i1 %404, label %.thread58.us, label %.lr.ph115.split.us.us, !llvm.loop !17
+  br i1 %404, label %.thread58.us, label %.lr.ph115.split.us.us
 
 .split.us.us:                                     ; preds = %398
   call void @__free_pages(ptr noundef nonnull %396, i32 noundef 0) #8
@@ -874,11 +874,11 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 .lr.ph:                                           ; preds = %446, %534
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %6, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i64 0, ptr %8, align 8, !annotation !10
+  store i64 0, ptr %8, align 8, !annotation !8
   br i1 %447, label %451, label %452
 
 451:                                              ; preds = %.lr.ph
@@ -888,7 +888,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 452:                                              ; preds = %451, %.lr.ph
   %453 = call i64 @iov_iter_extract_pages(ptr noundef nonnull %11, ptr noundef nonnull %7, i64 noundef 9223372036854775807, i32 noundef %409, i32 noundef %439, ptr noundef nonnull %8) #8
   %454 = icmp slt i64 %453, 1
-  br i1 %454, label %.thread74, label %458, !prof !18
+  br i1 %454, label %.thread74, label %458, !prof !15
 
 .thread74:                                        ; preds = %452
   %455 = icmp eq i64 %453, 0
@@ -921,7 +921,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %473 = icmp eq i64 %472, 0
   %474 = icmp sgt i32 %463, 0
   %475 = select i1 %473, i1 %474, i1 false
-  br i1 %475, label %476, label %508, !prof !19
+  br i1 %475, label %476, label %508, !prof !16
 
 476:                                              ; preds = %470
   %477 = and i64 %462, 2147483647
@@ -947,7 +947,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   br i1 %492, label %506, label %493
 
 493:                                              ; preds = %478
-  %494 = load i8, ptr %9, align 1, !range !12, !noundef !13
+  %494 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %495 = icmp eq i8 %494, 0
   br i1 %495, label %501, label %496
 
@@ -968,7 +968,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %504 = add nuw nsw i64 %480, 1
   %505 = icmp eq i64 %504, %477
-  br i1 %505, label %.thread72, label %478, !llvm.loop !20
+  br i1 %505, label %.thread72, label %478, !llvm.loop !17
 
 506:                                              ; preds = %478
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1004,7 +1004,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 526:                                              ; preds = %522, %516
   %527 = icmp eq i64 %518, %515
-  br i1 %527, label %.thread72, label %516, !llvm.loop !21
+  br i1 %527, label %.thread72, label %516, !llvm.loop !18
 
 .thread72:                                        ; preds = %501, %526, %508
   %528 = phi i64 [ %510, %508 ], [ %510, %526 ], [ %503, %501 ]
@@ -1036,7 +1036,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   br i1 %536, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %534, %446, %.thread73
-  %537 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %433), !range !15
+  %537 = call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %433), !range !13
   %538 = icmp eq i32 %537, 0
   br i1 %538, label %.thread79, label %539
 
@@ -1083,7 +1083,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %558 = phi ptr [ %405, %.thread79 ], [ %556, %555 ]
   %559 = load i64, ptr %166, align 8
   %560 = icmp eq i64 %559, 0
-  br i1 %560, label %.thread51, label %.thread.split, !llvm.loop !22
+  br i1 %560, label %.thread51, label %.thread.split, !llvm.loop !14
 
 .thread77:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit82
   %561 = phi ptr [ %183, %.loopexit82 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
@@ -1134,7 +1134,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   br i1 %15, label %16, label %81
 
 16:                                               ; preds = %12
-  %17 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !23
+  %17 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !19
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1192
   %20 = load ptr, ptr %19, align 8
@@ -1210,7 +1210,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   switch i32 %73, label %.loopexit.loopexit [
     i32 0, label %31
     i32 2, label %.loopexit
-  ], !llvm.loop !24
+  ], !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %53
   br label %.loopexit
@@ -1276,7 +1276,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
 
 106:                                              ; preds = %105, %104
   %107 = icmp eq ptr %99, null
-  br i1 %107, label %.loopexit4, label %6, !llvm.loop !25
+  br i1 %107, label %.loopexit4, label %6, !llvm.loop !21
 
 .loopexit4:                                       ; preds = %106, %1
   %108 = phi i32 [ 0, %1 ], [ %98, %106 ]
@@ -1287,13 +1287,13 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
 define dso_local i32 @blk_rq_map_user(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.iov_iter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %11 = call i32 @import_ubuf(i32 noundef %10, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7) #8
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %15, label %13, !prof !18
+  br i1 %12, label %15, label %13, !prof !15
 
 13:                                               ; preds = %6
   %14 = call i32 @blk_rq_map_user_iov(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %5)
@@ -1318,11 +1318,11 @@ define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef captures(ad
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %11, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false), !annotation !8
   %15 = icmp eq i32 %6, 0
   %16 = trunc i64 %3 to i32
   %17 = select i1 %15, i32 %16, i32 %6
@@ -1375,13 +1375,13 @@ define dso_local i32 @blk_rq_map_user_io(ptr noundef %0, ptr noundef captures(ad
 41:                                               ; preds = %39
   %42 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %46 = call i32 @import_ubuf(i32 noundef %45, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %10) #8
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %50, label %48, !prof !18
+  br i1 %47, label %50, label %48, !prof !15
 
 48:                                               ; preds = %41
   %49 = call i32 @blk_rq_map_user_iov(ptr noundef %42, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %4)
@@ -1446,7 +1446,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %34, label %112, label %35
 
 35:                                               ; preds = %24
-  %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !23
+  %36 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !19
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 32
@@ -1517,7 +1517,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %80 = sub i32 %69, %73
   %81 = add nuw nsw i32 %66, 1
   %82 = icmp eq i32 %81, %51
-  br i1 %82, label %.loopexit, label %.split.us, !llvm.loop !26
+  br i1 %82, label %.loopexit, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %.split.preheader, %105
   %83 = phi i32 [ %109, %105 ], [ 0, %.split.preheader ]
@@ -1552,7 +1552,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %108 = sub i32 %86, %90
   %109 = add nuw nsw i32 %83, 1
   %110 = icmp eq i32 %109, %51
-  br i1 %110, label %.loopexit, label %.split, !llvm.loop !27
+  br i1 %110, label %.loopexit, label %.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %105, %.split, %77, %.split.us, %.thread36, %58
   %111 = getelementptr inbounds nuw i8, ptr %54, i64 56
@@ -1594,7 +1594,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %134 = sub i32 %127, %131
   %135 = icmp eq i32 %134, 0
   %or.cond = or i1 %133, %135
-  br i1 %or.cond, label %.thread18, label %.split21.us, !llvm.loop !28
+  br i1 %or.cond, label %.thread18, label %.split21.us
 
 .split21:                                         ; preds = %124, %140
   %136 = phi ptr [ %153, %140 ], [ %2, %124 ]
@@ -1667,9 +1667,9 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %170 = and i32 %169, 255
   %171 = or disjoint i32 %170, %168
   store i32 %171, ptr %166, align 8
-  %172 = tail call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %160), !range !15
+  %172 = tail call i32 @blk_rq_append_bio(ptr noundef %1, ptr noundef nonnull %160), !range !13
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %175, label %174, !prof !29
+  br i1 %173, label %175, label %174, !prof !23
 
 174:                                              ; preds = %165
   tail call void @bio_uninit(ptr noundef nonnull %160) #8
@@ -1813,7 +1813,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %49 = load i16, ptr %2, align 8
   %50 = zext i16 %49 to i32
   %51 = icmp samesign ult i32 %37, %50
-  br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %25, %1
   tail call void @bio_free_pages(ptr noundef %0) #8
@@ -1877,29 +1877,23 @@ attributes #10 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"auto-init"}
 !9 = distinct !{!9, !6, !7}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !6, !7}
+!13 = !{i32 -22, i32 1}
 !14 = distinct !{!14, !6, !7}
-!15 = !{i32 -22, i32 1}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !8}
-!18 = !{!"branch_weights", i32 1, i32 2000}
-!19 = !{!"branch_weights", i32 2000, i32 2002}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{!"branch_weights", i32 2000, i32 2002}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = !{i64 2148202368}
 !20 = distinct !{!20, !6, !7}
 !21 = distinct !{!21, !6, !7}
 !22 = distinct !{!22, !6, !7}
-!23 = !{i64 2148202368}
+!23 = !{!"branch_weights", i32 2000, i32 1}
 !24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !8}
-!29 = !{!"branch_weights", i32 2000, i32 1}
-!30 = distinct !{!30, !6, !7}

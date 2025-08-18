@@ -541,5 +541,4 @@ attributes #4 = { nounwind }
 !10 = !{!6, !6, i64 0}
 !11 = !{ptr @interpolate_bilinear, ptr @interpolate_biquadratic, ptr @interpolate_nearest}
 !12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9}

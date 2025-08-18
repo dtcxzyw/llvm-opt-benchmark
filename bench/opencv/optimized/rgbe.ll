@@ -1230,7 +1230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46: ; preds = %_
 73:                                               ; preds = %71
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(24) %7, ptr noundef nonnull dereferenceable(24) @.str.6, i64 24)
   %.not57 = icmp eq i32 %bcmp, 0
-  br i1 %.not57, label %.outer.outer, label %74, !llvm.loop !31
+  br i1 %.not57, label %.outer.outer, label %74, !llvm.loop !29
 
 .outer.outer:                                     ; preds = %73, %.outer.preheader
   %.0.ph.ph = phi i1 [ false, %.outer.preheader ], [ true, %73 ]
@@ -1249,15 +1249,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46: ; preds = %_
 .critedge.sink.split:                             ; preds = %77, %74
   %.sink69 = phi ptr [ %52, %74 ], [ %51, %77 ]
   %.sink68 = phi i32 [ 2, %74 ], [ 4, %77 ]
-  %80 = load float, ptr %8, align 4, !tbaa !32
-  store float %80, ptr %.sink69, align 4, !tbaa !32
+  %80 = load float, ptr %8, align 4, !tbaa !30
+  store float %80, ptr %.sink69, align 4, !tbaa !30
   %81 = load i32, ptr %3, align 4, !tbaa !3
   %82 = or i32 %81, %.sink68
   store i32 %82, ptr %3, align 4, !tbaa !3
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.critedge.sink.split, %77
-  br label %.outer, !llvm.loop !31
+  br label %.outer, !llvm.loop !29
 
 .split53.us:                                      ; preds = %53, %71
   %.us-phi = phi i1 [ %.0.ph.ph, %71 ], [ %.0.ph.us, %53 ]
@@ -1329,10 +1329,10 @@ define hidden noundef i32 @_Z16RGBE_WritePixelsP8_IO_FILEPfi(ptr noundef capture
 12:                                               ; preds = %10
   %13 = add nsw i32 %.0, -1
   %14 = getelementptr inbounds nuw i8, ptr %.06, i64 8
-  %15 = load float, ptr %14, align 4, !tbaa !32
+  %15 = load float, ptr %14, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %.06, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !32
-  %18 = load float, ptr %.06, align 4, !tbaa !32
+  %17 = load float, ptr %16, align 4, !tbaa !30
+  %18 = load float, ptr %.06, align 4, !tbaa !30
   %19 = fcmp ogt float %17, %15
   %.0.i = select i1 %19, float %17, float %15
   %20 = fcmp ogt float %18, %.0.i
@@ -1371,7 +1371,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %12, %23
   %39 = getelementptr inbounds nuw i8, ptr %.06, i64 12
   %40 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.noexc27.i, label %10, !llvm.loop !33
+  br i1 %41, label %.noexc27.i, label %10, !llvm.loop !31
 
 .noexc27.i:                                       ; preds = %_ZL10float2rgbePhfff.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1493,7 +1493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 29:                                               ; preds = %25
   %30 = zext i8 %28 to i32
   %31 = add nsw i32 %30, -136
-  %32 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %31) #18, !tbaa !34
+  %32 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %31) #18, !tbaa !32
   %33 = fptrunc double %32 to float
   %34 = load i8, ptr %5, align 1, !tbaa !17
   %35 = uitofp i8 %34 to float
@@ -1510,12 +1510,12 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %25, %29
   %.sink10 = phi float [ %42, %29 ], [ 0.000000e+00, %25 ]
   %.sink9 = phi float [ %39, %29 ], [ 0.000000e+00, %25 ]
   %.sink = phi float [ %36, %29 ], [ 0.000000e+00, %25 ]
-  store float %.sink10, ptr %.068, align 4, !tbaa !32
-  store float %.sink9, ptr %27, align 4, !tbaa !32
-  store float %.sink, ptr %26, align 4, !tbaa !32
+  store float %.sink10, ptr %.068, align 4, !tbaa !30
+  store float %.sink9, ptr %27, align 4, !tbaa !30
+  store float %.sink, ptr %26, align 4, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %.068, i64 12
   %44 = icmp samesign ugt i32 %.in, 1
-  br i1 %44, label %10, label %._crit_edge, !llvm.loop !35
+  br i1 %44, label %10, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1583,7 +1583,7 @@ define hidden noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr noundef ca
 
 .loopexit:                                        ; preds = %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit
   %40 = icmp sgt i32 %.in, 1
-  br i1 %40, label %41, label %._crit_edge, !llvm.loop !36
+  br i1 %40, label %41, label %._crit_edge, !llvm.loop !34
 
 41:                                               ; preds = %.lr.ph59, %.loopexit
   %.in = phi i32 [ %3, %.lr.ph59 ], [ %42, %.loopexit ]
@@ -1659,10 +1659,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i: ; preds = %_
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL10float2rgbePhfff.exit ], [ 0, %41 ]
   %.14855 = phi ptr [ %87, %_ZL10float2rgbePhfff.exit ], [ %.04758, %41 ]
   %61 = getelementptr inbounds nuw i8, ptr %.14855, i64 8
-  %62 = load float, ptr %61, align 4, !tbaa !32
+  %62 = load float, ptr %61, align 4, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %.14855, i64 4
-  %64 = load float, ptr %63, align 4, !tbaa !32
-  %65 = load float, ptr %.14855, align 4, !tbaa !32
+  %64 = load float, ptr %63, align 4, !tbaa !30
+  %65 = load float, ptr %.14855, align 4, !tbaa !30
   %66 = fcmp ogt float %64, %62
   %.0.i = select i1 %66, float %64, float %62
   %67 = fcmp ogt float %65, %.0.i
@@ -1709,7 +1709,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %70
   %87 = getelementptr inbounds nuw i8, ptr %.14855, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !35
 
 .preheader:                                       ; preds = %_ZL10float2rgbePhfff.exit, %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit ], [ 0, %_ZL10float2rgbePhfff.exit ]
@@ -1752,7 +1752,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %70
   %104 = icmp samesign ult i64 %indvars.iv82.i, 126
   %or.cond.i = select i1 %103, i1 %104, i1 false
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  br i1 %or.cond.i, label %98, label %.critedge.loopexit.i, !llvm.loop !38
+  br i1 %or.cond.i, label %98, label %.critedge.loopexit.i, !llvm.loop !36
 
 .critedge.loopexit.i:                             ; preds = %102, %98
   %.1.lcssa.ph.in.i = phi i64 [ %indvars.iv82.i, %98 ], [ %indvars.iv.next83.i, %102 ]
@@ -1764,7 +1764,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %70
   %105 = icmp samesign ult i32 %.1.lcssa.i, 4
   %106 = icmp slt i32 %91, %2
   %107 = and i1 %106, %105
-  br i1 %107, label %90, label %108, !llvm.loop !39
+  br i1 %107, label %90, label %108, !llvm.loop !37
 
 108:                                              ; preds = %.critedge.i
   %109 = icmp sgt i32 %.04976.i, 1
@@ -1845,7 +1845,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i.i: ; preds = 
 138:                                              ; preds = %161
   %139 = add nsw i32 %spec.store.select.i, %.277.i
   %140 = icmp slt i32 %139, %91
-  br i1 %140, label %.lr.ph78.i, label %._crit_edge.i, !llvm.loop !40
+  br i1 %140, label %.lr.ph78.i, label %._crit_edge.i, !llvm.loop !38
 
 .lr.ph78.i:                                       ; preds = %136, %138
   %.277.i = phi i32 [ %139, %138 ], [ %.05180.i, %136 ]
@@ -1999,13 +1999,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i64.i: ; preds 
 195:                                              ; preds = %193, %._crit_edge.i
   %.3.i = phi i32 [ %194, %193 ], [ %.2.lcssa.i, %._crit_edge.i ]
   %196 = icmp slt i32 %.3.i, %2
-  br i1 %196, label %.preheader.i, label %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit, !llvm.loop !41
+  br i1 %196, label %.preheader.i, label %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit, !llvm.loop !39
 
 _ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit:       ; preds = %195
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66.not, label %.loopexit, label %.preheader, !llvm.loop !42
+  br i1 %exitcond66.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader53
   tail call void @free(ptr noundef %22) #18
@@ -2094,7 +2094,7 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr noundef cap
 40:                                               ; preds = %36
   %41 = zext i8 %39 to i32
   %42 = add nsw i32 %41, -136
-  %43 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %42) #18, !tbaa !34
+  %43 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %42) #18, !tbaa !32
   %44 = fptrunc double %43 to float
   %45 = uitofp i8 %30 to float
   %46 = fmul float %45, %44
@@ -2109,9 +2109,9 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %36, %40
   %.sink223 = phi float [ %51, %40 ], [ 0.000000e+00, %36 ]
   %.sink222 = phi float [ %48, %40 ], [ 0.000000e+00, %36 ]
   %.sink = phi float [ %46, %40 ], [ 0.000000e+00, %36 ]
-  store float %.sink223, ptr %.085165, align 4, !tbaa !32
-  store float %.sink222, ptr %38, align 4, !tbaa !32
-  store float %.sink, ptr %37, align 4, !tbaa !32
+  store float %.sink223, ptr %.085165, align 4, !tbaa !30
+  store float %.sink222, ptr %38, align 4, !tbaa !30
+  store float %.sink, ptr %37, align 4, !tbaa !30
   %52 = getelementptr inbounds nuw i8, ptr %.085165, i64 12
   tail call void @free(ptr noundef %.082167) #18
   %53 = mul nuw nsw i32 %.084166, %2
@@ -2153,7 +2153,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %36, %40
 .loopexit105:                                     ; preds = %.loopexit, %.preheader107
   %.181.lcssa = phi ptr [ %.080159, %.preheader107 ], [ %.3, %.loopexit ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.lr.ph163.preheader, label %.preheader107, !llvm.loop !43
+  br i1 %exitcond.not, label %.lr.ph163.preheader, label %.preheader107, !llvm.loop !41
 
 .lr.ph163.preheader:                              ; preds = %.loopexit105
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.183228, i64 %19
@@ -2251,7 +2251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %99 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
   store i8 %.pre, ptr %.2154, align 1, !tbaa !17
   %100 = icmp sgt i32 %.0155, 1
-  br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !44
+  br i1 %100, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 101:                                              ; preds = %87
   %102 = icmp eq i8 %88, 0
@@ -2323,7 +2323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100: ; preds = %
 .loopexit:                                        ; preds = %.lr.ph, %106, %125
   %.3 = phi ptr [ %126, %125 ], [ %108, %106 ], [ %99, %.lr.ph ]
   %127 = icmp ult ptr %.3, %70
-  br i1 %127, label %73, label %.loopexit105, !llvm.loop !45
+  br i1 %127, label %73, label %.loopexit105, !llvm.loop !43
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %_ZL10rgbe2floatPfS_S_Ph.exit104
   %indvars.iv218 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next219, %_ZL10rgbe2floatPfS_S_Ph.exit104 ]
@@ -2348,7 +2348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100: ; preds = %
 135:                                              ; preds = %.lr.ph163
   %136 = zext i8 %132 to i32
   %137 = add nsw i32 %136, -136
-  %138 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %137) #18, !tbaa !34
+  %138 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %137) #18, !tbaa !32
   %139 = fptrunc double %138 to float
   %140 = uitofp i8 %129 to float
   %141 = fmul float %140, %139
@@ -2362,18 +2362,18 @@ _ZL10rgbe2floatPfS_S_Ph.exit104:                  ; preds = %.lr.ph163, %135
   %.sink226 = phi float [ %145, %135 ], [ 0.000000e+00, %.lr.ph163 ]
   %.sink225 = phi float [ %143, %135 ], [ 0.000000e+00, %.lr.ph163 ]
   %.sink224 = phi float [ %141, %135 ], [ 0.000000e+00, %.lr.ph163 ]
-  store float %.sink226, ptr %.186161, align 4, !tbaa !32
-  store float %.sink225, ptr %134, align 4, !tbaa !32
-  store float %.sink224, ptr %133, align 4, !tbaa !32
+  store float %.sink226, ptr %.186161, align 4, !tbaa !30
+  store float %.sink225, ptr %134, align 4, !tbaa !30
+  store float %.sink224, ptr %133, align 4, !tbaa !30
   %146 = getelementptr inbounds nuw i8, ptr %.186161, i64 12
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next219, %19
-  br i1 %exitcond221.not, label %._crit_edge, label %.lr.ph163, !llvm.loop !46
+  br i1 %exitcond221.not, label %._crit_edge, label %.lr.ph163, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit104
   %147 = add nsw i32 %.084166, -1
   %148 = icmp sgt i32 %.084166, 1
-  br i1 %148, label %25, label %._crit_edge169, !llvm.loop !47
+  br i1 %148, label %25, label %._crit_edge169, !llvm.loop !45
 
 ._crit_edge169:                                   ; preds = %._crit_edge, %.preheader108
   %.082.lcssa = phi ptr [ null, %.preheader108 ], [ %.183228, %._crit_edge ]
@@ -2491,12 +2491,12 @@ attributes #22 = { nounwind allocsize(0) }
 !26 = distinct !{!26, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
 !27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !28, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !28}
+!30 = !{!8, !8, i64 0}
 !31 = distinct !{!31, !28}
-!32 = !{!8, !8, i64 0}
+!32 = !{!5, !5, i64 0}
 !33 = distinct !{!33, !28}
-!34 = !{!5, !5, i64 0}
+!34 = distinct !{!34, !28}
 !35 = distinct !{!35, !28}
 !36 = distinct !{!36, !28}
 !37 = distinct !{!37, !28}
@@ -2508,5 +2508,3 @@ attributes #22 = { nounwind allocsize(0) }
 !43 = distinct !{!43, !28}
 !44 = distinct !{!44, !28}
 !45 = distinct !{!45, !28}
-!46 = distinct !{!46, !28}
-!47 = distinct !{!47, !28}

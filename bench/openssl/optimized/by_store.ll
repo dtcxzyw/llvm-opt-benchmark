@@ -215,7 +215,7 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %27
   %19 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %8) #3
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %20, label %.loopexit, label %.lr.ph.split.us
 
 21:                                               ; preds = %.lr.ph.split.us
   %22 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %16) #3
@@ -332,5 +332,3 @@ attributes #3 = { nounwind }
 !5 = !{!6, !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}

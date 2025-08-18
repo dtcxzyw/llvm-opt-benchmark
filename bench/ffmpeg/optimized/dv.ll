@@ -20,7 +20,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.preheader.lr.ph, label %._crit_edge54
+  br i1 %5, label %.preheader.lr.ph, label %._crit_edge59
 
 .preheader.lr.ph:                                 ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -28,71 +28,71 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %8 = icmp sgt i32 %7, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br i1 %8, label %.preheader.lr.ph.split.us, label %._crit_edge54
+  br i1 %8, label %.preheader.lr.ph.split.us, label %._crit_edge59
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !13
-  %wide.trip.count64 = zext nneg i32 %4 to i64
+  %wide.trip.count72 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.053.us = phi i16 [ %235, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %.03451.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %13 = icmp ne i64 %indvars.iv62, 0
-  %14 = mul nuw nsw i64 %indvars.iv62, 10
-  %15 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %16 = trunc i64 %indvars.iv62 to i1
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.058.us = phi i16 [ %235, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %.03456.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %13 = icmp ne i64 %indvars.iv70, 0
+  %14 = mul nuw nsw i64 %indvars.iv70, 10
+  %15 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %16 = trunc i64 %indvars.iv70 to i1
   %17 = select i1 %16, i32 6, i32 0
   %18 = lshr i32 %15, 1
   %19 = mul i32 %18, 45
   %20 = select i1 %16, i32 9, i32 0
-  %21 = icmp eq i64 %indvars.iv62, 0
-  %22 = mul nuw nsw i64 %indvars.iv62, 11
-  %23 = shl i32 %15, 8
-  %24 = and i32 %23, -512
-  %25 = add i32 %24, 512
-  %indvars.iv62.tr = trunc i64 %indvars.iv62 to i32
-  %26 = shl i32 %indvars.iv62.tr, 2
+  %21 = mul nuw nsw i64 %indvars.iv70, 11
+  %22 = shl i32 %15, 8
+  %23 = and i32 %22, 65024
+  %24 = add nuw nsw i32 %23, 512
+  %25 = icmp eq i64 %indvars.iv70, 0
+  %indvars.iv70.tr = trunc i64 %indvars.iv70 to i32
+  %26 = shl i32 %indvars.iv70.tr, 2
   br label %27
 
 27:                                               ; preds = %.preheader.us, %39
-  %indvars.iv59 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next60, %39 ]
-  %.149.us = phi i16 [ %.053.us, %.preheader.us ], [ %235, %39 ]
-  %.13547.us = phi i32 [ %.03451.us, %.preheader.us ], [ %.3.us, %39 ]
-  %28 = add i16 %.149.us, 6
-  %29 = icmp samesign ugt i64 %indvars.iv59, 9
-  %30 = icmp eq i64 %indvars.iv59, 11
-  %31 = add nuw nsw i64 %indvars.iv59, %14
+  %indvars.iv67 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next68, %39 ]
+  %.154.us = phi i16 [ %.058.us, %.preheader.us ], [ %235, %39 ]
+  %.13552.us = phi i32 [ %.03456.us, %.preheader.us ], [ %.3.us, %39 ]
+  %28 = add i16 %.154.us, 6
+  %29 = icmp samesign ugt i64 %indvars.iv67, 9
+  %30 = icmp eq i64 %indvars.iv67, 11
+  %31 = add nuw nsw i64 %indvars.iv67, %14
   %32 = mul nuw nsw i64 %31, 27
-  %33 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv67 to i32
   %34 = udiv i32 %33, 5
   %35 = add nuw nsw i32 %34, %26
-  %or.cond.i.us = and i1 %21, %30
-  %36 = add nuw nsw i64 %indvars.iv59, %22
+  %36 = add nuw nsw i64 %indvars.iv67, %21
   %37 = mul nuw nsw i64 %36, 27
+  %or.cond.i.us = and i1 %25, %30
   %38 = zext i32 %35 to i64
   %invariant.op = and i1 %13, %30
   br label %40
 
 39:                                               ; preds = %234
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond61.not, label %._crit_edge.us, label %27, !llvm.loop !14
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
+  br i1 %exitcond69.not, label %._crit_edge.us, label %27, !llvm.loop !14
 
 40:                                               ; preds = %234, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %234 ], [ 0, %27 ]
-  %.246.us = phi i16 [ %235, %234 ], [ %28, %27 ]
-  %.23645.us = phi i32 [ %.3.us, %234 ], [ %.13547.us, %27 ]
+  %.251.us = phi i16 [ %235, %234 ], [ %28, %27 ]
+  %.23650.us = phi i32 [ %.3.us, %234 ], [ %.13552.us, %27 ]
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %.lhs.trunc.us = trunc i64 %indvars.iv to i8
   %42 = urem i8 %.lhs.trunc.us, 3
   %43 = udiv i8 %.lhs.trunc.us, 3
   %.not.us = icmp eq i8 %42, 0
   %44 = zext i1 %.not.us to i16
-  %45 = add i16 %.246.us, %44
+  %45 = add i16 %.251.us, %44
   switch i32 %12, label %.thread.us [
     i32 20, label %49
     i32 24, label %46
@@ -111,7 +111,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   br i1 %or.cond3.reass.us.reass.reass, label %234, label %.thread.us
 
 .thread.us:                                       ; preds = %49, %46, %40
-  %52 = sext i32 %.23645.us to i64
+  %52 = sext i32 %.23650.us to i64
   %53 = getelementptr inbounds %struct.DVwork_chunk, ptr %0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i32, ptr %9, align 4, !tbaa !17
@@ -140,7 +140,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %72 = udiv i8 %.lhs.trunc.i.us, 9
   %.sext115.i.us = zext nneg i8 %72 to i32
   switch i32 %55, label %dv_calc_mb_coordinates.exit.us [
-    i32 1440, label %.split.us.i.us.preheader
+    i32 1440, label %.split.us.i.us
     i32 1280, label %.split.us127.i.us.preheader
     i32 960, label %.split.us129.i.us.preheader
     i32 720, label %.split.us131.i.us
@@ -154,81 +154,93 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %74 = trunc nuw i64 %59 to i32
   br label %.split.us127.i.us
 
-.split.us.i.us.preheader:                         ; preds = %.thread.us
-  %75 = trunc i64 %66 to i32
-  %76 = add i32 %26, %75
-  br label %.split.us.i.us
-
 .split.us131.i.us:                                ; preds = %.thread.us
-  %77 = load i32, ptr %10, align 8, !tbaa !18
-  br label %78
-
-78:                                               ; preds = %145, %.split.us131.i.us
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %145 ], [ 0, %.split.us131.i.us ]
-  switch i32 %77, label %145 [
-    i32 4, label %124
-    i32 0, label %107
-    i32 7, label %79
+  %75 = load i32, ptr %10, align 8, !tbaa !18
+  switch i32 %75, label %dv_calc_mb_coordinates.exit.us [
+    i32 4, label %.split.us131.split.us.i.us
+    i32 0, label %.split.us131.split.us133.i.us
+    i32 7, label %.split.us131.split.us135.i.us
   ]
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv.i.us
-  %81 = load i8, ptr %80, align 1, !tbaa !19
-  %82 = zext i8 %81 to i32
-  %83 = add nuw nsw i32 %33, %82
-  %84 = urem i32 %83, %7
-  %85 = trunc i64 %indvars.iv.i.us to i32
-  %86 = add i32 %85, -1
-  %87 = icmp ult i32 %86, 2
-  %88 = select i1 %87, i32 3, i32 0
-  %89 = add nuw nsw i32 %88, %41
-  %90 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.l_start_shuffled, i64 0, i64 %indvars.iv.i.us
-  %91 = load i8, ptr %90, align 1, !tbaa !19
-  %92 = zext i8 %91 to i32
-  %93 = udiv i32 %89, 6
-  %94 = add nuw nsw i32 %93, %92
-  %95 = zext nneg i32 %89 to i64
-  %96 = getelementptr inbounds nuw [30 x i8], ptr @dv_calc_mb_coordinates.serpent2, i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !19
-  %98 = zext i8 %97 to i32
-  %99 = mul nuw nsw i32 %84, 6
-  %100 = add nuw nsw i32 %99, %98
-  %101 = icmp samesign ugt i32 %94, 21
-  %102 = shl nuw nsw i32 %100, 1
-  %103 = sub nsw i32 %102, %99
-  %.2.us.i.us = select i1 %101, i32 %103, i32 %100
-  %104 = shl nuw nsw i32 %94, 2
-  %105 = shl i32 %.2.us.i.us, 8
-  %106 = or i32 %105, %104
-  br label %.sink.split.i.us
+.split.us131.split.us135.i.us:                    ; preds = %.split.us131.i.us, %.split.us131.split.us135.i.us
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.split.us131.split.us135.i.us ], [ 0, %.split.us131.i.us ]
+  %76 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv.i.us
+  %77 = load i8, ptr %76, align 1, !tbaa !19
+  %78 = zext i8 %77 to i32
+  %79 = add nuw nsw i32 %33, %78
+  %80 = urem i32 %79, %7
+  %81 = trunc i64 %indvars.iv.i.us to i32
+  %82 = add i32 %81, -1
+  %83 = icmp ult i32 %82, 2
+  %84 = select i1 %83, i32 3, i32 0
+  %85 = add nuw nsw i32 %84, %41
+  %86 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.l_start_shuffled, i64 0, i64 %indvars.iv.i.us
+  %87 = load i8, ptr %86, align 1, !tbaa !19
+  %88 = zext i8 %87 to i32
+  %.lhs.trunc40.us = trunc nuw nsw i32 %85 to i8
+  %89 = udiv i8 %.lhs.trunc40.us, 6
+  %.zext41.us = zext nneg i8 %89 to i32
+  %90 = add nuw nsw i32 %.zext41.us, %88
+  %91 = zext nneg i32 %85 to i64
+  %92 = getelementptr inbounds nuw [30 x i8], ptr @dv_calc_mb_coordinates.serpent2, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !19
+  %94 = zext i8 %93 to i32
+  %95 = mul nuw nsw i32 %80, 6
+  %96 = add nuw nsw i32 %95, %94
+  %97 = icmp samesign ugt i32 %90, 21
+  %98 = shl nuw nsw i32 %96, 1
+  %99 = sub nsw i32 %98, %95
+  %.2.us.us.i.us = select i1 %97, i32 %99, i32 %96
+  %100 = shl nuw nsw i32 %90, 2
+  %101 = shl i32 %.2.us.us.i.us, 8
+  %102 = or i32 %101, %100
+  %103 = trunc i32 %102 to i16
+  %104 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i.us
+  store i16 %103, ptr %104, align 2, !tbaa !20
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 5
+  br i1 %exitcond.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us131.split.us135.i.us, !llvm.loop !22
 
-107:                                              ; preds = %78
-  %108 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv.i.us
+.split.us131.split.us133.i.us:                    ; preds = %.split.us131.i.us
+  %105 = load i8, ptr %56, align 1, !tbaa !19
+  %106 = zext i8 %105 to i32
+  br label %107
+
+107:                                              ; preds = %107, %.split.us131.split.us133.i.us
+  %indvars.iv146.i.us = phi i64 [ %indvars.iv.next147.i.us, %107 ], [ 0, %.split.us131.split.us133.i.us ]
+  %108 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv146.i.us
   %109 = load i8, ptr %108, align 1, !tbaa !19
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %110, %.zext39.us
-  %112 = load i8, ptr %56, align 1, !tbaa !19
-  %113 = zext i8 %112 to i32
-  %114 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv.i.us
-  %115 = load i8, ptr %114, align 1, !tbaa !19
-  %116 = zext i8 %115 to i32
-  %117 = add nuw nsw i32 %33, %116
-  %118 = urem i32 %117, %7
-  %119 = mul nuw nsw i32 %118, 3
-  %120 = add nuw nsw i32 %119, %113
-  %121 = shl nuw nsw i32 %111, 1
-  %122 = shl i32 %120, 9
-  %123 = or i32 %122, %121
-  br label %.sink.split.i.us
+  %112 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv146.i.us
+  %113 = load i8, ptr %112, align 1, !tbaa !19
+  %114 = zext i8 %113 to i32
+  %115 = add nuw nsw i32 %33, %114
+  %116 = urem i32 %115, %7
+  %117 = mul nuw nsw i32 %116, 3
+  %118 = add nuw nsw i32 %117, %106
+  %119 = shl nuw nsw i32 %111, 1
+  %120 = shl i32 %118, 9
+  %121 = or i32 %120, %119
+  %122 = trunc i32 %121 to i16
+  %123 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv146.i.us
+  store i16 %122, ptr %123, align 2, !tbaa !20
+  %indvars.iv.next147.i.us = add nuw nsw i64 %indvars.iv146.i.us, 1
+  %exitcond149.not.i.us = icmp eq i64 %indvars.iv.next147.i.us, 5
+  br i1 %exitcond149.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %107, !llvm.loop !22
 
-124:                                              ; preds = %78
-  %125 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv.i.us
-  %126 = load i8, ptr %125, align 1, !tbaa !19
-  %127 = zext i8 %126 to i32
-  %128 = add nuw nsw i32 %127, %.zext39.us
-  %129 = load i8, ptr %56, align 1, !tbaa !19
-  %130 = zext i8 %129 to i32
-  %131 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv.i.us
+.split.us131.split.us.i.us:                       ; preds = %.split.us131.i.us
+  %124 = load i8, ptr %56, align 1, !tbaa !19
+  %125 = zext i8 %124 to i32
+  br label %126
+
+126:                                              ; preds = %126, %.split.us131.split.us.i.us
+  %indvars.iv150.i.us = phi i64 [ %indvars.iv.next151.i.us, %126 ], [ 0, %.split.us131.split.us.i.us ]
+  %127 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf3, i64 0, i64 %indvars.iv150.i.us
+  %128 = load i8, ptr %127, align 1, !tbaa !19
+  %129 = zext i8 %128 to i32
+  %130 = add nuw nsw i32 %129, %.zext39.us
+  %131 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv150.i.us
   %132 = load i8, ptr %131, align 1, !tbaa !19
   %133 = zext i8 %132 to i32
   %134 = add nuw nsw i32 %33, %133
@@ -236,169 +248,168 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %136 = shl nuw i32 %135, 1
   %137 = add nsw i32 %136, %15
   %138 = mul nsw i32 %137, 3
-  %139 = add nsw i32 %138, %130
-  %140 = shl nuw nsw i32 %128, 1
+  %139 = add nsw i32 %138, %125
+  %140 = shl nuw nsw i32 %130, 1
   %141 = shl i32 %139, 8
   %142 = or i32 %141, %140
-  br label %.sink.split.i.us
-
-.sink.split.i.us:                                 ; preds = %124, %107, %79
-  %.sink154.i.us = phi i32 [ %142, %124 ], [ %123, %107 ], [ %106, %79 ]
-  %143 = trunc i32 %.sink154.i.us to i16
-  %144 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i.us
+  %143 = trunc i32 %142 to i16
+  %144 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv150.i.us
   store i16 %143, ptr %144, align 2, !tbaa !20
-  br label %145
-
-145:                                              ; preds = %.sink.split.i.us, %78
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 5
-  br i1 %exitcond.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %78, !llvm.loop !22
+  %indvars.iv.next151.i.us = add nuw nsw i64 %indvars.iv150.i.us, 1
+  %exitcond153.not.i.us = icmp eq i64 %indvars.iv.next151.i.us, 5
+  br i1 %exitcond153.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %126, !llvm.loop !22
 
 .split.us129.i.us:                                ; preds = %.split.us129.i.us.preheader, %.split.us129.i.us
-  %indvars.iv138.i.us = phi i64 [ %indvars.iv.next139.i.us, %.split.us129.i.us ], [ 0, %.split.us129.i.us.preheader ]
-  %146 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv138.i.us
-  %147 = load i8, ptr %146, align 1, !tbaa !19
-  %148 = zext i8 %147 to i32
-  %149 = add nuw nsw i32 %73, %148
-  %150 = urem i32 %149, 10
-  %151 = trunc i32 %150 to i1
-  %152 = select i1 %151, i32 3, i32 0
-  %153 = add nuw nsw i32 %152, %62
-  %154 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf2, i64 0, i64 %indvars.iv138.i.us
-  %155 = load i8, ptr %154, align 1, !tbaa !19
-  %156 = zext i8 %155 to i32
-  %.lhs.trunc120.us.i.us = trunc nuw nsw i32 %153 to i8
-  %157 = urem i8 %.lhs.trunc120.us.i.us, 6
-  %.sext121.us.i.us = zext nneg i8 %157 to i32
-  %158 = add nuw nsw i32 %17, %156
-  %159 = add nuw nsw i32 %158, %.sext121.us.i.us
-  %160 = zext nneg i32 %150 to i64
-  %161 = getelementptr inbounds nuw [10 x i8], ptr @dv_calc_mb_coordinates.l_start, i64 0, i64 %160
-  %162 = load i8, ptr %161, align 1, !tbaa !19
-  %163 = zext i8 %162 to i32
-  %164 = udiv i8 %.lhs.trunc120.us.i.us, 6
-  %.sext123.us.i.us = zext nneg i8 %164 to i32
-  %165 = add i32 %19, %163
-  %166 = add i32 %165, %.sext123.us.i.us
-  %167 = shl nuw nsw i32 %159, 1
-  %168 = shl i32 %166, 9
-  %169 = or i32 %167, %168
-  %170 = trunc i32 %169 to i16
-  %171 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv138.i.us
-  store i16 %170, ptr %171, align 2, !tbaa !20
-  %indvars.iv.next139.i.us = add nuw nsw i64 %indvars.iv138.i.us, 1
-  %exitcond141.not.i.us = icmp eq i64 %indvars.iv.next139.i.us, 5
-  br i1 %exitcond141.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us129.i.us, !llvm.loop !24
+  %indvars.iv154.i.us = phi i64 [ %indvars.iv.next155.i.us, %.split.us129.i.us ], [ 0, %.split.us129.i.us.preheader ]
+  %145 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv154.i.us
+  %146 = load i8, ptr %145, align 1, !tbaa !19
+  %147 = zext i8 %146 to i32
+  %148 = add nuw nsw i32 %73, %147
+  %149 = urem i32 %148, 10
+  %150 = trunc i32 %149 to i1
+  %151 = select i1 %150, i32 3, i32 0
+  %152 = add nuw nsw i32 %151, %62
+  %153 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf2, i64 0, i64 %indvars.iv154.i.us
+  %154 = load i8, ptr %153, align 1, !tbaa !19
+  %155 = zext i8 %154 to i32
+  %.lhs.trunc120.us.i.us = trunc nuw nsw i32 %152 to i8
+  %156 = urem i8 %.lhs.trunc120.us.i.us, 6
+  %.sext121.us.i.us = zext nneg i8 %156 to i32
+  %157 = add nuw nsw i32 %17, %155
+  %158 = add nuw nsw i32 %157, %.sext121.us.i.us
+  %159 = zext nneg i32 %149 to i64
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @dv_calc_mb_coordinates.l_start, i64 0, i64 %159
+  %161 = load i8, ptr %160, align 1, !tbaa !19
+  %162 = zext i8 %161 to i32
+  %163 = udiv i8 %.lhs.trunc120.us.i.us, 6
+  %.sext123.us.i.us = zext nneg i8 %163 to i32
+  %164 = add i32 %19, %162
+  %165 = add i32 %164, %.sext123.us.i.us
+  %166 = shl nuw nsw i32 %158, 1
+  %167 = shl i32 %165, 9
+  %168 = or i32 %166, %167
+  %169 = trunc i32 %168 to i16
+  %170 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv154.i.us
+  store i16 %169, ptr %170, align 2, !tbaa !20
+  %indvars.iv.next155.i.us = add nuw nsw i64 %indvars.iv154.i.us, 1
+  %exitcond157.not.i.us = icmp eq i64 %indvars.iv.next155.i.us, 5
+  br i1 %exitcond157.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us129.i.us, !llvm.loop !22
 
-.split.us127.i.us:                                ; preds = %.split.us127.i.us.preheader, %200
-  %indvars.iv142.i.us = phi i64 [ %indvars.iv.next143.i.us, %200 ], [ 0, %.split.us127.i.us.preheader ]
-  %172 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv142.i.us
-  %173 = load i8, ptr %172, align 1, !tbaa !19
-  %174 = zext i8 %173 to i32
-  %175 = add nuw nsw i32 %74, %174
-  %176 = urem i32 %175, 10
-  %177 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv142.i.us
-  %178 = load i8, ptr %177, align 1, !tbaa !19
-  %179 = zext i8 %178 to i32
-  %180 = add nuw nsw i32 %64, %179
-  %181 = mul nuw nsw i32 %176, 3
-  %182 = add nuw nsw i32 %181, %.sext119.i.us
-  %183 = shl nuw nsw i32 %182, 1
-  %184 = add nuw nsw i32 %183, %18
-  %185 = add nuw nsw i32 %184, 4
-  %186 = icmp samesign ugt i32 %180, 79
-  br i1 %186, label %187, label %200
+.split.us127.i.us:                                ; preds = %.split.us127.i.us.preheader, %199
+  %indvars.iv158.i.us = phi i64 [ %indvars.iv.next159.i.us, %199 ], [ 0, %.split.us127.i.us.preheader ]
+  %171 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv158.i.us
+  %172 = load i8, ptr %171, align 1, !tbaa !19
+  %173 = zext i8 %172 to i32
+  %174 = add nuw nsw i32 %74, %173
+  %175 = urem i32 %174, 10
+  %176 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv158.i.us
+  %177 = load i8, ptr %176, align 1, !tbaa !19
+  %178 = zext i8 %177 to i32
+  %179 = add nuw nsw i32 %64, %178
+  %180 = mul nuw nsw i32 %175, 3
+  %181 = add nuw nsw i32 %180, %.sext119.i.us
+  %182 = shl nuw nsw i32 %181, 1
+  %183 = add nuw nsw i32 %182, %18
+  %184 = add nuw nsw i32 %183, 4
+  %185 = icmp samesign ugt i32 %179, 79
+  br i1 %185, label %186, label %199
 
-187:                                              ; preds = %.split.us127.i.us
-  %188 = zext nneg i32 %185 to i64
-  %189 = getelementptr inbounds nuw [64 x [2 x i8]], ptr @dv_calc_mb_coordinates.remap, i64 0, i64 %188
-  %190 = load i8, ptr %189, align 2, !tbaa !19
-  %191 = zext i8 %190 to i32
-  %192 = add nsw i32 %180, -80
-  %193 = icmp samesign ugt i32 %184, 55
-  %194 = zext i1 %193 to i32
-  %195 = shl nuw nsw i32 %192, %194
-  %196 = add nuw nsw i32 %195, %191
-  %197 = getelementptr inbounds nuw i8, ptr %189, i64 1
-  %198 = load i8, ptr %197, align 1, !tbaa !19
-  %199 = zext i8 %198 to i32
-  br label %200
+186:                                              ; preds = %.split.us127.i.us
+  %187 = zext nneg i32 %184 to i64
+  %188 = getelementptr inbounds nuw [64 x [2 x i8]], ptr @dv_calc_mb_coordinates.remap, i64 0, i64 %187
+  %189 = load i8, ptr %188, align 2, !tbaa !19
+  %190 = zext i8 %189 to i32
+  %191 = add nsw i32 %179, -80
+  %192 = icmp samesign ugt i32 %183, 55
+  %193 = zext i1 %192 to i32
+  %194 = shl nuw nsw i32 %191, %193
+  %195 = add nuw nsw i32 %194, %190
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 1
+  %197 = load i8, ptr %196, align 1, !tbaa !19
+  %198 = zext i8 %197 to i32
+  br label %199
 
-200:                                              ; preds = %187, %.split.us127.i.us
-  %.1108.us.i.us = phi i32 [ %196, %187 ], [ %180, %.split.us127.i.us ]
-  %.1.us.i.us = phi i32 [ %199, %187 ], [ %185, %.split.us127.i.us ]
-  %201 = shl nsw i32 %.1108.us.i.us, 1
-  %202 = shl i32 %.1.us.i.us, 9
-  %203 = or i32 %202, %201
-  %204 = trunc i32 %203 to i16
-  %205 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv142.i.us
-  store i16 %204, ptr %205, align 2, !tbaa !20
-  %indvars.iv.next143.i.us = add nuw nsw i64 %indvars.iv142.i.us, 1
-  %exitcond145.not.i.us = icmp eq i64 %indvars.iv.next143.i.us, 5
-  br i1 %exitcond145.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us127.i.us, !llvm.loop !25
+199:                                              ; preds = %186, %.split.us127.i.us
+  %.1108.us.i.us = phi i32 [ %195, %186 ], [ %179, %.split.us127.i.us ]
+  %.1.us.i.us = phi i32 [ %198, %186 ], [ %184, %.split.us127.i.us ]
+  %200 = shl nsw i32 %.1108.us.i.us, 1
+  %201 = shl i32 %.1.us.i.us, 9
+  %202 = or i32 %201, %200
+  %203 = trunc i32 %202 to i16
+  %204 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv158.i.us
+  store i16 %203, ptr %204, align 2, !tbaa !20
+  %indvars.iv.next159.i.us = add nuw nsw i64 %indvars.iv158.i.us, 1
+  %exitcond161.not.i.us = icmp eq i64 %indvars.iv.next159.i.us, 5
+  br i1 %exitcond161.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us127.i.us, !llvm.loop !22
 
-.split.us.i.us:                                   ; preds = %.split.us.i.us.preheader, %228
-  %indvars.iv146.i.us = phi i64 [ %indvars.iv.next147.i.us, %228 ], [ 0, %.split.us.i.us.preheader ]
-  br i1 %or.cond.i.us, label %220, label %206
+.split.us.i.us:                                   ; preds = %.thread.us
+  br i1 %or.cond.i.us, label %.split.us.split.us.i.us, label %.split.us.split.i.us.preheader
 
-206:                                              ; preds = %.split.us.i.us
-  %207 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv146.i.us
+.split.us.split.i.us.preheader:                   ; preds = %.split.us.i.us
+  %205 = trunc i64 %66 to i32
+  %206 = add i32 %26, %205
+  br label %.split.us.split.i.us
+
+.split.us.split.i.us:                             ; preds = %.split.us.split.i.us.preheader, %.split.us.split.i.us
+  %indvars.iv162.i.us = phi i64 [ %indvars.iv.next163.i.us, %.split.us.split.i.us ], [ 0, %.split.us.split.i.us.preheader ]
+  %207 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.off, i64 0, i64 %indvars.iv162.i.us
   %208 = load i8, ptr %207, align 1, !tbaa !19
   %209 = zext i8 %208 to i32
-  %210 = add nuw nsw i32 %76, %209
+  %210 = add nuw nsw i32 %206, %209
   %211 = urem i32 %210, 11
-  %212 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv146.i.us
+  %212 = getelementptr inbounds nuw [5 x i8], ptr @dv_calc_mb_coordinates.shuf1, i64 0, i64 %indvars.iv162.i.us
   %213 = load i8, ptr %212, align 1, !tbaa !19
   %214 = zext i8 %213 to i32
   %215 = add nuw nsw i32 %71, %214
   %216 = mul nuw nsw i32 %211, 3
   %217 = add nuw nsw i32 %216, %.sext115.i.us
   %218 = shl nuw nsw i32 %217, 10
-  %219 = add i32 %25, %218
-  br label %228
+  %219 = add nuw nsw i32 %24, %218
+  %220 = shl nuw nsw i32 %215, 1
+  %221 = or i32 %219, %220
+  %222 = trunc i32 %221 to i16
+  %223 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv162.i.us
+  store i16 %222, ptr %223, align 2, !tbaa !20
+  %indvars.iv.next163.i.us = add nuw nsw i64 %indvars.iv162.i.us, 1
+  %exitcond165.not.i.us = icmp eq i64 %indvars.iv.next163.i.us, 5
+  br i1 %exitcond165.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us.split.i.us, !llvm.loop !22
 
-220:                                              ; preds = %.split.us.i.us
-  %221 = mul nuw nsw i64 %indvars.iv146.i.us, 27
-  %222 = add nuw nsw i64 %221, %indvars.iv
-  %223 = icmp samesign ult i64 %222, 90
-  %224 = trunc nsw i64 %222 to i32
-  br i1 %223, label %228, label %225
-
-225:                                              ; preds = %220
-  %226 = shl nuw i32 %224, 1
-  %227 = add i32 %226, -180
-  br label %228
-
-228:                                              ; preds = %225, %220, %206
-  %.0107.us.i.us = phi i32 [ %227, %225 ], [ %215, %206 ], [ %224, %220 ]
-  %.0.us.i.us = phi i32 [ 34304, %225 ], [ %219, %206 ], [ 0, %220 ]
-  %229 = shl i32 %.0107.us.i.us, 1
-  %230 = or i32 %229, %.0.us.i.us
-  %231 = trunc i32 %230 to i16
-  %232 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv146.i.us
+.split.us.split.us.i.us:                          ; preds = %.split.us.i.us, %.split.us.split.us.i.us
+  %indvars.iv166.i.us = phi i64 [ %indvars.iv.next167.i.us, %.split.us.split.us.i.us ], [ 0, %.split.us.i.us ]
+  %224 = mul nuw nsw i64 %indvars.iv166.i.us, 27
+  %225 = add nuw nsw i64 %224, %indvars.iv
+  %226 = icmp samesign ult i64 %225, 90
+  %227 = trunc i64 %225 to i16
+  %228 = shl i16 %227, 1
+  %229 = add i16 %228, 32588
+  %.0107.us.us.i.us = select i1 %226, i16 %227, i16 %229
+  %.0.us.us.i.us = select i1 %226, i16 0, i16 -31232
+  %230 = shl i16 %.0107.us.us.i.us, 1
+  %231 = or i16 %230, %.0.us.us.i.us
+  %232 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv166.i.us
   store i16 %231, ptr %232, align 2, !tbaa !20
-  %indvars.iv.next147.i.us = add nuw nsw i64 %indvars.iv146.i.us, 1
-  %exitcond149.not.i.us = icmp eq i64 %indvars.iv.next147.i.us, 5
-  br i1 %exitcond149.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us.i.us, !llvm.loop !26
+  %indvars.iv.next167.i.us = add nuw nsw i64 %indvars.iv166.i.us, 1
+  %exitcond169.not.i.us = icmp eq i64 %indvars.iv.next167.i.us, 5
+  br i1 %exitcond169.not.i.us, label %dv_calc_mb_coordinates.exit.us, label %.split.us.split.us.i.us, !llvm.loop !22
 
-dv_calc_mb_coordinates.exit.us:                   ; preds = %145, %.split.us129.i.us, %200, %228, %.thread.us
-  %233 = add nsw i32 %.23645.us, 1
-  store i16 %45, ptr %53, align 2, !tbaa !27
+dv_calc_mb_coordinates.exit.us:                   ; preds = %.split.us131.split.us135.i.us, %107, %126, %.split.us129.i.us, %199, %.split.us.split.i.us, %.split.us.split.us.i.us, %.split.us131.i.us, %.thread.us
+  %233 = add nsw i32 %.23650.us, 1
+  store i16 %45, ptr %53, align 2, !tbaa !23
   br label %234
 
 234:                                              ; preds = %dv_calc_mb_coordinates.exit.us, %49, %46
-  %.3.us = phi i32 [ %.23645.us, %49 ], [ %.23645.us, %46 ], [ %233, %dv_calc_mb_coordinates.exit.us ]
+  %.3.us = phi i32 [ %.23650.us, %49 ], [ %.23650.us, %46 ], [ %233, %dv_calc_mb_coordinates.exit.us ]
   %235 = add i16 %45, 5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
-  br i1 %exitcond.not, label %39, label %40, !llvm.loop !29
+  br i1 %exitcond.not, label %39, label %40, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %39
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge54, label %.preheader.us, !llvm.loop !30
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count72
+  br i1 %exitcond73.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !26
 
-._crit_edge54:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
+._crit_edge59:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   ret void
 }
 
@@ -428,12 +439,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !19 = !{!7, !7, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"short", !7, i64 0}
-!22 = distinct !{!22, !15, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !15, !23}
-!25 = distinct !{!25, !15, !23}
-!26 = distinct !{!26, !15, !23}
-!27 = !{!28, !21, i64 0}
-!28 = !{!"DVwork_chunk", !21, i64 0, !7, i64 2}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15, !23}
+!22 = distinct !{!22, !15}
+!23 = !{!24, !21, i64 0}
+!24 = !{!"DVwork_chunk", !21, i64 0, !7, i64 2}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}

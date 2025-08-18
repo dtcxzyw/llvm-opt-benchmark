@@ -217,7 +217,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %127 = add i64 %.15174, 1
   %128 = add nsw i64 %.04975, -1
   %.not = icmp eq i64 %128, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %BlockSplitIteratorNext.exit60, %BlockSplitIteratorNext.exit60.us, %BlockSplitIteratorNext.exit
   %.sroa.768.1.lcssa = phi i64 [ %.sroa.768.088, %BlockSplitIteratorNext.exit ], [ %.sroa.768.2.us, %BlockSplitIteratorNext.exit60.us ], [ %.sroa.768.2, %BlockSplitIteratorNext.exit60 ]
@@ -227,7 +227,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %.146.lcssa = phi i8 [ %.04599, %BlockSplitIteratorNext.exit ], [ %.177.us, %BlockSplitIteratorNext.exit60.us ], [ %.177, %BlockSplitIteratorNext.exit60 ]
   %.1.lcssa = phi i8 [ %.0100, %BlockSplitIteratorNext.exit ], [ %85, %BlockSplitIteratorNext.exit60.us ], [ %126, %BlockSplitIteratorNext.exit60 ]
   %129 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !28
+  %130 = load i32, ptr %129, align 4, !tbaa !26
   %131 = and i32 %130, 33554431
   %132 = zext nneg i32 %131 to i64
   %133 = add i64 %.151.lcssa, %132
@@ -281,7 +281,7 @@ BlockSplitIteratorNext.exit61:                    ; preds = %144, %146
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %167 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %166, i64 %165
   %168 = getelementptr inbounds nuw i8, ptr %37, i64 14
-  %169 = load i16, ptr %168, align 2, !tbaa !29
+  %169 = load i16, ptr %168, align 2, !tbaa !27
   %170 = and i16 %169, 1023
   %171 = zext nneg i16 %170 to i64
   %172 = getelementptr inbounds nuw [544 x i32], ptr %167, i64 0, i64 %171
@@ -289,9 +289,9 @@ BlockSplitIteratorNext.exit61:                    ; preds = %144, %146
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !11
   %175 = getelementptr inbounds nuw i8, ptr %167, i64 2176
-  %176 = load i64, ptr %175, align 8, !tbaa !30
+  %176 = load i64, ptr %175, align 8, !tbaa !28
   %177 = add i64 %176, 1
-  store i64 %177, ptr %175, align 8, !tbaa !30
+  store i64 %177, ptr %175, align 8, !tbaa !28
   br label %178
 
 178:                                              ; preds = %134, %BlockSplitIteratorNext.exit61, %._crit_edge
@@ -302,7 +302,7 @@ BlockSplitIteratorNext.exit61:                    ; preds = %144, %146
   %.2 = phi i8 [ %.1.lcssa, %._crit_edge ], [ %142, %BlockSplitIteratorNext.exit61 ], [ %142, %134 ]
   %179 = add nuw i64 %.05297, 1
   %exitcond.not = icmp eq i64 %179, %1
-  br i1 %exitcond.not, label %._crit_edge102, label %36, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge102, label %36, !llvm.loop !30
 
 ._crit_edge102:                                   ; preds = %178, %InitBlockSplitIterator.exit59
   ret void
@@ -340,12 +340,10 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !21 = !{!16, !12, i64 0}
 !22 = !{!23, !5, i64 1024}
 !23 = !{!"HistogramLiteral", !6, i64 0, !5, i64 1024, !20, i64 1032}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !25}
-!28 = !{!16, !12, i64 4}
-!29 = !{!16, !17, i64 14}
-!30 = !{!31, !5, i64 2176}
-!31 = !{!"HistogramDistance", !6, i64 0, !5, i64 2176, !20, i64 2184}
-!32 = distinct !{!32, !25}
+!26 = !{!16, !12, i64 4}
+!27 = !{!16, !17, i64 14}
+!28 = !{!29, !5, i64 2176}
+!29 = !{!"HistogramDistance", !6, i64 0, !5, i64 2176, !20, i64 2184}
+!30 = distinct !{!30, !25}

@@ -360,7 +360,7 @@ _.exit92:                                         ; preds = %107, %109
 126:                                              ; preds = %122, %.split
   %127 = call ptr %0(ptr noundef %1) #11
   %.not82 = icmp eq ptr %127, null
-  br i1 %.not82, label %.split187.us, label %.split, !llvm.loop !52
+  br i1 %.not82, label %.split187.us, label %.split, !llvm.loop !50
 
 .split187.us:                                     ; preds = %126, %122, %.split.us, %119
   %128 = call i32 @ferror(ptr noundef %115) #11
@@ -571,6 +571,4 @@ attributes #13 = { nounwind willreturn memory(none) }
 !47 = !{!"strvec", !12, i64 0, !23, i64 8, !23, i64 16}
 !48 = !{!46, !6, i64 88}
 !49 = !{!5, !6, i64 0}
-!50 = distinct !{!50, !38, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !38}
+!50 = distinct !{!50, !38}

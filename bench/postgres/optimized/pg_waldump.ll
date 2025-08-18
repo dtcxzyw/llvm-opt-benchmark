@@ -1671,160 +1671,209 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
   %or.cond5.fr = freeze i1 %or.cond5
   br i1 %or.cond5.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %29
-  %.01935.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %13, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
+  %.01935.us.us = phi i32 [ %27, %26 ], [ 0, %.lr.ph.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %21 = trunc i32 %.01935.us to i8
+  %21 = trunc i32 %.01935.us.us to i8
   %22 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  br i1 %22, label %23, label %29
+  br i1 %22, label %23, label %26
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = load i32, ptr %7, align 4
-  %25 = icmp eq i32 %4, %24
-  %or.cond.us = select i1 %13, i1 true, i1 %25
-  br i1 %or.cond.us, label %26, label %29
+23:                                               ; preds = %.lr.ph.split.us.split.us
+  %24 = load i32, ptr %8, align 4
+  %25 = icmp eq i32 %3, %24
+  %or.cond30.us.us = select i1 %20, i1 true, i1 %25
+  br i1 %or.cond30.us.us, label %.split.us, label %26
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %8, align 4
-  %28 = icmp eq i32 %3, %27
-  %or.cond30.us = select i1 %20, i1 true, i1 %28
-  br i1 %or.cond30.us, label %.split.us, label %29
-
-29:                                               ; preds = %26, %23, %.lr.ph.split.us
+26:                                               ; preds = %23, %.lr.ph.split.us.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %30 = add i32 %.01935.us, 1
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 84
-  %33 = load i32, ptr %32, align 4
-  %.not.us.not = icmp sgt i32 %30, %33
-  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  %27 = add i32 %.01935.us.us, 1
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
+  %30 = load i32, ptr %29, align 4
+  %.not.us.us.not = icmp sgt i32 %27, %30
+  br i1 %.not.us.us.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !13
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
+  br i1 %20, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %35
+  %.01935.us.us61 = phi i32 [ %36, %35 ], [ 0, %.lr.ph.split.us.split ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %31 = trunc i32 %.01935.us.us61 to i8
+  %32 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %31, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %33 = load i32, ptr %7, align 4
+  %34 = icmp eq i32 %4, %33
+  %or.cond = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond, label %.split.us, label %35
+
+35:                                               ; preds = %.lr.ph.split.us.split.split.us
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %36 = add i32 %.01935.us.us61, 1
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 84
+  %39 = load i32, ptr %38, align 4
+  %.not.us.us63.not = icmp sgt i32 %36, %39
+  br i1 %.not.us.us63.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !13
+
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %46
+  %.01935.us = phi i32 [ %47, %46 ], [ 0, %.lr.ph.split.us.split ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %40 = trunc i32 %.01935.us to i8
+  %41 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %40, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp eq i32 %4, %42
+  %or.cond71 = select i1 %41, i1 %43, i1 false
+  %44 = load i32, ptr %8, align 4
+  %45 = icmp eq i32 %3, %44
+  %or.cond73 = select i1 %or.cond71, i1 %45, i1 false
+  br i1 %or.cond73, label %.split.us, label %46
+
+46:                                               ; preds = %.lr.ph.split.us.split.split
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %47 = add i32 %.01935.us, 1
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
+  %50 = load i32, ptr %49, align 4
+  %.not.us.not = icmp sgt i32 %47, %50
+  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %46
-  %.01935.us39 = phi i32 [ %47, %46 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %63
+  %.01935.us39 = phi i32 [ %64, %63 ], [ 0, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %34 = trunc i32 %.01935.us39 to i8
-  %35 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %34, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  br i1 %35, label %36, label %46
+  %51 = trunc i32 %.01935.us39 to i8
+  %52 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  br i1 %52, label %53, label %63
 
-36:                                               ; preds = %.lr.ph.split.split.us
-  %37 = load i32, ptr %18, align 4
-  %38 = icmp eq i32 %2, %37
-  %39 = load i32, ptr %19, align 4
-  %40 = icmp eq i32 %39, %.sroa.3.0.extract.trunc
-  %or.cond26.us = select i1 %38, i1 %40, i1 false
-  %41 = load i32, ptr %6, align 4
-  %42 = icmp eq i32 %41, %.sroa.014.0.extract.trunc
-  %or.cond28.us = select i1 %or.cond26.us, i1 %42, i1 false
-  br i1 %or.cond28.us, label %43, label %46
+53:                                               ; preds = %.lr.ph.split.split.us
+  %54 = load i32, ptr %18, align 4
+  %55 = icmp eq i32 %2, %54
+  %56 = load i32, ptr %19, align 4
+  %57 = icmp eq i32 %56, %.sroa.3.0.extract.trunc
+  %or.cond26.us = select i1 %55, i1 %57, i1 false
+  %58 = load i32, ptr %6, align 4
+  %59 = icmp eq i32 %58, %.sroa.014.0.extract.trunc
+  %or.cond28.us = select i1 %or.cond26.us, i1 %59, i1 false
+  br i1 %or.cond28.us, label %60, label %63
 
-43:                                               ; preds = %36
-  %44 = load i32, ptr %8, align 4
-  %45 = icmp eq i32 %3, %44
-  %or.cond30.us41 = select i1 %20, i1 true, i1 %45
-  br i1 %or.cond30.us41, label %.split.us, label %46
+60:                                               ; preds = %53
+  %61 = load i32, ptr %8, align 4
+  %62 = icmp eq i32 %3, %61
+  %or.cond30.us41 = select i1 %20, i1 true, i1 %62
+  br i1 %or.cond30.us41, label %.split.us, label %63
 
-46:                                               ; preds = %43, %36, %.lr.ph.split.split.us
+63:                                               ; preds = %60, %53, %.lr.ph.split.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %47 = add i32 %.01935.us39, 1
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
-  %50 = load i32, ptr %49, align 4
-  %.not.us42.not = icmp sgt i32 %47, %50
-  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !15
+  %64 = add i32 %.01935.us39, 1
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 84
+  %67 = load i32, ptr %66, align 4
+  %.not.us42.not = icmp sgt i32 %64, %67
+  br i1 %.not.us42.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %20, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %62
-  %.01935.us48 = phi i32 [ %63, %62 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %79
+  %.01935.us48 = phi i32 [ %80, %79 ], [ 0, %.lr.ph.split.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %51 = trunc i32 %.01935.us48 to i8
-  %52 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %51, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %53 = load i32, ptr %7, align 4
-  %54 = icmp eq i32 %4, %53
-  %or.cond = select i1 %52, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %62
+  %68 = trunc i32 %.01935.us48 to i8
+  %69 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %68, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %70 = load i32, ptr %7, align 4
+  %71 = icmp eq i32 %4, %70
+  %or.cond75 = select i1 %69, i1 %71, i1 false
+  br i1 %or.cond75, label %72, label %79
 
-55:                                               ; preds = %.lr.ph.split.split.split.us
-  %56 = load i32, ptr %18, align 4
-  %57 = icmp eq i32 %2, %56
-  %58 = load i32, ptr %19, align 4
-  %59 = icmp eq i32 %58, %.sroa.3.0.extract.trunc
-  %or.cond26.us49 = select i1 %57, i1 %59, i1 false
-  %60 = load i32, ptr %6, align 4
-  %61 = icmp eq i32 %60, %.sroa.014.0.extract.trunc
-  %or.cond28.us50 = select i1 %or.cond26.us49, i1 %61, i1 false
-  br i1 %or.cond28.us50, label %.split.us, label %62
+72:                                               ; preds = %.lr.ph.split.split.split.us
+  %73 = load i32, ptr %18, align 4
+  %74 = icmp eq i32 %2, %73
+  %75 = load i32, ptr %19, align 4
+  %76 = icmp eq i32 %75, %.sroa.3.0.extract.trunc
+  %or.cond26.us49 = select i1 %74, i1 %76, i1 false
+  %77 = load i32, ptr %6, align 4
+  %78 = icmp eq i32 %77, %.sroa.014.0.extract.trunc
+  %or.cond28.us50 = select i1 %or.cond26.us49, i1 %78, i1 false
+  br i1 %or.cond28.us50, label %.split.us, label %79
 
-62:                                               ; preds = %55, %.lr.ph.split.split.split.us
+79:                                               ; preds = %72, %.lr.ph.split.split.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = add i32 %.01935.us48, 1
-  %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 84
-  %66 = load i32, ptr %65, align 4
-  %.not.us52.not = icmp sgt i32 %63, %66
-  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !16
+  %80 = add i32 %.01935.us48, 1
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 84
+  %83 = load i32, ptr %82, align 4
+  %.not.us52.not = icmp sgt i32 %80, %83
+  br i1 %.not.us52.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !13
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %80
-  %.01935 = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.split ]
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %97
+  %.01935 = phi i32 [ %98, %97 ], [ 0, %.lr.ph.split.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %67 = trunc i32 %.01935 to i8
-  %68 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %67, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
-  %69 = load i32, ptr %7, align 4
-  %70 = icmp eq i32 %4, %69
-  %or.cond60 = select i1 %68, i1 %70, i1 false
-  br i1 %or.cond60, label %71, label %80
+  %84 = trunc i32 %.01935 to i8
+  %85 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %84, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #16
+  %86 = load i32, ptr %7, align 4
+  %87 = icmp eq i32 %4, %86
+  %or.cond77 = select i1 %85, i1 %87, i1 false
+  br i1 %or.cond77, label %88, label %97
 
-71:                                               ; preds = %.lr.ph.split.split.split
-  %72 = load i32, ptr %18, align 4
-  %73 = icmp eq i32 %2, %72
-  %74 = load i32, ptr %19, align 4
-  %75 = icmp eq i32 %74, %.sroa.3.0.extract.trunc
-  %or.cond26 = select i1 %73, i1 %75, i1 false
-  %76 = load i32, ptr %6, align 4
-  %77 = icmp eq i32 %76, %.sroa.014.0.extract.trunc
-  %or.cond28 = select i1 %or.cond26, i1 %77, i1 false
-  %78 = load i32, ptr %8, align 4
-  %79 = icmp eq i32 %3, %78
-  %or.cond62 = select i1 %or.cond28, i1 %79, i1 false
-  br i1 %or.cond62, label %.split.us, label %80
+88:                                               ; preds = %.lr.ph.split.split.split
+  %89 = load i32, ptr %18, align 4
+  %90 = icmp eq i32 %2, %89
+  %91 = load i32, ptr %19, align 4
+  %92 = icmp eq i32 %91, %.sroa.3.0.extract.trunc
+  %or.cond26 = select i1 %90, i1 %92, i1 false
+  %93 = load i32, ptr %6, align 4
+  %94 = icmp eq i32 %93, %.sroa.014.0.extract.trunc
+  %or.cond28 = select i1 %or.cond26, i1 %94, i1 false
+  %95 = load i32, ptr %8, align 4
+  %96 = icmp eq i32 %3, %95
+  %or.cond79 = select i1 %or.cond28, i1 %96, i1 false
+  br i1 %or.cond79, label %.split.us, label %97
 
-.split.us:                                        ; preds = %71, %55, %43, %26
+.split.us:                                        ; preds = %88, %72, %60, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-80:                                               ; preds = %71, %.lr.ph.split.split.split
+97:                                               ; preds = %88, %.lr.ph.split.split.split
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %81 = add i32 %.01935, 1
-  %82 = load ptr, ptr %9, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 84
-  %84 = load i32, ptr %83, align 4
-  %.not.not = icmp sgt i32 %81, %84
-  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !17
+  %98 = add i32 %.01935, 1
+  %99 = load ptr, ptr %9, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 84
+  %101 = load i32, ptr %100, align 4
+  %.not.not = icmp sgt i32 %98, %101
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !13
 
-.loopexit:                                        ; preds = %80, %62, %46, %29, %5, %.split.us
-  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %29 ], [ false, %46 ], [ false, %62 ], [ false, %80 ]
+.loopexit:                                        ; preds = %97, %79, %63, %46, %35, %26, %5, %.split.us
+  %.not33 = phi i1 [ true, %.split.us ], [ false, %5 ], [ false, %26 ], [ false, %35 ], [ false, %46 ], [ false, %63 ], [ false, %79 ], [ false, %97 ]
   ret i1 %.not33
 }
 
@@ -2030,7 +2079,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noun
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 84
   %65 = load i32, ptr %64, align 4
   %.not = icmp sgt i32 %63, %65
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %61, %2
   ret void
@@ -2076,7 +2125,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
   %.188 = phi i64 [ %20, %10 ], [ %.087114, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %22, label %7, !llvm.loop !19
+  br i1 %exitcond.not, label %22, label %7, !llvm.loop !15
 
 22:                                               ; preds = %21
   %23 = add i64 %.192, %.194
@@ -2168,7 +2217,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 79:                                               ; preds = %66, %.preheader.split.us
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 16
-  br i1 %exitcond127.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !20
+  br i1 %exitcond127.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !16
 
 80:                                               ; preds = %43
   %81 = getelementptr inbounds nuw [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv128
@@ -2254,12 +2303,12 @@ define internal fastcc void @XLogDumpDisplayStats(ptr noundef nonnull readonly c
 137:                                              ; preds = %.preheader.split, %121
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 16
-  br i1 %exitcond123.not, label %.loopexit, label %.preheader.split, !llvm.loop !21
+  br i1 %exitcond123.not, label %.loopexit, label %.preheader.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %137, %79, %40, %85, %80
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 256
-  br i1 %exitcond131.not, label %138, label %40, !llvm.loop !22
+  br i1 %exitcond131.not, label %138, label %40, !llvm.loop !17
 
 138:                                              ; preds = %.loopexit
   %139 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133) #16
@@ -2353,7 +2402,7 @@ IsXLogFileName.exit.preheader:                    ; preds = %14
 IsXLogFileName.exit.backedge:                     ; preds = %21, %.lr.ph
   %24 = tail call ptr @readdir(ptr noundef nonnull %15) #16
   %.not33 = icmp eq ptr %24, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2538,14 +2587,9 @@ attributes #20 = { cold noreturn nounwind }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5, !14}
-!16 = distinct !{!16, !5, !14}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !14}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

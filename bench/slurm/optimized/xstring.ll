@@ -1471,7 +1471,7 @@ define dso_local ptr @xstring_bytes2hex(ptr noundef readonly captures(none) %0, 
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.13, i32 noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count19
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !18
 
 17:                                               ; preds = %3, %.split.us
   %.09 = phi ptr [ %10, %.split.us ], [ null, %3 ]
@@ -1518,7 +1518,7 @@ define dso_local ptr @xstring_bytes2printable(ptr noundef readonly captures(none
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @.str.14, i32 noundef %.sink)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %9, label %11, !llvm.loop !21
+  br i1 %exitcond.not, label %9, label %11, !llvm.loop !19
 
 21:                                               ; preds = %3, %9
   %.013 = phi ptr [ %10, %9 ], [ null, %3 ]
@@ -1591,7 +1591,5 @@ attributes #25 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !11, !9}
 !16 = distinct !{!16, !11, !9}
 !17 = distinct !{!17, !11, !9}
-!18 = distinct !{!18, !11, !9, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !11, !9}
-!21 = distinct !{!21, !11, !9}
+!18 = distinct !{!18, !11, !9}
+!19 = distinct !{!19, !11, !9}

@@ -88,7 +88,7 @@ define i32 @pthread_rwlock_clockwrlock(ptr noundef %0, i32 noundef %1, ptr nound
 .critedge:                                        ; preds = %.split, %21
   %23 = tail call i32 @pthread_cond_clockwait(ptr noundef nonnull %13, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   %.not28 = icmp eq i32 %23, 0
-  br i1 %.not28, label %.split, label %.split36.us, !llvm.loop !9
+  br i1 %.not28, label %.split, label %.split36.us, !llvm.loop !6
 
 .split34.us:                                      ; preds = %21, %16
   store i8 1, ptr %11, align 8
@@ -202,7 +202,5 @@ attributes #2 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}

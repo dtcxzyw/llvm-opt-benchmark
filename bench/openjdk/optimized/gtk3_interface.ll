@@ -5714,10 +5714,10 @@ init_containers.exit:                             ; preds = %gtk3_get_state_flag
 gtk3_get_widget.exit:                             ; preds = %61, %65, %68
   %.04857.i = phi ptr [ %67, %68 ], [ null, %65 ], [ %63, %61 ]
   %70 = call ptr %62(ptr noundef %.04857.i) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double 1.000000e+00, ptr %71, align 8, !alias.scope !12
-  %72 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !12
+  store double 1.000000e+00, ptr %71, align 8, !alias.scope !11
+  %72 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !11
   call void %72(ptr noundef %70, i32 noundef 0, ptr noundef nonnull align 8 %7) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %.pre = load double, ptr %56, align 8
@@ -6485,12 +6485,12 @@ define internal noundef i32 @gtk3_get_drawable_data(ptr noundef %0, ptr noundef 
   store i32 %103, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %85, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.us, label %85, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %85
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %._crit_edge88, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond95.not, label %._crit_edge88, label %.preheader.us, !llvm.loop !15
 
 ._crit_edge88:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader85
   %106 = load ptr, ptr %0, align 8
@@ -6574,7 +6574,7 @@ define internal void @flush_gtk_event_loop() #0 {
   %2 = load ptr, ptr @fp_g_main_context_iteration, align 8
   %3 = tail call i32 %2(ptr noundef null, i32 noundef 0) #19
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %1, !llvm.loop !17
+  br i1 %.not, label %4, label %1, !llvm.loop !16
 
 4:                                                ; preds = %1
   ret void
@@ -7107,7 +7107,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   %240 = getelementptr inbounds nuw ptr, ptr %208, i64 %239
   %241 = load ptr, ptr %240, align 8
   %.not128 = icmp eq ptr %241, null
-  br i1 %.not128, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not128, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %237
   %242 = icmp eq i32 %.1121, 0
@@ -8218,38 +8218,38 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   br label %49
 
 16:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double 1.000000e+00, ptr %17, align 8, !alias.scope !19
-  %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !19
+  store double 1.000000e+00, ptr %17, align 8, !alias.scope !18
+  %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !18
   call void %18(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %7) #19
   call fastcc void @gtk3_style_shade(ptr noundef %7, ptr noundef %0, double noundef 1.300000e+00)
   br label %49
 
 19:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double 1.000000e+00, ptr %20, align 8, !alias.scope !22
-  %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !22
+  store double 1.000000e+00, ptr %20, align 8, !alias.scope !21
+  %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !21
   call void %21(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %8) #19
   call fastcc void @gtk3_style_shade(ptr noundef %8, ptr noundef %0, double noundef 0x3FE6666666666666)
   br label %49
 
 22:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double 1.000000e+00, ptr %23, align 8, !alias.scope !25, !noalias !28
-  %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !31
-  call void %24(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %6) #19, !noalias !28
+  store double 1.000000e+00, ptr %23, align 8, !alias.scope !24, !noalias !27
+  %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !30
+  call void %24(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %6) #19, !noalias !27
   call fastcc void @gtk3_style_shade(ptr noundef %6, ptr noundef nonnull align 8 %9, double noundef 1.300000e+00)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store double 1.000000e+00, ptr %25, align 8, !alias.scope !32, !noalias !35
-  %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !38
-  call void %26(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %5) #19, !noalias !35
+  store double 1.000000e+00, ptr %25, align 8, !alias.scope !31, !noalias !34
+  %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !37
+  call void %26(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %5) #19, !noalias !34
   call fastcc void @gtk3_style_shade(ptr noundef %5, ptr noundef nonnull align 8 %10, double noundef 0x3FE6666666666666)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = load double, ptr %9, align 8
@@ -8439,13 +8439,13 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %.08188.i = phi double [ %77, %.lr.ph.i ], [ %74, %73 ]
   %77 = fadd double %.08188.i, -3.600000e+02
   %78 = fcmp ogt double %77, 3.600000e+02
-  br i1 %78, label %.lr.ph.i, label %.preheader87.i, !llvm.loop !39
+  br i1 %78, label %.lr.ph.i, label %.preheader87.i, !llvm.loop !38
 
 .lr.ph90.i:                                       ; preds = %.preheader87.i, %.lr.ph90.i
   %.189.i = phi double [ %79, %.lr.ph90.i ], [ %.081.lcssa.i, %.preheader87.i ]
   %79 = fadd double %.189.i, 3.600000e+02
   %80 = fcmp olt double %79, 0.000000e+00
-  br i1 %80, label %.lr.ph90.i, label %._crit_edge.i, !llvm.loop !40
+  br i1 %80, label %.lr.ph90.i, label %._crit_edge.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %.lr.ph90.i, %.preheader87.i
   %.1.lcssa.i = phi double [ %.081.lcssa.i, %.preheader87.i ], [ %79, %.lr.ph90.i ]
@@ -8489,13 +8489,13 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %.292.i = phi double [ %100, %.lr.ph94.i ], [ %.063.i, %97 ]
   %100 = fadd double %.292.i, -3.600000e+02
   %101 = fcmp ogt double %100, 3.600000e+02
-  br i1 %101, label %.lr.ph94.i, label %.preheader86.i, !llvm.loop !41
+  br i1 %101, label %.lr.ph94.i, label %.preheader86.i, !llvm.loop !40
 
 .lr.ph97.i:                                       ; preds = %.preheader86.i, %.lr.ph97.i
   %.396.i = phi double [ %102, %.lr.ph97.i ], [ %.2.lcssa.i, %.preheader86.i ]
   %102 = fadd double %.396.i, 3.600000e+02
   %103 = fcmp olt double %102, 0.000000e+00
-  br i1 %103, label %.lr.ph97.i, label %._crit_edge98.i, !llvm.loop !42
+  br i1 %103, label %.lr.ph97.i, label %._crit_edge98.i, !llvm.loop !41
 
 ._crit_edge98.i:                                  ; preds = %.lr.ph97.i, %.preheader86.i
   %.3.lcssa.i = phi double [ %.2.lcssa.i, %.preheader86.i ], [ %102, %.lr.ph97.i ]
@@ -8540,13 +8540,13 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
   %.4100.i = phi double [ %124, %.lr.ph102.i ], [ %121, %120 ]
   %124 = fadd double %.4100.i, -3.600000e+02
   %125 = fcmp ogt double %124, 3.600000e+02
-  br i1 %125, label %.lr.ph102.i, label %.preheader.i, !llvm.loop !43
+  br i1 %125, label %.lr.ph102.i, label %.preheader.i, !llvm.loop !42
 
 .lr.ph105.i:                                      ; preds = %.preheader.i, %.lr.ph105.i
   %.5104.i = phi double [ %126, %.lr.ph105.i ], [ %.4.lcssa.i, %.preheader.i ]
   %126 = fadd double %.5104.i, 3.600000e+02
   %127 = fcmp olt double %126, 0.000000e+00
-  br i1 %127, label %.lr.ph105.i, label %._crit_edge106.i, !llvm.loop !44
+  br i1 %127, label %.lr.ph105.i, label %._crit_edge106.i, !llvm.loop !43
 
 ._crit_edge106.i:                                 ; preds = %.lr.ph105.i, %.preheader.i
   %.5.lcssa.i = phi double [ %.4.lcssa.i, %.preheader.i ], [ %126, %.lr.ph105.i ]
@@ -8901,38 +8901,37 @@ attributes #23 = { nounwind allocsize(0) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"gtk3_get_color_for_flags: argument 0"}
-!14 = distinct !{!14, !"gtk3_get_color_for_flags"}
+!10 = distinct !{!10, !7}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"gtk3_get_color_for_flags: argument 0"}
+!13 = distinct !{!13, !"gtk3_get_color_for_flags"}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !11}
+!16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"gtk3_get_color_for_flags: argument 0"}
-!21 = distinct !{!21, !"gtk3_get_color_for_flags"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"gtk3_get_color_for_flags: argument 0"}
-!24 = distinct !{!24, !"gtk3_get_color_for_flags"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"gtk3_get_color_for_flags: argument 0"}
-!27 = distinct !{!27, !"gtk3_get_color_for_flags"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"gtk3_get_color_for_flags: argument 0"}
-!30 = distinct !{!30, !"gtk3_get_color_for_flags"}
-!31 = !{!26, !29}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"gtk3_get_color_for_flags: argument 0"}
-!34 = distinct !{!34, !"gtk3_get_color_for_flags"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"gtk3_get_color_for_flags: argument 0"}
-!37 = distinct !{!37, !"gtk3_get_color_for_flags"}
-!38 = !{!33, !36}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"gtk3_get_color_for_flags: argument 0"}
+!20 = distinct !{!20, !"gtk3_get_color_for_flags"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"gtk3_get_color_for_flags: argument 0"}
+!23 = distinct !{!23, !"gtk3_get_color_for_flags"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"gtk3_get_color_for_flags: argument 0"}
+!26 = distinct !{!26, !"gtk3_get_color_for_flags"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"gtk3_get_color_for_flags: argument 0"}
+!29 = distinct !{!29, !"gtk3_get_color_for_flags"}
+!30 = !{!25, !28}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"gtk3_get_color_for_flags: argument 0"}
+!33 = distinct !{!33, !"gtk3_get_color_for_flags"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"gtk3_get_color_for_flags: argument 0"}
+!36 = distinct !{!36, !"gtk3_get_color_for_flags"}
+!37 = !{!32, !35}
+!38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
 !41 = distinct !{!41, !7}
 !42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}

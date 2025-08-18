@@ -324,12 +324,12 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i: ; preds = %con
   store double %37, ptr %arrayidx.i5.i, align 8, !tbaa !21
   %inc.i = add nuw i64 %i.08.i, 1
   %cmp.i = icmp ult i64 %inc.i, %31
-  br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !48
+  br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !47
 
 sw.bb10:                                          ; preds = %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit, %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit
   %exerciseTimes_11 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %38 = load ptr, ptr %_M_finish.i, align 8, !tbaa !50
+  %38 = load ptr, ptr %_M_finish.i, align 8, !tbaa !49
   %39 = load ptr, ptr %exerciseTimes_11, align 8, !tbaa !42
   %cmp13127.not = icmp eq ptr %38, %39
   br i1 %cmp13127.not, label %sw.epilog, label %for.body.lr.ph
@@ -448,18 +448,18 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54: ; preds = %c
   store double %67, ptr %arrayidx.i5.i57, align 8, !tbaa !21
   %inc.i59 = add nuw i64 %i.08.i52, 1
   %cmp.i60 = icmp ult i64 %inc.i59, %61
-  br i1 %cmp.i60, label %for.body.i51, label %if.end20, !llvm.loop !48
+  br i1 %cmp.i60, label %for.body.i51, label %if.end20, !llvm.loop !47
 
 if.end20:                                         ; preds = %for.body.us.i44, %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit.i54, %if.then19, %if.then3.i.i33, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit, %for.body
   %inc = add nuw i64 %i.0128, 1
-  %68 = load ptr, ptr %_M_finish.i, align 8, !tbaa !50
+  %68 = load ptr, ptr %_M_finish.i, align 8, !tbaa !49
   %69 = load ptr, ptr %exerciseTimes_11, align 8, !tbaa !42
   %sub.ptr.lhs.cast.i = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %69 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp13 = icmp ult i64 %inc, %sub.ptr.div.i
-  br i1 %cmp13, label %for.body, label %sw.epilog, !llvm.loop !51
+  br i1 %cmp13, label %for.body, label %sw.epilog, !llvm.loop !50
 
 do.body:                                          ; preds = %_ZN8QuantLib16DiscretizedAsset15preAdjustValuesEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
@@ -632,7 +632,7 @@ _ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit83: ; preds = %sw.
   %time_.i.i84 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %93 = load double, ptr %time_.i.i84, align 8, !tbaa !21
   %latestPostAdjustment_.i = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %94 = load double, ptr %latestPostAdjustment_.i, align 8, !tbaa !52
+  %94 = load double, ptr %latestPostAdjustment_.i, align 8, !tbaa !51
   %cmp.i.i85 = fcmp oeq double %93, %94
   br i1 %cmp.i.i85, label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit, label %if.end.i.i86
 
@@ -664,7 +664,7 @@ if.then.i96:                                      ; preds = %_ZN8QuantLib12close
   %99 = load ptr, ptr %vfn.i98, align 8
   tail call void %99(ptr noundef nonnull align 8 dereferenceable(64) %92)
   %100 = load double, ptr %time_.i.i84, align 8, !tbaa !21
-  store double %100, ptr %latestPostAdjustment_.i, align 8, !tbaa !52
+  store double %100, ptr %latestPostAdjustment_.i, align 8, !tbaa !51
   br label %_ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit
 
 _ZN8QuantLib16DiscretizedAsset16postAdjustValuesEv.exit: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib16DiscretizedAssetEEptEv.exit83, %if.then3.i.i99, %_ZN8QuantLib12close_enoughEdd.exit.i91, %if.then.i96
@@ -788,11 +788,10 @@ attributes #18 = { builtin nounwind }
 !42 = !{!40, !5, i64 0}
 !43 = !{!27, !9, i64 8}
 !44 = !{!5, !5, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !46, !49}
-!49 = !{!"llvm.loop.unswitch.partial.disable"}
-!50 = !{!40, !5, i64 8}
-!51 = distinct !{!51, !46}
-!52 = !{!26, !22, i64 24}
+!47 = distinct !{!47, !46, !48}
+!48 = !{!"llvm.loop.unswitch.partial.disable"}
+!49 = !{!40, !5, i64 8}
+!50 = distinct !{!50, !46}
+!51 = !{!26, !22, i64 24}

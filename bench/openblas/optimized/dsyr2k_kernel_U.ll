@@ -131,31 +131,31 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %.0123140 = phi i64 [ 0, %.preheader ], [ %88, %77 ]
   %78 = add nuw nsw i64 %.0123140, %74
   %79 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %78
-  %80 = load double, ptr %79, align 8, !tbaa !6
+  %80 = load double, ptr %79, align 8, !tbaa !5
   %81 = mul nuw nsw i64 %.0123140, %63
   %82 = add nuw nsw i64 %81, %.0122141
   %83 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %82
-  %84 = load double, ptr %83, align 8, !tbaa !6
+  %84 = load double, ptr %83, align 8, !tbaa !5
   %85 = fadd double %80, %84
   %gep139 = getelementptr double, ptr %invariant.gep138, i64 %.0123140
-  %86 = load double, ptr %gep139, align 8, !tbaa !6
+  %86 = load double, ptr %gep139, align 8, !tbaa !5
   %87 = fadd double %86, %85
-  store double %87, ptr %gep139, align 8, !tbaa !6
+  store double %87, ptr %gep139, align 8, !tbaa !5
   %88 = add nuw nsw i64 %.0123140, 1
   %exitcond.not = icmp eq i64 %88, %indvars.iv
-  br i1 %exitcond.not, label %89, label %77, !llvm.loop !10
+  br i1 %exitcond.not, label %89, label %77, !llvm.loop !9
 
 89:                                               ; preds = %77
   %90 = add nuw nsw i64 %.0122141, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond151.not = icmp eq i64 %90, %61
-  br i1 %exitcond151.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond151.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %89, %.lr.ph.split
   %91 = add nuw nsw i64 %.0121142, 32
   %92 = icmp slt i64 %91, %.1
   %indvars.iv.next150 = add i64 %indvars.iv149, -32
-  br i1 %92, label %.lr.ph.split, label %.loopexit137, !llvm.loop !12
+  br i1 %92, label %.lr.ph.split, label %.loopexit137, !llvm.loop !3
 
 .loopexit137:                                     ; preds = %.loopexit, %.lr.ph.split.us, %48, %40, %30, %20, %16, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -192,13 +192,11 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"double", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"double", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}

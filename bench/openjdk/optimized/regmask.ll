@@ -724,105 +724,98 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
   br i1 %.not31, label %.loopexit, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %4
-  %.not45 = icmp eq i32 %1, 0
   %13 = icmp ugt i32 %1, 2
   %14 = icmp ugt i32 %1, 4
   %15 = icmp ugt i32 %1, 8
-  br i1 %13, label %.lr.ph34.split.us, label %.lr.ph34.split
+  br i1 %13, label %.lr.ph.us.us, label %.lr.ph34.split
 
-.lr.ph34.split.us:                                ; preds = %.lr.ph34, %33
-  %.02632.us = phi i32 [ %34, %33 ], [ %10, %.lr.ph34 ]
-  %16 = zext i32 %.02632.us to i64
+.lr.ph.us.us:                                     ; preds = %.lr.ph34, %25
+  %.02632.us.us = phi i32 [ %26, %25 ], [ %10, %.lr.ph34 ]
+  %16 = zext i32 %.02632.us.us to i64
   %17 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
-  %.02528.us = and i64 %8, %18
-  br i1 %.not45, label %._crit_edge.us.thread, label %.lr.ph.us
+  %.02528.us.us = and i64 %8, %18
+  br label %28
 
-._crit_edge.us.thread:                            ; preds = %.lr.ph34.split.us
-  %19 = lshr i64 %.02528.us, 1
-  %20 = or i64 %19, %.02528.us
-  %21 = lshr i64 %20, 2
-  %22 = or i64 %21, %20
-  br label %33
+19:                                               ; preds = %._crit_edge.us.us
+  %20 = lshr i64 %34, 4
+  %21 = or i64 %20, %34
+  br i1 %15, label %22, label %25
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %23 = lshr exact i64 %.025.us, 1
-  %24 = or i64 %23, %.025.us
-  %25 = lshr i64 %24, 2
-  %26 = or i64 %25, %24
-  br i1 %14, label %27, label %33
+22:                                               ; preds = %19
+  %23 = lshr i64 %21, 8
+  %24 = or i64 %23, %21
+  br label %25
 
-27:                                               ; preds = %._crit_edge.us
-  %28 = lshr i64 %26, 4
-  %29 = or i64 %28, %26
-  br i1 %15, label %30, label %33
+25:                                               ; preds = %22, %19, %._crit_edge.us.us
+  %.1.us.us = phi i64 [ %24, %22 ], [ %21, %19 ], [ %34, %._crit_edge.us.us ]
+  store i64 %.1.us.us, ptr %17, align 8
+  %26 = add i32 %.02632.us.us, 1
+  %27 = load i32, ptr %11, align 4
+  %.not.us.us = icmp ugt i32 %26, %27
+  br i1 %.not.us.us, label %.loopexit, label %.lr.ph.us.us, !llvm.loop !19
 
-30:                                               ; preds = %27
-  %31 = lshr i64 %29, 8
-  %32 = or i64 %31, %29
-  br label %33
+28:                                               ; preds = %.lr.ph.us.us, %28
+  %.02530.us.us = phi i64 [ %.02528.us.us, %.lr.ph.us.us ], [ %.025.us.us, %28 ]
+  %.029.us.us = phi i32 [ 1, %.lr.ph.us.us ], [ %30, %28 ]
+  %29 = shl i64 %.02530.us.us, 1
+  %30 = add nuw i32 %.029.us.us, 1
+  %.025.us.us = and i64 %29, %18
+  %exitcond52.not = icmp eq i32 %30, %1
+  br i1 %exitcond52.not, label %._crit_edge.us.us, label %28, !llvm.loop !20
 
-33:                                               ; preds = %._crit_edge.us.thread, %30, %27, %._crit_edge.us
-  %.1.us = phi i64 [ %32, %30 ], [ %29, %27 ], [ %26, %._crit_edge.us ], [ %22, %._crit_edge.us.thread ]
-  store i64 %.1.us, ptr %17, align 8
-  %34 = add i32 %.02632.us, 1
-  %35 = load i32, ptr %11, align 4
-  %.not.us = icmp ugt i32 %34, %35
-  br i1 %.not.us, label %.loopexit, label %.lr.ph34.split.us, !llvm.loop !19
-
-.lr.ph.us:                                        ; preds = %.lr.ph34.split.us, %.lr.ph.us
-  %.02530.us = phi i64 [ %.025.us, %.lr.ph.us ], [ %.02528.us, %.lr.ph34.split.us ]
-  %.029.us = phi i32 [ %37, %.lr.ph.us ], [ 1, %.lr.ph34.split.us ]
-  %36 = shl i64 %.02530.us, 1
-  %37 = add nuw i32 %.029.us, 1
-  %.025.us = and i64 %36, %18
-  %exitcond48.not = icmp eq i32 %37, %1
-  br i1 %exitcond48.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !21
+._crit_edge.us.us:                                ; preds = %28
+  %31 = lshr exact i64 %.025.us.us, 1
+  %32 = or i64 %31, %.025.us.us
+  %33 = lshr i64 %32, 2
+  %34 = or i64 %33, %32
+  br i1 %14, label %19, label %25
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34
-  br i1 %.not45, label %.lr.ph34.split.split, label %.lr.ph.us42
+  %.not49 = icmp eq i32 %1, 0
+  br i1 %.not49, label %.lr.ph34.split.split, label %.lr.ph.us42
 
 .lr.ph.us42:                                      ; preds = %.lr.ph34.split, %._crit_edge.us43
-  %.02632.us35 = phi i32 [ %46, %._crit_edge.us43 ], [ %10, %.lr.ph34.split ]
-  %38 = zext i32 %.02632.us35 to i64
-  %39 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %38
-  %40 = load i64, ptr %39, align 8
-  %.02528.us36 = and i64 %8, %40
-  br label %41
+  %.02632.us35 = phi i32 [ %43, %._crit_edge.us43 ], [ %10, %.lr.ph34.split ]
+  %35 = zext i32 %.02632.us35 to i64
+  %36 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %35
+  %37 = load i64, ptr %36, align 8
+  %.02528.us36 = and i64 %8, %37
+  br label %38
 
-41:                                               ; preds = %.lr.ph.us42, %41
-  %.02530.us39 = phi i64 [ %.02528.us36, %.lr.ph.us42 ], [ %.025.us41, %41 ]
-  %.029.us40 = phi i32 [ 1, %.lr.ph.us42 ], [ %43, %41 ]
-  %42 = shl i64 %.02530.us39, 1
-  %43 = add nuw i32 %.029.us40, 1
-  %.025.us41 = and i64 %42, %40
-  %exitcond.not = icmp eq i32 %43, %1
-  br i1 %exitcond.not, label %._crit_edge.us43, label %41, !llvm.loop !21
+38:                                               ; preds = %.lr.ph.us42, %38
+  %.02530.us39 = phi i64 [ %.02528.us36, %.lr.ph.us42 ], [ %.025.us41, %38 ]
+  %.029.us40 = phi i32 [ 1, %.lr.ph.us42 ], [ %40, %38 ]
+  %39 = shl i64 %.02530.us39, 1
+  %40 = add nuw i32 %.029.us40, 1
+  %.025.us41 = and i64 %39, %37
+  %exitcond.not = icmp eq i32 %40, %1
+  br i1 %exitcond.not, label %._crit_edge.us43, label %38, !llvm.loop !20
 
-._crit_edge.us43:                                 ; preds = %41
-  %44 = lshr exact i64 %.025.us41, 1
-  %45 = or i64 %44, %.025.us41
-  store i64 %45, ptr %39, align 8
-  %46 = add i32 %.02632.us35, 1
-  %47 = load i32, ptr %11, align 4
-  %.not.us38 = icmp ugt i32 %46, %47
-  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !22
+._crit_edge.us43:                                 ; preds = %38
+  %41 = lshr exact i64 %.025.us41, 1
+  %42 = or i64 %41, %.025.us41
+  store i64 %42, ptr %36, align 8
+  %43 = add i32 %.02632.us35, 1
+  %44 = load i32, ptr %11, align 4
+  %.not.us38 = icmp ugt i32 %43, %44
+  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !19
 
 .lr.ph34.split.split:                             ; preds = %.lr.ph34.split, %.lr.ph34.split.split
-  %.02632 = phi i32 [ %53, %.lr.ph34.split.split ], [ %10, %.lr.ph34.split ]
-  %48 = zext i32 %.02632 to i64
-  %49 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %48
-  %50 = load i64, ptr %49, align 8
-  %.02528 = and i64 %8, %50
-  %51 = lshr i64 %.02528, 1
-  %52 = or i64 %51, %.02528
-  store i64 %52, ptr %49, align 8
-  %53 = add i32 %.02632, 1
-  %54 = load i32, ptr %11, align 4
-  %.not = icmp ugt i32 %53, %54
-  br i1 %.not, label %.loopexit, label %.lr.ph34.split.split, !llvm.loop !23
+  %.02632 = phi i32 [ %50, %.lr.ph34.split.split ], [ %10, %.lr.ph34.split ]
+  %45 = zext i32 %.02632 to i64
+  %46 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %45
+  %47 = load i64, ptr %46, align 8
+  %.02528 = and i64 %8, %47
+  %48 = lshr i64 %.02528, 1
+  %49 = or i64 %48, %.02528
+  store i64 %49, ptr %46, align 8
+  %50 = add i32 %.02632, 1
+  %51 = load i32, ptr %11, align 4
+  %.not = icmp ugt i32 %50, %51
+  br i1 %.not, label %.loopexit, label %.lr.ph34.split.split, !llvm.loop !19
 
-.loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph34.split.split, %33, %4, %2
+.loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph34.split.split, %25, %4, %2
   ret void
 }
 
@@ -844,99 +837,96 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
   br i1 %.not32, label %.loopexit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %4
-  %.not45 = icmp eq i32 %1, 0
   %13 = icmp ugt i32 %1, 2
   %14 = icmp ugt i32 %1, 4
   %15 = icmp ugt i32 %1, 8
-  br i1 %13, label %.lr.ph35.split.us, label %.lr.ph35.split
+  br i1 %13, label %.lr.ph.us.us, label %.lr.ph35.split
 
-.lr.ph35.split.us:                                ; preds = %.lr.ph35, %._crit_edge.us.thread
-  %.02733.us = phi i32 [ %29, %._crit_edge.us.thread ], [ %10, %.lr.ph35 ]
-  %16 = zext i32 %.02733.us to i64
+.lr.ph.us.us:                                     ; preds = %.lr.ph35, %25
+  %.02733.us.us = phi i32 [ %26, %25 ], [ %10, %.lr.ph35 ]
+  %16 = zext i32 %.02733.us.us to i64
   %17 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %16
-  br i1 %.not45, label %._crit_edge.us.thread, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph35.split.us
   %18 = load i64, ptr %17, align 8
-  br label %.lr.ph.us
+  br label %28
 
-._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %19 = shl i64 %32, 1
-  %20 = or i64 %19, %32
-  %21 = shl i64 %20, 2
-  %22 = or i64 %21, %20
-  br i1 %14, label %23, label %._crit_edge.us.thread
+19:                                               ; preds = %._crit_edge.us.us
+  %20 = shl i64 %36, 4
+  %21 = or i64 %20, %36
+  br i1 %15, label %22, label %25
 
-23:                                               ; preds = %._crit_edge.us
-  %24 = shl i64 %22, 4
-  %25 = or i64 %24, %22
-  br i1 %15, label %26, label %._crit_edge.us.thread
+22:                                               ; preds = %19
+  %23 = shl i64 %21, 8
+  %24 = or i64 %23, %21
+  br label %25
 
-26:                                               ; preds = %23
-  %27 = shl i64 %25, 8
-  %28 = or i64 %27, %25
-  br label %._crit_edge.us.thread
+25:                                               ; preds = %22, %19, %._crit_edge.us.us
+  %.1.us.us = phi i64 [ %24, %22 ], [ %21, %19 ], [ %36, %._crit_edge.us.us ]
+  store i64 %.1.us.us, ptr %17, align 8
+  %26 = add i32 %.02733.us.us, 1
+  %27 = load i32, ptr %11, align 4
+  %.not.us.us = icmp ugt i32 %26, %27
+  br i1 %.not.us.us, label %.loopexit, label %.lr.ph.us.us, !llvm.loop !21
 
-._crit_edge.us.thread:                            ; preds = %.lr.ph35.split.us, %26, %23, %._crit_edge.us
-  %.1.us = phi i64 [ %28, %26 ], [ %25, %23 ], [ %22, %._crit_edge.us ], [ 0, %.lr.ph35.split.us ]
-  store i64 %.1.us, ptr %17, align 8
-  %29 = add i32 %.02733.us, 1
-  %30 = load i32, ptr %11, align 4
-  %.not.us = icmp ugt i32 %29, %30
-  br i1 %.not.us, label %.loopexit, label %.lr.ph35.split.us, !llvm.loop !24
+28:                                               ; preds = %.lr.ph.us.us, %28
+  %.031.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %32, %28 ]
+  %.02530.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %30, %28 ]
+  %.02629.us.us = phi i64 [ %18, %.lr.ph.us.us ], [ %31, %28 ]
+  %29 = and i64 %.02629.us.us, %8
+  %30 = or i64 %.02530.us.us, %29
+  %31 = lshr i64 %.02629.us.us, 1
+  %32 = add nuw i32 %.031.us.us, 1
+  %exitcond51.not = icmp eq i32 %32, %1
+  br i1 %exitcond51.not, label %._crit_edge.us.us, label %28, !llvm.loop !22
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %.031.us = phi i32 [ %34, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %.02530.us = phi i64 [ %32, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %.02629.us = phi i64 [ %33, %.lr.ph.us ], [ %18, %.lr.ph.us.preheader ]
-  %31 = and i64 %.02629.us, %8
-  %32 = or i64 %.02530.us, %31
-  %33 = lshr i64 %.02629.us, 1
-  %34 = add nuw i32 %.031.us, 1
-  %exitcond49.not = icmp eq i32 %34, %1
-  br i1 %exitcond49.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
+._crit_edge.us.us:                                ; preds = %28
+  %33 = shl i64 %30, 1
+  %34 = or i64 %33, %30
+  %35 = shl i64 %34, 2
+  %36 = or i64 %35, %34
+  br i1 %14, label %19, label %25
 
 .lr.ph35.split:                                   ; preds = %.lr.ph35
-  br i1 %.not45, label %.lr.ph35.split.split, label %.lr.ph.us42
+  %.not47 = icmp eq i32 %1, 0
+  br i1 %.not47, label %.lr.ph35.split.split, label %.lr.ph.us42
 
 .lr.ph.us42:                                      ; preds = %.lr.ph35.split, %._crit_edge.us43
-  %.02733.us36 = phi i32 [ %45, %._crit_edge.us43 ], [ %10, %.lr.ph35.split ]
-  %35 = zext i32 %.02733.us36 to i64
-  %36 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %35
-  %37 = load i64, ptr %36, align 8
-  br label %38
+  %.02733.us36 = phi i32 [ %47, %._crit_edge.us43 ], [ %10, %.lr.ph35.split ]
+  %37 = zext i32 %.02733.us36 to i64
+  %38 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %37
+  %39 = load i64, ptr %38, align 8
+  br label %40
 
-38:                                               ; preds = %.lr.ph.us42, %38
-  %.031.us39 = phi i32 [ 0, %.lr.ph.us42 ], [ %42, %38 ]
-  %.02530.us40 = phi i64 [ 0, %.lr.ph.us42 ], [ %40, %38 ]
-  %.02629.us41 = phi i64 [ %37, %.lr.ph.us42 ], [ %41, %38 ]
-  %39 = and i64 %.02629.us41, %8
-  %40 = or i64 %.02530.us40, %39
-  %41 = lshr i64 %.02629.us41, 1
-  %42 = add nuw i32 %.031.us39, 1
-  %exitcond.not = icmp eq i32 %42, %1
-  br i1 %exitcond.not, label %._crit_edge.us43, label %38, !llvm.loop !25
+40:                                               ; preds = %.lr.ph.us42, %40
+  %.031.us39 = phi i32 [ 0, %.lr.ph.us42 ], [ %44, %40 ]
+  %.02530.us40 = phi i64 [ 0, %.lr.ph.us42 ], [ %42, %40 ]
+  %.02629.us41 = phi i64 [ %39, %.lr.ph.us42 ], [ %43, %40 ]
+  %41 = and i64 %.02629.us41, %8
+  %42 = or i64 %.02530.us40, %41
+  %43 = lshr i64 %.02629.us41, 1
+  %44 = add nuw i32 %.031.us39, 1
+  %exitcond.not = icmp eq i32 %44, %1
+  br i1 %exitcond.not, label %._crit_edge.us43, label %40, !llvm.loop !22
 
-._crit_edge.us43:                                 ; preds = %38
-  %43 = shl i64 %40, 1
-  %44 = or i64 %43, %40
-  store i64 %44, ptr %36, align 8
-  %45 = add i32 %.02733.us36, 1
-  %46 = load i32, ptr %11, align 4
-  %.not.us38 = icmp ugt i32 %45, %46
-  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !26
+._crit_edge.us43:                                 ; preds = %40
+  %45 = shl i64 %42, 1
+  %46 = or i64 %45, %42
+  store i64 %46, ptr %38, align 8
+  %47 = add i32 %.02733.us36, 1
+  %48 = load i32, ptr %11, align 4
+  %.not.us38 = icmp ugt i32 %47, %48
+  br i1 %.not.us38, label %.loopexit, label %.lr.ph.us42, !llvm.loop !21
 
 .lr.ph35.split.split:                             ; preds = %.lr.ph35.split, %.lr.ph35.split.split
-  %.02733 = phi i32 [ %49, %.lr.ph35.split.split ], [ %10, %.lr.ph35.split ]
-  %47 = zext i32 %.02733 to i64
-  %48 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %47
-  store i64 0, ptr %48, align 8
-  %49 = add i32 %.02733, 1
-  %50 = load i32, ptr %11, align 4
-  %.not = icmp ugt i32 %49, %50
-  br i1 %.not, label %.loopexit, label %.lr.ph35.split.split, !llvm.loop !27
+  %.02733 = phi i32 [ %51, %.lr.ph35.split.split ], [ %10, %.lr.ph35.split ]
+  %49 = zext i32 %.02733 to i64
+  %50 = getelementptr inbounds nuw [11 x i64], ptr %0, i64 0, i64 %49
+  store i64 0, ptr %50, align 8
+  %51 = add i32 %.02733, 1
+  %52 = load i32, ptr %11, align 4
+  %.not = icmp ugt i32 %51, %52
+  br i1 %.not, label %.loopexit, label %.lr.ph35.split.split, !llvm.loop !21
 
-.loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph35.split.split, %._crit_edge.us.thread, %4, %2
+.loopexit:                                        ; preds = %._crit_edge.us43, %.lr.ph35.split.split, %25, %4, %2
   ret void
 }
 
@@ -973,7 +963,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 19:                                               ; preds = %24
   %20 = sub i64 %.02128, %29
   %.not24 = icmp eq i64 %20, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %15, %19
   %.02128 = phi i64 [ %20, %19 ], [ %18, %15 ]
@@ -996,7 +986,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 ._crit_edge:                                      ; preds = %19, %15
   %31 = add i32 %.02030, 1
   %.not = icmp ugt i32 %31, %12
-  br i1 %.not, label %.loopexit, label %15, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %.lr.ph, %4, %2
   %.0 = phi i1 [ true, %2 ], [ true, %4 ], [ false, %.lr.ph ], [ false, %24 ], [ true, %._crit_edge ]
@@ -1035,7 +1025,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull reado
   %20 = or i64 %.fr4, %.01113.i
   %21 = add i32 %.014.i, 1
   %.not.i = icmp ugt i32 %21, %9
-  br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i
   %.not = icmp eq i64 %20, 0
@@ -1074,7 +1064,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
   %7 = add nsw i32 %storemerge25.i.i, -1
   store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN7RegMask3AllE, i64 92), align 4
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %__cxx_global_var_init.5.exit, label %1, !llvm.loop !31
+  br i1 %.not.i.i, label %__cxx_global_var_init.5.exit, label %1, !llvm.loop !26
 
 .lr.ph.i.i:                                       ; preds = %1, %11
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %11 ], [ 0, %1 ]
@@ -1088,7 +1078,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
   %12 = trunc nuw i64 %indvars.iv.next.i.i to i32
   store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN7RegMask3AllE, i64 88), align 8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %2
-  br i1 %exitcond.not.i.i, label %__cxx_global_var_init.5.exit, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %__cxx_global_var_init.5.exit, label %.lr.ph.i.i, !llvm.loop !27
 
 __cxx_global_var_init.5.exit:                     ; preds = %6, %.lr.ph.i.i, %11
   ret void
@@ -1133,17 +1123,12 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !20}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7, !20}
+!24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7, !20}
+!26 = distinct !{!26, !7}
 !27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}

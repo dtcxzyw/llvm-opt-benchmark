@@ -249,7 +249,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %117 = getelementptr inbounds float, ptr %.3338425, i64 %.1316
   store float %116, ptr %117, align 4, !tbaa !3
   %118 = icmp slt i64 %.1316.in424, 6
-  br i1 %118, label %.lr.ph, label %.thread384, !llvm.loop !12
+  br i1 %118, label %.lr.ph, label %.thread384, !llvm.loop !11
 
 .thread383:                                       ; preds = %107
   %119 = load float, ptr %.1312428, align 4, !tbaa !3
@@ -289,7 +289,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %142 = getelementptr inbounds nuw i8, ptr %.3338425, i64 32
   %143 = add nuw nsw i64 %.1326427, 1
   %exitcond483.not = icmp eq i64 %143, %0
-  br i1 %exitcond483.not, label %._crit_edge, label %107, !llvm.loop !13
+  br i1 %exitcond483.not, label %._crit_edge, label %107, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread384, %96
   %.3338.lcssa = phi ptr [ %.0335.lcssa, %96 ], [ %142, %.thread384 ]
@@ -350,7 +350,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %164 = getelementptr inbounds float, ptr %.5440, i64 %.2317
   store float %163, ptr %164, align 4, !tbaa !3
   %165 = icmp slt i64 %.2317.in437, 2
-  br i1 %165, label %.lr.ph439, label %.thread386, !llvm.loop !14
+  br i1 %165, label %.lr.ph439, label %.thread386, !llvm.loop !13
 
 .thread385:                                       ; preds = %154
   %166 = load float, ptr %.2313443, align 4, !tbaa !3
@@ -374,7 +374,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %177 = getelementptr inbounds nuw i8, ptr %.5440, i64 16
   %178 = add nuw nsw i64 %.2327442, 1
   %exitcond484.not = icmp eq i64 %178, %0
-  br i1 %exitcond484.not, label %._crit_edge449, label %154, !llvm.loop !15
+  br i1 %exitcond484.not, label %._crit_edge449, label %154, !llvm.loop !14
 
 ._crit_edge449:                                   ; preds = %.thread386, %147
   %.5.lcssa = phi ptr [ %.2337, %147 ], [ %177, %.thread386 ]
@@ -429,7 +429,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %197 = getelementptr inbounds float, ptr %.7454, i64 %.3318
   store float %196, ptr %197, align 4, !tbaa !3
   %198 = icmp slt i64 %.3318.in451, 0
-  br i1 %198, label %.lr.ph453, label %.thread388, !llvm.loop !16
+  br i1 %198, label %.lr.ph453, label %.thread388, !llvm.loop !15
 
 .thread387:                                       ; preds = %187
   %199 = load float, ptr %.3314457, align 4, !tbaa !3
@@ -445,7 +445,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %204 = getelementptr inbounds nuw i8, ptr %.7454, i64 8
   %205 = add nuw nsw i64 %.3328456, 1
   %exitcond485.not = icmp eq i64 %205, %0
-  br i1 %exitcond485.not, label %._crit_edge461, label %187, !llvm.loop !17
+  br i1 %exitcond485.not, label %._crit_edge461, label %187, !llvm.loop !16
 
 ._crit_edge461:                                   ; preds = %.thread388, %182
   %.7.lcssa = phi ptr [ %.4339, %182 ], [ %204, %.thread388 ]
@@ -493,7 +493,7 @@ define noundef i32 @strsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %218 = getelementptr inbounds nuw i8, ptr %.8466, i64 4
   %219 = add nuw nsw i64 %.4329468, 1
   %exitcond487.not = icmp eq i64 %219, %0
-  br i1 %exitcond487.not, label %.loopexit, label %211, !llvm.loop !18
+  br i1 %exitcond487.not, label %.loopexit, label %211, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread390, %207
   ret i32 0
@@ -513,12 +513,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwri
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}

@@ -596,7 +596,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %250 = phi i32 [ %38, %243 ], [ %236, %.loopexit.us ]
   %251 = phi i32 [ %241, %243 ], [ %237, %.loopexit.us ]
   %252 = icmp sgt i32 %247, 0
-  br i1 %252, label %.split.us, label %.split70.us, !llvm.loop !10
+  br i1 %252, label %.split.us, label %.split70.us, !llvm.loop !9
 
 .unreachabledefault:                              ; preds = %209
   unreachable
@@ -684,7 +684,7 @@ default.unreachable:                              ; preds = %352
   %302 = phi i32 [ %298, %297 ], [ %292, %.loopexit.us72 ]
   %303 = phi i32 [ %295, %297 ], [ %275, %.loopexit.us72 ]
   %304 = icmp sgt i32 %301, 0
-  br i1 %304, label %.split.split.us, label %.split70.us, !llvm.loop !12
+  br i1 %304, label %.split.split.us, label %.split70.us, !llvm.loop !9
 
 .split.split:                                     ; preds = %.thread, %369
   %305 = phi i32 [ %373, %369 ], [ 0, %.thread ]
@@ -1625,14 +1625,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr i8, ptr %61, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, ptr elementtype(i64) %62) #10, !srcloc !13
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %62, ptr elementtype(i64) %62) #10, !srcloc !10
   br label %63
 
 63:                                               ; preds = %59, %58
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 416
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, ptr elementtype(i64) %66) #10, !srcloc !14
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, ptr elementtype(i64) %66) #10, !srcloc !11
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
@@ -1665,14 +1665,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr i8, ptr %87, i64 80
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %88, ptr elementtype(i64) %88) #10, !srcloc !15
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %88, ptr elementtype(i64) %88) #10, !srcloc !12
   br label %89
 
 89:                                               ; preds = %85, %84
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 416
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %91, i64 80
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %92, ptr elementtype(i64) %92) #10, !srcloc !16
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %92, ptr elementtype(i64) %92) #10, !srcloc !13
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
@@ -1913,14 +1913,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %252 = getelementptr inbounds nuw i8, ptr %101, i64 912
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr i8, ptr %253, i64 56
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %254, ptr elementtype(i64) %254) #10, !srcloc !17
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %254, ptr elementtype(i64) %254) #10, !srcloc !14
   br label %255
 
 255:                                              ; preds = %251, %248
   %256 = getelementptr inbounds nuw i8, ptr %99, i64 416
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr i8, ptr %257, i64 56
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %258, ptr elementtype(i64) %258) #10, !srcloc !18
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %258, ptr elementtype(i64) %258) #10, !srcloc !15
   %259 = load ptr, ptr %12, align 8
   %260 = load i16, ptr %71, align 4
   %261 = zext i16 %260 to i64
@@ -1967,14 +1967,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 912
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr i8, ptr %291, i64 112
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %292, ptr elementtype(i64) %292) #10, !srcloc !19
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %292, ptr elementtype(i64) %292) #10, !srcloc !16
   br label %293
 
 293:                                              ; preds = %289, %282
   %294 = getelementptr inbounds nuw i8, ptr %99, i64 416
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr i8, ptr %295, i64 112
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %296, ptr elementtype(i64) %296) #10, !srcloc !20
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %296, ptr elementtype(i64) %296) #10, !srcloc !17
   call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
@@ -2031,7 +2031,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %334 = getelementptr i8, ptr %331, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !18
   %336 = load i32, ptr %335, align 4
   %337 = xor i32 %336, -1
   store i32 %337, ptr %3, align 16
@@ -2084,7 +2084,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %369 = getelementptr inbounds nuw i8, ptr %364, i64 40
   %370 = load ptr, ptr %369, align 8
   %371 = icmp eq ptr %370, @ip6_input
-  br i1 %371, label %372, label %374, !prof !22
+  br i1 %371, label %372, label %374, !prof !19
 
 372:                                              ; preds = %368
   %373 = call i32 @ip6_input(ptr noundef %0) #10
@@ -2092,7 +2092,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
 
 374:                                              ; preds = %368
   %375 = icmp eq ptr %370, @ip_local_deliver
-  br i1 %375, label %376, label %378, !prof !22
+  br i1 %375, label %376, label %378, !prof !19
 
 376:                                              ; preds = %374
   %377 = call i32 @ip_local_deliver(ptr noundef %0) #10
@@ -2128,14 +2128,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %397 = getelementptr inbounds nuw i8, ptr %101, i64 912
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr i8, ptr %398, i64 56
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %399, ptr elementtype(i64) %399) #10, !srcloc !23
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %399, ptr elementtype(i64) %399) #10, !srcloc !20
   br label %400
 
 400:                                              ; preds = %396, %394
   %401 = getelementptr inbounds nuw i8, ptr %99, i64 416
   %402 = load ptr, ptr %401, align 8
   %403 = getelementptr i8, ptr %402, i64 56
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %403, ptr elementtype(i64) %403) #10, !srcloc !24
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %403, ptr elementtype(i64) %403) #10, !srcloc !21
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull %404) #10
   call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
@@ -2153,7 +2153,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %411 = getelementptr inbounds nuw i8, ptr %364, i64 40
   %412 = load ptr, ptr %411, align 8
   %413 = icmp eq ptr %412, @ip6_input
-  br i1 %413, label %414, label %416, !prof !22
+  br i1 %413, label %414, label %416, !prof !19
 
 414:                                              ; preds = %410
   %415 = call i32 @ip6_input(ptr noundef %0) #10
@@ -2161,7 +2161,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
 
 416:                                              ; preds = %410
   %417 = icmp eq ptr %412, @ip_local_deliver
-  br i1 %417, label %418, label %420, !prof !22
+  br i1 %417, label %418, label %420, !prof !19
 
 418:                                              ; preds = %416
   %419 = call i32 @ip_local_deliver(ptr noundef %0) #10
@@ -2407,14 +2407,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %586 = getelementptr inbounds nuw i8, ptr %427, i64 912
   %587 = load ptr, ptr %586, align 8
   %588 = getelementptr i8, ptr %587, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %588, ptr elementtype(i64) %588) #10, !srcloc !25
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %588, ptr elementtype(i64) %588) #10, !srcloc !22
   br label %589
 
 589:                                              ; preds = %585, %583
   %590 = getelementptr inbounds nuw i8, ptr %425, i64 416
   %591 = load ptr, ptr %590, align 8
   %592 = getelementptr i8, ptr %591, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %592, ptr elementtype(i64) %592) #10, !srcloc !26
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %592, ptr elementtype(i64) %592) #10, !srcloc !23
   %593 = load ptr, ptr %12, align 8
   %594 = load i16, ptr %71, align 4
   %595 = zext i16 %594 to i64
@@ -2433,7 +2433,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %604 = add nuw nsw i64 %603, 80
   %605 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %604, i32 noundef 2336) #11
   %606 = icmp eq ptr %605, null
-  br i1 %606, label %.thread.i, label %607, !prof !27
+  br i1 %606, label %.thread.i, label %607, !prof !24
 
 .thread.i:                                        ; preds = %601
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
@@ -2572,14 +2572,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %698 = getelementptr inbounds nuw i8, ptr %695, i64 912
   %699 = load ptr, ptr %698, align 8
   %700 = getelementptr i8, ptr %699, i64 112
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %700, ptr elementtype(i64) %700) #10, !srcloc !28
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %700, ptr elementtype(i64) %700) #10, !srcloc !25
   br label %701
 
 701:                                              ; preds = %697, %690
   %702 = getelementptr inbounds nuw i8, ptr %425, i64 416
   %703 = load ptr, ptr %702, align 8
   %704 = getelementptr i8, ptr %703, i64 112
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %704, ptr elementtype(i64) %704) #10, !srcloc !29
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %704, ptr elementtype(i64) %704) #10, !srcloc !26
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   tail call void @kfree(ptr noundef nonnull %605) #10
   br label %ipv6_srh_rcv.exit
@@ -2673,7 +2673,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %768 = getelementptr i8, ptr %765, i64 %767
   %769 = load i32, ptr %441, align 8
   %770 = tail call i32 @csum_partial(ptr noundef %768, i32 noundef %764, i32 noundef 0) #10
-  %771 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %769, i32 %770) #12, !srcloc !30
+  %771 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %769, i32 %770) #12, !srcloc !27
   store i32 %771, ptr %441, align 8
   br label %772
 
@@ -2692,7 +2692,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %780 = getelementptr inbounds nuw i8, ptr %775, i64 40
   %781 = load ptr, ptr %780, align 8
   %782 = icmp eq ptr %781, @ip6_input
-  br i1 %782, label %783, label %785, !prof !22
+  br i1 %782, label %783, label %785, !prof !19
 
 783:                                              ; preds = %779
   %784 = tail call i32 @ip6_input(ptr noundef %0) #10
@@ -2700,7 +2700,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
 
 785:                                              ; preds = %779
   %786 = icmp eq ptr %781, @ip_local_deliver
-  br i1 %786, label %787, label %789, !prof !22
+  br i1 %786, label %787, label %789, !prof !19
 
 787:                                              ; preds = %785
   %788 = tail call i32 @ip_local_deliver(ptr noundef %0) #10
@@ -2736,14 +2736,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %808 = getelementptr inbounds nuw i8, ptr %427, i64 912
   %809 = load ptr, ptr %808, align 8
   %810 = getelementptr i8, ptr %809, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %810, ptr elementtype(i64) %810) #10, !srcloc !31
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %810, ptr elementtype(i64) %810) #10, !srcloc !28
   br label %811
 
 811:                                              ; preds = %807, %805
   %812 = getelementptr inbounds nuw i8, ptr %425, i64 416
   %813 = load ptr, ptr %812, align 8
   %814 = getelementptr i8, ptr %813, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %814, ptr elementtype(i64) %814) #10, !srcloc !32
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %814, ptr elementtype(i64) %814) #10, !srcloc !29
   %815 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull %815) #10
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
@@ -2766,7 +2766,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %827 = getelementptr inbounds nuw i8, ptr %775, i64 40
   %828 = load ptr, ptr %827, align 8
   %829 = icmp eq ptr %828, @ip6_input
-  br i1 %829, label %830, label %832, !prof !22
+  br i1 %829, label %830, label %832, !prof !19
 
 830:                                              ; preds = %826
   %831 = tail call i32 @ip6_input(ptr noundef %0) #10
@@ -2774,7 +2774,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
 
 832:                                              ; preds = %826
   %833 = icmp eq ptr %828, @ip_local_deliver
-  br i1 %833, label %834, label %836, !prof !22
+  br i1 %833, label %834, label %836, !prof !19
 
 834:                                              ; preds = %832
   %835 = tail call i32 @ip_local_deliver(ptr noundef %0) #10
@@ -2819,14 +2819,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %858 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %859 = load ptr, ptr %858, align 8
   %860 = getelementptr i8, ptr %859, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %860, ptr elementtype(i64) %860) #10, !srcloc !33
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %860, ptr elementtype(i64) %860) #10, !srcloc !30
   br label %861
 
 861:                                              ; preds = %857, %856
   %862 = getelementptr inbounds nuw i8, ptr %10, i64 416
   %863 = load ptr, ptr %862, align 8
   %864 = getelementptr i8, ptr %863, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %864, ptr elementtype(i64) %864) #10, !srcloc !34
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %864, ptr elementtype(i64) %864) #10, !srcloc !31
   %865 = load ptr, ptr %12, align 8
   %866 = load i16, ptr %71, align 4
   %867 = zext i16 %866 to i64
@@ -3001,7 +3001,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_destopt_rcv(ptr noundef %0) #
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 912
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %62, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, ptr elementtype(i64) %63) #10, !srcloc !35
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %63, ptr elementtype(i64) %63) #10, !srcloc !32
   br label %64
 
 64:                                               ; preds = %60, %58
@@ -3011,7 +3011,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_destopt_rcv(ptr noundef %0) #
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 416
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i8, ptr %69, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %70, ptr elementtype(i64) %70) #10, !srcloc !36
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %70, ptr elementtype(i64) %70) #10, !srcloc !33
   br label %71
 
 71:                                               ; preds = %72, %64
@@ -3057,14 +3057,14 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_destopt_rcv(ptr noundef %0) #
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 912
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i8, ptr %96, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %97, ptr elementtype(i64) %97) #10, !srcloc !37
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %97, ptr elementtype(i64) %97) #10, !srcloc !34
   br label %98
 
 98:                                               ; preds = %94, %92
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 416
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 56
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %101, ptr elementtype(i64) %101) #10, !srcloc !38
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %101, ptr elementtype(i64) %101) #10, !srcloc !35
   br label %102
 
 102:                                              ; preds = %98, %86, %71
@@ -3142,32 +3142,29 @@ attributes #12 = { nounwind memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
 !9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8, !11}
-!13 = !{i64 2159326342}
-!14 = !{i64 2159341635}
-!15 = !{i64 2159352945}
-!16 = !{i64 2159364225}
-!17 = !{i64 2159183595}
-!18 = !{i64 2159194827}
-!19 = !{i64 2159206248}
-!20 = !{i64 2159217480}
-!21 = !{!"auto-init"}
-!22 = !{!"branch_weights", i32 2000, i32 1}
-!23 = !{i64 2159228755}
-!24 = !{i64 2159239987}
-!25 = !{i64 2159255543}
-!26 = !{i64 2159266775}
-!27 = !{!"branch_weights", i32 0, i32 -2147483648}
-!28 = !{i64 2159281049}
-!29 = !{i64 2159292281}
-!30 = !{i64 7272733, i64 7272746}
-!31 = !{i64 2159303792}
-!32 = !{i64 2159315024}
-!33 = !{i64 2159472209}
-!34 = !{i64 2159487502}
-!35 = !{i64 2159132128}
-!36 = !{i64 2159143990}
-!37 = !{i64 2159156856}
-!38 = !{i64 2159168088}
+!10 = !{i64 2159326342}
+!11 = !{i64 2159341635}
+!12 = !{i64 2159352945}
+!13 = !{i64 2159364225}
+!14 = !{i64 2159183595}
+!15 = !{i64 2159194827}
+!16 = !{i64 2159206248}
+!17 = !{i64 2159217480}
+!18 = !{!"auto-init"}
+!19 = !{!"branch_weights", i32 2000, i32 1}
+!20 = !{i64 2159228755}
+!21 = !{i64 2159239987}
+!22 = !{i64 2159255543}
+!23 = !{i64 2159266775}
+!24 = !{!"branch_weights", i32 0, i32 -2147483648}
+!25 = !{i64 2159281049}
+!26 = !{i64 2159292281}
+!27 = !{i64 7272733, i64 7272746}
+!28 = !{i64 2159303792}
+!29 = !{i64 2159315024}
+!30 = !{i64 2159472209}
+!31 = !{i64 2159487502}
+!32 = !{i64 2159132128}
+!33 = !{i64 2159143990}
+!34 = !{i64 2159156856}
+!35 = !{i64 2159168088}

@@ -2544,7 +2544,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
   %40 = phi ptr [ null, %21 ], [ %26, %.lr.ph.split.us ], [ %26, %.lr.ph.split ]
@@ -2665,7 +2665,7 @@ type_base.exit:                                   ; preds = %44
   %.1 = select i1 %.not122, i1 %.0109129, i1 %spec.select125
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, %64
-  br i1 %exitcond151.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !18
+  br i1 %exitcond151.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !16
 
 ._crit_edge132:                                   ; preds = %93
   %97 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv152
@@ -2706,7 +2706,7 @@ type_base.exit:                                   ; preds = %44
   store ptr %113, ptr %116, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %._crit_edge135, label %.preheader, !llvm.loop !19
+  br i1 %exitcond156.not, label %._crit_edge135, label %.preheader, !llvm.loop !17
 
 ._crit_edge135:                                   ; preds = %105, %type_base.exit, %66
   ret ptr %65
@@ -2813,7 +2813,7 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
   store ptr %66, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph72.preheader, label %28, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph72.preheader, label %28, !llvm.loop !18
 
 .lr.ph72.preheader:                               ; preds = %57
   %68 = zext i32 %.064 to i64
@@ -2832,7 +2832,7 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
   store ptr %74, ptr %75, align 8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !21
+  br i1 %exitcond81.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !19
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %11
   %.pre-phi = phi i64 [ 0, %11 ], [ %wide.trip.count80, %.lr.ph72 ]
@@ -2898,7 +2898,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   tail call fastcc void @param_expand(ptr noundef %0, ptr noundef %1, ptr noundef %10)
   %11 = add i32 %.05680, -1
   %.not63 = icmp eq i32 %11, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph82, !llvm.loop !22
+  br i1 %.not63, label %.loopexit, label %.lr.ph82, !llvm.loop !20
 
 12:                                               ; preds = %tailrecurse
   %13 = getelementptr inbounds nuw i8, ptr %.tr66, i64 56
@@ -2927,7 +2927,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   tail call fastcc void @param_expand(ptr noundef %0, ptr noundef %1, ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph78, !llvm.loop !23
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph78, !llvm.loop !21
 
 24:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse
   %25 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %.tr66)
@@ -2972,7 +2972,7 @@ tailrecurse.backedge:                             ; preds = %24, %._crit_edge
   %.1 = phi ptr [ %41, %37 ], [ %.05374, %.lr.ph ]
   %43 = add nuw i32 %.05175, 1
   %exitcond.not = icmp eq i32 %43, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %42
   %44 = icmp eq i64 %.155, 0
@@ -3148,13 +3148,11 @@ attributes #6 = { nounwind }
 !12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
 !18 = distinct !{!18, !8}
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}

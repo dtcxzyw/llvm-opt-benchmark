@@ -288,7 +288,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 4
   %8 = icmp eq i32 %7, 45
-  br i1 %8, label %9, label %40
+  br i1 %8, label %9, label %41
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -303,108 +303,108 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %.fr62 = freeze i32 %17
-  %18 = icmp eq i32 %.fr62, 2
+  %.fr63 = freeze i32 %17
+  %18 = icmp eq i32 %.fr63, 2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %18, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  br i1 %18, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
   br i1 %22, label %.critedge.us, label %._crit_edge
 
-.lr.ph.split.us:                                  ; preds = %.critedge.us
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv6674, 1
-  %23 = load i32, ptr %19, align 4
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next67, %24
-  br i1 %25, label %.critedge.us, label %._crit_edge
+23:                                               ; preds = %.critedge.us
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %24 = load i32, ptr %19, align 4
+  %25 = sext i32 %24 to i64
+  %26 = icmp slt i64 %indvars.iv.next68, %25
+  br i1 %26, label %.critedge.us, label %._crit_edge
 
-.critedge.us:                                     ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %indvars.iv6674 = phi i64 [ %indvars.iv.next67, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv6674
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @exprType(ptr noundef %28) #9
-  %30 = tail call zeroext i1 @to_jsonb_is_immutable(i32 noundef %29) #9
-  br i1 %30, label %.lr.ph.split.us, label %.thread49
+.critedge.us:                                     ; preds = %.lr.ph.split.us.split, %23
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %23 ], [ 0, %.lr.ph.split.us.split ]
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv67
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i32 @exprType(ptr noundef %29) #9
+  %31 = tail call zeroext i1 @to_jsonb_is_immutable(i32 noundef %30) #9
+  br i1 %31, label %23, label %.thread49
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %22, label %.critedge, label %._crit_edge
 
-31:                                               ; preds = %.critedge
+32:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load i32, ptr %19, align 4
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.critedge, label %._crit_edge
+  %33 = load i32, ptr %19, align 4
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next, %34
+  br i1 %35, label %.critedge, label %._crit_edge
 
-.critedge:                                        ; preds = %.lr.ph.split.split, %31
-  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph.split.split ]
-  %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call i32 @exprType(ptr noundef %37) #9
-  %39 = tail call zeroext i1 @to_json_is_immutable(i32 noundef %38) #9
-  br i1 %39, label %31, label %.thread49
+.critedge:                                        ; preds = %.lr.ph.split.split, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.split.split ]
+  %36 = load ptr, ptr %20, align 8
+  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i32 @exprType(ptr noundef %38) #9
+  %40 = tail call zeroext i1 @to_json_is_immutable(i32 noundef %39) #9
+  br i1 %40, label %32, label %.thread49
 
-._crit_edge:                                      ; preds = %31, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %.lr.ph.split.split, %9
+._crit_edge:                                      ; preds = %32, %23, %.lr.ph.split.us.split, %.lr.ph.split.split, %9
   %.pr = load i32, ptr %0, align 4
-  br label %40
+  br label %41
 
-40:                                               ; preds = %._crit_edge, %6
-  %41 = phi i32 [ %.pr, %._crit_edge ], [ %7, %6 ]
-  %42 = icmp eq i32 %41, 48
-  br i1 %42, label %43, label %62
+41:                                               ; preds = %._crit_edge, %6
+  %42 = phi i32 [ %.pr, %._crit_edge ], [ %7, %6 ]
+  %43 = icmp eq i32 %42, 48
+  br i1 %43, label %44, label %63
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp eq i32 %46, 7
-  br i1 %47, label %48, label %.thread49
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 7
+  br i1 %48, label %49, label %.thread49
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %50 = load i8, ptr %49, align 8, !range !4, !noundef !5
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %.thread49, label %52
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %51 = load i8, ptr %50, align 8, !range !4, !noundef !5
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %.thread49, label %53
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %54 = load i64, ptr %53, align 8
-  %55 = inttoptr i64 %54 to ptr
-  %56 = tail call ptr @pg_detoast_datum(ptr noundef %55) #9
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call zeroext i1 @jspIsMutable(ptr noundef %56, ptr noundef %58, ptr noundef %60) #9
-  br i1 %61, label %.thread49, label %._crit_edge69
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %55 = load i64, ptr %54, align 8
+  %56 = inttoptr i64 %55 to ptr
+  %57 = tail call ptr @pg_detoast_datum(ptr noundef %56) #9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call zeroext i1 @jspIsMutable(ptr noundef %57, ptr noundef %59, ptr noundef %61) #9
+  br i1 %62, label %.thread49, label %._crit_edge71
 
-._crit_edge69:                                    ; preds = %52
+._crit_edge71:                                    ; preds = %53
   %.pre = load i32, ptr %0, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %._crit_edge69, %40
-  %63 = phi i32 [ %.pre, %._crit_edge69 ], [ %41, %40 ]
-  switch i32 %63, label %66 [
+63:                                               ; preds = %._crit_edge71, %41
+  %64 = phi i32 [ %.pre, %._crit_edge71 ], [ %42, %41 ]
+  switch i32 %64, label %67 [
     i32 40, label %.thread49
     i32 59, label %.thread49
-    i32 67, label %64
+    i32 67, label %65
   ]
 
-64:                                               ; preds = %62
-  %65 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1, i32 noundef 0) #9
+65:                                               ; preds = %63
+  %66 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1, i32 noundef 0) #9
   br label %.thread49
 
-66:                                               ; preds = %62
-  %67 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1) #9
+67:                                               ; preds = %63
+  %68 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1) #9
   br label %.thread49
 
-.thread49:                                        ; preds = %.critedge, %.critedge.us, %48, %43, %62, %62, %52, %4, %2, %66, %64
-  %.0 = phi i1 [ %65, %64 ], [ %67, %66 ], [ true, %52 ], [ false, %2 ], [ true, %4 ], [ true, %62 ], [ true, %62 ], [ false, %48 ], [ true, %43 ], [ true, %.critedge.us ], [ true, %.critedge ]
+.thread49:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
+  %.0 = phi i1 [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ true, %63 ], [ false, %49 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -1031,8 +1031,8 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %brmerge = select i1 %.not68, i1 true, i1 %.not66
-  %brmerge103 = select i1 %brmerge, i1 true, i1 %.not67
-  br i1 %brmerge103, label %.thread, label %.split.split.split
+  %brmerge105 = select i1 %brmerge, i1 true, i1 %.not67
+  br i1 %brmerge105, label %.thread, label %.split.split.split
 
 .split.split.split:                               ; preds = %27, %.critedge80
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge80 ], [ 0, %27 ]

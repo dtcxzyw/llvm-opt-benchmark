@@ -1343,7 +1343,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   %59 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %16, i32 noundef %55, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef %56, ptr noundef nonnull @.str.416, i32 noundef %58)
   %60 = add i32 %.043, 8
   %61 = icmp ult i32 %60, %34
-  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !9
+  br i1 %61, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %proto_item_set_hidden.exit, %4
   %62 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1521,7 +1521,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = add i32 %.057, 64
   %65 = icmp ult i32 %64, %37
-  br i1 %65, label %40, label %.loopexit, !llvm.loop !10
+  br i1 %65, label %40, label %.loopexit, !llvm.loop !8
 
 66:                                               ; preds = %14, %proto_item_set_hidden.exit
   %67 = load i32, ptr @hf_sap_server_type, align 4
@@ -1916,8 +1916,6 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

@@ -53,13 +53,13 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %24, ptr %26, align 8, !tbaa !3
   %27 = add nuw nsw i64 %.260.us, 1
   %exitcond.not = icmp eq i64 %27, %0
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %21
   %28 = getelementptr inbounds double, ptr %.162.us, i64 %4
   %29 = add nuw nsw i64 %.25161.us, 1
   %exitcond80.not = icmp eq i64 %29, %1
-  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !12
+  br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !11
 
 .lr.ph.us68:                                      ; preds = %18, %._crit_edge.us69
   %.066.us = phi ptr [ %37, %._crit_edge.us69 ], [ %3, %18 ]
@@ -76,13 +76,13 @@ define noundef i32 @domatcopy_k_ct(i64 noundef %0, i64 noundef %1, double nounde
   store double %33, ptr %35, align 8, !tbaa !3
   %36 = add nuw nsw i64 %.14864.us, 1
   %exitcond81.not = icmp eq i64 %36, %0
-  br i1 %exitcond81.not, label %._crit_edge.us69, label %31, !llvm.loop !13
+  br i1 %exitcond81.not, label %._crit_edge.us69, label %31, !llvm.loop !12
 
 ._crit_edge.us69:                                 ; preds = %31
   %37 = getelementptr inbounds double, ptr %.066.us, i64 %4
   %38 = add nuw nsw i64 %.15065.us, 1
   %exitcond82.not = icmp eq i64 %38, %1
-  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.us68, !llvm.loop !14
+  br i1 %exitcond82.not, label %.loopexit, label %.lr.ph.us68, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us69, %._crit_edge.us74, %7
   ret i32 0
@@ -101,9 +101,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !10}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8, !10}

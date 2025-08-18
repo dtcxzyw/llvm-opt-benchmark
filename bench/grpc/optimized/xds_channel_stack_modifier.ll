@@ -609,7 +609,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvo
   %spec.select.i.i.i.i.i = select i1 %26, ptr %23, ptr %.sroa.029.133.i.us.i.i.i.i.i
   %.0.add.i.us.i.i.i.i.i = add nuw nsw i64 %.0.idx34.i.us.i.i.i.i.i, 8
   %.not.i.us.i.i.i.i.i = icmp eq i64 %.0.add.i.us.i.i.i.i.i, 16
-  br i1 %.not.i.us.i.i.i.i.i, label %.split7.us.i.i.i.i.i, label %.split.us.i.i.i.i.i, !llvm.loop !57
+  br i1 %.not.i.us.i.i.i.i.i, label %.split7.us.i.i.i.i.i, label %.split.us.i.i.i.i.i
 
 .split7.us.i.i.i.i.i:                             ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.i.i.i.i.i.i, %.split.us.i.i.i.i.i
   %.us-phi.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %.sroa.029.2.i.i.i.i.i.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.i.i.i.i.i.i ]
@@ -685,7 +685,7 @@ declare noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_strin
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2) #19 comdat {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !57
   ret void
 }
 
@@ -803,6 +803,4 @@ attributes #28 = { noreturn nounwind }
 !54 = distinct !{!54, !"_ZN9grpc_core10RefCountedINS_23XdsChannelStackModifierENS_19PolymorphicRefCountENS_11UnrefDeleteEE13RefAsSubclassIS1_TnNSt9enable_ifIXsr3std10is_base_ofIS1_T_EE5valueEbE4typeELb1EEENS_13RefCountedPtrIS7_EEv"}
 !55 = distinct !{!55, !56, !"_ZN9grpc_core13GetObjectImplINS_23XdsChannelStackModifierEvE9GetReffedEPS1_: argument 0"}
 !56 = distinct !{!56, !"_ZN9grpc_core13GetObjectImplINS_23XdsChannelStackModifierEvE9GetReffedEPS1_"}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = !{i64 0, i64 16, !24}
+!57 = !{i64 0, i64 16, !24}

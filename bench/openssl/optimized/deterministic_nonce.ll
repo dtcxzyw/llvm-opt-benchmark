@@ -208,7 +208,7 @@ bits2int_consttime.exit.thread64:                 ; preds = %.lr.ph.split
 .backedge:                                        ; preds = %85, %bits2int_consttime.exit.thread64, %87
   %90 = call i32 @EVP_KDF_derive(ptr noundef nonnull %53, ptr noundef nonnull %27, i64 noundef %28, ptr noundef null) #4
   %.not52 = icmp eq i32 %90, 0
-  br i1 %.not52, label %bits2int_consttime.exit.thread, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not52, label %bits2int_consttime.exit.thread, label %.lr.ph.split, !llvm.loop !14
 
 bits2int_consttime.exit.thread:                   ; preds = %.backedge, %87, %.lr.ph.split, %bits2int_consttime.exit.us, %.backedge.us, %77, %.lr.ph.split.us, %kdf_setup.exit, %kdf_setup.exit.thread, %bits2octets.exit.thread, %26, %bits2octets.exit
   %.046 = phi ptr [ null, %bits2octets.exit ], [ null, %26 ], [ null, %bits2octets.exit.thread ], [ null, %kdf_setup.exit.thread ], [ %53, %kdf_setup.exit ], [ %53, %.lr.ph.split.us ], [ %53, %77 ], [ %53, %.backedge.us ], [ %53, %bits2int_consttime.exit.us ], [ %53, %.lr.ph.split ], [ %53, %87 ], [ %53, %.backedge ]
@@ -301,7 +301,5 @@ attributes #4 = { nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !15}

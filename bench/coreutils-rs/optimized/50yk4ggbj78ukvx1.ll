@@ -1379,8 +1379,8 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %27 = load i64, ptr %26, align 8, !range !53
-  %.fr = freeze i64 %27
-  %.not68 = icmp eq i64 %.fr, -9223372036854775808
+  %.fr185 = freeze i64 %27
+  %.not68 = icmp eq i64 %.fr185, -9223372036854775808
   %.idx = mul nsw i64 %18, 80
   %28 = getelementptr inbounds i8, ptr %21, i64 %.idx
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1392,15 +1392,15 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN8uu_split8Settings26instantiate_current_writer17hacf64a1ed7873ce6E(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %3, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %31, i1 noundef zeroext %34)
   %35 = load i64, ptr %15, align 8, !range !53, !noundef !4
-  %.not.us194 = icmp eq i64 %35, -9223372036854775808
-  br i1 %.not68, label %.lr.ph167.split.us.preheader, label %.lr.ph167.split
+  %.not.us197 = icmp eq i64 %35, -9223372036854775808
+  br i1 %.not68, label %.lr.ph167.split.us.split.preheader, label %.lr.ph167.split
 
-.lr.ph167.split.us.preheader:                     ; preds = %.lr.ph167
-  br i1 %.not.us194, label %.lr.ph.us, label %.split.us
+.lr.ph167.split.us.split.preheader:               ; preds = %.lr.ph167
+  br i1 %.not.us197, label %.lr.ph.us, label %.split.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph167.split.us.preheader, %.lr.ph.us.backedge
-  %.sroa.0.0163.us = phi ptr [ %.sroa.0.0163.us.be, %.lr.ph.us.backedge ], [ %21, %.lr.ph167.split.us.preheader ]
-  %.sroa.9.0162.us = phi i64 [ %.sroa.9.0162.us.be, %.lr.ph.us.backedge ], [ 0, %.lr.ph167.split.us.preheader ]
+.lr.ph.us:                                        ; preds = %.lr.ph167.split.us.split.preheader, %.lr.ph.us.backedge
+  %.sroa.0.0163.us = phi ptr [ %.sroa.0.0163.us.be, %.lr.ph.us.backedge ], [ %21, %.lr.ph167.split.us.split.preheader ]
+  %.sroa.9.0162.us = phi i64 [ %.sroa.9.0162.us.be, %.lr.ph.us.backedge ], [ 0, %.lr.ph167.split.us.split.preheader ]
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0163.us, i64 80
   %37 = add nuw nsw i64 %.sroa.9.0162.us, 1
   %.not69.us = icmp eq i64 %.sroa.9.0162.us, %2
@@ -1517,9 +1517,9 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   unreachable
 
 .lr.ph167.split:                                  ; preds = %.lr.ph167
-  br i1 %.not.us194, label %86, label %.split.us
+  br i1 %.not.us197, label %86, label %.split.us
 
-.split.us:                                        ; preds = %"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E.exit97.us", %.lr.ph167.split.us.preheader, %.lr.ph167.split
+.split.us:                                        ; preds = %"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E.exit97.us", %.lr.ph167.split.us.split.preheader, %.lr.ph167.split
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   %75 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }], ptr %21, i64 0, i64 %2, i32 1

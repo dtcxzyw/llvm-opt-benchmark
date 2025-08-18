@@ -6043,7 +6043,7 @@ define dso_local range(i32 -741578130, 1) i32 @hmac_sha3_test() local_unnamed_ad
   call void @wc_HmacFree(ptr noundef nonnull %1) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split88.us, label %.preheader.split, !llvm.loop !85
+  br i1 %exitcond.not, label %.split88.us, label %.preheader.split, !llvm.loop !83
 
 .split85.us:                                      ; preds = %27
   %65 = sub nsw i32 0, %28
@@ -6055,7 +6055,7 @@ define dso_local range(i32 -741578130, 1) i32 @hmac_sha3_test() local_unnamed_ad
 .split88.us:                                      ; preds = %64, %29
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 4
-  br i1 %exitcond146.not, label %.loopexit, label %.preheader, !llvm.loop !86
+  br i1 %exitcond146.not, label %.loopexit, label %.preheader, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.split88.us, %57, %21, %.split85.us, %.split82.us, %.split79.us, %.split76.us, %.split.us
   %.0 = phi i32 [ %33, %.split.us ], [ %43, %.split76.us ], [ %51, %.split79.us ], [ %56, %.split82.us ], [ %67, %.split85.us ], [ -7208, %21 ], [ -7208, %57 ], [ 0, %.split88.us ]
@@ -6217,7 +6217,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %7 = load i32, ptr %.0108160, align 4, !tbaa !87
+  %7 = load i32, ptr %.0108160, align 4, !tbaa !85
   %8 = call i32 @wc_HashGetDigestSize(i32 noundef %7) #19
   %9 = icmp eq i32 %8, -173
   br i1 %9, label %.thread, label %10
@@ -6229,7 +6229,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0108160, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !89
+  %14 = load i32, ptr %13, align 4, !tbaa !87
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %.0108160, i64 12
   %17 = select i1 %15, ptr %4, ptr %16
@@ -6268,7 +6268,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.0108160, i64 8
-  %35 = load i32, ptr %34, align 4, !tbaa !90
+  %35 = load i32, ptr %34, align 4, !tbaa !88
   %36 = icmp eq i32 %35, 0
   %37 = getelementptr inbounds nuw i8, ptr %.0108160, i64 52
   %38 = select i1 %36, ptr %4, ptr %37
@@ -6373,7 +6373,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   %78 = add nuw nsw i32 %.0109159, 1
   %79 = getelementptr inbounds nuw i8, ptr %.0108160, i64 860
   %exitcond.not = icmp eq i32 %78, 6
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !89
 
 .loopexit:                                        ; preds = %77, %.thread
   %.1 = phi i32 [ %.2.ph, %.thread ], [ 0, %77 ]
@@ -6671,7 +6671,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
 74:                                               ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %75, label %34, !llvm.loop !92
+  br i1 %exitcond.not, label %75, label %34, !llvm.loop !90
 
 75:                                               ; preds = %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
@@ -6852,7 +6852,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
 162:                                              ; preds = %159
   %163 = add nuw nsw i32 %.1127376, 1
   %exitcond488.not = icmp eq i32 %163, 18
-  br i1 %exitcond488.not, label %.preheader279, label %.preheader280, !llvm.loop !93
+  br i1 %exitcond488.not, label %.preheader279, label %.preheader280, !llvm.loop !91
 
 .preheader279:                                    ; preds = %162, %228
   %indvars.iv489 = phi i64 [ %indvars.iv.next490, %228 ], [ 1, %162 ]
@@ -6938,7 +6938,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
 202:                                              ; preds = %196
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, %indvars.iv489
   %203 = icmp samesign ult i64 %indvars.iv.next492, %183
-  br i1 %203, label %.lr.ph, label %._crit_edge, !llvm.loop !94
+  br i1 %203, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %202
   %204 = trunc nuw nsw i64 %indvars.iv.next492 to i32
@@ -6994,7 +6994,7 @@ define dso_local i32 @chacha_test() local_unnamed_addr #0 {
 228:                                              ; preds = %224
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next490, 66
-  br i1 %exitcond495.not, label %.thread, label %.preheader279, !llvm.loop !95
+  br i1 %exitcond495.not, label %.thread, label %.preheader279, !llvm.loop !93
 
 .thread:                                          ; preds = %228, %225, %221, %216, %210, %198, %192, %185, %177, %171, %165, %44, %52, %60, %67, %71, %80, %88, %97, %107, %115, %123, %135, %143, %151, %157, %160, %101, %127, %128
   %.0120 = phi i32 [ %47, %44 ], [ %55, %52 ], [ %63, %60 ], [ %69, %67 ], [ %73, %71 ], [ %83, %80 ], [ %91, %88 ], [ %100, %97 ], [ %110, %107 ], [ %118, %115 ], [ %126, %123 ], [ %138, %135 ], [ %146, %143 ], [ %154, %151 ], [ %158, %157 ], [ %161, %160 ], [ -7936, %101 ], [ -7959, %127 ], [ -7962, %128 ], [ %227, %225 ], [ %223, %221 ], [ %219, %216 ], [ %213, %210 ], [ %201, %198 ], [ %195, %192 ], [ %188, %185 ], [ %180, %177 ], [ %174, %171 ], [ %168, %165 ], [ 0, %228 ]
@@ -7193,7 +7193,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
 71:                                               ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader99, label %44, !llvm.loop !96
+  br i1 %exitcond.not, label %.preheader99, label %44, !llvm.loop !94
 
 .preheader99:                                     ; preds = %71, %88
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %88 ], [ 1, %71 ]
@@ -7220,7 +7220,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
 79:                                               ; preds = %.preheader
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, %indvars.iv121
   %80 = icmp samesign ult i64 %indvars.iv.next124, 154
-  br i1 %80, label %.preheader, label %81, !llvm.loop !97
+  br i1 %80, label %.preheader, label %81, !llvm.loop !95
 
 81:                                               ; preds = %79
   %82 = call i32 @wc_Poly1305Final(ptr noundef nonnull %2, ptr noundef nonnull %1) #19
@@ -7245,7 +7245,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
 88:                                               ; preds = %85
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next122, 154
-  br i1 %exitcond127.not, label %89, label %.preheader99, !llvm.loop !98
+  br i1 %exitcond127.not, label %89, label %.preheader99, !llvm.loop !96
 
 89:                                               ; preds = %88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
@@ -7722,7 +7722,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   br label %341
 
 173:                                              ; preds = %166
-  store i8 3, ptr %167, align 8, !tbaa !99
+  store i8 3, ptr %167, align 8, !tbaa !97
   %174 = call i32 @wc_ChaCha20Poly1305_UpdateAad(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 12) #19
   %.not251 = icmp eq i32 %174, -192
   br i1 %.not251, label %179, label %175
@@ -7735,7 +7735,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   br label %341
 
 179:                                              ; preds = %173
-  store i8 0, ptr %167, align 8, !tbaa !99
+  store i8 0, ptr %167, align 8, !tbaa !97
   %180 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %14, i32 noundef 114) #19
   %.not252 = icmp eq i32 %180, -192
   br i1 %.not252, label %185, label %181
@@ -7748,7 +7748,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   br label %341
 
 185:                                              ; preds = %179
-  store i8 0, ptr %167, align 8, !tbaa !99
+  store i8 0, ptr %167, align 8, !tbaa !97
   %186 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %16, ptr noundef nonnull %15) #19
   %.not253 = icmp eq i32 %186, -192
   br i1 %.not253, label %191, label %187
@@ -7761,7 +7761,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
   br label %341
 
 191:                                              ; preds = %185
-  store i8 1, ptr %167, align 8, !tbaa !99
+  store i8 1, ptr %167, align 8, !tbaa !97
   %192 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %16, ptr noundef nonnull %15) #19
   %.not254 = icmp eq i32 %192, -192
   br i1 %.not254, label %197, label %193
@@ -7803,7 +7803,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
 209:                                              ; preds = %.preheader439
   %210 = add nuw nsw i32 %spec.store.select, %.0146443
   %211 = icmp samesign ult i32 %210, 114
-  br i1 %211, label %.preheader439, label %220, !llvm.loop !103
+  br i1 %211, label %.preheader439, label %220, !llvm.loop !101
 
 .preheader439:                                    ; preds = %203, %209
   %.0146443 = phi i32 [ %210, %209 ], [ 0, %203 ]
@@ -7879,7 +7879,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
 245:                                              ; preds = %.preheader438
   %246 = add nuw nsw i32 %spec.store.select4, %.2148444
   %247 = icmp samesign ult i32 %246, 114
-  br i1 %247, label %.preheader438, label %256, !llvm.loop !104
+  br i1 %247, label %.preheader438, label %256, !llvm.loop !102
 
 .preheader438:                                    ; preds = %239, %245
   %.2148444 = phi i32 [ %246, %245 ], [ 0, %239 ]
@@ -7958,7 +7958,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
 281:                                              ; preds = %.preheader437
   %282 = add nuw nsw i32 %spec.store.select5, %.4445
   %283 = icmp samesign ult i32 %282, 265
-  br i1 %283, label %.preheader437, label %292, !llvm.loop !105
+  br i1 %283, label %.preheader437, label %292, !llvm.loop !103
 
 .preheader437:                                    ; preds = %275, %281
   %.4445 = phi i32 [ %282, %281 ], [ 0, %275 ]
@@ -8034,7 +8034,7 @@ define dso_local i32 @chacha20_poly1305_aead_test() local_unnamed_addr #0 {
 317:                                              ; preds = %.preheader
   %318 = add nuw nsw i32 %spec.store.select6, %.6446
   %319 = icmp samesign ult i32 %318, 265
-  br i1 %319, label %.preheader, label %328, !llvm.loop !106
+  br i1 %319, label %.preheader, label %328, !llvm.loop !104
 
 .preheader:                                       ; preds = %311, %317
   %.6446 = phi i32 [ %318, %317 ], [ 0, %311 ]
@@ -8220,7 +8220,7 @@ define dso_local range(i32 -741581773, 1) i32 @aes_test() local_unnamed_addr #0 
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store i32 16, ptr %55, align 16, !tbaa !107
+  store i32 16, ptr %55, align 16, !tbaa !105
   %56 = call i32 @wc_AesGetKeySize(ptr noundef nonnull %1, ptr noundef nonnull %6) #19
   %.not58.i = icmp eq i32 %56, -173
   br i1 %.not58.i, label %61, label %57
@@ -8964,7 +8964,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   store i8 %63, ptr %64, align 1, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %65, label %.preheader353, !llvm.loop !110
+  br i1 %exitcond.not, label %65, label %.preheader353, !llvm.loop !108
 
 65:                                               ; preds = %.preheader353
   %66 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -8998,7 +8998,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
 78:                                               ; preds = %85
   %79 = add nuw nsw i32 %.0142363, 1
   %exitcond386.not = icmp eq i32 %79, 32
-  br i1 %exitcond386.not, label %.preheader351, label %.preheader352, !llvm.loop !111
+  br i1 %exitcond386.not, label %.preheader351, label %.preheader352, !llvm.loop !109
 
 .preheader352:                                    ; preds = %73, %78
   %.0142363 = phi i32 [ %79, %78 ], [ 1, %73 ]
@@ -9028,7 +9028,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
 91:                                               ; preds = %98
   %92 = add nuw nsw i32 %.1149364, 1
   %exitcond387.not = icmp eq i32 %92, 60
-  br i1 %exitcond387.not, label %.preheader350, label %.preheader351, !llvm.loop !112
+  br i1 %exitcond387.not, label %.preheader350, label %.preheader351, !llvm.loop !110
 
 .preheader351:                                    ; preds = %78, %91
   %.1149364 = phi i32 [ %92, %91 ], [ 0, %78 ]
@@ -9058,7 +9058,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
 104:                                              ; preds = %111
   %105 = add nuw nsw i32 %.0151365, 1
   %exitcond388.not = icmp eq i32 %105, 1024
-  br i1 %exitcond388.not, label %117, label %.preheader350, !llvm.loop !113
+  br i1 %exitcond388.not, label %117, label %.preheader350, !llvm.loop !111
 
 .preheader350:                                    ; preds = %91, %104
   %.0151365 = phi i32 [ %105, %104 ], [ 1, %91 ]
@@ -9140,7 +9140,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   store i8 %137, ptr %138, align 1, !tbaa !19
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next390, 1024
-  br i1 %exitcond392.not, label %139, label %136, !llvm.loop !114
+  br i1 %exitcond392.not, label %139, label %136, !llvm.loop !112
 
 139:                                              ; preds = %136
   %140 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9226,7 +9226,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   store i8 %172, ptr %173, align 1, !tbaa !19
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next394, 1024
-  br i1 %exitcond396.not, label %174, label %171, !llvm.loop !115
+  br i1 %exitcond396.not, label %174, label %171, !llvm.loop !113
 
 174:                                              ; preds = %171
   %175 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9353,7 +9353,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %226 = add i32 %.0146369, %225
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond400.not = icmp eq i64 %indvars.iv.next398, 12
-  br i1 %exitcond400.not, label %227, label %.preheader, !llvm.loop !116
+  br i1 %exitcond400.not, label %227, label %.preheader, !llvm.loop !114
 
 227:                                              ; preds = %.preheader
   %.not239 = icmp eq i32 %226, 0
@@ -10111,7 +10111,7 @@ rsa_decode_test.exit.thread114:                   ; preds = %33, %39, %45, %51, 
 252:                                              ; preds = %.preheader118, %250
   %.1 = phi i32 [ %251, %250 ], [ %.049, %.preheader118 ]
   %253 = icmp eq i32 %.1, -108
-  br i1 %253, label %.preheader118, label %254, !llvm.loop !117
+  br i1 %253, label %.preheader118, label %254, !llvm.loop !115
 
 254:                                              ; preds = %252
   %255 = icmp slt i32 %.1, 0
@@ -10150,7 +10150,7 @@ rsa_decode_test.exit.thread114:                   ; preds = %33, %39, %45, %51, 
 272:                                              ; preds = %267, %269
   %.4 = phi i32 [ %271, %269 ], [ %.3, %267 ]
   %273 = icmp eq i32 %.4, -108
-  br i1 %273, label %267, label %274, !llvm.loop !118
+  br i1 %273, label %267, label %274, !llvm.loop !116
 
 274:                                              ; preds = %272
   %275 = icmp slt i32 %.4, 0
@@ -10181,7 +10181,7 @@ rsa_decode_test.exit.thread114:                   ; preds = %33, %39, %45, %51, 
 285:                                              ; preds = %.preheader117, %282
   %.6 = phi i32 [ %284, %282 ], [ %.5, %.preheader117 ]
   %286 = icmp eq i32 %.6, -108
-  br i1 %286, label %.preheader117, label %287, !llvm.loop !119
+  br i1 %286, label %.preheader117, label %287, !llvm.loop !117
 
 287:                                              ; preds = %285
   %288 = icmp slt i32 %.6, 0
@@ -10216,7 +10216,7 @@ rsa_decode_test.exit.thread114:                   ; preds = %33, %39, %45, %51, 
 299:                                              ; preds = %.preheader, %297
   %.8 = phi i32 [ %298, %297 ], [ %.7, %.preheader ]
   %300 = icmp eq i32 %.8, -108
-  br i1 %300, label %.preheader, label %301, !llvm.loop !120
+  br i1 %300, label %.preheader, label %301, !llvm.loop !118
 
 301:                                              ; preds = %299
   %302 = icmp slt i32 %.8, 0
@@ -11593,9 +11593,9 @@ define dso_local range(i32 -1278500200, 1) i32 @memcb_test() local_unnamed_addr 
   store i32 0, ptr @malloc_cnt, align 4, !tbaa !22
   store i32 0, ptr @free_cnt, align 4, !tbaa !22
   store i32 0, ptr @realloc_cnt, align 4, !tbaa !22
-  %35 = load ptr, ptr %1, align 8, !tbaa !121
-  %36 = load ptr, ptr %2, align 8, !tbaa !121
-  %37 = load ptr, ptr %3, align 8, !tbaa !121
+  %35 = load ptr, ptr %1, align 8, !tbaa !119
+  %36 = load ptr, ptr %2, align 8, !tbaa !119
+  %37 = load ptr, ptr %3, align 8, !tbaa !119
   %38 = call i32 @wolfSSL_SetAllocators(ptr noundef %35, ptr noundef %36, ptr noundef %37) #19
   br label %39
 
@@ -12109,7 +12109,7 @@ define internal fastcc range(i32 -1278459876, 1) i32 @random_rng_test() unnamed_
 20:                                               ; preds = %12
   %21 = call fastcc i32 @_rng_test(ptr noundef nonnull %13)
   call void @wc_rng_free(ptr noundef nonnull %13) #19
-  store ptr null, ptr %2, align 8, !tbaa !122
+  store ptr null, ptr %2, align 8, !tbaa !120
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %22, label %.thread
 
@@ -12131,9 +12131,9 @@ define internal fastcc range(i32 -1278459876, 1) i32 @random_rng_test() unnamed_
   br label %32
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr %2, align 8, !tbaa !122
+  %29 = load ptr, ptr %2, align 8, !tbaa !120
   %30 = call fastcc i32 @_rng_test(ptr noundef %29)
-  %31 = load ptr, ptr %2, align 8, !tbaa !122
+  %31 = load ptr, ptr %2, align 8, !tbaa !120
   call void @wc_rng_free(ptr noundef %31) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
@@ -12553,7 +12553,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 11:                                               ; preds = %7, %9
   %.1 = phi i32 [ %10, %9 ], [ %.0, %7 ]
   %12 = icmp eq i32 %.1, -108
-  br i1 %12, label %7, label %13, !llvm.loop !124
+  br i1 %12, label %7, label %13, !llvm.loop !122
 
 13:                                               ; preds = %11
   %14 = icmp slt i32 %.1, 0
@@ -12578,7 +12578,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 22:                                               ; preds = %.preheader156, %20
   %.3 = phi i32 [ %21, %20 ], [ %.2, %.preheader156 ]
   %23 = icmp eq i32 %.3, -108
-  br i1 %23, label %.preheader156, label %24, !llvm.loop !125
+  br i1 %23, label %.preheader156, label %24, !llvm.loop !123
 
 24:                                               ; preds = %22
   %25 = icmp slt i32 %.3, 0
@@ -12612,7 +12612,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 36:                                               ; preds = %32, %34
   %.5 = phi i32 [ %35, %34 ], [ %.4, %32 ]
   %37 = icmp eq i32 %.5, -108
-  br i1 %37, label %32, label %38, !llvm.loop !126
+  br i1 %37, label %32, label %38, !llvm.loop !124
 
 38:                                               ; preds = %36
   %39 = icmp slt i32 %.5, 0
@@ -12637,7 +12637,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 47:                                               ; preds = %.preheader155, %45
   %.7 = phi i32 [ %46, %45 ], [ %.6, %.preheader155 ]
   %48 = icmp eq i32 %.7, -108
-  br i1 %48, label %.preheader155, label %49, !llvm.loop !127
+  br i1 %48, label %.preheader155, label %49, !llvm.loop !125
 
 49:                                               ; preds = %47
   %50 = icmp slt i32 %.7, 0
@@ -12667,7 +12667,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 59:                                               ; preds = %.preheader154, %57
   %.9 = phi i32 [ %58, %57 ], [ %.8, %.preheader154 ]
   %60 = icmp eq i32 %.9, -108
-  br i1 %60, label %.preheader154, label %61, !llvm.loop !128
+  br i1 %60, label %.preheader154, label %61, !llvm.loop !126
 
 61:                                               ; preds = %59
   %62 = icmp slt i32 %.9, 0
@@ -12706,7 +12706,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 75:                                               ; preds = %71, %73
   %.11 = phi i32 [ %74, %73 ], [ %.10, %71 ]
   %76 = icmp eq i32 %.11, -108
-  br i1 %76, label %71, label %77, !llvm.loop !129
+  br i1 %76, label %71, label %77, !llvm.loop !127
 
 77:                                               ; preds = %75
   %78 = icmp slt i32 %.11, 0
@@ -12731,7 +12731,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 86:                                               ; preds = %.preheader153, %84
   %.13 = phi i32 [ %85, %84 ], [ %.12, %.preheader153 ]
   %87 = icmp eq i32 %.13, -108
-  br i1 %87, label %.preheader153, label %88, !llvm.loop !130
+  br i1 %87, label %.preheader153, label %88, !llvm.loop !128
 
 88:                                               ; preds = %86
   %89 = icmp sgt i32 %.13, 0
@@ -12753,7 +12753,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 95:                                               ; preds = %91, %93
   %.15 = phi i32 [ %94, %93 ], [ %.14, %91 ]
   %96 = icmp eq i32 %.15, -108
-  br i1 %96, label %91, label %97, !llvm.loop !131
+  br i1 %96, label %91, label %97, !llvm.loop !129
 
 97:                                               ; preds = %95
   %98 = icmp slt i32 %.15, 0
@@ -12778,7 +12778,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 106:                                              ; preds = %.preheader152, %104
   %.17 = phi i32 [ %105, %104 ], [ %.16, %.preheader152 ]
   %107 = icmp eq i32 %.17, -108
-  br i1 %107, label %.preheader152, label %108, !llvm.loop !132
+  br i1 %107, label %.preheader152, label %108, !llvm.loop !130
 
 108:                                              ; preds = %106
   %109 = icmp slt i32 %.17, 0
@@ -12812,7 +12812,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 120:                                              ; preds = %116, %118
   %.19 = phi i32 [ %119, %118 ], [ %.18, %116 ]
   %121 = icmp eq i32 %.19, -108
-  br i1 %121, label %116, label %122, !llvm.loop !133
+  br i1 %121, label %116, label %122, !llvm.loop !131
 
 122:                                              ; preds = %120
   %123 = icmp slt i32 %.19, 0
@@ -12837,7 +12837,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 131:                                              ; preds = %.preheader151, %129
   %.21 = phi i32 [ %130, %129 ], [ %.20, %.preheader151 ]
   %132 = icmp eq i32 %.21, -108
-  br i1 %132, label %.preheader151, label %133, !llvm.loop !134
+  br i1 %132, label %.preheader151, label %133, !llvm.loop !132
 
 133:                                              ; preds = %131
   %134 = icmp sgt i32 %.21, 0
@@ -12864,7 +12864,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 143:                                              ; preds = %139, %141
   %.24 = phi i32 [ %142, %141 ], [ %.23, %139 ]
   %144 = icmp eq i32 %.24, -108
-  br i1 %144, label %139, label %145, !llvm.loop !135
+  br i1 %144, label %139, label %145, !llvm.loop !133
 
 145:                                              ; preds = %143
   %146 = icmp slt i32 %.24, 0
@@ -12889,7 +12889,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 154:                                              ; preds = %.preheader150, %152
   %.26 = phi i32 [ %153, %152 ], [ %.25, %.preheader150 ]
   %155 = icmp eq i32 %.26, -108
-  br i1 %155, label %.preheader150, label %156, !llvm.loop !136
+  br i1 %155, label %.preheader150, label %156, !llvm.loop !134
 
 156:                                              ; preds = %154
   %157 = icmp slt i32 %.26, 0
@@ -12924,7 +12924,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 168:                                              ; preds = %164, %166
   %.28 = phi i32 [ %167, %166 ], [ %.27, %164 ]
   %169 = icmp eq i32 %.28, -108
-  br i1 %169, label %164, label %170, !llvm.loop !137
+  br i1 %169, label %164, label %170, !llvm.loop !135
 
 170:                                              ; preds = %168
   %171 = icmp slt i32 %.28, 0
@@ -12949,7 +12949,7 @@ define internal fastcc range(i32 -741592761, 1) i32 @rsa_oaep_padding_test(ptr n
 179:                                              ; preds = %.preheader, %177
   %.30 = phi i32 [ %178, %177 ], [ %.29, %.preheader ]
   %180 = icmp eq i32 %.30, -108
-  br i1 %180, label %.preheader, label %181, !llvm.loop !138
+  br i1 %180, label %.preheader, label %181, !llvm.loop !136
 
 181:                                              ; preds = %179
   %182 = icmp slt i32 %.30, 0
@@ -13382,7 +13382,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 18:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %57, label %.preheader167, !llvm.loop !139
+  br i1 %exitcond.not, label %57, label %.preheader167, !llvm.loop !137
 
 .preheader167:                                    ; preds = %16, %18
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %18 ]
@@ -13402,7 +13402,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 25:                                               ; preds = %20, %22
   %.3 = phi i32 [ %24, %22 ], [ %.2, %20 ]
   %26 = icmp eq i32 %.3, -108
-  br i1 %26, label %20, label %27, !llvm.loop !140
+  br i1 %26, label %20, label %27, !llvm.loop !138
 
 27:                                               ; preds = %25
   %28 = icmp slt i32 %.3, 1
@@ -13434,7 +13434,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 40:                                               ; preds = %35, %37
   %.5 = phi i32 [ %39, %37 ], [ %.4, %35 ]
   %41 = icmp eq i32 %.5, -108
-  br i1 %41, label %35, label %42, !llvm.loop !141
+  br i1 %41, label %35, label %42, !llvm.loop !139
 
 42:                                               ; preds = %40
   %43 = icmp slt i32 %.5, 1
@@ -13465,7 +13465,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 57:                                               ; preds = %18
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 5
-  br i1 %exitcond196.not, label %58, label %8, !llvm.loop !142
+  br i1 %exitcond196.not, label %58, label %8, !llvm.loop !140
 
 58:                                               ; preds = %57
   %59 = call i32 @wc_HashGetDigestSize(i32 noundef 4) #19
@@ -13483,7 +13483,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 64:                                               ; preds = %60, %62
   %.7 = phi i32 [ %63, %62 ], [ %.6, %60 ]
   %65 = icmp eq i32 %.7, -108
-  br i1 %65, label %60, label %66, !llvm.loop !143
+  br i1 %65, label %60, label %66, !llvm.loop !141
 
 66:                                               ; preds = %64
   %67 = icmp slt i32 %.7, 1
@@ -13508,7 +13508,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 75:                                               ; preds = %.preheader166, %73
   %.9 = phi i32 [ %74, %73 ], [ %.8, %.preheader166 ]
   %76 = icmp eq i32 %.9, -108
-  br i1 %76, label %.preheader166, label %77, !llvm.loop !144
+  br i1 %76, label %.preheader166, label %77, !llvm.loop !142
 
 77:                                               ; preds = %75
   %78 = icmp slt i32 %.9, 1
@@ -13562,7 +13562,7 @@ define internal fastcc range(i32 -741591357, 1) i32 @rsa_pss_test(ptr noundef no
 97:                                               ; preds = %93, %95
   %.13 = phi i32 [ %96, %95 ], [ %.12, %93 ]
   %98 = icmp eq i32 %.13, -108
-  br i1 %98, label %93, label %99, !llvm.loop !145
+  br i1 %98, label %93, label %99, !llvm.loop !143
 
 99:                                               ; preds = %97
   %100 = icmp slt i32 %.13, 1
@@ -14097,76 +14097,76 @@ define internal fastcc range(i32 -1611635703, 1) i32 @dh_test_check_pubvalue() u
   store i32 873594880, ptr %16, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  store ptr %1, ptr %17, align 16, !tbaa !146
+  store ptr %1, ptr %17, align 16, !tbaa !144
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 3, ptr %19, align 8, !tbaa !148
+  store i32 3, ptr %19, align 8, !tbaa !146
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %2, ptr %20, align 16, !tbaa !146
+  store ptr %2, ptr %20, align 16, !tbaa !144
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i32 1, ptr %21, align 8, !tbaa !148
+  store i32 1, ptr %21, align 8, !tbaa !146
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %3, ptr %22, align 16, !tbaa !146
+  store ptr %3, ptr %22, align 16, !tbaa !144
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 3, ptr %23, align 8, !tbaa !148
+  store i32 3, ptr %23, align 8, !tbaa !146
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store ptr %4, ptr %24, align 16, !tbaa !146
+  store ptr %4, ptr %24, align 16, !tbaa !144
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store i32 1, ptr %25, align 8, !tbaa !148
+  store i32 1, ptr %25, align 8, !tbaa !146
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store ptr %5, ptr %26, align 16, !tbaa !146
+  store ptr %5, ptr %26, align 16, !tbaa !144
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i32 3, ptr %27, align 8, !tbaa !148
+  store i32 3, ptr %27, align 8, !tbaa !146
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store ptr %6, ptr %28, align 16, !tbaa !146
+  store ptr %6, ptr %28, align 16, !tbaa !144
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store i32 3, ptr %29, align 8, !tbaa !148
+  store i32 3, ptr %29, align 8, !tbaa !146
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  store ptr %7, ptr %30, align 16, !tbaa !146
+  store ptr %7, ptr %30, align 16, !tbaa !144
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  store i32 4, ptr %31, align 8, !tbaa !148
+  store i32 4, ptr %31, align 8, !tbaa !146
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  store ptr %8, ptr %32, align 16, !tbaa !146
+  store ptr %8, ptr %32, align 16, !tbaa !144
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 120
-  store i32 3, ptr %33, align 8, !tbaa !148
+  store i32 3, ptr %33, align 8, !tbaa !146
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store ptr %9, ptr %34, align 16, !tbaa !146
+  store ptr %9, ptr %34, align 16, !tbaa !144
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  store i32 3, ptr %35, align 8, !tbaa !148
+  store i32 3, ptr %35, align 8, !tbaa !146
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 144
-  store ptr %10, ptr %36, align 16, !tbaa !146
+  store ptr %10, ptr %36, align 16, !tbaa !144
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 152
-  store i32 3, ptr %37, align 8, !tbaa !148
+  store i32 3, ptr %37, align 8, !tbaa !146
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 160
-  store ptr %11, ptr %38, align 16, !tbaa !146
+  store ptr %11, ptr %38, align 16, !tbaa !144
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 168
-  store i32 4, ptr %39, align 8, !tbaa !148
-  store ptr %12, ptr %18, align 16, !tbaa !146
+  store i32 4, ptr %39, align 8, !tbaa !146
+  store ptr %12, ptr %18, align 16, !tbaa !144
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 1, ptr %40, align 8, !tbaa !148
+  store i32 1, ptr %40, align 8, !tbaa !146
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %13, ptr %41, align 16, !tbaa !146
+  store ptr %13, ptr %41, align 16, !tbaa !144
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 3, ptr %42, align 8, !tbaa !148
+  store i32 3, ptr %42, align 8, !tbaa !146
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %14, ptr %43, align 16, !tbaa !146
+  store ptr %14, ptr %43, align 16, !tbaa !144
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i32 2, ptr %44, align 8, !tbaa !148
+  store i32 2, ptr %44, align 8, !tbaa !146
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr %15, ptr %45, align 16, !tbaa !146
+  store ptr %15, ptr %45, align 16, !tbaa !144
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i32 3, ptr %46, align 8, !tbaa !148
+  store i32 3, ptr %46, align 8, !tbaa !146
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store ptr %16, ptr %47, align 16, !tbaa !146
+  store ptr %16, ptr %47, align 16, !tbaa !144
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  store i32 4, ptr %48, align 8, !tbaa !148
+  store i32 4, ptr %48, align 8, !tbaa !146
   br label %49
 
 49:                                               ; preds = %0, %58
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %58 ]
   %50 = getelementptr inbounds nuw [11 x %struct.dh_pubvalue_test], ptr %17, i64 0, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 16, !tbaa !146
+  %51 = load ptr, ptr %50, align 16, !tbaa !144
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load i32, ptr %52, align 8, !tbaa !148
+  %53 = load i32, ptr %52, align 8, !tbaa !146
   %54 = call i32 @wc_DhCheckPubValue(ptr noundef nonnull %1, i32 noundef 3, ptr noundef %51, i32 noundef %53) #19
   %.not18 = icmp eq i32 %54, -98
   br i1 %.not18, label %58, label %55
@@ -14180,14 +14180,14 @@ define internal fastcc range(i32 -1611635703, 1) i32 @dh_test_check_pubvalue() u
 58:                                               ; preds = %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %.preheader, label %49, !llvm.loop !149
+  br i1 %exitcond.not, label %.preheader, label %49, !llvm.loop !147
 
 .preheader:                                       ; preds = %58, %67
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %67 ], [ 0, %58 ]
   %59 = getelementptr inbounds nuw [5 x %struct.dh_pubvalue_test], ptr %18, i64 0, i64 %indvars.iv29
-  %60 = load ptr, ptr %59, align 16, !tbaa !146
+  %60 = load ptr, ptr %59, align 16, !tbaa !144
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !148
+  %62 = load i32, ptr %61, align 8, !tbaa !146
   %63 = call i32 @wc_DhCheckPubValue(ptr noundef nonnull %1, i32 noundef 3, ptr noundef %60, i32 noundef %62) #19
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %67, label %64
@@ -14201,7 +14201,7 @@ define internal fastcc range(i32 -1611635703, 1) i32 @dh_test_check_pubvalue() u
 67:                                               ; preds = %.preheader
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 5
-  br i1 %exitcond32.not, label %.loopexit, label %.preheader, !llvm.loop !150
+  br i1 %exitcond32.not, label %.loopexit, label %.preheader, !llvm.loop !148
 
 .loopexit:                                        ; preds = %67, %64, %55
   %.013 = phi i32 [ %57, %55 ], [ %66, %64 ], [ 0, %67 ]
@@ -14288,13 +14288,13 @@ define internal fastcc range(i32 -741594020, 1) i32 @dh_ffdhe_test(ptr noundef n
   br label %85
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr %1, align 8, !tbaa !151
+  %29 = load ptr, ptr %1, align 8, !tbaa !149
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !153
+  %31 = load i32, ptr %30, align 8, !tbaa !151
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !154
+  %33 = load ptr, ptr %32, align 8, !tbaa !152
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !155
+  %35 = load i32, ptr %34, align 8, !tbaa !153
   %36 = call i32 @wc_DhSetKey_ex(ptr noundef nonnull %13, ptr noundef %29, i32 noundef %31, ptr noundef %33, i32 noundef %35, ptr noundef null, i32 noundef 0) #19
   %.not36 = icmp eq i32 %36, 0
   br i1 %.not36, label %41, label %37
@@ -14307,10 +14307,10 @@ define internal fastcc range(i32 -741594020, 1) i32 @dh_ffdhe_test(ptr noundef n
   br label %85
 
 41:                                               ; preds = %28
-  %42 = load ptr, ptr %1, align 8, !tbaa !151
-  %43 = load i32, ptr %30, align 8, !tbaa !153
-  %44 = load ptr, ptr %32, align 8, !tbaa !154
-  %45 = load i32, ptr %34, align 8, !tbaa !155
+  %42 = load ptr, ptr %1, align 8, !tbaa !149
+  %43 = load i32, ptr %30, align 8, !tbaa !151
+  %44 = load ptr, ptr %32, align 8, !tbaa !152
+  %45 = load i32, ptr %34, align 8, !tbaa !153
   %46 = call i32 @wc_DhSetKey_ex(ptr noundef nonnull %14, ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, ptr noundef null, i32 noundef 0) #19
   %.not37 = icmp eq i32 %46, 0
   br i1 %.not37, label %51, label %47
@@ -14669,12 +14669,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %57 = load ptr, ptr %56, align 16, !tbaa !156
+  %57 = load ptr, ptr %56, align 16, !tbaa !154
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !160
+  %59 = load i32, ptr %58, align 4, !tbaa !158
   %60 = call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %59) #19
-  %61 = load ptr, ptr %56, align 16, !tbaa !156
-  %62 = load i32, ptr %61, align 8, !tbaa !162
+  %61 = load ptr, ptr %56, align 16, !tbaa !154
+  %62 = load i32, ptr %61, align 8, !tbaa !160
   %.not107.i = icmp eq i32 %60, %62
   br i1 %.not107.i, label %63, label %ecc_test_curve_size.exit
 
@@ -14886,7 +14886,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef
   br label %ecc_test_curve_size.exit
 
 149:                                              ; preds = %161
-  br i1 %150, label %.preheader2.i, label %.preheader1.i, !llvm.loop !163
+  br i1 %150, label %.preheader2.i, label %.preheader1.i, !llvm.loop !161
 
 .preheader2.i:                                    ; preds = %144, %149
   %150 = phi i1 [ false, %149 ], [ true, %144 ]
@@ -14929,7 +14929,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef
   store i8 %163, ptr %164, align 1, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 66
-  br i1 %exitcond.not.i, label %165, label %.preheader1.i, !llvm.loop !164
+  br i1 %exitcond.not.i, label %165, label %.preheader1.i, !llvm.loop !162
 
 165:                                              ; preds = %.preheader1.i
   store i32 141, ptr %23, align 4, !tbaa !22
@@ -14959,7 +14959,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ecc_test_curve(ptr noundef
   br label %ecc_test_curve_size.exit
 
 175:                                              ; preds = %187
-  br i1 %176, label %.preheader.i, label %189, !llvm.loop !165
+  br i1 %176, label %.preheader.i, label %189, !llvm.loop !163
 
 .preheader.i:                                     ; preds = %170, %175
   %176 = phi i1 [ false, %175 ], [ true, %170 ]
@@ -15831,7 +15831,7 @@ define internal fastcc i32 @ecc_test_make_pub(ptr noundef nonnull %0) unnamed_ad
 135:                                              ; preds = %131, %133
   %.7 = phi i32 [ %134, %133 ], [ %.6, %131 ]
   %136 = icmp eq i32 %.7, -108
-  br i1 %136, label %131, label %137, !llvm.loop !166
+  br i1 %136, label %131, label %137, !llvm.loop !164
 
 137:                                              ; preds = %135
   %138 = call i32 @wc_ecc_free(ptr noundef nonnull %3) #19
@@ -16033,7 +16033,7 @@ define internal fastcc range(i32 -741588927, 1) i32 @_rng_test(ptr noundef %0) u
   %spec.select = add nuw nsw i32 %.02152, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !167
+  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !165
 
 12:                                               ; preds = %.preheader
   %13 = icmp samesign ugt i32 %spec.select, 31
@@ -16292,7 +16292,7 @@ define internal fastcc range(i32 -741602688, 1) i32 @ecc_exp_imp_test(ptr nounde
 18:                                               ; preds = %1
   store i32 130, ptr %6, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !168
+  %20 = load i32, ptr %19, align 4, !tbaa !166
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = call i32 @wc_ecc_export_point_der(i32 noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %5, ptr noundef nonnull %6) #19
   %.not38 = icmp eq i32 %22, 0
@@ -16336,7 +16336,7 @@ define internal fastcc range(i32 -741602688, 1) i32 @ecc_exp_imp_test(ptr nounde
 43:                                               ; preds = %35
   %44 = call i32 @wc_ecc_free(ptr noundef nonnull %2) #19
   %45 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
-  %46 = load i32, ptr %19, align 4, !tbaa !168
+  %46 = load i32, ptr %19, align 4, !tbaa !166
   %47 = call i32 @wc_ecc_get_curve_id(i32 noundef %46) #19
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %53
@@ -16444,25 +16444,25 @@ define internal fastcc i32 @ecc_mulmod_test(ptr noundef nonnull %0) unnamed_addr
   %4 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
   %5 = call i32 @wc_ecc_init_ex(ptr noundef nonnull %3, ptr noundef null, i32 noundef -2) #19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !156
+  %7 = load ptr, ptr %6, align 8, !tbaa !154
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !169
+  %9 = load ptr, ptr %8, align 8, !tbaa !167
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !170
+  %11 = load ptr, ptr %10, align 8, !tbaa !168
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !171
+  %13 = load ptr, ptr %12, align 8, !tbaa !169
   %14 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %2, ptr noundef %9, ptr noundef %11, ptr noundef %13, i32 noundef 7) #19
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %35
 
 15:                                               ; preds = %1
-  %16 = load ptr, ptr %6, align 8, !tbaa !156
+  %16 = load ptr, ptr %6, align 8, !tbaa !154
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !169
+  %18 = load ptr, ptr %17, align 8, !tbaa !167
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !170
+  %20 = load ptr, ptr %19, align 8, !tbaa !168
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !172
+  %22 = load ptr, ptr %21, align 8, !tbaa !170
   %23 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %3, ptr noundef %18, ptr noundef %20, ptr noundef %22, i32 noundef 7) #19
   %.not14 = icmp eq i32 %23, 0
   br i1 %.not14, label %24, label %35
@@ -16663,33 +16663,33 @@ attributes #23 = { nounwind allocsize(1) }
 !80 = distinct !{!80, !17}
 !81 = distinct !{!81, !17}
 !82 = distinct !{!82, !17}
-!83 = distinct !{!83, !17, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!85 = distinct !{!85, !17}
-!86 = distinct !{!86, !17}
-!87 = !{!88, !11, i64 0}
-!88 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !7, i64 12, !7, i64 52, !7, i64 92, !7, i64 156, !7, i64 220, !7, i64 284, !7, i64 348, !7, i64 412, !7, i64 476, !7, i64 540, !7, i64 604, !7, i64 668, !7, i64 732, !7, i64 796}
-!89 = !{!88, !11, i64 4}
-!90 = !{!88, !11, i64 8}
+!83 = distinct !{!83, !17}
+!84 = distinct !{!84, !17}
+!85 = !{!86, !11, i64 0}
+!86 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !7, i64 12, !7, i64 52, !7, i64 92, !7, i64 156, !7, i64 220, !7, i64 284, !7, i64 348, !7, i64 412, !7, i64 476, !7, i64 540, !7, i64 604, !7, i64 668, !7, i64 732, !7, i64 796}
+!87 = !{!86, !11, i64 4}
+!88 = !{!86, !11, i64 8}
+!89 = distinct !{!89, !17}
+!90 = distinct !{!90, !17}
 !91 = distinct !{!91, !17}
 !92 = distinct !{!92, !17}
 !93 = distinct !{!93, !17}
 !94 = distinct !{!94, !17}
 !95 = distinct !{!95, !17}
 !96 = distinct !{!96, !17}
-!97 = distinct !{!97, !17}
-!98 = distinct !{!98, !17}
-!99 = !{!100, !7, i64 176}
-!100 = !{!"ChaChaPoly_Aead", !101, i64 0, !102, i64 72, !11, i64 168, !11, i64 172, !7, i64 176, !7, i64 177}
-!101 = !{!"ChaCha", !7, i64 0, !11, i64 64}
-!102 = !{!"Poly1305", !7, i64 0, !7, i64 24, !7, i64 48, !28, i64 64, !7, i64 72, !7, i64 88}
+!97 = !{!98, !7, i64 176}
+!98 = !{!"ChaChaPoly_Aead", !99, i64 0, !100, i64 72, !11, i64 168, !11, i64 172, !7, i64 176, !7, i64 177}
+!99 = !{!"ChaCha", !7, i64 0, !11, i64 64}
+!100 = !{!"Poly1305", !7, i64 0, !7, i64 24, !7, i64 48, !28, i64 64, !7, i64 72, !7, i64 88}
+!101 = distinct !{!101, !17}
+!102 = distinct !{!102, !17}
 !103 = distinct !{!103, !17}
 !104 = distinct !{!104, !17}
-!105 = distinct !{!105, !17}
-!106 = distinct !{!106, !17}
-!107 = !{!108, !11, i64 240}
-!108 = !{!"Aes", !7, i64 0, !11, i64 240, !11, i64 244, !7, i64 256, !7, i64 272, !7, i64 288, !11, i64 296, !109, i64 304, !6, i64 832}
-!109 = !{!"Gcm", !7, i64 0, !7, i64 16}
+!105 = !{!106, !11, i64 240}
+!106 = !{!"Aes", !7, i64 0, !11, i64 240, !11, i64 244, !7, i64 256, !7, i64 272, !7, i64 288, !11, i64 296, !107, i64 304, !6, i64 832}
+!107 = !{!"Gcm", !7, i64 0, !7, i64 16}
+!108 = distinct !{!108, !17}
+!109 = distinct !{!109, !17}
 !110 = distinct !{!110, !17}
 !111 = distinct !{!111, !17}
 !112 = distinct !{!112, !17}
@@ -16699,11 +16699,11 @@ attributes #23 = { nounwind allocsize(1) }
 !116 = distinct !{!116, !17}
 !117 = distinct !{!117, !17}
 !118 = distinct !{!118, !17}
-!119 = distinct !{!119, !17}
-!120 = distinct !{!120, !17}
-!121 = !{!6, !6, i64 0}
-!122 = !{!123, !123, i64 0}
-!123 = !{!"p1 _ZTS6WC_RNG", !6, i64 0}
+!119 = !{!6, !6, i64 0}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 _ZTS6WC_RNG", !6, i64 0}
+!122 = distinct !{!122, !17}
+!123 = distinct !{!123, !17}
 !124 = distinct !{!124, !17}
 !125 = distinct !{!125, !17}
 !126 = distinct !{!126, !17}
@@ -16724,32 +16724,30 @@ attributes #23 = { nounwind allocsize(1) }
 !141 = distinct !{!141, !17}
 !142 = distinct !{!142, !17}
 !143 = distinct !{!143, !17}
-!144 = distinct !{!144, !17}
-!145 = distinct !{!145, !17}
-!146 = !{!147, !30, i64 0}
-!147 = !{!"dh_pubvalue_test", !30, i64 0, !11, i64 8}
-!148 = !{!147, !11, i64 8}
-!149 = distinct !{!149, !17}
-!150 = distinct !{!150, !17}
-!151 = !{!152, !30, i64 0}
-!152 = !{!"DhParams", !30, i64 0, !11, i64 8, !30, i64 16, !11, i64 24}
-!153 = !{!152, !11, i64 8}
-!154 = !{!152, !30, i64 16}
-!155 = !{!152, !11, i64 24}
-!156 = !{!157, !158, i64 16}
-!157 = !{!"ecc_key", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !158, i64 16, !6, i64 24, !159, i64 32, !7, i64 3160, !123, i64 4200}
-!158 = !{!"p1 _ZTS12ecc_set_type", !6, i64 0}
-!159 = !{!"ecc_point", !7, i64 0, !7, i64 1040, !7, i64 2080, !7, i64 3120}
-!160 = !{!161, !11, i64 4}
-!161 = !{!"ecc_set_type", !11, i64 0, !11, i64 4, !30, i64 8, !30, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
-!162 = !{!161, !11, i64 0}
+!144 = !{!145, !30, i64 0}
+!145 = !{!"dh_pubvalue_test", !30, i64 0, !11, i64 8}
+!146 = !{!145, !11, i64 8}
+!147 = distinct !{!147, !17}
+!148 = distinct !{!148, !17}
+!149 = !{!150, !30, i64 0}
+!150 = !{!"DhParams", !30, i64 0, !11, i64 8, !30, i64 16, !11, i64 24}
+!151 = !{!150, !11, i64 8}
+!152 = !{!150, !30, i64 16}
+!153 = !{!150, !11, i64 24}
+!154 = !{!155, !156, i64 16}
+!155 = !{!"ecc_key", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !156, i64 16, !6, i64 24, !157, i64 32, !7, i64 3160, !121, i64 4200}
+!156 = !{!"p1 _ZTS12ecc_set_type", !6, i64 0}
+!157 = !{!"ecc_point", !7, i64 0, !7, i64 1040, !7, i64 2080, !7, i64 3120}
+!158 = !{!159, !11, i64 4}
+!159 = !{!"ecc_set_type", !11, i64 0, !11, i64 4, !30, i64 8, !30, i64 16, !30, i64 24, !30, i64 32, !30, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !11, i64 72, !11, i64 76, !11, i64 80}
+!160 = !{!159, !11, i64 0}
+!161 = distinct !{!161, !17}
+!162 = distinct !{!162, !17}
 !163 = distinct !{!163, !17}
 !164 = distinct !{!164, !17}
 !165 = distinct !{!165, !17}
-!166 = distinct !{!166, !17}
-!167 = distinct !{!167, !17}
-!168 = !{!157, !11, i64 4}
-!169 = !{!161, !30, i64 48}
-!170 = !{!161, !30, i64 56}
-!171 = !{!161, !30, i64 24}
-!172 = !{!161, !30, i64 16}
+!166 = !{!155, !11, i64 4}
+!167 = !{!159, !30, i64 48}
+!168 = !{!159, !30, i64 56}
+!169 = !{!159, !30, i64 24}
+!170 = !{!159, !30, i64 16}

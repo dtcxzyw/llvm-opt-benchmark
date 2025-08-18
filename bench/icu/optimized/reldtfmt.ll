@@ -1780,7 +1780,7 @@ _ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next, %170
-  br i1 %171, label %.lr.ph.split, label %.thread125, !llvm.loop !71
+  br i1 %171, label %.lr.ph.split, label %.thread125, !llvm.loop !69
 
 .thread125:                                       ; preds = %168, %102, %82, %.thread134
   %.182133 = phi i32 [ %163, %.thread134 ], [ 0, %82 ], [ 0, %102 ], [ 0, %168 ]
@@ -2349,7 +2349,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_118RelDateFmtDataSink3putEPKcRNS_13
   %6 = alloca ptr, align 8
   %7 = alloca %"class.icu_77::ResourceTable", align 8
   %8 = alloca i32, align 4
-  store ptr %1, ptr %6, align 8, !tbaa !72
+  store ptr %1, ptr %6, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = load ptr, ptr %2, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -2373,7 +2373,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_118RelDateFmtDataSink3putEPKcRNS_13
 
 15:                                               ; preds = %.lr.ph, %39
   %.019 = phi i32 [ 0, %.lr.ph ], [ %40, %39 ]
-  %16 = load ptr, ptr %6, align 8, !tbaa !72
+  %16 = load ptr, ptr %6, align 8, !tbaa !70
   %17 = call i64 @strtol(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #15
   %18 = trunc i64 %17 to i32
   %19 = add nsw i32 %18, 2
@@ -2410,7 +2410,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_118RelDateFmtDataSink3putEPKcRNS_13
   %40 = add nuw nsw i32 %.019, 1
   %41 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %7, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !73
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !71
 }
 
 declare noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
@@ -2517,8 +2517,6 @@ attributes #17 = { noreturn nounwind }
 !66 = !{!"_ZTSN6icu_7713FieldPositionE", !10, i64 0, !17, i64 8, !17, i64 12, !17, i64 16}
 !67 = !{!66, !17, i64 12}
 !68 = !{!66, !17, i64 16}
-!69 = distinct !{!69, !58, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !58}
+!70 = !{!25, !25, i64 0}
 !71 = distinct !{!71, !58}
-!72 = !{!25, !25, i64 0}
-!73 = distinct !{!73, !58}

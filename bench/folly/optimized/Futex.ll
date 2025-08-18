@@ -849,8 +849,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %13, ptr %3, align 8, !tbaa !45
-  store i64 %14, ptr %15, align 8, !tbaa !47
+  store i64 %13, ptr %3, align 8, !tbaa !44
+  store i64 %14, ptr %15, align 8, !tbaa !46
   %19 = invoke noundef i32 @pthread_cond_timedwait(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212system_clockET_EE.exit unwind label %.thread
 
@@ -861,7 +861,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %22 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
   %23 = trunc nuw i8 %22 to i1
   %.not6 = select i1 %23, i1 true, i1 %21
-  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !43
 
 .thread:                                          ; preds = %.lr.ph.split
   %24 = landingpad { ptr, i32 }
@@ -970,12 +970,12 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 16:                                               ; preds = %.lr.ph.split.us
   %17 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %18, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !47
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %13, ptr %3, align 8, !tbaa !45
-  store i64 %14, ptr %15, align 8, !tbaa !47
+  store i64 %13, ptr %3, align 8, !tbaa !44
+  store i64 %14, ptr %15, align 8, !tbaa !46
   %19 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit unwind label %.thread
 
@@ -986,7 +986,7 @@ _ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl100000
   %22 = load i8, ptr %9, align 8, !tbaa !31, !range !37, !noundef !38
   %23 = trunc nuw i8 %22 to i1
   %.not6 = select i1 %23, i1 true, i1 %21
-  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !50
+  br i1 %.not6, label %._crit_edge.split, label %.lr.ph.split, !llvm.loop !47
 
 .thread:                                          ; preds = %.lr.ph.split
   %24 = landingpad { ptr, i32 }
@@ -1120,11 +1120,8 @@ attributes #12 = { nounwind willreturn memory(none) }
 !40 = !{!"_ZTSSt11unique_lockISt5mutexE", !41, i64 0, !20, i64 8}
 !41 = !{!"p1 _ZTSSt5mutex", !14, i64 0}
 !42 = !{!40, !20, i64 8}
-!43 = distinct !{!43, !33, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = !{!46, !17, i64 0}
-!46 = !{!"_ZTS8timespec", !17, i64 0, !17, i64 8}
-!47 = !{!46, !17, i64 8}
-!48 = distinct !{!48, !33}
-!49 = distinct !{!49, !33, !44}
-!50 = distinct !{!50, !33}
+!43 = distinct !{!43, !33}
+!44 = !{!45, !17, i64 0}
+!45 = !{!"_ZTS8timespec", !17, i64 0, !17, i64 8}
+!46 = !{!45, !17, i64 8}
+!47 = distinct !{!47, !33}

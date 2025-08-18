@@ -5076,122 +5076,139 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 1
   %17 = icmp eq i32 %16, 0
-  br label %18
+  br i1 %17, label %.split.us.split.us.preheader, label %.split.us.split
 
-18:                                               ; preds = %53, %.split.us
-  %19 = phi i32 [ 1, %.split.us ], [ %40, %53 ]
-  %20 = phi i32 [ 5, %.split.us ], [ %41, %53 ]
-  %21 = phi i32 [ 7, %.split.us ], [ %42, %53 ]
-  %22 = phi ptr [ %.40.val, %.split.us ], [ %54, %53 ]
-  %23 = phi i32 [ 0, %.split.us ], [ %55, %53 ]
-  br i1 %17, label %37, label %24
+.split.us.split.us.preheader:                     ; preds = %.split.us
+  %18 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 1)
+  br label %.split.us.split.us
 
-24:                                               ; preds = %18
-  %25 = icmp ult i32 %20, %19
-  %26 = select i1 %25, i32 5, i32 3
-  %27 = tail call i32 @llvm.umin.i32(i32 %20, i32 %19)
-  %28 = icmp ult i32 %21, %27
-  %29 = select i1 %28, i32 7, i32 %26
-  %30 = tail call i32 @llvm.umin.i32(i32 %21, i32 %27)
-  %31 = mul i32 %29, %30
-  %32 = select i1 %25, i32 %31, i32 %20
-  %33 = or i1 %25, %28
-  %34 = select i1 %33, i32 %19, i32 %31
-  %35 = select i1 %28, i32 %20, i32 %32
-  %36 = select i1 %28, i32 %31, i32 %21
-  br label %39
+.split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %31
+  %19 = phi i32 [ %22, %31 ], [ 1, %.split.us.split.us.preheader ]
+  %20 = phi ptr [ %32, %31 ], [ %.40.val, %.split.us.split.us.preheader ]
+  %21 = phi i32 [ %33, %31 ], [ 0, %.split.us.split.us.preheader ]
+  %22 = add i32 %19, 1
+  %exitcond.not = icmp eq i32 %21, %18
+  br i1 %exitcond.not, label %.thread, label %23
 
-37:                                               ; preds = %18
-  %38 = add i32 %19, 1
-  br label %39
+23:                                               ; preds = %.split.us.split.us
+  %24 = load i32, ptr %20, align 4
+  %25 = zext i32 %24 to i64
+  %26 = zext i32 %19 to i64
+  %27 = load i64, ptr %12, align 16
+  %28 = mul i64 %27, %26
+  %29 = add i64 %28, %.24.val
+  %30 = icmp eq i64 %29, %25
+  br i1 %30, label %31, label %.split11.us
 
-39:                                               ; preds = %37, %24
-  %40 = phi i32 [ %38, %37 ], [ %34, %24 ]
-  %41 = phi i32 [ %20, %37 ], [ %35, %24 ]
-  %42 = phi i32 [ %21, %37 ], [ %36, %24 ]
-  %43 = phi i32 [ %19, %37 ], [ %30, %24 ]
-  %44 = icmp ult i32 %43, %1
-  br i1 %44, label %45, label %.thread
+31:                                               ; preds = %23
+  %32 = getelementptr i8, ptr %20, i64 4
+  %33 = add nuw i32 %21, 1
+  %34 = sext i32 %33 to i64
+  %35 = load i64, ptr %13, align 8
+  %36 = lshr i64 %35, 2
+  %37 = icmp ult i64 %36, %34
+  br i1 %37, label %.thread, label %.split.us.split.us, !llvm.loop !65
 
-45:                                               ; preds = %39
-  %46 = load i32, ptr %22, align 4
-  %47 = zext i32 %46 to i64
-  %48 = zext i32 %43 to i64
-  %49 = load i64, ptr %12, align 16
-  %50 = mul i64 %49, %48
-  %51 = add i64 %50, %.24.val
-  %52 = icmp eq i64 %51, %47
-  br i1 %52, label %53, label %.split11.us
+.split.us.split:                                  ; preds = %.split.us, %64
+  %38 = phi i32 [ %52, %64 ], [ 1, %.split.us ]
+  %39 = phi i32 [ %53, %64 ], [ 5, %.split.us ]
+  %40 = phi i32 [ %54, %64 ], [ 7, %.split.us ]
+  %41 = phi ptr [ %65, %64 ], [ %.40.val, %.split.us ]
+  %42 = phi i32 [ %66, %64 ], [ 0, %.split.us ]
+  %43 = icmp ult i32 %39, %38
+  %44 = select i1 %43, i32 5, i32 3
+  %45 = tail call i32 @llvm.umin.i32(i32 %39, i32 %38)
+  %46 = icmp ult i32 %40, %45
+  %47 = select i1 %46, i32 7, i32 %44
+  %48 = tail call i32 @llvm.umin.i32(i32 %40, i32 %45)
+  %49 = mul i32 %47, %48
+  %50 = select i1 %43, i32 %49, i32 %39
+  %51 = or i1 %43, %46
+  %52 = select i1 %51, i32 %38, i32 %49
+  %53 = select i1 %46, i32 %39, i32 %50
+  %54 = select i1 %46, i32 %49, i32 %40
+  %55 = icmp ult i32 %48, %1
+  br i1 %55, label %56, label %.thread
 
-53:                                               ; preds = %45
-  %54 = getelementptr i8, ptr %22, i64 4
-  %55 = add i32 %23, 1
-  %56 = sext i32 %55 to i64
-  %57 = load i64, ptr %13, align 8
-  %58 = lshr i64 %57, 2
-  %59 = icmp ult i64 %58, %56
-  br i1 %59, label %.thread, label %18, !llvm.loop !65
+56:                                               ; preds = %.split.us.split
+  %57 = load i32, ptr %41, align 4
+  %58 = zext i32 %57 to i64
+  %59 = zext i32 %48 to i64
+  %60 = load i64, ptr %12, align 16
+  %61 = mul i64 %60, %59
+  %62 = add i64 %61, %.24.val
+  %63 = icmp eq i64 %62, %58
+  br i1 %63, label %64, label %.split11.us
 
-.split:                                           ; preds = %2, %89
-  %60 = phi i32 [ %79, %89 ], [ 1, %2 ]
-  %61 = phi ptr [ %90, %89 ], [ %.40.val, %2 ]
-  %62 = phi i32 [ %91, %89 ], [ 0, %2 ]
-  %63 = tail call i32 @llvm.umax.i32(i32 %60, i32 3)
-  %64 = zext i32 %63 to i64
-  %65 = icmp ugt i32 %60, 2
-  br i1 %65, label %.thread, label %66
+64:                                               ; preds = %56
+  %65 = getelementptr i8, ptr %41, i64 4
+  %66 = add i32 %42, 1
+  %67 = sext i32 %66 to i64
+  %68 = load i64, ptr %13, align 8
+  %69 = lshr i64 %68, 2
+  %70 = icmp ult i64 %69, %67
+  br i1 %70, label %.thread, label %.split.us.split, !llvm.loop !65
 
-66:                                               ; preds = %.split
-  %67 = zext nneg i32 %60 to i64
-  br label %70
+.split:                                           ; preds = %2, %100
+  %71 = phi i32 [ %90, %100 ], [ 1, %2 ]
+  %72 = phi ptr [ %101, %100 ], [ %.40.val, %2 ]
+  %73 = phi i32 [ %102, %100 ], [ 0, %2 ]
+  %74 = tail call i32 @llvm.umax.i32(i32 %71, i32 3)
+  %75 = zext i32 %74 to i64
+  %76 = icmp ugt i32 %71, 2
+  br i1 %76, label %.thread, label %77
 
-68:                                               ; preds = %70
-  %69 = icmp eq i64 %76, %64
-  br i1 %69, label %.thread, label %70, !llvm.loop !8
+77:                                               ; preds = %.split
+  %78 = zext nneg i32 %71 to i64
+  br label %81
 
-70:                                               ; preds = %68, %66
-  %71 = phi i64 [ %76, %68 ], [ %67, %66 ]
-  %72 = add nuw nsw i64 %71, 4294967295
-  %73 = and i64 %72, 4294967295
-  %74 = getelementptr [2 x i32], ptr %11, i64 0, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = add nuw nsw i64 %71, 1
-  %77 = icmp eq i32 %75, 0
-  br i1 %77, label %68, label %78, !llvm.loop !8
+79:                                               ; preds = %81
+  %80 = icmp eq i64 %87, %75
+  br i1 %80, label %.thread, label %81, !llvm.loop !8
 
-78:                                               ; preds = %70
-  %79 = trunc i64 %76 to i32
-  %80 = icmp ult i32 %75, %1
-  br i1 %80, label %81, label %.thread
+81:                                               ; preds = %79, %77
+  %82 = phi i64 [ %87, %79 ], [ %78, %77 ]
+  %83 = add nuw nsw i64 %82, 4294967295
+  %84 = and i64 %83, 4294967295
+  %85 = getelementptr [2 x i32], ptr %11, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = add nuw nsw i64 %82, 1
+  %88 = icmp eq i32 %86, 0
+  br i1 %88, label %79, label %89, !llvm.loop !8
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %61, align 4
-  %83 = zext i32 %82 to i64
-  %84 = zext i32 %75 to i64
-  %85 = load i64, ptr %12, align 16
-  %86 = mul i64 %85, %84
-  %87 = add i64 %86, %.24.val
-  %88 = icmp eq i64 %87, %83
-  br i1 %88, label %89, label %.split11.us
+89:                                               ; preds = %81
+  %90 = trunc i64 %87 to i32
+  %91 = icmp ult i32 %86, %1
+  br i1 %91, label %92, label %.thread
 
-.split11.us:                                      ; preds = %81, %45
-  %.us-phi12 = phi i64 [ %51, %45 ], [ %87, %81 ]
-  %.us-phi13 = phi i32 [ %43, %45 ], [ %75, %81 ]
+92:                                               ; preds = %89
+  %93 = load i32, ptr %72, align 4
+  %94 = zext i32 %93 to i64
+  %95 = zext i32 %86 to i64
+  %96 = load i64, ptr %12, align 16
+  %97 = mul i64 %96, %95
+  %98 = add i64 %97, %.24.val
+  %99 = icmp eq i64 %98, %94
+  br i1 %99, label %100, label %.split11.us
+
+.split11.us:                                      ; preds = %92, %56, %23
+  %.us-phi12 = phi i64 [ %29, %23 ], [ %62, %56 ], [ %98, %92 ]
+  %.us-phi13 = phi i32 [ %19, %23 ], [ %48, %56 ], [ %86, %92 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %0, ptr noundef nonnull @__func__.verify_reserved_gdb, i32 noundef 795, ptr noundef nonnull @.str.44, i64 noundef %.24.val, i32 noundef %.us-phi13, i64 noundef %.us-phi12) #13
   br label %.thread
 
-89:                                               ; preds = %81
-  %90 = getelementptr i8, ptr %61, i64 4
-  %91 = add i32 %62, 1
-  %92 = sext i32 %91 to i64
-  %93 = load i64, ptr %13, align 8
-  %94 = lshr i64 %93, 2
-  %95 = icmp ult i64 %94, %92
-  br i1 %95, label %.thread, label %.split, !llvm.loop !67
+100:                                              ; preds = %92
+  %101 = getelementptr i8, ptr %72, i64 4
+  %102 = add i32 %73, 1
+  %103 = sext i32 %102 to i64
+  %104 = load i64, ptr %13, align 8
+  %105 = lshr i64 %104, 2
+  %106 = icmp ult i64 %105, %103
+  br i1 %106, label %.thread, label %.split, !llvm.loop !65
 
-.thread:                                          ; preds = %78, %89, %.split, %68, %53, %39, %.split11.us
-  %96 = phi i32 [ -22, %.split11.us ], [ %23, %39 ], [ -27, %53 ], [ %62, %68 ], [ %62, %.split ], [ %62, %78 ], [ -27, %89 ]
-  ret i32 %96
+.thread:                                          ; preds = %89, %100, %.split, %79, %.split.us.split, %64, %.split.us.split.us, %31, %.split11.us
+  %107 = phi i32 [ -22, %.split11.us ], [ %18, %.split.us.split.us ], [ -27, %31 ], [ %42, %.split.us.split ], [ -27, %64 ], [ %73, %79 ], [ %73, %.split ], [ %73, %89 ], [ -27, %100 ]
+  ret i32 %107
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5305,6 +5322,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -5390,6 +5410,4 @@ attributes #16 = { nounwind memory(read) }
 !62 = !{i64 2156213104, i64 2156212913, i64 2156212965, i64 2156213011, i64 2156213039}
 !63 = !{i64 2156213178, i64 2156213207, i64 2156213253, i64 2156213311, i64 2156213365, i64 2156213419, i64 2156213474, i64 2156213505}
 !64 = distinct !{!64, !9, !10}
-!65 = distinct !{!65, !9, !10, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !9, !10}
+!65 = distinct !{!65, !9, !10}

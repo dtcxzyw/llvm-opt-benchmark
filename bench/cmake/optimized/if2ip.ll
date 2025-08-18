@@ -320,7 +320,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %.thread.i.us, %84, 
   %.5 = phi i32 [ %.13470, %98 ], [ %.13470, %111 ], [ %.13470, %.lr.ph.split ], [ %spec.select, %113 ]
   %.032 = load ptr, ptr %.03271, align 8, !tbaa !10
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %117, %91, %.preheader, %.thread
   %.2 = phi i32 [ 2, %.thread ], [ 0, %.preheader ], [ %.5.us, %91 ], [ %.5, %117 ]
@@ -388,7 +388,5 @@ attributes #6 = { nounwind }
 !19 = !{!20, !16, i64 24}
 !20 = !{!"sockaddr_in6", !6, i64 0, !6, i64 2, !16, i64 4, !21, i64 8, !16, i64 24}
 !21 = !{!"in6_addr", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !23}

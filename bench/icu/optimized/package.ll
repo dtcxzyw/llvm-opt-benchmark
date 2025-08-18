@@ -2081,7 +2081,7 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   %.127 = select i1 %39, i32 %.02638, i32 %40
   %.1 = select i1 %39, i32 %23, i32 %.02539
   %41 = icmp slt i32 %.127, %.1
-  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !70
+  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %38, %18, %3
   %.026.lcssa = phi i32 [ 0, %3 ], [ %.127.us, %18 ], [ %.127, %38 ]
@@ -2112,11 +2112,11 @@ define void @_ZN6icu_777Package9findItemsEPKc(ptr noundef nonnull align 8 captur
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 201208
-  store ptr %1, ptr %8, align 8, !tbaa !71
+  store ptr %1, ptr %8, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 201216
-  store ptr null, ptr %9, align 8, !tbaa !72
+  store ptr null, ptr %9, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 201228
-  store i32 0, ptr %10, align 4, !tbaa !73
+  store i32 0, ptr %10, align 4, !tbaa !71
   %11 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 42) #24
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
@@ -2125,7 +2125,7 @@ define void @_ZN6icu_777Package9findItemsEPKc(ptr noundef nonnull align 8 captur
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 201224
-  store i32 %15, ptr %16, align 8, !tbaa !74
+  store i32 %15, ptr %16, align 8, !tbaa !72
   br label %30
 
 17:                                               ; preds = %7
@@ -2134,12 +2134,12 @@ define void @_ZN6icu_777Package9findItemsEPKc(ptr noundef nonnull align 8 captur
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 201224
-  store i32 %21, ptr %22, align 8, !tbaa !74
+  store i32 %21, ptr %22, align 8, !tbaa !72
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store ptr %23, ptr %9, align 8, !tbaa !72
+  store ptr %23, ptr %9, align 8, !tbaa !70
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #24
   %25 = trunc i64 %24 to i32
-  store i32 %25, ptr %10, align 4, !tbaa !73
+  store i32 %25, ptr %10, align 4, !tbaa !71
   %26 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 42) #24
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %30, label %27
@@ -2183,206 +2183,259 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 201224
-  %11 = load i32, ptr %10, align 8, !tbaa !74
+  %11 = load i32, ptr %10, align 8, !tbaa !72
   %.fr = freeze i32 %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 201228
-  %13 = load i32, ptr %12, align 4, !tbaa !73
-  %.fr44 = freeze i32 %13
-  %14 = add nsw i32 %.fr44, %.fr
+  %13 = load i32, ptr %12, align 4, !tbaa !71
+  %.fr51 = freeze i32 %13
+  %14 = add nsw i32 %.fr51, %.fr
   %15 = icmp sgt i32 %.fr, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 201208
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %.fr to i64
   %19 = sext i32 %.fr to i64
-  %20 = icmp sgt i32 %.fr44, 0
+  %20 = icmp sgt i32 %.fr51, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 201216
   %22 = load ptr, ptr %21, align 8
-  %23 = zext nneg i32 %.fr44 to i64
+  %23 = zext nneg i32 %.fr51 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 201200
   %25 = load i32, ptr %24, align 8
-  %.fr43 = freeze i32 %25
-  %26 = and i32 %.fr43, 1
+  %.fr50 = freeze i32 %25
+  %26 = and i32 %.fr50, 1
   %.not21 = icmp eq i32 %26, 0
   %27 = zext nneg i32 %3 to i64
   br i1 %.not21, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.backedge.us ], [ %27, %.lr.ph ]
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %28 = trunc i64 %indvars.iv.next67 to i32
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %20, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
+  br i1 %15, label %.lr.ph.split.us.split.us.split.us, label %.lr.ph.split.us.split.us.split
+
+.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.backedge.us.us.us
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.backedge.us.us.us ], [ %27, %.lr.ph.split.us.split.us ]
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %28 = trunc i64 %indvars.iv.next95 to i32
   store i32 %28, ptr %2, align 8, !tbaa !27
-  %29 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv66
+  %29 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv94
   %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #24
   %32 = trunc i64 %31 to i32
   %33 = icmp sgt i32 %14, %32
-  br i1 %33, label %.backedge.us, label %34
+  br i1 %33, label %.backedge.us.us.us, label %34
 
-34:                                               ; preds = %.lr.ph.split.us
-  br i1 %15, label %35, label %36
+34:                                               ; preds = %.lr.ph.split.us.split.us.split.us
+  %bcmp.us.us.us = tail call i32 @bcmp(ptr %17, ptr nonnull %30, i64 %18)
+  %.not.us.us.us = icmp eq i32 %bcmp.us.us.us, 0
+  br i1 %.not.us.us.us, label %35, label %._crit_edge
 
 35:                                               ; preds = %34
-  %bcmp.us = tail call i32 @bcmp(ptr %17, ptr nonnull %30, i64 %18)
+  %36 = sub nsw i32 %32, %.fr51
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %30, i64 %37
+  %bcmp23.us.us.us = tail call i32 @bcmp(ptr %22, ptr nonnull %38, i64 %23)
+  %.not20.us.us.us = icmp eq i32 %bcmp23.us.us.us, 0
+  br i1 %.not20.us.us.us, label %.loopexit.loopexit, label %.backedge.us.us.us
+
+.backedge.us.us.us:                               ; preds = %35, %.lr.ph.split.us.split.us.split.us
+  %exitcond98.not = icmp eq i32 %6, %28
+  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !73
+
+.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.backedge.us.us
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.backedge.us.us ], [ %27, %.lr.ph.split.us.split.us ]
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %39 = trunc i64 %indvars.iv.next90 to i32
+  store i32 %39, ptr %2, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv89
+  %41 = load ptr, ptr %40, align 8, !tbaa !54
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #24
+  %43 = trunc i64 %42 to i32
+  %44 = icmp sgt i32 %14, %43
+  br i1 %44, label %.backedge.us.us, label %45
+
+45:                                               ; preds = %.lr.ph.split.us.split.us.split
+  %46 = sub nsw i32 %43, %.fr51
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %41, i64 %47
+  %bcmp23.us.us = tail call i32 @bcmp(ptr %22, ptr nonnull %48, i64 %23)
+  %.not20.us.us = icmp eq i32 %bcmp23.us.us, 0
+  br i1 %.not20.us.us, label %.loopexit.loopexit52, label %.backedge.us.us
+
+.backedge.us.us:                                  ; preds = %45, %.lr.ph.split.us.split.us.split
+  %exitcond93.not = icmp eq i32 %6, %39
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !73
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.backedge.us
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.backedge.us ], [ %27, %.lr.ph.split.us ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %49 = trunc i64 %indvars.iv.next85 to i32
+  store i32 %49, ptr %2, align 8, !tbaa !27
+  %50 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv84
+  %51 = load ptr, ptr %50, align 8, !tbaa !54
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #24
+  %53 = trunc i64 %52 to i32
+  %54 = icmp sgt i32 %14, %53
+  br i1 %54, label %.backedge.us, label %55
+
+55:                                               ; preds = %.lr.ph.split.us.split
+  %56 = trunc nsw i64 %indvars.iv84 to i32
+  br i1 %15, label %57, label %.loopexit
+
+57:                                               ; preds = %55
+  %bcmp.us = tail call i32 @bcmp(ptr %17, ptr nonnull %51, i64 %18)
   %.not.us = icmp eq i32 %bcmp.us, 0
-  br i1 %.not.us, label %36, label %._crit_edge
+  br i1 %.not.us, label %.loopexit, label %._crit_edge
 
-36:                                               ; preds = %35, %34
-  br i1 %20, label %37, label %.loopexit.loopexit
-
-37:                                               ; preds = %36
-  %38 = sub nsw i32 %32, %.fr44
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %30, i64 %39
-  %bcmp23.us = tail call i32 @bcmp(ptr %22, ptr nonnull %40, i64 %23)
-  %.not20.us = icmp eq i32 %bcmp23.us, 0
-  br i1 %.not20.us, label %.loopexit.loopexit, label %.backedge.us
-
-.backedge.us:                                     ; preds = %37, %.lr.ph.split.us
-  %exitcond70.not = icmp eq i32 %6, %28
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !75
+.backedge.us:                                     ; preds = %.lr.ph.split.us.split
+  %exitcond88.not = icmp eq i32 %6, %49
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %20, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.backedge.us32
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.backedge.us32 ], [ %27, %.lr.ph.split ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %41 = trunc i64 %indvars.iv.next62 to i32
-  store i32 %41, ptr %2, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv61
-  %43 = load ptr, ptr %42, align 8, !tbaa !54
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #24
-  %45 = trunc i64 %44 to i32
-  %46 = icmp sgt i32 %14, %45
-  br i1 %46, label %.backedge.us32, label %47
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.backedge.us32 ], [ %27, %.lr.ph.split ]
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %58 = trunc i64 %indvars.iv.next80 to i32
+  store i32 %58, ptr %2, align 8, !tbaa !27
+  %59 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv79
+  %60 = load ptr, ptr %59, align 8, !tbaa !54
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #24
+  %62 = trunc i64 %61 to i32
+  %63 = icmp sgt i32 %14, %62
+  br i1 %63, label %.backedge.us32, label %64
 
-47:                                               ; preds = %.lr.ph.split.split.us
-  br i1 %15, label %48, label %49
+64:                                               ; preds = %.lr.ph.split.split.us
+  br i1 %15, label %65, label %66
 
-48:                                               ; preds = %47
-  %bcmp.us28 = tail call i32 @bcmp(ptr %17, ptr nonnull %43, i64 %18)
+65:                                               ; preds = %64
+  %bcmp.us28 = tail call i32 @bcmp(ptr %17, ptr nonnull %60, i64 %18)
   %.not.us29 = icmp eq i32 %bcmp.us28, 0
-  br i1 %.not.us29, label %49, label %._crit_edge
+  br i1 %.not.us29, label %66, label %._crit_edge
 
-49:                                               ; preds = %48, %47
-  %50 = getelementptr inbounds i8, ptr %43, i64 %19
-  %51 = sub i32 %45, %14
-  %52 = sub nsw i32 %45, %.fr44
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %43, i64 %53
-  %bcmp23.us30 = tail call i32 @bcmp(ptr %22, ptr nonnull %54, i64 %23)
+66:                                               ; preds = %65, %64
+  %67 = getelementptr inbounds i8, ptr %60, i64 %19
+  %68 = sub i32 %62, %14
+  %69 = sub nsw i32 %62, %.fr51
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i8, ptr %60, i64 %70
+  %bcmp23.us30 = tail call i32 @bcmp(ptr %22, ptr nonnull %71, i64 %23)
   %.not20.us31 = icmp eq i32 %bcmp23.us30, 0
-  br i1 %.not20.us31, label %55, label %.backedge.us32
+  br i1 %.not20.us31, label %72, label %.backedge.us32
 
-55:                                               ; preds = %49
-  %56 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %50, i32 noundef 47) #24
-  %.not22.us = icmp eq ptr %56, null
-  br i1 %.not22.us, label %.loopexit.loopexit72, label %57
+72:                                               ; preds = %66
+  %73 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 47) #24
+  %.not22.us = icmp eq ptr %73, null
+  br i1 %.not22.us, label %.loopexit.loopexit102, label %74
 
-57:                                               ; preds = %55
-  %58 = ptrtoint ptr %56 to i64
-  %59 = ptrtoint ptr %50 to i64
-  %60 = sub i64 %58, %59
-  %61 = sext i32 %51 to i64
-  %62 = icmp slt i64 %60, %61
-  br i1 %62, label %.backedge.us32, label %.loopexit.loopexit72
+74:                                               ; preds = %72
+  %75 = ptrtoint ptr %73 to i64
+  %76 = ptrtoint ptr %67 to i64
+  %77 = sub i64 %75, %76
+  %78 = sext i32 %68 to i64
+  %79 = icmp slt i64 %77, %78
+  br i1 %79, label %.backedge.us32, label %.loopexit.loopexit102
 
-.backedge.us32:                                   ; preds = %57, %49, %.lr.ph.split.split.us
-  %exitcond65.not = icmp eq i32 %6, %41
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !76
+.backedge.us32:                                   ; preds = %74, %66, %.lr.ph.split.split.us
+  %exitcond83.not = icmp eq i32 %6, %58
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !73
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %15, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.backedge.us38
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.backedge.us38 ], [ %27, %.lr.ph.split.split ]
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %63 = trunc i64 %indvars.iv.next57 to i32
-  store i32 %63, ptr %2, align 8, !tbaa !27
-  %64 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv56
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
-  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
-  %67 = trunc i64 %66 to i32
-  %68 = icmp sgt i32 %14, %67
-  br i1 %68, label %.backedge.us38, label %69
-
-69:                                               ; preds = %.lr.ph.split.split.split.us
-  %bcmp.us35 = tail call i32 @bcmp(ptr %17, ptr nonnull %65, i64 %18)
-  %.not.us36 = icmp eq i32 %bcmp.us35, 0
-  br i1 %.not.us36, label %70, label %._crit_edge
-
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %19
-  %72 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 47) #24
-  %.not22.us37 = icmp eq ptr %72, null
-  br i1 %.not22.us37, label %.loopexit.loopexit74, label %73
-
-73:                                               ; preds = %70
-  %74 = sub i32 %67, %14
-  %75 = ptrtoint ptr %72 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  %78 = sext i32 %74 to i64
-  %79 = icmp slt i64 %77, %78
-  br i1 %79, label %.backedge.us38, label %.loopexit.loopexit74
-
-.backedge.us38:                                   ; preds = %73, %.lr.ph.split.split.split.us
-  %exitcond60.not = icmp eq i32 %6, %63
-  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !77
-
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ %27, %.lr.ph.split.split ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = trunc i64 %indvars.iv.next to i32
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.backedge.us38 ], [ %27, %.lr.ph.split.split ]
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %80 = trunc i64 %indvars.iv.next75 to i32
   store i32 %80, ptr %2, align 8, !tbaa !27
-  %81 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv74
   %82 = load ptr, ptr %81, align 8, !tbaa !54
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #24
   %84 = trunc i64 %83 to i32
   %85 = icmp sgt i32 %14, %84
-  br i1 %85, label %.backedge, label %86
+  br i1 %85, label %.backedge.us38, label %86
 
-.backedge:                                        ; preds = %.lr.ph.split.split.split, %89
-  %exitcond.not = icmp eq i32 %6, %80
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !78
+86:                                               ; preds = %.lr.ph.split.split.split.us
+  %bcmp.us35 = tail call i32 @bcmp(ptr %17, ptr nonnull %82, i64 %18)
+  %.not.us36 = icmp eq i32 %bcmp.us35, 0
+  br i1 %.not.us36, label %87, label %._crit_edge
 
-86:                                               ; preds = %.lr.ph.split.split.split
-  %87 = getelementptr inbounds i8, ptr %82, i64 %19
-  %88 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %87, i32 noundef 47) #24
-  %.not22 = icmp eq ptr %88, null
-  br i1 %.not22, label %.loopexit.loopexit75, label %89
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 %19
+  %89 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %88, i32 noundef 47) #24
+  %.not22.us37 = icmp eq ptr %89, null
+  br i1 %.not22.us37, label %.loopexit.loopexit104, label %90
 
-89:                                               ; preds = %86
-  %90 = sub i32 %84, %14
-  %91 = ptrtoint ptr %88 to i64
-  %92 = ptrtoint ptr %87 to i64
-  %93 = sub i64 %91, %92
-  %94 = sext i32 %90 to i64
-  %95 = icmp slt i64 %93, %94
-  br i1 %95, label %.backedge, label %.loopexit.loopexit75
+90:                                               ; preds = %87
+  %91 = sub i32 %84, %14
+  %92 = ptrtoint ptr %89 to i64
+  %93 = ptrtoint ptr %88 to i64
+  %94 = sub i64 %92, %93
+  %95 = sext i32 %91 to i64
+  %96 = icmp slt i64 %94, %95
+  br i1 %96, label %.backedge.us38, label %.loopexit.loopexit104
 
-._crit_edge:                                      ; preds = %.backedge, %.backedge.us38, %69, %.backedge.us32, %48, %.backedge.us, %35, %.preheader
+.backedge.us38:                                   ; preds = %90, %.lr.ph.split.split.split.us
+  %exitcond78.not = icmp eq i32 %6, %80
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !73
+
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.backedge ], [ %27, %.lr.ph.split.split ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %97 = trunc i64 %indvars.iv.next to i32
+  store i32 %97, ptr %2, align 8, !tbaa !27
+  %98 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv
+  %99 = load ptr, ptr %98, align 8, !tbaa !54
+  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #24
+  %101 = trunc i64 %100 to i32
+  %102 = icmp sgt i32 %14, %101
+  br i1 %102, label %.backedge, label %103
+
+.backedge:                                        ; preds = %.lr.ph.split.split.split, %106
+  %exitcond.not = icmp eq i32 %6, %97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !73
+
+103:                                              ; preds = %.lr.ph.split.split.split
+  %104 = getelementptr inbounds i8, ptr %99, i64 %19
+  %105 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %104, i32 noundef 47) #24
+  %.not22 = icmp eq ptr %105, null
+  br i1 %.not22, label %.loopexit.loopexit105, label %106
+
+106:                                              ; preds = %103
+  %107 = sub i32 %101, %14
+  %108 = ptrtoint ptr %105 to i64
+  %109 = ptrtoint ptr %104 to i64
+  %110 = sub i64 %108, %109
+  %111 = sext i32 %107 to i64
+  %112 = icmp slt i64 %110, %111
+  br i1 %112, label %.backedge, label %.loopexit.loopexit105
+
+._crit_edge:                                      ; preds = %.backedge, %.backedge.us38, %86, %.backedge.us32, %65, %.backedge.us, %.backedge.us.us, %.backedge.us.us.us, %34, %57, %.preheader
   store i32 -1, ptr %2, align 8, !tbaa !27
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %37, %36
-  %96 = trunc nsw i64 %indvars.iv66 to i32
+.loopexit.loopexit:                               ; preds = %35
+  %113 = trunc nsw i64 %indvars.iv94 to i32
   br label %.loopexit
 
-.loopexit.loopexit72:                             ; preds = %57, %55
-  %97 = trunc nsw i64 %indvars.iv61 to i32
+.loopexit.loopexit52:                             ; preds = %45
+  %114 = trunc nsw i64 %indvars.iv89 to i32
   br label %.loopexit
 
-.loopexit.loopexit74:                             ; preds = %70, %73
-  %98 = trunc nsw i64 %indvars.iv56 to i32
+.loopexit.loopexit102:                            ; preds = %74, %72
+  %115 = trunc nsw i64 %indvars.iv79 to i32
   br label %.loopexit
 
-.loopexit.loopexit75:                             ; preds = %89, %86
-  %99 = trunc nsw i64 %indvars.iv to i32
+.loopexit.loopexit104:                            ; preds = %87, %90
+  %116 = trunc nsw i64 %indvars.iv74 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit75, %.loopexit.loopexit74, %.loopexit.loopexit72, %.loopexit.loopexit, %1, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %1 ], [ %96, %.loopexit.loopexit ], [ %97, %.loopexit.loopexit72 ], [ %98, %.loopexit.loopexit74 ], [ %99, %.loopexit.loopexit75 ]
+.loopexit.loopexit105:                            ; preds = %106, %103
+  %117 = trunc nsw i64 %indvars.iv to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit105, %.loopexit.loopexit104, %.loopexit.loopexit102, %.loopexit.loopexit52, %.loopexit.loopexit, %55, %57, %1, %._crit_edge
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %1 ], [ %56, %55 ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %114, %.loopexit.loopexit52 ], [ %115, %.loopexit.loopexit102 ], [ %116, %.loopexit.loopexit104 ], [ %117, %.loopexit.loopexit105 ]
   ret i32 %.0
 }
 
@@ -2429,7 +2482,7 @@ define void @_ZN6icu_777Package7addItemEPKcPhiac(ptr noundef nonnull align 8 der
   %.127.i = select i1 %20, i32 %.02638.i, i32 %21
   %.1.i = select i1 %20, i32 %13, i32 %.02539.i
   %22 = icmp slt i32 %.127.i, %.1.i
-  br i1 %22, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread27, !llvm.loop !70
+  br i1 %22, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread27, !llvm.loop !68
 
 _ZNK6icu_777Package8findItemEPKci.exit.thread27:  ; preds = %19, %6
   %23 = phi i32 [ 0, %6 ], [ %.127.i, %19 ]
@@ -2656,7 +2709,7 @@ define void @_ZN6icu_777Package8addItemsERKS0_(ptr noundef nonnull align 8 deref
   %16 = add nuw nsw i32 %.011, 1
   %17 = load i32, ptr %3, align 4, !tbaa !29
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !79
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2781,7 +2834,7 @@ define void @_ZN6icu_777Package11removeItemsEPKc(ptr noundef nonnull align 8 cap
 _ZN6icu_777Package10removeItemEi.exit:            ; preds = %29, %33
   %35 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %8, label %._crit_edge, !llvm.loop !80
+  br i1 %36, label %8, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %_ZN6icu_777Package10removeItemEi.exit, %2
   ret void
@@ -2860,14 +2913,14 @@ define void @_ZN6icu_777Package11removeItemsERKS0_(ptr noundef nonnull align 8 c
 _ZN6icu_777Package10removeItemEi.exit.i:          ; preds = %39, %35
   %41 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
   %42 = icmp sgt i32 %41, -1
-  br i1 %42, label %.lr.ph.i, label %_ZN6icu_777Package11removeItemsEPKc.exit, !llvm.loop !80
+  br i1 %42, label %.lr.ph.i, label %_ZN6icu_777Package11removeItemsEPKc.exit, !llvm.loop !75
 
 _ZN6icu_777Package11removeItemsEPKc.exit:         ; preds = %_ZN6icu_777Package10removeItemEi.exit.i, %11
   %43 = getelementptr inbounds nuw i8, ptr %.067, i64 24
   %44 = add nuw nsw i32 %.08, 1
   %45 = load i32, ptr %3, align 4, !tbaa !29
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %11, label %._crit_edge, !llvm.loop !81
+  br i1 %46, label %11, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZN6icu_777Package11removeItemsEPKc.exit, %2
   ret void
@@ -3001,7 +3054,7 @@ define void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readon
   store i8 47, ptr %71, align 1, !tbaa !19
   %80 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %79, i32 noundef 47) #24
   %.not.i = icmp eq ptr %80, null
-  br i1 %.not.i, label %_ZL23makeFullFilenameAndDirsPKcS0_Pci.exit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %.not.i, label %_ZL23makeFullFilenameAndDirsPKcS0_Pci.exit, label %.lr.ph.i, !llvm.loop !77
 
 _ZL23makeFullFilenameAndDirsPKcS0_Pci.exit:       ; preds = %78, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3078,7 +3131,7 @@ define void @_ZN6icu_777Package12extractItemsEPKcS2_c(ptr noundef nonnull align 
   tail call void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %0, ptr noundef %1, ptr noundef %13, i32 noundef %9, i8 noundef signext %3)
   %14 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %8, label %._crit_edge, !llvm.loop !83
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %8, %4
   ret void
@@ -3115,14 +3168,14 @@ define void @_ZN6icu_777Package12extractItemsEPKcRKS0_c(ptr noundef nonnull alig
   tail call void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %0, ptr noundef %1, ptr noundef %19, i32 noundef %15, i8 noundef signext %3)
   %20 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %.lr.ph.i, label %_ZN6icu_777Package12extractItemsEPKcS2_c.exit, !llvm.loop !83
+  br i1 %21, label %.lr.ph.i, label %_ZN6icu_777Package12extractItemsEPKcS2_c.exit, !llvm.loop !78
 
 _ZN6icu_777Package12extractItemsEPKcS2_c.exit:    ; preds = %.lr.ph.i, %11
   %22 = getelementptr inbounds nuw i8, ptr %.089, i64 24
   %23 = add nuw nsw i32 %.010, 1
   %24 = load i32, ptr %5, align 4, !tbaa !29
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %11, label %._crit_edge, !llvm.loop !84
+  br i1 %25, label %11, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %_ZN6icu_777Package12extractItemsEPKcS2_c.exit, %4
   ret void
@@ -3180,11 +3233,11 @@ define void @_ZN6icu_777Package15checkDependencyEPvPKcS3_(ptr noundef captures(n
   %.127.i = select i1 %17, i32 %.02638.i, i32 %18
   %.1.i = select i1 %17, i32 %10, i32 %.02539.i
   %19 = icmp slt i32 %.127.i, %.1.i
-  br i1 %19, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread7, !llvm.loop !70
+  br i1 %19, label %.lr.ph.split.i, label %_ZNK6icu_777Package8findItemEPKci.exit.thread7, !llvm.loop !68
 
 _ZNK6icu_777Package8findItemEPKci.exit.thread7:   ; preds = %16, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 201236
-  store i8 1, ptr %20, align 4, !tbaa !85
+  store i8 1, ptr %20, align 4, !tbaa !80
   %21 = load ptr, ptr @stderr, align 8, !tbaa !36
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.32, ptr noundef %1, ptr noundef %2) #25
   br label %_ZNK6icu_777Package8findItemEPKci.exit.thread
@@ -3196,7 +3249,7 @@ _ZNK6icu_777Package8findItemEPKci.exit.thread:    ; preds = %.lr.ph.split.i, %_Z
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_777Package17checkDependenciesEv(ptr noundef nonnull align 8 dereferenceable(201237) initializes((201236, 201237)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 201236
-  store i8 0, ptr %2, align 4, !tbaa !85
+  store i8 0, ptr %2, align 4, !tbaa !80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1172
   %4 = load i32, ptr %3, align 4, !tbaa !29
   %5 = icmp sgt i32 %4, 0
@@ -3215,10 +3268,10 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777Package17checkDependenciesE
   %10 = load i32, ptr %3, align 4, !tbaa !29
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next.i, %11
-  br i1 %12, label %7, label %_ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E.exit.loopexit, !llvm.loop !86
+  br i1 %12, label %7, label %_ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E.exit.loopexit, !llvm.loop !81
 
 _ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E.exit.loopexit: ; preds = %7
-  %.pre = load i8, ptr %2, align 4, !tbaa !85
+  %.pre = load i8, ptr %2, align 4, !tbaa !80
   %13 = icmp eq i8 %.pre, 0
   %14 = zext i1 %13 to i8
   br label %_ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E.exit
@@ -3248,7 +3301,7 @@ define void @_ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E(ptr noundef no
   %11 = load i32, ptr %4, align 4, !tbaa !29
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %8, label %._crit_edge, !llvm.loop !86
+  br i1 %13, label %8, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %8, %3
   ret void
@@ -3459,22 +3512,17 @@ attributes #28 = { cold }
 !65 = distinct !{!65, !35}
 !66 = distinct !{!66, !35}
 !67 = distinct !{!67, !35}
-!68 = distinct !{!68, !35, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!70 = distinct !{!70, !35}
-!71 = !{!21, !22, i64 201208}
-!72 = !{!21, !22, i64 201216}
-!73 = !{!21, !18, i64 201228}
-!74 = !{!21, !18, i64 201224}
-!75 = distinct !{!75, !35, !69}
-!76 = distinct !{!76, !35, !69}
-!77 = distinct !{!77, !35, !69}
+!68 = distinct !{!68, !35}
+!69 = !{!21, !22, i64 201208}
+!70 = !{!21, !22, i64 201216}
+!71 = !{!21, !18, i64 201228}
+!72 = !{!21, !18, i64 201224}
+!73 = distinct !{!73, !35}
+!74 = distinct !{!74, !35}
+!75 = distinct !{!75, !35}
+!76 = distinct !{!76, !35}
+!77 = distinct !{!77, !35}
 !78 = distinct !{!78, !35}
 !79 = distinct !{!79, !35}
-!80 = distinct !{!80, !35}
+!80 = !{!21, !5, i64 201236}
 !81 = distinct !{!81, !35}
-!82 = distinct !{!82, !35}
-!83 = distinct !{!83, !35}
-!84 = distinct !{!84, !35}
-!85 = !{!21, !5, i64 201236}
-!86 = distinct !{!86, !35}

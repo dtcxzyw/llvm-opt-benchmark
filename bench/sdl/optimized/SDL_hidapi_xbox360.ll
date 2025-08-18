@@ -325,7 +325,7 @@ HIDAPI_DriverXbox360_HandleStatePacket.exit:      ; preds = %55, %58
   %94 = load ptr, ptr %13, align 8
   %95 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %94, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %8
   %.lcssa = phi i32 [ %15, %8 ], [ %29, %.backedge.us ], [ %95, %.backedge ]
@@ -624,7 +624,5 @@ attributes #10 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !6}

@@ -6005,7 +6005,7 @@ spin_acquire_lock.exit:                           ; preds = %66, %59, %62
   %100 = getelementptr inbounds nuw ptr, ptr %.180, i64 %98
   store ptr %99, ptr %100, align 8, !tbaa !37
   %.not101.us = icmp eq i64 %98, %87
-  br i1 %.not101.us, label %._crit_edge, label %.lr.ph112.split.us, !llvm.loop !77
+  br i1 %.not101.us, label %._crit_edge, label %.lr.ph112.split.us
 
 .lr.ph112.split:                                  ; preds = %.lr.ph112
   %101 = or i64 %.076, 3
@@ -6124,7 +6124,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %3, %7
   %28 = and i64 %25, 3
   %29 = icmp ne i64 %28, 1
   %or.cond = select i1 %.not48, i1 %29, i1 false
-  br i1 %or.cond, label %30, label %.critedge, !prof !79
+  br i1 %or.cond, label %30, label %.critedge, !prof !77
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %.052, i64 8
@@ -6166,7 +6166,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %3, %7
 50:                                               ; preds = %37, %49, %20
   %51 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %.not45 = icmp eq ptr %51, %18
-  br i1 %.not45, label %._crit_edge, label %20, !llvm.loop !80
+  br i1 %.not45, label %._crit_edge, label %20, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %50, %spin_acquire_lock.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6666,7 +6666,7 @@ define hidden i64 @destroy_mspace(ptr noundef readonly captures(none) %0) local_
 16:                                               ; preds = %9, %3
   %.1 = phi i64 [ %.017, %3 ], [ %spec.select, %9 ]
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %17, label %3, !llvm.loop !81
+  br i1 %.not, label %17, label %3, !llvm.loop !79
 
 17:                                               ; preds = %16
   ret i64 %.1
@@ -7533,7 +7533,7 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
   %48 = add i64 %43, %.011638.i
   %49 = add i64 %.111039.i, 1
   %.not133.i = icmp eq i64 %49, %0
-  br i1 %.not133.i, label %.thread6.i, label %34, !llvm.loop !82
+  br i1 %.not133.i, label %.thread6.i, label %34, !llvm.loop !80
 
 .thread6.i:                                       ; preds = %47, %.thread14.i
   %.211113.i = phi i64 [ %spec.select141.i, %.thread14.i ], [ %0, %47 ]
@@ -7549,14 +7549,14 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
 
 .lr.ph56.preheader.i:                             ; preds = %.thread19.i
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !83
+  %53 = load ptr, ptr %52, align 8, !tbaa !81
   br label %.lr.ph56.i
 
 .lr.ph56.i:                                       ; preds = %.lr.ph56.i, %.lr.ph56.preheader.i
   %.110755.i = phi i64 [ %54, %.lr.ph56.i ], [ %.010649.i, %.lr.ph56.preheader.i ]
   %.sroa.018.054.i = phi ptr [ %55, %.lr.ph56.i ], [ %53, %.lr.ph56.preheader.i ]
   %54 = add i64 %.110755.i, -1
-  %55 = load ptr, ptr %.sroa.018.054.i, align 8, !tbaa !86
+  %55 = load ptr, ptr %.sroa.018.054.i, align 8, !tbaa !84
   %56 = getelementptr inbounds i8, ptr %.sroa.018.054.i, i64 -8
   %57 = load i64, ptr %56, align 8, !tbaa !23
   %58 = and i64 %57, -8
@@ -7565,11 +7565,11 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
   store i64 %60, ptr @s_allocated_memory, align 8, !tbaa !36
   tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %.sroa.018.054.i)
   %.not138.i = icmp eq i64 %54, 0
-  br i1 %.not138.i, label %._crit_edge57.i, label %.lr.ph56.i, !llvm.loop !87
+  br i1 %.not138.i, label %._crit_edge57.i, label %.lr.ph56.i, !llvm.loop !85
 
 ._crit_edge57.i:                                  ; preds = %.lr.ph56.i, %.thread19.i
   %.not139.i = icmp eq i32 %31, 0
-  br i1 %.not139.i, label %internal_multialloc_arrays.exit, label %.critedge.sink.split.i, !llvm.loop !88
+  br i1 %.not139.i, label %internal_multialloc_arrays.exit, label %.critedge.sink.split.i, !llvm.loop !86
 
 61:                                               ; preds = %.thread6.i
   %62 = getelementptr inbounds i8, ptr %51, i64 -16
@@ -7579,7 +7579,7 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
   %66 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
   %67 = add i64 %66, %65
   store i64 %67, ptr @s_allocated_memory, align 8, !tbaa !36
-  %68 = load ptr, ptr %33, align 8, !tbaa !89
+  %68 = load ptr, ptr %33, align 8, !tbaa !87
   %69 = sub i64 %.211113.i, %.010649.i
   %.210840.i = add i64 %.010649.i, 1
   %.not13641.i = icmp eq i64 %.210840.i, %.211113.i
@@ -7606,7 +7606,7 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
   store ptr %81, ptr %.09844.i, align 8, !tbaa !37
   %.2108.i = add i64 %.210845.i, 1
   %.not136.i = icmp eq i64 %.2108.i, %.211113.i
-  br i1 %.not136.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !90
+  br i1 %.not136.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !88
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %61
   %.0100.lcssa.i = phi i64 [ %65, %61 ], [ %77, %.lr.ph.i ]
@@ -7615,30 +7615,30 @@ spin_acquire_lock.exit:                           ; preds = %14, %8, %11
   %82 = or disjoint i64 %.0100.lcssa.i, 3
   %83 = getelementptr inbounds nuw i8, ptr %.099.lcssa.i, i64 8
   store i64 %82, ptr %83, align 8, !tbaa !23
-  %84 = load ptr, ptr %68, align 8, !tbaa !86
+  %84 = load ptr, ptr %68, align 8, !tbaa !84
   %.not137.i = icmp eq i64 %.211113.i, %.010649.i
   br i1 %.not137.i, label %.backedge.i, label %85
 
 85:                                               ; preds = %._crit_edge.i
-  %86 = load ptr, ptr %33, align 8, !tbaa !89
+  %86 = load ptr, ptr %33, align 8, !tbaa !87
   %87 = icmp eq ptr %68, %86
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
-  store ptr %.098.lcssa.i, ptr %33, align 8, !tbaa !89
+  store ptr %.098.lcssa.i, ptr %33, align 8, !tbaa !87
   br label %89
 
 89:                                               ; preds = %88, %85
-  store ptr %51, ptr %68, align 8, !tbaa !86
-  store ptr %84, ptr %.098.lcssa.i, align 8, !tbaa !86
-  %90 = load i64, ptr %4, align 8, !tbaa !91
+  store ptr %51, ptr %68, align 8, !tbaa !84
+  store ptr %84, ptr %.098.lcssa.i, align 8, !tbaa !84
+  %90 = load i64, ptr %4, align 8, !tbaa !89
   %91 = add i64 %69, %90
-  store i64 %91, ptr %4, align 8, !tbaa !91
+  store i64 %91, ptr %4, align 8, !tbaa !89
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %89, %._crit_edge.i
   %.not131.i = icmp eq i64 %.211113.i, %0
-  br i1 %.not131.i, label %._crit_edge51.i, label %.preheader.i, !llvm.loop !88
+  br i1 %.not131.i, label %._crit_edge51.i, label %.preheader.i, !llvm.loop !86
 
 ._crit_edge51.i:                                  ; preds = %.backedge.i, %29
   %.not132.i = icmp eq i32 %31, 0
@@ -8082,7 +8082,7 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
 .critedge.backedge:                               ; preds = %.critedge, %90
   %.1354.be = phi ptr [ %88, %.critedge ], [ %91, %90 ]
   %.3.be = phi ptr [ %89, %.critedge ], [ %92, %90 ]
-  br label %.critedge, !llvm.loop !92
+  br label %.critedge, !llvm.loop !90
 
 90:                                               ; preds = %.critedge
   %91 = getelementptr inbounds nuw i8, ptr %.3, i64 32
@@ -8428,7 +8428,7 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
 .critedge4.backedge:                              ; preds = %.critedge4, %243
   %.1367.be = phi ptr [ %241, %.critedge4 ], [ %244, %243 ]
   %.3365.be = phi ptr [ %242, %.critedge4 ], [ %245, %243 ]
-  br label %.critedge4, !llvm.loop !93
+  br label %.critedge4, !llvm.loop !91
 
 243:                                              ; preds = %.critedge4
   %244 = getelementptr inbounds nuw i8, ptr %.3365, i64 32
@@ -8850,7 +8850,7 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   %22 = and i64 %21, -16
   %23 = select i1 %20, i64 32, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !89
+  %25 = load ptr, ptr %24, align 8, !tbaa !87
   %.not.i13 = icmp eq i64 %1, 0
   br i1 %.not.i13, label %internal_node_multialloc.exit, label %26
 
@@ -8914,14 +8914,14 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   br i1 %.not979.i, label %._crit_edge14.i, label %.lr.ph13.i.preheader
 
 .lr.ph13.i.preheader:                             ; preds = %51
-  %52 = load ptr, ptr %25, align 8, !tbaa !86
+  %52 = load ptr, ptr %25, align 8, !tbaa !84
   br label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %.lr.ph13.i.preheader, %.lr.ph13.i
   %.sroa.0.111.i = phi ptr [ %54, %.lr.ph13.i ], [ %52, %.lr.ph13.i.preheader ]
   %.19010.i = phi i64 [ %53, %.lr.ph13.i ], [ %.089.i20, %.lr.ph13.i.preheader ]
   %53 = add i64 %.19010.i, -1
-  %54 = load ptr, ptr %.sroa.0.111.i, align 8, !tbaa !86
+  %54 = load ptr, ptr %.sroa.0.111.i, align 8, !tbaa !84
   %55 = getelementptr inbounds i8, ptr %.sroa.0.111.i, i64 -8
   %56 = load i64, ptr %55, align 8, !tbaa !23
   %57 = and i64 %56, -8
@@ -8930,7 +8930,7 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   store i64 %59, ptr @s_allocated_memory, align 8, !tbaa !36
   tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %.sroa.0.111.i)
   %.not97.i = icmp eq i64 %53, 0
-  br i1 %.not97.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !94
+  br i1 %.not97.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !92
 
 ._crit_edge14.i:                                  ; preds = %.lr.ph13.i, %51
   br i1 %.not98.i, label %internal_node_multialloc.exit, label %.loopexit.sink.split.i
@@ -8947,8 +8947,8 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   %68 = mul i64 %67, %23
   %69 = sub i64 %64, %68
   %.not963.i = icmp eq i64 %67, 0
-  %.pre.i = load ptr, ptr %24, align 8, !tbaa !89
-  %.pre21.i = load i64, ptr %3, align 8, !tbaa !91
+  %.pre.i = load ptr, ptr %24, align 8, !tbaa !87
+  %.pre21.i = load i64, ptr %3, align 8, !tbaa !89
   br i1 %.not963.i, label %76, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
@@ -8959,12 +8959,12 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   %71 = add i64 %.0854.i, -1
   %72 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 8
   store i64 %44, ptr %72, align 8, !tbaa !23
-  store ptr %.0836.i, ptr %70, align 8, !tbaa !86
-  store ptr null, ptr %.0836.i, align 8, !tbaa !86
+  store ptr %.0836.i, ptr %70, align 8, !tbaa !84
+  store ptr null, ptr %.0836.i, align 8, !tbaa !84
   %73 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 %23
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %.not96.i = icmp eq i64 %71, 0
-  br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !95
+  br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %75 = add i64 %67, %.pre21.i
@@ -8978,13 +8978,13 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   %79 = or disjoint i64 %69, 3
   %80 = getelementptr inbounds nuw i8, ptr %.084.lcssa.i, i64 8
   store i64 %79, ptr %80, align 8, !tbaa !23
-  store ptr %.083.lcssa.i, ptr %78, align 8, !tbaa !86
-  store ptr null, ptr %.083.lcssa.i, align 8, !tbaa !86
-  store ptr %.083.lcssa.i, ptr %24, align 8, !tbaa !89
+  store ptr %.083.lcssa.i, ptr %78, align 8, !tbaa !84
+  store ptr null, ptr %.083.lcssa.i, align 8, !tbaa !84
+  store ptr %.083.lcssa.i, ptr %24, align 8, !tbaa !87
   %81 = add i64 %77, 1
-  store i64 %81, ptr %3, align 8, !tbaa !91
+  store i64 %81, ptr %3, align 8, !tbaa !89
   %.not94.i = icmp eq i64 %47, %0
-  br i1 %.not94.i, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %.not94.i, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %76, %40
   br i1 %.not98.i, label %internal_node_multialloc.exit, label %.loopexit.sink.split.i
@@ -9114,7 +9114,7 @@ spin_acquire_lock.exit:                           ; preds = %9, %3, %6
   %.236 = add i64 %.13559, %39
   %40 = getelementptr inbounds nuw i8, ptr %.03758, i64 %37
   %.not52 = icmp ult ptr %40, %20
-  br i1 %.not52, label %.critedge, label %30, !llvm.loop !97
+  br i1 %.not52, label %.critedge, label %30, !llvm.loop !95
 
 .critedge:                                        ; preds = %32, %35, %30
   %.140.lcssa.ph = phi i64 [ %.14057, %32 ], [ %.241, %35 ], [ %.14057, %30 ]
@@ -9122,7 +9122,7 @@ spin_acquire_lock.exit:                           ; preds = %9, %3, %6
   %41 = getelementptr inbounds nuw i8, ptr %.03868, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !60
   %.not48 = icmp eq ptr %42, null
-  br i1 %.not48, label %43, label %.lr.ph, !llvm.loop !98
+  br i1 %.not48, label %43, label %.lr.ph, !llvm.loop !96
 
 43:                                               ; preds = %.critedge
   %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 856), align 8, !tbaa !49
@@ -9167,9 +9167,9 @@ define hidden range(i32 0, 2) i32 @boost_cont_all_deallocated() local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias writable writeonly sret(%struct.boost_cont_malloc_stats_impl) align 8 captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !99
-  %2 = load i64, ptr @mparams, align 8, !tbaa !3, !noalias !99
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !97
+  %2 = load i64, ptr @mparams, align 8, !tbaa !3, !noalias !97
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %3, label %4
 
@@ -9178,24 +9178,24 @@ define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias writable 
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !99
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !97
   %6 = and i32 %5, 2
   %.not38.i = icmp eq i32 %6, 0
   br i1 %.not38.i, label %spin_acquire_lock.exit.i, label %7
 
 7:                                                ; preds = %4
-  %8 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), i32 1 seq_cst, align 4, !noalias !99
+  %8 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), i32 1 seq_cst, align 4, !noalias !97
   %.not39.i = icmp eq i32 %8, 0
   br i1 %.not39.i, label %spin_acquire_lock.exit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %.preheader.i.backedge
   %.0.i.i = phi i32 [ %12, %.preheader.i.backedge ], [ 0, %7 ]
-  %9 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), align 4, !tbaa !13, !noalias !99
+  %9 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), align 4, !tbaa !13, !noalias !97
   %.not.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i, label %10, label %.critedge.i.i
 
 10:                                               ; preds = %.preheader.i
-  %11 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), i32 1 seq_cst, align 4, !noalias !99
+  %11 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884), i32 1 seq_cst, align 4, !noalias !97
   %.not2.i.i = icmp eq i32 %11, 0
   br i1 %.not2.i.i, label %spin_acquire_lock.exit.i, label %.critedge.i.i
 
@@ -9206,21 +9206,21 @@ define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias writable 
   br i1 %14, label %15, label %.preheader.i.backedge
 
 15:                                               ; preds = %.critedge.i.i
-  %16 = tail call i32 @sched_yield() #17, !noalias !99
+  %16 = tail call i32 @sched_yield() #17, !noalias !97
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %15, %.critedge.i.i
   br label %.preheader.i, !llvm.loop !14
 
 spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !tbaa !29, !noalias !99
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 40), align 8, !tbaa !29, !noalias !97
   %.not40.i = icmp eq ptr %17, null
   br i1 %.not40.i, label %.loopexit.i, label %18
 
 18:                                               ; preds = %spin_acquire_lock.exit.i
-  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 864), align 8, !tbaa !50, !noalias !99
-  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 856), align 8, !tbaa !49, !noalias !99
-  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 16), align 8, !tbaa !28, !noalias !99
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 864), align 8, !tbaa !50, !noalias !97
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 856), align 8, !tbaa !49, !noalias !97
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 16), align 8, !tbaa !28, !noalias !97
   %.neg1.i = add i64 %20, -80
   %22 = sub i64 %.neg1.i, %21
   br label %.lr.ph.i
@@ -9228,7 +9228,7 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
 .lr.ph.i:                                         ; preds = %.critedge.i, %18
   %.03110.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_gm_, i64 888), %18 ], [ %44, %.critedge.i ]
   %.19.i = phi i64 [ %22, %18 ], [ %.2.lcssa.ph.i, %.critedge.i ]
-  %23 = load ptr, ptr %.03110.i, align 8, !tbaa !58, !noalias !99
+  %23 = load ptr, ptr %.03110.i, align 8, !tbaa !58, !noalias !97
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, 15
@@ -9237,7 +9237,7 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
   %spec.select.i = select i1 %27, i64 0, i64 %28
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 %spec.select.i
   %30 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !59, !noalias !99
+  %31 = load i64, ptr %30, align 8, !tbaa !59, !noalias !97
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 %31
   br label %33
 
@@ -9251,7 +9251,7 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !23, !noalias !99
+  %37 = load i64, ptr %36, align 8, !tbaa !23, !noalias !97
   %.not45.i = icmp eq i64 %37, 11
   br i1 %.not45.i, label %.critedge.i, label %38
 
@@ -9263,31 +9263,31 @@ spin_acquire_lock.exit.i:                         ; preds = %10, %7, %4
   %.3.i = sub i64 %.23.i, %41
   %42 = getelementptr inbounds nuw i8, ptr %.04.i, i64 %40
   %.not43.i = icmp ult ptr %42, %23
-  br i1 %.not43.i, label %.critedge.i, label %33, !llvm.loop !102
+  br i1 %.not43.i, label %.critedge.i, label %33, !llvm.loop !100
 
 .critedge.i:                                      ; preds = %38, %35, %33
   %.2.lcssa.ph.i = phi i64 [ %.23.i, %35 ], [ %.3.i, %38 ], [ %.23.i, %33 ]
   %43 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !60, !noalias !99
+  %44 = load ptr, ptr %43, align 8, !tbaa !60, !noalias !97
   %.not41.i = icmp eq ptr %44, null
-  br i1 %.not41.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !103
+  br i1 %.not41.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !101
 
 .loopexit.i:                                      ; preds = %.critedge.i, %spin_acquire_lock.exit.i
   %.034.i = phi i64 [ 0, %spin_acquire_lock.exit.i ], [ %19, %.critedge.i ]
   %.033.i = phi i64 [ 0, %spin_acquire_lock.exit.i ], [ %20, %.critedge.i ]
   %.032.i = phi i64 [ 0, %spin_acquire_lock.exit.i ], [ %.2.lcssa.ph.i, %.critedge.i ]
-  store i64 %.034.i, ptr %0, align 8, !tbaa !104, !alias.scope !99
+  store i64 %.034.i, ptr %0, align 8, !tbaa !102, !alias.scope !97
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.033.i, ptr %45, align 8, !tbaa !106, !alias.scope !99
+  store i64 %.033.i, ptr %45, align 8, !tbaa !104, !alias.scope !97
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.032.i, ptr %46, align 8, !tbaa !107, !alias.scope !99
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !99
+  store i64 %.032.i, ptr %46, align 8, !tbaa !105, !alias.scope !97
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9, !noalias !97
   %48 = and i32 %47, 2
   %.not42.i = icmp eq i32 %48, 0
   br i1 %.not42.i, label %get_malloc_stats.exit, label %49
 
 49:                                               ; preds = %.loopexit.i
-  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4, !noalias !99
+  store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4, !noalias !97
   br label %get_malloc_stats.exit
 
 get_malloc_stats.exit:                            ; preds = %.loopexit.i, %49
@@ -9860,7 +9860,7 @@ mmap_resize.exit:                                 ; preds = %.mmap_resize.exit_c
 .critedge.backedge:                               ; preds = %.critedge, %220
   %.1246.be = phi ptr [ %218, %.critedge ], [ %221, %220 ]
   %.3.be = phi ptr [ %219, %.critedge ], [ %222, %220 ]
-  br label %.critedge, !llvm.loop !108
+  br label %.critedge, !llvm.loop !106
 
 220:                                              ; preds = %.critedge
   %221 = getelementptr inbounds nuw i8, ptr %.3, i64 32
@@ -10297,13 +10297,13 @@ define hidden void @boost_cont_multidealloc(ptr noundef readonly captures(none) 
 
 spin_acquire_lock.exit.i:                         ; preds = %7, %4, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !83
+  %15 = load ptr, ptr %14, align 8, !tbaa !81
   %.not121.i = icmp eq ptr %15, null
   br i1 %.not121.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %spin_acquire_lock.exit.i, %.lr.ph.i
   %.sroa.0.02.i = phi ptr [ %16, %.lr.ph.i ], [ %15, %spin_acquire_lock.exit.i ]
-  %16 = load ptr, ptr %.sroa.0.02.i, align 8, !tbaa !86
+  %16 = load ptr, ptr %.sroa.0.02.i, align 8, !tbaa !84
   %17 = getelementptr inbounds i8, ptr %.sroa.0.02.i, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !23
   %19 = and i64 %18, -8
@@ -10312,7 +10312,7 @@ spin_acquire_lock.exit.i:                         ; preds = %7, %4, %1
   store i64 %21, ptr @s_allocated_memory, align 8, !tbaa !36
   tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %.sroa.0.02.i)
   %.not12.i = icmp eq ptr %16, null
-  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !109
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !107
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %spin_acquire_lock.exit.i
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
@@ -10522,7 +10522,7 @@ define internal fastcc ptr @internal_grow_both_sides(i32 noundef %0, ptr noundef
   %.089.i = phi i64 [ %107, %.preheader.i ], [ %spec.select.i, %89 ]
   %107 = urem i64 %.090.i, %.089.i
   %.not.i = icmp eq i64 %107, 0
-  br i1 %.not.i, label %108, label %.preheader.i, !llvm.loop !110
+  br i1 %.not.i, label %108, label %.preheader.i, !llvm.loop !108
 
 108:                                              ; preds = %.preheader.i
   %109 = udiv i64 %spec.select103.i, %.089.i
@@ -10729,7 +10729,7 @@ calculate_lcm_and_needs_backwards_lcmed.exit:     ; preds = %66, %77, %83, %92, 
 .critedge.backedge:                               ; preds = %.critedge, %209
   %.1371.be = phi ptr [ %207, %.critedge ], [ %210, %209 ]
   %.3369.be = phi ptr [ %208, %.critedge ], [ %211, %209 ]
-  br label %.critedge, !llvm.loop !111
+  br label %.critedge, !llvm.loop !109
 
 209:                                              ; preds = %.critedge
   %210 = getelementptr inbounds nuw i8, ptr %.3369, i64 32
@@ -11198,7 +11198,7 @@ calculate_lcm_and_needs_backwards_lcmed.exit:     ; preds = %66, %77, %83, %92, 
 .critedge2.backedge:                              ; preds = %.critedge2, %434
   %.3.be = phi ptr [ %433, %.critedge2 ], [ %436, %434 ]
   %.1361.be = phi ptr [ %432, %.critedge2 ], [ %435, %434 ]
-  br label %.critedge2, !llvm.loop !112
+  br label %.critedge2, !llvm.loop !110
 
 434:                                              ; preds = %.critedge2
   %435 = getelementptr inbounds nuw i8, ptr %.3, i64 32
@@ -11791,7 +11791,7 @@ define internal fastcc nonnull ptr @prepend_alloc(ptr noundef %0, ptr noundef %1
 .critedge.backedge:                               ; preds = %.critedge, %111
   %.1217.be = phi ptr [ %109, %.critedge ], [ %112, %111 ]
   %.3.be = phi ptr [ %110, %.critedge ], [ %113, %111 ]
-  br label %.critedge, !llvm.loop !113
+  br label %.critedge, !llvm.loop !111
 
 111:                                              ; preds = %.critedge
   %112 = getelementptr inbounds nuw i8, ptr %.3, i64 32
@@ -12300,7 +12300,7 @@ define internal fastcc void @dispose_chunk(ptr noundef %0, ptr noundef %1, i64 n
 .critedge.backedge:                               ; preds = %.critedge, %90
   %.1342.be = phi ptr [ %88, %.critedge ], [ %91, %90 ]
   %.3.be = phi ptr [ %89, %.critedge ], [ %92, %90 ]
-  br label %.critedge, !llvm.loop !114
+  br label %.critedge, !llvm.loop !112
 
 90:                                               ; preds = %.critedge
   %91 = getelementptr inbounds nuw i8, ptr %.3, i64 32
@@ -12646,7 +12646,7 @@ define internal fastcc void @dispose_chunk(ptr noundef %0, ptr noundef %1, i64 n
 .critedge3.backedge:                              ; preds = %.critedge3, %247
   %.1350.be = phi ptr [ %245, %.critedge3 ], [ %248, %247 ]
   %.3348.be = phi ptr [ %246, %.critedge3 ], [ %249, %247 ]
-  br label %.critedge3, !llvm.loop !115
+  br label %.critedge3, !llvm.loop !113
 
 247:                                              ; preds = %.critedge3
   %248 = getelementptr inbounds nuw i8, ptr %.3348, i64 32
@@ -13103,42 +13103,40 @@ attributes #19 = { nounwind willreturn memory(none) }
 !74 = distinct !{!74, !15}
 !75 = distinct !{!75, !15}
 !76 = distinct !{!76, !15}
-!77 = distinct !{!77, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!79 = !{!"branch_weights", i32 4000000, i32 4001}
+!77 = !{!"branch_weights", i32 4000000, i32 4001}
+!78 = distinct !{!78, !15}
+!79 = distinct !{!79, !15}
 !80 = distinct !{!80, !15}
-!81 = distinct !{!81, !15}
-!82 = distinct !{!82, !15}
-!83 = !{!84, !11, i64 8}
-!84 = !{!"boost_cont_memchain_impl", !5, i64 0, !85, i64 8, !11, i64 16}
-!85 = !{!"multialloc_node_impl", !11, i64 0}
-!86 = !{!85, !11, i64 0}
-!87 = distinct !{!87, !15}
+!81 = !{!82, !11, i64 8}
+!82 = !{!"boost_cont_memchain_impl", !5, i64 0, !83, i64 8, !11, i64 16}
+!83 = !{!"multialloc_node_impl", !11, i64 0}
+!84 = !{!83, !11, i64 0}
+!85 = distinct !{!85, !15}
+!86 = distinct !{!86, !15}
+!87 = !{!82, !11, i64 16}
 !88 = distinct !{!88, !15}
-!89 = !{!84, !11, i64 16}
+!89 = !{!82, !5, i64 0}
 !90 = distinct !{!90, !15}
-!91 = !{!84, !5, i64 0}
+!91 = distinct !{!91, !15}
 !92 = distinct !{!92, !15}
 !93 = distinct !{!93, !15}
 !94 = distinct !{!94, !15}
 !95 = distinct !{!95, !15}
 !96 = distinct !{!96, !15}
-!97 = distinct !{!97, !15}
-!98 = distinct !{!98, !15}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"get_malloc_stats: argument 0"}
-!101 = distinct !{!101, !"get_malloc_stats"}
-!102 = distinct !{!102, !15}
-!103 = distinct !{!103, !15}
-!104 = !{!105, !5, i64 0}
-!105 = !{!"boost_cont_malloc_stats_impl", !5, i64 0, !5, i64 8, !5, i64 16}
-!106 = !{!105, !5, i64 8}
-!107 = !{!105, !5, i64 16}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"get_malloc_stats: argument 0"}
+!99 = distinct !{!99, !"get_malloc_stats"}
+!100 = distinct !{!100, !15}
+!101 = distinct !{!101, !15}
+!102 = !{!103, !5, i64 0}
+!103 = !{!"boost_cont_malloc_stats_impl", !5, i64 0, !5, i64 8, !5, i64 16}
+!104 = !{!103, !5, i64 8}
+!105 = !{!103, !5, i64 16}
+!106 = distinct !{!106, !15}
+!107 = distinct !{!107, !15}
 !108 = distinct !{!108, !15}
 !109 = distinct !{!109, !15}
 !110 = distinct !{!110, !15}
 !111 = distinct !{!111, !15}
 !112 = distinct !{!112, !15}
 !113 = distinct !{!113, !15}
-!114 = distinct !{!114, !15}
-!115 = distinct !{!115, !15}

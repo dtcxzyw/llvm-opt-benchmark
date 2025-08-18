@@ -373,7 +373,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %118 = getelementptr inbounds nuw i8, ptr %.184131, i64 8
   %119 = atomicrmw sub ptr %118, i32 2 acq_rel, align 4
   %.not.i = icmp eq i32 %119, 2
-  br i1 %.not.i, label %120, label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit, !prof !33
+  br i1 %.not.i, label %120, label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit, !prof !32
 
 120:                                              ; preds = %.split.us
   tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %.184131)
@@ -418,7 +418,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %145 = load i8, ptr %144, align 1, !tbaa !4
   %146 = zext i8 %145 to i64
   %147 = icmp eq i64 %143, %146
-  br i1 %147, label %.lr.ph.split, label %._crit_edge.loopexit171, !llvm.loop !34
+  br i1 %147, label %.lr.ph.split, label %._crit_edge.loopexit171, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %101
   %148 = trunc nsw i64 %indvars.iv.next196 to i32
@@ -458,7 +458,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %163 = phi i64 [ %.pre202, %154 ], [ %153, %._crit_edge ]
   %.3 = phi i64 [ %160, %154 ], [ %.1.lcssa, %._crit_edge ]
   %.not115 = icmp ult i64 %86, %163
-  br i1 %.not115, label %164, label %84, !llvm.loop !35
+  br i1 %.not115, label %164, label %84, !llvm.loop !33
 
 164:                                              ; preds = %162
   %165 = load i64, ptr %.184.lcssa, align 8, !tbaa !12
@@ -539,7 +539,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %202 = load ptr, ptr %201, align 8, !tbaa !10
   %203 = load i64, ptr %202, align 8, !tbaa !12
   %.not118 = icmp ult i64 %199, %203
-  br i1 %.not118, label %.loopexit, label %193, !llvm.loop !36
+  br i1 %.not118, label %.loopexit, label %193, !llvm.loop !34
 
 .loopexit:                                        ; preds = %193, %178, %.lr.ph162
   %.2101 = phi i64 [ 0, %.lr.ph162 ], [ %.1100156, %178 ], [ %199, %193 ]
@@ -548,7 +548,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %.487 = phi ptr [ %.386159, %.lr.ph162 ], [ %179, %178 ], [ %179, %193 ]
   %.5 = phi i64 [ %.4160, %.lr.ph162 ], [ 0, %178 ], [ %197, %193 ]
   %204 = icmp samesign ugt i64 %indvars.iv199, 1
-  br i1 %204, label %.lr.ph162, label %._crit_edge163, !llvm.loop !37
+  br i1 %204, label %.lr.ph162, label %._crit_edge163, !llvm.loop !35
 
 ._crit_edge163:                                   ; preds = %.loopexit, %164
   %.1100.lcssa = phi i64 [ %86, %164 ], [ %.2101, %.loopexit ]
@@ -708,10 +708,8 @@ attributes #12 = { nounwind }
 !28 = !{!17, !18, i64 0}
 !29 = !{!30, !18, i64 0}
 !30 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigatorE", !18, i64 0, !5, i64 4, !5, i64 16}
-!31 = distinct !{!31, !20, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!31 = distinct !{!31, !20}
+!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!33 = distinct !{!33, !20}
 !34 = distinct !{!34, !20}
 !35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
-!37 = distinct !{!37, !20}

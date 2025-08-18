@@ -29557,7 +29557,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
   %31 = load i64, ptr %.sroa.427.0..sroa_idx, align 8
   %32 = icmp ne i64 %31, 0
   %.not3.i.us = select i1 %30, i1 true, i1 %32
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1773
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -30212,7 +30212,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %.not, label %.critedge, label %11, !llvm.loop !1775
+  br i1 %.not, label %.critedge, label %11, !llvm.loop !1773
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -30846,7 +30846,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !1776
+  %7 = load ptr, ptr %6, align 8, !tbaa !1774
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -31013,14 +31013,14 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1778
+  %7 = load ptr, ptr %6, align 8, !tbaa !1776
   %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %7)
   br i1 %8, label %9, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread73
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !1781
+  %12 = load i32, ptr %11, align 8, !tbaa !1779
   %13 = zext i32 %12 to i64
   %.idx = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
@@ -31039,7 +31039,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %18, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread73
 
 .critedge.loopexit:                               ; preds = %15
-  %.pre = load i32, ptr %11, align 8, !tbaa !1781
+  %.pre = load i32, ptr %11, align 8, !tbaa !1779
   %19 = zext i32 %.pre to i64
   br label %.critedge
 
@@ -31047,7 +31047,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %20 = phi i64 [ %19, %.critedge.loopexit ], [ 0, %9 ]
   %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !1782
+  %23 = load i32, ptr %22, align 4, !tbaa !1780
   %24 = zext i32 %23 to i64
   %.idx87 = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx87
@@ -31056,8 +31056,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph84:                                         ; preds = %.critedge, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
   %.04883 = phi ptr [ %79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %21, %.critedge ]
-  %26 = load ptr, ptr %.04883, align 8, !tbaa !1783
-  %27 = load i32, ptr %26, align 4, !tbaa !1785
+  %26 = load ptr, ptr %.04883, align 8, !tbaa !1781
+  %27 = load i32, ptr %26, align 4, !tbaa !1783
   switch i32 %27, label %75 [
     i32 0, label %28
     i32 1, label %39
@@ -31067,7 +31067,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 28:                                               ; preds = %.lr.ph84
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !1788
+  %30 = load i32, ptr %29, align 8, !tbaa !1786
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %32
 
@@ -31084,7 +31084,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 39:                                               ; preds = %.lr.ph84, %.lr.ph84
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %41 = load i32, ptr %40, align 8, !tbaa !1796
+  %41 = load i32, ptr %40, align 8, !tbaa !1794
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %48, label %43
 
@@ -31150,7 +31150,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 71:                                               ; preds = %.lr.ph84
   %72 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %73 = load i8, ptr %72, align 8, !tbaa !1808, !range !52, !noundef !53
+  %73 = load i8, ptr %72, align 8, !tbaa !1806, !range !52, !noundef !53
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
 
@@ -31159,7 +31159,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !1811
+  %77 = load ptr, ptr %76, align 8, !tbaa !1809
   %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %77, ptr noundef null)
   br i1 %78, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread73
 
@@ -31352,7 +31352,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !1812
+  %17 = load ptr, ptr %16, align 8, !tbaa !1810
   br label %18
 
 18:                                               ; preds = %15, %.lr.ph
@@ -31361,7 +31361,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %20 = getelementptr inbounds nuw i8, ptr %.03844, i64 8
   %.not = icmp ne ptr %20, %10
   %or.cond.not = select i1 %19, i1 %.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !1814
+  br i1 %or.cond.not, label %.lr.ph, label %.critedge, !llvm.loop !1812
 
 .critedge:                                        ; preds = %18, %7, %3
   %.0 = phi i1 [ false, %3 ], [ true, %7 ], [ %19, %18 ]
@@ -31787,7 +31787,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
 _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !1815
+  %19 = load i32, ptr %18, align 4, !tbaa !1813
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %.lr.ph.preheader
 
@@ -31917,7 +31917,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
 _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %.04.i.i.i.i, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !1815
+  %19 = load i32, ptr %18, align 4, !tbaa !1813
   %.not38 = icmp eq i32 %19, 0
   br i1 %.not38, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %.lr.ph.preheader
 
@@ -32173,7 +32173,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1817
+  %7 = load ptr, ptr %6, align 8, !tbaa !1815
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -33008,7 +33008,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1819
+  %7 = load ptr, ptr %6, align 8, !tbaa !1817
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %8
 
@@ -33739,11 +33739,11 @@ _ZNK5clang10MemberExpr15getQualifierLocEv.exit:   ; preds = %3, %10
 
 13:                                               ; preds = %_ZNK5clang10MemberExpr15getQualifierLocEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !1821, !noalias !1823
+  %15 = load ptr, ptr %14, align 8, !tbaa !1819, !noalias !1821
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !45, !noalias !1823
+  %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !45, !noalias !1821
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.0.0.copyload.i22 = load ptr, ptr %17, align 8, !tbaa !430, !noalias !1823
+  %.sroa.0.0.copyload.i22 = load ptr, ptr %17, align 8, !tbaa !430, !noalias !1821
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %19 = and i32 %18, 7
@@ -33869,7 +33869,7 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25: ; preds = %55
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i25
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !1815
+  %68 = load i32, ptr %67, align 4, !tbaa !1813
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -34693,7 +34693,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 19:                                               ; preds = %11, %8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = load i32, ptr %4, align 8, !noalias !1826
+  %21 = load i32, ptr %4, align 8, !noalias !1824
   %22 = lshr i32 %21, 30
   %.lobit.i.i = and i32 %22, 1
   %23 = zext nneg i32 %.lobit.i.i to i64
@@ -34717,8 +34717,8 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge40
   %.sroa.851.062 = phi ptr [ %42, %.critedge40 ], [ %33, %.lr.ph.preheader ]
   %.sroa.048.061 = phi ptr [ %41, %.critedge40 ], [ %24, %.lr.ph.preheader ]
-  %34 = load ptr, ptr %.sroa.048.061, align 8, !tbaa !829, !noalias !1829
-  %35 = load ptr, ptr %.sroa.851.062, align 8, !tbaa !1715, !noalias !1829
+  %34 = load ptr, ptr %.sroa.048.061, align 8, !tbaa !829, !noalias !1827
+  %35 = load ptr, ptr %.sroa.851.062, align 8, !tbaa !1715, !noalias !1827
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.critedge, label %36
 
@@ -35289,7 +35289,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !1832
+  %7 = load ptr, ptr %6, align 8, !tbaa !1830
   %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %7, ptr noundef %2)
   br i1 %8, label %9, label %39
 
@@ -35378,7 +35378,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !1834, !noalias !1838
+  %7 = load i32, ptr %6, align 8, !tbaa !1832, !noalias !1836
   %8 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
@@ -35388,28 +35388,28 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang9EmbedExpr16ChildElementIterILb0EEppEv.exit
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang9EmbedExpr16ChildElementIterILb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %11 = load ptr, ptr %10, align 8, !tbaa !1841
+  %11 = load ptr, ptr %10, align 8, !tbaa !1839
   %12 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %11, ptr noundef %2)
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %.lr.ph
-  %14 = load i64, ptr %9, align 8, !tbaa !1842
+  %14 = load i64, ptr %9, align 8, !tbaa !1840
   %15 = add i64 %14, 1
-  store i64 %15, ptr %9, align 8, !tbaa !1842
-  %16 = load ptr, ptr %3, align 8, !tbaa !1846
+  store i64 %15, ptr %9, align 8, !tbaa !1840
+  %16 = load ptr, ptr %3, align 8, !tbaa !1844
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  %18 = load i32, ptr %17, align 4, !tbaa !1847
+  %18 = load i32, ptr %17, align 4, !tbaa !1845
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %21 = load i32, ptr %20, align 8, !tbaa !1834
+  %21 = load i32, ptr %20, align 8, !tbaa !1832
   %22 = zext i32 %21 to i64
   %23 = add nuw nsw i64 %22, %19
   %.not.i = icmp ult i64 %15, %23
   br i1 %.not.i, label %_ZN5clang9EmbedExpr16ChildElementIterILb0EEppEv.exit, label %24
 
 24:                                               ; preds = %13
-  store i64 -1, ptr %9, align 8, !tbaa !1842
-  store ptr null, ptr %3, align 8, !tbaa !1846
+  store i64 -1, ptr %9, align 8, !tbaa !1840
+  store ptr null, ptr %3, align 8, !tbaa !1844
   br label %_ZN5clang9EmbedExpr16ChildElementIterILb0EEppEv.exit
 
 _ZN5clang9EmbedExpr16ChildElementIterILb0EEppEv.exit: ; preds = %13, %24
@@ -35690,7 +35690,7 @@ _ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit: ; preds =
 _ZNK5clang25DependentScopeDeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %18 = load i32, ptr %17, align 4, !tbaa !1815
+  %18 = load i32, ptr %17, align 4, !tbaa !1813
   %.not37 = icmp eq i32 %18, 0
   br i1 %.not37, label %_ZNK5clang25DependentScopeDeclRefExpr23hasExplicitTemplateArgsEv.exit.thread, label %.lr.ph.preheader
 
@@ -35822,11 +35822,11 @@ _ZNK5clang11DeclRefExpr15getQualifierLocEv.exit:  ; preds = %3, %10
 
 13:                                               ; preds = %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1848, !noalias !1850
+  %15 = load ptr, ptr %14, align 8, !tbaa !1846, !noalias !1848
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !45, !noalias !1850
+  %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 8, !tbaa !45, !noalias !1848
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i22 = load ptr, ptr %17, align 8, !tbaa !430, !noalias !1850
+  %.sroa.0.0.copyload.i22 = load ptr, ptr %17, align 8, !tbaa !430, !noalias !1848
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %19 = and i32 %18, 7
@@ -35952,7 +35952,7 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25: ; preds = %55
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i25
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %68 = load i32, ptr %67, align 4, !tbaa !1815
+  %68 = load i32, ptr %67, align 4, !tbaa !1813
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -36149,7 +36149,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1853
+  %7 = load ptr, ptr %6, align 8, !tbaa !1851
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !898
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !899
@@ -36595,7 +36595,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -36685,7 +36685,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -36775,7 +36775,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -36865,7 +36865,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -36955,7 +36955,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -37045,7 +37045,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -37135,7 +37135,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -37225,7 +37225,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -37315,7 +37315,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1856
+  %7 = load ptr, ptr %6, align 8, !tbaa !1854
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -38307,7 +38307,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1859
+  %7 = load ptr, ptr %6, align 8, !tbaa !1857
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -38398,13 +38398,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5clang26CXXRewrittenBinaryOperator17getDecomposedFormEv(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CXXRewrittenBinaryOperator::DecomposedForm") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !1861
+  %5 = load ptr, ptr %4, align 8, !tbaa !1859
   %6 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %5, ptr noundef null)
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !1864
+  %9 = load ptr, ptr %8, align 8, !tbaa !1862
   %10 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %9, ptr noundef null)
   br label %.critedge
 
@@ -38428,7 +38428,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !1865
+  %10 = load ptr, ptr %9, align 8, !tbaa !1863
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
 
@@ -38771,7 +38771,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !1873
+  %7 = load ptr, ptr %6, align 8, !tbaa !1871
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -39041,7 +39041,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit: ; preds
 _ZNK5clang27CXXDependentScopeMemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %18 = load i32, ptr %17, align 4, !tbaa !1815
+  %18 = load i32, ptr %17, align 4, !tbaa !1813
   %.not37 = icmp eq i32 %18, 0
   br i1 %.not37, label %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.thread, label %.lr.ph.preheader
 
@@ -39451,7 +39451,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !1875
+  %7 = load ptr, ptr %6, align 8, !tbaa !1873
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -40066,7 +40066,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !1879
+  %7 = load ptr, ptr %6, align 8, !tbaa !1877
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !430
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -40316,7 +40316,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !1812
+  %10 = load ptr, ptr %9, align 8, !tbaa !1810
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10, ptr noundef %2)
   br i1 %11, label %.critedge, label %41
 
@@ -41542,7 +41542,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 10:                                               ; preds = %8, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %12 = load i32, ptr %11, align 4, !tbaa !1881
+  %12 = load i32, ptr %11, align 4, !tbaa !1879
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.idx = shl nuw nsw i64 %13, 3
@@ -41564,7 +41564,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .critedge:                                        ; preds = %17, %10
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx59 = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -41579,7 +41579,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph54:                                         ; preds = %.critedge, %23
   %.012.i53 = phi ptr [ %24, %23 ], [ %.sroa.0.0.copyload.i, %.critedge ]
-  %25 = load ptr, ptr %.012.i53, align 8, !tbaa !1889
+  %25 = load ptr, ptr %.012.i53, align 8, !tbaa !1887
   %26 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %25)
   br i1 %26, label %23, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -41666,7 +41666,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -41681,7 +41681,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -41768,7 +41768,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -41783,7 +41783,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -41870,7 +41870,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -41885,7 +41885,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -41972,7 +41972,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -41987,7 +41987,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -42074,7 +42074,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -42089,7 +42089,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -42176,7 +42176,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i, 3
@@ -42191,7 +42191,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i, %3 ]
-  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOpenACCClauseListEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEE.exit
 
@@ -42278,7 +42278,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42293,13 +42293,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -42386,7 +42386,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42401,13 +42401,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -42494,7 +42494,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42509,13 +42509,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -42602,7 +42602,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42617,13 +42617,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -42710,7 +42710,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42725,13 +42725,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -42818,7 +42818,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1888
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !1886
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !45
   %.idx = shl nuw nsw i64 %.sroa.2.0.copyload.i.i, 3
@@ -42833,13 +42833,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 .lr.ph:                                           ; preds = %3, %8
   %.012.i.i27 = phi ptr [ %9, %8 ], [ %.sroa.0.0.copyload.i.i, %3 ]
-  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1889
+  %10 = load ptr, ptr %.012.i.i27, align 8, !tbaa !1887
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10)
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit: ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !1891
+  %13 = load ptr, ptr %12, align 8, !tbaa !1889
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE38TraverseOpenACCAssociatedStmtConstructEPNS_30OpenACCAssociatedStmtConstructE.exit.thread
 
@@ -43501,7 +43501,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -43608,7 +43608,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -43715,7 +43715,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -43822,7 +43822,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -43929,7 +43929,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44036,7 +44036,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44143,7 +44143,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44250,7 +44250,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44357,7 +44357,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44464,7 +44464,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44571,7 +44571,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44678,7 +44678,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44785,7 +44785,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44892,7 +44892,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -44999,7 +44999,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45106,7 +45106,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45213,7 +45213,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45320,7 +45320,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45427,7 +45427,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45534,7 +45534,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45641,7 +45641,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45748,7 +45748,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45855,7 +45855,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -45962,7 +45962,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46069,7 +46069,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46176,7 +46176,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46283,7 +46283,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46390,7 +46390,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46497,7 +46497,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46604,7 +46604,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46711,7 +46711,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46818,7 +46818,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -46925,7 +46925,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47032,7 +47032,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47139,7 +47139,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47246,7 +47246,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47353,7 +47353,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47460,7 +47460,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47567,7 +47567,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47674,7 +47674,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47781,7 +47781,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47888,7 +47888,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -47995,7 +47995,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48102,7 +48102,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48209,7 +48209,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48316,7 +48316,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48423,7 +48423,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48530,7 +48530,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48637,7 +48637,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48744,7 +48744,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48851,7 +48851,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -48958,7 +48958,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49065,7 +49065,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49172,7 +49172,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49279,7 +49279,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49386,7 +49386,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49493,7 +49493,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49600,7 +49600,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49707,7 +49707,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49814,7 +49814,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -49921,7 +49921,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50028,7 +50028,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50135,7 +50135,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50242,7 +50242,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50349,7 +50349,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50456,7 +50456,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50563,7 +50563,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50670,7 +50670,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50777,7 +50777,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50889,7 +50889,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !1893
+  %10 = load ptr, ptr %9, align 8, !tbaa !1891
   %.not.i21 = icmp eq ptr %10, null
   br i1 %.not.i21, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -50996,7 +50996,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -51103,7 +51103,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -51210,7 +51210,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -51317,7 +51317,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -51424,7 +51424,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !1893
+  %7 = load ptr, ptr %6, align 8, !tbaa !1891
   %.not.i20 = icmp eq ptr %7, null
   br i1 %.not.i20, label %._crit_edge, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit
 
@@ -51879,7 +51879,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit90: ; preds =
 46:                                               ; preds = %2
   %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm24EnableSingleByteCoverageE, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
   %48 = trunc nuw i8 %47 to i1
-  %49 = load i16, ptr %1, align 8, !noalias !1896
+  %49 = load i16, ptr %1, align 8, !noalias !1894
   %50 = and i16 %49, 3072
   %spec.select.i.i = icmp eq i16 %50, 1024
   br i1 %spec.select.i.i, label %51, label %._crit_edge.i
@@ -51970,12 +51970,12 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
   %81 = load i64, ptr %.sroa.4105.0..sroa_idx, align 8
   %82 = icmp ne i64 %81, 0
   %.not3.i.us = select i1 %80, i1 true, i1 %82
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1899
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %_ZN5clang6IfStmt8childrenEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1)
-  %83 = load i16, ptr %1, align 8, !noalias !1900
+  %83 = load i16, ptr %1, align 8, !noalias !1897
   %84 = and i16 %83, 3072
   %spec.select.i.i27 = icmp eq i16 %84, 1024
   br i1 %spec.select.i.i27, label %85, label %._crit_edge.i28
@@ -52462,7 +52462,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
   %33 = load i64, ptr %.sroa.430.0..sroa_idx, align 8
   %34 = icmp ne i64 %33, 0
   %.not3.i.us = select i1 %32, i1 true, i1 %34
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1903
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -52742,7 +52742,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
   %30 = load i64, ptr %.sroa.425.0..sroa_idx, align 8
   %31 = icmp ne i64 %30, 0
   %.not3.i.us = select i1 %29, i1 true, i1 %31
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1904
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -52945,7 +52945,7 @@ _ZN12_GLOBAL__N_17PGOHash7combineENS0_8HashTypeE.exit: ; preds = %101, %106
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16TraverseDeclStmtEPNS_8DeclStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !1905
+  %4 = load ptr, ptr %3, align 8, !tbaa !1900
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
@@ -52962,7 +52962,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %13 = and i64 %5, -2
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i32, ptr %14, align 8, !tbaa !1907
+  %16 = load i32, ptr %14, align 8, !tbaa !1902
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
   br label %_ZN5clang8DeclStmt5declsEv.exit
@@ -53331,7 +53331,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us: ; preds 
   %27 = load i64, ptr %.sroa.416.0..sroa_idx, align 8
   %28 = icmp ne i64 %27, 0
   %.not3.i.us = select i1 %26, i1 true, i1 %28
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !1909
+  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit.us, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -53476,7 +53476,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters20TraverseCXXCa
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1910
+  %7 = load ptr, ptr %6, align 8, !tbaa !1904
   %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %7)
   br i1 %8, label %9, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20TraverseCXXCatchStmtEPNS_12CXXCatchStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE.exit
 
@@ -53751,13 +53751,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %5 = alloca %"struct.clang::StmtIterator", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !1911
+  %7 = load ptr, ptr %6, align 8, !tbaa !1905
   %8 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %7, ptr noundef %2)
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !1917
+  %11 = load i32, ptr %10, align 4, !tbaa !1911
   %.not63.not = icmp eq i32 %11, 0
   br i1 %.not63.not, label %.critedge, label %.lr.ph
 
@@ -53769,22 +53769,22 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 14:                                               ; preds = %16
   %15 = add nuw i32 %.05064, 1
   %exitcond.not = icmp eq i32 %15, %11
-  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !1918
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !1912
 
 16:                                               ; preds = %.lr.ph, %14
   %.05064 = phi i32 [ 0, %.lr.ph ], [ %15, %14 ]
-  %17 = load ptr, ptr %12, align 8, !tbaa !1919
-  %18 = load i32, ptr %13, align 8, !tbaa !1920
+  %17 = load ptr, ptr %12, align 8, !tbaa !1913
+  %18 = load i32, ptr %13, align 8, !tbaa !1914
   %19 = add i32 %18, %.05064
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !1921
+  %22 = load ptr, ptr %21, align 8, !tbaa !1915
   %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef %2)
   br i1 %23, label %14, label %.loopexit
 
 .critedge:                                        ; preds = %14, %9
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !1920
+  %25 = load i32, ptr %24, align 8, !tbaa !1914
   %.not5365.not = icmp eq i32 %25, 0
   br i1 %.not5365.not, label %.critedge56, label %.lr.ph67
 
@@ -53796,19 +53796,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 27:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond76.not, label %.critedge56, label %28, !llvm.loop !1922
+  br i1 %exitcond76.not, label %.critedge56, label %28, !llvm.loop !1916
 
 28:                                               ; preds = %.lr.ph67, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %27 ]
-  %29 = load ptr, ptr %26, align 8, !tbaa !1919
+  %29 = load ptr, ptr %26, align 8, !tbaa !1913
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !1921
+  %31 = load ptr, ptr %30, align 8, !tbaa !1915
   %32 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %31, ptr noundef %2)
   br i1 %32, label %27, label %.loopexit
 
 .critedge56:                                      ; preds = %27, %.critedge
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load i32, ptr %33, align 8, !tbaa !1923
+  %34 = load i32, ptr %33, align 8, !tbaa !1917
   %.not5468.not = icmp eq i32 %34, 0
   br i1 %.not5468.not, label %.critedge58, label %.lr.ph70
 
@@ -53820,13 +53820,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 36:                                               ; preds = %37
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.critedge58, label %37, !llvm.loop !1924
+  br i1 %exitcond81.not, label %.critedge58, label %37, !llvm.loop !1918
 
 37:                                               ; preds = %.lr.ph70, %36
   %indvars.iv77 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next78, %36 ]
-  %38 = load ptr, ptr %35, align 8, !tbaa !1925
+  %38 = load ptr, ptr %35, align 8, !tbaa !1919
   %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv77
-  %40 = load ptr, ptr %39, align 8, !tbaa !1921
+  %40 = load ptr, ptr %39, align 8, !tbaa !1915
   %41 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef %2)
   br i1 %41, label %36, label %.loopexit
 
@@ -54292,9 +54292,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 5:                                                ; preds = %3
   tail call fastcc void @_ZN12_GLOBAL__N_117MapRegionCounters9VisitStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !1926, !noalias !1930
+  %7 = load ptr, ptr %6, align 8, !tbaa !1920, !noalias !1924
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !1935, !noalias !1930
+  %9 = load ptr, ptr %8, align 8, !tbaa !1929, !noalias !1924
   %10 = icmp eq ptr %7, %9
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -54372,12 +54372,12 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang9EmbedExpr16ChildElementIterILb0EEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !1846
+  %4 = load ptr, ptr %0, align 8, !tbaa !1844
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !1936
+  %6 = load ptr, ptr %5, align 8, !tbaa !1930
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !1937
-  %9 = load ptr, ptr %8, align 8, !tbaa !1938
+  %8 = load ptr, ptr %7, align 8, !tbaa !1931
+  %9 = load ptr, ptr %8, align 8, !tbaa !1932
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !430
@@ -54385,13 +54385,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %14 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !1940
+  %17 = load ptr, ptr %16, align 8, !tbaa !1934
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1941)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1944)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1935)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1938)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !1947, !noalias !1948
+  %19 = load i32, ptr %18, align 8, !tbaa !1941, !noalias !1942
   %20 = icmp ugt i32 %19, 64
   br i1 %20, label %21, label %27
 
@@ -54400,24 +54400,24 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %23 = add nuw nsw i64 %22, 63
   %24 = lshr i64 %23, 6
   %25 = trunc nuw nsw i64 %24 to i32
-  %26 = load ptr, ptr %15, align 8, !tbaa !430, !noalias !1948
+  %26 = load ptr, ptr %15, align 8, !tbaa !430, !noalias !1942
   call void @_ZN4llvm5APIntC1EjjPKm(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %19, i32 noundef %25, ptr noundef %26) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !1120
   br label %_ZNK5clang12APIntStorage8getValueEv.exit
 
 27:                                               ; preds = %1
-  %28 = load i64, ptr %15, align 8, !tbaa !430, !noalias !1948
+  %28 = load i64, ptr %15, align 8, !tbaa !430, !noalias !1942
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %19, ptr %29, align 8, !tbaa !1120, !alias.scope !1948
-  store i64 %28, ptr %3, align 8, !tbaa !430, !alias.scope !1948
+  store i32 %19, ptr %29, align 8, !tbaa !1120, !alias.scope !1942
+  store i64 %28, ptr %3, align 8, !tbaa !430, !alias.scope !1942
   br label %_ZNK5clang12APIntStorage8getValueEv.exit
 
 _ZNK5clang12APIntStorage8getValueEv.exit:         ; preds = %21, %27
   %30 = phi i32 [ %.pre, %21 ], [ %19, %27 ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !1842
+  %33 = load i64, ptr %32, align 8, !tbaa !1840
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !430
   %36 = sext i8 %35 to i64
@@ -54484,7 +54484,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejm
 _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %61, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %65 = load ptr, ptr %0, align 8, !tbaa !1846
+  %65 = load ptr, ptr %0, align 8, !tbaa !1844
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   ret ptr %66
 }
@@ -54504,15 +54504,15 @@ declare noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction23isInstrumentedCo
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOpenACCClauseEPKNS_13OpenACCClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::iterator_range.1678", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1949
-  call void @_ZN5clang13OpenACCClause8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1678") align 8 %3, ptr noundef nonnull align 8 dereferenceable(20) %1) #22, !noalias !1949
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1943
+  call void @_ZN5clang13OpenACCClause8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1678") align 8 %3, ptr noundef nonnull align 8 dereferenceable(20) %1) #22, !noalias !1943
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.410.24.copyload = load ptr, ptr %5, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1949
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1943
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %4, align 8, !tbaa !430
   %8 = icmp eq ptr %7, %.sroa.410.24.copyload
@@ -54585,7 +54585,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 4, !tbaa !1952
+  %5 = load i32, ptr %4, align 4, !tbaa !1946
   switch i32 %5, label %148 [
     i32 96, label %134
     i32 95, label %132
@@ -54653,7 +54653,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !1955
+  %10 = load ptr, ptr %9, align 8, !tbaa !1949
   %11 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %10, ptr noundef null)
   br i1 %11, label %148, label %149
 
@@ -54667,13 +54667,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !1957
+  %18 = load ptr, ptr %17, align 8, !tbaa !1951
   %19 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %18, ptr noundef null)
   br i1 %19, label %148, label %149
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !1959
+  %22 = load ptr, ptr %21, align 8, !tbaa !1953
   %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef null)
   br i1 %23, label %148, label %149
 
@@ -54691,19 +54691,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !1961
+  %32 = load ptr, ptr %31, align 8, !tbaa !1955
   %33 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %32, ptr noundef null)
   br i1 %33, label %148, label %149
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !1963
+  %36 = load ptr, ptr %35, align 8, !tbaa !1957
   %37 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %36, ptr noundef null)
   br i1 %37, label %148, label %149
 
 38:                                               ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !1965
+  %40 = load ptr, ptr %39, align 8, !tbaa !1959
   %41 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef null)
   br i1 %41, label %148, label %149
 
@@ -54753,7 +54753,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 64:                                               ; preds = %3
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !1967
+  %66 = load ptr, ptr %65, align 8, !tbaa !1961
   %67 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %66, ptr noundef null)
   br i1 %67, label %148, label %149
 
@@ -54791,7 +54791,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 84:                                               ; preds = %3
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !1969
+  %86 = load ptr, ptr %85, align 8, !tbaa !1963
   %87 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %86, ptr noundef null)
   br i1 %87, label %148, label %149
 
@@ -54825,13 +54825,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 102:                                              ; preds = %3
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !1971
+  %104 = load ptr, ptr %103, align 8, !tbaa !1965
   %105 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %104, ptr noundef null)
   br i1 %105, label %148, label %149
 
 106:                                              ; preds = %3
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !1973
+  %108 = load ptr, ptr %107, align 8, !tbaa !1967
   %109 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %108, ptr noundef null)
   br i1 %109, label %148, label %149
 
@@ -54853,7 +54853,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 118:                                              ; preds = %3
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !1975
+  %120 = load ptr, ptr %119, align 8, !tbaa !1969
   %121 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %120, ptr noundef null)
   br i1 %121, label %148, label %149
 
@@ -54867,7 +54867,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 126:                                              ; preds = %3
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !1977
+  %128 = load ptr, ptr %127, align 8, !tbaa !1971
   %129 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %128, ptr noundef null)
   br i1 %129, label %148, label %149
 
@@ -54889,7 +54889,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 138:                                              ; preds = %3
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %140 = load ptr, ptr %139, align 8, !tbaa !1979
+  %140 = load ptr, ptr %139, align 8, !tbaa !1973
   %141 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %140, ptr noundef null)
   br i1 %141, label %148, label %149
 
@@ -54917,7 +54917,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPAffinityClauseEPNS_17OMPAffinityClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !1981
+  %5 = load i32, ptr %4, align 4, !tbaa !1975
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !933
@@ -54925,7 +54925,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4, !tbaa !1981
+  %11 = load i32, ptr %4, align 4, !tbaa !1975
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -54950,7 +54950,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE21VisitOMPAlignedClauseEPNS_16OMPAlignedClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !1983
+  %5 = load i32, ptr %4, align 4, !tbaa !1977
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !933
@@ -54958,7 +54958,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %9, label %10, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_16OMPAlignedClauseEEEbPT_.exit
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4, !tbaa !1983
+  %11 = load i32, ptr %4, align 4, !tbaa !1977
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -54982,14 +54982,14 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPAllocateClauseEPNS_17OMPAllocateClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1985
+  %4 = load ptr, ptr %3, align 8, !tbaa !1979
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_17OMPAllocateClauseEEEbPT_.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 4, !tbaa !1989
+  %9 = load i32, ptr %8, align 4, !tbaa !1983
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
@@ -55014,7 +55014,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25VisitOMPCopyprivateClauseEPNS_20OMPCopyprivateClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !1990
+  %5 = load i32, ptr %4, align 4, !tbaa !1984
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55033,7 +55033,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 ._crit_edge:                                      ; preds = %8
-  %.pre = load i32, ptr %4, align 4, !tbaa !1990
+  %.pre = load i32, ptr %4, align 4, !tbaa !1984
   %12 = zext i32 %.pre to i64
   %.idx93 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx93
@@ -55053,7 +55053,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %18, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 ._crit_edge80:                                    ; preds = %15
-  %.pre99 = load i32, ptr %4, align 4, !tbaa !1990
+  %.pre99 = load i32, ptr %4, align 4, !tbaa !1984
   %19 = zext i32 %.pre99 to i64
   %.idx94 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx94
@@ -55074,7 +55074,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %26, label %23, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit
 
 ._crit_edge85:                                    ; preds = %23
-  %.pre100 = load i32, ptr %4, align 4, !tbaa !1990
+  %.pre100 = load i32, ptr %4, align 4, !tbaa !1984
   %27 = zext i32 %.pre100 to i64
   %.idx95 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx95
@@ -55102,7 +55102,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20VisitOMPCopyinClauseEPNS_15OMPCopyinClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !1992
+  %5 = load i32, ptr %4, align 4, !tbaa !1986
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55121,7 +55121,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 ._crit_edge:                                      ; preds = %8
-  %.pre = load i32, ptr %4, align 4, !tbaa !1992
+  %.pre = load i32, ptr %4, align 4, !tbaa !1986
   %12 = zext i32 %.pre to i64
   %.idx93 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx93
@@ -55141,7 +55141,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %18, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 ._crit_edge80:                                    ; preds = %15
-  %.pre99 = load i32, ptr %4, align 4, !tbaa !1992
+  %.pre99 = load i32, ptr %4, align 4, !tbaa !1986
   %19 = zext i32 %.pre99 to i64
   %.idx94 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx94
@@ -55162,7 +55162,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %26, label %23, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit
 
 ._crit_edge85:                                    ; preds = %23
-  %.pre100 = load i32, ptr %4, align 4, !tbaa !1992
+  %.pre100 = load i32, ptr %4, align 4, !tbaa !1986
   %27 = zext i32 %.pre100 to i64
   %.idx95 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx95
@@ -55189,13 +55189,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20VisitOMPDeviceClauseEPNS_15OMPDeviceClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !1996
+  %8 = load ptr, ptr %7, align 8, !tbaa !1990
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55207,13 +55207,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26VisitOMPDistScheduleClauseEPNS_21OMPDistScheduleClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !1999
+  %8 = load ptr, ptr %7, align 8, !tbaa !1993
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55225,13 +55225,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20VisitOMPFilterClauseEPNS_15OMPFilterClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2002
+  %8 = load ptr, ptr %7, align 8, !tbaa !1996
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55243,13 +55243,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE19VisitOMPFinalClauseEPNS_14OMPFinalClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2004
+  %8 = load ptr, ptr %7, align 8, !tbaa !1998
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55262,7 +55262,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26VisitOMPFirstprivateClauseEPNS_21OMPFirstprivateClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2006
+  %5 = load i32, ptr %4, align 4, !tbaa !2000
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55282,12 +55282,12 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !1994
+  %13 = load ptr, ptr %12, align 8, !tbaa !1988
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %15, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit
 
 15:                                               ; preds = %._crit_edge
-  %16 = load i32, ptr %4, align 4, !tbaa !2006
+  %16 = load i32, ptr %4, align 4, !tbaa !2000
   %17 = zext i32 %16 to i64
   %.idx63 = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx63
@@ -55307,7 +55307,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %23, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit
 
 ._crit_edge55:                                    ; preds = %20
-  %.pre = load i32, ptr %4, align 4, !tbaa !2006
+  %.pre = load i32, ptr %4, align 4, !tbaa !2000
   %24 = zext i32 %.pre to i64
   %.idx64 = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx64
@@ -55333,13 +55333,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE23VisitOMPGrainsizeClauseEPNS_18OMPGrainsizeClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !2008
+  %8 = load ptr, ptr %7, align 8, !tbaa !2002
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55351,13 +55351,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16VisitOMPIfClauseEPNS_11OMPIfClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !2011
+  %8 = load ptr, ptr %7, align 8, !tbaa !2005
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55383,7 +55383,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !2013
+  %11 = load i32, ptr %10, align 4, !tbaa !2007
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
@@ -55403,18 +55403,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %14, %8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1994
+  %19 = load ptr, ptr %18, align 8, !tbaa !1988
   %20 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19, ptr noundef null)
   br i1 %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit: ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !2015
+  %22 = load ptr, ptr %21, align 8, !tbaa !2009
   %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef null)
   br i1 %23, label %24, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 24:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %25 = load i32, ptr %10, align 4, !tbaa !2013
+  %25 = load i32, ptr %10, align 4, !tbaa !2007
   %26 = zext i32 %25 to i64
   %.idx161 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx161
@@ -55434,7 +55434,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %32, label %29, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge138:                                   ; preds = %29
-  %.pre = load i32, ptr %10, align 4, !tbaa !2013
+  %.pre = load i32, ptr %10, align 4, !tbaa !2007
   %33 = zext i32 %.pre to i64
   %.idx162 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx162
@@ -55455,7 +55455,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %40, label %37, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge143:                                   ; preds = %37
-  %.pre171 = load i32, ptr %10, align 4, !tbaa !2013
+  %.pre171 = load i32, ptr %10, align 4, !tbaa !2007
   %41 = zext i32 %.pre171 to i64
   %.idx163 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx163
@@ -55477,7 +55477,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %49, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge148:                                   ; preds = %46
-  %.pre172 = load i32, ptr %10, align 4, !tbaa !2013
+  %.pre172 = load i32, ptr %10, align 4, !tbaa !2007
   %50 = zext i32 %.pre172 to i64
   %.idx164 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx164
@@ -55500,7 +55500,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %59, label %56, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge153:                                   ; preds = %56
-  %.pre173 = load i32, ptr %10, align 4, !tbaa !2013
+  %.pre173 = load i32, ptr %10, align 4, !tbaa !2007
   %60 = zext i32 %.pre173 to i64
   %.idx165 = shl nuw nsw i64 %60, 3
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx165
@@ -55530,7 +55530,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25VisitOMPLastprivateClauseEPNS_20OMPLastprivateClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2017
+  %5 = load i32, ptr %4, align 4, !tbaa !2011
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55550,18 +55550,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !1994
+  %13 = load ptr, ptr %12, align 8, !tbaa !1988
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br i1 %14, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit: ; preds = %._crit_edge
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !2015
+  %16 = load ptr, ptr %15, align 8, !tbaa !2009
   %17 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %16, ptr noundef null)
   br i1 %17, label %18, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 18:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %19 = load i32, ptr %4, align 4, !tbaa !2017
+  %19 = load i32, ptr %4, align 4, !tbaa !2011
   %20 = zext i32 %19 to i64
   %.idx126 = shl nuw nsw i64 %20, 3
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx126
@@ -55581,7 +55581,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %26, label %23, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge108:                                   ; preds = %23
-  %.pre = load i32, ptr %4, align 4, !tbaa !2017
+  %.pre = load i32, ptr %4, align 4, !tbaa !2011
   %27 = zext i32 %.pre to i64
   %.idx127 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx127
@@ -55602,7 +55602,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %34, label %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge113:                                   ; preds = %31
-  %.pre134 = load i32, ptr %4, align 4, !tbaa !2017
+  %.pre134 = load i32, ptr %4, align 4, !tbaa !2011
   %35 = zext i32 %.pre134 to i64
   %.idx128 = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx128
@@ -55624,7 +55624,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %43, label %40, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge118:                                   ; preds = %40
-  %.pre135 = load i32, ptr %4, align 4, !tbaa !2017
+  %.pre135 = load i32, ptr %4, align 4, !tbaa !2011
   %44 = zext i32 %.pre135 to i64
   %.idx129 = shl nuw nsw i64 %44, 3
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx129
@@ -55653,7 +55653,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20VisitOMPLinearClauseEPNS_15OMPLinearClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2019
+  %5 = load i32, ptr %4, align 4, !tbaa !2013
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
@@ -55665,7 +55665,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %13, label %14, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 14:                                               ; preds = %2
-  %15 = load i32, ptr %4, align 4, !tbaa !2019
+  %15 = load i32, ptr %4, align 4, !tbaa !2013
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %16
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
@@ -55678,7 +55678,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %24, label %25, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 25:                                               ; preds = %14
-  %26 = load i32, ptr %4, align 4, !tbaa !2019
+  %26 = load i32, ptr %4, align 4, !tbaa !2013
   %27 = zext i32 %26 to i64
   %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55698,18 +55698,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %29, %25
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !1994
+  %34 = load ptr, ptr %33, align 8, !tbaa !1988
   %35 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %34, ptr noundef null)
   br i1 %35, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit: ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !2015
+  %37 = load ptr, ptr %36, align 8, !tbaa !2009
   %38 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %37, ptr noundef null)
   br i1 %38, label %39, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 39:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %40 = load i32, ptr %4, align 4, !tbaa !2019
+  %40 = load i32, ptr %4, align 4, !tbaa !2013
   %41 = zext i32 %40 to i64
   %.idx128 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx128
@@ -55729,7 +55729,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %47, label %44, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge110:                                   ; preds = %44
-  %.pre = load i32, ptr %4, align 4, !tbaa !2019
+  %.pre = load i32, ptr %4, align 4, !tbaa !2013
   %48 = zext i32 %.pre to i64
   %.idx129 = shl nuw nsw i64 %48, 3
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx129
@@ -55750,7 +55750,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %55, label %52, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge115:                                   ; preds = %52
-  %.pre136 = load i32, ptr %4, align 4, !tbaa !2019
+  %.pre136 = load i32, ptr %4, align 4, !tbaa !2013
   %56 = zext i32 %.pre136 to i64
   %.idx130 = shl nuw nsw i64 %56, 3
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx130
@@ -55772,7 +55772,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %64, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge120:                                   ; preds = %61
-  %.pre137 = load i32, ptr %4, align 4, !tbaa !2019
+  %.pre137 = load i32, ptr %4, align 4, !tbaa !2013
   %65 = zext i32 %.pre137 to i64
   %.idx131 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx131
@@ -55800,13 +55800,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE23VisitOMPNocontextClauseEPNS_18OMPNocontextClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2021
+  %8 = load ptr, ptr %7, align 8, !tbaa !2015
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55820,7 +55820,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %3 = alloca %"struct.clang::StmtIterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 4, !tbaa !2023
+  %6 = load i32, ptr %5, align 4, !tbaa !2017
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -55843,7 +55843,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %12, label %9, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPNontemporalClauseEEEbPT_.exit
 
 ._crit_edge:                                      ; preds = %9
-  %.pre = load i32, ptr %5, align 4, !tbaa !2023, !noalias !2025
+  %.pre = load i32, ptr %5, align 4, !tbaa !2017, !noalias !2019
   %13 = zext i32 %.pre to i64
   %.idx29 = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx29
@@ -55917,13 +55917,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE24VisitOMPNovariantsClauseEPNS_19OMPNovariantsClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2028
+  %8 = load ptr, ptr %7, align 8, !tbaa !2022
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55935,13 +55935,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPNumTasksClauseEPNS_17OMPNumTasksClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !2030
+  %8 = load ptr, ptr %7, align 8, !tbaa !2024
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -55954,7 +55954,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPNumTeamsClauseEPNS_17OMPNumTeamsClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2033
+  %5 = load i32, ptr %4, align 4, !tbaa !2027
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -55974,7 +55974,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !1994
+  %13 = load ptr, ptr %12, align 8, !tbaa !1988
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_17OMPNumTeamsClauseEEEbPT_.exit
 
@@ -55986,13 +55986,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE24VisitOMPNumThreadsClauseEPNS_19OMPNumThreadsClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2035
+  %8 = load ptr, ptr %7, align 8, !tbaa !2029
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -56004,13 +56004,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27VisitOMPXDynCGroupMemClauseEPNS_22OMPXDynCGroupMemClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !2037
+  %8 = load ptr, ptr %7, align 8, !tbaa !2031
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -56023,7 +56023,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25VisitOMPPermutationClauseEPNS_20OMPPermutationClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !2039
+  %5 = load i32, ptr %4, align 8, !tbaa !2033
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56047,13 +56047,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPPriorityClauseEPNS_17OMPPriorityClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !2041
+  %8 = load ptr, ptr %7, align 8, !tbaa !2035
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -56066,7 +56066,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE21VisitOMPPrivateClauseEPNS_16OMPPrivateClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2043
+  %5 = load i32, ptr %4, align 4, !tbaa !2037
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56085,7 +56085,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %11, label %8, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit
 
 ._crit_edge:                                      ; preds = %8
-  %.pre = load i32, ptr %4, align 4, !tbaa !2043
+  %.pre = load i32, ptr %4, align 4, !tbaa !2037
   %12 = zext i32 %.pre to i64
   %.idx32 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx32
@@ -56124,7 +56124,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !2045
+  %11 = load i32, ptr %10, align 4, !tbaa !2039
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
@@ -56144,18 +56144,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %14, %8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1994
+  %19 = load ptr, ptr %18, align 8, !tbaa !1988
   %20 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19, ptr noundef null)
   br i1 %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit: ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !2015
+  %22 = load ptr, ptr %21, align 8, !tbaa !2009
   %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef null)
   br i1 %23, label %24, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 24:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %25 = load i32, ptr %10, align 4, !tbaa !2045
+  %25 = load i32, ptr %10, align 4, !tbaa !2039
   %26 = zext i32 %25 to i64
   %.idx227 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx227
@@ -56175,7 +56175,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %32, label %29, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge195:                                   ; preds = %29
-  %.pre = load i32, ptr %10, align 4, !tbaa !2045
+  %.pre = load i32, ptr %10, align 4, !tbaa !2039
   %33 = zext i32 %.pre to i64
   %.idx228 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx228
@@ -56196,7 +56196,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %40, label %37, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge200:                                   ; preds = %37
-  %.pre241 = load i32, ptr %10, align 4, !tbaa !2045
+  %.pre241 = load i32, ptr %10, align 4, !tbaa !2039
   %41 = zext i32 %.pre241 to i64
   %.idx229 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx229
@@ -56218,7 +56218,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %49, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge205:                                   ; preds = %46
-  %.pre242 = load i32, ptr %10, align 4, !tbaa !2045
+  %.pre242 = load i32, ptr %10, align 4, !tbaa !2039
   %50 = zext i32 %.pre242 to i64
   %.idx230 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx230
@@ -56242,12 +56242,12 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 
 ._crit_edge210:                                   ; preds = %56, %24, %._crit_edge195, %._crit_edge200, %._crit_edge205
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %61 = load i32, ptr %60, align 8, !tbaa !2047
+  %61 = load i32, ptr %60, align 8, !tbaa !2041
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %63, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 63:                                               ; preds = %._crit_edge210
-  %64 = load i32, ptr %10, align 4, !tbaa !2045
+  %64 = load i32, ptr %10, align 4, !tbaa !2039
   %65 = zext i32 %64 to i64
   %.idx231 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx231
@@ -56271,7 +56271,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %75, label %72, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge215:                                   ; preds = %72
-  %.pre243 = load i32, ptr %10, align 4, !tbaa !2045
+  %.pre243 = load i32, ptr %10, align 4, !tbaa !2039
   %76 = zext i32 %.pre243 to i64
   %.idx232 = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx232
@@ -56296,7 +56296,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %87, label %84, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge220:                                   ; preds = %84
-  %.pre244 = load i32, ptr %10, align 4, !tbaa !2045
+  %.pre244 = load i32, ptr %10, align 4, !tbaa !2039
   %88 = zext i32 %.pre244 to i64
   %.idx233 = shl nuw nsw i64 %88, 3
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx233
@@ -56327,13 +56327,13 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE22VisitOMPScheduleClauseEPNS_17OMPScheduleClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !1994
+  %4 = load ptr, ptr %3, align 8, !tbaa !1988
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !2050
+  %8 = load ptr, ptr %7, align 8, !tbaa !2044
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -56346,7 +56346,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE19VisitOMPSizesClauseEPNS_14OMPSizesClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !2053
+  %5 = load i32, ptr %4, align 8, !tbaa !2047
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56384,7 +56384,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !2055
+  %11 = load i32, ptr %10, align 4, !tbaa !2049
   %12 = zext i32 %11 to i64
   %.idx = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
@@ -56404,18 +56404,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %14, %8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !1994
+  %19 = load ptr, ptr %18, align 8, !tbaa !1988
   %20 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19, ptr noundef null)
   br i1 %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit: ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !2015
+  %22 = load ptr, ptr %21, align 8, !tbaa !2009
   %23 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef null)
   br i1 %23, label %24, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 24:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit
-  %25 = load i32, ptr %10, align 4, !tbaa !2055
+  %25 = load i32, ptr %10, align 4, !tbaa !2049
   %26 = zext i32 %25 to i64
   %.idx130 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx130
@@ -56435,7 +56435,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %32, label %29, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge112:                                   ; preds = %29
-  %.pre = load i32, ptr %10, align 4, !tbaa !2055
+  %.pre = load i32, ptr %10, align 4, !tbaa !2049
   %33 = zext i32 %.pre to i64
   %.idx131 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx131
@@ -56456,7 +56456,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %40, label %37, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge117:                                   ; preds = %37
-  %.pre138 = load i32, ptr %10, align 4, !tbaa !2055
+  %.pre138 = load i32, ptr %10, align 4, !tbaa !2049
   %41 = zext i32 %.pre138 to i64
   %.idx132 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx132
@@ -56478,7 +56478,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
   br i1 %49, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPClauseWithPostUpdateEPNS_23OMPClauseWithPostUpdateE.exit.thread
 
 ._crit_edge122:                                   ; preds = %46
-  %.pre139 = load i32, ptr %10, align 4, !tbaa !2055
+  %.pre139 = load i32, ptr %10, align 4, !tbaa !2049
   %50 = zext i32 %.pre139 to i64
   %.idx133 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx133
@@ -56507,7 +56507,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25VisitOMPThreadLimitClauseEPNS_20OMPThreadLimitClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2057
+  %5 = load i32, ptr %4, align 4, !tbaa !2051
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56527,7 +56527,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %8, %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !1994
+  %13 = load ptr, ptr %12, align 8, !tbaa !1988
   %14 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %13, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPThreadLimitClauseEEEbPT_.exit
 
@@ -56540,7 +56540,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPCla
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28VisitOMPUsesAllocatorsClauseEPNS_23OMPUsesAllocatorsClauseE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::OMPUsesAllocatorsClause::Data", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !2059
+  %5 = load i32, ptr %4, align 8, !tbaa !2053
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %.lr.ph
 
@@ -56552,18 +56552,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %.01113 = phi i32 [ 0, %.lr.ph ], [ %14, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5clang23OMPUsesAllocatorsClause16getAllocatorDataEj(ptr dead_on_unwind nonnull writable sret(%"struct.clang::OMPUsesAllocatorsClause::Data") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.01113) #22
-  %9 = load ptr, ptr %3, align 8, !tbaa !2061
+  %9 = load ptr, ptr %3, align 8, !tbaa !2055
   %10 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %9, ptr noundef null)
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %7, align 8, !tbaa !2063
+  %12 = load ptr, ptr %7, align 8, !tbaa !2057
   %13 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %12, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = add nuw i32 %.01113, 1
   %exitcond.not = icmp ne i32 %14, %5
   %or.cond.not = select i1 %13, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %8, label %.loopexit, !llvm.loop !2064
+  br i1 %or.cond.not, label %8, label %.loopexit, !llvm.loop !2058
 
 .critedge:                                        ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -56578,7 +56578,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_15OMPDependClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2065
+  %5 = load i32, ptr %4, align 4, !tbaa !2059
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56603,7 +56603,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_17OMPDoacrossClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2067
+  %5 = load i32, ptr %4, align 4, !tbaa !2061
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56628,7 +56628,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_18OMPExclusiveClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2069
+  %5 = load i32, ptr %4, align 4, !tbaa !2063
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56653,7 +56653,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_14OMPFlushClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2071
+  %5 = load i32, ptr %4, align 4, !tbaa !2065
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56678,7 +56678,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_13OMPFromClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2073
+  %5 = load i32, ptr %4, align 4, !tbaa !2067
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56703,7 +56703,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_22OMPHasDeviceAddrClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2075
+  %5 = load i32, ptr %4, align 4, !tbaa !2069
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56728,7 +56728,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_18OMPInclusiveClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2077
+  %5 = load i32, ptr %4, align 4, !tbaa !2071
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56753,7 +56753,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_13OMPInitClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2079
+  %5 = load i32, ptr %4, align 4, !tbaa !2073
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56778,7 +56778,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_20OMPIsDevicePtrClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2081
+  %5 = load i32, ptr %4, align 4, !tbaa !2075
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56803,7 +56803,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_12OMPMapClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2083
+  %5 = load i32, ptr %4, align 4, !tbaa !2077
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56828,7 +56828,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_15OMPSharedClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2085
+  %5 = load i32, ptr %4, align 4, !tbaa !2079
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56853,7 +56853,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_11OMPToClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2087
+  %5 = load i32, ptr %4, align 4, !tbaa !2081
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56878,7 +56878,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_22OMPUseDeviceAddrClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2089
+  %5 = load i32, ptr %4, align 4, !tbaa !2083
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -56903,7 +56903,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18VisitOMPClauseListINS_21OMPUseDevicePtrClauseEEEbPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4, !tbaa !2091
+  %5 = load i32, ptr %4, align 4, !tbaa !2085
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -57395,7 +57395,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !2093
+  %20 = load ptr, ptr %19, align 8, !tbaa !2087
   %21 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %20, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57433,37 +57433,37 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 38:                                               ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !2097
+  %40 = load ptr, ptr %39, align 8, !tbaa !2091
   %41 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !2100
+  %44 = load ptr, ptr %43, align 8, !tbaa !2094
   %45 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %44, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 46:                                               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !2102
+  %48 = load ptr, ptr %47, align 8, !tbaa !2096
   %49 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %48, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 50:                                               ; preds = %3
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !2105
+  %52 = load ptr, ptr %51, align 8, !tbaa !2099
   %53 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %52, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 54:                                               ; preds = %3
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !2107
+  %56 = load ptr, ptr %55, align 8, !tbaa !2101
   %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %56, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !2110
+  %60 = load ptr, ptr %59, align 8, !tbaa !2104
   %61 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %60, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57473,13 +57473,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 64:                                               ; preds = %3
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !2112
+  %66 = load ptr, ptr %65, align 8, !tbaa !2106
   %67 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %66, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 68:                                               ; preds = %3
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !2114
+  %70 = load ptr, ptr %69, align 8, !tbaa !2108
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %75, label %71
 
@@ -57495,7 +57495,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 76:                                               ; preds = %3
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !2117
+  %78 = load ptr, ptr %77, align 8, !tbaa !2111
   %.not.i435 = icmp eq ptr %78, null
   br i1 %.not.i435, label %83, label %79
 
@@ -57511,7 +57511,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 84:                                               ; preds = %3
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %86 = load ptr, ptr %85, align 8, !tbaa !2119
+  %86 = load ptr, ptr %85, align 8, !tbaa !2113
   %87 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %86, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57521,19 +57521,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 90:                                               ; preds = %3
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %92 = load ptr, ptr %91, align 8, !tbaa !2121
+  %92 = load ptr, ptr %91, align 8, !tbaa !2115
   %93 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %92, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 94:                                               ; preds = %3
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %96 = load ptr, ptr %95, align 8, !tbaa !2125
+  %96 = load ptr, ptr %95, align 8, !tbaa !2119
   %97 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %96, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 98:                                               ; preds = %3
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !2127
+  %100 = load ptr, ptr %99, align 8, !tbaa !2121
   %101 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %100, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57547,7 +57547,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 106:                                              ; preds = %3
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %108 = load ptr, ptr %107, align 8, !tbaa !2129
+  %108 = load ptr, ptr %107, align 8, !tbaa !2123
   %109 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %108, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57557,13 +57557,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 112:                                              ; preds = %3
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %114 = load ptr, ptr %113, align 8, !tbaa !2133
+  %114 = load ptr, ptr %113, align 8, !tbaa !2127
   %115 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %114, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 116:                                              ; preds = %3
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %118 = load ptr, ptr %117, align 8, !tbaa !2135
+  %118 = load ptr, ptr %117, align 8, !tbaa !2129
   %.not.i438 = icmp eq ptr %118, null
   br i1 %.not.i438, label %123, label %119
 
@@ -57579,7 +57579,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 124:                                              ; preds = %3
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !2137
+  %126 = load ptr, ptr %125, align 8, !tbaa !2131
   %.not.i441 = icmp eq ptr %126, null
   br i1 %.not.i441, label %131, label %127
 
@@ -57595,7 +57595,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 132:                                              ; preds = %3
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %134 = load ptr, ptr %133, align 8, !tbaa !2139
+  %134 = load ptr, ptr %133, align 8, !tbaa !2133
   %.not.i444 = icmp eq ptr %134, null
   br i1 %.not.i444, label %139, label %135
 
@@ -57611,7 +57611,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 140:                                              ; preds = %3
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %142 = load ptr, ptr %141, align 8, !tbaa !2141
+  %142 = load ptr, ptr %141, align 8, !tbaa !2135
   %.not.i447 = icmp eq ptr %142, null
   br i1 %.not.i447, label %147, label %143
 
@@ -57627,7 +57627,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 148:                                              ; preds = %3
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %150 = load ptr, ptr %149, align 8, !tbaa !2143
+  %150 = load ptr, ptr %149, align 8, !tbaa !2137
   %151 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %150, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57641,7 +57641,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 156:                                              ; preds = %3
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %158 = load ptr, ptr %157, align 8, !tbaa !2145
+  %158 = load ptr, ptr %157, align 8, !tbaa !2139
   %.not.i450 = icmp eq ptr %158, null
   br i1 %.not.i450, label %163, label %159
 
@@ -57661,13 +57661,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 166:                                              ; preds = %3
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %168 = load ptr, ptr %167, align 8, !tbaa !2147
+  %168 = load ptr, ptr %167, align 8, !tbaa !2141
   %169 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %168, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 170:                                              ; preds = %3
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %172 = load ptr, ptr %171, align 8, !tbaa !2149
+  %172 = load ptr, ptr %171, align 8, !tbaa !2143
   %173 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %172, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
@@ -57677,7 +57677,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 176:                                              ; preds = %3
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %178 = load ptr, ptr %177, align 8, !tbaa !2151
+  %178 = load ptr, ptr %177, align 8, !tbaa !2145
   %.not.i453 = icmp eq ptr %178, null
   br i1 %.not.i453, label %183, label %179
 
@@ -57693,7 +57693,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 184:                                              ; preds = %3
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %186 = load ptr, ptr %185, align 8, !tbaa !2153
+  %186 = load ptr, ptr %185, align 8, !tbaa !2147
   %.not.i456 = icmp eq ptr %186, null
   br i1 %.not.i456, label %191, label %187
 
@@ -57720,13 +57720,13 @@ declare ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE35TraverseAMDGPUFlatWorkGroupSizeAttrEPNS_27AMDGPUFlatWorkGroupSizeAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2155
+  %4 = load ptr, ptr %3, align 8, !tbaa !2149
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2157
+  %8 = load ptr, ptr %7, align 8, !tbaa !2151
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -57738,19 +57738,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseAMDGPUMaxNumWorkGroupsAttrEPNS_26AMDGPUMaxNumWorkGroupsAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2158
+  %4 = load ptr, ptr %3, align 8, !tbaa !2152
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2160
+  %8 = load ptr, ptr %7, align 8, !tbaa !2154
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !2161
+  %12 = load ptr, ptr %11, align 8, !tbaa !2155
   %13 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %12, ptr noundef null)
   br label %14
 
@@ -57762,13 +57762,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28TraverseAMDGPUWavesPerEUAttrEPNS_20AMDGPUWavesPerEUAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2162
+  %4 = load ptr, ptr %3, align 8, !tbaa !2156
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2164
+  %8 = load ptr, ptr %7, align 8, !tbaa !2158
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -57780,9 +57780,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseAcquireCapabilityAttrEPNS_21AcquireCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2165
+  %4 = load ptr, ptr %3, align 8, !tbaa !2159
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2168
+  %6 = load i32, ptr %5, align 4, !tbaa !2162
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -57796,7 +57796,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2169
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2163
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -57806,9 +57806,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25TraverseAcquiredAfterAttrEPNS_17AcquiredAfterAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2170
+  %4 = load ptr, ptr %3, align 8, !tbaa !2164
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2172
+  %6 = load i32, ptr %5, align 4, !tbaa !2166
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -57822,7 +57822,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2173
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2167
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -57832,9 +57832,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseAcquiredBeforeAttrEPNS_18AcquiredBeforeAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2174
+  %4 = load ptr, ptr %3, align 8, !tbaa !2168
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2176
+  %6 = load i32, ptr %5, align 4, !tbaa !2170
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -57848,7 +57848,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2177
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2171
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -57858,7 +57858,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE19TraverseAlignedAttrEPNS_11AlignedAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %4 = load i8, ptr %3, align 1, !tbaa !2178, !range !52, !noundef !53
+  %4 = load i8, ptr %3, align 1, !tbaa !2172, !range !52, !noundef !53
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !430
@@ -57890,9 +57890,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE20TraverseAnnotateAttrEPNS_12AnnotateAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !2184
+  %4 = load ptr, ptr %3, align 8, !tbaa !2178
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !2188
+  %6 = load i32, ptr %5, align 8, !tbaa !2182
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -57902,7 +57902,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %.not.not = icmp eq ptr %10, %8
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2189
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2183
 
 .lr.ph:                                           ; preds = %2, %9
   %.02027 = phi ptr [ %10, %9 ], [ %4, %2 ]
@@ -57912,9 +57912,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %9, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !2190
+  %14 = load ptr, ptr %13, align 8, !tbaa !2184
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !2191
+  %16 = load i32, ptr %15, align 8, !tbaa !2185
   %17 = zext i32 %16 to i64
   %.idx35 = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx35
@@ -57928,7 +57928,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %21 = getelementptr inbounds nuw i8, ptr %.01729, i64 8
   %.not21.not = icmp ne ptr %21, %18
   %or.cond.not = select i1 %20, i1 %.not21.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph32, label %.loopexit, !llvm.loop !2192
+  br i1 %or.cond.not, label %.lr.ph32, label %.loopexit, !llvm.loop !2186
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph32, %._crit_edge
   %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph32 ], [ false, %.lr.ph ]
@@ -57938,9 +57938,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE24TraverseAnnotateTypeAttrEPNS_16AnnotateTypeAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !2193
+  %4 = load ptr, ptr %3, align 8, !tbaa !2187
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !2195
+  %6 = load i32, ptr %5, align 8, !tbaa !2189
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -57950,7 +57950,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %.not.not = icmp eq ptr %10, %8
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2196
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2190
 
 .lr.ph:                                           ; preds = %2, %9
   %.02027 = phi ptr [ %10, %9 ], [ %4, %2 ]
@@ -57960,9 +57960,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %9, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !2197
+  %14 = load ptr, ptr %13, align 8, !tbaa !2191
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load i32, ptr %15, align 8, !tbaa !2198
+  %16 = load i32, ptr %15, align 8, !tbaa !2192
   %17 = zext i32 %16 to i64
   %.idx35 = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx35
@@ -57976,7 +57976,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %21 = getelementptr inbounds nuw i8, ptr %.01729, i64 8
   %.not21.not = icmp ne ptr %21, %18
   %or.cond.not = select i1 %20, i1 %.not21.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph32, label %.loopexit, !llvm.loop !2199
+  br i1 %or.cond.not, label %.lr.ph32, label %.loopexit, !llvm.loop !2193
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph32, %._crit_edge
   %.0 = phi i1 [ true, %._crit_edge ], [ %20, %.lr.ph32 ], [ false, %.lr.ph ]
@@ -57986,9 +57986,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28TraverseAssertCapabilityAttrEPNS_20AssertCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2200
+  %4 = load ptr, ptr %3, align 8, !tbaa !2194
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2202
+  %6 = load i32, ptr %5, align 4, !tbaa !2196
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58002,7 +58002,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2203
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2197
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58012,9 +58012,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE31TraverseAssertExclusiveLockAttrEPNS_23AssertExclusiveLockAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2204
+  %4 = load ptr, ptr %3, align 8, !tbaa !2198
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2206
+  %6 = load i32, ptr %5, align 4, !tbaa !2200
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58028,7 +58028,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2207
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2201
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58038,9 +58038,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28TraverseAssertSharedLockAttrEPNS_20AssertSharedLockAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2208
+  %4 = load ptr, ptr %3, align 8, !tbaa !2202
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2210
+  %6 = load i32, ptr %5, align 4, !tbaa !2204
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58054,7 +58054,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2211
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2205
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58064,13 +58064,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25TraverseAssumeAlignedAttrEPNS_17AssumeAlignedAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2212
+  %4 = load ptr, ptr %3, align 8, !tbaa !2206
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2214
+  %8 = load ptr, ptr %7, align 8, !tbaa !2208
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -58082,19 +58082,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE28TraverseCUDALaunchBoundsAttrEPNS_20CUDALaunchBoundsAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2215
+  %4 = load ptr, ptr %3, align 8, !tbaa !2209
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2217
+  %8 = load ptr, ptr %7, align 8, !tbaa !2211
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !2218
+  %12 = load ptr, ptr %11, align 8, !tbaa !2212
   %13 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %12, ptr noundef null)
   br label %14
 
@@ -58106,15 +58106,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE36TraverseExclusiveTrylockFunctionAttrEPNS_28ExclusiveTrylockFunctionAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2219
+  %4 = load ptr, ptr %3, align 8, !tbaa !2213
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !2221
+  %8 = load ptr, ptr %7, align 8, !tbaa !2215
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !2222
+  %10 = load i32, ptr %9, align 8, !tbaa !2216
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -58128,7 +58128,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %15 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
   %.not.not = icmp ne ptr %15, %12
   %or.cond.not = select i1 %14, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2223
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2217
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ %14, %.lr.ph ]
@@ -58138,9 +58138,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE25TraverseLocksExcludedAttrEPNS_17LocksExcludedAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2224
+  %4 = load ptr, ptr %3, align 8, !tbaa !2218
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2226
+  %6 = load i32, ptr %5, align 4, !tbaa !2220
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58154,7 +58154,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2227
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2221
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58164,13 +58164,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseOMPAllocateDeclAttrEPNS_19OMPAllocateDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2228
+  %4 = load ptr, ptr %3, align 8, !tbaa !2222
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !2231
+  %8 = load ptr, ptr %7, align 8, !tbaa !2225
   %9 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br label %10
 
@@ -58182,15 +58182,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE30TraverseOMPDeclareSimdDeclAttrEPNS_22OMPDeclareSimdDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2232
+  %4 = load ptr, ptr %3, align 8, !tbaa !2226
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !2236
+  %8 = load ptr, ptr %7, align 8, !tbaa !2230
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !2237
+  %10 = load i32, ptr %9, align 8, !tbaa !2231
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -58200,7 +58200,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.04073, i64 8
   %.not.not = icmp eq ptr %14, %12
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2238
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2232
 
 .lr.ph:                                           ; preds = %6, %13
   %.04073 = phi ptr [ %14, %13 ], [ %8, %6 ]
@@ -58210,9 +58210,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %13, %6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %18 = load ptr, ptr %17, align 8, !tbaa !2239
+  %18 = load ptr, ptr %17, align 8, !tbaa !2233
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !2240
+  %20 = load i32, ptr %19, align 8, !tbaa !2234
   %21 = zext i32 %20 to i64
   %.idx96 = shl nuw nsw i64 %21, 3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx96
@@ -58222,7 +58222,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 23:                                               ; preds = %.lr.ph77
   %24 = getelementptr inbounds nuw i8, ptr %.04875, i64 8
   %.not49.not = icmp eq ptr %24, %22
-  br i1 %.not49.not, label %._crit_edge78, label %.lr.ph77, !llvm.loop !2241
+  br i1 %.not49.not, label %._crit_edge78, label %.lr.ph77, !llvm.loop !2235
 
 .lr.ph77:                                         ; preds = %._crit_edge, %23
   %.04875 = phi ptr [ %24, %23 ], [ %18, %._crit_edge ]
@@ -58232,9 +58232,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge78:                                    ; preds = %23, %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %28 = load ptr, ptr %27, align 8, !tbaa !2242
+  %28 = load ptr, ptr %27, align 8, !tbaa !2236
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %30 = load i32, ptr %29, align 8, !tbaa !2243
+  %30 = load i32, ptr %29, align 8, !tbaa !2237
   %31 = zext i32 %30 to i64
   %.idx97 = shl nuw nsw i64 %31, 3
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx97
@@ -58244,7 +58244,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 33:                                               ; preds = %.lr.ph82
   %34 = getelementptr inbounds nuw i8, ptr %.04780, i64 8
   %.not50.not = icmp eq ptr %34, %32
-  br i1 %.not50.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !2244
+  br i1 %.not50.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !2238
 
 .lr.ph82:                                         ; preds = %._crit_edge78, %33
   %.04780 = phi ptr [ %34, %33 ], [ %28, %._crit_edge78 ]
@@ -58254,9 +58254,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge83:                                    ; preds = %33, %._crit_edge78
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !2245
+  %38 = load ptr, ptr %37, align 8, !tbaa !2239
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %40 = load i32, ptr %39, align 8, !tbaa !2246
+  %40 = load i32, ptr %39, align 8, !tbaa !2240
   %41 = zext i32 %40 to i64
   %.idx98 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx98
@@ -58266,7 +58266,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 43:                                               ; preds = %.lr.ph87
   %44 = getelementptr inbounds nuw i8, ptr %.04185, i64 8
   %.not51.not = icmp eq ptr %44, %42
-  br i1 %.not51.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !2247
+  br i1 %.not51.not, label %._crit_edge88, label %.lr.ph87, !llvm.loop !2241
 
 .lr.ph87:                                         ; preds = %._crit_edge83, %43
   %.04185 = phi ptr [ %44, %43 ], [ %38, %._crit_edge83 ]
@@ -58276,9 +58276,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge88:                                    ; preds = %43, %._crit_edge83
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %48 = load ptr, ptr %47, align 8, !tbaa !2248
+  %48 = load ptr, ptr %47, align 8, !tbaa !2242
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %50 = load i32, ptr %49, align 8, !tbaa !2249
+  %50 = load i32, ptr %49, align 8, !tbaa !2243
   %51 = zext i32 %50 to i64
   %.idx99 = shl nuw nsw i64 %51, 3
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx99
@@ -58292,7 +58292,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %55 = getelementptr inbounds nuw i8, ptr %.03990, i64 8
   %.not52.not = icmp ne ptr %55, %52
   %or.cond.not = select i1 %54, i1 %.not52.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph93, label %.loopexit, !llvm.loop !2250
+  br i1 %or.cond.not, label %.lr.ph93, label %.loopexit, !llvm.loop !2244
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph77, %.lr.ph82, %.lr.ph87, %.lr.ph93, %._crit_edge88, %2
   %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge88 ], [ %54, %.lr.ph93 ], [ false, %.lr.ph87 ], [ false, %.lr.ph82 ], [ false, %.lr.ph77 ], [ false, %.lr.ph ]
@@ -58302,15 +58302,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseOMPDeclareVariantAttrEPNS_21OMPDeclareVariantAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2251
+  %4 = load ptr, ptr %3, align 8, !tbaa !2245
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !2255
+  %8 = load ptr, ptr %7, align 8, !tbaa !2249
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %10 = load i32, ptr %9, align 8, !tbaa !2256
+  %10 = load i32, ptr %9, align 8, !tbaa !2250
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -58320,7 +58320,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %.not.not = icmp eq ptr %14, %12
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2257
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2251
 
 .lr.ph:                                           ; preds = %6, %13
   %.02128 = phi ptr [ %14, %13 ], [ %8, %6 ]
@@ -58330,9 +58330,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 ._crit_edge:                                      ; preds = %13, %6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %18 = load ptr, ptr %17, align 8, !tbaa !2258
+  %18 = load ptr, ptr %17, align 8, !tbaa !2252
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %20 = load i32, ptr %19, align 8, !tbaa !2259
+  %20 = load i32, ptr %19, align 8, !tbaa !2253
   %21 = zext i32 %20 to i64
   %.idx36 = shl nuw nsw i64 %21, 3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx36
@@ -58346,7 +58346,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %25 = getelementptr inbounds nuw i8, ptr %.01830, i64 8
   %.not22.not = icmp ne ptr %25, %22
   %or.cond.not = select i1 %24, i1 %.not22.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph33, label %.loopexit, !llvm.loop !2260
+  br i1 %or.cond.not, label %.lr.ph33, label %.loopexit, !llvm.loop !2254
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph33, %._crit_edge, %2
   %.0 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ %24, %.lr.ph33 ], [ false, %.lr.ph ]
@@ -58356,9 +58356,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE29TraverseReleaseCapabilityAttrEPNS_21ReleaseCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2261
+  %4 = load ptr, ptr %3, align 8, !tbaa !2255
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2263
+  %6 = load i32, ptr %5, align 4, !tbaa !2257
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58372,7 +58372,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2264
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2258
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58382,9 +58382,9 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE30TraverseRequiresCapabilityAttrEPNS_22RequiresCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2265
+  %4 = load ptr, ptr %3, align 8, !tbaa !2259
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !2267
+  %6 = load i32, ptr %5, align 4, !tbaa !2261
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
@@ -58398,7 +58398,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %11 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %.not.not = icmp ne ptr %11, %8
   %or.cond.not = select i1 %10, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2268
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !2262
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.not.lcssa = phi i1 [ true, %2 ], [ %10, %.lr.ph ]
@@ -58408,15 +58408,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE33TraverseSharedTrylockFunctionAttrEPNS_25SharedTrylockFunctionAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2269
+  %4 = load ptr, ptr %3, align 8, !tbaa !2263
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !2271
+  %8 = load ptr, ptr %7, align 8, !tbaa !2265
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !2272
+  %10 = load i32, ptr %9, align 8, !tbaa !2266
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -58430,7 +58430,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %15 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
   %.not.not = icmp ne ptr %15, %12
   %or.cond.not = select i1 %14, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2273
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2267
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ %14, %.lr.ph ]
@@ -58440,15 +58440,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE32TraverseTryAcquireCapabilityAttrEPNS_24TryAcquireCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !2274
+  %4 = load ptr, ptr %3, align 8, !tbaa !2268
   %5 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %4, ptr noundef null)
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !2276
+  %8 = load ptr, ptr %7, align 8, !tbaa !2270
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !2277
+  %10 = load i32, ptr %9, align 8, !tbaa !2271
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
@@ -58462,7 +58462,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %15 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
   %.not.not = icmp ne ptr %15, %12
   %or.cond.not = select i1 %14, i1 %.not.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2278
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !2272
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ %14, %.lr.ph ]
@@ -58496,23 +58496,23 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 18200
-  %12 = load ptr, ptr %11, align 8, !tbaa !2279
+  %12 = load ptr, ptr %11, align 8, !tbaa !2273
   %.not.not.i.i = icmp eq ptr %12, null
   br i1 %.not.not.i.i, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 2192
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 2272
-  %16 = load i64, ptr %15, align 8, !tbaa !2280
+  %16 = load i64, ptr %15, align 8, !tbaa !2274
   %17 = add i64 %16, 24
-  store i64 %17, ptr %15, align 8, !tbaa !2280
-  %18 = load ptr, ptr %14, align 8, !tbaa !2281
+  store i64 %17, ptr %15, align 8, !tbaa !2274
+  %18 = load ptr, ptr %14, align 8, !tbaa !2275
   %19 = ptrtoint ptr %18 to i64
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, 24
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 2200
-  %24 = load ptr, ptr %23, align 8, !tbaa !2282
+  %24 = load ptr, ptr %23, align 8, !tbaa !2276
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i.i.i = icmp ule i64 %22, %25
   %26 = icmp ne ptr %18, null
@@ -58521,7 +58521,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 28:                                               ; preds = %13
   %29 = inttoptr i64 %22 to ptr
-  store ptr %29, ptr %14, align 8, !tbaa !2281
+  store ptr %29, ptr %14, align 8, !tbaa !2275
   %30 = inttoptr i64 %21 to ptr
   br label %33
 
@@ -58531,11 +58531,11 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 33:                                               ; preds = %31, %28
   %.0.i.i.i.i.i.i = phi ptr [ %30, %28 ], [ %32, %31 ]
-  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2283
+  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2277
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
-  store i32 0, ptr %34, align 8, !tbaa !2285
+  store i32 0, ptr %34, align 8, !tbaa !2279
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store ptr %1, ptr %35, align 8, !tbaa !2286
+  store ptr %1, ptr %35, align 8, !tbaa !2280
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
   %37 = or i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
@@ -58563,15 +58563,15 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !2285
-  %49 = load ptr, ptr %45, align 8, !tbaa !2283
+  %48 = load i32, ptr %47, align 8, !tbaa !2279
+  %49 = load ptr, ptr %45, align 8, !tbaa !2277
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !2287
+  %51 = load i32, ptr %50, align 4, !tbaa !2281
   %.not12.i = icmp eq i32 %48, %51
   br i1 %.not12.i, label %56, label %52
 
 52:                                               ; preds = %46
-  store i32 %51, ptr %47, align 8, !tbaa !2285
+  store i32 %51, ptr %47, align 8, !tbaa !2279
   %53 = load ptr, ptr %49, align 8, !tbaa !3
   %54 = getelementptr i8, ptr %53, i64 144, !nosanitize !53
   %55 = load ptr, ptr %54, align 8, !nosanitize !53
@@ -58580,7 +58580,7 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 56:                                               ; preds = %52, %46
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !2286
+  %58 = load ptr, ptr %57, align 8, !tbaa !2280
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit
 
 _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit: ; preds = %56, %42, %6
@@ -58668,13 +58668,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   store i32 %53, ptr %34, align 8, !tbaa !26
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !2282
+  store ptr %54, ptr %55, align 8, !tbaa !2276
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !2281
+  store ptr %60, ptr %0, align 8, !tbaa !2275
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -58722,7 +58722,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i: ; preds = %3, %1
   %.0.copyload.i.i.i.i113 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i, %15 ], [ %.0.copyload.i.i.i.i2.i, %9 ]
   %.pre-phi6.i = phi ptr [ %.pre5.i, %15 ], [ %11, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !2290
+  %18 = load ptr, ptr %17, align 8, !tbaa !2284
   br label %_ZNK5clang17ObjCInterfaceDecl14protocol_beginEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl14protocol_beginEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i, %16
@@ -58763,9 +58763,9 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
 32:                                               ; preds = %31, %25
   %.pre-phi6.i10 = phi ptr [ %.pre5.i9, %31 ], [ %27, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !2290
+  %34 = load ptr, ptr %33, align 8, !tbaa !2284
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !2291
+  %36 = load i32, ptr %35, align 8, !tbaa !2285
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit
@@ -58817,7 +58817,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i: ; preds = %3, %1
   %.0.copyload.i.i.i.i113 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i, %15 ], [ %.0.copyload.i.i.i.i2.i, %9 ]
   %.pre-phi6.i = phi ptr [ %.pre5.i, %15 ], [ %11, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !2292
+  %18 = load ptr, ptr %17, align 8, !tbaa !2286
   br label %_ZNK5clang17ObjCInterfaceDecl18protocol_loc_beginEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl18protocol_loc_beginEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i, %16
@@ -58858,9 +58858,9 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
 32:                                               ; preds = %31, %25
   %.pre-phi6.i10 = phi ptr [ %.pre5.i9, %31 ], [ %27, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !2292
+  %34 = load ptr, ptr %33, align 8, !tbaa !2286
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
-  %36 = load i32, ptr %35, align 8, !tbaa !2291
+  %36 = load i32, ptr %35, align 8, !tbaa !2285
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv.exit
@@ -58893,23 +58893,23 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 18200
-  %12 = load ptr, ptr %11, align 8, !tbaa !2279
+  %12 = load ptr, ptr %11, align 8, !tbaa !2273
   %.not.not.i.i = icmp eq ptr %12, null
   br i1 %.not.not.i.i, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 2192
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 2272
-  %16 = load i64, ptr %15, align 8, !tbaa !2280
+  %16 = load i64, ptr %15, align 8, !tbaa !2274
   %17 = add i64 %16, 24
-  store i64 %17, ptr %15, align 8, !tbaa !2280
-  %18 = load ptr, ptr %14, align 8, !tbaa !2281
+  store i64 %17, ptr %15, align 8, !tbaa !2274
+  %18 = load ptr, ptr %14, align 8, !tbaa !2275
   %19 = ptrtoint ptr %18 to i64
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, 24
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 2200
-  %24 = load ptr, ptr %23, align 8, !tbaa !2282
+  %24 = load ptr, ptr %23, align 8, !tbaa !2276
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i.i.i = icmp ule i64 %22, %25
   %26 = icmp ne ptr %18, null
@@ -58918,7 +58918,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 28:                                               ; preds = %13
   %29 = inttoptr i64 %22 to ptr
-  store ptr %29, ptr %14, align 8, !tbaa !2281
+  store ptr %29, ptr %14, align 8, !tbaa !2275
   %30 = inttoptr i64 %21 to ptr
   br label %33
 
@@ -58928,11 +58928,11 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 33:                                               ; preds = %31, %28
   %.0.i.i.i.i.i.i = phi ptr [ %30, %28 ], [ %32, %31 ]
-  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2283
+  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2277
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
-  store i32 0, ptr %34, align 8, !tbaa !2285
+  store i32 0, ptr %34, align 8, !tbaa !2279
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store ptr %1, ptr %35, align 8, !tbaa !2286
+  store ptr %1, ptr %35, align 8, !tbaa !2280
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
   %37 = or i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
@@ -58960,15 +58960,15 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !2285
-  %49 = load ptr, ptr %45, align 8, !tbaa !2283
+  %48 = load i32, ptr %47, align 8, !tbaa !2279
+  %49 = load ptr, ptr %45, align 8, !tbaa !2277
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !2287
+  %51 = load i32, ptr %50, align 4, !tbaa !2281
   %.not12.i = icmp eq i32 %48, %51
   br i1 %.not12.i, label %56, label %52
 
 52:                                               ; preds = %46
-  store i32 %51, ptr %47, align 8, !tbaa !2285
+  store i32 %51, ptr %47, align 8, !tbaa !2279
   %53 = load ptr, ptr %49, align 8, !tbaa !3
   %54 = getelementptr i8, ptr %53, i64 144, !nosanitize !53
   %55 = load ptr, ptr %54, align 8, !nosanitize !53
@@ -58977,7 +58977,7 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 56:                                               ; preds = %52, %46
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !2286
+  %58 = load ptr, ptr %57, align 8, !tbaa !2280
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit
 
 _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit: ; preds = %56, %42, %6
@@ -59062,7 +59062,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE35TraverseTem
   %.0.copyload.i.i.i.i.i.i.i.i.i166 = load i64, ptr %5, align 8
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i166, 4
   %.not.i167 = icmp eq i64 %36, 0
-  br i1 %.not.i167, label %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit, label %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread, !llvm.loop !2293
+  br i1 %.not.i167, label %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit, label %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread, !llvm.loop !2287
 
 37:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !898
@@ -59078,9 +59078,9 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit: ; preds = %_ZN5clang19Recurs
 
 39:                                               ; preds = %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 8, !tbaa !45, !noalias !2294
+  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 8, !tbaa !45, !noalias !2288
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %.sroa.0.0.copyload.i138 = load ptr, ptr %41, align 8, !tbaa !430, !noalias !2294
+  %.sroa.0.0.copyload.i138 = load ptr, ptr %41, align 8, !tbaa !430, !noalias !2288
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = trunc i64 %.sroa.0.0.copyload.i.i to i32
   %43 = and i32 %42, 7
@@ -59197,7 +59197,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDec
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !2297
+  %86 = load ptr, ptr %85, align 8, !tbaa !2291
   %.not114 = icmp eq ptr %86, null
   br i1 %.not114, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread, label %87
 
@@ -59230,7 +59230,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDec
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !2303
+  %98 = load ptr, ptr %97, align 8, !tbaa !2297
   %.not111 = icmp eq ptr %98, null
   br i1 %.not111, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread, label %99
 
@@ -59266,7 +59266,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseTem
 
 109:                                              ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %111 = load ptr, ptr %110, align 8, !tbaa !2305
+  %111 = load ptr, ptr %110, align 8, !tbaa !2299
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit.thread, %109
@@ -59296,7 +59296,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit: ; preds = %117
   %118 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i151, -8
   %119 = inttoptr i64 %118 to ptr
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
-  %121 = load ptr, ptr %120, align 8, !tbaa !2307
+  %121 = load ptr, ptr %120, align 8, !tbaa !2301
   %.not116 = icmp eq ptr %121, null
   br i1 %.not116, label %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread, label %122
 
@@ -59324,7 +59324,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %1
 
 .lr.ph239:                                        ; preds = %127, %.critedge129
   %.098237 = phi ptr [ %153, %.critedge129 ], [ %128, %127 ]
-  %135 = load ptr, ptr %.098237, align 8, !tbaa !2308
+  %135 = load ptr, ptr %.098237, align 8, !tbaa !2302
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 28
   %137 = load i16, ptr %136, align 4
   %138 = and i16 %137, 4
@@ -59356,7 +59356,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %1
 
 .thread:                                          ; preds = %139, %148
   %150 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !2310
+  %151 = load ptr, ptr %150, align 8, !tbaa !2304
   %152 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %151, ptr noundef null)
   br i1 %152, label %.critedge129, label %.critedge124
 
@@ -59437,7 +59437,7 @@ _ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = 
   br i1 %186, label %_ZNK5clang13CXXMethodDecl9getParentEv.exit, label %189
 
 189:                                              ; preds = %181
-  %190 = load ptr, ptr %188, align 8, !tbaa !2318
+  %190 = load ptr, ptr %188, align 8, !tbaa !2312
   br label %_ZNK5clang13CXXMethodDecl9getParentEv.exit
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %181, %189
@@ -59613,7 +59613,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE35TraverseTem
   %.0.copyload.i.i.i.i.i.i.i.i.i21 = load i64, ptr %3, align 8
   %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i21, 4
   %.not.i22 = icmp eq i64 %34, 0
-  br i1 %.not.i22, label %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit, label %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread, !llvm.loop !2321
+  br i1 %.not.i22, label %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit, label %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread, !llvm.loop !2315
 
 35:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8, !tbaa !898
@@ -59641,7 +59641,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %37
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.thread: ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !2305
+  %42 = load ptr, ptr %41, align 8, !tbaa !2299
   %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %47, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit14
 
@@ -59794,7 +59794,7 @@ _ZNK5clang7TagDecl15getQualifierLocEv.exit:       ; preds = %_ZN5clang19Recursiv
 .lr.ph43:                                         ; preds = %41, %.lr.ph43
   %.01541 = phi ptr [ %50, %.lr.ph43 ], [ %43, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %.01541, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !2322
+  %46 = load ptr, ptr %45, align 8, !tbaa !2316
   %.sroa.0.0.copyload.i16 = load i64, ptr %46, align 8, !tbaa !430
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = inttoptr i64 %.sroa.0.0.copyload.i16 to ptr
@@ -59812,7 +59812,7 @@ _ZNK5clang7TagDecl15getQualifierLocEv.exit:       ; preds = %_ZN5clang19Recursiv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZN5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !2324
+  %3 = load ptr, ptr %2, align 8, !tbaa !2318
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -59824,7 +59824,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5clang13CXXRecordDecl5basesEv(ptr no
   br i1 %.not.i.i, label %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i, label %11
 
 _ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i: ; preds = %1
-  %.pre.i.i.i = load ptr, ptr %8, align 8, !tbaa !2325
+  %.pre.i.i.i = load ptr, ptr %8, align 8, !tbaa !2319
   br label %_ZN5clang13CXXRecordDecl11bases_beginEv.exit
 
 11:                                               ; preds = %1
@@ -59833,7 +59833,7 @@ _ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28G
 
 _ZN5clang13CXXRecordDecl11bases_beginEv.exit:     ; preds = %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i, %11
   %.0.i.i = phi ptr [ %12, %11 ], [ %.pre.i.i.i, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i ]
-  %13 = load ptr, ptr %2, align 8, !tbaa !2324
+  %13 = load ptr, ptr %2, align 8, !tbaa !2318
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %13)
   %16 = load ptr, ptr %6, align 8, !tbaa !935
@@ -59844,7 +59844,7 @@ _ZN5clang13CXXRecordDecl11bases_beginEv.exit:     ; preds = %_ZNK5clang13LazyOff
   br i1 %.not.i.i.i, label %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i, label %20
 
 _ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i: ; preds = %_ZN5clang13CXXRecordDecl11bases_beginEv.exit
-  %.pre.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !2325
+  %.pre.i.i.i.i = load ptr, ptr %17, align 8, !tbaa !2319
   br label %_ZN5clang13CXXRecordDecl9bases_endEv.exit
 
 20:                                               ; preds = %_ZN5clang13CXXRecordDecl11bases_beginEv.exit
@@ -59853,12 +59853,12 @@ _ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28G
 
 _ZN5clang13CXXRecordDecl9bases_endEv.exit:        ; preds = %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i, %20
   %.0.i.i.i = phi ptr [ %21, %20 ], [ %.pre.i.i.i.i, %_ZNK5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEE3getEPS2_.exit.i.i.i ]
-  %22 = load ptr, ptr %2, align 8, !tbaa !2324
+  %22 = load ptr, ptr %2, align 8, !tbaa !2318
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %22)
   %25 = load ptr, ptr %6, align 8, !tbaa !935
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !2327
+  %27 = load i32, ptr %26, align 8, !tbaa !2321
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i, i64 %28
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.0.i.i, 0
@@ -59885,23 +59885,23 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 18200
-  %12 = load ptr, ptr %11, align 8, !tbaa !2279
+  %12 = load ptr, ptr %11, align 8, !tbaa !2273
   %.not.not.i.i = icmp eq ptr %12, null
   br i1 %.not.not.i.i, label %38, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 2192
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 2272
-  %16 = load i64, ptr %15, align 8, !tbaa !2280
+  %16 = load i64, ptr %15, align 8, !tbaa !2274
   %17 = add i64 %16, 24
-  store i64 %17, ptr %15, align 8, !tbaa !2280
-  %18 = load ptr, ptr %14, align 8, !tbaa !2281
+  store i64 %17, ptr %15, align 8, !tbaa !2274
+  %18 = load ptr, ptr %14, align 8, !tbaa !2275
   %19 = ptrtoint ptr %18 to i64
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, 24
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 2200
-  %24 = load ptr, ptr %23, align 8, !tbaa !2282
+  %24 = load ptr, ptr %23, align 8, !tbaa !2276
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i.i.i = icmp ule i64 %22, %25
   %26 = icmp ne ptr %18, null
@@ -59910,7 +59910,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 28:                                               ; preds = %13
   %29 = inttoptr i64 %22 to ptr
-  store ptr %29, ptr %14, align 8, !tbaa !2281
+  store ptr %29, ptr %14, align 8, !tbaa !2275
   %30 = inttoptr i64 %21 to ptr
   br label %33
 
@@ -59920,11 +59920,11 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 33:                                               ; preds = %31, %28
   %.0.i.i.i.i.i.i = phi ptr [ %30, %28 ], [ %32, %31 ]
-  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2283
+  store ptr %12, ptr %.0.i.i.i.i.i.i, align 8, !tbaa !2277
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
-  store i32 0, ptr %34, align 8, !tbaa !2285
+  store i32 0, ptr %34, align 8, !tbaa !2279
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  store ptr %1, ptr %35, align 8, !tbaa !2286
+  store ptr %1, ptr %35, align 8, !tbaa !2280
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
   %37 = or i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
@@ -59952,15 +59952,15 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i32, ptr %47, align 8, !tbaa !2285
-  %49 = load ptr, ptr %45, align 8, !tbaa !2283
+  %48 = load i32, ptr %47, align 8, !tbaa !2279
+  %49 = load ptr, ptr %45, align 8, !tbaa !2277
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !2287
+  %51 = load i32, ptr %50, align 4, !tbaa !2281
   %.not12.i = icmp eq i32 %48, %51
   br i1 %.not12.i, label %56, label %52
 
 52:                                               ; preds = %46
-  store i32 %51, ptr %47, align 8, !tbaa !2285
+  store i32 %51, ptr %47, align 8, !tbaa !2279
   %53 = load ptr, ptr %49, align 8, !tbaa !3
   %54 = getelementptr i8, ptr %53, i64 144, !nosanitize !53
   %55 = load ptr, ptr %54, align 8, !nosanitize !53
@@ -59969,7 +59969,7 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
 
 56:                                               ; preds = %52, %46
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !2286
+  %58 = load ptr, ptr %57, align 8, !tbaa !2280
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit
 
 _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit: ; preds = %56, %42, %6
@@ -60019,7 +60019,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKN5clang4StmtENS1_7CodeGen4M
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8, !tbaa !829
   %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
   %.not.i = icmp eq ptr %18, %17
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !2338
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !2332
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %0, align 8, !tbaa !828
@@ -60066,7 +60066,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKN5clang4StmtENS1_7CodeGen4M
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8, !tbaa !829
   %48 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 24
   %.not.i.i = icmp eq ptr %48, %47
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !2338
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6BranchENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !2332
 
 49:                                               ; preds = %19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
@@ -61935,569 +61935,563 @@ attributes #27 = { nounwind willreturn memory(read, argmem: readwrite) }
 !1770 = !{!1771}
 !1771 = distinct !{!1771, !1772, !"_ZN5clang9WhileStmt8childrenEv: argument 0"}
 !1772 = distinct !{!1772, !"_ZN5clang9WhileStmt8childrenEv"}
-!1773 = distinct !{!1773, !1774}
-!1774 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!1775 = distinct !{!1775, !437}
-!1776 = !{!1777, !1470, i64 32}
-!1777 = !{!"_ZTSN5clang24SYCLUniqueStableNameExprE", !1343, i64 0, !903, i64 16, !903, i64 20, !903, i64 24, !1470, i64 32}
-!1778 = !{!1779, !1780, i64 24}
-!1779 = !{!"_ZTSN5clang12RequiresExprE", !1343, i64 0, !19, i64 16, !19, i64 20, !1780, i64 24, !903, i64 32, !903, i64 36, !903, i64 40}
-!1780 = !{!"p1 _ZTSN5clang20RequiresExprBodyDeclE", !12, i64 0}
-!1781 = !{!1779, !19, i64 16}
-!1782 = !{!1779, !19, i64 20}
-!1783 = !{!1784, !1784, i64 0}
-!1784 = !{!"p1 _ZTSN5clang8concepts11RequirementE", !12, i64 0}
-!1785 = !{!1786, !1787, i64 0}
-!1786 = !{!"_ZTSN5clang8concepts11RequirementE", !1787, i64 0, !24, i64 4, !24, i64 4, !24, i64 4}
-!1787 = !{!"_ZTSN5clang8concepts11Requirement15RequirementKindE", !9, i64 0}
-!1788 = !{!1789, !1795, i64 16}
-!1789 = !{!"_ZTSN5clang8concepts15TypeRequirementE", !1786, i64 0, !1790, i64 8, !1795, i64 16}
-!1790 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS1_14TypeSourceInfoEEEE", !1791, i64 0}
-!1791 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi0EJS7_S9_EEE", !1792, i64 0}
-!1792 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi1EJS9_EEE", !1793, i64 0}
-!1793 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi2EJEEE", !1794, i64 0}
-!1794 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS4_14TypeSourceInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESB_EEEE", !930, i64 0}
-!1795 = !{!"_ZTSN5clang8concepts15TypeRequirement18SatisfactionStatusE", !9, i64 0}
-!1796 = !{!1797, !1807, i64 40}
-!1797 = !{!"_ZTSN5clang8concepts15ExprRequirementE", !1786, i64 0, !1798, i64 8, !903, i64 16, !1803, i64 24, !1806, i64 32, !1807, i64 40}
-!1798 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang4ExprEPNS1_8concepts11Requirement22SubstitutionDiagnosticEEEE", !1799, i64 0}
-!1799 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi0EJS5_S9_EEE", !1800, i64 0}
-!1800 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi1EJS9_EEE", !1801, i64 0}
-!1801 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi2EJEEE", !1802, i64 0}
-!1802 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang4ExprEPNS4_8concepts11Requirement22SubstitutionDiagnosticEEEENS_18PointerIntPairInfoIS1_Lj1ESB_EEEE", !930, i64 0}
-!1803 = !{!"_ZTSN5clang8concepts15ExprRequirement21ReturnTypeRequirementE", !1804, i64 0}
-!1804 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPN5clang21TemplateParameterListEPNS2_8concepts11Requirement22SubstitutionDiagnosticEEEELj1EbNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj1ESB_EEEE", !1805, i64 0}
-!1805 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPN5clang21TemplateParameterListEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEEEE", !9, i64 0}
-!1806 = !{!"p1 _ZTSN5clang25ConceptSpecializationExprE", !12, i64 0}
-!1807 = !{!"_ZTSN5clang8concepts15ExprRequirement18SatisfactionStatusE", !9, i64 0}
-!1808 = !{!1809, !24, i64 24}
-!1809 = !{!"_ZTSN5clang8concepts17NestedRequirementE", !1786, i64 0, !896, i64 8, !1810, i64 16, !24, i64 24, !10, i64 32}
-!1810 = !{!"p1 _ZTSN5clang25ASTConstraintSatisfactionE", !12, i64 0}
-!1811 = !{!1809, !896, i64 8}
-!1812 = !{!1813, !896, i64 16}
-!1813 = !{!"_ZTSN5clang15OpaqueValueExprE", !1343, i64 0, !896, i64 16}
-!1814 = distinct !{!1814, !437}
-!1815 = !{!1816, !19, i64 12}
-!1816 = !{!"_ZTSN5clang24ASTTemplateKWAndArgsInfoE", !903, i64 0, !903, i64 4, !903, i64 8, !19, i64 12}
-!1817 = !{!1818, !1470, i64 24}
-!1818 = !{!"_ZTSN5clang12OffsetOfExprE", !1343, i64 0, !903, i64 16, !903, i64 20, !1470, i64 24, !19, i64 32, !19, i64 36}
-!1819 = !{!1820, !1470, i64 16}
-!1820 = !{!"_ZTSN5clang14ObjCEncodeExprE", !1343, i64 0, !1470, i64 16, !903, i64 24, !903, i64 28}
-!1821 = !{!1822, !1627, i64 24}
-!1822 = !{!"_ZTSN5clang10MemberExprE", !1343, i64 0, !830, i64 16, !1627, i64 24, !906, i64 32, !903, i64 40}
-!1823 = !{!1824}
-!1824 = distinct !{!1824, !1825, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv: argument 0"}
-!1825 = distinct !{!1825, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv"}
-!1826 = !{!1827}
-!1827 = distinct !{!1827, !1828, !"_ZN5clang20GenericSelectionExpr12associationsEv: argument 0"}
-!1828 = distinct !{!1828, !"_ZN5clang20GenericSelectionExpr12associationsEv"}
-!1829 = !{!1830}
-!1830 = distinct !{!1830, !1831, !"_ZNK5clang20GenericSelectionExpr21AssociationIteratorTyILb0EEdeEv: argument 0"}
-!1831 = distinct !{!1831, !"_ZNK5clang20GenericSelectionExpr21AssociationIteratorTyILb0EEdeEv"}
-!1832 = !{!1833, !896, i64 32}
-!1833 = !{!"_ZTSN5clang19ExpressionTraitExprE", !1343, i64 0, !19, i64 16, !19, i64 19, !903, i64 20, !903, i64 24, !896, i64 32}
-!1834 = !{!1835, !19, i64 48}
-!1835 = !{!"_ZTSN5clang9EmbedExprE", !1343, i64 0, !903, i64 16, !1836, i64 24, !105, i64 32, !1837, i64 40, !19, i64 48, !19, i64 52}
-!1836 = !{!"p1 _ZTSN5clang14IntegerLiteralE", !12, i64 0}
-!1837 = !{!"p1 _ZTSN5clang16EmbedDataStorageE", !12, i64 0}
-!1838 = !{!1839}
-!1839 = distinct !{!1839, !1840, !"_ZN5clang9EmbedExpr24underlying_data_elementsEv: argument 0"}
-!1840 = distinct !{!1840, !"_ZN5clang9EmbedExpr24underlying_data_elementsEv"}
-!1841 = !{!1836, !1836, i64 0}
-!1842 = !{!1843, !1845, i64 8}
-!1843 = !{!"_ZTSN5clang9EmbedExpr16ChildElementIterILb0EEE", !1844, i64 0, !1845, i64 8}
-!1844 = !{!"p1 _ZTSN5clang9EmbedExprE", !12, i64 0}
-!1845 = !{!"long long", !9, i64 0}
-!1846 = !{!1843, !1844, i64 0}
-!1847 = !{!1835, !19, i64 52}
-!1848 = !{!1849, !1627, i64 16}
-!1849 = !{!"_ZTSN5clang11DeclRefExprE", !1343, i64 0, !1627, i64 16, !906, i64 24}
-!1850 = !{!1851}
-!1851 = distinct !{!1851, !1852, !"_ZNK5clang11DeclRefExpr11getNameInfoEv: argument 0"}
-!1852 = distinct !{!1852, !"_ZNK5clang11DeclRefExpr11getNameInfoEv"}
-!1853 = !{!1854, !897, i64 16}
-!1854 = !{!"_ZTSN5clang25ConceptSpecializationExprE", !1343, i64 0, !897, i64 16, !1855, i64 24, !1810, i64 32}
-!1855 = !{!"p1 _ZTSN5clang33ImplicitConceptSpecializationDeclE", !12, i64 0}
-!1856 = !{!1857, !1470, i64 24}
-!1857 = !{!"_ZTSN5clang16ExplicitCastExprE", !1858, i64 0, !1470, i64 24}
-!1858 = !{!"_ZTSN5clang8CastExprE", !1343, i64 0, !830, i64 16}
-!1859 = !{!1860, !1470, i64 16}
-!1860 = !{!"_ZTSN5clang22CXXScalarValueInitExprE", !1343, i64 0, !1470, i64 16}
-!1861 = !{!1862, !896, i64 8}
-!1862 = !{!"_ZTSN5clang26CXXRewrittenBinaryOperator14DecomposedFormE", !1863, i64 0, !896, i64 8, !896, i64 16, !896, i64 24}
-!1863 = !{!"_ZTSN5clang18BinaryOperatorKindE", !9, i64 0}
-!1864 = !{!1862, !896, i64 16}
-!1865 = !{!1866, !1470, i64 48}
-!1866 = !{!"_ZTSN5clang23CXXPseudoDestructorExprE", !1343, i64 0, !830, i64 16, !24, i64 24, !903, i64 28, !902, i64 32, !1470, i64 48, !903, i64 56, !903, i64 60, !1867, i64 64}
-!1867 = !{!"_ZTSN5clang27PseudoDestructorTypeStorageE", !1868, i64 0, !903, i64 8}
-!1868 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPKNS1_14IdentifierInfoEEEE", !1869, i64 0}
-!1869 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !1870, i64 0}
-!1870 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !1871, i64 0}
-!1871 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !1872, i64 0}
-!1872 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPKNS4_14IdentifierInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !930, i64 0}
-!1873 = !{!1874, !1470, i64 32}
-!1874 = !{!"_ZTSN5clang10CXXNewExprE", !1343, i64 0, !593, i64 16, !593, i64 24, !1470, i64 32, !950, i64 40, !950, i64 48}
-!1875 = !{!1876, !1470, i64 40}
-!1876 = !{!"_ZTSN5clang22CXXTemporaryObjectExprE", !1877, i64 0, !1470, i64 40}
-!1877 = !{!"_ZTSN5clang16CXXConstructExprE", !1343, i64 0, !1878, i64 16, !950, i64 24, !19, i64 32}
-!1878 = !{!"p1 _ZTSN5clang18CXXConstructorDeclE", !12, i64 0}
-!1879 = !{!1880, !1470, i64 48}
-!1880 = !{!"_ZTSN5clang18ArrayTypeTraitExprE", !1343, i64 0, !19, i64 16, !13, i64 24, !896, i64 32, !903, i64 40, !903, i64 44, !1470, i64 48}
-!1881 = !{!1882, !19, i64 52}
-!1882 = !{!"_ZTSN5clang20OpenACCWaitConstructE", !1883, i64 0, !903, i64 40, !903, i64 44, !903, i64 48, !19, i64 52}
-!1883 = !{!"_ZTSN5clang20OpenACCConstructStmtE", !1339, i64 0, !1884, i64 8, !950, i64 12, !903, i64 20, !1885, i64 24}
-!1884 = !{!"_ZTSN5clang20OpenACCDirectiveKindE", !9, i64 0}
-!1885 = !{!"_ZTSN4llvm15MutableArrayRefIPKN5clang13OpenACCClauseEEE", !1886, i64 0}
-!1886 = !{!"_ZTSN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE", !1887, i64 0, !13, i64 8}
-!1887 = !{!"p2 _ZTSN5clang13OpenACCClauseE", !12, i64 0}
-!1888 = !{!1887, !1887, i64 0}
-!1889 = !{!1890, !1890, i64 0}
-!1890 = !{!"p1 _ZTSN5clang13OpenACCClauseE", !12, i64 0}
-!1891 = !{!1892, !830, i64 40}
-!1892 = !{!"_ZTSN5clang30OpenACCAssociatedStmtConstructE", !1883, i64 0, !830, i64 40}
-!1893 = !{!1894, !1484, i64 24}
-!1894 = !{!"_ZTSN5clang22OMPExecutableDirectiveE", !1339, i64 0, !1895, i64 8, !903, i64 12, !903, i64 16, !1484, i64 24}
-!1895 = !{!"_ZTSN4llvm3omp9DirectiveE", !9, i64 0}
-!1896 = !{!1897}
-!1897 = distinct !{!1897, !1898, !"_ZN5clang6IfStmt8childrenEv: argument 0"}
-!1898 = distinct !{!1898, !"_ZN5clang6IfStmt8childrenEv"}
-!1899 = distinct !{!1899, !1774}
-!1900 = !{!1901}
-!1901 = distinct !{!1901, !1902, !"_ZN5clang6IfStmt8childrenEv: argument 0"}
-!1902 = distinct !{!1902, !"_ZN5clang6IfStmt8childrenEv"}
-!1903 = distinct !{!1903, !1774}
-!1904 = distinct !{!1904, !1774}
-!1905 = !{!1906, !723, i64 0}
-!1906 = !{!"_ZTSN5clang12DeclGroupRefE", !723, i64 0}
-!1907 = !{!1908, !19, i64 0}
-!1908 = !{!"_ZTSN5clang9DeclGroupE", !19, i64 0}
-!1909 = distinct !{!1909, !1774}
-!1910 = !{!1352, !1353, i64 16}
-!1911 = !{!1912, !1646, i64 48}
-!1912 = !{!"_ZTSN5clang10GCCAsmStmtE", !1913, i64 0, !903, i64 40, !1646, i64 48, !1915, i64 56, !1915, i64 64, !1916, i64 72, !19, i64 80}
-!1913 = !{!"_ZTSN5clang7AsmStmtE", !1339, i64 0, !903, i64 8, !24, i64 12, !24, i64 13, !19, i64 16, !19, i64 20, !19, i64 24, !1914, i64 32}
-!1914 = !{!"p2 _ZTSN5clang4StmtE", !12, i64 0}
-!1915 = !{!"p2 _ZTSN5clang13StringLiteralE", !12, i64 0}
-!1916 = !{!"p2 _ZTSN5clang14IdentifierInfoE", !12, i64 0}
-!1917 = !{!1913, !19, i64 20}
+!1773 = distinct !{!1773, !437}
+!1774 = !{!1775, !1470, i64 32}
+!1775 = !{!"_ZTSN5clang24SYCLUniqueStableNameExprE", !1343, i64 0, !903, i64 16, !903, i64 20, !903, i64 24, !1470, i64 32}
+!1776 = !{!1777, !1778, i64 24}
+!1777 = !{!"_ZTSN5clang12RequiresExprE", !1343, i64 0, !19, i64 16, !19, i64 20, !1778, i64 24, !903, i64 32, !903, i64 36, !903, i64 40}
+!1778 = !{!"p1 _ZTSN5clang20RequiresExprBodyDeclE", !12, i64 0}
+!1779 = !{!1777, !19, i64 16}
+!1780 = !{!1777, !19, i64 20}
+!1781 = !{!1782, !1782, i64 0}
+!1782 = !{!"p1 _ZTSN5clang8concepts11RequirementE", !12, i64 0}
+!1783 = !{!1784, !1785, i64 0}
+!1784 = !{!"_ZTSN5clang8concepts11RequirementE", !1785, i64 0, !24, i64 4, !24, i64 4, !24, i64 4}
+!1785 = !{!"_ZTSN5clang8concepts11Requirement15RequirementKindE", !9, i64 0}
+!1786 = !{!1787, !1793, i64 16}
+!1787 = !{!"_ZTSN5clang8concepts15TypeRequirementE", !1784, i64 0, !1788, i64 8, !1793, i64 16}
+!1788 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS1_14TypeSourceInfoEEEE", !1789, i64 0}
+!1789 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi0EJS7_S9_EEE", !1790, i64 0}
+!1790 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi1EJS9_EEE", !1791, i64 0}
+!1791 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS3_14TypeSourceInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS7_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi2EJEEE", !1792, i64 0}
+!1792 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang8concepts11Requirement22SubstitutionDiagnosticEPNS4_14TypeSourceInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESB_EEEE", !930, i64 0}
+!1793 = !{!"_ZTSN5clang8concepts15TypeRequirement18SatisfactionStatusE", !9, i64 0}
+!1794 = !{!1795, !1805, i64 40}
+!1795 = !{!"_ZTSN5clang8concepts15ExprRequirementE", !1784, i64 0, !1796, i64 8, !903, i64 16, !1801, i64 24, !1804, i64 32, !1805, i64 40}
+!1796 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang4ExprEPNS1_8concepts11Requirement22SubstitutionDiagnosticEEEE", !1797, i64 0}
+!1797 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi0EJS5_S9_EEE", !1798, i64 0}
+!1798 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi1EJS9_EEE", !1799, i64 0}
+!1799 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang4ExprEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S9_EEENS_18PointerIntPairInfoISC_Lj1ESE_EEEELi2EJEEE", !1800, i64 0}
+!1800 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang4ExprEPNS4_8concepts11Requirement22SubstitutionDiagnosticEEEENS_18PointerIntPairInfoIS1_Lj1ESB_EEEE", !930, i64 0}
+!1801 = !{!"_ZTSN5clang8concepts15ExprRequirement21ReturnTypeRequirementE", !1802, i64 0}
+!1802 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPN5clang21TemplateParameterListEPNS2_8concepts11Requirement22SubstitutionDiagnosticEEEELj1EbNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj1ESB_EEEE", !1803, i64 0}
+!1803 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPN5clang21TemplateParameterListEPNS3_8concepts11Requirement22SubstitutionDiagnosticEEEEEE", !9, i64 0}
+!1804 = !{!"p1 _ZTSN5clang25ConceptSpecializationExprE", !12, i64 0}
+!1805 = !{!"_ZTSN5clang8concepts15ExprRequirement18SatisfactionStatusE", !9, i64 0}
+!1806 = !{!1807, !24, i64 24}
+!1807 = !{!"_ZTSN5clang8concepts17NestedRequirementE", !1784, i64 0, !896, i64 8, !1808, i64 16, !24, i64 24, !10, i64 32}
+!1808 = !{!"p1 _ZTSN5clang25ASTConstraintSatisfactionE", !12, i64 0}
+!1809 = !{!1807, !896, i64 8}
+!1810 = !{!1811, !896, i64 16}
+!1811 = !{!"_ZTSN5clang15OpaqueValueExprE", !1343, i64 0, !896, i64 16}
+!1812 = distinct !{!1812, !437}
+!1813 = !{!1814, !19, i64 12}
+!1814 = !{!"_ZTSN5clang24ASTTemplateKWAndArgsInfoE", !903, i64 0, !903, i64 4, !903, i64 8, !19, i64 12}
+!1815 = !{!1816, !1470, i64 24}
+!1816 = !{!"_ZTSN5clang12OffsetOfExprE", !1343, i64 0, !903, i64 16, !903, i64 20, !1470, i64 24, !19, i64 32, !19, i64 36}
+!1817 = !{!1818, !1470, i64 16}
+!1818 = !{!"_ZTSN5clang14ObjCEncodeExprE", !1343, i64 0, !1470, i64 16, !903, i64 24, !903, i64 28}
+!1819 = !{!1820, !1627, i64 24}
+!1820 = !{!"_ZTSN5clang10MemberExprE", !1343, i64 0, !830, i64 16, !1627, i64 24, !906, i64 32, !903, i64 40}
+!1821 = !{!1822}
+!1822 = distinct !{!1822, !1823, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv: argument 0"}
+!1823 = distinct !{!1823, !"_ZNK5clang10MemberExpr17getMemberNameInfoEv"}
+!1824 = !{!1825}
+!1825 = distinct !{!1825, !1826, !"_ZN5clang20GenericSelectionExpr12associationsEv: argument 0"}
+!1826 = distinct !{!1826, !"_ZN5clang20GenericSelectionExpr12associationsEv"}
+!1827 = !{!1828}
+!1828 = distinct !{!1828, !1829, !"_ZNK5clang20GenericSelectionExpr21AssociationIteratorTyILb0EEdeEv: argument 0"}
+!1829 = distinct !{!1829, !"_ZNK5clang20GenericSelectionExpr21AssociationIteratorTyILb0EEdeEv"}
+!1830 = !{!1831, !896, i64 32}
+!1831 = !{!"_ZTSN5clang19ExpressionTraitExprE", !1343, i64 0, !19, i64 16, !19, i64 19, !903, i64 20, !903, i64 24, !896, i64 32}
+!1832 = !{!1833, !19, i64 48}
+!1833 = !{!"_ZTSN5clang9EmbedExprE", !1343, i64 0, !903, i64 16, !1834, i64 24, !105, i64 32, !1835, i64 40, !19, i64 48, !19, i64 52}
+!1834 = !{!"p1 _ZTSN5clang14IntegerLiteralE", !12, i64 0}
+!1835 = !{!"p1 _ZTSN5clang16EmbedDataStorageE", !12, i64 0}
+!1836 = !{!1837}
+!1837 = distinct !{!1837, !1838, !"_ZN5clang9EmbedExpr24underlying_data_elementsEv: argument 0"}
+!1838 = distinct !{!1838, !"_ZN5clang9EmbedExpr24underlying_data_elementsEv"}
+!1839 = !{!1834, !1834, i64 0}
+!1840 = !{!1841, !1843, i64 8}
+!1841 = !{!"_ZTSN5clang9EmbedExpr16ChildElementIterILb0EEE", !1842, i64 0, !1843, i64 8}
+!1842 = !{!"p1 _ZTSN5clang9EmbedExprE", !12, i64 0}
+!1843 = !{!"long long", !9, i64 0}
+!1844 = !{!1841, !1842, i64 0}
+!1845 = !{!1833, !19, i64 52}
+!1846 = !{!1847, !1627, i64 16}
+!1847 = !{!"_ZTSN5clang11DeclRefExprE", !1343, i64 0, !1627, i64 16, !906, i64 24}
+!1848 = !{!1849}
+!1849 = distinct !{!1849, !1850, !"_ZNK5clang11DeclRefExpr11getNameInfoEv: argument 0"}
+!1850 = distinct !{!1850, !"_ZNK5clang11DeclRefExpr11getNameInfoEv"}
+!1851 = !{!1852, !897, i64 16}
+!1852 = !{!"_ZTSN5clang25ConceptSpecializationExprE", !1343, i64 0, !897, i64 16, !1853, i64 24, !1808, i64 32}
+!1853 = !{!"p1 _ZTSN5clang33ImplicitConceptSpecializationDeclE", !12, i64 0}
+!1854 = !{!1855, !1470, i64 24}
+!1855 = !{!"_ZTSN5clang16ExplicitCastExprE", !1856, i64 0, !1470, i64 24}
+!1856 = !{!"_ZTSN5clang8CastExprE", !1343, i64 0, !830, i64 16}
+!1857 = !{!1858, !1470, i64 16}
+!1858 = !{!"_ZTSN5clang22CXXScalarValueInitExprE", !1343, i64 0, !1470, i64 16}
+!1859 = !{!1860, !896, i64 8}
+!1860 = !{!"_ZTSN5clang26CXXRewrittenBinaryOperator14DecomposedFormE", !1861, i64 0, !896, i64 8, !896, i64 16, !896, i64 24}
+!1861 = !{!"_ZTSN5clang18BinaryOperatorKindE", !9, i64 0}
+!1862 = !{!1860, !896, i64 16}
+!1863 = !{!1864, !1470, i64 48}
+!1864 = !{!"_ZTSN5clang23CXXPseudoDestructorExprE", !1343, i64 0, !830, i64 16, !24, i64 24, !903, i64 28, !902, i64 32, !1470, i64 48, !903, i64 56, !903, i64 60, !1865, i64 64}
+!1865 = !{!"_ZTSN5clang27PseudoDestructorTypeStorageE", !1866, i64 0, !903, i64 8}
+!1866 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPKNS1_14IdentifierInfoEEEE", !1867, i64 0}
+!1867 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !1868, i64 0}
+!1868 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !1869, i64 0}
+!1869 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPKNS3_14IdentifierInfoEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !1870, i64 0}
+!1870 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPKNS4_14IdentifierInfoEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !930, i64 0}
+!1871 = !{!1872, !1470, i64 32}
+!1872 = !{!"_ZTSN5clang10CXXNewExprE", !1343, i64 0, !593, i64 16, !593, i64 24, !1470, i64 32, !950, i64 40, !950, i64 48}
+!1873 = !{!1874, !1470, i64 40}
+!1874 = !{!"_ZTSN5clang22CXXTemporaryObjectExprE", !1875, i64 0, !1470, i64 40}
+!1875 = !{!"_ZTSN5clang16CXXConstructExprE", !1343, i64 0, !1876, i64 16, !950, i64 24, !19, i64 32}
+!1876 = !{!"p1 _ZTSN5clang18CXXConstructorDeclE", !12, i64 0}
+!1877 = !{!1878, !1470, i64 48}
+!1878 = !{!"_ZTSN5clang18ArrayTypeTraitExprE", !1343, i64 0, !19, i64 16, !13, i64 24, !896, i64 32, !903, i64 40, !903, i64 44, !1470, i64 48}
+!1879 = !{!1880, !19, i64 52}
+!1880 = !{!"_ZTSN5clang20OpenACCWaitConstructE", !1881, i64 0, !903, i64 40, !903, i64 44, !903, i64 48, !19, i64 52}
+!1881 = !{!"_ZTSN5clang20OpenACCConstructStmtE", !1339, i64 0, !1882, i64 8, !950, i64 12, !903, i64 20, !1883, i64 24}
+!1882 = !{!"_ZTSN5clang20OpenACCDirectiveKindE", !9, i64 0}
+!1883 = !{!"_ZTSN4llvm15MutableArrayRefIPKN5clang13OpenACCClauseEEE", !1884, i64 0}
+!1884 = !{!"_ZTSN4llvm8ArrayRefIPKN5clang13OpenACCClauseEEE", !1885, i64 0, !13, i64 8}
+!1885 = !{!"p2 _ZTSN5clang13OpenACCClauseE", !12, i64 0}
+!1886 = !{!1885, !1885, i64 0}
+!1887 = !{!1888, !1888, i64 0}
+!1888 = !{!"p1 _ZTSN5clang13OpenACCClauseE", !12, i64 0}
+!1889 = !{!1890, !830, i64 40}
+!1890 = !{!"_ZTSN5clang30OpenACCAssociatedStmtConstructE", !1881, i64 0, !830, i64 40}
+!1891 = !{!1892, !1484, i64 24}
+!1892 = !{!"_ZTSN5clang22OMPExecutableDirectiveE", !1339, i64 0, !1893, i64 8, !903, i64 12, !903, i64 16, !1484, i64 24}
+!1893 = !{!"_ZTSN4llvm3omp9DirectiveE", !9, i64 0}
+!1894 = !{!1895}
+!1895 = distinct !{!1895, !1896, !"_ZN5clang6IfStmt8childrenEv: argument 0"}
+!1896 = distinct !{!1896, !"_ZN5clang6IfStmt8childrenEv"}
+!1897 = !{!1898}
+!1898 = distinct !{!1898, !1899, !"_ZN5clang6IfStmt8childrenEv: argument 0"}
+!1899 = distinct !{!1899, !"_ZN5clang6IfStmt8childrenEv"}
+!1900 = !{!1901, !723, i64 0}
+!1901 = !{!"_ZTSN5clang12DeclGroupRefE", !723, i64 0}
+!1902 = !{!1903, !19, i64 0}
+!1903 = !{!"_ZTSN5clang9DeclGroupE", !19, i64 0}
+!1904 = !{!1352, !1353, i64 16}
+!1905 = !{!1906, !1646, i64 48}
+!1906 = !{!"_ZTSN5clang10GCCAsmStmtE", !1907, i64 0, !903, i64 40, !1646, i64 48, !1909, i64 56, !1909, i64 64, !1910, i64 72, !19, i64 80}
+!1907 = !{!"_ZTSN5clang7AsmStmtE", !1339, i64 0, !903, i64 8, !24, i64 12, !24, i64 13, !19, i64 16, !19, i64 20, !19, i64 24, !1908, i64 32}
+!1908 = !{!"p2 _ZTSN5clang4StmtE", !12, i64 0}
+!1909 = !{!"p2 _ZTSN5clang13StringLiteralE", !12, i64 0}
+!1910 = !{!"p2 _ZTSN5clang14IdentifierInfoE", !12, i64 0}
+!1911 = !{!1907, !19, i64 20}
+!1912 = distinct !{!1912, !437}
+!1913 = !{!1906, !1909, i64 56}
+!1914 = !{!1907, !19, i64 16}
+!1915 = !{!1646, !1646, i64 0}
+!1916 = distinct !{!1916, !437}
+!1917 = !{!1907, !19, i64 24}
 !1918 = distinct !{!1918, !437}
-!1919 = !{!1912, !1915, i64 56}
-!1920 = !{!1913, !19, i64 16}
-!1921 = !{!1646, !1646, i64 0}
-!1922 = distinct !{!1922, !437}
-!1923 = !{!1913, !19, i64 24}
-!1924 = distinct !{!1924, !437}
-!1925 = !{!1912, !1915, i64 64}
-!1926 = !{!1927, !1914, i64 0}
-!1927 = !{!"_ZTSN5clang9ASTVectorIPNS_4StmtEEE", !1914, i64 0, !1914, i64 8, !1928, i64 16}
-!1928 = !{!"_ZTSN4llvm14PointerIntPairIPPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !1929, i64 0}
-!1929 = !{!"_ZTSN4llvm6detail13PunnedPointerIPPN5clang4StmtEEE", !9, i64 0}
-!1930 = !{!1931, !1933}
-!1931 = distinct !{!1931, !1932, !"_ZNK5clang12InitListExpr8childrenEv: argument 0"}
-!1932 = distinct !{!1932, !"_ZNK5clang12InitListExpr8childrenEv"}
-!1933 = distinct !{!1933, !1934, !"_ZN5clang12InitListExpr8childrenEv: argument 0"}
-!1934 = distinct !{!1934, !"_ZN5clang12InitListExpr8childrenEv"}
-!1935 = !{!1927, !1914, i64 8}
-!1936 = !{!1835, !1836, i64 24}
-!1937 = !{!1835, !1837, i64 40}
-!1938 = !{!1939, !1646, i64 0}
-!1939 = !{!"_ZTSN5clang16EmbedDataStorageE", !1646, i64 0}
-!1940 = !{!1835, !105, i64 32}
-!1941 = !{!1942}
-!1942 = distinct !{!1942, !1943, !"_ZNK5clang12APIntStorage8getValueEv: argument 0"}
-!1943 = distinct !{!1943, !"_ZNK5clang12APIntStorage8getValueEv"}
-!1944 = !{!1945}
-!1945 = distinct !{!1945, !1946, !"_ZNK5clang16APNumericStorage11getIntValueEv: argument 0"}
-!1946 = distinct !{!1946, !"_ZNK5clang16APNumericStorage11getIntValueEv"}
-!1947 = !{!1538, !19, i64 8}
-!1948 = !{!1945, !1942}
-!1949 = !{!1950}
-!1950 = distinct !{!1950, !1951, !"_ZNK5clang13OpenACCClause8childrenEv: argument 0"}
-!1951 = distinct !{!1951, !"_ZNK5clang13OpenACCClause8childrenEv"}
-!1952 = !{!1953, !1954, i64 8}
-!1953 = !{!"_ZTSN5clang9OMPClauseE", !903, i64 0, !903, i64 4, !1954, i64 8}
-!1954 = !{!"_ZTSN4llvm3omp6ClauseE", !9, i64 0}
-!1955 = !{!1956, !830, i64 16}
-!1956 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE5ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!1957 = !{!1958, !830, i64 16}
-!1958 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE8ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
+!1919 = !{!1906, !1909, i64 64}
+!1920 = !{!1921, !1908, i64 0}
+!1921 = !{!"_ZTSN5clang9ASTVectorIPNS_4StmtEEE", !1908, i64 0, !1908, i64 8, !1922, i64 16}
+!1922 = !{!"_ZTSN4llvm14PointerIntPairIPPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !1923, i64 0}
+!1923 = !{!"_ZTSN4llvm6detail13PunnedPointerIPPN5clang4StmtEEE", !9, i64 0}
+!1924 = !{!1925, !1927}
+!1925 = distinct !{!1925, !1926, !"_ZNK5clang12InitListExpr8childrenEv: argument 0"}
+!1926 = distinct !{!1926, !"_ZNK5clang12InitListExpr8childrenEv"}
+!1927 = distinct !{!1927, !1928, !"_ZN5clang12InitListExpr8childrenEv: argument 0"}
+!1928 = distinct !{!1928, !"_ZN5clang12InitListExpr8childrenEv"}
+!1929 = !{!1921, !1908, i64 8}
+!1930 = !{!1833, !1834, i64 24}
+!1931 = !{!1833, !1835, i64 40}
+!1932 = !{!1933, !1646, i64 0}
+!1933 = !{!"_ZTSN5clang16EmbedDataStorageE", !1646, i64 0}
+!1934 = !{!1833, !105, i64 32}
+!1935 = !{!1936}
+!1936 = distinct !{!1936, !1937, !"_ZNK5clang12APIntStorage8getValueEv: argument 0"}
+!1937 = distinct !{!1937, !"_ZNK5clang12APIntStorage8getValueEv"}
+!1938 = !{!1939}
+!1939 = distinct !{!1939, !1940, !"_ZNK5clang16APNumericStorage11getIntValueEv: argument 0"}
+!1940 = distinct !{!1940, !"_ZNK5clang16APNumericStorage11getIntValueEv"}
+!1941 = !{!1538, !19, i64 8}
+!1942 = !{!1939, !1936}
+!1943 = !{!1944}
+!1944 = distinct !{!1944, !1945, !"_ZNK5clang13OpenACCClause8childrenEv: argument 0"}
+!1945 = distinct !{!1945, !"_ZNK5clang13OpenACCClause8childrenEv"}
+!1946 = !{!1947, !1948, i64 8}
+!1947 = !{!"_ZTSN5clang9OMPClauseE", !903, i64 0, !903, i64 4, !1948, i64 8}
+!1948 = !{!"_ZTSN4llvm3omp6ClauseE", !9, i64 0}
+!1949 = !{!1950, !830, i64 16}
+!1950 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE5ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1951 = !{!1952, !830, i64 16}
+!1952 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE8ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1953 = !{!1954, !830, i64 16}
+!1954 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE15ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1955 = !{!1956, !896, i64 16}
+!1956 = !{!"_ZTSN5clang15OMPDepobjClauseE", !1947, i64 0, !903, i64 12, !896, i64 16}
+!1957 = !{!1958, !830, i64 24}
+!1958 = !{!"_ZTSN5clang16OMPDestroyClauseE", !1947, i64 0, !903, i64 12, !903, i64 16, !830, i64 24}
 !1959 = !{!1960, !830, i64 16}
-!1960 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE15ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!1961 = !{!1962, !896, i64 16}
-!1962 = !{!"_ZTSN5clang15OMPDepobjClauseE", !1953, i64 0, !903, i64 12, !896, i64 16}
-!1963 = !{!1964, !830, i64 24}
-!1964 = !{!"_ZTSN5clang16OMPDestroyClauseE", !1953, i64 0, !903, i64 12, !903, i64 16, !830, i64 24}
+!1960 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE25ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1961 = !{!1962, !830, i64 16}
+!1962 = !{!"_ZTSN5clang13OMPHintClauseE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1963 = !{!1964, !830, i64 16}
+!1964 = !{!"_ZTSN5clang16OMPMessageClauseE", !1947, i64 0, !903, i64 12, !830, i64 16}
 !1965 = !{!1966, !830, i64 16}
-!1966 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE25ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
+!1966 = !{!"_ZTSN5clang16OMPOrderedClauseE", !1947, i64 0, !903, i64 12, !830, i64 16, !19, i64 24}
 !1967 = !{!1968, !830, i64 16}
-!1968 = !{!"_ZTSN5clang13OMPHintClauseE", !1953, i64 0, !903, i64 12, !830, i64 16}
+!1968 = !{!"_ZTSN5clang16OMPPartialClauseE", !1947, i64 0, !903, i64 12, !830, i64 16}
 !1969 = !{!1970, !830, i64 16}
-!1970 = !{!"_ZTSN5clang16OMPMessageClauseE", !1953, i64 0, !903, i64 12, !830, i64 16}
+!1970 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE87ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
 !1971 = !{!1972, !830, i64 16}
-!1972 = !{!"_ZTSN5clang16OMPOrderedClauseE", !1953, i64 0, !903, i64 12, !830, i64 16, !19, i64 24}
-!1973 = !{!1974, !830, i64 16}
-!1974 = !{!"_ZTSN5clang16OMPPartialClauseE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!1975 = !{!1976, !830, i64 16}
-!1976 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE87ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!1977 = !{!1978, !830, i64 16}
-!1978 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE93ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!1979 = !{!1980, !830, i64 24}
-!1980 = !{!"_ZTSN5clang12OMPUseClauseE", !1953, i64 0, !903, i64 12, !903, i64 16, !830, i64 24}
-!1981 = !{!1982, !19, i64 16}
-!1982 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPAffinityClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!1983 = !{!1984, !19, i64 16}
-!1984 = !{!"_ZTSN5clang16OMPVarListClauseINS_16OMPAlignedClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!1985 = !{!1986, !896, i64 24}
-!1986 = !{!"_ZTSN5clang17OMPAllocateClauseE", !1987, i64 0, !896, i64 24, !896, i64 32, !903, i64 40, !1988, i64 44, !903, i64 48, !9, i64 52, !9, i64 60}
-!1987 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPAllocateClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!1988 = !{!"_ZTSN5clang28OpenMPAllocateClauseModifierE", !9, i64 0}
-!1989 = !{!1987, !19, i64 16}
-!1990 = !{!1991, !19, i64 16}
-!1991 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPCopyprivateClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!1992 = !{!1993, !19, i64 16}
-!1993 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPCopyinClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!1994 = !{!1995, !830, i64 0}
-!1995 = !{!"_ZTSN5clang20OMPClauseWithPreInitE", !830, i64 0, !1895, i64 8}
-!1996 = !{!1997, !830, i64 40}
-!1997 = !{!"_ZTSN5clang15OMPDeviceClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !1998, i64 32, !903, i64 36, !830, i64 40}
-!1998 = !{!"_ZTSN5clang26OpenMPDeviceClauseModifierE", !9, i64 0}
-!1999 = !{!2000, !896, i64 48}
-!2000 = !{!"_ZTSN5clang21OMPDistScheduleClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !2001, i64 32, !903, i64 36, !903, i64 40, !896, i64 48}
-!2001 = !{!"_ZTSN5clang28OpenMPDistScheduleClauseKindE", !9, i64 0}
-!2002 = !{!2003, !830, i64 16}
-!2003 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE34ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!2004 = !{!2005, !830, i64 16}
-!2005 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE35ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!2006 = !{!2007, !19, i64 16}
-!2007 = !{!"_ZTSN5clang16OMPVarListClauseINS_21OMPFirstprivateClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2008 = !{!2009, !830, i64 40}
-!2009 = !{!"_ZTSN5clang18OMPGrainsizeClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !2010, i64 32, !903, i64 36, !830, i64 40}
-!2010 = !{!"_ZTSN5clang29OpenMPGrainsizeClauseModifierE", !9, i64 0}
-!2011 = !{!2012, !830, i64 32}
-!2012 = !{!"_ZTSN5clang11OMPIfClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !830, i64 32, !903, i64 40, !1895, i64 44, !903, i64 48}
+!1972 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE93ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1973 = !{!1974, !830, i64 24}
+!1974 = !{!"_ZTSN5clang12OMPUseClauseE", !1947, i64 0, !903, i64 12, !903, i64 16, !830, i64 24}
+!1975 = !{!1976, !19, i64 16}
+!1976 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPAffinityClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!1977 = !{!1978, !19, i64 16}
+!1978 = !{!"_ZTSN5clang16OMPVarListClauseINS_16OMPAlignedClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!1979 = !{!1980, !896, i64 24}
+!1980 = !{!"_ZTSN5clang17OMPAllocateClauseE", !1981, i64 0, !896, i64 24, !896, i64 32, !903, i64 40, !1982, i64 44, !903, i64 48, !9, i64 52, !9, i64 60}
+!1981 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPAllocateClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!1982 = !{!"_ZTSN5clang28OpenMPAllocateClauseModifierE", !9, i64 0}
+!1983 = !{!1981, !19, i64 16}
+!1984 = !{!1985, !19, i64 16}
+!1985 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPCopyprivateClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!1986 = !{!1987, !19, i64 16}
+!1987 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPCopyinClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!1988 = !{!1989, !830, i64 0}
+!1989 = !{!"_ZTSN5clang20OMPClauseWithPreInitE", !830, i64 0, !1893, i64 8}
+!1990 = !{!1991, !830, i64 40}
+!1991 = !{!"_ZTSN5clang15OMPDeviceClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !1992, i64 32, !903, i64 36, !830, i64 40}
+!1992 = !{!"_ZTSN5clang26OpenMPDeviceClauseModifierE", !9, i64 0}
+!1993 = !{!1994, !896, i64 48}
+!1994 = !{!"_ZTSN5clang21OMPDistScheduleClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !1995, i64 32, !903, i64 36, !903, i64 40, !896, i64 48}
+!1995 = !{!"_ZTSN5clang28OpenMPDistScheduleClauseKindE", !9, i64 0}
+!1996 = !{!1997, !830, i64 16}
+!1997 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE34ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!1998 = !{!1999, !830, i64 16}
+!1999 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE35ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!2000 = !{!2001, !19, i64 16}
+!2001 = !{!"_ZTSN5clang16OMPVarListClauseINS_21OMPFirstprivateClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2002 = !{!2003, !830, i64 40}
+!2003 = !{!"_ZTSN5clang18OMPGrainsizeClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !2004, i64 32, !903, i64 36, !830, i64 40}
+!2004 = !{!"_ZTSN5clang29OpenMPGrainsizeClauseModifierE", !9, i64 0}
+!2005 = !{!2006, !830, i64 32}
+!2006 = !{!"_ZTSN5clang11OMPIfClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !830, i64 32, !903, i64 40, !1893, i64 44, !903, i64 48}
+!2007 = !{!2008, !19, i64 16}
+!2008 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPInReductionClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2009 = !{!2010, !896, i64 16}
+!2010 = !{!"_ZTSN5clang23OMPClauseWithPostUpdateE", !1989, i64 0, !896, i64 16}
+!2011 = !{!2012, !19, i64 16}
+!2012 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPLastprivateClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2013 = !{!2014, !19, i64 16}
-!2014 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPInReductionClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2015 = !{!2016, !896, i64 16}
-!2016 = !{!"_ZTSN5clang23OMPClauseWithPostUpdateE", !1995, i64 0, !896, i64 16}
+!2014 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPLinearClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2015 = !{!2016, !830, i64 16}
+!2016 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE64ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
 !2017 = !{!2018, !19, i64 16}
-!2018 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPLastprivateClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2019 = !{!2020, !19, i64 16}
-!2020 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPLinearClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2021 = !{!2022, !830, i64 16}
-!2022 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE64ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!2023 = !{!2024, !19, i64 16}
-!2024 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPNontemporalClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2025 = !{!2026}
-!2026 = distinct !{!2026, !2027, !"_ZN5clang20OMPNontemporalClause12private_refsEv: argument 0"}
-!2027 = distinct !{!2027, !"_ZN5clang20OMPNontemporalClause12private_refsEv"}
-!2028 = !{!2029, !830, i64 16}
-!2029 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE67ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!2030 = !{!2031, !830, i64 40}
-!2031 = !{!"_ZTSN5clang17OMPNumTasksClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !2032, i64 32, !903, i64 36, !830, i64 40}
-!2032 = !{!"_ZTSN5clang28OpenMPNumTasksClauseModifierE", !9, i64 0}
+!2018 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPNontemporalClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2019 = !{!2020}
+!2020 = distinct !{!2020, !2021, !"_ZN5clang20OMPNontemporalClause12private_refsEv: argument 0"}
+!2021 = distinct !{!2021, !"_ZN5clang20OMPNontemporalClause12private_refsEv"}
+!2022 = !{!2023, !830, i64 16}
+!2023 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE67ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!2024 = !{!2025, !830, i64 40}
+!2025 = !{!"_ZTSN5clang17OMPNumTasksClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !2026, i64 32, !903, i64 36, !830, i64 40}
+!2026 = !{!"_ZTSN5clang28OpenMPNumTasksClauseModifierE", !9, i64 0}
+!2027 = !{!2028, !19, i64 16}
+!2028 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPNumTeamsClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2029 = !{!2030, !830, i64 16}
+!2030 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE70ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
+!2031 = !{!2032, !830, i64 16}
+!2032 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE73ENS_9OMPClauseEEE", !1947, i64 0, !903, i64 12, !830, i64 16}
 !2033 = !{!2034, !19, i64 16}
-!2034 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPNumTeamsClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2035 = !{!2036, !830, i64 16}
-!2036 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE70ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
-!2037 = !{!2038, !830, i64 16}
-!2038 = !{!"_ZTSN5clang16OMPOneStmtClauseILN4llvm3omp6ClauseE73ENS_9OMPClauseEEE", !1953, i64 0, !903, i64 12, !830, i64 16}
+!2034 = !{!"_ZTSN5clang20OMPPermutationClauseE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2035 = !{!2036, !830, i64 32}
+!2036 = !{!"_ZTSN5clang17OMPPriorityClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !830, i64 32}
+!2037 = !{!2038, !19, i64 16}
+!2038 = !{!"_ZTSN5clang16OMPVarListClauseINS_16OMPPrivateClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2039 = !{!2040, !19, i64 16}
-!2040 = !{!"_ZTSN5clang20OMPPermutationClauseE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2041 = !{!2042, !830, i64 32}
-!2042 = !{!"_ZTSN5clang17OMPPriorityClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !830, i64 32}
-!2043 = !{!2044, !19, i64 16}
-!2044 = !{!"_ZTSN5clang16OMPVarListClauseINS_16OMPPrivateClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2045 = !{!2046, !19, i64 16}
-!2046 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPReductionClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2047 = !{!2048, !2049, i64 48}
-!2048 = !{!"_ZTSN5clang18OMPReductionClauseE", !2046, i64 0, !2016, i64 24, !2049, i64 48, !903, i64 52, !903, i64 56, !902, i64 64, !904, i64 80}
-!2049 = !{!"_ZTSN5clang29OpenMPReductionClauseModifierE", !9, i64 0}
-!2050 = !{!2051, !896, i64 64}
-!2051 = !{!"_ZTSN5clang17OMPScheduleClauseE", !1953, i64 0, !1995, i64 16, !903, i64 28, !2052, i64 32, !9, i64 36, !9, i64 44, !903, i64 52, !903, i64 56, !896, i64 64}
-!2052 = !{!"_ZTSN5clang24OpenMPScheduleClauseKindE", !9, i64 0}
+!2040 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPReductionClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2041 = !{!2042, !2043, i64 48}
+!2042 = !{!"_ZTSN5clang18OMPReductionClauseE", !2040, i64 0, !2010, i64 24, !2043, i64 48, !903, i64 52, !903, i64 56, !902, i64 64, !904, i64 80}
+!2043 = !{!"_ZTSN5clang29OpenMPReductionClauseModifierE", !9, i64 0}
+!2044 = !{!2045, !896, i64 64}
+!2045 = !{!"_ZTSN5clang17OMPScheduleClauseE", !1947, i64 0, !1989, i64 16, !903, i64 28, !2046, i64 32, !9, i64 36, !9, i64 44, !903, i64 52, !903, i64 56, !896, i64 64}
+!2046 = !{!"_ZTSN5clang24OpenMPScheduleClauseKindE", !9, i64 0}
+!2047 = !{!2048, !19, i64 16}
+!2048 = !{!"_ZTSN5clang14OMPSizesClauseE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2049 = !{!2050, !19, i64 16}
+!2050 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPTaskReductionClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2051 = !{!2052, !19, i64 16}
+!2052 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPThreadLimitClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2053 = !{!2054, !19, i64 16}
-!2054 = !{!"_ZTSN5clang14OMPSizesClauseE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2055 = !{!2056, !19, i64 16}
-!2056 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPTaskReductionClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2057 = !{!2058, !19, i64 16}
-!2058 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPThreadLimitClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2054 = !{!"_ZTSN5clang23OMPUsesAllocatorsClauseE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2055 = !{!2056, !896, i64 0}
+!2056 = !{!"_ZTSN5clang23OMPUsesAllocatorsClause4DataE", !896, i64 0, !896, i64 8, !903, i64 16, !903, i64 20}
+!2057 = !{!2056, !896, i64 8}
+!2058 = distinct !{!2058, !437}
 !2059 = !{!2060, !19, i64 16}
-!2060 = !{!"_ZTSN5clang23OMPUsesAllocatorsClauseE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2061 = !{!2062, !896, i64 0}
-!2062 = !{!"_ZTSN5clang23OMPUsesAllocatorsClause4DataE", !896, i64 0, !896, i64 8, !903, i64 16, !903, i64 20}
-!2063 = !{!2062, !896, i64 8}
-!2064 = distinct !{!2064, !437}
+!2060 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPDependClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2061 = !{!2062, !19, i64 16}
+!2062 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPDoacrossClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2063 = !{!2064, !19, i64 16}
+!2064 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPExclusiveClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2065 = !{!2066, !19, i64 16}
-!2066 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPDependClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2066 = !{!"_ZTSN5clang16OMPVarListClauseINS_14OMPFlushClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2067 = !{!2068, !19, i64 16}
-!2068 = !{!"_ZTSN5clang16OMPVarListClauseINS_17OMPDoacrossClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2068 = !{!"_ZTSN5clang16OMPVarListClauseINS_13OMPFromClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2069 = !{!2070, !19, i64 16}
-!2070 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPExclusiveClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2070 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPHasDeviceAddrClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2071 = !{!2072, !19, i64 16}
-!2072 = !{!"_ZTSN5clang16OMPVarListClauseINS_14OMPFlushClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2072 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPInclusiveClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2073 = !{!2074, !19, i64 16}
-!2074 = !{!"_ZTSN5clang16OMPVarListClauseINS_13OMPFromClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2074 = !{!"_ZTSN5clang16OMPVarListClauseINS_13OMPInitClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2075 = !{!2076, !19, i64 16}
-!2076 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPHasDeviceAddrClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2076 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPIsDevicePtrClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2077 = !{!2078, !19, i64 16}
-!2078 = !{!"_ZTSN5clang16OMPVarListClauseINS_18OMPInclusiveClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2078 = !{!"_ZTSN5clang16OMPVarListClauseINS_12OMPMapClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2079 = !{!2080, !19, i64 16}
-!2080 = !{!"_ZTSN5clang16OMPVarListClauseINS_13OMPInitClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2080 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPSharedClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2081 = !{!2082, !19, i64 16}
-!2082 = !{!"_ZTSN5clang16OMPVarListClauseINS_20OMPIsDevicePtrClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2082 = !{!"_ZTSN5clang16OMPVarListClauseINS_11OMPToClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2083 = !{!2084, !19, i64 16}
-!2084 = !{!"_ZTSN5clang16OMPVarListClauseINS_12OMPMapClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
+!2084 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPUseDeviceAddrClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
 !2085 = !{!2086, !19, i64 16}
-!2086 = !{!"_ZTSN5clang16OMPVarListClauseINS_15OMPSharedClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2087 = !{!2088, !19, i64 16}
-!2088 = !{!"_ZTSN5clang16OMPVarListClauseINS_11OMPToClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2089 = !{!2090, !19, i64 16}
-!2090 = !{!"_ZTSN5clang16OMPVarListClauseINS_22OMPUseDeviceAddrClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2091 = !{!2092, !19, i64 16}
-!2092 = !{!"_ZTSN5clang16OMPVarListClauseINS_21OMPUseDevicePtrClauseEEE", !1953, i64 0, !903, i64 12, !19, i64 16}
-!2093 = !{!2094, !896, i64 40}
-!2094 = !{!"_ZTSN5clang14AlignValueAttrE", !2095, i64 0, !896, i64 40}
-!2095 = !{!"_ZTSN5clang4AttrE", !2096, i64 0, !19, i64 32, !19, i64 34, !19, i64 34, !19, i64 34, !19, i64 34, !19, i64 34}
-!2096 = !{!"_ZTSN5clang19AttributeCommonInfoE", !590, i64 0, !590, i64 8, !950, i64 16, !903, i64 24, !19, i64 28, !19, i64 30, !19, i64 30, !19, i64 31, !19, i64 31}
-!2097 = !{!2098, !896, i64 40}
-!2098 = !{!"_ZTSN5clang13CXXAssumeAttrE", !2099, i64 0, !896, i64 40}
-!2099 = !{!"_ZTSN5clang8StmtAttrE", !2095, i64 0}
-!2100 = !{!2101, !896, i64 40}
-!2101 = !{!"_ZTSN5clang13CodeAlignAttrE", !2099, i64 0, !896, i64 40}
-!2102 = !{!2103, !896, i64 40}
-!2103 = !{!"_ZTSN5clang13CountedByAttrE", !2104, i64 0, !896, i64 40, !19, i64 48}
-!2104 = !{!"_ZTSN5clang15InheritableAttrE", !2095, i64 0}
-!2105 = !{!2106, !896, i64 40}
-!2106 = !{!"_ZTSN5clang19CountedByOrNullAttrE", !2104, i64 0, !896, i64 40, !19, i64 48}
-!2107 = !{!2108, !896, i64 40}
-!2108 = !{!"_ZTSN5clang14DiagnoseIfAttrE", !2104, i64 0, !896, i64 40, !19, i64 48, !11, i64 56, !2109, i64 64, !19, i64 68, !11, i64 72, !24, i64 80, !907, i64 88}
-!2109 = !{!"_ZTSN5clang14DiagnoseIfAttr15DefaultSeverityE", !9, i64 0}
-!2110 = !{!2111, !896, i64 40}
-!2111 = !{!"_ZTSN5clang12EnableIfAttrE", !2104, i64 0, !896, i64 40, !19, i64 48, !11, i64 56}
-!2112 = !{!2113, !896, i64 40}
-!2113 = !{!"_ZTSN5clang13GuardedByAttrE", !2104, i64 0, !896, i64 40}
-!2114 = !{!2115, !1470, i64 40}
-!2115 = !{!"_ZTSN5clang21HLSLContainedTypeAttrE", !2116, i64 0, !1470, i64 40}
-!2116 = !{!"_ZTSN5clang8TypeAttrE", !2095, i64 0}
-!2117 = !{!2118, !1470, i64 40}
-!2118 = !{!"_ZTSN5clang22IBOutletCollectionAttrE", !2104, i64 0, !1470, i64 40}
+!2086 = !{!"_ZTSN5clang16OMPVarListClauseINS_21OMPUseDevicePtrClauseEEE", !1947, i64 0, !903, i64 12, !19, i64 16}
+!2087 = !{!2088, !896, i64 40}
+!2088 = !{!"_ZTSN5clang14AlignValueAttrE", !2089, i64 0, !896, i64 40}
+!2089 = !{!"_ZTSN5clang4AttrE", !2090, i64 0, !19, i64 32, !19, i64 34, !19, i64 34, !19, i64 34, !19, i64 34, !19, i64 34}
+!2090 = !{!"_ZTSN5clang19AttributeCommonInfoE", !590, i64 0, !590, i64 8, !950, i64 16, !903, i64 24, !19, i64 28, !19, i64 30, !19, i64 30, !19, i64 31, !19, i64 31}
+!2091 = !{!2092, !896, i64 40}
+!2092 = !{!"_ZTSN5clang13CXXAssumeAttrE", !2093, i64 0, !896, i64 40}
+!2093 = !{!"_ZTSN5clang8StmtAttrE", !2089, i64 0}
+!2094 = !{!2095, !896, i64 40}
+!2095 = !{!"_ZTSN5clang13CodeAlignAttrE", !2093, i64 0, !896, i64 40}
+!2096 = !{!2097, !896, i64 40}
+!2097 = !{!"_ZTSN5clang13CountedByAttrE", !2098, i64 0, !896, i64 40, !19, i64 48}
+!2098 = !{!"_ZTSN5clang15InheritableAttrE", !2089, i64 0}
+!2099 = !{!2100, !896, i64 40}
+!2100 = !{!"_ZTSN5clang19CountedByOrNullAttrE", !2098, i64 0, !896, i64 40, !19, i64 48}
+!2101 = !{!2102, !896, i64 40}
+!2102 = !{!"_ZTSN5clang14DiagnoseIfAttrE", !2098, i64 0, !896, i64 40, !19, i64 48, !11, i64 56, !2103, i64 64, !19, i64 68, !11, i64 72, !24, i64 80, !907, i64 88}
+!2103 = !{!"_ZTSN5clang14DiagnoseIfAttr15DefaultSeverityE", !9, i64 0}
+!2104 = !{!2105, !896, i64 40}
+!2105 = !{!"_ZTSN5clang12EnableIfAttrE", !2098, i64 0, !896, i64 40, !19, i64 48, !11, i64 56}
+!2106 = !{!2107, !896, i64 40}
+!2107 = !{!"_ZTSN5clang13GuardedByAttrE", !2098, i64 0, !896, i64 40}
+!2108 = !{!2109, !1470, i64 40}
+!2109 = !{!"_ZTSN5clang21HLSLContainedTypeAttrE", !2110, i64 0, !1470, i64 40}
+!2110 = !{!"_ZTSN5clang8TypeAttrE", !2089, i64 0}
+!2111 = !{!2112, !1470, i64 40}
+!2112 = !{!"_ZTSN5clang22IBOutletCollectionAttrE", !2098, i64 0, !1470, i64 40}
+!2113 = !{!2114, !896, i64 40}
+!2114 = !{!"_ZTSN5clang16LockReturnedAttrE", !2098, i64 0, !896, i64 40}
+!2115 = !{!2116, !896, i64 48}
+!2116 = !{!"_ZTSN5clang12LoopHintAttrE", !2089, i64 0, !2117, i64 36, !2118, i64 40, !896, i64 48}
+!2117 = !{!"_ZTSN5clang12LoopHintAttr10OptionTypeE", !9, i64 0}
+!2118 = !{!"_ZTSN5clang12LoopHintAttr13LoopHintStateE", !9, i64 0}
 !2119 = !{!2120, !896, i64 40}
-!2120 = !{!"_ZTSN5clang16LockReturnedAttrE", !2104, i64 0, !896, i64 40}
-!2121 = !{!2122, !896, i64 48}
-!2122 = !{!"_ZTSN5clang12LoopHintAttrE", !2095, i64 0, !2123, i64 36, !2124, i64 40, !896, i64 48}
-!2123 = !{!"_ZTSN5clang12LoopHintAttr10OptionTypeE", !9, i64 0}
-!2124 = !{!"_ZTSN5clang12LoopHintAttr13LoopHintStateE", !9, i64 0}
-!2125 = !{!2126, !896, i64 40}
-!2126 = !{!"_ZTSN5clang17NonAllocatingAttrE", !2116, i64 0, !896, i64 40}
+!2120 = !{!"_ZTSN5clang17NonAllocatingAttrE", !2110, i64 0, !896, i64 40}
+!2121 = !{!2122, !896, i64 40}
+!2122 = !{!"_ZTSN5clang15NonBlockingAttrE", !2110, i64 0, !896, i64 40}
+!2123 = !{!2124, !896, i64 48}
+!2124 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttrE", !2098, i64 0, !2125, i64 36, !2126, i64 40, !896, i64 48, !24, i64 56, !19, i64 60}
+!2125 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttr9MapTypeTyE", !9, i64 0}
+!2126 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttr9DevTypeTyE", !9, i64 0}
 !2127 = !{!2128, !896, i64 40}
-!2128 = !{!"_ZTSN5clang15NonBlockingAttrE", !2116, i64 0, !896, i64 40}
-!2129 = !{!2130, !896, i64 48}
-!2130 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttrE", !2104, i64 0, !2131, i64 36, !2132, i64 40, !896, i64 48, !24, i64 56, !19, i64 60}
-!2131 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttr9MapTypeTyE", !9, i64 0}
-!2132 = !{!"_ZTSN5clang24OMPDeclareTargetDeclAttr9DevTypeTyE", !9, i64 0}
-!2133 = !{!2134, !896, i64 40}
-!2134 = !{!"_ZTSN5clang20OMPReferencedVarAttrE", !2095, i64 0, !896, i64 40}
+!2128 = !{!"_ZTSN5clang20OMPReferencedVarAttrE", !2089, i64 0, !896, i64 40}
+!2129 = !{!2130, !1470, i64 40}
+!2130 = !{!"_ZTSN5clang9OwnerAttrE", !2098, i64 0, !1470, i64 40}
+!2131 = !{!2132, !1470, i64 40}
+!2132 = !{!"_ZTSN5clang11PointerAttrE", !2098, i64 0, !1470, i64 40}
+!2133 = !{!2134, !1470, i64 40}
+!2134 = !{!"_ZTSN5clang17PreferredNameAttrE", !2098, i64 0, !1470, i64 40}
 !2135 = !{!2136, !1470, i64 40}
-!2136 = !{!"_ZTSN5clang9OwnerAttrE", !2104, i64 0, !1470, i64 40}
-!2137 = !{!2138, !1470, i64 40}
-!2138 = !{!"_ZTSN5clang11PointerAttrE", !2104, i64 0, !1470, i64 40}
+!2136 = !{!"_ZTSN5clang17PreferredTypeAttrE", !2098, i64 0, !1470, i64 40}
+!2137 = !{!2138, !896, i64 40}
+!2138 = !{!"_ZTSN5clang15PtGuardedByAttrE", !2098, i64 0, !896, i64 40}
 !2139 = !{!2140, !1470, i64 40}
-!2140 = !{!"_ZTSN5clang17PreferredNameAttrE", !2104, i64 0, !1470, i64 40}
-!2141 = !{!2142, !1470, i64 40}
-!2142 = !{!"_ZTSN5clang17PreferredTypeAttrE", !2104, i64 0, !1470, i64 40}
+!2140 = !{!"_ZTSN5clang24SYCLKernelEntryPointAttrE", !2098, i64 0, !1470, i64 40, !24, i64 48}
+!2141 = !{!2142, !896, i64 40}
+!2142 = !{!"_ZTSN5clang11SizedByAttrE", !2098, i64 0, !896, i64 40, !19, i64 48}
 !2143 = !{!2144, !896, i64 40}
-!2144 = !{!"_ZTSN5clang15PtGuardedByAttrE", !2104, i64 0, !896, i64 40}
-!2145 = !{!2146, !1470, i64 40}
-!2146 = !{!"_ZTSN5clang24SYCLKernelEntryPointAttrE", !2104, i64 0, !1470, i64 40, !24, i64 48}
-!2147 = !{!2148, !896, i64 40}
-!2148 = !{!"_ZTSN5clang11SizedByAttrE", !2104, i64 0, !896, i64 40, !19, i64 48}
+!2144 = !{!"_ZTSN5clang17SizedByOrNullAttrE", !2098, i64 0, !896, i64 40, !19, i64 48}
+!2145 = !{!2146, !1470, i64 48}
+!2146 = !{!"_ZTSN5clang22TypeTagForDatatypeAttrE", !2098, i64 0, !590, i64 40, !1470, i64 48, !24, i64 56, !24, i64 57}
+!2147 = !{!2148, !1470, i64 40}
+!2148 = !{!"_ZTSN5clang15VecTypeHintAttrE", !2098, i64 0, !1470, i64 40}
 !2149 = !{!2150, !896, i64 40}
-!2150 = !{!"_ZTSN5clang17SizedByOrNullAttrE", !2104, i64 0, !896, i64 40, !19, i64 48}
-!2151 = !{!2152, !1470, i64 48}
-!2152 = !{!"_ZTSN5clang22TypeTagForDatatypeAttrE", !2104, i64 0, !590, i64 40, !1470, i64 48, !24, i64 56, !24, i64 57}
-!2153 = !{!2154, !1470, i64 40}
-!2154 = !{!"_ZTSN5clang15VecTypeHintAttrE", !2104, i64 0, !1470, i64 40}
-!2155 = !{!2156, !896, i64 40}
-!2156 = !{!"_ZTSN5clang27AMDGPUFlatWorkGroupSizeAttrE", !2104, i64 0, !896, i64 40, !896, i64 48}
-!2157 = !{!2156, !896, i64 48}
-!2158 = !{!2159, !896, i64 40}
-!2159 = !{!"_ZTSN5clang26AMDGPUMaxNumWorkGroupsAttrE", !2104, i64 0, !896, i64 40, !896, i64 48, !896, i64 56}
-!2160 = !{!2159, !896, i64 48}
-!2161 = !{!2159, !896, i64 56}
-!2162 = !{!2163, !896, i64 40}
-!2163 = !{!"_ZTSN5clang20AMDGPUWavesPerEUAttrE", !2104, i64 0, !896, i64 40, !896, i64 48}
-!2164 = !{!2163, !896, i64 48}
-!2165 = !{!2166, !2167, i64 40}
-!2166 = !{!"_ZTSN5clang21AcquireCapabilityAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2167 = !{!"p2 _ZTSN5clang4ExprE", !12, i64 0}
-!2168 = !{!2166, !19, i64 36}
-!2169 = distinct !{!2169, !437}
-!2170 = !{!2171, !2167, i64 40}
-!2171 = !{!"_ZTSN5clang17AcquiredAfterAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2172 = !{!2171, !19, i64 36}
-!2173 = distinct !{!2173, !437}
-!2174 = !{!2175, !2167, i64 40}
-!2175 = !{!"_ZTSN5clang18AcquiredBeforeAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2176 = !{!2175, !19, i64 36}
-!2177 = distinct !{!2177, !437}
-!2178 = !{!2179, !24, i64 35}
-!2179 = !{!"_ZTSN5clang11AlignedAttrE", !2104, i64 0, !24, i64 35, !9, i64 40, !2180, i64 48}
-!2180 = !{!"_ZTSSt8optionalIjE", !2181, i64 0}
-!2181 = !{!"_ZTSSt14_Optional_baseIjLb1ELb1EE", !2182, i64 0}
-!2182 = !{!"_ZTSSt17_Optional_payloadIjLb1ELb1ELb1EE", !2183, i64 0}
-!2183 = !{!"_ZTSSt22_Optional_payload_baseIjE", !9, i64 0, !24, i64 4}
-!2184 = !{!2185, !2167, i64 56}
-!2185 = !{!"_ZTSN5clang12AnnotateAttrE", !2186, i64 0, !19, i64 36, !11, i64 40, !19, i64 48, !2167, i64 56, !19, i64 64, !2167, i64 72}
-!2186 = !{!"_ZTSN5clang26InheritableParamOrStmtAttrE", !2187, i64 0}
-!2187 = !{!"_ZTSN5clang20InheritableParamAttrE", !2104, i64 0}
-!2188 = !{!2185, !19, i64 48}
-!2189 = distinct !{!2189, !437}
-!2190 = !{!2185, !2167, i64 72}
-!2191 = !{!2185, !19, i64 64}
-!2192 = distinct !{!2192, !437}
-!2193 = !{!2194, !2167, i64 56}
-!2194 = !{!"_ZTSN5clang16AnnotateTypeAttrE", !2116, i64 0, !19, i64 36, !11, i64 40, !19, i64 48, !2167, i64 56, !19, i64 64, !2167, i64 72}
-!2195 = !{!2194, !19, i64 48}
-!2196 = distinct !{!2196, !437}
-!2197 = !{!2194, !2167, i64 72}
-!2198 = !{!2194, !19, i64 64}
-!2199 = distinct !{!2199, !437}
-!2200 = !{!2201, !2167, i64 40}
-!2201 = !{!"_ZTSN5clang20AssertCapabilityAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2202 = !{!2201, !19, i64 36}
-!2203 = distinct !{!2203, !437}
-!2204 = !{!2205, !2167, i64 40}
-!2205 = !{!"_ZTSN5clang23AssertExclusiveLockAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2206 = !{!2205, !19, i64 36}
-!2207 = distinct !{!2207, !437}
-!2208 = !{!2209, !2167, i64 40}
-!2209 = !{!"_ZTSN5clang20AssertSharedLockAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2210 = !{!2209, !19, i64 36}
-!2211 = distinct !{!2211, !437}
-!2212 = !{!2213, !896, i64 40}
-!2213 = !{!"_ZTSN5clang17AssumeAlignedAttrE", !2104, i64 0, !896, i64 40, !896, i64 48}
-!2214 = !{!2213, !896, i64 48}
-!2215 = !{!2216, !896, i64 40}
-!2216 = !{!"_ZTSN5clang20CUDALaunchBoundsAttrE", !2104, i64 0, !896, i64 40, !896, i64 48, !896, i64 56}
-!2217 = !{!2216, !896, i64 48}
-!2218 = !{!2216, !896, i64 56}
-!2219 = !{!2220, !896, i64 40}
-!2220 = !{!"_ZTSN5clang28ExclusiveTrylockFunctionAttrE", !2104, i64 0, !896, i64 40, !19, i64 48, !2167, i64 56}
-!2221 = !{!2220, !2167, i64 56}
-!2222 = !{!2220, !19, i64 48}
-!2223 = distinct !{!2223, !437}
-!2224 = !{!2225, !2167, i64 40}
-!2225 = !{!"_ZTSN5clang17LocksExcludedAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2226 = !{!2225, !19, i64 36}
-!2227 = distinct !{!2227, !437}
-!2228 = !{!2229, !896, i64 40}
-!2229 = !{!"_ZTSN5clang19OMPAllocateDeclAttrE", !2104, i64 0, !2230, i64 36, !896, i64 40, !896, i64 48}
-!2230 = !{!"_ZTSN5clang19OMPAllocateDeclAttr15AllocatorTypeTyE", !9, i64 0}
-!2231 = !{!2229, !896, i64 48}
-!2232 = !{!2233, !896, i64 40}
-!2233 = !{!"_ZTSN5clang22OMPDeclareSimdDeclAttrE", !2095, i64 0, !2234, i64 36, !896, i64 40, !19, i64 48, !2167, i64 56, !19, i64 64, !2167, i64 72, !19, i64 80, !2167, i64 88, !19, i64 96, !2167, i64 104, !19, i64 112, !2235, i64 120, !19, i64 128, !2167, i64 136}
-!2234 = !{!"_ZTSN5clang22OMPDeclareSimdDeclAttr13BranchStateTyE", !9, i64 0}
-!2235 = !{!"p1 int", !12, i64 0}
-!2236 = !{!2233, !2167, i64 56}
-!2237 = !{!2233, !19, i64 48}
+!2150 = !{!"_ZTSN5clang27AMDGPUFlatWorkGroupSizeAttrE", !2098, i64 0, !896, i64 40, !896, i64 48}
+!2151 = !{!2150, !896, i64 48}
+!2152 = !{!2153, !896, i64 40}
+!2153 = !{!"_ZTSN5clang26AMDGPUMaxNumWorkGroupsAttrE", !2098, i64 0, !896, i64 40, !896, i64 48, !896, i64 56}
+!2154 = !{!2153, !896, i64 48}
+!2155 = !{!2153, !896, i64 56}
+!2156 = !{!2157, !896, i64 40}
+!2157 = !{!"_ZTSN5clang20AMDGPUWavesPerEUAttrE", !2098, i64 0, !896, i64 40, !896, i64 48}
+!2158 = !{!2157, !896, i64 48}
+!2159 = !{!2160, !2161, i64 40}
+!2160 = !{!"_ZTSN5clang21AcquireCapabilityAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2161 = !{!"p2 _ZTSN5clang4ExprE", !12, i64 0}
+!2162 = !{!2160, !19, i64 36}
+!2163 = distinct !{!2163, !437}
+!2164 = !{!2165, !2161, i64 40}
+!2165 = !{!"_ZTSN5clang17AcquiredAfterAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2166 = !{!2165, !19, i64 36}
+!2167 = distinct !{!2167, !437}
+!2168 = !{!2169, !2161, i64 40}
+!2169 = !{!"_ZTSN5clang18AcquiredBeforeAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2170 = !{!2169, !19, i64 36}
+!2171 = distinct !{!2171, !437}
+!2172 = !{!2173, !24, i64 35}
+!2173 = !{!"_ZTSN5clang11AlignedAttrE", !2098, i64 0, !24, i64 35, !9, i64 40, !2174, i64 48}
+!2174 = !{!"_ZTSSt8optionalIjE", !2175, i64 0}
+!2175 = !{!"_ZTSSt14_Optional_baseIjLb1ELb1EE", !2176, i64 0}
+!2176 = !{!"_ZTSSt17_Optional_payloadIjLb1ELb1ELb1EE", !2177, i64 0}
+!2177 = !{!"_ZTSSt22_Optional_payload_baseIjE", !9, i64 0, !24, i64 4}
+!2178 = !{!2179, !2161, i64 56}
+!2179 = !{!"_ZTSN5clang12AnnotateAttrE", !2180, i64 0, !19, i64 36, !11, i64 40, !19, i64 48, !2161, i64 56, !19, i64 64, !2161, i64 72}
+!2180 = !{!"_ZTSN5clang26InheritableParamOrStmtAttrE", !2181, i64 0}
+!2181 = !{!"_ZTSN5clang20InheritableParamAttrE", !2098, i64 0}
+!2182 = !{!2179, !19, i64 48}
+!2183 = distinct !{!2183, !437}
+!2184 = !{!2179, !2161, i64 72}
+!2185 = !{!2179, !19, i64 64}
+!2186 = distinct !{!2186, !437}
+!2187 = !{!2188, !2161, i64 56}
+!2188 = !{!"_ZTSN5clang16AnnotateTypeAttrE", !2110, i64 0, !19, i64 36, !11, i64 40, !19, i64 48, !2161, i64 56, !19, i64 64, !2161, i64 72}
+!2189 = !{!2188, !19, i64 48}
+!2190 = distinct !{!2190, !437}
+!2191 = !{!2188, !2161, i64 72}
+!2192 = !{!2188, !19, i64 64}
+!2193 = distinct !{!2193, !437}
+!2194 = !{!2195, !2161, i64 40}
+!2195 = !{!"_ZTSN5clang20AssertCapabilityAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2196 = !{!2195, !19, i64 36}
+!2197 = distinct !{!2197, !437}
+!2198 = !{!2199, !2161, i64 40}
+!2199 = !{!"_ZTSN5clang23AssertExclusiveLockAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2200 = !{!2199, !19, i64 36}
+!2201 = distinct !{!2201, !437}
+!2202 = !{!2203, !2161, i64 40}
+!2203 = !{!"_ZTSN5clang20AssertSharedLockAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2204 = !{!2203, !19, i64 36}
+!2205 = distinct !{!2205, !437}
+!2206 = !{!2207, !896, i64 40}
+!2207 = !{!"_ZTSN5clang17AssumeAlignedAttrE", !2098, i64 0, !896, i64 40, !896, i64 48}
+!2208 = !{!2207, !896, i64 48}
+!2209 = !{!2210, !896, i64 40}
+!2210 = !{!"_ZTSN5clang20CUDALaunchBoundsAttrE", !2098, i64 0, !896, i64 40, !896, i64 48, !896, i64 56}
+!2211 = !{!2210, !896, i64 48}
+!2212 = !{!2210, !896, i64 56}
+!2213 = !{!2214, !896, i64 40}
+!2214 = !{!"_ZTSN5clang28ExclusiveTrylockFunctionAttrE", !2098, i64 0, !896, i64 40, !19, i64 48, !2161, i64 56}
+!2215 = !{!2214, !2161, i64 56}
+!2216 = !{!2214, !19, i64 48}
+!2217 = distinct !{!2217, !437}
+!2218 = !{!2219, !2161, i64 40}
+!2219 = !{!"_ZTSN5clang17LocksExcludedAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2220 = !{!2219, !19, i64 36}
+!2221 = distinct !{!2221, !437}
+!2222 = !{!2223, !896, i64 40}
+!2223 = !{!"_ZTSN5clang19OMPAllocateDeclAttrE", !2098, i64 0, !2224, i64 36, !896, i64 40, !896, i64 48}
+!2224 = !{!"_ZTSN5clang19OMPAllocateDeclAttr15AllocatorTypeTyE", !9, i64 0}
+!2225 = !{!2223, !896, i64 48}
+!2226 = !{!2227, !896, i64 40}
+!2227 = !{!"_ZTSN5clang22OMPDeclareSimdDeclAttrE", !2089, i64 0, !2228, i64 36, !896, i64 40, !19, i64 48, !2161, i64 56, !19, i64 64, !2161, i64 72, !19, i64 80, !2161, i64 88, !19, i64 96, !2161, i64 104, !19, i64 112, !2229, i64 120, !19, i64 128, !2161, i64 136}
+!2228 = !{!"_ZTSN5clang22OMPDeclareSimdDeclAttr13BranchStateTyE", !9, i64 0}
+!2229 = !{!"p1 int", !12, i64 0}
+!2230 = !{!2227, !2161, i64 56}
+!2231 = !{!2227, !19, i64 48}
+!2232 = distinct !{!2232, !437}
+!2233 = !{!2227, !2161, i64 72}
+!2234 = !{!2227, !19, i64 64}
+!2235 = distinct !{!2235, !437}
+!2236 = !{!2227, !2161, i64 88}
+!2237 = !{!2227, !19, i64 80}
 !2238 = distinct !{!2238, !437}
-!2239 = !{!2233, !2167, i64 72}
-!2240 = !{!2233, !19, i64 64}
+!2239 = !{!2227, !2161, i64 104}
+!2240 = !{!2227, !19, i64 96}
 !2241 = distinct !{!2241, !437}
-!2242 = !{!2233, !2167, i64 88}
-!2243 = !{!2233, !19, i64 80}
+!2242 = !{!2227, !2161, i64 136}
+!2243 = !{!2227, !19, i64 128}
 !2244 = distinct !{!2244, !437}
-!2245 = !{!2233, !2167, i64 104}
-!2246 = !{!2233, !19, i64 96}
-!2247 = distinct !{!2247, !437}
-!2248 = !{!2233, !2167, i64 136}
-!2249 = !{!2233, !19, i64 128}
-!2250 = distinct !{!2250, !437}
-!2251 = !{!2252, !896, i64 40}
-!2252 = !{!"_ZTSN5clang21OMPDeclareVariantAttrE", !2104, i64 0, !896, i64 40, !2253, i64 48, !19, i64 56, !2167, i64 64, !19, i64 72, !2167, i64 80, !19, i64 88, !2254, i64 96}
-!2253 = !{!"p1 _ZTSN5clang12OMPTraitInfoE", !12, i64 0}
-!2254 = !{!"p1 _ZTSN5clang14OMPInteropInfoE", !12, i64 0}
-!2255 = !{!2252, !2167, i64 64}
-!2256 = !{!2252, !19, i64 56}
-!2257 = distinct !{!2257, !437}
-!2258 = !{!2252, !2167, i64 80}
-!2259 = !{!2252, !19, i64 72}
-!2260 = distinct !{!2260, !437}
-!2261 = !{!2262, !2167, i64 40}
-!2262 = !{!"_ZTSN5clang21ReleaseCapabilityAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2263 = !{!2262, !19, i64 36}
-!2264 = distinct !{!2264, !437}
-!2265 = !{!2266, !2167, i64 40}
-!2266 = !{!"_ZTSN5clang22RequiresCapabilityAttrE", !2104, i64 0, !19, i64 36, !2167, i64 40}
-!2267 = !{!2266, !19, i64 36}
-!2268 = distinct !{!2268, !437}
-!2269 = !{!2270, !896, i64 40}
-!2270 = !{!"_ZTSN5clang25SharedTrylockFunctionAttrE", !2104, i64 0, !896, i64 40, !19, i64 48, !2167, i64 56}
-!2271 = !{!2270, !2167, i64 56}
-!2272 = !{!2270, !19, i64 48}
-!2273 = distinct !{!2273, !437}
-!2274 = !{!2275, !896, i64 40}
-!2275 = !{!"_ZTSN5clang24TryAcquireCapabilityAttrE", !2104, i64 0, !896, i64 40, !19, i64 48, !2167, i64 56}
-!2276 = !{!2275, !2167, i64 56}
-!2277 = !{!2275, !19, i64 48}
-!2278 = distinct !{!2278, !437}
-!2279 = !{!700, !701, i64 0}
-!2280 = !{!223, !13, i64 80}
-!2281 = !{!223, !11, i64 0}
-!2282 = !{!223, !11, i64 8}
-!2283 = !{!2284, !701, i64 0}
-!2284 = !{!"_ZTSN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE8LazyDataE", !701, i64 0, !19, i64 8, !723, i64 16}
-!2285 = !{!2284, !19, i64 8}
-!2286 = !{!2284, !723, i64 16}
-!2287 = !{!2288, !19, i64 12}
-!2288 = !{!"_ZTSN5clang17ExternalASTSourceE", !2289, i64 8, !19, i64 12}
-!2289 = !{!"_ZTSN4llvm14RefCountedBaseIN5clang17ExternalASTSourceEEE", !19, i64 0}
-!2290 = !{!1518, !12, i64 0}
-!2291 = !{!1518, !19, i64 8}
-!2292 = !{!1516, !1519, i64 16}
-!2293 = distinct !{!2293, !437}
-!2294 = !{!2295}
-!2295 = distinct !{!2295, !2296, !"_ZNK5clang12FunctionDecl11getNameInfoEv: argument 0"}
-!2296 = distinct !{!2296, !"_ZNK5clang12FunctionDecl11getNameInfoEv"}
-!2297 = !{!2298, !909, i64 32}
-!2298 = !{!"_ZTSN5clang34FunctionTemplateSpecializationInfoE", !917, i64 0, !2299, i64 8, !2301, i64 16, !1568, i64 24, !909, i64 32, !903, i64 40}
-!2299 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang12FunctionDeclELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !2300, i64 0}
-!2300 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang12FunctionDeclEEE", !9, i64 0}
-!2301 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang20FunctionTemplateDeclELj2EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES5_EEEE", !2302, i64 0}
-!2302 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang20FunctionTemplateDeclEEE", !9, i64 0}
-!2303 = !{!2304, !909, i64 8}
-!2304 = !{!"_ZTSN5clang43DependentFunctionTemplateSpecializationInfoE", !19, i64 0, !909, i64 8}
-!2305 = !{!2306, !1470, i64 32}
-!2306 = !{!"_ZTSN5clang14DeclaratorDecl7ExtInfoE", !1583, i64 0, !1470, i64 32, !896, i64 40}
-!2307 = !{!2306, !896, i64 40}
-!2308 = !{!2309, !2309, i64 0}
-!2309 = !{!"p1 _ZTSN5clang18CXXCtorInitializerE", !12, i64 0}
-!2310 = !{!2311, !830, i64 8}
-!2311 = !{!"_ZTSN5clang18CXXCtorInitializerE", !2312, i64 0, !830, i64 8, !903, i64 16, !903, i64 20, !903, i64 24, !19, i64 28, !19, i64 28, !19, i64 28, !19, i64 28}
-!2312 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPNS1_9FieldDeclEPNS1_17IndirectFieldDeclEEEE", !2313, i64 0}
-!2313 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi0EJS5_S7_S9_EEE", !2314, i64 0}
-!2314 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi1EJS7_S9_EEE", !2315, i64 0}
-!2315 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi2EJS9_EEE", !2316, i64 0}
-!2316 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi3EJEEE", !2317, i64 0}
-!2317 = !{!"_ZTSN4llvm14PointerIntPairIPvLj2EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPNS4_9FieldDeclEPNS4_17IndirectFieldDeclEEEENS_18PointerIntPairInfoIS1_Lj2ESB_EEEE", !930, i64 0}
-!2318 = !{!2319, !2320, i64 0}
-!2319 = !{!"_ZTSN5clang4Decl10MultipleDCE", !2320, i64 0, !2320, i64 8}
-!2320 = !{!"p1 _ZTSN5clang11DeclContextE", !12, i64 0}
-!2321 = distinct !{!2321, !437}
-!2322 = !{!2323, !1470, i64 16}
-!2323 = !{!"_ZTSN5clang16CXXBaseSpecifierE", !950, i64 0, !903, i64 8, !19, i64 12, !19, i64 12, !19, i64 12, !19, i64 12, !1470, i64 16}
-!2324 = !{!943, !724, i64 8}
-!2325 = !{!2326, !2326, i64 0}
-!2326 = !{!"p1 _ZTSN5clang16CXXBaseSpecifierE", !12, i64 0}
-!2327 = !{!2328, !19, i64 16}
-!2328 = !{!"_ZTSN5clang13CXXRecordDecl14DefinitionDataE", !19, i64 0, !19, i64 0, !19, i64 0, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 5, !19, i64 6, !19, i64 7, !19, i64 7, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 9, !19, i64 9, !19, i64 9, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 11, !19, i64 12, !19, i64 16, !19, i64 20, !2329, i64 24, !2329, i64 32, !2330, i64 40, !2330, i64 64, !2337, i64 88, !1528, i64 96}
-!2329 = !{!"_ZTSN5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEEE", !9, i64 0}
-!2330 = !{!"_ZTSN5clang20LazyASTUnresolvedSetE", !2331, i64 0}
-!2331 = !{!"_ZTSN5clang16ASTUnresolvedSetE", !2332, i64 0}
-!2332 = !{!"_ZTSN5clang16ASTUnresolvedSet7DeclsTyE", !2333, i64 0}
-!2333 = !{!"_ZTSN5clang9ASTVectorINS_14DeclAccessPairEEE", !2334, i64 0, !2334, i64 8, !2335, i64 16}
-!2334 = !{!"p1 _ZTSN5clang14DeclAccessPairE", !12, i64 0}
-!2335 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang14DeclAccessPairELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !2336, i64 0}
-!2336 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang14DeclAccessPairEEE", !9, i64 0}
-!2337 = !{!"p1 _ZTSN5clang13CXXRecordDeclE", !12, i64 0}
-!2338 = distinct !{!2338, !437}
+!2245 = !{!2246, !896, i64 40}
+!2246 = !{!"_ZTSN5clang21OMPDeclareVariantAttrE", !2098, i64 0, !896, i64 40, !2247, i64 48, !19, i64 56, !2161, i64 64, !19, i64 72, !2161, i64 80, !19, i64 88, !2248, i64 96}
+!2247 = !{!"p1 _ZTSN5clang12OMPTraitInfoE", !12, i64 0}
+!2248 = !{!"p1 _ZTSN5clang14OMPInteropInfoE", !12, i64 0}
+!2249 = !{!2246, !2161, i64 64}
+!2250 = !{!2246, !19, i64 56}
+!2251 = distinct !{!2251, !437}
+!2252 = !{!2246, !2161, i64 80}
+!2253 = !{!2246, !19, i64 72}
+!2254 = distinct !{!2254, !437}
+!2255 = !{!2256, !2161, i64 40}
+!2256 = !{!"_ZTSN5clang21ReleaseCapabilityAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2257 = !{!2256, !19, i64 36}
+!2258 = distinct !{!2258, !437}
+!2259 = !{!2260, !2161, i64 40}
+!2260 = !{!"_ZTSN5clang22RequiresCapabilityAttrE", !2098, i64 0, !19, i64 36, !2161, i64 40}
+!2261 = !{!2260, !19, i64 36}
+!2262 = distinct !{!2262, !437}
+!2263 = !{!2264, !896, i64 40}
+!2264 = !{!"_ZTSN5clang25SharedTrylockFunctionAttrE", !2098, i64 0, !896, i64 40, !19, i64 48, !2161, i64 56}
+!2265 = !{!2264, !2161, i64 56}
+!2266 = !{!2264, !19, i64 48}
+!2267 = distinct !{!2267, !437}
+!2268 = !{!2269, !896, i64 40}
+!2269 = !{!"_ZTSN5clang24TryAcquireCapabilityAttrE", !2098, i64 0, !896, i64 40, !19, i64 48, !2161, i64 56}
+!2270 = !{!2269, !2161, i64 56}
+!2271 = !{!2269, !19, i64 48}
+!2272 = distinct !{!2272, !437}
+!2273 = !{!700, !701, i64 0}
+!2274 = !{!223, !13, i64 80}
+!2275 = !{!223, !11, i64 0}
+!2276 = !{!223, !11, i64 8}
+!2277 = !{!2278, !701, i64 0}
+!2278 = !{!"_ZTSN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE8LazyDataE", !701, i64 0, !19, i64 8, !723, i64 16}
+!2279 = !{!2278, !19, i64 8}
+!2280 = !{!2278, !723, i64 16}
+!2281 = !{!2282, !19, i64 12}
+!2282 = !{!"_ZTSN5clang17ExternalASTSourceE", !2283, i64 8, !19, i64 12}
+!2283 = !{!"_ZTSN4llvm14RefCountedBaseIN5clang17ExternalASTSourceEEE", !19, i64 0}
+!2284 = !{!1518, !12, i64 0}
+!2285 = !{!1518, !19, i64 8}
+!2286 = !{!1516, !1519, i64 16}
+!2287 = distinct !{!2287, !437}
+!2288 = !{!2289}
+!2289 = distinct !{!2289, !2290, !"_ZNK5clang12FunctionDecl11getNameInfoEv: argument 0"}
+!2290 = distinct !{!2290, !"_ZNK5clang12FunctionDecl11getNameInfoEv"}
+!2291 = !{!2292, !909, i64 32}
+!2292 = !{!"_ZTSN5clang34FunctionTemplateSpecializationInfoE", !917, i64 0, !2293, i64 8, !2295, i64 16, !1568, i64 24, !909, i64 32, !903, i64 40}
+!2293 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang12FunctionDeclELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !2294, i64 0}
+!2294 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang12FunctionDeclEEE", !9, i64 0}
+!2295 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang20FunctionTemplateDeclELj2EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES5_EEEE", !2296, i64 0}
+!2296 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang20FunctionTemplateDeclEEE", !9, i64 0}
+!2297 = !{!2298, !909, i64 8}
+!2298 = !{!"_ZTSN5clang43DependentFunctionTemplateSpecializationInfoE", !19, i64 0, !909, i64 8}
+!2299 = !{!2300, !1470, i64 32}
+!2300 = !{!"_ZTSN5clang14DeclaratorDecl7ExtInfoE", !1583, i64 0, !1470, i64 32, !896, i64 40}
+!2301 = !{!2300, !896, i64 40}
+!2302 = !{!2303, !2303, i64 0}
+!2303 = !{!"p1 _ZTSN5clang18CXXCtorInitializerE", !12, i64 0}
+!2304 = !{!2305, !830, i64 8}
+!2305 = !{!"_ZTSN5clang18CXXCtorInitializerE", !2306, i64 0, !830, i64 8, !903, i64 16, !903, i64 20, !903, i64 24, !19, i64 28, !19, i64 28, !19, i64 28, !19, i64 28}
+!2306 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang14TypeSourceInfoEPNS1_9FieldDeclEPNS1_17IndirectFieldDeclEEEE", !2307, i64 0}
+!2307 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi0EJS5_S7_S9_EEE", !2308, i64 0}
+!2308 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi1EJS7_S9_EEE", !2309, i64 0}
+!2309 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi2EJS9_EEE", !2310, i64 0}
+!2310 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang14TypeSourceInfoEPNS3_9FieldDeclEPNS3_17IndirectFieldDeclEEEENS_14PointerIntPairIPvLj2EiNS0_22PointerUnionUIntTraitsIJS5_S7_S9_EEENS_18PointerIntPairInfoISC_Lj2ESE_EEEELi3EJEEE", !2311, i64 0}
+!2311 = !{!"_ZTSN4llvm14PointerIntPairIPvLj2EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang14TypeSourceInfoEPNS4_9FieldDeclEPNS4_17IndirectFieldDeclEEEENS_18PointerIntPairInfoIS1_Lj2ESB_EEEE", !930, i64 0}
+!2312 = !{!2313, !2314, i64 0}
+!2313 = !{!"_ZTSN5clang4Decl10MultipleDCE", !2314, i64 0, !2314, i64 8}
+!2314 = !{!"p1 _ZTSN5clang11DeclContextE", !12, i64 0}
+!2315 = distinct !{!2315, !437}
+!2316 = !{!2317, !1470, i64 16}
+!2317 = !{!"_ZTSN5clang16CXXBaseSpecifierE", !950, i64 0, !903, i64 8, !19, i64 12, !19, i64 12, !19, i64 12, !19, i64 12, !1470, i64 16}
+!2318 = !{!943, !724, i64 8}
+!2319 = !{!2320, !2320, i64 0}
+!2320 = !{!"p1 _ZTSN5clang16CXXBaseSpecifierE", !12, i64 0}
+!2321 = !{!2322, !19, i64 16}
+!2322 = !{!"_ZTSN5clang13CXXRecordDecl14DefinitionDataE", !19, i64 0, !19, i64 0, !19, i64 0, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 1, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 2, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 3, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 4, !19, i64 5, !19, i64 6, !19, i64 7, !19, i64 7, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 8, !19, i64 9, !19, i64 9, !19, i64 9, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 10, !19, i64 11, !19, i64 12, !19, i64 16, !19, i64 20, !2323, i64 24, !2323, i64 32, !2324, i64 40, !2324, i64 64, !2331, i64 88, !1528, i64 96}
+!2323 = !{!"_ZTSN5clang13LazyOffsetPtrINS_16CXXBaseSpecifierEmXadL_ZNS_17ExternalASTSource28GetExternalCXXBaseSpecifiersEmEEEE", !9, i64 0}
+!2324 = !{!"_ZTSN5clang20LazyASTUnresolvedSetE", !2325, i64 0}
+!2325 = !{!"_ZTSN5clang16ASTUnresolvedSetE", !2326, i64 0}
+!2326 = !{!"_ZTSN5clang16ASTUnresolvedSet7DeclsTyE", !2327, i64 0}
+!2327 = !{!"_ZTSN5clang9ASTVectorINS_14DeclAccessPairEEE", !2328, i64 0, !2328, i64 8, !2329, i64 16}
+!2328 = !{!"p1 _ZTSN5clang14DeclAccessPairE", !12, i64 0}
+!2329 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang14DeclAccessPairELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !2330, i64 0}
+!2330 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang14DeclAccessPairEEE", !9, i64 0}
+!2331 = !{!"p1 _ZTSN5clang13CXXRecordDeclE", !12, i64 0}
+!2332 = distinct !{!2332, !437}

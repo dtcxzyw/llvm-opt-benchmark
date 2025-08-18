@@ -81,13 +81,13 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly captures(address_is_nu
   %36 = load i32, ptr %21, align 4, !tbaa !15
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next69, %37
-  br i1 %38, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !19
+  br i1 %38, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !18
 
 .loopexit:                                        ; preds = %59, %.lr.ph60.split
   %39 = phi i32 [ %43, %.lr.ph60.split ], [ %60, %59 ]
   %.1.lcssa = phi i32 [ %.04458, %.lr.ph60.split ], [ %.2, %59 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count74
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60.split, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph60.split, !llvm.loop !16
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %.loopexit
   %40 = phi i32 [ %39, %.loopexit ], [ %.pre76, %.lr.ph60 ]
@@ -112,16 +112,16 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly captures(address_is_nu
   %47 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %49 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv
-  %50 = load double, ptr %49, align 8, !tbaa !21
+  %50 = load double, ptr %49, align 8, !tbaa !19
   %51 = tail call i32 %1(i32 noundef %48, i32 noundef %46, double noundef %50, ptr noundef %2) #2
   %.not5152 = icmp eq i32 %51, 0
   br i1 %.not5152, label %59, label %52
 
 52:                                               ; preds = %.thread
-  %53 = load double, ptr %49, align 8, !tbaa !21
+  %53 = load double, ptr %49, align 8, !tbaa !19
   %54 = sext i32 %.154 to i64
   %55 = getelementptr inbounds double, ptr %.fr, i64 %54
-  store double %53, ptr %55, align 8, !tbaa !21
+  store double %53, ptr %55, align 8, !tbaa !19
   %56 = load i32, ptr %47, align 4, !tbaa !15
   %57 = add nsw i32 %.154, 1
   %58 = getelementptr inbounds i32, ptr %15, i64 %54
@@ -134,7 +134,7 @@ define i32 @cs_fkeep(ptr noundef %0, ptr noundef readonly captures(address_is_nu
   %60 = load i32, ptr %42, align 4, !tbaa !15
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %.thread, label %.loopexit, !llvm.loop !23
+  br i1 %62, label %.thread, label %.loopexit, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %9
   %.044.lcssa = phi i32 [ 0, %9 ], [ %.1.lcssa.us, %.loopexit.us ], [ %.1.lcssa, %.loopexit ]
@@ -173,11 +173,8 @@ attributes #2 = { nounwind }
 !13 = !{!4, !8, i64 24}
 !14 = !{!4, !10, i64 32}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
-!23 = distinct !{!23, !17}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !6, i64 0}

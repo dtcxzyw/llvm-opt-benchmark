@@ -787,7 +787,7 @@ define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr nounde
   %.val10 = load i32, ptr %4, align 4, !tbaa !15
   %19 = sext i32 %.val10 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph.split, label %.critedge, !llvm.loop !29
+  br i1 %20, label %.lr.ph.split, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret void
@@ -825,7 +825,7 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
   %.val20 = load i32, ptr %9, align 4, !tbaa !15
   %20 = trunc nuw i64 %indvars.iv.next to i32
   %21 = icmp sgt i32 %.val20, %20
-  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !30
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %22 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
@@ -878,7 +878,7 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
   %.val20.i = load i32, ptr %15, align 4, !tbaa !15
   %26 = trunc nuw i64 %indvars.iv.next.i to i32
   %27 = icmp sgt i32 %.val20.i, %26
-  br i1 %27, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit, !llvm.loop !30
+  br i1 %27, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit, !llvm.loop !28
 
 Bac_PtrDumpBoxVerilog.exit:                       ; preds = %.lr.ph.i, %6
   %28 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
@@ -886,7 +886,7 @@ Bac_PtrDumpBoxVerilog.exit:                       ; preds = %.lr.ph.i, %6
   %.val6 = load i32, ptr %3, align 4, !tbaa !15
   %29 = sext i32 %.val6 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %6, label %.critedge, !llvm.loop !31
+  br i1 %30, label %6, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %Bac_PtrDumpBoxVerilog.exit, %2
   ret void
@@ -920,7 +920,7 @@ define void @Bac_PtrDumpModuleVerilog(ptr noundef captures(none) %0, ptr noundef
   %.val10.i = load i32, ptr %8, align 4, !tbaa !15
   %14 = sext i32 %.val10.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.lr.ph.split.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !29
+  br i1 %15, label %.lr.ph.split.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !27
 
 Bac_PtrDumpSignalsVerilog.exit.loopexit:          ; preds = %.lr.ph.split.i
   %.val20.pre = load ptr, ptr %3, align 8, !tbaa !3
@@ -1061,7 +1061,7 @@ define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr noundef readonly captures(no
   %.val14 = load i32, ptr %12, align 4, !tbaa !15
   %16 = sext i32 %.val14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !32
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.lr.ph, %7
   %18 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -1346,7 +1346,7 @@ Abc_UtilStrsav.exit82:                            ; preds = %45, %47
   store ptr %52, ptr %53, align 8, !tbaa !9
   %54 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04787) #14
   %.not62 = icmp eq ptr %54, null
-  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %Abc_UtilStrsav.exit82
   %55 = shl nuw i64 %indvars.iv.next, 1
@@ -1502,7 +1502,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val8 = load i32, ptr %2, align 4, !tbaa !15
   %45 = sext i32 %.val8 to i64
   %46 = icmp slt i64 %indvars.iv.next17, %45
-  br i1 %46, label %12, label %..critedge_crit_edge, !llvm.loop !34
+  br i1 %46, label %12, label %..critedge_crit_edge, !llvm.loop !32
 
 ..critedge_crit_edge:                             ; preds = %Vec_PtrPush.exit
   %47 = trunc nsw i64 %indvars.iv.next to i32
@@ -1621,7 +1621,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val12 = load i32, ptr %3, align 4, !tbaa !15
   %46 = sext i32 %.val12 to i64
   %47 = icmp slt i64 %indvars.iv.next21, %46
-  br i1 %47, label %13, label %..critedge_crit_edge, !llvm.loop !35
+  br i1 %47, label %13, label %..critedge_crit_edge, !llvm.loop !33
 
 ..critedge_crit_edge:                             ; preds = %Vec_PtrPush.exit
   %48 = trunc nsw i64 %indvars.iv.next to i32
@@ -1742,7 +1742,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val9 = load i32, ptr %3, align 4, !tbaa !15
   %45 = sext i32 %.val9 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %13, label %.critedge, !llvm.loop !36
+  br i1 %46, label %13, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit, %Vec_PtrAllocExact.exit.thread, %Vec_PtrAllocExact.exit
   ret ptr %4
@@ -2092,7 +2092,7 @@ Vec_PtrPush.exit30:                               ; preds = %.Vec_PtrGrow.exit11
   %.val21 = load i32, ptr %11, align 4, !tbaa !15
   %66 = sext i32 %.val21 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %Vec_PtrPush.exit30, %Vec_PtrPush.exit.thread, %Vec_PtrPush.exit
   tail call void @Bac_PtrDumpBlif(ptr noundef nonnull @.str.38, ptr noundef nonnull %12)
@@ -2283,8 +2283,8 @@ attributes #17 = { nounwind allocsize(1) }
 !24 = distinct !{!24, !14}
 !25 = distinct !{!25, !14}
 !26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
 !29 = distinct !{!29, !14}
 !30 = distinct !{!30, !14}
 !31 = distinct !{!31, !14}
@@ -2292,5 +2292,3 @@ attributes #17 = { nounwind allocsize(1) }
 !33 = distinct !{!33, !14}
 !34 = distinct !{!34, !14}
 !35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14}

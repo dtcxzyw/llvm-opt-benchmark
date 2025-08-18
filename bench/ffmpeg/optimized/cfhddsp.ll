@@ -511,7 +511,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %storemerge147.i.us = trunc i32 %96 to i16
   store i16 %storemerge147.i.us, ptr %99, align 2, !tbaa !11
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -800,7 +800,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   %storemerge147.i.us = trunc i32 %93 to i16
   store i16 %storemerge147.i.us, ptr %94, align 2, !tbaa !11
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -967,6 +967,3 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = distinct !{!15, !14}
 !16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !14, !18}

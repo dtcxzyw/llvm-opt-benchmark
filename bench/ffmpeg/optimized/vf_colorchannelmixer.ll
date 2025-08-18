@@ -2366,7 +2366,7 @@ preserve_color.exit.us:                           ; preds = %179, %171, %162, %1
   %226 = getelementptr inbounds i8, ptr %.0128.i20.us, i64 %37
   %227 = add nsw i32 %.0129.i19.us, 1
   %exitcond.not = icmp eq i32 %227, %19
-  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !88
+  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !86
 
 filter_slice_rgba_packed_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -2555,7 +2555,7 @@ define internal noundef i32 @filter_slice_rgba64(ptr noundef readonly captures(n
   %160 = getelementptr inbounds i8, ptr %.0128.i5.us, i64 %32
   %161 = add nsw i32 %.0129.i4.us, 1
   %exitcond.not = icmp eq i32 %161, %14
-  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !86
 
 filter_slice_rgba_packed_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -2889,7 +2889,7 @@ preserve_color.exit.us:                           ; preds = %209, %201, %192, %1
   %271 = getelementptr inbounds i8, ptr %.0128.i20.us, i64 %37
   %272 = add nsw i32 %.0129.i19.us, 1
   %exitcond.not = icmp eq i32 %272, %19
-  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !90
+  br i1 %exitcond.not, label %filter_slice_rgba_packed_16.exit, label %.preheader.us, !llvm.loop !86
 
 filter_slice_rgba_packed_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -3019,7 +3019,7 @@ define internal noundef i32 @filter_slice_gbrp(ptr noundef readonly captures(non
   %96 = getelementptr inbounds nuw i8, ptr %.0149.i6, i64 %95
   %97 = add nsw i32 %.0147.i7, 1
   %exitcond.not = icmp eq i32 %97, %14
-  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !91
+  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !87
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
@@ -3084,7 +3084,7 @@ define internal noundef i32 @filter_slice_gbrp(ptr noundef readonly captures(non
   %152 = load i32, ptr %24, align 8, !tbaa !79
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
+  br i1 %154, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 filter_slice_rgba_planar_8.exit:                  ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret i32 0
@@ -3222,7 +3222,7 @@ define internal noundef i32 @filter_slice_gbrp_pl(ptr noundef readonly captures(
   %100 = getelementptr inbounds nuw i8, ptr %.0149.i21, i64 %99
   %101 = add nsw i32 %.0147.i22, 1
   %exitcond.not = icmp eq i32 %101, %19
-  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !94
+  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %.preheader, %preserve_color.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %preserve_color.exit ], [ 0, %.preheader ]
@@ -3426,7 +3426,7 @@ preserve_color.exit:                              ; preds = %160, %176, %184, %1
   %263 = load i32, ptr %27, align 8, !tbaa !79
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next, %264
-  br i1 %265, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
+  br i1 %265, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 filter_slice_rgba_planar_8.exit:                  ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret i32 0
@@ -3589,7 +3589,7 @@ define internal noundef i32 @filter_slice_gbrap(ptr noundef readonly captures(no
   %125 = getelementptr inbounds nuw i8, ptr %.0148.i7, i64 %124
   %126 = add nsw i32 %.0147.i8, 1
   %exitcond.not = icmp eq i32 %126, %14
-  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !95
+  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !91
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
@@ -3689,7 +3689,7 @@ define internal noundef i32 @filter_slice_gbrap(ptr noundef readonly captures(no
   %215 = load i32, ptr %26, align 8, !tbaa !79
   %216 = sext i32 %215 to i64
   %217 = icmp slt i64 %indvars.iv.next, %216
-  br i1 %217, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
+  br i1 %217, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 filter_slice_rgba_planar_8.exit:                  ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret i32 0
@@ -3860,7 +3860,7 @@ define internal noundef i32 @filter_slice_gbrap_pl(ptr noundef readonly captures
   %129 = getelementptr inbounds nuw i8, ptr %.0148.i22, i64 %128
   %130 = add nsw i32 %.0147.i23, 1
   %exitcond.not = icmp eq i32 %130, %19
-  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !96
+  br i1 %exitcond.not, label %filter_slice_rgba_planar_8.exit, label %.preheader, !llvm.loop !92
 
 .lr.ph:                                           ; preds = %.preheader, %preserve_color.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %preserve_color.exit ], [ 0, %.preheader ]
@@ -4099,7 +4099,7 @@ preserve_color.exit:                              ; preds = %204, %220, %228, %2
   %326 = load i32, ptr %29, align 8, !tbaa !79
   %327 = sext i32 %326 to i64
   %328 = icmp slt i64 %indvars.iv.next, %327
-  br i1 %328, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !93
+  br i1 %328, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !89
 
 filter_slice_rgba_planar_8.exit:                  ; preds = %._crit_edge, %.preheader.lr.ph, %4
   ret i32 0
@@ -4264,7 +4264,7 @@ define internal noundef i32 @filter_slice_gbrp9(ptr noundef readonly captures(no
   store i16 %135, ptr %136, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %91
   %137 = getelementptr inbounds nuw i16, ptr %.0142.i10.us, i64 %60
@@ -4275,7 +4275,7 @@ define internal noundef i32 @filter_slice_gbrp9(ptr noundef readonly captures(no
   %142 = getelementptr inbounds nuw i16, ptr %.0149.i6.us, i64 %70
   %143 = add nsw i32 %.0147.i7.us, 1
   %exitcond13.not = icmp eq i32 %143, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !98
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -4585,7 +4585,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   store i16 %246, ptr %247, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %248 = getelementptr inbounds nuw i16, ptr %.0142.i25.us, i64 %65
@@ -4596,7 +4596,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   %253 = getelementptr inbounds nuw i16, ptr %.0149.i21.us, i64 %75
   %254 = add nsw i32 %.0147.i22.us, 1
   %exitcond28.not = icmp eq i32 %254, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !99
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -4761,7 +4761,7 @@ define internal noundef i32 @filter_slice_gbrp10(ptr noundef readonly captures(n
   store i16 %135, ptr %136, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %91
   %137 = getelementptr inbounds nuw i16, ptr %.0142.i10.us, i64 %60
@@ -4772,7 +4772,7 @@ define internal noundef i32 @filter_slice_gbrp10(ptr noundef readonly captures(n
   %142 = getelementptr inbounds nuw i16, ptr %.0149.i6.us, i64 %70
   %143 = add nsw i32 %.0147.i7.us, 1
   %exitcond13.not = icmp eq i32 %143, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !100
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -5082,7 +5082,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   store i16 %246, ptr %247, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %248 = getelementptr inbounds nuw i16, ptr %.0142.i25.us, i64 %65
@@ -5093,7 +5093,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   %253 = getelementptr inbounds nuw i16, ptr %.0149.i21.us, i64 %75
   %254 = add nsw i32 %.0147.i22.us, 1
   %exitcond28.not = icmp eq i32 %254, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !101
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -5320,7 +5320,7 @@ define internal noundef i32 @filter_slice_gbrap10(ptr noundef readonly captures(
   store i16 %194, ptr %195, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %123
   %196 = getelementptr inbounds nuw i16, ptr %.0142.i12.us, i64 %74
@@ -5333,7 +5333,7 @@ define internal noundef i32 @filter_slice_gbrap10(ptr noundef readonly captures(
   %203 = getelementptr inbounds nuw i16, ptr %.0148.i7.us, i64 %88
   %204 = add nsw i32 %.0147.i8.us, 1
   %exitcond15.not = icmp eq i32 %204, %14
-  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !102
+  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -5705,7 +5705,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   store i16 %305, ptr %306, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %307 = getelementptr inbounds nuw i16, ptr %.0142.i27.us, i64 %79
@@ -5718,7 +5718,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   %314 = getelementptr inbounds nuw i16, ptr %.0148.i22.us, i64 %93
   %315 = add nsw i32 %.0147.i23.us, 1
   %exitcond30.not = icmp eq i32 %315, %19
-  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !103
+  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -5883,7 +5883,7 @@ define internal noundef i32 @filter_slice_gbrp12(ptr noundef readonly captures(n
   store i16 %135, ptr %136, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %91
   %137 = getelementptr inbounds nuw i16, ptr %.0142.i10.us, i64 %60
@@ -5894,7 +5894,7 @@ define internal noundef i32 @filter_slice_gbrp12(ptr noundef readonly captures(n
   %142 = getelementptr inbounds nuw i16, ptr %.0149.i6.us, i64 %70
   %143 = add nsw i32 %.0147.i7.us, 1
   %exitcond13.not = icmp eq i32 %143, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !104
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -6204,7 +6204,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   store i16 %246, ptr %247, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %248 = getelementptr inbounds nuw i16, ptr %.0142.i25.us, i64 %65
@@ -6215,7 +6215,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   %253 = getelementptr inbounds nuw i16, ptr %.0149.i21.us, i64 %75
   %254 = add nsw i32 %.0147.i22.us, 1
   %exitcond28.not = icmp eq i32 %254, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !105
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -6442,7 +6442,7 @@ define internal noundef i32 @filter_slice_gbrap12(ptr noundef readonly captures(
   store i16 %194, ptr %195, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %123
   %196 = getelementptr inbounds nuw i16, ptr %.0142.i12.us, i64 %74
@@ -6455,7 +6455,7 @@ define internal noundef i32 @filter_slice_gbrap12(ptr noundef readonly captures(
   %203 = getelementptr inbounds nuw i16, ptr %.0148.i7.us, i64 %88
   %204 = add nsw i32 %.0147.i8.us, 1
   %exitcond15.not = icmp eq i32 %204, %14
-  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !106
+  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -6827,7 +6827,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   store i16 %305, ptr %306, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %307 = getelementptr inbounds nuw i16, ptr %.0142.i27.us, i64 %79
@@ -6840,7 +6840,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   %314 = getelementptr inbounds nuw i16, ptr %.0148.i22.us, i64 %93
   %315 = add nsw i32 %.0147.i23.us, 1
   %exitcond30.not = icmp eq i32 %315, %19
-  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !107
+  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -7005,7 +7005,7 @@ define internal noundef i32 @filter_slice_gbrp14(ptr noundef readonly captures(n
   store i16 %135, ptr %136, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %91
   %137 = getelementptr inbounds nuw i16, ptr %.0142.i10.us, i64 %60
@@ -7016,7 +7016,7 @@ define internal noundef i32 @filter_slice_gbrp14(ptr noundef readonly captures(n
   %142 = getelementptr inbounds nuw i16, ptr %.0149.i6.us, i64 %70
   %143 = add nsw i32 %.0147.i7.us, 1
   %exitcond13.not = icmp eq i32 %143, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !108
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -7326,7 +7326,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   store i16 %246, ptr %247, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %248 = getelementptr inbounds nuw i16, ptr %.0142.i25.us, i64 %65
@@ -7337,7 +7337,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   %253 = getelementptr inbounds nuw i16, ptr %.0149.i21.us, i64 %75
   %254 = add nsw i32 %.0147.i22.us, 1
   %exitcond28.not = icmp eq i32 %254, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !109
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -7502,7 +7502,7 @@ define internal noundef i32 @filter_slice_gbrp16(ptr noundef readonly captures(n
   store i16 %135, ptr %136, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %91
   %137 = getelementptr inbounds nuw i16, ptr %.0142.i10.us, i64 %60
@@ -7513,7 +7513,7 @@ define internal noundef i32 @filter_slice_gbrp16(ptr noundef readonly captures(n
   %142 = getelementptr inbounds nuw i16, ptr %.0149.i6.us, i64 %70
   %143 = add nsw i32 %.0147.i7.us, 1
   %exitcond13.not = icmp eq i32 %143, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !110
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -7823,7 +7823,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   store i16 %246, ptr %247, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %248 = getelementptr inbounds nuw i16, ptr %.0142.i25.us, i64 %65
@@ -7834,7 +7834,7 @@ preserve_color.exit.us:                           ; preds = %203, %195, %186, %1
   %253 = getelementptr inbounds nuw i16, ptr %.0149.i21.us, i64 %75
   %254 = add nsw i32 %.0147.i22.us, 1
   %exitcond28.not = icmp eq i32 %254, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !111
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -8061,7 +8061,7 @@ define internal noundef i32 @filter_slice_gbrap16(ptr noundef readonly captures(
   store i16 %194, ptr %195, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %123
   %196 = getelementptr inbounds nuw i16, ptr %.0142.i12.us, i64 %74
@@ -8074,7 +8074,7 @@ define internal noundef i32 @filter_slice_gbrap16(ptr noundef readonly captures(
   %203 = getelementptr inbounds nuw i16, ptr %.0148.i7.us, i64 %88
   %204 = add nsw i32 %.0147.i8.us, 1
   %exitcond15.not = icmp eq i32 %204, %14
-  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !112
+  br i1 %exitcond15.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -8446,7 +8446,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   store i16 %305, ptr %306, align 2, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %307 = getelementptr inbounds nuw i16, ptr %.0142.i27.us, i64 %79
@@ -8459,7 +8459,7 @@ preserve_color.exit.us:                           ; preds = %247, %239, %230, %2
   %314 = getelementptr inbounds nuw i16, ptr %.0148.i22.us, i64 %93
   %315 = add nsw i32 %.0147.i23.us, 1
   %exitcond30.not = icmp eq i32 %315, %19
-  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !113
+  br i1 %exitcond30.not, label %filter_slice_rgba_planar_16.exit, label %.preheader.us, !llvm.loop !94
 
 filter_slice_rgba_planar_16.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -8575,11 +8575,11 @@ define internal noundef i32 @filter_slice_gbrp32(ptr noundef readonly captures(n
 91:                                               ; preds = %.preheader.us, %91
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %91 ]
   %92 = getelementptr inbounds nuw float, ptr %.0137.i8.us, i64 %indvars.iv
-  %93 = load float, ptr %92, align 4, !tbaa !114
+  %93 = load float, ptr %92, align 4, !tbaa !95
   %94 = getelementptr inbounds nuw float, ptr %.0135.i10.us, i64 %indvars.iv
-  %95 = load float, ptr %94, align 4, !tbaa !114
+  %95 = load float, ptr %94, align 4, !tbaa !95
   %96 = getelementptr inbounds nuw float, ptr %.0136.i9.us, i64 %indvars.iv
-  %97 = load float, ptr %96, align 4, !tbaa !114
+  %97 = load float, ptr %96, align 4, !tbaa !95
   %98 = fpext nsz float %93 to double
   %99 = fpext nsz float %95 to double
   %100 = fmul nsz double %83, %99
@@ -8596,14 +8596,14 @@ define internal noundef i32 @filter_slice_gbrp32(ptr noundef readonly captures(n
   %111 = tail call nsz double @llvm.fmuladd.f64(double %90, double %102, double %110)
   %112 = fptrunc nsz double %111 to float
   %113 = getelementptr inbounds nuw float, ptr %.0142.i6.us, i64 %indvars.iv
-  store float %104, ptr %113, align 4, !tbaa !114
+  store float %104, ptr %113, align 4, !tbaa !95
   %114 = getelementptr inbounds nuw float, ptr %.0144.i4.us, i64 %indvars.iv
-  store float %108, ptr %114, align 4, !tbaa !114
+  store float %108, ptr %114, align 4, !tbaa !95
   %115 = getelementptr inbounds nuw float, ptr %.0143.i5.us, i64 %indvars.iv
-  store float %112, ptr %115, align 4, !tbaa !114
+  store float %112, ptr %115, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us, label %91, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %91
   %116 = getelementptr inbounds nuw float, ptr %.0135.i10.us, i64 %60
@@ -8614,7 +8614,7 @@ define internal noundef i32 @filter_slice_gbrp32(ptr noundef readonly captures(n
   %121 = getelementptr inbounds nuw float, ptr %.0142.i6.us, i64 %70
   %122 = add nsw i32 %.0140.i7.us, 1
   %exitcond13.not = icmp eq i32 %122, %14
-  br i1 %exitcond13.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !117
+  br i1 %exitcond13.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !98
 
 filter_slice_rgba_planar_32.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -8739,11 +8739,11 @@ define internal noundef i32 @filter_slice_gbrp32_pl(ptr noundef readonly capture
   %.114.us = phi float [ %.018.us, %.preheader.us ], [ %.2.us, %preserve_color.exit.us ]
   %.11113.us = phi float [ %.01017.us, %.preheader.us ], [ %.3.us, %preserve_color.exit.us ]
   %97 = getelementptr inbounds nuw float, ptr %.0137.i23.us, i64 %indvars.iv
-  %98 = load float, ptr %97, align 4, !tbaa !114
+  %98 = load float, ptr %97, align 4, !tbaa !95
   %99 = getelementptr inbounds nuw float, ptr %.0135.i25.us, i64 %indvars.iv
-  %100 = load float, ptr %99, align 4, !tbaa !114
+  %100 = load float, ptr %99, align 4, !tbaa !95
   %101 = getelementptr inbounds nuw float, ptr %.0136.i24.us, i64 %indvars.iv
-  %102 = load float, ptr %101, align 4, !tbaa !114
+  %102 = load float, ptr %101, align 4, !tbaa !95
   %103 = fpext nsz float %98 to double
   %104 = fpext nsz float %100 to double
   %105 = fmul nsz double %87, %104
@@ -8860,14 +8860,14 @@ preserve_color.exit.us:                           ; preds = %164, %156, %147, %1
   %189 = fsub nsz float %184, %117
   %190 = tail call nsz noundef float @llvm.fmuladd.f32(float %189, float %12, float %117)
   %191 = getelementptr inbounds nuw float, ptr %.0142.i21.us, i64 %indvars.iv
-  store float %186, ptr %191, align 4, !tbaa !114
+  store float %186, ptr %191, align 4, !tbaa !95
   %192 = getelementptr inbounds nuw float, ptr %.0144.i19.us, i64 %indvars.iv
-  store float %188, ptr %192, align 4, !tbaa !114
+  store float %188, ptr %192, align 4, !tbaa !95
   %193 = getelementptr inbounds nuw float, ptr %.0143.i20.us, i64 %indvars.iv
-  store float %190, ptr %193, align 4, !tbaa !114
+  store float %190, ptr %193, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us, label %96, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %194 = getelementptr inbounds nuw float, ptr %.0135.i25.us, i64 %65
@@ -8878,7 +8878,7 @@ preserve_color.exit.us:                           ; preds = %164, %156, %147, %1
   %199 = getelementptr inbounds nuw float, ptr %.0142.i21.us, i64 %75
   %200 = add nsw i32 %.0140.i22.us, 1
   %exitcond28.not = icmp eq i32 %200, %19
-  br i1 %exitcond28.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !118
+  br i1 %exitcond28.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !98
 
 filter_slice_rgba_planar_32.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -9028,13 +9028,13 @@ define internal noundef i32 @filter_slice_gbrap32(ptr noundef readonly captures(
 123:                                              ; preds = %.preheader.us, %123
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %123 ]
   %124 = getelementptr inbounds nuw float, ptr %.0137.i10.us, i64 %indvars.iv
-  %125 = load float, ptr %124, align 4, !tbaa !114
+  %125 = load float, ptr %124, align 4, !tbaa !95
   %126 = getelementptr inbounds nuw float, ptr %.0135.i12.us, i64 %indvars.iv
-  %127 = load float, ptr %126, align 4, !tbaa !114
+  %127 = load float, ptr %126, align 4, !tbaa !95
   %128 = getelementptr inbounds nuw float, ptr %.0136.i11.us, i64 %indvars.iv
-  %129 = load float, ptr %128, align 4, !tbaa !114
+  %129 = load float, ptr %128, align 4, !tbaa !95
   %130 = getelementptr inbounds nuw float, ptr %.0138.i9.us, i64 %indvars.iv
-  %131 = load float, ptr %130, align 4, !tbaa !114
+  %131 = load float, ptr %130, align 4, !tbaa !95
   %132 = fpext nsz float %131 to double
   %133 = fpext nsz float %125 to double
   %134 = fpext nsz float %127 to double
@@ -9058,21 +9058,21 @@ define internal noundef i32 @filter_slice_gbrap32(ptr noundef readonly captures(
   %152 = fadd nsz double %150, %151
   %153 = fptrunc nsz double %152 to float
   %154 = getelementptr inbounds nuw float, ptr %.0142.i6.us, i64 %indvars.iv
-  store float %141, ptr %154, align 4, !tbaa !114
+  store float %141, ptr %154, align 4, !tbaa !95
   %155 = getelementptr inbounds nuw float, ptr %.0144.i4.us, i64 %indvars.iv
-  store float %147, ptr %155, align 4, !tbaa !114
+  store float %147, ptr %155, align 4, !tbaa !95
   %156 = getelementptr inbounds nuw float, ptr %.0143.i5.us, i64 %indvars.iv
-  store float %153, ptr %156, align 4, !tbaa !114
+  store float %153, ptr %156, align 4, !tbaa !95
   %157 = fmul nsz double %120, %134
   %158 = tail call nsz double @llvm.fmuladd.f64(double %119, double %133, double %157)
   %159 = tail call nsz double @llvm.fmuladd.f64(double %121, double %137, double %158)
   %160 = tail call nsz double @llvm.fmuladd.f64(double %122, double %132, double %159)
   %161 = fptrunc nsz double %160 to float
   %162 = getelementptr inbounds nuw float, ptr %.0141.i7.us, i64 %indvars.iv
-  store float %161, ptr %162, align 4, !tbaa !114
+  store float %161, ptr %162, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %123
   %163 = getelementptr inbounds nuw float, ptr %.0135.i12.us, i64 %74
@@ -9085,7 +9085,7 @@ define internal noundef i32 @filter_slice_gbrap32(ptr noundef readonly captures(
   %170 = getelementptr inbounds nuw float, ptr %.0141.i7.us, i64 %88
   %171 = add nsw i32 %.0140.i8.us, 1
   %exitcond15.not = icmp eq i32 %171, %14
-  br i1 %exitcond15.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !119
+  br i1 %exitcond15.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !98
 
 filter_slice_rgba_planar_32.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -9244,13 +9244,13 @@ define internal noundef i32 @filter_slice_gbrap32_pl(ptr noundef readonly captur
   %.114.us = phi float [ %.018.us, %.preheader.us ], [ %.2.us, %preserve_color.exit.us ]
   %.11113.us = phi float [ %.01017.us, %.preheader.us ], [ %.3.us, %preserve_color.exit.us ]
   %129 = getelementptr inbounds nuw float, ptr %.0137.i25.us, i64 %indvars.iv
-  %130 = load float, ptr %129, align 4, !tbaa !114
+  %130 = load float, ptr %129, align 4, !tbaa !95
   %131 = getelementptr inbounds nuw float, ptr %.0135.i27.us, i64 %indvars.iv
-  %132 = load float, ptr %131, align 4, !tbaa !114
+  %132 = load float, ptr %131, align 4, !tbaa !95
   %133 = getelementptr inbounds nuw float, ptr %.0136.i26.us, i64 %indvars.iv
-  %134 = load float, ptr %133, align 4, !tbaa !114
+  %134 = load float, ptr %133, align 4, !tbaa !95
   %135 = getelementptr inbounds nuw float, ptr %.0138.i24.us, i64 %indvars.iv
-  %136 = load float, ptr %135, align 4, !tbaa !114
+  %136 = load float, ptr %135, align 4, !tbaa !95
   %137 = fpext nsz float %136 to double
   %138 = fpext nsz float %130 to double
   %139 = fpext nsz float %132 to double
@@ -9374,21 +9374,21 @@ preserve_color.exit.us:                           ; preds = %205, %197, %188, %1
   %230 = fsub nsz float %225, %158
   %231 = tail call nsz noundef float @llvm.fmuladd.f32(float %230, float %12, float %158)
   %232 = getelementptr inbounds nuw float, ptr %.0142.i21.us, i64 %indvars.iv
-  store float %227, ptr %232, align 4, !tbaa !114
+  store float %227, ptr %232, align 4, !tbaa !95
   %233 = getelementptr inbounds nuw float, ptr %.0144.i19.us, i64 %indvars.iv
-  store float %229, ptr %233, align 4, !tbaa !114
+  store float %229, ptr %233, align 4, !tbaa !95
   %234 = getelementptr inbounds nuw float, ptr %.0143.i20.us, i64 %indvars.iv
-  store float %231, ptr %234, align 4, !tbaa !114
+  store float %231, ptr %234, align 4, !tbaa !95
   %235 = fmul nsz double %125, %139
   %236 = tail call nsz double @llvm.fmuladd.f64(double %124, double %138, double %235)
   %237 = tail call nsz double @llvm.fmuladd.f64(double %126, double %142, double %236)
   %238 = tail call nsz double @llvm.fmuladd.f64(double %127, double %137, double %237)
   %239 = fptrunc nsz double %238 to float
   %240 = getelementptr inbounds nuw float, ptr %.0141.i22.us, i64 %indvars.iv
-  store float %239, ptr %240, align 4, !tbaa !114
+  store float %239, ptr %240, align 4, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %preserve_color.exit.us
   %241 = getelementptr inbounds nuw float, ptr %.0135.i27.us, i64 %79
@@ -9401,7 +9401,7 @@ preserve_color.exit.us:                           ; preds = %205, %197, %188, %1
   %248 = getelementptr inbounds nuw float, ptr %.0141.i22.us, i64 %93
   %249 = add nsw i32 %.0140.i23.us, 1
   %exitcond30.not = icmp eq i32 %249, %19
-  br i1 %exitcond30.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !120
+  br i1 %exitcond30.not, label %filter_slice_rgba_planar_32.exit, label %.preheader.us, !llvm.loop !98
 
 filter_slice_rgba_planar_32.exit:                 ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -9544,38 +9544,16 @@ attributes #11 = { nounwind willreturn memory(none) }
 !83 = !{!84, !84, i64 0}
 !84 = !{!"short", !8, i64 0}
 !85 = distinct !{!85, !51}
-!86 = distinct !{!86, !51, !87}
-!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!88 = distinct !{!88, !51, !87}
-!89 = distinct !{!89, !51, !87}
-!90 = distinct !{!90, !51, !87}
-!91 = distinct !{!91, !51, !92}
-!92 = !{!"llvm.loop.unswitch.partial.disable"}
+!86 = distinct !{!86, !51}
+!87 = distinct !{!87, !51, !88}
+!88 = !{!"llvm.loop.unswitch.partial.disable"}
+!89 = distinct !{!89, !51}
+!90 = distinct !{!90, !51, !88}
+!91 = distinct !{!91, !51, !88}
+!92 = distinct !{!92, !51, !88}
 !93 = distinct !{!93, !51}
-!94 = distinct !{!94, !51, !92}
-!95 = distinct !{!95, !51, !92}
-!96 = distinct !{!96, !51, !92}
+!94 = distinct !{!94, !51}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"float", !8, i64 0}
 !97 = distinct !{!97, !51}
-!98 = distinct !{!98, !51, !87}
-!99 = distinct !{!99, !51, !87}
-!100 = distinct !{!100, !51, !87}
-!101 = distinct !{!101, !51, !87}
-!102 = distinct !{!102, !51, !87}
-!103 = distinct !{!103, !51, !87}
-!104 = distinct !{!104, !51, !87}
-!105 = distinct !{!105, !51, !87}
-!106 = distinct !{!106, !51, !87}
-!107 = distinct !{!107, !51, !87}
-!108 = distinct !{!108, !51, !87}
-!109 = distinct !{!109, !51, !87}
-!110 = distinct !{!110, !51, !87}
-!111 = distinct !{!111, !51, !87}
-!112 = distinct !{!112, !51, !87}
-!113 = distinct !{!113, !51, !87}
-!114 = !{!115, !115, i64 0}
-!115 = !{!"float", !8, i64 0}
-!116 = distinct !{!116, !51}
-!117 = distinct !{!117, !51, !87}
-!118 = distinct !{!118, !51, !87}
-!119 = distinct !{!119, !51, !87}
-!120 = distinct !{!120, !51, !87}
+!98 = distinct !{!98, !51}

@@ -15809,7 +15809,7 @@ define internal fastcc void @_create_lock_check_pixbuf(ptr noundef nonnull write
 ._crit_edge.us.i:                                 ; preds = %54
   %55 = add nuw i32 %.038.us.i, 1
   %exitcond43.not.i = icmp eq i32 %55, %20
-  br i1 %exitcond43.not.i, label %dt_draw_cairo_to_gdk_pixbuf.exit.loopexit, label %.preheader.us.i, !llvm.loop !111
+  br i1 %exitcond43.not.i, label %dt_draw_cairo_to_gdk_pixbuf.exit.loopexit, label %.preheader.us.i
 
 dt_draw_cairo_to_gdk_pixbuf.exit.loopexit:        ; preds = %._crit_edge.us.i
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !6
@@ -15909,7 +15909,7 @@ dt_draw_cairo_to_gdk_pixbuf.exit:                 ; preds = %dt_draw_cairo_to_gd
 ._crit_edge.us.i32:                               ; preds = %110
   %111 = add nuw i32 %.038.us.i27, 1
   %exitcond43.not.i33 = icmp eq i32 %111, %76
-  br i1 %exitcond43.not.i33, label %dt_draw_cairo_to_gdk_pixbuf.exit34.loopexit, label %.preheader.us.i26, !llvm.loop !111
+  br i1 %exitcond43.not.i33, label %dt_draw_cairo_to_gdk_pixbuf.exit34.loopexit, label %.preheader.us.i26
 
 dt_draw_cairo_to_gdk_pixbuf.exit34.loopexit:      ; preds = %._crit_edge.us.i32
   %.pre36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !6
@@ -16038,7 +16038,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
   %63 = getelementptr inbounds nuw [0 x float], ptr @dt_gui_presets_exposure_value, i64 0, i64 %indvars.iv
-  %64 = load float, ptr %63, align 4, !tbaa !113
+  %64 = load float, ptr %63, align 4, !tbaa !111
   %65 = fcmp reassoc nsz arcp contract afn olt float %64, %18
   br i1 %65, label %66, label %.critedge.split.loop.exit
 
@@ -16059,7 +16059,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %71
   %indvars.iv134 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next135, %71 ]
   %68 = getelementptr inbounds nuw [0 x float], ptr @dt_gui_presets_exposure_value, i64 0, i64 %indvars.iv134
-  %69 = load float, ptr %68, align 4, !tbaa !113
+  %69 = load float, ptr %68, align 4, !tbaa !111
   %70 = fcmp reassoc nsz arcp contract afn olt float %69, %20
   br i1 %70, label %71, label %.critedge3.loopexit
 
@@ -16110,7 +16110,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %91
   %indvars.iv139 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next140, %91 ]
   %88 = getelementptr inbounds nuw [0 x float], ptr @dt_gui_presets_aperture_value, i64 0, i64 %indvars.iv139
-  %89 = load float, ptr %88, align 4, !tbaa !113
+  %89 = load float, ptr %88, align 4, !tbaa !111
   %90 = fcmp reassoc nsz arcp contract afn olt float %89, %22
   br i1 %90, label %91, label %.critedge5.split.loop.exit
 
@@ -16131,7 +16131,7 @@ define internal fastcc void @_update_preset_line(ptr noundef %0, ptr noundef %1,
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %96
   %indvars.iv144 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next145, %96 ]
   %93 = getelementptr inbounds nuw [0 x float], ptr @dt_gui_presets_aperture_value, i64 0, i64 %indvars.iv144
-  %94 = load float, ptr %93, align 4, !tbaa !113
+  %94 = load float, ptr %93, align 4, !tbaa !111
   %95 = fcmp reassoc nsz arcp contract afn olt float %94, %24
   br i1 %95, label %96, label %.critedge7.loopexit
 
@@ -16334,13 +16334,13 @@ define internal void @edit_preset_response(ptr noundef readonly captures(none) %
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %6 = load i32, ptr %5, align 8, !tbaa !115
+  %6 = load i32, ptr %5, align 8, !tbaa !113
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %9 = load ptr, ptr %8, align 8, !tbaa !121
+  %9 = load ptr, ptr %8, align 8, !tbaa !119
   tail call fastcc void @_delete_line_and_empty_parent(ptr noundef %9, ptr noundef nonnull @edited_iter)
   br label %47
 
@@ -16375,7 +16375,7 @@ define internal void @edit_preset_response(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %18, %14
   %25 = load ptr, ptr %4, align 8, !tbaa !102
-  %26 = load i32, ptr %5, align 8, !tbaa !115
+  %26 = load i32, ptr %5, align 8, !tbaa !113
   %27 = call i32 @sqlite3_bind_int(ptr noundef %25, i32 noundef 1, i32 noundef %26) #13
   %.not7 = icmp eq i32 %27, 0
   br i1 %.not7, label %34, label %28
@@ -16396,7 +16396,7 @@ define internal void @edit_preset_response(ptr noundef readonly captures(none) %
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = load ptr, ptr %39, align 8, !tbaa !121
+  %40 = load ptr, ptr %39, align 8, !tbaa !119
   %41 = load ptr, ptr %4, align 8, !tbaa !102
   %42 = load ptr, ptr %2, align 8, !tbaa !104
   %43 = load ptr, ptr %3, align 8, !tbaa !104
@@ -16603,14 +16603,12 @@ attributes #17 = { cold nounwind }
 !108 = !{!109, !9, i64 28}
 !109 = !{!"_GdkEventKey", !9, i64 0, !56, i64 8, !10, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !38, i64 40, !110, i64 48, !10, i64 50, !9, i64 51}
 !110 = !{!"short", !10, i64 0}
-!111 = distinct !{!111, !112}
-!112 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!113 = !{!114, !114, i64 0}
-!114 = !{!"float", !10, i64 0}
-!115 = !{!116, !9, i64 200}
-!116 = !{!"dt_gui_presets_edit_dialog_t", !117, i64 0, !118, i64 8, !38, i64 16, !38, i64 24, !9, i64 32, !119, i64 40, !119, i64 48, !120, i64 56, !120, i64 64, !120, i64 72, !52, i64 80, !52, i64 88, !52, i64 96, !52, i64 104, !52, i64 112, !52, i64 120, !52, i64 128, !52, i64 136, !52, i64 144, !52, i64 152, !52, i64 160, !52, i64 168, !52, i64 176, !52, i64 184, !38, i64 192, !9, i64 200, !10, i64 208, !13, i64 248, !13, i64 256}
-!117 = !{!"p1 _ZTS10_GtkWindow", !13, i64 0}
-!118 = !{!"p1 _ZTS15dt_iop_module_t", !13, i64 0}
-!119 = !{!"p1 _ZTS9_GtkEntry", !13, i64 0}
-!120 = !{!"p1 _ZTS15_GtkCheckButton", !13, i64 0}
-!121 = !{!116, !13, i64 256}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"float", !10, i64 0}
+!113 = !{!114, !9, i64 200}
+!114 = !{!"dt_gui_presets_edit_dialog_t", !115, i64 0, !116, i64 8, !38, i64 16, !38, i64 24, !9, i64 32, !117, i64 40, !117, i64 48, !118, i64 56, !118, i64 64, !118, i64 72, !52, i64 80, !52, i64 88, !52, i64 96, !52, i64 104, !52, i64 112, !52, i64 120, !52, i64 128, !52, i64 136, !52, i64 144, !52, i64 152, !52, i64 160, !52, i64 168, !52, i64 176, !52, i64 184, !38, i64 192, !9, i64 200, !10, i64 208, !13, i64 248, !13, i64 256}
+!115 = !{!"p1 _ZTS10_GtkWindow", !13, i64 0}
+!116 = !{!"p1 _ZTS15dt_iop_module_t", !13, i64 0}
+!117 = !{!"p1 _ZTS9_GtkEntry", !13, i64 0}
+!118 = !{!"p1 _ZTS15_GtkCheckButton", !13, i64 0}
+!119 = !{!114, !13, i64 256}

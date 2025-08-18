@@ -243,7 +243,7 @@ define hidden void @av1_loop_filter_init(ptr noundef captures(none) initializes(
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 %29, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %update_sharpness.exit.preheader, label %.split.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %update_sharpness.exit.preheader, label %.split.i, !llvm.loop !4
 
 update_sharpness.exit.preheader:                  ; preds = %.split.i, %.split.us.i
   br label %update_sharpness.exit
@@ -258,7 +258,7 @@ update_sharpness.exit:                            ; preds = %update_sharpness.ex
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, i8 %34, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %35, label %update_sharpness.exit, !llvm.loop !8
+  br i1 %exitcond.not, label %35, label %update_sharpness.exit, !llvm.loop !6
 
 35:                                               ; preds = %update_sharpness.exit
   ret void
@@ -319,7 +319,7 @@ define hidden void @av1_loop_filter_frame_init(ptr noundef captures(none) %0, i3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 %34, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %update_sharpness.exit, label %.split.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %update_sharpness.exit, label %.split.i, !llvm.loop !4
 
 update_sharpness.exit:                            ; preds = %.split.i, %.split.us.i
   %35 = load i32, ptr %7, align 16
@@ -461,26 +461,26 @@ segfeature_active.exit.thread:                    ; preds = %70, %80, %segfeatur
   %116 = trunc nuw nsw i32 %115 to i8
   %117 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 0, i64 %indvars.iv
   store i8 %116, ptr %117, align 1
-  br i1 %105, label %104, label %118, !llvm.loop !9
+  br i1 %105, label %104, label %118, !llvm.loop !7
 
 118:                                              ; preds = %104
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %118, %89
-  br i1 %71, label %70, label %119, !llvm.loop !11
+  br i1 %71, label %70, label %119, !llvm.loop !9
 
 119:                                              ; preds = %.loopexit
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 8
-  br i1 %exitcond107.not, label %.loopexit87, label %.preheader85, !llvm.loop !12
+  br i1 %exitcond107.not, label %.loopexit87, label %.preheader85, !llvm.loop !10
 
 .loopexit87:                                      ; preds = %119, %60
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next109 to i32
   %exitcond111.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond111.not, label %._crit_edge, label %58, !llvm.loop !13
+  br i1 %exitcond111.not, label %._crit_edge, label %58, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit87, %58, %update_sharpness.exit
   ret void
@@ -653,12 +653,12 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef read
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.05865.us, i64 %98
   %100 = icmp slt i32 %96, %17
-  br i1 %100, label %35, label %._crit_edge.us, !llvm.loop !14
+  br i1 %100, label %35, label %._crit_edge.us, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %.lr.ph.us, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge69, label %.lr.ph.us, !llvm.loop !13
 
 ._crit_edge69:                                    ; preds = %._crit_edge.us, %.lr.ph68, %6
   ret void
@@ -1033,12 +1033,12 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef read
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr %.05966.us, i64 %99
   %101 = icmp slt i32 %97, %16
-  br i1 %101, label %33, label %._crit_edge.us, !llvm.loop !16
+  br i1 %101, label %33, label %._crit_edge.us, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph.us, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge70, label %.lr.ph.us, !llvm.loop !15
 
 ._crit_edge70:                                    ; preds = %._crit_edge.us, %.lr.ph69, %6
   ret void
@@ -1104,12 +1104,12 @@ define hidden void @av1_filter_block_plane_vert_test(ptr noundef %0, ptr noundef
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %.03637.us
   %37 = icmp slt i32 %36, %17
-  br i1 %37, label %28, label %._crit_edge.us, !llvm.loop !18
+  br i1 %37, label %28, label %._crit_edge.us, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %28
   %38 = add nuw nsw i32 %.03438.us, 1
   %exitcond.not = icmp eq i32 %38, %14
-  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph.us, !llvm.loop !17
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.lr.ph40, %6
   ret void
@@ -1161,12 +1161,12 @@ define hidden void @av1_filter_block_plane_horz_test(ptr noundef %0, ptr noundef
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, %.03738.us
   %39 = icmp slt i32 %38, %14
-  br i1 %39, label %27, label %._crit_edge.us, !llvm.loop !20
+  br i1 %39, label %27, label %._crit_edge.us, !llvm.loop !18
 
 ._crit_edge.us:                                   ; preds = %27
   %40 = add nuw nsw i32 %.03539.us, 1
   %exitcond.not = icmp eq i32 %40, %17
-  br i1 %exitcond.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge42, label %.lr.ph.us, !llvm.loop !19
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us, %.lr.ph41, %6
   ret void
@@ -1272,12 +1272,12 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @av1_filter_block_plane_vert(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.1107127.us.i, i32 noundef %.1124.us.i)
   %46 = add nuw nsw i32 %.1124.us.i, 32
   %47 = icmp slt i32 %46, %18
-  br i1 %47, label %44, label %._crit_edge126.us.i, !llvm.loop !22
+  br i1 %47, label %44, label %._crit_edge126.us.i, !llvm.loop !20
 
 ._crit_edge126.us.i:                              ; preds = %44
   %48 = add nuw nsw i32 %.1107127.us.i, 32
   %49 = icmp slt i32 %48, %15
-  br i1 %49, label %.preheader116.us.i, label %.preheader.us.i, !llvm.loop !23
+  br i1 %49, label %.preheader116.us.i, label %.preheader.us.i, !llvm.loop !21
 
 .preheader117.i:                                  ; preds = %._crit_edge.i, %.preheader117.lr.ph.i
   %.0106123.i = phi i32 [ %.018, %.preheader117.lr.ph.i ], [ %58, %._crit_edge.i ]
@@ -1301,7 +1301,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
 54:                                               ; preds = %51, %.lr.ph.i
   %55 = add nuw nsw i32 %.0105122.i, 32
   %56 = icmp slt i32 %55, %18
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %54, %.preheader117.i
   %.0105.lcssa.i = phi i32 [ -32, %.preheader117.i ], [ %.0105122.i, %54 ]
@@ -1310,7 +1310,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %indvars142.i, ptr noundef nonnull %41, i32 noundef %.0106123.i, i32 noundef %.0105.lcssa.i)
   %58 = add nuw nsw i32 %.0106123.i, 32
   %59 = icmp slt i32 %58, %15
-  br i1 %59, label %.preheader117.i, label %.loopexit.i, !llvm.loop !25
+  br i1 %59, label %.preheader117.i, label %.loopexit.i, !llvm.loop !23
 
 .preheader.us.i:                                  ; preds = %._crit_edge126.us.i, %._crit_edge130.us.i
   %.2108131.us.i = phi i32 [ %64, %._crit_edge130.us.i ], [ %.018, %._crit_edge126.us.i ]
@@ -1323,18 +1323,18 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @av1_filter_block_plane_horz(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %indvars142.i, ptr noundef nonnull %43, i32 noundef %.2108131.us.i, i32 noundef %.2128.us.i)
   %62 = add nuw nsw i32 %.2128.us.i, 32
   %63 = icmp slt i32 %62, %18
-  br i1 %63, label %60, label %._crit_edge130.us.i, !llvm.loop !26
+  br i1 %63, label %60, label %._crit_edge130.us.i, !llvm.loop !24
 
 ._crit_edge130.us.i:                              ; preds = %60
   %64 = add nuw nsw i32 %.2108131.us.i, 32
   %65 = icmp slt i32 %64, %15
-  br i1 %65, label %.preheader.us.i, label %.loopexit.i, !llvm.loop !27
+  br i1 %65, label %.preheader.us.i, label %.loopexit.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %._crit_edge130.us.i, %.preheader116.lr.ph.i, %.preheader119.i, %.preheader120.i, %36, %34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %4, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %loop_filter_rows.exit, label %29, !llvm.loop !28
+  br i1 %exitcond.not.i, label %loop_filter_rows.exit, label %29, !llvm.loop !26
 
 loop_filter_rows.exit:                            ; preds = %32, %.loopexit.i, %14
   ret void
@@ -1497,9 +1497,9 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
@@ -1508,17 +1508,15 @@ attributes #8 = { nounwind }
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5, !6}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !6}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !6}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !6}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !6}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5}

@@ -143,7 +143,7 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %100, ptr %61, align 2, !tbaa !3
   %101 = getelementptr inbounds i16, ptr %.093118, i64 %22
   %.not97 = icmp ugt ptr %101, %26
-  br i1 %.not97, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not97, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %25
   br i1 %.not98, label %130, label %104
@@ -208,7 +208,7 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
 130:                                              ; preds = %._crit_edge.thread147, %._crit_edge.thread, %128, %._crit_edge
   %131 = getelementptr inbounds i16, ptr %.092120, i64 %24
   %.not94 = icmp ugt ptr %131, %12
-  br i1 %.not94, label %._crit_edge124, label %25, !llvm.loop !11
+  br i1 %.not94, label %._crit_edge124, label %25, !llvm.loop !9
 
 ._crit_edge124:                                   ; preds = %130, %.lr.ph134
   %.092.lcssa = phi ptr [ %0, %.lr.ph134 ], [ %131, %130 ]
@@ -245,7 +245,7 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %.1.us, ptr %.091127.us, align 2, !tbaa !3
   %148 = getelementptr inbounds i16, ptr %.091127.us, i64 %139
   %.not96.us = icmp ugt ptr %148, %137
-  br i1 %.not96.us, label %.loopexit, label %.lr.ph129.split.us, !llvm.loop !12
+  br i1 %.not96.us, label %.loopexit, label %.lr.ph129.split.us, !llvm.loop !10
 
 .lr.ph129.split:                                  ; preds = %.lr.ph129, %.lr.ph129.split
   %.091127 = phi ptr [ %161, %.lr.ph129.split ], [ %.092.lcssa, %.lr.ph129 ]
@@ -267,12 +267,12 @@ define void @_ZN7Imf_3_410wav2EncodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %.1, ptr %.091127, align 2, !tbaa !3
   %161 = getelementptr inbounds i16, ptr %.091127, i64 %139
   %.not96 = icmp ugt ptr %161, %137
-  br i1 %.not96, label %.loopexit, label %.lr.ph129.split, !llvm.loop !13
+  br i1 %.not96, label %.loopexit, label %.lr.ph129.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph129.split, %.lr.ph129.split.us, %133, %._crit_edge124
   %162 = shl i32 %.090131, 1
   %.not = icmp sgt i32 %162, %8
-  br i1 %.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !14
+  br i1 %.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !11
 
 ._crit_edge135:                                   ; preds = %.loopexit, %6
   ret void
@@ -287,7 +287,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   %.0 = phi i32 [ 1, %6 ], [ %9, %8 ]
   %.not = icmp sgt i32 %.0, %7
   %9 = shl i32 %.0, 1
-  br i1 %.not, label %10, label %8, !llvm.loop !15
+  br i1 %.not, label %10, label %8, !llvm.loop !12
 
 10:                                               ; preds = %8
   %11 = icmp ult i16 %5, 16384
@@ -371,7 +371,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %59, ptr %35, align 2, !tbaa !3
   %60 = getelementptr inbounds i16, ptr %.098132.us, i64 %28
   %.not102.us = icmp ugt ptr %60, %32
-  br i1 %.not102.us, label %._crit_edge.thread161, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not102.us, label %._crit_edge.thread161, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.098132 = phi ptr [ %72, %.lr.ph.split ], [ %.097134, %.lr.ph ]
@@ -404,7 +404,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %71, ptr %62, align 2, !tbaa !3
   %72 = getelementptr inbounds i16, ptr %.098132, i64 %28
   %.not102 = icmp ugt ptr %72, %32
-  br i1 %.not102, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not102, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %31
   br i1 %.not103, label %93, label %75
@@ -462,7 +462,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
 93:                                               ; preds = %._crit_edge.thread161, %._crit_edge.thread, %91, %._crit_edge
   %94 = getelementptr inbounds i16, ptr %.097134, i64 %30
   %.not99 = icmp ugt ptr %94, %18
-  br i1 %.not99, label %._crit_edge138, label %31, !llvm.loop !18
+  br i1 %.not99, label %._crit_edge138, label %31, !llvm.loop !14
 
 ._crit_edge138:                                   ; preds = %93, %.lr.ph147
   %.097.lcssa = phi ptr [ %0, %.lr.ph147 ], [ %94, %93 ]
@@ -498,7 +498,7 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %109, ptr %.096141.us, align 2, !tbaa !3
   %111 = getelementptr inbounds i16, ptr %.096141.us, i64 %102
   %.not101.us = icmp ugt ptr %111, %100
-  br i1 %.not101.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !19
+  br i1 %.not101.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !15
 
 .lr.ph143.split:                                  ; preds = %.lr.ph143, %.lr.ph143.split
   %.096141 = phi ptr [ %116, %.lr.ph143.split ], [ %.097.lcssa, %.lr.ph143 ]
@@ -513,12 +513,12 @@ define void @_ZN7Imf_3_410wav2DecodeEPtiiiit(ptr noundef captures(address) %0, i
   store i16 %115, ptr %.096141, align 2, !tbaa !3
   %116 = getelementptr inbounds i16, ptr %.096141, i64 %102
   %.not101 = icmp ugt ptr %116, %100
-  br i1 %.not101, label %.loopexit, label %.lr.ph143.split, !llvm.loop !20
+  br i1 %.not101, label %.loopexit, label %.lr.ph143.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph143.split, %.lr.ph143.split.us, %96, %._crit_edge138
   %117 = lshr i32 %.1145, 1
   %.not151 = icmp samesign ult i32 %.1145, 2
-  br i1 %.not151, label %._crit_edge148, label %.lr.ph147, !llvm.loop !21
+  br i1 %.not151, label %._crit_edge148, label %.lr.ph147, !llvm.loop !16
 
 ._crit_edge148:                                   ; preds = %.loopexit, %10
   ret void
@@ -539,18 +539,13 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"short", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !9}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!16 = distinct !{!16, !8}

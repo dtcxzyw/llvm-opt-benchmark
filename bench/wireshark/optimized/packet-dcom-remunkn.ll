@@ -196,7 +196,7 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %50 = add i32 %49, -1
   store i32 %50, ptr %10, align 4
   %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %23
   %.047.lcssa = phi i32 [ %19, %23 ], [ %40, %.lr.ph.split.us ], [ %45, %.lr.ph.split ]
@@ -300,7 +300,7 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %58 = add i32 %57, -1
   store i32 %58, ptr %8, align 4
   %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %49, %6
   %.0.lcssa = phi i32 [ %20, %6 ], [ %42, %49 ]
@@ -405,7 +405,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   %53 = add i32 %52, -1
   store i32 %53, ptr %8, align 4
   %.not58 = icmp eq i32 %52, 0
-  br i1 %.not58, label %._crit_edge, label %26, !llvm.loop !11
+  br i1 %.not58, label %._crit_edge, label %26, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %47, %21
   %.0.lcssa = phi i32 [ %15, %21 ], [ %36, %47 ]
@@ -511,9 +511,7 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}

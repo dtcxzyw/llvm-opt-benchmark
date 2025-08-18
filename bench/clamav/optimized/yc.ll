@@ -37,12 +37,12 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 198
   %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7)
   switch i32 %27, label %29 [
-    i32 2, label %.thread
+    i32 2, label %.loopexit
     i32 1, label %28
   ]
 
 28:                                               ; preds = %9
-  br label %.thread
+  br label %.loopexit
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -57,101 +57,100 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 %34
   br label %36
 
-36:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %37 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !3
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %78, label %40
+36:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %37 = trunc nuw i64 %indvars.iv to i32
+  %38 = mul i64 %indvars.iv, 40
+  %39 = and i64 %38, 4294967288
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 %39
+  %41 = load i32, ptr %40, align 1, !tbaa !12
+  %42 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %63, label %45
 
-40:                                               ; preds = %36
-  %41 = mul i64 %indvars.iv, 40
-  %42 = and i64 %41, 4294967288
-  %43 = getelementptr inbounds nuw i8, ptr %22, i64 %42
-  %44 = load i32, ptr %43, align 1, !tbaa !12
-  %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !13
-  %47 = icmp eq i32 %46, 0
-  %48 = icmp eq i32 %44, 1668445042
-  %49 = icmp eq i32 %44, 1920168494
-  %50 = or i1 %48, %49
-  %51 = icmp eq i32 %44, 1869374834
-  %52 = or i1 %51, %50
-  %53 = icmp eq i32 %44, 1818587694
-  %54 = or i1 %53, %52
-  %55 = icmp eq i32 %44, 1633969454
-  %56 = or i1 %55, %54
-  %57 = icmp eq i32 %44, 1633972782
-  %58 = or i1 %57, %56
-  %59 = icmp eq i32 %44, 1633970478
-  %60 = or i1 %59, %58
-  %61 = icmp eq i32 %44, 1936487470
-  %62 = or i1 %61, %60
-  %63 = and i32 %44, 65535
-  %64 = icmp eq i32 %63, 17273
-  %65 = or i1 %64, %62
-  %or.cond = select i1 %47, i1 true, i1 %65
-  br i1 %or.cond, label %78, label %66
+45:                                               ; preds = %36
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %47 = load i32, ptr %46, align 4, !tbaa !13
+  %.fr = freeze i32 %47
+  %48 = icmp eq i32 %.fr, 0
+  br i1 %48, label %63, label %switch.early.test
 
-66:                                               ; preds = %40
-  %67 = trunc nuw i64 %indvars.iv to i32
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %67) #3
-  %68 = load i32, ptr %38, align 4, !tbaa !3
-  %69 = sub i32 %32, %68
-  %70 = icmp ugt i32 %68, %32
-  br i1 %70, label %71, label %72
-
-71:                                               ; preds = %66
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %69) #3
-  br label %.thread
-
-72:                                               ; preds = %66
-  %73 = zext i32 %68 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %76 = load i32, ptr %75, align 4, !tbaa !11
-  %77 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %74, i32 noundef %76, i32 noundef %69)
-  switch i32 %77, label %78 [
-    i32 2, label %.thread.loopexit
-    i32 1, label %.thread
+switch.early.test:                                ; preds = %45
+  switch i32 %41, label %49 [
+    i32 1936487470, label %63
+    i32 1920168494, label %63
+    i32 1869374834, label %63
+    i32 1818587694, label %63
+    i32 1668445042, label %63
+    i32 1633972782, label %63
+    i32 1633970478, label %63
+    i32 1633969454, label %63
   ]
 
-78:                                               ; preds = %72, %40, %36
+49:                                               ; preds = %switch.early.test
+  %50 = and i32 %41, 65535
+  %51 = icmp eq i32 %50, 17273
+  br i1 %51, label %63, label %52
+
+52:                                               ; preds = %49
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %37) #3
+  %53 = load i32, ptr %43, align 4, !tbaa !3
+  %54 = sub i32 %32, %53
+  %55 = icmp ugt i32 %53, %32
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %52
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %54) #3
+  br label %.loopexit
+
+57:                                               ; preds = %52
+  %58 = zext i32 %53 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %61 = load i32, ptr %60, align 4, !tbaa !11
+  %62 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %59, i32 noundef %61, i32 noundef %54)
+  switch i32 %62, label %63 [
+    i32 2, label %.loopexit.loopexit
+    i32 1, label %.loopexit
+  ]
+
+63:                                               ; preds = %57, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %45, %49, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %._crit_edge, label %36
 
-._crit_edge:                                      ; preds = %78, %29
-  %79 = trunc i32 %4 to i16
-  %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  store i16 %79, ptr %80, align 2, !tbaa !14
-  %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  store i64 0, ptr %81, align 2
-  %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
-  %83 = load i32, ptr %82, align 1, !tbaa !12
-  %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i32 %83, ptr %84, align 2, !tbaa !12
-  %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %86 = load i32, ptr %85, align 2, !tbaa !12
-  %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !15
-  %89 = sub i32 %86, %88
-  store i32 %89, ptr %85, align 2, !tbaa !12
-  %90 = zext i32 %32 to i64
-  %91 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef %1, i64 noundef %90) #3
-  %92 = icmp eq i64 %91, -1
-  br i1 %92, label %93, label %.thread
+._crit_edge:                                      ; preds = %63, %29
+  %64 = trunc i32 %4 to i16
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  store i16 %64, ptr %65, align 2, !tbaa !14
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  store i64 0, ptr %66, align 2
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 2575
+  %68 = load i32, ptr %67, align 1, !tbaa !12
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i32 %68, ptr %69, align 2, !tbaa !12
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %71 = load i32, ptr %70, align 2, !tbaa !12
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !15
+  %74 = sub i32 %71, %73
+  store i32 %74, ptr %70, align 2, !tbaa !12
+  %75 = zext i32 %32 to i64
+  %76 = tail call i64 @cli_writen(i32 noundef %6, ptr noundef nonnull %1, i64 noundef %75) #3
+  %77 = icmp eq i64 %76, -1
+  br i1 %77, label %78, label %.loopexit
 
-93:                                               ; preds = %._crit_edge
+78:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  br label %.thread
+  br label %.loopexit
 
-.thread.loopexit:                                 ; preds = %72
-  br label %.thread
+.loopexit.loopexit:                               ; preds = %57
+  br label %.loopexit
 
-.thread:                                          ; preds = %72, %.thread.loopexit, %71, %._crit_edge, %9, %93, %28
-  %.0 = phi i32 [ 7, %93 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %71 ], [ 1, %.thread.loopexit ], [ 7, %72 ]
+.loopexit:                                        ; preds = %57, %.loopexit.loopexit, %56, %._crit_edge, %9, %78, %28
+  %.0 = phi i32 [ 7, %78 ], [ 7, %28 ], [ 1, %9 ], [ 0, %._crit_edge ], [ 1, %56 ], [ 1, %.loopexit.loopexit ], [ 7, %57 ]
   ret i32 %.0
 }
 

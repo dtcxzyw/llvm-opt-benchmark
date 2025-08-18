@@ -6697,7 +6697,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 284:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i14.i", %278, %272
   %285 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 8
-  br label %256, !llvm.loop !70
+  br label %256, !llvm.loop !68
 
 .split21.us.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i14.i", %278, %272, %247, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.us.i.i", %241
   %.us-phi.i.i = phi ptr [ %.sroa.013.1.us.i.i, %241 ], [ %.sroa.013.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.us.i.i" ], [ %.sroa.013.1.us.i.i, %247 ], [ %.sroa.013.1.i.i, %272 ], [ %.sroa.013.1.i.i, %278 ], [ %.sroa.013.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i14.i" ]
@@ -6763,7 +6763,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %321, label %.backedge, label %322
 
 .backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit10.i.i", %316, %310
-  br label %287, !llvm.loop !71
+  br label %287, !llvm.loop !69
 
 322:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit10.i.i", %316, %310
   %323 = icmp ult ptr %.us-phi.i.i, %.sroa.0.1.i.i
@@ -6773,7 +6773,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %288, ptr %.us-phi.i.i, align 8
   store ptr %.us-phi22.i.i, ptr %.sroa.0.1.i.i, align 8
   %325 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 8
-  br label %216, !llvm.loop !72
+  br label %216, !llvm.loop !70
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %322
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_SJ_T0_T1_"(ptr nonnull %.us-phi.i.i, ptr %storemerge26, i64 noundef %26)
@@ -6781,7 +6781,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %327 = sub i64 %326, %4
   %328 = ashr exact i64 %327, 3
   %329 = icmp sgt i64 %328, 16
-  br i1 %329, label %10, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !73
+  br i1 %329, label %10, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !71
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEET_SJ_SJ_T0_.exit", %.lr.ph.i9.i, %3
   ret void
@@ -6872,7 +6872,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %59 = getelementptr inbounds ptr, ptr %0, i64 %.033
   store ptr %58, ptr %59, align 8
   %60 = icmp slt i64 %spec.select, %6
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !74
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit", %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESI_EEbT_T0_.exit" ]
@@ -6974,7 +6974,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %120 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
   store ptr %82, ptr %120, align 8
   %121 = icmp sgt i64 %.0911.i, %1
-  br i1 %121, label %80, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !75
+  br i1 %121, label %80, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_T0_SK_T1_RT2_.exit", !llvm.loop !73
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %107, %113, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i", %119, %73
   %.0.lcssa.i = phi i64 [ %.1, %73 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK10open_spiel10algorithms10SearchNode11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EclINS_17__normal_iteratorIPPKS4_St6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i" ], [ %.0911.i, %119 ], [ %.010.i, %107 ], [ %.010.i, %113 ]
@@ -7151,7 +7151,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms1
   store ptr %6, ptr %.sink, align 8
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !76
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !74
 
 .loopexit:                                        ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN10open_spiel10algorithms10SearchNodeESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS4_11ChildrenStrB5cxx11ERKNS2_5StateEE3$_0EEEvT_T0_.exit", %.preheader, %2
   ret void
@@ -7189,7 +7189,7 @@ define linkonce_odr noundef double @_ZNSt18gamma_distributionIdEclISt23mersenne_
   br i1 %21, label %22, label %.backedge
 
 .backedge:                                        ; preds = %17, %105
-  br label %17, !llvm.loop !77
+  br label %17, !llvm.loop !75
 
 22:                                               ; preds = %17
   %23 = udiv i64 %13, %12
@@ -7299,7 +7299,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %90 = fptrunc x86_fp80 %89 to double
   %91 = add i64 %.023.i.i, -1
   %.not.i.i = icmp eq i64 %91, 0
-  br i1 %.not.i.i, label %92, label %select.unfold.i.i, !llvm.loop !78
+  br i1 %.not.i.i, label %92, label %select.unfold.i.i, !llvm.loop !76
 
 92:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
   %93 = fmul double %20, %20
@@ -7452,7 +7452,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %188 = fptrunc x86_fp80 %187 to double
   %189 = add i64 %.023.i.i38, -1
   %.not.i.i41 = icmp eq i64 %189, 0
-  br i1 %.not.i.i41, label %190, label %select.unfold.i.i37, !llvm.loop !78
+  br i1 %.not.i.i41, label %190, label %select.unfold.i.i37, !llvm.loop !76
 
 190:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit58
   %191 = fdiv double %185, %188
@@ -7466,7 +7466,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit43: ; preds = %190, %193
   %.016.i.i42 = phi double [ %194, %193 ], [ %191, %190 ]
   %195 = fcmp oeq double %.016.i.i42, 0.000000e+00
-  br i1 %195, label %.preheader, label %196, !llvm.loop !79
+  br i1 %195, label %.preheader, label %196, !llvm.loop !77
 
 196:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit43
   %197 = load double, ptr %2, align 8
@@ -7620,7 +7620,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %86 = fptrunc x86_fp80 %85 to double
   %87 = add i64 %.023.i.i, -1
   %.not.i.i = icmp eq i64 %87, 0
-  br i1 %.not.i.i, label %88, label %select.unfold.i.i, !llvm.loop !78
+  br i1 %.not.i.i, label %88, label %select.unfold.i.i, !llvm.loop !76
 
 88:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
   %89 = fdiv double %83, %86
@@ -7739,7 +7739,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %159 = fptrunc x86_fp80 %158 to double
   %160 = add i64 %.023.i.i21, -1
   %.not.i.i24 = icmp eq i64 %160, 0
-  br i1 %.not.i.i24, label %161, label %select.unfold.i.i20, !llvm.loop !78
+  br i1 %.not.i.i24, label %161, label %select.unfold.i.i20, !llvm.loop !76
 
 161:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit41
   %162 = tail call double @llvm.fmuladd.f64(double %.016.i.i, double 2.000000e+00, double -1.000000e+00)
@@ -7759,7 +7759,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   %170 = fcmp ogt double %169, 1.000000e+00
   %171 = fcmp oeq double %169, 0.000000e+00
   %172 = or i1 %170, %171
-  br i1 %172, label %19, label %173, !llvm.loop !80
+  br i1 %172, label %19, label %173, !llvm.loop !78
 
 173:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit26
   %174 = tail call double @llvm.log.f64(double %169)
@@ -7838,7 +7838,7 @@ _ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i: ;
 _ZN10open_spiel10algorithms10SearchNodeD2Ev.exit: ; preds = %_ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i, %19
   %25 = getelementptr inbounds nuw i8, ptr %.05, i64 80
   %.not = icmp eq ptr %25, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %_ZN10open_spiel10algorithms10SearchNodeD2Ev.exit, %2
   ret void
@@ -7875,7 +7875,7 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersen
   %22 = mul i64 %21, %14
   %23 = trunc i64 %22 to i32
   %24 = icmp ugt i32 %19, %23
-  br i1 %24, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !82
+  br i1 %24, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !80
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %10, %17
   %.0.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %22, %.lr.ph.i ]
@@ -7901,7 +7901,7 @@ _ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm62
   %34 = icmp ugt i64 %33, %8
   %35 = icmp ult i64 %33, %31
   %36 = or i1 %34, %35
-  br i1 %36, label %29, label %.loopexit, !llvm.loop !83
+  br i1 %36, label %29, label %.loopexit, !llvm.loop !81
 
 37:                                               ; preds = %26
   %38 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %1)
@@ -7978,7 +7978,7 @@ _ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EE11_M_allocateE
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i.i.i, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !84
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel10algorithms10SearchNodeESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !82
 
 _ZNSt12_Vector_baseIN10open_spiel10algorithms10SearchNodeESaIS2_EED2Ev.exit.i: ; preds = %10, %.lr.ph.i.i.i.i.preheader.i.i
   %33 = landingpad { ptr, i32 }
@@ -8179,8 +8179,8 @@ attributes #32 = { nounwind willreturn memory(read) }
 !65 = distinct !{!65, !5}
 !66 = distinct !{!66, !5}
 !67 = distinct !{!67, !5}
-!68 = distinct !{!68, !5, !69}
-!69 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
 !70 = distinct !{!70, !5}
 !71 = distinct !{!71, !5}
 !72 = distinct !{!72, !5}
@@ -8194,5 +8194,3 @@ attributes #32 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !5}
 !81 = distinct !{!81, !5}
 !82 = distinct !{!82, !5}
-!83 = distinct !{!83, !5}
-!84 = distinct !{!84, !5}

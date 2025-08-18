@@ -4873,7 +4873,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   %.val73 = load i32, ptr %14, align 4, !tbaa !58
   %48 = sext i32 %.val73 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph.split.split.split, label %.critedge, !llvm.loop !147
+  br i1 %49, label %.lr.ph.split.split.split, label %.critedge, !llvm.loop !145
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
@@ -5298,6 +5298,4 @@ attributes #20 = { noreturn nounwind }
 !142 = distinct !{!142, !61}
 !143 = distinct !{!143, !61}
 !144 = distinct !{!144, !61}
-!145 = distinct !{!145, !61, !146}
-!146 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!147 = distinct !{!147, !61}
+!145 = distinct !{!145, !61}

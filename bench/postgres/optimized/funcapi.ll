@@ -2333,7 +2333,7 @@ define dso_local i32 @get_func_input_arg_names(i64 noundef %0, i64 noundef %1, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  br i1 %79, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %80 = trunc nuw nsw i64 %indvars.iv.next60 to i32
@@ -2484,7 +2484,7 @@ define dso_local ptr @get_func_result_name(i32 noundef %0) local_unnamed_addr #0
   %.1 = phi i32 [ %.03855, %.lr.ph ], [ 1, %62 ], [ %.03855, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %65, %54, %62, %55, %51, %9, %11
   %.039 = phi ptr [ null, %11 ], [ null, %9 ], [ null, %51 ], [ %.2, %65 ], [ null, %54 ], [ null, %62 ], [ null, %55 ]
@@ -2728,7 +2728,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %.174 = phi i32 [ %.pre-phi, %91 ], [ %.07399, %.lr.ph ], [ %.07399, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %93
   %94 = icmp slt i32 %.174, 2
@@ -2755,7 +2755,7 @@ define dso_local ptr @build_function_result_tupdesc_d(i8 noundef signext %0, i64
   %103 = load i32, ptr %102, align 4
   call void @TupleDescInitEntry(ptr noundef %97, i16 noundef signext %99, ptr noundef %101, i32 noundef %103, i32 noundef -1, i32 noundef 0) #9
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !19
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph103, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph103, %96, %._crit_edge, %65, %4
   %.075 = phi ptr [ null, %4 ], [ null, %65 ], [ null, %._crit_edge ], [ %97, %96 ], [ %97, %.lr.ph103 ]
@@ -2865,7 +2865,7 @@ list_length.exit:                                 ; preds = %9
 32:                                               ; preds = %25, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %32, %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2991,7 +2991,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
   %40 = load i32, ptr %9, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next83, %41
-  br i1 %42, label %.lr.ph73, label %._crit_edge, !llvm.loop !21
+  br i1 %42, label %.lr.ph73, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph73, %22
   %43 = phi i32 [ %37, %22 ], [ %40, %.lr.ph73 ]
@@ -3044,7 +3044,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
 70:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !22
+  br i1 %71, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %103 ], [ 0, %.lr.ph ]
@@ -3108,7 +3108,7 @@ define dso_local i32 @extract_variadic_args(ptr noundef readonly captures(none) 
 103:                                              ; preds = %96
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %104 = icmp slt i64 %indvars.iv.next80, %49
-  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !23
+  br i1 %104, label %.lr.ph.split, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %70, %103, %44, %._crit_edge
   %105 = phi i32 [ %43, %._crit_edge ], [ %48, %44 ], [ %48, %103 ], [ %48, %70 ]
@@ -3206,13 +3206,10 @@ attributes #9 = { nounwind }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !15}
-!23 = distinct !{!23, !5}

@@ -298,7 +298,7 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
   %or.cond = or i1 %25, %26
   %27 = icmp samesign ugt i32 %.038, 1
   %or.cond9 = select i1 %or.cond, i1 %27, i1 false
-  br i1 %or.cond9, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, label %.critedge, !llvm.loop !9
+  br i1 %or.cond9, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit
   %.028.lcssa = phi i64 [ %.02834, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit ], [ %.0283458, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread ], [ %.028.us, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14.us ], [ %.028, %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14 ]
@@ -372,17 +372,17 @@ define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCom
   %3 = alloca %class.MetaspaceStats, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !10
-  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !10
+  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !8
+  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !noalias !10
+  %5 = load i64, ptr %4, align 8, !noalias !8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8, !noalias !10
+  %7 = load i64, ptr %6, align 8, !noalias !8
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !noalias !10
+  %10 = load i64, ptr %9, align 8, !noalias !8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !10
+  %12 = load i64, ptr %11, align 8, !noalias !8
   %13 = add i64 %12, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -473,20 +473,20 @@ define hidden void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef %0)
   %3 = alloca %class.MetaspaceStats, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !13
-  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !13
-  %4 = load i64, ptr %2, align 8, !noalias !13
-  %5 = load i64, ptr %3, align 8, !noalias !13
+  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !11
+  call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !11
+  %4 = load i64, ptr %2, align 8, !noalias !11
+  %5 = load i64, ptr %3, align 8, !noalias !11
   %6 = add i64 %5, %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !noalias !13
+  %8 = load i64, ptr %7, align 8, !noalias !11
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !13
+  %10 = load i64, ptr %9, align 8, !noalias !11
   %11 = add i64 %10, %8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !13
+  %13 = load i64, ptr %12, align 8, !noalias !11
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !13
+  %15 = load i64, ptr %14, align 8, !noalias !11
   %16 = add i64 %15, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -528,7 +528,7 @@ define hidden noundef i64 @_ZN11MetaspaceGC23delta_capacity_until_GCEm(i64 nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN11MetaspaceGC17capacity_until_GCEv() local_unnamed_addr #0 align 2 {
   %1 = load volatile i64, ptr @_ZN11MetaspaceGC18_capacity_until_GCE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   ret i64 %1
 }
 
@@ -558,7 +558,7 @@ define hidden noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %spec.select, i64 %5, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !17
+  %15 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %spec.select, i64 %5, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !15
   %.not25 = icmp eq i64 %5, %15
   br i1 %.not25, label %16, label %20
 
@@ -586,7 +586,7 @@ define hidden noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN11MetaspaceGC21dec_capacity_until_GCEm(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = sub i64 0, %0
-  %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !18
+  %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !16
   %4 = sub i64 %3, %0
   ret i64 %4
 }
@@ -671,7 +671,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN11MetaspaceGC17a
   %1 = tail call noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() #14
   %2 = shl i64 %1, 3
   %3 = load volatile i64, ptr @_ZN11MetaspaceGC18_capacity_until_GCE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   %4 = load i64, ptr @MaxMetaspaceSize, align 8
   %5 = sub i64 %4, %2
   %6 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %2)
@@ -699,7 +699,7 @@ define hidden void @_ZN11MetaspaceGC16compute_new_sizeEv() local_unnamed_addr #0
   %3 = shl i64 %2, 3
   %4 = uitofp i64 %3 to double
   %5 = load volatile i64, ptr @_ZN11MetaspaceGC18_capacity_until_GCE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   %6 = load i32, ptr @MinMetaspaceFreeRatio, align 4
   %7 = uitofp i32 %6 to double
   %8 = fdiv double %7, 1.000000e+02
@@ -762,7 +762,7 @@ define hidden void @_ZN11MetaspaceGC16compute_new_sizeEv() local_unnamed_addr #0
   br i1 %40, label %_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit, label %41
 
 41:                                               ; preds = %35
-  %42 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i, i64 %36, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !17
+  %42 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i, i64 %36, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !15
   %.not25.i = icmp eq i64 %36, %42
   %spec.select = select i1 %.not25.i, i64 %spec.select.i, i64 0
   br label %_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit
@@ -883,7 +883,7 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
 
 111:                                              ; preds = %108
   %112 = sub i64 0, %.0
-  %113 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %112, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !18
+  %113 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %112, ptr nonnull @_ZN11MetaspaceGC18_capacity_until_GCE) #14, !srcloc !16
   %114 = sub i64 %113, %.0
   %115 = load ptr, ptr @_ZN9Metaspace7_tracerE, align 8
   tail call void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %115, i64 noundef %5, i64 noundef %114, i32 noundef 0) #14
@@ -2087,16 +2087,14 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN14MetaspaceUtils23get_combined_statisticsEv: argument 0"}
-!12 = distinct !{!12, !"_ZN14MetaspaceUtils23get_combined_statisticsEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN14MetaspaceUtils23get_combined_statisticsEv: argument 0"}
-!15 = distinct !{!15, !"_ZN14MetaspaceUtils23get_combined_statisticsEv"}
-!16 = !{i64 2145392468}
-!17 = !{i64 2145412694}
-!18 = !{i64 2145411697}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN14MetaspaceUtils23get_combined_statisticsEv: argument 0"}
+!10 = distinct !{!10, !"_ZN14MetaspaceUtils23get_combined_statisticsEv"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN14MetaspaceUtils23get_combined_statisticsEv: argument 0"}
+!13 = distinct !{!13, !"_ZN14MetaspaceUtils23get_combined_statisticsEv"}
+!14 = !{i64 2145392468}
+!15 = !{i64 2145412694}
+!16 = !{i64 2145411697}

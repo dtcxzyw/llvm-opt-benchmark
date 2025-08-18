@@ -16,18 +16,18 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
 
 .lr.ph:                                           ; preds = %5
   %9 = icmp eq i32 %4, 0
-  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.split
+  br i1 %9, label %.lr.ph.split.us.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %.03252.us = phi ptr [ %.2.us, %32 ], [ %7, %.lr.ph ]
-  %.03351.us = phi ptr [ %11, %32 ], [ %6, %.lr.ph ]
-  %.03650.us = phi i32 [ %.238.us, %32 ], [ 0, %.lr.ph ]
-  %.not.us = icmp ult ptr %.03252.us, %3
-  br i1 %.not.us, label %10, label %.thread
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %32
+  %.03252.us.us = phi ptr [ %.2.us.us, %32 ], [ %7, %.lr.ph ]
+  %.03351.us.us = phi ptr [ %11, %32 ], [ %6, %.lr.ph ]
+  %.03650.us.us = phi i32 [ %.238.us.us, %32 ], [ 0, %.lr.ph ]
+  %.not.us.us = icmp ult ptr %.03252.us.us, %3
+  br i1 %.not.us.us, label %10, label %.thread
 
-10:                                               ; preds = %.lr.ph.split.us
-  %11 = getelementptr inbounds nuw i8, ptr %.03351.us, i64 4
-  %12 = load i32, ptr %.03351.us, align 4, !tbaa !10
+10:                                               ; preds = %.lr.ph.split.us.split.us
+  %11 = getelementptr inbounds nuw i8, ptr %.03351.us.us, i64 4
+  %12 = load i32, ptr %.03351.us.us, align 4, !tbaa !10
   %13 = icmp ult i32 %12, 65536
   br i1 %13, label %27, label %14
 
@@ -36,39 +36,39 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %.03252.us, i64 2
-  %.not44.us = icmp ult ptr %17, %3
-  br i1 %.not44.us, label %18, label %.thread
+  %17 = getelementptr inbounds nuw i8, ptr %.03252.us.us, i64 2
+  %.not44.us.us = icmp ult ptr %17, %3
+  br i1 %.not44.us.us, label %18, label %.thread
 
 18:                                               ; preds = %16
   %19 = add nuw nsw i32 %12, 67043328
   %20 = lshr i32 %19, 10
   %21 = trunc i32 %20 to i16
   %22 = add nuw nsw i16 %21, -10240
-  store i16 %22, ptr %.03252.us, align 2, !tbaa !12
+  store i16 %22, ptr %.03252.us.us, align 2, !tbaa !12
   %23 = trunc i32 %12 to i16
   %24 = and i16 %23, 1023
   %25 = or disjoint i16 %24, -9216
-  %26 = getelementptr inbounds nuw i8, ptr %.03252.us, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.03252.us.us, i64 4
   store i16 %25, ptr %17, align 2, !tbaa !12
   br label %32
 
 27:                                               ; preds = %10
   %28 = and i32 %12, 63488
-  %or.cond.us = icmp eq i32 %28, 55296
-  br i1 %or.cond.us, label %.thread, label %29
+  %or.cond.us.us = icmp eq i32 %28, 55296
+  br i1 %or.cond.us.us, label %.thread, label %29
 
 29:                                               ; preds = %27
   %30 = trunc nuw i32 %12 to i16
-  %31 = getelementptr inbounds nuw i8, ptr %.03252.us, i64 2
-  store i16 %30, ptr %.03252.us, align 2, !tbaa !12
+  %31 = getelementptr inbounds nuw i8, ptr %.03252.us.us, i64 2
+  store i16 %30, ptr %.03252.us.us, align 2, !tbaa !12
   br label %32
 
 32:                                               ; preds = %14, %29, %18
-  %.238.us = phi i32 [ %.03650.us, %29 ], [ %.03650.us, %18 ], [ 3, %14 ]
-  %.2.us = phi ptr [ %31, %29 ], [ %26, %18 ], [ %.03252.us, %14 ]
+  %.238.us.us = phi i32 [ %.03650.us.us, %29 ], [ %.03650.us.us, %18 ], [ 3, %14 ]
+  %.2.us.us = phi ptr [ %31, %29 ], [ %26, %18 ], [ %.03252.us.us, %14 ]
   %33 = icmp ult ptr %11, %1
-  br i1 %33, label %.lr.ph.split.us, label %.thread, !llvm.loop !14
+  br i1 %33, label %.lr.ph.split.us.split.us, label %.thread
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %59
   %.03252 = phi ptr [ %.2, %59 ], [ %7, %.lr.ph ]
@@ -129,10 +129,10 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   %60 = icmp ult ptr %35, %1
   br i1 %60, label %.lr.ph.split.split, label %.thread
 
-.thread:                                          ; preds = %59, %.lr.ph.split.split, %49, %32, %.lr.ph.split.us, %16, %27, %5
-  %.033.lcssa = phi ptr [ %6, %5 ], [ %.03351.us, %27 ], [ %.03351.us, %16 ], [ %.03351.us, %.lr.ph.split.us ], [ %11, %32 ], [ %.03351, %49 ], [ %.03351, %.lr.ph.split.split ], [ %35, %59 ]
-  %.032.lcssa = phi ptr [ %7, %5 ], [ %.03252.us, %27 ], [ %.03252.us, %16 ], [ %.03252.us, %.lr.ph.split.us ], [ %.2.us, %32 ], [ %.03252, %49 ], [ %.03252, %.lr.ph.split.split ], [ %.2, %59 ]
-  %.137 = phi i32 [ 0, %5 ], [ 3, %27 ], [ 2, %16 ], [ 2, %.lr.ph.split.us ], [ %.238.us, %32 ], [ 2, %49 ], [ 2, %.lr.ph.split.split ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %.lr.ph.split.split, %49, %32, %.lr.ph.split.us.split.us, %27, %16, %5
+  %.033.lcssa = phi ptr [ %6, %5 ], [ %.03351.us.us, %16 ], [ %.03351.us.us, %27 ], [ %.03351.us.us, %.lr.ph.split.us.split.us ], [ %11, %32 ], [ %.03351, %49 ], [ %.03351, %.lr.ph.split.split ], [ %35, %59 ]
+  %.032.lcssa = phi ptr [ %7, %5 ], [ %.03252.us.us, %16 ], [ %.03252.us.us, %27 ], [ %.03252.us.us, %.lr.ph.split.us.split.us ], [ %.2.us.us, %32 ], [ %.03252, %49 ], [ %.03252, %.lr.ph.split.split ], [ %.2, %59 ]
+  %.137 = phi i32 [ 0, %5 ], [ 2, %16 ], [ 3, %27 ], [ 2, %.lr.ph.split.us.split.us ], [ %.238.us.us, %32 ], [ 2, %49 ], [ 2, %.lr.ph.split.split ], [ 0, %59 ]
   store ptr %.033.lcssa, ptr %0, align 8, !tbaa !3
   store ptr %.032.lcssa, ptr %2, align 8, !tbaa !8
   ret i32 %.137
@@ -147,9 +147,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
 
 .lr.ph:                                           ; preds = %5
   %9 = icmp eq i32 %4, 0
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.us
+  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %26
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %26
   %.03958.us = phi ptr [ %.3.us, %26 ], [ %6, %.lr.ph ]
   %.04357.us = phi ptr [ %27, %26 ], [ %7, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %.03958.us, i64 2
@@ -159,7 +159,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %or.cond.us = icmp eq i16 %13, -10240
   br i1 %or.cond.us, label %14, label %25
 
-14:                                               ; preds = %.lr.ph.split.us
+14:                                               ; preds = %.lr.ph.split.us.split
   %15 = icmp ult ptr %10, %1
   br i1 %15, label %16, label %.thread
 
@@ -177,9 +177,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %24 = getelementptr inbounds nuw i8, ptr %.03958.us, i64 4
   br label %25
 
-25:                                               ; preds = %16, %.lr.ph.split.us, %19
-  %.042.us = phi i32 [ %23, %19 ], [ %12, %.lr.ph.split.us ], [ %12, %16 ]
-  %.3.us = phi ptr [ %24, %19 ], [ %10, %.lr.ph.split.us ], [ %10, %16 ]
+25:                                               ; preds = %16, %.lr.ph.split.us.split, %19
+  %.042.us = phi i32 [ %23, %19 ], [ %12, %.lr.ph.split.us.split ], [ %12, %16 ]
+  %.3.us = phi ptr [ %24, %19 ], [ %10, %.lr.ph.split.us.split ], [ %10, %16 ]
   %.not.us = icmp ult ptr %.04357.us, %3
   br i1 %.not.us, label %26, label %.thread
 
@@ -187,7 +187,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %27 = getelementptr inbounds nuw i8, ptr %.04357.us, i64 4
   store i32 %.042.us, ptr %.04357.us, align 4, !tbaa !10
   %28 = icmp ult ptr %.3.us, %1
-  br i1 %28, label %.lr.ph.split.us, label %.thread, !llvm.loop !16
+  br i1 %28, label %.lr.ph.split.us.split, label %.thread
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %45
   %.03958.us88 = phi ptr [ %.3.us93, %45 ], [ %6, %.lr.ph ]
@@ -229,12 +229,12 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %46 = getelementptr inbounds nuw i8, ptr %.04357.us89, i64 4
   store i32 %.042.us92, ptr %.04357.us89, align 4, !tbaa !10
   %47 = icmp ult ptr %.3.us93, %1
-  br i1 %47, label %.lr.ph.split.split.us, label %.thread, !llvm.loop !17
+  br i1 %47, label %.lr.ph.split.split.us, label %.thread
 
 .thread:                                          ; preds = %26, %14, %25, %45, %35, %33, %.lr.ph.split.split.us, %44, %5
-  %.043.lcssa = phi ptr [ %7, %5 ], [ %.04357.us89, %44 ], [ %.04357.us89, %.lr.ph.split.split.us ], [ %.04357.us89, %33 ], [ %.04357.us89, %35 ], [ %46, %45 ], [ %27, %26 ], [ %.04357.us, %14 ], [ %.04357.us, %25 ]
-  %.039.lcssa = phi ptr [ %6, %5 ], [ %.03958.us88, %44 ], [ %.03958.us88, %.lr.ph.split.split.us ], [ %.03958.us88, %33 ], [ %.03958.us88, %35 ], [ %.3.us93, %45 ], [ %.3.us, %26 ], [ %.03958.us, %14 ], [ %.03958.us, %25 ]
-  %.1 = phi i32 [ 0, %5 ], [ 2, %44 ], [ 3, %.lr.ph.split.split.us ], [ 1, %33 ], [ 3, %35 ], [ 0, %45 ], [ 0, %26 ], [ 1, %14 ], [ 2, %25 ]
+  %.043.lcssa = phi ptr [ %7, %5 ], [ %.04357.us89, %44 ], [ %.04357.us89, %.lr.ph.split.split.us ], [ %.04357.us89, %33 ], [ %.04357.us89, %35 ], [ %46, %45 ], [ %.04357.us, %25 ], [ %.04357.us, %14 ], [ %27, %26 ]
+  %.039.lcssa = phi ptr [ %6, %5 ], [ %.03958.us88, %44 ], [ %.03958.us88, %.lr.ph.split.split.us ], [ %.03958.us88, %33 ], [ %.03958.us88, %35 ], [ %.3.us93, %45 ], [ %.03958.us, %25 ], [ %.03958.us, %14 ], [ %.3.us, %26 ]
+  %.1 = phi i32 [ 0, %5 ], [ 2, %44 ], [ 3, %.lr.ph.split.split.us ], [ 1, %33 ], [ 3, %35 ], [ 0, %45 ], [ 2, %25 ], [ 1, %14 ], [ 0, %26 ]
   store ptr %.039.lcssa, ptr %0, align 8, !tbaa !8
   store ptr %.043.lcssa, ptr %2, align 8, !tbaa !3
   ret i32 %.1
@@ -243,15 +243,15 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !8
-  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = icmp ult ptr %6, %1
   br i1 %8, label %.lr.ph, label %.thread95
 
 .lr.ph:                                           ; preds = %5
   %9 = icmp eq i32 %4, 0
-  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.us
+  br i1 %9, label %.lr.ph.split.split.us, label %.lr.ph.split.us.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %53
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %53
   %.062104.us = phi ptr [ %.5.us, %53 ], [ %6, %.lr.ph ]
   %.067103.us = phi ptr [ %59, %53 ], [ %7, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %.062104.us, i64 2
@@ -261,7 +261,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %or.cond.us = icmp eq i16 %13, -10240
   br i1 %or.cond.us, label %14, label %.thread.us
 
-14:                                               ; preds = %.lr.ph.split.us
+14:                                               ; preds = %.lr.ph.split.us.split
   %15 = icmp ult ptr %10, %1
   br i1 %15, label %16, label %.thread95
 
@@ -279,9 +279,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %24 = getelementptr inbounds nuw i8, ptr %.062104.us, i64 4
   br label %.thread.us
 
-.thread.us:                                       ; preds = %16, %.lr.ph.split.us, %19
-  %.275.us = phi i32 [ %23, %19 ], [ %12, %.lr.ph.split.us ], [ %12, %16 ]
-  %.5.us = phi ptr [ %24, %19 ], [ %10, %.lr.ph.split.us ], [ %10, %16 ]
+.thread.us:                                       ; preds = %16, %.lr.ph.split.us.split, %19
+  %.275.us = phi i32 [ %23, %19 ], [ %12, %.lr.ph.split.us.split ], [ %12, %16 ]
+  %.5.us = phi ptr [ %24, %19 ], [ %10, %.lr.ph.split.us.split ], [ %10, %16 ]
   %25 = icmp ult i32 %.275.us, 128
   br i1 %25, label %30, label %26
 
@@ -302,7 +302,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br i1 %33, label %.thread95, label %34
 
 34:                                               ; preds = %30
-  switch i16 %.080.us, label %default.unreachable191 [
+  switch i16 %.080.us, label %default.unreachable211 [
     i16 4, label %35
     i16 3, label %41
     i16 2, label %47
@@ -314,7 +314,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %37 = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
   %39 = getelementptr inbounds i8, ptr %32, i64 -1
-  store i8 %38, ptr %39, align 1, !tbaa !20
+  store i8 %38, ptr %39, align 1, !tbaa !16
   %40 = lshr i32 %.275.us, 6
   br label %41
 
@@ -325,7 +325,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
   %45 = getelementptr inbounds i8, ptr %.471.us, i64 -1
-  store i8 %44, ptr %45, align 1, !tbaa !20
+  store i8 %44, ptr %45, align 1, !tbaa !16
   %46 = lshr i32 %.477.us, 6
   br label %47
 
@@ -336,7 +336,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %49 = and i8 %48, 63
   %50 = or disjoint i8 %49, -128
   %51 = getelementptr inbounds i8, ptr %.572.us, i64 -1
-  store i8 %50, ptr %51, align 1, !tbaa !20
+  store i8 %50, ptr %51, align 1, !tbaa !16
   %52 = lshr i32 %.578.us, 6
   br label %53
 
@@ -344,14 +344,14 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %.679.us = phi i32 [ %52, %47 ], [ %.275.us, %34 ]
   %.6.us = phi ptr [ %51, %47 ], [ %32, %34 ]
   %54 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %31
-  %55 = load i8, ptr %54, align 1, !tbaa !20
+  %55 = load i8, ptr %54, align 1, !tbaa !16
   %56 = trunc i32 %.679.us to i8
   %57 = or i8 %55, %56
   %58 = getelementptr inbounds i8, ptr %.6.us, i64 -1
-  store i8 %57, ptr %58, align 1, !tbaa !20
+  store i8 %57, ptr %58, align 1, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %31
   %60 = icmp ult ptr %.5.us, %1
-  br i1 %60, label %.lr.ph.split.us, label %.thread95, !llvm.loop !21
+  br i1 %60, label %.lr.ph.split.us.split, label %.thread95
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %104
   %.062104.us134 = phi ptr [ %.5.us140, %104 ], [ %6, %.lr.ph ]
@@ -406,7 +406,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br i1 %84, label %.thread95, label %85
 
 85:                                               ; preds = %81
-  switch i16 %.080.us142, label %default.unreachable191 [
+  switch i16 %.080.us142, label %default.unreachable211 [
     i16 4, label %86
     i16 3, label %92
     i16 2, label %98
@@ -418,7 +418,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %88 = and i8 %87, 63
   %89 = or disjoint i8 %88, -128
   %90 = getelementptr inbounds i8, ptr %83, i64 -1
-  store i8 %89, ptr %90, align 1, !tbaa !20
+  store i8 %89, ptr %90, align 1, !tbaa !16
   %91 = lshr i32 %.275.us139, 6
   br label %92
 
@@ -429,7 +429,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %94 = and i8 %93, 63
   %95 = or disjoint i8 %94, -128
   %96 = getelementptr inbounds i8, ptr %.471.us144, i64 -1
-  store i8 %95, ptr %96, align 1, !tbaa !20
+  store i8 %95, ptr %96, align 1, !tbaa !16
   %97 = lshr i32 %.477.us143, 6
   br label %98
 
@@ -440,7 +440,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %100 = and i8 %99, 63
   %101 = or disjoint i8 %100, -128
   %102 = getelementptr inbounds i8, ptr %.572.us146, i64 -1
-  store i8 %101, ptr %102, align 1, !tbaa !20
+  store i8 %101, ptr %102, align 1, !tbaa !16
   %103 = lshr i32 %.578.us145, 6
   br label %104
 
@@ -448,31 +448,31 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %.679.us147 = phi i32 [ %103, %98 ], [ %.275.us139, %85 ]
   %.6.us148 = phi ptr [ %102, %98 ], [ %83, %85 ]
   %105 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %82
-  %106 = load i8, ptr %105, align 1, !tbaa !20
+  %106 = load i8, ptr %105, align 1, !tbaa !16
   %107 = trunc i32 %.679.us147 to i8
   %108 = or i8 %106, %107
   %109 = getelementptr inbounds i8, ptr %.6.us148, i64 -1
-  store i8 %108, ptr %109, align 1, !tbaa !20
+  store i8 %108, ptr %109, align 1, !tbaa !16
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %82
   %111 = icmp ult ptr %.5.us140, %1
-  br i1 %111, label %.lr.ph.split.split.us, label %.thread95, !llvm.loop !22
+  br i1 %111, label %.lr.ph.split.split.us, label %.thread95
 
-default.unreachable191:                           ; preds = %34, %85
+default.unreachable211:                           ; preds = %34, %85
   unreachable
 
 .thread95:                                        ; preds = %53, %14, %30, %104, %65, %.lr.ph.split.split.us, %81, %67, %5
-  %.067.lcssa = phi ptr [ %7, %5 ], [ %.067103.us135, %67 ], [ %.067103.us135, %81 ], [ %.067103.us135, %.lr.ph.split.split.us ], [ %.067103.us135, %65 ], [ %110, %104 ], [ %59, %53 ], [ %.067103.us, %14 ], [ %.067103.us, %30 ]
-  %.062.lcssa = phi ptr [ %6, %5 ], [ %.062104.us134, %67 ], [ %.062104.us134, %81 ], [ %.062104.us134, %.lr.ph.split.split.us ], [ %.062104.us134, %65 ], [ %.5.us140, %104 ], [ %.5.us, %53 ], [ %.062104.us, %14 ], [ %.062104.us, %30 ]
-  %.161 = phi i32 [ 0, %5 ], [ 3, %67 ], [ 2, %81 ], [ 3, %.lr.ph.split.split.us ], [ 1, %65 ], [ 0, %104 ], [ 0, %53 ], [ 1, %14 ], [ 2, %30 ]
+  %.067.lcssa = phi ptr [ %7, %5 ], [ %.067103.us135, %67 ], [ %.067103.us135, %81 ], [ %.067103.us135, %.lr.ph.split.split.us ], [ %.067103.us135, %65 ], [ %110, %104 ], [ %.067103.us, %30 ], [ %.067103.us, %14 ], [ %59, %53 ]
+  %.062.lcssa = phi ptr [ %6, %5 ], [ %.062104.us134, %67 ], [ %.062104.us134, %81 ], [ %.062104.us134, %.lr.ph.split.split.us ], [ %.062104.us134, %65 ], [ %.5.us140, %104 ], [ %.062104.us, %30 ], [ %.062104.us, %14 ], [ %.5.us, %53 ]
+  %.161 = phi i32 [ 0, %5 ], [ 3, %67 ], [ 2, %81 ], [ 3, %.lr.ph.split.split.us ], [ 1, %65 ], [ 0, %104 ], [ 2, %30 ], [ 1, %14 ], [ 0, %53 ]
   store ptr %.062.lcssa, ptr %0, align 8, !tbaa !8
-  store ptr %.067.lcssa, ptr %2, align 8, !tbaa !18
+  store ptr %.067.lcssa, ptr %2, align 8, !tbaa !14
   ret i32 %.161
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !14
   %8 = icmp ult ptr %6, %1
   br i1 %8, label %.lr.ph, label %.thread
 
@@ -526,7 +526,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
   %28 = getelementptr inbounds i8, ptr %21, i64 -1
-  store i8 %27, ptr %28, align 1, !tbaa !20
+  store i8 %27, ptr %28, align 1, !tbaa !16
   %29 = lshr i32 %.046.us, 6
   br label %30
 
@@ -537,7 +537,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %32 = and i8 %31, 63
   %33 = or disjoint i8 %32, -128
   %34 = getelementptr inbounds i8, ptr %.4.us, i64 -1
-  store i8 %33, ptr %34, align 1, !tbaa !20
+  store i8 %33, ptr %34, align 1, !tbaa !16
   %35 = lshr i32 %.147.us, 6
   br label %36
 
@@ -548,7 +548,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %38 = and i8 %37, 63
   %39 = or disjoint i8 %38, -128
   %40 = getelementptr inbounds i8, ptr %.5.us, i64 -1
-  store i8 %39, ptr %40, align 1, !tbaa !20
+  store i8 %39, ptr %40, align 1, !tbaa !16
   %41 = lshr i32 %.248.us, 6
   br label %42
 
@@ -556,14 +556,14 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %.6.us = phi ptr [ %40, %36 ], [ %21, %23 ]
   %.349.us = phi i32 [ %41, %36 ], [ %.046.us, %23 ]
   %43 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %20
-  %44 = load i8, ptr %43, align 1, !tbaa !20
+  %44 = load i8, ptr %43, align 1, !tbaa !16
   %45 = trunc i32 %.349.us to i8
   %46 = or i8 %44, %45
   %47 = getelementptr inbounds i8, ptr %.6.us, i64 -1
-  store i8 %46, ptr %47, align 1, !tbaa !20
+  store i8 %46, ptr %47, align 1, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %20
   %49 = icmp ult ptr %10, %1
-  br i1 %49, label %.lr.ph.split.us, label %.thread, !llvm.loop !23
+  br i1 %49, label %.lr.ph.split.us, label %.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
   %.04169 = phi i32 [ %.3, %84 ], [ 0, %.lr.ph ]
@@ -616,7 +616,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %68 = and i8 %67, 63
   %69 = or disjoint i8 %68, -128
   %70 = getelementptr inbounds i8, ptr %63, i64 -1
-  store i8 %69, ptr %70, align 1, !tbaa !20
+  store i8 %69, ptr %70, align 1, !tbaa !16
   %71 = lshr i32 %.046, 6
   br label %72
 
@@ -627,7 +627,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %74 = and i8 %73, 63
   %75 = or disjoint i8 %74, -128
   %76 = getelementptr inbounds i8, ptr %.4, i64 -1
-  store i8 %75, ptr %76, align 1, !tbaa !20
+  store i8 %75, ptr %76, align 1, !tbaa !16
   %77 = lshr i32 %.147, 6
   br label %78
 
@@ -638,7 +638,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %80 = and i8 %79, 63
   %81 = or disjoint i8 %80, -128
   %82 = getelementptr inbounds i8, ptr %.5, i64 -1
-  store i8 %81, ptr %82, align 1, !tbaa !20
+  store i8 %81, ptr %82, align 1, !tbaa !16
   %83 = lshr i32 %.248, 6
   br label %84
 
@@ -649,11 +649,11 @@ default.unreachable90:                            ; preds = %23, %65
   %.6 = phi ptr [ %82, %78 ], [ %63, %65 ]
   %.349 = phi i32 [ %83, %78 ], [ %.046, %65 ]
   %85 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %62
-  %86 = load i8, ptr %85, align 1, !tbaa !20
+  %86 = load i8, ptr %85, align 1, !tbaa !16
   %87 = trunc i32 %.349 to i8
   %88 = or i8 %86, %87
   %89 = getelementptr inbounds i8, ptr %.6, i64 -1
-  store i8 %88, ptr %89, align 1, !tbaa !20
+  store i8 %88, ptr %89, align 1, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %62
   %91 = icmp ult ptr %50, %1
   br i1 %91, label %.lr.ph.split, label %.thread
@@ -663,16 +663,16 @@ default.unreachable90:                            ; preds = %23, %65
   %.042.lcssa = phi ptr [ %6, %5 ], [ %.04268, %61 ], [ %.04268, %.lr.ph.split ], [ %50, %84 ], [ %.04268.us, %19 ], [ %10, %42 ]
   %.1 = phi i32 [ 0, %5 ], [ 2, %61 ], [ 3, %.lr.ph.split ], [ %.3, %84 ], [ 2, %19 ], [ %.3.us, %42 ]
   store ptr %.042.lcssa, ptr %0, align 8, !tbaa !3
-  store ptr %.050.lcssa, ptr %2, align 8, !tbaa !18
+  store ptr %.050.lcssa, ptr %2, align 8, !tbaa !14
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm19isLegalUTF8SequenceEPKhS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !tbaa !20
+  %3 = load i8, ptr %0, align 1, !tbaa !16
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !20
+  %6 = load i8, ptr %5, align 1, !tbaa !16
   %7 = sext i8 %6 to i32
   %8 = add nsw i32 %7, 1
   %9 = sext i32 %8 to i64
@@ -703,31 +703,31 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvmL11isLegalUTF8
   ]
 
 ._crit_edge:                                      ; preds = %2
-  %.pre = load i8, ptr %0, align 1, !tbaa !20
+  %.pre = load i8, ptr %0, align 1, !tbaa !16
   br label %24
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 -1
-  %7 = load i8, ptr %6, align 1, !tbaa !20
+  %7 = load i8, ptr %6, align 1, !tbaa !16
   %or.cond = icmp sgt i8 %7, -65
   br i1 %or.cond, label %28, label %8
 
 8:                                                ; preds = %5, %2
   %.0 = phi ptr [ %6, %5 ], [ %4, %2 ]
   %9 = getelementptr inbounds i8, ptr %.0, i64 -1
-  %10 = load i8, ptr %9, align 1, !tbaa !20
+  %10 = load i8, ptr %9, align 1, !tbaa !16
   %or.cond5 = icmp sgt i8 %10, -65
   br i1 %or.cond5, label %28, label %11
 
 11:                                               ; preds = %8, %2
   %.1 = phi ptr [ %9, %8 ], [ %4, %2 ]
   %12 = getelementptr inbounds i8, ptr %.1, i64 -1
-  %13 = load i8, ptr %12, align 1, !tbaa !20
+  %13 = load i8, ptr %12, align 1, !tbaa !16
   %or.cond8 = icmp sgt i8 %13, -65
   br i1 %or.cond8, label %28, label %14
 
 14:                                               ; preds = %11
-  %15 = load i8, ptr %0, align 1, !tbaa !20
+  %15 = load i8, ptr %0, align 1, !tbaa !16
   switch i8 %15, label %24 [
     i8 -32, label %16
     i8 -19, label %18
@@ -769,10 +769,10 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvmL11isLegalUTF8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm19getUTF8SequenceSizeEPKhS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !tbaa !20
+  %3 = load i8, ptr %0, align 1, !tbaa !16
   %4 = zext i8 %3 to i64
   %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
-  %6 = load i8, ptr %5, align 1, !tbaa !20
+  %6 = load i8, ptr %5, align 1, !tbaa !16
   %7 = sext i8 %6 to i32
   %8 = add nsw i32 %7, 1
   %9 = sext i32 %8 to i64
@@ -797,7 +797,7 @@ define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm19getUTF8SequenceSize
 define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = zext i8 %0 to i64
   %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %2
-  %4 = load i8, ptr %3, align 1, !tbaa !20
+  %4 = load i8, ptr %3, align 1, !tbaa !16
   %5 = sext i8 %4 to i32
   %6 = add nsw i32 %5, 1
   ret i32 %6
@@ -805,7 +805,7 @@ define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm18getNumBytesForUTF8E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm17isLegalUTF8StringEPPKhS1_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
-  %.promoted = load ptr, ptr %0, align 8, !tbaa !18
+  %.promoted = load ptr, ptr %0, align 8, !tbaa !14
   %.not18 = icmp eq ptr %.promoted, %1
   br i1 %.not18, label %.thread, label %.lr.ph
 
@@ -815,10 +815,10 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm17isLegalUTF8StringE
 
 4:                                                ; preds = %.lr.ph, %18
   %5 = phi ptr [ %.promoted, %.lr.ph ], [ %19, %18 ]
-  %6 = load i8, ptr %5, align 1, !tbaa !20
+  %6 = load i8, ptr %5, align 1, !tbaa !16
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !20
+  %9 = load i8, ptr %8, align 1, !tbaa !16
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, 1
   %12 = sext i32 %11 to i64
@@ -834,7 +834,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm17isLegalUTF8StringE
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds i8, ptr %5, i64 %12
-  store ptr %19, ptr %0, align 8, !tbaa !18
+  store ptr %19, ptr %0, align 8, !tbaa !14
   %.not = icmp eq ptr %19, %1
   br i1 %.not, label %.thread, label %4
 
@@ -845,7 +845,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm17isLegalUTF8StringE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr %0, align 8, !tbaa !18
+  %6 = load ptr, ptr %0, align 8, !tbaa !14
   %7 = load ptr, ptr %2, align 8, !tbaa !8
   %8 = icmp ult ptr %6, %1
   br i1 %8, label %.lr.ph, label %.thread
@@ -858,10 +858,10 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
 11:                                               ; preds = %.lr.ph, %104
   %.067107 = phi ptr [ %7, %.lr.ph ], [ %.269, %104 ]
   %.071106 = phi ptr [ %6, %.lr.ph ], [ %.374, %104 ]
-  %12 = load i8, ptr %.071106, align 1, !tbaa !20
+  %12 = load i8, ptr %.071106, align 1, !tbaa !16
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !20
+  %15 = load i8, ptr %14, align 1, !tbaa !16
   %16 = sext i8 %15 to i16
   %17 = zext i16 %16 to i64
   %18 = ptrtoint ptr %.071106 to i64
@@ -890,7 +890,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %26 = getelementptr inbounds nuw i8, ptr %.071106, i64 1
   %27 = zext i8 %12 to i32
   %28 = shl nuw nsw i32 %27, 6
-  %.pre = load i8, ptr %26, align 1, !tbaa !20
+  %.pre = load i8, ptr %26, align 1, !tbaa !16
   br label %29
 
 29:                                               ; preds = %25, %24
@@ -901,7 +901,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %32 = zext i8 %30 to i32
   %33 = add nuw nsw i32 %.165, %32
   %34 = shl nuw nsw i32 %33, 6
-  %.pre128 = load i8, ptr %31, align 1, !tbaa !20
+  %.pre128 = load i8, ptr %31, align 1, !tbaa !16
   br label %35
 
 35:                                               ; preds = %29, %24
@@ -912,7 +912,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %38 = zext i8 %36 to i32
   %39 = add nuw nsw i32 %.266, %38
   %40 = shl nuw nsw i32 %39, 6
-  %.pre129 = load i8, ptr %37, align 1, !tbaa !20
+  %.pre129 = load i8, ptr %37, align 1, !tbaa !16
   br label %41
 
 41:                                               ; preds = %35, %24
@@ -923,7 +923,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %44 = zext i8 %42 to i32
   %45 = add nuw nsw i32 %.3, %44
   %46 = shl i32 %45, 6
-  %.pre130 = load i8, ptr %43, align 1, !tbaa !20
+  %.pre130 = load i8, ptr %43, align 1, !tbaa !16
   br label %47
 
 47:                                               ; preds = %41, %24
@@ -934,7 +934,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %50 = zext i8 %48 to i32
   %51 = add i32 %.4, %50
   %52 = shl i32 %51, 6
-  %.pre131 = load i8, ptr %49, align 1, !tbaa !20
+  %.pre131 = load i8, ptr %49, align 1, !tbaa !16
   br label %53
 
 53:                                               ; preds = %47, %24
@@ -1041,7 +1041,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %.06795 = phi ptr [ %.067107, %91 ], [ %.067107, %83 ], [ %.067107, %71 ], [ %.067107, %62 ], [ %7, %5 ], [ %.269, %104 ], [ %.067107, %11 ], [ %.067107, %20 ]
   %.172 = phi ptr [ %94, %91 ], [ %86, %83 ], [ %74, %71 ], [ %65, %62 ], [ %6, %5 ], [ %.374, %104 ], [ %.071106, %11 ], [ %.071106, %20 ]
   %.1 = phi i32 [ 2, %91 ], [ 3, %83 ], [ 3, %71 ], [ 2, %62 ], [ 0, %5 ], [ 0, %104 ], [ 1, %11 ], [ 3, %20 ]
-  store ptr %.172, ptr %0, align 8, !tbaa !18
+  store ptr %.172, ptr %0, align 8, !tbaa !14
   store ptr %.06795, ptr %2, align 8, !tbaa !8
   ret i32 %.1
 }
@@ -1054,7 +1054,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25ConvertUTF8toUTF32Partia
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !18
+  %7 = load ptr, ptr %0, align 8, !tbaa !14
   %8 = load ptr, ptr %2, align 8, !tbaa !3
   %9 = icmp ult ptr %7, %1
   br i1 %9, label %.lr.ph, label %.thread
@@ -1070,10 +1070,10 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   %.061103 = phi i32 [ 0, %.lr.ph ], [ %.2, %184 ]
   %.066102 = phi ptr [ %8, %.lr.ph ], [ %.268, %184 ]
   %.070101 = phi ptr [ %7, %.lr.ph ], [ %.272, %184 ]
-  %14 = load i8, ptr %.070101, align 1, !tbaa !20
+  %14 = load i8, ptr %.070101, align 1, !tbaa !16
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !20
+  %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = sext i8 %17 to i16
   %19 = zext i16 %18 to i64
   %20 = ptrtoint ptr %.070101 to i64
@@ -1093,7 +1093,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   br i1 %or.cond74.i, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = load i8, ptr %24, align 1, !tbaa !20
+  %28 = load i8, ptr %24, align 1, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %.070101, i64 2
   %30 = icmp eq i8 %14, -32
   br i1 %30, label %31, label %35
@@ -1147,7 +1147,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   br i1 %55, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit, label %56
 
 56:                                               ; preds = %54
-  %57 = load i8, ptr %29, align 1, !tbaa !20
+  %57 = load i8, ptr %29, align 1, !tbaa !16
   %58 = icmp slt i8 %57, -64
   %59 = select i1 %58, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit
@@ -1166,7 +1166,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   br i1 %64, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = load i8, ptr %29, align 1, !tbaa !20
+  %66 = load i8, ptr %29, align 1, !tbaa !16
   %67 = icmp slt i8 %66, -64
   %68 = select i1 %67, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit
@@ -1182,7 +1182,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   br i1 %72, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = load i8, ptr %29, align 1, !tbaa !20
+  %74 = load i8, ptr %29, align 1, !tbaa !16
   %75 = icmp slt i8 %74, -64
   %76 = select i1 %75, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit
@@ -1190,7 +1190,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
 _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23, %31, %37, %42, %47, %52, %54, %56, %62, %63, %65, %69, %71, %73
   %.0.i = phi i64 [ %34, %31 ], [ %39, %37 ], [ %44, %42 ], [ %49, %47 ], [ %59, %56 ], [ %68, %65 ], [ %76, %73 ], [ 1, %23 ], [ 2, %54 ], [ 1, %52 ], [ 2, %63 ], [ 1, %62 ], [ 2, %71 ], [ 1, %69 ]
   %77 = getelementptr inbounds nuw i8, ptr %.070101, i64 %.0.i
-  br label %184, !llvm.loop !24
+  br label %184, !llvm.loop !17
 
 78:                                               ; preds = %13
   %.not79 = icmp ult ptr %.066102, %3
@@ -1215,7 +1215,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   br i1 %or.cond74.i82, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91, label %88
 
 88:                                               ; preds = %84
-  %89 = load i8, ptr %85, align 1, !tbaa !20
+  %89 = load i8, ptr %85, align 1, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %.070101, i64 2
   %91 = icmp eq i8 %14, -32
   br i1 %91, label %92, label %96
@@ -1269,7 +1269,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   br i1 %116, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91, label %117
 
 117:                                              ; preds = %115
-  %118 = load i8, ptr %90, align 1, !tbaa !20
+  %118 = load i8, ptr %90, align 1, !tbaa !16
   %119 = icmp slt i8 %118, -64
   %120 = select i1 %119, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91
@@ -1288,7 +1288,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   br i1 %125, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91, label %126
 
 126:                                              ; preds = %124
-  %127 = load i8, ptr %90, align 1, !tbaa !20
+  %127 = load i8, ptr %90, align 1, !tbaa !16
   %128 = icmp slt i8 %127, -64
   %129 = select i1 %128, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91
@@ -1304,7 +1304,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   br i1 %133, label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91, label %134
 
 134:                                              ; preds = %132
-  %135 = load i8, ptr %90, align 1, !tbaa !20
+  %135 = load i8, ptr %90, align 1, !tbaa !16
   %136 = icmp slt i8 %135, -64
   %137 = select i1 %136, i64 3, i64 2
   br label %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91
@@ -1312,7 +1312,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
 _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %84, %92, %98, %103, %108, %113, %115, %117, %123, %124, %126, %130, %132, %134
   %.0.i88 = phi i64 [ %95, %92 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ], [ %120, %117 ], [ %129, %126 ], [ %137, %134 ], [ 1, %84 ], [ 2, %115 ], [ 1, %113 ], [ 2, %124 ], [ 1, %123 ], [ 2, %132 ], [ 1, %130 ]
   %138 = getelementptr inbounds nuw i8, ptr %.070101, i64 %.0.i88
-  br label %184, !llvm.loop !24
+  br label %184, !llvm.loop !17
 
 139:                                              ; preds = %79
   switch i8 %17, label %173 [
@@ -1328,7 +1328,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %141 = getelementptr inbounds nuw i8, ptr %.070101, i64 1
   %142 = zext i8 %14 to i32
   %143 = shl nuw nsw i32 %142, 6
-  %.pre = load i8, ptr %141, align 1, !tbaa !20
+  %.pre = load i8, ptr %141, align 1, !tbaa !16
   br label %144
 
 144:                                              ; preds = %140, %139
@@ -1339,7 +1339,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %147 = zext i8 %145 to i32
   %148 = add nuw nsw i32 %.163, %147
   %149 = shl nuw nsw i32 %148, 6
-  %.pre119 = load i8, ptr %146, align 1, !tbaa !20
+  %.pre119 = load i8, ptr %146, align 1, !tbaa !16
   br label %150
 
 150:                                              ; preds = %144, %139
@@ -1350,7 +1350,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %153 = zext i8 %151 to i32
   %154 = add nuw nsw i32 %.264, %153
   %155 = shl nuw nsw i32 %154, 6
-  %.pre120 = load i8, ptr %152, align 1, !tbaa !20
+  %.pre120 = load i8, ptr %152, align 1, !tbaa !16
   br label %156
 
 156:                                              ; preds = %150, %139
@@ -1361,7 +1361,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %159 = zext i8 %157 to i32
   %160 = add nuw nsw i32 %.365, %159
   %161 = shl i32 %160, 6
-  %.pre121 = load i8, ptr %158, align 1, !tbaa !20
+  %.pre121 = load i8, ptr %158, align 1, !tbaa !16
   br label %162
 
 162:                                              ; preds = %156, %139
@@ -1372,7 +1372,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %165 = zext i8 %163 to i32
   %166 = add i32 %.4, %165
   %167 = shl i32 %166, 6
-  %.pre122 = load i8, ptr %164, align 1, !tbaa !20
+  %.pre122 = load i8, ptr %164, align 1, !tbaa !16
   br label %168
 
 168:                                              ; preds = %162, %139
@@ -1419,7 +1419,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit91: ; preds = %8
   %.06699 = phi ptr [ %.066102, %180 ], [ %8, %6 ], [ %.268, %184 ], [ %.066102, %22 ], [ %.066102, %78 ], [ %.066102, %83 ]
   %.171 = phi ptr [ %183, %180 ], [ %7, %6 ], [ %.272, %184 ], [ %.070101, %22 ], [ %.070101, %78 ], [ %.070101, %83 ]
   %.1 = phi i32 [ 3, %180 ], [ 0, %6 ], [ %.2, %184 ], [ 1, %22 ], [ 2, %78 ], [ 3, %83 ]
-  store ptr %.171, ptr %0, align 8, !tbaa !18
+  store ptr %.171, ptr %0, align 8, !tbaa !14
   store ptr %.06699, ptr %2, align 8, !tbaa !3
   ret i32 %.1
 }
@@ -1451,15 +1451,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 !11 = !{!"int", !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !5, i64 0}
-!20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!6, !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}

@@ -6294,7 +6294,7 @@ hq3x_interp_2x1.exit.us:                          ; preds = %2289, %2303, %yuv_d
   %2458 = getelementptr inbounds i8, ptr %.0142.i324.us, i64 %35
   %2459 = add nsw i32 %.0141.i325.us, 1
   %exitcond329.not = icmp eq i32 %2459, %16
-  br i1 %exitcond329.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !64
+  br i1 %exitcond329.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !62
 
 hqx_filter.exit:                                  ; preds = %._crit_edge.us, %.lr.ph327, %4
   ret i32 0
@@ -12199,7 +12199,7 @@ hq4x_interp_2x2.exit.us:                          ; preds = %4225, %4239, %yuv_d
   %4344 = getelementptr inbounds i8, ptr %.0142.i290.us, i64 %37
   %4345 = add nsw i32 %.0141.i291.us, 1
   %exitcond301.not = icmp eq i32 %4345, %16
-  br i1 %exitcond301.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !65
+  br i1 %exitcond301.not, label %hqx_filter.exit, label %.lr.ph.us, !llvm.loop !62
 
 hqx_filter.exit:                                  ; preds = %._crit_edge.us, %.lr.ph293, %4
   ret i32 0
@@ -12292,7 +12292,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !59 = !{!32, !15, i64 36}
 !60 = !{!11, !11, i64 0}
 !61 = distinct !{!61, !22}
-!62 = distinct !{!62, !22, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !22, !63}
-!65 = distinct !{!65, !22, !63}
+!62 = distinct !{!62, !22}

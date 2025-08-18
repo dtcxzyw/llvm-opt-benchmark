@@ -2591,7 +2591,7 @@ ssl_match_option.exit.us:                         ; preds = %27, %23
 
 39:                                               ; preds = %.lr.ph.split
   %40 = getelementptr inbounds nuw i8, ptr %.01932, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !150
+  %41 = load i32, ptr %40, align 8, !tbaa !149
   %.not15.i = icmp eq i32 %41, %.023.fr
   br i1 %.not15.i, label %42, label %ssl_match_option.exit
 
@@ -2608,7 +2608,7 @@ ssl_match_option.exit.us:                         ; preds = %27, %23
 .split.us:                                        ; preds = %42, %27
   %.us-phi = phi ptr [ %.01932.us, %27 ], [ %.01932, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !151
+  %46 = load i64, ptr %45, align 8, !tbaa !150
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !30
   %49 = icmp eq ptr %48, null
@@ -2664,7 +2664,7 @@ ssl_match_option.exit:                            ; preds = %.ssl_match_option.e
   %72 = add nuw i64 %.02031, 1
   %73 = getelementptr inbounds nuw i8, ptr %.01932, i64 24
   %74 = icmp ult i64 %72, %71
-  br i1 %74, label %.lr.ph.split, label %ssl_match_option.exit.thread, !llvm.loop !152
+  br i1 %74, label %.lr.ph.split, label %ssl_match_option.exit.thread, !llvm.loop !148
 
 ssl_match_option.exit.thread:                     ; preds = %ssl_match_option.exit, %ssl_match_option.exit.us, %14, %64, %60, %57, %50, %.split.us, %3
   %.021 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 1, %50 ], [ 1, %57 ], [ 1, %60 ], [ 1, %64 ], [ 0, %14 ], [ 0, %ssl_match_option.exit.us ], [ 0, %ssl_match_option.exit ]
@@ -2907,8 +2907,6 @@ attributes #8 = { nounwind willreturn memory(read) }
 !145 = !{!146, !5, i64 12}
 !146 = !{!"", !8, i64 0, !5, i64 8, !5, i64 12, !10, i64 16}
 !147 = !{!146, !8, i64 0}
-!148 = distinct !{!148, !26, !149}
-!149 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!150 = !{!146, !5, i64 8}
-!151 = !{!146, !10, i64 16}
-!152 = distinct !{!152, !26}
+!148 = distinct !{!148, !26}
+!149 = !{!146, !5, i64 8}
+!150 = !{!146, !10, i64 16}

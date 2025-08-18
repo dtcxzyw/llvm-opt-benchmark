@@ -120,7 +120,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   %.us-phi.in = phi i64 [ %indvars.iv.next58, %28 ], [ %indvars.iv.next, %43 ]
   %32 = add nuw nsw i32 %.04550, 1
   %exitcond61.not = icmp eq i32 %32, 100
-  br i1 %exitcond61.not, label %31, label %.preheader, !llvm.loop !24
+  br i1 %exitcond61.not, label %31, label %.preheader, !llvm.loop !23
 
 .preheader.split:                                 ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ %17, %.preheader ]
@@ -166,7 +166,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   store i64 %36, ptr %44, align 4
   %48 = add nuw nsw i32 %.04648, 1
   %exitcond.not = icmp eq i32 %48, 100
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !25
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !21
 }
 
 declare void @b2World_EnableSleeping(i32, i1 noundef zeroext) local_unnamed_addr #1
@@ -220,7 +220,7 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5) #8
   store i32 2, ptr %5, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i8 0, ptr %11, align 8, !tbaa !26
+  store i8 0, ptr %11, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6) #8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -250,7 +250,7 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
 22:                                               ; preds = %24
   %23 = add nuw nsw i32 %.030, 1
   %exitcond31.not = icmp eq i32 %23, 100
-  br i1 %exitcond31.not, label %14, label %15, !llvm.loop !27
+  br i1 %exitcond31.not, label %14, label %15, !llvm.loop !25
 
 24:                                               ; preds = %15, %24
   %.02829 = phi i32 [ %.030, %15 ], [ %33, %24 ]
@@ -266,7 +266,7 @@ define void @CreateLargePyramid(i32 %0) local_unnamed_addr #0 {
   %32 = call i64 @b2CreatePolygonShape(i64 %31, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %33 = add nuw nsw i32 %.02829, 1
   %exitcond.not = icmp eq i32 %33, 100
-  br i1 %exitcond.not, label %22, label %24, !llvm.loop !28
+  br i1 %exitcond.not, label %22, label %24, !llvm.loop !26
 }
 
 declare void @b2MakeBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef) local_unnamed_addr #1
@@ -303,16 +303,16 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %.042 = phi float [ 0.000000e+00, %1 ], [ %15, %13 ]
   %.03941 = phi i32 [ 0, %1 ], [ %16, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store float -2.200000e+02, ptr %7, align 4, !tbaa !29
-  store float %.042, ptr %9, align 4, !tbaa !30
-  store float 2.200000e+02, ptr %10, align 4, !tbaa !29
-  store float %.042, ptr %11, align 4, !tbaa !30
+  store float -2.200000e+02, ptr %7, align 4, !tbaa !27
+  store float %.042, ptr %9, align 4, !tbaa !28
+  store float 2.200000e+02, ptr %10, align 4, !tbaa !27
+  store float %.042, ptr %11, align 4, !tbaa !28
   %14 = call i64 @b2CreateSegmentShape(i64 %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %15 = fadd float %.042, 1.100000e+01
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = add nuw nsw i32 %.03941, 1
   %exitcond.not = icmp eq i32 %16, 20
-  br i1 %exitcond.not, label %.preheader40, label %13, !llvm.loop !31
+  br i1 %exitcond.not, label %.preheader40, label %13, !llvm.loop !29
 
 .preheader:                                       ; preds = %.preheader40, %18
   %.03745 = phi i32 [ 0, %.preheader40 ], [ %20, %18 ]
@@ -328,7 +328,7 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %19 = fadd float %.03844, 1.100000e+01
   %20 = add nuw nsw i32 %.03745, 1
   %exitcond47.not = icmp eq i32 %20, 20
-  br i1 %exitcond47.not, label %17, label %.preheader, !llvm.loop !32
+  br i1 %exitcond47.not, label %17, label %.preheader, !llvm.loop !30
 
 21:                                               ; preds = %.preheader, %CreateSmallPyramid.exit
   %.03643 = phi i32 [ 0, %.preheader ], [ %47, %CreateSmallPyramid.exit ]
@@ -359,7 +359,7 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
 34:                                               ; preds = %36
   %35 = add nuw nsw i32 %.024.i, 1
   %exitcond25.not.i = icmp eq i32 %35, 10
-  br i1 %exitcond25.not.i, label %CreateSmallPyramid.exit, label %26, !llvm.loop !33
+  br i1 %exitcond25.not.i, label %CreateSmallPyramid.exit, label %26, !llvm.loop !31
 
 36:                                               ; preds = %36, %26
   %.02123.i = phi i32 [ %.024.i, %26 ], [ %46, %36 ]
@@ -376,7 +376,7 @@ define void @CreateManyPyramids(i32 %0) local_unnamed_addr #0 {
   %45 = call i64 @b2CreatePolygonShape(i64 %44, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %46 = add nuw nsw i32 %.02123.i, 1
   %exitcond.not.i = icmp eq i32 %46, 10
-  br i1 %exitcond.not.i, label %34, label %36, !llvm.loop !34
+  br i1 %exitcond.not.i, label %34, label %36, !llvm.loop !32
 
 CreateSmallPyramid.exit:                          ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -384,7 +384,7 @@ CreateSmallPyramid.exit:                          ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %47 = add nuw nsw i32 %.03643, 1
   %exitcond46.not = icmp eq i32 %47, 20
-  br i1 %exitcond46.not, label %18, label %21, !llvm.loop !35
+  br i1 %exitcond46.not, label %18, label %21, !llvm.loop !33
 }
 
 declare i64 @b2CreateSegmentShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -395,24 +395,24 @@ define void @CreateRain(i32 %0) local_unnamed_addr #5 {
   %3 = alloca %struct.b2ShapeDef, align 8
   %4 = alloca %struct.b2Polygon, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(272016) @g_rainData, i8 0, i64 272016, i1 false)
-  store float 5.000000e-01, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
-  store i32 500, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  store float 5.000000e-01, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
+  store i32 500, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2) #8
   %5 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3) #8
-  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
+  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
   %7 = fmul float %6, 5.000000e-01
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.split22.us, label %.split
 
 .split22.us:                                      ; preds = %._crit_edge, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !37
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !38
   ret void
 
 .split:                                           ; preds = %1, %._crit_edge
@@ -435,7 +435,7 @@ define void @CreateRain(i32 %0) local_unnamed_addr #5 {
   %17 = fadd float %.020, 4.500000e+01
   %18 = add nuw nsw i32 %.01519, 1
   %exitcond.not = icmp eq i32 %18, 5
-  br i1 %exitcond.not, label %.split22.us, label %.split, !llvm.loop !41
+  br i1 %exitcond.not, label %.split22.us, label %.split, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01318 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -445,13 +445,13 @@ define void @CreateRain(i32 %0) local_unnamed_addr #5 {
   %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %.020, i64 1
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %4, float noundef %7, float noundef %7, <2 x float> %.sroa.01.4.vec.insert, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
   %19 = call i64 @b2CreatePolygonShape(i64 %5, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
+  %20 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
   %21 = fadd float %.01417, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = add nuw nsw i32 %.01318, 1
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   %.not.not = icmp slt i32 %.01318, %23
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -463,9 +463,9 @@ declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon
 define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = mul nsw i32 %1, 40
   %5 = add nsw i32 %4, %2
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   %7 = sitofp i32 %6 to float
-  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
+  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
   %9 = fmul float %8, %7
   %10 = fdiv float %9, 4.000000e+01
   %11 = fmul float %9, 5.000000e-01
@@ -496,7 +496,7 @@ define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %25 = fadd float %.sroa.0.0.vec.extract, 5.000000e-01
   %.sroa.0.0.vec.insert11 = insertelement <2 x float> %.sroa.0.022, float %25, i64 0
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %21, label %22, !llvm.loop !44
+  br i1 %exitcond.not, label %21, label %22, !llvm.loop !42
 }
 
 declare void @CreateHuman(ptr noundef, i32, <2 x float>, float noundef, float noundef, float noundef, float noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -518,7 +518,7 @@ define void @DestroyGroup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   tail call void @DestroyHuman(ptr noundef nonnull %9) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %7, label %8, !llvm.loop !45
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !43
 }
 
 declare void @DestroyHuman(ptr noundef) local_unnamed_addr #1
@@ -530,24 +530,24 @@ define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   br i1 %4, label %5, label %67
 
 5:                                                ; preds = %2
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !37
   %7 = icmp slt i32 %6, 40
   br i1 %7, label %.preheader, label %.preheader23
 
 8:                                                ; preds = %CreateGroup.exit
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !37
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !37
   br label %67
 
 .preheader:                                       ; preds = %5, %CreateGroup.exit
   %.01025 = phi i32 [ %33, %CreateGroup.exit ], [ 0, %5 ]
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !39
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272008), align 4, !tbaa !37
   %12 = mul nuw nsw i32 %.01025, 40
   %13 = add nsw i32 %11, %12
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   %15 = sitofp i32 %14 to float
-  %16 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
+  %16 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
   %17 = fmul float %16, %15
   %18 = fdiv float %17, 4.000000e+01
   %19 = fmul float %17, 5.000000e-01
@@ -575,23 +575,23 @@ define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   %32 = fadd float %.sroa.0.0.vec.extract.i, 5.000000e-01
   %.sroa.0.0.vec.insert11.i = insertelement <2 x float> %.sroa.0.022.i, float %32, i64 0
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %CreateGroup.exit, label %29, !llvm.loop !44
+  br i1 %exitcond.not.i, label %CreateGroup.exit, label %29, !llvm.loop !42
 
 CreateGroup.exit:                                 ; preds = %29
   %33 = add nuw nsw i32 %.01025, 1
   %exitcond26.not = icmp eq i32 %33, 5
-  br i1 %exitcond26.not, label %8, label %.preheader, !llvm.loop !46
+  br i1 %exitcond26.not, label %8, label %.preheader, !llvm.loop !44
 
 34:                                               ; preds = %CreateGroup.exit22
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !38
   %36 = add nsw i32 %35, 1
   %37 = srem i32 %36, 40
-  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
+  store i32 %37, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !38
   br label %67
 
 .preheader23:                                     ; preds = %5, %CreateGroup.exit22
   %.024 = phi i32 [ %66, %CreateGroup.exit22 ], [ 0, %5 ]
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !38
   %39 = mul nuw nsw i32 %.024, 40
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
@@ -604,14 +604,14 @@ CreateGroup.exit:                                 ; preds = %29
   tail call void @DestroyHuman(ptr noundef nonnull %44) #8
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 5
-  br i1 %exitcond.not.i13, label %DestroyGroup.exit, label %43, !llvm.loop !45
+  br i1 %exitcond.not.i13, label %DestroyGroup.exit, label %43, !llvm.loop !43
 
 DestroyGroup.exit:                                ; preds = %43
-  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !40
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272012), align 4, !tbaa !38
   %46 = add nsw i32 %45, %39
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !38
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272004), align 4, !tbaa !36
   %48 = sitofp i32 %47 to float
-  %49 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !36
+  %49 = load float, ptr getelementptr inbounds nuw (i8, ptr @g_rainData, i64 272000), align 4, !tbaa !34
   %50 = fmul float %49, %48
   %51 = fdiv float %50, 4.000000e+01
   %52 = fmul float %50, 5.000000e-01
@@ -639,12 +639,12 @@ DestroyGroup.exit:                                ; preds = %43
   %65 = fadd float %.sroa.0.0.vec.extract.i19, 5.000000e-01
   %.sroa.0.0.vec.insert11.i20 = insertelement <2 x float> %.sroa.0.022.i17, float %65, i64 0
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i18, 5
-  br i1 %exitcond.not.i21, label %CreateGroup.exit22, label %62, !llvm.loop !44
+  br i1 %exitcond.not.i21, label %CreateGroup.exit22, label %62, !llvm.loop !42
 
 CreateGroup.exit22:                               ; preds = %62
   %66 = add nuw nsw i32 %.024, 1
   %exitcond.not = icmp eq i32 %66, 5
-  br i1 %exitcond.not, label %34, label %.preheader23, !llvm.loop !47
+  br i1 %exitcond.not, label %34, label %.preheader23, !llvm.loop !45
 
 67:                                               ; preds = %8, %34, %2
   ret float 0.000000e+00
@@ -678,19 +678,19 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
-  store float 0x3FB99999A0000000, ptr %4, align 4, !tbaa !48
+  store float 0x3FB99999A0000000, ptr %4, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultChainDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ChainDef) align 8 %5) #8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %19, align 8, !tbaa !50
+  store ptr %3, ptr %19, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 360, ptr %20, align 8, !tbaa !54
+  store i32 360, ptr %20, align 8, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i8 1, ptr %21, align 8, !tbaa !55
+  store i8 1, ptr %21, align 8, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %4, ptr %22, align 8, !tbaa !56
+  store ptr %4, ptr %22, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 1, ptr %23, align 8, !tbaa !57
+  store i32 1, ptr %23, align 8, !tbaa !55
   %24 = call i64 @b2CreateChain(i64 %15, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -704,14 +704,14 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 1.200000e+01, ptr %.sroa.223.0..sroa_idx, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i8 0, ptr %26, align 8, !tbaa !26
+  store i8 0, ptr %26, align 8, !tbaa !24
   %27 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2MakeRoundedBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 0x3FD99999A0000000, float noundef 2.000000e+01, float noundef 0x3FC99999A0000000) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %8) #8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 0.000000e+00, ptr %28, align 8, !tbaa !58
+  store float 0.000000e+00, ptr %28, align 8, !tbaa !56
   %29 = call i64 @b2CreatePolygonShape(i64 %27, ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %9) #8
@@ -722,11 +722,11 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   %32 = load i64, ptr %25, align 4
   store i64 %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i8 1, ptr %33, align 4, !tbaa !59
+  store i8 1, ptr %33, align 4, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store float 5.000000e+00, ptr %34, align 4, !tbaa !63
+  store float 5.000000e+00, ptr %34, align 4, !tbaa !61
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store float 4.000000e+04, ptr %35, align 8, !tbaa !64
+  store float 4.000000e+04, ptr %35, align 8, !tbaa !62
   %36 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %9) #8
   store i64 %36, ptr @g_spinnerData, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -745,9 +745,9 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %14) #8
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store float 0x3FB99999A0000000, ptr %37, align 8, !tbaa !58
+  store float 0x3FB99999A0000000, ptr %37, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store float 0x3FB99999A0000000, ptr %38, align 4, !tbaa !65
+  store float 0x3FB99999A0000000, ptr %38, align 4, !tbaa !63
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store float 2.500000e-01, ptr %39, align 4, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -775,7 +775,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
   %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %49, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 360
-  br i1 %exitcond.not, label %17, label %41, !llvm.loop !66
+  br i1 %exitcond.not, label %17, label %41, !llvm.loop !64
 
 50:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -823,7 +823,7 @@ default.unreachable:                              ; preds = %51
   %.1 = select i1 %62, float -2.400000e+01, float %61
   %64 = add nuw nsw i32 %.04348, 1
   %exitcond52.not = icmp eq i32 %64, 3038
-  br i1 %exitcond52.not, label %50, label %51, !llvm.loop !67
+  br i1 %exitcond52.not, label %50, label %51, !llvm.loop !65
 }
 
 declare void @b2DefaultChainDef(ptr dead_on_unwind writable sret(%struct.b2ChainDef) align 8) local_unnamed_addr #1
@@ -880,7 +880,7 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #5 {
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %6) #8
   store i32 2, ptr %6, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 65
-  store i8 0, ptr %13, align 1, !tbaa !68
+  store i8 0, ptr %13, align 1, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7) #8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -903,20 +903,20 @@ define void @CreateSmash(i32 %0) local_unnamed_addr #5 {
 20:                                               ; preds = %22
   %21 = add nuw nsw i32 %.022, 1
   %exitcond23.not = icmp eq i32 %21, 120
-  br i1 %exitcond23.not, label %19, label %.preheader, !llvm.loop !69
+  br i1 %exitcond23.not, label %19, label %.preheader, !llvm.loop !67
 
 22:                                               ; preds = %.preheader, %22
   %.02021 = phi i32 [ 0, %.preheader ], [ %28, %22 ]
-  store float %18, ptr %14, align 4, !tbaa !70
+  store float %18, ptr %14, align 4, !tbaa !68
   %23 = add nsw i32 %.02021, -40
   %24 = sitofp i32 %23 to float
   %25 = fmul float %24, 0x3FD99999A0000000
-  store float %25, ptr %15, align 8, !tbaa !71
+  store float %25, ptr %15, align 8, !tbaa !69
   %26 = call i64 @b2CreateBody(i32 %0, ptr noundef nonnull %6) #8
   %27 = call i64 @b2CreatePolygonShape(i64 %26, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %28 = add nuw nsw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %28, 80
-  br i1 %exitcond.not, label %20, label %22, !llvm.loop !72
+  br i1 %exitcond.not, label %20, label %22, !llvm.loop !70
 }
 
 declare void @b2World_SetGravity(i32, <2 x float>) local_unnamed_addr #1
@@ -955,17 +955,17 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #5 {
   %17 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %6, float noundef 5.000000e-01, float noundef 1.000000e+01, <2 x float> <float -1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %6, i64 144, i1 false), !tbaa.struct !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %6, i64 144, i1 false), !tbaa.struct !71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 1.000000e+01, float noundef 5.000000e-01, <2 x float> <float 0.000000e+00, float 1.000000e+01>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %19 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %8, float noundef 1.000000e+01, float noundef 5.000000e-01, <2 x float> <float 0.000000e+00, float -1.000000e+01>, <2 x float> <float 1.000000e+00, float 0.000000e+00>) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !71
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %20 = call i64 @b2CreatePolygonShape(i64 %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -982,13 +982,13 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #5 {
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 28
   store float 0.000000e+00, ptr %.sroa.215.0..sroa_idx, align 4, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float 0.000000e+00, ptr %24, align 8, !tbaa !76
+  store float 0.000000e+00, ptr %24, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store float 0x3FDBECDE60000000, ptr %25, align 4, !tbaa !63
+  store float 0x3FDBECDE60000000, ptr %25, align 4, !tbaa !61
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store float 1.000000e+08, ptr %26, align 8, !tbaa !64
+  store float 1.000000e+08, ptr %26, align 8, !tbaa !62
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i8 1, ptr %27, align 4, !tbaa !59
+  store i8 1, ptr %27, align 4, !tbaa !57
   %28 = call i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef nonnull %9) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1020,7 +1020,7 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #5 {
   %32 = fadd float %.04548, 0x3FD99999A0000000
   %33 = add nuw nsw i32 %.04449, 1
   %exitcond50.not = icmp eq i32 %33, 45
-  br i1 %exitcond50.not, label %30, label %.preheader, !llvm.loop !77
+  br i1 %exitcond50.not, label %30, label %.preheader, !llvm.loop !75
 
 34:                                               ; preds = %.preheader, %34
   %.047 = phi i32 [ 0, %.preheader ], [ %38, %34 ]
@@ -1032,7 +1032,7 @@ define void @CreateTumbler(i32 %0) local_unnamed_addr #5 {
   %37 = fadd float %.04346, 0x3FD99999A0000000
   %38 = add nuw nsw i32 %.047, 1
   %exitcond.not = icmp eq i32 %38, 45
-  br i1 %exitcond.not, label %31, label %34, !llvm.loop !78
+  br i1 %exitcond.not, label %31, label %34, !llvm.loop !76
 }
 
 declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #1
@@ -1077,61 +1077,59 @@ attributes #9 = { nounwind allocsize(0) }
 !18 = !{!"b2Rot", !8, i64 0, !8, i64 4}
 !19 = !{!"p1 omnipotent char", !5, i64 0}
 !20 = !{!8, !8, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !22}
+!23 = distinct !{!23, !22}
+!24 = !{!16, !12, i64 64}
 !25 = distinct !{!25, !22}
-!26 = !{!16, !12, i64 64}
-!27 = distinct !{!27, !22}
-!28 = distinct !{!28, !22}
-!29 = !{!17, !8, i64 0}
-!30 = !{!17, !8, i64 4}
+!26 = distinct !{!26, !22}
+!27 = !{!17, !8, i64 0}
+!28 = !{!17, !8, i64 4}
+!29 = distinct !{!29, !22}
+!30 = distinct !{!30, !22}
 !31 = distinct !{!31, !22}
 !32 = distinct !{!32, !22}
 !33 = distinct !{!33, !22}
-!34 = distinct !{!34, !22}
-!35 = distinct !{!35, !22}
-!36 = !{!37, !8, i64 272000}
-!37 = !{!"RainData", !6, i64 0, !8, i64 272000, !9, i64 272004, !9, i64 272008, !9, i64 272012}
-!38 = !{!37, !9, i64 272004}
-!39 = !{!37, !9, i64 272008}
-!40 = !{!37, !9, i64 272012}
-!41 = distinct !{!41, !22, !42}
-!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!34 = !{!35, !8, i64 272000}
+!35 = !{!"RainData", !6, i64 0, !8, i64 272000, !9, i64 272004, !9, i64 272008, !9, i64 272012}
+!36 = !{!35, !9, i64 272004}
+!37 = !{!35, !9, i64 272008}
+!38 = !{!35, !9, i64 272012}
+!39 = distinct !{!39, !22, !40}
+!40 = !{!"llvm.loop.unswitch.partial.disable"}
+!41 = distinct !{!41, !22}
+!42 = distinct !{!42, !22}
 !43 = distinct !{!43, !22}
 !44 = distinct !{!44, !22}
 !45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22}
-!47 = distinct !{!47, !22}
-!48 = !{!49, !8, i64 0}
-!49 = !{!"b2SurfaceMaterial", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !9, i64 20}
-!50 = !{!51, !52, i64 8}
-!51 = !{!"b2ChainDef", !5, i64 0, !52, i64 8, !9, i64 16, !53, i64 24, !9, i64 32, !10, i64 40, !12, i64 64, !9, i64 68}
-!52 = !{!"p1 _ZTS6b2Vec2", !5, i64 0}
-!53 = !{!"p1 _ZTS17b2SurfaceMaterial", !5, i64 0}
-!54 = !{!51, !9, i64 16}
-!55 = !{!51, !12, i64 64}
-!56 = !{!51, !53, i64 24}
-!57 = !{!51, !9, i64 32}
-!58 = !{!4, !8, i64 8}
-!59 = !{!60, !12, i64 60}
-!60 = !{!"b2RevoluteJointDef", !61, i64 0, !61, i64 8, !17, i64 16, !17, i64 24, !8, i64 32, !12, i64 36, !8, i64 40, !8, i64 44, !12, i64 48, !8, i64 52, !8, i64 56, !12, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !12, i64 76, !5, i64 80, !9, i64 88}
-!61 = !{!"b2BodyId", !9, i64 0, !62, i64 4, !62, i64 6}
-!62 = !{!"short", !6, i64 0}
-!63 = !{!60, !8, i64 68}
-!64 = !{!60, !8, i64 64}
-!65 = !{!4, !8, i64 12}
-!66 = distinct !{!66, !22}
+!46 = !{!47, !8, i64 0}
+!47 = !{!"b2SurfaceMaterial", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !9, i64 20}
+!48 = !{!49, !50, i64 8}
+!49 = !{!"b2ChainDef", !5, i64 0, !50, i64 8, !9, i64 16, !51, i64 24, !9, i64 32, !10, i64 40, !12, i64 64, !9, i64 68}
+!50 = !{!"p1 _ZTS6b2Vec2", !5, i64 0}
+!51 = !{!"p1 _ZTS17b2SurfaceMaterial", !5, i64 0}
+!52 = !{!49, !9, i64 16}
+!53 = !{!49, !12, i64 64}
+!54 = !{!49, !51, i64 24}
+!55 = !{!49, !9, i64 32}
+!56 = !{!4, !8, i64 8}
+!57 = !{!58, !12, i64 60}
+!58 = !{!"b2RevoluteJointDef", !59, i64 0, !59, i64 8, !17, i64 16, !17, i64 24, !8, i64 32, !12, i64 36, !8, i64 40, !8, i64 44, !12, i64 48, !8, i64 52, !8, i64 56, !12, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !12, i64 76, !5, i64 80, !9, i64 88}
+!59 = !{!"b2BodyId", !9, i64 0, !60, i64 4, !60, i64 6}
+!60 = !{!"short", !6, i64 0}
+!61 = !{!58, !8, i64 68}
+!62 = !{!58, !8, i64 64}
+!63 = !{!4, !8, i64 12}
+!64 = distinct !{!64, !22}
+!65 = distinct !{!65, !22}
+!66 = !{!16, !12, i64 65}
 !67 = distinct !{!67, !22}
-!68 = !{!16, !12, i64 65}
-!69 = distinct !{!69, !22}
-!70 = !{!16, !8, i64 4}
-!71 = !{!16, !8, i64 8}
-!72 = distinct !{!72, !22}
-!73 = !{i64 0, i64 64, !74, i64 64, i64 64, !74, i64 128, i64 4, !20, i64 132, i64 4, !20, i64 136, i64 4, !20, i64 140, i64 4, !75}
-!74 = !{!6, !6, i64 0}
-!75 = !{!9, !9, i64 0}
-!76 = !{!60, !8, i64 32}
-!77 = distinct !{!77, !22}
-!78 = distinct !{!78, !22}
+!68 = !{!16, !8, i64 4}
+!69 = !{!16, !8, i64 8}
+!70 = distinct !{!70, !22}
+!71 = !{i64 0, i64 64, !72, i64 64, i64 64, !72, i64 128, i64 4, !20, i64 132, i64 4, !20, i64 136, i64 4, !20, i64 140, i64 4, !73}
+!72 = !{!6, !6, i64 0}
+!73 = !{!9, !9, i64 0}
+!74 = !{!58, !8, i64 32}
+!75 = distinct !{!75, !22}
+!76 = distinct !{!76, !22}

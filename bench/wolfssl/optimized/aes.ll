@@ -761,7 +761,7 @@ xorbuf.exit.us:                                   ; preds = %.lr.ph38.i.us, %.lr
   store i8 %40, ptr %.12030.i, align 1, !tbaa !15
   %41 = add nsw i32 %.12329.i, -1
   %.not40.i = icmp eq i32 %41, 0
-  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !26
+  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !25
 
 .lr.ph38.i:                                       ; preds = %.lr.ph.split, %.lr.ph38.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph38.i ], [ 0, %.lr.ph.split ]
@@ -786,7 +786,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph38.i, %.lr.ph
   %50 = getelementptr inbounds nuw i8, ptr %.02235, i64 16
   %51 = add nsw i32 %35, -1
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %xorbuf.exit, %48, %xorbuf.exit.us, %31, %9, %4
   %.021 = phi i32 [ -173, %4 ], [ 0, %9 ], [ %30, %xorbuf.exit.us ], [ 0, %31 ], [ %47, %xorbuf.exit ], [ 0, %48 ]
@@ -3703,7 +3703,7 @@ define range(i32 -226, 1) i32 @wc_AesCbcDecrypt(ptr noundef %0, ptr noundef %1, 
   store i8 %1435, ptr %.12030.i, align 1, !tbaa !15
   %1436 = add nsw i32 %.12329.i, -1
   %.not40.i = icmp eq i32 %1436, 0
-  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !26
+  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !25
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i, %.lr.ph.i.i
   %.sroa.026.0.i = phi ptr [ %1439, %.lr.ph.i.i ], [ %.02739, %.preheader.i ]
@@ -3736,7 +3736,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph38.i, %.lr.ph
   %1448 = getelementptr inbounds nuw i8, ptr %.02739, i64 16
   %1449 = getelementptr inbounds nuw i8, ptr %.02640, i64 16
   %.not33 = icmp eq i32 %78, 0
-  br i1 %.not33, label %wc_AesDecrypt.exit, label %77, !llvm.loop !28
+  br i1 %.not33, label %wc_AesDecrypt.exit, label %77, !llvm.loop !26
 
 wc_AesDecrypt.exit:                               ; preds = %77, %xorbuf.exit, %11, %9, %4
   %.025 = phi i32 [ -173, %4 ], [ 0, %9 ], [ -173, %11 ], [ -226, %77 ], [ 0, %xorbuf.exit ]
@@ -3766,7 +3766,7 @@ define void @GenerateM0(ptr noundef initializes((16, 32)) %0) local_unnamed_addr
   store i8 %12, ptr %8, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %RIGHTSHIFTX.exit, label %7, !llvm.loop !29
+  br i1 %exitcond.not.i, label %RIGHTSHIFTX.exit, label %7, !llvm.loop !27
 
 RIGHTSHIFTX.exit:                                 ; preds = %7
   %13 = and i8 %6, 1
@@ -3792,7 +3792,7 @@ RIGHTSHIFTX.exit:                                 ; preds = %7
   store i8 %26, ptr %22, align 1, !tbaa !15
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 16
-  br i1 %exitcond.not.i65, label %RIGHTSHIFTX.exit66, label %21, !llvm.loop !29
+  br i1 %exitcond.not.i65, label %RIGHTSHIFTX.exit66, label %21, !llvm.loop !27
 
 RIGHTSHIFTX.exit66:                               ; preds = %21
   %27 = and i8 %20, 1
@@ -3818,7 +3818,7 @@ RIGHTSHIFTX.exit66:                               ; preds = %21
   store i8 %40, ptr %36, align 1, !tbaa !15
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 16
-  br i1 %exitcond.not.i70, label %RIGHTSHIFTX.exit71, label %35, !llvm.loop !29
+  br i1 %exitcond.not.i70, label %RIGHTSHIFTX.exit71, label %35, !llvm.loop !27
 
 RIGHTSHIFTX.exit71:                               ; preds = %35
   %41 = and i8 %34, 1
@@ -3852,7 +3852,7 @@ RIGHTSHIFTX.exit71:                               ; preds = %35
   store i8 %56, ptr %.12030.i, align 1, !tbaa !15
   %57 = add nsw i32 %.12329.i, -1
   %.not40.i = icmp eq i32 %57, 0
-  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !26
+  br i1 %.not40.i, label %xorbuf.exit, label %.lr.ph.split.i, !llvm.loop !25
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i, %.lr.ph.i.i
   %.sroa.026.0.i = phi ptr [ %60, %.lr.ph.i.i ], [ %46, %.preheader.i ]
@@ -3898,7 +3898,7 @@ xorbuf.exit:                                      ; preds = %.lr.ph.split.i, %.l
   store i8 %73, ptr %.12030.i84, align 1, !tbaa !15
   %74 = add nsw i32 %.12329.i85, -1
   %.not40.i86 = icmp eq i32 %74, 0
-  br i1 %.not40.i86, label %xorbuf.exit94, label %.lr.ph.split.i82, !llvm.loop !26
+  br i1 %.not40.i86, label %xorbuf.exit94, label %.lr.ph.split.i82, !llvm.loop !25
 
 .lr.ph.i.i88:                                     ; preds = %.preheader.i80, %.lr.ph.i.i88
   %.sroa.026.0.i89 = phi ptr [ %77, %.lr.ph.i.i88 ], [ %65, %.preheader.i80 ]
@@ -3947,7 +3947,7 @@ xorbuf.exit94:                                    ; preds = %.lr.ph.split.i82, %
   store i8 %92, ptr %.12030.i104, align 1, !tbaa !15
   %93 = add nsw i32 %.12329.i105, -1
   %.not40.i106 = icmp eq i32 %93, 0
-  br i1 %.not40.i106, label %xorbuf.exit114, label %.lr.ph.split.i102, !llvm.loop !26
+  br i1 %.not40.i106, label %xorbuf.exit114, label %.lr.ph.split.i102, !llvm.loop !25
 
 .lr.ph.i.i108:                                    ; preds = %.preheader.i100, %.lr.ph.i.i108
   %.sroa.026.0.i109 = phi ptr [ %96, %.lr.ph.i.i108 ], [ %82, %.preheader.i100 ]
@@ -3994,7 +3994,7 @@ xorbuf.exit114:                                   ; preds = %.lr.ph.split.i102, 
   store i8 %109, ptr %.12030.i124, align 1, !tbaa !15
   %110 = add nsw i32 %.12329.i125, -1
   %.not40.i126 = icmp eq i32 %110, 0
-  br i1 %.not40.i126, label %xorbuf.exit134, label %.lr.ph.split.i122, !llvm.loop !26
+  br i1 %.not40.i126, label %xorbuf.exit134, label %.lr.ph.split.i122, !llvm.loop !25
 
 .lr.ph.i.i128:                                    ; preds = %.preheader.i120, %.lr.ph.i.i128
   %.sroa.026.0.i129 = phi ptr [ %113, %.lr.ph.i.i128 ], [ %101, %.preheader.i120 ]
@@ -4041,7 +4041,7 @@ xorbuf.exit134:                                   ; preds = %.lr.ph.split.i122, 
   store i8 %126, ptr %.12030.i144, align 1, !tbaa !15
   %127 = add nsw i32 %.12329.i145, -1
   %.not40.i146 = icmp eq i32 %127, 0
-  br i1 %.not40.i146, label %xorbuf.exit154, label %.lr.ph.split.i142, !llvm.loop !26
+  br i1 %.not40.i146, label %xorbuf.exit154, label %.lr.ph.split.i142, !llvm.loop !25
 
 .lr.ph.i.i148:                                    ; preds = %.preheader.i140, %.lr.ph.i.i148
   %.sroa.026.0.i149 = phi ptr [ %130, %.lr.ph.i.i148 ], [ %118, %.preheader.i140 ]
@@ -4088,7 +4088,7 @@ xorbuf.exit154:                                   ; preds = %.lr.ph.split.i142, 
   store i8 %143, ptr %.12030.i164, align 1, !tbaa !15
   %144 = add nsw i32 %.12329.i165, -1
   %.not40.i166 = icmp eq i32 %144, 0
-  br i1 %.not40.i166, label %xorbuf.exit174, label %.lr.ph.split.i162, !llvm.loop !26
+  br i1 %.not40.i166, label %xorbuf.exit174, label %.lr.ph.split.i162, !llvm.loop !25
 
 .lr.ph.i.i168:                                    ; preds = %.preheader.i160, %.lr.ph.i.i168
   %.sroa.026.0.i169 = phi ptr [ %147, %.lr.ph.i.i168 ], [ %135, %.preheader.i160 ]
@@ -4135,7 +4135,7 @@ xorbuf.exit174:                                   ; preds = %.lr.ph.split.i162, 
   store i8 %160, ptr %.12030.i184, align 1, !tbaa !15
   %161 = add nsw i32 %.12329.i185, -1
   %.not40.i186 = icmp eq i32 %161, 0
-  br i1 %.not40.i186, label %xorbuf.exit194, label %.lr.ph.split.i182, !llvm.loop !26
+  br i1 %.not40.i186, label %xorbuf.exit194, label %.lr.ph.split.i182, !llvm.loop !25
 
 .lr.ph.i.i188:                                    ; preds = %.preheader.i180, %.lr.ph.i.i188
   %.sroa.026.0.i189 = phi ptr [ %164, %.lr.ph.i.i188 ], [ %152, %.preheader.i180 ]
@@ -4184,7 +4184,7 @@ xorbuf.exit194:                                   ; preds = %.lr.ph.split.i182, 
   store i8 %179, ptr %.12030.i204, align 1, !tbaa !15
   %180 = add nsw i32 %.12329.i205, -1
   %.not40.i206 = icmp eq i32 %180, 0
-  br i1 %.not40.i206, label %xorbuf.exit214, label %.lr.ph.split.i202, !llvm.loop !26
+  br i1 %.not40.i206, label %xorbuf.exit214, label %.lr.ph.split.i202, !llvm.loop !25
 
 .lr.ph.i.i208:                                    ; preds = %.preheader.i200, %.lr.ph.i.i208
   %.sroa.026.0.i209 = phi ptr [ %183, %.lr.ph.i.i208 ], [ %169, %.preheader.i200 ]
@@ -4231,7 +4231,7 @@ xorbuf.exit214:                                   ; preds = %.lr.ph.split.i202, 
   store i8 %196, ptr %.12030.i224, align 1, !tbaa !15
   %197 = add nsw i32 %.12329.i225, -1
   %.not40.i226 = icmp eq i32 %197, 0
-  br i1 %.not40.i226, label %xorbuf.exit234, label %.lr.ph.split.i222, !llvm.loop !26
+  br i1 %.not40.i226, label %xorbuf.exit234, label %.lr.ph.split.i222, !llvm.loop !25
 
 .lr.ph.i.i228:                                    ; preds = %.preheader.i220, %.lr.ph.i.i228
   %.sroa.026.0.i229 = phi ptr [ %200, %.lr.ph.i.i228 ], [ %188, %.preheader.i220 ]
@@ -4278,7 +4278,7 @@ xorbuf.exit234:                                   ; preds = %.lr.ph.split.i222, 
   store i8 %213, ptr %.12030.i244, align 1, !tbaa !15
   %214 = add nsw i32 %.12329.i245, -1
   %.not40.i246 = icmp eq i32 %214, 0
-  br i1 %.not40.i246, label %xorbuf.exit254, label %.lr.ph.split.i242, !llvm.loop !26
+  br i1 %.not40.i246, label %xorbuf.exit254, label %.lr.ph.split.i242, !llvm.loop !25
 
 .lr.ph.i.i248:                                    ; preds = %.preheader.i240, %.lr.ph.i.i248
   %.sroa.026.0.i249 = phi ptr [ %217, %.lr.ph.i.i248 ], [ %205, %.preheader.i240 ]
@@ -4325,7 +4325,7 @@ xorbuf.exit254:                                   ; preds = %.lr.ph.split.i242, 
   store i8 %230, ptr %.12030.i264, align 1, !tbaa !15
   %231 = add nsw i32 %.12329.i265, -1
   %.not40.i266 = icmp eq i32 %231, 0
-  br i1 %.not40.i266, label %xorbuf.exit274.preheader, label %.lr.ph.split.i262, !llvm.loop !26
+  br i1 %.not40.i266, label %xorbuf.exit274.preheader, label %.lr.ph.split.i262, !llvm.loop !25
 
 .lr.ph.i.i268:                                    ; preds = %.preheader.i260, %.lr.ph.i.i268
   %.sroa.026.0.i269 = phi ptr [ %234, %.lr.ph.i.i268 ], [ %222, %.preheader.i260 ]
@@ -4368,7 +4368,7 @@ xorbuf.exit274:                                   ; preds = %xorbuf.exit274.preh
   store i8 %246, ptr %247, align 1, !tbaa !15
   %indvars.iv.next.i276 = add nsw i64 %indvars.iv.i275, -1
   %248 = icmp samesign ugt i64 %indvars.iv.i275, 1
-  br i1 %248, label %241, label %Shift4_M0.exit, !llvm.loop !30
+  br i1 %248, label %241, label %Shift4_M0.exit, !llvm.loop !28
 
 Shift4_M0.exit:                                   ; preds = %241
   %249 = load i8, ptr %239, align 1, !tbaa !15
@@ -4376,7 +4376,7 @@ Shift4_M0.exit:                                   ; preds = %241
   store i8 %250, ptr %240, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %251, label %xorbuf.exit274, !llvm.loop !31
+  br i1 %exitcond.not, label %251, label %xorbuf.exit274, !llvm.loop !29
 
 251:                                              ; preds = %Shift4_M0.exit
   ret void
@@ -4516,7 +4516,7 @@ xorbuf.exit:                                      ; preds = %xorbuf.exit.prehead
   %59 = and i64 %47, 15
   %60 = or disjoint i64 %59, 16
   %61 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !32
+  %62 = load i16, ptr %61, align 2, !tbaa !30
   %63 = zext i16 %62 to i64
   %64 = xor i64 %55, %63
   %.idx = shl nuw nsw i64 %51, 4
@@ -4528,12 +4528,12 @@ xorbuf.exit:                                      ; preds = %xorbuf.exit.prehead
   %.masked.i = and i64 %68, 15
   %70 = xor i64 %.masked.i, %69
   %71 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !32
+  %72 = load i16, ptr %71, align 2, !tbaa !30
   %73 = zext i16 %72 to i64
   %74 = xor i64 %64, %73
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, -1
   %75 = icmp samesign ugt i64 %indvars.iv.i44, 1
-  br i1 %75, label %xorbuf.exit, label %GMULT.exit, !llvm.loop !34
+  br i1 %75, label %xorbuf.exit, label %GMULT.exit, !llvm.loop !32
 
 GMULT.exit:                                       ; preds = %xorbuf.exit
   %76 = load i8, ptr %10, align 16, !tbaa !15
@@ -4569,14 +4569,14 @@ GMULT.exit:                                       ; preds = %xorbuf.exit
   %106 = load i64, ptr %105, align 8, !tbaa !21
   %107 = xor i64 %95, %106
   %108 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %87
-  %109 = load i16, ptr %108, align 2, !tbaa !32
+  %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = zext i16 %109 to i64
   %111 = xor i64 %104, %110
   store i64 %111, ptr %10, align 16, !tbaa !21
   store i64 %107, ptr %20, align 8, !tbaa !21
   %112 = getelementptr inbounds nuw i8, ptr %.032166, i64 16
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %GMULT.exit, %16
   %.032.lcssa = phi ptr [ %1, %16 ], [ %112, %GMULT.exit ]
@@ -4637,7 +4637,7 @@ xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %145 = and i64 %133, 15
   %146 = or disjoint i64 %145, 16
   %147 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %146
-  %148 = load i16, ptr %147, align 2, !tbaa !32
+  %148 = load i16, ptr %147, align 2, !tbaa !30
   %149 = zext i16 %148 to i64
   %150 = xor i64 %141, %149
   %.idx150 = shl nuw nsw i64 %137, 4
@@ -4649,12 +4649,12 @@ xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %.masked.i69 = and i64 %154, 15
   %156 = xor i64 %.masked.i69, %155
   %157 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %156
-  %158 = load i16, ptr %157, align 2, !tbaa !32
+  %158 = load i16, ptr %157, align 2, !tbaa !30
   %159 = zext i16 %158 to i64
   %160 = xor i64 %150, %159
   %indvars.iv.next.i70 = add nsw i64 %indvars.iv.i66, -1
   %161 = icmp samesign ugt i64 %indvars.iv.i66, 1
-  br i1 %161, label %121, label %GMULT.exit71, !llvm.loop !34
+  br i1 %161, label %121, label %GMULT.exit71, !llvm.loop !32
 
 GMULT.exit71:                                     ; preds = %121
   %162 = load i8, ptr %10, align 16, !tbaa !15
@@ -4690,7 +4690,7 @@ GMULT.exit71:                                     ; preds = %121
   %192 = load i64, ptr %191, align 8, !tbaa !21
   %193 = xor i64 %181, %192
   %194 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %173
-  %195 = load i16, ptr %194, align 2, !tbaa !32
+  %195 = load i16, ptr %194, align 2, !tbaa !30
   %196 = zext i16 %195 to i64
   %197 = xor i64 %190, %196
   store i64 %197, ptr %10, align 16, !tbaa !21
@@ -4782,7 +4782,7 @@ xorbuf.exit91:                                    ; preds = %xorbuf.exit91.prehe
   %245 = and i64 %233, 15
   %246 = or disjoint i64 %245, 16
   %247 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %246
-  %248 = load i16, ptr %247, align 2, !tbaa !32
+  %248 = load i16, ptr %247, align 2, !tbaa !30
   %249 = zext i16 %248 to i64
   %250 = xor i64 %241, %249
   %.idx151 = shl nuw nsw i64 %237, 4
@@ -4794,12 +4794,12 @@ xorbuf.exit91:                                    ; preds = %xorbuf.exit91.prehe
   %.masked.i95 = and i64 %254, 15
   %256 = xor i64 %.masked.i95, %255
   %257 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %256
-  %258 = load i16, ptr %257, align 2, !tbaa !32
+  %258 = load i16, ptr %257, align 2, !tbaa !30
   %259 = zext i16 %258 to i64
   %260 = xor i64 %250, %259
   %indvars.iv.next.i96 = add nsw i64 %indvars.iv.i92, -1
   %261 = icmp samesign ugt i64 %indvars.iv.i92, 1
-  br i1 %261, label %xorbuf.exit91, label %GMULT.exit97, !llvm.loop !34
+  br i1 %261, label %xorbuf.exit91, label %GMULT.exit97, !llvm.loop !32
 
 GMULT.exit97:                                     ; preds = %xorbuf.exit91
   %262 = load i8, ptr %10, align 16, !tbaa !15
@@ -4835,14 +4835,14 @@ GMULT.exit97:                                     ; preds = %xorbuf.exit91
   %292 = load i64, ptr %291, align 8, !tbaa !21
   %293 = xor i64 %281, %292
   %294 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %273
-  %295 = load i16, ptr %294, align 2, !tbaa !32
+  %295 = load i16, ptr %294, align 2, !tbaa !30
   %296 = zext i16 %295 to i64
   %297 = xor i64 %290, %296
   store i64 %297, ptr %10, align 16, !tbaa !21
   store i64 %293, ptr %206, align 8, !tbaa !21
   %298 = getelementptr inbounds nuw i8, ptr %.033169, i64 16
   %.not42 = icmp eq i32 %210, 0
-  br i1 %.not42, label %._crit_edge173, label %209, !llvm.loop !36
+  br i1 %.not42, label %._crit_edge173, label %209, !llvm.loop !34
 
 ._crit_edge173:                                   ; preds = %GMULT.exit97, %202
   %.033.lcssa = phi ptr [ %3, %202 ], [ %298, %GMULT.exit97 ]
@@ -4903,7 +4903,7 @@ xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %331 = and i64 %319, 15
   %332 = or disjoint i64 %331, 16
   %333 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %332
-  %334 = load i16, ptr %333, align 2, !tbaa !32
+  %334 = load i16, ptr %333, align 2, !tbaa !30
   %335 = zext i16 %334 to i64
   %336 = xor i64 %327, %335
   %.idx152 = shl nuw nsw i64 %323, 4
@@ -4915,12 +4915,12 @@ xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %.masked.i121 = and i64 %340, 15
   %342 = xor i64 %.masked.i121, %341
   %343 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %342
-  %344 = load i16, ptr %343, align 2, !tbaa !32
+  %344 = load i16, ptr %343, align 2, !tbaa !30
   %345 = zext i16 %344 to i64
   %346 = xor i64 %336, %345
   %indvars.iv.next.i122 = add nsw i64 %indvars.iv.i118, -1
   %347 = icmp samesign ugt i64 %indvars.iv.i118, 1
-  br i1 %347, label %307, label %GMULT.exit123, !llvm.loop !34
+  br i1 %347, label %307, label %GMULT.exit123, !llvm.loop !32
 
 GMULT.exit123:                                    ; preds = %307
   %348 = load i8, ptr %10, align 16, !tbaa !15
@@ -4956,7 +4956,7 @@ GMULT.exit123:                                    ; preds = %307
   %378 = load i64, ptr %377, align 8, !tbaa !21
   %379 = xor i64 %367, %378
   %380 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %359
-  %381 = load i16, ptr %380, align 2, !tbaa !32
+  %381 = load i16, ptr %380, align 2, !tbaa !30
   %382 = zext i16 %381 to i64
   %383 = xor i64 %376, %382
   store i64 %383, ptr %10, align 16, !tbaa !21
@@ -5066,7 +5066,7 @@ xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %451 = and i64 %439, 15
   %452 = or disjoint i64 %451, 16
   %453 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %452
-  %454 = load i16, ptr %453, align 2, !tbaa !32
+  %454 = load i16, ptr %453, align 2, !tbaa !30
   %455 = zext i16 %454 to i64
   %456 = xor i64 %447, %455
   %.idx153 = shl nuw nsw i64 %443, 4
@@ -5078,12 +5078,12 @@ xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %.masked.i147 = and i64 %460, 15
   %462 = xor i64 %.masked.i147, %461
   %463 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %462
-  %464 = load i16, ptr %463, align 2, !tbaa !32
+  %464 = load i16, ptr %463, align 2, !tbaa !30
   %465 = zext i16 %464 to i64
   %466 = xor i64 %456, %465
   %indvars.iv.next.i148 = add nsw i64 %indvars.iv.i144, -1
   %467 = icmp samesign ugt i64 %indvars.iv.i144, 1
-  br i1 %467, label %427, label %GMULT.exit149, !llvm.loop !34
+  br i1 %467, label %427, label %GMULT.exit149, !llvm.loop !32
 
 GMULT.exit149:                                    ; preds = %427
   %468 = load i8, ptr %10, align 16, !tbaa !15
@@ -5119,7 +5119,7 @@ GMULT.exit149:                                    ; preds = %427
   %498 = load i64, ptr %497, align 8, !tbaa !21
   %499 = xor i64 %487, %498
   %500 = getelementptr inbounds nuw [32 x i16], ptr @R, i64 0, i64 %479
-  %501 = load i16, ptr %500, align 2, !tbaa !32
+  %501 = load i16, ptr %500, align 2, !tbaa !30
   %502 = zext i16 %501 to i64
   %503 = xor i64 %496, %502
   store i64 %503, ptr %10, align 16, !tbaa !21
@@ -5212,7 +5212,7 @@ define range(i32 -226, 1) i32 @wc_AesGcmEncrypt(ptr noundef %0, ptr noundef %1, 
   %41 = add nsw i32 %.03.i.i, -1
   %42 = icmp samesign ugt i32 %.03.i.i, 12
   %or.cond.i.i = select i1 %.not.i.i, i1 %42, i1 false
-  br i1 %or.cond.i.i, label %36, label %IncrementGcmCounter.exit.i, !llvm.loop !37
+  br i1 %or.cond.i.i, label %36, label %IncrementGcmCounter.exit.i, !llvm.loop !35
 
 IncrementGcmCounter.exit.i:                       ; preds = %36
   %43 = add nsw i32 %.in.i, -1
@@ -5244,7 +5244,7 @@ IncrementGcmCounter.exit.i:                       ; preds = %36
   %54 = getelementptr inbounds nuw i8, ptr %.12944.i.i, i64 1
   store i8 %53, ptr %.12944.i.i, align 1, !tbaa !15
   %exitcond.not.i = icmp eq i64 %.12745.i.idx.i, 7
-  br i1 %exitcond.not.i, label %.lr.ph.i.i.preheader.i, label %.lr.ph.i.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %.lr.ph.i.i.preheader.i, label %.lr.ph.i.i, !llvm.loop !36
 
 .lr.ph.i.i.preheader.i:                           ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.132.lcssa.i.i = phi i32 [ 2, %.preheader.i.i ], [ 1, %.lr.ph.i.i ]
@@ -5267,7 +5267,7 @@ IncrementGcmCounter.exit.i:                       ; preds = %36
   store i64 %59, ptr %.sroa.039.0.i.i, align 8, !tbaa !21
   %61 = add nuw nsw i32 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %61, %.132.lcssa.i.i
-  br i1 %exitcond.not.i.i.i, label %xorbufout.exit.i, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i.i, label %xorbufout.exit.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 .lr.ph52.i.i:                                     ; preds = %45, %.lr.ph52.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph52.i.i ], [ 0, %45 ]
@@ -5280,13 +5280,13 @@ IncrementGcmCounter.exit.i:                       ; preds = %36
   store i8 %66, ptr %67, align 1, !tbaa !15
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !38
 
 xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.lr.ph.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.039134.i, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %.0137.i, i64 16
   %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.preheader113.i, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge.i, label %.preheader113.i, !llvm.loop !39
 
 ._crit_edge.i:                                    ; preds = %xorbufout.exit.i, %34
   %.039.lcssa.i = phi ptr [ %2, %34 ], [ %68, %xorbufout.exit.i ]
@@ -5305,7 +5305,7 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.lr.
   %74 = add nsw i32 %.03.i60.i, -1
   %75 = icmp samesign ugt i32 %.03.i60.i, 12
   %or.cond.i62.i = select i1 %.not.i61.i, i1 %75, i1 false
-  br i1 %or.cond.i62.i, label %.preheader.i, label %IncrementGcmCounter.exit63.i, !llvm.loop !37
+  br i1 %or.cond.i62.i, label %.preheader.i, label %IncrementGcmCounter.exit63.i, !llvm.loop !35
 
 IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
   %76 = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %13)
@@ -5344,7 +5344,7 @@ IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
   %90 = getelementptr inbounds nuw i8, ptr %.12944.i80.i, i64 1
   store i8 %89, ptr %.12944.i80.i, align 1, !tbaa !15
   %exitcond162.not.i = icmp eq ptr %.12745.i79.i, %scevgep161.i
-  br i1 %exitcond162.not.i, label %._crit_edge.i82.i.loopexit, label %.lr.ph.i77.i, !llvm.loop !38
+  br i1 %exitcond162.not.i, label %._crit_edge.i82.i.loopexit, label %.lr.ph.i77.i, !llvm.loop !36
 
 ._crit_edge.i82.i.loopexit:                       ; preds = %.lr.ph.i77.i
   %91 = sub nsw i32 %83, %84
@@ -5373,7 +5373,7 @@ IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
   store i64 %97, ptr %.sroa.039.0.i89.i, align 8, !tbaa !21
   %99 = add nuw nsw i32 %.05.i.i92.i, 1
   %exitcond.not.i.i93.i = icmp eq i32 %99, %92
-  br i1 %exitcond.not.i.i93.i, label %.loopexit.i94.i, label %.lr.ph.i.i88.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i93.i, label %.loopexit.i94.i, label %.lr.ph.i.i88.i, !llvm.loop !37
 
 .loopexit.i94.i:                                  ; preds = %.lr.ph.i.i88.i, %._crit_edge.i82.i
   %.sroa.039.1.i95.i = phi ptr [ %.129.lcssa.i84.i, %._crit_edge.i82.i ], [ %98, %.lr.ph.i.i88.i ]
@@ -5402,7 +5402,7 @@ IncrementGcmCounter.exit63.i:                     ; preds = %.preheader.i
   store i8 %105, ptr %106, align 1, !tbaa !15
   %indvars.iv.next.i73.i = add nuw nsw i64 %indvars.iv.i72.i, 1
   %exitcond.not.i74.i = icmp eq i64 %indvars.iv.next.i73.i, %wide.trip.count.i70.i
-  br i1 %exitcond.not.i74.i, label %xorbufout.exit99.i, label %.lr.ph52.i71.i, !llvm.loop !40
+  br i1 %exitcond.not.i74.i, label %xorbufout.exit99.i, label %.lr.ph52.i71.i, !llvm.loop !38
 
 xorbufout.exit99.i:                               ; preds = %.lr.ph52.i71.i, %.loopexit.i94.i, %._crit_edge.i
   br i1 %19, label %AES_GCM_encrypt_C.exit, label %107
@@ -5580,7 +5580,7 @@ xorbuf.exit.preheader.i:                          ; preds = %.lr.ph.i.i.i
   %51 = add nsw i32 %.03.i.i, -1
   %52 = icmp samesign ugt i32 %.03.i.i, 12
   %or.cond.i.i = select i1 %.not.i59.i, i1 %52, i1 false
-  br i1 %or.cond.i.i, label %46, label %IncrementGcmCounter.exit.i, !llvm.loop !37
+  br i1 %or.cond.i.i, label %46, label %IncrementGcmCounter.exit.i, !llvm.loop !35
 
 IncrementGcmCounter.exit.i:                       ; preds = %46
   %53 = add nsw i32 %.in.i, -1
@@ -5612,7 +5612,7 @@ IncrementGcmCounter.exit.i:                       ; preds = %46
   %64 = getelementptr inbounds nuw i8, ptr %.12944.i.i, i64 1
   store i8 %63, ptr %.12944.i.i, align 1, !tbaa !15
   %exitcond.not.i = icmp eq i64 %.12745.i.idx.i, 7
-  br i1 %exitcond.not.i, label %.lr.ph.i.i67.preheader.i, label %.lr.ph.i.i, !llvm.loop !38
+  br i1 %exitcond.not.i, label %.lr.ph.i.i67.preheader.i, label %.lr.ph.i.i, !llvm.loop !36
 
 .lr.ph.i.i67.preheader.i:                         ; preds = %.lr.ph.i.i, %.preheader.i64.i
   %.132.lcssa.i.i = phi i32 [ 2, %.preheader.i64.i ], [ 1, %.lr.ph.i.i ]
@@ -5635,7 +5635,7 @@ IncrementGcmCounter.exit.i:                       ; preds = %46
   store i64 %69, ptr %.sroa.039.0.i.i, align 8, !tbaa !21
   %71 = add nuw nsw i32 %.05.i.i.i, 1
   %exitcond.not.i.i69.i = icmp eq i32 %71, %.132.lcssa.i.i
-  br i1 %exitcond.not.i.i69.i, label %xorbufout.exit.i, label %.lr.ph.i.i67.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i69.i, label %xorbufout.exit.i, label %.lr.ph.i.i67.i, !llvm.loop !37
 
 .lr.ph52.i.i:                                     ; preds = %55, %.lr.ph52.i.i
   %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i62.i, %.lr.ph52.i.i ], [ 0, %55 ]
@@ -5648,13 +5648,13 @@ IncrementGcmCounter.exit.i:                       ; preds = %46
   store i8 %76, ptr %77, align 1, !tbaa !15
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i61.i, 1
   %exitcond.not.i63.i = icmp eq i64 %indvars.iv.next.i62.i, 16
-  br i1 %exitcond.not.i63.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !40
+  br i1 %exitcond.not.i63.i, label %xorbufout.exit.i, label %.lr.ph52.i.i, !llvm.loop !38
 
 xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.lr.ph.i.i67.i
   %78 = getelementptr inbounds nuw i8, ptr %.041119.i, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %.042116.i, i64 16
   %.not54.i = icmp eq i32 %53, 0
-  br i1 %.not54.i, label %xorbuf.exit._crit_edge.i, label %.preheader102.i, !llvm.loop !42
+  br i1 %.not54.i, label %xorbuf.exit._crit_edge.i, label %.preheader102.i, !llvm.loop !40
 
 xorbuf.exit._crit_edge.i:                         ; preds = %xorbufout.exit.i, %xorbuf.exit.preheader.i
   %.042.lcssa.i = phi ptr [ %2, %xorbuf.exit.preheader.i ], [ %79, %xorbufout.exit.i ]
@@ -5673,7 +5673,7 @@ xorbuf.exit._crit_edge.i:                         ; preds = %xorbufout.exit.i, %
   %84 = add nsw i32 %.03.i71.i, -1
   %85 = icmp samesign ugt i32 %.03.i71.i, 12
   %or.cond.i73.i = select i1 %.not.i72.i, i1 %85, i1 false
-  br i1 %or.cond.i73.i, label %.preheader.i, label %IncrementGcmCounter.exit74.i, !llvm.loop !37
+  br i1 %or.cond.i73.i, label %.preheader.i, label %IncrementGcmCounter.exit74.i, !llvm.loop !35
 
 IncrementGcmCounter.exit74.i:                     ; preds = %.preheader.i
   %86 = call fastcc i32 @wc_AesEncrypt(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %12)
@@ -5746,7 +5746,7 @@ xorbuf.exit97.i:                                  ; preds = %.lr.ph38.i77.i, %.l
   %111 = or i32 %.010.i.i, %110
   %indvars.iv.next.i100.i = add nuw nsw i64 %indvars.iv.i99.i, 1
   %exitcond.not.i101.i = icmp eq i64 %indvars.iv.next.i100.i, %wide.trip.count.i98.i
-  br i1 %exitcond.not.i101.i, label %ConstantCompare.exit.i, label %104, !llvm.loop !43
+  br i1 %exitcond.not.i101.i, label %ConstantCompare.exit.i, label %104, !llvm.loop !41
 
 ConstantCompare.exit.i:                           ; preds = %104
   %.not57.i = icmp eq i32 %111, 0
@@ -5791,7 +5791,7 @@ define range(i32 -173, 1) i32 @wc_AesGcmSetExtIV(ptr noundef writeonly captures(
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %12, ptr %13, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %2, ptr %14, align 8, !tbaa !44
+  store i32 %2, ptr %14, align 8, !tbaa !42
   br label %15
 
 15:                                               ; preds = %6, %3, %7
@@ -5851,7 +5851,7 @@ define i32 @wc_AesGcmSetIV(ptr noundef %0, i32 noundef %1, ptr noundef readonly 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %26, ptr %27, align 4, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %1, ptr %28, align 8, !tbaa !44
+  store i32 %1, ptr %28, align 8, !tbaa !42
   br label %.thread32
 
 .thread32:                                        ; preds = %8, %12, %9, %5, %23, %._crit_edge
@@ -5884,7 +5884,7 @@ define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %13, %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %20 = load i32, ptr %19, align 8, !tbaa !44
+  %20 = load i32, ptr %19, align 8, !tbaa !42
   %.not40 = icmp eq i32 %5, %20
   br i1 %.not40, label %21, label %IncCtr.exit
 
@@ -5931,7 +5931,7 @@ define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %
   %45 = add i8 %44, 1
   store i8 %45, ptr %43, align 1, !tbaa !15
   %.not.i = icmp eq i8 %45, 0
-  br i1 %.not.i, label %.preheader, label %IncCtr.exit, !llvm.loop !45
+  br i1 %.not.i, label %.preheader, label %IncCtr.exit, !llvm.loop !43
 
 IncCtr.exit:                                      ; preds = %41, %.preheader, %29, %21, %18, %17, %13, %10, %34
   %.2 = phi i32 [ %37, %34 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ -173, %13 ], [ -173, %10 ], [ -260, %29 ], [ 0, %.preheader ], [ 0, %41 ]
@@ -6008,7 +6008,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %24, %21
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 292
   store i32 %36, ptr %37, align 4, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 296
-  store i32 %3, ptr %38, align 8, !tbaa !44
+  store i32 %3, ptr %38, align 8, !tbaa !42
   store i32 1, ptr %34, align 16, !tbaa !11
   %39 = zext nneg i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 16 %30, i64 %39, i1 false)
@@ -6029,7 +6029,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %24, %21
   %48 = add i8 %47, 1
   store i8 %48, ptr %46, align 1, !tbaa !15
   %.not.i.i = icmp eq i8 %48, 0
-  br i1 %.not.i.i, label %.preheader.i, label %.preheader23.i.i, !llvm.loop !45
+  br i1 %.not.i.i, label %.preheader.i, label %.preheader23.i.i, !llvm.loop !43
 
 .preheader23.i.i:                                 ; preds = %.preheader.i, %44, %33, %wc_AesGcmSetKey.exit.thread, %29, %28
   %.1 = phi i32 [ %40, %33 ], [ -173, %28 ], [ %31, %29 ], [ %.019.i.ph, %wc_AesGcmSetKey.exit.thread ], [ 0, %44 ], [ 0, %.preheader.i ]
@@ -6042,7 +6042,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %20, %24, %21
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !21
   %50 = add nsw i32 %.01827.i.i, -8
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %wc_AesFree.exit, label %.lr.ph29.i.i, !llvm.loop !46
+  br i1 %.not, label %wc_AesFree.exit, label %.lr.ph29.i.i, !llvm.loop !44
 
 wc_AesFree.exit:                                  ; preds = %.lr.ph29.i.i, %9, %14
   %.031 = phi i32 [ -173, %14 ], [ -173, %9 ], [ %.1, %.lr.ph29.i.i ]
@@ -6058,7 +6058,7 @@ define range(i32 -173, 1) i32 @wc_AesInit(ptr noundef writeonly captures(address
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %0, i8 0, i64 848, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  store ptr %1, ptr %6, align 16, !tbaa !47
+  store ptr %1, ptr %6, align 16, !tbaa !45
   br label %7
 
 7:                                                ; preds = %3, %5
@@ -6104,7 +6104,7 @@ define void @wc_AesFree(ptr noundef %0) local_unnamed_addr #0 {
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !21
   %12 = add nsw i32 %.01827.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !46
+  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !44
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %15, %.lr.ph35.i ], [ %11, %.preheader.i ]
@@ -6183,7 +6183,7 @@ wc_AesGcmSetKey.exit.thread:                      ; preds = %19, %23, %20
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !21
   %30 = add nsw i32 %.01827.i.i, -8
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %wc_AesFree.exit, label %.lr.ph29.i.i, !llvm.loop !46
+  br i1 %.not, label %wc_AesFree.exit, label %.lr.ph29.i.i, !llvm.loop !44
 
 wc_AesFree.exit:                                  ; preds = %.lr.ph29.i.i, %8, %13
   %.027 = phi i32 [ -173, %13 ], [ -173, %8 ], [ %.0, %.lr.ph29.i.i ]
@@ -6256,7 +6256,7 @@ define ptr @wc_AesNew(ptr noundef %0, i32 noundef %1, ptr noundef writeonly capt
 wc_AesInit.exit:                                  ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %4, i8 0, i64 848, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 832
-  store ptr %0, ptr %6, align 16, !tbaa !47
+  store ptr %0, ptr %6, align 16, !tbaa !45
   br label %7
 
 7:                                                ; preds = %wc_AesInit.exit, %3
@@ -6314,7 +6314,7 @@ define range(i32 -173, 1) i32 @wc_AesDelete(ptr noundef %0, ptr noundef writeonl
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !21
   %13 = add nsw i32 %.01827.i.i, -8
   %14 = icmp ugt i32 %13, 7
-  br i1 %14, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !46
+  br i1 %14, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !44
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %16, %.lr.ph35.i.i ], [ %12, %.preheader.i.i ]
@@ -6331,7 +6331,7 @@ wc_AesFree.exit:                                  ; preds = %.lr.ph35.i.i, %.pre
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %wc_AesFree.exit
-  store ptr null, ptr %1, align 8, !tbaa !48
+  store ptr null, ptr %1, align 8, !tbaa !46
   br label %18
 
 18:                                               ; preds = %wc_AesFree.exit, %17, %2
@@ -6431,16 +6431,16 @@ attributes #12 = { nounwind }
 !21 = !{!22, !22, i64 0}
 !22 = !{!"long", !5, i64 0}
 !23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
 !26 = distinct !{!26, !13}
 !27 = distinct !{!27, !13}
 !28 = distinct !{!28, !13}
 !29 = distinct !{!29, !13}
-!30 = distinct !{!30, !13}
-!31 = distinct !{!31, !13}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"short", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"short", !5, i64 0}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !13}
 !34 = distinct !{!34, !13}
 !35 = distinct !{!35, !13}
 !36 = distinct !{!36, !13}
@@ -6449,11 +6449,9 @@ attributes #12 = { nounwind }
 !39 = distinct !{!39, !13}
 !40 = distinct !{!40, !13}
 !41 = distinct !{!41, !13}
-!42 = distinct !{!42, !13}
+!42 = !{!4, !7, i64 296}
 !43 = distinct !{!43, !13}
-!44 = !{!4, !7, i64 296}
-!45 = distinct !{!45, !13}
-!46 = distinct !{!46, !13}
-!47 = !{!4, !9, i64 832}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS3Aes", !9, i64 0}
+!44 = distinct !{!44, !13}
+!45 = !{!4, !9, i64 832}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS3Aes", !9, i64 0}

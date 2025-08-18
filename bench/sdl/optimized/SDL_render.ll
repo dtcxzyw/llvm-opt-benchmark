@@ -3799,7 +3799,7 @@ IsSupportedBlendMode.exit.thread.us.i.i:          ; preds = %tailrecurse.us20.i.
   %266 = getelementptr inbounds nuw i8, ptr %.tr.us21.i.i, i64 216
   %267 = load ptr, ptr %266, align 8
   %.not.us.i.i = icmp eq ptr %267, null
-  br i1 %.not.us.i.i, label %SDL_UpdateTextureFromSurface.exit, label %tailrecurse.us20.i.i, !llvm.loop !26
+  br i1 %.not.us.i.i, label %SDL_UpdateTextureFromSurface.exit, label %tailrecurse.us20.i.i
 
 .split17.us.i.i:                                  ; preds = %tailrecurse.us20.i.i
   %268 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
@@ -4315,7 +4315,7 @@ IsSupportedBlendMode.exit.thread.us:              ; preds = %tailrecurse.us20
   %6 = getelementptr inbounds nuw i8, ptr %.tr.us21, i64 216
   %7 = load ptr, ptr %6, align 8
   %.not.us = icmp eq ptr %7, null
-  br i1 %.not.us, label %.loopexit, label %tailrecurse.us20, !llvm.loop !26
+  br i1 %.not.us, label %.loopexit, label %tailrecurse.us20
 
 tailrecurse:                                      ; preds = %2, %IsSupportedBlendMode.exit.thread
   %.tr = phi ptr [ %20, %IsSupportedBlendMode.exit.thread ], [ %0, %2 ]
@@ -4404,7 +4404,7 @@ tailrecurse.us:                                   ; preds = %2, %4
   %6 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 216
   %7 = load ptr, ptr %6, align 8
   %.not.us = icmp eq ptr %7, null
-  br i1 %.not.us, label %.loopexit, label %tailrecurse.us, !llvm.loop !28
+  br i1 %.not.us, label %.loopexit, label %tailrecurse.us
 
 tailrecurse:                                      ; preds = %2
   %8 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 3) #15
@@ -8621,7 +8621,7 @@ define internal fastcc noundef zeroext i1 @RenderPointsWithRects(ptr noundef %0,
   store float %18, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %29 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %2)
@@ -9054,7 +9054,7 @@ define hidden zeroext i1 @SDL_RenderLines_REAL(ptr noundef %0, ptr noundef %1, i
   %.2 = phi i32 [ %118, %113 ], [ %112, %106 ], [ %173, %158 ], [ %157, %141 ], [ %184, %191 ], [ %184, %185 ], [ %132, %127 ], [ %137, %133 ], [ %97, %87 ], [ %.0296322, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.thread
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 500
@@ -9300,7 +9300,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %.1133 = phi i8 [ %.0132156, %41 ], [ %.0132156, %64 ], [ %.0132156, %81 ], [ %.0132156, %82 ], [ %.0132156, %43 ], [ %.0132156, %60 ], [ %.0132156, %61 ], [ %100, %84 ]
   %.1 = phi i32 [ %.0131157, %41 ], [ %68, %64 ], [ %68, %81 ], [ %68, %82 ], [ %47, %43 ], [ %47, %60 ], [ %47, %61 ], [ %.0131157, %84 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %101
   %.not151 = icmp eq i32 %.1, 0
@@ -9559,7 +9559,7 @@ SDL_RenderRect_REAL.exit:                         ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %42, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %28, label %.loopexit, !llvm.loop !32
+  br i1 %or.cond.not, label %28, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %SDL_RenderRect_REAL.exit, %SDL_RenderRect_REAL.exit.thread, %17, %15, %12, %6
   %.010 = phi i1 [ false, %12 ], [ %16, %15 ], [ false, %6 ], [ true, %17 ], [ false, %SDL_RenderRect_REAL.exit.thread ], [ %42, %SDL_RenderRect_REAL.exit ]
@@ -9791,7 +9791,7 @@ define hidden zeroext i1 @SDL_RenderFillRects_REAL(ptr noundef %0, ptr noundef r
   store float %46, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %48 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef nonnull %0, ptr noundef %25, i32 noundef %2)
@@ -9915,7 +9915,7 @@ define internal fastcc noundef zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr
   %62 = add nuw nsw i32 %.08897, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -11243,7 +11243,7 @@ define internal fastcc noundef zeroext i1 @SDL_RenderTextureTiled_Iterate(ptr no
   store float %71, ptr %39, align 4
   %77 = add nuw nsw i32 %.05784.us, 1
   %exitcond113.not = icmp eq i32 %77, %34
-  br i1 %exitcond113.not, label %.critedge67, label %.lr.ph.us, !llvm.loop !35
+  br i1 %exitcond113.not, label %.critedge67, label %.lr.ph.us, !llvm.loop !32
 
 78:                                               ; preds = %.lr.ph.us, %117
   %.05581.us = phi i32 [ 0, %.lr.ph.us ], [ %118, %117 ]
@@ -11337,7 +11337,7 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
   %.pre-phi = phi float [ %110, %QueueCmdGeometry.exit.i.us ], [ %.pre, %SDL_RenderTextureInternal.exit.us ]
   %118 = add nuw nsw i32 %.05581.us, 1
   %exitcond112.not = icmp eq i32 %118, %36
-  br i1 %exitcond112.not, label %..critedge_crit_edge.us, label %78, !llvm.loop !36
+  br i1 %exitcond112.not, label %..critedge_crit_edge.us, label %78, !llvm.loop !33
 
 ..critedge_crit_edge.us:                          ; preds = %117
   store float %.pre-phi, ptr %12, align 4
@@ -11364,7 +11364,7 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
   store float %124, ptr %39, align 4
   %125 = add nuw nsw i32 %.05784.us94, 1
   %exitcond111.not = icmp eq i32 %125, %34
-  br i1 %exitcond111.not, label %.critedge67, label %.critedge.us93, !llvm.loop !37
+  br i1 %exitcond111.not, label %.critedge67, label %.critedge.us93, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph85.split, %.critedge
   %.05784 = phi i32 [ %128, %.critedge ], [ 0, %.lr.ph85.split ]
@@ -11372,7 +11372,7 @@ QueueCmdGeometry.exit.i.us:                       ; preds = %112
   %127 = fadd float %18, %126
   %128 = add nuw nsw i32 %.05784, 1
   %exitcond.not = icmp eq i32 %128, %34
-  br i1 %exitcond.not, label %..critedge67_crit_edge.split.split, label %.critedge, !llvm.loop !38
+  br i1 %exitcond.not, label %..critedge67_crit_edge.split.split, label %.critedge, !llvm.loop !32
 
 .split90.us:                                      ; preds = %112
   store i32 0, ptr %111, align 8
@@ -11421,7 +11421,7 @@ SDL_RenderTextureInternal.exit.thread:            ; preds = %86, %.split.us
   store float %137, ptr %12, align 4
   %138 = add nuw nsw i32 %.098, 1
   %exitcond114.not = icmp eq i32 %138, %36
-  br i1 %exitcond114.not, label %.critedge69, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond114.not, label %.critedge69, label %.lr.ph, !llvm.loop !34
 
 .critedge69:                                      ; preds = %136, %131
   %139 = fcmp ogt float %31, 0.000000e+00
@@ -12346,7 +12346,7 @@ select.unfold:                                    ; preds = %82, %.thread175
   %.3.ph = phi i32 [ %.1127186.mux, %82 ], [ 0, %.thread175 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread181, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.thread181, label %.lr.ph, !llvm.loop !35
 
 .thread181:                                       ; preds = %82, %select.unfold, %81, %.thread175
   %.2131.ph = phi i32 [ %.3132180, %select.unfold ], [ 2, %81 ], [ 2, %.thread175 ], [ %.1130185, %82 ]
@@ -12380,7 +12380,7 @@ select.unfold:                                    ; preds = %82, %.thread175
 92:                                               ; preds = %.lr.ph198.split.us
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count223
-  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph198.split.us, !llvm.loop !41
+  br i1 %exitcond219.not, label %.loopexit, label %.lr.ph198.split.us, !llvm.loop !36
 
 .lr.ph198.split.us199:                            ; preds = %.lr.ph198, %96
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %96 ], [ 0, %.lr.ph198 ]
@@ -12393,12 +12393,12 @@ select.unfold:                                    ; preds = %82, %.thread175
 96:                                               ; preds = %.lr.ph198.split.us199
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count223
-  br i1 %exitcond214.not, label %.loopexit, label %.lr.ph198.split.us199, !llvm.loop !42
+  br i1 %exitcond214.not, label %.loopexit, label %.lr.ph198.split.us199, !llvm.loop !36
 
 97:                                               ; preds = %.lr.ph198.split
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph198.split, !llvm.loop !43
+  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph198.split, !llvm.loop !36
 
 .lr.ph198.split:                                  ; preds = %.lr.ph198, %97
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %97 ], [ 0, %.lr.ph198 ]
@@ -12646,7 +12646,7 @@ SDL_GetTextureSize_REAL.exit:                     ; preds = %50, %48, %SDL_GetRe
   %119 = zext i1 %or.cond328 to i32
   %.1296 = add nuw nsw i32 %.0295398, %119
   %.not315 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not315, label %120, label %.preheader, !llvm.loop !44
+  br i1 %.not315, label %120, label %.preheader, !llvm.loop !37
 
 120:                                              ; preds = %.preheader
   %121 = icmp eq i32 %.1296, 2
@@ -13029,7 +13029,7 @@ QueueCmdGeometry.exit:                            ; preds = %.critedge, %320, %1
 .backedge.backedge:                               ; preds = %QueueCmdGeometry.exit, %.thread
   %.be = phi i32 [ %.0282, %QueueCmdGeometry.exit ], [ -1, %.thread ]
   %indvars.iv403.be = phi i64 [ %indvars.iv.next404, %QueueCmdGeometry.exit ], [ %indvars.iv.next404408, %.thread ]
-  br label %.backedge, !llvm.loop !45
+  br label %.backedge, !llvm.loop !38
 
 .thread:                                          ; preds = %285, %270, %SDL_SetRenderDrawColorFloat_REAL.exit, %287
   store i32 -1, ptr %13, align 4
@@ -14614,13 +14614,13 @@ CreateDebugTextAtlas.exit.thread35:               ; preds = %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv59.i, 1
   %scevgep.i = getelementptr i8, ptr %indvars.iv.i, i64 8
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next.i, 190
-  br i1 %exitcond61.not.i, label %32, label %34, !llvm.loop !46
+  br i1 %exitcond61.not.i, label %32, label %34, !llvm.loop !39
 
 54:                                               ; preds = %57
   %55 = getelementptr inbounds i8, ptr %.04052.i, i64 %31
   %56 = getelementptr inbounds nuw i8, ptr %.03953.i, i64 1
   %exitcond58.not.i = icmp eq ptr %.03953.i, %indvars.iv.i
-  br i1 %exitcond58.not.i, label %50, label %.preheader.i, !llvm.loop !47
+  br i1 %exitcond58.not.i, label %50, label %.preheader.i, !llvm.loop !40
 
 57:                                               ; preds = %57, %.preheader.i
   %.03651.i = phi i32 [ 0, %.preheader.i ], [ %61, %57 ]
@@ -14633,7 +14633,7 @@ CreateDebugTextAtlas.exit.thread35:               ; preds = %32
   %60 = getelementptr inbounds nuw i8, ptr %.03750.i, i64 4
   %61 = add nuw nsw i32 %.03651.i, 1
   %exitcond.not.i = icmp eq i32 %61, 8
-  br i1 %exitcond.not.i, label %54, label %57, !llvm.loop !48
+  br i1 %exitcond.not.i, label %54, label %57, !llvm.loop !41
 
 tailrecurse.us.i.i:                               ; preds = %32, %63
   %.tr.us.i.i = phi ptr [ %66, %63 ], [ %33, %32 ]
@@ -14646,7 +14646,7 @@ tailrecurse.us.i.i:                               ; preds = %32, %63
   %65 = getelementptr inbounds nuw i8, ptr %.tr.us.i.i, i64 216
   %66 = load ptr, ptr %65, align 8
   %.not.us.i.i = icmp eq ptr %66, null
-  br i1 %.not.us.i.i, label %CreateDebugTextAtlas.exit, label %tailrecurse.us.i.i, !llvm.loop !28
+  br i1 %.not.us.i.i, label %CreateDebugTextAtlas.exit, label %tailrecurse.us.i.i
 
 .split10.us.i.i:                                  ; preds = %tailrecurse.us.i.i
   %67 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
@@ -14822,7 +14822,7 @@ SDL_SetTextureAlphaMod_REAL.exit:                 ; preds = %109
   %.01940.be = fadd float %.0194050, 8.000000e+00
   %142 = call i32 @SDL_StepUTF8_REAL(ptr noundef nonnull %7, ptr noundef null) #15
   %.not22 = icmp eq i32 %142, 0
-  br i1 %.not22, label %.critedge, label %.lr.ph51, !llvm.loop !49
+  br i1 %.not22, label %.critedge, label %.lr.ph51, !llvm.loop !42
 
 .critedge:                                        ; preds = %131, %.backedge, %.lr.ph, %SDL_SetTextureAlphaMod_REAL.exit.thread, %SDL_SetTextureAlphaMod_REAL.exit, %20, %CreateDebugTextAtlas.exit.thread35, %15, %9
   %.0 = phi i1 [ false, %15 ], [ false, %9 ], [ false, %CreateDebugTextAtlas.exit.thread35 ], [ false, %20 ], [ false, %SDL_SetTextureAlphaMod_REAL.exit ], [ false, %SDL_SetTextureAlphaMod_REAL.exit.thread ], [ true, %.lr.ph ], [ true, %.backedge ], [ false, %131 ]
@@ -15215,7 +15215,7 @@ FlushRenderCommandsIfGPURenderStateNeeded.exit:   ; preds = %2, %7, %25
   %41 = load i32, ptr %31, align 8
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %37, label %._crit_edge, !llvm.loop !50
+  br i1 %43, label %37, label %._crit_edge, !llvm.loop !43
 
 44:                                               ; preds = %._crit_edge, %FlushRenderCommandsIfGPURenderStateNeeded.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15309,7 +15309,7 @@ define hidden zeroext i1 @SDL_SetGPURenderStateFragmentUniforms_REAL(ptr noundef
 41:                                               ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !44
 
 42:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
@@ -15908,7 +15908,7 @@ define internal fastcc zeroext i1 @RenderLineBresenham(ptr noundef %0, i32 nound
   %.2 = add nsw i32 %.082..081, %.18499
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 144
@@ -16014,7 +16014,7 @@ remap_one_indice.exit.us:                         ; preds = %31
 remap_one_indice.exit.thread.us:                  ; preds = %remap_one_indice.exit.us, %31, %.preheader.split.us
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 3
-  br i1 %exitcond33.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !53
+  br i1 %exitcond33.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !46
 
 .preheader.split:                                 ; preds = %.preheader, %remap_one_indice.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %remap_one_indice.exit.thread ], [ 0, %.preheader ]
@@ -16064,7 +16064,7 @@ remap_one_indice.exit:                            ; preds = %60
 remap_one_indice.exit.thread:                     ; preds = %60, %53, %48, %.preheader.split, %remap_one_indice.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %remap_one_indice.exit, %remap_one_indice.exit.thread, %remap_one_indice.exit.thread.us, %remap_one_indice.exit.us, %9
   %.0 = phi i32 [ %1, %9 ], [ %1, %remap_one_indice.exit.thread.us ], [ %..i.us, %remap_one_indice.exit.us ], [ %1, %remap_one_indice.exit.thread ], [ %..i, %remap_one_indice.exit ]
@@ -16144,32 +16144,24 @@ attributes #17 = { nounwind allocsize(0,1) }
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !27}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6, !27}
+!35 = distinct !{!35, !6}
 !36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6, !27}
+!37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
 !40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6, !27}
-!42 = distinct !{!42, !6, !27}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6, !27}
-!54 = distinct !{!54, !6}

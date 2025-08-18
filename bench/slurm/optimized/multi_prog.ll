@@ -267,7 +267,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %93, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %_set_range.exit35.i, label %.lr.ph.split.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %_set_range.exit35.i, label %.lr.ph.split.i.i, !llvm.loop !12
 
 104:                                              ; preds = %84
   %105 = call i32 @llvm.smax.i32(i32 %86, i32 0)
@@ -313,7 +313,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
   %lftr.wideiv.i41.i = trunc i64 %indvars.iv.next.i40.i to i32
   %exitcond.not.i42.i = icmp eq i32 %114, %lftr.wideiv.i41.i
-  br i1 %exitcond.not.i42.i, label %_set_range.exit35.i, label %.lr.ph.split.i38.i, !llvm.loop !14
+  br i1 %exitcond.not.i42.i, label %_set_range.exit35.i, label %.lr.ph.split.i38.i, !llvm.loop !12
 
 _set_range.exit35.i:                              ; preds = %124, %103, %110, %89
   %125 = phi ptr [ %108, %110 ], [ %87, %89 ], [ %87, %103 ], [ %108, %124 ]
@@ -326,7 +326,7 @@ _set_range.exit35.i:                              ; preds = %124, %103, %110, %8
   store ptr %129, ptr %3, align 8
   %130 = add nuw nsw i32 %.046.i, 1
   %exitcond.not.i = icmp eq i32 %130, %0
-  br i1 %exitcond.not.i, label %_set_exec_names.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_set_exec_names.exit, label %.lr.ph.i, !llvm.loop !13
 
 131:                                              ; preds = %104, %84, %.lr.ph.i
   %132 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef nonnull %52) #9
@@ -339,7 +339,7 @@ _set_exec_names.exit:                             ; preds = %_set_range.exit35.i
 .backedge:                                        ; preds = %48, %.critedge, %.preheader, %_set_exec_names.exit, %38
   %133 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 16384, ptr noundef nonnull %9)
   %.not = icmp eq ptr %133, null
-  br i1 %.not, label %._crit_edge67, label %15, !llvm.loop !16
+  br i1 %.not, label %._crit_edge67, label %15, !llvm.loop !14
 
 ._crit_edge67:                                    ; preds = %.backedge, %.preheader55
   %134 = call i32 @fclose(ptr noundef nonnull %9)
@@ -415,7 +415,7 @@ define dso_local void @mpir_cleanup() local_unnamed_addr #0 {
   %7 = load i32, ptr @MPIR_proctable_size, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @slurm_xfree(ptr noundef nonnull @MPIR_proctable) #9
@@ -445,7 +445,7 @@ define dso_local void @mpir_set_executable_names(ptr noundef %0, i32 noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = trunc nsw i64 %indvars.iv.next to i32
   %12 = icmp ugt i32 %5, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -482,7 +482,7 @@ define dso_local void @mpir_dump_proctable() local_unnamed_addr #0 {
   %15 = load i32, ptr @MPIR_proctable_size, align 4
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %14, %0
   ret void
@@ -615,7 +615,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %63 = getelementptr inbounds nuw i8, ptr %.054102, i64 1
   %64 = load i8, ptr %63, align 1
   %cond = icmp eq i8 %64, 0
-  br i1 %cond, label %.backedge, label %56, !llvm.loop !20
+  br i1 %cond, label %.backedge, label %56, !llvm.loop !18
 
 .critedge:                                        ; preds = %56
   %cond134 = icmp eq i8 %57, 35
@@ -680,7 +680,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %94 = getelementptr inbounds nuw i8, ptr %.03248.i, i64 1
   %95 = load i8, ptr %94, align 1
   %.not37.i = icmp eq i8 %95, 0
-  br i1 %.not37.i, label %.critedge.i, label %87, !llvm.loop !21
+  br i1 %.not37.i, label %.critedge.i, label %87, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %93, %87, %.lr.ph55.i
   %.032.lcssa.i = phi ptr [ %.03354.i, %.lr.ph55.i ], [ %.03248.i, %87 ], [ %94, %93 ]
@@ -717,7 +717,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %110 = and i16 %109, 2048
   %.not40.i = icmp eq i16 %110, 0
   %111 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br i1 %.not40.i, label %112, label %105, !llvm.loop !22
+  br i1 %.not40.i, label %112, label %105, !llvm.loop !20
 
 112:                                              ; preds = %105
   %.not41.i = icmp eq i8 %106, 0
@@ -748,7 +748,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
 124:                                              ; preds = %122
   %125 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #9
   %.not.i = icmp eq ptr %125, null
-  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !23
+  br i1 %.not.i, label %_validate_ranks.exit.thread71, label %.lr.ph55.i, !llvm.loop !21
 
 _validate_ranks.exit.thread:                      ; preds = %122, %96, %113, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -780,7 +780,7 @@ _validate_ranks.exit:                             ; preds = %75
 134:                                              ; preds = %_validate_ranks.exit.thread71, %_validate_ranks.exit
   %135 = load ptr, ptr %14, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 216
-  %137 = load i8, ptr %136, align 8, !range !24, !noundef !25
+  %137 = load i8, ptr %136, align 8, !range !22, !noundef !23
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %144
 
@@ -802,7 +802,7 @@ _validate_ranks.exit:                             ; preds = %75
 .backedge:                                        ; preds = %62, %.critedge, %.preheader76, %144, %52
   %145 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 16384, ptr noundef nonnull %17)
   %.not = icmp eq ptr %145, null
-  br i1 %.not, label %.preheader, label %30, !llvm.loop !26
+  br i1 %.not, label %.preheader, label %30, !llvm.loop !24
 
 .lr.ph108:                                        ; preds = %.preheader, %151
   %indvars.iv = phi i64 [ %indvars.iv.next, %151 ], [ 0, %.preheader ]
@@ -821,7 +821,7 @@ _validate_ranks.exit:                             ; preds = %75
   %152 = load i32, ptr %8, align 8
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %.lr.ph108, label %.loopexit, !llvm.loop !27
+  br i1 %154, label %.lr.ph108, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %151, %.preheader, %148, %142, %.loopexit78, %70, %35
   %.051 = phi i32 [ -1, %35 ], [ -1, %.loopexit78 ], [ -1, %142 ], [ -1, %70 ], [ -1, %148 ], [ 0, %.preheader ], [ 0, %151 ]
@@ -879,7 +879,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %18 = load i8, ptr %17, align 4, !range !24, !noundef !25
+  %18 = load i8, ptr %17, align 4, !range !22, !noundef !23
   %19 = trunc nuw i8 %18 to i1
   %.not = xor i1 %19, true
   %.b31 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
@@ -919,7 +919,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %32 = trunc nuw i64 %indvars.iv41 to i32
   %.not32.us.not = icmp sgt i32 %1, %32
-  br i1 %.not32.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !28
+  br i1 %.not32.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %26, %.lr.ph ]
@@ -939,7 +939,7 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = trunc nuw i64 %indvars.iv to i32
   %.not32.not = icmp sgt i32 %1, %40
-  br i1 %.not32.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !29
+  br i1 %.not32.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %38, %31, %35, %20, %11, %7
   %.026 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %35 ], [ -1, %20 ], [ 0, %31 ], [ 0, %38 ]
@@ -990,8 +990,8 @@ attributes #12 = { noreturn nounwind }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
@@ -1000,11 +1000,8 @@ attributes #12 = { noreturn nounwind }
 !19 = distinct !{!19, !9, !10}
 !20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = !{i8 0, i8 2}
-!25 = !{}
+!22 = !{i8 0, i8 2}
+!23 = !{}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
 !26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10, !13}
-!29 = distinct !{!29, !9, !10}

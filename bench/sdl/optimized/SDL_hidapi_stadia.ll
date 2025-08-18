@@ -296,7 +296,7 @@ HIDAPI_DriverStadia_HandleStatePacket.exit:       ; preds = %.lr.ph.split, %125
   %137 = load ptr, ptr %13, align 8
   %138 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %137, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
   %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
+  br i1 %139, label %.lr.ph.split, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverStadia_HandleStatePacket.exit, %.backedge.us, %8
   %.lcssa = phi i32 [ %15, %8 ], [ %31, %.backedge.us ], [ %138, %HIDAPI_DriverStadia_HandleStatePacket.exit ]
@@ -340,7 +340,7 @@ define internal zeroext i1 @HIDAPI_DriverStadia_RumbleJoystick(ptr noundef %0, p
   %5 = alloca [5 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %17
 
@@ -383,7 +383,7 @@ define internal zeroext i1 @HIDAPI_DriverStadia_RumbleJoystickTriggers(ptr readn
 define internal range(i32 0, 17) i32 @HIDAPI_DriverStadia_GetJoystickCapabilities(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %5 = load i8, ptr %4, align 1, !range !5, !noundef !6
   %6 = shl nuw nsw i8 %5, 4
   %spec.select = zext nneg i8 %6 to i32
   ret i32 %spec.select
@@ -488,9 +488,7 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = distinct !{!6, !4}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!5 = !{i8 0, i8 2}
+!6 = !{}

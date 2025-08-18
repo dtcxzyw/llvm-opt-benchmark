@@ -2605,7 +2605,7 @@ _ZN2cv5rapidL14calcHueSatHistERKNS_4Mat_INS_3VecIhLi3EEEEERNS1_IfEE.exit51: ; pr
   %223 = load i32, ptr %18, align 8, !tbaa !78
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next, %224
-  br i1 %225, label %70, label %._crit_edge, !llvm.loop !116
+  br i1 %225, label %70, label %._crit_edge, !llvm.loop !115
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2696,7 +2696,7 @@ define linkonce_odr hidden void @_ZNK2cv5rapid15HistTrackerImpl23computeAppearan
   %58 = phi i32 [ %201, %._crit_edge.loopexit ], [ %53, %.preheader ]
   %59 = sext i32 %56 to i64
   %60 = icmp slt i64 %55, %59
-  br i1 %60, label %.preheader, label %._crit_edge79, !llvm.loop !117
+  br i1 %60, label %.preheader, label %._crit_edge79, !llvm.loop !116
 
 61:                                               ; preds = %.lr.ph, %200
   %62 = phi i32 [ %52, %.lr.ph ], [ %201, %200 ]
@@ -2727,8 +2727,8 @@ define linkonce_odr hidden void @_ZNK2cv5rapid15HistTrackerImpl23computeAppearan
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %.sroa.070.0.insert.insert, ptr %8, align 8, !noalias !118
-  store i64 %.sroa.0.0.insert.insert, ptr %9, align 8, !noalias !118
+  store i64 %.sroa.070.0.insert.insert, ptr %8, align 8, !noalias !117
+  store i64 %.sroa.0.0.insert.insert, ptr %9, align 8, !noalias !117
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %73 unwind label %182
 
@@ -2774,7 +2774,7 @@ define linkonce_odr hidden void @_ZNK2cv5rapid15HistTrackerImpl23computeAppearan
 
 91:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %92 = load i32, ptr %32, align 4, !tbaa !121
+  %92 = load i32, ptr %32, align 4, !tbaa !120
   invoke void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 3, i32 noundef %92, ptr noundef null)
           to label %.noexc66 unwind label %98
 
@@ -2958,7 +2958,7 @@ _ZN2cv5rapidL3sumERKNS_4Mat_IfEE.exit:            ; preds = %.lr.ph.i, %.noexc
   %162 = fadd double %.01112.i, %161
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i47
-  br i1 %exitcond.not.i51, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit, label %.lr.ph.i48, !llvm.loop !122
+  br i1 %exitcond.not.i51, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit, label %.lr.ph.i48, !llvm.loop !121
 
 _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit: ; preds = %.lr.ph.i48, %.noexc52
   %.011.lcssa.i = phi double [ 0.000000e+00, %.noexc52 ], [ %162, %.lr.ph.i48 ]
@@ -2994,7 +2994,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit: ; preds = %.lr.ph.i48, %.n
   %178 = fadd double %.01112.i58, %177
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i55
-  br i1 %exitcond.not.i60, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit62, label %.lr.ph.i56, !llvm.loop !122
+  br i1 %exitcond.not.i60, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit62, label %.lr.ph.i56, !llvm.loop !121
 
 _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit62: ; preds = %.lr.ph.i56, %.noexc61
   %.011.lcssa.i53 = phi double [ 0.000000e+00, %.noexc61 ], [ %178, %.lr.ph.i56 ]
@@ -3052,7 +3052,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit62: ; preds = %.lr.ph.i56, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = sext i32 %201 to i64
   %203 = icmp slt i64 %indvars.iv.next, %202
-  br i1 %203, label %61, label %._crit_edge.loopexit, !llvm.loop !123
+  br i1 %203, label %61, label %._crit_edge.loopexit, !llvm.loop !122
 
 204:                                              ; preds = %185, %187, %189, %184, %180
   %.pn39 = phi { ptr, i32 } [ %190, %189 ], [ %.pn.pn, %184 ], [ %181, %180 ], [ %188, %187 ], [ %186, %185 ]
@@ -3151,7 +3151,7 @@ define linkonce_odr hidden void @_ZN2cv5rapid15HistTrackerImpl23computeBackgroun
   %56 = phi i32 [ %50, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next87.pre-phi, %57
-  br i1 %58, label %49, label %._crit_edge82, !llvm.loop !124
+  br i1 %58, label %49, label %._crit_edge82, !llvm.loop !123
 
 59:                                               ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ %55, %.lr.ph ], [ %indvars.iv.next, %196 ]
@@ -3181,8 +3181,8 @@ define linkonce_odr hidden void @_ZN2cv5rapid15HistTrackerImpl23computeBackgroun
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i64 %.sroa.071.0.insert.insert, ptr %8, align 8, !noalias !125
-  store i64 %.sroa.0.0.insert.insert, ptr %9, align 8, !noalias !125
+  store i64 %.sroa.071.0.insert.insert, ptr %8, align 8, !noalias !124
+  store i64 %.sroa.0.0.insert.insert, ptr %9, align 8, !noalias !124
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %70 unwind label %179
 
@@ -3228,7 +3228,7 @@ define linkonce_odr hidden void @_ZN2cv5rapid15HistTrackerImpl23computeBackgroun
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %89 = load i32, ptr %32, align 4, !tbaa !121
+  %89 = load i32, ptr %32, align 4, !tbaa !120
   invoke void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 3, i32 noundef %89, ptr noundef null)
           to label %.noexc67 unwind label %95
 
@@ -3412,7 +3412,7 @@ _ZN2cv5rapidL3sumERKNS_4Mat_IfEE.exit:            ; preds = %.lr.ph.i, %.noexc
   %159 = fadd double %.01112.i, %158
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i48
-  br i1 %exitcond.not.i52, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit, label %.lr.ph.i49, !llvm.loop !122
+  br i1 %exitcond.not.i52, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit, label %.lr.ph.i49, !llvm.loop !121
 
 _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit: ; preds = %.lr.ph.i49, %.noexc53
   %.011.lcssa.i = phi double [ 0.000000e+00, %.noexc53 ], [ %159, %.lr.ph.i49 ]
@@ -3449,7 +3449,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit: ; preds = %.lr.ph.i49, %.n
   %176 = fadd double %.01112.i59, %175
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i56
-  br i1 %exitcond.not.i61, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit63, label %.lr.ph.i57, !llvm.loop !122
+  br i1 %exitcond.not.i61, label %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit63, label %.lr.ph.i57, !llvm.loop !121
 
 177:                                              ; preds = %67
   %178 = landingpad { ptr, i32 }
@@ -3499,7 +3499,7 @@ _ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit63: ; preds = %.lr.ph.i57, %
   %.133 = phi i32 [ %195, %_ZN2cv5rapidL18bhattacharyyaCoeffERKNS_3MatES3_.exit63 ], [ %.03277, %59 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %197 = icmp sgt i64 %indvars.iv, 0
-  br i1 %197, label %59, label %._crit_edge.loopexit, !llvm.loop !128
+  br i1 %197, label %59, label %._crit_edge.loopexit, !llvm.loop !127
 
 198:                                              ; preds = %182, %184, %186, %181, %177
   %.pn40 = phi { ptr, i32 } [ %187, %186 ], [ %.pn.pn, %181 ], [ %178, %177 ], [ %185, %184 ], [ %183, %182 ]
@@ -3586,7 +3586,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !121
+  %23 = load i32, ptr %22, align 4, !tbaa !120
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 3, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_INS_3VecIhLi3EEEEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -3712,7 +3712,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !121
+  %21 = load i32, ptr %20, align 4, !tbaa !120
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 3, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -3799,7 +3799,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !121
+  %23 = load i32, ptr %22, align 4, !tbaa !120
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 2, i32 noundef %23, ptr noundef null)
   %24 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv4Mat_INS_3VecIsLi2EEEEaSEONS_3MatE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %25 unwind label %26
@@ -3921,7 +3921,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN2
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !121
+  %21 = load i32, ptr %20, align 4, !tbaa !120
   call void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 2, i32 noundef %21, ptr noundef null)
   %22 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %23 unwind label %24
@@ -4121,18 +4121,17 @@ attributes #20 = { noreturn }
 !111 = !{!"_ZTSN2cv5RangeE", !10, i64 0, !10, i64 4}
 !112 = !{!111, !10, i64 4}
 !113 = distinct !{!113, !72}
-!114 = distinct !{!114, !72, !115}
-!115 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!116 = distinct !{!116, !72}
-!117 = distinct !{!117, !72, !80}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZNK2cv3MatclENS_5RangeES1_: argument 0"}
-!120 = distinct !{!120, !"_ZNK2cv3MatclENS_5RangeES1_"}
-!121 = !{!33, !10, i64 4}
+!114 = distinct !{!114, !72}
+!115 = distinct !{!115, !72}
+!116 = distinct !{!116, !72, !80}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZNK2cv3MatclENS_5RangeES1_: argument 0"}
+!119 = distinct !{!119, !"_ZNK2cv3MatclENS_5RangeES1_"}
+!120 = !{!33, !10, i64 4}
+!121 = distinct !{!121, !72}
 !122 = distinct !{!122, !72}
 !123 = distinct !{!123, !72}
-!124 = distinct !{!124, !72}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZNK2cv3MatclENS_5RangeES1_: argument 0"}
-!127 = distinct !{!127, !"_ZNK2cv3MatclENS_5RangeES1_"}
-!128 = distinct !{!128, !72}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZNK2cv3MatclENS_5RangeES1_: argument 0"}
+!126 = distinct !{!126, !"_ZNK2cv3MatclENS_5RangeES1_"}
+!127 = distinct !{!127, !72}

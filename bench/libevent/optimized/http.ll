@@ -5453,7 +5453,7 @@ define ptr @evhttp_uriencode(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
 36:                                               ; preds = %27, %33, %31
   %37 = getelementptr inbounds nuw i8, ptr %.04054, i64 1
   %38 = icmp ult ptr %37, %.039
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %36, %20, %10
   %39 = tail call i32 @evbuffer_add(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i64 noundef 1) #18
@@ -5561,7 +5561,7 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %40 = add i32 %.1.us, 1
   %41 = zext i32 %40 to i64
   %42 = icmp ugt i64 %1, %41
-  br i1 %42, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %42, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph ]
@@ -5625,7 +5625,7 @@ define i32 @evhttp_decode_uri_internal(ptr noundef readonly captures(none) %0, i
   %72 = add i32 %.1, 1
   %73 = zext i32 %72 to i64
   %74 = icmp ugt i64 %1, %73
-  br i1 %74, label %.lr.ph.split, label %._crit_edge.loopexit44, !llvm.loop !23
+  br i1 %74, label %.lr.ph.split, label %._crit_edge.loopexit44, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %38
   %75 = trunc nuw i64 %indvars.iv.next48 to i32
@@ -5734,7 +5734,7 @@ define ptr @evhttp_decode_uri(ptr noundef readonly captures(none) %0) local_unna
   %42 = add i32 %.1.us.i, 1
   %43 = zext i32 %42 to i64
   %44 = icmp ugt i64 %7, %43
-  br i1 %44, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i, !llvm.loop !22
+  br i1 %44, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i:                           ; preds = %40
   %45 = and i64 %indvars.iv.next48.i, 4294967295
@@ -5870,7 +5870,7 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
   %36 = phi ptr [ @.str.14, %34 ], [ %31, %33 ]
   %37 = load i8, ptr %30, align 1
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %thread-pre-split, label %43, !llvm.loop !24
+  br i1 %38, label %thread-pre-split, label %43, !llvm.loop !21
 
 39:                                               ; preds = %28
   br i1 %32, label %.thread, label %40
@@ -5957,7 +5957,7 @@ thread-pre-split:                                 ; preds = %evhttp_remove_heade
   %78 = add i32 %.1.i, 1
   %79 = zext i32 %78 to i64
   %80 = icmp ugt i64 %52, %79
-  br i1 %80, label %.lr.ph.split.i, label %._crit_edge.loopexit44.i, !llvm.loop !23
+  br i1 %80, label %.lr.ph.split.i, label %._crit_edge.loopexit44.i, !llvm.loop !20
 
 ._crit_edge.loopexit44.i:                         ; preds = %76
   %81 = and i64 %indvars.iv.next.i, 4294967295
@@ -6263,7 +6263,7 @@ define void @evhttp_foreach_bound_socket(ptr noundef readonly captures(none) %0,
   tail call void %1(ptr noundef nonnull %.08, ptr noundef %2) #18
   %.0 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -6888,7 +6888,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %8) #18
   %19 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.preheader68, label %7, !llvm.loop !26
+  br i1 %.not, label %.preheader68, label %7, !llvm.loop !23
 
 .preheader67:                                     ; preds = %.lr.ph71, %.preheader68
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6901,7 +6901,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @evhttp_connection_free(ptr noundef nonnull %22)
   %23 = load ptr, ptr %5, align 8
   %.not56 = icmp eq ptr %23, null
-  br i1 %.not56, label %.preheader67, label %.lr.ph71, !llvm.loop !27
+  br i1 %.not56, label %.preheader67, label %.lr.ph71, !llvm.loop !24
 
 .preheader66:                                     ; preds = %.lr.ph73, %.preheader67
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6918,7 +6918,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @evws_connection_free(ptr noundef nonnull %27) #18
   %28 = load ptr, ptr %20, align 8
   %.not57 = icmp eq ptr %28, null
-  br i1 %.not57, label %.preheader66, label %.lr.ph73, !llvm.loop !28
+  br i1 %.not57, label %.preheader66, label %.lr.ph73, !llvm.loop !25
 
 .preheader:                                       ; preds = %40, %.preheader66
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6956,7 +6956,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %33) #18
   %44 = load ptr, ptr %24, align 8
   %.not58 = icmp eq ptr %44, null
-  br i1 %.not58, label %.preheader, label %32, !llvm.loop !29
+  br i1 %.not58, label %.preheader, label %32, !llvm.loop !26
 
 45:                                               ; preds = %.lr.ph77, %53
   %46 = phi ptr [ %30, %.lr.ph77 ], [ %55, %53 ]
@@ -6981,7 +6981,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @evhttp_free(ptr noundef nonnull %46)
   %55 = load ptr, ptr %29, align 8
   %.not59 = icmp eq ptr %55, null
-  br i1 %.not59, label %._crit_edge, label %45, !llvm.loop !30
+  br i1 %.not59, label %._crit_edge, label %45, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %53, %.preheader
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -7029,7 +7029,7 @@ define void @evhttp_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_mm_free_(ptr noundef nonnull %64) #18
   %75 = load ptr, ptr %60, align 8
   %.not61 = icmp eq ptr %75, null
-  br i1 %.not61, label %._crit_edge81, label %63, !llvm.loop !31
+  br i1 %.not61, label %._crit_edge81, label %63, !llvm.loop !28
 
 ._crit_edge81:                                    ; preds = %71, %59
   tail call void @event_mm_free_(ptr noundef nonnull %0) #18
@@ -7159,7 +7159,7 @@ define range(i32 -1, 1) i32 @evhttp_remove_server_alias(ptr noundef captures(non
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %7, ptr noundef %1) #18
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %4, !llvm.loop !32
+  br i1 %9, label %10, label %4, !llvm.loop !29
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -7350,7 +7350,7 @@ define range(i32 -3, 1) i32 @evhttp_set_cb(ptr noundef captures(none) %0, ptr no
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #17
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit, label %6, !llvm.loop !33
+  br i1 %11, label %.loopexit, label %6, !llvm.loop !30
 
 12:                                               ; preds = %6
   %13 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 40) #18
@@ -7411,7 +7411,7 @@ define range(i32 -1, 1) i32 @evhttp_del_cb(ptr noundef captures(none) %0, ptr no
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %4, !llvm.loop !34
+  br i1 %9, label %10, label %4, !llvm.loop !31
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -7785,7 +7785,7 @@ evhttp_find_header.exit:                          ; preds = %12
   %25 = load i8, ptr %.030, align 1
   %26 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %25) #18
   %.not43 = icmp eq i32 %26, 0
-  br i1 %.not43, label %.critedge, label %22, !llvm.loop !35
+  br i1 %.not43, label %.critedge, label %22, !llvm.loop !32
 
 .critedge:                                        ; preds = %24
   %27 = load i8, ptr %.030, align 1
@@ -7963,7 +7963,7 @@ define ptr @evhttp_uri_parse_with_flags(ptr noundef %0, i32 noundef %1) local_un
 22:                                               ; preds = %20, %20, %20, %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %exitcond.not.i = icmp eq ptr %23, %10
-  br i1 %exitcond.not.i, label %scheme_ok.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %scheme_ok.exit, label %.lr.ph.i, !llvm.loop !33
 
 scheme_ok.exit:                                   ; preds = %22, %.preheader.i
   store i8 0, ptr %10, align 1
@@ -8086,7 +8086,7 @@ end_of_authority.exit:                            ; preds = %37, %37, %37, %37
 71:                                               ; preds = %.preheader
   %72 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 1
   %.pre108 = load i8, ptr %72, align 1
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader, !llvm.loop !34
 
 path_matches_noscheme.exit:                       ; preds = %.preheader, %.preheader, %66
   %73 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %.174) #18
@@ -8207,7 +8207,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr noundef nonnull
   %.sink.i = phi i64 [ 1, %20 ], [ 1, %.lr.ph.i ], [ 3, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 %.sink.i
   %38 = icmp ult ptr %37, %12
-  br i1 %38, label %.lr.ph.i, label %userinfo_ok.exit, !llvm.loop !38
+  br i1 %38, label %.lr.ph.i, label %userinfo_ok.exit, !llvm.loop !35
 
 userinfo_ok.exit:                                 ; preds = %36, %14
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -8260,7 +8260,7 @@ userinfo_ok.exit:                                 ; preds = %36, %14
   %57 = load i8, ptr %.064, align 1
   %58 = tail call i32 @EVUTIL_ISDIGIT_(i8 noundef signext %57) #18
   %.not79 = icmp eq i32 %58, 0
-  br i1 %.not79, label %.critedge, label %55, !llvm.loop !39
+  br i1 %.not79, label %.critedge, label %55, !llvm.loop !36
 
 .critedge:                                        ; preds = %56
   %59 = load i8, ptr %.064, align 1
@@ -8278,7 +8278,7 @@ userinfo_ok.exit:                                 ; preds = %36, %14
 65:                                               ; preds = %69
   %66 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 1
   %exitcond.not.i = icmp eq ptr %66, %2
-  br i1 %exitcond.not.i, label %.critedge85.sink.split, label %.lr.ph.i87, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.critedge85.sink.split, label %.lr.ph.i87, !llvm.loop !37
 
 .lr.ph.i87:                                       ; preds = %63, %65
   %.013.i = phi i32 [ %74, %65 ], [ 0, %63 ]
@@ -8382,7 +8382,7 @@ parse_port.exit.thread:                           ; preds = %69, %.lr.ph.i87
   %.sink.i93 = phi i64 [ 1, %99 ], [ 1, %.lr.ph.i91 ], [ 3, %108 ]
   %113 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 %.sink.i93
   %114 = icmp ult ptr %113, %.067
-  br i1 %114, label %.lr.ph.i91, label %regname_ok.exit, !llvm.loop !41
+  br i1 %114, label %.lr.ph.i91, label %regname_ok.exit, !llvm.loop !38
 
 regname_ok.exit:                                  ; preds = %112, %93, %89
   %.066 = phi i64 [ %spec.select, %89 ], [ %79, %93 ], [ %79, %112 ]
@@ -8491,7 +8491,7 @@ switch.early.test.us:                             ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %.356.us, i64 %.sink
   %24 = load i8, ptr %23, align 1
   %.not36.us = icmp eq i8 %24, 0
-  br i1 %.not36.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !42
+  br i1 %.not36.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !39
 
 25:                                               ; preds = %3
   switch i32 %1, label %default.unreachable66 [
@@ -8511,7 +8511,7 @@ switch.early.test.us:                             ; preds = %10
 
 27:                                               ; preds = %.preheader51
   %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader51, !llvm.loop !43
+  br label %.preheader51, !llvm.loop !40
 
 .preheader53:                                     ; preds = %25, %30
   %.2 = phi ptr [ %31, %30 ], [ %0, %25 ]
@@ -8523,7 +8523,7 @@ switch.early.test.us:                             ; preds = %10
 
 30:                                               ; preds = %.preheader53
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %.preheader53, !llvm.loop !44
+  br label %.preheader53, !llvm.loop !41
 
 32:                                               ; preds = %25
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
@@ -8583,7 +8583,7 @@ switch.early.test:                                ; preds = %39
   %55 = getelementptr inbounds nuw i8, ptr %.356, i64 %.sink71
   %56 = load i8, ptr %55, align 1
   %.not36 = icmp eq i8 %56, 0
-  br i1 %.not36, label %.critedge, label %.lr.ph.split, !llvm.loop !45
+  br i1 %.not36, label %.critedge, label %.lr.ph.split, !llvm.loop !39
 
 .critedge:                                        ; preds = %.preheader53, %.preheader53, %.preheader51, %.preheader51, %.preheader51, %51, %54, %18, %14, %switch.early.test.us, %22, %.preheader, %32
   %.0 = phi ptr [ %34, %32 ], [ %0, %.preheader ], [ %.356.us, %18 ], [ %.356.us, %14 ], [ %.356.us, %switch.early.test.us ], [ %23, %22 ], [ %.356, %51 ], [ %55, %54 ], [ %.1, %.preheader51 ], [ %.1, %.preheader51 ], [ %.1, %.preheader51 ], [ %.2, %.preheader53 ], [ %.2, %.preheader53 ]
@@ -8847,7 +8847,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_scheme(ptr noundef captures(none) %0
 16:                                               ; preds = %14, %14, %14, %.lr.ph.i
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %exitcond.not.i = icmp eq ptr %17, %5
-  br i1 %exitcond.not.i, label %scheme_ok.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %scheme_ok.exit, label %.lr.ph.i, !llvm.loop !33
 
 scheme_ok.exit:                                   ; preds = %16, %.preheader.i, %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8937,7 +8937,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_userinfo(ptr noundef captures(none) 
   %.sink.i = phi i64 [ 1, %10 ], [ 1, %.lr.ph.i ], [ 3, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 %.sink.i
   %28 = icmp ult ptr %27, %5
-  br i1 %28, label %.lr.ph.i, label %userinfo_ok.exit, !llvm.loop !38
+  br i1 %28, label %.lr.ph.i, label %userinfo_ok.exit, !llvm.loop !35
 
 userinfo_ok.exit:                                 ; preds = %26, %3, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9035,7 +9035,7 @@ define range(i32 -1, 1) i32 @evhttp_uri_set_host(ptr noundef captures(none) %0, 
   %.sink.i = phi i64 [ 1, %15 ], [ 1, %.lr.ph.i ], [ 3, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 %.sink.i
   %30 = icmp ult ptr %29, %7
-  br i1 %30, label %.lr.ph.ithread-pre-split, label %regname_ok.exit, !llvm.loop !41
+  br i1 %30, label %.lr.ph.ithread-pre-split, label %regname_ok.exit, !llvm.loop !38
 
 regname_ok.exit:                                  ; preds = %28, %8
   %.pr45 = load i8, ptr %1, align 1
@@ -9173,7 +9173,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.02745, i64 1
   %exitcond.not = icmp eq ptr %27, %scevgep
-  br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !42
 
 .critedgethread-pre-split:                        ; preds = %26, %.preheader
   %.027.lcssa = phi ptr [ %19, %.preheader ], [ %scevgep, %26 ]
@@ -9213,7 +9213,7 @@ define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull 
 .critedge40:                                      ; preds = %34, %.lr.ph48
   %.128 = getelementptr inbounds nuw i8, ptr %.12847, i64 1
   %exitcond56.not = icmp eq ptr %.128, %scevgep55
-  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !47
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !43
 
 38:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10879,12 +10879,12 @@ define internal void @evhttp_handle_request(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load ptr, ptr %37, align 8
   %39 = tail call fastcc i32 @prefix_suffix_match(ptr noundef %38, ptr noundef nonnull %31)
   %.not22.i = icmp eq i32 %39, 0
-  br i1 %.not22.i, label %35, label %40, !llvm.loop !48
+  br i1 %.not22.i, label %35, label %40, !llvm.loop !44
 
 40:                                               ; preds = %36, %35
   %.119.i = phi ptr [ %.018.i, %35 ], [ %.017.i, %36 ]
   %.not23.i = icmp eq ptr %.018.i, %.119.i
-  br i1 %.not23.i, label %evhttp_find_vhost.exit, label %.preheader.i, !llvm.loop !49
+  br i1 %.not23.i, label %evhttp_find_vhost.exit, label %.preheader.i, !llvm.loop !45
 
 evhttp_find_vhost.exit:                           ; preds = %40, %.evhttp_find_vhost.exit_crit_edge, %30
   %41 = phi ptr [ %.pre, %.evhttp_find_vhost.exit_crit_edge ], [ %1, %30 ], [ %.119.i, %40 ]
@@ -10962,7 +10962,7 @@ evhttp_find_vhost.exit:                           ; preds = %40, %.evhttp_find_v
   %78 = add i32 %.1.i.i, 1
   %79 = zext i32 %78 to i64
   %80 = icmp ugt i64 %45, %79
-  br i1 %80, label %.lr.ph.split.i.i, label %._crit_edge.loopexit44.i.i, !llvm.loop !23
+  br i1 %80, label %.lr.ph.split.i.i, label %._crit_edge.loopexit44.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit44.i.i:                       ; preds = %76
   %81 = and i64 %indvars.iv.next.i.i, 4294967295
@@ -10989,7 +10989,7 @@ evhttp_dispatch_callback.exit.thread30:           ; preds = %83
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %47) #17
   %.not16.i = icmp eq i32 %87, 0
-  br i1 %.not16.i, label %88, label %83, !llvm.loop !50
+  br i1 %.not16.i, label %88, label %83, !llvm.loop !46
 
 88:                                               ; preds = %84
   tail call void @event_mm_free_(ptr noundef nonnull %47) #18
@@ -11068,7 +11068,7 @@ define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %0, pt
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %8, ptr noundef nonnull %2) #18
   %.not19 = icmp eq i32 %9, 0
-  br i1 %.not19, label %10, label %5, !llvm.loop !51
+  br i1 %.not19, label %10, label %5, !llvm.loop !47
 
 10:                                               ; preds = %6
   store ptr %0, ptr %1, align 8
@@ -11087,7 +11087,7 @@ define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %0, pt
 14:                                               ; preds = %13
   %15 = tail call fastcc i32 @evhttp_find_alias(ptr noundef nonnull %.0, ptr noundef %1, ptr noundef %2)
   %.not18 = icmp eq i32 %15, 0
-  br i1 %.not18, label %13, label %.loopexit, !llvm.loop !52
+  br i1 %.not18, label %13, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %13, %14, %10
   %.015 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %14 ]
@@ -11122,7 +11122,7 @@ define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match(ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %.124, i64 1
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %.124 = phi ptr [ %11, %10 ], [ %.014, %.preheader ]
@@ -11250,10 +11250,10 @@ attributes #20 = { noreturn nounwind }
 !16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
 !21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4, !20}
+!22 = distinct !{!22, !4}
 !23 = distinct !{!23, !4}
 !24 = distinct !{!24, !4}
 !25 = distinct !{!25, !4}
@@ -11273,7 +11273,7 @@ attributes #20 = { noreturn nounwind }
 !39 = distinct !{!39, !4}
 !40 = distinct !{!40, !4}
 !41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4, !20}
+!42 = distinct !{!42, !4}
 !43 = distinct !{!43, !4}
 !44 = distinct !{!44, !4}
 !45 = distinct !{!45, !4}
@@ -11281,7 +11281,3 @@ attributes #20 = { noreturn nounwind }
 !47 = distinct !{!47, !4}
 !48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
-!50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4}

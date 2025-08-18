@@ -402,21 +402,21 @@ define internal noundef i32 @colorizey_slice16(ptr noundef readonly captures(non
 31:                                               ; preds = %.preheader.us, %31
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
   %32 = getelementptr inbounds nuw i16, ptr %.03133.us, i64 %indvars.iv
-  %33 = load i16, ptr %32, align 2, !tbaa !56
+  %33 = load i16, ptr %32, align 2, !tbaa !55
   %34 = uitofp i16 %33 to float
   %35 = fsub nsz float %34, %26
   %36 = tail call nsz noundef float @llvm.fmuladd.f32(float %35, float %21, float %26)
   %37 = fptoui float %36 to i16
-  store i16 %37, ptr %32, align 2, !tbaa !56
+  store i16 %37, ptr %32, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %31
   %38 = getelementptr inbounds i16, ptr %.03133.us, i64 %19
   %39 = add nsw i32 %.03034.us, 1
   %exitcond38.not = icmp eq i32 %39, %15
-  br i1 %exitcond38.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond38.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !58
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -481,14 +481,14 @@ define internal noundef i32 @colorize_slice8(ptr noundef readonly captures(none)
   store i8 %29, ptr %41, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %39
   %42 = getelementptr inbounds i8, ptr %.03741.us, i64 %18
   %43 = getelementptr inbounds i8, ptr %.03840.us, i64 %21
   %44 = add nsw i32 %.03642.us, 1
   %exitcond46.not = icmp eq i32 %44, %15
-  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !61
+  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !60
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -550,19 +550,19 @@ define internal noundef i32 @colorize_slice16(ptr noundef readonly captures(none
 41:                                               ; preds = %.preheader.us, %41
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %41 ]
   %42 = getelementptr inbounds nuw i16, ptr %.03741.us, i64 %indvars.iv
-  store i16 %30, ptr %42, align 2, !tbaa !56
+  store i16 %30, ptr %42, align 2, !tbaa !55
   %43 = getelementptr inbounds nuw i16, ptr %.03840.us, i64 %indvars.iv
-  store i16 %31, ptr %43, align 2, !tbaa !56
+  store i16 %31, ptr %43, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %41
   %44 = getelementptr inbounds i16, ptr %.03741.us, i64 %19
   %45 = getelementptr inbounds i16, ptr %.03840.us, i64 %23
   %46 = add nsw i32 %.03642.us, 1
   %exitcond46.not = icmp eq i32 %46, %15
-  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !63
+  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !62
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -639,13 +639,12 @@ attributes #8 = { nounwind }
 !51 = !{!8, !8, i64 0}
 !52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = distinct !{!54, !53, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"short", !8, i64 0}
+!54 = distinct !{!54, !53}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"short", !8, i64 0}
+!57 = distinct !{!57, !53}
 !58 = distinct !{!58, !53}
-!59 = distinct !{!59, !53, !55}
+!59 = distinct !{!59, !53}
 !60 = distinct !{!60, !53}
-!61 = distinct !{!61, !53, !55}
+!61 = distinct !{!61, !53}
 !62 = distinct !{!62, !53}
-!63 = distinct !{!63, !53, !55}

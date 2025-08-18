@@ -5469,7 +5469,7 @@ st_mult.exit.us:                                  ; preds = %.preheader.split.us
   %38 = add nsw i32 %22, -1
   store i32 %38, ptr %17, align 4, !tbaa !229
   %.old6.not.us = icmp eq ptr %37, null
-  br i1 %.old6.not.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !261
+  br i1 %.old6.not.us, label %.loopexit, label %.preheader.split.us
 
 .preheader.split:                                 ; preds = %.preheader, %56
   %39 = phi i32 [ %60, %56 ], [ %16, %.preheader ]
@@ -5592,7 +5592,7 @@ st_mult.exit:                                     ; preds = %.preheader.split
   %96 = load i32, ptr %91, align 8, !tbaa !190
   %97 = zext i32 %96 to i64
   %98 = icmp samesign ult i64 %indvars.iv.next, %97
-  br i1 %98, label %.lr.ph193, label %.critedge5, !llvm.loop !263
+  br i1 %98, label %.lr.ph193, label %.critedge5, !llvm.loop !261
 
 .lr.ph193:                                        ; preds = %.lr.ph, %95
   %indvars.iv192 = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.lr.ph ]
@@ -5607,10 +5607,10 @@ st_mult.exit:                                     ; preds = %.preheader.split
   %105 = load i32, ptr %82, align 4, !tbaa !229
   %106 = zext i32 %105 to i64
   %107 = icmp samesign ult i64 %indvars.iv.next, %106
-  br i1 %107, label %95, label %..critedge5.loopexit_crit_edge, !llvm.loop !263
+  br i1 %107, label %95, label %..critedge5.loopexit_crit_edge, !llvm.loop !261
 
 ..critedge5.loopexit_crit_edge:                   ; preds = %.lr.ph193
-  br label %.critedge5, !llvm.loop !263
+  br label %.critedge5, !llvm.loop !261
 
 .critedge5:                                       ; preds = %95, %.lr.ph, %..critedge5.loopexit_crit_edge, %81
   %108 = phi i32 [ 0, %81 ], [ %105, %..critedge5.loopexit_crit_edge ], [ %92, %.lr.ph ], [ %105, %95 ]
@@ -5667,7 +5667,7 @@ st_mult.exit:                                     ; preds = %.preheader.split
   %137 = getelementptr inbounds nuw i8, ptr %.2137, i64 88
   %.2 = load ptr, ptr %137, align 8, !tbaa !128
   %.not95 = icmp eq ptr %.2, null
-  br i1 %.not95, label %._crit_edge, label %115, !llvm.loop !264
+  br i1 %.not95, label %._crit_edge, label %115, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %136, %.critedge5
   ret void
@@ -5805,7 +5805,7 @@ st_mult.exit.i:                                   ; preds = %49
   %68 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 88
   %69 = load ptr, ptr %68, align 8, !tbaa !114
   %.not.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i, label %.critedge15.i.i, label %.lr.ph.i.i, !llvm.loop !265
+  br i1 %.not.i.i, label %.critedge15.i.i, label %.lr.ph.i.i, !llvm.loop !263
 
 .critedge15.i.i:                                  ; preds = %67
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.48, i32 noundef 860, ptr noundef nonnull @.str.49) #25
@@ -5891,7 +5891,7 @@ load_oid_from_graph.exit.i:                       ; preds = %98, %.split.loop.ex
   %109 = load i32, ptr %31, align 4, !tbaa !97
   %110 = zext i32 %109 to i64
   %111 = icmp samesign ult i64 %indvars.iv.next.i, %110
-  br i1 %111, label %60, label %merge_commit_graph.exit, !llvm.loop !266
+  br i1 %111, label %60, label %merge_commit_graph.exit, !llvm.loop !264
 
 merge_commit_graph.exit:                          ; preds = %108, %57
   %112 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
@@ -5908,7 +5908,7 @@ stop_progress.exit:                               ; preds = %merge_commit_graph.
   %115 = getelementptr inbounds nuw i8, ptr %.02151, i64 88
   %.021 = load ptr, ptr %115, align 8, !tbaa !128
   %.not = icmp eq ptr %.021, null
-  br i1 %.not, label %.critedge26, label %16, !llvm.loop !267
+  br i1 %.not, label %.critedge26, label %16, !llvm.loop !265
 
 .critedge:                                        ; preds = %16
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -5919,7 +5919,7 @@ stop_progress.exit:                               ; preds = %merge_commit_graph.
   %120 = load i32, ptr %119, align 8, !tbaa !116
   %121 = add i32 %120, %118
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %121, ptr %122, align 8, !tbaa !268
+  store i32 %121, ptr %122, align 8, !tbaa !266
   br label %.critedge26
 
 .critedge26:                                      ; preds = %stop_progress.exit, %1, %.critedge
@@ -6041,7 +6041,7 @@ sane_qsort.exit.i:                                ; preds = %148, %143
   %.1.i = phi i32 [ %.02833.i, %158 ], [ %172, %178 ], [ %172, %167 ]
   %183 = load i64, ptr %145, align 8, !tbaa !222
   %184 = icmp ugt i64 %183, %157
-  br i1 %184, label %153, label %._crit_edge.loopexit.i, !llvm.loop !269
+  br i1 %184, label %153, label %._crit_edge.loopexit.i, !llvm.loop !267
 
 ._crit_edge.loopexit.i:                           ; preds = %182
   %185 = zext i32 %.1.i to i64
@@ -6136,7 +6136,7 @@ _.exit:                                           ; preds = %13, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i64, ptr %25, align 8, !tbaa !222
   %36 = icmp ugt i64 %35, %indvars.iv.next
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !270
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !268
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %22
   call fastcc void @compute_reachable_generation_numbers(ptr noundef %2, i32 noundef 2)
@@ -6175,7 +6175,7 @@ _.exit:                                           ; preds = %13, %16
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %56 = load i64, ptr %37, align 8, !tbaa !222
   %57 = icmp ugt i64 %56, %indvars.iv.next34
-  br i1 %57, label %40, label %._crit_edge, !llvm.loop !271
+  br i1 %57, label %40, label %._crit_edge, !llvm.loop !269
 
 ._crit_edge:                                      ; preds = %55, %.loopexit
   %58 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
@@ -6199,7 +6199,7 @@ define internal fastcc void @compute_bloom_filters(ptr noundef captures(none) %0
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store ptr null, ptr %2, align 8, !tbaa !272
+  store ptr null, ptr %2, align 8, !tbaa !270
   tail call void @init_bloom_filters() #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i8, ptr %4, align 8
@@ -6222,7 +6222,7 @@ _.exit:                                           ; preds = %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !222
   %14 = tail call ptr @start_delayed_progress(ptr noundef %8, ptr noundef %.0.i, i64 noundef %13) #24
-  store ptr %14, ptr %2, align 8, !tbaa !272
+  store ptr %14, ptr %2, align 8, !tbaa !270
   br label %15
 
 15:                                               ; preds = %1, %_.exit
@@ -6273,7 +6273,7 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
 
 30:                                               ; preds = %sane_qsort.exit
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %32 = load i32, ptr %31, align 4, !tbaa !273
+  %32 = load i32, ptr %31, align 4, !tbaa !271
   %33 = icmp sgt i32 %32, -1
   %.pre54 = load i64, ptr %17, align 8, !tbaa !222
   br i1 %33, label %._crit_edge52, label %34
@@ -6306,7 +6306,7 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   %47 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !165
   %49 = load ptr, ptr %0, align 8, !tbaa !178
-  %50 = load i32, ptr %39, align 8, !tbaa !274
+  %50 = load i32, ptr %39, align 8, !tbaa !272
   %51 = icmp slt i32 %50, %38
   %52 = zext i1 %51 to i32
   %53 = load ptr, ptr %40, align 8, !tbaa !187
@@ -6317,17 +6317,17 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   br i1 %.not42, label %69, label %57
 
 57:                                               ; preds = %46
-  %58 = load i32, ptr %39, align 8, !tbaa !274
+  %58 = load i32, ptr %39, align 8, !tbaa !272
   %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %39, align 8, !tbaa !274
+  store i32 %59, ptr %39, align 8, !tbaa !272
   %60 = and i32 %55, 8
   %.not45 = icmp eq i32 %60, 0
   br i1 %.not45, label %64, label %61
 
 61:                                               ; preds = %57
-  %62 = load i32, ptr %41, align 8, !tbaa !275
+  %62 = load i32, ptr %41, align 8, !tbaa !273
   %63 = add nsw i32 %62, 1
-  store i32 %63, ptr %41, align 8, !tbaa !275
+  store i32 %63, ptr %41, align 8, !tbaa !273
   br label %64
 
 64:                                               ; preds = %61, %57
@@ -6336,9 +6336,9 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   br i1 %.not46, label %79, label %66
 
 66:                                               ; preds = %64
-  %67 = load i32, ptr %42, align 4, !tbaa !276
+  %67 = load i32, ptr %42, align 4, !tbaa !274
   %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %42, align 4, !tbaa !276
+  store i32 %68, ptr %42, align 4, !tbaa !274
   br label %79
 
 69:                                               ; preds = %46
@@ -6347,9 +6347,9 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   br i1 %.not43, label %74, label %71
 
 71:                                               ; preds = %69
-  %72 = load i32, ptr %43, align 8, !tbaa !277
+  %72 = load i32, ptr %43, align 8, !tbaa !275
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %43, align 8, !tbaa !277
+  store i32 %73, ptr %43, align 8, !tbaa !275
   br label %79
 
 74:                                               ; preds = %69
@@ -6358,9 +6358,9 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   br i1 %.not44, label %79, label %76
 
 76:                                               ; preds = %74
-  %77 = load i32, ptr %44, align 4, !tbaa !278
+  %77 = load i32, ptr %44, align 4, !tbaa !276
   %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %44, align 4, !tbaa !278
+  store i32 %78, ptr %44, align 4, !tbaa !276
   br label %79
 
 79:                                               ; preds = %71, %76, %74, %64, %66
@@ -6369,7 +6369,7 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %82 = load i64, ptr %81, align 8, !tbaa !279
+  %82 = load i64, ptr %81, align 8, !tbaa !277
   br label %83
 
 83:                                               ; preds = %79, %80
@@ -6382,7 +6382,7 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = load i64, ptr %17, align 8, !tbaa !222
   %88 = icmp ugt i64 %87, %indvars.iv.next
-  br i1 %88, label %46, label %._crit_edge, !llvm.loop !281
+  br i1 %88, label %46, label %._crit_edge, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %83, %._crit_edge52
   %89 = call i32 @trace2_is_enabled() #24
@@ -6392,27 +6392,27 @@ sane_qsort.exit._crit_edge:                       ; preds = %sane_qsort.exit
 90:                                               ; preds = %._crit_edge
   %91 = load ptr, ptr %0, align 8, !tbaa !178
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %93 = load i32, ptr %92, align 8, !tbaa !274
+  %93 = load i32, ptr %92, align 8, !tbaa !272
   %94 = sext i32 %93 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.48, i32 noundef 1784, ptr noundef nonnull @.str.83, ptr noundef %91, ptr noundef nonnull @.str.84, i64 noundef %94) #24
   %95 = load ptr, ptr %0, align 8, !tbaa !178
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %97 = load i32, ptr %96, align 4, !tbaa !278
+  %97 = load i32, ptr %96, align 4, !tbaa !276
   %98 = sext i32 %97 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.48, i32 noundef 1786, ptr noundef nonnull @.str.83, ptr noundef %95, ptr noundef nonnull @.str.85, i64 noundef %98) #24
   %99 = load ptr, ptr %0, align 8, !tbaa !178
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %101 = load i32, ptr %100, align 8, !tbaa !275
+  %101 = load i32, ptr %100, align 8, !tbaa !273
   %102 = sext i32 %101 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.48, i32 noundef 1788, ptr noundef nonnull @.str.83, ptr noundef %99, ptr noundef nonnull @.str.86, i64 noundef %102) #24
   %103 = load ptr, ptr %0, align 8, !tbaa !178
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %105 = load i32, ptr %104, align 4, !tbaa !276
+  %105 = load i32, ptr %104, align 4, !tbaa !274
   %106 = sext i32 %105 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.48, i32 noundef 1790, ptr noundef nonnull @.str.83, ptr noundef %103, ptr noundef nonnull @.str.87, i64 noundef %106) #24
   %107 = load ptr, ptr %0, align 8, !tbaa !178
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %109 = load i32, ptr %108, align 8, !tbaa !277
+  %109 = load i32, ptr %108, align 8, !tbaa !275
   %110 = sext i32 %109 to i64
   call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.48, i32 noundef 1792, ptr noundef nonnull @.str.83, ptr noundef %107, ptr noundef nonnull @.str.88, i64 noundef %110) #24
   br label %111
@@ -6470,9 +6470,9 @@ define internal fastcc void @mark_commit_graphs(ptr noundef readonly captures(no
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %17
-  %24 = load i64, ptr %14, align 8, !tbaa !282
-  store i64 %24, ptr %4, align 8, !tbaa !283
-  store i64 %6, ptr %15, align 8, !tbaa !285
+  %24 = load i64, ptr %14, align 8, !tbaa !280
+  store i64 %24, ptr %4, align 8, !tbaa !281
+  store i64 %6, ptr %15, align 8, !tbaa !283
   %25 = load ptr, ptr %13, align 8, !tbaa !192
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !193
@@ -6486,7 +6486,7 @@ define internal fastcc void @mark_commit_graphs(ptr noundef readonly captures(no
   %30 = load i32, ptr %10, align 8, !tbaa !190
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %17, label %._crit_edge, !llvm.loop !286
+  br i1 %32, label %17, label %._crit_edge, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %29, %1
   ret void
@@ -6503,7 +6503,7 @@ define dso_local i32 @verify_commit_graph(ptr noundef %0, ptr noundef readonly c
   %8 = alloca %struct.object_id, align 4
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr null, ptr %9, align 8, !tbaa !272
+  store ptr null, ptr %9, align 8, !tbaa !270
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %11
 
@@ -6549,7 +6549,7 @@ define dso_local i32 @verify_commit_graph(ptr noundef %0, ptr noundef readonly c
 _.exit:                                           ; preds = %23, %26
   %.0.i = phi ptr [ %27, %26 ], [ @.str.28, %23 ]
   %28 = tail call ptr @start_progress(ptr noundef %24, ptr noundef %.0.i, i64 noundef %.0) #24
-  store ptr %28, ptr %9, align 8, !tbaa !272
+  store ptr %28, ptr %9, align 8, !tbaa !270
   br label %29
 
 29:                                               ; preds = %._crit_edge, %_.exit
@@ -6564,7 +6564,7 @@ _.exit:                                           ; preds = %23, %26
   %.01450 = phi i32 [ 0, %29 ], [ %418, %419 ]
   %.01648 = phi ptr [ %1, %29 ], [ %421, %419 ]
   %.03147 = phi i64 [ 0, %29 ], [ %.3, %419 ]
-  %34 = load ptr, ptr %9, align 8, !tbaa !272
+  %34 = load ptr, ptr %9, align 8, !tbaa !270
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val.i = load ptr, ptr %.01648, align 8, !tbaa !83
@@ -6744,7 +6744,7 @@ _.exit132.i:                                      ; preds = %110, %108
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %115 = zext i8 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next.i, %115
-  br i1 %116, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !287
+  br i1 %116, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !285
 
 ._crit_edge.loopexit.i:                           ; preds = %113
   %117 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -6844,7 +6844,7 @@ parse_commit_in_graph_one.exit.thread212.i:       ; preds = %_.exit138.i, %parse
   %155 = load i32, ptr %42, align 4, !tbaa !97
   %156 = zext i32 %155 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next262.i, %156
-  br i1 %157, label %st_mult.exit.i, label %.preheader218.i, !llvm.loop !288
+  br i1 %157, label %st_mult.exit.i, label %.preheader218.i, !llvm.loop !286
 
 158:                                              ; preds = %184, %.lr.ph232.i
   %indvars.iv264.i = phi i64 [ %50, %.lr.ph232.i ], [ %indvars.iv.next265.i, %184 ]
@@ -6890,7 +6890,7 @@ _.exit141.i:                                      ; preds = %181, %179
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %185 = and i64 %indvars.iv.next265.i, 4294967295
   %exitcond.not.i = icmp eq i64 %185, 256
-  br i1 %exitcond.not.i, label %._crit_edge233.i, label %158, !llvm.loop !289
+  br i1 %exitcond.not.i, label %._crit_edge233.i, label %158, !llvm.loop !287
 
 ._crit_edge233.i:                                 ; preds = %184, %.preheader218.i
   %186 = load i32, ptr @verify_commit_graph_error, align 4, !tbaa !47
@@ -7286,7 +7286,7 @@ commit_graph_generation_from_graph.exit.i:        ; preds = %348, %commit_graph_
   %.090.i = load ptr, ptr %352, align 8, !tbaa !164
   %.091.i = load ptr, ptr %351, align 8, !tbaa !164
   %.not112.i = icmp eq ptr %.091.i, null
-  br i1 %.not112.i, label %._crit_edge242.i, label %.lr.ph241.i, !llvm.loop !290
+  br i1 %.not112.i, label %._crit_edge242.i, label %.lr.ph241.i, !llvm.loop !288
 
 ._crit_edge242.i:                                 ; preds = %commit_graph_generation_from_graph.exit.i, %281
   %.0.lcssa.i = phi i64 [ 0, %281 ], [ %spec.select.i, %commit_graph_generation_from_graph.exit.i ]
@@ -7436,7 +7436,7 @@ _.exit206.i:                                      ; preds = %399, %397
   %404 = load i32, ptr %42, align 4, !tbaa !97
   %405 = zext i32 %404 to i64
   %406 = icmp samesign ult i64 %indvars.iv.next268.i, %405
-  br i1 %406, label %st_mult.exit145.i, label %._crit_edge248.i, !llvm.loop !291
+  br i1 %406, label %st_mult.exit145.i, label %._crit_edge248.i, !llvm.loop !289
 
 ._crit_edge248.i:                                 ; preds = %.thread284.i
   %407 = icmp ne ptr %.199.i, null
@@ -7479,7 +7479,7 @@ verify_one_commit_graph.exit:                     ; preds = %._crit_edge233.i, %
   %420 = getelementptr inbounds nuw i8, ptr %.01648, i64 88
   %421 = load ptr, ptr %420, align 8, !tbaa !114
   %.not20 = icmp eq ptr %421, null
-  br i1 %.not20, label %422, label %33, !llvm.loop !292
+  br i1 %.not20, label %422, label %33, !llvm.loop !290
 
 422:                                              ; preds = %verify_one_commit_graph.exit, %419
   %423 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
@@ -7507,9 +7507,9 @@ define internal void @graph_report(ptr noundef readonly captures(none) %0, ...) 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr @verify_commit_graph_error, align 4, !tbaa !47
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !293
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !291
   %4 = call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #29
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !293
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !291
   %fputc = call i32 @fputc(i32 10, ptr %5)
   call void @llvm.va_end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -7564,7 +7564,7 @@ define internal fastcc nonnull ptr @insert_parent_or_die(ptr noundef %0, ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %.020.i, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !114
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.critedge15.i, label %.lr.ph.i, !llvm.loop !265
+  br i1 %.not.i, label %.critedge15.i, label %.lr.ph.i, !llvm.loop !263
 
 .critedge15.i:                                    ; preds = %15
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.48, i32 noundef 860, ptr noundef nonnull @.str.49) #25
@@ -7691,7 +7691,7 @@ commit_graph_data_slab_peek.exit:                 ; preds = %4
   store ptr null, ptr %18, align 8, !tbaa !59
   %19 = add i32 %.0303.i.i, 1
   %.not34.i.i = icmp ugt i32 %19, %1
-  br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !295
+  br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !293
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %10
   store i32 %11, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
@@ -7725,7 +7725,7 @@ commit_graph_data_slab_at.exit:                   ; preds = %.thread.i.i, %.thre
   store i32 -1, ptr %35, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32766
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !296
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !294
 
 .loopexit:                                        ; preds = %34, %commit_graph_data_slab_peek.exit
   %.0 = phi ptr [ %9, %commit_graph_data_slab_peek.exit ], [ %30, %34 ]
@@ -7795,7 +7795,7 @@ define internal noundef i32 @add_packed_commits(ptr noundef %0, ptr noundef %1, 
   br label %16
 
 16:                                               ; preds = %11, %4
-  store ptr %5, ptr %6, align 8, !tbaa !297
+  store ptr %5, ptr %6, align 8, !tbaa !295
   %17 = load ptr, ptr %3, align 8, !tbaa !178
   %18 = call i32 @packed_object_info(ptr noundef %17, ptr noundef %1, i64 noundef %7, ptr noundef nonnull %6) #24
   %19 = icmp slt i32 %18, 0
@@ -7828,9 +7828,9 @@ define internal noundef i32 @add_packed_commits(ptr noundef %0, ptr noundef %1, 
   %.val.i = load i32, ptr %32, align 8, !tbaa !49
   %33 = udiv i32 %.val.i, 131064
   %34 = urem i32 %.val.i, 131064
-  %35 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  %35 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   %.not.i.i.i = icmp ugt i32 %35, %33
-  %.pre.i.i.i = load ptr, ptr @commit_pos.3, align 8, !tbaa !303
+  %.pre.i.i.i = load ptr, ptr @commit_pos.3, align 8, !tbaa !301
   br i1 %.not.i.i.i, label %44, label %st_mult.exit.i.i.i
 
 st_mult.exit.i.i.i:                               ; preds = %29
@@ -7838,8 +7838,8 @@ st_mult.exit.i.i.i:                               ; preds = %29
   %37 = shl nuw nsw i32 %36, 3
   %38 = zext nneg i32 %37 to i64
   %39 = call ptr @xrealloc(ptr noundef %.pre.i.i.i, i64 noundef %38) #24
-  store ptr %39, ptr @commit_pos.3, align 8, !tbaa !303
-  %40 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  store ptr %39, ptr @commit_pos.3, align 8, !tbaa !301
+  %40 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   %.not332.i.i.i = icmp ugt i32 %40, %33
   br i1 %.not332.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -7850,10 +7850,10 @@ st_mult.exit.i.i.i:                               ; preds = %29
   store ptr null, ptr %42, align 8, !tbaa !148
   %43 = add i32 %.0303.i.i.i, 1
   %.not33.i.i.i = icmp ugt i32 %43, %33
-  br i1 %.not33.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !304
+  br i1 %.not33.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !302
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %st_mult.exit.i.i.i
-  store i32 %36, ptr @commit_pos.2, align 8, !tbaa !301
+  store i32 %36, ptr @commit_pos.2, align 8, !tbaa !299
   br label %44
 
 44:                                               ; preds = %._crit_edge.i.i.i, %29
@@ -7866,7 +7866,7 @@ st_mult.exit.i.i.i:                               ; preds = %29
 
 49:                                               ; preds = %44
   %50 = call ptr @xcalloc(i64 noundef 131064, i64 noundef 4) #24
-  %51 = load ptr, ptr @commit_pos.3, align 8, !tbaa !303
+  %51 = load ptr, ptr @commit_pos.3, align 8, !tbaa !301
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %46
   store ptr %50, ptr %52, align 8, !tbaa !148
   br label %commit_pos_at.exit.i
@@ -8113,9 +8113,9 @@ define internal i32 @commit_pos_cmp(ptr noundef readonly captures(none) %0, ptr 
   %.val4 = load i32, ptr %5, align 8, !tbaa !49
   %6 = udiv i32 %.val4, 131064
   %7 = urem i32 %.val4, 131064
-  %8 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  %8 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   %.not.i.i = icmp ugt i32 %8, %6
-  %.pre.i.i = load ptr, ptr @commit_pos.3, align 8, !tbaa !303
+  %.pre.i.i = load ptr, ptr @commit_pos.3, align 8, !tbaa !301
   br i1 %.not.i.i, label %17, label %st_mult.exit.i.i
 
 st_mult.exit.i.i:                                 ; preds = %2
@@ -8123,8 +8123,8 @@ st_mult.exit.i.i:                                 ; preds = %2
   %10 = shl nuw nsw i32 %9, 3
   %11 = zext nneg i32 %10 to i64
   %12 = tail call ptr @xrealloc(ptr noundef %.pre.i.i, i64 noundef %11) #24
-  store ptr %12, ptr @commit_pos.3, align 8, !tbaa !303
-  %13 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  store ptr %12, ptr @commit_pos.3, align 8, !tbaa !301
+  %13 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   %.not332.i.i = icmp ugt i32 %13, %6
   br i1 %.not332.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -8135,10 +8135,10 @@ st_mult.exit.i.i:                                 ; preds = %2
   store ptr null, ptr %15, align 8, !tbaa !148
   %16 = add i32 %.0303.i.i, 1
   %.not33.i.i = icmp ugt i32 %16, %6
-  br i1 %.not33.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !304
+  br i1 %.not33.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !302
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %st_mult.exit.i.i
-  store i32 %9, ptr @commit_pos.2, align 8, !tbaa !301
+  store i32 %9, ptr @commit_pos.2, align 8, !tbaa !299
   br label %17
 
 17:                                               ; preds = %._crit_edge.i.i, %2
@@ -8152,10 +8152,10 @@ st_mult.exit.i.i:                                 ; preds = %2
 
 23:                                               ; preds = %17
   %24 = tail call ptr @xcalloc(i64 noundef 131064, i64 noundef 4) #24
-  %25 = load ptr, ptr @commit_pos.3, align 8, !tbaa !303
+  %25 = load ptr, ptr @commit_pos.3, align 8, !tbaa !301
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %20
   store ptr %24, ptr %26, align 8, !tbaa !148
-  %.pre16 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  %.pre16 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   br label %commit_pos_at.exit
 
 commit_pos_at.exit:                               ; preds = %17, %23
@@ -8174,8 +8174,8 @@ st_mult.exit.i.i7:                                ; preds = %commit_pos_at.exit
   %33 = shl nuw nsw i32 %32, 3
   %34 = zext nneg i32 %33 to i64
   %35 = tail call ptr @xrealloc(ptr noundef nonnull %.pre.i.i6, i64 noundef %34) #24
-  store ptr %35, ptr @commit_pos.3, align 8, !tbaa !303
-  %36 = load i32, ptr @commit_pos.2, align 8, !tbaa !301
+  store ptr %35, ptr @commit_pos.3, align 8, !tbaa !301
+  %36 = load i32, ptr @commit_pos.2, align 8, !tbaa !299
   %.not332.i.i8 = icmp ugt i32 %36, %30
   br i1 %.not332.i.i8, label %._crit_edge.i.i12, label %.lr.ph.i.i9
 
@@ -8186,10 +8186,10 @@ st_mult.exit.i.i7:                                ; preds = %commit_pos_at.exit
   store ptr null, ptr %38, align 8, !tbaa !148
   %39 = add i32 %.0303.i.i10, 1
   %.not33.i.i11 = icmp ugt i32 %39, %30
-  br i1 %.not33.i.i11, label %._crit_edge.i.i12, label %.lr.ph.i.i9, !llvm.loop !304
+  br i1 %.not33.i.i11, label %._crit_edge.i.i12, label %.lr.ph.i.i9, !llvm.loop !302
 
 ._crit_edge.i.i12:                                ; preds = %.lr.ph.i.i9, %st_mult.exit.i.i7
-  store i32 %32, ptr @commit_pos.2, align 8, !tbaa !301
+  store i32 %32, ptr @commit_pos.2, align 8, !tbaa !299
   br label %40
 
 40:                                               ; preds = %._crit_edge.i.i12, %commit_pos_at.exit
@@ -8202,7 +8202,7 @@ st_mult.exit.i.i7:                                ; preds = %commit_pos_at.exit
 
 45:                                               ; preds = %40
   %46 = tail call ptr @xcalloc(i64 noundef 131064, i64 noundef 4) #24
-  %47 = load ptr, ptr @commit_pos.3, align 8, !tbaa !303
+  %47 = load ptr, ptr @commit_pos.3, align 8, !tbaa !301
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %42
   store ptr %46, ptr %48, align 8, !tbaa !148
   br label %commit_pos_at.exit14
@@ -8311,15 +8311,15 @@ define internal noundef i32 @write_graph_chunk_fanout(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr %7, align 8, !tbaa !203
-  %18 = load i64, ptr %8, align 8, !tbaa !305
+  %18 = load i64, ptr %8, align 8, !tbaa !303
   %19 = add i64 %18, 1
-  store i64 %19, ptr %8, align 8, !tbaa !305
+  store i64 %19, ptr %8, align 8, !tbaa !303
   call void @display_progress(ptr noundef %17, i64 noundef %19) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %.117, i64 8
   %21 = load i64, ptr %6, align 8, !tbaa !222
   %22 = icmp ugt i64 %21, %indvars.iv.next
-  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !306
+  br i1 %22, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !304
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %16
   %.114.lcssa.ph.in = phi i64 [ %indvars.iv.next, %16 ], [ %indvars.iv, %.lr.ph ]
@@ -8337,7 +8337,7 @@ define internal noundef i32 @write_graph_chunk_fanout(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = add nuw nsw i32 %.01522, 1
   %exitcond.not = icmp eq i32 %24, 256
-  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !307
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !305
 
 25:                                               ; preds = %._crit_edge
   ret i32 0
@@ -8361,9 +8361,9 @@ define internal noundef i32 @write_graph_chunk_oids(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.0910 = phi ptr [ %6, %.lr.ph ], [ %21, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !203
-  %11 = load i64, ptr %8, align 8, !tbaa !305
+  %11 = load i64, ptr %8, align 8, !tbaa !303
   %12 = add i64 %11, 1
-  store i64 %12, ptr %8, align 8, !tbaa !305
+  store i64 %12, ptr %8, align 8, !tbaa !303
   tail call void @display_progress(ptr noundef %10, i64 noundef %12) #24
   %13 = load ptr, ptr %.0910, align 8, !tbaa !165
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -8378,7 +8378,7 @@ define internal noundef i32 @write_graph_chunk_oids(ptr noundef %0, ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %.0910, i64 8
   %22 = load i64, ptr %3, align 8, !tbaa !222
   %23 = icmp ugt i64 %22, %indvars.iv.next
-  br i1 %23, label %9, label %._crit_edge, !llvm.loop !308
+  br i1 %23, label %9, label %._crit_edge, !llvm.loop !306
 
 ._crit_edge:                                      ; preds = %9, %2
   ret i32 0
@@ -8415,9 +8415,9 @@ define internal noundef i32 @write_graph_chunk_data(ptr noundef %0, ptr noundef 
   %.061154 = phi i32 [ 0, %.lr.ph ], [ %.162, %topo_level_slab_at.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = load ptr, ptr %14, align 8, !tbaa !203
-  %22 = load i64, ptr %15, align 8, !tbaa !305
+  %22 = load i64, ptr %15, align 8, !tbaa !303
   %23 = add i64 %22, 1
-  store i64 %23, ptr %15, align 8, !tbaa !305
+  store i64 %23, ptr %15, align 8, !tbaa !303
   call void @display_progress(ptr noundef %21, i64 noundef %23) #24
   %24 = load ptr, ptr %1, align 8, !tbaa !178
   %25 = load ptr, ptr %.058155, align 8, !tbaa !165
@@ -8459,7 +8459,7 @@ define internal noundef i32 @write_graph_chunk_data(ptr noundef %0, ptr noundef 
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %44
-  %52 = load i32, ptr %17, align 8, !tbaa !268
+  %52 = load i32, ptr %17, align 8, !tbaa !266
   %53 = add i32 %52, %49
   br label %find_commit_pos_in_graph.exit.thread
 
@@ -8555,7 +8555,7 @@ find_commit_pos_in_graph.exit.thread..thread_crit_edge: ; preds = %find_commit_p
   call void @hashwrite(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !309
+  %95 = load ptr, ptr %94, align 8, !tbaa !307
   %.not74 = icmp eq ptr %95, null
   br i1 %.not74, label %hashwrite_be32.exit100, label %96
 
@@ -8568,7 +8568,7 @@ find_commit_pos_in_graph.exit.thread..thread_crit_edge: ; preds = %find_commit_p
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !309
+  %98 = load ptr, ptr %97, align 8, !tbaa !307
   %.not75 = icmp eq ptr %98, null
   br i1 %.not75, label %101, label %99
 
@@ -8586,7 +8586,7 @@ find_commit_pos_in_graph.exit.thread..thread_crit_edge: ; preds = %find_commit_p
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %101
-  %109 = load i32, ptr %17, align 8, !tbaa !268
+  %109 = load i32, ptr %17, align 8, !tbaa !266
   %110 = add i32 %109, %106
   br label %find_commit_pos_in_graph.exit98.thread
 
@@ -8691,9 +8691,9 @@ hashwrite_be32.exit100:                           ; preds = %.thread128, %92, %9
   %.160 = phi ptr [ %152, %.preheader ], [ %.059133, %hashwrite_be32.exit100 ]
   %150 = add i32 %.263, 1
   %151 = getelementptr inbounds nuw i8, ptr %.160, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !309
+  %152 = load ptr, ptr %151, align 8, !tbaa !307
   %.not79 = icmp eq ptr %152, null
-  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !310
+  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !308
 
 .loopexit:                                        ; preds = %.preheader, %hashwrite_be32.exit100
   %.162 = phi i32 [ %.061154, %hashwrite_be32.exit100 ], [ %150, %.preheader ]
@@ -8791,7 +8791,7 @@ topo_level_slab_at.exit:                          ; preds = %182, %177
   %209 = getelementptr inbounds nuw i8, ptr %.058155, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %210 = icmp ult ptr %209, %13
-  br i1 %210, label %20, label %._crit_edge, !llvm.loop !311
+  br i1 %210, label %20, label %._crit_edge, !llvm.loop !309
 
 ._crit_edge:                                      ; preds = %topo_level_slab_at.exit, %2
   ret i32 0
@@ -8828,9 +8828,9 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %19 = load i64, ptr %18, align 8, !tbaa !139
   %20 = sub i64 %17, %19
   %21 = load ptr, ptr %7, align 8, !tbaa !203
-  %22 = load i64, ptr %8, align 8, !tbaa !305
+  %22 = load i64, ptr %8, align 8, !tbaa !303
   %23 = add i64 %22, 1
-  store i64 %23, ptr %8, align 8, !tbaa !305
+  store i64 %23, ptr %8, align 8, !tbaa !303
   call void @display_progress(ptr noundef %21, i64 noundef %23) #24
   %24 = icmp ugt i64 %20, 2147483647
   %25 = zext i1 %24 to i32
@@ -8846,7 +8846,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i64, ptr %4, align 8, !tbaa !222
   %31 = icmp ugt i64 %30, %indvars.iv.next
-  br i1 %31, label %hashwrite_be32.exit, label %._crit_edge, !llvm.loop !312
+  br i1 %31, label %hashwrite_be32.exit, label %._crit_edge, !llvm.loop !310
 
 ._crit_edge:                                      ; preds = %hashwrite_be32.exit, %2
   ret i32 0
@@ -8881,9 +8881,9 @@ define internal noundef i32 @write_graph_chunk_generation_data_overflow(ptr noun
   %19 = load i64, ptr %18, align 8, !tbaa !139
   %20 = sub i64 %17, %19
   %21 = load ptr, ptr %8, align 8, !tbaa !203
-  %22 = load i64, ptr %9, align 8, !tbaa !305
+  %22 = load i64, ptr %9, align 8, !tbaa !303
   %23 = add i64 %22, 1
-  store i64 %23, ptr %9, align 8, !tbaa !305
+  store i64 %23, ptr %9, align 8, !tbaa !303
   call void @display_progress(ptr noundef %21, i64 noundef %23) #24
   %24 = icmp ugt i64 %20, 2147483647
   br i1 %24, label %hashwrite_be32.exit, label %30
@@ -8908,7 +8908,7 @@ hashwrite_be32.exit:                              ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i64, ptr %5, align 8, !tbaa !222
   %32 = icmp ugt i64 %31, %indvars.iv.next
-  br i1 %32, label %10, label %._crit_edge, !llvm.loop !313
+  br i1 %32, label %10, label %._crit_edge, !llvm.loop !311
 
 ._crit_edge:                                      ; preds = %30, %2
   ret i32 0
@@ -8937,9 +8937,9 @@ define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %0, ptr n
 14:                                               ; preds = %.lr.ph71, %.loopexit
   %.03768 = phi ptr [ %6, %.lr.ph71 ], [ %.138, %.loopexit ]
   %15 = load ptr, ptr %10, align 8, !tbaa !203
-  %16 = load i64, ptr %11, align 8, !tbaa !305
+  %16 = load i64, ptr %11, align 8, !tbaa !303
   %17 = add i64 %16, 1
-  store i64 %17, ptr %11, align 8, !tbaa !305
+  store i64 %17, ptr %11, align 8, !tbaa !303
   call void @display_progress(ptr noundef %15, i64 noundef %17) #24
   %18 = load ptr, ptr %.03768, align 8, !tbaa !165
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -8956,14 +8956,14 @@ define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %0, ptr n
   %22 = icmp samesign ult i32 %.03461, 2
   %23 = icmp ne ptr %.035, null
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !314
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !312
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %22, label %.loopexit, label %25, !llvm.loop !315
+  br i1 %22, label %.loopexit, label %25, !llvm.loop !313
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %.03560, i64 8
-  %.13663 = load ptr, ptr %26, align 8, !tbaa !309
+  %.13663 = load ptr, ptr %26, align 8, !tbaa !307
   %.not64 = icmp eq ptr %.13663, null
   br i1 %.not64, label %.loopexit, label %.lr.ph67
 
@@ -8978,7 +8978,7 @@ define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %0, ptr n
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %.lr.ph67
-  %34 = load i32, ptr %13, align 8, !tbaa !268
+  %34 = load i32, ptr %13, align 8, !tbaa !266
   %35 = add i32 %34, %31
   br label %find_commit_pos_in_graph.exit.thread
 
@@ -9069,7 +9069,7 @@ find_commit_pos_in_graph.exit.thread..thread_crit_edge: ; preds = %find_commit_p
 
 hashwrite_be32.exit:                              ; preds = %find_commit_pos_in_graph.exit.thread
   %74 = getelementptr inbounds nuw i8, ptr %.13665, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !309
+  %75 = load ptr, ptr %74, align 8, !tbaa !307
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not43 = icmp eq ptr %75, null
   %76 = or disjoint i32 %.0, -2147483648
@@ -9078,9 +9078,9 @@ hashwrite_be32.exit:                              ; preds = %find_commit_pos_in_
   store i32 %77, ptr %3, align 4, !tbaa !47
   call void @hashwrite(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.136 = load ptr, ptr %74, align 8, !tbaa !309
+  %.136 = load ptr, ptr %74, align 8, !tbaa !307
   %.not = icmp eq ptr %.136, null
-  br i1 %.not, label %.loopexit, label %.lr.ph67, !llvm.loop !316
+  br i1 %.not, label %.loopexit, label %.lr.ph67, !llvm.loop !314
 
 .loopexit:                                        ; preds = %hashwrite_be32.exit, %14, %25, %._crit_edge
   %.138 = getelementptr inbounds nuw i8, ptr %.03768, i64 8
@@ -9119,16 +9119,16 @@ define internal noundef i32 @write_graph_chunk_bloom_indexes(ptr noundef %0, ptr
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !279
+  %17 = load i64, ptr %16, align 8, !tbaa !277
   br label %hashwrite_be32.exit
 
 hashwrite_be32.exit:                              ; preds = %11, %15
   %18 = phi i64 [ %17, %15 ], [ 0, %11 ]
   %19 = add i64 %18, %.01618
   %20 = load ptr, ptr %9, align 8, !tbaa !203
-  %21 = load i64, ptr %10, align 8, !tbaa !305
+  %21 = load i64, ptr %10, align 8, !tbaa !303
   %22 = add i64 %21, 1
-  store i64 %22, ptr %10, align 8, !tbaa !305
+  store i64 %22, ptr %10, align 8, !tbaa !303
   call void @display_progress(ptr noundef %20, i64 noundef %22) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = trunc i64 %19 to i32
@@ -9138,7 +9138,7 @@ hashwrite_be32.exit:                              ; preds = %11, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %26 = icmp ult ptr %25, %8
-  br i1 %26, label %11, label %._crit_edge, !llvm.loop !317
+  br i1 %26, label %11, label %._crit_edge, !llvm.loop !315
 
 ._crit_edge:                                      ; preds = %hashwrite_be32.exit, %2
   ret i32 0
@@ -9226,21 +9226,21 @@ hashwrite_be32.exit:
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !279
+  %47 = load i64, ptr %46, align 8, !tbaa !277
   br label %48
 
 48:                                               ; preds = %41, %45
   %49 = phi i64 [ %47, %45 ], [ 0, %41 ]
   %50 = load ptr, ptr %39, align 8, !tbaa !203
-  %51 = load i64, ptr %40, align 8, !tbaa !305
+  %51 = load i64, ptr %40, align 8, !tbaa !303
   %52 = add i64 %51, 1
-  store i64 %52, ptr %40, align 8, !tbaa !305
+  store i64 %52, ptr %40, align 8, !tbaa !303
   call void @display_progress(ptr noundef %50, i64 noundef %52) #24
   %.not25 = icmp eq i64 %49, 0
   br i1 %.not25, label %56, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %44, align 8, !tbaa !318
+  %54 = load ptr, ptr %44, align 8, !tbaa !316
   %55 = trunc i64 %49 to i32
   call void @hashwrite(ptr noundef %0, ptr noundef %54, i32 noundef %55) #24
   br label %56
@@ -9248,7 +9248,7 @@ hashwrite_be32.exit:
 56:                                               ; preds = %53, %48
   %57 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %58 = icmp ult ptr %57, %10
-  br i1 %58, label %41, label %._crit_edge, !llvm.loop !319
+  br i1 %58, label %41, label %._crit_edge, !llvm.loop !317
 
 ._crit_edge:                                      ; preds = %56, %hashwrite_be32.exit
   ret i32 0
@@ -9716,62 +9716,60 @@ attributes #29 = { cold nounwind }
 !258 = !{!252, !18, i64 108}
 !259 = !{!196, !18, i64 4}
 !260 = !{!196, !18, i64 0}
-!261 = distinct !{!261, !262}
-!262 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!261 = distinct !{!261, !93}
+!262 = distinct !{!262, !93}
 !263 = distinct !{!263, !93}
 !264 = distinct !{!264, !93}
 !265 = distinct !{!265, !93}
-!266 = distinct !{!266, !93}
+!266 = !{!179, !18, i64 160}
 !267 = distinct !{!267, !93}
-!268 = !{!179, !18, i64 160}
+!268 = distinct !{!268, !93}
 !269 = distinct !{!269, !93}
-!270 = distinct !{!270, !93}
-!271 = distinct !{!271, !93}
-!272 = !{!46, !46, i64 0}
-!273 = !{!196, !18, i64 20}
-!274 = !{!179, !18, i64 216}
-!275 = !{!179, !18, i64 224}
-!276 = !{!179, !18, i64 228}
-!277 = !{!179, !18, i64 232}
-!278 = !{!179, !18, i64 220}
-!279 = !{!280, !23, i64 8}
-!280 = !{!"bloom_filter", !11, i64 0, !23, i64 8, !18, i64 16, !6, i64 24}
-!281 = distinct !{!281, !93}
-!282 = !{!69, !23, i64 72}
-!283 = !{!284, !23, i64 0}
-!284 = !{!"utimbuf", !23, i64 0, !23, i64 8}
-!285 = !{!284, !23, i64 8}
+!270 = !{!46, !46, i64 0}
+!271 = !{!196, !18, i64 20}
+!272 = !{!179, !18, i64 216}
+!273 = !{!179, !18, i64 224}
+!274 = !{!179, !18, i64 228}
+!275 = !{!179, !18, i64 232}
+!276 = !{!179, !18, i64 220}
+!277 = !{!278, !23, i64 8}
+!278 = !{!"bloom_filter", !11, i64 0, !23, i64 8, !18, i64 16, !6, i64 24}
+!279 = distinct !{!279, !93}
+!280 = !{!69, !23, i64 72}
+!281 = !{!282, !23, i64 0}
+!282 = !{!"utimbuf", !23, i64 0, !23, i64 8}
+!283 = !{!282, !23, i64 8}
+!284 = distinct !{!284, !93}
+!285 = distinct !{!285, !93}
 !286 = distinct !{!286, !93}
 !287 = distinct !{!287, !93}
 !288 = distinct !{!288, !93}
 !289 = distinct !{!289, !93}
 !290 = distinct !{!290, !93}
-!291 = distinct !{!291, !93}
-!292 = distinct !{!292, !93}
-!293 = !{!294, !294, i64 0}
-!294 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!295 = distinct !{!295, !93}
-!296 = distinct !{!296, !93}
-!297 = !{!298, !6, i64 0}
-!298 = !{!"object_info", !6, i64 0, !299, i64 8, !299, i64 16, !74, i64 24, !300, i64 32, !6, i64 40, !18, i64 48, !7, i64 56}
-!299 = !{!"p1 long", !6, i64 0}
-!300 = !{!"p1 _ZTS6strbuf", !6, i64 0}
-!301 = !{!302, !18, i64 8}
-!302 = !{!"commit_pos", !18, i64 0, !18, i64 4, !18, i64 8, !145, i64 16}
-!303 = !{!302, !145, i64 16}
+!291 = !{!292, !292, i64 0}
+!292 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!293 = distinct !{!293, !93}
+!294 = distinct !{!294, !93}
+!295 = !{!296, !6, i64 0}
+!296 = !{!"object_info", !6, i64 0, !297, i64 8, !297, i64 16, !74, i64 24, !298, i64 32, !6, i64 40, !18, i64 48, !7, i64 56}
+!297 = !{!"p1 long", !6, i64 0}
+!298 = !{!"p1 _ZTS6strbuf", !6, i64 0}
+!299 = !{!300, !18, i64 8}
+!300 = !{!"commit_pos", !18, i64 0, !18, i64 4, !18, i64 8, !145, i64 16}
+!301 = !{!300, !145, i64 16}
+!302 = distinct !{!302, !93}
+!303 = !{!179, !23, i64 112}
 !304 = distinct !{!304, !93}
-!305 = !{!179, !23, i64 112}
+!305 = distinct !{!305, !93}
 !306 = distinct !{!306, !93}
-!307 = distinct !{!307, !93}
+!307 = !{!170, !53, i64 8}
 !308 = distinct !{!308, !93}
-!309 = !{!170, !53, i64 8}
+!309 = distinct !{!309, !93}
 !310 = distinct !{!310, !93}
 !311 = distinct !{!311, !93}
 !312 = distinct !{!312, !93}
 !313 = distinct !{!313, !93}
 !314 = distinct !{!314, !93}
 !315 = distinct !{!315, !93}
-!316 = distinct !{!316, !93}
+!316 = !{!278, !11, i64 0}
 !317 = distinct !{!317, !93}
-!318 = !{!280, !11, i64 0}
-!319 = distinct !{!319, !93}

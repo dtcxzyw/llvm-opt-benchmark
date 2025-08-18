@@ -152,7 +152,7 @@ define internal range(i32 -2147483648, 1) i32 @pam_encode_frame(ptr noundef %0, 
   %66 = getelementptr inbounds i8, ptr %.170, i64 %46
   %67 = add nuw nsw i32 %.16068, 1
   %exitcond.not = icmp eq i32 %67, %7
-  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !37
 
 .loopexit:                                        ; preds = %64, %._crit_edge.us, %.preheader.lr.ph, %.preheader66, %.preheader65
   store i32 1, ptr %3, align 4, !tbaa !32
@@ -223,6 +223,5 @@ attributes #5 = { nounwind }
 !33 = !{!8, !8, i64 0}
 !34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !35}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}

@@ -997,7 +997,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   store i32 %356, ptr %357, align 4, !tbaa !87
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %exitcond702.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count701
-  br i1 %exitcond702.not, label %._crit_edge578, label %.lr.ph577.split, !llvm.loop !90
+  br i1 %exitcond702.not, label %._crit_edge578, label %.lr.ph577.split, !llvm.loop !88
 
 ._crit_edge578:                                   ; preds = %.lr.ph577.split, %325, %.preheader
   %358 = call ptr @av_packet_new_side_data(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 1024) #9
@@ -1021,7 +1021,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %.0 = phi i32 [ 11, %359 ], [ %361, %360 ], [ 39, %318 ]
   %364 = load ptr, ptr %300, align 8, !tbaa !44
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 44
-  %366 = load i32, ptr %365, align 4, !tbaa !91
+  %366 = load i32, ptr %365, align 4, !tbaa !89
   %.not357 = icmp eq i32 %366, -1
   %.not358 = icmp eq i32 %366, %.0
   %or.cond = or i1 %.not357, %.not358
@@ -1032,12 +1032,12 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %369
 
 368:                                              ; preds = %363
-  store i32 %.0, ptr %365, align 4, !tbaa !91
+  store i32 %.0, ptr %365, align 4, !tbaa !89
   br label %369
 
 369:                                              ; preds = %368, %367
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %371 = load ptr, ptr %370, align 8, !tbaa !92
+  %371 = load ptr, ptr %370, align 8, !tbaa !90
   %372 = load ptr, ptr %4, align 8, !tbaa !82
   %373 = getelementptr inbounds i8, ptr %372, i64 %294
   %374 = sext i32 %245 to i64
@@ -1121,7 +1121,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 410:                                              ; preds = %376, %383
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %exitcond691.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count690
-  br i1 %exitcond691.not, label %.thread, label %376, !llvm.loop !93
+  br i1 %exitcond691.not, label %.thread, label %376, !llvm.loop !91
 
 411:                                              ; preds = %.lr.ph531, %423
   %indvars.iv682 = phi i64 [ 0, %.lr.ph531 ], [ %indvars.iv.next683, %423 ]
@@ -1143,7 +1143,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 423:                                              ; preds = %411, %419
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
   %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
-  br i1 %exitcond686.not, label %._crit_edge532.thread, label %411, !llvm.loop !94
+  br i1 %exitcond686.not, label %._crit_edge532.thread, label %411, !llvm.loop !92
 
 ._crit_edge532:                                   ; preds = %419
   %424 = trunc nuw nsw i64 %indvars.iv682 to i32
@@ -1181,13 +1181,13 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 440:                                              ; preds = %437
   %441 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %442 = load ptr, ptr %441, align 8, !tbaa !92
+  %442 = load ptr, ptr %441, align 8, !tbaa !90
   %443 = call i32 @avio_read(ptr noundef %spec.select, ptr noundef %442, i32 noundef 4) #9
   %.not346 = icmp eq i32 %443, 4
   br i1 %.not346, label %444, label %.thread437
 
 444:                                              ; preds = %440
-  %445 = load ptr, ptr %441, align 8, !tbaa !92
+  %445 = load ptr, ptr %441, align 8, !tbaa !90
   %446 = load i32, ptr %445, align 1, !tbaa !12
   %447 = call i32 @llvm.bswap.i32(i32 %446)
   switch i32 %447, label %457 [
@@ -1203,7 +1203,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds i8, ptr %445, i64 %452
   store i32 0, ptr %453, align 1
-  %454 = load ptr, ptr %441, align 8, !tbaa !92
+  %454 = load ptr, ptr %441, align 8, !tbaa !90
   %455 = load i32, ptr %449, align 8, !tbaa !78
   %456 = call i32 @avio_read(ptr noundef %spec.select, ptr noundef %454, i32 noundef %455) #9
   br label %465
@@ -1313,7 +1313,7 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %22, %3
-  %13 = load i32, ptr %7, align 8, !tbaa !95
+  %13 = load i32, ptr %7, align 8, !tbaa !93
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %20
 
@@ -1326,13 +1326,13 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
 
 .thread:                                          ; preds = %14
   %19 = load ptr, ptr %9, align 8, !tbaa !29
-  store ptr %19, ptr %6, align 8, !tbaa !96
-  store i32 %17, ptr %7, align 8, !tbaa !95
+  store ptr %19, ptr %6, align 8, !tbaa !94
+  store i32 %17, ptr %7, align 8, !tbaa !93
   br label %20
 
 20:                                               ; preds = %.thread, %12
-  store ptr %1, ptr %10, align 8, !tbaa !97
-  store i32 %2, ptr %11, align 8, !tbaa !98
+  store ptr %1, ptr %10, align 8, !tbaa !95
+  store i32 %2, ptr %11, align 8, !tbaa !96
   %21 = tail call i32 @inflate(ptr noundef nonnull %6, i32 noundef 0) #9
   switch i32 %21, label %.loopexit [
     i32 1, label %.loopexit.loopexit
@@ -1340,7 +1340,7 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
   ]
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr %11, align 8, !tbaa !98
+  %23 = load i32, ptr %11, align 8, !tbaa !96
   %24 = sub i32 %2, %23
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %12, label %.loopexit
@@ -1522,14 +1522,12 @@ attributes #11 = { noreturn nounwind }
 !85 = !{!52, !10, i64 72}
 !86 = !{!52, !10, i64 76}
 !87 = !{!10, !10, i64 0}
-!88 = distinct !{!88, !56, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!90 = distinct !{!90, !56}
-!91 = !{!52, !10, i64 44}
-!92 = !{!48, !6, i64 24}
-!93 = distinct !{!93, !56}
-!94 = distinct !{!94, !56}
-!95 = !{!31, !10, i64 8}
-!96 = !{!31, !6, i64 0}
-!97 = !{!31, !6, i64 24}
-!98 = !{!31, !10, i64 32}
+!88 = distinct !{!88, !56}
+!89 = !{!52, !10, i64 44}
+!90 = !{!48, !6, i64 24}
+!91 = distinct !{!91, !56}
+!92 = distinct !{!92, !56}
+!93 = !{!31, !10, i64 8}
+!94 = !{!31, !6, i64 0}
+!95 = !{!31, !6, i64 24}
+!96 = !{!31, !10, i64 32}

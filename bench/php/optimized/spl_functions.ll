@@ -126,7 +126,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
   %34 = load i32, ptr %6, align 8, !tbaa !29
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next14, %35
-  br i1 %36, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !32
+  br i1 %36, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
@@ -190,7 +190,7 @@ declare void @llvm.assume(i1 noundef) #2
 define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 428
-  %7 = load i32, ptr %6, align 4, !tbaa !34
+  %7 = load i32, ptr %6, align 4, !tbaa !32
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -203,11 +203,11 @@ define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
-  %11 = load ptr, ptr %8, align 8, !tbaa !35
+  %11 = load ptr, ptr %8, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw %struct._zend_class_name, ptr %11, i64 %indvars.iv14
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !36
   %16 = call ptr @zend_fetch_class_by_name(ptr noundef %13, ptr noundef %15, i32 noundef 6) #4
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
@@ -244,21 +244,21 @@ define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr n
 
 spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.us
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
-  %34 = load i32, ptr %6, align 4, !tbaa !34
+  %34 = load i32, ptr %6, align 4, !tbaa !32
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next15, %35
-  br i1 %36, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !39
+  br i1 %36, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %spl_add_class_name.exit, %spl_add_class_name.exit.us, %4
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
-  %37 = load ptr, ptr %8, align 8, !tbaa !35
+  %37 = load ptr, ptr %8, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw %struct._zend_class_name, ptr %37, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !36
+  %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !38
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
   %42 = call ptr @zend_fetch_class_by_name(ptr noundef %39, ptr noundef %41, i32 noundef 6) #4
   %43 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %43)
@@ -303,7 +303,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 
 spl_add_class_name.exit:                          ; preds = %.lr.ph.split, %48, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load i32, ptr %6, align 4, !tbaa !34
+  %65 = load i32, ptr %6, align 4, !tbaa !32
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next, %66
   br i1 %67, label %.lr.ph.split, label %._crit_edge
@@ -389,7 +389,7 @@ define hidden void @spl_set_private_debug_info_property(ptr noundef readonly cap
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !37
   %11 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull %8, i64 noundef %10, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false) #4
   %12 = tail call ptr @zend_hash_update(ptr noundef %3, ptr noundef %11, ptr noundef %4) #4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -467,13 +467,10 @@ attributes #4 = { nounwind }
 !29 = !{!5, !10, i64 424}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTS17_zend_class_entry", !9, i64 0}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = !{!5, !10, i64 428}
-!35 = !{!5, !22, i64 448}
-!36 = !{!37, !8, i64 0}
-!37 = !{!"_zend_class_name", !8, i64 0, !8, i64 8}
-!38 = !{!37, !8, i64 8}
-!39 = distinct !{!39, !33}
-!40 = !{!41, !14, i64 16}
-!41 = !{!"_zend_string", !13, i64 0, !14, i64 8, !14, i64 16, !6, i64 24}
+!32 = !{!5, !10, i64 428}
+!33 = !{!5, !22, i64 448}
+!34 = !{!35, !8, i64 0}
+!35 = !{!"_zend_class_name", !8, i64 0, !8, i64 8}
+!36 = !{!35, !8, i64 8}
+!37 = !{!38, !14, i64 16}
+!38 = !{!"_zend_string", !13, i64 0, !14, i64 8, !14, i64 16, !6, i64 24}

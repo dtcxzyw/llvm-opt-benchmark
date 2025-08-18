@@ -3750,7 +3750,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call fastcc void @drm_atomic_plane_print_state(ptr noundef %1, ptr noundef %35)
   %36 = load ptr, ptr %33, align 8
   %37 = icmp eq ptr %36, %23
-  br i1 %37, label %.loopexit15.thread, label %.preheader14.split, !llvm.loop !93
+  br i1 %37, label %.loopexit15.thread, label %.preheader14.split, !llvm.loop !91
 
 .loopexit15:                                      ; preds = %22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -3793,7 +3793,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call void @drm_modeset_unlock(ptr noundef %52) #10
   %56 = load ptr, ptr %51, align 8
   %57 = icmp eq ptr %56, %49
-  br i1 %57, label %.loopexit13.thread, label %.preheader12.split.us, !llvm.loop !94
+  br i1 %57, label %.loopexit13.thread, label %.preheader12.split.us, !llvm.loop !92
 
 .preheader12.split:                               ; preds = %.preheader12.split.preheader, %.preheader12.split
   %58 = phi ptr [ %61, %.preheader12.split ], [ %48, %.preheader12.split.preheader ]
@@ -3802,7 +3802,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %60)
   %61 = load ptr, ptr %58, align 8
   %62 = icmp eq ptr %61, %47
-  br i1 %62, label %.loopexit13.thread22, label %.preheader12.split, !llvm.loop !95
+  br i1 %62, label %.loopexit13.thread22, label %.preheader12.split, !llvm.loop !92
 
 .loopexit13.thread:                               ; preds = %.preheader12.split.us, %.loopexit15.thread19
   call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
@@ -3833,7 +3833,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   call fastcc void @drm_atomic_connector_print_state(ptr noundef %1, ptr noundef %71)
   %72 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit11, label %.preheader10, !llvm.loop !96
+  br i1 %73, label %.loopexit11, label %.preheader10, !llvm.loop !93
 
 .loopexit11:                                      ; preds = %.preheader10, %66
   br i1 %2, label %74, label %.thread
@@ -3877,7 +3877,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   call void @drm_modeset_unlock(ptr noundef nonnull %83) #10
   %96 = load ptr, ptr %82, align 8
   %97 = icmp eq ptr %96, %76
-  br i1 %97, label %.loopexit, label %.preheader.split.us, !llvm.loop !97
+  br i1 %97, label %.loopexit, label %.preheader.split.us, !llvm.loop !94
 
 .preheader.split:                                 ; preds = %.thread, %109
   %98 = phi ptr [ %110, %109 ], [ %80, %.thread ]
@@ -3899,7 +3899,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
 109:                                              ; preds = %108, %.preheader.split
   %110 = load ptr, ptr %98, align 8
   %111 = icmp eq ptr %110, %79
-  br i1 %111, label %.loopexit, label %.preheader.split, !llvm.loop !98
+  br i1 %111, label %.loopexit, label %.preheader.split, !llvm.loop !94
 
 .loopexit:                                        ; preds = %109, %95, %.thread, %74, %18, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3982,13 +3982,13 @@ define internal noundef i32 @drm_state_info(ptr noundef %0, ptr readnone capture
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !99
+  store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !95
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @__drm_puts_seq_file, ptr %7, align 8, !alias.scope !99
+  store ptr @__drm_puts_seq_file, ptr %7, align 8, !alias.scope !95
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %8, align 8, !alias.scope !99
+  store ptr %0, ptr %8, align 8, !alias.scope !95
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr null, ptr %9, align 8, !alias.scope !99
+  store ptr null, ptr %9, align 8, !alias.scope !95
   call fastcc void @__drm_state_dump(ptr noundef %6, ptr noundef nonnull %3, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
@@ -4121,14 +4121,10 @@ attributes #14 = { nounwind allocsize(1) }
 !88 = distinct !{!88, !8, !9}
 !89 = distinct !{!89, !8, !9}
 !90 = distinct !{!90, !8, !9}
-!91 = distinct !{!91, !8, !9, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!91 = distinct !{!91, !8, !9}
+!92 = distinct !{!92, !8, !9}
 !93 = distinct !{!93, !8, !9}
-!94 = distinct !{!94, !8, !9, !92}
-!95 = distinct !{!95, !8, !9}
-!96 = distinct !{!96, !8, !9}
-!97 = distinct !{!97, !8, !9, !92}
-!98 = distinct !{!98, !8, !9}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"drm_seq_file_printer: argument 0"}
-!101 = distinct !{!101, !"drm_seq_file_printer"}
+!94 = distinct !{!94, !8, !9}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"drm_seq_file_printer: argument 0"}
+!97 = distinct !{!97, !"drm_seq_file_printer"}

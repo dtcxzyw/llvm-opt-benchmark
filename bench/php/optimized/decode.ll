@@ -5162,7 +5162,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 .lr.ph120:                                        ; preds = %84
   %73 = add i32 %95, -56320
   %74 = icmp ult i32 %73, 1024
-  br i1 %74, label %.split111.us.loopexit, label %.lr.ph231, !llvm.loop !40
+  br i1 %74, label %.split111.us.loopexit, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
   %75 = phi ptr [ %91, %.lr.ph120 ], [ %65, %.lr.ph120.preheader ]
@@ -5197,7 +5197,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %95 = or disjoint i32 %59, %94
   %96 = load i32, ptr %58, align 4, !tbaa !27
   %.not92.us = icmp eq i32 %96, 0
-  br i1 %.not92.us, label %.split.us.loopexit, label %.lr.ph120, !llvm.loop !40
+  br i1 %.not92.us, label %.split.us.loopexit, label %.lr.ph120
 
 .preheader.split:                                 ; preds = %.preheader
   %97 = shl nuw nsw i32 %68, 8
@@ -9122,5 +9122,3 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !37 = !{!35, !15, i64 12}
 !38 = !{!35, !7, i64 0}
 !39 = !{!35, !14, i64 8}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}

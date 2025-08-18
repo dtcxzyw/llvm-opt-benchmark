@@ -203,7 +203,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call fastcc void @readpkey(ptr noundef %44, i32 noundef %58)
   %61 = add nsw i32 %.03372.us76, -1
   %62 = icmp samesign ugt i32 %.03372.us76, 1
-  br i1 %62, label %.split.us75, label %.split74.us, !llvm.loop !20
+  br i1 %62, label %.split.us75, label %.split74.us, !llvm.loop !18
 
 .split74.us:                                      ; preds = %.split.us75, %.split.us, %57
   %63 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #9
@@ -235,14 +235,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call fastcc void @readx509(ptr noundef %44, i32 noundef %58)
   %69 = add nsw i32 %.13477.us, -1
   %70 = icmp samesign ugt i32 %.13477.us, 1
-  br i1 %70, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+  br i1 %70, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
 
 .lr.ph.split.us78:                                ; preds = %.lr.ph, %.lr.ph.split.us78
   %.13477.us79 = phi i32 [ %71, %.lr.ph.split.us78 ], [ %.029.ph127, %.lr.ph ]
   call fastcc void @readpkey(ptr noundef %44, i32 noundef %58)
   %71 = add nsw i32 %.13477.us79, -1
   %72 = icmp samesign ugt i32 %.13477.us79, 1
-  br i1 %72, label %.lr.ph.split.us78, label %._crit_edge, !llvm.loop !22
+  br i1 %72, label %.lr.ph.split.us78, label %._crit_edge, !llvm.loop !19
 
 73:                                               ; preds = %66
   call void @perror(ptr noundef nonnull @.str.7) #10
@@ -270,36 +270,36 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 81:                                               ; preds = %77
-  %82 = load i64, ptr %5, align 8, !tbaa !23
+  %82 = load i64, ptr %5, align 8, !tbaa !20
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %84 = load i64, ptr %83, align 8, !tbaa !26
+  %84 = load i64, ptr %83, align 8, !tbaa !23
   %85 = sub i64 %82, %84
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !27
+  %87 = load i64, ptr %86, align 8, !tbaa !24
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %89 = load i64, ptr %88, align 8, !tbaa !28
+  %89 = load i64, ptr %88, align 8, !tbaa !25
   %90 = sub nsw i64 %87, %89
   %91 = icmp slt i64 %90, 0
   %92 = add nsw i64 %90, 1000000
   %.sroa.14.0 = select i1 %91, i64 %92, i64 %90
   %.lobit = ashr i64 %90, 63
   %.sroa.10.0 = add nsw i64 %85, %.lobit
-  %93 = load i64, ptr %4, align 8, !tbaa !23
+  %93 = load i64, ptr %4, align 8, !tbaa !20
   %94 = sub i64 %82, %93
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %96 = load i64, ptr %95, align 8, !tbaa !27
+  %96 = load i64, ptr %95, align 8, !tbaa !24
   %97 = sub nsw i64 %87, %96
   %98 = icmp slt i64 %97, 0
   %99 = add nsw i64 %97, 1000000
   %.sroa.652.0 = select i1 %98, i64 %99, i64 %97
   %.lobit56 = ashr i64 %97, 63
   %.sroa.050.0 = add nsw i64 %94, %.lobit56
-  %100 = load i64, ptr %7, align 8, !tbaa !29
-  %101 = load i64, ptr %6, align 8, !tbaa !29
+  %100 = load i64, ptr %7, align 8, !tbaa !26
+  %101 = load i64, ptr %6, align 8, !tbaa !26
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !30
+  %103 = load i64, ptr %102, align 8, !tbaa !27
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !30
+  %105 = load i64, ptr %104, align 8, !tbaa !27
   %106 = trunc i64 %.sroa.050.0 to i32
   %107 = trunc i64 %.sroa.652.0 to i32
   %108 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.10, i32 noundef %106, i32 noundef %107)
@@ -336,20 +336,20 @@ declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @usage() unnamed_addr #2 {
-  %1 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %1 = load ptr, ptr @stderr, align 8, !tbaa !28
   %2 = load ptr, ptr @prog, align 8, !tbaa !4
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %2) #12
-  %4 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !28
   %5 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 37, i64 1, ptr %4) #10
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !28
   %7 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 21, i64 1, ptr %6) #10
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !28
   %9 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 35, i64 1, ptr %8) #10
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !28
   %11 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 46, i64 1, ptr %10) #10
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !28
   %13 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 21, i64 1, ptr %12) #10
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !28
   %15 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 28, i64 1, ptr %14) #10
   tail call void @exit(i32 noundef 1) #11
   unreachable
@@ -382,25 +382,25 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define internal fastcc void @readx509(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !33
+  store ptr null, ptr %3, align 8, !tbaa !30
   %4 = tail call ptr @BIO_new_mem_buf(ptr noundef nonnull %0, i32 noundef %1) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ERR_print_errors_fp(ptr noundef %7) #9
   tail call void @exit(i32 noundef 1) #11
   unreachable
 
 8:                                                ; preds = %2
   %9 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #9
-  %10 = load ptr, ptr %3, align 8, !tbaa !33
+  %10 = load ptr, ptr %3, align 8, !tbaa !30
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !28
   call void @ERR_print_errors_fp(ptr noundef %13) #9
   call void @exit(i32 noundef 1) #11
   unreachable
@@ -419,7 +419,7 @@ define internal fastcc void @readpkey(ptr noundef nonnull %0, i32 noundef %1) un
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ERR_print_errors_fp(ptr noundef %6) #9
   tail call void @exit(i32 noundef 1) #11
   unreachable
@@ -430,7 +430,7 @@ define internal fastcc void @readpkey(ptr noundef nonnull %0, i32 noundef %1) un
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !31
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !28
   tail call void @ERR_print_errors_fp(ptr noundef %11) #9
   tail call void @exit(i32 noundef 1) #11
   unreachable
@@ -512,20 +512,17 @@ attributes #12 = { cold nounwind }
 !15 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !17, i64 72, !17, i64 88, !17, i64 104, !7, i64 120}
 !16 = !{!"long", !7, i64 0}
 !17 = !{!"timespec", !16, i64 0, !16, i64 8}
-!18 = distinct !{!18, !10, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !10, !19}
-!21 = distinct !{!21, !10, !19}
-!22 = distinct !{!22, !10, !19}
-!23 = !{!24, !16, i64 0}
-!24 = !{!"rusage", !25, i64 0, !25, i64 16, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136}
-!25 = !{!"timeval", !16, i64 0, !16, i64 8}
-!26 = !{!24, !16, i64 16}
-!27 = !{!24, !16, i64 8}
-!28 = !{!24, !16, i64 24}
-!29 = !{!25, !16, i64 0}
-!30 = !{!25, !16, i64 8}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS7x509_st", !6, i64 0}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = !{!21, !16, i64 0}
+!21 = !{!"rusage", !22, i64 0, !22, i64 16, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80, !7, i64 88, !7, i64 96, !7, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136}
+!22 = !{!"timeval", !16, i64 0, !16, i64 8}
+!23 = !{!21, !16, i64 16}
+!24 = !{!21, !16, i64 8}
+!25 = !{!21, !16, i64 24}
+!26 = !{!22, !16, i64 0}
+!27 = !{!22, !16, i64 8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS7x509_st", !6, i64 0}

@@ -1113,14 +1113,14 @@ define internal void @pseudocolor_filter_11(i32 noundef %0, i32 noundef %1, i32 
   store i8 %.sink, ptr %37, align 1, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !85
 
 ._crit_edge.us:                                   ; preds = %36
   %38 = getelementptr inbounds i8, ptr %.034.us, i64 %7
   %39 = getelementptr inbounds i8, ptr %.02932.us, i64 %8
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !87
+  br i1 %exitcond42.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !86
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1178,14 +1178,14 @@ define internal void @pseudocolor_filter_11d(i32 noundef %0, i32 noundef %1, i32
   store i8 %.sink, ptr %37, align 1, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %36
   %38 = getelementptr inbounds i8, ptr %.034.us, i64 %7
   %39 = getelementptr inbounds i8, ptr %.02932.us, i64 %8
   %40 = add nuw nsw i32 %.02733.us, 1
   %exitcond38.not = icmp eq i32 %40, %2
-  br i1 %exitcond38.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond38.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !88
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1241,7 +1241,7 @@ define internal void @pseudocolor_filter_10(i32 noundef %0, i32 noundef %1, i32 
   store i8 %.sink, ptr %33, align 1, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %32
   %34 = getelementptr inbounds i8, ptr %.036.us, i64 %6
@@ -1249,7 +1249,7 @@ define internal void @pseudocolor_filter_10(i32 noundef %0, i32 noundef %1, i32 
   %36 = getelementptr inbounds i8, ptr %.03033.us, i64 %8
   %37 = add nuw nsw i32 %.02735.us, 1
   %exitcond40.not = icmp eq i32 %37, %2
-  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !91
+  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !90
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1304,7 +1304,7 @@ define internal void @pseudocolor_filter_10d(i32 noundef %0, i32 noundef %1, i32
   store i8 %.sink, ptr %33, align 1, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %32
   %34 = getelementptr inbounds i8, ptr %.036.us, i64 %6
@@ -1312,7 +1312,7 @@ define internal void @pseudocolor_filter_10d(i32 noundef %0, i32 noundef %1, i32
   %36 = getelementptr inbounds i8, ptr %.03033.us, i64 %8
   %37 = add nuw nsw i32 %.02735.us, 1
   %exitcond40.not = icmp eq i32 %37, %2
-  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !93
+  br i1 %exitcond40.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !92
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1344,7 +1344,7 @@ define internal void @pseudocolor_filter_16(i32 noundef %0, i32 noundef %1, i32 
 17:                                               ; preds = %.preheader.us, %33
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %33 ]
   %18 = getelementptr inbounds nuw i16, ptr %.039.us, i64 %indvars.iv
-  %19 = load i16, ptr %18, align 2, !tbaa !94
+  %19 = load i16, ptr %18, align 2, !tbaa !93
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw float, ptr %9, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !62
@@ -1353,7 +1353,7 @@ define internal void @pseudocolor_filter_16(i32 noundef %0, i32 noundef %1, i32 
   %.not.us = icmp slt i32 %0, %23
   %or.cond.us = or i1 %24, %.not.us
   %25 = getelementptr inbounds nuw i16, ptr %.03336.us, i64 %indvars.iv
-  %26 = load i16, ptr %25, align 2, !tbaa !94
+  %26 = load i16, ptr %25, align 2, !tbaa !93
   br i1 %or.cond.us, label %33, label %27
 
 27:                                               ; preds = %17
@@ -1367,10 +1367,10 @@ define internal void @pseudocolor_filter_16(i32 noundef %0, i32 noundef %1, i32 
 33:                                               ; preds = %17, %27
   %.sink = phi i16 [ %32, %27 ], [ %26, %17 ]
   %34 = getelementptr inbounds nuw i16, ptr %.03237.us, i64 %indvars.iv
-  store i16 %.sink, ptr %34, align 2, !tbaa !94
+  store i16 %.sink, ptr %34, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %33
   %35 = getelementptr inbounds i16, ptr %.039.us, i64 %14
@@ -1378,7 +1378,7 @@ define internal void @pseudocolor_filter_16(i32 noundef %0, i32 noundef %1, i32 
   %37 = getelementptr inbounds i16, ptr %.03237.us, i64 %16
   %38 = add nuw nsw i32 %.03038.us, 1
   %exitcond43.not = icmp eq i32 %38, %2
-  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !97
+  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !96
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %11
   ret void
@@ -1413,7 +1413,7 @@ define internal void @pseudocolor_filter_16_10(i32 noundef %0, i32 noundef %1, i
   %18 = shl i32 %indvars.iv.tr, 1
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i16, ptr %.039.us, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !94
+  %21 = load i16, ptr %20, align 2, !tbaa !93
   %22 = zext i16 %21 to i64
   %23 = getelementptr inbounds nuw float, ptr %9, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !62
@@ -1422,7 +1422,7 @@ define internal void @pseudocolor_filter_16_10(i32 noundef %0, i32 noundef %1, i
   %.not.us = icmp slt i32 %0, %25
   %or.cond.us = or i1 %26, %.not.us
   %27 = getelementptr inbounds nuw i16, ptr %.03336.us, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2, !tbaa !94
+  %28 = load i16, ptr %27, align 2, !tbaa !93
   br i1 %or.cond.us, label %35, label %29
 
 29:                                               ; preds = %17
@@ -1436,10 +1436,10 @@ define internal void @pseudocolor_filter_16_10(i32 noundef %0, i32 noundef %1, i
 35:                                               ; preds = %17, %29
   %.sink = phi i16 [ %34, %29 ], [ %28, %17 ]
   %36 = getelementptr inbounds nuw i16, ptr %.03237.us, i64 %indvars.iv
-  store i16 %.sink, ptr %36, align 2, !tbaa !94
+  store i16 %.sink, ptr %36, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !97
 
 ._crit_edge.us:                                   ; preds = %35
   %37 = getelementptr inbounds i16, ptr %.039.us, i64 %14
@@ -1447,7 +1447,7 @@ define internal void @pseudocolor_filter_16_10(i32 noundef %0, i32 noundef %1, i
   %39 = getelementptr inbounds i16, ptr %.03237.us, i64 %16
   %40 = add nuw nsw i32 %.03038.us, 1
   %exitcond43.not = icmp eq i32 %40, %2
-  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !99
+  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !98
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %11
   ret void
@@ -1481,7 +1481,7 @@ define internal void @pseudocolor_filter_16_10d(i32 noundef %0, i32 noundef %1, 
   %18 = lshr i64 %indvars.iv, 1
   %19 = and i64 %18, 2147483647
   %20 = getelementptr inbounds nuw i16, ptr %.039.us, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !94
+  %21 = load i16, ptr %20, align 2, !tbaa !93
   %22 = zext i16 %21 to i64
   %23 = getelementptr inbounds nuw float, ptr %9, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !62
@@ -1490,7 +1490,7 @@ define internal void @pseudocolor_filter_16_10d(i32 noundef %0, i32 noundef %1, 
   %.not.us = icmp slt i32 %0, %25
   %or.cond.us = or i1 %26, %.not.us
   %27 = getelementptr inbounds nuw i16, ptr %.03336.us, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2, !tbaa !94
+  %28 = load i16, ptr %27, align 2, !tbaa !93
   br i1 %or.cond.us, label %35, label %29
 
 29:                                               ; preds = %17
@@ -1504,10 +1504,10 @@ define internal void @pseudocolor_filter_16_10d(i32 noundef %0, i32 noundef %1, 
 35:                                               ; preds = %17, %29
   %.sink = phi i16 [ %34, %29 ], [ %28, %17 ]
   %36 = getelementptr inbounds nuw i16, ptr %.03237.us, i64 %indvars.iv
-  store i16 %.sink, ptr %36, align 2, !tbaa !94
+  store i16 %.sink, ptr %36, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !99
 
 ._crit_edge.us:                                   ; preds = %35
   %37 = getelementptr inbounds i16, ptr %.039.us, i64 %14
@@ -1515,7 +1515,7 @@ define internal void @pseudocolor_filter_16_10d(i32 noundef %0, i32 noundef %1, 
   %39 = getelementptr inbounds i16, ptr %.03237.us, i64 %16
   %40 = add nuw nsw i32 %.03038.us, 1
   %exitcond43.not = icmp eq i32 %40, %2
-  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !101
+  br i1 %exitcond43.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !100
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %11
   ret void
@@ -1553,7 +1553,7 @@ define internal void @pseudocolor_filter_16_11(i32 noundef %0, i32 noundef %1, i
   %22 = shl i32 %indvars.iv.tr, 1
   %23 = sext i32 %22 to i64
   %24 = getelementptr i16, ptr %20, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !94
+  %25 = load i16, ptr %24, align 2, !tbaa !93
   %26 = zext i16 %25 to i64
   %27 = getelementptr inbounds nuw float, ptr %9, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !62
@@ -1562,7 +1562,7 @@ define internal void @pseudocolor_filter_16_11(i32 noundef %0, i32 noundef %1, i
   %.not.us = icmp slt i32 %0, %29
   %or.cond.us = or i1 %30, %.not.us
   %31 = getelementptr inbounds nuw i16, ptr %.03538.us, i64 %indvars.iv
-  %32 = load i16, ptr %31, align 2, !tbaa !94
+  %32 = load i16, ptr %31, align 2, !tbaa !93
   br i1 %or.cond.us, label %39, label %33
 
 33:                                               ; preds = %21
@@ -1576,17 +1576,17 @@ define internal void @pseudocolor_filter_16_11(i32 noundef %0, i32 noundef %1, i
 39:                                               ; preds = %21, %33
   %.sink = phi i16 [ %38, %33 ], [ %32, %21 ]
   %40 = getelementptr inbounds nuw i16, ptr %.03439.us, i64 %indvars.iv
-  store i16 %.sink, ptr %40, align 2, !tbaa !94
+  store i16 %.sink, ptr %40, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !101
 
 ._crit_edge.us:                                   ; preds = %39
   %41 = getelementptr inbounds i16, ptr %.03538.us, i64 %14
   %42 = getelementptr inbounds i16, ptr %.03439.us, i64 %13
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !103
+  br i1 %exitcond48.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !102
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1621,7 +1621,7 @@ define internal void @pseudocolor_filter_16_11d(i32 noundef %0, i32 noundef %1, 
   %22 = lshr i64 %indvars.iv, 1
   %23 = and i64 %22, 2147483647
   %24 = getelementptr i16, ptr %20, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !94
+  %25 = load i16, ptr %24, align 2, !tbaa !93
   %26 = zext i16 %25 to i64
   %27 = getelementptr inbounds nuw float, ptr %9, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !62
@@ -1630,7 +1630,7 @@ define internal void @pseudocolor_filter_16_11d(i32 noundef %0, i32 noundef %1, 
   %.not.us = icmp slt i32 %0, %29
   %or.cond.us = or i1 %30, %.not.us
   %31 = getelementptr inbounds nuw i16, ptr %.03538.us, i64 %indvars.iv
-  %32 = load i16, ptr %31, align 2, !tbaa !94
+  %32 = load i16, ptr %31, align 2, !tbaa !93
   br i1 %or.cond.us, label %39, label %33
 
 33:                                               ; preds = %21
@@ -1644,17 +1644,17 @@ define internal void @pseudocolor_filter_16_11d(i32 noundef %0, i32 noundef %1, 
 39:                                               ; preds = %21, %33
   %.sink = phi i16 [ %38, %33 ], [ %32, %21 ]
   %40 = getelementptr inbounds nuw i16, ptr %.03439.us, i64 %indvars.iv
-  store i16 %.sink, ptr %40, align 2, !tbaa !94
+  store i16 %.sink, ptr %40, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !103
 
 ._crit_edge.us:                                   ; preds = %39
   %41 = getelementptr inbounds i16, ptr %.03538.us, i64 %14
   %42 = getelementptr inbounds i16, ptr %.03439.us, i64 %13
   %43 = add nuw nsw i32 %.040.us, 1
   %exitcond44.not = icmp eq i32 %43, %2
-  br i1 %exitcond44.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !105
+  br i1 %exitcond44.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !104
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %11
   ret void
@@ -1874,25 +1874,24 @@ attributes #13 = { nounwind willreturn memory(none) }
 !81 = !{!52, !53, i64 12}
 !82 = distinct !{!82, !23}
 !83 = distinct !{!83, !23}
-!84 = distinct !{!84, !23, !85}
-!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!84 = distinct !{!84, !23}
+!85 = distinct !{!85, !23}
 !86 = distinct !{!86, !23}
-!87 = distinct !{!87, !23, !85}
+!87 = distinct !{!87, !23}
 !88 = distinct !{!88, !23}
-!89 = distinct !{!89, !23, !85}
+!89 = distinct !{!89, !23}
 !90 = distinct !{!90, !23}
-!91 = distinct !{!91, !23, !85}
+!91 = distinct !{!91, !23}
 !92 = distinct !{!92, !23}
-!93 = distinct !{!93, !23, !85}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"short", !8, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"short", !8, i64 0}
+!95 = distinct !{!95, !23}
 !96 = distinct !{!96, !23}
-!97 = distinct !{!97, !23, !85}
+!97 = distinct !{!97, !23}
 !98 = distinct !{!98, !23}
-!99 = distinct !{!99, !23, !85}
+!99 = distinct !{!99, !23}
 !100 = distinct !{!100, !23}
-!101 = distinct !{!101, !23, !85}
+!101 = distinct !{!101, !23}
 !102 = distinct !{!102, !23}
-!103 = distinct !{!103, !23, !85}
+!103 = distinct !{!103, !23}
 !104 = distinct !{!104, !23}
-!105 = distinct !{!105, !23, !85}

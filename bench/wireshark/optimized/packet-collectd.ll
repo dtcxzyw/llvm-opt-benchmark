@@ -503,7 +503,7 @@ stats_account_string.exit334.us:                  ; preds = %133, %127, %121, %1
   %.1.us = add i32 %.0229440.us, %55
   %.1262.us = sub nsw i32 %.0261433.us, %55
   %135 = icmp sgt i32 %.1262.us, 0
-  br i1 %135, label %.lr.ph.split.us, label %.thread533, !llvm.loop !9
+  br i1 %135, label %.lr.ph.split.us, label %.thread533
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %stats_account_string.exit334
   %.0229440 = phi i32 [ %.1, %stats_account_string.exit334 ], [ 0, %.lr.ph ]
@@ -814,7 +814,7 @@ stats_account_string.exit334.us:                  ; preds = %133, %127, %121, %1
 310:                                              ; preds = %302, %294, %286, %278, %270
   %311 = add nuw nsw i32 %.082.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %311, %238
-  br i1 %exitcond.not.i.i, label %dissect_collectd_values.exit.i, label %265, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %dissect_collectd_values.exit.i, label %265, !llvm.loop !9
 
 dissect_collectd_values.exit.i:                   ; preds = %310
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1787,19 +1787,19 @@ define internal range(i32 0, 2) i32 @collectd_stats_tree_packet(ptr noundef %0, 
   %18 = add nuw nsw i32 %.03040, 1
   %19 = load i32, ptr %12, align 8
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader39
   %21 = getelementptr inbounds nuw i8, ptr %.03143, i64 16
   %.031 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.031, null
-  br i1 %.not, label %.preheader38, label %.preheader39, !llvm.loop !13
+  br i1 %.not, label %.preheader38, label %.preheader39, !llvm.loop !11
 
 .loopexit37:                                      ; preds = %.lr.ph45, %.preheader36
   %.1.in = getelementptr inbounds nuw i8, ptr %.149, i64 16
   %.1 = load ptr, ptr %.1.in, align 8
   %.not34 = icmp eq ptr %.1, null
-  br i1 %.not34, label %._crit_edge50, label %.preheader36, !llvm.loop !14
+  br i1 %.not34, label %._crit_edge50, label %.preheader36, !llvm.loop !12
 
 .preheader36:                                     ; preds = %.preheader38, %.loopexit37
   %.149 = phi ptr [ %.1, %.loopexit37 ], [ %.147, %.preheader38 ]
@@ -1816,7 +1816,7 @@ define internal range(i32 0, 2) i32 @collectd_stats_tree_packet(ptr noundef %0, 
   %28 = add nuw nsw i32 %.02944, 1
   %29 = load i32, ptr %22, align 8
   %30 = icmp slt i32 %28, %29
-  br i1 %30, label %.lr.ph45, label %.loopexit37, !llvm.loop !15
+  br i1 %30, label %.lr.ph45, label %.loopexit37, !llvm.loop !13
 
 ._crit_edge50:                                    ; preds = %.loopexit37, %.preheader38
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1839,13 +1839,13 @@ define internal range(i32 0, 2) i32 @collectd_stats_tree_packet(ptr noundef %0, 
   %38 = add nuw nsw i32 %.051, 1
   %39 = load i32, ptr %32, align 8
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph52, label %._crit_edge53, !llvm.loop !16
+  br i1 %40, label %.lr.ph52, label %._crit_edge53, !llvm.loop !14
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %.256, i64 16
   %.2 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %.2, null
-  br i1 %.not35, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %.not35, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge53, %._crit_edge50, %5
   %.032 = phi i32 [ 0, %5 ], [ 1, %._crit_edge50 ], [ 1, %._crit_edge53 ]
@@ -1910,12 +1910,10 @@ attributes #8 = { allocsize(1) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

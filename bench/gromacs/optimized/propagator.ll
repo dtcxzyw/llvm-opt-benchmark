@@ -11633,42 +11633,42 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %72 = load float, ptr %6, align 4, !tbaa !180
   %73 = load float, ptr %7, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !393)
-  call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !398
+  call void @llvm.experimental.noalias.scope.decl(metadata !392)
+  call void @llvm.experimental.noalias.scope.decl(metadata !395)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !397
   %74 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !398
-  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !393, !noalias !396
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !397
+  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !393, !noalias !396
+  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !393, !noalias !396
+  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   br label %80
 
 80:                                               ; preds = %80, %70
   %indvars.iv.i.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i, %80 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %81 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %82 = load float, ptr %81, align 4, !tbaa !180, !noalias !398
+  %82 = load float, ptr %81, align 4, !tbaa !180, !noalias !397
   %83 = getelementptr i8, ptr %81, i64 4
-  %84 = load float, ptr %83, align 4, !tbaa !180, !noalias !398
+  %84 = load float, ptr %83, align 4, !tbaa !180, !noalias !397
   %85 = fmul float %77, %84
   %86 = call float @llvm.fmuladd.f32(float %82, float %75, float %85)
   %87 = getelementptr i8, ptr %81, i64 8
-  %88 = load float, ptr %87, align 4, !tbaa !180, !noalias !398
+  %88 = load float, ptr %87, align 4, !tbaa !180, !noalias !397
   %89 = call float @llvm.fmuladd.f32(float %88, float %79, float %86)
   %90 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
-  store float %89, ptr %90, align 4, !tbaa !180, !noalias !398
+  store float %89, ptr %90, align 4, !tbaa !180, !noalias !397
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %80, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %80, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %80
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !398
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !398
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !398
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !398
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !398
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !397
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !397
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !397
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !397
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !397
   %91 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
   %92 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %93
@@ -11676,28 +11676,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 93:                                               ; preds = %93, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i34 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i35, %93 ]
   %94 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv.i34
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !393, !noalias !396
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   %96 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i34
-  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !398
+  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !397
   %98 = fneg float %97
   %99 = call float @llvm.fmuladd.f32(float %72, float %95, float %98)
   %100 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i34
-  %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !396, !noalias !393
+  %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !395, !noalias !392
   %102 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i34
-  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !398
+  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !397
   %104 = fmul float %101, %103
   %105 = call float @llvm.fmuladd.f32(float %104, float %71, float %99)
   %106 = fmul float %73, %105
-  store float %106, ptr %94, align 4, !tbaa !180, !alias.scope !393, !noalias !396
+  store float %106, ptr %94, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
-  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %93, !llvm.loop !400
+  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %93, !llvm.loop !399
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %93
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !398
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !397
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !401
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !391
 
 107:                                              ; preds = %66
   %108 = call ptr @__cxa_begin_catch(ptr %.030) #10
@@ -11732,7 +11732,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !402
+  %2 = load ptr, ptr %0, align 8, !tbaa !400
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -12058,8 +12058,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %43 = load float, ptr %29, align 8, !tbaa !372
   %44 = load float, ptr %6, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !404)
-  call void @llvm.experimental.noalias.scope.decl(metadata !407)
+  call void @llvm.experimental.noalias.scope.decl(metadata !402)
+  call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %45 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv44
   %46 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv44
   %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
@@ -12068,26 +12068,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 48:                                               ; preds = %48, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %48 ]
   %49 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !409
+  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !407
   %51 = fsub float %44, %50
   %52 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !404, !noalias !407
+  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !402, !noalias !405
   %54 = fmul float %53, %51
   %55 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !407, !noalias !404
+  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !405, !noalias !402
   %57 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !409
+  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !407
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %43, float %54)
-  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !404, !noalias !407
+  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !402, !noalias !405
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %48, !llvm.loop !410
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %48, !llvm.loop !408
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %48
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !411
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !409
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.val = load ptr, ptr %30, align 8, !tbaa !94
@@ -12120,42 +12120,42 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %69 = load float, ptr %29, align 8, !tbaa !372
   %70 = load float, ptr %6, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !412)
-  call void @llvm.experimental.noalias.scope.decl(metadata !415)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !417
+  call void @llvm.experimental.noalias.scope.decl(metadata !410)
+  call void @llvm.experimental.noalias.scope.decl(metadata !413)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !415
   %71 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !417
-  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !412, !noalias !415
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !415
+  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !412, !noalias !415
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %76 = load float, ptr %75, align 4, !tbaa !180, !alias.scope !412, !noalias !415
+  %76 = load float, ptr %75, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   br label %77
 
 77:                                               ; preds = %77, %68
   %indvars.iv.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i, %77 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %78 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !417
+  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !415
   %80 = getelementptr i8, ptr %78, i64 4
-  %81 = load float, ptr %80, align 4, !tbaa !180, !noalias !417
+  %81 = load float, ptr %80, align 4, !tbaa !180, !noalias !415
   %82 = fmul float %74, %81
   %83 = call float @llvm.fmuladd.f32(float %79, float %72, float %82)
   %84 = getelementptr i8, ptr %78, i64 8
-  %85 = load float, ptr %84, align 4, !tbaa !180, !noalias !417
+  %85 = load float, ptr %84, align 4, !tbaa !180, !noalias !415
   %86 = call float @llvm.fmuladd.f32(float %85, float %76, float %83)
   %87 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
-  store float %86, ptr %87, align 4, !tbaa !180, !noalias !417
+  store float %86, ptr %87, align 4, !tbaa !180, !noalias !415
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %77, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %77, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %77
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !417
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !417
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !417
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !417
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !417
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !415
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !415
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !415
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !415
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !415
   %88 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
   %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %90
@@ -12163,27 +12163,27 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 90:                                               ; preds = %90, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i33 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i34, %90 ]
   %91 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i33
-  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !412, !noalias !415
+  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   %93 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i33
-  %94 = load float, ptr %93, align 4, !tbaa !180, !noalias !417
+  %94 = load float, ptr %93, align 4, !tbaa !180, !noalias !415
   %95 = fneg float %94
   %96 = call float @llvm.fmuladd.f32(float %70, float %92, float %95)
   %97 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i33
-  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !415, !noalias !412
+  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !413, !noalias !410
   %99 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i33
-  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !417
+  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !415
   %101 = fmul float %98, %100
   %102 = call float @llvm.fmuladd.f32(float %101, float %69, float %96)
-  store float %102, ptr %91, align 4, !tbaa !180, !alias.scope !412, !noalias !415
+  store float %102, ptr %91, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
-  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %90, !llvm.loop !418
+  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %90, !llvm.loop !416
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %90
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !417
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !415
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !419
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !409
 
 103:                                              ; preds = %64
   %104 = call ptr @__cxa_begin_catch(ptr %.029) #10
@@ -12218,7 +12218,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !420
+  %2 = load ptr, ptr %0, align 8, !tbaa !417
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -12501,8 +12501,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %41 = load float, ptr %6, align 4, !tbaa !180
   %42 = load float, ptr %7, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  call void @llvm.experimental.noalias.scope.decl(metadata !425)
   %43 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv46
   %44 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv46
   %45 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
@@ -12511,19 +12511,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 46:                                               ; preds = %46, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %46 ]
   %47 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %48 = load float, ptr %47, align 4, !tbaa !180, !noalias !427
+  %48 = load float, ptr %47, align 4, !tbaa !180, !noalias !424
   %49 = fsub float %41, %48
   %50 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i.us
-  %51 = load float, ptr %50, align 4, !tbaa !180, !alias.scope !422, !noalias !425
+  %51 = load float, ptr %50, align 4, !tbaa !180, !alias.scope !419, !noalias !422
   %52 = fmul float %51, %49
   %53 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !425, !noalias !422
+  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !422, !noalias !419
   %55 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !noalias !427
+  %56 = load float, ptr %55, align 4, !tbaa !180, !noalias !424
   %57 = fmul float %54, %56
   %58 = call float @llvm.fmuladd.f32(float %57, float %40, float %52)
   %59 = fmul float %42, %58
-  store float %59, ptr %50, align 4, !tbaa !180, !alias.scope !422, !noalias !425
+  store float %59, ptr %50, align 4, !tbaa !180, !alias.scope !419, !noalias !422
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
   br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %46, !llvm.loop !390
@@ -12531,7 +12531,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %46
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !428
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !425
 
 ._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -12559,8 +12559,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %67 = load float, ptr %6, align 4, !tbaa !180
   %68 = load float, ptr %7, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !426)
   call void @llvm.experimental.noalias.scope.decl(metadata !429)
-  call void @llvm.experimental.noalias.scope.decl(metadata !432)
   %69 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
   %70 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
   %71 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -12569,24 +12569,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 72:                                               ; preds = %72, %.lr.ph.split
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i35, %72 ]
   %73 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv.i34
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !429, !noalias !432
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !426, !noalias !429
   %75 = fmul float %67, %74
   %76 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv.i34
-  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !432, !noalias !429
+  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !429, !noalias !426
   %78 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i34
-  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !434
+  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !431
   %80 = fmul float %77, %79
   %81 = call float @llvm.fmuladd.f32(float %80, float %66, float %75)
   %82 = fmul float %68, %81
-  store float %82, ptr %73, align 4, !tbaa !180, !alias.scope !429, !noalias !432
+  store float %82, ptr %73, align 4, !tbaa !180, !alias.scope !426, !noalias !429
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
-  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, label %72, !llvm.loop !435
+  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, label %72, !llvm.loop !432
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37: ; preds = %72
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !436
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !425
 
 83:                                               ; preds = %62
   %84 = call ptr @__cxa_begin_catch(ptr %.030) #10
@@ -12621,7 +12621,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !437
+  %2 = load ptr, ptr %0, align 8, !tbaa !433
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -12900,8 +12900,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %40 = load float, ptr %27, align 8, !tbaa !372
   %41 = load float, ptr %6, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !439)
-  call void @llvm.experimental.noalias.scope.decl(metadata !442)
+  call void @llvm.experimental.noalias.scope.decl(metadata !435)
+  call void @llvm.experimental.noalias.scope.decl(metadata !438)
   %42 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv45
   %43 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv45
   %44 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
@@ -12910,26 +12910,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 45:                                               ; preds = %45, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %45 ]
   %46 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %47 = load float, ptr %46, align 4, !tbaa !180, !noalias !444
+  %47 = load float, ptr %46, align 4, !tbaa !180, !noalias !440
   %48 = fsub float %41, %47
   %49 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv.i.us
-  %50 = load float, ptr %49, align 4, !tbaa !180, !alias.scope !439, !noalias !442
+  %50 = load float, ptr %49, align 4, !tbaa !180, !alias.scope !435, !noalias !438
   %51 = fmul float %50, %48
   %52 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !442, !noalias !439
+  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !438, !noalias !435
   %54 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !444
+  %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !440
   %56 = fmul float %53, %55
   %57 = call float @llvm.fmuladd.f32(float %56, float %40, float %51)
-  store float %57, ptr %49, align 4, !tbaa !180, !alias.scope !439, !noalias !442
+  store float %57, ptr %49, align 4, !tbaa !180, !alias.scope !435, !noalias !438
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %45, !llvm.loop !410
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %45, !llvm.loop !408
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %45
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !445
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !441
 
 ._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit36, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -12956,8 +12956,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %64 = load float, ptr %27, align 8, !tbaa !372
   %65 = load float, ptr %6, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !446)
-  call void @llvm.experimental.noalias.scope.decl(metadata !449)
+  call void @llvm.experimental.noalias.scope.decl(metadata !442)
+  call void @llvm.experimental.noalias.scope.decl(metadata !445)
   %66 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
   %67 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
   %68 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -12966,23 +12966,23 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 69:                                               ; preds = %69, %.lr.ph.split
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i34, %69 ]
   %70 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv.i33
-  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !446, !noalias !449
+  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !442, !noalias !445
   %72 = fmul float %65, %71
   %73 = getelementptr inbounds nuw [3 x float], ptr %67, i64 0, i64 %indvars.iv.i33
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !449, !noalias !446
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !445, !noalias !442
   %75 = getelementptr inbounds nuw [3 x float], ptr %68, i64 0, i64 %indvars.iv.i33
-  %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !451
+  %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !447
   %77 = fmul float %74, %76
   %78 = call float @llvm.fmuladd.f32(float %77, float %64, float %72)
-  store float %78, ptr %70, align 4, !tbaa !180, !alias.scope !446, !noalias !449
+  store float %78, ptr %70, align 4, !tbaa !180, !alias.scope !442, !noalias !445
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 3
-  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit36, label %69, !llvm.loop !452
+  br i1 %exitcond.not.i35, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit36, label %69, !llvm.loop !448
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit36: ; preds = %69
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count48
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !453
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !441
 
 79:                                               ; preds = %60
   %80 = call ptr @__cxa_begin_catch(ptr %.029) #10
@@ -13017,7 +13017,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !454
+  %2 = load ptr, ptr %0, align 8, !tbaa !449
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -13334,7 +13334,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %45 = load ptr, ptr %31, align 8, !tbaa !375
   %46 = load ptr, ptr %45, align 8, !tbaa !137
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 448
-  %48 = load ptr, ptr %47, align 8, !tbaa !456
+  %48 = load ptr, ptr %47, align 8, !tbaa !451
   %49 = load ptr, ptr %30, align 8, !tbaa !44
   %50 = load ptr, ptr %32, align 8, !tbaa !44
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
@@ -13348,15 +13348,15 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %51, %.lr.ph.split.us ]
   %53 = load float, ptr %29, align 8, !tbaa !372
   %54 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv47
-  %55 = load i16, ptr %54, align 2, !tbaa !457
+  %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw float, ptr %49, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
   %59 = getelementptr inbounds nuw float, ptr %50, i64 %56
   %60 = load float, ptr %59, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !459)
-  call void @llvm.experimental.noalias.scope.decl(metadata !462)
+  call void @llvm.experimental.noalias.scope.decl(metadata !454)
+  call void @llvm.experimental.noalias.scope.decl(metadata !457)
   %61 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv47
   %62 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv47
   %63 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv47
@@ -13365,27 +13365,27 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 64:                                               ; preds = %64, %52
   %indvars.iv.i.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us, %64 ]
   %65 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !464
+  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !459
   %67 = fsub float %58, %66
   %68 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !459, !noalias !462
+  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !454, !noalias !457
   %70 = fmul float %69, %67
   %71 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv.i.us
-  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !462, !noalias !459
+  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !457, !noalias !454
   %73 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv.i.us
-  %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !464
+  %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !459
   %75 = fmul float %72, %74
   %76 = call float @llvm.fmuladd.f32(float %75, float %53, float %70)
   %77 = fmul float %60, %76
-  store float %77, ptr %68, align 4, !tbaa !180, !alias.scope !459, !noalias !462
+  store float %77, ptr %68, align 4, !tbaa !180, !alias.scope !454, !noalias !457
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %64, !llvm.loop !465
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %64, !llvm.loop !460
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %64
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %._crit_edge, label %52, !llvm.loop !466
+  br i1 %exitcond51.not, label %._crit_edge, label %52, !llvm.loop !461
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.val = load ptr, ptr %33, align 8, !tbaa !94
@@ -13417,49 +13417,49 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %78, %.lr.ph.split ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %86 = load float, ptr %29, align 8, !tbaa !372
   %87 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv
-  %88 = load i16, ptr %87, align 2, !tbaa !457
+  %88 = load i16, ptr %87, align 2, !tbaa !452
   %89 = zext i16 %88 to i64
   %90 = getelementptr inbounds nuw float, ptr %49, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !180
   %92 = getelementptr inbounds nuw float, ptr %50, i64 %89
   %93 = load float, ptr %92, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !467)
-  call void @llvm.experimental.noalias.scope.decl(metadata !470)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !472
+  call void @llvm.experimental.noalias.scope.decl(metadata !462)
+  call void @llvm.experimental.noalias.scope.decl(metadata !465)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !467
   %94 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !472
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !467, !noalias !470
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !467
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !467, !noalias !470
+  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !467, !noalias !470
+  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   br label %100
 
 100:                                              ; preds = %100, %85
   %indvars.iv.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.next.i.i, %100 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %101 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !472
+  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !467
   %103 = getelementptr i8, ptr %101, i64 4
-  %104 = load float, ptr %103, align 4, !tbaa !180, !noalias !472
+  %104 = load float, ptr %103, align 4, !tbaa !180, !noalias !467
   %105 = fmul float %97, %104
   %106 = call float @llvm.fmuladd.f32(float %102, float %95, float %105)
   %107 = getelementptr i8, ptr %101, i64 8
-  %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !472
+  %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !467
   %109 = call float @llvm.fmuladd.f32(float %108, float %99, float %106)
   %110 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
-  store float %109, ptr %110, align 4, !tbaa !180, !noalias !472
+  store float %109, ptr %110, align 4, !tbaa !180, !noalias !467
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %100, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %100, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %100
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !472
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !472
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !472
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !472
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !472
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !467
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !467
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !467
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !467
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !467
   %111 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv
   %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
@@ -13467,28 +13467,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i36 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i37, %113 ]
   %114 = getelementptr inbounds nuw [3 x float], ptr %94, i64 0, i64 %indvars.iv.i36
-  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !467, !noalias !470
+  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   %116 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i36
-  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !472
+  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !467
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %91, float %115, float %118)
   %120 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv.i36
-  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !470, !noalias !467
+  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !465, !noalias !462
   %122 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i36
-  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !472
+  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !467
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %86, float %119)
   %126 = fmul float %93, %125
-  store float %126, ptr %114, align 4, !tbaa !180, !alias.scope !467, !noalias !470
+  store float %126, ptr %114, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 3
-  br i1 %exitcond.not.i38, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !473
+  br i1 %exitcond.not.i38, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !468
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %113
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !472
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !467
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !474
+  br i1 %exitcond.not, label %._crit_edge, label %85, !llvm.loop !461
 
 127:                                              ; preds = %81
   %128 = call ptr @__cxa_begin_catch(ptr %.032) #10
@@ -13523,7 +13523,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !475
+  %2 = load ptr, ptr %0, align 8, !tbaa !469
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -13839,7 +13839,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %44 = load ptr, ptr %31, align 8, !tbaa !375
   %45 = load ptr, ptr %44, align 8, !tbaa !137
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 448
-  %47 = load ptr, ptr %46, align 8, !tbaa !456
+  %47 = load ptr, ptr %46, align 8, !tbaa !451
   %48 = load ptr, ptr %30, align 8, !tbaa !44
   br i1 %41, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -13852,13 +13852,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %49, %.lr.ph.split.us ]
   %51 = load float, ptr %29, align 8, !tbaa !372
   %52 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv45
-  %53 = load i16, ptr %52, align 2, !tbaa !457
+  %53 = load i16, ptr %52, align 2, !tbaa !452
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw float, ptr %48, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !477)
-  call void @llvm.experimental.noalias.scope.decl(metadata !480)
+  call void @llvm.experimental.noalias.scope.decl(metadata !471)
+  call void @llvm.experimental.noalias.scope.decl(metadata !474)
   %57 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv45
   %58 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv45
   %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
@@ -13867,26 +13867,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 60:                                               ; preds = %60, %50
   %indvars.iv.i.us = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.us, %60 ]
   %61 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !482
+  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !476
   %63 = fsub float %56, %62
   %64 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !477, !noalias !480
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !471, !noalias !474
   %66 = fmul float %65, %63
   %67 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv.i.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !480, !noalias !477
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !474, !noalias !471
   %69 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv.i.us
-  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !482
+  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !476
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %51, float %66)
-  store float %72, ptr %64, align 4, !tbaa !180, !alias.scope !477, !noalias !480
+  store float %72, ptr %64, align 4, !tbaa !180, !alias.scope !471, !noalias !474
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %60, !llvm.loop !483
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %60, !llvm.loop !477
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %60
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %._crit_edge, label %50, !llvm.loop !484
+  br i1 %exitcond49.not, label %._crit_edge, label %50, !llvm.loop !478
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.val = load ptr, ptr %32, align 8, !tbaa !94
@@ -13918,47 +13918,47 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %73, %.lr.ph.split ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %81 = load float, ptr %29, align 8, !tbaa !372
   %82 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
-  %83 = load i16, ptr %82, align 2, !tbaa !457
+  %83 = load i16, ptr %82, align 2, !tbaa !452
   %84 = zext i16 %83 to i64
   %85 = getelementptr inbounds nuw float, ptr %48, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !485)
-  call void @llvm.experimental.noalias.scope.decl(metadata !488)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !490
+  call void @llvm.experimental.noalias.scope.decl(metadata !479)
+  call void @llvm.experimental.noalias.scope.decl(metadata !482)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !484
   %87 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !490
-  %88 = load float, ptr %87, align 4, !tbaa !180, !alias.scope !485, !noalias !488
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !484
+  %88 = load float, ptr %87, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %90 = load float, ptr %89, align 4, !tbaa !180, !alias.scope !485, !noalias !488
+  %90 = load float, ptr %89, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !485, !noalias !488
+  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   br label %93
 
 93:                                               ; preds = %93, %80
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %93 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %94 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %95 = load float, ptr %94, align 4, !tbaa !180, !noalias !490
+  %95 = load float, ptr %94, align 4, !tbaa !180, !noalias !484
   %96 = getelementptr i8, ptr %94, i64 4
-  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !490
+  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !484
   %98 = fmul float %90, %97
   %99 = call float @llvm.fmuladd.f32(float %95, float %88, float %98)
   %100 = getelementptr i8, ptr %94, i64 8
-  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !490
+  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !484
   %102 = call float @llvm.fmuladd.f32(float %101, float %92, float %99)
   %103 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
-  store float %102, ptr %103, align 4, !tbaa !180, !noalias !490
+  store float %102, ptr %103, align 4, !tbaa !180, !noalias !484
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %93, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %93, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %93
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !490
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !490
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !490
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !490
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !490
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !484
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !484
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !484
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !484
   %104 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv
   %105 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %106
@@ -13966,27 +13966,27 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 106:                                              ; preds = %106, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i34 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i35, %106 ]
   %107 = getelementptr inbounds nuw [3 x float], ptr %87, i64 0, i64 %indvars.iv.i34
-  %108 = load float, ptr %107, align 4, !tbaa !180, !alias.scope !485, !noalias !488
+  %108 = load float, ptr %107, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   %109 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i34
-  %110 = load float, ptr %109, align 4, !tbaa !180, !noalias !490
+  %110 = load float, ptr %109, align 4, !tbaa !180, !noalias !484
   %111 = fneg float %110
   %112 = call float @llvm.fmuladd.f32(float %86, float %108, float %111)
   %113 = getelementptr inbounds nuw [3 x float], ptr %104, i64 0, i64 %indvars.iv.i34
-  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !488, !noalias !485
+  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !482, !noalias !479
   %115 = getelementptr inbounds nuw [3 x float], ptr %105, i64 0, i64 %indvars.iv.i34
-  %116 = load float, ptr %115, align 4, !tbaa !180, !noalias !490
+  %116 = load float, ptr %115, align 4, !tbaa !180, !noalias !484
   %117 = fmul float %114, %116
   %118 = call float @llvm.fmuladd.f32(float %117, float %81, float %112)
-  store float %118, ptr %107, align 4, !tbaa !180, !alias.scope !485, !noalias !488
+  store float %118, ptr %107, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
-  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %106, !llvm.loop !491
+  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %106, !llvm.loop !485
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %106
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !490
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !484
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !492
+  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !478
 
 119:                                              ; preds = %76
   %120 = call ptr @__cxa_begin_catch(ptr %.030) #10
@@ -14021,7 +14021,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !493
+  %2 = load ptr, ptr %0, align 8, !tbaa !486
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -14294,7 +14294,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %42 = load ptr, ptr %29, align 8, !tbaa !375
   %43 = load ptr, ptr %42, align 8, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 448
-  %45 = load ptr, ptr %44, align 8, !tbaa !456
+  %45 = load ptr, ptr %44, align 8, !tbaa !451
   %46 = load ptr, ptr %28, align 8, !tbaa !44
   %47 = load ptr, ptr %30, align 8, !tbaa !44
   %48 = sext i32 %35 to i64
@@ -14305,15 +14305,15 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %48, %.lr.ph ]
   %49 = load float, ptr %27, align 8, !tbaa !372
   %50 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv48
-  %51 = load i16, ptr %50, align 2, !tbaa !457
+  %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
   %53 = getelementptr inbounds nuw float, ptr %46, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
   %55 = getelementptr inbounds nuw float, ptr %47, i64 %52
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !495)
-  call void @llvm.experimental.noalias.scope.decl(metadata !498)
+  call void @llvm.experimental.noalias.scope.decl(metadata !488)
+  call void @llvm.experimental.noalias.scope.decl(metadata !491)
   %57 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv48
   %58 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv48
   %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv48
@@ -14322,27 +14322,27 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 60:                                               ; preds = %60, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %60 ]
   %61 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !500
+  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !493
   %63 = fsub float %54, %62
   %64 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !495, !noalias !498
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !488, !noalias !491
   %66 = fmul float %65, %63
   %67 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv.i.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !498, !noalias !495
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !491, !noalias !488
   %69 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv.i.us
-  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !500
+  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !493
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %49, float %66)
   %73 = fmul float %56, %72
-  store float %73, ptr %64, align 4, !tbaa !180, !alias.scope !495, !noalias !498
+  store float %73, ptr %64, align 4, !tbaa !180, !alias.scope !488, !noalias !491
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %60, !llvm.loop !465
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %60, !llvm.loop !460
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %60
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !501
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !494
 
 ._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -14368,15 +14368,15 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39 ], [ %48, %.lr.ph ]
   %80 = load float, ptr %27, align 8, !tbaa !372
   %81 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
-  %82 = load i16, ptr %81, align 2, !tbaa !457
+  %82 = load i16, ptr %81, align 2, !tbaa !452
   %83 = zext i16 %82 to i64
   %84 = getelementptr inbounds nuw float, ptr %46, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !180
   %86 = getelementptr inbounds nuw float, ptr %47, i64 %83
   %87 = load float, ptr %86, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !502)
-  call void @llvm.experimental.noalias.scope.decl(metadata !505)
+  call void @llvm.experimental.noalias.scope.decl(metadata !495)
+  call void @llvm.experimental.noalias.scope.decl(metadata !498)
   %88 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
   %89 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
   %90 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -14385,24 +14385,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 91:                                               ; preds = %91, %.lr.ph.split
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i37, %91 ]
   %92 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i36
-  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !502, !noalias !505
+  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !495, !noalias !498
   %94 = fmul float %85, %93
   %95 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i36
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !505, !noalias !502
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !498, !noalias !495
   %97 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i36
-  %98 = load float, ptr %97, align 4, !tbaa !180, !noalias !507
+  %98 = load float, ptr %97, align 4, !tbaa !180, !noalias !500
   %99 = fmul float %96, %98
   %100 = call float @llvm.fmuladd.f32(float %99, float %80, float %94)
   %101 = fmul float %87, %100
-  store float %101, ptr %92, align 4, !tbaa !180, !alias.scope !502, !noalias !505
+  store float %101, ptr %92, align 4, !tbaa !180, !alias.scope !495, !noalias !498
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 3
-  br i1 %exitcond.not.i38, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39, label %91, !llvm.loop !508
+  br i1 %exitcond.not.i38, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39, label %91, !llvm.loop !501
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39: ; preds = %91
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !509
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !494
 
 102:                                              ; preds = %76
   %103 = call ptr @__cxa_begin_catch(ptr %.032) #10
@@ -14437,7 +14437,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !510
+  %2 = load ptr, ptr %0, align 8, !tbaa !502
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -14709,7 +14709,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %41 = load ptr, ptr %29, align 8, !tbaa !375
   %42 = load ptr, ptr %41, align 8, !tbaa !137
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 448
-  %44 = load ptr, ptr %43, align 8, !tbaa !456
+  %44 = load ptr, ptr %43, align 8, !tbaa !451
   %45 = load ptr, ptr %28, align 8, !tbaa !44
   %46 = sext i32 %34 to i64
   %wide.trip.count49 = sext i32 %35 to i64
@@ -14719,13 +14719,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %46, %.lr.ph ]
   %47 = load float, ptr %27, align 8, !tbaa !372
   %48 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv46
-  %49 = load i16, ptr %48, align 2, !tbaa !457
+  %49 = load i16, ptr %48, align 2, !tbaa !452
   %50 = zext i16 %49 to i64
   %51 = getelementptr inbounds nuw float, ptr %45, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !512)
-  call void @llvm.experimental.noalias.scope.decl(metadata !515)
+  call void @llvm.experimental.noalias.scope.decl(metadata !504)
+  call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %53 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv46
   %54 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv46
   %55 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
@@ -14734,26 +14734,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 56:                                               ; preds = %56, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %56 ]
   %57 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !517
+  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !509
   %59 = fsub float %52, %58
   %60 = getelementptr inbounds nuw [3 x float], ptr %53, i64 0, i64 %indvars.iv.i.us
-  %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !512, !noalias !515
+  %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !504, !noalias !507
   %62 = fmul float %61, %59
   %63 = getelementptr inbounds nuw [3 x float], ptr %54, i64 0, i64 %indvars.iv.i.us
-  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !515, !noalias !512
+  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !507, !noalias !504
   %65 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv.i.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !517
+  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !509
   %67 = fmul float %64, %66
   %68 = call float @llvm.fmuladd.f32(float %67, float %47, float %62)
-  store float %68, ptr %60, align 4, !tbaa !180, !alias.scope !512, !noalias !515
+  store float %68, ptr %60, align 4, !tbaa !180, !alias.scope !504, !noalias !507
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %56, !llvm.loop !483
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %56, !llvm.loop !477
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %56
   %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !518
+  br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !510
 
 ._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -14779,13 +14779,13 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37 ], [ %46, %.lr.ph ]
   %75 = load float, ptr %27, align 8, !tbaa !372
   %76 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 2, !tbaa !457
+  %77 = load i16, ptr %76, align 2, !tbaa !452
   %78 = zext i16 %77 to i64
   %79 = getelementptr inbounds nuw float, ptr %45, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !519)
-  call void @llvm.experimental.noalias.scope.decl(metadata !522)
+  call void @llvm.experimental.noalias.scope.decl(metadata !511)
+  call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %81 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv
   %82 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
   %83 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -14794,23 +14794,23 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 84:                                               ; preds = %84, %.lr.ph.split
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i35, %84 ]
   %85 = getelementptr inbounds nuw [3 x float], ptr %81, i64 0, i64 %indvars.iv.i34
-  %86 = load float, ptr %85, align 4, !tbaa !180, !alias.scope !519, !noalias !522
+  %86 = load float, ptr %85, align 4, !tbaa !180, !alias.scope !511, !noalias !514
   %87 = fmul float %80, %86
   %88 = getelementptr inbounds nuw [3 x float], ptr %82, i64 0, i64 %indvars.iv.i34
-  %89 = load float, ptr %88, align 4, !tbaa !180, !alias.scope !522, !noalias !519
+  %89 = load float, ptr %88, align 4, !tbaa !180, !alias.scope !514, !noalias !511
   %90 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv.i34
-  %91 = load float, ptr %90, align 4, !tbaa !180, !noalias !524
+  %91 = load float, ptr %90, align 4, !tbaa !180, !noalias !516
   %92 = fmul float %89, %91
   %93 = call float @llvm.fmuladd.f32(float %92, float %75, float %87)
-  store float %93, ptr %85, align 4, !tbaa !180, !alias.scope !519, !noalias !522
+  store float %93, ptr %85, align 4, !tbaa !180, !alias.scope !511, !noalias !514
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 3
-  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, label %84, !llvm.loop !525
+  br i1 %exitcond.not.i36, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37, label %84, !llvm.loop !517
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37: ; preds = %84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !526
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !510
 
 94:                                               ; preds = %71
   %95 = call ptr @__cxa_begin_catch(ptr %.030) #10
@@ -14845,7 +14845,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !527
+  %2 = load ptr, ptr %0, align 8, !tbaa !518
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -15167,8 +15167,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv43 = phi i64 [ %42, %.lr.ph.split.us.preheader ], [ %indvars.iv.next44, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ]
   %43 = load float, ptr %29, align 8, !tbaa !372
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !529)
-  call void @llvm.experimental.noalias.scope.decl(metadata !532)
+  call void @llvm.experimental.noalias.scope.decl(metadata !520)
+  call void @llvm.experimental.noalias.scope.decl(metadata !523)
   %44 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv43
   %45 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv43
   %46 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv43
@@ -15177,26 +15177,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 47:                                               ; preds = %47, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %47 ]
   %48 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !534
+  %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !525
   %50 = fsub float 1.000000e+00, %49
   %51 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i.us
-  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !529, !noalias !532
+  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !520, !noalias !523
   %53 = fmul float %52, %50
   %54 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !532, !noalias !529
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !523, !noalias !520
   %56 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !534
+  %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !525
   %58 = fmul float %55, %57
   %59 = call float @llvm.fmuladd.f32(float %58, float %43, float %53)
-  store float %59, ptr %51, align 4, !tbaa !180, !alias.scope !529, !noalias !532
+  store float %59, ptr %51, align 4, !tbaa !180, !alias.scope !520, !noalias !523
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %47, !llvm.loop !535
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %47, !llvm.loop !526
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %47
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !536
+  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !527
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.val = load ptr, ptr %30, align 8, !tbaa !94
@@ -15228,42 +15228,42 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %60, %.lr.ph.split ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %68 = load float, ptr %29, align 8, !tbaa !372
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !537)
-  call void @llvm.experimental.noalias.scope.decl(metadata !540)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !542
+  call void @llvm.experimental.noalias.scope.decl(metadata !528)
+  call void @llvm.experimental.noalias.scope.decl(metadata !531)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !533
   %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !542
-  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !537, !noalias !540
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !533
+  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !537, !noalias !540
+  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !537, !noalias !540
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   br label %75
 
 75:                                               ; preds = %75, %67
   %indvars.iv.i.i = phi i64 [ 0, %67 ], [ %indvars.iv.next.i.i, %75 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %76 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %77 = load float, ptr %76, align 4, !tbaa !180, !noalias !542
+  %77 = load float, ptr %76, align 4, !tbaa !180, !noalias !533
   %78 = getelementptr i8, ptr %76, i64 4
-  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !542
+  %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !533
   %80 = fmul float %72, %79
   %81 = call float @llvm.fmuladd.f32(float %77, float %70, float %80)
   %82 = getelementptr i8, ptr %76, i64 8
-  %83 = load float, ptr %82, align 4, !tbaa !180, !noalias !542
+  %83 = load float, ptr %82, align 4, !tbaa !180, !noalias !533
   %84 = call float @llvm.fmuladd.f32(float %83, float %74, float %81)
   %85 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv.i.i
-  store float %84, ptr %85, align 4, !tbaa !180, !noalias !542
+  store float %84, ptr %85, align 4, !tbaa !180, !noalias !533
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %75, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %75, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %75
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !542
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !542
-  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !542
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !542
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !542
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %13, align 8, !noalias !533
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !533
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !533
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !533
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !533
   %86 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
   %87 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %88
@@ -15271,26 +15271,26 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 88:                                               ; preds = %88, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i32 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i33, %88 ]
   %89 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv.i32
-  %90 = load float, ptr %89, align 4, !tbaa !180, !noalias !542
+  %90 = load float, ptr %89, align 4, !tbaa !180, !noalias !533
   %91 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv.i32
-  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !537, !noalias !540
+  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %93 = fsub float %92, %90
   %94 = getelementptr inbounds nuw [3 x float], ptr %86, i64 0, i64 %indvars.iv.i32
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !540, !noalias !537
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !531, !noalias !528
   %96 = getelementptr inbounds nuw [3 x float], ptr %87, i64 0, i64 %indvars.iv.i32
-  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !542
+  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !533
   %98 = fmul float %95, %97
   %99 = call float @llvm.fmuladd.f32(float %98, float %68, float %93)
-  store float %99, ptr %91, align 4, !tbaa !180, !alias.scope !537, !noalias !540
+  store float %99, ptr %91, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 3
-  br i1 %exitcond.not.i34, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %88, !llvm.loop !543
+  br i1 %exitcond.not.i34, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %88, !llvm.loop !534
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %88
-  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !533
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !544
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !527
 
 100:                                              ; preds = %63
   %101 = call ptr @__cxa_begin_catch(ptr %.028) #10
@@ -15325,7 +15325,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !545
+  %2 = load ptr, ptr %0, align 8, !tbaa !535
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -15600,8 +15600,8 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %39, %.lr.ph ]
   %40 = load float, ptr %27, align 8, !tbaa !372
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !547)
-  call void @llvm.experimental.noalias.scope.decl(metadata !550)
+  call void @llvm.experimental.noalias.scope.decl(metadata !537)
+  call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %41 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv44
   %42 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv44
   %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
@@ -15610,26 +15610,26 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 44:                                               ; preds = %44, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %44 ]
   %45 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.us
-  %46 = load float, ptr %45, align 4, !tbaa !180, !noalias !552
+  %46 = load float, ptr %45, align 4, !tbaa !180, !noalias !542
   %47 = fsub float 1.000000e+00, %46
   %48 = getelementptr inbounds nuw [3 x float], ptr %41, i64 0, i64 %indvars.iv.i.us
-  %49 = load float, ptr %48, align 4, !tbaa !180, !alias.scope !547, !noalias !550
+  %49 = load float, ptr %48, align 4, !tbaa !180, !alias.scope !537, !noalias !540
   %50 = fmul float %49, %47
   %51 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv.i.us
-  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !550, !noalias !547
+  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !540, !noalias !537
   %53 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !552
+  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !542
   %55 = fmul float %52, %54
   %56 = call float @llvm.fmuladd.f32(float %55, float %40, float %50)
-  store float %56, ptr %48, align 4, !tbaa !180, !alias.scope !547, !noalias !550
+  store float %56, ptr %48, align 4, !tbaa !180, !alias.scope !537, !noalias !540
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
-  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %44, !llvm.loop !535
+  br i1 %exitcond.not.i.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, label %44, !llvm.loop !526
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us: ; preds = %44
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !553
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !543
 
 ._crit_edge:                                      ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit35, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -15655,8 +15655,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit35 ], [ %39, %.lr.ph ]
   %63 = load float, ptr %27, align 8, !tbaa !372
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !554)
-  call void @llvm.experimental.noalias.scope.decl(metadata !557)
+  call void @llvm.experimental.noalias.scope.decl(metadata !544)
+  call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %64 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
   %65 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   %66 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
@@ -15665,22 +15665,22 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 67:                                               ; preds = %67, %.lr.ph.split
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i33, %67 ]
   %68 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv.i32
-  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !557, !noalias !554
+  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !547, !noalias !544
   %70 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv.i32
-  %71 = load float, ptr %70, align 4, !tbaa !180, !noalias !559
+  %71 = load float, ptr %70, align 4, !tbaa !180, !noalias !549
   %72 = fmul float %69, %71
   %73 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv.i32
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !554, !noalias !557
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !544, !noalias !547
   %75 = call float @llvm.fmuladd.f32(float %72, float %63, float %74)
-  store float %75, ptr %73, align 4, !tbaa !180, !alias.scope !554, !noalias !557
+  store float %75, ptr %73, align 4, !tbaa !180, !alias.scope !544, !noalias !547
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, 3
-  br i1 %exitcond.not.i34, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit35, label %67, !llvm.loop !560
+  br i1 %exitcond.not.i34, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit35, label %67, !llvm.loop !550
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit35: ; preds = %67
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count47
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !561
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !543
 
 76:                                               ; preds = %59
   %77 = call ptr @__cxa_begin_catch(ptr %.028) #10
@@ -15930,7 +15930,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocitySc
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !50
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -15938,7 +15938,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocitySc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !564
+  %4 = load ptr, ptr %0, align 8, !tbaa !553
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %3, ptr %5, align 8, !tbaa !374
   ret void
@@ -16021,7 +16021,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingC
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !50
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -16029,7 +16029,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !566
+  %4 = load ptr, ptr %0, align 8, !tbaa !555
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 %3, ptr %5, align 8, !tbaa !48
   ret void
@@ -16067,13 +16067,13 @@ define weak_odr noundef ptr @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE21get
   %12 = alloca %"struct.gmx::PropagatorConnection", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !568)
-  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !568
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
+  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !557
   %16 = fpext float %8 to double
-  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !568
-  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !568
+  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !557
+  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !557
   invoke void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EEC1EdPNS_19StatePropagatorDataEPKNS_7MDAtomsEP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(200) %15, double noundef %16, ptr noundef %2, ptr noundef %17, ptr noundef %18)
-          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !568
+          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !557
 
 common.resume:                                    ; preds = %83, %85, %19
   %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %86, %85 ], [ %84, %83 ]
@@ -16082,11 +16082,11 @@ common.resume:                                    ; preds = %83, %85, %19
 19:                                               ; preds = %9
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !568
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !557
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %9
-  store ptr %15, ptr %11, align 8, !tbaa !50, !alias.scope !568
+  store ptr %15, ptr %11, align 8, !tbaa !50, !alias.scope !557
   %21 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_10PropagatorILNS_16IntegrationStageE1EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11)
           to label %22 unwind label %83
 
@@ -16149,19 +16149,19 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE1EEESt14default_dele
   %.val = load ptr, ptr %7, align 8, !tbaa !306
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val11 = load i64, ptr %49, align 8, !tbaa !310
-  call void @llvm.experimental.noalias.scope.decl(metadata !571)
+  call void @llvm.experimental.noalias.scope.decl(metadata !560)
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !571
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !571
-  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !571
+  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !560
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !560
+  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !560
   %51 = icmp ugt i64 %.val11, 15
   br i1 %51, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE1EEESt14default_deleteIS3_EED2Ev.exit
   %52 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !571
-  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !571
-  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !571
+  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !560
+  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !560
+  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !560
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE1EEESt14default_deleteIS3_EED2Ev.exit
@@ -16172,7 +16172,7 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE1EEESt14default_dele
   ]
 
 55:                                               ; preds = %._crit_edge.i.i.i.i
-  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !571
+  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !560
   store i8 %56, ptr %54, align 1, !tbaa !311
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
@@ -16181,13 +16181,13 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE1EEESt14default_dele
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
 _ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit: ; preds = %._crit_edge.i.i.i.i, %55, %57
-  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !571
+  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !560
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !571
-  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !571
+  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !560
+  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !560
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store i8 0, ptr %61, align 1, !tbaa !311
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !571
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !560
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -16196,43 +16196,43 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !571
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !560
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !560
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !560
   store i64 %68, ptr %65, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 208
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !560
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !560
   store i64 %68, ptr %63, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !560
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !560
   store i64 %68, ptr %64, align 8
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !560
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !560
   store i64 %68, ptr %66, align 8
   %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 264
   store i64 0, ptr %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 272
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !560
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !560
   store i64 %68, ptr %67, align 8
   %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 296
   store i64 0, ptr %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 304
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !560
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !571
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !560
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper18registerPropagatorENS_20PropagatorConnectionE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
           to label %82 unwind label %85
 
@@ -16314,11 +16314,11 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %.noexc5 ]
   %.0911.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %15, %.noexc5 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !577)
-  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !577, !noalias !574
-  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !574, !noalias !577
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !577, !noalias !574
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !563)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
+  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !566, !noalias !563
+  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !563, !noalias !566
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !566, !noalias !563
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %30, %7
@@ -16568,9 +16568,9 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !579
+  %.val = load ptr, ptr %0, align 8, !tbaa !568
   %.val3 = load i32, ptr %1, align 4, !tbaa !136
-  %.val4 = load i32, ptr %2, align 4, !tbaa !581
+  %.val4 = load i32, ptr %2, align 4, !tbaa !570
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE30setNumVelocityScalingVariablesEiNS_15ScaleVelocitiesE(ptr noundef nonnull align 8 dereferenceable(200) %.val, i32 noundef %.val3, i32 noundef %.val4)
   ret void
 }
@@ -16602,15 +16602,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !583
+  %.val = load ptr, ptr %1, align 8, !tbaa !572
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !585
+  store i64 0, ptr %5, align 8, !alias.scope !574
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !50, !alias.scope !585
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !585
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !585
+  store i64 %6, ptr %0, align 8, !tbaa !50, !alias.scope !574
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !574
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !574
   ret void
 }
 
@@ -16641,7 +16641,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !594
+  %.val = load ptr, ptr %0, align 8, !tbaa !583
   %2 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 40
@@ -16690,7 +16690,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !596
+  %.val = load ptr, ptr %0, align 8, !tbaa !585
   %2 = getelementptr i8, ptr %.val, i64 56
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 64
@@ -16739,7 +16739,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE1EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #23 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !598
+  %.val = load ptr, ptr %0, align 8, !tbaa !587
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   ret ptr %2
 }
@@ -16771,15 +16771,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !600
+  %.val = load ptr, ptr %1, align 8, !tbaa !589
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !602
+  store i64 0, ptr %5, align 8, !alias.scope !591
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !50, !alias.scope !602
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !602
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !602
+  store i64 %6, ptr %0, align 8, !tbaa !50, !alias.scope !591
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !591
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE1EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !591
   ret void
 }
 
@@ -16819,15 +16819,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EEC2EdPNS_19St
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE2EEE, i64 16), ptr %0, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = fptrunc double %1 to float
-  store float %7, ptr %6, align 8, !tbaa !611
+  store float %7, ptr %6, align 8, !tbaa !600
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !612
+  store ptr %2, ptr %8, align 8, !tbaa !601
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  store i64 -1, ptr %11, align 8, !tbaa !613
+  store i64 -1, ptr %11, align 8, !tbaa !602
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -16835,15 +16835,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EEC2EdPNS_19St
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %14, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %3, ptr %15, align 8, !tbaa !614
+  store ptr %3, ptr %15, align 8, !tbaa !603
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %16, align 8, !tbaa !615
+  store ptr %4, ptr %16, align 8, !tbaa !604
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !616
+  %2 = load ptr, ptr %0, align 8, !tbaa !605
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -16886,7 +16886,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -16939,33 +16939,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -17024,7 +17024,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 94:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %88
   %.sroa.03.0.insert.ext = phi i64 [ 1, %88 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %95 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %96 = load ptr, ptr %59, align 8, !tbaa !614
+  %96 = load ptr, ptr %59, align 8, !tbaa !603
   %97 = load ptr, ptr %96, align 8, !tbaa !137
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 640
   %99 = load i32, ptr %98, align 8, !tbaa !139
@@ -17034,7 +17034,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   %.sroa.0.0.insert.ext = zext i32 %76 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 %.sroa.0.0.insert.ext, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %100 = load ptr, ptr %12, align 8, !tbaa !615
+  %100 = load ptr, ptr %12, align 8, !tbaa !604
   %101 = icmp eq ptr %100, null
   br i1 %101, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %102
 
@@ -17134,7 +17134,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %29 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %29, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %30 = load i32, ptr %18, align 4, !tbaa !136
@@ -17171,7 +17171,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %40 = add nsw i32 %.052.us, 1
   %41 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.052.us, %41
-  br i1 %.not.us.not, label %.lr.ph54.split.us, label %._crit_edge55, !llvm.loop !619
+  br i1 %.not.us.not, label %.lr.ph54.split.us, label %._crit_edge55
 
 .lr.ph.us:                                        ; preds = %36
   %42 = load ptr, ptr %9, align 8
@@ -17184,10 +17184,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 47:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %46, %.lr.ph.us ]
-  %48 = load float, ptr %34, align 8, !tbaa !611
+  %48 = load float, ptr %34, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !620)
-  call void @llvm.experimental.noalias.scope.decl(metadata !623)
+  call void @llvm.experimental.noalias.scope.decl(metadata !608)
+  call void @llvm.experimental.noalias.scope.decl(metadata !611)
   %49 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv58
   %50 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv58
   %51 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
@@ -17196,19 +17196,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 52:                                               ; preds = %52, %47
   %indvars.iv.i.us.us = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.us.us, %52 ]
   %53 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !625
+  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !613
   %55 = fsub float %24, %54
   %56 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !620, !noalias !623
+  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !608, !noalias !611
   %58 = fmul float %57, %55
   %59 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i.us.us
-  %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !623, !noalias !620
+  %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !611, !noalias !608
   %61 = getelementptr inbounds nuw [3 x float], ptr %51, i64 0, i64 %indvars.iv.i.us.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !625
+  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !613
   %63 = fmul float %60, %62
   %64 = call float @llvm.fmuladd.f32(float %63, float %48, float %58)
   %65 = fmul float %64, %25
-  store float %65, ptr %56, align 4, !tbaa !180, !alias.scope !620, !noalias !623
+  store float %65, ptr %56, align 4, !tbaa !180, !alias.scope !608, !noalias !611
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
   br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %52, !llvm.loop !390
@@ -17216,12 +17216,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 66:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %66
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %66 ]
   %67 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv.i47.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !626, !noalias !629
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !614, !noalias !617
   %69 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i47.us.us
-  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !632, !noalias !633
+  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !620, !noalias !621
   %71 = call float @llvm.fmuladd.f32(float %70, float %73, float %68)
   %72 = getelementptr inbounds nuw [3 x float], ptr %75, i64 0, i64 %indvars.iv.i47.us.us
-  store float %71, ptr %72, align 4, !tbaa !180, !alias.scope !634, !noalias !635
+  store float %71, ptr %72, align 4, !tbaa !180, !alias.scope !622, !noalias !623
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
   br i1 %exitcond.not.i49.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %66, !llvm.loop !184
@@ -17229,13 +17229,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %66
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.split.us.us, label %47, !llvm.loop !636
+  br i1 %exitcond62.not, label %._crit_edge.split.us.us, label %47, !llvm.loop !624
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %52
-  %73 = load float, ptr %34, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !626)
-  call void @llvm.experimental.noalias.scope.decl(metadata !634)
-  call void @llvm.experimental.noalias.scope.decl(metadata !632)
+  %73 = load float, ptr %34, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !614)
+  call void @llvm.experimental.noalias.scope.decl(metadata !622)
+  call void @llvm.experimental.noalias.scope.decl(metadata !620)
   %74 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv58
   %75 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv58
   br label %66
@@ -17295,44 +17295,44 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 92:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %85, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %93 = load float, ptr %34, align 8, !tbaa !611
+  %93 = load float, ptr %34, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !637)
-  call void @llvm.experimental.noalias.scope.decl(metadata !640)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !642
+  call void @llvm.experimental.noalias.scope.decl(metadata !625)
+  call void @llvm.experimental.noalias.scope.decl(metadata !628)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !630
   %94 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !642
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !637, !noalias !640
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !630
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !637, !noalias !640
+  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !637, !noalias !640
+  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   br label %100
 
 100:                                              ; preds = %100, %92
   %indvars.iv.i.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i.i, %100 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %101 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !642
+  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !630
   %103 = getelementptr i8, ptr %101, i64 4
-  %104 = load float, ptr %103, align 4, !tbaa !180, !noalias !642
+  %104 = load float, ptr %103, align 4, !tbaa !180, !noalias !630
   %105 = fmul float %97, %104
   %106 = call float @llvm.fmuladd.f32(float %102, float %95, float %105)
   %107 = getelementptr i8, ptr %101, i64 8
-  %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !642
+  %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !630
   %109 = call float @llvm.fmuladd.f32(float %108, float %99, float %106)
   %110 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %109, ptr %110, align 4, !tbaa !180, !noalias !642
+  store float %109, ptr %110, align 4, !tbaa !180, !noalias !630
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %100, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %100, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %100
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !642
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !642
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !642
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !642
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !642
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !630
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !630
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !630
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !630
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !630
   %111 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
   %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
@@ -17340,29 +17340,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i45, %113 ]
   %114 = getelementptr inbounds nuw [3 x float], ptr %94, i64 0, i64 %indvars.iv.i44
-  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !637, !noalias !640
+  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   %116 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i44
-  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !642
+  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !630
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %24, float %115, float %118)
   %120 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv.i44
-  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !640, !noalias !637
+  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !628, !noalias !625
   %122 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i44
-  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !642
+  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !630
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %93, float %119)
   %126 = fmul float %125, %25
-  store float %126, ptr %114, align 4, !tbaa !180, !alias.scope !637, !noalias !640
+  store float %126, ptr %114, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
-  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !400
+  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !399
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %113
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !642
-  %127 = load float, ptr %34, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !626)
-  call void @llvm.experimental.noalias.scope.decl(metadata !634)
-  call void @llvm.experimental.noalias.scope.decl(metadata !632)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !630
+  %127 = load float, ptr %34, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !614)
+  call void @llvm.experimental.noalias.scope.decl(metadata !622)
+  call void @llvm.experimental.noalias.scope.decl(metadata !620)
   %128 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
   %129 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv
   br label %130
@@ -17370,12 +17370,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 130:                                              ; preds = %130, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i48, %130 ]
   %131 = getelementptr inbounds nuw [3 x float], ptr %128, i64 0, i64 %indvars.iv.i47
-  %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !626, !noalias !629
+  %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !614, !noalias !617
   %133 = getelementptr inbounds nuw [3 x float], ptr %94, i64 0, i64 %indvars.iv.i47
-  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !632, !noalias !633
+  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !620, !noalias !621
   %135 = call float @llvm.fmuladd.f32(float %134, float %127, float %132)
   %136 = getelementptr inbounds nuw [3 x float], ptr %129, i64 0, i64 %indvars.iv.i47
-  store float %135, ptr %136, align 4, !tbaa !180, !alias.scope !634, !noalias !635
+  store float %135, ptr %136, align 4, !tbaa !180, !alias.scope !622, !noalias !623
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond.not.i49, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %130, !llvm.loop !184
@@ -17383,7 +17383,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %130
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %92, !llvm.loop !643
+  br i1 %exitcond.not, label %._crit_edge.split, label %92, !llvm.loop !624
 
 137:                                              ; preds = %89
   %138 = call ptr @__cxa_begin_catch(ptr %.040) #10
@@ -17419,7 +17419,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %130
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !644
+  %2 = load ptr, ptr %0, align 8, !tbaa !631
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -17462,7 +17462,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -17515,33 +17515,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -17597,7 +17597,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 91:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %85
   %.sroa.03.0.insert.ext = phi i64 [ 1, %85 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %92 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %93 = load ptr, ptr %59, align 8, !tbaa !614
+  %93 = load ptr, ptr %59, align 8, !tbaa !603
   %94 = load ptr, ptr %93, align 8, !tbaa !137
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 640
   %96 = load i32, ptr %95, align 8, !tbaa !139
@@ -17606,7 +17606,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.05.0.insert.ext = zext i32 %96 to i64
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %97 = load ptr, ptr %12, align 8, !tbaa !615
+  %97 = load ptr, ptr %12, align 8, !tbaa !604
   %98 = icmp eq ptr %97, null
   br i1 %98, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %99
 
@@ -17704,7 +17704,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %28 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %28, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %29 = load i32, ptr %18, align 4, !tbaa !136
@@ -17741,7 +17741,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %39 = add nsw i32 %.049.us, 1
   %40 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.049.us, %40
-  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52, !llvm.loop !646
+  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52
 
 .lr.ph.us:                                        ; preds = %35
   %41 = load ptr, ptr %9, align 8
@@ -17754,10 +17754,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 46:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %45, %.lr.ph.us ]
-  %47 = load float, ptr %33, align 8, !tbaa !611
+  %47 = load float, ptr %33, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !647)
-  call void @llvm.experimental.noalias.scope.decl(metadata !650)
+  call void @llvm.experimental.noalias.scope.decl(metadata !633)
+  call void @llvm.experimental.noalias.scope.decl(metadata !636)
   %48 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
   %49 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
   %50 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
@@ -17766,31 +17766,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 51:                                               ; preds = %51, %46
   %indvars.iv.i.us.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.us.us, %51 ]
   %52 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !652
+  %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !638
   %54 = fsub float %24, %53
   %55 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !647, !noalias !650
+  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !633, !noalias !636
   %57 = fmul float %56, %54
   %58 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !650, !noalias !647
+  %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !636, !noalias !633
   %60 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i.us.us
-  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !652
+  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !638
   %62 = fmul float %59, %61
   %63 = call float @llvm.fmuladd.f32(float %62, float %47, float %57)
-  store float %63, ptr %55, align 4, !tbaa !180, !alias.scope !647, !noalias !650
+  store float %63, ptr %55, align 4, !tbaa !180, !alias.scope !633, !noalias !636
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %51, !llvm.loop !410
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %51, !llvm.loop !408
 
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %64 ]
   %65 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i44.us.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !653, !noalias !656
+  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !639, !noalias !642
   %67 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i44.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !659, !noalias !660
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !645, !noalias !646
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
   %70 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv.i44.us.us
-  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !661, !noalias !662
+  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !647, !noalias !648
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
   br i1 %exitcond.not.i46.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %64, !llvm.loop !184
@@ -17798,13 +17798,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %64
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %46, !llvm.loop !663
+  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %46, !llvm.loop !649
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %51
-  %71 = load float, ptr %33, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  call void @llvm.experimental.noalias.scope.decl(metadata !661)
-  call void @llvm.experimental.noalias.scope.decl(metadata !659)
+  %71 = load float, ptr %33, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !639)
+  call void @llvm.experimental.noalias.scope.decl(metadata !647)
+  call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %72 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv55
   %73 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv55
   br label %64
@@ -17864,44 +17864,44 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 90:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %83, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %91 = load float, ptr %33, align 8, !tbaa !611
+  %91 = load float, ptr %33, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !664)
-  call void @llvm.experimental.noalias.scope.decl(metadata !667)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !669
+  call void @llvm.experimental.noalias.scope.decl(metadata !650)
+  call void @llvm.experimental.noalias.scope.decl(metadata !653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !655
   %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !669
-  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !664, !noalias !667
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !655
+  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !664, !noalias !667
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !664, !noalias !667
+  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   br label %98
 
 98:                                               ; preds = %98, %90
   %indvars.iv.i.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i.i, %98 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %99 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !669
+  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !655
   %101 = getelementptr i8, ptr %99, i64 4
-  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !669
+  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !655
   %103 = fmul float %95, %102
   %104 = call float @llvm.fmuladd.f32(float %100, float %93, float %103)
   %105 = getelementptr i8, ptr %99, i64 8
-  %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !669
+  %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !655
   %107 = call float @llvm.fmuladd.f32(float %106, float %97, float %104)
   %108 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %107, ptr %108, align 4, !tbaa !180, !noalias !669
+  store float %107, ptr %108, align 4, !tbaa !180, !noalias !655
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %98, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %98, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %98
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !669
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !669
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !669
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !669
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !669
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !655
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !655
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !655
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !655
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !655
   %109 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %111
@@ -17909,28 +17909,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 111:                                              ; preds = %111, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i42, %111 ]
   %112 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i41
-  %113 = load float, ptr %112, align 4, !tbaa !180, !alias.scope !664, !noalias !667
+  %113 = load float, ptr %112, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   %114 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i41
-  %115 = load float, ptr %114, align 4, !tbaa !180, !noalias !669
+  %115 = load float, ptr %114, align 4, !tbaa !180, !noalias !655
   %116 = fneg float %115
   %117 = call float @llvm.fmuladd.f32(float %24, float %113, float %116)
   %118 = getelementptr inbounds nuw [3 x float], ptr %109, i64 0, i64 %indvars.iv.i41
-  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !667, !noalias !664
+  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !653, !noalias !650
   %120 = getelementptr inbounds nuw [3 x float], ptr %110, i64 0, i64 %indvars.iv.i41
-  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !669
+  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !655
   %122 = fmul float %119, %121
   %123 = call float @llvm.fmuladd.f32(float %122, float %91, float %117)
-  store float %123, ptr %112, align 4, !tbaa !180, !alias.scope !664, !noalias !667
+  store float %123, ptr %112, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %111, !llvm.loop !418
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %111, !llvm.loop !416
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %111
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !669
-  %124 = load float, ptr %33, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  call void @llvm.experimental.noalias.scope.decl(metadata !661)
-  call void @llvm.experimental.noalias.scope.decl(metadata !659)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !655
+  %124 = load float, ptr %33, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !639)
+  call void @llvm.experimental.noalias.scope.decl(metadata !647)
+  call void @llvm.experimental.noalias.scope.decl(metadata !645)
   %125 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   %126 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
   br label %127
@@ -17938,12 +17938,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 127:                                              ; preds = %127, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %127 ]
   %128 = getelementptr inbounds nuw [3 x float], ptr %125, i64 0, i64 %indvars.iv.i44
-  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !653, !noalias !656
+  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !639, !noalias !642
   %130 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i44
-  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !659, !noalias !660
+  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !645, !noalias !646
   %132 = call float @llvm.fmuladd.f32(float %131, float %124, float %129)
   %133 = getelementptr inbounds nuw [3 x float], ptr %126, i64 0, i64 %indvars.iv.i44
-  store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !661, !noalias !662
+  store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !647, !noalias !648
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
   br i1 %exitcond.not.i46, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %127, !llvm.loop !184
@@ -17951,7 +17951,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %127
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !670
+  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !649
 
 134:                                              ; preds = %87
   %135 = call ptr @__cxa_begin_catch(ptr %.037) #10
@@ -17987,7 +17987,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %127
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !671
+  %2 = load ptr, ptr %0, align 8, !tbaa !656
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -18030,7 +18030,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -18083,33 +18083,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -18130,7 +18130,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %76 = load i32, ptr %75, align 4, !tbaa !180
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %77 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %78 = load ptr, ptr %59, align 8, !tbaa !614
+  %78 = load ptr, ptr %59, align 8, !tbaa !603
   %79 = load ptr, ptr %78, align 8, !tbaa !137
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 640
   %81 = load i32, ptr %80, align 8, !tbaa !139
@@ -18140,7 +18140,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   %.sroa.0.0.insert.ext = zext i32 %76 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 %.sroa.0.0.insert.ext, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %82 = load ptr, ptr %12, align 8, !tbaa !615
+  %82 = load ptr, ptr %12, align 8, !tbaa !604
   %83 = icmp eq ptr %82, null
   br i1 %83, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %84
 
@@ -18238,7 +18238,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %28 = load i32, ptr %16, align 4, !tbaa !136
@@ -18272,7 +18272,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %37 = add nsw i32 %.053.us, 1
   %38 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.053.us, %38
-  br i1 %.not.us.not, label %.lr.ph55.split.us, label %._crit_edge56, !llvm.loop !673
+  br i1 %.not.us.not, label %.lr.ph55.split.us, label %._crit_edge56
 
 .lr.ph.us:                                        ; preds = %33
   %39 = load ptr, ptr %9, align 8
@@ -18285,10 +18285,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 44:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %43, %.lr.ph.us ]
-  %45 = load float, ptr %32, align 8, !tbaa !611
+  %45 = load float, ptr %32, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !674)
-  call void @llvm.experimental.noalias.scope.decl(metadata !677)
+  call void @llvm.experimental.noalias.scope.decl(metadata !658)
+  call void @llvm.experimental.noalias.scope.decl(metadata !661)
   %46 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv59
   %47 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv59
   %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
@@ -18297,19 +18297,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 49:                                               ; preds = %49, %44
   %indvars.iv.i.us.us = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.us.us, %49 ]
   %50 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !679
+  %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !663
   %52 = fsub float %22, %51
   %53 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !674, !noalias !677
+  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !658, !noalias !661
   %55 = fmul float %54, %52
   %56 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !677, !noalias !674
+  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !661, !noalias !658
   %58 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !679
+  %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !663
   %60 = fmul float %57, %59
   %61 = call float @llvm.fmuladd.f32(float %60, float %45, float %55)
   %62 = fmul float %61, %23
-  store float %62, ptr %53, align 4, !tbaa !180, !alias.scope !674, !noalias !677
+  store float %62, ptr %53, align 4, !tbaa !180, !alias.scope !658, !noalias !661
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
   br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %49, !llvm.loop !390
@@ -18317,12 +18317,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 63:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %63
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %63 ]
   %64 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i47.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !680, !noalias !683
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !664, !noalias !667
   %66 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i47.us.us
-  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !686, !noalias !687
+  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !670, !noalias !671
   %68 = call float @llvm.fmuladd.f32(float %67, float %70, float %65)
   %69 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i47.us.us
-  store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !688, !noalias !689
+  store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !672, !noalias !673
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
   br i1 %exitcond.not.i49.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %63, !llvm.loop !184
@@ -18330,13 +18330,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %63
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %44, !llvm.loop !690
+  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %44, !llvm.loop !674
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %49
-  %70 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !680)
-  call void @llvm.experimental.noalias.scope.decl(metadata !688)
-  call void @llvm.experimental.noalias.scope.decl(metadata !686)
+  %70 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !664)
+  call void @llvm.experimental.noalias.scope.decl(metadata !672)
+  call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %71 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv59
   %72 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv59
   br label %63
@@ -18395,10 +18395,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 89:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %90 = load float, ptr %32, align 8, !tbaa !611
+  %90 = load float, ptr %32, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !691)
-  call void @llvm.experimental.noalias.scope.decl(metadata !694)
+  call void @llvm.experimental.noalias.scope.decl(metadata !675)
+  call void @llvm.experimental.noalias.scope.decl(metadata !678)
   %91 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
   %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   %93 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -18407,25 +18407,25 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 94:                                               ; preds = %94, %89
   %indvars.iv.i44 = phi i64 [ 0, %89 ], [ %indvars.iv.next.i45, %94 ]
   %95 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i44
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !691, !noalias !694
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !675, !noalias !678
   %97 = fmul float %96, %22
   %98 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i44
-  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !694, !noalias !691
+  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !678, !noalias !675
   %100 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i44
-  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !696
+  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !680
   %102 = fmul float %99, %101
   %103 = call float @llvm.fmuladd.f32(float %102, float %90, float %97)
   %104 = fmul float %103, %23
-  store float %104, ptr %95, align 4, !tbaa !180, !alias.scope !691, !noalias !694
+  store float %104, ptr %95, align 4, !tbaa !180, !alias.scope !675, !noalias !678
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
-  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50, label %94, !llvm.loop !435
+  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50, label %94, !llvm.loop !432
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50: ; preds = %94
-  %105 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !680)
-  call void @llvm.experimental.noalias.scope.decl(metadata !688)
-  call void @llvm.experimental.noalias.scope.decl(metadata !686)
+  %105 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !664)
+  call void @llvm.experimental.noalias.scope.decl(metadata !672)
+  call void @llvm.experimental.noalias.scope.decl(metadata !670)
   %106 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   %107 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   br label %108
@@ -18433,12 +18433,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 108:                                              ; preds = %108, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50 ], [ %indvars.iv.next.i48, %108 ]
   %109 = getelementptr inbounds nuw [3 x float], ptr %106, i64 0, i64 %indvars.iv.i47
-  %110 = load float, ptr %109, align 4, !tbaa !180, !alias.scope !680, !noalias !683
+  %110 = load float, ptr %109, align 4, !tbaa !180, !alias.scope !664, !noalias !667
   %111 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i47
-  %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !686, !noalias !687
+  %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !670, !noalias !671
   %113 = call float @llvm.fmuladd.f32(float %112, float %105, float %110)
   %114 = getelementptr inbounds nuw [3 x float], ptr %107, i64 0, i64 %indvars.iv.i47
-  store float %113, ptr %114, align 4, !tbaa !180, !alias.scope !688, !noalias !689
+  store float %113, ptr %114, align 4, !tbaa !180, !alias.scope !672, !noalias !673
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond.not.i49, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %108, !llvm.loop !184
@@ -18446,7 +18446,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %108
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !697
+  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !674
 
 115:                                              ; preds = %86
   %116 = call ptr @__cxa_begin_catch(ptr %.040) #10
@@ -18482,7 +18482,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %108
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !698
+  %2 = load ptr, ptr %0, align 8, !tbaa !681
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -18525,7 +18525,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -18578,33 +18578,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -18622,7 +18622,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = load i32, ptr %72, align 4, !tbaa !180
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %74 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %75 = load ptr, ptr %59, align 8, !tbaa !614
+  %75 = load ptr, ptr %59, align 8, !tbaa !603
   %76 = load ptr, ptr %75, align 8, !tbaa !137
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 640
   %78 = load i32, ptr %77, align 8, !tbaa !139
@@ -18631,7 +18631,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.05.0.insert.ext = zext i32 %78 to i64
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %79 = load ptr, ptr %12, align 8, !tbaa !615
+  %79 = load ptr, ptr %12, align 8, !tbaa !604
   %80 = icmp eq ptr %79, null
   br i1 %80, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %81
 
@@ -18727,7 +18727,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %26 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %26, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %27 = load i32, ptr %16, align 4, !tbaa !136
@@ -18761,7 +18761,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %36 = add nsw i32 %.050.us, 1
   %37 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.050.us, %37
-  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !700
+  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53
 
 .lr.ph.us:                                        ; preds = %32
   %38 = load ptr, ptr %9, align 8
@@ -18774,10 +18774,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 43:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %42, %.lr.ph.us ]
-  %44 = load float, ptr %31, align 8, !tbaa !611
+  %44 = load float, ptr %31, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !701)
-  call void @llvm.experimental.noalias.scope.decl(metadata !704)
+  call void @llvm.experimental.noalias.scope.decl(metadata !683)
+  call void @llvm.experimental.noalias.scope.decl(metadata !686)
   %45 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv56
   %46 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv56
   %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
@@ -18786,31 +18786,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 48:                                               ; preds = %48, %43
   %indvars.iv.i.us.us = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.us.us, %48 ]
   %49 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !706
+  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !688
   %51 = fsub float %22, %50
   %52 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !701, !noalias !704
+  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !683, !noalias !686
   %54 = fmul float %53, %51
   %55 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !704, !noalias !701
+  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !686, !noalias !683
   %57 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !706
+  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !688
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %44, float %54)
-  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !701, !noalias !704
+  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !683, !noalias !686
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %48, !llvm.loop !410
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %48, !llvm.loop !408
 
 61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %61
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %61 ]
   %62 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv.i44.us.us
-  %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !707, !noalias !710
+  %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !689, !noalias !692
   %64 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i44.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !713, !noalias !714
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !695, !noalias !696
   %66 = call float @llvm.fmuladd.f32(float %65, float %68, float %63)
   %67 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv.i44.us.us
-  store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !715, !noalias !716
+  store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !697, !noalias !698
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
   br i1 %exitcond.not.i46.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %61, !llvm.loop !184
@@ -18818,13 +18818,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %61
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %43, !llvm.loop !717
+  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %43, !llvm.loop !699
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %48
-  %68 = load float, ptr %31, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !707)
-  call void @llvm.experimental.noalias.scope.decl(metadata !715)
-  call void @llvm.experimental.noalias.scope.decl(metadata !713)
+  %68 = load float, ptr %31, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !689)
+  call void @llvm.experimental.noalias.scope.decl(metadata !697)
+  call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv56
   %70 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv56
   br label %61
@@ -18883,10 +18883,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 87:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %88 = load float, ptr %31, align 8, !tbaa !611
+  %88 = load float, ptr %31, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !718)
-  call void @llvm.experimental.noalias.scope.decl(metadata !721)
+  call void @llvm.experimental.noalias.scope.decl(metadata !700)
+  call void @llvm.experimental.noalias.scope.decl(metadata !703)
   %89 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
   %90 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
   %91 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -18895,24 +18895,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 92:                                               ; preds = %92, %87
   %indvars.iv.i41 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i42, %92 ]
   %93 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i41
-  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !718, !noalias !721
+  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !700, !noalias !703
   %95 = fmul float %94, %22
   %96 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i41
-  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !721, !noalias !718
+  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !703, !noalias !700
   %98 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i41
-  %99 = load float, ptr %98, align 4, !tbaa !180, !noalias !723
+  %99 = load float, ptr %98, align 4, !tbaa !180, !noalias !705
   %100 = fmul float %97, %99
   %101 = call float @llvm.fmuladd.f32(float %100, float %88, float %95)
-  store float %101, ptr %93, align 4, !tbaa !180, !alias.scope !718, !noalias !721
+  store float %101, ptr %93, align 4, !tbaa !180, !alias.scope !700, !noalias !703
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %92, !llvm.loop !452
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %92, !llvm.loop !448
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47: ; preds = %92
-  %102 = load float, ptr %31, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !707)
-  call void @llvm.experimental.noalias.scope.decl(metadata !715)
-  call void @llvm.experimental.noalias.scope.decl(metadata !713)
+  %102 = load float, ptr %31, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !689)
+  call void @llvm.experimental.noalias.scope.decl(metadata !697)
+  call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %103 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
   %104 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   br label %105
@@ -18920,12 +18920,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %105 ]
   %106 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %indvars.iv.i44
-  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !707, !noalias !710
+  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !689, !noalias !692
   %108 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i44
-  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !713, !noalias !714
+  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !695, !noalias !696
   %110 = call float @llvm.fmuladd.f32(float %109, float %102, float %107)
   %111 = getelementptr inbounds nuw [3 x float], ptr %104, i64 0, i64 %indvars.iv.i44
-  store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !715, !noalias !716
+  store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !697, !noalias !698
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
   br i1 %exitcond.not.i46, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %105, !llvm.loop !184
@@ -18933,7 +18933,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %105
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %87, !llvm.loop !724
+  br i1 %exitcond.not, label %._crit_edge.split, label %87, !llvm.loop !699
 
 112:                                              ; preds = %84
   %113 = call ptr @__cxa_begin_catch(ptr %.037) #10
@@ -18969,7 +18969,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %105
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !725
+  %2 = load ptr, ptr %0, align 8, !tbaa !706
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -19012,7 +19012,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -19065,33 +19065,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -19144,7 +19144,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !614
+  %90 = load ptr, ptr %59, align 8, !tbaa !603
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -19152,7 +19152,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !615
+  %94 = load ptr, ptr %12, align 8, !tbaa !604
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -19248,7 +19248,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -19288,17 +19288,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %41 = add nsw i32 %.050.us, 1
   %42 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.050.us, %42
-  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !727
+  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53
 
 .lr.ph.us:                                        ; preds = %37
   %43 = load ptr, ptr %9, align 8
   %44 = load ptr, ptr %10, align 8
   %45 = load ptr, ptr %12, align 8, !tbaa !133
   %46 = load ptr, ptr %13, align 8, !tbaa !133
-  %47 = load ptr, ptr %34, align 8, !tbaa !614
+  %47 = load ptr, ptr %34, align 8, !tbaa !603
   %48 = load ptr, ptr %47, align 8, !tbaa !137
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 448
-  %50 = load ptr, ptr %49, align 8, !tbaa !456
+  %50 = load ptr, ptr %49, align 8, !tbaa !451
   %51 = load ptr, ptr %33, align 8, !tbaa !44
   %52 = load ptr, ptr %35, align 8, !tbaa !44
   %53 = sext i32 %38 to i64
@@ -19307,17 +19307,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 54:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %53, %.lr.ph.us ]
-  %55 = load float, ptr %32, align 8, !tbaa !611
+  %55 = load float, ptr %32, align 8, !tbaa !600
   %56 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv56
-  %57 = load i16, ptr %56, align 2, !tbaa !457
+  %57 = load i16, ptr %56, align 2, !tbaa !452
   %58 = zext i16 %57 to i64
   %59 = getelementptr inbounds nuw float, ptr %51, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !180
   %61 = getelementptr inbounds nuw float, ptr %52, i64 %58
   %62 = load float, ptr %61, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !728)
-  call void @llvm.experimental.noalias.scope.decl(metadata !731)
+  call void @llvm.experimental.noalias.scope.decl(metadata !708)
+  call void @llvm.experimental.noalias.scope.decl(metadata !711)
   %63 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv56
   %64 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv56
   %65 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
@@ -19326,32 +19326,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 66:                                               ; preds = %66, %54
   %indvars.iv.i.us.us = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.us.us, %66 ]
   %67 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !noalias !733
+  %68 = load float, ptr %67, align 4, !tbaa !180, !noalias !713
   %69 = fsub float %60, %68
   %70 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv.i.us.us
-  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !728, !noalias !731
+  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !708, !noalias !711
   %72 = fmul float %71, %69
   %73 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv.i.us.us
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !731, !noalias !728
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !711, !noalias !708
   %75 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv.i.us.us
-  %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !733
+  %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !713
   %77 = fmul float %74, %76
   %78 = call float @llvm.fmuladd.f32(float %77, float %55, float %72)
   %79 = fmul float %62, %78
-  store float %79, ptr %70, align 4, !tbaa !180, !alias.scope !728, !noalias !731
+  store float %79, ptr %70, align 4, !tbaa !180, !alias.scope !708, !noalias !711
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %66, !llvm.loop !465
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %66, !llvm.loop !460
 
 80:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %80
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %80 ]
   %81 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i45.us.us
-  %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !734, !noalias !737
+  %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !714, !noalias !717
   %83 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv.i45.us.us
-  %84 = load float, ptr %83, align 4, !tbaa !180, !alias.scope !740, !noalias !741
+  %84 = load float, ptr %83, align 4, !tbaa !180, !alias.scope !720, !noalias !721
   %85 = call float @llvm.fmuladd.f32(float %84, float %87, float %82)
   %86 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i45.us.us
-  store float %85, ptr %86, align 4, !tbaa !180, !alias.scope !742, !noalias !743
+  store float %85, ptr %86, align 4, !tbaa !180, !alias.scope !722, !noalias !723
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
   br i1 %exitcond.not.i47.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %80, !llvm.loop !184
@@ -19359,13 +19359,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %80
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %54, !llvm.loop !744
+  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %54, !llvm.loop !724
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %66
-  %87 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !734)
-  call void @llvm.experimental.noalias.scope.decl(metadata !742)
-  call void @llvm.experimental.noalias.scope.decl(metadata !740)
+  %87 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !714)
+  call void @llvm.experimental.noalias.scope.decl(metadata !722)
+  call void @llvm.experimental.noalias.scope.decl(metadata !720)
   %88 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv56
   %89 = getelementptr inbounds [3 x float], ptr %46, i64 %indvars.iv56
   br label %80
@@ -19394,10 +19394,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %96 = load ptr, ptr %10, align 8
   %97 = load ptr, ptr %12, align 8, !tbaa !133
   %98 = load ptr, ptr %13, align 8, !tbaa !133
-  %99 = load ptr, ptr %34, align 8, !tbaa !614
+  %99 = load ptr, ptr %34, align 8, !tbaa !603
   %100 = load ptr, ptr %99, align 8, !tbaa !137
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 448
-  %102 = load ptr, ptr %101, align 8, !tbaa !456
+  %102 = load ptr, ptr %101, align 8, !tbaa !451
   %103 = load ptr, ptr %33, align 8, !tbaa !44
   %104 = load ptr, ptr %35, align 8, !tbaa !44
   %.val = load ptr, ptr %36, align 8, !tbaa !94
@@ -19431,51 +19431,51 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 112:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %105, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %113 = load float, ptr %32, align 8, !tbaa !611
+  %113 = load float, ptr %32, align 8, !tbaa !600
   %114 = getelementptr inbounds nuw i16, ptr %102, i64 %indvars.iv
-  %115 = load i16, ptr %114, align 2, !tbaa !457
+  %115 = load i16, ptr %114, align 2, !tbaa !452
   %116 = zext i16 %115 to i64
   %117 = getelementptr inbounds nuw float, ptr %103, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !180
   %119 = getelementptr inbounds nuw float, ptr %104, i64 %116
   %120 = load float, ptr %119, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !745)
-  call void @llvm.experimental.noalias.scope.decl(metadata !748)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !750
+  call void @llvm.experimental.noalias.scope.decl(metadata !725)
+  call void @llvm.experimental.noalias.scope.decl(metadata !728)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !730
   %121 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !750
-  %122 = load float, ptr %121, align 4, !tbaa !180, !alias.scope !745, !noalias !748
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !730
+  %122 = load float, ptr %121, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %124 = load float, ptr %123, align 4, !tbaa !180, !alias.scope !745, !noalias !748
+  %124 = load float, ptr %123, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %126 = load float, ptr %125, align 4, !tbaa !180, !alias.scope !745, !noalias !748
+  %126 = load float, ptr %125, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   br label %127
 
 127:                                              ; preds = %127, %112
   %indvars.iv.i.i = phi i64 [ 0, %112 ], [ %indvars.iv.next.i.i, %127 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %128 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %129 = load float, ptr %128, align 4, !tbaa !180, !noalias !750
+  %129 = load float, ptr %128, align 4, !tbaa !180, !noalias !730
   %130 = getelementptr i8, ptr %128, i64 4
-  %131 = load float, ptr %130, align 4, !tbaa !180, !noalias !750
+  %131 = load float, ptr %130, align 4, !tbaa !180, !noalias !730
   %132 = fmul float %124, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %122, float %132)
   %134 = getelementptr i8, ptr %128, i64 8
-  %135 = load float, ptr %134, align 4, !tbaa !180, !noalias !750
+  %135 = load float, ptr %134, align 4, !tbaa !180, !noalias !730
   %136 = call float @llvm.fmuladd.f32(float %135, float %126, float %133)
   %137 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %136, ptr %137, align 4, !tbaa !180, !noalias !750
+  store float %136, ptr %137, align 4, !tbaa !180, !noalias !730
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %127, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %127, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %127
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !750
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !750
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !750
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !750
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !750
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !730
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !730
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !730
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !730
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !730
   %138 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
   %139 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %140
@@ -19483,29 +19483,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 140:                                              ; preds = %140, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i43, %140 ]
   %141 = getelementptr inbounds nuw [3 x float], ptr %121, i64 0, i64 %indvars.iv.i42
-  %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !745, !noalias !748
+  %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   %143 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i42
-  %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !750
+  %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !730
   %145 = fneg float %144
   %146 = call float @llvm.fmuladd.f32(float %118, float %142, float %145)
   %147 = getelementptr inbounds nuw [3 x float], ptr %138, i64 0, i64 %indvars.iv.i42
-  %148 = load float, ptr %147, align 4, !tbaa !180, !alias.scope !748, !noalias !745
+  %148 = load float, ptr %147, align 4, !tbaa !180, !alias.scope !728, !noalias !725
   %149 = getelementptr inbounds nuw [3 x float], ptr %139, i64 0, i64 %indvars.iv.i42
-  %150 = load float, ptr %149, align 4, !tbaa !180, !noalias !750
+  %150 = load float, ptr %149, align 4, !tbaa !180, !noalias !730
   %151 = fmul float %148, %150
   %152 = call float @llvm.fmuladd.f32(float %151, float %113, float %146)
   %153 = fmul float %120, %152
-  store float %153, ptr %141, align 4, !tbaa !180, !alias.scope !745, !noalias !748
+  store float %153, ptr %141, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 3
-  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %140, !llvm.loop !473
+  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %140, !llvm.loop !468
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !750
-  %154 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !734)
-  call void @llvm.experimental.noalias.scope.decl(metadata !742)
-  call void @llvm.experimental.noalias.scope.decl(metadata !740)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !730
+  %154 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !714)
+  call void @llvm.experimental.noalias.scope.decl(metadata !722)
+  call void @llvm.experimental.noalias.scope.decl(metadata !720)
   %155 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv
   %156 = getelementptr inbounds [3 x float], ptr %98, i64 %indvars.iv
   br label %157
@@ -19513,12 +19513,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 157:                                              ; preds = %157, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i46, %157 ]
   %158 = getelementptr inbounds nuw [3 x float], ptr %155, i64 0, i64 %indvars.iv.i45
-  %159 = load float, ptr %158, align 4, !tbaa !180, !alias.scope !734, !noalias !737
+  %159 = load float, ptr %158, align 4, !tbaa !180, !alias.scope !714, !noalias !717
   %160 = getelementptr inbounds nuw [3 x float], ptr %121, i64 0, i64 %indvars.iv.i45
-  %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !740, !noalias !741
+  %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !720, !noalias !721
   %162 = call float @llvm.fmuladd.f32(float %161, float %154, float %159)
   %163 = getelementptr inbounds nuw [3 x float], ptr %156, i64 0, i64 %indvars.iv.i45
-  store float %162, ptr %163, align 4, !tbaa !180, !alias.scope !742, !noalias !743
+  store float %162, ptr %163, align 4, !tbaa !180, !alias.scope !722, !noalias !723
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
   br i1 %exitcond.not.i47, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %157, !llvm.loop !184
@@ -19526,7 +19526,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %157
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %112, !llvm.loop !751
+  br i1 %exitcond.not, label %._crit_edge.split, label %112, !llvm.loop !724
 
 164:                                              ; preds = %109
   %165 = call ptr @__cxa_begin_catch(ptr %.038) #10
@@ -19562,7 +19562,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %157
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !752
+  %2 = load ptr, ptr %0, align 8, !tbaa !731
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -19605,7 +19605,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -19658,33 +19658,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -19737,7 +19737,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !614
+  %90 = load ptr, ptr %59, align 8, !tbaa !603
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -19745,7 +19745,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !615
+  %94 = load ptr, ptr %12, align 8, !tbaa !604
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -19841,7 +19841,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -19880,17 +19880,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %40 = add nsw i32 %.048.us, 1
   %41 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.048.us, %41
-  br i1 %.not.us.not, label %.lr.ph50.split.us, label %._crit_edge51, !llvm.loop !754
+  br i1 %.not.us.not, label %.lr.ph50.split.us, label %._crit_edge51
 
 .lr.ph.us:                                        ; preds = %36
   %42 = load ptr, ptr %9, align 8
   %43 = load ptr, ptr %10, align 8
   %44 = load ptr, ptr %12, align 8, !tbaa !133
   %45 = load ptr, ptr %13, align 8, !tbaa !133
-  %46 = load ptr, ptr %34, align 8, !tbaa !614
+  %46 = load ptr, ptr %34, align 8, !tbaa !603
   %47 = load ptr, ptr %46, align 8, !tbaa !137
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 448
-  %49 = load ptr, ptr %48, align 8, !tbaa !456
+  %49 = load ptr, ptr %48, align 8, !tbaa !451
   %50 = load ptr, ptr %33, align 8, !tbaa !44
   %51 = sext i32 %37 to i64
   %wide.trip.count57 = sext i32 %38 to i64
@@ -19898,15 +19898,15 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 52:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %51, %.lr.ph.us ]
-  %53 = load float, ptr %32, align 8, !tbaa !611
+  %53 = load float, ptr %32, align 8, !tbaa !600
   %54 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv54
-  %55 = load i16, ptr %54, align 2, !tbaa !457
+  %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw float, ptr %50, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !755)
-  call void @llvm.experimental.noalias.scope.decl(metadata !758)
+  call void @llvm.experimental.noalias.scope.decl(metadata !733)
+  call void @llvm.experimental.noalias.scope.decl(metadata !736)
   %59 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv54
   %60 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv54
   %61 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
@@ -19915,31 +19915,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 62:                                               ; preds = %62, %52
   %indvars.iv.i.us.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us.us, %62 ]
   %63 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %64 = load float, ptr %63, align 4, !tbaa !180, !noalias !760
+  %64 = load float, ptr %63, align 4, !tbaa !180, !noalias !738
   %65 = fsub float %58, %64
   %66 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv.i.us.us
-  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !755, !noalias !758
+  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !733, !noalias !736
   %68 = fmul float %67, %65
   %69 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i.us.us
-  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !758, !noalias !755
+  %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !736, !noalias !733
   %71 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i.us.us
-  %72 = load float, ptr %71, align 4, !tbaa !180, !noalias !760
+  %72 = load float, ptr %71, align 4, !tbaa !180, !noalias !738
   %73 = fmul float %70, %72
   %74 = call float @llvm.fmuladd.f32(float %73, float %53, float %68)
-  store float %74, ptr %66, align 4, !tbaa !180, !alias.scope !755, !noalias !758
+  store float %74, ptr %66, align 4, !tbaa !180, !alias.scope !733, !noalias !736
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %62, !llvm.loop !483
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %62, !llvm.loop !477
 
 75:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %75
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %75 ]
   %76 = getelementptr inbounds nuw [3 x float], ptr %83, i64 0, i64 %indvars.iv.i43.us.us
-  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !761, !noalias !764
+  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !739, !noalias !742
   %78 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv.i43.us.us
-  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !767, !noalias !768
+  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !745, !noalias !746
   %80 = call float @llvm.fmuladd.f32(float %79, float %82, float %77)
   %81 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %indvars.iv.i43.us.us
-  store float %80, ptr %81, align 4, !tbaa !180, !alias.scope !769, !noalias !770
+  store float %80, ptr %81, align 4, !tbaa !180, !alias.scope !747, !noalias !748
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
   br i1 %exitcond.not.i45.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %75, !llvm.loop !184
@@ -19947,13 +19947,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %75
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge.split.us.us, label %52, !llvm.loop !771
+  br i1 %exitcond58.not, label %._crit_edge.split.us.us, label %52, !llvm.loop !749
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %62
-  %82 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !761)
-  call void @llvm.experimental.noalias.scope.decl(metadata !769)
-  call void @llvm.experimental.noalias.scope.decl(metadata !767)
+  %82 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !739)
+  call void @llvm.experimental.noalias.scope.decl(metadata !747)
+  call void @llvm.experimental.noalias.scope.decl(metadata !745)
   %83 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv54
   %84 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv54
   br label %75
@@ -19982,10 +19982,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %91 = load ptr, ptr %10, align 8
   %92 = load ptr, ptr %12, align 8, !tbaa !133
   %93 = load ptr, ptr %13, align 8, !tbaa !133
-  %94 = load ptr, ptr %34, align 8, !tbaa !614
+  %94 = load ptr, ptr %34, align 8, !tbaa !603
   %95 = load ptr, ptr %94, align 8, !tbaa !137
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 448
-  %97 = load ptr, ptr %96, align 8, !tbaa !456
+  %97 = load ptr, ptr %96, align 8, !tbaa !451
   %98 = load ptr, ptr %33, align 8, !tbaa !44
   %.val = load ptr, ptr %35, align 8, !tbaa !94
   %99 = sext i32 %87 to i64
@@ -20018,49 +20018,49 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 106:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %107 = load float, ptr %32, align 8, !tbaa !611
+  %107 = load float, ptr %32, align 8, !tbaa !600
   %108 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv
-  %109 = load i16, ptr %108, align 2, !tbaa !457
+  %109 = load i16, ptr %108, align 2, !tbaa !452
   %110 = zext i16 %109 to i64
   %111 = getelementptr inbounds nuw float, ptr %98, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !772)
-  call void @llvm.experimental.noalias.scope.decl(metadata !775)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !777
+  call void @llvm.experimental.noalias.scope.decl(metadata !750)
+  call void @llvm.experimental.noalias.scope.decl(metadata !753)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !755
   %113 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !777
-  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !772, !noalias !775
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !755
+  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !180, !alias.scope !772, !noalias !775
+  %116 = load float, ptr %115, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %118 = load float, ptr %117, align 4, !tbaa !180, !alias.scope !772, !noalias !775
+  %118 = load float, ptr %117, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   br label %119
 
 119:                                              ; preds = %119, %106
   %indvars.iv.i.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i.i, %119 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %120 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !777
+  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !755
   %122 = getelementptr i8, ptr %120, i64 4
-  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !777
+  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !755
   %124 = fmul float %116, %123
   %125 = call float @llvm.fmuladd.f32(float %121, float %114, float %124)
   %126 = getelementptr i8, ptr %120, i64 8
-  %127 = load float, ptr %126, align 4, !tbaa !180, !noalias !777
+  %127 = load float, ptr %126, align 4, !tbaa !180, !noalias !755
   %128 = call float @llvm.fmuladd.f32(float %127, float %118, float %125)
   %129 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %128, ptr %129, align 4, !tbaa !180, !noalias !777
+  store float %128, ptr %129, align 4, !tbaa !180, !noalias !755
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %119, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %119, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %119
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !777
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !777
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !777
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !777
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !777
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !755
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !755
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !755
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !755
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !755
   %130 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
   %131 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %132
@@ -20068,28 +20068,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 132:                                              ; preds = %132, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i41, %132 ]
   %133 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv.i40
-  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !772, !noalias !775
+  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   %135 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i40
-  %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !777
+  %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !755
   %137 = fneg float %136
   %138 = call float @llvm.fmuladd.f32(float %112, float %134, float %137)
   %139 = getelementptr inbounds nuw [3 x float], ptr %130, i64 0, i64 %indvars.iv.i40
-  %140 = load float, ptr %139, align 4, !tbaa !180, !alias.scope !775, !noalias !772
+  %140 = load float, ptr %139, align 4, !tbaa !180, !alias.scope !753, !noalias !750
   %141 = getelementptr inbounds nuw [3 x float], ptr %131, i64 0, i64 %indvars.iv.i40
-  %142 = load float, ptr %141, align 4, !tbaa !180, !noalias !777
+  %142 = load float, ptr %141, align 4, !tbaa !180, !noalias !755
   %143 = fmul float %140, %142
   %144 = call float @llvm.fmuladd.f32(float %143, float %107, float %138)
-  store float %144, ptr %133, align 4, !tbaa !180, !alias.scope !772, !noalias !775
+  store float %144, ptr %133, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %132, !llvm.loop !491
+  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %132, !llvm.loop !485
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %132
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !777
-  %145 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !761)
-  call void @llvm.experimental.noalias.scope.decl(metadata !769)
-  call void @llvm.experimental.noalias.scope.decl(metadata !767)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !755
+  %145 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !739)
+  call void @llvm.experimental.noalias.scope.decl(metadata !747)
+  call void @llvm.experimental.noalias.scope.decl(metadata !745)
   %146 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
   %147 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
   br label %148
@@ -20097,12 +20097,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 148:                                              ; preds = %148, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i44, %148 ]
   %149 = getelementptr inbounds nuw [3 x float], ptr %146, i64 0, i64 %indvars.iv.i43
-  %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !761, !noalias !764
+  %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !739, !noalias !742
   %151 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv.i43
-  %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !767, !noalias !768
+  %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !745, !noalias !746
   %153 = call float @llvm.fmuladd.f32(float %152, float %145, float %150)
   %154 = getelementptr inbounds nuw [3 x float], ptr %147, i64 0, i64 %indvars.iv.i43
-  store float %153, ptr %154, align 4, !tbaa !180, !alias.scope !769, !noalias !770
+  store float %153, ptr %154, align 4, !tbaa !180, !alias.scope !747, !noalias !748
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
   br i1 %exitcond.not.i45, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %148, !llvm.loop !184
@@ -20110,7 +20110,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %148
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %106, !llvm.loop !778
+  br i1 %exitcond.not, label %._crit_edge.split, label %106, !llvm.loop !749
 
 155:                                              ; preds = %103
   %156 = call ptr @__cxa_begin_catch(ptr %.036) #10
@@ -20146,7 +20146,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %148
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !779
+  %2 = load ptr, ptr %0, align 8, !tbaa !756
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -20189,7 +20189,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -20242,33 +20242,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -20283,7 +20283,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !614
+  %72 = load ptr, ptr %59, align 8, !tbaa !603
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -20291,7 +20291,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !615
+  %76 = load ptr, ptr %12, align 8, !tbaa !604
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -20385,7 +20385,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -20422,17 +20422,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %38 = add nsw i32 %.051.us, 1
   %39 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.051.us, %39
-  br i1 %.not.us.not, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !781
+  br i1 %.not.us.not, label %.lr.ph53.split.us, label %._crit_edge54
 
 .lr.ph.us:                                        ; preds = %34
   %40 = load ptr, ptr %9, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = load ptr, ptr %12, align 8, !tbaa !133
   %43 = load ptr, ptr %13, align 8, !tbaa !133
-  %44 = load ptr, ptr %32, align 8, !tbaa !614
+  %44 = load ptr, ptr %32, align 8, !tbaa !603
   %45 = load ptr, ptr %44, align 8, !tbaa !137
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 448
-  %47 = load ptr, ptr %46, align 8, !tbaa !456
+  %47 = load ptr, ptr %46, align 8, !tbaa !451
   %48 = load ptr, ptr %31, align 8, !tbaa !44
   %49 = load ptr, ptr %33, align 8, !tbaa !44
   %50 = sext i32 %35 to i64
@@ -20441,17 +20441,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 51:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %50, %.lr.ph.us ]
-  %52 = load float, ptr %30, align 8, !tbaa !611
+  %52 = load float, ptr %30, align 8, !tbaa !600
   %53 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv57
-  %54 = load i16, ptr %53, align 2, !tbaa !457
+  %54 = load i16, ptr %53, align 2, !tbaa !452
   %55 = zext i16 %54 to i64
   %56 = getelementptr inbounds nuw float, ptr %48, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !180
   %58 = getelementptr inbounds nuw float, ptr %49, i64 %55
   %59 = load float, ptr %58, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !782)
-  call void @llvm.experimental.noalias.scope.decl(metadata !785)
+  call void @llvm.experimental.noalias.scope.decl(metadata !758)
+  call void @llvm.experimental.noalias.scope.decl(metadata !761)
   %60 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv57
   %61 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv57
   %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
@@ -20460,32 +20460,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 63:                                               ; preds = %63, %51
   %indvars.iv.i.us.us = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.us.us, %63 ]
   %64 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !787
+  %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !763
   %66 = fsub float %57, %65
   %67 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !782, !noalias !785
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !758, !noalias !761
   %69 = fmul float %68, %66
   %70 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i.us.us
-  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !785, !noalias !782
+  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !761, !noalias !758
   %72 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv.i.us.us
-  %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !787
+  %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !763
   %74 = fmul float %71, %73
   %75 = call float @llvm.fmuladd.f32(float %74, float %52, float %69)
   %76 = fmul float %59, %75
-  store float %76, ptr %67, align 4, !tbaa !180, !alias.scope !782, !noalias !785
+  store float %76, ptr %67, align 4, !tbaa !180, !alias.scope !758, !noalias !761
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %63, !llvm.loop !465
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %63, !llvm.loop !460
 
 77:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %77
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %77 ]
   %78 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv.i45.us.us
-  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !788, !noalias !791
+  %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !764, !noalias !767
   %80 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i45.us.us
-  %81 = load float, ptr %80, align 4, !tbaa !180, !alias.scope !794, !noalias !795
+  %81 = load float, ptr %80, align 4, !tbaa !180, !alias.scope !770, !noalias !771
   %82 = call float @llvm.fmuladd.f32(float %81, float %84, float %79)
   %83 = getelementptr inbounds nuw [3 x float], ptr %86, i64 0, i64 %indvars.iv.i45.us.us
-  store float %82, ptr %83, align 4, !tbaa !180, !alias.scope !796, !noalias !797
+  store float %82, ptr %83, align 4, !tbaa !180, !alias.scope !772, !noalias !773
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
   br i1 %exitcond.not.i47.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %77, !llvm.loop !184
@@ -20493,13 +20493,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %77
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %51, !llvm.loop !798
+  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %51, !llvm.loop !774
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %63
-  %84 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !788)
-  call void @llvm.experimental.noalias.scope.decl(metadata !796)
-  call void @llvm.experimental.noalias.scope.decl(metadata !794)
+  %84 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !764)
+  call void @llvm.experimental.noalias.scope.decl(metadata !772)
+  call void @llvm.experimental.noalias.scope.decl(metadata !770)
   %85 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv57
   %86 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv57
   br label %77
@@ -20528,10 +20528,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %93 = load ptr, ptr %10, align 8
   %94 = load ptr, ptr %12, align 8, !tbaa !133
   %95 = load ptr, ptr %13, align 8, !tbaa !133
-  %96 = load ptr, ptr %32, align 8, !tbaa !614
+  %96 = load ptr, ptr %32, align 8, !tbaa !603
   %97 = load ptr, ptr %96, align 8, !tbaa !137
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 448
-  %99 = load ptr, ptr %98, align 8, !tbaa !456
+  %99 = load ptr, ptr %98, align 8, !tbaa !451
   %100 = load ptr, ptr %31, align 8, !tbaa !44
   %101 = load ptr, ptr %33, align 8, !tbaa !44
   %102 = sext i32 %89 to i64
@@ -20564,17 +20564,17 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 109:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %102, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %110 = load float, ptr %30, align 8, !tbaa !611
+  %110 = load float, ptr %30, align 8, !tbaa !600
   %111 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv
-  %112 = load i16, ptr %111, align 2, !tbaa !457
+  %112 = load i16, ptr %111, align 2, !tbaa !452
   %113 = zext i16 %112 to i64
   %114 = getelementptr inbounds nuw float, ptr %100, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !180
   %116 = getelementptr inbounds nuw float, ptr %101, i64 %113
   %117 = load float, ptr %116, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !799)
-  call void @llvm.experimental.noalias.scope.decl(metadata !802)
+  call void @llvm.experimental.noalias.scope.decl(metadata !775)
+  call void @llvm.experimental.noalias.scope.decl(metadata !778)
   %118 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
   %119 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
   %120 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -20583,25 +20583,25 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 121:                                              ; preds = %121, %109
   %indvars.iv.i42 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i43, %121 ]
   %122 = getelementptr inbounds nuw [3 x float], ptr %118, i64 0, i64 %indvars.iv.i42
-  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !799, !noalias !802
+  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !775, !noalias !778
   %124 = fmul float %115, %123
   %125 = getelementptr inbounds nuw [3 x float], ptr %119, i64 0, i64 %indvars.iv.i42
-  %126 = load float, ptr %125, align 4, !tbaa !180, !alias.scope !802, !noalias !799
+  %126 = load float, ptr %125, align 4, !tbaa !180, !alias.scope !778, !noalias !775
   %127 = getelementptr inbounds nuw [3 x float], ptr %120, i64 0, i64 %indvars.iv.i42
-  %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !804
+  %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !780
   %129 = fmul float %126, %128
   %130 = call float @llvm.fmuladd.f32(float %129, float %110, float %124)
   %131 = fmul float %117, %130
-  store float %131, ptr %122, align 4, !tbaa !180, !alias.scope !799, !noalias !802
+  store float %131, ptr %122, align 4, !tbaa !180, !alias.scope !775, !noalias !778
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 3
-  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48, label %121, !llvm.loop !508
+  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48, label %121, !llvm.loop !501
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48: ; preds = %121
-  %132 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !788)
-  call void @llvm.experimental.noalias.scope.decl(metadata !796)
-  call void @llvm.experimental.noalias.scope.decl(metadata !794)
+  %132 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !764)
+  call void @llvm.experimental.noalias.scope.decl(metadata !772)
+  call void @llvm.experimental.noalias.scope.decl(metadata !770)
   %133 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
   %134 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
   br label %135
@@ -20609,12 +20609,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 135:                                              ; preds = %135, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48 ], [ %indvars.iv.next.i46, %135 ]
   %136 = getelementptr inbounds nuw [3 x float], ptr %133, i64 0, i64 %indvars.iv.i45
-  %137 = load float, ptr %136, align 4, !tbaa !180, !alias.scope !788, !noalias !791
+  %137 = load float, ptr %136, align 4, !tbaa !180, !alias.scope !764, !noalias !767
   %138 = getelementptr inbounds nuw [3 x float], ptr %118, i64 0, i64 %indvars.iv.i45
-  %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !794, !noalias !795
+  %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !770, !noalias !771
   %140 = call float @llvm.fmuladd.f32(float %139, float %132, float %137)
   %141 = getelementptr inbounds nuw [3 x float], ptr %134, i64 0, i64 %indvars.iv.i45
-  store float %140, ptr %141, align 4, !tbaa !180, !alias.scope !796, !noalias !797
+  store float %140, ptr %141, align 4, !tbaa !180, !alias.scope !772, !noalias !773
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
   br i1 %exitcond.not.i47, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %135, !llvm.loop !184
@@ -20622,7 +20622,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %135
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %109, !llvm.loop !805
+  br i1 %exitcond.not, label %._crit_edge.split, label %109, !llvm.loop !774
 
 142:                                              ; preds = %106
   %143 = call ptr @__cxa_begin_catch(ptr %.038) #10
@@ -20658,7 +20658,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %135
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !806
+  %2 = load ptr, ptr %0, align 8, !tbaa !781
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -20701,7 +20701,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -20754,33 +20754,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -20795,7 +20795,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !614
+  %72 = load ptr, ptr %59, align 8, !tbaa !603
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -20803,7 +20803,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !615
+  %76 = load ptr, ptr %12, align 8, !tbaa !604
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -20897,7 +20897,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -20933,17 +20933,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %37 = add nsw i32 %.049.us, 1
   %38 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.049.us, %38
-  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52, !llvm.loop !808
+  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52
 
 .lr.ph.us:                                        ; preds = %33
   %39 = load ptr, ptr %9, align 8
   %40 = load ptr, ptr %10, align 8
   %41 = load ptr, ptr %12, align 8, !tbaa !133
   %42 = load ptr, ptr %13, align 8, !tbaa !133
-  %43 = load ptr, ptr %32, align 8, !tbaa !614
+  %43 = load ptr, ptr %32, align 8, !tbaa !603
   %44 = load ptr, ptr %43, align 8, !tbaa !137
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 448
-  %46 = load ptr, ptr %45, align 8, !tbaa !456
+  %46 = load ptr, ptr %45, align 8, !tbaa !451
   %47 = load ptr, ptr %31, align 8, !tbaa !44
   %48 = sext i32 %34 to i64
   %wide.trip.count58 = sext i32 %35 to i64
@@ -20951,15 +20951,15 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 49:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %48, %.lr.ph.us ]
-  %50 = load float, ptr %30, align 8, !tbaa !611
+  %50 = load float, ptr %30, align 8, !tbaa !600
   %51 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv55
-  %52 = load i16, ptr %51, align 2, !tbaa !457
+  %52 = load i16, ptr %51, align 2, !tbaa !452
   %53 = zext i16 %52 to i64
   %54 = getelementptr inbounds nuw float, ptr %47, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !809)
-  call void @llvm.experimental.noalias.scope.decl(metadata !812)
+  call void @llvm.experimental.noalias.scope.decl(metadata !783)
+  call void @llvm.experimental.noalias.scope.decl(metadata !786)
   %56 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv55
   %57 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv55
   %58 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
@@ -20968,31 +20968,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 59:                                               ; preds = %59, %49
   %indvars.iv.i.us.us = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.us.us, %59 ]
   %60 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !814
+  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !788
   %62 = fsub float %55, %61
   %63 = getelementptr inbounds nuw [3 x float], ptr %56, i64 0, i64 %indvars.iv.i.us.us
-  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !809, !noalias !812
+  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !783, !noalias !786
   %65 = fmul float %64, %62
   %66 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i.us.us
-  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !812, !noalias !809
+  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !786, !noalias !783
   %68 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv.i.us.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !814
+  %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !788
   %70 = fmul float %67, %69
   %71 = call float @llvm.fmuladd.f32(float %70, float %50, float %65)
-  store float %71, ptr %63, align 4, !tbaa !180, !alias.scope !809, !noalias !812
+  store float %71, ptr %63, align 4, !tbaa !180, !alias.scope !783, !noalias !786
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %59, !llvm.loop !483
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %59, !llvm.loop !477
 
 72:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %72
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %72 ]
   %73 = getelementptr inbounds nuw [3 x float], ptr %80, i64 0, i64 %indvars.iv.i43.us.us
-  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !815, !noalias !818
+  %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !789, !noalias !792
   %75 = getelementptr inbounds nuw [3 x float], ptr %56, i64 0, i64 %indvars.iv.i43.us.us
-  %76 = load float, ptr %75, align 4, !tbaa !180, !alias.scope !821, !noalias !822
+  %76 = load float, ptr %75, align 4, !tbaa !180, !alias.scope !795, !noalias !796
   %77 = call float @llvm.fmuladd.f32(float %76, float %79, float %74)
   %78 = getelementptr inbounds nuw [3 x float], ptr %81, i64 0, i64 %indvars.iv.i43.us.us
-  store float %77, ptr %78, align 4, !tbaa !180, !alias.scope !823, !noalias !824
+  store float %77, ptr %78, align 4, !tbaa !180, !alias.scope !797, !noalias !798
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
   br i1 %exitcond.not.i45.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %72, !llvm.loop !184
@@ -21000,13 +21000,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %72
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !825
+  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !799
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %59
-  %79 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !815)
-  call void @llvm.experimental.noalias.scope.decl(metadata !823)
-  call void @llvm.experimental.noalias.scope.decl(metadata !821)
+  %79 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !789)
+  call void @llvm.experimental.noalias.scope.decl(metadata !797)
+  call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %80 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
   %81 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
   br label %72
@@ -21035,10 +21035,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %88 = load ptr, ptr %10, align 8
   %89 = load ptr, ptr %12, align 8, !tbaa !133
   %90 = load ptr, ptr %13, align 8, !tbaa !133
-  %91 = load ptr, ptr %32, align 8, !tbaa !614
+  %91 = load ptr, ptr %32, align 8, !tbaa !603
   %92 = load ptr, ptr %91, align 8, !tbaa !137
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 448
-  %94 = load ptr, ptr %93, align 8, !tbaa !456
+  %94 = load ptr, ptr %93, align 8, !tbaa !451
   %95 = load ptr, ptr %31, align 8, !tbaa !44
   %96 = sext i32 %84 to i64
   %wide.trip.count = sext i32 %85 to i64
@@ -21070,15 +21070,15 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 103:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %104 = load float, ptr %30, align 8, !tbaa !611
+  %104 = load float, ptr %30, align 8, !tbaa !600
   %105 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
-  %106 = load i16, ptr %105, align 2, !tbaa !457
+  %106 = load i16, ptr %105, align 2, !tbaa !452
   %107 = zext i16 %106 to i64
   %108 = getelementptr inbounds nuw float, ptr %95, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !826)
-  call void @llvm.experimental.noalias.scope.decl(metadata !829)
+  call void @llvm.experimental.noalias.scope.decl(metadata !800)
+  call void @llvm.experimental.noalias.scope.decl(metadata !803)
   %110 = getelementptr inbounds [3 x float], ptr %87, i64 %indvars.iv
   %111 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv
   %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -21087,24 +21087,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 113:                                              ; preds = %113, %103
   %indvars.iv.i40 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i41, %113 ]
   %114 = getelementptr inbounds nuw [3 x float], ptr %110, i64 0, i64 %indvars.iv.i40
-  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !826, !noalias !829
+  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !800, !noalias !803
   %116 = fmul float %109, %115
   %117 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv.i40
-  %118 = load float, ptr %117, align 4, !tbaa !180, !alias.scope !829, !noalias !826
+  %118 = load float, ptr %117, align 4, !tbaa !180, !alias.scope !803, !noalias !800
   %119 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i40
-  %120 = load float, ptr %119, align 4, !tbaa !180, !noalias !831
+  %120 = load float, ptr %119, align 4, !tbaa !180, !noalias !805
   %121 = fmul float %118, %120
   %122 = call float @llvm.fmuladd.f32(float %121, float %104, float %116)
-  store float %122, ptr %114, align 4, !tbaa !180, !alias.scope !826, !noalias !829
+  store float %122, ptr %114, align 4, !tbaa !180, !alias.scope !800, !noalias !803
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46, label %113, !llvm.loop !525
+  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46, label %113, !llvm.loop !517
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46: ; preds = %113
-  %123 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !815)
-  call void @llvm.experimental.noalias.scope.decl(metadata !823)
-  call void @llvm.experimental.noalias.scope.decl(metadata !821)
+  %123 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !789)
+  call void @llvm.experimental.noalias.scope.decl(metadata !797)
+  call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %124 = getelementptr inbounds [3 x float], ptr %89, i64 %indvars.iv
   %125 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
   br label %126
@@ -21112,12 +21112,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46 ], [ %indvars.iv.next.i44, %126 ]
   %127 = getelementptr inbounds nuw [3 x float], ptr %124, i64 0, i64 %indvars.iv.i43
-  %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !815, !noalias !818
+  %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !789, !noalias !792
   %129 = getelementptr inbounds nuw [3 x float], ptr %110, i64 0, i64 %indvars.iv.i43
-  %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !821, !noalias !822
+  %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !795, !noalias !796
   %131 = call float @llvm.fmuladd.f32(float %130, float %123, float %128)
   %132 = getelementptr inbounds nuw [3 x float], ptr %125, i64 0, i64 %indvars.iv.i43
-  store float %131, ptr %132, align 4, !tbaa !180, !alias.scope !823, !noalias !824
+  store float %131, ptr %132, align 4, !tbaa !180, !alias.scope !797, !noalias !798
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
   br i1 %exitcond.not.i45, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %126, !llvm.loop !184
@@ -21125,7 +21125,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %126
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %103, !llvm.loop !832
+  br i1 %exitcond.not, label %._crit_edge.split, label %103, !llvm.loop !799
 
 133:                                              ; preds = %100
   %134 = call ptr @__cxa_begin_catch(ptr %.036) #10
@@ -21161,7 +21161,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %126
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !833
+  %2 = load ptr, ptr %0, align 8, !tbaa !806
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -21204,7 +21204,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -21257,33 +21257,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -21336,7 +21336,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !614
+  %90 = load ptr, ptr %59, align 8, !tbaa !603
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -21344,7 +21344,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !615
+  %94 = load ptr, ptr %12, align 8, !tbaa !604
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -21440,7 +21440,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -21477,7 +21477,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %38 = add nsw i32 %.046.us, 1
   %39 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.046.us, %39
-  br i1 %.not.us.not, label %.lr.ph48.split.us, label %._crit_edge49, !llvm.loop !835
+  br i1 %.not.us.not, label %.lr.ph48.split.us, label %._crit_edge49
 
 .lr.ph.us:                                        ; preds = %34
   %40 = load ptr, ptr %9, align 8
@@ -21490,10 +21490,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 45:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %44, %.lr.ph.us ]
-  %46 = load float, ptr %32, align 8, !tbaa !611
+  %46 = load float, ptr %32, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !836)
-  call void @llvm.experimental.noalias.scope.decl(metadata !839)
+  call void @llvm.experimental.noalias.scope.decl(metadata !808)
+  call void @llvm.experimental.noalias.scope.decl(metadata !811)
   %47 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv52
   %48 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv52
   %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
@@ -21502,31 +21502,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 50:                                               ; preds = %50, %45
   %indvars.iv.i.us.us = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.us.us, %50 ]
   %51 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !841
+  %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !813
   %53 = fsub float 1.000000e+00, %52
   %54 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !836, !noalias !839
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !808, !noalias !811
   %56 = fmul float %55, %53
   %57 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !839, !noalias !836
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !811, !noalias !808
   %59 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !841
+  %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !813
   %61 = fmul float %58, %60
   %62 = call float @llvm.fmuladd.f32(float %61, float %46, float %56)
-  store float %62, ptr %54, align 4, !tbaa !180, !alias.scope !836, !noalias !839
+  store float %62, ptr %54, align 4, !tbaa !180, !alias.scope !808, !noalias !811
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %50, !llvm.loop !535
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %50, !llvm.loop !526
 
 63:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %63
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %63 ]
   %64 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i41.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !842, !noalias !845
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !814, !noalias !817
   %66 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i41.us.us
-  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !848, !noalias !849
+  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !820, !noalias !821
   %68 = call float @llvm.fmuladd.f32(float %67, float %70, float %65)
   %69 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i41.us.us
-  store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !850, !noalias !851
+  store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !822, !noalias !823
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
   br i1 %exitcond.not.i43.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %63, !llvm.loop !184
@@ -21534,13 +21534,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %63
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge.split.us.us, label %45, !llvm.loop !852
+  br i1 %exitcond56.not, label %._crit_edge.split.us.us, label %45, !llvm.loop !824
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %50
-  %70 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !842)
-  call void @llvm.experimental.noalias.scope.decl(metadata !850)
-  call void @llvm.experimental.noalias.scope.decl(metadata !848)
+  %70 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !814)
+  call void @llvm.experimental.noalias.scope.decl(metadata !822)
+  call void @llvm.experimental.noalias.scope.decl(metadata !820)
   %71 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv52
   %72 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv52
   br label %63
@@ -21600,44 +21600,44 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 
 89:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %82, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %90 = load float, ptr %32, align 8, !tbaa !611
+  %90 = load float, ptr %32, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !853)
-  call void @llvm.experimental.noalias.scope.decl(metadata !856)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !858
+  call void @llvm.experimental.noalias.scope.decl(metadata !825)
+  call void @llvm.experimental.noalias.scope.decl(metadata !828)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !830
   %91 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !858
-  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !853, !noalias !856
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !830
+  %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !853, !noalias !856
+  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !853, !noalias !856
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   br label %97
 
 97:                                               ; preds = %97, %89
   %indvars.iv.i.i = phi i64 [ 0, %89 ], [ %indvars.iv.next.i.i, %97 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %98 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %99 = load float, ptr %98, align 4, !tbaa !180, !noalias !858
+  %99 = load float, ptr %98, align 4, !tbaa !180, !noalias !830
   %100 = getelementptr i8, ptr %98, i64 4
-  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !858
+  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !830
   %102 = fmul float %94, %101
   %103 = call float @llvm.fmuladd.f32(float %99, float %92, float %102)
   %104 = getelementptr i8, ptr %98, i64 8
-  %105 = load float, ptr %104, align 4, !tbaa !180, !noalias !858
+  %105 = load float, ptr %104, align 4, !tbaa !180, !noalias !830
   %106 = call float @llvm.fmuladd.f32(float %105, float %96, float %103)
   %107 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %106, ptr %107, align 4, !tbaa !180, !noalias !858
+  store float %106, ptr %107, align 4, !tbaa !180, !noalias !830
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %97, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %97, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %97
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !858
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !858
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !858
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !858
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !858
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !830
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !830
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !830
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !830
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !830
   %108 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   %109 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %110
@@ -21645,27 +21645,27 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 110:                                              ; preds = %110, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i39, %110 ]
   %111 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i38
-  %112 = load float, ptr %111, align 4, !tbaa !180, !noalias !858
+  %112 = load float, ptr %111, align 4, !tbaa !180, !noalias !830
   %113 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i38
-  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !853, !noalias !856
+  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %115 = fsub float %114, %112
   %116 = getelementptr inbounds nuw [3 x float], ptr %108, i64 0, i64 %indvars.iv.i38
-  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !856, !noalias !853
+  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !828, !noalias !825
   %118 = getelementptr inbounds nuw [3 x float], ptr %109, i64 0, i64 %indvars.iv.i38
-  %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !858
+  %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !830
   %120 = fmul float %117, %119
   %121 = call float @llvm.fmuladd.f32(float %120, float %90, float %115)
-  store float %121, ptr %113, align 4, !tbaa !180, !alias.scope !853, !noalias !856
+  store float %121, ptr %113, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %110, !llvm.loop !543
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %110, !llvm.loop !534
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %110
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !858
-  %122 = load float, ptr %32, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !842)
-  call void @llvm.experimental.noalias.scope.decl(metadata !850)
-  call void @llvm.experimental.noalias.scope.decl(metadata !848)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !830
+  %122 = load float, ptr %32, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !814)
+  call void @llvm.experimental.noalias.scope.decl(metadata !822)
+  call void @llvm.experimental.noalias.scope.decl(metadata !820)
   %123 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   %124 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   br label %125
@@ -21673,12 +21673,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 125:                                              ; preds = %125, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %125 ]
   %126 = getelementptr inbounds nuw [3 x float], ptr %123, i64 0, i64 %indvars.iv.i41
-  %127 = load float, ptr %126, align 4, !tbaa !180, !alias.scope !842, !noalias !845
+  %127 = load float, ptr %126, align 4, !tbaa !180, !alias.scope !814, !noalias !817
   %128 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i41
-  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !848, !noalias !849
+  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !820, !noalias !821
   %130 = call float @llvm.fmuladd.f32(float %129, float %122, float %127)
   %131 = getelementptr inbounds nuw [3 x float], ptr %124, i64 0, i64 %indvars.iv.i41
-  store float %130, ptr %131, align 4, !tbaa !180, !alias.scope !850, !noalias !851
+  store float %130, ptr %131, align 4, !tbaa !180, !alias.scope !822, !noalias !823
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
   br i1 %exitcond.not.i43, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %125, !llvm.loop !184
@@ -21686,7 +21686,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %125
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !859
+  br i1 %exitcond.not, label %._crit_edge.split, label %89, !llvm.loop !824
 
 132:                                              ; preds = %86
   %133 = call ptr @__cxa_begin_catch(ptr %.034) #10
@@ -21722,7 +21722,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %125
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !860
+  %2 = load ptr, ptr %0, align 8, !tbaa !831
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -21765,7 +21765,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !615
+  %13 = load ptr, ptr %12, align 8, !tbaa !604
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -21818,33 +21818,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !612
+  %50 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !612
+  %52 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !612
+  %54 = load ptr, ptr %49, align 8, !tbaa !601
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !612
+  %56 = load ptr, ptr %49, align 8, !tbaa !601
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !614
+  %60 = load ptr, ptr %59, align 8, !tbaa !603
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -21859,7 +21859,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !614
+  %72 = load ptr, ptr %59, align 8, !tbaa !603
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -21867,7 +21867,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !615
+  %76 = load ptr, ptr %12, align 8, !tbaa !604
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -21961,7 +21961,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -21995,7 +21995,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %35 = add nsw i32 %.047.us, 1
   %36 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.047.us, %36
-  br i1 %.not.us.not, label %.lr.ph49.split.us, label %._crit_edge50, !llvm.loop !862
+  br i1 %.not.us.not, label %.lr.ph49.split.us, label %._crit_edge50
 
 .lr.ph.us:                                        ; preds = %31
   %37 = load ptr, ptr %9, align 8
@@ -22008,10 +22008,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 42:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %41, %.lr.ph.us ]
-  %43 = load float, ptr %30, align 8, !tbaa !611
+  %43 = load float, ptr %30, align 8, !tbaa !600
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !863)
-  call void @llvm.experimental.noalias.scope.decl(metadata !866)
+  call void @llvm.experimental.noalias.scope.decl(metadata !833)
+  call void @llvm.experimental.noalias.scope.decl(metadata !836)
   %44 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv53
   %45 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv53
   %46 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
@@ -22020,31 +22020,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 47:                                               ; preds = %47, %42
   %indvars.iv.i.us.us = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.us.us, %47 ]
   %48 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !868
+  %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !838
   %50 = fsub float 1.000000e+00, %49
   %51 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i.us.us
-  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !863, !noalias !866
+  %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !833, !noalias !836
   %53 = fmul float %52, %50
   %54 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !866, !noalias !863
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !836, !noalias !833
   %56 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !868
+  %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !838
   %58 = fmul float %55, %57
   %59 = call float @llvm.fmuladd.f32(float %58, float %43, float %53)
-  store float %59, ptr %51, align 4, !tbaa !180, !alias.scope !863, !noalias !866
+  store float %59, ptr %51, align 4, !tbaa !180, !alias.scope !833, !noalias !836
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %47, !llvm.loop !535
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %47, !llvm.loop !526
 
 60:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %60
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %60 ]
   %61 = getelementptr inbounds nuw [3 x float], ptr %68, i64 0, i64 %indvars.iv.i41.us.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !alias.scope !869, !noalias !872
+  %62 = load float, ptr %61, align 4, !tbaa !180, !alias.scope !839, !noalias !842
   %63 = getelementptr inbounds nuw [3 x float], ptr %44, i64 0, i64 %indvars.iv.i41.us.us
-  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !875, !noalias !876
+  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !845, !noalias !846
   %65 = call float @llvm.fmuladd.f32(float %64, float %67, float %62)
   %66 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv.i41.us.us
-  store float %65, ptr %66, align 4, !tbaa !180, !alias.scope !877, !noalias !878
+  store float %65, ptr %66, align 4, !tbaa !180, !alias.scope !847, !noalias !848
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
   br i1 %exitcond.not.i43.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %60, !llvm.loop !184
@@ -22052,13 +22052,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %60
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.split.us.us, label %42, !llvm.loop !879
+  br i1 %exitcond57.not, label %._crit_edge.split.us.us, label %42, !llvm.loop !849
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %47
-  %67 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !869)
-  call void @llvm.experimental.noalias.scope.decl(metadata !877)
-  call void @llvm.experimental.noalias.scope.decl(metadata !875)
+  %67 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !839)
+  call void @llvm.experimental.noalias.scope.decl(metadata !847)
+  call void @llvm.experimental.noalias.scope.decl(metadata !845)
   %68 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv53
   %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv53
   br label %60
@@ -22117,10 +22117,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 
 86:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %79, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %87 = load float, ptr %30, align 8, !tbaa !611
+  %87 = load float, ptr %30, align 8, !tbaa !600
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !880)
-  call void @llvm.experimental.noalias.scope.decl(metadata !883)
+  call void @llvm.experimental.noalias.scope.decl(metadata !850)
+  call void @llvm.experimental.noalias.scope.decl(metadata !853)
   %88 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
   %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   %90 = getelementptr inbounds [3 x float], ptr %75, i64 %indvars.iv
@@ -22129,23 +22129,23 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 91:                                               ; preds = %91, %86
   %indvars.iv.i38 = phi i64 [ 0, %86 ], [ %indvars.iv.next.i39, %91 ]
   %92 = getelementptr inbounds nuw [3 x float], ptr %88, i64 0, i64 %indvars.iv.i38
-  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !883, !noalias !880
+  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !853, !noalias !850
   %94 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i38
-  %95 = load float, ptr %94, align 4, !tbaa !180, !noalias !885
+  %95 = load float, ptr %94, align 4, !tbaa !180, !noalias !855
   %96 = fmul float %93, %95
   %97 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i38
-  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !880, !noalias !883
+  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !850, !noalias !853
   %99 = call float @llvm.fmuladd.f32(float %96, float %87, float %98)
-  store float %99, ptr %97, align 4, !tbaa !180, !alias.scope !880, !noalias !883
+  store float %99, ptr %97, align 4, !tbaa !180, !alias.scope !850, !noalias !853
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %91, !llvm.loop !560
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %91, !llvm.loop !550
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44: ; preds = %91
-  %100 = load float, ptr %30, align 8, !tbaa !611
-  call void @llvm.experimental.noalias.scope.decl(metadata !869)
-  call void @llvm.experimental.noalias.scope.decl(metadata !877)
-  call void @llvm.experimental.noalias.scope.decl(metadata !875)
+  %100 = load float, ptr %30, align 8, !tbaa !600
+  call void @llvm.experimental.noalias.scope.decl(metadata !839)
+  call void @llvm.experimental.noalias.scope.decl(metadata !847)
+  call void @llvm.experimental.noalias.scope.decl(metadata !845)
   %101 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
   %102 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
   br label %103
@@ -22153,12 +22153,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %103 ]
   %104 = getelementptr inbounds nuw [3 x float], ptr %101, i64 0, i64 %indvars.iv.i41
-  %105 = load float, ptr %104, align 4, !tbaa !180, !alias.scope !869, !noalias !872
+  %105 = load float, ptr %104, align 4, !tbaa !180, !alias.scope !839, !noalias !842
   %106 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i41
-  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !875, !noalias !876
+  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !845, !noalias !846
   %108 = call float @llvm.fmuladd.f32(float %107, float %100, float %105)
   %109 = getelementptr inbounds nuw [3 x float], ptr %102, i64 0, i64 %indvars.iv.i41
-  store float %108, ptr %109, align 4, !tbaa !180, !alias.scope !877, !noalias !878
+  store float %108, ptr %109, align 4, !tbaa !180, !alias.scope !847, !noalias !848
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
   br i1 %exitcond.not.i43, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %103, !llvm.loop !184
@@ -22166,7 +22166,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %103
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %86, !llvm.loop !886
+  br i1 %exitcond.not, label %._crit_edge.split, label %86, !llvm.loop !849
 
 110:                                              ; preds = %83
   %111 = call ptr @__cxa_begin_catch(ptr %.034) #10
@@ -22417,7 +22417,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocitySc
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !58
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -22425,9 +22425,9 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocitySc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !887
+  %4 = load ptr, ptr %0, align 8, !tbaa !856
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %3, ptr %5, align 8, !tbaa !613
+  store i64 %3, ptr %5, align 8, !tbaa !602
   ret void
 }
 
@@ -22508,7 +22508,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingC
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !58
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -22516,7 +22516,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !889
+  %4 = load ptr, ptr %0, align 8, !tbaa !858
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 %3, ptr %5, align 8, !tbaa !56
   ret void
@@ -22554,13 +22554,13 @@ define weak_odr noundef ptr @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE21get
   %12 = alloca %"struct.gmx::PropagatorConnection", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
-  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !891
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
+  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !860
   %16 = fpext float %8 to double
-  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !891
-  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !891
+  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !860
+  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !860
   invoke void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EEC1EdPNS_19StatePropagatorDataEPKNS_7MDAtomsEP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(200) %15, double noundef %16, ptr noundef %2, ptr noundef %17, ptr noundef %18)
-          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !891
+          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !860
 
 common.resume:                                    ; preds = %83, %85, %19
   %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %86, %85 ], [ %84, %83 ]
@@ -22569,11 +22569,11 @@ common.resume:                                    ; preds = %83, %85, %19
 19:                                               ; preds = %9
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !891
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !860
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %9
-  store ptr %15, ptr %11, align 8, !tbaa !58, !alias.scope !891
+  store ptr %15, ptr %11, align 8, !tbaa !58, !alias.scope !860
   %21 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_10PropagatorILNS_16IntegrationStageE2EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11)
           to label %22 unwind label %83
 
@@ -22636,19 +22636,19 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE2EEESt14default_dele
   %.val = load ptr, ptr %7, align 8, !tbaa !306
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val11 = load i64, ptr %49, align 8, !tbaa !310
-  call void @llvm.experimental.noalias.scope.decl(metadata !894)
+  call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !894
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !894
-  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !894
+  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !863
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !863
+  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !863
   %51 = icmp ugt i64 %.val11, 15
   br i1 %51, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE2EEESt14default_deleteIS3_EED2Ev.exit
   %52 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !894
-  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !894
-  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !894
+  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !863
+  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !863
+  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !863
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE2EEESt14default_deleteIS3_EED2Ev.exit
@@ -22659,7 +22659,7 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE2EEESt14default_dele
   ]
 
 55:                                               ; preds = %._crit_edge.i.i.i.i
-  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !894
+  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !863
   store i8 %56, ptr %54, align 1, !tbaa !311
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
@@ -22668,13 +22668,13 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE2EEESt14default_dele
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
 _ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit: ; preds = %._crit_edge.i.i.i.i, %55, %57
-  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !894
+  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !863
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !894
-  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !894
+  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !863
+  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !863
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store i8 0, ptr %61, align 1, !tbaa !311
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !894
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !863
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -22683,43 +22683,43 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !894
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !863
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !863
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !863
   store i64 %68, ptr %65, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 208
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !863
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !863
   store i64 %68, ptr %63, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !863
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !863
   store i64 %68, ptr %64, align 8
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !863
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !863
   store i64 %68, ptr %66, align 8
   %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 264
   store i64 0, ptr %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 272
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !863
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !863
   store i64 %68, ptr %67, align 8
   %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 296
   store i64 0, ptr %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 304
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !863
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !894
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !863
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper18registerPropagatorENS_20PropagatorConnectionE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
           to label %82 unwind label %85
 
@@ -22801,11 +22801,11 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %.noexc5 ]
   %.0911.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %15, %.noexc5 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !897)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !900)
-  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !900, !noalias !897
-  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !897, !noalias !900
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !900, !noalias !897
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !866)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !869)
+  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !869, !noalias !866
+  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !866, !noalias !869
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !869, !noalias !866
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %30, %7
@@ -23055,9 +23055,9 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !902
+  %.val = load ptr, ptr %0, align 8, !tbaa !871
   %.val3 = load i32, ptr %1, align 4, !tbaa !136
-  %.val4 = load i32, ptr %2, align 4, !tbaa !581
+  %.val4 = load i32, ptr %2, align 4, !tbaa !570
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE30setNumVelocityScalingVariablesEiNS_15ScaleVelocitiesE(ptr noundef nonnull align 8 dereferenceable(200) %.val, i32 noundef %.val3, i32 noundef %.val4)
   ret void
 }
@@ -23089,15 +23089,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !904
+  %.val = load ptr, ptr %1, align 8, !tbaa !873
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !906
+  store i64 0, ptr %5, align 8, !alias.scope !875
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !58, !alias.scope !906
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !906
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !906
+  store i64 %6, ptr %0, align 8, !tbaa !58, !alias.scope !875
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !875
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !875
   ret void
 }
 
@@ -23128,7 +23128,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !915
+  %.val = load ptr, ptr %0, align 8, !tbaa !884
   %2 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 40
@@ -23177,7 +23177,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !917
+  %.val = load ptr, ptr %0, align 8, !tbaa !886
   %2 = getelementptr i8, ptr %.val, i64 56
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 64
@@ -23226,7 +23226,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE2EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #23 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !919
+  %.val = load ptr, ptr %0, align 8, !tbaa !888
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   ret ptr %2
 }
@@ -23258,15 +23258,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !921
+  %.val = load ptr, ptr %1, align 8, !tbaa !890
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !923
+  store i64 0, ptr %5, align 8, !alias.scope !892
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !58, !alias.scope !923
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !923
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !923
+  store i64 %6, ptr %0, align 8, !tbaa !58, !alias.scope !892
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !892
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE2EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !892
   ret void
 }
 
@@ -23306,15 +23306,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EEC2EdPNS_19St
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE3EEE, i64 16), ptr %0, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = fptrunc double %1 to float
-  store float %7, ptr %6, align 8, !tbaa !932
+  store float %7, ptr %6, align 8, !tbaa !901
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !933
+  store ptr %2, ptr %8, align 8, !tbaa !902
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  store i64 -1, ptr %11, align 8, !tbaa !934
+  store i64 -1, ptr %11, align 8, !tbaa !903
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -23322,15 +23322,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EEC2EdPNS_19St
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %14, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %3, ptr %15, align 8, !tbaa !935
+  store ptr %3, ptr %15, align 8, !tbaa !904
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %16, align 8, !tbaa !936
+  store ptr %4, ptr %16, align 8, !tbaa !905
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !937
+  %2 = load ptr, ptr %0, align 8, !tbaa !906
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -23373,7 +23373,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -23426,33 +23426,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -23511,7 +23511,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 94:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %88
   %.sroa.03.0.insert.ext = phi i64 [ 1, %88 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %95 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %96 = load ptr, ptr %59, align 8, !tbaa !935
+  %96 = load ptr, ptr %59, align 8, !tbaa !904
   %97 = load ptr, ptr %96, align 8, !tbaa !137
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 640
   %99 = load i32, ptr %98, align 8, !tbaa !139
@@ -23521,7 +23521,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   %.sroa.0.0.insert.ext = zext i32 %76 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 %.sroa.0.0.insert.ext, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %100 = load ptr, ptr %12, align 8, !tbaa !936
+  %100 = load ptr, ptr %12, align 8, !tbaa !905
   %101 = icmp eq ptr %100, null
   br i1 %101, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %102
 
@@ -23621,7 +23621,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %29 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %29, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %30 = load i32, ptr %18, align 4, !tbaa !136
@@ -23658,7 +23658,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %40 = add nsw i32 %.052.us, 1
   %41 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.052.us, %41
-  br i1 %.not.us.not, label %.lr.ph54.split.us, label %._crit_edge55, !llvm.loop !939
+  br i1 %.not.us.not, label %.lr.ph54.split.us, label %._crit_edge55
 
 .lr.ph.us:                                        ; preds = %36
   %42 = load ptr, ptr %9, align 8
@@ -23671,11 +23671,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 47:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %46, %.lr.ph.us ]
-  %48 = load float, ptr %34, align 8, !tbaa !932
+  %48 = load float, ptr %34, align 8, !tbaa !901
   %49 = fmul float %48, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !940)
-  call void @llvm.experimental.noalias.scope.decl(metadata !943)
+  call void @llvm.experimental.noalias.scope.decl(metadata !908)
+  call void @llvm.experimental.noalias.scope.decl(metadata !911)
   %50 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv58
   %51 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv58
   %52 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
@@ -23684,19 +23684,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 53:                                               ; preds = %53, %47
   %indvars.iv.i.us.us = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.us.us, %53 ]
   %54 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !945
+  %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !913
   %56 = fsub float %24, %55
   %57 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i.us.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !940, !noalias !943
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !908, !noalias !911
   %59 = fmul float %58, %56
   %60 = getelementptr inbounds nuw [3 x float], ptr %51, i64 0, i64 %indvars.iv.i.us.us
-  %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !943, !noalias !940
+  %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !911, !noalias !908
   %62 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv.i.us.us
-  %63 = load float, ptr %62, align 4, !tbaa !180, !noalias !945
+  %63 = load float, ptr %62, align 4, !tbaa !180, !noalias !913
   %64 = fmul float %61, %63
   %65 = call float @llvm.fmuladd.f32(float %64, float %49, float %59)
   %66 = fmul float %65, %25
-  store float %66, ptr %57, align 4, !tbaa !180, !alias.scope !940, !noalias !943
+  store float %66, ptr %57, align 4, !tbaa !180, !alias.scope !908, !noalias !911
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
   br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %53, !llvm.loop !390
@@ -23704,12 +23704,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 67:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %67
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %67 ]
   %68 = getelementptr inbounds nuw [3 x float], ptr %75, i64 0, i64 %indvars.iv.i47.us.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !946, !noalias !949
+  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !914, !noalias !917
   %70 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i47.us.us
-  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !952, !noalias !953
+  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !920, !noalias !921
   %72 = call float @llvm.fmuladd.f32(float %71, float %74, float %69)
   %73 = getelementptr inbounds nuw [3 x float], ptr %76, i64 0, i64 %indvars.iv.i47.us.us
-  store float %72, ptr %73, align 4, !tbaa !180, !alias.scope !954, !noalias !955
+  store float %72, ptr %73, align 4, !tbaa !180, !alias.scope !922, !noalias !923
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
   br i1 %exitcond.not.i49.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %67, !llvm.loop !184
@@ -23717,13 +23717,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %67
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.split.us.us, label %47, !llvm.loop !956
+  br i1 %exitcond62.not, label %._crit_edge.split.us.us, label %47, !llvm.loop !924
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %53
-  %74 = load float, ptr %34, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !946)
-  call void @llvm.experimental.noalias.scope.decl(metadata !954)
-  call void @llvm.experimental.noalias.scope.decl(metadata !952)
+  %74 = load float, ptr %34, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !914)
+  call void @llvm.experimental.noalias.scope.decl(metadata !922)
+  call void @llvm.experimental.noalias.scope.decl(metadata !920)
   %75 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv58
   %76 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv58
   br label %67
@@ -23783,45 +23783,45 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 93:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %86, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %94 = load float, ptr %34, align 8, !tbaa !932
+  %94 = load float, ptr %34, align 8, !tbaa !901
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !957)
-  call void @llvm.experimental.noalias.scope.decl(metadata !960)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !962
+  call void @llvm.experimental.noalias.scope.decl(metadata !925)
+  call void @llvm.experimental.noalias.scope.decl(metadata !928)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !930
   %95 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !962
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !957, !noalias !960
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !930
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !957, !noalias !960
+  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %100 = load float, ptr %99, align 4, !tbaa !180, !alias.scope !957, !noalias !960
+  %100 = load float, ptr %99, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   br label %101
 
 101:                                              ; preds = %101, %93
   %indvars.iv.i.i = phi i64 [ 0, %93 ], [ %indvars.iv.next.i.i, %101 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %102 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !962
+  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !930
   %104 = getelementptr i8, ptr %102, i64 4
-  %105 = load float, ptr %104, align 4, !tbaa !180, !noalias !962
+  %105 = load float, ptr %104, align 4, !tbaa !180, !noalias !930
   %106 = fmul float %98, %105
   %107 = call float @llvm.fmuladd.f32(float %103, float %96, float %106)
   %108 = getelementptr i8, ptr %102, i64 8
-  %109 = load float, ptr %108, align 4, !tbaa !180, !noalias !962
+  %109 = load float, ptr %108, align 4, !tbaa !180, !noalias !930
   %110 = call float @llvm.fmuladd.f32(float %109, float %100, float %107)
   %111 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %110, ptr %111, align 4, !tbaa !180, !noalias !962
+  store float %110, ptr %111, align 4, !tbaa !180, !noalias !930
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %101, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %101, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %101
   %112 = fmul float %94, 5.000000e-01
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !962
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !962
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !962
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !962
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !962
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !930
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !930
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !930
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !930
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !930
   %113 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
   %114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %115
@@ -23829,29 +23829,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 115:                                              ; preds = %115, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i45, %115 ]
   %116 = getelementptr inbounds nuw [3 x float], ptr %95, i64 0, i64 %indvars.iv.i44
-  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !957, !noalias !960
+  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   %118 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i44
-  %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !962
+  %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !930
   %120 = fneg float %119
   %121 = call float @llvm.fmuladd.f32(float %24, float %117, float %120)
   %122 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv.i44
-  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !960, !noalias !957
+  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !928, !noalias !925
   %124 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv.i44
-  %125 = load float, ptr %124, align 4, !tbaa !180, !noalias !962
+  %125 = load float, ptr %124, align 4, !tbaa !180, !noalias !930
   %126 = fmul float %123, %125
   %127 = call float @llvm.fmuladd.f32(float %126, float %112, float %121)
   %128 = fmul float %127, %25
-  store float %128, ptr %116, align 4, !tbaa !180, !alias.scope !957, !noalias !960
+  store float %128, ptr %116, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
-  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %115, !llvm.loop !400
+  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %115, !llvm.loop !399
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %115
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !962
-  %129 = load float, ptr %34, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !946)
-  call void @llvm.experimental.noalias.scope.decl(metadata !954)
-  call void @llvm.experimental.noalias.scope.decl(metadata !952)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !930
+  %129 = load float, ptr %34, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !914)
+  call void @llvm.experimental.noalias.scope.decl(metadata !922)
+  call void @llvm.experimental.noalias.scope.decl(metadata !920)
   %130 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv
   %131 = getelementptr inbounds [3 x float], ptr %85, i64 %indvars.iv
   br label %132
@@ -23859,12 +23859,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 132:                                              ; preds = %132, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i48, %132 ]
   %133 = getelementptr inbounds nuw [3 x float], ptr %130, i64 0, i64 %indvars.iv.i47
-  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !946, !noalias !949
+  %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !914, !noalias !917
   %135 = getelementptr inbounds nuw [3 x float], ptr %95, i64 0, i64 %indvars.iv.i47
-  %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !952, !noalias !953
+  %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !920, !noalias !921
   %137 = call float @llvm.fmuladd.f32(float %136, float %129, float %134)
   %138 = getelementptr inbounds nuw [3 x float], ptr %131, i64 0, i64 %indvars.iv.i47
-  store float %137, ptr %138, align 4, !tbaa !180, !alias.scope !954, !noalias !955
+  store float %137, ptr %138, align 4, !tbaa !180, !alias.scope !922, !noalias !923
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond.not.i49, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %132, !llvm.loop !184
@@ -23872,7 +23872,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %132
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %93, !llvm.loop !963
+  br i1 %exitcond.not, label %._crit_edge.split, label %93, !llvm.loop !924
 
 139:                                              ; preds = %90
   %140 = call ptr @__cxa_begin_catch(ptr %.040) #10
@@ -23908,7 +23908,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %132
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !964
+  %2 = load ptr, ptr %0, align 8, !tbaa !931
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -23951,7 +23951,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -24004,33 +24004,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -24086,7 +24086,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 91:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %85
   %.sroa.03.0.insert.ext = phi i64 [ 1, %85 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %92 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %93 = load ptr, ptr %59, align 8, !tbaa !935
+  %93 = load ptr, ptr %59, align 8, !tbaa !904
   %94 = load ptr, ptr %93, align 8, !tbaa !137
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 640
   %96 = load i32, ptr %95, align 8, !tbaa !139
@@ -24095,7 +24095,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.05.0.insert.ext = zext i32 %96 to i64
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %97 = load ptr, ptr %12, align 8, !tbaa !936
+  %97 = load ptr, ptr %12, align 8, !tbaa !905
   %98 = icmp eq ptr %97, null
   br i1 %98, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %99
 
@@ -24193,7 +24193,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %28 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %28, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %29 = load i32, ptr %18, align 4, !tbaa !136
@@ -24230,7 +24230,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %39 = add nsw i32 %.049.us, 1
   %40 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.049.us, %40
-  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52, !llvm.loop !966
+  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52
 
 .lr.ph.us:                                        ; preds = %35
   %41 = load ptr, ptr %9, align 8
@@ -24243,11 +24243,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 46:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %45, %.lr.ph.us ]
-  %47 = load float, ptr %33, align 8, !tbaa !932
+  %47 = load float, ptr %33, align 8, !tbaa !901
   %48 = fmul float %47, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !967)
-  call void @llvm.experimental.noalias.scope.decl(metadata !970)
+  call void @llvm.experimental.noalias.scope.decl(metadata !933)
+  call void @llvm.experimental.noalias.scope.decl(metadata !936)
   %49 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
   %50 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
   %51 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
@@ -24256,31 +24256,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 52:                                               ; preds = %52, %46
   %indvars.iv.i.us.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.us.us, %52 ]
   %53 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !972
+  %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !938
   %55 = fsub float %24, %54
   %56 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !967, !noalias !970
+  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !933, !noalias !936
   %58 = fmul float %57, %55
   %59 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i.us.us
-  %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !970, !noalias !967
+  %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !936, !noalias !933
   %61 = getelementptr inbounds nuw [3 x float], ptr %51, i64 0, i64 %indvars.iv.i.us.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !972
+  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !938
   %63 = fmul float %60, %62
   %64 = call float @llvm.fmuladd.f32(float %63, float %48, float %58)
-  store float %64, ptr %56, align 4, !tbaa !180, !alias.scope !967, !noalias !970
+  store float %64, ptr %56, align 4, !tbaa !180, !alias.scope !933, !noalias !936
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %52, !llvm.loop !410
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %52, !llvm.loop !408
 
 65:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %65
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %65 ]
   %66 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv.i44.us.us
-  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !973, !noalias !976
+  %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !939, !noalias !942
   %68 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i44.us.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !979, !noalias !980
+  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !945, !noalias !946
   %70 = call float @llvm.fmuladd.f32(float %69, float %72, float %67)
   %71 = getelementptr inbounds nuw [3 x float], ptr %74, i64 0, i64 %indvars.iv.i44.us.us
-  store float %70, ptr %71, align 4, !tbaa !180, !alias.scope !981, !noalias !982
+  store float %70, ptr %71, align 4, !tbaa !180, !alias.scope !947, !noalias !948
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
   br i1 %exitcond.not.i46.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %65, !llvm.loop !184
@@ -24288,13 +24288,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %65
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %46, !llvm.loop !983
+  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %46, !llvm.loop !949
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %52
-  %72 = load float, ptr %33, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !973)
-  call void @llvm.experimental.noalias.scope.decl(metadata !981)
-  call void @llvm.experimental.noalias.scope.decl(metadata !979)
+  %72 = load float, ptr %33, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !939)
+  call void @llvm.experimental.noalias.scope.decl(metadata !947)
+  call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %73 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv55
   %74 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv55
   br label %65
@@ -24354,45 +24354,45 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 91:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %84, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %92 = load float, ptr %33, align 8, !tbaa !932
+  %92 = load float, ptr %33, align 8, !tbaa !901
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !984)
-  call void @llvm.experimental.noalias.scope.decl(metadata !987)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !989
+  call void @llvm.experimental.noalias.scope.decl(metadata !950)
+  call void @llvm.experimental.noalias.scope.decl(metadata !953)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !955
   %93 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !989
-  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !984, !noalias !987
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !955
+  %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !984, !noalias !987
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !984, !noalias !987
+  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   br label %99
 
 99:                                               ; preds = %99, %91
   %indvars.iv.i.i = phi i64 [ 0, %91 ], [ %indvars.iv.next.i.i, %99 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %100 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !989
+  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !955
   %102 = getelementptr i8, ptr %100, i64 4
-  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !989
+  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !955
   %104 = fmul float %96, %103
   %105 = call float @llvm.fmuladd.f32(float %101, float %94, float %104)
   %106 = getelementptr i8, ptr %100, i64 8
-  %107 = load float, ptr %106, align 4, !tbaa !180, !noalias !989
+  %107 = load float, ptr %106, align 4, !tbaa !180, !noalias !955
   %108 = call float @llvm.fmuladd.f32(float %107, float %98, float %105)
   %109 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %108, ptr %109, align 4, !tbaa !180, !noalias !989
+  store float %108, ptr %109, align 4, !tbaa !180, !noalias !955
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %99, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %99, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %99
   %110 = fmul float %92, 5.000000e-01
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !989
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !989
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !989
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !989
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !989
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !955
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !955
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !955
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !955
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !955
   %111 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
@@ -24400,28 +24400,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i42, %113 ]
   %114 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i41
-  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !984, !noalias !987
+  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   %116 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i41
-  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !989
+  %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !955
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %24, float %115, float %118)
   %120 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv.i41
-  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !987, !noalias !984
+  %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !953, !noalias !950
   %122 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i41
-  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !989
+  %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !955
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %110, float %119)
-  store float %125, ptr %114, align 4, !tbaa !180, !alias.scope !984, !noalias !987
+  store float %125, ptr %114, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !418
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %113, !llvm.loop !416
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %113
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !989
-  %126 = load float, ptr %33, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !973)
-  call void @llvm.experimental.noalias.scope.decl(metadata !981)
-  call void @llvm.experimental.noalias.scope.decl(metadata !979)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !955
+  %126 = load float, ptr %33, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !939)
+  call void @llvm.experimental.noalias.scope.decl(metadata !947)
+  call void @llvm.experimental.noalias.scope.decl(metadata !945)
   %127 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
   %128 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
   br label %129
@@ -24429,12 +24429,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 129:                                              ; preds = %129, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %129 ]
   %130 = getelementptr inbounds nuw [3 x float], ptr %127, i64 0, i64 %indvars.iv.i44
-  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !973, !noalias !976
+  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !939, !noalias !942
   %132 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i44
-  %133 = load float, ptr %132, align 4, !tbaa !180, !alias.scope !979, !noalias !980
+  %133 = load float, ptr %132, align 4, !tbaa !180, !alias.scope !945, !noalias !946
   %134 = call float @llvm.fmuladd.f32(float %133, float %126, float %131)
   %135 = getelementptr inbounds nuw [3 x float], ptr %128, i64 0, i64 %indvars.iv.i44
-  store float %134, ptr %135, align 4, !tbaa !180, !alias.scope !981, !noalias !982
+  store float %134, ptr %135, align 4, !tbaa !180, !alias.scope !947, !noalias !948
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
   br i1 %exitcond.not.i46, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %129, !llvm.loop !184
@@ -24442,7 +24442,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %129
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %91, !llvm.loop !990
+  br i1 %exitcond.not, label %._crit_edge.split, label %91, !llvm.loop !949
 
 136:                                              ; preds = %88
   %137 = call ptr @__cxa_begin_catch(ptr %.037) #10
@@ -24478,7 +24478,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %129
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !991
+  %2 = load ptr, ptr %0, align 8, !tbaa !956
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -24521,7 +24521,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -24574,33 +24574,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -24621,7 +24621,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %76 = load i32, ptr %75, align 4, !tbaa !180
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %77 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %78 = load ptr, ptr %59, align 8, !tbaa !935
+  %78 = load ptr, ptr %59, align 8, !tbaa !904
   %79 = load ptr, ptr %78, align 8, !tbaa !137
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 640
   %81 = load i32, ptr %80, align 8, !tbaa !139
@@ -24631,7 +24631,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   %.sroa.0.0.insert.ext = zext i32 %76 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 %.sroa.0.0.insert.ext, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %82 = load ptr, ptr %12, align 8, !tbaa !936
+  %82 = load ptr, ptr %12, align 8, !tbaa !905
   %83 = icmp eq ptr %82, null
   br i1 %83, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %84
 
@@ -24729,7 +24729,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %28 = load i32, ptr %16, align 4, !tbaa !136
@@ -24763,7 +24763,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %37 = add nsw i32 %.053.us, 1
   %38 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.053.us, %38
-  br i1 %.not.us.not, label %.lr.ph55.split.us, label %._crit_edge56, !llvm.loop !993
+  br i1 %.not.us.not, label %.lr.ph55.split.us, label %._crit_edge56
 
 .lr.ph.us:                                        ; preds = %33
   %39 = load ptr, ptr %9, align 8
@@ -24776,11 +24776,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 44:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %43, %.lr.ph.us ]
-  %45 = load float, ptr %32, align 8, !tbaa !932
+  %45 = load float, ptr %32, align 8, !tbaa !901
   %46 = fmul float %45, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !994)
-  call void @llvm.experimental.noalias.scope.decl(metadata !997)
+  call void @llvm.experimental.noalias.scope.decl(metadata !958)
+  call void @llvm.experimental.noalias.scope.decl(metadata !961)
   %47 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv59
   %48 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv59
   %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
@@ -24789,19 +24789,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 50:                                               ; preds = %50, %44
   %indvars.iv.i.us.us = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.us.us, %50 ]
   %51 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !999
+  %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !963
   %53 = fsub float %22, %52
   %54 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !994, !noalias !997
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !958, !noalias !961
   %56 = fmul float %55, %53
   %57 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !997, !noalias !994
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !961, !noalias !958
   %59 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !999
+  %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !963
   %61 = fmul float %58, %60
   %62 = call float @llvm.fmuladd.f32(float %61, float %46, float %56)
   %63 = fmul float %62, %23
-  store float %63, ptr %54, align 4, !tbaa !180, !alias.scope !994, !noalias !997
+  store float %63, ptr %54, align 4, !tbaa !180, !alias.scope !958, !noalias !961
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
   br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %50, !llvm.loop !390
@@ -24809,12 +24809,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %64 ]
   %65 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i47.us.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !1000, !noalias !1003
+  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !964, !noalias !967
   %67 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i47.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1006, !noalias !1007
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !970, !noalias !971
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
   %70 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv.i47.us.us
-  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !1008, !noalias !1009
+  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !972, !noalias !973
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
   br i1 %exitcond.not.i49.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %64, !llvm.loop !184
@@ -24822,13 +24822,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %64
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %44, !llvm.loop !1010
+  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %44, !llvm.loop !974
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %50
-  %71 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1000)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1008)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1006)
+  %71 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !964)
+  call void @llvm.experimental.noalias.scope.decl(metadata !972)
+  call void @llvm.experimental.noalias.scope.decl(metadata !970)
   %72 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv59
   %73 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv59
   br label %64
@@ -24887,11 +24887,11 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 90:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %83, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %91 = load float, ptr %32, align 8, !tbaa !932
+  %91 = load float, ptr %32, align 8, !tbaa !901
   %92 = fmul float %91, 5.000000e-01
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1014)
+  call void @llvm.experimental.noalias.scope.decl(metadata !975)
+  call void @llvm.experimental.noalias.scope.decl(metadata !978)
   %93 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   %94 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   %95 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -24900,25 +24900,25 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 96:                                               ; preds = %96, %90
   %indvars.iv.i44 = phi i64 [ 0, %90 ], [ %indvars.iv.next.i45, %96 ]
   %97 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i44
-  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !1011, !noalias !1014
+  %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !975, !noalias !978
   %99 = fmul float %98, %22
   %100 = getelementptr inbounds nuw [3 x float], ptr %94, i64 0, i64 %indvars.iv.i44
-  %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !1014, !noalias !1011
+  %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !978, !noalias !975
   %102 = getelementptr inbounds nuw [3 x float], ptr %95, i64 0, i64 %indvars.iv.i44
-  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !1016
+  %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !980
   %104 = fmul float %101, %103
   %105 = call float @llvm.fmuladd.f32(float %104, float %92, float %99)
   %106 = fmul float %105, %23
-  store float %106, ptr %97, align 4, !tbaa !180, !alias.scope !1011, !noalias !1014
+  store float %106, ptr %97, align 4, !tbaa !180, !alias.scope !975, !noalias !978
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
-  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50, label %96, !llvm.loop !435
+  br i1 %exitcond.not.i46, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50, label %96, !llvm.loop !432
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50: ; preds = %96
-  %107 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1000)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1008)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1006)
+  %107 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !964)
+  call void @llvm.experimental.noalias.scope.decl(metadata !972)
+  call void @llvm.experimental.noalias.scope.decl(metadata !970)
   %108 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   %109 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
   br label %110
@@ -24926,12 +24926,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 110:                                              ; preds = %110, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50 ], [ %indvars.iv.next.i48, %110 ]
   %111 = getelementptr inbounds nuw [3 x float], ptr %108, i64 0, i64 %indvars.iv.i47
-  %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !1000, !noalias !1003
+  %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !964, !noalias !967
   %113 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i47
-  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !1006, !noalias !1007
+  %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !970, !noalias !971
   %115 = call float @llvm.fmuladd.f32(float %114, float %107, float %112)
   %116 = getelementptr inbounds nuw [3 x float], ptr %109, i64 0, i64 %indvars.iv.i47
-  store float %115, ptr %116, align 4, !tbaa !180, !alias.scope !1008, !noalias !1009
+  store float %115, ptr %116, align 4, !tbaa !180, !alias.scope !972, !noalias !973
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond.not.i49, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %110, !llvm.loop !184
@@ -24939,7 +24939,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %110
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !1017
+  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !974
 
 117:                                              ; preds = %87
   %118 = call ptr @__cxa_begin_catch(ptr %.040) #10
@@ -24975,7 +24975,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %110
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1018
+  %2 = load ptr, ptr %0, align 8, !tbaa !981
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -25018,7 +25018,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -25071,33 +25071,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -25115,7 +25115,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %73 = load i32, ptr %72, align 4, !tbaa !180
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %74 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %75 = load ptr, ptr %59, align 8, !tbaa !935
+  %75 = load ptr, ptr %59, align 8, !tbaa !904
   %76 = load ptr, ptr %75, align 8, !tbaa !137
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 640
   %78 = load i32, ptr %77, align 8, !tbaa !139
@@ -25124,7 +25124,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.05.0.insert.ext = zext i32 %78 to i64
   %.sroa.01.0.insert.ext = zext i32 %73 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 %.sroa.01.0.insert.ext, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %79 = load ptr, ptr %12, align 8, !tbaa !936
+  %79 = load ptr, ptr %12, align 8, !tbaa !905
   %80 = icmp eq ptr %79, null
   br i1 %80, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %81
 
@@ -25220,7 +25220,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %26 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %26, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %27 = load i32, ptr %16, align 4, !tbaa !136
@@ -25254,7 +25254,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %36 = add nsw i32 %.050.us, 1
   %37 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.050.us, %37
-  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !1020
+  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53
 
 .lr.ph.us:                                        ; preds = %32
   %38 = load ptr, ptr %9, align 8
@@ -25267,11 +25267,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 43:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %42, %.lr.ph.us ]
-  %44 = load float, ptr %31, align 8, !tbaa !932
+  %44 = load float, ptr %31, align 8, !tbaa !901
   %45 = fmul float %44, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1021)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1024)
+  call void @llvm.experimental.noalias.scope.decl(metadata !983)
+  call void @llvm.experimental.noalias.scope.decl(metadata !986)
   %46 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv56
   %47 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv56
   %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
@@ -25280,31 +25280,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 49:                                               ; preds = %49, %43
   %indvars.iv.i.us.us = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.us.us, %49 ]
   %50 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !1026
+  %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !988
   %52 = fsub float %22, %51
   %53 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us.us
-  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !1021, !noalias !1024
+  %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !983, !noalias !986
   %55 = fmul float %54, %52
   %56 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !1024, !noalias !1021
+  %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !986, !noalias !983
   %58 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !1026
+  %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !988
   %60 = fmul float %57, %59
   %61 = call float @llvm.fmuladd.f32(float %60, float %45, float %55)
-  store float %61, ptr %53, align 4, !tbaa !180, !alias.scope !1021, !noalias !1024
+  store float %61, ptr %53, align 4, !tbaa !180, !alias.scope !983, !noalias !986
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %49, !llvm.loop !410
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %49, !llvm.loop !408
 
 62:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %62
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %62 ]
   %63 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv.i44.us.us
-  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !1027, !noalias !1030
+  %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !989, !noalias !992
   %65 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i44.us.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !1033, !noalias !1034
+  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !995, !noalias !996
   %67 = call float @llvm.fmuladd.f32(float %66, float %69, float %64)
   %68 = getelementptr inbounds nuw [3 x float], ptr %71, i64 0, i64 %indvars.iv.i44.us.us
-  store float %67, ptr %68, align 4, !tbaa !180, !alias.scope !1035, !noalias !1036
+  store float %67, ptr %68, align 4, !tbaa !180, !alias.scope !997, !noalias !998
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
   br i1 %exitcond.not.i46.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %62, !llvm.loop !184
@@ -25312,13 +25312,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %62
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %43, !llvm.loop !1037
+  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %43, !llvm.loop !999
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %49
-  %69 = load float, ptr %31, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1027)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1035)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1033)
+  %69 = load float, ptr %31, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !989)
+  call void @llvm.experimental.noalias.scope.decl(metadata !997)
+  call void @llvm.experimental.noalias.scope.decl(metadata !995)
   %70 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv56
   %71 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv56
   br label %62
@@ -25377,11 +25377,11 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 
 88:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %81, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %89 = load float, ptr %31, align 8, !tbaa !932
+  %89 = load float, ptr %31, align 8, !tbaa !901
   %90 = fmul float %89, 5.000000e-01
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1038)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1041)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1000)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1003)
   %91 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
   %92 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
   %93 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -25390,24 +25390,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 94:                                               ; preds = %94, %88
   %indvars.iv.i41 = phi i64 [ 0, %88 ], [ %indvars.iv.next.i42, %94 ]
   %95 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i41
-  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !1038, !noalias !1041
+  %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !1000, !noalias !1003
   %97 = fmul float %96, %22
   %98 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i41
-  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !1041, !noalias !1038
+  %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !1003, !noalias !1000
   %100 = getelementptr inbounds nuw [3 x float], ptr %93, i64 0, i64 %indvars.iv.i41
-  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !1043
+  %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !1005
   %102 = fmul float %99, %101
   %103 = call float @llvm.fmuladd.f32(float %102, float %90, float %97)
-  store float %103, ptr %95, align 4, !tbaa !180, !alias.scope !1038, !noalias !1041
+  store float %103, ptr %95, align 4, !tbaa !180, !alias.scope !1000, !noalias !1003
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
-  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %94, !llvm.loop !452
+  br i1 %exitcond.not.i43, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47, label %94, !llvm.loop !448
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47: ; preds = %94
-  %104 = load float, ptr %31, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1027)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1035)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1033)
+  %104 = load float, ptr %31, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !989)
+  call void @llvm.experimental.noalias.scope.decl(metadata !997)
+  call void @llvm.experimental.noalias.scope.decl(metadata !995)
   %105 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   %106 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   br label %107
@@ -25415,12 +25415,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 107:                                              ; preds = %107, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %107 ]
   %108 = getelementptr inbounds nuw [3 x float], ptr %105, i64 0, i64 %indvars.iv.i44
-  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !1027, !noalias !1030
+  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !989, !noalias !992
   %110 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i44
-  %111 = load float, ptr %110, align 4, !tbaa !180, !alias.scope !1033, !noalias !1034
+  %111 = load float, ptr %110, align 4, !tbaa !180, !alias.scope !995, !noalias !996
   %112 = call float @llvm.fmuladd.f32(float %111, float %104, float %109)
   %113 = getelementptr inbounds nuw [3 x float], ptr %106, i64 0, i64 %indvars.iv.i44
-  store float %112, ptr %113, align 4, !tbaa !180, !alias.scope !1035, !noalias !1036
+  store float %112, ptr %113, align 4, !tbaa !180, !alias.scope !997, !noalias !998
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
   br i1 %exitcond.not.i46, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %107, !llvm.loop !184
@@ -25428,7 +25428,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %107
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %88, !llvm.loop !1044
+  br i1 %exitcond.not, label %._crit_edge.split, label %88, !llvm.loop !999
 
 114:                                              ; preds = %85
   %115 = call ptr @__cxa_begin_catch(ptr %.037) #10
@@ -25464,7 +25464,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %107
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1045
+  %2 = load ptr, ptr %0, align 8, !tbaa !1006
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -25507,7 +25507,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -25560,33 +25560,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -25639,7 +25639,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !935
+  %90 = load ptr, ptr %59, align 8, !tbaa !904
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -25647,7 +25647,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !936
+  %94 = load ptr, ptr %12, align 8, !tbaa !905
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -25743,7 +25743,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -25783,17 +25783,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %41 = add nsw i32 %.050.us, 1
   %42 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.050.us, %42
-  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53, !llvm.loop !1047
+  br i1 %.not.us.not, label %.lr.ph52.split.us, label %._crit_edge53
 
 .lr.ph.us:                                        ; preds = %37
   %43 = load ptr, ptr %9, align 8
   %44 = load ptr, ptr %10, align 8
   %45 = load ptr, ptr %12, align 8, !tbaa !133
   %46 = load ptr, ptr %13, align 8, !tbaa !133
-  %47 = load ptr, ptr %34, align 8, !tbaa !935
+  %47 = load ptr, ptr %34, align 8, !tbaa !904
   %48 = load ptr, ptr %47, align 8, !tbaa !137
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 448
-  %50 = load ptr, ptr %49, align 8, !tbaa !456
+  %50 = load ptr, ptr %49, align 8, !tbaa !451
   %51 = load ptr, ptr %33, align 8, !tbaa !44
   %52 = load ptr, ptr %35, align 8, !tbaa !44
   %53 = sext i32 %38 to i64
@@ -25802,18 +25802,18 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 54:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %53, %.lr.ph.us ]
-  %55 = load float, ptr %32, align 8, !tbaa !932
+  %55 = load float, ptr %32, align 8, !tbaa !901
   %56 = fmul float %55, 5.000000e-01
   %57 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv56
-  %58 = load i16, ptr %57, align 2, !tbaa !457
+  %58 = load i16, ptr %57, align 2, !tbaa !452
   %59 = zext i16 %58 to i64
   %60 = getelementptr inbounds nuw float, ptr %51, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !180
   %62 = getelementptr inbounds nuw float, ptr %52, i64 %59
   %63 = load float, ptr %62, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1048)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1051)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1008)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1011)
   %64 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv56
   %65 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv56
   %66 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
@@ -25822,32 +25822,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 67:                                               ; preds = %67, %54
   %indvars.iv.i.us.us = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.us.us, %67 ]
   %68 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !1053
+  %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !1013
   %70 = fsub float %61, %69
   %71 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv.i.us.us
-  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1048, !noalias !1051
+  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1008, !noalias !1011
   %73 = fmul float %72, %70
   %74 = getelementptr inbounds nuw [3 x float], ptr %65, i64 0, i64 %indvars.iv.i.us.us
-  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1051, !noalias !1048
+  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1011, !noalias !1008
   %76 = getelementptr inbounds nuw [3 x float], ptr %66, i64 0, i64 %indvars.iv.i.us.us
-  %77 = load float, ptr %76, align 4, !tbaa !180, !noalias !1053
+  %77 = load float, ptr %76, align 4, !tbaa !180, !noalias !1013
   %78 = fmul float %75, %77
   %79 = call float @llvm.fmuladd.f32(float %78, float %56, float %73)
   %80 = fmul float %63, %79
-  store float %80, ptr %71, align 4, !tbaa !180, !alias.scope !1048, !noalias !1051
+  store float %80, ptr %71, align 4, !tbaa !180, !alias.scope !1008, !noalias !1011
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %67, !llvm.loop !465
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %67, !llvm.loop !460
 
 81:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %81
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %81 ]
   %82 = getelementptr inbounds nuw [3 x float], ptr %89, i64 0, i64 %indvars.iv.i45.us.us
-  %83 = load float, ptr %82, align 4, !tbaa !180, !alias.scope !1054, !noalias !1057
+  %83 = load float, ptr %82, align 4, !tbaa !180, !alias.scope !1014, !noalias !1017
   %84 = getelementptr inbounds nuw [3 x float], ptr %64, i64 0, i64 %indvars.iv.i45.us.us
-  %85 = load float, ptr %84, align 4, !tbaa !180, !alias.scope !1060, !noalias !1061
+  %85 = load float, ptr %84, align 4, !tbaa !180, !alias.scope !1020, !noalias !1021
   %86 = call float @llvm.fmuladd.f32(float %85, float %88, float %83)
   %87 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i45.us.us
-  store float %86, ptr %87, align 4, !tbaa !180, !alias.scope !1062, !noalias !1063
+  store float %86, ptr %87, align 4, !tbaa !180, !alias.scope !1022, !noalias !1023
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
   br i1 %exitcond.not.i47.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %81, !llvm.loop !184
@@ -25855,13 +25855,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %81
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %54, !llvm.loop !1064
+  br i1 %exitcond60.not, label %._crit_edge.split.us.us, label %54, !llvm.loop !1024
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %67
-  %88 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1054)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1062)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1060)
+  %88 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1014)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1022)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   %89 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv56
   %90 = getelementptr inbounds [3 x float], ptr %46, i64 %indvars.iv56
   br label %81
@@ -25890,10 +25890,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %97 = load ptr, ptr %10, align 8
   %98 = load ptr, ptr %12, align 8, !tbaa !133
   %99 = load ptr, ptr %13, align 8, !tbaa !133
-  %100 = load ptr, ptr %34, align 8, !tbaa !935
+  %100 = load ptr, ptr %34, align 8, !tbaa !904
   %101 = load ptr, ptr %100, align 8, !tbaa !137
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 448
-  %103 = load ptr, ptr %102, align 8, !tbaa !456
+  %103 = load ptr, ptr %102, align 8, !tbaa !451
   %104 = load ptr, ptr %33, align 8, !tbaa !44
   %105 = load ptr, ptr %35, align 8, !tbaa !44
   %.val = load ptr, ptr %36, align 8, !tbaa !94
@@ -25927,52 +25927,52 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 113:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %106, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %114 = load float, ptr %32, align 8, !tbaa !932
+  %114 = load float, ptr %32, align 8, !tbaa !901
   %115 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv
-  %116 = load i16, ptr %115, align 2, !tbaa !457
+  %116 = load i16, ptr %115, align 2, !tbaa !452
   %117 = zext i16 %116 to i64
   %118 = getelementptr inbounds nuw float, ptr %104, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !180
   %120 = getelementptr inbounds nuw float, ptr %105, i64 %117
   %121 = load float, ptr %120, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1065)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1068)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1070
+  call void @llvm.experimental.noalias.scope.decl(metadata !1025)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1028)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1030
   %122 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1070
-  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !1065, !noalias !1068
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1030
+  %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  %125 = load float, ptr %124, align 4, !tbaa !180, !alias.scope !1065, !noalias !1068
+  %125 = load float, ptr %124, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %127 = load float, ptr %126, align 4, !tbaa !180, !alias.scope !1065, !noalias !1068
+  %127 = load float, ptr %126, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   br label %128
 
 128:                                              ; preds = %128, %113
   %indvars.iv.i.i = phi i64 [ 0, %113 ], [ %indvars.iv.next.i.i, %128 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %129 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %130 = load float, ptr %129, align 4, !tbaa !180, !noalias !1070
+  %130 = load float, ptr %129, align 4, !tbaa !180, !noalias !1030
   %131 = getelementptr i8, ptr %129, i64 4
-  %132 = load float, ptr %131, align 4, !tbaa !180, !noalias !1070
+  %132 = load float, ptr %131, align 4, !tbaa !180, !noalias !1030
   %133 = fmul float %125, %132
   %134 = call float @llvm.fmuladd.f32(float %130, float %123, float %133)
   %135 = getelementptr i8, ptr %129, i64 8
-  %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !1070
+  %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !1030
   %137 = call float @llvm.fmuladd.f32(float %136, float %127, float %134)
   %138 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %137, ptr %138, align 4, !tbaa !180, !noalias !1070
+  store float %137, ptr %138, align 4, !tbaa !180, !noalias !1030
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %128, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %128, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %128
   %139 = fmul float %114, 5.000000e-01
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1070
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1070
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1070
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1070
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1070
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1030
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1030
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1030
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1030
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1030
   %140 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv
   %141 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %142
@@ -25980,29 +25980,29 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 142:                                              ; preds = %142, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i43, %142 ]
   %143 = getelementptr inbounds nuw [3 x float], ptr %122, i64 0, i64 %indvars.iv.i42
-  %144 = load float, ptr %143, align 4, !tbaa !180, !alias.scope !1065, !noalias !1068
+  %144 = load float, ptr %143, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   %145 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i42
-  %146 = load float, ptr %145, align 4, !tbaa !180, !noalias !1070
+  %146 = load float, ptr %145, align 4, !tbaa !180, !noalias !1030
   %147 = fneg float %146
   %148 = call float @llvm.fmuladd.f32(float %119, float %144, float %147)
   %149 = getelementptr inbounds nuw [3 x float], ptr %140, i64 0, i64 %indvars.iv.i42
-  %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !1068, !noalias !1065
+  %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !1028, !noalias !1025
   %151 = getelementptr inbounds nuw [3 x float], ptr %141, i64 0, i64 %indvars.iv.i42
-  %152 = load float, ptr %151, align 4, !tbaa !180, !noalias !1070
+  %152 = load float, ptr %151, align 4, !tbaa !180, !noalias !1030
   %153 = fmul float %150, %152
   %154 = call float @llvm.fmuladd.f32(float %153, float %139, float %148)
   %155 = fmul float %121, %154
-  store float %155, ptr %143, align 4, !tbaa !180, !alias.scope !1065, !noalias !1068
+  store float %155, ptr %143, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 3
-  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %142, !llvm.loop !473
+  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %142, !llvm.loop !468
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %142
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1070
-  %156 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1054)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1062)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1060)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1030
+  %156 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1014)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1022)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   %157 = getelementptr inbounds [3 x float], ptr %98, i64 %indvars.iv
   %158 = getelementptr inbounds [3 x float], ptr %99, i64 %indvars.iv
   br label %159
@@ -26010,12 +26010,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 159:                                              ; preds = %159, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i46, %159 ]
   %160 = getelementptr inbounds nuw [3 x float], ptr %157, i64 0, i64 %indvars.iv.i45
-  %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !1054, !noalias !1057
+  %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !1014, !noalias !1017
   %162 = getelementptr inbounds nuw [3 x float], ptr %122, i64 0, i64 %indvars.iv.i45
-  %163 = load float, ptr %162, align 4, !tbaa !180, !alias.scope !1060, !noalias !1061
+  %163 = load float, ptr %162, align 4, !tbaa !180, !alias.scope !1020, !noalias !1021
   %164 = call float @llvm.fmuladd.f32(float %163, float %156, float %161)
   %165 = getelementptr inbounds nuw [3 x float], ptr %158, i64 0, i64 %indvars.iv.i45
-  store float %164, ptr %165, align 4, !tbaa !180, !alias.scope !1062, !noalias !1063
+  store float %164, ptr %165, align 4, !tbaa !180, !alias.scope !1022, !noalias !1023
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
   br i1 %exitcond.not.i47, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %159, !llvm.loop !184
@@ -26023,7 +26023,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %159
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %113, !llvm.loop !1071
+  br i1 %exitcond.not, label %._crit_edge.split, label %113, !llvm.loop !1024
 
 166:                                              ; preds = %110
   %167 = call ptr @__cxa_begin_catch(ptr %.038) #10
@@ -26059,7 +26059,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %159
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1072
+  %2 = load ptr, ptr %0, align 8, !tbaa !1031
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -26102,7 +26102,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -26155,33 +26155,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -26234,7 +26234,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !935
+  %90 = load ptr, ptr %59, align 8, !tbaa !904
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -26242,7 +26242,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !936
+  %94 = load ptr, ptr %12, align 8, !tbaa !905
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -26338,7 +26338,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -26377,17 +26377,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %40 = add nsw i32 %.048.us, 1
   %41 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.048.us, %41
-  br i1 %.not.us.not, label %.lr.ph50.split.us, label %._crit_edge51, !llvm.loop !1074
+  br i1 %.not.us.not, label %.lr.ph50.split.us, label %._crit_edge51
 
 .lr.ph.us:                                        ; preds = %36
   %42 = load ptr, ptr %9, align 8
   %43 = load ptr, ptr %10, align 8
   %44 = load ptr, ptr %12, align 8, !tbaa !133
   %45 = load ptr, ptr %13, align 8, !tbaa !133
-  %46 = load ptr, ptr %34, align 8, !tbaa !935
+  %46 = load ptr, ptr %34, align 8, !tbaa !904
   %47 = load ptr, ptr %46, align 8, !tbaa !137
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 448
-  %49 = load ptr, ptr %48, align 8, !tbaa !456
+  %49 = load ptr, ptr %48, align 8, !tbaa !451
   %50 = load ptr, ptr %33, align 8, !tbaa !44
   %51 = sext i32 %37 to i64
   %wide.trip.count57 = sext i32 %38 to i64
@@ -26395,16 +26395,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 52:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %51, %.lr.ph.us ]
-  %53 = load float, ptr %32, align 8, !tbaa !932
+  %53 = load float, ptr %32, align 8, !tbaa !901
   %54 = fmul float %53, 5.000000e-01
   %55 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv54
-  %56 = load i16, ptr %55, align 2, !tbaa !457
+  %56 = load i16, ptr %55, align 2, !tbaa !452
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw float, ptr %50, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1075)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1078)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1033)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1036)
   %60 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv54
   %61 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv54
   %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
@@ -26413,31 +26413,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 63:                                               ; preds = %63, %52
   %indvars.iv.i.us.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us.us, %63 ]
   %64 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !1080
+  %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !1038
   %66 = fsub float %59, %65
   %67 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1075, !noalias !1078
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1033, !noalias !1036
   %69 = fmul float %68, %66
   %70 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i.us.us
-  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !1078, !noalias !1075
+  %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !1036, !noalias !1033
   %72 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv.i.us.us
-  %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !1080
+  %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !1038
   %74 = fmul float %71, %73
   %75 = call float @llvm.fmuladd.f32(float %74, float %54, float %69)
-  store float %75, ptr %67, align 4, !tbaa !180, !alias.scope !1075, !noalias !1078
+  store float %75, ptr %67, align 4, !tbaa !180, !alias.scope !1033, !noalias !1036
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %63, !llvm.loop !483
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %63, !llvm.loop !477
 
 76:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %76
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %76 ]
   %77 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %indvars.iv.i43.us.us
-  %78 = load float, ptr %77, align 4, !tbaa !180, !alias.scope !1081, !noalias !1084
+  %78 = load float, ptr %77, align 4, !tbaa !180, !alias.scope !1039, !noalias !1042
   %79 = getelementptr inbounds nuw [3 x float], ptr %60, i64 0, i64 %indvars.iv.i43.us.us
-  %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1087, !noalias !1088
+  %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1045, !noalias !1046
   %81 = call float @llvm.fmuladd.f32(float %80, float %83, float %78)
   %82 = getelementptr inbounds nuw [3 x float], ptr %85, i64 0, i64 %indvars.iv.i43.us.us
-  store float %81, ptr %82, align 4, !tbaa !180, !alias.scope !1089, !noalias !1090
+  store float %81, ptr %82, align 4, !tbaa !180, !alias.scope !1047, !noalias !1048
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
   br i1 %exitcond.not.i45.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %76, !llvm.loop !184
@@ -26445,13 +26445,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %76
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge.split.us.us, label %52, !llvm.loop !1091
+  br i1 %exitcond58.not, label %._crit_edge.split.us.us, label %52, !llvm.loop !1049
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %63
-  %83 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1081)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1089)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1087)
+  %83 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1039)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1047)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   %84 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv54
   %85 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv54
   br label %76
@@ -26480,10 +26480,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %92 = load ptr, ptr %10, align 8
   %93 = load ptr, ptr %12, align 8, !tbaa !133
   %94 = load ptr, ptr %13, align 8, !tbaa !133
-  %95 = load ptr, ptr %34, align 8, !tbaa !935
+  %95 = load ptr, ptr %34, align 8, !tbaa !904
   %96 = load ptr, ptr %95, align 8, !tbaa !137
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 448
-  %98 = load ptr, ptr %97, align 8, !tbaa !456
+  %98 = load ptr, ptr %97, align 8, !tbaa !451
   %99 = load ptr, ptr %33, align 8, !tbaa !44
   %.val = load ptr, ptr %35, align 8, !tbaa !94
   %100 = sext i32 %88 to i64
@@ -26516,50 +26516,50 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 107:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %108 = load float, ptr %32, align 8, !tbaa !932
+  %108 = load float, ptr %32, align 8, !tbaa !901
   %109 = getelementptr inbounds nuw i16, ptr %98, i64 %indvars.iv
-  %110 = load i16, ptr %109, align 2, !tbaa !457
+  %110 = load i16, ptr %109, align 2, !tbaa !452
   %111 = zext i16 %110 to i64
   %112 = getelementptr inbounds nuw float, ptr %99, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1092)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1095)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1097
+  call void @llvm.experimental.noalias.scope.decl(metadata !1050)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1053)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1055
   %114 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1097
-  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !1092, !noalias !1095
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1055
+  %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !1092, !noalias !1095
+  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !1092, !noalias !1095
+  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   br label %120
 
 120:                                              ; preds = %120, %107
   %indvars.iv.i.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i.i, %120 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %121 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %122 = load float, ptr %121, align 4, !tbaa !180, !noalias !1097
+  %122 = load float, ptr %121, align 4, !tbaa !180, !noalias !1055
   %123 = getelementptr i8, ptr %121, i64 4
-  %124 = load float, ptr %123, align 4, !tbaa !180, !noalias !1097
+  %124 = load float, ptr %123, align 4, !tbaa !180, !noalias !1055
   %125 = fmul float %117, %124
   %126 = call float @llvm.fmuladd.f32(float %122, float %115, float %125)
   %127 = getelementptr i8, ptr %121, i64 8
-  %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !1097
+  %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !1055
   %129 = call float @llvm.fmuladd.f32(float %128, float %119, float %126)
   %130 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %129, ptr %130, align 4, !tbaa !180, !noalias !1097
+  store float %129, ptr %130, align 4, !tbaa !180, !noalias !1055
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %120, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %120, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %120
   %131 = fmul float %108, 5.000000e-01
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1097
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1097
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1097
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1097
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1097
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1055
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1055
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1055
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1055
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1055
   %132 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
   %133 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %134
@@ -26567,28 +26567,28 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 134:                                              ; preds = %134, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i41, %134 ]
   %135 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv.i40
-  %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !1092, !noalias !1095
+  %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   %137 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i40
-  %138 = load float, ptr %137, align 4, !tbaa !180, !noalias !1097
+  %138 = load float, ptr %137, align 4, !tbaa !180, !noalias !1055
   %139 = fneg float %138
   %140 = call float @llvm.fmuladd.f32(float %113, float %136, float %139)
   %141 = getelementptr inbounds nuw [3 x float], ptr %132, i64 0, i64 %indvars.iv.i40
-  %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !1095, !noalias !1092
+  %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !1053, !noalias !1050
   %143 = getelementptr inbounds nuw [3 x float], ptr %133, i64 0, i64 %indvars.iv.i40
-  %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !1097
+  %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !1055
   %145 = fmul float %142, %144
   %146 = call float @llvm.fmuladd.f32(float %145, float %131, float %140)
-  store float %146, ptr %135, align 4, !tbaa !180, !alias.scope !1092, !noalias !1095
+  store float %146, ptr %135, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %134, !llvm.loop !491
+  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %134, !llvm.loop !485
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %134
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1097
-  %147 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1081)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1089)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1087)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1055
+  %147 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1039)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1047)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1045)
   %148 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
   %149 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
   br label %150
@@ -26596,12 +26596,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 150:                                              ; preds = %150, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i44, %150 ]
   %151 = getelementptr inbounds nuw [3 x float], ptr %148, i64 0, i64 %indvars.iv.i43
-  %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !1081, !noalias !1084
+  %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !1039, !noalias !1042
   %153 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv.i43
-  %154 = load float, ptr %153, align 4, !tbaa !180, !alias.scope !1087, !noalias !1088
+  %154 = load float, ptr %153, align 4, !tbaa !180, !alias.scope !1045, !noalias !1046
   %155 = call float @llvm.fmuladd.f32(float %154, float %147, float %152)
   %156 = getelementptr inbounds nuw [3 x float], ptr %149, i64 0, i64 %indvars.iv.i43
-  store float %155, ptr %156, align 4, !tbaa !180, !alias.scope !1089, !noalias !1090
+  store float %155, ptr %156, align 4, !tbaa !180, !alias.scope !1047, !noalias !1048
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
   br i1 %exitcond.not.i45, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %150, !llvm.loop !184
@@ -26609,7 +26609,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %150
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %107, !llvm.loop !1098
+  br i1 %exitcond.not, label %._crit_edge.split, label %107, !llvm.loop !1049
 
 157:                                              ; preds = %104
   %158 = call ptr @__cxa_begin_catch(ptr %.036) #10
@@ -26645,7 +26645,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %150
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1099
+  %2 = load ptr, ptr %0, align 8, !tbaa !1056
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -26688,7 +26688,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -26741,33 +26741,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -26782,7 +26782,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !935
+  %72 = load ptr, ptr %59, align 8, !tbaa !904
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -26790,7 +26790,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !936
+  %76 = load ptr, ptr %12, align 8, !tbaa !905
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -26884,7 +26884,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -26921,17 +26921,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %38 = add nsw i32 %.051.us, 1
   %39 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.051.us, %39
-  br i1 %.not.us.not, label %.lr.ph53.split.us, label %._crit_edge54, !llvm.loop !1101
+  br i1 %.not.us.not, label %.lr.ph53.split.us, label %._crit_edge54
 
 .lr.ph.us:                                        ; preds = %34
   %40 = load ptr, ptr %9, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = load ptr, ptr %12, align 8, !tbaa !133
   %43 = load ptr, ptr %13, align 8, !tbaa !133
-  %44 = load ptr, ptr %32, align 8, !tbaa !935
+  %44 = load ptr, ptr %32, align 8, !tbaa !904
   %45 = load ptr, ptr %44, align 8, !tbaa !137
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 448
-  %47 = load ptr, ptr %46, align 8, !tbaa !456
+  %47 = load ptr, ptr %46, align 8, !tbaa !451
   %48 = load ptr, ptr %31, align 8, !tbaa !44
   %49 = load ptr, ptr %33, align 8, !tbaa !44
   %50 = sext i32 %35 to i64
@@ -26940,18 +26940,18 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 51:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %50, %.lr.ph.us ]
-  %52 = load float, ptr %30, align 8, !tbaa !932
+  %52 = load float, ptr %30, align 8, !tbaa !901
   %53 = fmul float %52, 5.000000e-01
   %54 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv57
-  %55 = load i16, ptr %54, align 2, !tbaa !457
+  %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw float, ptr %48, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
   %59 = getelementptr inbounds nuw float, ptr %49, i64 %56
   %60 = load float, ptr %59, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1102)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1105)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1058)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1061)
   %61 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv57
   %62 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv57
   %63 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
@@ -26960,32 +26960,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 64:                                               ; preds = %64, %51
   %indvars.iv.i.us.us = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.us.us, %64 ]
   %65 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !1107
+  %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !1063
   %67 = fsub float %58, %66
   %68 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i.us.us
-  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !1102, !noalias !1105
+  %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !1058, !noalias !1061
   %70 = fmul float %69, %67
   %71 = getelementptr inbounds nuw [3 x float], ptr %62, i64 0, i64 %indvars.iv.i.us.us
-  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1105, !noalias !1102
+  %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1061, !noalias !1058
   %73 = getelementptr inbounds nuw [3 x float], ptr %63, i64 0, i64 %indvars.iv.i.us.us
-  %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !1107
+  %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !1063
   %75 = fmul float %72, %74
   %76 = call float @llvm.fmuladd.f32(float %75, float %53, float %70)
   %77 = fmul float %60, %76
-  store float %77, ptr %68, align 4, !tbaa !180, !alias.scope !1102, !noalias !1105
+  store float %77, ptr %68, align 4, !tbaa !180, !alias.scope !1058, !noalias !1061
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %64, !llvm.loop !465
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %64, !llvm.loop !460
 
 78:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %78
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %78 ]
   %79 = getelementptr inbounds nuw [3 x float], ptr %86, i64 0, i64 %indvars.iv.i45.us.us
-  %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1108, !noalias !1111
+  %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1064, !noalias !1067
   %81 = getelementptr inbounds nuw [3 x float], ptr %61, i64 0, i64 %indvars.iv.i45.us.us
-  %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !1114, !noalias !1115
+  %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !1070, !noalias !1071
   %83 = call float @llvm.fmuladd.f32(float %82, float %85, float %80)
   %84 = getelementptr inbounds nuw [3 x float], ptr %87, i64 0, i64 %indvars.iv.i45.us.us
-  store float %83, ptr %84, align 4, !tbaa !180, !alias.scope !1116, !noalias !1117
+  store float %83, ptr %84, align 4, !tbaa !180, !alias.scope !1072, !noalias !1073
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
   br i1 %exitcond.not.i47.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %78, !llvm.loop !184
@@ -26993,13 +26993,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %78
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %51, !llvm.loop !1118
+  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %51, !llvm.loop !1074
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %64
-  %85 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1108)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1116)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1114)
+  %85 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1064)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1072)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   %86 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv57
   %87 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv57
   br label %78
@@ -27028,10 +27028,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %94 = load ptr, ptr %10, align 8
   %95 = load ptr, ptr %12, align 8, !tbaa !133
   %96 = load ptr, ptr %13, align 8, !tbaa !133
-  %97 = load ptr, ptr %32, align 8, !tbaa !935
+  %97 = load ptr, ptr %32, align 8, !tbaa !904
   %98 = load ptr, ptr %97, align 8, !tbaa !137
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 448
-  %100 = load ptr, ptr %99, align 8, !tbaa !456
+  %100 = load ptr, ptr %99, align 8, !tbaa !451
   %101 = load ptr, ptr %31, align 8, !tbaa !44
   %102 = load ptr, ptr %33, align 8, !tbaa !44
   %103 = sext i32 %90 to i64
@@ -27064,18 +27064,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 110:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %103, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %111 = load float, ptr %30, align 8, !tbaa !932
+  %111 = load float, ptr %30, align 8, !tbaa !901
   %112 = fmul float %111, 5.000000e-01
   %113 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv
-  %114 = load i16, ptr %113, align 2, !tbaa !457
+  %114 = load i16, ptr %113, align 2, !tbaa !452
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw float, ptr %101, i64 %115
   %117 = load float, ptr %116, align 4, !tbaa !180
   %118 = getelementptr inbounds nuw float, ptr %102, i64 %115
   %119 = load float, ptr %118, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1119)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1122)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1075)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1078)
   %120 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
   %121 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
   %122 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -27084,25 +27084,25 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 123:                                              ; preds = %123, %110
   %indvars.iv.i42 = phi i64 [ 0, %110 ], [ %indvars.iv.next.i43, %123 ]
   %124 = getelementptr inbounds nuw [3 x float], ptr %120, i64 0, i64 %indvars.iv.i42
-  %125 = load float, ptr %124, align 4, !tbaa !180, !alias.scope !1119, !noalias !1122
+  %125 = load float, ptr %124, align 4, !tbaa !180, !alias.scope !1075, !noalias !1078
   %126 = fmul float %117, %125
   %127 = getelementptr inbounds nuw [3 x float], ptr %121, i64 0, i64 %indvars.iv.i42
-  %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !1122, !noalias !1119
+  %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !1078, !noalias !1075
   %129 = getelementptr inbounds nuw [3 x float], ptr %122, i64 0, i64 %indvars.iv.i42
-  %130 = load float, ptr %129, align 4, !tbaa !180, !noalias !1124
+  %130 = load float, ptr %129, align 4, !tbaa !180, !noalias !1080
   %131 = fmul float %128, %130
   %132 = call float @llvm.fmuladd.f32(float %131, float %112, float %126)
   %133 = fmul float %119, %132
-  store float %133, ptr %124, align 4, !tbaa !180, !alias.scope !1119, !noalias !1122
+  store float %133, ptr %124, align 4, !tbaa !180, !alias.scope !1075, !noalias !1078
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 3
-  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48, label %123, !llvm.loop !508
+  br i1 %exitcond.not.i44, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48, label %123, !llvm.loop !501
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48: ; preds = %123
-  %134 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1108)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1116)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1114)
+  %134 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1064)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1072)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   %135 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
   %136 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
   br label %137
@@ -27110,12 +27110,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 137:                                              ; preds = %137, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48 ], [ %indvars.iv.next.i46, %137 ]
   %138 = getelementptr inbounds nuw [3 x float], ptr %135, i64 0, i64 %indvars.iv.i45
-  %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !1108, !noalias !1111
+  %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !1064, !noalias !1067
   %140 = getelementptr inbounds nuw [3 x float], ptr %120, i64 0, i64 %indvars.iv.i45
-  %141 = load float, ptr %140, align 4, !tbaa !180, !alias.scope !1114, !noalias !1115
+  %141 = load float, ptr %140, align 4, !tbaa !180, !alias.scope !1070, !noalias !1071
   %142 = call float @llvm.fmuladd.f32(float %141, float %134, float %139)
   %143 = getelementptr inbounds nuw [3 x float], ptr %136, i64 0, i64 %indvars.iv.i45
-  store float %142, ptr %143, align 4, !tbaa !180, !alias.scope !1116, !noalias !1117
+  store float %142, ptr %143, align 4, !tbaa !180, !alias.scope !1072, !noalias !1073
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
   br i1 %exitcond.not.i47, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %137, !llvm.loop !184
@@ -27123,7 +27123,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %137
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %110, !llvm.loop !1125
+  br i1 %exitcond.not, label %._crit_edge.split, label %110, !llvm.loop !1074
 
 144:                                              ; preds = %107
   %145 = call ptr @__cxa_begin_catch(ptr %.038) #10
@@ -27159,7 +27159,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %137
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1126
+  %2 = load ptr, ptr %0, align 8, !tbaa !1081
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -27202,7 +27202,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -27255,33 +27255,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -27296,7 +27296,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !935
+  %72 = load ptr, ptr %59, align 8, !tbaa !904
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -27304,7 +27304,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !936
+  %76 = load ptr, ptr %12, align 8, !tbaa !905
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -27398,7 +27398,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -27434,17 +27434,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %37 = add nsw i32 %.049.us, 1
   %38 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.049.us, %38
-  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52, !llvm.loop !1128
+  br i1 %.not.us.not, label %.lr.ph51.split.us, label %._crit_edge52
 
 .lr.ph.us:                                        ; preds = %33
   %39 = load ptr, ptr %9, align 8
   %40 = load ptr, ptr %10, align 8
   %41 = load ptr, ptr %12, align 8, !tbaa !133
   %42 = load ptr, ptr %13, align 8, !tbaa !133
-  %43 = load ptr, ptr %32, align 8, !tbaa !935
+  %43 = load ptr, ptr %32, align 8, !tbaa !904
   %44 = load ptr, ptr %43, align 8, !tbaa !137
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 448
-  %46 = load ptr, ptr %45, align 8, !tbaa !456
+  %46 = load ptr, ptr %45, align 8, !tbaa !451
   %47 = load ptr, ptr %31, align 8, !tbaa !44
   %48 = sext i32 %34 to i64
   %wide.trip.count58 = sext i32 %35 to i64
@@ -27452,16 +27452,16 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 49:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %48, %.lr.ph.us ]
-  %50 = load float, ptr %30, align 8, !tbaa !932
+  %50 = load float, ptr %30, align 8, !tbaa !901
   %51 = fmul float %50, 5.000000e-01
   %52 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv55
-  %53 = load i16, ptr %52, align 2, !tbaa !457
+  %53 = load i16, ptr %52, align 2, !tbaa !452
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw float, ptr %47, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1129)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1132)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1083)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   %57 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv55
   %58 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv55
   %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
@@ -27470,31 +27470,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 60:                                               ; preds = %60, %49
   %indvars.iv.i.us.us = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.us.us, %60 ]
   %61 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !1134
+  %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !1088
   %63 = fsub float %56, %62
   %64 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1129, !noalias !1132
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1083, !noalias !1086
   %66 = fmul float %65, %63
   %67 = getelementptr inbounds nuw [3 x float], ptr %58, i64 0, i64 %indvars.iv.i.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1132, !noalias !1129
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1086, !noalias !1083
   %69 = getelementptr inbounds nuw [3 x float], ptr %59, i64 0, i64 %indvars.iv.i.us.us
-  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !1134
+  %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !1088
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %51, float %66)
-  store float %72, ptr %64, align 4, !tbaa !180, !alias.scope !1129, !noalias !1132
+  store float %72, ptr %64, align 4, !tbaa !180, !alias.scope !1083, !noalias !1086
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %60, !llvm.loop !483
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %60, !llvm.loop !477
 
 73:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %73
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %73 ]
   %74 = getelementptr inbounds nuw [3 x float], ptr %81, i64 0, i64 %indvars.iv.i43.us.us
-  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1135, !noalias !1138
+  %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1089, !noalias !1092
   %76 = getelementptr inbounds nuw [3 x float], ptr %57, i64 0, i64 %indvars.iv.i43.us.us
-  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !1141, !noalias !1142
+  %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !1095, !noalias !1096
   %78 = call float @llvm.fmuladd.f32(float %77, float %80, float %75)
   %79 = getelementptr inbounds nuw [3 x float], ptr %82, i64 0, i64 %indvars.iv.i43.us.us
-  store float %78, ptr %79, align 4, !tbaa !180, !alias.scope !1143, !noalias !1144
+  store float %78, ptr %79, align 4, !tbaa !180, !alias.scope !1097, !noalias !1098
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
   br i1 %exitcond.not.i45.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %73, !llvm.loop !184
@@ -27502,13 +27502,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %73
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !1145
+  br i1 %exitcond59.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !1099
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %60
-  %80 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1135)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1143)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1141)
+  %80 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1089)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1097)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1095)
   %81 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
   %82 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
   br label %73
@@ -27537,10 +27537,10 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %89 = load ptr, ptr %10, align 8
   %90 = load ptr, ptr %12, align 8, !tbaa !133
   %91 = load ptr, ptr %13, align 8, !tbaa !133
-  %92 = load ptr, ptr %32, align 8, !tbaa !935
+  %92 = load ptr, ptr %32, align 8, !tbaa !904
   %93 = load ptr, ptr %92, align 8, !tbaa !137
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 448
-  %95 = load ptr, ptr %94, align 8, !tbaa !456
+  %95 = load ptr, ptr %94, align 8, !tbaa !451
   %96 = load ptr, ptr %31, align 8, !tbaa !44
   %97 = sext i32 %85 to i64
   %wide.trip.count = sext i32 %86 to i64
@@ -27572,16 +27572,16 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 
 104:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %105 = load float, ptr %30, align 8, !tbaa !932
+  %105 = load float, ptr %30, align 8, !tbaa !901
   %106 = fmul float %105, 5.000000e-01
   %107 = getelementptr inbounds nuw i16, ptr %95, i64 %indvars.iv
-  %108 = load i16, ptr %107, align 2, !tbaa !457
+  %108 = load i16, ptr %107, align 2, !tbaa !452
   %109 = zext i16 %108 to i64
   %110 = getelementptr inbounds nuw float, ptr %96, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1146)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1149)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1100)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1103)
   %112 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv
   %113 = getelementptr inbounds [3 x float], ptr %89, i64 %indvars.iv
   %114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
@@ -27590,24 +27590,24 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 115:                                              ; preds = %115, %104
   %indvars.iv.i40 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i41, %115 ]
   %116 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i40
-  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !1146, !noalias !1149
+  %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !1100, !noalias !1103
   %118 = fmul float %111, %117
   %119 = getelementptr inbounds nuw [3 x float], ptr %113, i64 0, i64 %indvars.iv.i40
-  %120 = load float, ptr %119, align 4, !tbaa !180, !alias.scope !1149, !noalias !1146
+  %120 = load float, ptr %119, align 4, !tbaa !180, !alias.scope !1103, !noalias !1100
   %121 = getelementptr inbounds nuw [3 x float], ptr %114, i64 0, i64 %indvars.iv.i40
-  %122 = load float, ptr %121, align 4, !tbaa !180, !noalias !1151
+  %122 = load float, ptr %121, align 4, !tbaa !180, !noalias !1105
   %123 = fmul float %120, %122
   %124 = call float @llvm.fmuladd.f32(float %123, float %106, float %118)
-  store float %124, ptr %116, align 4, !tbaa !180, !alias.scope !1146, !noalias !1149
+  store float %124, ptr %116, align 4, !tbaa !180, !alias.scope !1100, !noalias !1103
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 3
-  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46, label %115, !llvm.loop !525
+  br i1 %exitcond.not.i42, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46, label %115, !llvm.loop !517
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46: ; preds = %115
-  %125 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1135)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1143)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1141)
+  %125 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1089)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1097)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1095)
   %126 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
   %127 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
   br label %128
@@ -27615,12 +27615,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 128:                                              ; preds = %128, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46 ], [ %indvars.iv.next.i44, %128 ]
   %129 = getelementptr inbounds nuw [3 x float], ptr %126, i64 0, i64 %indvars.iv.i43
-  %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !1135, !noalias !1138
+  %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !1089, !noalias !1092
   %131 = getelementptr inbounds nuw [3 x float], ptr %112, i64 0, i64 %indvars.iv.i43
-  %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !1141, !noalias !1142
+  %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !1095, !noalias !1096
   %133 = call float @llvm.fmuladd.f32(float %132, float %125, float %130)
   %134 = getelementptr inbounds nuw [3 x float], ptr %127, i64 0, i64 %indvars.iv.i43
-  store float %133, ptr %134, align 4, !tbaa !180, !alias.scope !1143, !noalias !1144
+  store float %133, ptr %134, align 4, !tbaa !180, !alias.scope !1097, !noalias !1098
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
   br i1 %exitcond.not.i45, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %128, !llvm.loop !184
@@ -27628,7 +27628,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %128
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %104, !llvm.loop !1152
+  br i1 %exitcond.not, label %._crit_edge.split, label %104, !llvm.loop !1099
 
 135:                                              ; preds = %101
   %136 = call ptr @__cxa_begin_catch(ptr %.036) #10
@@ -27664,7 +27664,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %128
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1153
+  %2 = load ptr, ptr %0, align 8, !tbaa !1106
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -27707,7 +27707,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 8
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -27760,33 +27760,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -27839,7 +27839,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
 88:                                               ; preds = %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread, %82
   %.sroa.03.0.insert.ext = phi i64 [ 1, %82 ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.thread ], [ 0, %_ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalingE2EEEbRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %89 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %90 = load ptr, ptr %59, align 8, !tbaa !935
+  %90 = load ptr, ptr %59, align 8, !tbaa !904
   %91 = load ptr, ptr %90, align 8, !tbaa !137
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 640
   %93 = load i32, ptr %92, align 8, !tbaa !139
@@ -27847,7 +27847,7 @@ _ZN3gmxL33canTreatPRScalingMatrixAsDiagonalILNS_31ParrinelloRahmanVelocityScalin
   %.sroa.07.0.insert.ext = zext i32 %89 to i64
   %.sroa.05.0.insert.ext = zext i32 %93 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 %.sroa.03.0.insert.ext, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %94 = load ptr, ptr %12, align 8, !tbaa !936
+  %94 = load ptr, ptr %12, align 8, !tbaa !905
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %96
 
@@ -27943,7 +27943,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %27 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %27, i32 34, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, i32 1, i32 1)
   %28 = load i32, ptr %18, align 4, !tbaa !136
@@ -27980,7 +27980,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %38 = add nsw i32 %.046.us, 1
   %39 = load i32, ptr %18, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.046.us, %39
-  br i1 %.not.us.not, label %.lr.ph48.split.us, label %._crit_edge49, !llvm.loop !1155
+  br i1 %.not.us.not, label %.lr.ph48.split.us, label %._crit_edge49
 
 .lr.ph.us:                                        ; preds = %34
   %40 = load ptr, ptr %9, align 8
@@ -27993,11 +27993,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 45:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %44, %.lr.ph.us ]
-  %46 = load float, ptr %32, align 8, !tbaa !932
+  %46 = load float, ptr %32, align 8, !tbaa !901
   %47 = fmul float %46, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1156)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1159)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1108)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1111)
   %48 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv52
   %49 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv52
   %50 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
@@ -28006,31 +28006,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 51:                                               ; preds = %51, %45
   %indvars.iv.i.us.us = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.us.us, %51 ]
   %52 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %indvars.iv.i.us.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !1161
+  %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !1113
   %54 = fsub float 1.000000e+00, %53
   %55 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i.us.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1156, !noalias !1159
+  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1108, !noalias !1111
   %57 = fmul float %56, %54
   %58 = getelementptr inbounds nuw [3 x float], ptr %49, i64 0, i64 %indvars.iv.i.us.us
-  %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !1159, !noalias !1156
+  %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !1111, !noalias !1108
   %60 = getelementptr inbounds nuw [3 x float], ptr %50, i64 0, i64 %indvars.iv.i.us.us
-  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !1161
+  %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !1113
   %62 = fmul float %59, %61
   %63 = call float @llvm.fmuladd.f32(float %62, float %47, float %57)
-  store float %63, ptr %55, align 4, !tbaa !180, !alias.scope !1156, !noalias !1159
+  store float %63, ptr %55, align 4, !tbaa !180, !alias.scope !1108, !noalias !1111
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %51, !llvm.loop !535
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %51, !llvm.loop !526
 
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %64 ]
   %65 = getelementptr inbounds nuw [3 x float], ptr %72, i64 0, i64 %indvars.iv.i41.us.us
-  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !1162, !noalias !1165
+  %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !1114, !noalias !1117
   %67 = getelementptr inbounds nuw [3 x float], ptr %48, i64 0, i64 %indvars.iv.i41.us.us
-  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1168, !noalias !1169
+  %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1120, !noalias !1121
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
   %70 = getelementptr inbounds nuw [3 x float], ptr %73, i64 0, i64 %indvars.iv.i41.us.us
-  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !1170, !noalias !1171
+  store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !1122, !noalias !1123
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
   br i1 %exitcond.not.i43.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %64, !llvm.loop !184
@@ -28038,13 +28038,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %64
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge.split.us.us, label %45, !llvm.loop !1172
+  br i1 %exitcond56.not, label %._crit_edge.split.us.us, label %45, !llvm.loop !1124
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %51
-  %71 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1162)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1170)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1168)
+  %71 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1114)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1122)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1120)
   %72 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv52
   %73 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv52
   br label %64
@@ -28104,45 +28104,45 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 
 90:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %83, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %91 = load float, ptr %32, align 8, !tbaa !932
+  %91 = load float, ptr %32, align 8, !tbaa !901
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1173)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1176)
-  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1178
+  call void @llvm.experimental.noalias.scope.decl(metadata !1125)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1130
   %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1178
-  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !1173, !noalias !1176
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1130
+  %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !1173, !noalias !1176
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !1173, !noalias !1176
+  %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   br label %98
 
 98:                                               ; preds = %98, %90
   %indvars.iv.i.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i.i, %98 ]
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %99 = getelementptr i8, ptr %.val, i64 %.idx.i.i.i.i
-  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !1178
+  %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !1130
   %101 = getelementptr i8, ptr %99, i64 4
-  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !1178
+  %102 = load float, ptr %101, align 4, !tbaa !180, !noalias !1130
   %103 = fmul float %95, %102
   %104 = call float @llvm.fmuladd.f32(float %100, float %93, float %103)
   %105 = getelementptr i8, ptr %99, i64 8
-  %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !1178
+  %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !1130
   %107 = call float @llvm.fmuladd.f32(float %106, float %97, float %104)
   %108 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i.i
-  store float %107, ptr %108, align 4, !tbaa !180, !noalias !1178
+  store float %107, ptr %108, align 4, !tbaa !180, !noalias !1130
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %98, !llvm.loop !399
+  br i1 %exitcond.not.i.i, label %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i, label %98, !llvm.loop !398
 
 _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i: ; preds = %98
   %109 = fmul float %91, 5.000000e-01
-  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1178
-  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1178
-  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1178
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1178
-  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1178
+  %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %15, align 8, !noalias !1130
+  %.sroa.2.0.copyload.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1130
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1130
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1130
+  store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !311, !noalias !1130
   %110 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
   %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %112
@@ -28150,27 +28150,27 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 112:                                              ; preds = %112, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i39, %112 ]
   %113 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.i38
-  %114 = load float, ptr %113, align 4, !tbaa !180, !noalias !1178
+  %114 = load float, ptr %113, align 4, !tbaa !180, !noalias !1130
   %115 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i38
-  %116 = load float, ptr %115, align 4, !tbaa !180, !alias.scope !1173, !noalias !1176
+  %116 = load float, ptr %115, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %117 = fsub float %116, %114
   %118 = getelementptr inbounds nuw [3 x float], ptr %110, i64 0, i64 %indvars.iv.i38
-  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !1176, !noalias !1173
+  %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !1128, !noalias !1125
   %120 = getelementptr inbounds nuw [3 x float], ptr %111, i64 0, i64 %indvars.iv.i38
-  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !1178
+  %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !1130
   %122 = fmul float %119, %121
   %123 = call float @llvm.fmuladd.f32(float %122, float %109, float %117)
-  store float %123, ptr %115, align 4, !tbaa !180, !alias.scope !1173, !noalias !1176
+  store float %123, ptr %115, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %112, !llvm.loop !543
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit, label %112, !llvm.loop !534
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit: ; preds = %112
-  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1178
-  %124 = load float, ptr %32, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1162)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1170)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1130
+  %124 = load float, ptr %32, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1114)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1122)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1120)
   %125 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
   %126 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
   br label %127
@@ -28178,12 +28178,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 127:                                              ; preds = %127, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %127 ]
   %128 = getelementptr inbounds nuw [3 x float], ptr %125, i64 0, i64 %indvars.iv.i41
-  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !1162, !noalias !1165
+  %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !1114, !noalias !1117
   %130 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i41
-  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !1168, !noalias !1169
+  %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !1120, !noalias !1121
   %132 = call float @llvm.fmuladd.f32(float %131, float %124, float %129)
   %133 = getelementptr inbounds nuw [3 x float], ptr %126, i64 0, i64 %indvars.iv.i41
-  store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !1170, !noalias !1171
+  store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !1122, !noalias !1123
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
   br i1 %exitcond.not.i43, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %127, !llvm.loop !184
@@ -28191,7 +28191,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %127
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !1179
+  br i1 %exitcond.not, label %._crit_edge.split, label %90, !llvm.loop !1124
 
 134:                                              ; preds = %87
   %135 = call ptr @__cxa_begin_catch(ptr %.034) #10
@@ -28227,7 +28227,7 @@ _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %127
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1180
+  %2 = load ptr, ptr %0, align 8, !tbaa !1131
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -28270,7 +28270,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %10 = alloca %"class.gmx::BasicVector", align 4
   %11 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %13 = load ptr, ptr %12, align 8, !tbaa !936
+  %13 = load ptr, ptr %12, align 8, !tbaa !905
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %15
 
@@ -28323,33 +28323,33 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !933
+  %50 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %50)
   %51 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %51, ptr %2, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = load ptr, ptr %49, align 8, !tbaa !933
+  %52 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZNK3gmx19StatePropagatorData18constPositionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding.33") align 8 %5, ptr noundef nonnull align 8 dereferenceable(632) %52)
   %53 = load ptr, ptr %5, align 8, !tbaa !134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %53, ptr %4, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = load ptr, ptr %49, align 8, !tbaa !933
+  %54 = load ptr, ptr %49, align 8, !tbaa !902
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %7, ptr noundef nonnull align 8 dereferenceable(632) %54)
   %55 = load ptr, ptr %7, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %55, ptr %6, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = load ptr, ptr %49, align 8, !tbaa !933
+  %56 = load ptr, ptr %49, align 8, !tbaa !902
   %57 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK3gmx19StatePropagatorData15constForcesViewEv(ptr noundef nonnull align 8 dereferenceable(632) %56)
   %58 = load ptr, ptr %57, align 8, !tbaa !130
   store ptr %58, ptr %8, align 8, !tbaa !133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %60 = load ptr, ptr %59, align 8, !tbaa !935
+  %60 = load ptr, ptr %59, align 8, !tbaa !904
   %61 = load ptr, ptr %60, align 8, !tbaa !137
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8, !tbaa !379
@@ -28364,7 +28364,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   store ptr %70, ptr %64, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 6)
-  %72 = load ptr, ptr %59, align 8, !tbaa !935
+  %72 = load ptr, ptr %59, align 8, !tbaa !904
   %73 = load ptr, ptr %72, align 8, !tbaa !137
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 640
   %75 = load i32, ptr %74, align 8, !tbaa !139
@@ -28372,7 +28372,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %15, %
   %.sroa.07.0.insert.ext = zext i32 %71 to i64
   %.sroa.05.0.insert.ext = zext i32 %75 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, i64 %.sroa.07.0.insert.ext, i64 %.sroa.05.0.insert.ext, i64 0, ptr nonnull %0, i64 1065353216, i64 1065353216, ptr nonnull %9, ptr nonnull %6, ptr nonnull %8, ptr nonnull %10, ptr nonnull %4, ptr nonnull %2)
-  %76 = load ptr, ptr %12, align 8, !tbaa !936
+  %76 = load ptr, ptr %12, align 8, !tbaa !905
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
@@ -28466,7 +28466,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !618
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !607
   %25 = load i32, ptr %0, align 4, !tbaa !136
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %25, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i32 1, i32 1)
   %26 = load i32, ptr %16, align 4, !tbaa !136
@@ -28500,7 +28500,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %35 = add nsw i32 %.047.us, 1
   %36 = load i32, ptr %16, align 4, !tbaa !136
   %.not.us.not = icmp slt i32 %.047.us, %36
-  br i1 %.not.us.not, label %.lr.ph49.split.us, label %._crit_edge50, !llvm.loop !1182
+  br i1 %.not.us.not, label %.lr.ph49.split.us, label %._crit_edge50
 
 .lr.ph.us:                                        ; preds = %31
   %37 = load ptr, ptr %9, align 8
@@ -28513,11 +28513,11 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 42:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %41, %.lr.ph.us ]
-  %43 = load float, ptr %30, align 8, !tbaa !932
+  %43 = load float, ptr %30, align 8, !tbaa !901
   %44 = fmul float %43, 5.000000e-01
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1183)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1186)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1133)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1136)
   %45 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv53
   %46 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv53
   %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
@@ -28526,31 +28526,31 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 48:                                               ; preds = %48, %42
   %indvars.iv.i.us.us = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.us.us, %48 ]
   %49 = getelementptr inbounds nuw [3 x float], ptr %19, i64 0, i64 %indvars.iv.i.us.us
-  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !1188
+  %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !1138
   %51 = fsub float 1.000000e+00, %50
   %52 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i.us.us
-  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !1183, !noalias !1186
+  %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !1133, !noalias !1136
   %54 = fmul float %53, %51
   %55 = getelementptr inbounds nuw [3 x float], ptr %46, i64 0, i64 %indvars.iv.i.us.us
-  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1186, !noalias !1183
+  %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1136, !noalias !1133
   %57 = getelementptr inbounds nuw [3 x float], ptr %47, i64 0, i64 %indvars.iv.i.us.us
-  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !1188
+  %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !1138
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %44, float %54)
-  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !1183, !noalias !1186
+  store float %60, ptr %52, align 4, !tbaa !180, !alias.scope !1133, !noalias !1136
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 3
-  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %48, !llvm.loop !535
+  br i1 %exitcond.not.i.us.us, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, label %48, !llvm.loop !526
 
 61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %61
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %61 ]
   %62 = getelementptr inbounds nuw [3 x float], ptr %69, i64 0, i64 %indvars.iv.i41.us.us
-  %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !1189, !noalias !1192
+  %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !1139, !noalias !1142
   %64 = getelementptr inbounds nuw [3 x float], ptr %45, i64 0, i64 %indvars.iv.i41.us.us
-  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1195, !noalias !1196
+  %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1145, !noalias !1146
   %66 = call float @llvm.fmuladd.f32(float %65, float %68, float %63)
   %67 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv.i41.us.us
-  store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !1197, !noalias !1198
+  store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !1147, !noalias !1148
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
   br i1 %exitcond.not.i43.us.us, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, label %61, !llvm.loop !184
@@ -28558,13 +28558,13 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us: ; preds = %61
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge.split.us.us, label %42, !llvm.loop !1199
+  br i1 %exitcond57.not, label %._crit_edge.split.us.us, label %42, !llvm.loop !1149
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us: ; preds = %48
-  %68 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1189)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1197)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1195)
+  %68 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1139)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1147)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   %69 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv53
   %70 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv53
   br label %61
@@ -28623,11 +28623,11 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 
 87:                                               ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %80, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
-  %88 = load float, ptr %30, align 8, !tbaa !932
+  %88 = load float, ptr %30, align 8, !tbaa !901
   %89 = fmul float %88, 5.000000e-01
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !1200)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1203)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1150)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   %90 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
   %91 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
   %92 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
@@ -28636,23 +28636,23 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 93:                                               ; preds = %93, %87
   %indvars.iv.i38 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i39, %93 ]
   %94 = getelementptr inbounds nuw [3 x float], ptr %90, i64 0, i64 %indvars.iv.i38
-  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !1203, !noalias !1200
+  %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !1153, !noalias !1150
   %96 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %indvars.iv.i38
-  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !1205
+  %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !1155
   %98 = fmul float %95, %97
   %99 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i38
-  %100 = load float, ptr %99, align 4, !tbaa !180, !alias.scope !1200, !noalias !1203
+  %100 = load float, ptr %99, align 4, !tbaa !180, !alias.scope !1150, !noalias !1153
   %101 = call float @llvm.fmuladd.f32(float %98, float %89, float %100)
-  store float %101, ptr %99, align 4, !tbaa !180, !alias.scope !1200, !noalias !1203
+  store float %101, ptr %99, align 4, !tbaa !180, !alias.scope !1150, !noalias !1153
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 3
-  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %93, !llvm.loop !560
+  br i1 %exitcond.not.i40, label %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44, label %93, !llvm.loop !550
 
 _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44: ; preds = %93
-  %102 = load float, ptr %30, align 8, !tbaa !932
-  call void @llvm.experimental.noalias.scope.decl(metadata !1189)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1197)
-  call void @llvm.experimental.noalias.scope.decl(metadata !1195)
+  %102 = load float, ptr %30, align 8, !tbaa !901
+  call void @llvm.experimental.noalias.scope.decl(metadata !1139)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1147)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   %103 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
   %104 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
   br label %105
@@ -28660,12 +28660,12 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %105 ]
   %106 = getelementptr inbounds nuw [3 x float], ptr %103, i64 0, i64 %indvars.iv.i41
-  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !1189, !noalias !1192
+  %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !1139, !noalias !1142
   %108 = getelementptr inbounds nuw [3 x float], ptr %92, i64 0, i64 %indvars.iv.i41
-  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !1195, !noalias !1196
+  %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !1145, !noalias !1146
   %110 = call float @llvm.fmuladd.f32(float %109, float %102, float %107)
   %111 = getelementptr inbounds nuw [3 x float], ptr %104, i64 0, i64 %indvars.iv.i41
-  store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !1197, !noalias !1198
+  store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !1147, !noalias !1148
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
   br i1 %exitcond.not.i43, label %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit, label %105, !llvm.loop !184
@@ -28673,7 +28673,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
 _ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit:  ; preds = %105
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %87, !llvm.loop !1206
+  br i1 %exitcond.not, label %._crit_edge.split, label %87, !llvm.loop !1149
 
 112:                                              ; preds = %84
   %113 = call ptr @__cxa_begin_catch(ptr %.034) #10
@@ -28924,7 +28924,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocitySc
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !66
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -28932,9 +28932,9 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocitySc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !1207
+  %4 = load ptr, ptr %0, align 8, !tbaa !1156
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %3, ptr %5, align 8, !tbaa !934
+  store i64 %3, ptr %5, align 8, !tbaa !903
   ret void
 }
 
@@ -29015,7 +29015,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingC
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !66
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -29023,7 +29023,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !1209
+  %4 = load ptr, ptr %0, align 8, !tbaa !1158
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i64 %3, ptr %5, align 8, !tbaa !64
   ret void
@@ -29061,13 +29061,13 @@ define weak_odr noundef ptr @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE21get
   %12 = alloca %"struct.gmx::PropagatorConnection", align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1211)
-  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1211
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1160)
+  %15 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1160
   %16 = fpext float %8 to double
-  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !1211
-  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !1211
+  %17 = load ptr, ptr %13, align 8, !tbaa !317, !noalias !1160
+  %18 = load ptr, ptr %14, align 8, !tbaa !318, !noalias !1160
   invoke void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EEC1EdPNS_19StatePropagatorDataEPKNS_7MDAtomsEP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(200) %15, double noundef %16, ptr noundef %2, ptr noundef %17, ptr noundef %18)
-          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !1211
+          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !1160
 
 common.resume:                                    ; preds = %83, %85, %19
   %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %86, %85 ], [ %84, %83 ]
@@ -29076,11 +29076,11 @@ common.resume:                                    ; preds = %83, %85, %19
 19:                                               ; preds = %9
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !1211
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 200) #30, !noalias !1160
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %9
-  store ptr %15, ptr %11, align 8, !tbaa !66, !alias.scope !1211
+  store ptr %15, ptr %11, align 8, !tbaa !66, !alias.scope !1160
   %21 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_10PropagatorILNS_16IntegrationStageE3EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11)
           to label %22 unwind label %83
 
@@ -29143,19 +29143,19 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE3EEESt14default_dele
   %.val = load ptr, ptr %7, align 8, !tbaa !306
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val11 = load i64, ptr %49, align 8, !tbaa !310
-  call void @llvm.experimental.noalias.scope.decl(metadata !1214)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1163)
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !1214
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1214
-  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1214
+  store ptr %50, ptr %12, align 8, !tbaa !322, !alias.scope !1163
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1163
+  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1163
   %51 = icmp ugt i64 %.val11, 15
   br i1 %51, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE3EEESt14default_deleteIS3_EED2Ev.exit
   %52 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !1214
-  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1214
-  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !1214
+  store ptr %52, ptr %12, align 8, !tbaa !306, !alias.scope !1163
+  %53 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1163
+  store i64 %53, ptr %50, align 8, !tbaa !311, !alias.scope !1163
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE3EEESt14default_deleteIS3_EED2Ev.exit
@@ -29166,7 +29166,7 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE3EEESt14default_dele
   ]
 
 55:                                               ; preds = %._crit_edge.i.i.i.i
-  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1214
+  %56 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1163
   store i8 %56, ptr %54, align 1, !tbaa !311
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
@@ -29175,13 +29175,13 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE3EEESt14default_dele
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
 _ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit: ; preds = %._crit_edge.i.i.i.i, %55, %57
-  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1214
+  %58 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1163
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !1214
-  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1214
+  store i64 %58, ptr %59, align 8, !tbaa !310, !alias.scope !1163
+  %60 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1163
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store i8 0, ptr %61, align 1, !tbaa !311
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1214
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1163
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -29190,43 +29190,43 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !1214
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !1163
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1163
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !1163
   store i64 %68, ptr %65, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 208
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1163
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1163
   store i64 %68, ptr %63, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1163
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1163
   store i64 %68, ptr %64, align 8
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %76, align 8, !tbaa !101, !alias.scope !1163
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !101, !alias.scope !1163
   store i64 %68, ptr %66, align 8
   %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 264
   store i64 0, ptr %.sroa.0.i.i.i19.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 272
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %78, align 8, !tbaa !101, !alias.scope !1163
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %79, align 8, !tbaa !101, !alias.scope !1163
   store i64 %68, ptr %67, align 8
   %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 296
   store i64 0, ptr %.sroa.0.i.i.i21.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 304
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %80, align 8, !tbaa !101, !alias.scope !1163
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !1214
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %81, align 8, !tbaa !101, !alias.scope !1163
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper18registerPropagatorENS_20PropagatorConnectionE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
           to label %82 unwind label %85
 
@@ -29308,11 +29308,11 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %.noexc5 ]
   %.0911.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %15, %.noexc5 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
-  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1220, !noalias !1217
-  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1217, !noalias !1220
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1220, !noalias !1217
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1166)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1169)
+  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1169, !noalias !1166
+  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1166, !noalias !1169
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1169, !noalias !1166
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %30, %7
@@ -29562,9 +29562,9 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1222
+  %.val = load ptr, ptr %0, align 8, !tbaa !1171
   %.val3 = load i32, ptr %1, align 4, !tbaa !136
-  %.val4 = load i32, ptr %2, align 4, !tbaa !581
+  %.val4 = load i32, ptr %2, align 4, !tbaa !570
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE30setNumVelocityScalingVariablesEiNS_15ScaleVelocitiesE(ptr noundef nonnull align 8 dereferenceable(200) %.val, i32 noundef %.val3, i32 noundef %.val4)
   ret void
 }
@@ -29596,15 +29596,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !1224
+  %.val = load ptr, ptr %1, align 8, !tbaa !1173
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !1226
+  store i64 0, ptr %5, align 8, !alias.scope !1175
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !66, !alias.scope !1226
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !1226
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1226
+  store i64 %6, ptr %0, align 8, !tbaa !66, !alias.scope !1175
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !1175
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1175
   ret void
 }
 
@@ -29635,7 +29635,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1235
+  %.val = load ptr, ptr %0, align 8, !tbaa !1184
   %2 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 40
@@ -29684,7 +29684,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1237
+  %.val = load ptr, ptr %0, align 8, !tbaa !1186
   %2 = getelementptr i8, ptr %.val, i64 56
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 64
@@ -29733,7 +29733,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef nonnull ptr @_ZNSt17_Function_handlerIFPN3gmx13MultiDimArrayISt5arrayIfLm9EENS0_7extentsIJLl3ELl3EEEENS0_12layout_rightEEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE3EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #23 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1239
+  %.val = load ptr, ptr %0, align 8, !tbaa !1188
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   ret ptr %2
 }
@@ -29765,15 +29765,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !1241
+  %.val = load ptr, ptr %1, align 8, !tbaa !1190
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !1243
+  store i64 0, ptr %5, align 8, !alias.scope !1192
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !66, !alias.scope !1243
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !1243
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1243
+  store i64 %6, ptr %0, align 8, !tbaa !66, !alias.scope !1192
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !1192
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE3EE17prScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1192
   ret void
 }
 
@@ -29813,15 +29813,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EEC2EdPNS_19St
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE4EEE, i64 16), ptr %0, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = fptrunc double %1 to float
-  store float %7, ptr %6, align 8, !tbaa !1252
+  store float %7, ptr %6, align 8, !tbaa !1201
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !1253
+  store ptr %2, ptr %8, align 8, !tbaa !1202
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  store i64 -1, ptr %11, align 8, !tbaa !1254
+  store i64 -1, ptr %11, align 8, !tbaa !1203
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -29829,15 +29829,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EEC2EdPNS_19St
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %14, align 8, !tbaa !73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %3, ptr %15, align 8, !tbaa !1255
+  store ptr %3, ptr %15, align 8, !tbaa !1204
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %16, align 8, !tbaa !1256
+  store ptr %4, ptr %16, align 8, !tbaa !1205
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1257
+  %2 = load ptr, ptr %0, align 8, !tbaa !1206
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -29876,7 +29876,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -29929,7 +29929,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -29944,14 +29944,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %51, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !1255
+  %53 = load ptr, ptr %52, align 8, !tbaa !1204
   %54 = load ptr, ptr %53, align 8, !tbaa !137
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 640
   %56 = load i32, ptr %55, align 8, !tbaa !139
   store i32 %56, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %51)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %57 = load ptr, ptr %8, align 8, !tbaa !1256
+  %57 = load ptr, ptr %8, align 8, !tbaa !1205
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %59
 
@@ -30101,17 +30101,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 41:                                               ; preds = %41, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %41 ]
   %42 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv.i
-  %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1259
+  %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1208
   %44 = fmul float %39, %43
-  store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1259
+  store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1208
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %41, !llvm.loop !1262
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %41, !llvm.loop !1211
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; preds = %41
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !1263
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !1212
 
 45:                                               ; preds = %32
   %46 = call ptr @__cxa_begin_catch(ptr %34) #10
@@ -30146,7 +30146,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1264
+  %2 = load ptr, ptr %0, align 8, !tbaa !1213
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -30185,7 +30185,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -30238,7 +30238,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -30253,14 +30253,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %51, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !1255
+  %53 = load ptr, ptr %52, align 8, !tbaa !1204
   %54 = load ptr, ptr %53, align 8, !tbaa !137
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 640
   %56 = load i32, ptr %55, align 8, !tbaa !139
   store i32 %56, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %51)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %57 = load ptr, ptr %8, align 8, !tbaa !1256
+  %57 = load ptr, ptr %8, align 8, !tbaa !1205
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %59
 
@@ -30418,17 +30418,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
   %45 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i
-  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1266
+  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1215
   %47 = fmul float %42, %46
-  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1266
+  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1215
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1262
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1211
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; preds = %44
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1269
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1218
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -30455,7 +30455,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1270
+  %2 = load ptr, ptr %0, align 8, !tbaa !1219
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -30494,7 +30494,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -30547,7 +30547,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -30562,14 +30562,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %51, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !1255
+  %53 = load ptr, ptr %52, align 8, !tbaa !1204
   %54 = load ptr, ptr %53, align 8, !tbaa !137
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 640
   %56 = load i32, ptr %55, align 8, !tbaa !139
   store i32 %56, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %51)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %57 = load ptr, ptr %8, align 8, !tbaa !1256
+  %57 = load ptr, ptr %8, align 8, !tbaa !1205
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %59
 
@@ -30727,17 +30727,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
   %45 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i
-  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1272
+  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1221
   %47 = fmul float %42, %46
-  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1272
+  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1221
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1262
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1211
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; preds = %44
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1275
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1224
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -30764,7 +30764,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1276
+  %2 = load ptr, ptr %0, align 8, !tbaa !1225
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -30803,7 +30803,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -30856,7 +30856,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -30871,14 +30871,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %51, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !1255
+  %53 = load ptr, ptr %52, align 8, !tbaa !1204
   %54 = load ptr, ptr %53, align 8, !tbaa !137
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 640
   %56 = load i32, ptr %55, align 8, !tbaa !139
   store i32 %56, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %51)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %57 = load ptr, ptr %8, align 8, !tbaa !1256
+  %57 = load ptr, ptr %8, align 8, !tbaa !1205
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %59
 
@@ -31036,17 +31036,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
   %45 = getelementptr inbounds nuw [3 x float], ptr %43, i64 0, i64 %indvars.iv.i
-  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1278
+  %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1227
   %47 = fmul float %42, %46
-  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1278
+  store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1227
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1262
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit, label %44, !llvm.loop !1211
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; preds = %44
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1281
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !1230
 
 ._crit_edge27:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -31073,7 +31073,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1282
+  %2 = load ptr, ptr %0, align 8, !tbaa !1231
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -31112,7 +31112,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -31165,7 +31165,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -31177,14 +31177,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %48, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !1255
+  %50 = load ptr, ptr %49, align 8, !tbaa !1204
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 640
   %53 = load i32, ptr %52, align 8, !tbaa !139
   store i32 %53, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %48)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %54 = load ptr, ptr %8, align 8, !tbaa !1256
+  %54 = load ptr, ptr %8, align 8, !tbaa !1205
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %56
 
@@ -31305,10 +31305,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %31 = load ptr, ptr %23, align 8, !tbaa !1255
+  %31 = load ptr, ptr %23, align 8, !tbaa !1204
   %32 = load ptr, ptr %31, align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %34 = load ptr, ptr %33, align 8, !tbaa !456
+  %34 = load ptr, ptr %33, align 8, !tbaa !451
   %35 = load ptr, ptr %22, align 8, !tbaa !44
   %36 = load ptr, ptr %6, align 8, !tbaa !133
   %37 = sext i32 %28 to i64
@@ -31338,7 +31338,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 46:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
   %47 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2, !tbaa !457
+  %48 = load i16, ptr %47, align 2, !tbaa !452
   %49 = zext i16 %48 to i64
   %50 = getelementptr inbounds nuw float, ptr %35, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !180
@@ -31348,17 +31348,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 53:                                               ; preds = %53, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %53 ]
   %54 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv.i
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1284
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1233
   %56 = fmul float %51, %55
-  store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1284
+  store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1233
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %53, !llvm.loop !1287
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %53, !llvm.loop !1236
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; preds = %53
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1288
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1237
 
 57:                                               ; preds = %40
   %58 = call ptr @__cxa_begin_catch(ptr %42) #10
@@ -31393,7 +31393,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1289
+  %2 = load ptr, ptr %0, align 8, !tbaa !1238
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -31432,7 +31432,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -31485,7 +31485,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -31497,14 +31497,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %48, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !1255
+  %50 = load ptr, ptr %49, align 8, !tbaa !1204
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 640
   %53 = load i32, ptr %52, align 8, !tbaa !139
   store i32 %53, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %48)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %54 = load ptr, ptr %8, align 8, !tbaa !1256
+  %54 = load ptr, ptr %8, align 8, !tbaa !1205
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %56
 
@@ -31625,10 +31625,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %31 = load ptr, ptr %23, align 8, !tbaa !1255
+  %31 = load ptr, ptr %23, align 8, !tbaa !1204
   %32 = load ptr, ptr %31, align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %34 = load ptr, ptr %33, align 8, !tbaa !456
+  %34 = load ptr, ptr %33, align 8, !tbaa !451
   %35 = load ptr, ptr %22, align 8, !tbaa !44
   %36 = load ptr, ptr %6, align 8, !tbaa !133
   %37 = sext i32 %28 to i64
@@ -31666,7 +31666,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
   %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %51 = load i16, ptr %50, align 2, !tbaa !457
+  %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
   %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
@@ -31676,17 +31676,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
   %57 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv.i
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1291
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1240
   %59 = fmul float %54, %58
-  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1291
+  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1240
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1287
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1236
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; preds = %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1294
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1243
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -31713,7 +31713,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1295
+  %2 = load ptr, ptr %0, align 8, !tbaa !1244
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -31752,7 +31752,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -31805,7 +31805,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -31817,14 +31817,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %48, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !1255
+  %50 = load ptr, ptr %49, align 8, !tbaa !1204
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 640
   %53 = load i32, ptr %52, align 8, !tbaa !139
   store i32 %53, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %48)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %54 = load ptr, ptr %8, align 8, !tbaa !1256
+  %54 = load ptr, ptr %8, align 8, !tbaa !1205
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %56
 
@@ -31945,10 +31945,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %31 = load ptr, ptr %23, align 8, !tbaa !1255
+  %31 = load ptr, ptr %23, align 8, !tbaa !1204
   %32 = load ptr, ptr %31, align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %34 = load ptr, ptr %33, align 8, !tbaa !456
+  %34 = load ptr, ptr %33, align 8, !tbaa !451
   %35 = load ptr, ptr %22, align 8, !tbaa !44
   %36 = load ptr, ptr %6, align 8, !tbaa !133
   %37 = sext i32 %28 to i64
@@ -31986,7 +31986,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
   %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %51 = load i16, ptr %50, align 2, !tbaa !457
+  %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
   %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
@@ -31996,17 +31996,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
   %57 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv.i
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1297
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1246
   %59 = fmul float %54, %58
-  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1297
+  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1246
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1287
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1236
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; preds = %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1300
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1249
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -32033,7 +32033,7 @@ _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1301
+  %2 = load ptr, ptr %0, align 8, !tbaa !1250
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -32072,7 +32072,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %6 = alloca i32, align 4
   %7 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !1256
+  %9 = load ptr, ptr %8, align 8, !tbaa !1205
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %11
 
@@ -32125,7 +32125,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !1253
+  %46 = load ptr, ptr %45, align 8, !tbaa !1202
   call void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %46)
   %47 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -32137,14 +32137,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %11, %
   store i32 %48, ptr %5, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !1255
+  %50 = load ptr, ptr %49, align 8, !tbaa !1204
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 640
   %53 = load i32, ptr %52, align 8, !tbaa !139
   store i32 %53, ptr %6, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %7, i32 %48)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %0, ptr nonnull %4, ptr nonnull %2)
-  %54 = load ptr, ptr %8, align 8, !tbaa !1256
+  %54 = load ptr, ptr %8, align 8, !tbaa !1205
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %56
 
@@ -32265,10 +32265,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %31 = load ptr, ptr %23, align 8, !tbaa !1255
+  %31 = load ptr, ptr %23, align 8, !tbaa !1204
   %32 = load ptr, ptr %31, align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %34 = load ptr, ptr %33, align 8, !tbaa !456
+  %34 = load ptr, ptr %33, align 8, !tbaa !451
   %35 = load ptr, ptr %22, align 8, !tbaa !44
   %36 = load ptr, ptr %6, align 8, !tbaa !133
   %37 = sext i32 %28 to i64
@@ -32306,7 +32306,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
   %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %51 = load i16, ptr %50, align 2, !tbaa !457
+  %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
   %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
@@ -32316,17 +32316,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
   %57 = getelementptr inbounds nuw [3 x float], ptr %55, i64 0, i64 %indvars.iv.i
-  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1303
+  %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1252
   %59 = fmul float %54, %58
-  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1303
+  store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1252
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1287
+  br i1 %exitcond.not.i, label %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit, label %56, !llvm.loop !1236
 
 _ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit: ; preds = %56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1306
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !1255
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -32643,7 +32643,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocitySc
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !75
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -32651,9 +32651,9 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocitySc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !1307
+  %4 = load ptr, ptr %0, align 8, !tbaa !1256
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %3, ptr %5, align 8, !tbaa !1254
+  store i64 %3, ptr %5, align 8, !tbaa !1203
   ret void
 }
 
@@ -32811,13 +32811,13 @@ define weak_odr noundef ptr @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE21get
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1309)
-  %18 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1309
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1258)
+  %18 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1258
   %19 = fpext float %8 to double
-  %20 = load ptr, ptr %16, align 8, !tbaa !317, !noalias !1309
-  %21 = load ptr, ptr %17, align 8, !tbaa !318, !noalias !1309
+  %20 = load ptr, ptr %16, align 8, !tbaa !317, !noalias !1258
+  %21 = load ptr, ptr %17, align 8, !tbaa !318, !noalias !1258
   invoke void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EEC1EdPNS_19StatePropagatorDataEPKNS_7MDAtomsEP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(200) %18, double noundef %19, ptr noundef %2, ptr noundef %20, ptr noundef %21)
-          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %22, !noalias !1309
+          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %22, !noalias !1258
 
 common.resume:                                    ; preds = %77, %79, %22
   %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %80, %79 ], [ %78, %77 ]
@@ -32826,11 +32826,11 @@ common.resume:                                    ; preds = %77, %79, %22
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 200) #30, !noalias !1309
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 200) #30, !noalias !1258
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %15
-  store ptr %18, ptr %11, align 8, !tbaa !75, !alias.scope !1309
+  store ptr %18, ptr %11, align 8, !tbaa !75, !alias.scope !1258
   %24 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_10PropagatorILNS_16IntegrationStageE4EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11)
           to label %25 unwind label %77
 
@@ -32893,19 +32893,19 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE4EEESt14default_dele
   %.val = load ptr, ptr %7, align 8, !tbaa !306
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val11 = load i64, ptr %52, align 8, !tbaa !310
-  call void @llvm.experimental.noalias.scope.decl(metadata !1312)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1261)
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %53, ptr %12, align 8, !tbaa !322, !alias.scope !1312
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1312
-  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1312
+  store ptr %53, ptr %12, align 8, !tbaa !322, !alias.scope !1261
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1261
+  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1261
   %54 = icmp ugt i64 %.val11, 15
   br i1 %54, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE4EEESt14default_deleteIS3_EED2Ev.exit
   %55 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-  store ptr %55, ptr %12, align 8, !tbaa !306, !alias.scope !1312
-  %56 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1312
-  store i64 %56, ptr %53, align 8, !tbaa !311, !alias.scope !1312
+  store ptr %55, ptr %12, align 8, !tbaa !306, !alias.scope !1261
+  %56 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1261
+  store i64 %56, ptr %53, align 8, !tbaa !311, !alias.scope !1261
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE4EEESt14default_deleteIS3_EED2Ev.exit
@@ -32916,7 +32916,7 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE4EEESt14default_dele
   ]
 
 58:                                               ; preds = %._crit_edge.i.i.i.i
-  %59 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1312
+  %59 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1261
   store i8 %59, ptr %57, align 1, !tbaa !311
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
@@ -32925,36 +32925,36 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE4EEESt14default_dele
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
 _ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit: ; preds = %._crit_edge.i.i.i.i, %58, %60
-  %61 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1312
+  %61 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1261
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %61, ptr %62, align 8, !tbaa !310, !alias.scope !1312
-  %63 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1312
+  store i64 %61, ptr %62, align 8, !tbaa !310, !alias.scope !1261
+  %63 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1261
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %61
   store i8 0, ptr %64, align 1, !tbaa !311
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1312
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1261
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %68 = ptrtoint ptr %24 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, i8 0, i64 256, i1 false), !alias.scope !1312
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, i8 0, i64 256, i1 false), !alias.scope !1261
   store i64 %68, ptr %65, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1261
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_, ptr %71, align 8, !tbaa !101, !alias.scope !1261
   store i64 %68, ptr %67, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 208
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1261
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1261
   store i64 %68, ptr %66, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1261
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1312
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1261
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper18registerPropagatorENS_20PropagatorConnectionE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
           to label %76 unwind label %79
 
@@ -33036,11 +33036,11 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %.noexc5 ]
   %.0911.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %15, %.noexc5 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1315)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1318)
-  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1318, !noalias !1315
-  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1315, !noalias !1318
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1318, !noalias !1315
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1264)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
+  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1267, !noalias !1264
+  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1264, !noalias !1267
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1267, !noalias !1264
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %30, %7
@@ -33290,9 +33290,9 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFviN3gmx15ScaleVelocitiesEEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUliS1_E_E9_M_invokeERKSt9_Any_dataOiOS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1320
+  %.val = load ptr, ptr %0, align 8, !tbaa !1269
   %.val3 = load i32, ptr %1, align 4, !tbaa !136
-  %.val4 = load i32, ptr %2, align 4, !tbaa !581
+  %.val4 = load i32, ptr %2, align 4, !tbaa !570
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE30setNumVelocityScalingVariablesEiNS_15ScaleVelocitiesE(ptr noundef nonnull align 8 dereferenceable(200) %.val, i32 noundef %.val3, i32 noundef %.val4)
   ret void
 }
@@ -33324,15 +33324,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !1322
+  %.val = load ptr, ptr %1, align 8, !tbaa !1271
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !1324
+  store i64 0, ptr %5, align 8, !alias.scope !1273
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !75, !alias.scope !1324
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !1324
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1324
+  store i64 %6, ptr %0, align 8, !tbaa !75, !alias.scope !1273
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !1273
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1273
   ret void
 }
 
@@ -33363,7 +33363,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE4EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1333
+  %.val = load ptr, ptr %0, align 8, !tbaa !1282
   %2 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 40
@@ -33421,15 +33421,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EEC2EdPNS_19St
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx10PropagatorILNS_16IntegrationStageE5EEE, i64 16), ptr %0, align 8, !tbaa !89
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = fptrunc double %1 to float
-  store float %7, ptr %6, align 8, !tbaa !1335
+  store float %7, ptr %6, align 8, !tbaa !1284
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %8, align 8, !tbaa !1336
+  store ptr %2, ptr %8, align 8, !tbaa !1285
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  store i64 -1, ptr %11, align 8, !tbaa !1337
+  store i64 -1, ptr %11, align 8, !tbaa !1286
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -33437,15 +33437,15 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EEC2EdPNS_19St
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 -1, ptr %14, align 8, !tbaa !86
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %3, ptr %15, align 8, !tbaa !1338
+  store ptr %3, ptr %15, align 8, !tbaa !1287
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %16, align 8, !tbaa !1339
+  store ptr %4, ptr %16, align 8, !tbaa !1288
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1340
+  %2 = load ptr, ptr %0, align 8, !tbaa !1289
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE1EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -33483,7 +33483,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -33536,7 +33536,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -33549,7 +33549,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %50, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %52 = load ptr, ptr %51, align 8, !tbaa !1338
+  %52 = load ptr, ptr %51, align 8, !tbaa !1287
   %53 = load ptr, ptr %52, align 8, !tbaa !137
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 640
   %55 = load i32, ptr %54, align 8, !tbaa !139
@@ -33557,7 +33557,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %50)
   %.sroa.0.0.insert.ext = zext i32 %49 to i64
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE1EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 %.sroa.0.0.insert.ext, ptr nonnull %2)
-  %56 = load ptr, ptr %7, align 8, !tbaa !1339
+  %56 = load ptr, ptr %7, align 8, !tbaa !1288
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %58
 
@@ -33705,17 +33705,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 41:                                               ; preds = %41, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %41 ]
   %42 = getelementptr inbounds nuw [3 x float], ptr %40, i64 0, i64 %indvars.iv.i
-  %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1342
+  %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1291
   %44 = fmul float %43, %14
-  store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1342
+  store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1291
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit, label %41, !llvm.loop !1345
+  br i1 %exitcond.not.i, label %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit, label %41, !llvm.loop !1294
 
 _ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit: ; preds = %41
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !1346
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !1295
 
 45:                                               ; preds = %33
   %46 = call ptr @__cxa_begin_catch(ptr %35) #10
@@ -33750,7 +33750,7 @@ _ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1347
+  %2 = load ptr, ptr %0, align 8, !tbaa !1296
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE2EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -33788,7 +33788,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -33841,7 +33841,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -33851,14 +33851,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE2EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -33976,10 +33976,10 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %31 = load ptr, ptr %23, align 8, !tbaa !1338
+  %31 = load ptr, ptr %23, align 8, !tbaa !1287
   %32 = load ptr, ptr %31, align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %34 = load ptr, ptr %33, align 8, !tbaa !456
+  %34 = load ptr, ptr %33, align 8, !tbaa !451
   %35 = load ptr, ptr %22, align 8, !tbaa !44
   %36 = load ptr, ptr %6, align 8, !tbaa !133
   %37 = sext i32 %28 to i64
@@ -34009,7 +34009,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 46:                                               ; preds = %.lr.ph, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit ]
   %47 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
-  %48 = load i16, ptr %47, align 2, !tbaa !457
+  %48 = load i16, ptr %47, align 2, !tbaa !452
   %49 = zext i16 %48 to i64
   %50 = getelementptr inbounds nuw float, ptr %35, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !180
@@ -34019,17 +34019,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 53:                                               ; preds = %53, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %53 ]
   %54 = getelementptr inbounds nuw [3 x float], ptr %52, i64 0, i64 %indvars.iv.i
-  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1349
+  %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1298
   %56 = fmul float %51, %55
-  store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1349
+  store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1298
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit, label %53, !llvm.loop !1352
+  br i1 %exitcond.not.i, label %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit, label %53, !llvm.loop !1301
 
 _ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit: ; preds = %53
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1353
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !1302
 
 57:                                               ; preds = %40
   %58 = call ptr @__cxa_begin_catch(ptr %42) #10
@@ -34064,7 +34064,7 @@ _ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE1_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1354
+  %2 = load ptr, ptr %0, align 8, !tbaa !1303
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -34102,7 +34102,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -34155,7 +34155,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -34165,14 +34165,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -34331,7 +34331,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1356
+  %2 = load ptr, ptr %0, align 8, !tbaa !1305
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -34369,7 +34369,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -34422,7 +34422,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -34432,14 +34432,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -34598,7 +34598,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1358
+  %2 = load ptr, ptr %0, align 8, !tbaa !1307
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -34636,7 +34636,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -34689,7 +34689,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -34699,14 +34699,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_1ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -34865,7 +34865,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1360
+  %2 = load ptr, ptr %0, align 8, !tbaa !1309
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -34903,7 +34903,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -34956,7 +34956,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -34966,14 +34966,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -35132,7 +35132,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1362
+  %2 = load ptr, ptr %0, align 8, !tbaa !1311
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -35170,7 +35170,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -35223,7 +35223,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -35233,14 +35233,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -35399,7 +35399,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1364
+  %2 = load ptr, ptr %0, align 8, !tbaa !1313
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -35437,7 +35437,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -35490,7 +35490,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -35500,14 +35500,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -35666,7 +35666,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1366
+  %2 = load ptr, ptr %0, align 8, !tbaa !1315
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -35704,7 +35704,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -35757,7 +35757,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -35767,14 +35767,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_2ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -35933,7 +35933,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1368
+  %2 = load ptr, ptr %0, align 8, !tbaa !1317
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -35971,7 +35971,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -36024,7 +36024,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -36034,14 +36034,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -36200,7 +36200,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1370
+  %2 = load ptr, ptr %0, align 8, !tbaa !1319
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -36238,7 +36238,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -36291,7 +36291,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -36301,14 +36301,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -36467,7 +36467,7 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !1372
+  %2 = load ptr, ptr %0, align 8, !tbaa !1321
   tail call void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv(ptr noundef nonnull align 8 dereferenceable(200) %2)
   ret void
 }
@@ -36505,7 +36505,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8, !tbaa !1339
+  %8 = load ptr, ptr %7, align 8, !tbaa !1288
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %10
 
@@ -36558,7 +36558,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1336
+  %45 = load ptr, ptr %44, align 8, !tbaa !1285
   call void @_ZN3gmx19StatePropagatorData13positionsViewEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::ArrayRefWithPadding") align 8 %3, ptr noundef nonnull align 8 dereferenceable(632) %45)
   %46 = load ptr, ptr %3, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -36568,14 +36568,14 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1, %10, %
   store i32 %47, ptr %4, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !1338
+  %49 = load ptr, ptr %48, align 8, !tbaa !1287
   %50 = load ptr, ptr %49, align 8, !tbaa !137
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 640
   %52 = load i32, ptr %51, align 8, !tbaa !139
   store i32 %52, ptr %5, align 4, !tbaa !136
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %6, i32 %47)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS4_0ELNS_24NumPositionScalingValuesE0EEEvv.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0, i64 1065353216, ptr nonnull %2)
-  %53 = load ptr, ptr %7, align 8, !tbaa !1339
+  %53 = load ptr, ptr %7, align 8, !tbaa !1288
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %55
 
@@ -36953,7 +36953,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionSc
   store i64 0, ptr %5, align 8
   %6 = ptrtoint ptr %1 to i64
   store i64 %6, ptr %0, align 8, !tbaa !83
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551
   store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39
   ret void
 }
@@ -36961,7 +36961,7 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionSc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !323
-  %4 = load ptr, ptr %0, align 8, !tbaa !1374
+  %4 = load ptr, ptr %0, align 8, !tbaa !1323
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %3, ptr %5, align 8, !tbaa !81
   ret void
@@ -37083,13 +37083,13 @@ define weak_odr noundef ptr @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE21get
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1376)
-  %18 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1376
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1325)
+  %18 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31, !noalias !1325
   %19 = fpext float %8 to double
-  %20 = load ptr, ptr %16, align 8, !tbaa !317, !noalias !1376
-  %21 = load ptr, ptr %17, align 8, !tbaa !318, !noalias !1376
+  %20 = load ptr, ptr %16, align 8, !tbaa !317, !noalias !1325
+  %21 = load ptr, ptr %17, align 8, !tbaa !318, !noalias !1325
   invoke void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EEC1EdPNS_19StatePropagatorDataEPKNS_7MDAtomsEP13gmx_wallcycle(ptr noundef nonnull align 8 dereferenceable(200) %18, double noundef %19, ptr noundef %2, ptr noundef %20, ptr noundef %21)
-          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %22, !noalias !1376
+          to label %_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %22, !noalias !1325
 
 common.resume:                                    ; preds = %77, %79, %22
   %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %80, %79 ], [ %78, %77 ]
@@ -37098,11 +37098,11 @@ common.resume:                                    ; preds = %77, %79, %22
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 200) #30, !noalias !1376
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 200) #30, !noalias !1325
   br label %common.resume
 
 _ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %15
-  store ptr %18, ptr %11, align 8, !tbaa !83, !alias.scope !1376
+  store ptr %18, ptr %11, align 8, !tbaa !83, !alias.scope !1325
   %24 = invoke noundef ptr @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper12storeElementINS_10PropagatorILNS_16IntegrationStageE5EEEEEPT_St10unique_ptrIS5_St14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11)
           to label %25 unwind label %77
 
@@ -37165,19 +37165,19 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE5EEESt14default_dele
   %.val = load ptr, ptr %7, align 8, !tbaa !306
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val11 = load i64, ptr %52, align 8, !tbaa !310
-  call void @llvm.experimental.noalias.scope.decl(metadata !1379)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1328)
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %53, ptr %12, align 8, !tbaa !322, !alias.scope !1379
-  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1379
-  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1379
+  store ptr %53, ptr %12, align 8, !tbaa !322, !alias.scope !1328
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1328
+  store i64 %.val11, ptr %10, align 8, !tbaa !323, !noalias !1328
   %54 = icmp ugt i64 %.val11, 15
   br i1 %54, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE5EEESt14default_deleteIS3_EED2Ev.exit
   %55 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-  store ptr %55, ptr %12, align 8, !tbaa !306, !alias.scope !1379
-  %56 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1379
-  store i64 %56, ptr %53, align 8, !tbaa !311, !alias.scope !1379
+  store ptr %55, ptr %12, align 8, !tbaa !306, !alias.scope !1328
+  %56 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1328
+  store i64 %56, ptr %53, align 8, !tbaa !311, !alias.scope !1328
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE5EEESt14default_deleteIS3_EED2Ev.exit
@@ -37188,7 +37188,7 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE5EEESt14default_dele
   ]
 
 58:                                               ; preds = %._crit_edge.i.i.i.i
-  %59 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1379
+  %59 = load i8, ptr %.val, align 1, !tbaa !311, !noalias !1328
   store i8 %59, ptr %57, align 1, !tbaa !311
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
@@ -37197,34 +37197,34 @@ _ZNSt10unique_ptrIN3gmx10PropagatorILNS0_16IntegrationStageE5EEESt14default_dele
   br label %_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit
 
 _ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE.exit: ; preds = %._crit_edge.i.i.i.i, %58, %60
-  %61 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1379
+  %61 = load i64, ptr %10, align 8, !tbaa !323, !noalias !1328
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %61, ptr %62, align 8, !tbaa !310, !alias.scope !1379
-  %63 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1379
+  store i64 %61, ptr %62, align 8, !tbaa !310, !alias.scope !1328
+  %63 = load ptr, ptr %12, align 8, !tbaa !306, !alias.scope !1328
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %61
   store i8 0, ptr %64, align 1, !tbaa !311
-  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1379
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1328
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %69 = ptrtoint ptr %24 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %65, i8 0, i64 288, i1 false), !alias.scope !1379
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %65, i8 0, i64 288, i1 false), !alias.scope !1328
   store i64 %69, ptr %66, align 8
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_16IntegrationStageE5EEENS1_20PropagatorConnectionEPNS1_10PropagatorIXT_EEERKNS1_13PropagatorTagEEUliE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_16IntegrationStageE5EEENS1_20PropagatorConnectionEPNS1_10PropagatorIXT_EEERKNS1_13PropagatorTagEEUliE_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %70, align 8, !tbaa !101, !alias.scope !1328
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  store ptr @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_16IntegrationStageE5EEENS1_20PropagatorConnectionEPNS1_10PropagatorIXT_EEERKNS1_13PropagatorTagEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %71, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_16IntegrationStageE5EEENS1_20PropagatorConnectionEPNS1_10PropagatorIXT_EEERKNS1_13PropagatorTagEEUliE_E9_M_invokeERKSt9_Any_dataOi, ptr %71, align 8, !tbaa !101, !alias.scope !1328
   store i64 %69, ptr %67, align 8
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 176
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %72, align 8, !tbaa !101, !alias.scope !1328
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %73, align 8, !tbaa !101, !alias.scope !1328
   store i64 %69, ptr %68, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 240
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation, ptr %74, align 8, !tbaa !101, !alias.scope !1328
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 248
-  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1379
+  store ptr @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %75, align 8, !tbaa !101, !alias.scope !1328
   invoke void @_ZN3gmx38ModularSimulatorAlgorithmBuilderHelper18registerPropagatorENS_20PropagatorConnectionE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12)
           to label %76 unwind label %79
 
@@ -37306,11 +37306,11 @@ _ZNKSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESa
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc5, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %27, %.noexc5 ]
   %.0911.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %15, %.noexc5 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1382)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1385)
-  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1385, !noalias !1382
-  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1382, !noalias !1385
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1385, !noalias !1382
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1331)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1334)
+  %29 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1334, !noalias !1331
+  store i64 %29, ptr %.012.i.i.i.i, align 8, !tbaa !340, !alias.scope !1331, !noalias !1334
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !340, !alias.scope !1334, !noalias !1331
   %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %30, %7
@@ -37561,7 +37561,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10Propagato
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFviEZN3gmxL13getConnectionILNS1_16IntegrationStageE5EEENS1_20PropagatorConnectionEPNS1_10PropagatorIXT_EEERKNS1_13PropagatorTagEEUliE_E9_M_invokeERKSt9_Any_dataOi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
-  %.val = load ptr, ptr %0, align 8, !tbaa !1387
+  %.val = load ptr, ptr %0, align 8, !tbaa !1336
   %.val2 = load i32, ptr %1, align 4, !tbaa !136
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !133
@@ -37625,7 +37625,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress uwtable
 define internal { ptr, ptr } @_ZNSt17_Function_handlerIFN3gmx8ArrayRefIfEEvEZNS0_L13getConnectionILNS0_16IntegrationStageE5EEENS0_20PropagatorConnectionEPNS0_10PropagatorIXT_EEERKNS0_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !1389
+  %.val = load ptr, ptr %0, align 8, !tbaa !1338
   %2 = getelementptr i8, ptr %.val, i64 80
   %.val.val = load ptr, ptr %2, align 8, !tbaa !133
   %3 = getelementptr i8, ptr %.val, i64 88
@@ -37674,15 +37674,15 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.114") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #22 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !1391
+  %.val = load ptr, ptr %1, align 8, !tbaa !1340
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !alias.scope !1393
+  store i64 0, ptr %5, align 8, !alias.scope !1342
   %6 = ptrtoint ptr %.val to i64
-  store i64 %6, ptr %0, align 8, !tbaa !83, !alias.scope !1393
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !562, !alias.scope !1393
-  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1393
+  store i64 %6, ptr %0, align 8, !tbaa !83, !alias.scope !1342
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E9_M_invokeERKSt9_Any_dataOl, ptr %4, align 8, !tbaa !551, !alias.scope !1342
+  store ptr @_ZNSt17_Function_handlerIFvlEZN3gmx10PropagatorILNS1_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %3, align 8, !tbaa !39, !alias.scope !1342
   ret void
 }
 
@@ -38164,1014 +38164,963 @@ attributes #31 = { builtin allocsize(0) }
 !388 = distinct !{!388, !386, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !389 = !{!385, !388}
 !390 = distinct !{!390, !185}
-!391 = distinct !{!391, !185, !392}
-!392 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!393 = !{!394}
-!394 = distinct !{!394, !395, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!395 = distinct !{!395, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!396 = !{!397}
-!397 = distinct !{!397, !395, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!398 = !{!394, !397}
+!391 = distinct !{!391, !185}
+!392 = !{!393}
+!393 = distinct !{!393, !394, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!394 = distinct !{!394, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!395 = !{!396}
+!396 = distinct !{!396, !394, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!397 = !{!393, !396}
+!398 = distinct !{!398, !185}
 !399 = distinct !{!399, !185}
-!400 = distinct !{!400, !185}
-!401 = distinct !{!401, !185}
-!402 = !{!403, !51, i64 0}
-!403 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !51, i64 0}
-!404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!406 = distinct !{!406, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!407 = !{!408}
-!408 = distinct !{!408, !406, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!409 = !{!405, !408}
-!410 = distinct !{!410, !185}
-!411 = distinct !{!411, !185, !392}
-!412 = !{!413}
-!413 = distinct !{!413, !414, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!414 = distinct !{!414, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!415 = !{!416}
-!416 = distinct !{!416, !414, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!417 = !{!413, !416}
-!418 = distinct !{!418, !185}
-!419 = distinct !{!419, !185}
-!420 = !{!421, !51, i64 0}
-!421 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !51, i64 0}
+!400 = !{!401, !51, i64 0}
+!401 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !51, i64 0}
+!402 = !{!403}
+!403 = distinct !{!403, !404, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!404 = distinct !{!404, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!405 = !{!406}
+!406 = distinct !{!406, !404, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!407 = !{!403, !406}
+!408 = distinct !{!408, !185}
+!409 = distinct !{!409, !185}
+!410 = !{!411}
+!411 = distinct !{!411, !412, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!412 = distinct !{!412, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!413 = !{!414}
+!414 = distinct !{!414, !412, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!415 = !{!411, !414}
+!416 = distinct !{!416, !185}
+!417 = !{!418, !51, i64 0}
+!418 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !51, i64 0}
+!419 = !{!420}
+!420 = distinct !{!420, !421, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!421 = distinct !{!421, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !422 = !{!423}
-!423 = distinct !{!423, !424, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!424 = distinct !{!424, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!425 = !{!426}
-!426 = distinct !{!426, !424, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!427 = !{!423, !426}
-!428 = distinct !{!428, !185, !392}
+!423 = distinct !{!423, !421, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!424 = !{!420, !423}
+!425 = distinct !{!425, !185}
+!426 = !{!427}
+!427 = distinct !{!427, !428, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!428 = distinct !{!428, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !429 = !{!430}
-!430 = distinct !{!430, !431, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!431 = distinct !{!431, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!432 = !{!433}
-!433 = distinct !{!433, !431, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!434 = !{!430, !433}
-!435 = distinct !{!435, !185}
-!436 = distinct !{!436, !185}
-!437 = !{!438, !51, i64 0}
-!438 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !51, i64 0}
-!439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!441 = distinct !{!441, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!430 = distinct !{!430, !428, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!431 = !{!427, !430}
+!432 = distinct !{!432, !185}
+!433 = !{!434, !51, i64 0}
+!434 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !51, i64 0}
+!435 = !{!436}
+!436 = distinct !{!436, !437, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!437 = distinct !{!437, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!438 = !{!439}
+!439 = distinct !{!439, !437, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!440 = !{!436, !439}
+!441 = distinct !{!441, !185}
 !442 = !{!443}
-!443 = distinct !{!443, !441, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!444 = !{!440, !443}
-!445 = distinct !{!445, !185, !392}
-!446 = !{!447}
-!447 = distinct !{!447, !448, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!448 = distinct !{!448, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!449 = !{!450}
-!450 = distinct !{!450, !448, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!451 = !{!447, !450}
-!452 = distinct !{!452, !185}
-!453 = distinct !{!453, !185}
-!454 = !{!455, !51, i64 0}
-!455 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !51, i64 0}
-!456 = !{!170, !171, i64 0}
-!457 = !{!458, !458, i64 0}
-!458 = !{!"short", !8, i64 0}
-!459 = !{!460}
-!460 = distinct !{!460, !461, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!461 = distinct !{!461, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!443 = distinct !{!443, !444, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!444 = distinct !{!444, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!445 = !{!446}
+!446 = distinct !{!446, !444, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!447 = !{!443, !446}
+!448 = distinct !{!448, !185}
+!449 = !{!450, !51, i64 0}
+!450 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !51, i64 0}
+!451 = !{!170, !171, i64 0}
+!452 = !{!453, !453, i64 0}
+!453 = !{!"short", !8, i64 0}
+!454 = !{!455}
+!455 = distinct !{!455, !456, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!456 = distinct !{!456, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!457 = !{!458}
+!458 = distinct !{!458, !456, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!459 = !{!455, !458}
+!460 = distinct !{!460, !185}
+!461 = distinct !{!461, !185}
 !462 = !{!463}
-!463 = distinct !{!463, !461, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!464 = !{!460, !463}
-!465 = distinct !{!465, !185}
-!466 = distinct !{!466, !185, !392}
-!467 = !{!468}
-!468 = distinct !{!468, !469, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!469 = distinct !{!469, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!470 = !{!471}
-!471 = distinct !{!471, !469, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!472 = !{!468, !471}
-!473 = distinct !{!473, !185}
-!474 = distinct !{!474, !185}
-!475 = !{!476, !51, i64 0}
-!476 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !51, i64 0}
-!477 = !{!478}
-!478 = distinct !{!478, !479, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!479 = distinct !{!479, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!480 = !{!481}
-!481 = distinct !{!481, !479, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!482 = !{!478, !481}
-!483 = distinct !{!483, !185}
-!484 = distinct !{!484, !185, !392}
-!485 = !{!486}
-!486 = distinct !{!486, !487, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!487 = distinct !{!487, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!463 = distinct !{!463, !464, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!464 = distinct !{!464, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!465 = !{!466}
+!466 = distinct !{!466, !464, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!467 = !{!463, !466}
+!468 = distinct !{!468, !185}
+!469 = !{!470, !51, i64 0}
+!470 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !51, i64 0}
+!471 = !{!472}
+!472 = distinct !{!472, !473, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!473 = distinct !{!473, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!474 = !{!475}
+!475 = distinct !{!475, !473, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!476 = !{!472, !475}
+!477 = distinct !{!477, !185}
+!478 = distinct !{!478, !185}
+!479 = !{!480}
+!480 = distinct !{!480, !481, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!481 = distinct !{!481, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!482 = !{!483}
+!483 = distinct !{!483, !481, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!484 = !{!480, !483}
+!485 = distinct !{!485, !185}
+!486 = !{!487, !51, i64 0}
+!487 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !51, i64 0}
 !488 = !{!489}
-!489 = distinct !{!489, !487, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!490 = !{!486, !489}
-!491 = distinct !{!491, !185}
-!492 = distinct !{!492, !185}
-!493 = !{!494, !51, i64 0}
-!494 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !51, i64 0}
+!489 = distinct !{!489, !490, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!490 = distinct !{!490, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!491 = !{!492}
+!492 = distinct !{!492, !490, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!493 = !{!489, !492}
+!494 = distinct !{!494, !185}
 !495 = !{!496}
-!496 = distinct !{!496, !497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!497 = distinct !{!497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!496 = distinct !{!496, !497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!497 = distinct !{!497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !498 = !{!499}
-!499 = distinct !{!499, !497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!499 = distinct !{!499, !497, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !500 = !{!496, !499}
-!501 = distinct !{!501, !185, !392}
-!502 = !{!503}
-!503 = distinct !{!503, !504, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!504 = distinct !{!504, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!505 = !{!506}
-!506 = distinct !{!506, !504, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!507 = !{!503, !506}
-!508 = distinct !{!508, !185}
-!509 = distinct !{!509, !185}
-!510 = !{!511, !51, i64 0}
-!511 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !51, i64 0}
-!512 = !{!513}
-!513 = distinct !{!513, !514, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!514 = distinct !{!514, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!515 = !{!516}
-!516 = distinct !{!516, !514, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!517 = !{!513, !516}
-!518 = distinct !{!518, !185, !392}
-!519 = !{!520}
-!520 = distinct !{!520, !521, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!521 = distinct !{!521, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!522 = !{!523}
-!523 = distinct !{!523, !521, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!524 = !{!520, !523}
-!525 = distinct !{!525, !185}
+!501 = distinct !{!501, !185}
+!502 = !{!503, !51, i64 0}
+!503 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !51, i64 0}
+!504 = !{!505}
+!505 = distinct !{!505, !506, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!506 = distinct !{!506, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!507 = !{!508}
+!508 = distinct !{!508, !506, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!509 = !{!505, !508}
+!510 = distinct !{!510, !185}
+!511 = !{!512}
+!512 = distinct !{!512, !513, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!513 = distinct !{!513, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!514 = !{!515}
+!515 = distinct !{!515, !513, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!516 = !{!512, !515}
+!517 = distinct !{!517, !185}
+!518 = !{!519, !51, i64 0}
+!519 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !51, i64 0}
+!520 = !{!521}
+!521 = distinct !{!521, !522, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!522 = distinct !{!522, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!523 = !{!524}
+!524 = distinct !{!524, !522, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!525 = !{!521, !524}
 !526 = distinct !{!526, !185}
-!527 = !{!528, !51, i64 0}
-!528 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !51, i64 0}
-!529 = !{!530}
-!530 = distinct !{!530, !531, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!531 = distinct !{!531, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!532 = !{!533}
-!533 = distinct !{!533, !531, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!534 = !{!530, !533}
-!535 = distinct !{!535, !185}
-!536 = distinct !{!536, !185, !392}
+!527 = distinct !{!527, !185}
+!528 = !{!529}
+!529 = distinct !{!529, !530, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!530 = distinct !{!530, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!531 = !{!532}
+!532 = distinct !{!532, !530, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!533 = !{!529, !532}
+!534 = distinct !{!534, !185}
+!535 = !{!536, !51, i64 0}
+!536 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !51, i64 0}
 !537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!539 = distinct !{!539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!538 = distinct !{!538, !539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!539 = distinct !{!539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !540 = !{!541}
-!541 = distinct !{!541, !539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!541 = distinct !{!541, !539, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !542 = !{!538, !541}
 !543 = distinct !{!543, !185}
-!544 = distinct !{!544, !185}
-!545 = !{!546, !51, i64 0}
-!546 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !51, i64 0}
+!544 = !{!545}
+!545 = distinct !{!545, !546, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!546 = distinct !{!546, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !547 = !{!548}
-!548 = distinct !{!548, !549, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!549 = distinct !{!549, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!550 = !{!551}
-!551 = distinct !{!551, !549, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!552 = !{!548, !551}
-!553 = distinct !{!553, !185, !392}
-!554 = !{!555}
-!555 = distinct !{!555, !556, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!556 = distinct !{!556, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!548 = distinct !{!548, !546, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!549 = !{!545, !548}
+!550 = distinct !{!550, !185}
+!551 = !{!552, !11, i64 24}
+!552 = !{!"_ZTSSt8functionIFvlEE", !38, i64 0, !11, i64 24}
+!553 = !{!554, !51, i64 0}
+!554 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_", !51, i64 0}
+!555 = !{!556, !51, i64 0}
+!556 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEvEUllE_", !51, i64 0}
 !557 = !{!558}
-!558 = distinct !{!558, !556, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!559 = !{!555, !558}
-!560 = distinct !{!560, !185}
-!561 = distinct !{!561, !185}
-!562 = !{!563, !11, i64 24}
-!563 = !{!"_ZTSSt8functionIFvlEE", !38, i64 0, !11, i64 24}
-!564 = !{!565, !51, i64 0}
-!565 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEvEUllE_", !51, i64 0}
-!566 = !{!567, !51, i64 0}
-!567 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEvEUllE_", !51, i64 0}
-!568 = !{!569}
-!569 = distinct !{!569, !570, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!570 = distinct !{!570, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!571 = !{!572}
-!572 = distinct !{!572, !573, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
-!573 = distinct !{!573, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
-!574 = !{!575}
-!575 = distinct !{!575, !576, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!576 = distinct !{!576, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!577 = !{!578}
-!578 = distinct !{!578, !576, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!579 = !{!580, !51, i64 0}
-!580 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !51, i64 0}
-!581 = !{!582, !582, i64 0}
-!582 = !{!"_ZTSN3gmx15ScaleVelocitiesE", !8, i64 0}
+!558 = distinct !{!558, !559, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!559 = distinct !{!559, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE1EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!560 = !{!561}
+!561 = distinct !{!561, !562, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!562 = distinct !{!562, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
+!563 = !{!564}
+!564 = distinct !{!564, !565, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!565 = distinct !{!565, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!566 = !{!567}
+!567 = distinct !{!567, !565, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!568 = !{!569, !51, i64 0}
+!569 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !51, i64 0}
+!570 = !{!571, !571, i64 0}
+!571 = !{!"_ZTSN3gmx15ScaleVelocitiesE", !8, i64 0}
+!572 = !{!573, !51, i64 0}
+!573 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !51, i64 0}
+!574 = !{!575, !577, !579, !581}
+!575 = distinct !{!575, !576, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv: argument 0"}
+!576 = distinct !{!576, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv"}
+!577 = distinct !{!577, !578, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!578 = distinct !{!578, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!579 = distinct !{!579, !580, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!580 = distinct !{!580, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!581 = distinct !{!581, !582, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!582 = distinct !{!582, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !583 = !{!584, !51, i64 0}
-!584 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !51, i64 0}
-!585 = !{!586, !588, !590, !592}
-!586 = distinct !{!586, !587, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv: argument 0"}
-!587 = distinct !{!587, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE23velocityScalingCallbackEv"}
-!588 = distinct !{!588, !589, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
-!589 = distinct !{!589, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
-!590 = distinct !{!590, !591, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!591 = distinct !{!591, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
-!592 = distinct !{!592, !593, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!593 = distinct !{!593, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!594 = !{!595, !51, i64 0}
-!595 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !51, i64 0}
-!596 = !{!597, !51, i64 0}
-!597 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !51, i64 0}
-!598 = !{!599, !51, i64 0}
-!599 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !51, i64 0}
-!600 = !{!601, !51, i64 0}
-!601 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !51, i64 0}
-!602 = !{!603, !605, !607, !609}
-!603 = distinct !{!603, !604, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv: argument 0"}
-!604 = distinct !{!604, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv"}
-!605 = distinct !{!605, !606, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
-!606 = distinct !{!606, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
-!607 = distinct !{!607, !608, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!608 = distinct !{!608, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
-!609 = distinct !{!609, !610, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!610 = distinct !{!610, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!611 = !{!55, !7, i64 8}
-!612 = !{!55, !10, i64 16}
-!613 = !{!55, !18, i64 104}
-!614 = !{!55, !28, i64 184}
-!615 = !{!55, !29, i64 192}
-!616 = !{!617, !59, i64 0}
-!617 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !59, i64 0}
-!618 = !{i64 0, i64 12, !311}
-!619 = distinct !{!619, !392}
-!620 = !{!621}
-!621 = distinct !{!621, !622, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!622 = distinct !{!622, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!623 = !{!624}
-!624 = distinct !{!624, !622, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!625 = !{!621, !624}
-!626 = !{!627}
-!627 = distinct !{!627, !628, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!628 = distinct !{!628, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!629 = !{!630, !631}
-!630 = distinct !{!630, !628, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!631 = distinct !{!631, !628, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!632 = !{!631}
-!633 = !{!627, !630}
-!634 = !{!630}
-!635 = !{!627, !631}
-!636 = distinct !{!636, !185, !392}
-!637 = !{!638}
-!638 = distinct !{!638, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!639 = distinct !{!639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!640 = !{!641}
-!641 = distinct !{!641, !639, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!642 = !{!638, !641}
-!643 = distinct !{!643, !185}
-!644 = !{!645, !59, i64 0}
-!645 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !59, i64 0}
-!646 = distinct !{!646, !392}
-!647 = !{!648}
-!648 = distinct !{!648, !649, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!649 = distinct !{!649, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!584 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !51, i64 0}
+!585 = !{!586, !51, i64 0}
+!586 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !51, i64 0}
+!587 = !{!588, !51, i64 0}
+!588 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !51, i64 0}
+!589 = !{!590, !51, i64 0}
+!590 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !51, i64 0}
+!591 = !{!592, !594, !596, !598}
+!592 = distinct !{!592, !593, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv: argument 0"}
+!593 = distinct !{!593, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE17prScalingCallbackEv"}
+!594 = distinct !{!594, !595, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!595 = distinct !{!595, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!596 = distinct !{!596, !597, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!597 = distinct !{!597, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!598 = distinct !{!598, !599, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!599 = distinct !{!599, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE1EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!600 = !{!55, !7, i64 8}
+!601 = !{!55, !10, i64 16}
+!602 = !{!55, !18, i64 104}
+!603 = !{!55, !28, i64 184}
+!604 = !{!55, !29, i64 192}
+!605 = !{!606, !59, i64 0}
+!606 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !59, i64 0}
+!607 = !{i64 0, i64 12, !311}
+!608 = !{!609}
+!609 = distinct !{!609, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!610 = distinct !{!610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!611 = !{!612}
+!612 = distinct !{!612, !610, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!613 = !{!609, !612}
+!614 = !{!615}
+!615 = distinct !{!615, !616, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!616 = distinct !{!616, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!617 = !{!618, !619}
+!618 = distinct !{!618, !616, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!619 = distinct !{!619, !616, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!620 = !{!619}
+!621 = !{!615, !618}
+!622 = !{!618}
+!623 = !{!615, !619}
+!624 = distinct !{!624, !185}
+!625 = !{!626}
+!626 = distinct !{!626, !627, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!627 = distinct !{!627, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!628 = !{!629}
+!629 = distinct !{!629, !627, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!630 = !{!626, !629}
+!631 = !{!632, !59, i64 0}
+!632 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !59, i64 0}
+!633 = !{!634}
+!634 = distinct !{!634, !635, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!635 = distinct !{!635, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!636 = !{!637}
+!637 = distinct !{!637, !635, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!638 = !{!634, !637}
+!639 = !{!640}
+!640 = distinct !{!640, !641, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!641 = distinct !{!641, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!642 = !{!643, !644}
+!643 = distinct !{!643, !641, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!644 = distinct !{!644, !641, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!645 = !{!644}
+!646 = !{!640, !643}
+!647 = !{!643}
+!648 = !{!640, !644}
+!649 = distinct !{!649, !185}
 !650 = !{!651}
-!651 = distinct !{!651, !649, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!652 = !{!648, !651}
+!651 = distinct !{!651, !652, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!652 = distinct !{!652, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !653 = !{!654}
-!654 = distinct !{!654, !655, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!655 = distinct !{!655, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!656 = !{!657, !658}
-!657 = distinct !{!657, !655, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!658 = distinct !{!658, !655, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!659 = !{!658}
-!660 = !{!654, !657}
-!661 = !{!657}
-!662 = !{!654, !658}
-!663 = distinct !{!663, !185, !392}
+!654 = distinct !{!654, !652, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!655 = !{!651, !654}
+!656 = !{!657, !59, i64 0}
+!657 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !59, i64 0}
+!658 = !{!659}
+!659 = distinct !{!659, !660, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!660 = distinct !{!660, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!661 = !{!662}
+!662 = distinct !{!662, !660, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!663 = !{!659, !662}
 !664 = !{!665}
-!665 = distinct !{!665, !666, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!666 = distinct !{!666, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!667 = !{!668}
-!668 = distinct !{!668, !666, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!669 = !{!665, !668}
-!670 = distinct !{!670, !185}
-!671 = !{!672, !59, i64 0}
-!672 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !59, i64 0}
-!673 = distinct !{!673, !392}
-!674 = !{!675}
-!675 = distinct !{!675, !676, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!676 = distinct !{!676, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!677 = !{!678}
-!678 = distinct !{!678, !676, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!679 = !{!675, !678}
-!680 = !{!681}
-!681 = distinct !{!681, !682, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!682 = distinct !{!682, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!683 = !{!684, !685}
-!684 = distinct !{!684, !682, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!685 = distinct !{!685, !682, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!686 = !{!685}
-!687 = !{!681, !684}
-!688 = !{!684}
-!689 = !{!681, !685}
-!690 = distinct !{!690, !185, !392}
-!691 = !{!692}
-!692 = distinct !{!692, !693, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!693 = distinct !{!693, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!694 = !{!695}
-!695 = distinct !{!695, !693, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!696 = !{!692, !695}
-!697 = distinct !{!697, !185}
-!698 = !{!699, !59, i64 0}
-!699 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !59, i64 0}
-!700 = distinct !{!700, !392}
-!701 = !{!702}
-!702 = distinct !{!702, !703, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!703 = distinct !{!703, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!704 = !{!705}
-!705 = distinct !{!705, !703, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!706 = !{!702, !705}
-!707 = !{!708}
-!708 = distinct !{!708, !709, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!709 = distinct !{!709, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!710 = !{!711, !712}
-!711 = distinct !{!711, !709, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!712 = distinct !{!712, !709, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!713 = !{!712}
-!714 = !{!708, !711}
-!715 = !{!711}
-!716 = !{!708, !712}
-!717 = distinct !{!717, !185, !392}
-!718 = !{!719}
-!719 = distinct !{!719, !720, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!720 = distinct !{!720, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!721 = !{!722}
-!722 = distinct !{!722, !720, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!723 = !{!719, !722}
+!665 = distinct !{!665, !666, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!666 = distinct !{!666, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!667 = !{!668, !669}
+!668 = distinct !{!668, !666, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!669 = distinct !{!669, !666, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!670 = !{!669}
+!671 = !{!665, !668}
+!672 = !{!668}
+!673 = !{!665, !669}
+!674 = distinct !{!674, !185}
+!675 = !{!676}
+!676 = distinct !{!676, !677, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!677 = distinct !{!677, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!678 = !{!679}
+!679 = distinct !{!679, !677, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!680 = !{!676, !679}
+!681 = !{!682, !59, i64 0}
+!682 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !59, i64 0}
+!683 = !{!684}
+!684 = distinct !{!684, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!685 = distinct !{!685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!686 = !{!687}
+!687 = distinct !{!687, !685, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!688 = !{!684, !687}
+!689 = !{!690}
+!690 = distinct !{!690, !691, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!691 = distinct !{!691, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!692 = !{!693, !694}
+!693 = distinct !{!693, !691, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!694 = distinct !{!694, !691, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!695 = !{!694}
+!696 = !{!690, !693}
+!697 = !{!693}
+!698 = !{!690, !694}
+!699 = distinct !{!699, !185}
+!700 = !{!701}
+!701 = distinct !{!701, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!702 = distinct !{!702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!703 = !{!704}
+!704 = distinct !{!704, !702, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!705 = !{!701, !704}
+!706 = !{!707, !59, i64 0}
+!707 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !59, i64 0}
+!708 = !{!709}
+!709 = distinct !{!709, !710, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!710 = distinct !{!710, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!711 = !{!712}
+!712 = distinct !{!712, !710, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!713 = !{!709, !712}
+!714 = !{!715}
+!715 = distinct !{!715, !716, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!716 = distinct !{!716, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!717 = !{!718, !719}
+!718 = distinct !{!718, !716, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!719 = distinct !{!719, !716, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!720 = !{!719}
+!721 = !{!715, !718}
+!722 = !{!718}
+!723 = !{!715, !719}
 !724 = distinct !{!724, !185}
-!725 = !{!726, !59, i64 0}
-!726 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !59, i64 0}
-!727 = distinct !{!727, !392}
+!725 = !{!726}
+!726 = distinct !{!726, !727, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!727 = distinct !{!727, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !728 = !{!729}
-!729 = distinct !{!729, !730, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!730 = distinct !{!730, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!731 = !{!732}
-!732 = distinct !{!732, !730, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!733 = !{!729, !732}
-!734 = !{!735}
-!735 = distinct !{!735, !736, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!736 = distinct !{!736, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!737 = !{!738, !739}
-!738 = distinct !{!738, !736, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!739 = distinct !{!739, !736, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!740 = !{!739}
-!741 = !{!735, !738}
-!742 = !{!738}
-!743 = !{!735, !739}
-!744 = distinct !{!744, !185, !392}
-!745 = !{!746}
-!746 = distinct !{!746, !747, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!747 = distinct !{!747, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!748 = !{!749}
-!749 = distinct !{!749, !747, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!750 = !{!746, !749}
-!751 = distinct !{!751, !185}
-!752 = !{!753, !59, i64 0}
-!753 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !59, i64 0}
-!754 = distinct !{!754, !392}
-!755 = !{!756}
-!756 = distinct !{!756, !757, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!757 = distinct !{!757, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!729 = distinct !{!729, !727, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!730 = !{!726, !729}
+!731 = !{!732, !59, i64 0}
+!732 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !59, i64 0}
+!733 = !{!734}
+!734 = distinct !{!734, !735, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!735 = distinct !{!735, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!736 = !{!737}
+!737 = distinct !{!737, !735, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!738 = !{!734, !737}
+!739 = !{!740}
+!740 = distinct !{!740, !741, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!741 = distinct !{!741, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!742 = !{!743, !744}
+!743 = distinct !{!743, !741, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!744 = distinct !{!744, !741, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!745 = !{!744}
+!746 = !{!740, !743}
+!747 = !{!743}
+!748 = !{!740, !744}
+!749 = distinct !{!749, !185}
+!750 = !{!751}
+!751 = distinct !{!751, !752, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!752 = distinct !{!752, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!753 = !{!754}
+!754 = distinct !{!754, !752, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!755 = !{!751, !754}
+!756 = !{!757, !59, i64 0}
+!757 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !59, i64 0}
 !758 = !{!759}
-!759 = distinct !{!759, !757, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!760 = !{!756, !759}
+!759 = distinct !{!759, !760, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!760 = distinct !{!760, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !761 = !{!762}
-!762 = distinct !{!762, !763, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!763 = distinct !{!763, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!764 = !{!765, !766}
-!765 = distinct !{!765, !763, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!766 = distinct !{!766, !763, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!767 = !{!766}
-!768 = !{!762, !765}
-!769 = !{!765}
-!770 = !{!762, !766}
-!771 = distinct !{!771, !185, !392}
-!772 = !{!773}
-!773 = distinct !{!773, !774, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!774 = distinct !{!774, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!762 = distinct !{!762, !760, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!763 = !{!759, !762}
+!764 = !{!765}
+!765 = distinct !{!765, !766, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!766 = distinct !{!766, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!767 = !{!768, !769}
+!768 = distinct !{!768, !766, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!769 = distinct !{!769, !766, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!770 = !{!769}
+!771 = !{!765, !768}
+!772 = !{!768}
+!773 = !{!765, !769}
+!774 = distinct !{!774, !185}
 !775 = !{!776}
-!776 = distinct !{!776, !774, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!777 = !{!773, !776}
-!778 = distinct !{!778, !185}
-!779 = !{!780, !59, i64 0}
-!780 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !59, i64 0}
-!781 = distinct !{!781, !392}
-!782 = !{!783}
-!783 = distinct !{!783, !784, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!784 = distinct !{!784, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!785 = !{!786}
-!786 = distinct !{!786, !784, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!787 = !{!783, !786}
-!788 = !{!789}
-!789 = distinct !{!789, !790, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!790 = distinct !{!790, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!791 = !{!792, !793}
-!792 = distinct !{!792, !790, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!793 = distinct !{!793, !790, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!794 = !{!793}
-!795 = !{!789, !792}
-!796 = !{!792}
-!797 = !{!789, !793}
-!798 = distinct !{!798, !185, !392}
-!799 = !{!800}
-!800 = distinct !{!800, !801, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!801 = distinct !{!801, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!802 = !{!803}
-!803 = distinct !{!803, !801, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!804 = !{!800, !803}
-!805 = distinct !{!805, !185}
+!776 = distinct !{!776, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!777 = distinct !{!777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!778 = !{!779}
+!779 = distinct !{!779, !777, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!780 = !{!776, !779}
+!781 = !{!782, !59, i64 0}
+!782 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !59, i64 0}
+!783 = !{!784}
+!784 = distinct !{!784, !785, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!785 = distinct !{!785, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!786 = !{!787}
+!787 = distinct !{!787, !785, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!788 = !{!784, !787}
+!789 = !{!790}
+!790 = distinct !{!790, !791, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!791 = distinct !{!791, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!792 = !{!793, !794}
+!793 = distinct !{!793, !791, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!794 = distinct !{!794, !791, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!795 = !{!794}
+!796 = !{!790, !793}
+!797 = !{!793}
+!798 = !{!790, !794}
+!799 = distinct !{!799, !185}
+!800 = !{!801}
+!801 = distinct !{!801, !802, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!802 = distinct !{!802, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!803 = !{!804}
+!804 = distinct !{!804, !802, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!805 = !{!801, !804}
 !806 = !{!807, !59, i64 0}
-!807 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !59, i64 0}
-!808 = distinct !{!808, !392}
-!809 = !{!810}
-!810 = distinct !{!810, !811, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!811 = distinct !{!811, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!812 = !{!813}
-!813 = distinct !{!813, !811, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!814 = !{!810, !813}
-!815 = !{!816}
-!816 = distinct !{!816, !817, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!817 = distinct !{!817, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!818 = !{!819, !820}
-!819 = distinct !{!819, !817, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!820 = distinct !{!820, !817, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!821 = !{!820}
-!822 = !{!816, !819}
-!823 = !{!819}
-!824 = !{!816, !820}
-!825 = distinct !{!825, !185, !392}
-!826 = !{!827}
-!827 = distinct !{!827, !828, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!828 = distinct !{!828, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!829 = !{!830}
-!830 = distinct !{!830, !828, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!831 = !{!827, !830}
-!832 = distinct !{!832, !185}
-!833 = !{!834, !59, i64 0}
-!834 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !59, i64 0}
-!835 = distinct !{!835, !392}
+!807 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !59, i64 0}
+!808 = !{!809}
+!809 = distinct !{!809, !810, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!810 = distinct !{!810, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!811 = !{!812}
+!812 = distinct !{!812, !810, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!813 = !{!809, !812}
+!814 = !{!815}
+!815 = distinct !{!815, !816, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!816 = distinct !{!816, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!817 = !{!818, !819}
+!818 = distinct !{!818, !816, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!819 = distinct !{!819, !816, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!820 = !{!819}
+!821 = !{!815, !818}
+!822 = !{!818}
+!823 = !{!815, !819}
+!824 = distinct !{!824, !185}
+!825 = !{!826}
+!826 = distinct !{!826, !827, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!827 = distinct !{!827, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!828 = !{!829}
+!829 = distinct !{!829, !827, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!830 = !{!826, !829}
+!831 = !{!832, !59, i64 0}
+!832 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !59, i64 0}
+!833 = !{!834}
+!834 = distinct !{!834, !835, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!835 = distinct !{!835, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !836 = !{!837}
-!837 = distinct !{!837, !838, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!838 = distinct !{!838, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!837 = distinct !{!837, !835, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!838 = !{!834, !837}
 !839 = !{!840}
-!840 = distinct !{!840, !838, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!841 = !{!837, !840}
-!842 = !{!843}
-!843 = distinct !{!843, !844, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!844 = distinct !{!844, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!845 = !{!846, !847}
-!846 = distinct !{!846, !844, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!847 = distinct !{!847, !844, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!848 = !{!847}
-!849 = !{!843, !846}
-!850 = !{!846}
-!851 = !{!843, !847}
-!852 = distinct !{!852, !185, !392}
+!840 = distinct !{!840, !841, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!841 = distinct !{!841, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!842 = !{!843, !844}
+!843 = distinct !{!843, !841, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!844 = distinct !{!844, !841, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!845 = !{!844}
+!846 = !{!840, !843}
+!847 = !{!843}
+!848 = !{!840, !844}
+!849 = distinct !{!849, !185}
+!850 = !{!851}
+!851 = distinct !{!851, !852, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!852 = distinct !{!852, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !853 = !{!854}
-!854 = distinct !{!854, !855, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!855 = distinct !{!855, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!856 = !{!857}
-!857 = distinct !{!857, !855, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!858 = !{!854, !857}
-!859 = distinct !{!859, !185}
-!860 = !{!861, !59, i64 0}
-!861 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !59, i64 0}
-!862 = distinct !{!862, !392}
+!854 = distinct !{!854, !852, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!855 = !{!851, !854}
+!856 = !{!857, !59, i64 0}
+!857 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_", !59, i64 0}
+!858 = !{!859, !59, i64 0}
+!859 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEvEUllE_", !59, i64 0}
+!860 = !{!861}
+!861 = distinct !{!861, !862, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!862 = distinct !{!862, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !863 = !{!864}
-!864 = distinct !{!864, !865, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!865 = distinct !{!865, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!864 = distinct !{!864, !865, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!865 = distinct !{!865, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
 !866 = !{!867}
-!867 = distinct !{!867, !865, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!868 = !{!864, !867}
+!867 = distinct !{!867, !868, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!868 = distinct !{!868, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !869 = !{!870}
-!870 = distinct !{!870, !871, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!871 = distinct !{!871, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!872 = !{!873, !874}
-!873 = distinct !{!873, !871, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!874 = distinct !{!874, !871, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!875 = !{!874}
-!876 = !{!870, !873}
-!877 = !{!873}
-!878 = !{!870, !874}
-!879 = distinct !{!879, !185, !392}
-!880 = !{!881}
-!881 = distinct !{!881, !882, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!882 = distinct !{!882, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!883 = !{!884}
-!884 = distinct !{!884, !882, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!885 = !{!881, !884}
-!886 = distinct !{!886, !185}
-!887 = !{!888, !59, i64 0}
-!888 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEvEUllE_", !59, i64 0}
-!889 = !{!890, !59, i64 0}
-!890 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEvEUllE_", !59, i64 0}
-!891 = !{!892}
-!892 = distinct !{!892, !893, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!893 = distinct !{!893, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE2EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!894 = !{!895}
-!895 = distinct !{!895, !896, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
-!896 = distinct !{!896, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
-!897 = !{!898}
-!898 = distinct !{!898, !899, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!899 = distinct !{!899, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!900 = !{!901}
-!901 = distinct !{!901, !899, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!902 = !{!903, !59, i64 0}
-!903 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !59, i64 0}
-!904 = !{!905, !59, i64 0}
-!905 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !59, i64 0}
-!906 = !{!907, !909, !911, !913}
-!907 = distinct !{!907, !908, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv: argument 0"}
-!908 = distinct !{!908, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv"}
-!909 = distinct !{!909, !910, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
-!910 = distinct !{!910, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
-!911 = distinct !{!911, !912, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!912 = distinct !{!912, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
-!913 = distinct !{!913, !914, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!914 = distinct !{!914, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!915 = !{!916, !59, i64 0}
-!916 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !59, i64 0}
-!917 = !{!918, !59, i64 0}
-!918 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !59, i64 0}
-!919 = !{!920, !59, i64 0}
-!920 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !59, i64 0}
-!921 = !{!922, !59, i64 0}
-!922 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !59, i64 0}
-!923 = !{!924, !926, !928, !930}
-!924 = distinct !{!924, !925, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv: argument 0"}
-!925 = distinct !{!925, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv"}
-!926 = distinct !{!926, !927, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
-!927 = distinct !{!927, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
-!928 = distinct !{!928, !929, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!929 = distinct !{!929, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
-!930 = distinct !{!930, !931, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!931 = distinct !{!931, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!932 = !{!63, !7, i64 8}
-!933 = !{!63, !10, i64 16}
-!934 = !{!63, !18, i64 104}
-!935 = !{!63, !28, i64 184}
-!936 = !{!63, !29, i64 192}
-!937 = !{!938, !67, i64 0}
-!938 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !67, i64 0}
-!939 = distinct !{!939, !392}
-!940 = !{!941}
-!941 = distinct !{!941, !942, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!942 = distinct !{!942, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!943 = !{!944}
-!944 = distinct !{!944, !942, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!945 = !{!941, !944}
-!946 = !{!947}
-!947 = distinct !{!947, !948, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!948 = distinct !{!948, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!949 = !{!950, !951}
-!950 = distinct !{!950, !948, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!951 = distinct !{!951, !948, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!952 = !{!951}
-!953 = !{!947, !950}
-!954 = !{!950}
-!955 = !{!947, !951}
-!956 = distinct !{!956, !185, !392}
-!957 = !{!958}
-!958 = distinct !{!958, !959, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!959 = distinct !{!959, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!960 = !{!961}
-!961 = distinct !{!961, !959, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!962 = !{!958, !961}
-!963 = distinct !{!963, !185}
-!964 = !{!965, !67, i64 0}
-!965 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !67, i64 0}
-!966 = distinct !{!966, !392}
-!967 = !{!968}
-!968 = distinct !{!968, !969, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!969 = distinct !{!969, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!970 = !{!971}
-!971 = distinct !{!971, !969, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!972 = !{!968, !971}
-!973 = !{!974}
-!974 = distinct !{!974, !975, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!975 = distinct !{!975, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!976 = !{!977, !978}
-!977 = distinct !{!977, !975, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!978 = distinct !{!978, !975, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!979 = !{!978}
-!980 = !{!974, !977}
-!981 = !{!977}
-!982 = !{!974, !978}
-!983 = distinct !{!983, !185, !392}
-!984 = !{!985}
-!985 = distinct !{!985, !986, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!986 = distinct !{!986, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!987 = !{!988}
-!988 = distinct !{!988, !986, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!989 = !{!985, !988}
-!990 = distinct !{!990, !185}
-!991 = !{!992, !67, i64 0}
-!992 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !67, i64 0}
-!993 = distinct !{!993, !392}
-!994 = !{!995}
-!995 = distinct !{!995, !996, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!996 = distinct !{!996, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!997 = !{!998}
-!998 = distinct !{!998, !996, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!999 = !{!995, !998}
+!870 = distinct !{!870, !868, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!871 = !{!872, !59, i64 0}
+!872 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !59, i64 0}
+!873 = !{!874, !59, i64 0}
+!874 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !59, i64 0}
+!875 = !{!876, !878, !880, !882}
+!876 = distinct !{!876, !877, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv: argument 0"}
+!877 = distinct !{!877, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE23velocityScalingCallbackEv"}
+!878 = distinct !{!878, !879, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!879 = distinct !{!879, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!880 = distinct !{!880, !881, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!881 = distinct !{!881, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!882 = distinct !{!882, !883, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!883 = distinct !{!883, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!884 = !{!885, !59, i64 0}
+!885 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !59, i64 0}
+!886 = !{!887, !59, i64 0}
+!887 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !59, i64 0}
+!888 = !{!889, !59, i64 0}
+!889 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !59, i64 0}
+!890 = !{!891, !59, i64 0}
+!891 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !59, i64 0}
+!892 = !{!893, !895, !897, !899}
+!893 = distinct !{!893, !894, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv: argument 0"}
+!894 = distinct !{!894, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE17prScalingCallbackEv"}
+!895 = distinct !{!895, !896, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!896 = distinct !{!896, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!897 = distinct !{!897, !898, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!898 = distinct !{!898, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!899 = distinct !{!899, !900, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!900 = distinct !{!900, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE2EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!901 = !{!63, !7, i64 8}
+!902 = !{!63, !10, i64 16}
+!903 = !{!63, !18, i64 104}
+!904 = !{!63, !28, i64 184}
+!905 = !{!63, !29, i64 192}
+!906 = !{!907, !67, i64 0}
+!907 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !67, i64 0}
+!908 = !{!909}
+!909 = distinct !{!909, !910, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!910 = distinct !{!910, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!911 = !{!912}
+!912 = distinct !{!912, !910, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!913 = !{!909, !912}
+!914 = !{!915}
+!915 = distinct !{!915, !916, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!916 = distinct !{!916, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!917 = !{!918, !919}
+!918 = distinct !{!918, !916, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!919 = distinct !{!919, !916, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!920 = !{!919}
+!921 = !{!915, !918}
+!922 = !{!918}
+!923 = !{!915, !919}
+!924 = distinct !{!924, !185}
+!925 = !{!926}
+!926 = distinct !{!926, !927, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!927 = distinct !{!927, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!928 = !{!929}
+!929 = distinct !{!929, !927, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!930 = !{!926, !929}
+!931 = !{!932, !67, i64 0}
+!932 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !67, i64 0}
+!933 = !{!934}
+!934 = distinct !{!934, !935, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!935 = distinct !{!935, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!936 = !{!937}
+!937 = distinct !{!937, !935, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!938 = !{!934, !937}
+!939 = !{!940}
+!940 = distinct !{!940, !941, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!941 = distinct !{!941, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!942 = !{!943, !944}
+!943 = distinct !{!943, !941, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!944 = distinct !{!944, !941, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!945 = !{!944}
+!946 = !{!940, !943}
+!947 = !{!943}
+!948 = !{!940, !944}
+!949 = distinct !{!949, !185}
+!950 = !{!951}
+!951 = distinct !{!951, !952, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!952 = distinct !{!952, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!953 = !{!954}
+!954 = distinct !{!954, !952, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!955 = !{!951, !954}
+!956 = !{!957, !67, i64 0}
+!957 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !67, i64 0}
+!958 = !{!959}
+!959 = distinct !{!959, !960, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!960 = distinct !{!960, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!961 = !{!962}
+!962 = distinct !{!962, !960, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!963 = !{!959, !962}
+!964 = !{!965}
+!965 = distinct !{!965, !966, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!966 = distinct !{!966, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!967 = !{!968, !969}
+!968 = distinct !{!968, !966, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!969 = distinct !{!969, !966, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!970 = !{!969}
+!971 = !{!965, !968}
+!972 = !{!968}
+!973 = !{!965, !969}
+!974 = distinct !{!974, !185}
+!975 = !{!976}
+!976 = distinct !{!976, !977, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!977 = distinct !{!977, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!978 = !{!979}
+!979 = distinct !{!979, !977, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!980 = !{!976, !979}
+!981 = !{!982, !67, i64 0}
+!982 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !67, i64 0}
+!983 = !{!984}
+!984 = distinct !{!984, !985, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!985 = distinct !{!985, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!986 = !{!987}
+!987 = distinct !{!987, !985, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!988 = !{!984, !987}
+!989 = !{!990}
+!990 = distinct !{!990, !991, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!991 = distinct !{!991, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!992 = !{!993, !994}
+!993 = distinct !{!993, !991, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!994 = distinct !{!994, !991, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!995 = !{!994}
+!996 = !{!990, !993}
+!997 = !{!993}
+!998 = !{!990, !994}
+!999 = distinct !{!999, !185}
 !1000 = !{!1001}
-!1001 = distinct !{!1001, !1002, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1002 = distinct !{!1002, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1003 = !{!1004, !1005}
-!1004 = distinct !{!1004, !1002, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1005 = distinct !{!1005, !1002, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1006 = !{!1005}
-!1007 = !{!1001, !1004}
-!1008 = !{!1004}
-!1009 = !{!1001, !1005}
-!1010 = distinct !{!1010, !185, !392}
+!1001 = distinct !{!1001, !1002, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1002 = distinct !{!1002, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1003 = !{!1004}
+!1004 = distinct !{!1004, !1002, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1005 = !{!1001, !1004}
+!1006 = !{!1007, !67, i64 0}
+!1007 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !67, i64 0}
+!1008 = !{!1009}
+!1009 = distinct !{!1009, !1010, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1010 = distinct !{!1010, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !1011 = !{!1012}
-!1012 = distinct !{!1012, !1013, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1013 = distinct !{!1013, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1012 = distinct !{!1012, !1010, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1013 = !{!1009, !1012}
 !1014 = !{!1015}
-!1015 = distinct !{!1015, !1013, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1016 = !{!1012, !1015}
-!1017 = distinct !{!1017, !185}
-!1018 = !{!1019, !67, i64 0}
-!1019 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !67, i64 0}
-!1020 = distinct !{!1020, !392}
-!1021 = !{!1022}
-!1022 = distinct !{!1022, !1023, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1023 = distinct !{!1023, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1024 = !{!1025}
-!1025 = distinct !{!1025, !1023, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1026 = !{!1022, !1025}
-!1027 = !{!1028}
-!1028 = distinct !{!1028, !1029, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1029 = distinct !{!1029, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1030 = !{!1031, !1032}
-!1031 = distinct !{!1031, !1029, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1032 = distinct !{!1032, !1029, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1033 = !{!1032}
-!1034 = !{!1028, !1031}
-!1035 = !{!1031}
-!1036 = !{!1028, !1032}
-!1037 = distinct !{!1037, !185, !392}
-!1038 = !{!1039}
-!1039 = distinct !{!1039, !1040, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1040 = distinct !{!1040, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1041 = !{!1042}
-!1042 = distinct !{!1042, !1040, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1043 = !{!1039, !1042}
-!1044 = distinct !{!1044, !185}
-!1045 = !{!1046, !67, i64 0}
-!1046 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !67, i64 0}
-!1047 = distinct !{!1047, !392}
-!1048 = !{!1049}
-!1049 = distinct !{!1049, !1050, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1050 = distinct !{!1050, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1051 = !{!1052}
-!1052 = distinct !{!1052, !1050, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1053 = !{!1049, !1052}
-!1054 = !{!1055}
-!1055 = distinct !{!1055, !1056, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1056 = distinct !{!1056, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1057 = !{!1058, !1059}
-!1058 = distinct !{!1058, !1056, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1059 = distinct !{!1059, !1056, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1060 = !{!1059}
-!1061 = !{!1055, !1058}
-!1062 = !{!1058}
-!1063 = !{!1055, !1059}
-!1064 = distinct !{!1064, !185, !392}
-!1065 = !{!1066}
-!1066 = distinct !{!1066, !1067, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1067 = distinct !{!1067, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1068 = !{!1069}
-!1069 = distinct !{!1069, !1067, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1070 = !{!1066, !1069}
-!1071 = distinct !{!1071, !185}
-!1072 = !{!1073, !67, i64 0}
-!1073 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !67, i64 0}
-!1074 = distinct !{!1074, !392}
+!1015 = distinct !{!1015, !1016, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1016 = distinct !{!1016, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1017 = !{!1018, !1019}
+!1018 = distinct !{!1018, !1016, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1019 = distinct !{!1019, !1016, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1020 = !{!1019}
+!1021 = !{!1015, !1018}
+!1022 = !{!1018}
+!1023 = !{!1015, !1019}
+!1024 = distinct !{!1024, !185}
+!1025 = !{!1026}
+!1026 = distinct !{!1026, !1027, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1027 = distinct !{!1027, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1028 = !{!1029}
+!1029 = distinct !{!1029, !1027, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1030 = !{!1026, !1029}
+!1031 = !{!1032, !67, i64 0}
+!1032 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !67, i64 0}
+!1033 = !{!1034}
+!1034 = distinct !{!1034, !1035, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1035 = distinct !{!1035, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1036 = !{!1037}
+!1037 = distinct !{!1037, !1035, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1038 = !{!1034, !1037}
+!1039 = !{!1040}
+!1040 = distinct !{!1040, !1041, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1041 = distinct !{!1041, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1042 = !{!1043, !1044}
+!1043 = distinct !{!1043, !1041, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1044 = distinct !{!1044, !1041, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1045 = !{!1044}
+!1046 = !{!1040, !1043}
+!1047 = !{!1043}
+!1048 = !{!1040, !1044}
+!1049 = distinct !{!1049, !185}
+!1050 = !{!1051}
+!1051 = distinct !{!1051, !1052, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1052 = distinct !{!1052, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1053 = !{!1054}
+!1054 = distinct !{!1054, !1052, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1055 = !{!1051, !1054}
+!1056 = !{!1057, !67, i64 0}
+!1057 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !67, i64 0}
+!1058 = !{!1059}
+!1059 = distinct !{!1059, !1060, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1060 = distinct !{!1060, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1061 = !{!1062}
+!1062 = distinct !{!1062, !1060, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1063 = !{!1059, !1062}
+!1064 = !{!1065}
+!1065 = distinct !{!1065, !1066, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1066 = distinct !{!1066, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1067 = !{!1068, !1069}
+!1068 = distinct !{!1068, !1066, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1069 = distinct !{!1069, !1066, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1070 = !{!1069}
+!1071 = !{!1065, !1068}
+!1072 = !{!1068}
+!1073 = !{!1065, !1069}
+!1074 = distinct !{!1074, !185}
 !1075 = !{!1076}
-!1076 = distinct !{!1076, !1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1077 = distinct !{!1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1076 = distinct !{!1076, !1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1077 = distinct !{!1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
 !1078 = !{!1079}
-!1079 = distinct !{!1079, !1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1079 = distinct !{!1079, !1077, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
 !1080 = !{!1076, !1079}
-!1081 = !{!1082}
-!1082 = distinct !{!1082, !1083, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1083 = distinct !{!1083, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1084 = !{!1085, !1086}
-!1085 = distinct !{!1085, !1083, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1086 = distinct !{!1086, !1083, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1087 = !{!1086}
-!1088 = !{!1082, !1085}
-!1089 = !{!1085}
-!1090 = !{!1082, !1086}
-!1091 = distinct !{!1091, !185, !392}
-!1092 = !{!1093}
-!1093 = distinct !{!1093, !1094, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1094 = distinct !{!1094, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1095 = !{!1096}
-!1096 = distinct !{!1096, !1094, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1097 = !{!1093, !1096}
-!1098 = distinct !{!1098, !185}
-!1099 = !{!1100, !67, i64 0}
-!1100 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !67, i64 0}
-!1101 = distinct !{!1101, !392}
-!1102 = !{!1103}
-!1103 = distinct !{!1103, !1104, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1104 = distinct !{!1104, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1105 = !{!1106}
-!1106 = distinct !{!1106, !1104, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1107 = !{!1103, !1106}
+!1081 = !{!1082, !67, i64 0}
+!1082 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !67, i64 0}
+!1083 = !{!1084}
+!1084 = distinct !{!1084, !1085, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1085 = distinct !{!1085, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1086 = !{!1087}
+!1087 = distinct !{!1087, !1085, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1088 = !{!1084, !1087}
+!1089 = !{!1090}
+!1090 = distinct !{!1090, !1091, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1091 = distinct !{!1091, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1092 = !{!1093, !1094}
+!1093 = distinct !{!1093, !1091, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1094 = distinct !{!1094, !1091, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1095 = !{!1094}
+!1096 = !{!1090, !1093}
+!1097 = !{!1093}
+!1098 = !{!1090, !1094}
+!1099 = distinct !{!1099, !185}
+!1100 = !{!1101}
+!1101 = distinct !{!1101, !1102, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1102 = distinct !{!1102, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1103 = !{!1104}
+!1104 = distinct !{!1104, !1102, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1105 = !{!1101, !1104}
+!1106 = !{!1107, !67, i64 0}
+!1107 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !67, i64 0}
 !1108 = !{!1109}
-!1109 = distinct !{!1109, !1110, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1110 = distinct !{!1110, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1111 = !{!1112, !1113}
-!1112 = distinct !{!1112, !1110, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1113 = distinct !{!1113, !1110, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1114 = !{!1113}
-!1115 = !{!1109, !1112}
-!1116 = !{!1112}
-!1117 = !{!1109, !1113}
-!1118 = distinct !{!1118, !185, !392}
-!1119 = !{!1120}
-!1120 = distinct !{!1120, !1121, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1121 = distinct !{!1121, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1122 = !{!1123}
-!1123 = distinct !{!1123, !1121, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1124 = !{!1120, !1123}
-!1125 = distinct !{!1125, !185}
-!1126 = !{!1127, !67, i64 0}
-!1127 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !67, i64 0}
-!1128 = distinct !{!1128, !392}
-!1129 = !{!1130}
-!1130 = distinct !{!1130, !1131, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1131 = distinct !{!1131, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1132 = !{!1133}
-!1133 = distinct !{!1133, !1131, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1134 = !{!1130, !1133}
-!1135 = !{!1136}
-!1136 = distinct !{!1136, !1137, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1137 = distinct !{!1137, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1138 = !{!1139, !1140}
-!1139 = distinct !{!1139, !1137, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1140 = distinct !{!1140, !1137, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1141 = !{!1140}
-!1142 = !{!1136, !1139}
-!1143 = !{!1139}
-!1144 = !{!1136, !1140}
-!1145 = distinct !{!1145, !185, !392}
-!1146 = !{!1147}
-!1147 = distinct !{!1147, !1148, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1148 = distinct !{!1148, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1149 = !{!1150}
-!1150 = distinct !{!1150, !1148, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1151 = !{!1147, !1150}
-!1152 = distinct !{!1152, !185}
-!1153 = !{!1154, !67, i64 0}
-!1154 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !67, i64 0}
-!1155 = distinct !{!1155, !392}
-!1156 = !{!1157}
-!1157 = distinct !{!1157, !1158, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1158 = distinct !{!1158, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1159 = !{!1160}
-!1160 = distinct !{!1160, !1158, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1161 = !{!1157, !1160}
-!1162 = !{!1163}
-!1163 = distinct !{!1163, !1164, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1164 = distinct !{!1164, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1165 = !{!1166, !1167}
-!1166 = distinct !{!1166, !1164, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1167 = distinct !{!1167, !1164, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1168 = !{!1167}
-!1169 = !{!1163, !1166}
-!1170 = !{!1166}
-!1171 = !{!1163, !1167}
-!1172 = distinct !{!1172, !185, !392}
-!1173 = !{!1174}
-!1174 = distinct !{!1174, !1175, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1175 = distinct !{!1175, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1176 = !{!1177}
-!1177 = distinct !{!1177, !1175, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1178 = !{!1174, !1177}
-!1179 = distinct !{!1179, !185}
-!1180 = !{!1181, !67, i64 0}
-!1181 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !67, i64 0}
-!1182 = distinct !{!1182, !392}
-!1183 = !{!1184}
-!1184 = distinct !{!1184, !1185, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1185 = distinct !{!1185, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1186 = !{!1187}
-!1187 = distinct !{!1187, !1185, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1188 = !{!1184, !1187}
-!1189 = !{!1190}
-!1190 = distinct !{!1190, !1191, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
-!1191 = distinct !{!1191, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
-!1192 = !{!1193, !1194}
-!1193 = distinct !{!1193, !1191, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
-!1194 = distinct !{!1194, !1191, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
-!1195 = !{!1194}
-!1196 = !{!1190, !1193}
-!1197 = !{!1193}
-!1198 = !{!1190, !1194}
-!1199 = distinct !{!1199, !185, !392}
-!1200 = !{!1201}
-!1201 = distinct !{!1201, !1202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
-!1202 = distinct !{!1202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
-!1203 = !{!1204}
-!1204 = distinct !{!1204, !1202, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
-!1205 = !{!1201, !1204}
-!1206 = distinct !{!1206, !185}
-!1207 = !{!1208, !67, i64 0}
-!1208 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_", !67, i64 0}
-!1209 = !{!1210, !67, i64 0}
-!1210 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEvEUllE_", !67, i64 0}
-!1211 = !{!1212}
-!1212 = distinct !{!1212, !1213, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!1213 = distinct !{!1213, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!1214 = !{!1215}
-!1215 = distinct !{!1215, !1216, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
-!1216 = distinct !{!1216, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
-!1217 = !{!1218}
-!1218 = distinct !{!1218, !1219, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!1219 = distinct !{!1219, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!1220 = !{!1221}
-!1221 = distinct !{!1221, !1219, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!1222 = !{!1223, !67, i64 0}
-!1223 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !67, i64 0}
-!1224 = !{!1225, !67, i64 0}
-!1225 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !67, i64 0}
-!1226 = !{!1227, !1229, !1231, !1233}
-!1227 = distinct !{!1227, !1228, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv: argument 0"}
-!1228 = distinct !{!1228, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv"}
-!1229 = distinct !{!1229, !1230, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
-!1230 = distinct !{!1230, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
-!1231 = distinct !{!1231, !1232, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1232 = distinct !{!1232, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
-!1233 = distinct !{!1233, !1234, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!1234 = distinct !{!1234, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!1235 = !{!1236, !67, i64 0}
-!1236 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !67, i64 0}
-!1237 = !{!1238, !67, i64 0}
-!1238 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !67, i64 0}
-!1239 = !{!1240, !67, i64 0}
-!1240 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !67, i64 0}
-!1241 = !{!1242, !67, i64 0}
-!1242 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !67, i64 0}
-!1243 = !{!1244, !1246, !1248, !1250}
-!1244 = distinct !{!1244, !1245, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv: argument 0"}
-!1245 = distinct !{!1245, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv"}
-!1246 = distinct !{!1246, !1247, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
-!1247 = distinct !{!1247, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
-!1248 = distinct !{!1248, !1249, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1249 = distinct !{!1249, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
-!1250 = distinct !{!1250, !1251, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!1251 = distinct !{!1251, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!1252 = !{!71, !7, i64 8}
-!1253 = !{!71, !10, i64 16}
-!1254 = !{!71, !18, i64 104}
-!1255 = !{!71, !28, i64 184}
-!1256 = !{!71, !29, i64 192}
-!1257 = !{!1258, !76, i64 0}
-!1258 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !76, i64 0}
-!1259 = !{!1260}
-!1260 = distinct !{!1260, !1261, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
-!1261 = distinct !{!1261, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
-!1262 = distinct !{!1262, !185}
-!1263 = distinct !{!1263, !185}
-!1264 = !{!1265, !76, i64 0}
-!1265 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !76, i64 0}
-!1266 = !{!1267}
-!1267 = distinct !{!1267, !1268, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
-!1268 = distinct !{!1268, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
-!1269 = distinct !{!1269, !185}
-!1270 = !{!1271, !76, i64 0}
-!1271 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !76, i64 0}
-!1272 = !{!1273}
-!1273 = distinct !{!1273, !1274, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
-!1274 = distinct !{!1274, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
-!1275 = distinct !{!1275, !185}
-!1276 = !{!1277, !76, i64 0}
-!1277 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !76, i64 0}
-!1278 = !{!1279}
-!1279 = distinct !{!1279, !1280, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
-!1280 = distinct !{!1280, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
-!1281 = distinct !{!1281, !185}
+!1109 = distinct !{!1109, !1110, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1110 = distinct !{!1110, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1111 = !{!1112}
+!1112 = distinct !{!1112, !1110, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1113 = !{!1109, !1112}
+!1114 = !{!1115}
+!1115 = distinct !{!1115, !1116, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1116 = distinct !{!1116, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1117 = !{!1118, !1119}
+!1118 = distinct !{!1118, !1116, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1119 = distinct !{!1119, !1116, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1120 = !{!1119}
+!1121 = !{!1115, !1118}
+!1122 = !{!1118}
+!1123 = !{!1115, !1119}
+!1124 = distinct !{!1124, !185}
+!1125 = !{!1126}
+!1126 = distinct !{!1126, !1127, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1127 = distinct !{!1127, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1128 = !{!1129}
+!1129 = distinct !{!1129, !1127, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1130 = !{!1126, !1129}
+!1131 = !{!1132, !67, i64 0}
+!1132 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !67, i64 0}
+!1133 = !{!1134}
+!1134 = distinct !{!1134, !1135, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1135 = distinct !{!1135, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1136 = !{!1137}
+!1137 = distinct !{!1137, !1135, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1138 = !{!1134, !1137}
+!1139 = !{!1140}
+!1140 = distinct !{!1140, !1141, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 0"}
+!1141 = distinct !{!1141, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_"}
+!1142 = !{!1143, !1144}
+!1143 = distinct !{!1143, !1141, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 1"}
+!1144 = distinct !{!1144, !1141, !"_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_: argument 2"}
+!1145 = !{!1144}
+!1146 = !{!1140, !1143}
+!1147 = !{!1143}
+!1148 = !{!1140, !1144}
+!1149 = distinct !{!1149, !185}
+!1150 = !{!1151}
+!1151 = distinct !{!1151, !1152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 0"}
+!1152 = distinct !{!1152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE"}
+!1153 = !{!1154}
+!1154 = distinct !{!1154, !1152, !"_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE0ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE: argument 1"}
+!1155 = !{!1151, !1154}
+!1156 = !{!1157, !67, i64 0}
+!1157 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEvEUllE_", !67, i64 0}
+!1158 = !{!1159, !67, i64 0}
+!1159 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEvEUllE_", !67, i64 0}
+!1160 = !{!1161}
+!1161 = distinct !{!1161, !1162, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!1162 = distinct !{!1162, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE3EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!1163 = !{!1164}
+!1164 = distinct !{!1164, !1165, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!1165 = distinct !{!1165, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
+!1166 = !{!1167}
+!1167 = distinct !{!1167, !1168, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!1168 = distinct !{!1168, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!1169 = !{!1170}
+!1170 = distinct !{!1170, !1168, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!1171 = !{!1172, !67, i64 0}
+!1172 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !67, i64 0}
+!1173 = !{!1174, !67, i64 0}
+!1174 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !67, i64 0}
+!1175 = !{!1176, !1178, !1180, !1182}
+!1176 = distinct !{!1176, !1177, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv: argument 0"}
+!1177 = distinct !{!1177, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE23velocityScalingCallbackEv"}
+!1178 = distinct !{!1178, !1179, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!1179 = distinct !{!1179, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!1180 = distinct !{!1180, !1181, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!1181 = distinct !{!1181, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!1182 = distinct !{!1182, !1183, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!1183 = distinct !{!1183, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!1184 = !{!1185, !67, i64 0}
+!1185 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !67, i64 0}
+!1186 = !{!1187, !67, i64 0}
+!1187 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE1_", !67, i64 0}
+!1188 = !{!1189, !67, i64 0}
+!1189 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE2_", !67, i64 0}
+!1190 = !{!1191, !67, i64 0}
+!1191 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE3_", !67, i64 0}
+!1192 = !{!1193, !1195, !1197, !1199}
+!1193 = distinct !{!1193, !1194, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv: argument 0"}
+!1194 = distinct !{!1194, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE17prScalingCallbackEv"}
+!1195 = distinct !{!1195, !1196, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv: argument 0"}
+!1196 = distinct !{!1196, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE3_clEv"}
+!1197 = distinct !{!1197, !1198, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!1198 = distinct !{!1198, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEET_St14__invoke_otherOT0_DpOT1_"}
+!1199 = distinct !{!1199, !1200, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!1200 = distinct !{!1200, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE3EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE3_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!1201 = !{!71, !7, i64 8}
+!1202 = !{!71, !10, i64 16}
+!1203 = !{!71, !18, i64 104}
+!1204 = !{!71, !28, i64 184}
+!1205 = !{!71, !29, i64 192}
+!1206 = !{!1207, !76, i64 0}
+!1207 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !76, i64 0}
+!1208 = !{!1209}
+!1209 = distinct !{!1209, !1210, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
+!1210 = distinct !{!1210, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
+!1211 = distinct !{!1211, !185}
+!1212 = distinct !{!1212, !185}
+!1213 = !{!1214, !76, i64 0}
+!1214 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !76, i64 0}
+!1215 = !{!1216}
+!1216 = distinct !{!1216, !1217, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
+!1217 = distinct !{!1217, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
+!1218 = distinct !{!1218, !185}
+!1219 = !{!1220, !76, i64 0}
+!1220 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !76, i64 0}
+!1221 = !{!1222}
+!1222 = distinct !{!1222, !1223, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
+!1223 = distinct !{!1223, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
+!1224 = distinct !{!1224, !185}
+!1225 = !{!1226, !76, i64 0}
+!1226 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !76, i64 0}
+!1227 = !{!1228}
+!1228 = distinct !{!1228, !1229, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f: argument 0"}
+!1229 = distinct !{!1229, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f"}
+!1230 = distinct !{!1230, !185}
+!1231 = !{!1232, !76, i64 0}
+!1232 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !76, i64 0}
+!1233 = !{!1234}
+!1234 = distinct !{!1234, !1235, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
+!1235 = distinct !{!1235, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
+!1236 = distinct !{!1236, !185}
+!1237 = distinct !{!1237, !185}
+!1238 = !{!1239, !76, i64 0}
+!1239 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !76, i64 0}
+!1240 = !{!1241}
+!1241 = distinct !{!1241, !1242, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
+!1242 = distinct !{!1242, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
+!1243 = distinct !{!1243, !185}
+!1244 = !{!1245, !76, i64 0}
+!1245 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !76, i64 0}
+!1246 = !{!1247}
+!1247 = distinct !{!1247, !1248, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
+!1248 = distinct !{!1248, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
+!1249 = distinct !{!1249, !185}
+!1250 = !{!1251, !76, i64 0}
+!1251 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !76, i64 0}
+!1252 = !{!1253}
+!1253 = distinct !{!1253, !1254, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
+!1254 = distinct !{!1254, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
+!1255 = distinct !{!1255, !185}
+!1256 = !{!1257, !76, i64 0}
+!1257 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_", !76, i64 0}
+!1258 = !{!1259}
+!1259 = distinct !{!1259, !1260, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!1260 = distinct !{!1260, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!1261 = !{!1262}
+!1262 = distinct !{!1262, !1263, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!1263 = distinct !{!1263, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
+!1264 = !{!1265}
+!1265 = distinct !{!1265, !1266, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!1266 = distinct !{!1266, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!1267 = !{!1268}
+!1268 = distinct !{!1268, !1266, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!1269 = !{!1270, !76, i64 0}
+!1270 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !76, i64 0}
+!1271 = !{!1272, !76, i64 0}
+!1272 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !76, i64 0}
+!1273 = !{!1274, !1276, !1278, !1280}
+!1274 = distinct !{!1274, !1275, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv: argument 0"}
+!1275 = distinct !{!1275, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv"}
+!1276 = distinct !{!1276, !1277, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
+!1277 = distinct !{!1277, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
+!1278 = distinct !{!1278, !1279, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!1279 = distinct !{!1279, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
+!1280 = distinct !{!1280, !1281, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!1281 = distinct !{!1281, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
 !1282 = !{!1283, !76, i64 0}
-!1283 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !76, i64 0}
-!1284 = !{!1285}
-!1285 = distinct !{!1285, !1286, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
-!1286 = distinct !{!1286, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
-!1287 = distinct !{!1287, !185}
-!1288 = distinct !{!1288, !185}
-!1289 = !{!1290, !76, i64 0}
-!1290 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !76, i64 0}
+!1283 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !76, i64 0}
+!1284 = !{!79, !7, i64 8}
+!1285 = !{!79, !10, i64 16}
+!1286 = !{!79, !18, i64 104}
+!1287 = !{!79, !28, i64 184}
+!1288 = !{!79, !29, i64 192}
+!1289 = !{!1290, !84, i64 0}
+!1290 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE_", !84, i64 0}
 !1291 = !{!1292}
-!1292 = distinct !{!1292, !1293, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
-!1293 = distinct !{!1293, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
+!1292 = distinct !{!1292, !1293, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f: argument 0"}
+!1293 = distinct !{!1293, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f"}
 !1294 = distinct !{!1294, !185}
-!1295 = !{!1296, !76, i64 0}
-!1296 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !76, i64 0}
-!1297 = !{!1298}
-!1298 = distinct !{!1298, !1299, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
-!1299 = distinct !{!1299, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
-!1300 = distinct !{!1300, !185}
-!1301 = !{!1302, !76, i64 0}
-!1302 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !76, i64 0}
-!1303 = !{!1304}
-!1304 = distinct !{!1304, !1305, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f: argument 0"}
-!1305 = distinct !{!1305, !"_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f"}
-!1306 = distinct !{!1306, !185}
-!1307 = !{!1308, !76, i64 0}
-!1308 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEvEUllE_", !76, i64 0}
-!1309 = !{!1310}
-!1310 = distinct !{!1310, !1311, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!1311 = distinct !{!1311, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE4EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!1312 = !{!1313}
-!1313 = distinct !{!1313, !1314, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
-!1314 = distinct !{!1314, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
-!1315 = !{!1316}
-!1316 = distinct !{!1316, !1317, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!1317 = distinct !{!1317, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!1318 = !{!1319}
-!1319 = distinct !{!1319, !1317, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!1320 = !{!1321, !76, i64 0}
-!1321 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliNS_15ScaleVelocitiesEE_", !76, i64 0}
-!1322 = !{!1323, !76, i64 0}
-!1323 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !76, i64 0}
-!1324 = !{!1325, !1327, !1329, !1331}
-!1325 = distinct !{!1325, !1326, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv: argument 0"}
-!1326 = distinct !{!1326, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE23velocityScalingCallbackEv"}
-!1327 = distinct !{!1327, !1328, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv: argument 0"}
-!1328 = distinct !{!1328, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE_clEv"}
-!1329 = distinct !{!1329, !1330, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1330 = distinct !{!1330, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEET_St14__invoke_otherOT0_DpOT1_"}
-!1331 = distinct !{!1331, !1332, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!1332 = distinct !{!1332, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE4EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
-!1333 = !{!1334, !76, i64 0}
-!1334 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE4EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !76, i64 0}
-!1335 = !{!79, !7, i64 8}
-!1336 = !{!79, !10, i64 16}
-!1337 = !{!79, !18, i64 104}
-!1338 = !{!79, !28, i64 184}
-!1339 = !{!79, !29, i64 192}
+!1295 = distinct !{!1295, !185}
+!1296 = !{!1297, !84, i64 0}
+!1297 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE0_", !84, i64 0}
+!1298 = !{!1299}
+!1299 = distinct !{!1299, !1300, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f: argument 0"}
+!1300 = distinct !{!1300, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f"}
+!1301 = distinct !{!1301, !185}
+!1302 = distinct !{!1302, !185}
+!1303 = !{!1304, !84, i64 0}
+!1304 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !84, i64 0}
+!1305 = !{!1306, !84, i64 0}
+!1306 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !84, i64 0}
+!1307 = !{!1308, !84, i64 0}
+!1308 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !84, i64 0}
+!1309 = !{!1310, !84, i64 0}
+!1310 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !84, i64 0}
+!1311 = !{!1312, !84, i64 0}
+!1312 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !84, i64 0}
+!1313 = !{!1314, !84, i64 0}
+!1314 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !84, i64 0}
+!1315 = !{!1316, !84, i64 0}
+!1316 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !84, i64 0}
+!1317 = !{!1318, !84, i64 0}
+!1318 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !84, i64 0}
+!1319 = !{!1320, !84, i64 0}
+!1320 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !84, i64 0}
+!1321 = !{!1322, !84, i64 0}
+!1322 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !84, i64 0}
+!1323 = !{!1324, !84, i64 0}
+!1324 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_", !84, i64 0}
+!1325 = !{!1326}
+!1326 = distinct !{!1326, !1327, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!1327 = distinct !{!1327, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!1328 = !{!1329}
+!1329 = distinct !{!1329, !1330, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
+!1330 = distinct !{!1330, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
+!1331 = !{!1332}
+!1332 = distinct !{!1332, !1333, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!1333 = distinct !{!1333, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!1334 = !{!1335}
+!1335 = distinct !{!1335, !1333, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!1336 = !{!1337, !84, i64 0}
+!1337 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliE_", !84, i64 0}
+!1338 = !{!1339, !84, i64 0}
+!1339 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !84, i64 0}
 !1340 = !{!1341, !84, i64 0}
-!1341 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE_", !84, i64 0}
-!1342 = !{!1343}
-!1343 = distinct !{!1343, !1344, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f: argument 0"}
-!1344 = distinct !{!1344, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f"}
-!1345 = distinct !{!1345, !185}
-!1346 = distinct !{!1346, !185}
-!1347 = !{!1348, !84, i64 0}
-!1348 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE0_", !84, i64 0}
-!1349 = !{!1350}
-!1350 = distinct !{!1350, !1351, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f: argument 0"}
-!1351 = distinct !{!1351, !"_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f"}
-!1352 = distinct !{!1352, !185}
-!1353 = distinct !{!1353, !185}
-!1354 = !{!1355, !84, i64 0}
-!1355 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE1_", !84, i64 0}
-!1356 = !{!1357, !84, i64 0}
-!1357 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE2_", !84, i64 0}
-!1358 = !{!1359, !84, i64 0}
-!1359 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE3_", !84, i64 0}
-!1360 = !{!1361, !84, i64 0}
-!1361 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE4_", !84, i64 0}
-!1362 = !{!1363, !84, i64 0}
-!1363 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE5_", !84, i64 0}
-!1364 = !{!1365, !84, i64 0}
-!1365 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE6_", !84, i64 0}
-!1366 = !{!1367, !84, i64 0}
-!1367 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE7_", !84, i64 0}
-!1368 = !{!1369, !84, i64 0}
-!1369 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE8_", !84, i64 0}
-!1370 = !{!1371, !84, i64 0}
-!1371 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE9_", !84, i64 0}
-!1372 = !{!1373, !84, i64 0}
-!1373 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE12scheduleTaskEldRKSt8functionIFvS3_IFvvEEEEEUlvE10_", !84, i64 0}
-!1374 = !{!1375, !84, i64 0}
-!1375 = !{!"_ZTSZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEvEUllE_", !84, i64 0}
-!1376 = !{!1377}
-!1377 = distinct !{!1377, !1378, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!1378 = distinct !{!1378, !"_ZSt11make_uniqueIN3gmx10PropagatorILNS0_16IntegrationStageE5EEEJRNS0_8TimeStepERPNS0_19StatePropagatorDataERPNS0_7MDAtomsERP13gmx_wallcycleEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!1379 = !{!1380}
-!1380 = distinct !{!1380, !1381, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE: argument 0"}
-!1381 = distinct !{!1381, !"_ZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagE"}
-!1382 = !{!1383}
-!1383 = distinct !{!1383, !1384, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!1384 = distinct !{!1384, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!1385 = !{!1386}
-!1386 = distinct !{!1386, !1384, !"_ZSt19__relocate_object_aISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!1387 = !{!1388, !84, i64 0}
-!1388 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUliE_", !84, i64 0}
-!1389 = !{!1390, !84, i64 0}
-!1390 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE_", !84, i64 0}
-!1391 = !{!1392, !84, i64 0}
-!1392 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !84, i64 0}
-!1393 = !{!1394, !1396, !1398, !1400}
-!1394 = distinct !{!1394, !1395, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv: argument 0"}
-!1395 = distinct !{!1395, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv"}
-!1396 = distinct !{!1396, !1397, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv: argument 0"}
-!1397 = distinct !{!1397, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv"}
-!1398 = distinct !{!1398, !1399, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!1399 = distinct !{!1399, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_"}
-!1400 = distinct !{!1400, !1401, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
-!1401 = distinct !{!1401, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!1341 = !{!"_ZTSZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEEUlvE0_", !84, i64 0}
+!1342 = !{!1343, !1345, !1347, !1349}
+!1343 = distinct !{!1343, !1344, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv: argument 0"}
+!1344 = distinct !{!1344, !"_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE23positionScalingCallbackEv"}
+!1345 = distinct !{!1345, !1346, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv: argument 0"}
+!1346 = distinct !{!1346, !"_ZZN3gmxL13getConnectionILNS_16IntegrationStageE5EEENS_20PropagatorConnectionEPNS_10PropagatorIXT_EEERKNS_13PropagatorTagEENKUlvE0_clEv"}
+!1347 = distinct !{!1347, !1348, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!1348 = distinct !{!1348, !"_ZSt13__invoke_implISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEET_St14__invoke_otherOT0_DpOT1_"}
+!1349 = distinct !{!1349, !1350, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: argument 0"}
+!1350 = distinct !{!1350, !"_ZSt10__invoke_rISt8functionIFvlEERZN3gmxL13getConnectionILNS3_16IntegrationStageE5EEENS3_20PropagatorConnectionEPNS3_10PropagatorIXT_EEERKNS3_13PropagatorTagEEUlvE0_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}

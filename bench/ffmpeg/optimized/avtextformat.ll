@@ -1552,7 +1552,7 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   %29 = getelementptr inbounds nuw i8, ptr %.147.us53, i64 %16
   %30 = add nuw nsw i32 %.048.us52, 1
   %exitcond84.not = icmp eq i32 %30, %18
-  br i1 %exitcond84.not, label %._crit_edge.loopexit75, label %.lr.ph.split.us51, !llvm.loop !80
+  br i1 %exitcond84.not, label %._crit_edge.loopexit75, label %.lr.ph.split.us51, !llvm.loop !78
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph, %.lr.ph.split.us59
   %.048.us60 = phi i32 [ %33, %.lr.ph.split.us59 ], [ 0, %.lr.ph ]
@@ -1562,7 +1562,7 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   %32 = getelementptr inbounds nuw i8, ptr %.147.us61, i64 %16
   %33 = add nuw nsw i32 %.048.us60, 1
   %exitcond.not = icmp eq i32 %33, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit76, label %.lr.ph.split.us59, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.loopexit76, label %.lr.ph.split.us59, !llvm.loop !78
 
 ._crit_edge.loopexit74:                           ; preds = %.lr.ph.split.us
   %34 = sub i32 %.03868, %18
@@ -1582,7 +1582,7 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.10) #12
   %37 = add i32 %.03769, %7
   %.not = icmp eq i32 %.139.lcssa, 0
-  br i1 %.not, label %._crit_edge73, label %17, !llvm.loop !82
+  br i1 %.not, label %._crit_edge73, label %17, !llvm.loop !79
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %15
   %38 = load ptr, ptr %9, align 8, !tbaa !56
@@ -1597,37 +1597,37 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 ; Function Attrs: nounwind uwtable
 define i32 @avtextwriter_context_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !83
+  %2 = load ptr, ptr %0, align 8, !tbaa !80
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !84
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %17, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !87
+  %8 = load ptr, ptr %7, align 8, !tbaa !84
   %.not16 = icmp eq ptr %8, null
   br i1 %.not16, label %11, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i32 %8(ptr noundef nonnull %2) #12
-  %.pre = load ptr, ptr %4, align 8, !tbaa !84
+  %.pre = load ptr, ptr %4, align 8, !tbaa !81
   br label %11
 
 11:                                               ; preds = %9, %6
   %12 = phi ptr [ %.pre, %9 ], [ %5, %6 ]
   %.1 = phi i32 [ %10, %9 ], [ 0, %6 ]
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
+  %13 = load ptr, ptr %12, align 8, !tbaa !86
   %.not17 = icmp eq ptr %13, null
   br i1 %.not17, label %17, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %16 = load ptr, ptr %15, align 8, !tbaa !87
   tail call void @av_opt_free(ptr noundef %16) #12
   br label %17
 
@@ -1654,13 +1654,13 @@ define range(i32 -2147483648, 1) i32 @avtextwriter_context_open(ptr noundef writ
 
 6:                                                ; preds = %2
   %7 = tail call noalias ptr @av_mallocz(i64 noundef 32) #12
-  store ptr %7, ptr %3, align 8, !tbaa !83
+  store ptr %7, ptr %3, align 8, !tbaa !80
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %avtextwriter_context_close.exit, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !91
+  %10 = load i32, ptr %9, align 8, !tbaa !88
   %.not19 = icmp eq i32 %10, 0
   br i1 %.not19, label %15, label %11
 
@@ -1668,30 +1668,30 @@ define range(i32 -2147483648, 1) i32 @avtextwriter_context_open(ptr noundef writ
   %12 = sext i32 %10 to i64
   %13 = tail call noalias ptr @av_mallocz(i64 noundef %12) #12
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !90
+  store ptr %13, ptr %14, align 8, !tbaa !87
   %.not20 = icmp eq ptr %13, null
   br i1 %.not20, label %thread-pre-split, label %15
 
 15:                                               ; preds = %11, %8
-  %16 = load ptr, ptr %1, align 8, !tbaa !89
+  %16 = load ptr, ptr %1, align 8, !tbaa !86
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !90
+  %19 = load ptr, ptr %18, align 8, !tbaa !87
   store ptr %16, ptr %19, align 8, !tbaa !42
   tail call void @av_opt_set_defaults(ptr noundef nonnull %19) #12
   br label %20
 
 20:                                               ; preds = %17, %15
-  store ptr @textwriter_class, ptr %7, align 8, !tbaa !92
+  store ptr @textwriter_class, ptr %7, align 8, !tbaa !89
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %1, ptr %21, align 8, !tbaa !84
+  store ptr %1, ptr %21, align 8, !tbaa !81
   tail call void @av_opt_set_defaults(ptr noundef nonnull %7) #12
-  %22 = load ptr, ptr %21, align 8, !tbaa !84
+  %22 = load ptr, ptr %21, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !93
+  %24 = load ptr, ptr %23, align 8, !tbaa !90
   %.not22 = icmp eq ptr %24, null
   br i1 %.not22, label %.thread, label %25
 
@@ -1701,36 +1701,36 @@ define range(i32 -2147483648, 1) i32 @avtextwriter_context_open(ptr noundef writ
   br i1 %27, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %20, %25
-  store ptr %7, ptr %0, align 8, !tbaa !83
+  store ptr %7, ptr %0, align 8, !tbaa !80
   br label %avtextwriter_context_close.exit
 
 thread-pre-split:                                 ; preds = %11, %25
   %.013 = phi i32 [ -12, %11 ], [ %26, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !84
+  %29 = load ptr, ptr %28, align 8, !tbaa !81
   %.not15.i = icmp eq ptr %29, null
   br i1 %.not15.i, label %41, label %30
 
 30:                                               ; preds = %thread-pre-split
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !87
+  %32 = load ptr, ptr %31, align 8, !tbaa !84
   %.not16.i = icmp eq ptr %32, null
   br i1 %.not16.i, label %35, label %33
 
 33:                                               ; preds = %30
   %34 = tail call i32 %32(ptr noundef nonnull %7) #12
-  %.pre.i = load ptr, ptr %28, align 8, !tbaa !84
+  %.pre.i = load ptr, ptr %28, align 8, !tbaa !81
   br label %35
 
 35:                                               ; preds = %33, %30
   %36 = phi ptr [ %.pre.i, %33 ], [ %29, %30 ]
-  %37 = load ptr, ptr %36, align 8, !tbaa !89
+  %37 = load ptr, ptr %36, align 8, !tbaa !86
   %.not17.i = icmp eq ptr %37, null
   br i1 %.not17.i, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !90
+  %40 = load ptr, ptr %39, align 8, !tbaa !87
   tail call void @av_opt_free(ptr noundef %40) #12
   br label %41
 
@@ -1753,19 +1753,19 @@ define ptr @avtext_get_formatter_by_name(ptr noundef readonly captures(none) %0)
 
 formatters_register_all.exit.thread:              ; preds = %1
   store i1 true, ptr @formatters_register_all.initialized, align 4
-  store ptr @avtextformatter_default, ptr @registered_formatters, align 16, !tbaa !94
-  store ptr @avtextformatter_compact, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 8), align 8, !tbaa !94
-  store ptr @avtextformatter_csv, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 16), align 16, !tbaa !94
-  store ptr @avtextformatter_flat, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 24), align 8, !tbaa !94
-  store ptr @avtextformatter_ini, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 32), align 16, !tbaa !94
-  store ptr @avtextformatter_json, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 40), align 8, !tbaa !94
-  store ptr @avtextformatter_xml, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 48), align 16, !tbaa !94
-  store ptr @avtextformatter_mermaid, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 56), align 8, !tbaa !94
-  store ptr @avtextformatter_mermaidhtml, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 64), align 16, !tbaa !94
+  store ptr @avtextformatter_default, ptr @registered_formatters, align 16, !tbaa !91
+  store ptr @avtextformatter_compact, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 8), align 8, !tbaa !91
+  store ptr @avtextformatter_csv, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 16), align 16, !tbaa !91
+  store ptr @avtextformatter_flat, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 24), align 8, !tbaa !91
+  store ptr @avtextformatter_ini, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 32), align 16, !tbaa !91
+  store ptr @avtextformatter_json, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 40), align 8, !tbaa !91
+  store ptr @avtextformatter_xml, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 48), align 16, !tbaa !91
+  store ptr @avtextformatter_mermaid, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 56), align 8, !tbaa !91
+  store ptr @avtextformatter_mermaidhtml, ptr getelementptr inbounds nuw (i8, ptr @registered_formatters, i64 64), align 16, !tbaa !91
   br label %.lr.ph.preheader
 
 formatters_register_all.exit:                     ; preds = %1
-  %.pre = load ptr, ptr @registered_formatters, align 16, !tbaa !94
+  %.pre = load ptr, ptr @registered_formatters, align 16, !tbaa !91
   %.not10 = icmp eq ptr %.pre, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1776,15 +1776,15 @@ formatters_register_all.exit:                     ; preds = %1
 2:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = getelementptr inbounds nuw [10 x ptr], ptr @registered_formatters, i64 0, i64 %indvars.iv.next
-  %4 = load ptr, ptr %3, align 8, !tbaa !94
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %2 ], [ 0, %.lr.ph.preheader ]
   %5 = phi ptr [ %4, %2 ], [ %.ph, %.lr.ph.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !96
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not9 = icmp eq i32 %8, 0
   br i1 %.not9, label %._crit_edge, label %2
@@ -1802,7 +1802,7 @@ define internal ptr @textcontext_get_formatter_name(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   ret ptr %5
 }
 
@@ -1851,9 +1851,9 @@ declare void @av_bprint_append_data(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @writercontext_get_writer_name(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !81
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !97
+  %5 = load ptr, ptr %4, align 8, !tbaa !94
   ret ptr %5
 }
 
@@ -1998,23 +1998,20 @@ attributes #14 = { nounwind willreturn memory(read) }
 !75 = distinct !{!75, !23}
 !76 = distinct !{!76, !23}
 !77 = !{!10, !17, i64 17312}
-!78 = distinct !{!78, !23, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = distinct !{!80, !23, !79}
-!81 = distinct !{!81, !23, !79}
-!82 = distinct !{!82, !23}
-!83 = !{!13, !13, i64 0}
-!84 = !{!85, !86, i64 8}
-!85 = !{!"AVTextWriterContext", !11, i64 0, !86, i64 8, !14, i64 16, !6, i64 24}
-!86 = !{!"p1 _ZTS12AVTextWriter", !6, i64 0}
-!87 = !{!88, !6, i64 32}
-!88 = !{!"AVTextWriter", !11, i64 0, !16, i64 8, !14, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56}
-!89 = !{!88, !11, i64 0}
+!78 = distinct !{!78, !23}
+!79 = distinct !{!79, !23}
+!80 = !{!13, !13, i64 0}
+!81 = !{!82, !83, i64 8}
+!82 = !{!"AVTextWriterContext", !11, i64 0, !83, i64 8, !14, i64 16, !6, i64 24}
+!83 = !{!"p1 _ZTS12AVTextWriter", !6, i64 0}
+!84 = !{!85, !6, i64 32}
+!85 = !{!"AVTextWriter", !11, i64 0, !16, i64 8, !14, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56}
+!86 = !{!85, !11, i64 0}
+!87 = !{!82, !6, i64 24}
+!88 = !{!85, !16, i64 8}
+!89 = !{!82, !11, i64 0}
 !90 = !{!85, !6, i64 24}
-!91 = !{!88, !16, i64 8}
-!92 = !{!85, !11, i64 0}
-!93 = !{!88, !6, i64 24}
-!94 = !{!12, !12, i64 0}
-!95 = distinct !{!95, !23}
-!96 = !{!19, !14, i64 16}
-!97 = !{!88, !14, i64 16}
+!91 = !{!12, !12, i64 0}
+!92 = distinct !{!92, !23}
+!93 = !{!19, !14, i64 16}
+!94 = !{!85, !14, i64 16}

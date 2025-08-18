@@ -1058,7 +1058,7 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %145 = add nuw nsw i32 %.0250, 1
   %146 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %121, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef %144, ptr noundef null, ptr noundef nonnull @.str.363, i32 noundef %145)
   %147 = icmp ult i32 %145, %130
-  br i1 %147, label %.loopexit, label %.loopexit242, !llvm.loop !10
+  br i1 %147, label %.loopexit, label %.loopexit242, !llvm.loop !8
 
 148:                                              ; preds = %105
   %.not234 = icmp eq i32 %.0222.fr, 6
@@ -1118,7 +1118,7 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %177 = add nuw i32 %.3244, 192
   %178 = add nuw nsw i32 %.1245, 1
   %exitcond.not = icmp eq i32 %178, %170
-  br i1 %exitcond.not, label %.loopexit242, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit242, label %.lr.ph, !llvm.loop !9
 
 179:                                              ; preds = %105
   %180 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %86, ptr noundef nonnull @ei_1722_61883_unknown_format)
@@ -1283,7 +1283,7 @@ define internal i32 @dissect_1722_aaf(ptr noundef %0, ptr noundef %1, ptr nounde
   %69 = add nuw i32 %.08391, 1
   %70 = load i32, ptr %6, align 4
   %71 = icmp ult i32 %69, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62
   %72 = phi i32 [ 0, %62 ], [ %70, %.lr.ph ]
@@ -1294,7 +1294,7 @@ define internal i32 @dissect_1722_aaf(ptr noundef %0, ptr noundef %1, ptr nounde
   %76 = mul i32 %72, %.08489
   %77 = udiv i32 %75, %76
   %78 = icmp ult i32 %73, %77
-  br i1 %78, label %62, label %.loopexit, !llvm.loop !13
+  br i1 %78, label %62, label %.loopexit, !llvm.loop !11
 
 79:                                               ; preds = %26
   %80 = icmp eq i32 %23, 5
@@ -1526,7 +1526,7 @@ define internal i32 @dissect_1722_crf(ptr noundef %0, ptr noundef %1, ptr nounde
   %33 = load i32, ptr %5, align 4
   %34 = lshr i32 %33, 3
   %35 = icmp samesign ult i32 %32, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %27
   %36 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -2017,7 +2017,7 @@ define internal i32 @dissect_1722_acf_lin(ptr noundef %0, ptr noundef %1, ptr no
   %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
   %27 = load ptr, ptr %5, align 8
   %28 = load i32, ptr %6, align 4
-  %29 = load i8, ptr %7, align 1, !range !15, !noundef !16
+  %29 = load i8, ptr %7, align 1, !range !13, !noundef !14
   %30 = zext nneg i8 %29 to i32
   %31 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.435, i32 noundef %28, i32 noundef %30, i32 noundef %31)
@@ -2442,12 +2442,12 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %72 = load i32, ptr @hf_1722_can_identifier, align 4
   %73 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %69, i32 noundef %72, ptr noundef %0, i32 noundef %.0107, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
   %74 = load ptr, ptr %7, align 8
-  %75 = load i8, ptr %20, align 1, !range !15, !noundef !16
+  %75 = load i8, ptr %20, align 1, !range !13, !noundef !14
   %76 = trunc nuw i8 %75 to i1
   %77 = select i1 %76, ptr @.str.427, ptr @.str.428
   %78 = load i32, ptr %5, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull %77, i32 noundef %78)
-  %79 = load i8, ptr %20, align 1, !range !15, !noundef !16
+  %79 = load i8, ptr %20, align 1, !range !13, !noundef !14
   %80 = trunc nuw i8 %79 to i1
   %81 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %81, 2048
@@ -2500,7 +2500,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   br label %110
 
 110:                                              ; preds = %105, %84
-  %111 = load i8, ptr %18, align 4, !range !15, !noundef !16
+  %111 = load i8, ptr %18, align 4, !range !13, !noundef !14
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %113, label %117
 
@@ -2536,7 +2536,7 @@ is_valid_canfd_payload_length.exit:               ; preds = %switch.early.test.i
 .thread:                                          ; preds = %.thread.sink.split, %113, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %is_valid_canfd_payload_length.exit, %117
   %120 = load i32, ptr %5, align 4
   store i32 %120, ptr %8, align 4
-  %121 = load i8, ptr %20, align 1, !range !15, !noundef !16
+  %121 = load i8, ptr %20, align 1, !range !13, !noundef !14
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %125
 
@@ -2547,7 +2547,7 @@ is_valid_canfd_payload_length.exit:               ; preds = %switch.early.test.i
 
 125:                                              ; preds = %123, %.thread
   %126 = phi i32 [ %124, %123 ], [ %120, %.thread ]
-  %127 = load i8, ptr %22, align 2, !range !15, !noundef !16
+  %127 = load i8, ptr %22, align 2, !range !13, !noundef !14
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %131
 
@@ -2560,7 +2560,7 @@ is_valid_canfd_payload_length.exit:               ; preds = %switch.early.test.i
   %132 = load i32, ptr %102, align 4
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %132, ptr %133, align 4
-  %134 = load i8, ptr %18, align 4, !range !15, !noundef !16
+  %134 = load i8, ptr %18, align 4, !range !13, !noundef !14
   %135 = zext nneg i8 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %135, ptr %136, align 4
@@ -2569,7 +2569,7 @@ is_valid_canfd_payload_length.exit:               ; preds = %switch.early.test.i
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 %138, ptr %139, align 4
   %140 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %86, i32 noundef %132)
-  %141 = load i8, ptr @can_heuristic_first, align 1, !range !15, !noundef !16
+  %141 = load i8, ptr @can_heuristic_first, align 1, !range !13, !noundef !14
   %142 = trunc nuw i8 %141 to i1
   %143 = call zeroext i1 @socketcan_call_subdissectors(ptr noundef %140, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i1 noundef zeroext %142)
   br i1 %143, label %146, label %144
@@ -2668,12 +2668,10 @@ attributes #9 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!13 = !{i8 0, i8 2}
+!14 = !{}

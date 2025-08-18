@@ -535,7 +535,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
 .loopexit111:                                     ; preds = %.lr.ph.preheader, %52
   %.181 = phi i32 [ %61, %52 ], [ %49, %.lr.ph.preheader ]
   %63 = icmp slt i32 %.181, %1
-  br i1 %63, label %18, label %._crit_edge, !llvm.loop !52
+  br i1 %63, label %18, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit111
   %64 = sext i32 %4 to i64
@@ -643,7 +643,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %90
   %.585.us = phi i32 [ %122, %90 ], [ %128, %.loopexit.us.loopexit ]
   %129 = icmp slt i32 %.585.us, %1
-  br i1 %129, label %67, label %._crit_edge124.us, !llvm.loop !53
+  br i1 %129, label %67, label %._crit_edge124.us, !llvm.loop !52
 
 .lr.ph120.us:                                     ; preds = %.lr.ph120.us.preheader, %.lr.ph120.us
   %indvars.iv = phi i64 [ %134, %.lr.ph120.us.preheader ], [ %indvars.iv.next, %.lr.ph120.us ]
@@ -655,7 +655,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %133 = add nuw nsw i32 %.190118.us, 1
   %exitcond.not = icmp eq i32 %133, %125
-  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %.lr.ph120.us, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit.us.loopexit, label %.lr.ph120.us, !llvm.loop !53
 
 .lr.ph120.us.preheader:                           ; preds = %123
   %134 = sext i32 %.484122.us to i64
@@ -664,7 +664,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
 ._crit_edge124.us:                                ; preds = %.loopexit.us
   %135 = add nuw nsw i32 %.088126.us, 1
   %exitcond137.not = icmp eq i32 %135, %2
-  br i1 %exitcond137.not, label %.critedge, label %.preheader108.us, !llvm.loop !55
+  br i1 %exitcond137.not, label %.critedge, label %.preheader108.us, !llvm.loop !54
 
 .critedge:                                        ; preds = %39, %50, %._crit_edge124.us, %123, %88, %67, %.preheader112, %._crit_edge, %6, %8
   %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %6 ], [ 0, %._crit_edge ], [ 0, %.preheader112 ], [ -1094995529, %67 ], [ -1094995529, %88 ], [ -1094995529, %123 ], [ 0, %._crit_edge124.us ], [ -1094995529, %50 ], [ -1094995529, %39 ]
@@ -861,9 +861,8 @@ attributes #6 = { nounwind }
 !47 = !{!10, !10, i64 0}
 !48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !49}
+!51 = distinct !{!51, !49}
 !52 = distinct !{!52, !49}
 !53 = distinct !{!53, !49}
 !54 = distinct !{!54, !49}
-!55 = distinct !{!55, !49, !51}

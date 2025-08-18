@@ -302,15 +302,15 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
 110:                                              ; preds = %.preheader.us, %110
   %indvars.iv194 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next195, %110 ]
   %111 = getelementptr inbounds nuw i8, ptr %.0181.us, i64 %indvars.iv194
-  %112 = load i8, ptr %111, align 1, !tbaa !64
+  %112 = load i8, ptr %111, align 1, !tbaa !63
   %113 = uitofp i8 %112 to float
   %114 = fmul nsz float %113, 0x3F70101020000000
   %115 = getelementptr inbounds nuw i8, ptr %.0148180.us, i64 %indvars.iv194
-  %116 = load i8, ptr %115, align 1, !tbaa !64
+  %116 = load i8, ptr %115, align 1, !tbaa !63
   %117 = uitofp i8 %116 to float
   %118 = fmul nsz float %117, 0x3F70101020000000
   %119 = getelementptr inbounds nuw i8, ptr %.0149179.us, i64 %indvars.iv194
-  %120 = load i8, ptr %119, align 1, !tbaa !64
+  %120 = load i8, ptr %119, align 1, !tbaa !63
   %121 = uitofp i8 %120 to float
   %122 = fmul nsz float %121, 0x3F70101020000000
   %123 = fcmp nsz ogt float %122, %114
@@ -344,7 +344,7 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
   %148 = trunc nuw i32 %146 to i8
   %.0.i.us = select i1 %.not.i.us, i8 %148, i8 %147
   %149 = getelementptr inbounds nuw i8, ptr %.0150178.us, i64 %indvars.iv194
-  store i8 %.0.i.us, ptr %149, align 1, !tbaa !64
+  store i8 %.0.i.us, ptr %149, align 1, !tbaa !63
   %150 = fmul nsz float %142, 2.550000e+02
   %151 = fptosi float %150 to i32
   %.not.i165.us = icmp ult i32 %151, 256
@@ -353,7 +353,7 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
   %153 = trunc nuw i32 %151 to i8
   %.0.i167.us = select i1 %.not.i165.us, i8 %153, i8 %152
   %154 = getelementptr inbounds nuw i8, ptr %.0151177.us, i64 %indvars.iv194
-  store i8 %.0.i167.us, ptr %154, align 1, !tbaa !64
+  store i8 %.0.i167.us, ptr %154, align 1, !tbaa !63
   %155 = fmul nsz float %144, 2.550000e+02
   %156 = fptosi float %155 to i32
   %.not.i168.us = icmp ult i32 %156, 256
@@ -362,10 +362,10 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
   %158 = trunc nuw i32 %156 to i8
   %.0.i170.us = select i1 %.not.i168.us, i8 %158, i8 %157
   %159 = getelementptr inbounds nuw i8, ptr %.0152176.us, i64 %indvars.iv194
-  store i8 %.0.i170.us, ptr %159, align 1, !tbaa !64
+  store i8 %.0.i170.us, ptr %159, align 1, !tbaa !63
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge.us, label %110, !llvm.loop !65
+  br i1 %exitcond198.not, label %._crit_edge.us, label %110, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %110
   br i1 %or.cond164, label %103, label %98
@@ -386,7 +386,7 @@ define internal noundef i32 @vibrance_slice8(ptr noundef readonly captures(none)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr align 1 %163, i64 %78, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge182, label %.preheader, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge182, label %.preheader, !llvm.loop !61
 
 ._crit_edge182:                                   ; preds = %.preheader, %103, %.preheader.lr.ph.split, %4
   ret i32 0
@@ -548,20 +548,20 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   %127 = getelementptr inbounds i16, ptr %.0164190.us, i64 %68
   %indvars.iv.next214 = add nsw i64 %indvars.iv213, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
-  br i1 %exitcond217.not, label %._crit_edge196, label %.preheader.us, !llvm.loop !67
+  br i1 %exitcond217.not, label %._crit_edge196, label %.preheader.us, !llvm.loop !65
 
 128:                                              ; preds = %.preheader.us, %128
   %indvars.iv208 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next209, %128 ]
   %129 = getelementptr inbounds nuw i16, ptr %.0195.us, i64 %indvars.iv208
-  %130 = load i16, ptr %129, align 2, !tbaa !68
+  %130 = load i16, ptr %129, align 2, !tbaa !66
   %131 = uitofp i16 %130 to float
   %132 = fmul nsz float %14, %131
   %133 = getelementptr inbounds nuw i16, ptr %.0160194.us, i64 %indvars.iv208
-  %134 = load i16, ptr %133, align 2, !tbaa !68
+  %134 = load i16, ptr %133, align 2, !tbaa !66
   %135 = uitofp i16 %134 to float
   %136 = fmul nsz float %14, %135
   %137 = getelementptr inbounds nuw i16, ptr %.0161193.us, i64 %indvars.iv208
-  %138 = load i16, ptr %137, align 2, !tbaa !68
+  %138 = load i16, ptr %137, align 2, !tbaa !66
   %139 = uitofp i16 %138 to float
   %140 = fmul nsz float %14, %139
   %141 = fcmp nsz ogt float %140, %132
@@ -596,7 +596,7 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   %.0.i.us = select i1 %.not.i.us, i32 %164, i32 %166
   %167 = trunc i32 %.0.i.us to i16
   %168 = getelementptr inbounds nuw i16, ptr %.0162192.us, i64 %indvars.iv208
-  store i16 %167, ptr %168, align 2, !tbaa !68
+  store i16 %167, ptr %168, align 2, !tbaa !66
   %169 = fmul nsz float %160, %13
   %170 = fptosi float %169 to i32
   %171 = and i32 %notmask, %170
@@ -606,7 +606,7 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   %.0.i180.us = select i1 %.not.i178.us, i32 %170, i32 %172
   %173 = trunc i32 %.0.i180.us to i16
   %174 = getelementptr inbounds nuw i16, ptr %.0163191.us, i64 %indvars.iv208
-  store i16 %173, ptr %174, align 2, !tbaa !68
+  store i16 %173, ptr %174, align 2, !tbaa !66
   %175 = fmul nsz float %162, %13
   %176 = fptosi float %175 to i32
   %177 = and i32 %notmask, %176
@@ -616,10 +616,10 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   %.0.i184.us = select i1 %.not.i182.us, i32 %176, i32 %178
   %179 = trunc i32 %.0.i184.us to i16
   %180 = getelementptr inbounds nuw i16, ptr %.0164190.us, i64 %indvars.iv208
-  store i16 %179, ptr %180, align 2, !tbaa !68
+  store i16 %179, ptr %180, align 2, !tbaa !66
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge.us, label %128, !llvm.loop !70
+  br i1 %exitcond212.not, label %._crit_edge.us, label %128, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %128
   br i1 %or.cond176, label %121, label %116
@@ -640,7 +640,7 @@ define internal noundef i32 @vibrance_slice16(ptr noundef readonly captures(none
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %182, ptr align 2 %184, i64 %93, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge196, label %.preheader, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge196, label %.preheader, !llvm.loop !65
 
 ._crit_edge196:                                   ; preds = %.preheader, %121, %.preheader.lr.ph.split, %4
   ret i32 0
@@ -654,7 +654,7 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !72
+  %11 = load i32, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %13 = load i32, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 108
@@ -708,13 +708,13 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 51
-  %56 = load i8, ptr %55, align 1, !tbaa !64
+  %56 = load i8, ptr %55, align 1, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %58 = load i8, ptr %57, align 8, !tbaa !64
+  %58 = load i8, ptr %57, align 8, !tbaa !63
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 50
-  %60 = load i8, ptr %59, align 2, !tbaa !64
+  %60 = load i8, ptr %59, align 2, !tbaa !63
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %62 = load i8, ptr %61, align 1, !tbaa !64
+  %62 = load i8, ptr %61, align 1, !tbaa !63
   %63 = load ptr, ptr %9, align 8, !tbaa !59
   %64 = sext i32 %34 to i64
   %65 = mul nsw i64 %43, %64
@@ -741,17 +741,17 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %76 = mul nsw i64 %indvars.iv, %70
   %77 = add nsw i64 %76, %71
   %78 = getelementptr inbounds i8, ptr %.0153.us, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !64
+  %79 = load i8, ptr %78, align 1, !tbaa !63
   %80 = uitofp i8 %79 to float
   %81 = fmul nsz float %80, 0x3F70101020000000
   %82 = add nsw i64 %76, %72
   %83 = getelementptr inbounds i8, ptr %.0153.us, i64 %82
-  %84 = load i8, ptr %83, align 1, !tbaa !64
+  %84 = load i8, ptr %83, align 1, !tbaa !63
   %85 = uitofp i8 %84 to float
   %86 = fmul nsz float %85, 0x3F70101020000000
   %87 = add nsw i64 %76, %73
   %88 = getelementptr inbounds i8, ptr %.0153.us, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !64
+  %89 = load i8, ptr %88, align 1, !tbaa !63
   %90 = uitofp i8 %89 to float
   %91 = fmul nsz float %90, 0x3F70101020000000
   %92 = fcmp nsz ogt float %91, %81
@@ -785,7 +785,7 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %117 = trunc nuw i32 %115 to i8
   %.0.i.us = select i1 %.not.i.us, i8 %117, i8 %116
   %118 = getelementptr inbounds i8, ptr %.0135152.us, i64 %77
-  store i8 %.0.i.us, ptr %118, align 1, !tbaa !64
+  store i8 %.0.i.us, ptr %118, align 1, !tbaa !63
   %119 = fmul nsz float %111, 2.550000e+02
   %120 = fptosi float %119 to i32
   %.not.i144.us = icmp ult i32 %120, 256
@@ -794,7 +794,7 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %122 = trunc nuw i32 %120 to i8
   %.0.i146.us = select i1 %.not.i144.us, i8 %122, i8 %121
   %123 = getelementptr inbounds i8, ptr %.0135152.us, i64 %82
-  store i8 %.0.i146.us, ptr %123, align 1, !tbaa !64
+  store i8 %.0.i146.us, ptr %123, align 1, !tbaa !63
   %124 = fmul nsz float %113, 2.550000e+02
   %125 = fptosi float %124 to i32
   %.not.i147.us = icmp ult i32 %125, 256
@@ -803,28 +803,28 @@ define internal noundef i32 @vibrance_slice8p(ptr noundef readonly captures(none
   %127 = trunc nuw i32 %125 to i8
   %.0.i149.us = select i1 %.not.i147.us, i8 %127, i8 %126
   %128 = getelementptr inbounds i8, ptr %.0135152.us, i64 %87
-  store i8 %.0.i149.us, ptr %128, align 1, !tbaa !64
+  store i8 %.0.i149.us, ptr %128, align 1, !tbaa !63
   br i1 %.not143, label %134, label %129
 
 129:                                              ; preds = %75
   %130 = add nsw i64 %76, %74
   %131 = getelementptr inbounds i8, ptr %.0153.us, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !64
+  %132 = load i8, ptr %131, align 1, !tbaa !63
   %133 = getelementptr inbounds i8, ptr %.0135152.us, i64 %130
-  store i8 %132, ptr %133, align 1, !tbaa !64
+  store i8 %132, ptr %133, align 1, !tbaa !63
   br label %134
 
 134:                                              ; preds = %129, %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %75, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge.us, label %75, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %134
   %135 = getelementptr inbounds i8, ptr %.0135152.us, i64 %40
   %136 = getelementptr inbounds i8, ptr %.0153.us, i64 %43
   %137 = add nsw i32 %.0136151.us, 1
   %exitcond157.not = icmp eq i32 %137, %37
-  br i1 %exitcond157.not, label %._crit_edge154, label %.preheader.us, !llvm.loop !74
+  br i1 %exitcond157.not, label %._crit_edge154, label %.preheader.us, !llvm.loop !71
 
 ._crit_edge154:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -838,7 +838,7 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !72
+  %11 = load i32, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !54
   %notmask = shl nsw i32 -1, %13
@@ -900,13 +900,13 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 51
-  %63 = load i8, ptr %62, align 1, !tbaa !64
+  %63 = load i8, ptr %62, align 1, !tbaa !63
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %65 = load i8, ptr %64, align 8, !tbaa !64
+  %65 = load i8, ptr %64, align 8, !tbaa !63
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 50
-  %67 = load i8, ptr %66, align 2, !tbaa !64
+  %67 = load i8, ptr %66, align 2, !tbaa !63
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %69 = load i8, ptr %68, align 1, !tbaa !64
+  %69 = load i8, ptr %68, align 1, !tbaa !63
   %70 = load ptr, ptr %9, align 8, !tbaa !59
   %71 = sext i32 %39 to i64
   %72 = mul nsw i64 %50, %71
@@ -933,17 +933,17 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %83 = mul nsw i64 %indvars.iv, %77
   %84 = add nsw i64 %83, %78
   %85 = getelementptr inbounds i16, ptr %.0167.us, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !68
+  %86 = load i16, ptr %85, align 2, !tbaa !66
   %87 = uitofp i16 %86 to float
   %88 = fmul nsz float %16, %87
   %89 = add nsw i64 %83, %79
   %90 = getelementptr inbounds i16, ptr %.0167.us, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !68
+  %91 = load i16, ptr %90, align 2, !tbaa !66
   %92 = uitofp i16 %91 to float
   %93 = fmul nsz float %16, %92
   %94 = add nsw i64 %83, %80
   %95 = getelementptr inbounds i16, ptr %.0167.us, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !68
+  %96 = load i16, ptr %95, align 2, !tbaa !66
   %97 = uitofp i16 %96 to float
   %98 = fmul nsz float %16, %97
   %99 = fcmp nsz ogt float %98, %88
@@ -978,7 +978,7 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %.0.i.us = select i1 %.not.i.us, i32 %122, i32 %124
   %125 = trunc i32 %.0.i.us to i16
   %126 = getelementptr inbounds i16, ptr %.0147166.us, i64 %84
-  store i16 %125, ptr %126, align 2, !tbaa !68
+  store i16 %125, ptr %126, align 2, !tbaa !66
   %127 = fmul nsz float %118, %15
   %128 = fptosi float %127 to i32
   %129 = and i32 %notmask, %128
@@ -988,7 +988,7 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %.0.i159.us = select i1 %.not.i157.us, i32 %128, i32 %130
   %131 = trunc i32 %.0.i159.us to i16
   %132 = getelementptr inbounds i16, ptr %.0147166.us, i64 %89
-  store i16 %131, ptr %132, align 2, !tbaa !68
+  store i16 %131, ptr %132, align 2, !tbaa !66
   %133 = fmul nsz float %120, %15
   %134 = fptosi float %133 to i32
   %135 = and i32 %notmask, %134
@@ -998,28 +998,28 @@ define internal noundef i32 @vibrance_slice16p(ptr noundef readonly captures(non
   %.0.i163.us = select i1 %.not.i161.us, i32 %134, i32 %136
   %137 = trunc i32 %.0.i163.us to i16
   %138 = getelementptr inbounds i16, ptr %.0147166.us, i64 %94
-  store i16 %137, ptr %138, align 2, !tbaa !68
+  store i16 %137, ptr %138, align 2, !tbaa !66
   br i1 %.not155, label %144, label %139
 
 139:                                              ; preds = %82
   %140 = add nsw i64 %83, %81
   %141 = getelementptr inbounds i16, ptr %.0167.us, i64 %140
-  %142 = load i16, ptr %141, align 2, !tbaa !68
+  %142 = load i16, ptr %141, align 2, !tbaa !66
   %143 = getelementptr inbounds i16, ptr %.0147166.us, i64 %140
-  store i16 %142, ptr %143, align 2, !tbaa !68
+  store i16 %142, ptr %143, align 2, !tbaa !66
   br label %144
 
 144:                                              ; preds = %139, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %82, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge.us, label %82, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %144
   %145 = getelementptr inbounds i16, ptr %.0147166.us, i64 %46
   %146 = getelementptr inbounds i16, ptr %.0167.us, i64 %50
   %147 = add nsw i32 %.0148165.us, 1
   %exitcond171.not = icmp eq i32 %147, %42
-  br i1 %exitcond171.not, label %._crit_edge168, label %.preheader.us, !llvm.loop !76
+  br i1 %exitcond171.not, label %._crit_edge168, label %.preheader.us, !llvm.loop !73
 
 ._crit_edge168:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1119,19 +1119,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !58 = !{!13, !13, i64 0}
 !59 = !{!25, !25, i64 0}
 !60 = !{!40, !13, i64 36}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = !{!7, !7, i64 0}
+!63 = !{!7, !7, i64 0}
+!64 = distinct !{!64, !62}
 !65 = distinct !{!65, !62}
-!66 = distinct !{!66, !62}
-!67 = distinct !{!67, !62, !63}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"short", !7, i64 0}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"short", !7, i64 0}
+!68 = distinct !{!68, !62}
+!69 = !{!40, !13, i64 40}
 !70 = distinct !{!70, !62}
 !71 = distinct !{!71, !62}
-!72 = !{!40, !13, i64 40}
+!72 = distinct !{!72, !62}
 !73 = distinct !{!73, !62}
-!74 = distinct !{!74, !62, !63}
-!75 = distinct !{!75, !62}
-!76 = distinct !{!76, !62, !63}

@@ -1520,7 +1520,7 @@ define internal fastcc void @child_exec(ptr noundef nonnull readonly captures(no
   %153 = getelementptr ptr, ptr %0, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !40
   %.not128 = icmp eq ptr %154, null
-  br i1 %.not128, label %._crit_edge, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not128, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.091.lcssa = phi i32 [ %.1.us, %.lr.ph.split.us ], [ %.1, %.lr.ph.split ]
@@ -1561,7 +1561,7 @@ make_inheritable.exit:                            ; preds = %32, %65, %62, %make
   %170 = icmp ult i32 %169, -31
   %171 = icmp ne ptr %167, %27
   %172 = and i1 %170, %171
-  br i1 %172, label %162, label %173, !llvm.loop !49
+  br i1 %172, label %162, label %173, !llvm.loop !47
 
 173:                                              ; preds = %162
   %174 = ptrtoint ptr %160 to i64
@@ -1647,7 +1647,7 @@ define internal fastcc void @reset_signal_handlers(ptr noundef nonnull %0) unnam
 16:                                               ; preds = %5, %5, %15, %6
   %17 = add nuw nsw i32 %.012, 1
   %exitcond.not = icmp eq i32 %17, 65
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !50
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !48
 }
 
 ; Function Attrs: nounwind
@@ -1692,7 +1692,7 @@ select.unfold.i:                                  ; preds = %8, %.lr.ph.i
   %.121.ph.i = phi i32 [ %.02033.i, %.lr.ph.i ], [ %11, %8 ]
   %12 = add nuw nsw i64 %.01934.i, 1
   %exitcond.not.i = icmp eq i64 %12, %1
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %select.unfold.i, %2
   %.020.lcssa.i = phi i32 [ 3, %2 ], [ %.121.ph.i, %select.unfold.i ]
@@ -1739,7 +1739,7 @@ select.unfold.i:                                  ; preds = %8, %.lr.ph.i
   %30 = tail call i32 @close(i32 noundef %.06.i32.i) #12
   %31 = add i32 %.06.i32.i, 1
   %.not.i33.i = icmp sgt i32 %31, %29
-  br i1 %.not.i33.i, label %_brute_force_closer.exit35.i, label %.lr.ph.i31.i, !llvm.loop !52
+  br i1 %.not.i33.i, label %_brute_force_closer.exit35.i, label %.lr.ph.i31.i, !llvm.loop !50
 
 _brute_force_closer.exit35.i:                     ; preds = %.lr.ph.i31.i, %28
   %32 = add i32 %26, 1
@@ -1749,7 +1749,7 @@ select.unfold.i.i:                                ; preds = %_brute_force_closer
   %.121.ph.i.i = phi i32 [ %.02033.i.i, %.lr.ph.i.i ], [ %32, %_brute_force_closer.exit35.i ]
   %33 = add nuw nsw i64 %.01934.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %33, %1
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %select.unfold.i.i, %24
   %.020.lcssa.i.i = phi i32 [ 3, %24 ], [ %.121.ph.i.i, %select.unfold.i.i ]
@@ -1761,7 +1761,7 @@ select.unfold.i.i:                                ; preds = %_brute_force_closer
   %34 = tail call i32 @close(i32 noundef %.06.i.i) #12
   %35 = add i32 %.06.i.i, 1
   %.not.i28.i = icmp sgt i32 %35, %.022.i.i
-  br i1 %.not.i28.i, label %_close_range_except.exit, label %.lr.ph.i27.i, !llvm.loop !52
+  br i1 %.not.i28.i, label %_close_range_except.exit, label %.lr.ph.i27.i, !llvm.loop !50
 
 36:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1801,7 +1801,7 @@ select.unfold.i.i:                                ; preds = %_brute_force_closer
   %54 = load i8, ptr %53, align 1, !tbaa !37
   %55 = add i8 %54, -48
   %or.cond.i.us.us.i = icmp ult i8 %55, 10
-  br i1 %or.cond.i.us.us.i, label %.lr.ph.i24.us.us.i, label %_pos_int_from_ascii.exit.us.us.i, !llvm.loop !53
+  br i1 %or.cond.i.us.us.i, label %.lr.ph.i24.us.us.i, label %_pos_int_from_ascii.exit.us.us.i, !llvm.loop !51
 
 _pos_int_from_ascii.exit.us.us.i:                 ; preds = %.lr.ph.i24.us.us.i, %43
   %.0.lcssa.i.us.us.i = phi i32 [ 0, %43 ], [ %52, %.lr.ph.i24.us.us.i ]
@@ -1823,23 +1823,23 @@ _pos_int_from_ascii.exit.us.us.i:                 ; preds = %.lr.ph.i24.us.us.i,
 
 _is_fd_in_sorted_fd_sequence.exit.us.us.i:        ; preds = %59, %57, %_pos_int_from_ascii.exit.us.us.i
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %62 = load i16, ptr %61, align 8, !tbaa !54
+  %62 = load i16, ptr %61, align 8, !tbaa !52
   %63 = zext i16 %62 to i32
   %64 = add i32 %.040.us.us.i, %63
   %65 = icmp slt i32 %64, %42
-  br i1 %65, label %43, label %.loopexit38.split.us.us.i, !llvm.loop !57
+  br i1 %65, label %43, label %.loopexit38.split.us.us.i, !llvm.loop !55
 
 .loopexit38.split.us.us.i:                        ; preds = %_is_fd_in_sorted_fd_sequence.exit.us.us.i
   %66 = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %14, ptr noundef nonnull %3, i64 noundef 280) #12
   %67 = trunc i64 %66 to i32
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.preheader.us.i, label %._crit_edge.i5, !llvm.loop !58
+  br i1 %68, label %.preheader.us.i, label %._crit_edge.i5, !llvm.loop !56
 
 .loopexit38.split.i:                              ; preds = %_is_fd_in_sorted_fd_sequence.exit.i
   %69 = call i64 (i64, ...) @syscall(i64 noundef 217, i32 noundef %14, ptr noundef nonnull %3, i64 noundef 280) #12
   %70 = trunc i64 %69 to i32
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.preheader.i, label %._crit_edge.i5, !llvm.loop !59
+  br i1 %71, label %.preheader.i, label %._crit_edge.i5, !llvm.loop !56
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %.loopexit38.split.i
   %72 = phi i32 [ %70, %.loopexit38.split.i ], [ %38, %.preheader.lr.ph.i ]
@@ -1867,7 +1867,7 @@ _is_fd_in_sorted_fd_sequence.exit.us.us.i:        ; preds = %59, %57, %_pos_int_
   %84 = load i8, ptr %83, align 1, !tbaa !37
   %85 = add i8 %84, -48
   %or.cond.i.i = icmp ult i8 %85, 10
-  br i1 %or.cond.i.i, label %.lr.ph.i24.i, label %_pos_int_from_ascii.exit.i, !llvm.loop !53
+  br i1 %or.cond.i.i, label %.lr.ph.i24.i, label %_pos_int_from_ascii.exit.i, !llvm.loop !51
 
 _pos_int_from_ascii.exit.i:                       ; preds = %.lr.ph.i24.i, %73
   %.0.lcssa.i.i = phi i32 [ 0, %73 ], [ %82, %.lr.ph.i24.i ]
@@ -1900,7 +1900,7 @@ _pos_int_from_ascii.exit.i:                       ; preds = %.lr.ph.i24.i, %73
   %.221.i.i = select i1 %94, i64 %.019.i.i, i64 %96
   %.217.i.i = select i1 %94, i64 %95, i64 %.015.i.i
   %.not25.i26.i = icmp sgt i64 %.217.i.i, %.221.i.i
-  br i1 %.not25.i26.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !60
+  br i1 %.not25.i26.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !57
 
 .loopexit.i:                                      ; preds = %93
   %97 = call i32 @close(i32 noundef %.0..i.i) #12
@@ -1908,11 +1908,11 @@ _pos_int_from_ascii.exit.i:                       ; preds = %.lr.ph.i24.i, %73
 
 _is_fd_in_sorted_fd_sequence.exit.i:              ; preds = %.preheader.i.i, %.loopexit.i, %87, %_pos_int_from_ascii.exit.i
   %98 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %99 = load i16, ptr %98, align 8, !tbaa !54
+  %99 = load i16, ptr %98, align 8, !tbaa !52
   %100 = zext i16 %99 to i32
   %101 = add i32 %.040.i, %100
   %102 = icmp slt i32 %101, %72
-  br i1 %102, label %73, label %.loopexit38.split.i, !llvm.loop !61
+  br i1 %102, label %73, label %.loopexit38.split.i, !llvm.loop !55
 
 ._crit_edge.i5:                                   ; preds = %.loopexit38.split.i, %.loopexit38.split.us.us.i, %36
   %103 = call i32 @close(i32 noundef %14) #12
@@ -2026,19 +2026,15 @@ attributes #16 = { nounwind willreturn memory(read) }
 !43 = distinct !{!43, !33}
 !44 = distinct !{!44, !33}
 !45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !33}
+!47 = distinct !{!47, !33}
 !48 = distinct !{!48, !33}
 !49 = distinct !{!49, !33}
 !50 = distinct !{!50, !33}
 !51 = distinct !{!51, !33}
-!52 = distinct !{!52, !33}
-!53 = distinct !{!53, !33}
-!54 = !{!55, !20, i64 16}
-!55 = !{!"linux_dirent64", !56, i64 0, !56, i64 8, !20, i64 16, !6, i64 18, !6, i64 19}
-!56 = !{!"long long", !6, i64 0}
-!57 = distinct !{!57, !33, !47}
-!58 = distinct !{!58, !33, !47}
-!59 = distinct !{!59, !33}
-!60 = distinct !{!60, !33}
-!61 = distinct !{!61, !33}
+!52 = !{!53, !20, i64 16}
+!53 = !{!"linux_dirent64", !54, i64 0, !54, i64 8, !20, i64 16, !6, i64 18, !6, i64 19}
+!54 = !{!"long long", !6, i64 0}
+!55 = distinct !{!55, !33}
+!56 = distinct !{!56, !33}
+!57 = distinct !{!57, !33}

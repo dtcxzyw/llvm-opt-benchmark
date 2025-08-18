@@ -1929,12 +1929,12 @@ define hidden noundef i32 @_ZNK7zstring8indexofuERKS_j(ptr noundef nonnull reado
   %28 = load i32, ptr %27, align 4, !tbaa !9
   %29 = icmp eq i32 %26, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %29, label %20, label %30, !llvm.loop !60
+  br i1 %29, label %20, label %30, !llvm.loop !59
 
 30:                                               ; preds = %21
   %31 = add i32 %.03045, 1
   %.not35 = icmp ugt i32 %31, %17
-  br i1 %.not35, label %.critedge.thread, label %.preheader, !llvm.loop !61
+  br i1 %.not35, label %.critedge.thread, label %.preheader, !llvm.loop !60
 
 .critedge.thread:                                 ; preds = %30, %20, %16, %3, %11, %9
   %.031 = phi i32 [ -1, %9 ], [ -1, %11 ], [ %2, %3 ], [ -1, %16 ], [ %.03045, %20 ], [ -1, %30 ]
@@ -1985,7 +1985,7 @@ define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr noundef nonnull r
   %22 = load i32, ptr %21, align 4, !tbaa !9
   %23 = icmp eq i32 %20, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %23, label %14, label %.critedge.loopexit, !llvm.loop !62
+  br i1 %23, label %14, label %.critedge.loopexit, !llvm.loop !61
 
 .critedge.thread:                                 ; preds = %.critedge.loopexit, %14, %2, %8
   %.020 = phi i32 [ -1, %8 ], [ %7, %2 ], [ %13, %14 ], [ -1, %.critedge.loopexit ]
@@ -2081,7 +2081,7 @@ _ZN6bufferIjLb1ELj16EE6expandEv.exit.i:           ; preds = %.noexc19, %._crit_e
   store i32 %36, ptr %6, align 8, !tbaa !16
   %37 = add i32 %.023, 1
   %exitcond.not = icmp eq i32 %37, %.sroa.speculated
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
 38:                                               ; preds = %26, %19
   %39 = landingpad { ptr, i32 }
@@ -2132,7 +2132,7 @@ define hidden noundef zeroext i1 @_ZNK7zstringeqERKS_(ptr noundef nonnull readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond.not = select i1 %.not10, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %10, label %.loopexit, !llvm.loop !64
+  br i1 %or.cond.not, label %10, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %10, %.preheader, %2
   %.09 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %.not10, %10 ]
@@ -2168,7 +2168,7 @@ define hidden noundef zeroext i1 @_ZNK7zstringneERKS_(ptr noundef nonnull readon
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %or.cond = select i1 %.not10.i.not, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZNK7zstringeqERKS_.exit, label %10, !llvm.loop !64
+  br i1 %or.cond, label %_ZNK7zstringeqERKS_.exit, label %10, !llvm.loop !63
 
 _ZNK7zstringeqERKS_.exit:                         ; preds = %10, %2, %.preheader.i
   %15 = phi i1 [ true, %2 ], [ false, %.preheader.i ], [ %.not10.i.not, %10 ]
@@ -2252,7 +2252,7 @@ define hidden noundef zeroext i1 @_ZltRK7zstringS1_(ptr noundef nonnull readonly
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !64
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -2386,7 +2386,7 @@ _ZN6bufferIjLb1ELj16EE6expandEv.exit.i:           ; preds = %.noexc17, %._crit_e
   store i32 %33, ptr %4, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 34:                                               ; preds = %2
   store ptr %6, ptr %0, align 8, !tbaa !13
@@ -2551,12 +2551,11 @@ attributes #22 = { builtin nounwind }
 !55 = distinct !{!55, !12}
 !56 = distinct !{!56, !12}
 !57 = distinct !{!57, !12}
-!58 = distinct !{!58, !12, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !12}
+!59 = distinct !{!59, !12}
 !60 = distinct !{!60, !12}
 !61 = distinct !{!61, !12}
 !62 = distinct !{!62, !12}
 !63 = distinct !{!63, !12}
 !64 = distinct !{!64, !12}
 !65 = distinct !{!65, !12}
-!66 = distinct !{!66, !12}

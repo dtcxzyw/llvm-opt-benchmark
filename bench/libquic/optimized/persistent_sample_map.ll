@@ -597,7 +597,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %42 = add nsw i32 %41, 1
   %43 = load i32, ptr %5, align 4, !tbaa !32
   %.not = icmp eq i32 %42, %43
-  br i1 %.not, label %.lr.ph9, label %._crit_edge, !llvm.loop !78
+  br i1 %.not, label %.lr.ph9, label %._crit_edge, !llvm.loop !76
 
 .lr.ph9:                                          ; preds = %.lr.ph.split, %37
   %44 = phi i32 [ %41, %37 ], [ %15, %.lr.ph.split ]
@@ -614,7 +614,7 @@ define noundef zeroext i1 @_ZN4base19PersistentSampleMap15AddSubtractImplEPNS_19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %55, label %._crit_edge, label %37, !llvm.loop !78
+  br i1 %55, label %._crit_edge, label %37, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph9, %18, %.lr.ph12, %.lr.ph.split.us, %.lr.ph.split, %3
   %.lcssa = phi i1 [ true, %3 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ %36, %.lr.ph12 ], [ %36, %18 ], [ %55, %.lr.ph9 ], [ %55, %37 ]
@@ -662,7 +662,7 @@ _ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE11lower_boundERS4_.exit: ; preds = %.l
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE11lower_boundERS4_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %.pre, ptr %15, align 8, !tbaa !79
+  store i32 %.pre, ptr %15, align 8, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr null, ptr %16, align 8, !tbaa !36
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 4 dereferenceable(4) %15)
@@ -754,13 +754,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4les
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !78
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %6 = load ptr, ptr %5, align 8, !tbaa !79
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #14
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -828,7 +828,7 @@ define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEP
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !79
+  %9 = load i32, ptr %8, align 8, !tbaa !77
   store i32 %9, ptr %1, align 4, !tbaa !32
   br label %10
 
@@ -840,7 +840,7 @@ define internal void @_ZNK4base12_GLOBAL__N_127PersistentSampleMapIterator3GetEP
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !79
+  %15 = load i32, ptr %14, align 8, !tbaa !77
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %2, align 4, !tbaa !32
   br label %17
@@ -909,7 +909,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !33
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !83
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !81
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -960,7 +960,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !80
+  %48 = load ptr, ptr %47, align 8, !tbaa !78
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -981,7 +981,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !33
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !83
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !81
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -1025,7 +1025,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !80
+  %74 = load ptr, ptr %73, align 8, !tbaa !78
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -1046,7 +1046,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !33
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !83
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !81
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -1192,11 +1192,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !73 = !{!65, !13, i64 0}
 !74 = !{!13, !13, i64 0}
 !75 = !{!65, !22, i64 12}
-!76 = distinct !{!76, !35, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !35}
-!79 = !{!37, !22, i64 0}
-!80 = !{!8, !11, i64 24}
-!81 = !{!8, !11, i64 16}
-!82 = distinct !{!82, !35}
-!83 = distinct !{!83, !35}
+!76 = distinct !{!76, !35}
+!77 = !{!37, !22, i64 0}
+!78 = !{!8, !11, i64 24}
+!79 = !{!8, !11, i64 16}
+!80 = distinct !{!80, !35}
+!81 = distinct !{!81, !35}

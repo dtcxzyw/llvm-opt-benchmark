@@ -2691,10 +2691,10 @@ define internal fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef readonly
 88:                                               ; preds = %83, %76, %67, %.preheader.split
   %89 = load ptr, ptr %60, align 8
   %90 = icmp eq ptr %89, %2
-  br i1 %90, label %.loopexit4, label %.preheader.split, !llvm.loop !62
+  br i1 %90, label %.loopexit4, label %.preheader.split, !llvm.loop !60
 
 .loopexit4:                                       ; preds = %88, %57, %.split
-  br i1 %26, label %.split, label %.loopexit, !llvm.loop !63
+  br i1 %26, label %.split, label %.loopexit, !llvm.loop !61
 
 91:                                               ; preds = %7
   %92 = getelementptr i8, ptr %5, i64 -64
@@ -2861,7 +2861,5 @@ attributes #14 = { nounwind memory(read) }
 !57 = distinct !{!57, !6, !7}
 !58 = distinct !{!58, !6, !7}
 !59 = distinct !{!59, !6, !7}
-!60 = distinct !{!60, !6, !7, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !6, !7}
-!63 = distinct !{!63, !47}
+!60 = distinct !{!60, !6, !7}
+!61 = distinct !{!61, !47}

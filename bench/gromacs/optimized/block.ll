@@ -227,7 +227,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %46 = load i32, ptr %3, align 8, !tbaa !4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
+  br i1 %48, label %.lr.ph.split, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %45, %30, %.preheader, %34, %5
   ret void
@@ -288,7 +288,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
   %29 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %smax
-  br i1 %exitcond.not, label %._crit_edge47, label %17, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge47, label %17, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %.03143 = phi i1 [ false, %38 ], [ true, %.lr.ph.preheader ]
@@ -334,8 +334,8 @@ define void @_Z14pr_listoflistsP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEEb(ptr nound
   %10 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %11 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %10)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
-  %14 = load ptr, ptr %3, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %14 = load ptr, ptr %3, align 8, !tbaa !28
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -352,8 +352,8 @@ define void @_Z14pr_listoflistsP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEEb(ptr nound
 _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = %7, %9
   %.0.i = phi i32 [ %10, %9 ], [ %1, %7 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
-  %28 = load ptr, ptr %3, align 8, !tbaa !30
+  %27 = load ptr, ptr %26, align 8, !tbaa !26
+  %28 = load ptr, ptr %3, align 8, !tbaa !28
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -368,8 +368,8 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
 35:                                               ; preds = %.lr.ph51, %._crit_edge
   %.050 = phi i64 [ 0, %.lr.ph51 ], [ %57, %._crit_edge ]
   %36 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
-  %37 = load ptr, ptr %33, align 8, !tbaa !30
-  %38 = load ptr, ptr %3, align 8, !tbaa !30
+  %37 = load ptr, ptr %33, align 8, !tbaa !28
+  %38 = load ptr, ptr %3, align 8, !tbaa !28
   %39 = getelementptr i32, ptr %38, i64 %.050
   %40 = load i32, ptr %39, align 4, !tbaa !13
   %41 = sext i32 %40 to i64
@@ -407,15 +407,15 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
 ._crit_edge:                                      ; preds = %74, %55
   %56 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
   %57 = add nuw nsw i64 %.050, 1
-  %58 = load ptr, ptr %26, align 8, !tbaa !28
-  %59 = load ptr, ptr %3, align 8, !tbaa !30
+  %58 = load ptr, ptr %26, align 8, !tbaa !26
+  %59 = load ptr, ptr %3, align 8, !tbaa !28
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 2
   %64 = add nsw i64 %63, -1
   %65 = icmp slt i64 %57, %64
-  br i1 %65, label %35, label %.loopexit, !llvm.loop !31
+  br i1 %65, label %35, label %.loopexit, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %.149 = phi i32 [ %76, %74 ], [ %.038, %.lr.ph.preheader ]
@@ -497,11 +497,9 @@ attributes #6 = { nounwind }
 !21 = !{!15, !9, i64 8}
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23}
-!28 = !{!29, !9, i64 8}
-!29 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!30 = !{!29, !9, i64 0}
-!31 = distinct !{!31, !23}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = !{!27, !9, i64 8}
+!27 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!28 = !{!27, !9, i64 0}
+!29 = distinct !{!29, !23}

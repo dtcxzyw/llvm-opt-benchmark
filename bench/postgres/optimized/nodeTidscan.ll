@@ -713,7 +713,7 @@ table_tuple_fetch_row_version.exit.us:            ; preds = %211
   %227 = icmp sgt i32 %226, -1
   %228 = icmp slt i32 %226, %184
   %or.cond.us = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond.us, label %.lr.ph46.split.us, label %.critedge, !llvm.loop !10
+  br i1 %or.cond.us, label %.lr.ph46.split.us, label %.critedge
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46, %251
   %229 = phi i32 [ %252, %251 ], [ %.sink, %.lr.ph46 ]
@@ -900,5 +900,3 @@ attributes #10 = { cold nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}

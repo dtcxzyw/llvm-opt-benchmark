@@ -1229,7 +1229,7 @@ define internal noundef i32 @derainbow16(ptr noundef readonly captures(none) %0,
 136:                                              ; preds = %.sink.split, %126, %122, %113, %107, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %98, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge.us, label %98, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %136
   %137 = getelementptr inbounds i16, ptr %.0168187.us, i64 %62
@@ -1240,7 +1240,7 @@ define internal noundef i32 @derainbow16(ptr noundef readonly captures(none) %0,
   %142 = getelementptr inbounds i16, ptr %.0166189.us, i64 %67
   %143 = add nsw i32 %.0165190.us, 1
   %exitcond197.not = icmp eq i32 %143, %17
-  br i1 %exitcond197.not, label %._crit_edge194, label %.preheader.us, !llvm.loop !91
+  br i1 %exitcond197.not, label %._crit_edge194, label %.preheader.us, !llvm.loop !90
 
 ._crit_edge194:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1392,7 +1392,6 @@ attributes #8 = { nounwind willreturn memory(read) }
 !85 = !{!86, !86, i64 0}
 !86 = !{!"short", !8, i64 0}
 !87 = distinct !{!87, !21}
-!88 = distinct !{!88, !21, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = distinct !{!88, !21}
+!89 = distinct !{!89, !21}
 !90 = distinct !{!90, !21}
-!91 = distinct !{!91, !21, !89}

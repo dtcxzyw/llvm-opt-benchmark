@@ -2636,7 +2636,7 @@ define dso_local void @addListListpackRangeReply(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = add nsw i32 %21, -1
   %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !105
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %22, %16, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2878,7 +2878,7 @@ listTypeLength.exit:                              ; preds = %20, %24
 .critedge:                                        ; preds = %listTypeLength.exit, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.critedge, %5
   tail call void @addReplyNullArray(ptr noundef %0) #9
@@ -3277,7 +3277,7 @@ define dso_local void @lposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %48 = load i32, ptr %10, align 8, !tbaa !86
   %49 = trunc nuw i64 %indvars.iv.next to i32
   %.not94 = icmp sgt i32 %48, %49
-  br i1 %.not94, label %.lr.ph, label %.critedge108, !llvm.loop !107
+  br i1 %.not94, label %.lr.ph, label %.critedge108, !llvm.loop !105
 
 .critedge108:                                     ; preds = %47
   %.pre = load i64, ptr %2, align 8, !tbaa !12
@@ -3489,7 +3489,7 @@ sdslen.exit:                                      ; preds = %listTypeLength.exit
   %148 = add nuw nsw i64 %.079115.us, 1
   %149 = call i32 @listTypeNext(ptr noundef nonnull %80, ptr noundef nonnull %5)
   %.not97.us = icmp eq i32 %149, 0
-  br i1 %.not97.us, label %.critedge, label %.lr.ph118.split.us, !llvm.loop !108
+  br i1 %.not97.us, label %.critedge, label %.lr.ph118.split.us, !llvm.loop !106
 
 .lr.ph118.split:                                  ; preds = %.lr.ph118
   br i1 %53, label %.lr.ph118.split.split.us, label %.lr.ph118.split.split
@@ -3537,7 +3537,7 @@ sdslen.exit:                                      ; preds = %listTypeLength.exit
   %169 = add nuw nsw i64 %.079115.us138, 1
   %170 = call i32 @listTypeNext(ptr noundef nonnull %80, ptr noundef nonnull %5)
   %.not97.us142 = icmp eq i32 %170, 0
-  br i1 %.not97.us142, label %.critedge, label %.lr.ph118.split.split.us, !llvm.loop !109
+  br i1 %.not97.us142, label %.critedge, label %.lr.ph118.split.split.us, !llvm.loop !106
 
 .lr.ph118.split.split:                            ; preds = %.lr.ph118.split, %187
   %.074117 = phi i64 [ %.2, %187 ], [ 0, %.lr.ph118.split ]
@@ -3580,7 +3580,7 @@ sdslen.exit:                                      ; preds = %listTypeLength.exit
   %188 = add nuw nsw i64 %.079115, 1
   %189 = call i32 @listTypeNext(ptr noundef nonnull %80, ptr noundef nonnull %5)
   %.not97 = icmp eq i32 %189, 0
-  br i1 %.not97, label %.critedge, label %.lr.ph118.split.split, !llvm.loop !110
+  br i1 %.not97, label %.critedge, label %.lr.ph118.split.split, !llvm.loop !106
 
 .critedge:                                        ; preds = %.lr.ph118.split.split, %183, %187, %.lr.ph118.split.split.us, %164, %168, %.lr.ph118.split.us, %147, %..critedge_crit_edge120.split.us, %sdslen.exit
   %.176 = phi i64 [ %146, %..critedge_crit_edge120.split.us ], [ -1, %sdslen.exit ], [ -1, %147 ], [ -1, %.lr.ph118.split.us ], [ -1, %168 ], [ %159, %164 ], [ -1, %.lr.ph118.split.split.us ], [ -1, %187 ], [ %.079115, %183 ], [ -1, %.lr.ph118.split.split ]
@@ -3827,7 +3827,7 @@ sdslen.exit:                                      ; preds = %listTypeInitIterato
   %.2 = phi i64 [ %92, %89 ], [ %.051, %.lr.ph ]
   %96 = call i32 @listTypeNext(ptr noundef nonnull %.037, ptr noundef nonnull %3)
   %.not44 = icmp eq i32 %96, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %95, %89, %sdslen.exit
   %.1 = phi i64 [ 0, %sdslen.exit ], [ %92, %89 ], [ %.2, %95 ]
@@ -4120,14 +4120,14 @@ listTypeLength.exit:                              ; preds = %21, %25
   tail call void @listElementsRemoved(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %1, ptr noundef nonnull %13, i64 noundef 1, i32 noundef 1, ptr noundef null)
   tail call void @decrRefCount(ptr noundef nonnull %44) #9
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %51 = load ptr, ptr %50, align 8, !tbaa !112
+  %51 = load ptr, ptr %50, align 8, !tbaa !108
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  %53 = load ptr, ptr %52, align 8, !tbaa !113
+  %53 = load ptr, ptr %52, align 8, !tbaa !109
   %54 = icmp eq ptr %53, @blmoveCommand
   br i1 %54, label %55, label %66
 
 55:                                               ; preds = %46
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 448), align 8, !tbaa !119
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 448), align 8, !tbaa !115
   %57 = load ptr, ptr %4, align 8, !tbaa !83
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !48
@@ -4145,7 +4145,7 @@ listTypeLength.exit:                              ; preds = %21, %25
   br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %66
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 440), align 8, !tbaa !120
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 440), align 8, !tbaa !116
   %70 = load ptr, ptr %4, align 8, !tbaa !83
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !48
@@ -4408,11 +4408,11 @@ listTypeLength.exit:                              ; preds = %28, %32
 .critedge:                                        ; preds = %listTypeLength.exit, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load i64, ptr %54, align 8, !tbaa !122
+  %55 = load i64, ptr %54, align 8, !tbaa !118
   %56 = and i64 %55, 2199023255552
   %.not57 = icmp eq i64 %56, 0
   br i1 %.not57, label %58, label %57
@@ -4480,7 +4480,7 @@ define dso_local void @blmoveGenericCommand(ptr noundef %0, i32 noundef %1, i32 
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !122
+  %17 = load i64, ptr %16, align 8, !tbaa !118
   %18 = and i64 %17, 2199023255552
   %.not16 = icmp eq i64 %18, 0
   br i1 %.not16, label %20, label %19
@@ -4627,7 +4627,7 @@ getListPositionFromObjectOrReply.exit:            ; preds = %29
   %53 = load ptr, ptr %52, align 8, !tbaa !48
   %54 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %53, i64 noundef 1, i64 noundef 9223372036854775807, ptr noundef nonnull %5, ptr noundef nonnull @.str.30) #9
   %.not38 = icmp eq i32 %54, 0
-  br i1 %.not38, label %34, label %.loopexit, !llvm.loop !123
+  br i1 %.not38, label %34, label %.loopexit, !llvm.loop !119
 
 .critedge:                                        ; preds = %41, %40
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !91
@@ -4820,24 +4820,20 @@ attributes #12 = { nounwind allocsize(0) }
 !100 = !{!66, !13, i64 40}
 !101 = !{!66, !24, i64 32}
 !102 = distinct !{!102, !54}
-!103 = distinct !{!103, !54, !104}
-!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!103 = distinct !{!103, !54}
+!104 = distinct !{!104, !54}
 !105 = distinct !{!105, !54}
 !106 = distinct !{!106, !54}
 !107 = distinct !{!107, !54}
-!108 = distinct !{!108, !54, !104}
-!109 = distinct !{!109, !54, !104}
-!110 = distinct !{!110, !54}
-!111 = distinct !{!111, !54}
-!112 = !{!74, !76, i64 128}
-!113 = !{!114, !11, i64 96}
-!114 = !{!"redisCommand", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !8, i64 32, !18, i64 40, !18, i64 48, !8, i64 56, !11, i64 64, !8, i64 72, !19, i64 80, !8, i64 88, !11, i64 96, !8, i64 104, !13, i64 112, !13, i64 120, !11, i64 128, !8, i64 136, !11, i64 144, !8, i64 152, !76, i64 160, !115, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !24, i64 200, !8, i64 208, !18, i64 216, !116, i64 224, !117, i64 232, !21, i64 288, !76, i64 296, !118, i64 304}
-!115 = !{!"p1 _ZTS15redisCommandArg", !11, i64 0}
-!116 = !{!"p1 _ZTS13hdr_histogram", !11, i64 0}
-!117 = !{!"", !18, i64 0, !13, i64 8, !8, i64 16, !9, i64 24, !8, i64 40, !9, i64 44}
-!118 = !{!"p1 _ZTS18RedisModuleCommand", !11, i64 0}
-!119 = !{!85, !49, i64 448}
-!120 = !{!85, !49, i64 440}
-!121 = distinct !{!121, !54}
-!122 = !{!74, !13, i64 8}
-!123 = distinct !{!123, !54}
+!108 = !{!74, !76, i64 128}
+!109 = !{!110, !11, i64 96}
+!110 = !{!"redisCommand", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !8, i64 32, !18, i64 40, !18, i64 48, !8, i64 56, !11, i64 64, !8, i64 72, !19, i64 80, !8, i64 88, !11, i64 96, !8, i64 104, !13, i64 112, !13, i64 120, !11, i64 128, !8, i64 136, !11, i64 144, !8, i64 152, !76, i64 160, !111, i64 168, !24, i64 176, !24, i64 184, !24, i64 192, !24, i64 200, !8, i64 208, !18, i64 216, !112, i64 224, !113, i64 232, !21, i64 288, !76, i64 296, !114, i64 304}
+!111 = !{!"p1 _ZTS15redisCommandArg", !11, i64 0}
+!112 = !{!"p1 _ZTS13hdr_histogram", !11, i64 0}
+!113 = !{!"", !18, i64 0, !13, i64 8, !8, i64 16, !9, i64 24, !8, i64 40, !9, i64 44}
+!114 = !{!"p1 _ZTS18RedisModuleCommand", !11, i64 0}
+!115 = !{!85, !49, i64 448}
+!116 = !{!85, !49, i64 440}
+!117 = distinct !{!117, !54}
+!118 = !{!74, !13, i64 8}
+!119 = distinct !{!119, !54}

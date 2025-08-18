@@ -3816,113 +3816,135 @@ get_CDR_ulong.exit:                               ; preds = %38, %40
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %get_CDR_short.exit59.us
-  %.060.us = phi i32 [ %61, %get_CDR_short.exit59.us ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %4, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %get_CDR_short.exit59.us.us
+  %.060.us.us = phi i32 [ %57, %get_CDR_short.exit59.us.us ], [ 0, %.lr.ph.split.us ]
   %47 = load i32, ptr @hf_giop_typecode_member_name, align 4
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %47, ptr noundef nonnull %10)
   %48 = load ptr, ptr %30, align 8
   %49 = tail call noalias ptr @wmem_list_new(ptr noundef %48)
   %50 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %49)
   tail call void @wmem_destroy_list(ptr noundef %49)
-  %.promoted.i54.us = load i32, ptr %3, align 4
-  %51 = add i32 %.promoted.i54.us, %5
+  %.promoted.i54.us.us = load i32, ptr %3, align 4
+  %51 = add i32 %.promoted.i54.us.us, %5
   %52 = and i32 %51, 1
-  %.not9.i55.us = icmp eq i32 %52, 0
-  br i1 %.not9.i55.us, label %54, label %.lr.ph.preheader.i56.us
+  %.not9.i55.us.us = icmp eq i32 %52, 0
+  br i1 %.not9.i55.us.us, label %get_CDR_short.exit59.us.us, label %.lr.ph.preheader.i56.us.us
 
-.lr.ph.preheader.i56.us:                          ; preds = %.lr.ph.split.us
-  %53 = add i32 %.promoted.i54.us, 1
+.lr.ph.preheader.i56.us.us:                       ; preds = %.lr.ph.split.us.split.us
+  %53 = add i32 %.promoted.i54.us.us, 1
   store i32 %53, ptr %3, align 4
-  br label %54
+  br label %get_CDR_short.exit59.us.us
 
-54:                                               ; preds = %.lr.ph.preheader.i56.us, %.lr.ph.split.us
-  %.lcssa.i57.us = phi i32 [ %53, %.lr.ph.preheader.i56.us ], [ %.promoted.i54.us, %.lr.ph.split.us ]
-  br i1 %4, label %57, label %55
+get_CDR_short.exit59.us.us:                       ; preds = %.lr.ph.preheader.i56.us.us, %.lr.ph.split.us.split.us
+  %.lcssa.i57.us.us = phi i32 [ %53, %.lr.ph.preheader.i56.us.us ], [ %.promoted.i54.us.us, %.lr.ph.split.us.split.us ]
+  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i57.us.us)
+  %55 = load i32, ptr %3, align 4
+  %56 = add i32 %55, 2
+  store i32 %56, ptr %3, align 4
+  %57 = add nuw i32 %.060.us.us, 1
+  %exitcond74.not = icmp eq i32 %57, %42
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !38
 
-55:                                               ; preds = %54
-  %56 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i57.us)
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %get_CDR_short.exit59.us
+  %.060.us = phi i32 [ %68, %get_CDR_short.exit59.us ], [ 0, %.lr.ph.split.us ]
+  %58 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %58, ptr noundef nonnull %10)
+  %59 = load ptr, ptr %30, align 8
+  %60 = tail call noalias ptr @wmem_list_new(ptr noundef %59)
+  %61 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %60)
+  tail call void @wmem_destroy_list(ptr noundef %60)
+  %.promoted.i54.us = load i32, ptr %3, align 4
+  %62 = add i32 %.promoted.i54.us, %5
+  %63 = and i32 %62, 1
+  %.not9.i55.us = icmp eq i32 %63, 0
+  br i1 %.not9.i55.us, label %get_CDR_short.exit59.us, label %.lr.ph.preheader.i56.us
+
+.lr.ph.preheader.i56.us:                          ; preds = %.lr.ph.split.us.split
+  %64 = add i32 %.promoted.i54.us, 1
+  store i32 %64, ptr %3, align 4
   br label %get_CDR_short.exit59.us
 
-57:                                               ; preds = %54
-  %58 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i57.us)
-  br label %get_CDR_short.exit59.us
-
-get_CDR_short.exit59.us:                          ; preds = %57, %55
-  %59 = load i32, ptr %3, align 4
-  %60 = add i32 %59, 2
-  store i32 %60, ptr %3, align 4
-  %61 = add nuw i32 %.060.us, 1
-  %exitcond72.not = icmp eq i32 %61, %42
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !38
+get_CDR_short.exit59.us:                          ; preds = %.lr.ph.preheader.i56.us, %.lr.ph.split.us.split
+  %.lcssa.i57.us = phi i32 [ %64, %.lr.ph.preheader.i56.us ], [ %.promoted.i54.us, %.lr.ph.split.us.split ]
+  %65 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i57.us)
+  %66 = load i32, ptr %3, align 4
+  %67 = add i32 %66, 2
+  store i32 %67, ptr %3, align 4
+  %68 = add nuw i32 %.060.us, 1
+  %exitcond73.not = icmp eq i32 %68, %42
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %4, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %get_CDR_short.exit59.us66
-  %.060.us61 = phi i32 [ %75, %get_CDR_short.exit59.us66 ], [ 0, %.lr.ph.split ]
-  %62 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %62, ptr noundef nonnull %10)
-  %63 = load ptr, ptr %30, align 8
-  %64 = tail call noalias ptr @wmem_list_new(ptr noundef %63)
-  %65 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %64)
-  tail call void @wmem_destroy_list(ptr noundef %64)
+  %.060.us61 = phi i32 [ %82, %get_CDR_short.exit59.us66 ], [ 0, %.lr.ph.split ]
+  %69 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %69, ptr noundef nonnull %10)
+  %70 = load ptr, ptr %30, align 8
+  %71 = tail call noalias ptr @wmem_list_new(ptr noundef %70)
+  %72 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %71)
+  tail call void @wmem_destroy_list(ptr noundef %71)
   %.promoted.i54.us62 = load i32, ptr %3, align 4
-  %66 = add i32 %.promoted.i54.us62, %5
-  %67 = and i32 %66, 1
-  %.not9.i55.us63 = icmp eq i32 %67, 0
+  %73 = add i32 %.promoted.i54.us62, %5
+  %74 = and i32 %73, 1
+  %.not9.i55.us63 = icmp eq i32 %74, 0
   br i1 %.not9.i55.us63, label %get_CDR_short.exit59.us66, label %.lr.ph.preheader.i56.us64
 
 .lr.ph.preheader.i56.us64:                        ; preds = %.lr.ph.split.split.us
-  %68 = add i32 %.promoted.i54.us62, 1
-  store i32 %68, ptr %3, align 4
+  %75 = add i32 %.promoted.i54.us62, 1
+  store i32 %75, ptr %3, align 4
   br label %get_CDR_short.exit59.us66
 
 get_CDR_short.exit59.us66:                        ; preds = %.lr.ph.preheader.i56.us64, %.lr.ph.split.split.us
-  %.lcssa.i57.us65 = phi i32 [ %68, %.lr.ph.preheader.i56.us64 ], [ %.promoted.i54.us62, %.lr.ph.split.split.us ]
-  %69 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i57.us65)
-  %70 = load i32, ptr %3, align 4
-  %71 = add i32 %70, 2
-  store i32 %71, ptr %3, align 4
-  %72 = load i32, ptr @hf_giop_typecode_Visibility, align 4
-  %73 = sext i16 %69 to i32
-  %74 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %72, ptr noundef %0, i32 noundef %70, i32 noundef 2, i32 noundef %73)
-  %75 = add nuw i32 %.060.us61, 1
-  %exitcond71.not = icmp eq i32 %75, %42
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !40
+  %.lcssa.i57.us65 = phi i32 [ %75, %.lr.ph.preheader.i56.us64 ], [ %.promoted.i54.us62, %.lr.ph.split.split.us ]
+  %76 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.lcssa.i57.us65)
+  %77 = load i32, ptr %3, align 4
+  %78 = add i32 %77, 2
+  store i32 %78, ptr %3, align 4
+  %79 = load i32, ptr @hf_giop_typecode_Visibility, align 4
+  %80 = sext i16 %76 to i32
+  %81 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef %80)
+  %82 = add nuw i32 %.060.us61, 1
+  %exitcond72.not = icmp eq i32 %82, %42
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !38
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %get_CDR_short.exit59
-  %.060 = phi i32 [ %89, %get_CDR_short.exit59 ], [ 0, %.lr.ph.split ]
-  %76 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %76, ptr noundef nonnull %10)
-  %77 = load ptr, ptr %30, align 8
-  %78 = tail call noalias ptr @wmem_list_new(ptr noundef %77)
-  %79 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %78)
-  tail call void @wmem_destroy_list(ptr noundef %78)
+  %.060 = phi i32 [ %96, %get_CDR_short.exit59 ], [ 0, %.lr.ph.split ]
+  %83 = load i32, ptr @hf_giop_typecode_member_name, align 4
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, i32 noundef %83, ptr noundef nonnull %10)
+  %84 = load ptr, ptr %30, align 8
+  %85 = tail call noalias ptr @wmem_list_new(ptr noundef %84)
+  %86 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %13, i32 noundef %14, ptr noundef %6, ptr noundef %85)
+  tail call void @wmem_destroy_list(ptr noundef %85)
   %.promoted.i54 = load i32, ptr %3, align 4
-  %80 = add i32 %.promoted.i54, %5
-  %81 = and i32 %80, 1
-  %.not9.i55 = icmp eq i32 %81, 0
+  %87 = add i32 %.promoted.i54, %5
+  %88 = and i32 %87, 1
+  %.not9.i55 = icmp eq i32 %88, 0
   br i1 %.not9.i55, label %get_CDR_short.exit59, label %.lr.ph.preheader.i56
 
 .lr.ph.preheader.i56:                             ; preds = %.lr.ph.split.split
-  %82 = add i32 %.promoted.i54, 1
-  store i32 %82, ptr %3, align 4
+  %89 = add i32 %.promoted.i54, 1
+  store i32 %89, ptr %3, align 4
   br label %get_CDR_short.exit59
 
 get_CDR_short.exit59:                             ; preds = %.lr.ph.preheader.i56, %.lr.ph.split.split
-  %.lcssa.i57 = phi i32 [ %82, %.lr.ph.preheader.i56 ], [ %.promoted.i54, %.lr.ph.split.split ]
-  %83 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i57)
-  %84 = load i32, ptr %3, align 4
-  %85 = add i32 %84, 2
-  store i32 %85, ptr %3, align 4
-  %86 = load i32, ptr @hf_giop_typecode_Visibility, align 4
-  %87 = sext i16 %83 to i32
-  %88 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 2, i32 noundef %87)
-  %89 = add nuw i32 %.060, 1
-  %exitcond.not = icmp eq i32 %89, %42
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !41
+  %.lcssa.i57 = phi i32 [ %89, %.lr.ph.preheader.i56 ], [ %.promoted.i54, %.lr.ph.split.split ]
+  %90 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.lcssa.i57)
+  %91 = load i32, ptr %3, align 4
+  %92 = add i32 %91, 2
+  store i32 %92, ptr %3, align 4
+  %93 = load i32, ptr @hf_giop_typecode_Visibility, align 4
+  %94 = sext i16 %90 to i32
+  %95 = tail call ptr @proto_tree_add_int(ptr noundef nonnull %2, i32 noundef %93, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef %94)
+  %96 = add nuw i32 %.060, 1
+  %exitcond.not = icmp eq i32 %96, %42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %get_CDR_short.exit59, %get_CDR_short.exit59.us66, %get_CDR_short.exit59.us, %get_CDR_ulong.exit
+._crit_edge:                                      ; preds = %get_CDR_short.exit59, %get_CDR_short.exit59.us66, %get_CDR_short.exit59.us, %get_CDR_short.exit59.us.us, %get_CDR_ulong.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4701,7 +4723,7 @@ get_CDR_ulong.exit152:                            ; preds = %116, %118
   %138 = load i32, ptr @hf_giop_req_principal, align 4
   %139 = load ptr, ptr %130, align 8
   %140 = call noalias ptr @wmem_alloc0(ptr noundef %139, i64 noundef %133) #17
-  %141 = call ptr @__memcpy_chk(ptr noundef %140, ptr noundef readonly %134, i64 noundef range(i64 0, 4294967296) %135, i64 noundef %133) #18, !alias.scope !42
+  %141 = call ptr @__memcpy_chk(ptr noundef %140, ptr noundef readonly %134, i64 noundef range(i64 0, 4294967296) %135, i64 noundef %133) #18, !alias.scope !39
   %142 = load ptr, ptr @g_ascii_table, align 8
   br label %143
 
@@ -4970,7 +4992,7 @@ get_CDR_string.exit:                              ; preds = %42, %44
   %67 = add i32 %66, 1
   %68 = and i32 %67, 7
   %.not.i83 = icmp eq i32 %68, 4
-  br i1 %.not.i83, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i83, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   store i32 %67, ptr %7, align 4
@@ -5210,7 +5232,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
   %78 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !47
+  br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !44
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %43, %76
   %.012.i = phi i32 [ %77, %76 ], [ %45, %43 ], [ %45, %cmp_address.exit.thread.i ]
@@ -5312,7 +5334,7 @@ get_CDR_ulong.exit46:                             ; preds = %20, %22
   %31 = add i32 %30, 1
   %32 = and i32 %31, 7
   %.not.i = icmp eq i32 %32, 4
-  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %set_new_alignment.exit, label %.lr.ph.i, !llvm.loop !43
 
 set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_ulong.exit46
   %33 = phi i32 [ %.promoted.i47, %get_CDR_ulong.exit46 ], [ %31, %.lr.ph.i ]
@@ -5389,7 +5411,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
   %74 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %75 = load ptr, ptr %74, align 8
   %.not.i49 = icmp eq ptr %75, null
-  br i1 %.not.i49, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !47
+  br i1 %.not.i49, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !44
 
 get_mfn_from_fn_and_reqid.exit:                   ; preds = %cmp_address.exit.thread.i, %39, %72
   %.012.i = phi i32 [ %73, %72 ], [ %41, %39 ], [ %41, %cmp_address.exit.thread.i ]
@@ -5576,7 +5598,7 @@ get_CDR_ulong.exit32:                             ; preds = %19, %21
   %30 = and i32 %29, 7
   %.not = icmp eq i32 %30, 4
   %31 = add i32 %29, 1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader
   store i32 %29, ptr %6, align 4
@@ -5911,7 +5933,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %103, %105
   call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %127)
   %128 = add nuw i32 %.0105, 1
   %exitcond.not = icmp eq i32 %128, %21
-  br i1 %exitcond.not, label %129, label %.preheader, !llvm.loop !49
+  br i1 %exitcond.not, label %129, label %.preheader, !llvm.loop !46
 
 129:                                              ; preds = %126
   %130 = load ptr, ptr %7, align 8
@@ -6338,7 +6360,7 @@ get_CDR_ulong.exit144.i:                          ; preds = %183, %181
   %207 = load i32, ptr @hf_giop_component_data, align 4
   %208 = load ptr, ptr %161, align 8
   %209 = call noalias ptr @wmem_alloc0(ptr noundef %208, i64 noundef %200) #17
-  %210 = call ptr @__memcpy_chk(ptr noundef %209, ptr noundef readonly %201, i64 noundef range(i64 0, 4294967296) %203, i64 noundef %200) #18, !alias.scope !50
+  %210 = call ptr @__memcpy_chk(ptr noundef %209, ptr noundef readonly %201, i64 noundef range(i64 0, 4294967296) %203, i64 noundef %200) #18, !alias.scope !47
   br label %211
 
 211:                                              ; preds = %219, %.lr.ph.i.i
@@ -6368,7 +6390,7 @@ make_printable_string.exit.i:                     ; preds = %219
 221:                                              ; preds = %make_printable_string.exit.i, %196
   %222 = add nuw i32 %.0148.i, 1
   %exitcond.not.i = icmp eq i32 %222, %156
-  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %163, !llvm.loop !54
+  br i1 %exitcond.not.i, label %decode_IIOP_IOR_profile.exit, label %163, !llvm.loop !51
 
 223:                                              ; preds = %146
   %224 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %46, ptr noundef nonnull @ei_giop_invalid_v_minor, ptr noundef nonnull @.str.272, i32 noundef %45)
@@ -6402,7 +6424,7 @@ make_printable_string.exit.i:                     ; preds = %219
   %244 = load i32, ptr @hf_giop_profile_data, align 4
   %245 = load ptr, ptr %234, align 8
   %246 = tail call noalias ptr @wmem_alloc0(ptr noundef %245, i64 noundef %237) #17
-  %247 = tail call ptr @__memcpy_chk(ptr noundef %246, ptr noundef readonly %238, i64 noundef range(i64 0, 4294967296) %240, i64 noundef %237) #18, !alias.scope !55
+  %247 = tail call ptr @__memcpy_chk(ptr noundef %246, ptr noundef readonly %238, i64 noundef range(i64 0, 4294967296) %240, i64 noundef %237) #18, !alias.scope !52
   %.not13.i = icmp eq i32 %226, 0
   br i1 %.not13.i, label %make_printable_string.exit, label %.lr.ph.i36
 
@@ -6558,7 +6580,7 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
   %43 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !59
+  br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !56
 
 find_fn_in_list.exit.i:                           ; preds = %.lr.ph.i.i
   %.not.i35 = icmp eq ptr %39, null
@@ -6713,7 +6735,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %14, %is_big_en
 .critedge:                                        ; preds = %.thread, %.lr.ph
   %66 = add nuw nsw i32 %.04762, 1
   %exitcond.not = icmp eq i32 %66, %9
-  br i1 %exitcond.not, label %.critedge._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.critedge._crit_edge, label %.lr.ph, !llvm.loop !57
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6754,7 +6776,7 @@ define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr no
   %18 = load i32, ptr @hf_giop_context_data, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %11) #17
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %12, i64 noundef range(i64 0, 4294967296) %14, i64 noundef %11) #18, !alias.scope !61
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %12, i64 noundef range(i64 0, 4294967296) %14, i64 noundef %11) #18, !alias.scope !58
   %22 = load ptr, ptr @g_ascii_table, align 8
   br label %23
 
@@ -6931,7 +6953,7 @@ get_CDR_ulong.exit:                               ; preds = %24, %26
   %51 = load i32, ptr @hf_giop_target_address_key_addr, align 4
   %52 = load ptr, ptr %40, align 8
   %53 = tail call noalias ptr @wmem_alloc0(ptr noundef %52, i64 noundef %44) #17
-  %54 = tail call ptr @__memcpy_chk(ptr noundef %53, ptr noundef readonly %45, i64 noundef range(i64 0, 4294967296) %47, i64 noundef %44) #18, !alias.scope !65
+  %54 = tail call ptr @__memcpy_chk(ptr noundef %53, ptr noundef readonly %45, i64 noundef range(i64 0, 4294967296) %47, i64 noundef %44) #18, !alias.scope !62
   %55 = load ptr, ptr @g_ascii_table, align 8
   br label %56
 
@@ -7113,7 +7135,7 @@ get_mfn_from_fn.exit:                             ; preds = %37, %42
   %53 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not.i74 = icmp eq ptr %54, null
-  br i1 %.not.i74, label %.critedge, label %.lr.ph.i, !llvm.loop !59
+  br i1 %.not.i74, label %.critedge, label %.lr.ph.i, !llvm.loop !56
 
 find_fn_in_list.exit:                             ; preds = %.lr.ph.i
   %.not = icmp eq ptr %49, null
@@ -7424,7 +7446,7 @@ define internal i32 @giop_hash_objkey_hash(ptr noundef readonly captures(none) %
   %9 = add i32 %.09, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %5, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %9, %5 ]
@@ -7586,35 +7608,32 @@ attributes #21 = { allocsize(2) }
 !35 = distinct !{!35, !11}
 !36 = distinct !{!36, !11}
 !37 = distinct !{!37, !11}
-!38 = distinct !{!38, !11, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !11, !39}
-!41 = distinct !{!41, !11}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
-!44 = distinct !{!44, !"memcpy.inline"}
-!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
+!38 = distinct !{!38, !11}
+!39 = !{!40, !42}
+!40 = distinct !{!40, !41, !"memcpy.inline: argument 0"}
+!41 = distinct !{!41, !"memcpy.inline"}
+!42 = distinct !{!42, !41, !"memcpy.inline: argument 1"}
+!43 = distinct !{!43, !11}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !11}
 !46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11}
-!50 = !{!51, !53}
-!51 = distinct !{!51, !52, !"memcpy.inline: argument 0"}
-!52 = distinct !{!52, !"memcpy.inline"}
-!53 = distinct !{!53, !52, !"memcpy.inline: argument 1"}
-!54 = distinct !{!54, !11}
-!55 = !{!56, !58}
-!56 = distinct !{!56, !57, !"memcpy.inline: argument 0"}
-!57 = distinct !{!57, !"memcpy.inline"}
-!58 = distinct !{!58, !57, !"memcpy.inline: argument 1"}
-!59 = distinct !{!59, !11}
-!60 = distinct !{!60, !11}
-!61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"memcpy.inline: argument 0"}
-!63 = distinct !{!63, !"memcpy.inline"}
-!64 = distinct !{!64, !63, !"memcpy.inline: argument 1"}
-!65 = !{!66, !68}
-!66 = distinct !{!66, !67, !"memcpy.inline: argument 0"}
-!67 = distinct !{!67, !"memcpy.inline"}
-!68 = distinct !{!68, !67, !"memcpy.inline: argument 1"}
-!69 = distinct !{!69, !11}
+!47 = !{!48, !50}
+!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
+!49 = distinct !{!49, !"memcpy.inline"}
+!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
+!51 = distinct !{!51, !11}
+!52 = !{!53, !55}
+!53 = distinct !{!53, !54, !"memcpy.inline: argument 0"}
+!54 = distinct !{!54, !"memcpy.inline"}
+!55 = distinct !{!55, !54, !"memcpy.inline: argument 1"}
+!56 = distinct !{!56, !11}
+!57 = distinct !{!57, !11}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"memcpy.inline: argument 0"}
+!60 = distinct !{!60, !"memcpy.inline"}
+!61 = distinct !{!61, !60, !"memcpy.inline: argument 1"}
+!62 = !{!63, !65}
+!63 = distinct !{!63, !64, !"memcpy.inline: argument 0"}
+!64 = distinct !{!64, !"memcpy.inline"}
+!65 = distinct !{!65, !64, !"memcpy.inline: argument 1"}
+!66 = distinct !{!66, !11}

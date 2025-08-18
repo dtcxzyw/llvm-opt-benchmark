@@ -1707,7 +1707,7 @@ align_get_bits.exit.us:                           ; preds = %49
   %.138.us = phi i32 [ %.03769.us, %39 ], [ %50, %align_get_bits.exit.us ]
   %.1.us = phi ptr [ %.070.us, %39 ], [ %51, %align_get_bits.exit.us ]
   %56 = icmp sgt i32 %.sroa.7.2.us, %12
-  br i1 %56, label %.loopexit, label %.preheader.us, !llvm.loop !77
+  br i1 %56, label %.loopexit, label %.preheader.us
 
 .split:                                           ; preds = %10, %136
   %.070 = phi ptr [ %.1, %136 ], [ %0, %10 ]
@@ -1971,5 +1971,3 @@ attributes #17 = { noreturn nounwind }
 !74 = distinct !{!74, !35}
 !75 = !{!31, !10, i64 65892}
 !76 = distinct !{!76, !35}
-!77 = distinct !{!77, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}

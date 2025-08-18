@@ -2142,7 +2142,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %272 = load ptr, ptr %23, align 8, !tbaa !153
   %273 = load i32, ptr %272, align 4, !tbaa !3
   %274 = icmp slt i32 %271, %273
-  br i1 %274, label %110, label %._crit_edge.i.i.i, !llvm.loop !182
+  br i1 %274, label %110, label %._crit_edge.i.i.i, !llvm.loop !181
 
 275:                                              ; preds = %110
   %276 = landingpad { ptr, i32 }
@@ -2177,7 +2177,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit.i.i.i:      ; preds = %282, %_ZN2cv10AutoB
   %283 = load i32, ptr %6, align 4, !tbaa !86
   %284 = sext i32 %283 to i64
   %285 = icmp slt i64 %indvars.iv.next195.i.i.i, %284
-  br i1 %285, label %44, label %"_ZSt10__invoke_rIvRZN2cv3dnn13runWinograd63ERKNS0_11_InputArrayES4_RKNS0_12_OutputArrayERKNS0_3PtrINS1_8FastConvEEEiffPNS1_14dnn4_v2024122315ActivationLayerEbE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESN_E4typeEOSQ_DpOSR_.exit", !llvm.loop !183
+  br i1 %285, label %44, label %"_ZSt10__invoke_rIvRZN2cv3dnn13runWinograd63ERKNS0_11_InputArrayES4_RKNS0_12_OutputArrayERKNS0_3PtrINS1_8FastConvEEEiffPNS1_14dnn4_v2024122315ActivationLayerEbE3$_1JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESN_E4typeEOSQ_DpOSR_.exit", !llvm.loop !182
 
 286:                                              ; preds = %275, %.split.us.i.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %268, %.split.us.i.i.i ], [ %276, %275 ]
@@ -2232,7 +2232,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %7, ptr noundef nonnull readonly align 8 dereferenceable(216) %.val6, i64 216, i1 false), !tbaa.struct !184
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(216) %7, ptr noundef nonnull readonly align 8 dereferenceable(216) %.val6, i64 216, i1 false), !tbaa.struct !183
   store ptr %7, ptr %0, align 8, !tbaa !96
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3dnn13runWinograd63ERKNS1_11_InputArrayES5_RKNS1_12_OutputArrayERKNS1_3PtrINS2_8FastConvEEEiffPNS2_14dnn4_v2024122315ActivationLayerEbE3$_1E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit"
 
@@ -2476,8 +2476,7 @@ attributes #21 = { nounwind }
 !177 = !{!144, !107, i64 208}
 !178 = distinct !{!178, !111}
 !179 = distinct !{!179, !111}
-!180 = distinct !{!180, !111, !181}
-!181 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!180 = distinct !{!180, !111}
+!181 = distinct !{!181, !111}
 !182 = distinct !{!182, !111}
-!183 = distinct !{!183, !111}
-!184 = !{i64 0, i64 8, !87, i64 8, i64 8, !87, i64 16, i64 8, !87, i64 24, i64 8, !87, i64 32, i64 8, !87, i64 40, i64 8, !87, i64 48, i64 8, !87, i64 56, i64 8, !87, i64 64, i64 8, !87, i64 72, i64 8, !87, i64 80, i64 8, !88, i64 88, i64 8, !88, i64 96, i64 8, !94, i64 104, i64 8, !87, i64 112, i64 8, !87, i64 120, i64 8, !102, i64 128, i64 8, !87, i64 136, i64 8, !87, i64 144, i64 8, !87, i64 152, i64 8, !104, i64 160, i64 8, !87, i64 168, i64 8, !93, i64 176, i64 8, !91, i64 184, i64 8, !91, i64 192, i64 8, !83, i64 200, i64 8, !83, i64 208, i64 8, !106}
+!183 = !{i64 0, i64 8, !87, i64 8, i64 8, !87, i64 16, i64 8, !87, i64 24, i64 8, !87, i64 32, i64 8, !87, i64 40, i64 8, !87, i64 48, i64 8, !87, i64 56, i64 8, !87, i64 64, i64 8, !87, i64 72, i64 8, !87, i64 80, i64 8, !88, i64 88, i64 8, !88, i64 96, i64 8, !94, i64 104, i64 8, !87, i64 112, i64 8, !87, i64 120, i64 8, !102, i64 128, i64 8, !87, i64 136, i64 8, !87, i64 144, i64 8, !87, i64 152, i64 8, !104, i64 160, i64 8, !87, i64 168, i64 8, !93, i64 176, i64 8, !91, i64 184, i64 8, !91, i64 192, i64 8, !83, i64 200, i64 8, !83, i64 208, i64 8, !106}

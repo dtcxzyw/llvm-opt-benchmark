@@ -1183,7 +1183,7 @@ define dso_local void @cond_compute_av(ptr noundef %0, ptr noundef %1, ptr nound
   %86 = load i16, ptr %17, align 2
   %87 = tail call ptr @avtab_search_node_next(ptr noundef nonnull %50, i16 noundef zeroext %86) #14
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %.loopexit, label %.split, !llvm.loop !22
+  br i1 %88, label %.loopexit, label %.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %85, %46, %10, %4
   ret void
@@ -1278,7 +1278,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %39 = load i32, ptr %27, align 8
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %38, %40
-  br i1 %41, label %42, label %.loopexit9, !llvm.loop !23
+  br i1 %41, label %42, label %.loopexit9, !llvm.loop !21
 
 42:                                               ; preds = %.loopexit5, %36
   %43 = phi i64 [ 0, %36 ], [ %38, %.loopexit5 ]
@@ -1352,7 +1352,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %93 = load i32, ptr %65, align 8
   %94 = zext i32 %93 to i64
   %95 = icmp samesign ult i64 %92, %94
-  br i1 %95, label %76, label %.loopexit7, !llvm.loop !24
+  br i1 %95, label %76, label %.loopexit7, !llvm.loop !22
 
 .loopexit7:                                       ; preds = %89, %71
   %96 = getelementptr inbounds nuw i8, ptr %45, i64 40
@@ -1400,7 +1400,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
   %126 = load i32, ptr %98, align 8
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %125, %127
-  br i1 %128, label %109, label %.loopexit5, !llvm.loop !24
+  br i1 %128, label %109, label %.loopexit5, !llvm.loop !22
 
 .loopexit4:                                       ; preds = %.loopexit7, %60, %42, %76, %109, %26
   tail call void @avtab_destroy(ptr noundef nonnull %6) #14
@@ -1515,7 +1515,7 @@ define internal noundef range(i32 -22, 1) i32 @cond_insertf(ptr readnone capture
 37:                                               ; preds = %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = icmp eq i64 %indvars.iv.next, %34
-  br i1 %38, label %.loopexit5, label %39, !llvm.loop !25
+  br i1 %38, label %.loopexit5, label %39, !llvm.loop !23
 
 39:                                               ; preds = %37, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %32 ]
@@ -1648,9 +1648,7 @@ attributes #17 = { nounwind allocsize(1) }
 !17 = distinct !{!17, !7, !8}
 !18 = distinct !{!18, !7, !8}
 !19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
 !22 = distinct !{!22, !7, !8}
 !23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}

@@ -13550,7 +13550,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge122.us:                                ; preds = %40
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge125, label %.preheader108.us, !llvm.loop !292
+  br i1 %exitcond159.not, label %._crit_edge125, label %.preheader108.us
 
 44:                                               ; preds = %.lr.ph118, %44
   %indvars.iv145 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next146, %44 ]
@@ -13603,7 +13603,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge128.us:                                ; preds = %57
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count168
-  br i1 %exitcond169.not, label %._crit_edge131, label %.preheader106.us, !llvm.loop !294
+  br i1 %exitcond169.not, label %._crit_edge131, label %.preheader106.us
 
 ._crit_edge131:                                   ; preds = %._crit_edge128.us, %.preheader106.lr.ph, %.preheader107
   %61 = mul nsw i32 %29, %46
@@ -13662,7 +13662,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge135.us:                                ; preds = %80
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge138, label %.preheader.us, !llvm.loop !295
+  br i1 %exitcond179.not, label %._crit_edge138, label %.preheader.us
 
 ._crit_edge138:                                   ; preds = %._crit_edge135.us, %.preheader105, %.preheader.lr.ph
   %84 = mul nsw i32 %.pre180, %68
@@ -15273,7 +15273,3 @@ attributes #15 = { nounwind willreturn memory(read) }
 !289 = !{!4, !6, i64 2008}
 !290 = !{!4, !10, i64 1976}
 !291 = !{!4, !10, i64 1980}
-!292 = distinct !{!292, !293}
-!293 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!294 = distinct !{!294, !293}
-!295 = distinct !{!295, !293}

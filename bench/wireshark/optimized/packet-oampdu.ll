@@ -1667,7 +1667,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %280 = add i32 %277, %275
   %281 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %280)
   %282 = icmp slt i8 %281, 0
-  br i1 %282, label %.split50.us.i, label %.lr.ph.i36, !llvm.loop !6
+  br i1 %282, label %.split50.us.i, label %.lr.ph.i36
 
 .split.sink.split.i:                              ; preds = %266, %.lr.ph55.i
   %hf_oampdu_variable_attribute.sink.i35 = phi ptr [ @hf_oampdu_variable_attribute, %266 ], [ @hf_oampdu_variable_binding, %.lr.ph55.i ]
@@ -1826,7 +1826,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %.sink.i = phi i32 [ %367, %364 ], [ %363, %362 ]
   %369 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink.i)
   %.not630.i = icmp eq i8 %369, 0
-  br i1 %.not630.i, label %dissect_oampdu_information.exit, label %.lr.ph674.i, !llvm.loop !8
+  br i1 %.not630.i, label %dissect_oampdu_information.exit, label %.lr.ph674.i, !llvm.loop !6
 
 370:                                              ; preds = %320, %320, %320
   %.not668.i = icmp eq i8 %328, 0
@@ -2173,12 +2173,12 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %576, ptr noundef nonnull @.str.995, i32 noundef %indvars.iv714.i, i32 noundef %indvars.iv709.i)
   %indvars.iv.next710.i = add nuw nsw i32 %indvars.iv709.i, 1
   %exitcond713.not.i = icmp eq i32 %indvars.iv.next710.i, %wide.trip.count712.i
-  br i1 %exitcond713.not.i, label %._crit_edge666.us.i, label %571, !llvm.loop !10
+  br i1 %exitcond713.not.i, label %._crit_edge666.us.i, label %571, !llvm.loop !8
 
 ._crit_edge666.us.i:                              ; preds = %571
   %indvars.iv.next715.i = add nuw nsw i32 %indvars.iv714.i, 1
   %exitcond718.not.i = icmp eq i32 %indvars.iv.next715.i, %wide.trip.count717.i
-  br i1 %exitcond718.not.i, label %.loopexit632.i, label %.preheader631.us.i, !llvm.loop !11
+  br i1 %exitcond718.not.i, label %.loopexit632.i, label %.preheader631.us.i, !llvm.loop !9
 
 577:                                              ; preds = %401
   %578 = load i32, ptr @hf_oam_dpoe_ll_fwd_state, align 4
@@ -2385,13 +2385,13 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %686, ptr noundef nonnull @.str.1008, i32 noundef %indvars.iv694.i, i32 noundef %indvars.iv.i)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond693.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond693.not.i, label %._crit_edge.i, label %.lr.ph645.i, !llvm.loop !12
+  br i1 %exitcond693.not.i, label %._crit_edge.i, label %.lr.ph645.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph645.i, %.lr.ph650.i
   %.5.lcssa.i = phi i32 [ %678, %.lr.ph650.i ], [ %684, %.lr.ph645.i ]
   %indvars.iv.next695.i = add nuw nsw i32 %indvars.iv694.i, 1
   %exitcond698.not.i = icmp eq i32 %indvars.iv.next695.i, %wide.trip.count697.i
-  br i1 %exitcond698.not.i, label %._crit_edge651.i, label %.lr.ph650.i, !llvm.loop !13
+  br i1 %exitcond698.not.i, label %._crit_edge651.i, label %.lr.ph650.i, !llvm.loop !11
 
 ._crit_edge651.i:                                 ; preds = %._crit_edge.i, %672
   %.4.lcssa.i = phi i32 [ %397, %672 ], [ %.5.lcssa.i, %._crit_edge.i ]
@@ -2434,13 +2434,13 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %701, ptr noundef nonnull @.str.1010, i32 noundef %indvars.iv704.i, i32 noundef %indvars.iv699.i)
   %indvars.iv.next700.i = add nuw nsw i32 %indvars.iv699.i, 1
   %exitcond703.not.i = icmp eq i32 %indvars.iv.next700.i, %wide.trip.count702.i
-  br i1 %exitcond703.not.i, label %._crit_edge657.i, label %.lr.ph656.i, !llvm.loop !14
+  br i1 %exitcond703.not.i, label %._crit_edge657.i, label %.lr.ph656.i, !llvm.loop !12
 
 ._crit_edge657.i:                                 ; preds = %.lr.ph656.i, %.lr.ph662.i
   %.7.lcssa.i = phi i32 [ %693, %.lr.ph662.i ], [ %699, %.lr.ph656.i ]
   %indvars.iv.next705.i = add nuw nsw i32 %indvars.iv704.i, 1
   %exitcond708.not.i = icmp eq i32 %indvars.iv.next705.i, %wide.trip.count707.i
-  br i1 %exitcond708.not.i, label %.loopexit632.i, label %.lr.ph662.i, !llvm.loop !15
+  br i1 %exitcond708.not.i, label %.loopexit632.i, label %.lr.ph662.i, !llvm.loop !13
 
 702:                                              ; preds = %401
   %703 = load ptr, ptr %371, align 8
@@ -2474,7 +2474,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %721 = add i32 %.8640.i, 4
   %722 = add nuw i8 %.0609639.i, 1
   %exitcond691.not.i = icmp eq i8 %722, %713
-  br i1 %exitcond691.not.i, label %.loopexit632.i, label %.lr.ph641.i, !llvm.loop !16
+  br i1 %exitcond691.not.i, label %.loopexit632.i, label %.lr.ph641.i, !llvm.loop !14
 
 723:                                              ; preds = %401
   %.not675.i = icmp eq i8 %386, 1
@@ -2495,7 +2495,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %730 = add i32 %.9638.i, 2
   %731 = add nuw nsw i8 %.0604637.i, 1
   %exitcond.not.i = icmp eq i8 %731, %724
-  br i1 %exitcond.not.i, label %.loopexit632.i, label %.lr.ph.i40, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.loopexit632.i, label %.lr.ph.i40, !llvm.loop !15
 
 732:                                              ; preds = %401
   %733 = load i32, ptr @hf_oam_dpoe_encryption_mode, align 4
@@ -2567,7 +2567,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %771 = add i32 %.3.i, %770
   %772 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %771)
   %.not.i39 = icmp eq i8 %772, 0
-  br i1 %.not.i39, label %dissect_oampdu_information.exit, label %381, !llvm.loop !18
+  br i1 %.not.i39, label %dissect_oampdu_information.exit, label %381, !llvm.loop !16
 
 773:                                              ; preds = %320
   %774 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
@@ -2730,15 +2730,13 @@ attributes #5 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

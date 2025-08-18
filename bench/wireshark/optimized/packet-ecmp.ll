@@ -1674,7 +1674,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %74 = add i32 %.1109, 1
   %75 = zext i8 %73 to i16
   %76 = icmp ugt i16 %58, %75
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %72, %.preheader
   %.1.lcssa = phi i32 [ %61, %.preheader ], [ %74, %72 ]
@@ -1699,7 +1699,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
   %90 = add nuw i8 %.0103111, 1
   %.0 = add i32 %.2, 1
   %exitcond.not = icmp eq i8 %90, %10
-  br i1 %exitcond.not, label %._crit_edge116, label %.lr.ph115.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge116, label %.lr.ph115.split, !llvm.loop !8
 
 ._crit_edge116:                                   ; preds = %89, %.lr.ph115.split.us, %5
   %.0.lcssa = phi i32 [ %.0110, %5 ], [ %.0.us, %.lr.ph115.split.us ], [ %.0, %89 ]
@@ -1744,7 +1744,7 @@ define internal fastcc void @interrogate(ptr noundef %0, i32 noundef %1, i1 noun
   %24 = add i32 %.05863, 1
   %25 = add nuw nsw i32 %.064, 1
   %exitcond67.not = icmp eq i32 %25, %15
-  br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !12
+  br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph65, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph65, %.preheader
   %26 = load ptr, ptr %6, align 8
@@ -1787,7 +1787,7 @@ define internal fastcc void @interrogate(ptr noundef %0, i32 noundef %1, i1 noun
   %50 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %40, i32 noundef %45, ptr noundef %3, i32 noundef %44, i32 noundef 1, i32 noundef %46, ptr noundef nonnull @.str.637, ptr noundef %47, ptr noundef %49)
   %51 = add nuw nsw i32 %.162, 1
   %exitcond.not = icmp eq i32 %51, %35
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 52:                                               ; preds = %30
   %53 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_ecmp_options_not_implemented)
@@ -1875,7 +1875,7 @@ define internal fastcc void @get_parameter_definitions(ptr noundef %0, i32 nound
   %47 = tail call fastcc i32 @get_address_scheme(ptr noundef %0, i32 noundef %46, i8 noundef zeroext %6, ptr noundef %3, ptr noundef %43)
   %48 = add i32 %47, 1
   %exitcond104.not = icmp eq i32 %42, %wide.trip.count103
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %49 = icmp eq i8 %2, 18
@@ -1914,7 +1914,7 @@ define internal fastcc void @get_parameter_definitions(ptr noundef %0, i32 nound
   %69 = tail call fastcc i32 @get_data_type(ptr noundef %0, i32 noundef %68, i8 noundef zeroext %55, ptr noundef %3, ptr noundef %52)
   %70 = add i32 %69, 1
   %exitcond99.not = icmp eq i32 %51, %wide.trip.count98
-  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %exitcond99.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !12
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv = phi i32 [ %72, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
@@ -1925,7 +1925,7 @@ define internal fastcc void @get_parameter_definitions(ptr noundef %0, i32 nound
   %74 = tail call fastcc i32 @get_address_scheme(ptr noundef %0, i32 noundef %.08187, i8 noundef zeroext %6, ptr noundef %3, ptr noundef %73)
   %75 = add i32 %74, 1
   %exitcond.not = icmp eq i32 %72, %wide.trip.count98
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %67, %.lr.ph.split.us, %37, %13
   ret void
@@ -2103,7 +2103,7 @@ define internal fastcc void @file_info(ptr noundef %0, i32 noundef %1, i1 nounde
   %21 = add nuw i32 %.047, 1
   %22 = load i32, ptr %7, align 4
   %23 = icmp ult i32 %21, %22
-  br i1 %23, label %.lr.ph49, label %._crit_edge50, !llvm.loop !17
+  br i1 %23, label %.lr.ph49, label %._crit_edge50, !llvm.loop !13
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %8
   %.042.lcssa = phi i32 [ %16, %8 ], [ %20, %.lr.ph49 ]
@@ -2184,7 +2184,7 @@ get_file_attribute.exit:                          ; preds = %41, %44, %47, %50, 
   %60 = add nuw i32 %.145, 1
   %61 = load i32, ptr %7, align 4
   %62 = icmp ult i32 %60, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %get_file_attribute.exit, %25
   %.143.lcssa = phi i32 [ %33, %25 ], [ %59, %get_file_attribute.exit ]
@@ -2309,7 +2309,7 @@ define internal fastcc void @file_list(ptr noundef %0, i32 noundef %1, i1 nounde
   %54 = sub i32 %52, %.063
   call void @proto_item_set_len(ptr noundef %53, i32 noundef %54)
   %exitcond.not = icmp eq i32 %39, %29
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %51, %19
   %.0.lcssa = phi i32 [ %27, %19 ], [ %52, %51 ]
@@ -2405,7 +2405,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %.1 = add nuw i16 %.1135, 1
   %51 = zext i16 %.1 to i32
   %52 = icmp samesign ugt i32 %45, %51
-  br i1 %52, label %.lr.ph137, label %.loopexit, !llvm.loop !20
+  br i1 %52, label %.lr.ph137, label %.loopexit, !llvm.loop !16
 
 53:                                               ; preds = %10
   %54 = load i32, ptr @hf_ecmp_cyclic_setup_dir, align 4
@@ -2482,7 +2482,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %100 = tail call ptr @proto_tree_add_uint(ptr noundef %94, i32 noundef %97, ptr noundef %3, i32 noundef %95, i32 noundef 1, i32 noundef %99)
   %101 = add i8 %.0117127, -1
   %.not = icmp eq i8 %101, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph128, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph128, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph128, %87
   %.2.lcssa = phi i16 [ %91, %87 ], [ %98, %.lr.ph128 ]
@@ -2506,7 +2506,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %112 = tail call ptr @proto_tree_add_uint(ptr noundef %107, i32 noundef %110, ptr noundef %3, i32 noundef %108, i32 noundef 1, i32 noundef %111)
   %113 = add i8 %.0131, -1
   %.not121 = icmp eq i8 %113, 0
-  br i1 %.not121, label %.loopexit, label %.lr.ph133, !llvm.loop !22
+  br i1 %.not121, label %.loopexit, label %.lr.ph133, !llvm.loop !18
 
 114:                                              ; preds = %70
   %115 = load i32, ptr @hf_ecmp_cyclic_setup_attrib_count, align 4
@@ -2528,7 +2528,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %3, i32 noundef %124, i32 noundef 1, i32 noundef 0)
   %128 = zext i16 %126 to i32
   %129 = icmp samesign ugt i32 %121, %128
-  br i1 %129, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  br i1 %129, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 130:                                              ; preds = %70, %70, %70
   %131 = zext i16 %80 to i32
@@ -2748,7 +2748,7 @@ define internal fastcc void @add_info_response(i32 noundef %0, ptr noundef %1, p
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %1, i32 noundef %.03842, i32 noundef 1, i32 noundef 0)
   %31 = add i32 %.03842, 1
   %exitcond.not = icmp eq i32 %25, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %18, %3
   ret void
@@ -2811,7 +2811,7 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %3, i32 noundef %31, i32 noundef 1, i32 noundef 0)
   store ptr %37, ptr %6, align 8
   %exitcond162.not = icmp eq i32 %34, %20
-  br i1 %exitcond162.not, label %.loopexit135, label %.preheader134.split.us, !llvm.loop !25
+  br i1 %exitcond162.not, label %.loopexit135, label %.preheader134.split.us, !llvm.loop !21
 
 .preheader134.split:                              ; preds = %.preheader134
   br i1 %9, label %.preheader134.split.split.us, label %.preheader134.split.split
@@ -2838,7 +2838,7 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %48 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %3, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.655, i32 noundef %47)
   %49 = tail call fastcc i32 @get_address_scheme(ptr noundef %0, i32 noundef %44, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %48)
   %exitcond157.not = icmp eq i32 %47, %20
-  br i1 %exitcond157.not, label %.loopexit135, label %.preheader134.split.split.us, !llvm.loop !26
+  br i1 %exitcond157.not, label %.loopexit135, label %.preheader134.split.split.us, !llvm.loop !21
 
 50:                                               ; preds = %14
   br i1 %9, label %.loopexit135, label %51
@@ -2935,7 +2935,7 @@ define internal fastcc void @get_parameter_responses(ptr noundef %0, i32 noundef
   %.1121 = phi i8 [ %.0120138, %102 ], [ 1, %60 ], [ 1, %.preheader ]
   %.5 = phi i32 [ %.4, %102 ], [ %55, %60 ], [ %.3, %.preheader ]
   %exitcond.not = icmp eq i32 %59, %20
-  br i1 %exitcond.not, label %.loopexit135, label %.preheader134.split.split, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit135, label %.preheader134.split.split, !llvm.loop !21
 
 .loopexit135:                                     ; preds = %.loopexit, %43, %30, %50, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3066,7 +3066,7 @@ define internal fastcc void @get_object_info_response(ptr noundef %0, i32 nounde
   %.191 = phi ptr [ %.09094, %75 ], [ %.09094, %36 ], [ %.09094, %39 ], [ %.09094, %44 ], [ %.09094, %49 ], [ %56, %52 ], [ %63, %59 ], [ %.09094, %66 ], [ %74, %71 ]
   %.189 = phi i32 [ %32, %75 ], [ %32, %36 ], [ %43, %39 ], [ %48, %44 ], [ %51, %49 ], [ %58, %52 ], [ %65, %59 ], [ %70, %66 ], [ %72, %71 ]
   %exitcond.not = icmp eq i32 %28, %11
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !22
 
 .loopexit:                                        ; preds = %77, %14
   ret void
@@ -3487,7 +3487,7 @@ define internal fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 nou
 75:                                               ; preds = %.lr.ph, %71, %67, %57, %50, %40, %27, %23, %19
   %.1 = phi i32 [ %15, %.lr.ph ], [ %22, %19 ], [ %26, %23 ], [ %38, %27 ], [ %48, %40 ], [ %56, %50 ], [ %66, %57 ], [ %69, %67 ], [ %74, %71 ]
   %76 = icmp slt i32 %.1, %11
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %75, %5
   ret void
@@ -3567,7 +3567,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %.157.us = phi i32 [ %24, %26 ], [ %.05668.us, %21 ]
   %32 = add nuw i16 %.06066.us, 1
   %exitcond91.not = icmp eq i16 %32, %2
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split.split.us:                            ; preds = %16, %45
   %.169.us72 = phi i32 [ %38, %45 ], [ %1, %16 ]
@@ -3604,7 +3604,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %.157.us80 = phi i32 [ %38, %40 ], [ %.05668.us73, %35 ]
   %46 = add nuw i16 %.06066.us75, 1
   %exitcond90.not = icmp eq i16 %46, %17
-  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !31
+  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !24
 
 .lr.ph.split.split:                               ; preds = %.thread101, %58
   %.169 = phi i32 [ %51, %58 ], [ %1, %.thread101 ]
@@ -3640,7 +3640,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %.157 = phi i32 [ %51, %53 ], [ %.05668, %49 ]
   %59 = add nuw i16 %.06066, 1
   %exitcond.not = icmp eq i16 %59, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %45, %31, %58
   %.058.lcssa = phi i16 [ %.159, %58 ], [ %.159.us, %31 ], [ %.159.us79, %45 ]
@@ -3691,14 +3691,14 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !9}
-!15 = distinct !{!15, !7, !9}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
@@ -3708,11 +3708,3 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7, !9}
-!26 = distinct !{!26, !7, !9}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !9}
-!31 = distinct !{!31, !7, !9}
-!32 = distinct !{!32, !7}

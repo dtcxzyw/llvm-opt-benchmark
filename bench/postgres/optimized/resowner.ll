@@ -1108,7 +1108,7 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   tail call void %39(i64 noundef %17) #10
   %40 = and i64 %indvars.iv.next46, 4294967295
   %.not.us = icmp eq i64 %40, 0
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ %14, %.lr.ph ]
@@ -1247,5 +1247,3 @@ attributes #11 = { cold nounwind }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

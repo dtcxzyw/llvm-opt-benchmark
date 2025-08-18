@@ -1079,17 +1079,17 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   tail call void %500() #5
   %501 = add nsw i32 %.095113.us.i, 32
   %502 = icmp samesign ult i32 %449, %185
-  br i1 %502, label %448, label %._crit_edge.us.i136, !llvm.loop !10
+  br i1 %502, label %448, label %._crit_edge.us.i136, !llvm.loop !9
 
 ._crit_edge.us.i136:                              ; preds = %485
   %503 = add nsw i32 %.096118.us.i, 32
   %504 = icmp samesign ult i32 %440, %415
-  br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !11
+  br i1 %504, label %.lr.ph.us.i135, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, !llvm.loop !10
 
 OGLTR_DrawGrayscaleGlyphViaCache.exit.thread:     ; preds = %._crit_edge.us.i136, %._crit_edge.us.i, %.lr.ph120.i, %434, %270, %OGLTR_AddToGlyphCache.exit.i132, %385, %169, %133, %OGLTR_AddToGlyphCache.exit.i, %119, %116, %114, %OGLTR_DrawColorGlyphNoCache.exit, %81
   %505 = add nuw nsw i32 %.0107151, 1
   %exitcond.not = icmp eq i32 %505, %3
-  br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !12
+  br i1 %exitcond.not, label %OGLTR_DrawGrayscaleGlyphViaCache.exit, label %40, !llvm.loop !11
 
 OGLTR_DrawGrayscaleGlyphViaCache.exit:            ; preds = %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, %430, %428, %250, %245, %30, %45
   %506 = load i32, ptr @glyphMode, align 4
@@ -1357,8 +1357,7 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !9}
-!12 = distinct !{!12, !7}
+!11 = distinct !{!11, !7}

@@ -281,7 +281,7 @@ tailrecurse.i.us20.backedge:                      ; preds = %Wlc_ObjHasArray.exi
 Wlc_ObjHasArithm_rec.exit.thread.us29:            ; preds = %tailrecurse.i.us20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us18, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %Wlc_ObjHasArray.exit.thread.i.i.us18, !llvm.loop !26
 
 Wlc_ObjFaninId.exit:                              ; preds = %Wlc_ObjFaninId.exit.preheader, %Wlc_ObjHasArithm_rec.exit.thread
   %indvars.iv36 = phi i64 [ 0, %Wlc_ObjFaninId.exit.preheader ], [ %indvars.iv.next37, %Wlc_ObjHasArithm_rec.exit.thread ]
@@ -326,7 +326,7 @@ tailrecurse.i.backedge:                           ; preds = %Wlc_ObjHasArray.exi
 Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !29
+  br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !26
 
 .critedge:                                        ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us29, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %Wlc_ObjHasArithm_rec.exit.thread, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %Wlc_ObjHasArithm_rec.exit.thread.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %2
   %.08 = phi i32 [ 0, %2 ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
@@ -364,7 +364,7 @@ Wlc_ObjIsArithm.exit:                             ; preds = %7
   %13 = sub i64 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %16 = load i32, ptr %2, align 8, !tbaa !30
+  %16 = load i32, ptr %2, align 8, !tbaa !27
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %.Vec_IntGrow.exit10_crit_edge.i
 
@@ -394,7 +394,7 @@ Wlc_ObjIsArithm.exit:                             ; preds = %7
 Vec_IntGrow.exit.i:                               ; preds = %25, %23
   %27 = phi ptr [ %24, %23 ], [ %26, %25 ]
   store ptr %27, ptr %21, align 8, !tbaa !10
-  store i32 16, ptr %2, align 8, !tbaa !30
+  store i32 16, ptr %2, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
 28:                                               ; preds = %18
@@ -417,7 +417,7 @@ Vec_IntGrow.exit.i:                               ; preds = %25, %23
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
   store ptr %39, ptr %30, align 8, !tbaa !10
-  store i32 %29, ptr %2, align 8, !tbaa !30
+  store i32 %29, ptr %2, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %38
@@ -468,7 +468,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
   %.val19 = load i32, ptr %43, align 4, !tbaa !23
   %58 = sext i32 %.val19 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %47, label %.critedge, !llvm.loop !31
+  br i1 %59, label %47, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %Wlc_ObjFaninId.exit, %.critedge29
   %60 = getelementptr i8, ptr %0, i64 640
@@ -478,7 +478,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
   %63 = sub i64 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !3
-  %66 = load i32, ptr %3, align 8, !tbaa !30
+  %66 = load i32, ptr %3, align 8, !tbaa !27
   %67 = icmp eq i32 %65, %66
   br i1 %67, label %68, label %.Vec_IntGrow.exit10_crit_edge.i22
 
@@ -508,7 +508,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %49, %Wlc_ObjHasArra
 Vec_IntGrow.exit.i27:                             ; preds = %75, %73
   %77 = phi ptr [ %74, %73 ], [ %76, %75 ]
   store ptr %77, ptr %71, align 8, !tbaa !10
-  store i32 16, ptr %3, align 8, !tbaa !30
+  store i32 16, ptr %3, align 8, !tbaa !27
   br label %Vec_IntPush.exit28
 
 78:                                               ; preds = %68
@@ -531,7 +531,7 @@ Vec_IntGrow.exit.i27:                             ; preds = %75, %73
 88:                                               ; preds = %86, %84
   %89 = phi ptr [ %85, %84 ], [ %87, %86 ]
   store ptr %89, ptr %80, align 8, !tbaa !10
-  store i32 %79, ptr %3, align 8, !tbaa !30
+  store i32 %79, ptr %3, align 8, !tbaa !27
   br label %Vec_IntPush.exit28
 
 Vec_IntPush.exit28:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i22, %Vec_IntGrow.exit.i27, %88
@@ -606,7 +606,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %13, %Wlc_ObjHasArra
   %.val9 = load i32, ptr %7, align 4, !tbaa !23
   %22 = sext i32 %.val9 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %11, label %.critedge, !llvm.loop !32
+  br i1 %23, label %11, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %Wlc_ObjFaninId.exit, %5, %2
   ret void
@@ -757,7 +757,7 @@ Wlc_ObjHasArithm_rec.exit50.thread:               ; preds = %tailrecurse.i41, %W
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %.val40 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !33
+  br i1 %50, label %26, label %.critedge.preheader, !llvm.loop !30
 
 51:                                               ; preds = %.lr.ph85, %Wlc_ObjHasArithm_rec.exit62.thread
   %.val39.pr93 = phi i32 [ %.val40, %.lr.ph85 ], [ %.val39.pr, %Wlc_ObjHasArithm_rec.exit62.thread ]
@@ -831,7 +831,7 @@ Wlc_ObjHasArithm_rec.exit62.thread:               ; preds = %tailrecurse.i53, %W
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %74 = sext i32 %.val39.pr to i64
   %75 = icmp slt i64 %indvars.iv.next89, %74
-  br i1 %75, label %51, label %.critedge2, !llvm.loop !34
+  br i1 %75, label %51, label %.critedge2, !llvm.loop !31
 
 .critedge2:                                       ; preds = %Wlc_ObjHasArithm_rec.exit62.thread, %.preheader, %.critedge.preheader, %Wlc_ObjHasArithm_rec.exit.thread, %Wlc_ObjHasArithm_rec.exit.thread65
   ret void
@@ -842,19 +842,19 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !3
-  store i32 1000, ptr %2, align 8, !tbaa !30
+  store i32 1000, ptr %2, align 8, !tbaa !27
   %4 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !10
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !3
-  store i32 1000, ptr %6, align 8, !tbaa !30
+  store i32 1000, ptr %6, align 8, !tbaa !27
   %8 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !10
   %10 = getelementptr i8, ptr %0, i64 648
-  %.val5269 = load i32, ptr %10, align 8, !tbaa !35
+  %.val5269 = load i32, ptr %10, align 8, !tbaa !32
   %11 = icmp sgt i32 %.val5269, 1
   br i1 %11, label %.lr.ph, label %.critedge2.preheader
 
@@ -878,10 +878,10 @@ define void @Wlc_WinProfileArith(ptr noundef %0) local_unnamed_addr #2 {
   %18 = and i16 %17, -129
   store i16 %18, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val52 = load i32, ptr %10, align 8, !tbaa !35
+  %.val52 = load i32, ptr %10, align 8, !tbaa !32
   %19 = sext i32 %.val52 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !36
+  br i1 %20, label %15, label %.critedge.preheader, !llvm.loop !33
 
 .critedge2.preheader:                             ; preds = %Wlc_ManCountArithmReal.exit.thread, %1, %.critedge.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.1, %Wlc_ManCountArithmReal.exit.thread ]
@@ -1026,7 +1026,7 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
   %80 = sdiv i32 %79, 2
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next.i58, %81
-  br i1 %82, label %65, label %Vec_IntReverseOrder.exit, !llvm.loop !37
+  br i1 %82, label %65, label %Vec_IntReverseOrder.exit, !llvm.loop !34
 
 Vec_IntReverseOrder.exit:                         ; preds = %65, %54
   tail call void @Wlc_NtkPrintNodeArray(ptr noundef nonnull %0, ptr noundef nonnull %6) #12
@@ -1037,10 +1037,10 @@ Vec_IntReverseOrder.exit:                         ; preds = %65, %54
 Wlc_ManCountArithmReal.exit.thread:               ; preds = %39, %Wlc_ObjHasArithm_rec.exit.thread63, %Wlc_ObjHasArithm_rec.exit.thread, %Vec_IntReverseOrder.exit, %Wlc_ManCountArithmReal.exit
   %.1 = phi i32 [ %.073, %Wlc_ManCountArithmReal.exit ], [ %83, %Vec_IntReverseOrder.exit ], [ %.073, %Wlc_ObjHasArithm_rec.exit.thread63 ], [ %.073, %Wlc_ObjHasArithm_rec.exit.thread ], [ %.073, %39 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %.val53 = load i32, ptr %10, align 8, !tbaa !35
+  %.val53 = load i32, ptr %10, align 8, !tbaa !32
   %84 = sext i32 %.val53 to i64
   %85 = icmp slt i64 %indvars.iv.next79, %84
-  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !38
+  br i1 %85, label %23, label %.critedge2.preheader, !llvm.loop !35
 
 86:                                               ; preds = %.critedge2.preheader
   tail call void @free(ptr noundef nonnull %22) #12
@@ -1124,16 +1124,13 @@ attributes #12 = { nounwind }
 !23 = !{!24, !5, i64 4}
 !24 = !{!"Wlc_Obj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16}
 !25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !22, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !22, !27}
+!26 = distinct !{!26, !22}
+!27 = !{!4, !5, i64 0}
+!28 = distinct !{!28, !22}
 !29 = distinct !{!29, !22}
-!30 = !{!4, !5, i64 0}
+!30 = distinct !{!30, !22}
 !31 = distinct !{!31, !22}
-!32 = distinct !{!32, !22}
+!32 = !{!12, !5, i64 648}
 !33 = distinct !{!33, !22}
 !34 = distinct !{!34, !22}
-!35 = !{!12, !5, i64 648}
-!36 = distinct !{!36, !22}
-!37 = distinct !{!37, !22}
-!38 = distinct !{!38, !22}
+!35 = distinct !{!35, !22}

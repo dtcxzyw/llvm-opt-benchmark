@@ -2655,12 +2655,12 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefine
 91:                                               ; preds = %89, %85
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %..loopexit_crit_edge.us, label %85, !llvm.loop !46
+  br i1 %exitcond62.not, label %..loopexit_crit_edge.us, label %85, !llvm.loop !45
 
 ..loopexit_crit_edge.us:                          ; preds = %91
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.loopexit47, label %.preheader.us, !llvm.loop !47
+  br i1 %exitcond67.not, label %.loopexit47, label %.preheader.us, !llvm.loop !44
 
 .loopexit47:                                      ; preds = %..loopexit_crit_edge.us, %75, %.lr.ph53.split, %._crit_edge, %3
   ret i32 %17
@@ -2815,7 +2815,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getF
   store i32 %96, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %6, align 8
@@ -2908,7 +2908,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getF
   store float %148, ptr %149, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count157
-  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !47
 
 150:                                              ; preds = %109
   %151 = icmp ugt i16 %.sroa.030.0.copyload, %.sroa.231.0.copyload
@@ -2969,7 +2969,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getF
   store float %174, ptr %175, align 4
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count139
-  br i1 %exitcond140.not, label %.preheader116.loopexit, label %.lr.ph123, !llvm.loop !50
+  br i1 %exitcond140.not, label %.preheader116.loopexit, label %.lr.ph123, !llvm.loop !48
 
 176:                                              ; preds = %.preheader116, %176
   %indvars.iv143 = phi i64 [ %.2.lcssa, %.preheader116 ], [ %indvars.iv.next144, %176 ]
@@ -2993,7 +2993,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getF
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit.loopexit128, label %176, !llvm.loop !51
+  br i1 %exitcond149.not, label %.loopexit.loopexit128, label %176, !llvm.loop !49
 
 .loopexit.loopexit128:                            ; preds = %176
   %191 = trunc nuw i64 %indvars.iv.next144 to i32
@@ -3123,11 +3123,9 @@ attributes #17 = { nounwind }
 !41 = distinct !{!41, !6}
 !42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
 !46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6, !45}
+!47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}

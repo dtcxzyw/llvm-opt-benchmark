@@ -60219,7 +60219,7 @@ define ptr @l___private_Lean_Meta_LazyDiscrTree_0__Lean_Meta_LazyDiscrTree_Match
   %15 = or disjoint i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef nonnull %16, ptr noundef %0) #6
-  br i1 %17, label %.critedge.i.us, label %.split27.us, !llvm.loop !21
+  br i1 %17, label %.critedge.i.us, label %.split27.us
 
 .split:                                           ; preds = %3
   %18 = icmp ugt ptr %0, %9
@@ -134398,5 +134398,3 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!"branch_weights", !"expected", i32 2146812769, i32 670879}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"short", !6, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

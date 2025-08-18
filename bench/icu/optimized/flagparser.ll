@@ -101,7 +101,7 @@ define i32 @parseFlagsFile(ptr noundef %0, ptr noundef readonly captures(none) %
 48:                                               ; preds = %.lr.ph.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i.us
-  br i1 %exitcond.not.i.i.us, label %_ZL13getFlagOffsetPKci.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !13
+  br i1 %exitcond.not.i.i.us, label %_ZL13getFlagOffsetPKci.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !12
 
 49:                                               ; preds = %.lr.ph.i.i.us
   %50 = trunc nuw nsw i64 %indvars.iv.i.i.us to i32
@@ -136,7 +136,7 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
   %64 = icmp eq i64 %indvars.iv.i.us, 0
   %spec.select.i.us = select i1 %64, i8 1, i8 %.150.i.us
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %.critedge.sink.split, label %.lr.ph.i.us, !llvm.loop !14
+  br i1 %exitcond.not.i.us, label %.critedge.sink.split, label %.lr.ph.i.us, !llvm.loop !13
 
 65:                                               ; preds = %.lr.ph.i.us
   %66 = and i64 %indvars.iv.i.us, 4294967295
@@ -164,7 +164,7 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
 73:                                               ; preds = %78, %.lr.ph53.i.us
   %indvars.iv59.i.us = phi i64 [ 0, %.lr.ph53.i.us ], [ %indvars.iv.next60.i.us, %78 ]
   %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59.i.us
-  %75 = load ptr, ptr %74, align 8, !tbaa !15
+  %75 = load ptr, ptr %74, align 8, !tbaa !14
   %76 = tail call i32 @strncmp(ptr noundef nonnull readonly %.253.us, ptr noundef %75, i64 noundef %72) #6
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.loopexit.loopexit.split.loop.exit67.i.us, label %78
@@ -172,7 +172,7 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
 78:                                               ; preds = %73
   %indvars.iv.next60.i.us = add nuw nsw i64 %indvars.iv59.i.us, 1
   %exitcond63.not.i.us = icmp eq i64 %indvars.iv.next60.i.us, %wide.trip.count62.i
-  br i1 %exitcond63.not.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us, label %73, !llvm.loop !18
+  br i1 %exitcond63.not.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us, label %73, !llvm.loop !17
 
 .loopexit.loopexit.split.loop.exit67.i.us:        ; preds = %73
   %79 = trunc nuw nsw i64 %indvars.iv59.i.us to i32
@@ -205,10 +205,10 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
   %.sink = phi i64 [ %88, %86 ], [ %85, %84 ]
   %.150.us = phi i32 [ %87, %86 ], [ %.049.ph94.us, %84 ]
   %89 = getelementptr inbounds ptr, ptr %1, i64 %.sink
-  %90 = load ptr, ptr %89, align 8, !tbaa !15
+  %90 = load ptr, ptr %89, align 8, !tbaa !14
   %91 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %14) #7
   %92 = icmp slt i32 %.150.us, %4
-  br i1 %92, label %.lr.ph.us, label %.critedge, !llvm.loop !19
+  br i1 %92, label %.lr.ph.us, label %.critedge, !llvm.loop !18
 
 .backedge.us:                                     ; preds = %82, %.lr.ph
   %93 = load i32, ptr @_ZL17currentBufferSize, align 4, !tbaa !3
@@ -308,13 +308,12 @@ attributes #7 = { nounwind }
 !7 = !{!5, !5, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = distinct !{!17, !11}
 !18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}

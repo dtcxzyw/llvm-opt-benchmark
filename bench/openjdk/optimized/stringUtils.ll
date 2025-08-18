@@ -141,7 +141,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not24 = icmp eq i8 %10, 0
-  br i1 %.not24, label %.critedge, label %11, !llvm.loop !11
+  br i1 %.not24, label %.critedge, label %11, !llvm.loop !10
 
 11:                                               ; preds = %.preheader, %7
   %.in = phi i8 [ %3, %.preheader ], [ %10, %7 ]
@@ -164,7 +164,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %11, %7, %.preheader26, %2
   %.021 = phi ptr [ %0, %2 ], [ null, %.preheader26 ], [ null, %11 ], [ %6, %7 ], [ null, %20 ]
@@ -219,7 +219,7 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %18 = getelementptr inbounds i8, ptr %.02228, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not24.i = icmp eq i8 %19, 0
-  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, label %20, !llvm.loop !11
+  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, label %20, !llvm.loop !10
 
 20:                                               ; preds = %16, %.preheader.i
   %.in.i = phi i8 [ %13, %.preheader.i ], [ %19, %16 ]
@@ -242,7 +242,7 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %31 = getelementptr inbounds i8, ptr %.02048, i64 %30
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i, !llvm.loop !12
+  br i1 %.not.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i, !llvm.loop !11
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit:      ; preds = %6
   %33 = icmp eq ptr %.02048, null
@@ -259,7 +259,7 @@ _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32: ; preds = %16, %_ZN11Strin
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr i8, ptr %36, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %char0 = load i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 1
   %.not = icmp eq i8 %char0, 0
-  br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !12
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread: ; preds = %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, %.preheader26.i, %29, %20, %2
   %.not44 = phi i1 [ true, %2 ], [ false, %20 ], [ false, %29 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ false, %.preheader26.i ]
@@ -306,7 +306,7 @@ define hidden noundef ptr @_ZN11StringUtils28CommaSeparatedStringIterator12canon
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %.sink, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %6, !llvm.loop !14
+  br label %6, !llvm.loop !13
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -343,9 +343,8 @@ attributes #11 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}

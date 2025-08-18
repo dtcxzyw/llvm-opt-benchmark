@@ -2957,7 +2957,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
 
 54:                                               ; preds = %.critedge
   store i16 0, ptr %13, align 4
-  br label %.split, !llvm.loop !37
+  br label %.split, !llvm.loop !35
 
 .critedge2:                                       ; preds = %32, %48, %.split111.us
   %55 = load i8, ptr %20, align 2, !range !4, !noundef !5
@@ -3023,7 +3023,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %83 = getelementptr inbounds nuw [0 x i16], ptr %70, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %.not73 = icmp ugt i16 %84, %.sroa.11.0.extract.trunc
-  br i1 %.not73, label %.loopexit94.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not73, label %.loopexit94.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit94.loopexit:                             ; preds = %.lr.ph
   %.pre130 = load i32, ptr %58, align 4
@@ -3412,7 +3412,7 @@ BufferGetPage.exit71.i:                           ; preds = %238, %232, %218
 291:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.backedge.i.backedge, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.backedge.i.backedge, label %.lr.ph.i, !llvm.loop !37
 
 entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %290
   %292 = load i8, ptr %118, align 2, !range !4, !noundef !5
@@ -3420,7 +3420,7 @@ entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %2
   br i1 %293, label %294, label %.backedge157
 
 .backedge157:                                     ; preds = %entryLoadMoreItems.exit, %295
-  br label %171, !llvm.loop !40
+  br label %171, !llvm.loop !38
 
 294:                                              ; preds = %entryLoadMoreItems.exit
   store i16 -1, ptr %109, align 2
@@ -3584,9 +3584,7 @@ attributes #10 = { cold nounwind }
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}

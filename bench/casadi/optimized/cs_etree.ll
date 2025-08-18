@@ -97,7 +97,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph76.us, label %.loopexit.us, !llvm.loop !19
+  br i1 %47, label %.lr.ph76.us, label %.loopexit.us, !llvm.loop !18
 
 .lr.ph73.us.us:                                   ; preds = %.lr.ph76.us, %53
   %.172.us.us = phi i32 [ %50, %53 ], [ %40, %.lr.ph76.us ]
@@ -116,11 +116,11 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 53:                                               ; preds = %.lr.ph73.us.us
   %54 = sext i32 %50 to i64
   %55 = icmp sgt i64 %indvars.iv85, %54
-  br i1 %55, label %.lr.ph73.us.us, label %._crit_edge.us.us.loopexit, !llvm.loop !20
+  br i1 %55, label %.lr.ph73.us.us, label %._crit_edge.us.us.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph79.split
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.sink.split, label %.lr.ph79.split, !llvm.loop !21
+  br i1 %exitcond95.not, label %.sink.split, label %.lr.ph79.split, !llvm.loop !16
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %.loopexit
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.loopexit ], [ 0, %.lr.ph79 ]
@@ -172,7 +172,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 79:                                               ; preds = %.lr.ph73
   %80 = sext i32 %76 to i64
   %81 = icmp sgt i64 %indvars.iv91, %80
-  br i1 %81, label %.lr.ph73, label %._crit_edge.loopexit, !llvm.loop !20
+  br i1 %81, label %.lr.ph73, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %79, %.thread100
   %.pre96 = load i32, ptr %65, align 4, !tbaa !15
@@ -188,7 +188,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
   %83 = load i32, ptr %60, align 4, !tbaa !15
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next89, %84
-  br i1 %85, label %.lr.ph76, label %.loopexit, !llvm.loop !22
+  br i1 %85, label %.lr.ph76, label %.loopexit, !llvm.loop !18
 
 .sink.split:                                      ; preds = %.loopexit.us, %.loopexit, %.loopexit70, %7
   %.sink = phi i32 [ 0, %7 ], [ 1, %.loopexit70 ], [ 1, %.loopexit ], [ 1, %.loopexit.us ]
@@ -230,10 +230,7 @@ attributes #3 = { nounwind }
 !13 = !{!4, !8, i64 16}
 !14 = !{!4, !8, i64 24}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}

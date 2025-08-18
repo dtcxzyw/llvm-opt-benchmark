@@ -942,7 +942,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %25
 81:                                               ; preds = %79, %78, %70, %48, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us
   %.157.us = phi i32 [ %30, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us ], [ %19, %48 ], [ 2, %78 ], [ 2, %79 ], [ %19, %70 ]
   %.not.us = icmp slt i32 %.157.us, %1
-  br i1 %.not.us, label %.lr.ph79.split.us, label %.thread, !llvm.loop !20
+  br i1 %.not.us, label %.lr.ph79.split.us, label %.thread, !llvm.loop !14
 
 .split.us:                                        ; preds = %25
   %82 = landingpad { ptr, i32 }
@@ -1102,14 +1102,14 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread: ; preds = %_ZNK
 
 _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58.thread: ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !20
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 2, ptr %42, align 8, !tbaa !7
   br label %.critedge
 
 _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 2, ptr %43, align 8, !tbaa !7
   %.not = icmp ne i16 %38, 0
@@ -1178,7 +1178,7 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7
   %.2 = phi i32 [ %.14669, %68 ], [ %.14669, %63 ], [ %.14669, %56 ], [ %.14669, %72 ], [ %54, %61 ]
   %.142 = phi i32 [ %50, %68 ], [ %50, %63 ], [ %50, %56 ], [ %74, %72 ], [ 2, %61 ]
   %76 = icmp slt i32 %.142, %36
-  br i1 %76, label %49, label %._crit_edge, !llvm.loop !24
+  br i1 %76, label %49, label %._crit_edge, !llvm.loop !22
 
 .critedge:                                        ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58.thread, %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58, %._crit_edge
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1292,7 +1292,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %24
 43:                                               ; preds = %32, %34, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
   %.1 = phi i32 [ %29, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ %18, %34 ], [ %18, %32 ]
   %44 = icmp slt i32 %.1, %2
-  br i1 %44, label %17, label %._crit_edge38, !llvm.loop !25
+  br i1 %44, label %17, label %._crit_edge38, !llvm.loop !23
 
 ._crit_edge38:                                    ; preds = %43, %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread, %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit
   ret void
@@ -1351,9 +1351,7 @@ attributes #7 = { nounwind }
 !17 = !{!"any pointer", !5, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"int", !5, i64 0}
-!20 = distinct !{!20, !11, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"vtable pointer", !6, i64 0}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !6, i64 0}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}

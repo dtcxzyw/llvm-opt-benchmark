@@ -5351,7 +5351,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
 define internal noundef i32 @_ZL16ucstrTextExtractP5UTextllPDsiP10UErrorCode(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr %5, align 4, !tbaa !32
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %88
+  br i1 %8, label %9, label %87
 
 9:                                                ; preds = %6
   %10 = icmp slt i32 %4, 0
@@ -5367,7 +5367,7 @@ define internal noundef i32 @_ZL16ucstrTextExtractP5UTextllPDsiP10UErrorCode(ptr
 
 15:                                               ; preds = %11, %9
   store i32 1, ptr %5, align 4, !tbaa !32
-  br label %88
+  br label %87
 
 16:                                               ; preds = %11
   %17 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef %0, i64 noundef %1, i8 noundef signext 1)
@@ -5405,134 +5405,131 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   %36 = sext i32 %21 to i64
   %37 = zext nneg i32 %4 to i64
   %38 = sub i32 %.071, %21
-  %wide.trip.count135 = zext i32 %38 to i64
-  br i1 %35, label %.lr.ph.split.us, label %.lr.ph.split.split.us
+  %wide.trip.count136 = zext i32 %38 to i64
+  br i1 %35, label %.lr.ph.split.us.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %47
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %47 ], [ 0, %.lr.ph ]
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %47 ], [ %36, %.lr.ph ]
-  %39 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv128
+.lr.ph.split.us.split:                            ; preds = %.lr.ph, %46
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %46 ], [ 0, %.lr.ph ]
+  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %46 ], [ %36, %.lr.ph ]
+  %39 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv129
   %40 = load i16, ptr %39, align 2, !tbaa !18
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %.split.us, label %42
 
-42:                                               ; preds = %.lr.ph.split.us
-  %43 = icmp samesign ult i64 %indvars.iv130, %37
-  br i1 %43, label %45, label %44
+42:                                               ; preds = %.lr.ph.split.us.split
+  %43 = icmp samesign ult i64 %indvars.iv131, %37
+  br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  br i1 %25, label %.loopexit, label %47
+  %45 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv131
+  store i16 %40, ptr %45, align 2, !tbaa !18
+  br label %46
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv130
-  store i16 %40, ptr %46, align 2, !tbaa !18
-  br label %47
+46:                                               ; preds = %42, %44
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count136
+  br i1 %exitcond137.not, label %.loopexit.loopexit, label %.lr.ph.split.us.split, !llvm.loop !83
 
-47:                                               ; preds = %45, %44
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count135
-  br i1 %exitcond136.not, label %.loopexit.loopexit, label %.lr.ph.split.us, !llvm.loop !83
+.lr.ph.split.split.us:                            ; preds = %.lr.ph, %47
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %47 ], [ 0, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ %36, %.lr.ph ]
+  %exitcond.not = icmp eq i64 %indvars.iv122, %37
+  br i1 %exitcond.not, label %.loopexit, label %47
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph, %48
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %48 ], [ 0, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ %36, %.lr.ph ]
-  %exitcond.not = icmp eq i64 %indvars.iv121, %37
-  br i1 %exitcond.not, label %.loopexit, label %48
-
-48:                                               ; preds = %.lr.ph.split.split.us
-  %49 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv
-  %50 = load i16, ptr %49, align 2, !tbaa !18
-  %51 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv121
-  store i16 %50, ptr %51, align 2, !tbaa !18
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+47:                                               ; preds = %.lr.ph.split.split.us
+  %48 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv
+  %49 = load i16, ptr %48, align 2, !tbaa !18
+  %50 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv122
+  store i16 %49, ptr %50, align 2, !tbaa !18
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count135
-  br i1 %exitcond127.not, label %.loopexit.loopexit110, label %.lr.ph.split.split.us, !llvm.loop !85
+  %exitcond128.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count136
+  br i1 %exitcond128.not, label %.loopexit.loopexit114, label %.lr.ph.split.split.us, !llvm.loop !83
 
-.split.us:                                        ; preds = %.lr.ph.split.us
-  %52 = trunc nuw nsw i64 %indvars.iv130 to i32
-  %53 = trunc nsw i64 %indvars.iv128 to i32
-  store i64 %indvars.iv128, ptr %22, align 8, !tbaa !54
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %indvars.iv128, ptr %54, align 8, !tbaa !13
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %53, ptr %55, align 4, !tbaa !12
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %53, ptr %56, align 4, !tbaa !26
+.split.us:                                        ; preds = %.lr.ph.split.us.split
+  %51 = trunc nuw nsw i64 %indvars.iv131 to i32
+  %52 = trunc nsw i64 %indvars.iv129 to i32
+  store i64 %indvars.iv129, ptr %22, align 8, !tbaa !54
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %indvars.iv129, ptr %53, align 8, !tbaa !13
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %52, ptr %54, align 4, !tbaa !12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %52, ptr %55, align 4, !tbaa !26
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %47
-  %57 = trunc nsw i64 %indvars.iv.next129 to i32
+.loopexit.loopexit:                               ; preds = %46
+  %56 = trunc nsw i64 %indvars.iv.next130 to i32
   br label %.loopexit
 
-.loopexit.loopexit110:                            ; preds = %48
-  %58 = trunc nsw i64 %indvars.iv.next to i32
+.loopexit.loopexit114:                            ; preds = %47
+  %57 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.us, %44, %.loopexit.loopexit110, %.loopexit.loopexit, %33, %.split.us
-  %.174 = phi i32 [ %52, %.split.us ], [ 0, %33 ], [ %38, %.loopexit.loopexit ], [ %38, %.loopexit.loopexit110 ], [ %38, %44 ], [ %38, %.lr.ph.split.split.us ]
-  %.1 = phi i32 [ %53, %.split.us ], [ %21, %33 ], [ %57, %.loopexit.loopexit ], [ %58, %.loopexit.loopexit110 ], [ %.071, %44 ], [ %.071, %.lr.ph.split.split.us ]
-  %.0 = phi i32 [ %53, %.split.us ], [ %24, %33 ], [ %24, %.loopexit.loopexit ], [ %24, %.loopexit.loopexit110 ], [ %24, %44 ], [ %24, %.lr.ph.split.split.us ]
-  %59 = icmp sgt i32 %.1, 0
-  br i1 %59, label %60, label %79
+.loopexit:                                        ; preds = %.lr.ph.split.split.us, %.loopexit.loopexit114, %.loopexit.loopexit, %33, %.split.us
+  %.174 = phi i32 [ %51, %.split.us ], [ 0, %33 ], [ %38, %.loopexit.loopexit ], [ %38, %.loopexit.loopexit114 ], [ %38, %.lr.ph.split.split.us ]
+  %.1 = phi i32 [ %52, %.split.us ], [ %21, %33 ], [ %56, %.loopexit.loopexit ], [ %57, %.loopexit.loopexit114 ], [ %.071, %.lr.ph.split.split.us ]
+  %.0 = phi i32 [ %52, %.split.us ], [ %24, %33 ], [ %24, %.loopexit.loopexit ], [ %24, %.loopexit.loopexit114 ], [ %24, %.lr.ph.split.split.us ]
+  %58 = icmp sgt i32 %.1, 0
+  br i1 %58, label %59, label %78
 
-60:                                               ; preds = %.loopexit
-  %61 = zext nneg i32 %.1 to i64
-  %62 = getelementptr i16, ptr %19, i64 %61
-  %63 = getelementptr i8, ptr %62, i64 -2
-  %64 = load i16, ptr %63, align 2, !tbaa !18
-  %65 = and i16 %64, -1024
-  %66 = icmp eq i16 %65, -10240
+59:                                               ; preds = %.loopexit
+  %60 = zext nneg i32 %.1 to i64
+  %61 = getelementptr i16, ptr %19, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 -2
+  %63 = load i16, ptr %62, align 2, !tbaa !18
+  %64 = and i16 %63, -1024
+  %65 = icmp eq i16 %64, -10240
   %or.cond3 = icmp ugt i32 %.0, %.1
-  %or.cond84 = and i1 %or.cond3, %66
-  br i1 %or.cond84, label %67, label %79
+  %or.cond84 = and i1 %or.cond3, %65
+  br i1 %or.cond84, label %66, label %78
 
-67:                                               ; preds = %60
-  %68 = load i16, ptr %62, align 2, !tbaa !18
-  %69 = and i16 %68, -1024
-  %70 = icmp eq i16 %69, -9216
-  br i1 %70, label %71, label %79
+66:                                               ; preds = %59
+  %67 = load i16, ptr %61, align 2, !tbaa !18
+  %68 = and i16 %67, -1024
+  %69 = icmp eq i16 %68, -9216
+  br i1 %69, label %70, label %78
 
-71:                                               ; preds = %67
-  %72 = icmp slt i32 %.174, %4
-  br i1 %72, label %73, label %77
+70:                                               ; preds = %66
+  %71 = icmp slt i32 %.174, %4
+  br i1 %71, label %72, label %76
 
-73:                                               ; preds = %71
-  %74 = add nsw i32 %.174, 1
-  %75 = sext i32 %.174 to i64
-  %76 = getelementptr inbounds i16, ptr %3, i64 %75
-  store i16 %68, ptr %76, align 2, !tbaa !18
-  br label %77
+72:                                               ; preds = %70
+  %73 = add nsw i32 %.174, 1
+  %74 = sext i32 %.174 to i64
+  %75 = getelementptr inbounds i16, ptr %3, i64 %74
+  store i16 %67, ptr %75, align 2, !tbaa !18
+  br label %76
 
-77:                                               ; preds = %73, %71
-  %.3 = phi i32 [ %74, %73 ], [ %.174, %71 ]
-  %78 = add nuw nsw i32 %.1, 1
-  br label %79
+76:                                               ; preds = %72, %70
+  %.3 = phi i32 [ %73, %72 ], [ %.174, %70 ]
+  %77 = add nuw nsw i32 %.1, 1
+  br label %78
 
-79:                                               ; preds = %77, %67, %60, %.loopexit
-  %.275 = phi i32 [ %.3, %77 ], [ %.174, %67 ], [ %.174, %60 ], [ %.174, %.loopexit ]
-  %.2 = phi i32 [ %78, %77 ], [ %.1, %67 ], [ %.1, %60 ], [ %.1, %.loopexit ]
-  %80 = sext i32 %.2 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load i64, ptr %81, align 8, !tbaa !13
-  %.not81 = icmp slt i64 %82, %80
-  br i1 %.not81, label %84, label %83
+78:                                               ; preds = %76, %66, %59, %.loopexit
+  %.275 = phi i32 [ %.3, %76 ], [ %.174, %66 ], [ %.174, %59 ], [ %.174, %.loopexit ]
+  %.2 = phi i32 [ %77, %76 ], [ %.1, %66 ], [ %.1, %59 ], [ %.1, %.loopexit ]
+  %79 = sext i32 %.2 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %81 = load i64, ptr %80, align 8, !tbaa !13
+  %.not81 = icmp slt i64 %81, %79
+  br i1 %.not81, label %83, label %82
 
-83:                                               ; preds = %79
+82:                                               ; preds = %78
   store i32 %.2, ptr %20, align 8, !tbaa !3
-  br label %86
+  br label %85
 
-84:                                               ; preds = %79
-  %85 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef nonnull %0, i64 noundef %80, i8 noundef signext 1)
-  br label %86
+83:                                               ; preds = %78
+  %84 = tail call noundef signext i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef nonnull %0, i64 noundef %79, i8 noundef signext 1)
+  br label %85
 
-86:                                               ; preds = %84, %83
-  %87 = tail call i32 @u_terminateUChars_77(ptr noundef %3, i32 noundef %4, i32 noundef %.275, ptr noundef nonnull %5)
-  br label %88
+85:                                               ; preds = %83, %82
+  %86 = tail call i32 @u_terminateUChars_77(ptr noundef %3, i32 noundef %4, i32 noundef %.275, ptr noundef nonnull %5)
+  br label %87
 
-88:                                               ; preds = %6, %86, %15
-  %.070 = phi i32 [ 0, %15 ], [ %.275, %86 ], [ 0, %6 ]
+87:                                               ; preds = %6, %85, %15
+  %.070 = phi i32 [ 0, %15 ], [ %.275, %85 ], [ 0, %6 ]
   ret i32 %.070
 }
 
@@ -5742,7 +5739,7 @@ utext_getNativeIndex_77.exit:                     ; preds = %52, %57
 
 114:                                              ; preds = %82, %86, %101, %104, %112
   %115 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  store ptr %15, ptr %115, align 8, !tbaa !86
+  store ptr %15, ptr %115, align 8, !tbaa !84
   br label %.thread
 
 .thread:                                          ; preds = %23, %22, %9, %114, %4, %8
@@ -5866,7 +5863,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18charIterTextAccessP5UTex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   %or.cond86 = select i1 %64, i1 true, i1 %exitcond.not
-  br i1 %or.cond86, label %.loopexit, label %56, !llvm.loop !87
+  br i1 %or.cond86, label %.loopexit, label %56, !llvm.loop !85
 
 .loopexit.sink.split:                             ; preds = %37, %33
   %.sink87 = phi i64 [ 80, %33 ], [ 88, %37 ]
@@ -5969,7 +5966,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %21)
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !88
+  %32 = load i32, ptr %31, align 4, !tbaa !86
   %33 = icmp slt i32 %32, %24
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -6028,7 +6025,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
   %.148 = phi i32 [ %.04762, %60 ], [ %59, %58 ]
   %.2 = phi i32 [ %40, %60 ], [ %.1, %58 ]
   %62 = icmp slt i32 %.pre-phi, %24
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !89
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %61, %_ZL8pinIndexRll.exit
   %.047.lcssa = phi i32 [ %32, %_ZL8pinIndexRll.exit ], [ %.148, %61 ]
@@ -6046,7 +6043,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZL17charIterTextCloseP5UText(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -6058,7 +6055,7 @@ define internal void @_ZL17charIterTextCloseP5UText(ptr noundef captures(none) %
   br label %9
 
 9:                                                ; preds = %5, %1
-  store ptr null, ptr %2, align 8, !tbaa !86
+  store ptr null, ptr %2, align 8, !tbaa !84
   ret void
 }
 
@@ -6192,10 +6189,8 @@ attributes #16 = { nounwind }
 !80 = distinct !{!80, !21}
 !81 = distinct !{!81, !21}
 !82 = distinct !{!82, !21}
-!83 = distinct !{!83, !21, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!85 = distinct !{!85, !21, !84}
-!86 = !{!4, !10, i64 96}
+!83 = distinct !{!83, !21}
+!84 = !{!4, !10, i64 96}
+!85 = distinct !{!85, !21}
+!86 = !{!56, !5, i64 12}
 !87 = distinct !{!87, !21}
-!88 = !{!56, !5, i64 12}
-!89 = distinct !{!89, !21}

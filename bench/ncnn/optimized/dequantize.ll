@@ -823,7 +823,7 @@ _ZN4ncnnL10dequantizeEPKiPfffi.exit.loopexit.us:  ; preds = %.lr.ph.i.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %42, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZN4ncnnL10dequantizeEPKiPfffi.exit.loopexit.us, %.lr.ph, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -850,7 +850,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #8
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare !callback !54 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
+declare !callback !52 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7) #7 personality ptr @__gxx_personality_v0 {
@@ -882,17 +882,17 @@ define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   br i1 %.not57, label %._crit_edge, label %.noexc34.lr.ph
 
 .noexc34.lr.ph:                                   ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !56
+  %21 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !54
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %23 = load i64, ptr %22, align 8, !tbaa !17, !noalias !56
+  %23 = load i64, ptr %22, align 8, !tbaa !17, !noalias !54
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !35, !noalias !56
+  %25 = load i64, ptr %24, align 8, !tbaa !35, !noalias !54
   %factor.op.mul = mul i64 %23, %25
-  %26 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !59
+  %26 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !57
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %28 = load i64, ptr %27, align 8, !tbaa !17, !noalias !59
+  %28 = load i64, ptr %27, align 8, !tbaa !17, !noalias !57
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !35, !noalias !59
+  %30 = load i64, ptr %29, align 8, !tbaa !35, !noalias !57
   %factor.op.mul59 = mul i64 %28, %30
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %32 = load i32, ptr %31, align 8, !tbaa !18
@@ -961,7 +961,7 @@ _ZN4ncnnL10dequantizeEPKiPfffi.exit.loopexit.us:  ; preds = %.lr.ph.i.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %43, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.noexc34.us, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.noexc34.us
 
 ._crit_edge:                                      ; preds = %_ZN4ncnnL10dequantizeEPKiPfffi.exit.loopexit.us, %.noexc34.lr.ph, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1060,14 +1060,11 @@ attributes #14 = { builtin nounwind }
 !49 = !{!44, !13, i64 4}
 !50 = !{!20, !21, i64 8}
 !51 = !{!20, !21, i64 9}
-!52 = distinct !{!52, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!53}
+!53 = !{i64 2, i64 -1, i64 -1, i1 true}
 !54 = !{!55}
-!55 = !{i64 2, i64 -1, i64 -1, i1 true}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!58 = distinct !{!58, !"_ZNK4ncnn3Mat7channelEi"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!61 = distinct !{!61, !"_ZN4ncnn3Mat7channelEi"}
-!62 = distinct !{!62, !53}
+!55 = distinct !{!55, !56, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!56 = distinct !{!56, !"_ZNK4ncnn3Mat7channelEi"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!59 = distinct !{!59, !"_ZN4ncnn3Mat7channelEi"}

@@ -695,13 +695,13 @@ permute.exit.preheader:                           ; preds = %.lr.ph62
   %177 = getelementptr ptr, ptr %1, i64 %indvars.iv.i.us
   store ptr %176, ptr %177, align 8
   %178 = icmp sgt i64 %indvars.iv.next.i.us, %15
-  br i1 %178, label %.lr.ph.i49.us, label %permute.exit.loopexit.us, !llvm.loop !13
+  br i1 %178, label %.lr.ph.i49.us, label %permute.exit.loopexit.us, !llvm.loop !12
 
 permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
   store ptr %174, ptr %16, align 8
   %179 = add nuw nsw i32 %.03361.us, 1
   %exitcond74.not = icmp eq i32 %179, %168
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.i49.preheader.us, !llvm.loop !14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.i49.preheader.us, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %permute.exit.loopexit.us, %permute.exit.preheader, %166
   %180 = add i32 %168, %13
@@ -768,7 +768,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !12}

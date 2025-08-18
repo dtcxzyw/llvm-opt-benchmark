@@ -2611,7 +2611,7 @@ define void @SSL_CTX_flush_sessions_ex(ptr noundef %0, i64 noundef %1) local_unn
   %5 = load ptr, ptr %4, align 8, !tbaa !99
   %6 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #11
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %126, label %7
+  br i1 %.not, label %156, label %7
 
 7:                                                ; preds = %2
   %8 = tail call ptr @OPENSSL_sk_new_null() #11
@@ -2633,265 +2633,337 @@ define void @SSL_CTX_flush_sessions_ex(ptr noundef %0, i64 noundef %1) local_unn
   %18 = icmp eq ptr %.fr36, null
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %51
-  %19 = phi ptr [ %52, %51 ], [ %14, %.lr.ph ]
-  br i1 %15, label %22, label %20
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %15, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-20:                                               ; preds = %.lr.ph.split.us
-  %21 = getelementptr i8, ptr %19, i64 744
-  %.val.us = load i64, ptr %21, align 8
-  %.not30.us = icmp ugt i64 %3, %.val.us
-  br i1 %.not30.us, label %22, label %._crit_edge
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %48
+  %19 = phi ptr [ %49, %48 ], [ %14, %.lr.ph.split.us ]
+  %20 = load ptr, ptr %9, align 8, !tbaa !134
+  %21 = tail call ptr @OPENSSL_LH_delete(ptr noundef %20, ptr noundef nonnull %19) #11
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 912
+  %23 = load ptr, ptr %22, align 8, !tbaa !137
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %SSL_SESSION_list_remove.exit.us.us, label %25
 
-22:                                               ; preds = %20, %.lr.ph.split.us
-  %23 = load ptr, ptr %9, align 8, !tbaa !134
-  %24 = tail call ptr @OPENSSL_LH_delete(ptr noundef %23, ptr noundef nonnull %19) #11
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 912
-  %26 = load ptr, ptr %25, align 8, !tbaa !137
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %SSL_SESSION_list_remove.exit.us, label %28
+25:                                               ; preds = %.lr.ph.split.us.split.us
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 904
+  %27 = load ptr, ptr %26, align 8, !tbaa !138
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %SSL_SESSION_list_remove.exit.us.us, label %29
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 904
-  %30 = load ptr, ptr %29, align 8, !tbaa !138
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %SSL_SESSION_list_remove.exit.us, label %32
+29:                                               ; preds = %25
+  %30 = icmp eq ptr %23, %13
+  %31 = icmp eq ptr %27, %16
+  br i1 %30, label %39, label %32
 
-32:                                               ; preds = %28
-  %33 = icmp eq ptr %26, %13
-  %34 = icmp eq ptr %30, %16
-  br i1 %33, label %42, label %35
+32:                                               ; preds = %29
+  br i1 %31, label %37, label %33
 
-35:                                               ; preds = %32
-  br i1 %34, label %40, label %36
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 904
+  store ptr %27, ptr %34, align 8, !tbaa !138
+  %35 = load ptr, ptr %26, align 8, !tbaa !138
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 912
+  store ptr %23, ptr %36, align 8, !tbaa !137
+  br label %43
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 904
-  store ptr %30, ptr %37, align 8, !tbaa !138
-  %38 = load ptr, ptr %29, align 8, !tbaa !138
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 912
-  store ptr %26, ptr %39, align 8, !tbaa !137
-  br label %46
+37:                                               ; preds = %32
+  store ptr %23, ptr %16, align 8, !tbaa !140
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 904
+  store ptr %16, ptr %38, align 8, !tbaa !138
+  br label %43
 
-40:                                               ; preds = %35
-  store ptr %26, ptr %16, align 8, !tbaa !140
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 904
-  store ptr %16, ptr %41, align 8, !tbaa !138
-  br label %46
+39:                                               ; preds = %29
+  br i1 %31, label %42, label %40
 
-42:                                               ; preds = %32
-  br i1 %34, label %45, label %43
+40:                                               ; preds = %39
+  store ptr %27, ptr %13, align 8, !tbaa !139
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 912
+  store ptr %13, ptr %41, align 8, !tbaa !137
+  br label %43
 
-43:                                               ; preds = %42
-  store ptr %30, ptr %13, align 8, !tbaa !139
-  %44 = getelementptr inbounds nuw i8, ptr %30, i64 912
-  store ptr %13, ptr %44, align 8, !tbaa !137
-  br label %46
-
-45:                                               ; preds = %42
+42:                                               ; preds = %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  br label %46
+  br label %43
 
-46:                                               ; preds = %45, %43, %40, %36
-  %47 = getelementptr inbounds nuw i8, ptr %19, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
+43:                                               ; preds = %42, %40, %37, %33
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 896
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  br label %SSL_SESSION_list_remove.exit.us.us
+
+SSL_SESSION_list_remove.exit.us.us:               ; preds = %43, %25, %.lr.ph.split.us.split.us
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 688
+  store i32 1, ptr %45, align 8, !tbaa !90
+  %46 = load ptr, ptr %17, align 8, !tbaa !152
+  %.not28.us.us = icmp eq ptr %46, null
+  br i1 %.not28.us.us, label %48, label %47
+
+47:                                               ; preds = %SSL_SESSION_list_remove.exit.us.us
+  tail call void %46(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
+  br label %48
+
+48:                                               ; preds = %47, %SSL_SESSION_list_remove.exit.us.us
+  tail call void @SSL_SESSION_free(ptr noundef nonnull %19)
+  %49 = load ptr, ptr %13, align 8, !tbaa !139
+  %.not26.us.us = icmp eq ptr %49, null
+  br i1 %.not26.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !168
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %81
+  %50 = phi ptr [ %82, %81 ], [ %14, %.lr.ph.split.us ]
+  %51 = getelementptr i8, ptr %50, i64 744
+  %.val.us = load i64, ptr %51, align 8
+  %.not30.us = icmp ugt i64 %3, %.val.us
+  br i1 %.not30.us, label %52, label %._crit_edge
+
+52:                                               ; preds = %.lr.ph.split.us.split
+  %53 = load ptr, ptr %9, align 8, !tbaa !134
+  %54 = tail call ptr @OPENSSL_LH_delete(ptr noundef %53, ptr noundef nonnull %50) #11
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 912
+  %56 = load ptr, ptr %55, align 8, !tbaa !137
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %SSL_SESSION_list_remove.exit.us, label %58
+
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 904
+  %60 = load ptr, ptr %59, align 8, !tbaa !138
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %SSL_SESSION_list_remove.exit.us, label %62
+
+62:                                               ; preds = %58
+  %63 = icmp eq ptr %56, %13
+  %64 = icmp eq ptr %60, %16
+  br i1 %63, label %72, label %65
+
+65:                                               ; preds = %62
+  br i1 %64, label %70, label %66
+
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 904
+  store ptr %60, ptr %67, align 8, !tbaa !138
+  %68 = load ptr, ptr %59, align 8, !tbaa !138
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 912
+  store ptr %56, ptr %69, align 8, !tbaa !137
+  br label %76
+
+70:                                               ; preds = %65
+  store ptr %56, ptr %16, align 8, !tbaa !140
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 904
+  store ptr %16, ptr %71, align 8, !tbaa !138
+  br label %76
+
+72:                                               ; preds = %62
+  br i1 %64, label %75, label %73
+
+73:                                               ; preds = %72
+  store ptr %60, ptr %13, align 8, !tbaa !139
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 912
+  store ptr %13, ptr %74, align 8, !tbaa !137
+  br label %76
+
+75:                                               ; preds = %72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  br label %76
+
+76:                                               ; preds = %75, %73, %70, %66
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 896
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   br label %SSL_SESSION_list_remove.exit.us
 
-SSL_SESSION_list_remove.exit.us:                  ; preds = %46, %28, %22
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 688
-  store i32 1, ptr %48, align 8, !tbaa !90
-  %49 = load ptr, ptr %17, align 8, !tbaa !152
-  %.not28.us = icmp eq ptr %49, null
-  br i1 %.not28.us, label %51, label %50
+SSL_SESSION_list_remove.exit.us:                  ; preds = %76, %58, %52
+  %78 = getelementptr inbounds nuw i8, ptr %50, i64 688
+  store i32 1, ptr %78, align 8, !tbaa !90
+  %79 = load ptr, ptr %17, align 8, !tbaa !152
+  %.not28.us = icmp eq ptr %79, null
+  br i1 %.not28.us, label %81, label %80
 
-50:                                               ; preds = %SSL_SESSION_list_remove.exit.us
-  tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %19) #11
-  br label %51
+80:                                               ; preds = %SSL_SESSION_list_remove.exit.us
+  tail call void %79(ptr noundef nonnull %0, ptr noundef nonnull %50) #11
+  br label %81
 
-51:                                               ; preds = %50, %SSL_SESSION_list_remove.exit.us
-  tail call void @SSL_SESSION_free(ptr noundef nonnull %19)
-  %52 = load ptr, ptr %13, align 8, !tbaa !139
-  %.not26.us = icmp eq ptr %52, null
-  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !168
+81:                                               ; preds = %80, %SSL_SESSION_list_remove.exit.us
+  tail call void @SSL_SESSION_free(ptr noundef nonnull %50)
+  %82 = load ptr, ptr %13, align 8, !tbaa !139
+  %.not26.us = icmp eq ptr %82, null
+  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !168
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %15, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %85
-  %53 = phi ptr [ %86, %85 ], [ %14, %.lr.ph.split ]
-  %54 = load ptr, ptr %9, align 8, !tbaa !134
-  %55 = tail call ptr @OPENSSL_LH_delete(ptr noundef %54, ptr noundef nonnull %53) #11
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 912
-  %57 = load ptr, ptr %56, align 8, !tbaa !137
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %SSL_SESSION_list_remove.exit.us33, label %59
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %115
+  %83 = phi ptr [ %116, %115 ], [ %14, %.lr.ph.split ]
+  %84 = load ptr, ptr %9, align 8, !tbaa !134
+  %85 = tail call ptr @OPENSSL_LH_delete(ptr noundef %84, ptr noundef nonnull %83) #11
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 912
+  %87 = load ptr, ptr %86, align 8, !tbaa !137
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %SSL_SESSION_list_remove.exit.us33, label %89
 
-59:                                               ; preds = %.lr.ph.split.split.us
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 904
-  %61 = load ptr, ptr %60, align 8, !tbaa !138
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %SSL_SESSION_list_remove.exit.us33, label %63
+89:                                               ; preds = %.lr.ph.split.split.us
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 904
+  %91 = load ptr, ptr %90, align 8, !tbaa !138
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %SSL_SESSION_list_remove.exit.us33, label %93
 
-63:                                               ; preds = %59
-  %64 = icmp eq ptr %57, %13
-  %65 = icmp eq ptr %61, %16
-  br i1 %64, label %73, label %66
+93:                                               ; preds = %89
+  %94 = icmp eq ptr %87, %13
+  %95 = icmp eq ptr %91, %16
+  br i1 %94, label %103, label %96
 
-66:                                               ; preds = %63
-  br i1 %65, label %71, label %67
+96:                                               ; preds = %93
+  br i1 %95, label %101, label %97
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 904
-  store ptr %61, ptr %68, align 8, !tbaa !138
-  %69 = load ptr, ptr %60, align 8, !tbaa !138
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 912
-  store ptr %57, ptr %70, align 8, !tbaa !137
-  br label %77
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 904
+  store ptr %91, ptr %98, align 8, !tbaa !138
+  %99 = load ptr, ptr %90, align 8, !tbaa !138
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 912
+  store ptr %87, ptr %100, align 8, !tbaa !137
+  br label %107
 
-71:                                               ; preds = %66
-  store ptr %57, ptr %16, align 8, !tbaa !140
-  %72 = getelementptr inbounds nuw i8, ptr %57, i64 904
-  store ptr %16, ptr %72, align 8, !tbaa !138
-  br label %77
+101:                                              ; preds = %96
+  store ptr %87, ptr %16, align 8, !tbaa !140
+  %102 = getelementptr inbounds nuw i8, ptr %87, i64 904
+  store ptr %16, ptr %102, align 8, !tbaa !138
+  br label %107
 
-73:                                               ; preds = %63
-  br i1 %65, label %76, label %74
+103:                                              ; preds = %93
+  br i1 %95, label %106, label %104
 
-74:                                               ; preds = %73
-  store ptr %61, ptr %13, align 8, !tbaa !139
-  %75 = getelementptr inbounds nuw i8, ptr %61, i64 912
-  store ptr %13, ptr %75, align 8, !tbaa !137
-  br label %77
+104:                                              ; preds = %103
+  store ptr %91, ptr %13, align 8, !tbaa !139
+  %105 = getelementptr inbounds nuw i8, ptr %91, i64 912
+  store ptr %13, ptr %105, align 8, !tbaa !137
+  br label %107
 
-76:                                               ; preds = %73
+106:                                              ; preds = %103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  br label %77
+  br label %107
 
-77:                                               ; preds = %76, %74, %71, %67
-  %78 = getelementptr inbounds nuw i8, ptr %53, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
+107:                                              ; preds = %106, %104, %101, %97
+  %108 = getelementptr inbounds nuw i8, ptr %83, i64 896
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   br label %SSL_SESSION_list_remove.exit.us33
 
-SSL_SESSION_list_remove.exit.us33:                ; preds = %77, %59, %.lr.ph.split.split.us
-  %79 = getelementptr inbounds nuw i8, ptr %53, i64 688
-  store i32 1, ptr %79, align 8, !tbaa !90
-  %80 = load ptr, ptr %17, align 8, !tbaa !152
-  %.not28.us34 = icmp eq ptr %80, null
-  br i1 %.not28.us34, label %82, label %81
+SSL_SESSION_list_remove.exit.us33:                ; preds = %107, %89, %.lr.ph.split.split.us
+  %109 = getelementptr inbounds nuw i8, ptr %83, i64 688
+  store i32 1, ptr %109, align 8, !tbaa !90
+  %110 = load ptr, ptr %17, align 8, !tbaa !152
+  %.not28.us34 = icmp eq ptr %110, null
+  br i1 %.not28.us34, label %112, label %111
 
-81:                                               ; preds = %SSL_SESSION_list_remove.exit.us33
-  tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %53) #11
-  br label %82
+111:                                              ; preds = %SSL_SESSION_list_remove.exit.us33
+  tail call void %110(ptr noundef nonnull %0, ptr noundef nonnull %83) #11
+  br label %112
 
-82:                                               ; preds = %81, %SSL_SESSION_list_remove.exit.us33
-  %83 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.fr36, ptr noundef nonnull %53) #11
-  %.not29.us = icmp eq i32 %83, 0
-  br i1 %.not29.us, label %84, label %85
+112:                                              ; preds = %111, %SSL_SESSION_list_remove.exit.us33
+  %113 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.fr36, ptr noundef nonnull %83) #11
+  %.not29.us = icmp eq i32 %113, 0
+  br i1 %.not29.us, label %114, label %115
 
-84:                                               ; preds = %82
-  tail call void @SSL_SESSION_free(ptr noundef nonnull %53)
-  br label %85
+114:                                              ; preds = %112
+  tail call void @SSL_SESSION_free(ptr noundef nonnull %83)
+  br label %115
 
-85:                                               ; preds = %84, %82
-  %86 = load ptr, ptr %13, align 8, !tbaa !139
-  %.not26.us35 = icmp eq ptr %86, null
-  br i1 %.not26.us35, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !170
+115:                                              ; preds = %114, %112
+  %116 = load ptr, ptr %13, align 8, !tbaa !139
+  %.not26.us35 = icmp eq ptr %116, null
+  br i1 %.not26.us35, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !168
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %121
-  %87 = phi ptr [ %122, %121 ], [ %14, %.lr.ph.split ]
-  %88 = getelementptr i8, ptr %87, i64 744
-  %.val = load i64, ptr %88, align 8
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %151
+  %117 = phi ptr [ %152, %151 ], [ %14, %.lr.ph.split ]
+  %118 = getelementptr i8, ptr %117, i64 744
+  %.val = load i64, ptr %118, align 8
   %.not30 = icmp ugt i64 %3, %.val
-  br i1 %.not30, label %89, label %._crit_edge
+  br i1 %.not30, label %119, label %._crit_edge
 
-89:                                               ; preds = %.lr.ph.split.split
-  %90 = load ptr, ptr %9, align 8, !tbaa !134
-  %91 = tail call ptr @OPENSSL_LH_delete(ptr noundef %90, ptr noundef nonnull %87) #11
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 912
-  %93 = load ptr, ptr %92, align 8, !tbaa !137
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %SSL_SESSION_list_remove.exit, label %95
+119:                                              ; preds = %.lr.ph.split.split
+  %120 = load ptr, ptr %9, align 8, !tbaa !134
+  %121 = tail call ptr @OPENSSL_LH_delete(ptr noundef %120, ptr noundef nonnull %117) #11
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 912
+  %123 = load ptr, ptr %122, align 8, !tbaa !137
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %SSL_SESSION_list_remove.exit, label %125
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 904
-  %97 = load ptr, ptr %96, align 8, !tbaa !138
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %SSL_SESSION_list_remove.exit, label %99
+125:                                              ; preds = %119
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 904
+  %127 = load ptr, ptr %126, align 8, !tbaa !138
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %SSL_SESSION_list_remove.exit, label %129
 
-99:                                               ; preds = %95
-  %100 = icmp eq ptr %93, %13
-  %101 = icmp eq ptr %97, %16
-  br i1 %100, label %102, label %106
+129:                                              ; preds = %125
+  %130 = icmp eq ptr %123, %13
+  %131 = icmp eq ptr %127, %16
+  br i1 %130, label %132, label %136
 
-102:                                              ; preds = %99
-  br i1 %101, label %103, label %104
+132:                                              ; preds = %129
+  br i1 %131, label %133, label %134
 
-103:                                              ; preds = %102
+133:                                              ; preds = %132
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  br label %113
+  br label %143
 
-104:                                              ; preds = %102
-  store ptr %97, ptr %13, align 8, !tbaa !139
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 912
-  store ptr %13, ptr %105, align 8, !tbaa !137
-  br label %113
+134:                                              ; preds = %132
+  store ptr %127, ptr %13, align 8, !tbaa !139
+  %135 = getelementptr inbounds nuw i8, ptr %127, i64 912
+  store ptr %13, ptr %135, align 8, !tbaa !137
+  br label %143
 
-106:                                              ; preds = %99
-  br i1 %101, label %107, label %109
+136:                                              ; preds = %129
+  br i1 %131, label %137, label %139
 
-107:                                              ; preds = %106
-  store ptr %93, ptr %16, align 8, !tbaa !140
-  %108 = getelementptr inbounds nuw i8, ptr %93, i64 904
-  store ptr %16, ptr %108, align 8, !tbaa !138
-  br label %113
+137:                                              ; preds = %136
+  store ptr %123, ptr %16, align 8, !tbaa !140
+  %138 = getelementptr inbounds nuw i8, ptr %123, i64 904
+  store ptr %16, ptr %138, align 8, !tbaa !138
+  br label %143
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %93, i64 904
-  store ptr %97, ptr %110, align 8, !tbaa !138
-  %111 = load ptr, ptr %96, align 8, !tbaa !138
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 912
-  store ptr %93, ptr %112, align 8, !tbaa !137
-  br label %113
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds nuw i8, ptr %123, i64 904
+  store ptr %127, ptr %140, align 8, !tbaa !138
+  %141 = load ptr, ptr %126, align 8, !tbaa !138
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 912
+  store ptr %123, ptr %142, align 8, !tbaa !137
+  br label %143
 
-113:                                              ; preds = %109, %107, %104, %103
-  %114 = getelementptr inbounds nuw i8, ptr %87, i64 896
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 24, i1 false)
+143:                                              ; preds = %139, %137, %134, %133
+  %144 = getelementptr inbounds nuw i8, ptr %117, i64 896
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 24, i1 false)
   br label %SSL_SESSION_list_remove.exit
 
-SSL_SESSION_list_remove.exit:                     ; preds = %89, %95, %113
-  %115 = getelementptr inbounds nuw i8, ptr %87, i64 688
-  store i32 1, ptr %115, align 8, !tbaa !90
-  %116 = load ptr, ptr %17, align 8, !tbaa !152
-  %.not28 = icmp eq ptr %116, null
-  br i1 %.not28, label %118, label %117
+SSL_SESSION_list_remove.exit:                     ; preds = %119, %125, %143
+  %145 = getelementptr inbounds nuw i8, ptr %117, i64 688
+  store i32 1, ptr %145, align 8, !tbaa !90
+  %146 = load ptr, ptr %17, align 8, !tbaa !152
+  %.not28 = icmp eq ptr %146, null
+  br i1 %.not28, label %148, label %147
 
-117:                                              ; preds = %SSL_SESSION_list_remove.exit
-  tail call void %116(ptr noundef nonnull %0, ptr noundef nonnull %87) #11
-  br label %118
+147:                                              ; preds = %SSL_SESSION_list_remove.exit
+  tail call void %146(ptr noundef nonnull %0, ptr noundef nonnull %117) #11
+  br label %148
 
-118:                                              ; preds = %117, %SSL_SESSION_list_remove.exit
-  %119 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.fr36, ptr noundef nonnull %87) #11
-  %.not29 = icmp eq i32 %119, 0
-  br i1 %.not29, label %120, label %121
+148:                                              ; preds = %147, %SSL_SESSION_list_remove.exit
+  %149 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %.fr36, ptr noundef nonnull %117) #11
+  %.not29 = icmp eq i32 %149, 0
+  br i1 %.not29, label %150, label %151
 
-120:                                              ; preds = %118
-  tail call void @SSL_SESSION_free(ptr noundef nonnull %87)
-  br label %121
+150:                                              ; preds = %148
+  tail call void @SSL_SESSION_free(ptr noundef nonnull %117)
+  br label %151
 
-121:                                              ; preds = %118, %120
-  %122 = load ptr, ptr %13, align 8, !tbaa !139
-  %.not26 = icmp eq ptr %122, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !171
+151:                                              ; preds = %148, %150
+  %152 = load ptr, ptr %13, align 8, !tbaa !139
+  %.not26 = icmp eq ptr %152, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !168
 
-._crit_edge:                                      ; preds = %121, %.lr.ph.split.split, %85, %51, %20, %7
-  %123 = load ptr, ptr %9, align 8, !tbaa !134
-  tail call void @OPENSSL_LH_set_down_load(ptr noundef %123, i64 noundef %11) #11
-  %124 = load ptr, ptr %4, align 8, !tbaa !99
-  %125 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %124) #11
+._crit_edge:                                      ; preds = %151, %.lr.ph.split.split, %115, %81, %.lr.ph.split.us.split, %48, %7
+  %153 = load ptr, ptr %9, align 8, !tbaa !134
+  tail call void @OPENSSL_LH_set_down_load(ptr noundef %153, i64 noundef %11) #11
+  %154 = load ptr, ptr %4, align 8, !tbaa !99
+  %155 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %154) #11
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.fr36, ptr noundef nonnull @SSL_SESSION_free) #11
-  br label %126
+  br label %156
 
-126:                                              ; preds = %2, %._crit_edge
+156:                                              ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -2902,14 +2974,14 @@ declare i32 @SSL_in_before(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_sess_set_new_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %1, ptr %3, align 8, !tbaa !172
+  store ptr %1, ptr %3, align 8, !tbaa !169
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @SSL_CTX_sess_get_new_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !172
+  %3 = load ptr, ptr %2, align 8, !tbaa !169
   ret ptr %3
 }
 
@@ -2944,42 +3016,42 @@ define ptr @SSL_CTX_sess_get_get_cb(ptr noundef readonly captures(none) %0) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_info_callback(ptr noundef writeonly captures(none) initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %1, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %3, align 8, !tbaa !170
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @SSL_CTX_get_info_callback(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %3 = load ptr, ptr %2, align 8, !tbaa !173
+  %3 = load ptr, ptr %2, align 8, !tbaa !170
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_client_cert_cb(ptr noundef writeonly captures(none) initializes((200, 208)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %1, ptr %3, align 8, !tbaa !174
+  store ptr %1, ptr %3, align 8, !tbaa !171
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @SSL_CTX_get_client_cert_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !174
+  %3 = load ptr, ptr %2, align 8, !tbaa !171
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_cookie_generate_cb(ptr noundef writeonly captures(none) initializes((208, 216)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %1, ptr %3, align 8, !tbaa !175
+  store ptr %1, ptr %3, align 8, !tbaa !172
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_cookie_verify_cb(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %1, ptr %3, align 8, !tbaa !176
+  store ptr %1, ptr %3, align 8, !tbaa !173
   ret void
 }
 
@@ -3018,7 +3090,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_set1_ticket_appdata(ptr noundef captures
 define noundef i32 @SSL_SESSION_get0_ticket_appdata(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load ptr, ptr %4, align 8, !tbaa !88
-  store ptr %5, ptr %1, align 8, !tbaa !177
+  store ptr %5, ptr %1, align 8, !tbaa !174
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %7 = load i64, ptr %6, align 8, !tbaa !89
   store i64 %7, ptr %2, align 8, !tbaa !3
@@ -3028,14 +3100,14 @@ define noundef i32 @SSL_SESSION_get0_ticket_appdata(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef writeonly captures(none) initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %1, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %3, align 8, !tbaa !175
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SSL_CTX_set_stateless_cookie_verify_cb(ptr noundef writeonly captures(none) initializes((232, 240)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %1, ptr %3, align 8, !tbaa !179
+  store ptr %1, ptr %3, align 8, !tbaa !176
   ret void
 }
 
@@ -3296,15 +3368,12 @@ attributes #11 = { nounwind }
 !165 = !{!166, !40, i64 0}
 !166 = !{!"tls_session_ticket_ext_st", !40, i64 0, !11, i64 8}
 !167 = !{!166, !11, i64 8}
-!168 = distinct !{!168, !119, !169}
-!169 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!170 = distinct !{!170, !119, !169}
-!171 = distinct !{!171, !119}
-!172 = !{!100, !11, i64 96}
-!173 = !{!100, !11, i64 288}
-!174 = !{!100, !11, i64 200}
-!175 = !{!100, !11, i64 208}
-!176 = !{!100, !11, i64 216}
-!177 = !{!11, !11, i64 0}
-!178 = !{!100, !11, i64 224}
-!179 = !{!100, !11, i64 232}
+!168 = distinct !{!168, !119}
+!169 = !{!100, !11, i64 96}
+!170 = !{!100, !11, i64 288}
+!171 = !{!100, !11, i64 200}
+!172 = !{!100, !11, i64 208}
+!173 = !{!100, !11, i64 216}
+!174 = !{!11, !11, i64 0}
+!175 = !{!100, !11, i64 224}
+!176 = !{!100, !11, i64 232}

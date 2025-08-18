@@ -685,5 +685,4 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

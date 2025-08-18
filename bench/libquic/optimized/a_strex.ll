@@ -1083,7 +1083,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %187 = add nsw i32 %.030.i, %.154100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %152, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge, label %152, !llvm.loop !32
 
 select.unfold:                                    ; preds = %184, %182, %176, %172, %168, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1100,7 +1100,7 @@ do_esc_char.exit84.thread:                        ; preds = %57, %82, %84, %86, 
   %.154.lcssa = phi i32 [ %.053103, %147 ], [ %187, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq ptr %.150, %15
-  br i1 %.not, label %.loopexit, label %.lr.ph105.split.split, !llvm.loop !34
+  br i1 %.not, label %.loopexit, label %.lr.ph105.split.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %141, %.critedge, %21, %106, %7, %.lr.ph105, %do_esc_char.exit84.thread, %select.unfold
   %.1 = phi i32 [ -1, %select.unfold ], [ -1, %do_esc_char.exit84.thread ], [ 0, %7 ], [ -1, %.lr.ph105 ], [ -1, %21 ], [ %107, %106 ], [ -1, %141 ], [ %.154.lcssa, %.critedge ]
@@ -1181,7 +1181,5 @@ attributes #12 = { nounwind allocsize(0) }
 !28 = !{!21, !21, i64 0}
 !29 = !{!15, !15, i64 0}
 !30 = !{!22, !22, i64 0}
-!31 = distinct !{!31, !7, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}

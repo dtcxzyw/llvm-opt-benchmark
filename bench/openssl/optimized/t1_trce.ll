@@ -3663,7 +3663,7 @@ do_ssl_trace_str.exit.us.i.i:                     ; preds = %92, %95
   %99 = getelementptr inbounds nuw i8, ptr %.01925.us.i.i, i64 2
   %100 = add i64 %.02024.us.i.i, -2
   %.not21.us.i.i = icmp eq i64 %100, 0
-  br i1 %.not21.us.i.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.split.us.i.i, !llvm.loop !115
+  br i1 %.not21.us.i.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.split.us.i.i, !llvm.loop !112
 
 101:                                              ; preds = %do_ssl_trace_str.exit.i
   %102 = icmp eq i32 %52, 0
@@ -3815,7 +3815,7 @@ do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 %168
   %176 = add i64 %.0207372.i, %.neg.i
   %.not249.i = icmp eq i64 %176, 0
-  br i1 %.not249.i, label %ssl_print_extension.exit.thread68, label %166, !llvm.loop !117
+  br i1 %.not249.i, label %ssl_print_extension.exit.thread68, label %166, !llvm.loop !115
 
 177:                                              ; preds = %do_ssl_trace_str.exit.i
   %178 = icmp samesign ult i32 %52, 2
@@ -3877,7 +3877,7 @@ do_ssl_trace_str.exit288.i:                       ; preds = %203, %200
   %206 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.554, ptr noundef %.07.i287.i, i32 noundef %196) #3
   %207 = add i64 %.2209368.i, -2
   %.not247.i = icmp eq i64 %207, 0
-  br i1 %.not247.i, label %ssl_print_extension.exit.thread68, label %.lr.ph370.i, !llvm.loop !118
+  br i1 %.not247.i, label %ssl_print_extension.exit.thread68, label %.lr.ph370.i, !llvm.loop !116
 
 208:                                              ; preds = %do_ssl_trace_str.exit.i
   %209 = icmp eq i32 %52, 0
@@ -4079,7 +4079,7 @@ ssl_print_hex.exit307.i:                          ; preds = %.lr.ph.i304.i, %do_
   %311 = getelementptr inbounds nuw i8, ptr %280, i64 %279
   %312 = sub i64 %281, %279
   %.not239.i = icmp eq i64 %312, 0
-  br i1 %.not239.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.i, !llvm.loop !119
+  br i1 %.not239.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.i, !llvm.loop !117
 
 313:                                              ; preds = %do_ssl_trace_str.exit.i
   br i1 %.not.i, label %334, label %314
@@ -4285,7 +4285,7 @@ ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.ex
   %412 = getelementptr inbounds nuw i8, ptr %61, i64 %53
   %413 = sub i64 %.055103, %54
   %.not = icmp eq i64 %413, 0
-  br i1 %.not, label %414, label %35, !llvm.loop !120
+  br i1 %.not, label %414, label %35, !llvm.loop !118
 
 414:                                              ; preds = %ssl_print_extension.exit.thread68
   store ptr %412, ptr %4, align 8, !tbaa !83
@@ -4350,7 +4350,7 @@ do_ssl_trace_str.exit.us:                         ; preds = %21, %24
   %28 = getelementptr inbounds nuw i8, ptr %.01925.us, i64 2
   %29 = add i64 %.02024.us, -2
   %.not21.us = icmp eq i64 %29, 0
-  br i1 %.not21.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !115
+  br i1 %.not21.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !112
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %do_ssl_trace_str.exit
   %.01925 = phi ptr [ %43, %do_ssl_trace_str.exit ], [ %2, %.lr.ph ]
@@ -4547,7 +4547,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key(ptr noundef
   %27 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 6, i32 noundef 80) #3
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.501, i32 noundef %21) #3
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !121
+  %30 = load ptr, ptr %29, align 8, !tbaa !119
   %31 = load ptr, ptr %30, align 8, !tbaa !94
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1152
   %33 = load ptr, ptr %32, align 8, !tbaa !109
@@ -4724,10 +4724,8 @@ attributes #3 = { nounwind }
 !112 = distinct !{!112, !77}
 !113 = distinct !{!113, !77}
 !114 = distinct !{!114, !77}
-!115 = distinct !{!115, !77, !116}
-!116 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!115 = distinct !{!115, !77}
+!116 = distinct !{!116, !77}
 !117 = distinct !{!117, !77}
 !118 = distinct !{!118, !77}
-!119 = distinct !{!119, !77}
-!120 = distinct !{!120, !77}
-!121 = !{!4, !8, i64 8}
+!119 = !{!4, !8, i64 8}

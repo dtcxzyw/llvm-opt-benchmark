@@ -1734,7 +1734,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
   store i32 %47, ptr %50, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !53
 
 51:                                               ; preds = %40
   %52 = landingpad { ptr, i32 }
@@ -2053,7 +2053,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %34
   store i32 %71, ptr %74, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !54
 
 75:                                               ; preds = %64
   %76 = landingpad { ptr, i32 }
@@ -2826,7 +2826,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit82:    ; preds = %_ZN5zxing3RefINS_13
   %304 = lshr exact i64 %303, 2
   %305 = trunc i64 %304 to i32
   %.not33 = icmp slt i32 %293, %305
-  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not33, label %.critedge, label %.lr.ph, !llvm.loop !55
 
 306:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76, %153
   %.sroa.0105.7 = phi ptr [ %.sroa.0105.5, %153 ], [ %.sroa.0105.2155, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78 ], [ %.sroa.0105.2155, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76 ]
@@ -2887,13 +2887,13 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84:    ; preds = %313, %308, %306, %1
           to label %329 unwind label %342
 
 329:                                              ; preds = %.critedge
-  store ptr %328, ptr %0, align 8, !tbaa !57
+  store ptr %328, ptr %0, align 8, !tbaa !56
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, i8 0, i64 16, i1 false), !tbaa !31
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %330, ptr %332, align 8, !tbaa !60
-  store ptr %330, ptr %331, align 8, !tbaa !61
+  store ptr %330, ptr %332, align 8, !tbaa !59
+  store ptr %330, ptr %331, align 8, !tbaa !60
   %333 = load ptr, ptr %7, align 8, !tbaa !31
   %.not.i.i87 = icmp eq ptr %333, null
   br i1 %.not.i.i87, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit92, label %334
@@ -3168,7 +3168,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !62
+  %3 = load i32, ptr %2, align 4, !tbaa !61
   ret i32 %3
 }
 
@@ -3350,14 +3350,13 @@ attributes #17 = { noreturn }
 !49 = distinct !{!49, !50, !"_ZN5zxing13GenericGFPoly15getCoefficientsEv: argument 0"}
 !50 = distinct !{!50, !"_ZN5zxing13GenericGFPoly15getCoefficientsEv"}
 !51 = distinct !{!51, !30}
-!52 = distinct !{!52, !30, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !30}
+!53 = distinct !{!53, !30}
 !54 = distinct !{!54, !30}
 !55 = distinct !{!55, !30}
-!56 = distinct !{!56, !30}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSNSt12_Vector_baseIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
-!59 = !{!"p1 _ZTSN5zxing3RefINS_13GenericGFPolyEEE", !12, i64 0}
-!60 = !{!58, !59, i64 16}
-!61 = !{!58, !59, i64 8}
-!62 = !{!21, !5, i64 12}
+!56 = !{!57, !58, i64 0}
+!57 = !{!"_ZTSNSt12_Vector_baseIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
+!58 = !{!"p1 _ZTSN5zxing3RefINS_13GenericGFPolyEEE", !12, i64 0}
+!59 = !{!57, !58, i64 16}
+!60 = !{!57, !58, i64 8}
+!61 = !{!21, !5, i64 12}

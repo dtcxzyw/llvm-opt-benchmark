@@ -196,13 +196,13 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next157 to i32
   %exitcond159.not = icmp eq i32 %83, %lftr.wideiv
-  br i1 %exitcond159.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !24
+  br i1 %exitcond159.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !22
 
 ._crit_edge140:                                   ; preds = %.lr.ph139.split, %.lr.ph139.split.us, %72
   %109 = getelementptr inbounds i32, ptr %3, i64 %59
   %110 = load i32, ptr %109, align 4, !tbaa !14
   %.not125 = icmp eq i32 %110, -1
-  br i1 %.not125, label %._crit_edge145.loopexit, label %58, !llvm.loop !25
+  br i1 %.not125, label %._crit_edge145.loopexit, label %58, !llvm.loop !23
 
 ._crit_edge145.loopexit:                          ; preds = %58, %._crit_edge140
   %.1.ph = phi double [ %73, %._crit_edge140 ], [ %70, %58 ]
@@ -264,7 +264,5 @@ attributes #5 = { nounwind }
 !19 = !{!"double", !6, i64 0}
 !20 = distinct !{!20, !17}
 !21 = distinct !{!21, !17}
-!22 = distinct !{!22, !17, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}

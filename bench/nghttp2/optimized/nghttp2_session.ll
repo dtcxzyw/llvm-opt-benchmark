@@ -9446,7 +9446,7 @@ session_call_on_header.exit.us.i:                 ; preds = %623
   %632 = icmp eq i32 %631, 0
   %633 = icmp eq i64 %629, 0
   %or.cond.us.i = and i1 %633, %632
-  br i1 %or.cond.us.i, label %.sink.split, label %nghttp2_session_get_stream.exit105.split.us.i, !llvm.loop !234
+  br i1 %or.cond.us.i, label %.sink.split, label %nghttp2_session_get_stream.exit105.split.us.i
 
 nghttp2_session_get_stream.exit105.split.i:       ; preds = %nghttp2_session_get_stream.exit105.i
   %.not89.i = icmp eq ptr %.074.fr.i, null
@@ -9480,7 +9480,7 @@ session_call_on_header.exit.us149.i:              ; preds = %637
   %646 = icmp eq i32 %645, 0
   %647 = icmp eq i64 %643, 0
   %or.cond.us151.i = and i1 %647, %646
-  br i1 %or.cond.us151.i, label %.sink.split, label %nghttp2_session_get_stream.exit105.split.split.us.i, !llvm.loop !236
+  br i1 %or.cond.us151.i, label %.sink.split, label %nghttp2_session_get_stream.exit105.split.split.us.i
 
 nghttp2_session_get_stream.exit105.split.split.i: ; preds = %nghttp2_session_get_stream.exit105.split.i, %769
   %.01002 = phi i64 [ %676, %769 ], [ 0, %nghttp2_session_get_stream.exit105.split.i ]
@@ -9564,35 +9564,35 @@ nghttp2_session_terminate_session.exit.i:         ; preds = %666
   ]
 
 683:                                              ; preds = %681
-  %684 = load ptr, ptr %74, align 8, !tbaa !237
+  %684 = load ptr, ptr %74, align 8, !tbaa !234
   %.not.i109.i = icmp eq ptr %684, null
   br i1 %.not.i109.i, label %691, label %685
 
 685:                                              ; preds = %683
-  %686 = load ptr, ptr %7, align 8, !tbaa !238
-  %687 = load ptr, ptr %71, align 8, !tbaa !240
-  %688 = load i8, ptr %72, align 4, !tbaa !241
+  %686 = load ptr, ptr %7, align 8, !tbaa !235
+  %687 = load ptr, ptr %71, align 8, !tbaa !237
+  %688 = load i8, ptr %72, align 4, !tbaa !238
   %689 = load ptr, ptr %36, align 8, !tbaa !93
   %690 = call i32 %684(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %686, ptr noundef %687, i8 noundef zeroext %688, ptr noundef %689) #16
   br label %707
 
 691:                                              ; preds = %683
-  %692 = load ptr, ptr %75, align 8, !tbaa !242
+  %692 = load ptr, ptr %75, align 8, !tbaa !239
   %.not26.i.i = icmp eq ptr %692, null
   br i1 %.not26.i.i, label %.thread124.i, label %693
 
 693:                                              ; preds = %691
-  %694 = load ptr, ptr %7, align 8, !tbaa !238
+  %694 = load ptr, ptr %7, align 8, !tbaa !235
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 16
-  %696 = load ptr, ptr %695, align 8, !tbaa !243
+  %696 = load ptr, ptr %695, align 8, !tbaa !240
   %697 = getelementptr inbounds nuw i8, ptr %694, i64 24
-  %698 = load i64, ptr %697, align 8, !tbaa !245
-  %699 = load ptr, ptr %71, align 8, !tbaa !240
+  %698 = load i64, ptr %697, align 8, !tbaa !242
+  %699 = load ptr, ptr %71, align 8, !tbaa !237
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 16
-  %701 = load ptr, ptr %700, align 8, !tbaa !243
+  %701 = load ptr, ptr %700, align 8, !tbaa !240
   %702 = getelementptr inbounds nuw i8, ptr %699, i64 24
-  %703 = load i64, ptr %702, align 8, !tbaa !245
-  %704 = load i8, ptr %72, align 4, !tbaa !241
+  %703 = load i64, ptr %702, align 8, !tbaa !242
+  %704 = load i8, ptr %72, align 4, !tbaa !238
   %705 = load ptr, ptr %36, align 8, !tbaa !93
   %706 = call i32 %692(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %696, i64 noundef %698, ptr noundef %701, i64 noundef %703, i8 noundef zeroext %704, ptr noundef %705) #16
   br label %707
@@ -9609,18 +9609,18 @@ session_call_on_invalid_header.exit.thread118.i:  ; preds = %707
   %708 = load i8, ptr %64, align 4, !tbaa !113
   %709 = zext i8 %708 to i32
   %710 = load i32, ptr %47, align 8, !tbaa !113
-  %711 = load ptr, ptr %7, align 8, !tbaa !238
+  %711 = load ptr, ptr %7, align 8, !tbaa !235
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 24
-  %713 = load i64, ptr %712, align 8, !tbaa !245
+  %713 = load i64, ptr %712, align 8, !tbaa !242
   %714 = trunc i64 %713 to i32
   %715 = getelementptr inbounds nuw i8, ptr %711, i64 16
-  %716 = load ptr, ptr %715, align 8, !tbaa !243
-  %717 = load ptr, ptr %71, align 8, !tbaa !240
+  %716 = load ptr, ptr %715, align 8, !tbaa !240
+  %717 = load ptr, ptr %71, align 8, !tbaa !237
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 24
-  %719 = load i64, ptr %718, align 8, !tbaa !245
+  %719 = load i64, ptr %718, align 8, !tbaa !242
   %720 = trunc i64 %719 to i32
   %721 = getelementptr inbounds nuw i8, ptr %717, i64 16
-  %722 = load ptr, ptr %721, align 8, !tbaa !243
+  %722 = load ptr, ptr %721, align 8, !tbaa !240
   %723 = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %0, i32 noundef -531, ptr noundef nonnull @.str.90, i32 noundef %709, i32 noundef %710, i32 noundef %714, ptr noundef %716, i32 noundef %720, ptr noundef %722)
   %724 = icmp sgt i32 %723, -901
   br i1 %724, label %session_call_on_header.exit.i, label %.loopexit.sink.split
@@ -9629,52 +9629,52 @@ session_call_on_invalid_header.exit.thread118.i:  ; preds = %707
   %725 = load i8, ptr %64, align 4, !tbaa !113
   %726 = zext i8 %725 to i32
   %727 = load i32, ptr %47, align 8, !tbaa !113
-  %728 = load ptr, ptr %7, align 8, !tbaa !238
+  %728 = load ptr, ptr %7, align 8, !tbaa !235
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 24
-  %730 = load i64, ptr %729, align 8, !tbaa !245
+  %730 = load i64, ptr %729, align 8, !tbaa !242
   %731 = trunc i64 %730 to i32
   %732 = getelementptr inbounds nuw i8, ptr %728, i64 16
-  %733 = load ptr, ptr %732, align 8, !tbaa !243
-  %734 = load ptr, ptr %71, align 8, !tbaa !240
+  %733 = load ptr, ptr %732, align 8, !tbaa !240
+  %734 = load ptr, ptr %71, align 8, !tbaa !237
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 24
-  %736 = load i64, ptr %735, align 8, !tbaa !245
+  %736 = load i64, ptr %735, align 8, !tbaa !242
   %737 = trunc i64 %736 to i32
   %738 = getelementptr inbounds nuw i8, ptr %734, i64 16
-  %739 = load ptr, ptr %738, align 8, !tbaa !243
+  %739 = load ptr, ptr %738, align 8, !tbaa !240
   %740 = call i32 (ptr, i32, ptr, ...) @session_call_error_callback(ptr noundef nonnull %0, i32 noundef -531, ptr noundef nonnull @.str.91, i32 noundef %726, i32 noundef %727, i32 noundef %731, ptr noundef %733, i32 noundef %737, ptr noundef %739)
   %741 = icmp sgt i32 %740, -901
   br i1 %741, label %inflate_header_block.exit, label %.loopexit.sink.split
 
 .thread130.i:                                     ; preds = %681, %679
-  %742 = load ptr, ptr %70, align 8, !tbaa !246
+  %742 = load ptr, ptr %70, align 8, !tbaa !243
   %.not.i111.i = icmp eq ptr %742, null
   br i1 %.not.i111.i, label %749, label %743
 
 743:                                              ; preds = %.thread130.i
-  %744 = load ptr, ptr %7, align 8, !tbaa !238
-  %745 = load ptr, ptr %71, align 8, !tbaa !240
-  %746 = load i8, ptr %72, align 4, !tbaa !241
+  %744 = load ptr, ptr %7, align 8, !tbaa !235
+  %745 = load ptr, ptr %71, align 8, !tbaa !237
+  %746 = load i8, ptr %72, align 4, !tbaa !238
   %747 = load ptr, ptr %36, align 8, !tbaa !93
   %748 = call i32 %742(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %744, ptr noundef %745, i8 noundef zeroext %746, ptr noundef %747) #16
   br label %765
 
 749:                                              ; preds = %.thread130.i
-  %750 = load ptr, ptr %73, align 8, !tbaa !247
+  %750 = load ptr, ptr %73, align 8, !tbaa !244
   %.not26.i114.i = icmp eq ptr %750, null
   br i1 %.not26.i114.i, label %session_call_on_header.exit.i, label %751
 
 751:                                              ; preds = %749
-  %752 = load ptr, ptr %7, align 8, !tbaa !238
+  %752 = load ptr, ptr %7, align 8, !tbaa !235
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 16
-  %754 = load ptr, ptr %753, align 8, !tbaa !243
+  %754 = load ptr, ptr %753, align 8, !tbaa !240
   %755 = getelementptr inbounds nuw i8, ptr %752, i64 24
-  %756 = load i64, ptr %755, align 8, !tbaa !245
-  %757 = load ptr, ptr %71, align 8, !tbaa !240
+  %756 = load i64, ptr %755, align 8, !tbaa !242
+  %757 = load ptr, ptr %71, align 8, !tbaa !237
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 16
-  %759 = load ptr, ptr %758, align 8, !tbaa !243
+  %759 = load ptr, ptr %758, align 8, !tbaa !240
   %760 = getelementptr inbounds nuw i8, ptr %757, i64 24
-  %761 = load i64, ptr %760, align 8, !tbaa !245
-  %762 = load i8, ptr %72, align 4, !tbaa !241
+  %761 = load i64, ptr %760, align 8, !tbaa !242
+  %762 = load i8, ptr %72, align 4, !tbaa !238
   %763 = load ptr, ptr %36, align 8, !tbaa !93
   %764 = call i32 %750(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %754, i64 noundef %756, ptr noundef %759, i64 noundef %761, i8 noundef zeroext %762, ptr noundef %763) #16
   br label %765
@@ -10049,7 +10049,7 @@ session_handle_invalid_stream2.exit.thread.i:     ; preds = %session_handle_inva
 
 918:                                              ; preds = %914
   %919 = getelementptr inbounds nuw i8, ptr %832, i64 121
-  %920 = load i8, ptr %919, align 1, !tbaa !248
+  %920 = load i8, ptr %919, align 1, !tbaa !245
   %921 = getelementptr inbounds nuw i8, ptr %832, i64 120
   %922 = load i8, ptr %921, align 8, !tbaa !138
   %923 = icmp eq i8 %922, %920
@@ -10128,7 +10128,7 @@ nghttp2_session_close_stream_if_shut_rdwr.exit.i.i: ; preds = %943
 
 session_after_header_block_received.exit.thread:  ; preds = %943, %nghttp2_session_close_stream_if_shut_rdwr.exit.i.i, %838, %838, %830, %834, %session_update_stream_priority.exit.thread.i.i, %902, %session_handle_invalid_stream2.exit.thread.i, %894, %897, %827
   call fastcc void @session_inbound_frame_reset(ptr noundef nonnull %0)
-  store i64 0, ptr %53, align 8, !tbaa !249
+  store i64 0, ptr %53, align 8, !tbaa !246
   br label %.thread1058
 
 953:                                              ; preds = %.critedge
@@ -10151,7 +10151,7 @@ session_after_header_block_received.exit.thread:  ; preds = %943, %nghttp2_sessi
   ]
 
 961:                                              ; preds = %959, %959, %959
-  store i8 1, ptr %65, align 4, !tbaa !250
+  store i8 1, ptr %65, align 4, !tbaa !247
   br label %962
 
 962:                                              ; preds = %959, %961
@@ -10217,16 +10217,16 @@ session_after_header_block_received.exit.thread:  ; preds = %943, %nghttp2_sessi
 
 990:                                              ; preds = %987
   %991 = load ptr, ptr %60, align 8, !tbaa !114
-  %992 = load i64, ptr %59, align 8, !tbaa !251
+  %992 = load i64, ptr %59, align 8, !tbaa !248
   %993 = add i64 %992, 1
-  store i64 %993, ptr %59, align 8, !tbaa !251
+  store i64 %993, ptr %59, align 8, !tbaa !248
   %994 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %991, i64 %992
   %995 = load i64, ptr %5, align 8
   store i64 %995, ptr %994, align 4
   br label %inbound_frame_set_settings_entry.exit
 
 996:                                              ; preds = %987, %987, %987, %987, %987, %987, %987, %987
-  %997 = load i64, ptr %59, align 8, !tbaa !251
+  %997 = load i64, ptr %59, align 8, !tbaa !248
   %.not.i960 = icmp eq i64 %997, 0
   %.pre1653 = load ptr, ptr %60, align 8, !tbaa !114
   br i1 %.not.i960, label %.loopexit.thread.i, label %.lr.ph.i
@@ -10241,13 +10241,13 @@ session_after_header_block_received.exit.thread:  ; preds = %943, %nghttp2_sessi
 1001:                                             ; preds = %.lr.ph.i
   %1002 = add nuw i64 %.025.i, 1
   %exitcond.not.i = icmp eq i64 %1002, %997
-  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !252
+  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !249
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
   %1003 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre1653, i64 %.025.i
   %1004 = load i64, ptr %5, align 8
   store i64 %1004, ptr %1003, align 4
-  %.pre.i = load i64, ptr %59, align 8, !tbaa !251
+  %.pre.i = load i64, ptr %59, align 8, !tbaa !248
   %1005 = icmp eq i64 %.025.i, %.pre.i
   br i1 %1005, label %.loopexit.i..loopexit.thread.i_crit_edge, label %1011
 
@@ -10259,7 +10259,7 @@ session_after_header_block_received.exit.thread:  ; preds = %943, %nghttp2_sessi
   %1006 = phi ptr [ %.pre, %.loopexit.i..loopexit.thread.i_crit_edge ], [ %.pre1653, %996 ], [ %.pre1653, %1001 ]
   %1007 = phi i64 [ %.025.i, %.loopexit.i..loopexit.thread.i_crit_edge ], [ 0, %996 ], [ %997, %1001 ]
   %1008 = add i64 %1007, 1
-  store i64 %1008, ptr %59, align 8, !tbaa !251
+  store i64 %1008, ptr %59, align 8, !tbaa !248
   %1009 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %1006, i64 %1007
   %1010 = load i64, ptr %5, align 8
   store i64 %1010, ptr %1009, align 4
@@ -10317,7 +10317,7 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
   br i1 %.not33.i, label %session_process_settings_frame.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1030
-  %1033 = load i64, ptr %59, align 8, !tbaa !251
+  %1033 = load i64, ptr %59, align 8, !tbaa !248
   %.not40.i = icmp eq i64 %1033, 0
   br i1 %.not40.i, label %._crit_edge.i, label %.lr.ph.i963
 
@@ -10331,7 +10331,7 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
 1037:                                             ; preds = %.lr.ph.i963
   %1038 = add nuw i64 %.039.i, 1
   %exitcond.not.i964 = icmp eq i64 %1038, %1033
-  br i1 %exitcond.not.i964, label %._crit_edge.i, label %.lr.ph.i963, !llvm.loop !253
+  br i1 %exitcond.not.i964, label %._crit_edge.i, label %.lr.ph.i963, !llvm.loop !250
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %1037
   call void @__assert_fail(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.1, i32 noundef 4439, ptr noundef nonnull @__PRETTY_FUNCTION__.session_process_settings_frame) #17
@@ -10346,7 +10346,7 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
 1042:                                             ; preds = %1039
   %1043 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %.039.i
   %1044 = add i64 %1033, 1
-  store i64 %1044, ptr %59, align 8, !tbaa !251
+  store i64 %1044, ptr %59, align 8, !tbaa !248
   %1045 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %.pre.i962, i64 %1033
   %1046 = load i64, ptr %1043, align 4
   store i64 %1046, ptr %1045, align 4
@@ -10359,7 +10359,7 @@ inbound_frame_set_settings_entry.exit:            ; preds = %990, %1011, %1014, 
 
 session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039, %1042
   %1049 = phi ptr [ %.pre.i962, %1030 ], [ %1047, %1042 ], [ %.pre.i962, %1039 ], [ %.pre.i962, %1028 ]
-  %1050 = load i64, ptr %59, align 8, !tbaa !251
+  %1050 = load i64, ptr %59, align 8, !tbaa !248
   call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %9, ptr noundef %1049, i64 noundef %1050) #16
   store ptr null, ptr %60, align 8, !tbaa !114
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
@@ -10389,9 +10389,9 @@ session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039,
   br i1 %.not842, label %1069, label %1063
 
 1063:                                             ; preds = %1059
-  %1064 = load ptr, ptr %32, align 8, !tbaa !254
+  %1064 = load ptr, ptr %32, align 8, !tbaa !251
   %1065 = call ptr @nghttp2_cpymem(ptr noundef %1064, ptr noundef %.1736, i64 noundef %1062) #16
-  store ptr %1065, ptr %32, align 8, !tbaa !254
+  store ptr %1065, ptr %32, align 8, !tbaa !251
   %1066 = load i64, ptr %30, align 8, !tbaa !96
   %1067 = sub i64 %1066, %1062
   store i64 %1067, ptr %30, align 8, !tbaa !96
@@ -10405,8 +10405,8 @@ session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039,
   br i1 %.not843, label %1075, label %1071
 
 1071:                                             ; preds = %1069
-  %1072 = load ptr, ptr %33, align 8, !tbaa !255
-  %1073 = load ptr, ptr %32, align 8, !tbaa !254
+  %1072 = load ptr, ptr %33, align 8, !tbaa !252
+  %1073 = load ptr, ptr %32, align 8, !tbaa !251
   %.not845 = icmp eq ptr %1072, %1073
   br i1 %.not845, label %1074, label %.thread1058
 
@@ -10416,8 +10416,8 @@ session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039,
 
 1075:                                             ; preds = %1069
   %1076 = load ptr, ptr %37, align 8, !tbaa !225
-  %1077 = load ptr, ptr %34, align 8, !tbaa !256
-  %1078 = load ptr, ptr %32, align 8, !tbaa !254
+  %1077 = load ptr, ptr %34, align 8, !tbaa !253
+  %1078 = load ptr, ptr %32, align 8, !tbaa !251
   %1079 = ptrtoint ptr %1078 to i64
   %1080 = ptrtoint ptr %1077 to i64
   %1081 = sub i64 %1079, %1080
@@ -10441,9 +10441,9 @@ session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039,
   br label %.thread1058
 
 1090:                                             ; preds = %.critedge, %.critedge
-  %1091 = load i64, ptr %53, align 8, !tbaa !249
+  %1091 = load i64, ptr %53, align 8, !tbaa !246
   %1092 = add i64 %1091, 1
-  store i64 %1092, ptr %53, align 8, !tbaa !249
+  store i64 %1092, ptr %53, align 8, !tbaa !246
   %1093 = load i64, ptr %54, align 8, !tbaa !70
   %1094 = icmp ugt i64 %1092, %1093
   br i1 %1094, label %nghttp2_session_want_read.exit.thread, label %1095
@@ -10475,12 +10475,12 @@ session_process_settings_frame.exit:              ; preds = %1028, %1030, %1039,
   call void @nghttp2_frame_unpack_frame_hd(ptr noundef nonnull %8, ptr noundef %1112) #16
   %1113 = load i64, ptr %8, align 8, !tbaa !228
   store i64 %1113, ptr %30, align 8, !tbaa !96
-  %1114 = load i8, ptr %55, align 4, !tbaa !257
+  %1114 = load i8, ptr %55, align 4, !tbaa !254
   %.not838 = icmp eq i8 %1114, 9
   br i1 %.not838, label %1115, label %1118
 
 1115:                                             ; preds = %1111
-  %1116 = load i32, ptr %56, align 8, !tbaa !258
+  %1116 = load i32, ptr %56, align 8, !tbaa !255
   %1117 = load i32, ptr %47, align 8, !tbaa !113
   %.not839 = icmp eq i32 %1116, %1117
   br i1 %.not839, label %1129, label %1118
@@ -10849,7 +10849,7 @@ nghttp2_session_get_stream.exit985:               ; preds = %1244
   br label %nghttp2_session_want_read.exit.thread
 
 1318:                                             ; preds = %1297, %1295
-  %1319 = load ptr, ptr %50, align 8, !tbaa !259
+  %1319 = load ptr, ptr %50, align 8, !tbaa !256
   %.not823 = icmp eq ptr %1319, null
   br i1 %.not823, label %.thread1129, label %1320
 
@@ -10969,7 +10969,7 @@ thread-pre-split1134:                             ; preds = %1365, %1355
   br i1 %.not805, label %thread-pre-split1142, label %1377
 
 1377:                                             ; preds = %1371
-  %1378 = load ptr, ptr %39, align 8, !tbaa !260
+  %1378 = load ptr, ptr %39, align 8, !tbaa !257
   %.not.i989 = icmp eq ptr %1378, null
   br i1 %.not.i989, label %thread-pre-split1142, label %session_call_on_extension_chunk_recv_callback.exit
 
@@ -11040,9 +11040,9 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   br i1 %.not801, label %1405, label %1399
 
 1399:                                             ; preds = %1395
-  %1400 = load ptr, ptr %32, align 8, !tbaa !254
+  %1400 = load ptr, ptr %32, align 8, !tbaa !251
   %1401 = call ptr @nghttp2_cpymem(ptr noundef %1400, ptr noundef %.1736, i64 noundef %1398) #16
-  store ptr %1401, ptr %32, align 8, !tbaa !254
+  store ptr %1401, ptr %32, align 8, !tbaa !251
   %1402 = load i64, ptr %30, align 8, !tbaa !96
   %1403 = sub i64 %1402, %1398
   store i64 %1403, ptr %30, align 8, !tbaa !96
@@ -11056,8 +11056,8 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   br i1 %.not802, label %1411, label %1407
 
 1407:                                             ; preds = %1405
-  %1408 = load ptr, ptr %33, align 8, !tbaa !255
-  %1409 = load ptr, ptr %32, align 8, !tbaa !254
+  %1408 = load ptr, ptr %33, align 8, !tbaa !252
+  %1409 = load ptr, ptr %32, align 8, !tbaa !251
   %.not804 = icmp eq ptr %1408, %1409
   br i1 %.not804, label %1410, label %.thread1058
 
@@ -11069,8 +11069,8 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   %1412 = load ptr, ptr %37, align 8, !tbaa !225
   %1413 = call zeroext i16 @nghttp2_get_uint16(ptr noundef %1412) #16
   %1414 = zext i16 %1413 to i64
-  %1415 = load ptr, ptr %34, align 8, !tbaa !256
-  %1416 = load ptr, ptr %32, align 8, !tbaa !254
+  %1415 = load ptr, ptr %34, align 8, !tbaa !253
+  %1416 = load ptr, ptr %32, align 8, !tbaa !251
   %1417 = ptrtoint ptr %1416 to i64
   %1418 = ptrtoint ptr %1415 to i64
   %1419 = sub i64 %1417, %1418
@@ -11097,9 +11097,9 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   br i1 %.not797, label %1435, label %1429
 
 1429:                                             ; preds = %1425
-  %1430 = load ptr, ptr %32, align 8, !tbaa !254
+  %1430 = load ptr, ptr %32, align 8, !tbaa !251
   %1431 = call ptr @nghttp2_cpymem(ptr noundef %1430, ptr noundef %.1736, i64 noundef %1428) #16
-  store ptr %1431, ptr %32, align 8, !tbaa !254
+  store ptr %1431, ptr %32, align 8, !tbaa !251
   %1432 = load i64, ptr %30, align 8, !tbaa !96
   %1433 = sub i64 %1432, %1428
   store i64 %1433, ptr %30, align 8, !tbaa !96
@@ -11110,11 +11110,11 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   %1436 = phi i64 [ %1433, %1429 ], [ %.val935, %1425 ]
   %.9744 = phi ptr [ %1434, %1429 ], [ %.1736, %1425 ]
   %.not798 = icmp eq i64 %1436, 0
-  %1437 = load ptr, ptr %32, align 8, !tbaa !254
+  %1437 = load ptr, ptr %32, align 8, !tbaa !251
   br i1 %.not798, label %1441, label %1438
 
 1438:                                             ; preds = %1435
-  %1439 = load ptr, ptr %33, align 8, !tbaa !255
+  %1439 = load ptr, ptr %33, align 8, !tbaa !252
   %.not800 = icmp eq ptr %1439, %1437
   br i1 %.not800, label %1440, label %.thread1058
 
@@ -11123,7 +11123,7 @@ session_call_unpack_extension_callback.exit.i:    ; preds = %1383
   unreachable
 
 1441:                                             ; preds = %1435
-  %1442 = load ptr, ptr %34, align 8, !tbaa !256
+  %1442 = load ptr, ptr %34, align 8, !tbaa !253
   %1443 = ptrtoint ptr %1437 to i64
   %1444 = ptrtoint ptr %1442 to i64
   %1445 = sub i64 %1443, %1444
@@ -11208,13 +11208,13 @@ define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef 
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %6 = load ptr, ptr %5, align 8, !tbaa !261
+  %6 = load ptr, ptr %5, align 8, !tbaa !258
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  %9 = load ptr, ptr %8, align 8, !tbaa !262
+  %9 = load ptr, ptr %8, align 8, !tbaa !259
   %.not35 = icmp eq ptr %9, null
   br i1 %.not35, label %38, label %10
 
@@ -11246,7 +11246,7 @@ define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef 
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  %25 = load ptr, ptr %24, align 8, !tbaa !262
+  %25 = load ptr, ptr %24, align 8, !tbaa !259
   %.not36 = icmp eq ptr %25, null
   br i1 %.not36, label %31, label %26
 
@@ -11258,7 +11258,7 @@ define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef 
   br label %37
 
 31:                                               ; preds = %23
-  %32 = load ptr, ptr %5, align 8, !tbaa !261
+  %32 = load ptr, ptr %5, align 8, !tbaa !258
   %33 = zext nneg i32 %20 to i64
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %35 = load ptr, ptr %34, align 8, !tbaa !93
@@ -11584,12 +11584,12 @@ define i32 @nghttp2_session_recv(ptr noundef %0) local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %22, %1
-  %7 = load ptr, ptr %3, align 8, !tbaa !263
+  %7 = load ptr, ptr %3, align 8, !tbaa !260
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %5, align 8, !tbaa !264
+  %9 = load ptr, ptr %5, align 8, !tbaa !261
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -11818,13 +11818,13 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2272
-  %15 = load ptr, ptr %14, align 8, !tbaa !265
+  %15 = load ptr, ptr %14, align 8, !tbaa !262
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %18 = load ptr, ptr %17, align 8, !tbaa !266
+  %18 = load ptr, ptr %17, align 8, !tbaa !263
   %.not104 = icmp eq ptr %18, null
   br i1 %.not104, label %60, label %19
 
@@ -11906,7 +11906,7 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
 
 69:                                               ; preds = %60
   store i32 0, ptr %7, align 4, !tbaa !94
-  %70 = load i32, ptr %4, align 8, !tbaa !267
+  %70 = load i32, ptr %4, align 8, !tbaa !264
   %.off = add i32 %70, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %72, label %71
@@ -11960,7 +11960,7 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 25
   store i8 1, ptr %97, align 1, !tbaa !166
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %99 = load i8, ptr %98, align 8, !tbaa !268
+  %99 = load i8, ptr %98, align 8, !tbaa !265
   %100 = and i8 %99, 1
   %.not109 = icmp ne i8 %100, 0
   %101 = and i32 %94, 2
@@ -11987,7 +11987,7 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 1, ptr %113, align 2, !tbaa !269
+  store i8 1, ptr %113, align 2, !tbaa !266
   br label %114
 
 114:                                              ; preds = %112, %106
@@ -12001,13 +12001,13 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
 
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %120 = load ptr, ptr %119, align 8, !tbaa !270
+  %120 = load ptr, ptr %119, align 8, !tbaa !267
   %.not26.i = icmp eq ptr %120, null
   br i1 %.not26.i, label %121, label %124
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %123 = load ptr, ptr %122, align 8, !tbaa !271
+  %123 = load ptr, ptr %122, align 8, !tbaa !268
   %.not27.i = icmp eq ptr %123, null
   br i1 %.not27.i, label %session_call_select_padding.exit, label %124
 
@@ -12036,14 +12036,14 @@ session_call_select_padding.exit:                 ; preds = %114, %121, %124
   call void @nghttp2_frame_pack_frame_hd(ptr noundef %135, ptr noundef nonnull %3) #16
   %136 = load i64, ptr %115, align 8, !tbaa !113
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %138 = load i8, ptr %137, align 2, !tbaa !269
+  %138 = load i8, ptr %137, align 2, !tbaa !266
   %139 = zext i8 %138 to i32
   call void @nghttp2_frame_add_pad(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %136, i32 noundef %139) #16
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %141 = load ptr, ptr %140, align 8, !tbaa !110
   %142 = load i64, ptr %141, align 8, !tbaa !113
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i64 %142, ptr %143, align 8, !tbaa !272
+  store i64 %142, ptr %143, align 8, !tbaa !269
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 2675
   %145 = load i8, ptr %144, align 1, !tbaa !37
   %.not.i117 = icmp eq i8 %145, 0
@@ -12076,9 +12076,9 @@ session_call_select_padding.exit:                 ; preds = %114, %121, %124
   %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @nghttp2_pq_remove(ptr noundef nonnull %155, ptr noundef nonnull %160) #16
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %162 = load i64, ptr %161, align 8, !tbaa !273
+  %162 = load i64, ptr %161, align 8, !tbaa !270
   %163 = add i64 %162, %142
-  store i64 %163, ptr %161, align 8, !tbaa !273
+  store i64 %163, ptr %161, align 8, !tbaa !270
   %164 = call i32 @nghttp2_pq_push(ptr noundef nonnull %155, ptr noundef nonnull %160) #16
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %session_reschedule_stream.exit, label %166
@@ -12221,7 +12221,7 @@ select.unfold:                                    ; preds = %10, %6, %3
   %40 = getelementptr inbounds nuw i8, ptr %.043, i64 144
   %41 = load ptr, ptr %40, align 8, !tbaa !107
   %.not33 = icmp eq ptr %41, null
-  br i1 %.not33, label %nghttp2_session_is_my_stream_id.exit.thread, label %.preheader, !llvm.loop !274
+  br i1 %.not33, label %nghttp2_session_is_my_stream_id.exit.thread, label %.preheader, !llvm.loop !271
 
 nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %39, %35, %25, %29, %select.unfold, %17, %37, %nghttp2_session_get_stream.exit
   %.024 = phi i32 [ 0, %nghttp2_session_get_stream.exit ], [ 0, %37 ], [ -501, %17 ], [ -501, %select.unfold ], [ -501, %29 ], [ -501, %25 ], [ -501, %35 ], [ -501, %39 ]
@@ -12295,12 +12295,12 @@ define internal fastcc i32 @session_resume_deferred_stream_item(ptr noundef %0, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_session_get_outbound_queue_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !275
+  %3 = load i64, ptr %2, align 8, !tbaa !272
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load i64, ptr %4, align 8, !tbaa !276
+  %5 = load i64, ptr %4, align 8, !tbaa !273
   %6 = add i64 %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load i64, ptr %7, align 8, !tbaa !277
+  %8 = load i64, ptr %7, align 8, !tbaa !274
   %9 = add i64 %6, %8
   ret i64 %9
 }
@@ -13090,9 +13090,9 @@ declare void @nghttp2_pq_init(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @stream_less(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !273
+  %4 = load i64, ptr %3, align 8, !tbaa !270
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !273
+  %6 = load i64, ptr %5, align 8, !tbaa !270
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %14
 
@@ -13170,20 +13170,20 @@ define internal fastcc i32 @session_ob_data_push(ptr noundef %0, ptr noundef %1)
 18:                                               ; preds = %13
   %19 = tail call ptr @nghttp2_pq_top(ptr noundef nonnull %16) #16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !273
+  %21 = load i64, ptr %20, align 8, !tbaa !270
   br label %pq_get_first_cycle.exit
 
 pq_get_first_cycle.exit:                          ; preds = %13, %18
   %.0.i = phi i64 [ %21, %18 ], [ 0, %13 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %.0.i, ptr %22, align 8, !tbaa !273
+  store i64 %.0.i, ptr %22, align 8, !tbaa !270
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %pq_get_first_cycle.exit
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %25 = load i64, ptr %24, align 8, !tbaa !272
+  %25 = load i64, ptr %24, align 8, !tbaa !269
   %26 = add i64 %25, %.0.i
-  store i64 %26, ptr %22, align 8, !tbaa !273
+  store i64 %26, ptr %22, align 8, !tbaa !270
   br label %27
 
 27:                                               ; preds = %23, %pq_get_first_cycle.exit
@@ -13236,7 +13236,7 @@ define internal fastcc void @session_after_frame_sent2(ptr noundef %0) unnamed_a
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = load ptr, ptr %11, align 8, !tbaa !163
-  %13 = load ptr, ptr %12, align 8, !tbaa !278
+  %13 = load ptr, ptr %12, align 8, !tbaa !275
   store ptr %13, ptr %11, align 8, !tbaa !163
   br label %75
 
@@ -13271,7 +13271,7 @@ define internal fastcc void @session_after_frame_sent2(ptr noundef %0) unnamed_a
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 122
-  store i8 0, ptr %27, align 2, !tbaa !269
+  store i8 0, ptr %27, align 2, !tbaa !266
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !113
   %30 = tail call ptr @nghttp2_map_find(ptr noundef nonnull %0, i32 noundef %29) #16
@@ -13440,13 +13440,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @session_headers_add_pad(pt
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %8 = load ptr, ptr %7, align 8, !tbaa !270
+  %8 = load ptr, ptr %7, align 8, !tbaa !267
   %.not26.i = icmp eq ptr %8, null
   br i1 %.not26.i, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %11 = load ptr, ptr %10, align 8, !tbaa !271
+  %11 = load ptr, ptr %10, align 8, !tbaa !268
   %.not27.i = icmp eq ptr %11, null
   br i1 %.not27.i, label %session_call_select_padding.exit, label %12
 
@@ -14175,48 +14175,45 @@ attributes #17 = { noreturn nounwind }
 !231 = !{!4, !7, i64 2312}
 !232 = !{!17, !10, i64 216}
 !233 = !{!39, !16, i64 112}
-!234 = distinct !{!234, !235}
-!235 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!236 = distinct !{!236, !235}
-!237 = !{!4, !7, i64 2240}
-!238 = !{!239, !29, i64 0}
-!239 = !{!"", !29, i64 0, !29, i64 8, !16, i64 16, !8, i64 20}
-!240 = !{!239, !29, i64 8}
-!241 = !{!239, !8, i64 20}
-!242 = !{!4, !7, i64 2232}
-!243 = !{!244, !19, i64 16}
-!244 = !{!"nghttp2_rcbuf", !7, i64 0, !7, i64 8, !19, i64 16, !10, i64 24, !16, i64 32}
-!245 = !{!244, !10, i64 24}
-!246 = !{!4, !7, i64 2224}
-!247 = !{!4, !7, i64 2216}
-!248 = !{!39, !8, i64 121}
-!249 = !{!4, !10, i64 2536}
-!250 = !{!4, !8, i64 1940}
-!251 = !{!17, !10, i64 192}
-!252 = distinct !{!252, !99}
-!253 = distinct !{!253, !99}
-!254 = !{!17, !19, i64 168}
-!255 = !{!17, !19, i64 152}
-!256 = !{!17, !19, i64 160}
-!257 = !{!227, !8, i64 12}
-!258 = !{!227, !16, i64 8}
-!259 = !{!4, !7, i64 2168}
-!260 = !{!4, !7, i64 2320}
-!261 = !{!4, !7, i64 2328}
-!262 = !{!4, !7, i64 2336}
-!263 = !{!4, !7, i64 2144}
-!264 = !{!4, !7, i64 2136}
-!265 = !{!4, !7, i64 2272}
-!266 = !{!4, !7, i64 2264}
-!267 = !{!167, !16, i64 0}
-!268 = !{!167, !8, i64 24}
-!269 = !{!167, !8, i64 26}
-!270 = !{!4, !7, i64 2256}
-!271 = !{!4, !7, i64 2248}
-!272 = !{!39, !10, i64 72}
-!273 = !{!39, !10, i64 32}
-!274 = distinct !{!274, !99}
-!275 = !{!4, !10, i64 48}
-!276 = !{!4, !10, i64 72}
-!277 = !{!4, !10, i64 96}
-!278 = !{!173, !15, i64 0}
+!234 = !{!4, !7, i64 2240}
+!235 = !{!236, !29, i64 0}
+!236 = !{!"", !29, i64 0, !29, i64 8, !16, i64 16, !8, i64 20}
+!237 = !{!236, !29, i64 8}
+!238 = !{!236, !8, i64 20}
+!239 = !{!4, !7, i64 2232}
+!240 = !{!241, !19, i64 16}
+!241 = !{!"nghttp2_rcbuf", !7, i64 0, !7, i64 8, !19, i64 16, !10, i64 24, !16, i64 32}
+!242 = !{!241, !10, i64 24}
+!243 = !{!4, !7, i64 2224}
+!244 = !{!4, !7, i64 2216}
+!245 = !{!39, !8, i64 121}
+!246 = !{!4, !10, i64 2536}
+!247 = !{!4, !8, i64 1940}
+!248 = !{!17, !10, i64 192}
+!249 = distinct !{!249, !99}
+!250 = distinct !{!250, !99}
+!251 = !{!17, !19, i64 168}
+!252 = !{!17, !19, i64 152}
+!253 = !{!17, !19, i64 160}
+!254 = !{!227, !8, i64 12}
+!255 = !{!227, !16, i64 8}
+!256 = !{!4, !7, i64 2168}
+!257 = !{!4, !7, i64 2320}
+!258 = !{!4, !7, i64 2328}
+!259 = !{!4, !7, i64 2336}
+!260 = !{!4, !7, i64 2144}
+!261 = !{!4, !7, i64 2136}
+!262 = !{!4, !7, i64 2272}
+!263 = !{!4, !7, i64 2264}
+!264 = !{!167, !16, i64 0}
+!265 = !{!167, !8, i64 24}
+!266 = !{!167, !8, i64 26}
+!267 = !{!4, !7, i64 2256}
+!268 = !{!4, !7, i64 2248}
+!269 = !{!39, !10, i64 72}
+!270 = !{!39, !10, i64 32}
+!271 = distinct !{!271, !99}
+!272 = !{!4, !10, i64 48}
+!273 = !{!4, !10, i64 72}
+!274 = !{!4, !10, i64 96}
+!275 = !{!173, !15, i64 0}

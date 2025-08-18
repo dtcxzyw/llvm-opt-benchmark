@@ -472,12 +472,12 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %.260.us = phi i32 [ %18, %14 ], [ %.15970.us, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %19
   %20 = add i32 %.05774.us, 1
   %exitcond88.not = icmp eq i32 %.05774.us, %5
-  br i1 %exitcond88.not, label %.preheader68, label %.preheader69.us, !llvm.loop !21
+  br i1 %exitcond88.not, label %.preheader68, label %.preheader69.us, !llvm.loop !20
 
 .preheader68:                                     ; preds = %._crit_edge.us, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %1, i8 0, i64 92, i1 false), !tbaa !3
@@ -504,7 +504,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   store i32 %28, ptr %26, align 4, !tbaa !3
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %.preheader66, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond96.not, label %.preheader66, label %.lr.ph, !llvm.loop !21
 
 29:                                               ; preds = %.preheader66, %29
   %store_forwarded = phi i32 [ %load_initial, %.preheader66 ], [ %32, %29 ]
@@ -515,7 +515,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   store i32 %32, ptr %30, align 4, !tbaa !3
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 23
-  br i1 %exitcond100.not, label %.preheader65.preheader, label %29, !llvm.loop !23
+  br i1 %exitcond100.not, label %.preheader65.preheader, label %29, !llvm.loop !22
 
 .preheader65.preheader:                           ; preds = %29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 92, i1 false), !tbaa !3
@@ -551,7 +551,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %44 = shl i32 %41, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next105 to i32
   %exitcond107.not = icmp eq i32 %34, %lftr.wideiv
-  br i1 %exitcond107.not, label %.preheader, label %.lr.ph82, !llvm.loop !24
+  br i1 %exitcond107.not, label %.preheader, label %.lr.ph82, !llvm.loop !23
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv108 = phi i64 [ %35, %.lr.ph85.preheader ], [ %indvars.iv.next109, %.lr.ph85 ]
@@ -565,7 +565,7 @@ define void @BZ2_hbCreateDecodeTables(ptr noundef captures(none) %0, ptr noundef
   %51 = sub i32 %48, %50
   store i32 %51, ptr %49, align 4, !tbaa !3
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !25
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.preheader
   ret void
@@ -611,11 +611,10 @@ attributes #6 = { nounwind }
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8, !19}
+!21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
 !23 = distinct !{!23, !8}
 !24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}

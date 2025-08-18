@@ -829,7 +829,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 %115
   %118 = add nuw nsw i32 %.082152, 1
   %.not112 = icmp slt i32 %118, %.091
-  br i1 %.not112, label %.lr.ph154.split, label %.thread138, !llvm.loop !61
+  br i1 %.not112, label %.lr.ph154.split, label %.thread138, !llvm.loop !59
 
 .thread138:                                       ; preds = %109, %.lr.ph154.split, %.loopexit, %33, %.lr.ph154.split.us, %..loopexit_crit_edge.us, %54, %66, %84, %95, %25, %23
   %.0 = phi i32 [ 0, %23 ], [ 0, %25 ], [ 1, %95 ], [ 1, %84 ], [ 1, %66 ], [ 1, %54 ], [ 0, %..loopexit_crit_edge.us ], [ 1, %.lr.ph154.split.us ], [ 1, %33 ], [ 0, %.loopexit ], [ 1, %.lr.ph154.split ], [ 1, %109 ]
@@ -925,6 +925,4 @@ attributes #8 = { nounwind }
 !56 = distinct !{!56, !46}
 !57 = !{!5, !10, i64 112}
 !58 = distinct !{!58, !46}
-!59 = distinct !{!59, !46, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !46}
+!59 = distinct !{!59, !46}

@@ -314,7 +314,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
 .loopexit.us:                                     ; preds = %93
   %98 = sub i64 %.4196.us, %89
   %.not110.us = icmp eq i64 %98, 0
-  br i1 %.not110.us, label %._crit_edge, label %.lr.ph197.split.us, !llvm.loop !22
+  br i1 %.not110.us, label %._crit_edge, label %.lr.ph197.split.us
 
 .lr.ph197.split:                                  ; preds = %.lr.ph197.split.preheader, %105
   %.4196 = phi i64 [ %106, %105 ], [ %.3, %.lr.ph197.split.preheader ]
@@ -474,5 +474,3 @@ attributes #8 = { nounwind willreturn memory(none) }
 !19 = !{!"short", !6, i64 0}
 !20 = distinct !{!20, !9}
 !21 = distinct !{!21, !9}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}

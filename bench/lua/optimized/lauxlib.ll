@@ -2039,7 +2039,7 @@ luaL_checkstack.exit:                             ; preds = %3, %5
   %18 = getelementptr inbounds nuw i8, ptr %.01822.us, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %.not.us = icmp eq ptr %19, null
-  br i1 %.not.us, label %._crit_edge24, label %.lr.ph23.split.us, !llvm.loop !46
+  br i1 %.not.us, label %._crit_edge24, label %.lr.ph23.split.us
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
   %20 = load ptr, ptr %11, align 8, !tbaa !45
@@ -2695,5 +2695,3 @@ attributes #24 = { cold }
 !43 = !{!44, !6, i64 0}
 !44 = !{!"luaL_Reg", !6, i64 0, !7, i64 8}
 !45 = !{!44, !7, i64 8}
-!46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}

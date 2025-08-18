@@ -77,7 +77,7 @@ define hidden void @_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb(ptr noundef non
   %8 = or i32 %.0, -2147483648
   %9 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 %.0, ptr nonnull %0) #8, !srcloc !9
   %10 = icmp eq i32 %9, %.0
-  br i1 %10, label %.split10.us, label %.split, !llvm.loop !13
+  br i1 %10, label %.split10.us, label %.split, !llvm.loop !10
 
 .split10.us:                                      ; preds = %.split, %.split.us
   ret void
@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @_ZN24ShenandoahEvacOOMCounter13try_incrementEv
   %5 = add nuw nsw i32 %.07, 1
   %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %.07, ptr nonnull %0) #8, !srcloc !9
   %7 = icmp eq i32 %6, %.07
-  br i1 %7, label %8, label %3, !llvm.loop !14
+  br i1 %7, label %8, label %3, !llvm.loop !12
 
 8:                                                ; preds = %4, %3
   ret i1 %.not
@@ -134,7 +134,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr noundef nonnull align 
   %18 = load i32, ptr %0, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -205,7 +205,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24Shena
   %4 = load volatile i32, ptr %1, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not = icmp eq i32 %4, -2147483648
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -237,14 +237,14 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(pt
   %9 = load volatile i32, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not.i = icmp eq i32 %9, -2147483648
-  br i1 %.not.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit: ; preds = %.lr.ph.i, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %0, align 8
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %5, label %._crit_edge, !llvm.loop !17
+  br i1 %12, label %5, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit, %1
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -285,7 +285,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr 
   %22 = add nuw nsw i32 %.07.i, 1
   %23 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %22, i32 %.07.i, ptr nonnull align 4 dereferenceable(64) %18) #8, !srcloc !9
   %24 = icmp eq i32 %23, %.07.i
-  br i1 %24, label %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread, label %20, !llvm.loop !14
+  br i1 %24, label %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread, label %20, !llvm.loop !12
 
 _ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit: ; preds = %20
   %25 = load i32, ptr %0, align 8
@@ -306,14 +306,14 @@ _ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit: ; preds = %20
   %30 = load volatile i32, ptr %28, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not.i.i = icmp eq i32 %30, -2147483648
-  br i1 %.not.i.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = load i32, ptr %0, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
-  br i1 %33, label %.lr.ph.i, label %_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit, !llvm.loop !17
+  br i1 %33, label %.lr.ph.i, label %_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit, !llvm.loop !15
 
 _ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit: ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -406,14 +406,14 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_e
   %29 = or i32 %.0.i, -2147483648
   %30 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 %.0.i, ptr nonnull align 4 dereferenceable(64) %22) #8, !srcloc !9
   %31 = icmp eq i32 %30, %.0.i
-  br i1 %31, label %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit, label %.split.i, !llvm.loop !13
+  br i1 %31, label %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit, label %.split.i, !llvm.loop !10
 
 _ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit: ; preds = %.split.i, %.split.us.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pr = load i32, ptr %0, align 8
   %32 = sext i32 %.pr to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit
   %34 = icmp sgt i32 %.pr, 0
@@ -433,14 +433,14 @@ _ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit: ; preds = %.split.i, %.split.
   %38 = load volatile i32, ptr %36, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not.i.i = icmp eq i32 %38, -2147483648
-  br i1 %.not.i.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i: ; preds = %.lr.ph.i.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %0, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %.lr.ph.i, label %_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit, !llvm.loop !17
+  br i1 %41, label %.lr.ph.i, label %_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit, !llvm.loop !15
 
 _ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit: ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, %1, %._crit_edge
   %42 = load ptr, ptr %2, align 8
@@ -468,7 +468,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler5clearEv(ptr noundef nonnull re
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv.next, %10
-  br i1 %11, label %5, label %._crit_edge, !llvm.loop !19
+  br i1 %11, label %5, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -599,13 +599,11 @@ attributes #8 = { nounwind }
 !7 = !{i64 2145415273}
 !8 = !{i64 2145392468}
 !9 = !{i64 2145411161}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
 !14 = distinct !{!14, !11}
 !15 = distinct !{!15, !11}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}

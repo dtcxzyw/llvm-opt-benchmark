@@ -1742,7 +1742,7 @@ BufferGetPage.exit309:                            ; preds = %221, %227
   %318 = getelementptr inbounds nuw i8, ptr %.0265354, i64 %317
   %319 = load i32, ptr %275, align 4
   %320 = icmp slt i32 %301, %319
-  br i1 %320, label %.lr.ph357.split, label %._crit_edge358, !llvm.loop !22
+  br i1 %320, label %.lr.ph357.split, label %._crit_edge358, !llvm.loop !20
 
 321:                                              ; preds = %._crit_edge358
   %322 = load i32, ptr %.7360, align 8
@@ -1795,7 +1795,7 @@ BufferGetPage.exit309:                            ; preds = %221, %227
   store i32 %273, ptr %355, align 4
   %356 = load ptr, ptr %295, align 8
   %.not293 = icmp eq ptr %356, null
-  br i1 %.not293, label %._crit_edge363, label %274, !llvm.loop !23
+  br i1 %.not293, label %._crit_edge363, label %274, !llvm.loop !21
 
 ._crit_edge363:                                   ; preds = %325, %._crit_edge338
   %.not293359390 = phi i1 [ true, %._crit_edge338 ], [ false, %325 ]
@@ -1847,7 +1847,7 @@ BufferGetPage.exit309:                            ; preds = %221, %227
   %382 = getelementptr inbounds nuw i8, ptr %.8365, i64 48
   %383 = load ptr, ptr %382, align 8
   %.not294 = icmp eq ptr %383, null
-  br i1 %.not294, label %._crit_edge368, label %.lr.ph367, !llvm.loop !24
+  br i1 %.not294, label %._crit_edge368, label %.lr.ph367, !llvm.loop !22
 
 ._crit_edge368:                                   ; preds = %.lr.ph367, %377
   %.not323 = icmp eq i32 %8, 0
@@ -1962,7 +1962,7 @@ BufferGetPage.exit313:                            ; preds = %405, %411
   %446 = getelementptr inbounds nuw i8, ptr %.9370, i64 48
   %447 = load ptr, ptr %446, align 8
   %.not295 = icmp eq ptr %447, null
-  br i1 %.not295, label %._crit_edge373, label %442, !llvm.loop !25
+  br i1 %.not295, label %._crit_edge373, label %442, !llvm.loop !23
 
 ._crit_edge373:                                   ; preds = %442, %438
   br i1 %125, label %.loopexit, label %.preheader
@@ -1981,7 +1981,7 @@ BufferGetPage.exit313:                            ; preds = %405, %411
   %.10.in = getelementptr inbounds nuw i8, ptr %.10377, i64 48
   %.10 = load ptr, ptr %.10.in, align 8
   %.not296 = icmp eq ptr %.10, null
-  br i1 %.not296, label %.loopexit, label %.lr.ph378, !llvm.loop !26
+  br i1 %.not296, label %.loopexit, label %.lr.ph378, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph378, %.preheader, %._crit_edge373
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2246,7 +2246,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %46 = load i32, ptr %31, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %.preheader, !llvm.loop !27
+  br i1 %48, label %.lr.ph, label %.preheader, !llvm.loop !25
 
 49:                                               ; preds = %.lr.ph74, %49
   %indvars.iv76 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next77, %49 ]
@@ -2263,7 +2263,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %58 = load i32, ptr %34, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next77, %59
-  br i1 %60, label %49, label %._crit_edge, !llvm.loop !28
+  br i1 %60, label %49, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %49, %.preheader
   %.lcssa69 = phi i32 [ %35, %.preheader ], [ %58, %49 ]
@@ -2311,7 +2311,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %84 = getelementptr inbounds nuw i8, ptr %.065, i64 48
   %85 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %85, null
-  br i1 %.not, label %86, label %83, !llvm.loop !29
+  br i1 %.not, label %86, label %83, !llvm.loop !27
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %.065, i64 48
@@ -2625,7 +2625,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
 72:                                               ; preds = %59
   %73 = add i16 %.0110, 1
   %.not68 = icmp ugt i16 %73, %56
-  br i1 %.not68, label %._crit_edge, label %59, !llvm.loop !30
+  br i1 %.not68, label %._crit_edge, label %59, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %72, %49
   %74 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -2689,7 +2689,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %.063.in = getelementptr inbounds nuw i8, ptr %.063114, i64 32
   %.063 = load ptr, ptr %.063.in, align 8
   %.not69 = icmp eq ptr %.063, null
-  br i1 %.not69, label %._crit_edge117, label %.lr.ph116, !llvm.loop !31
+  br i1 %.not69, label %._crit_edge117, label %.lr.ph116, !llvm.loop !29
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %100
   %104 = load i32, ptr %1, align 8
@@ -2849,13 +2849,13 @@ BufferGetPage.exit.i:                             ; preds = %120, %114
   %194 = tail call ptr @lappend(ptr noundef %.284.i, ptr noundef nonnull %191) #8
   %195 = add i16 %.085.i, 1
   %.not72.i = icmp ugt i16 %195, %175
-  br i1 %.not72.i, label %._crit_edge.i, label %177, !llvm.loop !32
+  br i1 %.not72.i, label %._crit_edge.i, label %177, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %190, %169
   %.2.lcssa.i = phi ptr [ %.1.i, %169 ], [ %194, %190 ]
   tail call void @UnlockReleaseBuffer(i32 noundef %112) #8
   %.not.i = icmp eq ptr %.2.lcssa.i, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph89.i, !llvm.loop !33
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph89.i, !llvm.loop !31
 
 .loopexit.i:                                      ; preds = %._crit_edge117, %._crit_edge.i, %133
   %196 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -2904,7 +2904,7 @@ BufferGetPage.exit82:                             ; preds = %206, %212
   %219 = getelementptr inbounds nuw i8, ptr %.1118, i64 32
   %220 = load ptr, ptr %219, align 8
   %.not70 = icmp eq ptr %220, null
-  br i1 %.not70, label %221, label %201, !llvm.loop !34
+  br i1 %.not70, label %221, label %201, !llvm.loop !32
 
 221:                                              ; preds = %BufferGetPage.exit82
   store ptr %109, ptr %3, align 8
@@ -3038,8 +3038,8 @@ attributes #11 = { "function-inline-cost-multiplier"="2" }
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
@@ -3051,5 +3051,3 @@ attributes #11 = { "function-inline-cost-multiplier"="2" }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}

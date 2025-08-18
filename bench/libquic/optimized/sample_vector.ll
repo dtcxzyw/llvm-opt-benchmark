@@ -547,7 +547,7 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
   %.1 = phi i64 [ %.013, %65 ], [ %77, %76 ]
   %79 = load i64, ptr %7, align 8, !tbaa !25
   %80 = icmp ult i64 %.1, %79
-  br i1 %80, label %.lr.ph.split, label %.critedge, !llvm.loop !34
+  br i1 %80, label %.lr.ph.split, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph.split, %78, %.lr.ph.split.us, %43, %3
   %81 = load ptr, ptr %1, align 8, !tbaa !3
@@ -695,7 +695,7 @@ _ZN7logging11CheckLTImplB5cxx11EiiPKc.exit:       ; preds = %33
   %50 = lshr i64 %49, 1
   %51 = add i64 %50, %.0.
   %52 = icmp ult i64 %49, 2
-  br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %42
   %.lcssa = phi i64 [ %44, %42 ], [ %51, %.lr.ph ]
@@ -740,7 +740,7 @@ define void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRa
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %1, align 8, !tbaa !11
-  store ptr %7, ptr %6, align 8, !tbaa !36
+  store ptr %7, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !6
@@ -748,11 +748,11 @@ define void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRa
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
-  store i64 %14, ptr %8, align 8, !tbaa !39
+  store i64 %14, ptr %8, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %15, align 8, !tbaa !40
+  store ptr %2, ptr %15, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %16, align 8, !tbaa !41
+  store i64 0, ptr %16, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !6
@@ -812,13 +812,13 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %37, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.noexc12
-  %38 = load i64, ptr %8, align 8, !tbaa !39
-  %39 = load i64, ptr %16, align 8, !tbaa !41
+  %38 = load i64, ptr %8, align 8, !tbaa !37
+  %39 = load i64, ptr %16, align 8, !tbaa !39
   %40 = icmp ult i64 %39, %38
   br i1 %40, label %.lr.ph.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %41 = load ptr, ptr %6, align 8, !tbaa !36
+  %41 = load ptr, ptr %6, align 8, !tbaa !34
   br label %42
 
 42:                                               ; preds = %46, %.lr.ph.i
@@ -830,9 +830,9 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 46:                                               ; preds = %42
   %47 = add i64 %43, 1
-  store i64 %47, ptr %16, align 8, !tbaa !41
+  store i64 %47, ptr %16, align 8, !tbaa !39
   %exitcond.not.i = icmp eq i64 %47, %38
-  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %42, !llvm.loop !42
+  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %42, !llvm.loop !40
 
 _ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit: ; preds = %46, %42, %.preheader.i, %.noexc12
   ret void
@@ -859,14 +859,14 @@ define void @_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv(ptr noundef nonn
 .preheader:                                       ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !39
-  %9 = load i64, ptr %6, align 8, !tbaa !41
+  %8 = load i64, ptr %7, align 8, !tbaa !37
+  %9 = load i64, ptr %6, align 8, !tbaa !39
   %10 = icmp ult i64 %9, %8
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   br label %13
 
 13:                                               ; preds = %.lr.ph, %17
@@ -878,9 +878,9 @@ define void @_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv(ptr noundef nonn
 
 17:                                               ; preds = %13
   %18 = add i64 %14, 1
-  store i64 %18, ptr %6, align 8, !tbaa !41
+  store i64 %18, ptr %6, align 8, !tbaa !39
   %exitcond.not = icmp eq i64 %18, %8
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !40
 
 .loopexit:                                        ; preds = %17, %13, %.preheader, %1
   ret void
@@ -895,13 +895,13 @@ define void @_ZN4base20SampleVectorIteratorC2EPKimPKNS_12BucketRangesE(ptr nound
   %6 = alloca %"class.logging::LogMessage", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4base20SampleVectorIteratorE, i64 16), ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %7, align 8, !tbaa !36
+  store ptr %1, ptr %7, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %8, align 8, !tbaa !39
+  store i64 %2, ptr %8, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %9, align 8, !tbaa !40
+  store ptr %3, ptr %9, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %10, align 8, !tbaa !41
+  store i64 0, ptr %10, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !6
@@ -961,13 +961,13 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %31, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.noexc12
-  %32 = load i64, ptr %8, align 8, !tbaa !39
-  %33 = load i64, ptr %10, align 8, !tbaa !41
+  %32 = load i64, ptr %8, align 8, !tbaa !37
+  %33 = load i64, ptr %10, align 8, !tbaa !39
   %34 = icmp ult i64 %33, %32
   br i1 %34, label %.lr.ph.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %35 = load ptr, ptr %7, align 8, !tbaa !36
+  %35 = load ptr, ptr %7, align 8, !tbaa !34
   br label %36
 
 36:                                               ; preds = %40, %.lr.ph.i
@@ -979,9 +979,9 @@ _ZN7logging11CheckGEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 40:                                               ; preds = %36
   %41 = add i64 %37, 1
-  store i64 %41, ptr %10, align 8, !tbaa !41
+  store i64 %41, ptr %10, align 8, !tbaa !39
   %exitcond.not.i = icmp eq i64 %41, %32
-  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %36, !llvm.loop !42
+  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %36, !llvm.loop !40
 
 _ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit: ; preds = %40, %36, %.preheader.i, %.noexc12
   ret void
@@ -1013,9 +1013,9 @@ define void @_ZN4base20SampleVectorIteratorD0Ev(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4base20SampleVectorIterator4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !41
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !39
+  %5 = load i64, ptr %4, align 8, !tbaa !37
   %6 = icmp uge i64 %3, %5
   ret i1 %6
 }
@@ -1023,9 +1023,9 @@ define noundef zeroext i1 @_ZNK4base20SampleVectorIterator4DoneEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base20SampleVectorIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !41
+  %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = add i64 %3, 1
-  store i64 %4, ptr %2, align 8, !tbaa !41
+  store i64 %4, ptr %2, align 8, !tbaa !39
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1034,14 +1034,14 @@ define void @_ZN4base20SampleVectorIterator4NextEv(ptr noundef nonnull align 8 d
 
 .preheader.i:                                     ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !39
-  %11 = load i64, ptr %2, align 8, !tbaa !41
+  %10 = load i64, ptr %9, align 8, !tbaa !37
+  %11 = load i64, ptr %2, align 8, !tbaa !39
   %12 = icmp ult i64 %11, %10
   br i1 %12, label %.lr.ph.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   br label %15
 
 15:                                               ; preds = %19, %.lr.ph.i
@@ -1053,9 +1053,9 @@ define void @_ZN4base20SampleVectorIterator4NextEv(ptr noundef nonnull align 8 d
 
 19:                                               ; preds = %15
   %20 = add i64 %16, 1
-  store i64 %20, ptr %2, align 8, !tbaa !41
+  store i64 %20, ptr %2, align 8, !tbaa !39
   %exitcond.not.i = icmp eq i64 %20, %10
-  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %15, !llvm.loop !42
+  br i1 %exitcond.not.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %15, !llvm.loop !40
 
 _ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit: ; preds = %15, %19, %1, %.preheader.i
   ret void
@@ -1068,9 +1068,9 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !41
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = load ptr, ptr %7, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !13
@@ -1083,9 +1083,9 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i64, ptr %17, align 8, !tbaa !41
+  %18 = load i64, ptr %17, align 8, !tbaa !39
   %19 = load ptr, ptr %16, align 8, !tbaa !11
   %20 = getelementptr i32, ptr %19, i64 %18
   %21 = getelementptr i8, ptr %20, i64 4
@@ -1099,9 +1099,9 @@ define void @_ZNK4base20SampleVectorIterator3GetEPiS1_S1_(ptr noundef nonnull re
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load i64, ptr %27, align 8, !tbaa !41
+  %28 = load i64, ptr %27, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
   %30 = load atomic volatile i32, ptr %29 monotonic, align 4
   store i32 %30, ptr %3, align 4, !tbaa !13
@@ -1118,7 +1118,7 @@ define noundef zeroext i1 @_ZNK4base20SampleVectorIterator14GetBucketIndexEPm(pt
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !39
   store i64 %5, ptr %1, align 8, !tbaa !27
   br label %6
 
@@ -1204,14 +1204,12 @@ attributes #16 = { builtin nounwind }
 !29 = !{!"llvm.loop.mustprogress"}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTSN4base19SampleCountIteratorE", !9, i64 0}
-!32 = distinct !{!32, !29, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !29}
-!35 = distinct !{!35, !29}
-!36 = !{!37, !8, i64 8}
-!37 = !{!"_ZTSN4base20SampleVectorIteratorE", !38, i64 0, !8, i64 8, !19, i64 16, !24, i64 24, !19, i64 32}
-!38 = !{!"_ZTSN4base19SampleCountIteratorE"}
-!39 = !{!37, !19, i64 16}
-!40 = !{!37, !24, i64 24}
-!41 = !{!37, !19, i64 32}
-!42 = distinct !{!42, !29}
+!32 = distinct !{!32, !29}
+!33 = distinct !{!33, !29}
+!34 = !{!35, !8, i64 8}
+!35 = !{!"_ZTSN4base20SampleVectorIteratorE", !36, i64 0, !8, i64 8, !19, i64 16, !24, i64 24, !19, i64 32}
+!36 = !{!"_ZTSN4base19SampleCountIteratorE"}
+!37 = !{!35, !19, i64 16}
+!38 = !{!35, !24, i64 24}
+!39 = !{!35, !19, i64 32}
+!40 = distinct !{!40, !29}

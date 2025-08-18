@@ -1201,7 +1201,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %inc = add nuw i64 %I.07, 1
   %17 = load i64, ptr %Count, align 8
   %cmp7 = icmp ult i64 %inc, %17
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %_ZN12OutputStream4growEm.exit.i.i, %for.body.us, %if.end5, %entry
   ret void
@@ -1801,7 +1801,7 @@ _ZN12OutputStreamlsEl.exit90:                     ; preds = %if.then.i.i88, %if.
   %27 = load i32, ptr %ThunkOffsetCount, align 8
   %28 = sext i32 %27 to i64
   %cmp23 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %cmp23, label %if.end.i.i68, label %for.end, !llvm.loop !8
+  br i1 %cmp23, label %if.end.i.i68, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %_ZN12OutputStreamlsEl.exit90, %if.end21
   %.lcssa = phi i32 [ %.pr122, %if.end21 ], [ %27, %_ZN12OutputStreamlsEl.exit90 ]
@@ -5166,7 +5166,7 @@ _ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11O
   %Count4 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %18 = load i64, ptr %Count4, align 8
   %cmp5 = icmp ult i64 %inc, %18
-  br i1 %cmp5, label %if.end.i.i, label %for.end, !llvm.loop !9
+  br i1 %cmp5, label %if.end.i.i, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit11, %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit, %entry
   ret void
@@ -6552,7 +6552,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %add, ptr %incdec.ptr.ptr, align 1
   %div = udiv i64 %N.addr.020, 10
   %tobool.not = icmp ult i64 %N.addr.020, 10
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !10
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body
   br i1 %isNeg, label %if.then6, label %if.end8
@@ -6644,10 +6644,8 @@ attributes #13 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}

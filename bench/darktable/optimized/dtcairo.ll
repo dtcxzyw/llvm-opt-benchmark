@@ -967,7 +967,7 @@ dt_XYZ_to_sRGB_clipped.exit.us:                   ; preds = %185
 ._crit_edge.us:                                   ; preds = %189
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %._crit_edge44, label %.lr.ph.us, !llvm.loop !45
+  br i1 %exitcond55.not, label %._crit_edge44, label %.lr.ph.us
 
 ._crit_edge44:                                    ; preds = %._crit_edge.us, %.lr.ph43, %3
   %204 = tail call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %1) #8
@@ -1061,5 +1061,3 @@ attributes #9 = { nounwind allocsize(0) }
 !42 = !{!19, !10, i64 40}
 !43 = !{!11, !11, i64 0}
 !44 = !{!13, !13, i64 0}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}

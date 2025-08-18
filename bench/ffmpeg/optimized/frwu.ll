@@ -218,7 +218,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %98 = getelementptr inbounds i8, ptr %.2, i64 %97
   %99 = add nuw nsw i32 %.06086, 1
   %exitcond.not = icmp eq i32 %99, %37
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph.split.us, %.thread107, %61
   %100 = phi i32 [ %33, %61 ], [ %33, %.thread107 ], [ %73, %.lr.ph.split.us ], [ %91, %88 ]
@@ -226,7 +226,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %101 = sub nsw i32 %47, %39
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.179.lcssa, i64 %102
-  br i1 %.not90, label %32, label %._crit_edge.thread, !llvm.loop !42
+  br i1 %.not90, label %32, label %._crit_edge.thread, !llvm.loop !40
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   store i32 1, ptr %2, align 4, !tbaa !37
@@ -293,8 +293,6 @@ attributes #4 = { nounwind }
 !35 = !{!36, !10, i64 8}
 !36 = !{!"", !6, i64 0, !10, i64 8}
 !37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
+!40 = distinct !{!40, !39}

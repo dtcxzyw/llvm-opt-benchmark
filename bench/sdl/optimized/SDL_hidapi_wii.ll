@@ -657,7 +657,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 163:                                              ; preds = %164
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %GetExtensionData.exit.i.i, label %164, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %GetExtensionData.exit.i.i, label %164, !llvm.loop !8
 
 164:                                              ; preds = %163, %162
   %indvars.iv.i.i.i = phi i64 [ 0, %162 ], [ %indvars.iv.next.i.i.i, %163 ]
@@ -680,7 +680,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 170:                                              ; preds = %171
   %indvars.iv.next.i32.i.i = add nuw nsw i64 %indvars.iv.i30.i.i, 1
   %exitcond.not.i33.i.i = icmp eq i64 %indvars.iv.next.i32.i.i, 19
-  br i1 %exitcond.not.i33.i.i, label %GetExtensionData.exit.i.i, label %171, !llvm.loop !9
+  br i1 %exitcond.not.i33.i.i, label %GetExtensionData.exit.i.i, label %171, !llvm.loop !8
 
 171:                                              ; preds = %170, %169
   %indvars.iv.i30.i.i = phi i64 [ 0, %169 ], [ %indvars.iv.next.i32.i.i, %170 ]
@@ -704,7 +704,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 176:                                              ; preds = %177
   %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i35.i.i, 1
   %exitcond.not.i38.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, 16
-  br i1 %exitcond.not.i38.i.i, label %GetExtensionData.exit.i.i, label %177, !llvm.loop !9
+  br i1 %exitcond.not.i38.i.i, label %GetExtensionData.exit.i.i, label %177, !llvm.loop !8
 
 177:                                              ; preds = %176, %175
   %indvars.iv.i35.i.i = phi i64 [ 0, %175 ], [ %indvars.iv.next.i37.i.i, %176 ]
@@ -726,7 +726,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 182:                                              ; preds = %183
   %indvars.iv.next.i42.i.i = add nuw nsw i64 %indvars.iv.i40.i.i, 1
   %exitcond.not.i43.i.i = icmp eq i64 %indvars.iv.next.i42.i.i, 9
-  br i1 %exitcond.not.i43.i.i, label %GetExtensionData.exit.i.i, label %183, !llvm.loop !9
+  br i1 %exitcond.not.i43.i.i, label %GetExtensionData.exit.i.i, label %183, !llvm.loop !8
 
 183:                                              ; preds = %182, %181
   %indvars.iv.i40.i.i = phi i64 [ 0, %181 ], [ %indvars.iv.next.i42.i.i, %182 ]
@@ -748,7 +748,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 188:                                              ; preds = %189
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i45.i.i, 1
   %exitcond.not.i48.i.i = icmp eq i64 %indvars.iv.next.i47.i.i, 6
-  br i1 %exitcond.not.i48.i.i, label %GetExtensionData.exit.i.i, label %189, !llvm.loop !9
+  br i1 %exitcond.not.i48.i.i, label %GetExtensionData.exit.i.i, label %189, !llvm.loop !8
 
 189:                                              ; preds = %188, %187
   %indvars.iv.i45.i.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i47.i.i, %188 ]
@@ -764,7 +764,7 @@ RequestButtonPacketType.exit.i.i:                 ; preds = %155, %150
 193:                                              ; preds = %.preheader
   %indvars.iv.next.i52.i.i = add nuw nsw i64 %indvars.iv.i50.i.i, 1
   %exitcond.not.i53.i.i = icmp eq i64 %indvars.iv.next.i52.i.i, 21
-  br i1 %exitcond.not.i53.i.i, label %GetExtensionData.exit.i.i, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i53.i.i, label %GetExtensionData.exit.i.i, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %158, %193
   %indvars.iv.i50.i.i = phi i64 [ %indvars.iv.next.i52.i.i, %193 ], [ 0, %158 ]
@@ -806,7 +806,7 @@ HandleInput.exit:                                 ; preds = %199, %HandleButtonP
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 136
   %202 = call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %201) #7
   %203 = icmp sgt i32 %202, 0
-  br i1 %203, label %ReadInput.exit.thread, label %ReadInput.exit, !llvm.loop !10
+  br i1 %203, label %ReadInput.exit.thread, label %ReadInput.exit, !llvm.loop !7
 
 ReadInput.exit.thread:                            ; preds = %ReadInput.exit, %HandleInput.exit, %ReadInput.exit.us, %HandleInput.exit.us, %16
   %.0.i49 = phi i32 [ 0, %16 ], [ 0, %HandleInput.exit.us ], [ %62, %ReadInput.exit.us ], [ 0, %HandleInput.exit ], [ %71, %ReadInput.exit ]
@@ -994,7 +994,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   store i16 100, ptr %25, align 2
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 4
-  br i1 %exitcond49.not.i.i, label %GetButtonPacketType.exit.i.i, label %21, !llvm.loop !11
+  br i1 %exitcond49.not.i.i, label %GetButtonPacketType.exit.i.i, label %21, !llvm.loop !9
 
 26:                                               ; preds = %26, %.preheader33.i.i
   %indvars.iv43.i.i = phi i64 [ 0, %.preheader33.i.i ], [ %indvars.iv.next44.i.i, %26 ]
@@ -1012,7 +1012,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverWii_OpenJoystick(ptr noundef re
   store i16 %33, ptr %34, align 2
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 4
-  br i1 %exitcond.not.i.i, label %.sink.split.i.i.i, label %26, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %.sink.split.i.i.i, label %26, !llvm.loop !10
 
 .sink.split.i.i.i:                                ; preds = %26, %.preheader35.i.i, %2
   %.sink4.i.i.i = phi i8 [ 48, %2 ], [ 50, %.preheader35.i.i ], [ 50, %26 ]
@@ -1344,7 +1344,7 @@ ReadInput.exit.us.i.i:                            ; preds = %.split.us.i.i
   br label %.split.us.i.i.backedge
 
 .split.us.i.i.backedge:                           ; preds = %32, %28
-  br label %.split.us.i.i, !llvm.loop !13
+  br label %.split.us.i.i, !llvm.loop !11
 
 .split17.us.i.i:                                  ; preds = %.thread.us.i.i, %ReadInput.exit.us.i.i
   %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1498,7 +1498,7 @@ define internal fastcc noundef zeroext i1 @ParseExtensionIdentifyResponse(ptr no
   store i16 %35, ptr %1, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !12
 
 .loopexit:                                        ; preds = %29, %20, %24, %21, %13, %5
   %.0 = phi i1 [ false, %5 ], [ false, %13 ], [ false, %21 ], [ false, %24 ], [ true, %20 ], [ true, %29 ]
@@ -1590,7 +1590,7 @@ ReadInput.exit.us.i:                              ; preds = %.split.us.i
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %48, %44
-  br label %.split.us.i, !llvm.loop !13
+  br label %.split.us.i, !llvm.loop !11
 
 ReadInputSync.exit:                               ; preds = %ReadInput.exit.us.i, %.thread.us.i
   %49 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1694,7 +1694,7 @@ ReadInput.exit.i:                                 ; preds = %.split.i
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %40, %36, %33
-  br label %.split.i, !llvm.loop !15
+  br label %.split.i, !llvm.loop !11
 
 ReadInputSync.exit:                               ; preds = %ReadInput.exit.i, %.thread.i
   %41 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #7
@@ -1780,12 +1780,12 @@ define internal fastcc void @HandleButtonData(ptr noundef %0, ptr noundef nonnul
 29:                                               ; preds = %23, %20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %30, label %20, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %30, label %20, !llvm.loop !13
 
 30:                                               ; preds = %29
   %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 3
-  br i1 %exitcond25.not.i.i, label %PostPackedButtonData.exit.i, label %.preheader.i.i, !llvm.loop !17
+  br i1 %exitcond25.not.i.i, label %PostPackedButtonData.exit.i, label %.preheader.i.i, !llvm.loop !14
 
 PostPackedButtonData.exit.i:                      ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -1899,7 +1899,7 @@ PostPackedButtonData.exit.i:                      ; preds = %30
 PostStickCalibrated.exit.i:                       ; preds = %98, %57
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %101, label %40, !llvm.loop !18
+  br i1 %exitcond.not.i, label %101, label %40, !llvm.loop !15
 
 101:                                              ; preds = %PostStickCalibrated.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 15
@@ -2084,12 +2084,12 @@ HandleMotionPlusData.exit:                        ; preds = %132, %136
 201:                                              ; preds = %195, %192
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 8
-  br i1 %exitcond.not.i.i45, label %202, label %192, !llvm.loop !16
+  br i1 %exitcond.not.i.i45, label %202, label %192, !llvm.loop !13
 
 202:                                              ; preds = %201
   %indvars.iv.next23.i.i46 = add nuw nsw i64 %indvars.iv22.i.i40, 1
   %exitcond25.not.i.i47 = icmp eq i64 %indvars.iv.next23.i.i46, 2
-  br i1 %exitcond25.not.i.i47, label %HandleWiiRemoteButtonData.exit, label %.preheader.i.i39, !llvm.loop !17
+  br i1 %exitcond25.not.i.i47, label %HandleWiiRemoteButtonData.exit, label %.preheader.i.i39, !llvm.loop !14
 
 HandleWiiRemoteButtonData.exit:                   ; preds = %202, %183
   %203 = load i32, ptr %7, align 4
@@ -2406,12 +2406,12 @@ HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCali
 394:                                              ; preds = %388, %385
   %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i56, 1
   %exitcond.not.i.i60 = icmp eq i64 %indvars.iv.next.i.i59, 8
-  br i1 %exitcond.not.i.i60, label %395, label %385, !llvm.loop !16
+  br i1 %exitcond.not.i.i60, label %395, label %385, !llvm.loop !13
 
 395:                                              ; preds = %394
   %indvars.iv.next23.i.i61 = add nuw nsw i64 %indvars.iv22.i.i55, 1
   %exitcond25.not.i.i62 = icmp eq i64 %indvars.iv.next23.i.i61, 2
-  br i1 %exitcond25.not.i.i62, label %HandleWiiRemoteButtonDataAsMainController.exit, label %.preheader.i.i54, !llvm.loop !17
+  br i1 %exitcond25.not.i.i62, label %HandleWiiRemoteButtonDataAsMainController.exit, label %.preheader.i.i54, !llvm.loop !14
 
 396:                                              ; preds = %HandleWiiRemoteButtonData.exit
   %397 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -2454,12 +2454,12 @@ HandleNunchuckButtonData.exit:                    ; preds = %360, %PostStickCali
 418:                                              ; preds = %412, %409
   %indvars.iv.next.i.i68 = add nuw nsw i64 %indvars.iv.i.i65, 1
   %exitcond.not.i.i69 = icmp eq i64 %indvars.iv.next.i.i68, 8
-  br i1 %exitcond.not.i.i69, label %419, label %409, !llvm.loop !16
+  br i1 %exitcond.not.i.i69, label %419, label %409, !llvm.loop !13
 
 419:                                              ; preds = %418
   %indvars.iv.next23.i.i70 = add nuw nsw i64 %indvars.iv22.i.i64, 1
   %exitcond25.not.i.i71 = icmp eq i64 %indvars.iv.next23.i.i70, 2
-  br i1 %exitcond25.not.i.i71, label %PostPackedButtonData.exit.i72, label %.preheader.i.i63, !llvm.loop !17
+  br i1 %exitcond25.not.i.i71, label %PostPackedButtonData.exit.i72, label %.preheader.i.i63, !llvm.loop !14
 
 PostPackedButtonData.exit.i72:                    ; preds = %419
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 5
@@ -2494,12 +2494,12 @@ PostPackedButtonData.exit.i72:                    ; preds = %419
 434:                                              ; preds = %428, %425
   %indvars.iv.next.i49.i = add nuw nsw i64 %indvars.iv.i46.i, 1
   %exitcond.not.i50.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i50.i, label %435, label %425, !llvm.loop !16
+  br i1 %exitcond.not.i50.i, label %435, label %425, !llvm.loop !13
 
 435:                                              ; preds = %434
   %indvars.iv.next23.i51.i = add nuw nsw i64 %indvars.iv22.i45.i, 1
   %exitcond25.not.i52.i = icmp eq i64 %indvars.iv.next23.i51.i, 2
-  br i1 %exitcond25.not.i52.i, label %PostPackedButtonData.exit53.loopexit.i, label %.preheader.i44.i, !llvm.loop !17
+  br i1 %exitcond25.not.i52.i, label %PostPackedButtonData.exit53.loopexit.i, label %.preheader.i44.i, !llvm.loop !14
 
 PostPackedButtonData.exit53.loopexit.i:           ; preds = %435
   %.pre.i77 = load i64, ptr %404, align 8
@@ -3038,15 +3038,12 @@ attributes #8 = { nounwind allocsize(0,1) }
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !4, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
 !11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !8}
+!13 = distinct !{!13, !4}
 !14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}

@@ -2423,7 +2423,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %90 = add nuw i32 %.02057, 1
   %91 = fmul double %.04254, 5.000000e-01
   %exitcond.not = icmp eq i32 %.02057, %.02167
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %84, %43, %31
   %.022.lcssa = phi ptr [ %9, %31 ], [ %.1.us, %43 ], [ %.1, %84 ]
@@ -2504,6 +2504,4 @@ attributes #15 = { builtin allocsize(0) }
 !32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
 !33 = distinct !{!33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_"}
 !34 = distinct !{!34, !33, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!35 = distinct !{!35, !6, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !6}
+!35 = distinct !{!35, !6}

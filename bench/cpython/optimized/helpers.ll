@@ -450,8 +450,8 @@ define hidden ptr @_PyTokenizer_translate_newlines(ptr noundef readonly captures
 
 .preheader:                                       ; preds = %4
   %9 = load i8, ptr %0, align 1, !tbaa !22
-  %.not67 = icmp eq i8 %9, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %.not63 = icmp eq i8 %9, 0
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = icmp eq i32 %2, 0
@@ -459,11 +459,11 @@ define hidden ptr @_PyTokenizer_translate_newlines(ptr noundef readonly captures
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %.lr.ph.split.us.split
   %11 = phi i8 [ %14, %.lr.ph.split.us.split ], [ %9, %.lr.ph ]
-  %.04570.us = phi ptr [ %13, %.lr.ph.split.us.split ], [ %7, %.lr.ph ]
-  %.04869.us = phi ptr [ %12, %.lr.ph.split.us.split ], [ %0, %.lr.ph ]
-  store i8 %11, ptr %.04570.us, align 1, !tbaa !22
-  %12 = getelementptr i8, ptr %.04869.us, i64 1
-  %13 = getelementptr i8, ptr %.04570.us, i64 1
+  %.04566.us = phi ptr [ %13, %.lr.ph.split.us.split ], [ %7, %.lr.ph ]
+  %.04865.us = phi ptr [ %12, %.lr.ph.split.us.split ], [ %0, %.lr.ph ]
+  store i8 %11, ptr %.04566.us, align 1, !tbaa !22
+  %12 = getelementptr i8, ptr %.04865.us, i64 1
+  %13 = getelementptr i8, ptr %.04566.us, i64 1
   %14 = load i8, ptr %12, align 1, !tbaa !22
   %.not.us = icmp eq i8 %14, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !32
@@ -471,75 +471,75 @@ define hidden ptr @_PyTokenizer_translate_newlines(ptr noundef readonly captures
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 15, ptr %16, align 8, !tbaa !4
-  br label %39
+  br label %40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
   %17 = phi i8 [ %26, %22 ], [ %9, %.lr.ph ]
-  %.04570 = phi ptr [ %25, %22 ], [ %7, %.lr.ph ]
-  %.04869 = phi ptr [ %24, %22 ], [ %0, %.lr.ph ]
-  %.05068 = phi i1 [ %23, %22 ], [ false, %.lr.ph ]
+  %.04566 = phi ptr [ %25, %22 ], [ %7, %.lr.ph ]
+  %.04865 = phi ptr [ %24, %22 ], [ %0, %.lr.ph ]
+  %.05064 = phi i1 [ %23, %22 ], [ false, %.lr.ph ]
   %18 = icmp eq i8 %17, 10
-  %or.cond60 = and i1 %.05068, %18
+  %or.cond60 = and i1 %.05064, %18
   br i1 %or.cond60, label %19, label %22
 
 19:                                               ; preds = %.lr.ph.split
-  %20 = getelementptr i8, ptr %.04869, i64 1
+  %20 = getelementptr i8, ptr %.04865, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !22
   %.not59 = icmp eq i8 %21, 0
-  br i1 %.not59, label %.thread, label %22
+  br i1 %.not59, label %._crit_edge, label %22
 
 22:                                               ; preds = %19, %.lr.ph.split
-  %.149 = phi ptr [ %20, %19 ], [ %.04869, %.lr.ph.split ]
+  %.149 = phi ptr [ %20, %19 ], [ %.04865, %.lr.ph.split ]
   %.2 = phi i8 [ %21, %19 ], [ %17, %.lr.ph.split ]
   %23 = icmp eq i8 %.2, 13
   %spec.select = select i1 %23, i8 10, i8 %.2
-  store i8 %spec.select, ptr %.04570, align 1, !tbaa !22
+  store i8 %spec.select, ptr %.04566, align 1, !tbaa !22
   %24 = getelementptr i8, ptr %.149, i64 1
-  %25 = getelementptr i8, ptr %.04570, i64 1
+  %25 = getelementptr i8, ptr %.04566, i64 1
   %26 = load i8, ptr %24, align 1, !tbaa !22
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %22, %.preheader
-  %.045.lcssa = phi ptr [ %7, %.preheader ], [ %25, %22 ], [ %13, %.lr.ph.split.us.split ]
-  %.044.lcssa = phi i8 [ 0, %.preheader ], [ %spec.select, %22 ], [ %11, %.lr.ph.split.us.split ]
-  %.not74 = icmp eq i32 %1, 0
-  br i1 %.not74, label %.thread, label %switch.early.test
+._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %22, %19, %.preheader
+  %.045.lcssa = phi ptr [ %7, %.preheader ], [ %.04566, %19 ], [ %25, %22 ], [ %13, %.lr.ph.split.us.split ]
+  %.1 = phi i8 [ 0, %.preheader ], [ 0, %19 ], [ %spec.select, %22 ], [ %11, %.lr.ph.split.us.split ]
+  %.not62 = icmp eq i32 %1, 0
+  br i1 %.not62, label %29, label %switch.early.test
 
 switch.early.test:                                ; preds = %._crit_edge
-  switch i8 %.044.lcssa, label %27 [
-    i8 10, label %.thread
-    i8 0, label %.thread
+  switch i8 %.1, label %27 [
+    i8 10, label %29
+    i8 0, label %29
   ]
 
 27:                                               ; preds = %switch.early.test
   store i8 10, ptr %.045.lcssa, align 1, !tbaa !22
   %28 = getelementptr i8, ptr %.045.lcssa, i64 1
-  br label %.thread
+  br label %29
 
-.thread:                                          ; preds = %19, %switch.early.test, %switch.early.test, %._crit_edge, %27
-  %.146 = phi ptr [ %28, %27 ], [ %.045.lcssa, %switch.early.test ], [ %.045.lcssa, %._crit_edge ], [ %.045.lcssa, %switch.early.test ], [ %.04570, %19 ]
+29:                                               ; preds = %switch.early.test, %switch.early.test, %._crit_edge, %27
+  %.146 = phi ptr [ %28, %27 ], [ %.045.lcssa, %switch.early.test ], [ %.045.lcssa, %._crit_edge ], [ %.045.lcssa, %switch.early.test ]
   store i8 0, ptr %.146, align 1, !tbaa !22
-  %29 = ptrtoint ptr %.146 to i64
-  %30 = ptrtoint ptr %7 to i64
-  %31 = sub i64 %29, %30
-  %32 = add i64 %31, 1
-  %33 = icmp ult i64 %32, %6
-  %34 = icmp ne i64 %32, 0
-  %or.cond10 = and i1 %33, %34
-  br i1 %or.cond10, label %35, label %39
+  %30 = ptrtoint ptr %.146 to i64
+  %31 = ptrtoint ptr %7 to i64
+  %32 = sub i64 %30, %31
+  %33 = add i64 %32, 1
+  %34 = icmp ult i64 %33, %6
+  %35 = icmp ne i64 %33, 0
+  %or.cond10 = and i1 %34, %35
+  br i1 %or.cond10, label %36, label %40
 
-35:                                               ; preds = %.thread
-  %36 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %7, i64 noundef %32) #9
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %39
+36:                                               ; preds = %29
+  %37 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %7, i64 noundef %33) #9
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %35
+39:                                               ; preds = %36
   tail call void @PyMem_Free(ptr noundef nonnull %7) #9
-  br label %39
+  br label %40
 
-39:                                               ; preds = %.thread, %38, %35, %15
-  %.0 = phi ptr [ null, %15 ], [ %7, %.thread ], [ null, %38 ], [ %36, %35 ]
+40:                                               ; preds = %29, %39, %36, %15
+  %.0 = phi ptr [ null, %15 ], [ %7, %29 ], [ null, %39 ], [ %37, %36 ]
   ret ptr %.0
 }
 
@@ -549,7 +549,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 %0(ptr noundef %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 2744
-  store i32 1, ptr %6, align 8, !tbaa !36
+  store i32 1, ptr %6, align 8, !tbaa !34
   switch i32 %5, label %13 [
     i32 -1, label %24
     i32 239, label %7
@@ -582,7 +582,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly c
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2752
-  %16 = load ptr, ptr %15, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   %.not39 = icmp eq ptr %16, null
   br i1 %.not39, label %18, label %17
 
@@ -607,7 +607,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_bom(ptr noundef readonly c
   br label %_PyTokenizer_new_string.exit
 
 _PyTokenizer_new_string.exit:                     ; preds = %20, %22
-  store ptr %19, ptr %15, align 8, !tbaa !37
+  store ptr %19, ptr %15, align 8, !tbaa !35
   %. = zext i1 %.not.i to i32
   br label %24
 
@@ -620,13 +620,13 @@ _PyTokenizer_new_string.exit:                     ; preds = %20, %22
 define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [13 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2760
-  %7 = load i32, ptr %6, align 8, !tbaa !38
+  %7 = load i32, ptr %6, align 8, !tbaa !36
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %9, align 8, !tbaa !36
+  store i32 2, ptr %9, align 8, !tbaa !34
   br label %get_coding_spec.exit
 
 10:                                               ; preds = %4
@@ -648,7 +648,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
 15:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %16 = add nuw nsw i64 %.05795.i, 1
   %exitcond.not.i = icmp eq i64 %16, %11
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %.057.lcssa.i = phi i64 [ 0, %10 ], [ %.05795.i, %.lr.ph.i ]
@@ -690,7 +690,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   %.153.i = phi ptr [ %30, %.critedge2.i ], [ %23, %.critedge.i ]
   %26 = zext i8 %25 to i64
   %27 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !40
+  %28 = load i32, ptr %27, align 4, !tbaa !38
   %.fr89.i = freeze i32 %28
   %29 = and i32 %.fr89.i, 7
   %.not71.not.i = icmp eq i32 %29, 0
@@ -706,7 +706,7 @@ switch.early.test.i:                              ; preds = %.preheader.i
 .critedge2.i:                                     ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.preheader.i
   %30 = getelementptr i8, ptr %.153.i, i64 1
   %.pr.i = load i8, ptr %30, align 1, !tbaa !22
-  br label %.preheader.i, !llvm.loop !41
+  br label %.preheader.i, !llvm.loop !39
 
 31:                                               ; preds = %switch.early.test.i
   %32 = icmp ult ptr %23, %.153.i
@@ -754,7 +754,7 @@ _PyTokenizer_new_string.exit.thread.i:            ; preds = %33
   store i8 %.sink.i.i, ptr %50, align 1, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
-  br i1 %exitcond.not.i.i, label %51, label %42, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %51, label %42, !llvm.loop !40
 
 51:                                               ; preds = %49, %42
   %.013.lcssa.i.i = phi i64 [ %indvars.iv.i.i, %42 ], [ 12, %49 ]
@@ -829,7 +829,7 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
 .thread87.i:                                      ; preds = %31, %20, %.lr.ph102.i
   %75 = add nuw nsw i64 %.158100.i, 1
   %exitcond105.not.i = icmp eq i64 %75, %11
-  br i1 %exitcond105.not.i, label %.loopexit, label %.lr.ph102.i, !llvm.loop !43
+  br i1 %exitcond105.not.i, label %.loopexit, label %.lr.ph102.i, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph.i, %15, %.thread87.i, %._crit_edge.i
   %76 = icmp sgt i64 %1, 0
@@ -850,20 +850,20 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
 
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %80, align 8, !tbaa !36
+  store i32 2, ptr %80, align 8, !tbaa !34
   br label %get_coding_spec.exit
 
 81:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %82 = add nuw nsw i64 %.058, 1
   %exitcond.not = icmp eq i64 %82, %1
-  br i1 %exitcond.not, label %get_coding_spec.exit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %get_coding_spec.exit, label %.lr.ph, !llvm.loop !42
 
 83:                                               ; preds = %get_normal_name.exit.i, %_PyTokenizer_new_string.exit78.i
   %.047.ph.ph = phi ptr [ %72, %_PyTokenizer_new_string.exit78.i ], [ %38, %get_normal_name.exit.i ]
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 2744
-  store i32 2, ptr %84, align 8, !tbaa !36
+  store i32 2, ptr %84, align 8, !tbaa !34
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 2752
-  %86 = load ptr, ptr %85, align 8, !tbaa !37
+  %86 = load ptr, ptr %85, align 8, !tbaa !35
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %97
 
@@ -885,7 +885,7 @@ _PyTokenizer_new_string.exit78.i:                 ; preds = %69
   br label %get_coding_spec.exit
 
 96:                                               ; preds = %90, %88
-  store ptr %.047.ph.ph, ptr %85, align 8, !tbaa !37
+  store ptr %.047.ph.ph, ptr %85, align 8, !tbaa !35
   br label %get_coding_spec.exit
 
 97:                                               ; preds = %83
@@ -1009,7 +1009,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr noundef readonly
 32:                                               ; preds = %34
   %33 = add nsw i32 %.123.i, -1
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %valid_utf8.exit.loopexit, label %34, !llvm.loop !45
+  br i1 %.not.i, label %valid_utf8.exit.loopexit, label %34, !llvm.loop !43
 
 34:                                               ; preds = %32, %.thread.i
   %.123.i = phi i32 [ %.020.i, %.thread.i ], [ %33, %32 ]
@@ -1028,7 +1028,7 @@ valid_utf8.exit:                                  ; preds = %valid_utf8.exit.loo
   %39 = getelementptr i8, ptr %.01025, i64 %.0.i
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !44
 
 .thread19:                                        ; preds = %8, %21, %13, %17, %29, %27, %34
   %41 = zext i8 %4 to i32
@@ -1114,18 +1114,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !29 = !{!5, !12, i64 2800}
 !30 = !{!5, !6, i64 0}
 !31 = !{!5, !10, i64 2848}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !33}
-!36 = !{!5, !10, i64 2744}
-!37 = !{!5, !6, i64 2752}
-!38 = !{!5, !10, i64 2760}
+!34 = !{!5, !10, i64 2744}
+!35 = !{!5, !6, i64 2752}
+!36 = !{!5, !10, i64 2760}
+!37 = distinct !{!37, !33}
+!38 = !{!10, !10, i64 0}
 !39 = distinct !{!39, !33}
-!40 = !{!10, !10, i64 0}
+!40 = distinct !{!40, !33}
 !41 = distinct !{!41, !33}
 !42 = distinct !{!42, !33}
 !43 = distinct !{!43, !33}
 !44 = distinct !{!44, !33}
-!45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33}

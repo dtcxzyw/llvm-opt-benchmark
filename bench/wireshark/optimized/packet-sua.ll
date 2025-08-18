@@ -2905,7 +2905,7 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
   %64 = add nuw nsw i32 %51, 1
   %65 = and i32 %64, 65535
   %66 = icmp samesign ult i32 %65, %34
-  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %63, %.lr.ph.split.us, %3
   %67 = load i32, ptr @hf_sua_source_global_title_digits, align 4
@@ -3021,6 +3021,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
 !11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9}
+!12 = distinct !{!12, !9}

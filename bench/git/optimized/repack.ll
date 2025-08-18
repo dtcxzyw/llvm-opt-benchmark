@@ -3760,7 +3760,7 @@ define internal fastcc i32 @finish_pack_objects_cmd(ptr noundef nonnull %0, ptr 
   store ptr %30, ptr %31, align 8, !tbaa !95
   %32 = call i32 @strbuf_getline_lf(ptr noundef nonnull %4, ptr noundef %7) #16
   %.not = icmp eq i32 %32, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !123
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %26, %17, %3
   %33 = call i32 @fclose(ptr noundef %7)
@@ -3956,7 +3956,7 @@ strbuf_strip_suffix.exit.i:                       ; preds = %79, %78, %71, %strb
   %89 = getelementptr inbounds nuw i8, ptr %.063.i, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !54
   %.not.i63 = icmp eq ptr %90, null
-  br i1 %.not.i63, label %._crit_edge.i, label %59, !llvm.loop !124
+  br i1 %.not.i63, label %._crit_edge.i, label %59, !llvm.loop !122
 
 ._crit_edge.i:                                    ; preds = %88
   %91 = icmp ugt i64 %.140.i, 1
@@ -4072,7 +4072,7 @@ retain_cruft_pack.exit.i:                         ; preds = %strbuf_strip_suffix
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull %.str.91.sink.i, ptr noundef %131) #16
   %133 = add nuw i64 %.03865.i, 1
   %exitcond.not.i = icmp eq i64 %133, %.140.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %97, !llvm.loop !125
+  br i1 %exitcond.not.i, label %.preheader.i, label %97, !llvm.loop !123
 
 134:                                              ; preds = %134, %.lr.ph68.i
   %.167.i = phi i64 [ 0, %.lr.ph68.i ], [ %139, %134 ]
@@ -4083,7 +4083,7 @@ retain_cruft_pack.exit.i:                         ; preds = %strbuf_strip_suffix
   %139 = add nuw i64 %.167.i, 1
   %140 = load i64, ptr %94, align 8, !tbaa !97
   %141 = icmp ult i64 %139, %140
-  br i1 %141, label %134, label %collapse_small_cruft_packs.exit, !llvm.loop !126
+  br i1 %141, label %134, label %collapse_small_cruft_packs.exit, !llvm.loop !124
 
 collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   call void @strbuf_release(ptr noundef nonnull %8) #16
@@ -4301,7 +4301,7 @@ strbuf_strip_suffix.exit:                         ; preds = %strbuf_setlen.exit,
   %43 = load i32, ptr %5, align 8, !tbaa !67
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %9, label %._crit_edge, !llvm.loop !127
+  br i1 %45, label %9, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %42, %3
   call void @strbuf_release(ptr noundef nonnull %4) #16
@@ -4373,7 +4373,7 @@ define internal noundef i32 @midx_snapshot_ref_one(ptr readnone captures(none) %
 14:                                               ; preds = %11
   %15 = load ptr, ptr %4, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load volatile ptr, ptr %16, align 8, !tbaa !128
+  %17 = load volatile ptr, ptr %16, align 8, !tbaa !126
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load i32, ptr %18, align 8, !tbaa !41
   %.not11 = icmp eq i32 %19, 0
@@ -4561,7 +4561,7 @@ strbuf_setlen.exit:                               ; preds = %7, %9
 19:                                               ; preds = %strbuf_setlen.exit, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %20, label %7, !llvm.loop !133
+  br i1 %exitcond.not, label %20, label %7, !llvm.loop !131
 
 20:                                               ; preds = %19
   call void @strbuf_release(ptr noundef nonnull %3) #16
@@ -4814,16 +4814,14 @@ attributes #19 = { nounwind willreturn memory(read) }
 !118 = distinct !{!118, !49}
 !119 = !{!25, !5, i64 40}
 !120 = !{!25, !5, i64 44}
-!121 = distinct !{!121, !49, !122}
-!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!121 = distinct !{!121, !49}
+!122 = distinct !{!122, !49}
 !123 = distinct !{!123, !49}
 !124 = distinct !{!124, !49}
 !125 = distinct !{!125, !49}
-!126 = distinct !{!126, !49}
-!127 = distinct !{!127, !49}
-!128 = !{!129, !132, i64 24}
-!129 = !{!"tempfile", !130, i64 0, !5, i64 16, !132, i64 24, !5, i64 32, !27, i64 40, !9, i64 64}
-!130 = !{!"volatile_list_head", !131, i64 0, !131, i64 8}
-!131 = !{!"p1 _ZTS18volatile_list_head", !10, i64 0}
-!132 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!133 = distinct !{!133, !49}
+!126 = !{!127, !130, i64 24}
+!127 = !{!"tempfile", !128, i64 0, !5, i64 16, !130, i64 24, !5, i64 32, !27, i64 40, !9, i64 64}
+!128 = !{!"volatile_list_head", !129, i64 0, !129, i64 8}
+!129 = !{!"p1 _ZTS18volatile_list_head", !10, i64 0}
+!130 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!131 = distinct !{!131, !49}

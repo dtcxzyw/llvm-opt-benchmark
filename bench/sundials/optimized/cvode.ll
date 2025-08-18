@@ -4802,7 +4802,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr noundef nonnull captures
   %87 = fmul double %.177109.us.us, 2.000000e-01
   %88 = add nuw nsw i32 %.078108.us.us, 1
   %exitcond136 = icmp eq i32 %88, 5
-  br i1 %exitcond136, label %.critedge, label %70, !llvm.loop !175
+  br i1 %exitcond136, label %.critedge, label %70
 
 .split.us.us:                                     ; preds = %85
   %89 = fdiv double -1.000000e+00, %.177109.us.us
@@ -5114,7 +5114,7 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
   %22 = fmul double %21, %19
   %23 = fmul double %22, 1.000000e+02
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store double %23, ptr %24, align 8, !tbaa !177
+  store double %23, ptr %24, align 8, !tbaa !175
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %26 = load ptr, ptr %25, align 8, !tbaa !116
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5172,7 +5172,7 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
   br i1 %39, label %.loopexit, label %._crit_edge70.thread85
 
 ._crit_edge70.thread85:                           ; preds = %.thread, %._crit_edge70
-  %51 = load double, ptr %24, align 8, !tbaa !177
+  %51 = load double, ptr %24, align 8, !tbaa !175
   %52 = load double, ptr %16, align 8, !tbaa !133
   %53 = tail call double @llvm.fabs.f64(double %52)
   %54 = fdiv double %51, %53
@@ -5356,7 +5356,7 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull %0) 
   %62 = fmul double %61, %59
   %63 = fmul double %62, 1.000000e+02
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store double %63, ptr %64, align 8, !tbaa !177
+  store double %63, ptr %64, align 8, !tbaa !175
   %65 = fcmp ogt double %57, 0.000000e+00
   %66 = fneg double %63
   %67 = select i1 %65, double %63, double %66
@@ -5465,7 +5465,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = load double, ptr %6, align 8, !tbaa !81
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  store double %7, ptr %8, align 8, !tbaa !178
+  store double %7, ptr %8, align 8, !tbaa !176
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -5493,7 +5493,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br i1 %25, label %32, label %27
 
 27:                                               ; preds = %16
-  store double %20, ptr %26, align 8, !tbaa !178
+  store double %20, ptr %26, align 8, !tbaa !176
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -5502,7 +5502,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br label %36
 
 32:                                               ; preds = %16
-  store double %18, ptr %26, align 8, !tbaa !178
+  store double %18, ptr %26, align 8, !tbaa !176
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %34 = load ptr, ptr %33, align 8, !tbaa !118
   %35 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %18, i32 noundef 0, ptr noundef %34)
@@ -5512,7 +5512,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %38 = load ptr, ptr %37, align 8, !tbaa !116
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  %40 = load double, ptr %39, align 8, !tbaa !178
+  %40 = load double, ptr %39, align 8, !tbaa !176
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %42 = load ptr, ptr %41, align 8, !tbaa !118
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1440
@@ -5540,16 +5540,16 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %61 = fmul double %60, %58
   %62 = fmul double %61, 1.000000e+02
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store double %62, ptr %63, align 8, !tbaa !177
+  store double %62, ptr %63, align 8, !tbaa !175
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %65 = load i32, ptr %64, align 8, !tbaa !109
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph.i, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %51
-  %67 = load double, ptr %39, align 8, !tbaa !178
+  %67 = load double, ptr %39, align 8, !tbaa !176
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store double %67, ptr %68, align 8, !tbaa !179
+  store double %67, ptr %68, align 8, !tbaa !177
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store double %67, ptr %69, align 8, !tbaa !139
   br label %cvRootfind.exit.thread
@@ -5650,7 +5650,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
 .preheader263.i:                                  ; preds = %.thread.i, %._crit_edge.i
   %.1228381388.i = phi i32 [ %.0227278.ph.i, %._crit_edge.i ], [ %116, %.thread.i ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  %118 = load double, ptr %39, align 8, !tbaa !178
+  %118 = load double, ptr %39, align 8, !tbaa !176
   %119 = load double, ptr %117, align 8, !tbaa !139
   %120 = fsub double %118, %119
   %121 = tail call double @llvm.fabs.f64(double %120)
@@ -5662,9 +5662,9 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br label %161
 
 124:                                              ; preds = %._crit_edge.i
-  %125 = load double, ptr %39, align 8, !tbaa !178
+  %125 = load double, ptr %39, align 8, !tbaa !176
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store double %125, ptr %126, align 8, !tbaa !179
+  store double %125, ptr %126, align 8, !tbaa !177
   %127 = load ptr, ptr %43, align 8, !tbaa !111
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %129 = load ptr, ptr %128, align 8, !tbaa !112
@@ -5903,7 +5903,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
 ._crit_edge290.thread411.i:                       ; preds = %.thread401.i, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge
   %256 = phi ptr [ %.pre, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge ], [ %218, %.thread401.i ]
   %.4408415.i = phi i32 [ %.3230286.ph.i, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge ], [ %255, %.thread401.i ]
-  store double %.1242.i, ptr %39, align 8, !tbaa !178
+  store double %.1242.i, ptr %39, align 8, !tbaa !176
   %257 = load ptr, ptr %43, align 8, !tbaa !111
   br label %258
 
@@ -5918,11 +5918,11 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br i1 %exitcond342.not.i, label %._crit_edge298.loopexit.i, label %258
 
 ._crit_edge298.loopexit.i:                        ; preds = %258
-  %.pre.i = load double, ptr %39, align 8, !tbaa !178
+  %.pre.i = load double, ptr %39, align 8, !tbaa !176
   %262 = load double, ptr %117, align 8, !tbaa !139
   %263 = fsub double %.pre.i, %262
   %264 = tail call double @llvm.fabs.f64(double %263)
-  %265 = load double, ptr %63, align 8, !tbaa !177
+  %265 = load double, ptr %63, align 8, !tbaa !175
   %266 = fcmp ugt double %264, %265
   br i1 %266, label %.backedge.i, label %.loopexit261.i.loopexit
 
@@ -5943,7 +5943,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br i1 %272, label %280, label %273
 
 273:                                              ; preds = %271
-  store double %.1242.i, ptr %39, align 8, !tbaa !178
+  store double %.1242.i, ptr %39, align 8, !tbaa !176
   %274 = load ptr, ptr %123, align 8, !tbaa !112
   %275 = load ptr, ptr %43, align 8, !tbaa !111
   br label %276
@@ -5981,36 +5981,36 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
 ._crit_edge302.i:                                 ; preds = %._crit_edge302.loopexit.i, %.thread420.i
   %.3230.lcssa399419422.i = phi i32 [ %.3230286.ph.i, %._crit_edge302.loopexit.i ], [ %.2229304.i, %.thread420.i ]
   %287 = phi double [ %.pre365.i, %._crit_edge302.loopexit.i ], [ %.1242.i, %.thread420.i ]
-  %288 = load double, ptr %39, align 8, !tbaa !178
+  %288 = load double, ptr %39, align 8, !tbaa !176
   %289 = fsub double %288, %287
   %290 = tail call double @llvm.fabs.f64(double %289)
-  %291 = load double, ptr %63, align 8, !tbaa !177
+  %291 = load double, ptr %63, align 8, !tbaa !175
   %292 = fcmp ugt double %290, %291
   br i1 %292, label %.backedge.i, label %.loopexit261.i.loopexit
 
 .loopexit261.thread.i:                            ; preds = %276
-  %.pre366.i = load double, ptr %39, align 8, !tbaa !178
+  %.pre366.i = load double, ptr %39, align 8, !tbaa !176
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store double %.pre366.i, ptr %293, align 8, !tbaa !179
+  store double %.pre366.i, ptr %293, align 8, !tbaa !177
   br label %.lr.ph319.i
 
 .loopexit261.i.loopexit:                          ; preds = %._crit_edge298.loopexit.i, %.backedge.i, %._crit_edge302.i
   %.ph = phi double [ %288, %._crit_edge302.i ], [ %269, %.backedge.i ], [ %.pre.i, %._crit_edge298.loopexit.i ]
   %294 = icmp sgt i32 %210, 0
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store double %.ph, ptr %295, align 8, !tbaa !179
+  store double %.ph, ptr %295, align 8, !tbaa !177
   br i1 %294, label %.loopexit261.i..lr.ph319.i_crit_edge, label %._crit_edge.thread.thread115
 
 ._crit_edge.thread.thread115:                     ; preds = %.loopexit261.i.loopexit
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %297 = load double, ptr %296, align 8, !tbaa !179
+  %297 = load double, ptr %296, align 8, !tbaa !177
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store double %297, ptr %298, align 8, !tbaa !139
   br label %382
 
 .loopexit261.i..lr.ph319.i_crit_edge.critedge:    ; preds = %.preheader263.i
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store double %118, ptr %299, align 8, !tbaa !179
+  store double %118, ptr %299, align 8, !tbaa !177
   br label %.loopexit261.i..lr.ph319.i_crit_edge
 
 .loopexit261.i..lr.ph319.i_crit_edge:             ; preds = %.loopexit261.i..lr.ph319.i_crit_edge.critedge, %.loopexit261.i.loopexit
@@ -6144,14 +6144,14 @@ cvRootfind.exit:                                  ; preds = %343, %157, %._crit_
 
 ._crit_edge.thread:                               ; preds = %cvRootfind.exit
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %368 = load double, ptr %367, align 8, !tbaa !179
+  %368 = load double, ptr %367, align 8, !tbaa !177
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store double %368, ptr %369, align 8, !tbaa !139
   br i1 %348, label %cvRootfind.exit.thread, label %382
 
 ._crit_edge:                                      ; preds = %363
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %371 = load double, ptr %370, align 8, !tbaa !179
+  %371 = load double, ptr %370, align 8, !tbaa !177
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store double %371, ptr %372, align 8, !tbaa !139
   %373 = icmp sgt i32 %364, 0
@@ -6180,7 +6180,7 @@ cvRootfind.exit:                                  ; preds = %343, %157, %._crit_
 
 382:                                              ; preds = %._crit_edge.thread.thread115, %._crit_edge.thread, %._crit_edge81
   %383 = phi ptr [ %367, %._crit_edge.thread ], [ %370, %._crit_edge81 ], [ %296, %._crit_edge.thread.thread115 ]
-  %384 = load double, ptr %383, align 8, !tbaa !179
+  %384 = load double, ptr %383, align 8, !tbaa !177
   %385 = load ptr, ptr %41, align 8, !tbaa !118
   %386 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %384, i32 noundef 0, ptr noundef %385)
   br label %cvRootfind.exit.thread
@@ -6368,7 +6368,7 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define void @CVodeFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !180
+  %2 = load ptr, ptr %0, align 8, !tbaa !178
   %3 = icmp eq ptr %2, null
   br i1 %3, label %40, label %4
 
@@ -6389,7 +6389,7 @@ define void @CVodeFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %7, %4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %13 = load ptr, ptr %12, align 8, !tbaa !181
+  %13 = load ptr, ptr %12, align 8, !tbaa !179
   %.not28 = icmp eq ptr %13, null
   br i1 %.not28, label %16, label %14
 
@@ -6441,9 +6441,9 @@ define void @CVodeFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %36, %33
-  %39 = load ptr, ptr %0, align 8, !tbaa !180
+  %39 = load ptr, ptr %0, align 8, !tbaa !178
   tail call void @free(ptr noundef %39) #13
-  store ptr null, ptr %0, align 8, !tbaa !180
+  store ptr null, ptr %0, align 8, !tbaa !178
   br label %40
 
 40:                                               ; preds = %1, %38
@@ -7140,10 +7140,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !172 = !{!4, !9, i64 920}
 !173 = !{!4, !9, i64 936}
 !174 = !{!4, !10, i64 1160}
-!175 = distinct !{!175, !176}
-!176 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!177 = !{!4, !9, i64 1464}
-!178 = !{!4, !9, i64 1416}
-!179 = !{!4, !9, i64 1424}
-!180 = !{!6, !6, i64 0}
-!181 = !{!4, !6, i64 1032}
+!175 = !{!4, !9, i64 1464}
+!176 = !{!4, !9, i64 1416}
+!177 = !{!4, !9, i64 1424}
+!178 = !{!6, !6, i64 0}
+!179 = !{!4, !6, i64 1032}

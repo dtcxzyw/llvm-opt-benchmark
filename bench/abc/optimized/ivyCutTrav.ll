@@ -1201,7 +1201,7 @@ switch.early.test:                                ; preds = %2
     i32 1, label %common.ret9
   ]
 
-common.ret9:                                      ; preds = %switch.early.test, %switch.early.test, %2, %6
+common.ret9:                                      ; preds = %2, %switch.early.test, %switch.early.test, %6
   ret void
 
 6:                                                ; preds = %switch.early.test

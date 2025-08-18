@@ -3545,7 +3545,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 .preheader101.us:                                 ; preds = %.preheader103.split.us
   %14 = add nuw nsw i16 %.087113.us, 1
   %15 = icmp samesign ult i16 %14, %9
-  br i1 %15, label %.preheader103.split.us, label %.split.us, !llvm.loop !57
+  br i1 %15, label %.preheader103.split.us, label %.split.us
 
 .preheader103.split:                              ; preds = %.preheader103, %..loopexit102_crit_edge
   %.174115 = phi i32 [ %.2, %..loopexit102_crit_edge ], [ %.073117, %.preheader103 ]
@@ -3649,7 +3649,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.5.us = phi i32 [ %.4129.us, %.preheader.split.us ], [ %76, %._crit_edge125.us ]
   %54 = add nuw nsw i16 %.289127.us, 1
   %55 = icmp samesign ult i16 %54, %46
-  br i1 %55, label %.preheader.split.us, label %.split131.us, !llvm.loop !59
+  br i1 %55, label %.preheader.split.us, label %.split131.us
 
 56:                                               ; preds = %.lr.ph124.us, %66
   %.178122.us = phi i32 [ 0, %.lr.ph124.us ], [ %73, %66 ]
@@ -4720,6 +4720,3 @@ attributes #6 = { nounwind }
 !54 = !{!55, !55, i64 0}
 !55 = !{!"short", !6, i64 0}
 !56 = !{!4, !5, i64 72}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !58}

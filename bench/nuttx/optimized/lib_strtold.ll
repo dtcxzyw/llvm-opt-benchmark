@@ -505,7 +505,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   %172 = lshr i64 %.11421.us.i.i, 1
   %173 = fmul x86_fp80 %.01520.us.i.i, %.01520.us.i.i
   %.not.us.i.i = icmp samesign ult i64 %.11421.us.i.i, 2
-  br i1 %.not.us.i.i, label %hexfloat.exit, label %.lr.ph.split.us.i.i, !llvm.loop !17
+  br i1 %.not.us.i.i, label %hexfloat.exit, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
 .lr.ph.split.i140.i:                              ; preds = %.lr.ph.i138.i, %.lr.ph.split.i140.i
   %.022.i141.i = phi x86_fp80 [ %spec.select23.i145.i, %.lr.ph.split.i140.i ], [ %164, %.lr.ph.i138.i ]
@@ -546,16 +546,16 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   %.0.in.i.i = load i8, ptr %.0.in.in.i.i, align 1
   %186 = icmp eq i8 %.0.in.i.i, 48
   %.08.i.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i.i, i64 1
-  br i1 %186, label %.thread, label %ifallzero.exit.i.preheader, !llvm.loop !19
+  br i1 %186, label %.thread, label %ifallzero.exit.i.preheader, !llvm.loop !17
 
 ifallzero.exit.i.preheader:                       ; preds = %.thread
   %.044.i158 = sext i8 %.0.in.i.i to i32
   %isdigittmp.i159 = add nsw i32 %.044.i158, -48
   %isdigit.i160 = icmp ult i32 %isdigittmp.i159, 10
-  br i1 %isdigit.i160, label %ifallzero.exitthread-pre-split.i.lr.ph, label %189, !llvm.loop !20
+  br i1 %isdigit.i160, label %ifallzero.exitthread-pre-split.i.lr.ph, label %189, !llvm.loop !18
 
 ifallzero.exitthread-pre-split.i.lr.ph:           ; preds = %ifallzero.exit.i.preheader
-  br label %ifallzero.exitthread-pre-split.i, !llvm.loop !20
+  br label %ifallzero.exitthread-pre-split.i, !llvm.loop !18
 
 ifallzero.exitthread-pre-split.i:                 ; preds = %ifallzero.exitthread-pre-split.i.lr.ph, %ifallzero.exitthread-pre-split.i
   %187 = phi i64 [ 1, %ifallzero.exitthread-pre-split.i.lr.ph ], [ %188, %ifallzero.exitthread-pre-split.i ]
@@ -566,10 +566,10 @@ ifallzero.exitthread-pre-split.i:                 ; preds = %ifallzero.exitthrea
   %isdigittmp.i = add nsw i32 %.044.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
   %188 = add nuw nsw i64 %187, 1
-  br i1 %isdigit.i, label %ifallzero.exitthread-pre-split.i, label %ifallzero.exit.i._crit_edge, !llvm.loop !20
+  br i1 %isdigit.i, label %ifallzero.exitthread-pre-split.i, label %ifallzero.exit.i._crit_edge, !llvm.loop !18
 
 ifallzero.exit.i._crit_edge:                      ; preds = %ifallzero.exitthread-pre-split.i
-  br label %189, !llvm.loop !20
+  br label %189, !llvm.loop !18
 
 189:                                              ; preds = %ifallzero.exit.i._crit_edge, %ifallzero.exit.i.preheader
   %.044.in.i.lcssa = phi i8 [ %.044.in.pr.i, %ifallzero.exit.i._crit_edge ], [ %.0.in.i.i, %ifallzero.exit.i.preheader ]
@@ -586,7 +586,7 @@ ifallzero.exit.i._crit_edge:                      ; preds = %ifallzero.exitthrea
   %.0.in.i65.i = load i8, ptr %.0.in.in.i64.i, align 1
   %191 = icmp eq i8 %.0.in.i65.i, 48
   %.08.i66.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i64.i, i64 1
-  br i1 %191, label %.preheader117.i, label %ifallzero.exit69.i, !llvm.loop !19
+  br i1 %191, label %.preheader117.i, label %ifallzero.exit69.i, !llvm.loop !17
 
 ifallzero.exit69.i:                               ; preds = %.preheader117.i
   %.0.i67.i = sext i8 %.0.in.i65.i to i32
@@ -613,7 +613,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   %.246.i = sext i8 %.246.in.i to i32
   %isdigittmp54.i = add nsw i32 %.246.i, -48
   %isdigit55.i = icmp ult i32 %isdigittmp54.i, 10
-  br i1 %isdigit55.i, label %.lr.ph.i101, label %.loopexit116.i, !llvm.loop !21
+  br i1 %isdigit55.i, label %.lr.ph.i101, label %.loopexit116.i, !llvm.loop !19
 
 .loopexit116.i:                                   ; preds = %.lr.ph.i101, %.preheader115.i, %ifallzero.exit69.i, %189
   %.1103.i = phi ptr [ %storemerge63.i.lcssa, %189 ], [ %storemerge143.i, %.preheader115.i ], [ %.08.i66.i, %ifallzero.exit69.i ], [ %storemerge.i, %.lr.ph.i101 ]
@@ -789,13 +789,13 @@ select.unfold.i.i:                                ; preds = %238, %236
   %.0.in.i76.i = load i8, ptr %.0.in.in.i75.i, align 1
   %252 = icmp eq i8 %.0.in.i76.i, 48
   %.08.i77.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i75.i, i64 1
-  br i1 %252, label %251, label %ifallzero.exit80.i, !llvm.loop !19
+  br i1 %252, label %251, label %ifallzero.exit80.i, !llvm.loop !17
 
 ifallzero.exit80.i:                               ; preds = %251
   %.0.i78.i = sext i8 %.0.in.i76.i to i32
   %253 = add nsw i32 %.0.i78.i, -58
   %isdigit.i79.i = icmp ult i32 %253, -10
-  br i1 %isdigit.i79.i, label %.thread.i73, label %233, !llvm.loop !22
+  br i1 %isdigit.i79.i, label %.thread.i73, label %233, !llvm.loop !20
 
 .loopexit.i90:                                    ; preds = %.critedge.i, %.critedge.thread111.i
   %254 = phi i32 [ %243, %.critedge.thread111.i ], [ %247, %.critedge.i ]
@@ -807,7 +807,7 @@ ifallzero.exit80.i:                               ; preds = %251
   %.1100.i = select i1 %257, i32 0, i32 %254
   %.143.i = select i1 %257, i32 0, i32 %256
   %.139.i = select i1 %257, x86_fp80 %259, x86_fp80 %.038.ph.i
-  br label %.outer.i, !llvm.loop !22
+  br label %.outer.i, !llvm.loop !20
 
 .thread.i73:                                      ; preds = %select.unfold.i.i, %ifallzero.exit80.i, %.critedge.thread.i, %244
   %.2101106.i = phi i32 [ %.2101107110.i, %.critedge.thread.i ], [ %.099.i, %244 ], [ %.2101107110.i, %ifallzero.exit80.i ], [ %.099.i, %select.unfold.i.i ]
@@ -866,7 +866,7 @@ ifallzero.exit80.i:                               ; preds = %251
   %282 = lshr i64 %.11421.us.i.i85, 1
   %283 = fmul x86_fp80 %.01520.us.i.i86, %.01520.us.i.i86
   %.not.us.i.i89 = icmp samesign ult i64 %.11421.us.i.i85, 2
-  br i1 %.not.us.i.i89, label %hexfloat.exit, label %.lr.ph.split.us.i.i83, !llvm.loop !17
+  br i1 %.not.us.i.i89, label %hexfloat.exit, label %.lr.ph.split.us.i.i83, !llvm.loop !16
 
 .lr.ph.split.i.i75:                               ; preds = %.lr.ph.i81.i, %.lr.ph.split.i.i75
   %.022.i82.i = phi x86_fp80 [ %spec.select23.i.i79, %.lr.ph.split.i.i75 ], [ %.240.i, %.lr.ph.i81.i ]
@@ -957,9 +957,7 @@ attributes #6 = { nounwind }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}

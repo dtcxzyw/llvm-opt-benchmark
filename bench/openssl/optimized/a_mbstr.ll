@@ -344,119 +344,119 @@ define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr nounde
     i32 4100, label %.lr.ph.split.us52
   ]
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %14
-  %.02636.us = phi ptr [ %7, %14 ], [ %0, %.lr.ph ]
-  %.02735.us = phi i32 [ %8, %14 ], [ %1, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i8, ptr %.02636.us, i64 1
-  %8 = add nsw i32 %.02735.us, -1
-  br i1 %.not33, label %14, label %9
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.split.us.split
 
-9:                                                ; preds = %.lr.ph.split.us
-  %10 = load i8, ptr %.02636.us, align 1, !tbaa !20
-  %11 = zext i8 %10 to i64
-  %12 = tail call i32 %3(i64 noundef %11, ptr noundef nonnull %4) #7
-  %13 = icmp slt i32 %12, 1
-  br i1 %13, label %._crit_edge, label %14
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %11
+  %.02636.us = phi ptr [ %13, %11 ], [ %0, %.lr.ph.split.us ]
+  %.02735.us = phi i32 [ %12, %11 ], [ %1, %.lr.ph.split.us ]
+  %7 = load i8, ptr %.02636.us, align 1, !tbaa !20
+  %8 = zext i8 %7 to i64
+  %9 = tail call i32 %3(i64 noundef %8, ptr noundef nonnull %4) #7
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %._crit_edge, label %11
 
-14:                                               ; preds = %9, %.lr.ph.split.us
-  %.not.us = icmp eq i32 %8, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+11:                                               ; preds = %.lr.ph.split.us.split
+  %12 = add nsw i32 %.02735.us, -1
+  %13 = getelementptr inbounds nuw i8, ptr %.02636.us, i64 1
+  %.not.us = icmp eq i32 %12, 0
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !9
 
-.lr.ph.split.us42:                                ; preds = %.lr.ph, %27
-  %.02636.us43 = phi ptr [ %15, %27 ], [ %0, %.lr.ph ]
-  %.02735.us44 = phi i32 [ %16, %27 ], [ %1, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 2
-  %16 = add nsw i32 %.02735.us44, -2
-  br i1 %.not33, label %27, label %17
+.lr.ph.split.us42:                                ; preds = %.lr.ph
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.split.us42.split
 
-17:                                               ; preds = %.lr.ph.split.us42
-  %18 = load i8, ptr %.02636.us43, align 1, !tbaa !20
+.lr.ph.split.us42.split:                          ; preds = %.lr.ph.split.us42, %23
+  %.02636.us43 = phi ptr [ %25, %23 ], [ %0, %.lr.ph.split.us42 ]
+  %.02735.us44 = phi i32 [ %24, %23 ], [ %1, %.lr.ph.split.us42 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 1
+  %15 = load i8, ptr %.02636.us43, align 1, !tbaa !20
+  %16 = zext i8 %15 to i64
+  %17 = shl nuw nsw i64 %16, 8
+  %18 = load i8, ptr %14, align 1, !tbaa !20
   %19 = zext i8 %18 to i64
-  %20 = shl nuw nsw i64 %19, 8
-  %21 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !20
-  %23 = zext i8 %22 to i64
-  %24 = or disjoint i64 %20, %23
-  %25 = tail call i32 %3(i64 noundef %24, ptr noundef nonnull %4) #7
-  %26 = icmp slt i32 %25, 1
-  br i1 %26, label %._crit_edge, label %27
+  %20 = or disjoint i64 %17, %19
+  %21 = tail call i32 %3(i64 noundef %20, ptr noundef nonnull %4) #7
+  %22 = icmp slt i32 %21, 1
+  br i1 %22, label %._crit_edge, label %23
 
-27:                                               ; preds = %17, %.lr.ph.split.us42
-  %.not.us47 = icmp eq i32 %16, 0
-  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42, !llvm.loop !23
+23:                                               ; preds = %.lr.ph.split.us42.split
+  %24 = add nsw i32 %.02735.us44, -2
+  %25 = getelementptr inbounds nuw i8, ptr %.02636.us43, i64 2
+  %.not.us47 = icmp eq i32 %24, 0
+  br i1 %.not.us47, label %._crit_edge, label %.lr.ph.split.us42.split, !llvm.loop !9
 
-.lr.ph.split.us52:                                ; preds = %.lr.ph, %50
-  %.02636.us53 = phi ptr [ %28, %50 ], [ %0, %.lr.ph ]
-  %.02735.us54 = phi i32 [ %29, %50 ], [ %1, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 4
-  %29 = add nsw i32 %.02735.us54, -4
-  br i1 %.not33, label %50, label %30
+.lr.ph.split.us52:                                ; preds = %.lr.ph, %48
+  %.02636.us53 = phi ptr [ %26, %48 ], [ %0, %.lr.ph ]
+  %.02735.us54 = phi i32 [ %27, %48 ], [ %1, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 4
+  %27 = add nsw i32 %.02735.us54, -4
+  br i1 %.not33, label %48, label %28
 
-30:                                               ; preds = %.lr.ph.split.us52
-  %31 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 2
-  %32 = load i8, ptr %31, align 1, !tbaa !20
-  %33 = zext i8 %32 to i64
-  %34 = shl nuw nsw i64 %33, 8
-  %35 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 1
-  %36 = load i8, ptr %35, align 1, !tbaa !20
-  %37 = zext i8 %36 to i64
-  %38 = shl nuw nsw i64 %37, 16
-  %39 = load i8, ptr %.02636.us53, align 1, !tbaa !20
-  %40 = zext i8 %39 to i64
-  %41 = shl nuw nsw i64 %40, 24
-  %42 = or disjoint i64 %38, %41
-  %43 = or disjoint i64 %34, %42
-  %44 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 3
-  %45 = load i8, ptr %44, align 1, !tbaa !20
-  %46 = zext i8 %45 to i64
-  %47 = or disjoint i64 %43, %46
-  %48 = tail call i32 %3(i64 noundef %47, ptr noundef nonnull %4) #7
-  %49 = icmp slt i32 %48, 1
-  br i1 %49, label %._crit_edge, label %50
+28:                                               ; preds = %.lr.ph.split.us52
+  %29 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 2
+  %30 = load i8, ptr %29, align 1, !tbaa !20
+  %31 = zext i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 8
+  %33 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 1
+  %34 = load i8, ptr %33, align 1, !tbaa !20
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 16
+  %37 = load i8, ptr %.02636.us53, align 1, !tbaa !20
+  %38 = zext i8 %37 to i64
+  %39 = shl nuw nsw i64 %38, 24
+  %40 = or disjoint i64 %36, %39
+  %41 = or disjoint i64 %32, %40
+  %42 = getelementptr inbounds nuw i8, ptr %.02636.us53, i64 3
+  %43 = load i8, ptr %42, align 1, !tbaa !20
+  %44 = zext i8 %43 to i64
+  %45 = or disjoint i64 %41, %44
+  %46 = tail call i32 %3(i64 noundef %45, ptr noundef nonnull %4) #7
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %._crit_edge, label %48
 
-50:                                               ; preds = %30, %.lr.ph.split.us52
-  %.not.us57 = icmp eq i32 %29, 0
-  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !24
+48:                                               ; preds = %28, %.lr.ph.split.us52
+  %.not.us57 = icmp eq i32 %27, 0
+  br i1 %.not.us57, label %._crit_edge, label %.lr.ph.split.us52, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %53
-  %.02636.us62 = phi ptr [ %56, %53 ], [ %0, %.lr.ph.split ]
-  %.02735.us63 = phi i32 [ %54, %53 ], [ %1, %.lr.ph.split ]
-  %51 = call i32 @UTF8_getc(ptr noundef %.02636.us62, i32 noundef %.02735.us63, ptr noundef nonnull %6) #7
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %._crit_edge, label %53
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %51
+  %.02636.us62 = phi ptr [ %54, %51 ], [ %0, %.lr.ph.split ]
+  %.02735.us63 = phi i32 [ %52, %51 ], [ %1, %.lr.ph.split ]
+  %49 = call i32 @UTF8_getc(ptr noundef %.02636.us62, i32 noundef %.02735.us63, ptr noundef nonnull %6) #7
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %._crit_edge, label %51
 
-53:                                               ; preds = %.lr.ph.split.split.us
-  %54 = sub nsw i32 %.02735.us63, %51
-  %55 = zext nneg i32 %51 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.02636.us62, i64 %55
-  %.not.us64 = icmp eq i32 %54, 0
-  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !25
+51:                                               ; preds = %.lr.ph.split.split.us
+  %52 = sub nsw i32 %.02735.us63, %49
+  %53 = zext nneg i32 %49 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %.02636.us62, i64 %53
+  %.not.us64 = icmp eq i32 %52, 0
+  br i1 %.not.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %63
-  %.02636 = phi ptr [ %65, %63 ], [ %0, %.lr.ph.split ]
-  %.02735 = phi i32 [ %66, %63 ], [ %1, %.lr.ph.split ]
-  %57 = call i32 @UTF8_getc(ptr noundef %.02636, i32 noundef %.02735, ptr noundef nonnull %6) #7
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %._crit_edge, label %59
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %61
+  %.02636 = phi ptr [ %63, %61 ], [ %0, %.lr.ph.split ]
+  %.02735 = phi i32 [ %64, %61 ], [ %1, %.lr.ph.split ]
+  %55 = call i32 @UTF8_getc(ptr noundef %.02636, i32 noundef %.02735, ptr noundef nonnull %6) #7
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %._crit_edge, label %57
 
-59:                                               ; preds = %.lr.ph.split.split
-  %60 = load i64, ptr %6, align 8, !tbaa !3
-  %61 = call i32 %3(i64 noundef %60, ptr noundef nonnull %4) #7
-  %62 = icmp slt i32 %61, 1
-  br i1 %62, label %._crit_edge, label %63
+57:                                               ; preds = %.lr.ph.split.split
+  %58 = load i64, ptr %6, align 8, !tbaa !3
+  %59 = call i32 %3(i64 noundef %58, ptr noundef nonnull %4) #7
+  %60 = icmp slt i32 %59, 1
+  br i1 %60, label %._crit_edge, label %61
 
-63:                                               ; preds = %59
-  %64 = zext nneg i32 %57 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %.02636, i64 %64
-  %66 = sub nsw i32 %.02735, %57
-  %.not = icmp eq i32 %66, 0
+61:                                               ; preds = %57
+  %62 = zext nneg i32 %55 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %.02636, i64 %62
+  %64 = sub nsw i32 %.02735, %55
+  %.not = icmp eq i32 %64, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %30, %50, %17, %27, %9, %14, %.lr.ph.split.split, %59, %63, %.lr.ph.split.split.us, %53, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %53 ], [ -1, %.lr.ph.split.split.us ], [ 1, %63 ], [ %61, %59 ], [ -1, %.lr.ph.split.split ], [ 1, %14 ], [ %12, %9 ], [ 1, %27 ], [ %25, %17 ], [ 1, %50 ], [ %48, %30 ]
+._crit_edge:                                      ; preds = %28, %48, %.lr.ph.split.us42.split, %23, %.lr.ph.split.us.split, %11, %.lr.ph.split.split, %57, %61, %.lr.ph.split.split.us, %51, %.lr.ph.split.us42, %.lr.ph.split.us, %5
+  %.0 = phi i32 [ 1, %5 ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us42 ], [ 1, %51 ], [ -1, %.lr.ph.split.split.us ], [ 1, %61 ], [ %59, %57 ], [ -1, %.lr.ph.split.split ], [ 1, %11 ], [ %9, %.lr.ph.split.us.split ], [ 1, %23 ], [ %21, %.lr.ph.split.us42.split ], [ 1, %48 ], [ %46, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -666,8 +666,3 @@ attributes #7 = { nounwind }
 !18 = !{!15, !8, i64 0}
 !19 = !{!15, !16, i64 8}
 !20 = !{!5, !5, i64 0}
-!21 = distinct !{!21, !10, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !10, !22}
-!24 = distinct !{!24, !10, !22}
-!25 = distinct !{!25, !10, !22}

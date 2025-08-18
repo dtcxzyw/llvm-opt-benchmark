@@ -245,14 +245,14 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr noundef no
   %34 = add i32 %.13868, 1
   %35 = and i32 %33, %28
   %.not55 = icmp eq i32 %35, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph69, !llvm.loop !11
+  br i1 %.not55, label %.loopexit, label %.lr.ph69, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph69, %27, %22
   %.037 = phi i32 [ %.077, %22 ], [ %.077, %27 ], [ %34, %.lr.ph69 ]
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.04172, i32 %.037)
   %36 = add i32 %.04073, 1
   %.not44 = icmp ugt i32 %36, %18
-  br i1 %.not44, label %._crit_edge, label %22, !llvm.loop !12
+  br i1 %.not44, label %._crit_edge, label %22, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   %.041.lcssa = phi i32 [ 7, %19 ], [ %spec.select, %.loopexit ]
@@ -293,19 +293,19 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr noundef no
   %52 = add i32 %.260, 1
   %53 = and i32 %51, %46
   %.not54 = icmp eq i32 %53, 0
-  br i1 %.not54, label %.loopexit56, label %.lr.ph, !llvm.loop !13
+  br i1 %.not54, label %.loopexit56, label %.lr.ph, !llvm.loop !12
 
 .loopexit56:                                      ; preds = %.lr.ph, %45, %40
   %.3 = phi i32 [ %.163, %40 ], [ %.163, %45 ], [ %52, %.lr.ph ]
   %54 = add i32 %.03662, 1
   %.not = icmp ugt i32 %54, %18
-  br i1 %.not, label %.loopexit57, label %40, !llvm.loop !14
+  br i1 %.not, label %.loopexit57, label %40, !llvm.loop !13
 
 .loopexit57:                                      ; preds = %.loopexit56, %37, %._crit_edge
   %.4 = phi i32 [ %spec.select46, %._crit_edge ], [ %.077, %37 ], [ %.3, %.loopexit56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge80, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge80, label %10, !llvm.loop !14
 
 ._crit_edge80:                                    ; preds = %.loopexit57, %3
   %.0.lcssa = phi i32 [ %1, %3 ], [ %.4, %.loopexit57 ]
@@ -375,7 +375,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8
 37:                                               ; preds = %21
   %38 = add i32 %.02940, 1
   %.not30 = icmp ugt i32 %38, %16
-  br i1 %.not30, label %.loopexit, label %21, !llvm.loop !16
+  br i1 %.not30, label %.loopexit, label %21, !llvm.loop !15
 
 39:                                               ; preds = %7
   br i1 %.not3039, label %.loopexit, label %.lr.ph
@@ -404,14 +404,14 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8
   %54 = add i32 %.02837, 1
   %55 = load i32, ptr %15, align 4
   %.not = icmp ugt i32 %54, %55
-  br i1 %.not, label %.loopexit, label %41, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %41, !llvm.loop !16
 
 .loopexit:                                        ; preds = %41, %37, %39, %17, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %3, align 8
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %7, label %._crit_edge, !llvm.loop !18
+  br i1 %58, label %7, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret void
@@ -654,7 +654,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 95:                                               ; preds = %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %85, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %85, !llvm.loop !18
 
 96:                                               ; preds = %85
   %97 = load i8, ptr %22, align 4
@@ -14900,8 +14900,8 @@ attributes #10 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
@@ -14910,4 +14910,3 @@ attributes #10 = { nounwind }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}

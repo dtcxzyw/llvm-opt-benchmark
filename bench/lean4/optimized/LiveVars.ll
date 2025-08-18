@@ -13641,7 +13641,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @lean_apply_2(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %.01933.us) #4
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -13727,9 +13727,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_collectArray___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !23
+  store i16 5, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !23
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -13875,9 +13875,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_collectArray___rarg___boxed, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !23
+  store i16 3, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !23
+  store i16 0, ptr %8, align 2, !tbaa !21
   ret ptr %2
 }
 
@@ -14417,7 +14417,7 @@ lean_nat_lt.exit.thread36.us:                     ; preds = %lean_obj_tag.exit.u
 
 .split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread36.us
   %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread36.us ]
-  br label %.split.us, !llvm.loop !25
+  br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
   %.021 = phi ptr [ %.021.be, %.split.backedge ], [ %0, %2 ]
@@ -26827,9 +26827,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit166
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store ptr @l_Lean_IR_LiveVars_collectFnBody___lambda__1___boxed, ptr %359, align 8, !tbaa !10
   %360 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  store i16 3, ptr %360, align 8, !tbaa !23
+  store i16 3, ptr %360, align 8, !tbaa !21
   %361 = getelementptr inbounds nuw i8, ptr %355, i64 18
-  store i16 1, ptr %361, align 2, !tbaa !23
+  store i16 1, ptr %361, align 2, !tbaa !21
   %362 = getelementptr inbounds nuw i8, ptr %355, i64 24
   store ptr %.0157.ph, ptr %362, align 8, !tbaa !10
   %363 = getelementptr i8, ptr %339, i64 8
@@ -27462,9 +27462,9 @@ _init_l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_collectArgs___cl
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_collectArg, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 2, ptr %33, align 8, !tbaa !23
+  store i16 2, ptr %33, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 0, ptr %34, align 2, !tbaa !23
+  store i16 0, ptr %34, align 2, !tbaa !21
   store ptr %28, ptr @l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_collectArgs___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #4
   tail call void @lean_inc_heartbeat() #4
@@ -27483,9 +27483,9 @@ _init_l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_accumulate___clo
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_accumulate___lambda__1___boxed, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 2, ptr %40, align 8, !tbaa !23
+  store i16 2, ptr %40, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 0, ptr %41, align 2, !tbaa !23
+  store i16 0, ptr %41, align 2, !tbaa !21
   store ptr %35, ptr @l___private_Lean_Compiler_IR_LiveVars_0__Lean_IR_LiveVars_accumulate___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %35) #4
   tail call void @lean_inc_heartbeat() #4
@@ -27564,8 +27564,5 @@ attributes #5 = { noreturn nounwind }
 !18 = !{!"branch_weights", !"expected", i32 1074009192, i32 1073474456}
 !19 = !{!"branch_weights", i32 4000000, i32 4001}
 !20 = !{!8, !8, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"short", !8, i64 0}
-!25 = distinct !{!25, !22}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !8, i64 0}

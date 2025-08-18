@@ -407,7 +407,7 @@ proto_item_set_generated.exit:                    ; preds = %41, %44, %47
   %.1 = phi ptr [ %206, %205 ], [ %.0172194, %74 ], [ %.0172194, %.lr.ph.split ]
   %208 = load i32, ptr %5, align 4
   %209 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %208)
-  br i1 %209, label %.lr.ph.split, label %.loopexit.sink.split, !llvm.loop !10
+  br i1 %209, label %.lr.ph.split, label %.loopexit.sink.split, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %207, %70, %proto_item_set_generated.exit, %39
   %210 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -515,6 +515,4 @@ attributes #4 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
+!8 = distinct !{!8, !7}

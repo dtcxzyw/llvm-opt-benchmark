@@ -3268,123 +3268,167 @@ define internal fastcc void @PrintMapInfo(ptr noundef nonnull readonly captures(
   %16 = icmp sgt i32 %6, 0
   %17 = and i32 %14, -2
   %or.cond = icmp eq i32 %17, 6
-  br i1 %16, label %.preheader.us.preheader, label %.preheader.preheader
+  br i1 %16, label %.preheader.lr.ph.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
   br label %.preheader
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %smax49 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
+.preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
+  %smax113 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %18 = zext nneg i32 %8 to i64
-  %smax78 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
-  %wide.trip.count79 = zext nneg i32 %smax78 to i64
-  %wide.trip.count = zext nneg i32 %smax49 to i64
-  %wide.trip.count55 = zext nneg i32 %smax49 to i64
-  %wide.trip.count61 = zext nneg i32 %smax49 to i64
-  %wide.trip.count67 = zext nneg i32 %smax49 to i64
-  %wide.trip.count73 = zext nneg i32 %smax49 to i64
-  br label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv75 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %19 = mul nuw nsw i64 %indvars.iv75, %18
-  switch i32 %14, label %.lr.ph.split.us38 [
-    i32 1, label %.lr.ph.split.us.us
-    i32 2, label %.lr.ph.split.us30.us
-    i32 3, label %.lr.ph.split.us32.us
+  %smax119 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %wide.trip.count120 = zext nneg i32 %smax119 to i64
+  %wide.trip.count114 = zext nneg i32 %smax113 to i64
+  switch i32 %14, label %.preheader.lr.ph.split.us.split [
+    i32 1, label %.preheader.us.us
+    i32 2, label %.preheader.us.us44
+    i32 3, label %.preheader.us.us51
   ]
 
-.lr.ph.split.split.us41:                          ; preds = %.lr.ph.split.us38, %.lr.ph.split.split.us41
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.lr.ph.split.split.us41 ], [ 0, %.lr.ph.split.us38 ]
-  %20 = load ptr, ptr %2, align 8, !tbaa !76
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv63
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
-  %23 = load i8, ptr %22, align 1, !tbaa !88
-  %24 = zext i8 %23 to i32
+.preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us.us.us
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %19 = mul nuw nsw i64 %indvars.iv92, %18
+  br label %20
+
+20:                                               ; preds = %20, %.preheader.us.us
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %20 ], [ 0, %.preheader.us.us ]
+  %21 = load ptr, ptr %2, align 8, !tbaa !76
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv86
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %19
+  %24 = load i8, ptr %23, align 1, !tbaa !88
   %25 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.243, i32 noundef %24) #16
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge.us, label %.lr.ph.split.split.us41, !llvm.loop !104
+  %26 = zext i8 %24 to i64
+  %27 = getelementptr inbounds nuw [3 x i8], ptr @.str.239, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !88
+  %29 = sext i8 %28 to i32
+  %fputc28.us.us.us = tail call i32 @fputc(i32 %29, ptr %25)
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count114
+  br i1 %exitcond91.not, label %._crit_edge.split.us.us.us, label %20, !llvm.loop !104
 
-.lr.ph.split.us38:                                ; preds = %.preheader.us
-  br i1 %or.cond, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us41
+._crit_edge.split.us.us.us:                       ; preds = %20
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc.us.us = tail call i32 @fputc(i32 10, ptr %30)
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count120
+  br i1 %exitcond97.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !105
 
-._crit_edge.us:                                   ; preds = %.lr.ph.split.us32.us, %.lr.ph.split.us30.us, %.lr.ph.split.us.us, %.lr.ph.split.split.us41, %.lr.ph.split.split.us.us
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %fputc.us = tail call i32 @fputc(i32 10, ptr %27)
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count79
-  br i1 %exitcond80.not, label %.loopexit, label %.preheader.us, !llvm.loop !105
+.preheader.us.us44:                               ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us.us.us
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %31 = mul nuw nsw i64 %indvars.iv80, %18
+  br label %32
 
-.lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
-  %28 = load ptr, ptr %2, align 8, !tbaa !76
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv57
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %19
-  %31 = load i8, ptr %30, align 1, !tbaa !88
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %33 = zext i8 %31 to i64
-  %34 = getelementptr inbounds nuw [3 x i8], ptr @.str.239, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !88
-  %36 = sext i8 %35 to i32
-  %fputc28.us.us = tail call i32 @fputc(i32 %36, ptr %32)
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !107
-
-.lr.ph.split.us30.us:                             ; preds = %.preheader.us, %.lr.ph.split.us30.us
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph.split.us30.us ], [ 0, %.preheader.us ]
-  %37 = load ptr, ptr %2, align 8, !tbaa !76
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv51
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %19
+32:                                               ; preds = %32, %.preheader.us.us44
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %32 ], [ 0, %.preheader.us.us44 ]
+  %33 = load ptr, ptr %2, align 8, !tbaa !76
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv74
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
+  %36 = load i8, ptr %35, align 1, !tbaa !88
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %38 = zext i8 %36 to i64
+  %39 = getelementptr inbounds nuw [5 x i8], ptr @.str.240, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !88
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %42 = zext i8 %40 to i64
-  %43 = getelementptr inbounds nuw [5 x i8], ptr @.str.240, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !88
-  %45 = sext i8 %44 to i32
-  %fputc27.us.us = tail call i32 @fputc(i32 %45, ptr %41)
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge.us, label %.lr.ph.split.us30.us, !llvm.loop !108
+  %41 = sext i8 %40 to i32
+  %fputc27.us.us.us = tail call i32 @fputc(i32 %41, ptr %37)
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count114
+  br i1 %exitcond79.not, label %._crit_edge.split.split.us.us.us, label %32, !llvm.loop !104
 
-.lr.ph.split.us32.us:                             ; preds = %.preheader.us, %.lr.ph.split.us32.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us32.us ], [ 0, %.preheader.us ]
-  %46 = load ptr, ptr %2, align 8, !tbaa !76
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %19
-  %49 = load i8, ptr %48, align 1, !tbaa !88
-  %50 = zext i8 %49 to i32
-  %51 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.241, i32 noundef %50) #16
+._crit_edge.split.split.us.us.us:                 ; preds = %32
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc.us.us47 = tail call i32 @fputc(i32 10, ptr %42)
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count120
+  br i1 %exitcond85.not, label %.loopexit, label %.preheader.us.us44, !llvm.loop !105
+
+.preheader.us.us51:                               ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.split.us.us.us
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %._crit_edge.split.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %43 = mul nuw nsw i64 %indvars.iv68, %18
+  br label %44
+
+44:                                               ; preds = %44, %.preheader.us.us51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.preheader.us.us51 ]
+  %45 = load ptr, ptr %2, align 8, !tbaa !76
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %43
+  %48 = load i8, ptr %47, align 1, !tbaa !88
+  %49 = zext i8 %48 to i32
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.241, i32 noundef %49) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond50.not, label %._crit_edge.us, label %.lr.ph.split.us32.us, !llvm.loop !109
+  %exitcond67.not = icmp eq i64 %indvars.iv.next, %wide.trip.count114
+  br i1 %exitcond67.not, label %._crit_edge.split.split.split.us.us.us, label %44, !llvm.loop !104
 
-.lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us38, %.lr.ph.split.split.us.us
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.split.split.us.us ], [ 0, %.lr.ph.split.us38 ]
-  %53 = load ptr, ptr %2, align 8, !tbaa !76
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv69
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %19
-  %56 = load i8, ptr %55, align 1, !tbaa !88
-  %57 = zext i8 %56 to i32
-  %58 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.242, i32 noundef %57) #16
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count73
-  br i1 %exitcond74.not, label %._crit_edge.us, label %.lr.ph.split.split.us.us, !llvm.loop !110
+._crit_edge.split.split.split.us.us.us:           ; preds = %44
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc.us.us54 = tail call i32 @fputc(i32 10, ptr %52)
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count120
+  br i1 %exitcond73.not, label %.loopexit, label %.preheader.us.us51, !llvm.loop !105
+
+.preheader.lr.ph.split.us.split:                  ; preds = %.preheader.lr.ph.split.us
+  br i1 %or.cond, label %.preheader.us.us57, label %.preheader.us
+
+.preheader.us.us57:                               ; preds = %.preheader.lr.ph.split.us.split, %._crit_edge.split.split.split.split.us.us.us
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %._crit_edge.split.split.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us.split ]
+  %53 = mul nuw nsw i64 %indvars.iv116, %18
+  br label %54
+
+54:                                               ; preds = %54, %.preheader.us.us57
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %54 ], [ 0, %.preheader.us.us57 ]
+  %55 = load ptr, ptr %2, align 8, !tbaa !76
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv110
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %53
+  %58 = load i8, ptr %57, align 1, !tbaa !88
+  %59 = zext i8 %58 to i32
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.242, i32 noundef %59) #16
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count114
+  br i1 %exitcond115.not, label %._crit_edge.split.split.split.split.us.us.us, label %54, !llvm.loop !104
+
+._crit_edge.split.split.split.split.us.us.us:     ; preds = %54
+  %62 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc.us.us59 = tail call i32 @fputc(i32 10, ptr %62)
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count120
+  br i1 %exitcond121.not, label %.loopexit, label %.preheader.us.us57, !llvm.loop !105
+
+.preheader.us:                                    ; preds = %.preheader.lr.ph.split.us.split, %._crit_edge.split.split.split.split.us37
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge.split.split.split.split.us37 ], [ 0, %.preheader.lr.ph.split.us.split ]
+  %63 = mul nuw nsw i64 %indvars.iv104, %18
+  br label %64
+
+64:                                               ; preds = %.preheader.us, %64
+  %indvars.iv98 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next99, %64 ]
+  %65 = load ptr, ptr %2, align 8, !tbaa !76
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv98
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %63
+  %68 = load i8, ptr %67, align 1, !tbaa !88
+  %69 = zext i8 %68 to i32
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.243, i32 noundef %69) #16
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count114
+  br i1 %exitcond103.not, label %._crit_edge.split.split.split.split.us37, label %64, !llvm.loop !104
+
+._crit_edge.split.split.split.split.us37:         ; preds = %64
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc.us = tail call i32 @fputc(i32 10, ptr %72)
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count120
+  br i1 %exitcond109.not, label %.loopexit, label %.preheader.us, !llvm.loop !105
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.02435 = phi i32 [ %61, %.preheader ], [ 0, %.preheader.preheader ]
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %fputc = tail call i32 @fputc(i32 10, ptr %60)
-  %61 = add nuw nsw i32 %.02435, 1
-  %exitcond.not = icmp eq i32 %61, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !111
+  %.02435 = phi i32 [ %74, %.preheader ], [ 0, %.preheader.preheader ]
+  %73 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc = tail call i32 @fputc(i32 10, ptr %73)
+  %74 = add nuw nsw i32 %.02435, 1
+  %exitcond.not = icmp eq i32 %74, %smax
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !105
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %4, %1
+.loopexit:                                        ; preds = %.preheader, %._crit_edge.split.split.split.us.us.us, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %._crit_edge.split.split.split.split.us37, %._crit_edge.split.split.split.split.us.us.us, %4, %1
   ret void
 }
 
@@ -3405,7 +3449,7 @@ define internal fastcc void @PrintMetadataInfo(ptr noundef nonnull readonly capt
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !112
+  %11 = load i64, ptr %10, align 8, !tbaa !106
   %12 = trunc i64 %11 to i32
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.245, i32 noundef %12) #16
   br label %14
@@ -3418,7 +3462,7 @@ define internal fastcc void @PrintMetadataInfo(ptr noundef nonnull readonly capt
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !114
+  %19 = load i64, ptr %18, align 8, !tbaa !108
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.246, i32 noundef %20) #16
   br label %22
@@ -3431,7 +3475,7 @@ define internal fastcc void @PrintMetadataInfo(ptr noundef nonnull readonly capt
 24:                                               ; preds = %22
   %25 = load ptr, ptr @stderr, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load i64, ptr %26, align 8, !tbaa !115
+  %27 = load i64, ptr %26, align 8, !tbaa !109
   %28 = trunc i64 %27 to i32
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.247, i32 noundef %28) #16
   br label %30
@@ -3564,19 +3608,19 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.203, ptr noundef %1, i32 noundef %5) #16
   %7 = load ptr, ptr @stderr, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %9 = load i32, ptr %8, align 4, !tbaa !116
+  %9 = load i32, ptr %8, align 4, !tbaa !110
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %11 = load i32, ptr %10, align 4, !tbaa !117
+  %11 = load i32, ptr %10, align 4, !tbaa !111
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.204, i32 noundef %9, i32 noundef %11) #16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = load i32, ptr %13, align 4, !tbaa !118
+  %14 = load i32, ptr %13, align 4, !tbaa !112
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %43, label %15
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @stderr, align 8, !tbaa !4
   %17 = tail call i64 @fwrite(ptr nonnull @.str.205, i64 27, i64 1, ptr %16) #14
-  %18 = load i32, ptr %13, align 4, !tbaa !118
+  %18 = load i32, ptr %13, align 4, !tbaa !112
   %19 = and i32 %18, 1
   %.not17 = icmp eq i32 %19, 0
   br i1 %.not17, label %23, label %20
@@ -3584,7 +3628,7 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 20:                                               ; preds = %15
   %21 = load ptr, ptr @stderr, align 8, !tbaa !4
   %22 = tail call i64 @fwrite(ptr nonnull @.str.206, i64 11, i64 1, ptr %21) #14
-  %.pre = load i32, ptr %13, align 4, !tbaa !118
+  %.pre = load i32, ptr %13, align 4, !tbaa !112
   br label %23
 
 23:                                               ; preds = %20, %15
@@ -3596,7 +3640,7 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 26:                                               ; preds = %23
   %27 = load ptr, ptr @stderr, align 8, !tbaa !4
   %28 = tail call i64 @fwrite(ptr nonnull @.str.207, i64 22, i64 1, ptr %27) #14
-  %.pre23 = load i32, ptr %13, align 4, !tbaa !118
+  %.pre23 = load i32, ptr %13, align 4, !tbaa !112
   br label %29
 
 29:                                               ; preds = %26, %23
@@ -3608,7 +3652,7 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8, !tbaa !4
   %34 = tail call i64 @fwrite(ptr nonnull @.str.208, i64 15, i64 1, ptr %33) #14
-  %.pre24 = load i32, ptr %13, align 4, !tbaa !118
+  %.pre24 = load i32, ptr %13, align 4, !tbaa !112
   br label %35
 
 35:                                               ; preds = %32, %29
@@ -3630,9 +3674,9 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 43:                                               ; preds = %41, %2
   %44 = load ptr, ptr @stderr, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %46 = load i32, ptr %45, align 4, !tbaa !119
+  %46 = load i32, ptr %45, align 4, !tbaa !113
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.210, i32 noundef %46) #16
-  %48 = load i32, ptr %13, align 4, !tbaa !118
+  %48 = load i32, ptr %13, align 4, !tbaa !112
   %49 = and i32 %48, 1
   %.not21 = icmp eq i32 %49, 0
   br i1 %.not21, label %55, label %50
@@ -3640,9 +3684,9 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 50:                                               ; preds = %43
   %51 = load ptr, ptr @stderr, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %53 = load i32, ptr %52, align 4, !tbaa !120
+  %53 = load i32, ptr %52, align 4, !tbaa !114
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.211, i32 noundef %53) #16
-  %.pre25 = load i32, ptr %13, align 4, !tbaa !118
+  %.pre25 = load i32, ptr %13, align 4, !tbaa !112
   br label %55
 
 55:                                               ; preds = %50, %43
@@ -3654,17 +3698,17 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 58:                                               ; preds = %55
   %59 = load ptr, ptr @stderr, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %61 = load i32, ptr %60, align 4, !tbaa !121
+  %61 = load i32, ptr %60, align 4, !tbaa !115
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.212, i32 noundef %61) #16
   br label %63
 
 63:                                               ; preds = %58, %55
   %64 = load ptr, ptr @stderr, align 8, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %66 = load i32, ptr %65, align 4, !tbaa !122
+  %66 = load i32, ptr %65, align 4, !tbaa !116
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str.213, i32 noundef %66) #16
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %69 = load i32, ptr %68, align 4, !tbaa !123
+  %69 = load i32, ptr %68, align 4, !tbaa !117
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %74
 
@@ -3693,7 +3737,7 @@ define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) 
   %9 = add nsw i32 %8, %.017.us
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %.split19.us, label %.split.us, !llvm.loop !124
+  br i1 %exitcond26.not, label %.split19.us, label %.split.us, !llvm.loop !118
 
 .split:                                           ; preds = %3, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %3 ]
@@ -3710,7 +3754,7 @@ define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) 
   store i32 %18, ptr %16, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split19.us, label %.split, !llvm.loop !125
+  br i1 %exitcond.not, label %.split19.us, label %.split, !llvm.loop !118
 
 .split19.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %9, %.split.us ], [ %15, %.split ]
@@ -3752,7 +3796,7 @@ define internal fastcc void @PrintPercents(ptr noundef readonly captures(none) %
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.235, i32 noundef %21) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %23, label %13, !llvm.loop !126
+  br i1 %exitcond.not, label %23, label %13, !llvm.loop !119
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -3772,7 +3816,7 @@ define internal fastcc void @PrintValues(ptr noundef readonly captures(none) %0)
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.233, i32 noundef %5) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !127
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !120
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -3923,26 +3967,19 @@ attributes #16 = { cold nounwind }
 !102 = !{!98, !10, i64 140}
 !103 = !{!98, !10, i64 168}
 !104 = distinct !{!104, !53}
-!105 = distinct !{!105, !53, !106}
-!106 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!107 = distinct !{!107, !53, !106}
-!108 = distinct !{!108, !53, !106}
-!109 = distinct !{!109, !53, !106}
-!110 = distinct !{!110, !53, !106}
-!111 = distinct !{!111, !53}
-!112 = !{!113, !58, i64 24}
-!113 = !{!"Metadata", !87, i64 0, !87, i64 16, !87, i64 32}
-!114 = !{!113, !58, i64 8}
-!115 = !{!113, !58, i64 40}
-!116 = !{!98, !10, i64 172}
-!117 = !{!98, !10, i64 176}
-!118 = !{!98, !10, i64 148}
-!119 = !{!98, !10, i64 152}
-!120 = !{!98, !10, i64 156}
-!121 = !{!98, !10, i64 180}
-!122 = !{!98, !10, i64 160}
-!123 = !{!98, !10, i64 164}
-!124 = distinct !{!124, !53, !106}
-!125 = distinct !{!125, !53}
-!126 = distinct !{!126, !53}
-!127 = distinct !{!127, !53}
+!105 = distinct !{!105, !53}
+!106 = !{!107, !58, i64 24}
+!107 = !{!"Metadata", !87, i64 0, !87, i64 16, !87, i64 32}
+!108 = !{!107, !58, i64 8}
+!109 = !{!107, !58, i64 40}
+!110 = !{!98, !10, i64 172}
+!111 = !{!98, !10, i64 176}
+!112 = !{!98, !10, i64 148}
+!113 = !{!98, !10, i64 152}
+!114 = !{!98, !10, i64 156}
+!115 = !{!98, !10, i64 180}
+!116 = !{!98, !10, i64 160}
+!117 = !{!98, !10, i64 164}
+!118 = distinct !{!118, !53}
+!119 = distinct !{!119, !53}
+!120 = distinct !{!120, !53}

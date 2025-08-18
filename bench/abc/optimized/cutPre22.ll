@@ -1482,7 +1482,7 @@ Abc_Clock.exit301:                                ; preds = %._crit_edge361, %51
   %533 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %532, i32 noundef %531)
   %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next444, 10
-  br i1 %exitcond446.not, label %534, label %529, !llvm.loop !63
+  br i1 %exitcond446.not, label %534, label %529, !llvm.loop !62
 
 534:                                              ; preds = %529
   %535 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
@@ -1496,7 +1496,7 @@ Abc_Clock.exit301:                                ; preds = %._crit_edge361, %51
   %540 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %539, i32 noundef %538)
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond450.not = icmp eq i64 %indvars.iv.next448, 10
-  br i1 %exitcond450.not, label %541, label %536, !llvm.loop !64
+  br i1 %exitcond450.not, label %541, label %536, !llvm.loop !63
 
 541:                                              ; preds = %536
   %542 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
@@ -1510,30 +1510,30 @@ Abc_Clock.exit301:                                ; preds = %._crit_edge361, %51
   %547 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %546, i32 noundef %545)
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %exitcond454.not = icmp eq i64 %indvars.iv.next452, 10
-  br i1 %exitcond454.not, label %548, label %543, !llvm.loop !65
+  br i1 %exitcond454.not, label %548, label %543, !llvm.loop !64
 
 548:                                              ; preds = %543
   %putchar227 = call i32 @putchar(i32 10)
   %indvars.iv.next456 = add nsw i64 %indvars.iv455, -1
   %549 = icmp samesign ugt i64 %indvars.iv455, 4
-  br i1 %549, label %258, label %550, !llvm.loop !66
+  br i1 %549, label %258, label %550, !llvm.loop !65
 
 550:                                              ; preds = %548
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.14)
   %551 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 5160
-  %552 = load i64, ptr %551, align 8, !tbaa !67
+  %552 = load i64, ptr %551, align 8, !tbaa !66
   %553 = sitofp i64 %552 to double
   %554 = fdiv double %553, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %554)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.15)
   %555 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 5152
-  %556 = load i64, ptr %555, align 8, !tbaa !68
+  %556 = load i64, ptr %555, align 8, !tbaa !67
   %557 = sitofp i64 %556 to double
   %558 = fdiv double %557, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %558)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.16)
   %559 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 5168
-  %560 = load i64, ptr %559, align 8, !tbaa !69
+  %560 = load i64, ptr %559, align 8, !tbaa !68
   %561 = sitofp i64 %560 to double
   %562 = fdiv double %561, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %562)
@@ -1583,7 +1583,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %7, ptr %8, align 4, !tbaa !13
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next439, 16
-  br i1 %exitcond441.not, label %.loopexit, label %.preheader282, !llvm.loop !70
+  br i1 %exitcond441.not, label %.loopexit, label %.preheader282, !llvm.loop !69
 
 .preheader284:                                    ; preds = %5, %.preheader284
   %indvars.iv434 = phi i64 [ %indvars.iv.next435, %.preheader284 ], [ 0, %5 ]
@@ -1596,7 +1596,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %13, ptr %14, align 4, !tbaa !13
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next435, 16
-  br i1 %exitcond437.not, label %.loopexit, label %.preheader284, !llvm.loop !71
+  br i1 %exitcond437.not, label %.loopexit, label %.preheader284, !llvm.loop !70
 
 .preheader286:                                    ; preds = %5, %.preheader286
   %indvars.iv430 = phi i64 [ %indvars.iv.next431, %.preheader286 ], [ 0, %5 ]
@@ -1610,7 +1610,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %20, ptr %21, align 4, !tbaa !13
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %exitcond433.not = icmp eq i64 %indvars.iv.next431, 16
-  br i1 %exitcond433.not, label %.loopexit, label %.preheader286, !llvm.loop !72
+  br i1 %exitcond433.not, label %.loopexit, label %.preheader286, !llvm.loop !71
 
 .preheader288:                                    ; preds = %5, %.preheader288
   %indvars.iv426 = phi i64 [ %indvars.iv.next427, %.preheader288 ], [ 0, %5 ]
@@ -1623,7 +1623,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %26, ptr %27, align 4, !tbaa !13
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next427, 16
-  br i1 %exitcond429.not, label %.loopexit, label %.preheader288, !llvm.loop !73
+  br i1 %exitcond429.not, label %.loopexit, label %.preheader288, !llvm.loop !72
 
 .preheader290:                                    ; preds = %5, %.preheader290
   %indvars.iv422 = phi i64 [ %indvars.iv.next423, %.preheader290 ], [ 0, %5 ]
@@ -1639,7 +1639,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %35, ptr %36, align 4, !tbaa !13
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %exitcond425.not = icmp eq i64 %indvars.iv.next423, 16
-  br i1 %exitcond425.not, label %.loopexit, label %.preheader290, !llvm.loop !74
+  br i1 %exitcond425.not, label %.loopexit, label %.preheader290, !llvm.loop !73
 
 .preheader292:                                    ; preds = %5, %.preheader292
   %indvars.iv418 = phi i64 [ %indvars.iv.next419, %.preheader292 ], [ 0, %5 ]
@@ -1656,7 +1656,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %45, ptr %46, align 4, !tbaa !13
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %exitcond421.not = icmp eq i64 %indvars.iv.next419, 16
-  br i1 %exitcond421.not, label %.loopexit, label %.preheader292, !llvm.loop !75
+  br i1 %exitcond421.not, label %.loopexit, label %.preheader292, !llvm.loop !74
 
 .preheader294:                                    ; preds = %5, %.preheader294
   %indvars.iv414 = phi i64 [ %indvars.iv.next415, %.preheader294 ], [ 0, %5 ]
@@ -1672,7 +1672,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %54, ptr %55, align 4, !tbaa !13
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next415, 16
-  br i1 %exitcond417.not, label %.loopexit, label %.preheader294, !llvm.loop !76
+  br i1 %exitcond417.not, label %.loopexit, label %.preheader294, !llvm.loop !75
 
 .preheader296:                                    ; preds = %5, %.preheader296
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %.preheader296 ], [ 0, %5 ]
@@ -1689,7 +1689,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %64, ptr %65, align 4, !tbaa !13
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, 16
-  br i1 %exitcond413.not, label %.loopexit, label %.preheader296, !llvm.loop !77
+  br i1 %exitcond413.not, label %.loopexit, label %.preheader296, !llvm.loop !76
 
 .preheader298:                                    ; preds = %5, %.preheader298
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %.preheader298 ], [ 0, %5 ]
@@ -1705,7 +1705,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %73, ptr %74, align 4, !tbaa !13
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next407, 16
-  br i1 %exitcond409.not, label %.loopexit, label %.preheader298, !llvm.loop !78
+  br i1 %exitcond409.not, label %.loopexit, label %.preheader298, !llvm.loop !77
 
 .preheader300:                                    ; preds = %5, %.preheader300
   %indvars.iv402 = phi i64 [ %indvars.iv.next403, %.preheader300 ], [ 0, %5 ]
@@ -1721,7 +1721,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %82, ptr %83, align 4, !tbaa !13
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, 16
-  br i1 %exitcond405.not, label %.loopexit, label %.preheader300, !llvm.loop !79
+  br i1 %exitcond405.not, label %.loopexit, label %.preheader300, !llvm.loop !78
 
 .preheader302:                                    ; preds = %5, %.preheader302
   %indvars.iv398 = phi i64 [ %indvars.iv.next399, %.preheader302 ], [ 0, %5 ]
@@ -1737,7 +1737,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %91, ptr %92, align 4, !tbaa !13
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next399, 16
-  br i1 %exitcond401.not, label %.loopexit, label %.preheader302, !llvm.loop !80
+  br i1 %exitcond401.not, label %.loopexit, label %.preheader302, !llvm.loop !79
 
 .preheader304:                                    ; preds = %5, %.preheader304
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %.preheader304 ], [ 0, %5 ]
@@ -1754,7 +1754,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %101, ptr %102, align 4, !tbaa !13
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next395, 16
-  br i1 %exitcond397.not, label %.loopexit, label %.preheader304, !llvm.loop !81
+  br i1 %exitcond397.not, label %.loopexit, label %.preheader304, !llvm.loop !80
 
 .preheader306:                                    ; preds = %5, %.preheader306
   %indvars.iv390 = phi i64 [ %indvars.iv.next391, %.preheader306 ], [ 0, %5 ]
@@ -1772,7 +1772,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %112, ptr %113, align 4, !tbaa !13
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next391, 16
-  br i1 %exitcond393.not, label %.loopexit, label %.preheader306, !llvm.loop !82
+  br i1 %exitcond393.not, label %.loopexit, label %.preheader306, !llvm.loop !81
 
 .preheader308:                                    ; preds = %5, %.preheader308
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %.preheader308 ], [ 0, %5 ]
@@ -1792,7 +1792,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %123, ptr %124, align 4, !tbaa !13
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next387, 16
-  br i1 %exitcond389.not, label %.loopexit, label %.preheader308, !llvm.loop !83
+  br i1 %exitcond389.not, label %.loopexit, label %.preheader308, !llvm.loop !82
 
 .preheader310:                                    ; preds = %5, %.preheader310
   %indvars.iv382 = phi i64 [ %indvars.iv.next383, %.preheader310 ], [ 0, %5 ]
@@ -1811,7 +1811,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %133, ptr %134, align 4, !tbaa !13
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next383, 16
-  br i1 %exitcond385.not, label %.loopexit, label %.preheader310, !llvm.loop !84
+  br i1 %exitcond385.not, label %.loopexit, label %.preheader310, !llvm.loop !83
 
 .preheader312:                                    ; preds = %5, %.preheader312
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %.preheader312 ], [ 0, %5 ]
@@ -1830,7 +1830,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %145, ptr %146, align 4, !tbaa !13
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next379, 16
-  br i1 %exitcond381.not, label %.loopexit, label %.preheader312, !llvm.loop !85
+  br i1 %exitcond381.not, label %.loopexit, label %.preheader312, !llvm.loop !84
 
 .preheader314:                                    ; preds = %5, %.preheader314
   %indvars.iv374 = phi i64 [ %indvars.iv.next375, %.preheader314 ], [ 0, %5 ]
@@ -1850,7 +1850,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %158, ptr %159, align 4, !tbaa !13
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next375, 16
-  br i1 %exitcond377.not, label %.loopexit, label %.preheader314, !llvm.loop !86
+  br i1 %exitcond377.not, label %.loopexit, label %.preheader314, !llvm.loop !85
 
 .preheader316:                                    ; preds = %5, %.preheader316
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %.preheader316 ], [ 0, %5 ]
@@ -1871,7 +1871,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %172, ptr %173, align 4, !tbaa !13
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next371, 16
-  br i1 %exitcond373.not, label %.loopexit, label %.preheader316, !llvm.loop !87
+  br i1 %exitcond373.not, label %.loopexit, label %.preheader316, !llvm.loop !86
 
 .preheader318:                                    ; preds = %5, %.preheader318
   %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.preheader318 ], [ 0, %5 ]
@@ -1890,7 +1890,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %184, ptr %185, align 4, !tbaa !13
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next367, 16
-  br i1 %exitcond369.not, label %.loopexit, label %.preheader318, !llvm.loop !88
+  br i1 %exitcond369.not, label %.loopexit, label %.preheader318, !llvm.loop !87
 
 .preheader320:                                    ; preds = %5, %.preheader320
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader320 ], [ 0, %5 ]
@@ -1910,7 +1910,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   store i32 %197, ptr %198, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader320, !llvm.loop !89
+  br i1 %exitcond.not, label %.loopexit, label %.preheader320, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.preheader320, %.preheader318, %.preheader316, %.preheader314, %.preheader312, %.preheader310, %.preheader308, %.preheader306, %.preheader304, %.preheader302, %.preheader300, %.preheader298, %.preheader296, %.preheader294, %.preheader292, %.preheader290, %.preheader288, %.preheader286, %.preheader284, %.preheader282, %.preheader280.preheader, %.preheader.preheader, %5
   ret void
@@ -1937,7 +1937,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #16
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !90
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !89
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #16
@@ -1945,7 +1945,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #6 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !90, !noalias !92
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !89, !noalias !91
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #16
   br label %17
 
@@ -2058,7 +2058,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   store i32 %41, ptr %39, align 4, !tbaa !13
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next131, 4
-  br i1 %exitcond133.not, label %.split92.us, label %.split.us, !llvm.loop !95
+  br i1 %exitcond133.not, label %.split92.us, label %.split.us, !llvm.loop !94
 
 .split.split.us.preheader:                        ; preds = %26
   %42 = load i32, ptr %20, align 4, !tbaa !13
@@ -2078,7 +2078,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   store i32 %50, ptr %48, align 4, !tbaa !13
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 4
-  br i1 %exitcond129.not, label %.split92.us, label %.split.split.us, !llvm.loop !96
+  br i1 %exitcond129.not, label %.split92.us, label %.split.split.us, !llvm.loop !94
 
 .split.split.split.us.preheader:                  ; preds = %28
   %51 = load i32, ptr %19, align 4, !tbaa !13
@@ -2098,7 +2098,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   store i32 %59, ptr %57, align 4, !tbaa !13
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 4
-  br i1 %exitcond125.not, label %.split92.us, label %.split.split.split.us, !llvm.loop !97
+  br i1 %exitcond125.not, label %.split92.us, label %.split.split.split.us, !llvm.loop !94
 
 .split.split.split.split.preheader:               ; preds = %30
   %60 = load i32, ptr %17, align 4, !tbaa !13
@@ -2123,7 +2123,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   store i32 %69, ptr %67, align 4, !tbaa !13
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 4
-  br i1 %exitcond121.not, label %.split92.us, label %.split.split.split.split.us, !llvm.loop !98
+  br i1 %exitcond121.not, label %.split92.us, label %.split.split.split.split.us, !llvm.loop !94
 
 .split.split.split.split:                         ; preds = %.split.split.split.split.preheader, %.split.split.split.split
   %indvars.iv = phi i64 [ 0, %.split.split.split.split.preheader ], [ %indvars.iv.next, %.split.split.split.split ]
@@ -2136,24 +2136,24 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   store i32 %75, ptr %73, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split92.us, label %.split.split.split.split, !llvm.loop !99
+  br i1 %exitcond.not, label %.split92.us, label %.split.split.split.split, !llvm.loop !94
 
 .split92.us:                                      ; preds = %.split.split.split.split, %.split.split.split.split.us, %.split.split.split.us, %.split.split.us, %.split.us
   %76 = getelementptr inbounds nuw i8, ptr %.098, i64 8
   %.0 = load ptr, ptr %76, align 8, !tbaa !31
   %.not83 = icmp eq ptr %.0, null
-  br i1 %.not83, label %._crit_edge, label %22, !llvm.loop !100
+  br i1 %.not83, label %._crit_edge, label %22, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.split92.us, %15
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, -1
   %.not157 = icmp eq i64 %indvars.iv134, 0
-  br i1 %.not157, label %77, label %15, !llvm.loop !101
+  br i1 %.not157, label %77, label %15, !llvm.loop !96
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 5176
-  %79 = load i32, ptr %78, align 8, !tbaa !102
+  %79 = load i32, ptr %78, align 8, !tbaa !97
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 5180
-  %81 = load i32, ptr %80, align 4, !tbaa !103
+  %81 = load i32, ptr %80, align 4, !tbaa !98
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %79, i32 noundef %81)
   br label %83
 
@@ -2171,13 +2171,13 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %89)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 5
-  br i1 %exitcond140.not, label %91, label %87, !llvm.loop !104
+  br i1 %exitcond140.not, label %91, label %87, !llvm.loop !99
 
 91:                                               ; preds = %87
   %putchar82 = call i32 @putchar(i32 10)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 10
-  br i1 %exitcond144.not, label %92, label %83, !llvm.loop !105
+  br i1 %exitcond144.not, label %92, label %83, !llvm.loop !100
 
 92:                                               ; preds = %91
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -2197,16 +2197,16 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %99)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 5
-  br i1 %exitcond148.not, label %101, label %97, !llvm.loop !106
+  br i1 %exitcond148.not, label %101, label %97, !llvm.loop !101
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw [22 x ptr], ptr @s_NP3Names, i64 0, i64 %indvars.iv149
-  %103 = load ptr, ptr %102, align 8, !tbaa !107
+  %103 = load ptr, ptr %102, align 8, !tbaa !102
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %103)
   %putchar = call i32 @putchar(i32 10)
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next150, 22
-  br i1 %exitcond152.not, label %105, label %93, !llvm.loop !109
+  br i1 %exitcond152.not, label %105, label %93, !llvm.loop !104
 
 105:                                              ; preds = %101
   %106 = call noalias ptr @fopen(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.24)
@@ -2250,14 +2250,14 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %120 = getelementptr inbounds nuw i8, ptr %.1107, i64 8
   %.1 = load ptr, ptr %120, align 8, !tbaa !31
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge110, label %112, !llvm.loop !110
+  br i1 %.not, label %._crit_edge110, label %112, !llvm.loop !105
 
 ._crit_edge110:                                   ; preds = %119, %.preheader
   %.169.lcssa = phi i32 [ %.068112, %.preheader ], [ %.2, %119 ]
   %fputc = call i32 @fputc(i32 10, ptr nonnull %106)
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, 10
-  br i1 %exitcond156.not, label %121, label %.preheader, !llvm.loop !111
+  br i1 %exitcond156.not, label %121, label %.preheader, !llvm.loop !106
 
 121:                                              ; preds = %._crit_edge110
   %122 = call i32 @fclose(ptr noundef nonnull %106)
@@ -2346,7 +2346,7 @@ Extra_TruthCopy.exit:                             ; preds = %select.unfold.prehe
   store i8 %22, ptr %23, align 1, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %21, %Extra_TruthCopy.exit
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 4960
@@ -2417,9 +2417,9 @@ Extra_TruthIsEqual.exit:                          ; preds = %select.unfold.i36
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %65, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 5176
-  %69 = load i32, ptr %68, align 8, !tbaa !102
+  %69 = load i32, ptr %68, align 8, !tbaa !97
   %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %68, align 8, !tbaa !102
+  store i32 %70, ptr %68, align 8, !tbaa !97
   br label %75
 
 Extra_TruthIsEqual.exit.thread:                   ; preds = %60, %52
@@ -2430,9 +2430,9 @@ Extra_TruthIsEqual.exit.thread:                   ; preds = %60, %52
 
 .loopexit:                                        ; preds = %Extra_TruthIsEqual.exit.thread, %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 5180
-  %73 = load i32, ptr %72, align 4, !tbaa !103
+  %73 = load i32, ptr %72, align 4, !tbaa !98
   %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %72, align 4, !tbaa !103
+  store i32 %74, ptr %72, align 4, !tbaa !98
   br label %75
 
 75:                                               ; preds = %.loopexit, %Extra_TruthIsEqual.exit, %7
@@ -2596,15 +2596,15 @@ attributes #17 = { nounwind willreturn memory(read) }
 !58 = distinct !{!58, !15}
 !59 = distinct !{!59, !15}
 !60 = distinct !{!60, !15}
-!61 = distinct !{!61, !15, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !15}
+!62 = distinct !{!62, !15}
 !63 = distinct !{!63, !15}
 !64 = distinct !{!64, !15}
 !65 = distinct !{!65, !15}
-!66 = distinct !{!66, !15}
-!67 = !{!4, !11, i64 5160}
-!68 = !{!4, !11, i64 5152}
-!69 = !{!4, !11, i64 5168}
+!66 = !{!4, !11, i64 5160}
+!67 = !{!4, !11, i64 5152}
+!68 = !{!4, !11, i64 5168}
+!69 = distinct !{!69, !15}
 !70 = distinct !{!70, !15}
 !71 = distinct !{!71, !15}
 !72 = distinct !{!72, !15}
@@ -2624,27 +2624,22 @@ attributes #17 = { nounwind willreturn memory(read) }
 !86 = distinct !{!86, !15}
 !87 = distinct !{!87, !15}
 !88 = distinct !{!88, !15}
-!89 = distinct !{!89, !15}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"vprintf: argument 0"}
-!94 = distinct !{!94, !"vprintf"}
-!95 = distinct !{!95, !15, !62}
-!96 = distinct !{!96, !15, !62}
-!97 = distinct !{!97, !15, !62}
-!98 = distinct !{!98, !15, !62}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"vprintf: argument 0"}
+!93 = distinct !{!93, !"vprintf"}
+!94 = distinct !{!94, !15}
+!95 = distinct !{!95, !15}
+!96 = distinct !{!96, !15}
+!97 = !{!4, !10, i64 5176}
+!98 = !{!4, !10, i64 5180}
 !99 = distinct !{!99, !15}
 !100 = distinct !{!100, !15}
 !101 = distinct !{!101, !15}
-!102 = !{!4, !10, i64 5176}
-!103 = !{!4, !10, i64 5180}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 omnipotent char", !6, i64 0}
 !104 = distinct !{!104, !15}
 !105 = distinct !{!105, !15}
 !106 = distinct !{!106, !15}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"p1 omnipotent char", !6, i64 0}
-!109 = distinct !{!109, !15}
-!110 = distinct !{!110, !15}
-!111 = distinct !{!111, !15}
-!112 = distinct !{!112, !15}
+!107 = distinct !{!107, !15}

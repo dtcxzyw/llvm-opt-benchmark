@@ -3588,7 +3588,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %63 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %64 = load i8, ptr %63, align 1
   %.not20.i = icmp eq i8 %64, 0
-  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !16
+  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %56, %48
   %65 = load i8, ptr %45, align 1
@@ -3603,7 +3603,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %68 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %69 = load i8, ptr %68, align 1
   %.not19.i = icmp eq i8 %69, 0
-  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
 .thread:                                          ; preds = %..thread_crit_edge, %35
   %70 = phi i8 [ %27, %35 ], [ %.pre32, %..thread_crit_edge ]
@@ -3616,7 +3616,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %76 = getelementptr inbounds ptr, ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8
   %.not = icmp eq ptr %77, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %8
   %78 = phi i8 [ %.pre33, %8 ], [ 1, %.thread.us ], [ %70, %.thread ]
@@ -3694,7 +3694,7 @@ append_variable_names.exit.us:                    ; preds = %11, %9
   %.0.in.us = getelementptr inbounds nuw i8, ptr %.034.us, i64 32
   %.0.us = load ptr, ptr %.0.in.us, align 8
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %append_variable_names.exit
   %.034 = phi ptr [ %.0, %append_variable_names.exit ], [ %.029, %.lr.ph ]
@@ -3724,7 +3724,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
   %.0.in = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %append_variable_names.exit, %21, %4
   %.025.lcssa = phi ptr [ %5, %4 ], [ %.126.us, %21 ], [ %.227, %append_variable_names.exit ]
@@ -3749,7 +3749,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
   tail call void @free(ptr noundef %38) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !20
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   tail call void @free(ptr noundef nonnull %.025.lcssa) #11
@@ -3785,7 +3785,7 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
 14:                                               ; preds = %.lr.ph, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread58, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.thread58, label %.lr.ph, !llvm.loop !21
 
 .thread58:                                        ; preds = %14, %.preheader
   %.not37 = icmp eq i32 %1, %3
@@ -10887,7 +10887,7 @@ define internal ptr @complete_from_versioned_query(ptr noundef %0, i32 noundef %
   %6 = load i32, ptr %.0, align 8
   %7 = icmp slt i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  br i1 %7, label %5, label %9, !llvm.loop !24
+  br i1 %7, label %5, label %9, !llvm.loop !22
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -10917,7 +10917,7 @@ define internal ptr @complete_from_versioned_schema_query(ptr noundef %0, i32 no
   %6 = load i32, ptr %.0, align 8
   %7 = icmp slt i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 88
-  br i1 %7, label %5, label %9, !llvm.loop !25
+  br i1 %7, label %5, label %9, !llvm.loop !23
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -10991,7 +10991,7 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   %27 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %28 = load i8, ptr %27, align 1
   %.not20.i = icmp eq i8 %28, 0
-  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !16
+  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %20, %12
   %29 = load i8, ptr %9, align 1
@@ -11006,7 +11006,7 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   %32 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %33 = load i8, ptr %32, align 1
   %.not19.i = icmp eq i8 %33, 0
-  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
 pg_strdup_keyword_case.exit:                      ; preds = %.lr.ph.i, %.lr.ph6.i, %.thread.i, %23, %2, %6
   %.0 = phi ptr [ %7, %6 ], [ null, %2 ], [ %9, %23 ], [ %9, %.thread.i ], [ %9, %.lr.ph6.i ], [ %9, %.lr.ph.i ]
@@ -11125,12 +11125,12 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 .critedge67.us:                                   ; preds = %37, %33, %27, %24, %17
   %40 = icmp eq i8 %14, 0
   %41 = getelementptr inbounds nuw i8, ptr %.054.us, i64 1
-  br i1 %40, label %.thread69, label %.split.us, !llvm.loop !26
+  br i1 %40, label %.thread69, label %.split.us
 
 42:                                               ; preds = %15, %13
   %.156.us = phi ptr [ %.054.us, %15 ], [ %.055.us, %13 ]
   %43 = getelementptr inbounds nuw i8, ptr %.054.us, i64 1
-  br label %13, !llvm.loop !27
+  br label %13, !llvm.loop !24
 
 .split:                                           ; preds = %.lr.ph._crit_edge, %.critedge67
   %.052 = phi ptr [ %75, %.critedge67 ], [ %.tr82.lcssa, %.lr.ph._crit_edge ]
@@ -11152,7 +11152,7 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 47:                                               ; preds = %44, %46
   %.156 = phi ptr [ %.054, %46 ], [ %.055, %44 ]
   %48 = getelementptr inbounds nuw i8, ptr %.054, i64 1
-  br label %44, !llvm.loop !27
+  br label %44, !llvm.loop !24
 
 .critedge:                                        ; preds = %44, %44
   %.not64 = icmp eq ptr %.055, null
@@ -11273,7 +11273,7 @@ define internal noundef zeroext i1 @HeadMatchesImpl(i1 zeroext %0, i32 noundef %
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.i, label %21, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader.i, label %21, !llvm.loop !25
 
 HeadMatchesArray.exit:                            ; preds = %.lr.ph.i, %4
   %.010 = phi i1 [ false, %4 ], [ %20, %.lr.ph.i ]
@@ -11376,7 +11376,7 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.i, label %21, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader.i, label %21, !llvm.loop !26
 
 TailMatchesArray.exit:                            ; preds = %.lr.ph.i, %4
   %.010 = phi i1 [ false, %4 ], [ %20, %.lr.ph.i ]
@@ -11515,7 +11515,7 @@ define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, p
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %12, label %14, !llvm.loop !30
+  br i1 %exitcond.not, label %12, label %14, !llvm.loop !27
 
 30:                                               ; preds = %4, %12
   %.010 = phi i1 [ %13, %12 ], [ false, %4 ]
@@ -11616,7 +11616,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %44 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %45 = load i8, ptr %44, align 1
   %.not20.i = icmp eq i8 %45, 0
-  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !16
+  br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !15
 
 .thread.i:                                        ; preds = %37, %29
   %46 = load i8, ptr %26, align 1
@@ -11631,7 +11631,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %49 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %50 = load i8, ptr %49, align 1
   %.not19.i = icmp eq i8 %50, 0
-  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
 51:                                               ; preds = %19, %.lr.ph
   %52 = add i32 %.pre16, 1
@@ -11640,7 +11640,7 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %54 = getelementptr inbounds [51 x %struct.pgsql_thing_t], ptr @words_after_create, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 16
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %pg_strdup_keyword_case.exit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %pg_strdup_keyword_case.exit, label %.lr.ph, !llvm.loop !28
 
 pg_strdup_keyword_case.exit:                      ; preds = %51, %.lr.ph.i, %.lr.ph6.i, %8, %.thread.i, %40
   %.0 = phi ptr [ %26, %40 ], [ %26, %.thread.i ], [ null, %8 ], [ %26, %.lr.ph6.i ], [ %26, %.lr.ph.i ], [ null, %51 ]
@@ -11729,7 +11729,7 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
   %38 = getelementptr inbounds nuw i8, ptr %.225.i, i64 1
   store i8 %37, ptr %.225.i, align 1
   %39 = icmp samesign ugt i32 %.026.i, 1
-  br i1 %39, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !32
+  br i1 %39, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !29
 
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
@@ -11740,7 +11740,7 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
 .loopexit.i:                                      ; preds = %.lr.ph.i, %40, %31
   %.220.i = phi ptr [ %41, %40 ], [ %.018.i, %31 ], [ %36, %.lr.ph.i ]
   %.3.i = phi ptr [ %42, %40 ], [ %.1.i, %31 ], [ %38, %.lr.ph.i ]
-  br label %25, !llvm.loop !33
+  br label %25, !llvm.loop !30
 
 make_like_pattern.exit:                           ; preds = %25
   %43 = getelementptr inbounds nuw i8, ptr %.017.i, i64 1
@@ -11814,7 +11814,7 @@ make_like_pattern.exit:                           ; preds = %25
 82:                                               ; preds = %78, %77
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.2471) #11
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %84 = load i8, ptr %83, align 8, !range !13, !noundef !34
+  %84 = load i8, ptr %83, align 8, !range !13, !noundef !31
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %87
 
@@ -11950,14 +11950,14 @@ sub_1236:                                         ; preds = %sub_0235
   br label %141
 
 141:                                              ; preds = %.tail234.thread, %.tail234
-  %142 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !34
+  %142 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !31
   store i8 %142, ptr @_complete_from_query.schemaquoted, align 1
   br label %179
 
 143:                                              ; preds = %78
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.2471) #11
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %145 = load i8, ptr %144, align 8, !range !13, !noundef !34
+  %145 = load i8, ptr %144, align 8, !range !13, !noundef !31
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %148
 
@@ -12175,7 +12175,7 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
   %246 = load i32, ptr @_complete_from_query.list_index, align 4
   %247 = add i32 %246, 1
   store i32 %247, ptr @_complete_from_query.list_index, align 4
-  %248 = load i8, ptr @_complete_from_query.non_empty_object, align 1, !range !13, !noundef !34
+  %248 = load i8, ptr @_complete_from_query.non_empty_object, align 1, !range !13, !noundef !31
   %249 = trunc nuw i8 %248 to i1
   br i1 %249, label %250, label %identifier_needs_quotes.exit175
 
@@ -12203,14 +12203,14 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
 261:                                              ; preds = %258
   %262 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0119, ptr noundef nonnull @ScanKeywords) #11
   %263 = icmp sgt i32 %262, -1
-  br i1 %263, label %264, label %identifier_needs_quotes.exit, !llvm.loop !35
+  br i1 %263, label %264, label %identifier_needs_quotes.exit, !llvm.loop !32
 
 264:                                              ; preds = %261
   %265 = zext nneg i32 %262 to i64
   %266 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %265
   %267 = load i8, ptr %266, align 1
   %.not10.i169 = icmp eq i8 %267, 0
-  br i1 %.not10.i169, label %identifier_needs_quotes.exit, label %identifier_needs_quotes.exit.thread, !llvm.loop !35
+  br i1 %.not10.i169, label %identifier_needs_quotes.exit, label %identifier_needs_quotes.exit.thread, !llvm.loop !32
 
 identifier_needs_quotes.exit:                     ; preds = %264, %261, %250
   %268 = icmp eq ptr %.0118, null
@@ -12236,14 +12236,14 @@ identifier_needs_quotes.exit:                     ; preds = %264, %261, %250
 278:                                              ; preds = %275
   %279 = call i32 @ScanKeywordLookup(ptr noundef nonnull %.0118, ptr noundef nonnull @ScanKeywords) #11
   %280 = icmp sgt i32 %279, -1
-  br i1 %280, label %281, label %identifier_needs_quotes.exit175, !llvm.loop !35
+  br i1 %280, label %281, label %identifier_needs_quotes.exit175, !llvm.loop !32
 
 281:                                              ; preds = %278
   %282 = zext nneg i32 %279 to i64
   %283 = getelementptr inbounds nuw [0 x i8], ptr @ScanKeywordCategories, i64 0, i64 %282
   %284 = load i8, ptr %283, align 1
   %.not10.i174 = icmp eq i8 %284, 0
-  br i1 %.not10.i174, label %identifier_needs_quotes.exit175, label %identifier_needs_quotes.exit.thread, !llvm.loop !35
+  br i1 %.not10.i174, label %identifier_needs_quotes.exit175, label %identifier_needs_quotes.exit.thread, !llvm.loop !32
 
 identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identifier_needs_quotes.exit, %245
   %285 = icmp eq ptr %.0119, null
@@ -12255,9 +12255,9 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   %287 = load i32, ptr @_complete_from_query.num_schema_only, align 4
   %288 = add i32 %287, 1
   store i32 %288, ptr @_complete_from_query.num_schema_only, align 4
-  %289 = load i8, ptr @_complete_from_query.schemaquoted, align 1, !range !13, !noundef !34
+  %289 = load i8, ptr @_complete_from_query.schemaquoted, align 1, !range !13, !noundef !31
   %290 = trunc nuw i8 %289 to i1
-  %291 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !34
+  %291 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !31
   %292 = trunc nuw i8 %291 to i1
   %293 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0118) #13
   br i1 %290, label %.thread.i, label %303
@@ -12266,9 +12266,9 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   %295 = load i32, ptr @_complete_from_query.num_query_other, align 4
   %296 = add i32 %295, 1
   store i32 %296, ptr @_complete_from_query.num_query_other, align 4
-  %297 = load i8, ptr @_complete_from_query.schemaquoted, align 1, !range !13, !noundef !34
+  %297 = load i8, ptr @_complete_from_query.schemaquoted, align 1, !range !13, !noundef !31
   %298 = trunc nuw i8 %297 to i1
-  %299 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !34
+  %299 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !31
   %300 = trunc nuw i8 %299 to i1
   %.not.i176 = icmp eq ptr %.0118, null
   br i1 %.not.i176, label %.loopexit95.i, label %301
@@ -12327,7 +12327,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
 326:                                              ; preds = %324, %322
   %.258.i = phi i64 [ %325, %324 ], [ %.157.i, %322 ]
   %327 = getelementptr inbounds nuw i8, ptr %.054.i, i64 1
-  br label %322, !llvm.loop !36
+  br label %322, !llvm.loop !33
 
 .loopexit95.i:                                    ; preds = %322, %315, %312, %294
   %.not.i176205 = phi i1 [ true, %294 ], [ false, %312 ], [ false, %315 ], [ false, %322 ]
@@ -12386,7 +12386,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
 350:                                              ; preds = %348, %346
   %.561.i = phi i64 [ %349, %348 ], [ %.460.i, %346 ]
   %351 = getelementptr inbounds nuw i8, ptr %.053.i, i64 1
-  br label %346, !llvm.loop !37
+  br label %346, !llvm.loop !34
 
 .loopexit.i177:                                   ; preds = %346, %341, %338, %.loopexit95.i
   %.064.i = phi i1 [ %328, %.loopexit95.i ], [ false, %338 ], [ false, %341 ], [ true, %346 ]
@@ -12432,7 +12432,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   %365 = getelementptr inbounds nuw i8, ptr %.05298.i, i64 1
   %366 = load i8, ptr %365, align 1
   %.not77.i = icmp eq i8 %366, 0
-  br i1 %.not77.i, label %._crit_edge.i, label %.lr.ph.i179, !llvm.loop !38
+  br i1 %.not77.i, label %._crit_edge.i, label %.lr.ph.i179, !llvm.loop !35
 
 367:                                              ; preds = %._crit_edge.i
   %368 = getelementptr inbounds nuw i8, ptr %.2.lcssa.i, i64 1
@@ -12487,7 +12487,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   %384 = getelementptr inbounds nuw i8, ptr %.0101.i, i64 1
   %385 = load i8, ptr %384, align 1
   %.not78.i = icmp eq i8 %385, 0
-  br i1 %.not78.i, label %._crit_edge104.i, label %.lr.ph103.i, !llvm.loop !39
+  br i1 %.not78.i, label %._crit_edge104.i, label %.lr.ph103.i, !llvm.loop !36
 
 386:                                              ; preds = %._crit_edge104.i
   %387 = getelementptr inbounds nuw i8, ptr %.7.lcssa.i, i64 1
@@ -12532,7 +12532,7 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %401 = getelementptr inbounds nuw i8, ptr %.0111252, i64 8
   %402 = add i32 %.1121251, -1
   %403 = icmp sgt i32 %.1121251, 0
-  br i1 %403, label %pg_strdup_keyword_case.exit, label %404, !llvm.loop !40
+  br i1 %403, label %pg_strdup_keyword_case.exit, label %404, !llvm.loop !37
 
 404:                                              ; preds = %.lr.ph253
   %405 = load i32, ptr @_complete_from_query.list_index, align 4
@@ -12587,7 +12587,7 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %431 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %432 = load i8, ptr %431, align 1
   %.not20.i = icmp eq i8 %432, 0
-  br i1 %.not20.i, label %.thread221, label %.lr.ph6.i, !llvm.loop !16
+  br i1 %.not20.i, label %.thread221, label %.lr.ph6.i, !llvm.loop !15
 
 .thread.i182:                                     ; preds = %424, %416
   %433 = load i8, ptr %413, align 1
@@ -12602,7 +12602,7 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %436 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %437 = load i8, ptr %436, align 1
   %.not19.i = icmp eq i8 %437, 0
-  br i1 %.not19.i, label %.thread221, label %.lr.ph.i183, !llvm.loop !17
+  br i1 %.not19.i, label %.thread221, label %.lr.ph.i183, !llvm.loop !16
 
 pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   %438 = load ptr, ptr %401, align 8
@@ -12626,7 +12626,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   %441 = getelementptr inbounds nuw i8, ptr %.0109256, i64 8
   %442 = add i32 %.3123255, -1
   %443 = icmp sgt i32 %.3123255, 0
-  br i1 %443, label %pg_strdup_keyword_case.exit200, label %444, !llvm.loop !41
+  br i1 %443, label %pg_strdup_keyword_case.exit200, label %444, !llvm.loop !38
 
 444:                                              ; preds = %.lr.ph257
   %445 = load i32, ptr @_complete_from_query.list_index, align 4
@@ -12681,7 +12681,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   %471 = getelementptr inbounds nuw i8, ptr %.05.i196, i64 1
   %472 = load i8, ptr %471, align 1
   %.not20.i197 = icmp eq i8 %472, 0
-  br i1 %.not20.i197, label %.thread221, label %.lr.ph6.i195, !llvm.loop !16
+  br i1 %.not20.i197, label %.thread221, label %.lr.ph6.i195, !llvm.loop !15
 
 .thread.i187:                                     ; preds = %464, %456
   %473 = load i8, ptr %453, align 1
@@ -12696,7 +12696,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   %476 = getelementptr inbounds nuw i8, ptr %.13.i190, i64 1
   %477 = load i8, ptr %476, align 1
   %.not19.i191 = icmp eq i8 %477, 0
-  br i1 %.not19.i191, label %.thread221, label %.lr.ph.i189, !llvm.loop !17
+  br i1 %.not19.i191, label %.thread221, label %.lr.ph.i189, !llvm.loop !16
 
 pg_strdup_keyword_case.exit200:                   ; preds = %444, %.lr.ph257
   %478 = load ptr, ptr %441, align 8
@@ -12790,7 +12790,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   store i8 0, ptr %.05878, align 1
   tail call void @free(ptr noundef %.05280) #11
   %31 = tail call ptr @pg_malloc(i64 noundef %7) #11
-  %32 = load i8, ptr %4, align 1, !range !13, !noundef !34
+  %32 = load i8, ptr %4, align 1, !range !13, !noundef !31
   store i8 %32, ptr %3, align 1
   store i8 0, ptr %4, align 1
   br label %.loopexit
@@ -12819,7 +12819,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   %.260 = getelementptr inbounds nuw i8, ptr %.26074, i64 1
   %42 = add nsw i32 %39, -1
   %43 = icmp samesign ugt i32 %39, 1
-  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !39
 
 44:                                               ; preds = %33
   br i1 %29, label %63, label %45
@@ -12869,7 +12869,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   %.1 = phi ptr [ %24, %22 ], [ %15, %25 ], [ %15, %63 ], [ %15, %30 ], [ %15, %34 ], [ %40, %.lr.ph ]
   %65 = load i8, ptr %.1, align 1
   %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
   %.061.lcssa = phi ptr [ %11, %5 ], [ %.162, %.loopexit ]
@@ -12969,33 +12969,30 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = !{i8 0, i8 2}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = distinct !{!20, !5, !15}
+!17 = distinct !{!17, !5, !18}
+!18 = !{!"llvm.loop.unswitch.partial.disable"}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
 !23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !15}
+!26 = distinct !{!26, !5}
 !27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!31 = !{}
 !32 = distinct !{!32, !5}
 !33 = distinct !{!33, !5}
-!34 = !{}
+!34 = distinct !{!34, !5}
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
 !38 = distinct !{!38, !5}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}

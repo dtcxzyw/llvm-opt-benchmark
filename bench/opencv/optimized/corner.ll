@@ -559,12 +559,12 @@ select.unfold.i:                                  ; preds = %144, %143
   store float %177, ptr %178, align 4, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %164, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %164, !llvm.loop !46
 
 ._crit_edge.us.i:                                 ; preds = %164
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.us.i, !llvm.loop !48
+  br i1 %exitcond42.not.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.us.i, !llvm.loop !47
 
 179:                                              ; preds = %._crit_edge133
   %180 = landingpad { ptr, i32 }
@@ -642,12 +642,12 @@ select.unfold.i116:                               ; preds = %182, %181
   store float %218, ptr %219, align 4, !tbaa !41
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i109
-  br i1 %exitcond.not.i114, label %._crit_edge.us.i115, label %202, !llvm.loop !49
+  br i1 %exitcond.not.i114, label %._crit_edge.us.i115, label %202, !llvm.loop !48
 
 ._crit_edge.us.i115:                              ; preds = %202
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
-  br i1 %exitcond43.not.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.us.i110, !llvm.loop !50
+  br i1 %exitcond43.not.i, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.us.i110, !llvm.loop !49
 
 220:                                              ; preds = %135
   br i1 %.not.i118, label %select.unfold.i124, label %221
@@ -797,12 +797,12 @@ select.unfold.i124:                               ; preds = %221, %220
   store float %312, ptr %313, align 4, !tbaa !41
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %_ZN2cvL8eigen2x2EPKfPfi.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !51
+  br i1 %exitcond.not.i.us.i, label %_ZN2cvL8eigen2x2EPKfPfi.exit.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !50
 
 _ZN2cvL8eigen2x2EPKfPfi.exit.loopexit.us.i:       ; preds = %301
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i120
-  br i1 %exitcond.not.i123, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !52
+  br i1 %exitcond.not.i123, label %_ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !51
 
 _ZN2cvL15calcMinEigenValERKNS_3MatERS0_.exit:     ; preds = %._crit_edge.us.i115, %._crit_edge.us.i, %_ZN2cvL8eigen2x2EPKfPfi.exit.loopexit.us.i, %.lr.ph.i, %select.unfold.i124, %.lr.ph35.i, %select.unfold.i116, %.lr.ph34.i, %select.unfold.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #13
@@ -873,7 +873,7 @@ define void @_ZN2cv12cornerHarrisERKNS_11_InputArrayERKNS_12_OutputArrayEiidi(pt
 
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !3, !noalias !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !3, !noalias !52
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %16 unwind label %36
 
@@ -905,7 +905,7 @@ define void @_ZN2cv12cornerHarrisERKNS_11_InputArrayERKNS_12_OutputArrayEiidi(pt
 
 25:                                               ; preds = %.noexc16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !3, !noalias !56
+  %27 = load ptr, ptr %26, align 8, !tbaa !3, !noalias !55
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %27)
           to label %_ZNK2cv11_InputArray6getMatEi.exit19 unwind label %40
 
@@ -998,7 +998,7 @@ define void @_ZN2cv22cornerEigenValsAndVecsERKNS_11_InputArrayERKNS_12_OutputArr
 
 11:                                               ; preds = %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !58
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %36
 
@@ -1019,7 +1019,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
   %.sroa.5.0.extract.shift = lshr i64 %15, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !62
+  %20 = load i32, ptr %19, align 8, !tbaa !61
   %.not = icmp eq i32 %20, %.sroa.5.0.extract.trunc
   br i1 %.not, label %21, label %30
 
@@ -1029,7 +1029,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
   %24 = add nuw nsw i32 %23, 1
   %25 = mul nsw i32 %24, %.sroa.02.0.extract.trunc
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %27 = load i32, ptr %26, align 4, !tbaa !63
+  %27 = load i32, ptr %26, align 4, !tbaa !62
   %28 = mul nsw i32 %27, 6
   %.not16 = icmp eq i32 %25, %28
   %29 = and i32 %17, 7
@@ -1076,7 +1076,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %11, %14
 
 45:                                               ; preds = %.noexc24
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !3, !noalias !64
+  %47 = load ptr, ptr %46, align 8, !tbaa !3, !noalias !63
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %47)
           to label %_ZNK2cv11_InputArray6getMatEi.exit27 unwind label %56
 
@@ -1248,7 +1248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 45:                                               ; preds = %.noexc
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !3, !noalias !67
+  %47 = load ptr, ptr %46, align 8, !tbaa !3, !noalias !66
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %47)
           to label %49 unwind label %92
 
@@ -1280,7 +1280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 58:                                               ; preds = %.noexc96
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !3, !noalias !70
+  %60 = load ptr, ptr %59, align 8, !tbaa !3, !noalias !69
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %60)
           to label %62 unwind label %96
 
@@ -1539,12 +1539,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store float %188, ptr %189, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %167, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge.us, label %167, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %167
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge108, label %.lr.ph.us, !llvm.loop !74
+  br i1 %exitcond115.not, label %._crit_edge108, label %.lr.ph.us, !llvm.loop !73
 
 ._crit_edge108:                                   ; preds = %._crit_edge.us, %.lr.ph107, %108
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #13
@@ -1912,18 +1912,18 @@ define void @cvCornerEigenValsAndVecs(ptr noundef %0, ptr noundef %1, i32 nounde
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !62
+  %13 = load i32, ptr %12, align 8, !tbaa !61
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !62
+  %15 = load i32, ptr %14, align 8, !tbaa !61
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !63
+  %19 = load i32, ptr %18, align 4, !tbaa !62
   %20 = mul nsw i32 %19, 6
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !63
+  %22 = load i32, ptr %21, align 4, !tbaa !62
   %23 = load i32, ptr %6, align 8, !tbaa !23
   %24 = lshr i32 %23, 3
   %25 = and i32 %24, 511
@@ -2279,33 +2279,32 @@ attributes #16 = { builtin nounwind }
 !42 = !{!"float", !6, i64 0}
 !43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = distinct !{!45, !44, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = distinct !{!45, !44}
+!46 = distinct !{!46, !44}
 !47 = distinct !{!47, !44}
-!48 = distinct !{!48, !44, !46}
+!48 = distinct !{!48, !44}
 !49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44, !46}
+!50 = distinct !{!50, !44}
 !51 = distinct !{!51, !44}
-!52 = distinct !{!52, !44, !46}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!55 = distinct !{!55, !"_ZNK2cv11_InputArray6getMatEi"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!58 = distinct !{!58, !"_ZNK2cv11_InputArray6getMatEi"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!61 = distinct !{!61, !"_ZNK2cv11_InputArray6getMatEi"}
-!62 = !{!24, !5, i64 8}
-!63 = !{!24, !5, i64 12}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!66 = distinct !{!66, !"_ZNK2cv11_InputArray6getMatEi"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!69 = distinct !{!69, !"_ZNK2cv11_InputArray6getMatEi"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!72 = distinct !{!72, !"_ZNK2cv11_InputArray6getMatEi"}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!54 = distinct !{!54, !"_ZNK2cv11_InputArray6getMatEi"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!57 = distinct !{!57, !"_ZNK2cv11_InputArray6getMatEi"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!60 = distinct !{!60, !"_ZNK2cv11_InputArray6getMatEi"}
+!61 = !{!24, !5, i64 8}
+!62 = !{!24, !5, i64 12}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!65 = distinct !{!65, !"_ZNK2cv11_InputArray6getMatEi"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!68 = distinct !{!68, !"_ZNK2cv11_InputArray6getMatEi"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!71 = distinct !{!71, !"_ZNK2cv11_InputArray6getMatEi"}
+!72 = distinct !{!72, !44}
 !73 = distinct !{!73, !44}
-!74 = distinct !{!74, !44, !46}

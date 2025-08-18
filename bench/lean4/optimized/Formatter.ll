@@ -39581,7 +39581,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %19, %18, %17, %12
-  br label %.split.us, !llvm.loop !21
+  br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.017 = phi ptr [ %33, %.split.backedge ], [ %3, %4 ]
@@ -39728,7 +39728,7 @@ lean_nat_lt.exit.thread35.us:                     ; preds = %.split.us
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %19, %18, %17, %12
-  br label %.split.us, !llvm.loop !23
+  br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.017 = phi ptr [ %33, %.split.backedge ], [ %3, %4 ]
@@ -74636,6 +74636,3 @@ attributes #7 = { noreturn nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"double", !6, i64 0}
 !20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !22}

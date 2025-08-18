@@ -865,7 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.us: ; pre
   %22 = add i64 %24, %.02143
   %23 = tail call i64 @fread(ptr noundef nonnull %12, i64 noundef 1, i64 noundef 65536, ptr noundef nonnull %10)
   %.not28 = icmp eq i64 %23, 0
-  br i1 %.not28, label %.critedge, label %.lr.ph.split, !llvm.loop !47
+  br i1 %.not28, label %.critedge, label %.lr.ph.split, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
   %24 = phi i64 [ %23, %21 ], [ %13, %.lr.ph ]
@@ -1046,8 +1046,8 @@ define noundef zeroext i1 @_ZN4base11GetFileSizeERKNS_8FilePathEPl(ptr noundef n
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %5
-  %9 = load i64, ptr %3, align 8, !tbaa !48
-  store i64 %9, ptr %1, align 8, !tbaa !52
+  %9 = load i64, ptr %3, align 8, !tbaa !46
+  store i64 %9, ptr %1, align 8, !tbaa !50
   br label %10
 
 10:                                               ; preds = %5, %8
@@ -1298,7 +1298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73.us: ; preds = %
 59:                                               ; preds = %.critedge67.us
   %60 = add nuw nsw i32 %.03497.us, 1
   %exitcond117 = icmp eq i32 %60, 101
-  br i1 %exitcond117, label %.split112.us, label %.split.us, !llvm.loop !53
+  br i1 %exitcond117, label %.split112.us, label %.split.us, !llvm.loop !51
 
 .split99.us:                                      ; preds = %.split.us
   %61 = landingpad { ptr, i32 }
@@ -1491,7 +1491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
 .critedge67:                                      ; preds = %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
   %112 = add nuw nsw i32 %.03497, 1
   %exitcond = icmp eq i32 %112, 101
-  br i1 %exitcond, label %.split112.us, label %.split, !llvm.loop !54
+  br i1 %exitcond, label %.split112.us, label %.split, !llvm.loop !51
 
 .split112.us:                                     ; preds = %.critedge67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %.critedge67.us, %59
   %.us-phi113 = phi i32 [ %.03497.us, %.critedge67.us ], [ -1, %59 ], [ %.03497, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ -1, %.critedge67 ]
@@ -1525,14 +1525,14 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %8, ptr %4, align 8, !tbaa !52
+  store i64 %8, ptr %4, align 8, !tbaa !50
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %3
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %10, ptr %0, align 8, !tbaa !13
-  %11 = load i64, ptr %4, align 8, !tbaa !52
+  %11 = load i64, ptr %4, align 8, !tbaa !50
   store i64 %11, ptr %5, align 8, !tbaa !29
   br label %._crit_edge.i.i
 
@@ -1553,7 +1553,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %13, %15
-  %16 = load i64, ptr %4, align 8, !tbaa !52
+  %16 = load i64, ptr %4, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %17, align 8, !tbaa !3
   %18 = load ptr, ptr %0, align 8, !tbaa !13
@@ -1731,13 +1731,10 @@ attributes #20 = { builtin allocsize(0) }
 !42 = !{!"p1 int", !7, i64 0}
 !43 = !{!"p1 short", !7, i64 0}
 !44 = distinct !{!44, !12}
-!45 = distinct !{!45, !12, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !12}
-!48 = !{!49, !10, i64 0}
-!49 = !{!"_ZTSN4base4File4InfoE", !10, i64 0, !33, i64 8, !33, i64 9, !50, i64 16, !50, i64 24, !50, i64 32}
-!50 = !{!"_ZTSN4base4TimeE", !51, i64 0}
-!51 = !{!"_ZTSN4base13time_internal8TimeBaseINS_4TimeEEE", !10, i64 0}
-!52 = !{!10, !10, i64 0}
-!53 = distinct !{!53, !12, !46}
-!54 = distinct !{!54, !12}
+!45 = distinct !{!45, !12}
+!46 = !{!47, !10, i64 0}
+!47 = !{!"_ZTSN4base4File4InfoE", !10, i64 0, !33, i64 8, !33, i64 9, !48, i64 16, !48, i64 24, !48, i64 32}
+!48 = !{!"_ZTSN4base4TimeE", !49, i64 0}
+!49 = !{!"_ZTSN4base13time_internal8TimeBaseINS_4TimeEEE", !10, i64 0}
+!50 = !{!10, !10, i64 0}
+!51 = distinct !{!51, !12}

@@ -9127,7 +9127,7 @@ PyUnicode_READ.exit88.us111:                      ; preds = %.lr.ph, %78
   %.164.us114 = phi i32 [ 1, %75 ], [ 1, %77 ], [ 0, %76 ], [ 0, %PyUnicode_READ.exit88.us111 ]
   %79 = add nuw nsw i64 %.06192.us109, 1
   %exitcond.not = icmp eq i64 %79, %.val79
-  br i1 %exitcond.not, label %.critedge, label %PyUnicode_READ.exit88.us111, !llvm.loop !149
+  br i1 %exitcond.not, label %.critedge, label %PyUnicode_READ.exit88.us111, !llvm.loop !147
 
 PyUnicode_READ.exit88:                            ; preds = %.lr.ph, %85
   %.06192 = phi i64 [ %86, %85 ], [ 0, %.lr.ph ]
@@ -9159,7 +9159,7 @@ PyUnicode_READ.exit88:                            ; preds = %.lr.ph, %85
   %.164 = phi i32 [ 1, %82 ], [ 1, %84 ], [ 0, %83 ], [ 0, %PyUnicode_READ.exit88 ]
   %86 = add nuw nsw i64 %.06192, 1
   %exitcond148.not = icmp eq i64 %86, %.val79
-  br i1 %exitcond148.not, label %.critedge, label %PyUnicode_READ.exit88, !llvm.loop !150
+  br i1 %exitcond148.not, label %.critedge, label %PyUnicode_READ.exit88, !llvm.loop !147
 
 87:                                               ; preds = %1
   %88 = and i64 %.val77, 134217728
@@ -9229,7 +9229,7 @@ PyUnicode_READ.exit88:                            ; preds = %.lr.ph, %85
   %.467 = phi i32 [ 1, %107 ], [ 0, %108 ], [ 0, %.lr.ph129 ], [ 1, %109 ]
   %111 = add nuw nsw i64 %.162128, 1
   %exitcond149.not = icmp eq i64 %111, %.val78
-  br i1 %exitcond149.not, label %.critedge, label %.lr.ph129, !llvm.loop !151
+  br i1 %exitcond149.not, label %.critedge, label %.lr.ph129, !llvm.loop !148
 
 .critedge:                                        ; preds = %77, %77, %77, %77, %77, %78, %70, %70, %70, %70, %70, %71, %84, %84, %84, %84, %84, %85, %110, %109, %109, %109, %109, %109, %64, %103, %87, %96, %99, %PyUnicode_READ.exit86, %PyUnicode_READ.exit82
   %.3 = phi i32 [ 1, %PyUnicode_READ.exit86 ], [ 1, %PyUnicode_READ.exit82 ], [ 1, %96 ], [ 1, %99 ], [ 1, %87 ], [ 0, %103 ], [ 0, %64 ], [ 0, %110 ], [ 1, %109 ], [ 1, %109 ], [ 1, %109 ], [ 1, %109 ], [ 1, %109 ], [ 1, %84 ], [ 1, %84 ], [ 1, %84 ], [ 1, %84 ], [ 1, %84 ], [ 0, %85 ], [ 1, %70 ], [ 1, %70 ], [ 1, %70 ], [ 1, %70 ], [ 1, %70 ], [ 0, %71 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 0, %78 ]
@@ -9563,7 +9563,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %101, %PyObject_Type
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i64, ptr %123, align 8, !tbaa !42
   %125 = icmp slt i64 %121, %124
-  br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !152
+  br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %PyObject_TypeCheck.exit.thread, %.preheader.._crit_edge_crit_edge
   %126 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %117, %PyObject_TypeCheck.exit.thread ]
@@ -9686,7 +9686,7 @@ define internal fastcc ptr @deepcopy(ptr noundef readonly captures(none) %0, ptr
   %30 = getelementptr i8, ptr %29, i64 8
   %.val28 = load ptr, ptr %30, align 8, !tbaa !25
   %.not38 = icmp eq ptr %.val28, @PyUnicode_Type
-  br i1 %.not38, label %23, label %.thread, !llvm.loop !153
+  br i1 %.not38, label %23, label %.thread, !llvm.loop !150
 
 .thread:                                          ; preds = %28, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10256,7 +10256,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 7:                                                ; preds = %3, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %9 = load ptr, ptr %8, align 8, !tbaa !154
+  %9 = load ptr, ptr %8, align 8, !tbaa !151
   %.not141 = icmp eq ptr %9, null
   br i1 %.not141, label %12, label %10
 
@@ -10267,7 +10267,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 12:                                               ; preds = %7, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !157
+  %14 = load ptr, ptr %13, align 8, !tbaa !154
   %.not143 = icmp eq ptr %14, null
   br i1 %.not143, label %17, label %15
 
@@ -10278,7 +10278,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %12, %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !158
+  %19 = load ptr, ptr %18, align 8, !tbaa !155
   %.not145 = icmp eq ptr %19, null
   br i1 %.not145, label %22, label %20
 
@@ -10289,7 +10289,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 22:                                               ; preds = %17, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !159
+  %24 = load ptr, ptr %23, align 8, !tbaa !156
   %.not147 = icmp eq ptr %24, null
   br i1 %.not147, label %27, label %25
 
@@ -10300,7 +10300,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 27:                                               ; preds = %22, %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !160
+  %29 = load ptr, ptr %28, align 8, !tbaa !157
   %.not149 = icmp eq ptr %29, null
   br i1 %.not149, label %32, label %30
 
@@ -10311,7 +10311,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 32:                                               ; preds = %27, %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !161
+  %34 = load ptr, ptr %33, align 8, !tbaa !158
   %.not151 = icmp eq ptr %34, null
   br i1 %.not151, label %37, label %35
 
@@ -10322,7 +10322,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 37:                                               ; preds = %32, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !162
+  %39 = load ptr, ptr %38, align 8, !tbaa !159
   %.not153 = icmp eq ptr %39, null
   br i1 %.not153, label %42, label %40
 
@@ -10333,7 +10333,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 42:                                               ; preds = %37, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %44 = load ptr, ptr %43, align 8, !tbaa !163
+  %44 = load ptr, ptr %43, align 8, !tbaa !160
   %.not155 = icmp eq ptr %44, null
   br i1 %.not155, label %47, label %45
 
@@ -10344,7 +10344,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 47:                                               ; preds = %42, %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = load ptr, ptr %48, align 8, !tbaa !164
+  %49 = load ptr, ptr %48, align 8, !tbaa !161
   %.not157 = icmp eq ptr %49, null
   br i1 %.not157, label %52, label %50
 
@@ -10355,7 +10355,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 52:                                               ; preds = %47, %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !165
+  %54 = load ptr, ptr %53, align 8, !tbaa !162
   %.not159 = icmp eq ptr %54, null
   br i1 %.not159, label %57, label %55
 
@@ -10366,7 +10366,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 57:                                               ; preds = %52, %55
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !166
+  %59 = load ptr, ptr %58, align 8, !tbaa !163
   %.not161 = icmp eq ptr %59, null
   br i1 %.not161, label %62, label %60
 
@@ -10377,7 +10377,7 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 
 62:                                               ; preds = %57, %60
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !167
+  %64 = load ptr, ptr %63, align 8, !tbaa !164
   %.not163 = icmp eq ptr %64, null
   br i1 %.not163, label %67, label %65
 
@@ -10397,18 +10397,18 @@ define internal i32 @xmlparser_gc_traverse(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xmlparser_gc_clear(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !168
+  %3 = load ptr, ptr %2, align 8, !tbaa !165
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
-  store ptr null, ptr %2, align 8, !tbaa !168
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
+  store ptr null, ptr %2, align 8, !tbaa !165
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !170
+  %10 = load ptr, ptr %9, align 8, !tbaa !167
   tail call void %10(ptr noundef nonnull %3) #12
   br label %11
 
@@ -10792,14 +10792,14 @@ define internal range(i32 -1, 1) i32 @_elementtree_XMLParser___init__(ptr nounde
   %.035 = phi ptr [ %27, %34 ], [ null, %17 ], [ null, %.thread61 ], [ null, %18 ], [ null, %9 ]
   %36 = call ptr @PyDict_New() #12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %36, ptr %37, align 8, !tbaa !166
+  store ptr %36, ptr %37, align 8, !tbaa !163
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_elementtree_XMLParser___init___impl.exit, label %38
 
 38:                                               ; preds = %.thread61.thread
   %39 = call ptr @PyDict_New() #12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %39, ptr %40, align 8, !tbaa !167
+  store ptr %39, ptr %40, align 8, !tbaa !164
   %.not104.i = icmp eq ptr %39, null
   br i1 %.not104.i, label %41, label %49
 
@@ -10826,14 +10826,14 @@ define internal range(i32 -1, 1) i32 @_elementtree_XMLParser___init__(ptr nounde
 
 49:                                               ; preds = %38
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %51 = load ptr, ptr %50, align 8, !tbaa !169
+  %51 = load ptr, ptr %50, align 8, !tbaa !166
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 144
   %53 = load ptr, ptr %52, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !171
+  %55 = load ptr, ptr %54, align 8, !tbaa !168
   %56 = call ptr %55(ptr noundef %.035, ptr noundef nonnull @ExpatMemoryHandler, ptr noundef nonnull @.str.144) #12
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %56, ptr %57, align 8, !tbaa !168
+  store ptr %56, ptr %57, align 8, !tbaa !165
   %.not106.i = icmp eq ptr %56, null
   br i1 %.not106.i, label %58, label %74
 
@@ -10886,7 +10886,7 @@ Py_DECREF.exit130.i:                              ; preds = %72, %69, %67, %Py_D
 74:                                               ; preds = %49
   %75 = load ptr, ptr %52, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 168
-  %77 = load ptr, ptr %76, align 8, !tbaa !172
+  %77 = load ptr, ptr %76, align 8, !tbaa !169
   %.not109.i = icmp eq ptr %77, null
   br i1 %.not109.i, label %81, label %78
 
@@ -10961,10 +10961,10 @@ Py_DECREF.exit128.i:                              ; preds = %98, %95, %93, %91
 Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
   %.094.i = phi ptr [ %90, %87 ], [ %.036, %82 ], [ %.036, %85 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.094.i, ptr %106, align 8, !tbaa !165
+  store ptr %.094.i, ptr %106, align 8, !tbaa !162
   %107 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.145) #12
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %107, ptr %108, align 8, !tbaa !162
+  store ptr %107, ptr %108, align 8, !tbaa !159
   %109 = icmp eq ptr %107, null
   br i1 %109, label %110, label %114
 
@@ -10981,7 +10981,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 114:                                              ; preds = %113, %Py_INCREF.exit.i
   %115 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.146) #12
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %115, ptr %116, align 8, !tbaa !163
+  store ptr %115, ptr %116, align 8, !tbaa !160
   %117 = icmp eq ptr %115, null
   br i1 %117, label %118, label %122
 
@@ -10998,7 +10998,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 122:                                              ; preds = %121, %114
   %123 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.36) #12
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %123, ptr %124, align 8, !tbaa !161
+  store ptr %123, ptr %124, align 8, !tbaa !158
   %125 = icmp eq ptr %123, null
   br i1 %125, label %126, label %130
 
@@ -11015,7 +11015,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 130:                                              ; preds = %129, %122
   %131 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.35) #12
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %131, ptr %132, align 8, !tbaa !160
+  store ptr %131, ptr %132, align 8, !tbaa !157
   %133 = icmp eq ptr %131, null
   br i1 %133, label %134, label %138
 
@@ -11032,7 +11032,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 138:                                              ; preds = %137, %130
   %139 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.37) #12
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %139, ptr %140, align 8, !tbaa !159
+  store ptr %139, ptr %140, align 8, !tbaa !156
   %141 = icmp eq ptr %139, null
   br i1 %141, label %142, label %146
 
@@ -11049,7 +11049,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 146:                                              ; preds = %145, %138
   %147 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.38) #12
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %147, ptr %148, align 8, !tbaa !158
+  store ptr %147, ptr %148, align 8, !tbaa !155
   %149 = call fastcc i32 @ignore_attribute_error(ptr noundef %147)
   %.not119.i = icmp eq i32 %149, 0
   br i1 %.not119.i, label %150, label %_elementtree_XMLParser___init___impl.exit
@@ -11057,7 +11057,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 150:                                              ; preds = %146
   %151 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.39) #12
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %151, ptr %152, align 8, !tbaa !157
+  store ptr %151, ptr %152, align 8, !tbaa !154
   %153 = call fastcc i32 @ignore_attribute_error(ptr noundef %151)
   %.not120.i = icmp eq i32 %153, 0
   br i1 %.not120.i, label %154, label %_elementtree_XMLParser___init___impl.exit
@@ -11065,7 +11065,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 154:                                              ; preds = %150
   %155 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.40) #12
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %155, ptr %156, align 8, !tbaa !154
+  store ptr %155, ptr %156, align 8, !tbaa !151
   %157 = call fastcc i32 @ignore_attribute_error(ptr noundef %155)
   %.not121.i = icmp eq i32 %157, 0
   br i1 %.not121.i, label %158, label %_elementtree_XMLParser___init___impl.exit
@@ -11073,7 +11073,7 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 158:                                              ; preds = %154
   %159 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %.094.i, ptr noundef nonnull @.str.26) #12
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %159, ptr %160, align 8, !tbaa !164
+  store ptr %159, ptr %160, align 8, !tbaa !161
   %161 = call fastcc i32 @ignore_attribute_error(ptr noundef %159)
   %.not122.i = icmp eq i32 %161, 0
   br i1 %.not122.i, label %162, label %_elementtree_XMLParser___init___impl.exit
@@ -11081,79 +11081,79 @@ Py_INCREF.exit.i:                                 ; preds = %87, %85, %82
 162:                                              ; preds = %158
   %163 = load ptr, ptr %52, align 8, !tbaa !23
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 136
-  %165 = load ptr, ptr %164, align 8, !tbaa !173
-  %166 = load ptr, ptr %57, align 8, !tbaa !168
+  %165 = load ptr, ptr %164, align 8, !tbaa !170
+  %166 = load ptr, ptr %57, align 8, !tbaa !165
   call void %165(ptr noundef %166, ptr noundef nonnull %0) #12
-  %167 = load ptr, ptr %108, align 8, !tbaa !162
+  %167 = load ptr, ptr %108, align 8, !tbaa !159
   %.not123.i = icmp eq ptr %167, null
   br i1 %.not123.i, label %168, label %170
 
 168:                                              ; preds = %162
-  %169 = load ptr, ptr %116, align 8, !tbaa !163
+  %169 = load ptr, ptr %116, align 8, !tbaa !160
   %.not124.i = icmp eq ptr %169, null
   br i1 %.not124.i, label %175, label %170
 
 170:                                              ; preds = %168, %162
   %171 = load ptr, ptr %52, align 8, !tbaa !23
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 112
-  %173 = load ptr, ptr %172, align 8, !tbaa !174
-  %174 = load ptr, ptr %57, align 8, !tbaa !168
+  %173 = load ptr, ptr %172, align 8, !tbaa !171
+  %174 = load ptr, ptr %57, align 8, !tbaa !165
   call void %173(ptr noundef %174, ptr noundef nonnull @expat_start_ns_handler, ptr noundef nonnull @expat_end_ns_handler) #12
   br label %175
 
 175:                                              ; preds = %170, %168
   %176 = load ptr, ptr %52, align 8, !tbaa !23
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 104
-  %178 = load ptr, ptr %177, align 8, !tbaa !175
-  %179 = load ptr, ptr %57, align 8, !tbaa !168
+  %178 = load ptr, ptr %177, align 8, !tbaa !172
+  %179 = load ptr, ptr %57, align 8, !tbaa !165
   call void %178(ptr noundef %179, ptr noundef nonnull @expat_start_handler, ptr noundef nonnull @expat_end_handler) #12
   %180 = load ptr, ptr %52, align 8, !tbaa !23
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 96
-  %182 = load ptr, ptr %181, align 8, !tbaa !176
-  %183 = load ptr, ptr %57, align 8, !tbaa !168
+  %182 = load ptr, ptr %181, align 8, !tbaa !173
+  %183 = load ptr, ptr %57, align 8, !tbaa !165
   call void %182(ptr noundef %183, ptr noundef nonnull @expat_default_handler) #12
   %184 = load ptr, ptr %52, align 8, !tbaa !23
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 80
-  %186 = load ptr, ptr %185, align 8, !tbaa !177
-  %187 = load ptr, ptr %57, align 8, !tbaa !168
+  %186 = load ptr, ptr %185, align 8, !tbaa !174
+  %187 = load ptr, ptr %57, align 8, !tbaa !165
   call void %186(ptr noundef %187, ptr noundef nonnull @expat_data_handler) #12
-  %188 = load ptr, ptr %148, align 8, !tbaa !158
+  %188 = load ptr, ptr %148, align 8, !tbaa !155
   %.not125.i = icmp eq ptr %188, null
   br i1 %.not125.i, label %194, label %189
 
 189:                                              ; preds = %175
   %190 = load ptr, ptr %52, align 8, !tbaa !23
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 88
-  %192 = load ptr, ptr %191, align 8, !tbaa !178
-  %193 = load ptr, ptr %57, align 8, !tbaa !168
+  %192 = load ptr, ptr %191, align 8, !tbaa !175
+  %193 = load ptr, ptr %57, align 8, !tbaa !165
   call void %192(ptr noundef %193, ptr noundef nonnull @expat_comment_handler) #12
   br label %194
 
 194:                                              ; preds = %189, %175
-  %195 = load ptr, ptr %152, align 8, !tbaa !157
+  %195 = load ptr, ptr %152, align 8, !tbaa !154
   %.not126.i = icmp eq ptr %195, null
   br i1 %.not126.i, label %201, label %196
 
 196:                                              ; preds = %194
   %197 = load ptr, ptr %52, align 8, !tbaa !23
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 120
-  %199 = load ptr, ptr %198, align 8, !tbaa !179
-  %200 = load ptr, ptr %57, align 8, !tbaa !168
+  %199 = load ptr, ptr %198, align 8, !tbaa !176
+  %200 = load ptr, ptr %57, align 8, !tbaa !165
   call void %199(ptr noundef %200, ptr noundef nonnull @expat_pi_handler) #12
   br label %201
 
 201:                                              ; preds = %196, %194
   %202 = load ptr, ptr %52, align 8, !tbaa !23
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 144
-  %204 = load ptr, ptr %203, align 8, !tbaa !180
-  %205 = load ptr, ptr %57, align 8, !tbaa !168
+  %204 = load ptr, ptr %203, align 8, !tbaa !177
+  %205 = load ptr, ptr %57, align 8, !tbaa !165
   call void %204(ptr noundef %205, ptr noundef nonnull @expat_start_doctype_handler) #12
   %206 = load ptr, ptr %52, align 8, !tbaa !23
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 128
-  %208 = load ptr, ptr %207, align 8, !tbaa !181
-  %209 = load ptr, ptr %57, align 8, !tbaa !168
+  %208 = load ptr, ptr %207, align 8, !tbaa !178
+  %209 = load ptr, ptr %57, align 8, !tbaa !165
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 160
-  %211 = load ptr, ptr %210, align 8, !tbaa !182
+  %211 = load ptr, ptr %210, align 8, !tbaa !179
   call void %208(ptr noundef %209, ptr noundef %211, ptr noundef null) #12
   br label %_elementtree_XMLParser___init___impl.exit
 
@@ -11176,7 +11176,7 @@ define internal ptr @xmlparser_new(ptr noundef %0, ptr readnone captures(none) %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false)
   %9 = tail call ptr @PyType_GetModuleByDef(ptr noundef nonnull %0, ptr noundef nonnull @elementtreemodule) #12
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store ptr %9, ptr %10, align 8, !tbaa !183
+  store ptr %9, ptr %10, align 8, !tbaa !180
   %11 = load i32, ptr %9, align 8, !tbaa !21
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Py_INCREF.exit, label %13
@@ -11184,14 +11184,14 @@ define internal ptr @xmlparser_new(ptr noundef %0, ptr readnone captures(none) %
 13:                                               ; preds = %7
   %14 = add nuw i32 %11, 1
   store i32 %14, ptr %9, align 8, !tbaa !21
-  %.pre = load ptr, ptr %10, align 8, !tbaa !183
+  %.pre = load ptr, ptr %10, align 8, !tbaa !180
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %7, %13
   %15 = phi ptr [ %9, %7 ], [ %.pre, %13 ]
   %16 = tail call ptr @PyModule_GetState(ptr noundef %15) #12
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store ptr %16, ptr %17, align 8, !tbaa !169
+  store ptr %16, ptr %17, align 8, !tbaa !166
   br label %18
 
 18:                                               ; preds = %Py_INCREF.exit, %3
@@ -11203,7 +11203,7 @@ define internal noundef ptr @_elementtree_XMLParser_feed(ptr noundef readonly ca
   %3 = alloca i64, align 8
   %4 = alloca %struct.Py_buffer, align 8
   %5 = getelementptr i8, ptr %0, i64 24
-  %.val19 = load ptr, ptr %5, align 8, !tbaa !165
+  %.val19 = load ptr, ptr %5, align 8, !tbaa !162
   %6 = icmp eq ptr %.val19, null
   br i1 %6, label %_check_xmlparser.exit.thread, label %_check_xmlparser.exit
 
@@ -11214,7 +11214,7 @@ _check_xmlparser.exit.thread:                     ; preds = %2
 
 _check_xmlparser.exit:                            ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %9 = load ptr, ptr %8, align 8, !tbaa !169
+  %9 = load ptr, ptr %8, align 8, !tbaa !166
   %10 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !25
   %11 = getelementptr i8, ptr %.val, i64 168
@@ -11243,16 +11243,16 @@ _check_xmlparser.exit:                            ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
-  %25 = load ptr, ptr %24, align 8, !tbaa !184
+  %25 = load ptr, ptr %24, align 8, !tbaa !181
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !168
+  %27 = load ptr, ptr %26, align 8, !tbaa !165
   %28 = call i32 %25(ptr noundef %27, ptr noundef nonnull @.str.118) #12
   %29 = load i64, ptr %3, align 8, !tbaa !122
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !185
-  %34 = load ptr, ptr %26, align 8, !tbaa !168
+  %33 = load ptr, ptr %32, align 8, !tbaa !182
+  %34 = load ptr, ptr %26, align 8, !tbaa !165
   %35 = call i32 %33(ptr noundef %34, ptr noundef nonnull %14, i32 noundef %30, i32 noundef 0) #12
   %36 = call ptr @PyErr_Occurred() #12
   %.not.i = icmp eq ptr %36, null
@@ -11265,18 +11265,18 @@ _check_xmlparser.exit:                            ; preds = %2
 38:                                               ; preds = %37
   %39 = load ptr, ptr %22, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !186
-  %42 = load ptr, ptr %26, align 8, !tbaa !168
+  %41 = load ptr, ptr %40, align 8, !tbaa !183
+  %42 = load ptr, ptr %26, align 8, !tbaa !165
   %43 = call i32 %41(ptr noundef %42) #12
   %44 = load ptr, ptr %22, align 8, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !187
-  %47 = load ptr, ptr %26, align 8, !tbaa !168
+  %46 = load ptr, ptr %45, align 8, !tbaa !184
+  %47 = load ptr, ptr %26, align 8, !tbaa !165
   %48 = call i64 %46(ptr noundef %47) #12
   %49 = load ptr, ptr %22, align 8, !tbaa !23
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !188
-  %52 = load ptr, ptr %26, align 8, !tbaa !168
+  %51 = load ptr, ptr %50, align 8, !tbaa !185
+  %52 = load ptr, ptr %26, align 8, !tbaa !165
   %53 = call i64 %51(ptr noundef %52) #12
   call fastcc void @expat_set_error(ptr noundef nonnull readonly %9, i32 noundef %43, i64 noundef %48, i64 noundef %53, ptr noundef null)
   br label %expat_parse.exit
@@ -11294,7 +11294,7 @@ expat_parse.exit:                                 ; preds = %38, %37, %21, %13, 
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !189
+  %59 = load i64, ptr %58, align 8, !tbaa !186
   %60 = icmp sgt i64 %59, 2147483647
   br i1 %60, label %61, label %63
 
@@ -11305,14 +11305,14 @@ expat_parse.exit:                                 ; preds = %38, %37, %21, %13, 
   br label %91
 
 63:                                               ; preds = %57
-  %64 = load ptr, ptr %4, align 8, !tbaa !192
+  %64 = load ptr, ptr %4, align 8, !tbaa !189
   %65 = trunc i64 %59 to i32
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !185
+  %69 = load ptr, ptr %68, align 8, !tbaa !182
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !168
+  %71 = load ptr, ptr %70, align 8, !tbaa !165
   %72 = call i32 %69(ptr noundef %71, ptr noundef %64, i32 noundef %65, i32 noundef 0) #12
   %73 = call ptr @PyErr_Occurred() #12
   %.not.i21 = icmp eq ptr %73, null
@@ -11325,18 +11325,18 @@ expat_parse.exit:                                 ; preds = %38, %37, %21, %13, 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %66, align 8, !tbaa !23
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !186
-  %79 = load ptr, ptr %70, align 8, !tbaa !168
+  %78 = load ptr, ptr %77, align 8, !tbaa !183
+  %79 = load ptr, ptr %70, align 8, !tbaa !165
   %80 = call i32 %78(ptr noundef %79) #12
   %81 = load ptr, ptr %66, align 8, !tbaa !23
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %83 = load ptr, ptr %82, align 8, !tbaa !187
-  %84 = load ptr, ptr %70, align 8, !tbaa !168
+  %83 = load ptr, ptr %82, align 8, !tbaa !184
+  %84 = load ptr, ptr %70, align 8, !tbaa !165
   %85 = call i64 %83(ptr noundef %84) #12
   %86 = load ptr, ptr %66, align 8, !tbaa !23
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !188
-  %89 = load ptr, ptr %70, align 8, !tbaa !168
+  %88 = load ptr, ptr %87, align 8, !tbaa !185
+  %89 = load ptr, ptr %70, align 8, !tbaa !165
   %90 = call i64 %88(ptr noundef %89) #12
   call fastcc void @expat_set_error(ptr noundef nonnull readonly %9, i32 noundef %80, i64 noundef %85, i64 noundef %90, ptr noundef null)
   br label %expat_parse.exit24
@@ -11359,7 +11359,7 @@ expat_parse.exit24:                               ; preds = %63, %74, %75
 ; Function Attrs: nounwind uwtable
 define internal ptr @_elementtree_XMLParser_close(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val21.i = load ptr, ptr %3, align 8, !tbaa !165
+  %.val21.i = load ptr, ptr %3, align 8, !tbaa !162
   %4 = icmp eq ptr %.val21.i, null
   br i1 %4, label %_check_xmlparser.exit.thread.i, label %_check_xmlparser.exit.i
 
@@ -11370,13 +11370,13 @@ _check_xmlparser.exit.thread.i:                   ; preds = %2
 
 _check_xmlparser.exit.i:                          ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !169
+  %7 = load ptr, ptr %6, align 8, !tbaa !166
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !185
+  %11 = load ptr, ptr %10, align 8, !tbaa !182
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !168
+  %13 = load ptr, ptr %12, align 8, !tbaa !165
   %14 = tail call i32 %11(ptr noundef %13, ptr noundef nonnull @.str.79, i32 noundef 0, i32 noundef 1) #12
   %15 = tail call ptr @PyErr_Occurred() #12
   %.not.i23.i = icmp eq ptr %15, null
@@ -11389,24 +11389,24 @@ _check_xmlparser.exit.i:                          ; preds = %2
 17:                                               ; preds = %16
   %18 = load ptr, ptr %8, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !186
-  %21 = load ptr, ptr %12, align 8, !tbaa !168
+  %20 = load ptr, ptr %19, align 8, !tbaa !183
+  %21 = load ptr, ptr %12, align 8, !tbaa !165
   %22 = tail call i32 %20(ptr noundef %21) #12
   %23 = load ptr, ptr %8, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !187
-  %26 = load ptr, ptr %12, align 8, !tbaa !168
+  %25 = load ptr, ptr %24, align 8, !tbaa !184
+  %26 = load ptr, ptr %12, align 8, !tbaa !165
   %27 = tail call i64 %25(ptr noundef %26) #12
   %28 = load ptr, ptr %8, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !188
-  %31 = load ptr, ptr %12, align 8, !tbaa !168
+  %30 = load ptr, ptr %29, align 8, !tbaa !185
+  %31 = load ptr, ptr %12, align 8, !tbaa !165
   %32 = tail call i64 %30(ptr noundef %31) #12
   tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %7, i32 noundef %22, i64 noundef %27, i64 noundef %32, ptr noundef null)
   br label %_elementtree_XMLParser_close_impl.exit
 
 expat_parse.exit.i:                               ; preds = %16
-  %33 = load ptr, ptr %3, align 8, !tbaa !165
+  %33 = load ptr, ptr %3, align 8, !tbaa !162
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %36 = getelementptr i8, ptr %33, i64 8
@@ -11430,7 +11430,7 @@ expat_parse.exit.i:                               ; preds = %16
   br label %Py_DECREF.exit19.i
 
 Py_DECREF.exit19.i:                               ; preds = %42, %39, %37
-  %43 = load ptr, ptr %3, align 8, !tbaa !165
+  %43 = load ptr, ptr %3, align 8, !tbaa !162
   %44 = getelementptr i8, ptr %43, i64 16
   %.val22.i = load ptr, ptr %44, align 8, !tbaa !92
   %.not.i25.i = icmp eq ptr %.val22.i, null
@@ -11446,7 +11446,7 @@ Py_DECREF.exit19.i:                               ; preds = %42, %39, %37
 
 49:                                               ; preds = %expat_parse.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %51 = load ptr, ptr %50, align 8, !tbaa !154
+  %51 = load ptr, ptr %50, align 8, !tbaa !151
   %.not17.i = icmp eq ptr %51, null
   br i1 %.not17.i, label %_elementtree_XMLParser_close_impl.exit, label %52
 
@@ -11463,7 +11463,7 @@ Py_DECREF.exit19.i:                               ; preds = %42, %39, %37
 
 57:                                               ; preds = %54
   tail call void @_Py_Dealloc(ptr noundef nonnull @_Py_NoneStruct) #12
-  %.pre.i = load ptr, ptr %50, align 8, !tbaa !154
+  %.pre.i = load ptr, ptr %50, align 8, !tbaa !151
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %57, %54, %52
@@ -11479,7 +11479,7 @@ _elementtree_XMLParser_close_impl.exit:           ; preds = %_check_xmlparser.ex
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_elementtree_XMLParser_flush(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val.i = load ptr, ptr %3, align 8, !tbaa !165
+  %.val.i = load ptr, ptr %3, align 8, !tbaa !162
   %4 = icmp eq ptr %.val.i, null
   br i1 %4, label %_check_xmlparser.exit.thread.i, label %_check_xmlparser.exit.i
 
@@ -11490,22 +11490,22 @@ _check_xmlparser.exit.thread.i:                   ; preds = %2
 
 _check_xmlparser.exit.i:                          ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !169
+  %7 = load ptr, ptr %6, align 8, !tbaa !166
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  %11 = load ptr, ptr %10, align 8, !tbaa !193
+  %11 = load ptr, ptr %10, align 8, !tbaa !190
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_elementtree_XMLParser_flush_impl.exit, label %13
 
 13:                                               ; preds = %_check_xmlparser.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !168
+  %15 = load ptr, ptr %14, align 8, !tbaa !165
   %16 = tail call zeroext i8 %11(ptr noundef %15, i8 noundef zeroext 0) #12
   %17 = load ptr, ptr %8, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !185
-  %20 = load ptr, ptr %14, align 8, !tbaa !168
+  %19 = load ptr, ptr %18, align 8, !tbaa !182
+  %20 = load ptr, ptr %14, align 8, !tbaa !165
   %21 = tail call i32 %19(ptr noundef %20, ptr noundef nonnull @.str.79, i32 noundef 0, i32 noundef 0) #12
   %22 = tail call ptr @PyErr_Occurred() #12
   %.not.i.i = icmp eq ptr %22, null
@@ -11518,18 +11518,18 @@ _check_xmlparser.exit.i:                          ; preds = %2
 24:                                               ; preds = %23
   %25 = load ptr, ptr %8, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !186
-  %28 = load ptr, ptr %14, align 8, !tbaa !168
+  %27 = load ptr, ptr %26, align 8, !tbaa !183
+  %28 = load ptr, ptr %14, align 8, !tbaa !165
   %29 = tail call i32 %27(ptr noundef %28) #12
   %30 = load ptr, ptr %8, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !187
-  %33 = load ptr, ptr %14, align 8, !tbaa !168
+  %32 = load ptr, ptr %31, align 8, !tbaa !184
+  %33 = load ptr, ptr %14, align 8, !tbaa !165
   %34 = tail call i64 %32(ptr noundef %33) #12
   %35 = load ptr, ptr %8, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !188
-  %38 = load ptr, ptr %14, align 8, !tbaa !168
+  %37 = load ptr, ptr %36, align 8, !tbaa !185
+  %38 = load ptr, ptr %14, align 8, !tbaa !165
   %39 = tail call i64 %37(ptr noundef %38) #12
   tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %7, i32 noundef %29, i64 noundef %34, i64 noundef %39, ptr noundef null)
   br label %expat_parse.exit.i
@@ -11538,8 +11538,8 @@ expat_parse.exit.i:                               ; preds = %24, %23, %13
   %.0.i12.i = phi ptr [ null, %24 ], [ null, %13 ], [ @_Py_NoneStruct, %23 ]
   %40 = load ptr, ptr %8, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 176
-  %42 = load ptr, ptr %41, align 8, !tbaa !193
-  %43 = load ptr, ptr %14, align 8, !tbaa !168
+  %42 = load ptr, ptr %41, align 8, !tbaa !190
+  %43 = load ptr, ptr %14, align 8, !tbaa !165
   %44 = tail call zeroext i8 %42(ptr noundef %43, i8 noundef zeroext 1) #12
   br label %_elementtree_XMLParser_flush_impl.exit
 
@@ -11551,7 +11551,7 @@ _elementtree_XMLParser_flush_impl.exit:           ; preds = %_check_xmlparser.ex
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_elementtree_XMLParser__parse_whole(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 24
-  %.val90 = load ptr, ptr %3, align 8, !tbaa !165
+  %.val90 = load ptr, ptr %3, align 8, !tbaa !162
   %4 = icmp eq ptr %.val90, null
   br i1 %4, label %_check_xmlparser.exit.thread, label %_check_xmlparser.exit
 
@@ -11567,7 +11567,7 @@ _check_xmlparser.exit:                            ; preds = %2
 
 7:                                                ; preds = %_check_xmlparser.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %9 = load ptr, ptr %8, align 8, !tbaa !169
+  %9 = load ptr, ptr %8, align 8, !tbaa !166
   %10 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef nonnull %6, ptr noundef nonnull @.str.125, i32 noundef 65536) #12
   %.not46112 = icmp eq ptr %10, null
   br i1 %.not46112, label %._crit_edge, label %.lr.ph
@@ -11723,8 +11723,8 @@ Py_DECREF.exit62:                                 ; preds = %Py_DECREF.exit64, %
   %67 = trunc i64 %.039.val88 to i32
   %68 = load ptr, ptr %11, align 8, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
-  %70 = load ptr, ptr %69, align 8, !tbaa !185
-  %71 = load ptr, ptr %12, align 8, !tbaa !168
+  %70 = load ptr, ptr %69, align 8, !tbaa !182
+  %71 = load ptr, ptr %12, align 8, !tbaa !165
   %72 = tail call i32 %70(ptr noundef %71, ptr noundef nonnull %66, i32 noundef %67, i32 noundef 0) #12
   %73 = tail call ptr @PyErr_Occurred() #12
   %.not.i93 = icmp eq ptr %73, null
@@ -11737,18 +11737,18 @@ Py_DECREF.exit62:                                 ; preds = %Py_DECREF.exit64, %
 75:                                               ; preds = %74
   %76 = load ptr, ptr %11, align 8, !tbaa !23
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !186
-  %79 = load ptr, ptr %12, align 8, !tbaa !168
+  %78 = load ptr, ptr %77, align 8, !tbaa !183
+  %79 = load ptr, ptr %12, align 8, !tbaa !165
   %80 = tail call i32 %78(ptr noundef %79) #12
   %81 = load ptr, ptr %11, align 8, !tbaa !23
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %83 = load ptr, ptr %82, align 8, !tbaa !187
-  %84 = load ptr, ptr %12, align 8, !tbaa !168
+  %83 = load ptr, ptr %82, align 8, !tbaa !184
+  %84 = load ptr, ptr %12, align 8, !tbaa !165
   %85 = tail call i64 %83(ptr noundef %84) #12
   %86 = load ptr, ptr %11, align 8, !tbaa !23
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !188
-  %89 = load ptr, ptr %12, align 8, !tbaa !168
+  %88 = load ptr, ptr %87, align 8, !tbaa !185
+  %89 = load ptr, ptr %12, align 8, !tbaa !165
   %90 = tail call i64 %88(ptr noundef %89) #12
   tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %9, i32 noundef %80, i64 noundef %85, i64 noundef %90, ptr noundef null)
   br label %expat_parse.exit
@@ -11830,8 +11830,8 @@ Py_DECREF.exit72:                                 ; preds = %Py_DECREF.exit72.si
 Py_DECREF.exit54:                                 ; preds = %Py_DECREF.exit72, %110, %113
   %114 = load ptr, ptr %11, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  %116 = load ptr, ptr %115, align 8, !tbaa !185
-  %117 = load ptr, ptr %12, align 8, !tbaa !168
+  %116 = load ptr, ptr %115, align 8, !tbaa !182
+  %117 = load ptr, ptr %12, align 8, !tbaa !165
   %118 = tail call i32 %116(ptr noundef %117, ptr noundef nonnull @.str.79, i32 noundef 0, i32 noundef 1) #12
   %119 = tail call ptr @PyErr_Occurred() #12
   %.not.i95 = icmp eq ptr %119, null
@@ -11844,24 +11844,24 @@ Py_DECREF.exit54:                                 ; preds = %Py_DECREF.exit72, %
 121:                                              ; preds = %120
   %122 = load ptr, ptr %11, align 8, !tbaa !23
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %124 = load ptr, ptr %123, align 8, !tbaa !186
-  %125 = load ptr, ptr %12, align 8, !tbaa !168
+  %124 = load ptr, ptr %123, align 8, !tbaa !183
+  %125 = load ptr, ptr %12, align 8, !tbaa !165
   %126 = tail call i32 %124(ptr noundef %125) #12
   %127 = load ptr, ptr %11, align 8, !tbaa !23
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !187
-  %130 = load ptr, ptr %12, align 8, !tbaa !168
+  %129 = load ptr, ptr %128, align 8, !tbaa !184
+  %130 = load ptr, ptr %12, align 8, !tbaa !165
   %131 = tail call i64 %129(ptr noundef %130) #12
   %132 = load ptr, ptr %11, align 8, !tbaa !23
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
-  %134 = load ptr, ptr %133, align 8, !tbaa !188
-  %135 = load ptr, ptr %12, align 8, !tbaa !168
+  %134 = load ptr, ptr %133, align 8, !tbaa !185
+  %135 = load ptr, ptr %12, align 8, !tbaa !165
   %136 = tail call i64 %134(ptr noundef %135) #12
   tail call fastcc void @expat_set_error(ptr noundef nonnull readonly %9, i32 noundef %126, i64 noundef %131, i64 noundef %136, ptr noundef null)
   br label %Py_DECREF.exit74
 
 expat_parse.exit98:                               ; preds = %120
-  %137 = load ptr, ptr %3, align 8, !tbaa !165
+  %137 = load ptr, ptr %3, align 8, !tbaa !162
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %139 = load ptr, ptr %138, align 8, !tbaa !17
   %140 = getelementptr i8, ptr %137, i64 8
@@ -11885,7 +11885,7 @@ expat_parse.exit98:                               ; preds = %120
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %141, %143, %146
-  %147 = load ptr, ptr %3, align 8, !tbaa !165
+  %147 = load ptr, ptr %3, align 8, !tbaa !162
   %148 = getelementptr i8, ptr %147, i64 16
   %.val92 = load ptr, ptr %148, align 8, !tbaa !92
   %.not.i99 = icmp eq ptr %.val92, null
@@ -11928,7 +11928,7 @@ define internal noundef ptr @_elementtree_XMLParser__setevents(ptr noundef reado
 13:                                               ; preds = %7, %10
   %.0 = phi ptr [ @_Py_NoneStruct, %7 ], [ %12, %10 ]
   %14 = getelementptr i8, ptr %0, i64 24
-  %.val167.i = load ptr, ptr %14, align 8, !tbaa !165
+  %.val167.i = load ptr, ptr %14, align 8, !tbaa !162
   %15 = icmp eq ptr %.val167.i, null
   br i1 %15, label %_check_xmlparser.exit.thread.i, label %_check_xmlparser.exit.i
 
@@ -11939,7 +11939,7 @@ _check_xmlparser.exit.thread.i:                   ; preds = %13
 
 _check_xmlparser.exit.i:                          ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !169
+  %18 = load ptr, ptr %17, align 8, !tbaa !166
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %21 = getelementptr i8, ptr %.val167.i, i64 8
@@ -12316,8 +12316,8 @@ _Py_NewRef.exit176.i:                             ; preds = %158, %154
 Py_XDECREF.exit179.i:                             ; preds = %165, %162, %160, %_Py_NewRef.exit176.i
   %166 = load ptr, ptr %92, align 8, !tbaa !23
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 112
-  %168 = load ptr, ptr %167, align 8, !tbaa !174
-  %169 = load ptr, ptr %93, align 8, !tbaa !168
+  %168 = load ptr, ptr %167, align 8, !tbaa !171
+  %169 = load ptr, ptr %93, align 8, !tbaa !165
   tail call void %168(ptr noundef %169, ptr noundef nonnull @expat_start_ns_handler, ptr noundef nonnull @expat_end_ns_handler) #12
   br label %Py_XDECREF.exit171.i
 
@@ -12360,8 +12360,8 @@ _Py_NewRef.exit180.i:                             ; preds = %177, %173
 Py_XDECREF.exit183.i:                             ; preds = %184, %181, %179, %_Py_NewRef.exit180.i
   %185 = load ptr, ptr %92, align 8, !tbaa !23
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 112
-  %187 = load ptr, ptr %186, align 8, !tbaa !174
-  %188 = load ptr, ptr %93, align 8, !tbaa !168
+  %187 = load ptr, ptr %186, align 8, !tbaa !171
+  %188 = load ptr, ptr %93, align 8, !tbaa !165
   tail call void %187(ptr noundef %188, ptr noundef nonnull @expat_start_ns_handler, ptr noundef nonnull @expat_end_ns_handler) #12
   br label %Py_XDECREF.exit171.i
 
@@ -12404,8 +12404,8 @@ _Py_NewRef.exit184.i:                             ; preds = %196, %192
 Py_XDECREF.exit187.i:                             ; preds = %203, %200, %198, %_Py_NewRef.exit184.i
   %204 = load ptr, ptr %92, align 8, !tbaa !23
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 88
-  %206 = load ptr, ptr %205, align 8, !tbaa !178
-  %207 = load ptr, ptr %93, align 8, !tbaa !168
+  %206 = load ptr, ptr %205, align 8, !tbaa !175
+  %207 = load ptr, ptr %93, align 8, !tbaa !165
   tail call void %206(ptr noundef %207, ptr noundef nonnull @expat_comment_handler) #12
   br label %Py_XDECREF.exit171.i
 
@@ -12460,8 +12460,8 @@ _Py_NewRef.exit188.i:                             ; preds = %218, %214
 Py_XDECREF.exit191.i:                             ; preds = %225, %222, %220, %_Py_NewRef.exit188.i
   %226 = load ptr, ptr %92, align 8, !tbaa !23
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 120
-  %228 = load ptr, ptr %227, align 8, !tbaa !179
-  %229 = load ptr, ptr %93, align 8, !tbaa !168
+  %228 = load ptr, ptr %227, align 8, !tbaa !176
+  %229 = load ptr, ptr %93, align 8, !tbaa !165
   tail call void %228(ptr noundef %229, ptr noundef nonnull @expat_pi_handler) #12
   br label %Py_XDECREF.exit171.i
 
@@ -12487,7 +12487,7 @@ Py_DECREF.exit134.i:                              ; preds = %234, %231, %.tail.t
 
 Py_XDECREF.exit171.i:                             ; preds = %Py_XDECREF.exit191.i, %Py_XDECREF.exit187.i, %Py_XDECREF.exit183.i, %Py_XDECREF.exit179.i, %150, %147, %145, %_Py_NewRef.exit172.i, %135, %132, %130, %_Py_NewRef.exit.i
   %237 = add nuw nsw i64 %.0109.i, 1
-  br label %94, !llvm.loop !194
+  br label %94, !llvm.loop !191
 
 238:                                              ; preds = %.thread.i, %98
   %239 = load i32, ptr %88, align 8, !tbaa !21
@@ -12524,7 +12524,7 @@ define internal fastcc void @expat_set_error(ptr noundef readonly captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !195
+  %10 = load ptr, ptr %9, align 8, !tbaa !192
   %11 = tail call ptr %10(i32 noundef %1) #12
   br label %12
 
@@ -12733,9 +12733,9 @@ define internal void @expat_start_ns_handler(ptr noundef readonly captures(none)
   %.not41 = icmp eq ptr %1, null
   %spec.store.select1 = select i1 %.not41, ptr @.str.79, ptr %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !169
+  %8 = load ptr, ptr %7, align 8, !tbaa !166
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !165
+  %10 = load ptr, ptr %9, align 8, !tbaa !162
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr i8, ptr %10, i64 8
@@ -12892,7 +12892,7 @@ Py_DECREF.exit57:                                 ; preds = %treebuilder_handle_
 
 73:                                               ; preds = %6
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !162
+  %75 = load ptr, ptr %74, align 8, !tbaa !159
   %.not43 = icmp eq ptr %75, null
   br i1 %.not43, label %.critedge, label %76
 
@@ -12928,7 +12928,7 @@ Py_DECREF.exit57:                                 ; preds = %treebuilder_handle_
   store ptr %78, ptr %4, align 16, !tbaa !20
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %81, ptr %89, align 8, !tbaa !20
-  %90 = load ptr, ptr %74, align 8, !tbaa !162
+  %90 = load ptr, ptr %74, align 8, !tbaa !159
   %91 = call ptr @PyObject_Vectorcall(ptr noundef %90, ptr noundef nonnull %4, i64 noundef 2, ptr noundef null) #12
   %92 = load i32, ptr %81, align 8, !tbaa !21
   %.not.i50 = icmp sgt i32 %92, -1
@@ -12997,9 +12997,9 @@ define internal void @expat_end_ns_handler(ptr noundef readonly captures(none) %
   %.not17 = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not17, ptr @.str.79, ptr %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !165
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr i8, ptr %8, i64 8
@@ -13062,7 +13062,7 @@ Py_DECREF.exit15.i.i:                             ; preds = %28, %25, %21
 
 36:                                               ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !163
+  %38 = load ptr, ptr %37, align 8, !tbaa !160
   %.not19 = icmp eq ptr %38, null
   br i1 %.not19, label %Py_XDECREF.exit, label %39
 
@@ -13073,7 +13073,7 @@ Py_DECREF.exit15.i.i:                             ; preds = %28, %25, %21
   br i1 %.not20, label %Py_XDECREF.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = load ptr, ptr %37, align 8, !tbaa !163
+  %43 = load ptr, ptr %37, align 8, !tbaa !160
   %44 = tail call ptr @PyObject_CallOneArg(ptr noundef %43, ptr noundef nonnull %41) #12
   %45 = load i32, ptr %41, align 8, !tbaa !21
   %.not.i = icmp sgt i32 %45, -1
@@ -13121,9 +13121,9 @@ define internal void @expat_comment_handler(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !165
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr i8, ptr %8, i64 8
@@ -13170,7 +13170,7 @@ Py_XDECREF.exit:                                  ; preds = %15, %17, %19, %22
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load ptr, ptr %28, align 8, !tbaa !158
+  %29 = load ptr, ptr %28, align 8, !tbaa !155
   %.not22 = icmp eq ptr %29, null
   br i1 %.not22, label %.critedge, label %30
 
@@ -13181,7 +13181,7 @@ Py_XDECREF.exit:                                  ; preds = %15, %17, %19, %22
   br i1 %.not23, label %.critedge, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %28, align 8, !tbaa !158
+  %34 = load ptr, ptr %28, align 8, !tbaa !155
   %35 = tail call ptr @PyObject_CallOneArg(ptr noundef %34, ptr noundef nonnull %32) #12
   %.not.i29 = icmp eq ptr %35, null
   br i1 %.not.i29, label %Py_XDECREF.exit31, label %36
@@ -13230,9 +13230,9 @@ define internal void @expat_pi_handler(ptr noundef readonly captures(none) %0, p
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !169
+  %8 = load ptr, ptr %7, align 8, !tbaa !166
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !165
+  %10 = load ptr, ptr %9, align 8, !tbaa !162
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr i8, ptr %10, i64 8
@@ -13322,7 +13322,7 @@ Py_DECREF.exit55:                                 ; preds = %Py_XDECREF.exit, %3
 
 47:                                               ; preds = %6
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %49 = load ptr, ptr %48, align 8, !tbaa !157
+  %49 = load ptr, ptr %48, align 8, !tbaa !154
   %.not41 = icmp eq ptr %49, null
   br i1 %.not41, label %Py_XDECREF.exit65, label %50
 
@@ -13343,7 +13343,7 @@ Py_DECREF.exit55:                                 ; preds = %Py_XDECREF.exit, %3
   store ptr %52, ptr %4, align 16, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %55, ptr %57, align 8, !tbaa !20
-  %58 = load ptr, ptr %48, align 8, !tbaa !157
+  %58 = load ptr, ptr %48, align 8, !tbaa !154
   %59 = call ptr @PyObject_Vectorcall(ptr noundef %58, ptr noundef nonnull %4, i64 noundef 2, ptr noundef null) #12
   %.not.i60 = icmp eq ptr %59, null
   br i1 %.not.i60, label %Py_XDECREF.exit62, label %60
@@ -13460,7 +13460,7 @@ define internal void @expat_start_handler(ptr noundef readonly captures(none) %0
   br i1 %.not55, label %.critedge64, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %2, align 8, !tbaa !196
+  %8 = load ptr, ptr %2, align 8, !tbaa !193
   %.not56 = icmp eq ptr %8, null
   br i1 %.not56, label %.critedge, label %9
 
@@ -13470,7 +13470,7 @@ define internal void @expat_start_handler(ptr noundef readonly captures(none) %0
   br i1 %.not57, label %12, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %11 = load ptr, ptr %2, align 8, !tbaa !196
+  %11 = load ptr, ptr %2, align 8, !tbaa !193
   %.not58105 = icmp eq ptr %11, null
   br i1 %.not58105, label %.critedge, label %.lr.ph
 
@@ -13487,15 +13487,15 @@ define internal void @expat_start_handler(ptr noundef readonly captures(none) %0
 
 17:                                               ; preds = %Py_DECREF.exit72
   %18 = getelementptr i8, ptr %.0106, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !196
+  %19 = load ptr, ptr %18, align 8, !tbaa !193
   %.not58 = icmp eq ptr %19, null
-  br i1 %.not58, label %.critedge, label %.lr.ph, !llvm.loop !197
+  br i1 %.not58, label %.critedge, label %.lr.ph, !llvm.loop !194
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %20 = phi ptr [ %19, %17 ], [ %11, %.preheader ]
   %.0106 = phi ptr [ %18, %17 ], [ %2, %.preheader ]
   %21 = getelementptr i8, ptr %.0106, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !196
+  %22 = load ptr, ptr %21, align 8, !tbaa !193
   %.not59 = icmp eq ptr %22, null
   br i1 %.not59, label %.critedge, label %23
 
@@ -13531,7 +13531,7 @@ Py_DECREF.exit84:                                 ; preds = %26, %28, %31
   br i1 %35, label %.critedge64.sink.split, label %.critedge64
 
 36:                                               ; preds = %23
-  %37 = load ptr, ptr %21, align 8, !tbaa !196
+  %37 = load ptr, ptr %21, align 8, !tbaa !193
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
   %39 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull @.str.133) #12
   %40 = icmp eq ptr %39, null
@@ -13642,9 +13642,9 @@ Py_DECREF.exit70:                                 ; preds = %69, %71, %74
 .critedge:                                        ; preds = %17, %.lr.ph, %.preheader, %7
   %.045 = phi ptr [ null, %7 ], [ %10, %.preheader ], [ %10, %.lr.ph ], [ %10, %17 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %80 = load ptr, ptr %79, align 8, !tbaa !169
+  %80 = load ptr, ptr %79, align 8, !tbaa !166
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !165
+  %82 = load ptr, ptr %81, align 8, !tbaa !162
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 120
   %84 = load ptr, ptr %83, align 8, !tbaa !17
   %85 = getelementptr i8, ptr %82, i64 8
@@ -13658,7 +13658,7 @@ Py_DECREF.exit70:                                 ; preds = %69, %71, %74
 
 88:                                               ; preds = %.critedge
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %90 = load ptr, ptr %89, align 8, !tbaa !161
+  %90 = load ptr, ptr %89, align 8, !tbaa !158
   %.not61 = icmp eq ptr %90, null
   br i1 %.not61, label %103, label %91
 
@@ -13672,7 +13672,7 @@ Py_DECREF.exit70:                                 ; preds = %69, %71, %74
   br i1 %.not62, label %95, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %93
-  %.pre = load ptr, ptr %89, align 8, !tbaa !161
+  %.pre = load ptr, ptr %89, align 8, !tbaa !158
   br label %100
 
 95:                                               ; preds = %93
@@ -13760,9 +13760,9 @@ define internal void @expat_end_handler(ptr noundef readonly captures(none) %0, 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !169
+  %6 = load ptr, ptr %5, align 8, !tbaa !166
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !165
+  %8 = load ptr, ptr %7, align 8, !tbaa !162
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr i8, ptr %8, i64 8
@@ -13776,7 +13776,7 @@ define internal void @expat_end_handler(ptr noundef readonly captures(none) %0, 
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !159
+  %16 = load ptr, ptr %15, align 8, !tbaa !156
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %Py_XDECREF.exit, label %17
 
@@ -13786,7 +13786,7 @@ define internal void @expat_end_handler(ptr noundef readonly captures(none) %0, 
   br i1 %.not15, label %Py_XDECREF.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %15, align 8, !tbaa !159
+  %20 = load ptr, ptr %15, align 8, !tbaa !156
   %21 = tail call ptr @PyObject_CallOneArg(ptr noundef %20, ptr noundef nonnull %18) #12
   %22 = load i32, ptr %18, align 8, !tbaa !21
   %.not.i = icmp sgt i32 %22, -1
@@ -13852,16 +13852,16 @@ define internal void @expat_default_handler(ptr noundef readonly captures(none) 
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !166
+  %17 = load ptr, ptr %16, align 8, !tbaa !163
   %18 = tail call ptr @PyDict_GetItemWithError(ptr noundef %17, ptr noundef nonnull %14) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %20 = load ptr, ptr %19, align 8, !tbaa !169
+  %20 = load ptr, ptr %19, align 8, !tbaa !166
   %.not31 = icmp eq ptr %18, null
   br i1 %.not31, label %41, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !165
+  %23 = load ptr, ptr %22, align 8, !tbaa !162
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %25 = load ptr, ptr %24, align 8, !tbaa !17
   %26 = getelementptr i8, ptr %23, i64 8
@@ -13875,7 +13875,7 @@ define internal void @expat_default_handler(ptr noundef readonly captures(none) 
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load ptr, ptr %30, align 8, !tbaa !160
+  %31 = load ptr, ptr %30, align 8, !tbaa !157
   %.not34 = icmp eq ptr %31, null
   br i1 %.not34, label %Py_XDECREF.exit, label %32
 
@@ -13917,14 +13917,14 @@ define internal void @expat_default_handler(ptr noundef readonly captures(none) 
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %48 = load ptr, ptr %47, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load ptr, ptr %49, align 8, !tbaa !187
+  %50 = load ptr, ptr %49, align 8, !tbaa !184
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !168
+  %52 = load ptr, ptr %51, align 8, !tbaa !165
   %53 = call i64 %50(ptr noundef %52) #12
   %54 = load ptr, ptr %47, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !188
-  %57 = load ptr, ptr %51, align 8, !tbaa !168
+  %56 = load ptr, ptr %55, align 8, !tbaa !185
+  %57 = load ptr, ptr %51, align 8, !tbaa !165
   %58 = call i64 %56(ptr noundef %57) #12
   call fastcc void @expat_set_error(ptr noundef %20, i32 noundef 11, i64 noundef %53, i64 noundef %58, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13963,9 +13963,9 @@ define internal void @expat_data_handler(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %10 = load ptr, ptr %9, align 8, !tbaa !169
+  %10 = load ptr, ptr %9, align 8, !tbaa !166
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !165
+  %12 = load ptr, ptr %11, align 8, !tbaa !162
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = getelementptr i8, ptr %12, i64 8
@@ -13979,7 +13979,7 @@ define internal void @expat_data_handler(ptr noundef readonly captures(none) %0,
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !160
+  %20 = load ptr, ptr %19, align 8, !tbaa !157
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %23, label %21
 
@@ -14116,7 +14116,7 @@ Py_DECREF.exit46:                                 ; preds = %24, %26, %29
 _Py_NewRef.exit54:                                ; preds = %37, %34, %22
   %.026 = phi ptr [ %23, %22 ], [ @_Py_NoneStruct, %34 ], [ @_Py_NoneStruct, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %40 = load ptr, ptr %39, align 8, !tbaa !164
+  %40 = load ptr, ptr %39, align 8, !tbaa !161
   %.not38 = icmp eq ptr %40, null
   br i1 %.not38, label %49, label %41
 
@@ -14142,7 +14142,7 @@ _Py_NewRef.exit54:                                ; preds = %37, %34, %22
 
 49:                                               ; preds = %_Py_NewRef.exit54
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %51 = load ptr, ptr %50, align 8, !tbaa !169
+  %51 = load ptr, ptr %50, align 8, !tbaa !166
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = tail call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %0, ptr noundef %53) #12
@@ -14217,7 +14217,7 @@ define internal fastcc ptr @makeuniversal(ptr noundef readonly captures(none) %0
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !167
+  %7 = load ptr, ptr %6, align 8, !tbaa !164
   %8 = tail call ptr @PyDict_GetItemWithError(ptr noundef %7, ptr noundef nonnull %4) #12
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %9
@@ -14251,7 +14251,7 @@ _Py_XNewRef.exit:                                 ; preds = %5
 19:                                               ; preds = %.lr.ph
   %20 = add nuw nsw i64 %.070, 1
   %exitcond.not = icmp eq i64 %20, %3
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !198
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.070, %.lr.ph ]
@@ -14327,7 +14327,7 @@ Py_DECREF.exit62:                                 ; preds = %_Py_NewRef.exit, %4
   br i1 %48, label %.critedge.sink.split, label %.critedge
 
 49:                                               ; preds = %Py_DECREF.exit62
-  %50 = load ptr, ptr %6, align 8, !tbaa !167
+  %50 = load ptr, ptr %6, align 8, !tbaa !164
   %51 = tail call i32 @PyDict_SetItem(ptr noundef %50, ptr noundef nonnull %4, ptr noundef nonnull %38) #12
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %_Py_XNewRef.exit.thread
@@ -14573,55 +14573,52 @@ attributes #13 = { nounwind willreturn memory(read) }
 !144 = !{!28, !30, i64 32}
 !145 = distinct !{!145, !69}
 !146 = distinct !{!146, !69}
-!147 = distinct !{!147, !69, !148}
-!148 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!149 = distinct !{!149, !69, !148}
+!147 = distinct !{!147, !69}
+!148 = distinct !{!148, !69}
+!149 = distinct !{!149, !69}
 !150 = distinct !{!150, !69}
-!151 = distinct !{!151, !69}
-!152 = distinct !{!152, !69}
-!153 = distinct !{!153, !69}
-!154 = !{!155, !5, i64 112}
-!155 = !{!"", !26, i64 0, !156, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !6, i64 120, !5, i64 128}
-!156 = !{!"p1 _ZTS16XML_ParserStruct", !6, i64 0}
-!157 = !{!155, !5, i64 96}
-!158 = !{!155, !5, i64 88}
-!159 = !{!155, !5, i64 80}
-!160 = !{!155, !5, i64 72}
-!161 = !{!155, !5, i64 64}
-!162 = !{!155, !5, i64 48}
-!163 = !{!155, !5, i64 56}
-!164 = !{!155, !5, i64 104}
-!165 = !{!155, !5, i64 24}
-!166 = !{!155, !5, i64 32}
-!167 = !{!155, !5, i64 40}
-!168 = !{!155, !156, i64 16}
-!169 = !{!155, !6, i64 120}
-!170 = !{!55, !6, i64 72}
-!171 = !{!55, !6, i64 64}
-!172 = !{!55, !6, i64 168}
-!173 = !{!55, !6, i64 136}
-!174 = !{!55, !6, i64 112}
-!175 = !{!55, !6, i64 104}
-!176 = !{!55, !6, i64 96}
-!177 = !{!55, !6, i64 80}
-!178 = !{!55, !6, i64 88}
-!179 = !{!55, !6, i64 120}
-!180 = !{!55, !6, i64 144}
-!181 = !{!55, !6, i64 128}
-!182 = !{!55, !6, i64 160}
-!183 = !{!155, !5, i64 128}
-!184 = !{!55, !6, i64 152}
-!185 = !{!55, !6, i64 56}
-!186 = !{!55, !6, i64 32}
-!187 = !{!55, !6, i64 48}
-!188 = !{!55, !6, i64 40}
-!189 = !{!190, !30, i64 16}
-!190 = !{!"", !6, i64 0, !5, i64 8, !30, i64 16, !30, i64 24, !35, i64 32, !35, i64 36, !31, i64 40, !191, i64 48, !191, i64 56, !191, i64 64, !6, i64 72}
-!191 = !{!"p1 long", !6, i64 0}
-!192 = !{!190, !6, i64 0}
-!193 = !{!55, !6, i64 176}
+!151 = !{!152, !5, i64 112}
+!152 = !{!"", !26, i64 0, !153, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !6, i64 120, !5, i64 128}
+!153 = !{!"p1 _ZTS16XML_ParserStruct", !6, i64 0}
+!154 = !{!152, !5, i64 96}
+!155 = !{!152, !5, i64 88}
+!156 = !{!152, !5, i64 80}
+!157 = !{!152, !5, i64 72}
+!158 = !{!152, !5, i64 64}
+!159 = !{!152, !5, i64 48}
+!160 = !{!152, !5, i64 56}
+!161 = !{!152, !5, i64 104}
+!162 = !{!152, !5, i64 24}
+!163 = !{!152, !5, i64 32}
+!164 = !{!152, !5, i64 40}
+!165 = !{!152, !153, i64 16}
+!166 = !{!152, !6, i64 120}
+!167 = !{!55, !6, i64 72}
+!168 = !{!55, !6, i64 64}
+!169 = !{!55, !6, i64 168}
+!170 = !{!55, !6, i64 136}
+!171 = !{!55, !6, i64 112}
+!172 = !{!55, !6, i64 104}
+!173 = !{!55, !6, i64 96}
+!174 = !{!55, !6, i64 80}
+!175 = !{!55, !6, i64 88}
+!176 = !{!55, !6, i64 120}
+!177 = !{!55, !6, i64 144}
+!178 = !{!55, !6, i64 128}
+!179 = !{!55, !6, i64 160}
+!180 = !{!152, !5, i64 128}
+!181 = !{!55, !6, i64 152}
+!182 = !{!55, !6, i64 56}
+!183 = !{!55, !6, i64 32}
+!184 = !{!55, !6, i64 48}
+!185 = !{!55, !6, i64 40}
+!186 = !{!187, !30, i64 16}
+!187 = !{!"", !6, i64 0, !5, i64 8, !30, i64 16, !30, i64 24, !35, i64 32, !35, i64 36, !31, i64 40, !188, i64 48, !188, i64 56, !188, i64 64, !6, i64 72}
+!188 = !{!"p1 long", !6, i64 0}
+!189 = !{!187, !6, i64 0}
+!190 = !{!55, !6, i64 176}
+!191 = distinct !{!191, !69}
+!192 = !{!55, !6, i64 24}
+!193 = !{!31, !31, i64 0}
 !194 = distinct !{!194, !69}
-!195 = !{!55, !6, i64 24}
-!196 = !{!31, !31, i64 0}
-!197 = distinct !{!197, !69}
-!198 = distinct !{!198, !69}
+!195 = distinct !{!195, !69}

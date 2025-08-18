@@ -2397,7 +2397,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %177 = add nsw i64 %.0101, 3
   %178 = icmp slt i64 %177, %98
-  br i1 %178, label %146, label %.preheader, !llvm.loop !132
+  br i1 %178, label %146, label %.preheader, !llvm.loop !131
 
 .preheader37.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -2432,7 +2432,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1102, 2
   %190 = icmp slt i64 %189, %97
-  br i1 %190, label %.preheader37.i75, label %._crit_edge, !llvm.loop !133
+  br i1 %190, label %.preheader37.i75, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %144, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -2591,7 +2591,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 96:                                               ; preds = %._crit_edge
   %97 = add nuw nsw i64 %.06691, 4
   %98 = icmp samesign ult i64 %.06691, 12
-  br i1 %98, label %.preheader86, label %129, !llvm.loop !134
+  br i1 %98, label %.preheader86, label %129, !llvm.loop !132
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %.06691 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %97, %96 ]
@@ -2675,12 +2675,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = add nsw i64 %.087.us, 2
   %128 = icmp slt i64 %127, %90
-  br i1 %128, label %.lr.ph.i.us, label %.preheader, !llvm.loop !135
+  br i1 %128, label %.lr.ph.i.us, label %.preheader, !llvm.loop !133
 
 129:                                              ; preds = %96
   %130 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %131 = icmp slt i64 %130, %29
-  br i1 %131, label %61, label %._crit_edge95, !llvm.loop !136
+  br i1 %131, label %61, label %._crit_edge95, !llvm.loop !134
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader86
   %.0.lcssa = phi i64 [ %85, %.preheader86 ], [ %127, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %148, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -2729,7 +2729,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = add nsw i64 %.087, 2
   %149 = icmp slt i64 %148, %90
-  br i1 %149, label %.preheader37.i, label %.preheader, !llvm.loop !137
+  br i1 %149, label %.preheader37.i, label %.preheader, !llvm.loop !133
 
 150:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %170, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -2757,7 +2757,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 155:                                              ; preds = %158
   %156 = add nuw nsw i64 %.03346.i76, 16
   %157 = icmp slt i64 %156, %92
-  br i1 %157, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !138
+  br i1 %157, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !135
 
 158:                                              ; preds = %158, %.preheader39.i
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %163, %158 ]
@@ -2771,7 +2771,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %162, ptr %161, align 64, !tbaa !53
   %163 = add nuw nsw i64 %.03445.i78, 1
   %exitcond.not.i81 = icmp eq i64 %163, 4
-  br i1 %exitcond.not.i81, label %155, label %158, !llvm.loop !139
+  br i1 %exitcond.not.i81, label %155, label %158, !llvm.loop !136
 
 164:                                              ; preds = %164, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %169, %164 ]
@@ -2782,13 +2782,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %167, ptr %168, align 4, !tbaa !93
   %169 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %169, 4
-  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %164, !llvm.loop !140
+  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %164, !llvm.loop !137
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = add nsw i64 %.188, 1
   %171 = icmp slt i64 %170, %89
-  br i1 %171, label %150, label %._crit_edge, !llvm.loop !141
+  br i1 %171, label %150, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %170, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -2885,7 +2885,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %118, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %122, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 4
   %58 = sdiv i64 %.06179, %9
@@ -2924,124 +2924,141 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %.06068.us = phi i64 [ %95, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %82 = add nuw nsw i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
+  %.06068.us.us = phi i64 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %82 = add nuw nsw i64 %.06068.us.us, %57
   %83 = load ptr, ptr %49, align 8
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %82
-  br i1 %79, label %.preheader39.lr.ph.i.us.us, label %.preheader37.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  br label %.preheader39.lr.ph.i.us.us.us
+
+87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %88 = add nuw nsw i64 %.06068.us.us, 4
+  %89 = icmp samesign ult i64 %.06068.us.us, 12
+  br i1 %89, label %.preheader.us.us, label %.split78.us, !llvm.loop !139
+
+.preheader39.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %108, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %90 = mul nsw i64 %84, %.067.us.us.us
+  %91 = getelementptr inbounds float, ptr %83, i64 %90
+  br label %.preheader39.i.us.us.us
+
+.preheader39.i.us.us.us:                          ; preds = %99, %.preheader39.lr.ph.i.us.us.us
+  %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %100, %99 ]
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.03346.i.us.us.us
+  %.val36.le.i.us.us.us = load <16 x float>, ptr %92, align 1, !tbaa !53
+  %invariant.gep.i.us.us.us = getelementptr float, ptr %85, i64 %.03346.i.us.us.us
+  br label %93
+
+93:                                               ; preds = %93, %.preheader39.i.us.us.us
+  %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %98, %93 ]
+  %94 = add nuw nsw i64 %.03445.i.us.us.us, %82
+  %95 = mul nsw i64 %94, %86
+  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %95
+  %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %96 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %96, align 64, !tbaa !53
+  %97 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %97, ptr %96, align 64, !tbaa !53
+  %98 = add nuw nsw i64 %.03445.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %98, 4
+  br i1 %exitcond.not.i.us.us.us, label %99, label %93, !llvm.loop !136
+
+99:                                               ; preds = %93
+  %100 = add nuw nsw i64 %.03346.i.us.us.us, 16
+  %101 = icmp slt i64 %100, %78
+  br i1 %101, label %.preheader39.i.us.us.us, label %.preheader37.i.loopexit.us.us.us, !llvm.loop !135
+
+102:                                              ; preds = %.preheader37.i.loopexit.us.us.us, %102
+  %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %107, %102 ]
+  %103 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us.us
+  %104 = load <16 x float>, ptr %103, align 64, !tbaa !53
+  %105 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %104)
+  %106 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  store float %105, ptr %106, align 4, !tbaa !93
+  %107 = add nuw nsw i64 %.047.i.us.us.us, 1
+  %exitcond48.not.i.us.us.us = icmp eq i64 %107, 4
+  br i1 %exitcond48.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %102, !llvm.loop !137
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %102
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %108 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %108, %76
+  br i1 %exitcond85.not, label %87, label %.preheader39.lr.ph.i.us.us.us, !llvm.loop !140
+
+.preheader37.i.loopexit.us.us.us:                 ; preds = %99
+  %109 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %109
+  br label %102
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %118
+  %.06068.us = phi i64 [ %119, %118 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader37.i.us
 
 .preheader37.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %87 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
-  br label %88
+  %110 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %110
+  br label %111
 
-88:                                               ; preds = %88, %.preheader37.i.us
-  %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %93, %88 ]
-  %89 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us71
-  %90 = load <16 x float>, ptr %89, align 64, !tbaa !53
-  %91 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %90)
-  %92 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
-  store float %91, ptr %92, align 4, !tbaa !93
-  %93 = add nuw nsw i64 %.047.i.us71, 1
-  %exitcond48.not.i.us72 = icmp eq i64 %93, 4
-  br i1 %exitcond48.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !140
+111:                                              ; preds = %111, %.preheader37.i.us
+  %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %116, %111 ]
+  %112 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us71
+  %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
+  %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
+  %115 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
+  store float %114, ptr %115, align 4, !tbaa !93
+  %116 = add nuw nsw i64 %.047.i.us71, 1
+  %exitcond48.not.i.us72 = icmp eq i64 %116, 4
+  br i1 %exitcond48.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %111, !llvm.loop !137
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %94 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %94, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader37.i.us, !llvm.loop !142
+  %117 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %117, %76
+  br i1 %exitcond.not, label %118, label %.preheader37.i.us, !llvm.loop !140
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %95 = add nuw nsw i64 %.06068.us, 4
-  %96 = icmp samesign ult i64 %.06068.us, 12
-  br i1 %96, label %.preheader.us, label %.split78.us, !llvm.loop !143
-
-.preheader39.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %115, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %97 = mul nsw i64 %84, %.067.us.us
-  %98 = getelementptr inbounds float, ptr %83, i64 %97
-  br label %.preheader39.i.us.us
-
-.preheader39.i.us.us:                             ; preds = %106, %.preheader39.lr.ph.i.us.us
-  %.03346.i.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us ], [ %107, %106 ]
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %.03346.i.us.us
-  %.val36.le.i.us.us = load <16 x float>, ptr %99, align 1, !tbaa !53
-  %invariant.gep.i.us.us = getelementptr float, ptr %85, i64 %.03346.i.us.us
-  br label %100
-
-100:                                              ; preds = %100, %.preheader39.i.us.us
-  %.03445.i.us.us = phi i64 [ 0, %.preheader39.i.us.us ], [ %105, %100 ]
-  %101 = add nuw nsw i64 %.03445.i.us.us, %82
-  %102 = mul nsw i64 %101, %86
-  %gep.i.us.us = getelementptr float, ptr %invariant.gep.i.us.us, i64 %102
-  %.val.i.us.us = load <16 x float>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %103 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %103, align 64, !tbaa !53
-  %104 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us, <16 x float> %.val36.le.i.us.us, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %104, ptr %103, align 64, !tbaa !53
-  %105 = add nuw nsw i64 %.03445.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %105, 4
-  br i1 %exitcond.not.i.us.us, label %106, label %100, !llvm.loop !139
-
-106:                                              ; preds = %100
-  %107 = add nuw nsw i64 %.03346.i.us.us, 16
-  %108 = icmp slt i64 %107, %78
-  br i1 %108, label %.preheader39.i.us.us, label %.preheader37.i.loopexit.us.us, !llvm.loop !138
-
-109:                                              ; preds = %.preheader37.i.loopexit.us.us, %109
-  %.047.i.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us ], [ %114, %109 ]
-  %110 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us
-  %111 = load <16 x float>, ptr %110, align 64, !tbaa !53
-  %112 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %111)
-  %113 = getelementptr float, ptr %gep.us.us, i64 %.047.i.us.us
-  store float %112, ptr %113, align 4, !tbaa !93
-  %114 = add nuw nsw i64 %.047.i.us.us, 1
-  %exitcond48.not.i.us.us = icmp eq i64 %114, 4
-  br i1 %exitcond48.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %109, !llvm.loop !140
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %109
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %115 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %115, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader39.lr.ph.i.us.us, !llvm.loop !144
-
-.preheader37.i.loopexit.us.us:                    ; preds = %106
-  %116 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %116
-  br label %109
+118:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
+  %119 = add nuw nsw i64 %.06068.us, 4
+  %120 = icmp samesign ult i64 %.06068.us, 12
+  br i1 %120, label %.preheader.us, label %.split78.us, !llvm.loop !139
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %117 = icmp eq i64 %spec.select, %76
-  br i1 %117, label %.split78.us, label %.split.us
+  %121 = icmp eq i64 %spec.select, %76
+  br i1 %121, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %118 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %119 = icmp slt i64 %118, %24
-  br i1 %119, label %55, label %._crit_edge, !llvm.loop !145
+.split78.us:                                      ; preds = %118, %87, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %122 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %123 = icmp slt i64 %122, %24
+  br i1 %123, label %55, label %._crit_edge, !llvm.loop !141
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %120 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %121)
+  %124 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %125)
   ret void
 }
 
@@ -3209,7 +3226,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader98
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader98, label %112, !llvm.loop !146
+  br i1 %106, label %.preheader98, label %112, !llvm.loop !142
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -3228,7 +3245,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !147
+  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !143
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %154, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -3335,7 +3352,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.099, 6
   %155 = icmp slt i64 %154, %99
-  br i1 %155, label %121, label %.preheader, !llvm.loop !148
+  br i1 %155, label %121, label %.preheader, !llvm.loop !144
 
 156:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -3428,7 +3445,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1100, 5
   %190 = icmp slt i64 %189, %98
-  br i1 %190, label %156, label %._crit_edge, !llvm.loop !149
+  br i1 %190, label %156, label %._crit_edge, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -3608,7 +3625,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader98
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader98, label %112, !llvm.loop !150
+  br i1 %106, label %.preheader98, label %112, !llvm.loop !146
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -3627,7 +3644,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !151
+  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !147
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %154, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -3734,7 +3751,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.099, 5
   %155 = icmp slt i64 %154, %99
-  br i1 %155, label %121, label %.preheader, !llvm.loop !152
+  br i1 %155, label %121, label %.preheader, !llvm.loop !148
 
 156:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -3827,7 +3844,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1100, 4
   %190 = icmp slt i64 %189, %98
-  br i1 %190, label %156, label %._crit_edge, !llvm.loop !153
+  br i1 %190, label %156, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -4007,7 +4024,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br label %.preheader86
 
 106:                                              ; preds = %._crit_edge
-  br i1 %107, label %.preheader86, label %113, !llvm.loop !154
+  br i1 %107, label %.preheader86, label %113, !llvm.loop !150
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73, %106
   %107 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ false, %106 ]
@@ -4026,7 +4043,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 113:                                              ; preds = %106
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %31
-  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !155
+  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !151
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit, %.preheader86
   %.0.lcssa = phi i64 [ %91, %.preheader86 ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -4133,7 +4150,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.087, 4
   %156 = icmp slt i64 %155, %100
-  br i1 %156, label %122, label %.preheader, !llvm.loop !156
+  br i1 %156, label %122, label %.preheader, !llvm.loop !152
 
 157:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -4226,7 +4243,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = add nsw i64 %.188, 3
   %189 = icmp slt i64 %188, %99
-  br i1 %189, label %157, label %._crit_edge, !llvm.loop !157
+  br i1 %189, label %157, label %._crit_edge, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -4406,7 +4423,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br label %.preheader100
 
 104:                                              ; preds = %._crit_edge
-  br i1 %105, label %.preheader100, label %111, !llvm.loop !158
+  br i1 %105, label %.preheader100, label %111, !llvm.loop !154
 
 .preheader100:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %104
   %105 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %104 ]
@@ -4425,7 +4442,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 111:                                              ; preds = %104
   %112 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %113 = icmp slt i64 %112, %29
-  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !159
+  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !155
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit, %.preheader100
   %.0.lcssa = phi i64 [ %89, %.preheader100 ], [ %176, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -4510,7 +4527,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %143 = add nsw i64 %.1102.us, 2
   %144 = icmp slt i64 %143, %97
-  br i1 %144, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !160
+  br i1 %144, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !156
 
 145:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %176, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -4603,7 +4620,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %176 = add nsw i64 %.0101, 3
   %177 = icmp slt i64 %176, %98
-  br i1 %177, label %145, label %.preheader, !llvm.loop !161
+  br i1 %177, label %145, label %.preheader, !llvm.loop !157
 
 .preheader37.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -4638,7 +4655,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = add nsw i64 %.1102, 2
   %189 = icmp slt i64 %188, %97
-  br i1 %189, label %.preheader37.i75, label %._crit_edge, !llvm.loop !162
+  br i1 %189, label %.preheader37.i75, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %143, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -4795,7 +4812,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br label %.preheader86
 
 96:                                               ; preds = %._crit_edge
-  br i1 %97, label %.preheader86, label %128, !llvm.loop !163
+  br i1 %97, label %.preheader86, label %128, !llvm.loop !158
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %97 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ false, %96 ]
@@ -4880,12 +4897,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %126 = add nsw i64 %.087.us, 2
   %127 = icmp slt i64 %126, %90
-  br i1 %127, label %.lr.ph.i.us, label %.preheader, !llvm.loop !164
+  br i1 %127, label %.lr.ph.i.us, label %.preheader, !llvm.loop !159
 
 128:                                              ; preds = %96
   %129 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %130 = icmp slt i64 %129, %29
-  br i1 %130, label %61, label %._crit_edge95, !llvm.loop !165
+  br i1 %130, label %61, label %._crit_edge95, !llvm.loop !160
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader86
   %.0.lcssa = phi i64 [ %85, %.preheader86 ], [ %126, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -4934,7 +4951,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %147 = add nsw i64 %.087, 2
   %148 = icmp slt i64 %147, %90
-  br i1 %148, label %.preheader37.i, label %.preheader, !llvm.loop !166
+  br i1 %148, label %.preheader37.i, label %.preheader, !llvm.loop !159
 
 149:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %169, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -4962,7 +4979,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 154:                                              ; preds = %157
   %155 = add nuw nsw i64 %.03346.i76, 16
   %156 = icmp slt i64 %155, %92
-  br i1 %156, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !138
+  br i1 %156, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !135
 
 157:                                              ; preds = %157, %.preheader39.i
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %162, %157 ]
@@ -4976,7 +4993,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %161, ptr %160, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03445.i78, 1
   %exitcond.not.i81 = icmp eq i64 %162, 4
-  br i1 %exitcond.not.i81, label %154, label %157, !llvm.loop !139
+  br i1 %exitcond.not.i81, label %154, label %157, !llvm.loop !136
 
 163:                                              ; preds = %163, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %168, %163 ]
@@ -4987,13 +5004,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %166, ptr %167, align 4, !tbaa !93
   %168 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %168, 4
-  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %163, !llvm.loop !140
+  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %163, !llvm.loop !137
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %163
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %169 = add nsw i64 %.188, 1
   %170 = icmp slt i64 %169, %89
-  br i1 %170, label %149, label %._crit_edge, !llvm.loop !167
+  br i1 %170, label %149, label %._crit_edge, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %169, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -5090,7 +5107,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %117, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %120, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 3
   %58 = sdiv i64 %.06179, %9
@@ -5129,123 +5146,139 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %82 = phi i1 [ false, %._crit_edge.us.loopexit ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %.06068.us = phi i64 [ 4, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %83 = or disjoint i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
+  %82 = phi i1 [ false, %88 ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.06068.us.us = phi i64 [ 4, %88 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %83 = or disjoint i64 %.06068.us.us, %57
   %84 = load ptr, ptr %49, align 8
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %83
-  br i1 %79, label %.preheader39.lr.ph.i.us.us, label %.preheader37.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  br label %.preheader39.lr.ph.i.us.us.us
+
+88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  br i1 %82, label %.preheader.us.us, label %.split78.us, !llvm.loop !162
+
+.preheader39.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %107, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %89 = mul nsw i64 %85, %.067.us.us.us
+  %90 = getelementptr inbounds float, ptr %84, i64 %89
+  br label %.preheader39.i.us.us.us
+
+.preheader39.i.us.us.us:                          ; preds = %98, %.preheader39.lr.ph.i.us.us.us
+  %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %99, %98 ]
+  %91 = getelementptr inbounds nuw float, ptr %90, i64 %.03346.i.us.us.us
+  %.val36.le.i.us.us.us = load <16 x float>, ptr %91, align 1, !tbaa !53
+  %invariant.gep.i.us.us.us = getelementptr float, ptr %86, i64 %.03346.i.us.us.us
+  br label %92
+
+92:                                               ; preds = %92, %.preheader39.i.us.us.us
+  %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %97, %92 ]
+  %93 = add nuw nsw i64 %.03445.i.us.us.us, %83
+  %94 = mul nsw i64 %93, %87
+  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %94
+  %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %95 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %95, align 64, !tbaa !53
+  %96 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %96, ptr %95, align 64, !tbaa !53
+  %97 = add nuw nsw i64 %.03445.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %97, 4
+  br i1 %exitcond.not.i.us.us.us, label %98, label %92, !llvm.loop !136
+
+98:                                               ; preds = %92
+  %99 = add nuw nsw i64 %.03346.i.us.us.us, 16
+  %100 = icmp slt i64 %99, %78
+  br i1 %100, label %.preheader39.i.us.us.us, label %.preheader37.i.loopexit.us.us.us, !llvm.loop !135
+
+101:                                              ; preds = %.preheader37.i.loopexit.us.us.us, %101
+  %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %106, %101 ]
+  %102 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us.us
+  %103 = load <16 x float>, ptr %102, align 64, !tbaa !53
+  %104 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %103)
+  %105 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  store float %104, ptr %105, align 4, !tbaa !93
+  %106 = add nuw nsw i64 %.047.i.us.us.us, 1
+  %exitcond48.not.i.us.us.us = icmp eq i64 %106, 4
+  br i1 %exitcond48.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %101, !llvm.loop !137
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %101
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %107 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %107, %76
+  br i1 %exitcond85.not, label %88, label %.preheader39.lr.ph.i.us.us.us, !llvm.loop !163
+
+.preheader37.i.loopexit.us.us.us:                 ; preds = %98
+  %108 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %108
+  br label %101
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %118
+  %109 = phi i1 [ false, %118 ], [ true, %.preheader.us.preheader ]
+  %.06068.us = phi i64 [ 4, %118 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader37.i.us
 
 .preheader37.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %88 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
-  br label %89
+  %110 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %110
+  br label %111
 
-89:                                               ; preds = %89, %.preheader37.i.us
-  %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %94, %89 ]
-  %90 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us71
-  %91 = load <16 x float>, ptr %90, align 64, !tbaa !53
-  %92 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %91)
-  %93 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
-  store float %92, ptr %93, align 4, !tbaa !93
-  %94 = add nuw nsw i64 %.047.i.us71, 1
-  %exitcond48.not.i.us72 = icmp eq i64 %94, 4
-  br i1 %exitcond48.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !140
+111:                                              ; preds = %111, %.preheader37.i.us
+  %.047.i.us71 = phi i64 [ 0, %.preheader37.i.us ], [ %116, %111 ]
+  %112 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us71
+  %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
+  %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
+  %115 = getelementptr float, ptr %gep.us70, i64 %.047.i.us71
+  store float %114, ptr %115, align 4, !tbaa !93
+  %116 = add nuw nsw i64 %.047.i.us71, 1
+  %exitcond48.not.i.us72 = icmp eq i64 %116, 4
+  br i1 %exitcond48.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %111, !llvm.loop !137
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %95 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %95, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader37.i.us, !llvm.loop !168
+  %117 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %117, %76
+  br i1 %exitcond.not, label %118, label %.preheader37.i.us, !llvm.loop !163
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  br i1 %82, label %.preheader.us, label %.split78.us, !llvm.loop !169
-
-.preheader39.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %114, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %85, %.067.us.us
-  %97 = getelementptr inbounds float, ptr %84, i64 %96
-  br label %.preheader39.i.us.us
-
-.preheader39.i.us.us:                             ; preds = %105, %.preheader39.lr.ph.i.us.us
-  %.03346.i.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us ], [ %106, %105 ]
-  %98 = getelementptr inbounds nuw float, ptr %97, i64 %.03346.i.us.us
-  %.val36.le.i.us.us = load <16 x float>, ptr %98, align 1, !tbaa !53
-  %invariant.gep.i.us.us = getelementptr float, ptr %86, i64 %.03346.i.us.us
-  br label %99
-
-99:                                               ; preds = %99, %.preheader39.i.us.us
-  %.03445.i.us.us = phi i64 [ 0, %.preheader39.i.us.us ], [ %104, %99 ]
-  %100 = add nuw nsw i64 %.03445.i.us.us, %83
-  %101 = mul nsw i64 %100, %87
-  %gep.i.us.us = getelementptr float, ptr %invariant.gep.i.us.us, i64 %101
-  %.val.i.us.us = load <16 x float>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %102 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %102, align 64, !tbaa !53
-  %103 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us, <16 x float> %.val36.le.i.us.us, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %103, ptr %102, align 64, !tbaa !53
-  %104 = add nuw nsw i64 %.03445.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %104, 4
-  br i1 %exitcond.not.i.us.us, label %105, label %99, !llvm.loop !139
-
-105:                                              ; preds = %99
-  %106 = add nuw nsw i64 %.03346.i.us.us, 16
-  %107 = icmp slt i64 %106, %78
-  br i1 %107, label %.preheader39.i.us.us, label %.preheader37.i.loopexit.us.us, !llvm.loop !138
-
-108:                                              ; preds = %.preheader37.i.loopexit.us.us, %108
-  %.047.i.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us ], [ %113, %108 ]
-  %109 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us
-  %110 = load <16 x float>, ptr %109, align 64, !tbaa !53
-  %111 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %110)
-  %112 = getelementptr float, ptr %gep.us.us, i64 %.047.i.us.us
-  store float %111, ptr %112, align 4, !tbaa !93
-  %113 = add nuw nsw i64 %.047.i.us.us, 1
-  %exitcond48.not.i.us.us = icmp eq i64 %113, 4
-  br i1 %exitcond48.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %108, !llvm.loop !140
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %108
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %114 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %114, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader39.lr.ph.i.us.us, !llvm.loop !170
-
-.preheader37.i.loopexit.us.us:                    ; preds = %105
-  %115 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %115
-  br label %108
+118:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
+  br i1 %109, label %.preheader.us, label %.split78.us, !llvm.loop !162
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %116 = icmp eq i64 %spec.select, %76
-  br i1 %116, label %.split78.us, label %.split.us
+  %119 = icmp eq i64 %spec.select, %76
+  br i1 %119, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %117 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %118 = icmp slt i64 %117, %24
-  br i1 %118, label %55, label %._crit_edge, !llvm.loop !171
+.split78.us:                                      ; preds = %118, %88, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %120 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %121 = icmp slt i64 %120, %24
+  br i1 %121, label %55, label %._crit_edge, !llvm.loop !164
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %119 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %120)
+  %122 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %123 = load ptr, ptr %122, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %123)
   ret void
 }
 
@@ -5421,7 +5454,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !172
+  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !165
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %150, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -5526,7 +5559,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = add nsw i64 %.099, 6
   %151 = icmp slt i64 %150, %99
-  br i1 %151, label %117, label %.preheader, !llvm.loop !173
+  br i1 %151, label %117, label %.preheader, !llvm.loop !166
 
 152:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -5619,12 +5652,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.1100, 5
   %186 = icmp slt i64 %185, %98
-  br i1 %186, label %152, label %._crit_edge, !llvm.loop !174
+  br i1 %186, label %152, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
   %187 = icmp eq i64 %.1.lcssa, %98
-  br i1 %187, label %109, label %188, !llvm.loop !175
+  br i1 %187, label %109, label %188, !llvm.loop !168
 
 188:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -5809,7 +5842,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !176
+  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !169
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %150, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -5914,7 +5947,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = add nsw i64 %.099, 5
   %151 = icmp slt i64 %150, %99
-  br i1 %151, label %117, label %.preheader, !llvm.loop !177
+  br i1 %151, label %117, label %.preheader, !llvm.loop !170
 
 152:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -6007,12 +6040,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.1100, 4
   %186 = icmp slt i64 %185, %98
-  br i1 %186, label %152, label %._crit_edge, !llvm.loop !178
+  br i1 %186, label %152, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
   %187 = icmp eq i64 %.1.lcssa, %98
-  br i1 %187, label %109, label %188, !llvm.loop !179
+  br i1 %187, label %109, label %188, !llvm.loop !172
 
 188:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -6197,7 +6230,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 110:                                              ; preds = %._crit_edge
   %111 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %112 = icmp slt i64 %111, %31
-  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !180
+  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !173
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %.0.lcssa = phi i64 [ %91, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -6302,7 +6335,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.087, 4
   %152 = icmp slt i64 %151, %100
-  br i1 %152, label %118, label %.preheader, !llvm.loop !181
+  br i1 %152, label %118, label %.preheader, !llvm.loop !174
 
 153:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -6395,12 +6428,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nsw i64 %.188, 3
   %185 = icmp slt i64 %184, %99
-  br i1 %185, label %153, label %._crit_edge, !llvm.loop !182
+  br i1 %185, label %153, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
   %186 = icmp eq i64 %.1.lcssa, %99
-  br i1 %186, label %110, label %187, !llvm.loop !183
+  br i1 %186, label %110, label %187, !llvm.loop !176
 
 187:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -6585,7 +6618,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 108:                                              ; preds = %._crit_edge
   %109 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %110 = icmp slt i64 %109, %29
-  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !184
+  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !177
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %89, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %172, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -6668,7 +6701,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %139 = add nsw i64 %.1102.us, 2
   %140 = icmp slt i64 %139, %97
-  br i1 %140, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !185
+  br i1 %140, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !178
 
 141:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %172, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -6761,7 +6794,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = add nsw i64 %.0101, 3
   %173 = icmp slt i64 %172, %98
-  br i1 %173, label %141, label %.preheader, !llvm.loop !186
+  br i1 %173, label %141, label %.preheader, !llvm.loop !179
 
 .preheader37.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -6796,12 +6829,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nsw i64 %.1102, 2
   %185 = icmp slt i64 %184, %97
-  br i1 %185, label %.preheader37.i75, label %._crit_edge, !llvm.loop !187
+  br i1 %185, label %.preheader37.i75, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %139, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
   %186 = icmp eq i64 %.1.lcssa, %97
-  br i1 %186, label %108, label %187, !llvm.loop !188
+  br i1 %186, label %108, label %187, !llvm.loop !180
 
 187:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -7029,12 +7062,12 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %123 = add nsw i64 %.087.us, 2
   %124 = icmp slt i64 %123, %90
-  br i1 %124, label %.lr.ph.i.us, label %.preheader, !llvm.loop !189
+  br i1 %124, label %.lr.ph.i.us, label %.preheader, !llvm.loop !181
 
 125:                                              ; preds = %._crit_edge
   %126 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %127 = icmp slt i64 %126, %29
-  br i1 %127, label %61, label %._crit_edge94, !llvm.loop !190
+  br i1 %127, label %61, label %._crit_edge94, !llvm.loop !182
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %.0.lcssa = phi i64 [ %85, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %123, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %143, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -7081,7 +7114,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %143 = add nsw i64 %.087, 2
   %144 = icmp slt i64 %143, %90
-  br i1 %144, label %.preheader37.i, label %.preheader, !llvm.loop !191
+  br i1 %144, label %.preheader37.i, label %.preheader, !llvm.loop !181
 
 145:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %165, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -7109,7 +7142,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 150:                                              ; preds = %153
   %151 = add nuw nsw i64 %.03346.i76, 16
   %152 = icmp slt i64 %151, %92
-  br i1 %152, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !138
+  br i1 %152, label %.preheader39.i, label %.preheader37.i74, !llvm.loop !135
 
 153:                                              ; preds = %153, %.preheader39.i
   %.03445.i78 = phi i64 [ 0, %.preheader39.i ], [ %158, %153 ]
@@ -7123,7 +7156,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %157, ptr %156, align 64, !tbaa !53
   %158 = add nuw nsw i64 %.03445.i78, 1
   %exitcond.not.i81 = icmp eq i64 %158, 4
-  br i1 %exitcond.not.i81, label %150, label %153, !llvm.loop !139
+  br i1 %exitcond.not.i81, label %150, label %153, !llvm.loop !136
 
 159:                                              ; preds = %159, %.preheader37.i74
   %.047.i75 = phi i64 [ 0, %.preheader37.i74 ], [ %164, %159 ]
@@ -7134,18 +7167,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.047.i75, 1
   %exitcond48.not.i = icmp eq i64 %164, 4
-  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %159, !llvm.loop !140
+  br i1 %exitcond48.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %159, !llvm.loop !137
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %159
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %165 = add nsw i64 %.188, 1
   %166 = icmp slt i64 %165, %89
-  br i1 %166, label %145, label %._crit_edge, !llvm.loop !192
+  br i1 %166, label %145, label %._crit_edge, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %165, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
   %167 = icmp eq i64 %.1.lcssa, %89
-  br i1 %167, label %125, label %168, !llvm.loop !193
+  br i1 %167, label %125, label %168, !llvm.loop !184
 
 168:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -7237,10 +7270,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06180 = phi i64 [ %44, %.lr.ph ], [ %118, %.split.us ]
-  %56 = srem i64 %.06180, %9
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %119, %.split.us ]
+  %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
-  %58 = sdiv i64 %.06180, %9
+  %58 = sdiv i64 %.06181, %9
   %59 = icmp slt i64 %58, %23
   br i1 %59, label %60, label %62
 
@@ -7276,124 +7309,131 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
   %.fr = freeze i1 %77
-  br i1 %.fr, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader37.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %.preheader.us ]
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %.fr82, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader37.i.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %82 = load ptr, ptr %49, align 8
+  %83 = load i64, ptr %50, align 8
+  %84 = load ptr, ptr %51, align 8
+  %85 = load i64, ptr %52, align 8
+  br label %.preheader39.lr.ph.i.us.us.us
+
+.preheader39.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %104, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %81 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %81
-  br label %82
+  %86 = mul nsw i64 %83, %.067.us.us.us
+  %87 = getelementptr inbounds float, ptr %82, i64 %86
+  br label %.preheader39.i.us.us.us
 
-82:                                               ; preds = %82, %.preheader37.i.us
-  %.047.i.us70 = phi i64 [ 0, %.preheader37.i.us ], [ %87, %82 ]
-  %83 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us70
-  %84 = load <16 x float>, ptr %83, align 64, !tbaa !53
-  %85 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %84)
-  %86 = getelementptr float, ptr %gep.us69, i64 %.047.i.us70
-  store float %85, ptr %86, align 4, !tbaa !93
-  %87 = add nuw nsw i64 %.047.i.us70, 1
-  %exitcond48.not.i.us71 = icmp eq i64 %87, 4
-  br i1 %exitcond48.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, label %82, !llvm.loop !140
+.preheader39.i.us.us.us:                          ; preds = %95, %.preheader39.lr.ph.i.us.us.us
+  %.03346.i.us.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us.us ], [ %96, %95 ]
+  %88 = getelementptr inbounds nuw float, ptr %87, i64 %.03346.i.us.us.us
+  %.val36.le.i.us.us.us = load <16 x float>, ptr %88, align 1, !tbaa !53
+  %invariant.gep.i.us.us.us = getelementptr float, ptr %84, i64 %.03346.i.us.us.us
+  br label %89
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %82
+89:                                               ; preds = %89, %.preheader39.i.us.us.us
+  %.03445.i.us.us.us = phi i64 [ 0, %.preheader39.i.us.us.us ], [ %94, %89 ]
+  %90 = add nuw nsw i64 %.03445.i.us.us.us, %57
+  %91 = mul nsw i64 %90, %85
+  %gep.i.us.us.us = getelementptr float, ptr %invariant.gep.i.us.us.us, i64 %91
+  %.val.i.us.us.us = load <16 x float>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %92 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %92, align 64, !tbaa !53
+  %93 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us.us, <16 x float> %.val36.le.i.us.us.us, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %93, ptr %92, align 64, !tbaa !53
+  %94 = add nuw nsw i64 %.03445.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %94, 4
+  br i1 %exitcond.not.i.us.us.us, label %95, label %89, !llvm.loop !136
+
+95:                                               ; preds = %89
+  %96 = add nuw nsw i64 %.03346.i.us.us.us, 16
+  %97 = icmp slt i64 %96, %.fr82
+  br i1 %97, label %.preheader39.i.us.us.us, label %.preheader37.i.loopexit.us.us.us, !llvm.loop !135
+
+98:                                               ; preds = %.preheader37.i.loopexit.us.us.us, %98
+  %.047.i.us.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us.us ], [ %103, %98 ]
+  %99 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us.us
+  %100 = load <16 x float>, ptr %99, align 64, !tbaa !53
+  %101 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %100)
+  %102 = getelementptr float, ptr %gep.us.us.us, i64 %.047.i.us.us.us
+  store float %101, ptr %102, align 4, !tbaa !93
+  %103 = add nuw nsw i64 %.047.i.us.us.us, 1
+  %exitcond48.not.i.us.us.us = icmp eq i64 %103, 4
+  br i1 %exitcond48.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %98, !llvm.loop !137
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %98
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %88 = add nsw i64 %.067.us68, 1
-  %89 = icmp slt i64 %88, %76
-  br i1 %89, label %.preheader37.i.us, label %._crit_edge.us, !llvm.loop !194
+  %104 = add nsw i64 %.067.us.us.us, 1
+  %105 = icmp slt i64 %104, %76
+  br i1 %105, label %.preheader39.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !185
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %90 = icmp sgt i64 %78, 0
-  %91 = load ptr, ptr %49, align 8
-  %92 = load i64, ptr %50, align 8
-  %93 = load ptr, ptr %51, align 8
-  %94 = load i64, ptr %52, align 8
-  br i1 %90, label %.preheader39.lr.ph.i.us.us, label %.preheader37.i.us
+.preheader37.i.loopexit.us.us.us:                 ; preds = %95
+  %106 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %106
+  br label %98
 
-._crit_edge.us:                                   ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.us-phi.us = phi i64 [ %114, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72 ]
-  %95 = icmp eq i64 %.us-phi.us, %76
-  br i1 %95, label %.split.us, label %.split77.us, !llvm.loop !195
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %107 = icmp eq i64 %104, %76
+  br i1 %107, label %.split.us, label %.split77.us, !llvm.loop !186
 
-.preheader39.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %114, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
+.preheader37.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %.067.us68 = phi i64 [ %115, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %92, %.067.us.us
-  %97 = getelementptr inbounds float, ptr %91, i64 %96
-  br label %.preheader39.i.us.us
+  %108 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %108
+  br label %109
 
-.preheader39.i.us.us:                             ; preds = %105, %.preheader39.lr.ph.i.us.us
-  %.03346.i.us.us = phi i64 [ 0, %.preheader39.lr.ph.i.us.us ], [ %106, %105 ]
-  %98 = getelementptr inbounds nuw float, ptr %97, i64 %.03346.i.us.us
-  %.val36.le.i.us.us = load <16 x float>, ptr %98, align 1, !tbaa !53
-  %invariant.gep.i.us.us = getelementptr float, ptr %93, i64 %.03346.i.us.us
-  br label %99
+109:                                              ; preds = %109, %.preheader37.i.us
+  %.047.i.us70 = phi i64 [ 0, %.preheader37.i.us ], [ %114, %109 ]
+  %110 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us70
+  %111 = load <16 x float>, ptr %110, align 64, !tbaa !53
+  %112 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %111)
+  %113 = getelementptr float, ptr %gep.us69, i64 %.047.i.us70
+  store float %112, ptr %113, align 4, !tbaa !93
+  %114 = add nuw nsw i64 %.047.i.us70, 1
+  %exitcond48.not.i.us71 = icmp eq i64 %114, 4
+  br i1 %exitcond48.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72, label %109, !llvm.loop !137
 
-99:                                               ; preds = %99, %.preheader39.i.us.us
-  %.03445.i.us.us = phi i64 [ 0, %.preheader39.i.us.us ], [ %104, %99 ]
-  %100 = add nuw nsw i64 %.03445.i.us.us, %57
-  %101 = mul nsw i64 %100, %94
-  %gep.i.us.us = getelementptr float, ptr %invariant.gep.i.us.us, i64 %101
-  %.val.i.us.us = load <16 x float>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %102 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03445.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %102, align 64, !tbaa !53
-  %103 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %.val.i.us.us, <16 x float> %.val36.le.i.us.us, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %103, ptr %102, align 64, !tbaa !53
-  %104 = add nuw nsw i64 %.03445.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %104, 4
-  br i1 %exitcond.not.i.us.us, label %105, label %99, !llvm.loop !139
-
-105:                                              ; preds = %99
-  %106 = add nuw nsw i64 %.03346.i.us.us, 16
-  %107 = icmp slt i64 %106, %78
-  br i1 %107, label %.preheader39.i.us.us, label %.preheader37.i.loopexit.us.us, !llvm.loop !138
-
-108:                                              ; preds = %.preheader37.i.loopexit.us.us, %108
-  %.047.i.us.us = phi i64 [ 0, %.preheader37.i.loopexit.us.us ], [ %113, %108 ]
-  %109 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.047.i.us.us
-  %110 = load <16 x float>, ptr %109, align 64, !tbaa !53
-  %111 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %110)
-  %112 = getelementptr float, ptr %gep.us.us, i64 %.047.i.us.us
-  store float %111, ptr %112, align 4, !tbaa !93
-  %113 = add nuw nsw i64 %.047.i.us.us, 1
-  %exitcond48.not.i.us.us = icmp eq i64 %113, 4
-  br i1 %exitcond48.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %108, !llvm.loop !140
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %108
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %114 = add nsw i64 %.067.us.us, 1
-  %115 = icmp slt i64 %114, %76
-  br i1 %115, label %.preheader39.lr.ph.i.us.us, label %._crit_edge.us, !llvm.loop !196
+  %115 = add nsw i64 %.067.us68, 1
+  %116 = icmp slt i64 %115, %76
+  br i1 %116, label %.preheader37.i.us, label %._crit_edge.split.us73, !llvm.loop !185
 
-.preheader37.i.loopexit.us.us:                    ; preds = %105
-  %116 = mul nsw i64 %80, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep, i64 %116
-  br label %108
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %117 = icmp eq i64 %115, %76
+  br i1 %117, label %.split.us, label %.split77.us, !llvm.loop !186
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %117 = icmp eq i64 %spec.select, %76
-  %.fr79 = freeze i1 %117
-  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !197
+  %118 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %118
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !186
 
-.split.us:                                        ; preds = %._crit_edge.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %118 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %119 = icmp slt i64 %118, %24
-  br i1 %119, label %55, label %._crit_edge, !llvm.loop !198
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %119 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %120 = icmp slt i64 %119, %24
+  br i1 %120, label %55, label %._crit_edge, !llvm.loop !187
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.us
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %120 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %121)
+  %121 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %122 = load ptr, ptr %121, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %122)
   ret void
 }
 
@@ -7561,7 +7601,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 105:                                              ; preds = %._crit_edge
   %106 = add nuw nsw i64 %.066103, 4
   %107 = icmp samesign ult i64 %.066103, 12
-  br i1 %107, label %.preheader98, label %113, !llvm.loop !199
+  br i1 %107, label %.preheader98, label %113, !llvm.loop !188
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %.066103 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %106, %105 ]
@@ -7579,7 +7619,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 113:                                              ; preds = %105
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %30
-  br i1 %115, label %62, label %._crit_edge107, !llvm.loop !200
+  br i1 %115, label %62, label %._crit_edge107, !llvm.loop !189
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -7626,13 +7666,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !201
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !190
 
 130:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %101
-  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !202
+  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !191
 
 133:                                              ; preds = %140, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
@@ -7649,7 +7689,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 140:                                              ; preds = %142
   %141 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %141, 6
-  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !203
+  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !192
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
@@ -7661,7 +7701,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
   %148 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %148, 4
-  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !204
+  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !193
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
@@ -7674,7 +7714,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 152:                                              ; preds = %154
   %153 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %153, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !205
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !194
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
@@ -7685,13 +7725,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
-  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !206
+  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !195
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.099, 6
   %161 = icmp slt i64 %160, %99
-  br i1 %161, label %122, label %.preheader, !llvm.loop !207
+  br i1 %161, label %122, label %.preheader, !llvm.loop !196
 
 162:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -7724,13 +7764,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %169, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %163, !llvm.loop !208
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %163, !llvm.loop !197
 
 170:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03346.i84, 16
   %172 = icmp slt i64 %171, %101
-  br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !209
+  br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !198
 
 173:                                              ; preds = %180, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %181, %180 ]
@@ -7747,7 +7787,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 180:                                              ; preds = %182
   %181 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %181, 5
-  br i1 %exitcond52.not.i97, label %170, label %173, !llvm.loop !210
+  br i1 %exitcond52.not.i97, label %170, label %173, !llvm.loop !199
 
 182:                                              ; preds = %182, %173
   %.03242.i95 = phi i64 [ 0, %173 ], [ %188, %182 ]
@@ -7759,7 +7799,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x float> %187, ptr %185, align 64, !tbaa !53
   %188 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %188, 4
-  br i1 %exitcond51.not.i96, label %180, label %182, !llvm.loop !211
+  br i1 %exitcond51.not.i96, label %180, label %182, !llvm.loop !200
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %192
   %.03150.i78 = phi i64 [ %193, %192 ], [ 0, %.preheader.i77.preheader ]
@@ -7772,7 +7812,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 192:                                              ; preds = %194
   %193 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %193, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !212
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !201
 
 194:                                              ; preds = %194, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %199, %194 ]
@@ -7783,13 +7823,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %199, 4
-  br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !213
+  br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = add nsw i64 %.1100, 5
   %201 = icmp slt i64 %200, %98
-  br i1 %201, label %162, label %._crit_edge, !llvm.loop !214
+  br i1 %201, label %162, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -7971,7 +8011,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 105:                                              ; preds = %._crit_edge
   %106 = add nuw nsw i64 %.066101, 4
   %107 = icmp samesign ult i64 %.066101, 12
-  br i1 %107, label %.preheader96, label %113, !llvm.loop !215
+  br i1 %107, label %.preheader96, label %113, !llvm.loop !204
 
 .preheader96:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %.066101 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %106, %105 ]
@@ -7989,7 +8029,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 113:                                              ; preds = %105
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %30
-  br i1 %115, label %62, label %._crit_edge105, !llvm.loop !216
+  br i1 %115, label %62, label %._crit_edge105, !llvm.loop !205
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %.preheader96
   %.0.lcssa = phi i64 [ %90, %.preheader96 ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -8036,13 +8076,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !208
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !197
 
 130:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %101
-  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !209
+  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !198
 
 133:                                              ; preds = %140, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
@@ -8059,7 +8099,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 140:                                              ; preds = %142
   %141 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %141, 5
-  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !210
+  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !199
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
@@ -8071,7 +8111,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
   %148 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %148, 4
-  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !211
+  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !200
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
@@ -8084,7 +8124,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 152:                                              ; preds = %154
   %153 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %153, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !212
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !201
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
@@ -8095,13 +8135,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
-  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !213
+  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.097, 5
   %161 = icmp slt i64 %160, %99
-  br i1 %161, label %122, label %.preheader, !llvm.loop !217
+  br i1 %161, label %122, label %.preheader, !llvm.loop !206
 
 162:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -8134,13 +8174,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %169, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %163, !llvm.loop !218
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %163, !llvm.loop !207
 
 170:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03346.i84, 16
   %172 = icmp slt i64 %171, %101
-  br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !219
+  br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !208
 
 173:                                              ; preds = %180, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %181, %180 ]
@@ -8157,7 +8197,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 180:                                              ; preds = %182
   %181 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %181, 4
-  br i1 %exitcond52.not.i95, label %170, label %173, !llvm.loop !220
+  br i1 %exitcond52.not.i95, label %170, label %173, !llvm.loop !209
 
 182:                                              ; preds = %182, %173
   %.03242.i93 = phi i64 [ 0, %173 ], [ %188, %182 ]
@@ -8169,7 +8209,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x float> %187, ptr %185, align 64, !tbaa !53
   %188 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %188, 4
-  br i1 %exitcond51.not.i94, label %180, label %182, !llvm.loop !221
+  br i1 %exitcond51.not.i94, label %180, label %182, !llvm.loop !210
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %192
   %.03150.i78 = phi i64 [ %193, %192 ], [ 0, %.preheader.i77.preheader ]
@@ -8182,7 +8222,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 192:                                              ; preds = %194
   %193 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %193, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !222
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !211
 
 194:                                              ; preds = %194, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %199, %194 ]
@@ -8193,13 +8233,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %199, 4
-  br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !223
+  br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %192
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = add nsw i64 %.198, 4
   %201 = icmp slt i64 %200, %98
-  br i1 %201, label %162, label %._crit_edge, !llvm.loop !224
+  br i1 %201, label %162, label %._crit_edge, !llvm.loop !213
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -8381,7 +8421,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 106:                                              ; preds = %._crit_edge
   %107 = add nuw nsw i64 %.06691, 4
   %108 = icmp samesign ult i64 %.06691, 12
-  br i1 %108, label %.preheader86, label %114, !llvm.loop !225
+  br i1 %108, label %.preheader86, label %114, !llvm.loop !214
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73, %106
   %.06691 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ %107, %106 ]
@@ -8399,7 +8439,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 114:                                              ; preds = %106
   %115 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %116 = icmp slt i64 %115, %31
-  br i1 %116, label %63, label %._crit_edge95, !llvm.loop !226
+  br i1 %116, label %63, label %._crit_edge95, !llvm.loop !215
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %.preheader86
   %.0.lcssa = phi i64 [ %91, %.preheader86 ], [ %161, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -8446,13 +8486,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x i32> %128, ptr %129, align 64, !tbaa !53
   %130 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %130, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !218
+  br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !207
 
 131:                                              ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %132 = add nuw nsw i64 %.03346.i, 16
   %133 = icmp slt i64 %132, %102
-  br i1 %133, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !219
+  br i1 %133, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !208
 
 134:                                              ; preds = %141, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %142, %141 ]
@@ -8469,7 +8509,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 141:                                              ; preds = %143
   %142 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %142, 4
-  br i1 %exitcond52.not.i, label %131, label %134, !llvm.loop !220
+  br i1 %exitcond52.not.i, label %131, label %134, !llvm.loop !209
 
 143:                                              ; preds = %143, %134
   %.03242.i = phi i64 [ 0, %134 ], [ %149, %143 ]
@@ -8481,7 +8521,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %148, ptr %146, align 64, !tbaa !53
   %149 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %149, 4
-  br i1 %exitcond51.not.i, label %141, label %143, !llvm.loop !221
+  br i1 %exitcond51.not.i, label %141, label %143, !llvm.loop !210
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %153
   %.03150.i = phi i64 [ %154, %153 ], [ 0, %.preheader.i.preheader ]
@@ -8494,7 +8534,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 153:                                              ; preds = %155
   %154 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %154, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !222
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !211
 
 155:                                              ; preds = %155, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %160, %155 ]
@@ -8505,13 +8545,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %158, ptr %159, align 4, !tbaa !93
   %160 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %160, 4
-  br i1 %exitcond53.not.i, label %153, label %155, !llvm.loop !223
+  br i1 %exitcond53.not.i, label %153, label %155, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %153
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %161 = add nsw i64 %.087, 4
   %162 = icmp slt i64 %161, %100
-  br i1 %162, label %123, label %.preheader, !llvm.loop !227
+  br i1 %162, label %123, label %.preheader, !llvm.loop !216
 
 163:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -8544,13 +8584,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x i32> %168, ptr %169, align 64, !tbaa !53
   %170 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %170, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %164, !llvm.loop !228
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %164, !llvm.loop !217
 
 171:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = add nuw nsw i64 %.03348.i, 16
   %173 = icmp slt i64 %172, %102
-  br i1 %173, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !229
+  br i1 %173, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !218
 
 174:                                              ; preds = %180, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %181, %180 ]
@@ -8567,7 +8607,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 180:                                              ; preds = %182
   %181 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %181, 4
-  br i1 %exitcond54.not.i85, label %171, label %174, !llvm.loop !230
+  br i1 %exitcond54.not.i85, label %171, label %174, !llvm.loop !219
 
 182:                                              ; preds = %182, %174
   %.03244.i = phi i64 [ 0, %174 ], [ %187, %182 ]
@@ -8579,7 +8619,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x float> %186, ptr %gep43.i, align 64, !tbaa !53
   %187 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %187, 3
-  br i1 %exitcond53.not.i84, label %180, label %182, !llvm.loop !231
+  br i1 %exitcond53.not.i84, label %180, label %182, !llvm.loop !220
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %191
   %.03152.i = phi i64 [ %192, %191 ], [ 0, %.preheader.i75.preheader ]
@@ -8592,7 +8632,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 191:                                              ; preds = %193
   %192 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %192, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !221
 
 193:                                              ; preds = %193, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %198, %193 ]
@@ -8603,13 +8643,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %198, 4
-  br i1 %exitcond55.not.i, label %191, label %193, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %191, label %193, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.188, 3
   %200 = icmp slt i64 %199, %99
-  br i1 %200, label %163, label %._crit_edge, !llvm.loop !234
+  br i1 %200, label %163, label %._crit_edge, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -8791,7 +8831,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 104:                                              ; preds = %._crit_edge
   %105 = add nuw nsw i64 %.066105, 4
   %106 = icmp samesign ult i64 %.066105, 12
-  br i1 %106, label %.preheader100, label %112, !llvm.loop !235
+  br i1 %106, label %.preheader100, label %112, !llvm.loop !224
 
 .preheader100:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %104
   %.066105 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %105, %104 ]
@@ -8809,7 +8849,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 112:                                              ; preds = %104
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %29
-  br i1 %114, label %61, label %._crit_edge109, !llvm.loop !236
+  br i1 %114, label %61, label %._crit_edge109, !llvm.loop !225
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %.preheader100
   %.0.lcssa = phi i64 [ %89, %.preheader100 ], [ %191, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -8869,12 +8909,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %138, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %139 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %139, 4
-  br i1 %exitcond.not.i96.us, label %140, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i96.us, label %140, label %.critedge, !llvm.loop !226
 
 140:                                              ; preds = %.critedge
   %141 = add nuw nsw i64 %.03348.i83.us, 16
   %142 = icmp slt i64 %141, %100
-  br i1 %142, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !238
+  br i1 %142, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !227
 
 .preheader.i77.us:                                ; preds = %140, %152
   %143 = phi i1 [ false, %152 ], [ true, %140 ]
@@ -8894,16 +8934,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %151, 4
-  br i1 %exitcond53.not.i81.us, label %152, label %146, !llvm.loop !239
+  br i1 %exitcond53.not.i81.us, label %152, label %146, !llvm.loop !228
 
 152:                                              ; preds = %146
-  br i1 %143, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %143, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %153 = add nsw i64 %.1102.us, 2
   %154 = icmp slt i64 %153, %97
-  br i1 %154, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !241
+  br i1 %154, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !230
 
 155:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %191, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -8936,13 +8976,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x i32> %160, ptr %161, align 64, !tbaa !53
   %162 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %162, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %156, !llvm.loop !228
+  br i1 %exitcond.not.i, label %.preheader40.i, label %156, !llvm.loop !217
 
 163:                                              ; preds = %172
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %164 = add nuw nsw i64 %.03348.i, 16
   %165 = icmp slt i64 %164, %100
-  br i1 %165, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !229
+  br i1 %165, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !218
 
 166:                                              ; preds = %172, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %173, %172 ]
@@ -8959,7 +8999,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 172:                                              ; preds = %174
   %173 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %173, 4
-  br i1 %exitcond54.not.i, label %163, label %166, !llvm.loop !230
+  br i1 %exitcond54.not.i, label %163, label %166, !llvm.loop !219
 
 174:                                              ; preds = %174, %166
   %.03244.i = phi i64 [ 0, %166 ], [ %179, %174 ]
@@ -8971,7 +9011,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %178, ptr %gep43.i, align 64, !tbaa !53
   %179 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %179, 3
-  br i1 %exitcond53.not.i, label %172, label %174, !llvm.loop !231
+  br i1 %exitcond53.not.i, label %172, label %174, !llvm.loop !220
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %183
   %.03152.i = phi i64 [ %184, %183 ], [ 0, %.preheader.i.preheader ]
@@ -8984,7 +9024,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 183:                                              ; preds = %185
   %184 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %184, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !221
 
 185:                                              ; preds = %185, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %190, %185 ]
@@ -8995,13 +9035,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %188, ptr %189, align 4, !tbaa !93
   %190 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %190, 4
-  br i1 %exitcond55.not.i, label %183, label %185, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %183, label %185, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %191 = add nsw i64 %.0101, 3
   %192 = icmp slt i64 %191, %98
-  br i1 %192, label %155, label %.preheader, !llvm.loop !242
+  br i1 %192, label %155, label %.preheader, !llvm.loop !231
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %203, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -9019,7 +9059,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br label %197
 
 196:                                              ; preds = %197
-  br i1 %193, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %193, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 197:                                              ; preds = %197, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %202, %197 ]
@@ -9030,13 +9070,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   store float %200, ptr %201, align 4, !tbaa !93
   %202 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %202, 4
-  br i1 %exitcond53.not.i81, label %196, label %197, !llvm.loop !239
+  br i1 %exitcond53.not.i81, label %196, label %197, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %196
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %203 = add nsw i64 %.1102, 2
   %204 = icmp slt i64 %203, %97
-  br i1 %204, label %.preheader39.i75, label %._crit_edge, !llvm.loop !243
+  br i1 %204, label %.preheader39.i75, label %._crit_edge, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %153, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %203, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -9195,7 +9235,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 96:                                               ; preds = %._crit_edge
   %97 = add nuw nsw i64 %.06688, 4
   %98 = icmp samesign ult i64 %.06688, 12
-  br i1 %98, label %.preheader83, label %138, !llvm.loop !244
+  br i1 %98, label %.preheader83, label %138, !llvm.loop !232
 
 .preheader83:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %.06688 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %97, %96 ]
@@ -9254,12 +9294,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %121, ptr %gep43.i.us.c, align 64, !tbaa !53
   %122 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %122, 4
-  br i1 %exitcond.not.i.us, label %123, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i.us, label %123, label %.critedge, !llvm.loop !226
 
 123:                                              ; preds = %.critedge
   %124 = add nuw nsw i64 %.03348.i.us, 16
   %125 = icmp slt i64 %124, %92
-  br i1 %125, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !238
+  br i1 %125, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !227
 
 .preheader.i.us:                                  ; preds = %123, %135
   %126 = phi i1 [ false, %135 ], [ true, %123 ]
@@ -9279,21 +9319,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %132, ptr %133, align 4, !tbaa !93
   %134 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %134, 4
-  br i1 %exitcond53.not.i.us, label %135, label %129, !llvm.loop !239
+  br i1 %exitcond53.not.i.us, label %135, label %129, !llvm.loop !228
 
 135:                                              ; preds = %129
-  br i1 %126, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %126, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %136 = add nsw i64 %.084.us, 2
   %137 = icmp slt i64 %136, %90
-  br i1 %137, label %.lr.ph.i.us, label %.preheader, !llvm.loop !245
+  br i1 %137, label %.lr.ph.i.us, label %.preheader, !llvm.loop !233
 
 138:                                              ; preds = %96
   %139 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %140 = icmp slt i64 %139, %29
-  br i1 %140, label %61, label %._crit_edge92, !llvm.loop !246
+  br i1 %140, label %61, label %._crit_edge92, !llvm.loop !234
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader83
   %.0.lcssa = phi i64 [ %85, %.preheader83 ], [ %136, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -9325,7 +9365,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br label %151
 
 150:                                              ; preds = %151
-  br i1 %147, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %147, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 151:                                              ; preds = %151, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
@@ -9336,13 +9376,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
-  br i1 %exitcond53.not.i, label %150, label %151, !llvm.loop !239
+  br i1 %exitcond53.not.i, label %150, label %151, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %150
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %157 = add nsw i64 %.084, 2
   %158 = icmp slt i64 %157, %90
-  br i1 %158, label %.preheader39.i, label %.preheader, !llvm.loop !247
+  br i1 %158, label %.preheader39.i, label %.preheader, !llvm.loop !233
 
 159:                                              ; preds = %.lr.ph86, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.185 = phi i64 [ %.0.lcssa, %.lr.ph86 ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -9373,7 +9413,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 167:                                              ; preds = %170
   %168 = add nuw nsw i64 %.03349.i, 16
   %169 = icmp slt i64 %168, %92
-  br i1 %169, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !248
+  br i1 %169, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !235
 
 170:                                              ; preds = %170, %.preheader41.i
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %178, %170 ]
@@ -9390,7 +9430,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %177, ptr %176, align 64, !tbaa !53
   %178 = add nuw nsw i64 %.03448.i, 1
   %exitcond.not.i78 = icmp eq i64 %178, 4
-  br i1 %exitcond.not.i78, label %167, label %170, !llvm.loop !249
+  br i1 %exitcond.not.i78, label %167, label %170, !llvm.loop !236
 
 179:                                              ; preds = %179, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %184, %179 ]
@@ -9401,13 +9441,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %184, 4
-  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %179, !llvm.loop !250
+  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %179, !llvm.loop !237
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.185, 1
   %186 = icmp slt i64 %185, %89
-  br i1 %186, label %159, label %._crit_edge, !llvm.loop !251
+  br i1 %186, label %159, label %._crit_edge, !llvm.loop !238
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -9504,7 +9544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %124, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %128, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 4
   %58 = sdiv i64 %.06179, %9
@@ -9543,130 +9583,147 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %.06068.us = phi i64 [ %95, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %82 = add nuw nsw i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
+  %.06068.us.us = phi i64 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %82 = add nuw nsw i64 %.06068.us.us, %57
   %83 = load ptr, ptr %49, align 8
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %82
-  br i1 %79, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  br label %.preheader41.lr.ph.i.us.us.us
+
+87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %88 = add nuw nsw i64 %.06068.us.us, 4
+  %89 = icmp samesign ult i64 %.06068.us.us, 12
+  br i1 %89, label %.preheader.us.us, label %.split78.us, !llvm.loop !239
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %114, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %90 = mul nsw i64 %84, %.067.us.us.us
+  %91 = getelementptr inbounds %struct.ggml_bf16_t, ptr %83, i64 %90
+  br label %.preheader41.i.us.us.us
+
+.preheader41.i.us.us.us:                          ; preds = %105, %.preheader41.lr.ph.i.us.us.us
+  %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %106, %105 ]
+  %92 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %91, i64 %.03349.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x i16>, ptr %92, align 1, !tbaa !53
+  %93 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
+  %94 = shl nuw <16 x i32> %93, splat (i32 16)
+  %95 = bitcast <16 x i32> %94 to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %85, i64 %.03349.i.us.us.us
+  br label %96
+
+96:                                               ; preds = %96, %.preheader41.i.us.us.us
+  %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %104, %96 ]
+  %97 = add nuw nsw i64 %.03448.i.us.us.us, %82
+  %98 = mul nsw i64 %97, %86
+  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %98
+  %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %99 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
+  %100 = shl nuw <16 x i32> %99, splat (i32 16)
+  %101 = bitcast <16 x i32> %100 to <16 x float>
+  %102 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %102, align 64, !tbaa !53
+  %103 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %101, <16 x float> %95, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %103, ptr %102, align 64, !tbaa !53
+  %104 = add nuw nsw i64 %.03448.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %104, 4
+  br i1 %exitcond.not.i.us.us.us, label %105, label %96, !llvm.loop !236
+
+105:                                              ; preds = %96
+  %106 = add nuw nsw i64 %.03349.i.us.us.us, 16
+  %107 = icmp slt i64 %106, %78
+  br i1 %107, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !235
+
+108:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %108
+  %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %113, %108 ]
+  %109 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us.us
+  %110 = load <16 x float>, ptr %109, align 64, !tbaa !53
+  %111 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %110)
+  %112 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  store float %111, ptr %112, align 4, !tbaa !93
+  %113 = add nuw nsw i64 %.050.i.us.us.us, 1
+  %exitcond51.not.i.us.us.us = icmp eq i64 %113, 4
+  br i1 %exitcond51.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %108, !llvm.loop !237
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %108
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %114 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %114, %76
+  br i1 %exitcond85.not, label %87, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !240
+
+.preheader39.i.loopexit.us.us.us:                 ; preds = %105
+  %115 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %115
+  br label %108
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %124
+  %.06068.us = phi i64 [ %125, %124 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %123, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %87 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
-  br label %88
+  %116 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %116
+  br label %117
 
-88:                                               ; preds = %88, %.preheader39.i.us
-  %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %93, %88 ]
-  %89 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us71
-  %90 = load <16 x float>, ptr %89, align 64, !tbaa !53
-  %91 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %90)
-  %92 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
-  store float %91, ptr %92, align 4, !tbaa !93
-  %93 = add nuw nsw i64 %.050.i.us71, 1
-  %exitcond51.not.i.us72 = icmp eq i64 %93, 4
-  br i1 %exitcond51.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !250
+117:                                              ; preds = %117, %.preheader39.i.us
+  %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %122, %117 ]
+  %118 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us71
+  %119 = load <16 x float>, ptr %118, align 64, !tbaa !53
+  %120 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %119)
+  %121 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
+  store float %120, ptr %121, align 4, !tbaa !93
+  %122 = add nuw nsw i64 %.050.i.us71, 1
+  %exitcond51.not.i.us72 = icmp eq i64 %122, 4
+  br i1 %exitcond51.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %117, !llvm.loop !237
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %117
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %94 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %94, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader39.i.us, !llvm.loop !252
+  %123 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %123, %76
+  br i1 %exitcond.not, label %124, label %.preheader39.i.us, !llvm.loop !240
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %95 = add nuw nsw i64 %.06068.us, 4
-  %96 = icmp samesign ult i64 %.06068.us, 12
-  br i1 %96, label %.preheader.us, label %.split78.us, !llvm.loop !253
-
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %121, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %97 = mul nsw i64 %84, %.067.us.us
-  %98 = getelementptr inbounds %struct.ggml_bf16_t, ptr %83, i64 %97
-  br label %.preheader41.i.us.us
-
-.preheader41.i.us.us:                             ; preds = %112, %.preheader41.lr.ph.i.us.us
-  %.03349.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %113, %112 ]
-  %99 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %98, i64 %.03349.i.us.us
-  %.val3638.le.i.us.us = load <16 x i16>, ptr %99, align 1, !tbaa !53
-  %100 = zext <16 x i16> %.val3638.le.i.us.us to <16 x i32>
-  %101 = shl nuw <16 x i32> %100, splat (i32 16)
-  %102 = bitcast <16 x i32> %101 to <16 x float>
-  %invariant.gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %85, i64 %.03349.i.us.us
-  br label %103
-
-103:                                              ; preds = %103, %.preheader41.i.us.us
-  %.03448.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %111, %103 ]
-  %104 = add nuw nsw i64 %.03448.i.us.us, %82
-  %105 = mul nsw i64 %104, %86
-  %gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us, i64 %105
-  %.val37.i.us.us = load <16 x i16>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %106 = zext <16 x i16> %.val37.i.us.us to <16 x i32>
-  %107 = shl nuw <16 x i32> %106, splat (i32 16)
-  %108 = bitcast <16 x i32> %107 to <16 x float>
-  %109 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %109, align 64, !tbaa !53
-  %110 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %108, <16 x float> %102, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %110, ptr %109, align 64, !tbaa !53
-  %111 = add nuw nsw i64 %.03448.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %111, 4
-  br i1 %exitcond.not.i.us.us, label %112, label %103, !llvm.loop !249
-
-112:                                              ; preds = %103
-  %113 = add nuw nsw i64 %.03349.i.us.us, 16
-  %114 = icmp slt i64 %113, %78
-  br i1 %114, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !248
-
-115:                                              ; preds = %.preheader39.i.loopexit.us.us, %115
-  %.050.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %120, %115 ]
-  %116 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us
-  %117 = load <16 x float>, ptr %116, align 64, !tbaa !53
-  %118 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %117)
-  %119 = getelementptr float, ptr %gep.us.us, i64 %.050.i.us.us
-  store float %118, ptr %119, align 4, !tbaa !93
-  %120 = add nuw nsw i64 %.050.i.us.us, 1
-  %exitcond51.not.i.us.us = icmp eq i64 %120, 4
-  br i1 %exitcond51.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %115, !llvm.loop !250
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %115
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %121 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %121, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader41.lr.ph.i.us.us, !llvm.loop !254
-
-.preheader39.i.loopexit.us.us:                    ; preds = %112
-  %122 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %122
-  br label %115
+124:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
+  %125 = add nuw nsw i64 %.06068.us, 4
+  %126 = icmp samesign ult i64 %.06068.us, 12
+  br i1 %126, label %.preheader.us, label %.split78.us, !llvm.loop !239
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %123 = icmp eq i64 %spec.select, %76
-  br i1 %123, label %.split78.us, label %.split.us
+  %127 = icmp eq i64 %spec.select, %76
+  br i1 %127, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %124 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %125 = icmp slt i64 %124, %24
-  br i1 %125, label %55, label %._crit_edge, !llvm.loop !255
+.split78.us:                                      ; preds = %124, %87, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %128 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %129 = icmp slt i64 %128, %24
+  br i1 %129, label %55, label %._crit_edge, !llvm.loop !241
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %126 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %127)
+  %130 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %131 = load ptr, ptr %130, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %131)
   ret void
 }
 
@@ -9832,7 +9889,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader98
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader98, label %112, !llvm.loop !256
+  br i1 %106, label %.preheader98, label %112, !llvm.loop !242
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -9851,7 +9908,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !257
+  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !243
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -9898,13 +9955,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !201
+  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !190
 
 129:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
-  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !202
+  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !191
 
 132:                                              ; preds = %139, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %140, %139 ]
@@ -9921,7 +9978,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 139:                                              ; preds = %141
   %140 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %140, 6
-  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !203
+  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !192
 
 141:                                              ; preds = %141, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %147, %141 ]
@@ -9933,7 +9990,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %146, ptr %144, align 64, !tbaa !53
   %147 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %147, 4
-  br i1 %exitcond51.not.i, label %139, label %141, !llvm.loop !204
+  br i1 %exitcond51.not.i, label %139, label %141, !llvm.loop !193
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %151
   %.03150.i = phi i64 [ %152, %151 ], [ 0, %.preheader.i.preheader ]
@@ -9946,7 +10003,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 151:                                              ; preds = %153
   %152 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %152, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !205
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !194
 
 153:                                              ; preds = %153, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %158, %153 ]
@@ -9957,13 +10014,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %156, ptr %157, align 4, !tbaa !93
   %158 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %158, 4
-  br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !206
+  br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !195
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.099, 6
   %160 = icmp slt i64 %159, %99
-  br i1 %160, label %121, label %.preheader, !llvm.loop !258
+  br i1 %160, label %121, label %.preheader, !llvm.loop !244
 
 161:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -9996,13 +10053,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x i32> %166, ptr %167, align 64, !tbaa !53
   %168 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %168, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %162, !llvm.loop !208
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %162, !llvm.loop !197
 
 169:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %170 = add nuw nsw i64 %.03346.i84, 16
   %171 = icmp slt i64 %170, %101
-  br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !209
+  br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !198
 
 172:                                              ; preds = %179, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %180, %179 ]
@@ -10019,7 +10076,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 179:                                              ; preds = %181
   %180 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %180, 5
-  br i1 %exitcond52.not.i97, label %169, label %172, !llvm.loop !210
+  br i1 %exitcond52.not.i97, label %169, label %172, !llvm.loop !199
 
 181:                                              ; preds = %181, %172
   %.03242.i95 = phi i64 [ 0, %172 ], [ %187, %181 ]
@@ -10031,7 +10088,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x float> %186, ptr %184, align 64, !tbaa !53
   %187 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %187, 4
-  br i1 %exitcond51.not.i96, label %179, label %181, !llvm.loop !211
+  br i1 %exitcond51.not.i96, label %179, label %181, !llvm.loop !200
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %191
   %.03150.i78 = phi i64 [ %192, %191 ], [ 0, %.preheader.i77.preheader ]
@@ -10044,7 +10101,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 191:                                              ; preds = %193
   %192 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %192, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !212
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !201
 
 193:                                              ; preds = %193, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %198, %193 ]
@@ -10055,13 +10112,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %198, 4
-  br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !213
+  br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.1100, 5
   %200 = icmp slt i64 %199, %98
-  br i1 %200, label %161, label %._crit_edge, !llvm.loop !259
+  br i1 %200, label %161, label %._crit_edge, !llvm.loop !245
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -10241,7 +10298,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader96
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader96, label %112, !llvm.loop !260
+  br i1 %106, label %.preheader96, label %112, !llvm.loop !246
 
 .preheader96:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -10260,7 +10317,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge105, !llvm.loop !261
+  br i1 %114, label %62, label %._crit_edge105, !llvm.loop !247
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %.preheader96
   %.0.lcssa = phi i64 [ %90, %.preheader96 ], [ %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -10307,13 +10364,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !208
+  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !197
 
 129:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
-  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !209
+  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !198
 
 132:                                              ; preds = %139, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %140, %139 ]
@@ -10330,7 +10387,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 139:                                              ; preds = %141
   %140 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %140, 5
-  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !210
+  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !199
 
 141:                                              ; preds = %141, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %147, %141 ]
@@ -10342,7 +10399,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %146, ptr %144, align 64, !tbaa !53
   %147 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %147, 4
-  br i1 %exitcond51.not.i, label %139, label %141, !llvm.loop !211
+  br i1 %exitcond51.not.i, label %139, label %141, !llvm.loop !200
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %151
   %.03150.i = phi i64 [ %152, %151 ], [ 0, %.preheader.i.preheader ]
@@ -10355,7 +10412,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 151:                                              ; preds = %153
   %152 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %152, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !212
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !201
 
 153:                                              ; preds = %153, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %158, %153 ]
@@ -10366,13 +10423,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %156, ptr %157, align 4, !tbaa !93
   %158 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %158, 4
-  br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !213
+  br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.097, 5
   %160 = icmp slt i64 %159, %99
-  br i1 %160, label %121, label %.preheader, !llvm.loop !262
+  br i1 %160, label %121, label %.preheader, !llvm.loop !248
 
 161:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -10405,13 +10462,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x i32> %166, ptr %167, align 64, !tbaa !53
   %168 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %168, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %162, !llvm.loop !218
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %162, !llvm.loop !207
 
 169:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %170 = add nuw nsw i64 %.03346.i84, 16
   %171 = icmp slt i64 %170, %101
-  br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !219
+  br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !208
 
 172:                                              ; preds = %179, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %180, %179 ]
@@ -10428,7 +10485,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 179:                                              ; preds = %181
   %180 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %180, 4
-  br i1 %exitcond52.not.i95, label %169, label %172, !llvm.loop !220
+  br i1 %exitcond52.not.i95, label %169, label %172, !llvm.loop !209
 
 181:                                              ; preds = %181, %172
   %.03242.i93 = phi i64 [ 0, %172 ], [ %187, %181 ]
@@ -10440,7 +10497,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x float> %186, ptr %184, align 64, !tbaa !53
   %187 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %187, 4
-  br i1 %exitcond51.not.i94, label %179, label %181, !llvm.loop !221
+  br i1 %exitcond51.not.i94, label %179, label %181, !llvm.loop !210
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %191
   %.03150.i78 = phi i64 [ %192, %191 ], [ 0, %.preheader.i77.preheader ]
@@ -10453,7 +10510,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 191:                                              ; preds = %193
   %192 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %192, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !222
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !211
 
 193:                                              ; preds = %193, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %198, %193 ]
@@ -10464,13 +10521,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store float %196, ptr %197, align 4, !tbaa !93
   %198 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %198, 4
-  br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !223
+  br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.198, 4
   %200 = icmp slt i64 %199, %98
-  br i1 %200, label %161, label %._crit_edge, !llvm.loop !263
+  br i1 %200, label %161, label %._crit_edge, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -10650,7 +10707,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br label %.preheader86
 
 106:                                              ; preds = %._crit_edge
-  br i1 %107, label %.preheader86, label %113, !llvm.loop !264
+  br i1 %107, label %.preheader86, label %113, !llvm.loop !250
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73, %106
   %107 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ false, %106 ]
@@ -10669,7 +10726,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 113:                                              ; preds = %106
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %31
-  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !265
+  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !251
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %.preheader86
   %.0.lcssa = phi i64 [ %91, %.preheader86 ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -10716,13 +10773,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x i32> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !218
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !207
 
 130:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %102
-  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !219
+  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !208
 
 133:                                              ; preds = %140, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %141, %140 ]
@@ -10739,7 +10796,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 140:                                              ; preds = %142
   %141 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %141, 4
-  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !220
+  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !209
 
 142:                                              ; preds = %142, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %148, %142 ]
@@ -10751,7 +10808,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %147, ptr %145, align 64, !tbaa !53
   %148 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %148, 4
-  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !221
+  br i1 %exitcond51.not.i, label %140, label %142, !llvm.loop !210
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %152
   %.03150.i = phi i64 [ %153, %152 ], [ 0, %.preheader.i.preheader ]
@@ -10764,7 +10821,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 152:                                              ; preds = %154
   %153 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %153, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !222
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !211
 
 154:                                              ; preds = %154, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %159, %154 ]
@@ -10775,13 +10832,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %157, ptr %158, align 4, !tbaa !93
   %159 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %159, 4
-  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !223
+  br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.087, 4
   %161 = icmp slt i64 %160, %100
-  br i1 %161, label %122, label %.preheader, !llvm.loop !266
+  br i1 %161, label %122, label %.preheader, !llvm.loop !252
 
 162:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %198, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -10814,13 +10871,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x i32> %167, ptr %168, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %169, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %163, !llvm.loop !228
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %163, !llvm.loop !217
 
 170:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03348.i, 16
   %172 = icmp slt i64 %171, %102
-  br i1 %172, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !229
+  br i1 %172, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !218
 
 173:                                              ; preds = %179, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %180, %179 ]
@@ -10837,7 +10894,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 179:                                              ; preds = %181
   %180 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %180, 4
-  br i1 %exitcond54.not.i85, label %170, label %173, !llvm.loop !230
+  br i1 %exitcond54.not.i85, label %170, label %173, !llvm.loop !219
 
 181:                                              ; preds = %181, %173
   %.03244.i = phi i64 [ 0, %173 ], [ %186, %181 ]
@@ -10849,7 +10906,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x float> %185, ptr %gep43.i, align 64, !tbaa !53
   %186 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %186, 3
-  br i1 %exitcond53.not.i84, label %179, label %181, !llvm.loop !231
+  br i1 %exitcond53.not.i84, label %179, label %181, !llvm.loop !220
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %190
   %.03152.i = phi i64 [ %191, %190 ], [ 0, %.preheader.i75.preheader ]
@@ -10862,7 +10919,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 190:                                              ; preds = %192
   %191 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %191, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !221
 
 192:                                              ; preds = %192, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %197, %192 ]
@@ -10873,13 +10930,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store float %195, ptr %196, align 4, !tbaa !93
   %197 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %197, 4
-  br i1 %exitcond55.not.i, label %190, label %192, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %190, label %192, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %190
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = add nsw i64 %.188, 3
   %199 = icmp slt i64 %198, %99
-  br i1 %199, label %162, label %._crit_edge, !llvm.loop !267
+  br i1 %199, label %162, label %._crit_edge, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %198, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -11059,7 +11116,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br label %.preheader100
 
 104:                                              ; preds = %._crit_edge
-  br i1 %105, label %.preheader100, label %111, !llvm.loop !268
+  br i1 %105, label %.preheader100, label %111, !llvm.loop !254
 
 .preheader100:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %104
   %105 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %104 ]
@@ -11078,7 +11135,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 111:                                              ; preds = %104
   %112 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %113 = icmp slt i64 %112, %29
-  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !269
+  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !255
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %.preheader100
   %.0.lcssa = phi i64 [ %89, %.preheader100 ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -11138,12 +11195,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %137, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %138 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %138, 4
-  br i1 %exitcond.not.i96.us, label %139, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i96.us, label %139, label %.critedge, !llvm.loop !226
 
 139:                                              ; preds = %.critedge
   %140 = add nuw nsw i64 %.03348.i83.us, 16
   %141 = icmp slt i64 %140, %100
-  br i1 %141, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !238
+  br i1 %141, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !227
 
 .preheader.i77.us:                                ; preds = %139, %151
   %142 = phi i1 [ false, %151 ], [ true, %139 ]
@@ -11163,16 +11220,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %148, ptr %149, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %150, 4
-  br i1 %exitcond53.not.i81.us, label %151, label %145, !llvm.loop !239
+  br i1 %exitcond53.not.i81.us, label %151, label %145, !llvm.loop !228
 
 151:                                              ; preds = %145
-  br i1 %142, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %142, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %152 = add nsw i64 %.1102.us, 2
   %153 = icmp slt i64 %152, %97
-  br i1 %153, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !270
+  br i1 %153, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !256
 
 154:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -11205,13 +11262,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x i32> %159, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %161, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %155, !llvm.loop !228
+  br i1 %exitcond.not.i, label %.preheader40.i, label %155, !llvm.loop !217
 
 162:                                              ; preds = %171
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %163 = add nuw nsw i64 %.03348.i, 16
   %164 = icmp slt i64 %163, %100
-  br i1 %164, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !229
+  br i1 %164, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !218
 
 165:                                              ; preds = %171, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %172, %171 ]
@@ -11228,7 +11285,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 171:                                              ; preds = %173
   %172 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %172, 4
-  br i1 %exitcond54.not.i, label %162, label %165, !llvm.loop !230
+  br i1 %exitcond54.not.i, label %162, label %165, !llvm.loop !219
 
 173:                                              ; preds = %173, %165
   %.03244.i = phi i64 [ 0, %165 ], [ %178, %173 ]
@@ -11240,7 +11297,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %177, ptr %gep43.i, align 64, !tbaa !53
   %178 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %178, 3
-  br i1 %exitcond53.not.i, label %171, label %173, !llvm.loop !231
+  br i1 %exitcond53.not.i, label %171, label %173, !llvm.loop !220
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %182
   %.03152.i = phi i64 [ %183, %182 ], [ 0, %.preheader.i.preheader ]
@@ -11253,7 +11310,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 182:                                              ; preds = %184
   %183 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %183, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !221
 
 184:                                              ; preds = %184, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %189, %184 ]
@@ -11264,13 +11321,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %189, 4
-  br i1 %exitcond55.not.i, label %182, label %184, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %182, label %184, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %182
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %190 = add nsw i64 %.0101, 3
   %191 = icmp slt i64 %190, %98
-  br i1 %191, label %154, label %.preheader, !llvm.loop !271
+  br i1 %191, label %154, label %.preheader, !llvm.loop !257
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %202, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -11288,7 +11345,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br label %196
 
 195:                                              ; preds = %196
-  br i1 %192, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %192, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 196:                                              ; preds = %196, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %201, %196 ]
@@ -11299,13 +11356,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   store float %199, ptr %200, align 4, !tbaa !93
   %201 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %201, 4
-  br i1 %exitcond53.not.i81, label %195, label %196, !llvm.loop !239
+  br i1 %exitcond53.not.i81, label %195, label %196, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %195
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %202 = add nsw i64 %.1102, 2
   %203 = icmp slt i64 %202, %97
-  br i1 %203, label %.preheader39.i75, label %._crit_edge, !llvm.loop !272
+  br i1 %203, label %.preheader39.i75, label %._crit_edge, !llvm.loop !256
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %202, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -11462,7 +11519,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br label %.preheader83
 
 96:                                               ; preds = %._crit_edge
-  br i1 %97, label %.preheader83, label %137, !llvm.loop !273
+  br i1 %97, label %.preheader83, label %137, !llvm.loop !258
 
 .preheader83:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %97 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ false, %96 ]
@@ -11522,12 +11579,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %120, ptr %gep43.i.us.c, align 64, !tbaa !53
   %121 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %121, 4
-  br i1 %exitcond.not.i.us, label %122, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i.us, label %122, label %.critedge, !llvm.loop !226
 
 122:                                              ; preds = %.critedge
   %123 = add nuw nsw i64 %.03348.i.us, 16
   %124 = icmp slt i64 %123, %92
-  br i1 %124, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !238
+  br i1 %124, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !227
 
 .preheader.i.us:                                  ; preds = %122, %134
   %125 = phi i1 [ false, %134 ], [ true, %122 ]
@@ -11547,21 +11604,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %131, ptr %132, align 4, !tbaa !93
   %133 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %133, 4
-  br i1 %exitcond53.not.i.us, label %134, label %128, !llvm.loop !239
+  br i1 %exitcond53.not.i.us, label %134, label %128, !llvm.loop !228
 
 134:                                              ; preds = %128
-  br i1 %125, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %125, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %134
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %135 = add nsw i64 %.084.us, 2
   %136 = icmp slt i64 %135, %90
-  br i1 %136, label %.lr.ph.i.us, label %.preheader, !llvm.loop !274
+  br i1 %136, label %.lr.ph.i.us, label %.preheader, !llvm.loop !259
 
 137:                                              ; preds = %96
   %138 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %139 = icmp slt i64 %138, %29
-  br i1 %139, label %61, label %._crit_edge92, !llvm.loop !275
+  br i1 %139, label %61, label %._crit_edge92, !llvm.loop !260
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader83
   %.0.lcssa = phi i64 [ %85, %.preheader83 ], [ %135, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -11593,7 +11650,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br label %150
 
 149:                                              ; preds = %150
-  br i1 %146, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %146, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 150:                                              ; preds = %150, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
@@ -11604,13 +11661,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
-  br i1 %exitcond53.not.i, label %149, label %150, !llvm.loop !239
+  br i1 %exitcond53.not.i, label %149, label %150, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %156 = add nsw i64 %.084, 2
   %157 = icmp slt i64 %156, %90
-  br i1 %157, label %.preheader39.i, label %.preheader, !llvm.loop !276
+  br i1 %157, label %.preheader39.i, label %.preheader, !llvm.loop !259
 
 158:                                              ; preds = %.lr.ph86, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.185 = phi i64 [ %.0.lcssa, %.lr.ph86 ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -11641,7 +11698,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 166:                                              ; preds = %169
   %167 = add nuw nsw i64 %.03349.i, 16
   %168 = icmp slt i64 %167, %92
-  br i1 %168, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !248
+  br i1 %168, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !235
 
 169:                                              ; preds = %169, %.preheader41.i
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %177, %169 ]
@@ -11658,7 +11715,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %176, ptr %175, align 64, !tbaa !53
   %177 = add nuw nsw i64 %.03448.i, 1
   %exitcond.not.i78 = icmp eq i64 %177, 4
-  br i1 %exitcond.not.i78, label %166, label %169, !llvm.loop !249
+  br i1 %exitcond.not.i78, label %166, label %169, !llvm.loop !236
 
 178:                                              ; preds = %178, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %183, %178 ]
@@ -11669,13 +11726,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %181, ptr %182, align 4, !tbaa !93
   %183 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %183, 4
-  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %178, !llvm.loop !250
+  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %178, !llvm.loop !237
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nsw i64 %.185, 1
   %185 = icmp slt i64 %184, %89
-  br i1 %185, label %158, label %._crit_edge, !llvm.loop !277
+  br i1 %185, label %158, label %._crit_edge, !llvm.loop !261
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -11772,7 +11829,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %123, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %126, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 3
   %58 = sdiv i64 %.06179, %9
@@ -11811,129 +11868,145 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %82 = phi i1 [ false, %._crit_edge.us.loopexit ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %.06068.us = phi i64 [ 4, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %83 = or disjoint i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
+  %82 = phi i1 [ false, %88 ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.06068.us.us = phi i64 [ 4, %88 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %83 = or disjoint i64 %.06068.us.us, %57
   %84 = load ptr, ptr %49, align 8
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %83
-  br i1 %79, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  br label %.preheader41.lr.ph.i.us.us.us
+
+88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  br i1 %82, label %.preheader.us.us, label %.split78.us, !llvm.loop !262
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %113, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %89 = mul nsw i64 %85, %.067.us.us.us
+  %90 = getelementptr inbounds %struct.ggml_bf16_t, ptr %84, i64 %89
+  br label %.preheader41.i.us.us.us
+
+.preheader41.i.us.us.us:                          ; preds = %104, %.preheader41.lr.ph.i.us.us.us
+  %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %105, %104 ]
+  %91 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %90, i64 %.03349.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x i16>, ptr %91, align 1, !tbaa !53
+  %92 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
+  %93 = shl nuw <16 x i32> %92, splat (i32 16)
+  %94 = bitcast <16 x i32> %93 to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %86, i64 %.03349.i.us.us.us
+  br label %95
+
+95:                                               ; preds = %95, %.preheader41.i.us.us.us
+  %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %103, %95 ]
+  %96 = add nuw nsw i64 %.03448.i.us.us.us, %83
+  %97 = mul nsw i64 %96, %87
+  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %97
+  %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %98 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
+  %99 = shl nuw <16 x i32> %98, splat (i32 16)
+  %100 = bitcast <16 x i32> %99 to <16 x float>
+  %101 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %101, align 64, !tbaa !53
+  %102 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %100, <16 x float> %94, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %102, ptr %101, align 64, !tbaa !53
+  %103 = add nuw nsw i64 %.03448.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %103, 4
+  br i1 %exitcond.not.i.us.us.us, label %104, label %95, !llvm.loop !236
+
+104:                                              ; preds = %95
+  %105 = add nuw nsw i64 %.03349.i.us.us.us, 16
+  %106 = icmp slt i64 %105, %78
+  br i1 %106, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !235
+
+107:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %107
+  %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %112, %107 ]
+  %108 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us.us
+  %109 = load <16 x float>, ptr %108, align 64, !tbaa !53
+  %110 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %109)
+  %111 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  store float %110, ptr %111, align 4, !tbaa !93
+  %112 = add nuw nsw i64 %.050.i.us.us.us, 1
+  %exitcond51.not.i.us.us.us = icmp eq i64 %112, 4
+  br i1 %exitcond51.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %107, !llvm.loop !237
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %107
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %113 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %113, %76
+  br i1 %exitcond85.not, label %88, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !263
+
+.preheader39.i.loopexit.us.us.us:                 ; preds = %104
+  %114 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %114
+  br label %107
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %124
+  %115 = phi i1 [ false, %124 ], [ true, %.preheader.us.preheader ]
+  %.06068.us = phi i64 [ 4, %124 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %123, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %88 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
-  br label %89
+  %116 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %116
+  br label %117
 
-89:                                               ; preds = %89, %.preheader39.i.us
-  %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %94, %89 ]
-  %90 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us71
-  %91 = load <16 x float>, ptr %90, align 64, !tbaa !53
-  %92 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %91)
-  %93 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
-  store float %92, ptr %93, align 4, !tbaa !93
-  %94 = add nuw nsw i64 %.050.i.us71, 1
-  %exitcond51.not.i.us72 = icmp eq i64 %94, 4
-  br i1 %exitcond51.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !250
+117:                                              ; preds = %117, %.preheader39.i.us
+  %.050.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %122, %117 ]
+  %118 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us71
+  %119 = load <16 x float>, ptr %118, align 64, !tbaa !53
+  %120 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %119)
+  %121 = getelementptr float, ptr %gep.us70, i64 %.050.i.us71
+  store float %120, ptr %121, align 4, !tbaa !93
+  %122 = add nuw nsw i64 %.050.i.us71, 1
+  %exitcond51.not.i.us72 = icmp eq i64 %122, 4
+  br i1 %exitcond51.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %117, !llvm.loop !237
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %117
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %95 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %95, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader39.i.us, !llvm.loop !278
+  %123 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %123, %76
+  br i1 %exitcond.not, label %124, label %.preheader39.i.us, !llvm.loop !263
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  br i1 %82, label %.preheader.us, label %.split78.us, !llvm.loop !279
-
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %120, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %85, %.067.us.us
-  %97 = getelementptr inbounds %struct.ggml_bf16_t, ptr %84, i64 %96
-  br label %.preheader41.i.us.us
-
-.preheader41.i.us.us:                             ; preds = %111, %.preheader41.lr.ph.i.us.us
-  %.03349.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %112, %111 ]
-  %98 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %97, i64 %.03349.i.us.us
-  %.val3638.le.i.us.us = load <16 x i16>, ptr %98, align 1, !tbaa !53
-  %99 = zext <16 x i16> %.val3638.le.i.us.us to <16 x i32>
-  %100 = shl nuw <16 x i32> %99, splat (i32 16)
-  %101 = bitcast <16 x i32> %100 to <16 x float>
-  %invariant.gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %86, i64 %.03349.i.us.us
-  br label %102
-
-102:                                              ; preds = %102, %.preheader41.i.us.us
-  %.03448.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %110, %102 ]
-  %103 = add nuw nsw i64 %.03448.i.us.us, %83
-  %104 = mul nsw i64 %103, %87
-  %gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us, i64 %104
-  %.val37.i.us.us = load <16 x i16>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %105 = zext <16 x i16> %.val37.i.us.us to <16 x i32>
-  %106 = shl nuw <16 x i32> %105, splat (i32 16)
-  %107 = bitcast <16 x i32> %106 to <16 x float>
-  %108 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %108, align 64, !tbaa !53
-  %109 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %107, <16 x float> %101, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %109, ptr %108, align 64, !tbaa !53
-  %110 = add nuw nsw i64 %.03448.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %110, 4
-  br i1 %exitcond.not.i.us.us, label %111, label %102, !llvm.loop !249
-
-111:                                              ; preds = %102
-  %112 = add nuw nsw i64 %.03349.i.us.us, 16
-  %113 = icmp slt i64 %112, %78
-  br i1 %113, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !248
-
-114:                                              ; preds = %.preheader39.i.loopexit.us.us, %114
-  %.050.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %119, %114 ]
-  %115 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us
-  %116 = load <16 x float>, ptr %115, align 64, !tbaa !53
-  %117 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %116)
-  %118 = getelementptr float, ptr %gep.us.us, i64 %.050.i.us.us
-  store float %117, ptr %118, align 4, !tbaa !93
-  %119 = add nuw nsw i64 %.050.i.us.us, 1
-  %exitcond51.not.i.us.us = icmp eq i64 %119, 4
-  br i1 %exitcond51.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %114, !llvm.loop !250
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %114
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %120 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %120, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader41.lr.ph.i.us.us, !llvm.loop !280
-
-.preheader39.i.loopexit.us.us:                    ; preds = %111
-  %121 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %121
-  br label %114
+124:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
+  br i1 %115, label %.preheader.us, label %.split78.us, !llvm.loop !262
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %122 = icmp eq i64 %spec.select, %76
-  br i1 %122, label %.split78.us, label %.split.us
+  %125 = icmp eq i64 %spec.select, %76
+  br i1 %125, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %123 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %124 = icmp slt i64 %123, %24
-  br i1 %124, label %55, label %._crit_edge, !llvm.loop !281
+.split78.us:                                      ; preds = %124, %88, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %126 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %127 = icmp slt i64 %126, %24
+  br i1 %127, label %55, label %._crit_edge, !llvm.loop !264
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %125 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %126 = load ptr, ptr %125, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %126)
+  %128 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %129 = load ptr, ptr %128, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %129)
   ret void
 }
 
@@ -12109,7 +12182,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !282
+  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !265
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -12154,13 +12227,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !201
+  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !190
 
 125:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = add nuw nsw i64 %.03346.i, 16
   %127 = icmp slt i64 %126, %101
-  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !202
+  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !191
 
 128:                                              ; preds = %135, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %136, %135 ]
@@ -12177,7 +12250,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 135:                                              ; preds = %137
   %136 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %136, 6
-  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !203
+  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !192
 
 137:                                              ; preds = %137, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %143, %137 ]
@@ -12189,7 +12262,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
   %143 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %143, 4
-  br i1 %exitcond51.not.i, label %135, label %137, !llvm.loop !204
+  br i1 %exitcond51.not.i, label %135, label %137, !llvm.loop !193
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03150.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
@@ -12202,7 +12275,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 147:                                              ; preds = %149
   %148 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %148, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !205
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !194
 
 149:                                              ; preds = %149, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
@@ -12213,13 +12286,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %154, 4
-  br i1 %exitcond53.not.i, label %147, label %149, !llvm.loop !206
+  br i1 %exitcond53.not.i, label %147, label %149, !llvm.loop !195
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.099, 6
   %156 = icmp slt i64 %155, %99
-  br i1 %156, label %117, label %.preheader, !llvm.loop !283
+  br i1 %156, label %117, label %.preheader, !llvm.loop !266
 
 157:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %195, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -12252,13 +12325,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x i32> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %164, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %158, !llvm.loop !208
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %158, !llvm.loop !197
 
 165:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
-  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !209
+  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !198
 
 168:                                              ; preds = %175, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %176, %175 ]
@@ -12275,7 +12348,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 175:                                              ; preds = %177
   %176 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %176, 5
-  br i1 %exitcond52.not.i97, label %165, label %168, !llvm.loop !210
+  br i1 %exitcond52.not.i97, label %165, label %168, !llvm.loop !199
 
 177:                                              ; preds = %177, %168
   %.03242.i95 = phi i64 [ 0, %168 ], [ %183, %177 ]
@@ -12287,7 +12360,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store <16 x float> %182, ptr %180, align 64, !tbaa !53
   %183 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %183, 4
-  br i1 %exitcond51.not.i96, label %175, label %177, !llvm.loop !211
+  br i1 %exitcond51.not.i96, label %175, label %177, !llvm.loop !200
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %187
   %.03150.i78 = phi i64 [ %188, %187 ], [ 0, %.preheader.i77.preheader ]
@@ -12300,7 +12373,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 187:                                              ; preds = %189
   %188 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %188, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !212
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !201
 
 189:                                              ; preds = %189, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %194, %189 ]
@@ -12311,18 +12384,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   store float %192, ptr %193, align 4, !tbaa !93
   %194 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %194, 4
-  br i1 %exitcond53.not.i81, label %187, label %189, !llvm.loop !213
+  br i1 %exitcond53.not.i81, label %187, label %189, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %195 = add nsw i64 %.1100, 5
   %196 = icmp slt i64 %195, %98
-  br i1 %196, label %157, label %._crit_edge, !llvm.loop !284
+  br i1 %196, label %157, label %._crit_edge, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %195, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
   %197 = icmp eq i64 %.1.lcssa, %98
-  br i1 %197, label %109, label %198, !llvm.loop !285
+  br i1 %197, label %109, label %198, !llvm.loop !268
 
 198:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -12507,7 +12580,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge104, !llvm.loop !286
+  br i1 %111, label %62, label %._crit_edge104, !llvm.loop !269
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -12552,13 +12625,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x i32> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !208
+  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !197
 
 125:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = add nuw nsw i64 %.03346.i, 16
   %127 = icmp slt i64 %126, %101
-  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !209
+  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !198
 
 128:                                              ; preds = %135, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %136, %135 ]
@@ -12575,7 +12648,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 135:                                              ; preds = %137
   %136 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %136, 5
-  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !210
+  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !199
 
 137:                                              ; preds = %137, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %143, %137 ]
@@ -12587,7 +12660,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %142, ptr %140, align 64, !tbaa !53
   %143 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %143, 4
-  br i1 %exitcond51.not.i, label %135, label %137, !llvm.loop !211
+  br i1 %exitcond51.not.i, label %135, label %137, !llvm.loop !200
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %147
   %.03150.i = phi i64 [ %148, %147 ], [ 0, %.preheader.i.preheader ]
@@ -12600,7 +12673,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 147:                                              ; preds = %149
   %148 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %148, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !212
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !201
 
 149:                                              ; preds = %149, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %154, %149 ]
@@ -12611,13 +12684,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %152, ptr %153, align 4, !tbaa !93
   %154 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %154, 4
-  br i1 %exitcond53.not.i, label %147, label %149, !llvm.loop !213
+  br i1 %exitcond53.not.i, label %147, label %149, !llvm.loop !202
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.097, 5
   %156 = icmp slt i64 %155, %99
-  br i1 %156, label %117, label %.preheader, !llvm.loop !287
+  br i1 %156, label %117, label %.preheader, !llvm.loop !270
 
 157:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %195, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -12650,13 +12723,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x i32> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %164, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %158, !llvm.loop !218
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %158, !llvm.loop !207
 
 165:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
-  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !219
+  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !208
 
 168:                                              ; preds = %175, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %176, %175 ]
@@ -12673,7 +12746,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 175:                                              ; preds = %177
   %176 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %176, 4
-  br i1 %exitcond52.not.i95, label %165, label %168, !llvm.loop !220
+  br i1 %exitcond52.not.i95, label %165, label %168, !llvm.loop !209
 
 177:                                              ; preds = %177, %168
   %.03242.i93 = phi i64 [ 0, %168 ], [ %183, %177 ]
@@ -12685,7 +12758,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store <16 x float> %182, ptr %180, align 64, !tbaa !53
   %183 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %183, 4
-  br i1 %exitcond51.not.i94, label %175, label %177, !llvm.loop !221
+  br i1 %exitcond51.not.i94, label %175, label %177, !llvm.loop !210
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %187
   %.03150.i78 = phi i64 [ %188, %187 ], [ 0, %.preheader.i77.preheader ]
@@ -12698,7 +12771,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 187:                                              ; preds = %189
   %188 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %188, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !222
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !211
 
 189:                                              ; preds = %189, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %194, %189 ]
@@ -12709,18 +12782,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   store float %192, ptr %193, align 4, !tbaa !93
   %194 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %194, 4
-  br i1 %exitcond53.not.i81, label %187, label %189, !llvm.loop !223
+  br i1 %exitcond53.not.i81, label %187, label %189, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %195 = add nsw i64 %.198, 4
   %196 = icmp slt i64 %195, %98
-  br i1 %196, label %157, label %._crit_edge, !llvm.loop !288
+  br i1 %196, label %157, label %._crit_edge, !llvm.loop !271
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %195, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
   %197 = icmp eq i64 %.1.lcssa, %98
-  br i1 %197, label %109, label %198, !llvm.loop !289
+  br i1 %197, label %109, label %198, !llvm.loop !272
 
 198:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -12905,7 +12978,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 110:                                              ; preds = %._crit_edge
   %111 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %112 = icmp slt i64 %111, %31
-  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !290
+  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !273
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %.0.lcssa = phi i64 [ %91, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -12950,13 +13023,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x i32> %123, ptr %124, align 64, !tbaa !53
   %125 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %125, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %119, !llvm.loop !218
+  br i1 %exitcond.not.i, label %.preheader40.i, label %119, !llvm.loop !207
 
 126:                                              ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %127 = add nuw nsw i64 %.03346.i, 16
   %128 = icmp slt i64 %127, %102
-  br i1 %128, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !219
+  br i1 %128, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !208
 
 129:                                              ; preds = %136, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
@@ -12973,7 +13046,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 136:                                              ; preds = %138
   %137 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %137, 4
-  br i1 %exitcond52.not.i, label %126, label %129, !llvm.loop !220
+  br i1 %exitcond52.not.i, label %126, label %129, !llvm.loop !209
 
 138:                                              ; preds = %138, %129
   %.03242.i = phi i64 [ 0, %129 ], [ %144, %138 ]
@@ -12985,7 +13058,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
   %144 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %144, 4
-  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !221
+  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !210
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
@@ -12998,7 +13071,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 148:                                              ; preds = %150
   %149 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %149, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !222
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !211
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
@@ -13009,13 +13082,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
-  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !223
+  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !212
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %148
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.087, 4
   %157 = icmp slt i64 %156, %100
-  br i1 %157, label %118, label %.preheader, !llvm.loop !291
+  br i1 %157, label %118, label %.preheader, !llvm.loop !274
 
 158:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -13048,13 +13121,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x i32> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %165, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %159, !llvm.loop !228
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %159, !llvm.loop !217
 
 166:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03348.i, 16
   %168 = icmp slt i64 %167, %102
-  br i1 %168, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !229
+  br i1 %168, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !218
 
 169:                                              ; preds = %175, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %176, %175 ]
@@ -13071,7 +13144,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 175:                                              ; preds = %177
   %176 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %176, 4
-  br i1 %exitcond54.not.i85, label %166, label %169, !llvm.loop !230
+  br i1 %exitcond54.not.i85, label %166, label %169, !llvm.loop !219
 
 177:                                              ; preds = %177, %169
   %.03244.i = phi i64 [ 0, %169 ], [ %182, %177 ]
@@ -13083,7 +13156,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store <16 x float> %181, ptr %gep43.i, align 64, !tbaa !53
   %182 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %182, 3
-  br i1 %exitcond53.not.i84, label %175, label %177, !llvm.loop !231
+  br i1 %exitcond53.not.i84, label %175, label %177, !llvm.loop !220
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %186
   %.03152.i = phi i64 [ %187, %186 ], [ 0, %.preheader.i75.preheader ]
@@ -13096,7 +13169,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 186:                                              ; preds = %188
   %187 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %187, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !221
 
 188:                                              ; preds = %188, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %193, %188 ]
@@ -13107,18 +13180,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %193, 4
-  br i1 %exitcond55.not.i, label %186, label %188, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %186, label %188, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %186
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.188, 3
   %195 = icmp slt i64 %194, %99
-  br i1 %195, label %158, label %._crit_edge, !llvm.loop !292
+  br i1 %195, label %158, label %._crit_edge, !llvm.loop !275
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
   %196 = icmp eq i64 %.1.lcssa, %99
-  br i1 %196, label %110, label %197, !llvm.loop !293
+  br i1 %196, label %110, label %197, !llvm.loop !276
 
 197:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -13303,7 +13376,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 108:                                              ; preds = %._crit_edge
   %109 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %110 = icmp slt i64 %109, %29
-  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !294
+  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !277
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %89, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %186, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -13361,12 +13434,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %133, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %134 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %134, 4
-  br i1 %exitcond.not.i96.us, label %135, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i96.us, label %135, label %.critedge, !llvm.loop !226
 
 135:                                              ; preds = %.critedge
   %136 = add nuw nsw i64 %.03348.i83.us, 16
   %137 = icmp slt i64 %136, %100
-  br i1 %137, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !238
+  br i1 %137, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !227
 
 .preheader.i77.us:                                ; preds = %135, %147
   %138 = phi i1 [ false, %147 ], [ true, %135 ]
@@ -13386,16 +13459,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %144, ptr %145, align 4, !tbaa !93
   %146 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %146, 4
-  br i1 %exitcond53.not.i81.us, label %147, label %141, !llvm.loop !239
+  br i1 %exitcond53.not.i81.us, label %147, label %141, !llvm.loop !228
 
 147:                                              ; preds = %141
-  br i1 %138, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %138, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %148 = add nsw i64 %.1102.us, 2
   %149 = icmp slt i64 %148, %97
-  br i1 %149, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !295
+  br i1 %149, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !278
 
 150:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %186, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -13428,13 +13501,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x i32> %155, ptr %156, align 64, !tbaa !53
   %157 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %157, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %151, !llvm.loop !228
+  br i1 %exitcond.not.i, label %.preheader40.i, label %151, !llvm.loop !217
 
 158:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nuw nsw i64 %.03348.i, 16
   %160 = icmp slt i64 %159, %100
-  br i1 %160, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !229
+  br i1 %160, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !218
 
 161:                                              ; preds = %167, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %168, %167 ]
@@ -13451,7 +13524,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 167:                                              ; preds = %169
   %168 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %168, 4
-  br i1 %exitcond54.not.i, label %158, label %161, !llvm.loop !230
+  br i1 %exitcond54.not.i, label %158, label %161, !llvm.loop !219
 
 169:                                              ; preds = %169, %161
   %.03244.i = phi i64 [ 0, %161 ], [ %174, %169 ]
@@ -13463,7 +13536,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %173, ptr %gep43.i, align 64, !tbaa !53
   %174 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %174, 3
-  br i1 %exitcond53.not.i, label %167, label %169, !llvm.loop !231
+  br i1 %exitcond53.not.i, label %167, label %169, !llvm.loop !220
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %178
   %.03152.i = phi i64 [ %179, %178 ], [ 0, %.preheader.i.preheader ]
@@ -13476,7 +13549,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 178:                                              ; preds = %180
   %179 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %179, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !232
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !221
 
 180:                                              ; preds = %180, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %185, %180 ]
@@ -13487,13 +13560,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %183, ptr %184, align 4, !tbaa !93
   %185 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %185, 4
-  br i1 %exitcond55.not.i, label %178, label %180, !llvm.loop !233
+  br i1 %exitcond55.not.i, label %178, label %180, !llvm.loop !222
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %186 = add nsw i64 %.0101, 3
   %187 = icmp slt i64 %186, %98
-  br i1 %187, label %150, label %.preheader, !llvm.loop !296
+  br i1 %187, label %150, label %.preheader, !llvm.loop !279
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %198, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -13511,7 +13584,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br label %192
 
 191:                                              ; preds = %192
-  br i1 %188, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %188, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 192:                                              ; preds = %192, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %197, %192 ]
@@ -13522,18 +13595,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   store float %195, ptr %196, align 4, !tbaa !93
   %197 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %197, 4
-  br i1 %exitcond53.not.i81, label %191, label %192, !llvm.loop !239
+  br i1 %exitcond53.not.i81, label %191, label %192, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = add nsw i64 %.1102, 2
   %199 = icmp slt i64 %198, %97
-  br i1 %199, label %.preheader39.i75, label %._crit_edge, !llvm.loop !297
+  br i1 %199, label %.preheader39.i75, label %._crit_edge, !llvm.loop !278
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %148, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %198, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
   %200 = icmp eq i64 %.1.lcssa, %97
-  br i1 %200, label %108, label %201, !llvm.loop !298
+  br i1 %200, label %108, label %201, !llvm.loop !280
 
 201:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -13736,12 +13809,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %117, ptr %gep43.i.us.c, align 64, !tbaa !53
   %118 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %118, 4
-  br i1 %exitcond.not.i.us, label %119, label %.critedge, !llvm.loop !237
+  br i1 %exitcond.not.i.us, label %119, label %.critedge, !llvm.loop !226
 
 119:                                              ; preds = %.critedge
   %120 = add nuw nsw i64 %.03348.i.us, 16
   %121 = icmp slt i64 %120, %92
-  br i1 %121, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !238
+  br i1 %121, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !227
 
 .preheader.i.us:                                  ; preds = %119, %131
   %122 = phi i1 [ false, %131 ], [ true, %119 ]
@@ -13761,21 +13834,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %128, ptr %129, align 4, !tbaa !93
   %130 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %130, 4
-  br i1 %exitcond53.not.i.us, label %131, label %125, !llvm.loop !239
+  br i1 %exitcond53.not.i.us, label %131, label %125, !llvm.loop !228
 
 131:                                              ; preds = %125
-  br i1 %122, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !240
+  br i1 %122, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !229
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %132 = add nsw i64 %.084.us, 2
   %133 = icmp slt i64 %132, %90
-  br i1 %133, label %.lr.ph.i.us, label %.preheader, !llvm.loop !299
+  br i1 %133, label %.lr.ph.i.us, label %.preheader, !llvm.loop !281
 
 134:                                              ; preds = %._crit_edge
   %135 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %136 = icmp slt i64 %135, %29
-  br i1 %136, label %61, label %._crit_edge91, !llvm.loop !300
+  br i1 %136, label %61, label %._crit_edge91, !llvm.loop !282
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %.0.lcssa = phi i64 [ %85, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %132, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -13805,7 +13878,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br label %146
 
 145:                                              ; preds = %146
-  br i1 %142, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !240
+  br i1 %142, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !229
 
 146:                                              ; preds = %146, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
@@ -13816,13 +13889,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
-  br i1 %exitcond53.not.i, label %145, label %146, !llvm.loop !239
+  br i1 %exitcond53.not.i, label %145, label %146, !llvm.loop !228
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %145
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %152 = add nsw i64 %.084, 2
   %153 = icmp slt i64 %152, %90
-  br i1 %153, label %.preheader39.i, label %.preheader, !llvm.loop !301
+  br i1 %153, label %.preheader39.i, label %.preheader, !llvm.loop !281
 
 154:                                              ; preds = %.lr.ph86, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.185 = phi i64 [ %.0.lcssa, %.lr.ph86 ], [ %180, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -13853,7 +13926,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 162:                                              ; preds = %165
   %163 = add nuw nsw i64 %.03349.i, 16
   %164 = icmp slt i64 %163, %92
-  br i1 %164, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !248
+  br i1 %164, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !235
 
 165:                                              ; preds = %165, %.preheader41.i
   %.03448.i = phi i64 [ 0, %.preheader41.i ], [ %173, %165 ]
@@ -13870,7 +13943,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store <16 x float> %172, ptr %171, align 64, !tbaa !53
   %173 = add nuw nsw i64 %.03448.i, 1
   %exitcond.not.i78 = icmp eq i64 %173, 4
-  br i1 %exitcond.not.i78, label %162, label %165, !llvm.loop !249
+  br i1 %exitcond.not.i78, label %162, label %165, !llvm.loop !236
 
 174:                                              ; preds = %174, %.preheader39.i74
   %.050.i = phi i64 [ 0, %.preheader39.i74 ], [ %179, %174 ]
@@ -13881,18 +13954,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   store float %177, ptr %178, align 4, !tbaa !93
   %179 = add nuw nsw i64 %.050.i, 1
   %exitcond51.not.i = icmp eq i64 %179, 4
-  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %174, !llvm.loop !250
+  br i1 %exitcond51.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %174, !llvm.loop !237
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %180 = add nsw i64 %.185, 1
   %181 = icmp slt i64 %180, %89
-  br i1 %181, label %154, label %._crit_edge, !llvm.loop !302
+  br i1 %181, label %154, label %._crit_edge, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %180, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
   %182 = icmp eq i64 %.1.lcssa, %89
-  br i1 %182, label %134, label %183, !llvm.loop !303
+  br i1 %182, label %134, label %183, !llvm.loop !284
 
 183:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -13984,10 +14057,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06180 = phi i64 [ %44, %.lr.ph ], [ %124, %.split.us ]
-  %56 = srem i64 %.06180, %9
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %125, %.split.us ]
+  %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
-  %58 = sdiv i64 %.06180, %9
+  %58 = sdiv i64 %.06181, %9
   %59 = icmp slt i64 %58, %23
   br i1 %59, label %60, label %62
 
@@ -14023,130 +14096,137 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
   %.fr = freeze i1 %77
-  br i1 %.fr, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %.preheader.us ]
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %.fr82, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader39.i.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %82 = load ptr, ptr %49, align 8
+  %83 = load i64, ptr %50, align 8
+  %84 = load ptr, ptr %51, align 8
+  %85 = load i64, ptr %52, align 8
+  br label %.preheader41.lr.ph.i.us.us.us
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %110, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %81 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %81
-  br label %82
+  %86 = mul nsw i64 %83, %.067.us.us.us
+  %87 = getelementptr inbounds %struct.ggml_bf16_t, ptr %82, i64 %86
+  br label %.preheader41.i.us.us.us
 
-82:                                               ; preds = %82, %.preheader39.i.us
-  %.050.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %87, %82 ]
-  %83 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us70
-  %84 = load <16 x float>, ptr %83, align 64, !tbaa !53
-  %85 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %84)
-  %86 = getelementptr float, ptr %gep.us69, i64 %.050.i.us70
-  store float %85, ptr %86, align 4, !tbaa !93
-  %87 = add nuw nsw i64 %.050.i.us70, 1
-  %exitcond51.not.i.us71 = icmp eq i64 %87, 4
-  br i1 %exitcond51.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, label %82, !llvm.loop !250
+.preheader41.i.us.us.us:                          ; preds = %101, %.preheader41.lr.ph.i.us.us.us
+  %.03349.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %102, %101 ]
+  %88 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %87, i64 %.03349.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x i16>, ptr %88, align 1, !tbaa !53
+  %89 = zext <16 x i16> %.val3638.le.i.us.us.us to <16 x i32>
+  %90 = shl nuw <16 x i32> %89, splat (i32 16)
+  %91 = bitcast <16 x i32> %90 to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %84, i64 %.03349.i.us.us.us
+  br label %92
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %82
+92:                                               ; preds = %92, %.preheader41.i.us.us.us
+  %.03448.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %100, %92 ]
+  %93 = add nuw nsw i64 %.03448.i.us.us.us, %57
+  %94 = mul nsw i64 %93, %85
+  %gep.i.us.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us.us, i64 %94
+  %.val37.i.us.us.us = load <16 x i16>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %95 = zext <16 x i16> %.val37.i.us.us.us to <16 x i32>
+  %96 = shl nuw <16 x i32> %95, splat (i32 16)
+  %97 = bitcast <16 x i32> %96 to <16 x float>
+  %98 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %98, align 64, !tbaa !53
+  %99 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %97, <16 x float> %91, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %99, ptr %98, align 64, !tbaa !53
+  %100 = add nuw nsw i64 %.03448.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %100, 4
+  br i1 %exitcond.not.i.us.us.us, label %101, label %92, !llvm.loop !236
+
+101:                                              ; preds = %92
+  %102 = add nuw nsw i64 %.03349.i.us.us.us, 16
+  %103 = icmp slt i64 %102, %.fr82
+  br i1 %103, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !235
+
+104:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %104
+  %.050.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %109, %104 ]
+  %105 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us.us
+  %106 = load <16 x float>, ptr %105, align 64, !tbaa !53
+  %107 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %106)
+  %108 = getelementptr float, ptr %gep.us.us.us, i64 %.050.i.us.us.us
+  store float %107, ptr %108, align 4, !tbaa !93
+  %109 = add nuw nsw i64 %.050.i.us.us.us, 1
+  %exitcond51.not.i.us.us.us = icmp eq i64 %109, 4
+  br i1 %exitcond51.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %104, !llvm.loop !237
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %88 = add nsw i64 %.067.us68, 1
-  %89 = icmp slt i64 %88, %76
-  br i1 %89, label %.preheader39.i.us, label %._crit_edge.us, !llvm.loop !304
+  %110 = add nsw i64 %.067.us.us.us, 1
+  %111 = icmp slt i64 %110, %76
+  br i1 %111, label %.preheader41.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !285
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %90 = icmp sgt i64 %78, 0
-  %91 = load ptr, ptr %49, align 8
-  %92 = load i64, ptr %50, align 8
-  %93 = load ptr, ptr %51, align 8
-  %94 = load i64, ptr %52, align 8
-  br i1 %90, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
+.preheader39.i.loopexit.us.us.us:                 ; preds = %101
+  %112 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %112
+  br label %104
 
-._crit_edge.us:                                   ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.us-phi.us = phi i64 [ %120, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72 ]
-  %95 = icmp eq i64 %.us-phi.us, %76
-  br i1 %95, label %.split.us, label %.split77.us, !llvm.loop !305
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %113 = icmp eq i64 %110, %76
+  br i1 %113, label %.split.us, label %.split77.us, !llvm.loop !286
 
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %120, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
+.preheader39.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %.067.us68 = phi i64 [ %121, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %92, %.067.us.us
-  %97 = getelementptr inbounds %struct.ggml_bf16_t, ptr %91, i64 %96
-  br label %.preheader41.i.us.us
+  %114 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %114
+  br label %115
 
-.preheader41.i.us.us:                             ; preds = %111, %.preheader41.lr.ph.i.us.us
-  %.03349.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %112, %111 ]
-  %98 = getelementptr inbounds nuw %struct.ggml_bf16_t, ptr %97, i64 %.03349.i.us.us
-  %.val3638.le.i.us.us = load <16 x i16>, ptr %98, align 1, !tbaa !53
-  %99 = zext <16 x i16> %.val3638.le.i.us.us to <16 x i32>
-  %100 = shl nuw <16 x i32> %99, splat (i32 16)
-  %101 = bitcast <16 x i32> %100 to <16 x float>
-  %invariant.gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %93, i64 %.03349.i.us.us
-  br label %102
+115:                                              ; preds = %115, %.preheader39.i.us
+  %.050.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %120, %115 ]
+  %116 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us70
+  %117 = load <16 x float>, ptr %116, align 64, !tbaa !53
+  %118 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %117)
+  %119 = getelementptr float, ptr %gep.us69, i64 %.050.i.us70
+  store float %118, ptr %119, align 4, !tbaa !93
+  %120 = add nuw nsw i64 %.050.i.us70, 1
+  %exitcond51.not.i.us71 = icmp eq i64 %120, 4
+  br i1 %exitcond51.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72, label %115, !llvm.loop !237
 
-102:                                              ; preds = %102, %.preheader41.i.us.us
-  %.03448.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %110, %102 ]
-  %103 = add nuw nsw i64 %.03448.i.us.us, %57
-  %104 = mul nsw i64 %103, %94
-  %gep.i.us.us = getelementptr %struct.ggml_bf16_t, ptr %invariant.gep.i.us.us, i64 %104
-  %.val37.i.us.us = load <16 x i16>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %105 = zext <16 x i16> %.val37.i.us.us to <16 x i32>
-  %106 = shl nuw <16 x i32> %105, splat (i32 16)
-  %107 = bitcast <16 x i32> %106 to <16 x float>
-  %108 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03448.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %108, align 64, !tbaa !53
-  %109 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %107, <16 x float> %101, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %109, ptr %108, align 64, !tbaa !53
-  %110 = add nuw nsw i64 %.03448.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %110, 4
-  br i1 %exitcond.not.i.us.us, label %111, label %102, !llvm.loop !249
-
-111:                                              ; preds = %102
-  %112 = add nuw nsw i64 %.03349.i.us.us, 16
-  %113 = icmp slt i64 %112, %78
-  br i1 %113, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !248
-
-114:                                              ; preds = %.preheader39.i.loopexit.us.us, %114
-  %.050.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %119, %114 ]
-  %115 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.050.i.us.us
-  %116 = load <16 x float>, ptr %115, align 64, !tbaa !53
-  %117 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %116)
-  %118 = getelementptr float, ptr %gep.us.us, i64 %.050.i.us.us
-  store float %117, ptr %118, align 4, !tbaa !93
-  %119 = add nuw nsw i64 %.050.i.us.us, 1
-  %exitcond51.not.i.us.us = icmp eq i64 %119, 4
-  br i1 %exitcond51.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %114, !llvm.loop !250
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %114
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %120 = add nsw i64 %.067.us.us, 1
-  %121 = icmp slt i64 %120, %76
-  br i1 %121, label %.preheader41.lr.ph.i.us.us, label %._crit_edge.us, !llvm.loop !306
+  %121 = add nsw i64 %.067.us68, 1
+  %122 = icmp slt i64 %121, %76
+  br i1 %122, label %.preheader39.i.us, label %._crit_edge.split.us73, !llvm.loop !285
 
-.preheader39.i.loopexit.us.us:                    ; preds = %111
-  %122 = mul nsw i64 %80, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep, i64 %122
-  br label %114
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %123 = icmp eq i64 %121, %76
+  br i1 %123, label %.split.us, label %.split77.us, !llvm.loop !286
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %123 = icmp eq i64 %spec.select, %76
-  %.fr79 = freeze i1 %123
-  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !307
+  %124 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %124
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !286
 
-.split.us:                                        ; preds = %._crit_edge.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %124 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %125 = icmp slt i64 %124, %24
-  br i1 %125, label %55, label %._crit_edge, !llvm.loop !308
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %125 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %126 = icmp slt i64 %125, %24
+  br i1 %126, label %55, label %._crit_edge, !llvm.loop !287
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.us
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %126 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %127)
+  %127 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %128 = load ptr, ptr %127, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %128)
   ret void
 }
 
@@ -14314,7 +14394,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 105:                                              ; preds = %._crit_edge
   %106 = add nuw nsw i64 %.066103, 4
   %107 = icmp samesign ult i64 %.066103, 12
-  br i1 %107, label %.preheader98, label %113, !llvm.loop !309
+  br i1 %107, label %.preheader98, label %113, !llvm.loop !288
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %.066103 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %106, %105 ]
@@ -14332,7 +14412,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 113:                                              ; preds = %105
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %30
-  br i1 %115, label %62, label %._crit_edge107, !llvm.loop !310
+  br i1 %115, label %62, label %._crit_edge107, !llvm.loop !289
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -14378,13 +14458,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !311
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !290
 
 129:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
-  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !312
+  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !291
 
 132:                                              ; preds = %137, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
@@ -14399,7 +14479,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 137:                                              ; preds = %139
   %138 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %138, 6
-  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !313
+  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !292
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
@@ -14411,7 +14491,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
   %145 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !314
+  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !293
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
@@ -14424,7 +14504,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 149:                                              ; preds = %151
   %150 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %150, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !315
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !294
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
@@ -14435,13 +14515,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
-  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !316
+  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !295
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.099, 6
   %158 = icmp slt i64 %157, %99
-  br i1 %158, label %122, label %.preheader, !llvm.loop !317
+  br i1 %158, label %122, label %.preheader, !llvm.loop !296
 
 159:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -14473,13 +14553,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %165, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %160, !llvm.loop !318
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %160, !llvm.loop !297
 
 166:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03346.i84, 16
   %168 = icmp slt i64 %167, %101
-  br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !319
+  br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !298
 
 169:                                              ; preds = %174, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %175, %174 ]
@@ -14494,7 +14574,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 174:                                              ; preds = %176
   %175 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %175, 5
-  br i1 %exitcond52.not.i97, label %166, label %169, !llvm.loop !320
+  br i1 %exitcond52.not.i97, label %166, label %169, !llvm.loop !299
 
 176:                                              ; preds = %176, %169
   %.03242.i95 = phi i64 [ 0, %169 ], [ %182, %176 ]
@@ -14506,7 +14586,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %181, ptr %179, align 64, !tbaa !53
   %182 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %182, 4
-  br i1 %exitcond51.not.i96, label %174, label %176, !llvm.loop !321
+  br i1 %exitcond51.not.i96, label %174, label %176, !llvm.loop !300
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %186
   %.03150.i78 = phi i64 [ %187, %186 ], [ 0, %.preheader.i77.preheader ]
@@ -14519,7 +14599,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 186:                                              ; preds = %188
   %187 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %187, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !322
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !301
 
 188:                                              ; preds = %188, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
@@ -14530,13 +14610,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
-  br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !323
+  br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %186
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.1100, 5
   %195 = icmp slt i64 %194, %98
-  br i1 %195, label %159, label %._crit_edge, !llvm.loop !324
+  br i1 %195, label %159, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -14718,7 +14798,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 105:                                              ; preds = %._crit_edge
   %106 = add nuw nsw i64 %.066101, 4
   %107 = icmp samesign ult i64 %.066101, 12
-  br i1 %107, label %.preheader96, label %113, !llvm.loop !325
+  br i1 %107, label %.preheader96, label %113, !llvm.loop !304
 
 .preheader96:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %.066101 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %106, %105 ]
@@ -14736,7 +14816,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 113:                                              ; preds = %105
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %30
-  br i1 %115, label %62, label %._crit_edge105, !llvm.loop !326
+  br i1 %115, label %62, label %._crit_edge105, !llvm.loop !305
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %.preheader96
   %.0.lcssa = phi i64 [ %90, %.preheader96 ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -14782,13 +14862,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !318
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !297
 
 129:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
-  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !319
+  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !298
 
 132:                                              ; preds = %137, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
@@ -14803,7 +14883,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 137:                                              ; preds = %139
   %138 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %138, 5
-  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !320
+  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !299
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
@@ -14815,7 +14895,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
   %145 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !321
+  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !300
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
@@ -14828,7 +14908,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 149:                                              ; preds = %151
   %150 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %150, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !322
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !301
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
@@ -14839,13 +14919,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
-  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !323
+  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.097, 5
   %158 = icmp slt i64 %157, %99
-  br i1 %158, label %122, label %.preheader, !llvm.loop !327
+  br i1 %158, label %122, label %.preheader, !llvm.loop !306
 
 159:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -14877,13 +14957,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %165, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %160, !llvm.loop !328
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %160, !llvm.loop !307
 
 166:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03346.i84, 16
   %168 = icmp slt i64 %167, %101
-  br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !329
+  br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !308
 
 169:                                              ; preds = %174, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %175, %174 ]
@@ -14898,7 +14978,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 174:                                              ; preds = %176
   %175 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %175, 4
-  br i1 %exitcond52.not.i95, label %166, label %169, !llvm.loop !330
+  br i1 %exitcond52.not.i95, label %166, label %169, !llvm.loop !309
 
 176:                                              ; preds = %176, %169
   %.03242.i93 = phi i64 [ 0, %169 ], [ %182, %176 ]
@@ -14910,7 +14990,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %181, ptr %179, align 64, !tbaa !53
   %182 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %182, 4
-  br i1 %exitcond51.not.i94, label %174, label %176, !llvm.loop !331
+  br i1 %exitcond51.not.i94, label %174, label %176, !llvm.loop !310
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %186
   %.03150.i78 = phi i64 [ %187, %186 ], [ 0, %.preheader.i77.preheader ]
@@ -14923,7 +15003,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 186:                                              ; preds = %188
   %187 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %187, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !332
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !311
 
 188:                                              ; preds = %188, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
@@ -14934,13 +15014,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
-  br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !333
+  br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %186
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.198, 4
   %195 = icmp slt i64 %194, %98
-  br i1 %195, label %159, label %._crit_edge, !llvm.loop !334
+  br i1 %195, label %159, label %._crit_edge, !llvm.loop !313
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -15122,7 +15202,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 106:                                              ; preds = %._crit_edge
   %107 = add nuw nsw i64 %.06691, 4
   %108 = icmp samesign ult i64 %.06691, 12
-  br i1 %108, label %.preheader86, label %114, !llvm.loop !335
+  br i1 %108, label %.preheader86, label %114, !llvm.loop !314
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73, %106
   %.06691 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ %107, %106 ]
@@ -15140,7 +15220,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 114:                                              ; preds = %106
   %115 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %116 = icmp slt i64 %115, %31
-  br i1 %116, label %63, label %._crit_edge95, !llvm.loop !336
+  br i1 %116, label %63, label %._crit_edge95, !llvm.loop !315
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %.preheader86
   %.0.lcssa = phi i64 [ %91, %.preheader86 ], [ %158, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -15186,13 +15266,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %127, ptr %128, align 64, !tbaa !53
   %129 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %129, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !328
+  br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !307
 
 130:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %102
-  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !329
+  br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !308
 
 133:                                              ; preds = %138, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %139, %138 ]
@@ -15207,7 +15287,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 138:                                              ; preds = %140
   %139 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %139, 4
-  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !330
+  br i1 %exitcond52.not.i, label %130, label %133, !llvm.loop !309
 
 140:                                              ; preds = %140, %133
   %.03242.i = phi i64 [ 0, %133 ], [ %146, %140 ]
@@ -15219,7 +15299,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %145, ptr %143, align 64, !tbaa !53
   %146 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %146, 4
-  br i1 %exitcond51.not.i, label %138, label %140, !llvm.loop !331
+  br i1 %exitcond51.not.i, label %138, label %140, !llvm.loop !310
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %150
   %.03150.i = phi i64 [ %151, %150 ], [ 0, %.preheader.i.preheader ]
@@ -15232,7 +15312,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 150:                                              ; preds = %152
   %151 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %151, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !332
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !311
 
 152:                                              ; preds = %152, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %157, %152 ]
@@ -15243,13 +15323,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %155, ptr %156, align 4, !tbaa !93
   %157 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %157, 4
-  br i1 %exitcond53.not.i, label %150, label %152, !llvm.loop !333
+  br i1 %exitcond53.not.i, label %150, label %152, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %150
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = add nsw i64 %.087, 4
   %159 = icmp slt i64 %158, %100
-  br i1 %159, label %123, label %.preheader, !llvm.loop !337
+  br i1 %159, label %123, label %.preheader, !llvm.loop !316
 
 160:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -15281,13 +15361,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %164, ptr %165, align 64, !tbaa !53
   %166 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %166, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %161, !llvm.loop !338
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %161, !llvm.loop !317
 
 167:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = add nuw nsw i64 %.03348.i, 16
   %169 = icmp slt i64 %168, %102
-  br i1 %169, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !339
+  br i1 %169, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !318
 
 170:                                              ; preds = %174, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %175, %174 ]
@@ -15302,7 +15382,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 174:                                              ; preds = %176
   %175 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %175, 4
-  br i1 %exitcond54.not.i85, label %167, label %170, !llvm.loop !340
+  br i1 %exitcond54.not.i85, label %167, label %170, !llvm.loop !319
 
 176:                                              ; preds = %176, %170
   %.03244.i = phi i64 [ 0, %170 ], [ %181, %176 ]
@@ -15314,7 +15394,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %180, ptr %gep43.i, align 64, !tbaa !53
   %181 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %181, 3
-  br i1 %exitcond53.not.i84, label %174, label %176, !llvm.loop !341
+  br i1 %exitcond53.not.i84, label %174, label %176, !llvm.loop !320
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %185
   %.03152.i = phi i64 [ %186, %185 ], [ 0, %.preheader.i75.preheader ]
@@ -15327,7 +15407,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 185:                                              ; preds = %187
   %186 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %186, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !321
 
 187:                                              ; preds = %187, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %192, %187 ]
@@ -15338,13 +15418,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %192, 4
-  br i1 %exitcond55.not.i, label %185, label %187, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %185, label %187, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.188, 3
   %194 = icmp slt i64 %193, %99
-  br i1 %194, label %160, label %._crit_edge, !llvm.loop !344
+  br i1 %194, label %160, label %._crit_edge, !llvm.loop !323
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -15526,7 +15606,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 104:                                              ; preds = %._crit_edge
   %105 = add nuw nsw i64 %.066105, 4
   %106 = icmp samesign ult i64 %.066105, 12
-  br i1 %106, label %.preheader100, label %112, !llvm.loop !345
+  br i1 %106, label %.preheader100, label %112, !llvm.loop !324
 
 .preheader100:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %104
   %.066105 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %105, %104 ]
@@ -15544,7 +15624,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 112:                                              ; preds = %104
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %29
-  br i1 %114, label %61, label %._crit_edge109, !llvm.loop !346
+  br i1 %114, label %61, label %._crit_edge109, !llvm.loop !325
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %.preheader100
   %.0.lcssa = phi i64 [ %89, %.preheader100 ], [ %182, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -15598,12 +15678,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %132, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %133 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %133, 4
-  br i1 %exitcond.not.i96.us, label %134, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i96.us, label %134, label %.critedge, !llvm.loop !326
 
 134:                                              ; preds = %.critedge
   %135 = add nuw nsw i64 %.03348.i83.us, 16
   %136 = icmp slt i64 %135, %100
-  br i1 %136, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !348
+  br i1 %136, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !327
 
 .preheader.i77.us:                                ; preds = %134, %146
   %137 = phi i1 [ false, %146 ], [ true, %134 ]
@@ -15623,16 +15703,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %143, ptr %144, align 4, !tbaa !93
   %145 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %145, 4
-  br i1 %exitcond53.not.i81.us, label %146, label %140, !llvm.loop !349
+  br i1 %exitcond53.not.i81.us, label %146, label %140, !llvm.loop !328
 
 146:                                              ; preds = %140
-  br i1 %137, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %137, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %147 = add nsw i64 %.1102.us, 2
   %148 = icmp slt i64 %147, %97
-  br i1 %148, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !351
+  br i1 %148, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !330
 
 149:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %182, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -15664,13 +15744,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %153, ptr %154, align 64, !tbaa !53
   %155 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %155, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %150, !llvm.loop !338
+  br i1 %exitcond.not.i, label %.preheader40.i, label %150, !llvm.loop !317
 
 156:                                              ; preds = %163
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nuw nsw i64 %.03348.i, 16
   %158 = icmp slt i64 %157, %100
-  br i1 %158, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !339
+  br i1 %158, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !318
 
 159:                                              ; preds = %163, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %164, %163 ]
@@ -15685,7 +15765,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 163:                                              ; preds = %165
   %164 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %164, 4
-  br i1 %exitcond54.not.i, label %156, label %159, !llvm.loop !340
+  br i1 %exitcond54.not.i, label %156, label %159, !llvm.loop !319
 
 165:                                              ; preds = %165, %159
   %.03244.i = phi i64 [ 0, %159 ], [ %170, %165 ]
@@ -15697,7 +15777,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %169, ptr %gep43.i, align 64, !tbaa !53
   %170 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %170, 3
-  br i1 %exitcond53.not.i, label %163, label %165, !llvm.loop !341
+  br i1 %exitcond53.not.i, label %163, label %165, !llvm.loop !320
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %174
   %.03152.i = phi i64 [ %175, %174 ], [ 0, %.preheader.i.preheader ]
@@ -15710,7 +15790,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 174:                                              ; preds = %176
   %175 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %175, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !321
 
 176:                                              ; preds = %176, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %181, %176 ]
@@ -15721,13 +15801,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %179, ptr %180, align 4, !tbaa !93
   %181 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %181, 4
-  br i1 %exitcond55.not.i, label %174, label %176, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %174, label %176, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %174
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %182 = add nsw i64 %.0101, 3
   %183 = icmp slt i64 %182, %98
-  br i1 %183, label %149, label %.preheader, !llvm.loop !352
+  br i1 %183, label %149, label %.preheader, !llvm.loop !331
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -15745,7 +15825,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br label %188
 
 187:                                              ; preds = %188
-  br i1 %184, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %184, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 188:                                              ; preds = %188, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %193, %188 ]
@@ -15756,13 +15836,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   store float %191, ptr %192, align 4, !tbaa !93
   %193 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %193, 4
-  br i1 %exitcond53.not.i81, label %187, label %188, !llvm.loop !349
+  br i1 %exitcond53.not.i81, label %187, label %188, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.1102, 2
   %195 = icmp slt i64 %194, %97
-  br i1 %195, label %.preheader39.i75, label %._crit_edge, !llvm.loop !353
+  br i1 %195, label %.preheader39.i75, label %._crit_edge, !llvm.loop !330
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -15921,7 +16001,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 96:                                               ; preds = %._crit_edge
   %97 = add nuw nsw i64 %.06691, 4
   %98 = icmp samesign ult i64 %.06691, 12
-  br i1 %98, label %.preheader86, label %132, !llvm.loop !354
+  br i1 %98, label %.preheader86, label %132, !llvm.loop !332
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %.06691 = phi i64 [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %97, %96 ]
@@ -15974,12 +16054,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %115, ptr %gep43.i.us.c, align 64, !tbaa !53
   %116 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %116, 4
-  br i1 %exitcond.not.i.us, label %117, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i.us, label %117, label %.critedge, !llvm.loop !326
 
 117:                                              ; preds = %.critedge
   %118 = add nuw nsw i64 %.03348.i.us, 16
   %119 = icmp slt i64 %118, %92
-  br i1 %119, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !348
+  br i1 %119, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !327
 
 .preheader.i.us:                                  ; preds = %117, %129
   %120 = phi i1 [ false, %129 ], [ true, %117 ]
@@ -15999,21 +16079,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %126, ptr %127, align 4, !tbaa !93
   %128 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %128, 4
-  br i1 %exitcond53.not.i.us, label %129, label %123, !llvm.loop !349
+  br i1 %exitcond53.not.i.us, label %129, label %123, !llvm.loop !328
 
 129:                                              ; preds = %123
-  br i1 %120, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %120, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = add nsw i64 %.087.us, 2
   %131 = icmp slt i64 %130, %90
-  br i1 %131, label %.lr.ph.i.us, label %.preheader, !llvm.loop !355
+  br i1 %131, label %.lr.ph.i.us, label %.preheader, !llvm.loop !333
 
 132:                                              ; preds = %96
   %133 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %134 = icmp slt i64 %133, %29
-  br i1 %134, label %61, label %._crit_edge95, !llvm.loop !356
+  br i1 %134, label %61, label %._crit_edge95, !llvm.loop !334
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader86
   %.0.lcssa = phi i64 [ %85, %.preheader86 ], [ %130, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -16045,7 +16125,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br label %145
 
 144:                                              ; preds = %145
-  br i1 %141, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %141, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 145:                                              ; preds = %145, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %150, %145 ]
@@ -16056,13 +16136,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %148, ptr %149, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %150, 4
-  br i1 %exitcond53.not.i, label %144, label %145, !llvm.loop !349
+  br i1 %exitcond53.not.i, label %144, label %145, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %151 = add nsw i64 %.087, 2
   %152 = icmp slt i64 %151, %90
-  br i1 %152, label %.preheader39.i, label %.preheader, !llvm.loop !357
+  br i1 %152, label %.preheader39.i, label %.preheader, !llvm.loop !333
 
 153:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %175, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -16091,7 +16171,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 159:                                              ; preds = %162
   %160 = add nuw nsw i64 %.03348.i76, 16
   %161 = icmp slt i64 %160, %92
-  br i1 %161, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !358
+  br i1 %161, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !335
 
 162:                                              ; preds = %162, %.preheader41.i
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %168, %162 ]
@@ -16106,7 +16186,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %167, ptr %166, align 64, !tbaa !53
   %168 = add nuw nsw i64 %.03447.i78, 1
   %exitcond.not.i81 = icmp eq i64 %168, 4
-  br i1 %exitcond.not.i81, label %159, label %162, !llvm.loop !359
+  br i1 %exitcond.not.i81, label %159, label %162, !llvm.loop !336
 
 169:                                              ; preds = %169, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %174, %169 ]
@@ -16117,13 +16197,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %172, ptr %173, align 4, !tbaa !93
   %174 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %174, 4
-  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %169, !llvm.loop !360
+  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %169, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = add nsw i64 %.188, 1
   %176 = icmp slt i64 %175, %89
-  br i1 %176, label %153, label %._crit_edge, !llvm.loop !361
+  br i1 %176, label %153, label %._crit_edge, !llvm.loop !338
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %175, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -16220,7 +16300,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %120, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %124, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 4
   %58 = sdiv i64 %.06179, %9
@@ -16259,126 +16339,143 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %.06068.us = phi i64 [ %95, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %82 = add nuw nsw i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %87
+  %.06068.us.us = phi i64 [ %88, %87 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %82 = add nuw nsw i64 %.06068.us.us, %57
   %83 = load ptr, ptr %49, align 8
   %84 = load i64, ptr %50, align 8
   %85 = load ptr, ptr %51, align 8
   %86 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %82
-  br i1 %79, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %82
+  br label %.preheader41.lr.ph.i.us.us.us
+
+87:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %88 = add nuw nsw i64 %.06068.us.us, 4
+  %89 = icmp samesign ult i64 %.06068.us.us, 12
+  br i1 %89, label %.preheader.us.us, label %.split78.us, !llvm.loop !339
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %110, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %90 = mul nsw i64 %84, %.067.us.us.us
+  %91 = getelementptr inbounds i16, ptr %83, i64 %90
+  br label %.preheader41.i.us.us.us
+
+.preheader41.i.us.us.us:                          ; preds = %101, %.preheader41.lr.ph.i.us.us.us
+  %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %102, %101 ]
+  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %.03348.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x half>, ptr %92, align 1, !tbaa !53
+  %93 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr i16, ptr %85, i64 %.03348.i.us.us.us
+  br label %94
+
+94:                                               ; preds = %94, %.preheader41.i.us.us.us
+  %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %100, %94 ]
+  %95 = add nuw nsw i64 %.03447.i.us.us.us, %82
+  %96 = mul nsw i64 %95, %86
+  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %96
+  %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %97 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
+  %98 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %98, align 64, !tbaa !53
+  %99 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %97, <16 x float> %93, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %99, ptr %98, align 64, !tbaa !53
+  %100 = add nuw nsw i64 %.03447.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %100, 4
+  br i1 %exitcond.not.i.us.us.us, label %101, label %94, !llvm.loop !336
+
+101:                                              ; preds = %94
+  %102 = add nuw nsw i64 %.03348.i.us.us.us, 16
+  %103 = icmp slt i64 %102, %78
+  br i1 %103, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !335
+
+104:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %104
+  %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %109, %104 ]
+  %105 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us.us
+  %106 = load <16 x float>, ptr %105, align 64, !tbaa !53
+  %107 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %106)
+  %108 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  store float %107, ptr %108, align 4, !tbaa !93
+  %109 = add nuw nsw i64 %.049.i.us.us.us, 1
+  %exitcond50.not.i.us.us.us = icmp eq i64 %109, 4
+  br i1 %exitcond50.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %104, !llvm.loop !337
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %104
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %110 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %110, %76
+  br i1 %exitcond85.not, label %87, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !340
+
+.preheader39.i.loopexit.us.us.us:                 ; preds = %101
+  %111 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %111
+  br label %104
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %120
+  %.06068.us = phi i64 [ %121, %120 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %119, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %87 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
-  br label %88
+  %112 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %112
+  br label %113
 
-88:                                               ; preds = %88, %.preheader39.i.us
-  %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %93, %88 ]
-  %89 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us71
-  %90 = load <16 x float>, ptr %89, align 64, !tbaa !53
-  %91 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %90)
-  %92 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
-  store float %91, ptr %92, align 4, !tbaa !93
-  %93 = add nuw nsw i64 %.049.i.us71, 1
-  %exitcond50.not.i.us72 = icmp eq i64 %93, 4
-  br i1 %exitcond50.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !360
+113:                                              ; preds = %113, %.preheader39.i.us
+  %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %118, %113 ]
+  %114 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us71
+  %115 = load <16 x float>, ptr %114, align 64, !tbaa !53
+  %116 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %115)
+  %117 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
+  store float %116, ptr %117, align 4, !tbaa !93
+  %118 = add nuw nsw i64 %.049.i.us71, 1
+  %exitcond50.not.i.us72 = icmp eq i64 %118, 4
+  br i1 %exitcond50.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %113, !llvm.loop !337
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %94 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %94, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader39.i.us, !llvm.loop !362
+  %119 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %119, %76
+  br i1 %exitcond.not, label %120, label %.preheader39.i.us, !llvm.loop !340
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %95 = add nuw nsw i64 %.06068.us, 4
-  %96 = icmp samesign ult i64 %.06068.us, 12
-  br i1 %96, label %.preheader.us, label %.split78.us, !llvm.loop !363
-
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %97 = mul nsw i64 %84, %.067.us.us
-  %98 = getelementptr inbounds i16, ptr %83, i64 %97
-  br label %.preheader41.i.us.us
-
-.preheader41.i.us.us:                             ; preds = %108, %.preheader41.lr.ph.i.us.us
-  %.03348.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %109, %108 ]
-  %99 = getelementptr inbounds nuw i16, ptr %98, i64 %.03348.i.us.us
-  %.val3638.le.i.us.us = load <16 x half>, ptr %99, align 1, !tbaa !53
-  %100 = fpext <16 x half> %.val3638.le.i.us.us to <16 x float>
-  %invariant.gep.i.us.us = getelementptr i16, ptr %85, i64 %.03348.i.us.us
-  br label %101
-
-101:                                              ; preds = %101, %.preheader41.i.us.us
-  %.03447.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %107, %101 ]
-  %102 = add nuw nsw i64 %.03447.i.us.us, %82
-  %103 = mul nsw i64 %102, %86
-  %gep.i.us.us = getelementptr i16, ptr %invariant.gep.i.us.us, i64 %103
-  %.val37.i.us.us = load <16 x half>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %104 = fpext <16 x half> %.val37.i.us.us to <16 x float>
-  %105 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %105, align 64, !tbaa !53
-  %106 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %104, <16 x float> %100, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %106, ptr %105, align 64, !tbaa !53
-  %107 = add nuw nsw i64 %.03447.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %107, 4
-  br i1 %exitcond.not.i.us.us, label %108, label %101, !llvm.loop !359
-
-108:                                              ; preds = %101
-  %109 = add nuw nsw i64 %.03348.i.us.us, 16
-  %110 = icmp slt i64 %109, %78
-  br i1 %110, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !358
-
-111:                                              ; preds = %.preheader39.i.loopexit.us.us, %111
-  %.049.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %116, %111 ]
-  %112 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us
-  %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
-  %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
-  %115 = getelementptr float, ptr %gep.us.us, i64 %.049.i.us.us
-  store float %114, ptr %115, align 4, !tbaa !93
-  %116 = add nuw nsw i64 %.049.i.us.us, 1
-  %exitcond50.not.i.us.us = icmp eq i64 %116, 4
-  br i1 %exitcond50.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %111, !llvm.loop !360
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %111
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %117 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %117, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader41.lr.ph.i.us.us, !llvm.loop !364
-
-.preheader39.i.loopexit.us.us:                    ; preds = %108
-  %118 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %118
-  br label %111
+120:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
+  %121 = add nuw nsw i64 %.06068.us, 4
+  %122 = icmp samesign ult i64 %.06068.us, 12
+  br i1 %122, label %.preheader.us, label %.split78.us, !llvm.loop !339
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %119 = icmp eq i64 %spec.select, %76
-  br i1 %119, label %.split78.us, label %.split.us
+  %123 = icmp eq i64 %spec.select, %76
+  br i1 %123, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %120 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %121 = icmp slt i64 %120, %24
-  br i1 %121, label %55, label %._crit_edge, !llvm.loop !365
+.split78.us:                                      ; preds = %120, %87, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %124 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi4EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %125 = icmp slt i64 %124, %24
+  br i1 %125, label %55, label %._crit_edge, !llvm.loop !341
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %122 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %123)
+  %126 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %127 = load ptr, ptr %126, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %127)
   ret void
 }
 
@@ -16544,7 +16641,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader98
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader98, label %112, !llvm.loop !366
+  br i1 %106, label %.preheader98, label %112, !llvm.loop !342
 
 .preheader98:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -16563,7 +16660,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !367
+  br i1 %114, label %62, label %._crit_edge107, !llvm.loop !343
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, %.preheader98
   %.0.lcssa = phi i64 [ %90, %.preheader98 ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -16609,13 +16706,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %125, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !311
+  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !290
 
 128:                                              ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03346.i, 16
   %130 = icmp slt i64 %129, %101
-  br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !312
+  br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !291
 
 131:                                              ; preds = %136, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
@@ -16630,7 +16727,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 136:                                              ; preds = %138
   %137 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %137, 6
-  br i1 %exitcond52.not.i, label %128, label %131, !llvm.loop !313
+  br i1 %exitcond52.not.i, label %128, label %131, !llvm.loop !292
 
 138:                                              ; preds = %138, %131
   %.03242.i = phi i64 [ 0, %131 ], [ %144, %138 ]
@@ -16642,7 +16739,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
   %144 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %144, 4
-  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !314
+  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !293
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
@@ -16655,7 +16752,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 148:                                              ; preds = %150
   %149 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %149, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !315
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !294
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
@@ -16666,13 +16763,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
-  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !316
+  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !295
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %148
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.099, 6
   %157 = icmp slt i64 %156, %99
-  br i1 %157, label %121, label %.preheader, !llvm.loop !368
+  br i1 %157, label %121, label %.preheader, !llvm.loop !344
 
 158:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -16704,13 +16801,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %164, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %159, !llvm.loop !318
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %159, !llvm.loop !297
 
 165:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
-  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !319
+  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !298
 
 168:                                              ; preds = %173, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %174, %173 ]
@@ -16725,7 +16822,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 173:                                              ; preds = %175
   %174 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %174, 5
-  br i1 %exitcond52.not.i97, label %165, label %168, !llvm.loop !320
+  br i1 %exitcond52.not.i97, label %165, label %168, !llvm.loop !299
 
 175:                                              ; preds = %175, %168
   %.03242.i95 = phi i64 [ 0, %168 ], [ %181, %175 ]
@@ -16737,7 +16834,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %180, ptr %178, align 64, !tbaa !53
   %181 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %181, 4
-  br i1 %exitcond51.not.i96, label %173, label %175, !llvm.loop !321
+  br i1 %exitcond51.not.i96, label %173, label %175, !llvm.loop !300
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %185
   %.03150.i78 = phi i64 [ %186, %185 ], [ 0, %.preheader.i77.preheader ]
@@ -16750,7 +16847,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 185:                                              ; preds = %187
   %186 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %186, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !322
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !301
 
 187:                                              ; preds = %187, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
@@ -16761,13 +16858,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
-  br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !323
+  br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.1100, 5
   %194 = icmp slt i64 %193, %98
-  br i1 %194, label %158, label %._crit_edge, !llvm.loop !369
+  br i1 %194, label %158, label %._crit_edge, !llvm.loop !345
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -16947,7 +17044,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br label %.preheader96
 
 105:                                              ; preds = %._crit_edge
-  br i1 %106, label %.preheader96, label %112, !llvm.loop !370
+  br i1 %106, label %.preheader96, label %112, !llvm.loop !346
 
 .preheader96:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %105
   %106 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %105 ]
@@ -16966,7 +17063,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 112:                                              ; preds = %105
   %113 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %114 = icmp slt i64 %113, %30
-  br i1 %114, label %62, label %._crit_edge105, !llvm.loop !371
+  br i1 %114, label %62, label %._crit_edge105, !llvm.loop !347
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %.preheader96
   %.0.lcssa = phi i64 [ %90, %.preheader96 ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -17012,13 +17109,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %125, ptr %126, align 64, !tbaa !53
   %127 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %127, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !318
+  br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !297
 
 128:                                              ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03346.i, 16
   %130 = icmp slt i64 %129, %101
-  br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !319
+  br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !298
 
 131:                                              ; preds = %136, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %137, %136 ]
@@ -17033,7 +17130,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 136:                                              ; preds = %138
   %137 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %137, 5
-  br i1 %exitcond52.not.i, label %128, label %131, !llvm.loop !320
+  br i1 %exitcond52.not.i, label %128, label %131, !llvm.loop !299
 
 138:                                              ; preds = %138, %131
   %.03242.i = phi i64 [ 0, %131 ], [ %144, %138 ]
@@ -17045,7 +17142,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %143, ptr %141, align 64, !tbaa !53
   %144 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %144, 4
-  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !321
+  br i1 %exitcond51.not.i, label %136, label %138, !llvm.loop !300
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %148
   %.03150.i = phi i64 [ %149, %148 ], [ 0, %.preheader.i.preheader ]
@@ -17058,7 +17155,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 148:                                              ; preds = %150
   %149 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %149, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !322
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !301
 
 150:                                              ; preds = %150, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %155, %150 ]
@@ -17069,13 +17166,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %153, ptr %154, align 4, !tbaa !93
   %155 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %155, 4
-  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !323
+  br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %148
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.097, 5
   %157 = icmp slt i64 %156, %99
-  br i1 %157, label %121, label %.preheader, !llvm.loop !372
+  br i1 %157, label %121, label %.preheader, !llvm.loop !348
 
 158:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -17107,13 +17204,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %162, ptr %163, align 64, !tbaa !53
   %164 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %164, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %159, !llvm.loop !328
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %159, !llvm.loop !307
 
 165:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
-  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !329
+  br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !308
 
 168:                                              ; preds = %173, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %174, %173 ]
@@ -17128,7 +17225,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 173:                                              ; preds = %175
   %174 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %174, 4
-  br i1 %exitcond52.not.i95, label %165, label %168, !llvm.loop !330
+  br i1 %exitcond52.not.i95, label %165, label %168, !llvm.loop !309
 
 175:                                              ; preds = %175, %168
   %.03242.i93 = phi i64 [ 0, %168 ], [ %181, %175 ]
@@ -17140,7 +17237,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %180, ptr %178, align 64, !tbaa !53
   %181 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %181, 4
-  br i1 %exitcond51.not.i94, label %173, label %175, !llvm.loop !331
+  br i1 %exitcond51.not.i94, label %173, label %175, !llvm.loop !310
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %185
   %.03150.i78 = phi i64 [ %186, %185 ], [ 0, %.preheader.i77.preheader ]
@@ -17153,7 +17250,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 185:                                              ; preds = %187
   %186 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %186, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !332
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !311
 
 187:                                              ; preds = %187, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
@@ -17164,13 +17261,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
-  br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !333
+  br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %185
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.198, 4
   %194 = icmp slt i64 %193, %98
-  br i1 %194, label %158, label %._crit_edge, !llvm.loop !373
+  br i1 %194, label %158, label %._crit_edge, !llvm.loop !349
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -17350,7 +17447,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br label %.preheader86
 
 106:                                              ; preds = %._crit_edge
-  br i1 %107, label %.preheader86, label %113, !llvm.loop !374
+  br i1 %107, label %.preheader86, label %113, !llvm.loop !350
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73, %106
   %107 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ false, %106 ]
@@ -17369,7 +17466,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 113:                                              ; preds = %106
   %114 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %115 = icmp slt i64 %114, %31
-  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !375
+  br i1 %115, label %63, label %._crit_edge95, !llvm.loop !351
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %.preheader86
   %.0.lcssa = phi i64 [ %91, %.preheader86 ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -17415,13 +17512,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %126, ptr %127, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !328
+  br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !307
 
 129:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %102
-  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !329
+  br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !308
 
 132:                                              ; preds = %137, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %138, %137 ]
@@ -17436,7 +17533,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 137:                                              ; preds = %139
   %138 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %138, 4
-  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !330
+  br i1 %exitcond52.not.i, label %129, label %132, !llvm.loop !309
 
 139:                                              ; preds = %139, %132
   %.03242.i = phi i64 [ 0, %132 ], [ %145, %139 ]
@@ -17448,7 +17545,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %144, ptr %142, align 64, !tbaa !53
   %145 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !331
+  br i1 %exitcond51.not.i, label %137, label %139, !llvm.loop !310
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %149
   %.03150.i = phi i64 [ %150, %149 ], [ 0, %.preheader.i.preheader ]
@@ -17461,7 +17558,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 149:                                              ; preds = %151
   %150 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %150, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !332
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !311
 
 151:                                              ; preds = %151, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %156, %151 ]
@@ -17472,13 +17569,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %154, ptr %155, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %156, 4
-  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !333
+  br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %149
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.087, 4
   %158 = icmp slt i64 %157, %100
-  br i1 %158, label %122, label %.preheader, !llvm.loop !376
+  br i1 %158, label %122, label %.preheader, !llvm.loop !352
 
 159:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %192, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -17510,13 +17607,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %163, ptr %164, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %165, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %160, !llvm.loop !338
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %160, !llvm.loop !317
 
 166:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03348.i, 16
   %168 = icmp slt i64 %167, %102
-  br i1 %168, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !339
+  br i1 %168, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !318
 
 169:                                              ; preds = %173, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %174, %173 ]
@@ -17531,7 +17628,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 173:                                              ; preds = %175
   %174 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %174, 4
-  br i1 %exitcond54.not.i85, label %166, label %169, !llvm.loop !340
+  br i1 %exitcond54.not.i85, label %166, label %169, !llvm.loop !319
 
 175:                                              ; preds = %175, %169
   %.03244.i = phi i64 [ 0, %169 ], [ %180, %175 ]
@@ -17543,7 +17640,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %179, ptr %gep43.i, align 64, !tbaa !53
   %180 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %180, 3
-  br i1 %exitcond53.not.i84, label %173, label %175, !llvm.loop !341
+  br i1 %exitcond53.not.i84, label %173, label %175, !llvm.loop !320
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %184
   %.03152.i = phi i64 [ %185, %184 ], [ 0, %.preheader.i75.preheader ]
@@ -17556,7 +17653,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 184:                                              ; preds = %186
   %185 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %185, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !321
 
 186:                                              ; preds = %186, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %191, %186 ]
@@ -17567,13 +17664,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store float %189, ptr %190, align 4, !tbaa !93
   %191 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %191, 4
-  br i1 %exitcond55.not.i, label %184, label %186, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %184, label %186, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %184
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = add nsw i64 %.188, 3
   %193 = icmp slt i64 %192, %99
-  br i1 %193, label %159, label %._crit_edge, !llvm.loop !377
+  br i1 %193, label %159, label %._crit_edge, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %192, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -17753,7 +17850,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br label %.preheader100
 
 104:                                              ; preds = %._crit_edge
-  br i1 %105, label %.preheader100, label %111, !llvm.loop !378
+  br i1 %105, label %.preheader100, label %111, !llvm.loop !354
 
 .preheader100:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74, %104
   %105 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ false, %104 ]
@@ -17772,7 +17869,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 111:                                              ; preds = %104
   %112 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %113 = icmp slt i64 %112, %29
-  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !379
+  br i1 %113, label %61, label %._crit_edge109, !llvm.loop !355
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %.preheader100
   %.0.lcssa = phi i64 [ %89, %.preheader100 ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -17826,12 +17923,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %131, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %132 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %132, 4
-  br i1 %exitcond.not.i96.us, label %133, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i96.us, label %133, label %.critedge, !llvm.loop !326
 
 133:                                              ; preds = %.critedge
   %134 = add nuw nsw i64 %.03348.i83.us, 16
   %135 = icmp slt i64 %134, %100
-  br i1 %135, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !348
+  br i1 %135, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !327
 
 .preheader.i77.us:                                ; preds = %133, %145
   %136 = phi i1 [ false, %145 ], [ true, %133 ]
@@ -17851,16 +17948,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %142, ptr %143, align 4, !tbaa !93
   %144 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %144, 4
-  br i1 %exitcond53.not.i81.us, label %145, label %139, !llvm.loop !349
+  br i1 %exitcond53.not.i81.us, label %145, label %139, !llvm.loop !328
 
 145:                                              ; preds = %139
-  br i1 %136, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %136, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %145
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = add nsw i64 %.1102.us, 2
   %147 = icmp slt i64 %146, %97
-  br i1 %147, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !380
+  br i1 %147, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !356
 
 148:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -17892,13 +17989,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %152, ptr %153, align 64, !tbaa !53
   %154 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %154, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %149, !llvm.loop !338
+  br i1 %exitcond.not.i, label %.preheader40.i, label %149, !llvm.loop !317
 
 155:                                              ; preds = %162
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nuw nsw i64 %.03348.i, 16
   %157 = icmp slt i64 %156, %100
-  br i1 %157, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !339
+  br i1 %157, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !318
 
 158:                                              ; preds = %162, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %163, %162 ]
@@ -17913,7 +18010,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 162:                                              ; preds = %164
   %163 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %163, 4
-  br i1 %exitcond54.not.i, label %155, label %158, !llvm.loop !340
+  br i1 %exitcond54.not.i, label %155, label %158, !llvm.loop !319
 
 164:                                              ; preds = %164, %158
   %.03244.i = phi i64 [ 0, %158 ], [ %169, %164 ]
@@ -17925,7 +18022,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %168, ptr %gep43.i, align 64, !tbaa !53
   %169 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %169, 3
-  br i1 %exitcond53.not.i, label %162, label %164, !llvm.loop !341
+  br i1 %exitcond53.not.i, label %162, label %164, !llvm.loop !320
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %173
   %.03152.i = phi i64 [ %174, %173 ], [ 0, %.preheader.i.preheader ]
@@ -17938,7 +18035,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 173:                                              ; preds = %175
   %174 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %174, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !321
 
 175:                                              ; preds = %175, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %180, %175 ]
@@ -17949,13 +18046,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %178, ptr %179, align 4, !tbaa !93
   %180 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %180, 4
-  br i1 %exitcond55.not.i, label %173, label %175, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %173, label %175, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %181 = add nsw i64 %.0101, 3
   %182 = icmp slt i64 %181, %98
-  br i1 %182, label %148, label %.preheader, !llvm.loop !381
+  br i1 %182, label %148, label %.preheader, !llvm.loop !357
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -17973,7 +18070,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br label %187
 
 186:                                              ; preds = %187
-  br i1 %183, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %183, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 187:                                              ; preds = %187, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %192, %187 ]
@@ -17984,13 +18081,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   store float %190, ptr %191, align 4, !tbaa !93
   %192 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %192, 4
-  br i1 %exitcond53.not.i81, label %186, label %187, !llvm.loop !349
+  br i1 %exitcond53.not.i81, label %186, label %187, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %186
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.1102, 2
   %194 = icmp slt i64 %193, %97
-  br i1 %194, label %.preheader39.i75, label %._crit_edge, !llvm.loop !382
+  br i1 %194, label %.preheader39.i75, label %._crit_edge, !llvm.loop !356
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %146, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -18147,7 +18244,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br label %.preheader86
 
 96:                                               ; preds = %._crit_edge
-  br i1 %97, label %.preheader86, label %131, !llvm.loop !383
+  br i1 %97, label %.preheader86, label %131, !llvm.loop !358
 
 .preheader86:                                     ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71, %96
   %97 = phi i1 [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ false, %96 ]
@@ -18201,12 +18298,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %114, ptr %gep43.i.us.c, align 64, !tbaa !53
   %115 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %115, 4
-  br i1 %exitcond.not.i.us, label %116, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i.us, label %116, label %.critedge, !llvm.loop !326
 
 116:                                              ; preds = %.critedge
   %117 = add nuw nsw i64 %.03348.i.us, 16
   %118 = icmp slt i64 %117, %92
-  br i1 %118, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !348
+  br i1 %118, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !327
 
 .preheader.i.us:                                  ; preds = %116, %128
   %119 = phi i1 [ false, %128 ], [ true, %116 ]
@@ -18226,21 +18323,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %125, ptr %126, align 4, !tbaa !93
   %127 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %127, 4
-  br i1 %exitcond53.not.i.us, label %128, label %122, !llvm.loop !349
+  br i1 %exitcond53.not.i.us, label %128, label %122, !llvm.loop !328
 
 128:                                              ; preds = %122
-  br i1 %119, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %119, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = add nsw i64 %.087.us, 2
   %130 = icmp slt i64 %129, %90
-  br i1 %130, label %.lr.ph.i.us, label %.preheader, !llvm.loop !384
+  br i1 %130, label %.lr.ph.i.us, label %.preheader, !llvm.loop !359
 
 131:                                              ; preds = %96
   %132 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %133 = icmp slt i64 %132, %29
-  br i1 %133, label %61, label %._crit_edge95, !llvm.loop !385
+  br i1 %133, label %61, label %._crit_edge95, !llvm.loop !360
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader86
   %.0.lcssa = phi i64 [ %85, %.preheader86 ], [ %129, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %150, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -18272,7 +18369,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br label %144
 
 143:                                              ; preds = %144
-  br i1 %140, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %140, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 144:                                              ; preds = %144, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %149, %144 ]
@@ -18283,13 +18380,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %147, ptr %148, align 4, !tbaa !93
   %149 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %149, 4
-  br i1 %exitcond53.not.i, label %143, label %144, !llvm.loop !349
+  br i1 %exitcond53.not.i, label %143, label %144, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %143
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %150 = add nsw i64 %.087, 2
   %151 = icmp slt i64 %150, %90
-  br i1 %151, label %.preheader39.i, label %.preheader, !llvm.loop !386
+  br i1 %151, label %.preheader39.i, label %.preheader, !llvm.loop !359
 
 152:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %174, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -18318,7 +18415,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 158:                                              ; preds = %161
   %159 = add nuw nsw i64 %.03348.i76, 16
   %160 = icmp slt i64 %159, %92
-  br i1 %160, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !358
+  br i1 %160, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !335
 
 161:                                              ; preds = %161, %.preheader41.i
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %167, %161 ]
@@ -18333,7 +18430,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %166, ptr %165, align 64, !tbaa !53
   %167 = add nuw nsw i64 %.03447.i78, 1
   %exitcond.not.i81 = icmp eq i64 %167, 4
-  br i1 %exitcond.not.i81, label %158, label %161, !llvm.loop !359
+  br i1 %exitcond.not.i81, label %158, label %161, !llvm.loop !336
 
 168:                                              ; preds = %168, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %173, %168 ]
@@ -18344,13 +18441,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %171, ptr %172, align 4, !tbaa !93
   %173 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %173, 4
-  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %168, !llvm.loop !360
+  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %168, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %168
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = add nsw i64 %.188, 1
   %175 = icmp slt i64 %174, %89
-  br i1 %175, label %152, label %._crit_edge, !llvm.loop !387
+  br i1 %175, label %152, label %._crit_edge, !llvm.loop !361
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %174, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -18447,7 +18544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split78.us
-  %.06179 = phi i64 [ %44, %.lr.ph ], [ %119, %.split78.us ]
+  %.06179 = phi i64 [ %44, %.lr.ph ], [ %122, %.split78.us ]
   %56 = srem i64 %.06179, %9
   %57 = shl nsw i64 %56, 3
   %58 = sdiv i64 %.06179, %9
@@ -18486,125 +18583,141 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
-  %79 = icmp sgt i64 %78, 0
-  %80 = load ptr, ptr %53, align 8
-  %81 = load i64, ptr %54, align 8
-  br i1 %77, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %79 = load ptr, ptr %53, align 8
+  %80 = load i64, ptr %54, align 8
+  br i1 %77, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64, %._crit_edge.us.loopexit
-  %82 = phi i1 [ false, %._crit_edge.us.loopexit ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %.06068.us = phi i64 [ 4, %._crit_edge.us.loopexit ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64 ]
-  %83 = or disjoint i64 %.06068.us, %57
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %78, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader.us.preheader
+
+.preheader.us.preheader:                          ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %invariant.gep = getelementptr float, ptr %79, i64 %57
+  br label %.preheader.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %88
+  %82 = phi i1 [ false, %88 ], [ true, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %.06068.us.us = phi i64 [ 4, %88 ], [ 0, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  %83 = or disjoint i64 %.06068.us.us, %57
   %84 = load ptr, ptr %49, align 8
   %85 = load i64, ptr %50, align 8
   %86 = load ptr, ptr %51, align 8
   %87 = load i64, ptr %52, align 8
-  %invariant.gep.us = getelementptr float, ptr %80, i64 %83
-  br i1 %79, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
+  %invariant.gep.us.us = getelementptr float, ptr %79, i64 %83
+  br label %.preheader41.lr.ph.i.us.us.us
+
+88:                                               ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  br i1 %82, label %.preheader.us.us, label %.split78.us, !llvm.loop !362
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %109, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %89 = mul nsw i64 %85, %.067.us.us.us
+  %90 = getelementptr inbounds i16, ptr %84, i64 %89
+  br label %.preheader41.i.us.us.us
+
+.preheader41.i.us.us.us:                          ; preds = %100, %.preheader41.lr.ph.i.us.us.us
+  %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %101, %100 ]
+  %91 = getelementptr inbounds nuw i16, ptr %90, i64 %.03348.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x half>, ptr %91, align 1, !tbaa !53
+  %92 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr i16, ptr %86, i64 %.03348.i.us.us.us
+  br label %93
+
+93:                                               ; preds = %93, %.preheader41.i.us.us.us
+  %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %99, %93 ]
+  %94 = add nuw nsw i64 %.03447.i.us.us.us, %83
+  %95 = mul nsw i64 %94, %87
+  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %95
+  %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %96 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
+  %97 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %97, align 64, !tbaa !53
+  %98 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %96, <16 x float> %92, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %98, ptr %97, align 64, !tbaa !53
+  %99 = add nuw nsw i64 %.03447.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %99, 4
+  br i1 %exitcond.not.i.us.us.us, label %100, label %93, !llvm.loop !336
+
+100:                                              ; preds = %93
+  %101 = add nuw nsw i64 %.03348.i.us.us.us, 16
+  %102 = icmp slt i64 %101, %78
+  br i1 %102, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !335
+
+103:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %103
+  %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %108, %103 ]
+  %104 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us.us
+  %105 = load <16 x float>, ptr %104, align 64, !tbaa !53
+  %106 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %105)
+  %107 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  store float %106, ptr %107, align 4, !tbaa !93
+  %108 = add nuw nsw i64 %.049.i.us.us.us, 1
+  %exitcond50.not.i.us.us.us = icmp eq i64 %108, 4
+  br i1 %exitcond50.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %103, !llvm.loop !337
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %103
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %109 = add nsw i64 %.067.us.us.us, 1
+  %exitcond85.not = icmp eq i64 %109, %76
+  br i1 %exitcond85.not, label %88, label %.preheader41.lr.ph.i.us.us.us, !llvm.loop !363
+
+.preheader39.i.loopexit.us.us.us:                 ; preds = %100
+  %110 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %110
+  br label %103
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %120
+  %111 = phi i1 [ false, %120 ], [ true, %.preheader.us.preheader ]
+  %.06068.us = phi i64 [ 4, %120 ], [ 0, %.preheader.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06068.us
+  br label %.preheader39.i.us
 
 .preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
-  %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
+  %.067.us69 = phi i64 [ %spec.select, %.preheader.us ], [ %119, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %88 = mul nsw i64 %81, %.067.us69
-  %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
-  br label %89
+  %112 = mul nsw i64 %80, %.067.us69
+  %gep.us70 = getelementptr float, ptr %gep, i64 %112
+  br label %113
 
-89:                                               ; preds = %89, %.preheader39.i.us
-  %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %94, %89 ]
-  %90 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us71
-  %91 = load <16 x float>, ptr %90, align 64, !tbaa !53
-  %92 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %91)
-  %93 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
-  store float %92, ptr %93, align 4, !tbaa !93
-  %94 = add nuw nsw i64 %.049.i.us71, 1
-  %exitcond50.not.i.us72 = icmp eq i64 %94, 4
-  br i1 %exitcond50.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !360
+113:                                              ; preds = %113, %.preheader39.i.us
+  %.049.i.us71 = phi i64 [ 0, %.preheader39.i.us ], [ %118, %113 ]
+  %114 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us71
+  %115 = load <16 x float>, ptr %114, align 64, !tbaa !53
+  %116 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %115)
+  %117 = getelementptr float, ptr %gep.us70, i64 %.049.i.us71
+  store float %116, ptr %117, align 4, !tbaa !93
+  %118 = add nuw nsw i64 %.049.i.us71, 1
+  %exitcond50.not.i.us72 = icmp eq i64 %118, 4
+  br i1 %exitcond50.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %113, !llvm.loop !337
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %95 = add nsw i64 %.067.us69, 1
-  %exitcond.not = icmp eq i64 %95, %76
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader39.i.us, !llvm.loop !388
+  %119 = add nsw i64 %.067.us69, 1
+  %exitcond.not = icmp eq i64 %119, %76
+  br i1 %exitcond.not, label %120, label %.preheader39.i.us, !llvm.loop !363
 
-._crit_edge.us.loopexit:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  br i1 %82, label %.preheader.us, label %.split78.us, !llvm.loop !389
-
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %116, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %85, %.067.us.us
-  %97 = getelementptr inbounds i16, ptr %84, i64 %96
-  br label %.preheader41.i.us.us
-
-.preheader41.i.us.us:                             ; preds = %107, %.preheader41.lr.ph.i.us.us
-  %.03348.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %108, %107 ]
-  %98 = getelementptr inbounds nuw i16, ptr %97, i64 %.03348.i.us.us
-  %.val3638.le.i.us.us = load <16 x half>, ptr %98, align 1, !tbaa !53
-  %99 = fpext <16 x half> %.val3638.le.i.us.us to <16 x float>
-  %invariant.gep.i.us.us = getelementptr i16, ptr %86, i64 %.03348.i.us.us
-  br label %100
-
-100:                                              ; preds = %100, %.preheader41.i.us.us
-  %.03447.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %106, %100 ]
-  %101 = add nuw nsw i64 %.03447.i.us.us, %83
-  %102 = mul nsw i64 %101, %87
-  %gep.i.us.us = getelementptr i16, ptr %invariant.gep.i.us.us, i64 %102
-  %.val37.i.us.us = load <16 x half>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %103 = fpext <16 x half> %.val37.i.us.us to <16 x float>
-  %104 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %104, align 64, !tbaa !53
-  %105 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %103, <16 x float> %99, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %105, ptr %104, align 64, !tbaa !53
-  %106 = add nuw nsw i64 %.03447.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %106, 4
-  br i1 %exitcond.not.i.us.us, label %107, label %100, !llvm.loop !359
-
-107:                                              ; preds = %100
-  %108 = add nuw nsw i64 %.03348.i.us.us, 16
-  %109 = icmp slt i64 %108, %78
-  br i1 %109, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !358
-
-110:                                              ; preds = %.preheader39.i.loopexit.us.us, %110
-  %.049.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %115, %110 ]
-  %111 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us
-  %112 = load <16 x float>, ptr %111, align 64, !tbaa !53
-  %113 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %112)
-  %114 = getelementptr float, ptr %gep.us.us, i64 %.049.i.us.us
-  store float %113, ptr %114, align 4, !tbaa !93
-  %115 = add nuw nsw i64 %.049.i.us.us, 1
-  %exitcond50.not.i.us.us = icmp eq i64 %115, 4
-  br i1 %exitcond50.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %110, !llvm.loop !360
-
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %110
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %116 = add nsw i64 %.067.us.us, 1
-  %exitcond84.not = icmp eq i64 %116, %76
-  br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.preheader41.lr.ph.i.us.us, !llvm.loop !390
-
-.preheader39.i.loopexit.us.us:                    ; preds = %107
-  %117 = mul nsw i64 %81, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us, i64 %117
-  br label %110
+120:                                              ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
+  br i1 %111, label %.preheader.us, label %.split78.us, !llvm.loop !362
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %118 = icmp eq i64 %spec.select, %76
-  br i1 %118, label %.split78.us, label %.split.us
+  %121 = icmp eq i64 %spec.select, %76
+  br i1 %121, label %.split78.us, label %.split.us
 
-.split78.us:                                      ; preds = %._crit_edge.us.loopexit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %119 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %120 = icmp slt i64 %119, %24
-  br i1 %120, label %55, label %._crit_edge, !llvm.loop !391
+.split78.us:                                      ; preds = %120, %88, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %122 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi2EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %123 = icmp slt i64 %122, %24
+  br i1 %123, label %55, label %._crit_edge, !llvm.loop !364
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
-  %121 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %122)
+  %124 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %125)
   ret void
 }
 
@@ -18780,7 +18893,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !392
+  br i1 %111, label %62, label %._crit_edge106, !llvm.loop !365
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
@@ -18824,13 +18937,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %121, ptr %122, align 64, !tbaa !53
   %123 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %123, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !311
+  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !290
 
 124:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = add nuw nsw i64 %.03346.i, 16
   %126 = icmp slt i64 %125, %101
-  br i1 %126, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !312
+  br i1 %126, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !291
 
 127:                                              ; preds = %132, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %133, %132 ]
@@ -18845,7 +18958,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 132:                                              ; preds = %134
   %133 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %133, 6
-  br i1 %exitcond52.not.i, label %124, label %127, !llvm.loop !313
+  br i1 %exitcond52.not.i, label %124, label %127, !llvm.loop !292
 
 134:                                              ; preds = %134, %127
   %.03242.i = phi i64 [ 0, %127 ], [ %140, %134 ]
@@ -18857,7 +18970,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %139, ptr %137, align 64, !tbaa !53
   %140 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %140, 4
-  br i1 %exitcond51.not.i, label %132, label %134, !llvm.loop !314
+  br i1 %exitcond51.not.i, label %132, label %134, !llvm.loop !293
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %144
   %.03150.i = phi i64 [ %145, %144 ], [ 0, %.preheader.i.preheader ]
@@ -18870,7 +18983,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 144:                                              ; preds = %146
   %145 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %145, 6
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !315
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit, label %.preheader.i, !llvm.loop !294
 
 146:                                              ; preds = %146, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
@@ -18881,13 +18994,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
-  br i1 %exitcond53.not.i, label %144, label %146, !llvm.loop !316
+  br i1 %exitcond53.not.i, label %144, label %146, !llvm.loop !295
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.099, 6
   %153 = icmp slt i64 %152, %99
-  br i1 %153, label %117, label %.preheader, !llvm.loop !393
+  br i1 %153, label %117, label %.preheader, !llvm.loop !366
 
 154:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -18919,13 +19032,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %158, ptr %159, align 64, !tbaa !53
   %160 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i89 = icmp eq i64 %160, 4
-  br i1 %exitcond.not.i89, label %.preheader40.i90, label %155, !llvm.loop !318
+  br i1 %exitcond.not.i89, label %.preheader40.i90, label %155, !llvm.loop !297
 
 161:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = add nuw nsw i64 %.03346.i84, 16
   %163 = icmp slt i64 %162, %101
-  br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !319
+  br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !298
 
 164:                                              ; preds = %169, %.preheader40.i90
   %.03445.i92 = phi i64 [ 0, %.preheader40.i90 ], [ %170, %169 ]
@@ -18940,7 +19053,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 169:                                              ; preds = %171
   %170 = add nuw nsw i64 %.03445.i92, 1
   %exitcond52.not.i97 = icmp eq i64 %170, 5
-  br i1 %exitcond52.not.i97, label %161, label %164, !llvm.loop !320
+  br i1 %exitcond52.not.i97, label %161, label %164, !llvm.loop !299
 
 171:                                              ; preds = %171, %164
   %.03242.i95 = phi i64 [ 0, %164 ], [ %177, %171 ]
@@ -18952,7 +19065,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
   %177 = add nuw nsw i64 %.03242.i95, 1
   %exitcond51.not.i96 = icmp eq i64 %177, 4
-  br i1 %exitcond51.not.i96, label %169, label %171, !llvm.loop !321
+  br i1 %exitcond51.not.i96, label %169, label %171, !llvm.loop !300
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03150.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
@@ -18965,7 +19078,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 181:                                              ; preds = %183
   %182 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %182, 5
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !322
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i77, !llvm.loop !301
 
 183:                                              ; preds = %183, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
@@ -18976,18 +19089,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
-  br i1 %exitcond53.not.i81, label %181, label %183, !llvm.loop !323
+  br i1 %exitcond53.not.i81, label %181, label %183, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %181
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1100, 5
   %190 = icmp slt i64 %189, %98
-  br i1 %190, label %154, label %._crit_edge, !llvm.loop !394
+  br i1 %190, label %154, label %._crit_edge, !llvm.loop !367
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
   %191 = icmp eq i64 %.1.lcssa, %98
-  br i1 %191, label %109, label %192, !llvm.loop !395
+  br i1 %191, label %109, label %192, !llvm.loop !368
 
 192:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -19172,7 +19285,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 109:                                              ; preds = %._crit_edge
   %110 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %111 = icmp slt i64 %110, %30
-  br i1 %111, label %62, label %._crit_edge104, !llvm.loop !396
+  br i1 %111, label %62, label %._crit_edge104, !llvm.loop !369
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %90, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
@@ -19216,13 +19329,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %121, ptr %122, align 64, !tbaa !53
   %123 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %123, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !318
+  br i1 %exitcond.not.i, label %.preheader40.i, label %118, !llvm.loop !297
 
 124:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %125 = add nuw nsw i64 %.03346.i, 16
   %126 = icmp slt i64 %125, %101
-  br i1 %126, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !319
+  br i1 %126, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !298
 
 127:                                              ; preds = %132, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %133, %132 ]
@@ -19237,7 +19350,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 132:                                              ; preds = %134
   %133 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %133, 5
-  br i1 %exitcond52.not.i, label %124, label %127, !llvm.loop !320
+  br i1 %exitcond52.not.i, label %124, label %127, !llvm.loop !299
 
 134:                                              ; preds = %134, %127
   %.03242.i = phi i64 [ 0, %127 ], [ %140, %134 ]
@@ -19249,7 +19362,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store <16 x float> %139, ptr %137, align 64, !tbaa !53
   %140 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %140, 4
-  br i1 %exitcond51.not.i, label %132, label %134, !llvm.loop !321
+  br i1 %exitcond51.not.i, label %132, label %134, !llvm.loop !300
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %144
   %.03150.i = phi i64 [ %145, %144 ], [ 0, %.preheader.i.preheader ]
@@ -19262,7 +19375,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 144:                                              ; preds = %146
   %145 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %145, 5
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !322
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit, label %.preheader.i, !llvm.loop !301
 
 146:                                              ; preds = %146, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %151, %146 ]
@@ -19273,13 +19386,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   store float %149, ptr %150, align 4, !tbaa !93
   %151 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %151, 4
-  br i1 %exitcond53.not.i, label %144, label %146, !llvm.loop !323
+  br i1 %exitcond53.not.i, label %144, label %146, !llvm.loop !302
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.097, 5
   %153 = icmp slt i64 %152, %99
-  br i1 %153, label %117, label %.preheader, !llvm.loop !397
+  br i1 %153, label %117, label %.preheader, !llvm.loop !370
 
 154:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -19311,13 +19424,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %158, ptr %159, align 64, !tbaa !53
   %160 = add nuw nsw i64 %.03541.i86, 1
   %exitcond.not.i88 = icmp eq i64 %160, 4
-  br i1 %exitcond.not.i88, label %.preheader40.i89, label %155, !llvm.loop !328
+  br i1 %exitcond.not.i88, label %.preheader40.i89, label %155, !llvm.loop !307
 
 161:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = add nuw nsw i64 %.03346.i84, 16
   %163 = icmp slt i64 %162, %101
-  br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !329
+  br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !308
 
 164:                                              ; preds = %169, %.preheader40.i89
   %.03445.i91 = phi i64 [ 0, %.preheader40.i89 ], [ %170, %169 ]
@@ -19332,7 +19445,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 169:                                              ; preds = %171
   %170 = add nuw nsw i64 %.03445.i91, 1
   %exitcond52.not.i95 = icmp eq i64 %170, 4
-  br i1 %exitcond52.not.i95, label %161, label %164, !llvm.loop !330
+  br i1 %exitcond52.not.i95, label %161, label %164, !llvm.loop !309
 
 171:                                              ; preds = %171, %164
   %.03242.i93 = phi i64 [ 0, %164 ], [ %177, %171 ]
@@ -19344,7 +19457,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store <16 x float> %176, ptr %174, align 64, !tbaa !53
   %177 = add nuw nsw i64 %.03242.i93, 1
   %exitcond51.not.i94 = icmp eq i64 %177, 4
-  br i1 %exitcond51.not.i94, label %169, label %171, !llvm.loop !331
+  br i1 %exitcond51.not.i94, label %169, label %171, !llvm.loop !310
 
 .preheader.i77:                                   ; preds = %.preheader.i77.preheader, %181
   %.03150.i78 = phi i64 [ %182, %181 ], [ 0, %.preheader.i77.preheader ]
@@ -19357,7 +19470,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 181:                                              ; preds = %183
   %182 = add nuw nsw i64 %.03150.i78, 1
   %exitcond54.not.i82 = icmp eq i64 %182, 4
-  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !332
+  br i1 %exitcond54.not.i82, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i77, !llvm.loop !311
 
 183:                                              ; preds = %183, %.preheader.i77
   %.047.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
@@ -19368,18 +19481,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.047.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
-  br i1 %exitcond53.not.i81, label %181, label %183, !llvm.loop !333
+  br i1 %exitcond53.not.i81, label %181, label %183, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %181
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.198, 4
   %190 = icmp slt i64 %189, %98
-  br i1 %190, label %154, label %._crit_edge, !llvm.loop !398
+  br i1 %190, label %154, label %._crit_edge, !llvm.loop !371
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
   %191 = icmp eq i64 %.1.lcssa, %98
-  br i1 %191, label %109, label %192, !llvm.loop !399
+  br i1 %191, label %109, label %192, !llvm.loop !372
 
 192:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -19564,7 +19677,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 110:                                              ; preds = %._crit_edge
   %111 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %112 = icmp slt i64 %111, %31
-  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !400
+  br i1 %112, label %63, label %._crit_edge94, !llvm.loop !373
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73
   %.0.lcssa = phi i64 [ %91, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit73 ], [ %153, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
@@ -19608,13 +19721,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %122, ptr %123, align 64, !tbaa !53
   %124 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %124, 4
-  br i1 %exitcond.not.i, label %.preheader40.i, label %119, !llvm.loop !328
+  br i1 %exitcond.not.i, label %.preheader40.i, label %119, !llvm.loop !307
 
 125:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = add nuw nsw i64 %.03346.i, 16
   %127 = icmp slt i64 %126, %102
-  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !329
+  br i1 %127, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !308
 
 128:                                              ; preds = %133, %.preheader40.i
   %.03445.i = phi i64 [ 0, %.preheader40.i ], [ %134, %133 ]
@@ -19629,7 +19742,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 133:                                              ; preds = %135
   %134 = add nuw nsw i64 %.03445.i, 1
   %exitcond52.not.i = icmp eq i64 %134, 4
-  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !330
+  br i1 %exitcond52.not.i, label %125, label %128, !llvm.loop !309
 
 135:                                              ; preds = %135, %128
   %.03242.i = phi i64 [ 0, %128 ], [ %141, %135 ]
@@ -19641,7 +19754,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store <16 x float> %140, ptr %138, align 64, !tbaa !53
   %141 = add nuw nsw i64 %.03242.i, 1
   %exitcond51.not.i = icmp eq i64 %141, 4
-  br i1 %exitcond51.not.i, label %133, label %135, !llvm.loop !331
+  br i1 %exitcond51.not.i, label %133, label %135, !llvm.loop !310
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %145
   %.03150.i = phi i64 [ %146, %145 ], [ 0, %.preheader.i.preheader ]
@@ -19654,7 +19767,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 145:                                              ; preds = %147
   %146 = add nuw nsw i64 %.03150.i, 1
   %exitcond54.not.i = icmp eq i64 %146, 4
-  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !332
+  br i1 %exitcond54.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit, label %.preheader.i, !llvm.loop !311
 
 147:                                              ; preds = %147, %.preheader.i
   %.047.i = phi i64 [ 0, %.preheader.i ], [ %152, %147 ]
@@ -19665,13 +19778,13 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   store float %150, ptr %151, align 4, !tbaa !93
   %152 = add nuw nsw i64 %.047.i, 1
   %exitcond53.not.i = icmp eq i64 %152, 4
-  br i1 %exitcond53.not.i, label %145, label %147, !llvm.loop !333
+  br i1 %exitcond53.not.i, label %145, label %147, !llvm.loop !312
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %145
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %153 = add nsw i64 %.087, 4
   %154 = icmp slt i64 %153, %100
-  br i1 %154, label %118, label %.preheader, !llvm.loop !401
+  br i1 %154, label %118, label %.preheader, !llvm.loop !374
 
 155:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -19703,13 +19816,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %159, ptr %160, align 64, !tbaa !53
   %161 = add nuw nsw i64 %.03541.i78, 1
   %exitcond.not.i81 = icmp eq i64 %161, 3
-  br i1 %exitcond.not.i81, label %.preheader40.i82, label %156, !llvm.loop !338
+  br i1 %exitcond.not.i81, label %.preheader40.i82, label %156, !llvm.loop !317
 
 162:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %163 = add nuw nsw i64 %.03348.i, 16
   %164 = icmp slt i64 %163, %102
-  br i1 %164, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !339
+  br i1 %164, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !318
 
 165:                                              ; preds = %169, %.preheader40.i82
   %.03447.i = phi i64 [ 0, %.preheader40.i82 ], [ %170, %169 ]
@@ -19724,7 +19837,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 169:                                              ; preds = %171
   %170 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i85 = icmp eq i64 %170, 4
-  br i1 %exitcond54.not.i85, label %162, label %165, !llvm.loop !340
+  br i1 %exitcond54.not.i85, label %162, label %165, !llvm.loop !319
 
 171:                                              ; preds = %171, %165
   %.03244.i = phi i64 [ 0, %165 ], [ %176, %171 ]
@@ -19736,7 +19849,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store <16 x float> %175, ptr %gep43.i, align 64, !tbaa !53
   %176 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i84 = icmp eq i64 %176, 3
-  br i1 %exitcond53.not.i84, label %169, label %171, !llvm.loop !341
+  br i1 %exitcond53.not.i84, label %169, label %171, !llvm.loop !320
 
 .preheader.i75:                                   ; preds = %.preheader.i75.preheader, %180
   %.03152.i = phi i64 [ %181, %180 ], [ 0, %.preheader.i75.preheader ]
@@ -19749,7 +19862,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 180:                                              ; preds = %182
   %181 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %181, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i75, !llvm.loop !321
 
 182:                                              ; preds = %182, %.preheader.i75
   %.049.i = phi i64 [ 0, %.preheader.i75 ], [ %187, %182 ]
@@ -19760,18 +19873,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   store float %185, ptr %186, align 4, !tbaa !93
   %187 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %187, 4
-  br i1 %exitcond55.not.i, label %180, label %182, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %180, label %182, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = add nsw i64 %.188, 3
   %189 = icmp slt i64 %188, %99
-  br i1 %189, label %155, label %._crit_edge, !llvm.loop !402
+  br i1 %189, label %155, label %._crit_edge, !llvm.loop !375
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
   %190 = icmp eq i64 %.1.lcssa, %99
-  br i1 %190, label %110, label %191, !llvm.loop !403
+  br i1 %190, label %110, label %191, !llvm.loop !376
 
 191:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -19956,7 +20069,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 108:                                              ; preds = %._crit_edge
   %109 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %110 = icmp slt i64 %109, %29
-  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !404
+  br i1 %110, label %61, label %._crit_edge108, !llvm.loop !377
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74
   %.0.lcssa = phi i64 [ %89, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit74 ], [ %177, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -20008,12 +20121,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store <16 x float> %127, ptr %gep43.i95.us.c, align 64, !tbaa !53
   %128 = add nuw nsw i64 %.03447.i90.us, 1
   %exitcond.not.i96.us = icmp eq i64 %128, 4
-  br i1 %exitcond.not.i96.us, label %129, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i96.us, label %129, label %.critedge, !llvm.loop !326
 
 129:                                              ; preds = %.critedge
   %130 = add nuw nsw i64 %.03348.i83.us, 16
   %131 = icmp slt i64 %130, %100
-  br i1 %131, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !348
+  br i1 %131, label %.preheader40.i88.us.critedge, label %.preheader.i77.us, !llvm.loop !327
 
 .preheader.i77.us:                                ; preds = %129, %141
   %132 = phi i1 [ false, %141 ], [ true, %129 ]
@@ -20033,16 +20146,16 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   store float %138, ptr %139, align 4, !tbaa !93
   %140 = add nuw nsw i64 %.049.i80.us, 1
   %exitcond53.not.i81.us = icmp eq i64 %140, 4
-  br i1 %exitcond53.not.i81.us, label %141, label %135, !llvm.loop !349
+  br i1 %exitcond53.not.i81.us, label %141, label %135, !llvm.loop !328
 
 141:                                              ; preds = %135
-  br i1 %132, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %132, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = add nsw i64 %.1102.us, 2
   %143 = icmp slt i64 %142, %97
-  br i1 %143, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !405
+  br i1 %143, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !378
 
 144:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %177, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
@@ -20074,13 +20187,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %148, ptr %149, align 64, !tbaa !53
   %150 = add nuw nsw i64 %.03541.i, 1
   %exitcond.not.i = icmp eq i64 %150, 3
-  br i1 %exitcond.not.i, label %.preheader40.i, label %145, !llvm.loop !338
+  br i1 %exitcond.not.i, label %.preheader40.i, label %145, !llvm.loop !317
 
 151:                                              ; preds = %158
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nuw nsw i64 %.03348.i, 16
   %153 = icmp slt i64 %152, %100
-  br i1 %153, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !339
+  br i1 %153, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !318
 
 154:                                              ; preds = %158, %.preheader40.i
   %.03447.i = phi i64 [ 0, %.preheader40.i ], [ %159, %158 ]
@@ -20095,7 +20208,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 158:                                              ; preds = %160
   %159 = add nuw nsw i64 %.03447.i, 1
   %exitcond54.not.i = icmp eq i64 %159, 4
-  br i1 %exitcond54.not.i, label %151, label %154, !llvm.loop !340
+  br i1 %exitcond54.not.i, label %151, label %154, !llvm.loop !319
 
 160:                                              ; preds = %160, %154
   %.03244.i = phi i64 [ 0, %154 ], [ %165, %160 ]
@@ -20107,7 +20220,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store <16 x float> %164, ptr %gep43.i, align 64, !tbaa !53
   %165 = add nuw nsw i64 %.03244.i, 1
   %exitcond53.not.i = icmp eq i64 %165, 3
-  br i1 %exitcond53.not.i, label %158, label %160, !llvm.loop !341
+  br i1 %exitcond53.not.i, label %158, label %160, !llvm.loop !320
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %169
   %.03152.i = phi i64 [ %170, %169 ], [ 0, %.preheader.i.preheader ]
@@ -20120,7 +20233,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 169:                                              ; preds = %171
   %170 = add nuw nsw i64 %.03152.i, 1
   %exitcond56.not.i = icmp eq i64 %170, 3
-  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !342
+  br i1 %exitcond56.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit, label %.preheader.i, !llvm.loop !321
 
 171:                                              ; preds = %171, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %176, %171 ]
@@ -20131,13 +20244,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %174, ptr %175, align 4, !tbaa !93
   %176 = add nuw nsw i64 %.049.i, 1
   %exitcond55.not.i = icmp eq i64 %176, 4
-  br i1 %exitcond55.not.i, label %169, label %171, !llvm.loop !343
+  br i1 %exitcond55.not.i, label %169, label %171, !llvm.loop !322
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %177 = add nsw i64 %.0101, 3
   %178 = icmp slt i64 %177, %98
-  br i1 %178, label %144, label %.preheader, !llvm.loop !406
+  br i1 %178, label %144, label %.preheader, !llvm.loop !379
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
@@ -20155,7 +20268,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br label %183
 
 182:                                              ; preds = %183
-  br i1 %179, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %179, label %.preheader.i77, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 183:                                              ; preds = %183, %.preheader.i77
   %.049.i80 = phi i64 [ 0, %.preheader.i77 ], [ %188, %183 ]
@@ -20166,18 +20279,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   store float %186, ptr %187, align 4, !tbaa !93
   %188 = add nuw nsw i64 %.049.i80, 1
   %exitcond53.not.i81 = icmp eq i64 %188, 4
-  br i1 %exitcond53.not.i81, label %182, label %183, !llvm.loop !349
+  br i1 %exitcond53.not.i81, label %182, label %183, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %182
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1102, 2
   %190 = icmp slt i64 %189, %97
-  br i1 %190, label %.preheader39.i75, label %._crit_edge, !llvm.loop !407
+  br i1 %190, label %.preheader39.i75, label %._crit_edge, !llvm.loop !378
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %142, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
   %191 = icmp eq i64 %.1.lcssa, %97
-  br i1 %191, label %108, label %192, !llvm.loop !408
+  br i1 %191, label %108, label %192, !llvm.loop !380
 
 192:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -20374,12 +20487,12 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store <16 x float> %111, ptr %gep43.i.us.c, align 64, !tbaa !53
   %112 = add nuw nsw i64 %.03447.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %112, 4
-  br i1 %exitcond.not.i.us, label %113, label %.critedge, !llvm.loop !347
+  br i1 %exitcond.not.i.us, label %113, label %.critedge, !llvm.loop !326
 
 113:                                              ; preds = %.critedge
   %114 = add nuw nsw i64 %.03348.i.us, 16
   %115 = icmp slt i64 %114, %92
-  br i1 %115, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !348
+  br i1 %115, label %.preheader40.i.us.critedge, label %.preheader.i.us, !llvm.loop !327
 
 .preheader.i.us:                                  ; preds = %113, %125
   %116 = phi i1 [ false, %125 ], [ true, %113 ]
@@ -20399,21 +20512,21 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.049.i.us, 1
   %exitcond53.not.i.us = icmp eq i64 %124, 4
-  br i1 %exitcond53.not.i.us, label %125, label %119, !llvm.loop !349
+  br i1 %exitcond53.not.i.us, label %125, label %119, !llvm.loop !328
 
 125:                                              ; preds = %119
-  br i1 %116, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !350
+  br i1 %116, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !329
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %126 = add nsw i64 %.087.us, 2
   %127 = icmp slt i64 %126, %90
-  br i1 %127, label %.lr.ph.i.us, label %.preheader, !llvm.loop !409
+  br i1 %127, label %.lr.ph.i.us, label %.preheader, !llvm.loop !381
 
 128:                                              ; preds = %._crit_edge
   %129 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
   %130 = icmp slt i64 %129, %29
-  br i1 %130, label %61, label %._crit_edge94, !llvm.loop !410
+  br i1 %130, label %61, label %._crit_edge94, !llvm.loop !382
 
 .preheader:                                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71
   %.0.lcssa = phi i64 [ %85, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit71 ], [ %126, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %146, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ]
@@ -20443,7 +20556,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br label %140
 
 139:                                              ; preds = %140
-  br i1 %136, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !350
+  br i1 %136, label %.preheader.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit, !llvm.loop !329
 
 140:                                              ; preds = %140, %.preheader.i
   %.049.i = phi i64 [ 0, %.preheader.i ], [ %145, %140 ]
@@ -20454,13 +20567,13 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   store float %143, ptr %144, align 4, !tbaa !93
   %145 = add nuw nsw i64 %.049.i, 1
   %exitcond53.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond53.not.i, label %139, label %140, !llvm.loop !349
+  br i1 %exitcond53.not.i, label %139, label %140, !llvm.loop !328
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %139
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %146 = add nsw i64 %.087, 2
   %147 = icmp slt i64 %146, %90
-  br i1 %147, label %.preheader39.i, label %.preheader, !llvm.loop !411
+  br i1 %147, label %.preheader39.i, label %.preheader, !llvm.loop !381
 
 148:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %170, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
@@ -20489,7 +20602,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 154:                                              ; preds = %157
   %155 = add nuw nsw i64 %.03348.i76, 16
   %156 = icmp slt i64 %155, %92
-  br i1 %156, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !358
+  br i1 %156, label %.preheader41.i, label %.preheader39.i74, !llvm.loop !335
 
 157:                                              ; preds = %157, %.preheader41.i
   %.03447.i78 = phi i64 [ 0, %.preheader41.i ], [ %163, %157 ]
@@ -20504,7 +20617,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store <16 x float> %162, ptr %161, align 64, !tbaa !53
   %163 = add nuw nsw i64 %.03447.i78, 1
   %exitcond.not.i81 = icmp eq i64 %163, 4
-  br i1 %exitcond.not.i81, label %154, label %157, !llvm.loop !359
+  br i1 %exitcond.not.i81, label %154, label %157, !llvm.loop !336
 
 164:                                              ; preds = %164, %.preheader39.i74
   %.049.i75 = phi i64 [ 0, %.preheader39.i74 ], [ %169, %164 ]
@@ -20515,18 +20628,18 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   store float %167, ptr %168, align 4, !tbaa !93
   %169 = add nuw nsw i64 %.049.i75, 1
   %exitcond50.not.i = icmp eq i64 %169, 4
-  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %164, !llvm.loop !360
+  br i1 %exitcond50.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %164, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = add nsw i64 %.188, 1
   %171 = icmp slt i64 %170, %89
-  br i1 %171, label %148, label %._crit_edge, !llvm.loop !412
+  br i1 %171, label %148, label %._crit_edge, !llvm.loop !383
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, %.preheader
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %170, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
   %172 = icmp eq i64 %.1.lcssa, %89
-  br i1 %172, label %128, label %173, !llvm.loop !413
+  br i1 %172, label %128, label %173, !llvm.loop !384
 
 173:                                              ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
@@ -20618,10 +20731,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br label %55
 
 55:                                               ; preds = %.lr.ph, %.split.us
-  %.06180 = phi i64 [ %44, %.lr.ph ], [ %120, %.split.us ]
-  %56 = srem i64 %.06180, %9
+  %.06181 = phi i64 [ %44, %.lr.ph ], [ %121, %.split.us ]
+  %56 = srem i64 %.06181, %9
   %57 = shl nsw i64 %56, 2
-  %58 = sdiv i64 %.06180, %9
+  %58 = sdiv i64 %.06181, %9
   %59 = icmp slt i64 %58, %23
   br i1 %59, label %60, label %62
 
@@ -20657,126 +20770,133 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   %76 = tail call i64 @llvm.smin.i64(i64 %75, i64 %2)
   %77 = icmp slt i64 %66, %76
   %78 = load i64, ptr %48, align 8
+  %.fr82 = freeze i64 %78
   %79 = load ptr, ptr %53, align 8
   %80 = load i64, ptr %54, align 8
   %invariant.gep = getelementptr float, ptr %79, i64 %57
   %.fr = freeze i1 %77
-  br i1 %.fr, label %.preheader.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  br i1 %.fr, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, label %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
 
-.preheader39.i.us:                                ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72
-  %.067.us68 = phi i64 [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %.preheader.us ]
+_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us:   ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
+  %81 = icmp sgt i64 %.fr82, 0
+  br i1 %81, label %.preheader.us.us, label %.preheader39.i.us
+
+.preheader.us.us:                                 ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us
+  %82 = load ptr, ptr %49, align 8
+  %83 = load i64, ptr %50, align 8
+  %84 = load ptr, ptr %51, align 8
+  %85 = load i64, ptr %52, align 8
+  br label %.preheader41.lr.ph.i.us.us.us
+
+.preheader41.lr.ph.i.us.us.us:                    ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, %.preheader.us.us
+  %.067.us.us.us = phi i64 [ %spec.select, %.preheader.us.us ], [ %106, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %81 = mul nsw i64 %80, %.067.us68
-  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %81
-  br label %82
+  %86 = mul nsw i64 %83, %.067.us.us.us
+  %87 = getelementptr inbounds i16, ptr %82, i64 %86
+  br label %.preheader41.i.us.us.us
 
-82:                                               ; preds = %82, %.preheader39.i.us
-  %.049.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %87, %82 ]
-  %83 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us70
-  %84 = load <16 x float>, ptr %83, align 64, !tbaa !53
-  %85 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %84)
-  %86 = getelementptr float, ptr %gep.us69, i64 %.049.i.us70
-  store float %85, ptr %86, align 4, !tbaa !93
-  %87 = add nuw nsw i64 %.049.i.us70, 1
-  %exitcond50.not.i.us71 = icmp eq i64 %87, 4
-  br i1 %exitcond50.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, label %82, !llvm.loop !360
+.preheader41.i.us.us.us:                          ; preds = %97, %.preheader41.lr.ph.i.us.us.us
+  %.03348.i.us.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us.us ], [ %98, %97 ]
+  %88 = getelementptr inbounds nuw i16, ptr %87, i64 %.03348.i.us.us.us
+  %.val3638.le.i.us.us.us = load <16 x half>, ptr %88, align 1, !tbaa !53
+  %89 = fpext <16 x half> %.val3638.le.i.us.us.us to <16 x float>
+  %invariant.gep.i.us.us.us = getelementptr i16, ptr %84, i64 %.03348.i.us.us.us
+  br label %90
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %82
+90:                                               ; preds = %90, %.preheader41.i.us.us.us
+  %.03447.i.us.us.us = phi i64 [ 0, %.preheader41.i.us.us.us ], [ %96, %90 ]
+  %91 = add nuw nsw i64 %.03447.i.us.us.us, %57
+  %92 = mul nsw i64 %91, %85
+  %gep.i.us.us.us = getelementptr i16, ptr %invariant.gep.i.us.us.us, i64 %92
+  %.val37.i.us.us.us = load <16 x half>, ptr %gep.i.us.us.us, align 1, !tbaa !53
+  %93 = fpext <16 x half> %.val37.i.us.us.us to <16 x float>
+  %94 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us.us
+  %.promoted.i.us.us.us = load <16 x float>, ptr %94, align 64, !tbaa !53
+  %95 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %93, <16 x float> %89, <16 x float> %.promoted.i.us.us.us)
+  store <16 x float> %95, ptr %94, align 64, !tbaa !53
+  %96 = add nuw nsw i64 %.03447.i.us.us.us, 1
+  %exitcond.not.i.us.us.us = icmp eq i64 %96, 4
+  br i1 %exitcond.not.i.us.us.us, label %97, label %90, !llvm.loop !336
+
+97:                                               ; preds = %90
+  %98 = add nuw nsw i64 %.03348.i.us.us.us, 16
+  %99 = icmp slt i64 %98, %.fr82
+  br i1 %99, label %.preheader41.i.us.us.us, label %.preheader39.i.loopexit.us.us.us, !llvm.loop !335
+
+100:                                              ; preds = %.preheader39.i.loopexit.us.us.us, %100
+  %.049.i.us.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us.us ], [ %105, %100 ]
+  %101 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us.us
+  %102 = load <16 x float>, ptr %101, align 64, !tbaa !53
+  %103 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %102)
+  %104 = getelementptr float, ptr %gep.us.us.us, i64 %.049.i.us.us.us
+  store float %103, ptr %104, align 4, !tbaa !93
+  %105 = add nuw nsw i64 %.049.i.us.us.us, 1
+  %exitcond50.not.i.us.us.us = icmp eq i64 %105, 4
+  br i1 %exitcond50.not.i.us.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us, label %100, !llvm.loop !337
+
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us: ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %88 = add nsw i64 %.067.us68, 1
-  %89 = icmp slt i64 %88, %76
-  br i1 %89, label %.preheader39.i.us, label %._crit_edge.us, !llvm.loop !414
+  %106 = add nsw i64 %.067.us.us.us, 1
+  %107 = icmp slt i64 %106, %76
+  br i1 %107, label %.preheader41.lr.ph.i.us.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !385
 
-.preheader.us:                                    ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %90 = icmp sgt i64 %78, 0
-  %91 = load ptr, ptr %49, align 8
-  %92 = load i64, ptr %50, align 8
-  %93 = load ptr, ptr %51, align 8
-  %94 = load i64, ptr %52, align 8
-  br i1 %90, label %.preheader41.lr.ph.i.us.us, label %.preheader39.i.us
-
-._crit_edge.us:                                   ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.us-phi.us = phi i64 [ %116, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72 ]
-  %95 = icmp eq i64 %.us-phi.us, %76
-  br i1 %95, label %.split.us, label %.split77.us, !llvm.loop !415
-
-.preheader41.lr.ph.i.us.us:                       ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
-  %.067.us.us = phi i64 [ %116, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %96 = mul nsw i64 %92, %.067.us.us
-  %97 = getelementptr inbounds i16, ptr %91, i64 %96
-  br label %.preheader41.i.us.us
-
-.preheader41.i.us.us:                             ; preds = %107, %.preheader41.lr.ph.i.us.us
-  %.03348.i.us.us = phi i64 [ 0, %.preheader41.lr.ph.i.us.us ], [ %108, %107 ]
-  %98 = getelementptr inbounds nuw i16, ptr %97, i64 %.03348.i.us.us
-  %.val3638.le.i.us.us = load <16 x half>, ptr %98, align 1, !tbaa !53
-  %99 = fpext <16 x half> %.val3638.le.i.us.us to <16 x float>
-  %invariant.gep.i.us.us = getelementptr i16, ptr %93, i64 %.03348.i.us.us
+.preheader39.i.loopexit.us.us.us:                 ; preds = %97
+  %108 = mul nsw i64 %80, %.067.us.us.us
+  %gep.us.us.us = getelementptr float, ptr %invariant.gep, i64 %108
   br label %100
 
-100:                                              ; preds = %100, %.preheader41.i.us.us
-  %.03447.i.us.us = phi i64 [ 0, %.preheader41.i.us.us ], [ %106, %100 ]
-  %101 = add nuw nsw i64 %.03447.i.us.us, %57
-  %102 = mul nsw i64 %101, %94
-  %gep.i.us.us = getelementptr i16, ptr %invariant.gep.i.us.us, i64 %102
-  %.val37.i.us.us = load <16 x half>, ptr %gep.i.us.us, align 1, !tbaa !53
-  %103 = fpext <16 x half> %.val37.i.us.us to <16 x float>
-  %104 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.03447.i.us.us
-  %.promoted.i.us.us = load <16 x float>, ptr %104, align 64, !tbaa !53
-  %105 = tail call noundef <16 x float> @llvm.fma.v16f32(<16 x float> %103, <16 x float> %99, <16 x float> %.promoted.i.us.us)
-  store <16 x float> %105, ptr %104, align 64, !tbaa !53
-  %106 = add nuw nsw i64 %.03447.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %106, 4
-  br i1 %exitcond.not.i.us.us, label %107, label %100, !llvm.loop !359
+._crit_edge.split.us.us.us:                       ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us.us
+  %109 = icmp eq i64 %106, %76
+  br i1 %109, label %.split.us, label %.split77.us, !llvm.loop !386
 
-107:                                              ; preds = %100
-  %108 = add nuw nsw i64 %.03348.i.us.us, 16
-  %109 = icmp slt i64 %108, %78
-  br i1 %109, label %.preheader41.i.us.us, label %.preheader39.i.loopexit.us.us, !llvm.loop !358
+.preheader39.i.us:                                ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %.067.us68 = phi i64 [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72 ], [ %spec.select, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
+  %110 = mul nsw i64 %80, %.067.us68
+  %gep.us69 = getelementptr float, ptr %invariant.gep, i64 %110
+  br label %111
 
-110:                                              ; preds = %.preheader39.i.loopexit.us.us, %110
-  %.049.i.us.us = phi i64 [ 0, %.preheader39.i.loopexit.us.us ], [ %115, %110 ]
-  %111 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us.us
-  %112 = load <16 x float>, ptr %111, align 64, !tbaa !53
-  %113 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %112)
-  %114 = getelementptr float, ptr %gep.us.us, i64 %.049.i.us.us
-  store float %113, ptr %114, align 4, !tbaa !93
-  %115 = add nuw nsw i64 %.049.i.us.us, 1
-  %exitcond50.not.i.us.us = icmp eq i64 %115, 4
-  br i1 %exitcond50.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %110, !llvm.loop !360
+111:                                              ; preds = %111, %.preheader39.i.us
+  %.049.i.us70 = phi i64 [ 0, %.preheader39.i.us ], [ %116, %111 ]
+  %112 = getelementptr inbounds nuw [4 x <16 x float>], ptr %4, i64 0, i64 %.049.i.us70
+  %113 = load <16 x float>, ptr %112, align 64, !tbaa !53
+  %114 = tail call reassoc noundef float @llvm.vector.reduce.fadd.v16f32(float -0.000000e+00, <16 x float> %113)
+  %115 = getelementptr float, ptr %gep.us69, i64 %.049.i.us70
+  store float %114, ptr %115, align 4, !tbaa !93
+  %116 = add nuw nsw i64 %.049.i.us70, 1
+  %exitcond50.not.i.us71 = icmp eq i64 %116, 4
+  br i1 %exitcond50.not.i.us71, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72, label %111, !llvm.loop !337
 
-_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %110
+_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72: ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %116 = add nsw i64 %.067.us.us, 1
-  %117 = icmp slt i64 %116, %76
-  br i1 %117, label %.preheader41.lr.ph.i.us.us, label %._crit_edge.us, !llvm.loop !416
+  %117 = add nsw i64 %.067.us68, 1
+  %118 = icmp slt i64 %117, %76
+  br i1 %118, label %.preheader39.i.us, label %._crit_edge.split.us73, !llvm.loop !385
 
-.preheader39.i.loopexit.us.us:                    ; preds = %107
-  %118 = mul nsw i64 %80, %.067.us.us
-  %gep.us.us = getelementptr float, ptr %invariant.gep, i64 %118
-  br label %110
+._crit_edge.split.us73:                           ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us72
+  %119 = icmp eq i64 %117, %76
+  br i1 %119, label %.split.us, label %.split77.us, !llvm.loop !386
 
 _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64
-  %119 = icmp eq i64 %spec.select, %76
-  %.fr79 = freeze i1 %119
-  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !417
+  %120 = icmp eq i64 %spec.select, %76
+  %.fr79 = freeze i1 %120
+  br i1 %.fr79, label %.split.us, label %.split77.us, !llvm.loop !386
 
-.split.us:                                        ; preds = %._crit_edge.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  %120 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
-  %121 = icmp slt i64 %120, %24
-  br i1 %121, label %55, label %._crit_edge, !llvm.loop !418
+.split.us:                                        ; preds = %._crit_edge.split.us73, %._crit_edge.split.us.us.us, %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
+  %121 = atomicrmw add ptr @_ZZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlllE13current_chunk, i64 1 monotonic, align 8
+  %122 = icmp slt i64 %121, %24
+  br i1 %122, label %55, label %._crit_edge, !llvm.loop !387
 
-.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.us
+.split77.us:                                      ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split, %._crit_edge.split.us73, %._crit_edge.split.us.us.us
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split.us, %39
-  %122 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !84
-  tail call void @ggml_barrier(ptr noundef %123)
+  %123 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !84
+  tail call void @ggml_barrier(ptr noundef %124)
   ret void
 }
 
@@ -20961,12 +21081,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !419
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !388
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100125.us, 1
   %exitcond134.not = icmp eq i64 %58, 4
-  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !420
+  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !389
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -20984,18 +21104,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
-  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !421
+  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !390
 
 70:                                               ; preds = %.lr.ph.us, %97
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %98, %97 ]
   %71 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
-  %72 = load i16, ptr %71, align 2, !tbaa !422
+  %72 = load i16, ptr %71, align 2, !tbaa !391
   %73 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
-  %74 = load i16, ptr %73, align 2, !tbaa !422
+  %74 = load i16, ptr %73, align 2, !tbaa !391
   %75 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
-  %76 = load i16, ptr %75, align 2, !tbaa !422
+  %76 = load i16, ptr %75, align 2, !tbaa !391
   %77 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
-  %78 = load i16, ptr %77, align 2, !tbaa !422
+  %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -21024,14 +21144,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 97:                                               ; preds = %99
   %98 = add nuw nsw i64 %.0104121.us, 1
   %exitcond132.not = icmp eq i64 %98, %25
-  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !425
+  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !394
 
 99:                                               ; preds = %99, %70
   %.0103120.us = phi i64 [ 0, %70 ], [ %142, %99 ]
   %100 = add nsw i64 %.0103120.us, %43
   %101 = mul nsw i64 %33, %100
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %101
-  %102 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %102 = load i16, ptr %gep.us, align 2, !tbaa !391
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !93
@@ -21078,7 +21198,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %141, ptr %139, align 32, !tbaa !53
   %142 = add nuw nsw i64 %.0103120.us, 1
   %exitcond131.not = icmp eq i64 %142, 4
-  br i1 %exitcond131.not, label %97, label %99, !llvm.loop !426
+  br i1 %exitcond131.not, label %97, label %99, !llvm.loop !395
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
@@ -21119,12 +21239,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %154, %spec.select
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !427
+  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !388
 
 155:                                              ; preds = %157
   %156 = add nuw nsw i64 %.0100125, 1
   %exitcond129.not = icmp eq i64 %156, 4
-  br i1 %exitcond129.not, label %153, label %.preheader, !llvm.loop !420
+  br i1 %exitcond129.not, label %153, label %.preheader, !llvm.loop !389
 
 157:                                              ; preds = %.preheader, %157
   %.0122 = phi i64 [ 0, %.preheader ], [ %167, %157 ]
@@ -21142,7 +21262,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %165, ptr %166, align 4, !tbaa !93
   %167 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %167, 4
-  br i1 %exitcond.not, label %155, label %157, !llvm.loop !421
+  br i1 %exitcond.not, label %155, label %157, !llvm.loop !390
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -21216,12 +21336,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !428
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !396
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100125.us, 1
   %exitcond134.not = icmp eq i64 %58, 3
-  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !429
+  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !397
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -21239,18 +21359,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
-  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !430
+  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !398
 
 70:                                               ; preds = %.lr.ph.us, %97
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %98, %97 ]
   %71 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
-  %72 = load i16, ptr %71, align 2, !tbaa !422
+  %72 = load i16, ptr %71, align 2, !tbaa !391
   %73 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
-  %74 = load i16, ptr %73, align 2, !tbaa !422
+  %74 = load i16, ptr %73, align 2, !tbaa !391
   %75 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
-  %76 = load i16, ptr %75, align 2, !tbaa !422
+  %76 = load i16, ptr %75, align 2, !tbaa !391
   %77 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
-  %78 = load i16, ptr %77, align 2, !tbaa !422
+  %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -21279,14 +21399,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 97:                                               ; preds = %99
   %98 = add nuw nsw i64 %.0104121.us, 1
   %exitcond132.not = icmp eq i64 %98, %25
-  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !431
+  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !399
 
 99:                                               ; preds = %99, %70
   %.0103120.us = phi i64 [ 0, %70 ], [ %142, %99 ]
   %100 = add nsw i64 %.0103120.us, %43
   %101 = mul nsw i64 %33, %100
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %101
-  %102 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %102 = load i16, ptr %gep.us, align 2, !tbaa !391
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !93
@@ -21333,7 +21453,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %141, ptr %139, align 32, !tbaa !53
   %142 = add nuw nsw i64 %.0103120.us, 1
   %exitcond131.not = icmp eq i64 %142, 3
-  br i1 %exitcond131.not, label %97, label %99, !llvm.loop !432
+  br i1 %exitcond131.not, label %97, label %99, !llvm.loop !400
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
@@ -21374,12 +21494,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %154, %spec.select
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !433
+  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !396
 
 155:                                              ; preds = %157
   %156 = add nuw nsw i64 %.0100125, 1
   %exitcond129.not = icmp eq i64 %156, 3
-  br i1 %exitcond129.not, label %153, label %.preheader, !llvm.loop !429
+  br i1 %exitcond129.not, label %153, label %.preheader, !llvm.loop !397
 
 157:                                              ; preds = %.preheader, %157
   %.0122 = phi i64 [ 0, %.preheader ], [ %167, %157 ]
@@ -21397,7 +21517,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %165, ptr %166, align 4, !tbaa !93
   %167 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %167, 4
-  br i1 %exitcond.not, label %155, label %157, !llvm.loop !430
+  br i1 %exitcond.not, label %155, label %157, !llvm.loop !398
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -21474,12 +21594,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118150.us, 1
   %exitcond159.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond159.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !434
+  br i1 %exitcond159.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !401
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116149.us, 1
   %exitcond158.not = icmp eq i64 %61, 4
-  br i1 %exitcond158.not, label %58, label %.preheader.us, !llvm.loop !435
+  br i1 %exitcond158.not, label %58, label %.preheader.us, !llvm.loop !402
 
 62:                                               ; preds = %.preheader.us, %62
   %.0146.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
@@ -21497,18 +21617,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0146.us, 1
   %exitcond157.not = icmp eq i64 %72, 3
-  br i1 %exitcond157.not, label %60, label %62, !llvm.loop !436
+  br i1 %exitcond157.not, label %60, label %62, !llvm.loop !403
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120145.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120145.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120145.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120145.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120145.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -21529,14 +21649,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120145.us, 1
   %exitcond156.not = icmp eq i64 %93, %25
-  br i1 %exitcond156.not, label %..preheader143_crit_edge.us, label %73, !llvm.loop !437
+  br i1 %exitcond156.not, label %..preheader143_crit_edge.us, label %73, !llvm.loop !404
 
 94:                                               ; preds = %94, %73
   %.0119144.us = phi i64 [ 0, %73 ], [ %139, %94 ]
   %95 = add nsw i64 %.0119144.us, %43
   %96 = mul nsw i64 %33, %95
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %96
-  %97 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %97 = load i16, ptr %gep.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
   %99 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
@@ -21585,7 +21705,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %138, ptr %136, align 32, !tbaa !53
   %139 = add nuw nsw i64 %.0119144.us, 1
   %exitcond155.not = icmp eq i64 %139, 3
-  br i1 %exitcond155.not, label %92, label %94, !llvm.loop !438
+  br i1 %exitcond155.not, label %92, label %94, !llvm.loop !405
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %60
   %.0116149.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %61, %60 ]
@@ -21626,12 +21746,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.0118150, 1
   %exitcond154.not = icmp eq i64 %151, %spec.select
-  br i1 %exitcond154.not, label %._crit_edge, label %.preheader143, !llvm.loop !439
+  br i1 %exitcond154.not, label %._crit_edge, label %.preheader143, !llvm.loop !401
 
 152:                                              ; preds = %154
   %153 = add nuw nsw i64 %.0116149, 1
   %exitcond153.not = icmp eq i64 %153, 4
-  br i1 %exitcond153.not, label %150, label %.preheader, !llvm.loop !435
+  br i1 %exitcond153.not, label %150, label %.preheader, !llvm.loop !402
 
 154:                                              ; preds = %.preheader, %154
   %.0146 = phi i64 [ 0, %.preheader ], [ %164, %154 ]
@@ -21649,7 +21769,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.0146, 1
   %exitcond.not = icmp eq i64 %164, 3
-  br i1 %exitcond.not, label %152, label %154, !llvm.loop !436
+  br i1 %exitcond.not, label %152, label %154, !llvm.loop !403
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -21712,12 +21832,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond96.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond96.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !440
+  br i1 %exitcond96.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !406
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06286.us, 1
   %exitcond95.not = icmp eq i64 %47, 3
-  br i1 %exitcond95.not, label %44, label %.preheader75.us, !llvm.loop !441
+  br i1 %exitcond95.not, label %44, label %.preheader75.us, !llvm.loop !407
 
 48:                                               ; preds = %.preheader75.us, %48
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ %58, %48 ]
@@ -21735,17 +21855,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.083.us, 1
   %exitcond94.not = icmp eq i64 %58, 3
-  br i1 %exitcond94.not, label %46, label %48, !llvm.loop !442
+  br i1 %exitcond94.not, label %46, label %48, !llvm.loop !408
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06682.us, 1
   %exitcond93.not = icmp eq i64 %60, %25
-  br i1 %exitcond93.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !443
+  br i1 %exitcond93.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !409
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06581.us, 1
   %exitcond92.not = icmp eq i64 %62, 3
-  br i1 %exitcond92.not, label %59, label %.preheader.us, !llvm.loop !444
+  br i1 %exitcond92.not, label %59, label %.preheader.us, !llvm.loop !410
 
 63:                                               ; preds = %.preheader.us, %63
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ %83, %63 ]
@@ -21760,7 +21880,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %70 = bitcast <32 x i8> %68 to <8 x i32>
   %71 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %69, <8 x i32> %70)
   %72 = sitofp <8 x i32> %71 to <8 x float>
-  %73 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %73 = load i16, ptr %gep.us, align 2, !tbaa !391
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !93
@@ -21773,7 +21893,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %82, ptr %80, align 32, !tbaa !53
   %83 = add nuw nsw i64 %.06478.us, 1
   %exitcond91.not = icmp eq i64 %83, 3
-  br i1 %exitcond91.not, label %61, label %63, !llvm.loop !445
+  br i1 %exitcond91.not, label %61, label %63, !llvm.loop !411
 
 .preheader.us:                                    ; preds = %.preheader76.us, %61
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ %62, %61 ]
@@ -21782,7 +21902,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %85
   %86 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
-  %87 = load i16, ptr %gep80.us, align 2, !tbaa !422
+  %87 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %88 = zext i16 %87 to i64
   %89 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
@@ -21834,12 +21954,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = add nsw i64 %.06787, 1
   %exitcond90.not = icmp eq i64 %103, %spec.select
-  br i1 %exitcond90.not, label %._crit_edge, label %.preheader77, !llvm.loop !446
+  br i1 %exitcond90.not, label %._crit_edge, label %.preheader77, !llvm.loop !406
 
 104:                                              ; preds = %106
   %105 = add nuw nsw i64 %.06286, 1
   %exitcond89.not = icmp eq i64 %105, 3
-  br i1 %exitcond89.not, label %102, label %.preheader75, !llvm.loop !441
+  br i1 %exitcond89.not, label %102, label %.preheader75, !llvm.loop !407
 
 106:                                              ; preds = %.preheader75, %106
   %.083 = phi i64 [ 0, %.preheader75 ], [ %116, %106 ]
@@ -21857,7 +21977,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %114, ptr %115, align 4, !tbaa !93
   %116 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %116, 3
-  br i1 %exitcond.not, label %104, label %106, !llvm.loop !442
+  br i1 %exitcond.not, label %104, label %106, !llvm.loop !408
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -21934,10 +22054,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond132.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !447
+  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !412
 
 57:                                               ; preds = %58
-  br i1 %141, label %.preheader.us, label %55, !llvm.loop !448
+  br i1 %141, label %.preheader.us, label %55, !llvm.loop !413
 
 58:                                               ; preds = %.preheader.us, %58
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
@@ -21955,18 +22075,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0122.us, 1
   %exitcond131.not = icmp eq i64 %68, 4
-  br i1 %exitcond131.not, label %57, label %58, !llvm.loop !449
+  br i1 %exitcond131.not, label %57, label %58, !llvm.loop !414
 
 69:                                               ; preds = %.lr.ph.us, %96
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %97, %96 ]
   %70 = getelementptr %struct.block_q8_0, ptr %46, i64 %.0104121.us
-  %71 = load i16, ptr %70, align 2, !tbaa !422
+  %71 = load i16, ptr %70, align 2, !tbaa !391
   %72 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0104121.us
-  %73 = load i16, ptr %72, align 2, !tbaa !422
+  %73 = load i16, ptr %72, align 2, !tbaa !391
   %74 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0104121.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0104121.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -21995,7 +22115,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 96:                                               ; preds = %98
   %97 = add nuw nsw i64 %.0104121.us, 1
   %exitcond130.not = icmp eq i64 %97, %25
-  br i1 %exitcond130.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !450
+  br i1 %exitcond130.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !415
 
 98:                                               ; preds = %98, %69
   %99 = phi i1 [ true, %69 ], [ false, %98 ]
@@ -22004,7 +22124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %100 = add nsw i64 %.0103120.us, %43
   %101 = mul nsw i64 %33, %100
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %101
-  %102 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %102 = load i16, ptr %gep.us, align 2, !tbaa !391
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !93
@@ -22048,7 +22168,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %139 = load <8 x float>, ptr %138, align 32, !tbaa !53
   %140 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %133, <8 x float> %137, <8 x float> %139)
   store <8 x float> %140, ptr %138, align 32, !tbaa !53
-  br i1 %99, label %98, label %96, !llvm.loop !451
+  br i1 %99, label %98, label %96, !llvm.loop !416
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %141 = phi i1 [ true, %..preheader119_crit_edge.us ], [ false, %57 ]
@@ -22091,10 +22211,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.0102126, 1
   %exitcond129.not = icmp eq i64 %152, %spec.select
-  br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !452
+  br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !412
 
 153:                                              ; preds = %154
-  br i1 %148, label %.preheader, label %151, !llvm.loop !448
+  br i1 %148, label %.preheader, label %151, !llvm.loop !413
 
 154:                                              ; preds = %.preheader, %154
   %.0122 = phi i64 [ 0, %.preheader ], [ %164, %154 ]
@@ -22112,7 +22232,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %164, 4
-  br i1 %exitcond.not, label %153, label %154, !llvm.loop !449
+  br i1 %exitcond.not, label %153, label %154, !llvm.loop !414
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -22190,12 +22310,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118150.us, 1
   %exitcond156.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !453
+  br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !417
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116149.us, 1
   %exitcond155.not = icmp eq i64 %61, 4
-  br i1 %exitcond155.not, label %58, label %.preheader.us, !llvm.loop !454
+  br i1 %exitcond155.not, label %58, label %.preheader.us, !llvm.loop !418
 
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
@@ -22212,18 +22332,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = getelementptr float, ptr %gep148.us, i64 %.0146.us
   store float %71, ptr %72, align 4, !tbaa !93
-  br i1 %63, label %62, label %60, !llvm.loop !455
+  br i1 %63, label %62, label %60, !llvm.loop !419
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120145.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120145.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120145.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120145.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120145.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -22244,7 +22364,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120145.us, 1
   %exitcond154.not = icmp eq i64 %93, %25
-  br i1 %exitcond154.not, label %..preheader143_crit_edge.us, label %73, !llvm.loop !456
+  br i1 %exitcond154.not, label %..preheader143_crit_edge.us, label %73, !llvm.loop !420
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
@@ -22253,7 +22373,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %96 = add nsw i64 %.0119144.us, %43
   %97 = mul nsw i64 %33, %96
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %97
-  %98 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %98 = load i16, ptr %gep.us, align 2, !tbaa !391
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
@@ -22299,7 +22419,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %137 = load <8 x float>, ptr %136, align 32, !tbaa !53
   %138 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %131, <8 x float> %135, <8 x float> %137)
   store <8 x float> %138, ptr %136, align 32, !tbaa !53
-  br i1 %95, label %94, label %92, !llvm.loop !457
+  br i1 %95, label %94, label %92, !llvm.loop !421
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %60
   %.0116149.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %61, %60 ]
@@ -22340,12 +22460,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = add nsw i64 %.0118150, 1
   %exitcond153.not = icmp eq i64 %150, %spec.select
-  br i1 %exitcond153.not, label %._crit_edge, label %.preheader143, !llvm.loop !458
+  br i1 %exitcond153.not, label %._crit_edge, label %.preheader143, !llvm.loop !417
 
 151:                                              ; preds = %153
   %152 = add nuw nsw i64 %.0116149, 1
   %exitcond.not = icmp eq i64 %152, 4
-  br i1 %exitcond.not, label %149, label %.preheader, !llvm.loop !454
+  br i1 %exitcond.not, label %149, label %.preheader, !llvm.loop !418
 
 153:                                              ; preds = %.preheader, %153
   %154 = phi i1 [ true, %.preheader ], [ false, %153 ]
@@ -22362,7 +22482,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %162 = extractelement <4 x float> %foldExtExtBinop161, i64 0
   %163 = getelementptr float, ptr %gep148, i64 %.0146
   store float %162, ptr %163, align 4, !tbaa !93
-  br i1 %154, label %153, label %151, !llvm.loop !455
+  br i1 %154, label %153, label %151, !llvm.loop !419
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -22428,10 +22548,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond93.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !459
+  br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !422
 
 46:                                               ; preds = %47
-  br i1 %90, label %.preheader75.us, label %44, !llvm.loop !460
+  br i1 %90, label %.preheader75.us, label %44, !llvm.loop !423
 
 47:                                               ; preds = %.preheader75.us, %47
   %.083.us = phi i64 [ 0, %.preheader75.us ], [ %57, %47 ]
@@ -22449,15 +22569,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.083.us, 1
   %exitcond92.not = icmp eq i64 %57, 3
-  br i1 %exitcond92.not, label %46, label %47, !llvm.loop !461
+  br i1 %exitcond92.not, label %46, label %47, !llvm.loop !424
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06682.us, 1
   %exitcond91.not = icmp eq i64 %59, %25
-  br i1 %exitcond91.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !462
+  br i1 %exitcond91.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !425
 
 60:                                               ; preds = %61
-  br i1 %82, label %.preheader.us, label %58, !llvm.loop !463
+  br i1 %82, label %.preheader.us, label %58, !llvm.loop !426
 
 61:                                               ; preds = %.preheader.us, %61
   %.06478.us = phi i64 [ 0, %.preheader.us ], [ %81, %61 ]
@@ -22472,7 +22592,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %68 = bitcast <32 x i8> %66 to <8 x i32>
   %69 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %67, <8 x i32> %68)
   %70 = sitofp <8 x i32> %69 to <8 x float>
-  %71 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %71 = load i16, ptr %gep.us, align 2, !tbaa !391
   %72 = zext i16 %71 to i64
   %73 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !93
@@ -22485,7 +22605,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %80, ptr %78, align 32, !tbaa !53
   %81 = add nuw nsw i64 %.06478.us, 1
   %exitcond90.not = icmp eq i64 %81, 3
-  br i1 %exitcond90.not, label %60, label %61, !llvm.loop !464
+  br i1 %exitcond90.not, label %60, label %61, !llvm.loop !427
 
 .preheader.us:                                    ; preds = %.preheader76.us, %60
   %82 = phi i1 [ true, %.preheader76.us ], [ false, %60 ]
@@ -22496,7 +22616,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %84
   %85 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %85, align 1, !tbaa !53
-  %86 = load i16, ptr %gep80.us, align 2, !tbaa !422
+  %86 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %87 = zext i16 %86 to i64
   %88 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !93
@@ -22549,10 +22669,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %101 = add nsw i64 %.06787, 1
   %exitcond89.not = icmp eq i64 %101, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !465
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !422
 
 102:                                              ; preds = %103
-  br i1 %97, label %.preheader75, label %100, !llvm.loop !460
+  br i1 %97, label %.preheader75, label %100, !llvm.loop !423
 
 103:                                              ; preds = %.preheader75, %103
   %.083 = phi i64 [ 0, %.preheader75 ], [ %113, %103 ]
@@ -22570,7 +22690,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %113, 3
-  br i1 %exitcond.not, label %102, label %103, !llvm.loop !461
+  br i1 %exitcond.not, label %102, label %103, !llvm.loop !424
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -22633,12 +22753,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond93.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !466
+  br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !428
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06286.us, 1
   %exitcond92.not = icmp eq i64 %47, 3
-  br i1 %exitcond92.not, label %44, label %.preheader75.us, !llvm.loop !467
+  br i1 %exitcond92.not, label %44, label %.preheader75.us, !llvm.loop !429
 
 48:                                               ; preds = %.preheader75.us, %48
   %49 = phi i1 [ true, %.preheader75.us ], [ false, %48 ]
@@ -22655,17 +22775,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %58 = getelementptr float, ptr %gep85.us, i64 %.083.us
   store float %57, ptr %58, align 4, !tbaa !93
-  br i1 %49, label %48, label %46, !llvm.loop !468
+  br i1 %49, label %48, label %46, !llvm.loop !430
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06682.us, 1
   %exitcond91.not = icmp eq i64 %60, %25
-  br i1 %exitcond91.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !469
+  br i1 %exitcond91.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !431
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06581.us, 1
   %exitcond90.not = icmp eq i64 %62, 3
-  br i1 %exitcond90.not, label %59, label %.preheader.us, !llvm.loop !470
+  br i1 %exitcond90.not, label %59, label %.preheader.us, !llvm.loop !432
 
 63:                                               ; preds = %.preheader.us, %63
   %64 = phi i1 [ true, %.preheader.us ], [ false, %63 ]
@@ -22681,7 +22801,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %71 = bitcast <32 x i8> %69 to <8 x i32>
   %72 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %70, <8 x i32> %71)
   %73 = sitofp <8 x i32> %72 to <8 x float>
-  %74 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %74 = load i16, ptr %gep.us, align 2, !tbaa !391
   %75 = zext i16 %74 to i64
   %76 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !93
@@ -22692,7 +22812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %82 = load <8 x float>, ptr %81, align 32, !tbaa !53
   %83 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %80, <8 x float> %73, <8 x float> %82)
   store <8 x float> %83, ptr %81, align 32, !tbaa !53
-  br i1 %64, label %63, label %61, !llvm.loop !471
+  br i1 %64, label %63, label %61, !llvm.loop !433
 
 .preheader.us:                                    ; preds = %.preheader76.us, %61
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ %62, %61 ]
@@ -22701,7 +22821,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %85
   %86 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
-  %87 = load i16, ptr %gep80.us, align 2, !tbaa !422
+  %87 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %88 = zext i16 %87 to i64
   %89 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
@@ -22753,12 +22873,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = add nsw i64 %.06787, 1
   %exitcond89.not = icmp eq i64 %103, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !472
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !428
 
 104:                                              ; preds = %106
   %105 = add nuw nsw i64 %.06286, 1
   %exitcond.not = icmp eq i64 %105, 3
-  br i1 %exitcond.not, label %102, label %.preheader75, !llvm.loop !467
+  br i1 %exitcond.not, label %102, label %.preheader75, !llvm.loop !429
 
 106:                                              ; preds = %.preheader75, %106
   %107 = phi i1 [ true, %.preheader75 ], [ false, %106 ]
@@ -22775,7 +22895,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %115 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %116 = getelementptr float, ptr %gep85, i64 %.083
   store float %115, ptr %116, align 4, !tbaa !93
-  br i1 %107, label %106, label %104, !llvm.loop !468
+  br i1 %107, label %106, label %104, !llvm.loop !430
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -22859,7 +22979,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0135.us, 1
   %exitcond144.not = icmp eq i64 %68, 4
-  br i1 %exitcond144.not, label %.loopexit.us, label %58, !llvm.loop !473
+  br i1 %exitcond144.not, label %.loopexit.us, label %58, !llvm.loop !434
 
 69:                                               ; preds = %.lr.ph.us, %69
   %.lcssa125134.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %128, %69 ]
@@ -22868,13 +22988,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0104129.us = phi i64 [ 0, %.lr.ph.us ], [ %129, %69 ]
   %.lcssa127128.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %125, %69 ]
   %70 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0104129.us
-  %71 = load i16, ptr %70, align 2, !tbaa !422
+  %71 = load i16, ptr %70, align 2, !tbaa !391
   %72 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0104129.us
-  %73 = load i16, ptr %72, align 2, !tbaa !422
+  %73 = load i16, ptr %72, align 2, !tbaa !391
   %74 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0104129.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0104129.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -22890,7 +23010,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %87 = getelementptr i8, ptr %70, i64 2
   %.val109117.us = load <32 x i8>, ptr %87, align 2, !tbaa !53
   %88 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104129.us
-  %89 = load i16, ptr %88, align 2, !tbaa !422
+  %89 = load i16, ptr %88, align 2, !tbaa !391
   %90 = zext i16 %89 to i64
   %91 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !93
@@ -22933,13 +23053,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %128 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %118, <8 x float> %124, <8 x float> %.lcssa125134.us)
   %129 = add nuw nsw i64 %.0104129.us, 1
   %exitcond143.not = icmp eq i64 %129, %24
-  br i1 %exitcond143.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !474
+  br i1 %exitcond143.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !435
 
 .loopexit.us:                                     ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %130 = add nsw i64 %.0102136.us, 1
   %exitcond145.not = icmp eq i64 %130, %spec.select
-  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !475
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !436
 
 ..preheader119_crit_edge.us:                      ; preds = %69
   store <8 x float> %126, ptr %33, align 32, !tbaa !53
@@ -22972,7 +23092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %141 = add nsw i64 %.0102136, 1
   %exitcond142.not = icmp eq i64 %141, %spec.select
-  br i1 %exitcond142.not, label %._crit_edge, label %.preheader119, !llvm.loop !476
+  br i1 %exitcond142.not, label %._crit_edge, label %.preheader119, !llvm.loop !436
 
 142:                                              ; preds = %.preheader119, %142
   %.0135 = phi i64 [ 0, %.preheader119 ], [ %152, %142 ]
@@ -22990,7 +23110,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %150, ptr %151, align 4, !tbaa !93
   %152 = add nuw nsw i64 %.0135, 1
   %exitcond.not = icmp eq i64 %152, 4
-  br i1 %exitcond.not, label %.loopexit, label %142, !llvm.loop !473
+  br i1 %exitcond.not, label %.loopexit, label %142, !llvm.loop !434
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23056,10 +23176,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond90.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond90.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !477
+  br i1 %exitcond90.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !437
 
 46:                                               ; preds = %47
-  br i1 %90, label %.preheader75.us, label %44, !llvm.loop !478
+  br i1 %90, label %.preheader75.us, label %44, !llvm.loop !438
 
 47:                                               ; preds = %.preheader75.us, %47
   %48 = phi i1 [ true, %.preheader75.us ], [ false, %47 ]
@@ -23076,15 +23196,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %57 = getelementptr float, ptr %gep85.us, i64 %.083.us
   store float %56, ptr %57, align 4, !tbaa !93
-  br i1 %48, label %47, label %46, !llvm.loop !479
+  br i1 %48, label %47, label %46, !llvm.loop !439
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06682.us, 1
   %exitcond89.not = icmp eq i64 %59, %25
-  br i1 %exitcond89.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !480
+  br i1 %exitcond89.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !440
 
 60:                                               ; preds = %61
-  br i1 %82, label %.preheader.us, label %58, !llvm.loop !481
+  br i1 %82, label %.preheader.us, label %58, !llvm.loop !441
 
 61:                                               ; preds = %.preheader.us, %61
   %62 = phi i1 [ true, %.preheader.us ], [ false, %61 ]
@@ -23100,7 +23220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %69 = bitcast <32 x i8> %67 to <8 x i32>
   %70 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %68, <8 x i32> %69)
   %71 = sitofp <8 x i32> %70 to <8 x float>
-  %72 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %72 = load i16, ptr %gep.us, align 2, !tbaa !391
   %73 = zext i16 %72 to i64
   %74 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !93
@@ -23111,7 +23231,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %80 = load <8 x float>, ptr %79, align 32, !tbaa !53
   %81 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %78, <8 x float> %71, <8 x float> %80)
   store <8 x float> %81, ptr %79, align 32, !tbaa !53
-  br i1 %62, label %61, label %60, !llvm.loop !482
+  br i1 %62, label %61, label %60, !llvm.loop !442
 
 .preheader.us:                                    ; preds = %.preheader76.us, %60
   %82 = phi i1 [ true, %.preheader76.us ], [ false, %60 ]
@@ -23122,7 +23242,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %gep80.us = getelementptr %struct.block_q8_0, ptr %invariant.gep79.us, i64 %84
   %85 = getelementptr i8, ptr %gep80.us, i64 2
   %.val7174.us = load <32 x i8>, ptr %85, align 1, !tbaa !53
-  %86 = load i16, ptr %gep80.us, align 2, !tbaa !422
+  %86 = load i16, ptr %gep80.us, align 2, !tbaa !391
   %87 = zext i16 %86 to i64
   %88 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !93
@@ -23175,10 +23295,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %101 = add nsw i64 %.06787, 1
   %exitcond.not = icmp eq i64 %101, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !483
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !437
 
 102:                                              ; preds = %103
-  br i1 %97, label %.preheader75, label %100, !llvm.loop !478
+  br i1 %97, label %.preheader75, label %100, !llvm.loop !438
 
 103:                                              ; preds = %.preheader75, %103
   %104 = phi i1 [ true, %.preheader75 ], [ false, %103 ]
@@ -23195,7 +23315,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %112 = extractelement <4 x float> %foldExtExtBinop95, i64 0
   %113 = getelementptr float, ptr %gep85, i64 %.083
   store float %112, ptr %113, align 4, !tbaa !93
-  br i1 %104, label %103, label %102, !llvm.loop !479
+  br i1 %104, label %103, label %102, !llvm.loop !439
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23271,7 +23391,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118160.us, 1
   %exitcond169.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond169.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !484
+  br i1 %exitcond169.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !443
 
 60:                                               ; preds = %.lr.ph.us, %60
   %.lcssa149158.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %113, %60 ]
@@ -23280,13 +23400,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.0120153.us = phi i64 [ 0, %.lr.ph.us ], [ %114, %60 ]
   %.lcssa151152.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %110, %60 ]
   %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120153.us
-  %62 = load i16, ptr %61, align 2, !tbaa !422
+  %62 = load i16, ptr %61, align 2, !tbaa !391
   %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120153.us
-  %64 = load i16, ptr %63, align 2, !tbaa !422
+  %64 = load i16, ptr %63, align 2, !tbaa !391
   %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120153.us
-  %66 = load i16, ptr %65, align 2, !tbaa !422
+  %66 = load i16, ptr %65, align 2, !tbaa !391
   %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120153.us
-  %68 = load i16, ptr %67, align 2, !tbaa !422
+  %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
   %71 = insertelement <4 x i16> %70, i16 %64, i64 2
@@ -23302,7 +23422,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %78 = getelementptr i8, ptr %61, i64 2
   %.val125141.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
   %79 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120153.us
-  %80 = load i16, ptr %79, align 2, !tbaa !422
+  %80 = load i16, ptr %79, align 2, !tbaa !391
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -23339,7 +23459,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %113 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %105, <8 x float> %109, <8 x float> %.lcssa149158.us)
   %114 = add nuw nsw i64 %.0120153.us, 1
   %exitcond167.not = icmp eq i64 %114, %24
-  br i1 %exitcond167.not, label %..preheader143_crit_edge.us, label %60, !llvm.loop !485
+  br i1 %exitcond167.not, label %..preheader143_crit_edge.us, label %60, !llvm.loop !444
 
 .preheader.us:                                    ; preds = %..preheader143_crit_edge.us, %.preheader.us
   %.0116159.us = phi i64 [ 0, %..preheader143_crit_edge.us ], [ %125, %.preheader.us ]
@@ -23359,7 +23479,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %122, ptr %gep.us, align 4, !tbaa !93
   %125 = add nuw nsw i64 %.0116159.us, 1
   %exitcond168.not = icmp eq i64 %125, 4
-  br i1 %exitcond168.not, label %58, label %.preheader.us, !llvm.loop !486
+  br i1 %exitcond168.not, label %58, label %.preheader.us, !llvm.loop !445
 
 ..preheader143_crit_edge.us:                      ; preds = %60
   store <8 x float> %111, ptr %33, align 32, !tbaa !53
@@ -23401,13 +23521,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %137, ptr %gep, align 4, !tbaa !93
   %140 = add nuw nsw i64 %.0116159, 1
   %exitcond.not = icmp eq i64 %140, 4
-  br i1 %exitcond.not, label %141, label %.preheader, !llvm.loop !486
+  br i1 %exitcond.not, label %141, label %.preheader, !llvm.loop !445
 
 141:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %142 = add nsw i64 %.0118160, 1
   %exitcond166.not = icmp eq i64 %142, %spec.select
-  br i1 %exitcond166.not, label %._crit_edge, label %.preheader143, !llvm.loop !487
+  br i1 %exitcond166.not, label %._crit_edge, label %.preheader143, !llvm.loop !443
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23478,7 +23598,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.081.us, 1
   %exitcond87.not = icmp eq i64 %54, 3
-  br i1 %exitcond87.not, label %.loopexit76.us, label %44, !llvm.loop !488
+  br i1 %exitcond87.not, label %.loopexit76.us, label %44, !llvm.loop !446
 
 55:                                               ; preds = %.preheader77.us, %55
   %.06479.us = phi i64 [ 0, %.preheader77.us ], [ %75, %55 ]
@@ -23493,7 +23613,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %62 = bitcast <32 x i8> %60 to <8 x i32>
   %63 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %61, <8 x i32> %62)
   %64 = sitofp <8 x i32> %63 to <8 x float>
-  %65 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %65 = load i16, ptr %gep.us, align 2, !tbaa !391
   %66 = zext i16 %65 to i64
   %67 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !93
@@ -23506,18 +23626,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %74, ptr %72, align 32, !tbaa !53
   %75 = add nuw nsw i64 %.06479.us, 1
   %exitcond85.not = icmp eq i64 %75, 3
-  br i1 %exitcond85.not, label %.loopexit.us, label %55, !llvm.loop !489
+  br i1 %exitcond85.not, label %.loopexit.us, label %55, !llvm.loop !447
 
 .loopexit.us:                                     ; preds = %55
   %76 = add nuw nsw i64 %.06680.us, 1
   %exitcond86.not = icmp eq i64 %76, %24
-  br i1 %exitcond86.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !490
+  br i1 %exitcond86.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !448
 
 .loopexit76.us:                                   ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %77 = add nsw i64 %.06782.us, 1
   %exitcond88.not = icmp eq i64 %77, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !491
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !449
 
 .preheader77.us:                                  ; preds = %.preheader77.lr.ph.us, %.loopexit.us
   %.06680.us = phi i64 [ 0, %.preheader77.lr.ph.us ], [ %76, %.loopexit.us ]
@@ -23525,7 +23645,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %78 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06680.us
   %79 = getelementptr i8, ptr %78, i64 2
   %.val7174.us = load <32 x i8>, ptr %79, align 1, !tbaa !53
-  %80 = load i16, ptr %78, align 2, !tbaa !422
+  %80 = load i16, ptr %78, align 2, !tbaa !391
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -23558,7 +23678,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = add nsw i64 %.06782, 1
   %exitcond84.not = icmp eq i64 %94, %spec.select
-  br i1 %exitcond84.not, label %._crit_edge, label %.preheader78, !llvm.loop !492
+  br i1 %exitcond84.not, label %._crit_edge, label %.preheader78, !llvm.loop !449
 
 95:                                               ; preds = %.preheader78, %95
   %.081 = phi i64 [ 0, %.preheader78 ], [ %105, %95 ]
@@ -23576,7 +23696,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %103, ptr %104, align 4, !tbaa !93
   %105 = add nuw nsw i64 %.081, 1
   %exitcond.not = icmp eq i64 %105, 3
-  br i1 %exitcond.not, label %.loopexit76, label %95, !llvm.loop !488
+  br i1 %exitcond.not, label %.loopexit76, label %95, !llvm.loop !446
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23639,12 +23759,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06783.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !493
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !450
 
 46:                                               ; preds = %.preheader.us
   %47 = add nuw nsw i64 %.06679.us, 1
   %exitcond87.not = icmp eq i64 %47, %24
-  br i1 %exitcond87.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !494
+  br i1 %exitcond87.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !451
 
 .preheader.us:                                    ; preds = %.preheader76.us, %.preheader.us
   %.06578.us = phi i64 [ 0, %.preheader76.us ], [ %64, %.preheader.us ]
@@ -23657,7 +23777,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %79, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -23670,7 +23790,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store <8 x float> %63, ptr %62, align 32, !tbaa !53
   %64 = add nuw nsw i64 %.06578.us, 1
   %exitcond86.not = icmp eq i64 %64, 3
-  br i1 %exitcond86.not, label %46, label %.preheader.us, !llvm.loop !495
+  br i1 %exitcond86.not, label %46, label %.preheader.us, !llvm.loop !452
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %.preheader75.us
   %.06282.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ %75, %.preheader75.us ]
@@ -23690,7 +23810,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %72, ptr %gep81.us, align 4, !tbaa !93
   %75 = add nuw nsw i64 %.06282.us, 1
   %exitcond88.not = icmp eq i64 %75, 3
-  br i1 %exitcond88.not, label %44, label %.preheader75.us, !llvm.loop !496
+  br i1 %exitcond88.not, label %44, label %.preheader75.us, !llvm.loop !453
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %46
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %47, %46 ]
@@ -23700,7 +23820,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %78 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06679.us
   %79 = bitcast <32 x i8> %78 to <8 x i32>
-  %80 = load i16, ptr %76, align 2, !tbaa !422
+  %80 = load i16, ptr %76, align 2, !tbaa !391
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -23742,13 +23862,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %95, ptr %gep81, align 4, !tbaa !93
   %98 = add nuw nsw i64 %.06282, 1
   %exitcond.not = icmp eq i64 %98, 3
-  br i1 %exitcond.not, label %99, label %.preheader75, !llvm.loop !496
+  br i1 %exitcond.not, label %99, label %.preheader75, !llvm.loop !453
 
 99:                                               ; preds = %.preheader75
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %100 = add nsw i64 %.06783, 1
   %exitcond85.not = icmp eq i64 %100, %spec.select
-  br i1 %exitcond85.not, label %._crit_edge, label %.preheader77, !llvm.loop !497
+  br i1 %exitcond85.not, label %._crit_edge, label %.preheader77, !llvm.loop !450
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23821,7 +23941,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %52 = getelementptr float, ptr %83, i64 %.081.us
   store float %51, ptr %52, align 4, !tbaa !93
-  br i1 %44, label %43, label %.loopexit76.us, !llvm.loop !498
+  br i1 %44, label %43, label %.loopexit76.us, !llvm.loop !454
 
 53:                                               ; preds = %.preheader77.us, %53
   %54 = phi i1 [ true, %.preheader77.us ], [ false, %53 ]
@@ -23838,7 +23958,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %61 = bitcast <32 x i8> %59 to <8 x i32>
   %62 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %60, <8 x i32> %61)
   %63 = sitofp <8 x i32> %62 to <8 x float>
-  %64 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %64 = load i16, ptr %gep.us, align 2, !tbaa !391
   %65 = zext i16 %64 to i64
   %66 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !93
@@ -23848,19 +23968,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %71 = load <8 x float>, ptr %.06479.us.sroa.phi, align 32, !tbaa !53
   %72 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %70, <8 x float> %63, <8 x float> %71)
   store <8 x float> %72, ptr %.06479.us.sroa.phi, align 32, !tbaa !53
-  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !499
+  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !455
 
 .loopexit.us:                                     ; preds = %53
   %73 = add nuw nsw i64 %.06680.us, 1
   %exitcond84.not = icmp eq i64 %73, %23
-  br i1 %exitcond84.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !500
+  br i1 %exitcond84.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !456
 
 .loopexit76.us:                                   ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %74 = add nsw i64 %.06782.us, 1
   %exitcond85.not = icmp eq i64 %74, %spec.select
-  br i1 %exitcond85.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !501
+  br i1 %exitcond85.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !457
 
 .preheader77.us:                                  ; preds = %.preheader77.lr.ph.us, %.loopexit.us
   %.06680.us = phi i64 [ 0, %.preheader77.lr.ph.us ], [ %73, %.loopexit.us ]
@@ -23868,7 +23988,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %75 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06680.us
   %76 = getelementptr i8, ptr %75, i64 2
   %.val7174.us = load <32 x i8>, ptr %76, align 1, !tbaa !53
-  %77 = load i16, ptr %75, align 2, !tbaa !422
+  %77 = load i16, ptr %75, align 2, !tbaa !391
   %78 = zext i16 %77 to i64
   %79 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !93
@@ -23904,7 +24024,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %91 = add nsw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %91, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader78, !llvm.loop !502
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader78, !llvm.loop !457
 
 92:                                               ; preds = %.preheader78, %92
   %93 = phi i1 [ true, %.preheader78 ], [ false, %92 ]
@@ -23921,7 +24041,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %100 = extractelement <4 x float> %foldExtExtBinop90, i64 0
   %101 = getelementptr float, ptr %90, i64 %.081
   store float %100, ptr %101, align 4, !tbaa !93
-  br i1 %93, label %92, label %.loopexit76, !llvm.loop !498
+  br i1 %93, label %92, label %.loopexit76, !llvm.loop !454
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -23988,12 +24108,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06783.us, 1
   %exitcond86.not = icmp eq i64 %44, %spec.select
-  br i1 %exitcond86.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !503
+  br i1 %exitcond86.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !458
 
 45:                                               ; preds = %.preheader.us
   %46 = add nuw nsw i64 %.06679.us, 1
   %exitcond85.not = icmp eq i64 %46, %23
-  br i1 %exitcond85.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !504
+  br i1 %exitcond85.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !459
 
 .preheader.us:                                    ; preds = %.preheader76.us, %.preheader.us
   %47 = phi i1 [ true, %.preheader76.us ], [ false, %.preheader.us ]
@@ -24008,7 +24128,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %76, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -24018,7 +24138,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %.promoted.us = load <8 x float>, ptr %.06578.us.sroa.phi, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %61, <8 x float> %54, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %.06578.us.sroa.phi, align 32, !tbaa !53
-  br i1 %47, label %.preheader.us, label %45, !llvm.loop !505
+  br i1 %47, label %.preheader.us, label %45, !llvm.loop !460
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %.preheader75.us
   %63 = phi i1 [ true, %..preheader77_crit_edge.us ], [ false, %.preheader75.us ]
@@ -24037,7 +24157,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %72 = mul nsw i64 %35, %71
   %gep81.us = getelementptr float, ptr %invariant.gep80.us, i64 %72
   store float %70, ptr %gep81.us, align 4, !tbaa !93
-  br i1 %63, label %.preheader75.us, label %43, !llvm.loop !506
+  br i1 %63, label %.preheader75.us, label %43, !llvm.loop !461
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %45
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %46, %45 ]
@@ -24047,7 +24167,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %75 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %.val73.us, <32 x i8> %.val73.us)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06679.us
   %76 = bitcast <32 x i8> %75 to <8 x i32>
-  %77 = load i16, ptr %73, align 2, !tbaa !422
+  %77 = load i16, ptr %73, align 2, !tbaa !391
   %78 = zext i16 %77 to i64
   %79 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !93
@@ -24090,14 +24210,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %94 = mul nsw i64 %35, %93
   %gep81 = getelementptr float, ptr %gep, i64 %94
   store float %92, ptr %gep81, align 4, !tbaa !93
-  br i1 %85, label %.preheader75, label %95, !llvm.loop !506
+  br i1 %85, label %.preheader75, label %95, !llvm.loop !461
 
 95:                                               ; preds = %.preheader75
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %96 = add nsw i64 %.06783, 1
   %exitcond.not = icmp eq i64 %96, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !507
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !458
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -24164,11 +24284,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %50 = bitcast <32 x i8> %48 to <8 x i32>
   %51 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %49, <8 x i32> %50)
   %52 = sitofp <8 x i32> %51 to <8 x float>
-  %53 = load i16, ptr %43, align 2, !tbaa !422
+  %53 = load i16, ptr %43, align 2, !tbaa !391
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !93
-  %57 = load i16, ptr %46, align 2, !tbaa !422
+  %57 = load i16, ptr %46, align 2, !tbaa !391
   %58 = zext i16 %57 to i64
   %59 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !93
@@ -24178,7 +24298,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %64 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %63, <8 x float> %52, <8 x float> %.sroa.0.182.us)
   %65 = add nuw nsw i64 %.06683.us, 1
   %exitcond86.not = icmp eq i64 %65, %22
-  br i1 %exitcond86.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !508
+  br i1 %exitcond86.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !462
 
 ..preheader79_crit_edge.us:                       ; preds = %.preheader78.us
   %66 = shufflevector <8 x float> %64, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -24195,7 +24315,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float %71, ptr %74, align 4, !tbaa !93
   %75 = add nsw i64 %.06784.us, 1
   %exitcond87.not = icmp eq i64 %75, %spec.select
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !509
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !463
 
 ._crit_edge:                                      ; preds = %.preheader79, %..preheader79_crit_edge.us, %5
   ret void
@@ -24212,7 +24332,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   store float 0.000000e+00, ptr %82, align 4, !tbaa !93
   %83 = add nsw i64 %.06784, 1
   %exitcond.not = icmp eq i64 %83, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !510
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !463
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -24405,12 +24525,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond131.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !511
+  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !464
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100121.us, 1
   %exitcond130.not = icmp eq i64 %58, 4
-  br i1 %exitcond130.not, label %55, label %.preheader.us, !llvm.loop !512
+  br i1 %exitcond130.not, label %55, label %.preheader.us, !llvm.loop !465
 
 59:                                               ; preds = %.preheader.us, %59
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -24428,18 +24548,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0118.us, 1
   %exitcond129.not = icmp eq i64 %69, 4
-  br i1 %exitcond129.not, label %57, label %59, !llvm.loop !513
+  br i1 %exitcond129.not, label %57, label %59, !llvm.loop !466
 
 70:                                               ; preds = %.lr.ph.us, %129
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %130, %129 ]
   %71 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
-  %72 = load i16, ptr %71, align 2, !tbaa !514
+  %72 = load i16, ptr %71, align 2, !tbaa !467
   %73 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
-  %74 = load i16, ptr %73, align 2, !tbaa !514
+  %74 = load i16, ptr %73, align 2, !tbaa !467
   %75 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
-  %76 = load i16, ptr %75, align 2, !tbaa !514
+  %76 = load i16, ptr %75, align 2, !tbaa !467
   %77 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
-  %78 = load i16, ptr %77, align 2, !tbaa !514
+  %78 = load i16, ptr %77, align 2, !tbaa !467
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -24500,14 +24620,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 129:                                              ; preds = %131
   %130 = add nuw nsw i64 %.0104117.us, 1
   %exitcond128.not = icmp eq i64 %130, %25
-  br i1 %exitcond128.not, label %..preheader115_crit_edge.us, label %70, !llvm.loop !516
+  br i1 %exitcond128.not, label %..preheader115_crit_edge.us, label %70, !llvm.loop !469
 
 131:                                              ; preds = %131, %70
   %.0103116.us = phi i64 [ 0, %70 ], [ %174, %131 ]
   %132 = add nsw i64 %.0103116.us, %43
   %133 = mul nsw i64 %33, %132
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %133
-  %134 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %134 = load i16, ptr %gep.us, align 2, !tbaa !391
   %135 = zext i16 %134 to i64
   %136 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !93
@@ -24554,7 +24674,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %173, ptr %171, align 32, !tbaa !53
   %174 = add nuw nsw i64 %.0103116.us, 1
   %exitcond127.not = icmp eq i64 %174, 4
-  br i1 %exitcond127.not, label %129, label %131, !llvm.loop !517
+  br i1 %exitcond127.not, label %129, label %131, !llvm.loop !470
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ %58, %57 ]
@@ -24595,12 +24715,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %186 = add nsw i64 %.0102122, 1
   %exitcond126.not = icmp eq i64 %186, %spec.select
-  br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !518
+  br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !464
 
 187:                                              ; preds = %189
   %188 = add nuw nsw i64 %.0100121, 1
   %exitcond125.not = icmp eq i64 %188, 4
-  br i1 %exitcond125.not, label %185, label %.preheader, !llvm.loop !512
+  br i1 %exitcond125.not, label %185, label %.preheader, !llvm.loop !465
 
 189:                                              ; preds = %.preheader, %189
   %.0118 = phi i64 [ 0, %.preheader ], [ %199, %189 ]
@@ -24618,7 +24738,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %199, 4
-  br i1 %exitcond.not, label %187, label %189, !llvm.loop !513
+  br i1 %exitcond.not, label %187, label %189, !llvm.loop !466
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -24692,12 +24812,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond131.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !519
+  br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !471
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100121.us, 1
   %exitcond130.not = icmp eq i64 %58, 3
-  br i1 %exitcond130.not, label %55, label %.preheader.us, !llvm.loop !520
+  br i1 %exitcond130.not, label %55, label %.preheader.us, !llvm.loop !472
 
 59:                                               ; preds = %.preheader.us, %59
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -24715,18 +24835,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0118.us, 1
   %exitcond129.not = icmp eq i64 %69, 4
-  br i1 %exitcond129.not, label %57, label %59, !llvm.loop !521
+  br i1 %exitcond129.not, label %57, label %59, !llvm.loop !473
 
 70:                                               ; preds = %.lr.ph.us, %129
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %130, %129 ]
   %71 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
-  %72 = load i16, ptr %71, align 2, !tbaa !514
+  %72 = load i16, ptr %71, align 2, !tbaa !467
   %73 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
-  %74 = load i16, ptr %73, align 2, !tbaa !514
+  %74 = load i16, ptr %73, align 2, !tbaa !467
   %75 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
-  %76 = load i16, ptr %75, align 2, !tbaa !514
+  %76 = load i16, ptr %75, align 2, !tbaa !467
   %77 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
-  %78 = load i16, ptr %77, align 2, !tbaa !514
+  %78 = load i16, ptr %77, align 2, !tbaa !467
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -24787,14 +24907,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 129:                                              ; preds = %131
   %130 = add nuw nsw i64 %.0104117.us, 1
   %exitcond128.not = icmp eq i64 %130, %25
-  br i1 %exitcond128.not, label %..preheader115_crit_edge.us, label %70, !llvm.loop !522
+  br i1 %exitcond128.not, label %..preheader115_crit_edge.us, label %70, !llvm.loop !474
 
 131:                                              ; preds = %131, %70
   %.0103116.us = phi i64 [ 0, %70 ], [ %174, %131 ]
   %132 = add nsw i64 %.0103116.us, %43
   %133 = mul nsw i64 %33, %132
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %133
-  %134 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %134 = load i16, ptr %gep.us, align 2, !tbaa !391
   %135 = zext i16 %134 to i64
   %136 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !93
@@ -24841,7 +24961,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %173, ptr %171, align 32, !tbaa !53
   %174 = add nuw nsw i64 %.0103116.us, 1
   %exitcond127.not = icmp eq i64 %174, 3
-  br i1 %exitcond127.not, label %129, label %131, !llvm.loop !523
+  br i1 %exitcond127.not, label %129, label %131, !llvm.loop !475
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ %58, %57 ]
@@ -24882,12 +25002,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %186 = add nsw i64 %.0102122, 1
   %exitcond126.not = icmp eq i64 %186, %spec.select
-  br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !524
+  br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !471
 
 187:                                              ; preds = %189
   %188 = add nuw nsw i64 %.0100121, 1
   %exitcond125.not = icmp eq i64 %188, 3
-  br i1 %exitcond125.not, label %185, label %.preheader, !llvm.loop !520
+  br i1 %exitcond125.not, label %185, label %.preheader, !llvm.loop !472
 
 189:                                              ; preds = %.preheader, %189
   %.0118 = phi i64 [ 0, %.preheader ], [ %199, %189 ]
@@ -24905,7 +25025,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %199, 4
-  br i1 %exitcond.not, label %187, label %189, !llvm.loop !521
+  br i1 %exitcond.not, label %187, label %189, !llvm.loop !473
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -24982,12 +25102,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118149.us, 1
   %exitcond158.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !525
+  br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !476
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116148.us, 1
   %exitcond157.not = icmp eq i64 %61, 4
-  br i1 %exitcond157.not, label %58, label %.preheader.us, !llvm.loop !526
+  br i1 %exitcond157.not, label %58, label %.preheader.us, !llvm.loop !477
 
 62:                                               ; preds = %.preheader.us, %62
   %.0145.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
@@ -25005,18 +25125,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0145.us, 1
   %exitcond156.not = icmp eq i64 %72, 3
-  br i1 %exitcond156.not, label %60, label %62, !llvm.loop !527
+  br i1 %exitcond156.not, label %60, label %62, !llvm.loop !478
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120144.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120144.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120144.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120144.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120144.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -25037,14 +25157,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120144.us, 1
   %exitcond155.not = icmp eq i64 %93, %25
-  br i1 %exitcond155.not, label %..preheader142_crit_edge.us, label %73, !llvm.loop !528
+  br i1 %exitcond155.not, label %..preheader142_crit_edge.us, label %73, !llvm.loop !479
 
 94:                                               ; preds = %94, %73
   %.0119143.us = phi i64 [ 0, %73 ], [ %147, %94 ]
   %95 = add nsw i64 %.0119143.us, %43
   %96 = mul nsw i64 %33, %95
   %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %96
-  %97 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %97 = load i16, ptr %gep.us, align 2, !tbaa !467
   %98 = zext i16 %97 to i64
   %99 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
@@ -25101,7 +25221,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %146, ptr %144, align 32, !tbaa !53
   %147 = add nuw nsw i64 %.0119143.us, 1
   %exitcond154.not = icmp eq i64 %147, 3
-  br i1 %exitcond154.not, label %92, label %94, !llvm.loop !529
+  br i1 %exitcond154.not, label %92, label %94, !llvm.loop !480
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %60
   %.0116148.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %61, %60 ]
@@ -25142,12 +25262,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.0118149, 1
   %exitcond153.not = icmp eq i64 %159, %spec.select
-  br i1 %exitcond153.not, label %._crit_edge, label %.preheader142, !llvm.loop !530
+  br i1 %exitcond153.not, label %._crit_edge, label %.preheader142, !llvm.loop !476
 
 160:                                              ; preds = %162
   %161 = add nuw nsw i64 %.0116148, 1
   %exitcond152.not = icmp eq i64 %161, 4
-  br i1 %exitcond152.not, label %158, label %.preheader, !llvm.loop !526
+  br i1 %exitcond152.not, label %158, label %.preheader, !llvm.loop !477
 
 162:                                              ; preds = %.preheader, %162
   %.0145 = phi i64 [ 0, %.preheader ], [ %172, %162 ]
@@ -25165,7 +25285,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %170, ptr %171, align 4, !tbaa !93
   %172 = add nuw nsw i64 %.0145, 1
   %exitcond.not = icmp eq i64 %172, 3
-  br i1 %exitcond.not, label %160, label %162, !llvm.loop !527
+  br i1 %exitcond.not, label %160, label %162, !llvm.loop !478
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -25228,12 +25348,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond95.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !531
+  br i1 %exitcond95.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !481
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06285.us, 1
   %exitcond94.not = icmp eq i64 %47, 3
-  br i1 %exitcond94.not, label %44, label %.preheader74.us, !llvm.loop !532
+  br i1 %exitcond94.not, label %44, label %.preheader74.us, !llvm.loop !482
 
 48:                                               ; preds = %.preheader74.us, %48
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ %58, %48 ]
@@ -25251,17 +25371,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.082.us, 1
   %exitcond93.not = icmp eq i64 %58, 3
-  br i1 %exitcond93.not, label %46, label %48, !llvm.loop !533
+  br i1 %exitcond93.not, label %46, label %48, !llvm.loop !483
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06681.us, 1
   %exitcond92.not = icmp eq i64 %60, %25
-  br i1 %exitcond92.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !534
+  br i1 %exitcond92.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !484
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06580.us, 1
   %exitcond91.not = icmp eq i64 %62, 3
-  br i1 %exitcond91.not, label %59, label %.preheader.us, !llvm.loop !535
+  br i1 %exitcond91.not, label %59, label %.preheader.us, !llvm.loop !485
 
 63:                                               ; preds = %.preheader.us, %63
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ %91, %63 ]
@@ -25284,7 +25404,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %78 = bitcast <32 x i8> %76 to <8 x i32>
   %79 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %77, <8 x i32> %78)
   %80 = sitofp <8 x i32> %79 to <8 x float>
-  %81 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %81 = load i16, ptr %gep.us, align 2, !tbaa !467
   %82 = zext i16 %81 to i64
   %83 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
@@ -25297,7 +25417,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %90, ptr %88, align 32, !tbaa !53
   %91 = add nuw nsw i64 %.06477.us, 1
   %exitcond90.not = icmp eq i64 %91, 3
-  br i1 %exitcond90.not, label %61, label %63, !llvm.loop !536
+  br i1 %exitcond90.not, label %61, label %63, !llvm.loop !486
 
 .preheader.us:                                    ; preds = %.preheader75.us, %61
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ %62, %61 ]
@@ -25306,7 +25426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %93
   %94 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %94, align 1, !tbaa !53
-  %95 = load i16, ptr %gep79.us, align 2, !tbaa !422
+  %95 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %96 = zext i16 %95 to i64
   %97 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !93
@@ -25358,12 +25478,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = add nsw i64 %.06786, 1
   %exitcond89.not = icmp eq i64 %111, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader76, !llvm.loop !537
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader76, !llvm.loop !481
 
 112:                                              ; preds = %114
   %113 = add nuw nsw i64 %.06285, 1
   %exitcond88.not = icmp eq i64 %113, 3
-  br i1 %exitcond88.not, label %110, label %.preheader74, !llvm.loop !532
+  br i1 %exitcond88.not, label %110, label %.preheader74, !llvm.loop !482
 
 114:                                              ; preds = %.preheader74, %114
   %.082 = phi i64 [ 0, %.preheader74 ], [ %124, %114 ]
@@ -25381,7 +25501,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %124, 3
-  br i1 %exitcond.not, label %112, label %114, !llvm.loop !533
+  br i1 %exitcond.not, label %112, label %114, !llvm.loop !483
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -25458,10 +25578,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond128.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond128.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !538
+  br i1 %exitcond128.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !487
 
 57:                                               ; preds = %58
-  br i1 %173, label %.preheader.us, label %55, !llvm.loop !539
+  br i1 %173, label %.preheader.us, label %55, !llvm.loop !488
 
 58:                                               ; preds = %.preheader.us, %58
   %.0118.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
@@ -25479,18 +25599,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0118.us, 1
   %exitcond127.not = icmp eq i64 %68, 4
-  br i1 %exitcond127.not, label %57, label %58, !llvm.loop !540
+  br i1 %exitcond127.not, label %57, label %58, !llvm.loop !489
 
 69:                                               ; preds = %.lr.ph.us, %128
   %.0104117.us = phi i64 [ 0, %.lr.ph.us ], [ %129, %128 ]
   %70 = getelementptr %struct.block_q4_0, ptr %46, i64 %.0104117.us
-  %71 = load i16, ptr %70, align 2, !tbaa !514
+  %71 = load i16, ptr %70, align 2, !tbaa !467
   %72 = getelementptr %struct.block_q4_0, ptr %49, i64 %.0104117.us
-  %73 = load i16, ptr %72, align 2, !tbaa !514
+  %73 = load i16, ptr %72, align 2, !tbaa !467
   %74 = getelementptr %struct.block_q4_0, ptr %52, i64 %.0104117.us
-  %75 = load i16, ptr %74, align 2, !tbaa !514
+  %75 = load i16, ptr %74, align 2, !tbaa !467
   %76 = getelementptr %struct.block_q4_0, ptr %54, i64 %.0104117.us
-  %77 = load i16, ptr %76, align 2, !tbaa !514
+  %77 = load i16, ptr %76, align 2, !tbaa !467
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -25551,7 +25671,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 128:                                              ; preds = %130
   %129 = add nuw nsw i64 %.0104117.us, 1
   %exitcond126.not = icmp eq i64 %129, %25
-  br i1 %exitcond126.not, label %..preheader115_crit_edge.us, label %69, !llvm.loop !541
+  br i1 %exitcond126.not, label %..preheader115_crit_edge.us, label %69, !llvm.loop !490
 
 130:                                              ; preds = %130, %69
   %131 = phi i1 [ true, %69 ], [ false, %130 ]
@@ -25560,7 +25680,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %132 = add nsw i64 %.0103116.us, %43
   %133 = mul nsw i64 %33, %132
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %133
-  %134 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %134 = load i16, ptr %gep.us, align 2, !tbaa !391
   %135 = zext i16 %134 to i64
   %136 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !93
@@ -25604,7 +25724,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %171 = load <8 x float>, ptr %170, align 32, !tbaa !53
   %172 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %165, <8 x float> %169, <8 x float> %171)
   store <8 x float> %172, ptr %170, align 32, !tbaa !53
-  br i1 %131, label %130, label %128, !llvm.loop !542
+  br i1 %131, label %130, label %128, !llvm.loop !491
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %173 = phi i1 [ true, %..preheader115_crit_edge.us ], [ false, %57 ]
@@ -25647,10 +25767,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %184 = add nsw i64 %.0102122, 1
   %exitcond125.not = icmp eq i64 %184, %spec.select
-  br i1 %exitcond125.not, label %._crit_edge, label %.preheader115, !llvm.loop !543
+  br i1 %exitcond125.not, label %._crit_edge, label %.preheader115, !llvm.loop !487
 
 185:                                              ; preds = %186
-  br i1 %180, label %.preheader, label %183, !llvm.loop !539
+  br i1 %180, label %.preheader, label %183, !llvm.loop !488
 
 186:                                              ; preds = %.preheader, %186
   %.0118 = phi i64 [ 0, %.preheader ], [ %196, %186 ]
@@ -25668,7 +25788,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %194, ptr %195, align 4, !tbaa !93
   %196 = add nuw nsw i64 %.0118, 1
   %exitcond.not = icmp eq i64 %196, 4
-  br i1 %exitcond.not, label %185, label %186, !llvm.loop !540
+  br i1 %exitcond.not, label %185, label %186, !llvm.loop !489
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -25746,12 +25866,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118149.us, 1
   %exitcond155.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !544
+  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !492
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116148.us, 1
   %exitcond154.not = icmp eq i64 %61, 4
-  br i1 %exitcond154.not, label %58, label %.preheader.us, !llvm.loop !545
+  br i1 %exitcond154.not, label %58, label %.preheader.us, !llvm.loop !493
 
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
@@ -25768,18 +25888,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = getelementptr float, ptr %gep147.us, i64 %.0145.us
   store float %71, ptr %72, align 4, !tbaa !93
-  br i1 %63, label %62, label %60, !llvm.loop !546
+  br i1 %63, label %62, label %60, !llvm.loop !494
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120144.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120144.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120144.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120144.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120144.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -25800,7 +25920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120144.us, 1
   %exitcond153.not = icmp eq i64 %93, %25
-  br i1 %exitcond153.not, label %..preheader142_crit_edge.us, label %73, !llvm.loop !547
+  br i1 %exitcond153.not, label %..preheader142_crit_edge.us, label %73, !llvm.loop !495
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
@@ -25809,7 +25929,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %96 = add nsw i64 %.0119143.us, %43
   %97 = mul nsw i64 %33, %96
   %gep.us = getelementptr %struct.block_q4_0, ptr %invariant.gep.us, i64 %97
-  %98 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %98 = load i16, ptr %gep.us, align 2, !tbaa !467
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
@@ -25863,7 +25983,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %145 = load <8 x float>, ptr %144, align 32, !tbaa !53
   %146 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %139, <8 x float> %143, <8 x float> %145)
   store <8 x float> %146, ptr %144, align 32, !tbaa !53
-  br i1 %95, label %94, label %92, !llvm.loop !548
+  br i1 %95, label %94, label %92, !llvm.loop !496
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %60
   %.0116148.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %61, %60 ]
@@ -25904,12 +26024,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = add nsw i64 %.0118149, 1
   %exitcond152.not = icmp eq i64 %158, %spec.select
-  br i1 %exitcond152.not, label %._crit_edge, label %.preheader142, !llvm.loop !549
+  br i1 %exitcond152.not, label %._crit_edge, label %.preheader142, !llvm.loop !492
 
 159:                                              ; preds = %161
   %160 = add nuw nsw i64 %.0116148, 1
   %exitcond.not = icmp eq i64 %160, 4
-  br i1 %exitcond.not, label %157, label %.preheader, !llvm.loop !545
+  br i1 %exitcond.not, label %157, label %.preheader, !llvm.loop !493
 
 161:                                              ; preds = %.preheader, %161
   %162 = phi i1 [ true, %.preheader ], [ false, %161 ]
@@ -25926,7 +26046,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %170 = extractelement <4 x float> %foldExtExtBinop160, i64 0
   %171 = getelementptr float, ptr %gep147, i64 %.0145
   store float %170, ptr %171, align 4, !tbaa !93
-  br i1 %162, label %161, label %159, !llvm.loop !546
+  br i1 %162, label %161, label %159, !llvm.loop !494
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -25992,10 +26112,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !550
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !497
 
 46:                                               ; preds = %47
-  br i1 %98, label %.preheader74.us, label %44, !llvm.loop !551
+  br i1 %98, label %.preheader74.us, label %44, !llvm.loop !498
 
 47:                                               ; preds = %.preheader74.us, %47
   %.082.us = phi i64 [ 0, %.preheader74.us ], [ %57, %47 ]
@@ -26013,15 +26133,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.082.us, 1
   %exitcond91.not = icmp eq i64 %57, 3
-  br i1 %exitcond91.not, label %46, label %47, !llvm.loop !552
+  br i1 %exitcond91.not, label %46, label %47, !llvm.loop !499
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06681.us, 1
   %exitcond90.not = icmp eq i64 %59, %25
-  br i1 %exitcond90.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !553
+  br i1 %exitcond90.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !500
 
 60:                                               ; preds = %61
-  br i1 %90, label %.preheader.us, label %58, !llvm.loop !554
+  br i1 %90, label %.preheader.us, label %58, !llvm.loop !501
 
 61:                                               ; preds = %.preheader.us, %61
   %.06477.us = phi i64 [ 0, %.preheader.us ], [ %89, %61 ]
@@ -26044,7 +26164,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %76 = bitcast <32 x i8> %74 to <8 x i32>
   %77 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %75, <8 x i32> %76)
   %78 = sitofp <8 x i32> %77 to <8 x float>
-  %79 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %79 = load i16, ptr %gep.us, align 2, !tbaa !467
   %80 = zext i16 %79 to i64
   %81 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !93
@@ -26057,7 +26177,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %88, ptr %86, align 32, !tbaa !53
   %89 = add nuw nsw i64 %.06477.us, 1
   %exitcond89.not = icmp eq i64 %89, 3
-  br i1 %exitcond89.not, label %60, label %61, !llvm.loop !555
+  br i1 %exitcond89.not, label %60, label %61, !llvm.loop !502
 
 .preheader.us:                                    ; preds = %.preheader75.us, %60
   %90 = phi i1 [ true, %.preheader75.us ], [ false, %60 ]
@@ -26068,7 +26188,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %92
   %93 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
-  %94 = load i16, ptr %gep79.us, align 2, !tbaa !422
+  %94 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %95 = zext i16 %94 to i64
   %96 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
@@ -26121,10 +26241,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %109 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %109, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !556
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !497
 
 110:                                              ; preds = %111
-  br i1 %105, label %.preheader74, label %108, !llvm.loop !551
+  br i1 %105, label %.preheader74, label %108, !llvm.loop !498
 
 111:                                              ; preds = %.preheader74, %111
   %.082 = phi i64 [ 0, %.preheader74 ], [ %121, %111 ]
@@ -26142,7 +26262,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.082, 1
   %exitcond.not = icmp eq i64 %121, 3
-  br i1 %exitcond.not, label %110, label %111, !llvm.loop !552
+  br i1 %exitcond.not, label %110, label %111, !llvm.loop !499
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -26205,12 +26325,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !557
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !503
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06285.us, 1
   %exitcond91.not = icmp eq i64 %47, 3
-  br i1 %exitcond91.not, label %44, label %.preheader74.us, !llvm.loop !558
+  br i1 %exitcond91.not, label %44, label %.preheader74.us, !llvm.loop !504
 
 48:                                               ; preds = %.preheader74.us, %48
   %49 = phi i1 [ true, %.preheader74.us ], [ false, %48 ]
@@ -26227,17 +26347,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %58 = getelementptr float, ptr %gep84.us, i64 %.082.us
   store float %57, ptr %58, align 4, !tbaa !93
-  br i1 %49, label %48, label %46, !llvm.loop !559
+  br i1 %49, label %48, label %46, !llvm.loop !505
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06681.us, 1
   %exitcond90.not = icmp eq i64 %60, %25
-  br i1 %exitcond90.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !560
+  br i1 %exitcond90.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !506
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06580.us, 1
   %exitcond89.not = icmp eq i64 %62, 3
-  br i1 %exitcond89.not, label %59, label %.preheader.us, !llvm.loop !561
+  br i1 %exitcond89.not, label %59, label %.preheader.us, !llvm.loop !507
 
 63:                                               ; preds = %.preheader.us, %63
   %64 = phi i1 [ true, %.preheader.us ], [ false, %63 ]
@@ -26261,7 +26381,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %79 = bitcast <32 x i8> %77 to <8 x i32>
   %80 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %78, <8 x i32> %79)
   %81 = sitofp <8 x i32> %80 to <8 x float>
-  %82 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %82 = load i16, ptr %gep.us, align 2, !tbaa !467
   %83 = zext i16 %82 to i64
   %84 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !93
@@ -26272,7 +26392,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %90 = load <8 x float>, ptr %89, align 32, !tbaa !53
   %91 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %88, <8 x float> %81, <8 x float> %90)
   store <8 x float> %91, ptr %89, align 32, !tbaa !53
-  br i1 %64, label %63, label %61, !llvm.loop !562
+  br i1 %64, label %63, label %61, !llvm.loop !508
 
 .preheader.us:                                    ; preds = %.preheader75.us, %61
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ %62, %61 ]
@@ -26281,7 +26401,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %93
   %94 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %94, align 1, !tbaa !53
-  %95 = load i16, ptr %gep79.us, align 2, !tbaa !422
+  %95 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %96 = zext i16 %95 to i64
   %97 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !93
@@ -26333,12 +26453,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %111, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !563
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !503
 
 112:                                              ; preds = %114
   %113 = add nuw nsw i64 %.06285, 1
   %exitcond.not = icmp eq i64 %113, 3
-  br i1 %exitcond.not, label %110, label %.preheader74, !llvm.loop !558
+  br i1 %exitcond.not, label %110, label %.preheader74, !llvm.loop !504
 
 114:                                              ; preds = %.preheader74, %114
   %115 = phi i1 [ true, %.preheader74 ], [ false, %114 ]
@@ -26355,7 +26475,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %123 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %124 = getelementptr float, ptr %gep84, i64 %.082
   store float %123, ptr %124, align 4, !tbaa !93
-  br i1 %115, label %114, label %112, !llvm.loop !559
+  br i1 %115, label %114, label %112, !llvm.loop !505
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -26439,7 +26559,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0131.us, 1
   %exitcond140.not = icmp eq i64 %68, 4
-  br i1 %exitcond140.not, label %.loopexit.us, label %58, !llvm.loop !564
+  br i1 %exitcond140.not, label %.loopexit.us, label %58, !llvm.loop !509
 
 69:                                               ; preds = %.lr.ph.us, %69
   %.lcssa121130.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %160, %69 ]
@@ -26448,13 +26568,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0104125.us = phi i64 [ 0, %.lr.ph.us ], [ %161, %69 ]
   %.lcssa123124.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %157, %69 ]
   %70 = getelementptr %struct.block_q4_0, ptr %47, i64 %.0104125.us
-  %71 = load i16, ptr %70, align 2, !tbaa !514
+  %71 = load i16, ptr %70, align 2, !tbaa !467
   %72 = getelementptr %struct.block_q4_0, ptr %50, i64 %.0104125.us
-  %73 = load i16, ptr %72, align 2, !tbaa !514
+  %73 = load i16, ptr %72, align 2, !tbaa !467
   %74 = getelementptr %struct.block_q4_0, ptr %53, i64 %.0104125.us
-  %75 = load i16, ptr %74, align 2, !tbaa !514
+  %75 = load i16, ptr %74, align 2, !tbaa !467
   %76 = getelementptr %struct.block_q4_0, ptr %55, i64 %.0104125.us
-  %77 = load i16, ptr %76, align 2, !tbaa !514
+  %77 = load i16, ptr %76, align 2, !tbaa !467
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -26502,7 +26622,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %118 = and <32 x i8> %117, splat (i8 15)
   %119 = add nsw <32 x i8> %118, splat (i8 -8)
   %120 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104125.us
-  %121 = load i16, ptr %120, align 2, !tbaa !422
+  %121 = load i16, ptr %120, align 2, !tbaa !391
   %122 = zext i16 %121 to i64
   %123 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %122
   %124 = load float, ptr %123, align 4, !tbaa !93
@@ -26545,13 +26665,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %160 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %150, <8 x float> %156, <8 x float> %.lcssa121130.us)
   %161 = add nuw nsw i64 %.0104125.us, 1
   %exitcond139.not = icmp eq i64 %161, %24
-  br i1 %exitcond139.not, label %..preheader115_crit_edge.us, label %69, !llvm.loop !565
+  br i1 %exitcond139.not, label %..preheader115_crit_edge.us, label %69, !llvm.loop !510
 
 .loopexit.us:                                     ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %162 = add nsw i64 %.0102132.us, 1
   %exitcond141.not = icmp eq i64 %162, %spec.select
-  br i1 %exitcond141.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !566
+  br i1 %exitcond141.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !511
 
 ..preheader115_crit_edge.us:                      ; preds = %69
   store <8 x float> %158, ptr %33, align 32, !tbaa !53
@@ -26584,7 +26704,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %173 = add nsw i64 %.0102132, 1
   %exitcond138.not = icmp eq i64 %173, %spec.select
-  br i1 %exitcond138.not, label %._crit_edge, label %.preheader115, !llvm.loop !567
+  br i1 %exitcond138.not, label %._crit_edge, label %.preheader115, !llvm.loop !511
 
 174:                                              ; preds = %.preheader115, %174
   %.0131 = phi i64 [ 0, %.preheader115 ], [ %184, %174 ]
@@ -26602,7 +26722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.0131, 1
   %exitcond.not = icmp eq i64 %184, 4
-  br i1 %exitcond.not, label %.loopexit, label %174, !llvm.loop !564
+  br i1 %exitcond.not, label %.loopexit, label %174, !llvm.loop !509
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -26668,10 +26788,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !568
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !512
 
 46:                                               ; preds = %47
-  br i1 %98, label %.preheader74.us, label %44, !llvm.loop !569
+  br i1 %98, label %.preheader74.us, label %44, !llvm.loop !513
 
 47:                                               ; preds = %.preheader74.us, %47
   %48 = phi i1 [ true, %.preheader74.us ], [ false, %47 ]
@@ -26688,15 +26808,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %57 = getelementptr float, ptr %gep84.us, i64 %.082.us
   store float %56, ptr %57, align 4, !tbaa !93
-  br i1 %48, label %47, label %46, !llvm.loop !570
+  br i1 %48, label %47, label %46, !llvm.loop !514
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06681.us, 1
   %exitcond88.not = icmp eq i64 %59, %25
-  br i1 %exitcond88.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !571
+  br i1 %exitcond88.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !515
 
 60:                                               ; preds = %61
-  br i1 %90, label %.preheader.us, label %58, !llvm.loop !572
+  br i1 %90, label %.preheader.us, label %58, !llvm.loop !516
 
 61:                                               ; preds = %.preheader.us, %61
   %62 = phi i1 [ true, %.preheader.us ], [ false, %61 ]
@@ -26720,7 +26840,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %77 = bitcast <32 x i8> %75 to <8 x i32>
   %78 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %76, <8 x i32> %77)
   %79 = sitofp <8 x i32> %78 to <8 x float>
-  %80 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %80 = load i16, ptr %gep.us, align 2, !tbaa !467
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -26731,7 +26851,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %88 = load <8 x float>, ptr %87, align 32, !tbaa !53
   %89 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %86, <8 x float> %79, <8 x float> %88)
   store <8 x float> %89, ptr %87, align 32, !tbaa !53
-  br i1 %62, label %61, label %60, !llvm.loop !573
+  br i1 %62, label %61, label %60, !llvm.loop !517
 
 .preheader.us:                                    ; preds = %.preheader75.us, %60
   %90 = phi i1 [ true, %.preheader75.us ], [ false, %60 ]
@@ -26742,7 +26862,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %gep79.us = getelementptr %struct.block_q8_0, ptr %invariant.gep78.us, i64 %92
   %93 = getelementptr i8, ptr %gep79.us, i64 2
   %.val7273.us = load <32 x i8>, ptr %93, align 1, !tbaa !53
-  %94 = load i16, ptr %gep79.us, align 2, !tbaa !422
+  %94 = load i16, ptr %gep79.us, align 2, !tbaa !391
   %95 = zext i16 %94 to i64
   %96 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !93
@@ -26795,10 +26915,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %109 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %109, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !574
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !512
 
 110:                                              ; preds = %111
-  br i1 %105, label %.preheader74, label %108, !llvm.loop !569
+  br i1 %105, label %.preheader74, label %108, !llvm.loop !513
 
 111:                                              ; preds = %.preheader74, %111
   %112 = phi i1 [ true, %.preheader74 ], [ false, %111 ]
@@ -26815,7 +26935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %120 = extractelement <4 x float> %foldExtExtBinop94, i64 0
   %121 = getelementptr float, ptr %gep84, i64 %.082
   store float %120, ptr %121, align 4, !tbaa !93
-  br i1 %112, label %111, label %110, !llvm.loop !570
+  br i1 %112, label %111, label %110, !llvm.loop !514
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -26891,7 +27011,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118159.us, 1
   %exitcond168.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond168.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !575
+  br i1 %exitcond168.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !518
 
 60:                                               ; preds = %.lr.ph.us, %60
   %.lcssa148157.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %121, %60 ]
@@ -26900,13 +27020,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.0120152.us = phi i64 [ 0, %.lr.ph.us ], [ %122, %60 ]
   %.lcssa150151.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %118, %60 ]
   %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120152.us
-  %62 = load i16, ptr %61, align 2, !tbaa !422
+  %62 = load i16, ptr %61, align 2, !tbaa !391
   %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120152.us
-  %64 = load i16, ptr %63, align 2, !tbaa !422
+  %64 = load i16, ptr %63, align 2, !tbaa !391
   %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120152.us
-  %66 = load i16, ptr %65, align 2, !tbaa !422
+  %66 = load i16, ptr %65, align 2, !tbaa !391
   %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120152.us
-  %68 = load i16, ptr %67, align 2, !tbaa !422
+  %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
   %71 = insertelement <4 x i16> %70, i16 %64, i64 2
@@ -26922,7 +27042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %78 = getelementptr i8, ptr %61, i64 2
   %.val137141.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
   %79 = getelementptr %struct.block_q4_0, ptr %57, i64 %.0120152.us
-  %80 = load i16, ptr %79, align 2, !tbaa !514
+  %80 = load i16, ptr %79, align 2, !tbaa !467
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -26967,7 +27087,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %121 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %113, <8 x float> %117, <8 x float> %.lcssa148157.us)
   %122 = add nuw nsw i64 %.0120152.us, 1
   %exitcond166.not = icmp eq i64 %122, %24
-  br i1 %exitcond166.not, label %..preheader142_crit_edge.us, label %60, !llvm.loop !576
+  br i1 %exitcond166.not, label %..preheader142_crit_edge.us, label %60, !llvm.loop !519
 
 .preheader.us:                                    ; preds = %..preheader142_crit_edge.us, %.preheader.us
   %.0116158.us = phi i64 [ 0, %..preheader142_crit_edge.us ], [ %133, %.preheader.us ]
@@ -26987,7 +27107,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %130, ptr %gep.us, align 4, !tbaa !93
   %133 = add nuw nsw i64 %.0116158.us, 1
   %exitcond167.not = icmp eq i64 %133, 4
-  br i1 %exitcond167.not, label %58, label %.preheader.us, !llvm.loop !577
+  br i1 %exitcond167.not, label %58, label %.preheader.us, !llvm.loop !520
 
 ..preheader142_crit_edge.us:                      ; preds = %60
   store <8 x float> %119, ptr %33, align 32, !tbaa !53
@@ -27029,13 +27149,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %145, ptr %gep, align 4, !tbaa !93
   %148 = add nuw nsw i64 %.0116158, 1
   %exitcond.not = icmp eq i64 %148, 4
-  br i1 %exitcond.not, label %149, label %.preheader, !llvm.loop !577
+  br i1 %exitcond.not, label %149, label %.preheader, !llvm.loop !520
 
 149:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %150 = add nsw i64 %.0118159, 1
   %exitcond165.not = icmp eq i64 %150, %spec.select
-  br i1 %exitcond165.not, label %._crit_edge, label %.preheader142, !llvm.loop !578
+  br i1 %exitcond165.not, label %._crit_edge, label %.preheader142, !llvm.loop !518
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -27106,7 +27226,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.080.us, 1
   %exitcond86.not = icmp eq i64 %54, 3
-  br i1 %exitcond86.not, label %.loopexit75.us, label %44, !llvm.loop !579
+  br i1 %exitcond86.not, label %.loopexit75.us, label %44, !llvm.loop !521
 
 55:                                               ; preds = %.preheader76.us, %55
   %.06478.us = phi i64 [ 0, %.preheader76.us ], [ %83, %55 ]
@@ -27129,7 +27249,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %70 = bitcast <32 x i8> %68 to <8 x i32>
   %71 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %69, <8 x i32> %70)
   %72 = sitofp <8 x i32> %71 to <8 x float>
-  %73 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %73 = load i16, ptr %gep.us, align 2, !tbaa !467
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !93
@@ -27142,18 +27262,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %82, ptr %80, align 32, !tbaa !53
   %83 = add nuw nsw i64 %.06478.us, 1
   %exitcond84.not = icmp eq i64 %83, 3
-  br i1 %exitcond84.not, label %.loopexit.us, label %55, !llvm.loop !580
+  br i1 %exitcond84.not, label %.loopexit.us, label %55, !llvm.loop !522
 
 .loopexit.us:                                     ; preds = %55
   %84 = add nuw nsw i64 %.06679.us, 1
   %exitcond85.not = icmp eq i64 %84, %24
-  br i1 %exitcond85.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !581
+  br i1 %exitcond85.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !523
 
 .loopexit75.us:                                   ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = add nsw i64 %.06781.us, 1
   %exitcond87.not = icmp eq i64 %85, %spec.select
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !582
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !524
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %.loopexit.us
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %84, %.loopexit.us ]
@@ -27161,7 +27281,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %86 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06679.us
   %87 = getelementptr i8, ptr %86, i64 2
   %.val7273.us = load <32 x i8>, ptr %87, align 1, !tbaa !53
-  %88 = load i16, ptr %86, align 2, !tbaa !422
+  %88 = load i16, ptr %86, align 2, !tbaa !391
   %89 = zext i16 %88 to i64
   %90 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !93
@@ -27194,7 +27314,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %102 = add nsw i64 %.06781, 1
   %exitcond83.not = icmp eq i64 %102, %spec.select
-  br i1 %exitcond83.not, label %._crit_edge, label %.preheader77, !llvm.loop !583
+  br i1 %exitcond83.not, label %._crit_edge, label %.preheader77, !llvm.loop !524
 
 103:                                              ; preds = %.preheader77, %103
   %.080 = phi i64 [ 0, %.preheader77 ], [ %113, %103 ]
@@ -27212,7 +27332,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.080, 1
   %exitcond.not = icmp eq i64 %113, 3
-  br i1 %exitcond.not, label %.loopexit75, label %103, !llvm.loop !579
+  br i1 %exitcond.not, label %.loopexit75, label %103, !llvm.loop !521
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -27275,12 +27395,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06782.us, 1
   %exitcond88.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !584
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !525
 
 46:                                               ; preds = %.preheader.us
   %47 = add nuw nsw i64 %.06678.us, 1
   %exitcond86.not = icmp eq i64 %47, %24
-  br i1 %exitcond86.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !585
+  br i1 %exitcond86.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !526
 
 .preheader.us:                                    ; preds = %.preheader75.us, %.preheader.us
   %.06577.us = phi i64 [ 0, %.preheader75.us ], [ %64, %.preheader.us ]
@@ -27293,7 +27413,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %87, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -27306,7 +27426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store <8 x float> %63, ptr %62, align 32, !tbaa !53
   %64 = add nuw nsw i64 %.06577.us, 1
   %exitcond85.not = icmp eq i64 %64, 3
-  br i1 %exitcond85.not, label %46, label %.preheader.us, !llvm.loop !586
+  br i1 %exitcond85.not, label %46, label %.preheader.us, !llvm.loop !527
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %.preheader74.us
   %.06281.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ %75, %.preheader74.us ]
@@ -27326,7 +27446,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %72, ptr %gep80.us, align 4, !tbaa !93
   %75 = add nuw nsw i64 %.06281.us, 1
   %exitcond87.not = icmp eq i64 %75, 3
-  br i1 %exitcond87.not, label %44, label %.preheader74.us, !llvm.loop !587
+  br i1 %exitcond87.not, label %44, label %.preheader74.us, !llvm.loop !528
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %46
   %.06678.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %47, %46 ]
@@ -27344,7 +27464,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %86 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %85, <32 x i8> %85)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06678.us
   %87 = bitcast <32 x i8> %86 to <8 x i32>
-  %88 = load i16, ptr %76, align 2, !tbaa !514
+  %88 = load i16, ptr %76, align 2, !tbaa !467
   %89 = zext i16 %88 to i64
   %90 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !93
@@ -27386,13 +27506,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %103, ptr %gep80, align 4, !tbaa !93
   %106 = add nuw nsw i64 %.06281, 1
   %exitcond.not = icmp eq i64 %106, 3
-  br i1 %exitcond.not, label %107, label %.preheader74, !llvm.loop !587
+  br i1 %exitcond.not, label %107, label %.preheader74, !llvm.loop !528
 
 107:                                              ; preds = %.preheader74
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = add nsw i64 %.06782, 1
   %exitcond84.not = icmp eq i64 %108, %spec.select
-  br i1 %exitcond84.not, label %._crit_edge, label %.preheader76, !llvm.loop !588
+  br i1 %exitcond84.not, label %._crit_edge, label %.preheader76, !llvm.loop !525
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -27465,7 +27585,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %52 = getelementptr float, ptr %91, i64 %.080.us
   store float %51, ptr %52, align 4, !tbaa !93
-  br i1 %44, label %43, label %.loopexit75.us, !llvm.loop !589
+  br i1 %44, label %43, label %.loopexit75.us, !llvm.loop !529
 
 53:                                               ; preds = %.preheader76.us, %53
   %54 = phi i1 [ true, %.preheader76.us ], [ false, %53 ]
@@ -27490,7 +27610,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %69 = bitcast <32 x i8> %67 to <8 x i32>
   %70 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %68, <8 x i32> %69)
   %71 = sitofp <8 x i32> %70 to <8 x float>
-  %72 = load i16, ptr %gep.us, align 2, !tbaa !514
+  %72 = load i16, ptr %gep.us, align 2, !tbaa !467
   %73 = zext i16 %72 to i64
   %74 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !93
@@ -27500,19 +27620,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %79 = load <8 x float>, ptr %.06478.us.sroa.phi, align 32, !tbaa !53
   %80 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %78, <8 x float> %71, <8 x float> %79)
   store <8 x float> %80, ptr %.06478.us.sroa.phi, align 32, !tbaa !53
-  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !590
+  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !530
 
 .loopexit.us:                                     ; preds = %53
   %81 = add nuw nsw i64 %.06679.us, 1
   %exitcond83.not = icmp eq i64 %81, %23
-  br i1 %exitcond83.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !591
+  br i1 %exitcond83.not, label %..preheader77_crit_edge.us, label %.preheader76.us, !llvm.loop !531
 
 .loopexit75.us:                                   ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %82 = add nsw i64 %.06781.us, 1
   %exitcond84.not = icmp eq i64 %82, %spec.select
-  br i1 %exitcond84.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !592
+  br i1 %exitcond84.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !532
 
 .preheader76.us:                                  ; preds = %.preheader76.lr.ph.us, %.loopexit.us
   %.06679.us = phi i64 [ 0, %.preheader76.lr.ph.us ], [ %81, %.loopexit.us ]
@@ -27520,7 +27640,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %83 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06679.us
   %84 = getelementptr i8, ptr %83, i64 2
   %.val7273.us = load <32 x i8>, ptr %84, align 1, !tbaa !53
-  %85 = load i16, ptr %83, align 2, !tbaa !422
+  %85 = load i16, ptr %83, align 2, !tbaa !391
   %86 = zext i16 %85 to i64
   %87 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
@@ -27556,7 +27676,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %99 = add nsw i64 %.06781, 1
   %exitcond.not = icmp eq i64 %99, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !593
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !532
 
 100:                                              ; preds = %.preheader77, %100
   %101 = phi i1 [ true, %.preheader77 ], [ false, %100 ]
@@ -27573,7 +27693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %108 = extractelement <4 x float> %foldExtExtBinop89, i64 0
   %109 = getelementptr float, ptr %98, i64 %.080
   store float %108, ptr %109, align 4, !tbaa !93
-  br i1 %101, label %100, label %.loopexit75, !llvm.loop !589
+  br i1 %101, label %100, label %.loopexit75, !llvm.loop !529
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -27640,12 +27760,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06782.us, 1
   %exitcond85.not = icmp eq i64 %44, %spec.select
-  br i1 %exitcond85.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !594
+  br i1 %exitcond85.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !533
 
 45:                                               ; preds = %.preheader.us
   %46 = add nuw nsw i64 %.06678.us, 1
   %exitcond84.not = icmp eq i64 %46, %23
-  br i1 %exitcond84.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !595
+  br i1 %exitcond84.not, label %..preheader76_crit_edge.us, label %.preheader75.us, !llvm.loop !534
 
 .preheader.us:                                    ; preds = %.preheader75.us, %.preheader.us
   %47 = phi i1 [ true, %.preheader75.us ], [ false, %.preheader.us ]
@@ -27660,7 +27780,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %84, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -27670,7 +27790,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %.promoted.us = load <8 x float>, ptr %.06577.us.sroa.phi, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %61, <8 x float> %54, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %.06577.us.sroa.phi, align 32, !tbaa !53
-  br i1 %47, label %.preheader.us, label %45, !llvm.loop !596
+  br i1 %47, label %.preheader.us, label %45, !llvm.loop !535
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %.preheader74.us
   %63 = phi i1 [ true, %..preheader76_crit_edge.us ], [ false, %.preheader74.us ]
@@ -27689,7 +27809,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %72 = mul nsw i64 %35, %71
   %gep80.us = getelementptr float, ptr %invariant.gep79.us, i64 %72
   store float %70, ptr %gep80.us, align 4, !tbaa !93
-  br i1 %63, label %.preheader74.us, label %43, !llvm.loop !597
+  br i1 %63, label %.preheader74.us, label %43, !llvm.loop !536
 
 .preheader75.us:                                  ; preds = %.preheader75.lr.ph.us, %45
   %.06678.us = phi i64 [ 0, %.preheader75.lr.ph.us ], [ %46, %45 ]
@@ -27707,7 +27827,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %83 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %82, <32 x i8> %82)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06678.us
   %84 = bitcast <32 x i8> %83 to <8 x i32>
-  %85 = load i16, ptr %73, align 2, !tbaa !514
+  %85 = load i16, ptr %73, align 2, !tbaa !467
   %86 = zext i16 %85 to i64
   %87 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !93
@@ -27750,14 +27870,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %102 = mul nsw i64 %35, %101
   %gep80 = getelementptr float, ptr %gep, i64 %102
   store float %100, ptr %gep80, align 4, !tbaa !93
-  br i1 %93, label %.preheader74, label %103, !llvm.loop !597
+  br i1 %93, label %.preheader74, label %103, !llvm.loop !536
 
 103:                                              ; preds = %.preheader74
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %104 = add nsw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %104, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !598
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !533
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -27832,11 +27952,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %58 = bitcast <32 x i8> %56 to <8 x i32>
   %59 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %57, <8 x i32> %58)
   %60 = sitofp <8 x i32> %59 to <8 x float>
-  %61 = load i16, ptr %43, align 2, !tbaa !514
+  %61 = load i16, ptr %43, align 2, !tbaa !467
   %62 = zext i16 %61 to i64
   %63 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !93
-  %65 = load i16, ptr %54, align 2, !tbaa !422
+  %65 = load i16, ptr %54, align 2, !tbaa !391
   %66 = zext i16 %65 to i64
   %67 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !93
@@ -27846,7 +27966,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %72 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %71, <8 x float> %60, <8 x float> %.sroa.0.181.us)
   %73 = add nuw nsw i64 %.06682.us, 1
   %exitcond85.not = icmp eq i64 %73, %22
-  br i1 %exitcond85.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !599
+  br i1 %exitcond85.not, label %..preheader78_crit_edge.us, label %.preheader77.us, !llvm.loop !537
 
 ..preheader78_crit_edge.us:                       ; preds = %.preheader77.us
   %74 = shufflevector <8 x float> %72, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -27863,7 +27983,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float %79, ptr %82, align 4, !tbaa !93
   %83 = add nsw i64 %.06783.us, 1
   %exitcond86.not = icmp eq i64 %83, %spec.select
-  br i1 %exitcond86.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !600
+  br i1 %exitcond86.not, label %._crit_edge, label %.preheader77.lr.ph.us, !llvm.loop !538
 
 ._crit_edge:                                      ; preds = %.preheader78, %..preheader78_crit_edge.us, %5
   ret void
@@ -27880,7 +28000,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   store float 0.000000e+00, ptr %90, align 4, !tbaa !93
   %91 = add nsw i64 %.06783, 1
   %exitcond.not = icmp eq i64 %91, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader78, !llvm.loop !601
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader78, !llvm.loop !538
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -28064,12 +28184,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !602
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !539
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100125.us, 1
   %exitcond134.not = icmp eq i64 %58, 4
-  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !603
+  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !540
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -28087,18 +28207,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
-  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !604
+  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !541
 
 70:                                               ; preds = %.lr.ph.us, %161
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %162, %161 ]
   %71 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
-  %72 = load i16, ptr %71, align 2, !tbaa !605
+  %72 = load i16, ptr %71, align 2, !tbaa !542
   %73 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
-  %74 = load i16, ptr %73, align 2, !tbaa !605
+  %74 = load i16, ptr %73, align 2, !tbaa !542
   %75 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
-  %76 = load i16, ptr %75, align 2, !tbaa !605
+  %76 = load i16, ptr %75, align 2, !tbaa !542
   %77 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
-  %78 = load i16, ptr %77, align 2, !tbaa !605
+  %78 = load i16, ptr %77, align 2, !tbaa !542
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -28195,14 +28315,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 161:                                              ; preds = %163
   %162 = add nuw nsw i64 %.0104121.us, 1
   %exitcond132.not = icmp eq i64 %162, %25
-  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !607
+  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !544
 
 163:                                              ; preds = %163, %70
   %.0103120.us = phi i64 [ 0, %70 ], [ %206, %163 ]
   %164 = add nsw i64 %.0103120.us, %43
   %165 = mul nsw i64 %33, %164
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %165
-  %166 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %166 = load i16, ptr %gep.us, align 2, !tbaa !391
   %167 = zext i16 %166 to i64
   %168 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !93
@@ -28249,7 +28369,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %205, ptr %203, align 32, !tbaa !53
   %206 = add nuw nsw i64 %.0103120.us, 1
   %exitcond131.not = icmp eq i64 %206, 4
-  br i1 %exitcond131.not, label %161, label %163, !llvm.loop !608
+  br i1 %exitcond131.not, label %161, label %163, !llvm.loop !545
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
@@ -28290,12 +28410,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %218 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %218, %spec.select
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !609
+  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !539
 
 219:                                              ; preds = %221
   %220 = add nuw nsw i64 %.0100125, 1
   %exitcond129.not = icmp eq i64 %220, 4
-  br i1 %exitcond129.not, label %217, label %.preheader, !llvm.loop !603
+  br i1 %exitcond129.not, label %217, label %.preheader, !llvm.loop !540
 
 221:                                              ; preds = %.preheader, %221
   %.0122 = phi i64 [ 0, %.preheader ], [ %231, %221 ]
@@ -28313,7 +28433,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %229, ptr %230, align 4, !tbaa !93
   %231 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %231, 4
-  br i1 %exitcond.not, label %219, label %221, !llvm.loop !604
+  br i1 %exitcond.not, label %219, label %221, !llvm.loop !541
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -28387,12 +28507,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !610
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !546
 
 57:                                               ; preds = %59
   %58 = add nuw nsw i64 %.0100125.us, 1
   %exitcond134.not = icmp eq i64 %58, 3
-  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !611
+  br i1 %exitcond134.not, label %55, label %.preheader.us, !llvm.loop !547
 
 59:                                               ; preds = %.preheader.us, %59
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -28410,18 +28530,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0122.us, 1
   %exitcond133.not = icmp eq i64 %69, 4
-  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !612
+  br i1 %exitcond133.not, label %57, label %59, !llvm.loop !548
 
 70:                                               ; preds = %.lr.ph.us, %161
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %162, %161 ]
   %71 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
-  %72 = load i16, ptr %71, align 2, !tbaa !605
+  %72 = load i16, ptr %71, align 2, !tbaa !542
   %73 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
-  %74 = load i16, ptr %73, align 2, !tbaa !605
+  %74 = load i16, ptr %73, align 2, !tbaa !542
   %75 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
-  %76 = load i16, ptr %75, align 2, !tbaa !605
+  %76 = load i16, ptr %75, align 2, !tbaa !542
   %77 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
-  %78 = load i16, ptr %77, align 2, !tbaa !605
+  %78 = load i16, ptr %77, align 2, !tbaa !542
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -28518,14 +28638,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 161:                                              ; preds = %163
   %162 = add nuw nsw i64 %.0104121.us, 1
   %exitcond132.not = icmp eq i64 %162, %25
-  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !613
+  br i1 %exitcond132.not, label %..preheader119_crit_edge.us, label %70, !llvm.loop !549
 
 163:                                              ; preds = %163, %70
   %.0103120.us = phi i64 [ 0, %70 ], [ %206, %163 ]
   %164 = add nsw i64 %.0103120.us, %43
   %165 = mul nsw i64 %33, %164
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %165
-  %166 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %166 = load i16, ptr %gep.us, align 2, !tbaa !391
   %167 = zext i16 %166 to i64
   %168 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !93
@@ -28572,7 +28692,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %205, ptr %203, align 32, !tbaa !53
   %206 = add nuw nsw i64 %.0103120.us, 1
   %exitcond131.not = icmp eq i64 %206, 3
-  br i1 %exitcond131.not, label %161, label %163, !llvm.loop !614
+  br i1 %exitcond131.not, label %161, label %163, !llvm.loop !550
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ %58, %57 ]
@@ -28613,12 +28733,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %218 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %218, %spec.select
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !615
+  br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !546
 
 219:                                              ; preds = %221
   %220 = add nuw nsw i64 %.0100125, 1
   %exitcond129.not = icmp eq i64 %220, 3
-  br i1 %exitcond129.not, label %217, label %.preheader, !llvm.loop !611
+  br i1 %exitcond129.not, label %217, label %.preheader, !llvm.loop !547
 
 221:                                              ; preds = %.preheader, %221
   %.0122 = phi i64 [ 0, %.preheader ], [ %231, %221 ]
@@ -28636,7 +28756,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %229, ptr %230, align 4, !tbaa !93
   %231 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %231, 4
-  br i1 %exitcond.not, label %219, label %221, !llvm.loop !612
+  br i1 %exitcond.not, label %219, label %221, !llvm.loop !548
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -28713,12 +28833,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118161.us, 1
   %exitcond170.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !616
+  br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !551
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116160.us, 1
   %exitcond169.not = icmp eq i64 %61, 4
-  br i1 %exitcond169.not, label %58, label %.preheader.us, !llvm.loop !617
+  br i1 %exitcond169.not, label %58, label %.preheader.us, !llvm.loop !552
 
 62:                                               ; preds = %.preheader.us, %62
   %.0157.us = phi i64 [ 0, %.preheader.us ], [ %72, %62 ]
@@ -28736,18 +28856,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %70, ptr %71, align 4, !tbaa !93
   %72 = add nuw nsw i64 %.0157.us, 1
   %exitcond168.not = icmp eq i64 %72, 3
-  br i1 %exitcond168.not, label %60, label %62, !llvm.loop !618
+  br i1 %exitcond168.not, label %60, label %62, !llvm.loop !553
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120156.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120156.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120156.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120156.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120156.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -28768,14 +28888,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120156.us, 1
   %exitcond167.not = icmp eq i64 %93, %25
-  br i1 %exitcond167.not, label %..preheader154_crit_edge.us, label %73, !llvm.loop !619
+  br i1 %exitcond167.not, label %..preheader154_crit_edge.us, label %73, !llvm.loop !554
 
 94:                                               ; preds = %94, %73
   %.0119155.us = phi i64 [ 0, %73 ], [ %155, %94 ]
   %95 = add nsw i64 %.0119155.us, %43
   %96 = mul nsw i64 %33, %95
   %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %96
-  %97 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %97 = load i16, ptr %gep.us, align 2, !tbaa !542
   %98 = zext i16 %97 to i64
   %99 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
@@ -28841,7 +28961,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %154, ptr %152, align 32, !tbaa !53
   %155 = add nuw nsw i64 %.0119155.us, 1
   %exitcond166.not = icmp eq i64 %155, 3
-  br i1 %exitcond166.not, label %92, label %94, !llvm.loop !620
+  br i1 %exitcond166.not, label %92, label %94, !llvm.loop !555
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %60
   %.0116160.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %61, %60 ]
@@ -28882,12 +29002,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %167 = add nsw i64 %.0118161, 1
   %exitcond165.not = icmp eq i64 %167, %spec.select
-  br i1 %exitcond165.not, label %._crit_edge, label %.preheader154, !llvm.loop !621
+  br i1 %exitcond165.not, label %._crit_edge, label %.preheader154, !llvm.loop !551
 
 168:                                              ; preds = %170
   %169 = add nuw nsw i64 %.0116160, 1
   %exitcond164.not = icmp eq i64 %169, 4
-  br i1 %exitcond164.not, label %166, label %.preheader, !llvm.loop !617
+  br i1 %exitcond164.not, label %166, label %.preheader, !llvm.loop !552
 
 170:                                              ; preds = %.preheader, %170
   %.0157 = phi i64 [ 0, %.preheader ], [ %180, %170 ]
@@ -28905,7 +29025,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %178, ptr %179, align 4, !tbaa !93
   %180 = add nuw nsw i64 %.0157, 1
   %exitcond.not = icmp eq i64 %180, 3
-  br i1 %exitcond.not, label %168, label %170, !llvm.loop !618
+  br i1 %exitcond.not, label %168, label %170, !llvm.loop !553
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -28968,12 +29088,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond98.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond98.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !622
+  br i1 %exitcond98.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !556
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06288.us, 1
   %exitcond97.not = icmp eq i64 %47, 3
-  br i1 %exitcond97.not, label %44, label %.preheader77.us, !llvm.loop !623
+  br i1 %exitcond97.not, label %44, label %.preheader77.us, !llvm.loop !557
 
 48:                                               ; preds = %.preheader77.us, %48
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ %58, %48 ]
@@ -28991,17 +29111,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.085.us, 1
   %exitcond96.not = icmp eq i64 %58, 3
-  br i1 %exitcond96.not, label %46, label %48, !llvm.loop !624
+  br i1 %exitcond96.not, label %46, label %48, !llvm.loop !558
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06684.us, 1
   %exitcond95.not = icmp eq i64 %60, %25
-  br i1 %exitcond95.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !625
+  br i1 %exitcond95.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !559
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06583.us, 1
   %exitcond94.not = icmp eq i64 %62, 3
-  br i1 %exitcond94.not, label %59, label %.preheader.us, !llvm.loop !626
+  br i1 %exitcond94.not, label %59, label %.preheader.us, !llvm.loop !560
 
 63:                                               ; preds = %.preheader.us, %63
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ %99, %63 ]
@@ -29033,7 +29153,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %86 = bitcast <32 x i8> %84 to <8 x i32>
   %87 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %85, <8 x i32> %86)
   %88 = sitofp <8 x i32> %87 to <8 x float>
-  %89 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %89 = load i16, ptr %gep.us, align 2, !tbaa !542
   %90 = zext i16 %89 to i64
   %91 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !93
@@ -29046,7 +29166,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %98, ptr %96, align 32, !tbaa !53
   %99 = add nuw nsw i64 %.06480.us, 1
   %exitcond93.not = icmp eq i64 %99, 3
-  br i1 %exitcond93.not, label %61, label %63, !llvm.loop !627
+  br i1 %exitcond93.not, label %61, label %63, !llvm.loop !561
 
 .preheader.us:                                    ; preds = %.preheader78.us, %61
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ %62, %61 ]
@@ -29055,7 +29175,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %101
   %102 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %102, align 1, !tbaa !53
-  %103 = load i16, ptr %gep82.us, align 2, !tbaa !422
+  %103 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %104 = zext i16 %103 to i64
   %105 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !93
@@ -29107,12 +29227,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %119 = add nsw i64 %.06789, 1
   %exitcond92.not = icmp eq i64 %119, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader79, !llvm.loop !628
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader79, !llvm.loop !556
 
 120:                                              ; preds = %122
   %121 = add nuw nsw i64 %.06288, 1
   %exitcond91.not = icmp eq i64 %121, 3
-  br i1 %exitcond91.not, label %118, label %.preheader77, !llvm.loop !623
+  br i1 %exitcond91.not, label %118, label %.preheader77, !llvm.loop !557
 
 122:                                              ; preds = %.preheader77, %122
   %.085 = phi i64 [ 0, %.preheader77 ], [ %132, %122 ]
@@ -29130,7 +29250,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %130, ptr %131, align 4, !tbaa !93
   %132 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %132, 3
-  br i1 %exitcond.not, label %120, label %122, !llvm.loop !624
+  br i1 %exitcond.not, label %120, label %122, !llvm.loop !558
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -29207,10 +29327,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond132.not = icmp eq i64 %56, %spec.select
-  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !629
+  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !562
 
 57:                                               ; preds = %58
-  br i1 %205, label %.preheader.us, label %55, !llvm.loop !630
+  br i1 %205, label %.preheader.us, label %55, !llvm.loop !563
 
 58:                                               ; preds = %.preheader.us, %58
   %.0122.us = phi i64 [ 0, %.preheader.us ], [ %68, %58 ]
@@ -29228,18 +29348,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0122.us, 1
   %exitcond131.not = icmp eq i64 %68, 4
-  br i1 %exitcond131.not, label %57, label %58, !llvm.loop !631
+  br i1 %exitcond131.not, label %57, label %58, !llvm.loop !564
 
 69:                                               ; preds = %.lr.ph.us, %160
   %.0104121.us = phi i64 [ 0, %.lr.ph.us ], [ %161, %160 ]
   %70 = getelementptr %struct.block_q5_0, ptr %46, i64 %.0104121.us
-  %71 = load i16, ptr %70, align 2, !tbaa !605
+  %71 = load i16, ptr %70, align 2, !tbaa !542
   %72 = getelementptr %struct.block_q5_0, ptr %49, i64 %.0104121.us
-  %73 = load i16, ptr %72, align 2, !tbaa !605
+  %73 = load i16, ptr %72, align 2, !tbaa !542
   %74 = getelementptr %struct.block_q5_0, ptr %52, i64 %.0104121.us
-  %75 = load i16, ptr %74, align 2, !tbaa !605
+  %75 = load i16, ptr %74, align 2, !tbaa !542
   %76 = getelementptr %struct.block_q5_0, ptr %54, i64 %.0104121.us
-  %77 = load i16, ptr %76, align 2, !tbaa !605
+  %77 = load i16, ptr %76, align 2, !tbaa !542
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -29336,7 +29456,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 160:                                              ; preds = %162
   %161 = add nuw nsw i64 %.0104121.us, 1
   %exitcond130.not = icmp eq i64 %161, %25
-  br i1 %exitcond130.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !632
+  br i1 %exitcond130.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !565
 
 162:                                              ; preds = %162, %69
   %163 = phi i1 [ true, %69 ], [ false, %162 ]
@@ -29345,7 +29465,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %164 = add nsw i64 %.0103120.us, %43
   %165 = mul nsw i64 %33, %164
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %165
-  %166 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %166 = load i16, ptr %gep.us, align 2, !tbaa !391
   %167 = zext i16 %166 to i64
   %168 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !93
@@ -29389,7 +29509,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %203 = load <8 x float>, ptr %202, align 32, !tbaa !53
   %204 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %197, <8 x float> %201, <8 x float> %203)
   store <8 x float> %204, ptr %202, align 32, !tbaa !53
-  br i1 %163, label %162, label %160, !llvm.loop !633
+  br i1 %163, label %162, label %160, !llvm.loop !566
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %205 = phi i1 [ true, %..preheader119_crit_edge.us ], [ false, %57 ]
@@ -29432,10 +29552,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %216 = add nsw i64 %.0102126, 1
   %exitcond129.not = icmp eq i64 %216, %spec.select
-  br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !634
+  br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !562
 
 217:                                              ; preds = %218
-  br i1 %212, label %.preheader, label %215, !llvm.loop !630
+  br i1 %212, label %.preheader, label %215, !llvm.loop !563
 
 218:                                              ; preds = %.preheader, %218
   %.0122 = phi i64 [ 0, %.preheader ], [ %228, %218 ]
@@ -29453,7 +29573,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %226, ptr %227, align 4, !tbaa !93
   %228 = add nuw nsw i64 %.0122, 1
   %exitcond.not = icmp eq i64 %228, 4
-  br i1 %exitcond.not, label %217, label %218, !llvm.loop !631
+  br i1 %exitcond.not, label %217, label %218, !llvm.loop !564
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -29531,12 +29651,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118161.us, 1
   %exitcond167.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond167.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !635
+  br i1 %exitcond167.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !567
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.0116160.us, 1
   %exitcond166.not = icmp eq i64 %61, 4
-  br i1 %exitcond166.not, label %58, label %.preheader.us, !llvm.loop !636
+  br i1 %exitcond166.not, label %58, label %.preheader.us, !llvm.loop !568
 
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
@@ -29553,18 +29673,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %71 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %72 = getelementptr float, ptr %gep159.us, i64 %.0157.us
   store float %71, ptr %72, align 4, !tbaa !93
-  br i1 %63, label %62, label %60, !llvm.loop !637
+  br i1 %63, label %62, label %60, !llvm.loop !569
 
 73:                                               ; preds = %.lr.ph.us, %92
   %.0120156.us = phi i64 [ 0, %.lr.ph.us ], [ %93, %92 ]
   %74 = getelementptr %struct.block_q8_0, ptr %49, i64 %.0120156.us
-  %75 = load i16, ptr %74, align 2, !tbaa !422
+  %75 = load i16, ptr %74, align 2, !tbaa !391
   %76 = getelementptr %struct.block_q8_0, ptr %52, i64 %.0120156.us
-  %77 = load i16, ptr %76, align 2, !tbaa !422
+  %77 = load i16, ptr %76, align 2, !tbaa !391
   %78 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120156.us
-  %79 = load i16, ptr %78, align 2, !tbaa !422
+  %79 = load i16, ptr %78, align 2, !tbaa !391
   %80 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0120156.us
-  %81 = load i16, ptr %80, align 2, !tbaa !422
+  %81 = load i16, ptr %80, align 2, !tbaa !391
   %82 = insertelement <4 x i16> poison, i16 %81, i64 0
   %83 = insertelement <4 x i16> %82, i16 %79, i64 1
   %84 = insertelement <4 x i16> %83, i16 %77, i64 2
@@ -29585,7 +29705,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 92:                                               ; preds = %94
   %93 = add nuw nsw i64 %.0120156.us, 1
   %exitcond165.not = icmp eq i64 %93, %25
-  br i1 %exitcond165.not, label %..preheader154_crit_edge.us, label %73, !llvm.loop !638
+  br i1 %exitcond165.not, label %..preheader154_crit_edge.us, label %73, !llvm.loop !570
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
@@ -29594,7 +29714,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %96 = add nsw i64 %.0119155.us, %43
   %97 = mul nsw i64 %33, %96
   %gep.us = getelementptr %struct.block_q5_0, ptr %invariant.gep.us, i64 %97
-  %98 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %98 = load i16, ptr %gep.us, align 2, !tbaa !542
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
@@ -29657,7 +29777,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %153 = load <8 x float>, ptr %152, align 32, !tbaa !53
   %154 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %147, <8 x float> %151, <8 x float> %153)
   store <8 x float> %154, ptr %152, align 32, !tbaa !53
-  br i1 %95, label %94, label %92, !llvm.loop !639
+  br i1 %95, label %94, label %92, !llvm.loop !571
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %60
   %.0116160.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %61, %60 ]
@@ -29698,12 +29818,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %166 = add nsw i64 %.0118161, 1
   %exitcond164.not = icmp eq i64 %166, %spec.select
-  br i1 %exitcond164.not, label %._crit_edge, label %.preheader154, !llvm.loop !640
+  br i1 %exitcond164.not, label %._crit_edge, label %.preheader154, !llvm.loop !567
 
 167:                                              ; preds = %169
   %168 = add nuw nsw i64 %.0116160, 1
   %exitcond.not = icmp eq i64 %168, 4
-  br i1 %exitcond.not, label %165, label %.preheader, !llvm.loop !636
+  br i1 %exitcond.not, label %165, label %.preheader, !llvm.loop !568
 
 169:                                              ; preds = %.preheader, %169
   %170 = phi i1 [ true, %.preheader ], [ false, %169 ]
@@ -29720,7 +29840,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %178 = extractelement <4 x float> %foldExtExtBinop172, i64 0
   %179 = getelementptr float, ptr %gep159, i64 %.0157
   store float %178, ptr %179, align 4, !tbaa !93
-  br i1 %170, label %169, label %167, !llvm.loop !637
+  br i1 %170, label %169, label %167, !llvm.loop !569
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -29786,10 +29906,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !641
+  br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !572
 
 46:                                               ; preds = %47
-  br i1 %106, label %.preheader77.us, label %44, !llvm.loop !642
+  br i1 %106, label %.preheader77.us, label %44, !llvm.loop !573
 
 47:                                               ; preds = %.preheader77.us, %47
   %.085.us = phi i64 [ 0, %.preheader77.us ], [ %57, %47 ]
@@ -29807,15 +29927,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %55, ptr %56, align 4, !tbaa !93
   %57 = add nuw nsw i64 %.085.us, 1
   %exitcond94.not = icmp eq i64 %57, 3
-  br i1 %exitcond94.not, label %46, label %47, !llvm.loop !643
+  br i1 %exitcond94.not, label %46, label %47, !llvm.loop !574
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06684.us, 1
   %exitcond93.not = icmp eq i64 %59, %25
-  br i1 %exitcond93.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !644
+  br i1 %exitcond93.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !575
 
 60:                                               ; preds = %61
-  br i1 %98, label %.preheader.us, label %58, !llvm.loop !645
+  br i1 %98, label %.preheader.us, label %58, !llvm.loop !576
 
 61:                                               ; preds = %.preheader.us, %61
   %.06480.us = phi i64 [ 0, %.preheader.us ], [ %97, %61 ]
@@ -29847,7 +29967,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %84 = bitcast <32 x i8> %82 to <8 x i32>
   %85 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %83, <8 x i32> %84)
   %86 = sitofp <8 x i32> %85 to <8 x float>
-  %87 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %87 = load i16, ptr %gep.us, align 2, !tbaa !542
   %88 = zext i16 %87 to i64
   %89 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
@@ -29860,7 +29980,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %96, ptr %94, align 32, !tbaa !53
   %97 = add nuw nsw i64 %.06480.us, 1
   %exitcond92.not = icmp eq i64 %97, 3
-  br i1 %exitcond92.not, label %60, label %61, !llvm.loop !646
+  br i1 %exitcond92.not, label %60, label %61, !llvm.loop !577
 
 .preheader.us:                                    ; preds = %.preheader78.us, %60
   %98 = phi i1 [ true, %.preheader78.us ], [ false, %60 ]
@@ -29871,7 +29991,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %100
   %101 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %101, align 1, !tbaa !53
-  %102 = load i16, ptr %gep82.us, align 2, !tbaa !422
+  %102 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !93
@@ -29924,10 +30044,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = add nsw i64 %.06789, 1
   %exitcond91.not = icmp eq i64 %117, %spec.select
-  br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !647
+  br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !572
 
 118:                                              ; preds = %119
-  br i1 %113, label %.preheader77, label %116, !llvm.loop !642
+  br i1 %113, label %.preheader77, label %116, !llvm.loop !573
 
 119:                                              ; preds = %.preheader77, %119
   %.085 = phi i64 [ 0, %.preheader77 ], [ %129, %119 ]
@@ -29945,7 +30065,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %127, ptr %128, align 4, !tbaa !93
   %129 = add nuw nsw i64 %.085, 1
   %exitcond.not = icmp eq i64 %129, 3
-  br i1 %exitcond.not, label %118, label %119, !llvm.loop !643
+  br i1 %exitcond.not, label %118, label %119, !llvm.loop !574
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -30008,12 +30128,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !648
+  br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !578
 
 46:                                               ; preds = %48
   %47 = add nuw nsw i64 %.06288.us, 1
   %exitcond94.not = icmp eq i64 %47, 3
-  br i1 %exitcond94.not, label %44, label %.preheader77.us, !llvm.loop !649
+  br i1 %exitcond94.not, label %44, label %.preheader77.us, !llvm.loop !579
 
 48:                                               ; preds = %.preheader77.us, %48
   %49 = phi i1 [ true, %.preheader77.us ], [ false, %48 ]
@@ -30030,17 +30150,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %58 = getelementptr float, ptr %gep87.us, i64 %.085.us
   store float %57, ptr %58, align 4, !tbaa !93
-  br i1 %49, label %48, label %46, !llvm.loop !650
+  br i1 %49, label %48, label %46, !llvm.loop !580
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06684.us, 1
   %exitcond93.not = icmp eq i64 %60, %25
-  br i1 %exitcond93.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !651
+  br i1 %exitcond93.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !581
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.06583.us, 1
   %exitcond92.not = icmp eq i64 %62, 3
-  br i1 %exitcond92.not, label %59, label %.preheader.us, !llvm.loop !652
+  br i1 %exitcond92.not, label %59, label %.preheader.us, !llvm.loop !582
 
 63:                                               ; preds = %.preheader.us, %63
   %64 = phi i1 [ true, %.preheader.us ], [ false, %63 ]
@@ -30073,7 +30193,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = bitcast <32 x i8> %85 to <8 x i32>
   %88 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %86, <8 x i32> %87)
   %89 = sitofp <8 x i32> %88 to <8 x float>
-  %90 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %90 = load i16, ptr %gep.us, align 2, !tbaa !542
   %91 = zext i16 %90 to i64
   %92 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !93
@@ -30084,7 +30204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %98 = load <8 x float>, ptr %97, align 32, !tbaa !53
   %99 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %96, <8 x float> %89, <8 x float> %98)
   store <8 x float> %99, ptr %97, align 32, !tbaa !53
-  br i1 %64, label %63, label %61, !llvm.loop !653
+  br i1 %64, label %63, label %61, !llvm.loop !583
 
 .preheader.us:                                    ; preds = %.preheader78.us, %61
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ %62, %61 ]
@@ -30093,7 +30213,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %101
   %102 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %102, align 1, !tbaa !53
-  %103 = load i16, ptr %gep82.us, align 2, !tbaa !422
+  %103 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %104 = zext i16 %103 to i64
   %105 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !93
@@ -30145,12 +30265,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %119 = add nsw i64 %.06789, 1
   %exitcond91.not = icmp eq i64 %119, %spec.select
-  br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !654
+  br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !578
 
 120:                                              ; preds = %122
   %121 = add nuw nsw i64 %.06288, 1
   %exitcond.not = icmp eq i64 %121, 3
-  br i1 %exitcond.not, label %118, label %.preheader77, !llvm.loop !649
+  br i1 %exitcond.not, label %118, label %.preheader77, !llvm.loop !579
 
 122:                                              ; preds = %.preheader77, %122
   %123 = phi i1 [ true, %.preheader77 ], [ false, %122 ]
@@ -30167,7 +30287,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %131 = extractelement <4 x float> %foldExtExtBinop100, i64 0
   %132 = getelementptr float, ptr %gep87, i64 %.085
   store float %131, ptr %132, align 4, !tbaa !93
-  br i1 %123, label %122, label %120, !llvm.loop !650
+  br i1 %123, label %122, label %120, !llvm.loop !580
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -30251,7 +30371,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %66, ptr %67, align 4, !tbaa !93
   %68 = add nuw nsw i64 %.0135.us, 1
   %exitcond144.not = icmp eq i64 %68, 4
-  br i1 %exitcond144.not, label %.loopexit.us, label %58, !llvm.loop !655
+  br i1 %exitcond144.not, label %.loopexit.us, label %58, !llvm.loop !584
 
 69:                                               ; preds = %.lr.ph.us, %69
   %.lcssa125134.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %192, %69 ]
@@ -30260,13 +30380,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0104129.us = phi i64 [ 0, %.lr.ph.us ], [ %193, %69 ]
   %.lcssa127128.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %189, %69 ]
   %70 = getelementptr %struct.block_q5_0, ptr %47, i64 %.0104129.us
-  %71 = load i16, ptr %70, align 2, !tbaa !605
+  %71 = load i16, ptr %70, align 2, !tbaa !542
   %72 = getelementptr %struct.block_q5_0, ptr %50, i64 %.0104129.us
-  %73 = load i16, ptr %72, align 2, !tbaa !605
+  %73 = load i16, ptr %72, align 2, !tbaa !542
   %74 = getelementptr %struct.block_q5_0, ptr %53, i64 %.0104129.us
-  %75 = load i16, ptr %74, align 2, !tbaa !605
+  %75 = load i16, ptr %74, align 2, !tbaa !542
   %76 = getelementptr %struct.block_q5_0, ptr %55, i64 %.0104129.us
-  %77 = load i16, ptr %76, align 2, !tbaa !605
+  %77 = load i16, ptr %76, align 2, !tbaa !542
   %78 = insertelement <4 x i16> poison, i16 %77, i64 0
   %79 = insertelement <4 x i16> %78, i16 %75, i64 1
   %80 = insertelement <4 x i16> %79, i16 %73, i64 2
@@ -30346,7 +30466,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %146 = and <4 x i64> %145, splat (i64 -1085102592571150096)
   %147 = or disjoint <4 x i64> %146, %138
   %148 = getelementptr %struct.block_q8_0, ptr %57, i64 %.0104129.us
-  %149 = load i16, ptr %148, align 2, !tbaa !422
+  %149 = load i16, ptr %148, align 2, !tbaa !391
   %150 = zext i16 %149 to i64
   %151 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %150
   %152 = load float, ptr %151, align 4, !tbaa !93
@@ -30393,13 +30513,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %192 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %181, <8 x float> %188, <8 x float> %.lcssa125134.us)
   %193 = add nuw nsw i64 %.0104129.us, 1
   %exitcond143.not = icmp eq i64 %193, %24
-  br i1 %exitcond143.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !656
+  br i1 %exitcond143.not, label %..preheader119_crit_edge.us, label %69, !llvm.loop !585
 
 .loopexit.us:                                     ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %194 = add nsw i64 %.0102136.us, 1
   %exitcond145.not = icmp eq i64 %194, %spec.select
-  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !657
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !586
 
 ..preheader119_crit_edge.us:                      ; preds = %69
   store <8 x float> %190, ptr %33, align 32, !tbaa !53
@@ -30432,7 +30552,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %205 = add nsw i64 %.0102136, 1
   %exitcond142.not = icmp eq i64 %205, %spec.select
-  br i1 %exitcond142.not, label %._crit_edge, label %.preheader119, !llvm.loop !658
+  br i1 %exitcond142.not, label %._crit_edge, label %.preheader119, !llvm.loop !586
 
 206:                                              ; preds = %.preheader119, %206
   %.0135 = phi i64 [ 0, %.preheader119 ], [ %216, %206 ]
@@ -30450,7 +30570,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %214, ptr %215, align 4, !tbaa !93
   %216 = add nuw nsw i64 %.0135, 1
   %exitcond.not = icmp eq i64 %216, 4
-  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !655
+  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !584
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -30516,10 +30636,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !659
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !587
 
 46:                                               ; preds = %47
-  br i1 %106, label %.preheader77.us, label %44, !llvm.loop !660
+  br i1 %106, label %.preheader77.us, label %44, !llvm.loop !588
 
 47:                                               ; preds = %.preheader77.us, %47
   %48 = phi i1 [ true, %.preheader77.us ], [ false, %47 ]
@@ -30536,15 +30656,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %56 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %57 = getelementptr float, ptr %gep87.us, i64 %.085.us
   store float %56, ptr %57, align 4, !tbaa !93
-  br i1 %48, label %47, label %46, !llvm.loop !661
+  br i1 %48, label %47, label %46, !llvm.loop !589
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.06684.us, 1
   %exitcond91.not = icmp eq i64 %59, %25
-  br i1 %exitcond91.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !662
+  br i1 %exitcond91.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !590
 
 60:                                               ; preds = %61
-  br i1 %98, label %.preheader.us, label %58, !llvm.loop !663
+  br i1 %98, label %.preheader.us, label %58, !llvm.loop !591
 
 61:                                               ; preds = %.preheader.us, %61
   %62 = phi i1 [ true, %.preheader.us ], [ false, %61 ]
@@ -30577,7 +30697,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %85 = bitcast <32 x i8> %83 to <8 x i32>
   %86 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %84, <8 x i32> %85)
   %87 = sitofp <8 x i32> %86 to <8 x float>
-  %88 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %88 = load i16, ptr %gep.us, align 2, !tbaa !542
   %89 = zext i16 %88 to i64
   %90 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !93
@@ -30588,7 +30708,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %96 = load <8 x float>, ptr %95, align 32, !tbaa !53
   %97 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %94, <8 x float> %87, <8 x float> %96)
   store <8 x float> %97, ptr %95, align 32, !tbaa !53
-  br i1 %62, label %61, label %60, !llvm.loop !664
+  br i1 %62, label %61, label %60, !llvm.loop !592
 
 .preheader.us:                                    ; preds = %.preheader78.us, %60
   %98 = phi i1 [ true, %.preheader78.us ], [ false, %60 ]
@@ -30599,7 +30719,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %gep82.us = getelementptr %struct.block_q8_0, ptr %invariant.gep81.us, i64 %100
   %101 = getelementptr i8, ptr %gep82.us, i64 2
   %.val7576.us = load <32 x i8>, ptr %101, align 1, !tbaa !53
-  %102 = load i16, ptr %gep82.us, align 2, !tbaa !422
+  %102 = load i16, ptr %gep82.us, align 2, !tbaa !391
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !93
@@ -30652,10 +30772,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = add nsw i64 %.06789, 1
   %exitcond.not = icmp eq i64 %117, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !665
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !587
 
 118:                                              ; preds = %119
-  br i1 %113, label %.preheader77, label %116, !llvm.loop !660
+  br i1 %113, label %.preheader77, label %116, !llvm.loop !588
 
 119:                                              ; preds = %.preheader77, %119
   %120 = phi i1 [ true, %.preheader77 ], [ false, %119 ]
@@ -30672,7 +30792,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %128 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %129 = getelementptr float, ptr %gep87, i64 %.085
   store float %128, ptr %129, align 4, !tbaa !93
-  br i1 %120, label %119, label %118, !llvm.loop !661
+  br i1 %120, label %119, label %118, !llvm.loop !589
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -30748,7 +30868,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118171.us, 1
   %exitcond180.not = icmp eq i64 %59, %spec.select
-  br i1 %exitcond180.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !666
+  br i1 %exitcond180.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !593
 
 60:                                               ; preds = %.lr.ph.us, %60
   %.lcssa160169.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %129, %60 ]
@@ -30757,13 +30877,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.0120164.us = phi i64 [ 0, %.lr.ph.us ], [ %130, %60 ]
   %.lcssa162163.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %126, %60 ]
   %61 = getelementptr %struct.block_q8_0, ptr %47, i64 %.0120164.us
-  %62 = load i16, ptr %61, align 2, !tbaa !422
+  %62 = load i16, ptr %61, align 2, !tbaa !391
   %63 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120164.us
-  %64 = load i16, ptr %63, align 2, !tbaa !422
+  %64 = load i16, ptr %63, align 2, !tbaa !391
   %65 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120164.us
-  %66 = load i16, ptr %65, align 2, !tbaa !422
+  %66 = load i16, ptr %65, align 2, !tbaa !391
   %67 = getelementptr %struct.block_q8_0, ptr %55, i64 %.0120164.us
-  %68 = load i16, ptr %67, align 2, !tbaa !422
+  %68 = load i16, ptr %67, align 2, !tbaa !391
   %69 = insertelement <4 x i16> poison, i16 %68, i64 0
   %70 = insertelement <4 x i16> %69, i16 %66, i64 1
   %71 = insertelement <4 x i16> %70, i16 %64, i64 2
@@ -30779,7 +30899,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %78 = getelementptr i8, ptr %61, i64 2
   %.val149153.us = load <32 x i8>, ptr %78, align 2, !tbaa !53
   %79 = getelementptr %struct.block_q5_0, ptr %57, i64 %.0120164.us
-  %80 = load i16, ptr %79, align 2, !tbaa !605
+  %80 = load i16, ptr %79, align 2, !tbaa !542
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -30833,7 +30953,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %129 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %121, <8 x float> %125, <8 x float> %.lcssa160169.us)
   %130 = add nuw nsw i64 %.0120164.us, 1
   %exitcond178.not = icmp eq i64 %130, %24
-  br i1 %exitcond178.not, label %..preheader154_crit_edge.us, label %60, !llvm.loop !667
+  br i1 %exitcond178.not, label %..preheader154_crit_edge.us, label %60, !llvm.loop !594
 
 .preheader.us:                                    ; preds = %..preheader154_crit_edge.us, %.preheader.us
   %.0116170.us = phi i64 [ 0, %..preheader154_crit_edge.us ], [ %141, %.preheader.us ]
@@ -30853,7 +30973,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %138, ptr %gep.us, align 4, !tbaa !93
   %141 = add nuw nsw i64 %.0116170.us, 1
   %exitcond179.not = icmp eq i64 %141, 4
-  br i1 %exitcond179.not, label %58, label %.preheader.us, !llvm.loop !668
+  br i1 %exitcond179.not, label %58, label %.preheader.us, !llvm.loop !595
 
 ..preheader154_crit_edge.us:                      ; preds = %60
   store <8 x float> %127, ptr %33, align 32, !tbaa !53
@@ -30895,13 +31015,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %153, ptr %gep, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.0116170, 1
   %exitcond.not = icmp eq i64 %156, 4
-  br i1 %exitcond.not, label %157, label %.preheader, !llvm.loop !668
+  br i1 %exitcond.not, label %157, label %.preheader, !llvm.loop !595
 
 157:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = add nsw i64 %.0118171, 1
   %exitcond177.not = icmp eq i64 %158, %spec.select
-  br i1 %exitcond177.not, label %._crit_edge, label %.preheader154, !llvm.loop !669
+  br i1 %exitcond177.not, label %._crit_edge, label %.preheader154, !llvm.loop !593
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -30972,7 +31092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %52, ptr %53, align 4, !tbaa !93
   %54 = add nuw nsw i64 %.083.us, 1
   %exitcond89.not = icmp eq i64 %54, 3
-  br i1 %exitcond89.not, label %.loopexit78.us, label %44, !llvm.loop !670
+  br i1 %exitcond89.not, label %.loopexit78.us, label %44, !llvm.loop !596
 
 55:                                               ; preds = %.preheader79.us, %55
   %.06481.us = phi i64 [ 0, %.preheader79.us ], [ %91, %55 ]
@@ -31004,7 +31124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %78 = bitcast <32 x i8> %76 to <8 x i32>
   %79 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %77, <8 x i32> %78)
   %80 = sitofp <8 x i32> %79 to <8 x float>
-  %81 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %81 = load i16, ptr %gep.us, align 2, !tbaa !542
   %82 = zext i16 %81 to i64
   %83 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
@@ -31017,18 +31137,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %90, ptr %88, align 32, !tbaa !53
   %91 = add nuw nsw i64 %.06481.us, 1
   %exitcond87.not = icmp eq i64 %91, 3
-  br i1 %exitcond87.not, label %.loopexit.us, label %55, !llvm.loop !671
+  br i1 %exitcond87.not, label %.loopexit.us, label %55, !llvm.loop !597
 
 .loopexit.us:                                     ; preds = %55
   %92 = add nuw nsw i64 %.06682.us, 1
   %exitcond88.not = icmp eq i64 %92, %24
-  br i1 %exitcond88.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !672
+  br i1 %exitcond88.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !598
 
 .loopexit78.us:                                   ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = add nsw i64 %.06784.us, 1
   %exitcond90.not = icmp eq i64 %93, %spec.select
-  br i1 %exitcond90.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !673
+  br i1 %exitcond90.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !599
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %.loopexit.us
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %92, %.loopexit.us ]
@@ -31036,7 +31156,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %94 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06682.us
   %95 = getelementptr i8, ptr %94, i64 2
   %.val7576.us = load <32 x i8>, ptr %95, align 1, !tbaa !53
-  %96 = load i16, ptr %94, align 2, !tbaa !422
+  %96 = load i16, ptr %94, align 2, !tbaa !391
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
@@ -31069,7 +31189,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = add nsw i64 %.06784, 1
   %exitcond86.not = icmp eq i64 %110, %spec.select
-  br i1 %exitcond86.not, label %._crit_edge, label %.preheader80, !llvm.loop !674
+  br i1 %exitcond86.not, label %._crit_edge, label %.preheader80, !llvm.loop !599
 
 111:                                              ; preds = %.preheader80, %111
   %.083 = phi i64 [ 0, %.preheader80 ], [ %121, %111 ]
@@ -31087,7 +31207,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.083, 1
   %exitcond.not = icmp eq i64 %121, 3
-  br i1 %exitcond.not, label %.loopexit78, label %111, !llvm.loop !670
+  br i1 %exitcond.not, label %.loopexit78, label %111, !llvm.loop !596
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -31150,12 +31270,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06785.us, 1
   %exitcond91.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond91.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !675
+  br i1 %exitcond91.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !600
 
 46:                                               ; preds = %.preheader.us
   %47 = add nuw nsw i64 %.06681.us, 1
   %exitcond89.not = icmp eq i64 %47, %24
-  br i1 %exitcond89.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !676
+  br i1 %exitcond89.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !601
 
 .preheader.us:                                    ; preds = %.preheader78.us, %.preheader.us
   %.06580.us = phi i64 [ 0, %.preheader78.us ], [ %64, %.preheader.us ]
@@ -31168,7 +31288,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %95, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -31181,7 +31301,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store <8 x float> %63, ptr %62, align 32, !tbaa !53
   %64 = add nuw nsw i64 %.06580.us, 1
   %exitcond88.not = icmp eq i64 %64, 3
-  br i1 %exitcond88.not, label %46, label %.preheader.us, !llvm.loop !677
+  br i1 %exitcond88.not, label %46, label %.preheader.us, !llvm.loop !602
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %.preheader77.us
   %.06284.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ %75, %.preheader77.us ]
@@ -31201,7 +31321,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %72, ptr %gep83.us, align 4, !tbaa !93
   %75 = add nuw nsw i64 %.06284.us, 1
   %exitcond90.not = icmp eq i64 %75, 3
-  br i1 %exitcond90.not, label %44, label %.preheader77.us, !llvm.loop !678
+  br i1 %exitcond90.not, label %44, label %.preheader77.us, !llvm.loop !603
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %46
   %.06681.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %47, %46 ]
@@ -31228,7 +31348,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %94 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %93, <32 x i8> %93)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06681.us
   %95 = bitcast <32 x i8> %94 to <8 x i32>
-  %96 = load i16, ptr %76, align 2, !tbaa !605
+  %96 = load i16, ptr %76, align 2, !tbaa !542
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
@@ -31270,13 +31390,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %111, ptr %gep83, align 4, !tbaa !93
   %114 = add nuw nsw i64 %.06284, 1
   %exitcond.not = icmp eq i64 %114, 3
-  br i1 %exitcond.not, label %115, label %.preheader77, !llvm.loop !678
+  br i1 %exitcond.not, label %115, label %.preheader77, !llvm.loop !603
 
 115:                                              ; preds = %.preheader77
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %116 = add nsw i64 %.06785, 1
   %exitcond87.not = icmp eq i64 %116, %spec.select
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader79, !llvm.loop !679
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader79, !llvm.loop !600
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -31349,7 +31469,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %51 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %52 = getelementptr float, ptr %99, i64 %.083.us
   store float %51, ptr %52, align 4, !tbaa !93
-  br i1 %44, label %43, label %.loopexit78.us, !llvm.loop !680
+  br i1 %44, label %43, label %.loopexit78.us, !llvm.loop !604
 
 53:                                               ; preds = %.preheader79.us, %53
   %54 = phi i1 [ true, %.preheader79.us ], [ false, %53 ]
@@ -31383,7 +31503,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %77 = bitcast <32 x i8> %75 to <8 x i32>
   %78 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %76, <8 x i32> %77)
   %79 = sitofp <8 x i32> %78 to <8 x float>
-  %80 = load i16, ptr %gep.us, align 2, !tbaa !605
+  %80 = load i16, ptr %gep.us, align 2, !tbaa !542
   %81 = zext i16 %80 to i64
   %82 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !93
@@ -31393,19 +31513,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %87 = load <8 x float>, ptr %.06481.us.sroa.phi, align 32, !tbaa !53
   %88 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %86, <8 x float> %79, <8 x float> %87)
   store <8 x float> %88, ptr %.06481.us.sroa.phi, align 32, !tbaa !53
-  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !681
+  br i1 %54, label %53, label %.loopexit.us, !llvm.loop !605
 
 .loopexit.us:                                     ; preds = %53
   %89 = add nuw nsw i64 %.06682.us, 1
   %exitcond86.not = icmp eq i64 %89, %23
-  br i1 %exitcond86.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !682
+  br i1 %exitcond86.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !606
 
 .loopexit78.us:                                   ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %90 = add nsw i64 %.06784.us, 1
   %exitcond87.not = icmp eq i64 %90, %spec.select
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !683
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !607
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %.loopexit.us
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %89, %.loopexit.us ]
@@ -31413,7 +31533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %91 = getelementptr inbounds nuw %struct.block_q8_0, ptr %42, i64 %.06682.us
   %92 = getelementptr i8, ptr %91, i64 2
   %.val7576.us = load <32 x i8>, ptr %92, align 1, !tbaa !53
-  %93 = load i16, ptr %91, align 2, !tbaa !422
+  %93 = load i16, ptr %91, align 2, !tbaa !391
   %94 = zext i16 %93 to i64
   %95 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %94
   %96 = load float, ptr %95, align 4, !tbaa !93
@@ -31449,7 +31569,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %107 = add nsw i64 %.06784, 1
   %exitcond.not = icmp eq i64 %107, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !684
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !607
 
 108:                                              ; preds = %.preheader80, %108
   %109 = phi i1 [ true, %.preheader80 ], [ false, %108 ]
@@ -31466,7 +31586,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %116 = extractelement <4 x float> %foldExtExtBinop92, i64 0
   %117 = getelementptr float, ptr %106, i64 %.083
   store float %116, ptr %117, align 4, !tbaa !93
-  br i1 %109, label %108, label %.loopexit78, !llvm.loop !680
+  br i1 %109, label %108, label %.loopexit78, !llvm.loop !604
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -31533,12 +31653,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06785.us, 1
   %exitcond88.not = icmp eq i64 %44, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !685
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !608
 
 45:                                               ; preds = %.preheader.us
   %46 = add nuw nsw i64 %.06681.us, 1
   %exitcond87.not = icmp eq i64 %46, %23
-  br i1 %exitcond87.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !686
+  br i1 %exitcond87.not, label %..preheader79_crit_edge.us, label %.preheader78.us, !llvm.loop !609
 
 .preheader.us:                                    ; preds = %.preheader78.us, %.preheader.us
   %47 = phi i1 [ true, %.preheader78.us ], [ false, %.preheader.us ]
@@ -31553,7 +31673,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %52 = bitcast <32 x i8> %51 to <8 x i32>
   %53 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %92, <8 x i32> %52)
   %54 = sitofp <8 x i32> %53 to <8 x float>
-  %55 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %55 = load i16, ptr %gep.us, align 2, !tbaa !391
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !93
@@ -31563,7 +31683,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %.promoted.us = load <8 x float>, ptr %.06580.us.sroa.phi, align 32, !tbaa !53
   %62 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %61, <8 x float> %54, <8 x float> %.promoted.us)
   store <8 x float> %62, ptr %.06580.us.sroa.phi, align 32, !tbaa !53
-  br i1 %47, label %.preheader.us, label %45, !llvm.loop !687
+  br i1 %47, label %.preheader.us, label %45, !llvm.loop !610
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %.preheader77.us
   %63 = phi i1 [ true, %..preheader79_crit_edge.us ], [ false, %.preheader77.us ]
@@ -31582,7 +31702,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %72 = mul nsw i64 %35, %71
   %gep83.us = getelementptr float, ptr %invariant.gep82.us, i64 %72
   store float %70, ptr %gep83.us, align 4, !tbaa !93
-  br i1 %63, label %.preheader77.us, label %43, !llvm.loop !688
+  br i1 %63, label %.preheader77.us, label %43, !llvm.loop !611
 
 .preheader78.us:                                  ; preds = %.preheader78.lr.ph.us, %45
   %.06681.us = phi i64 [ 0, %.preheader78.lr.ph.us ], [ %46, %45 ]
@@ -31609,7 +31729,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %91 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %90, <32 x i8> %90)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %29, i64 %.06681.us
   %92 = bitcast <32 x i8> %91 to <8 x i32>
-  %93 = load i16, ptr %73, align 2, !tbaa !605
+  %93 = load i16, ptr %73, align 2, !tbaa !542
   %94 = zext i16 %93 to i64
   %95 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %94
   %96 = load float, ptr %95, align 4, !tbaa !93
@@ -31652,14 +31772,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %110 = mul nsw i64 %35, %109
   %gep83 = getelementptr float, ptr %gep, i64 %110
   store float %108, ptr %gep83, align 4, !tbaa !93
-  br i1 %101, label %.preheader77, label %111, !llvm.loop !688
+  br i1 %101, label %.preheader77, label %111, !llvm.loop !611
 
 111:                                              ; preds = %.preheader77
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %112 = add nsw i64 %.06785, 1
   %exitcond.not = icmp eq i64 %112, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !689
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !608
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -31743,11 +31863,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %66 = bitcast <32 x i8> %64 to <8 x i32>
   %67 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %65, <8 x i32> %66)
   %68 = sitofp <8 x i32> %67 to <8 x float>
-  %69 = load i16, ptr %43, align 2, !tbaa !605
+  %69 = load i16, ptr %43, align 2, !tbaa !542
   %70 = zext i16 %69 to i64
   %71 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !93
-  %73 = load i16, ptr %62, align 2, !tbaa !422
+  %73 = load i16, ptr %62, align 2, !tbaa !391
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !93
@@ -31757,7 +31877,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %80 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %79, <8 x float> %68, <8 x float> %.sroa.0.184.us)
   %81 = add nuw nsw i64 %.06685.us, 1
   %exitcond88.not = icmp eq i64 %81, %22
-  br i1 %exitcond88.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !690
+  br i1 %exitcond88.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !612
 
 ..preheader81_crit_edge.us:                       ; preds = %.preheader80.us
   %82 = shufflevector <8 x float> %80, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -31774,7 +31894,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float %87, ptr %90, align 4, !tbaa !93
   %91 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %91, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !691
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !613
 
 ._crit_edge:                                      ; preds = %.preheader81, %..preheader81_crit_edge.us, %5
   ret void
@@ -31791,7 +31911,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   store float 0.000000e+00, ptr %98, align 4, !tbaa !93
   %99 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %99, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !692
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !613
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -31977,12 +32097,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond136.not = icmp eq i64 %57, %spec.select
-  br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !693
+  br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !614
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.0100126.us, 1
   %exitcond135.not = icmp eq i64 %59, 4
-  br i1 %exitcond135.not, label %56, label %.preheader.us, !llvm.loop !694
+  br i1 %exitcond135.not, label %56, label %.preheader.us, !llvm.loop !615
 
 60:                                               ; preds = %.preheader.us, %60
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %70, %60 ]
@@ -32000,18 +32120,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %68, ptr %69, align 4, !tbaa !93
   %70 = add nuw nsw i64 %.0123.us, 1
   %exitcond134.not = icmp eq i64 %70, 4
-  br i1 %exitcond134.not, label %58, label %60, !llvm.loop !695
+  br i1 %exitcond134.not, label %58, label %60, !llvm.loop !616
 
 71:                                               ; preds = %.lr.ph.us, %134
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %135, %134 ]
   %72 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
-  %73 = load i16, ptr %72, align 2, !tbaa !696
+  %73 = load i16, ptr %72, align 2, !tbaa !617
   %74 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
-  %75 = load i16, ptr %74, align 2, !tbaa !696
+  %75 = load i16, ptr %74, align 2, !tbaa !617
   %76 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
-  %77 = load i16, ptr %76, align 2, !tbaa !696
+  %77 = load i16, ptr %76, align 2, !tbaa !617
   %78 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
-  %79 = load i16, ptr %78, align 2, !tbaa !696
+  %79 = load i16, ptr %78, align 2, !tbaa !617
   %80 = insertelement <4 x i16> poison, i16 %79, i64 0
   %81 = insertelement <4 x i16> %80, i16 %77, i64 1
   %82 = insertelement <4 x i16> %81, i16 %75, i64 2
@@ -32076,14 +32196,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 134:                                              ; preds = %136
   %135 = add nuw nsw i64 %.0104122.us, 1
   %exitcond133.not = icmp eq i64 %135, %25
-  br i1 %exitcond133.not, label %..preheader120_crit_edge.us, label %71, !llvm.loop !698
+  br i1 %exitcond133.not, label %..preheader120_crit_edge.us, label %71, !llvm.loop !619
 
 136:                                              ; preds = %136, %71
   %.0103121.us = phi i64 [ 0, %71 ], [ %179, %136 ]
   %137 = add nsw i64 %.0103121.us, %44
   %138 = mul nsw i64 %34, %137
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %138
-  %139 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %139 = load i16, ptr %gep.us, align 2, !tbaa !391
   %140 = zext i16 %139 to i64
   %141 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !93
@@ -32130,7 +32250,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %178, ptr %176, align 32, !tbaa !53
   %179 = add nuw nsw i64 %.0103121.us, 1
   %exitcond132.not = icmp eq i64 %179, 4
-  br i1 %exitcond132.not, label %134, label %136, !llvm.loop !699
+  br i1 %exitcond132.not, label %134, label %136, !llvm.loop !620
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ %59, %58 ]
@@ -32171,12 +32291,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %191 = add nsw i64 %.0102127, 1
   %exitcond131.not = icmp eq i64 %191, %spec.select
-  br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !700
+  br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !614
 
 192:                                              ; preds = %194
   %193 = add nuw nsw i64 %.0100126, 1
   %exitcond130.not = icmp eq i64 %193, 4
-  br i1 %exitcond130.not, label %190, label %.preheader, !llvm.loop !694
+  br i1 %exitcond130.not, label %190, label %.preheader, !llvm.loop !615
 
 194:                                              ; preds = %.preheader, %194
   %.0123 = phi i64 [ 0, %.preheader ], [ %204, %194 ]
@@ -32194,7 +32314,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %202, ptr %203, align 4, !tbaa !93
   %204 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %204, 4
-  br i1 %exitcond.not, label %192, label %194, !llvm.loop !695
+  br i1 %exitcond.not, label %192, label %194, !llvm.loop !616
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -32270,12 +32390,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond136.not = icmp eq i64 %57, %spec.select
-  br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !701
+  br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !621
 
 58:                                               ; preds = %60
   %59 = add nuw nsw i64 %.0100126.us, 1
   %exitcond135.not = icmp eq i64 %59, 3
-  br i1 %exitcond135.not, label %56, label %.preheader.us, !llvm.loop !702
+  br i1 %exitcond135.not, label %56, label %.preheader.us, !llvm.loop !622
 
 60:                                               ; preds = %.preheader.us, %60
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %70, %60 ]
@@ -32293,18 +32413,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %68, ptr %69, align 4, !tbaa !93
   %70 = add nuw nsw i64 %.0123.us, 1
   %exitcond134.not = icmp eq i64 %70, 4
-  br i1 %exitcond134.not, label %58, label %60, !llvm.loop !703
+  br i1 %exitcond134.not, label %58, label %60, !llvm.loop !623
 
 71:                                               ; preds = %.lr.ph.us, %134
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %135, %134 ]
   %72 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
-  %73 = load i16, ptr %72, align 2, !tbaa !696
+  %73 = load i16, ptr %72, align 2, !tbaa !617
   %74 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
-  %75 = load i16, ptr %74, align 2, !tbaa !696
+  %75 = load i16, ptr %74, align 2, !tbaa !617
   %76 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
-  %77 = load i16, ptr %76, align 2, !tbaa !696
+  %77 = load i16, ptr %76, align 2, !tbaa !617
   %78 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
-  %79 = load i16, ptr %78, align 2, !tbaa !696
+  %79 = load i16, ptr %78, align 2, !tbaa !617
   %80 = insertelement <4 x i16> poison, i16 %79, i64 0
   %81 = insertelement <4 x i16> %80, i16 %77, i64 1
   %82 = insertelement <4 x i16> %81, i16 %75, i64 2
@@ -32369,14 +32489,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 134:                                              ; preds = %136
   %135 = add nuw nsw i64 %.0104122.us, 1
   %exitcond133.not = icmp eq i64 %135, %25
-  br i1 %exitcond133.not, label %..preheader120_crit_edge.us, label %71, !llvm.loop !704
+  br i1 %exitcond133.not, label %..preheader120_crit_edge.us, label %71, !llvm.loop !624
 
 136:                                              ; preds = %136, %71
   %.0103121.us = phi i64 [ 0, %71 ], [ %179, %136 ]
   %137 = add nsw i64 %.0103121.us, %44
   %138 = mul nsw i64 %34, %137
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %138
-  %139 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %139 = load i16, ptr %gep.us, align 2, !tbaa !391
   %140 = zext i16 %139 to i64
   %141 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !93
@@ -32423,7 +32543,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %178, ptr %176, align 32, !tbaa !53
   %179 = add nuw nsw i64 %.0103121.us, 1
   %exitcond132.not = icmp eq i64 %179, 3
-  br i1 %exitcond132.not, label %134, label %136, !llvm.loop !705
+  br i1 %exitcond132.not, label %134, label %136, !llvm.loop !625
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ %59, %58 ]
@@ -32464,12 +32584,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %191 = add nsw i64 %.0102127, 1
   %exitcond131.not = icmp eq i64 %191, %spec.select
-  br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !706
+  br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !621
 
 192:                                              ; preds = %194
   %193 = add nuw nsw i64 %.0100126, 1
   %exitcond130.not = icmp eq i64 %193, 3
-  br i1 %exitcond130.not, label %190, label %.preheader, !llvm.loop !702
+  br i1 %exitcond130.not, label %190, label %.preheader, !llvm.loop !622
 
 194:                                              ; preds = %.preheader, %194
   %.0123 = phi i64 [ 0, %.preheader ], [ %204, %194 ]
@@ -32487,7 +32607,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %202, ptr %203, align 4, !tbaa !93
   %204 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %204, 4
-  br i1 %exitcond.not, label %192, label %194, !llvm.loop !703
+  br i1 %exitcond.not, label %192, label %194, !llvm.loop !623
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -32566,12 +32686,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118162.us, 1
   %exitcond171.not = icmp eq i64 %60, %spec.select
-  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !707
+  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !626
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.0116161.us, 1
   %exitcond170.not = icmp eq i64 %62, 4
-  br i1 %exitcond170.not, label %59, label %.preheader.us, !llvm.loop !708
+  br i1 %exitcond170.not, label %59, label %.preheader.us, !llvm.loop !627
 
 63:                                               ; preds = %.preheader.us, %63
   %.0158.us = phi i64 [ 0, %.preheader.us ], [ %73, %63 ]
@@ -32589,18 +32709,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %71, ptr %72, align 4, !tbaa !93
   %73 = add nuw nsw i64 %.0158.us, 1
   %exitcond169.not = icmp eq i64 %73, 3
-  br i1 %exitcond169.not, label %61, label %63, !llvm.loop !709
+  br i1 %exitcond169.not, label %61, label %63, !llvm.loop !628
 
 74:                                               ; preds = %.lr.ph.us, %93
   %.0120157.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
   %75 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120157.us
-  %76 = load i16, ptr %75, align 2, !tbaa !422
+  %76 = load i16, ptr %75, align 2, !tbaa !391
   %77 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120157.us
-  %78 = load i16, ptr %77, align 2, !tbaa !422
+  %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120157.us
-  %80 = load i16, ptr %79, align 2, !tbaa !422
+  %80 = load i16, ptr %79, align 2, !tbaa !391
   %81 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0120157.us
-  %82 = load i16, ptr %81, align 2, !tbaa !422
+  %82 = load i16, ptr %81, align 2, !tbaa !391
   %83 = insertelement <4 x i16> poison, i16 %82, i64 0
   %84 = insertelement <4 x i16> %83, i16 %80, i64 1
   %85 = insertelement <4 x i16> %84, i16 %78, i64 2
@@ -32621,14 +32741,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 93:                                               ; preds = %95
   %94 = add nuw nsw i64 %.0120157.us, 1
   %exitcond168.not = icmp eq i64 %94, %25
-  br i1 %exitcond168.not, label %..preheader155_crit_edge.us, label %74, !llvm.loop !710
+  br i1 %exitcond168.not, label %..preheader155_crit_edge.us, label %74, !llvm.loop !629
 
 95:                                               ; preds = %95, %74
   %.0119156.us = phi i64 [ 0, %74 ], [ %149, %95 ]
   %96 = add nsw i64 %.0119156.us, %44
   %97 = mul nsw i64 %33, %96
   %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %97
-  %98 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %98 = load i16, ptr %gep.us, align 2, !tbaa !617
   %99 = zext i16 %98 to i64
   %100 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !93
@@ -32686,7 +32806,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %148, ptr %146, align 32, !tbaa !53
   %149 = add nuw nsw i64 %.0119156.us, 1
   %exitcond167.not = icmp eq i64 %149, 3
-  br i1 %exitcond167.not, label %93, label %95, !llvm.loop !711
+  br i1 %exitcond167.not, label %93, label %95, !llvm.loop !630
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %61
   %.0116161.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %62, %61 ]
@@ -32727,12 +32847,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %161 = add nsw i64 %.0118162, 1
   %exitcond166.not = icmp eq i64 %161, %spec.select
-  br i1 %exitcond166.not, label %._crit_edge, label %.preheader155, !llvm.loop !712
+  br i1 %exitcond166.not, label %._crit_edge, label %.preheader155, !llvm.loop !626
 
 162:                                              ; preds = %164
   %163 = add nuw nsw i64 %.0116161, 1
   %exitcond165.not = icmp eq i64 %163, 4
-  br i1 %exitcond165.not, label %160, label %.preheader, !llvm.loop !708
+  br i1 %exitcond165.not, label %160, label %.preheader, !llvm.loop !627
 
 164:                                              ; preds = %.preheader, %164
   %.0158 = phi i64 [ 0, %.preheader ], [ %174, %164 ]
@@ -32750,7 +32870,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %172, ptr %173, align 4, !tbaa !93
   %174 = add nuw nsw i64 %.0158, 1
   %exitcond.not = icmp eq i64 %174, 3
-  br i1 %exitcond.not, label %162, label %164, !llvm.loop !709
+  br i1 %exitcond.not, label %162, label %164, !llvm.loop !628
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -32815,12 +32935,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond99.not = icmp eq i64 %46, %spec.select
-  br i1 %exitcond99.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !713
+  br i1 %exitcond99.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !631
 
 47:                                               ; preds = %49
   %48 = add nuw nsw i64 %.06289.us, 1
   %exitcond98.not = icmp eq i64 %48, 3
-  br i1 %exitcond98.not, label %45, label %.preheader78.us, !llvm.loop !714
+  br i1 %exitcond98.not, label %45, label %.preheader78.us, !llvm.loop !632
 
 49:                                               ; preds = %.preheader78.us, %49
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ %59, %49 ]
@@ -32838,17 +32958,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %57, ptr %58, align 4, !tbaa !93
   %59 = add nuw nsw i64 %.086.us, 1
   %exitcond97.not = icmp eq i64 %59, 3
-  br i1 %exitcond97.not, label %47, label %49, !llvm.loop !715
+  br i1 %exitcond97.not, label %47, label %49, !llvm.loop !633
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.06685.us, 1
   %exitcond96.not = icmp eq i64 %61, %25
-  br i1 %exitcond96.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !716
+  br i1 %exitcond96.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !634
 
 62:                                               ; preds = %64
   %63 = add nuw nsw i64 %.06584.us, 1
   %exitcond95.not = icmp eq i64 %63, 3
-  br i1 %exitcond95.not, label %60, label %.preheader.us, !llvm.loop !717
+  br i1 %exitcond95.not, label %60, label %.preheader.us, !llvm.loop !635
 
 64:                                               ; preds = %.preheader.us, %64
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ %93, %64 ]
@@ -32872,7 +32992,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %80 = bitcast <32 x i8> %78 to <8 x i32>
   %81 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %79, <8 x i32> %80)
   %82 = sitofp <8 x i32> %81 to <8 x float>
-  %83 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %83 = load i16, ptr %gep.us, align 2, !tbaa !617
   %84 = zext i16 %83 to i64
   %85 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !93
@@ -32885,7 +33005,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %92, ptr %90, align 32, !tbaa !53
   %93 = add nuw nsw i64 %.06481.us, 1
   %exitcond94.not = icmp eq i64 %93, 3
-  br i1 %exitcond94.not, label %62, label %64, !llvm.loop !718
+  br i1 %exitcond94.not, label %62, label %64, !llvm.loop !636
 
 .preheader.us:                                    ; preds = %.preheader79.us, %62
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ %63, %62 ]
@@ -32894,7 +33014,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %95
   %96 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %96, align 1, !tbaa !53
-  %97 = load i16, ptr %gep83.us, align 2, !tbaa !422
+  %97 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
   %99 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
@@ -32946,12 +33066,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %113 = add nsw i64 %.06790, 1
   %exitcond93.not = icmp eq i64 %113, %spec.select
-  br i1 %exitcond93.not, label %._crit_edge, label %.preheader80, !llvm.loop !719
+  br i1 %exitcond93.not, label %._crit_edge, label %.preheader80, !llvm.loop !631
 
 114:                                              ; preds = %116
   %115 = add nuw nsw i64 %.06289, 1
   %exitcond92.not = icmp eq i64 %115, 3
-  br i1 %exitcond92.not, label %112, label %.preheader78, !llvm.loop !714
+  br i1 %exitcond92.not, label %112, label %.preheader78, !llvm.loop !632
 
 116:                                              ; preds = %.preheader78, %116
   %.086 = phi i64 [ 0, %.preheader78 ], [ %126, %116 ]
@@ -32969,7 +33089,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %124, ptr %125, align 4, !tbaa !93
   %126 = add nuw nsw i64 %.086, 1
   %exitcond.not = icmp eq i64 %126, 3
-  br i1 %exitcond.not, label %114, label %116, !llvm.loop !715
+  br i1 %exitcond.not, label %114, label %116, !llvm.loop !633
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -33048,10 +33168,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond133.not = icmp eq i64 %57, %spec.select
-  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !720
+  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !637
 
 58:                                               ; preds = %59
-  br i1 %178, label %.preheader.us, label %56, !llvm.loop !721
+  br i1 %178, label %.preheader.us, label %56, !llvm.loop !638
 
 59:                                               ; preds = %.preheader.us, %59
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %69, %59 ]
@@ -33069,18 +33189,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0123.us, 1
   %exitcond132.not = icmp eq i64 %69, 4
-  br i1 %exitcond132.not, label %58, label %59, !llvm.loop !722
+  br i1 %exitcond132.not, label %58, label %59, !llvm.loop !639
 
 70:                                               ; preds = %.lr.ph.us, %133
   %.0104122.us = phi i64 [ 0, %.lr.ph.us ], [ %134, %133 ]
   %71 = getelementptr %struct.block_iq4_nl, ptr %47, i64 %.0104122.us
-  %72 = load i16, ptr %71, align 2, !tbaa !696
+  %72 = load i16, ptr %71, align 2, !tbaa !617
   %73 = getelementptr %struct.block_iq4_nl, ptr %50, i64 %.0104122.us
-  %74 = load i16, ptr %73, align 2, !tbaa !696
+  %74 = load i16, ptr %73, align 2, !tbaa !617
   %75 = getelementptr %struct.block_iq4_nl, ptr %53, i64 %.0104122.us
-  %76 = load i16, ptr %75, align 2, !tbaa !696
+  %76 = load i16, ptr %75, align 2, !tbaa !617
   %77 = getelementptr %struct.block_iq4_nl, ptr %55, i64 %.0104122.us
-  %78 = load i16, ptr %77, align 2, !tbaa !696
+  %78 = load i16, ptr %77, align 2, !tbaa !617
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -33145,7 +33265,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 133:                                              ; preds = %135
   %134 = add nuw nsw i64 %.0104122.us, 1
   %exitcond131.not = icmp eq i64 %134, %25
-  br i1 %exitcond131.not, label %..preheader120_crit_edge.us, label %70, !llvm.loop !723
+  br i1 %exitcond131.not, label %..preheader120_crit_edge.us, label %70, !llvm.loop !640
 
 135:                                              ; preds = %135, %70
   %136 = phi i1 [ true, %70 ], [ false, %135 ]
@@ -33154,7 +33274,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %137 = add nsw i64 %.0103121.us, %44
   %138 = mul nsw i64 %34, %137
   %gep.us = getelementptr %struct.block_q8_0, ptr %invariant.gep.us, i64 %138
-  %139 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %139 = load i16, ptr %gep.us, align 2, !tbaa !391
   %140 = zext i16 %139 to i64
   %141 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !93
@@ -33198,7 +33318,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %176 = load <8 x float>, ptr %175, align 32, !tbaa !53
   %177 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %170, <8 x float> %174, <8 x float> %176)
   store <8 x float> %177, ptr %175, align 32, !tbaa !53
-  br i1 %136, label %135, label %133, !llvm.loop !724
+  br i1 %136, label %135, label %133, !llvm.loop !641
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %178 = phi i1 [ true, %..preheader120_crit_edge.us ], [ false, %58 ]
@@ -33241,10 +33361,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %189 = add nsw i64 %.0102127, 1
   %exitcond130.not = icmp eq i64 %189, %spec.select
-  br i1 %exitcond130.not, label %._crit_edge, label %.preheader120, !llvm.loop !725
+  br i1 %exitcond130.not, label %._crit_edge, label %.preheader120, !llvm.loop !637
 
 190:                                              ; preds = %191
-  br i1 %185, label %.preheader, label %188, !llvm.loop !721
+  br i1 %185, label %.preheader, label %188, !llvm.loop !638
 
 191:                                              ; preds = %.preheader, %191
   %.0123 = phi i64 [ 0, %.preheader ], [ %201, %191 ]
@@ -33262,7 +33382,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %199, ptr %200, align 4, !tbaa !93
   %201 = add nuw nsw i64 %.0123, 1
   %exitcond.not = icmp eq i64 %201, 4
-  br i1 %exitcond.not, label %190, label %191, !llvm.loop !722
+  br i1 %exitcond.not, label %190, label %191, !llvm.loop !639
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -33342,12 +33462,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118162.us, 1
   %exitcond168.not = icmp eq i64 %60, %spec.select
-  br i1 %exitcond168.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !726
+  br i1 %exitcond168.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !642
 
 61:                                               ; preds = %63
   %62 = add nuw nsw i64 %.0116161.us, 1
   %exitcond167.not = icmp eq i64 %62, 4
-  br i1 %exitcond167.not, label %59, label %.preheader.us, !llvm.loop !727
+  br i1 %exitcond167.not, label %59, label %.preheader.us, !llvm.loop !643
 
 63:                                               ; preds = %.preheader.us, %63
   %64 = phi i1 [ true, %.preheader.us ], [ false, %63 ]
@@ -33364,18 +33484,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %72 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %73 = getelementptr float, ptr %gep160.us, i64 %.0158.us
   store float %72, ptr %73, align 4, !tbaa !93
-  br i1 %64, label %63, label %61, !llvm.loop !728
+  br i1 %64, label %63, label %61, !llvm.loop !644
 
 74:                                               ; preds = %.lr.ph.us, %93
   %.0120157.us = phi i64 [ 0, %.lr.ph.us ], [ %94, %93 ]
   %75 = getelementptr %struct.block_q8_0, ptr %50, i64 %.0120157.us
-  %76 = load i16, ptr %75, align 2, !tbaa !422
+  %76 = load i16, ptr %75, align 2, !tbaa !391
   %77 = getelementptr %struct.block_q8_0, ptr %53, i64 %.0120157.us
-  %78 = load i16, ptr %77, align 2, !tbaa !422
+  %78 = load i16, ptr %77, align 2, !tbaa !391
   %79 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120157.us
-  %80 = load i16, ptr %79, align 2, !tbaa !422
+  %80 = load i16, ptr %79, align 2, !tbaa !391
   %81 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0120157.us
-  %82 = load i16, ptr %81, align 2, !tbaa !422
+  %82 = load i16, ptr %81, align 2, !tbaa !391
   %83 = insertelement <4 x i16> poison, i16 %82, i64 0
   %84 = insertelement <4 x i16> %83, i16 %80, i64 1
   %85 = insertelement <4 x i16> %84, i16 %78, i64 2
@@ -33396,7 +33516,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 93:                                               ; preds = %95
   %94 = add nuw nsw i64 %.0120157.us, 1
   %exitcond166.not = icmp eq i64 %94, %25
-  br i1 %exitcond166.not, label %..preheader155_crit_edge.us, label %74, !llvm.loop !729
+  br i1 %exitcond166.not, label %..preheader155_crit_edge.us, label %74, !llvm.loop !645
 
 95:                                               ; preds = %95, %74
   %96 = phi i1 [ true, %74 ], [ false, %95 ]
@@ -33405,7 +33525,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %97 = add nsw i64 %.0119156.us, %44
   %98 = mul nsw i64 %33, %97
   %gep.us = getelementptr %struct.block_iq4_nl, ptr %invariant.gep.us, i64 %98
-  %99 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %99 = load i16, ptr %gep.us, align 2, !tbaa !617
   %100 = zext i16 %99 to i64
   %101 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !93
@@ -33460,7 +33580,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %147 = load <8 x float>, ptr %146, align 32, !tbaa !53
   %148 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %141, <8 x float> %145, <8 x float> %147)
   store <8 x float> %148, ptr %146, align 32, !tbaa !53
-  br i1 %96, label %95, label %93, !llvm.loop !730
+  br i1 %96, label %95, label %93, !llvm.loop !646
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %61
   %.0116161.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %62, %61 ]
@@ -33501,12 +33621,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.0118162, 1
   %exitcond165.not = icmp eq i64 %160, %spec.select
-  br i1 %exitcond165.not, label %._crit_edge, label %.preheader155, !llvm.loop !731
+  br i1 %exitcond165.not, label %._crit_edge, label %.preheader155, !llvm.loop !642
 
 161:                                              ; preds = %163
   %162 = add nuw nsw i64 %.0116161, 1
   %exitcond.not = icmp eq i64 %162, 4
-  br i1 %exitcond.not, label %159, label %.preheader, !llvm.loop !727
+  br i1 %exitcond.not, label %159, label %.preheader, !llvm.loop !643
 
 163:                                              ; preds = %.preheader, %163
   %164 = phi i1 [ true, %.preheader ], [ false, %163 ]
@@ -33523,7 +33643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %172 = extractelement <4 x float> %foldExtExtBinop173, i64 0
   %173 = getelementptr float, ptr %gep160, i64 %.0158
   store float %172, ptr %173, align 4, !tbaa !93
-  br i1 %164, label %163, label %161, !llvm.loop !728
+  br i1 %164, label %163, label %161, !llvm.loop !644
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -33591,10 +33711,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond96.not = icmp eq i64 %46, %spec.select
-  br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !732
+  br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !647
 
 47:                                               ; preds = %48
-  br i1 %100, label %.preheader78.us, label %45, !llvm.loop !733
+  br i1 %100, label %.preheader78.us, label %45, !llvm.loop !648
 
 48:                                               ; preds = %.preheader78.us, %48
   %.086.us = phi i64 [ 0, %.preheader78.us ], [ %58, %48 ]
@@ -33612,15 +33732,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %56, ptr %57, align 4, !tbaa !93
   %58 = add nuw nsw i64 %.086.us, 1
   %exitcond95.not = icmp eq i64 %58, 3
-  br i1 %exitcond95.not, label %47, label %48, !llvm.loop !734
+  br i1 %exitcond95.not, label %47, label %48, !llvm.loop !649
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06685.us, 1
   %exitcond94.not = icmp eq i64 %60, %25
-  br i1 %exitcond94.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !735
+  br i1 %exitcond94.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !650
 
 61:                                               ; preds = %62
-  br i1 %92, label %.preheader.us, label %59, !llvm.loop !736
+  br i1 %92, label %.preheader.us, label %59, !llvm.loop !651
 
 62:                                               ; preds = %.preheader.us, %62
   %.06481.us = phi i64 [ 0, %.preheader.us ], [ %91, %62 ]
@@ -33644,7 +33764,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %78 = bitcast <32 x i8> %76 to <8 x i32>
   %79 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %77, <8 x i32> %78)
   %80 = sitofp <8 x i32> %79 to <8 x float>
-  %81 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %81 = load i16, ptr %gep.us, align 2, !tbaa !617
   %82 = zext i16 %81 to i64
   %83 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
@@ -33657,7 +33777,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %90, ptr %88, align 32, !tbaa !53
   %91 = add nuw nsw i64 %.06481.us, 1
   %exitcond93.not = icmp eq i64 %91, 3
-  br i1 %exitcond93.not, label %61, label %62, !llvm.loop !737
+  br i1 %exitcond93.not, label %61, label %62, !llvm.loop !652
 
 .preheader.us:                                    ; preds = %.preheader79.us, %61
   %92 = phi i1 [ true, %.preheader79.us ], [ false, %61 ]
@@ -33668,7 +33788,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %94
   %95 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %95, align 1, !tbaa !53
-  %96 = load i16, ptr %gep83.us, align 2, !tbaa !422
+  %96 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
@@ -33721,10 +33841,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = add nsw i64 %.06790, 1
   %exitcond92.not = icmp eq i64 %111, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !738
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !647
 
 112:                                              ; preds = %113
-  br i1 %107, label %.preheader78, label %110, !llvm.loop !733
+  br i1 %107, label %.preheader78, label %110, !llvm.loop !648
 
 113:                                              ; preds = %.preheader78, %113
   %.086 = phi i64 [ 0, %.preheader78 ], [ %123, %113 ]
@@ -33742,7 +33862,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %121, ptr %122, align 4, !tbaa !93
   %123 = add nuw nsw i64 %.086, 1
   %exitcond.not = icmp eq i64 %123, 3
-  br i1 %exitcond.not, label %112, label %113, !llvm.loop !734
+  br i1 %exitcond.not, label %112, label %113, !llvm.loop !649
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -33807,12 +33927,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond96.not = icmp eq i64 %46, %spec.select
-  br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !739
+  br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !653
 
 47:                                               ; preds = %49
   %48 = add nuw nsw i64 %.06289.us, 1
   %exitcond95.not = icmp eq i64 %48, 3
-  br i1 %exitcond95.not, label %45, label %.preheader78.us, !llvm.loop !740
+  br i1 %exitcond95.not, label %45, label %.preheader78.us, !llvm.loop !654
 
 49:                                               ; preds = %.preheader78.us, %49
   %50 = phi i1 [ true, %.preheader78.us ], [ false, %49 ]
@@ -33829,17 +33949,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %58 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %59 = getelementptr float, ptr %gep88.us, i64 %.086.us
   store float %58, ptr %59, align 4, !tbaa !93
-  br i1 %50, label %49, label %47, !llvm.loop !741
+  br i1 %50, label %49, label %47, !llvm.loop !655
 
 60:                                               ; preds = %62
   %61 = add nuw nsw i64 %.06685.us, 1
   %exitcond94.not = icmp eq i64 %61, %25
-  br i1 %exitcond94.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !742
+  br i1 %exitcond94.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !656
 
 62:                                               ; preds = %64
   %63 = add nuw nsw i64 %.06584.us, 1
   %exitcond93.not = icmp eq i64 %63, 3
-  br i1 %exitcond93.not, label %60, label %.preheader.us, !llvm.loop !743
+  br i1 %exitcond93.not, label %60, label %.preheader.us, !llvm.loop !657
 
 64:                                               ; preds = %.preheader.us, %64
   %65 = phi i1 [ true, %.preheader.us ], [ false, %64 ]
@@ -33864,7 +33984,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %81 = bitcast <32 x i8> %79 to <8 x i32>
   %82 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %80, <8 x i32> %81)
   %83 = sitofp <8 x i32> %82 to <8 x float>
-  %84 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %84 = load i16, ptr %gep.us, align 2, !tbaa !617
   %85 = zext i16 %84 to i64
   %86 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !93
@@ -33875,7 +33995,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %92 = load <8 x float>, ptr %91, align 32, !tbaa !53
   %93 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %90, <8 x float> %83, <8 x float> %92)
   store <8 x float> %93, ptr %91, align 32, !tbaa !53
-  br i1 %65, label %64, label %62, !llvm.loop !744
+  br i1 %65, label %64, label %62, !llvm.loop !658
 
 .preheader.us:                                    ; preds = %.preheader79.us, %62
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ %63, %62 ]
@@ -33884,7 +34004,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %95
   %96 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %96, align 1, !tbaa !53
-  %97 = load i16, ptr %gep83.us, align 2, !tbaa !422
+  %97 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %98 = zext i16 %97 to i64
   %99 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !93
@@ -33936,12 +34056,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %113 = add nsw i64 %.06790, 1
   %exitcond92.not = icmp eq i64 %113, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !745
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !653
 
 114:                                              ; preds = %116
   %115 = add nuw nsw i64 %.06289, 1
   %exitcond.not = icmp eq i64 %115, 3
-  br i1 %exitcond.not, label %112, label %.preheader78, !llvm.loop !740
+  br i1 %exitcond.not, label %112, label %.preheader78, !llvm.loop !654
 
 116:                                              ; preds = %.preheader78, %116
   %117 = phi i1 [ true, %.preheader78 ], [ false, %116 ]
@@ -33958,7 +34078,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %125 = extractelement <4 x float> %foldExtExtBinop101, i64 0
   %126 = getelementptr float, ptr %gep88, i64 %.086
   store float %125, ptr %126, align 4, !tbaa !93
-  br i1 %117, label %116, label %114, !llvm.loop !741
+  br i1 %117, label %116, label %114, !llvm.loop !655
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -34044,7 +34164,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %67, ptr %68, align 4, !tbaa !93
   %69 = add nuw nsw i64 %.0136.us, 1
   %exitcond145.not = icmp eq i64 %69, 4
-  br i1 %exitcond145.not, label %.loopexit.us, label %59, !llvm.loop !746
+  br i1 %exitcond145.not, label %.loopexit.us, label %59, !llvm.loop !659
 
 70:                                               ; preds = %.lr.ph.us, %70
   %.lcssa126135.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %165, %70 ]
@@ -34053,13 +34173,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0104130.us = phi i64 [ 0, %.lr.ph.us ], [ %166, %70 ]
   %.lcssa128129.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %162, %70 ]
   %71 = getelementptr %struct.block_iq4_nl, ptr %48, i64 %.0104130.us
-  %72 = load i16, ptr %71, align 2, !tbaa !696
+  %72 = load i16, ptr %71, align 2, !tbaa !617
   %73 = getelementptr %struct.block_iq4_nl, ptr %51, i64 %.0104130.us
-  %74 = load i16, ptr %73, align 2, !tbaa !696
+  %74 = load i16, ptr %73, align 2, !tbaa !617
   %75 = getelementptr %struct.block_iq4_nl, ptr %54, i64 %.0104130.us
-  %76 = load i16, ptr %75, align 2, !tbaa !696
+  %76 = load i16, ptr %75, align 2, !tbaa !617
   %77 = getelementptr %struct.block_iq4_nl, ptr %56, i64 %.0104130.us
-  %78 = load i16, ptr %77, align 2, !tbaa !696
+  %78 = load i16, ptr %77, align 2, !tbaa !617
   %79 = insertelement <4 x i16> poison, i16 %78, i64 0
   %80 = insertelement <4 x i16> %79, i16 %76, i64 1
   %81 = insertelement <4 x i16> %80, i16 %74, i64 2
@@ -34107,7 +34227,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %119 = and <16 x i8> %118, splat (i8 15)
   %120 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %.val118.us, <16 x i8> %119)
   %121 = getelementptr %struct.block_q8_0, ptr %58, i64 %.0104130.us
-  %122 = load i16, ptr %121, align 2, !tbaa !422
+  %122 = load i16, ptr %121, align 2, !tbaa !391
   %123 = zext i16 %122 to i64
   %124 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !93
@@ -34154,13 +34274,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %165 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %154, <8 x float> %161, <8 x float> %.lcssa126135.us)
   %166 = add nuw nsw i64 %.0104130.us, 1
   %exitcond144.not = icmp eq i64 %166, %24
-  br i1 %exitcond144.not, label %..preheader120_crit_edge.us, label %70, !llvm.loop !747
+  br i1 %exitcond144.not, label %..preheader120_crit_edge.us, label %70, !llvm.loop !660
 
 .loopexit.us:                                     ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %167 = add nsw i64 %.0102137.us, 1
   %exitcond146.not = icmp eq i64 %167, %spec.select
-  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !748
+  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !661
 
 ..preheader120_crit_edge.us:                      ; preds = %70
   store <8 x float> %163, ptr %34, align 32, !tbaa !53
@@ -34193,7 +34313,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %178 = add nsw i64 %.0102137, 1
   %exitcond143.not = icmp eq i64 %178, %spec.select
-  br i1 %exitcond143.not, label %._crit_edge, label %.preheader120, !llvm.loop !749
+  br i1 %exitcond143.not, label %._crit_edge, label %.preheader120, !llvm.loop !661
 
 179:                                              ; preds = %.preheader120, %179
   %.0136 = phi i64 [ 0, %.preheader120 ], [ %189, %179 ]
@@ -34211,7 +34331,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.0136, 1
   %exitcond.not = icmp eq i64 %189, 4
-  br i1 %exitcond.not, label %.loopexit, label %179, !llvm.loop !746
+  br i1 %exitcond.not, label %.loopexit, label %179, !llvm.loop !659
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -34279,10 +34399,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond93.not = icmp eq i64 %46, %spec.select
-  br i1 %exitcond93.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !750
+  br i1 %exitcond93.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !662
 
 47:                                               ; preds = %48
-  br i1 %100, label %.preheader78.us, label %45, !llvm.loop !751
+  br i1 %100, label %.preheader78.us, label %45, !llvm.loop !663
 
 48:                                               ; preds = %.preheader78.us, %48
   %49 = phi i1 [ true, %.preheader78.us ], [ false, %48 ]
@@ -34299,15 +34419,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %57 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %58 = getelementptr float, ptr %gep88.us, i64 %.086.us
   store float %57, ptr %58, align 4, !tbaa !93
-  br i1 %49, label %48, label %47, !llvm.loop !752
+  br i1 %49, label %48, label %47, !llvm.loop !664
 
 59:                                               ; preds = %61
   %60 = add nuw nsw i64 %.06685.us, 1
   %exitcond92.not = icmp eq i64 %60, %25
-  br i1 %exitcond92.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !753
+  br i1 %exitcond92.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !665
 
 61:                                               ; preds = %62
-  br i1 %92, label %.preheader.us, label %59, !llvm.loop !754
+  br i1 %92, label %.preheader.us, label %59, !llvm.loop !666
 
 62:                                               ; preds = %.preheader.us, %62
   %63 = phi i1 [ true, %.preheader.us ], [ false, %62 ]
@@ -34332,7 +34452,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %79 = bitcast <32 x i8> %77 to <8 x i32>
   %80 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %78, <8 x i32> %79)
   %81 = sitofp <8 x i32> %80 to <8 x float>
-  %82 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %82 = load i16, ptr %gep.us, align 2, !tbaa !617
   %83 = zext i16 %82 to i64
   %84 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !93
@@ -34343,7 +34463,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %90 = load <8 x float>, ptr %89, align 32, !tbaa !53
   %91 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %88, <8 x float> %81, <8 x float> %90)
   store <8 x float> %91, ptr %89, align 32, !tbaa !53
-  br i1 %63, label %62, label %61, !llvm.loop !755
+  br i1 %63, label %62, label %61, !llvm.loop !667
 
 .preheader.us:                                    ; preds = %.preheader79.us, %61
   %92 = phi i1 [ true, %.preheader79.us ], [ false, %61 ]
@@ -34354,7 +34474,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %gep83.us = getelementptr %struct.block_q8_0, ptr %invariant.gep82.us, i64 %94
   %95 = getelementptr i8, ptr %gep83.us, i64 2
   %.val7577.us = load <32 x i8>, ptr %95, align 1, !tbaa !53
-  %96 = load i16, ptr %gep83.us, align 2, !tbaa !422
+  %96 = load i16, ptr %gep83.us, align 2, !tbaa !391
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %97
   %99 = load float, ptr %98, align 4, !tbaa !93
@@ -34407,10 +34527,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = add nsw i64 %.06790, 1
   %exitcond.not = icmp eq i64 %111, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !756
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !662
 
 112:                                              ; preds = %113
-  br i1 %107, label %.preheader78, label %110, !llvm.loop !751
+  br i1 %107, label %.preheader78, label %110, !llvm.loop !663
 
 113:                                              ; preds = %.preheader78, %113
   %114 = phi i1 [ true, %.preheader78 ], [ false, %113 ]
@@ -34427,7 +34547,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %122 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %123 = getelementptr float, ptr %gep88, i64 %.086
   store float %122, ptr %123, align 4, !tbaa !93
-  br i1 %114, label %113, label %112, !llvm.loop !752
+  br i1 %114, label %113, label %112, !llvm.loop !664
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -34505,7 +34625,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118172.us, 1
   %exitcond181.not = icmp eq i64 %60, %spec.select
-  br i1 %exitcond181.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !757
+  br i1 %exitcond181.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !668
 
 61:                                               ; preds = %.lr.ph.us, %61
   %.lcssa161170.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %123, %61 ]
@@ -34514,13 +34634,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.0120165.us = phi i64 [ 0, %.lr.ph.us ], [ %124, %61 ]
   %.lcssa163164.us = phi <8 x float> [ zeroinitializer, %.lr.ph.us ], [ %120, %61 ]
   %62 = getelementptr %struct.block_q8_0, ptr %48, i64 %.0120165.us
-  %63 = load i16, ptr %62, align 2, !tbaa !422
+  %63 = load i16, ptr %62, align 2, !tbaa !391
   %64 = getelementptr %struct.block_q8_0, ptr %51, i64 %.0120165.us
-  %65 = load i16, ptr %64, align 2, !tbaa !422
+  %65 = load i16, ptr %64, align 2, !tbaa !391
   %66 = getelementptr %struct.block_q8_0, ptr %54, i64 %.0120165.us
-  %67 = load i16, ptr %66, align 2, !tbaa !422
+  %67 = load i16, ptr %66, align 2, !tbaa !391
   %68 = getelementptr %struct.block_q8_0, ptr %56, i64 %.0120165.us
-  %69 = load i16, ptr %68, align 2, !tbaa !422
+  %69 = load i16, ptr %68, align 2, !tbaa !391
   %70 = insertelement <4 x i16> poison, i16 %69, i64 0
   %71 = insertelement <4 x i16> %70, i16 %67, i64 1
   %72 = insertelement <4 x i16> %71, i16 %65, i64 2
@@ -34536,7 +34656,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %79 = getelementptr i8, ptr %62, i64 2
   %.val149153.us = load <32 x i8>, ptr %79, align 2, !tbaa !53
   %80 = getelementptr %struct.block_iq4_nl, ptr %58, i64 %.0120165.us
-  %81 = load i16, ptr %80, align 2, !tbaa !696
+  %81 = load i16, ptr %80, align 2, !tbaa !617
   %82 = zext i16 %81 to i64
   %83 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !93
@@ -34582,7 +34702,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %123 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %115, <8 x float> %119, <8 x float> %.lcssa161170.us)
   %124 = add nuw nsw i64 %.0120165.us, 1
   %exitcond179.not = icmp eq i64 %124, %24
-  br i1 %exitcond179.not, label %..preheader155_crit_edge.us, label %61, !llvm.loop !758
+  br i1 %exitcond179.not, label %..preheader155_crit_edge.us, label %61, !llvm.loop !669
 
 .preheader.us:                                    ; preds = %..preheader155_crit_edge.us, %.preheader.us
   %.0116171.us = phi i64 [ 0, %..preheader155_crit_edge.us ], [ %135, %.preheader.us ]
@@ -34602,7 +34722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %132, ptr %gep.us, align 4, !tbaa !93
   %135 = add nuw nsw i64 %.0116171.us, 1
   %exitcond180.not = icmp eq i64 %135, 4
-  br i1 %exitcond180.not, label %59, label %.preheader.us, !llvm.loop !759
+  br i1 %exitcond180.not, label %59, label %.preheader.us, !llvm.loop !670
 
 ..preheader155_crit_edge.us:                      ; preds = %61
   store <8 x float> %121, ptr %34, align 32, !tbaa !53
@@ -34644,13 +34764,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %147, ptr %gep, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.0116171, 1
   %exitcond.not = icmp eq i64 %150, 4
-  br i1 %exitcond.not, label %151, label %.preheader, !llvm.loop !759
+  br i1 %exitcond.not, label %151, label %.preheader, !llvm.loop !670
 
 151:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.0118172, 1
   %exitcond178.not = icmp eq i64 %152, %spec.select
-  br i1 %exitcond178.not, label %._crit_edge, label %.preheader155, !llvm.loop !760
+  br i1 %exitcond178.not, label %._crit_edge, label %.preheader155, !llvm.loop !668
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -34723,7 +34843,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %53, ptr %54, align 4, !tbaa !93
   %55 = add nuw nsw i64 %.084.us, 1
   %exitcond90.not = icmp eq i64 %55, 3
-  br i1 %exitcond90.not, label %.loopexit79.us, label %45, !llvm.loop !761
+  br i1 %exitcond90.not, label %.loopexit79.us, label %45, !llvm.loop !671
 
 56:                                               ; preds = %.preheader80.us, %56
   %.06482.us = phi i64 [ 0, %.preheader80.us ], [ %85, %56 ]
@@ -34747,7 +34867,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %72 = bitcast <32 x i8> %70 to <8 x i32>
   %73 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %71, <8 x i32> %72)
   %74 = sitofp <8 x i32> %73 to <8 x float>
-  %75 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %75 = load i16, ptr %gep.us, align 2, !tbaa !617
   %76 = zext i16 %75 to i64
   %77 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !93
@@ -34760,18 +34880,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %84, ptr %82, align 32, !tbaa !53
   %85 = add nuw nsw i64 %.06482.us, 1
   %exitcond88.not = icmp eq i64 %85, 3
-  br i1 %exitcond88.not, label %.loopexit.us, label %56, !llvm.loop !762
+  br i1 %exitcond88.not, label %.loopexit.us, label %56, !llvm.loop !672
 
 .loopexit.us:                                     ; preds = %56
   %86 = add nuw nsw i64 %.06683.us, 1
   %exitcond89.not = icmp eq i64 %86, %24
-  br i1 %exitcond89.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !763
+  br i1 %exitcond89.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !673
 
 .loopexit79.us:                                   ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %87 = add nsw i64 %.06785.us, 1
   %exitcond91.not = icmp eq i64 %87, %spec.select
-  br i1 %exitcond91.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !764
+  br i1 %exitcond91.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !674
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %.loopexit.us
   %.06683.us = phi i64 [ 0, %.preheader80.lr.ph.us ], [ %86, %.loopexit.us ]
@@ -34779,7 +34899,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %88 = getelementptr inbounds nuw %struct.block_q8_0, ptr %44, i64 %.06683.us
   %89 = getelementptr i8, ptr %88, i64 2
   %.val7577.us = load <32 x i8>, ptr %89, align 1, !tbaa !53
-  %90 = load i16, ptr %88, align 2, !tbaa !422
+  %90 = load i16, ptr %88, align 2, !tbaa !391
   %91 = zext i16 %90 to i64
   %92 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !93
@@ -34812,7 +34932,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %104 = add nsw i64 %.06785, 1
   %exitcond87.not = icmp eq i64 %104, %spec.select
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader81, !llvm.loop !765
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader81, !llvm.loop !674
 
 105:                                              ; preds = %.preheader81, %105
   %.084 = phi i64 [ 0, %.preheader81 ], [ %115, %105 ]
@@ -34830,7 +34950,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %113, ptr %114, align 4, !tbaa !93
   %115 = add nuw nsw i64 %.084, 1
   %exitcond.not = icmp eq i64 %115, 3
-  br i1 %exitcond.not, label %.loopexit79, label %105, !llvm.loop !761
+  br i1 %exitcond.not, label %.loopexit79, label %105, !llvm.loop !671
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -34895,12 +35015,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %46, %spec.select
-  br i1 %exitcond92.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !766
+  br i1 %exitcond92.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !675
 
 47:                                               ; preds = %.preheader.us
   %48 = add nuw nsw i64 %.06682.us, 1
   %exitcond90.not = icmp eq i64 %48, %24
-  br i1 %exitcond90.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !767
+  br i1 %exitcond90.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !676
 
 .preheader.us:                                    ; preds = %.preheader79.us, %.preheader.us
   %.06581.us = phi i64 [ 0, %.preheader79.us ], [ %65, %.preheader.us ]
@@ -34913,7 +35033,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %53 = bitcast <32 x i8> %52 to <8 x i32>
   %54 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %89, <8 x i32> %53)
   %55 = sitofp <8 x i32> %54 to <8 x float>
-  %56 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %56 = load i16, ptr %gep.us, align 2, !tbaa !391
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !93
@@ -34926,7 +35046,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store <8 x float> %64, ptr %63, align 32, !tbaa !53
   %65 = add nuw nsw i64 %.06581.us, 1
   %exitcond89.not = icmp eq i64 %65, 3
-  br i1 %exitcond89.not, label %47, label %.preheader.us, !llvm.loop !768
+  br i1 %exitcond89.not, label %47, label %.preheader.us, !llvm.loop !677
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %.preheader78.us
   %.06285.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ %76, %.preheader78.us ]
@@ -34946,7 +35066,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %73, ptr %gep84.us, align 4, !tbaa !93
   %76 = add nuw nsw i64 %.06285.us, 1
   %exitcond91.not = icmp eq i64 %76, 3
-  br i1 %exitcond91.not, label %45, label %.preheader78.us, !llvm.loop !769
+  br i1 %exitcond91.not, label %45, label %.preheader78.us, !llvm.loop !678
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %47
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %48, %47 ]
@@ -34965,7 +35085,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %88 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %87, <32 x i8> %87)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %31, i64 %.06682.us
   %89 = bitcast <32 x i8> %88 to <8 x i32>
-  %90 = load i16, ptr %77, align 2, !tbaa !696
+  %90 = load i16, ptr %77, align 2, !tbaa !617
   %91 = zext i16 %90 to i64
   %92 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !93
@@ -35007,13 +35127,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %105, ptr %gep84, align 4, !tbaa !93
   %108 = add nuw nsw i64 %.06285, 1
   %exitcond.not = icmp eq i64 %108, 3
-  br i1 %exitcond.not, label %109, label %.preheader78, !llvm.loop !769
+  br i1 %exitcond.not, label %109, label %.preheader78, !llvm.loop !678
 
 109:                                              ; preds = %.preheader78
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %110, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader80, !llvm.loop !770
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader80, !llvm.loop !675
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -35088,7 +35208,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %52 = extractelement <4 x float> %foldExtExtBinop, i64 0
   %53 = getelementptr float, ptr %93, i64 %.084.us
   store float %52, ptr %53, align 4, !tbaa !93
-  br i1 %45, label %44, label %.loopexit79.us, !llvm.loop !771
+  br i1 %45, label %44, label %.loopexit79.us, !llvm.loop !679
 
 54:                                               ; preds = %.preheader80.us, %54
   %55 = phi i1 [ true, %.preheader80.us ], [ false, %54 ]
@@ -35114,7 +35234,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %71 = bitcast <32 x i8> %69 to <8 x i32>
   %72 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %70, <8 x i32> %71)
   %73 = sitofp <8 x i32> %72 to <8 x float>
-  %74 = load i16, ptr %gep.us, align 2, !tbaa !696
+  %74 = load i16, ptr %gep.us, align 2, !tbaa !617
   %75 = zext i16 %74 to i64
   %76 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !93
@@ -35124,19 +35244,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %81 = load <8 x float>, ptr %.06482.us.sroa.phi, align 32, !tbaa !53
   %82 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %80, <8 x float> %73, <8 x float> %81)
   store <8 x float> %82, ptr %.06482.us.sroa.phi, align 32, !tbaa !53
-  br i1 %55, label %54, label %.loopexit.us, !llvm.loop !772
+  br i1 %55, label %54, label %.loopexit.us, !llvm.loop !680
 
 .loopexit.us:                                     ; preds = %54
   %83 = add nuw nsw i64 %.06683.us, 1
   %exitcond87.not = icmp eq i64 %83, %23
-  br i1 %exitcond87.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !773
+  br i1 %exitcond87.not, label %..preheader81_crit_edge.us, label %.preheader80.us, !llvm.loop !681
 
 .loopexit79.us:                                   ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %84 = add nsw i64 %.06785.us, 1
   %exitcond88.not = icmp eq i64 %84, %spec.select
-  br i1 %exitcond88.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !774
+  br i1 %exitcond88.not, label %._crit_edge, label %.preheader80.lr.ph.us, !llvm.loop !682
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %.loopexit.us
   %.06683.us = phi i64 [ 0, %.preheader80.lr.ph.us ], [ %83, %.loopexit.us ]
@@ -35144,7 +35264,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = getelementptr inbounds nuw %struct.block_q8_0, ptr %43, i64 %.06683.us
   %86 = getelementptr i8, ptr %85, i64 2
   %.val7577.us = load <32 x i8>, ptr %86, align 1, !tbaa !53
-  %87 = load i16, ptr %85, align 2, !tbaa !422
+  %87 = load i16, ptr %85, align 2, !tbaa !391
   %88 = zext i16 %87 to i64
   %89 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
@@ -35180,7 +35300,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %101 = add nsw i64 %.06785, 1
   %exitcond.not = icmp eq i64 %101, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !775
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader81, !llvm.loop !682
 
 102:                                              ; preds = %.preheader81, %102
   %103 = phi i1 [ true, %.preheader81 ], [ false, %102 ]
@@ -35197,7 +35317,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %110 = extractelement <4 x float> %foldExtExtBinop93, i64 0
   %111 = getelementptr float, ptr %100, i64 %.084
   store float %110, ptr %111, align 4, !tbaa !93
-  br i1 %103, label %102, label %.loopexit79, !llvm.loop !771
+  br i1 %103, label %102, label %.loopexit79, !llvm.loop !679
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -35266,12 +35386,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
-  br i1 %exitcond89.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !776
+  br i1 %exitcond89.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !683
 
 46:                                               ; preds = %.preheader.us
   %47 = add nuw nsw i64 %.06682.us, 1
   %exitcond88.not = icmp eq i64 %47, %23
-  br i1 %exitcond88.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !777
+  br i1 %exitcond88.not, label %..preheader80_crit_edge.us, label %.preheader79.us, !llvm.loop !684
 
 .preheader.us:                                    ; preds = %.preheader79.us, %.preheader.us
   %48 = phi i1 [ true, %.preheader79.us ], [ false, %.preheader.us ]
@@ -35286,7 +35406,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %53 = bitcast <32 x i8> %52 to <8 x i32>
   %54 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %86, <8 x i32> %53)
   %55 = sitofp <8 x i32> %54 to <8 x float>
-  %56 = load i16, ptr %gep.us, align 2, !tbaa !422
+  %56 = load i16, ptr %gep.us, align 2, !tbaa !391
   %57 = zext i16 %56 to i64
   %58 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !93
@@ -35296,7 +35416,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %.promoted.us = load <8 x float>, ptr %.06581.us.sroa.phi, align 32, !tbaa !53
   %63 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %62, <8 x float> %55, <8 x float> %.promoted.us)
   store <8 x float> %63, ptr %.06581.us.sroa.phi, align 32, !tbaa !53
-  br i1 %48, label %.preheader.us, label %46, !llvm.loop !778
+  br i1 %48, label %.preheader.us, label %46, !llvm.loop !685
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %.preheader78.us
   %64 = phi i1 [ true, %..preheader80_crit_edge.us ], [ false, %.preheader78.us ]
@@ -35315,7 +35435,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %73 = mul nsw i64 %36, %72
   %gep84.us = getelementptr float, ptr %invariant.gep83.us, i64 %73
   store float %71, ptr %gep84.us, align 4, !tbaa !93
-  br i1 %64, label %.preheader78.us, label %44, !llvm.loop !779
+  br i1 %64, label %.preheader78.us, label %44, !llvm.loop !686
 
 .preheader79.us:                                  ; preds = %.preheader79.lr.ph.us, %46
   %.06682.us = phi i64 [ 0, %.preheader79.lr.ph.us ], [ %47, %46 ]
@@ -35334,7 +35454,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %85 = tail call <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8> %84, <32 x i8> %84)
   %invariant.gep.us = getelementptr %struct.block_q8_0, ptr %30, i64 %.06682.us
   %86 = bitcast <32 x i8> %85 to <8 x i32>
-  %87 = load i16, ptr %74, align 2, !tbaa !696
+  %87 = load i16, ptr %74, align 2, !tbaa !617
   %88 = zext i16 %87 to i64
   %89 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !93
@@ -35377,14 +35497,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %104 = mul nsw i64 %36, %103
   %gep84 = getelementptr float, ptr %gep, i64 %104
   store float %102, ptr %gep84, align 4, !tbaa !93
-  br i1 %95, label %.preheader78, label %105, !llvm.loop !779
+  br i1 %95, label %.preheader78, label %105, !llvm.loop !686
 
 105:                                              ; preds = %.preheader78
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %106 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %106, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !780
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !683
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -35462,11 +35582,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %60 = bitcast <32 x i8> %58 to <8 x i32>
   %61 = tail call <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32> zeroinitializer, <8 x i32> %59, <8 x i32> %60)
   %62 = sitofp <8 x i32> %61 to <8 x float>
-  %63 = load i16, ptr %44, align 2, !tbaa !696
+  %63 = load i16, ptr %44, align 2, !tbaa !617
   %64 = zext i16 %63 to i64
   %65 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !93
-  %67 = load i16, ptr %56, align 2, !tbaa !422
+  %67 = load i16, ptr %56, align 2, !tbaa !391
   %68 = zext i16 %67 to i64
   %69 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !93
@@ -35476,7 +35596,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %74 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %73, <8 x float> %62, <8 x float> %.sroa.0.185.us)
   %75 = add nuw nsw i64 %.06686.us, 1
   %exitcond89.not = icmp eq i64 %75, %22
-  br i1 %exitcond89.not, label %..preheader82_crit_edge.us, label %.preheader81.us, !llvm.loop !781
+  br i1 %exitcond89.not, label %..preheader82_crit_edge.us, label %.preheader81.us, !llvm.loop !687
 
 ..preheader82_crit_edge.us:                       ; preds = %.preheader81.us
   %76 = shufflevector <8 x float> %74, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
@@ -35493,7 +35613,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float %81, ptr %84, align 4, !tbaa !93
   %85 = add nsw i64 %.06787.us, 1
   %exitcond90.not = icmp eq i64 %85, %spec.select
-  br i1 %exitcond90.not, label %._crit_edge, label %.preheader81.lr.ph.us, !llvm.loop !782
+  br i1 %exitcond90.not, label %._crit_edge, label %.preheader81.lr.ph.us, !llvm.loop !688
 
 ._crit_edge:                                      ; preds = %.preheader82, %..preheader82_crit_edge.us, %5
   ret void
@@ -35510,7 +35630,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   store float 0.000000e+00, ptr %92, align 4, !tbaa !93
   %93 = add nsw i64 %.06787, 1
   %exitcond.not = icmp eq i64 %93, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader82, !llvm.loop !783
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader82, !llvm.loop !688
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -35670,12 +35790,12 @@ attributes #11 = { noreturn }
 !127 = distinct !{!127, !86}
 !128 = distinct !{!128, !86}
 !129 = distinct !{!129, !86}
-!130 = distinct !{!130, !86, !131}
-!131 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!130 = distinct !{!130, !86}
+!131 = distinct !{!131, !86}
 !132 = distinct !{!132, !86}
 !133 = distinct !{!133, !86}
 !134 = distinct !{!134, !86}
-!135 = distinct !{!135, !86, !131}
+!135 = distinct !{!135, !86}
 !136 = distinct !{!136, !86}
 !137 = distinct !{!137, !86}
 !138 = distinct !{!138, !86}
@@ -35683,8 +35803,8 @@ attributes #11 = { noreturn }
 !140 = distinct !{!140, !86}
 !141 = distinct !{!141, !86}
 !142 = distinct !{!142, !86}
-!143 = distinct !{!143, !86, !131}
-!144 = distinct !{!144, !86, !131}
+!143 = distinct !{!143, !86}
+!144 = distinct !{!144, !86}
 !145 = distinct !{!145, !86}
 !146 = distinct !{!146, !86}
 !147 = distinct !{!147, !86}
@@ -35700,17 +35820,17 @@ attributes #11 = { noreturn }
 !157 = distinct !{!157, !86}
 !158 = distinct !{!158, !86}
 !159 = distinct !{!159, !86}
-!160 = distinct !{!160, !86, !131}
+!160 = distinct !{!160, !86}
 !161 = distinct !{!161, !86}
 !162 = distinct !{!162, !86}
 !163 = distinct !{!163, !86}
-!164 = distinct !{!164, !86, !131}
+!164 = distinct !{!164, !86}
 !165 = distinct !{!165, !86}
 !166 = distinct !{!166, !86}
 !167 = distinct !{!167, !86}
 !168 = distinct !{!168, !86}
-!169 = distinct !{!169, !86, !131}
-!170 = distinct !{!170, !86, !131}
+!169 = distinct !{!169, !86}
+!170 = distinct !{!170, !86}
 !171 = distinct !{!171, !86}
 !172 = distinct !{!172, !86}
 !173 = distinct !{!173, !86}
@@ -35725,18 +35845,18 @@ attributes #11 = { noreturn }
 !182 = distinct !{!182, !86}
 !183 = distinct !{!183, !86}
 !184 = distinct !{!184, !86}
-!185 = distinct !{!185, !86, !131}
+!185 = distinct !{!185, !86}
 !186 = distinct !{!186, !86}
 !187 = distinct !{!187, !86}
 !188 = distinct !{!188, !86}
-!189 = distinct !{!189, !86, !131}
+!189 = distinct !{!189, !86}
 !190 = distinct !{!190, !86}
 !191 = distinct !{!191, !86}
 !192 = distinct !{!192, !86}
 !193 = distinct !{!193, !86}
 !194 = distinct !{!194, !86}
-!195 = distinct !{!195, !86, !131}
-!196 = distinct !{!196, !86, !131}
+!195 = distinct !{!195, !86}
+!196 = distinct !{!196, !86}
 !197 = distinct !{!197, !86}
 !198 = distinct !{!198, !86}
 !199 = distinct !{!199, !86}
@@ -35781,11 +35901,11 @@ attributes #11 = { noreturn }
 !238 = distinct !{!238, !86}
 !239 = distinct !{!239, !86}
 !240 = distinct !{!240, !86}
-!241 = distinct !{!241, !86, !131}
+!241 = distinct !{!241, !86}
 !242 = distinct !{!242, !86}
 !243 = distinct !{!243, !86}
 !244 = distinct !{!244, !86}
-!245 = distinct !{!245, !86, !131}
+!245 = distinct !{!245, !86}
 !246 = distinct !{!246, !86}
 !247 = distinct !{!247, !86}
 !248 = distinct !{!248, !86}
@@ -35793,8 +35913,8 @@ attributes #11 = { noreturn }
 !250 = distinct !{!250, !86}
 !251 = distinct !{!251, !86}
 !252 = distinct !{!252, !86}
-!253 = distinct !{!253, !86, !131}
-!254 = distinct !{!254, !86, !131}
+!253 = distinct !{!253, !86}
+!254 = distinct !{!254, !86}
 !255 = distinct !{!255, !86}
 !256 = distinct !{!256, !86}
 !257 = distinct !{!257, !86}
@@ -35810,17 +35930,17 @@ attributes #11 = { noreturn }
 !267 = distinct !{!267, !86}
 !268 = distinct !{!268, !86}
 !269 = distinct !{!269, !86}
-!270 = distinct !{!270, !86, !131}
+!270 = distinct !{!270, !86}
 !271 = distinct !{!271, !86}
 !272 = distinct !{!272, !86}
 !273 = distinct !{!273, !86}
-!274 = distinct !{!274, !86, !131}
+!274 = distinct !{!274, !86}
 !275 = distinct !{!275, !86}
 !276 = distinct !{!276, !86}
 !277 = distinct !{!277, !86}
 !278 = distinct !{!278, !86}
-!279 = distinct !{!279, !86, !131}
-!280 = distinct !{!280, !86, !131}
+!279 = distinct !{!279, !86}
+!280 = distinct !{!280, !86}
 !281 = distinct !{!281, !86}
 !282 = distinct !{!282, !86}
 !283 = distinct !{!283, !86}
@@ -35835,18 +35955,18 @@ attributes #11 = { noreturn }
 !292 = distinct !{!292, !86}
 !293 = distinct !{!293, !86}
 !294 = distinct !{!294, !86}
-!295 = distinct !{!295, !86, !131}
+!295 = distinct !{!295, !86}
 !296 = distinct !{!296, !86}
 !297 = distinct !{!297, !86}
 !298 = distinct !{!298, !86}
-!299 = distinct !{!299, !86, !131}
+!299 = distinct !{!299, !86}
 !300 = distinct !{!300, !86}
 !301 = distinct !{!301, !86}
 !302 = distinct !{!302, !86}
 !303 = distinct !{!303, !86}
 !304 = distinct !{!304, !86}
-!305 = distinct !{!305, !86, !131}
-!306 = distinct !{!306, !86, !131}
+!305 = distinct !{!305, !86}
+!306 = distinct !{!306, !86}
 !307 = distinct !{!307, !86}
 !308 = distinct !{!308, !86}
 !309 = distinct !{!309, !86}
@@ -35891,11 +36011,11 @@ attributes #11 = { noreturn }
 !348 = distinct !{!348, !86}
 !349 = distinct !{!349, !86}
 !350 = distinct !{!350, !86}
-!351 = distinct !{!351, !86, !131}
+!351 = distinct !{!351, !86}
 !352 = distinct !{!352, !86}
 !353 = distinct !{!353, !86}
 !354 = distinct !{!354, !86}
-!355 = distinct !{!355, !86, !131}
+!355 = distinct !{!355, !86}
 !356 = distinct !{!356, !86}
 !357 = distinct !{!357, !86}
 !358 = distinct !{!358, !86}
@@ -35903,8 +36023,8 @@ attributes #11 = { noreturn }
 !360 = distinct !{!360, !86}
 !361 = distinct !{!361, !86}
 !362 = distinct !{!362, !86}
-!363 = distinct !{!363, !86, !131}
-!364 = distinct !{!364, !86, !131}
+!363 = distinct !{!363, !86}
+!364 = distinct !{!364, !86}
 !365 = distinct !{!365, !86}
 !366 = distinct !{!366, !86}
 !367 = distinct !{!367, !86}
@@ -35920,20 +36040,20 @@ attributes #11 = { noreturn }
 !377 = distinct !{!377, !86}
 !378 = distinct !{!378, !86}
 !379 = distinct !{!379, !86}
-!380 = distinct !{!380, !86, !131}
+!380 = distinct !{!380, !86}
 !381 = distinct !{!381, !86}
 !382 = distinct !{!382, !86}
 !383 = distinct !{!383, !86}
-!384 = distinct !{!384, !86, !131}
+!384 = distinct !{!384, !86}
 !385 = distinct !{!385, !86}
 !386 = distinct !{!386, !86}
 !387 = distinct !{!387, !86}
 !388 = distinct !{!388, !86}
-!389 = distinct !{!389, !86, !131}
-!390 = distinct !{!390, !86, !131}
-!391 = distinct !{!391, !86}
-!392 = distinct !{!392, !86}
-!393 = distinct !{!393, !86}
+!389 = distinct !{!389, !86}
+!390 = distinct !{!390, !86}
+!391 = !{!392, !393, i64 0}
+!392 = !{!"_ZTS10block_q8_0", !393, i64 0, !8, i64 2}
+!393 = !{!"short", !8, i64 0}
 !394 = distinct !{!394, !86}
 !395 = distinct !{!395, !86}
 !396 = distinct !{!396, !86}
@@ -35945,95 +36065,95 @@ attributes #11 = { noreturn }
 !402 = distinct !{!402, !86}
 !403 = distinct !{!403, !86}
 !404 = distinct !{!404, !86}
-!405 = distinct !{!405, !86, !131}
+!405 = distinct !{!405, !86}
 !406 = distinct !{!406, !86}
 !407 = distinct !{!407, !86}
 !408 = distinct !{!408, !86}
-!409 = distinct !{!409, !86, !131}
+!409 = distinct !{!409, !86}
 !410 = distinct !{!410, !86}
 !411 = distinct !{!411, !86}
 !412 = distinct !{!412, !86}
 !413 = distinct !{!413, !86}
 !414 = distinct !{!414, !86}
-!415 = distinct !{!415, !86, !131}
-!416 = distinct !{!416, !86, !131}
+!415 = distinct !{!415, !86}
+!416 = distinct !{!416, !86}
 !417 = distinct !{!417, !86}
 !418 = distinct !{!418, !86}
-!419 = distinct !{!419, !86, !131}
+!419 = distinct !{!419, !86}
 !420 = distinct !{!420, !86}
 !421 = distinct !{!421, !86}
-!422 = !{!423, !424, i64 0}
-!423 = !{!"_ZTS10block_q8_0", !424, i64 0, !8, i64 2}
-!424 = !{!"short", !8, i64 0}
+!422 = distinct !{!422, !86}
+!423 = distinct !{!423, !86}
+!424 = distinct !{!424, !86}
 !425 = distinct !{!425, !86}
 !426 = distinct !{!426, !86}
 !427 = distinct !{!427, !86}
-!428 = distinct !{!428, !86, !131}
+!428 = distinct !{!428, !86}
 !429 = distinct !{!429, !86}
 !430 = distinct !{!430, !86}
 !431 = distinct !{!431, !86}
 !432 = distinct !{!432, !86}
 !433 = distinct !{!433, !86}
-!434 = distinct !{!434, !86, !131}
+!434 = distinct !{!434, !86}
 !435 = distinct !{!435, !86}
 !436 = distinct !{!436, !86}
 !437 = distinct !{!437, !86}
 !438 = distinct !{!438, !86}
 !439 = distinct !{!439, !86}
-!440 = distinct !{!440, !86, !131}
+!440 = distinct !{!440, !86}
 !441 = distinct !{!441, !86}
 !442 = distinct !{!442, !86}
 !443 = distinct !{!443, !86}
 !444 = distinct !{!444, !86}
 !445 = distinct !{!445, !86}
 !446 = distinct !{!446, !86}
-!447 = distinct !{!447, !86, !131}
+!447 = distinct !{!447, !86}
 !448 = distinct !{!448, !86}
 !449 = distinct !{!449, !86}
 !450 = distinct !{!450, !86}
 !451 = distinct !{!451, !86}
 !452 = distinct !{!452, !86}
-!453 = distinct !{!453, !86, !131}
+!453 = distinct !{!453, !86}
 !454 = distinct !{!454, !86}
 !455 = distinct !{!455, !86}
 !456 = distinct !{!456, !86}
 !457 = distinct !{!457, !86}
 !458 = distinct !{!458, !86}
-!459 = distinct !{!459, !86, !131}
+!459 = distinct !{!459, !86}
 !460 = distinct !{!460, !86}
 !461 = distinct !{!461, !86}
 !462 = distinct !{!462, !86}
 !463 = distinct !{!463, !86}
 !464 = distinct !{!464, !86}
 !465 = distinct !{!465, !86}
-!466 = distinct !{!466, !86, !131}
-!467 = distinct !{!467, !86}
-!468 = distinct !{!468, !86}
+!466 = distinct !{!466, !86}
+!467 = !{!468, !393, i64 0}
+!468 = !{!"_ZTS10block_q4_0", !393, i64 0, !8, i64 2}
 !469 = distinct !{!469, !86}
 !470 = distinct !{!470, !86}
 !471 = distinct !{!471, !86}
 !472 = distinct !{!472, !86}
 !473 = distinct !{!473, !86}
 !474 = distinct !{!474, !86}
-!475 = distinct !{!475, !86, !131}
+!475 = distinct !{!475, !86}
 !476 = distinct !{!476, !86}
-!477 = distinct !{!477, !86, !131}
+!477 = distinct !{!477, !86}
 !478 = distinct !{!478, !86}
 !479 = distinct !{!479, !86}
 !480 = distinct !{!480, !86}
 !481 = distinct !{!481, !86}
 !482 = distinct !{!482, !86}
 !483 = distinct !{!483, !86}
-!484 = distinct !{!484, !86, !131}
+!484 = distinct !{!484, !86}
 !485 = distinct !{!485, !86}
 !486 = distinct !{!486, !86}
 !487 = distinct !{!487, !86}
 !488 = distinct !{!488, !86}
 !489 = distinct !{!489, !86}
 !490 = distinct !{!490, !86}
-!491 = distinct !{!491, !86, !131}
+!491 = distinct !{!491, !86}
 !492 = distinct !{!492, !86}
-!493 = distinct !{!493, !86, !131}
+!493 = distinct !{!493, !86}
 !494 = distinct !{!494, !86}
 !495 = distinct !{!495, !86}
 !496 = distinct !{!496, !86}
@@ -36041,63 +36161,63 @@ attributes #11 = { noreturn }
 !498 = distinct !{!498, !86}
 !499 = distinct !{!499, !86}
 !500 = distinct !{!500, !86}
-!501 = distinct !{!501, !86, !131}
+!501 = distinct !{!501, !86}
 !502 = distinct !{!502, !86}
-!503 = distinct !{!503, !86, !131}
+!503 = distinct !{!503, !86}
 !504 = distinct !{!504, !86}
 !505 = distinct !{!505, !86}
 !506 = distinct !{!506, !86}
 !507 = distinct !{!507, !86}
 !508 = distinct !{!508, !86}
-!509 = distinct !{!509, !86, !131}
+!509 = distinct !{!509, !86}
 !510 = distinct !{!510, !86}
-!511 = distinct !{!511, !86, !131}
+!511 = distinct !{!511, !86}
 !512 = distinct !{!512, !86}
 !513 = distinct !{!513, !86}
-!514 = !{!515, !424, i64 0}
-!515 = !{!"_ZTS10block_q4_0", !424, i64 0, !8, i64 2}
+!514 = distinct !{!514, !86}
+!515 = distinct !{!515, !86}
 !516 = distinct !{!516, !86}
 !517 = distinct !{!517, !86}
 !518 = distinct !{!518, !86}
-!519 = distinct !{!519, !86, !131}
+!519 = distinct !{!519, !86}
 !520 = distinct !{!520, !86}
 !521 = distinct !{!521, !86}
 !522 = distinct !{!522, !86}
 !523 = distinct !{!523, !86}
 !524 = distinct !{!524, !86}
-!525 = distinct !{!525, !86, !131}
+!525 = distinct !{!525, !86}
 !526 = distinct !{!526, !86}
 !527 = distinct !{!527, !86}
 !528 = distinct !{!528, !86}
 !529 = distinct !{!529, !86}
 !530 = distinct !{!530, !86}
-!531 = distinct !{!531, !86, !131}
+!531 = distinct !{!531, !86}
 !532 = distinct !{!532, !86}
 !533 = distinct !{!533, !86}
 !534 = distinct !{!534, !86}
 !535 = distinct !{!535, !86}
 !536 = distinct !{!536, !86}
 !537 = distinct !{!537, !86}
-!538 = distinct !{!538, !86, !131}
+!538 = distinct !{!538, !86}
 !539 = distinct !{!539, !86}
 !540 = distinct !{!540, !86}
 !541 = distinct !{!541, !86}
-!542 = distinct !{!542, !86}
-!543 = distinct !{!543, !86}
-!544 = distinct !{!544, !86, !131}
+!542 = !{!543, !393, i64 0}
+!543 = !{!"_ZTS10block_q5_0", !393, i64 0, !8, i64 2, !8, i64 6}
+!544 = distinct !{!544, !86}
 !545 = distinct !{!545, !86}
 !546 = distinct !{!546, !86}
 !547 = distinct !{!547, !86}
 !548 = distinct !{!548, !86}
 !549 = distinct !{!549, !86}
-!550 = distinct !{!550, !86, !131}
+!550 = distinct !{!550, !86}
 !551 = distinct !{!551, !86}
 !552 = distinct !{!552, !86}
 !553 = distinct !{!553, !86}
 !554 = distinct !{!554, !86}
 !555 = distinct !{!555, !86}
 !556 = distinct !{!556, !86}
-!557 = distinct !{!557, !86, !131}
+!557 = distinct !{!557, !86}
 !558 = distinct !{!558, !86}
 !559 = distinct !{!559, !86}
 !560 = distinct !{!560, !86}
@@ -36106,25 +36226,25 @@ attributes #11 = { noreturn }
 !563 = distinct !{!563, !86}
 !564 = distinct !{!564, !86}
 !565 = distinct !{!565, !86}
-!566 = distinct !{!566, !86, !131}
+!566 = distinct !{!566, !86}
 !567 = distinct !{!567, !86}
-!568 = distinct !{!568, !86, !131}
+!568 = distinct !{!568, !86}
 !569 = distinct !{!569, !86}
 !570 = distinct !{!570, !86}
 !571 = distinct !{!571, !86}
 !572 = distinct !{!572, !86}
 !573 = distinct !{!573, !86}
 !574 = distinct !{!574, !86}
-!575 = distinct !{!575, !86, !131}
+!575 = distinct !{!575, !86}
 !576 = distinct !{!576, !86}
 !577 = distinct !{!577, !86}
 !578 = distinct !{!578, !86}
 !579 = distinct !{!579, !86}
 !580 = distinct !{!580, !86}
 !581 = distinct !{!581, !86}
-!582 = distinct !{!582, !86, !131}
+!582 = distinct !{!582, !86}
 !583 = distinct !{!583, !86}
-!584 = distinct !{!584, !86, !131}
+!584 = distinct !{!584, !86}
 !585 = distinct !{!585, !86}
 !586 = distinct !{!586, !86}
 !587 = distinct !{!587, !86}
@@ -36132,63 +36252,63 @@ attributes #11 = { noreturn }
 !589 = distinct !{!589, !86}
 !590 = distinct !{!590, !86}
 !591 = distinct !{!591, !86}
-!592 = distinct !{!592, !86, !131}
+!592 = distinct !{!592, !86}
 !593 = distinct !{!593, !86}
-!594 = distinct !{!594, !86, !131}
+!594 = distinct !{!594, !86}
 !595 = distinct !{!595, !86}
 !596 = distinct !{!596, !86}
 !597 = distinct !{!597, !86}
 !598 = distinct !{!598, !86}
 !599 = distinct !{!599, !86}
-!600 = distinct !{!600, !86, !131}
+!600 = distinct !{!600, !86}
 !601 = distinct !{!601, !86}
-!602 = distinct !{!602, !86, !131}
+!602 = distinct !{!602, !86}
 !603 = distinct !{!603, !86}
 !604 = distinct !{!604, !86}
-!605 = !{!606, !424, i64 0}
-!606 = !{!"_ZTS10block_q5_0", !424, i64 0, !8, i64 2, !8, i64 6}
+!605 = distinct !{!605, !86}
+!606 = distinct !{!606, !86}
 !607 = distinct !{!607, !86}
 !608 = distinct !{!608, !86}
 !609 = distinct !{!609, !86}
-!610 = distinct !{!610, !86, !131}
+!610 = distinct !{!610, !86}
 !611 = distinct !{!611, !86}
 !612 = distinct !{!612, !86}
 !613 = distinct !{!613, !86}
 !614 = distinct !{!614, !86}
 !615 = distinct !{!615, !86}
-!616 = distinct !{!616, !86, !131}
-!617 = distinct !{!617, !86}
-!618 = distinct !{!618, !86}
+!616 = distinct !{!616, !86}
+!617 = !{!618, !393, i64 0}
+!618 = !{!"_ZTS12block_iq4_nl", !393, i64 0, !8, i64 2}
 !619 = distinct !{!619, !86}
 !620 = distinct !{!620, !86}
 !621 = distinct !{!621, !86}
-!622 = distinct !{!622, !86, !131}
+!622 = distinct !{!622, !86}
 !623 = distinct !{!623, !86}
 !624 = distinct !{!624, !86}
 !625 = distinct !{!625, !86}
 !626 = distinct !{!626, !86}
 !627 = distinct !{!627, !86}
 !628 = distinct !{!628, !86}
-!629 = distinct !{!629, !86, !131}
+!629 = distinct !{!629, !86}
 !630 = distinct !{!630, !86}
 !631 = distinct !{!631, !86}
 !632 = distinct !{!632, !86}
 !633 = distinct !{!633, !86}
 !634 = distinct !{!634, !86}
-!635 = distinct !{!635, !86, !131}
+!635 = distinct !{!635, !86}
 !636 = distinct !{!636, !86}
 !637 = distinct !{!637, !86}
 !638 = distinct !{!638, !86}
 !639 = distinct !{!639, !86}
 !640 = distinct !{!640, !86}
-!641 = distinct !{!641, !86, !131}
+!641 = distinct !{!641, !86}
 !642 = distinct !{!642, !86}
 !643 = distinct !{!643, !86}
 !644 = distinct !{!644, !86}
 !645 = distinct !{!645, !86}
 !646 = distinct !{!646, !86}
 !647 = distinct !{!647, !86}
-!648 = distinct !{!648, !86, !131}
+!648 = distinct !{!648, !86}
 !649 = distinct !{!649, !86}
 !650 = distinct !{!650, !86}
 !651 = distinct !{!651, !86}
@@ -36197,25 +36317,25 @@ attributes #11 = { noreturn }
 !654 = distinct !{!654, !86}
 !655 = distinct !{!655, !86}
 !656 = distinct !{!656, !86}
-!657 = distinct !{!657, !86, !131}
+!657 = distinct !{!657, !86}
 !658 = distinct !{!658, !86}
-!659 = distinct !{!659, !86, !131}
+!659 = distinct !{!659, !86}
 !660 = distinct !{!660, !86}
 !661 = distinct !{!661, !86}
 !662 = distinct !{!662, !86}
 !663 = distinct !{!663, !86}
 !664 = distinct !{!664, !86}
 !665 = distinct !{!665, !86}
-!666 = distinct !{!666, !86, !131}
+!666 = distinct !{!666, !86}
 !667 = distinct !{!667, !86}
 !668 = distinct !{!668, !86}
 !669 = distinct !{!669, !86}
 !670 = distinct !{!670, !86}
 !671 = distinct !{!671, !86}
 !672 = distinct !{!672, !86}
-!673 = distinct !{!673, !86, !131}
+!673 = distinct !{!673, !86}
 !674 = distinct !{!674, !86}
-!675 = distinct !{!675, !86, !131}
+!675 = distinct !{!675, !86}
 !676 = distinct !{!676, !86}
 !677 = distinct !{!677, !86}
 !678 = distinct !{!678, !86}
@@ -36223,104 +36343,9 @@ attributes #11 = { noreturn }
 !680 = distinct !{!680, !86}
 !681 = distinct !{!681, !86}
 !682 = distinct !{!682, !86}
-!683 = distinct !{!683, !86, !131}
+!683 = distinct !{!683, !86}
 !684 = distinct !{!684, !86}
-!685 = distinct !{!685, !86, !131}
+!685 = distinct !{!685, !86}
 !686 = distinct !{!686, !86}
 !687 = distinct !{!687, !86}
 !688 = distinct !{!688, !86}
-!689 = distinct !{!689, !86}
-!690 = distinct !{!690, !86}
-!691 = distinct !{!691, !86, !131}
-!692 = distinct !{!692, !86}
-!693 = distinct !{!693, !86, !131}
-!694 = distinct !{!694, !86}
-!695 = distinct !{!695, !86}
-!696 = !{!697, !424, i64 0}
-!697 = !{!"_ZTS12block_iq4_nl", !424, i64 0, !8, i64 2}
-!698 = distinct !{!698, !86}
-!699 = distinct !{!699, !86}
-!700 = distinct !{!700, !86}
-!701 = distinct !{!701, !86, !131}
-!702 = distinct !{!702, !86}
-!703 = distinct !{!703, !86}
-!704 = distinct !{!704, !86}
-!705 = distinct !{!705, !86}
-!706 = distinct !{!706, !86}
-!707 = distinct !{!707, !86, !131}
-!708 = distinct !{!708, !86}
-!709 = distinct !{!709, !86}
-!710 = distinct !{!710, !86}
-!711 = distinct !{!711, !86}
-!712 = distinct !{!712, !86}
-!713 = distinct !{!713, !86, !131}
-!714 = distinct !{!714, !86}
-!715 = distinct !{!715, !86}
-!716 = distinct !{!716, !86}
-!717 = distinct !{!717, !86}
-!718 = distinct !{!718, !86}
-!719 = distinct !{!719, !86}
-!720 = distinct !{!720, !86, !131}
-!721 = distinct !{!721, !86}
-!722 = distinct !{!722, !86}
-!723 = distinct !{!723, !86}
-!724 = distinct !{!724, !86}
-!725 = distinct !{!725, !86}
-!726 = distinct !{!726, !86, !131}
-!727 = distinct !{!727, !86}
-!728 = distinct !{!728, !86}
-!729 = distinct !{!729, !86}
-!730 = distinct !{!730, !86}
-!731 = distinct !{!731, !86}
-!732 = distinct !{!732, !86, !131}
-!733 = distinct !{!733, !86}
-!734 = distinct !{!734, !86}
-!735 = distinct !{!735, !86}
-!736 = distinct !{!736, !86}
-!737 = distinct !{!737, !86}
-!738 = distinct !{!738, !86}
-!739 = distinct !{!739, !86, !131}
-!740 = distinct !{!740, !86}
-!741 = distinct !{!741, !86}
-!742 = distinct !{!742, !86}
-!743 = distinct !{!743, !86}
-!744 = distinct !{!744, !86}
-!745 = distinct !{!745, !86}
-!746 = distinct !{!746, !86}
-!747 = distinct !{!747, !86}
-!748 = distinct !{!748, !86, !131}
-!749 = distinct !{!749, !86}
-!750 = distinct !{!750, !86, !131}
-!751 = distinct !{!751, !86}
-!752 = distinct !{!752, !86}
-!753 = distinct !{!753, !86}
-!754 = distinct !{!754, !86}
-!755 = distinct !{!755, !86}
-!756 = distinct !{!756, !86}
-!757 = distinct !{!757, !86, !131}
-!758 = distinct !{!758, !86}
-!759 = distinct !{!759, !86}
-!760 = distinct !{!760, !86}
-!761 = distinct !{!761, !86}
-!762 = distinct !{!762, !86}
-!763 = distinct !{!763, !86}
-!764 = distinct !{!764, !86, !131}
-!765 = distinct !{!765, !86}
-!766 = distinct !{!766, !86, !131}
-!767 = distinct !{!767, !86}
-!768 = distinct !{!768, !86}
-!769 = distinct !{!769, !86}
-!770 = distinct !{!770, !86}
-!771 = distinct !{!771, !86}
-!772 = distinct !{!772, !86}
-!773 = distinct !{!773, !86}
-!774 = distinct !{!774, !86, !131}
-!775 = distinct !{!775, !86}
-!776 = distinct !{!776, !86, !131}
-!777 = distinct !{!777, !86}
-!778 = distinct !{!778, !86}
-!779 = distinct !{!779, !86}
-!780 = distinct !{!780, !86}
-!781 = distinct !{!781, !86}
-!782 = distinct !{!782, !86, !131}
-!783 = distinct !{!783, !86}

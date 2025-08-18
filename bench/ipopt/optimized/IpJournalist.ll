@@ -451,7 +451,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   call void %39(ptr noundef nonnull align 8 dereferenceable(176) %36, i32 noundef %2, i32 noundef %1, ptr noundef nonnull @.str.2)
   %40 = add nuw nsw i32 %.017.us, 1
   %exitcond.not = icmp eq i32 %40, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !31
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -505,7 +505,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   %sext = shl i64 %65, 29
   %66 = ashr i64 %sext, 32
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph20.split, label %._crit_edge21, !llvm.loop !33
+  br i1 %67, label %.lr.ph20.split, label %._crit_edge21, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZNK5Ipopt10Journalist13ProduceOutputENS_13EJournalLe
   %sext = shl i64 %18, 29
   %19 = ashr i64 %sext, 32
   %.not = icmp slt i64 %indvars.iv.next, %19
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %3, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %3 ]
@@ -878,7 +878,7 @@ define void @_ZNK5Ipopt10Journalist11FlushBufferEv(ptr noundef nonnull readonly 
   %sext = shl i64 %22, 29
   %23 = ashr i64 %sext, 32
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1016,7 +1016,7 @@ _ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit16:      ; preds = %60, %.critedge
   %sext = shl i64 %68, 29
   %69 = ashr i64 %sext, 32
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %18, label %_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit, !llvm.loop !36
+  br i1 %70, label %18, label %_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit, !llvm.loop !34
 
 71:                                               ; preds = %46
   %72 = load ptr, ptr %21, align 8, !tbaa !8
@@ -1123,7 +1123,7 @@ _ZN5Ipopt8SmartPtrINS_7JournalEEaSEPS1_.exit:     ; preds = %.lr.ph, %27, %32
   %sext = shl i64 %40, 29
   %41 = ashr i64 %sext, 32
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1134,12 +1134,12 @@ define void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Ipopt7JournalE, i64 16), ptr %0, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %6, align 8, !tbaa !38
+  store ptr %7, ptr %6, align 8, !tbaa !36
   %8 = load ptr, ptr %1, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %10, ptr %4, align 8, !tbaa !39
+  store i64 %10, ptr %4, align 8, !tbaa !37
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i, label %._crit_edge.i.i
 
@@ -1149,7 +1149,7 @@ define void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %12, ptr %6, align 8, !tbaa !26
-  %13 = load i64, ptr %4, align 8, !tbaa !39
+  %13 = load i64, ptr %4, align 8, !tbaa !37
   store i64 %13, ptr %7, align 8, !tbaa !27
   br label %._crit_edge.i.i
 
@@ -1170,7 +1170,7 @@ define void @_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %15, %17
-  %18 = load i64, ptr %4, align 8, !tbaa !39
+  %18 = load i64, ptr %4, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = load ptr, ptr %6, align 8, !tbaa !26
@@ -1192,10 +1192,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %26
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %indvars.iv
-  store i32 %2, ptr %27, align 4, !tbaa !40
+  store i32 %2, ptr %27, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %23, label %26, !llvm.loop !41
+  br i1 %exitcond.not, label %23, label %26, !llvm.loop !39
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
@@ -1212,19 +1212,19 @@ define void @_ZN5Ipopt7Journal4NameB5cxx11Ev(ptr dead_on_unwind noalias writable
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !38
+  store ptr %5, ptr %0, align 8, !tbaa !36
   %6 = load ptr, ptr %4, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %8, ptr %3, align 8, !tbaa !39
+  store i64 %8, ptr %3, align 8, !tbaa !37
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %2
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %10, ptr %0, align 8, !tbaa !26
-  %11 = load i64, ptr %3, align 8, !tbaa !39
+  %11 = load i64, ptr %3, align 8, !tbaa !37
   store i64 %11, ptr %5, align 8, !tbaa !27
   br label %._crit_edge.i.i
 
@@ -1245,7 +1245,7 @@ define void @_ZN5Ipopt7Journal4NameB5cxx11Ev(ptr dead_on_unwind noalias writable
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %13, %15
-  %16 = load i64, ptr %3, align 8, !tbaa !39
+  %16 = load i64, ptr %3, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %17, align 8, !tbaa !21
   %18 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1260,7 +1260,7 @@ define noundef zeroext i1 @_ZNK5Ipopt7Journal10IsAcceptedENS_16EJournalCategoryE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %5
-  %7 = load i32, ptr %6, align 4, !tbaa !40
+  %7 = load i32, ptr %6, align 4, !tbaa !38
   %.not = icmp sge i32 %7, %2
   ret i1 %.not
 }
@@ -1270,7 +1270,7 @@ define void @_ZN5Ipopt7Journal13SetPrintLevelENS_16EJournalCategoryENS_13EJourna
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %5
-  store i32 %2, ptr %6, align 4, !tbaa !40
+  store i32 %2, ptr %6, align 4, !tbaa !38
   ret void
 }
 
@@ -1285,10 +1285,10 @@ define void @_ZN5Ipopt7Journal17SetAllPrintLevelsENS_13EJournalLevelE(ptr nounde
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %indvars.iv
-  store i32 %1, ptr %6, align 4, !tbaa !40
+  store i32 %1, ptr %6, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !42
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1299,12 +1299,12 @@ define void @_ZN5Ipopt11FileJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Ipopt7JournalE, i64 16), ptr %0, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %6, align 8, !tbaa !38
+  store ptr %7, ptr %6, align 8, !tbaa !36
   %8 = load ptr, ptr %1, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %10, ptr %4, align 8, !tbaa !39
+  store i64 %10, ptr %4, align 8, !tbaa !37
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -1314,7 +1314,7 @@ define void @_ZN5Ipopt11FileJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 .noexc.i:                                         ; preds = %.noexc.i.i
   store ptr %12, ptr %6, align 8, !tbaa !26
-  %13 = load i64, ptr %4, align 8, !tbaa !39
+  %13 = load i64, ptr %4, align 8, !tbaa !37
   store i64 %13, ptr %7, align 8, !tbaa !27
   br label %._crit_edge.i.i.i
 
@@ -1335,7 +1335,7 @@ define void @_ZN5Ipopt11FileJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %17, %15, %._crit_edge.i.i.i
-  %18 = load i64, ptr %4, align 8, !tbaa !39
+  %18 = load i64, ptr %4, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = load ptr, ptr %6, align 8, !tbaa !26
@@ -1354,15 +1354,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 25:                                               ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i, %25 ]
   %26 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %indvars.iv.i
-  store i32 %2, ptr %26, align 4, !tbaa !40
+  store i32 %2, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit, label %25, !llvm.loop !41
+  br i1 %exitcond.not.i, label %_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit, label %25, !llvm.loop !39
 
 _ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit: ; preds = %25
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5Ipopt11FileJournalE, i64 16), ptr %0, align 8, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %27, align 8, !tbaa !43
+  store ptr null, ptr %27, align 8, !tbaa !41
   ret void
 }
 
@@ -1370,7 +1370,7 @@ _ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13E
 define void @_ZN5Ipopt11FileJournalD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5Ipopt11FileJournalE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr @stdout, align 8
   %.not1 = icmp eq ptr %3, %4
@@ -1385,7 +1385,7 @@ define void @_ZN5Ipopt11FileJournalD2Ev(ptr noundef nonnull align 8 captures(add
   br label %8
 
 8:                                                ; preds = %6, %1
-  store ptr null, ptr %2, align 8, !tbaa !43
+  store ptr null, ptr %2, align 8, !tbaa !41
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Ipopt7JournalE, i64 16), ptr %0, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !26
@@ -1424,7 +1424,7 @@ define void @_ZN5Ipopt11FileJournalD0Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %.not = icmp eq ptr %5, null
   %6 = load ptr, ptr @stdout, align 8
   %.not6 = icmp eq ptr %5, %6
@@ -1439,14 +1439,14 @@ define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr noundef nonnull 
   br label %10
 
 10:                                               ; preds = %8, %3
-  store ptr null, ptr %4, align 8, !tbaa !43
+  store ptr null, ptr %4, align 8, !tbaa !41
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(1) %1) #26
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !47
-  store ptr %14, ptr %4, align 8, !tbaa !43
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !45
+  store ptr %14, ptr %4, align 8, !tbaa !41
   br label %22
 
 15:                                               ; preds = %10
@@ -1455,14 +1455,14 @@ define noundef zeroext i1 @_ZN5Ipopt11FileJournal4OpenEPKcb(ptr noundef nonnull 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !47
-  store ptr %19, ptr %4, align 8, !tbaa !43
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !45
+  store ptr %19, ptr %4, align 8, !tbaa !41
   br label %22
 
 20:                                               ; preds = %15
   %.str.5..str.6 = select i1 %2, ptr @.str.5, ptr @.str.6
   %21 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.str.5..str.6)
-  store ptr %21, ptr %4, align 8, !tbaa !43
+  store ptr %21, ptr %4, align 8, !tbaa !41
   %.not8 = icmp ne ptr %21, null
   br label %22
 
@@ -1480,7 +1480,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJournalLevelEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3) unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -1495,7 +1495,7 @@ define void @_ZN5Ipopt11FileJournal9PrintImplENS_16EJournalCategoryENS_13EJourna
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN5Ipopt11FileJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #11 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !41
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -1513,7 +1513,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN5Ipopt11FileJournal15FlushBufferImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -1536,12 +1536,12 @@ define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Ipopt7JournalE, i64 16), ptr %0, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %7, ptr %6, align 8, !tbaa !38
+  store ptr %7, ptr %6, align 8, !tbaa !36
   %8 = load ptr, ptr %1, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %10, ptr %4, align 8, !tbaa !39
+  store i64 %10, ptr %4, align 8, !tbaa !37
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -1551,7 +1551,7 @@ define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 .noexc.i:                                         ; preds = %.noexc.i.i
   store ptr %12, ptr %6, align 8, !tbaa !26
-  %13 = load i64, ptr %4, align 8, !tbaa !39
+  %13 = load i64, ptr %4, align 8, !tbaa !37
   store i64 %13, ptr %7, align 8, !tbaa !27
   br label %._crit_edge.i.i.i
 
@@ -1572,7 +1572,7 @@ define void @_ZN5Ipopt13StreamJournalC2ERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %17, %15, %._crit_edge.i.i.i
-  %18 = load i64, ptr %4, align 8, !tbaa !39
+  %18 = load i64, ptr %4, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = load ptr, ptr %6, align 8, !tbaa !26
@@ -1591,29 +1591,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 25:                                               ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i, %25 ]
   %26 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %indvars.iv.i
-  store i32 %2, ptr %26, align 4, !tbaa !40
+  store i32 %2, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit, label %25, !llvm.loop !41
+  br i1 %exitcond.not.i, label %_ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit, label %25, !llvm.loop !39
 
 _ZN5Ipopt7JournalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13EJournalLevelE.exit: ; preds = %25
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5Ipopt13StreamJournalE, i64 16), ptr %0, align 8, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %27, align 8, !tbaa !48
+  store ptr null, ptr %27, align 8, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5Ipopt13StreamJournal15SetOutputStreamEPSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32952) initializes((176, 184)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %1, ptr %3, align 8, !tbaa !48
+  store ptr %1, ptr %3, align 8, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal9PrintImplENS_16EJournalCategoryENS_13EJournalLevelEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32952) %0, i32 %1, i32 %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, label %7
 
@@ -1627,7 +1627,7 @@ define void @_ZN5Ipopt13StreamJournal9PrintImplENS_16EJournalCategoryENS_13EJour
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %14 = load i32, ptr %13, align 8, !tbaa !51
+  %14 = load i32, ptr %13, align 8, !tbaa !49
   %15 = or i32 %14, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef %15)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
@@ -1644,7 +1644,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %16, %8,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJournalLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(32952) %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %27, label %8
 
@@ -1676,7 +1676,7 @@ define void @_ZN5Ipopt13StreamJournal10PrintfImplENS_16EJournalCategoryENS_13EJo
 
 .sink.split:                                      ; preds = %20, %22, %12
   %.sink14 = phi ptr [ %15, %12 ], [ %9, %22 ], [ %9, %20 ]
-  %24 = load ptr, ptr %6, align 8, !tbaa !48
+  %24 = load ptr, ptr %6, align 8, !tbaa !46
   %25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink14) #22
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %.sink14, i64 noundef %25)
   br label %27
@@ -1694,7 +1694,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13StreamJournal15FlushBufferImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32952) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load ptr, ptr %2, align 8, !tbaa !48
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -1870,7 +1870,7 @@ _ZNKSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE12_M_check_lenEmPKc.exit: 
   %34 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i28 = icmp eq ptr %34, %1
-  br i1 %.not.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !60
+  br i1 %.not.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !58
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %33, %27
   %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %27 ], [ %35, %33 ]
@@ -1898,7 +1898,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaI
   %43 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i32, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i31, i64 8
   %.not.i.i.i.i.i34 = icmp eq ptr %43, %5
-  br i1 %.not.i.i.i.i.i34, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit36, label %.lr.ph.i.i.i.i.i30, !llvm.loop !60
+  br i1 %.not.i.i.i.i.i34, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit36, label %.lr.ph.i.i.i.i.i30, !llvm.loop !58
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit36: ; preds = %42, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
   %.0.lcssa.i.i.i.i.i35 = phi ptr [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5Ipopt8SmartPtrINS0_7JournalEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ], [ %44, %42 ]
@@ -2049,34 +2049,32 @@ attributes #27 = { noreturn }
 !27 = !{!6, !6, i64 0}
 !28 = distinct !{!28, !19}
 !29 = distinct !{!29, !19}
-!30 = distinct !{!30, !19, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
 !32 = distinct !{!32, !19}
 !33 = distinct !{!33, !19}
 !34 = distinct !{!34, !19}
 !35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
-!37 = distinct !{!37, !19}
-!38 = !{!23, !24, i64 0}
-!39 = !{!25, !25, i64 0}
-!40 = !{!5, !5, i64 0}
-!41 = distinct !{!41, !19}
-!42 = distinct !{!42, !19}
-!43 = !{!44, !46, i64 176}
-!44 = !{!"_ZTSN5Ipopt11FileJournalE", !45, i64 0, !46, i64 176}
-!45 = !{!"_ZTSN5Ipopt7JournalE", !4, i64 0, !22, i64 16, !6, i64 48}
-!46 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
-!47 = !{!46, !46, i64 0}
-!48 = !{!49, !50, i64 176}
-!49 = !{!"_ZTSN5Ipopt13StreamJournalE", !45, i64 0, !50, i64 176, !6, i64 184}
-!50 = !{!"p1 _ZTSSo", !13, i64 0}
-!51 = !{!52, !54, i64 32}
-!52 = !{!"_ZTSSt8ios_base", !25, i64 8, !25, i64 16, !53, i64 24, !54, i64 28, !54, i64 32, !55, i64 40, !56, i64 48, !6, i64 64, !5, i64 192, !57, i64 200, !58, i64 208}
-!53 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!54 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!55 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !13, i64 0}
-!56 = !{!"_ZTSNSt8ios_base6_WordsE", !13, i64 0, !25, i64 8}
-!57 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !13, i64 0}
-!58 = !{!"_ZTSSt6locale", !59, i64 0}
-!59 = !{!"p1 _ZTSNSt6locale5_ImplE", !13, i64 0}
-!60 = distinct !{!60, !19}
+!36 = !{!23, !24, i64 0}
+!37 = !{!25, !25, i64 0}
+!38 = !{!5, !5, i64 0}
+!39 = distinct !{!39, !19}
+!40 = distinct !{!40, !19}
+!41 = !{!42, !44, i64 176}
+!42 = !{!"_ZTSN5Ipopt11FileJournalE", !43, i64 0, !44, i64 176}
+!43 = !{!"_ZTSN5Ipopt7JournalE", !4, i64 0, !22, i64 16, !6, i64 48}
+!44 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!45 = !{!44, !44, i64 0}
+!46 = !{!47, !48, i64 176}
+!47 = !{!"_ZTSN5Ipopt13StreamJournalE", !43, i64 0, !48, i64 176, !6, i64 184}
+!48 = !{!"p1 _ZTSSo", !13, i64 0}
+!49 = !{!50, !52, i64 32}
+!50 = !{!"_ZTSSt8ios_base", !25, i64 8, !25, i64 16, !51, i64 24, !52, i64 28, !52, i64 32, !53, i64 40, !54, i64 48, !6, i64 64, !5, i64 192, !55, i64 200, !56, i64 208}
+!51 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!52 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!53 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !13, i64 0}
+!54 = !{!"_ZTSNSt8ios_base6_WordsE", !13, i64 0, !25, i64 8}
+!55 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !13, i64 0}
+!56 = !{!"_ZTSSt6locale", !57, i64 0}
+!57 = !{!"p1 _ZTSNSt6locale5_ImplE", !13, i64 0}
+!58 = distinct !{!58, !19}

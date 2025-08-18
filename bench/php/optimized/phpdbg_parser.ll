@@ -1095,7 +1095,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %26, %.critedge.thre
 54:                                               ; preds = %51, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %49, %.preheader.split.us.i ], [ %52, %51 ]
   %55 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader.split.us.i, !llvm.loop !54
+  br label %.preheader.split.us.i
 
 .thread.i:                                        ; preds = %51, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
   %56 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %46) #14
@@ -1214,7 +1214,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8, !tbaa !56
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8, !tbaa !54
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %7, label %6
 
@@ -1224,7 +1224,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_do_parse(ptr noundef %0, ptr noundef %
 
 7:                                                ; preds = %6, %4
   %8 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #13
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8, !tbaa !56
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 776), align 8, !tbaa !54
   tail call void @phpdbg_init_lexer(ptr noundef %0, ptr noundef nonnull %1) #13
   %9 = tail call i32 @phpdbg_parse()
   br label %10
@@ -1333,6 +1333,4 @@ attributes #14 = { nounwind willreturn memory(read) }
 !51 = !{!18, !5, i64 64}
 !52 = !{!53, !11, i64 0}
 !53 = !{!"", !11, i64 0}
-!54 = distinct !{!54, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!22, !13, i64 776}
+!54 = !{!22, !13, i64 776}

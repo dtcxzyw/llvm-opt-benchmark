@@ -285,156 +285,200 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %39
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %39 ], [ 0, %.lr.ph ]
-  %.043.us = phi i32 [ %.1.us, %39 ], [ -1, %.lr.ph ]
-  %.03041.us = phi i32 [ %.131.us, %39 ], [ 24, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv66, i32 2
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %1, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %36
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %36 ], [ 0, %.lr.ph.split.us ]
+  %.043.us.us = phi i32 [ %.1.us.us, %36 ], [ -1, %.lr.ph.split.us ]
+  %.03041.us.us = phi i32 [ %.131.us.us, %36 ], [ 24, %.lr.ph.split.us ]
+  %16 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv71, i32 2
   %17 = load i8, ptr %16, align 4
   %18 = zext i8 %17 to i32
   %19 = and i32 %spec.select, %18
-  %.not.us = icmp eq i32 %19, 0
-  br i1 %.not.us, label %20, label %39
+  %.not.us.us = icmp eq i32 %19, 0
+  br i1 %.not.us.us, label %20, label %36
 
-20:                                               ; preds = %.lr.ph.split.us
+20:                                               ; preds = %.lr.ph.split.us.split.us
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv66
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv71
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 1
-  br i1 %26, label %39, label %27
+  br i1 %26, label %36, label %27
 
 27:                                               ; preds = %20
-  %28 = and i8 %25, 3
-  %29 = icmp eq i8 %28, 2
-  %or.cond.us = and i1 %1, %29
-  br i1 %or.cond.us, label %39, label %30
+  %.idx60 = mul nuw nsw i64 %indvars.iv71, 100
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx60
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
+  %30 = load i8, ptr %29, align 4
+  %.not35.us.us = icmp eq i8 %30, 109
+  br i1 %.not35.us.us, label %31, label %36
 
-30:                                               ; preds = %27
-  %.idx57 = mul nuw nsw i64 %indvars.iv66, 100
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx57
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 84
-  %33 = load i8, ptr %32, align 4
-  %.not35.us = icmp eq i8 %33, 109
-  br i1 %.not35.us, label %34, label %39
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv71, i32 1
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp sgt i32 %33, %.03041.us.us
+  %spec.select38.us.us = tail call i32 @llvm.smax.i32(i32 %33, i32 %.03041.us.us)
+  %35 = trunc nuw nsw i64 %indvars.iv71 to i32
+  %spec.select39.us.us = select i1 %34, i32 %35, i32 %.043.us.us
+  br label %36
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv66, i32 1
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp sgt i32 %36, %.03041.us
-  %spec.select38.us = tail call i32 @llvm.smax.i32(i32 %36, i32 %.03041.us)
-  %38 = trunc nuw nsw i64 %indvars.iv66 to i32
-  %spec.select39.us = select i1 %37, i32 %38, i32 %.043.us
-  br label %39
+36:                                               ; preds = %31, %27, %20, %.lr.ph.split.us.split.us
+  %.131.us.us = phi i32 [ %spec.select38.us.us, %31 ], [ %.03041.us.us, %.lr.ph.split.us.split.us ], [ %.03041.us.us, %20 ], [ %.03041.us.us, %27 ]
+  %.1.us.us = phi i32 [ %spec.select39.us.us, %31 ], [ %.043.us.us, %.lr.ph.split.us.split.us ], [ %.043.us.us, %20 ], [ %.043.us.us, %27 ]
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %9
+  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
 
-39:                                               ; preds = %34, %30, %27, %20, %.lr.ph.split.us
-  %.131.us = phi i32 [ %spec.select38.us, %34 ], [ %.03041.us, %.lr.ph.split.us ], [ %.03041.us, %20 ], [ %.03041.us, %30 ], [ %.03041.us, %27 ]
-  %.1.us = phi i32 [ %spec.select39.us, %34 ], [ %.043.us, %.lr.ph.split.us ], [ %.043.us, %20 ], [ %.043.us, %30 ], [ %.043.us, %27 ]
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %9
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %59
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %59 ], [ 0, %.lr.ph.split.us ]
+  %.043.us = phi i32 [ %.1.us, %59 ], [ -1, %.lr.ph.split.us ]
+  %.03041.us = phi i32 [ %.131.us, %59 ], [ 24, %.lr.ph.split.us ]
+  %37 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv76, i32 2
+  %38 = load i8, ptr %37, align 4
+  %39 = zext i8 %38 to i32
+  %40 = and i32 %spec.select, %39
+  %.not.us = icmp eq i32 %40, 0
+  br i1 %.not.us, label %41, label %59
+
+41:                                               ; preds = %.lr.ph.split.us.split
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv76
+  %44 = load i64, ptr %43, align 8
+  %45 = inttoptr i64 %44 to ptr
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 1
+  %48 = and i8 %46, 3
+  %49 = icmp eq i8 %48, 2
+  %or.cond = or i1 %47, %49
+  br i1 %or.cond, label %59, label %50
+
+50:                                               ; preds = %41
+  %.idx61 = mul nuw nsw i64 %indvars.iv76, 100
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx61
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 84
+  %53 = load i8, ptr %52, align 4
+  %.not35.us = icmp eq i8 %53, 109
+  br i1 %.not35.us, label %54, label %59
+
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv76, i32 1
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp sgt i32 %56, %.03041.us
+  %spec.select38.us = tail call i32 @llvm.smax.i32(i32 %56, i32 %.03041.us)
+  %58 = trunc nuw nsw i64 %indvars.iv76 to i32
+  %spec.select39.us = select i1 %57, i32 %58, i32 %.043.us
+  br label %59
+
+59:                                               ; preds = %54, %50, %41, %.lr.ph.split.us.split
+  %.131.us = phi i32 [ %spec.select38.us, %54 ], [ %.03041.us, %.lr.ph.split.us.split ], [ %.03041.us, %41 ], [ %.03041.us, %50 ]
+  %.1.us = phi i32 [ %spec.select39.us, %54 ], [ %.043.us, %.lr.ph.split.us.split ], [ %.043.us, %41 ], [ %.043.us, %50 ]
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %9
+  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %1, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %59
-  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph.split ]
-  %.043.us44 = phi i32 [ %.1.us52, %59 ], [ -1, %.lr.ph.split ]
-  %.03041.us46 = phi i32 [ %.131.us51, %59 ], [ 24, %.lr.ph.split ]
-  %40 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv, i32 2
-  %41 = load i8, ptr %40, align 4
-  %42 = zext i8 %41 to i32
-  %43 = and i32 %spec.select, %42
-  %.not.us47 = icmp eq i32 %43, 0
-  br i1 %.not.us47, label %44, label %59
-
-44:                                               ; preds = %.lr.ph.split.split.us
-  %45 = load ptr, ptr %15, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
-  %47 = load i64, ptr %46, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 1
-  br i1 %50, label %59, label %.critedge.us
-
-.critedge.us:                                     ; preds = %44
-  %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 84
-  %53 = load i8, ptr %52, align 4
-  switch i8 %53, label %59 [
-    i8 120, label %54
-    i8 101, label %54
-  ]
-
-54:                                               ; preds = %.critedge.us, %.critedge.us
-  %55 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv, i32 1
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp sgt i32 %56, %.03041.us46
-  %spec.select38.us49 = tail call i32 @llvm.smax.i32(i32 %56, i32 %.03041.us46)
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select39.us50 = select i1 %57, i32 %58, i32 %.043.us44
-  br label %59
-
-59:                                               ; preds = %54, %.critedge.us, %44, %.lr.ph.split.split.us
-  %.131.us51 = phi i32 [ %spec.select38.us49, %54 ], [ %.03041.us46, %.lr.ph.split.split.us ], [ %.03041.us46, %44 ], [ %.03041.us46, %.critedge.us ]
-  %.1.us52 = phi i32 [ %spec.select39.us50, %54 ], [ %.043.us44, %.lr.ph.split.split.us ], [ %.043.us44, %44 ], [ %.043.us44, %.critedge.us ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %81
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %81 ], [ 0, %.lr.ph.split ]
-  %.043 = phi i32 [ %.1, %81 ], [ -1, %.lr.ph.split ]
-  %.03041 = phi i32 [ %.131, %81 ], [ 24, %.lr.ph.split ]
-  %60 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv61, i32 2
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.lr.ph.split ]
+  %.043.us44 = phi i32 [ %.1.us52, %79 ], [ -1, %.lr.ph.split ]
+  %.03041.us46 = phi i32 [ %.131.us51, %79 ], [ 24, %.lr.ph.split ]
+  %60 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv, i32 2
   %61 = load i8, ptr %60, align 4
   %62 = zext i8 %61 to i32
   %63 = and i32 %spec.select, %62
-  %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %64, label %81
+  %.not.us47 = icmp eq i32 %63, 0
+  br i1 %.not.us47, label %64, label %79
 
-64:                                               ; preds = %.lr.ph.split.split
+64:                                               ; preds = %.lr.ph.split.split.us
   %65 = load ptr, ptr %15, align 8
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv61
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8
   %68 = inttoptr i64 %67 to ptr
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 1
-  %71 = and i8 %69, 3
-  %72 = icmp eq i8 %71, 2
-  %or.cond = or i1 %70, %72
-  br i1 %or.cond, label %81, label %.critedge
+  br i1 %70, label %79, label %.critedge.us
 
-.critedge:                                        ; preds = %64
-  %.idx56 = mul nuw nsw i64 %indvars.iv61, 100
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx56
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 84
-  %75 = load i8, ptr %74, align 4
-  switch i8 %75, label %81 [
-    i8 120, label %76
-    i8 101, label %76
+.critedge.us:                                     ; preds = %64
+  %.idx = mul nuw nsw i64 %indvars.iv, 100
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 84
+  %73 = load i8, ptr %72, align 4
+  switch i8 %73, label %79 [
+    i8 120, label %74
+    i8 101, label %74
   ]
 
-76:                                               ; preds = %.critedge, %.critedge
-  %77 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv61, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp sgt i32 %78, %.03041
-  %spec.select38 = tail call i32 @llvm.smax.i32(i32 %78, i32 %.03041)
-  %80 = trunc nuw nsw i64 %indvars.iv61 to i32
-  %spec.select39 = select i1 %79, i32 %80, i32 %.043
-  br label %81
+74:                                               ; preds = %.critedge.us, %.critedge.us
+  %75 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv, i32 1
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp sgt i32 %76, %.03041.us46
+  %spec.select38.us49 = tail call i32 @llvm.smax.i32(i32 %76, i32 %.03041.us46)
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select39.us50 = select i1 %77, i32 %78, i32 %.043.us44
+  br label %79
 
-81:                                               ; preds = %.critedge, %64, %.lr.ph.split.split, %76
-  %.131 = phi i32 [ %spec.select38, %76 ], [ %.03041, %.lr.ph.split.split ], [ %.03041, %64 ], [ %.03041, %.critedge ]
-  %.1 = phi i32 [ %spec.select39, %76 ], [ %.043, %.lr.ph.split.split ], [ %.043, %64 ], [ %.043, %.critedge ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %9
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !11
+79:                                               ; preds = %74, %.critedge.us, %64, %.lr.ph.split.split.us
+  %.131.us51 = phi i32 [ %spec.select38.us49, %74 ], [ %.03041.us46, %.lr.ph.split.split.us ], [ %.03041.us46, %64 ], [ %.03041.us46, %.critedge.us ]
+  %.1.us52 = phi i32 [ %spec.select39.us50, %74 ], [ %.043.us44, %.lr.ph.split.split.us ], [ %.043.us44, %64 ], [ %.043.us44, %.critedge.us ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %59, %81, %39, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %39 ], [ %.1, %81 ], [ %.1.us52, %59 ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %101
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %101 ], [ 0, %.lr.ph.split ]
+  %.043 = phi i32 [ %.1, %101 ], [ -1, %.lr.ph.split ]
+  %.03041 = phi i32 [ %.131, %101 ], [ 24, %.lr.ph.split ]
+  %80 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv66, i32 2
+  %81 = load i8, ptr %80, align 4
+  %82 = zext i8 %81 to i32
+  %83 = and i32 %spec.select, %82
+  %.not = icmp eq i32 %83, 0
+  br i1 %.not, label %84, label %101
+
+84:                                               ; preds = %.lr.ph.split.split
+  %85 = load ptr, ptr %15, align 8
+  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv66
+  %87 = load i64, ptr %86, align 8
+  %88 = inttoptr i64 %87 to ptr
+  %89 = load i8, ptr %88, align 1
+  %90 = icmp eq i8 %89, 1
+  %91 = and i8 %89, 3
+  %92 = icmp eq i8 %91, 2
+  %or.cond58 = or i1 %90, %92
+  br i1 %or.cond58, label %101, label %.critedge
+
+.critedge:                                        ; preds = %84
+  %.idx59 = mul nuw nsw i64 %indvars.iv66, 100
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx59
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 84
+  %95 = load i8, ptr %94, align 4
+  switch i8 %95, label %101 [
+    i8 120, label %96
+    i8 101, label %96
+  ]
+
+96:                                               ; preds = %.critedge, %.critedge
+  %97 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv66, i32 1
+  %98 = load i32, ptr %97, align 8
+  %99 = icmp sgt i32 %98, %.03041
+  %spec.select38 = tail call i32 @llvm.smax.i32(i32 %98, i32 %.03041)
+  %100 = trunc nuw nsw i64 %indvars.iv66 to i32
+  %spec.select39 = select i1 %99, i32 %100, i32 %.043
+  br label %101
+
+101:                                              ; preds = %.critedge, %84, %.lr.ph.split.split, %96
+  %.131 = phi i32 [ %spec.select38, %96 ], [ %.03041, %.lr.ph.split.split ], [ %.03041, %84 ], [ %.03041, %.critedge ]
+  %.1 = phi i32 [ %spec.select39, %96 ], [ %.043, %.lr.ph.split.split ], [ %.043, %84 ], [ %.043, %.critedge ]
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %9
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
+
+._crit_edge:                                      ; preds = %79, %101, %36, %59, %3
+  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %59 ], [ %.1.us.us, %36 ], [ %.1, %101 ], [ %.1.us52, %79 ]
   ret i32 %.0.lcssa
 }
 
@@ -579,7 +623,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 22:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !9
 
 .loopexit25.loopexit:                             ; preds = %22
   %.pre = load i8, ptr %6, align 8
@@ -618,7 +662,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 37:                                               ; preds = %32, %27
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !13
+  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !10
 
 .loopexit:                                        ; preds = %37, %.loopexit25
   ret void
@@ -674,7 +718,7 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
 29:                                               ; preds = %14, %20, %24, %28, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %29, %4
   ret void
@@ -703,10 +747,7 @@ attributes #5 = { nounwind }
 !5 = !{}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}

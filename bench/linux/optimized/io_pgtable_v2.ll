@@ -612,7 +612,7 @@ define internal fastcc void @free_pgtable(ptr noundef %0, i32 noundef %1) unname
 27:                                               ; preds = %23, %.split
   %28 = add nuw nsw i64 %18, 1
   %29 = icmp eq i64 %28, 512
-  br i1 %29, label %.split2.us, label %.split, !llvm.loop !28
+  br i1 %29, label %.split2.us, label %.split, !llvm.loop !26
 
 .split2.us:                                       ; preds = %27, %15
   %30 = ptrtoint ptr %0 to i64
@@ -689,6 +689,4 @@ attributes #9 = { cold nounwind }
 !23 = !{i64 2155577867, i64 2155577678, i64 2155577728, i64 2155577774, i64 2155577802}
 !24 = distinct !{!24, !14, !15}
 !25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !14, !15}
+!26 = distinct !{!26, !14, !15}

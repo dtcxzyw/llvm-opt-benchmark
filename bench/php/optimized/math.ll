@@ -3567,7 +3567,7 @@ zend_safe_addmult.exit121:                        ; preds = %zend_safe_address.e
   %78 = getelementptr inbounds i8, ptr %.4143.us, i64 -1
   store i8 %77, ptr %.4143.us, align 1, !tbaa !11
   %.not113.us = icmp samesign ult i64 %.294.idx142.us, 25
-  br i1 %.not113.us, label %._crit_edge147, label %.lr.ph146.split.us, !llvm.loop !82
+  br i1 %.not113.us, label %._crit_edge147, label %.lr.ph146.split.us
 
 .lr.ph146.split:                                  ; preds = %.lr.ph146, %87
   %.084144 = phi i32 [ %81, %87 ], [ 0, %.lr.ph146 ]
@@ -3766,7 +3766,7 @@ zend_safe_addmult.exit:                           ; preds = %zend_safe_addmult.e
   %54 = getelementptr inbounds i8, ptr %.2117.us, i64 -1
   store i8 %53, ptr %.2117.us, align 1, !tbaa !11
   %.not90.us = icmp samesign ult i64 %.070.idx116.us, 25
-  br i1 %.not90.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !84
+  br i1 %.not90.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %.067118 = phi i32 [ %57, %63 ], [ 0, %.lr.ph ]
@@ -3896,7 +3896,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %19
   switch i8 %31, label %zend_parse_arg_str_ex.exit116 [
     i8 6, label %32
     i8 1, label %zend_parse_arg_str_ex.exit116.thread
-  ], !prof !85
+  ], !prof !82
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %29, align 8, !tbaa !11
@@ -3904,7 +3904,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %19
 
 zend_parse_arg_str_ex.exit116:                    ; preds = %28
   %34 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %29, ptr noundef nonnull %4, i32 noundef 3) #14
-  br i1 %34, label %thread-pre-split, label %zend_parse_arg_string.exit, !prof !86
+  br i1 %34, label %thread-pre-split, label %zend_parse_arg_string.exit, !prof !83
 
 thread-pre-split:                                 ; preds = %zend_parse_arg_str_ex.exit116
   %.pr = load ptr, ptr %4, align 8, !tbaa !77
@@ -3940,7 +3940,7 @@ zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_
   switch i8 %44, label %zend_parse_arg_str_ex.exit [
     i8 6, label %45
     i8 1, label %zend_parse_arg_str_ex.exit.thread
-  ], !prof !85
+  ], !prof !82
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %42, align 8, !tbaa !11
@@ -4548,8 +4548,5 @@ attributes #20 = { noreturn nounwind }
 !79 = !{!72, !28, i64 8}
 !80 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
 !81 = !{i64 2866857, i64 2866878, i64 2866897}
-!82 = distinct !{!82, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !83}
-!85 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!86 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!82 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!83 = !{!"branch_weights", i32 2146410443, i32 1073205}

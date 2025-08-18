@@ -4301,7 +4301,7 @@ define internal fastcc i32 @vvalue_tvb_vector_internal(ptr noundef %0, i32 nound
   %31 = add i32 %29, %.045
   %32 = add nuw i32 %.03544, 1
   %exitcond.not = icmp eq i32 %32, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %28, %20, %11
   %.0.lcssa = phi i32 [ %1, %11 ], [ %.1.us, %20 ], [ %31, %28 ]
@@ -4594,7 +4594,7 @@ define internal noundef i32 @parse_CColumnSet(ptr noundef %0, i32 noundef %1, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull %.str.1226..str.1251, i32 noundef %15)
   %18 = add nuw i32 %.01920, 1
   %exitcond.not = icmp eq i32 %18, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %10, %4 ], [ %16, %.lr.ph ]
@@ -4644,7 +4644,7 @@ define internal noundef i32 @parse_CRestrictionArray(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %27, %16
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %6
   %.035 = phi i32 [ %23, %6 ], [ %25, %24 ], [ %26, %.lr.ph ]
@@ -4680,7 +4680,7 @@ define internal noundef i32 @parse_CInGroupSortAggregSets(ptr noundef %0, ptr no
   %17 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_CInGroupSortAggregSet(ptr noundef %0, ptr noundef %1, i32 noundef %.025, ptr noundef %12, ptr noundef %4, ptr nonnull poison, i32 noundef %.02324)
   %18 = add nuw i32 %.02324, 1
   %exitcond.not = icmp eq i32 %18, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %16, %6 ], [ %17, %.lr.ph ]
@@ -4784,7 +4784,7 @@ define internal noundef i32 @parse_CPidMapper(ptr noundef %0, i32 noundef %1, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %20 = add nuw i32 %.02930, 1
   %exitcond.not = icmp eq i32 %20, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %17, %5 ], [ %19, %.lr.ph ]
@@ -4821,7 +4821,7 @@ define internal void @parse_CColumnGroupArray(ptr noundef %0, i32 noundef %1, pt
   %17 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CColumnGroup(ptr noundef %0, i32 noundef %16, ptr noundef %11, ptr poison, ptr nonnull poison, i32 noundef %.028)
   %18 = add nuw i32 %.028, 1
   %exitcond.not = icmp eq i32 %18, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.026.lcssa = phi i32 [ %15, %5 ], [ %17, %.lr.ph ]
@@ -5013,7 +5013,7 @@ define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef 
   %22 = add nuw i32 %.02829, 1
   %23 = load i32, ptr %5, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %18, %7 ], [ %21, %.lr.ph ]
@@ -5506,7 +5506,7 @@ define internal noundef i32 @parse_CSortSet(ptr noundef %0, i32 noundef %1, ptr 
   %17 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CSort(ptr noundef %0, i32 noundef %16, ptr noundef %11, ptr poison, ptr noundef nonnull @.str.1328, i32 noundef %.02627)
   %18 = add nuw i32 %.02627, 1
   %exitcond.not = icmp eq i32 %18, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %17, %.lr.ph ]
@@ -5622,7 +5622,7 @@ define internal noundef i32 @parse_CAggregSet(ptr noundef %0, i32 noundef %1, pt
   %16 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CAggregSpec(ptr noundef %0, i32 noundef %.024, ptr noundef %11, ptr noundef %3, ptr noundef nonnull @.str.1343, i32 noundef %.02223)
   %17 = add nuw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %17, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %16, %.lr.ph ]
@@ -5658,7 +5658,7 @@ define internal noundef i32 @parse_CSortAggregSet(ptr noundef %0, i32 noundef %1
   %16 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @parse_CAggregSortKey(ptr noundef %0, i32 noundef %.024, ptr noundef %11, ptr noundef %3, ptr nonnull poison, i32 noundef %.02223)
   %17 = add nuw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %17, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %15, %5 ], [ %16, %.lr.ph ]
@@ -5708,7 +5708,7 @@ define internal noundef i32 @parse_CRangeCategSpec(ptr noundef %0, ptr noundef %
   %31 = call i32 (ptr, ptr, i32, ptr, ptr, ptr, ...) @parse_RANGEBOUNDARY(ptr noundef %0, ptr noundef %1, i32 noundef %.028, ptr noundef %12, ptr noundef %4, ptr nonnull poison, i32 noundef %.02627)
   %32 = add nuw i32 %.02627, 1
   %exitcond.not = icmp eq i32 %32, %27
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %30, %6 ], [ %31, %.lr.ph ]
@@ -5932,7 +5932,7 @@ define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, 
   %30 = add nuw i32 %.04042, 1
   %.0 = add i32 %.044, 8
   %exitcond.not = icmp eq i32 %30, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.0.lcssa = phi i32 [ %.041, %24 ], [ %.0, %.lr.ph ]
@@ -6083,12 +6083,12 @@ define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i3
   %22 = add nuw i32 %.02526, 1
   %23 = load i32, ptr %16, align 8
   %24 = icmp ult i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %25 = add nuw i32 %.027, 1
   %exitcond.not = icmp eq i32 %25, %3
-  br i1 %exitcond.not, label %._crit_edge30, label %17, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge30, label %17, !llvm.loop !33
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -6126,7 +6126,7 @@ define internal noundef i32 @parse_UInt32Array(ptr noundef %0, i32 noundef %1, p
   %16 = add i32 %.022, 4
   %17 = add nuw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i32 [ %1, %6 ], [ %16, %.lr.ph ]
@@ -6458,7 +6458,7 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   %128 = add i32 %.06573.us.i, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %77, %129
-  br i1 %130, label %.lr.ph.split.us.i, label %parse_VariantColVector.exit, !llvm.loop !37
+  br i1 %130, label %.lr.ph.split.us.i, label %parse_VariantColVector.exit, !llvm.loop !35
 
 .lr.ph.split.i:                                   ; preds = %150, %.lr.ph.split.preheader.i
   %.06573.i = phi i32 [ %155, %150 ], [ 0, %.lr.ph.split.preheader.i ]
@@ -6513,7 +6513,7 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %155 = add nuw i32 %.06573.i, 1
   %exitcond.not = icmp eq i32 %155, %91
-  br i1 %exitcond.not, label %parse_VariantColVector.exit, label %.lr.ph.split.i, !llvm.loop !38
+  br i1 %exitcond.not, label %parse_VariantColVector.exit, label %.lr.ph.split.i, !llvm.loop !35
 
 156:                                              ; preds = %get_fixed_vtype_dataize.exit
   %157 = call ptr @wmem_packet_scope()
@@ -6894,7 +6894,7 @@ define internal noundef i32 @parse_uin32_array(ptr noundef %0, i32 noundef %1, p
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull %.str.1226..str.1251, i32 noundef %14)
   %17 = add nuw i32 %.01617, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %1, %5 ], [ %15, %.lr.ph ]
@@ -6951,8 +6951,8 @@ attributes #13 = { nounwind }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
@@ -6968,6 +6968,3 @@ attributes #13 = { nounwind }
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7, !21}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}

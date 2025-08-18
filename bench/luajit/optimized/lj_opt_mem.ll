@@ -2126,7 +2126,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.030.in.us = load i16, ptr %51, align 2, !tbaa !4
   %52 = icmp ugt i16 %.030.in.us, %3
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !45
+  br i1 %52, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %.030.in57 = phi i16 [ %.030.in, %68 ], [ %.030.in56, %.lr.ph ]
@@ -2301,7 +2301,7 @@ aa_fref.exit.thread.us:                           ; preds = %54, %.loopexit.us, 
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %.041.in.us = load i16, ptr %58, align 2, !tbaa !33
   %59 = icmp ugt i16 %.041.in.us, %3
-  br i1 %59, label %.lr.ph.split.us, label %.thread55, !llvm.loop !47
+  br i1 %59, label %.lr.ph.split.us, label %.thread55
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %aa_fref.exit.thread
   %.041.in71 = phi i16 [ %.041.in, %aa_fref.exit.thread ], [ %.041.in69, %.lr.ph ]
@@ -2377,7 +2377,7 @@ aa_fref.exit:                                     ; preds = %67, %23
 98:                                               ; preds = %90, %94
   %99 = getelementptr inbounds i8, ptr %.078, i64 -8
   %.not48 = icmp ugt ptr %99, %.us-phi75
-  br i1 %.not48, label %.lr.ph79, label %._crit_edge, !llvm.loop !48
+  br i1 %.not48, label %.lr.ph79, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %98, %82
   %100 = getelementptr inbounds nuw i8, ptr %.us-phi75, i64 6
@@ -2430,7 +2430,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %.021.in = load i16, ptr %14, align 2, !tbaa !4
   %15 = icmp ugt i16 %.021.in, %12
-  br i1 %15, label %16, label %._crit_edge, !llvm.loop !49
+  br i1 %15, label %16, label %._crit_edge, !llvm.loop !46
 
 16:                                               ; preds = %.lr.ph, %13
   %.021.in36 = phi i16 [ %.021.in34, %.lr.ph ], [ %.021.in, %13 ]
@@ -2459,7 +2459,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
   %28 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %.223.in = load i16, ptr %28, align 2, !tbaa !4
   %29 = icmp ugt i16 %.223.in, %26
-  br i1 %29, label %30, label %.critedge, !llvm.loop !50
+  br i1 %29, label %30, label %.critedge, !llvm.loop !47
 
 30:                                               ; preds = %.lr.ph41, %27
   %.223.in39 = phi i16 [ %.223.in37, %.lr.ph41 ], [ %.223.in, %27 ]
@@ -2628,7 +2628,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.380.in = load i16, ptr %84, align 2, !tbaa !4
   %.380 = zext i16 %.380.in to i32
   %85 = icmp samesign ult i32 %.082, %.380
-  br i1 %85, label %70, label %._crit_edge, !llvm.loop !51
+  br i1 %85, label %70, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %83, %.thread105
   %86 = load i16, ptr %9, align 2, !tbaa !4
@@ -2800,7 +2800,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %.021.in.i.i = load i16, ptr %185, align 2, !tbaa !4
   %.021.i.i = zext i16 %.021.in.i.i to i32
   %186 = icmp samesign ult i32 %spec.select29.i.i, %.021.i.i
-  br i1 %186, label %.lr.ph.i.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %186, label %.lr.ph.i.i, label %reassoc_xref.exit.thread, !llvm.loop !49
 
 .split57.i:                                       ; preds = %165
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 402
@@ -2828,7 +2828,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #1 {
   %200 = getelementptr inbounds nuw i8, ptr %192, i64 6
   %.021.in.i73.i = load i16, ptr %200, align 2, !tbaa !4
   %201 = icmp ult i16 %163, %.021.in.i73.i
-  br i1 %201, label %.lr.ph.i70.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %201, label %.lr.ph.i70.i, label %reassoc_xref.exit.thread, !llvm.loop !49
 
 reassoc_trycse.exit.loopexit104.i:                ; preds = %195
   %.02136.i71.le.i = zext i16 %.021.in35.i72.i to i32
@@ -2869,7 +2869,7 @@ reassoc_trycse.exit.i:                            ; preds = %179, %reassoc_trycs
   %.021.in.i84.i = load i16, ptr %218, align 2, !tbaa !4
   %.021.i85.i = zext i16 %.021.in.i84.i to i32
   %219 = icmp samesign ult i32 %spec.select29.i77.i, %.021.i85.i
-  br i1 %219, label %.lr.ph.i81.i, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %219, label %.lr.ph.i81.i, label %reassoc_xref.exit.thread, !llvm.loop !49
 
 reassoc_trycse.exit86.i:                          ; preds = %212
   %.not63.i = icmp eq i64 %162, 0
@@ -2911,7 +2911,7 @@ reassoc_trycse.exit86.i:                          ; preds = %212
   %.021.in.i95.i = load i16, ptr %237, align 2, !tbaa !4
   %.021.i96.i = zext i16 %.021.in.i95.i to i32
   %238 = icmp samesign ult i32 %spec.select29.i88.i, %.021.i96.i
-  br i1 %238, label %225, label %reassoc_xref.exit.thread, !llvm.loop !52
+  br i1 %238, label %225, label %reassoc_xref.exit.thread, !llvm.loop !49
 
 reassoc_xref.exit:                                ; preds = %231, %reassoc_trycse.exit86.i
   %239 = phi ptr [ %66, %reassoc_trycse.exit86.i ], [ %224, %231 ]
@@ -2930,7 +2930,7 @@ reassoc_xref.exit:                                ; preds = %231, %reassoc_trycs
   %.481.in = load i16, ptr %244, align 2, !tbaa !4
   %.481 = zext i16 %.481.in to i32
   %245 = icmp samesign ult i32 %.082, %.481
-  br i1 %245, label %.lr.ph132, label %._crit_edge133, !llvm.loop !53
+  br i1 %245, label %.lr.ph132, label %._crit_edge133, !llvm.loop !50
 
 ._crit_edge133:                                   ; preds = %.lr.ph132, %reassoc_xref.exit
   %.481.lcssa = phi i32 [ %.481130, %reassoc_xref.exit ], [ %.481, %.lr.ph132 ]
@@ -3246,7 +3246,7 @@ define hidden i32 @lj_opt_dse_xstore(ptr noundef %0) local_unnamed_addr #1 {
 38:                                               ; preds = %42
   %39 = getelementptr inbounds i8, ptr %.080, i64 -8
   %.not60 = icmp ugt ptr %39, %19
-  br i1 %.not60, label %.lr.ph81, label %._crit_edge, !llvm.loop !54
+  br i1 %.not60, label %.lr.ph81, label %._crit_edge, !llvm.loop !51
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %38
   %.080 = phi ptr [ %39, %38 ], [ %37, %.lr.ph81.preheader ]
@@ -3340,7 +3340,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %.046.in.us = load i16, ptr %36, align 2, !tbaa !4
   %37 = icmp ugt i16 %.046.in.us, %15
-  br i1 %37, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !55
+  br i1 %37, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !52
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
   %.046.in71 = phi i16 [ %.046.in, %78 ], [ %.046.in69, %.lr.ph ]
@@ -3403,7 +3403,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %79 = getelementptr inbounds nuw i8, ptr %39, i64 6
   %.046.in = load i16, ptr %79, align 2, !tbaa !4
   %80 = icmp ugt i16 %.046.in, %15
-  br i1 %80, label %.lr.ph.split, label %._crit_edge, !llvm.loop !56
+  br i1 %80, label %.lr.ph.split, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %78, %35, %3
   %81 = getelementptr inbounds nuw [101 x i16], ptr %4, i64 0, i64 %5
@@ -3493,7 +3493,7 @@ define internal fastcc ptr @aa_findcnew(ptr noundef readonly captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 41
-  br i1 %25, label %7, label %._crit_edge, !llvm.loop !57
+  br i1 %25, label %7, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %19, %2
   %.014.lcssa = phi ptr [ %1, %2 ], [ %22, %19 ]
@@ -3579,16 +3579,12 @@ attributes #6 = { nounwind }
 !42 = distinct !{!42, !29}
 !43 = distinct !{!43, !29}
 !44 = distinct !{!44, !29}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !46}
+!45 = distinct !{!45, !29}
+!46 = distinct !{!46, !29}
+!47 = distinct !{!47, !29}
 !48 = distinct !{!48, !29}
 !49 = distinct !{!49, !29}
 !50 = distinct !{!50, !29}
 !51 = distinct !{!51, !29}
 !52 = distinct !{!52, !29}
 !53 = distinct !{!53, !29}
-!54 = distinct !{!54, !29}
-!55 = distinct !{!55, !29, !46}
-!56 = distinct !{!56, !29}
-!57 = distinct !{!57, !29}

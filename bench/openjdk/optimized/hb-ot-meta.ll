@@ -350,7 +350,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
 47:                                               ; preds = %27
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %27, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit, label %27, !llvm.loop !8
 
 48:                                               ; preds = %27
   %49 = and i64 %indvars.iv.i.i.i, 4294967295
@@ -713,7 +713,7 @@ _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitiz
 78:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7IntTypeIhLj1EEEEEJRKNS3_IjLj4EEEEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSB_.exit.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.thread, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %79 = phi i32 [ %61, %.lr.ph.preheader ], [ %128, %78 ]
@@ -849,8 +849,7 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

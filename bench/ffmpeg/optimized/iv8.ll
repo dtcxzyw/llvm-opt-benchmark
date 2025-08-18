@@ -115,7 +115,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   %23 = load ptr, ptr %3, align 8, !tbaa !38
   %24 = zext nneg i32 %18 to i64
   %25 = tail call i64 @avio_skip(ptr noundef %23, i64 noundef %24) #3
-  br label %.lr.ph.split.us, !llvm.loop !50
+  br label %.lr.ph.split.us
 
 .split.us:                                        ; preds = %20
   %26 = and i32 %11, 128
@@ -129,10 +129,10 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
 
 31:                                               ; preds = %28
   %32 = sext i32 %15 to i64
-  store i64 %32, ptr %4, align 8, !tbaa !52
-  %33 = load i64, ptr %5, align 8, !tbaa !53
+  store i64 %32, ptr %4, align 8, !tbaa !50
+  %33 = load i64, ptr %5, align 8, !tbaa !51
   %34 = add nsw i64 %33, -16
-  store i64 %34, ptr %5, align 8, !tbaa !53
+  store i64 %34, ptr %5, align 8, !tbaa !51
   br label %39
 
 35:                                               ; preds = %.split.us
@@ -147,19 +147,19 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
 39:                                               ; preds = %35, %31
   %.037 = phi i32 [ %36, %35 ], [ %29, %31 ]
   %40 = icmp samesign ult i32 %.037, %18
-  br i1 %40, label %41, label %.outer, !llvm.loop !54
+  br i1 %40, label %41, label %.outer, !llvm.loop !52
 
 41:                                               ; preds = %39
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %.037, i32 noundef %18) #3
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %43 = load i32, ptr %42, align 8, !tbaa !56
+  %43 = load i32, ptr %42, align 8, !tbaa !54
   %44 = or i32 %43, 2
-  store i32 %44, ptr %42, align 8, !tbaa !56
+  store i32 %44, ptr %42, align 8, !tbaa !54
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %41
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %45, align 4, !tbaa !57
+  store i32 0, ptr %45, align 4, !tbaa !55
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %28, %.lr.ph.split.us, %.loopexit, %38
@@ -240,11 +240,9 @@ attributes #3 = { nounwind }
 !47 = !{!"p2 _ZTS9AVProgram", !44, i64 0}
 !48 = !{!"AVIOInterruptCB", !7, i64 0, !7, i64 8}
 !49 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = !{!19, !17, i64 8}
-!53 = !{!19, !17, i64 72}
-!54 = distinct !{!54, !55}
-!55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!19, !10, i64 40}
-!57 = !{!19, !10, i64 36}
+!50 = !{!19, !17, i64 8}
+!51 = !{!19, !17, i64 72}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.mustprogress"}
+!54 = !{!19, !10, i64 40}
+!55 = !{!19, !10, i64 36}

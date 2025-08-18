@@ -183,7 +183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, 1
   %lftr.wideiv110 = trunc i64 %indvars.iv.next108 to i32
   %exitcond111.not = icmp eq i32 %73, %lftr.wideiv110
-  br i1 %exitcond111.not, label %._crit_edge90, label %.preheader.us91, !llvm.loop !20
+  br i1 %exitcond111.not, label %._crit_edge90, label %.preheader.us91, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %._crit_edge.split
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge.split ], [ %71, %.preheader.lr.ph.split ]
@@ -203,7 +203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %lftr.wideiv100 = trunc i64 %indvars.iv.next98 to i32
   %exitcond101.not = icmp eq i32 %73, %lftr.wideiv100
-  br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !21
+  br i1 %exitcond101.not, label %._crit_edge90, label %.preheader, !llvm.loop !19
 
 113:                                              ; preds = %.preheader, %113
   %indvars.iv = phi i64 [ %68, %.preheader ], [ %indvars.iv.next, %113 ]
@@ -224,11 +224,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %128 = fmul double %125, %127
   %129 = sub nsw i64 %69, %indvars.iv
   %130 = getelementptr inbounds double, ptr %112, i64 %129
-  store double %128, ptr %130, align 8, !tbaa !22
+  store double %128, ptr %130, align 8, !tbaa !20
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %70, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.split, label %113, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.split, label %113, !llvm.loop !17
 
 ._crit_edge90:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader.lr.ph, %55
   ret void
@@ -307,11 +307,8 @@ attributes #12 = { builtin nounwind }
 !14 = !{!12, !12, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"float", !5, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"double", !5, i64 0}
-!24 = distinct !{!24, !18}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !5, i64 0}

@@ -4246,7 +4246,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   %.2 = phi i32 [ %35, %.critedge2 ], [ %spec.select46, %41 ]
   %49 = add nsw i32 %.03452, -1
   %50 = icmp sgt i32 %.03452, 1
-  br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !30
+  br i1 %50, label %.preheader.split, label %.critedge, !llvm.loop !28
 
 51:                                               ; preds = %3
   %52 = icmp ne i32 %2, 0
@@ -4288,7 +4288,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnu
   %73 = icmp sgt i32 %.050, 1
   %74 = icmp sgt i32 %.5, 0
   %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !31
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %71, %48, %.preheader.split, %31, %.preheader.split.us, %51
   %.3 = phi i32 [ %.035, %51 ], [ %.2.us, %31 ], [ %.151.us, %.preheader.split.us ], [ %.151, %.preheader.split ], [ %.2, %48 ], [ %.5, %71 ]
@@ -4361,7 +4361,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorC
 
 19:                                               ; preds = %15
   %.not = icmp ne i32 %2, 0
-  %.pre22.pre = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre22.pre = load ptr, ptr %1, align 8, !tbaa !30
   %20 = icmp eq ptr %.pre22.pre, null
   %or.cond23 = select i1 %.not, i1 %20, i1 false
   br i1 %or.cond23, label %21, label %22
@@ -4386,7 +4386,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorC
 
 29:                                               ; preds = %22
   %30 = tail call ptr @u_memcpy_77(ptr noundef %.pre22.pre, ptr noundef %27, i32 noundef %12)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !32
+  %.pre = load ptr, ptr %1, align 8, !tbaa !30
   br label %31
 
 31:                                               ; preds = %29, %22
@@ -5553,7 +5553,7 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %25, %27, %33
 44:                                               ; preds = %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %.02030, i64 2
   %.not24 = icmp eq ptr %45, %42
-  br i1 %.not24, label %.critedge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not24, label %.critedge, label %.lr.ph, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph, %44, %40
   %.020.lcssa = phi ptr [ %1, %40 ], [ %42, %44 ], [ %.02030, %.lr.ph ]
@@ -6428,7 +6428,7 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
   %41 = getelementptr inbounds i8, ptr %.025, i64 -2
   store i16 %30, ptr %.025, align 2, !tbaa !10
   %42 = icmp ult ptr %35, %41
-  br i1 %42, label %29, label %43, !llvm.loop !35
+  br i1 %42, label %29, label %43, !llvm.loop !33
 
 43:                                               ; preds = %29
   %44 = load i16, ptr %35, align 2, !tbaa !10
@@ -6478,7 +6478,7 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
 68:                                               ; preds = %66, %64
   %.2 = phi ptr [ %65, %64 ], [ %67, %66 ]
   %69 = icmp ult ptr %.2, %55
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !36
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %68, %43, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit, %3, %5
   ret ptr %0
@@ -6536,7 +6536,7 @@ _ZL12us_arrayCopyPKDsiPDsii.exit:                 ; preds = %14, %23
   %30 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.next
   store i16 %2, ptr %30, align 2, !tbaa !10
   %31 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZL12us_arrayCopyPKDsiPDsii.exit
   %32 = icmp slt i32 %1, 1024
@@ -6598,7 +6598,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713UnicodeString11padTrailing
   %22 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv.next
   store i16 %2, ptr %22, align 2, !tbaa !10
   %.not16.not = icmp sgt i64 %indvars.iv.next, %21
-  br i1 %.not16.not, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %.not16.not, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load i16, ptr %4, align 8, !tbaa !3
@@ -6668,7 +6668,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable14a
   %3 = alloca i16, align 2
   store i16 %1, ptr %3, align 2, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i16, ptr %7, align 8, !tbaa !3
@@ -6709,7 +6709,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
 17:                                               ; preds = %5, %9
   %.011 = phi i32 [ 1, %5 ], [ 2, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %.011)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i16, ptr %21, align 8, !tbaa !3
@@ -6727,7 +6727,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable12appendStringEPKDsi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %1, i32 noundef 0, i32 noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i16, ptr %7, align 8, !tbaa !3
@@ -6740,7 +6740,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable12a
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable21reserveAppendCapacityEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !39
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !3
   %7 = icmp slt i16 %6, 0
@@ -6767,7 +6767,7 @@ define noundef ptr @_ZN6icu_7723UnicodeStringAppendable15getAppendBufferEiiPDsiP
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !39
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i16, ptr %13, align 8, !tbaa !3
   %15 = icmp slt i16 %14, 0
@@ -6790,7 +6790,7 @@ define noundef ptr @_ZN6icu_7723UnicodeStringAppendable15getAppendBufferEiiPDsiP
   br i1 %.not24, label %43, label %26
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8, !tbaa !39
+  %27 = load ptr, ptr %11, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i16, ptr %28, align 8, !tbaa !3
   %30 = and i16 %29, 2
@@ -7014,19 +7014,17 @@ attributes #27 = { nounwind willreturn memory(read) }
 !25 = distinct !{!25, !13}
 !26 = distinct !{!26, !13}
 !27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !13}
-!31 = distinct !{!31, !13}
-!32 = !{!33, !17, i64 0}
-!33 = !{!"_ZTSN6icu_779Char16PtrE", !17, i64 0}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !13}
+!30 = !{!31, !17, i64 0}
+!31 = !{!"_ZTSN6icu_779Char16PtrE", !17, i64 0}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !13}
 !34 = distinct !{!34, !13}
 !35 = distinct !{!35, !13}
 !36 = distinct !{!36, !13}
-!37 = distinct !{!37, !13}
-!38 = distinct !{!38, !13}
-!39 = !{!40, !43, i64 8}
-!40 = !{!"_ZTSN6icu_7723UnicodeStringAppendableE", !41, i64 0, !43, i64 8}
-!41 = !{!"_ZTSN6icu_7710AppendableE", !42, i64 0}
-!42 = !{!"_ZTSN6icu_777UObjectE"}
-!43 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !18, i64 0}
+!37 = !{!38, !41, i64 8}
+!38 = !{!"_ZTSN6icu_7723UnicodeStringAppendableE", !39, i64 0, !41, i64 8}
+!39 = !{!"_ZTSN6icu_7710AppendableE", !40, i64 0}
+!40 = !{!"_ZTSN6icu_777UObjectE"}
+!41 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !18, i64 0}

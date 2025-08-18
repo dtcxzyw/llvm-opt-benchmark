@@ -1523,7 +1523,7 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next35 to i32
   %exitcond37.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond37.not, label %._crit_edge31, label %.lr.ph.us, !llvm.loop !56
+  br i1 %exitcond37.not, label %._crit_edge31, label %.lr.ph.us
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.lr.ph30, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1567,11 +1567,11 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   br i1 %.not34, label %._crit_edge36, label %.noexc27.lr.ph
 
 .noexc27.lr.ph:                                   ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !58
+  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !56
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !58
+  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !56
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !36, !noalias !58
+  %23 = load i64, ptr %22, align 8, !tbaa !36, !noalias !56
   %factor.op.mul = mul i64 %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 504
   %25 = load ptr, ptr %24, align 8, !tbaa !16
@@ -1606,13 +1606,13 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   store float %41, ptr %38, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next40 to i32
   %exitcond42.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond42.not, label %._crit_edge36, label %.noexc27.us, !llvm.loop !62
+  br i1 %exitcond42.not, label %._crit_edge36, label %.noexc27.us
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.noexc27.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1717,10 +1717,7 @@ attributes #16 = { builtin nounwind }
 !53 = !{!54}
 !54 = !{i64 2, i64 -1, i64 -1, i1 true}
 !55 = distinct !{!55, !45}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!60 = distinct !{!60, !"_ZN4ncnn3Mat7channelEi"}
-!61 = distinct !{!61, !45}
-!62 = distinct !{!62, !57}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!58 = distinct !{!58, !"_ZN4ncnn3Mat7channelEi"}
+!59 = distinct !{!59, !45}

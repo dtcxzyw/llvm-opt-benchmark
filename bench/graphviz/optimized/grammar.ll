@@ -1646,7 +1646,7 @@ define internal fastcc void @bindattrs(i32 noundef range(i32 0, 3) %0) unnamed_a
   %22 = getelementptr inbounds nuw i8, ptr %.014.us, i64 24
   %.0.us = load ptr, ptr %22, align 8, !tbaa !25
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !52
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.014 = phi ptr [ %.0, %33 ], [ %.012, %.lr.ph ]
@@ -1729,7 +1729,7 @@ define internal fastcc void @delete_items(ptr noundef captures(address_is_null) 
 19:                                               ; preds = %12, %9
   tail call void @free(ptr noundef nonnull %.011) #20
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %19, %1
   ret void
@@ -1987,12 +1987,12 @@ define internal fastcc void @newedge(ptr noundef %0, ptr noundef %1, ptr noundef
   %.idx = select i1 %12, i64 0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !55
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = icmp eq i32 %11, 2
   %.idx27 = select i1 %16, i64 0, i64 -64
   %17 = getelementptr inbounds i8, ptr %8, i64 %.idx27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !55
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %.not28 = icmp ne ptr %15, %19
   %20 = icmp eq ptr %19, %0
   %or.cond = and i1 %.not28, %20
@@ -2206,13 +2206,11 @@ attributes #27 = { nounwind allocsize(1) }
 !49 = !{!46, !28, i64 16}
 !50 = !{!46, !5, i64 38}
 !51 = distinct !{!51, !18}
-!52 = distinct !{!52, !18, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !18}
-!55 = !{!56, !61, i64 56}
-!56 = !{!"Agedge_s", !57, i64 0, !47, i64 24, !47, i64 40, !61, i64 56}
-!57 = !{!"Agobj_s", !58, i64 0, !60, i64 16}
-!58 = !{!"Agtag_s", !4, i64 0, !4, i64 0, !4, i64 0, !4, i64 0, !59, i64 8}
-!59 = !{!"long", !5, i64 0}
-!60 = !{!"p1 _ZTS7Agrec_s", !10, i64 0}
-!61 = !{!"p1 _ZTS8Agnode_s", !10, i64 0}
+!52 = distinct !{!52, !18}
+!53 = !{!54, !59, i64 56}
+!54 = !{!"Agedge_s", !55, i64 0, !47, i64 24, !47, i64 40, !59, i64 56}
+!55 = !{!"Agobj_s", !56, i64 0, !58, i64 16}
+!56 = !{!"Agtag_s", !4, i64 0, !4, i64 0, !4, i64 0, !4, i64 0, !57, i64 8}
+!57 = !{!"long", !5, i64 0}
+!58 = !{!"p1 _ZTS7Agrec_s", !10, i64 0}
+!59 = !{!"p1 _ZTS8Agnode_s", !10, i64 0}

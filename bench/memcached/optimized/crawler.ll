@@ -1383,7 +1383,7 @@ do_lru_crawler_start.exit.us:                     ; preds = %54, %40
   %72 = load ptr, ptr %71, align 8, !tbaa !25
   store ptr %72, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 40), align 8, !tbaa !55
   store i32 %2, ptr @active_crawler_type, align 4, !tbaa !10
-  %73 = load ptr, ptr %72, align 8, !tbaa !83
+  %73 = load ptr, ptr %72, align 8, !tbaa !82
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %76, label %74
 
@@ -1416,7 +1416,7 @@ do_lru_crawler_start.exit.us:                     ; preds = %54, %40
 
 88:                                               ; preds = %86
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 8), align 8, !tbaa !72
-  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 16), align 8, !tbaa !84
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 16), align 8, !tbaa !83
   %89 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #22
   store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @active_crawler_mod, i64 32), align 8, !tbaa !62
   %90 = icmp eq ptr %89, null
@@ -1503,7 +1503,7 @@ do_lru_crawler_start.exit:                        ; preds = %97, %111
   %.2 = phi i32 [ %122, %do_lru_crawler_start.exit ], [ %.152, %94 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.split.us, label %94, !llvm.loop !85
+  br i1 %exitcond.not, label %.split.us, label %94, !llvm.loop !81
 
 .split.us:                                        ; preds = %.critedge, %.critedge.us
   %.us-phi = phi i32 [ %.2.us, %.critedge.us ], [ %.2, %.critedge ]
@@ -1514,9 +1514,9 @@ do_lru_crawler_start.exit:                        ; preds = %97, %111
   %.03250 = phi i32 [ 1, %.thread47 ], [ %.us-phi, %.split.us ]
   tail call void @STATS_LOCK() #18
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 55), align 1, !tbaa !73
-  %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 96), align 8, !tbaa !86
+  %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 96), align 8, !tbaa !84
   %125 = add i64 %124, 1
-  store i64 %125, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 96), align 8, !tbaa !86
+  store i64 %125, ptr getelementptr inbounds nuw (i8, ptr @stats, i64 96), align 8, !tbaa !84
   tail call void @STATS_UNLOCK() #18
   %126 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @lru_crawler_cond) #18
   br label %127
@@ -1541,7 +1541,7 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   %7 = alloca i32, align 4
   %8 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !89
+  store ptr null, ptr %6, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1592,7 +1592,7 @@ define dso_local range(i32 0, 5) i32 @lru_crawler_crawl(ptr noundef %0, i32 noun
   store i8 1, ptr %31, align 1, !tbaa !36
   %32 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #18
   %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !88
 
 .critedge:                                        ; preds = %20, %14, %.preheader.preheader, %11
   %.018 = phi ptr [ null, %11 ], [ %8, %.preheader.preheader ], [ %8, %14 ], [ %8, %20 ]
@@ -1686,10 +1686,10 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   %5 = load i32, ptr %4, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !84
-  store i32 %7, ptr %2, align 4, !tbaa !91
+  %7 = load i32, ptr %6, align 8, !tbaa !83
+  store i32 %7, ptr %2, align 4, !tbaa !89
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 4, ptr %8, align 4, !tbaa !93
+  store i16 4, ptr %8, align 4, !tbaa !91
   %9 = load ptr, ptr %0, align 8, !tbaa !72
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread51, label %11
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   br i1 %22, label %.thread51, label %23
 
 23:                                               ; preds = %21
-  %24 = load i16, ptr %13, align 2, !tbaa !94
+  %24 = load i16, ptr %13, align 2, !tbaa !92
   %25 = and i16 %24, 1
   %.not = icmp eq i16 %25, 0
   br i1 %.not, label %38, label %26
@@ -1732,7 +1732,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load ptr, ptr %0, align 8, !tbaa !72
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 416
-  %29 = load ptr, ptr %28, align 8, !tbaa !95
+  %29 = load ptr, ptr %28, align 8, !tbaa !93
   %30 = call i64 %29(ptr noundef %27, ptr noundef nonnull %3, i64 noundef 1) #18
   %31 = trunc i64 %30 to i32
   switch i32 %31, label %.thread [
@@ -1748,7 +1748,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
 
 .thread:                                          ; preds = %26, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre = load i16, ptr %13, align 2, !tbaa !94
+  %.pre = load i16, ptr %13, align 2, !tbaa !92
   br label %38
 
 35:                                               ; preds = %26, %32
@@ -1784,7 +1784,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
 46:                                               ; preds = %44
   %47 = load ptr, ptr %0, align 8, !tbaa !72
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 432
-  %49 = load ptr, ptr %48, align 8, !tbaa !108
+  %49 = load ptr, ptr %48, align 8, !tbaa !106
   %50 = load ptr, ptr %14, align 8, !tbaa !62
   %51 = zext i32 %.03356 to i64
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
@@ -1828,7 +1828,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
 68:                                               ; preds = %66, %44
   %.134 = phi i32 [ %.03356, %44 ], [ %67, %66 ]
   %69 = icmp ult i32 %.134, %5
-  br i1 %69, label %15, label %70, !llvm.loop !109
+  br i1 %69, label %15, label %70, !llvm.loop !107
 
 70:                                               ; preds = %68
   store i32 0, ptr %4, align 8, !tbaa !61
@@ -2003,32 +2003,30 @@ attributes #24 = { nounwind willreturn memory(none) }
 !78 = !{!27, !6, i64 41}
 !79 = !{!27, !8, i64 24}
 !80 = !{!27, !6, i64 40}
-!81 = distinct !{!81, !22, !82}
-!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!83 = !{!57, !14, i64 0}
-!84 = !{!15, !8, i64 8}
-!85 = distinct !{!85, !22}
-!86 = !{!87, !19, i64 96}
-!87 = !{!"stats", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !88, i64 192, !19, i64 208, !19, i64 216}
-!88 = !{!"timeval", !19, i64 0, !19, i64 8}
-!89 = !{!16, !16, i64 0}
-!90 = distinct !{!90, !22}
-!91 = !{!92, !8, i64 0}
-!92 = !{!"pollfd", !8, i64 0, !24, i64 4, !24, i64 6}
-!93 = !{!92, !24, i64 4}
-!94 = !{!92, !24, i64 6}
-!95 = !{!96, !14, i64 416}
-!96 = !{!"conn", !14, i64 0, !8, i64 8, !9, i64 12, !9, i64 13, !9, i64 14, !9, i64 15, !9, i64 16, !9, i64 17, !9, i64 18, !6, i64 19, !14, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !97, i64 48, !24, i64 176, !24, i64 178, !16, i64 184, !16, i64 192, !8, i64 200, !8, i64 204, !103, i64 208, !103, i64 216, !16, i64 224, !8, i64 232, !14, i64 240, !8, i64 248, !8, i64 252, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !104, i64 276, !8, i64 304, !9, i64 308, !106, i64 312, !6, i64 336, !19, i64 360, !19, i64 368, !24, i64 376, !8, i64 380, !8, i64 384, !107, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432}
-!97 = !{!"event", !98, i64 0, !6, i64 40, !8, i64 56, !102, i64 64, !6, i64 72, !24, i64 104, !24, i64 106, !88, i64 112}
-!98 = !{!"event_callback", !99, i64 0, !24, i64 16, !6, i64 18, !6, i64 19, !6, i64 24, !14, i64 32}
-!99 = !{!"", !100, i64 0, !101, i64 8}
-!100 = !{!"p1 _ZTS14event_callback", !14, i64 0}
-!101 = !{!"p2 _ZTS14event_callback", !14, i64 0}
-!102 = !{!"p1 _ZTS10event_base", !14, i64 0}
-!103 = !{!"p1 _ZTS8_mc_resp", !14, i64 0}
-!104 = !{!"sockaddr_in6", !24, i64 0, !24, i64 2, !8, i64 4, !105, i64 8, !8, i64 24}
-!105 = !{!"in6_addr", !6, i64 0}
-!106 = !{!"", !16, i64 0, !19, i64 8, !19, i64 16}
-!107 = !{!"p1 _ZTS4conn", !14, i64 0}
-!108 = !{!96, !14, i64 432}
-!109 = distinct !{!109, !22}
+!81 = distinct !{!81, !22}
+!82 = !{!57, !14, i64 0}
+!83 = !{!15, !8, i64 8}
+!84 = !{!85, !19, i64 96}
+!85 = !{!"stats", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !86, i64 192, !19, i64 208, !19, i64 216}
+!86 = !{!"timeval", !19, i64 0, !19, i64 8}
+!87 = !{!16, !16, i64 0}
+!88 = distinct !{!88, !22}
+!89 = !{!90, !8, i64 0}
+!90 = !{!"pollfd", !8, i64 0, !24, i64 4, !24, i64 6}
+!91 = !{!90, !24, i64 4}
+!92 = !{!90, !24, i64 6}
+!93 = !{!94, !14, i64 416}
+!94 = !{!"conn", !14, i64 0, !8, i64 8, !9, i64 12, !9, i64 13, !9, i64 14, !9, i64 15, !9, i64 16, !9, i64 17, !9, i64 18, !6, i64 19, !14, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !95, i64 48, !24, i64 176, !24, i64 178, !16, i64 184, !16, i64 192, !8, i64 200, !8, i64 204, !101, i64 208, !101, i64 216, !16, i64 224, !8, i64 232, !14, i64 240, !8, i64 248, !8, i64 252, !8, i64 256, !8, i64 260, !8, i64 264, !8, i64 268, !8, i64 272, !102, i64 276, !8, i64 304, !9, i64 308, !104, i64 312, !6, i64 336, !19, i64 360, !19, i64 368, !24, i64 376, !8, i64 380, !8, i64 384, !105, i64 392, !14, i64 400, !14, i64 408, !14, i64 416, !14, i64 424, !14, i64 432}
+!95 = !{!"event", !96, i64 0, !6, i64 40, !8, i64 56, !100, i64 64, !6, i64 72, !24, i64 104, !24, i64 106, !86, i64 112}
+!96 = !{!"event_callback", !97, i64 0, !24, i64 16, !6, i64 18, !6, i64 19, !6, i64 24, !14, i64 32}
+!97 = !{!"", !98, i64 0, !99, i64 8}
+!98 = !{!"p1 _ZTS14event_callback", !14, i64 0}
+!99 = !{!"p2 _ZTS14event_callback", !14, i64 0}
+!100 = !{!"p1 _ZTS10event_base", !14, i64 0}
+!101 = !{!"p1 _ZTS8_mc_resp", !14, i64 0}
+!102 = !{!"sockaddr_in6", !24, i64 0, !24, i64 2, !8, i64 4, !103, i64 8, !8, i64 24}
+!103 = !{!"in6_addr", !6, i64 0}
+!104 = !{!"", !16, i64 0, !19, i64 8, !19, i64 16}
+!105 = !{!"p1 _ZTS4conn", !14, i64 0}
+!106 = !{!94, !14, i64 432}
+!107 = distinct !{!107, !22}

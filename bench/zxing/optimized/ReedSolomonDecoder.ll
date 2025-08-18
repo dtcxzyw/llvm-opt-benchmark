@@ -1168,7 +1168,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit45.us63.i:   ; preds = %486, %_ZNK5ZXing9Ge
   %.1.us64.i = phi i32 [ %.03252.us60.i, %.lr.ph.split.us67.i ], [ %498, %486 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us62.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count79.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us67.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us67.i, !llvm.loop !47
 
 .preheader.us.i:                                  ; preds = %.lr.ph57.split.us.i
   %499 = icmp eq i32 %428, 0
@@ -1214,7 +1214,7 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit45.us.us.i:  ; preds = %508, %_ZNK5ZXing9Ge
   %.1.us.us.i = phi i32 [ %.03252.us.us.i, %506 ], [ %518, %508 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us.us.i ]
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next214, %425
-  br i1 %exitcond75.not.i, label %._crit_edge.us.i, label %506, !llvm.loop !49
+  br i1 %exitcond75.not.i, label %._crit_edge.us.i, label %506, !llvm.loop !47
 
 .split.us.i:                                      ; preds = %.lr.ph57.split.us.i
   %519 = landingpad { ptr, i32 }
@@ -1338,7 +1338,7 @@ _ZN5ZXingL19FindErrorMagnitudesERKNS_9GenericGFERKNS_13GenericGFPolyERKSt6vector
   store i32 %574, ptr %572, align 4, !tbaa !3
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %.critedge.thread, label %544, !llvm.loop !50
+  br i1 %exitcond220.not, label %.critedge.thread, label %544, !llvm.loop !48
 
 .critedge:                                        ; preds = %556, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i
   %.not.i.i.i83 = icmp eq ptr %.sroa.0.0, null
@@ -1458,7 +1458,7 @@ define linkonce_odr void @_ZN5ZXing13GenericGFPolyC2ERKNS_9GenericGFERKSt6vector
 
 11:                                               ; preds = %3
   %12 = icmp ugt i64 %9, 9223372036854775804
-  br i1 %12, label %.noexc.i.i, label %13, !prof !51
+  br i1 %12, label %.noexc.i.i, label %13, !prof !49
 
 .noexc.i.i:                                       ; preds = %11
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #15
@@ -1942,9 +1942,7 @@ attributes #17 = { builtin nounwind }
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZN5ZXingL19FindErrorMagnitudesERKNS_9GenericGFERKNS_13GenericGFPolyERKSt6vectorIiSaIiEE: argument 0"}
 !45 = distinct !{!45, !"_ZN5ZXingL19FindErrorMagnitudesERKNS_9GenericGFERKNS_13GenericGFPolyERKSt6vectorIiSaIiEE"}
-!46 = distinct !{!46, !8, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !8}
+!47 = distinct !{!47, !8}
 !48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8, !47}
-!50 = distinct !{!50, !8}
-!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}

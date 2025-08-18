@@ -39,8 +39,8 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %.not63 = icmp eq ptr %16, null
   br i1 %.not63, label %.sink.split, label %.split.us
 
-.split.us:                                        ; preds = %15, %.loopexit99.us
-  %.048.us = phi i64 [ %.4.lcssa.us, %.loopexit99.us ], [ 0, %15 ]
+.split.us:                                        ; preds = %15, %.split.us.backedge
+  %.048.us = phi i64 [ %.048.us.be, %.split.us.backedge ], [ 0, %15 ]
   %17 = call i32 @archive_read_data_block(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   switch i32 %17, label %.sink.split [
     i32 0, label %18
@@ -72,7 +72,11 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %.250.us = phi i64 [ %39, %.loopexit100.us ], [ %.048.us, %18 ]
   %.pr.us = load i64, ptr %5, align 8, !tbaa !8
   %.not65111.us = icmp eq i64 %.pr.us, 0
-  br i1 %.not65111.us, label %.loopexit99.us, label %.lr.ph.us
+  br i1 %.not65111.us, label %.split.us.backedge, label %.lr.ph.us
+
+.split.us.backedge:                               ; preds = %34, %30
+  %.048.us.be = phi i64 [ %.250.us, %30 ], [ %35, %34 ]
+  br label %.split.us
 
 .lr.ph.us:                                        ; preds = %30, %34
   %.0113.us = phi ptr [ %36, %34 ], [ %19, %30 ]
@@ -90,11 +94,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %38 = sub i64 %37, %32
   store i64 %38, ptr %5, align 8, !tbaa !8
   %.not65.us = icmp eq i64 %38, 0
-  br i1 %.not65.us, label %.loopexit99.us, label %.lr.ph.us, !llvm.loop !12
-
-.loopexit99.us:                                   ; preds = %34, %30
-  %.4.lcssa.us = phi i64 [ %.250.us, %30 ], [ %35, %34 ]
-  br label %.split.us, !llvm.loop !13
+  br i1 %.not65.us, label %.split.us.backedge, label %.lr.ph.us, !llvm.loop !12
 
 .loopexit100.us:                                  ; preds = %27
   %39 = load i64, ptr %6, align 8, !tbaa !8
@@ -187,7 +187,7 @@ define dso_local range(i32 2, 1) i32 @archive_read_data_into_fd(ptr noundef %0, 
   %.str.1.sink = phi ptr [ @.str.2, %62 ], [ @.str.1, %.lr.ph.i74 ], [ @.str.1, %.lr.ph.us ], [ @.str.1, %.lr.ph.i.us ], [ @.str.1, %.lr.ph ], [ @.str.2, %45 ]
   %.147.ph.ph = phi ptr [ %.046137, %62 ], [ %.046137, %.lr.ph.i74 ], [ %16, %.lr.ph.us ], [ %16, %.lr.ph.i.us ], [ null, %.lr.ph ], [ null, %45 ]
   %73 = tail call ptr @__errno_location() #12
-  %74 = load i32, ptr %73, align 4, !tbaa !15
+  %74 = load i32, ptr %73, align 4, !tbaa !13
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %74, ptr noundef nonnull %.str.1.sink) #10
   br label %.sink.split
 
@@ -268,7 +268,5 @@ attributes #12 = { nounwind willreturn memory(none) }
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}

@@ -2664,7 +2664,7 @@ define hidden void @IntArgbPreToIntArgbPreSrcOverMaskBlit(ptr noundef %0, ptr no
   %117 = inttoptr i64 %116 to ptr
   %118 = add nsw i32 %.1126.us, -1
   %119 = icmp sgt i32 %.1126.us, 1
-  br i1 %119, label %.split.us.us, label %.loopexit, !llvm.loop !57
+  br i1 %119, label %.split.us.us, label %.loopexit, !llvm.loop !56
 
 120:                                              ; preds = %11
   %121 = sext i32 %3 to i64
@@ -2805,7 +2805,7 @@ define hidden void @IntArgbPreToIntArgbPreSrcOverMaskBlit(ptr noundef %0, ptr no
   %219 = inttoptr i64 %218 to ptr
   %220 = add nsw i32 %.0138, -1
   %221 = icmp sgt i32 %.0138, 1
-  br i1 %221, label %129, label %222, !llvm.loop !58
+  br i1 %221, label %129, label %222, !llvm.loop !57
 
 222:                                              ; preds = %213
   %223 = add nsw i64 %215, %124
@@ -2817,7 +2817,7 @@ define hidden void @IntArgbPreToIntArgbPreSrcOverMaskBlit(ptr noundef %0, ptr no
   %229 = inttoptr i64 %228 to ptr
   %230 = add nsw i32 %.0125, -1
   %231 = icmp sgt i32 %.0125, 1
-  br i1 %231, label %128, label %.loopexit, !llvm.loop !59
+  br i1 %231, label %128, label %.loopexit, !llvm.loop !58
 
 .split:                                           ; preds = %.preheader, %.split163
   %.2136 = phi ptr [ %307, %.split163 ], [ %0, %.preheader ]
@@ -2915,7 +2915,7 @@ define hidden void @IntArgbPreToIntArgbPreSrcOverMaskBlit(ptr noundef %0, ptr no
   %301 = inttoptr i64 %300 to ptr
   %302 = add nsw i32 %.0133, -1
   %303 = icmp sgt i32 %.0133, 1
-  br i1 %303, label %232, label %.split163, !llvm.loop !60
+  br i1 %303, label %232, label %.split163, !llvm.loop !55
 
 .split163:                                        ; preds = %295
   %304 = add nsw i64 %297, %24
@@ -2924,7 +2924,7 @@ define hidden void @IntArgbPreToIntArgbPreSrcOverMaskBlit(ptr noundef %0, ptr no
   %307 = inttoptr i64 %306 to ptr
   %308 = add nsw i32 %.1126, -1
   %309 = icmp sgt i32 %.1126, 1
-  br i1 %309, label %.split, label %.loopexit, !llvm.loop !61
+  br i1 %309, label %.split, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %222, %.split163, %.split163.us.us
   ret void
@@ -3200,7 +3200,7 @@ define hidden void @IntArgbPreToIntArgbPreAlphaMaskBlit(ptr noundef %0, ptr noun
   %.2157 = inttoptr i64 %.2157.in to ptr
   %170 = add nsw i32 %.0127, -1
   %171 = icmp sgt i32 %.0127, 1
-  br i1 %171, label %61, label %172, !llvm.loop !62
+  br i1 %171, label %61, label %172, !llvm.loop !59
 
 172:                                              ; preds = %169
   %173 = add nsw i64 %.2157.in, %55
@@ -3214,7 +3214,7 @@ define hidden void @IntArgbPreToIntArgbPreAlphaMaskBlit(ptr noundef %0, ptr noun
   %.5 = select i1 %.not175, ptr null, ptr %179
   %180 = add nsw i32 %.0130, -1
   %181 = icmp sgt i32 %.0130, 1
-  br i1 %181, label %60, label %182, !llvm.loop !63
+  br i1 %181, label %60, label %182, !llvm.loop !60
 
 182:                                              ; preds = %172
   ret void
@@ -3481,7 +3481,7 @@ define hidden void @IntRgbToIntArgbPreAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %.2151 = inttoptr i64 %.2151.in to ptr
   %166 = add nsw i32 %.0127, -1
   %167 = icmp sgt i32 %.0127, 1
-  br i1 %167, label %61, label %168, !llvm.loop !64
+  br i1 %167, label %61, label %168, !llvm.loop !61
 
 168:                                              ; preds = %165
   %169 = add nsw i64 %.2151.in, %55
@@ -3495,7 +3495,7 @@ define hidden void @IntRgbToIntArgbPreAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %.5 = select i1 %.not170, ptr null, ptr %175
   %176 = add nsw i32 %.0128, -1
   %177 = icmp sgt i32 %.0128, 1
-  br i1 %177, label %60, label %178, !llvm.loop !65
+  br i1 %177, label %60, label %178, !llvm.loop !62
 
 178:                                              ; preds = %168
   ret void
@@ -3693,19 +3693,19 @@ define hidden void @IntArgbPreDrawGlyphListAA(ptr noundef readonly captures(none
 126:                                              ; preds = %.sink.split, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %127, label %62, !llvm.loop !66
+  br i1 %exitcond.not, label %127, label %62, !llvm.loop !63
 
 127:                                              ; preds = %126
   %128 = add nsw i64 %.0113.in, %22
   %129 = getelementptr inbounds i8, ptr %.2, i64 %60
   %130 = add nsw i32 %.0128, -1
   %131 = icmp sgt i32 %.0128, 1
-  br i1 %131, label %61, label %.loopexit, !llvm.loop !67
+  br i1 %131, label %61, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %127, %31, %27
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %._crit_edge, label %27, !llvm.loop !68
+  br i1 %exitcond158.not, label %._crit_edge, label %27, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   ret void
@@ -3843,14 +3843,14 @@ define hidden void @IntArgbPreDrawGlyphListLCD(ptr noundef readonly captures(non
 87:                                               ; preds = %85, %82
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count213
-  br i1 %exitcond214.not, label %.loopexit.us, label %82, !llvm.loop !69
+  br i1 %exitcond214.not, label %.loopexit.us, label %82, !llvm.loop !66
 
 .loopexit.us:                                     ; preds = %87
   %88 = add nsw i64 %.0161.in.us, %34
   %89 = getelementptr inbounds i8, ptr %.3.us, i64 %81
   %90 = add nsw i32 %.0173.us, -1
   %91 = icmp sgt i32 %.0173.us, 1
-  br i1 %91, label %.preheader.us, label %.loopexit201, !llvm.loop !70
+  br i1 %91, label %.preheader.us, label %.loopexit201, !llvm.loop !67
 
 .preheader199:                                    ; preds = %.preheader199.preheader, %.loopexit200
   %.0173 = phi i32 [ %207, %.loopexit200 ], [ %67, %.preheader199.preheader ]
@@ -4005,19 +4005,19 @@ define hidden void @IntArgbPreDrawGlyphListLCD(ptr noundef readonly captures(non
 204:                                              ; preds = %._crit_edge220, %202, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit200, label %92, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit200, label %92, !llvm.loop !68
 
 .loopexit200:                                     ; preds = %204
   %205 = add nsw i64 %.0161.in, %34
   %206 = getelementptr inbounds i8, ptr %.3, i64 %80
   %207 = add nsw i32 %.0173, -1
   %208 = icmp sgt i32 %.0173, 1
-  br i1 %208, label %.preheader199, label %.loopexit201, !llvm.loop !72
+  br i1 %208, label %.preheader199, label %.loopexit201, !llvm.loop !67
 
 .loopexit201:                                     ; preds = %.loopexit200, %.loopexit.us, %49, %40
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge, label %40, !llvm.loop !73
+  br i1 %exitcond219.not, label %._crit_edge, label %40, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.loopexit201, %14
   ret void
@@ -4115,7 +4115,7 @@ define hidden void @IntArgbPreNrstNbrTransformHelper(ptr noundef readonly captur
   %35 = add nsw i64 %.02023, %4
   %36 = add nsw i64 %.02122, %6
   %37 = icmp ult ptr %34, %9
-  br i1 %37, label %26, label %._crit_edge, !llvm.loop !74
+  br i1 %37, label %26, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %26, %7
   ret void
@@ -4202,7 +4202,7 @@ define hidden void @IntArgbPreBilinearTransformHelper(ptr noundef readonly captu
   %68 = add nsw i64 %.05764, %4
   %69 = add nsw i64 %.05863, %6
   %70 = icmp ult ptr %67, %12
-  br i1 %70, label %27, label %._crit_edge, !llvm.loop !75
+  br i1 %70, label %27, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %27, %7
   ret void
@@ -4362,7 +4362,7 @@ define hidden void @IntArgbPreBicubicTransformHelper(ptr noundef readonly captur
   %130 = add nsw i64 %.0119122, %4
   %131 = add nsw i64 %.0120121, %6
   %132 = icmp ult ptr %129, %12
-  br i1 %132, label %28, label %._crit_edge, !llvm.loop !76
+  br i1 %132, label %28, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %28, %7
   ret void
@@ -4440,9 +4440,9 @@ attributes #7 = { nounwind }
 !52 = distinct !{!52, !7}
 !53 = distinct !{!53, !7}
 !54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !7, !56}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
 !58 = distinct !{!58, !7}
 !59 = distinct !{!59, !7}
 !60 = distinct !{!60, !7}
@@ -4455,10 +4455,6 @@ attributes #7 = { nounwind }
 !67 = distinct !{!67, !7}
 !68 = distinct !{!68, !7}
 !69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7, !56}
+!70 = distinct !{!70, !7}
 !71 = distinct !{!71, !7}
 !72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7}
-!74 = distinct !{!74, !7}
-!75 = distinct !{!75, !7}
-!76 = distinct !{!76, !7}

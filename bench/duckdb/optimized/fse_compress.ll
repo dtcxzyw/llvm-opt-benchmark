@@ -432,7 +432,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23FSE_writeNCount_genericEP
   %38 = lshr i32 %35, 16
   %39 = add i32 %32, 24
   %.not157 = icmp ult i32 %.2126.lcssa, %39
-  br i1 %.not157, label %.preheader188, label %.lr.ph209.split, !llvm.loop !27
+  br i1 %.not157, label %.preheader188, label %.lr.ph209.split, !llvm.loop !25
 
 .lr.ph218:                                        ; preds = %.preheader188, %.lr.ph218
   %40 = phi i32 [ %44, %.lr.ph218 ], [ %31, %.preheader188 ]
@@ -443,7 +443,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23FSE_writeNCount_genericEP
   %43 = add nsw i32 %.4131217, 2
   %44 = add i32 %40, 3
   %.not158 = icmp ult i32 %.2126.lcssa, %44
-  br i1 %.not158, label %._crit_edge, label %.lr.ph218, !llvm.loop !28
+  br i1 %.not158, label %._crit_edge, label %.lr.ph218, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph218, %.preheader188
   %.5139.lcssa = phi i32 [ %.4138.lcssa, %.preheader188 ], [ %42, %.lr.ph218 ]
@@ -508,7 +508,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23FSE_writeNCount_genericEP
   %77 = add nsw i32 %.2147222, -1
   %78 = ashr i32 %.2143223, 1
   %79 = icmp slt i32 %66, %78
-  br i1 %79, label %.lr.ph224, label %._crit_edge225, !llvm.loop !29
+  br i1 %79, label %.lr.ph224, label %._crit_edge225, !llvm.loop !27
 
 ._crit_edge225:                                   ; preds = %.lr.ph224, %.preheader
   %.2147.lcssa = phi i32 [ %.0145228, %.preheader ], [ %77, %.lr.ph224 ]
@@ -536,7 +536,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL23FSE_writeNCount_genericEP
   %89 = icmp ult i32 %57, %8
   %90 = icmp ne i32 %66, 1
   %91 = and i1 %89, %90
-  br i1 %91, label %15, label %.critedge._crit_edge, !llvm.loop !30
+  br i1 %91, label %15, label %.critedge._crit_edge, !llvm.loop !28
 
 .critedge._crit_edge:                             ; preds = %88, %.critedge, %20
   %.0144.lcssa.ph = phi i32 [ %.0144229, %20 ], [ %.0144229, %.critedge ], [ %66, %88 ]
@@ -653,7 +653,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.081103 = phi i32 [ 0, %19 ], [ %69, %68 ]
   %31 = zext i32 %.081103 to i64
   %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !31
+  %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = zext i32 %33 to i64
   %35 = icmp eq i64 %3, %34
   br i1 %35, label %select.unfold, label %36
@@ -689,7 +689,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
 51:                                               ; preds = %44
   %52 = and i64 %46, 65535
   %53 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjjE8rtbTable, i64 0, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !31
+  %54 = load i32, ptr %53, align 4, !tbaa !29
   %55 = zext i32 %54 to i64
   %56 = shl i64 %55, %25
   %57 = shl i64 %52, %22
@@ -717,7 +717,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.174 = phi i32 [ %.073106, %38 ], [ %43, %41 ], [ %67, %63 ]
   %69 = add i32 %.081103, 1
   %.not86 = icmp ugt i32 %69, %4
-  br i1 %.not86, label %70, label %30, !llvm.loop !32
+  br i1 %.not86, label %70, label %30, !llvm.loop !30
 
 70:                                               ; preds = %68
   %71 = sub nsw i32 0, %.174
@@ -744,7 +744,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.0109156.i = phi i64 [ %3, %77 ], [ %.1110.i, %103 ]
   %.0119154.i = phi i32 [ 0, %77 ], [ %.1120.i, %103 ]
   %85 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
-  %86 = load i32, ptr %85, align 4, !tbaa !31
+  %86 = load i32, ptr %85, align 4, !tbaa !29
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
@@ -786,7 +786,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.1110.i = phi i64 [ %.0109156.i, %88 ], [ %95, %91 ], [ %101, %98 ], [ %.0109156.i, %102 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %104, label %84, !llvm.loop !33
+  br i1 %exitcond.i, label %104, label %84, !llvm.loop !31
 
 104:                                              ; preds = %103
   %105 = sub i32 %26, %.1120.i
@@ -819,7 +819,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv170.i
-  %124 = load i32, ptr %123, align 4, !tbaa !31
+  %124 = load i32, ptr %123, align 4, !tbaa !29
   %.not147.i = icmp ugt i32 %124, %117
   br i1 %.not147.i, label %129, label %125
 
@@ -835,7 +835,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.4113.i = phi i64 [ %128, %125 ], [ %.3112159.i, %122 ], [ %.3112159.i, %118 ]
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond174.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count.i
-  br i1 %exitcond174.i, label %130, label %118, !llvm.loop !34
+  br i1 %exitcond174.i, label %130, label %118, !llvm.loop !32
 
 130:                                              ; preds = %129
   %131 = sub i32 %26, %.4123.i
@@ -853,14 +853,14 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.0132167.i = phi i32 [ %spec.select150.i, %.preheader.i ], [ 0, %132 ]
   %.0134166.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %132 ]
   %134 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv175.i
-  %135 = load i32, ptr %134, align 4, !tbaa !31
+  %135 = load i32, ptr %134, align 4, !tbaa !29
   %136 = icmp ugt i32 %135, %.0132167.i
   %137 = trunc nuw i64 %indvars.iv175.i to i32
   %spec.select.i = select i1 %136, i32 %137, i32 %.0134166.i
   %spec.select150.i = tail call i32 @llvm.umax.i32(i32 %135, i32 %.0132167.i)
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %exitcond179.i = icmp eq i64 %indvars.iv.next176.i, %wide.trip.count.i
-  br i1 %exitcond179.i, label %138, label %.preheader.i, !llvm.loop !35
+  br i1 %exitcond179.i, label %138, label %.preheader.i, !llvm.loop !33
 
 138:                                              ; preds = %.preheader.i
   %139 = zext i32 %spec.select.i to i64
@@ -900,7 +900,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %155 = icmp eq i32 %.3117165.i, %4
   %156 = select i1 %155, i32 0, i32 %154
   %.not145.i = icmp eq i32 %.2129.i, 0
-  br i1 %.not145.i, label %select.unfold, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not145.i, label %select.unfold, label %.lr.ph.i, !llvm.loop !34
 
 157:                                              ; preds = %144
   %158 = add nsw i64 %22, -1
@@ -924,7 +924,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i32, ptr %2, i64 %166
-  %172 = load i32, ptr %171, align 4, !tbaa !31
+  %172 = load i32, ptr %171, align 4, !tbaa !29
   %173 = zext i32 %172 to i64
   %174 = mul i64 %164, %173
   %175 = add i64 %174, %.0124160.i
@@ -944,7 +944,7 @@ define noundef range(i64 -44, 4294967296) i64 @_ZN11duckdb_zstd18FSE_normalizeCo
   %.2126.i = phi i64 [ %175, %178 ], [ %.0124160.i, %165 ]
   %183 = add i32 %.4118161.i, 1
   %.not143.not.i = icmp ugt i32 %183, %4
-  br i1 %.not143.not.i, label %select.unfold, label %165, !llvm.loop !37
+  br i1 %.not143.not.i, label %select.unfold, label %165, !llvm.loop !35
 
 184:                                              ; preds = %70
   %185 = trunc i32 %.174 to i16
@@ -1015,9 +1015,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %23 = getelementptr inbounds i32, ptr %18, i64 %22
   %24 = zext i8 %16 to i64
   %25 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %24
-  %.sroa.0.0.copyload.i54 = load i32, ptr %25, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i54 = load i32, ptr %25, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %.sroa.4.0.copyload.i56 = load i32, ptr %.sroa.4.0..sroa_idx.i55, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i56 = load i32, ptr %.sroa.4.0..sroa_idx.i55, align 4, !tbaa !29
   %26 = add i32 %.sroa.4.0.copyload.i56, 32768
   %27 = lshr i32 %26, 16
   %28 = and i32 %26, -65536
@@ -1037,9 +1037,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %40 = load i8, ptr %39, align 1, !tbaa !7
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %41
-  %.sroa.0.0.copyload.i46 = load i32, ptr %42, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i46 = load i32, ptr %42, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %.sroa.4.0.copyload.i48 = load i32, ptr %.sroa.4.0..sroa_idx.i47, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i48 = load i32, ptr %.sroa.4.0..sroa_idx.i47, align 4, !tbaa !29
   %43 = add i32 %.sroa.4.0.copyload.i48, 32768
   %44 = lshr i32 %43, 16
   %45 = and i32 %43, -65536
@@ -1055,15 +1055,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %55 = load i8, ptr %54, align 1, !tbaa !7
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %56
-  %.sroa.0.0.copyload.i49 = load i32, ptr %57, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i49 = load i32, ptr %57, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %.sroa.4.0.copyload.i51 = load i32, ptr %.sroa.4.0..sroa_idx.i50, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i51 = load i32, ptr %.sroa.4.0..sroa_idx.i50, align 4, !tbaa !29
   %58 = zext i32 %.sroa.4.0.copyload.i51 to i64
   %59 = add nuw nsw i64 %58, %38
   %60 = lshr i64 %59, 16
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %60
-  %63 = load i32, ptr %62, align 4, !tbaa !31
+  %63 = load i32, ptr %62, align 4, !tbaa !29
   %64 = zext i32 %63 to i64
   %65 = and i64 %64, %38
   %66 = lshr i64 %38, %60
@@ -1096,9 +1096,9 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %84 = load i8, ptr %83, align 1, !tbaa !7
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %85
-  %.sroa.0.0.copyload.i59 = load i32, ptr %86, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i59 = load i32, ptr %86, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %.sroa.4.0.copyload.i61 = load i32, ptr %.sroa.4.0..sroa_idx.i60, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i61 = load i32, ptr %.sroa.4.0..sroa_idx.i60, align 4, !tbaa !29
   %87 = add i32 %.sroa.4.0.copyload.i61, 32768
   %88 = lshr i32 %87, 16
   %89 = and i32 %87, -65536
@@ -1131,15 +1131,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %103 = load i8, ptr %102, align 1, !tbaa !7
   %104 = zext i8 %103 to i64
   %105 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %104
-  %.sroa.0.0.copyload.i62 = load i32, ptr %105, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i62 = load i32, ptr %105, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %.sroa.4.0.copyload.i64 = load i32, ptr %.sroa.4.0..sroa_idx.i63, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i64 = load i32, ptr %.sroa.4.0..sroa_idx.i63, align 4, !tbaa !29
   %106 = zext i32 %.sroa.4.0.copyload.i64 to i64
   %107 = add nuw nsw i64 %106, %.sroa.0.0
   %108 = lshr i64 %107, 16
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %108
-  %111 = load i32, ptr %110, align 4, !tbaa !31
+  %111 = load i32, ptr %110, align 4, !tbaa !29
   %112 = zext i32 %111 to i64
   %113 = and i64 %112, %.sroa.0.0
   %114 = zext nneg i32 %.sroa.47.0 to i64
@@ -1155,15 +1155,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %124 = load i8, ptr %123, align 1, !tbaa !7
   %125 = zext i8 %124 to i64
   %126 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %125
-  %.sroa.0.0.copyload.i65 = load i32, ptr %126, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i65 = load i32, ptr %126, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %.sroa.4.0.copyload.i67 = load i32, ptr %.sroa.4.0..sroa_idx.i66, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i67 = load i32, ptr %.sroa.4.0..sroa_idx.i66, align 4, !tbaa !29
   %127 = zext i32 %.sroa.4.0.copyload.i67 to i64
   %128 = add nuw nsw i64 %127, %.sroa.091.0
   %129 = lshr i64 %128, 16
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %129
-  %132 = load i32, ptr %131, align 4, !tbaa !31
+  %132 = load i32, ptr %131, align 4, !tbaa !29
   %133 = zext i32 %132 to i64
   %134 = and i64 %133, %.sroa.091.0
   %135 = zext nneg i32 %116 to i64
@@ -1224,15 +1224,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %163 = load i8, ptr %162, align 1, !tbaa !7
   %164 = zext i8 %163 to i64
   %165 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %164
-  %.sroa.0.0.copyload.i69 = load i32, ptr %165, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i69 = load i32, ptr %165, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !29
   %166 = zext i32 %.sroa.4.0.copyload.i71 to i64
   %167 = add nuw nsw i64 %.sroa.0.2160, %166
   %168 = lshr i64 %167, 16
   %169 = trunc nuw nsw i64 %168 to i32
   %170 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %168
-  %171 = load i32, ptr %170, align 4, !tbaa !31
+  %171 = load i32, ptr %170, align 4, !tbaa !29
   %172 = zext i32 %171 to i64
   %173 = and i64 %.sroa.0.2160, %172
   %174 = zext nneg i32 %.sroa.47.2157 to i64
@@ -1248,15 +1248,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %184 = load i8, ptr %183, align 1, !tbaa !7
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %185
-  %.sroa.0.0.copyload.i72 = load i32, ptr %186, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i72 = load i32, ptr %186, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %.sroa.4.0.copyload.i74 = load i32, ptr %.sroa.4.0..sroa_idx.i73, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i74 = load i32, ptr %.sroa.4.0..sroa_idx.i73, align 4, !tbaa !29
   %187 = zext i32 %.sroa.4.0.copyload.i74 to i64
   %188 = add nuw nsw i64 %.sroa.091.2158, %187
   %189 = lshr i64 %188, 16
   %190 = trunc nuw nsw i64 %189 to i32
   %191 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %189
-  %192 = load i32, ptr %191, align 4, !tbaa !31
+  %192 = load i32, ptr %191, align 4, !tbaa !29
   %193 = zext i32 %192 to i64
   %194 = and i64 %.sroa.091.2158, %193
   %195 = zext nneg i32 %176 to i64
@@ -1272,15 +1272,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %205 = load i8, ptr %204, align 1, !tbaa !7
   %206 = zext i8 %205 to i64
   %207 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %206
-  %.sroa.0.0.copyload.i75 = load i32, ptr %207, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i75 = load i32, ptr %207, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %.sroa.4.0.copyload.i77 = load i32, ptr %.sroa.4.0..sroa_idx.i76, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i77 = load i32, ptr %.sroa.4.0..sroa_idx.i76, align 4, !tbaa !29
   %208 = zext i32 %.sroa.4.0.copyload.i77 to i64
   %209 = add nuw nsw i64 %208, %182
   %210 = lshr i64 %209, 16
   %211 = trunc nuw nsw i64 %210 to i32
   %212 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %210
-  %213 = load i32, ptr %212, align 4, !tbaa !31
+  %213 = load i32, ptr %212, align 4, !tbaa !29
   %214 = zext i32 %213 to i64
   %215 = and i64 %214, %182
   %216 = zext nneg i32 %197 to i64
@@ -1296,15 +1296,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %226 = load i8, ptr %225, align 1, !tbaa !7
   %227 = zext i8 %226 to i64
   %228 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %23, i64 %227
-  %.sroa.0.0.copyload.i78 = load i32, ptr %228, align 4, !tbaa !31
+  %.sroa.0.0.copyload.i78 = load i32, ptr %228, align 4, !tbaa !29
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %.sroa.4.0.copyload.i80 = load i32, ptr %.sroa.4.0..sroa_idx.i79, align 4, !tbaa !31
+  %.sroa.4.0.copyload.i80 = load i32, ptr %.sroa.4.0..sroa_idx.i79, align 4, !tbaa !29
   %229 = zext i32 %.sroa.4.0.copyload.i80 to i64
   %230 = add nuw nsw i64 %229, %203
   %231 = lshr i64 %230, 16
   %232 = trunc nuw nsw i64 %231 to i32
   %233 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %231
-  %234 = load i32, ptr %233, align 4, !tbaa !31
+  %234 = load i32, ptr %233, align 4, !tbaa !29
   %235 = zext i32 %234 to i64
   %236 = and i64 %235, %203
   %237 = zext nneg i32 %218 to i64
@@ -1331,7 +1331,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %.pn = shl nuw nsw i64 %251, 3
   %.sroa.0102.3 = lshr i64 %242, %.pn
   %255 = icmp ugt ptr %225, %2
-  br i1 %255, label %161, label %._crit_edge, !llvm.loop !38
+  br i1 %255, label %161, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %161, %158
   %.sroa.0102.2.lcssa = phi i64 [ %.sroa.0102.1, %158 ], [ %.sroa.0102.3, %161 ]
@@ -1341,7 +1341,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL32FSE_compress_usingCTable_
   %.sroa.0.2.lcssa = phi i64 [ %.sroa.0.1, %158 ], [ %224, %161 ]
   %256 = zext i16 %.val.i.i52 to i64
   %257 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11duckdb_zstdL8BIT_maskE, i64 0, i64 %256
-  %258 = load i32, ptr %257, align 4, !tbaa !31
+  %258 = load i32, ptr %257, align 4, !tbaa !29
   %259 = zext i32 %258 to i64
   %260 = and i64 %.sroa.0.2.lcssa, %259
   %261 = zext nneg i32 %.sroa.47.2.lcssa to i64
@@ -1457,17 +1457,15 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !22 = !{!20, !21, i64 0}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
 !27 = distinct !{!27, !9}
 !28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
+!29 = !{!21, !21, i64 0}
 !30 = distinct !{!30, !9}
-!31 = !{!21, !21, i64 0}
+!31 = distinct !{!31, !9}
 !32 = distinct !{!32, !9}
 !33 = distinct !{!33, !9}
 !34 = distinct !{!34, !9}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}

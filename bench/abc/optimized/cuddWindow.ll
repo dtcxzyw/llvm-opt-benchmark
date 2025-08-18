@@ -440,7 +440,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   store i32 1, ptr %177, align 4, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i, %87
-  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !33
+  br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !32
 
 .split141.us.i:                                   ; preds = %101
   tail call void @free(ptr noundef nonnull %89) #4
@@ -482,7 +482,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   store i32 1, ptr %13, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !33
 
 14:                                               ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -568,7 +568,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 .backedge:                                        ; preds = %46, %47
   %indvars.iv80.be = phi i64 [ %indvars.iv.next81, %46 ], [ 0, %47 ]
   %.05578.be = phi i32 [ %.2, %46 ], [ 0, %47 ]
-  br label %22, !llvm.loop !35
+  br label %22, !llvm.loop !34
 
 47:                                               ; preds = %46
   %.not = icmp eq i32 %.2, 0
@@ -709,7 +709,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
 .lr.ph75.us.backedge:                             ; preds = %49, %._crit_edge.us
   %indvars.iv79.be = phi i64 [ %indvars.iv.next80, %49 ], [ 0, %._crit_edge.us ]
   %.074.us.be = phi i32 [ %.2.us, %49 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph75.us, !llvm.loop !36
+  br label %.lr.ph75.us, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %49
   %.not.us = icmp eq i32 %.2.us, 0
@@ -721,7 +721,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   store i32 1, ptr %50, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !36
 
 .split77.us:                                      ; preds = %22
   tail call void @free(ptr noundef nonnull %12) #4
@@ -1422,10 +1422,9 @@ attributes #5 = { nounwind allocsize(0) }
 !28 = distinct !{!28, !26}
 !29 = !{!4, !6, i64 624}
 !30 = !{!6, !6, i64 0}
-!31 = distinct !{!31, !26, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
 !33 = distinct !{!33, !26}
 !34 = distinct !{!34, !26}
 !35 = distinct !{!35, !26}
-!36 = distinct !{!36, !26, !32}
-!37 = distinct !{!37, !26}
+!36 = distinct !{!36, !26}

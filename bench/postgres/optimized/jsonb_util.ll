@@ -1997,7 +1997,7 @@ appendKey.exit:                                   ; preds = %._crit_edge.i, %63
   %120 = add nsw i32 %114, -1
   store i32 %120, ptr %96, align 8
   %121 = icmp sgt i32 %114, 1
-  br i1 %121, label %112, label %uniqueifyJsonbObject.exit, !llvm.loop !16
+  br i1 %121, label %112, label %uniqueifyJsonbObject.exit
 
 .critedge.i:                                      ; preds = %.preheader.i
   %122 = icmp sgt i32 %.pr.pre.i, 0
@@ -2074,7 +2074,7 @@ lengthCompareJsonbStringValue.exit.thread.us.i:   ; preds = %lengthCompareJsonbS
   %146 = sdiv exact i64 %145, 72
   %147 = sext i32 %141 to i64
   %148 = icmp slt i64 %146, %147
-  br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !18
+  br i1 %148, label %.lr.ph48.split.us.i, label %._crit_edge.i46, !llvm.loop !16
 
 .lr.ph48.split.i:                                 ; preds = %159, %.lr.ph48.thread.i
   %149 = phi i32 [ %160, %159 ], [ %.pr.pre.i, %.lr.ph48.thread.i ]
@@ -2121,7 +2121,7 @@ lengthCompareJsonbStringValue.exit.thread.i:      ; preds = %lengthCompareJsonbS
   %165 = sdiv exact i64 %164, 72
   %166 = sext i32 %160 to i64
   %167 = icmp slt i64 %165, %166
-  br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !19
+  br i1 %167, label %.lr.ph48.split.i, label %._crit_edge.i46, !llvm.loop !16
 
 ._crit_edge.i46:                                  ; preds = %159, %140, %.thread62.i, %.critedge.thread61.i
   %.0.lcssa.i = phi ptr [ %113, %.critedge.thread61.i ], [ %125, %.thread62.i ], [ %.1.us.i, %140 ], [ %.1.i, %159 ]
@@ -2456,7 +2456,7 @@ JsonbIteratorInit.exit87:                         ; preds = %76, %86
   %.156 = phi i32 [ %127, %126 ], [ %.055102, %.lr.ph ]
   %131 = add nuw i32 %.057101, 1
   %exitcond.not = icmp eq i32 %131, %.059111
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %130
   %.not79 = icmp eq i32 %.156, 0
@@ -2609,7 +2609,7 @@ JsonbIteratorInit.exit91:                         ; preds = %174, %184
 200:                                              ; preds = %199
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond132.not, label %.critedge, label %135, !llvm.loop !21
+  br i1 %exitcond132.not, label %.critedge, label %135, !llvm.loop !18
 
 ._crit_edge106:                                   ; preds = %199
   %201 = trunc nuw i64 %indvars.iv to i32
@@ -2939,7 +2939,7 @@ define internal fastcc void @convertJsonbValue(ptr noundef nonnull %0, ptr nound
   store i8 0, ptr %31, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !19
 
 padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3014,7 +3014,7 @@ padBufferToInt.exit:                              ; preds = %.lr.ph.i, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge43, label %51, !llvm.loop !23
+  br i1 %exitcond56.not, label %._crit_edge43, label %51, !llvm.loop !20
 
 ._crit_edge43:                                    ; preds = %62, %padBufferToInt.exit
   %72 = load i32, ptr %16, align 8
@@ -3068,7 +3068,7 @@ convertJsonbArray.exit:                           ; preds = %._crit_edge43
   store i8 0, ptr %98, align 1
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i22
-  br i1 %exitcond.not.i26, label %padBufferToInt.exit27, label %.lr.ph.i23, !llvm.loop !22
+  br i1 %exitcond.not.i26, label %padBufferToInt.exit27, label %.lr.ph.i23, !llvm.loop !19
 
 padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   %99 = or i32 %82, 536870912
@@ -3144,7 +3144,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph38, label %118, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph38, label %118, !llvm.loop !21
 
 139:                                              ; preds = %.lr.ph38, %150
   %indvars.iv47 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next48, %150 ]
@@ -3185,7 +3185,7 @@ padBufferToInt.exit27:                            ; preds = %.lr.ph.i23, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %117
-  br i1 %exitcond51.not, label %._crit_edge, label %139, !llvm.loop !25
+  br i1 %exitcond51.not, label %._crit_edge, label %139, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %150, %padBufferToInt.exit27
   %162 = load i32, ptr %83, align 8
@@ -3324,7 +3324,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noun
   store i8 0, ptr %61, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !19
 
 padBufferToInt.exit:                              ; preds = %.lr.ph.i, %44
   %62 = load ptr, ptr %23, align 8
@@ -3454,13 +3454,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !5, !17}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}

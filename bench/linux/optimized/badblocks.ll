@@ -1633,7 +1633,7 @@ define dso_local i64 @badblocks_show(ptr noundef %0, ptr noundef writeonly captu
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
   %46 = load volatile i32, ptr %10, align 4
   %47 = icmp eq i32 %46, %19
-  br i1 %47, label %.loopexit2, label %.split.us, !llvm.loop !42
+  br i1 %47, label %.loopexit2, label %.split.us
 
 .split:                                           ; preds = %9, %.thread
   %48 = load volatile i32, ptr %10, align 4
@@ -1666,7 +1666,7 @@ define dso_local i64 @badblocks_show(ptr noundef %0, ptr noundef writeonly captu
   %63 = load i64, ptr %62, align 8
   %64 = icmp slt i64 %63, 0
   %65 = add nuw nsw i64 %56, 1
-  br i1 %64, label %80, label %66, !llvm.loop !44
+  br i1 %64, label %80, label %66, !llvm.loop !42
 
 66:                                               ; preds = %61
   %67 = trunc i64 %63 to i32
@@ -1718,11 +1718,11 @@ define dso_local i64 @badblocks_store(ptr noundef %0, ptr noundef readonly captu
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !annotation !45
+  store i64 0, ptr %5, align 8, !annotation !43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 0, ptr %6, align 4, !annotation !45
+  store i32 0, ptr %6, align 4, !annotation !43
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 0, ptr %7, align 1, !annotation !45
+  store i8 0, ptr %7, align 1, !annotation !43
   %8 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   switch i32 %8, label %22 [
     i32 3, label %9
@@ -2074,7 +2074,5 @@ attributes #11 = { nounwind allocsize(1) }
 !39 = !{i64 2154173469, i64 2154173498, i64 2154173544, i64 2154173602, i64 2154173656, i64 2154173710, i64 2154173765, i64 2154173796, i64 2154174104, i64 2154174110, i64 2154174157, i64 2154174180, i64 2154174206}
 !40 = !{i64 2154174657, i64 2154174468, i64 2154174518, i64 2154174564, i64 2154174592}
 !41 = distinct !{!41, !11, !12}
-!42 = distinct !{!42, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !11, !12}
-!45 = !{!"auto-init"}
+!42 = distinct !{!42, !11, !12}
+!43 = !{!"auto-init"}

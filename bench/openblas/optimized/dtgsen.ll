@@ -898,7 +898,7 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   store double %505, ptr %gep660, align 8, !tbaa !7
   %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
   %exitcond643.not = icmp eq i64 %indvars.iv.next640, %wide.trip.count647
-  br i1 %exitcond643.not, label %.loopexit, label %.lr.ph620.split, !llvm.loop !15
+  br i1 %exitcond643.not, label %.loopexit, label %.lr.ph620.split, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph620.split, %.lr.ph620.split.us, %483
   %506 = mul i32 %416, %indvars651
@@ -920,7 +920,7 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv.next650 = add nuw nsw i64 %indvars.iv649, 1
   %516 = sext i32 %515 to i64
   %.not568.not = icmp slt i64 %indvars.iv649, %516
-  br i1 %.not568.not, label %430, label %._crit_edge629, !llvm.loop !16
+  br i1 %.not568.not, label %430, label %._crit_edge629, !llvm.loop !14
 
 ._crit_edge629:                                   ; preds = %514, %413
   store double %153, ptr %20, align 8, !tbaa !7
@@ -1002,7 +1002,5 @@ attributes #6 = { nounwind }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

@@ -1926,7 +1926,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   %459 = load i8, ptr %363, align 4
   %460 = zext i8 %459 to i64
   %461 = icmp samesign ult i64 %458, %460
-  br i1 %461, label %.split, label %.thread48, !llvm.loop !16
+  br i1 %461, label %.split, label %.thread48, !llvm.loop !14
 
 .thread48:                                        ; preds = %457, %406, %361
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2329,7 +2329,7 @@ define internal void @sixaxis_send_output_report(ptr noundef readonly captures(n
 40:                                               ; preds = %27, %._crit_edge
   %41 = add nuw nsw i64 %28, 1
   %42 = icmp eq i64 %41, 4
-  br i1 %42, label %43, label %27, !llvm.loop !17
+  br i1 %42, label %43, label %27, !llvm.loop !15
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2682,7 +2682,7 @@ define internal range(i32 0, 256) i32 @sony_led_get_brightness(ptr noundef reado
 17:                                               ; preds = %20
   %18 = add nuw nsw i64 %21, 1
   %19 = icmp eq i64 %18, %15
-  br i1 %19, label %.loopexit, label %20, !llvm.loop !18
+  br i1 %19, label %.loopexit, label %20, !llvm.loop !16
 
 20:                                               ; preds = %17, %13
   %21 = phi i64 [ 0, %13 ], [ %18, %17 ]
@@ -2766,7 +2766,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
 42:                                               ; preds = %38, %.split.us
   %43 = add nuw nsw i64 %25, 1
   %44 = icmp eq i64 %43, %24
-  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !19
+  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %15, %53
   %45 = phi i64 [ %54, %53 ], [ 0, %15 ]
@@ -2790,7 +2790,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
 53:                                               ; preds = %.split
   %54 = add nuw nsw i64 %45, 1
   %55 = icmp eq i64 %54, %24
-  br i1 %55, label %.loopexit, label %.split, !llvm.loop !20
+  br i1 %55, label %.loopexit, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %53, %42, %.split5.us, %11, %10
   ret void
@@ -2869,13 +2869,13 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   %39 = getelementptr [4 x ptr], ptr %34, i64 0, i64 %43
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
-  br i1 %41, label %45, label %.preheader, !llvm.loop !21
+  br i1 %41, label %45, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %33, %38
   %42 = phi i64 [ %43, %38 ], [ 0, %33 ]
   %43 = add nuw nsw i64 %42, 1
   %44 = icmp eq i64 %43, %35
-  br i1 %44, label %.loopexit, label %38, !llvm.loop !21
+  br i1 %44, label %.loopexit, label %38, !llvm.loop !18
 
 45:                                               ; preds = %38
   %46 = icmp samesign ult i64 %43, %35
@@ -3039,11 +3039,8 @@ attributes #17 = { nounwind allocsize(2) }
 !11 = distinct !{!11, !6, !7}
 !12 = !{i32 -2147483648, i32 1}
 !13 = !{i64 2148441122}
-!14 = distinct !{!14, !6, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
 !16 = distinct !{!16, !6, !7}
 !17 = distinct !{!17, !6, !7}
 !18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7, !15}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}

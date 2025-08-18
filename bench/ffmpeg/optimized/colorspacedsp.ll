@@ -362,7 +362,7 @@ define internal void @yuv2rgb_422p8_c(ptr noundef readonly captures(none) %0, i6
   store i16 %.0.i97.us, ptr %102, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %42
   %103 = getelementptr inbounds nuw i8, ptr %.0105.us, i64 %27
@@ -373,7 +373,7 @@ define internal void @yuv2rgb_422p8_c(ptr noundef readonly captures(none) %0, i6
   %108 = getelementptr inbounds i16, ptr %.085100.us, i64 %1
   %109 = add nuw nsw i32 %.08699.us, 1
   %exitcond109.not = icmp eq i32 %109, %5
-  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !24
+  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !23
 
 ._crit_edge106:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -571,7 +571,7 @@ define internal void @yuv2rgb_420p8_c(ptr noundef readonly captures(none) %0, i6
   store i16 %.0.i163.us, ptr %152, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %47
   %153 = getelementptr inbounds nuw i8, ptr %.0171.us, i64 %40
@@ -582,7 +582,7 @@ define internal void @yuv2rgb_420p8_c(ptr noundef readonly captures(none) %0, i6
   %158 = getelementptr inbounds i16, ptr %.0139166.us, i64 %45
   %159 = add nuw nsw i32 %.0140165.us, 1
   %exitcond175.not = icmp eq i32 %159, %36
-  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !25
 
 ._crit_edge172:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -689,7 +689,7 @@ define internal void @yuv2rgb_444p10_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i68.us, ptr %79, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %43
   %80 = getelementptr inbounds nuw i16, ptr %.076.us, i64 %26
@@ -700,7 +700,7 @@ define internal void @yuv2rgb_444p10_c(ptr noundef readonly captures(none) %0, i
   %85 = getelementptr inbounds i16, ptr %.06271.us, i64 %1
   %86 = add nuw nsw i32 %.06370.us, 1
   %exitcond80.not = icmp eq i32 %86, %5
-  br i1 %exitcond80.not, label %._crit_edge77, label %.preheader.us, !llvm.loop !28
+  br i1 %exitcond80.not, label %._crit_edge77, label %.preheader.us, !llvm.loop !27
 
 ._crit_edge77:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -839,7 +839,7 @@ define internal void @yuv2rgb_422p10_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i97.us, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %45, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %45, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %45
   %106 = getelementptr inbounds nuw i16, ptr %.0105.us, i64 %28
@@ -850,7 +850,7 @@ define internal void @yuv2rgb_422p10_c(ptr noundef readonly captures(none) %0, i
   %111 = getelementptr inbounds i16, ptr %.085100.us, i64 %1
   %112 = add nuw nsw i32 %.08699.us, 1
   %exitcond109.not = icmp eq i32 %112, %5
-  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !30
+  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !29
 
 ._crit_edge106:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1051,7 +1051,7 @@ define internal void @yuv2rgb_420p10_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i163.us, ptr %155, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %50
   %156 = getelementptr inbounds nuw i16, ptr %.0171.us, i64 %40
@@ -1062,7 +1062,7 @@ define internal void @yuv2rgb_420p10_c(ptr noundef readonly captures(none) %0, i
   %161 = getelementptr inbounds i16, ptr %.0139166.us, i64 %47
   %162 = add nuw nsw i32 %.0140165.us, 1
   %exitcond175.not = icmp eq i32 %162, %36
-  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !31
 
 ._crit_edge172:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1169,7 +1169,7 @@ define internal void @yuv2rgb_444p12_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i68.us, ptr %79, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.us, label %43, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %43
   %80 = getelementptr inbounds nuw i16, ptr %.076.us, i64 %26
@@ -1180,7 +1180,7 @@ define internal void @yuv2rgb_444p12_c(ptr noundef readonly captures(none) %0, i
   %85 = getelementptr inbounds i16, ptr %.06271.us, i64 %1
   %86 = add nuw nsw i32 %.06370.us, 1
   %exitcond80.not = icmp eq i32 %86, %5
-  br i1 %exitcond80.not, label %._crit_edge77, label %.preheader.us, !llvm.loop !34
+  br i1 %exitcond80.not, label %._crit_edge77, label %.preheader.us, !llvm.loop !33
 
 ._crit_edge77:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1319,7 +1319,7 @@ define internal void @yuv2rgb_422p12_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i97.us, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %45, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %45, !llvm.loop !34
 
 ._crit_edge.us:                                   ; preds = %45
   %106 = getelementptr inbounds nuw i16, ptr %.0105.us, i64 %28
@@ -1330,7 +1330,7 @@ define internal void @yuv2rgb_422p12_c(ptr noundef readonly captures(none) %0, i
   %111 = getelementptr inbounds i16, ptr %.085100.us, i64 %1
   %112 = add nuw nsw i32 %.08699.us, 1
   %exitcond109.not = icmp eq i32 %112, %5
-  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !36
+  br i1 %exitcond109.not, label %._crit_edge106, label %.preheader.us, !llvm.loop !35
 
 ._crit_edge106:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1531,7 +1531,7 @@ define internal void @yuv2rgb_420p12_c(ptr noundef readonly captures(none) %0, i
   store i16 %.0.i163.us, ptr %155, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.us, label %50, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %50
   %156 = getelementptr inbounds nuw i16, ptr %.0171.us, i64 %40
@@ -1542,7 +1542,7 @@ define internal void @yuv2rgb_420p12_c(ptr noundef readonly captures(none) %0, i
   %161 = getelementptr inbounds i16, ptr %.0139166.us, i64 %47
   %162 = add nuw nsw i32 %.0140165.us, 1
   %exitcond175.not = icmp eq i32 %162, %36
-  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !38
+  br i1 %exitcond175.not, label %._crit_edge172, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge172:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1667,7 +1667,7 @@ define internal void @rgb2yuv_444p8_c(ptr noundef readonly captures(none) %0, pt
   store i8 %.0.i78.us, ptr %91, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !38
 
 ._crit_edge.us:                                   ; preds = %47
   %92 = getelementptr inbounds i8, ptr %.086.us, i64 %32
@@ -1680,7 +1680,7 @@ define internal void @rgb2yuv_444p8_c(ptr noundef readonly captures(none) %0, pt
   %99 = getelementptr inbounds i16, ptr %.07081.us, i64 %3
   %100 = add nuw nsw i32 %.07180.us, 1
   %exitcond90.not = icmp eq i32 %100, %5
-  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !40
+  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !39
 
 ._crit_edge87:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -1844,7 +1844,7 @@ define internal void @rgb2yuv_422p8_c(ptr noundef readonly captures(none) %0, pt
   store i8 %.0.i102.us, ptr %126, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !40
 
 ._crit_edge.us:                                   ; preds = %49
   %127 = getelementptr inbounds i8, ptr %.0110.us, i64 %32
@@ -1857,7 +1857,7 @@ define internal void @rgb2yuv_422p8_c(ptr noundef readonly captures(none) %0, pt
   %134 = getelementptr inbounds i16, ptr %.091105.us, i64 %3
   %135 = add nuw nsw i32 %.092104.us, 1
   %exitcond114.not = icmp eq i32 %135, %5
-  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !42
+  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !41
 
 ._crit_edge111:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2086,7 +2086,7 @@ define internal void @rgb2yuv_420p8_c(ptr noundef readonly captures(none) %0, pt
   store i8 %.0.i158.us, ptr %183, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !42
 
 ._crit_edge.us:                                   ; preds = %54
   %184 = getelementptr inbounds i8, ptr %.0166.us, i64 %39
@@ -2099,7 +2099,7 @@ define internal void @rgb2yuv_420p8_c(ptr noundef readonly captures(none) %0, pt
   %191 = getelementptr inbounds i16, ptr %.0141161.us, i64 %42
   %192 = add nuw nsw i32 %.0142160.us, 1
   %exitcond170.not = icmp eq i32 %192, %36
-  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !44
+  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !43
 
 ._crit_edge167:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2227,7 +2227,7 @@ define internal void @rgb2yuv_444p10_c(ptr noundef readonly captures(none) %0, p
   store i16 %96, ptr %97, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !44
 
 ._crit_edge.us:                                   ; preds = %52
   %98 = getelementptr inbounds nuw i16, ptr %.086.us, i64 %33
@@ -2238,7 +2238,7 @@ define internal void @rgb2yuv_444p10_c(ptr noundef readonly captures(none) %0, p
   %103 = getelementptr inbounds i16, ptr %.07081.us, i64 %3
   %104 = add nuw nsw i32 %.07180.us, 1
   %exitcond90.not = icmp eq i32 %104, %5
-  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !46
+  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !45
 
 ._crit_edge87:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2403,7 +2403,7 @@ define internal void @rgb2yuv_422p10_c(ptr noundef readonly captures(none) %0, p
   store i16 %132, ptr %133, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %54
   %134 = getelementptr inbounds nuw i16, ptr %.0110.us, i64 %33
@@ -2414,7 +2414,7 @@ define internal void @rgb2yuv_422p10_c(ptr noundef readonly captures(none) %0, p
   %139 = getelementptr inbounds i16, ptr %.091105.us, i64 %3
   %140 = add nuw nsw i32 %.092104.us, 1
   %exitcond114.not = icmp eq i32 %140, %5
-  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !48
+  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !47
 
 ._crit_edge111:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2640,7 +2640,7 @@ define internal void @rgb2yuv_420p10_c(ptr noundef readonly captures(none) %0, p
   store i16 %191, ptr %192, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %59
   %193 = getelementptr inbounds nuw i16, ptr %.0166.us, i64 %40
@@ -2651,7 +2651,7 @@ define internal void @rgb2yuv_420p10_c(ptr noundef readonly captures(none) %0, p
   %198 = getelementptr inbounds i16, ptr %.0141161.us, i64 %47
   %199 = add nuw nsw i32 %.0142160.us, 1
   %exitcond170.not = icmp eq i32 %199, %37
-  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !50
+  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !49
 
 ._crit_edge167:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2779,7 +2779,7 @@ define internal void @rgb2yuv_444p12_c(ptr noundef readonly captures(none) %0, p
   store i16 %96, ptr %97, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %52
   %98 = getelementptr inbounds nuw i16, ptr %.086.us, i64 %33
@@ -2790,7 +2790,7 @@ define internal void @rgb2yuv_444p12_c(ptr noundef readonly captures(none) %0, p
   %103 = getelementptr inbounds i16, ptr %.07081.us, i64 %3
   %104 = add nuw nsw i32 %.07180.us, 1
   %exitcond90.not = icmp eq i32 %104, %5
-  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !52
+  br i1 %exitcond90.not, label %._crit_edge87, label %.preheader.us, !llvm.loop !51
 
 ._crit_edge87:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -2955,7 +2955,7 @@ define internal void @rgb2yuv_422p12_c(ptr noundef readonly captures(none) %0, p
   store i16 %132, ptr %133, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !52
 
 ._crit_edge.us:                                   ; preds = %54
   %134 = getelementptr inbounds nuw i16, ptr %.0110.us, i64 %33
@@ -2966,7 +2966,7 @@ define internal void @rgb2yuv_422p12_c(ptr noundef readonly captures(none) %0, p
   %139 = getelementptr inbounds i16, ptr %.091105.us, i64 %3
   %140 = add nuw nsw i32 %.092104.us, 1
   %exitcond114.not = icmp eq i32 %140, %5
-  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond114.not, label %._crit_edge111, label %.preheader.us, !llvm.loop !53
 
 ._crit_edge111:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -3192,7 +3192,7 @@ define internal void @rgb2yuv_420p12_c(ptr noundef readonly captures(none) %0, p
   store i16 %191, ptr %192, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %59
   %193 = getelementptr inbounds nuw i16, ptr %.0166.us, i64 %40
@@ -3203,7 +3203,7 @@ define internal void @rgb2yuv_420p12_c(ptr noundef readonly captures(none) %0, p
   %198 = getelementptr inbounds i16, ptr %.0141161.us, i64 %47
   %199 = add nuw nsw i32 %.0142160.us, 1
   %exitcond170.not = icmp eq i32 %199, %37
-  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !56
+  br i1 %exitcond170.not, label %._crit_edge167, label %.preheader.us, !llvm.loop !55
 
 ._crit_edge167:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -3250,32 +3250,32 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %9
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !57
-  %47 = load ptr, ptr %8, align 8, !tbaa !57
+  %46 = load ptr, ptr %45, align 8, !tbaa !56
+  %47 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %56
 
 .lr.ph177:                                        ; preds = %56
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !57
-  %51 = load ptr, ptr %48, align 8, !tbaa !57
+  %50 = load ptr, ptr %49, align 8, !tbaa !56
+  %51 = load ptr, ptr %48, align 8, !tbaa !56
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !57
-  %55 = load ptr, ptr %52, align 8, !tbaa !57
+  %54 = load ptr, ptr %53, align 8, !tbaa !56
+  %55 = load ptr, ptr %52, align 8, !tbaa !56
   %wide.trip.count193 = zext nneg i32 %4 to i64
   br label %222
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %57 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
-  store i32 1048576, ptr %57, align 4, !tbaa !59
+  store i32 1048576, ptr %57, align 4, !tbaa !58
   %58 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 1048576, ptr %58, align 4, !tbaa !59
+  store i32 1048576, ptr %58, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph177, label %56, !llvm.loop !61
+  br i1 %exitcond.not, label %.lr.ph177, label %56, !llvm.loop !60
 
 .preheader173:                                    ; preds = %222
   %59 = icmp sgt i32 %5, 0
@@ -3325,9 +3325,9 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %86 = add nsw i32 %85, %84
   %87 = mul nsw i32 %83, %27
   %88 = add nsw i32 %86, %87
-  %89 = load ptr, ptr %66, align 8, !tbaa !57
+  %89 = load ptr, ptr %66, align 8, !tbaa !56
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv195
-  %91 = load i32, ptr %90, align 4, !tbaa !59
+  %91 = load i32, ptr %90, align 4, !tbaa !58
   %92 = add nsw i32 %88, %91
   %93 = and i32 %92, 2097151
   %94 = add nsw i32 %93, -1048576
@@ -3345,44 +3345,44 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %102 = mul nsw i32 %94, 7
   %103 = add nsw i32 %102, 8
   %104 = ashr i32 %103, 4
-  %105 = load ptr, ptr %66, align 8, !tbaa !57
+  %105 = load ptr, ptr %66, align 8, !tbaa !56
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %106 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.next196
-  %107 = load i32, ptr %106, align 4, !tbaa !59
+  %107 = load i32, ptr %106, align 4, !tbaa !58
   %108 = add nsw i32 %104, %107
-  store i32 %108, ptr %106, align 4, !tbaa !59
+  store i32 %108, ptr %106, align 4, !tbaa !58
   %109 = mul nsw i32 %94, 3
   %110 = add nsw i32 %109, 8
   %111 = ashr i32 %110, 4
-  %112 = load ptr, ptr %69, align 8, !tbaa !57
+  %112 = load ptr, ptr %69, align 8, !tbaa !56
   %113 = add nsw i64 %indvars.iv195, -1
   %114 = getelementptr inbounds i32, ptr %112, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !59
+  %115 = load i32, ptr %114, align 4, !tbaa !58
   %116 = add nsw i32 %115, %111
-  store i32 %116, ptr %114, align 4, !tbaa !59
+  store i32 %116, ptr %114, align 4, !tbaa !58
   %117 = mul nsw i32 %94, 5
   %118 = add nsw i32 %117, 8
   %119 = ashr i32 %118, 4
   %120 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv195
-  %121 = load i32, ptr %120, align 4, !tbaa !59
+  %121 = load i32, ptr %120, align 4, !tbaa !58
   %122 = add nsw i32 %121, %119
-  store i32 %122, ptr %120, align 4, !tbaa !59
+  store i32 %122, ptr %120, align 4, !tbaa !58
   %123 = add nsw i32 %93, -1048568
   %124 = ashr i32 %123, 4
   %125 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.next196
-  %126 = load i32, ptr %125, align 4, !tbaa !59
+  %126 = load i32, ptr %125, align 4, !tbaa !58
   %127 = add nsw i32 %126, %124
-  store i32 %127, ptr %125, align 4, !tbaa !59
+  store i32 %127, ptr %125, align 4, !tbaa !58
   %128 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv195
-  store i32 1048576, ptr %128, align 4, !tbaa !59
+  store i32 1048576, ptr %128, align 4, !tbaa !58
   %129 = mul nsw i32 %77, %30
   %130 = mul nsw i32 %80, %33
   %131 = add nsw i32 %130, %129
   %132 = mul nsw i32 %83, %36
   %133 = add nsw i32 %131, %132
-  %134 = load ptr, ptr %70, align 8, !tbaa !57
+  %134 = load ptr, ptr %70, align 8, !tbaa !56
   %135 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv195
-  %136 = load i32, ptr %135, align 4, !tbaa !59
+  %136 = load i32, ptr %135, align 4, !tbaa !58
   %137 = add nsw i32 %133, %136
   %138 = and i32 %137, 2097151
   %139 = add nsw i32 %138, -1048576
@@ -3398,42 +3398,42 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %145 = mul nsw i32 %139, 7
   %146 = add nsw i32 %145, 8
   %147 = ashr i32 %146, 4
-  %148 = load ptr, ptr %70, align 8, !tbaa !57
+  %148 = load ptr, ptr %70, align 8, !tbaa !56
   %149 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.next196
-  %150 = load i32, ptr %149, align 4, !tbaa !59
+  %150 = load i32, ptr %149, align 4, !tbaa !58
   %151 = add nsw i32 %147, %150
-  store i32 %151, ptr %149, align 4, !tbaa !59
+  store i32 %151, ptr %149, align 4, !tbaa !58
   %152 = mul nsw i32 %139, 3
   %153 = add nsw i32 %152, 8
   %154 = ashr i32 %153, 4
-  %155 = load ptr, ptr %71, align 8, !tbaa !57
+  %155 = load ptr, ptr %71, align 8, !tbaa !56
   %156 = getelementptr inbounds i32, ptr %155, i64 %113
-  %157 = load i32, ptr %156, align 4, !tbaa !59
+  %157 = load i32, ptr %156, align 4, !tbaa !58
   %158 = add nsw i32 %157, %154
-  store i32 %158, ptr %156, align 4, !tbaa !59
+  store i32 %158, ptr %156, align 4, !tbaa !58
   %159 = mul nsw i32 %139, 5
   %160 = add nsw i32 %159, 8
   %161 = ashr i32 %160, 4
   %162 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv195
-  %163 = load i32, ptr %162, align 4, !tbaa !59
+  %163 = load i32, ptr %162, align 4, !tbaa !58
   %164 = add nsw i32 %163, %161
-  store i32 %164, ptr %162, align 4, !tbaa !59
+  store i32 %164, ptr %162, align 4, !tbaa !58
   %165 = add nsw i32 %138, -1048568
   %166 = ashr i32 %165, 4
   %167 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv.next196
-  %168 = load i32, ptr %167, align 4, !tbaa !59
+  %168 = load i32, ptr %167, align 4, !tbaa !58
   %169 = add nsw i32 %168, %166
-  store i32 %169, ptr %167, align 4, !tbaa !59
+  store i32 %169, ptr %167, align 4, !tbaa !58
   %170 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv195
-  store i32 1048576, ptr %170, align 4, !tbaa !59
+  store i32 1048576, ptr %170, align 4, !tbaa !58
   %171 = mul nsw i32 %77, %36
   %172 = mul nsw i32 %80, %39
   %173 = add nsw i32 %172, %171
   %174 = mul nsw i32 %83, %42
   %175 = add nsw i32 %173, %174
-  %176 = load ptr, ptr %72, align 8, !tbaa !57
+  %176 = load ptr, ptr %72, align 8, !tbaa !56
   %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv195
-  %178 = load i32, ptr %177, align 4, !tbaa !59
+  %178 = load i32, ptr %177, align 4, !tbaa !58
   %179 = add nsw i32 %175, %178
   %180 = and i32 %179, 2097151
   %181 = add nsw i32 %180, -1048576
@@ -3449,36 +3449,36 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %187 = mul nsw i32 %181, 7
   %188 = add nsw i32 %187, 8
   %189 = ashr i32 %188, 4
-  %190 = load ptr, ptr %72, align 8, !tbaa !57
+  %190 = load ptr, ptr %72, align 8, !tbaa !56
   %191 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv.next196
-  %192 = load i32, ptr %191, align 4, !tbaa !59
+  %192 = load i32, ptr %191, align 4, !tbaa !58
   %193 = add nsw i32 %189, %192
-  store i32 %193, ptr %191, align 4, !tbaa !59
+  store i32 %193, ptr %191, align 4, !tbaa !58
   %194 = mul nsw i32 %181, 3
   %195 = add nsw i32 %194, 8
   %196 = ashr i32 %195, 4
-  %197 = load ptr, ptr %73, align 8, !tbaa !57
+  %197 = load ptr, ptr %73, align 8, !tbaa !56
   %198 = getelementptr inbounds i32, ptr %197, i64 %113
-  %199 = load i32, ptr %198, align 4, !tbaa !59
+  %199 = load i32, ptr %198, align 4, !tbaa !58
   %200 = add nsw i32 %199, %196
-  store i32 %200, ptr %198, align 4, !tbaa !59
+  store i32 %200, ptr %198, align 4, !tbaa !58
   %201 = mul nsw i32 %181, 5
   %202 = add nsw i32 %201, 8
   %203 = ashr i32 %202, 4
   %204 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv195
-  %205 = load i32, ptr %204, align 4, !tbaa !59
+  %205 = load i32, ptr %204, align 4, !tbaa !58
   %206 = add nsw i32 %205, %203
-  store i32 %206, ptr %204, align 4, !tbaa !59
+  store i32 %206, ptr %204, align 4, !tbaa !58
   %207 = add nsw i32 %180, -1048568
   %208 = ashr i32 %207, 4
   %209 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next196
-  %210 = load i32, ptr %209, align 4, !tbaa !59
+  %210 = load i32, ptr %209, align 4, !tbaa !58
   %211 = add nsw i32 %210, %208
-  store i32 %211, ptr %209, align 4, !tbaa !59
+  store i32 %211, ptr %209, align 4, !tbaa !58
   %212 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv195
-  store i32 1048576, ptr %212, align 4, !tbaa !59
+  store i32 1048576, ptr %212, align 4, !tbaa !58
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge.us, label %74, !llvm.loop !62
+  br i1 %exitcond199.not, label %._crit_edge.us, label %74, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %74
   %213 = getelementptr inbounds i8, ptr %.0186.us, i64 %43
@@ -3491,21 +3491,21 @@ define internal void @rgb2yuv_fsb_444p8_c(ptr noundef readonly captures(none) %0
   %220 = getelementptr inbounds i16, ptr %.0163181.us, i64 %3
   %221 = add nuw nsw i32 %.0164180.us, 1
   %exitcond200.not = icmp eq i32 %221, %5
-  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !63
+  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !62
 
 222:                                              ; preds = %.lr.ph177, %222
   %indvars.iv190 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next191, %222 ]
   %223 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv190
-  store i32 1048576, ptr %223, align 4, !tbaa !59
+  store i32 1048576, ptr %223, align 4, !tbaa !58
   %224 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv190
-  store i32 1048576, ptr %224, align 4, !tbaa !59
+  store i32 1048576, ptr %224, align 4, !tbaa !58
   %225 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv190
-  store i32 1048576, ptr %225, align 4, !tbaa !59
+  store i32 1048576, ptr %225, align 4, !tbaa !58
   %226 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv190
-  store i32 1048576, ptr %226, align 4, !tbaa !59
+  store i32 1048576, ptr %226, align 4, !tbaa !58
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.preheader173, label %222, !llvm.loop !64
+  br i1 %exitcond194.not, label %.preheader173, label %222, !llvm.loop !63
 
 ._crit_edge187:                                   ; preds = %._crit_edge.us, %9, %.preheader173
   ret void
@@ -3552,20 +3552,20 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %9
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !57
-  %47 = load ptr, ptr %8, align 8, !tbaa !57
+  %46 = load ptr, ptr %45, align 8, !tbaa !56
+  %47 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
-  store i32 1048576, ptr %49, align 4, !tbaa !59
+  store i32 1048576, ptr %49, align 4, !tbaa !58
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 1048576, ptr %50, align 4, !tbaa !59
+  store i32 1048576, ptr %50, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %48, %9
   %51 = add nsw i32 %4, 1
@@ -3576,12 +3576,12 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
 .lr.ph227:                                        ; preds = %._crit_edge
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !57
-  %57 = load ptr, ptr %54, align 8, !tbaa !57
+  %56 = load ptr, ptr %55, align 8, !tbaa !56
+  %57 = load ptr, ptr %54, align 8, !tbaa !56
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !57
-  %61 = load ptr, ptr %58, align 8, !tbaa !57
+  %60 = load ptr, ptr %59, align 8, !tbaa !56
+  %61 = load ptr, ptr %58, align 8, !tbaa !56
   %wide.trip.count244 = zext nneg i32 %52 to i64
   br label %288
 
@@ -3644,9 +3644,9 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %100 = add nsw i32 %99, %98
   %101 = mul nsw i32 %87, %27
   %102 = add nsw i32 %100, %101
-  %103 = load ptr, ptr %69, align 8, !tbaa !57
+  %103 = load ptr, ptr %69, align 8, !tbaa !56
   %104 = getelementptr inbounds i32, ptr %103, i64 %78
-  %105 = load i32, ptr %104, align 4, !tbaa !59
+  %105 = load i32, ptr %104, align 4, !tbaa !58
   %106 = add nsw i32 %102, %105
   %107 = and i32 %106, 2097151
   %108 = add nsw i32 %107, -1048576
@@ -3664,40 +3664,40 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %116 = mul nsw i32 %108, 7
   %117 = add nsw i32 %116, 8
   %118 = ashr i32 %117, 4
-  %119 = load ptr, ptr %69, align 8, !tbaa !57
+  %119 = load ptr, ptr %69, align 8, !tbaa !56
   %120 = getelementptr inbounds i32, ptr %119, i64 %88
-  %121 = load i32, ptr %120, align 4, !tbaa !59
+  %121 = load i32, ptr %120, align 4, !tbaa !58
   %122 = add nsw i32 %118, %121
-  store i32 %122, ptr %120, align 4, !tbaa !59
+  store i32 %122, ptr %120, align 4, !tbaa !58
   %123 = mul nsw i32 %108, 3
   %124 = add nsw i32 %123, 8
   %125 = ashr i32 %124, 4
-  %126 = load ptr, ptr %72, align 8, !tbaa !57
+  %126 = load ptr, ptr %72, align 8, !tbaa !56
   %127 = getelementptr i32, ptr %126, i64 %78
   %128 = getelementptr i8, ptr %127, i64 -4
-  %129 = load i32, ptr %128, align 4, !tbaa !59
+  %129 = load i32, ptr %128, align 4, !tbaa !58
   %130 = add nsw i32 %129, %125
-  store i32 %130, ptr %128, align 4, !tbaa !59
+  store i32 %130, ptr %128, align 4, !tbaa !58
   %131 = mul nsw i32 %108, 5
   %132 = add nsw i32 %131, 8
   %133 = ashr i32 %132, 4
-  %134 = load i32, ptr %127, align 4, !tbaa !59
+  %134 = load i32, ptr %127, align 4, !tbaa !58
   %135 = add nsw i32 %134, %133
-  store i32 %135, ptr %127, align 4, !tbaa !59
+  store i32 %135, ptr %127, align 4, !tbaa !58
   %136 = add nsw i32 %107, -1048568
   %137 = ashr i32 %136, 4
   %138 = getelementptr inbounds i32, ptr %126, i64 %88
-  %139 = load i32, ptr %138, align 4, !tbaa !59
+  %139 = load i32, ptr %138, align 4, !tbaa !58
   %140 = add nsw i32 %139, %137
-  store i32 %140, ptr %138, align 4, !tbaa !59
+  store i32 %140, ptr %138, align 4, !tbaa !58
   %141 = getelementptr inbounds i32, ptr %119, i64 %78
-  store i32 1048576, ptr %141, align 4, !tbaa !59
+  store i32 1048576, ptr %141, align 4, !tbaa !58
   %142 = mul nsw i32 %91, %21
   %143 = mul nsw i32 %94, %24
   %144 = add nsw i32 %143, %142
   %145 = mul nsw i32 %97, %27
   %146 = add nsw i32 %144, %145
-  %147 = load i32, ptr %120, align 4, !tbaa !59
+  %147 = load i32, ptr %120, align 4, !tbaa !58
   %148 = add nsw i32 %146, %147
   %149 = and i32 %148, 2097151
   %150 = add nsw i32 %149, -1048576
@@ -3715,35 +3715,35 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %158 = mul nsw i32 %150, 7
   %159 = add nsw i32 %158, 8
   %160 = ashr i32 %159, 4
-  %161 = load ptr, ptr %69, align 8, !tbaa !57
+  %161 = load ptr, ptr %69, align 8, !tbaa !56
   %162 = add nuw nsw i64 %78, 2
   %163 = getelementptr inbounds nuw i32, ptr %161, i64 %162
-  %164 = load i32, ptr %163, align 4, !tbaa !59
+  %164 = load i32, ptr %163, align 4, !tbaa !58
   %165 = add nsw i32 %160, %164
-  store i32 %165, ptr %163, align 4, !tbaa !59
+  store i32 %165, ptr %163, align 4, !tbaa !58
   %166 = mul nsw i32 %150, 3
   %167 = add nsw i32 %166, 8
   %168 = ashr i32 %167, 4
-  %169 = load ptr, ptr %72, align 8, !tbaa !57
+  %169 = load ptr, ptr %72, align 8, !tbaa !56
   %170 = getelementptr inbounds nuw i32, ptr %169, i64 %78
-  %171 = load i32, ptr %170, align 4, !tbaa !59
+  %171 = load i32, ptr %170, align 4, !tbaa !58
   %172 = add nsw i32 %171, %168
-  store i32 %172, ptr %170, align 4, !tbaa !59
+  store i32 %172, ptr %170, align 4, !tbaa !58
   %173 = mul nsw i32 %150, 5
   %174 = add nsw i32 %173, 8
   %175 = ashr i32 %174, 4
   %176 = getelementptr inbounds nuw i32, ptr %169, i64 %88
-  %177 = load i32, ptr %176, align 4, !tbaa !59
+  %177 = load i32, ptr %176, align 4, !tbaa !58
   %178 = add nsw i32 %177, %175
-  store i32 %178, ptr %176, align 4, !tbaa !59
+  store i32 %178, ptr %176, align 4, !tbaa !58
   %179 = add nsw i32 %149, -1048568
   %180 = ashr i32 %179, 4
   %181 = getelementptr inbounds nuw i32, ptr %169, i64 %162
-  %182 = load i32, ptr %181, align 4, !tbaa !59
+  %182 = load i32, ptr %181, align 4, !tbaa !58
   %183 = add nsw i32 %182, %180
-  store i32 %183, ptr %181, align 4, !tbaa !59
+  store i32 %183, ptr %181, align 4, !tbaa !58
   %184 = getelementptr inbounds nuw i32, ptr %161, i64 %88
-  store i32 1048576, ptr %184, align 4, !tbaa !59
+  store i32 1048576, ptr %184, align 4, !tbaa !58
   %185 = add nsw i32 %81, 1
   %186 = add nsw i32 %185, %91
   %187 = ashr i32 %186, 1
@@ -3758,9 +3758,9 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %196 = ashr i32 %195, 1
   %197 = mul nsw i32 %196, %36
   %198 = add nsw i32 %193, %197
-  %199 = load ptr, ptr %73, align 8, !tbaa !57
+  %199 = load ptr, ptr %73, align 8, !tbaa !56
   %200 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv246
-  %201 = load i32, ptr %200, align 4, !tbaa !59
+  %201 = load i32, ptr %200, align 4, !tbaa !58
   %202 = add nsw i32 %198, %201
   %203 = and i32 %202, 2097151
   %204 = add nsw i32 %203, -1048576
@@ -3776,44 +3776,44 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %210 = mul nsw i32 %204, 7
   %211 = add nsw i32 %210, 8
   %212 = ashr i32 %211, 4
-  %213 = load ptr, ptr %73, align 8, !tbaa !57
+  %213 = load ptr, ptr %73, align 8, !tbaa !56
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %214 = getelementptr inbounds nuw i32, ptr %213, i64 %indvars.iv.next247
-  %215 = load i32, ptr %214, align 4, !tbaa !59
+  %215 = load i32, ptr %214, align 4, !tbaa !58
   %216 = add nsw i32 %212, %215
-  store i32 %216, ptr %214, align 4, !tbaa !59
+  store i32 %216, ptr %214, align 4, !tbaa !58
   %217 = mul nsw i32 %204, 3
   %218 = add nsw i32 %217, 8
   %219 = ashr i32 %218, 4
-  %220 = load ptr, ptr %74, align 8, !tbaa !57
+  %220 = load ptr, ptr %74, align 8, !tbaa !56
   %221 = add nsw i64 %indvars.iv246, -1
   %222 = getelementptr inbounds i32, ptr %220, i64 %221
-  %223 = load i32, ptr %222, align 4, !tbaa !59
+  %223 = load i32, ptr %222, align 4, !tbaa !58
   %224 = add nsw i32 %223, %219
-  store i32 %224, ptr %222, align 4, !tbaa !59
+  store i32 %224, ptr %222, align 4, !tbaa !58
   %225 = mul nsw i32 %204, 5
   %226 = add nsw i32 %225, 8
   %227 = ashr i32 %226, 4
   %228 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv246
-  %229 = load i32, ptr %228, align 4, !tbaa !59
+  %229 = load i32, ptr %228, align 4, !tbaa !58
   %230 = add nsw i32 %229, %227
-  store i32 %230, ptr %228, align 4, !tbaa !59
+  store i32 %230, ptr %228, align 4, !tbaa !58
   %231 = add nsw i32 %203, -1048568
   %232 = ashr i32 %231, 4
   %233 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.next247
-  %234 = load i32, ptr %233, align 4, !tbaa !59
+  %234 = load i32, ptr %233, align 4, !tbaa !58
   %235 = add nsw i32 %234, %232
-  store i32 %235, ptr %233, align 4, !tbaa !59
+  store i32 %235, ptr %233, align 4, !tbaa !58
   %236 = getelementptr inbounds nuw i32, ptr %213, i64 %indvars.iv246
-  store i32 1048576, ptr %236, align 4, !tbaa !59
+  store i32 1048576, ptr %236, align 4, !tbaa !58
   %237 = mul nsw i32 %187, %36
   %238 = mul nsw i32 %191, %39
   %239 = add nsw i32 %238, %237
   %240 = mul nsw i32 %196, %42
   %241 = add nsw i32 %239, %240
-  %242 = load ptr, ptr %75, align 8, !tbaa !57
+  %242 = load ptr, ptr %75, align 8, !tbaa !56
   %243 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv246
-  %244 = load i32, ptr %243, align 4, !tbaa !59
+  %244 = load i32, ptr %243, align 4, !tbaa !58
   %245 = add nsw i32 %241, %244
   %246 = and i32 %245, 2097151
   %247 = add nsw i32 %246, -1048576
@@ -3829,36 +3829,36 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %253 = mul nsw i32 %247, 7
   %254 = add nsw i32 %253, 8
   %255 = ashr i32 %254, 4
-  %256 = load ptr, ptr %75, align 8, !tbaa !57
+  %256 = load ptr, ptr %75, align 8, !tbaa !56
   %257 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv.next247
-  %258 = load i32, ptr %257, align 4, !tbaa !59
+  %258 = load i32, ptr %257, align 4, !tbaa !58
   %259 = add nsw i32 %255, %258
-  store i32 %259, ptr %257, align 4, !tbaa !59
+  store i32 %259, ptr %257, align 4, !tbaa !58
   %260 = mul nsw i32 %247, 3
   %261 = add nsw i32 %260, 8
   %262 = ashr i32 %261, 4
-  %263 = load ptr, ptr %76, align 8, !tbaa !57
+  %263 = load ptr, ptr %76, align 8, !tbaa !56
   %264 = getelementptr inbounds i32, ptr %263, i64 %221
-  %265 = load i32, ptr %264, align 4, !tbaa !59
+  %265 = load i32, ptr %264, align 4, !tbaa !58
   %266 = add nsw i32 %265, %262
-  store i32 %266, ptr %264, align 4, !tbaa !59
+  store i32 %266, ptr %264, align 4, !tbaa !58
   %267 = mul nsw i32 %247, 5
   %268 = add nsw i32 %267, 8
   %269 = ashr i32 %268, 4
   %270 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv246
-  %271 = load i32, ptr %270, align 4, !tbaa !59
+  %271 = load i32, ptr %270, align 4, !tbaa !58
   %272 = add nsw i32 %271, %269
-  store i32 %272, ptr %270, align 4, !tbaa !59
+  store i32 %272, ptr %270, align 4, !tbaa !58
   %273 = add nsw i32 %246, -1048568
   %274 = ashr i32 %273, 4
   %275 = getelementptr inbounds nuw i32, ptr %263, i64 %indvars.iv.next247
-  %276 = load i32, ptr %275, align 4, !tbaa !59
+  %276 = load i32, ptr %275, align 4, !tbaa !58
   %277 = add nsw i32 %276, %274
-  store i32 %277, ptr %275, align 4, !tbaa !59
+  store i32 %277, ptr %275, align 4, !tbaa !58
   %278 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv246
-  store i32 1048576, ptr %278, align 4, !tbaa !59
+  store i32 1048576, ptr %278, align 4, !tbaa !58
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %._crit_edge230.us, label %77, !llvm.loop !66
+  br i1 %exitcond250.not, label %._crit_edge230.us, label %77, !llvm.loop !65
 
 ._crit_edge230.us:                                ; preds = %77
   %279 = getelementptr inbounds i8, ptr %.0237.us, i64 %43
@@ -3871,21 +3871,21 @@ define internal void @rgb2yuv_fsb_422p8_c(ptr noundef readonly captures(none) %0
   %286 = getelementptr inbounds i16, ptr %.0209232.us, i64 %3
   %287 = add nuw nsw i32 %.0210231.us, 1
   %exitcond251.not = icmp eq i32 %287, %5
-  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !67
+  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !66
 
 288:                                              ; preds = %.lr.ph227, %288
   %indvars.iv241 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next242, %288 ]
   %289 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv241
-  store i32 1048576, ptr %289, align 4, !tbaa !59
+  store i32 1048576, ptr %289, align 4, !tbaa !58
   %290 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv241
-  store i32 1048576, ptr %290, align 4, !tbaa !59
+  store i32 1048576, ptr %290, align 4, !tbaa !58
   %291 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv241
-  store i32 1048576, ptr %291, align 4, !tbaa !59
+  store i32 1048576, ptr %291, align 4, !tbaa !58
   %292 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv241
-  store i32 1048576, ptr %292, align 4, !tbaa !59
+  store i32 1048576, ptr %292, align 4, !tbaa !58
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %.preheader223, label %288, !llvm.loop !68
+  br i1 %exitcond245.not, label %.preheader223, label %288, !llvm.loop !67
 
 ._crit_edge238:                                   ; preds = %._crit_edge230.us, %._crit_edge, %.preheader223
   ret void
@@ -3932,20 +3932,20 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %9
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !57
-  %47 = load ptr, ptr %8, align 8, !tbaa !57
+  %46 = load ptr, ptr %45, align 8, !tbaa !56
+  %47 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %49 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
-  store i32 1048576, ptr %49, align 4, !tbaa !59
+  store i32 1048576, ptr %49, align 4, !tbaa !58
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 1048576, ptr %50, align 4, !tbaa !59
+  store i32 1048576, ptr %50, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %48, %9
   %51 = add nsw i32 %4, 1
@@ -3958,12 +3958,12 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
 .lr.ph321:                                        ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !57
-  %59 = load ptr, ptr %56, align 8, !tbaa !57
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
+  %59 = load ptr, ptr %56, align 8, !tbaa !56
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %63 = load ptr, ptr %60, align 8, !tbaa !57
+  %62 = load ptr, ptr %61, align 8, !tbaa !56
+  %63 = load ptr, ptr %60, align 8, !tbaa !56
   %wide.trip.count338 = zext nneg i32 %52 to i64
   br label %402
 
@@ -4048,9 +4048,9 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %124 = add nsw i32 %123, %122
   %125 = mul nsw i32 %91, %27
   %126 = add nsw i32 %124, %125
-  %127 = load ptr, ptr %8, align 8, !tbaa !57
+  %127 = load ptr, ptr %8, align 8, !tbaa !56
   %128 = getelementptr inbounds i32, ptr %127, i64 %82
-  %129 = load i32, ptr %128, align 4, !tbaa !59
+  %129 = load i32, ptr %128, align 4, !tbaa !58
   %130 = add nsw i32 %126, %129
   %131 = and i32 %130, 2097151
   %132 = add nsw i32 %131, -1048576
@@ -4068,40 +4068,40 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %140 = mul nsw i32 %132, 7
   %141 = add nsw i32 %140, 8
   %142 = ashr i32 %141, 4
-  %143 = load ptr, ptr %8, align 8, !tbaa !57
+  %143 = load ptr, ptr %8, align 8, !tbaa !56
   %144 = getelementptr inbounds i32, ptr %143, i64 %92
-  %145 = load i32, ptr %144, align 4, !tbaa !59
+  %145 = load i32, ptr %144, align 4, !tbaa !58
   %146 = add nsw i32 %142, %145
-  store i32 %146, ptr %144, align 4, !tbaa !59
+  store i32 %146, ptr %144, align 4, !tbaa !58
   %147 = mul nsw i32 %132, 3
   %148 = add nsw i32 %147, 8
   %149 = ashr i32 %148, 4
-  %150 = load ptr, ptr %65, align 8, !tbaa !57
+  %150 = load ptr, ptr %65, align 8, !tbaa !56
   %151 = getelementptr i32, ptr %150, i64 %82
   %152 = getelementptr i8, ptr %151, i64 -4
-  %153 = load i32, ptr %152, align 4, !tbaa !59
+  %153 = load i32, ptr %152, align 4, !tbaa !58
   %154 = add nsw i32 %153, %149
-  store i32 %154, ptr %152, align 4, !tbaa !59
+  store i32 %154, ptr %152, align 4, !tbaa !58
   %155 = mul nsw i32 %132, 5
   %156 = add nsw i32 %155, 8
   %157 = ashr i32 %156, 4
-  %158 = load i32, ptr %151, align 4, !tbaa !59
+  %158 = load i32, ptr %151, align 4, !tbaa !58
   %159 = add nsw i32 %158, %157
-  store i32 %159, ptr %151, align 4, !tbaa !59
+  store i32 %159, ptr %151, align 4, !tbaa !58
   %160 = add nsw i32 %131, -1048568
   %161 = ashr i32 %160, 4
   %162 = getelementptr inbounds i32, ptr %150, i64 %92
-  %163 = load i32, ptr %162, align 4, !tbaa !59
+  %163 = load i32, ptr %162, align 4, !tbaa !58
   %164 = add nsw i32 %163, %161
-  store i32 %164, ptr %162, align 4, !tbaa !59
+  store i32 %164, ptr %162, align 4, !tbaa !58
   %165 = getelementptr inbounds i32, ptr %143, i64 %82
-  store i32 1048576, ptr %165, align 4, !tbaa !59
+  store i32 1048576, ptr %165, align 4, !tbaa !58
   %166 = mul nsw i32 %95, %21
   %167 = mul nsw i32 %98, %24
   %168 = add nsw i32 %167, %166
   %169 = mul nsw i32 %101, %27
   %170 = add nsw i32 %168, %169
-  %171 = load i32, ptr %144, align 4, !tbaa !59
+  %171 = load i32, ptr %144, align 4, !tbaa !58
   %172 = add nsw i32 %170, %171
   %173 = and i32 %172, 2097151
   %174 = add nsw i32 %173, -1048576
@@ -4119,41 +4119,41 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %182 = mul nsw i32 %174, 7
   %183 = add nsw i32 %182, 8
   %184 = ashr i32 %183, 4
-  %185 = load ptr, ptr %8, align 8, !tbaa !57
+  %185 = load ptr, ptr %8, align 8, !tbaa !56
   %186 = add nuw nsw i64 %82, 2
   %187 = getelementptr inbounds nuw i32, ptr %185, i64 %186
-  %188 = load i32, ptr %187, align 4, !tbaa !59
+  %188 = load i32, ptr %187, align 4, !tbaa !58
   %189 = add nsw i32 %184, %188
-  store i32 %189, ptr %187, align 4, !tbaa !59
+  store i32 %189, ptr %187, align 4, !tbaa !58
   %190 = mul nsw i32 %174, 3
   %191 = add nsw i32 %190, 8
   %192 = ashr i32 %191, 4
-  %193 = load ptr, ptr %65, align 8, !tbaa !57
+  %193 = load ptr, ptr %65, align 8, !tbaa !56
   %194 = getelementptr inbounds nuw i32, ptr %193, i64 %82
-  %195 = load i32, ptr %194, align 4, !tbaa !59
+  %195 = load i32, ptr %194, align 4, !tbaa !58
   %196 = add nsw i32 %195, %192
-  store i32 %196, ptr %194, align 4, !tbaa !59
+  store i32 %196, ptr %194, align 4, !tbaa !58
   %197 = mul nsw i32 %174, 5
   %198 = add nsw i32 %197, 8
   %199 = ashr i32 %198, 4
   %200 = getelementptr inbounds nuw i32, ptr %193, i64 %92
-  %201 = load i32, ptr %200, align 4, !tbaa !59
+  %201 = load i32, ptr %200, align 4, !tbaa !58
   %202 = add nsw i32 %201, %199
-  store i32 %202, ptr %200, align 4, !tbaa !59
+  store i32 %202, ptr %200, align 4, !tbaa !58
   %203 = add nsw i32 %173, -1048568
   %204 = ashr i32 %203, 4
   %205 = getelementptr inbounds nuw i32, ptr %193, i64 %186
-  %206 = load i32, ptr %205, align 4, !tbaa !59
+  %206 = load i32, ptr %205, align 4, !tbaa !58
   %207 = add nsw i32 %206, %204
-  store i32 %207, ptr %205, align 4, !tbaa !59
+  store i32 %207, ptr %205, align 4, !tbaa !58
   %208 = getelementptr inbounds nuw i32, ptr %185, i64 %92
-  store i32 1048576, ptr %208, align 4, !tbaa !59
+  store i32 1048576, ptr %208, align 4, !tbaa !58
   %209 = mul nsw i32 %105, %21
   %210 = mul nsw i32 %108, %24
   %211 = add nsw i32 %210, %209
   %212 = mul nsw i32 %111, %27
   %213 = add nsw i32 %211, %212
-  %214 = load i32, ptr %194, align 4, !tbaa !59
+  %214 = load i32, ptr %194, align 4, !tbaa !58
   %215 = add nsw i32 %213, %214
   %216 = and i32 %215, 2097151
   %217 = add nsw i32 %216, -1048576
@@ -4171,40 +4171,40 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %225 = mul nsw i32 %217, 7
   %226 = add nsw i32 %225, 8
   %227 = ashr i32 %226, 4
-  %228 = load ptr, ptr %65, align 8, !tbaa !57
+  %228 = load ptr, ptr %65, align 8, !tbaa !56
   %229 = getelementptr inbounds nuw i32, ptr %228, i64 %92
-  %230 = load i32, ptr %229, align 4, !tbaa !59
+  %230 = load i32, ptr %229, align 4, !tbaa !58
   %231 = add nsw i32 %227, %230
-  store i32 %231, ptr %229, align 4, !tbaa !59
+  store i32 %231, ptr %229, align 4, !tbaa !58
   %232 = mul nsw i32 %217, 3
   %233 = add nsw i32 %232, 8
   %234 = ashr i32 %233, 4
-  %235 = load ptr, ptr %8, align 8, !tbaa !57
+  %235 = load ptr, ptr %8, align 8, !tbaa !56
   %236 = getelementptr i32, ptr %235, i64 %82
   %237 = getelementptr i8, ptr %236, i64 -4
-  %238 = load i32, ptr %237, align 4, !tbaa !59
+  %238 = load i32, ptr %237, align 4, !tbaa !58
   %239 = add nsw i32 %238, %234
-  store i32 %239, ptr %237, align 4, !tbaa !59
+  store i32 %239, ptr %237, align 4, !tbaa !58
   %240 = mul nsw i32 %217, 5
   %241 = add nsw i32 %240, 8
   %242 = ashr i32 %241, 4
-  %243 = load i32, ptr %236, align 4, !tbaa !59
+  %243 = load i32, ptr %236, align 4, !tbaa !58
   %244 = add nsw i32 %243, %242
-  store i32 %244, ptr %236, align 4, !tbaa !59
+  store i32 %244, ptr %236, align 4, !tbaa !58
   %245 = add nsw i32 %216, -1048568
   %246 = ashr i32 %245, 4
   %247 = getelementptr inbounds nuw i32, ptr %235, i64 %92
-  %248 = load i32, ptr %247, align 4, !tbaa !59
+  %248 = load i32, ptr %247, align 4, !tbaa !58
   %249 = add nsw i32 %248, %246
-  store i32 %249, ptr %247, align 4, !tbaa !59
+  store i32 %249, ptr %247, align 4, !tbaa !58
   %250 = getelementptr inbounds nuw i32, ptr %228, i64 %82
-  store i32 1048576, ptr %250, align 4, !tbaa !59
+  store i32 1048576, ptr %250, align 4, !tbaa !58
   %251 = mul nsw i32 %115, %21
   %252 = mul nsw i32 %118, %24
   %253 = add nsw i32 %252, %251
   %254 = mul nsw i32 %121, %27
   %255 = add nsw i32 %253, %254
-  %256 = load i32, ptr %229, align 4, !tbaa !59
+  %256 = load i32, ptr %229, align 4, !tbaa !58
   %257 = add nsw i32 %255, %256
   %258 = and i32 %257, 2097151
   %259 = add nsw i32 %258, -1048576
@@ -4222,34 +4222,34 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %267 = mul nsw i32 %259, 7
   %268 = add nsw i32 %267, 8
   %269 = ashr i32 %268, 4
-  %270 = load ptr, ptr %65, align 8, !tbaa !57
+  %270 = load ptr, ptr %65, align 8, !tbaa !56
   %271 = getelementptr inbounds nuw i32, ptr %270, i64 %186
-  %272 = load i32, ptr %271, align 4, !tbaa !59
+  %272 = load i32, ptr %271, align 4, !tbaa !58
   %273 = add nsw i32 %269, %272
-  store i32 %273, ptr %271, align 4, !tbaa !59
+  store i32 %273, ptr %271, align 4, !tbaa !58
   %274 = mul nsw i32 %259, 3
   %275 = add nsw i32 %274, 8
   %276 = ashr i32 %275, 4
-  %277 = load ptr, ptr %8, align 8, !tbaa !57
+  %277 = load ptr, ptr %8, align 8, !tbaa !56
   %278 = getelementptr inbounds nuw i32, ptr %277, i64 %82
-  %279 = load i32, ptr %278, align 4, !tbaa !59
+  %279 = load i32, ptr %278, align 4, !tbaa !58
   %280 = add nsw i32 %279, %276
-  store i32 %280, ptr %278, align 4, !tbaa !59
+  store i32 %280, ptr %278, align 4, !tbaa !58
   %281 = mul nsw i32 %259, 5
   %282 = add nsw i32 %281, 8
   %283 = ashr i32 %282, 4
   %284 = getelementptr inbounds nuw i32, ptr %277, i64 %92
-  %285 = load i32, ptr %284, align 4, !tbaa !59
+  %285 = load i32, ptr %284, align 4, !tbaa !58
   %286 = add nsw i32 %285, %283
-  store i32 %286, ptr %284, align 4, !tbaa !59
+  store i32 %286, ptr %284, align 4, !tbaa !58
   %287 = add nsw i32 %258, -1048568
   %288 = ashr i32 %287, 4
   %289 = getelementptr inbounds nuw i32, ptr %277, i64 %186
-  %290 = load i32, ptr %289, align 4, !tbaa !59
+  %290 = load i32, ptr %289, align 4, !tbaa !58
   %291 = add nsw i32 %290, %288
-  store i32 %291, ptr %289, align 4, !tbaa !59
+  store i32 %291, ptr %289, align 4, !tbaa !58
   %292 = getelementptr inbounds nuw i32, ptr %270, i64 %92
-  store i32 1048576, ptr %292, align 4, !tbaa !59
+  store i32 1048576, ptr %292, align 4, !tbaa !58
   %293 = add nsw i32 %85, 2
   %294 = add nsw i32 %293, %95
   %295 = add nsw i32 %294, %105
@@ -4270,9 +4270,9 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %310 = ashr i32 %309, 2
   %311 = mul nsw i32 %310, %36
   %312 = add nsw i32 %305, %311
-  %313 = load ptr, ptr %75, align 8, !tbaa !57
+  %313 = load ptr, ptr %75, align 8, !tbaa !56
   %314 = getelementptr inbounds nuw i32, ptr %313, i64 %indvars.iv340
-  %315 = load i32, ptr %314, align 4, !tbaa !59
+  %315 = load i32, ptr %314, align 4, !tbaa !58
   %316 = add nsw i32 %312, %315
   %317 = and i32 %316, 2097151
   %318 = add nsw i32 %317, -1048576
@@ -4288,44 +4288,44 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %324 = mul nsw i32 %318, 7
   %325 = add nsw i32 %324, 8
   %326 = ashr i32 %325, 4
-  %327 = load ptr, ptr %75, align 8, !tbaa !57
+  %327 = load ptr, ptr %75, align 8, !tbaa !56
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %328 = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv.next341
-  %329 = load i32, ptr %328, align 4, !tbaa !59
+  %329 = load i32, ptr %328, align 4, !tbaa !58
   %330 = add nsw i32 %326, %329
-  store i32 %330, ptr %328, align 4, !tbaa !59
+  store i32 %330, ptr %328, align 4, !tbaa !58
   %331 = mul nsw i32 %318, 3
   %332 = add nsw i32 %331, 8
   %333 = ashr i32 %332, 4
-  %334 = load ptr, ptr %78, align 8, !tbaa !57
+  %334 = load ptr, ptr %78, align 8, !tbaa !56
   %335 = add nsw i64 %indvars.iv340, -1
   %336 = getelementptr inbounds i32, ptr %334, i64 %335
-  %337 = load i32, ptr %336, align 4, !tbaa !59
+  %337 = load i32, ptr %336, align 4, !tbaa !58
   %338 = add nsw i32 %337, %333
-  store i32 %338, ptr %336, align 4, !tbaa !59
+  store i32 %338, ptr %336, align 4, !tbaa !58
   %339 = mul nsw i32 %318, 5
   %340 = add nsw i32 %339, 8
   %341 = ashr i32 %340, 4
   %342 = getelementptr inbounds nuw i32, ptr %334, i64 %indvars.iv340
-  %343 = load i32, ptr %342, align 4, !tbaa !59
+  %343 = load i32, ptr %342, align 4, !tbaa !58
   %344 = add nsw i32 %343, %341
-  store i32 %344, ptr %342, align 4, !tbaa !59
+  store i32 %344, ptr %342, align 4, !tbaa !58
   %345 = add nsw i32 %317, -1048568
   %346 = ashr i32 %345, 4
   %347 = getelementptr inbounds nuw i32, ptr %334, i64 %indvars.iv.next341
-  %348 = load i32, ptr %347, align 4, !tbaa !59
+  %348 = load i32, ptr %347, align 4, !tbaa !58
   %349 = add nsw i32 %348, %346
-  store i32 %349, ptr %347, align 4, !tbaa !59
+  store i32 %349, ptr %347, align 4, !tbaa !58
   %350 = getelementptr inbounds nuw i32, ptr %327, i64 %indvars.iv340
-  store i32 1048576, ptr %350, align 4, !tbaa !59
+  store i32 1048576, ptr %350, align 4, !tbaa !58
   %351 = mul nsw i32 %297, %36
   %352 = mul nsw i32 %303, %39
   %353 = add nsw i32 %352, %351
   %354 = mul nsw i32 %310, %42
   %355 = add nsw i32 %353, %354
-  %356 = load ptr, ptr %79, align 8, !tbaa !57
+  %356 = load ptr, ptr %79, align 8, !tbaa !56
   %357 = getelementptr inbounds nuw i32, ptr %356, i64 %indvars.iv340
-  %358 = load i32, ptr %357, align 4, !tbaa !59
+  %358 = load i32, ptr %357, align 4, !tbaa !58
   %359 = add nsw i32 %355, %358
   %360 = and i32 %359, 2097151
   %361 = add nsw i32 %360, -1048576
@@ -4341,36 +4341,36 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %367 = mul nsw i32 %361, 7
   %368 = add nsw i32 %367, 8
   %369 = ashr i32 %368, 4
-  %370 = load ptr, ptr %79, align 8, !tbaa !57
+  %370 = load ptr, ptr %79, align 8, !tbaa !56
   %371 = getelementptr inbounds nuw i32, ptr %370, i64 %indvars.iv.next341
-  %372 = load i32, ptr %371, align 4, !tbaa !59
+  %372 = load i32, ptr %371, align 4, !tbaa !58
   %373 = add nsw i32 %369, %372
-  store i32 %373, ptr %371, align 4, !tbaa !59
+  store i32 %373, ptr %371, align 4, !tbaa !58
   %374 = mul nsw i32 %361, 3
   %375 = add nsw i32 %374, 8
   %376 = ashr i32 %375, 4
-  %377 = load ptr, ptr %80, align 8, !tbaa !57
+  %377 = load ptr, ptr %80, align 8, !tbaa !56
   %378 = getelementptr inbounds i32, ptr %377, i64 %335
-  %379 = load i32, ptr %378, align 4, !tbaa !59
+  %379 = load i32, ptr %378, align 4, !tbaa !58
   %380 = add nsw i32 %379, %376
-  store i32 %380, ptr %378, align 4, !tbaa !59
+  store i32 %380, ptr %378, align 4, !tbaa !58
   %381 = mul nsw i32 %361, 5
   %382 = add nsw i32 %381, 8
   %383 = ashr i32 %382, 4
   %384 = getelementptr inbounds nuw i32, ptr %377, i64 %indvars.iv340
-  %385 = load i32, ptr %384, align 4, !tbaa !59
+  %385 = load i32, ptr %384, align 4, !tbaa !58
   %386 = add nsw i32 %385, %383
-  store i32 %386, ptr %384, align 4, !tbaa !59
+  store i32 %386, ptr %384, align 4, !tbaa !58
   %387 = add nsw i32 %360, -1048568
   %388 = ashr i32 %387, 4
   %389 = getelementptr inbounds nuw i32, ptr %377, i64 %indvars.iv.next341
-  %390 = load i32, ptr %389, align 4, !tbaa !59
+  %390 = load i32, ptr %389, align 4, !tbaa !58
   %391 = add nsw i32 %390, %388
-  store i32 %391, ptr %389, align 4, !tbaa !59
+  store i32 %391, ptr %389, align 4, !tbaa !58
   %392 = getelementptr inbounds nuw i32, ptr %370, i64 %indvars.iv340
-  store i32 1048576, ptr %392, align 4, !tbaa !59
+  store i32 1048576, ptr %392, align 4, !tbaa !58
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %._crit_edge324.us, label %81, !llvm.loop !70
+  br i1 %exitcond344.not, label %._crit_edge324.us, label %81, !llvm.loop !69
 
 ._crit_edge324.us:                                ; preds = %81
   %393 = getelementptr inbounds i8, ptr %.0331.us, i64 %68
@@ -4383,21 +4383,21 @@ define internal void @rgb2yuv_fsb_420p8_c(ptr noundef readonly captures(none) %0
   %400 = getelementptr inbounds i16, ptr %.0297326.us, i64 %71
   %401 = add nuw nsw i32 %.0298325.us, 1
   %exitcond345.not = icmp eq i32 %401, %54
-  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !71
+  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !70
 
 402:                                              ; preds = %.lr.ph321, %402
   %indvars.iv335 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next336, %402 ]
   %403 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv335
-  store i32 1048576, ptr %403, align 4, !tbaa !59
+  store i32 1048576, ptr %403, align 4, !tbaa !58
   %404 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv335
-  store i32 1048576, ptr %404, align 4, !tbaa !59
+  store i32 1048576, ptr %404, align 4, !tbaa !58
   %405 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv335
-  store i32 1048576, ptr %405, align 4, !tbaa !59
+  store i32 1048576, ptr %405, align 4, !tbaa !58
   %406 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv335
-  store i32 1048576, ptr %406, align 4, !tbaa !59
+  store i32 1048576, ptr %406, align 4, !tbaa !58
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %.preheader317, label %402, !llvm.loop !72
+  br i1 %exitcond339.not, label %.preheader317, label %402, !llvm.loop !71
 
 ._crit_edge332:                                   ; preds = %._crit_edge324.us, %._crit_edge, %.preheader317
   ret void
@@ -4445,32 +4445,32 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %57
 
 .lr.ph177:                                        ; preds = %57
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !57
-  %52 = load ptr, ptr %49, align 8, !tbaa !57
+  %51 = load ptr, ptr %50, align 8, !tbaa !56
+  %52 = load ptr, ptr %49, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !57
-  %56 = load ptr, ptr %53, align 8, !tbaa !57
+  %55 = load ptr, ptr %54, align 8, !tbaa !56
+  %56 = load ptr, ptr %53, align 8, !tbaa !56
   %wide.trip.count193 = zext nneg i32 %4 to i64
   br label %220
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 262144, ptr %58, align 4, !tbaa !59
+  store i32 262144, ptr %58, align 4, !tbaa !58
   %59 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 262144, ptr %59, align 4, !tbaa !59
+  store i32 262144, ptr %59, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph177, label %57, !llvm.loop !73
+  br i1 %exitcond.not, label %.lr.ph177, label %57, !llvm.loop !72
 
 .preheader173:                                    ; preds = %220
   %60 = icmp sgt i32 %5, 0
@@ -4499,19 +4499,19 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %69 = and i32 %.0164180.us, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !57
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = xor i32 %69, 1
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !57
+  %76 = load ptr, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %70
-  %78 = load ptr, ptr %77, align 8, !tbaa !57
+  %78 = load ptr, ptr %77, align 8, !tbaa !56
   %79 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %74
-  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %80 = load ptr, ptr %79, align 8, !tbaa !56
   %81 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %70
-  %82 = load ptr, ptr %81, align 8, !tbaa !57
+  %82 = load ptr, ptr %81, align 8, !tbaa !56
   %83 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %74
-  %84 = load ptr, ptr %83, align 8, !tbaa !57
+  %84 = load ptr, ptr %83, align 8, !tbaa !56
   br label %85
 
 85:                                               ; preds = %.preheader.us, %85
@@ -4531,7 +4531,7 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %98 = mul nsw i32 %94, %27
   %99 = add nsw i32 %97, %98
   %100 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv195
-  %101 = load i32, ptr %100, align 4, !tbaa !59
+  %101 = load i32, ptr %100, align 4, !tbaa !58
   %102 = add nsw i32 %99, %101
   %103 = and i32 %102, 524287
   %104 = add nsw i32 %103, -262144
@@ -4549,38 +4549,38 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %115 = ashr i32 %114, 4
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %116 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next196
-  %117 = load i32, ptr %116, align 4, !tbaa !59
+  %117 = load i32, ptr %116, align 4, !tbaa !58
   %118 = add nsw i32 %115, %117
-  store i32 %118, ptr %116, align 4, !tbaa !59
+  store i32 %118, ptr %116, align 4, !tbaa !58
   %119 = mul nsw i32 %104, 3
   %120 = add nsw i32 %119, 8
   %121 = ashr i32 %120, 4
   %122 = add nsw i64 %indvars.iv195, -1
   %123 = getelementptr inbounds i32, ptr %76, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !59
+  %124 = load i32, ptr %123, align 4, !tbaa !58
   %125 = add nsw i32 %121, %124
-  store i32 %125, ptr %123, align 4, !tbaa !59
+  store i32 %125, ptr %123, align 4, !tbaa !58
   %126 = mul nsw i32 %104, 5
   %127 = add nsw i32 %126, 8
   %128 = ashr i32 %127, 4
   %129 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv195
-  %130 = load i32, ptr %129, align 4, !tbaa !59
+  %130 = load i32, ptr %129, align 4, !tbaa !58
   %131 = add nsw i32 %130, %128
-  store i32 %131, ptr %129, align 4, !tbaa !59
+  store i32 %131, ptr %129, align 4, !tbaa !58
   %132 = add nsw i32 %103, -262136
   %133 = ashr i32 %132, 4
   %134 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next196
-  %135 = load i32, ptr %134, align 4, !tbaa !59
+  %135 = load i32, ptr %134, align 4, !tbaa !58
   %136 = add nsw i32 %135, %133
-  store i32 %136, ptr %134, align 4, !tbaa !59
-  store i32 262144, ptr %100, align 4, !tbaa !59
+  store i32 %136, ptr %134, align 4, !tbaa !58
+  store i32 262144, ptr %100, align 4, !tbaa !58
   %137 = mul nsw i32 %88, %30
   %138 = mul nsw i32 %91, %33
   %139 = add nsw i32 %138, %137
   %140 = mul nsw i32 %94, %36
   %141 = add nsw i32 %139, %140
   %142 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv195
-  %143 = load i32, ptr %142, align 4, !tbaa !59
+  %143 = load i32, ptr %142, align 4, !tbaa !58
   %144 = add nsw i32 %141, %143
   %145 = and i32 %144, 524287
   %146 = add nsw i32 %145, -262144
@@ -4597,37 +4597,37 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %153 = add nsw i32 %152, 8
   %154 = ashr i32 %153, 4
   %155 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.next196
-  %156 = load i32, ptr %155, align 4, !tbaa !59
+  %156 = load i32, ptr %155, align 4, !tbaa !58
   %157 = add nsw i32 %154, %156
-  store i32 %157, ptr %155, align 4, !tbaa !59
+  store i32 %157, ptr %155, align 4, !tbaa !58
   %158 = mul nsw i32 %146, 3
   %159 = add nsw i32 %158, 8
   %160 = ashr i32 %159, 4
   %161 = getelementptr inbounds i32, ptr %80, i64 %122
-  %162 = load i32, ptr %161, align 4, !tbaa !59
+  %162 = load i32, ptr %161, align 4, !tbaa !58
   %163 = add nsw i32 %160, %162
-  store i32 %163, ptr %161, align 4, !tbaa !59
+  store i32 %163, ptr %161, align 4, !tbaa !58
   %164 = mul nsw i32 %146, 5
   %165 = add nsw i32 %164, 8
   %166 = ashr i32 %165, 4
   %167 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv195
-  %168 = load i32, ptr %167, align 4, !tbaa !59
+  %168 = load i32, ptr %167, align 4, !tbaa !58
   %169 = add nsw i32 %168, %166
-  store i32 %169, ptr %167, align 4, !tbaa !59
+  store i32 %169, ptr %167, align 4, !tbaa !58
   %170 = add nsw i32 %145, -262136
   %171 = ashr i32 %170, 4
   %172 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.next196
-  %173 = load i32, ptr %172, align 4, !tbaa !59
+  %173 = load i32, ptr %172, align 4, !tbaa !58
   %174 = add nsw i32 %173, %171
-  store i32 %174, ptr %172, align 4, !tbaa !59
-  store i32 262144, ptr %142, align 4, !tbaa !59
+  store i32 %174, ptr %172, align 4, !tbaa !58
+  store i32 262144, ptr %142, align 4, !tbaa !58
   %175 = mul nsw i32 %88, %36
   %176 = mul nsw i32 %91, %39
   %177 = add nsw i32 %176, %175
   %178 = mul nsw i32 %94, %42
   %179 = add nsw i32 %177, %178
   %180 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv195
-  %181 = load i32, ptr %180, align 4, !tbaa !59
+  %181 = load i32, ptr %180, align 4, !tbaa !58
   %182 = add nsw i32 %179, %181
   %183 = and i32 %182, 524287
   %184 = add nsw i32 %183, -262144
@@ -4644,32 +4644,32 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %191 = add nsw i32 %190, 8
   %192 = ashr i32 %191, 4
   %193 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.next196
-  %194 = load i32, ptr %193, align 4, !tbaa !59
+  %194 = load i32, ptr %193, align 4, !tbaa !58
   %195 = add nsw i32 %192, %194
-  store i32 %195, ptr %193, align 4, !tbaa !59
+  store i32 %195, ptr %193, align 4, !tbaa !58
   %196 = mul nsw i32 %184, 3
   %197 = add nsw i32 %196, 8
   %198 = ashr i32 %197, 4
   %199 = getelementptr inbounds i32, ptr %84, i64 %122
-  %200 = load i32, ptr %199, align 4, !tbaa !59
+  %200 = load i32, ptr %199, align 4, !tbaa !58
   %201 = add nsw i32 %198, %200
-  store i32 %201, ptr %199, align 4, !tbaa !59
+  store i32 %201, ptr %199, align 4, !tbaa !58
   %202 = mul nsw i32 %184, 5
   %203 = add nsw i32 %202, 8
   %204 = ashr i32 %203, 4
   %205 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv195
-  %206 = load i32, ptr %205, align 4, !tbaa !59
+  %206 = load i32, ptr %205, align 4, !tbaa !58
   %207 = add nsw i32 %206, %204
-  store i32 %207, ptr %205, align 4, !tbaa !59
+  store i32 %207, ptr %205, align 4, !tbaa !58
   %208 = add nsw i32 %183, -262136
   %209 = ashr i32 %208, 4
   %210 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next196
-  %211 = load i32, ptr %210, align 4, !tbaa !59
+  %211 = load i32, ptr %210, align 4, !tbaa !58
   %212 = add nsw i32 %211, %209
-  store i32 %212, ptr %210, align 4, !tbaa !59
-  store i32 262144, ptr %180, align 4, !tbaa !59
+  store i32 %212, ptr %210, align 4, !tbaa !58
+  store i32 262144, ptr %180, align 4, !tbaa !58
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge.us, label %85, !llvm.loop !74
+  br i1 %exitcond199.not, label %._crit_edge.us, label %85, !llvm.loop !73
 
 ._crit_edge.us:                                   ; preds = %85
   %213 = getelementptr inbounds nuw i16, ptr %.0186.us, i64 %44
@@ -4680,21 +4680,21 @@ define internal void @rgb2yuv_fsb_444p10_c(ptr noundef readonly captures(none) %
   %218 = getelementptr inbounds i16, ptr %.0163181.us, i64 %3
   %219 = add nuw nsw i32 %.0164180.us, 1
   %exitcond200.not = icmp eq i32 %219, %5
-  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !74
 
 220:                                              ; preds = %.lr.ph177, %220
   %indvars.iv190 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next191, %220 ]
   %221 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv190
-  store i32 262144, ptr %221, align 4, !tbaa !59
+  store i32 262144, ptr %221, align 4, !tbaa !58
   %222 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv190
-  store i32 262144, ptr %222, align 4, !tbaa !59
+  store i32 262144, ptr %222, align 4, !tbaa !58
   %223 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv190
-  store i32 262144, ptr %223, align 4, !tbaa !59
+  store i32 262144, ptr %223, align 4, !tbaa !58
   %224 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv190
-  store i32 262144, ptr %224, align 4, !tbaa !59
+  store i32 262144, ptr %224, align 4, !tbaa !58
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.preheader173, label %220, !llvm.loop !76
+  br i1 %exitcond194.not, label %.preheader173, label %220, !llvm.loop !75
 
 ._crit_edge187:                                   ; preds = %._crit_edge.us, %9, %.preheader173
   ret void
@@ -4742,20 +4742,20 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 262144, ptr %50, align 4, !tbaa !59
+  store i32 262144, ptr %50, align 4, !tbaa !58
   %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 262144, ptr %51, align 4, !tbaa !59
+  store i32 262144, ptr %51, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %49, %9
   %52 = add nsw i32 %4, 1
@@ -4766,12 +4766,12 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
 .lr.ph227:                                        ; preds = %._crit_edge
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !57
-  %58 = load ptr, ptr %55, align 8, !tbaa !57
+  %57 = load ptr, ptr %56, align 8, !tbaa !56
+  %58 = load ptr, ptr %55, align 8, !tbaa !56
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !57
-  %62 = load ptr, ptr %59, align 8, !tbaa !57
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
+  %62 = load ptr, ptr %59, align 8, !tbaa !56
   %wide.trip.count244 = zext nneg i32 %53 to i64
   br label %282
 
@@ -4802,19 +4802,19 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %72 = and i32 %.0210231.us, 1
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %73
-  %75 = load ptr, ptr %74, align 8, !tbaa !57
+  %75 = load ptr, ptr %74, align 8, !tbaa !56
   %76 = xor i32 %72, 1
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !57
+  %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %73
-  %81 = load ptr, ptr %80, align 8, !tbaa !57
+  %81 = load ptr, ptr %80, align 8, !tbaa !56
   %82 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %77
-  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %73
-  %85 = load ptr, ptr %84, align 8, !tbaa !57
+  %85 = load ptr, ptr %84, align 8, !tbaa !56
   %86 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %77
-  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
   br label %88
 
 88:                                               ; preds = %.preheader.us, %88
@@ -4845,7 +4845,7 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %112 = mul nsw i32 %98, %27
   %113 = add nsw i32 %111, %112
   %114 = getelementptr inbounds i32, ptr %75, i64 %89
-  %115 = load i32, ptr %114, align 4, !tbaa !59
+  %115 = load i32, ptr %114, align 4, !tbaa !58
   %116 = add nsw i32 %113, %115
   %117 = and i32 %116, 524287
   %118 = add nsw i32 %117, -262144
@@ -4862,36 +4862,36 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %128 = add nsw i32 %127, 8
   %129 = ashr i32 %128, 4
   %130 = getelementptr inbounds i32, ptr %75, i64 %99
-  %131 = load i32, ptr %130, align 4, !tbaa !59
+  %131 = load i32, ptr %130, align 4, !tbaa !58
   %132 = add nsw i32 %129, %131
-  store i32 %132, ptr %130, align 4, !tbaa !59
+  store i32 %132, ptr %130, align 4, !tbaa !58
   %133 = mul nsw i32 %118, 3
   %134 = add nsw i32 %133, 8
   %135 = ashr i32 %134, 4
   %136 = getelementptr i32, ptr %79, i64 %89
   %137 = getelementptr i8, ptr %136, i64 -4
-  %138 = load i32, ptr %137, align 4, !tbaa !59
+  %138 = load i32, ptr %137, align 4, !tbaa !58
   %139 = add nsw i32 %138, %135
-  store i32 %139, ptr %137, align 4, !tbaa !59
+  store i32 %139, ptr %137, align 4, !tbaa !58
   %140 = mul nsw i32 %118, 5
   %141 = add nsw i32 %140, 8
   %142 = ashr i32 %141, 4
-  %143 = load i32, ptr %136, align 4, !tbaa !59
+  %143 = load i32, ptr %136, align 4, !tbaa !58
   %144 = add nsw i32 %143, %142
-  store i32 %144, ptr %136, align 4, !tbaa !59
+  store i32 %144, ptr %136, align 4, !tbaa !58
   %145 = add nsw i32 %117, -262136
   %146 = ashr i32 %145, 4
   %147 = getelementptr inbounds i32, ptr %79, i64 %99
-  %148 = load i32, ptr %147, align 4, !tbaa !59
+  %148 = load i32, ptr %147, align 4, !tbaa !58
   %149 = add nsw i32 %148, %146
-  store i32 %149, ptr %147, align 4, !tbaa !59
-  store i32 262144, ptr %114, align 4, !tbaa !59
+  store i32 %149, ptr %147, align 4, !tbaa !58
+  store i32 262144, ptr %114, align 4, !tbaa !58
   %150 = mul nsw i32 %102, %21
   %151 = mul nsw i32 %105, %24
   %152 = add nsw i32 %151, %150
   %153 = mul nsw i32 %108, %27
   %154 = add nsw i32 %152, %153
-  %155 = load i32, ptr %130, align 4, !tbaa !59
+  %155 = load i32, ptr %130, align 4, !tbaa !58
   %156 = add nsw i32 %154, %155
   %157 = and i32 %156, 524287
   %158 = add nsw i32 %157, -262144
@@ -4909,28 +4909,28 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %169 = ashr i32 %168, 4
   %170 = add nuw nsw i64 %89, 2
   %171 = getelementptr inbounds nuw i32, ptr %75, i64 %170
-  %172 = load i32, ptr %171, align 4, !tbaa !59
+  %172 = load i32, ptr %171, align 4, !tbaa !58
   %173 = add nsw i32 %169, %172
-  store i32 %173, ptr %171, align 4, !tbaa !59
+  store i32 %173, ptr %171, align 4, !tbaa !58
   %174 = mul nsw i32 %158, 3
   %175 = add nsw i32 %174, 8
   %176 = ashr i32 %175, 4
-  %177 = load i32, ptr %136, align 4, !tbaa !59
+  %177 = load i32, ptr %136, align 4, !tbaa !58
   %178 = add nsw i32 %176, %177
-  store i32 %178, ptr %136, align 4, !tbaa !59
+  store i32 %178, ptr %136, align 4, !tbaa !58
   %179 = mul nsw i32 %158, 5
   %180 = add nsw i32 %179, 8
   %181 = ashr i32 %180, 4
-  %182 = load i32, ptr %147, align 4, !tbaa !59
+  %182 = load i32, ptr %147, align 4, !tbaa !58
   %183 = add nsw i32 %182, %181
-  store i32 %183, ptr %147, align 4, !tbaa !59
+  store i32 %183, ptr %147, align 4, !tbaa !58
   %184 = add nsw i32 %157, -262136
   %185 = ashr i32 %184, 4
   %186 = getelementptr inbounds nuw i32, ptr %79, i64 %170
-  %187 = load i32, ptr %186, align 4, !tbaa !59
+  %187 = load i32, ptr %186, align 4, !tbaa !58
   %188 = add nsw i32 %187, %185
-  store i32 %188, ptr %186, align 4, !tbaa !59
-  store i32 262144, ptr %130, align 4, !tbaa !59
+  store i32 %188, ptr %186, align 4, !tbaa !58
+  store i32 262144, ptr %130, align 4, !tbaa !58
   %189 = add nsw i32 %92, 1
   %190 = add nsw i32 %189, %102
   %191 = ashr i32 %190, 1
@@ -4946,7 +4946,7 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %201 = mul nsw i32 %200, %36
   %202 = add nsw i32 %197, %201
   %203 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv246
-  %204 = load i32, ptr %203, align 4, !tbaa !59
+  %204 = load i32, ptr %203, align 4, !tbaa !58
   %205 = add nsw i32 %202, %204
   %206 = and i32 %205, 524287
   %207 = add nsw i32 %206, -262144
@@ -4964,38 +4964,38 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %215 = ashr i32 %214, 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %216 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.next247
-  %217 = load i32, ptr %216, align 4, !tbaa !59
+  %217 = load i32, ptr %216, align 4, !tbaa !58
   %218 = add nsw i32 %215, %217
-  store i32 %218, ptr %216, align 4, !tbaa !59
+  store i32 %218, ptr %216, align 4, !tbaa !58
   %219 = mul nsw i32 %207, 3
   %220 = add nsw i32 %219, 8
   %221 = ashr i32 %220, 4
   %222 = add nsw i64 %indvars.iv246, -1
   %223 = getelementptr inbounds i32, ptr %83, i64 %222
-  %224 = load i32, ptr %223, align 4, !tbaa !59
+  %224 = load i32, ptr %223, align 4, !tbaa !58
   %225 = add nsw i32 %221, %224
-  store i32 %225, ptr %223, align 4, !tbaa !59
+  store i32 %225, ptr %223, align 4, !tbaa !58
   %226 = mul nsw i32 %207, 5
   %227 = add nsw i32 %226, 8
   %228 = ashr i32 %227, 4
   %229 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv246
-  %230 = load i32, ptr %229, align 4, !tbaa !59
+  %230 = load i32, ptr %229, align 4, !tbaa !58
   %231 = add nsw i32 %230, %228
-  store i32 %231, ptr %229, align 4, !tbaa !59
+  store i32 %231, ptr %229, align 4, !tbaa !58
   %232 = add nsw i32 %206, -262136
   %233 = ashr i32 %232, 4
   %234 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next247
-  %235 = load i32, ptr %234, align 4, !tbaa !59
+  %235 = load i32, ptr %234, align 4, !tbaa !58
   %236 = add nsw i32 %235, %233
-  store i32 %236, ptr %234, align 4, !tbaa !59
-  store i32 262144, ptr %203, align 4, !tbaa !59
+  store i32 %236, ptr %234, align 4, !tbaa !58
+  store i32 262144, ptr %203, align 4, !tbaa !58
   %237 = mul nsw i32 %191, %36
   %238 = mul nsw i32 %195, %39
   %239 = add nsw i32 %238, %237
   %240 = mul nsw i32 %200, %42
   %241 = add nsw i32 %239, %240
   %242 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv246
-  %243 = load i32, ptr %242, align 4, !tbaa !59
+  %243 = load i32, ptr %242, align 4, !tbaa !58
   %244 = add nsw i32 %241, %243
   %245 = and i32 %244, 524287
   %246 = add nsw i32 %245, -262144
@@ -5012,32 +5012,32 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %253 = add nsw i32 %252, 8
   %254 = ashr i32 %253, 4
   %255 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.next247
-  %256 = load i32, ptr %255, align 4, !tbaa !59
+  %256 = load i32, ptr %255, align 4, !tbaa !58
   %257 = add nsw i32 %254, %256
-  store i32 %257, ptr %255, align 4, !tbaa !59
+  store i32 %257, ptr %255, align 4, !tbaa !58
   %258 = mul nsw i32 %246, 3
   %259 = add nsw i32 %258, 8
   %260 = ashr i32 %259, 4
   %261 = getelementptr inbounds i32, ptr %87, i64 %222
-  %262 = load i32, ptr %261, align 4, !tbaa !59
+  %262 = load i32, ptr %261, align 4, !tbaa !58
   %263 = add nsw i32 %260, %262
-  store i32 %263, ptr %261, align 4, !tbaa !59
+  store i32 %263, ptr %261, align 4, !tbaa !58
   %264 = mul nsw i32 %246, 5
   %265 = add nsw i32 %264, 8
   %266 = ashr i32 %265, 4
   %267 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv246
-  %268 = load i32, ptr %267, align 4, !tbaa !59
+  %268 = load i32, ptr %267, align 4, !tbaa !58
   %269 = add nsw i32 %268, %266
-  store i32 %269, ptr %267, align 4, !tbaa !59
+  store i32 %269, ptr %267, align 4, !tbaa !58
   %270 = add nsw i32 %245, -262136
   %271 = ashr i32 %270, 4
   %272 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.next247
-  %273 = load i32, ptr %272, align 4, !tbaa !59
+  %273 = load i32, ptr %272, align 4, !tbaa !58
   %274 = add nsw i32 %273, %271
-  store i32 %274, ptr %272, align 4, !tbaa !59
-  store i32 262144, ptr %242, align 4, !tbaa !59
+  store i32 %274, ptr %272, align 4, !tbaa !58
+  store i32 262144, ptr %242, align 4, !tbaa !58
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %._crit_edge230.us, label %88, !llvm.loop !78
+  br i1 %exitcond250.not, label %._crit_edge230.us, label %88, !llvm.loop !77
 
 ._crit_edge230.us:                                ; preds = %88
   %275 = getelementptr inbounds nuw i16, ptr %.0237.us, i64 %44
@@ -5048,21 +5048,21 @@ define internal void @rgb2yuv_fsb_422p10_c(ptr noundef readonly captures(none) %
   %280 = getelementptr inbounds i16, ptr %.0209232.us, i64 %3
   %281 = add nuw nsw i32 %.0210231.us, 1
   %exitcond251.not = icmp eq i32 %281, %5
-  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !79
+  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !78
 
 282:                                              ; preds = %.lr.ph227, %282
   %indvars.iv241 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next242, %282 ]
   %283 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv241
-  store i32 262144, ptr %283, align 4, !tbaa !59
+  store i32 262144, ptr %283, align 4, !tbaa !58
   %284 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv241
-  store i32 262144, ptr %284, align 4, !tbaa !59
+  store i32 262144, ptr %284, align 4, !tbaa !58
   %285 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv241
-  store i32 262144, ptr %285, align 4, !tbaa !59
+  store i32 262144, ptr %285, align 4, !tbaa !58
   %286 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv241
-  store i32 262144, ptr %286, align 4, !tbaa !59
+  store i32 262144, ptr %286, align 4, !tbaa !58
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %.preheader223, label %282, !llvm.loop !80
+  br i1 %exitcond245.not, label %.preheader223, label %282, !llvm.loop !79
 
 ._crit_edge238:                                   ; preds = %._crit_edge230.us, %._crit_edge, %.preheader223
   ret void
@@ -5110,20 +5110,20 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 262144, ptr %50, align 4, !tbaa !59
+  store i32 262144, ptr %50, align 4, !tbaa !58
   %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 262144, ptr %51, align 4, !tbaa !59
+  store i32 262144, ptr %51, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %49, %9
   %52 = add nsw i32 %4, 1
@@ -5136,12 +5136,12 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
 .lr.ph321:                                        ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !57
-  %60 = load ptr, ptr %57, align 8, !tbaa !57
+  %59 = load ptr, ptr %58, align 8, !tbaa !56
+  %60 = load ptr, ptr %57, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !57
-  %64 = load ptr, ptr %61, align 8, !tbaa !57
+  %63 = load ptr, ptr %62, align 8, !tbaa !56
+  %64 = load ptr, ptr %61, align 8, !tbaa !56
   %wide.trip.count338 = zext nneg i32 %53 to i64
   br label %385
 
@@ -5164,8 +5164,8 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %77 = load ptr, ptr %8, align 8, !tbaa !57
-  %78 = load ptr, ptr %76, align 8, !tbaa !57
+  %77 = load ptr, ptr %8, align 8, !tbaa !56
+  %78 = load ptr, ptr %76, align 8, !tbaa !56
   %wide.trip.count343 = zext nneg i32 %53 to i64
   br label %.preheader.us
 
@@ -5181,15 +5181,15 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %80 = and i32 %.0298325.us, 1
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %81
-  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = xor i32 %80, 1
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
   %88 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %81
-  %89 = load ptr, ptr %88, align 8, !tbaa !57
+  %89 = load ptr, ptr %88, align 8, !tbaa !56
   %90 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %85
-  %91 = load ptr, ptr %90, align 8, !tbaa !57
+  %91 = load ptr, ptr %90, align 8, !tbaa !56
   br label %92
 
 92:                                               ; preds = %.preheader.us, %92
@@ -5240,7 +5240,7 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %136 = mul nsw i32 %102, %27
   %137 = add nsw i32 %135, %136
   %138 = getelementptr i32, ptr %77, i64 %93
-  %139 = load i32, ptr %138, align 4, !tbaa !59
+  %139 = load i32, ptr %138, align 4, !tbaa !58
   %140 = add nsw i32 %137, %139
   %141 = and i32 %140, 524287
   %142 = add nsw i32 %141, -262144
@@ -5257,36 +5257,36 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %152 = add nsw i32 %151, 8
   %153 = ashr i32 %152, 4
   %154 = getelementptr inbounds i32, ptr %77, i64 %103
-  %155 = load i32, ptr %154, align 4, !tbaa !59
+  %155 = load i32, ptr %154, align 4, !tbaa !58
   %156 = add nsw i32 %153, %155
-  store i32 %156, ptr %154, align 4, !tbaa !59
+  store i32 %156, ptr %154, align 4, !tbaa !58
   %157 = mul nsw i32 %142, 3
   %158 = add nsw i32 %157, 8
   %159 = ashr i32 %158, 4
   %160 = getelementptr i32, ptr %78, i64 %93
   %161 = getelementptr i8, ptr %160, i64 -4
-  %162 = load i32, ptr %161, align 4, !tbaa !59
+  %162 = load i32, ptr %161, align 4, !tbaa !58
   %163 = add nsw i32 %162, %159
-  store i32 %163, ptr %161, align 4, !tbaa !59
+  store i32 %163, ptr %161, align 4, !tbaa !58
   %164 = mul nsw i32 %142, 5
   %165 = add nsw i32 %164, 8
   %166 = ashr i32 %165, 4
-  %167 = load i32, ptr %160, align 4, !tbaa !59
+  %167 = load i32, ptr %160, align 4, !tbaa !58
   %168 = add nsw i32 %167, %166
-  store i32 %168, ptr %160, align 4, !tbaa !59
+  store i32 %168, ptr %160, align 4, !tbaa !58
   %169 = add nsw i32 %141, -262136
   %170 = ashr i32 %169, 4
   %171 = getelementptr inbounds i32, ptr %78, i64 %103
-  %172 = load i32, ptr %171, align 4, !tbaa !59
+  %172 = load i32, ptr %171, align 4, !tbaa !58
   %173 = add nsw i32 %172, %170
-  store i32 %173, ptr %171, align 4, !tbaa !59
-  store i32 262144, ptr %138, align 4, !tbaa !59
+  store i32 %173, ptr %171, align 4, !tbaa !58
+  store i32 262144, ptr %138, align 4, !tbaa !58
   %174 = mul nsw i32 %106, %21
   %175 = mul nsw i32 %109, %24
   %176 = add nsw i32 %175, %174
   %177 = mul nsw i32 %112, %27
   %178 = add nsw i32 %176, %177
-  %179 = load i32, ptr %154, align 4, !tbaa !59
+  %179 = load i32, ptr %154, align 4, !tbaa !58
   %180 = add nsw i32 %178, %179
   %181 = and i32 %180, 524287
   %182 = add nsw i32 %181, -262144
@@ -5304,34 +5304,34 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %193 = ashr i32 %192, 4
   %194 = add nuw nsw i64 %93, 2
   %195 = getelementptr inbounds nuw i32, ptr %77, i64 %194
-  %196 = load i32, ptr %195, align 4, !tbaa !59
+  %196 = load i32, ptr %195, align 4, !tbaa !58
   %197 = add nsw i32 %193, %196
-  store i32 %197, ptr %195, align 4, !tbaa !59
+  store i32 %197, ptr %195, align 4, !tbaa !58
   %198 = mul nsw i32 %182, 3
   %199 = add nsw i32 %198, 8
   %200 = ashr i32 %199, 4
-  %201 = load i32, ptr %160, align 4, !tbaa !59
+  %201 = load i32, ptr %160, align 4, !tbaa !58
   %202 = add nsw i32 %200, %201
-  store i32 %202, ptr %160, align 4, !tbaa !59
+  store i32 %202, ptr %160, align 4, !tbaa !58
   %203 = mul nsw i32 %182, 5
   %204 = add nsw i32 %203, 8
   %205 = ashr i32 %204, 4
-  %206 = load i32, ptr %171, align 4, !tbaa !59
+  %206 = load i32, ptr %171, align 4, !tbaa !58
   %207 = add nsw i32 %206, %205
-  store i32 %207, ptr %171, align 4, !tbaa !59
+  store i32 %207, ptr %171, align 4, !tbaa !58
   %208 = add nsw i32 %181, -262136
   %209 = ashr i32 %208, 4
   %210 = getelementptr inbounds nuw i32, ptr %78, i64 %194
-  %211 = load i32, ptr %210, align 4, !tbaa !59
+  %211 = load i32, ptr %210, align 4, !tbaa !58
   %212 = add nsw i32 %211, %209
-  store i32 %212, ptr %210, align 4, !tbaa !59
-  store i32 262144, ptr %154, align 4, !tbaa !59
+  store i32 %212, ptr %210, align 4, !tbaa !58
+  store i32 262144, ptr %154, align 4, !tbaa !58
   %213 = mul nsw i32 %116, %21
   %214 = mul nsw i32 %119, %24
   %215 = add nsw i32 %214, %213
   %216 = mul nsw i32 %122, %27
   %217 = add nsw i32 %215, %216
-  %218 = load i32, ptr %160, align 4, !tbaa !59
+  %218 = load i32, ptr %160, align 4, !tbaa !58
   %219 = add nsw i32 %217, %218
   %220 = and i32 %219, 524287
   %221 = add nsw i32 %220, -262144
@@ -5347,34 +5347,34 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %230 = mul nsw i32 %221, 7
   %231 = add nsw i32 %230, 8
   %232 = ashr i32 %231, 4
-  %233 = load i32, ptr %171, align 4, !tbaa !59
+  %233 = load i32, ptr %171, align 4, !tbaa !58
   %234 = add nsw i32 %232, %233
-  store i32 %234, ptr %171, align 4, !tbaa !59
+  store i32 %234, ptr %171, align 4, !tbaa !58
   %235 = mul nsw i32 %221, 3
   %236 = add nsw i32 %235, 8
   %237 = ashr i32 %236, 4
   %238 = getelementptr i8, ptr %138, i64 -4
-  %239 = load i32, ptr %238, align 4, !tbaa !59
+  %239 = load i32, ptr %238, align 4, !tbaa !58
   %240 = add nsw i32 %237, %239
-  store i32 %240, ptr %238, align 4, !tbaa !59
+  store i32 %240, ptr %238, align 4, !tbaa !58
   %241 = mul nsw i32 %221, 5
   %242 = add nsw i32 %241, 8
   %243 = ashr i32 %242, 4
-  %244 = load i32, ptr %138, align 4, !tbaa !59
+  %244 = load i32, ptr %138, align 4, !tbaa !58
   %245 = add nsw i32 %244, %243
-  store i32 %245, ptr %138, align 4, !tbaa !59
+  store i32 %245, ptr %138, align 4, !tbaa !58
   %246 = add nsw i32 %220, -262136
   %247 = ashr i32 %246, 4
-  %248 = load i32, ptr %154, align 4, !tbaa !59
+  %248 = load i32, ptr %154, align 4, !tbaa !58
   %249 = add nsw i32 %248, %247
-  store i32 %249, ptr %154, align 4, !tbaa !59
-  store i32 262144, ptr %160, align 4, !tbaa !59
+  store i32 %249, ptr %154, align 4, !tbaa !58
+  store i32 262144, ptr %160, align 4, !tbaa !58
   %250 = mul nsw i32 %126, %21
   %251 = mul nsw i32 %129, %24
   %252 = add nsw i32 %251, %250
   %253 = mul nsw i32 %132, %27
   %254 = add nsw i32 %252, %253
-  %255 = load i32, ptr %171, align 4, !tbaa !59
+  %255 = load i32, ptr %171, align 4, !tbaa !58
   %256 = add nsw i32 %254, %255
   %257 = and i32 %256, 524287
   %258 = add nsw i32 %257, -262144
@@ -5390,27 +5390,27 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %267 = mul nsw i32 %258, 7
   %268 = add nsw i32 %267, 8
   %269 = ashr i32 %268, 4
-  %270 = load i32, ptr %210, align 4, !tbaa !59
+  %270 = load i32, ptr %210, align 4, !tbaa !58
   %271 = add nsw i32 %269, %270
-  store i32 %271, ptr %210, align 4, !tbaa !59
+  store i32 %271, ptr %210, align 4, !tbaa !58
   %272 = mul nsw i32 %258, 3
   %273 = add nsw i32 %272, 8
   %274 = ashr i32 %273, 4
-  %275 = load i32, ptr %138, align 4, !tbaa !59
+  %275 = load i32, ptr %138, align 4, !tbaa !58
   %276 = add nsw i32 %274, %275
-  store i32 %276, ptr %138, align 4, !tbaa !59
+  store i32 %276, ptr %138, align 4, !tbaa !58
   %277 = mul nsw i32 %258, 5
   %278 = add nsw i32 %277, 8
   %279 = ashr i32 %278, 4
-  %280 = load i32, ptr %154, align 4, !tbaa !59
+  %280 = load i32, ptr %154, align 4, !tbaa !58
   %281 = add nsw i32 %280, %279
-  store i32 %281, ptr %154, align 4, !tbaa !59
+  store i32 %281, ptr %154, align 4, !tbaa !58
   %282 = add nsw i32 %257, -262136
   %283 = ashr i32 %282, 4
-  %284 = load i32, ptr %195, align 4, !tbaa !59
+  %284 = load i32, ptr %195, align 4, !tbaa !58
   %285 = add nsw i32 %284, %283
-  store i32 %285, ptr %195, align 4, !tbaa !59
-  store i32 262144, ptr %171, align 4, !tbaa !59
+  store i32 %285, ptr %195, align 4, !tbaa !58
+  store i32 262144, ptr %171, align 4, !tbaa !58
   %286 = add nsw i32 %96, 2
   %287 = add nsw i32 %286, %106
   %288 = add nsw i32 %287, %116
@@ -5432,7 +5432,7 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %304 = mul nsw i32 %303, %36
   %305 = add nsw i32 %298, %304
   %306 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv340
-  %307 = load i32, ptr %306, align 4, !tbaa !59
+  %307 = load i32, ptr %306, align 4, !tbaa !58
   %308 = add nsw i32 %305, %307
   %309 = and i32 %308, 524287
   %310 = add nsw i32 %309, -262144
@@ -5450,38 +5450,38 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %318 = ashr i32 %317, 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %319 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next341
-  %320 = load i32, ptr %319, align 4, !tbaa !59
+  %320 = load i32, ptr %319, align 4, !tbaa !58
   %321 = add nsw i32 %318, %320
-  store i32 %321, ptr %319, align 4, !tbaa !59
+  store i32 %321, ptr %319, align 4, !tbaa !58
   %322 = mul nsw i32 %310, 3
   %323 = add nsw i32 %322, 8
   %324 = ashr i32 %323, 4
   %325 = add nsw i64 %indvars.iv340, -1
   %326 = getelementptr inbounds i32, ptr %87, i64 %325
-  %327 = load i32, ptr %326, align 4, !tbaa !59
+  %327 = load i32, ptr %326, align 4, !tbaa !58
   %328 = add nsw i32 %324, %327
-  store i32 %328, ptr %326, align 4, !tbaa !59
+  store i32 %328, ptr %326, align 4, !tbaa !58
   %329 = mul nsw i32 %310, 5
   %330 = add nsw i32 %329, 8
   %331 = ashr i32 %330, 4
   %332 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv340
-  %333 = load i32, ptr %332, align 4, !tbaa !59
+  %333 = load i32, ptr %332, align 4, !tbaa !58
   %334 = add nsw i32 %333, %331
-  store i32 %334, ptr %332, align 4, !tbaa !59
+  store i32 %334, ptr %332, align 4, !tbaa !58
   %335 = add nsw i32 %309, -262136
   %336 = ashr i32 %335, 4
   %337 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.next341
-  %338 = load i32, ptr %337, align 4, !tbaa !59
+  %338 = load i32, ptr %337, align 4, !tbaa !58
   %339 = add nsw i32 %338, %336
-  store i32 %339, ptr %337, align 4, !tbaa !59
-  store i32 262144, ptr %306, align 4, !tbaa !59
+  store i32 %339, ptr %337, align 4, !tbaa !58
+  store i32 262144, ptr %306, align 4, !tbaa !58
   %340 = mul nsw i32 %290, %36
   %341 = mul nsw i32 %296, %39
   %342 = add nsw i32 %341, %340
   %343 = mul nsw i32 %303, %42
   %344 = add nsw i32 %342, %343
   %345 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv340
-  %346 = load i32, ptr %345, align 4, !tbaa !59
+  %346 = load i32, ptr %345, align 4, !tbaa !58
   %347 = add nsw i32 %344, %346
   %348 = and i32 %347, 524287
   %349 = add nsw i32 %348, -262144
@@ -5498,32 +5498,32 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %356 = add nsw i32 %355, 8
   %357 = ashr i32 %356, 4
   %358 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.next341
-  %359 = load i32, ptr %358, align 4, !tbaa !59
+  %359 = load i32, ptr %358, align 4, !tbaa !58
   %360 = add nsw i32 %357, %359
-  store i32 %360, ptr %358, align 4, !tbaa !59
+  store i32 %360, ptr %358, align 4, !tbaa !58
   %361 = mul nsw i32 %349, 3
   %362 = add nsw i32 %361, 8
   %363 = ashr i32 %362, 4
   %364 = getelementptr inbounds i32, ptr %91, i64 %325
-  %365 = load i32, ptr %364, align 4, !tbaa !59
+  %365 = load i32, ptr %364, align 4, !tbaa !58
   %366 = add nsw i32 %363, %365
-  store i32 %366, ptr %364, align 4, !tbaa !59
+  store i32 %366, ptr %364, align 4, !tbaa !58
   %367 = mul nsw i32 %349, 5
   %368 = add nsw i32 %367, 8
   %369 = ashr i32 %368, 4
   %370 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv340
-  %371 = load i32, ptr %370, align 4, !tbaa !59
+  %371 = load i32, ptr %370, align 4, !tbaa !58
   %372 = add nsw i32 %371, %369
-  store i32 %372, ptr %370, align 4, !tbaa !59
+  store i32 %372, ptr %370, align 4, !tbaa !58
   %373 = add nsw i32 %348, -262136
   %374 = ashr i32 %373, 4
   %375 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.next341
-  %376 = load i32, ptr %375, align 4, !tbaa !59
+  %376 = load i32, ptr %375, align 4, !tbaa !58
   %377 = add nsw i32 %376, %374
-  store i32 %377, ptr %375, align 4, !tbaa !59
-  store i32 262144, ptr %345, align 4, !tbaa !59
+  store i32 %377, ptr %375, align 4, !tbaa !58
+  store i32 262144, ptr %345, align 4, !tbaa !58
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %._crit_edge324.us, label %92, !llvm.loop !82
+  br i1 %exitcond344.not, label %._crit_edge324.us, label %92, !llvm.loop !81
 
 ._crit_edge324.us:                                ; preds = %92
   %378 = getelementptr inbounds nuw i16, ptr %.0331.us, i64 %68
@@ -5534,21 +5534,21 @@ define internal void @rgb2yuv_fsb_420p10_c(ptr noundef readonly captures(none) %
   %383 = getelementptr inbounds i16, ptr %.0297326.us, i64 %75
   %384 = add nuw nsw i32 %.0298325.us, 1
   %exitcond345.not = icmp eq i32 %384, %55
-  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !83
+  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !82
 
 385:                                              ; preds = %.lr.ph321, %385
   %indvars.iv335 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next336, %385 ]
   %386 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv335
-  store i32 262144, ptr %386, align 4, !tbaa !59
+  store i32 262144, ptr %386, align 4, !tbaa !58
   %387 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv335
-  store i32 262144, ptr %387, align 4, !tbaa !59
+  store i32 262144, ptr %387, align 4, !tbaa !58
   %388 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv335
-  store i32 262144, ptr %388, align 4, !tbaa !59
+  store i32 262144, ptr %388, align 4, !tbaa !58
   %389 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv335
-  store i32 262144, ptr %389, align 4, !tbaa !59
+  store i32 262144, ptr %389, align 4, !tbaa !58
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %.preheader317, label %385, !llvm.loop !84
+  br i1 %exitcond339.not, label %.preheader317, label %385, !llvm.loop !83
 
 ._crit_edge332:                                   ; preds = %._crit_edge324.us, %.preheader.lr.ph, %.preheader317
   ret void
@@ -5596,32 +5596,32 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %57
 
 .lr.ph177:                                        ; preds = %57
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !57
-  %52 = load ptr, ptr %49, align 8, !tbaa !57
+  %51 = load ptr, ptr %50, align 8, !tbaa !56
+  %52 = load ptr, ptr %49, align 8, !tbaa !56
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !57
-  %56 = load ptr, ptr %53, align 8, !tbaa !57
+  %55 = load ptr, ptr %54, align 8, !tbaa !56
+  %56 = load ptr, ptr %53, align 8, !tbaa !56
   %wide.trip.count193 = zext nneg i32 %4 to i64
   br label %220
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 65536, ptr %58, align 4, !tbaa !59
+  store i32 65536, ptr %58, align 4, !tbaa !58
   %59 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 65536, ptr %59, align 4, !tbaa !59
+  store i32 65536, ptr %59, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph177, label %57, !llvm.loop !85
+  br i1 %exitcond.not, label %.lr.ph177, label %57, !llvm.loop !84
 
 .preheader173:                                    ; preds = %220
   %60 = icmp sgt i32 %5, 0
@@ -5650,19 +5650,19 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %69 = and i32 %.0164180.us, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !57
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = xor i32 %69, 1
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !57
+  %76 = load ptr, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %70
-  %78 = load ptr, ptr %77, align 8, !tbaa !57
+  %78 = load ptr, ptr %77, align 8, !tbaa !56
   %79 = getelementptr inbounds nuw [2 x ptr], ptr %61, i64 0, i64 %74
-  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %80 = load ptr, ptr %79, align 8, !tbaa !56
   %81 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %70
-  %82 = load ptr, ptr %81, align 8, !tbaa !57
+  %82 = load ptr, ptr %81, align 8, !tbaa !56
   %83 = getelementptr inbounds nuw [2 x ptr], ptr %62, i64 0, i64 %74
-  %84 = load ptr, ptr %83, align 8, !tbaa !57
+  %84 = load ptr, ptr %83, align 8, !tbaa !56
   br label %85
 
 85:                                               ; preds = %.preheader.us, %85
@@ -5682,7 +5682,7 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %98 = mul nsw i32 %94, %27
   %99 = add nsw i32 %97, %98
   %100 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv195
-  %101 = load i32, ptr %100, align 4, !tbaa !59
+  %101 = load i32, ptr %100, align 4, !tbaa !58
   %102 = add nsw i32 %99, %101
   %103 = and i32 %102, 131071
   %104 = add nsw i32 %103, -65536
@@ -5700,38 +5700,38 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %115 = ashr i32 %114, 4
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %116 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next196
-  %117 = load i32, ptr %116, align 4, !tbaa !59
+  %117 = load i32, ptr %116, align 4, !tbaa !58
   %118 = add nsw i32 %115, %117
-  store i32 %118, ptr %116, align 4, !tbaa !59
+  store i32 %118, ptr %116, align 4, !tbaa !58
   %119 = mul nsw i32 %104, 3
   %120 = add nsw i32 %119, 8
   %121 = ashr i32 %120, 4
   %122 = add nsw i64 %indvars.iv195, -1
   %123 = getelementptr inbounds i32, ptr %76, i64 %122
-  %124 = load i32, ptr %123, align 4, !tbaa !59
+  %124 = load i32, ptr %123, align 4, !tbaa !58
   %125 = add nsw i32 %121, %124
-  store i32 %125, ptr %123, align 4, !tbaa !59
+  store i32 %125, ptr %123, align 4, !tbaa !58
   %126 = mul nsw i32 %104, 5
   %127 = add nsw i32 %126, 8
   %128 = ashr i32 %127, 4
   %129 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv195
-  %130 = load i32, ptr %129, align 4, !tbaa !59
+  %130 = load i32, ptr %129, align 4, !tbaa !58
   %131 = add nsw i32 %130, %128
-  store i32 %131, ptr %129, align 4, !tbaa !59
+  store i32 %131, ptr %129, align 4, !tbaa !58
   %132 = add nsw i32 %103, -65528
   %133 = ashr i32 %132, 4
   %134 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next196
-  %135 = load i32, ptr %134, align 4, !tbaa !59
+  %135 = load i32, ptr %134, align 4, !tbaa !58
   %136 = add nsw i32 %135, %133
-  store i32 %136, ptr %134, align 4, !tbaa !59
-  store i32 65536, ptr %100, align 4, !tbaa !59
+  store i32 %136, ptr %134, align 4, !tbaa !58
+  store i32 65536, ptr %100, align 4, !tbaa !58
   %137 = mul nsw i32 %88, %30
   %138 = mul nsw i32 %91, %33
   %139 = add nsw i32 %138, %137
   %140 = mul nsw i32 %94, %36
   %141 = add nsw i32 %139, %140
   %142 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv195
-  %143 = load i32, ptr %142, align 4, !tbaa !59
+  %143 = load i32, ptr %142, align 4, !tbaa !58
   %144 = add nsw i32 %141, %143
   %145 = and i32 %144, 131071
   %146 = add nsw i32 %145, -65536
@@ -5748,37 +5748,37 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %153 = add nsw i32 %152, 8
   %154 = ashr i32 %153, 4
   %155 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.next196
-  %156 = load i32, ptr %155, align 4, !tbaa !59
+  %156 = load i32, ptr %155, align 4, !tbaa !58
   %157 = add nsw i32 %154, %156
-  store i32 %157, ptr %155, align 4, !tbaa !59
+  store i32 %157, ptr %155, align 4, !tbaa !58
   %158 = mul nsw i32 %146, 3
   %159 = add nsw i32 %158, 8
   %160 = ashr i32 %159, 4
   %161 = getelementptr inbounds i32, ptr %80, i64 %122
-  %162 = load i32, ptr %161, align 4, !tbaa !59
+  %162 = load i32, ptr %161, align 4, !tbaa !58
   %163 = add nsw i32 %160, %162
-  store i32 %163, ptr %161, align 4, !tbaa !59
+  store i32 %163, ptr %161, align 4, !tbaa !58
   %164 = mul nsw i32 %146, 5
   %165 = add nsw i32 %164, 8
   %166 = ashr i32 %165, 4
   %167 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv195
-  %168 = load i32, ptr %167, align 4, !tbaa !59
+  %168 = load i32, ptr %167, align 4, !tbaa !58
   %169 = add nsw i32 %168, %166
-  store i32 %169, ptr %167, align 4, !tbaa !59
+  store i32 %169, ptr %167, align 4, !tbaa !58
   %170 = add nsw i32 %145, -65528
   %171 = ashr i32 %170, 4
   %172 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.next196
-  %173 = load i32, ptr %172, align 4, !tbaa !59
+  %173 = load i32, ptr %172, align 4, !tbaa !58
   %174 = add nsw i32 %173, %171
-  store i32 %174, ptr %172, align 4, !tbaa !59
-  store i32 65536, ptr %142, align 4, !tbaa !59
+  store i32 %174, ptr %172, align 4, !tbaa !58
+  store i32 65536, ptr %142, align 4, !tbaa !58
   %175 = mul nsw i32 %88, %36
   %176 = mul nsw i32 %91, %39
   %177 = add nsw i32 %176, %175
   %178 = mul nsw i32 %94, %42
   %179 = add nsw i32 %177, %178
   %180 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv195
-  %181 = load i32, ptr %180, align 4, !tbaa !59
+  %181 = load i32, ptr %180, align 4, !tbaa !58
   %182 = add nsw i32 %179, %181
   %183 = and i32 %182, 131071
   %184 = add nsw i32 %183, -65536
@@ -5795,32 +5795,32 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %191 = add nsw i32 %190, 8
   %192 = ashr i32 %191, 4
   %193 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.next196
-  %194 = load i32, ptr %193, align 4, !tbaa !59
+  %194 = load i32, ptr %193, align 4, !tbaa !58
   %195 = add nsw i32 %192, %194
-  store i32 %195, ptr %193, align 4, !tbaa !59
+  store i32 %195, ptr %193, align 4, !tbaa !58
   %196 = mul nsw i32 %184, 3
   %197 = add nsw i32 %196, 8
   %198 = ashr i32 %197, 4
   %199 = getelementptr inbounds i32, ptr %84, i64 %122
-  %200 = load i32, ptr %199, align 4, !tbaa !59
+  %200 = load i32, ptr %199, align 4, !tbaa !58
   %201 = add nsw i32 %198, %200
-  store i32 %201, ptr %199, align 4, !tbaa !59
+  store i32 %201, ptr %199, align 4, !tbaa !58
   %202 = mul nsw i32 %184, 5
   %203 = add nsw i32 %202, 8
   %204 = ashr i32 %203, 4
   %205 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv195
-  %206 = load i32, ptr %205, align 4, !tbaa !59
+  %206 = load i32, ptr %205, align 4, !tbaa !58
   %207 = add nsw i32 %206, %204
-  store i32 %207, ptr %205, align 4, !tbaa !59
+  store i32 %207, ptr %205, align 4, !tbaa !58
   %208 = add nsw i32 %183, -65528
   %209 = ashr i32 %208, 4
   %210 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next196
-  %211 = load i32, ptr %210, align 4, !tbaa !59
+  %211 = load i32, ptr %210, align 4, !tbaa !58
   %212 = add nsw i32 %211, %209
-  store i32 %212, ptr %210, align 4, !tbaa !59
-  store i32 65536, ptr %180, align 4, !tbaa !59
+  store i32 %212, ptr %210, align 4, !tbaa !58
+  store i32 65536, ptr %180, align 4, !tbaa !58
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge.us, label %85, !llvm.loop !86
+  br i1 %exitcond199.not, label %._crit_edge.us, label %85, !llvm.loop !85
 
 ._crit_edge.us:                                   ; preds = %85
   %213 = getelementptr inbounds nuw i16, ptr %.0186.us, i64 %44
@@ -5831,21 +5831,21 @@ define internal void @rgb2yuv_fsb_444p12_c(ptr noundef readonly captures(none) %
   %218 = getelementptr inbounds i16, ptr %.0163181.us, i64 %3
   %219 = add nuw nsw i32 %.0164180.us, 1
   %exitcond200.not = icmp eq i32 %219, %5
-  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !87
+  br i1 %exitcond200.not, label %._crit_edge187, label %.preheader.us, !llvm.loop !86
 
 220:                                              ; preds = %.lr.ph177, %220
   %indvars.iv190 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next191, %220 ]
   %221 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv190
-  store i32 65536, ptr %221, align 4, !tbaa !59
+  store i32 65536, ptr %221, align 4, !tbaa !58
   %222 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv190
-  store i32 65536, ptr %222, align 4, !tbaa !59
+  store i32 65536, ptr %222, align 4, !tbaa !58
   %223 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv190
-  store i32 65536, ptr %223, align 4, !tbaa !59
+  store i32 65536, ptr %223, align 4, !tbaa !58
   %224 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv190
-  store i32 65536, ptr %224, align 4, !tbaa !59
+  store i32 65536, ptr %224, align 4, !tbaa !58
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %.preheader173, label %220, !llvm.loop !88
+  br i1 %exitcond194.not, label %.preheader173, label %220, !llvm.loop !87
 
 ._crit_edge187:                                   ; preds = %._crit_edge.us, %9, %.preheader173
   ret void
@@ -5893,20 +5893,20 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 65536, ptr %50, align 4, !tbaa !59
+  store i32 65536, ptr %50, align 4, !tbaa !58
   %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 65536, ptr %51, align 4, !tbaa !59
+  store i32 65536, ptr %51, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %49, %9
   %52 = add nsw i32 %4, 1
@@ -5917,12 +5917,12 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
 .lr.ph227:                                        ; preds = %._crit_edge
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !57
-  %58 = load ptr, ptr %55, align 8, !tbaa !57
+  %57 = load ptr, ptr %56, align 8, !tbaa !56
+  %58 = load ptr, ptr %55, align 8, !tbaa !56
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !57
-  %62 = load ptr, ptr %59, align 8, !tbaa !57
+  %61 = load ptr, ptr %60, align 8, !tbaa !56
+  %62 = load ptr, ptr %59, align 8, !tbaa !56
   %wide.trip.count244 = zext nneg i32 %53 to i64
   br label %282
 
@@ -5953,19 +5953,19 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %72 = and i32 %.0210231.us, 1
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %73
-  %75 = load ptr, ptr %74, align 8, !tbaa !57
+  %75 = load ptr, ptr %74, align 8, !tbaa !56
   %76 = xor i32 %72, 1
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !57
+  %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %73
-  %81 = load ptr, ptr %80, align 8, !tbaa !57
+  %81 = load ptr, ptr %80, align 8, !tbaa !56
   %82 = getelementptr inbounds nuw [2 x ptr], ptr %64, i64 0, i64 %77
-  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %73
-  %85 = load ptr, ptr %84, align 8, !tbaa !57
+  %85 = load ptr, ptr %84, align 8, !tbaa !56
   %86 = getelementptr inbounds nuw [2 x ptr], ptr %65, i64 0, i64 %77
-  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
   br label %88
 
 88:                                               ; preds = %.preheader.us, %88
@@ -5996,7 +5996,7 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %112 = mul nsw i32 %98, %27
   %113 = add nsw i32 %111, %112
   %114 = getelementptr inbounds i32, ptr %75, i64 %89
-  %115 = load i32, ptr %114, align 4, !tbaa !59
+  %115 = load i32, ptr %114, align 4, !tbaa !58
   %116 = add nsw i32 %113, %115
   %117 = and i32 %116, 131071
   %118 = add nsw i32 %117, -65536
@@ -6013,36 +6013,36 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %128 = add nsw i32 %127, 8
   %129 = ashr i32 %128, 4
   %130 = getelementptr inbounds i32, ptr %75, i64 %99
-  %131 = load i32, ptr %130, align 4, !tbaa !59
+  %131 = load i32, ptr %130, align 4, !tbaa !58
   %132 = add nsw i32 %129, %131
-  store i32 %132, ptr %130, align 4, !tbaa !59
+  store i32 %132, ptr %130, align 4, !tbaa !58
   %133 = mul nsw i32 %118, 3
   %134 = add nsw i32 %133, 8
   %135 = ashr i32 %134, 4
   %136 = getelementptr i32, ptr %79, i64 %89
   %137 = getelementptr i8, ptr %136, i64 -4
-  %138 = load i32, ptr %137, align 4, !tbaa !59
+  %138 = load i32, ptr %137, align 4, !tbaa !58
   %139 = add nsw i32 %138, %135
-  store i32 %139, ptr %137, align 4, !tbaa !59
+  store i32 %139, ptr %137, align 4, !tbaa !58
   %140 = mul nsw i32 %118, 5
   %141 = add nsw i32 %140, 8
   %142 = ashr i32 %141, 4
-  %143 = load i32, ptr %136, align 4, !tbaa !59
+  %143 = load i32, ptr %136, align 4, !tbaa !58
   %144 = add nsw i32 %143, %142
-  store i32 %144, ptr %136, align 4, !tbaa !59
+  store i32 %144, ptr %136, align 4, !tbaa !58
   %145 = add nsw i32 %117, -65528
   %146 = ashr i32 %145, 4
   %147 = getelementptr inbounds i32, ptr %79, i64 %99
-  %148 = load i32, ptr %147, align 4, !tbaa !59
+  %148 = load i32, ptr %147, align 4, !tbaa !58
   %149 = add nsw i32 %148, %146
-  store i32 %149, ptr %147, align 4, !tbaa !59
-  store i32 65536, ptr %114, align 4, !tbaa !59
+  store i32 %149, ptr %147, align 4, !tbaa !58
+  store i32 65536, ptr %114, align 4, !tbaa !58
   %150 = mul nsw i32 %102, %21
   %151 = mul nsw i32 %105, %24
   %152 = add nsw i32 %151, %150
   %153 = mul nsw i32 %108, %27
   %154 = add nsw i32 %152, %153
-  %155 = load i32, ptr %130, align 4, !tbaa !59
+  %155 = load i32, ptr %130, align 4, !tbaa !58
   %156 = add nsw i32 %154, %155
   %157 = and i32 %156, 131071
   %158 = add nsw i32 %157, -65536
@@ -6060,28 +6060,28 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %169 = ashr i32 %168, 4
   %170 = add nuw nsw i64 %89, 2
   %171 = getelementptr inbounds nuw i32, ptr %75, i64 %170
-  %172 = load i32, ptr %171, align 4, !tbaa !59
+  %172 = load i32, ptr %171, align 4, !tbaa !58
   %173 = add nsw i32 %169, %172
-  store i32 %173, ptr %171, align 4, !tbaa !59
+  store i32 %173, ptr %171, align 4, !tbaa !58
   %174 = mul nsw i32 %158, 3
   %175 = add nsw i32 %174, 8
   %176 = ashr i32 %175, 4
-  %177 = load i32, ptr %136, align 4, !tbaa !59
+  %177 = load i32, ptr %136, align 4, !tbaa !58
   %178 = add nsw i32 %176, %177
-  store i32 %178, ptr %136, align 4, !tbaa !59
+  store i32 %178, ptr %136, align 4, !tbaa !58
   %179 = mul nsw i32 %158, 5
   %180 = add nsw i32 %179, 8
   %181 = ashr i32 %180, 4
-  %182 = load i32, ptr %147, align 4, !tbaa !59
+  %182 = load i32, ptr %147, align 4, !tbaa !58
   %183 = add nsw i32 %182, %181
-  store i32 %183, ptr %147, align 4, !tbaa !59
+  store i32 %183, ptr %147, align 4, !tbaa !58
   %184 = add nsw i32 %157, -65528
   %185 = ashr i32 %184, 4
   %186 = getelementptr inbounds nuw i32, ptr %79, i64 %170
-  %187 = load i32, ptr %186, align 4, !tbaa !59
+  %187 = load i32, ptr %186, align 4, !tbaa !58
   %188 = add nsw i32 %187, %185
-  store i32 %188, ptr %186, align 4, !tbaa !59
-  store i32 65536, ptr %130, align 4, !tbaa !59
+  store i32 %188, ptr %186, align 4, !tbaa !58
+  store i32 65536, ptr %130, align 4, !tbaa !58
   %189 = add nsw i32 %92, 1
   %190 = add nsw i32 %189, %102
   %191 = ashr i32 %190, 1
@@ -6097,7 +6097,7 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %201 = mul nsw i32 %200, %36
   %202 = add nsw i32 %197, %201
   %203 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv246
-  %204 = load i32, ptr %203, align 4, !tbaa !59
+  %204 = load i32, ptr %203, align 4, !tbaa !58
   %205 = add nsw i32 %202, %204
   %206 = and i32 %205, 131071
   %207 = add nsw i32 %206, -65536
@@ -6115,38 +6115,38 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %215 = ashr i32 %214, 4
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %216 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.next247
-  %217 = load i32, ptr %216, align 4, !tbaa !59
+  %217 = load i32, ptr %216, align 4, !tbaa !58
   %218 = add nsw i32 %215, %217
-  store i32 %218, ptr %216, align 4, !tbaa !59
+  store i32 %218, ptr %216, align 4, !tbaa !58
   %219 = mul nsw i32 %207, 3
   %220 = add nsw i32 %219, 8
   %221 = ashr i32 %220, 4
   %222 = add nsw i64 %indvars.iv246, -1
   %223 = getelementptr inbounds i32, ptr %83, i64 %222
-  %224 = load i32, ptr %223, align 4, !tbaa !59
+  %224 = load i32, ptr %223, align 4, !tbaa !58
   %225 = add nsw i32 %221, %224
-  store i32 %225, ptr %223, align 4, !tbaa !59
+  store i32 %225, ptr %223, align 4, !tbaa !58
   %226 = mul nsw i32 %207, 5
   %227 = add nsw i32 %226, 8
   %228 = ashr i32 %227, 4
   %229 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv246
-  %230 = load i32, ptr %229, align 4, !tbaa !59
+  %230 = load i32, ptr %229, align 4, !tbaa !58
   %231 = add nsw i32 %230, %228
-  store i32 %231, ptr %229, align 4, !tbaa !59
+  store i32 %231, ptr %229, align 4, !tbaa !58
   %232 = add nsw i32 %206, -65528
   %233 = ashr i32 %232, 4
   %234 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next247
-  %235 = load i32, ptr %234, align 4, !tbaa !59
+  %235 = load i32, ptr %234, align 4, !tbaa !58
   %236 = add nsw i32 %235, %233
-  store i32 %236, ptr %234, align 4, !tbaa !59
-  store i32 65536, ptr %203, align 4, !tbaa !59
+  store i32 %236, ptr %234, align 4, !tbaa !58
+  store i32 65536, ptr %203, align 4, !tbaa !58
   %237 = mul nsw i32 %191, %36
   %238 = mul nsw i32 %195, %39
   %239 = add nsw i32 %238, %237
   %240 = mul nsw i32 %200, %42
   %241 = add nsw i32 %239, %240
   %242 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv246
-  %243 = load i32, ptr %242, align 4, !tbaa !59
+  %243 = load i32, ptr %242, align 4, !tbaa !58
   %244 = add nsw i32 %241, %243
   %245 = and i32 %244, 131071
   %246 = add nsw i32 %245, -65536
@@ -6163,32 +6163,32 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %253 = add nsw i32 %252, 8
   %254 = ashr i32 %253, 4
   %255 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.next247
-  %256 = load i32, ptr %255, align 4, !tbaa !59
+  %256 = load i32, ptr %255, align 4, !tbaa !58
   %257 = add nsw i32 %254, %256
-  store i32 %257, ptr %255, align 4, !tbaa !59
+  store i32 %257, ptr %255, align 4, !tbaa !58
   %258 = mul nsw i32 %246, 3
   %259 = add nsw i32 %258, 8
   %260 = ashr i32 %259, 4
   %261 = getelementptr inbounds i32, ptr %87, i64 %222
-  %262 = load i32, ptr %261, align 4, !tbaa !59
+  %262 = load i32, ptr %261, align 4, !tbaa !58
   %263 = add nsw i32 %260, %262
-  store i32 %263, ptr %261, align 4, !tbaa !59
+  store i32 %263, ptr %261, align 4, !tbaa !58
   %264 = mul nsw i32 %246, 5
   %265 = add nsw i32 %264, 8
   %266 = ashr i32 %265, 4
   %267 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv246
-  %268 = load i32, ptr %267, align 4, !tbaa !59
+  %268 = load i32, ptr %267, align 4, !tbaa !58
   %269 = add nsw i32 %268, %266
-  store i32 %269, ptr %267, align 4, !tbaa !59
+  store i32 %269, ptr %267, align 4, !tbaa !58
   %270 = add nsw i32 %245, -65528
   %271 = ashr i32 %270, 4
   %272 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.next247
-  %273 = load i32, ptr %272, align 4, !tbaa !59
+  %273 = load i32, ptr %272, align 4, !tbaa !58
   %274 = add nsw i32 %273, %271
-  store i32 %274, ptr %272, align 4, !tbaa !59
-  store i32 65536, ptr %242, align 4, !tbaa !59
+  store i32 %274, ptr %272, align 4, !tbaa !58
+  store i32 65536, ptr %242, align 4, !tbaa !58
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %._crit_edge230.us, label %88, !llvm.loop !90
+  br i1 %exitcond250.not, label %._crit_edge230.us, label %88, !llvm.loop !89
 
 ._crit_edge230.us:                                ; preds = %88
   %275 = getelementptr inbounds nuw i16, ptr %.0237.us, i64 %44
@@ -6199,21 +6199,21 @@ define internal void @rgb2yuv_fsb_422p12_c(ptr noundef readonly captures(none) %
   %280 = getelementptr inbounds i16, ptr %.0209232.us, i64 %3
   %281 = add nuw nsw i32 %.0210231.us, 1
   %exitcond251.not = icmp eq i32 %281, %5
-  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !91
+  br i1 %exitcond251.not, label %._crit_edge238, label %.preheader.us, !llvm.loop !90
 
 282:                                              ; preds = %.lr.ph227, %282
   %indvars.iv241 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next242, %282 ]
   %283 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv241
-  store i32 65536, ptr %283, align 4, !tbaa !59
+  store i32 65536, ptr %283, align 4, !tbaa !58
   %284 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv241
-  store i32 65536, ptr %284, align 4, !tbaa !59
+  store i32 65536, ptr %284, align 4, !tbaa !58
   %285 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv241
-  store i32 65536, ptr %285, align 4, !tbaa !59
+  store i32 65536, ptr %285, align 4, !tbaa !58
   %286 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv241
-  store i32 65536, ptr %286, align 4, !tbaa !59
+  store i32 65536, ptr %286, align 4, !tbaa !58
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %.preheader223, label %282, !llvm.loop !92
+  br i1 %exitcond245.not, label %.preheader223, label %282, !llvm.loop !91
 
 ._crit_edge238:                                   ; preds = %._crit_edge230.us, %._crit_edge, %.preheader223
   ret void
@@ -6261,20 +6261,20 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
-  %48 = load ptr, ptr %8, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %8, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
-  store i32 65536, ptr %50, align 4, !tbaa !59
+  store i32 65536, ptr %50, align 4, !tbaa !58
   %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
-  store i32 65536, ptr %51, align 4, !tbaa !59
+  store i32 65536, ptr %51, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %49, %9
   %52 = add nsw i32 %4, 1
@@ -6287,12 +6287,12 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
 .lr.ph321:                                        ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !57
-  %60 = load ptr, ptr %57, align 8, !tbaa !57
+  %59 = load ptr, ptr %58, align 8, !tbaa !56
+  %60 = load ptr, ptr %57, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !57
-  %64 = load ptr, ptr %61, align 8, !tbaa !57
+  %63 = load ptr, ptr %62, align 8, !tbaa !56
+  %64 = load ptr, ptr %61, align 8, !tbaa !56
   %wide.trip.count338 = zext nneg i32 %53 to i64
   br label %385
 
@@ -6315,8 +6315,8 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %77 = load ptr, ptr %8, align 8, !tbaa !57
-  %78 = load ptr, ptr %76, align 8, !tbaa !57
+  %77 = load ptr, ptr %8, align 8, !tbaa !56
+  %78 = load ptr, ptr %76, align 8, !tbaa !56
   %wide.trip.count343 = zext nneg i32 %53 to i64
   br label %.preheader.us
 
@@ -6332,15 +6332,15 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %80 = and i32 %.0298325.us, 1
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %81
-  %83 = load ptr, ptr %82, align 8, !tbaa !57
+  %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = xor i32 %80, 1
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw [2 x ptr], ptr %66, i64 0, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
   %88 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %81
-  %89 = load ptr, ptr %88, align 8, !tbaa !57
+  %89 = load ptr, ptr %88, align 8, !tbaa !56
   %90 = getelementptr inbounds nuw [2 x ptr], ptr %67, i64 0, i64 %85
-  %91 = load ptr, ptr %90, align 8, !tbaa !57
+  %91 = load ptr, ptr %90, align 8, !tbaa !56
   br label %92
 
 92:                                               ; preds = %.preheader.us, %92
@@ -6391,7 +6391,7 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %136 = mul nsw i32 %102, %27
   %137 = add nsw i32 %135, %136
   %138 = getelementptr i32, ptr %77, i64 %93
-  %139 = load i32, ptr %138, align 4, !tbaa !59
+  %139 = load i32, ptr %138, align 4, !tbaa !58
   %140 = add nsw i32 %137, %139
   %141 = and i32 %140, 131071
   %142 = add nsw i32 %141, -65536
@@ -6408,36 +6408,36 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %152 = add nsw i32 %151, 8
   %153 = ashr i32 %152, 4
   %154 = getelementptr inbounds i32, ptr %77, i64 %103
-  %155 = load i32, ptr %154, align 4, !tbaa !59
+  %155 = load i32, ptr %154, align 4, !tbaa !58
   %156 = add nsw i32 %153, %155
-  store i32 %156, ptr %154, align 4, !tbaa !59
+  store i32 %156, ptr %154, align 4, !tbaa !58
   %157 = mul nsw i32 %142, 3
   %158 = add nsw i32 %157, 8
   %159 = ashr i32 %158, 4
   %160 = getelementptr i32, ptr %78, i64 %93
   %161 = getelementptr i8, ptr %160, i64 -4
-  %162 = load i32, ptr %161, align 4, !tbaa !59
+  %162 = load i32, ptr %161, align 4, !tbaa !58
   %163 = add nsw i32 %162, %159
-  store i32 %163, ptr %161, align 4, !tbaa !59
+  store i32 %163, ptr %161, align 4, !tbaa !58
   %164 = mul nsw i32 %142, 5
   %165 = add nsw i32 %164, 8
   %166 = ashr i32 %165, 4
-  %167 = load i32, ptr %160, align 4, !tbaa !59
+  %167 = load i32, ptr %160, align 4, !tbaa !58
   %168 = add nsw i32 %167, %166
-  store i32 %168, ptr %160, align 4, !tbaa !59
+  store i32 %168, ptr %160, align 4, !tbaa !58
   %169 = add nsw i32 %141, -65528
   %170 = ashr i32 %169, 4
   %171 = getelementptr inbounds i32, ptr %78, i64 %103
-  %172 = load i32, ptr %171, align 4, !tbaa !59
+  %172 = load i32, ptr %171, align 4, !tbaa !58
   %173 = add nsw i32 %172, %170
-  store i32 %173, ptr %171, align 4, !tbaa !59
-  store i32 65536, ptr %138, align 4, !tbaa !59
+  store i32 %173, ptr %171, align 4, !tbaa !58
+  store i32 65536, ptr %138, align 4, !tbaa !58
   %174 = mul nsw i32 %106, %21
   %175 = mul nsw i32 %109, %24
   %176 = add nsw i32 %175, %174
   %177 = mul nsw i32 %112, %27
   %178 = add nsw i32 %176, %177
-  %179 = load i32, ptr %154, align 4, !tbaa !59
+  %179 = load i32, ptr %154, align 4, !tbaa !58
   %180 = add nsw i32 %178, %179
   %181 = and i32 %180, 131071
   %182 = add nsw i32 %181, -65536
@@ -6455,34 +6455,34 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %193 = ashr i32 %192, 4
   %194 = add nuw nsw i64 %93, 2
   %195 = getelementptr inbounds nuw i32, ptr %77, i64 %194
-  %196 = load i32, ptr %195, align 4, !tbaa !59
+  %196 = load i32, ptr %195, align 4, !tbaa !58
   %197 = add nsw i32 %193, %196
-  store i32 %197, ptr %195, align 4, !tbaa !59
+  store i32 %197, ptr %195, align 4, !tbaa !58
   %198 = mul nsw i32 %182, 3
   %199 = add nsw i32 %198, 8
   %200 = ashr i32 %199, 4
-  %201 = load i32, ptr %160, align 4, !tbaa !59
+  %201 = load i32, ptr %160, align 4, !tbaa !58
   %202 = add nsw i32 %200, %201
-  store i32 %202, ptr %160, align 4, !tbaa !59
+  store i32 %202, ptr %160, align 4, !tbaa !58
   %203 = mul nsw i32 %182, 5
   %204 = add nsw i32 %203, 8
   %205 = ashr i32 %204, 4
-  %206 = load i32, ptr %171, align 4, !tbaa !59
+  %206 = load i32, ptr %171, align 4, !tbaa !58
   %207 = add nsw i32 %206, %205
-  store i32 %207, ptr %171, align 4, !tbaa !59
+  store i32 %207, ptr %171, align 4, !tbaa !58
   %208 = add nsw i32 %181, -65528
   %209 = ashr i32 %208, 4
   %210 = getelementptr inbounds nuw i32, ptr %78, i64 %194
-  %211 = load i32, ptr %210, align 4, !tbaa !59
+  %211 = load i32, ptr %210, align 4, !tbaa !58
   %212 = add nsw i32 %211, %209
-  store i32 %212, ptr %210, align 4, !tbaa !59
-  store i32 65536, ptr %154, align 4, !tbaa !59
+  store i32 %212, ptr %210, align 4, !tbaa !58
+  store i32 65536, ptr %154, align 4, !tbaa !58
   %213 = mul nsw i32 %116, %21
   %214 = mul nsw i32 %119, %24
   %215 = add nsw i32 %214, %213
   %216 = mul nsw i32 %122, %27
   %217 = add nsw i32 %215, %216
-  %218 = load i32, ptr %160, align 4, !tbaa !59
+  %218 = load i32, ptr %160, align 4, !tbaa !58
   %219 = add nsw i32 %217, %218
   %220 = and i32 %219, 131071
   %221 = add nsw i32 %220, -65536
@@ -6498,34 +6498,34 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %230 = mul nsw i32 %221, 7
   %231 = add nsw i32 %230, 8
   %232 = ashr i32 %231, 4
-  %233 = load i32, ptr %171, align 4, !tbaa !59
+  %233 = load i32, ptr %171, align 4, !tbaa !58
   %234 = add nsw i32 %232, %233
-  store i32 %234, ptr %171, align 4, !tbaa !59
+  store i32 %234, ptr %171, align 4, !tbaa !58
   %235 = mul nsw i32 %221, 3
   %236 = add nsw i32 %235, 8
   %237 = ashr i32 %236, 4
   %238 = getelementptr i8, ptr %138, i64 -4
-  %239 = load i32, ptr %238, align 4, !tbaa !59
+  %239 = load i32, ptr %238, align 4, !tbaa !58
   %240 = add nsw i32 %237, %239
-  store i32 %240, ptr %238, align 4, !tbaa !59
+  store i32 %240, ptr %238, align 4, !tbaa !58
   %241 = mul nsw i32 %221, 5
   %242 = add nsw i32 %241, 8
   %243 = ashr i32 %242, 4
-  %244 = load i32, ptr %138, align 4, !tbaa !59
+  %244 = load i32, ptr %138, align 4, !tbaa !58
   %245 = add nsw i32 %244, %243
-  store i32 %245, ptr %138, align 4, !tbaa !59
+  store i32 %245, ptr %138, align 4, !tbaa !58
   %246 = add nsw i32 %220, -65528
   %247 = ashr i32 %246, 4
-  %248 = load i32, ptr %154, align 4, !tbaa !59
+  %248 = load i32, ptr %154, align 4, !tbaa !58
   %249 = add nsw i32 %248, %247
-  store i32 %249, ptr %154, align 4, !tbaa !59
-  store i32 65536, ptr %160, align 4, !tbaa !59
+  store i32 %249, ptr %154, align 4, !tbaa !58
+  store i32 65536, ptr %160, align 4, !tbaa !58
   %250 = mul nsw i32 %126, %21
   %251 = mul nsw i32 %129, %24
   %252 = add nsw i32 %251, %250
   %253 = mul nsw i32 %132, %27
   %254 = add nsw i32 %252, %253
-  %255 = load i32, ptr %171, align 4, !tbaa !59
+  %255 = load i32, ptr %171, align 4, !tbaa !58
   %256 = add nsw i32 %254, %255
   %257 = and i32 %256, 131071
   %258 = add nsw i32 %257, -65536
@@ -6541,27 +6541,27 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %267 = mul nsw i32 %258, 7
   %268 = add nsw i32 %267, 8
   %269 = ashr i32 %268, 4
-  %270 = load i32, ptr %210, align 4, !tbaa !59
+  %270 = load i32, ptr %210, align 4, !tbaa !58
   %271 = add nsw i32 %269, %270
-  store i32 %271, ptr %210, align 4, !tbaa !59
+  store i32 %271, ptr %210, align 4, !tbaa !58
   %272 = mul nsw i32 %258, 3
   %273 = add nsw i32 %272, 8
   %274 = ashr i32 %273, 4
-  %275 = load i32, ptr %138, align 4, !tbaa !59
+  %275 = load i32, ptr %138, align 4, !tbaa !58
   %276 = add nsw i32 %274, %275
-  store i32 %276, ptr %138, align 4, !tbaa !59
+  store i32 %276, ptr %138, align 4, !tbaa !58
   %277 = mul nsw i32 %258, 5
   %278 = add nsw i32 %277, 8
   %279 = ashr i32 %278, 4
-  %280 = load i32, ptr %154, align 4, !tbaa !59
+  %280 = load i32, ptr %154, align 4, !tbaa !58
   %281 = add nsw i32 %280, %279
-  store i32 %281, ptr %154, align 4, !tbaa !59
+  store i32 %281, ptr %154, align 4, !tbaa !58
   %282 = add nsw i32 %257, -65528
   %283 = ashr i32 %282, 4
-  %284 = load i32, ptr %195, align 4, !tbaa !59
+  %284 = load i32, ptr %195, align 4, !tbaa !58
   %285 = add nsw i32 %284, %283
-  store i32 %285, ptr %195, align 4, !tbaa !59
-  store i32 65536, ptr %171, align 4, !tbaa !59
+  store i32 %285, ptr %195, align 4, !tbaa !58
+  store i32 65536, ptr %171, align 4, !tbaa !58
   %286 = add nsw i32 %96, 2
   %287 = add nsw i32 %286, %106
   %288 = add nsw i32 %287, %116
@@ -6583,7 +6583,7 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %304 = mul nsw i32 %303, %36
   %305 = add nsw i32 %298, %304
   %306 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv340
-  %307 = load i32, ptr %306, align 4, !tbaa !59
+  %307 = load i32, ptr %306, align 4, !tbaa !58
   %308 = add nsw i32 %305, %307
   %309 = and i32 %308, 131071
   %310 = add nsw i32 %309, -65536
@@ -6601,38 +6601,38 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %318 = ashr i32 %317, 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %319 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next341
-  %320 = load i32, ptr %319, align 4, !tbaa !59
+  %320 = load i32, ptr %319, align 4, !tbaa !58
   %321 = add nsw i32 %318, %320
-  store i32 %321, ptr %319, align 4, !tbaa !59
+  store i32 %321, ptr %319, align 4, !tbaa !58
   %322 = mul nsw i32 %310, 3
   %323 = add nsw i32 %322, 8
   %324 = ashr i32 %323, 4
   %325 = add nsw i64 %indvars.iv340, -1
   %326 = getelementptr inbounds i32, ptr %87, i64 %325
-  %327 = load i32, ptr %326, align 4, !tbaa !59
+  %327 = load i32, ptr %326, align 4, !tbaa !58
   %328 = add nsw i32 %324, %327
-  store i32 %328, ptr %326, align 4, !tbaa !59
+  store i32 %328, ptr %326, align 4, !tbaa !58
   %329 = mul nsw i32 %310, 5
   %330 = add nsw i32 %329, 8
   %331 = ashr i32 %330, 4
   %332 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv340
-  %333 = load i32, ptr %332, align 4, !tbaa !59
+  %333 = load i32, ptr %332, align 4, !tbaa !58
   %334 = add nsw i32 %333, %331
-  store i32 %334, ptr %332, align 4, !tbaa !59
+  store i32 %334, ptr %332, align 4, !tbaa !58
   %335 = add nsw i32 %309, -65528
   %336 = ashr i32 %335, 4
   %337 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.next341
-  %338 = load i32, ptr %337, align 4, !tbaa !59
+  %338 = load i32, ptr %337, align 4, !tbaa !58
   %339 = add nsw i32 %338, %336
-  store i32 %339, ptr %337, align 4, !tbaa !59
-  store i32 65536, ptr %306, align 4, !tbaa !59
+  store i32 %339, ptr %337, align 4, !tbaa !58
+  store i32 65536, ptr %306, align 4, !tbaa !58
   %340 = mul nsw i32 %290, %36
   %341 = mul nsw i32 %296, %39
   %342 = add nsw i32 %341, %340
   %343 = mul nsw i32 %303, %42
   %344 = add nsw i32 %342, %343
   %345 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv340
-  %346 = load i32, ptr %345, align 4, !tbaa !59
+  %346 = load i32, ptr %345, align 4, !tbaa !58
   %347 = add nsw i32 %344, %346
   %348 = and i32 %347, 131071
   %349 = add nsw i32 %348, -65536
@@ -6649,32 +6649,32 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %356 = add nsw i32 %355, 8
   %357 = ashr i32 %356, 4
   %358 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.next341
-  %359 = load i32, ptr %358, align 4, !tbaa !59
+  %359 = load i32, ptr %358, align 4, !tbaa !58
   %360 = add nsw i32 %357, %359
-  store i32 %360, ptr %358, align 4, !tbaa !59
+  store i32 %360, ptr %358, align 4, !tbaa !58
   %361 = mul nsw i32 %349, 3
   %362 = add nsw i32 %361, 8
   %363 = ashr i32 %362, 4
   %364 = getelementptr inbounds i32, ptr %91, i64 %325
-  %365 = load i32, ptr %364, align 4, !tbaa !59
+  %365 = load i32, ptr %364, align 4, !tbaa !58
   %366 = add nsw i32 %363, %365
-  store i32 %366, ptr %364, align 4, !tbaa !59
+  store i32 %366, ptr %364, align 4, !tbaa !58
   %367 = mul nsw i32 %349, 5
   %368 = add nsw i32 %367, 8
   %369 = ashr i32 %368, 4
   %370 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv340
-  %371 = load i32, ptr %370, align 4, !tbaa !59
+  %371 = load i32, ptr %370, align 4, !tbaa !58
   %372 = add nsw i32 %371, %369
-  store i32 %372, ptr %370, align 4, !tbaa !59
+  store i32 %372, ptr %370, align 4, !tbaa !58
   %373 = add nsw i32 %348, -65528
   %374 = ashr i32 %373, 4
   %375 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv.next341
-  %376 = load i32, ptr %375, align 4, !tbaa !59
+  %376 = load i32, ptr %375, align 4, !tbaa !58
   %377 = add nsw i32 %376, %374
-  store i32 %377, ptr %375, align 4, !tbaa !59
-  store i32 65536, ptr %345, align 4, !tbaa !59
+  store i32 %377, ptr %375, align 4, !tbaa !58
+  store i32 65536, ptr %345, align 4, !tbaa !58
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %._crit_edge324.us, label %92, !llvm.loop !94
+  br i1 %exitcond344.not, label %._crit_edge324.us, label %92, !llvm.loop !93
 
 ._crit_edge324.us:                                ; preds = %92
   %378 = getelementptr inbounds nuw i16, ptr %.0331.us, i64 %68
@@ -6685,21 +6685,21 @@ define internal void @rgb2yuv_fsb_420p12_c(ptr noundef readonly captures(none) %
   %383 = getelementptr inbounds i16, ptr %.0297326.us, i64 %75
   %384 = add nuw nsw i32 %.0298325.us, 1
   %exitcond345.not = icmp eq i32 %384, %55
-  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !95
+  br i1 %exitcond345.not, label %._crit_edge332, label %.preheader.us, !llvm.loop !94
 
 385:                                              ; preds = %.lr.ph321, %385
   %indvars.iv335 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next336, %385 ]
   %386 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv335
-  store i32 65536, ptr %386, align 4, !tbaa !59
+  store i32 65536, ptr %386, align 4, !tbaa !58
   %387 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv335
-  store i32 65536, ptr %387, align 4, !tbaa !59
+  store i32 65536, ptr %387, align 4, !tbaa !58
   %388 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv335
-  store i32 65536, ptr %388, align 4, !tbaa !59
+  store i32 65536, ptr %388, align 4, !tbaa !58
   %389 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv335
-  store i32 65536, ptr %389, align 4, !tbaa !59
+  store i32 65536, ptr %389, align 4, !tbaa !58
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %.preheader317, label %385, !llvm.loop !96
+  br i1 %exitcond339.not, label %.preheader317, label %385, !llvm.loop !95
 
 ._crit_edge332:                                   ; preds = %._crit_edge324.us, %.preheader.lr.ph, %.preheader317
   ret void
@@ -6823,7 +6823,7 @@ define internal void @yuv2yuv_444p8to8_c(ptr noundef readonly captures(none) %0,
   store i8 %.0.i77.us, ptr %90, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %52
   %91 = load i64, ptr %1, align 8, !tbaa !12
@@ -6840,7 +6840,7 @@ define internal void @yuv2yuv_444p8to8_c(ptr noundef readonly captures(none) %0,
   %102 = getelementptr inbounds nuw i8, ptr %.06683.us, i64 %101
   %103 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %103, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !98
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !97
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -6982,7 +6982,7 @@ define internal void @yuv2yuv_422p8to8_c(ptr noundef readonly captures(none) %0,
   store i8 %.0.i88.us, ptr %104, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !98
 
 ._crit_edge.us:                                   ; preds = %54
   %105 = load i64, ptr %1, align 8, !tbaa !12
@@ -6999,7 +6999,7 @@ define internal void @yuv2yuv_422p8to8_c(ptr noundef readonly captures(none) %0,
   %116 = getelementptr inbounds nuw i8, ptr %.07494.us, i64 %115
   %117 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %117, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !100
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !99
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7177,7 +7177,7 @@ define internal void @yuv2yuv_420p8to8_c(ptr noundef readonly captures(none) %0,
   store i8 %.0.i114.us, ptr %132, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !100
 
 ._crit_edge.us:                                   ; preds = %56
   %133 = load i64, ptr %1, align 8, !tbaa !12
@@ -7196,7 +7196,7 @@ define internal void @yuv2yuv_420p8to8_c(ptr noundef readonly captures(none) %0,
   %146 = getelementptr inbounds nuw i8, ptr %.094120.us, i64 %145
   %147 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %147, %34
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !102
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !101
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7323,7 +7323,7 @@ define internal void @yuv2yuv_444p8to10_c(ptr noundef readonly captures(none) %0
   store i16 %101, ptr %102, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !102
 
 ._crit_edge.us:                                   ; preds = %61
   %103 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -7334,7 +7334,7 @@ define internal void @yuv2yuv_444p8to10_c(ptr noundef readonly captures(none) %0
   %108 = getelementptr inbounds nuw i8, ptr %.06683.us, i64 %50
   %109 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %109, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !104
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !103
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7477,7 +7477,7 @@ define internal void @yuv2yuv_422p8to10_c(ptr noundef readonly captures(none) %0
   store i16 %116, ptr %117, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %63, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge.us, label %63, !llvm.loop !104
 
 ._crit_edge.us:                                   ; preds = %63
   %118 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -7488,7 +7488,7 @@ define internal void @yuv2yuv_422p8to10_c(ptr noundef readonly captures(none) %0
   %123 = getelementptr inbounds nuw i8, ptr %.07494.us, i64 %52
   %124 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %124, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !106
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !105
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7661,7 +7661,7 @@ define internal void @yuv2yuv_420p8to10_c(ptr noundef readonly captures(none) %0
   store i16 %144, ptr %145, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !106
 
 ._crit_edge.us:                                   ; preds = %69
   %146 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -7672,7 +7672,7 @@ define internal void @yuv2yuv_420p8to10_c(ptr noundef readonly captures(none) %0
   %151 = getelementptr inbounds nuw i8, ptr %.094120.us, i64 %65
   %152 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %152, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !108
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !107
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7799,7 +7799,7 @@ define internal void @yuv2yuv_444p8to12_c(ptr noundef readonly captures(none) %0
   store i16 %101, ptr %102, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !108
 
 ._crit_edge.us:                                   ; preds = %61
   %103 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -7810,7 +7810,7 @@ define internal void @yuv2yuv_444p8to12_c(ptr noundef readonly captures(none) %0
   %108 = getelementptr inbounds nuw i8, ptr %.06683.us, i64 %50
   %109 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %109, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !110
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !109
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -7953,7 +7953,7 @@ define internal void @yuv2yuv_422p8to12_c(ptr noundef readonly captures(none) %0
   store i16 %116, ptr %117, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %63, !llvm.loop !111
+  br i1 %exitcond.not, label %._crit_edge.us, label %63, !llvm.loop !110
 
 ._crit_edge.us:                                   ; preds = %63
   %118 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -7964,7 +7964,7 @@ define internal void @yuv2yuv_422p8to12_c(ptr noundef readonly captures(none) %0
   %123 = getelementptr inbounds nuw i8, ptr %.07494.us, i64 %52
   %124 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %124, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !112
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !111
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8137,7 +8137,7 @@ define internal void @yuv2yuv_420p8to12_c(ptr noundef readonly captures(none) %0
   store i16 %144, ptr %145, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge.us, label %69, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %69
   %146 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -8148,7 +8148,7 @@ define internal void @yuv2yuv_420p8to12_c(ptr noundef readonly captures(none) %0
   %151 = getelementptr inbounds nuw i8, ptr %.094120.us, i64 %65
   %152 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %152, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !114
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !113
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8272,7 +8272,7 @@ define internal void @yuv2yuv_444p10to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i77.us, ptr %90, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !115
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !114
 
 ._crit_edge.us:                                   ; preds = %52
   %91 = load i64, ptr %1, align 8, !tbaa !12
@@ -8292,7 +8292,7 @@ define internal void @yuv2yuv_444p10to8_c(ptr noundef readonly captures(none) %0
   %105 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %104
   %106 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %106, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !116
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !115
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8434,7 +8434,7 @@ define internal void @yuv2yuv_422p10to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i88.us, ptr %104, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !116
 
 ._crit_edge.us:                                   ; preds = %54
   %105 = load i64, ptr %1, align 8, !tbaa !12
@@ -8454,7 +8454,7 @@ define internal void @yuv2yuv_422p10to8_c(ptr noundef readonly captures(none) %0
   %119 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %118
   %120 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %120, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !118
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !117
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8633,7 +8633,7 @@ define internal void @yuv2yuv_420p10to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i114.us, ptr %133, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !118
 
 ._crit_edge.us:                                   ; preds = %56
   %134 = load i64, ptr %1, align 8, !tbaa !12
@@ -8654,7 +8654,7 @@ define internal void @yuv2yuv_420p10to8_c(ptr noundef readonly captures(none) %0
   %149 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %148
   %150 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %150, %34
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !120
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !119
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8784,7 +8784,7 @@ define internal void @yuv2yuv_444p10to10_c(ptr noundef readonly captures(none) %
   store i16 %104, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !120
 
 ._crit_edge.us:                                   ; preds = %64
   %106 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -8795,7 +8795,7 @@ define internal void @yuv2yuv_444p10to10_c(ptr noundef readonly captures(none) %
   %111 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %53
   %112 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %112, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !122
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !121
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -8941,7 +8941,7 @@ define internal void @yuv2yuv_422p10to10_c(ptr noundef readonly captures(none) %
   store i16 %119, ptr %120, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !122
 
 ._crit_edge.us:                                   ; preds = %66
   %121 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -8952,7 +8952,7 @@ define internal void @yuv2yuv_422p10to10_c(ptr noundef readonly captures(none) %
   %126 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %55
   %127 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %127, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !124
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !123
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9128,7 +9128,7 @@ define internal void @yuv2yuv_420p10to10_c(ptr noundef readonly captures(none) %
   store i16 %147, ptr %148, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !124
 
 ._crit_edge.us:                                   ; preds = %72
   %149 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -9139,7 +9139,7 @@ define internal void @yuv2yuv_420p10to10_c(ptr noundef readonly captures(none) %
   %154 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %67
   %155 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %155, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !126
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !125
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9269,7 +9269,7 @@ define internal void @yuv2yuv_444p10to12_c(ptr noundef readonly captures(none) %
   store i16 %104, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !126
 
 ._crit_edge.us:                                   ; preds = %64
   %106 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -9280,7 +9280,7 @@ define internal void @yuv2yuv_444p10to12_c(ptr noundef readonly captures(none) %
   %111 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %53
   %112 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %112, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !128
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !127
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9426,7 +9426,7 @@ define internal void @yuv2yuv_422p10to12_c(ptr noundef readonly captures(none) %
   store i16 %119, ptr %120, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !128
 
 ._crit_edge.us:                                   ; preds = %66
   %121 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -9437,7 +9437,7 @@ define internal void @yuv2yuv_422p10to12_c(ptr noundef readonly captures(none) %
   %126 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %55
   %127 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %127, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !130
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !129
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9613,7 +9613,7 @@ define internal void @yuv2yuv_420p10to12_c(ptr noundef readonly captures(none) %
   store i16 %147, ptr %148, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !130
 
 ._crit_edge.us:                                   ; preds = %72
   %149 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -9624,7 +9624,7 @@ define internal void @yuv2yuv_420p10to12_c(ptr noundef readonly captures(none) %
   %154 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %67
   %155 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %155, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !132
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !131
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9748,7 +9748,7 @@ define internal void @yuv2yuv_444p12to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i77.us, ptr %90, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !132
 
 ._crit_edge.us:                                   ; preds = %52
   %91 = load i64, ptr %1, align 8, !tbaa !12
@@ -9768,7 +9768,7 @@ define internal void @yuv2yuv_444p12to8_c(ptr noundef readonly captures(none) %0
   %105 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %104
   %106 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %106, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !134
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !133
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -9910,7 +9910,7 @@ define internal void @yuv2yuv_422p12to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i88.us, ptr %104, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !134
 
 ._crit_edge.us:                                   ; preds = %54
   %105 = load i64, ptr %1, align 8, !tbaa !12
@@ -9930,7 +9930,7 @@ define internal void @yuv2yuv_422p12to8_c(ptr noundef readonly captures(none) %0
   %119 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %118
   %120 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %120, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !136
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !135
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10109,7 +10109,7 @@ define internal void @yuv2yuv_420p12to8_c(ptr noundef readonly captures(none) %0
   store i8 %.0.i114.us, ptr %133, align 1, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge.us, label %56, !llvm.loop !136
 
 ._crit_edge.us:                                   ; preds = %56
   %134 = load i64, ptr %1, align 8, !tbaa !12
@@ -10130,7 +10130,7 @@ define internal void @yuv2yuv_420p12to8_c(ptr noundef readonly captures(none) %0
   %149 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %148
   %150 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %150, %34
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !138
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !137
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10260,7 +10260,7 @@ define internal void @yuv2yuv_444p12to10_c(ptr noundef readonly captures(none) %
   store i16 %104, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !138
 
 ._crit_edge.us:                                   ; preds = %64
   %106 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -10271,7 +10271,7 @@ define internal void @yuv2yuv_444p12to10_c(ptr noundef readonly captures(none) %
   %111 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %53
   %112 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %112, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !140
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !139
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10417,7 +10417,7 @@ define internal void @yuv2yuv_422p12to10_c(ptr noundef readonly captures(none) %
   store i16 %119, ptr %120, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !140
 
 ._crit_edge.us:                                   ; preds = %66
   %121 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -10428,7 +10428,7 @@ define internal void @yuv2yuv_422p12to10_c(ptr noundef readonly captures(none) %
   %126 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %55
   %127 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %127, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !142
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !141
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10604,7 +10604,7 @@ define internal void @yuv2yuv_420p12to10_c(ptr noundef readonly captures(none) %
   store i16 %147, ptr %148, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !142
 
 ._crit_edge.us:                                   ; preds = %72
   %149 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -10615,7 +10615,7 @@ define internal void @yuv2yuv_420p12to10_c(ptr noundef readonly captures(none) %
   %154 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %67
   %155 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %155, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !144
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !143
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10745,7 +10745,7 @@ define internal void @yuv2yuv_444p12to12_c(ptr noundef readonly captures(none) %
   store i16 %104, ptr %105, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !145
+  br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !144
 
 ._crit_edge.us:                                   ; preds = %64
   %106 = getelementptr inbounds nuw i16, ptr %.06782.us, i64 %39
@@ -10756,7 +10756,7 @@ define internal void @yuv2yuv_444p12to12_c(ptr noundef readonly captures(none) %
   %111 = getelementptr inbounds nuw i16, ptr %.06683.us, i64 %53
   %112 = add nuw nsw i32 %.07079.us, 1
   %exitcond89.not = icmp eq i32 %112, %5
-  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !146
+  br i1 %exitcond89.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !145
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -10902,7 +10902,7 @@ define internal void @yuv2yuv_422p12to12_c(ptr noundef readonly captures(none) %
   store i16 %119, ptr %120, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !147
+  br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !146
 
 ._crit_edge.us:                                   ; preds = %66
   %121 = getelementptr inbounds nuw i16, ptr %.07593.us, i64 %41
@@ -10913,7 +10913,7 @@ define internal void @yuv2yuv_422p12to12_c(ptr noundef readonly captures(none) %
   %126 = getelementptr inbounds nuw i16, ptr %.07494.us, i64 %55
   %127 = add nuw nsw i32 %.07890.us, 1
   %exitcond100.not = icmp eq i32 %127, %5
-  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !148
+  br i1 %exitcond100.not, label %._crit_edge97, label %.preheader.us, !llvm.loop !147
 
 ._crit_edge97:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -11089,7 +11089,7 @@ define internal void @yuv2yuv_420p12to12_c(ptr noundef readonly captures(none) %
   store i16 %147, ptr %148, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge.us, label %72, !llvm.loop !148
 
 ._crit_edge.us:                                   ; preds = %72
   %149 = getelementptr inbounds nuw i16, ptr %.095119.us, i64 %53
@@ -11100,7 +11100,7 @@ define internal void @yuv2yuv_420p12to12_c(ptr noundef readonly captures(none) %
   %154 = getelementptr inbounds nuw i16, ptr %.094120.us, i64 %67
   %155 = add nuw nsw i32 %.098116.us, 1
   %exitcond126.not = icmp eq i32 %155, %44
-  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !150
+  br i1 %exitcond126.not, label %._crit_edge123, label %.preheader.us, !llvm.loop !149
 
 ._crit_edge123:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %8
   ret void
@@ -11203,7 +11203,7 @@ define internal void @multiply3x3_c(ptr noundef readonly captures(none) %0, i64 
   store i16 %.0.i51.us, ptr %28, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !150
 
 ._crit_edge.us:                                   ; preds = %21
   %76 = getelementptr inbounds i16, ptr %.04555.us, i64 %1
@@ -11211,7 +11211,7 @@ define internal void @multiply3x3_c(ptr noundef readonly captures(none) %0, i64 
   %78 = getelementptr inbounds i16, ptr %.04654.us, i64 %1
   %79 = add nuw nsw i32 %.056.us, 1
   %exitcond60.not = icmp eq i32 %79, %3
-  br i1 %exitcond60.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !152
+  br i1 %exitcond60.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !151
 
 ._crit_edge57:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void
@@ -11253,135 +11253,134 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !18 = !{!6, !6, i64 0}
 !19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
 !23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20, !22}
+!24 = distinct !{!24, !20}
 !25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20, !22}
+!26 = distinct !{!26, !20}
 !27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20, !22}
+!28 = distinct !{!28, !20}
 !29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20, !22}
+!30 = distinct !{!30, !20}
 !31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20, !22}
+!32 = distinct !{!32, !20}
 !33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20, !22}
+!34 = distinct !{!34, !20}
 !35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20, !22}
+!36 = distinct !{!36, !20}
 !37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20, !22}
+!38 = distinct !{!38, !20}
 !39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20, !22}
+!40 = distinct !{!40, !20}
 !41 = distinct !{!41, !20}
-!42 = distinct !{!42, !20, !22}
+!42 = distinct !{!42, !20}
 !43 = distinct !{!43, !20}
-!44 = distinct !{!44, !20, !22}
+!44 = distinct !{!44, !20}
 !45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20, !22}
+!46 = distinct !{!46, !20}
 !47 = distinct !{!47, !20}
-!48 = distinct !{!48, !20, !22}
+!48 = distinct !{!48, !20}
 !49 = distinct !{!49, !20}
-!50 = distinct !{!50, !20, !22}
+!50 = distinct !{!50, !20}
 !51 = distinct !{!51, !20}
-!52 = distinct !{!52, !20, !22}
+!52 = distinct !{!52, !20}
 !53 = distinct !{!53, !20}
-!54 = distinct !{!54, !20, !22}
+!54 = distinct !{!54, !20}
 !55 = distinct !{!55, !20}
-!56 = distinct !{!56, !20, !22}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 int", !5, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"int", !6, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 int", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"int", !6, i64 0}
+!60 = distinct !{!60, !20}
 !61 = distinct !{!61, !20}
 !62 = distinct !{!62, !20}
-!63 = distinct !{!63, !20, !22}
+!63 = distinct !{!63, !20}
 !64 = distinct !{!64, !20}
 !65 = distinct !{!65, !20}
 !66 = distinct !{!66, !20}
-!67 = distinct !{!67, !20, !22}
+!67 = distinct !{!67, !20}
 !68 = distinct !{!68, !20}
 !69 = distinct !{!69, !20}
 !70 = distinct !{!70, !20}
-!71 = distinct !{!71, !20, !22}
+!71 = distinct !{!71, !20}
 !72 = distinct !{!72, !20}
 !73 = distinct !{!73, !20}
 !74 = distinct !{!74, !20}
-!75 = distinct !{!75, !20, !22}
+!75 = distinct !{!75, !20}
 !76 = distinct !{!76, !20}
 !77 = distinct !{!77, !20}
 !78 = distinct !{!78, !20}
-!79 = distinct !{!79, !20, !22}
+!79 = distinct !{!79, !20}
 !80 = distinct !{!80, !20}
 !81 = distinct !{!81, !20}
 !82 = distinct !{!82, !20}
-!83 = distinct !{!83, !20, !22}
+!83 = distinct !{!83, !20}
 !84 = distinct !{!84, !20}
 !85 = distinct !{!85, !20}
 !86 = distinct !{!86, !20}
-!87 = distinct !{!87, !20, !22}
+!87 = distinct !{!87, !20}
 !88 = distinct !{!88, !20}
 !89 = distinct !{!89, !20}
 !90 = distinct !{!90, !20}
-!91 = distinct !{!91, !20, !22}
+!91 = distinct !{!91, !20}
 !92 = distinct !{!92, !20}
 !93 = distinct !{!93, !20}
 !94 = distinct !{!94, !20}
-!95 = distinct !{!95, !20, !22}
+!95 = distinct !{!95, !20}
 !96 = distinct !{!96, !20}
 !97 = distinct !{!97, !20}
-!98 = distinct !{!98, !20, !22}
+!98 = distinct !{!98, !20}
 !99 = distinct !{!99, !20}
-!100 = distinct !{!100, !20, !22}
+!100 = distinct !{!100, !20}
 !101 = distinct !{!101, !20}
-!102 = distinct !{!102, !20, !22}
+!102 = distinct !{!102, !20}
 !103 = distinct !{!103, !20}
-!104 = distinct !{!104, !20, !22}
+!104 = distinct !{!104, !20}
 !105 = distinct !{!105, !20}
-!106 = distinct !{!106, !20, !22}
+!106 = distinct !{!106, !20}
 !107 = distinct !{!107, !20}
-!108 = distinct !{!108, !20, !22}
+!108 = distinct !{!108, !20}
 !109 = distinct !{!109, !20}
-!110 = distinct !{!110, !20, !22}
+!110 = distinct !{!110, !20}
 !111 = distinct !{!111, !20}
-!112 = distinct !{!112, !20, !22}
+!112 = distinct !{!112, !20}
 !113 = distinct !{!113, !20}
-!114 = distinct !{!114, !20, !22}
+!114 = distinct !{!114, !20}
 !115 = distinct !{!115, !20}
-!116 = distinct !{!116, !20, !22}
+!116 = distinct !{!116, !20}
 !117 = distinct !{!117, !20}
-!118 = distinct !{!118, !20, !22}
+!118 = distinct !{!118, !20}
 !119 = distinct !{!119, !20}
-!120 = distinct !{!120, !20, !22}
+!120 = distinct !{!120, !20}
 !121 = distinct !{!121, !20}
-!122 = distinct !{!122, !20, !22}
+!122 = distinct !{!122, !20}
 !123 = distinct !{!123, !20}
-!124 = distinct !{!124, !20, !22}
+!124 = distinct !{!124, !20}
 !125 = distinct !{!125, !20}
-!126 = distinct !{!126, !20, !22}
+!126 = distinct !{!126, !20}
 !127 = distinct !{!127, !20}
-!128 = distinct !{!128, !20, !22}
+!128 = distinct !{!128, !20}
 !129 = distinct !{!129, !20}
-!130 = distinct !{!130, !20, !22}
+!130 = distinct !{!130, !20}
 !131 = distinct !{!131, !20}
-!132 = distinct !{!132, !20, !22}
+!132 = distinct !{!132, !20}
 !133 = distinct !{!133, !20}
-!134 = distinct !{!134, !20, !22}
+!134 = distinct !{!134, !20}
 !135 = distinct !{!135, !20}
-!136 = distinct !{!136, !20, !22}
+!136 = distinct !{!136, !20}
 !137 = distinct !{!137, !20}
-!138 = distinct !{!138, !20, !22}
+!138 = distinct !{!138, !20}
 !139 = distinct !{!139, !20}
-!140 = distinct !{!140, !20, !22}
+!140 = distinct !{!140, !20}
 !141 = distinct !{!141, !20}
-!142 = distinct !{!142, !20, !22}
+!142 = distinct !{!142, !20}
 !143 = distinct !{!143, !20}
-!144 = distinct !{!144, !20, !22}
+!144 = distinct !{!144, !20}
 !145 = distinct !{!145, !20}
-!146 = distinct !{!146, !20, !22}
+!146 = distinct !{!146, !20}
 !147 = distinct !{!147, !20}
-!148 = distinct !{!148, !20, !22}
+!148 = distinct !{!148, !20}
 !149 = distinct !{!149, !20}
-!150 = distinct !{!150, !20, !22}
+!150 = distinct !{!150, !20}
 !151 = distinct !{!151, !20}
-!152 = distinct !{!152, !20, !22}

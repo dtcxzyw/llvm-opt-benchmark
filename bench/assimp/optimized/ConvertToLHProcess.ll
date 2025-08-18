@@ -1552,7 +1552,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.loopexit95, label %76, !llvm.loop !34
+  br i1 %exitcond163.not, label %.loopexit95, label %76, !llvm.loop !33
 
 .loopexit95:                                      ; preds = %76, %.split114.us
   %87 = getelementptr inbounds nuw i8, ptr %41, i64 1064
@@ -1582,19 +1582,19 @@ _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %.loopexit95, %..loo
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !35
+  br i1 %exitcond168.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !34
 
 ..loopexit_crit_edge.us:                          ; preds = %.preheader.us, %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 8
-  br i1 %exitcond172.not, label %.split123.us, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, !llvm.loop !36
+  br i1 %exitcond172.not, label %.split123.us, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, !llvm.loop !35
 
 .split123.us:                                     ; preds = %..loopexit_crit_edge.us, %.loopexit97
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %97 = load i32, ptr %11, align 8
   %98 = zext i32 %97 to i64
   %99 = icmp samesign ult i64 %indvars.iv.next174, %98
-  br i1 %99, label %38, label %._crit_edge127, !llvm.loop !37
+  br i1 %99, label %38, label %._crit_edge127, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1683,9 +1683,8 @@ attributes #17 = { builtin nounwind }
 !29 = distinct !{!29, !4}
 !30 = distinct !{!30, !4}
 !31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
 !34 = distinct !{!34, !4}
 !35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4, !33}
-!37 = distinct !{!37, !4}
+!36 = distinct !{!36, !4}

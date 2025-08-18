@@ -3874,7 +3874,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %56 = getelementptr i8, ptr %54, i64 -1472
   %57 = icmp eq ptr %56, null
   %58 = or i1 %55, %57
-  br i1 %58, label %.loopexit12, label %.split, !llvm.loop !49
+  br i1 %58, label %.loopexit12, label %.split, !llvm.loop !47
 
 59:                                               ; preds = %1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %3) #21
@@ -3919,7 +3919,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %77 = load volatile ptr, ptr %71, align 8
   %78 = getelementptr i8, ptr %77, i64 -1112
   %79 = icmp eq ptr %78, @init_task
-  br i1 %79, label %.loopexit11, label %.split13.us, !llvm.loop !50
+  br i1 %79, label %.loopexit11, label %.split13.us, !llvm.loop !48
 
 .preheader.us:                                    ; preds = %.split13.us, %107
   %80 = phi ptr [ %108, %107 ], [ %75, %.split13.us ]
@@ -3966,13 +3966,13 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %109 = load ptr, ptr %72, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = icmp eq ptr %108, %110
-  br i1 %111, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !51
+  br i1 %111, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !49
 
 .loopexit.split:                                  ; preds = %162, %.split13
   %112 = load volatile ptr, ptr %115, align 8
   %113 = getelementptr i8, ptr %112, i64 -1112
   %114 = icmp eq ptr %113, @init_task
-  br i1 %114, label %.loopexit11, label %.split13, !llvm.loop !52
+  br i1 %114, label %.loopexit11, label %.split13, !llvm.loop !48
 
 .split13:                                         ; preds = %66, %.loopexit.split
   %115 = phi ptr [ %112, %.loopexit.split ], [ %60, %66 ]
@@ -4050,7 +4050,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %164 = load ptr, ptr %116, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = icmp eq ptr %163, %165
-  br i1 %166, label %.loopexit.split, label %.preheader, !llvm.loop !53
+  br i1 %166, label %.loopexit.split, label %.preheader, !llvm.loop !49
 
 .loopexit11:                                      ; preds = %.loopexit.split, %.loopexit.split.us.us, %.loopexit12.thread, %.loopexit12
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #21
@@ -4585,7 +4585,7 @@ define dso_local void @tty_driver_kref_put(ptr noundef %0) #0 align 16 {
   %50 = add nuw i32 %22, 1
   %51 = load i32, ptr %13, align 4
   %52 = icmp ult i32 %50, %51
-  br i1 %52, label %21, label %.loopexit, !llvm.loop !54
+  br i1 %52, label %21, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %49, %12
   tail call void @proc_tty_unregister_driver(ptr noundef %0) #21
@@ -4756,7 +4756,7 @@ define dso_local i32 @tty_register_driver(ptr noundef %0) #0 align 16 {
   %86 = load i32, ptr %69, align 4
   %87 = icmp ult i32 %85, %86
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %87, label %.preheader, label %.loopexit10, !llvm.loop !55
+  br i1 %87, label %.preheader, label %.loopexit10, !llvm.loop !51
 
 .loopexit10:                                      ; preds = %84, %68, %60
   call void @proc_tty_register_driver(ptr noundef %0) #21
@@ -4792,7 +4792,7 @@ define dso_local i32 @tty_register_driver(ptr noundef %0) #0 align 16 {
 106:                                              ; preds = %100, %90
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
   %107 = icmp sgt i64 %indvars.iv18, 0
-  br i1 %107, label %90, label %.loopexit, !llvm.loop !56
+  br i1 %107, label %90, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %106, %75
   call void @mutex_lock(ptr noundef nonnull @tty_mutex) #21
@@ -5223,7 +5223,7 @@ define internal fastcc ptr @tty_lookup_driver(i32 noundef %0, ptr noundef captur
 61:                                               ; preds = %45, %.lr.ph
   %62 = load ptr, ptr %37, align 8
   %63 = icmp eq ptr %62, @tty_drivers
-  br i1 %63, label %.thread11, label %.lr.ph, !llvm.loop !57
+  br i1 %63, label %.thread11, label %.lr.ph, !llvm.loop !53
 
 .thread11:                                        ; preds = %61, %.preheader, %59, %55
   %64 = phi ptr [ %51, %55 ], [ %51, %59 ], [ null, %.preheader ], [ null, %61 ]
@@ -5374,13 +5374,13 @@ define internal i64 @tty_read(ptr noundef readonly captures(none) %0, ptr nounde
   %64 = phi i64 [ -14, %61 ], [ %36, %56 ]
   %65 = load ptr, ptr %3, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread, label %34, !llvm.loop !58
+  br i1 %66, label %.thread, label %34, !llvm.loop !54
 
 .thread:                                          ; preds = %34, %62, %46, %48
   %67 = phi i64 [ %37, %46 ], [ %50, %48 ], [ %37, %34 ], [ %58, %62 ]
   %68 = phi i64 [ %36, %46 ], [ %42, %48 ], [ %36, %34 ], [ %64, %62 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #21, !srcloc !59
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #21, !srcloc !55
   %69 = icmp eq i64 %67, 0
   %70 = select i1 %69, i64 %68, i64 %67
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5561,11 +5561,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @tty_compat_ioctl(ptr nou
 
 7:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %8 = and i64 %2, 4294967295
-  %9 = tail call i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %8), !range !60
+  %9 = tail call i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %8), !range !56
   br label %66
 
 10:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %11 = tail call i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2), !range !60
+  %11 = tail call i64 @tty_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2), !range !56
   br label %66
 
 12:                                               ; preds = %3
@@ -6551,7 +6551,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   %35 = getelementptr i8, ptr %33, i64 -112
   %36 = icmp eq ptr %35, null
   %37 = or i1 %34, %36
-  br i1 %37, label %38, label %.preheader6, !llvm.loop !61
+  br i1 %37, label %38, label %.preheader6, !llvm.loop !57
 
 38:                                               ; preds = %30
   tail call void @console_lock() #21
@@ -6639,7 +6639,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   store i8 0, ptr %93, align 1
   %94 = add i64 %89, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %91, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %91, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %87, %.thread, %38
   %95 = phi i64 [ 0, %38 ], [ 0, %.thread ], [ %94, %87 ]
@@ -6759,19 +6759,15 @@ attributes #25 = { cold noreturn nounwind }
 !44 = !{i64 2155267672}
 !45 = !{i64 2155268528}
 !46 = !{i64 2155262898}
-!47 = distinct !{!47, !7, !8, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
 !49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8, !48}
-!51 = distinct !{!51, !7, !8, !48}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
 !52 = distinct !{!52, !7, !8}
 !53 = distinct !{!53, !7, !8}
 !54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
+!55 = !{i64 2148152558}
+!56 = !{i64 -2147483648, i64 2147483648}
 !57 = distinct !{!57, !7, !8}
 !58 = distinct !{!58, !7, !8}
-!59 = !{i64 2148152558}
-!60 = !{i64 -2147483648, i64 2147483648}
-!61 = distinct !{!61, !7, !8}
-!62 = distinct !{!62, !7, !8}

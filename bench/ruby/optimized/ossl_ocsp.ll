@@ -427,8 +427,8 @@ define internal noundef i64 @ossl_ocspreq_initialize(i32 noundef %0, ptr noundef
   br i1 %6, label %9, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not16 = icmp eq i32 %0, 0
-  br i1 %.not16, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not18 = icmp eq i32 %0, 0
+  br i1 %.not18, label %rb_scan_args_set.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %7 = load i64, ptr %1, align 8, !tbaa !6
@@ -504,8 +504,8 @@ define internal noundef i64 @ossl_ocspreq_add_nonce(i32 noundef %0, ptr noundef 
   br i1 %5, label %8, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not19 = icmp eq i32 %0, 0
-  br i1 %.not19, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not21 = icmp eq i32 %0, 0
+  br i1 %.not21, label %rb_scan_args_set.exit.thread, label %.split.us
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split
   store i64 4, ptr %4, align 8, !tbaa !6
@@ -1241,8 +1241,8 @@ define internal noundef i64 @ossl_ocspres_initialize(i32 noundef %0, ptr noundef
   br i1 %6, label %9, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not16 = icmp eq i32 %0, 0
-  br i1 %.not16, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not18 = icmp eq i32 %0, 0
+  br i1 %.not18, label %rb_scan_args_set.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %7 = load i64, ptr %1, align 8, !tbaa !6
@@ -1547,8 +1547,8 @@ define internal noundef i64 @ossl_ocspbres_initialize(i32 noundef %0, ptr nounde
   br i1 %6, label %9, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not16 = icmp eq i32 %0, 0
-  br i1 %.not16, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not18 = icmp eq i32 %0, 0
+  br i1 %.not18, label %rb_scan_args_set.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %7 = load i64, ptr %1, align 8, !tbaa !6
@@ -1653,8 +1653,8 @@ define internal noundef i64 @ossl_ocspbres_add_nonce(i32 noundef %0, ptr noundef
   br i1 %5, label %8, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not19 = icmp eq i32 %0, 0
-  br i1 %.not19, label %rb_scan_args_set.exit.thread, label %.split.us
+  %.not21 = icmp eq i32 %0, 0
+  br i1 %.not21, label %rb_scan_args_set.exit.thread, label %.split.us
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader.split.split
   store i64 4, ptr %4, align 8, !tbaa !6

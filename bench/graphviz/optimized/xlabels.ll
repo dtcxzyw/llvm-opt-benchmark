@@ -987,8 +987,8 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !76
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !18
-  %.not121 = icmp eq i64 %15, 0
-  br i1 %.not121, label %._crit_edge, label %.lr.ph.split.split.preheader
+  %.not122 = icmp eq i64 %15, 0
+  br i1 %.not122, label %._crit_edge, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %4
   %16 = load ptr, ptr %1, align 8, !tbaa !17
@@ -1106,8 +1106,8 @@ lblenclosing.exit.thread:                         ; preds = %60, %64, %68, %lble
 81:                                               ; preds = %.preheader, %407
   %82 = phi double [ 0.000000e+00, %.preheader ], [ %408, %407 ]
   %83 = phi i32 [ %19, %.preheader ], [ %409, %407 ]
-  %.040120 = phi ptr [ %36, %.preheader ], [ %410, %407 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.040120, i64 8
+  %.040121 = phi ptr [ %36, %.preheader ], [ %410, %407 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.040121, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !82
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !86
@@ -1671,7 +1671,7 @@ aabbaabb.exit78.thread:                           ; preds = %251, %aabbaabb.exit
 407:                                              ; preds = %81, %aabbaabb.exit78.thread
   %408 = phi double [ %82, %81 ], [ %405, %aabbaabb.exit78.thread ]
   %409 = phi i32 [ %83, %81 ], [ %406, %aabbaabb.exit78.thread ]
-  %410 = load ptr, ptr %.040120, align 8, !tbaa !87
+  %410 = load ptr, ptr %.040121, align 8, !tbaa !87
   %.not48 = icmp eq ptr %410, null
   br i1 %.not48, label %80, label %81, !llvm.loop !88
 

@@ -299,7 +299,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %166 = ashr i32 %165, 1
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next203, %167
-  br i1 %168, label %.lr.ph168.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !41
+  br i1 %168, label %.lr.ph168.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !40
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
   %169 = phi i32 [ %198, %._crit_edge.split ], [ %64, %.preheader.lr.ph ]
@@ -351,7 +351,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %195 = ashr i32 %194, 1
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next, %196
-  br i1 %197, label %.lr.ph168, label %._crit_edge.split.loopexit, !llvm.loop !42
+  br i1 %197, label %.lr.ph168, label %._crit_edge.split.loopexit, !llvm.loop !40
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph168
   %.pre222 = load i32, ptr %56, align 8, !tbaa !37
@@ -386,7 +386,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %217 = add nuw nsw i32 %.0121181, 1
   %218 = ashr i32 %199, %.1127
   %219 = icmp slt i32 %217, %218
-  br i1 %219, label %.preheader, label %._crit_edge182, !llvm.loop !43
+  br i1 %219, label %.preheader, label %._crit_edge182, !llvm.loop !38
 
 ._crit_edge182:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %105
   %220 = phi i32 [ %64, %105 ], [ %127, %._crit_edge.split.us.us ], [ %198, %._crit_edge.split ]
@@ -398,7 +398,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %224 = getelementptr inbounds nuw i8, ptr %.2141.lcssa, i64 4
   %225 = add nuw nsw i32 %.0122189, 1
   %exitcond.not = icmp eq i32 %.0122189, %.1127
-  br i1 %exitcond.not, label %226, label %63, !llvm.loop !44
+  br i1 %exitcond.not, label %226, label %63, !llvm.loop !41
 
 226:                                              ; preds = %._crit_edge182
   store i32 1, ptr %2, align 4, !tbaa !37
@@ -467,10 +467,7 @@ attributes #5 = { nounwind }
 !35 = !{!5, !10, i64 648}
 !36 = !{!14, !14, i64 0}
 !37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !39, !40}
-!42 = distinct !{!42, !39}
-!43 = distinct !{!43, !39}
-!44 = distinct !{!44, !39}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}

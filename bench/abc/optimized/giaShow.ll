@@ -3881,7 +3881,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %110 = mul nuw nsw i64 %indvars.iv.next59, 6
   %111 = trunc nuw i64 %110 to i32
   %112 = icmp sgt i32 %.val3753, %111
-  br i1 %112, label %.lr.ph55.split, label %._crit_edge, !llvm.loop !95
+  br i1 %112, label %.lr.ph55.split, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %109, %.critedge
   %.not.i51 = icmp eq ptr %15, null
@@ -3956,7 +3956,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %25 = shl nsw i64 %indvars.iv.next15, 2
   %26 = icmp samesign ult i64 %25, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  br i1 %26, label %19, label %._crit_edge, !llvm.loop !96
+  br i1 %26, label %19, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %19, %Vec_IntStartFull.exit
   ret ptr %4
@@ -3965,7 +3965,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 ; Function Attrs: nounwind uwtable
 define i32 @Gia_ShowCollectObjs_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %9 = load ptr, ptr %8, align 8, !tbaa !97
+  %9 = load ptr, ptr %8, align 8, !tbaa !95
   %10 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %10, align 8, !tbaa !30
   %11 = ptrtoint ptr %1 to i64
@@ -3977,7 +3977,7 @@ define i32 @Gia_ShowCollectObjs_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
   %16 = getelementptr inbounds i8, ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %19 = load i32, ptr %18, align 8, !tbaa !98
+  %19 = load i32, ptr %18, align 8, !tbaa !96
   %.not = icmp eq i32 %17, %19
   br i1 %.not, label %20, label %65
 
@@ -4105,7 +4105,7 @@ Gia_ObjLevel.exit:                                ; preds = %20, %._crit_edge.i.
   %77 = zext nneg i32 %75 to i64
   %78 = getelementptr inbounds nuw i32, ptr %.val148, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !33
-  %.val166 = load i32, ptr %18, align 8, !tbaa !98
+  %.val166 = load i32, ptr %18, align 8, !tbaa !96
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %9, i64 %80
   store i32 %.val166, ptr %81, align 4, !tbaa !33
@@ -4740,9 +4740,9 @@ define noundef ptr @Gia_ShowCollectObjs(ptr noundef %0, ptr noundef %1, ptr noun
   %12 = getelementptr i8, ptr %0, i64 32
   %.val36 = load ptr, ptr %12, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %14 = load i32, ptr %13, align 8, !tbaa !98
+  %14 = load i32, ptr %13, align 8, !tbaa !96
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %16 = load ptr, ptr %15, align 8, !tbaa !97
+  %16 = load ptr, ptr %15, align 8, !tbaa !95
   store i32 %14, ptr %16, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !51
@@ -4780,7 +4780,7 @@ define noundef ptr @Gia_ShowCollectObjs(ptr noundef %0, ptr noundef %1, ptr noun
   %.val31 = load i32, ptr %19, align 4, !tbaa !29
   %31 = sext i32 %.val31 to i64
   %.not45 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %.not45, label %.lr.ph.split, label %.critedge.preheader, !llvm.loop !99
+  br i1 %.not45, label %.lr.ph.split, label %.critedge.preheader, !llvm.loop !97
 
 .lr.ph44:                                         ; preds = %.critedge.preheader, %.critedge
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.critedge ], [ 0, %.critedge.preheader ]
@@ -4807,7 +4807,7 @@ define noundef ptr @Gia_ShowCollectObjs(ptr noundef %0, ptr noundef %1, ptr noun
   %.val30 = load i32, ptr %44, align 4, !tbaa !29
   %45 = sext i32 %.val30 to i64
   %46 = icmp slt i64 %indvars.iv.next48, %45
-  br i1 %46, label %.lr.ph44, label %.critedge2, !llvm.loop !100
+  br i1 %46, label %.lr.ph44, label %.critedge2, !llvm.loop !98
 
 .critedge2:                                       ; preds = %.lr.ph44, %.critedge, %.critedge.preheader
   ret ptr %6
@@ -4880,7 +4880,7 @@ Vec_IntStartFull.exit.i:                          ; preds = %17, %Vec_IntAlloc.e
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not = icmp eq i64 %indvars.iv14.i, %25
-  br i1 %exitcond.not, label %Gia_ShowMapXors.exit, label %26, !llvm.loop !96
+  br i1 %exitcond.not, label %Gia_ShowMapXors.exit, label %26, !llvm.loop !94
 
 Gia_ShowMapXors.exit:                             ; preds = %26, %Vec_IntStartFull.exit.i
   %32 = tail call ptr @Gia_ShowCollectObjs(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %7, ptr noundef nonnull %9)
@@ -4937,7 +4937,7 @@ define void @Gia_ManShow(ptr noundef %0, ptr noundef readonly captures(address_i
 
 10:                                               ; preds = %5, %8
   %11 = phi ptr [ %9, %8 ], [ null, %5 ]
-  %12 = load ptr, ptr %0, align 8, !tbaa !101
+  %12 = load ptr, ptr %0, align 8, !tbaa !99
   %.not13 = icmp eq ptr %12, null
   %spec.select = select i1 %.not13, ptr @.str.70, ptr %12
   %13 = call ptr @Extra_FileNameGenericAppend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.71) #15
@@ -5166,12 +5166,10 @@ attributes #16 = { nounwind allocsize(1) }
 !90 = distinct !{!90, !35}
 !91 = distinct !{!91, !35}
 !92 = distinct !{!92, !35}
-!93 = distinct !{!93, !35, !94}
-!94 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!95 = distinct !{!95, !35}
-!96 = distinct !{!96, !35}
-!97 = !{!4, !11, i64 616}
-!98 = !{!4, !9, i64 176}
-!99 = distinct !{!99, !35}
-!100 = distinct !{!100, !35}
-!101 = !{!4, !5, i64 0}
+!93 = distinct !{!93, !35}
+!94 = distinct !{!94, !35}
+!95 = !{!4, !11, i64 616}
+!96 = !{!4, !9, i64 176}
+!97 = distinct !{!97, !35}
+!98 = distinct !{!98, !35}
+!99 = !{!4, !5, i64 0}

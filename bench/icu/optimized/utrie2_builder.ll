@@ -1073,7 +1073,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 60:                                               ; preds = %35
   %61 = add nsw i32 %.04578.us.i.i, -2048
   %62 = icmp sgt i32 %.04578.us.i.i, 2048
-  br i1 %62, label %35, label %.thread.i, !llvm.loop !64
+  br i1 %62, label %35, label %.thread.i, !llvm.loop !62
 
 .lr.ph81.us.i.i:                                  ; preds = %.outer.us.i.i, %.lr.ph81.us.preheader.i.i
   %.3.ph89.us.i.i = phi i32 [ %45, %.outer.us.i.i ], [ %.1.ph93.us.i.i, %.lr.ph81.us.preheader.i.i ]
@@ -1104,7 +1104,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 69:                                               ; preds = %65
   %70 = add nsw i32 %.04578.i.i, -2048
   %71 = icmp sgt i32 %.04578.i.i, 2048
-  br i1 %71, label %65, label %.thread.i, !llvm.loop !64
+  br i1 %71, label %65, label %.thread.i, !llvm.loop !62
 
 72:                                               ; preds = %65
   %73 = icmp eq i32 %67, %29
@@ -1167,7 +1167,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
 .loopexit61.i.i:                                  ; preds = %.outer.i.i, %80
   %.3.ph.lcssa76.i.i = phi i32 [ %.3.ph89.i.i, %80 ], [ %78, %.outer.i.i ]
   %91 = icmp sgt i32 %indvars.iv150.i.i, 0
-  br i1 %91, label %.lr.ph.i.i, label %.thread.i, !llvm.loop !64
+  br i1 %91, label %.lr.ph.i.i, label %.thread.i, !llvm.loop !62
 
 .thread.i:                                        ; preds = %.loopexit61.i.i, %69, %.outer64.us.i.i, %60
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 144168
@@ -1232,7 +1232,7 @@ _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %72, %82, %.preheade
   %122 = add nuw nsw i32 %.0103129.i.i, 32
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i31.i, 6
-  br i1 %exitcond.not.i.i, label %.preheader118.i.i, label %120, !llvm.loop !65
+  br i1 %exitcond.not.i.i, label %.preheader118.i.i, label %120, !llvm.loop !63
 
 .preheader.i32.i:                                 ; preds = %.outer.i34.i, %.backedge.i.i, %.preheader118.i.i
   %.099.ph.lcssa.i.i = phi i32 [ 192, %.preheader118.i.i ], [ %.099.ph161.i.i, %.backedge.i.i ], [ %.2101.i.i, %.outer.i34.i ]
@@ -1260,7 +1260,7 @@ _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %72, %82, %.preheade
   %134 = phi i32 [ %.pre.pre.i.i, %._crit_edge.i.i ], [ %127, %126 ]
   %.1104.be.i.i = add nsw i32 %spec.select.i.i, %.1104134.i.i
   %135 = icmp slt i32 %.1104.be.i.i, %134
-  br i1 %135, label %126, label %.preheader.i32.i, !llvm.loop !66
+  br i1 %135, label %126, label %.preheader.i32.i, !llvm.loop !64
 
 136:                                              ; preds = %126
   %137 = load ptr, ptr %24, align 8, !tbaa !18
@@ -1292,7 +1292,7 @@ _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %72, %82, %.preheade
   %148 = getelementptr inbounds nuw i8, ptr %.069.i.i.i.i, i64 4
   %149 = add nsw i32 %.010.i.i.i.i, -1
   %150 = icmp sgt i32 %.010.i.i.i.i, 1
-  br i1 %150, label %142, label %_ZL17findSameDataBlockPKjiii.exit.i.i, !llvm.loop !67
+  br i1 %150, label %142, label %_ZL17findSameDataBlockPKjiii.exit.i.i, !llvm.loop !65
 
 _ZL12equal_uint32PKjS0_i.exit.i.i.i:              ; preds = %142
   %.not15.i.i.i = icmp eq i32 %.010.i.i.i.i, 0
@@ -1302,7 +1302,7 @@ _ZL12equal_uint32PKjS0_i.exit.i.i.i:              ; preds = %142
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 4
   %152 = trunc nuw i64 %indvars.iv.next.i.i.i to i32
   %.not.i.i.i = icmp slt i32 %138, %152
-  br i1 %.not.i.i.i, label %.lr.ph141.i.i, label %140, !llvm.loop !68
+  br i1 %.not.i.i.i, label %.lr.ph141.i.i, label %140, !llvm.loop !66
 
 _ZL17findSameDataBlockPKjiii.exit.i.i:            ; preds = %_ZL12equal_uint32PKjS0_i.exit.i.i.i, %146
   %153 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -1325,7 +1325,7 @@ _ZL17findSameDataBlockPKjiii.exit.i.i:            ; preds = %_ZL12equal_uint32PK
   %159 = add nuw nsw i32 %.097131.i.i, 32
   %160 = add nsw i32 %.192132.i.i, -1
   %161 = icmp sgt i32 %.192132.i.i, 1
-  br i1 %161, label %.lr.ph.i35.i, label %._crit_edge.i.i, !llvm.loop !69
+  br i1 %161, label %.lr.ph.i35.i, label %._crit_edge.i.i, !llvm.loop !67
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i35.i
   %.pre.pre.i.i = load i32, ptr %117, align 8, !tbaa !32
@@ -1357,7 +1357,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %173 = getelementptr inbounds nuw i8, ptr %.069.i.i.i, i64 4
   %174 = add nsw i32 %.010.i.i.i, -1
   %175 = icmp sgt i32 %.010.i.i.i, 1
-  br i1 %175, label %167, label %.lr.ph151.preheader.i.i, !llvm.loop !67
+  br i1 %175, label %167, label %.lr.ph151.preheader.i.i, !llvm.loop !65
 
 .critedge111.i.i:                                 ; preds = %_ZL12equal_uint32PKjS0_i.exit.loopexit.i.i
   %176 = trunc nsw i64 %indvars.iv.next199.i.i to i32
@@ -1379,7 +1379,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %179 = add nsw i32 %.198148.i.i, 32
   %180 = add nsw i32 %.293149.i.i, -1
   %181 = icmp sgt i32 %.293149.i.i, 1
-  br i1 %181, label %.lr.ph151.i.i, label %._crit_edge152.i.i, !llvm.loop !70
+  br i1 %181, label %.lr.ph151.i.i, label %._crit_edge152.i.i, !llvm.loop !68
 
 ._crit_edge152.i.i:                               ; preds = %.lr.ph151.i.i
   %182 = add i32 %.094128.i.i, %.1104134.i.i
@@ -1403,7 +1403,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   store i32 %187, ptr %188, align 4, !tbaa !26
   %189 = add nsw i32 %.3155.i.i, -1
   %190 = icmp samesign ugt i32 %.3155.i.i, 1
-  br i1 %190, label %.lr.ph157.i.i, label %.outer.loopexit.i.i, !llvm.loop !71
+  br i1 %190, label %.lr.ph157.i.i, label %.outer.loopexit.i.i, !llvm.loop !69
 
 .lr.ph146.i.i:                                    ; preds = %.critedge111.i.i, %.lr.ph146.i.i
   %indvars.iv203.i.i = phi i64 [ %indvars.iv.next204.i.i, %.lr.ph146.i.i ], [ %130, %.critedge111.i.i ]
@@ -1415,7 +1415,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %192 = add nsw i32 %.4107143.i.i, 32
   %193 = add nsw i32 %.4144.i.i, -1
   %194 = icmp sgt i32 %.4144.i.i, 1
-  br i1 %194, label %.lr.ph146.i.i, label %.outer.i34.i, !llvm.loop !72
+  br i1 %194, label %.lr.ph146.i.i, label %.outer.i34.i, !llvm.loop !70
 
 .outer.loopexit.i.i:                              ; preds = %.lr.ph157.i.i
   %195 = trunc nsw i64 %indvars.iv.next216.i.i to i32
@@ -1427,7 +1427,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %.2101.i.i = phi i32 [ %.099.ph161.i.i, %._crit_edge152.i.i ], [ %196, %.outer.loopexit.i.i ], [ %192, %.lr.ph146.i.i ]
   %197 = load i32, ptr %117, align 8, !tbaa !32
   %198 = icmp slt i32 %.3106.i.i, %197
-  br i1 %198, label %.lr.ph137.i.i, label %.preheader.i32.i, !llvm.loop !66
+  br i1 %198, label %.lr.ph137.i.i, label %.preheader.i32.i, !llvm.loop !64
 
 .lr.ph137.i.i:                                    ; preds = %.preheader118.i.i, %.outer.i34.i
   %199 = phi i32 [ %197, %.outer.i34.i ], [ %118, %.preheader118.i.i ]
@@ -1452,7 +1452,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %208 = add nsw i32 %spec.select112.i.i, 1
   %209 = load i32, ptr %123, align 8, !tbaa !37
   %210 = icmp slt i32 %208, %209
-  br i1 %210, label %.lr.ph166.i.i, label %._crit_edge167.i.i, !llvm.loop !73
+  br i1 %210, label %.lr.ph166.i.i, label %._crit_edge167.i.i, !llvm.loop !71
 
 ._crit_edge167.i.i:                               ; preds = %.lr.ph166.i.i, %.preheader.i32.i
   %211 = load i32, ptr %30, align 4, !tbaa !31
@@ -1479,7 +1479,7 @@ _ZL12equal_uint32PKjS0_i.exit.loopexit.i.i:       ; preds = %167
   %221 = trunc nsw i64 %indvars.iv.next221.i.i to i32
   %222 = and i32 %221, 3
   %.not.i33.i = icmp eq i32 %222, 0
-  br i1 %.not.i33.i, label %_ZL11compactDataP9UNewTrie2.exit.i, label %219, !llvm.loop !74
+  br i1 %.not.i33.i, label %_ZL11compactDataP9UNewTrie2.exit.i, label %219, !llvm.loop !72
 
 _ZL11compactDataP9UNewTrie2.exit.i:               ; preds = %219, %._crit_edge167.i.i
   %.3102.lcssa.i.i = phi i32 [ %.099.ph.lcssa.i.i, %._crit_edge167.i.i ], [ %221, %219 ]
@@ -1495,7 +1495,7 @@ _ZL11compactDataP9UNewTrie2.exit.i:               ; preds = %219, %._crit_edge16
   %225 = add nuw nsw i32 %.06581.i.i, 64
   %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i38.i = icmp eq i64 %indvars.iv.next.i37.i, 33
-  br i1 %exitcond.not.i38.i, label %226, label %.preheader.i, !llvm.loop !75
+  br i1 %exitcond.not.i38.i, label %226, label %.preheader.i, !llvm.loop !73
 
 226:                                              ; preds = %.preheader.i
   %227 = load i32, ptr %114, align 8, !tbaa !23
@@ -1546,12 +1546,12 @@ _ZL11compactDataP9UNewTrie2.exit.i:               ; preds = %219, %._crit_edge16
   %244 = getelementptr inbounds nuw i8, ptr %.069.i.i.i47.i, i64 4
   %245 = add nsw i32 %.010.i.i.i46.i, -1
   %246 = icmp samesign ugt i32 %.010.i.i.i46.i, 1
-  br i1 %246, label %238, label %_ZL19findSameIndex2BlockPKiii.exit.i.i, !llvm.loop !76
+  br i1 %246, label %238, label %_ZL19findSameIndex2BlockPKiii.exit.i.i, !llvm.loop !74
 
 247:                                              ; preds = %238
   %indvars.iv.next.i.i49.i = add nuw nsw i64 %indvars.iv.i.i45.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i49.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.preheader74.loopexit.i.i, label %236, !llvm.loop !77
+  br i1 %exitcond.not.i.i.i, label %.preheader74.loopexit.i.i, label %236, !llvm.loop !75
 
 _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   %248 = trunc nuw nsw i64 %indvars.iv.i.i45.i to i32
@@ -1564,7 +1564,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   %253 = load i32, ptr %123, align 8, !tbaa !37
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next112.i.i, %254
-  br i1 %255, label %.lr.ph.i.i44.i, label %.preheader.i39.i, !llvm.loop !78
+  br i1 %255, label %.lr.ph.i.i44.i, label %.preheader.i39.i, !llvm.loop !76
 
 .preheader74.loopexit.i.i:                        ; preds = %247
   %256 = trunc nsw i64 %indvars.iv111.i.i to i32
@@ -1598,12 +1598,12 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   %270 = getelementptr inbounds nuw i8, ptr %.069.i.i51.i, i64 4
   %271 = add nsw i32 %.010.i.i50.i, -1
   %272 = icmp sgt i32 %.010.i.i50.i, 1
-  br i1 %272, label %264, label %.critedge.i.i, !llvm.loop !76
+  br i1 %272, label %264, label %.critedge.i.i, !llvm.loop !74
 
 273:                                              ; preds = %264
   %indvars.iv.next115.i.i = add nsw i64 %indvars.iv114.i.i, -1
   %274 = icmp samesign ugt i64 %indvars.iv114.i.i, 1
-  br i1 %274, label %260, label %.critedge71.i.i, !llvm.loop !79
+  br i1 %274, label %260, label %.critedge71.i.i, !llvm.loop !77
 
 .critedge71.i.i:                                  ; preds = %273
   %.old.i53.i = icmp slt i32 %.062.ph95.i.i, %.us-phi85.i.i
@@ -1648,7 +1648,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   store i32 %286, ptr %287, align 4, !tbaa !26
   %288 = add nsw i32 %.190.i.i, -1
   %289 = icmp samesign ugt i32 %.190.i.i, 1
-  br i1 %289, label %.lr.ph91.i.i, label %.outer.loopexit.i55.i, !llvm.loop !80
+  br i1 %289, label %.lr.ph91.i.i, label %.outer.loopexit.i55.i, !llvm.loop !78
 
 290:                                              ; preds = %.critedge71.i.i
   store i32 %.us-phi85.i.i, ptr %277, align 4, !tbaa !26
@@ -1665,7 +1665,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   %.264.i.i = phi i32 [ %291, %290 ], [ %.062.ph95.i.i, %.critedge.i.i ], [ %293, %.outer.loopexit.i55.i ]
   %294 = load i32, ptr %123, align 8, !tbaa !37
   %295 = icmp slt i32 %.368.i.i, %294
-  br i1 %295, label %.lr.ph.i42.i, label %.preheader.i39.i, !llvm.loop !78
+  br i1 %295, label %.lr.ph.i42.i, label %.preheader.i39.i, !llvm.loop !76
 
 296:                                              ; preds = %296, %.preheader.i39.i
   %indvars.iv127.i.i = phi i64 [ 0, %.preheader.i39.i ], [ %indvars.iv.next128.i.i, %296 ]
@@ -1678,7 +1678,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   store i32 %302, ptr %297, align 4, !tbaa !26
   %indvars.iv.next128.i.i = add nuw nsw i64 %indvars.iv127.i.i, 1
   %exitcond130.not.i.i = icmp eq i64 %indvars.iv.next128.i.i, 544
-  br i1 %exitcond130.not.i.i, label %303, label %296, !llvm.loop !81
+  br i1 %exitcond130.not.i.i, label %303, label %296, !llvm.loop !79
 
 303:                                              ; preds = %296
   %304 = load i32, ptr %28, align 8, !tbaa !36
@@ -1703,7 +1703,7 @@ _ZL19findSameIndex2BlockPKiii.exit.i.i:           ; preds = %242
   %313 = trunc nsw i64 %indvars.iv.next132.i.i to i32
   %314 = and i32 %313, 3
   %.not.i40.i = icmp eq i32 %314, 0
-  br i1 %.not.i40.i, label %_ZL13compactIndex2P9UNewTrie2.exit.i, label %311, !llvm.loop !82
+  br i1 %.not.i40.i, label %_ZL13compactIndex2P9UNewTrie2.exit.i, label %311, !llvm.loop !80
 
 _ZL13compactIndex2P9UNewTrie2.exit.i:             ; preds = %311, %303
   %.3.lcssa.i.i = phi i32 [ %.062.ph.lcssa.i.i, %303 ], [ %313, %311 ]
@@ -1739,7 +1739,7 @@ _ZL13compactIndex2P9UNewTrie2.exit.i:             ; preds = %311, %303
   %329 = load i32, ptr %117, align 8, !tbaa !32
   %330 = and i32 %329, 3
   %.not29.i = icmp eq i32 %330, 0
-  br i1 %.not29.i, label %_ZL11compactTrieP6UTrie2P10UErrorCode.exit, label %324, !llvm.loop !83
+  br i1 %.not29.i, label %_ZL11compactTrieP6UTrie2P10UErrorCode.exit, label %324, !llvm.loop !81
 
 _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i8 1, ptr %20, align 4, !tbaa !25
@@ -1824,10 +1824,10 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 1, ptr %373, align 4, !tbaa !44
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.0139150, ptr %374, align 8, !tbaa !84
+  store i32 %.0139150, ptr %374, align 8, !tbaa !82
   %375 = load i32, ptr %350, align 8, !tbaa !32
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %375, ptr %376, align 4, !tbaa !85
+  store i32 %375, ptr %376, align 4, !tbaa !83
   br i1 %335, label %381, label %377
 
 377:                                              ; preds = %371
@@ -1839,35 +1839,35 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
 381:                                              ; preds = %371, %377
   %.sink = phi i16 [ %380, %377 ], [ -1, %371 ]
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %.sink, ptr %382, align 8, !tbaa !86
+  store i16 %.sink, ptr %382, align 8, !tbaa !84
   %383 = load i32, ptr %344, align 4, !tbaa !31
   %384 = add nsw i32 %383, %.0139.151
   %385 = trunc i32 %384 to i16
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i16 %385, ptr %386, align 2, !tbaa !87
+  store i16 %385, ptr %386, align 2, !tbaa !85
   %387 = add i32 %.0139.151, -4
   %388 = add i32 %387, %375
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %388, ptr %389, align 8, !tbaa !88
-  store i32 1416784178, ptr %367, align 4, !tbaa !89
+  store i32 %388, ptr %389, align 8, !tbaa !86
+  store i32 1416784178, ptr %367, align 4, !tbaa !87
   %390 = trunc nuw nsw i32 %1 to i16
   %391 = getelementptr inbounds nuw i8, ptr %367, i64 4
-  store i16 %390, ptr %391, align 4, !tbaa !91
+  store i16 %390, ptr %391, align 4, !tbaa !89
   %392 = trunc i32 %.0139150 to i16
   %393 = getelementptr inbounds nuw i8, ptr %367, i64 6
-  store i16 %392, ptr %393, align 2, !tbaa !92
+  store i16 %392, ptr %393, align 2, !tbaa !90
   %394 = lshr i32 %375, 2
   %395 = trunc i32 %394 to i16
   %396 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i16 %395, ptr %396, align 4, !tbaa !93
+  store i16 %395, ptr %396, align 4, !tbaa !91
   %397 = getelementptr inbounds nuw i8, ptr %367, i64 10
-  store i16 %.sink, ptr %397, align 2, !tbaa !94
+  store i16 %.sink, ptr %397, align 2, !tbaa !92
   %398 = getelementptr inbounds nuw i8, ptr %367, i64 12
-  store i16 %385, ptr %398, align 4, !tbaa !95
+  store i16 %385, ptr %398, align 4, !tbaa !93
   %399 = lshr i32 %334, 11
   %400 = trunc i32 %399 to i16
   %401 = getelementptr inbounds nuw i8, ptr %367, i64 14
-  store i16 %400, ptr %401, align 2, !tbaa !96
+  store i16 %400, ptr %401, align 2, !tbaa !94
   %402 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store ptr %402, ptr %0, align 8, !tbaa !45
   %403 = getelementptr inbounds nuw i8, ptr %12, i64 2176
@@ -1891,14 +1891,14 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i16 %411, ptr %.0127236, align 2, !tbaa !53
   %413 = add nsw i32 %.0131235, -1
   %414 = icmp samesign ugt i32 %.0131235, 1
-  br i1 %414, label %406, label %.preheader153, !llvm.loop !97
+  br i1 %414, label %406, label %.preheader153, !llvm.loop !95
 
 415:                                              ; preds = %.preheader153, %415
   %.1128239 = phi ptr [ %412, %.preheader153 ], [ %417, %415 ]
   %416 = phi i1 [ true, %.preheader153 ], [ false, %415 ]
   %417 = getelementptr inbounds nuw i8, ptr %.1128239, i64 2
   store i16 %405, ptr %.1128239, align 2, !tbaa !53
-  br i1 %416, label %415, label %.preheader, !llvm.loop !98
+  br i1 %416, label %415, label %.preheader, !llvm.loop !96
 
 .preheader:                                       ; preds = %415, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 2, %415 ]
@@ -1912,7 +1912,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i16 %422, ptr %.2129241, align 2, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %424, label %.preheader, !llvm.loop !99
+  br i1 %exitcond.not, label %424, label %.preheader, !llvm.loop !97
 
 424:                                              ; preds = %.preheader
   %425 = icmp sgt i32 %334, 65536
@@ -1940,7 +1940,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i16 %433, ptr %.4243, align 2, !tbaa !53
   %435 = add nsw i32 %.3134242, -1
   %436 = icmp samesign ugt i32 %.3134242, 1
-  br i1 %436, label %.lr.ph, label %._crit_edge, !llvm.loop !100
+  br i1 %436, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %426
   %.4.lcssa = phi ptr [ %423, %426 ], [ %434, %.lr.ph ]
@@ -1968,7 +1968,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i16 %447, ptr %.5246, align 2, !tbaa !53
   %449 = add nsw i32 %.4135245, -1
   %450 = icmp samesign ugt i32 %.4135245, 1
-  br i1 %450, label %.lr.ph249, label %.loopexit152, !llvm.loop !101
+  br i1 %450, label %.lr.ph249, label %.loopexit152, !llvm.loop !99
 
 .loopexit152:                                     ; preds = %.lr.ph249, %._crit_edge, %424
   %.3130 = phi ptr [ %423, %424 ], [ %.4.lcssa, %._crit_edge ], [ %448, %.lr.ph249 ]
@@ -1996,7 +1996,7 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %324, %315
   store i16 %459, ptr %.6252, align 2, !tbaa !53
   %461 = add nsw i32 %.5136251, -1
   %462 = icmp samesign ugt i32 %.5136251, 1
-  br i1 %462, label %.lr.ph255, label %.loopexit, !llvm.loop !102
+  br i1 %462, label %.lr.ph255, label %.loopexit, !llvm.loop !100
 
 463:                                              ; preds = %.loopexit152
   store ptr null, ptr %451, align 8, !tbaa !46
@@ -2090,7 +2090,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
   %.017.i.add = add nuw nsw i64 %.017.i.idx, 4
   store i32 %3, ptr %.017.i.ptr, align 4, !tbaa !26
   %43 = icmp samesign ult i64 %.017.i.idx, 124
-  br i1 %43, label %.lr.ph.i, label %_ZL9fillBlockPjiijja.exit, !llvm.loop !103
+  br i1 %43, label %.lr.ph.i, label %_ZL9fillBlockPjiijja.exit, !llvm.loop !101
 
 .lr.ph19.i:                                       ; preds = %39, %47
   %.118.i.idx = phi i64 [ %.118.i.add, %47 ], [ %.idx, %39 ]
@@ -2106,7 +2106,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
 47:                                               ; preds = %46, %.lr.ph19.i
   %.118.i.add = add nuw nsw i64 %.118.i.idx, 4
   %48 = icmp samesign ult i64 %.118.i.idx, 124
-  br i1 %48, label %.lr.ph19.i, label %_ZL9fillBlockPjiijja.exit, !llvm.loop !104
+  br i1 %48, label %.lr.ph19.i, label %_ZL9fillBlockPjiijja.exit, !llvm.loop !102
 
 49:                                               ; preds = %32
   %50 = and i32 %27, 31
@@ -2131,7 +2131,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
   %58 = getelementptr inbounds nuw i8, ptr %.017.i132, i64 4
   store i32 %3, ptr %.017.i132, align 4, !tbaa !26
   %59 = icmp ult ptr %58, %54
-  br i1 %59, label %.lr.ph.i131, label %.critedge, !llvm.loop !103
+  br i1 %59, label %.lr.ph.i131, label %.critedge, !llvm.loop !101
 
 .lr.ph19.i134:                                    ; preds = %.preheader.i133, %63
   %.118.i135 = phi ptr [ %64, %63 ], [ %56, %.preheader.i133 ]
@@ -2146,7 +2146,7 @@ define void @utrie2_setRange32_77(ptr noundef readonly captures(none) %0, i32 no
 63:                                               ; preds = %62, %.lr.ph19.i134
   %64 = getelementptr inbounds nuw i8, ptr %.118.i135, i64 4
   %65 = icmp ult ptr %64, %54
-  br i1 %65, label %.lr.ph19.i134, label %.critedge, !llvm.loop !104
+  br i1 %65, label %.lr.ph19.i134, label %.critedge, !llvm.loop !102
 
 _ZL9fillBlockPjiijja.exit:                        ; preds = %.lr.ph.i, %47, %26
   %.099 = phi i32 [ %1, %26 ], [ %34, %47 ], [ %34, %.lr.ph.i ]
@@ -2212,7 +2212,7 @@ _ZL13isInNullBlockP9UNewTrie2ia.exit:             ; preds = %89, %92
   %102 = load i32, ptr %101, align 4, !tbaa !26
   %103 = load i32, ptr %77, align 4, !tbaa !31
   %.not = icmp eq i32 %102, %103
-  br i1 %.not, label %.critedge128, label %104, !llvm.loop !105
+  br i1 %.not, label %.critedge128, label %104, !llvm.loop !103
 
 104:                                              ; preds = %_ZL13isInNullBlockP9UNewTrie2ia.exit, %83
   %105 = and i32 %.2175, -1024
@@ -2290,7 +2290,7 @@ _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %_ZL14getIndex2Block
   %.017.i141.add = add nuw nsw i64 %.017.i141.idx, 4
   store i32 %3, ptr %.017.i141.ptr, align 4, !tbaa !26
   %143 = icmp samesign ult i64 %.017.i141.idx, 124
-  br i1 %143, label %.lr.ph.i140, label %.critedge128, !llvm.loop !103
+  br i1 %143, label %.lr.ph.i140, label %.critedge128, !llvm.loop !101
 
 .lr.ph19.i143:                                    ; preds = %138, %147
   %.118.i144.idx = phi i64 [ %.118.i144.add, %147 ], [ 0, %138 ]
@@ -2306,7 +2306,7 @@ _ZL15isWritableBlockP9UNewTrie2i.exit:            ; preds = %_ZL14getIndex2Block
 147:                                              ; preds = %146, %.lr.ph19.i143
   %.118.i144.add = add nuw nsw i64 %.118.i144.idx, 4
   %148 = icmp samesign ult i64 %.118.i144.idx, 124
-  br i1 %148, label %.lr.ph19.i143, label %.critedge128, !llvm.loop !104
+  br i1 %148, label %.lr.ph19.i143, label %.critedge128, !llvm.loop !102
 
 _ZL15isWritableBlockP9UNewTrie2i.exit.thread:     ; preds = %_ZL14getIndex2BlockP9UNewTrie2ia.exit.thread156, %_ZL15isWritableBlockP9UNewTrie2i.exit
   %149 = load ptr, ptr %81, align 8, !tbaa !18
@@ -2367,7 +2367,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   %.0.add.i = add nuw nsw i64 %.0.idx4.i, 4
   store i32 %3, ptr %.0.ptr.i, align 4, !tbaa !26
   %179 = icmp samesign ult i64 %.0.idx4.i, 124
-  br i1 %179, label %178, label %.critedge128, !llvm.loop !106
+  br i1 %179, label %178, label %.critedge128, !llvm.loop !104
 
 .critedge128:                                     ; preds = %.lr.ph.i140, %147, %178, %_ZL14setIndex2EntryP9UNewTrie2ii.exit, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread, %_ZL13isInNullBlockP9UNewTrie2ia.exit
   %.2104 = phi i32 [ %.1103174, %_ZL13isInNullBlockP9UNewTrie2ia.exit ], [ %.1103174, %_ZL14setIndex2EntryP9UNewTrie2ii.exit ], [ %.1103174, %_ZL15isWritableBlockP9UNewTrie2i.exit.thread ], [ %172, %178 ], [ %.1103174, %147 ], [ %.1103174, %.lr.ph.i140 ]
@@ -2401,7 +2401,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
   %192 = getelementptr inbounds nuw i8, ptr %.017.i149, i64 4
   store i32 %3, ptr %.017.i149, align 4, !tbaa !26
   %193 = icmp ult ptr %192, %191
-  br i1 %193, label %.lr.ph.i148, label %.critedge, !llvm.loop !103
+  br i1 %193, label %.lr.ph.i148, label %.critedge, !llvm.loop !101
 
 .lr.ph19.i151:                                    ; preds = %184, %197
   %.118.i152 = phi ptr [ %198, %197 ], [ %188, %184 ]
@@ -2416,7 +2416,7 @@ _ZL14setIndex2EntryP9UNewTrie2ii.exit:            ; preds = %155, %168
 197:                                              ; preds = %196, %.lr.ph19.i151
   %198 = getelementptr inbounds nuw i8, ptr %.118.i152, i64 4
   %199 = icmp ult ptr %198, %191
-  br i1 %199, label %.lr.ph19.i151, label %.critedge, !llvm.loop !104
+  br i1 %199, label %.lr.ph19.i151, label %.critedge, !llvm.loop !102
 
 .critedge.sink.split:                             ; preds = %171, %_ZL14getIndex2BlockP9UNewTrie2ia.exit, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i, %114, %181, %29, %13, %17, %9
   %.sink = phi i32 [ 1, %9 ], [ 30, %17 ], [ 30, %13 ], [ 7, %29 ], [ 7, %181 ], [ 5, %114 ], [ 5, %_ZL16allocIndex2BlockP9UNewTrie2.exit.i ], [ 5, %_ZL14getIndex2BlockP9UNewTrie2ia.exit ], [ 7, %171 ]
@@ -2686,8 +2686,8 @@ attributes #7 = { allocsize(0) }
 !59 = distinct !{!59, !28}
 !60 = distinct !{!60, !28}
 !61 = distinct !{!61, !28}
-!62 = distinct !{!62, !28, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !28}
+!63 = distinct !{!63, !28}
 !64 = distinct !{!64, !28}
 !65 = distinct !{!65, !28}
 !66 = distinct !{!66, !28}
@@ -2706,21 +2706,21 @@ attributes #7 = { allocsize(0) }
 !79 = distinct !{!79, !28}
 !80 = distinct !{!80, !28}
 !81 = distinct !{!81, !28}
-!82 = distinct !{!82, !28}
-!83 = distinct !{!83, !28}
-!84 = !{!8, !12, i64 24}
-!85 = !{!8, !12, i64 28}
-!86 = !{!8, !13, i64 32}
-!87 = !{!8, !13, i64 34}
-!88 = !{!8, !12, i64 48}
-!89 = !{!90, !12, i64 0}
-!90 = !{!"_ZTS12UTrie2Header", !12, i64 0, !13, i64 4, !13, i64 6, !13, i64 8, !13, i64 10, !13, i64 12, !13, i64 14}
-!91 = !{!90, !13, i64 4}
-!92 = !{!90, !13, i64 6}
-!93 = !{!90, !13, i64 8}
-!94 = !{!90, !13, i64 10}
-!95 = !{!90, !13, i64 12}
-!96 = !{!90, !13, i64 14}
+!82 = !{!8, !12, i64 24}
+!83 = !{!8, !12, i64 28}
+!84 = !{!8, !13, i64 32}
+!85 = !{!8, !13, i64 34}
+!86 = !{!8, !12, i64 48}
+!87 = !{!88, !12, i64 0}
+!88 = !{!"_ZTS12UTrie2Header", !12, i64 0, !13, i64 4, !13, i64 6, !13, i64 8, !13, i64 10, !13, i64 12, !13, i64 14}
+!89 = !{!88, !13, i64 4}
+!90 = !{!88, !13, i64 6}
+!91 = !{!88, !13, i64 8}
+!92 = !{!88, !13, i64 10}
+!93 = !{!88, !13, i64 12}
+!94 = !{!88, !13, i64 14}
+!95 = distinct !{!95, !28}
+!96 = distinct !{!96, !28}
 !97 = distinct !{!97, !28}
 !98 = distinct !{!98, !28}
 !99 = distinct !{!99, !28}
@@ -2729,5 +2729,3 @@ attributes #7 = { allocsize(0) }
 !102 = distinct !{!102, !28}
 !103 = distinct !{!103, !28}
 !104 = distinct !{!104, !28}
-!105 = distinct !{!105, !28}
-!106 = distinct !{!106, !28}

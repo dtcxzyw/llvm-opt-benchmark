@@ -475,7 +475,7 @@ gif_read_palette.exit.i.i:                        ; preds = %184, %202
 
 232:                                              ; preds = %212, %209
   %233 = getelementptr inbounds nuw i8, ptr %7, i64 2200
-  %234 = load i32, ptr %233, align 8, !tbaa !69
+  %234 = load i32, ptr %233, align 8, !tbaa !68
   %235 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %236 = load i32, ptr %235, align 8, !tbaa !55
   %237 = sext i32 %236 to i64
@@ -610,13 +610,13 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
 
 296:                                              ; preds = %293
   %297 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %298 = load i32, ptr %297, align 4, !tbaa !70
+  %298 = load i32, ptr %297, align 4, !tbaa !69
   %299 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %300 = load i32, ptr %299, align 8, !tbaa !71
+  %300 = load i32, ptr %299, align 8, !tbaa !70
   %301 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  %302 = load i32, ptr %301, align 4, !tbaa !72
+  %302 = load i32, ptr %301, align 4, !tbaa !71
   %303 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %304 = load i32, ptr %303, align 8, !tbaa !73
+  %304 = load i32, ptr %303, align 8, !tbaa !72
   %.val.i.i = load ptr, ptr %129, align 8, !tbaa !45
   %305 = getelementptr i8, ptr %129, i64 64
   %.val236.i.i = load i32, ptr %305, align 8, !tbaa !55
@@ -626,7 +626,7 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
 
 .lr.ph5.i.i.i:                                    ; preds = %296
   %308 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %309 = load i32, ptr %308, align 4, !tbaa !74
+  %309 = load i32, ptr %308, align 4, !tbaa !73
   %310 = sext i32 %309 to i64
   %311 = icmp sgt i32 %302, 0
   br i1 %311, label %.lr.ph.us.preheader.i.i.i, label %gif_fill_rect.exit.i.i
@@ -650,13 +650,13 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   store i32 %298, ptr %317, align 4, !tbaa !55
   %indvars.iv.next.i252.i.i = add nuw nsw i64 %indvars.iv.i251.i.i, 1
   %exitcond.not.i253.i.i = icmp eq i64 %indvars.iv.next.i252.i.i, %wide.trip.count.i250.i.i
-  br i1 %exitcond.not.i253.i.i, label %._crit_edge.us.i254.i.i, label %316, !llvm.loop !75
+  br i1 %exitcond.not.i253.i.i, label %._crit_edge.us.i254.i.i, label %316, !llvm.loop !74
 
 ._crit_edge.us.i254.i.i:                          ; preds = %316
   %318 = getelementptr inbounds i8, ptr %.0163.us.i.i.i, i64 %306
   %319 = add nuw nsw i32 %.0172.us.i.i.i, 1
   %exitcond9.not.i.i.i = icmp eq i32 %319, %304
-  br i1 %exitcond9.not.i.i.i, label %gif_fill_rect.exit.i.i, label %.lr.ph.us.i.i.i, !llvm.loop !76
+  br i1 %exitcond9.not.i.i.i, label %gif_fill_rect.exit.i.i, label %.lr.ph.us.i.i.i, !llvm.loop !75
 
 320:                                              ; preds = %293
   %321 = getelementptr inbounds nuw i8, ptr %129, i64 64
@@ -665,20 +665,20 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   %324 = zext nneg i32 %323 to i64
   %325 = sext i32 %322 to i64
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %327 = load i32, ptr %326, align 8, !tbaa !73
+  %327 = load i32, ptr %326, align 8, !tbaa !72
   %328 = icmp sgt i32 %327, 0
   br i1 %328, label %.lr.ph.i.i.i, label %gif_fill_rect.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320
   %329 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  %330 = load i32, ptr %329, align 4, !tbaa !72
+  %330 = load i32, ptr %329, align 4, !tbaa !71
   %331 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %332 = load i32, ptr %331, align 8, !tbaa !71
+  %332 = load i32, ptr %331, align 8, !tbaa !70
   %333 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  %334 = load i32, ptr %333, align 4, !tbaa !74
+  %334 = load i32, ptr %333, align 4, !tbaa !73
   %335 = load ptr, ptr %129, align 8, !tbaa !45
   %336 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %337 = load ptr, ptr %336, align 8, !tbaa !77
+  %337 = load ptr, ptr %336, align 8, !tbaa !76
   %338 = sext i32 %332 to i64
   %339 = mul nsw i64 %338, %325
   %340 = getelementptr inbounds i8, ptr %335, i64 %339
@@ -701,23 +701,23 @@ gif_fill.exit.i.i:                                ; preds = %._crit_edge.us.i.i.
   %351 = getelementptr inbounds i8, ptr %.01922.i.i.i, i64 %325
   %352 = add nuw nsw i32 %.023.i.i.i, 1
   %exitcond.not.i255.i.i = icmp eq i32 %352, %327
-  br i1 %exitcond.not.i255.i.i, label %gif_fill_rect.exit.i.i, label %347, !llvm.loop !78
+  br i1 %exitcond.not.i255.i.i, label %gif_fill_rect.exit.i.i, label %347, !llvm.loop !77
 
 gif_fill_rect.exit.i.i:                           ; preds = %347, %._crit_edge.us.i254.i.i, %320, %.lr.ph5.i.i.i, %296, %293
-  %353 = load i32, ptr %139, align 8, !tbaa !79
+  %353 = load i32, ptr %139, align 8, !tbaa !78
   store i32 %353, ptr %294, align 4, !tbaa !43
   %.not229.i.i = icmp eq i32 %353, 0
   br i1 %.not229.i.i, label %gif_copy_img_rect.exit261.i.i, label %354
 
 354:                                              ; preds = %gif_fill_rect.exit.i.i
   %355 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i32 %160, ptr %355, align 4, !tbaa !74
+  store i32 %160, ptr %355, align 4, !tbaa !73
   %356 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i32 %163, ptr %356, align 8, !tbaa !71
+  store i32 %163, ptr %356, align 8, !tbaa !70
   %357 = getelementptr inbounds nuw i8, ptr %7, i64 76
-  store i32 %.0186.i.i, ptr %357, align 4, !tbaa !72
+  store i32 %.0186.i.i, ptr %357, align 4, !tbaa !71
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i32 %.1.i.i, ptr %358, align 8, !tbaa !73
+  store i32 %.1.i.i, ptr %358, align 8, !tbaa !72
   switch i32 %353, label %gif_copy_img_rect.exit261.i.i [
     i32 2, label %gif_copy_img_rect.exit261.sink.split.i.i
     i32 3, label %364
@@ -730,7 +730,7 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %..i.i = select i1 %360, i64 2200, i64 32
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 %..i.i
   %363 = load i32, ptr %362, align 8, !tbaa !55
-  store i32 %363, ptr %361, align 4, !tbaa !70
+  store i32 %363, ptr %361, align 4, !tbaa !69
   br label %gif_copy_img_rect.exit261.i.i
 
 364:                                              ; preds = %354
@@ -744,7 +744,7 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %372 = mul nsw i32 %369, %371
   %373 = sext i32 %372 to i64
   tail call void @av_fast_malloc(ptr noundef nonnull %365, ptr noundef nonnull %366, i64 noundef %373) #8
-  %374 = load ptr, ptr %365, align 8, !tbaa !77
+  %374 = load ptr, ptr %365, align 8, !tbaa !76
   %.not230.i.i = icmp eq ptr %374, null
   br i1 %.not230.i.i, label %gif_parse_next_image.exit.thread, label %375
 
@@ -780,7 +780,7 @@ gif_copy_img_rect.exit261.sink.split.i.i:         ; preds = %354
   %395 = getelementptr inbounds nuw i8, ptr %.01922.i258.i.i, i64 %379
   %396 = add nuw nsw i32 %.023.i257.i.i, 1
   %exitcond.not.i260.i.i = icmp eq i32 %396, %.1.i.i
-  br i1 %exitcond.not.i260.i.i, label %gif_copy_img_rect.exit261.i.i, label %391, !llvm.loop !78
+  br i1 %exitcond.not.i260.i.i, label %gif_copy_img_rect.exit261.i.i, label %391, !llvm.loop !77
 
 gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_copy_img_rect.exit261.sink.split.i.i, %354, %gif_fill_rect.exit.i.i
   %397 = load ptr, ptr %18, align 8, !tbaa !40
@@ -884,7 +884,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %452 = getelementptr inbounds nuw i8, ptr %.0188272.i.i, i64 4
   %453 = getelementptr inbounds nuw i8, ptr %.0183273.i.i, i64 1
   %454 = icmp ult ptr %452, %442
-  br i1 %454, label %.lr.ph.i.i54, label %._crit_edge.i.i, !llvm.loop !80
+  br i1 %454, label %.lr.ph.i.i54, label %._crit_edge.i.i, !llvm.loop !79
 
 ._crit_edge.i.i:                                  ; preds = %451, %441
   br i1 %.not232.i.i, label %468, label %455
@@ -921,7 +921,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %466 = lshr i32 4, %.2194275.i.i
   %467 = add nsw i32 %.2194275.i.i, 1
   %.not233.i.i = icmp slt i32 %466, %.1.i.i
-  br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph277.i.i, !llvm.loop !81
+  br i1 %.not233.i.i, label %..loopexit_crit_edge.i.i, label %.lr.ph277.i.i, !llvm.loop !80
 
 468:                                              ; preds = %._crit_edge.i.i
   %469 = getelementptr inbounds i32, ptr %.0190286.i.i, i64 %.sext298.i.i
@@ -939,7 +939,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %.1191.ph.i.i = phi ptr [ %469, %468 ], [ %472, %..loopexit_crit_edge.i.i ], [ %.2.i.i, %465 ]
   %473 = add nuw nsw i32 %.0187287.i.i, 1
   %exitcond.not.i.i53 = icmp eq i32 %473, %.1.i.i
-  br i1 %exitcond.not.i.i53, label %.loopexit, label %434, !llvm.loop !82
+  br i1 %exitcond.not.i.i53, label %.loopexit, label %434, !llvm.loop !81
 
 474:                                              ; preds = %bytestream2_get_byte.exit.i
   %475 = load ptr, ptr %18, align 8, !tbaa !40
@@ -994,7 +994,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %505 = and i32 %504, 7
   %506 = icmp samesign ugt i32 %505, 3
   %spec.select.i.i = select i1 %506, i32 0, i32 %505
-  store i32 %spec.select.i.i, ptr %139, align 8, !tbaa !79
+  store i32 %spec.select.i.i, ptr %139, align 8, !tbaa !78
   %507 = getelementptr inbounds nuw i8, ptr %476, i64 7
   store ptr %507, ptr %8, align 8, !tbaa !45
   %508 = load i8, ptr %497, align 1, !tbaa !46
@@ -1023,7 +1023,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   store ptr %517, ptr %8, align 8, !tbaa !45
   %518 = load i8, ptr %516, align 1, !tbaa !46
   %.not26.i.i = icmp eq i8 %518, 0
-  br i1 %.not26.i.i, label %.loopexit.i, label %.lr.ph.i16.i, !llvm.loop !83
+  br i1 %.not26.i.i, label %.loopexit.i, label %.lr.ph.i16.i, !llvm.loop !82
 
 .loopexit.i:                                      ; preds = %514, %509
   %519 = phi ptr [ %.promoted.i.i, %509 ], [ %517, %514 ]
@@ -1041,7 +1041,7 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %528 = getelementptr inbounds nuw i8, ptr %526, i64 %527
   store ptr %528, ptr %8, align 8, !tbaa !38
   store i32 -1, ptr %138, align 8, !tbaa !44
-  store i32 0, ptr %139, align 8, !tbaa !79
+  store i32 0, ptr %139, align 8, !tbaa !78
   %529 = load ptr, ptr %124, align 8, !tbaa !33
   %530 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %529) #8
   %531 = icmp slt i32 %530, 0
@@ -1052,10 +1052,10 @@ gif_copy_img_rect.exit261.i.i:                    ; preds = %391, %375, %gif_cop
   %.not52 = icmp eq i32 %533, 0
   %534 = select i1 %.not52, i32 2, i32 1
   %535 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 %534, ptr %535, align 8, !tbaa !84
+  store i32 %534, ptr %535, align 8, !tbaa !83
   %536 = shl nsw i32 %533, 1
   %537 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  store i32 %536, ptr %537, align 4, !tbaa !85
+  store i32 %536, ptr %537, align 4, !tbaa !84
   %538 = icmp ne i32 %533, 0
   %539 = zext i1 %538 to i32
   %540 = getelementptr inbounds nuw i8, ptr %7, i64 2196
@@ -1222,22 +1222,21 @@ attributes #9 = { noreturn nounwind }
 !64 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !65 = !{!61, !10, i64 108}
 !66 = distinct !{!66, !57}
-!67 = distinct !{!67, !57, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = !{!28, !10, i64 2200}
-!70 = !{!28, !10, i64 100}
-!71 = !{!28, !10, i64 72}
-!72 = !{!28, !10, i64 76}
-!73 = !{!28, !10, i64 80}
-!74 = !{!28, !10, i64 68}
+!67 = distinct !{!67, !57}
+!68 = !{!28, !10, i64 2200}
+!69 = !{!28, !10, i64 100}
+!70 = !{!28, !10, i64 72}
+!71 = !{!28, !10, i64 76}
+!72 = !{!28, !10, i64 80}
+!73 = !{!28, !10, i64 68}
+!74 = distinct !{!74, !57}
 !75 = distinct !{!75, !57}
-!76 = distinct !{!76, !57, !68}
-!77 = !{!28, !14, i64 88}
-!78 = distinct !{!78, !57}
-!79 = !{!28, !10, i64 64}
+!76 = !{!28, !14, i64 88}
+!77 = distinct !{!77, !57}
+!78 = !{!28, !10, i64 64}
+!79 = distinct !{!79, !57}
 !80 = distinct !{!80, !57}
 !81 = distinct !{!81, !57}
 !82 = distinct !{!82, !57}
-!83 = distinct !{!83, !57}
-!84 = !{!61, !10, i64 120}
-!85 = !{!61, !10, i64 276}
+!83 = !{!61, !10, i64 120}
+!84 = !{!61, !10, i64 276}

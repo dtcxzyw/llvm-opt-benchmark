@@ -155,7 +155,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit83.thread:           ; preds = %21
   %69 = add i32 %.051121, 1
   %70 = zext i32 %68 to i64
   %71 = icmp samesign ugt i64 %.sroa.speculated, %70
-  br i1 %71, label %59, label %._crit_edge, !llvm.loop !10
+  br i1 %71, label %59, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge126:                                   ; preds = %.lr.ph125.split, %.lr.ph125.split.us, %._crit_edge
   invoke void @_ZN3ue212bytecode_ptrI9noodTableEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 32, i64 noundef 8)
@@ -176,10 +176,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit83.thread:           ; preds = %21
   %80 = add i32 %.050123, 1
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ugt i64 %.sroa.speculated, %81
-  br i1 %82, label %.lr.ph125.split, label %._crit_edge126, !llvm.loop !11
+  br i1 %82, label %.lr.ph125.split, label %._crit_edge126, !llvm.loop !7
 
 83:                                               ; preds = %._crit_edge126
-  %84 = load ptr, ptr %0, align 8, !alias.scope !12
+  %84 = load ptr, ptr %0, align 8, !alias.scope !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false)
   %85 = load i64, ptr %5, align 8
   %86 = icmp ugt i64 %85, 1
@@ -231,7 +231,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit83.thread:           ; preds = %21
 .backedge.us.i:                                   ; preds = %105, %100
   %106 = add nuw i64 %93, 1
   %exitcond.not.i = icmp eq i64 %106, %85
-  br i1 %exitcond.not.i, label %_ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit, label %.lr.ph.split.us.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit, label %.lr.ph.split.us.i, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
   %107 = phi i64 [ %110, %.lr.ph.split.i ], [ 1, %.lr.ph.split.preheader.i ]
@@ -242,7 +242,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit83.thread:           ; preds = %21
   %110 = add nuw i64 %107, 1
   %111 = icmp ult i64 %110, %85
   %or.cond.i = and i1 %111, %.not31.i
-  br i1 %or.cond.i, label %.lr.ph.split.i, label %_ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit, !llvm.loop !16
+  br i1 %or.cond.i, label %.lr.ph.split.i, label %_ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit, !llvm.loop !13
 
 _ZN3ue2L18findNoodFragOffsetERKNS_11hwlmLiteralE.exit: ; preds = %.lr.ph.split.i, %.backedge.us.i, %105, %100, %83
   %.1.i = phi i64 [ 0, %83 ], [ %.01832.us.i, %100 ], [ %91, %.backedge.us.i ], [ %.01832.us.i, %105 ], [ %.01832.i, %.lr.ph.split.i ]
@@ -606,13 +606,10 @@ attributes #20 = { noreturn nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN3ue224make_zeroed_bytecode_ptrI9noodTableEENS_12bytecode_ptrIT_EEmm: argument 0"}
-!14 = distinct !{!14, !"_ZN3ue224make_zeroed_bytecode_ptrI9noodTableEENS_12bytecode_ptrIT_EEmm"}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8}
+!9 = distinct !{!9, !8}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN3ue224make_zeroed_bytecode_ptrI9noodTableEENS_12bytecode_ptrIT_EEmm: argument 0"}
+!12 = distinct !{!12, !"_ZN3ue224make_zeroed_bytecode_ptrI9noodTableEENS_12bytecode_ptrIT_EEmm"}
+!13 = distinct !{!13, !8}

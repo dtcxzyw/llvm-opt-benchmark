@@ -597,7 +597,7 @@ read_1_byte.exit.i7.us.i:                         ; preds = %239, %244
 244:                                              ; preds = %read_1_byte.exit.i7.us.i
   %245 = add i32 %.06.i.us.i, -1
   %.not.i8.us.i = icmp eq i32 %245, 0
-  br i1 %.not.i8.us.i, label %skip_variable.exit.us.i, label %read_1_byte.exit.i7.us.i, !llvm.loop !26
+  br i1 %.not.i8.us.i, label %skip_variable.exit.us.i, label %read_1_byte.exit.i7.us.i, !llvm.loop !25
 
 246:                                              ; preds = %next_marker.exit.us.i
   %247 = load ptr, ptr @outfile, align 8, !tbaa !20
@@ -635,7 +635,7 @@ read_1_byte.exit.i.i:                             ; preds = %read_1_byte.exit.i.
 read_1_byte.exit.i.i.backedge:                    ; preds = %256, %skip_variable.exit.i
   %.05.i.i.be = phi i32 [ %259, %256 ], [ %282, %skip_variable.exit.i ]
   %.0.i.i.be = phi i32 [ %257, %256 ], [ 0, %skip_variable.exit.i ]
-  br label %read_1_byte.exit.i.i, !llvm.loop !27
+  br label %read_1_byte.exit.i.i, !llvm.loop !24
 
 .split.us.i:                                      ; preds = %256, %225
   %261 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -744,7 +744,7 @@ scan_JPEG_header.exit:                            ; preds = %next_marker.exit.i,
   %302 = tail call i32 @putc(i32 noundef %300, ptr noundef %301)
   %303 = add i32 %.4263, -1
   %.not111 = icmp eq i32 %303, 0
-  br i1 %.not111, label %.loopexit, label %297, !llvm.loop !28
+  br i1 %.not111, label %.loopexit, label %297, !llvm.loop !26
 
 .loopexit:                                        ; preds = %297, %scan_JPEG_header.exit
   tail call fastcc void @write_marker(i32 noundef %.us-phi.i)
@@ -840,7 +840,7 @@ define internal fastcc void @copy_rest_of_file() unnamed_addr #7 {
   %6 = load ptr, ptr @infile, align 8, !tbaa !20
   %7 = tail call i32 @getc(ptr noundef %6)
   %.not = icmp eq i32 %7, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -894,7 +894,7 @@ read_1_byte.exit:                                 ; preds = %.lr.ph
   %22 = tail call i32 @putc(i32 noundef %16, ptr noundef %21)
   %23 = add i32 %.07, -1
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %read_1_byte.exit, %13
   ret void
@@ -982,10 +982,8 @@ attributes #17 = { noreturn nounwind }
 !21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !22 = distinct !{!22, !19}
 !23 = distinct !{!23, !19}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
 !26 = distinct !{!26, !19}
 !27 = distinct !{!27, !19}
 !28 = distinct !{!28, !19}
-!29 = distinct !{!29, !19}
-!30 = distinct !{!30, !19}

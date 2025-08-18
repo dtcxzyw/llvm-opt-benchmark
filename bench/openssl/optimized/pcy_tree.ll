@@ -905,9 +905,9 @@ tree_calculate_authority_set.exit.thread71:       ; preds = %._crit_edge57.i.tre
 
 407:                                              ; preds = %.lr.ph.i35
   %408 = getelementptr inbounds nuw i8, ptr %.043, i64 56
-  %409 = load i32, ptr %408, align 8, !tbaa !65
+  %409 = load i32, ptr %408, align 8, !tbaa !64
   %410 = or i32 %409, 2
-  store i32 %410, ptr %408, align 8, !tbaa !65
+  store i32 %410, ptr %408, align 8, !tbaa !64
   br label %tree_calculate_user_set.exit
 
 .lr.ph53.split.i:                                 ; preds = %.lr.ph53.i, %445
@@ -995,7 +995,7 @@ tree_calculate_authority_set.exit.thread71:       ; preds = %._crit_edge57.i.tre
   %446 = add nuw nsw i32 %.152.i, 1
   %447 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
   %448 = icmp slt i32 %446, %447
-  br i1 %448, label %.lr.ph53.split.i, label %tree_calculate_user_set.exit, !llvm.loop !66
+  br i1 %448, label %.lr.ph53.split.i, label %tree_calculate_user_set.exit, !llvm.loop !63
 
 tree_calculate_user_set.exit:                     ; preds = %413, %445, %400, %tree_calculate_authority_set.exit.thread71, %.preheader.i, %407, %427, %.split.us.i, %433, %436, %.split57.us.i, %441, %444
   %.not23 = phi i1 [ false, %407 ], [ true, %427 ], [ false, %tree_calculate_authority_set.exit.thread71 ], [ true, %.split.us.i ], [ true, %433 ], [ true, %436 ], [ true, %.split57.us.i ], [ true, %441 ], [ true, %444 ], [ false, %.preheader.i ], [ false, %400 ], [ false, %445 ], [ true, %413 ]
@@ -1150,7 +1150,5 @@ attributes #3 = { nounwind }
 !60 = distinct !{!60, !23}
 !61 = distinct !{!61, !23}
 !62 = distinct !{!62, !23}
-!63 = distinct !{!63, !23, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = !{!4, !10, i64 56}
-!66 = distinct !{!66, !23}
+!63 = distinct !{!63, !23}
+!64 = !{!4, !10, i64 56}

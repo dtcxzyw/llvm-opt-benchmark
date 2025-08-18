@@ -136,7 +136,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %75 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %74, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
   %76 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %74, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %75) #2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %52
   %.083.lcssa = phi i32 [ 0, %52 ], [ %63, %.loopexit.us ], [ %76, %.lr.ph101.split ]
@@ -194,6 +194,4 @@ attributes #2 = { nounwind }
 !18 = !{!"double", !6, i64 0}
 !19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !20}
+!21 = distinct !{!21, !20}

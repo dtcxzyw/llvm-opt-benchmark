@@ -1862,7 +1862,7 @@ define internal fastcc void @__gen8_ppgtt_alloc(ptr noundef readonly captures(no
   %104 = add i32 %78, 1
   %105 = add i32 %79, -1
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %.split5.us, label %.split, !llvm.loop !37
+  br i1 %106, label %.split5.us, label %.split, !llvm.loop !35
 
 .split5.us:                                       ; preds = %101, %60
   tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #7
@@ -1976,8 +1976,8 @@ define internal fastcc i64 @__gen8_ppgtt_clear(ptr noundef %0, ptr noundef %1, i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1032
   %76 = load i64, ptr %75, align 8
   %77 = zext i32 %69 to i64
-  %78 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosq", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %76, ptr %73, i64 %77) #7, !srcloc !38
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, i32 %62, ptr nonnull elementtype(i32) %46) #7, !srcloc !39
+  %78 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosq", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %76, ptr %73, i64 %77) #7, !srcloc !36
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %46, i32 %62, ptr nonnull elementtype(i32) %46) #7, !srcloc !37
   %79 = zext i32 %62 to i64
   %80 = trunc i32 %39 to i16
   %81 = tail call zeroext i1 @release_pd_entry(ptr noundef %1, i16 noundef zeroext %80, ptr noundef %45, ptr noundef %9) #7
@@ -1993,7 +1993,7 @@ define internal fastcc i64 @__gen8_ppgtt_clear(ptr noundef %0, ptr noundef %1, i
   %85 = add i32 %39, 1
   %86 = add i32 %40, -1
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.split3.us, label %.split.us, !llvm.loop !40
+  br i1 %87, label %.split3.us, label %.split.us, !llvm.loop !38
 
 .split:                                           ; preds = %5, %113
   %88 = phi i32 [ %115, %113 ], [ %21, %5 ]
@@ -2039,7 +2039,7 @@ define internal fastcc i64 @__gen8_ppgtt_clear(ptr noundef %0, ptr noundef %1, i
   %115 = add i32 %88, 1
   %116 = add i32 %89, -1
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %.split3.us, label %.split, !llvm.loop !41
+  br i1 %117, label %.split3.us, label %.split, !llvm.loop !38
 
 .split3.us:                                       ; preds = %113, %83
   %.us-phi = phi i64 [ %84, %83 ], [ %114, %113 ]
@@ -2075,7 +2075,7 @@ define internal fastcc void @__gen8_ppgtt_cleanup(ptr noundef %0, ptr noundef %1
   %17 = getelementptr i8, ptr %12, i64 8
   %18 = add i32 %11, -1
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit, label %10, !llvm.loop !42
+  br i1 %19, label %.loopexit, label %10, !llvm.loop !39
 
 .loopexit:                                        ; preds = %16, %4
   tail call void @free_px(ptr noundef %0, ptr noundef %1, i32 noundef %3) #7
@@ -2143,7 +2143,7 @@ define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1
   %48 = add i32 %32, 1
   %49 = add i32 %33, -1
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.split3.us, label %.split.us, !llvm.loop !43
+  br i1 %50, label %.split3.us, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %7, %.split
   %51 = phi i32 [ %58, %.split ], [ %20, %7 ]
@@ -2161,7 +2161,7 @@ define internal fastcc void @__gen8_ppgtt_foreach(ptr noundef %0, ptr noundef %1
   %58 = add i32 %51, 1
   %59 = add i32 %52, -1
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.split3.us, label %.split, !llvm.loop !44
+  br i1 %60, label %.split3.us, label %.split, !llvm.loop !40
 
 .split3.us:                                       ; preds = %.split, %.split.us
   tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #7
@@ -2289,13 +2289,9 @@ attributes #7 = { nounwind }
 !32 = !{i64 2149031999, i64 2149032038, i64 2149032059, i64 2149032096, i64 2149032119, i64 2149031989}
 !33 = distinct !{!33, !9, !10}
 !34 = !{i64 2149028908, i64 2149028947, i64 2149028968, i64 2149029005, i64 2149029028, i64 2149028898}
-!35 = distinct !{!35, !9, !10, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !9, !10}
-!38 = !{i64 661667, i64 661673}
-!39 = !{i64 2149029271, i64 2149029310, i64 2149029331, i64 2149029368, i64 2149029391, i64 2149029261}
-!40 = distinct !{!40, !9, !10, !36}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10, !36}
-!44 = distinct !{!44, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = !{i64 661667, i64 661673}
+!37 = !{i64 2149029271, i64 2149029310, i64 2149029331, i64 2149029368, i64 2149029391, i64 2149029261}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}

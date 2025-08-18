@@ -260,7 +260,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %.lr.ph, %do_colorke
   %102 = phi i32 [ %40, %.lr.ph45.split ], [ %100, %do_colorkey_pixel.exit.us ], [ %151, %do_colorkey_pixel.exit ]
   %103 = add nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %103, %11
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !63
 
 do_colorkey_pixel.exit:                           ; preds = %.lr.ph, %do_colorkey_pixel.exit
   %.04142 = phi i32 [ %150, %do_colorkey_pixel.exit ], [ 0, %.lr.ph ]
@@ -314,7 +314,7 @@ do_colorkey_pixel.exit:                           ; preds = %.lr.ph, %do_colorke
   %150 = add nuw nsw i32 %.04142, 1
   %151 = load i32, ptr %27, align 8, !tbaa !57
   %152 = icmp slt i32 %150, %151
-  br i1 %152, label %do_colorkey_pixel.exit, label %._crit_edge, !llvm.loop !66
+  br i1 %152, label %do_colorkey_pixel.exit, label %._crit_edge, !llvm.loop !61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -351,49 +351,52 @@ define internal noundef i32 @do_colorkey_slice16(ptr noundef readonly captures(n
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 13
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 14
-  %34 = fcmp nsz olt float %23, 1.000000e+04
-  %35 = fpext nsz float %25 to double
-  %36 = fpext nsz float %23 to double
-  %37 = sitofp i32 %19 to double
-  %38 = getelementptr inbounds nuw i8, ptr %13, i64 11
-  br i1 %29, label %.lr.ph.us.preheader, label %._crit_edge46
+  %34 = fpext nsz float %25 to double
+  %35 = fpext nsz float %23 to double
+  %36 = sitofp i32 %19 to double
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 11
+  br i1 %29, label %.lr.ph45.split.us, label %._crit_edge46
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph45
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %40 = load i32, ptr %39, align 8, !tbaa !59
+.lr.ph45.split.us:                                ; preds = %.lr.ph45
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %39 = load i32, ptr %38, align 8, !tbaa !59
+  %40 = fcmp nsz olt float %23, 1.000000e+04
   %41 = sext i32 %8 to i64
-  %42 = sext i32 %40 to i64
-  %wide.trip.count = sext i32 %11 to i64
+  %42 = sext i32 %39 to i64
+  %wide.trip.count59 = sext i32 %11 to i64
+  br i1 %40, label %.lr.ph.us.us, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45.split.us
   %43 = trunc i32 %19 to i16
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv = phi i64 [ %41, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %44 = mul nsw i64 %indvars.iv, %42
+.lr.ph.us.us:                                     ; preds = %.lr.ph45.split.us, %._crit_edge.split.us.us.us
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.split.us.us.us ], [ %41, %.lr.ph45.split.us ]
+  %44 = mul nsw i64 %indvars.iv56, %42
   %45 = getelementptr inbounds i8, ptr %26, i64 %44
-  br i1 %34, label %do_colorkey_pixel.exit.us.us, label %do_colorkey_pixel.exit.us47
+  br label %do_colorkey_pixel.exit.us.us.us
 
-do_colorkey_pixel.exit.us47:                      ; preds = %.lr.ph.us, %do_colorkey_pixel.exit.us47
-  %.04142.us48 = phi i32 [ %92, %do_colorkey_pixel.exit.us47 ], [ 0, %.lr.ph.us ]
-  %46 = shl nsw i32 %.04142.us48, 2
+do_colorkey_pixel.exit.us.us.us:                  ; preds = %do_colorkey_pixel.exit.us.us.us, %.lr.ph.us.us
+  %.04142.us.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %98, %do_colorkey_pixel.exit.us.us.us ]
+  %46 = shl nsw i32 %.04142.us.us.us, 2
   %47 = load i8, ptr %15, align 1, !tbaa !60
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %46, %48
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i16, ptr %45, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !67
+  %52 = load i16, ptr %51, align 2, !tbaa !65
   %53 = load i8, ptr %30, align 1, !tbaa !60
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %46, %54
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr %45, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !67
+  %58 = load i16, ptr %57, align 2, !tbaa !65
   %59 = load i8, ptr %31, align 1, !tbaa !60
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %46, %60
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i16, ptr %45, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !67
+  %64 = load i16, ptr %63, align 2, !tbaa !65
   %65 = uitofp i16 %52 to double
   %66 = load i8, ptr %14, align 1, !tbaa !60
   %67 = uitofp i8 %66 to double
@@ -414,84 +417,95 @@ do_colorkey_pixel.exit.us47:                      ; preds = %.lr.ph.us, %do_colo
   %82 = tail call nsz double @llvm.fmuladd.f64(double %79, double %79, double %81)
   %83 = fdiv nsz double %82, 1.950750e+05
   %84 = tail call nsz double @llvm.sqrt.f64(double %83)
-  %85 = fcmp nsz ogt double %84, %35
-  %86 = select i1 %85, i16 %43, i16 0
-  %87 = load i8, ptr %38, align 1, !tbaa !60
-  %88 = zext i8 %87 to i32
-  %89 = add nuw nsw i32 %46, %88
-  %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw i16, ptr %45, i64 %90
-  store i16 %86, ptr %91, align 2, !tbaa !67
-  %92 = add nuw nsw i32 %.04142.us48, 1
-  %exitcond.not = icmp eq i32 %92, %28
-  br i1 %exitcond.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us47, !llvm.loop !69
+  %85 = fsub nsz double %84, %34
+  %86 = fmul nsz double %85, %35
+  %87 = fcmp nsz ogt double %86, 0.000000e+00
+  %88 = select nsz i1 %87, double %86, double 0.000000e+00
+  %89 = fcmp nsz ogt double %88, 1.000000e+00
+  %..i.i.us.us.us = select nsz i1 %89, double 1.000000e+00, double %88
+  %90 = fmul nsz double %..i.i.us.us.us, %36
+  %91 = fptosi double %90 to i32
+  %92 = trunc i32 %91 to i16
+  %93 = load i8, ptr %37, align 1, !tbaa !60
+  %94 = zext i8 %93 to i32
+  %95 = add nuw nsw i32 %46, %94
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr inbounds nuw i16, ptr %45, i64 %96
+  store i16 %92, ptr %97, align 2, !tbaa !65
+  %98 = add nuw nsw i32 %.04142.us.us.us, 1
+  %exitcond55.not = icmp eq i32 %98, %28
+  br i1 %exitcond55.not, label %._crit_edge.split.us.us.us, label %do_colorkey_pixel.exit.us.us.us, !llvm.loop !67
 
-._crit_edge.us:                                   ; preds = %do_colorkey_pixel.exit.us47, %do_colorkey_pixel.exit.us.us
+._crit_edge.split.us.us.us:                       ; preds = %do_colorkey_pixel.exit.us.us.us
+  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %._crit_edge46, label %.lr.ph.us.us, !llvm.loop !68
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.split.us49
+  %indvars.iv = phi i64 [ %41, %.lr.ph.us.preheader ], [ %indvars.iv.next, %._crit_edge.split.us49 ]
+  %99 = mul nsw i64 %indvars.iv, %42
+  %100 = getelementptr inbounds i8, ptr %26, i64 %99
+  br label %do_colorkey_pixel.exit.us47
+
+do_colorkey_pixel.exit.us47:                      ; preds = %.lr.ph.us, %do_colorkey_pixel.exit.us47
+  %.04142.us48 = phi i32 [ 0, %.lr.ph.us ], [ %147, %do_colorkey_pixel.exit.us47 ]
+  %101 = shl nsw i32 %.04142.us48, 2
+  %102 = load i8, ptr %15, align 1, !tbaa !60
+  %103 = zext i8 %102 to i32
+  %104 = add nuw nsw i32 %101, %103
+  %105 = zext nneg i32 %104 to i64
+  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %105
+  %107 = load i16, ptr %106, align 2, !tbaa !65
+  %108 = load i8, ptr %30, align 1, !tbaa !60
+  %109 = zext i8 %108 to i32
+  %110 = add nuw nsw i32 %101, %109
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw i16, ptr %100, i64 %111
+  %113 = load i16, ptr %112, align 2, !tbaa !65
+  %114 = load i8, ptr %31, align 1, !tbaa !60
+  %115 = zext i8 %114 to i32
+  %116 = add nuw nsw i32 %101, %115
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw i16, ptr %100, i64 %117
+  %119 = load i16, ptr %118, align 2, !tbaa !65
+  %120 = uitofp i16 %107 to double
+  %121 = load i8, ptr %14, align 1, !tbaa !60
+  %122 = uitofp i8 %121 to double
+  %123 = fneg nsz double %122
+  %124 = tail call nsz double @llvm.fmuladd.f64(double %120, double %17, double %123)
+  %125 = uitofp i16 %113 to double
+  %126 = load i8, ptr %32, align 1, !tbaa !60
+  %127 = uitofp i8 %126 to double
+  %128 = fneg nsz double %127
+  %129 = tail call nsz double @llvm.fmuladd.f64(double %125, double %17, double %128)
+  %130 = uitofp i16 %119 to double
+  %131 = load i8, ptr %33, align 1, !tbaa !60
+  %132 = uitofp i8 %131 to double
+  %133 = fneg nsz double %132
+  %134 = tail call nsz double @llvm.fmuladd.f64(double %130, double %17, double %133)
+  %135 = fmul nsz double %129, %129
+  %136 = tail call nsz double @llvm.fmuladd.f64(double %124, double %124, double %135)
+  %137 = tail call nsz double @llvm.fmuladd.f64(double %134, double %134, double %136)
+  %138 = fdiv nsz double %137, 1.950750e+05
+  %139 = tail call nsz double @llvm.sqrt.f64(double %138)
+  %140 = fcmp nsz ogt double %139, %34
+  %141 = select i1 %140, i16 %43, i16 0
+  %142 = load i8, ptr %37, align 1, !tbaa !60
+  %143 = zext i8 %142 to i32
+  %144 = add nuw nsw i32 %101, %143
+  %145 = zext nneg i32 %144 to i64
+  %146 = getelementptr inbounds nuw i16, ptr %100, i64 %145
+  store i16 %141, ptr %146, align 2, !tbaa !65
+  %147 = add nuw nsw i32 %.04142.us48, 1
+  %exitcond.not = icmp eq i32 %147, %28
+  br i1 %exitcond.not, label %._crit_edge.split.us49, label %do_colorkey_pixel.exit.us47, !llvm.loop !67
+
+._crit_edge.split.us49:                           ; preds = %do_colorkey_pixel.exit.us47
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !70
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
+  br i1 %exitcond54.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !68
 
-do_colorkey_pixel.exit.us.us:                     ; preds = %.lr.ph.us, %do_colorkey_pixel.exit.us.us
-  %.04142.us.us = phi i32 [ %145, %do_colorkey_pixel.exit.us.us ], [ 0, %.lr.ph.us ]
-  %93 = shl nsw i32 %.04142.us.us, 2
-  %94 = load i8, ptr %15, align 1, !tbaa !60
-  %95 = zext i8 %94 to i32
-  %96 = add nuw nsw i32 %93, %95
-  %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i16, ptr %45, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !67
-  %100 = load i8, ptr %30, align 1, !tbaa !60
-  %101 = zext i8 %100 to i32
-  %102 = add nuw nsw i32 %93, %101
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %45, i64 %103
-  %105 = load i16, ptr %104, align 2, !tbaa !67
-  %106 = load i8, ptr %31, align 1, !tbaa !60
-  %107 = zext i8 %106 to i32
-  %108 = add nuw nsw i32 %93, %107
-  %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %45, i64 %109
-  %111 = load i16, ptr %110, align 2, !tbaa !67
-  %112 = uitofp i16 %99 to double
-  %113 = load i8, ptr %14, align 1, !tbaa !60
-  %114 = uitofp i8 %113 to double
-  %115 = fneg nsz double %114
-  %116 = tail call nsz double @llvm.fmuladd.f64(double %112, double %17, double %115)
-  %117 = uitofp i16 %105 to double
-  %118 = load i8, ptr %32, align 1, !tbaa !60
-  %119 = uitofp i8 %118 to double
-  %120 = fneg nsz double %119
-  %121 = tail call nsz double @llvm.fmuladd.f64(double %117, double %17, double %120)
-  %122 = uitofp i16 %111 to double
-  %123 = load i8, ptr %33, align 1, !tbaa !60
-  %124 = uitofp i8 %123 to double
-  %125 = fneg nsz double %124
-  %126 = tail call nsz double @llvm.fmuladd.f64(double %122, double %17, double %125)
-  %127 = fmul nsz double %121, %121
-  %128 = tail call nsz double @llvm.fmuladd.f64(double %116, double %116, double %127)
-  %129 = tail call nsz double @llvm.fmuladd.f64(double %126, double %126, double %128)
-  %130 = fdiv nsz double %129, 1.950750e+05
-  %131 = tail call nsz double @llvm.sqrt.f64(double %130)
-  %132 = fsub nsz double %131, %35
-  %133 = fmul nsz double %132, %36
-  %134 = fcmp nsz ogt double %133, 0.000000e+00
-  %135 = select nsz i1 %134, double %133, double 0.000000e+00
-  %136 = fcmp nsz ogt double %135, 1.000000e+00
-  %..i.i.us.us = select nsz i1 %136, double 1.000000e+00, double %135
-  %137 = fmul nsz double %..i.i.us.us, %37
-  %138 = fptosi double %137 to i32
-  %139 = trunc i32 %138 to i16
-  %140 = load i8, ptr %38, align 1, !tbaa !60
-  %141 = zext i8 %140 to i32
-  %142 = add nuw nsw i32 %93, %141
-  %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %45, i64 %143
-  store i16 %139, ptr %144, align 2, !tbaa !67
-  %145 = add nuw nsw i32 %.04142.us.us, 1
-  %exitcond53.not = icmp eq i32 %145, %28
-  br i1 %exitcond53.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us.us, !llvm.loop !71
-
-._crit_edge46:                                    ; preds = %._crit_edge.us, %.lr.ph45, %4
+._crit_edge46:                                    ; preds = %._crit_edge.split.us49, %._crit_edge.split.us.us.us, %.lr.ph45, %4
   ret i32 0
 }
 
@@ -558,7 +572,7 @@ define internal noundef i32 @do_colorhold_slice8(ptr noundef readonly captures(n
   %50 = phi i32 [ %42, %.lr.ph82.split ], [ %135, %do_colorkey_pixel.exit.thread ]
   %51 = add nsw i32 %.080, 1
   %exitcond.not = icmp eq i32 %51, %11
-  br i1 %exitcond.not, label %._crit_edge83, label %.lr.ph82.split, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge83, label %.lr.ph82.split, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph82.split, %do_colorkey_pixel.exit.thread
   %52 = phi i32 [ %135, %do_colorkey_pixel.exit.thread ], [ %41, %.lr.ph82.split ]
@@ -668,7 +682,7 @@ do_colorkey_pixel.exit.thread:                    ; preds = %103, %106, %do_colo
   %135 = phi i32 [ %52, %103 ], [ %.pre, %106 ], [ %52, %do_colorkey_pixel.exit ]
   %136 = add nuw nsw i32 %.07679, 1
   %137 = icmp slt i32 %136, %135
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -738,21 +752,21 @@ define internal noundef i32 @do_colorhold_slice16(ptr noundef readonly captures(
   %53 = add nuw nsw i32 %50, %52
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i16, ptr %48, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !67
+  %56 = load i16, ptr %55, align 2, !tbaa !65
   %57 = zext i16 %56 to i32
   %58 = load i8, ptr %33, align 1, !tbaa !60
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %50, %59
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i16, ptr %48, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !67
+  %63 = load i16, ptr %62, align 2, !tbaa !65
   %64 = zext i16 %63 to i32
   %65 = load i8, ptr %34, align 1, !tbaa !60
   %66 = zext i8 %65 to i32
   %67 = add nuw nsw i32 %50, %66
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i16, ptr %48, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !67
+  %70 = load i16, ptr %69, align 2, !tbaa !65
   %71 = zext i16 %70 to i32
   %72 = uitofp i16 %56 to double
   %73 = load i8, ptr %17, align 1, !tbaa !60
@@ -811,7 +825,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %115 = add nsw i64 %114, %113
   %116 = ashr i64 %115, %42
   %117 = trunc i64 %116 to i16
-  store i16 %117, ptr %55, align 2, !tbaa !67
+  store i16 %117, ptr %55, align 2, !tbaa !65
   %118 = zext i16 %63 to i64
   %119 = mul nsw i64 %109, %118
   %120 = add nsw i64 %114, %119
@@ -822,7 +836,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %125 = add nuw nsw i32 %50, %124
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw i16, ptr %48, i64 %126
-  store i16 %122, ptr %127, align 2, !tbaa !67
+  store i16 %122, ptr %127, align 2, !tbaa !65
   %128 = zext i16 %70 to i64
   %129 = mul nsw i64 %109, %128
   %130 = add nsw i64 %114, %129
@@ -833,18 +847,18 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %135 = add nuw nsw i32 %50, %134
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw i16, ptr %48, i64 %136
-  store i16 %132, ptr %137, align 2, !tbaa !67
+  store i16 %132, ptr %137, align 2, !tbaa !65
   br label %do_colorkey_pixel.exit.thread.us
 
 do_colorkey_pixel.exit.thread.us:                 ; preds = %103, %do_colorkey_pixel.exit.us, %92
   %138 = add nuw nsw i32 %.07679.us, 1
   %exitcond.not = icmp eq i32 %138, %31
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !71
 
 ._crit_edge.us:                                   ; preds = %do_colorkey_pixel.exit.thread.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond86.not, label %._crit_edge83, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond86.not, label %._crit_edge83, label %.lr.ph.us, !llvm.loop !72
 
 ._crit_edge83:                                    ; preds = %._crit_edge.us, %.lr.ph82, %4
   ret i32 0
@@ -935,18 +949,15 @@ attributes #9 = { nounwind }
 !58 = !{!23, !23, i64 0}
 !59 = !{!11, !11, i64 0}
 !60 = !{!8, !8, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !62, !65}
-!65 = !{!"llvm.loop.unswitch.partial.disable"}
-!66 = distinct !{!66, !62}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"short", !8, i64 0}
-!69 = distinct !{!69, !62}
-!70 = distinct !{!70, !62, !63}
-!71 = distinct !{!71, !62, !63}
-!72 = distinct !{!72, !62, !65}
-!73 = distinct !{!73, !62}
-!74 = distinct !{!74, !62}
-!75 = distinct !{!75, !62, !63}
+!63 = distinct !{!63, !62, !64}
+!64 = !{!"llvm.loop.unswitch.partial.disable"}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"short", !8, i64 0}
+!67 = distinct !{!67, !62}
+!68 = distinct !{!68, !62}
+!69 = distinct !{!69, !62, !64}
+!70 = distinct !{!70, !62}
+!71 = distinct !{!71, !62}
+!72 = distinct !{!72, !62}

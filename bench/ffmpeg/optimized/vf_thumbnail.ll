@@ -388,7 +388,7 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   store i32 %84, ptr %82, align 4, !tbaa !52
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %._crit_edge.us126, label %63, !llvm.loop !67
+  br i1 %exitcond150.not, label %._crit_edge.us126, label %63, !llvm.loop !66
 
 ._crit_edge.us126:                                ; preds = %63
   %85 = load i32, ptr %22, align 8, !tbaa !52
@@ -396,7 +396,7 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   %87 = getelementptr inbounds i8, ptr %.1125.us, i64 %86
   %88 = add nsw i32 %.0108124.us, 1
   %exitcond151.not = icmp eq i32 %88, %20
-  br i1 %exitcond151.not, label %.loopexit, label %.preheader116.us, !llvm.loop !68
+  br i1 %exitcond151.not, label %.loopexit, label %.preheader116.us, !llvm.loop !67
 
 89:                                               ; preds = %4, %4, %4, %4
   %90 = icmp slt i32 %17, %20
@@ -442,7 +442,7 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   store i32 %114, ptr %112, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %92, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %92, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %92
   %115 = load i32, ptr %22, align 8, !tbaa !52
@@ -450,7 +450,7 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   %117 = getelementptr inbounds i8, ptr %.2122.us, i64 %116
   %118 = add nsw i32 %.0111121.us, 1
   %exitcond145.not = icmp eq i32 %118, %20
-  br i1 %exitcond145.not, label %.loopexit, label %.preheader118.us, !llvm.loop !70
+  br i1 %exitcond145.not, label %.loopexit, label %.preheader118.us, !llvm.loop !69
 
 119:                                              ; preds = %.preheader113, %._crit_edge134
   %indvars.iv164 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next165, %._crit_edge134 ]
@@ -497,18 +497,18 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   store i32 %145, ptr %143, align 4, !tbaa !52
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
-  br i1 %exitcond162.not, label %._crit_edge.us135, label %139, !llvm.loop !71
+  br i1 %exitcond162.not, label %._crit_edge.us135, label %139, !llvm.loop !70
 
 ._crit_edge.us135:                                ; preds = %139
   %146 = getelementptr inbounds i8, ptr %.0106132.us, i64 %128
   %147 = add nsw i32 %.0103133.us, 1
   %exitcond163.not = icmp eq i32 %147, %125
-  br i1 %exitcond163.not, label %._crit_edge134, label %.preheader.us, !llvm.loop !72
+  br i1 %exitcond163.not, label %._crit_edge134, label %.preheader.us, !llvm.loop !71
 
 ._crit_edge134:                                   ; preds = %._crit_edge.us135, %119
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 3
-  br i1 %exitcond167.not, label %.loopexit, label %119, !llvm.loop !73
+  br i1 %exitcond167.not, label %.loopexit, label %119, !llvm.loop !72
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us126, %._crit_edge.us130, %._crit_edge134, %89, %60, %31
   ret i32 0
@@ -539,7 +539,7 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %._crit_edge.us ], [ 0, %.split.us ]
   %invariant.gep.us = getelementptr inbounds nuw [768 x i32], ptr %10, i64 0, i64 %indvars.iv71
   %11 = getelementptr inbounds nuw [768 x double], ptr %2, i64 0, i64 %indvars.iv71
-  %.promoted.us = load double, ptr %11, align 8, !tbaa !74
+  %.promoted.us = load double, ptr %11, align 8, !tbaa !73
   br label %12
 
 12:                                               ; preds = %.preheader55.us, %12
@@ -551,24 +551,24 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
   %16 = fadd nsz double %13, %15
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
-  br i1 %exitcond70.not, label %._crit_edge.us, label %12, !llvm.loop !76
+  br i1 %exitcond70.not, label %._crit_edge.us, label %12, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %12
   %17 = fdiv nsz double %16, %8
-  store double %17, ptr %11, align 8, !tbaa !74
+  store double %17, ptr %11, align 8, !tbaa !73
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 768
-  br i1 %exitcond74.not, label %.lr.ph, label %.preheader55.us, !llvm.loop !77
+  br i1 %exitcond74.not, label %.lr.ph, label %.preheader55.us, !llvm.loop !76
 
 .preheader55:                                     ; preds = %1, %.preheader55
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader55 ], [ 0, %1 ]
   %18 = getelementptr inbounds nuw [768 x double], ptr %2, i64 0, i64 %indvars.iv
-  %19 = load double, ptr %18, align 8, !tbaa !74
+  %19 = load double, ptr %18, align 8, !tbaa !73
   %20 = fdiv nsz double %19, %8
-  store double %20, ptr %18, align 8, !tbaa !74
+  store double %20, ptr %18, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 768
-  br i1 %exitcond.not, label %._crit_edge, label %.preheader55, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader55, !llvm.loop !76
 
 .lr.ph:                                           ; preds = %._crit_edge.us
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -593,7 +593,7 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %27 ]
   %.011.i = phi double [ 0.000000e+00, %25 ], [ %34, %27 ]
   %28 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i
-  %29 = load double, ptr %28, align 8, !tbaa !74
+  %29 = load double, ptr %28, align 8, !tbaa !73
   %30 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4, !tbaa !52
   %32 = sitofp i32 %31 to double
@@ -601,7 +601,7 @@ define internal fastcc ptr @get_best_frame(ptr noundef %0) unnamed_addr #1 {
   %34 = tail call nsz double @llvm.fmuladd.f64(double %33, double %33, double %.011.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 768
-  br i1 %exitcond.not.i, label %frame_sum_square_err.exit, label %27, !llvm.loop !79
+  br i1 %exitcond.not.i, label %frame_sum_square_err.exit, label %27, !llvm.loop !77
 
 frame_sum_square_err.exit:                        ; preds = %27
   %35 = icmp eq i64 %indvars.iv75, 0
@@ -612,7 +612,7 @@ frame_sum_square_err.exit:                        ; preds = %27
   %.1 = select nsz i1 %or.cond, double %34, double %.061
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.lr.ph63, label %25, !llvm.loop !80
+  br i1 %exitcond79.not, label %.lr.ph63, label %25, !llvm.loop !78
 
 38:                                               ; preds = %.lr.ph63, %44
   %indvars.iv80 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next81, %44 ]
@@ -631,7 +631,7 @@ frame_sum_square_err.exit:                        ; preds = %27
 44:                                               ; preds = %38, %41
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %38, !llvm.loop !81
+  br i1 %exitcond84.not, label %._crit_edge, label %38, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.preheader55, %44
   %.047.lcssa87 = phi i32 [ %.148, %44 ], [ 0, %.preheader55 ]
@@ -642,13 +642,13 @@ frame_sum_square_err.exit:                        ; preds = %27
   %47 = getelementptr inbounds nuw %struct.thumb_frame, ptr %46, i64 %.pre-phi
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !82
+  %50 = load i32, ptr %49, align 4, !tbaa !80
   %.not = icmp eq i32 %50, -8
   br i1 %.not, label %61, label %51
 
 51:                                               ; preds = %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 136
-  %53 = load i64, ptr %52, align 8, !tbaa !83
+  %53 = load i64, ptr %52, align 8, !tbaa !81
   %54 = sitofp i64 %53 to double
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %56 = load i64, ptr %55, align 8
@@ -690,11 +690,11 @@ declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @request_frame(ptr noundef %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !84
+  %2 = load ptr, ptr %0, align 8, !tbaa !82
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
   %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = tail call i32 @ff_request_frame(ptr noundef %7) #9
   %.fr = freeze i32 %8
@@ -819,24 +819,22 @@ attributes #10 = { nounwind willreturn memory(read) }
 !62 = !{!44, !15, i64 116}
 !63 = !{!8, !8, i64 0}
 !64 = distinct !{!64, !30}
-!65 = distinct !{!65, !30, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !30}
+!66 = distinct !{!66, !30}
 !67 = distinct !{!67, !30}
-!68 = distinct !{!68, !30, !66}
+!68 = distinct !{!68, !30}
 !69 = distinct !{!69, !30}
-!70 = distinct !{!70, !30, !66}
+!70 = distinct !{!70, !30}
 !71 = distinct !{!71, !30}
-!72 = distinct !{!72, !30, !66}
-!73 = distinct !{!73, !30}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"double", !8, i64 0}
+!72 = distinct !{!72, !30}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"double", !8, i64 0}
+!75 = distinct !{!75, !30}
 !76 = distinct !{!76, !30}
-!77 = distinct !{!77, !30, !66}
+!77 = distinct !{!77, !30}
 !78 = distinct !{!78, !30}
 !79 = distinct !{!79, !30}
-!80 = distinct !{!80, !30}
-!81 = distinct !{!81, !30}
-!82 = !{!21, !15, i64 12}
-!83 = !{!44, !46, i64 136}
-!84 = !{!32, !33, i64 0}
-!85 = !{!5, !13, i64 32}
+!80 = !{!21, !15, i64 12}
+!81 = !{!44, !46, i64 136}
+!82 = !{!32, !33, i64 0}
+!83 = !{!5, !13, i64 32}

@@ -207,7 +207,7 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr noundef captures(none) %0, i3
   %78 = call zeroext i1 @sg_miter_next(ptr noundef nonnull %7) #6
   %79 = icmp ult i32 %77, %1
   %80 = and i1 %78, %79
-  br i1 %80, label %.split, label %.loopexit, !llvm.loop !10
+  br i1 %80, label %.split, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %75, %51, %25
   %81 = phi i32 [ 0, %25 ], [ %53, %51 ], [ %77, %75 ]
@@ -297,8 +297,6 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8}

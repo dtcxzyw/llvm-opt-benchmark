@@ -844,7 +844,7 @@ bytestream2_put_be16.exit.i:                      ; preds = %._crit_edge1559.i, 
   %.17.lcssa.i = phi ptr [ %.161576.i, %bytestream2_put_be16.exit.i ], [ %351, %350 ], [ %345, %.lr.ph1567.i ]
   %344 = add nuw nsw i32 %.010851572.i, 1
   %exitcond1774.not.i = icmp eq i32 %344, %.41113.i
-  br i1 %exitcond1774.not.i, label %.critedge19.i, label %316, !llvm.loop !62
+  br i1 %exitcond1774.not.i, label %.critedge19.i, label %316, !llvm.loop !61
 
 .lr.ph1567.i:                                     ; preds = %bytestream2_put_be16.exit.i
   %345 = getelementptr inbounds nuw i8, ptr %.161576.i, i64 4
@@ -961,7 +961,7 @@ bytestream2_put_be16.exit.i:                      ; preds = %._crit_edge1559.i, 
 416:                                              ; preds = %412, %397, %382, %367
   %indvars.iv.next1730.i = add nuw nsw i64 %indvars.iv1729.i, 1
   %exitcond1732.not.i = icmp eq i64 %indvars.iv.next1730.i, 256
-  br i1 %exitcond1732.not.i, label %433, label %355, !llvm.loop !63
+  br i1 %exitcond1732.not.i, label %433, label %355, !llvm.loop !62
 
 417:                                              ; preds = %412, %408, %404, %401
   %418 = trunc nuw nsw i64 %indvars.iv1729.i to i32
@@ -1043,7 +1043,7 @@ bytestream2_put_byte.exit1225.i:                  ; preds = %447, %454
   %.sroa.0.19 = phi ptr [ %455, %454 ], [ %.sroa.0.18, %447 ]
   %indvars.iv.next1734.i = add nuw nsw i64 %indvars.iv1733.i, 1
   %exitcond1736.not.i = icmp eq i64 %indvars.iv.next1734.i, 4
-  br i1 %exitcond1736.not.i, label %444, label %447, !llvm.loop !64
+  br i1 %exitcond1736.not.i, label %444, label %447, !llvm.loop !63
 
 bytestream2_put_byte.exit1221.i:                  ; preds = %417, %422, %444, %430
   %.sroa.125.16 = phi i32 [ 0, %430 ], [ %.sroa.125.15, %444 ], [ 1, %422 ], [ 1, %417 ]
@@ -1114,7 +1114,7 @@ bytestream2_put_byte.exit1221.i:                  ; preds = %417, %422, %444, %4
 478:                                              ; preds = %474
   %indvars.iv.next1741.i = add nuw nsw i64 %indvars.iv1740.i, 1
   %exitcond1743.not.i = icmp eq i64 %indvars.iv.next1741.i, 4
-  br i1 %exitcond1743.not.i, label %.split.loop.exit.i, label %474, !llvm.loop !65
+  br i1 %exitcond1743.not.i, label %.split.loop.exit.i, label %474, !llvm.loop !64
 
 .split.loop.exit1825.i:                           ; preds = %474
   %479 = trunc nuw nsw i64 %indvars.iv1740.i to i32
@@ -1127,13 +1127,13 @@ bytestream2_put_byte.exit1221.i:                  ; preds = %417, %422, %444, %4
   %482 = add nsw i32 %.19911515.us.i, -2
   %indvars.iv.next1745.i = add nuw nsw i64 %indvars.iv1744.i, 1
   %exitcond1749.not.i = icmp eq i64 %indvars.iv.next1745.i, %wide.trip.count1748.i
-  br i1 %exitcond1749.not.i, label %._crit_edge1518.us.i, label %471, !llvm.loop !66
+  br i1 %exitcond1749.not.i, label %._crit_edge1518.us.i, label %471, !llvm.loop !65
 
 ._crit_edge1518.us.i:                             ; preds = %.split.loop.exit.i
   %483 = add i32 %.neg1182.i, %.09901522.us.i
   %indvars.iv.next1751.i = add nuw nsw i64 %indvars.iv1750.i, 1
   %exitcond1755.not.i = icmp eq i64 %indvars.iv.next1751.i, %wide.trip.count1754.i
-  br i1 %exitcond1755.not.i, label %._crit_edge1524.loopexit.i, label %.preheader1312.us.i, !llvm.loop !67
+  br i1 %exitcond1755.not.i, label %._crit_edge1524.loopexit.i, label %.preheader1312.us.i, !llvm.loop !66
 
 ._crit_edge1524.loopexit.i:                       ; preds = %._crit_edge1518.us.i
   %484 = call i32 @llvm.bswap.i32(i32 %481)
@@ -1169,7 +1169,7 @@ bytestream2_put_be32.exit.i:                      ; preds = %._crit_edge1524.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %492 = add nuw nsw i32 %.010331538.i, 1
   %exitcond1756.not.i = icmp eq i32 %492, %.41113.i
-  br i1 %exitcond1756.not.i, label %.critedge19.i, label %.preheader1316.i, !llvm.loop !68
+  br i1 %exitcond1756.not.i, label %.critedge19.i, label %.preheader1316.i, !llvm.loop !67
 
 .lr.ph1532.i:                                     ; preds = %bytestream2_put_be32.exit.i
   %493 = getelementptr inbounds nuw i8, ptr %.191541.i, i64 4
@@ -1570,7 +1570,7 @@ bytestream2_put_be32.exit.i:                      ; preds = %._crit_edge1524.i, 
 752:                                              ; preds = %748, %717, %686, %655, %624, %593, %562, %531
   %indvars.iv.next1702.i = add nuw nsw i64 %indvars.iv1701.i, 1
   %exitcond1704.not.i = icmp eq i64 %indvars.iv.next1702.i, 256
-  br i1 %exitcond1704.not.i, label %769, label %503, !llvm.loop !69
+  br i1 %exitcond1704.not.i, label %769, label %503, !llvm.loop !68
 
 753:                                              ; preds = %748, %744, %740, %736, %732, %728, %724, %721
   %754 = trunc nuw nsw i64 %indvars.iv1701.i to i32
@@ -1652,7 +1652,7 @@ bytestream2_put_byte.exit1233.i:                  ; preds = %783, %790
   %.sroa.0.11 = phi ptr [ %791, %790 ], [ %.sroa.0.10, %783 ]
   %indvars.iv.next1706.i = add nuw nsw i64 %indvars.iv1705.i, 1
   %exitcond1708.not.i = icmp eq i64 %indvars.iv.next1706.i, 8
-  br i1 %exitcond1708.not.i, label %780, label %783, !llvm.loop !70
+  br i1 %exitcond1708.not.i, label %780, label %783, !llvm.loop !69
 
 bytestream2_put_byte.exit1229.i:                  ; preds = %753, %758, %780, %766
   %.sroa.125.10 = phi i32 [ 0, %766 ], [ %.sroa.125.9, %780 ], [ 1, %758 ], [ 1, %753 ]
@@ -1711,7 +1711,7 @@ bytestream2_put_byte.exit1229.i:                  ; preds = %753, %758, %780, %7
 807:                                              ; preds = %808
   %indvars.iv.next1713.i = add nuw nsw i64 %indvars.iv1712.i, 1
   %exitcond1715.not.i = icmp eq i64 %indvars.iv.next1713.i, 8
-  br i1 %exitcond1715.not.i, label %812, label %808, !llvm.loop !71
+  br i1 %exitcond1715.not.i, label %812, label %808, !llvm.loop !70
 
 808:                                              ; preds = %807, %804
   %indvars.iv1712.i = phi i64 [ %indvars.iv.next1713.i, %807 ], [ 0, %804 ]
@@ -1728,13 +1728,13 @@ bytestream2_put_byte.exit1229.i:                  ; preds = %753, %758, %780, %7
   %816 = add nsw i32 %.19691478.us.i, -3
   %indvars.iv.next1717.i = add nuw nsw i64 %indvars.iv1716.i, 1
   %exitcond1721.not.i = icmp eq i64 %indvars.iv.next1717.i, %wide.trip.count1720.i
-  br i1 %exitcond1721.not.i, label %._crit_edge1481.us.i, label %804, !llvm.loop !72
+  br i1 %exitcond1721.not.i, label %._crit_edge1481.us.i, label %804, !llvm.loop !71
 
 ._crit_edge1481.us.i:                             ; preds = %812
   %.reass.i = add i32 %.09681485.us.i, -12
   %indvars.iv.next1723.i = add nuw nsw i64 %indvars.iv1722.i, 1
   %exitcond1727.not.i = icmp eq i64 %indvars.iv.next1723.i, %wide.trip.count1726.i
-  br i1 %exitcond1727.not.i, label %._crit_edge1487.i, label %.preheader1313.us.i, !llvm.loop !73
+  br i1 %exitcond1727.not.i, label %._crit_edge1487.i, label %.preheader1313.us.i, !llvm.loop !72
 
 ._crit_edge1487.i:                                ; preds = %._crit_edge1481.us.i, %.preheader1317.i
   %.0970.lcssa.i = phi i64 [ 0, %.preheader1317.i ], [ %815, %._crit_edge1481.us.i ]
@@ -1801,7 +1801,7 @@ bytestream2_put_be16.exit1260.i:                  ; preds = %._crit_edge1487.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %853 = add nuw nsw i32 %.09781502.i, 1
   %exitcond1728.not.i = icmp eq i32 %853, %.41113.i
-  br i1 %exitcond1728.not.i, label %.critedge19.i, label %.preheader1317.i, !llvm.loop !74
+  br i1 %exitcond1728.not.i, label %.critedge19.i, label %.preheader1317.i, !llvm.loop !73
 
 .lr.ph1495.i:                                     ; preds = %bytestream2_put_be16.exit1260.i
   %854 = getelementptr inbounds nuw i8, ptr %.221504.i, i64 4
@@ -1899,7 +1899,7 @@ bytestream2_put_byte.exit1237.i.us:               ; preds = %885, %881
   %.sroa.0.47.us = phi ptr [ %888, %885 ], [ %.sroa.0.46.us, %881 ]
   %indvars.iv.next1776.i.us = add nuw nsw i64 %indvars.iv1775.i.us, 1
   %exitcond1780.not.i.us = icmp eq i64 %indvars.iv.next1776.i.us, %wide.trip.count1779.i
-  br i1 %exitcond1780.not.i.us, label %.preheader1309.i.us, label %881, !llvm.loop !75
+  br i1 %exitcond1780.not.i.us, label %.preheader1309.i.us, label %881, !llvm.loop !74
 
 .preheader1309.i.us:                              ; preds = %bytestream2_put_byte.exit1237.i.us
   br i1 %878, label %.lr.ph1597.i.us, label %._crit_edge1598.i.us
@@ -1925,14 +1925,14 @@ bytestream2_put_byte.exit1239.i.us:               ; preds = %892, %.lr.ph1597.i.
   %.sroa.0.44.us = phi ptr [ %893, %892 ], [ %.sroa.0.43.us, %.lr.ph1597.i.us ]
   %894 = add i32 %.09201596.i.us, 1
   %exitcond1781.not.i.us = icmp eq i32 %894, 4
-  br i1 %exitcond1781.not.i.us, label %._crit_edge1598.i.us, label %.lr.ph1597.i.us, !llvm.loop !76
+  br i1 %exitcond1781.not.i.us, label %._crit_edge1598.i.us, label %.lr.ph1597.i.us, !llvm.loop !75
 
 ._crit_edge1598.i.us:                             ; preds = %bytestream2_put_byte.exit1239.i.us, %.preheader1309.i.us
   %.sroa.125.37.us = phi i32 [ %.sroa.125.39.us, %.preheader1309.i.us ], [ %.sroa.125.36.us, %bytestream2_put_byte.exit1239.i.us ]
   %.sroa.0.45.us = phi ptr [ %.sroa.0.47.us, %.preheader1309.i.us ], [ %.sroa.0.44.us, %bytestream2_put_byte.exit1239.i.us ]
   %indvars.iv.next1783.i.us = add nuw nsw i64 %indvars.iv1782.i.us, 1
   %exitcond1787.not.i.us = icmp eq i64 %indvars.iv.next1783.i.us, %wide.trip.count1786.i
-  br i1 %exitcond1787.not.i.us, label %.preheader1315.i, label %.preheader1310.i.us, !llvm.loop !77
+  br i1 %exitcond1787.not.i.us, label %.preheader1315.i, label %.preheader1310.i.us, !llvm.loop !76
 
 .preheader1315.i:                                 ; preds = %._crit_edge1598.i.loopexit, %._crit_edge1598.i.us
   %.us-phi = phi i32 [ %.sroa.125.37.us, %._crit_edge1598.i.us ], [ %.sroa.125.36, %._crit_edge1598.i.loopexit ]
@@ -1949,7 +1949,7 @@ bytestream2_put_byte.exit1239.i.us:               ; preds = %892, %.lr.ph1597.i.
 ._crit_edge1598.i.loopexit:                       ; preds = %bytestream2_put_byte.exit1239.i
   %indvars.iv.next1783.i = add nuw nsw i64 %indvars.iv1782.i, 1
   %exitcond1787.not.i = icmp eq i64 %indvars.iv.next1783.i, %wide.trip.count1786.i
-  br i1 %exitcond1787.not.i, label %.preheader1315.i, label %.preheader1310.i, !llvm.loop !78
+  br i1 %exitcond1787.not.i, label %.preheader1315.i, label %.preheader1310.i, !llvm.loop !76
 
 .lr.ph1597.i:                                     ; preds = %bytestream2_put_byte.exit1239.i, %.preheader1310.i
   %.sroa.125.35 = phi i32 [ %.sroa.125.33, %.preheader1310.i ], [ %.sroa.125.36, %bytestream2_put_byte.exit1239.i ]
@@ -1972,7 +1972,7 @@ bytestream2_put_byte.exit1239.i:                  ; preds = %.lr.ph1597.i, %899
   %.sroa.0.44 = phi ptr [ %900, %899 ], [ %.sroa.0.43, %.lr.ph1597.i ]
   %901 = add i32 %.09201596.i, 1
   %exitcond1781.not.i = icmp eq i32 %901, 4
-  br i1 %exitcond1781.not.i, label %._crit_edge1598.i.loopexit, label %.lr.ph1597.i, !llvm.loop !76
+  br i1 %exitcond1781.not.i, label %._crit_edge1598.i.loopexit, label %.lr.ph1597.i, !llvm.loop !75
 
 .preheader1314.i:                                 ; preds = %904, %.preheader1315.i
   %.sroa.125.32 = phi i32 [ %.us-phi, %.preheader1315.i ], [ %.sroa.125.31, %904 ]
@@ -1991,7 +1991,7 @@ bytestream2_put_byte.exit1239.i:                  ; preds = %.lr.ph1597.i, %899
 904:                                              ; preds = %bytestream2_put_byte.exit1241.i
   %905 = add i32 %.09191601.i, 1
   %exitcond1789.not.i = icmp eq i32 %905, 4
-  br i1 %exitcond1789.not.i, label %.preheader1314.i, label %.preheader.i, !llvm.loop !79
+  br i1 %exitcond1789.not.i, label %.preheader1314.i, label %.preheader.i, !llvm.loop !77
 
 906:                                              ; preds = %bytestream2_put_byte.exit1241.i, %.preheader.i
   %.sroa.125.30 = phi i32 [ %.sroa.125.29, %.preheader.i ], [ %.sroa.125.31, %bytestream2_put_byte.exit1241.i ]
@@ -2014,7 +2014,7 @@ bytestream2_put_byte.exit1241.i:                  ; preds = %906, %910
   %.sroa.0.39 = phi ptr [ %911, %910 ], [ %.sroa.0.38, %906 ]
   %912 = add nuw nsw i32 %.09181600.i, 1
   %exitcond1788.not.i = icmp eq i32 %912, 4
-  br i1 %exitcond1788.not.i, label %904, label %906, !llvm.loop !80
+  br i1 %exitcond1788.not.i, label %904, label %906, !llvm.loop !78
 
 .critedge35.i:                                    ; preds = %919, %.lr.ph1607.i, %.preheader1314.i
   %.261069.lcssa.i = phi i32 [ %.2510681612.i, %.preheader1314.i ], [ 0, %919 ], [ %915, %.lr.ph1607.i ]
@@ -2023,7 +2023,7 @@ bytestream2_put_byte.exit1241.i:                  ; preds = %906, %910
   %.26.lcssa.i = phi ptr [ %.251616.i, %.preheader1314.i ], [ %920, %919 ], [ %914, %.lr.ph1607.i ]
   %913 = add nuw nsw i32 %.09601614.i, 1
   %exitcond1790.not.i = icmp eq i32 %913, %.41113.i
-  br i1 %exitcond1790.not.i, label %.critedge19.i, label %.lr.ph1617.i, !llvm.loop !81
+  br i1 %exitcond1790.not.i, label %.critedge19.i, label %.lr.ph1617.i, !llvm.loop !79
 
 .lr.ph1607.i:                                     ; preds = %.preheader1314.i
   %914 = getelementptr inbounds nuw i8, ptr %.251616.i, i64 4
@@ -2095,7 +2095,7 @@ bytestream2_put_byte.exit1243.i:                  ; preds = %922, %926
   %or.cond37.i = select i1 %944, i1 %945, i1 false
   %946 = icmp ne ptr %.29953.i, null
   %or.cond71.i = select i1 %or.cond37.i, i1 %946, i1 false
-  br i1 %or.cond71.i, label %.lr.ph1468.i, label %.critedge19.i, !llvm.loop !82
+  br i1 %or.cond71.i, label %.lr.ph1468.i, label %.critedge19.i, !llvm.loop !80
 
 947:                                              ; preds = %.loopexit.thread.i
   %.not.i1244.i = icmp eq i32 %.sroa.125.1, 0
@@ -2160,7 +2160,7 @@ bytestream2_put_byte.exit1247.i:                  ; preds = %947, %951, %956
   %or.cond41.i = select i1 %973, i1 %974, i1 false
   %975 = icmp ne ptr %.31955.i, null
   %or.cond73.i = select i1 %or.cond41.i, i1 %975, i1 false
-  br i1 %or.cond73.i, label %.lr.ph1456.i, label %.critedge19.i, !llvm.loop !83
+  br i1 %or.cond73.i, label %.lr.ph1456.i, label %.critedge19.i, !llvm.loop !81
 
 976:                                              ; preds = %.loopexit.thread.i
   %.not.i1248.i = icmp eq i32 %.sroa.125.1, 0
@@ -2217,7 +2217,7 @@ bytestream2_put_byte.exit1249.i:                  ; preds = %976, %980
   %or.cond45.i = select i1 %997, i1 %998, i1 false
   %999 = icmp ne ptr %.33957.i, null
   %or.cond75.i = select i1 %or.cond45.i, i1 %999, i1 false
-  br i1 %or.cond75.i, label %.lr.ph1444.i, label %.critedge19.i, !llvm.loop !84
+  br i1 %or.cond75.i, label %.lr.ph1444.i, label %.critedge19.i, !llvm.loop !82
 
 1000:                                             ; preds = %.loopexit.thread.i
   %.not.i1250.i = icmp eq i32 %.sroa.125.1, 0
@@ -2282,7 +2282,7 @@ bytestream2_put_byte.exit1253.i:                  ; preds = %1000, %1004, %1009
   %or.cond49.i = select i1 %1026, i1 %1027, i1 false
   %1028 = icmp ne ptr %.35959.i, null
   %or.cond77.i = select i1 %or.cond49.i, i1 %1028, i1 false
-  br i1 %or.cond77.i, label %.lr.ph1432.i, label %.critedge19.i, !llvm.loop !85
+  br i1 %or.cond77.i, label %.lr.ph1432.i, label %.critedge19.i, !llvm.loop !83
 
 .critedge19.i:                                    ; preds = %1024, %995, %971, %942, %.critedge31.i, %.critedge27.i, %.critedge23.i, %252, %.critedge35.i, %bytestream2_put_byte.exit1253.i, %bytestream2_put_byte.exit1249.i, %bytestream2_put_byte.exit1247.i, %bytestream2_put_byte.exit1243.i, %bytestream2_put_byte.exit1235.i, %bytestream2_put_byte.exit1229.i, %bytestream2_put_byte.exit1221.i, %bytestream2_put_byte.exit1213.i, %bytestream2_put_byte.exit1209.i
   %.sroa.125.3 = phi i32 [ %.sroa.125.26, %bytestream2_put_byte.exit1235.i ], [ %.sroa.125.25, %bytestream2_put_byte.exit1209.i ], [ %.sroa.125.22, %bytestream2_put_byte.exit1213.i ], [ %.sroa.125.16, %bytestream2_put_byte.exit1221.i ], [ %.sroa.125.10, %bytestream2_put_byte.exit1229.i ], [ %.sroa.125.6, %bytestream2_put_byte.exit1243.i ], [ %.sroa.125.5, %bytestream2_put_byte.exit1247.i ], [ %.sroa.125.4, %bytestream2_put_byte.exit1249.i ], [ %.sroa.125.2, %bytestream2_put_byte.exit1253.i ], [ %.sroa.125.32, %.critedge35.i ], [ %.sroa.125.25, %252 ], [ %.sroa.125.24, %.critedge23.i ], [ %.sroa.125.18, %.critedge27.i ], [ %.sroa.125.12, %.critedge31.i ], [ %.sroa.125.6, %942 ], [ %.sroa.125.5, %971 ], [ %.sroa.125.4, %995 ], [ %.sroa.125.2, %1024 ]
@@ -2296,7 +2296,7 @@ bytestream2_put_byte.exit1253.i:                  ; preds = %1000, %1004, %1009
   %.15.i = phi ptr [ %.09231642.i, %bytestream2_put_byte.exit1235.i ], [ %.09231642.i, %bytestream2_put_byte.exit1209.i ], [ %.09231642.i, %bytestream2_put_byte.exit1213.i ], [ %.09231642.i, %bytestream2_put_byte.exit1221.i ], [ %.09231642.i, %bytestream2_put_byte.exit1229.i ], [ %.09231642.i, %bytestream2_put_byte.exit1243.i ], [ %.09231642.i, %bytestream2_put_byte.exit1247.i ], [ %.09231642.i, %bytestream2_put_byte.exit1249.i ], [ %.09231642.i, %bytestream2_put_byte.exit1253.i ], [ %.26.lcssa.i, %.critedge35.i ], [ %.14.i, %252 ], [ %.17.lcssa.i, %.critedge23.i ], [ %.20.lcssa.i, %.critedge27.i ], [ %.23.lcssa.i, %.critedge31.i ], [ %.29.i, %942 ], [ %.31.i, %971 ], [ %.33.i, %995 ], [ %.35.i, %1024 ]
   %1029 = add nsw i32 %.41113.i, %.09641633.fr.i
   %1030 = icmp slt i32 %1029, %69
-  br i1 %1030, label %.critedge3.preheader.i, label %smc_encode_stream.exit, !llvm.loop !86
+  br i1 %1030, label %.critedge3.preheader.i, label %smc_encode_stream.exit, !llvm.loop !84
 
 smc_encode_stream.exit:                           ; preds = %.critedge19.i, %48
   %.sroa.0.48 = phi ptr [ %.sroa.0.0, %48 ], [ %.sroa.0.4, %.critedge19.i ]
@@ -2341,9 +2341,9 @@ smc_encode_stream.exit:                           ; preds = %.critedge19.i, %48
 
 1057:                                             ; preds = %1054
   %1058 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1059 = load i32, ptr %1058, align 8, !tbaa !87
+  %1059 = load i32, ptr %1058, align 8, !tbaa !85
   %1060 = or i32 %1059, 1
-  store i32 %1060, ptr %1058, align 8, !tbaa !87
+  store i32 %1060, ptr %1058, align 8, !tbaa !85
   br label %1061
 
 1061:                                             ; preds = %1057, %1054
@@ -2500,24 +2500,24 @@ attributes #12 = { noreturn nounwind }
 !57 = distinct !{!57, !49}
 !58 = distinct !{!58, !49}
 !59 = distinct !{!59, !49}
-!60 = distinct !{!60, !49, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !49}
+!61 = distinct !{!61, !49}
 !62 = distinct !{!62, !49}
 !63 = distinct !{!63, !49}
 !64 = distinct !{!64, !49}
 !65 = distinct !{!65, !49}
 !66 = distinct !{!66, !49}
-!67 = distinct !{!67, !49, !61}
+!67 = distinct !{!67, !49}
 !68 = distinct !{!68, !49}
 !69 = distinct !{!69, !49}
 !70 = distinct !{!70, !49}
 !71 = distinct !{!71, !49}
 !72 = distinct !{!72, !49}
-!73 = distinct !{!73, !49, !61}
+!73 = distinct !{!73, !49}
 !74 = distinct !{!74, !49}
 !75 = distinct !{!75, !49}
 !76 = distinct !{!76, !49}
-!77 = distinct !{!77, !49, !61}
+!77 = distinct !{!77, !49}
 !78 = distinct !{!78, !49}
 !79 = distinct !{!79, !49}
 !80 = distinct !{!80, !49}
@@ -2525,6 +2525,4 @@ attributes #12 = { noreturn nounwind }
 !82 = distinct !{!82, !49}
 !83 = distinct !{!83, !49}
 !84 = distinct !{!84, !49}
-!85 = distinct !{!85, !49}
-!86 = distinct !{!86, !49}
-!87 = !{!38, !10, i64 40}
+!85 = !{!38, !10, i64 40}

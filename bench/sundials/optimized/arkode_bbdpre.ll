@@ -714,7 +714,7 @@ define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr read
   store double %108, ptr %106, align 8, !tbaa !74
   %109 = add nsw i64 %.0151180.us.i, %89
   %110 = icmp slt i64 %109, %94
-  br i1 %110, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !75
+  br i1 %110, label %.lr.ph.split.us.i, label %._crit_edge.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %138
   %.0151180.i = phi i64 [ %142, %138 ], [ %95, %.lr.ph.i ]
@@ -1210,5 +1210,3 @@ attributes #10 = { nounwind allocsize(0) }
 !72 = !{!9, !13, i64 568}
 !73 = !{!9, !11, i64 704}
 !74 = !{!11, !11, i64 0}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}

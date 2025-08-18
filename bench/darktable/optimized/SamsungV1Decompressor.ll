@@ -572,7 +572,7 @@ _ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
-  br i1 %exitcond238.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split, !llvm.loop !121
+  br i1 %exitcond238.not, label %_ZNSt6vectorIN8rawspeed21SamsungV1Decompressor12encTableItemESaIS2_EED2Ev.exit, label %.lr.ph217.split, !llvm.loop !119
 
 .split.us:                                        ; preds = %88
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getInputEv) #13
@@ -901,6 +901,4 @@ attributes #22 = { cold }
 !116 = !{!"_ZTSN8rawspeed21SamsungV1Decompressor12encTableItemE", !10, i64 0, !10, i64 1}
 !117 = !{!116, !10, i64 1}
 !118 = distinct !{!118, !96}
-!119 = distinct !{!119, !96, !120}
-!120 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!121 = distinct !{!121, !96}
+!119 = distinct !{!119, !96}

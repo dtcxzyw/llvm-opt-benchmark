@@ -149,7 +149,7 @@ isTestSkipped.exit.us:                            ; preds = %44
 isTestSkipped.exit.thread.loopexit.us:            ; preds = %49
   %55 = tail call i64 @clock() #12
   %56 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !19
+  %57 = load ptr, ptr %56, align 8, !tbaa !18
   %58 = tail call i32 %57(i32 noundef %0, ptr noundef nonnull %1) #12
   %59 = tail call i64 @clock() #12
   %60 = sub nsw i64 %59, %55
@@ -169,7 +169,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   %70 = load ptr, ptr %69, align 16, !tbaa !13
   %71 = tail call i64 @clock() #12
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !19
+  %73 = load ptr, ptr %72, align 8, !tbaa !18
   %74 = tail call i32 %73(i32 noundef %0, ptr noundef nonnull %1) #12
   %75 = tail call i64 @clock() #12
   %76 = sub nsw i64 %75, %71
@@ -180,7 +180,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
   %81 = trunc nuw nsw i64 %indvars.iv150 to i32
   %82 = add nuw nsw i32 %81, 1
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %78, i32 noundef %82, ptr noundef %70, double noundef %80)
-  br i1 %68, label %isTestSkipped.exit.thread, label %.split136.us, !llvm.loop !20
+  br i1 %68, label %isTestSkipped.exit.thread, label %.split136.us, !llvm.loop !17
 
 .split136.us:                                     ; preds = %53, %isTestSkipped.exit.thread
   %puts94 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -204,7 +204,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 
 94:                                               ; preds = %.thread114
   %95 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull readonly dereferenceable(1) %89) #12
-  %96 = load i8, ptr %92, align 1, !tbaa !21
+  %96 = load i8, ptr %92, align 1, !tbaa !19
   %.not16.i = icmp eq i8 %96, 0
   br i1 %.not16.i, label %.lr.ph, label %.lr.ph.i
 
@@ -215,16 +215,16 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 98:                                               ; preds = %98, %.lr.ph.i
   %99 = phi i8 [ %96, %.lr.ph.i ], [ %106, %98 ]
   %.01317.i = phi ptr [ %92, %.lr.ph.i ], [ %105, %98 ]
-  %100 = load ptr, ptr %97, align 8, !tbaa !22
+  %100 = load ptr, ptr %97, align 8, !tbaa !20
   %101 = sext i8 %99 to i64
   %102 = getelementptr inbounds i32, ptr %100, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !4
   %104 = trunc i32 %103 to i8
-  store i8 %104, ptr %.01317.i, align 1, !tbaa !21
+  store i8 %104, ptr %.01317.i, align 1, !tbaa !19
   %105 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 1
-  %106 = load i8, ptr %105, align 1, !tbaa !21
+  %106 = load i8, ptr %105, align 1, !tbaa !19
   %.not.i = icmp eq i8 %106, 0
-  br i1 %.not.i, label %.lr.ph, label %98, !llvm.loop !24
+  br i1 %.not.i, label %.lr.ph, label %98, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %98, %.thread114, %94
   %107 = icmp eq i32 %.079107111117, 0
@@ -245,7 +245,7 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 
 116:                                              ; preds = %108
   %117 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull readonly dereferenceable(1) %111) #12
-  %118 = load i8, ptr %114, align 1, !tbaa !21
+  %118 = load i8, ptr %114, align 1, !tbaa !19
   %.not16.i98 = icmp eq i8 %118, 0
   br i1 %.not16.i98, label %lowercase.exit102, label %.lr.ph.i99
 
@@ -256,16 +256,16 @@ isTestSkipped.exit.thread:                        ; preds = %38, %isTestSkipped.
 120:                                              ; preds = %120, %.lr.ph.i99
   %121 = phi i8 [ %118, %.lr.ph.i99 ], [ %128, %120 ]
   %.01317.i100 = phi ptr [ %114, %.lr.ph.i99 ], [ %127, %120 ]
-  %122 = load ptr, ptr %119, align 8, !tbaa !22
+  %122 = load ptr, ptr %119, align 8, !tbaa !20
   %123 = sext i8 %121 to i64
   %124 = getelementptr inbounds i32, ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !4
   %126 = trunc i32 %125 to i8
-  store i8 %126, ptr %.01317.i100, align 1, !tbaa !21
+  store i8 %126, ptr %.01317.i100, align 1, !tbaa !19
   %127 = getelementptr inbounds nuw i8, ptr %.01317.i100, i64 1
-  %128 = load i8, ptr %127, align 1, !tbaa !21
+  %128 = load i8, ptr %127, align 1, !tbaa !19
   %.not.i101 = icmp eq i8 %128, 0
-  br i1 %.not.i101, label %lowercase.exit102, label %120, !llvm.loop !24
+  br i1 %.not.i101, label %lowercase.exit102, label %120, !llvm.loop !22
 
 lowercase.exit102:                                ; preds = %120, %108, %116
   %129 = trunc nuw nsw i64 %indvars.iv144 to i32
@@ -301,7 +301,7 @@ lowercase.exit102:                                ; preds = %120, %108, %116
   call void @free(ptr noundef %114) #12
   %143 = icmp eq i32 %.282, -1
   %144 = and i1 %143, %109
-  br i1 %144, label %108, label %._crit_edge, !llvm.loop !25
+  br i1 %144, label %108, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %142
   call void @free(ptr noundef %92) #12
@@ -322,7 +322,7 @@ lowercase.exit102:                                ; preds = %120, %108, %116
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa187 to i64
   %151 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %150, i32 1
-  %152 = load ptr, ptr %151, align 8, !tbaa !19
+  %152 = load ptr, ptr %151, align 8, !tbaa !18
   %153 = call i32 %152(i32 noundef %.172.lcssa189, ptr noundef %.174.lcssa188) #12
   br label %159
 
@@ -422,12 +422,10 @@ attributes #14 = { nounwind willreturn memory(none) }
 !14 = !{!"", !12, i64 0, !10, i64 8}
 !15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!14, !10, i64 8}
-!20 = distinct !{!20, !16}
-!21 = !{!6, !6, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 int", !10, i64 0}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16}
+!17 = distinct !{!17, !16}
+!18 = !{!14, !10, i64 8}
+!19 = !{!6, !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 int", !10, i64 0}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}

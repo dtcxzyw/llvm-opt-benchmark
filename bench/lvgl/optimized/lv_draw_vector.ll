@@ -986,7 +986,7 @@ define void @lv_vector_for_each_destroy_tasks(ptr noundef %0, ptr noundef readon
   tail call void @lv_array_deinit(ptr noundef nonnull %20) #10
   tail call void @lv_free(ptr noundef nonnull %.022) #10
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !67
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %19, %10, %3
   tail call void @lv_free(ptr noundef %0) #10
@@ -1012,7 +1012,7 @@ declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @lv_vector_dsc_set_fill_color(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i24 %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !68
+  store i32 0, ptr %3, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = tail call i32 @lv_color_to_32(i24 %1, i8 noundef zeroext -1) #10
   store i32 %5, ptr %4, align 4
@@ -1022,7 +1022,7 @@ define void @lv_vector_dsc_set_fill_color(ptr noundef writeonly captures(none) i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_color32(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i32 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %3, align 8, !tbaa !68
+  store i32 0, ptr %3, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %4, align 4
   ret void
@@ -1031,21 +1031,21 @@ define void @lv_vector_dsc_set_fill_color32(ptr noundef writeonly captures(none)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_opa(ptr noundef writeonly captures(none) initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %1, ptr %3, align 8, !tbaa !69
+  store i8 %1, ptr %3, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_rule(ptr noundef writeonly captures(none) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %1, ptr %3, align 4, !tbaa !70
+  store i32 %1, ptr %3, align 4, !tbaa !68
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_vector_dsc_set_fill_image(ptr noundef initializes((8, 12)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %3, align 8, !tbaa !68
+  store i32 1, ptr %3, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 144) #10
   ret void
@@ -1054,39 +1054,39 @@ define void @lv_vector_dsc_set_fill_image(ptr noundef initializes((8, 12)) %0, p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_linear_gradient(ptr noundef writeonly captures(none) initializes((8, 12), (168, 172), (184, 200)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %6, align 8, !tbaa !68
+  store i32 2, ptr %6, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 0, ptr %7, align 8, !tbaa !71
+  store i32 0, ptr %7, align 8, !tbaa !69
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store float %1, ptr %8, align 8, !tbaa !72
+  store float %1, ptr %8, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store float %2, ptr %9, align 4, !tbaa !73
+  store float %2, ptr %9, align 4, !tbaa !71
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store float %3, ptr %10, align 8, !tbaa !74
+  store float %3, ptr %10, align 8, !tbaa !72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store float %4, ptr %11, align 4, !tbaa !75
+  store float %4, ptr %11, align 4, !tbaa !73
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_radial_gradient(ptr noundef writeonly captures(none) initializes((8, 12), (168, 172), (200, 212)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %5, align 8, !tbaa !68
+  store i32 2, ptr %5, align 8, !tbaa !66
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 1, ptr %6, align 8, !tbaa !71
+  store i32 1, ptr %6, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store float %1, ptr %7, align 8, !tbaa !76
+  store float %1, ptr %7, align 8, !tbaa !74
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  store float %2, ptr %8, align 4, !tbaa !77
+  store float %2, ptr %8, align 4, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store float %3, ptr %9, align 8, !tbaa !78
+  store float %3, ptr %9, align 8, !tbaa !76
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_fill_gradient_spread(ptr noundef writeonly captures(none) initializes((212, 216)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 %1, ptr %3, align 4, !tbaa !79
+  store i32 %1, ptr %3, align 4, !tbaa !77
   ret void
 }
 
@@ -1098,7 +1098,7 @@ define void @lv_vector_dsc_set_fill_gradient_color_stops(ptr noundef %0, ptr nou
   %5 = zext nneg i16 %narrow to i64
   %6 = tail call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  store i16 %spec.store.select, ptr %7, align 2, !tbaa !80
+  store i16 %spec.store.select, ptr %7, align 2, !tbaa !78
   ret void
 }
 
@@ -1119,7 +1119,7 @@ define void @lv_vector_dsc_set_stroke_transform(ptr noundef %0, ptr noundef %1) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_color32(ptr noundef writeonly captures(none) initializes((256, 264)) %0, i32 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %3, align 8, !tbaa !81
+  store i32 0, ptr %3, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %1, ptr %4, align 4
   ret void
@@ -1128,7 +1128,7 @@ define void @lv_vector_dsc_set_stroke_color32(ptr noundef writeonly captures(non
 ; Function Attrs: nounwind uwtable
 define void @lv_vector_dsc_set_stroke_color(ptr noundef writeonly captures(none) initializes((256, 264)) %0, i24 %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %3, align 8, !tbaa !81
+  store i32 0, ptr %3, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %5 = tail call i32 @lv_color_to_32(i24 %1, i8 noundef zeroext -1) #10
   store i32 %5, ptr %4, align 4
@@ -1138,14 +1138,14 @@ define void @lv_vector_dsc_set_stroke_color(ptr noundef writeonly captures(none)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_opa(ptr noundef writeonly captures(none) initializes((264, 265)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i8 %1, ptr %3, align 8, !tbaa !82
+  store i8 %1, ptr %3, align 8, !tbaa !80
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_width(ptr noundef writeonly captures(none) initializes((268, 272)) %0, float noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store float %1, ptr %3, align 4, !tbaa !83
+  store float %1, ptr %3, align 4, !tbaa !81
   ret void
 }
 
@@ -1184,7 +1184,7 @@ define void @lv_vector_dsc_set_stroke_dash(ptr noundef %0, ptr noundef %1, i16 n
   %14 = tail call i32 @lv_array_push_back(ptr noundef nonnull %4, ptr noundef nonnull %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %12
   ret void
@@ -1193,60 +1193,60 @@ define void @lv_vector_dsc_set_stroke_dash(ptr noundef %0, ptr noundef %1, i16 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_cap(ptr noundef writeonly captures(none) initializes((296, 300)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %1, ptr %3, align 8, !tbaa !85
+  store i32 %1, ptr %3, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_join(ptr noundef writeonly captures(none) initializes((300, 304)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 %1, ptr %3, align 4, !tbaa !86
+  store i32 %1, ptr %3, align 4, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_miter_limit(ptr noundef writeonly captures(none) initializes((304, 306)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i16 %1, ptr %3, align 8, !tbaa !87
+  store i16 %1, ptr %3, align 8, !tbaa !85
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_linear_gradient(ptr noundef writeonly captures(none) initializes((256, 260), (308, 312), (324, 340)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 2, ptr %6, align 8, !tbaa !81
+  store i32 2, ptr %6, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 0, ptr %7, align 4, !tbaa !88
+  store i32 0, ptr %7, align 4, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store float %1, ptr %8, align 4, !tbaa !89
+  store float %1, ptr %8, align 4, !tbaa !87
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store float %2, ptr %9, align 8, !tbaa !90
+  store float %2, ptr %9, align 8, !tbaa !88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  store float %3, ptr %10, align 4, !tbaa !91
+  store float %3, ptr %10, align 4, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store float %4, ptr %11, align 8, !tbaa !92
+  store float %4, ptr %11, align 8, !tbaa !90
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_radial_gradient(ptr noundef writeonly captures(none) initializes((256, 260), (308, 312), (340, 352)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 2, ptr %5, align 8, !tbaa !81
+  store i32 2, ptr %5, align 8, !tbaa !79
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store i32 1, ptr %6, align 4, !tbaa !88
+  store i32 1, ptr %6, align 4, !tbaa !86
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  store float %1, ptr %7, align 4, !tbaa !93
+  store float %1, ptr %7, align 4, !tbaa !91
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store float %2, ptr %8, align 8, !tbaa !94
+  store float %2, ptr %8, align 8, !tbaa !92
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store float %3, ptr %9, align 4, !tbaa !95
+  store float %3, ptr %9, align 4, !tbaa !93
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_vector_dsc_set_stroke_gradient_spread(ptr noundef writeonly captures(none) initializes((352, 356)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 %1, ptr %3, align 4, !tbaa !96
+  store i32 %1, ptr %3, align 4, !tbaa !94
   ret void
 }
 
@@ -1258,7 +1258,7 @@ define void @lv_vector_dsc_set_stroke_gradient_color_stops(ptr noundef %0, ptr n
   %5 = zext nneg i16 %narrow to i64
   %6 = tail call ptr @lv_memcpy(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 322
-  store i16 %spec.store.select, ptr %7, align 2, !tbaa !97
+  store i16 %spec.store.select, ptr %7, align 2, !tbaa !95
   ret void
 }
 
@@ -1275,13 +1275,13 @@ define void @lv_vector_dsc_add_path(ptr noundef %0, ptr noundef %1) local_unname
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !69
+  %11 = load i8, ptr %10, align 8, !tbaa !67
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %15 = load i8, ptr %14, align 8, !tbaa !82
+  %15 = load i8, ptr %14, align 8, !tbaa !80
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %96, label %17
 
@@ -1327,64 +1327,64 @@ lv_vector_path_create.exit:                       ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = call ptr @lv_memcpy(ptr noundef nonnull %29, ptr noundef nonnull %6, i64 noundef 248) #10
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %32 = load i32, ptr %31, align 8, !tbaa !98
+  %32 = load i32, ptr %31, align 8, !tbaa !96
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 256
-  store i32 %32, ptr %33, align 8, !tbaa !98
+  store i32 %32, ptr %33, align 8, !tbaa !96
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 260
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %34, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %38 = load i8, ptr %37, align 8, !tbaa !99
+  %38 = load i8, ptr %37, align 8, !tbaa !97
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 264
-  store i8 %38, ptr %39, align 8, !tbaa !99
+  store i8 %38, ptr %39, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %41 = load float, ptr %40, align 4, !tbaa !100
+  %41 = load float, ptr %40, align 4, !tbaa !98
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 268
-  store float %41, ptr %42, align 4, !tbaa !100
+  store float %41, ptr %42, align 4, !tbaa !98
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %44 = load i32, ptr %43, align 8, !tbaa !101
+  %44 = load i32, ptr %43, align 8, !tbaa !99
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 296
-  store i32 %44, ptr %45, align 8, !tbaa !101
+  store i32 %44, ptr %45, align 8, !tbaa !99
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %47 = load i32, ptr %46, align 4, !tbaa !102
+  %47 = load i32, ptr %46, align 4, !tbaa !100
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 300
-  store i32 %47, ptr %48, align 4, !tbaa !102
+  store i32 %47, ptr %48, align 4, !tbaa !100
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %50 = load i16, ptr %49, align 8, !tbaa !103
+  %50 = load i16, ptr %49, align 8, !tbaa !101
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 304
-  store i16 %50, ptr %51, align 8, !tbaa !103
+  store i16 %50, ptr %51, align 8, !tbaa !101
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 272
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 272
   call void @lv_array_copy(ptr noundef nonnull %52, ptr noundef nonnull %53) #10
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %55 = load i32, ptr %54, align 4, !tbaa !104
+  %55 = load i32, ptr %54, align 4, !tbaa !102
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 308
-  store i32 %55, ptr %56, align 4, !tbaa !104
+  store i32 %55, ptr %56, align 4, !tbaa !102
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %58 = load float, ptr %57, align 4, !tbaa !105
+  %58 = load float, ptr %57, align 4, !tbaa !103
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 340
-  store float %58, ptr %59, align 4, !tbaa !105
+  store float %58, ptr %59, align 4, !tbaa !103
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %61 = load float, ptr %60, align 8, !tbaa !106
+  %61 = load float, ptr %60, align 8, !tbaa !104
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 344
-  store float %61, ptr %62, align 8, !tbaa !106
+  store float %61, ptr %62, align 8, !tbaa !104
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %64 = load float, ptr %63, align 4, !tbaa !107
+  %64 = load float, ptr %63, align 4, !tbaa !105
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 348
-  store float %64, ptr %65, align 4, !tbaa !107
+  store float %64, ptr %65, align 4, !tbaa !105
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %67 = load i32, ptr %66, align 4, !tbaa !108
+  %67 = load i32, ptr %66, align 4, !tbaa !106
   %68 = getelementptr inbounds nuw i8, ptr %25, i64 352
-  store i32 %67, ptr %68, align 8, !tbaa !109
+  store i32 %67, ptr %68, align 8, !tbaa !107
   %69 = call ptr @lv_memcpy(ptr noundef nonnull %56, ptr noundef nonnull %54, i64 noundef 48) #10
   %70 = getelementptr inbounds nuw i8, ptr %25, i64 356
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %72 = call ptr @lv_memcpy(ptr noundef nonnull %70, ptr noundef nonnull %71, i64 noundef 36) #10
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  %74 = load i32, ptr %73, align 4, !tbaa !110
+  %74 = load i32, ptr %73, align 4, !tbaa !108
   %75 = getelementptr inbounds nuw i8, ptr %25, i64 428
-  store i32 %74, ptr %75, align 4, !tbaa !110
+  store i32 %74, ptr %75, align 4, !tbaa !108
   %76 = getelementptr inbounds nuw i8, ptr %25, i64 392
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %78 = call ptr @lv_memcpy(ptr noundef nonnull %76, ptr noundef nonnull %77, i64 noundef 36) #10
@@ -1467,9 +1467,9 @@ define void @lv_vector_clear_area(ptr noundef %0, ptr noundef readonly captures(
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %17, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i8, ptr %20, align 8, !tbaa !69
+  %21 = load i8, ptr %20, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i8 %21, ptr %22, align 8, !tbaa !111
+  store i8 %21, ptr %22, align 8, !tbaa !109
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 432
   %24 = load i32, ptr %1, align 4, !tbaa !22
   store i32 %24, ptr %23, align 8, !tbaa !22
@@ -1505,10 +1505,10 @@ define void @lv_draw_vector(ptr noundef %0) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = tail call ptr @lv_draw_add_task(ptr noundef %6, ptr noundef nonnull %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 13, ptr %9, align 8, !tbaa !112
+  store i32 13, ptr %9, align 8, !tbaa !110
   %10 = tail call ptr @lv_malloc(i64 noundef 56) #10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  store ptr %10, ptr %11, align 8, !tbaa !116
+  store ptr %10, ptr %11, align 8, !tbaa !114
   %12 = tail call ptr @lv_memcpy(ptr noundef %10, ptr noundef nonnull %5, i64 noundef 56) #10
   tail call void @lv_draw_finalize_task_creation(ptr noundef %6, ptr noundef %8) #10
   store ptr null, ptr %2, align 8, !tbaa !61
@@ -1662,55 +1662,53 @@ attributes #10 = { nounwind }
 !62 = !{!63, !64, i64 0}
 !63 = !{!"", !64, i64 0, !34, i64 8}
 !64 = !{!"p1 _ZTS17_lv_vector_path_t", !17, i64 0}
-!65 = distinct !{!65, !11, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !11}
-!68 = !{!32, !14, i64 8}
-!69 = !{!32, !6, i64 16}
-!70 = !{!32, !14, i64 20}
-!71 = !{!32, !14, i64 168}
-!72 = !{!32, !5, i64 184}
-!73 = !{!32, !5, i64 188}
-!74 = !{!32, !5, i64 192}
-!75 = !{!32, !5, i64 196}
-!76 = !{!32, !5, i64 200}
-!77 = !{!32, !5, i64 204}
-!78 = !{!32, !5, i64 208}
-!79 = !{!32, !14, i64 212}
-!80 = !{!32, !44, i64 182}
-!81 = !{!32, !14, i64 256}
-!82 = !{!32, !6, i64 264}
-!83 = !{!32, !5, i64 268}
-!84 = distinct !{!84, !11}
-!85 = !{!32, !14, i64 296}
-!86 = !{!32, !14, i64 300}
-!87 = !{!32, !44, i64 304}
-!88 = !{!32, !14, i64 308}
-!89 = !{!32, !5, i64 324}
-!90 = !{!32, !5, i64 328}
-!91 = !{!32, !5, i64 332}
-!92 = !{!32, !5, i64 336}
-!93 = !{!32, !5, i64 340}
-!94 = !{!32, !5, i64 344}
-!95 = !{!32, !5, i64 348}
-!96 = !{!32, !14, i64 352}
-!97 = !{!32, !44, i64 322}
-!98 = !{!34, !14, i64 248}
-!99 = !{!34, !6, i64 256}
-!100 = !{!34, !5, i64 260}
-!101 = !{!34, !14, i64 288}
-!102 = !{!34, !14, i64 292}
-!103 = !{!34, !44, i64 296}
-!104 = !{!34, !14, i64 300}
-!105 = !{!34, !5, i64 332}
-!106 = !{!34, !5, i64 336}
-!107 = !{!34, !5, i64 340}
-!108 = !{!34, !14, i64 204}
-!109 = !{!34, !14, i64 344}
-!110 = !{!34, !14, i64 420}
-!111 = !{!63, !6, i64 16}
-!112 = !{!113, !14, i64 8}
-!113 = !{!"_lv_draw_task_t", !114, i64 0, !14, i64 8, !23, i64 12, !23, i64 28, !23, i64 44, !23, i64 60, !33, i64 80, !115, i64 88, !14, i64 96, !17, i64 104, !6, i64 112, !6, i64 113}
-!114 = !{!"p1 _ZTS15_lv_draw_task_t", !17, i64 0}
-!115 = !{!"p1 _ZTS15_lv_draw_unit_t", !17, i64 0}
-!116 = !{!113, !17, i64 104}
+!65 = distinct !{!65, !11}
+!66 = !{!32, !14, i64 8}
+!67 = !{!32, !6, i64 16}
+!68 = !{!32, !14, i64 20}
+!69 = !{!32, !14, i64 168}
+!70 = !{!32, !5, i64 184}
+!71 = !{!32, !5, i64 188}
+!72 = !{!32, !5, i64 192}
+!73 = !{!32, !5, i64 196}
+!74 = !{!32, !5, i64 200}
+!75 = !{!32, !5, i64 204}
+!76 = !{!32, !5, i64 208}
+!77 = !{!32, !14, i64 212}
+!78 = !{!32, !44, i64 182}
+!79 = !{!32, !14, i64 256}
+!80 = !{!32, !6, i64 264}
+!81 = !{!32, !5, i64 268}
+!82 = distinct !{!82, !11}
+!83 = !{!32, !14, i64 296}
+!84 = !{!32, !14, i64 300}
+!85 = !{!32, !44, i64 304}
+!86 = !{!32, !14, i64 308}
+!87 = !{!32, !5, i64 324}
+!88 = !{!32, !5, i64 328}
+!89 = !{!32, !5, i64 332}
+!90 = !{!32, !5, i64 336}
+!91 = !{!32, !5, i64 340}
+!92 = !{!32, !5, i64 344}
+!93 = !{!32, !5, i64 348}
+!94 = !{!32, !14, i64 352}
+!95 = !{!32, !44, i64 322}
+!96 = !{!34, !14, i64 248}
+!97 = !{!34, !6, i64 256}
+!98 = !{!34, !5, i64 260}
+!99 = !{!34, !14, i64 288}
+!100 = !{!34, !14, i64 292}
+!101 = !{!34, !44, i64 296}
+!102 = !{!34, !14, i64 300}
+!103 = !{!34, !5, i64 332}
+!104 = !{!34, !5, i64 336}
+!105 = !{!34, !5, i64 340}
+!106 = !{!34, !14, i64 204}
+!107 = !{!34, !14, i64 344}
+!108 = !{!34, !14, i64 420}
+!109 = !{!63, !6, i64 16}
+!110 = !{!111, !14, i64 8}
+!111 = !{!"_lv_draw_task_t", !112, i64 0, !14, i64 8, !23, i64 12, !23, i64 28, !23, i64 44, !23, i64 60, !33, i64 80, !113, i64 88, !14, i64 96, !17, i64 104, !6, i64 112, !6, i64 113}
+!112 = !{!"p1 _ZTS15_lv_draw_task_t", !17, i64 0}
+!113 = !{!"p1 _ZTS15_lv_draw_unit_t", !17, i64 0}
+!114 = !{!111, !17, i64 104}

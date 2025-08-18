@@ -4745,7 +4745,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %.not.i = icmp ult i32 %37, %40
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !44
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !42
 }
 
 declare void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
@@ -4824,7 +4824,7 @@ _ZN28ShenandoahRetireGCLABClosure9do_threadEP6Thread.exit: ; preds = %29, %32, %
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp ult i32 %36, %39
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !45
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !43
 
 40:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   %41 = load ptr, ptr %0, align 8
@@ -5462,7 +5462,7 @@ _ZN7oopDesc11oop_iterateI28ObjectIterateScanRootClosureEEvPT_.exit: ; preds = %8
   call void %101(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef %.0.i.i) #26
   %102 = load ptr, ptr %47, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %._crit_edge, label %52, !llvm.loop !46
+  br i1 %103, label %._crit_edge, label %52, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZN7oopDesc11oop_iterateI28ObjectIterateScanRootClosureEEvPT_.exit, %_ZN14ShenandoahHeap24scan_roots_for_iterationEP5StackIP7oopDescL8MEMFLAGS5EEP28ObjectIterateScanRootClosure.exit
   %104 = load i8, ptr %6, align 1
@@ -5514,7 +5514,7 @@ _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit: ; preds = %109, %1
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %.06.i.i.i, i64 noundef %121) #26
   %.not.i.i.i = icmp eq ptr %125, null
-  br i1 %.not.i.i.i, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load i64, ptr %22, align 8
@@ -5540,7 +5540,7 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i: ; preds = %_ZN14S
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #26
   %.not.i5.i.i = icmp eq ptr %134, null
-  br i1 %.not.i5.i.i, label %_ZN14ShenandoahHeap32prepare_aux_bitmap_for_iterationEv.exit.thread, label %.lr.ph.i3.i.i, !llvm.loop !47
+  br i1 %.not.i5.i.i, label %_ZN14ShenandoahHeap32prepare_aux_bitmap_for_iterationEv.exit.thread, label %.lr.ph.i3.i.i, !llvm.loop !45
 
 _ZN14ShenandoahHeap32prepare_aux_bitmap_for_iterationEv.exit.thread: ; preds = %.lr.ph.i3.i.i, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, %18, %16
   ret void
@@ -5895,7 +5895,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %11 = add nuw i64 %.05, 1
   %12 = load i64, ptr %3, align 8
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !48
+  br i1 %13, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %2
   ret void
@@ -5948,7 +5948,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i:        ; preds = %_ZNK14ShenandoahHea
   %25 = add nuw i64 %.05.i, 1
   %26 = load i64, ptr %4, align 8
   %27 = icmp ult i64 %25, %26
-  br i1 %27, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i, label %_ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !48
+  br i1 %27, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i, label %_ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !46
 
 _ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure.exit: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i, %18, %8
   ret void
@@ -6055,7 +6055,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i.i:      ; preds = %_ZNK14ShenandoahHea
   %39 = add nuw i64 %.05.i.i, 1
   %40 = load i64, ptr %19, align 8
   %41 = icmp ult i64 %39, %40
-  br i1 %41, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !48
+  br i1 %41, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !46
 
 _ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, %23, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6125,7 +6125,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i.i:      ; preds = %_ZNK14ShenandoahHea
   %36 = add nuw i64 %.05.i.i, 1
   %37 = load i64, ptr %15, align 8
   %38 = icmp ult i64 %36, %37
-  br i1 %38, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !48
+  br i1 %38, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !46
 
 _ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, %19, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6300,7 +6300,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %26 = load i32, ptr %12, align 8
   %27 = load i32, ptr %15, align 4
   %.not.i = icmp ult i32 %26, %27
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !49
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !47
 
 28:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %1
   ret void
@@ -6336,7 +6336,7 @@ define hidden void @_ZN14ShenandoahHeap12set_gc_stateEjb(ptr noundef nonnull ali
   %13 = or i8 %9, %4
   %14 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, i8 %9, ptr nonnull %6) #26, !srcloc !20
   %15 = icmp eq i8 %14, %9
-  br i1 %15, label %_ZN22ShenandoahSharedBitmap8set_condEjb.exit, label %8, !llvm.loop !50
+  br i1 %15, label %_ZN22ShenandoahSharedBitmap8set_condEjb.exit, label %8, !llvm.loop !48
 
 16:                                               ; preds = %3
   %17 = xor i8 %4, -1
@@ -6357,7 +6357,7 @@ define hidden void @_ZN14ShenandoahHeap12set_gc_stateEjb(ptr noundef nonnull ali
   %26 = and i8 %21, %17
   %27 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %26, i8 %21, ptr nonnull %18) #26, !srcloc !20
   %28 = icmp eq i8 %27, %21
-  br i1 %28, label %_ZN22ShenandoahSharedBitmap8set_condEjb.exit, label %20, !llvm.loop !51
+  br i1 %28, label %_ZN22ShenandoahSharedBitmap8set_condEjb.exit, label %20, !llvm.loop !49
 
 _ZN22ShenandoahSharedBitmap8set_condEjb.exit:     ; preds = %20, %25, %8, %12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6381,7 +6381,7 @@ define hidden void @_ZN14ShenandoahHeap31set_concurrent_mark_in_progressEb(ptr n
   %7 = or disjoint i8 %4, 2
   %8 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, i8 %4, ptr nonnull %3) #26, !srcloc !20
   %9 = icmp eq i8 %8, %4
-  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !50
+  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !48
 
 .preheader6:                                      ; preds = %2, %13
   %10 = load volatile i8, ptr %3, align 1
@@ -6394,7 +6394,7 @@ define hidden void @_ZN14ShenandoahHeap31set_concurrent_mark_in_progressEb(ptr n
   %14 = and i8 %10, -3
   %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %10, ptr nonnull %3) #26, !srcloc !20
   %16 = icmp eq i8 %15, %10
-  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader6, !llvm.loop !51
+  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader6, !llvm.loop !49
 
 _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader6, %13, %.preheader, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6424,7 +6424,7 @@ define hidden void @_ZN14ShenandoahHeap26set_evacuation_in_progressEb(ptr nounde
   %7 = or disjoint i8 %4, 4
   %8 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, i8 %4, ptr nonnull %3) #26, !srcloc !20
   %9 = icmp eq i8 %8, %4
-  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !50
+  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !48
 
 .preheader4:                                      ; preds = %2, %13
   %10 = load volatile i8, ptr %3, align 1
@@ -6437,7 +6437,7 @@ define hidden void @_ZN14ShenandoahHeap26set_evacuation_in_progressEb(ptr nounde
   %14 = and i8 %10, -5
   %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %10, ptr nonnull %3) #26, !srcloc !20
   %16 = icmp eq i8 %15, %10
-  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !51
+  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !49
 
 _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %.preheader, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6478,7 +6478,7 @@ define hidden void @_ZN14ShenandoahHeap36set_concurrent_weak_root_in_progressEb(
   %7 = or disjoint i8 %4, 16
   %8 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, i8 %4, ptr nonnull %3) #26, !srcloc !20
   %9 = icmp eq i8 %8, %4
-  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !50
+  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !48
 
 .preheader4:                                      ; preds = %2, %13
   %10 = load volatile i8, ptr %3, align 1
@@ -6491,7 +6491,7 @@ define hidden void @_ZN14ShenandoahHeap36set_concurrent_weak_root_in_progressEb(
   %14 = and i8 %10, -17
   %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %10, ptr nonnull %3) #26, !srcloc !20
   %16 = icmp eq i8 %15, %10
-  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !51
+  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !49
 
 _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %.preheader, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -6947,7 +6947,7 @@ define hidden void @_ZN14ShenandoahHeap25set_has_forwarded_objectsEb(ptr noundef
   %7 = or disjoint i8 %4, 1
   %8 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, i8 %4, ptr nonnull %3) #26, !srcloc !20
   %9 = icmp eq i8 %8, %4
-  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !50
+  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !48
 
 .preheader4:                                      ; preds = %2, %13
   %10 = load volatile i8, ptr %3, align 1
@@ -6960,7 +6960,7 @@ define hidden void @_ZN14ShenandoahHeap25set_has_forwarded_objectsEb(ptr noundef
   %14 = and i8 %10, -2
   %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %10, ptr nonnull %3) #26, !srcloc !20
   %16 = icmp eq i8 %15, %10
-  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !51
+  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !49
 
 _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %.preheader, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -7083,7 +7083,7 @@ define hidden void @_ZN14ShenandoahHeap27set_update_refs_in_progressEb(ptr nound
   %7 = or disjoint i8 %4, 8
   %8 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %7, i8 %4, ptr nonnull %3) #26, !srcloc !20
   %9 = icmp eq i8 %8, %4
-  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !50
+  br i1 %9, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader, !llvm.loop !48
 
 .preheader4:                                      ; preds = %2, %13
   %10 = load volatile i8, ptr %3, align 1
@@ -7096,7 +7096,7 @@ define hidden void @_ZN14ShenandoahHeap27set_update_refs_in_progressEb(ptr nound
   %14 = and i8 %10, -9
   %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %10, ptr nonnull %3) #26, !srcloc !20
   %16 = icmp eq i8 %15, %10
-  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !51
+  br i1 %16, label %_ZN14ShenandoahHeap12set_gc_stateEjb.exit, label %.preheader4, !llvm.loop !49
 
 _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %.preheader, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -7228,7 +7228,7 @@ _ZNK20ShenandoahHeapRegion9is_pinnedEv.exit:      ; preds = %_ZNK14ShenandoahHea
   %21 = add nuw i64 %.09, 1
   %22 = load i64, ptr %6, align 8
   %23 = icmp ult i64 %21, %22
-  br i1 %23, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !52
+  br i1 %23, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !50
 
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %20, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
@@ -7276,7 +7276,7 @@ _ZN14ShenandoahHeap38set_concurrent_strong_root_in_progressEb.exit: ; preds = %7
   %16 = or disjoint i8 %13, 16
   %17 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %16, i8 %13, ptr nonnull %11) #26, !srcloc !20
   %18 = icmp eq i8 %17, %13
-  br i1 %18, label %_ZN14ShenandoahHeap36set_concurrent_weak_root_in_progressEb.exit, label %12, !llvm.loop !50
+  br i1 %18, label %_ZN14ShenandoahHeap36set_concurrent_weak_root_in_progressEb.exit, label %12, !llvm.loop !48
 
 _ZN14ShenandoahHeap36set_concurrent_weak_root_in_progressEb.exit: ; preds = %12, %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -7417,7 +7417,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i.i:      ; preds = %_ZNK14ShenandoahHea
   %32 = add nuw i64 %.05.i.i, 1
   %33 = load i64, ptr %11, align 8
   %34 = icmp ult i64 %32, %33
-  br i1 %34, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !48
+  br i1 %34, label %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, label %_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit, !llvm.loop !46
 
 _ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure.exit: ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i.i, %15, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7533,13 +7533,13 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.us:       ; preds = %.lr.ph18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load i32, ptr %24, align 8
   %.not.us = icmp eq i32 %25, 0
-  br i1 %.not.us, label %.lr.ph18, label %._crit_edge, !llvm.loop !53
+  br i1 %.not.us, label %.lr.ph18, label %._crit_edge, !llvm.loop !51
 
 .lr.ph18:                                         ; preds = %.lr.ph.split.us, %_ZNK14ShenandoahHeap10get_regionEm.exit.us
   %.013.us17 = phi i64 [ %26, %_ZNK14ShenandoahHeap10get_regionEm.exit.us ], [ %8, %.lr.ph.split.us ]
   %26 = add nuw i64 %.013.us17, 1
   %27 = icmp ult i64 %26, %13
-  br i1 %27, label %_ZNK14ShenandoahHeap10get_regionEm.exit.us, label %._crit_edge, !llvm.loop !53
+  br i1 %27, label %_ZNK14ShenandoahHeap10get_regionEm.exit.us, label %._crit_edge, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.013 = phi i64 [ %34, %33 ], [ %8, %.lr.ph ]
@@ -7557,7 +7557,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.lr.ph.split
 33:                                               ; preds = %.lr.ph.split, %_ZNK14ShenandoahHeap10get_regionEm.exit
   %34 = add nuw i64 %.013, 1
   %35 = icmp ult i64 %34, %13
-  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !54
+  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.us, %.lr.ph18, %_ZNK14ShenandoahHeap10get_regionEm.exit, %33, %.lr.ph.split.us, %3
   %.lcssa = phi i1 [ false, %3 ], [ true, %.lr.ph.split.us ], [ false, %33 ], [ true, %_ZNK14ShenandoahHeap10get_regionEm.exit ], [ %27, %.lr.ph18 ], [ %27, %_ZNK14ShenandoahHeap10get_regionEm.exit.us ]
@@ -7606,7 +7606,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i:        ; preds = %.lr.ph.split.i
 25:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i, %.lr.ph.split.i
   %26 = add nuw i64 %.013.i, 1
   %27 = icmp ult i64 %26, %16
-  br i1 %27, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !54
+  br i1 %27, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %25, %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2400
@@ -7679,7 +7679,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.i:        ; preds = %.lr.ph.split.i
 25:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.i, %.lr.ph.split.i
   %26 = add nuw i64 %.013.i, 1
   %27 = icmp ult i64 %26, %16
-  br i1 %27, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !54
+  br i1 %27, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %25, %6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2400
@@ -7938,7 +7938,7 @@ _ZN20ShenandoahHeapRegion27increase_live_data_gc_wordsEm.exit: ; preds = %_ZNK14
   %43 = add i32 %.012, 1
   %44 = zext i32 %43 to i64
   %45 = icmp ugt i64 %42, %44
-  br i1 %45, label %11, label %._crit_edge, !llvm.loop !55
+  br i1 %45, label %11, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %41, %2
   ret void
@@ -8407,7 +8407,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit7:       ; preds = %35
   %43 = getelementptr inbounds ptr, ptr %42, i64 %36
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %35, %_ZN24ShenandoahRegionIterator4nextEv.exit7, %2, %_ZN24ShenandoahRegionIterator4nextEv.exit
   ret void
@@ -8470,7 +8470,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit6:       ; preds = %24
   %32 = getelementptr inbounds ptr, ptr %31, i64 %25
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %24, %_ZN24ShenandoahRegionIterator4nextEv.exit6, %2, %_ZN24ShenandoahRegionIterator4nextEv.exit
   ret void
@@ -8557,13 +8557,13 @@ _ZNK14ShenandoahHeap10get_regionEm.exit.us.i:     ; preds = %.lr.ph18.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load i32, ptr %37, align 8
   %.not.us.i = icmp eq i32 %38, 0
-  br i1 %.not.us.i, label %.lr.ph18.i, label %.loopexit, !llvm.loop !53
+  br i1 %.not.us.i, label %.lr.ph18.i, label %.loopexit, !llvm.loop !51
 
 .lr.ph18.i:                                       ; preds = %.lr.ph.i, %_ZNK14ShenandoahHeap10get_regionEm.exit.us.i
   %.013.us17.i = phi i64 [ %39, %_ZNK14ShenandoahHeap10get_regionEm.exit.us.i ], [ %24, %.lr.ph.i ]
   %39 = add nuw i64 %.013.us17.i, 1
   %40 = icmp ult i64 %39, %28
-  br i1 %40, label %_ZNK14ShenandoahHeap10get_regionEm.exit.us.i, label %_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb.exit, !llvm.loop !53
+  br i1 %40, label %_ZNK14ShenandoahHeap10get_regionEm.exit.us.i, label %_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb.exit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.us.i, %.lr.ph.i
   tail call void @_ZN24ShenandoahMarkingContext12clear_bitmapEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(208) %16, ptr noundef nonnull %.011) #26
@@ -8583,7 +8583,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit8:       ; preds = %_ZN14ShenandoahHeap
   %48 = getelementptr inbounds ptr, ptr %47, i64 %41
   %49 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb.exit, %_ZN24ShenandoahRegionIterator4nextEv.exit8, %2, %_ZN24ShenandoahRegionIterator4nextEv.exit
   ret void
@@ -8861,7 +8861,7 @@ _ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit: ; preds = %_ZN15Shenan
   %57 = load volatile i8, ptr %56, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %58 = icmp eq i8 %57, 1
-  br i1 %58, label %59, label %11, !llvm.loop !59
+  br i1 %58, label %59, label %11, !llvm.loop !56
 
 59:                                               ; preds = %_ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit, %11
   ret void
@@ -8960,7 +8960,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
 .lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
   %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !60
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %.172, ptr %31, align 8
@@ -8981,7 +8981,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
 
 .lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
-  br label %.lr.ph73, !llvm.loop !61
+  br label %.lr.ph73, !llvm.loop !58
 
 .lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
@@ -8992,7 +8992,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %41) #26
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !61
+  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %.preheader67, %50
   %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
@@ -9010,7 +9010,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI47Sh
 50:                                               ; preds = %48, %.lr.ph
   %.4 = phi ptr [ %49, %48 ], [ %46, %.lr.ph ]
   %51 = icmp ult ptr %.4, %20
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !62
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %50, %.preheader66.split.loopexit, %.preheader66.split.preheader, %.preheader67
   %52 = icmp ult ptr %12, %3
@@ -9103,7 +9103,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %.05677) #26
   %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
   %111 = icmp ult ptr %110, %3
-  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !63
+  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !60
 
 ._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
   ret void
@@ -9656,7 +9656,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN32ShenandoahParallelObjectIter
   store ptr null, ptr %11, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %6
-  br i1 %exitcond.not.i.i.i, label %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, label %.lr.ph.i.i.i, !llvm.loop !64
+  br i1 %exitcond.not.i.i.i, label %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, label %.lr.ph.i.i.i, !llvm.loop !61
 
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i, %1
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -9708,7 +9708,7 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i, %1
   %34 = load i32, ptr %3, align 8
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9899,7 +9899,7 @@ _ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES
   %140 = add i32 %.01923, 1
   %141 = zext i32 %140 to i64
   %142 = icmp ugt i64 %46, %141
-  br i1 %142, label %52, label %.loopexit, !llvm.loop !66
+  br i1 %142, label %52, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit, %._crit_edge
   ret i1 %47
@@ -9979,7 +9979,7 @@ _ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv.exit: ; preds = %1, %7, 
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull %.06.i.i.i.i.i.i, i64 noundef %34) #26
   %.not.i.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !67
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !64
 
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %31, align 8
@@ -10006,7 +10006,7 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i: 
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull %.06.i4.i.i.i.i.i, i64 noundef %.pre-phi3.i.i.i.i) #26
   %.not.i5.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i5.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !67
+  br i1 %.not.i5.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !64
 
 .loopexit.loopexit.i.i.i.i.i:                     ; preds = %.lr.ph.i3.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %31, align 8
@@ -10035,7 +10035,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !68
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %61
   %.pre12 = load ptr, ptr %17, align 8
@@ -10078,7 +10078,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull %.06.i.i.i, i64 noundef %77) #26
   %.not.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load i64, ptr %74, align 8
@@ -10105,7 +10105,7 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i: ; preds = %_ZN5St
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #26
   %.not.i5.i.i = icmp eq ptr %91, null
-  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !47
+  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !45
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i3.i.i
   %.pre.i.i = load i64, ptr %74, align 8
@@ -10176,7 +10176,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19GenericTaskQueueSetI6PaddedI25Buff
   %17 = add i32 %16, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %6, %1
   %.05.lcssa = phi i32 [ 0, %1 ], [ %17, %6 ]
@@ -10366,7 +10366,7 @@ _ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS
 94:                                               ; preds = %.lr.ph.i
   %95 = add nuw i32 %.078.i, 1
   %exitcond.not.i = icmp eq i32 %95, %93
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !70
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !67
 
 .lr.ph.i:                                         ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit, %94
   %.078.i = phi i32 [ %95, %94 ], [ 0, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit ]
@@ -10410,7 +10410,7 @@ _ZN7oopDesc11oop_iterateI37ShenandoahObjectIterateParScanClosureEEvPT_.exit: ; p
   %121 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI37ShenandoahObjectIterateParScanClosureE6_tableE, i64 0, i64 %120
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %.0.i.i) #26
-  br label %36, !llvm.loop !71
+  br label %36, !llvm.loop !68
 
 .loopexit:                                        ; preds = %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE3popERS0_.exit, %94
   ret void
@@ -10515,7 +10515,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %11, %
 63:                                               ; preds = %61
   %64 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %62, i64 %.017.i.i.i, ptr nonnull %57) #26, !srcloc !37
   %65 = icmp eq i64 %64, %.017.i.i.i
-  br i1 %65, label %66, label %61, !llvm.loop !72
+  br i1 %65, label %66, label %61, !llvm.loop !69
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10723,7 +10723,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %19, %
 70:                                               ; preds = %68
   %71 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %.017.i.i.i, ptr nonnull %64) #26, !srcloc !37
   %72 = icmp eq i64 %71, %.017.i.i.i
-  br i1 %72, label %73, label %68, !llvm.loop !72
+  br i1 %72, label %73, label %68, !llvm.loop !69
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10871,7 +10871,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %23 = load i32, ptr %9, align 8
   %24 = urem i32 %.0.i.i, %23
   %25 = icmp eq i32 %24, %1
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !73
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
@@ -10895,7 +10895,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %37 = icmp eq i32 %36, %1
   %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
-  br i1 %39, label %27, label %40, !llvm.loop !74
+  br i1 %39, label %27, label %40, !llvm.loop !71
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
@@ -11085,7 +11085,7 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %6
 .loopexit:                                        ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %.preheader
   %17 = load volatile i64, ptr %13, align 8
   %18 = icmp ult i64 %17, %12
-  br i1 %18, label %19, label %._crit_edge, !llvm.loop !75
+  br i1 %18, label %19, label %._crit_edge, !llvm.loop !72
 
 19:                                               ; preds = %.lr.ph18, %.loopexit
   %20 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %8, ptr nonnull %13) #26, !srcloc !17
@@ -11121,7 +11121,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.lr.ph, %28
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %.0.i) #26
   %36 = add nuw i64 %.017, 1
   %37 = icmp ult i64 %36, %22
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !76
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.loopexit, %19, %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
   call void @_ZN31ShenandoahParallelWorkerSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #26
@@ -11996,12 +11996,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %200 = getelementptr inbounds nuw i8, ptr %.027, i64 4
   %201 = icmp ult ptr %200, %32
-  br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !77
+  br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit, %24
   %202 = getelementptr inbounds nuw i8, ptr %.02528, i64 8
   %203 = icmp ult ptr %202, %16
-  br i1 %203, label %24, label %._crit_edge31, !llvm.loop !78
+  br i1 %203, label %24, label %._crit_edge31, !llvm.loop !75
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %3
   ret void
@@ -12310,12 +12310,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %194 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %195 = icmp ult ptr %194, %32
-  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !79
+  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit, %24
   %196 = getelementptr inbounds nuw i8, ptr %.02528, i64 8
   %197 = icmp ult ptr %196, %16
-  br i1 %197, label %24, label %._crit_edge31, !llvm.loop !80
+  br i1 %197, label %24, label %._crit_edge31, !llvm.loop !77
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %3
   ret void
@@ -12653,12 +12653,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %201 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %202 = icmp ult ptr %201, %33
-  br i1 %202, label %.lr.ph, label %._crit_edge, !llvm.loop !81
+  br i1 %202, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit, %25
   %203 = getelementptr inbounds nuw i8, ptr %.02730, i64 8
   %204 = icmp ult ptr %203, %17
-  br i1 %204, label %25, label %._crit_edge33, !llvm.loop !82
+  br i1 %204, label %25, label %._crit_edge33, !llvm.loop !79
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -13342,7 +13342,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
 .split.i.i:                                       ; preds = %.lr.ph.i.i
   %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #26, !srcloc !37
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !80
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -13394,7 +13394,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
   %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #26, !srcloc !37
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !84
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !81
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -13543,7 +13543,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !85
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !82
 
 _ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -13666,7 +13666,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !85
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !82
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -13898,7 +13898,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier45weak_load_barrier_on_weak_
 .split.i.i:                                       ; preds = %.lr.ph.i.i
   %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #26, !srcloc !37
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !83
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !80
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -13950,7 +13950,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
   %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #26, !srcloc !37
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !84
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !81
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -14097,7 +14097,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !85
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !82
 
 _ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -14410,12 +14410,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %195 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %196 = icmp ult ptr %195, %33
-  br i1 %196, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %196, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit, %25
   %197 = getelementptr inbounds nuw i8, ptr %.02730, i64 8
   %198 = icmp ult ptr %197, %17
-  br i1 %198, label %25, label %._crit_edge33, !llvm.loop !87
+  br i1 %198, label %25, label %._crit_edge33, !llvm.loop !84
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -14853,12 +14853,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %199 = getelementptr inbounds nuw i8, ptr %.041, i64 4
   %200 = icmp ult ptr %199, %31
-  br i1 %200, label %.lr.ph, label %._crit_edge, !llvm.loop !88
+  br i1 %200, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit, %23
   %201 = getelementptr inbounds nuw i8, ptr %.03742, i64 8
   %202 = icmp ult ptr %201, %16
-  br i1 %202, label %23, label %._crit_edge45, !llvm.loop !89
+  br i1 %202, label %23, label %._crit_edge45, !llvm.loop !86
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %3
   %203 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -14877,7 +14877,7 @@ _ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = 
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %.08.i)
   %211 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %212 = icmp ult ptr %211, %209
-  br i1 %212, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit, !llvm.loop !90
+  br i1 %212, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit, !llvm.loop !87
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i, %._crit_edge45
   ret void
@@ -15190,12 +15190,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %193 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %194 = icmp ult ptr %193, %31
-  br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !91
+  br i1 %194, label %.lr.ph, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit, %23
   %195 = getelementptr inbounds nuw i8, ptr %.03742, i64 8
   %196 = icmp ult ptr %195, %16
-  br i1 %196, label %23, label %._crit_edge45, !llvm.loop !92
+  br i1 %196, label %23, label %._crit_edge45, !llvm.loop !89
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %3
   %197 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -15214,7 +15214,7 @@ _ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %.08.i)
   %205 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %206 = icmp ult ptr %205, %203
-  br i1 %206, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit, !llvm.loop !93
+  br i1 %206, label %.lr.ph.i, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit, !llvm.loop !90
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i, %._crit_edge45
   ret void
@@ -15551,12 +15551,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %200 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %201 = icmp ult ptr %200, %32
-  br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !94
+  br i1 %201, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_.exit, %24
   %202 = getelementptr inbounds nuw i8, ptr %.03034, i64 8
   %203 = icmp ult ptr %202, %16
-  br i1 %203, label %24, label %._crit_edge37, !llvm.loop !95
+  br i1 %203, label %24, label %._crit_edge37, !llvm.loop !92
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %3
   ret void
@@ -15867,12 +15867,12 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i: ; preds = %_ZN5StackIP7oopDesc
 _ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit: ; preds = %.lr.ph, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %_ZN20ShenandoahBarrierSet22load_reference_barrierEP7oopDesc.exit, %_ZN5StackIP7oopDescL8MEMFLAGS5EE4pushES1_.exit.i
   %194 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %195 = icmp ult ptr %194, %32
-  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !96
+  br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_.exit, %24
   %196 = getelementptr inbounds nuw i8, ptr %.03034, i64 8
   %197 = icmp ult ptr %196, %16
-  br i1 %197, label %24, label %._crit_edge37, !llvm.loop !97
+  br i1 %197, label %24, label %._crit_edge37, !llvm.loop !94
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %3
   ret void
@@ -16000,7 +16000,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !98
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !95
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -16028,7 +16028,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ObjectIterateScanRootClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !99
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop28ObjectIterateScanRootClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !96
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -16203,7 +16203,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !98
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !95
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -16231,7 +16231,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ObjectIterateScanRootClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !100
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc28ObjectIterateScanRootClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !97
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -16359,7 +16359,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ObjectIterateScanR
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit, !llvm.loop !101
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit, !llvm.loop !98
 
 _ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop28ObjectIterateScanRootClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -16393,7 +16393,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ObjectIterateScanR
   tail call void @_ZN28ObjectIterateScanRootClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit, !llvm.loop !102
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit, !llvm.loop !99
 
 _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc28ObjectIterateScanRootClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -16471,12 +16471,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.026)
   %27 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %28 = icmp ult ptr %27, %26
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !103
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %29 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %30 = icmp ult ptr %29, %16
-  br i1 %30, label %18, label %._crit_edge30, !llvm.loop !104
+  br i1 %30, label %18, label %._crit_edge30, !llvm.loop !101
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -16524,12 +16524,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.026)
   %27 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %28 = icmp ult ptr %27, %26
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %29 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %30 = icmp ult ptr %29, %16
-  br i1 %30, label %18, label %._crit_edge30, !llvm.loop !106
+  br i1 %30, label %18, label %._crit_edge30, !llvm.loop !103
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -16588,12 +16588,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.028.i)
   %28 = getelementptr inbounds nuw i8, ptr %.028.i, i64 4
   %29 = icmp ult ptr %28, %27
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !107
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !104
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
   %30 = getelementptr inbounds nuw i8, ptr %.02729.i, i64 8
   %31 = icmp ult ptr %30, %17
-  br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !108
+  br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !105
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -16645,12 +16645,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.028.i)
   %28 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %29 = icmp ult ptr %28, %27
-  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !109
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !106
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
   %30 = getelementptr inbounds nuw i8, ptr %.02729.i, i64 8
   %31 = icmp ult ptr %30, %17
-  br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !110
+  br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !107
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -16904,12 +16904,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.040.i)
   %25 = getelementptr inbounds nuw i8, ptr %.040.i, i64 4
   %26 = icmp ult ptr %25, %24
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !111
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph43.i
   %27 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 8
   %28 = icmp ult ptr %27, %16
-  br i1 %28, label %.lr.ph43.i, label %._crit_edge44.i, !llvm.loop !112
+  br i1 %28, label %.lr.ph43.i, label %._crit_edge44.i, !llvm.loop !109
 
 ._crit_edge44.i:                                  ; preds = %._crit_edge.i, %3
   %29 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -16928,7 +16928,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %38 = icmp ult ptr %37, %35
-  br i1 %38, label %.lr.ph.i.i, label %_ZN19InstanceMirrorKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !113
+  br i1 %38, label %.lr.ph.i.i, label %_ZN19InstanceMirrorKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !110
 
 _ZN19InstanceMirrorKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i.i, %._crit_edge44.i
   ret void
@@ -16973,12 +16973,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.040.i)
   %25 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
   %26 = icmp ult ptr %25, %24
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !114
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !111
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph43.i
   %27 = getelementptr inbounds nuw i8, ptr %.03741.i, i64 8
   %28 = icmp ult ptr %27, %16
-  br i1 %28, label %.lr.ph43.i, label %._crit_edge44.i, !llvm.loop !115
+  br i1 %28, label %.lr.ph43.i, label %._crit_edge44.i, !llvm.loop !112
 
 ._crit_edge44.i:                                  ; preds = %._crit_edge.i, %3
   %29 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
@@ -16997,7 +16997,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %38 = icmp ult ptr %37, %35
-  br i1 %38, label %.lr.ph.i.i, label %_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !116
+  br i1 %38, label %.lr.ph.i.i, label %_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !113
 
 _ZN19InstanceMirrorKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i.i, %._crit_edge44.i
   ret void
@@ -17055,12 +17055,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.032.i)
   %27 = getelementptr inbounds nuw i8, ptr %.032.i, i64 4
   %28 = icmp ult ptr %27, %26
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !117
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !114
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %18
   %29 = getelementptr inbounds nuw i8, ptr %.03033.i, i64 8
   %30 = icmp ult ptr %29, %16
-  br i1 %30, label %18, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !118
+  br i1 %30, label %18, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !115
 
 _ZN24InstanceClassLoaderKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
   ret void
@@ -17108,12 +17108,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.032.i)
   %27 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %28 = icmp ult ptr %27, %26
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !119
+  br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !116
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %18
   %29 = getelementptr inbounds nuw i8, ptr %.03033.i, i64 8
   %30 = icmp ult ptr %29, %16
-  br i1 %30, label %18, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !120
+  br i1 %30, label %18, label %_ZN24InstanceClassLoaderKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !117
 
 _ZN24InstanceClassLoaderKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
   ret void
@@ -17241,7 +17241,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !98
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !95
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -17269,7 +17269,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !121
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP17stackChunkOopDescPT0_PlS7_.exit, !llvm.loop !118
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -17437,7 +17437,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %55 = getelementptr inbounds nuw i64, ptr %33, i64 %52
   %56 = load i64, ptr %55, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !98
+  br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !95
 
 57:                                               ; preds = %54
   %58 = shl i64 %52, 6
@@ -17465,7 +17465,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %59, %43
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %68)
   %69 = add nuw i64 %.0.i.i.i.i.i, 1
   %70 = icmp ult i64 %69, %39
-  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !122
+  br i1 %70, label %43, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !119
 
 71:                                               ; preds = %3
   %72 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -17593,7 +17593,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 4
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !123
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit, !llvm.loop !120
 
 _ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop37ShenandoahObjectIterateParScanClosureEEvP7oopDescPT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -17627,7 +17627,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI37ShenandoahObjectIt
   tail call void @_ZN37ShenandoahObjectIterateParScanClosure11do_oop_workIP7oopDescEEvPT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %.08.i.i)
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %22 = icmp ult ptr %21, %19
-  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !124
+  br i1 %22, label %.lr.ph.i.i, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit, !llvm.loop !121
 
 _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc37ShenandoahObjectIterateParScanClosureEEvS2_PT0_.exit: ; preds = %.lr.ph.i.i, %3
   ret void
@@ -17751,17 +17751,17 @@ _ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15Counti
   %41 = add i64 %40, 1
   store i64 %41, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
   %.not.i.i.i.i.i = icmp eq i64 %27, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !125
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !122
 
 _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %19
   %42 = add i64 %.0.i.i.i, 1
   %43 = load i64, ptr %8, align 8
   %44 = icmp ult i64 %42, %43
-  br i1 %44, label %19, label %45, !llvm.loop !126
+  br i1 %44, label %19, label %45, !llvm.loop !123
 
 45:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEEEEEbT_.exit.i.i.i
   %46 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #26
-  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEvPT_.exit.loopexit, !llvm.loop !127
+  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEvPT_.exit.loopexit, !llvm.loop !124
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI33ShenandoahForwardedIsAliveClosure27ShenandoahUpdateRefsClosureEEEEvPT_.exit.loopexit: ; preds = %45
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre = load i64, ptr %.sroa.4, align 8
@@ -17904,17 +17904,17 @@ _ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15Counti
   %41 = add i64 %40, 1
   store i64 %41, ptr %.sink8.i.i.i.i.i.i.i.i.sroa.phi, align 8
   %.not.i.i.i.i.i = icmp eq i64 %27, %.0810.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !128
+  br i1 %.not.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !125
 
 _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i: ; preds = %_ZNK10OopStorage13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, %19
   %42 = add i64 %.0.i.i.i, 1
   %43 = load i64, ptr %8, align 8
   %44 = icmp ult i64 %42, %43
-  br i1 %44, label %19, label %45, !llvm.loop !129
+  br i1 %44, label %19, label %45, !llvm.loop !126
 
 45:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEEEEEbT_.exit.i.i.i
   %46 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %5) #26
-  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEvPT_.exit.loopexit, !llvm.loop !130
+  br i1 %46, label %17, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEvPT_.exit.loopexit, !llvm.loop !127
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doIN13WeakProcessor15CountingClosureI24ShenandoahIsAliveClosure16DoNothingClosureEEEEvPT_.exit.loopexit: ; preds = %45
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.16..pre = load i64, ptr %.sroa.4, align 8
@@ -18157,7 +18157,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit11:      ; preds = %95
   %105 = getelementptr inbounds ptr, ptr %104, i64 %98
   %106 = load ptr, ptr %105, align 8
   %.not = icmp eq ptr %106, null
-  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !131
+  br i1 %.not, label %._crit_edge, label %38, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %95, %_ZN14ShenandoahHeap28check_cancelled_gc_and_yieldEb.exit, %_ZN24ShenandoahRegionIterator4nextEv.exit11, %20, %_ZN24ShenandoahRegionIterator4nextEv.exit
   ret void
@@ -18310,7 +18310,248 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
 .lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
   %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !60
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !57
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  store ptr %.172, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.172, i64 8
+  %33 = icmp ult ptr %32, %20
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %.lr.ph73
+  %35 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %32, ptr noundef nonnull %20) #26
+  br label %36
+
+36:                                               ; preds = %.lr.ph73, %34
+  %.2 = phi ptr [ %35, %34 ], [ %32, %.lr.ph73 ]
+  %37 = icmp sgt i64 %22, %indvars.iv.next
+  %38 = icmp ult ptr %.2, %20
+  %39 = and i1 %37, %38
+  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+
+.lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
+  br label %.lr.ph73, !llvm.loop !129
+
+.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
+  %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %41) #26
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !129
+
+.lr.ph:                                           ; preds = %.preheader67, %50
+  %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
+  %44 = load ptr, ptr %2, align 8
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.369) #26
+  %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
+  %47 = icmp ult ptr %46, %20
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %.lr.ph
+  %49 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %46, ptr noundef nonnull %20) #26
+  br label %50
+
+50:                                               ; preds = %48, %.lr.ph
+  %.4 = phi ptr [ %49, %48 ], [ %46, %.lr.ph ]
+  %51 = icmp ult ptr %.4, %20
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !130
+
+.loopexit:                                        ; preds = %50, %.preheader66.split.loopexit, %.preheader66.split.preheader, %.preheader67
+  %52 = icmp ult ptr %12, %3
+  br i1 %52, label %.lr.ph79, label %._crit_edge80
+
+.lr.ph79:                                         ; preds = %.loopexit, %_ZN7oopDesc4sizeEv.exit
+  %.05677 = phi ptr [ %110, %_ZN7oopDesc4sizeEv.exit ], [ %12, %.loopexit ]
+  %53 = load i8, ptr @UseCompressedClassPointers, align 1
+  %54 = trunc i8 %53 to i1
+  %55 = getelementptr inbounds nuw i8, ptr %.05677, i64 8
+  br i1 %54, label %56, label %66
+
+56:                                               ; preds = %.lr.ph79
+  %57 = load i32, ptr %55, align 8
+  %58 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %59 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %60 = ptrtoint ptr %58 to i64
+  %61 = zext i32 %57 to i64
+  %62 = zext nneg i32 %59 to i64
+  %63 = shl i64 %61, %62
+  %64 = add i64 %63, %60
+  %65 = inttoptr i64 %64 to ptr
+  br label %_ZNK7oopDesc5klassEv.exit.i
+
+66:                                               ; preds = %.lr.ph79
+  %67 = load ptr, ptr %55, align 8
+  br label %_ZNK7oopDesc5klassEv.exit.i
+
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
+  %.0.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %81
+
+71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %72 = and i32 %69, 1
+  %.not.i.i = icmp eq i32 %72, 0
+  br i1 %.not.i.i, label %73, label %76
+
+73:                                               ; preds = %71
+  %74 = lshr i32 %69, 3
+  %75 = zext nneg i32 %74 to i64
+  br label %_ZN7oopDesc4sizeEv.exit
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %.0.i.i, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
+  br label %_ZN7oopDesc4sizeEv.exit
+
+81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %82 = icmp slt i32 %69, 0
+  br i1 %82, label %83, label %103
+
+83:                                               ; preds = %81
+  %84 = select i1 %54, i64 12, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.05677, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = and i32 %69, 63
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl i64 %87, %89
+  %91 = lshr i32 %69, 16
+  %92 = and i32 %91, 255
+  %93 = zext nneg i32 %92 to i64
+  %94 = add i64 %90, %93
+  %95 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %96 = add nsw i32 %95, -1
+  %97 = sext i32 %96 to i64
+  %98 = add i64 %94, %97
+  %99 = sub i32 0, %95
+  %100 = sext i32 %99 to i64
+  %101 = and i64 %98, %100
+  %102 = lshr i64 %101, 3
+  br label %_ZN7oopDesc4sizeEv.exit
+
+103:                                              ; preds = %81
+  %104 = load ptr, ptr %.0.i.i, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
+  br label %_ZN7oopDesc4sizeEv.exit
+
+_ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
+  %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
+  %108 = load ptr, ptr %2, align 8
+  %109 = load ptr, ptr %108, align 8
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.05677) #26
+  %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
+  %111 = icmp ult ptr %110, %3
+  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !131
+
+._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureE9do_objectEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %6 = load i8, ptr @UseCompressedClassPointers, align 1
+  %7 = trunc i8 %6 to i1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %7, label %9, label %19
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %8, align 8
+  %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %13 = ptrtoint ptr %11 to i64
+  %14 = zext i32 %10 to i64
+  %15 = zext nneg i32 %12 to i64
+  %16 = shl i64 %14, %15
+  %17 = add i64 %16, %13
+  %18 = inttoptr i64 %17 to ptr
+  br label %_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %8, align 8
+  br label %_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit
+
+_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit: ; preds = %9, %19
+  %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
+  %5 = alloca [256 x ptr], align 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2248
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %1, align 8
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ult ptr %12, %16
+  %18 = select i1 %17, ptr %12, ptr %16
+  %19 = icmp ult ptr %3, %12
+  %20 = select i1 %19, ptr %3, ptr %12
+  %21 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef %14, ptr noundef %18) #26
+  %22 = load i64, ptr @ShenandoahMarkScanPrefetch, align 8
+  %23 = icmp sgt i64 %22, 0
+  br i1 %23, label %25, label %.preheader67
+
+.preheader67:                                     ; preds = %4
+  %24 = icmp ult ptr %21, %20
+  br i1 %24, label %.lr.ph, label %.loopexit
+
+25:                                               ; preds = %4
+  %26 = icmp samesign ult i64 %22, 257
+  br i1 %26, label %.preheader66.split.preheader, label %28
+
+.preheader66.split.preheader:                     ; preds = %25
+  %27 = icmp ult ptr %21, %20
+  br i1 %27, label %.lr.ph73, label %.loopexit
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.105, i32 noundef 388, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107) #27
+  unreachable
+
+.preheader66.split.loopexit:                      ; preds = %.lr.ph76
+  %30 = icmp ult ptr %.2, %20
+  br i1 %30, label %.lr.ph73.backedge, label %.loopexit
+
+.preheader:                                       ; preds = %36
+  %wide.trip.count = and i64 %indvars.iv.next, 4294967295
+  br label %.lr.ph76
+
+.lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
+  %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
+  %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %.172, ptr %31, align 8
@@ -18339,7 +18580,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %2, align 8
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %41) #26
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %41) #26
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
   br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !132
@@ -18348,7 +18589,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.369) #26
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.369) #26
   %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
   %47 = icmp ult ptr %46, %20
   br i1 %47, label %48, label %50
@@ -18450,251 +18691,10 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
   %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
   %108 = load ptr, ptr %2, align 8
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.05677) #26
-  %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
-  %111 = icmp ult ptr %110, %3
-  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !134
-
-._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureE9do_objectEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %6 = load i8, ptr @UseCompressedClassPointers, align 1
-  %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %7, label %9, label %19
-
-9:                                                ; preds = %2
-  %10 = load i32, ptr %8, align 8
-  %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = zext i32 %10 to i64
-  %15 = zext nneg i32 %12 to i64
-  %16 = shl i64 %14, %15
-  %17 = add i64 %16, %13
-  %18 = inttoptr i64 %17 to ptr
-  br label %_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit
-
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %8, align 8
-  br label %_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit
-
-_ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit: ; preds = %9, %19
-  %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35ShenandoahObjectToOopBoundedClosureI31ShenandoahConcUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
-  %5 = alloca [256 x ptr], align 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ult ptr %12, %16
-  %18 = select i1 %17, ptr %12, ptr %16
-  %19 = icmp ult ptr %3, %12
-  %20 = select i1 %19, ptr %3, ptr %12
-  %21 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef %14, ptr noundef %18) #26
-  %22 = load i64, ptr @ShenandoahMarkScanPrefetch, align 8
-  %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %25, label %.preheader67
-
-.preheader67:                                     ; preds = %4
-  %24 = icmp ult ptr %21, %20
-  br i1 %24, label %.lr.ph, label %.loopexit
-
-25:                                               ; preds = %4
-  %26 = icmp samesign ult i64 %22, 257
-  br i1 %26, label %.preheader66.split.preheader, label %28
-
-.preheader66.split.preheader:                     ; preds = %25
-  %27 = icmp ult ptr %21, %20
-  br i1 %27, label %.lr.ph73, label %.loopexit
-
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.105, i32 noundef 388, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107) #27
-  unreachable
-
-.preheader66.split.loopexit:                      ; preds = %.lr.ph76
-  %30 = icmp ult ptr %.2, %20
-  br i1 %30, label %.lr.ph73.backedge, label %.loopexit
-
-.preheader:                                       ; preds = %36
-  %wide.trip.count = and i64 %indvars.iv.next, 4294967295
-  br label %.lr.ph76
-
-.lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
-  %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
-  %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !60
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %.172, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.172, i64 8
-  %33 = icmp ult ptr %32, %20
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %.lr.ph73
-  %35 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %32, ptr noundef nonnull %20) #26
-  br label %36
-
-36:                                               ; preds = %.lr.ph73, %34
-  %.2 = phi ptr [ %35, %34 ], [ %32, %.lr.ph73 ]
-  %37 = icmp sgt i64 %22, %indvars.iv.next
-  %38 = icmp ult ptr %.2, %20
-  %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
-
-.lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
-  br label %.lr.ph73, !llvm.loop !135
-
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
-  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
-  %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %41) #26
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !135
-
-.lr.ph:                                           ; preds = %.preheader67, %50
-  %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.369) #26
-  %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
-  %47 = icmp ult ptr %46, %20
-  br i1 %47, label %48, label %50
-
-48:                                               ; preds = %.lr.ph
-  %49 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %46, ptr noundef nonnull %20) #26
-  br label %50
-
-50:                                               ; preds = %48, %.lr.ph
-  %.4 = phi ptr [ %49, %48 ], [ %46, %.lr.ph ]
-  %51 = icmp ult ptr %.4, %20
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !136
-
-.loopexit:                                        ; preds = %50, %.preheader66.split.loopexit, %.preheader66.split.preheader, %.preheader67
-  %52 = icmp ult ptr %12, %3
-  br i1 %52, label %.lr.ph79, label %._crit_edge80
-
-.lr.ph79:                                         ; preds = %.loopexit, %_ZN7oopDesc4sizeEv.exit
-  %.05677 = phi ptr [ %110, %_ZN7oopDesc4sizeEv.exit ], [ %12, %.loopexit ]
-  %53 = load i8, ptr @UseCompressedClassPointers, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds nuw i8, ptr %.05677, i64 8
-  br i1 %54, label %56, label %66
-
-56:                                               ; preds = %.lr.ph79
-  %57 = load i32, ptr %55, align 8
-  %58 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %59 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %60 = ptrtoint ptr %58 to i64
-  %61 = zext i32 %57 to i64
-  %62 = zext nneg i32 %59 to i64
-  %63 = shl i64 %61, %62
-  %64 = add i64 %63, %60
-  %65 = inttoptr i64 %64 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i
-
-66:                                               ; preds = %.lr.ph79
-  %67 = load ptr, ptr %55, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i
-
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
-  %.0.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %81
-
-71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %72 = and i32 %69, 1
-  %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %73, label %76
-
-73:                                               ; preds = %71
-  %74 = lshr i32 %69, 3
-  %75 = zext nneg i32 %74 to i64
-  br label %_ZN7oopDesc4sizeEv.exit
-
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %.0.i.i, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
-  br label %_ZN7oopDesc4sizeEv.exit
-
-81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %82 = icmp slt i32 %69, 0
-  br i1 %82, label %83, label %103
-
-83:                                               ; preds = %81
-  %84 = select i1 %54, i64 12, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.05677, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = and i32 %69, 63
-  %89 = zext nneg i32 %88 to i64
-  %90 = shl i64 %87, %89
-  %91 = lshr i32 %69, 16
-  %92 = and i32 %91, 255
-  %93 = zext nneg i32 %92 to i64
-  %94 = add i64 %90, %93
-  %95 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %96 = add nsw i32 %95, -1
-  %97 = sext i32 %96 to i64
-  %98 = add i64 %94, %97
-  %99 = sub i32 0, %95
-  %100 = sext i32 %99 to i64
-  %101 = and i64 %98, %100
-  %102 = lshr i64 %101, 3
-  br label %_ZN7oopDesc4sizeEv.exit
-
-103:                                              ; preds = %81
-  %104 = load ptr, ptr %.0.i.i, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
-  br label %_ZN7oopDesc4sizeEv.exit
-
-_ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
-  %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
-  %108 = load ptr, ptr %2, align 8
-  %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %.05677) #26
   %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
   %111 = icmp ult ptr %110, %3
-  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !137
+  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !134
 
 ._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
   ret void
@@ -18853,12 +18853,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI31ShenandoahC
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %78 = getelementptr inbounds nuw i8, ptr %.150, i64 4
   %79 = icmp ult ptr %78, %.040
-  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !138
+  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %80 = getelementptr inbounds nuw i8, ptr %.04151, i64 8
   %81 = icmp ult ptr %80, %26
-  br i1 %81, label %29, label %._crit_edge54, !llvm.loop !139
+  br i1 %81, label %29, label %._crit_edge54, !llvm.loop !136
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %13
   ret void
@@ -18956,12 +18956,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI31ShenandoahC
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %63 = getelementptr inbounds nuw i8, ptr %.150, i64 8
   %64 = icmp ult ptr %63, %.040
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !140
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %65 = getelementptr inbounds nuw i8, ptr %.04151, i64 8
   %66 = icmp ult ptr %65, %26
-  br i1 %66, label %29, label %._crit_edge54, !llvm.loop !141
+  br i1 %66, label %29, label %._crit_edge54, !llvm.loop !138
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %13
   ret void
@@ -19097,12 +19097,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %44, %63
   %79 = getelementptr inbounds nuw i8, ptr %.154, i64 4
   %80 = icmp ult ptr %79, %.044
-  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !142
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %30
   %81 = getelementptr inbounds nuw i8, ptr %.04555, i64 8
   %82 = icmp ult ptr %81, %27
-  br i1 %82, label %30, label %._crit_edge58, !llvm.loop !143
+  br i1 %82, label %30, label %._crit_edge58, !llvm.loop !140
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -19601,12 +19601,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %44, %57
   %64 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   %65 = icmp ult ptr %64, %.044
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !144
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %30
   %66 = getelementptr inbounds nuw i8, ptr %.04555, i64 8
   %67 = icmp ult ptr %66, %27
-  br i1 %67, label %30, label %._crit_edge58, !llvm.loop !145
+  br i1 %67, label %30, label %._crit_edge58, !llvm.loop !142
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -20066,12 +20066,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %78 = getelementptr inbounds nuw i8, ptr %.164, i64 4
   %79 = icmp ult ptr %78, %.048
-  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !146
+  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %80 = getelementptr inbounds nuw i8, ptr %.04965, i64 8
   %81 = icmp ult ptr %80, %26
-  br i1 %81, label %29, label %._crit_edge68, !llvm.loop !147
+  br i1 %81, label %29, label %._crit_edge68, !llvm.loop !144
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %82, label %89
@@ -20161,7 +20161,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %124, %105, %102
   %140 = getelementptr inbounds nuw i8, ptr %.120.i, i64 4
   %141 = icmp ult ptr %140, %.014.i
-  br i1 %141, label %102, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !148
+  br i1 %141, label %102, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !145
 
 _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %89
   ret void
@@ -20259,12 +20259,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %63 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %64 = icmp ult ptr %63, %.048
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !149
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %65 = getelementptr inbounds nuw i8, ptr %.04965, i64 8
   %66 = icmp ult ptr %65, %26
-  br i1 %66, label %29, label %._crit_edge68, !llvm.loop !150
+  br i1 %66, label %29, label %._crit_edge68, !llvm.loop !147
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %67, label %74
@@ -20339,7 +20339,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.e
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %103, %90, %87
   %110 = getelementptr inbounds nuw i8, ptr %.120.i, i64 8
   %111 = icmp ult ptr %110, %.014.i
-  br i1 %111, label %87, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !151
+  br i1 %111, label %87, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !148
 
 _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i, %74
   ret void
@@ -20474,12 +20474,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %78 = getelementptr inbounds nuw i8, ptr %.157, i64 4
   %79 = icmp ult ptr %78, %.044
-  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !152
+  br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %80 = getelementptr inbounds nuw i8, ptr %.04558, i64 8
   %81 = icmp ult ptr %80, %26
-  br i1 %81, label %29, label %._crit_edge61, !llvm.loop !153
+  br i1 %81, label %29, label %._crit_edge61, !llvm.loop !150
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %82, label %87
@@ -20591,12 +20591,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %63 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %64 = icmp ult ptr %63, %.044
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !154
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %65 = getelementptr inbounds nuw i8, ptr %.04558, i64 8
   %66 = icmp ult ptr %65, %26
-  br i1 %66, label %29, label %._crit_edge61, !llvm.loop !155
+  br i1 %66, label %29, label %._crit_edge61, !llvm.loop !152
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %67, label %72
@@ -20704,27 +20704,27 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   store ptr %1, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %41, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %42 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !156
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  %42 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !153
   %43 = sext i32 %42 to i64
   %44 = add nsw i64 %43, %10
   %45 = inttoptr i64 %44 to ptr
-  %46 = load i32, ptr %45, align 4, !noalias !156
-  %47 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !156
+  %46 = load i32, ptr %45, align 4, !noalias !153
+  %47 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !153
   %48 = sext i32 %47 to i64
   %49 = add i64 %48, %10
   %50 = inttoptr i64 %49 to ptr
   %51 = sext i32 %46 to i64
   %52 = getelementptr inbounds ptr, ptr %50, i64 %51
-  %53 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !156
+  %53 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !153
   %54 = sub nsw i32 6, %53
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %51, %55
   %57 = add i64 %56, 63
   %58 = and i64 %57, -64
-  store ptr %52, ptr %8, align 8, !alias.scope !156
+  store ptr %52, ptr %8, align 8, !alias.scope !153
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %58, ptr %59, align 8, !alias.scope !156
+  store i64 %58, ptr %59, align 8, !alias.scope !153
   %60 = ptrtoint ptr %spec.select to i64
   %61 = sub i64 %60, %49
   %62 = ashr exact i64 %61, 2
@@ -20909,7 +20909,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   %21 = getelementptr inbounds nuw i64, ptr %10, i64 %18
   %22 = load i64, ptr %21, align 8
   %.not36.i.i = icmp eq i64 %22, 0
-  br i1 %.not36.i.i, label %.preheader, label %23, !llvm.loop !98
+  br i1 %.not36.i.i, label %.preheader, label %23, !llvm.loop !95
 
 23:                                               ; preds = %20
   %24 = shl i64 %18, 6
@@ -20989,7 +20989,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %8, %25
 _ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop31ShenandoahConcUpdateRefsClosureEEEbPT_mmEUlmE_EEbS8_m.exit: ; preds = %62, %40, %29
   %78 = add nuw i64 %.0.i.i, 1
   %79 = icmp ult i64 %78, %3
-  br i1 %79, label %8, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread, !llvm.loop !159
+  br i1 %79, label %8, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread, !llvm.loop !156
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.thread:   ; preds = %_ZNK6BitMap18find_first_set_bitEmm.exit, %_ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop31ShenandoahConcUpdateRefsClosureEEEbPT_mmEUlmE_EEbS8_m.exit, %25, %.preheader, %4
   ret i1 true
@@ -21150,13 +21150,13 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %6, label %7, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mm.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !160
+  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !157
   %9 = ptrtoint ptr %1 to i64
   %10 = sext i32 %8 to i64
   %11 = add nsw i64 %10, %9
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i32, ptr %12, align 4, !noalias !160
-  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !160
+  %13 = load i32, ptr %12, align 4, !noalias !157
+  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !157
   %15 = sext i32 %14 to i64
   %16 = add i64 %15, %9
   %17 = inttoptr i64 %16 to ptr
@@ -21202,7 +21202,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   %42 = getelementptr inbounds nuw i64, ptr %19, i64 %39
   %43 = load i64, ptr %42, align 8
   %.not36.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !98
+  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !95
 
 44:                                               ; preds = %41
   %45 = shl i64 %39, 6
@@ -21261,7 +21261,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
 _ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mmEUlmE_EEbS9_m.exit.i.i: ; preds = %71, %58, %50
   %78 = add nuw i64 %.0.i.i.i.i, 1
   %79 = icmp ult i64 %78, %25
-  br i1 %79, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !163
+  br i1 %79, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !160
 
 _ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mm.exit: ; preds = %_ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc31ShenandoahConcUpdateRefsClosureEEEbPT_mmEUlmE_EEbS9_m.exit.i.i, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %46, %.preheader.i.i, %7, %5
   ret void
@@ -21378,7 +21378,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI31ShenandoahC
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %62, %49, %46
   %69 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 8
   %70 = icmp ult ptr %69, %.0.i7.i
-  br i1 %70, label %46, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !164
+  br i1 %70, label %46, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !161
 
 _ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i, %21
   ret void
@@ -21494,7 +21494,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9na
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %68, %49, %46
   %84 = getelementptr inbounds nuw i8, ptr %.121.i, i64 4
   %85 = icmp ult ptr %84, %.0.i7
-  br i1 %85, label %46, label %_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit, !llvm.loop !165
+  br i1 %85, label %46, label %_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit, !llvm.loop !162
 
 _ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %21
   ret void
@@ -21624,12 +21624,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahConcUpda
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %68 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %69 = icmp ult ptr %68, %30
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !166
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %70 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %71 = icmp ult ptr %70, %19
-  br i1 %71, label %22, label %._crit_edge30, !llvm.loop !167
+  br i1 %71, label %22, label %._crit_edge30, !llvm.loop !164
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -21714,12 +21714,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahConcUpda
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %53 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %54 = icmp ult ptr %53, %30
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !168
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %55 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %56 = icmp ult ptr %55, %19
-  br i1 %56, label %22, label %._crit_edge30, !llvm.loop !169
+  br i1 %56, label %22, label %._crit_edge30, !llvm.loop !166
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -21842,12 +21842,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %34, %53
   %69 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %70 = icmp ult ptr %69, %31
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !170
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %23
   %71 = getelementptr inbounds nuw i8, ptr %.02729, i64 8
   %72 = icmp ult ptr %71, %20
-  br i1 %72, label %23, label %._crit_edge32, !llvm.loop !171
+  br i1 %72, label %23, label %._crit_edge32, !llvm.loop !168
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -22278,12 +22278,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %34, %47
   %54 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %55 = icmp ult ptr %54, %31
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !172
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %23
   %56 = getelementptr inbounds nuw i8, ptr %.02729, i64 8
   %57 = icmp ult ptr %56, %20
-  br i1 %57, label %23, label %._crit_edge32, !llvm.loop !173
+  br i1 %57, label %23, label %._crit_edge32, !llvm.loop !170
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -22666,12 +22666,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %68 = getelementptr inbounds nuw i8, ptr %.040, i64 4
   %69 = icmp ult ptr %68, %30
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !174
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %70 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %71 = icmp ult ptr %70, %19
-  br i1 %71, label %22, label %._crit_edge44, !llvm.loop !175
+  br i1 %71, label %22, label %._crit_edge44, !llvm.loop !172
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %72 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
@@ -22758,7 +22758,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %112, %93, %90
   %128 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %129 = icmp ult ptr %128, %87
-  br i1 %129, label %90, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_.exit, !llvm.loop !176
+  br i1 %129, label %90, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_.exit, !llvm.loop !173
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP7oopDescPT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %79
   ret void
@@ -22843,12 +22843,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %53 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %54 = icmp ult ptr %53, %30
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !177
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %55 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %56 = icmp ult ptr %55, %19
-  br i1 %56, label %22, label %._crit_edge44, !llvm.loop !178
+  br i1 %56, label %22, label %._crit_edge44, !llvm.loop !175
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %57 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
@@ -22920,7 +22920,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.e
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %91, %78, %75
   %98 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %99 = icmp ult ptr %98, %72
-  br i1 %99, label %75, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !179
+  br i1 %99, label %75, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !176
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i, %64
   ret void
@@ -23042,12 +23042,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %68 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %69 = icmp ult ptr %68, %30
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !180
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %70 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %71 = icmp ult ptr %70, %19
-  br i1 %71, label %22, label %._crit_edge36, !llvm.loop !181
+  br i1 %71, label %22, label %._crit_edge36, !llvm.loop !178
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   %72 = tail call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #26
@@ -23142,12 +23142,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %53 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %54 = icmp ult ptr %53, %30
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !182
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !179
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %55 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %56 = icmp ult ptr %55, %19
-  br i1 %56, label %22, label %._crit_edge36, !llvm.loop !183
+  br i1 %56, label %22, label %._crit_edge36, !llvm.loop !180
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   %57 = tail call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #26
@@ -23238,27 +23238,27 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   store ptr %1, ptr %5, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %36, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  %37 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !184
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
+  %37 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !181
   %38 = sext i32 %37 to i64
   %39 = add nsw i64 %38, %8
   %40 = inttoptr i64 %39 to ptr
-  %41 = load i32, ptr %40, align 4, !noalias !184
-  %42 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !184
+  %41 = load i32, ptr %40, align 4, !noalias !181
+  %42 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !181
   %43 = sext i32 %42 to i64
   %44 = add i64 %43, %8
   %45 = inttoptr i64 %44 to ptr
   %46 = sext i32 %41 to i64
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
-  %48 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !184
+  %48 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !181
   %49 = sub nsw i32 6, %48
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %46, %50
   %52 = add i64 %51, 63
   %53 = and i64 %52, -64
-  store ptr %47, ptr %6, align 8, !alias.scope !184
+  store ptr %47, ptr %6, align 8, !alias.scope !181
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %53, ptr %54, align 8, !alias.scope !184
+  store i64 %53, ptr %54, align 8, !alias.scope !181
   %55 = ptrtoint ptr %34 to i64
   %56 = sub i64 %55, %44
   %57 = ashr exact i64 %56, 2
@@ -23790,7 +23790,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahConcUpda
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %57, %44, %41
   %64 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %65 = icmp ult ptr %64, %38
-  br i1 %65, label %41, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !187
+  br i1 %65, label %41, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !184
 
 _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i, %19
   ret void
@@ -23902,7 +23902,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop3
 _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %63, %44, %41
   %79 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %80 = icmp ult ptr %79, %38
-  br i1 %80, label %41, label %_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit, !llvm.loop !188
+  br i1 %80, label %41, label %_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit, !llvm.loop !185
 
 _ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %19
   ret void
@@ -24039,12 +24039,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI30ShenandoahS
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %73 = getelementptr inbounds nuw i8, ptr %.150, i64 4
   %74 = icmp ult ptr %73, %.040
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !189
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %75 = getelementptr inbounds nuw i8, ptr %.04151, i64 8
   %76 = icmp ult ptr %75, %26
-  br i1 %76, label %29, label %._crit_edge54, !llvm.loop !190
+  br i1 %76, label %29, label %._crit_edge54, !llvm.loop !187
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %13
   ret void
@@ -24142,12 +24142,12 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI30ShenandoahS
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %62 = getelementptr inbounds nuw i8, ptr %.150, i64 8
   %63 = icmp ult ptr %62, %.040
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !191
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !188
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %64 = getelementptr inbounds nuw i8, ptr %.04151, i64 8
   %65 = icmp ult ptr %64, %26
-  br i1 %65, label %29, label %._crit_edge54, !llvm.loop !192
+  br i1 %65, label %29, label %._crit_edge54, !llvm.loop !189
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %13
   ret void
@@ -24362,12 +24362,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %44, %63
   %74 = getelementptr inbounds nuw i8, ptr %.154, i64 4
   %75 = icmp ult ptr %74, %.044
-  br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !193
+  br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !190
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %30
   %76 = getelementptr inbounds nuw i8, ptr %.04555, i64 8
   %77 = icmp ult ptr %76, %27
-  br i1 %77, label %30, label %._crit_edge58, !llvm.loop !194
+  br i1 %77, label %30, label %._crit_edge58, !llvm.loop !191
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -24836,12 +24836,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass23oop_oop_iterate_boundedI
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %44, %57
   %63 = getelementptr inbounds nuw i8, ptr %.154, i64 8
   %64 = icmp ult ptr %63, %.044
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !195
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %30
   %65 = getelementptr inbounds nuw i8, ptr %.04555, i64 8
   %66 = icmp ult ptr %65, %27
-  br i1 %66, label %30, label %._crit_edge58, !llvm.loop !196
+  br i1 %66, label %30, label %._crit_edge58, !llvm.loop !193
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -25286,12 +25286,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %73 = getelementptr inbounds nuw i8, ptr %.164, i64 4
   %74 = icmp ult ptr %73, %.048
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !197
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %75 = getelementptr inbounds nuw i8, ptr %.04965, i64 8
   %76 = icmp ult ptr %75, %26
-  br i1 %76, label %29, label %._crit_edge68, !llvm.loop !198
+  br i1 %76, label %29, label %._crit_edge68, !llvm.loop !195
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %77, label %84
@@ -25375,7 +25375,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %119, %100, %97
   %130 = getelementptr inbounds nuw i8, ptr %.120.i, i64 4
   %131 = icmp ult ptr %130, %.014.i
-  br i1 %131, label %97, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !199
+  br i1 %131, label %97, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit, !llvm.loop !196
 
 _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %84
   ret void
@@ -25473,12 +25473,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_bound
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %62 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %63 = icmp ult ptr %62, %.048
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !200
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %64 = getelementptr inbounds nuw i8, ptr %.04965, i64 8
   %65 = icmp ult ptr %64, %26
-  br i1 %65, label %29, label %._crit_edge68, !llvm.loop !201
+  br i1 %65, label %29, label %._crit_edge68, !llvm.loop !198
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %66, label %73
@@ -25553,7 +25553,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.ex
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %102, %89, %86
   %108 = getelementptr inbounds nuw i8, ptr %.120.i, i64 8
   %109 = icmp ult ptr %108, %.014.i
-  br i1 %109, label %86, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !202
+  br i1 %109, label %86, label %_ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !199
 
 _ZN19InstanceMirrorKlass31oop_oop_iterate_statics_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i, %73
   ret void
@@ -25682,12 +25682,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %62
   %73 = getelementptr inbounds nuw i8, ptr %.157, i64 4
   %74 = icmp ult ptr %73, %.044
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !203
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !200
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %29
   %75 = getelementptr inbounds nuw i8, ptr %.04558, i64 8
   %76 = icmp ult ptr %75, %26
-  br i1 %76, label %29, label %._crit_edge61, !llvm.loop !204
+  br i1 %76, label %29, label %._crit_edge61, !llvm.loop !201
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %77, label %82
@@ -25799,12 +25799,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass23oop_oop_iterate_
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %43, %56
   %62 = getelementptr inbounds nuw i8, ptr %.157, i64 8
   %63 = icmp ult ptr %62, %.044
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !205
+  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !202
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %29
   %64 = getelementptr inbounds nuw i8, ptr %.04558, i64 8
   %65 = icmp ult ptr %64, %26
-  br i1 %65, label %29, label %._crit_edge61, !llvm.loop !206
+  br i1 %65, label %29, label %._crit_edge61, !llvm.loop !203
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %13
   br i1 %8, label %66, label %71
@@ -26027,13 +26027,13 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %6, label %7, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !207
+  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !204
   %9 = ptrtoint ptr %1 to i64
   %10 = sext i32 %8 to i64
   %11 = add nsw i64 %10, %9
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i32, ptr %12, align 4, !noalias !207
-  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !207
+  %13 = load i32, ptr %12, align 4, !noalias !204
+  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !204
   %15 = sext i32 %14 to i64
   %16 = add i64 %15, %9
   %17 = inttoptr i64 %16 to ptr
@@ -26079,7 +26079,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   %42 = getelementptr inbounds nuw i64, ptr %19, i64 %39
   %43 = load i64, ptr %42, align 8
   %.not36.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !98
+  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !95
 
 44:                                               ; preds = %41
   %45 = shl i64 %39, 6
@@ -26147,7 +26147,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
 _ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mmEUlmE_EEbS8_m.exit.i.i: ; preds = %77, %58, %50
   %88 = add nuw i64 %.0.i.i.i.i, 1
   %89 = icmp ult i64 %88, %25
-  br i1 %89, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !210
+  br i1 %89, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !207
 
 _ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit: ; preds = %_ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop30ShenandoahSTWUpdateRefsClosureEEEbPT_mmEUlmE_EEbS8_m.exit.i.i, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %46, %.preheader.i.i, %7, %5
   ret void
@@ -26308,13 +26308,13 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %6, label %7, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !211
+  %8 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !208
   %9 = ptrtoint ptr %1 to i64
   %10 = sext i32 %8 to i64
   %11 = add nsw i64 %10, %9
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i32, ptr %12, align 4, !noalias !211
-  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !211
+  %13 = load i32, ptr %12, align 4, !noalias !208
+  %14 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !208
   %15 = sext i32 %14 to i64
   %16 = add i64 %15, %9
   %17 = inttoptr i64 %16 to ptr
@@ -26360,7 +26360,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   %42 = getelementptr inbounds nuw i64, ptr %19, i64 %39
   %43 = load i64, ptr %42, align 8
   %.not36.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !98
+  br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !95
 
 44:                                               ; preds = %41
   %45 = shl i64 %39, 6
@@ -26419,7 +26419,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %46, %30
 _ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mmEUlmE_EEbS9_m.exit.i.i: ; preds = %71, %58, %50
   %77 = add nuw i64 %.0.i.i.i.i, 1
   %78 = icmp ult i64 %77, %25
-  br i1 %78, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !214
+  br i1 %78, label %30, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit, !llvm.loop !211
 
 _ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mm.exit: ; preds = %_ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEEbPT_mmEUlmE_EEbS9_m.exit.i.i, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, %46, %.preheader.i.i, %7, %5
   ret void
@@ -26536,7 +26536,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI30ShenandoahS
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %62, %49, %46
   %68 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 8
   %69 = icmp ult ptr %68, %.0.i7.i
-  br i1 %69, label %46, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !215
+  br i1 %69, label %46, label %_ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit, !llvm.loop !212
 
 _ZN13ObjArrayKlass23oop_oop_iterate_boundedIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_9MemRegion.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i, %21
   ret void
@@ -26646,7 +26646,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass23oop_oop_iterate_boundedI9na
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %68, %49, %46
   %79 = getelementptr inbounds nuw i8, ptr %.121.i, i64 4
   %80 = icmp ult ptr %79, %.0.i7
-  br i1 %80, label %46, label %_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit, !llvm.loop !216
+  br i1 %80, label %46, label %_ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit, !llvm.loop !213
 
 _ZN13ObjArrayKlass32oop_oop_iterate_elements_boundedI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_PvS7_.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %21
   ret void
@@ -26770,12 +26770,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %63 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %64 = icmp ult ptr %63, %30
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !217
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %65 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %66 = icmp ult ptr %65, %19
-  br i1 %66, label %22, label %._crit_edge30, !llvm.loop !218
+  br i1 %66, label %22, label %._crit_edge30, !llvm.loop !215
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -26860,12 +26860,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %52 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %53 = icmp ult ptr %52, %30
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !219
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %54 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
   %55 = icmp ult ptr %54, %19
-  br i1 %55, label %22, label %._crit_edge30, !llvm.loop !220
+  br i1 %55, label %22, label %._crit_edge30, !llvm.loop !217
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %3
   ret void
@@ -26967,12 +26967,12 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %47, %34, %.lr.ph.i
   %53 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %54 = icmp ult ptr %53, %31
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !221
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !218
 
 ._crit_edge.i:                                    ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i, %23
   %55 = getelementptr inbounds nuw i8, ptr %.02729.i, i64 8
   %56 = icmp ult ptr %55, %20
-  br i1 %56, label %23, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !222
+  br i1 %56, label %23, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !219
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -27070,12 +27070,12 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %34, %53
   %64 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %65 = icmp ult ptr %64, %31
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !223
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %23
   %66 = getelementptr inbounds nuw i8, ptr %.02729, i64 8
   %67 = icmp ult ptr %66, %20
-  br i1 %67, label %23, label %._crit_edge32, !llvm.loop !224
+  br i1 %67, label %23, label %._crit_edge32, !llvm.loop !221
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -27755,12 +27755,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %63 = getelementptr inbounds nuw i8, ptr %.040, i64 4
   %64 = icmp ult ptr %63, %30
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !225
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %65 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %66 = icmp ult ptr %65, %19
-  br i1 %66, label %22, label %._crit_edge44, !llvm.loop !226
+  br i1 %66, label %22, label %._crit_edge44, !llvm.loop !223
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %67 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
@@ -27841,7 +27841,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %107, %88, %85
   %118 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %119 = icmp ult ptr %118, %82
-  br i1 %119, label %85, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_.exit, !llvm.loop !227
+  br i1 %119, label %85, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_.exit, !llvm.loop !224
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP7oopDescPT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %74
   ret void
@@ -27926,12 +27926,12 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %52 = getelementptr inbounds nuw i8, ptr %.040, i64 8
   %53 = icmp ult ptr %52, %30
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !228
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %54 = getelementptr inbounds nuw i8, ptr %.03741, i64 8
   %55 = icmp ult ptr %54, %19
-  br i1 %55, label %22, label %._crit_edge44, !llvm.loop !229
+  br i1 %55, label %22, label %._crit_edge44, !llvm.loop !226
 
 ._crit_edge44:                                    ; preds = %._crit_edge, %3
   %56 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
@@ -28003,7 +28003,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.ex
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i: ; preds = %90, %77, %74
   %96 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %97 = icmp ult ptr %96, %71
-  br i1 %97, label %74, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !230
+  br i1 %97, label %74, label %_ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !227
 
 _ZN19InstanceMirrorKlass23oop_oop_iterate_staticsIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i, %63
   ret void
@@ -28119,12 +28119,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %52
   %63 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %64 = icmp ult ptr %63, %30
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !231
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !228
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit, %22
   %65 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %66 = icmp ult ptr %65, %19
-  br i1 %66, label %22, label %._crit_edge36, !llvm.loop !232
+  br i1 %66, label %22, label %._crit_edge36, !llvm.loop !229
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   %67 = tail call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #26
@@ -28219,12 +28219,12 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit: ; preds = %.lr.ph, %33, %46
   %52 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %53 = icmp ult ptr %52, %30
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !233
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit, %22
   %54 = getelementptr inbounds nuw i8, ptr %.03033, i64 8
   %55 = icmp ult ptr %54, %19
-  br i1 %55, label %22, label %._crit_edge36, !llvm.loop !234
+  br i1 %55, label %22, label %._crit_edge36, !llvm.loop !231
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
   %56 = tail call noundef ptr @_ZN21java_lang_ClassLoader11loader_dataEP7oopDesc(ptr noundef %1) #26
@@ -28805,7 +28805,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdat
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i: ; preds = %57, %44, %41
   %63 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %64 = icmp ult ptr %63, %38
-  br i1 %64, label %41, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !235
+  br i1 %64, label %41, label %_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit, !llvm.loop !232
 
 _ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.exit.i.i, %19
   ret void
@@ -28911,7 +28911,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop3
 _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i: ; preds = %63, %44, %41
   %74 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %75 = icmp ult ptr %74, %38
-  br i1 %75, label %41, label %_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit, !llvm.loop !236
+  br i1 %75, label %41, label %_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit, !llvm.loop !233
 
 _ZN13ObjArrayKlass24oop_oop_iterate_elementsI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP15objArrayOopDescPT0_.exit: ; preds = %_ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.exit.i, %19
   ret void
@@ -29109,7 +29109,7 @@ _ZN24ShenandoahRegionIterator4nextEv.exit10:      ; preds = %75
   %85 = getelementptr inbounds ptr, ptr %84, i64 %78
   %86 = load ptr, ptr %85, align 8
   %.not = icmp eq ptr %86, null
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !237
+  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %75, %_ZN15ShenandoahPacer17report_updaterefsEm.exit, %_ZN24ShenandoahRegionIterator4nextEv.exit10, %2, %_ZN24ShenandoahRegionIterator4nextEv.exit
   ret void
@@ -29167,7 +29167,248 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
 .lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
   %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !60
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !57
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  store ptr %.172, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.172, i64 8
+  %33 = icmp ult ptr %32, %20
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %.lr.ph73
+  %35 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %32, ptr noundef nonnull %20) #26
+  br label %36
+
+36:                                               ; preds = %.lr.ph73, %34
+  %.2 = phi ptr [ %35, %34 ], [ %32, %.lr.ph73 ]
+  %37 = icmp sgt i64 %22, %indvars.iv.next
+  %38 = icmp ult ptr %.2, %20
+  %39 = and i1 %37, %38
+  br i1 %39, label %.lr.ph73.backedge, label %.preheader
+
+.lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
+  br label %.lr.ph73, !llvm.loop !235
+
+.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
+  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
+  %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %2, align 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %41) #26
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !235
+
+.lr.ph:                                           ; preds = %.preheader67, %50
+  %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
+  %44 = load ptr, ptr %2, align 8
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.369) #26
+  %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
+  %47 = icmp ult ptr %46, %20
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %.lr.ph
+  %49 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %46, ptr noundef nonnull %20) #26
+  br label %50
+
+50:                                               ; preds = %48, %.lr.ph
+  %.4 = phi ptr [ %49, %48 ], [ %46, %.lr.ph ]
+  %51 = icmp ult ptr %.4, %20
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !236
+
+.loopexit:                                        ; preds = %50, %.preheader66.split.loopexit, %.preheader66.split.preheader, %.preheader67
+  %52 = icmp ult ptr %12, %3
+  br i1 %52, label %.lr.ph79, label %._crit_edge80
+
+.lr.ph79:                                         ; preds = %.loopexit, %_ZN7oopDesc4sizeEv.exit
+  %.05677 = phi ptr [ %110, %_ZN7oopDesc4sizeEv.exit ], [ %12, %.loopexit ]
+  %53 = load i8, ptr @UseCompressedClassPointers, align 1
+  %54 = trunc i8 %53 to i1
+  %55 = getelementptr inbounds nuw i8, ptr %.05677, i64 8
+  br i1 %54, label %56, label %66
+
+56:                                               ; preds = %.lr.ph79
+  %57 = load i32, ptr %55, align 8
+  %58 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %59 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %60 = ptrtoint ptr %58 to i64
+  %61 = zext i32 %57 to i64
+  %62 = zext nneg i32 %59 to i64
+  %63 = shl i64 %61, %62
+  %64 = add i64 %63, %60
+  %65 = inttoptr i64 %64 to ptr
+  br label %_ZNK7oopDesc5klassEv.exit.i
+
+66:                                               ; preds = %.lr.ph79
+  %67 = load ptr, ptr %55, align 8
+  br label %_ZNK7oopDesc5klassEv.exit.i
+
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
+  %.0.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %81
+
+71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %72 = and i32 %69, 1
+  %.not.i.i = icmp eq i32 %72, 0
+  br i1 %.not.i.i, label %73, label %76
+
+73:                                               ; preds = %71
+  %74 = lshr i32 %69, 3
+  %75 = zext nneg i32 %74 to i64
+  br label %_ZN7oopDesc4sizeEv.exit
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %.0.i.i, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
+  br label %_ZN7oopDesc4sizeEv.exit
+
+81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %82 = icmp slt i32 %69, 0
+  br i1 %82, label %83, label %103
+
+83:                                               ; preds = %81
+  %84 = select i1 %54, i64 12, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.05677, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %87 = sext i32 %86 to i64
+  %88 = and i32 %69, 63
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl i64 %87, %89
+  %91 = lshr i32 %69, 16
+  %92 = and i32 %91, 255
+  %93 = zext nneg i32 %92 to i64
+  %94 = add i64 %90, %93
+  %95 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %96 = add nsw i32 %95, -1
+  %97 = sext i32 %96 to i64
+  %98 = add i64 %94, %97
+  %99 = sub i32 0, %95
+  %100 = sext i32 %99 to i64
+  %101 = and i64 %98, %100
+  %102 = lshr i64 %101, 3
+  br label %_ZN7oopDesc4sizeEv.exit
+
+103:                                              ; preds = %81
+  %104 = load ptr, ptr %.0.i.i, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
+  br label %_ZN7oopDesc4sizeEv.exit
+
+_ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
+  %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
+  %108 = load ptr, ptr %2, align 8
+  %109 = load ptr, ptr %108, align 8
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.05677) #26
+  %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
+  %111 = icmp ult ptr %110, %3
+  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !237
+
+._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureE9do_objectEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %6 = load i8, ptr @UseCompressedClassPointers, align 1
+  %7 = trunc i8 %6 to i1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %7, label %9, label %19
+
+9:                                                ; preds = %2
+  %10 = load i32, ptr %8, align 8
+  %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %13 = ptrtoint ptr %11 to i64
+  %14 = zext i32 %10 to i64
+  %15 = zext nneg i32 %12 to i64
+  %16 = shl i64 %14, %15
+  %17 = add i64 %16, %13
+  %18 = inttoptr i64 %17 to ptr
+  br label %_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %8, align 8
+  br label %_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit
+
+_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit: ; preds = %9, %19
+  %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
+  %5 = alloca [256 x ptr], align 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2248
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %1, align 8
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp ult ptr %12, %16
+  %18 = select i1 %17, ptr %12, ptr %16
+  %19 = icmp ult ptr %3, %12
+  %20 = select i1 %19, ptr %3, ptr %12
+  %21 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef %14, ptr noundef %18) #26
+  %22 = load i64, ptr @ShenandoahMarkScanPrefetch, align 8
+  %23 = icmp sgt i64 %22, 0
+  br i1 %23, label %25, label %.preheader67
+
+.preheader67:                                     ; preds = %4
+  %24 = icmp ult ptr %21, %20
+  br i1 %24, label %.lr.ph, label %.loopexit
+
+25:                                               ; preds = %4
+  %26 = icmp samesign ult i64 %22, 257
+  br i1 %26, label %.preheader66.split.preheader, label %28
+
+.preheader66.split.preheader:                     ; preds = %25
+  %27 = icmp ult ptr %21, %20
+  br i1 %27, label %.lr.ph73, label %.loopexit
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %29, align 1
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.105, i32 noundef 388, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107) #27
+  unreachable
+
+.preheader66.split.loopexit:                      ; preds = %.lr.ph76
+  %30 = icmp ult ptr %.2, %20
+  br i1 %30, label %.lr.ph73.backedge, label %.loopexit
+
+.preheader:                                       ; preds = %36
+  %wide.trip.count = and i64 %indvars.iv.next, 4294967295
+  br label %.lr.ph76
+
+.lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
+  %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
+  %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %.172, ptr %31, align 8
@@ -29196,7 +29437,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %2, align 8
   %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %41) #26
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %41) #26
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
   br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !238
@@ -29205,7 +29446,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI28Sh
   %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.369) #26
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.369) #26
   %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
   %47 = icmp ult ptr %46, %20
   br i1 %47, label %48, label %50
@@ -29307,251 +29548,10 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
   %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
   %108 = load ptr, ptr %2, align 8
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.05677) #26
-  %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
-  %111 = icmp ult ptr %110, %3
-  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !240
-
-._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureE9do_objectEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %6 = load i8, ptr @UseCompressedClassPointers, align 1
-  %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %7, label %9, label %19
-
-9:                                                ; preds = %2
-  %10 = load i32, ptr %8, align 8
-  %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = zext i32 %10 to i64
-  %15 = zext nneg i32 %12 to i64
-  %16 = shl i64 %14, %15
-  %17 = add i64 %16, %13
-  %18 = inttoptr i64 %17 to ptr
-  br label %_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit
-
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %8, align 8
-  br label %_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit
-
-_ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit: ; preds = %9, %19
-  %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI35ShenandoahObjectToOopBoundedClosureI30ShenandoahSTWUpdateRefsClosureEEEvP20ShenandoahHeapRegionPT_PP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
-  %5 = alloca [256 x ptr], align 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ult ptr %12, %16
-  %18 = select i1 %17, ptr %12, ptr %16
-  %19 = icmp ult ptr %3, %12
-  %20 = select i1 %19, ptr %3, ptr %12
-  %21 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef %14, ptr noundef %18) #26
-  %22 = load i64, ptr @ShenandoahMarkScanPrefetch, align 8
-  %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %25, label %.preheader67
-
-.preheader67:                                     ; preds = %4
-  %24 = icmp ult ptr %21, %20
-  br i1 %24, label %.lr.ph, label %.loopexit
-
-25:                                               ; preds = %4
-  %26 = icmp samesign ult i64 %22, 257
-  br i1 %26, label %.preheader66.split.preheader, label %28
-
-.preheader66.split.preheader:                     ; preds = %25
-  %27 = icmp ult ptr %21, %20
-  br i1 %27, label %.lr.ph73, label %.loopexit
-
-28:                                               ; preds = %25
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.105, i32 noundef 388, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107) #27
-  unreachable
-
-.preheader66.split.loopexit:                      ; preds = %.lr.ph76
-  %30 = icmp ult ptr %.2, %20
-  br i1 %30, label %.lr.ph73.backedge, label %.loopexit
-
-.preheader:                                       ; preds = %36
-  %wide.trip.count = and i64 %indvars.iv.next, 4294967295
-  br label %.lr.ph76
-
-.lr.ph73:                                         ; preds = %.preheader66.split.preheader, %.lr.ph73.backedge
-  %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph73.backedge ], [ 0, %.preheader66.split.preheader ]
-  %.172 = phi ptr [ %.2, %.lr.ph73.backedge ], [ %21, %.preheader66.split.preheader ]
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.172, i64 0) #26, !srcloc !60
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %.172, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.172, i64 8
-  %33 = icmp ult ptr %32, %20
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %.lr.ph73
-  %35 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %32, ptr noundef nonnull %20) #26
-  br label %36
-
-36:                                               ; preds = %.lr.ph73, %34
-  %.2 = phi ptr [ %35, %34 ], [ %32, %.lr.ph73 ]
-  %37 = icmp sgt i64 %22, %indvars.iv.next
-  %38 = icmp ult ptr %.2, %20
-  %39 = and i1 %37, %38
-  br i1 %39, label %.lr.ph73.backedge, label %.preheader
-
-.lr.ph73.backedge:                                ; preds = %36, %.preheader66.split.loopexit
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader66.split.loopexit ]
-  br label %.lr.ph73, !llvm.loop !241
-
-.lr.ph76:                                         ; preds = %.preheader, %.lr.ph76
-  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %.lr.ph76 ]
-  %40 = getelementptr inbounds nuw [256 x ptr], ptr %5, i64 0, i64 %indvars.iv86
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %2, align 8
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %41) #26
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader66.split.loopexit, label %.lr.ph76, !llvm.loop !241
-
-.lr.ph:                                           ; preds = %.preheader67, %50
-  %.369 = phi ptr [ %.4, %50 ], [ %21, %.preheader67 ]
-  %44 = load ptr, ptr %2, align 8
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.369) #26
-  %46 = getelementptr inbounds nuw i8, ptr %.369, i64 8
-  %47 = icmp ult ptr %46, %20
-  br i1 %47, label %48, label %50
-
-48:                                               ; preds = %.lr.ph
-  %49 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull %46, ptr noundef nonnull %20) #26
-  br label %50
-
-50:                                               ; preds = %48, %.lr.ph
-  %.4 = phi ptr [ %49, %48 ], [ %46, %.lr.ph ]
-  %51 = icmp ult ptr %.4, %20
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !242
-
-.loopexit:                                        ; preds = %50, %.preheader66.split.loopexit, %.preheader66.split.preheader, %.preheader67
-  %52 = icmp ult ptr %12, %3
-  br i1 %52, label %.lr.ph79, label %._crit_edge80
-
-.lr.ph79:                                         ; preds = %.loopexit, %_ZN7oopDesc4sizeEv.exit
-  %.05677 = phi ptr [ %110, %_ZN7oopDesc4sizeEv.exit ], [ %12, %.loopexit ]
-  %53 = load i8, ptr @UseCompressedClassPointers, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds nuw i8, ptr %.05677, i64 8
-  br i1 %54, label %56, label %66
-
-56:                                               ; preds = %.lr.ph79
-  %57 = load i32, ptr %55, align 8
-  %58 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %59 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %60 = ptrtoint ptr %58 to i64
-  %61 = zext i32 %57 to i64
-  %62 = zext nneg i32 %59 to i64
-  %63 = shl i64 %61, %62
-  %64 = add i64 %63, %60
-  %65 = inttoptr i64 %64 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i
-
-66:                                               ; preds = %.lr.ph79
-  %67 = load ptr, ptr %55, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i
-
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
-  %.0.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %71, label %81
-
-71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %72 = and i32 %69, 1
-  %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %73, label %76
-
-73:                                               ; preds = %71
-  %74 = lshr i32 %69, 3
-  %75 = zext nneg i32 %74 to i64
-  br label %_ZN7oopDesc4sizeEv.exit
-
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %.0.i.i, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
-  br label %_ZN7oopDesc4sizeEv.exit
-
-81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %82 = icmp slt i32 %69, 0
-  br i1 %82, label %83, label %103
-
-83:                                               ; preds = %81
-  %84 = select i1 %54, i64 12, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.05677, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = and i32 %69, 63
-  %89 = zext nneg i32 %88 to i64
-  %90 = shl i64 %87, %89
-  %91 = lshr i32 %69, 16
-  %92 = and i32 %91, 255
-  %93 = zext nneg i32 %92 to i64
-  %94 = add i64 %90, %93
-  %95 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %96 = add nsw i32 %95, -1
-  %97 = sext i32 %96 to i64
-  %98 = add i64 %94, %97
-  %99 = sub i32 0, %95
-  %100 = sext i32 %99 to i64
-  %101 = and i64 %98, %100
-  %102 = lshr i64 %101, 3
-  br label %_ZN7oopDesc4sizeEv.exit
-
-103:                                              ; preds = %81
-  %104 = load ptr, ptr %.0.i.i, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.05677) #26
-  br label %_ZN7oopDesc4sizeEv.exit
-
-_ZN7oopDesc4sizeEv.exit:                          ; preds = %73, %76, %83, %103
-  %.0.i1.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
-  %108 = load ptr, ptr %2, align 8
-  %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %.05677) #26
   %110 = getelementptr inbounds ptr, ptr %.05677, i64 %.0.i1.i
   %111 = icmp ult ptr %110, %3
-  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !243
+  br i1 %111, label %.lr.ph79, label %._crit_edge80, !llvm.loop !240
 
 ._crit_edge80:                                    ; preds = %_ZN7oopDesc4sizeEv.exit, %.loopexit
   ret void
@@ -29693,8 +29693,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !39 = distinct !{!39, !10}
 !40 = distinct !{!40, !10}
 !41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !10}
+!43 = distinct !{!43, !10}
 !44 = distinct !{!44, !10}
 !45 = distinct !{!45, !10}
 !46 = distinct !{!46, !10}
@@ -29704,14 +29704,14 @@ attributes #28 = { nounwind willreturn memory(read) }
 !50 = distinct !{!50, !10}
 !51 = distinct !{!51, !10}
 !52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10, !43}
+!53 = distinct !{!53, !10}
 !54 = distinct !{!54, !10}
 !55 = distinct !{!55, !10}
 !56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10}
+!57 = !{i64 4373856}
 !58 = distinct !{!58, !10}
 !59 = distinct !{!59, !10}
-!60 = !{i64 4373856}
+!60 = distinct !{!60, !10}
 !61 = distinct !{!61, !10}
 !62 = distinct !{!62, !10}
 !63 = distinct !{!63, !10}
@@ -29804,16 +29804,16 @@ attributes #28 = { nounwind willreturn memory(read) }
 !150 = distinct !{!150, !10}
 !151 = distinct !{!151, !10}
 !152 = distinct !{!152, !10}
-!153 = distinct !{!153, !10}
-!154 = distinct !{!154, !10}
-!155 = distinct !{!155, !10}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!158 = distinct !{!158, !"_ZNK17stackChunkOopDesc6bitmapEv"}
-!159 = distinct !{!159, !10}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!162 = distinct !{!162, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!153 = !{!154}
+!154 = distinct !{!154, !155, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!155 = distinct !{!155, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!156 = distinct !{!156, !10}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!159 = distinct !{!159, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!160 = distinct !{!160, !10}
+!161 = distinct !{!161, !10}
+!162 = distinct !{!162, !10}
 !163 = distinct !{!163, !10}
 !164 = distinct !{!164, !10}
 !165 = distinct !{!165, !10}
@@ -29832,12 +29832,12 @@ attributes #28 = { nounwind willreturn memory(read) }
 !178 = distinct !{!178, !10}
 !179 = distinct !{!179, !10}
 !180 = distinct !{!180, !10}
-!181 = distinct !{!181, !10}
-!182 = distinct !{!182, !10}
-!183 = distinct !{!183, !10}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!186 = distinct !{!186, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!183 = distinct !{!183, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!184 = distinct !{!184, !10}
+!185 = distinct !{!185, !10}
+!186 = distinct !{!186, !10}
 !187 = distinct !{!187, !10}
 !188 = distinct !{!188, !10}
 !189 = distinct !{!189, !10}
@@ -29855,16 +29855,16 @@ attributes #28 = { nounwind willreturn memory(read) }
 !201 = distinct !{!201, !10}
 !202 = distinct !{!202, !10}
 !203 = distinct !{!203, !10}
-!204 = distinct !{!204, !10}
-!205 = distinct !{!205, !10}
-!206 = distinct !{!206, !10}
-!207 = !{!208}
-!208 = distinct !{!208, !209, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!209 = distinct !{!209, !"_ZNK17stackChunkOopDesc6bitmapEv"}
-!210 = distinct !{!210, !10}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
-!213 = distinct !{!213, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!204 = !{!205}
+!205 = distinct !{!205, !206, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!206 = distinct !{!206, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!207 = distinct !{!207, !10}
+!208 = !{!209}
+!209 = distinct !{!209, !210, !"_ZNK17stackChunkOopDesc6bitmapEv: argument 0"}
+!210 = distinct !{!210, !"_ZNK17stackChunkOopDesc6bitmapEv"}
+!211 = distinct !{!211, !10}
+!212 = distinct !{!212, !10}
+!213 = distinct !{!213, !10}
 !214 = distinct !{!214, !10}
 !215 = distinct !{!215, !10}
 !216 = distinct !{!216, !10}
@@ -29892,6 +29892,3 @@ attributes #28 = { nounwind willreturn memory(read) }
 !238 = distinct !{!238, !10}
 !239 = distinct !{!239, !10}
 !240 = distinct !{!240, !10}
-!241 = distinct !{!241, !10}
-!242 = distinct !{!242, !10}
-!243 = distinct !{!243, !10}

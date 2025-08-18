@@ -429,7 +429,7 @@ _ZN4llvm5APIntC2Ejmbb.exit78:                     ; preds = %100, %101
   %122 = trunc nuw i64 %indvars.iv.next to i32
   %123 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %122) #6
   %.not72 = icmp eq ptr %123, null
-  br i1 %.not72, label %_ZN4llvm5APInt7setBitsEjj.exit, label %.lr.ph112, !llvm.loop !37
+  br i1 %.not72, label %_ZN4llvm5APInt7setBitsEjj.exit, label %.lr.ph112, !llvm.loop !35
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next, %121 ]
@@ -486,7 +486,7 @@ _ZN4llvm5APIntC2Ejmbb.exit78:                     ; preds = %100, %101
 152:                                              ; preds = %148, %140, %143, %147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not71 = icmp eq i64 %indvars.iv.next, %118
-  br i1 %.not71, label %.critedge.preheader, label %121, !llvm.loop !37
+  br i1 %.not71, label %.critedge.preheader, label %121, !llvm.loop !35
 
 153:                                              ; preds = %.lr.ph126, %_ZN4llvm5APIntD2Ev.exit86
   %indvars.iv139 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next140, %_ZN4llvm5APIntD2Ev.exit86 ]
@@ -591,7 +591,7 @@ _ZN4llvm5APIntD2Ev.exit86:                        ; preds = %195, %198, %201
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %indvars = trunc i64 %indvars.iv.next140 to i32
   %.not73 = icmp eq i32 %31, %indvars
-  br i1 %.not73, label %_ZN4llvm5APInt7setBitsEjj.exit, label %153, !llvm.loop !38
+  br i1 %.not73, label %_ZN4llvm5APInt7setBitsEjj.exit, label %153, !llvm.loop !36
 
 _ZN4llvm5APInt7setBitsEjj.exit:                   ; preds = %121, %127, %107, %112, %_ZN4llvm5APIntD2Ev.exit86, %.lr.ph.split.us, %.lr.ph.split, %.critedge.preheader
   %.not71104 = phi i1 [ true, %.critedge.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %_ZN4llvm5APIntD2Ev.exit86 ], [ false, %112 ], [ false, %107 ], [ false, %127 ], [ false, %121 ]
@@ -725,7 +725,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %13, %indvars
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !37
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %12, %4
   %51 = load ptr, ptr %6, align 8, !tbaa !9
@@ -889,7 +889,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %.not = icmp eq i32 %19, %indvars
-  br i1 %.not, label %.loopexit, label %30, !llvm.loop !40
+  br i1 %.not, label %.loopexit, label %30, !llvm.loop !38
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %18, %5
   %70 = load ptr, ptr %8, align 8, !tbaa !9
@@ -1037,7 +1037,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   store i32 %56, ptr %20, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %23
-  br i1 %.not, label %.loopexit, label %24, !llvm.loop !41
+  br i1 %.not, label %.loopexit, label %24, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.thread, %49, %3
   %57 = load ptr, ptr %6, align 8, !tbaa !9
@@ -1145,10 +1145,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !32 = distinct !{!32, !18}
 !33 = !{!20, !5, i64 0}
 !34 = distinct !{!34, !18}
-!35 = distinct !{!35, !18, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !18}
+!36 = distinct !{!36, !18}
 !37 = distinct !{!37, !18}
 !38 = distinct !{!38, !18}
 !39 = distinct !{!39, !18}
-!40 = distinct !{!40, !18}
-!41 = distinct !{!41, !18}

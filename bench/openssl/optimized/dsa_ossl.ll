@@ -372,7 +372,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %0, ptr n
 72:                                               ; preds = %.preheader.split.split.us
   %73 = tail call i32 @ossl_bn_is_word_fixed_top(ptr noundef nonnull %43, i64 noundef 0) #8
   %.not119.us8 = icmp eq i32 %73, 0
-  br i1 %.not119.us8, label %.split.us, label %.preheader.split.split.us, !llvm.loop !33
+  br i1 %.not119.us8, label %.split.us, label %.preheader.split.split.us, !llvm.loop !31
 
 .preheader.split.split:                           ; preds = %.preheader.split, %77
   %74 = load ptr, ptr %13, align 8, !tbaa !22
@@ -384,13 +384,13 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %0, ptr n
 77:                                               ; preds = %.preheader.split.split
   %78 = tail call i32 @ossl_bn_is_word_fixed_top(ptr noundef nonnull %43, i64 noundef 0) #8
   %.not119 = icmp eq i32 %78, 0
-  br i1 %.not119, label %.split.us, label %.preheader.split.split, !llvm.loop !34
+  br i1 %.not119, label %.split.us, label %.preheader.split.split, !llvm.loop !31
 
 .split.us:                                        ; preds = %77, %72, %66
   tail call void @BN_set_flags(ptr noundef nonnull %43, i32 noundef 4) #8
   tail call void @BN_set_flags(ptr noundef nonnull %44, i32 noundef 4) #8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %80 = load i32, ptr %79, align 8, !tbaa !35
+  %80 = load i32, ptr %79, align 8, !tbaa !32
   %81 = and i32 %80, 1
   %.not120 = icmp eq i32 %81, 0
   br i1 %.not120, label %88, label %82
@@ -398,7 +398,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %0, ptr n
 82:                                               ; preds = %.split.us
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %85 = load ptr, ptr %84, align 8, !tbaa !36
+  %85 = load ptr, ptr %84, align 8, !tbaa !33
   %86 = load ptr, ptr %10, align 8, !tbaa !10
   %87 = tail call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %83, ptr noundef %85, ptr noundef %86, ptr noundef nonnull %.1) #8
   %.not121 = icmp eq ptr %87, null
@@ -421,14 +421,14 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %0, ptr n
   %96 = sext i32 %95 to i64
   tail call void @BN_consttime_swap(i64 noundef %96, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef %59) #8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %98 = load ptr, ptr %97, align 8, !tbaa !37
+  %98 = load ptr, ptr %97, align 8, !tbaa !34
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !38
+  %100 = load ptr, ptr %99, align 8, !tbaa !35
   %.not124 = icmp eq ptr %100, null
   %101 = load ptr, ptr %16, align 8, !tbaa !23
   %102 = load ptr, ptr %10, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %104 = load ptr, ptr %103, align 8, !tbaa !40
+  %104 = load ptr, ptr %103, align 8, !tbaa !37
   br i1 %.not124, label %107, label %105
 
 105:                                              ; preds = %94
@@ -664,7 +664,7 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %0, i32 noundef 
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %76 = load i32, ptr %75, align 8, !tbaa !35
+  %76 = load i32, ptr %75, align 8, !tbaa !32
   %77 = and i32 %76, 1
   %.not95 = icmp eq i32 %77, 0
   br i1 %.not95, label %84, label %78
@@ -672,7 +672,7 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %0, i32 noundef 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %81 = load ptr, ptr %80, align 8, !tbaa !36
+  %81 = load ptr, ptr %80, align 8, !tbaa !33
   %82 = load ptr, ptr %7, align 8, !tbaa !10
   %83 = call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %79, ptr noundef %81, ptr noundef %82, ptr noundef nonnull %31) #8
   %.not96 = icmp eq ptr %83, null
@@ -681,13 +681,13 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %0, i32 noundef 
 84:                                               ; preds = %78, %74
   %.079 = phi ptr [ %83, %78 ], [ null, %74 ]
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %86 = load ptr, ptr %85, align 8, !tbaa !37
+  %86 = load ptr, ptr %85, align 8, !tbaa !34
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = load ptr, ptr %87, align 8, !tbaa !41
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
   %.not97 = icmp eq ptr %88, null
   %89 = load ptr, ptr %15, align 8, !tbaa !23
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %91 = load ptr, ptr %90, align 8, !tbaa !39
   %92 = load ptr, ptr %7, align 8, !tbaa !10
   br i1 %.not97, label %95, label %93
 
@@ -738,20 +738,20 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %0, i32 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @dsa_init(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load i32, ptr %2, align 8, !tbaa !35
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = or i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !35
+  store i32 %4, ptr %2, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %6 = load i64, ptr %5, align 8, !tbaa !43
+  %6 = load i64, ptr %5, align 8, !tbaa !40
   %7 = add i64 %6, 1
-  store i64 %7, ptr %5, align 8, !tbaa !43
+  store i64 %7, ptr %5, align 8, !tbaa !40
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dsa_finish(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   tail call void @BN_MONT_CTX_free(ptr noundef %3) #8
   ret i32 1
 }
@@ -893,16 +893,13 @@ attributes #8 = { nounwind }
 !28 = !{!11, !19, i64 184}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !30, !32}
-!34 = distinct !{!34, !30}
-!35 = !{!11, !12, i64 120}
-!36 = !{!11, !5, i64 176}
-!37 = !{!11, !4, i64 160}
-!38 = !{!39, !5, i64 40}
-!39 = !{!"dsa_method", !14, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !12, i64 64, !5, i64 72, !5, i64 80, !5, i64 88}
-!40 = !{!11, !16, i64 128}
-!41 = !{!39, !5, i64 32}
-!42 = !{!11, !9, i64 104}
-!43 = !{!11, !15, i64 192}
+!31 = distinct !{!31, !30}
+!32 = !{!11, !12, i64 120}
+!33 = !{!11, !5, i64 176}
+!34 = !{!11, !4, i64 160}
+!35 = !{!36, !5, i64 40}
+!36 = !{!"dsa_method", !14, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !12, i64 64, !5, i64 72, !5, i64 80, !5, i64 88}
+!37 = !{!11, !16, i64 128}
+!38 = !{!36, !5, i64 32}
+!39 = !{!11, !9, i64 104}
+!40 = !{!11, !15, i64 192}

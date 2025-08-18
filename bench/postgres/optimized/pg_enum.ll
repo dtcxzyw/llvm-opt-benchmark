@@ -456,7 +456,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   store ptr %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph172.preheader, label %56, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph172.preheader, label %56, !llvm.loop !10
 
 .lr.ph172.preheader:                              ; preds = %56
   tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %52, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
@@ -498,7 +498,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 84:                                               ; preds = %.lr.ph172
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %.preheader146._crit_edge, label %.lr.ph172, !llvm.loop !13
+  br i1 %exitcond209.not, label %.preheader146._crit_edge, label %.lr.ph172, !llvm.loop !11
 
 .preheader146._crit_edge.loopexit184:             ; preds = %.split, %.split.preheader
   %.lcssa252 = phi i64 [ %41, %.split.preheader ], [ %150, %.split ]
@@ -606,7 +606,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 144:                                              ; preds = %142, %128
   tail call void @heap_freetuple(ptr noundef nonnull %131) #10
   %145 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %145, label %128, label %.split, !llvm.loop !14
+  br i1 %145, label %128, label %.split, !llvm.loop !12
 
 146:                                              ; preds = %125
   %.0..0..0..0.8 = load volatile float, ptr %13, align 4
@@ -633,7 +633,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %156 = phi ptr [ %43, %61 ], [ %43, %._crit_edge.us ], [ %51, %146 ], [ %51, %104 ], [ %51, %99 ]
   %.1 = phi float [ %73, %61 ], [ 1.000000e+00, %._crit_edge.us ], [ %.0..0..0..0.8, %146 ], [ %107, %104 ], [ %102, %99 ]
   %.fr183 = freeze i32 %155
-  %157 = load i8, ptr @IsBinaryUpgrade, align 1, !range !15, !noundef !16
+  %157 = load i8, ptr @IsBinaryUpgrade, align 1, !range !13, !noundef !14
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %181, label %.preheader
 
@@ -685,12 +685,12 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not112.us, label %.lr.ph181.us.backedge, label %.thread142
 
 .lr.ph181.us.backedge:                            ; preds = %.thread139.us, %._crit_edge182.us
-  br label %.lr.ph181.us, !llvm.loop !17
+  br label %.lr.ph181.us
 
 178:                                              ; preds = %176, %175, %161
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge182.us, label %161, !llvm.loop !18
+  br i1 %exitcond219.not, label %._crit_edge182.us, label %161, !llvm.loop !15
 
 ._crit_edge182.us:                                ; preds = %178
   %179 = and i32 %160, 1
@@ -778,7 +778,7 @@ EnumTypeUncommitted.exit.thread:                  ; preds = %209
 
 EnumTypeUncommitted.exit:                         ; preds = %209
   %212 = call ptr @hash_search(ptr noundef nonnull %210, ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %8) #10
-  %213 = load i8, ptr %8, align 1, !range !15, !noundef !16
+  %213 = load i8, ptr %8, align 1, !range !13, !noundef !14
   %214 = trunc nuw i8 %213 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -914,7 +914,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %.1 = select i1 %32, i1 true, i1 %.02934
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %19
   %.not = icmp eq ptr %spec.select, null
@@ -973,7 +973,7 @@ define dso_local zeroext i1 @EnumUncommitted(i32 noundef %0) local_unnamed_addr 
 
 6:                                                ; preds = %1
   %7 = call ptr @hash_search(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %3) #10
-  %8 = load i8, ptr %3, align 1, !range !15, !noundef !16
+  %8 = load i8, ptr %3, align 1, !range !13, !noundef !14
   %9 = trunc nuw i8 %8 to i1
   br label %10
 
@@ -1043,7 +1043,7 @@ define dso_local void @SerializeUncommittedEnums(ptr noundef writeonly captures(
   store i32 %9, ptr %.113, align 4
   %11 = call ptr @hash_seq_search(ptr noundef nonnull %3) #10
   %.not9 = icmp eq ptr %11, null
-  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.1.lcssa = phi ptr [ %0, %6 ], [ %10, %.lr.ph ]
@@ -1073,7 +1073,7 @@ define dso_local void @SerializeUncommittedEnums(ptr noundef writeonly captures(
   store i32 %18, ptr %.315, align 4
   %20 = call ptr @hash_seq_search(ptr noundef nonnull %4) #10
   %.not11 = icmp eq ptr %20, null
-  br i1 %.not11, label %._crit_edge18, label %.lr.ph17, !llvm.loop !21
+  br i1 %.not11, label %._crit_edge18, label %.lr.ph17, !llvm.loop !18
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %15
   %.3.lcssa = phi ptr [ %13, %15 ], [ %19, %.lr.ph17 ]
@@ -1119,7 +1119,7 @@ define dso_local void @RestoreUncommittedEnums(ptr noundef %0) local_unnamed_add
   %14 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %.1, i32 noundef 1, ptr noundef null) #10
   %15 = load i32, ptr %13, align 4
   %.not8 = icmp eq i32 %15, 0
-  br i1 %.not8, label %.loopexit11, label %11, !llvm.loop !22
+  br i1 %.not8, label %.loopexit11, label %11, !llvm.loop !19
 
 .loopexit11:                                      ; preds = %11, %1
   %.0 = phi ptr [ %0, %1 ], [ %13, %11 ]
@@ -1149,7 +1149,7 @@ define dso_local void @RestoreUncommittedEnums(ptr noundef %0) local_unnamed_add
   %27 = call ptr @hash_search(ptr noundef %25, ptr noundef nonnull %.2, i32 noundef 1, ptr noundef null) #10
   %28 = load i32, ptr %26, align 4
   %.not10 = icmp eq i32 %28, 0
-  br i1 %.not10, label %.loopexit, label %24, !llvm.loop !23
+  br i1 %.not10, label %.loopexit, label %24, !llvm.loop !20
 
 .loopexit:                                        ; preds = %24, %.loopexit11
   ret void
@@ -1197,17 +1197,14 @@ attributes #12 = { cold nounwind }
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !11}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}

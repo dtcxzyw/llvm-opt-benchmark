@@ -157,14 +157,14 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br i1 %.not239.us, label %.outer.us.backedge, label %.critedge.us.thread
 
 .outer.us.backedge:                               ; preds = %.critedge.us, %43
-  br label %.outer.us, !llvm.loop !8
+  br label %.outer.us
 
 .critedge.us.thread:                              ; preds = %.critedge.us, %.critedge22.us
   %.0189.lcssa.us393 = phi ptr [ %50, %.critedge22.us ], [ %.0189.lcssa.us, %.critedge.us ]
   %54 = call i32 @g_ascii_strncasecmp(ptr noundef %.0189.lcssa.us393, ptr noundef nonnull @.str.7, i64 noundef 7)
   %55 = icmp eq i32 %54, 0
   %spec.select248.us = select i1 %55, i8 1, i8 %.1209.ph.us.ph505
-  br label %.outer.us.outer504, !llvm.loop !8
+  br label %.outer.us.outer504
 
 56:                                               ; preds = %40
   %57 = getelementptr i8, ptr %88, i64 13
@@ -175,15 +175,15 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %59 = load i8, ptr %.5207.us, align 1
   %60 = icmp eq i8 %59, 32
   %61 = getelementptr i8, ptr %.5207.us, i64 1
-  br i1 %60, label %58, label %62, !llvm.loop !10
+  br i1 %60, label %58, label %62, !llvm.loop !8
 
 62:                                               ; preds = %58
   %63 = call ptr @g_strchomp(ptr noundef %.5207.us)
-  br i1 %15, label %64, label %.outer.us.outer499, !llvm.loop !8
+  br i1 %15, label %64, label %.outer.us.outer499
 
 64:                                               ; preds = %62
   %65 = call ptr @dissector_get_string_handle(ptr noundef nonnull %7, ptr noundef %.5207.us)
-  br label %.outer.us.outer499.outer, !llvm.loop !8
+  br label %.outer.us.outer499.outer
 
 66:                                               ; preds = %.split346.us.us
   %67 = getelementptr i8, ptr %88, i64 15
@@ -194,7 +194,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %72 = icmp sgt i32 %71, -1
   %or.cond20.us = select i1 %70, i1 %72, i1 false
   %spec.select247.us = select i1 %or.cond20.us, i1 true, i1 %.1220.ph.us.ph
-  br label %.outer.us.outer, !llvm.loop !8
+  br label %.outer.us.outer
 
 73:                                               ; preds = %85, %.outer.us
   %74 = load i32, ptr %11, align 4
@@ -223,7 +223,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
     i8 99, label %.split346.us.us
     i8 84, label %.split346.us.us
     i8 67, label %.split346.us.us
-  ], !llvm.loop !11
+  ]
 
 .split346.us.us:                                  ; preds = %85, %85, %85, %85
   %87 = load ptr, ptr %39, align 8
@@ -412,7 +412,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   %165 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %164)
   %166 = icmp eq i32 %165, 0
   %or.cond30 = and i1 %166, %.1196411418
-  br i1 %or.cond30, label %.loopexit, label %.lr.ph483, !llvm.loop !12
+  br i1 %or.cond30, label %.loopexit, label %.lr.ph483, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %126, %.lr.ph483, %153, %147, %158
   %.sink = phi i32 [ %159, %158 ], [ 268435455, %147 ], [ 268435455, %153 ], [ 268435455, %.lr.ph483 ], [ 268435455, %126 ]
@@ -595,8 +595,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !7}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

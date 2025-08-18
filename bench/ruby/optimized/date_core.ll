@@ -27317,8 +27317,8 @@ define internal fastcc noundef i64 @date_strftime_internal(i32 noundef %0, ptr n
   br i1 %9, label %12, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %4
-  %.not12 = icmp eq i32 %0, 0
-  br i1 %.not12, label %13, label %.split.us
+  %.not14 = icmp eq i32 %0, 0
+  br i1 %.not14, label %13, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %10 = load i64, ptr %1, align 8, !tbaa !6
@@ -27387,40 +27387,40 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   %34 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %29
   %35 = call i64 @rb_str_new_static(ptr noundef null, i64 noundef 0) #21
   %36 = icmp sgt i64 %29, 0
-  br i1 %36, label %.lr.ph11, label %._crit_edge
+  br i1 %36, label %.lr.ph13, label %._crit_edge
 
-.lr.ph11:                                         ; preds = %33, %.critedge.thread
-  %.03510 = phi ptr [ %.1.lcssa18, %.critedge.thread ], [ %.sroa.2.0.i, %33 ]
-  %37 = call fastcc i64 @date_strftime_alloc(ptr noundef %7, ptr noundef %.03510, ptr noundef %8)
+.lr.ph13:                                         ; preds = %33, %.critedge.thread
+  %.03512 = phi ptr [ %.1.lcssa21, %.critedge.thread ], [ %.sroa.2.0.i, %33 ]
+  %37 = call fastcc i64 @date_strftime_alloc(ptr noundef %7, ptr noundef %.03512, ptr noundef %8)
   %38 = load ptr, ptr %7, align 8, !tbaa !12
   %39 = call i64 @rb_str_cat(i64 noundef %35, ptr noundef %38, i64 noundef %37) #21
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03510) #24
-  %41 = getelementptr inbounds nuw i8, ptr %.03510, i64 %40
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03512) #24
+  %41 = getelementptr inbounds nuw i8, ptr %.03512, i64 %40
   %.not42 = icmp eq ptr %38, %6
   br i1 %.not42, label %43, label %42
 
-42:                                               ; preds = %.lr.ph11
+42:                                               ; preds = %.lr.ph13
   call void @ruby_xfree(ptr noundef %38) #21
   store ptr %6, ptr %7, align 8, !tbaa !12
   br label %43
 
-43:                                               ; preds = %42, %.lr.ph11
+43:                                               ; preds = %42, %.lr.ph13
   %44 = icmp ult ptr %41, %34
   br i1 %44, label %.lr.ph, label %.critedge.thread
 
 .lr.ph:                                           ; preds = %43, %46
-  %.17 = phi ptr [ %47, %46 ], [ %41, %43 ]
-  %45 = load i8, ptr %.17, align 1, !tbaa !47
+  %.19 = phi ptr [ %47, %46 ], [ %41, %43 ]
+  %45 = load i8, ptr %.19, align 1, !tbaa !47
   %.not43 = icmp eq i8 %45, 0
   br i1 %.not43, label %46, label %.critedge
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.17, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %48 = icmp ult ptr %47, %34
   br i1 %48, label %.lr.ph, label %.critedge, !llvm.loop !100
 
 .critedge:                                        ; preds = %.lr.ph, %46
-  %.1.lcssa = phi ptr [ %.17, %.lr.ph ], [ %47, %46 ]
+  %.1.lcssa = phi ptr [ %.19, %.lr.ph ], [ %47, %46 ]
   %49 = icmp ugt ptr %.1.lcssa, %41
   br i1 %49, label %50, label %.critedge.thread
 
@@ -27432,9 +27432,9 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %43, %50, %.critedge
-  %.1.lcssa18 = phi ptr [ %.1.lcssa, %50 ], [ %.1.lcssa, %.critedge ], [ %41, %43 ]
-  %55 = icmp ult ptr %.1.lcssa18, %34
-  br i1 %55, label %.lr.ph11, label %._crit_edge, !llvm.loop !101
+  %.1.lcssa21 = phi ptr [ %.1.lcssa, %50 ], [ %.1.lcssa, %.critedge ], [ %41, %43 ]
+  %55 = icmp ult ptr %.1.lcssa21, %34
+  br i1 %55, label %.lr.ph13, label %._crit_edge, !llvm.loop !101
 
 56:                                               ; preds = %RSTRING_PTR.exit
   %57 = call fastcc i64 @date_strftime_alloc(ptr noundef %7, ptr noundef %.sroa.2.0.i, ptr noundef %8)

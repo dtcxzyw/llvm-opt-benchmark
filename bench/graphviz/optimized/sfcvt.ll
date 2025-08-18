@@ -707,7 +707,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.pr = phi i8 [ %315, %312 ], [ %.pr.pre, %316 ]
   %.10 = phi ptr [ %313, %312 ], [ %.9338, %316 ]
   %320 = icmp sgt i8 %.pr, 57
-  br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !19
+  br i1 %320, label %.lr.ph341.split, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %309, %319, %.preheader.preheader, %294, %290, %292
   %.4262 = phi ptr [ %291, %290 ], [ %.3261, %292 ], [ %.3261, %294 ], [ %.3261, %.preheader.preheader ], [ %.3261, %319 ], [ %.6264.us, %309 ]
@@ -721,7 +721,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 .thread:                                          ; preds = %19, %241, %5, %.loopexit
   %.sink369 = phi i64 [ %324, %.loopexit ], [ 1, %5 ], [ 3, %241 ], [ 3, %19 ]
   %.1 = phi ptr [ %.1257, %.loopexit ], [ @.str, %5 ], [ @.str.1, %241 ], [ @.str.1, %19 ]
-  store i64 %.sink369, ptr @_Sfi, align 8, !tbaa !20
+  store i64 %.sink369, ptr @_Sfi, align 8, !tbaa !18
   ret ptr %.1
 }
 
@@ -760,8 +760,6 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !14 = distinct !{!14, !12}
 !15 = distinct !{!15, !12}
 !16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !12}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !5, i64 0}
+!17 = distinct !{!17, !12}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !5, i64 0}

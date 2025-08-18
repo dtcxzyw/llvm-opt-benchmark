@@ -2969,7 +2969,7 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   %740 = load i32, ptr %739, align 8
   %741 = icmp ult i32 %736, %740
-  br i1 %741, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %741, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %735, %712
   %742 = load ptr, ptr %10, align 8
@@ -3455,7 +3455,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %988 = load i32, ptr %987, align 8
   %989 = zext i32 %988 to i64
   %990 = icmp samesign ult i64 %indvars.iv.next, %989
-  br i1 %990, label %.lr.ph1066, label %._crit_edge1067, !llvm.loop !26
+  br i1 %990, label %.lr.ph1066, label %._crit_edge1067, !llvm.loop !24
 
 ._crit_edge1067:                                  ; preds = %986, %.preheader
   %.lcssa = phi ptr [ %944, %.preheader ], [ %987, %986 ]
@@ -3468,7 +3468,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
   %992 = call fastcc ptr @_next_job_id()
   store ptr %992, ptr %680, align 8
   %.not600 = icmp eq ptr %992, null
-  br i1 %.not600, label %.thread780, label %796, !llvm.loop !27
+  br i1 %.not600, label %.thread780, label %796, !llvm.loop !25
 
 993:                                              ; preds = %790
   %994 = load ptr, ptr %680, align 8
@@ -3668,7 +3668,7 @@ split:                                            ; preds = %61, %._crit_edge
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
   %82 = icmp samesign ult i64 %indvars.iv.next, %81
-  br i1 %82, label %39, label %.loopexit, !llvm.loop !28
+  br i1 %82, label %39, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %77, %split, %55
   %83 = phi ptr [ %40, %55 ], [ %74, %split ], [ %78, %77 ]
@@ -3763,7 +3763,7 @@ define dso_local i32 @scontrol_job_notify(i32 noundef %0, ptr noundef readonly c
 17:                                               ; preds = %15, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %17
   %.pre = load ptr, ptr %3, align 8
@@ -3946,10 +3946,8 @@ attributes #17 = { cold }
 !20 = distinct !{!20, !9, !10}
 !21 = distinct !{!21, !9, !10}
 !22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
 !25 = distinct !{!25, !9, !10}
 !26 = distinct !{!26, !9, !10}
 !27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}

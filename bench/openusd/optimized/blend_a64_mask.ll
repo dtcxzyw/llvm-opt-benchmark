@@ -175,12 +175,12 @@ define hidden void @aom_lowbd_blend_a64_d16_mask_c(ptr noundef writeonly capture
   store i8 %129, ptr %132, align 1
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge.us174, label %79, !llvm.loop !8
+  br i1 %exitcond200.not, label %._crit_edge.us174, label %79, !llvm.loop !7
 
 ._crit_edge.us174:                                ; preds = %79
   %133 = add nuw nsw i32 %.1173.us, 1
   %exitcond201.not = icmp eq i32 %133, %9
-  br i1 %exitcond201.not, label %.loopexit, label %.preheader158.us, !llvm.loop !9
+  br i1 %exitcond201.not, label %.loopexit, label %.preheader158.us, !llvm.loop !8
 
 134:                                              ; preds = %64
   %or.cond5 = and i1 %65, %22
@@ -254,12 +254,12 @@ define hidden void @aom_lowbd_blend_a64_d16_mask_c(ptr noundef writeonly capture
   store i8 %181, ptr %184, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %147, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us, label %147, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %147
   %185 = add nuw nsw i32 %.3168.us, 1
   %exitcond189.not = icmp eq i32 %185, %9
-  br i1 %exitcond189.not, label %.loopexit, label %.preheader164.us, !llvm.loop !11
+  br i1 %exitcond189.not, label %.loopexit, label %.preheader164.us, !llvm.loop !10
 
 .preheader162:                                    ; preds = %134
   br i1 %135, label %.preheader161.lr.ph, label %.loopexit
@@ -328,12 +328,12 @@ define hidden void @aom_lowbd_blend_a64_d16_mask_c(ptr noundef writeonly capture
   store i8 %230, ptr %233, align 1
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge.us171, label %195, !llvm.loop !12
+  br i1 %exitcond194.not, label %._crit_edge.us171, label %195, !llvm.loop !11
 
 ._crit_edge.us171:                                ; preds = %195
   %234 = add nuw nsw i32 %.2170.us, 1
   %exitcond195.not = icmp eq i32 %234, %9
-  br i1 %exitcond195.not, label %.loopexit, label %.preheader161.us, !llvm.loop !13
+  br i1 %exitcond195.not, label %.loopexit, label %.preheader161.us, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us171, %._crit_edge.us174, %._crit_edge.us177, %.preheader161.lr.ph, %.preheader164.lr.ph, %.preheader158.lr.ph, %.preheader.lr.ph, %.preheader165, %.preheader162, %.preheader159, %.preheader157
   ret void
@@ -417,7 +417,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   store i16 %57, ptr %58, align 2
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
-  br i1 %exitcond253.not, label %._crit_edge.us225, label %38, !llvm.loop !14
+  br i1 %exitcond253.not, label %._crit_edge.us225, label %38, !llvm.loop !13
 
 ._crit_edge.us225:                                ; preds = %38
   %59 = getelementptr inbounds nuw i8, ptr %.0169222.us, i64 %34
@@ -426,7 +426,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   %62 = getelementptr inbounds nuw i16, ptr %.0175221.us, i64 %37
   %63 = add nuw nsw i32 %.0180220.us, 1
   %exitcond254.not = icmp eq i32 %63, %9
-  br i1 %exitcond254.not, label %.loopexit, label %.preheader.us, !llvm.loop !15
+  br i1 %exitcond254.not, label %.loopexit, label %.preheader.us, !llvm.loop !14
 
 64:                                               ; preds = %14
   %65 = icmp eq i32 %10, 1
@@ -507,7 +507,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   store i16 %116, ptr %117, align 2
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %._crit_edge.us218, label %77, !llvm.loop !16
+  br i1 %exitcond247.not, label %._crit_edge.us218, label %77, !llvm.loop !15
 
 ._crit_edge.us218:                                ; preds = %77
   %118 = getelementptr inbounds nuw i8, ptr %.1170215.us, i64 %73
@@ -516,7 +516,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   %121 = getelementptr inbounds nuw i16, ptr %.1176214.us, i64 %76
   %122 = add nuw nsw i32 %.0184213.us, 1
   %exitcond248.not = icmp eq i32 %122, %9
-  br i1 %exitcond248.not, label %.loopexit, label %.preheader190.us, !llvm.loop !17
+  br i1 %exitcond248.not, label %.loopexit, label %.preheader190.us, !llvm.loop !16
 
 123:                                              ; preds = %64
   %or.cond5 = and i1 %65, %27
@@ -584,7 +584,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   store i16 %162, ptr %163, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %134, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %134, !llvm.loop !17
 
 ._crit_edge.us:                                   ; preds = %134
   %164 = getelementptr inbounds nuw i8, ptr %.3172202.us, i64 %130
@@ -593,7 +593,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   %167 = getelementptr inbounds nuw i16, ptr %.3178200.us, i64 %133
   %168 = add nuw nsw i32 %.0174201.us, 1
   %exitcond236.not = icmp eq i32 %168, %9
-  br i1 %exitcond236.not, label %.loopexit, label %.preheader196.us, !llvm.loop !19
+  br i1 %exitcond236.not, label %.loopexit, label %.preheader196.us, !llvm.loop !18
 
 .preheader194:                                    ; preds = %123
   br i1 %124, label %.preheader193.lr.ph, label %.loopexit
@@ -653,7 +653,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   store i16 %203, ptr %204, align 2
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
-  br i1 %exitcond241.not, label %._crit_edge.us211, label %177, !llvm.loop !20
+  br i1 %exitcond241.not, label %._crit_edge.us211, label %177, !llvm.loop !19
 
 ._crit_edge.us211:                                ; preds = %177
   %205 = getelementptr inbounds nuw i8, ptr %.2171208.us, i64 %173
@@ -662,7 +662,7 @@ define hidden void @aom_highbd_blend_a64_d16_mask_c(ptr noundef %0, i32 noundef 
   %208 = getelementptr inbounds nuw i16, ptr %.2177207.us, i64 %176
   %209 = add nuw nsw i32 %.0182206.us, 1
   %exitcond242.not = icmp eq i32 %209, %9
-  br i1 %exitcond242.not, label %.loopexit, label %.preheader193.us, !llvm.loop !21
+  br i1 %exitcond242.not, label %.loopexit, label %.preheader193.us, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us211, %._crit_edge.us218, %._crit_edge.us225, %.preheader193.lr.ph, %.preheader196.lr.ph, %.preheader190.lr.ph, %.preheader.lr.ph, %.preheader197, %.preheader194, %.preheader191, %.preheader189
   ret void
@@ -724,12 +724,12 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   store i8 %44, ptr %47, align 1
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge.us150, label %21, !llvm.loop !22
+  br i1 %exitcond176.not, label %._crit_edge.us150, label %21, !llvm.loop !21
 
 ._crit_edge.us150:                                ; preds = %21
   %48 = add nuw nsw i32 %.0149.us, 1
   %exitcond177.not = icmp eq i32 %48, %9
-  br i1 %exitcond177.not, label %.loopexit, label %.preheader.us, !llvm.loop !23
+  br i1 %exitcond177.not, label %.loopexit, label %.preheader.us, !llvm.loop !22
 
 49:                                               ; preds = %12
   %50 = icmp eq i32 %10, 1
@@ -813,12 +813,12 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   store i8 %108, ptr %111, align 1
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge.us147, label %61, !llvm.loop !24
+  br i1 %exitcond170.not, label %._crit_edge.us147, label %61, !llvm.loop !23
 
 ._crit_edge.us147:                                ; preds = %61
   %112 = add nuw nsw i32 %.1146.us, 1
   %exitcond171.not = icmp eq i32 %112, %9
-  br i1 %exitcond171.not, label %.loopexit, label %.preheader131.us, !llvm.loop !25
+  br i1 %exitcond171.not, label %.loopexit, label %.preheader131.us, !llvm.loop !24
 
 113:                                              ; preds = %49
   %or.cond5 = and i1 %50, %13
@@ -884,12 +884,12 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   store i8 %154, ptr %157, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.us, label %123, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %123
   %158 = add nuw nsw i32 %.3141.us, 1
   %exitcond159.not = icmp eq i32 %158, %9
-  br i1 %exitcond159.not, label %.loopexit, label %.preheader137.us, !llvm.loop !27
+  br i1 %exitcond159.not, label %.loopexit, label %.preheader137.us, !llvm.loop !26
 
 .preheader135:                                    ; preds = %113
   br i1 %or.cond184, label %.preheader134.us.preheader, label %.loopexit
@@ -948,12 +948,12 @@ define hidden void @aom_blend_a64_mask_c(ptr noundef writeonly captures(none) %0
   store i8 %196, ptr %199, align 1
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %._crit_edge.us144, label %164, !llvm.loop !28
+  br i1 %exitcond164.not, label %._crit_edge.us144, label %164, !llvm.loop !27
 
 ._crit_edge.us144:                                ; preds = %164
   %200 = add nuw nsw i32 %.2143.us, 1
   %exitcond165.not = icmp eq i32 %200, %9
-  br i1 %exitcond165.not, label %.loopexit, label %.preheader134.us, !llvm.loop !29
+  br i1 %exitcond165.not, label %.loopexit, label %.preheader134.us, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us144, %._crit_edge.us147, %._crit_edge.us150, %.preheader138, %.preheader135, %.preheader132, %.preheader130
   ret void
@@ -1024,12 +1024,12 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   store i16 %54, ptr %57, align 2
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge.us153, label %31, !llvm.loop !30
+  br i1 %exitcond179.not, label %._crit_edge.us153, label %31, !llvm.loop !29
 
 ._crit_edge.us153:                                ; preds = %31
   %58 = add nuw nsw i32 %.0152.us, 1
   %exitcond180.not = icmp eq i32 %58, %9
-  br i1 %exitcond180.not, label %.loopexit, label %.preheader.us, !llvm.loop !31
+  br i1 %exitcond180.not, label %.loopexit, label %.preheader.us, !llvm.loop !30
 
 59:                                               ; preds = %13
   %60 = icmp eq i32 %10, 1
@@ -1113,12 +1113,12 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   store i16 %118, ptr %121, align 2
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge.us150, label %71, !llvm.loop !32
+  br i1 %exitcond173.not, label %._crit_edge.us150, label %71, !llvm.loop !31
 
 ._crit_edge.us150:                                ; preds = %71
   %122 = add nuw nsw i32 %.1149.us, 1
   %exitcond174.not = icmp eq i32 %122, %9
-  br i1 %exitcond174.not, label %.loopexit, label %.preheader134.us, !llvm.loop !33
+  br i1 %exitcond174.not, label %.loopexit, label %.preheader134.us, !llvm.loop !32
 
 123:                                              ; preds = %59
   %or.cond5 = and i1 %60, %23
@@ -1184,12 +1184,12 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   store i16 %164, ptr %167, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %133, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge.us, label %133, !llvm.loop !33
 
 ._crit_edge.us:                                   ; preds = %133
   %168 = add nuw nsw i32 %.3144.us, 1
   %exitcond162.not = icmp eq i32 %168, %9
-  br i1 %exitcond162.not, label %.loopexit, label %.preheader140.us, !llvm.loop !35
+  br i1 %exitcond162.not, label %.loopexit, label %.preheader140.us, !llvm.loop !34
 
 .preheader138:                                    ; preds = %123
   br i1 %or.cond187, label %.preheader137.us.preheader, label %.loopexit
@@ -1248,12 +1248,12 @@ define hidden void @aom_highbd_blend_a64_mask_c(ptr noundef %0, i32 noundef %1, 
   store i16 %206, ptr %209, align 2
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge.us147, label %174, !llvm.loop !36
+  br i1 %exitcond167.not, label %._crit_edge.us147, label %174, !llvm.loop !35
 
 ._crit_edge.us147:                                ; preds = %174
   %210 = add nuw nsw i32 %.2146.us, 1
   %exitcond168.not = icmp eq i32 %210, %9
-  br i1 %exitcond168.not, label %.loopexit, label %.preheader137.us, !llvm.loop !37
+  br i1 %exitcond168.not, label %.loopexit, label %.preheader137.us, !llvm.loop !36
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us147, %._crit_edge.us150, %._crit_edge.us153, %.preheader141, %.preheader138, %.preheader135, %.preheader133
   ret void
@@ -1278,35 +1278,34 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !7}
+!9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !7}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !7}
+!13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5, !7}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !7}
+!17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !7}
+!19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !7}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !7}
+!23 = distinct !{!23, !5}
 !24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5, !7}
+!25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5, !7}
+!27 = distinct !{!27, !5}
 !28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5, !7}
+!29 = distinct !{!29, !5}
 !30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5, !7}
+!31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5, !7}
+!33 = distinct !{!33, !5}
 !34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5, !7}
+!35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5, !7}

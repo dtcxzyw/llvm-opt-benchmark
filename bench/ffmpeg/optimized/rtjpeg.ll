@@ -229,7 +229,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %10 = lshr i32 %6, 3
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %13 = load i32, ptr %12, align 1, !tbaa !26
+  %13 = load i32, ptr %12, align 1, !tbaa !25
   %14 = tail call i32 @llvm.bswap.i32(i32 %13)
   %15 = and i32 %6, 7
   %16 = shl i32 %14, %15
@@ -244,7 +244,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %22 = lshr i32 %19, 3
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 %23
-  %25 = load i32, ptr %24, align 1, !tbaa !26
+  %25 = load i32, ptr %24, align 1, !tbaa !25
   %26 = tail call i32 @llvm.bswap.i32(i32 %25)
   %27 = and i32 %19, 7
   %28 = shl i32 %26, %27
@@ -276,7 +276,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %41 = lshr i32 %40, 3
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
-  %44 = load i32, ptr %43, align 1, !tbaa !26
+  %44 = load i32, ptr %43, align 1, !tbaa !25
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
   %46 = and i32 %40, 7
   %47 = shl i32 %45, %46
@@ -291,16 +291,16 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %53 = add nsw i32 %.05475, -1
   %54 = zext nneg i32 %.05475 to i64
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !26
+  %56 = load i8, ptr %55, align 1, !tbaa !25
   %57 = zext i8 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr %3, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = mul i32 %59, %52
   %61 = trunc i32 %60 to i16
   %62 = getelementptr inbounds nuw i16, ptr %1, i64 %57
-  store i16 %61, ptr %62, align 2, !tbaa !27
+  store i16 %61, ptr %62, align 2, !tbaa !26
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %39, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %51, %39, %36
   %.val = phi i32 [ %.val.pre, %36 ], [ %49, %39 ], [ %49, %51 ]
@@ -341,7 +341,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %78 = lshr i32 %77, 3
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 %79
-  %81 = load i32, ptr %80, align 1, !tbaa !26
+  %81 = load i32, ptr %80, align 1, !tbaa !25
   %82 = tail call i32 @llvm.bswap.i32(i32 %81)
   %83 = and i32 %77, 7
   %84 = shl i32 %82, %83
@@ -355,17 +355,17 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %89 = ashr i32 %84, 28
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %91 = load i8, ptr %90, align 1, !tbaa !26
+  %91 = load i8, ptr %90, align 1, !tbaa !25
   %92 = zext i8 %91 to i64
   %93 = getelementptr inbounds nuw i32, ptr %3, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !14
   %95 = mul i32 %94, %89
   %96 = trunc i32 %95 to i16
   %97 = getelementptr inbounds nuw i16, ptr %1, i64 %92
-  store i16 %96, ptr %97, align 2, !tbaa !27
+  store i16 %96, ptr %97, align 2, !tbaa !26
   %98 = and i64 %indvars.iv.next, 4294967295
   %.not61 = icmp eq i64 %98, 0
-  br i1 %.not61, label %._crit_edge81, label %76, !llvm.loop !30
+  br i1 %.not61, label %._crit_edge81, label %76, !llvm.loop !29
 
 ._crit_edge81.loopexit.split.loop.exit:           ; preds = %76
   %99 = trunc nuw i64 %indvars.iv to i32
@@ -409,7 +409,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %115 = lshr i32 %114, 3
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 %116
-  %118 = load i32, ptr %117, align 1, !tbaa !26
+  %118 = load i32, ptr %117, align 1, !tbaa !25
   %119 = tail call i32 @llvm.bswap.i32(i32 %118)
   %120 = and i32 %114, 7
   %121 = shl i32 %119, %120
@@ -418,7 +418,7 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   store i32 %123, ptr %5, align 8, !tbaa !20
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, -1
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv92
-  %125 = load i8, ptr %124, align 1, !tbaa !26
+  %125 = load i8, ptr %124, align 1, !tbaa !25
   %126 = ashr i32 %121, 24
   %127 = zext i8 %125 to i64
   %128 = getelementptr inbounds nuw i32, ptr %3, i64 %127
@@ -426,20 +426,20 @@ define internal fastcc range(i32 -1094995529, 2) i32 @get_block(ptr noundef nonn
   %130 = mul i32 %126, %129
   %131 = trunc i32 %130 to i16
   %132 = getelementptr inbounds nuw i16, ptr %1, i64 %127
-  store i16 %131, ptr %132, align 2, !tbaa !27
+  store i16 %131, ptr %132, align 2, !tbaa !26
   %133 = and i64 %indvars.iv.next93, 4294967295
   %.not64 = icmp eq i64 %133, 0
-  br i1 %.not64, label %._crit_edge89, label %113, !llvm.loop !31
+  br i1 %.not64, label %._crit_edge89, label %113, !llvm.loop !30
 
 ._crit_edge89:                                    ; preds = %113, %.preheader
-  %134 = load i8, ptr %2, align 1, !tbaa !26
+  %134 = load i8, ptr %2, align 1, !tbaa !25
   %135 = zext i8 %134 to i64
   %136 = getelementptr inbounds nuw i32, ptr %3, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !14
   %138 = mul i32 %137, %17
   %139 = trunc i32 %138 to i16
   %140 = getelementptr inbounds nuw i16, ptr %1, i64 %135
-  store i16 %139, ptr %140, align 2, !tbaa !27
+  store i16 %139, ptr %140, align 2, !tbaa !26
   br label %141
 
 141:                                              ; preds = %106, %69, %21, %4, %._crit_edge89
@@ -457,7 +457,7 @@ define void @ff_rtjpeg_decode_init(ptr noundef captures(none) %0, i32 noundef %1
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !tbaa !26
+  %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = zext i8 %11 to i64
@@ -469,7 +469,7 @@ define void @ff_rtjpeg_decode_init(ptr noundef captures(none) %0, i32 noundef %1
   store i32 %17, ptr %18, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %19, label %9, !llvm.loop !32
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !31
 
 19:                                               ; preds = %9
   store i32 %1, ptr %0, align 16, !tbaa !4
@@ -489,7 +489,7 @@ define void @ff_rtjpeg_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
   %7 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %indvars.iv
-  %8 = load i8, ptr %7, align 1, !tbaa !26
+  %8 = load i8, ptr %7, align 1, !tbaa !25
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 3
   %11 = lshr i32 %9, 3
@@ -497,12 +497,12 @@ define void @ff_rtjpeg_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %12 = or i32 %.masked, %11
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !26
+  %15 = load i8, ptr %14, align 1, !tbaa !25
   %16 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv
-  store i8 %15, ptr %16, align 1, !tbaa !26
+  store i8 %15, ptr %16, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %17, label %6, !llvm.loop !33
+  br i1 %exitcond.not, label %17, label %6, !llvm.loop !32
 
 17:                                               ; preds = %6
   ret void
@@ -560,13 +560,12 @@ attributes #7 = { nounwind }
 !21 = !{!5, !10, i64 40}
 !22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = !{!7, !7, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"short", !7, i64 0}
+!24 = distinct !{!24, !23}
+!25 = !{!7, !7, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !7, i64 0}
+!28 = distinct !{!28, !23}
 !29 = distinct !{!29, !23}
 !30 = distinct !{!30, !23}
 !31 = distinct !{!31, !23}
 !32 = distinct !{!32, !23}
-!33 = distinct !{!33, !23}

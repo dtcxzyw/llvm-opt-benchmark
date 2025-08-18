@@ -146,7 +146,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us: ;
   br i1 %26, label %22, label %.split32.us
 
 .split30.us.us:                                   ; preds = %22, %.split.us.us
-  br label %.split39.us, !llvm.loop !13
+  br label %.split39.us, !llvm.loop !12
 
 .backedge.us.lr.ph.us:                            ; preds = %.split.us.us
   %27 = tail call ptr @__errno_location() #6
@@ -223,10 +223,10 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us47:
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.split30.split.us.us, label %45, !llvm.loop !14
+  br i1 %51, label %.split30.split.us.us, label %45, !llvm.loop !10
 
 .split30.split.us.us:                             ; preds = %.backedge.us33.us, %.split.us
-  br label %.split39.split.us, !llvm.loop !15
+  br label %.split39.split.us, !llvm.loop !12
 
 .lr.ph38.us:                                      ; preds = %.split.us
   %52 = tail call ptr @__errno_location() #6
@@ -289,7 +289,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.split30.split, label %70, !llvm.loop !16
+  br i1 %69, label %.split30.split, label %70, !llvm.loop !10
 
 .split32.us:                                      ; preds = %.backedge.us.us
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 92, ptr noundef nonnull @.str.2, i32 noundef %25)
@@ -308,7 +308,7 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
   unreachable
 
 .split30.split:                                   ; preds = %.backedge, %.split
-  br label %.split39.split, !llvm.loop !17
+  br label %.split39.split, !llvm.loop !12
 
 _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.thread: ; preds = %.lr.ph, %70, %.lr.ph.us49, %36, %45, %.lr.ph.us, %13
   %.not21 = phi i1 [ true, %13 ], [ true, %.lr.ph.us ], [ false, %45 ], [ true, %36 ], [ true, %.lr.ph.us49 ], [ false, %70 ], [ true, %.lr.ph ]
@@ -388,11 +388,6 @@ attributes #6 = { nounwind willreturn memory(none) }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!6, !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = distinct !{!12, !11}

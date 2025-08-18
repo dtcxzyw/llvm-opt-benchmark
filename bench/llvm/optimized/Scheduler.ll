@@ -1154,10 +1154,10 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm9sandboxir9Scheduler17get
   %10 = add i32 %8, -1
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %11
-  br i1 %9, label %._crit_edge.thread77, label %.lr.ph.split.outer
+  br i1 %9, label %._crit_edge.thread105, label %.lr.ph.split.outer
 
 ._crit_edge:                                      ; preds = %38
-  br i1 %.01345, label %._crit_edge.thread, label %._crit_edge.thread77
+  br i1 %.01345, label %._crit_edge.thread, label %._crit_edge.thread105
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.outer, %.thread
   %.01345 = phi i1 [ false, %.thread ], [ %.01345.ph, %.lr.ph.split.outer ]
@@ -1222,11 +1222,11 @@ _ZNK4llvm9sandboxir15DependencyGraph7getNodeEPNS0_11InstructionE.exit: ; preds =
 
 .thread:                                          ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm9sandboxir15DependencyGraph7getNodeEPNS0_11InstructionE.exit, %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrINS2_6DGNodeESt14default_deleteIS6_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E4findEPKS3_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %.01544, i64 8
-  %.not82 = icmp eq ptr %40, %4
-  br i1 %.not82, label %._crit_edge.thread77, label %.lr.ph.split
+  %.not110 = icmp eq ptr %40, %4
+  br i1 %.not110, label %._crit_edge.thread105, label %.lr.ph.split
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.0.lcssa76 = phi i32 [ 1, %._crit_edge ], [ 0, %3 ]
+  %.0.lcssa104 = phi i32 [ 1, %._crit_edge ], [ 0, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %1, align 8, !tbaa !57
   %43 = load ptr, ptr %41, align 8, !tbaa !58
@@ -1395,7 +1395,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrI
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !55
   %.not131.i.i.i.i.i.i = icmp eq ptr %132, %74
-  br i1 %.not131.i.i.i.i.i.i, label %137, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97"
+  br i1 %.not131.i.i.i.i.i.i, label %137, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit125"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.thread.i.i.i.i.i.i": ; preds = %.thread.i.i.i.i.i.i
   %.not.i.i.i60113.i.i.i.i.i.i = icmp ne i32 %.01826.i.i.i.i.i.i54.i.i.i.i.i.i, %45
@@ -1405,7 +1405,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrI
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load ptr, ptr %135, align 8, !tbaa !55
   %.not132.i.i.i.i.i.i = icmp eq ptr %136, %74
-  br i1 %.not132.i.i.i.i.i.i, label %.thread114.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit99"
+  br i1 %.not132.i.i.i.i.i.i, label %.thread114.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit127"
 
 137:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.i.i.i.i.i.i"
   tail call void @llvm.assume(i1 %79)
@@ -1452,7 +1452,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrI
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %160 = load ptr, ptr %159, align 8, !tbaa !55
   %.not133.i.i.i.i.i.i = icmp eq ptr %160, %74
-  br i1 %.not133.i.i.i.i.i.i, label %166, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95"
+  br i1 %.not133.i.i.i.i.i.i, label %166, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit123"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit71.thread.i.i.i.i.i.i": ; preds = %.thread114.i.i.i.i.i.i
   %.not.i.i.i69123.i.i.i.i.i.i = icmp ne i32 %.01826.i.i.i.i.i.i63.i.i.i.i.i.i, %45
@@ -1692,25 +1692,25 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionESt10unique_ptrI
   %276 = getelementptr inbounds nuw i8, ptr %.029154.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit71.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit123": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit71.i.i.i.i.i.i"
   %277 = getelementptr inbounds nuw i8, ptr %.029154.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit125": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.i.i.i.i.i.i"
   %278 = getelementptr inbounds nuw i8, ptr %.029154.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit99": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.thread.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit127": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit62.thread.i.i.i.i.i.i"
   %279 = getelementptr inbounds nuw i8, ptr %.029154.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit99", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit89.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit98.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit107.i.i.i.i.i.i", %275
-  %.028.i.i.i.i.i.i = phi ptr [ %4, %275 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit89.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit98.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit107.i.i.i.i.i.i" ], [ %276, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %277, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95" ], [ %278, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97" ], [ %279, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit99" ], [ %.029154.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.i.i.i.i.i.i" ], [ %.029154.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.thread.i.i.i.i.i.i" ], [ %188, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i" ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit123", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit125", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit127", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit89.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit98.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit107.i.i.i.i.i.i", %275
+  %.028.i.i.i.i.i.i = phi ptr [ %4, %275 ], [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit89.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit98.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit107.i.i.i.i.i.i" ], [ %276, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %277, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit123" ], [ %278, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit125" ], [ %279, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit127" ], [ %.029154.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.i.i.i.i.i.i" ], [ %.029154.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit.thread.i.i.i.i.i.i" ], [ %188, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm9sandboxir9Scheduler17getBndlSchedStateENS2_8ArrayRefIPNS3_11InstructionEEEE3$_0EclIPKS7_EEbT_.exit80.i.i.i.i.i.i" ]
   %.not37 = icmp eq ptr %4, %.028.i.i.i.i.i.i
-  %280 = select i1 %.not37, i32 2, i32 %.0.lcssa76
-  br label %._crit_edge.thread77
+  %280 = select i1 %.not37, i32 2, i32 %.0.lcssa104
+  br label %._crit_edge.thread105
 
-._crit_edge.thread77:                             ; preds = %.thread, %.lr.ph, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit", %._crit_edge
+._crit_edge.thread105:                            ; preds = %.thread, %.lr.ph, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit", %._crit_edge
   %.2 = phi i32 [ %280, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir11InstructionEEEZNKS2_9Scheduler17getBndlSchedStateENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit" ], [ 1, %._crit_edge ], [ 0, %.lr.ph ], [ %.046.ph, %.thread ]
   ret i32 %.2
 }

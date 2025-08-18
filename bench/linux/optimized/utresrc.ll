@@ -126,7 +126,7 @@ define dso_local i32 @acpi_ut_walk_aml_resources(ptr noundef readnone captures(a
   %72 = getelementptr i8, ptr %46, i64 %71
   %73 = add i32 %70, %45
   %74 = icmp ult ptr %72, %11
-  br i1 %74, label %.split, label %.loopexit9, !llvm.loop !11
+  br i1 %74, label %.split, label %.loopexit9, !llvm.loop !7
 
 .loopexit9:                                       ; preds = %68, %40, %10
   %75 = phi i32 [ 0, %10 ], [ %43, %40 ], [ %73, %68 ]
@@ -467,7 +467,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
   %79 = getelementptr i8, ptr %14, i64 %70
   %80 = getelementptr i8, ptr %79, i64 %78
   %81 = icmp ult ptr %80, %12
-  br i1 %81, label %.preheader, label %.thread4, !llvm.loop !11
+  br i1 %81, label %.preheader, label %.thread4, !llvm.loop !7
 
 82:                                               ; preds = %74, %5
   %83 = phi ptr [ %7, %5 ], [ %14, %74 ]
@@ -501,8 +501,6 @@ attributes #5 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 0, i32 12320}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8, !9}

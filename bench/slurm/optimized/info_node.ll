@@ -293,7 +293,7 @@ define dso_local void @scontrol_print_node(ptr noundef %0, ptr noundef readonly 
   %37 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
   %38 = add nuw nsw i32 %.02132, 1
   %39 = icmp ult i32 %38, %36
-  br i1 %39, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !13
+  br i1 %39, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16
   %40 = icmp eq i32 %.2.us, 0
@@ -564,7 +564,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   %103 = load i32, ptr %94, align 8
   %104 = zext i32 %103 to i64
   %105 = icmp samesign ult i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph, label %.loopexit97, !llvm.loop !14
+  br i1 %105, label %.lr.ph, label %.loopexit97, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader96, %102
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.preheader96 ]
@@ -589,7 +589,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   call void @free(ptr noundef nonnull %100) #9
   %115 = load i32, ptr %94, align 8
   %.not79 = icmp ult i32 %.3, %115
-  br i1 %.not79, label %99, label %116, !llvm.loop !15
+  br i1 %.not79, label %99, label %116, !llvm.loop !13
 
 116:                                              ; preds = %.loopexit97, %99
   %.155 = phi i32 [ %.3, %.loopexit97 ], [ %.054, %99 ]
@@ -699,7 +699,7 @@ define dso_local void @scontrol_print_node_list(ptr noundef %0, i32 noundef %1, 
   %158 = phi i32 [ %142, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
   %159 = add nuw nsw i32 %.02132.i, 1
   %160 = icmp ult i32 %159, %157
-  br i1 %160, label %.lr.ph.split.i, label %.loopexit.thread.i, !llvm.loop !13
+  br i1 %160, label %.lr.ph.split.i, label %.loopexit.thread.i, !llvm.loop !11
 
 .loopexit.thread.i:                               ; preds = %156, %138
   store i32 1, ptr @exit_code, align 4
@@ -715,7 +715,7 @@ scontrol_print_node.exit:                         ; preds = %.loopexit.thread44.
   call void @free(ptr noundef %139) #9
   %164 = call ptr @hostlist_shift(ptr noundef %68) #9
   %.not76 = icmp eq ptr %164, null
-  br i1 %.not76, label %.loopexit, label %138, !llvm.loop !16
+  br i1 %.not76, label %.loopexit, label %138, !llvm.loop !14
 
 .loopexit:                                        ; preds = %scontrol_print_node.exit, %.preheader, %137
   call void @hostlist_destroy(ptr noundef %68) #9
@@ -895,7 +895,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !17
+  br i1 %19, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %34
   %20 = phi i32 [ %35, %34 ], [ %4, %.lr.ph.split.preheader ]
@@ -934,7 +934,7 @@ define dso_local void @scontrol_print_front_end(ptr noundef %0, ptr noundef read
   %36 = phi i32 [ %21, %.lr.ph.split ], [ %.pre, %._crit_edge ]
   %37 = add nuw nsw i32 %.02133, 1
   %38 = icmp ult i32 %37, %35
-  br i1 %38, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !18
+  br i1 %38, label %.lr.ph.split, label %.loopexit.thread, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16
   %39 = icmp eq i32 %.2.us, 0
@@ -1044,7 +1044,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.split.us.split.i, label %.loopexit.i, !llvm.loop !17
+  br i1 %36, label %.lr.ph.split.us.split.i, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %33
   %37 = icmp ne i32 %.2.us.i, 0
@@ -1125,7 +1125,7 @@ define dso_local void @scontrol_print_front_end_list(ptr noundef %0) local_unnam
   %65 = phi i32 [ %50, %.lr.ph.split.i ], [ %.pre.i, %._crit_edge.i ]
   %66 = add nuw nsw i32 %.02133.i, 1
   %67 = icmp ult i32 %66, %64
-  br i1 %67, label %.lr.ph.split.i, label %.loopexit.thread.i16, !llvm.loop !18
+  br i1 %67, label %.lr.ph.split.i, label %.loopexit.thread.i16, !llvm.loop !15
 
 .loopexit.thread.i16:                             ; preds = %63, %46
   store i32 1, ptr @exit_code, align 4
@@ -1141,7 +1141,7 @@ scontrol_print_front_end.exit26:                  ; preds = %.loopexit.thread45.
   call void @free(ptr noundef %47) #9
   %71 = call ptr @hostlist_shift(ptr noundef nonnull %41) #9
   %.not12 = icmp eq ptr %71, null
-  br i1 %.not12, label %._crit_edge, label %46, !llvm.loop !19
+  br i1 %.not12, label %._crit_edge, label %46, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %scontrol_print_front_end.exit26, %.preheader
   call void @hostlist_destroy(ptr noundef nonnull %41) #9
@@ -1216,12 +1216,9 @@ attributes #12 = { cold }
 !8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
 !13 = distinct !{!13, !9, !10}
 !14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
 !16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10, !12}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}

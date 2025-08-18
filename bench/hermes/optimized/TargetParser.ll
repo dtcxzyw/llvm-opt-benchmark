@@ -9102,7 +9102,7 @@ for.body.i.us:                                    ; preds = %entry, %for.inc.i.u
 for.inc.i.us:                                     ; preds = %for.body.i.us
   %__begin1.0.add.i.us = add nuw nsw i64 %__begin1.0.idx14.i.us, 40
   %cmp.not.i.us = icmp eq i64 %__begin1.0.add.i.us, 1280
-  br i1 %cmp.not.i.us, label %return, label %for.body.i.us, !llvm.loop !267
+  br i1 %cmp.not.i.us, label %return, label %for.body.i.us
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %__begin1.0.idx14.i = phi i64 [ %__begin1.0.add.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
@@ -9470,5 +9470,3 @@ attributes #19 = { nounwind }
 !264 = distinct !{!264, !"_ZSt19__relocate_object_aIN4llvh9StringRefES1_SaIS1_EEvPT_PT0_RT1_"}
 !265 = distinct !{!265, !264, !"_ZSt19__relocate_object_aIN4llvh9StringRefES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !266 = distinct !{!266, !9}
-!267 = distinct !{!267, !268}
-!268 = !{!"llvm.loop.unswitch.nontrivial.disable"}

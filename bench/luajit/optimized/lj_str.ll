@@ -827,7 +827,7 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   store i64 %50, ptr %46, align 8, !tbaa !34
   %.046.us = inttoptr i64 %32 to ptr
   %.not.us = icmp eq i64 %32, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %94
   %.04654 = phi ptr [ %.046, %94 ], [ %.04651, %.lr.ph ]
@@ -855,9 +855,9 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   br i1 %.not50, label %80, label %86
 
 66:                                               ; preds = %.lr.ph.split
-  %67 = load i32, ptr %28, align 4, !tbaa !53
+  %67 = load i32, ptr %28, align 4, !tbaa !51
   %68 = add i32 %67, -1
-  store i32 %68, ptr %28, align 4, !tbaa !53
+  store i32 %68, ptr %28, align 4, !tbaa !51
   %69 = getelementptr inbounds nuw i8, ptr %.04654, i64 20
   %70 = load i32, ptr %69, align 4, !tbaa !4
   %71 = and i32 %70, -4
@@ -870,7 +870,7 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   %77 = load ptr, ptr %7, align 8, !tbaa !45
   %78 = load ptr, ptr %30, align 8, !tbaa !46
   %79 = tail call ptr %77(ptr noundef %78, ptr noundef nonnull %.04654, i64 noundef range(i64 0, 34359738361) %74, i64 noundef 0) #15
-  br label %94, !llvm.loop !54
+  br label %94, !llvm.loop !52
 
 80:                                               ; preds = %57
   %81 = load i64, ptr %31, align 8, !tbaa !36
@@ -922,22 +922,22 @@ define internal fastcc ptr @lj_str_alloc(ptr noundef %0, ptr noundef readonly ca
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %16, ptr %17, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 4, ptr %18, align 1, !tbaa !55
+  store i8 4, ptr %18, align 1, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %2, ptr %19, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %3, ptr %20, align 8, !tbaa !37
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 172
-  %23 = load i8, ptr %22, align 4, !tbaa !56
+  %23 = load i8, ptr %22, align 4, !tbaa !54
   %24 = add i8 %23, -1
-  store i8 %24, ptr %22, align 4, !tbaa !56
+  store i8 %24, ptr %22, align 4, !tbaa !54
   %.not = icmp eq i8 %23, 0
   br i1 %.not, label %25, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 168
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !57
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !55
   br label %31
 
 25:                                               ; preds = %5
@@ -946,18 +946,18 @@ define internal fastcc ptr @lj_str_alloc(ptr noundef %0, ptr noundef readonly ca
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %27, 56
   %30 = trunc nuw i64 %29 to i8
-  store i8 %30, ptr %22, align 4, !tbaa !56
+  store i8 %30, ptr %22, align 4, !tbaa !54
   br label %31
 
 31:                                               ; preds = %._crit_edge, %25
   %32 = phi i32 [ %.pre, %._crit_edge ], [ %28, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %34 = add i32 %32, 1
-  store i32 %34, ptr %33, align 8, !tbaa !57
+  store i32 %34, ptr %33, align 8, !tbaa !55
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %32, ptr %35, align 4, !tbaa !58
+  store i32 %32, ptr %35, align 4, !tbaa !56
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 0, ptr %36, align 2, !tbaa !59
+  store i8 0, ptr %36, align 2, !tbaa !57
   %37 = trunc nuw nsw i32 %4 to i8
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 11
   store i8 %37, ptr %38, align 1, !tbaa !35
@@ -975,15 +975,15 @@ define internal fastcc ptr @lj_str_alloc(ptr noundef %0, ptr noundef readonly ca
   %48 = getelementptr inbounds nuw %struct.GCRef, ptr %46, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !34
   %50 = and i64 %49, -2
-  store i64 %50, ptr %10, align 8, !tbaa !60
+  store i64 %50, ptr %10, align 8, !tbaa !58
   %51 = ptrtoint ptr %10 to i64
   %52 = and i64 %49, 1
   %53 = or i64 %52, %51
   store i64 %53, ptr %48, align 8, !tbaa !34
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 164
-  %55 = load i32, ptr %54, align 4, !tbaa !53
+  %55 = load i32, ptr %54, align 4, !tbaa !51
   %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !53
+  store i32 %56, ptr %54, align 4, !tbaa !51
   %57 = icmp ugt i32 %55, %44
   br i1 %57, label %58, label %61
 
@@ -1003,9 +1003,9 @@ declare hidden void @lj_err_msg(ptr noundef, i32 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_str_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %4 = load i32, ptr %3, align 4, !tbaa !53
+  %4 = load i32, ptr %3, align 4, !tbaa !51
   %5 = add i32 %4, -1
-  store i32 %5, ptr %3, align 4, !tbaa !53
+  store i32 %5, ptr %3, align 4, !tbaa !51
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = and i32 %7, -4
@@ -1124,13 +1124,11 @@ attributes #16 = { noreturn nounwind }
 !48 = !{!22, !8, i64 32}
 !49 = distinct !{!49, !13}
 !50 = !{!"branch_weights", !"expected", i32 1879376, i32 2145604272}
-!51 = distinct !{!51, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = !{!22, !10, i64 164}
-!54 = distinct !{!54, !13}
-!55 = !{!5, !8, i64 9}
-!56 = !{!22, !8, i64 172}
-!57 = !{!22, !10, i64 168}
-!58 = !{!5, !10, i64 12}
-!59 = !{!5, !8, i64 10}
-!60 = !{!5, !7, i64 0}
+!51 = !{!22, !10, i64 164}
+!52 = distinct !{!52, !13}
+!53 = !{!5, !8, i64 9}
+!54 = !{!22, !8, i64 172}
+!55 = !{!22, !10, i64 168}
+!56 = !{!5, !10, i64 12}
+!57 = !{!5, !8, i64 10}
+!58 = !{!5, !7, i64 0}

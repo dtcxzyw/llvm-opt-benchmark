@@ -753,7 +753,7 @@ _ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11
   %.sroa.064.1.us = phi ptr [ %81, %80 ], [ %79, %_ZSt8__copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_St26random_access_iterator_tag.exit.i.us ], [ %.sroa.064.085.us, %74 ]
   %82 = getelementptr inbounds nuw i8, ptr %.05186.us, i64 24
   %.not58.us = icmp eq ptr %82, %4
-  br i1 %.not58.us, label %._crit_edge88, label %.lr.ph87.split.us, !llvm.loop !28
+  br i1 %.not58.us, label %._crit_edge88, label %.lr.ph87.split.us
 
 ._crit_edge88:                                    ; preds = %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit.us, %_ZSt6copy_nIPKcmN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET1_T_T0_SC_.exit, %_ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ET0_T_SB_SA_.exit
   ret void
@@ -801,7 +801,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #18
   store i64 %5, ptr %1, align 8, !tbaa !18
@@ -813,7 +813,7 @@ define dso_local noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef %0, ptr no
   br i1 %or.cond, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4, !tbaa !30
+  %10 = load i32, ptr %4, align 4, !tbaa !28
   %11 = icmp eq i32 %10, 0
   br label %12
 
@@ -834,7 +834,7 @@ define dso_local noundef zeroext i1 @_Z11cmStrToLongRKNSt7__cxx1112basic_stringI
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %5, align 4, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @strtol(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 10) #18
   store i64 %6, ptr %1, align 8, !tbaa !18
@@ -846,7 +846,7 @@ define dso_local noundef zeroext i1 @_Z11cmStrToLongRKNSt7__cxx1112basic_stringI
   br i1 %or.cond.i, label %_Z11cmStrToLongPKcPl.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %5, align 4, !tbaa !30
+  %11 = load i32, ptr %5, align 4, !tbaa !28
   %12 = icmp eq i32 %11, 0
   br label %_Z11cmStrToLongPKcPl.exit
 
@@ -860,7 +860,7 @@ _Z11cmStrToLongPKcPl.exit:                        ; preds = %2, %10
 define dso_local noundef zeroext i1 @_Z12cmStrToULongPKcPm(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %5
 
@@ -871,7 +871,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongPKcPm(ptr noundef %0, ptr n
   %8 = tail call i32 @isspace(i32 noundef %7) #15
   %.not8 = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 1
-  br i1 %.not8, label %10, label %5, !llvm.loop !32
+  br i1 %.not8, label %10, label %5, !llvm.loop !30
 
 10:                                               ; preds = %5
   %11 = icmp eq i8 %6, 45
@@ -888,7 +888,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongPKcPm(ptr noundef %0, ptr n
   br i1 %or.cond, label %20, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr %4, align 4, !tbaa !30
+  %18 = load i32, ptr %4, align 4, !tbaa !28
   %19 = icmp eq i32 %18, 0
   br label %20
 
@@ -906,7 +906,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongRKNSt7__cxx1112basic_string
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %5, align 4, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %6
 
@@ -917,7 +917,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongRKNSt7__cxx1112basic_string
   %9 = tail call i32 @isspace(i32 noundef %8) #15
   %.not8.i = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  br i1 %.not8.i, label %11, label %6, !llvm.loop !32
+  br i1 %.not8.i, label %11, label %6, !llvm.loop !30
 
 11:                                               ; preds = %6
   %12 = icmp eq i8 %7, 45
@@ -934,7 +934,7 @@ define dso_local noundef zeroext i1 @_Z12cmStrToULongRKNSt7__cxx1112basic_string
   br i1 %or.cond.i, label %_Z12cmStrToULongPKcPm.exit, label %18
 
 18:                                               ; preds = %13
-  %19 = load i32, ptr %5, align 4, !tbaa !30
+  %19 = load i32, ptr %5, align 4, !tbaa !28
   %20 = icmp eq i32 %19, 0
   br label %_Z12cmStrToULongPKcPm.exit
 
@@ -948,10 +948,10 @@ _Z12cmStrToULongPKcPm.exit:                       ; preds = %11, %13, %18
 define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i64 @strtoll(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #18
-  store i64 %5, ptr %1, align 8, !tbaa !33
+  store i64 %5, ptr %1, align 8, !tbaa !31
   %6 = load ptr, ptr %3, align 8, !tbaa !20
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = icmp ne i8 %7, 0
@@ -960,7 +960,7 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, pt
   br i1 %or.cond, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = load i32, ptr %4, align 4, !tbaa !30
+  %10 = load i32, ptr %4, align 4, !tbaa !28
   %11 = icmp eq i32 %10, 0
   br label %12
 
@@ -978,10 +978,10 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongRKNSt7__cxx1112basic_str
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %5, align 4, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @strtoll(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 10) #18
-  store i64 %6, ptr %1, align 8, !tbaa !33
+  store i64 %6, ptr %1, align 8, !tbaa !31
   %7 = load ptr, ptr %3, align 8, !tbaa !20
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = icmp ne i8 %8, 0
@@ -990,7 +990,7 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongRKNSt7__cxx1112basic_str
   br i1 %or.cond.i, label %_Z15cmStrToLongLongPKcPx.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %5, align 4, !tbaa !30
+  %11 = load i32, ptr %5, align 4, !tbaa !28
   %12 = icmp eq i32 %11, 0
   br label %_Z15cmStrToLongLongPKcPx.exit
 
@@ -1004,7 +1004,7 @@ _Z15cmStrToLongLongPKcPx.exit:                    ; preds = %2, %10
 define dso_local noundef zeroext i1 @_Z16cmStrToULongLongPKcPy(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %5
 
@@ -1015,7 +1015,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongPKcPy(ptr noundef %0, p
   %8 = tail call i32 @isspace(i32 noundef %7) #15
   %.not8 = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 1
-  br i1 %.not8, label %10, label %5, !llvm.loop !35
+  br i1 %.not8, label %10, label %5, !llvm.loop !33
 
 10:                                               ; preds = %5
   %11 = icmp eq i8 %6, 45
@@ -1023,7 +1023,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongPKcPy(ptr noundef %0, p
 
 12:                                               ; preds = %10
   %13 = call i64 @strtoull(ptr noundef nonnull %.07, ptr noundef nonnull %3, i32 noundef 10) #18
-  store i64 %13, ptr %1, align 8, !tbaa !33
+  store i64 %13, ptr %1, align 8, !tbaa !31
   %14 = load ptr, ptr %3, align 8, !tbaa !20
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = icmp ne i8 %15, 0
@@ -1032,7 +1032,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongPKcPy(ptr noundef %0, p
   br i1 %or.cond, label %20, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr %4, align 4, !tbaa !30
+  %18 = load i32, ptr %4, align 4, !tbaa !28
   %19 = icmp eq i32 %18, 0
   br label %20
 
@@ -1050,7 +1050,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongRKNSt7__cxx1112basic_st
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %5, align 4, !tbaa !30
+  store i32 0, ptr %5, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %6
 
@@ -1061,7 +1061,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongRKNSt7__cxx1112basic_st
   %9 = tail call i32 @isspace(i32 noundef %8) #15
   %.not8.i = icmp eq i32 %9, 0
   %10 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  br i1 %.not8.i, label %11, label %6, !llvm.loop !35
+  br i1 %.not8.i, label %11, label %6, !llvm.loop !33
 
 11:                                               ; preds = %6
   %12 = icmp eq i8 %7, 45
@@ -1069,7 +1069,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongRKNSt7__cxx1112basic_st
 
 13:                                               ; preds = %11
   %14 = call i64 @strtoull(ptr noundef nonnull %.07.i, ptr noundef nonnull %3, i32 noundef 10) #18
-  store i64 %14, ptr %1, align 8, !tbaa !33
+  store i64 %14, ptr %1, align 8, !tbaa !31
   %15 = load ptr, ptr %3, align 8, !tbaa !20
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = icmp ne i8 %16, 0
@@ -1078,7 +1078,7 @@ define dso_local noundef zeroext i1 @_Z16cmStrToULongLongRKNSt7__cxx1112basic_st
   br i1 %or.cond.i, label %_Z16cmStrToULongLongPKcPy.exit, label %18
 
 18:                                               ; preds = %13
-  %19 = load i32, ptr %5, align 4, !tbaa !30
+  %19 = load i32, ptr %5, align 4, !tbaa !28
   %20 = icmp eq i32 %19, 0
   br label %_Z16cmStrToULongLongPKcPy.exit
 
@@ -1097,9 +1097,9 @@ define dso_local void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z13cmJoinStringsISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEES6_RKT_St17basic_string_viewIcS4_ESD_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, ptr %3, i64 %4, ptr %5) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
-  %8 = load ptr, ptr %1, align 8, !tbaa !36
+  %8 = load ptr, ptr %1, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !36
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = icmp eq ptr %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !10
@@ -1164,7 +1164,7 @@ define linkonce_odr dso_local void @_Z13cmJoinStringsISt6vectorINSt7__cxx1112bas
   %36 = add i64 %35, %.07.i
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 32
   %.not.i = icmp eq ptr %37, %10
-  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsISC_ES7_RKT_St17basic_string_viewIcS5_ESJ_EUlmRS8_E_ET0_SF_SF_SM_T1_.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsISC_ES7_RKT_St17basic_string_viewIcS5_ESJ_EUlmRS8_E_ET0_SF_SF_SM_T1_.exit, label %.lr.ph.i, !llvm.loop !35
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsISC_ES7_RKT_St17basic_string_viewIcS5_ESJ_EUlmRS8_E_ET0_SF_SF_SM_T1_.exit: ; preds = %.lr.ph.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %36)
@@ -1176,8 +1176,8 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt1
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit unwind label %60
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit: ; preds = %38
-  %41 = load ptr, ptr %1, align 8, !tbaa !36
-  %42 = load ptr, ptr %9, align 8, !tbaa !36
+  %41 = load ptr, ptr %1, align 8, !tbaa !34
+  %42 = load ptr, ptr %9, align 8, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = load i64, ptr %13, align 8, !tbaa !14
@@ -1219,7 +1219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i19: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit18
   %58 = load ptr, ptr %.sroa.023.0, align 8, !tbaa !19
   %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %58, i64 noundef %54)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit unwind label %.loopexit39, !llvm.loop !38
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit unwind label %.loopexit39, !llvm.loop !36
 
 60:                                               ; preds = %38, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsISC_ES7_RKT_St17basic_string_viewIcS5_ESJ_EUlmRS8_E_ET0_SF_SF_SM_T1_.exit
   %61 = landingpad { ptr, i32 }
@@ -1271,8 +1271,8 @@ define dso_local void @_Z6cmJoinRK7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7
 define linkonce_odr dso_local void @_Z13cmJoinStringsI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEES8_RKT_St17basic_string_viewIcS6_ESK_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, ptr %3, i64 %4, ptr %5) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %1, align 8, !tbaa !36
-  %10 = load ptr, ptr %8, align 8, !tbaa !36
+  %9 = load ptr, ptr %1, align 8, !tbaa !34
+  %10 = load ptr, ptr %8, align 8, !tbaa !34
   %11 = icmp eq ptr %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !10
@@ -1337,7 +1337,7 @@ define linkonce_odr dso_local void @_Z13cmJoinStringsI7cmRangeIN9__gnu_cxx17__no
   %36 = add i64 %35, %.07.i
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 32
   %.not.i = icmp eq ptr %37, %10
-  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsI7cmRangeISD_EES7_RKT_St17basic_string_viewIcS5_ESL_EUlmRS8_E_ET0_SH_SH_SO_T1_.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsI7cmRangeISD_EES7_RKT_St17basic_string_viewIcS5_ESL_EUlmRS8_E_ET0_SH_SH_SO_T1_.exit, label %.lr.ph.i, !llvm.loop !37
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsI7cmRangeISD_EES7_RKT_St17basic_string_viewIcS5_ESL_EUlmRS8_E_ET0_SH_SH_SO_T1_.exit: ; preds = %.lr.ph.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %36)
@@ -1349,8 +1349,8 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt1
           to label %41 unwind label %59
 
 41:                                               ; preds = %38
-  %.sroa.0.0.copyload.i.i18 = load ptr, ptr %1, align 8, !tbaa !36
-  %.sroa.0.0.copyload.i.i19 = load ptr, ptr %8, align 8, !tbaa !36
+  %.sroa.0.0.copyload.i.i18 = load ptr, ptr %1, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i.i19 = load ptr, ptr %8, align 8, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i18, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = load i64, ptr %13, align 8, !tbaa !14
@@ -1392,7 +1392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i24: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKcvEERS4_T_S9_.exit23
   %57 = load ptr, ptr %.sroa.028.0, align 8, !tbaa !19
   %58 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %57, i64 noundef %53)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit unwind label %.loopexit43, !llvm.loop !40
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit unwind label %.loopexit43, !llvm.loop !38
 
 59:                                               ; preds = %38, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmZ13cmJoinStringsI7cmRangeISD_EES7_RKT_St17basic_string_viewIcS5_ESL_EUlmRS8_E_ET0_SH_SH_SO_T1_.exit
   %60 = landingpad { ptr, i32 }
@@ -1528,16 +1528,14 @@ attributes #19 = { nounwind willreturn memory(none) }
 !25 = !{!23, !16, i64 0}
 !26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !27 = !{!23, !12, i64 8}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"int", !5, i64 0}
-!32 = distinct !{!32, !8}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"long long", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"int", !5, i64 0}
+!30 = distinct !{!30, !8}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"long long", !5, i64 0}
+!33 = distinct !{!33, !8}
+!34 = !{!24, !24, i64 0}
 !35 = distinct !{!35, !8}
-!36 = !{!24, !24, i64 0}
+!36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}

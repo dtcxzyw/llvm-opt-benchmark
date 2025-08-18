@@ -478,7 +478,7 @@ define hidden i64 @_mpd_shortdiv(ptr noundef writeonly captures(none) %0, ptr no
   %24 = mul i64 %3, %23
   %25 = sub i64 %14, %24
   %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %6, %4
   %.014.lcssa = phi i64 [ 0, %4 ], [ %25, %6 ]
@@ -497,11 +497,11 @@ define hidden range(i32 -1, 2) i32 @_mpd_basedivmod(ptr noundef writeonly captur
   br i1 %10, label %11, label %sub_size_t.exit
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !24
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 606) #10
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !24
   %15 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 41, i64 1, ptr %14) #11
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !24
   %17 = tail call i32 @fputc(i32 noundef 10, ptr noundef %16)
   tail call void @abort() #12
   unreachable
@@ -707,7 +707,7 @@ _mpd_shortmul.exit125:                            ; preds = %82, %_mpd_shortmul.
   %152 = mul i64 %132, %151
   %153 = sub i64 %142, %152
   %.not.i128 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i128, label %_mpd_shortdiv.exit, label %134, !llvm.loop !24
+  br i1 %.not.i128, label %_mpd_shortdiv.exit, label %134, !llvm.loop !23
 
 _mpd_shortdiv.exit:                               ; preds = %134
   %154 = load i64, ptr %123, align 8, !tbaa !3
@@ -852,7 +852,7 @@ split:                                            ; preds = %197, %198, %._crit_
   %252 = add i64 %243, %249
   %253 = add nuw i64 %.092161, 1
   %exitcond = icmp eq i64 %253, %umax
-  br i1 %exitcond, label %254, label %209, !llvm.loop !28
+  br i1 %exitcond, label %254, label %209, !llvm.loop !27
 
 254:                                              ; preds = %209
   %255 = getelementptr i64, ptr %0, i64 %.091163
@@ -899,7 +899,7 @@ split:                                            ; preds = %197, %198, %._crit_
 _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256, %.preheader38.i, %254
   %275 = add i64 %.091163, -1
   %.not = icmp eq i64 %.091163, 0
-  br i1 %.not, label %._crit_edge, label %128, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %128, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_mpd_baseadd.exit, %_mpd_shortmul.exit125
   %.not106 = icmp eq ptr %1, null
@@ -938,7 +938,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   %296 = mul i64 %23, %295
   %297 = sub i64 %286, %296
   %.not.i142 = icmp eq i64 %.0.i140, 0
-  br i1 %.not.i142, label %_mpd_shortdiv.exit144, label %278, !llvm.loop !24
+  br i1 %.not.i142, label %_mpd_shortdiv.exit144, label %278, !llvm.loop !23
 
 .preheader:                                       ; preds = %._crit_edge, %300
   %.0.i145 = phi i64 [ %298, %300 ], [ %5, %._crit_edge ]
@@ -950,7 +950,7 @@ _mpd_baseadd.exit:                                ; preds = %.preheader.i, %256,
   %301 = getelementptr i64, ptr %.094, i64 %298
   %302 = load i64, ptr %301, align 8, !tbaa !3
   %.not.i146 = icmp eq i64 %302, 0
-  br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !30
+  br i1 %.not.i146, label %.preheader, label %_mpd_shortdiv.exit144, !llvm.loop !29
 
 _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.preheader, %276
   %.0 = phi i32 [ 0, %276 ], [ 0, %.preheader ], [ 1, %300 ], [ 0, %278 ]
@@ -958,7 +958,7 @@ _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.prehea
   br i1 %.not108, label %305, label %303
 
 303:                                              ; preds = %_mpd_shortdiv.exit144
-  %304 = load ptr, ptr @mpd_free, align 8, !tbaa !31
+  %304 = load ptr, ptr @mpd_free, align 8, !tbaa !30
   call void %304(ptr noundef nonnull %.094) #13
   br label %305
 
@@ -969,7 +969,7 @@ _mpd_shortdiv.exit144:                            ; preds = %278, %300, %.prehea
 .sink.split:                                      ; preds = %305, %31
   %.097.sink = phi ptr [ %.094, %31 ], [ %.097, %305 ]
   %.090.ph = phi i32 [ -1, %31 ], [ %.0, %305 ]
-  %306 = load ptr, ptr @mpd_free, align 8, !tbaa !31
+  %306 = load ptr, ptr @mpd_free, align 8, !tbaa !30
   call void %306(ptr noundef nonnull %.097.sink) #13
   br label %307
 
@@ -1044,7 +1044,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   %33 = add i64 %.02235, -1
   %34 = add i64 %.136, -1
   %.not29 = icmp eq i64 %.02235, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.lcssa = phi i64 [ %.promoted, %24 ], [ %32, %.lr.ph ]
@@ -1061,7 +1061,7 @@ define hidden void @_mpd_baseshiftl(ptr noundef %0, ptr noundef readonly capture
   %gep = getelementptr i64, ptr %invariant.gep, i64 %37
   store i64 %39, ptr %gep, align 8, !tbaa !3
   %.not27 = icmp eq i64 %37, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph39, !llvm.loop !33
+  br i1 %.not27, label %.loopexit, label %.lr.ph39, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph39, %.preheader, %._crit_edge
   tail call void @mpd_uint_zero(ptr noundef %0, i64 noundef %9) #13
@@ -1318,7 +1318,7 @@ define hidden i64 @_mpd_baseshiftr(ptr noundef writeonly captures(none) %0, ptr 
   %26 = getelementptr i64, ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !30
+  br i1 %.not.i, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !29
 
 _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %12
   %28 = phi i64 [ %20, %12 ], [ 1, %24 ], [ 0, %.preheader ]
@@ -1348,7 +1348,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   %40 = add nuw i64 %.02548, 1
   %.0 = add nuw i64 %.049, 1
   %exitcond.not = icmp eq i64 %40, %31
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_mpd_isallzero.exit
   %.lcssa = phi i64 [ %.promoted, %_mpd_isallzero.exit ], [ %39, %.lr.ph ]
@@ -1390,7 +1390,7 @@ _mpd_isallzero.exit:                              ; preds = %24, %.preheader, %1
   %57 = getelementptr i64, ptr %1, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !3
   %.not.i37 = icmp eq i64 %58, 0
-  br i1 %.not.i37, label %53, label %_mpd_isallzero.exit38, !llvm.loop !30
+  br i1 %.not.i37, label %53, label %_mpd_isallzero.exit38, !llvm.loop !29
 
 _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   %59 = phi i64 [ %49, %44 ], [ 0, %43 ], [ 1, %55 ], [ 0, %53 ]
@@ -1410,7 +1410,7 @@ _mpd_isallzero.exit38:                            ; preds = %55, %53, %44, %43
   store i64 %64, ptr %65, align 8, !tbaa !3
   %66 = add nuw i64 %.151, 1
   %exitcond57.not = icmp eq i64 %66, %60
-  br i1 %exitcond57.not, label %.loopexit, label %62, !llvm.loop !35
+  br i1 %exitcond57.not, label %.loopexit, label %62, !llvm.loop !34
 
 .loopexit:                                        ; preds = %62, %_mpd_isallzero.exit38, %._crit_edge, %41
   %67 = phi i64 [ %59, %_mpd_isallzero.exit38 ], [ %28, %._crit_edge ], [ %28, %41 ], [ %59, %62 ]
@@ -1461,7 +1461,7 @@ define hidden range(i64 0, 2) i64 @_mpd_shortadd_b(ptr noundef captures(none) %0
   %19 = add nuw i64 %.025, 1
   %20 = icmp ult i64 %19, %1
   %21 = select i1 %17, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.024.in.lcssa = phi i1 [ %9, %4 ], [ %17, %.lr.ph ]
@@ -1527,7 +1527,7 @@ define hidden i64 @_mpd_shortmul_c(ptr noundef writeonly captures(none) %0, ptr 
   store i64 %45, ptr %19, align 8, !tbaa !3
   %46 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %46, %2
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %8, %4
   %.012.lcssa = phi i64 [ 0, %4 ], [ %43, %8 ]
@@ -1570,7 +1570,7 @@ define hidden i64 @_mpd_shortmul_b(ptr noundef writeonly captures(none) %0, ptr 
   store i64 %27, ptr %19, align 8, !tbaa !3
   %28 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %28, %2
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %8, %5
   %.013.lcssa = phi i64 [ 0, %5 ], [ %25, %8 ]
@@ -1613,7 +1613,7 @@ define hidden i64 @_mpd_shortdiv_b(ptr noundef writeonly captures(none) %0, ptr 
   %26 = mul i64 %3, %25
   %27 = sub i64 %16, %26
   %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %8, %5
   %.015.lcssa = phi i64 [ 0, %5 ], [ %27, %8 ]
@@ -1683,16 +1683,16 @@ attributes #13 = { nounwind }
 !19 = distinct !{!19, !8}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS8_IO_FILE", !27, i64 0}
-!27 = !{!"any pointer", !5, i64 0}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS8_IO_FILE", !26, i64 0}
+!26 = !{!"any pointer", !5, i64 0}
+!27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
 !29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = !{!27, !27, i64 0}
+!30 = !{!26, !26, i64 0}
+!31 = distinct !{!31, !8}
 !32 = distinct !{!32, !8}
 !33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
@@ -1700,4 +1700,3 @@ attributes #13 = { nounwind }
 !36 = distinct !{!36, !8}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}

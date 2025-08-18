@@ -6818,7 +6818,7 @@ define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %76 = getelementptr i8, ptr %.04656, i64 1
   %77 = add nsw i32 %.14358, -1
   %78 = icmp sgt i32 %.14358, 1
-  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
+  br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %69, %55, %65, %44, %30, %40, %22
   %.145 = phi i32 [ 0, %22 ], [ %.2.us, %40 ], [ %.04457.us, %30 ], [ %50, %44 ], [ %.2, %65 ], [ %.04457, %55 ], [ %75, %69 ]
@@ -7008,7 +7008,7 @@ tvb_get_ucs_2_stringz.exit:                       ; preds = %tvb_unicode_strsize
   %54 = or i8 %53, %49
   %55 = or i8 %54, %51
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %57, label %.preheader, !llvm.loop !33
+  br i1 %56, label %57, label %.preheader, !llvm.loop !31
 
 57:                                               ; preds = %.preheader
   %58 = and i32 %4, -1610612736
@@ -7758,7 +7758,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   %28 = getelementptr i8, ptr %.01317, i64 1
   %exitcond.not = icmp ne i32 %27, %.024
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !34
+  br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %21, %compute_offset_and_remaining.exit
   %.not15.lcssa = phi i1 [ true, %compute_offset_and_remaining.exit ], [ %.not.not, %21 ]
@@ -7863,7 +7863,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   %28 = getelementptr i8, ptr %.01317, i64 1
   %exitcond.not = icmp ne i32 %27, %.024
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !35
+  br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %21, %compute_offset_and_remaining.exit
   %.not15.lcssa = phi i1 [ true, %compute_offset_and_remaining.exit ], [ %.not.not, %21 ]
@@ -8160,7 +8160,7 @@ define i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 .critedge7:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %16 = add i32 %.032, 1
   %exitcond.not = icmp eq i32 %16, %spec.select
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge7, %.lr.ph, %9
   %.0.lcssa = phi i32 [ %1, %9 ], [ %.032, %.lr.ph ], [ %spec.select, %.critedge7 ]
@@ -8200,7 +8200,7 @@ define noundef i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %1) local_un
 .critedge7:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %11 = add nsw i32 %.022, -1
   %12 = icmp sgt i32 %.022, 1
-  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %.critedge7, %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %1, %.preheader ], [ %.022, %.lr.ph ], [ 0, %.critedge7 ]
@@ -8684,7 +8684,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %21 = add i32 %.058110, 1
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %.thread79, label %.lr.ph111, !llvm.loop !38
+  br i1 %exitcond126.not, label %.thread79, label %.lr.ph111, !llvm.loop !36
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %37 ]
@@ -8715,7 +8715,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %38 = add i32 %.159106, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond121.not, label %.thread79, label %.lr.ph107, !llvm.loop !39
+  br i1 %exitcond121.not, label %.thread79, label %.lr.ph107, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.preheader96, %51
   %.057102 = phi i32 [ %50, %51 ], [ 0, %.preheader96 ]
@@ -8741,7 +8741,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
 
 51:                                               ; preds = %43
   %exitcond.not = icmp eq i32 %50, %invariant.umin
-  br i1 %exitcond.not, label %.thread79, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.thread79, label %.lr.ph, !llvm.loop !38
 
 52:                                               ; preds = %5
   %53 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 1)
@@ -8989,8 +8989,8 @@ attributes #22 = { nounwind willreturn memory(read) }
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
@@ -8998,5 +8998,3 @@ attributes #22 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}

@@ -259,7 +259,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge.i.i, %.
 87:                                               ; preds = %84, %78
   %88 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #7
   %.not.us.i.i = icmp eq ptr %88, null
-  br i1 %.not.us.i.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i, !llvm.loop !13
+  br i1 %.not.us.i.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i, !llvm.loop !11
 
 .split.us.i28.i:                                  ; preds = %.lr.ph.us.i.i
   %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select46.us.i.i, i32 noundef %72) #7
@@ -314,7 +314,7 @@ _valid_gres_bind.exit:                            ; preds = %_valid_num_list.exi
 _valid_shared_gres_bind.exit.thread:              ; preds = %90, %31, %25, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit
   %102 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %8) #7
   %.not = icmp eq ptr %102, null
-  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !13
 
 _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_bind.exit.thread, %.lr.ph, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit, %18, %27, %97, %14
   %.0 = phi i32 [ 0, %14 ], [ -1, %97 ], [ -1, %27 ], [ -1, %18 ], [ -1, %_valid_gres_bind.exit ], [ -1, %_valid_shared_gres_bind.exit ], [ -1, %.lr.ph ], [ 0, %_valid_shared_gres_bind.exit.thread ]
@@ -386,6 +386,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = distinct !{!11, !9, !10}
 !12 = distinct !{null, ptr @isxdigit}
-!13 = distinct !{!13, !9, !10, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !9, !10}
+!13 = distinct !{!13, !9, !10}

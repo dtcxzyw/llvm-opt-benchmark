@@ -624,7 +624,7 @@ PredictLineLeft_SSE2.exit38.us.i:                 ; preds = %.lr.ph32.i29.us.i, 
 PredictLineLeft_SSE2.exit38.loopexit.us54.i:      ; preds = %.lr.ph32.i29.us49.i
   %83 = add nuw nsw i32 %.041.us43.i, 1
   %exitcond57.not.i = icmp eq i32 %83, %2
-  br i1 %exitcond57.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.us42.i, !llvm.loop !38
+  br i1 %exitcond57.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.us42.i, !llvm.loop !36
 
 .preheader.i25.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i25.i
   %.041.i = phi i32 [ %88, %.preheader.i25.i ], [ 1, %.lr.ph.split.i ]
@@ -641,7 +641,7 @@ PredictLineLeft_SSE2.exit38.loopexit.us54.i:      ; preds = %.lr.ph32.i29.us49.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %88 = add nuw nsw i32 %.041.i, 1
   %exitcond.not.i = icmp eq i32 %88, %2
-  br i1 %exitcond.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i25.i, !llvm.loop !36
 
 DoHorizontalFilter_SSE2.exit:                     ; preds = %.preheader.i25.i, %PredictLineLeft_SSE2.exit38.loopexit.us54.i, %PredictLineLeft_SSE2.exit38.us.i, %PredictLineLeft_SSE2.exit.i
   ret void
@@ -649,15 +649,15 @@ DoHorizontalFilter_SSE2.exit:                     ; preds = %.preheader.i25.i, %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @VerticalFilter_SSE2(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) initializes((0, 1)) %4) #2 {
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %6 = load i8, ptr %0, align 1, !tbaa !7, !alias.scope !40, !noalias !43
-  store i8 %6, ptr %4, align 1, !tbaa !7, !alias.scope !43, !noalias !40
+  %6 = load i8, ptr %0, align 1, !tbaa !7, !alias.scope !37, !noalias !40
+  store i8 %6, ptr %4, align 1, !tbaa !7, !alias.scope !40, !noalias !37
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = add nsw i32 %1, -1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %10 = icmp sgt i32 %1, 32
   br i1 %10, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
@@ -683,19 +683,19 @@ define internal void @VerticalFilter_SSE2(ptr noalias noundef readonly captures(
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %18 = getelementptr inbounds i8, ptr %16, i64 -1
-  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 15
-  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %24 = sub <16 x i8> %17, %19
   %25 = sub <16 x i8> %21, %23
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  store <16 x i8> %24, ptr %26, align 1, !tbaa !7, !alias.scope !51, !noalias !50
+  store <16 x i8> %24, ptr %26, align 1, !tbaa !7, !alias.scope !48, !noalias !47
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store <16 x i8> %25, ptr %27, align 1, !tbaa !7, !alias.scope !51, !noalias !50
+  store <16 x i8> %25, ptr %27, align 1, !tbaa !7, !alias.scope !48, !noalias !47
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
   %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %28, label %.lr.ph.i.i, label %.preheader.loopexit.i.i, !llvm.loop !27
@@ -703,12 +703,12 @@ define internal void @VerticalFilter_SSE2(ptr noalias noundef readonly captures(
 .lr.ph32.i.i:                                     ; preds = %.lr.ph32.i.i, %.lr.ph32.preheader.i.i
   %indvars.iv34.i.i = phi i64 [ %15, %.lr.ph32.preheader.i.i ], [ %indvars.iv.next35.i.i, %.lr.ph32.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv34.i.i
-  %30 = load i8, ptr %29, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %30 = load i8, ptr %29, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %31 = getelementptr i8, ptr %29, i64 -1
-  %32 = load i8, ptr %31, align 1, !tbaa !7, !alias.scope !50, !noalias !51
+  %32 = load i8, ptr %31, align 1, !tbaa !7, !alias.scope !47, !noalias !48
   %33 = sub i8 %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv34.i.i
-  store i8 %33, ptr %34, align 1, !tbaa !7, !alias.scope !51, !noalias !50
+  store i8 %33, ptr %34, align 1, !tbaa !7, !alias.scope !48, !noalias !47
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next35.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %PredictLineLeft_SSE2.exit.i, label %.lr.ph32.i.i, !llvm.loop !28
@@ -731,31 +731,31 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %.pn36.us.i = phi ptr [ %.021.us.i, %PredictLineTop_SSE2.exit.us.i ], [ %0, %.lr.ph.i ]
   %.020.us.i = getelementptr inbounds i8, ptr %.pn2237.us.i, i64 %35
   %.021.us.i = getelementptr inbounds i8, ptr %.pn36.us.i, i64 %35
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   br label %.lr.ph.i32.us.i
 
 .lr.ph.i32.us.i:                                  ; preds = %.lr.ph.i32.us.i, %.lr.ph.preheader.i31.us.i
   %indvars.iv.i33.us.i = phi i64 [ 0, %.lr.ph.preheader.i31.us.i ], [ %indvars.iv.next.i34.us.i, %.lr.ph.i32.us.i ]
   %40 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 %indvars.iv.i33.us.i
-  %41 = load <16 x i8>, ptr %40, align 1, !tbaa !7, !alias.scope !59, !noalias !60
+  %41 = load <16 x i8>, ptr %40, align 1, !tbaa !7, !alias.scope !56, !noalias !57
   %42 = or disjoint i64 %indvars.iv.i33.us.i, 16
   %43 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 %42
-  %44 = load <16 x i8>, ptr %43, align 1, !tbaa !7, !alias.scope !59, !noalias !60
+  %44 = load <16 x i8>, ptr %43, align 1, !tbaa !7, !alias.scope !56, !noalias !57
   %45 = getelementptr inbounds nuw i8, ptr %.pn36.us.i, i64 %indvars.iv.i33.us.i
-  %46 = load <16 x i8>, ptr %45, align 1, !tbaa !7, !alias.scope !61, !noalias !62
+  %46 = load <16 x i8>, ptr %45, align 1, !tbaa !7, !alias.scope !58, !noalias !59
   %47 = getelementptr inbounds nuw i8, ptr %.pn36.us.i, i64 %42
-  %48 = load <16 x i8>, ptr %47, align 1, !tbaa !7, !alias.scope !61, !noalias !62
+  %48 = load <16 x i8>, ptr %47, align 1, !tbaa !7, !alias.scope !58, !noalias !59
   %49 = sub <16 x i8> %41, %46
   %50 = sub <16 x i8> %44, %48
   %51 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %indvars.iv.i33.us.i
-  store <16 x i8> %49, ptr %51, align 1, !tbaa !7, !alias.scope !63, !noalias !64
+  store <16 x i8> %49, ptr %51, align 1, !tbaa !7, !alias.scope !60, !noalias !61
   %52 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %42
-  store <16 x i8> %50, ptr %52, align 1, !tbaa !7, !alias.scope !63, !noalias !64
+  store <16 x i8> %50, ptr %52, align 1, !tbaa !7, !alias.scope !60, !noalias !61
   %indvars.iv.next.i34.us.i = add nuw nsw i64 %indvars.iv.i33.us.i, 32
   %53 = icmp samesign ult i64 %indvars.iv.next.i34.us.i, %39
-  br i1 %53, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !65
+  br i1 %53, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !62
 
 .preheader.loopexit.i35.us.i:                     ; preds = %.lr.ph.i32.us.i
   %54 = trunc nuw nsw i64 %indvars.iv.next.i34.us.i to i32
@@ -769,20 +769,20 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
 .lr.ph32.i27.us.i:                                ; preds = %.lr.ph32.i27.us.i, %.lr.ph32.preheader.i25.us.i
   %indvars.iv34.i28.us.i = phi i64 [ %56, %.lr.ph32.preheader.i25.us.i ], [ %indvars.iv.next35.i29.us.i, %.lr.ph32.i27.us.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 %indvars.iv34.i28.us.i
-  %58 = load i8, ptr %57, align 1, !tbaa !7, !alias.scope !59, !noalias !60
+  %58 = load i8, ptr %57, align 1, !tbaa !7, !alias.scope !56, !noalias !57
   %59 = getelementptr inbounds nuw i8, ptr %.pn36.us.i, i64 %indvars.iv34.i28.us.i
-  %60 = load i8, ptr %59, align 1, !tbaa !7, !alias.scope !61, !noalias !62
+  %60 = load i8, ptr %59, align 1, !tbaa !7, !alias.scope !58, !noalias !59
   %61 = sub i8 %58, %60
   %62 = getelementptr inbounds nuw i8, ptr %.020.us.i, i64 %indvars.iv34.i28.us.i
-  store i8 %61, ptr %62, align 1, !tbaa !7, !alias.scope !63, !noalias !64
+  store i8 %61, ptr %62, align 1, !tbaa !7, !alias.scope !60, !noalias !61
   %indvars.iv.next35.i29.us.i = add nuw nsw i64 %indvars.iv34.i28.us.i, 1
   %exitcond.not.i30.us.i = icmp eq i64 %indvars.iv.next35.i29.us.i, %wide.trip.count.i26.i
-  br i1 %exitcond.not.i30.us.i, label %PredictLineTop_SSE2.exit.us.i, label %.lr.ph32.i27.us.i, !llvm.loop !66
+  br i1 %exitcond.not.i30.us.i, label %PredictLineTop_SSE2.exit.us.i, label %.lr.ph32.i27.us.i, !llvm.loop !63
 
 PredictLineTop_SSE2.exit.us.i:                    ; preds = %.lr.ph32.i27.us.i, %.preheader.loopexit.i35.us.i
   %63 = add nuw nsw i32 %.038.us.i, 1
   %exitcond54.not.i = icmp eq i32 %63, %2
-  br i1 %exitcond54.not.i, label %DoVerticalFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !67
+  br i1 %exitcond54.not.i, label %DoVerticalFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !64
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %64 = icmp sgt i32 %1, 0
@@ -794,28 +794,28 @@ PredictLineTop_SSE2.exit.us.i:                    ; preds = %.lr.ph32.i27.us.i, 
   %.pn36.us42.i = phi ptr [ %.021.us44.i, %PredictLineTop_SSE2.exit.loopexit.us51.i ], [ %0, %.lr.ph.split.i ]
   %.020.us43.i = getelementptr inbounds i8, ptr %.pn2237.us41.i, i64 %35
   %.021.us44.i = getelementptr inbounds i8, ptr %.pn36.us42.i, i64 %35
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   br label %.lr.ph32.i27.us46.i
 
 .lr.ph32.i27.us46.i:                              ; preds = %.lr.ph32.i27.us46.i, %.preheader.i23.us39.i
   %indvars.iv34.i28.us47.i = phi i64 [ 0, %.preheader.i23.us39.i ], [ %indvars.iv.next35.i29.us48.i, %.lr.ph32.i27.us46.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.021.us44.i, i64 %indvars.iv34.i28.us47.i
-  %66 = load i8, ptr %65, align 1, !tbaa !7, !alias.scope !59, !noalias !60
+  %66 = load i8, ptr %65, align 1, !tbaa !7, !alias.scope !56, !noalias !57
   %67 = getelementptr inbounds nuw i8, ptr %.pn36.us42.i, i64 %indvars.iv34.i28.us47.i
-  %68 = load i8, ptr %67, align 1, !tbaa !7, !alias.scope !61, !noalias !62
+  %68 = load i8, ptr %67, align 1, !tbaa !7, !alias.scope !58, !noalias !59
   %69 = sub i8 %66, %68
   %70 = getelementptr inbounds nuw i8, ptr %.020.us43.i, i64 %indvars.iv34.i28.us47.i
-  store i8 %69, ptr %70, align 1, !tbaa !7, !alias.scope !63, !noalias !64
+  store i8 %69, ptr %70, align 1, !tbaa !7, !alias.scope !60, !noalias !61
   %indvars.iv.next35.i29.us48.i = add nuw nsw i64 %indvars.iv34.i28.us47.i, 1
   %exitcond.not.i30.us49.i = icmp eq i64 %indvars.iv.next35.i29.us48.i, %wide.trip.count.i26.i
-  br i1 %exitcond.not.i30.us49.i, label %PredictLineTop_SSE2.exit.loopexit.us51.i, label %.lr.ph32.i27.us46.i, !llvm.loop !66
+  br i1 %exitcond.not.i30.us49.i, label %PredictLineTop_SSE2.exit.loopexit.us51.i, label %.lr.ph32.i27.us46.i, !llvm.loop !63
 
 PredictLineTop_SSE2.exit.loopexit.us51.i:         ; preds = %.lr.ph32.i27.us46.i
   %71 = add nuw nsw i32 %.038.us40.i, 1
   %exitcond.not.i = icmp eq i32 %71, %2
-  br i1 %exitcond.not.i, label %DoVerticalFilter_SSE2.exit, label %.preheader.i23.us39.i, !llvm.loop !68
+  br i1 %exitcond.not.i, label %DoVerticalFilter_SSE2.exit, label %.preheader.i23.us39.i, !llvm.loop !64
 
 DoVerticalFilter_SSE2.exit:                       ; preds = %PredictLineTop_SSE2.exit.loopexit.us51.i, %PredictLineTop_SSE2.exit.us.i, %PredictLineLeft_SSE2.exit.i, %.lr.ph.split.i
   ret void
@@ -823,15 +823,15 @@ DoVerticalFilter_SSE2.exit:                       ; preds = %PredictLineTop_SSE2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @GradientFilter_SSE2(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) initializes((0, 1)) %4) #2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %6 = load i8, ptr %0, align 1, !tbaa !7, !alias.scope !69, !noalias !72
-  store i8 %6, ptr %4, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %6 = load i8, ptr %0, align 1, !tbaa !7, !alias.scope !65, !noalias !68
+  store i8 %6, ptr %4, align 1, !tbaa !7, !alias.scope !68, !noalias !65
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %9 = add nsw i32 %1, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %10 = icmp sgt i32 %1, 32
   br i1 %10, label %.lr.ph.preheader.i.i, label %.preheader.i.i
 
@@ -857,19 +857,19 @@ define internal void @GradientFilter_SSE2(ptr noalias noundef readonly captures(
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %18 = getelementptr inbounds i8, ptr %16, i64 -1
-  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 15
-  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %24 = sub <16 x i8> %17, %19
   %25 = sub <16 x i8> %21, %23
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  store <16 x i8> %24, ptr %26, align 1, !tbaa !7, !alias.scope !80, !noalias !79
+  store <16 x i8> %24, ptr %26, align 1, !tbaa !7, !alias.scope !76, !noalias !75
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store <16 x i8> %25, ptr %27, align 1, !tbaa !7, !alias.scope !80, !noalias !79
+  store <16 x i8> %25, ptr %27, align 1, !tbaa !7, !alias.scope !76, !noalias !75
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 32
   %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %12
   br i1 %28, label %.lr.ph.i.i, label %.preheader.loopexit.i.i, !llvm.loop !27
@@ -877,12 +877,12 @@ define internal void @GradientFilter_SSE2(ptr noalias noundef readonly captures(
 .lr.ph32.i.i:                                     ; preds = %.lr.ph32.i.i, %.lr.ph32.preheader.i.i
   %indvars.iv34.i.i = phi i64 [ %15, %.lr.ph32.preheader.i.i ], [ %indvars.iv.next35.i.i, %.lr.ph32.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv34.i.i
-  %30 = load i8, ptr %29, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %30 = load i8, ptr %29, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %31 = getelementptr i8, ptr %29, i64 -1
-  %32 = load i8, ptr %31, align 1, !tbaa !7, !alias.scope !79, !noalias !80
+  %32 = load i8, ptr %31, align 1, !tbaa !7, !alias.scope !75, !noalias !76
   %33 = sub i8 %30, %32
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv34.i.i
-  store i8 %33, ptr %34, align 1, !tbaa !7, !alias.scope !80, !noalias !79
+  store i8 %33, ptr %34, align 1, !tbaa !7, !alias.scope !76, !noalias !75
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next35.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %PredictLineLeft_SSE2.exit.i, label %.lr.ph32.i.i, !llvm.loop !28
@@ -908,30 +908,30 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %.pn37.us.i = phi ptr [ %.025.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %0, %.lr.ph.i ]
   %.024.us.i = getelementptr inbounds i8, ptr %.pn2638.us.i, i64 %35
   %.025.us.i = getelementptr inbounds i8, ptr %.pn37.us.i, i64 %35
-  %43 = load i8, ptr %.025.us.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %43 = load i8, ptr %.025.us.i, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %44 = getelementptr inbounds i8, ptr %.025.us.i, i64 %38
-  %45 = load i8, ptr %44, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %45 = load i8, ptr %44, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %46 = sub i8 %43, %45
-  store i8 %46, ptr %.024.us.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  store i8 %46, ptr %.024.us.i, align 1, !tbaa !7, !alias.scope !68, !noalias !65
   %47 = getelementptr inbounds nuw i8, ptr %.025.us.i, i64 1
   %48 = getelementptr inbounds i8, ptr %47, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   br label %.lr.ph.i32.us.i
 
 .lr.ph.i32.us.i:                                  ; preds = %.lr.ph.i32.us.i, %.lr.ph.preheader.i31.us.i
   %indvars.iv.i33.us.i = phi i64 [ 0, %.lr.ph.preheader.i31.us.i ], [ %indvars.iv.next.i34.us.i, %.lr.ph.i32.us.i ]
   %50 = getelementptr i8, ptr %.025.us.i, i64 %indvars.iv.i33.us.i
-  %51 = load i64, ptr %50, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %51 = load i64, ptr %50, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %52 = insertelement <2 x i64> poison, i64 %51, i64 0
   %53 = getelementptr i8, ptr %48, i64 %indvars.iv.i33.us.i
-  %54 = load i64, ptr %53, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %54 = load i64, ptr %53, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %55 = insertelement <2 x i64> poison, i64 %54, i64 0
   %56 = getelementptr i8, ptr %53, i64 -1
-  %57 = load i64, ptr %56, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %57 = load i64, ptr %56, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %58 = insertelement <2 x i64> poison, i64 %57, i64 0
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i33.us.i
-  %60 = load i64, ptr %59, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %60 = load i64, ptr %59, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %61 = insertelement <2 x i64> poison, i64 %60, i64 0
   %62 = bitcast <2 x i64> %52 to <16 x i8>
   %63 = shufflevector <16 x i8> %62, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -950,10 +950,10 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %76 = bitcast <16 x i8> %75 to <2 x i64>
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i33.us.i
   %78 = extractelement <2 x i64> %76, i64 0
-  store i64 %78, ptr %77, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  store i64 %78, ptr %77, align 1, !tbaa !7, !alias.scope !80, !noalias !65
   %indvars.iv.next.i34.us.i = add nuw nsw i64 %indvars.iv.i33.us.i, 8
   %79 = icmp samesign ult i64 %indvars.iv.next.i34.us.i, %42
-  br i1 %79, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !85
+  br i1 %79, label %.lr.ph.i32.us.i, label %.preheader.loopexit.i35.us.i, !llvm.loop !81
 
 .preheader.loopexit.i35.us.i:                     ; preds = %.lr.ph.i32.us.i
   %80 = trunc nuw nsw i64 %indvars.iv.next.i34.us.i to i32
@@ -967,11 +967,11 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
 .lr.ph45.i.us.i:                                  ; preds = %.lr.ph45.i.us.i, %.lr.ph45.preheader.i.us.i
   %indvars.iv47.i.us.i = phi i64 [ %82, %.lr.ph45.preheader.i.us.i ], [ %indvars.iv.next48.i.us.i, %.lr.ph45.i.us.i ]
   %83 = getelementptr i8, ptr %.025.us.i, i64 %indvars.iv47.i.us.i
-  %84 = load i8, ptr %83, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %84 = load i8, ptr %83, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %85 = getelementptr i8, ptr %48, i64 %indvars.iv47.i.us.i
-  %86 = load i8, ptr %85, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %86 = load i8, ptr %85, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %87 = getelementptr i8, ptr %85, i64 -1
-  %88 = load i8, ptr %87, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %88 = load i8, ptr %87, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %89 = zext i8 %84 to i32
   %90 = zext i8 %86 to i32
   %91 = add nuw nsw i32 %90, %89
@@ -980,19 +980,19 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %94, i32 255)
   %96 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv47.i.us.i
-  %97 = load i8, ptr %96, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %97 = load i8, ptr %96, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %98 = trunc nuw i32 %95 to i8
   %99 = sub i8 %97, %98
   %100 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv47.i.us.i
-  store i8 %99, ptr %100, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  store i8 %99, ptr %100, align 1, !tbaa !7, !alias.scope !80, !noalias !65
   %indvars.iv.next48.i.us.i = add nuw nsw i64 %indvars.iv47.i.us.i, 1
   %exitcond.not.i30.us.i = icmp eq i64 %indvars.iv.next48.i.us.i, %wide.trip.count.i29.i
-  br i1 %exitcond.not.i30.us.i, label %GradientPredictDirect_SSE2.exit.us.i, label %.lr.ph45.i.us.i, !llvm.loop !86
+  br i1 %exitcond.not.i30.us.i, label %GradientPredictDirect_SSE2.exit.us.i, label %.lr.ph45.i.us.i, !llvm.loop !82
 
 GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph45.i.us.i, %.preheader.loopexit.i35.us.i
   %101 = add nuw nsw i32 %.039.us.i, 1
   %exitcond57.not.i = icmp eq i32 %101, %2
-  br i1 %exitcond57.not.i, label %DoGradientFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !87
+  br i1 %exitcond57.not.i, label %DoGradientFilter_SSE2.exit, label %.lr.ph.preheader.i31.us.i, !llvm.loop !83
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %102 = icmp sgt i32 %1, 1
@@ -1004,25 +1004,25 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph45.i.us.i, %.
   %.pn37.us43.i = phi ptr [ %.025.us45.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i ], [ %0, %.lr.ph.split.i ]
   %.024.us44.i = getelementptr inbounds i8, ptr %.pn2638.us42.i, i64 %35
   %.025.us45.i = getelementptr inbounds i8, ptr %.pn37.us43.i, i64 %35
-  %103 = load i8, ptr %.025.us45.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %103 = load i8, ptr %.025.us45.i, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %104 = getelementptr inbounds i8, ptr %.025.us45.i, i64 %38
-  %105 = load i8, ptr %104, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %105 = load i8, ptr %104, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %106 = sub i8 %103, %105
-  store i8 %106, ptr %.024.us44.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  store i8 %106, ptr %.024.us44.i, align 1, !tbaa !7, !alias.scope !68, !noalias !65
   %107 = getelementptr inbounds nuw i8, ptr %.025.us45.i, i64 1
   %108 = getelementptr inbounds i8, ptr %107, i64 %39
   %109 = getelementptr inbounds nuw i8, ptr %.024.us44.i, i64 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   br label %.lr.ph45.i.us47.i
 
 .lr.ph45.i.us47.i:                                ; preds = %.lr.ph45.i.us47.i, %.preheader.i27.us40.i
   %indvars.iv47.i.us48.i = phi i64 [ 0, %.preheader.i27.us40.i ], [ %indvars.iv.next48.i.us50.i, %.lr.ph45.i.us47.i ]
   %110 = getelementptr i8, ptr %.025.us45.i, i64 %indvars.iv47.i.us48.i
-  %111 = load i8, ptr %110, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %111 = load i8, ptr %110, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %112 = getelementptr i8, ptr %108, i64 %indvars.iv47.i.us48.i
-  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %114 = getelementptr i8, ptr %112, i64 -1
-  %115 = load i8, ptr %114, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %115 = load i8, ptr %114, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %116 = zext i8 %111 to i32
   %117 = zext i8 %113 to i32
   %118 = add nuw nsw i32 %117, %116
@@ -1031,19 +1031,19 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph45.i.us.i, %.
   %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 0)
   %122 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %121, i32 255)
   %123 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv47.i.us48.i
-  %124 = load i8, ptr %123, align 1, !tbaa !7, !alias.scope !69, !noalias !84
+  %124 = load i8, ptr %123, align 1, !tbaa !7, !alias.scope !65, !noalias !80
   %125 = trunc nuw i32 %122 to i8
   %126 = sub i8 %124, %125
   %127 = getelementptr inbounds nuw i8, ptr %109, i64 %indvars.iv47.i.us48.i
-  store i8 %126, ptr %127, align 1, !tbaa !7, !alias.scope !84, !noalias !69
+  store i8 %126, ptr %127, align 1, !tbaa !7, !alias.scope !80, !noalias !65
   %indvars.iv.next48.i.us50.i = add nuw nsw i64 %indvars.iv47.i.us48.i, 1
   %exitcond.not.i30.us51.i = icmp eq i64 %indvars.iv.next48.i.us50.i, %wide.trip.count.i29.i
-  br i1 %exitcond.not.i30.us51.i, label %GradientPredictDirect_SSE2.exit.loopexit.us53.i, label %.lr.ph45.i.us47.i, !llvm.loop !86
+  br i1 %exitcond.not.i30.us51.i, label %GradientPredictDirect_SSE2.exit.loopexit.us53.i, label %.lr.ph45.i.us47.i, !llvm.loop !82
 
 GradientPredictDirect_SSE2.exit.loopexit.us53.i:  ; preds = %.lr.ph45.i.us47.i
   %128 = add nuw nsw i32 %.039.us41.i, 1
   %exitcond56.not.i = icmp eq i32 %128, %2
-  br i1 %exitcond56.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.us40.i, !llvm.loop !88
+  br i1 %exitcond56.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.us40.i, !llvm.loop !83
 
 .preheader.i27.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i27.i
   %.039.i = phi i32 [ %133, %.preheader.i27.i ], [ 1, %.lr.ph.split.i ]
@@ -1051,15 +1051,15 @@ GradientPredictDirect_SSE2.exit.loopexit.us53.i:  ; preds = %.lr.ph45.i.us47.i
   %.pn37.i = phi ptr [ %.025.i, %.preheader.i27.i ], [ %0, %.lr.ph.split.i ]
   %.024.i = getelementptr inbounds i8, ptr %.pn2638.i, i64 %35
   %.025.i = getelementptr inbounds i8, ptr %.pn37.i, i64 %35
-  %129 = load i8, ptr %.025.i, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %129 = load i8, ptr %.025.i, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %130 = getelementptr inbounds i8, ptr %.025.i, i64 %38
-  %131 = load i8, ptr %130, align 1, !tbaa !7, !alias.scope !69, !noalias !72
+  %131 = load i8, ptr %130, align 1, !tbaa !7, !alias.scope !65, !noalias !68
   %132 = sub i8 %129, %131
-  store i8 %132, ptr %.024.i, align 1, !tbaa !7, !alias.scope !72, !noalias !69
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  store i8 %132, ptr %.024.i, align 1, !tbaa !7, !alias.scope !68, !noalias !65
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   %133 = add nuw nsw i32 %.039.i, 1
   %exitcond.not.i = icmp eq i32 %133, %2
-  br i1 %exitcond.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.i, !llvm.loop !89
+  br i1 %exitcond.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i27.i, !llvm.loop !83
 
 DoGradientFilter_SSE2.exit:                       ; preds = %.preheader.i27.i, %GradientPredictDirect_SSE2.exit.loopexit.us53.i, %GradientPredictDirect_SSE2.exit.us.i, %PredictLineLeft_SSE2.exit.i
   ret void
@@ -1122,57 +1122,51 @@ attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !33 = distinct !{!33, !31, !"PredictLineLeft_SSE2: argument 1"}
 !34 = !{!30, !16}
 !35 = !{!33, !19}
-!36 = distinct !{!36, !9, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !9, !37}
-!39 = distinct !{!39, !9}
+!36 = distinct !{!36, !9}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"DoVerticalFilter_SSE2: argument 0"}
+!39 = distinct !{!39, !"DoVerticalFilter_SSE2"}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"DoVerticalFilter_SSE2: argument 0"}
-!42 = distinct !{!42, !"DoVerticalFilter_SSE2"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"DoVerticalFilter_SSE2: argument 1"}
+!41 = distinct !{!41, !39, !"DoVerticalFilter_SSE2: argument 1"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"PredictLineLeft_SSE2: argument 0"}
+!44 = distinct !{!44, !"PredictLineLeft_SSE2"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"PredictLineLeft_SSE2: argument 0"}
-!47 = distinct !{!47, !"PredictLineLeft_SSE2"}
-!48 = !{!49}
-!49 = distinct !{!49, !47, !"PredictLineLeft_SSE2: argument 1"}
-!50 = !{!46, !41}
-!51 = !{!49, !44}
+!46 = distinct !{!46, !44, !"PredictLineLeft_SSE2: argument 1"}
+!47 = !{!43, !38}
+!48 = !{!46, !41}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"PredictLineTop_SSE2: argument 0"}
+!51 = distinct !{!51, !"PredictLineTop_SSE2"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"PredictLineTop_SSE2: argument 0"}
-!54 = distinct !{!54, !"PredictLineTop_SSE2"}
-!55 = !{!56}
-!56 = distinct !{!56, !54, !"PredictLineTop_SSE2: argument 1"}
-!57 = !{!58}
-!58 = distinct !{!58, !54, !"PredictLineTop_SSE2: argument 2"}
-!59 = !{!53, !41}
-!60 = !{!56, !58, !44}
-!61 = !{!56, !41}
-!62 = !{!53, !58, !44}
-!63 = !{!58, !44}
-!64 = !{!53, !56, !41}
-!65 = distinct !{!65, !9}
-!66 = distinct !{!66, !9}
-!67 = distinct !{!67, !9, !37}
-!68 = distinct !{!68, !9, !37}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"DoGradientFilter_SSE2: argument 0"}
-!71 = distinct !{!71, !"DoGradientFilter_SSE2"}
-!72 = !{!73}
-!73 = distinct !{!73, !71, !"DoGradientFilter_SSE2: argument 1"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"PredictLineLeft_SSE2: argument 0"}
-!76 = distinct !{!76, !"PredictLineLeft_SSE2"}
+!53 = distinct !{!53, !51, !"PredictLineTop_SSE2: argument 1"}
+!54 = !{!55}
+!55 = distinct !{!55, !51, !"PredictLineTop_SSE2: argument 2"}
+!56 = !{!50, !38}
+!57 = !{!53, !55, !41}
+!58 = !{!53, !38}
+!59 = !{!50, !55, !41}
+!60 = !{!55, !41}
+!61 = !{!50, !53, !38}
+!62 = distinct !{!62, !9}
+!63 = distinct !{!63, !9}
+!64 = distinct !{!64, !9}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"DoGradientFilter_SSE2: argument 0"}
+!67 = distinct !{!67, !"DoGradientFilter_SSE2"}
+!68 = !{!69}
+!69 = distinct !{!69, !67, !"DoGradientFilter_SSE2: argument 1"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"PredictLineLeft_SSE2: argument 0"}
+!72 = distinct !{!72, !"PredictLineLeft_SSE2"}
+!73 = !{!74}
+!74 = distinct !{!74, !72, !"PredictLineLeft_SSE2: argument 1"}
+!75 = !{!71, !66}
+!76 = !{!74, !69}
 !77 = !{!78}
-!78 = distinct !{!78, !76, !"PredictLineLeft_SSE2: argument 1"}
-!79 = !{!75, !70}
-!80 = !{!78, !73}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"GradientPredictDirect_SSE2: argument 0"}
-!83 = distinct !{!83, !"GradientPredictDirect_SSE2"}
-!84 = !{!82, !73}
-!85 = distinct !{!85, !9}
-!86 = distinct !{!86, !9}
-!87 = distinct !{!87, !9, !37}
-!88 = distinct !{!88, !9, !37}
-!89 = distinct !{!89, !9}
+!78 = distinct !{!78, !79, !"GradientPredictDirect_SSE2: argument 0"}
+!79 = distinct !{!79, !"GradientPredictDirect_SSE2"}
+!80 = !{!78, !69}
+!81 = distinct !{!81, !9}
+!82 = distinct !{!82, !9}
+!83 = distinct !{!83, !9}

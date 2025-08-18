@@ -322,7 +322,7 @@ define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr n
 34:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
-  br i1 %exitcond.not, label %_cmsStageAllocPlaceholder.exit.thread, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond.not, label %_cmsStageAllocPlaceholder.exit.thread, label %.lr.ph.split, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
@@ -390,7 +390,7 @@ define internal void @EvaluateCurves(ptr noundef readonly captures(none) %0, ptr
   %19 = load i32, ptr %5, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %7, %3
   ret void
@@ -429,7 +429,7 @@ define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %19, label %.loopexit, !llvm.loop !14
+  br i1 %18, label %19, label %.loopexit, !llvm.loop !12
 
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
@@ -470,7 +470,7 @@ define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %38 = zext i32 %37 to i64
   %39 = icmp samesign ult i64 %indvars.iv.next45, %38
-  br i1 %39, label %.lr.ph39, label %.thread.loopexit, !llvm.loop !15
+  br i1 %39, label %.lr.ph39, label %.thread.loopexit, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %36
   %.pre47 = load ptr, ptr %11, align 8
@@ -526,7 +526,7 @@ define internal void @CurveSetElemTypeFree(ptr noundef readonly captures(none) %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !16
+  br i1 %17, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !14
 
 .loopexit.loopexit:                               ; preds = %14
   %.pre19 = load ptr, ptr %6, align 8
@@ -651,7 +651,7 @@ define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 nound
   store double %33, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %36, label %.preheader53, !llvm.loop !17
+  br i1 %exitcond.not, label %36, label %.preheader53, !llvm.loop !15
 
 36:                                               ; preds = %.preheader53
   %.not52 = icmp eq ptr %4, null
@@ -677,7 +677,7 @@ define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 nound
   store double %42, ptr %44, align 8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %_cmsStageAllocPlaceholder.exit.thread, label %.preheader, !llvm.loop !18
+  br i1 %exitcond61.not, label %_cmsStageAllocPlaceholder.exit.thread, label %.preheader, !llvm.loop !16
 
 45:                                               ; preds = %37, %29, %18
   %46 = load ptr, ptr %25, align 8
@@ -739,7 +739,7 @@ define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr
   %23 = tail call double @llvm.fmuladd.f64(double %17, double %22, double %.025)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %14, %.preheader
   %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %23, %14 ]
@@ -762,7 +762,7 @@ define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr
   %32 = load i32, ptr %6, align 4
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next32, %33
-  br i1 %34, label %.preheader, label %._crit_edge27, !llvm.loop !20
+  br i1 %34, label %.preheader, label %._crit_edge27, !llvm.loop !18
 
 ._crit_edge27:                                    ; preds = %29, %3
   ret void
@@ -906,7 +906,7 @@ cmsStageFree.exit:                                ; preds = %22, %24
 28:                                               ; preds = %34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %29 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %27, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %28 ]
@@ -990,7 +990,7 @@ cmsStageFree.exit50:                              ; preds = %48, %50
   store i16 %54, ptr %56, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre = load ptr, ptr %20, align 8
@@ -1068,7 +1068,7 @@ _cmsQuickSaturateWord.exit.i:                     ; preds = %18, %16, %.lr.ph.i
   store i16 %.0.i.i, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FromFloatTo16.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %FromFloatTo16.exit, label %.lr.ph.i, !llvm.loop !21
 
 FromFloatTo16.exit:                               ; preds = %_cmsQuickSaturateWord.exit.i, %3
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1095,7 +1095,7 @@ FromFloatTo16.exit:                               ; preds = %_cmsQuickSaturateWo
   store float %34, ptr %35, align 4
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, %wide.trip.count.i9
-  br i1 %exitcond.not.i13, label %From16ToFloat.exit, label %.lr.ph.i10, !llvm.loop !24
+  br i1 %exitcond.not.i13, label %From16ToFloat.exit, label %.lr.ph.i10, !llvm.loop !22
 
 From16ToFloat.exit:                               ; preds = %.lr.ph.i10, %FromFloatTo16.exit
   ret void
@@ -1228,7 +1228,7 @@ define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !23
 
 9:                                                ; preds = %7
   %10 = call ptr @cmsStageAllocCLut16bitGranular(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3, ptr noundef %4)
@@ -1246,7 +1246,7 @@ define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !26
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !24
 
 9:                                                ; preds = %7
   %10 = call ptr @cmsStageAllocCLutFloatGranular(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3, ptr noundef %4)
@@ -1315,7 +1315,7 @@ cmsStageFree.exit:                                ; preds = %22, %24
 28:                                               ; preds = %34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %29 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %27, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %28 ]
@@ -1399,7 +1399,7 @@ cmsStageFree.exit50:                              ; preds = %48, %50
   store float %54, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %.pre = load ptr, ptr %20, align 8
@@ -1457,7 +1457,7 @@ define hidden ptr @_cmsStageAllocIdentityCLut(ptr noundef %0, i32 noundef %1) lo
   store i32 2, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %7, label %5, !llvm.loop !28
+  br i1 %exitcond.not, label %7, label %5, !llvm.loop !26
 
 7:                                                ; preds = %5
   %8 = call ptr @cmsStageAllocCLut16bitGranular(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %1, ptr noundef null)
@@ -1532,7 +1532,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
 25:                                               ; preds = %31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %26 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %26, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %26, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
@@ -1582,7 +1582,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   store i16 %40, ptr %41, align 2
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit68.us, label %.lr.ph75.us, !llvm.loop !29
+  br i1 %exitcond154.not, label %.loopexit68.us, label %.lr.ph75.us, !llvm.loop !27
 
 .loopexit68.us:                                   ; preds = %.lr.ph75.us, %._crit_edge.us
   %42 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -1612,13 +1612,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   store i16 %48, ptr %51, align 2
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %.loopexit.us, label %.lr.ph77.us, !llvm.loop !30
+  br i1 %exitcond159.not, label %.loopexit.us, label %.lr.ph77.us, !llvm.loop !28
 
 .loopexit.us:                                     ; preds = %.lr.ph77.us, %44, %43
   %52 = add i32 %.05378.us, %.fr125
   %53 = add nuw i32 %.05180.us, 1
   %exitcond160.not = icmp eq i32 %53, %32
-  br i1 %exitcond160.not, label %CubeSize.exit.thread, label %.preheader69.us, !llvm.loop !31
+  br i1 %exitcond160.not, label %CubeSize.exit.thread, label %.preheader69.us, !llvm.loop !29
 
 54:                                               ; preds = %.preheader69.us, %_cmsQuantizeVal.exit.us
   %indvars.iv147 = phi i64 [ %24, %.preheader69.us ], [ %indvars.iv.next148, %_cmsQuantizeVal.exit.us ]
@@ -1654,7 +1654,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %74 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 0, i64 %indvars.iv.next148
   store i16 %.0.i.i.us, ptr %74, align 2
   %75 = icmp sgt i64 %indvars.iv147, 1
-  br i1 %75, label %54, label %._crit_edge.us, !llvm.loop !32
+  br i1 %75, label %54, label %._crit_edge.us, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %_cmsQuantizeVal.exit.us
   %76 = load ptr, ptr %10, align 8
@@ -1696,7 +1696,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store i16 %83, ptr %84, align 2
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %.loopexit68.us95, label %.lr.ph75.us96, !llvm.loop !29
+  br i1 %exitcond140.not, label %.loopexit68.us95, label %.lr.ph75.us96, !llvm.loop !27
 
 .loopexit68.us95:                                 ; preds = %.lr.ph75.us96, %.preheader69.us84
   %85 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -1723,13 +1723,13 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store i16 %90, ptr %93, align 2
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %.loopexit.us93, label %.lr.ph77.us98, !llvm.loop !30
+  br i1 %exitcond145.not, label %.loopexit.us93, label %.lr.ph77.us98, !llvm.loop !28
 
 .loopexit.us93:                                   ; preds = %.lr.ph77.us98, %86
   %94 = add i32 %.05378.us86, %.fr125
   %95 = add nuw i32 %.05180.us85, 1
   %exitcond146.not = icmp eq i32 %95, %32
-  br i1 %exitcond146.not, label %CubeSize.exit.thread, label %.preheader69.us84, !llvm.loop !33
+  br i1 %exitcond146.not, label %CubeSize.exit.thread, label %.preheader69.us84, !llvm.loop !29
 
 .preheader69.lr.ph.split.split:                   ; preds = %.preheader69.lr.ph.split
   br i1 %35, label %.preheader69, label %.preheader69.us104.preheader
@@ -1759,7 +1759,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store i16 %101, ptr %102, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit68_crit_edge.us113, label %.preheader67.us110, !llvm.loop !29
+  br i1 %exitcond.not, label %..loopexit68_crit_edge.us113, label %.preheader67.us110, !llvm.loop !27
 
 ..loopexit68_crit_edge.us113:                     ; preds = %.preheader67.us110, %.preheader69.us104
   %103 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -1770,7 +1770,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %105 = add i32 %.05378.us106, %.fr125
   %106 = add nuw i32 %.05180.us105, 1
   %exitcond134.not = icmp eq i32 %106, %32
-  br i1 %exitcond134.not, label %CubeSize.exit.thread, label %.preheader69.us104, !llvm.loop !34
+  br i1 %exitcond134.not, label %CubeSize.exit.thread, label %.preheader69.us104, !llvm.loop !29
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph.split.split, %108
   %.05180 = phi i32 [ %109, %108 ], [ 0, %.preheader69.lr.ph.split.split ]
@@ -1781,7 +1781,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
 108:                                              ; preds = %.preheader69
   %109 = add nuw i32 %.05180, 1
   %exitcond135.not = icmp eq i32 %109, %32
-  br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !35
+  br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !29
 
 CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %104, %.preheader69, %108, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %108 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 1, %104 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
@@ -1806,7 +1806,7 @@ define internal noundef i32 @IdentitySampler(ptr noundef readonly captures(none)
   store i16 %7, ptr %8, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i32 1
@@ -1878,7 +1878,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
 25:                                               ; preds = %31
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %26 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %26, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %26, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
@@ -1928,7 +1928,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   store float %40, ptr %41, align 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit68.us, label %.lr.ph75.us, !llvm.loop !37
+  br i1 %exitcond154.not, label %.loopexit68.us, label %.lr.ph75.us, !llvm.loop !32
 
 .loopexit68.us:                                   ; preds = %.lr.ph75.us, %._crit_edge.us
   %42 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -1958,13 +1958,13 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   store float %48, ptr %51, align 4
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %.loopexit.us, label %.lr.ph77.us, !llvm.loop !38
+  br i1 %exitcond159.not, label %.loopexit.us, label %.lr.ph77.us, !llvm.loop !33
 
 .loopexit.us:                                     ; preds = %.lr.ph77.us, %44, %43
   %52 = add i32 %.05378.us, %.fr125
   %53 = add nuw i32 %.05180.us, 1
   %exitcond160.not = icmp eq i32 %53, %32
-  br i1 %exitcond160.not, label %CubeSize.exit.thread, label %.preheader69.us, !llvm.loop !39
+  br i1 %exitcond160.not, label %CubeSize.exit.thread, label %.preheader69.us, !llvm.loop !34
 
 54:                                               ; preds = %.preheader69.us, %_cmsQuantizeVal.exit.us
   %indvars.iv147 = phi i64 [ %24, %.preheader69.us ], [ %indvars.iv.next148, %_cmsQuantizeVal.exit.us ]
@@ -2003,7 +2003,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %77 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %indvars.iv.next148
   store float %76, ptr %77, align 4
   %78 = icmp sgt i64 %indvars.iv147, 1
-  br i1 %78, label %54, label %._crit_edge.us, !llvm.loop !40
+  br i1 %78, label %54, label %._crit_edge.us, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %_cmsQuantizeVal.exit.us
   %79 = load ptr, ptr %10, align 8
@@ -2045,7 +2045,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store float %86, ptr %87, align 4
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %.loopexit68.us95, label %.lr.ph75.us96, !llvm.loop !37
+  br i1 %exitcond140.not, label %.loopexit68.us95, label %.lr.ph75.us96, !llvm.loop !32
 
 .loopexit68.us95:                                 ; preds = %.lr.ph75.us96, %.preheader69.us84
   %88 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -2072,13 +2072,13 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store float %93, ptr %96, align 4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %.loopexit.us93, label %.lr.ph77.us98, !llvm.loop !38
+  br i1 %exitcond145.not, label %.loopexit.us93, label %.lr.ph77.us98, !llvm.loop !33
 
 .loopexit.us93:                                   ; preds = %.lr.ph77.us98, %89
   %97 = add i32 %.05378.us86, %.fr125
   %98 = add nuw i32 %.05180.us85, 1
   %exitcond146.not = icmp eq i32 %98, %32
-  br i1 %exitcond146.not, label %CubeSize.exit.thread, label %.preheader69.us84, !llvm.loop !41
+  br i1 %exitcond146.not, label %CubeSize.exit.thread, label %.preheader69.us84, !llvm.loop !34
 
 .preheader69.lr.ph.split.split:                   ; preds = %.preheader69.lr.ph.split
   br i1 %35, label %.preheader69, label %.preheader69.us104.preheader
@@ -2108,7 +2108,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   store float %104, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit68_crit_edge.us113, label %.preheader67.us110, !llvm.loop !37
+  br i1 %exitcond.not, label %..loopexit68_crit_edge.us113, label %.preheader67.us110, !llvm.loop !32
 
 ..loopexit68_crit_edge.us113:                     ; preds = %.preheader67.us110, %.preheader69.us104
   %106 = call i32 %1(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %2) #18
@@ -2119,7 +2119,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
   %108 = add i32 %.05378.us106, %.fr125
   %109 = add nuw i32 %.05180.us105, 1
   %exitcond134.not = icmp eq i32 %109, %32
-  br i1 %exitcond134.not, label %CubeSize.exit.thread, label %.preheader69.us104, !llvm.loop !42
+  br i1 %exitcond134.not, label %CubeSize.exit.thread, label %.preheader69.us104, !llvm.loop !34
 
 .preheader69:                                     ; preds = %.preheader69.lr.ph.split.split, %111
   %.05180 = phi i32 [ %112, %111 ], [ 0, %.preheader69.lr.ph.split.split ]
@@ -2130,7 +2130,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %68, %66, %54
 111:                                              ; preds = %.preheader69
   %112 = add nuw i32 %.05180, 1
   %exitcond135.not = icmp eq i32 %112, %32
-  br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !43
+  br i1 %exitcond135.not, label %CubeSize.exit.thread, label %.preheader69, !llvm.loop !34
 
 CubeSize.exit.thread:                             ; preds = %31, %.lr.ph.i, %..loopexit68_crit_edge.us113, %107, %.preheader69, %111, %.loopexit68.us95, %.loopexit.us93, %.loopexit68.us, %.loopexit.us, %._crit_edge.i, %12, %8, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %.loopexit68.us ], [ 1, %.loopexit.us ], [ 0, %.loopexit68.us95 ], [ 1, %.loopexit.us93 ], [ 0, %.preheader69 ], [ 1, %111 ], [ 0, %..loopexit68_crit_edge.us113 ], [ 1, %107 ], [ 0, %.lr.ph.i ], [ 0, %31 ]
@@ -2154,7 +2154,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
 9:                                                ; preds = %15
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %10 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
@@ -2220,12 +2220,12 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   store i16 %.0.i.i.us, ptr %40, align 2
   %41 = trunc nuw i64 %indvars.iv to i32
   %42 = icmp sgt i32 %41, 1
-  br i1 %42, label %19, label %._crit_edge.us, !llvm.loop !44
+  br i1 %42, label %19, label %._crit_edge.us, !llvm.loop !36
 
 43:                                               ; preds = %._crit_edge.us
   %44 = add nuw nsw i32 %.02333.us, 1
   %exitcond.not = icmp eq i32 %44, %16
-  br i1 %exitcond.not, label %CubeSize.exit.thread, label %.preheader.us, !llvm.loop !45
+  br i1 %exitcond.not, label %CubeSize.exit.thread, label %.preheader.us, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %_cmsQuantizeVal.exit.us
   %45 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
@@ -2260,7 +2260,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
 9:                                                ; preds = %15
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %10 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %10, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
@@ -2329,12 +2329,12 @@ _cmsQuantizeVal.exit.us:                          ; preds = %34, %32, %19
   store float %42, ptr %43, align 4
   %44 = trunc nuw i64 %indvars.iv to i32
   %45 = icmp sgt i32 %44, 1
-  br i1 %45, label %19, label %._crit_edge.us, !llvm.loop !46
+  br i1 %45, label %19, label %._crit_edge.us, !llvm.loop !38
 
 46:                                               ; preds = %._crit_edge.us
   %47 = add nuw nsw i32 %.02333.us, 1
   %exitcond.not = icmp eq i32 %47, %16
-  br i1 %exitcond.not, label %CubeSize.exit.thread, label %.preheader.us, !llvm.loop !47
+  br i1 %exitcond.not, label %CubeSize.exit.thread, label %.preheader.us, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %_cmsQuantizeVal.exit.us
   %48 = call i32 %2(ptr noundef nonnull %5, ptr noundef null, ptr noundef %3) #18
@@ -2456,7 +2456,7 @@ define hidden ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %0) local_unnamed_a
   store i16 %17, ptr %21, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !48
+  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !40
 
 22:                                               ; preds = %.preheader
   %23 = load ptr, ptr %9, align 8
@@ -2466,7 +2466,7 @@ define hidden ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %0) local_unnamed_a
   store i16 -1, ptr %26, align 2
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 3
-  br i1 %exitcond25.not, label %27, label %8, !llvm.loop !49
+  br i1 %exitcond25.not, label %27, label %8, !llvm.loop !41
 
 27:                                               ; preds = %22
   %28 = call ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %2)
@@ -2623,7 +2623,7 @@ define internal void @Clipper(ptr noundef readonly captures(none) %0, ptr nounde
   %11 = load i32, ptr %4, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2874,7 +2874,7 @@ thread-pre-split.i:                               ; preds = %8, %thread-pre-spli
   %17 = getelementptr inbounds nuw i8, ptr %.05.i23.i, i64 56
   %.05.i.pr.i = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.05.i.pr.i, null
-  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !51
+  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -2904,7 +2904,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %.018.in.i = getelementptr inbounds nuw i8, ptr %.01828.i, i64 56
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not21.i = icmp eq ptr %.018.i, null
-  br i1 %.not21.i, label %BlessLUT.exit.thread, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not21.i, label %BlessLUT.exit.thread, label %.lr.ph.i, !llvm.loop !44
 
 BlessLUT.exit:                                    ; preds = %.lr.ph.i
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %6) #18
@@ -2937,7 +2937,7 @@ define internal void @_LUTeval16(ptr noundef readonly captures(none) %0, ptr nou
   store float %10, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %From16ToFloat.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %From16ToFloat.exit, label %.lr.ph.i, !llvm.loop !22
 
 From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
   %.023 = load ptr, ptr %2, align 8
@@ -2958,7 +2958,7 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
   %19 = getelementptr inbounds nuw i8, ptr %.026, i64 56
   %.0 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %20 = zext nneg i32 %12 to i64
@@ -3004,7 +3004,7 @@ _cmsQuickSaturateWord.exit.i:                     ; preds = %32, %30, %.lr.ph.i1
   store i16 %.0.i.i, ptr %38, align 2
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i18
-  br i1 %exitcond.not.i22, label %FromFloatTo16.exit, label %.lr.ph.i19, !llvm.loop !23
+  br i1 %exitcond.not.i22, label %FromFloatTo16.exit, label %.lr.ph.i19, !llvm.loop !21
 
 FromFloatTo16.exit:                               ; preds = %_cmsQuickSaturateWord.exit.i, %._crit_edge
   ret void
@@ -3036,7 +3036,7 @@ define internal void @_LUTevalFloat(ptr noundef readonly captures(none) %0, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %.019, i64 56
   %.0 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %17 = zext nneg i32 %9 to i64
@@ -3101,7 +3101,7 @@ cmsStageFree.exit:                                ; preds = %.lr.ph, %9
   %10 = load ptr, ptr %.016, align 8
   tail call void @_cmsFree(ptr noundef %10, ptr noundef nonnull %.016) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %cmsStageFree.exit, %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3190,7 +3190,7 @@ thread-pre-split.i.i:                             ; preds = %14, %thread-pre-spl
   %23 = getelementptr inbounds nuw i8, ptr %.05.i23.i.i, i64 56
   %.05.i.pr.i.i = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %.05.i.pr.i.i, null
-  br i1 %.not.i.i.i, label %cmsPipelineGetPtrToLastStage.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !51
+  br i1 %.not.i.i.i, label %cmsPipelineGetPtrToLastStage.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.i
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -3220,7 +3220,7 @@ cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.
   %.018.in.i.i = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 56
   %.018.i.i = load ptr, ptr %.018.in.i.i, align 8
   %.not21.i.i = icmp eq ptr %.018.i.i, null
-  br i1 %.not21.i.i, label %.preheader, label %.lr.ph.i.i, !llvm.loop !52
+  br i1 %.not21.i.i, label %.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
 .preheader:                                       ; preds = %32, %cmsPipelineGetPtrToLastStage.exit.i.i, %14
   %.03763 = load ptr, ptr %0, align 8
@@ -3320,7 +3320,7 @@ cmsStageFree.exit.i51:                            ; preds = %76, %.lr.ph.i
   %77 = load ptr, ptr %.016.i, align 8
   tail call void @_cmsFree(ptr noundef %77, ptr noundef nonnull %.016.i) #18
   %.not.i52 = icmp eq ptr %73, null
-  br i1 %.not.i52, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
+  br i1 %.not.i52, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %cmsStageFree.exit.i51, %.loopexit
   %78 = load ptr, ptr %19, align 8
@@ -3357,7 +3357,7 @@ cmsStageDup.exit:                                 ; preds = %70, %62
   %88 = getelementptr inbounds nuw i8, ptr %.03767, i64 56
   %.037 = load ptr, ptr %88, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %87, %.preheader
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3398,7 +3398,7 @@ thread-pre-split.i:                               ; preds = %103, %thread-pre-sp
   %108 = getelementptr inbounds nuw i8, ptr %.05.i23.i, i64 56
   %.05.i.pr.i = load ptr, ptr %108, align 8
   %.not.i.i54 = icmp eq ptr %.05.i.pr.i, null
-  br i1 %.not.i.i54, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !51
+  br i1 %.not.i.i54, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 16
@@ -3428,7 +3428,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %.018.in.i = getelementptr inbounds nuw i8, ptr %.01828.i, i64 56
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not21.i = icmp eq ptr %.018.i, null
-  br i1 %.not21.i, label %cmsPipelineAlloc.exit.thread, label %.lr.ph.i55, !llvm.loop !52
+  br i1 %.not21.i, label %cmsPipelineAlloc.exit.thread, label %.lr.ph.i55, !llvm.loop !44
 
 BlessLUT.exit:                                    ; preds = %.lr.ph.i55
   %120 = load ptr, ptr %4, align 8
@@ -3473,7 +3473,7 @@ define hidden range(i32 0, 2) i32 @cmsPipelineInsertStage(ptr noundef captures(a
   %13 = getelementptr inbounds nuw i8, ptr %.024, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %.preheader, !llvm.loop !57
+  br i1 %.not, label %15, label %.preheader, !llvm.loop !49
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %.024, i64 56
@@ -3497,7 +3497,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
   %19 = getelementptr inbounds nuw i8, ptr %.05.i23.i, i64 56
   %.05.i.pr.i = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %.05.i.pr.i, null
-  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !51
+  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -3529,7 +3529,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %.018.in.i = getelementptr inbounds nuw i8, ptr %.01828.i, i64 56
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not21.i = icmp eq ptr %.018.i, null
-  br i1 %.not21.i, label %BlessLUT.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not21.i, label %BlessLUT.exit, label %.lr.ph.i, !llvm.loop !44
 
 BlessLUT.exit:                                    ; preds = %30, %.lr.ph.i, %cmsPipelineGetPtrToLastStage.exit.i, %15, %6, %3
   %.020 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 1, %15 ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 1, %30 ], [ 0, %.lr.ph.i ]
@@ -3569,7 +3569,7 @@ define hidden void @cmsPipelineUnlinkStage(ptr noundef captures(none) %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %.02431, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %.preheader, !llvm.loop !58
+  br i1 %.not, label %14, label %.preheader, !llvm.loop !50
 
 14:                                               ; preds = %.preheader
   %.not27 = icmp eq ptr %.02332, null
@@ -3618,7 +3618,7 @@ thread-pre-split.i:                               ; preds = %25, %thread-pre-spl
   %27 = getelementptr inbounds nuw i8, ptr %.05.i23.i, i64 56
   %.05.i.pr.i = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %.05.i.pr.i, null
-  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !51
+  br i1 %.not.i.i, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -3748,7 +3748,7 @@ cmsStageDup.exit:                                 ; preds = %53, %45
   %56 = getelementptr inbounds nuw i8, ptr %.024.i, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not.i14 = icmp eq ptr %57, null
-  br i1 %.not.i14, label %58, label %.preheader.i, !llvm.loop !57
+  br i1 %.not.i14, label %58, label %.preheader.i, !llvm.loop !49
 
 58:                                               ; preds = %.preheader.i
   %59 = getelementptr inbounds nuw i8, ptr %.024.i, i64 56
@@ -3772,7 +3772,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.
   %62 = getelementptr inbounds nuw i8, ptr %.05.i23.i.i, i64 56
   %.05.i.pr.i.i = load ptr, ptr %62, align 8
   %.not.i.i.i = icmp eq ptr %.05.i.pr.i.i, null
-  br i1 %.not.i.i.i, label %cmsPipelineGetPtrToLastStage.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !51
+  br i1 %.not.i.i.i, label %cmsPipelineGetPtrToLastStage.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.i
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -3802,14 +3802,14 @@ cmsPipelineGetPtrToLastStage.exit.i.i:            ; preds = %thread-pre-split.i.
   %.018.in.i.i = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 56
   %.018.i.i = load ptr, ptr %.018.in.i.i, align 8
   %.not21.i.i = icmp eq ptr %.018.i.i, null
-  br i1 %.not21.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !52
+  br i1 %.not21.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !44
 
 .loopexit:                                        ; preds = %71, %58, %cmsPipelineGetPtrToLastStage.exit.i.i
   %74 = phi ptr [ null, %58 ], [ %61, %cmsPipelineGetPtrToLastStage.exit.i.i ], [ %61, %71 ]
   %75 = getelementptr inbounds nuw i8, ptr %.031, i64 56
   %.0 = load ptr, ptr %75, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit, %14
   %76 = phi ptr [ %3, %14 ], [ %74, %.loopexit ]
@@ -3821,7 +3821,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge, %threa
   %77 = getelementptr inbounds nuw i8, ptr %.05.i23.i, i64 56
   %.05.i.pr.i = load ptr, ptr %77, align 8
   %.not.i.i17 = icmp eq ptr %.05.i.pr.i, null
-  br i1 %.not.i.i17, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !51
+  br i1 %.not.i.i17, label %cmsPipelineGetPtrToLastStage.exit.i, label %thread-pre-split.i, !llvm.loop !43
 
 cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -3853,7 +3853,7 @@ cmsPipelineGetPtrToLastStage.exit.i:              ; preds = %thread-pre-split.i
   %.018.in.i = getelementptr inbounds nuw i8, ptr %.01828.i, i64 56
   %.018.i = load ptr, ptr %.018.in.i, align 8
   %.not21.i = icmp eq ptr %.018.i, null
-  br i1 %.not21.i, label %cmsPipelineInsertStage.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not21.i, label %cmsPipelineInsertStage.exit, label %.lr.ph.i, !llvm.loop !44
 
 cmsPipelineInsertStage.exit:                      ; preds = %17, %.lr.ph.i.i, %88, %.lr.ph.i, %cmsStageFree.exit.i, %cmsPipelineGetPtrToLastStage.exit.i, %._crit_edge
   %.012 = phi i32 [ 1, %._crit_edge ], [ 1, %cmsPipelineGetPtrToLastStage.exit.i ], [ 0, %cmsStageFree.exit.i ], [ 1, %88 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i.i ], [ 0, %17 ]
@@ -3884,7 +3884,7 @@ define hidden ptr @cmsPipelineGetPtrToLastStage(ptr noundef readonly captures(no
   %.05 = load ptr, ptr %.05.in, align 8
   %.not = icmp eq ptr %.05, null
   %3 = getelementptr inbounds nuw i8, ptr %.05, i64 56
-  br i1 %.not, label %4, label %2, !llvm.loop !51
+  br i1 %.not, label %4, label %2, !llvm.loop !43
 
 4:                                                ; preds = %2
   ret ptr %.0
@@ -3991,7 +3991,7 @@ define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr noundef reado
   %54 = call float @llvm.fmuladd.f32(float %53, float %53, float %.012.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %EuclideanDistance.exit, label %48, !llvm.loop !60
+  br i1 %exitcond.not.i, label %EuclideanDistance.exit, label %48, !llvm.loop !52
 
 EuclideanDistance.exit:                           ; preds = %48
   %55 = call float @sqrtf(float noundef %54) #18
@@ -4014,7 +4014,7 @@ EuclideanDistance.exit:                           ; preds = %48
   %62 = load i32, ptr %12, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader51
   %65 = fcmp ugt float %55, 0.000000e+00
@@ -4062,7 +4062,7 @@ EuclideanDistance.exit:                           ; preds = %48
   store double %91, ptr %92, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond.not, label %93, label %.preheader, !llvm.loop !62
+  br i1 %exitcond.not, label %93, label %.preheader, !llvm.loop !54
 
 93:                                               ; preds = %.preheader
   %94 = load float, ptr %0, align 4
@@ -4118,12 +4118,12 @@ EuclideanDistance.exit:                           ; preds = %48
 123:                                              ; preds = %.sink.split, %121
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 3
-  br i1 %exitcond68.not, label %124, label %117, !llvm.loop !63
+  br i1 %exitcond68.not, label %124, label %117, !llvm.loop !55
 
 124:                                              ; preds = %123
   %125 = add nuw nsw i32 %.04358, 1
   %exitcond69.not = icmp eq i32 %125, 30
-  br i1 %exitcond69.not, label %.loopexit, label %46, !llvm.loop !64
+  br i1 %exitcond69.not, label %.loopexit, label %46, !llvm.loop !56
 
 .loopexit:                                        ; preds = %124, %EuclideanDistance.exit, %._crit_edge, %93, %4, %14
   %.041 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 1, %124 ], [ 1, %EuclideanDistance.exit ], [ 1, %._crit_edge ], [ 0, %93 ]
@@ -4194,8 +4194,8 @@ attributes #18 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -4215,23 +4215,23 @@ attributes #18 = { nounwind }
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !11}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !11}
-!34 = distinct !{!34, !7, !11}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7, !11}
+!39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7, !11}
-!42 = distinct !{!42, !7, !11}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7, !11}
+!45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7, !11}
+!47 = distinct !{!47, !7}
 !48 = distinct !{!48, !7}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
@@ -4241,11 +4241,3 @@ attributes #18 = { nounwind }
 !54 = distinct !{!54, !7}
 !55 = distinct !{!55, !7}
 !56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}

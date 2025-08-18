@@ -430,12 +430,12 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %28
   %33 = add i32 %32, 1
   %34 = load i32, ptr @cum_bytes, align 4
   call void @frame_data_init(ptr noundef nonnull %1, i32 noundef %33, ptr noundef nonnull %5, i64 noundef %31, i32 noundef %34)
-  %35 = load i8, ptr @gbl_resolv_flags, align 1, !range !10, !noundef !11
+  %35 = load i8, ptr @gbl_resolv_flags, align 1, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
-  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !10
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !9
   %38 = trunc nuw i8 %37 to i1
   %or.cond.i.i = select i1 %36, i1 true, i1 %38
-  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !10
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !9
   %40 = trunc nuw i8 %39 to i1
   %or.cond3.i.i = select i1 %or.cond.i.i, i1 true, i1 %40
   br i1 %or.cond3.i.i, label %41, label %43
@@ -538,7 +538,7 @@ process_packet.exit.i:                            ; preds = %58
   %.1.i = phi i32 [ %.04.i, %process_packet.exit.i ], [ %73, %process_packet.exit.thread2.i ]
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
   %77 = call zeroext i1 @wtap_read(ptr noundef %76, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %77, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !12
+  br i1 %77, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %75, %28, %.split.us.i, %11
   %.not21.i = icmp eq ptr %.fr.i, null
@@ -788,7 +788,7 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %30 = add i32 %.014, 1
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not = icmp ugt i32 %30, %31
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph, %0
   call void @wtap_rec_cleanup(ptr noundef nonnull %1)
@@ -915,7 +915,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr noundef writeonly captures(
   call void @epan_dissect_reset(ptr noundef nonnull %7)
   %48 = add i32 %.03246, 1
   %.not = icmp ugt i32 %48, %13
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %33, %28, %12
   %.032.lcssa = phi i32 [ 1, %12 ], [ %.03246, %28 ], [ %48, %33 ]
@@ -1134,11 +1134,9 @@ attributes #8 = { allocsize(0) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}

@@ -686,7 +686,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   %34 = add nuw i64 %.03460, 1
   %35 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
   %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !42
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %23
   %.not49 = icmp eq ptr %.2.us, null
@@ -737,7 +737,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br i1 %.not, label %.thread48, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !43
+  %8 = load ptr, ptr %0, align 8, !tbaa !41
   %9 = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %8, i32 noundef %1, i32 noundef -1) #10
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %16
@@ -750,7 +750,7 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   ]
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8, !tbaa !43
+  %13 = load ptr, ptr %0, align 8, !tbaa !41
   %14 = zext nneg i32 %9 to i64
   %15 = tail call ptr @sk_delete(ptr noundef %13, i64 noundef %14) #10
   %.not39 = icmp eq ptr %15, null
@@ -783,11 +783,11 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
   br label %38
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %0, align 8, !tbaa !43
+  %23 = load ptr, ptr %0, align 8, !tbaa !41
   %24 = zext nneg i32 %9 to i64
   %25 = tail call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
   tail call void @X509_EXTENSION_free(ptr noundef %25) #10
-  %26 = load ptr, ptr %0, align 8, !tbaa !43
+  %26 = load ptr, ptr %0, align 8, !tbaa !41
   %27 = tail call ptr @sk_set(ptr noundef %26, i64 noundef %24, ptr noundef nonnull %18) #10
   %.not38 = icmp eq ptr %27, null
   %.41 = select i1 %.not38, i32 -1, i32 1
@@ -795,13 +795,13 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
 
 .thread52:                                        ; preds = %.thread, %.thread48
   %28 = phi ptr [ %20, %.thread48 ], [ %19, %.thread ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !43
+  %29 = load ptr, ptr %0, align 8, !tbaa !41
   %.not35 = icmp eq ptr %29, null
   br i1 %.not35, label %30, label %32
 
 30:                                               ; preds = %.thread52
   %31 = tail call ptr @sk_new_null() #10
-  store ptr %31, ptr %0, align 8, !tbaa !43
+  store ptr %31, ptr %0, align 8, !tbaa !41
   %.not36 = icmp eq ptr %31, null
   br i1 %.not36, label %38, label %32
 
@@ -906,8 +906,6 @@ attributes #11 = { nounwind allocsize(0) }
 !37 = !{!36, !36, i64 0}
 !38 = !{!35, !13, i64 0}
 !39 = !{!12, !8, i64 32}
-!40 = distinct !{!40, !19, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !19}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}
+!40 = distinct !{!40, !19}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !8, i64 0}

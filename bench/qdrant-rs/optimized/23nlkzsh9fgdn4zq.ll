@@ -49,7 +49,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 
 .split.us.backedge:                               ; preds = %15, %12, %10
   %.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.07.0.i.us, %15 ], [ %.sroa.07.0.i15.us, %10 ]
-  br label %.split.us, !llvm.loop !4
+  br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.0 = phi i32 [ %.0.be, %.split.backedge ], [ %9, %4 ]
@@ -63,15 +63,15 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 
 .split17.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr @anon.d023d46553e80f33d30700de6f23ad43.10, ptr %6, align 8, !alias.scope !6, !noalias !9
+  store ptr @anon.d023d46553e80f33d30700de6f23ad43.10, ptr %6, align 8, !alias.scope !4, !noalias !7
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %17, align 8, !alias.scope !6, !noalias !9
+  store i64 1, ptr %17, align 8, !alias.scope !4, !noalias !7
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %18, align 8, !alias.scope !6, !noalias !9
+  store ptr null, ptr %18, align 8, !alias.scope !4, !noalias !7
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %19, align 8, !alias.scope !6, !noalias !9
+  store ptr %5, ptr %19, align 8, !alias.scope !4, !noalias !7
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %20, align 8, !alias.scope !6, !noalias !9
+  store i64 0, ptr %20, align 8, !alias.scope !4, !noalias !7
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #8
   unreachable
 
@@ -103,8 +103,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
   store ptr %0, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %28, align 8
-  %.val = load ptr, ptr %2, align 8, !nonnull !11, !align !12, !noundef !11
-  %29 = load ptr, ptr %.val, align 8, !align !12, !noundef !11
+  %.val = load ptr, ptr %2, align 8, !nonnull !9, !align !10, !noundef !9
+  %29 = load ptr, ptr %.val, align 8, !align !10, !noundef !9
   store ptr null, ptr %.val, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
@@ -117,7 +117,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
   unreachable
 
 32:                                               ; preds = %.split19.us
-  %.val.i = load ptr, ptr %29, align 8, !nonnull !11, !align !12, !noundef !11
+  %.val.i = load ptr, ptr %29, align 8, !nonnull !9, !align !10, !noundef !9
   %33 = invoke noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
           to label %36 unwind label %34
 
@@ -178,9 +178,9 @@ define hidden { ptr, i64 } @"_ZN3std3ffi6os_str85_$LT$impl$u20$core..convert..As
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h8925e0ca698da9a9E.llvm.8544828415197069924"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !11, !align !13, !noundef !11
+  %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !11, !noundef !9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !noundef !11
+  %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1
   ret { ptr, i64 } %6
@@ -240,13 +240,11 @@ attributes #9 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.1 (7cf61ebde 2024-03-27)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 0"}
-!8 = distinct !{!8, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E"}
-!9 = !{!10}
-!10 = distinct !{!10, !8, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 1"}
-!11 = !{}
-!12 = !{i64 8}
-!13 = !{i64 1}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 0"}
+!6 = distinct !{!6, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E"}
+!7 = !{!8}
+!8 = distinct !{!8, !6, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 1"}
+!9 = !{}
+!10 = !{i64 8}
+!11 = !{i64 1}

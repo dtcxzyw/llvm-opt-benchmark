@@ -109,5 +109,4 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !15}

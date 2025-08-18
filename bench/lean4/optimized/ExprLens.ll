@@ -25264,7 +25264,7 @@ lean_inc.exit498.us:                              ; preds = %24, %23, %22, %15
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %33, %32, %31, %27
-  br label %.split.us, !llvm.loop !16
+  br label %.split.us
 
 .split:                                           ; preds = %4
   %35 = icmp eq ptr %3, inttoptr (i64 7 to ptr)
@@ -28410,7 +28410,7 @@ lean_inc.exit498:                                 ; preds = %1136, %1135, %1133,
   %.us-phi11101184 = phi ptr [ %.us-phi11101184.ph, %.split1106.us.threadthread-pre-split ], [ %2, %53 ]
   %.us-phi11081182 = phi ptr [ %.us-phi11081182.ph, %.split1106.us.threadthread-pre-split ], [ %46, %53 ]
   %1145 = icmp sgt i32 %1144, 1
-  br i1 %1145, label %1146, label %1148, !prof !18
+  br i1 %1145, label %1146, label %1148, !prof !16
 
 1146:                                             ; preds = %.split1106.us.thread
   %1147 = add nsw i32 %1144, -1
@@ -28898,7 +28898,7 @@ lean_alloc_ctor.exit958:                          ; preds = %lean_alloc_ctor.exi
 
 lean_dec.exit526:                                 ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit.us
   %.us-phi = phi ptr [ %.0475.us, %lean_obj_tag.exit.us ], [ %.0475, %lean_obj_tag.exit ]
-  br i1 %.not1002, label %lean_nat_eq.exit828.thread, label %lean_nat_eq.exit828, !prof !19
+  br i1 %.not1002, label %lean_nat_eq.exit828.thread, label %lean_nat_eq.exit828, !prof !17
 
 lean_nat_eq.exit828:                              ; preds = %lean_dec.exit526
   %.not1071 = icmp eq ptr %3, inttoptr (i64 7 to ptr)
@@ -30923,7 +30923,7 @@ define ptr @l_Lean_Core_viewBinders___rarg(ptr noundef %0, ptr noundef %1, ptr n
 15:                                               ; preds = %14, %11
   %.val.i29 = phi i32 [ %.val.i29.pr, %14 ], [ %12, %11 ]
   %16 = icmp sgt i32 %.val.i29, 0
-  br i1 %16, label %17, label %19, !prof !20
+  br i1 %16, label %17, label %19, !prof !18
 
 17:                                               ; preds = %15
   %18 = add nuw i32 %.val.i29, 1
@@ -31743,8 +31743,6 @@ attributes #6 = { noreturn nounwind }
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!7, !7, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!"branch_weights", !"expected", i32 2146812248, i32 671400}
-!19 = !{!"branch_weights", !"expected", i32 1624759, i32 2145858889}
-!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!16 = !{!"branch_weights", !"expected", i32 2146812248, i32 671400}
+!17 = !{!"branch_weights", !"expected", i32 1624759, i32 2145858889}
+!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

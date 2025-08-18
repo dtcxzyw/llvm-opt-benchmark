@@ -487,7 +487,7 @@ bytestream2_peek_be16.exit.thread.us:             ; preds = %bytestream2_peek_be
   %44 = sub i64 %22, %43
   %45 = trunc i64 %44 to i32
   %.not73.us.not = icmp eq i32 %45, 0
-  br i1 %.not73.us.not, label %.lr.ph168, label %.lr.ph153.split.us, !llvm.loop !39
+  br i1 %.not73.us.not, label %.lr.ph168, label %.lr.ph153.split.us
 
 .preheader142.us:                                 ; preds = %.lr.ph153.split.us, %bytestream2_get_byte.exit.us
   %.060148.us = phi i32 [ %55, %bytestream2_get_byte.exit.us ], [ 0, %.lr.ph153.split.us ]
@@ -511,7 +511,7 @@ bytestream2_get_byte.exit.us:                     ; preds = %50, %.preheader142.
   %54 = or disjoint i32 %.0.i.us, %46
   %55 = add nuw nsw i32 %.060148.us, 1
   %exitcond.not = icmp eq i32 %55, %24
-  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader142.us, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader142.us, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %bytestream2_get_byte.exit.us
   %56 = icmp ult i32 %54, 2
@@ -557,7 +557,7 @@ bytestream2_get_byte.exit79:                      ; preds = %.lr.ph, %69
   %73 = or disjoint i32 %.0.i78, %65
   %74 = add nuw nsw i32 %.161163, 1
   %exitcond175.not = icmp eq i32 %74, %63
-  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %bytestream2_get_byte.exit79
   %75 = icmp ult i32 %73, 2
@@ -763,7 +763,5 @@ attributes #8 = { noreturn nounwind }
 !36 = !{!"AVPacket", !37, i64 0, !19, i64 8, !19, i64 16, !17, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !18, i64 48, !13, i64 56, !19, i64 64, !19, i64 72, !7, i64 80, !37, i64 88, !12, i64 96}
 !37 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !38 = !{!36, !13, i64 32}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !25}
-!42 = distinct !{!42, !25}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}

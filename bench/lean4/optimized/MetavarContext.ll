@@ -63819,7 +63819,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at___private_Lean_Met
 12:                                               ; preds = %lean_dec.exit24.us
   %13 = add i64 %.01841.us, 1
   %.not.us = icmp eq i64 %13, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
 14:                                               ; preds = %.lr.ph.split.us
   %.val.i.i.us = load i32, ptr %9, align 4, !tbaa !4
@@ -190881,7 +190881,7 @@ lean_dec.exit47:                                  ; preds = %54, %53, %51, %lean
   %61 = and i64 %60, 1
   %62 = icmp ne i64 %61, 0
   %or.cond = select i1 %59, i1 %62, i1 false
-  br i1 %or.cond, label %lean_dec.exit46.thread, label %lean_nat_lt.exit, !prof !21
+  br i1 %or.cond, label %lean_dec.exit46.thread, label %lean_nat_lt.exit, !prof !19
 
 lean_dec.exit46.thread:                           ; preds = %lean_dec.exit47
   %63 = icmp ult ptr %55, %56
@@ -230163,7 +230163,7 @@ lean_nat_eq.exit:                                 ; preds = %8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %10, %18
   %brmerge.not.not = icmp eq i64 %19, 0
-  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !22
+  br i1 %brmerge.not.not, label %lean_nat_le.exit, label %lean_nat_le.exit.thread, !prof !20
 
 lean_nat_le.exit:                                 ; preds = %14
   %20 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %17, ptr noundef %5) #7
@@ -268677,7 +268677,7 @@ lean_dec.exit47.us:                               ; preds = %lean_array_uget.exi
   %37 = phi i64 [ %28, %27 ], [ %22, %34 ], [ %22, %33 ], [ %22, %35 ], [ %25, %lean_array_uget.exit.us.thread ]
   %.439.us = phi ptr [ %29, %27 ], [ %.03572.us, %34 ], [ %.03572.us, %33 ], [ %.03572.us, %35 ], [ %.03572.us, %lean_array_uget.exit.us.thread ]
   %.not.us = icmp eq i64 %37, %4
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit47
   %.03373 = phi i64 [ %97, %lean_dec.exit47 ], [ %3, %.lr.ph ]
@@ -350473,8 +350473,5 @@ attributes #9 = { "function-inline-cost-multiplier"="2" }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!"branch_weights", i32 4000000, i32 4001}
-!22 = !{!"branch_weights", i32 4001, i32 4000000}
-!23 = distinct !{!23, !20}
+!19 = !{!"branch_weights", i32 4000000, i32 4001}
+!20 = !{!"branch_weights", i32 4001, i32 4000000}

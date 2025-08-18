@@ -16448,12 +16448,12 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 181:                                              ; preds = %179, %.split
   %182 = add nuw i64 %.0124, 1
   %exitcond.not = icmp eq i64 %182, %119
-  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !87
+  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !85
 
 .critedge:                                        ; preds = %181, %154
   %183 = add nuw i64 %.072130, 1
   %exitcond139.not = icmp eq i64 %183, %119
-  br i1 %exitcond139.not, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit, label %121, !llvm.loop !88
+  br i1 %exitcond139.not, label %_ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit, label %121, !llvm.loop !86
 
 _ZN5zxing3RefINS_9BitMatrixEEC2ERKS2_.exit:       ; preds = %.critedge, %110
   %184 = load i32, ptr %41, align 8, !tbaa !32
@@ -16691,7 +16691,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 83:                                               ; preds = %.thread.us, %.split.us
   %84 = add nuw i64 %.060.us, 1
   %exitcond75.not = icmp eq i64 %84, %66
-  br i1 %exitcond75.not, label %.split64.us, label %.split.us, !llvm.loop !89
+  br i1 %exitcond75.not, label %.split64.us, label %.split.us, !llvm.loop !87
 
 .split62.us:                                      ; preds = %.thread.us
   %85 = landingpad { ptr, i32 }
@@ -16716,7 +16716,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 92:                                               ; preds = %.thread.us66
   %93 = add nuw i64 %.060.us65, 1
   %exitcond.not = icmp eq i64 %93, %66
-  br i1 %exitcond.not, label %.split64.us, label %.thread.us66, !llvm.loop !90
+  br i1 %exitcond.not, label %.split64.us, label %.thread.us66, !llvm.loop !87
 
 .split62.split.us:                                ; preds = %.thread.us66
   %94 = landingpad { ptr, i32 }
@@ -16726,7 +16726,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 .split64.us:                                      ; preds = %92, %102, %83
   %95 = add nuw i64 %.03668, 1
   %exitcond77.not = icmp eq i64 %95, %66
-  br i1 %exitcond77.not, label %._crit_edge, label %69, !llvm.loop !91
+  br i1 %exitcond77.not, label %._crit_edge, label %69, !llvm.loop !88
 
 .split.split:                                     ; preds = %.split, %102
   %.060 = phi i64 [ %103, %102 ], [ 0, %.split ]
@@ -16745,7 +16745,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 102:                                              ; preds = %.thread, %.split.split
   %103 = add nuw i64 %.060, 1
   %exitcond73.not = icmp eq i64 %103, %66
-  br i1 %exitcond73.not, label %.split64.us, label %.split.split, !llvm.loop !92
+  br i1 %exitcond73.not, label %.split64.us, label %.split.split, !llvm.loop !87
 
 .split62.split:                                   ; preds = %.thread
   %104 = landingpad { ptr, i32 }
@@ -16988,7 +16988,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 77:                                               ; preds = %.thread.us, %.split.us
   %78 = add nuw i64 %.066.us, 1
   %exitcond81.not = icmp eq i64 %78, %60
-  br i1 %exitcond81.not, label %.split70.us, label %.split.us, !llvm.loop !93
+  br i1 %exitcond81.not, label %.split70.us, label %.split.us, !llvm.loop !89
 
 .split68.us:                                      ; preds = %.thread.us
   %79 = landingpad { ptr, i32 }
@@ -17013,7 +17013,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 86:                                               ; preds = %.thread.us72
   %87 = add nuw i64 %.066.us71, 1
   %exitcond.not = icmp eq i64 %87, %60
-  br i1 %exitcond.not, label %.split70.us, label %.thread.us72, !llvm.loop !94
+  br i1 %exitcond.not, label %.split70.us, label %.thread.us72, !llvm.loop !89
 
 .split68.split.us:                                ; preds = %.thread.us72
   %88 = landingpad { ptr, i32 }
@@ -17023,7 +17023,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 .split70.us:                                      ; preds = %86, %96, %77
   %89 = add nuw i64 %.04074, 1
   %exitcond83.not = icmp eq i64 %89, %60
-  br i1 %exitcond83.not, label %._crit_edge, label %63, !llvm.loop !95
+  br i1 %exitcond83.not, label %._crit_edge, label %63, !llvm.loop !90
 
 .split.split:                                     ; preds = %.split, %96
   %.066 = phi i64 [ %97, %96 ], [ 0, %.split ]
@@ -17042,7 +17042,7 @@ _ZN5zxing6qrcode7Version22getDimensionForVersionERNS_12ErrorHandlerE.exit: ; pre
 96:                                               ; preds = %.thread, %.split.split
   %97 = add nuw i64 %.066, 1
   %exitcond79.not = icmp eq i64 %97, %60
-  br i1 %exitcond79.not, label %.split70.us, label %.split.split, !llvm.loop !96
+  br i1 %exitcond79.not, label %.split70.us, label %.split.split, !llvm.loop !89
 
 .split68.split:                                   ; preds = %.thread
   %98 = landingpad { ptr, i32 }
@@ -17156,7 +17156,7 @@ define internal noundef nonnull ptr @_ZN5zxing6qrcodeL8intArrayEmz(i64 noundef r
   store ptr %6, ptr %3, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i32, ptr %6, i64 %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %7, ptr %8, align 8, !tbaa !97
+  store ptr %7, ptr %8, align 8, !tbaa !91
   store i32 0, ptr %6, align 4, !tbaa !67
   %9 = getelementptr i8, ptr %6, i64 4
   %10 = add nsw i64 %0, -1
@@ -17221,7 +17221,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   store i32 %34, ptr %35, align 4, !tbaa !67
   %36 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %36, %0
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !92
 }
 
 declare void @_ZN5zxing12ErrorHandlerC2EPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #7
@@ -17380,7 +17380,7 @@ _ZNKSt6vectorIN5zxing3RefINS0_6qrcode7VersionEEESaIS4_EE12_M_check_lenEmPKc.exit
   %34 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %34, %1
-  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !99
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %33, %27
   %.0.lcssa.i.i.i.i.i = phi ptr [ %20, %27 ], [ %35, %33 ]
@@ -17408,7 +17408,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_S
   %43 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i31, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i30, i64 8
   %.not.i.i.i.i.i33 = icmp eq ptr %43, %5
-  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35, label %.lr.ph.i.i.i.i.i29, !llvm.loop !99
+  br i1 %.not.i.i.i.i.i33, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35, label %.lr.ph.i.i.i.i.i29, !llvm.loop !93
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit35: ; preds = %42, %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit
   %.0.lcssa.i.i.i.i.i34 = phi ptr [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5zxing3RefINS0_6qrcode7VersionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %44, %42 ]
@@ -17598,18 +17598,12 @@ attributes #20 = { noreturn }
 !82 = distinct !{!82, !24}
 !83 = distinct !{!83, !24}
 !84 = !{!64, !65, i64 8}
-!85 = distinct !{!85, !24, !86}
-!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !24}
+!86 = distinct !{!86, !24}
 !87 = distinct !{!87, !24}
 !88 = distinct !{!88, !24}
-!89 = distinct !{!89, !24, !86}
-!90 = distinct !{!90, !24, !86}
-!91 = distinct !{!91, !24}
+!89 = distinct !{!89, !24}
+!90 = distinct !{!90, !24}
+!91 = !{!64, !65, i64 16}
 !92 = distinct !{!92, !24}
-!93 = distinct !{!93, !24, !86}
-!94 = distinct !{!94, !24, !86}
-!95 = distinct !{!95, !24}
-!96 = distinct !{!96, !24}
-!97 = !{!64, !65, i64 16}
-!98 = distinct !{!98, !24}
-!99 = distinct !{!99, !24}
+!93 = distinct !{!93, !24}

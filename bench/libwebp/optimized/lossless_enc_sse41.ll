@@ -342,7 +342,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not63 = icmp samesign ugt i64 %indvars.iv.next, %21
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 4
-  br i1 %.not63, label %._crit_edge, label %71, !llvm.loop !16
+  br i1 %.not63, label %._crit_edge, label %71, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %71
   %105 = bitcast <8 x i16> %104 to <16 x i8>
@@ -372,7 +372,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   store i32 %125, ptr %123, align 4, !tbaa !7
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph68.split.us, %7
   %126 = and i32 %2, 3
@@ -457,7 +457,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   store i32 %45, ptr %43, align 4, !tbaa !7
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph61.split.us, !llvm.loop !18
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph61.split.us, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv68 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next69, %._crit_edge ]
@@ -508,7 +508,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not56 = icmp samesign ugt i64 %indvars.iv.next, %15
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 4
-  br i1 %.not56, label %._crit_edge, label %53, !llvm.loop !19
+  br i1 %.not56, label %._crit_edge, label %53, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %53
   %81 = bitcast <8 x i16> %80 to <16 x i8>
@@ -538,7 +538,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   store i32 %101, ptr %99, align 4, !tbaa !7
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph61.split.us, %6
   %102 = and i32 %2, 3
@@ -596,10 +596,7 @@ attributes #5 = { nounwind }
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
 !13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11, !15}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}

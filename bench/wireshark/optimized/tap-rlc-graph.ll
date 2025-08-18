@@ -349,7 +349,7 @@ compare_rlc_headers.exit:                         ; preds = %64
 compare_rlc_headers.exit.thread:                  ; preds = %64, %.lr.ph.split, %compare_rlc_headers.exit, %58
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %compare_rlc_headers.exit.thread.us, %compare_rlc_headers.exit.thread
   %69 = icmp slt i32 %6, 8
@@ -615,7 +615,7 @@ compare_rlc_headers.exit:                         ; preds = %38
 
 77:                                               ; preds = %44
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %79 = load i8, ptr %78, align 1, !range !10, !noundef !11
+  %79 = load i8, ptr %78, align 1, !range !8, !noundef !9
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %92
 
@@ -699,7 +699,7 @@ define hidden void @rlc_graph_segment_list_free(ptr noundef captures(none) %0) l
   tail call void @g_free(ptr noundef nonnull %2)
   store ptr %3, ptr %0, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -740,10 +740,8 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

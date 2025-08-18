@@ -149,7 +149,7 @@ define dso_local void @hiddev_hid_event(ptr noundef readonly captures(none) %0, 
   tail call void @kill_fasync(ptr noundef %61, i32 noundef 29, i32 noundef 1) #13
   %62 = load ptr, ptr %52, align 8
   %63 = icmp eq ptr %62, %30
-  br i1 %63, label %hiddev_send_event.exit, label %.preheader.split, !llvm.loop !10
+  br i1 %63, label %hiddev_send_event.exit, label %.preheader.split, !llvm.loop !6
 
 hiddev_send_event.exit:                           ; preds = %.preheader.split, %49, %11
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %28, i64 noundef %29) #13
@@ -223,7 +223,7 @@ define dso_local void @hiddev_report_event(ptr noundef readonly captures(none) %
 34:                                               ; preds = %24, %.preheader
   %35 = load ptr, ptr %19, align 8
   %36 = icmp eq ptr %35, %16
-  br i1 %36, label %hiddev_send_event.exit, label %.preheader, !llvm.loop !10
+  br i1 %36, label %hiddev_send_event.exit, label %.preheader, !llvm.loop !6
 
 hiddev_send_event.exit:                           ; preds = %34, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %14, i64 noundef %15) #13
@@ -279,7 +279,7 @@ define dso_local i32 @hiddev_connect(ptr noundef %0, i32 noundef %1) local_unnam
 28:                                               ; preds = %27, %27, %27, %20, %14
   %29 = add nuw nsw i64 %15, 1
   %30 = icmp eq i64 %29, %13
-  br i1 %30, label %.critedge, label %14, !llvm.loop !11
+  br i1 %30, label %.critedge, label %14, !llvm.loop !9
 
 31:                                               ; preds = %27
   %32 = trunc i64 %15 to i32
@@ -448,7 +448,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_read(ptr noundef 
   %6 = alloca %struct.hiddev_event, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !12
+  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !10
   %9 = inttoptr i64 %8 to ptr
   store i64 0, ptr %5, align 8
   store ptr %9, ptr %7, align 8
@@ -507,7 +507,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_read(ptr noundef 
   %45 = load volatile i64, ptr %9, align 8
   %46 = and i64 %45, 131072
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %.preheader8._crit_edge, !prof !13
+  br i1 %47, label %48, label %.preheader8._crit_edge, !prof !11
 
 .preheader8._crit_edge:                           ; preds = %.preheader8
   %.pre14 = load ptr, ptr %29, align 8
@@ -546,11 +546,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_read(ptr noundef 
   br label %128
 
 66:                                               ; preds = %60
-  %67 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 1, ptr nonnull elementtype(i32) %31) #13, !srcloc !14
+  %67 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, i32 1, ptr nonnull elementtype(i32) %31) #13, !srcloc !12
   %68 = load i32, ptr %27, align 8
   %69 = load i32, ptr %28, align 4
   %70 = icmp eq i32 %68, %69
-  br i1 %70, label %.preheader8, label %.loopexit9, !llvm.loop !15
+  br i1 %70, label %.preheader8, label %.loopexit9, !llvm.loop !13
 
 .loopexit9:                                       ; preds = %66, %39
   %71 = load ptr, ptr %29, align 8
@@ -580,7 +580,7 @@ split:                                            ; preds = %48, %52, %56, %.pre
   %78 = add i32 %116, %19
   %79 = sext i32 %78 to i64
   %80 = icmp ult i64 %2, %79
-  br i1 %80, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %80, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.thread, %.preheader
   %81 = phi i32 [ %116, %.preheader ], [ 0, %.thread ]
@@ -651,17 +651,17 @@ split:                                            ; preds = %48, %52, %56, %.pre
   store i32 %119, ptr %28, align 4
   %120 = load i32, ptr %27, align 8
   %121 = icmp eq i32 %120, %119
-  br i1 %121, label %..loopexit.loopexit_crit_edge, label %.preheader, !llvm.loop !16
+  br i1 %121, label %..loopexit.loopexit_crit_edge, label %.preheader, !llvm.loop !14
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %115
-  br label %.loopexit, !llvm.loop !16
+  br label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %..loopexit.loopexit_crit_edge
   %122 = phi i32 [ %73, %.thread ], [ %119, %..loopexit.loopexit_crit_edge ], [ %119, %.preheader ]
   %123 = phi i32 [ %.mux, %.thread ], [ %119, %..loopexit.loopexit_crit_edge ], [ %120, %.preheader ]
   %124 = phi i32 [ 0, %.thread ], [ %116, %..loopexit.loopexit_crit_edge ], [ %116, %.preheader ]
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %35, label %126, !llvm.loop !17
+  br i1 %125, label %35, label %126, !llvm.loop !15
 
 126:                                              ; preds = %.loopexit
   call void @mutex_unlock(ptr noundef nonnull %23) #13
@@ -730,13 +730,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 49176
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false), !annotation !16
   %12 = inttoptr i64 %2 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @mutex_lock(ptr noundef nonnull %13) #13
@@ -771,7 +771,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 
 20:                                               ; preds = %17
   %21 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %22 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 65540, i64 4, i64 %21) #13, !srcloc !19
+  %22 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 65540, i64 4, i64 %21) #13, !srcloc !17
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = extractvalue { ptr, i64 } %22, 1
   %25 = ptrtoint ptr %23 to i64
@@ -819,7 +819,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %53 = add nuw i32 %43, 1
   %54 = icmp ult i32 %53, %36
   %55 = icmp eq i32 %53, %36
-  br i1 %55, label %hiddev_ioctl_string.exit, label %40, !llvm.loop !20
+  br i1 %55, label %hiddev_ioctl_string.exit, label %40, !llvm.loop !18
 
 56:                                               ; preds = %48
   br i1 %41, label %57, label %hiddev_ioctl_string.exit
@@ -878,7 +878,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 49160
   %96 = load i32, ptr %95, align 8
   %97 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %98 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 %96, i64 4, i64 %97) #13, !srcloc !21
+  %98 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 %96, i64 4, i64 %97) #13, !srcloc !19
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
   %101 = ptrtoint ptr %99 to i64
@@ -890,7 +890,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 
 105:                                              ; preds = %17
   %106 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %107 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 4, i64 %106) #13, !srcloc !22
+  %107 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 4, i64 %106) #13, !srcloc !20
   %108 = extractvalue { ptr, i32, i64 } %107, 0
   %109 = extractvalue { ptr, i32, i64 } %107, 1
   %110 = extractvalue { ptr, i32, i64 } %107, 2
@@ -923,7 +923,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %.val.val.val = load ptr, ptr %125, align 8
   %126 = getelementptr i8, ptr %.val.val.val, i64 -168
   %127 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %128 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 4, i64 %127) #13, !srcloc !23
+  %128 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 4, i64 %127) #13, !srcloc !21
   %129 = extractvalue { ptr, i32, i64 } %128, 0
   %130 = extractvalue { ptr, i32, i64 } %128, 1
   %131 = extractvalue { ptr, i32, i64 } %128, 2
@@ -948,7 +948,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %143 = add nuw i32 %140, 1
   %144 = sext i32 %143 to i64
   %145 = icmp samesign ugt i32 %140, 255
-  br i1 %145, label %146, label %147, !prof !24
+  br i1 %145, label %146, label %147, !prof !22
 
 146:                                              ; preds = %142
   tail call void @__copy_overflow(i32 noundef 256, i64 noundef %144) #13
@@ -1075,7 +1075,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 219:                                              ; preds = %213
   %220 = zext i32 %215 to i64
   %221 = zext i32 %217 to i64
-  %222 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %221, i64 %220) #13, !srcloc !25
+  %222 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %221, i64 %220) #13, !srcloc !23
   %223 = trunc i64 %222 to i32
   %224 = and i32 %215, %223
   store i32 %224, ptr %214, align 4
@@ -1143,7 +1143,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 
 270:                                              ; preds = %17, %17, %17, %17, %17, %17
   %271 = getelementptr inbounds nuw i8, ptr %11, i64 100
-  %272 = load i8, ptr %271, align 4, !range !26, !noundef !27
+  %272 = load i8, ptr %271, align 4, !range !24, !noundef !25
   %273 = icmp eq i8 %272, 0
   br i1 %273, label %274, label %275
 
@@ -1249,7 +1249,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 330:                                              ; preds = %324
   %331 = zext i32 %326 to i64
   %332 = zext i32 %328 to i64
-  %333 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %332, i64 %331) #13, !srcloc !25
+  %333 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %332, i64 %331) #13, !srcloc !23
   %334 = trunc i64 %333 to i32
   %335 = and i32 %326, %334
   store i32 %335, ptr %325, align 8
@@ -1267,7 +1267,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 345:                                              ; preds = %330
   %346 = zext i32 %341 to i64
   %347 = zext i32 %343 to i64
-  %348 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %347, i64 %346) #13, !srcloc !25
+  %348 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %347, i64 %346) #13, !srcloc !23
   %349 = trunc i64 %348 to i32
   %350 = and i32 %341, %349
   store i32 %350, ptr %340, align 4
@@ -1316,7 +1316,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 .loopexit7.i:                                     ; preds = %.loopexit6.i, %382
   %380 = load ptr, ptr %383, align 8
   %381 = icmp eq ptr %380, %374
-  br i1 %381, label %.thread.i, label %382, !llvm.loop !28
+  br i1 %381, label %.thread.i, label %382, !llvm.loop !26
 
 382:                                              ; preds = %.loopexit7.i, %377
   %383 = phi ptr [ %375, %377 ], [ %380, %.loopexit7.i ]
@@ -1355,12 +1355,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 406:                                              ; preds = %400
   %407 = add nuw i32 %401, 1
   %408 = icmp eq i32 %407, %395
-  br i1 %408, label %.loopexit6.i, label %400, !llvm.loop !29
+  br i1 %408, label %.loopexit6.i, label %400, !llvm.loop !27
 
 .loopexit6.i:                                     ; preds = %406, %389
   %409 = add nuw i32 %390, 1
   %410 = icmp eq i32 %409, %385
-  br i1 %410, label %.loopexit7.i, label %389, !llvm.loop !30
+  br i1 %410, label %.loopexit7.i, label %389, !llvm.loop !28
 
 411:                                              ; preds = %400
   %412 = getelementptr inbounds nuw i8, ptr %383, i64 48
@@ -1436,7 +1436,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 457:                                              ; preds = %451
   %458 = zext i32 %453 to i64
   %459 = zext i32 %455 to i64
-  %460 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %459, i64 %458) #13, !srcloc !25
+  %460 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %459, i64 %458) #13, !srcloc !23
   %461 = trunc i64 %460 to i32
   %462 = and i32 %453, %461
   store i32 %462, ptr %452, align 8
@@ -1458,7 +1458,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 .thread5.i:                                       ; preds = %470
   %474 = zext i32 %469 to i64
   %475 = zext i32 %472 to i64
-  %476 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %475, i64 %474) #13, !srcloc !25
+  %476 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %475, i64 %474) #13, !srcloc !23
   %477 = trunc i64 %476 to i32
   %478 = and i32 %469, %477
   store i32 %478, ptr %468, align 4
@@ -1499,7 +1499,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %497 = sub i32 %494, %488
   %498 = zext i32 %484 to i64
   %499 = zext i32 %497 to i64
-  %500 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %499, i64 %498) #13, !srcloc !25
+  %500 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %499, i64 %498) #13, !srcloc !23
   %501 = trunc i64 %500 to i32
   %502 = and i32 %484, %501
   store i32 %502, ptr %491, align 4
@@ -1588,7 +1588,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %558 = add nuw i32 %549, 1
   %559 = load i32, ptr %487, align 8
   %560 = icmp ult i32 %558, %559
-  br i1 %560, label %548, label %.loopexit.i, !llvm.loop !31
+  br i1 %560, label %548, label %.loopexit.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %548, %509
   %561 = tail call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %277, i64 noundef 4124) #13
@@ -1609,7 +1609,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
   %573 = add nuw i32 %564, 1
   %574 = load i32, ptr %487, align 8
   %575 = icmp ult i32 %573, %574
-  br i1 %575, label %563, label %.thread.i, !llvm.loop !32
+  br i1 %575, label %563, label %.thread.i, !llvm.loop !30
 
 576:                                              ; preds = %.loopexit.i, %520, %345, %283, %280
   br label %.thread.i
@@ -1634,7 +1634,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr noundef
 586:                                              ; preds = %581
   %587 = zext i32 %582 to i64
   %588 = zext i32 %584 to i64
-  %589 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %588, i64 %587) #13, !srcloc !25
+  %589 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %588, i64 %587) #13, !srcloc !23
   %590 = trunc i64 %589 to i32
   %591 = and i32 %582, %590
   store i32 %591, ptr %4, align 4
@@ -2068,30 +2068,28 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i64 2148305606}
-!13 = !{!"branch_weights", i32 2000, i32 1}
-!14 = !{i64 2156271952}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2148305606}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = !{i64 2156271952}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
 !15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{!"auto-init"}
-!19 = !{i64 2156309708}
-!20 = distinct !{!20, !7, !8}
-!21 = !{i64 2156316160}
-!22 = !{i64 2156317828}
-!23 = !{i64 2156306329}
-!24 = !{!"branch_weights", i32 1, i32 2000}
-!25 = !{i64 905621}
-!26 = !{i8 0, i8 2}
-!27 = !{}
+!16 = !{!"auto-init"}
+!17 = !{i64 2156309708}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i64 2156316160}
+!20 = !{i64 2156317828}
+!21 = !{i64 2156306329}
+!22 = !{!"branch_weights", i32 1, i32 2000}
+!23 = !{i64 905621}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
 !28 = distinct !{!28, !7, !8}
 !29 = distinct !{!29, !7, !8}
 !30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}

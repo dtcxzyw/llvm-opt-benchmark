@@ -262,7 +262,7 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph88.split, %
   %113 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next100
   store i32 %111, ptr %113, align 4, !tbaa !3
   %exitcond106.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !20
+  br i1 %exitcond106.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %114 = sext i32 %84 to i64
@@ -313,6 +313,4 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !15 = distinct !{!15, !13}
 !16 = distinct !{!16, !13}
 !17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !13}
+!18 = distinct !{!18, !13}

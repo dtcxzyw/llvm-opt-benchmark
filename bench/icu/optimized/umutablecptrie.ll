@@ -1082,7 +1082,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i: ; preds = %
   %101 = add nsw i32 %91, 1
   %102 = and i32 %101, 15
   %.not127.i = icmp eq i32 %102, 0
-  br i1 %.not127.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !37
+  br i1 %.not127.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !35
 
 .loopexit.i:                                      ; preds = %100, %.lr.ph183.i, %.thread208.i, %74, %.thread.i
   %.2106.i = phi i32 [ %49, %.thread.i ], [ %75, %74 ], [ %77, %.thread208.i ], [ %89, %.lr.ph183.i ], [ %101, %100 ]
@@ -1091,7 +1091,7 @@ _ZN6icu_7712_GLOBAL__N_116maybeFilterValueEjjjPFjPKvjES2_.exit147.i: ; preds = %
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %103 = load i32, ptr %8, align 8, !tbaa !19
   %104 = icmp slt i32 %.2106.i, %103
-  br i1 %104, label %27, label %105, !llvm.loop !38
+  br i1 %104, label %27, label %105, !llvm.loop !36
 
 105:                                              ; preds = %.loopexit.i
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1194,7 +1194,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie3setE
   store i32 %34, ptr %36, align 4, !tbaa !25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %37 = icmp slt i64 %indvars.iv.next.i, %31
-  br i1 %37, label %32, label %.critedge.thread.i, !llvm.loop !39
+  br i1 %37, label %32, label %.critedge.thread.i, !llvm.loop !37
 
 .critedge.thread.i:                               ; preds = %32
   store i32 %15, ptr %11, align 8, !tbaa !19
@@ -1300,7 +1300,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie8setR
   store i32 %36, ptr %38, align 4, !tbaa !25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %39 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %39, label %34, label %.critedge.thread.i, !llvm.loop !39
+  br i1 %39, label %34, label %.critedge.thread.i, !llvm.loop !37
 
 .critedge.thread.i:                               ; preds = %34
   store i32 %17, ptr %13, align 8, !tbaa !19
@@ -1339,7 +1339,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie8setR
   %.07.i.add = add nuw nsw i64 %.07.i.idx, 4
   store i32 %3, ptr %.07.i.ptr, align 4, !tbaa !25
   %56 = icmp samesign ult i64 %.07.i.idx, 60
-  br i1 %56, label %.lr.ph.i, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit, !llvm.loop !40
+  br i1 %56, label %.lr.ph.i, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit, !llvm.loop !38
 
 57:                                               ; preds = %47
   %58 = and i32 %41, 15
@@ -1358,7 +1358,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie8setR
   %64 = getelementptr inbounds nuw i8, ptr %.07.i62, i64 4
   store i32 %3, ptr %.07.i62, align 4, !tbaa !25
   %65 = icmp ult ptr %64, %60
-  br i1 %65, label %.lr.ph.i61, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71, !llvm.loop !40
+  br i1 %65, label %.lr.ph.i61, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71, !llvm.loop !38
 
 _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit:    ; preds = %.lr.ph.i, %40
   %.0 = phi i32 [ %1, %40 ], [ %49, %.lr.ph.i ]
@@ -1400,13 +1400,13 @@ _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit:    ; preds = %.lr.ph.i, %40
   %.07.i66.add = add nuw nsw i64 %.07.i66.idx, 4
   store i32 %3, ptr %.07.i66.ptr, align 4, !tbaa !25
   %85 = icmp samesign ult i64 %.07.i66.idx, 60
-  br i1 %85, label %.lr.ph.i65, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67, !llvm.loop !40
+  br i1 %85, label %.lr.ph.i65, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67, !llvm.loop !38
 
 _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67:  ; preds = %.lr.ph.i65, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %86 = trunc nuw i64 %indvars.iv.next to i32
   %87 = icmp sgt i32 %67, %86
-  br i1 %87, label %74, label %._crit_edge, !llvm.loop !41
+  br i1 %87, label %74, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67, %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit
   %.3.lcssa = phi i32 [ %.0, %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit ], [ %86, %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67 ]
@@ -1433,7 +1433,7 @@ _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit67:  ; preds = %.lr.ph.i65, %80
   %98 = getelementptr inbounds nuw i8, ptr %.07.i70, i64 4
   store i32 %3, ptr %.07.i70, align 4, !tbaa !25
   %99 = icmp ult ptr %98, %97
-  br i1 %99, label %.lr.ph.i69, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71, !llvm.loop !40
+  br i1 %99, label %.lr.ph.i69, label %_ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71, !llvm.loop !38
 
 _ZN6icu_7712_GLOBAL__N_19fillBlockEPjiij.exit71.sink.split: ; preds = %88, %43, %23, %8
   %.sink = phi i32 [ 1, %8 ], [ 7, %23 ], [ 7, %43 ], [ 7, %88 ]
@@ -1525,7 +1525,7 @@ define ptr @umutablecptrie_buildImmutable_77(ptr noundef %0, i32 noundef %1, i32
 46:                                               ; preds = %42, %38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %38, !llvm.loop !42
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %38, !llvm.loop !40
 
 47:                                               ; preds = %47, %.lr.ph16.i.i
   %indvars.iv18.i.i = phi i64 [ 0, %.lr.ph16.i.i ], [ %indvars.iv.next19.i.i, %47 ]
@@ -1537,7 +1537,7 @@ define ptr @umutablecptrie_buildImmutable_77(ptr noundef %0, i32 noundef %1, i32
   %51 = load i32, ptr %33, align 4, !tbaa !24
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next19.i.i, %52
-  br i1 %53, label %47, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i, !llvm.loop !43
+  br i1 %53, label %47, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i, !llvm.loop !41
 
 54:                                               ; preds = %16
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1592,7 +1592,7 @@ define ptr @umutablecptrie_buildImmutable_77(ptr noundef %0, i32 noundef %1, i32
 83:                                               ; preds = %79, %75
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i119.i
-  br i1 %exitcond.not.i122.i, label %.preheader.i114.i, label %75, !llvm.loop !42
+  br i1 %exitcond.not.i122.i, label %.preheader.i114.i, label %75, !llvm.loop !40
 
 84:                                               ; preds = %84, %.lr.ph16.i115.i
   %indvars.iv18.i116.i = phi i64 [ 0, %.lr.ph16.i115.i ], [ %indvars.iv.next19.i117.i, %84 ]
@@ -1604,7 +1604,7 @@ define ptr @umutablecptrie_buildImmutable_77(ptr noundef %0, i32 noundef %1, i32
   %88 = load i32, ptr %70, align 4, !tbaa !24
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next19.i117.i, %89
-  br i1 %90, label %84, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i, !llvm.loop !43
+  br i1 %90, label %84, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i, !llvm.loop !41
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie10maskValuesEj.exit.i: ; preds = %47, %84, %.preheader.i114.i, %.preheader.i.i, %16
   %91 = icmp eq i32 %1, 0
@@ -1677,7 +1677,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i: ; preds = %105, 
 130:                                              ; preds = %132
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %131 = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %131, label %.thread.i.i.i, label %132, !llvm.loop !44
+  br i1 %131, label %.thread.i.i.i, label %132, !llvm.loop !42
 
 132:                                              ; preds = %130, %127
   %indvars.iv.i.i.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i.i.i, %130 ]
@@ -1734,7 +1734,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
   store i32 %147, ptr %155, align 4, !tbaa !25
   %indvars.iv.next.i127.i = add nuw nsw i64 %indvars.iv.i126.i, 1
   %exitcond.not.i128.i = icmp eq i64 %indvars.iv.next.i127.i, %wide.trip.count.i125.i
-  br i1 %exitcond.not.i128.i, label %.loopexit133.i.loopexit.i, label %153, !llvm.loop !45
+  br i1 %exitcond.not.i128.i, label %.loopexit133.i.loopexit.i, label %153, !llvm.loop !43
 
 .loopexit133.i.loopexit.i:                        ; preds = %153
   %.pre.i = load ptr, ptr %0, align 8
@@ -1754,9 +1754,9 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
 
 163:                                              ; preds = %_ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 0, ptr %9, align 4, !tbaa !46
+  store i32 0, ptr %9, align 4, !tbaa !44
   %164 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 -1, ptr %164, align 4, !tbaa !48
+  store i32 -1, ptr %164, align 4, !tbaa !46
   %165 = lshr exact i32 %157, 4
   %.not97139.i.not.i.i = icmp eq i32 %157, 0
   br i1 %.not97139.i.not.i.i, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i, label %.lr.ph148.i.i.i
@@ -1805,7 +1805,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; pre
 188:                                              ; preds = %.lr.ph.i.i.i.i
   %189 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i, i64 4
   %190 = icmp ult ptr %189, %185
-  br i1 %190, label %.lr.ph.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i, !llvm.loop !49
+  br i1 %190, label %.lr.ph.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i, !llvm.loop !47
 
 _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %188, %.lr.ph.i.i.i.i
   %.0.lcssa.i.ph.i.i.i = phi ptr [ %189, %188 ], [ %.08.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -1840,11 +1840,11 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %188, %.lr
   %201 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.next.i58.i.i
   %202 = load i32, ptr %201, align 4, !tbaa !25
   %.not.i59.i.i = icmp eq i32 %202, %174
-  br i1 %.not.i59.i.i, label %199, label %278, !llvm.loop !50
+  br i1 %.not.i59.i.i, label %199, label %278, !llvm.loop !48
 
 .critedge.i.i.i:                                  ; preds = %199, %194, %.thread.i60.i.i
   %.084.i.i.i = phi i32 [ %174, %194 ], [ %181, %.thread.i60.i.i ], [ %174, %199 ]
-  %203 = load i32, ptr %164, align 4, !tbaa !48
+  %203 = load i32, ptr %164, align 4, !tbaa !46
   %204 = icmp sgt i32 %203, -1
   br i1 %204, label %205, label %210
 
@@ -1856,7 +1856,7 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %188, %.lr
   br i1 %209, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i, label %210
 
 210:                                              ; preds = %205, %.critedge.i.i.i
-  %211 = load i32, ptr %9, align 4, !tbaa !46
+  %211 = load i32, ptr %9, align 4, !tbaa !44
   %212 = icmp sgt i32 %211, 0
   br i1 %212, label %.lr.ph.i103.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i
 
@@ -1874,11 +1874,11 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %188, %.lr
 217:                                              ; preds = %213
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %213, !llvm.loop !51
+  br i1 %exitcond.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %213, !llvm.loop !49
 
 218:                                              ; preds = %213
   %219 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  store i32 %219, ptr %164, align 4, !tbaa !48
+  store i32 %219, ptr %164, align 4, !tbaa !46
   br label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %217
@@ -1886,17 +1886,17 @@ _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.i.i.i: ; preds = %188, %.lr
   br i1 %220, label %.preheader.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.thread.i.i.i: ; preds = %._crit_edge.i.i.i.i, %210
-  store i32 %211, ptr %164, align 4, !tbaa !48
+  store i32 %211, ptr %164, align 4, !tbaa !46
   %221 = sext i32 %211 to i64
   %222 = getelementptr inbounds [32 x i32], ptr %167, i64 0, i64 %221
   store i32 %.089142.i.i.i, ptr %222, align 4, !tbaa !25
-  %223 = load i32, ptr %9, align 4, !tbaa !46
+  %223 = load i32, ptr %9, align 4, !tbaa !44
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds [32 x i32], ptr %166, i64 0, i64 %224
   store i32 %.084.i.i.i, ptr %225, align 4, !tbaa !25
-  %226 = load i32, ptr %9, align 4, !tbaa !46
+  %226 = load i32, ptr %9, align 4, !tbaa !44
   %227 = add nsw i32 %226, 1
-  store i32 %227, ptr %9, align 4, !tbaa !46
+  store i32 %227, ptr %9, align 4, !tbaa !44
   %228 = sext i32 %226 to i64
   br label %.thread127.sink.split.i.i.i
 
@@ -1920,7 +1920,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i: ; preds = %218
   br label %247
 
 ._crit_edge.i.i.i:                                ; preds = %270, %.preheader.i.i.i
-  %237 = load i32, ptr %9, align 4, !tbaa !46
+  %237 = load i32, ptr %9, align 4, !tbaa !44
   %238 = icmp sgt i32 %237, 0
   br i1 %238, label %.lr.ph.i105.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i
 
@@ -1940,11 +1940,11 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i: ; preds = %218
   %spec.select17.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %241, i32 %.01319.i.i.i.i)
   %indvars.iv.next.i108.i.i.i = add nuw nsw i64 %indvars.iv.i107.i.i.i, 1
   %exitcond.not.i109.i.i.i = icmp eq i64 %indvars.iv.next.i108.i.i.i, %wide.trip.count.i106.i.i.i
-  br i1 %exitcond.not.i109.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i, label %239, !llvm.loop !52
+  br i1 %exitcond.not.i109.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i, label %239, !llvm.loop !50
 
 _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %239, %._crit_edge.i.i.i
   %.014.lcssa.i.i.i.i = phi i32 [ -1, %._crit_edge.i.i.i ], [ %spec.select.i.i.i.i, %239 ]
-  store i32 %.014.lcssa.i.i.i.i, ptr %164, align 4, !tbaa !48
+  store i32 %.014.lcssa.i.i.i.i, ptr %164, align 4, !tbaa !46
   %244 = sext i32 %.014.lcssa.i.i.i.i to i64
   %245 = getelementptr inbounds [32 x i32], ptr %167, i64 0, i64 %244
   store i32 %.089142.i.i.i, ptr %245, align 4, !tbaa !25
@@ -1971,7 +1971,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %239, %._c
 
 257:                                              ; preds = %253
   %258 = add nuw nsw i32 %spec.select99.i.i.i, %spec.select98.i.i.i
-  %259 = load i32, ptr %9, align 4, !tbaa !46
+  %259 = load i32, ptr %9, align 4, !tbaa !44
   %260 = icmp sgt i32 %259, 0
   br i1 %260, label %.lr.ph.i112.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i
 
@@ -1991,11 +1991,11 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit.i.i.i: ; preds = %239, %._c
   %spec.select17.i118.i.i.i = tail call i32 @llvm.smin.i32(i32 %263, i32 %.01319.i115.i.i.i)
   %indvars.iv.next.i119.i.i.i = add nuw nsw i64 %indvars.iv.i114.i.i.i, 1
   %exitcond.not.i120.i.i.i = icmp eq i64 %indvars.iv.next.i119.i.i.i, %wide.trip.count.i113.i.i.i
-  br i1 %exitcond.not.i120.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i, label %261, !llvm.loop !52
+  br i1 %exitcond.not.i120.i.i.i, label %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i, label %261, !llvm.loop !50
 
 _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %261, %257
   %.014.lcssa.i111.i.i.i = phi i32 [ -1, %257 ], [ %spec.select.i117.i.i.i, %261 ]
-  store i32 %.014.lcssa.i111.i.i.i, ptr %164, align 4, !tbaa !48
+  store i32 %.014.lcssa.i111.i.i.i, ptr %164, align 4, !tbaa !46
   %266 = sext i32 %.014.lcssa.i111.i.i.i to i64
   %267 = getelementptr inbounds [32 x i32], ptr %167, i64 0, i64 %266
   store i32 %.0138.i.i.i, ptr %267, align 4, !tbaa !25
@@ -2008,7 +2008,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %261, %
 270:                                              ; preds = %253, %247
   %271 = add nuw nsw i32 %spec.select99.i.i.i, %.0138.i.i.i
   %272 = icmp eq i32 %271, %.089142.i.i.i
-  br i1 %272, label %._crit_edge.i.i.i, label %247, !llvm.loop !53
+  br i1 %272, label %._crit_edge.i.i.i, label %247, !llvm.loop !51
 
 273:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i
   %.072.i.i.i = phi i32 [ %233, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks9findOrAddEiij.exit.i.i.i ], [ %.0138.i.i.i, %_ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i ]
@@ -2041,7 +2041,7 @@ _ZN6icu_7712_GLOBAL__N_113AllSameBlocks3addEiij.exit121.i.i.i: ; preds = %261, %
   %.381133.i.i.i = phi i32 [ %spec.select102.i.i.i, %278 ], [ %277, %.thread127.i.i.i ], [ %.078145.i.i.i, %275 ], [ %193, %192 ]
   %282 = add nuw nsw i32 %spec.select98.i.i.i, %.089142.i.i.i
   %.not97.i.i.i = icmp samesign ult i32 %282, %165
-  br i1 %.not97.i.i.i, label %169, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, !llvm.loop !54
+  br i1 %.not97.i.i.i, label %169, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, !llvm.loop !52
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i: ; preds = %.thread130.i.i.i
   %283 = icmp slt i32 %.381133.i.i.i, 0
@@ -2081,7 +2081,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit64.i.i: ; preds = %293
   store i32 %.0.i63.i.i, ptr %301, align 4, !tbaa !25
   %indvars.iv.next237.i.i = add nuw nsw i64 %indvars.iv236.i.i, 1
   %exitcond239.not.i.i = icmp eq i64 %indvars.iv.next237.i.i, 128
-  br i1 %exitcond239.not.i.i, label %163, label %284, !llvm.loop !55
+  br i1 %exitcond239.not.i.i, label %163, label %284, !llvm.loop !53
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i, %163
   %spec.select100.i123.i.i = phi i32 [ %.381133.i.i.i, %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.i.i ], [ 148, %163 ]
@@ -2093,7 +2093,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13A
 
 306:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13AllSameBlocksE.exit.thread121.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %304, ptr noundef nonnull align 16 dereferenceable(512) %8, i64 512, i1 false)
-  %307 = load i32, ptr %9, align 4, !tbaa !46
+  %307 = load i32, ptr %9, align 4, !tbaa !44
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %_ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i, label %.preheader.i65.i.i
 
@@ -2129,7 +2129,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie22compactWholeDataBlocksEiRNS0_13A
   %spec.select13.i.i.i = tail call i32 @llvm.smax.i32(i32 %317, i32 %.0815.i.i.i)
   %indvars.iv.next.i70.i.i = add nuw nsw i64 %indvars.iv.i68.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i70.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %315, !llvm.loop !56
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %315, !llvm.loop !54
 
 _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._crit_edge.i66.i.i, %306
   %.011.i.i.i = phi i32 [ %314, %._crit_edge.i66.i.i ], [ -1, %306 ]
@@ -2145,9 +2145,9 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
 
 324:                                              ; preds = %321
   %325 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 12, ptr %325, align 8, !tbaa !57
+  store i32 12, ptr %325, align 8, !tbaa !55
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 4095, ptr %326, align 4, !tbaa !59
+  store i32 4095, ptr %326, align 4, !tbaa !57
   br label %337
 
 327:                                              ; preds = %321
@@ -2157,8 +2157,8 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
 
 330:                                              ; preds = %327
   %331 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 15, ptr %331, align 8, !tbaa !57
-  store i32 32767, ptr %329, align 4, !tbaa !59
+  store i32 15, ptr %331, align 8, !tbaa !55
+  store i32 32767, ptr %329, align 4, !tbaa !57
   br label %337
 
 332:                                              ; preds = %327
@@ -2167,13 +2167,13 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br i1 %333, label %335, label %336
 
 335:                                              ; preds = %332
-  store i32 17, ptr %334, align 8, !tbaa !57
-  store i32 131071, ptr %329, align 4, !tbaa !59
+  store i32 17, ptr %334, align 8, !tbaa !55
+  store i32 131071, ptr %329, align 4, !tbaa !57
   br label %337
 
 336:                                              ; preds = %332
-  store i32 21, ptr %334, align 8, !tbaa !57
-  store i32 2097151, ptr %329, align 4, !tbaa !59
+  store i32 21, ptr %334, align 8, !tbaa !55
+  store i32 2097151, ptr %329, align 4, !tbaa !57
   br label %337
 
 337:                                              ; preds = %336, %335, %330, %324
@@ -2191,7 +2191,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
           to label %.noexc86.i.i unwind label %.loopexit.split-lp.i.i
 
 .noexc86.i.i:                                     ; preds = %.noexc.i.i
-  store ptr %341, ptr %10, align 8, !tbaa !60
+  store ptr %341, ptr %10, align 8, !tbaa !58
   %342 = icmp eq ptr %341, null
   br i1 %342, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i, label %346
 
@@ -2202,15 +2202,15 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   %345 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv.i71.i.i
   store i32 %.098186.i.i.i, ptr %345, align 4, !tbaa !25
   %indvars.iv.next.i72.i.i = add nuw nsw i64 %indvars.iv.i71.i.i, 4
-  br i1 %344, label %343, label %321, !llvm.loop !61
+  br i1 %344, label %343, label %321, !llvm.loop !59
 
 346:                                              ; preds = %.noexc86.i.i
-  store i32 %.promoted184.i.i, ptr %338, align 8, !tbaa !62
+  store i32 %.promoted184.i.i, ptr %338, align 8, !tbaa !60
   %347 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.promoted184.i.i, ptr %347, align 4, !tbaa !63
+  store i32 %.promoted184.i.i, ptr %347, align 4, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %341, i8 0, i64 %340, i1 false)
   %348 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 64, ptr %348, align 8, !tbaa !64
+  store i32 64, ptr %348, align 8, !tbaa !62
   call fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %304, i32 noundef 0, i32 noundef 128)
   %349 = load i32, ptr %94, align 8, !tbaa !19
   %350 = ashr i32 %349, 4
@@ -2254,8 +2254,8 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   br i1 %360, label %361, label %368
 
 361:                                              ; preds = %357
-  store i32 %.sink298.i.i.i, ptr %355, align 8, !tbaa !57
-  store i32 %.sink.i.i.i, ptr %353, align 4, !tbaa !59
+  store i32 %.sink298.i.i.i, ptr %355, align 8, !tbaa !55
+  store i32 %.sink.i.i.i, ptr %353, align 4, !tbaa !57
   %362 = icmp sgt i32 %.0.i119.i.i.i, %.0.i119.i182.i.i
   br i1 %362, label %363, label %._crit_edge.i121.i.i.i
 
@@ -2268,20 +2268,20 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
           to label %.noexc88.i.i unwind label %.loopexit.i.i
 
 .noexc88.i.i:                                     ; preds = %.noexc87.i.i
-  store ptr %364, ptr %10, align 8, !tbaa !60
+  store ptr %364, ptr %10, align 8, !tbaa !58
   %365 = icmp eq ptr %364, null
   br i1 %365, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i, label %366
 
 366:                                              ; preds = %.noexc88.i.i
-  store i32 %.0.i119.i.i.i, ptr %338, align 8, !tbaa !62
+  store i32 %.0.i119.i.i.i, ptr %338, align 8, !tbaa !60
   br label %._crit_edge.i121.i.i.i
 
 ._crit_edge.i121.i.i.i:                           ; preds = %366, %361
   %367 = phi ptr [ %364, %366 ], [ %359, %361 ]
   %.0.i119.i181.i.i = phi i32 [ %.0.i119.i.i.i, %366 ], [ %.0.i119.i182.i.i, %361 ]
-  store i32 %.0.i119.i.i.i, ptr %347, align 4, !tbaa !63
+  store i32 %.0.i119.i.i.i, ptr %347, align 4, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %367, i8 0, i64 %.pre14.i123.i.i.i, i1 false)
-  store i32 16, ptr %348, align 8, !tbaa !64
+  store i32 16, ptr %348, align 8, !tbaa !62
   call fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %304, i32 noundef 0, i32 noundef %.199208.i.i.i)
   br label %368
 
@@ -2316,7 +2316,7 @@ _ZNK6icu_7712_GLOBAL__N_113AllSameBlocks12findMostUsedEv.exit.i.i: ; preds = %._
   %378 = add i32 %377, %376
   %379 = add nuw nsw i32 %.02.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i32 %379, %369
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %380 = shl i32 %378, %.sink298.i174.i.i
@@ -2359,7 +2359,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %
 400:                                              ; preds = %.lr.ph.i.us.i.i.i.i.i
   %401 = getelementptr inbounds nuw i8, ptr %.08.i.us.i.i.i.i.i, i64 4
   %402 = icmp ult ptr %401, %397
-  br i1 %402, label %.lr.ph.i.us.i.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i, !llvm.loop !49
+  br i1 %402, label %.lr.ph.i.us.i.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i, !llvm.loop !47
 
 403:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i
   %404 = add nuw nsw i32 %.02129.us.i.i.i.i.i, %383
@@ -2368,7 +2368,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeEj.exit.i.i.i.i: ; preds = %
   %407 = getelementptr inbounds nuw i32, ptr %370, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !25
   %409 = icmp eq i32 %408, 0
-  br i1 %409, label %._crit_edge.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i.i, !llvm.loop !66
+  br i1 %409, label %._crit_edge.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i.i, !llvm.loop !64
 
 _ZN6icu_7712_GLOBAL__N_115allValuesSameAsEPKjij.exit.loopexit.us.i.i.i.i.i: ; preds = %400, %.lr.ph.i.us.i.i.i.i.i
   %.0.lcssa.i.ph.us.i.i.i.i.i = phi ptr [ %.08.i.us.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i.i ], [ %401, %400 ]
@@ -2421,7 +2421,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i: ; pred
   %indvars.iv.next.i.i84.i.i = add nuw nsw i64 %indvars.iv.i.i83.i.i, 4
   %.not.i128.i.i.i = icmp samesign uge i64 %indvars.iv.next.i.i84.i.i, %356
   %or.cond.not.i.i.i.i = select i1 %428, i1 true, i1 %.not.i128.i.i.i
-  br i1 %or.cond.not.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, label %425, !llvm.loop !67
+  br i1 %or.cond.not.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i, label %425, !llvm.loop !65
 
 _ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i: ; preds = %425
   br i1 %428, label %429, label %.critedge.thread.i.i.i
@@ -2442,7 +2442,7 @@ _ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i: ; preds = %42
 434:                                              ; preds = %.preheader.i.i.i.i
   %indvars.iv.next.i130.i.i.i = add nuw nsw i64 %indvars.iv.i129.i.i.i, 1
   %.not29.i.i.i.i = icmp eq i64 %indvars.iv.next.i130.i.i.i, %424
-  br i1 %.not29.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !68
+  br i1 %.not29.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !66
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i85.i.i, %434
   %indvars.iv.i129.i.i.i = phi i64 [ %indvars.iv.next.i130.i.i.i, %434 ], [ 1, %.lr.ph.i.i85.i.i ]
@@ -2459,13 +2459,13 @@ _ZN6icu_7712_GLOBAL__N_122isStartOfSomeFastBlockEjPKji.exit.i.i.i: ; preds = %42
 .loopexit.i.i.i.i:                                ; preds = %.loopexit.loopexit.i.i.i.i, %.lr.ph.i.i85.i.i
   %.2.i.i.i.i = phi i32 [ %.02237.i.i.i.i, %.lr.ph.i.i85.i.i ], [ %438, %.loopexit.loopexit.i.i.i.i ]
   %.not.not.i.i.i.i = icmp slt i32 %.2.i.i.i.i, %423
-  br i1 %.not.not.i.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread265.i.i.i, !llvm.loop !69
+  br i1 %.not.not.i.i.i.i, label %.lr.ph.i.i85.i.i, label %.critedge.thread265.i.i.i, !llvm.loop !67
 
 _ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %434
   %439 = icmp sgt i32 %.02237.i.in.i.i.i, -2
   %440 = icmp slt i32 %.02237.i.i.i.i, %.1110.i.i.i
   %or.cond118.i.i.i = select i1 %439, i1 %440, i1 false
-  br i1 %or.cond118.i.i.i, label %.lr.ph193.split.i.i.i, label %.critedge.i82.i.i, !llvm.loop !70
+  br i1 %or.cond118.i.i.i, label %.lr.ph193.split.i.i.i, label %.critedge.i82.i.i, !llvm.loop !68
 
 .critedge.i82.i.i:                                ; preds = %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i
   %.0105.lcssa.i.i.i = phi i32 [ %.0.i127.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks16findAllSameBlockEPKjj.exit.i.i.i ], [ %.02237.i.i.i.i, %_ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i ]
@@ -2499,7 +2499,7 @@ _ZN6icu_7712_GLOBAL__N_116findAllSameBlockEPKjiiji.exit.i.i.i: ; preds = %434
 449:                                              ; preds = %.lr.ph.i132.i.i.i
   %indvars.iv.next.i134.i.i.i = add nsw i64 %indvars.iv.i133.i.i.i, -1
   %450 = icmp sgt i64 %indvars.iv.next.i134.i.i.i, %444
-  br i1 %450, label %.lr.ph.i132.i.i.i, label %_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i, !llvm.loop !71
+  br i1 %450, label %.lr.ph.i132.i.i.i, label %_ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i, !llvm.loop !69
 
 .critedge.loopexit.split.loop.exit15.i.i.i.i:     ; preds = %.lr.ph.i132.i.i.i
   %451 = trunc nuw nsw i64 %indvars.iv.i133.i.i.i to i32
@@ -2524,7 +2524,7 @@ _ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %
   store i32 %376, ptr %455, align 4, !tbaa !25
   %456 = add nsw i32 %.1106198.i.i.i, 1
   %exitcond261.not.i.i.i = icmp eq i32 %456, %.1104.i.i.i
-  br i1 %exitcond261.not.i.i.i, label %._crit_edge201.loopexit.i.i.i, label %.lr.ph200.i.i.i, !llvm.loop !72
+  br i1 %exitcond261.not.i.i.i, label %._crit_edge201.loopexit.i.i.i, label %.lr.ph200.i.i.i, !llvm.loop !70
 
 ._crit_edge201.loopexit.i.i.i:                    ; preds = %.lr.ph200.i.i.i
   %457 = trunc nuw i64 %indvars.iv.next259.i.i.i to i32
@@ -2556,7 +2556,7 @@ _ZN6icu_7712_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i: ; preds = %449, %
   %470 = load i32, ptr %469, align 4, !tbaa !25
   %471 = add i32 %468, %470
   %exitcond.not.i.i75.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %smax.i.i.i.i
-  br i1 %exitcond.not.i.i75.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i, label %467, !llvm.loop !73
+  br i1 %exitcond.not.i.i75.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i, label %467, !llvm.loop !71
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i: ; preds = %467
   %472 = shl i32 %471, %.sink298.i174.i.i
@@ -2603,14 +2603,14 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i.i.i.i
   %494 = getelementptr inbounds nuw i32, ptr %370, i64 %493
   %495 = load i32, ptr %494, align 4, !tbaa !25
   %496 = icmp eq i32 %495, 0
-  br i1 %496, label %._crit_edge.i.i138.i.i.i, label %.lr.ph.split.us.i.i141.i.i.i, !llvm.loop !74
+  br i1 %496, label %._crit_edge.i.i138.i.i.i, label %.lr.ph.split.us.i.i141.i.i.i, !llvm.loop !72
 
 497:                                              ; preds = %.lr.ph.i.us.i.i143.i.i.i
   %498 = getelementptr inbounds nuw i8, ptr %.078.i.us.i.i.i.i.i, i64 4
   %499 = getelementptr inbounds nuw i8, ptr %.069.i.us.i.i.i.i.i, i64 4
   %500 = add nsw i32 %.010.i.us.i.i.i.i.i, -1
   %501 = icmp sgt i32 %.010.i.us.i.i.i.i.i, 1
-  br i1 %501, label %.lr.ph.i.us.i.i143.i.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i.i.i.i, !llvm.loop !75
+  br i1 %501, label %.lr.ph.i.us.i.i143.i.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i.i.i.i, !llvm.loop !73
 
 ._crit_edge.i.i138.i.i.i:                         ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i
   %.022.lcssa.i.i.i.i.i = phi i32 [ %475, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit.i.i.i.i ], [ %492, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i.i.i.i ]
@@ -2642,7 +2642,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i145.i.i.i
   %513 = icmp sgt i64 %indvars.iv.in.i.i.i.i, 2
-  br i1 %513, label %514, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !76
+  br i1 %513, label %514, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !74
 
 514:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i.i
   %indvars.iv.in.i.i.i.i = phi i64 [ %511, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIjjEEiPKT_PKT0_i.exit.thread.i.i.i ], [ %indvars.iv.i144.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
@@ -2666,7 +2666,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; p
   %523 = getelementptr inbounds nuw i8, ptr %.069.i.i.i.i.i, i64 4
   %524 = add nsw i32 %.010.i.i.i.i.i, -1
   %525 = icmp sgt i32 %.010.i.i.i.i.i, 1
-  br i1 %525, label %.lr.ph.i.i145.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !75
+  br i1 %525, label %.lr.ph.i.i145.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !73
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %521
   %.013.i.i.i.i = phi i32 [ %517, %521 ], [ 0, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
@@ -2689,7 +2689,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %_Z
   %531 = getelementptr inbounds nuw i32, ptr %304, i64 %indvars.iv251.i.i.i
   store i32 %530, ptr %531, align 4, !tbaa !25
   %exitcond.not.i80.i.i = icmp eq i64 %indvars.iv.next254.i.i.i, %511
-  br i1 %exitcond.not.i80.i.i, label %._crit_edge.loopexit.i81.i.i, label %.lr.ph.i79.i.i, !llvm.loop !77
+  br i1 %exitcond.not.i80.i.i, label %._crit_edge.loopexit.i81.i.i, label %.lr.ph.i79.i.i, !llvm.loop !75
 
 ._crit_edge.loopexit.i81.i.i:                     ; preds = %.lr.ph.i79.i.i
   %532 = trunc nuw i64 %indvars.iv.next252.i.i.i to i32
@@ -2714,7 +2714,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIjjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %_Z
   %.6.i.i.i = phi i32 [ %.199208.i.i.i, %533 ], [ %.199208.i.i.i, %.critedge.thread.i.i.i ], [ %.3.lcssa.i.i.i, %._crit_edge201.i.i.i ], [ %.199208.i.i.i, %509 ], [ %.5.lcssa.i.i.i, %._crit_edge.i76.i.i ]
   %541 = add i32 %.1112.i.i.i, %.0108206.i.i.i
   %.not.i77.i.i = icmp slt i32 %541, %350
-  br i1 %.not.i77.i.i, label %357, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i, !llvm.loop !78
+  br i1 %.not.i77.i.i, label %357, label %_ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.i.i, !llvm.loop !76
 
 _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlocksER10UErrorCode.exit.thread.i.i: ; preds = %.noexc88.i.i, %.noexc86.i.i
   store i32 7, ptr %3, align 4, !tbaa !3
@@ -2840,22 +2840,22 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   store i32 %594, ptr %595, align 4, !tbaa !25
   %indvars.iv.next.i92.i.i = add nsw i64 %indvars.iv.i91.i.i, 1
   %596 = icmp slt i64 %indvars.iv.i91.i.i, %592
-  br i1 %596, label %593, label %597, !llvm.loop !79
+  br i1 %596, label %593, label %597, !llvm.loop !77
 
 597:                                              ; preds = %593
   %598 = trunc nsw i64 %indvars.iv.next.i92.i.i to i32
   %indvars.iv.next433.i.i.i = add nuw nsw i64 %indvars.iv432.i.i.i, 1
   %599 = icmp sgt i32 %93, %598
-  br i1 %599, label %572, label %._crit_edge.i.i94.i.i, !llvm.loop !80
+  br i1 %599, label %572, label %._crit_edge.i.i94.i.i, !llvm.loop !78
 
 ._crit_edge.i.i94.i.i:                            ; preds = %597
   %600 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 12, ptr %600, align 8, !tbaa !57
+  store i32 12, ptr %600, align 8, !tbaa !55
   %601 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 4095, ptr %601, align 4, !tbaa !59
-  store i32 6007, ptr %347, align 4, !tbaa !63
+  store i32 4095, ptr %601, align 4, !tbaa !57
+  store i32 6007, ptr %347, align 4, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24028) %.val.pre.pre256.ph.i.i, i8 0, i64 24028, i1 false)
-  store i32 32, ptr %348, align 8, !tbaa !64
+  store i32 32, ptr %348, align 8, !tbaa !62
   call fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendItEEvPKT_iii(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, i32 noundef %564)
   %602 = and i32 %93, 4096
   %603 = load i32, ptr %94, align 8, !tbaa !19
@@ -2914,7 +2914,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   %indvars.iv.next436.i.i.i = add nuw nsw i64 %indvars.iv435.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next436.i.i.i to i32
   %exitcond.not.i112.i.i = icmp eq i32 %indvars.iv437.i.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond.not.i112.i.i, label %629, label %625, !llvm.loop !81
+  br i1 %exitcond.not.i112.i.i, label %629, label %625, !llvm.loop !79
 
 629:                                              ; preds = %625
   %indvars.iv.next242.i.i = add nuw nsw i64 %indvars.iv241.i.i, 32
@@ -2967,7 +2967,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   %.3242.i.i.i = phi i32 [ 0, %633 ], [ %.2241385.i.i.i, %630 ], [ %.2241385.i.i.i, %646 ], [ %.2241385.i.i.i, %644 ], [ %.2241385.i.i.i, %642 ]
   %650 = icmp samesign ult i64 %indvars.iv.next242.i.i, %610
   %indvars.iv.next438.i.i.i = add nuw nsw i32 %indvars.iv437.i.i.i, 32
-  br i1 %650, label %.preheader368.i.i.i, label %._crit_edge.i95.i.i, !llvm.loop !82
+  br i1 %650, label %.preheader368.i.i.i, label %._crit_edge.i95.i.i, !llvm.loop !80
 
 651:                                              ; preds = %.noexc115.i.i
   store i32 7, ptr %3, align 4, !tbaa !3
@@ -2996,8 +2996,8 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   %.sink494.i.i.i = phi i32 [ 12, %652 ], [ 15, %657 ], [ %..i96.i.i, %659 ]
   %.sink.i97.i.i = phi i32 [ 4095, %652 ], [ 32767, %657 ], [ %.495.i.i.i, %659 ]
   %.0.i317.i.i.i = phi i32 [ 6007, %652 ], [ 50021, %657 ], [ %.496.i.i.i, %659 ]
-  store i32 %.sink494.i.i.i, ptr %600, align 8, !tbaa !57
-  store i32 %.sink.i97.i.i, ptr %601, align 4, !tbaa !59
+  store i32 %.sink494.i.i.i, ptr %600, align 8, !tbaa !55
+  store i32 %.sink.i97.i.i, ptr %601, align 4, !tbaa !57
   %662 = icmp samesign ugt i32 %.0.i317.i.i.i, %542
   br i1 %662, label %663, label %._crit_edge.i319.i.i.i
 
@@ -3017,12 +3017,12 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
           to label %.noexc117.i.i unwind label %935
 
 .noexc117.i.i:                                    ; preds = %.noexc116.i.i
-  store ptr %666, ptr %10, align 8, !tbaa !60
+  store ptr %666, ptr %10, align 8, !tbaa !58
   %667 = icmp eq ptr %666, null
   br i1 %667, label %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i, label %668
 
 668:                                              ; preds = %.noexc117.i.i
-  store i32 %.0.i317.i.i.i, ptr %338, align 8, !tbaa !62
+  store i32 %.0.i317.i.i.i, ptr %338, align 8, !tbaa !60
   br label %669
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc117.i.i
@@ -3032,9 +3032,9 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc11
 669:                                              ; preds = %668, %._crit_edge.i319.i.i.i
   %.pre-phi15.i322.i.i.i = phi i64 [ %.pre14.i321.i.i.i, %._crit_edge.i319.i.i.i ], [ %665, %668 ]
   %670 = phi ptr [ %.val.pre.pre256.ph.i.i, %._crit_edge.i319.i.i.i ], [ %666, %668 ]
-  store i32 %.0.i317.i.i.i, ptr %347, align 4, !tbaa !63
+  store i32 %.0.i317.i.i.i, ptr %347, align 4, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %670, i8 0, i64 %.pre-phi15.i322.i.i.i, i1 false)
-  store i32 32, ptr %348, align 8, !tbaa !64
+  store i32 32, ptr %348, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   br i1 %.0269.lcssa.i.i.i, label %671, label %697
@@ -3046,9 +3046,9 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc11
 
 674:                                              ; preds = %671
   %675 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 12, ptr %675, align 8, !tbaa !57
+  store i32 12, ptr %675, align 8, !tbaa !55
   %676 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 4095, ptr %676, align 4, !tbaa !59
+  store i32 4095, ptr %676, align 4, !tbaa !57
   br label %687
 
 677:                                              ; preds = %671
@@ -3058,8 +3058,8 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc11
 
 680:                                              ; preds = %677
   %681 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 15, ptr %681, align 8, !tbaa !57
-  store i32 32767, ptr %679, align 4, !tbaa !59
+  store i32 15, ptr %681, align 8, !tbaa !55
+  store i32 32767, ptr %679, align 4, !tbaa !57
   br label %687
 
 682:                                              ; preds = %677
@@ -3068,13 +3068,13 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc11
   br i1 %683, label %685, label %686
 
 685:                                              ; preds = %682
-  store i32 17, ptr %684, align 8, !tbaa !57
-  store i32 131071, ptr %679, align 4, !tbaa !59
+  store i32 17, ptr %684, align 8, !tbaa !55
+  store i32 131071, ptr %679, align 4, !tbaa !57
   br label %687
 
 686:                                              ; preds = %682
-  store i32 21, ptr %684, align 8, !tbaa !57
-  store i32 2097151, ptr %679, align 4, !tbaa !59
+  store i32 21, ptr %684, align 8, !tbaa !55
+  store i32 2097151, ptr %679, align 4, !tbaa !57
   br label %687
 
 687:                                              ; preds = %686, %685, %680, %674
@@ -3090,17 +3090,17 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit324.i.i.i: ; preds = %.noexc11
           to label %.noexc332.i.i.i unwind label %695
 
 .noexc332.i.i.i:                                  ; preds = %.noexc.i.i.i
-  store ptr %691, ptr %6, align 8, !tbaa !60
+  store ptr %691, ptr %6, align 8, !tbaa !58
   %692 = icmp eq ptr %691, null
   br i1 %692, label %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.i.i.i, label %_ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.thread.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.thread.i.i.i: ; preds = %.noexc332.i.i.i
-  store i32 %.0.i325.i.i.i, ptr %688, align 8, !tbaa !62
+  store i32 %.0.i325.i.i.i, ptr %688, align 8, !tbaa !60
   %693 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %.0.i325.i.i.i, ptr %693, align 4, !tbaa !63
+  store i32 %.0.i325.i.i.i, ptr %693, align 4, !tbaa !61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %691, i8 0, i64 %690, i1 false)
   %694 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 36, ptr %694, align 8, !tbaa !64
+  store i32 36, ptr %694, align 8, !tbaa !62
   br label %697
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.i.i.i: ; preds = %.noexc332.i.i.i
@@ -3203,12 +3203,12 @@ _ZN6icu_7712_GLOBAL__N_111MixedBlocks4initEii.exit333.i.i.i: ; preds = %.noexc33
   %737 = getelementptr inbounds nuw i8, ptr %.069.i.i.i104.i.i, i64 4
   %738 = add nsw i32 %.010.i.i.i103.i.i, -1
   %739 = icmp sgt i32 %.010.i.i.i103.i.i, 1
-  br i1 %739, label %.lr.ph.i.i.i102.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !83
+  br i1 %739, label %.lr.ph.i.i.i102.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !81
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i102.i.i
   %indvars.iv.next.i.i106.i.i = add nsw i64 %indvars.iv.i.i101.i.i, -1
   %740 = icmp samesign ugt i64 %indvars.iv.i.i101.i.i, 1
-  br i1 %740, label %727, label %.lr.ph.preheader.i107.i.i, !llvm.loop !84
+  br i1 %740, label %727, label %.lr.ph.preheader.i107.i.i, !llvm.loop !82
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %735
   %741 = sub nsw i32 %.0263396.i.i.i, %730
@@ -3234,7 +3234,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %73
   %747 = getelementptr inbounds i16, ptr %717, i64 %indvars.iv441.i.i.i
   store i16 %746, ptr %747, align 2, !tbaa !33
   %exitcond446.not.i.i.i = icmp eq i64 %indvars.iv.next440.i.i.i, 32
-  br i1 %exitcond446.not.i.i.i, label %._crit_edge389.loopexit.i.i.i, label %.lr.ph.i108.i.i, !llvm.loop !85
+  br i1 %exitcond446.not.i.i.i, label %._crit_edge389.loopexit.i.i.i, label %.lr.ph.i108.i.i, !llvm.loop !83
 
 ._crit_edge389.loopexit.i.i.i:                    ; preds = %.lr.ph.i108.i.i
   %748 = trunc nsw i64 %indvars.iv.next442.i.i.i to i32
@@ -3330,7 +3330,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %73
   %814 = trunc nuw i32 %811 to i16
   store i16 %814, ptr %763, align 2, !tbaa !33
   %815 = icmp samesign ult i64 %indvars.iv.next450.i.i.i, %753
-  br i1 %815, label %757, label %816, !llvm.loop !86
+  br i1 %815, label %757, label %816, !llvm.loop !84
 
 816:                                              ; preds = %757
   %817 = call fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIttEEiPKT_PKT0_i(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull %755, ptr noundef nonnull %755, i32 noundef %.0263396.i.i.i)
@@ -3348,7 +3348,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapItjEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %73
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i335.i.i.i
   %indvars.iv.next.i339.i.i.i = add nsw i64 %indvars.iv.i334.i.i.i, -1
   %823 = icmp samesign ugt i64 %indvars.iv.i334.i.i.i, 1
-  br i1 %823, label %.lr.ph.i.i109.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i, !llvm.loop !87
+  br i1 %823, label %.lr.ph.i.i109.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i, !llvm.loop !85
 
 .lr.ph.i.i109.i.i:                                ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %821
   %indvars.iv.i334.i.i.i = phi i64 [ 35, %821 ], [ %indvars.iv.next.i339.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
@@ -3371,7 +3371,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i: ; p
   %832 = getelementptr inbounds nuw i8, ptr %.069.i.i337.i.i.i, i64 2
   %833 = add nsw i32 %.010.i.i336.i.i.i, -1
   %834 = icmp sgt i32 %.010.i.i336.i.i.i, 1
-  br i1 %834, label %.lr.ph.i.i335.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !88
+  br i1 %834, label %.lr.ph.i.i335.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i, !llvm.loop !86
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %830
   %835 = sub nsw i32 %.0263396.i.i.i, %826
@@ -3392,7 +3392,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i: ; preds = %83
   %839 = getelementptr inbounds i16, ptr %755, i64 %indvars.iv456.i.i.i
   store i16 %838, ptr %839, align 2, !tbaa !33
   %exitcond461.not.i.i.i = icmp eq i64 %indvars.iv.next455.i.i.i, 36
-  br i1 %exitcond461.not.i.i.i, label %.loopexit366.loopexit.i.i.i, label %.lr.ph393.i.i.i, !llvm.loop !89
+  br i1 %exitcond461.not.i.i.i, label %.loopexit366.loopexit.i.i.i, label %.lr.ph393.i.i.i, !llvm.loop !87
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i, %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i, %819
   %840 = phi i32 [ %835, %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.i.i.i ], [ %616, %819 ], [ %.0263396.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i.i.i.i ]
@@ -3441,7 +3441,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i: ; pred
   store i16 %854, ptr %855, align 2, !tbaa !33
   %indvars.iv.next448.i.i.i = add nuw nsw i64 %indvars.iv447.i.i.i, 32
   %856 = icmp samesign ult i64 %indvars.iv.next448.i.i.i, %699
-  br i1 %856, label %703, label %._crit_edge403.loopexit.i.i.i, !llvm.loop !90
+  br i1 %856, label %703, label %._crit_edge403.loopexit.i.i.i, !llvm.loop !88
 
 857:                                              ; preds = %._crit_edge403.i.i.i
   store i32 32767, ptr %571, align 4, !tbaa !14
@@ -3509,13 +3509,13 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit.thread.i.i.i: ; pred
   %880 = getelementptr inbounds nuw i8, ptr %.069.i.us.i.i.i.i, i64 2
   %881 = add nsw i32 %.010.i.us.i.i.i.i, -1
   %882 = icmp sgt i32 %.010.i.us.i.i.i.i, 1
-  br i1 %882, label %.lr.ph.i.us.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread.loopexit.i.i.i.i, !llvm.loop !88
+  br i1 %882, label %.lr.ph.i.us.i.i.i.i, label %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread.loopexit.i.i.i.i, !llvm.loop !86
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread14.loopexit.us.i.i.i.i: ; preds = %.lr.ph.i.us.i.i.i.i
   %indvars.iv.next.i344.i.i.i = add nsw i64 %indvars.iv.i343.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next.i344.i.i.i to i32
   %exitcond.not.i.i100.i.i = icmp eq i32 %873, %lftr.wideiv.i.i.i.i
-  br i1 %exitcond.not.i.i100.i.i, label %_ZN6icu_7712_GLOBAL__N_113findSameBlockEPKtiiS2_ii.exit.thread.i.i.i, label %.lr.ph.i.preheader.us.i.i.i.i, !llvm.loop !91
+  br i1 %exitcond.not.i.i100.i.i, label %_ZN6icu_7712_GLOBAL__N_113findSameBlockEPKtiiS2_ii.exit.thread.i.i.i, label %.lr.ph.i.preheader.us.i.i.i.i, !llvm.loop !89
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread.loopexit.i.i.i.i: ; preds = %878
   %883 = trunc nsw i64 %indvars.iv.i343.i.i.i to i32
@@ -3550,7 +3550,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.thread.i.i.i: ; p
 
 _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i: ; preds = %.lr.ph.i.i348.i.i.i
   %893 = icmp sgt i64 %indvars.iv.i347.in.i.i.i, 2
-  br i1 %893, label %.lr.ph.i346.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i, !llvm.loop !87
+  br i1 %893, label %.lr.ph.i346.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i, !llvm.loop !85
 
 .lr.ph.i346.i.i.i:                                ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i347.in.i.i.i = phi i64 [ %891, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.i347.i.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i ]
@@ -3574,7 +3574,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i: 
   %902 = getelementptr inbounds nuw i8, ptr %.069.i.i350.i.i.i, i64 2
   %903 = add nsw i32 %.010.i.i349.i.i.i, -1
   %904 = icmp sgt i32 %.010.i.i349.i.i.i, 1
-  br i1 %904, label %.lr.ph.i.i348.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i, !llvm.loop !88
+  br i1 %904, label %.lr.ph.i.i348.i.i.i, label %_ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i, !llvm.loop !86
 
 _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i: ; preds = %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i, %900, %_ZN6icu_7712_GLOBAL__N_113findSameBlockEPKtiiS2_ii.exit.thread.i.i.i
   %.1233.i.i.i = phi i32 [ 0, %_ZN6icu_7712_GLOBAL__N_113findSameBlockEPKtiiS2_ii.exit.thread.i.i.i ], [ %896, %900 ], [ 0, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.loopexit.i352.i.i.i ]
@@ -3620,7 +3620,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i: ; preds = 
   store i16 %923, ptr %924, align 2, !tbaa !33
   %925 = add nsw i32 %.1238364.i.i.i, %.0235414.i.i.i
   %926 = icmp slt i32 %925, %.0272.lcssa.i.i.i
-  br i1 %926, label %864, label %.loopexit.i.i.i, !llvm.loop !92
+  br i1 %926, label %864, label %.loopexit.i.i.i, !llvm.loop !90
 
 .loopexit.i.i.i:                                  ; preds = %921, %863, %.preheader.i98.i.i
   %.4.i.i.i = phi i32 [ 0, %863 ], [ %.0263.lcssa.i.i.i, %.preheader.i98.i.i ], [ %.8.i.i.i, %921 ]
@@ -3642,7 +3642,7 @@ _ZN6icu_7712_GLOBAL__N_110getOverlapIttEEiPKT_iPKT0_ii.exit355.i.i.i: ; preds = 
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit.i.i.i: ; preds = %927
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.val.pre.pre.pre.i.i = load ptr, ptr %10, align 8, !tbaa !60
+  %.val.pre.pre.pre.i.i = load ptr, ptr %10, align 8, !tbaa !58
   br label %934
 
 931:                                              ; preds = %695
@@ -3689,7 +3689,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie12compactIndexEiRNS0_11MixedBlocks
 
 .body.i.i:                                        ; preds = %935, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i, %.loopexit.split-lp.i.i, %.loopexit.i.i
   %.pn.i.i = phi { ptr, i32 } [ %936, %935 ], [ %696, %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit356.i.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  %.val54.i.i = load ptr, ptr %10, align 8, !tbaa !60
+  %.val54.i.i = load ptr, ptr %10, align 8, !tbaa !58
   invoke void @uprv_free_77(ptr noundef %.val54.i.i)
           to label %_ZN6icu_7712_GLOBAL__N_111MixedBlocksD2Ev.exit118.i.i unwind label %941
 
@@ -3941,7 +3941,7 @@ default.unreachable:                              ; preds = %1021
   %1055 = add nuw nsw i32 %.095175.i, 1
   %1056 = and i32 %1055, 3
   %.not104.i = icmp eq i32 %.095175.i, 1
-  br i1 %.not104.i, label %._crit_edge.loopexit.i, label %1050, !llvm.loop !93
+  br i1 %.not104.i, label %._crit_edge.loopexit.i, label %1050, !llvm.loop !91
 
 ._crit_edge.loopexit.i:                           ; preds = %1050
   %.pre244.i = load i32, ptr %1022, align 4, !tbaa !24
@@ -4004,22 +4004,22 @@ default.unreachable:                              ; preds = %1021
   %1087 = getelementptr inbounds nuw i8, ptr %1075, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1087, i8 0, i64 32, i1 false)
   %1088 = getelementptr inbounds nuw i8, ptr %1075, i64 16
-  store i32 %.097130.i, ptr %1088, align 8, !tbaa !94
+  store i32 %.097130.i, ptr %1088, align 8, !tbaa !92
   %1089 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1090 = load i32, ptr %1089, align 4, !tbaa !24
   %1091 = getelementptr inbounds nuw i8, ptr %1075, i64 20
   store i32 %1090, ptr %1091, align 4, !tbaa !32
   %1092 = load i32, ptr %94, align 8, !tbaa !19
   %1093 = getelementptr inbounds nuw i8, ptr %1075, i64 24
-  store i32 %1092, ptr %1093, align 8, !tbaa !95
+  store i32 %1092, ptr %1093, align 8, !tbaa !93
   %1094 = add nsw i32 %1092, 4095
   %1095 = lshr i32 %1094, 12
   %1096 = trunc i32 %1095 to i16
   %1097 = getelementptr inbounds nuw i8, ptr %1075, i64 28
-  store i16 %1096, ptr %1097, align 4, !tbaa !96
+  store i16 %1096, ptr %1097, align 4, !tbaa !94
   %1098 = trunc nuw nsw i32 %1 to i8
   %1099 = getelementptr inbounds nuw i8, ptr %1075, i64 30
-  store i8 %1098, ptr %1099, align 2, !tbaa !97
+  store i8 %1098, ptr %1099, align 2, !tbaa !95
   %1100 = trunc nuw nsw i32 %2 to i8
   %1101 = getelementptr inbounds nuw i8, ptr %1075, i64 31
   store i8 %1100, ptr %1101, align 1, !tbaa !28
@@ -4027,17 +4027,17 @@ default.unreachable:                              ; preds = %1021
   %1103 = load i32, ptr %1102, align 4, !tbaa !14
   %1104 = trunc i32 %1103 to i16
   %1105 = getelementptr inbounds nuw i8, ptr %1075, i64 38
-  store i16 %1104, ptr %1105, align 2, !tbaa !98
+  store i16 %1104, ptr %1105, align 2, !tbaa !96
   %1106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1107 = load i32, ptr %1106, align 8, !tbaa !15
   %1108 = getelementptr inbounds nuw i8, ptr %1075, i64 40
-  store i32 %1107, ptr %1108, align 8, !tbaa !99
+  store i32 %1107, ptr %1108, align 8, !tbaa !97
   %1109 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1110 = load i32, ptr %1109, align 8, !tbaa !17
   %1111 = getelementptr inbounds nuw i8, ptr %1075, i64 44
-  store i32 %1110, ptr %1111, align 4, !tbaa !100
+  store i32 %1110, ptr %1111, align 4, !tbaa !98
   %1112 = getelementptr inbounds nuw i8, ptr %1075, i64 48
-  store ptr %1112, ptr %1075, align 8, !tbaa !101
+  store ptr %1112, ptr %1075, align 8, !tbaa !99
   %.not111.i = icmp sgt i32 %1092, %92
   br i1 %.not111.i, label %1121, label %.preheader.i
 
@@ -4061,7 +4061,7 @@ default.unreachable:                              ; preds = %1021
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %1120 = add nuw nsw i32 %.087178.i, 1
   %exitcond.not.i = icmp eq i32 %1120, %.097130.i
-  br i1 %exitcond.not.i, label %.loopexit136.i, label %1115, !llvm.loop !102
+  br i1 %exitcond.not.i, label %.loopexit136.i, label %1115, !llvm.loop !100
 
 1121:                                             ; preds = %1086
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4099,7 +4099,7 @@ default.unreachable:                              ; preds = %1021
   store i16 %1134, ptr %.2185.i, align 2, !tbaa !33
   %1136 = add nsw i32 %.085187.i, -1
   %1137 = icmp samesign ugt i32 %.085187.i, 1
-  br i1 %1137, label %.lr.ph189.i, label %.loopexit.i, !llvm.loop !103
+  br i1 %1137, label %.lr.ph189.i, label %.loopexit.i, !llvm.loop !101
 
 1138:                                             ; preds = %.loopexit136.i
   store ptr %1128, ptr %1087, align 8, !tbaa !31
@@ -4124,7 +4124,7 @@ default.unreachable:                              ; preds = %1021
   store i8 %1145, ptr %.094180.i, align 1, !tbaa !31
   %1147 = add nsw i32 %.0182.i, -1
   %1148 = icmp samesign ugt i32 %.0182.i, 1
-  br i1 %1148, label %.lr.ph184.i, label %.loopexit.i, !llvm.loop !104
+  br i1 %1148, label %.lr.ph184.i, label %.loopexit.i, !llvm.loop !102
 
 default.unreachable.i:                            ; preds = %.loopexit136.i
   unreachable
@@ -4262,7 +4262,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit: ; preds =
   %.0.add.i = add nuw nsw i64 %.0.idx4.i, 4
   store i32 %48, ptr %.0.ptr.i, align 4, !tbaa !25
   %50 = icmp samesign ult i64 %.0.idx4.i, 60
-  br i1 %50, label %49, label %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit, !llvm.loop !105
+  br i1 %50, label %49, label %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit, !llvm.loop !103
 
 _ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit:    ; preds = %49
   %51 = getelementptr inbounds [69632 x i8], ptr %3, i64 0, i64 %indvars.iv
@@ -4274,7 +4274,7 @@ _ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit:    ; preds = %49
   store i32 %54, ptr %53, align 4, !tbaa !25
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 16
   %55 = icmp slt i64 %indvars.iv, %41
-  br i1 %55, label %43, label %56, !llvm.loop !106
+  br i1 %55, label %43, label %56, !llvm.loop !104
 
 56:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit
   %57 = getelementptr inbounds i32, ptr %52, i64 %4
@@ -4335,7 +4335,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie14allocDataBlockEi.exit34: ; preds
   %.0.add.i37 = add nuw nsw i64 %.0.idx4.i35, 4
   store i32 %84, ptr %.0.ptr.i36, align 4, !tbaa !25
   %86 = icmp samesign ult i64 %.0.idx4.i35, 60
-  br i1 %86, label %85, label %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38, !llvm.loop !105
+  br i1 %86, label %85, label %_ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38, !llvm.loop !103
 
 _ZN6icu_7712_GLOBAL__N_110writeBlockEPjj.exit38:  ; preds = %85
   store i8 1, ptr %5, align 1, !tbaa !31
@@ -4355,7 +4355,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPKT_iii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef range(i32 128, -2147483648) %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !64
+  %6 = load i32, ptr %5, align 8, !tbaa !62
   %7 = sub nsw i32 %2, %6
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 -1)
   %9 = sub nsw i32 %3, %6
@@ -4366,7 +4366,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPK
   %.0 = add nsw i32 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load ptr, ptr %0, align 8, !tbaa !60
+  %12 = load ptr, ptr %0, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %14
 
@@ -4375,7 +4375,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPK
 
 14:                                               ; preds = %.lr.ph, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryIjEEvPKT_iji.exit
   %.126 = phi i32 [ %.0, %.lr.ph ], [ %16, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryIjEEvPKT_iji.exit ]
-  %.val = load i32, ptr %5, align 8, !tbaa !64
+  %.val = load i32, ptr %5, align 8, !tbaa !62
   %.fr46.i.i = freeze i32 %.val
   %15 = add nsw i32 %.fr46.i.i, %.126
   %16 = add i32 %.126, 1
@@ -4395,12 +4395,12 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPK
   %25 = load i32, ptr %24, align 4, !tbaa !25
   %26 = add i32 %23, %25
   %27 = icmp slt i64 %indvars.iv.next.i, %21
-  br i1 %27, label %22, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !73
+  br i1 %27, label %22, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !71
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %22
-  %28 = load i32, ptr %10, align 8, !tbaa !57
+  %28 = load i32, ptr %10, align 8, !tbaa !55
   %29 = shl i32 %26, %28
-  %30 = load i32, ptr %11, align 4, !tbaa !63
+  %30 = load i32, ptr %11, align 4, !tbaa !61
   %31 = add nsw i32 %30, -1
   %32 = urem i32 %26, %31
   %33 = add nuw i32 %32, 1
@@ -4411,7 +4411,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %
   br i1 %37, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
-  %38 = load i32, ptr %13, align 4, !tbaa !59
+  %38 = load i32, ptr %13, align 4, !tbaa !57
   %39 = xor i32 %38, -1
   %40 = zext nneg i32 %.126 to i64
   %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
@@ -4448,14 +4448,14 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i: ; pr
   %56 = getelementptr inbounds i32, ptr %12, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !74
+  br i1 %58, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !72
 
 59:                                               ; preds = %.lr.ph.i.us.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.078.i.us.i.i, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %.069.i.us.i.i, i64 4
   %62 = add nsw i32 %.010.i.us.i.i, -1
   %63 = icmp sgt i32 %.010.i.us.i.i, 1
-  br i1 %63, label %.lr.ph.i.us.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i, !llvm.loop !75
+  br i1 %63, label %.lr.ph.i.us.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i, !llvm.loop !73
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   %64 = icmp eq i32 %.fr46.i.i, 0
@@ -4475,7 +4475,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us40.i.i: ; 
   %71 = getelementptr inbounds i32, ptr %12, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i, !llvm.loop !107
+  br i1 %73, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i, !llvm.loop !72
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us40.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
   %.022.lcssa.i.i = phi i32 [ %33, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit ], [ %54, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us.i.i ], [ %69, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us40.i.i ], [ %76, %.lr.ph.split.split.i.i ]
@@ -4490,7 +4490,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIjjEEbPKT_PKT0_i.exit.thread27.us40.i.i: ; 
   %78 = getelementptr inbounds i32, ptr %12, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !108
+  br i1 %80, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !72
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i: ; preds = %.lr.ph.split.split.us.i.i, %59, %._crit_edge.i.i
   %.1.ph.i.i = phi i32 [ %74, %._crit_edge.i.i ], [ %.02237.us.i.i, %59 ], [ %.02237.us39.i.i, %.lr.ph.split.split.us.i.i ]
@@ -4507,13 +4507,13 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i: ; pred
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryIjEEvPKT_iji.exit: ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIjjEEiPKT_PKT0_ij.exit.i, %82
   %.not = icmp sgt i32 %16, %9
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendItEEvPKT_iii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -131012, 132097) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !64
+  %7 = load i32, ptr %6, align 8, !tbaa !62
   %8 = add i32 %3, 1
   %9 = sub i32 %8, %7
   %.0 = tail call i32 @llvm.smax.i32(i32 %2, i32 %9)
@@ -4524,7 +4524,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendItEEvPK
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load ptr, ptr %0, align 8, !tbaa !60
+  %13 = load ptr, ptr %0, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %15
 
@@ -4533,7 +4533,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendItEEvPK
 
 15:                                               ; preds = %.lr.ph, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryItEEvPKT_iji.exit
   %.127 = phi i32 [ %.0, %.lr.ph ], [ %17, %_ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryItEEvPKT_iji.exit ]
-  %.val = load i32, ptr %6, align 8, !tbaa !64
+  %.val = load i32, ptr %6, align 8, !tbaa !62
   %.fr46.i.i = freeze i32 %.val
   %16 = add nsw i32 %.fr46.i.i, %.127
   %17 = add i32 %.127, 1
@@ -4555,12 +4555,12 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendItEEvPK
   %28 = zext i16 %27 to i32
   %29 = add i32 %25, %28
   %30 = icmp slt i64 %indvars.iv.next.i, %23
-  br i1 %30, label %24, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !110
+  br i1 %30, label %24, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !106
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %24
-  %31 = load i32, ptr %11, align 8, !tbaa !57
+  %31 = load i32, ptr %11, align 8, !tbaa !55
   %32 = shl i32 %29, %31
-  %33 = load i32, ptr %12, align 4, !tbaa !63
+  %33 = load i32, ptr %12, align 4, !tbaa !61
   %34 = add nsw i32 %33, -1
   %35 = urem i32 %29, %34
   %36 = add nuw i32 %35, 1
@@ -4571,7 +4571,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %
   br i1 %40, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
-  %41 = load i32, ptr %14, align 4, !tbaa !59
+  %41 = load i32, ptr %14, align 4, !tbaa !57
   %42 = xor i32 %41, -1
   %43 = icmp sgt i32 %.fr46.i.i, 0
   br i1 %43, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
@@ -4606,14 +4606,14 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i.i: ; pr
   %57 = getelementptr inbounds i32, ptr %13, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !111
+  br i1 %59, label %._crit_edge.i.i, label %.lr.ph.split.us.i.i, !llvm.loop !107
 
 60:                                               ; preds = %.lr.ph.i.us.i.i
   %61 = getelementptr inbounds nuw i8, ptr %.078.i.us.i.i, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.069.i.us.i.i, i64 2
   %63 = add nsw i32 %.010.i.us.i.i, -1
   %64 = icmp sgt i32 %.010.i.us.i.i, 1
-  br i1 %64, label %.lr.ph.i.us.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i, !llvm.loop !88
+  br i1 %64, label %.lr.ph.i.us.i.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i, !llvm.loop !86
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   %65 = icmp eq i32 %.fr46.i.i, 0
@@ -4633,7 +4633,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i.i: ; 
   %72 = getelementptr inbounds i32, ptr %13, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !25
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i, !llvm.loop !112
+  br i1 %74, label %._crit_edge.i.i, label %.lr.ph.split.split.us.i.i, !llvm.loop !107
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
   %.022.lcssa.i.i = phi i32 [ %36, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit ], [ %55, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i.i ], [ %70, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i.i ], [ %77, %.lr.ph.split.split.i.i ]
@@ -4648,7 +4648,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i.i: ; 
   %79 = getelementptr inbounds i32, ptr %13, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !25
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !113
+  br i1 %81, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !107
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i: ; preds = %.lr.ph.split.split.us.i.i, %60, %._crit_edge.i.i
   %.1.ph.i.i = phi i32 [ %75, %._crit_edge.i.i ], [ %.02237.us.i.i, %60 ], [ %.02237.us39.i.i, %.lr.ph.split.split.us.i.i ]
@@ -4665,13 +4665,13 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i: ; pred
 
 _ZN6icu_7712_GLOBAL__N_111MixedBlocks8addEntryItEEvPKT_iji.exit: ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit.i, %83
   %.not17 = icmp sgt i32 %17, %10
-  br i1 %.not17, label %._crit_edge, label %15, !llvm.loop !114
+  br i1 %.not17, label %._crit_edge, label %15, !llvm.loop !108
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockItjEEiPKT_PKT0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -2147483648, 134217727) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val = load i32, ptr %5, align 8, !tbaa !64
+  %.val = load i32, ptr %5, align 8, !tbaa !62
   %.fr46.i = freeze i32 %.val
   %6 = add nsw i32 %.fr46.i, %3
   %7 = add nsw i32 %3, 1
@@ -4691,18 +4691,18 @@ define internal fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findB
   %16 = load i32, ptr %15, align 4, !tbaa !25
   %17 = add i32 %14, %16
   %18 = icmp slt i64 %indvars.iv.next.i, %12
-  br i1 %18, label %13, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !73
+  br i1 %18, label %13, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit, !llvm.loop !71
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !57
+  %20 = load i32, ptr %19, align 8, !tbaa !55
   %21 = shl i32 %17, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !63
+  %23 = load i32, ptr %22, align 4, !tbaa !61
   %24 = add nsw i32 %23, -1
   %25 = urem i32 %17, %24
   %26 = add nuw i32 %25, 1
-  %27 = load ptr, ptr %0, align 8, !tbaa !60
+  %27 = load ptr, ptr %0, align 8, !tbaa !58
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !25
@@ -4711,7 +4711,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit: ; preds = %
 
 .lr.ph.i:                                         ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %33 = load i32, ptr %32, align 4, !tbaa !59
+  %33 = load i32, ptr %32, align 4, !tbaa !57
   %34 = xor i32 %33, -1
   %35 = icmp sgt i32 %.fr46.i, 0
   br i1 %35, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -4747,14 +4747,14 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us.i: ; pred
   %50 = getelementptr inbounds i32, ptr %27, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !25
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !115
+  br i1 %52, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !109
 
 53:                                               ; preds = %.lr.ph.i.us.i
   %54 = getelementptr inbounds nuw i8, ptr %.078.i.us.i, i64 2
   %55 = getelementptr inbounds nuw i8, ptr %.069.i.us.i, i64 4
   %56 = add nsw i32 %.010.i.us.i, -1
   %57 = icmp sgt i32 %.010.i.us.i, 1
-  br i1 %57, label %.lr.ph.i.us.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit, !llvm.loop !83
+  br i1 %57, label %.lr.ph.i.us.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit, !llvm.loop !81
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %58 = icmp eq i32 %.fr46.i, 0
@@ -4774,7 +4774,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us40.i: ; pr
   %65 = getelementptr inbounds i32, ptr %27, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !25
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !116
+  br i1 %67, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !109
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.split.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us40.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit
   %.022.lcssa.i = phi i32 [ %26, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeIjEEjPKT_i.exit ], [ %48, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us.i ], [ %63, %_ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us40.i ], [ %70, %.lr.ph.split.split.i ]
@@ -4789,7 +4789,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksItjEEbPKT_PKT0_i.exit.thread27.us40.i: ; pr
   %72 = getelementptr inbounds i32, ptr %27, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !25
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !117
+  br i1 %74, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !109
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit: ; preds = %.lr.ph.split.split.us.i, %53, %._crit_edge.i
   %.1.ph.i = phi i32 [ %68, %._crit_edge.i ], [ %.02237.us.i, %53 ], [ %.02237.us39.i, %.lr.ph.split.split.us.i ]
@@ -4801,7 +4801,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit: ; preds 
   %78 = getelementptr inbounds nuw i32, ptr %27, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %81 = load i32, ptr %80, align 4, !tbaa !59
+  %81 = load i32, ptr %80, align 4, !tbaa !57
   %82 = and i32 %81, %79
   %83 = add i32 %82, -1
   br label %84
@@ -4814,7 +4814,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryItjEEiPKT_PKT0_ij.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockIttEEiPKT_PKT0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val = load i32, ptr %5, align 8, !tbaa !64
+  %.val = load i32, ptr %5, align 8, !tbaa !62
   %.fr46.i = freeze i32 %.val
   %6 = add nsw i32 %.fr46.i, %3
   %7 = add i32 %3, 1
@@ -4836,18 +4836,18 @@ define internal fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findB
   %18 = zext i16 %17 to i32
   %19 = add i32 %15, %18
   %20 = icmp slt i64 %indvars.iv.next.i, %13
-  br i1 %20, label %14, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !110
+  br i1 %20, label %14, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit, !llvm.loop !106
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !57
+  %22 = load i32, ptr %21, align 8, !tbaa !55
   %23 = shl i32 %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !63
+  %25 = load i32, ptr %24, align 4, !tbaa !61
   %26 = add nsw i32 %25, -1
   %27 = urem i32 %19, %26
   %28 = add nuw i32 %27, 1
-  %29 = load ptr, ptr %0, align 8, !tbaa !60
+  %29 = load ptr, ptr %0, align 8, !tbaa !58
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !25
@@ -4856,7 +4856,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit: ; preds = %
 
 .lr.ph.i:                                         ; preds = %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %35 = load i32, ptr %34, align 4, !tbaa !59
+  %35 = load i32, ptr %34, align 4, !tbaa !57
   %36 = xor i32 %35, -1
   %37 = icmp sgt i32 %.fr46.i, 0
   br i1 %37, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -4891,14 +4891,14 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i: ; pred
   %51 = getelementptr inbounds i32, ptr %29, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !25
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !111
+  br i1 %53, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !107
 
 54:                                               ; preds = %.lr.ph.i.us.i
   %55 = getelementptr inbounds nuw i8, ptr %.078.i.us.i, i64 2
   %56 = getelementptr inbounds nuw i8, ptr %.069.i.us.i, i64 2
   %57 = add nsw i32 %.010.i.us.i, -1
   %58 = icmp sgt i32 %.010.i.us.i, 1
-  br i1 %58, label %.lr.ph.i.us.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit, !llvm.loop !88
+  br i1 %58, label %.lr.ph.i.us.i, label %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit, !llvm.loop !86
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %59 = icmp eq i32 %.fr46.i, 0
@@ -4918,7 +4918,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i: ; pr
   %66 = getelementptr inbounds i32, ptr %29, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !25
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !112
+  br i1 %68, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !107
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.split.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit
   %.022.lcssa.i = phi i32 [ %28, %_ZNK6icu_7712_GLOBAL__N_111MixedBlocks12makeHashCodeItEEjPKT_i.exit ], [ %49, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us.i ], [ %64, %_ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i ], [ %71, %.lr.ph.split.split.i ]
@@ -4933,7 +4933,7 @@ _ZN6icu_7712_GLOBAL__N_111equalBlocksIttEEbPKT_PKT0_i.exit.thread27.us40.i: ; pr
   %73 = getelementptr inbounds i32, ptr %29, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !25
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !113
+  br i1 %75, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !107
 
 _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit: ; preds = %.lr.ph.split.split.us.i, %54, %._crit_edge.i
   %.1.ph.i = phi i32 [ %69, %._crit_edge.i ], [ %.02237.us.i, %54 ], [ %.02237.us39.i, %.lr.ph.split.split.us.i ]
@@ -4945,7 +4945,7 @@ _ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findEntryIttEEiPKT_PKT0_ij.exit: ; preds 
   %79 = getelementptr inbounds nuw i32, ptr %29, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !25
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %82 = load i32, ptr %81, align 4, !tbaa !59
+  %82 = load i32, ptr %81, align 4, !tbaa !57
   %83 = and i32 %82, %80
   %84 = add i32 %83, -1
   br label %85
@@ -5021,8 +5021,8 @@ attributes #15 = { noreturn nounwind }
 !32 = !{!29, !11, i64 20}
 !33 = !{!30, !30, i64 0}
 !34 = distinct !{!34, !27}
-!35 = distinct !{!35, !27, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !27}
+!36 = distinct !{!36, !27}
 !37 = distinct !{!37, !27}
 !38 = distinct !{!38, !27}
 !39 = distinct !{!39, !27}
@@ -5030,29 +5030,29 @@ attributes #15 = { noreturn nounwind }
 !41 = distinct !{!41, !27}
 !42 = distinct !{!42, !27}
 !43 = distinct !{!43, !27}
-!44 = distinct !{!44, !27}
-!45 = distinct !{!45, !27}
-!46 = !{!47, !11, i64 0}
-!47 = !{!"_ZTSN6icu_7712_GLOBAL__N_113AllSameBlocksE", !11, i64 0, !11, i64 4, !5, i64 8, !5, i64 136, !5, i64 264}
-!48 = !{!47, !11, i64 4}
+!44 = !{!45, !11, i64 0}
+!45 = !{!"_ZTSN6icu_7712_GLOBAL__N_113AllSameBlocksE", !11, i64 0, !11, i64 4, !5, i64 8, !5, i64 136, !5, i64 264}
+!46 = !{!45, !11, i64 4}
+!47 = distinct !{!47, !27}
+!48 = distinct !{!48, !27}
 !49 = distinct !{!49, !27}
 !50 = distinct !{!50, !27}
 !51 = distinct !{!51, !27}
 !52 = distinct !{!52, !27}
 !53 = distinct !{!53, !27}
 !54 = distinct !{!54, !27}
-!55 = distinct !{!55, !27}
-!56 = distinct !{!56, !27}
-!57 = !{!58, !11, i64 16}
-!58 = !{!"_ZTSN6icu_7712_GLOBAL__N_111MixedBlocksE", !9, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24}
-!59 = !{!58, !11, i64 20}
-!60 = !{!58, !9, i64 0}
-!61 = distinct !{!61, !27}
-!62 = !{!58, !11, i64 8}
-!63 = !{!58, !11, i64 12}
-!64 = !{!58, !11, i64 24}
+!55 = !{!56, !11, i64 16}
+!56 = !{!"_ZTSN6icu_7712_GLOBAL__N_111MixedBlocksE", !9, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24}
+!57 = !{!56, !11, i64 20}
+!58 = !{!56, !9, i64 0}
+!59 = distinct !{!59, !27}
+!60 = !{!56, !11, i64 8}
+!61 = !{!56, !11, i64 12}
+!62 = !{!56, !11, i64 24}
+!63 = distinct !{!63, !27}
+!64 = distinct !{!64, !27}
 !65 = distinct !{!65, !27}
-!66 = distinct !{!66, !27, !36}
+!66 = distinct !{!66, !27}
 !67 = distinct !{!67, !27}
 !68 = distinct !{!68, !27}
 !69 = distinct !{!69, !27}
@@ -5060,7 +5060,7 @@ attributes #15 = { noreturn nounwind }
 !71 = distinct !{!71, !27}
 !72 = distinct !{!72, !27}
 !73 = distinct !{!73, !27}
-!74 = distinct !{!74, !27, !36}
+!74 = distinct !{!74, !27}
 !75 = distinct !{!75, !27}
 !76 = distinct !{!76, !27}
 !77 = distinct !{!77, !27}
@@ -5077,30 +5077,22 @@ attributes #15 = { noreturn nounwind }
 !88 = distinct !{!88, !27}
 !89 = distinct !{!89, !27}
 !90 = distinct !{!90, !27}
-!91 = distinct !{!91, !27, !36}
-!92 = distinct !{!92, !27}
-!93 = distinct !{!93, !27}
-!94 = !{!29, !11, i64 16}
-!95 = !{!29, !11, i64 24}
-!96 = !{!29, !30, i64 28}
-!97 = !{!29, !5, i64 30}
-!98 = !{!29, !30, i64 38}
-!99 = !{!29, !11, i64 40}
-!100 = !{!29, !11, i64 44}
-!101 = !{!29, !12, i64 0}
+!91 = distinct !{!91, !27}
+!92 = !{!29, !11, i64 16}
+!93 = !{!29, !11, i64 24}
+!94 = !{!29, !30, i64 28}
+!95 = !{!29, !5, i64 30}
+!96 = !{!29, !30, i64 38}
+!97 = !{!29, !11, i64 40}
+!98 = !{!29, !11, i64 44}
+!99 = !{!29, !12, i64 0}
+!100 = distinct !{!100, !27}
+!101 = distinct !{!101, !27}
 !102 = distinct !{!102, !27}
 !103 = distinct !{!103, !27}
 !104 = distinct !{!104, !27}
 !105 = distinct !{!105, !27}
 !106 = distinct !{!106, !27}
-!107 = distinct !{!107, !27, !36}
+!107 = distinct !{!107, !27}
 !108 = distinct !{!108, !27}
 !109 = distinct !{!109, !27}
-!110 = distinct !{!110, !27}
-!111 = distinct !{!111, !27, !36}
-!112 = distinct !{!112, !27, !36}
-!113 = distinct !{!113, !27}
-!114 = distinct !{!114, !27}
-!115 = distinct !{!115, !27, !36}
-!116 = distinct !{!116, !27, !36}
-!117 = distinct !{!117, !27}

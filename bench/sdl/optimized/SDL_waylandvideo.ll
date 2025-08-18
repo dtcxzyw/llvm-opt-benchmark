@@ -2939,7 +2939,7 @@ define internal void @display_handle_done(ptr noundef %0, ptr readnone captures(
 183:                                              ; preds = %181, %.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
-  br i1 %exitcond.not.i, label %AddEmulatedModes.exit, label %.split.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %AddEmulatedModes.exit, label %.split.i, !llvm.loop !21
 
 AddEmulatedModes.exit:                            ; preds = %183, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3198,7 +3198,7 @@ define internal fastcc void @Wayland_free_display(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %.023, i64 416
   %.0 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 15:                                               ; preds = %._crit_edge
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 256
@@ -3420,7 +3420,5 @@ attributes #14 = { nounwind allocsize(1) }
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
 !20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}

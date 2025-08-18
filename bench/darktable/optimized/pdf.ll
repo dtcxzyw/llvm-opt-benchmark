@@ -382,7 +382,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
 ._crit_edge.us:                                   ; preds = %127
   %135 = add nuw nsw i32 %.0151203.us, 1
   %exitcond233.not = icmp eq i32 %135, %123
-  br i1 %exitcond233.not, label %.loopexit, label %.preheader189.us, !llvm.loop !49
+  br i1 %exitcond233.not, label %.loopexit, label %.preheader189.us
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge, %.preheader189.lr.ph, %.preheader.lr.ph, %.preheader190, %.preheader187
   %136 = phi i32 [ %99, %.preheader187 ], [ %123, %.preheader190 ], [ %99, %.preheader.lr.ph ], [ %123, %.preheader189.lr.ph ], [ %106, %._crit_edge ], [ %123, %._crit_edge.us ]
@@ -390,16 +390,16 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %138 = load ptr, ptr %137, align 8, !tbaa !26
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = load i32, ptr %139, align 8, !tbaa !51
+  %140 = load i32, ptr %139, align 8, !tbaa !49
   %141 = load i32, ptr %86, align 8, !tbaa !42
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %143 = load float, ptr %142, align 8, !tbaa !28
   %144 = call ptr @dt_pdf_add_image(ptr noundef %138, ptr noundef nonnull %.0148, i32 noundef %140, i32 noundef %136, i32 noundef %141, i32 noundef %.0143, float noundef %143) #16
   call void @free(ptr noundef nonnull %.0148) #16
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %146 = load ptr, ptr %145, align 8, !tbaa !52
+  %146 = load ptr, ptr %145, align 8, !tbaa !50
   %147 = call ptr @g_list_append(ptr noundef %146, ptr noundef %144) #16
-  store ptr %147, ptr %145, align 8, !tbaa !52
+  store ptr %147, ptr %145, align 8, !tbaa !50
   %148 = icmp eq i32 %8, %9
   br i1 %148, label %149, label %.thread184
 
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
 ._crit_edge218:                                   ; preds = %163, %149
   %160 = load ptr, ptr %137, align 8, !tbaa !26
   call void @dt_pdf_finish(ptr noundef %160, ptr noundef %153, i32 noundef %150) #16
-  %161 = load ptr, ptr %145, align 8, !tbaa !52
+  %161 = load ptr, ptr %145, align 8, !tbaa !50
   call void @g_list_free_full(ptr noundef %161, ptr noundef nonnull @free) #16
   %162 = icmp sgt i32 %150, 0
   br i1 %162, label %.lr.ph221.preheader, label %._crit_edge222
@@ -438,18 +438,18 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
   %.0215 = phi ptr [ %.0212, %.lr.ph217 ], [ %.0, %163 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %164 = load ptr, ptr %.0215, align 8, !tbaa !32
-  store ptr %164, ptr %17, align 8, !tbaa !53
+  store ptr %164, ptr %17, align 8, !tbaa !51
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 52
-  store i32 %156, ptr %165, align 4, !tbaa !55
+  store i32 %156, ptr %165, align 4, !tbaa !53
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 56
-  store i32 %158, ptr %166, align 8, !tbaa !57
-  %167 = load i32, ptr %159, align 4, !tbaa !58
+  store i32 %158, ptr %166, align 8, !tbaa !55
+  %167 = load i32, ptr %159, align 4, !tbaa !56
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  store i32 %167, ptr %168, align 8, !tbaa !59
+  store i32 %167, ptr %168, align 8, !tbaa !57
   %169 = load ptr, ptr %137, align 8, !tbaa !26
   %170 = call ptr @dt_pdf_add_page(ptr noundef %169, ptr noundef nonnull %17, i32 noundef 1) #16
   %171 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv234
-  store ptr %170, ptr %171, align 8, !tbaa !60
+  store ptr %170, ptr %171, align 8, !tbaa !58
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %172 = getelementptr inbounds nuw i8, ptr %.0215, i64 8
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv237 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next238, %.lr.ph221 ]
   %173 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv237
-  %174 = load ptr, ptr %173, align 8, !tbaa !60
+  %174 = load ptr, ptr %173, align 8, !tbaa !58
   call void @free(ptr noundef %174) #16
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count
@@ -522,7 +522,7 @@ define internal fastcc range(i32 0, 2) i32 @_paper_size(ptr noundef %0, ptr noun
 
 17:                                               ; preds = %15, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %19 = load i32, ptr %18, align 4, !tbaa !62
+  %19 = load i32, ptr %18, align 4, !tbaa !60
   %20 = icmp eq i32 %19, 1
   %21 = load float, ptr %5, align 4, !tbaa !19
   %22 = load float, ptr %6, align 4, !tbaa !19
@@ -606,14 +606,14 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @bpp(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %3 = load i32, ptr %2, align 4, !tbaa !63
+  %3 = load i32, ptr %2, align 4, !tbaa !61
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 256, 259) i32 @levels(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %3 = load i32, ptr %2, align 4, !tbaa !63
+  %3 = load i32, ptr %2, align 4, !tbaa !61
   %4 = icmp eq i32 %3, 8
   %5 = select i1 %4, i32 256, i32 258
   ret i32 %5
@@ -678,7 +678,7 @@ define range(i32 0, 2) i32 @dimension(ptr noundef readnone captures(none) %0, pt
   %28 = fptoui double %27 to i32
   store i32 %28, ptr %3, align 4, !tbaa !38
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 412
-  %30 = load i32, ptr %29, align 4, !tbaa !58
+  %30 = load i32, ptr %29, align 4, !tbaa !56
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %.sink.split, label %31
 
@@ -705,21 +705,21 @@ define range(i32 0, 2) i32 @dimension(ptr noundef readnone captures(none) %0, pt
 define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr %2, ptr %3, align 8, !tbaa !64
+  store ptr %2, ptr %3, align 8, !tbaa !62
   %4 = tail call ptr @gtk_grid_new() #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr %4, ptr %5, align 8, !tbaa !70
+  store ptr %4, ptr %5, align 8, !tbaa !68
   %6 = tail call i64 @gtk_grid_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %6) #16
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !71
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1424
-  %10 = load double, ptr %9, align 8, !tbaa !106
+  %10 = load double, ptr %9, align 8, !tbaa !104
   %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e+00
   %12 = fptoui double %11 to i32
   tail call void @gtk_grid_set_row_spacing(ptr noundef %7, i32 noundef %12) #16
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !71
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1424
-  %15 = load double, ptr %14, align 8, !tbaa !106
+  %15 = load double, ptr %14, align 8, !tbaa !104
   %16 = fmul reassoc nsz arcp contract afn double %15, 8.000000e+00
   %17 = fptoui double %16 to i32
   tail call void @gtk_grid_set_column_spacing(ptr noundef %7, i32 noundef %17) #16
@@ -732,24 +732,24 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %22 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @title_changed_callback, ptr noundef %0, ptr noundef %20, ptr noundef %21) #16
   %23 = tail call i64 @gtk_entry_get_type() #19
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #16
-  store ptr %24, ptr %2, align 8, !tbaa !111
+  store ptr %24, ptr %2, align 8, !tbaa !109
   tail call void @gtk_entry_set_placeholder_text(ptr noundef %24, ptr noundef nonnull @.str.8) #16
-  %25 = load ptr, ptr %2, align 8, !tbaa !111
+  %25 = load ptr, ptr %2, align 8, !tbaa !109
   %26 = tail call i64 @gtk_widget_get_type() #19
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %26) #16
   tail call void @gtk_widget_set_hexpand(ptr noundef %27, i32 noundef 1) #16
-  %28 = load ptr, ptr %2, align 8, !tbaa !111
+  %28 = load ptr, ptr %2, align 8, !tbaa !109
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %29, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #16
   %30 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #16
   %31 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef %30, i32 noundef 0, ptr noundef nonnull @size_toggle_callback, ptr noundef %0, ptr noundef null) #16
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !115
+  store ptr %31, ptr %32, align 8, !tbaa !113
   tail call void @dt_bauhaus_combobox_set_editable(ptr noundef %31, i32 noundef 1) #16
   br label %88
 
 33:                                               ; preds = %88
-  %34 = load ptr, ptr %32, align 8, !tbaa !115
+  %34 = load ptr, ptr %32, align 8, !tbaa !113
   %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %35, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #16
   %36 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
@@ -759,7 +759,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %38 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.16) #16
   %39 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %37, i32 noundef %38, ptr noundef nonnull @orientation_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts) #16
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %39, ptr %40, align 8, !tbaa !116
+  store ptr %39, ptr %40, align 8, !tbaa !114
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %39, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %41, i32 noundef 0, i32 noundef 3, i32 noundef 2, i32 noundef 1) #16
   %42 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #16
@@ -771,11 +771,11 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %46 = tail call ptr @dt_action_entry_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @border_changed_callback, ptr noundef nonnull %0, ptr noundef %44, ptr noundef %45) #16
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %23) #16
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %47, ptr %48, align 8, !tbaa !117
+  store ptr %47, ptr %48, align 8, !tbaa !115
   tail call void @gtk_entry_set_max_length(ptr noundef %47, i32 noundef 63) #16
-  %49 = load ptr, ptr %48, align 8, !tbaa !117
+  %49 = load ptr, ptr %48, align 8, !tbaa !115
   tail call void @gtk_entry_set_placeholder_text(ptr noundef %49, ptr noundef nonnull @.str.20) #16
-  %50 = load ptr, ptr %48, align 8, !tbaa !117
+  %50 = load ptr, ptr %48, align 8, !tbaa !115
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %51, i32 noundef 1, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
   %52 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #16
@@ -786,46 +786,46 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %55 = tail call i64 @gtk_spin_button_get_type() #19
   %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef %55) #16
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %56, ptr %57, align 8, !tbaa !118
+  store ptr %56, ptr %57, align 8, !tbaa !116
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %58, i32 noundef 1, i32 noundef 5, i32 noundef 1, i32 noundef 1) #16
-  %59 = load ptr, ptr %57, align 8, !tbaa !118
+  %59 = load ptr, ptr %57, align 8, !tbaa !116
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %26) #16
   %61 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #16
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %60, ptr noundef %61) #16
-  %62 = load ptr, ptr %57, align 8, !tbaa !118
+  %62 = load ptr, ptr %57, align 8, !tbaa !116
   %63 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.23) #16
   %64 = fpext reassoc nsz arcp contract afn float %63 to double
   tail call void @gtk_spin_button_set_value(ptr noundef %62, double noundef %64) #16
-  %65 = load ptr, ptr %57, align 8, !tbaa !118
+  %65 = load ptr, ptr %57, align 8, !tbaa !116
   %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef 80) #16
   %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.24, ptr noundef nonnull @dpi_changed_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
   %68 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #16
   %69 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #16
   %70 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %68, i32 noundef %69, ptr noundef nonnull @rotate_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.25) #16
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %70, ptr %71, align 8, !tbaa !119
+  store ptr %70, ptr %71, align 8, !tbaa !117
   %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %72, i32 noundef 0, i32 noundef 6, i32 noundef 2, i32 noundef 1) #16
   %73 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #16
   %74 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #16
   %75 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %73, i32 noundef %74, ptr noundef nonnull @pages_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.31) #16
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %75, ptr %76, align 8, !tbaa !120
+  store ptr %75, ptr %76, align 8, !tbaa !118
   %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %77, i32 noundef 0, i32 noundef 7, i32 noundef 2, i32 noundef 1) #16
-  %78 = load ptr, ptr %76, align 8, !tbaa !120
+  %78 = load ptr, ptr %76, align 8, !tbaa !118
   tail call void @gtk_widget_set_no_show_all(ptr noundef %78, i32 noundef 1) #16
   %79 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #16
   %80 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.41) #16
   %81 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %79, i32 noundef %80, ptr noundef nonnull @icc_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.38) #16
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %81, ptr %82, align 8, !tbaa !121
+  store ptr %81, ptr %82, align 8, !tbaa !119
   %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %83, i32 noundef 0, i32 noundef 8, i32 noundef 2, i32 noundef 1) #16
   %84 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #16
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %84, ptr %85, align 8, !tbaa !122
+  store ptr %84, ptr %85, align 8, !tbaa !120
   %86 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %84, ptr noundef null, ptr noundef nonnull @.str.42) #16
   %87 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.43) #16
   br label %113
@@ -833,39 +833,39 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
 88:                                               ; preds = %1, %88
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %88 ]
   %89 = phi ptr [ @.str.65, %1 ], [ %93, %88 ]
-  %90 = load ptr, ptr %32, align 8, !tbaa !115
+  %90 = load ptr, ptr %32, align 8, !tbaa !113
   %91 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %89, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %90, ptr noundef %91) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %indvars.iv.next
-  %93 = load ptr, ptr %92, align 16, !tbaa !123
+  %93 = load ptr, ptr %92, align 16, !tbaa !121
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %33, label %88
 
 94:                                               ; preds = %113
-  %95 = load ptr, ptr %85, align 8, !tbaa !122
+  %95 = load ptr, ptr %85, align 8, !tbaa !120
   %96 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %96, i32 noundef 0, i32 noundef 9, i32 noundef 2, i32 noundef 1) #16
-  %97 = load ptr, ptr %85, align 8, !tbaa !122
+  %97 = load ptr, ptr %85, align 8, !tbaa !120
   %98 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef 80) #16
   %99 = tail call i64 @g_signal_connect_data(ptr noundef %98, ptr noundef nonnull @.str.24, ptr noundef nonnull @bpp_toggle_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
-  %100 = load ptr, ptr %85, align 8, !tbaa !122
+  %100 = load ptr, ptr %85, align 8, !tbaa !120
   %101 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #16
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %100, ptr noundef %101) #16
-  %102 = load ptr, ptr %85, align 8, !tbaa !122
+  %102 = load ptr, ptr %85, align 8, !tbaa !120
   tail call void @dt_bauhaus_combobox_set(ptr noundef %102, i32 noundef %spec.select) #16
   %103 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
   %104 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #16
   %105 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %103, i32 noundef %104, ptr noundef nonnull @compression_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.45) #16
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %105, ptr %106, align 8, !tbaa !125
+  store ptr %105, ptr %106, align 8, !tbaa !123
   %107 = tail call ptr @g_type_check_instance_cast(ptr noundef %105, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %107, i32 noundef 0, i32 noundef 10, i32 noundef 2, i32 noundef 1) #16
   %108 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
   %109 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.57) #16
   %110 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef %108, i32 noundef %109, ptr noundef nonnull @mode_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.51) #16
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %110, ptr %111, align 8, !tbaa !126
+  store ptr %110, ptr %111, align 8, !tbaa !124
   %112 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %112, i32 noundef 0, i32 noundef 11, i32 noundef 2, i32 noundef 1) #16
   ret void
@@ -875,17 +875,17 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %114 = phi ptr [ @.str.69, %33 ], [ %123, %113 ]
   %115 = phi ptr [ @_pdf_bpp, %33 ], [ %122, %113 ]
   %.0114120 = phi i32 [ 0, %33 ], [ %spec.select, %113 ]
-  %116 = load ptr, ptr %85, align 8, !tbaa !122
+  %116 = load ptr, ptr %85, align 8, !tbaa !120
   %117 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %114, i32 noundef 5) #16
   tail call void @dt_bauhaus_combobox_add(ptr noundef %116, ptr noundef %117) #16
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load i32, ptr %118, align 8, !tbaa !127
+  %119 = load i32, ptr %118, align 8, !tbaa !125
   %120 = icmp eq i32 %119, %87
   %121 = trunc nuw nsw i64 %indvars.iv123 to i32
   %spec.select = select i1 %120, i32 %121, i32 %.0114120
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %122 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %indvars.iv.next124
-  %123 = load ptr, ptr %122, align 16, !tbaa !129
+  %123 = load ptr, ptr %122, align 16, !tbaa !127
   %exitcond126 = icmp eq i64 %indvars.iv.next124, 2
   br i1 %exitcond126, label %94, label %113
 }
@@ -940,7 +940,7 @@ define internal void @size_toggle_callback(ptr noundef %0, ptr noundef %1) #1 {
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
   %7 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 16, !tbaa !123
+  %8 = load ptr, ptr %7, align 16, !tbaa !121
   br label %11
 
 9:                                                ; preds = %2
@@ -980,11 +980,11 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %11 = load ptr, ptr %10, align 8, !tbaa !64
+  %11 = load ptr, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !115
+  %13 = load ptr, ptr %12, align 8, !tbaa !113
   %14 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %13, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef nonnull %0) #16
-  %15 = load ptr, ptr %12, align 8, !tbaa !115
+  %15 = load ptr, ptr %12, align 8, !tbaa !113
   %16 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %15) #16
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -997,13 +997,13 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 16, !tbaa !123
+  %22 = load ptr, ptr %21, align 16, !tbaa !121
   %23 = tail call i32 @strcasecmp(ptr noundef nonnull %.tr39, ptr noundef %22) #20
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %._crit_edge, label %24
 
 24:                                               ; preds = %20, %.lr.ph
-  %25 = load ptr, ptr %12, align 8, !tbaa !115
+  %25 = load ptr, ptr %12, align 8, !tbaa !113
   %26 = tail call ptr @dt_bauhaus_combobox_get_entry(ptr noundef %25, i32 noundef %19) #16
   %27 = tail call i32 @strcasecmp(ptr noundef nonnull %.tr39, ptr noundef %26) #20
   %.not35 = icmp eq i32 %27, 0
@@ -1011,7 +1011,7 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
 
 28:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load ptr, ptr %12, align 8, !tbaa !115
+  %29 = load ptr, ptr %12, align 8, !tbaa !113
   %30 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %29) #16
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
@@ -1023,13 +1023,13 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
 
 ._crit_edge:                                      ; preds = %20, %24, %._crit_edge.loopexit.split.loop.exit49, %9
   %.0.lcssa = phi i32 [ 0, %9 ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit49 ], [ %19, %24 ], [ %19, %20 ]
-  %33 = load ptr, ptr %12, align 8, !tbaa !115
+  %33 = load ptr, ptr %12, align 8, !tbaa !113
   %34 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %33) #16
   %35 = icmp slt i32 %.0.lcssa, %34
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %._crit_edge
-  %37 = load ptr, ptr %12, align 8, !tbaa !115
+  %37 = load ptr, ptr %12, align 8, !tbaa !113
   tail call void @dt_bauhaus_combobox_set(ptr noundef %37, i32 noundef %.0.lcssa) #16
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %.tr39) #16
   br label %49
@@ -1042,9 +1042,9 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
   br i1 %.not36, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr %12, align 8, !tbaa !115
+  %41 = load ptr, ptr %12, align 8, !tbaa !113
   call void @dt_bauhaus_combobox_add(ptr noundef %41, ptr noundef nonnull %.tr39) #16
-  %42 = load ptr, ptr %12, align 8, !tbaa !115
+  %42 = load ptr, ptr %12, align 8, !tbaa !113
   call void @dt_bauhaus_combobox_set(ptr noundef %42, i32 noundef %.0.lcssa) #16
   call void @dt_conf_set_string(ptr noundef nonnull @.str.11, ptr noundef nonnull %.tr39) #16
   br label %48
@@ -1070,7 +1070,7 @@ tailrecurse.backedge:                             ; preds = %6, %tailrecurse
   br label %49
 
 49:                                               ; preds = %48, %36
-  %50 = load ptr, ptr %12, align 8, !tbaa !115
+  %50 = load ptr, ptr %12, align 8, !tbaa !113
   %51 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %50, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @size_toggle_callback, ptr noundef nonnull %0) #16
   ret void
 }
@@ -1160,7 +1160,7 @@ define internal void @bpp_toggle_callback(ptr noundef %0, ptr readnone captures(
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
   %7 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %6, i32 1
-  %8 = load i32, ptr %7, align 8, !tbaa !127
+  %8 = load i32, ptr %7, align 8, !tbaa !125
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %8) #16
   br label %9
 
@@ -1187,7 +1187,7 @@ define internal void @mode_toggle_callback(ptr noundef %0, ptr readnone captures
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   tail call void @free(ptr noundef %3) #16
   ret void
 }
@@ -1195,9 +1195,9 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !118
+  %5 = load ptr, ptr %4, align 8, !tbaa !116
   %6 = tail call i64 @gtk_widget_get_type() #19
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %6) #16
   %8 = tail call i64 @gtk_spin_button_get_type() #19
@@ -1206,36 +1206,36 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
   %11 = fptrunc reassoc nsz arcp contract afn double %10 to float
   tail call void @dt_conf_set_float(ptr noundef nonnull @.str.23, float noundef %11) #16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !121
+  %13 = load ptr, ptr %12, align 8, !tbaa !119
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %6) #16
   %15 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %14) #16
   %16 = icmp eq i32 %15, 1
   %17 = zext i1 %16 to i32
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.41, i32 noundef %17) #16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !126
+  %19 = load ptr, ptr %18, align 8, !tbaa !124
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %6) #16
   %21 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %20) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.57, i32 noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !116
+  %23 = load ptr, ptr %22, align 8, !tbaa !114
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %6) #16
   %25 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %24) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.16, i32 noundef %25) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !120
+  %27 = load ptr, ptr %26, align 8, !tbaa !118
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %6) #16
   %29 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %28) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %29) #16
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !119
+  %31 = load ptr, ptr %30, align 8, !tbaa !117
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %6) #16
   %33 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %32) #16
   %34 = icmp eq i32 %33, 1
   %35 = zext i1 %34 to i32
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.30, i32 noundef %35) #16
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !115
+  %37 = load ptr, ptr %36, align 8, !tbaa !113
   %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %6) #16
   %39 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %38) #16
   %40 = icmp ult i32 %39, 4
@@ -1244,7 +1244,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 41:                                               ; preds = %1
   %42 = zext nneg i32 %39 to i64
   %43 = getelementptr inbounds nuw [5 x %struct.anon], ptr @dt_pdf_paper_sizes, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 16, !tbaa !123
+  %44 = load ptr, ptr %43, align 16, !tbaa !121
   br label %size_toggle_callback.exit
 
 45:                                               ; preds = %1
@@ -1254,14 +1254,14 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 size_toggle_callback.exit:                        ; preds = %41, %45
   %.sink.i = phi ptr [ %46, %45 ], [ %44, %41 ]
   tail call fastcc void @_set_paper_size(ptr noundef nonnull %0, ptr noundef %.sink.i)
-  %47 = load ptr, ptr %3, align 8, !tbaa !111
+  %47 = load ptr, ptr %3, align 8, !tbaa !109
   %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %6) #16
   %49 = tail call i64 @gtk_entry_get_type() #19
   %50 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %49) #16
   %51 = tail call ptr @gtk_entry_get_text(ptr noundef %50) #16
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.7, ptr noundef %51) #16
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %53 = load ptr, ptr %52, align 8, !tbaa !122
+  %53 = load ptr, ptr %52, align 8, !tbaa !120
   %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %6) #16
   %55 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %54) #16
   %56 = icmp sgt i32 %55, -1
@@ -1270,13 +1270,13 @@ size_toggle_callback.exit:                        ; preds = %41, %45
 57:                                               ; preds = %size_toggle_callback.exit
   %58 = zext nneg i32 %55 to i64
   %59 = getelementptr inbounds nuw [3 x %struct.anon.0], ptr @_pdf_bpp, i64 0, i64 %58, i32 1
-  %60 = load i32, ptr %59, align 8, !tbaa !127
+  %60 = load i32, ptr %59, align 8, !tbaa !125
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.43, i32 noundef %60) #16
   br label %bpp_toggle_callback.exit
 
 bpp_toggle_callback.exit:                         ; preds = %size_toggle_callback.exit, %57
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %62 = load ptr, ptr %61, align 8, !tbaa !125
+  %62 = load ptr, ptr %61, align 8, !tbaa !123
   %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef %6) #16
   %64 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %63) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.50, i32 noundef %64) #16
@@ -1321,13 +1321,13 @@ define noundef ptr @get_params(ptr noundef readnone captures(none) %0) local_unn
   store i32 %21, ptr %22, align 8, !tbaa !30
   %23 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.16) #16
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 340
-  store i32 %23, ptr %24, align 4, !tbaa !130
+  store i32 %23, ptr %24, align 4, !tbaa !128
   %25 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  store i32 %25, ptr %26, align 8, !tbaa !131
+  store i32 %25, ptr %26, align 8, !tbaa !129
   %27 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #16
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 412
-  store i32 %27, ptr %28, align 4, !tbaa !58
+  store i32 %27, ptr %28, align 4, !tbaa !56
   br label %29
 
 29:                                               ; preds = %3, %1
@@ -1349,7 +1349,7 @@ define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef cap
 
 6:                                                ; preds = %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %8 = load ptr, ptr %7, align 8, !tbaa !52
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   tail call void @g_list_free_full(ptr noundef %8, ptr noundef nonnull @free) #16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %10 = load ptr, ptr %9, align 8, !tbaa !27
@@ -1376,61 +1376,61 @@ declare i32 @g_unlink(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !132
+  %6 = load ptr, ptr %5, align 8, !tbaa !130
   %7 = tail call i64 %6(ptr noundef %0) #16
   %.not = icmp eq i64 %7, %4
   br i1 %.not, label %8, label %68
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !62
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 72
   br label %57
 
 13:                                               ; preds = %66
-  %14 = load ptr, ptr %10, align 8, !tbaa !111
+  %14 = load ptr, ptr %10, align 8, !tbaa !109
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 148
   tail call void @gtk_entry_set_text(ptr noundef %14, ptr noundef nonnull %15) #16
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !117
+  %17 = load ptr, ptr %16, align 8, !tbaa !115
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 344
   tail call void @gtk_entry_set_text(ptr noundef %17, ptr noundef nonnull %18) #16
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !125
+  %20 = load ptr, ptr %19, align 8, !tbaa !123
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 428
   %22 = load i32, ptr %21, align 4, !tbaa !18
   tail call void @dt_bauhaus_combobox_set(ptr noundef %20, i32 noundef %22) #16
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !118
+  %24 = load ptr, ptr %23, align 8, !tbaa !116
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load float, ptr %25, align 8, !tbaa !6
   %27 = fpext reassoc nsz arcp contract afn float %26 to double
   tail call void @gtk_spin_button_set_value(ptr noundef %24, double noundef %27) #16
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !121
+  %29 = load ptr, ptr %28, align 8, !tbaa !119
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 420
   %31 = load i32, ptr %30, align 4, !tbaa !29
   tail call void @dt_bauhaus_combobox_set(ptr noundef %29, i32 noundef %31) #16
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !126
+  %33 = load ptr, ptr %32, align 8, !tbaa !124
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %35 = load i32, ptr %34, align 8, !tbaa !30
   tail call void @dt_bauhaus_combobox_set(ptr noundef %33, i32 noundef %35) #16
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !116
+  %37 = load ptr, ptr %36, align 8, !tbaa !114
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 340
-  %39 = load i32, ptr %38, align 4, !tbaa !130
+  %39 = load i32, ptr %38, align 4, !tbaa !128
   tail call void @dt_bauhaus_combobox_set(ptr noundef %37, i32 noundef %39) #16
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !120
+  %41 = load ptr, ptr %40, align 8, !tbaa !118
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %43 = load i32, ptr %42, align 8, !tbaa !131
+  %43 = load i32, ptr %42, align 8, !tbaa !129
   tail call void @dt_bauhaus_combobox_set(ptr noundef %41, i32 noundef %43) #16
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %45 = load ptr, ptr %44, align 8, !tbaa !119
+  %45 = load ptr, ptr %44, align 8, !tbaa !117
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 412
-  %47 = load i32, ptr %46, align 4, !tbaa !58
+  %47 = load i32, ptr %46, align 4, !tbaa !56
   tail call void @dt_bauhaus_combobox_set(ptr noundef %45, i32 noundef %47) #16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 276
   tail call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef nonnull %48)
@@ -1446,11 +1446,11 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.41, i32 noundef %52) #16
   %53 = load i32, ptr %34, align 8, !tbaa !30
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.57, i32 noundef %53) #16
-  %54 = load i32, ptr %38, align 4, !tbaa !130
+  %54 = load i32, ptr %38, align 4, !tbaa !128
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.16, i32 noundef %54) #16
-  %55 = load i32, ptr %42, align 8, !tbaa !131
+  %55 = load i32, ptr %42, align 8, !tbaa !129
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef %55) #16
-  %56 = load i32, ptr %46, align 4, !tbaa !58
+  %56 = load i32, ptr %46, align 4, !tbaa !56
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.30, i32 noundef %56) #16
   br label %68
 
@@ -1458,13 +1458,13 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %66 ]
   %58 = phi ptr [ @_pdf_bpp, %8 ], [ %67, %66 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !127
+  %60 = load i32, ptr %59, align 8, !tbaa !125
   %61 = load i32, ptr %11, align 8, !tbaa !42
   %62 = icmp eq i32 %60, %61
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %57
-  %64 = load ptr, ptr %12, align 8, !tbaa !122
+  %64 = load ptr, ptr %12, align 8, !tbaa !120
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @dt_bauhaus_combobox_set(ptr noundef %64, i32 noundef %65) #16
   br label %66
@@ -1605,87 +1605,85 @@ attributes #20 = { nounwind willreturn memory(read) }
 !46 = !{!"llvm.loop.unswitch.partial.disable"}
 !47 = !{!48, !48, i64 0}
 !48 = !{!"short", !11, i64 0}
-!49 = distinct !{!49, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = !{!7, !10, i64 8}
-!52 = !{!7, !17, i64 456}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTS14dt_pdf_image_t", !15, i64 0}
-!55 = !{!56, !10, i64 52}
-!56 = !{!"dt_pdf_image_t", !10, i64 0, !10, i64 4, !24, i64 8, !24, i64 16, !24, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !10, i64 48, !10, i64 52, !10, i64 56}
-!57 = !{!56, !10, i64 56}
-!58 = !{!7, !10, i64 412}
-!59 = !{!56, !10, i64 48}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS13dt_pdf_page_t", !15, i64 0}
-!62 = !{!8, !10, i64 340}
-!63 = !{!8, !10, i64 432}
-!64 = !{!65, !15, i64 352}
-!65 = !{!"dt_imageio_module_format_t", !66, i64 0, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !11, i64 208, !68, i64 336, !69, i64 344, !15, i64 352, !10, i64 360, !10, i64 364}
-!66 = !{!"dt_action_t", !10, i64 0, !14, i64 8, !14, i64 16, !15, i64 24, !67, i64 32, !67, i64 40}
-!67 = !{!"p1 _ZTS11dt_action_t", !15, i64 0}
-!68 = !{!"p1 _ZTS8_GModule", !15, i64 0}
-!69 = !{!"p1 _ZTS10_GtkWidget", !15, i64 0}
-!70 = !{!65, !69, i64 344}
-!71 = !{!72, !81, i64 104}
-!72 = !{!"darktable_t", !73, i64 0, !10, i64 4, !10, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !74, i64 48, !75, i64 56, !76, i64 64, !77, i64 72, !78, i64 80, !79, i64 88, !80, i64 96, !81, i64 104, !82, i64 112, !83, i64 120, !84, i64 128, !85, i64 136, !86, i64 144, !87, i64 152, !88, i64 160, !89, i64 168, !90, i64 176, !91, i64 184, !92, i64 192, !93, i64 200, !94, i64 208, !95, i64 216, !96, i64 224, !11, i64 232, !97, i64 2792, !97, i64 2832, !97, i64 2872, !97, i64 2912, !97, i64 2952, !14, i64 2992, !14, i64 3000, !14, i64 3008, !14, i64 3016, !14, i64 3024, !14, i64 3032, !14, i64 3040, !14, i64 3048, !14, i64 3056, !14, i64 3064, !14, i64 3072, !14, i64 3080, !14, i64 3088, !98, i64 3096, !17, i64 3104, !99, i64 3112, !17, i64 3120, !10, i64 3128, !11, i64 3132, !10, i64 3320, !10, i64 3324, !100, i64 3328, !101, i64 3336, !102, i64 3344, !104, i64 3384, !105, i64 3416}
-!73 = !{!"dt_codepath_t", !10, i64 0}
-!74 = !{!"p1 _ZTS11_JsonParser", !15, i64 0}
-!75 = !{!"p1 _ZTS9dt_conf_t", !15, i64 0}
-!76 = !{!"p1 _ZTS12dt_develop_t", !15, i64 0}
-!77 = !{!"p1 _ZTS8dt_lib_t", !15, i64 0}
-!78 = !{!"p1 _ZTS17dt_view_manager_t", !15, i64 0}
-!79 = !{!"p1 _ZTS12dt_control_t", !15, i64 0}
-!80 = !{!"p1 _ZTS19dt_control_signal_t", !15, i64 0}
-!81 = !{!"p1 _ZTS12dt_gui_gtk_t", !15, i64 0}
-!82 = !{!"p1 _ZTS17dt_mipmap_cache_t", !15, i64 0}
-!83 = !{!"p1 _ZTS16dt_image_cache_t", !15, i64 0}
-!84 = !{!"p1 _ZTS12dt_bauhaus_t", !15, i64 0}
-!85 = !{!"p1 _ZTS13dt_database_t", !15, i64 0}
-!86 = !{!"p1 _ZTS14dt_pwstorage_t", !15, i64 0}
-!87 = !{!"p1 _ZTS11dt_camctl_t", !15, i64 0}
-!88 = !{!"p1 _ZTS15dt_collection_t", !15, i64 0}
-!89 = !{!"p1 _ZTS14dt_selection_t", !15, i64 0}
-!90 = !{!"p1 _ZTS11dt_points_t", !15, i64 0}
-!91 = !{!"p1 _ZTS12dt_imageio_t", !15, i64 0}
-!92 = !{!"p1 _ZTS11dt_opencl_t", !15, i64 0}
-!93 = !{!"p1 _ZTS9dt_dbus_t", !15, i64 0}
-!94 = !{!"p1 _ZTS9dt_undo_t", !15, i64 0}
-!95 = !{!"p1 _ZTS16dt_colorspaces_t", !15, i64 0}
-!96 = !{!"p1 _ZTS9dt_l10n_t", !15, i64 0}
-!97 = !{!"dt_pthread_mutex_t", !11, i64 0}
-!98 = !{!"", !10, i64 0}
-!99 = !{!"double", !11, i64 0}
-!100 = !{!"p1 _ZTS10_GTimeZone", !15, i64 0}
-!101 = !{!"p1 _ZTS10_GDateTime", !15, i64 0}
-!102 = !{!"dt_sys_resources_t", !24, i64 0, !24, i64 8, !103, i64 16, !103, i64 24, !10, i64 32}
-!103 = !{!"p1 int", !15, i64 0}
-!104 = !{!"dt_backthumb_t", !99, i64 0, !99, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
-!105 = !{!"dt_gimp_t", !10, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 28}
-!106 = !{!107, !99, i64 1424}
-!107 = !{!"dt_gui_gtk_t", !108, i64 0, !109, i64 8, !110, i64 56, !10, i64 80, !14, i64 88, !10, i64 96, !11, i64 104, !10, i64 1352, !10, i64 1356, !10, i64 1360, !10, i64 1364, !10, i64 1368, !99, i64 1376, !99, i64 1384, !99, i64 1392, !99, i64 1400, !69, i64 1408, !99, i64 1416, !99, i64 1424, !99, i64 1432, !99, i64 1440, !10, i64 1448, !10, i64 1452, !11, i64 1456, !10, i64 5552, !10, i64 5556, !10, i64 5560, !97, i64 5568}
-!108 = !{!"p1 _ZTS7dt_ui_t", !15, i64 0}
-!109 = !{!"dt_gui_widgets_t", !69, i64 0, !69, i64 8, !69, i64 16, !69, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
-!110 = !{!"dt_gui_scrollbars_t", !69, i64 0, !69, i64 8, !10, i64 16}
-!111 = !{!112, !113, i64 0}
-!112 = !{!"pdf_t", !113, i64 0, !69, i64 8, !69, i64 16, !113, i64 24, !114, i64 32, !69, i64 40, !69, i64 48, !69, i64 56, !69, i64 64, !69, i64 72, !69, i64 80}
-!113 = !{!"p1 _ZTS9_GtkEntry", !15, i64 0}
-!114 = !{!"p1 _ZTS14_GtkSpinButton", !15, i64 0}
-!115 = !{!112, !69, i64 8}
-!116 = !{!112, !69, i64 16}
-!117 = !{!112, !113, i64 24}
-!118 = !{!112, !114, i64 32}
-!119 = !{!112, !69, i64 40}
-!120 = !{!112, !69, i64 48}
-!121 = !{!112, !69, i64 56}
-!122 = !{!112, !69, i64 72}
-!123 = !{!124, !14, i64 0}
-!124 = !{!"", !14, i64 0, !13, i64 8, !13, i64 12}
-!125 = !{!112, !69, i64 80}
-!126 = !{!112, !69, i64 64}
-!127 = !{!128, !10, i64 8}
-!128 = !{!"", !14, i64 0, !10, i64 8}
-!129 = !{!128, !14, i64 0}
-!130 = !{!7, !10, i64 340}
-!131 = !{!7, !10, i64 416}
-!132 = !{!65, !15, i64 112}
+!49 = !{!7, !10, i64 8}
+!50 = !{!7, !17, i64 456}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS14dt_pdf_image_t", !15, i64 0}
+!53 = !{!54, !10, i64 52}
+!54 = !{!"dt_pdf_image_t", !10, i64 0, !10, i64 4, !24, i64 8, !24, i64 16, !24, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !13, i64 44, !10, i64 48, !10, i64 52, !10, i64 56}
+!55 = !{!54, !10, i64 56}
+!56 = !{!7, !10, i64 412}
+!57 = !{!54, !10, i64 48}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS13dt_pdf_page_t", !15, i64 0}
+!60 = !{!8, !10, i64 340}
+!61 = !{!8, !10, i64 432}
+!62 = !{!63, !15, i64 352}
+!63 = !{!"dt_imageio_module_format_t", !64, i64 0, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !11, i64 208, !66, i64 336, !67, i64 344, !15, i64 352, !10, i64 360, !10, i64 364}
+!64 = !{!"dt_action_t", !10, i64 0, !14, i64 8, !14, i64 16, !15, i64 24, !65, i64 32, !65, i64 40}
+!65 = !{!"p1 _ZTS11dt_action_t", !15, i64 0}
+!66 = !{!"p1 _ZTS8_GModule", !15, i64 0}
+!67 = !{!"p1 _ZTS10_GtkWidget", !15, i64 0}
+!68 = !{!63, !67, i64 344}
+!69 = !{!70, !79, i64 104}
+!70 = !{!"darktable_t", !71, i64 0, !10, i64 4, !10, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !72, i64 48, !73, i64 56, !74, i64 64, !75, i64 72, !76, i64 80, !77, i64 88, !78, i64 96, !79, i64 104, !80, i64 112, !81, i64 120, !82, i64 128, !83, i64 136, !84, i64 144, !85, i64 152, !86, i64 160, !87, i64 168, !88, i64 176, !89, i64 184, !90, i64 192, !91, i64 200, !92, i64 208, !93, i64 216, !94, i64 224, !11, i64 232, !95, i64 2792, !95, i64 2832, !95, i64 2872, !95, i64 2912, !95, i64 2952, !14, i64 2992, !14, i64 3000, !14, i64 3008, !14, i64 3016, !14, i64 3024, !14, i64 3032, !14, i64 3040, !14, i64 3048, !14, i64 3056, !14, i64 3064, !14, i64 3072, !14, i64 3080, !14, i64 3088, !96, i64 3096, !17, i64 3104, !97, i64 3112, !17, i64 3120, !10, i64 3128, !11, i64 3132, !10, i64 3320, !10, i64 3324, !98, i64 3328, !99, i64 3336, !100, i64 3344, !102, i64 3384, !103, i64 3416}
+!71 = !{!"dt_codepath_t", !10, i64 0}
+!72 = !{!"p1 _ZTS11_JsonParser", !15, i64 0}
+!73 = !{!"p1 _ZTS9dt_conf_t", !15, i64 0}
+!74 = !{!"p1 _ZTS12dt_develop_t", !15, i64 0}
+!75 = !{!"p1 _ZTS8dt_lib_t", !15, i64 0}
+!76 = !{!"p1 _ZTS17dt_view_manager_t", !15, i64 0}
+!77 = !{!"p1 _ZTS12dt_control_t", !15, i64 0}
+!78 = !{!"p1 _ZTS19dt_control_signal_t", !15, i64 0}
+!79 = !{!"p1 _ZTS12dt_gui_gtk_t", !15, i64 0}
+!80 = !{!"p1 _ZTS17dt_mipmap_cache_t", !15, i64 0}
+!81 = !{!"p1 _ZTS16dt_image_cache_t", !15, i64 0}
+!82 = !{!"p1 _ZTS12dt_bauhaus_t", !15, i64 0}
+!83 = !{!"p1 _ZTS13dt_database_t", !15, i64 0}
+!84 = !{!"p1 _ZTS14dt_pwstorage_t", !15, i64 0}
+!85 = !{!"p1 _ZTS11dt_camctl_t", !15, i64 0}
+!86 = !{!"p1 _ZTS15dt_collection_t", !15, i64 0}
+!87 = !{!"p1 _ZTS14dt_selection_t", !15, i64 0}
+!88 = !{!"p1 _ZTS11dt_points_t", !15, i64 0}
+!89 = !{!"p1 _ZTS12dt_imageio_t", !15, i64 0}
+!90 = !{!"p1 _ZTS11dt_opencl_t", !15, i64 0}
+!91 = !{!"p1 _ZTS9dt_dbus_t", !15, i64 0}
+!92 = !{!"p1 _ZTS9dt_undo_t", !15, i64 0}
+!93 = !{!"p1 _ZTS16dt_colorspaces_t", !15, i64 0}
+!94 = !{!"p1 _ZTS9dt_l10n_t", !15, i64 0}
+!95 = !{!"dt_pthread_mutex_t", !11, i64 0}
+!96 = !{!"", !10, i64 0}
+!97 = !{!"double", !11, i64 0}
+!98 = !{!"p1 _ZTS10_GTimeZone", !15, i64 0}
+!99 = !{!"p1 _ZTS10_GDateTime", !15, i64 0}
+!100 = !{!"dt_sys_resources_t", !24, i64 0, !24, i64 8, !101, i64 16, !101, i64 24, !10, i64 32}
+!101 = !{!"p1 int", !15, i64 0}
+!102 = !{!"dt_backthumb_t", !97, i64 0, !97, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28}
+!103 = !{!"dt_gimp_t", !10, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !10, i64 28}
+!104 = !{!105, !97, i64 1424}
+!105 = !{!"dt_gui_gtk_t", !106, i64 0, !107, i64 8, !108, i64 56, !10, i64 80, !14, i64 88, !10, i64 96, !11, i64 104, !10, i64 1352, !10, i64 1356, !10, i64 1360, !10, i64 1364, !10, i64 1368, !97, i64 1376, !97, i64 1384, !97, i64 1392, !97, i64 1400, !67, i64 1408, !97, i64 1416, !97, i64 1424, !97, i64 1432, !97, i64 1440, !10, i64 1448, !10, i64 1452, !11, i64 1456, !10, i64 5552, !10, i64 5556, !10, i64 5560, !95, i64 5568}
+!106 = !{!"p1 _ZTS7dt_ui_t", !15, i64 0}
+!107 = !{!"dt_gui_widgets_t", !67, i64 0, !67, i64 8, !67, i64 16, !67, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
+!108 = !{!"dt_gui_scrollbars_t", !67, i64 0, !67, i64 8, !10, i64 16}
+!109 = !{!110, !111, i64 0}
+!110 = !{!"pdf_t", !111, i64 0, !67, i64 8, !67, i64 16, !111, i64 24, !112, i64 32, !67, i64 40, !67, i64 48, !67, i64 56, !67, i64 64, !67, i64 72, !67, i64 80}
+!111 = !{!"p1 _ZTS9_GtkEntry", !15, i64 0}
+!112 = !{!"p1 _ZTS14_GtkSpinButton", !15, i64 0}
+!113 = !{!110, !67, i64 8}
+!114 = !{!110, !67, i64 16}
+!115 = !{!110, !111, i64 24}
+!116 = !{!110, !112, i64 32}
+!117 = !{!110, !67, i64 40}
+!118 = !{!110, !67, i64 48}
+!119 = !{!110, !67, i64 56}
+!120 = !{!110, !67, i64 72}
+!121 = !{!122, !14, i64 0}
+!122 = !{!"", !14, i64 0, !13, i64 8, !13, i64 12}
+!123 = !{!110, !67, i64 80}
+!124 = !{!110, !67, i64 64}
+!125 = !{!126, !10, i64 8}
+!126 = !{!"", !14, i64 0, !10, i64 8}
+!127 = !{!126, !14, i64 0}
+!128 = !{!7, !10, i64 340}
+!129 = !{!7, !10, i64 416}
+!130 = !{!63, !15, i64 112}

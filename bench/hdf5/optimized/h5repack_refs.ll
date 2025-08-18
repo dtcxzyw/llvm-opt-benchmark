@@ -4078,5 +4078,4 @@ attributes #12 = { nounwind allocsize(0,1) }
 !57 = distinct !{!57, !31}
 !58 = distinct !{!58, !31}
 !59 = distinct !{!59, !31}
-!60 = distinct !{!60, !31, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !31}

@@ -900,16 +900,16 @@ project.exit.us:                                  ; preds = %.thread.i.us, %.thr
 lerp_colors16.exit.us:                            ; preds = %129, %113, %95
   %.030.i.us = phi i64 [ %110, %95 ], [ %128, %113 ], [ %184, %129 ]
   %185 = getelementptr inbounds nuw i64, ptr %.042.us, i64 %indvars.iv
-  store i64 %.030.i.us, ptr %185, align 8, !tbaa !80
+  store i64 %.030.i.us, ptr %185, align 8, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %67, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.us, label %67, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %lerp_colors16.exit.us
   %186 = getelementptr inbounds i64, ptr %.042.us, i64 %19
   %187 = add nsw i32 %.03941.us, 1
   %exitcond46.not = icmp eq i32 %187, %15
-  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !82
+  br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !81
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1156,7 +1156,7 @@ lerp_colors32.exit.us:                            ; preds = %137, %132, %125
   store float %.sink.i.us, ptr %123, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %74, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge.us, label %74, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %lerp_colors32.exit.us
   %171 = getelementptr inbounds float, ptr %.072.us, i64 %19
@@ -1165,7 +1165,7 @@ lerp_colors32.exit.us:                            ; preds = %137, %132, %125
   %174 = getelementptr inbounds float, ptr %.06569.us, i64 %31
   %175 = add nsw i32 %.06371.us, 1
   %exitcond76.not = icmp eq i32 %175, %15
-  br i1 %exitcond76.not, label %._crit_edge73, label %.preheader.us, !llvm.loop !84
+  br i1 %exitcond76.not, label %._crit_edge73, label %.preheader.us, !llvm.loop !83
 
 ._crit_edge73:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1316,10 +1316,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !75 = !{!24, !15, i64 16}
 !76 = !{!24, !15, i64 216}
 !77 = distinct !{!77, !68}
-!78 = distinct !{!78, !68, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!80 = !{!26, !26, i64 0}
+!78 = distinct !{!78, !68}
+!79 = !{!26, !26, i64 0}
+!80 = distinct !{!80, !68}
 !81 = distinct !{!81, !68}
-!82 = distinct !{!82, !68, !79}
+!82 = distinct !{!82, !68}
 !83 = distinct !{!83, !68}
-!84 = distinct !{!84, !68, !79}

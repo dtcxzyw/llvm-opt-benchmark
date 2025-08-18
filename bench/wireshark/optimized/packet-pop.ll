@@ -593,7 +593,7 @@ response_is_continuation.exit.thread:             ; preds = %.tail.i, %16, %resp
   %258 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %52, i32 noundef %253, ptr noundef %0, i32 noundef %.1182206, i32 noundef %255, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.68, ptr noundef %257)
   %.1182 = load i32, ptr %5, align 4
   %259 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1182)
-  br i1 %259, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %259, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %242, %110, %108, %106
   %260 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -783,7 +783,5 @@ attributes #10 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9}

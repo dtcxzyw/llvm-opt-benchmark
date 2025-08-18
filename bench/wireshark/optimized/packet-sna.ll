@@ -2544,7 +2544,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %78 = add nuw nsw i32 %70, %64
   %79 = and i32 %78, 65535
   %80 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %9, i32 noundef %79)
-  br i1 %80, label %.lr.ph.split, label %dissect_control_05hpr.exit, !llvm.loop !16
+  br i1 %80, label %.lr.ph.split, label %dissect_control_05hpr.exit, !llvm.loop !14
 
 81:                                               ; preds = %39
   br i1 %.not.i103, label %dissect_control_05hpr.exit, label %82
@@ -2679,7 +2679,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %41, i32 noundef %.013.i, i32 noundef %48, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %49 = add i32 %48, %.013.i
   %50 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %41, i32 noundef %49)
-  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit, !llvm.loop !17
+  br i1 %50, label %.lr.ph.i, label %dissect_xid2.exit, !llvm.loop !15
 
 51:                                               ; preds = %15
   %52 = add nsw i32 %6, -6
@@ -2724,7 +2724,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef %1, ptr nou
   tail call fastcc void @dissect_sna_control(ptr noundef %53, i32 noundef %.034.i, i32 noundef %86, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
   %87 = add i32 %86, %.034.i
   %88 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %53, i32 noundef %87)
-  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit, !llvm.loop !18
+  br i1 %88, label %.lr.ph.i50, label %dissect_xid2.exit, !llvm.loop !16
 
 89:                                               ; preds = %15
   %90 = add nsw i32 %6, -6
@@ -2787,8 +2787,6 @@ attributes #7 = { allocsize(1) }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = !{i8 0, i8 2}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}

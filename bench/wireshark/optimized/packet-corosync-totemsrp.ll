@@ -463,7 +463,7 @@ dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_g
   %137 = add i32 %136, %.05.i
   %138 = add nuw i32 %.0794.i, 1
   %exitcond.not.i = icmp eq i32 %138, %102
-  br i1 %exitcond.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i, !llvm.loop !6
 
 dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_totemsrp_rtr_list.exit.i, %dissect_corosync_totemsrp_rtr_list.exit.us.i, %corosync_totemsrp_get_uint32.exit84.i, %corosync_totemsrp_get_uint32.exit84.thread.i
   %.0.i8312.i = phi i32 [ 0, %corosync_totemsrp_get_uint32.exit84.i ], [ 0, %corosync_totemsrp_get_uint32.exit84.thread.i ], [ %101, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %102, %dissect_corosync_totemsrp_rtr_list.exit.i ]
@@ -646,7 +646,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
   %247 = add i32 %246, %.05.i91
   %248 = add nuw i32 %.0634.i, 1
   %exitcond.not.i92 = icmp eq i32 %248, %.0.i2.i89
-  br i1 %exitcond.not.i92, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i92, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %corosync_totemsrp_get_uint32.exit66.i
   %.0.lcssa.i93 = phi i32 [ %235, %corosync_totemsrp_get_uint32.exit66.i ], [ %247, %.lr.ph.i ]
@@ -674,7 +674,7 @@ corosync_totemsrp_get_uint32.exit66.i:            ; preds = %226, %221
   %260 = add i32 %259, %.17.i
   %261 = add nuw i32 %.1646.i, 1
   %exitcond14.not.i = icmp eq i32 %261, %.0.i65.i
-  br i1 %exitcond14.not.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i, !llvm.loop !11
+  br i1 %exitcond14.not.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i, !llvm.loop !9
 
 dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_edge.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i93, %._crit_edge.i ], [ %260, %.lr.ph9.i ]
@@ -748,7 +748,7 @@ corosync_totemsrp_get_uint32.exit69.i:            ; preds = %286, %284
   %298 = add i32 %297, %.02.i
   %299 = add nuw i32 %.0651.i, 1
   %exitcond.not.i96 = icmp eq i32 %299, %.0.i68.i
-  br i1 %exitcond.not.i96, label %.lr.ph5.i, label %.lr.ph.i95, !llvm.loop !12
+  br i1 %exitcond.not.i96, label %.lr.ph5.i, label %.lr.ph.i95, !llvm.loop !10
 
 .lr.ph5.i:                                        ; preds = %.lr.ph.i95, %.lr.ph5.i
   %.14.i = phi i32 [ %315, %.lr.ph5.i ], [ %298, %.lr.ph.i95 ]
@@ -772,7 +772,7 @@ corosync_totemsrp_get_uint32.exit69.i:            ; preds = %286, %284
   %315 = add i32 %314, %.14.i
   %316 = add nuw i32 %.1663.i, 1
   %exitcond9.not.i = icmp eq i32 %316, %.0.i68.i
-  br i1 %exitcond9.not.i, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph5.i, !llvm.loop !13
+  br i1 %exitcond9.not.i, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph5.i, !llvm.loop !11
 
 dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosync_totemsrp_get_uint32.exit69.i
   %.1.lcssa.i98 = phi i32 [ %288, %corosync_totemsrp_get_uint32.exit69.i ], [ %315, %.lr.ph5.i ]
@@ -1023,11 +1023,9 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}

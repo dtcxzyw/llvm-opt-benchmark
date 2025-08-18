@@ -15446,7 +15446,7 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #14
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #14
   %180 = add nuw nsw i32 %.0, 1
-  br label %_ZN7QStringD2Ev.exit71.split, !llvm.loop !38
+  br label %_ZN7QStringD2Ev.exit71.split, !llvm.loop !36
 
 181:                                              ; preds = %178
   %182 = landingpad { ptr, i32 }
@@ -17318,7 +17318,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
 38:                                               ; preds = %32
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !39
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !37
   %40 = trunc i64 %39 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17425,7 +17425,7 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
 69:                                               ; preds = %_ZN7QString6appendEPKc.exit12
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !42
+  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !40
   %71 = trunc i64 %70 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i14
 
@@ -17479,7 +17479,7 @@ _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8
   %86 = phi i32 [ %.pre24, %84 ], [ %82, %_ZN7QString6appendEPKc.exit20 ]
   %87 = and i32 %86, -2
   %switch = icmp eq i32 %87, 2
-  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !45
+  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %85, %54
   ret void
@@ -17549,7 +17549,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   br i1 %.not.i, label %_ZN7QString8fromUtf8EPKci.exit.i, label %37
 
 37:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16, !noalias !46
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16, !noalias !44
   %39 = trunc i64 %38 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17655,7 +17655,7 @@ _ZN7QString6appendEPKc.exit11:                    ; preds = %57, %_ZN9QtPrivate8
   br i1 %.not.i12, label %_ZN7QString8fromUtf8EPKci.exit.i13, label %68
 
 68:                                               ; preds = %_ZN7QString6appendEPKc.exit11
-  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16, !noalias !49
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16, !noalias !47
   %70 = trunc i64 %69 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i13
 
@@ -17708,7 +17708,7 @@ _ZN7QString6appendEPKc.exit19:                    ; preds = %73, %_ZN9QtPrivate8
 84:                                               ; preds = %83, %_ZN7QString6appendEPKc.exit19
   %85 = phi i32 [ %.pre22, %83 ], [ %81, %_ZN7QString6appendEPKc.exit19 ]
   %86 = icmp eq i32 %85, 4
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %84, %53
   ret void
@@ -17784,7 +17784,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br i1 %.not.i5, label %_ZN7QString8fromUtf8EPKci.exit.i, label %38
 
 38:                                               ; preds = %32
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !53
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16, !noalias !51
   %40 = trunc i64 %39 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i
 
@@ -17891,7 +17891,7 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8
   br i1 %.not.i13, label %_ZN7QString8fromUtf8EPKci.exit.i14, label %69
 
 69:                                               ; preds = %_ZN7QString6appendEPKc.exit12
-  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !56
+  %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #16, !noalias !54
   %71 = trunc i64 %70 to i32
   br label %_ZN7QString8fromUtf8EPKci.exit.i14
 
@@ -17945,7 +17945,7 @@ _ZN7QString6appendEPKc.exit20:                    ; preds = %74, %_ZN9QtPrivate8
   %86 = phi i32 [ %.pre24, %84 ], [ %82, %_ZN7QString6appendEPKc.exit20 ]
   %87 = and i32 %86, -2
   %switch = icmp eq i32 %87, 82
-  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !59
+  br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %85, %54
   ret void
@@ -18192,7 +18192,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit: ; preds = %.lr.ph, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit, %2
   ret void
@@ -18258,7 +18258,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i.i.i.i.i: ; preds = %_ZN9QtPriva
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i1.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit, %2
   ret void
@@ -18431,29 +18431,27 @@ attributes #18 = { builtin nounwind }
 !33 = distinct !{!33, !"_ZN7QString8fromUtf8EPKci"}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !6}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!41 = distinct !{!41, !"_ZN7QString8fromUtf8EPKci"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!44 = distinct !{!44, !"_ZN7QString8fromUtf8EPKci"}
-!45 = distinct !{!45, !6}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!48 = distinct !{!48, !"_ZN7QString8fromUtf8EPKci"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!51 = distinct !{!51, !"_ZN7QString8fromUtf8EPKci"}
-!52 = distinct !{!52, !6}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!55 = distinct !{!55, !"_ZN7QString8fromUtf8EPKci"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!58 = distinct !{!58, !"_ZN7QString8fromUtf8EPKci"}
+!36 = distinct !{!36, !6}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!39 = distinct !{!39, !"_ZN7QString8fromUtf8EPKci"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!42 = distinct !{!42, !"_ZN7QString8fromUtf8EPKci"}
+!43 = distinct !{!43, !6}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!46 = distinct !{!46, !"_ZN7QString8fromUtf8EPKci"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!49 = distinct !{!49, !"_ZN7QString8fromUtf8EPKci"}
+!50 = distinct !{!50, !6}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!53 = distinct !{!53, !"_ZN7QString8fromUtf8EPKci"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!56 = distinct !{!56, !"_ZN7QString8fromUtf8EPKci"}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
 !59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}

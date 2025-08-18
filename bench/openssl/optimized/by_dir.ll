@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %86 = call i32 @stat(ptr noundef %85, ptr noundef nonnull %11) #8
   %87 = icmp sgt i32 %86, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %87, label %.lr.ph184, label %.thread, !llvm.loop !34
+  br i1 %87, label %.lr.ph184, label %.thread
 
 .split.split.us.preheader:                        ; preds = %49, %64
   %.1101.ph = phi i32 [ 0, %49 ], [ %.0100, %64 ]
@@ -343,7 +343,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %106 = call i32 @stat(ptr noundef %105, ptr noundef nonnull %11) #8
   %107 = icmp sgt i32 %106, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %107, label %.lr.ph187, label %.thread, !llvm.loop !36
+  br i1 %107, label %.lr.ph187, label %.thread
 
 .split.split:                                     ; preds = %67, %.split.split
   %.2102 = phi i32 [ %spec.select, %.split.split ], [ 0, %67 ]
@@ -367,21 +367,21 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br i1 %116, label %117, label %.thread131
 
 117:                                              ; preds = %.thread
-  %118 = load ptr, ptr %37, align 8, !tbaa !37
+  %118 = load ptr, ptr %37, align 8, !tbaa !34
   %119 = call i32 @X509_STORE_lock(ptr noundef %118) #8
   %.not111 = icmp eq i32 %119, 0
   br i1 %.not111, label %.thread135, label %120
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr %37, align 8, !tbaa !37
+  %121 = load ptr, ptr %37, align 8, !tbaa !34
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !38
+  %123 = load ptr, ptr %122, align 8, !tbaa !35
   %124 = call i32 @OPENSSL_sk_find(ptr noundef %123, ptr noundef nonnull %9) #8
-  %125 = load ptr, ptr %37, align 8, !tbaa !37
+  %125 = load ptr, ptr %37, align 8, !tbaa !34
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !38
+  %127 = load ptr, ptr %126, align 8, !tbaa !35
   %128 = call ptr @OPENSSL_sk_value(ptr noundef %127, i32 noundef %124) #8
-  %129 = load ptr, ptr %37, align 8, !tbaa !37
+  %129 = load ptr, ptr %37, align 8, !tbaa !34
   %130 = call i32 @X509_STORE_unlock(ptr noundef %129) #8
   br i1 %33, label %131, label %165
 
@@ -481,34 +481,34 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   %173 = load ptr, ptr %29, align 8, !tbaa !10
   %174 = call i32 @OPENSSL_sk_num(ptr noundef %173) #8
   %175 = icmp slt i32 %172, %174
-  br i1 %175, label %38, label %.loopexit, !llvm.loop !47
+  br i1 %175, label %38, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.thread131, %.preheader, %.thread135, %23, %22, %17
   %.099 = phi ptr [ null, %22 ], [ %20, %23 ], [ null, %17 ], [ %20, %.thread135 ], [ %20, %.preheader ], [ %20, %.thread131 ]
   %.091 = phi i32 [ 0, %22 ], [ 0, %23 ], [ 0, %17 ], [ %.293.ph, %.thread135 ], [ 0, %.preheader ], [ 0, %.thread131 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %177 = load ptr, ptr %176, align 8, !tbaa !37
+  %177 = load ptr, ptr %176, align 8, !tbaa !34
   %178 = call i32 @X509_STORE_lock(ptr noundef %177) #8
   %.not115 = icmp eq i32 %178, 0
   br i1 %.not115, label %191, label %179
 
 179:                                              ; preds = %.loopexit
-  %180 = load ptr, ptr %176, align 8, !tbaa !37
+  %180 = load ptr, ptr %176, align 8, !tbaa !34
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !38
+  %182 = load ptr, ptr %181, align 8, !tbaa !35
   %183 = call i32 @OPENSSL_sk_is_sorted(ptr noundef %182) #8
   %.not116 = icmp eq i32 %183, 0
   br i1 %.not116, label %184, label %188
 
 184:                                              ; preds = %179
-  %185 = load ptr, ptr %176, align 8, !tbaa !37
+  %185 = load ptr, ptr %176, align 8, !tbaa !34
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load ptr, ptr %186, align 8, !tbaa !38
+  %187 = load ptr, ptr %186, align 8, !tbaa !35
   call void @OPENSSL_sk_sort(ptr noundef %187) #8
   br label %188
 
 188:                                              ; preds = %184, %179
-  %189 = load ptr, ptr %176, align 8, !tbaa !37
+  %189 = load ptr, ptr %176, align 8, !tbaa !34
   %190 = call i32 @X509_STORE_unlock(ptr noundef %189) #8
   br label %191
 
@@ -632,7 +632,7 @@ thread-pre-split:                                 ; preds = %64
   %32 = load ptr, ptr %8, align 8, !tbaa !10
   %33 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #8
   %34 = icmp slt i32 %31, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %30, %27, %.preheader
   %.045.lcssa = phi i32 [ 0, %.preheader ], [ %.04560, %27 ], [ %31, %30 ]
@@ -707,7 +707,7 @@ thread-pre-split:                                 ; preds = %64
   %.144 = phi ptr [ %.043, %11 ], [ %14, %58 ], [ %14, %._crit_edge ], [ %14, %13 ]
   %65 = load i8, ptr %.041, align 1, !tbaa !19
   %.not51 = icmp eq i8 %65, 0
-  br i1 %.not51, label %.thread, label %thread-pre-split, !llvm.loop !50
+  br i1 %.not51, label %.thread, label %thread-pre-split, !llvm.loop !47
 
 .thread:                                          ; preds = %44, %64, %43, %61, %56, %9
   %.042 = phi i32 [ 0, %9 ], [ 0, %56 ], [ 0, %61 ], [ 0, %43 ], [ 0, %44 ], [ 1, %64 ]
@@ -724,9 +724,9 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @by_dir_hash_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !51
+  %3 = load ptr, ptr %0, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !26
-  %5 = load ptr, ptr %1, align 8, !tbaa !51
+  %5 = load ptr, ptr %1, align 8, !tbaa !48
   %6 = load i64, ptr %5, align 8, !tbaa !26
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
@@ -831,22 +831,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !31 = !{!"buf_mem_st", !28, i64 0, !23, i64 8, !28, i64 16, !28, i64 24}
 !32 = !{!31, !28, i64 16}
 !33 = !{!22, !14, i64 8}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !35}
-!37 = !{!13, !16, i64 24}
-!38 = !{!39, !40, i64 8}
-!39 = !{!"x509_store_st", !14, i64 0, !40, i64 8, !41, i64 16, !42, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !43, i64 128, !46, i64 144, !6, i64 152}
-!40 = !{!"p1 _ZTS20stack_st_X509_OBJECT", !6, i64 0}
-!41 = !{!"p1 _ZTS20stack_st_X509_LOOKUP", !6, i64 0}
-!42 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !6, i64 0}
-!43 = !{!"crypto_ex_data_st", !44, i64 0, !45, i64 8}
-!44 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
-!45 = !{!"p1 _ZTS13stack_st_void", !6, i64 0}
-!46 = !{!"", !7, i64 0}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
-!50 = distinct !{!50, !48}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS20lookup_dir_hashes_st", !6, i64 0}
+!34 = !{!13, !16, i64 24}
+!35 = !{!36, !37, i64 8}
+!36 = !{!"x509_store_st", !14, i64 0, !37, i64 8, !38, i64 16, !39, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !40, i64 128, !43, i64 144, !6, i64 152}
+!37 = !{!"p1 _ZTS20stack_st_X509_OBJECT", !6, i64 0}
+!38 = !{!"p1 _ZTS20stack_st_X509_LOOKUP", !6, i64 0}
+!39 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !6, i64 0}
+!40 = !{!"crypto_ex_data_st", !41, i64 0, !42, i64 8}
+!41 = !{!"p1 _ZTS15ossl_lib_ctx_st", !6, i64 0}
+!42 = !{!"p1 _ZTS13stack_st_void", !6, i64 0}
+!43 = !{!"", !7, i64 0}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.mustprogress"}
+!46 = distinct !{!46, !45}
+!47 = distinct !{!47, !45}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS20lookup_dir_hashes_st", !6, i64 0}

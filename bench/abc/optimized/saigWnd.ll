@@ -384,8 +384,8 @@ define ptr @Saig_ObjHasUnlabeledFanout(ptr noundef readonly captures(none) %0, p
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 6
-  %.not34 = icmp ult i32 %5, 64
-  br i1 %.not34, label %.critedge, label %.lr.ph
+  %.not55 = icmp ult i32 %5, 64
+  br i1 %.not55, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 176
@@ -395,69 +395,76 @@ define ptr @Saig_ObjHasUnlabeledFanout(ptr noundef readonly captures(none) %0, p
   %.not.i = icmp eq ptr %.val22, null
   %10 = getelementptr i8, ptr %0, i64 112
   %11 = getelementptr i8, ptr %0, i64 312
-  br i1 %.not.i, label %.critedge, label %.lr.ph.split
+  br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %.val.i23.us = load i64, ptr inttoptr (i64 24 to ptr), align 8
+  %12 = and i64 %.val.i23.us, 7
+  %.not.i24.us = icmp ne i64 %12, 3
+  tail call void @llvm.assume(i1 %.not.i24.us)
+  br label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %12 = getelementptr i8, ptr %.val22, i64 8
-  %.val.i = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = getelementptr i8, ptr %.val22, i64 8
+  %.val.i = load ptr, ptr %13, align 8, !tbaa !28
   %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %.val21.sink = load ptr, ptr %7, align 8, !tbaa !33
-  br label %15
+  br label %16
 
-13:                                               ; preds = %Saig_ObjIsPo.exit.thread
-  %14 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %14, %umax
-  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !41
+14:                                               ; preds = %Saig_ObjIsPo.exit.thread
+  %15 = add nuw nsw i32 %.029, 1
+  %exitcond.not = icmp eq i32 %15, %umax
+  br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !41
 
-15:                                               ; preds = %.lr.ph.split, %13
-  %.029 = phi i32 [ 0, %.lr.ph.split ], [ %14, %13 ]
-  %.01528 = phi i32 [ -1, %.lr.ph.split ], [ %27, %13 ]
+16:                                               ; preds = %.lr.ph.split, %14
+  %.029 = phi i32 [ 0, %.lr.ph.split ], [ %15, %14 ]
+  %.01528 = phi i32 [ -1, %.lr.ph.split ], [ %28, %14 ]
   %.not = icmp eq i32 %.029, 0
-  br i1 %.not, label %22, label %16
+  br i1 %.not, label %23, label %17
 
-16:                                               ; preds = %15
-  %17 = ashr i32 %.01528, 1
-  %18 = mul nsw i32 %17, 5
-  %19 = and i32 %.01528, 1
-  %20 = add nuw nsw i32 %19, 3
-  %21 = add i32 %20, %18
+17:                                               ; preds = %16
+  %18 = ashr i32 %.01528, 1
+  %19 = mul nsw i32 %18, 5
+  %20 = and i32 %.01528, 1
+  %21 = add nuw nsw i32 %20, 3
+  %22 = add i32 %21, %19
   br label %Aig_ManObj.exit
 
-22:                                               ; preds = %15
-  %23 = load i32, ptr %8, align 4, !tbaa !3
-  %24 = mul nsw i32 %23, 5
+23:                                               ; preds = %16
+  %24 = load i32, ptr %8, align 4, !tbaa !3
+  %25 = mul nsw i32 %24, 5
   br label %Aig_ManObj.exit
 
-Aig_ManObj.exit:                                  ; preds = %22, %16
-  %.sink38 = phi i32 [ %24, %22 ], [ %21, %16 ]
-  %25 = sext i32 %.sink38 to i64
-  %26 = getelementptr inbounds i32, ptr %.val21.sink, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !10
-  %28 = ashr i32 %27, 1
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %.val.i, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
-  %32 = getelementptr i8, ptr %31, i64 24
-  %.val.i23 = load i64, ptr %32, align 8
-  %33 = and i64 %.val.i23, 7
-  %.not.i24 = icmp eq i64 %33, 3
+Aig_ManObj.exit:                                  ; preds = %23, %17
+  %.sink58 = phi i32 [ %25, %23 ], [ %22, %17 ]
+  %26 = sext i32 %.sink58 to i64
+  %27 = getelementptr inbounds i32, ptr %.val21.sink, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !10
+  %29 = ashr i32 %28, 1
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %.val.i, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
+  %33 = getelementptr i8, ptr %32, i64 24
+  %.val.i23 = load i64, ptr %33, align 8
+  %34 = and i64 %.val.i23, 7
+  %.not.i24 = icmp eq i64 %34, 3
   br i1 %.not.i24, label %Saig_ObjIsPo.exit, label %Saig_ObjIsPo.exit.thread
 
 Saig_ObjIsPo.exit:                                ; preds = %Aig_ManObj.exit
-  %.val3.i = load i32, ptr %31, align 8, !tbaa !24
+  %.val3.i = load i32, ptr %32, align 8, !tbaa !24
   %.val4.i = load i32, ptr %10, align 8, !tbaa !25
   %.not26 = icmp slt i32 %.val3.i, %.val4.i
   br i1 %.not26, label %.critedge, label %Saig_ObjIsPo.exit.thread
 
 Saig_ObjIsPo.exit.thread:                         ; preds = %Aig_ManObj.exit, %Saig_ObjIsPo.exit
   %.val = load i32, ptr %11, align 8, !tbaa !11
-  %34 = getelementptr i8, ptr %31, i64 32
-  %.val19 = load i32, ptr %34, align 8, !tbaa !23
+  %35 = getelementptr i8, ptr %32, i64 32
+  %.val19 = load i32, ptr %35, align 8, !tbaa !23
   %.not27 = icmp eq i32 %.val19, %.val
-  br i1 %.not27, label %13, label %.critedge
+  br i1 %.not27, label %14, label %.critedge
 
-.critedge:                                        ; preds = %Saig_ObjIsPo.exit.thread, %Saig_ObjIsPo.exit, %13, %.lr.ph, %2
-  %.016 = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ null, %13 ], [ %31, %Saig_ObjIsPo.exit ], [ %31, %Saig_ObjIsPo.exit.thread ]
+.critedge:                                        ; preds = %Saig_ObjIsPo.exit.thread, %Saig_ObjIsPo.exit, %14, %.lr.ph.split.us, %2
+  %.016 = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us ], [ null, %14 ], [ %32, %Saig_ObjIsPo.exit ], [ %32, %Saig_ObjIsPo.exit.thread ]
   ret ptr %.016
 }
 
@@ -854,8 +861,8 @@ define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captur
 
 13:                                               ; preds = %8, %3
   %14 = getelementptr i8, ptr %1, i64 4
-  %.val1729 = load i32, ptr %14, align 4, !tbaa !39
-  %15 = icmp sgt i32 %.val1729, 0
+  %.val1728 = load i32, ptr %14, align 4, !tbaa !39
+  %15 = icmp sgt i32 %.val1728, 0
   br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %13
@@ -877,8 +884,8 @@ define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captur
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = lshr i32 %28, 6
-  %.not34.i = icmp ult i32 %28, 64
-  br i1 %.not34.i, label %Saig_ObjHasUnlabeledFanout.exit.thread, label %.lr.ph.i
+  %.not55.i = icmp ult i32 %28, 64
+  br i1 %.not55.i, label %Saig_ObjHasUnlabeledFanout.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 36
@@ -925,8 +932,8 @@ define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captur
   br label %Aig_ManObj.exit.i
 
 Aig_ManObj.exit.i:                                ; preds = %42, %36
-  %.sink38.i = phi i32 [ %44, %42 ], [ %41, %36 ]
-  %45 = sext i32 %.sink38.i to i64
+  %.sink58.i = phi i32 [ %44, %42 ], [ %41, %36 ]
+  %45 = sext i32 %.sink58.i to i64
   %46 = getelementptr inbounds i32, ptr %.val21.sink.i, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = ashr i32 %47, 1
@@ -1086,8 +1093,8 @@ Vec_PtrPush.exit24:                               ; preds = %.Vec_PtrGrow.exit11
   br label %Saig_ObjHasUnlabeledFanout.exit.thread
 
 Saig_ObjHasUnlabeledFanout.exit.thread:           ; preds = %33, %.lr.ph.split.us.i, %21, %Vec_PtrPush.exit24, %Vec_PtrPush.exit
-  %114 = phi i32 [ %22, %21 ], [ %76, %Vec_PtrPush.exit24 ], [ %76, %Vec_PtrPush.exit ], [ %22, %.lr.ph.split.us.i ], [ %22, %33 ]
-  %115 = phi i32 [ %23, %21 ], [ %78, %Vec_PtrPush.exit24 ], [ %78, %Vec_PtrPush.exit ], [ %23, %.lr.ph.split.us.i ], [ %23, %33 ]
+  %114 = phi i32 [ %22, %.lr.ph.split.us.i ], [ %22, %21 ], [ %76, %Vec_PtrPush.exit24 ], [ %76, %Vec_PtrPush.exit ], [ %22, %33 ]
+  %115 = phi i32 [ %23, %.lr.ph.split.us.i ], [ %23, %21 ], [ %78, %Vec_PtrPush.exit24 ], [ %78, %Vec_PtrPush.exit ], [ %23, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val17 = load i32, ptr %14, align 4, !tbaa !39
   %116 = sext i32 %.val17 to i64

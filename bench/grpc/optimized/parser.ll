@@ -38683,7 +38683,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf13json_internal10Proto3Type1
 _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread.us: ; preds = %.lr.ph.split.us
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.059.064.us, i64 8
   %.not.us = icmp eq ptr %54, %43
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !1744
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %55 = icmp eq i64 %2, 0
@@ -38740,15 +38740,15 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 ._crit_edge:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread.us, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1746
-  store ptr %7, ptr %6, align 8, !tbaa !63, !noalias !1746
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1744
+  store ptr %7, ptr %6, align 8, !tbaa !63, !noalias !1744
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %79, align 8, !tbaa !182, !noalias !1746
+  store ptr @_ZN4absl12lts_2024072219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %79, align 8, !tbaa !182, !noalias !1744
   invoke void @_ZN4absl12lts_2024072219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr nonnull @.str.68, i64 24, ptr nonnull %6, i64 1)
           to label %80 unwind label %102
 
 80:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1746
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1744
   %81 = load ptr, ptr %11, align 8, !tbaa !24
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !29
@@ -39172,9 +39172,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
 16:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !247
-  call void @llvm.experimental.noalias.scope.decl(metadata !1749)
+  call void @llvm.experimental.noalias.scope.decl(metadata !1747)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !1740, !noalias !1749
+  %20 = load ptr, ptr %19, align 8, !tbaa !1740, !noalias !1747
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -39183,7 +39183,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = select i1 %23, ptr %19, ptr %26
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %29 = load i32, ptr %28, align 8, !tbaa !1743, !noalias !1749
+  %29 = load i32, ptr %28, align 8, !tbaa !1743, !noalias !1747
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %27, i64 %30
   %32 = invoke ptr @_ZSt9__find_ifIN6google8protobuf8internal19RepeatedPtrIteratorIKNS1_6OptionEEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_13json_internal10Proto3Type5IsMapEPKNSA_12ResolverPool5FieldEENKUlRKNSC_7MessageEE_clESI_EUlRT_E_EEESK_SK_SK_T0_St26random_access_iterator_tag(ptr nonnull %27, ptr nonnull %31)
@@ -39192,8 +39192,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
 _ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_.exit: ; preds = %16
   %33 = icmp ne ptr %31, %32
   %34 = zext i1 %33 to i8
-  store i8 %34, ptr %2, align 1, !tbaa !44, !noalias !1749
-  store i64 1, ptr %0, align 8, !tbaa !60, !alias.scope !1752
+  store i8 %34, ptr %2, align 1, !tbaa !44, !noalias !1747
+  store i64 1, ptr %0, align 8, !tbaa !60, !alias.scope !1750
   %.pre = load i64, ptr %4, align 8, !tbaa !60
   br label %.critedge
 
@@ -39284,7 +39284,7 @@ define linkonce_odr hidden ptr @_ZSt9__find_ifIN6google8protobuf8internal19Repea
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 32
   %48 = add nsw i64 %.037, -1
   %49 = icmp sgt i64 %.037, 1
-  br i1 %49, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1755
+  br i1 %49, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !1753
 
 ._crit_edge.loopexit:                             ; preds = %46
   %.pre = ptrtoint ptr %47 to i64
@@ -41182,15 +41182,13 @@ attributes #35 = { cold }
 !1741 = !{!"_ZTSN6google8protobuf8internal20RepeatedPtrFieldBaseE", !12, i64 0, !10, i64 8, !10, i64 12, !1742, i64 16}
 !1742 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !12, i64 0}
 !1743 = !{!1741, !10, i64 8}
-!1744 = distinct !{!1744, !1745}
-!1745 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!1746 = !{!1747}
-!1747 = distinct !{!1747, !1748, !"_ZN4absl12lts_202407229StrFormatIJSt17basic_string_viewIcSt11char_traitsIcEEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSC_: argument 0"}
-!1748 = distinct !{!1748, !"_ZN4absl12lts_202407229StrFormatIJSt17basic_string_viewIcSt11char_traitsIcEEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSC_"}
-!1749 = !{!1750}
-!1750 = distinct !{!1750, !1751, !"_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_: argument 0"}
-!1751 = distinct !{!1751, !"_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_"}
-!1752 = !{!1753, !1750}
-!1753 = distinct !{!1753, !1754, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!1754 = distinct !{!1754, !"_ZN4absl12lts_202407228OkStatusEv"}
-!1755 = distinct !{!1755, !117}
+!1744 = !{!1745}
+!1745 = distinct !{!1745, !1746, !"_ZN4absl12lts_202407229StrFormatIJSt17basic_string_viewIcSt11char_traitsIcEEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSC_: argument 0"}
+!1746 = distinct !{!1746, !"_ZN4absl12lts_202407229StrFormatIJSt17basic_string_viewIcSt11char_traitsIcEEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSC_"}
+!1747 = !{!1748}
+!1748 = distinct !{!1748, !1749, !"_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_: argument 0"}
+!1749 = distinct !{!1749, !"_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_"}
+!1750 = !{!1751, !1748}
+!1751 = distinct !{!1751, !1752, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!1752 = distinct !{!1752, !"_ZN4absl12lts_202407228OkStatusEv"}
+!1753 = distinct !{!1753, !117}

@@ -4354,7 +4354,7 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   %462 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %.str.202..str.203, i64 noundef %.0.copyload1.i) #20
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next66, %407
-  br i1 %exitcond70.not, label %.preheader52.preheader, label %.split, !llvm.loop !119
+  br i1 %exitcond70.not, label %.preheader52.preheader, label %.split, !llvm.loop !117
 
 .preheader52.preheader:                           ; preds = %.loopexit.us, %.split
   br label %.preheader52
@@ -4366,7 +4366,7 @@ print_cmpd_type.exit:                             ; preds = %368, %365
   %465 = call i32 @H5free_memory(ptr noundef %464) #20
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next79, %407
-  br i1 %exitcond83.not, label %466, label %.preheader52, !llvm.loop !120
+  br i1 %exitcond83.not, label %466, label %.preheader52, !llvm.loop !118
 
 466:                                              ; preds = %.preheader52
   call void @free(ptr noundef nonnull %408) #20
@@ -4575,7 +4575,7 @@ define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef nonnull 
   %16 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %13, i64 noundef %15) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %17 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.223) #20
@@ -5185,7 +5185,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %114 = load ptr, ptr %8, align 8, !tbaa !19
   %115 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, i64 noundef %113, ptr noundef %114) #20
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %117 = load i32, ptr %116, align 4, !tbaa !122
+  %117 = load i32, ptr %116, align 4, !tbaa !120
   %118 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.348, i32 noundef %117) #20
   %119 = load ptr, ptr @rawoutstream, align 8, !tbaa !26
   %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ls_dataformat, i64 320), align 8, !tbaa !47
@@ -5194,7 +5194,7 @@ print_obj_name.exit:                              ; preds = %30, %31
   %123 = load ptr, ptr %8, align 8, !tbaa !19
   %124 = call i32 @H5free_memory(ptr noundef %123) #20
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %126 = load i64, ptr %125, align 8, !tbaa !123
+  %126 = load i64, ptr %125, align 8, !tbaa !121
   %127 = icmp sgt i64 %126, 0
   br i1 %127, label %128, label %143
 
@@ -5383,7 +5383,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr readn
   %33 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %13, ptr noundef nonnull @.str.48, ptr noundef nonnull %30, i64 noundef %32) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 34:                                               ; preds = %22
   br label %._crit_edge
@@ -5930,11 +5930,9 @@ attributes #28 = { nounwind allocsize(0) }
 !114 = distinct !{!114, !29}
 !115 = distinct !{!115, !29}
 !116 = distinct !{!116, !29}
-!117 = distinct !{!117, !29, !118}
-!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!117 = distinct !{!117, !29}
+!118 = distinct !{!118, !29}
 !119 = distinct !{!119, !29}
-!120 = distinct !{!120, !29}
-!121 = distinct !{!121, !29}
-!122 = !{!106, !18, i64 28}
-!123 = !{!106, !36, i64 40}
-!124 = distinct !{!124, !29}
+!120 = !{!106, !18, i64 28}
+!121 = !{!106, !36, i64 40}
+!122 = distinct !{!122, !29}

@@ -702,7 +702,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val70.val = load i32, ptr %64, align 4, !tbaa !25
   %65 = sext i32 %.val70.val to i64
   %66 = icmp slt i64 %indvars.iv.next148, %65
-  br i1 %66, label %.lr.ph128.split, label %.critedge2.preheader, !llvm.loop !59
+  br i1 %66, label %.lr.ph128.split, label %.critedge2.preheader, !llvm.loop !57
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %.val91132 = load ptr, ptr %16, align 8, !tbaa !43
@@ -788,7 +788,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val68 = load i32, ptr %106, align 4, !tbaa !25
   %107 = sext i32 %.val68 to i64
   %108 = icmp slt i64 %indvars.iv.next154, %107
-  br i1 %108, label %.lr.ph131, label %.critedge4.preheader, !llvm.loop !60
+  br i1 %108, label %.lr.ph131, label %.critedge4.preheader, !llvm.loop !58
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %109 = load ptr, ptr %8, align 8, !tbaa !32
@@ -839,7 +839,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val91.val = load i32, ptr %130, align 4, !tbaa !25
   %131 = sext i32 %.val91.val to i64
   %132 = icmp slt i64 %indvars.iv.next157, %131
-  br i1 %132, label %.critedge4, label %.critedge6.preheader, !llvm.loop !61
+  br i1 %132, label %.critedge4, label %.critedge6.preheader, !llvm.loop !59
 
 .lr.ph139:                                        ; preds = %.critedge6.preheader, %.critedge6
   %133 = phi ptr [ %155, %.critedge6 ], [ %109, %.critedge6.preheader ]
@@ -890,13 +890,13 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val67 = load i32, ptr %156, align 4, !tbaa !25
   %157 = sext i32 %.val67 to i64
   %158 = icmp slt i64 %indvars.iv.next160, %157
-  br i1 %158, label %.lr.ph139, label %.critedge8, !llvm.loop !62
+  br i1 %158, label %.lr.ph139, label %.critedge8, !llvm.loop !60
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
   %159 = phi ptr [ %109, %.critedge6.preheader ], [ %155, %.critedge6 ]
   %160 = add nuw nsw i32 %.0140, 1
   %exitcond.not = icmp eq i32 %160, %1
-  br i1 %exitcond.not, label %.preheader, label %.preheader121, !llvm.loop !63
+  br i1 %exitcond.not, label %.preheader, label %.preheader121, !llvm.loop !61
 
 .lr.ph143:                                        ; preds = %.preheader, %179
   %161 = phi ptr [ %180, %179 ], [ %54, %.preheader ]
@@ -941,7 +941,7 @@ define void @Abc_NtkCycleInitState(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.val = load i32, ptr %181, align 4, !tbaa !25
   %182 = sext i32 %.val to i64
   %183 = icmp slt i64 %indvars.iv.next163, %182
-  br i1 %183, label %.lr.ph143, label %.critedge10, !llvm.loop !64
+  br i1 %183, label %.lr.ph143, label %.critedge10, !llvm.loop !62
 
 .critedge10:                                      ; preds = %179, %.preheader
   ret void
@@ -1018,11 +1018,9 @@ attributes #4 = { nounwind }
 !54 = distinct !{!54, !30}
 !55 = distinct !{!55, !30}
 !56 = distinct !{!56, !30}
-!57 = distinct !{!57, !30, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !30}
+!58 = distinct !{!58, !30}
 !59 = distinct !{!59, !30}
 !60 = distinct !{!60, !30}
 !61 = distinct !{!61, !30}
 !62 = distinct !{!62, !30}
-!63 = distinct !{!63, !30}
-!64 = distinct !{!64, !30}

@@ -3196,7 +3196,7 @@ define void @_ZNK6icu_7711UXMLElement10appendTextERNS_13UnicodeStringEa(ptr noun
 37:                                               ; preds = %.thread, %27
   %38 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %38, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %37, %.thread.us, %3
   ret void
@@ -3272,7 +3272,7 @@ _ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit: ; preds = %2
 21:                                               ; preds = %.lr.ph
   %22 = add nuw nsw i32 %.0913, 1
   %exitcond.not = icmp eq i32 %22, %14
-  br i1 %exitcond.not, label %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread, label %.lr.ph, !llvm.loop !68
 
 _ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread: ; preds = %21, %11, %2, %18, %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit
   %.0 = phi ptr [ null, %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit ], [ %20, %18 ], [ null, %2 ], [ null, %11 ], [ null, %21 ]
@@ -3312,7 +3312,7 @@ define noundef ptr @_ZNK6icu_7711UXMLElement8getChildEiR12UXMLNodeType(ptr nound
 
 15:                                               ; preds = %12, %.thread
   %16 = phi i32 [ 0, %.thread ], [ 1, %12 ]
-  store i32 %16, ptr %2, align 4, !tbaa !71
+  store i32 %16, ptr %2, align 4, !tbaa !69
   br label %17
 
 17:                                               ; preds = %3, %15
@@ -3322,7 +3322,7 @@ define noundef ptr @_ZNK6icu_7711UXMLElement8getChildEiR12UXMLNodeType(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7711UXMLElement16nextChildElementERi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  %3 = load i32, ptr %1, align 4, !tbaa !73
+  %3 = load i32, ptr %1, align 4, !tbaa !71
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -3333,13 +3333,13 @@ define noundef ptr @_ZNK6icu_7711UXMLElement16nextChildElementERi(ptr noundef no
   br label %9
 
 9:                                                ; preds = %18, %5
-  %10 = load i32, ptr %1, align 4, !tbaa !73
+  %10 = load i32, ptr %1, align 4, !tbaa !71
   %11 = icmp slt i32 %10, %8
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %9
   %13 = add nsw i32 %10, 1
-  store i32 %13, ptr %1, align 4, !tbaa !73
+  store i32 %13, ptr %1, align 4, !tbaa !71
   %14 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %10)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %18, label %16
@@ -3351,7 +3351,7 @@ define noundef ptr @_ZNK6icu_7711UXMLElement16nextChildElementERi(ptr noundef no
 18:                                               ; preds = %12, %16
   %19 = phi ptr [ %17, %16 ], [ null, %12 ]
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %9, label %.loopexit, !llvm.loop !74
+  br i1 %.not, label %9, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %18, %9, %2
   %.09 = phi ptr [ null, %2 ], [ null, %9 ], [ %19, %18 ]
@@ -3401,7 +3401,7 @@ _ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit: ; preds = %2
 .thread:                                          ; preds = %.lr.ph, %18, %20
   %24 = add nuw nsw i32 %.01424, 1
   %exitcond.not = icmp eq i32 %24, %14
-  br i1 %exitcond.not, label %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread, label %.lr.ph, !llvm.loop !73
 
 _ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit.thread: ; preds = %.thread, %20, %11, %2, %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit
   %.0 = phi ptr [ null, %_ZNK6icu_7710UXMLParser8findNameERKNS_13UnicodeStringE.exit ], [ null, %2 ], [ null, %11 ], [ null, %.thread ], [ %19, %20 ]
@@ -3537,12 +3537,10 @@ attributes #15 = { cold nounwind }
 !64 = !{!50, !51, i64 8}
 !65 = distinct !{!65, !27}
 !66 = distinct !{!66, !27}
-!67 = distinct !{!67, !27, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !27}
-!70 = distinct !{!70, !27}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"_ZTS12UXMLNodeType", !10, i64 0}
-!73 = !{!13, !13, i64 0}
-!74 = distinct !{!74, !27}
-!75 = distinct !{!75, !27}
+!67 = distinct !{!67, !27}
+!68 = distinct !{!68, !27}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"_ZTS12UXMLNodeType", !10, i64 0}
+!71 = !{!13, !13, i64 0}
+!72 = distinct !{!72, !27}
+!73 = distinct !{!73, !27}

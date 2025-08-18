@@ -1294,7 +1294,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exi
 ._crit_edge.us:                                   ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exit87.us
   %.sroa.0117.0.add.us = add nuw nsw i64 %.sroa.0117.0.idx176.us, 4
   %.not.us = icmp eq i64 %.sroa.0117.0.add.us, 12
-  br i1 %.not.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit105, label %.split.us, !llvm.loop !24
+  br i1 %.not.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit105, label %.split.us
 
 .loopexit.split-lp.split.us:                      ; preds = %66, %64, %.split.us
   %lpad.loopexit.split-lp.us = landingpad { ptr, i32 }
@@ -1852,5 +1852,3 @@ attributes #23 = { noreturn nounwind }
 !21 = distinct !{!21, !22, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_13TraceReporterEEENS_8TfRefPtrIT_EEPS3_: argument 0"}
 !22 = distinct !{!22, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_13TraceReporterEEENS_8TfRefPtrIT_EEPS3_"}
 !23 = distinct !{!23, !11}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}

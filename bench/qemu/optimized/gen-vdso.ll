@@ -1503,146 +1503,172 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !45
-  %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %0, i64 %15, i32 4
-  %17 = load i32, ptr %16, align 4, !tbaa !46
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
+  %15 = lshr i32 %14, 4
+  %16 = zext i32 %8 to i64
+  %17 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %0, i64 %16, i32 4
+  %18 = load i32, ptr %17, align 4, !tbaa !46
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %19
   %.not37 = icmp ult i32 %14, 16
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %20 = lshr i32 %14, 4
   %21 = load ptr, ptr @sigreturn_sym, align 8, !tbaa !4
   %.not = icmp eq ptr %21, null
   %22 = load ptr, ptr @rt_sigreturn_sym, align 8, !tbaa !4
   %.not20 = icmp eq ptr %22, null
-  %wide.trip.count55 = zext nneg i32 %20 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %32 ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv52
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not20, label %._crit_edge, label %.lr.ph.split.us.split.preheader
+
+.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
+  %wide.trip.count62 = zext nneg i32 %15 to i64
+  br label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %31
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %31 ]
+  %23 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv59
+  %.sroa.0.0.copyload.us = load i32, ptr %23, align 4
+  %24 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
+  %.sroa.0.0.us = select i1 %3, i32 %24, i32 %.sroa.0.0.copyload.us
+  %25 = zext i32 %.sroa.0.0.us to i64
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %26) #17
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %.lr.ph.split.us.split
   %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.6.0.copyload.us = load i32, ptr %.sroa.6.0..sroa_idx.us, align 4
-  %24 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us)
-  %.sroa.6.0.us = select i1 %3, i32 %24, i32 %.sroa.6.0.copyload.us
-  br i1 %.not20, label %32, label %25
-
-25:                                               ; preds = %.lr.ph.split.us
-  %.sroa.0.0.copyload.us = load i32, ptr %23, align 4
-  %26 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
-  %.sroa.0.0.us = select i1 %3, i32 %26, i32 %.sroa.0.0.copyload.us
-  %27 = zext i32 %.sroa.0.0.us to i64
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 %27
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %28) #17
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %25
+  %30 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us)
+  %.sroa.6.0.us = select i1 %3, i32 %30, i32 %.sroa.6.0.copyload.us
   store i32 %.sroa.6.0.us, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %32
+  br label %31
 
-32:                                               ; preds = %31, %25, %.lr.ph.split.us
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !94
+31:                                               ; preds = %29, %.lr.ph.split.us.split
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !94
 
 .lr.ph.split:                                     ; preds = %.lr.ph
+  %wide.trip.count57 = zext nneg i32 %15 to i64
   br i1 %.not20, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %41
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %41 ], [ 0, %.lr.ph.split ]
-  %33 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv47
-  %.sroa.0.0.copyload.us27 = load i32, ptr %33, align 4
-  %34 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27)
-  %.sroa.0.0.us31 = select i1 %3, i32 %34, i32 %.sroa.0.0.copyload.us27
-  %35 = zext i32 %.sroa.0.0.us31 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 %35
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %36) #17
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %41
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  br i1 %3, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-39:                                               ; preds = %.lr.ph.split.split.us
-  %.sroa.6.0..sroa_idx.us28 = getelementptr inbounds nuw i8, ptr %33, i64 4
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %40
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %40 ], [ 0, %.lr.ph.split.split.us ]
+  %32 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv54
+  %.sroa.0.0.copyload.us27.us = load i32, ptr %32, align 4
+  %33 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27.us)
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 %34
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %35) #17
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %.lr.ph.split.split.us.split.us
+  %.sroa.6.0..sroa_idx.us28.us = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %.sroa.6.0.copyload.us29.us = load i32, ptr %.sroa.6.0..sroa_idx.us28.us, align 4
+  %39 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us29.us)
+  store i32 %39, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %40
+
+40:                                               ; preds = %.lr.ph.split.split.us.split.us, %38
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !94
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %47
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %47 ], [ 0, %.lr.ph.split.split.us ]
+  %41 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv49
+  %.sroa.0.0.copyload.us27 = load i32, ptr %41, align 4
+  %42 = zext i32 %.sroa.0.0.copyload.us27 to i64
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 %42
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %43) #17
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %.lr.ph.split.split.us.split
+  %.sroa.6.0..sroa_idx.us28 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %.sroa.6.0.copyload.us29 = load i32, ptr %.sroa.6.0..sroa_idx.us28, align 4
-  %40 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us29)
-  %.sroa.6.0.us30 = select i1 %3, i32 %40, i32 %.sroa.6.0.copyload.us29
-  store i32 %.sroa.6.0.us30, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %41
+  store i32 %.sroa.6.0.copyload.us29, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %47
 
-41:                                               ; preds = %39, %.lr.ph.split.split.us
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count55
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !96
+47:                                               ; preds = %46, %.lr.ph.split.split.us.split
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count57
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !94
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %3, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %54
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %54 ], [ 0, %.lr.ph.split.split ]
-  %42 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv42
-  %.sroa.0.0.copyload.us33 = load i32, ptr %42, align 4
-  %.sroa.6.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %42, i64 4
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %60
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %60 ], [ 0, %.lr.ph.split.split ]
+  %48 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv44
+  %.sroa.0.0.copyload.us33 = load i32, ptr %48, align 4
+  %.sroa.6.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.6.0.copyload.us35 = load i32, ptr %.sroa.6.0..sroa_idx.us34, align 4
-  %43 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us33)
-  %44 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us35)
-  %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 %45
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %46) #17
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %50
+  %49 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us33)
+  %50 = tail call i32 @llvm.bswap.i32(i32 %.sroa.6.0.copyload.us35)
+  %51 = zext i32 %49 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 %51
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %52) #17
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %56
 
-49:                                               ; preds = %.lr.ph.split.split.split.us
-  store i32 %44, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %50
+55:                                               ; preds = %.lr.ph.split.split.split.us
+  store i32 %50, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %56
 
-50:                                               ; preds = %.lr.ph.split.split.split.us, %49
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %46) #17
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %54
+56:                                               ; preds = %.lr.ph.split.split.split.us, %55
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %52) #17
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %60
 
-53:                                               ; preds = %50
-  store i32 %44, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %54
+59:                                               ; preds = %56
+  store i32 %50, ptr @rt_sigreturn_addr, align 4, !tbaa !11
+  br label %60
 
-54:                                               ; preds = %53, %50
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count55
-  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !97
+60:                                               ; preds = %59, %56
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count57
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !94
 
-._crit_edge:                                      ; preds = %65, %54, %41, %32, %4
+._crit_edge:                                      ; preds = %71, %60, %47, %40, %31, %.lr.ph.split.us, %4
   ret void
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %65
-  %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.lr.ph.split.split ]
-  %55 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %55, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %71
+  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.lr.ph.split.split ]
+  %61 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i32, ptr %61, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 4
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %56 = zext i32 %.sroa.0.0.copyload to i64
-  %57 = getelementptr inbounds nuw i8, ptr %19, i64 %56
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %57) #17
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %61
+  %62 = zext i32 %.sroa.0.0.copyload to i64
+  %63 = getelementptr inbounds nuw i8, ptr %20, i64 %62
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %63) #17
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
 
-60:                                               ; preds = %.lr.ph.split.split.split
+66:                                               ; preds = %.lr.ph.split.split.split
   store i32 %.sroa.6.0.copyload, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %61
+  br label %67
 
-61:                                               ; preds = %60, %.lr.ph.split.split.split
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %57) #17
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %65
+67:                                               ; preds = %66, %.lr.ph.split.split.split
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %63) #17
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %71
 
-64:                                               ; preds = %61
+70:                                               ; preds = %67
   store i32 %.sroa.6.0.copyload, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %65
+  br label %71
 
-65:                                               ; preds = %64, %61
+71:                                               ; preds = %70, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !98
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1700,9 +1726,9 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
   store i64 %23, ptr %21, align 8, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !99
+  %25 = load i64, ptr %24, align 8, !tbaa !95
   %26 = tail call i64 @llvm.bswap.i64(i64 %25)
-  store i64 %26, ptr %24, align 8, !tbaa !99
+  store i64 %26, ptr %24, align 8, !tbaa !95
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !70
   %29 = tail call i64 @llvm.bswap.i64(i64 %28)
@@ -1712,31 +1738,31 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
   %32 = tail call i64 @llvm.bswap.i64(i64 %31)
   store i64 %32, ptr %30, align 8, !tbaa !71
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %34 = load i64, ptr %33, align 8, !tbaa !100
+  %34 = load i64, ptr %33, align 8, !tbaa !96
   %35 = tail call i64 @llvm.bswap.i64(i64 %34)
-  store i64 %35, ptr %33, align 8, !tbaa !100
+  store i64 %35, ptr %33, align 8, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !97
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
   %36 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %7, i64 %indvars.iv18
-  %37 = load i32, ptr %36, align 8, !tbaa !102
+  %37 = load i32, ptr %36, align 8, !tbaa !98
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
-  store i32 %38, ptr %36, align 8, !tbaa !102
+  store i32 %38, ptr %36, align 8, !tbaa !98
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !63
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   store i32 %41, ptr %39, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !103
+  %43 = load i64, ptr %42, align 8, !tbaa !99
   %44 = tail call i64 @llvm.bswap.i64(i64 %43)
-  store i64 %44, ptr %42, align 8, !tbaa !103
+  store i64 %44, ptr %42, align 8, !tbaa !99
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !104
+  %46 = load i64, ptr %45, align 8, !tbaa !100
   %47 = tail call i64 @llvm.bswap.i64(i64 %46)
-  store i64 %47, ptr %45, align 8, !tbaa !104
+  store i64 %47, ptr %45, align 8, !tbaa !100
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %49 = load i64, ptr %48, align 8, !tbaa !79
   %50 = tail call i64 @llvm.bswap.i64(i64 %49)
@@ -1746,24 +1772,24 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
   %53 = tail call i64 @llvm.bswap.i64(i64 %52)
   store i64 %53, ptr %51, align 8, !tbaa !78
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %55 = load i32, ptr %54, align 8, !tbaa !105
+  %55 = load i32, ptr %54, align 8, !tbaa !101
   %56 = tail call i32 @llvm.bswap.i32(i32 %55)
-  store i32 %56, ptr %54, align 8, !tbaa !105
+  store i32 %56, ptr %54, align 8, !tbaa !101
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 44
-  %58 = load i32, ptr %57, align 4, !tbaa !106
+  %58 = load i32, ptr %57, align 4, !tbaa !102
   %59 = tail call i32 @llvm.bswap.i32(i32 %58)
-  store i32 %59, ptr %57, align 4, !tbaa !106
+  store i32 %59, ptr %57, align 4, !tbaa !102
   %60 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %61 = load i64, ptr %60, align 8, !tbaa !107
+  %61 = load i64, ptr %60, align 8, !tbaa !103
   %62 = tail call i64 @llvm.bswap.i64(i64 %61)
-  store i64 %62, ptr %60, align 8, !tbaa !107
+  store i64 %62, ptr %60, align 8, !tbaa !103
   %63 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %64 = load i64, ptr %63, align 8, !tbaa !108
+  %64 = load i64, ptr %63, align 8, !tbaa !104
   %65 = tail call i64 @llvm.bswap.i64(i64 %64)
-  store i64 %65, ptr %63, align 8, !tbaa !108
+  store i64 %65, ptr %63, align 8, !tbaa !104
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph15, !llvm.loop !109
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph15, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph15, %.preheader
   ret void
@@ -1774,7 +1800,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !105
+  %8 = load i32, ptr %7, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
@@ -1794,138 +1820,165 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
   %.not = icmp eq ptr %20, null
   %21 = load ptr, ptr @rt_sigreturn_sym, align 8, !tbaa !4
   %.not20 = icmp eq ptr %21, null
-  %wide.trip.count55 = and i64 %14, 4294967295
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %32 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv52
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not20, label %._crit_edge, label %.lr.ph.split.us.split.preheader
+
+.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
+  %wide.trip.count62 = and i64 %14, 4294967295
+  br label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %31
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %31 ]
+  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv59
+  %.sroa.0.0.copyload.us = load i32, ptr %22, align 8
+  %23 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
+  %.sroa.0.0.us = select i1 %3, i32 %23, i32 %.sroa.0.0.copyload.us
+  %24 = zext i32 %.sroa.0.0.us to i64
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %24
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %25) #17
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %.lr.ph.split.us.split
   %.sroa.8.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.8.0.copyload.us = load i64, ptr %.sroa.8.0..sroa_idx.us, align 8
-  %23 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us)
-  %.sroa.8.0.us = select i1 %3, i64 %23, i64 %.sroa.8.0.copyload.us
-  br i1 %.not20, label %32, label %24
+  %29 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us)
+  %.sroa.8.0.us = select i1 %3, i64 %29, i64 %.sroa.8.0.copyload.us
+  %30 = trunc i64 %.sroa.8.0.us to i32
+  store i32 %30, ptr @rt_sigreturn_addr, align 4, !tbaa !11
+  br label %31
 
-24:                                               ; preds = %.lr.ph.split.us
-  %.sroa.0.0.copyload.us = load i32, ptr %22, align 8
-  %25 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
-  %.sroa.0.0.us = select i1 %3, i32 %25, i32 %.sroa.0.0.copyload.us
-  %26 = zext i32 %.sroa.0.0.us to i64
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %26
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %27) #17
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %32
-
-30:                                               ; preds = %24
-  %31 = trunc i64 %.sroa.8.0.us to i32
-  store i32 %31, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %32
-
-32:                                               ; preds = %30, %24, %.lr.ph.split.us
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !110
+31:                                               ; preds = %28, %.lr.ph.split.us.split
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !106
 
 .lr.ph.split:                                     ; preds = %.lr.ph
+  %wide.trip.count57 = and i64 %14, 4294967295
   br i1 %.not20, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %42
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %42 ], [ 0, %.lr.ph.split ]
-  %33 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv47
-  %.sroa.0.0.copyload.us27 = load i32, ptr %33, align 8
-  %34 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27)
-  %.sroa.0.0.us31 = select i1 %3, i32 %34, i32 %.sroa.0.0.copyload.us27
-  %35 = zext i32 %.sroa.0.0.us31 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 %35
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %36) #17
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %42
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split
+  br i1 %3, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-39:                                               ; preds = %.lr.ph.split.split.us
-  %.sroa.8.0..sroa_idx.us28 = getelementptr inbounds nuw i8, ptr %33, i64 8
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %41
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %41 ], [ 0, %.lr.ph.split.split.us ]
+  %32 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv54
+  %.sroa.0.0.copyload.us27.us = load i32, ptr %32, align 8
+  %33 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27.us)
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %35) #17
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %.lr.ph.split.split.us.split.us
+  %.sroa.8.0..sroa_idx.us28.us = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.8.0.copyload.us29.us = load i64, ptr %.sroa.8.0..sroa_idx.us28.us, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us29.us)
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %41
+
+41:                                               ; preds = %.lr.ph.split.split.us.split.us, %38
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !106
+
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %49
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %49 ], [ 0, %.lr.ph.split.split.us ]
+  %42 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv49
+  %.sroa.0.0.copyload.us27 = load i32, ptr %42, align 8
+  %43 = zext i32 %.sroa.0.0.copyload.us27 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 %43
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %44) #17
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %49
+
+47:                                               ; preds = %.lr.ph.split.split.us.split
+  %.sroa.8.0..sroa_idx.us28 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.8.0.copyload.us29 = load i64, ptr %.sroa.8.0..sroa_idx.us28, align 8
-  %40 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us29)
-  %.sroa.8.0.us30 = select i1 %3, i64 %40, i64 %.sroa.8.0.copyload.us29
-  %41 = trunc i64 %.sroa.8.0.us30 to i32
-  store i32 %41, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %42
+  %48 = trunc i64 %.sroa.8.0.copyload.us29 to i32
+  store i32 %48, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %49
 
-42:                                               ; preds = %39, %.lr.ph.split.split.us
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count55
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !111
+49:                                               ; preds = %47, %.lr.ph.split.split.us.split
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count57
+  br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !106
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %3, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %57
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %57 ], [ 0, %.lr.ph.split.split ]
-  %43 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv42
-  %.sroa.0.0.copyload.us33 = load i32, ptr %43, align 8
-  %.sroa.8.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %43, i64 8
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %64
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %64 ], [ 0, %.lr.ph.split.split ]
+  %50 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv44
+  %.sroa.0.0.copyload.us33 = load i32, ptr %50, align 8
+  %.sroa.8.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.8.0.copyload.us35 = load i64, ptr %.sroa.8.0..sroa_idx.us34, align 8
-  %44 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us33)
-  %45 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us35)
-  %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %18, i64 %46
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %47) #17
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %52
+  %51 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us33)
+  %52 = tail call i64 @llvm.bswap.i64(i64 %.sroa.8.0.copyload.us35)
+  %53 = zext i32 %51 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 %53
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %54) #17
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %59
 
-50:                                               ; preds = %.lr.ph.split.split.split.us
-  %51 = trunc i64 %45 to i32
-  store i32 %51, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %52
+57:                                               ; preds = %.lr.ph.split.split.split.us
+  %58 = trunc i64 %52 to i32
+  store i32 %58, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %59
 
-52:                                               ; preds = %.lr.ph.split.split.split.us, %50
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %47) #17
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %57
+59:                                               ; preds = %.lr.ph.split.split.split.us, %57
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %54) #17
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %64
 
-55:                                               ; preds = %52
-  %56 = trunc i64 %45 to i32
-  store i32 %56, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %57
+62:                                               ; preds = %59
+  %63 = trunc i64 %52 to i32
+  store i32 %63, ptr @rt_sigreturn_addr, align 4, !tbaa !11
+  br label %64
 
-57:                                               ; preds = %55, %52
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count55
-  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !112
+64:                                               ; preds = %62, %59
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count57
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %70, %57, %42, %32, %4
+._crit_edge:                                      ; preds = %77, %64, %49, %41, %31, %.lr.ph.split.us, %4
   ret void
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %70
-  %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.lr.ph.split.split ]
-  %58 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv
-  %.sroa.0.0.copyload = load i32, ptr %58, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %77
+  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.lr.ph.split.split ]
+  %65 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv
+  %.sroa.0.0.copyload = load i32, ptr %65, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  %59 = zext i32 %.sroa.0.0.copyload to i64
-  %60 = getelementptr inbounds nuw i8, ptr %18, i64 %59
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %60) #17
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %65
+  %66 = zext i32 %.sroa.0.0.copyload to i64
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 %66
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %67) #17
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %72
 
-63:                                               ; preds = %.lr.ph.split.split.split
-  %64 = trunc i64 %.sroa.8.0.copyload to i32
-  store i32 %64, ptr @sigreturn_addr, align 4, !tbaa !11
-  br label %65
+70:                                               ; preds = %.lr.ph.split.split.split
+  %71 = trunc i64 %.sroa.8.0.copyload to i32
+  store i32 %71, ptr @sigreturn_addr, align 4, !tbaa !11
+  br label %72
 
-65:                                               ; preds = %63, %.lr.ph.split.split.split
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %60) #17
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %70
+72:                                               ; preds = %70, %.lr.ph.split.split.split
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %67) #17
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %77
 
-68:                                               ; preds = %65
-  %69 = trunc i64 %.sroa.8.0.copyload to i32
-  store i32 %69, ptr @rt_sigreturn_addr, align 4, !tbaa !11
-  br label %70
+75:                                               ; preds = %72
+  %76 = trunc i64 %.sroa.8.0.copyload to i32
+  store i32 %76, ptr @rt_sigreturn_addr, align 4, !tbaa !11
+  br label %77
 
-70:                                               ; preds = %68, %65
+77:                                               ; preds = %75, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !113
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !106
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2049,23 +2102,16 @@ attributes #17 = { nounwind willreturn memory(read) }
 !91 = !{!30, !12, i64 32}
 !92 = !{!30, !12, i64 36}
 !93 = distinct !{!93, !32}
-!94 = distinct !{!94, !32, !95}
-!95 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!96 = distinct !{!96, !32, !95}
-!97 = distinct !{!97, !32, !95}
-!98 = distinct !{!98, !32}
-!99 = !{!67, !50, i64 24}
-!100 = !{!67, !50, i64 48}
-!101 = distinct !{!101, !32}
-!102 = !{!64, !12, i64 0}
-!103 = !{!64, !50, i64 8}
-!104 = !{!64, !50, i64 16}
-!105 = !{!64, !12, i64 40}
-!106 = !{!64, !12, i64 44}
-!107 = !{!64, !50, i64 48}
-!108 = !{!64, !50, i64 56}
-!109 = distinct !{!109, !32}
-!110 = distinct !{!110, !32, !95}
-!111 = distinct !{!111, !32, !95}
-!112 = distinct !{!112, !32, !95}
-!113 = distinct !{!113, !32}
+!94 = distinct !{!94, !32}
+!95 = !{!67, !50, i64 24}
+!96 = !{!67, !50, i64 48}
+!97 = distinct !{!97, !32}
+!98 = !{!64, !12, i64 0}
+!99 = !{!64, !50, i64 8}
+!100 = !{!64, !50, i64 16}
+!101 = !{!64, !12, i64 40}
+!102 = !{!64, !12, i64 44}
+!103 = !{!64, !50, i64 48}
+!104 = !{!64, !50, i64 56}
+!105 = distinct !{!105, !32}
+!106 = distinct !{!106, !32}

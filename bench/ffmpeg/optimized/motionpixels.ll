@@ -1530,7 +1530,7 @@ get_bits_long.exit:                               ; preds = %12, %24, %29
   store i16 %104, ptr %120, align 2, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %119, !llvm.loop !90
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %119, !llvm.loop !89
 
 ..loopexit_crit_edge.us:                          ; preds = %119
   %121 = load ptr, ptr %0, align 8, !tbaa !30
@@ -1545,7 +1545,7 @@ get_bits_long.exit:                               ; preds = %12, %24, %29
   %130 = getelementptr inbounds i16, ptr %.04662.us64, i64 %129
   %131 = add nsw i32 %115, -1
   %.not57.us66 = icmp eq i32 %115, 0
-  br i1 %.not57.us66, label %..loopexit58_crit_edge, label %.preheader.us, !llvm.loop !91
+  br i1 %.not57.us66, label %..loopexit58_crit_edge, label %.preheader.us, !llvm.loop !88
 
 .lr.ph63.split.split:                             ; preds = %.lr.ph63.split
   br label %.preheader, !llvm.loop !87
@@ -1563,7 +1563,7 @@ get_bits_long.exit:                               ; preds = %12, %24, %29
   %139 = add nsw i32 %138, %.04961
   %140 = add nsw i32 %132, -1
   %.not57 = icmp eq i32 %132, 0
-  br i1 %.not57, label %..loopexit58_crit_edge, label %.preheader, !llvm.loop !92
+  br i1 %.not57, label %..loopexit58_crit_edge, label %.preheader, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   ret void
@@ -1616,7 +1616,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mp_get_code(ptr noundef ca
 26:                                               ; preds = %21
   %27 = tail call fastcc i32 @mp_get_code(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %22)
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.loopexit, label %7, !llvm.loop !93
+  br i1 %28, label %.loopexit, label %7, !llvm.loop !90
 
 29:                                               ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mp_get_code(ptr noundef ca
   store i32 %39, ptr %30, align 8, !tbaa !67
   %40 = sext i32 %31 to i64
   %41 = getelementptr inbounds [16 x %struct.HuffCode], ptr %38, i64 0, i64 %40
-  store i8 %37, ptr %41, align 2, !tbaa !94
+  store i8 %37, ptr %41, align 2, !tbaa !91
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %36, %34, %24
@@ -1775,10 +1775,7 @@ attributes #12 = { cold }
 !85 = distinct !{!85, !58}
 !86 = distinct !{!86, !58}
 !87 = distinct !{!87, !58}
-!88 = distinct !{!88, !58, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = distinct !{!88, !58}
+!89 = distinct !{!89, !58}
 !90 = distinct !{!90, !58}
-!91 = distinct !{!91, !58, !89}
-!92 = distinct !{!92, !58}
-!93 = distinct !{!93, !58}
-!94 = !{!64, !8, i64 0}
+!91 = !{!64, !8, i64 0}

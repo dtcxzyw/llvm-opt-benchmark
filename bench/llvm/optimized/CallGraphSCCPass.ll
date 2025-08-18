@@ -4579,7 +4579,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31.us:            ; preds = %39, %65, %62, %44, 
   %.1.us = phi i1 [ %.01851.us, %44 ], [ %.01851.us, %37 ], [ %.018.mux.us, %39 ], [ %.01851.us, %65 ], [ %.01851.us, %62 ]
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.037.050.us, i64 8
   %.not47.us = icmp eq ptr %67, %30
-  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !406
+  br i1 %.not47.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31.us
   br i1 %.1.us, label %110, label %._crit_edge.thread
@@ -4894,7 +4894,7 @@ define linkonce_odr hidden void @_ZN4llvm13AnalysisUsage10pushUniqueERNS_15Small
   %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %28 = add nsw i64 %.047.i.i.i.i, -1
   %29 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !408
+  br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !406
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %26
   %30 = and i32 %6, 3
@@ -4997,10 +4997,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #1 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !230
-  %3 = load ptr, ptr %2, align 8, !tbaa !409
+  %3 = load ptr, ptr %2, align 8, !tbaa !407
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !411
-  %6 = load ptr, ptr %5, align 8, !tbaa !412
+  %5 = load ptr, ptr %4, align 8, !tbaa !409
+  %6 = load ptr, ptr %5, align 8, !tbaa !410
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #22
   ret void
 }
@@ -5485,12 +5485,10 @@ attributes #25 = { builtin nounwind }
 !403 = !{!404, !110, i64 64}
 !404 = !{!"_ZTSN12_GLOBAL__N_118PrintCallGraphPassE", !405, i64 0, !105, i64 32, !110, i64 64}
 !405 = !{!"_ZTSN4llvm16CallGraphSCCPassE", !84, i64 0}
-!406 = distinct !{!406, !407}
-!407 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!408 = distinct !{!408, !60}
-!409 = !{!410, !12, i64 0}
-!410 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !12, i64 0, !232, i64 8}
-!411 = !{!410, !232, i64 8}
-!412 = !{!413, !414, i64 0}
-!413 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !414, i64 0}
-!414 = !{!"p1 _ZTSN4llvm12PassRegistryE", !12, i64 0}
+!406 = distinct !{!406, !60}
+!407 = !{!408, !12, i64 0}
+!408 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !12, i64 0, !232, i64 8}
+!409 = !{!408, !232, i64 8}
+!410 = !{!411, !412, i64 0}
+!411 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !412, i64 0}
+!412 = !{!"p1 _ZTSN4llvm12PassRegistryE", !12, i64 0}

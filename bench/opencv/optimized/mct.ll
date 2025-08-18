@@ -417,7 +417,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_encode_custom(ptr noundef readonly ca
   store i32 %40, ptr %41, align 4, !tbaa !8
   %42 = add nuw nsw i64 %.04655, 1
   %exitcond.not = icmp eq i64 %42, %14
-  br i1 %exitcond.not, label %.preheader54, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader54, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge65:                                    ; preds = %._crit_edge.us, %.preheader54
   tail call void @opj_free(ptr noundef nonnull %10) #7
@@ -439,7 +439,7 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
   %8 = shl nuw nsw i64 %7, 2
   %9 = tail call ptr @opj_malloc(i64 noundef %8) #7
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %30, label %10
+  br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %5
   %11 = zext i32 %3 to i64
@@ -447,64 +447,64 @@ define hidden range(i32 0, 2) i32 @opj_mct_decode_custom(ptr noundef readonly ca
   %.not56 = icmp eq i64 %1, 0
   %.not57 = icmp eq i32 %3, 0
   %or.cond = or i1 %.not56, %.not57
-  br i1 %or.cond, label %._crit_edge49, label %.lr.ph.us.preheader
+  br i1 %or.cond, label %._crit_edge49, label %.preheader41.us.us
 
-.lr.ph.us.preheader:                              ; preds = %10, %._crit_edge.us
-  %.03648.us = phi i64 [ %29, %._crit_edge.us ], [ 0, %10 ]
-  br label %.lr.ph.us
+.preheader41.us.us:                               ; preds = %10, %._crit_edge.us.us
+  %.03648.us.us = phi i64 [ %30, %._crit_edge.us.us ], [ 0, %10 ]
+  br label %25
 
-.preheader.us:                                    ; preds = %.lr.ph.us, %14
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %14 ], [ 0, %.lr.ph.us ]
-  %.03745.us = phi ptr [ %20, %14 ], [ %0, %.lr.ph.us ]
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv66
+..preheader_crit_edge.us.us:                      ; preds = %25, %14
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %14 ], [ 0, %25 ]
+  %.03745.us.us = phi ptr [ %20, %14 ], [ %0, %25 ]
+  %13 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv65
   store float 0.000000e+00, ptr %13, align 4, !tbaa !16
   br label %18
 
 14:                                               ; preds = %18
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv66
-  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv65
+  %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store ptr %17, ptr %15, align 8, !tbaa !30
+  store ptr %17, ptr %15, align 8, !tbaa !29
   store float %24, ptr %16, align 4, !tbaa !16
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %11
-  br i1 %exitcond70.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !32
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %11
+  br i1 %exitcond69.not, label %._crit_edge.us.us, label %..preheader_crit_edge.us.us, !llvm.loop !31
 
-18:                                               ; preds = %18, %.preheader.us
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %18 ], [ 0, %.preheader.us ]
-  %.13843.us = phi ptr [ %20, %18 ], [ %.03745.us, %.preheader.us ]
-  %19 = phi float [ %24, %18 ], [ 0.000000e+00, %.preheader.us ]
-  %20 = getelementptr inbounds nuw i8, ptr %.13843.us, i64 4
-  %21 = load float, ptr %.13843.us, align 4, !tbaa !16
-  %22 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv61
+18:                                               ; preds = %18, %..preheader_crit_edge.us.us
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %18 ], [ 0, %..preheader_crit_edge.us.us ]
+  %.13843.us.us = phi ptr [ %20, %18 ], [ %.03745.us.us, %..preheader_crit_edge.us.us ]
+  %19 = phi float [ %24, %18 ], [ 0.000000e+00, %..preheader_crit_edge.us.us ]
+  %20 = getelementptr inbounds nuw i8, ptr %.13843.us.us, i64 4
+  %21 = load float, ptr %.13843.us.us, align 4, !tbaa !16
+  %22 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv60
   %23 = load float, ptr %22, align 4, !tbaa !16
   %24 = tail call float @llvm.fmuladd.f32(float %21, float %23, float %19)
   store float %24, ptr %13, align 4, !tbaa !16
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %11
-  br i1 %exitcond65.not, label %14, label %18, !llvm.loop !33
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %11
+  br i1 %exitcond64.not, label %14, label %18, !llvm.loop !32
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
-  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
-  %27 = load float, ptr %26, align 4, !tbaa !16
-  %28 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
-  store float %27, ptr %28, align 4, !tbaa !16
+25:                                               ; preds = %.preheader41.us.us, %25
+  %indvars.iv = phi i64 [ 0, %.preheader41.us.us ], [ %indvars.iv.next, %25 ]
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
+  %28 = load float, ptr %27, align 4, !tbaa !16
+  %29 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  store float %28, ptr %29, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %.preheader.us, label %.lr.ph.us, !llvm.loop !34
+  br i1 %exitcond.not, label %..preheader_crit_edge.us.us, label %25, !llvm.loop !33
 
-._crit_edge.us:                                   ; preds = %14
-  %29 = add nuw i64 %.03648.us, 1
-  %exitcond71.not = icmp eq i64 %29, %1
-  br i1 %exitcond71.not, label %._crit_edge49, label %.lr.ph.us.preheader, !llvm.loop !35
+._crit_edge.us.us:                                ; preds = %14
+  %30 = add nuw i64 %.03648.us.us, 1
+  %exitcond70.not = icmp eq i64 %30, %1
+  br i1 %exitcond70.not, label %._crit_edge49, label %.preheader41.us.us, !llvm.loop !34
 
-._crit_edge49:                                    ; preds = %._crit_edge.us, %10
+._crit_edge49:                                    ; preds = %._crit_edge.us.us, %10
   tail call void @opj_free(ptr noundef nonnull %9) #7
-  br label %30
+  br label %31
 
-30:                                               ; preds = %5, %._crit_edge49
+31:                                               ; preds = %5, %._crit_edge49
   %.0 = phi i32 [ 1, %._crit_edge49 ], [ 0, %5 ]
   ret i32 %.0
 }
@@ -536,14 +536,14 @@ define hidden void @opj_calculate_norms(ptr noundef writeonly captures(none) %0,
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %7)
   %14 = add nuw i32 %.02226, 1
   %exitcond.not = icmp eq i32 %14, %1
-  br i1 %exitcond.not, label %15, label %6, !llvm.loop !36
+  br i1 %exitcond.not, label %15, label %6, !llvm.loop !35
 
 15:                                               ; preds = %6
   %16 = tail call double @sqrt(double noundef %13) #7, !tbaa !8
   store double %16, ptr %4, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %15, %3
   ret void
@@ -593,14 +593,13 @@ attributes #7 = { nounwind }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !7}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 float", !23, i64 0}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 float", !23, i64 0}
+!31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7, !28}
+!35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}

@@ -601,7 +601,7 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
   %86 = select i1 %85, float %.02331, float %.0
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
+  br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %54, %84, %3
   %.023.lcssa = phi float [ 0.000000e+00, %3 ], [ %86, %84 ], [ %64, %54 ]
@@ -616,7 +616,7 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %5 = tail call i32 @Abc_NtkToAig(ptr noundef %0) #13
   %6 = tail call i32 @Abc_NtkLevel(ptr noundef %0) #13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %8 = load i32, ptr %7, align 4, !tbaa !56
+  %8 = load i32, ptr %7, align 4, !tbaa !54
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %37, label %9
 
@@ -624,9 +624,9 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !56
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -641,12 +641,12 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %20 = fpext float %19 to double
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load ptr, ptr %11, align 8, !tbaa !57
+  %22 = load ptr, ptr %11, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !58
+  %24 = load i32, ptr %23, align 8, !tbaa !56
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %17, label %._crit_edge, !llvm.loop !60
+  br i1 %26, label %17, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %17, %9
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
@@ -656,7 +656,7 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %32 = load i32, ptr %31, align 4, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %34 = load i32, ptr %33, align 8, !tbaa !61
+  %34 = load i32, ptr %33, align 8, !tbaa !59
   %.not89 = icmp eq i32 %34, 0
   %35 = select i1 %.not89, ptr @.str.12, ptr @.str.11
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %30, i32 noundef %32, ptr noundef nonnull %35)
@@ -687,7 +687,7 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %49 = getelementptr i8, ptr %46, i64 8
   %.val104 = load ptr, ptr %49, align 8, !tbaa !38
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %51 = load i32, ptr %50, align 8, !tbaa !61
+  %51 = load i32, ptr %50, align 8, !tbaa !59
   %.not92 = icmp eq i32 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -817,7 +817,7 @@ Abc_ObjDelay0.exit.us:                            ; preds = %Abc_ObjSortByDelay.
   store float %105, ptr %106, align 4, !tbaa !42
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.critedge.thread225, label %.lr.ph159.split.us, !llvm.loop !62
+  br i1 %exitcond204.not, label %.critedge.thread225, label %.lr.ph159.split.us, !llvm.loop !60
 
 .lr.ph159.split:                                  ; preds = %.lr.ph159
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 148
@@ -971,7 +971,7 @@ Abc_ObjSortByDelay.exit.i.us:                     ; preds = %.loopexit.i.i.us
   %175 = select i1 %174, float %.02331.i.us, float %.0.i.us
   %indvars.iv.next36.i.us = add nuw nsw i64 %indvars.iv35.i.us, 1
   %exitcond39.not.i.us = icmp eq i64 %indvars.iv.next36.i.us, %wide.trip.count.i.i
-  br i1 %exitcond39.not.i.us, label %Abc_ObjDelayDegree.exit.us, label %.lr.ph.split.i.us, !llvm.loop !55
+  br i1 %exitcond39.not.i.us, label %Abc_ObjDelayDegree.exit.us, label %.lr.ph.split.i.us, !llvm.loop !53
 
 .lr.ph.split.us.i.us:                             ; preds = %Abc_ObjSortByDelay.exit.i.us, %.lr.ph.split.us.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.split.us.i.us ], [ 0, %Abc_ObjSortByDelay.exit.i.us ]
@@ -999,16 +999,16 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   store float %.023.lcssa.i.us, ptr %186, align 4, !tbaa !42
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next193, %111
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %.lr.ph48.i.i.us, !llvm.loop !63
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %.lr.ph48.i.i.us, !llvm.loop !61
 
 ..loopexit_crit_edge:                             ; preds = %Abc_ObjDelayDegree.exit.us, %Abc_ObjDelayDegree.exit.preheader
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.critedge.thread, label %.preheader149, !llvm.loop !64
+  br i1 %exitcond199.not, label %.critedge.thread, label %.preheader149, !llvm.loop !60
 
 .critedge:                                        ; preds = %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !61
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !59
   %187 = icmp eq i32 %.pre, 0
   br i1 %187, label %.critedge2, label %.critedge.thread
 
@@ -1022,7 +1022,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
 .critedge.thread225:                              ; preds = %Abc_ObjDelay0.exit.us, %.critedge.thread
   %.087 = phi float [ %190, %.critedge.thread ], [ 1.000000e+00, %Abc_ObjDelay0.exit.us ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %192 = load i32, ptr %191, align 8, !tbaa !65
+  %192 = load i32, ptr %191, align 8, !tbaa !62
   %.not91 = icmp eq i32 %192, 0
   %brmerge = or i1 %.not91, %48
   br i1 %brmerge, label %.critedge2, label %.lr.ph168
@@ -1048,7 +1048,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %.val94.us = load i32, ptr %47, align 4, !tbaa !29
   %201 = sext i32 %.val94.us to i64
   %202 = icmp slt i64 %indvars.iv.next212, %201
-  br i1 %202, label %.lr.ph168.split.us, label %.critedge2, !llvm.loop !66
+  br i1 %202, label %.lr.ph168.split.us, label %.critedge2, !llvm.loop !63
 
 .lr.ph164:                                        ; preds = %.lr.ph168, %._crit_edge165
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %._crit_edge165 ], [ 0, %.lr.ph168 ]
@@ -1077,7 +1077,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %217 = trunc nuw i64 %indvars.iv.next206 to i32
   %218 = uitofp nneg i32 %217 to float
   %219 = fcmp ult float %.087, %218
-  br i1 %219, label %._crit_edge165, label %209, !llvm.loop !67
+  br i1 %219, label %._crit_edge165, label %209, !llvm.loop !64
 
 ._crit_edge165:                                   ; preds = %209
   %putchar = tail call i32 @putchar(i32 10)
@@ -1085,7 +1085,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %.val94 = load i32, ptr %47, align 4, !tbaa !29
   %220 = sext i32 %.val94 to i64
   %221 = icmp slt i64 %indvars.iv.next209, %220
-  br i1 %221, label %.lr.ph164, label %.critedge2, !llvm.loop !68
+  br i1 %221, label %.lr.ph164, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %._crit_edge165, %.lr.ph168.split.us, %.critedge.thread225, %.critedge
   %.087230 = phi float [ %.087, %.critedge.thread225 ], [ 1.000000e+00, %.critedge ], [ %.087, %.lr.ph168.split.us ], [ %.087, %._crit_edge165 ]
@@ -1101,7 +1101,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   tail call void @free(ptr noundef nonnull %46) #13
   %225 = getelementptr i8, ptr %0, i64 64
-  %.val107 = load ptr, ptr %225, align 8, !tbaa !69
+  %.val107 = load ptr, ptr %225, align 8, !tbaa !65
   %226 = getelementptr i8, ptr %.val107, i64 4
   %.val107.val = load i32, ptr %226, align 4, !tbaa !29
   %227 = icmp sgt i32 %.val107.val, 0
@@ -1141,7 +1141,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   %244 = select i1 %243, float %.088169, float %242
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.lr.ph176, label %231, !llvm.loop !70
+  br i1 %exitcond218.not, label %.lr.ph176, label %231, !llvm.loop !66
 
 .lr.ph176:                                        ; preds = %231
   %245 = fpext float %244 to double
@@ -1181,7 +1181,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   %.1 = add nuw nsw i32 %.0175, %264
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
-  br i1 %exitcond223.not, label %.critedge6.loopexit, label %251, !llvm.loop !71
+  br i1 %exitcond223.not, label %.critedge6.loopexit, label %251, !llvm.loop !67
 
 .critedge6.loopexit:                              ; preds = %251
   %265 = uitofp nneg i32 %.1 to double
@@ -1297,22 +1297,18 @@ attributes #13 = { nounwind }
 !50 = !{!"p1 _ZTS12If_LibLut_t_", !6, i64 0}
 !51 = !{!49, !25, i64 144}
 !52 = distinct !{!52, !45}
-!53 = distinct !{!53, !45, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = distinct !{!55, !45}
-!56 = !{!49, !10, i64 156}
-!57 = !{!49, !50, i64 8}
-!58 = !{!59, !10, i64 8}
-!59 = !{!"If_LibLut_t_", !15, i64 0, !10, i64 8, !10, i64 12, !7, i64 16, !7, i64 148}
+!53 = distinct !{!53, !45}
+!54 = !{!49, !10, i64 156}
+!55 = !{!49, !50, i64 8}
+!56 = !{!57, !10, i64 8}
+!57 = !{!"If_LibLut_t_", !15, i64 0, !10, i64 8, !10, i64 12, !7, i64 16, !7, i64 148}
+!58 = distinct !{!58, !45}
+!59 = !{!49, !10, i64 152}
 !60 = distinct !{!60, !45}
-!61 = !{!49, !10, i64 152}
-!62 = distinct !{!62, !45, !54}
-!63 = distinct !{!63, !45, !54}
+!61 = distinct !{!61, !45}
+!62 = !{!49, !10, i64 160}
+!63 = distinct !{!63, !45}
 !64 = distinct !{!64, !45}
-!65 = !{!49, !10, i64 160}
-!66 = distinct !{!66, !45, !54}
+!65 = !{!14, !17, i64 64}
+!66 = distinct !{!66, !45}
 !67 = distinct !{!67, !45}
-!68 = distinct !{!68, !45}
-!69 = !{!14, !17, i64 64}
-!70 = distinct !{!70, !45}
-!71 = distinct !{!71, !45}

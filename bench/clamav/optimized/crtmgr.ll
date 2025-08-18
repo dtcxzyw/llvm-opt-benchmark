@@ -1240,7 +1240,7 @@ define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(addre
   %7 = getelementptr inbounds nuw i8, ptr %.019.us, i64 400
   %.0.us = load ptr, ptr %7, align 8, !tbaa !15
   %.not13.us = icmp eq ptr %.0.us, null
-  br i1 %.not13.us, label %crtmgr_free.exit, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not13.us, label %crtmgr_free.exit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.019 = phi ptr [ %.0, %16 ], [ %.017, %.lr.ph ]
@@ -1344,5 +1344,3 @@ attributes #11 = { nounwind allocsize(0) }
 !28 = !{!4, !12, i64 392}
 !29 = !{!26, !9, i64 8}
 !30 = !{!7, !7, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}

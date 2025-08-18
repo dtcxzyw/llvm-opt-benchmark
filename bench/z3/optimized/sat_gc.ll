@@ -3813,7 +3813,7 @@ _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7gl
   %56 = sub i64 %4, %55
   %57 = ashr exact i64 %56, 3
   %.not = icmp slt i64 %57, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !244
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEEvT_S9_T0_.exit.loopexit, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEEvT_S9_T0_.exit.us, %3
   %.0.lcssa = phi ptr [ %0, %3 ], [ %8, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEEvT_S9_T0_.exit.us ], [ %13, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEEvT_S9_T0_.exit.loopexit ]
@@ -3944,7 +3944,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glu
   %15 = sub i64 %6, %14
   %16 = ashr exact i64 %15, 3
   %.not.us = icmp slt i64 %16, %5
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !245
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !243
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit
   %.052 = phi ptr [ %18, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
@@ -3999,7 +3999,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat7glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_
   %41 = icmp ne ptr %.1.i, %17
   %42 = icmp ne ptr %.120.i, %18
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !246
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !244
 
 ._crit_edge.i.loopexit:                           ; preds = %39
   %44 = ptrtoint ptr %17 to i64
@@ -4029,7 +4029,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glu
   %54 = sub i64 %6, %49
   %55 = ashr exact i64 %54, 3
   %.not = icmp slt i64 %55, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !247
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !243
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %53, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -4089,7 +4089,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat7glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_
   %82 = icmp ne ptr %.1.i36, %56
   %83 = icmp ne ptr %.120.i35, %1
   %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !246
+  br i1 %84, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !244
 
 ._crit_edge.i23:                                  ; preds = %80, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %56, %._crit_edge ], [ %.120.i35, %80 ]
@@ -4206,14 +4206,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %35
   store ptr %37, ptr %.09.i.i, align 8, !tbaa !174
   %.pre.i = load i32, ptr %12, align 4
-  br label %35, !llvm.loop !248
+  br label %35, !llvm.loop !245
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %45, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i
   %.sink.i = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i ], [ %.09.i.i, %45 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i ]
   store ptr %10, ptr %.sink.i, align 8, !tbaa !174
   %.0.i = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !249
+  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !246
 
 common.ret25:                                     ; preds = %8, %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i, %51
   ret void
@@ -4265,7 +4265,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIPPN3sat6clauseES3_
   tail call void @_ZSt17__merge_sort_loopIPPN3sat6clauseES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %2, ptr noundef %16, ptr noundef %0, i64 noundef %18)
   %19 = shl nsw i64 %.023.i, 2
   %20 = icmp slt i64 %19, %10
-  br i1 %20, label %.lr.ph.i, label %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit, !llvm.loop !250
+  br i1 %20, label %.lr.ph.i, label %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit, !llvm.loop !247
 
 _ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit: ; preds = %.lr.ph.i, %14
   %21 = sub i64 %5, %15
@@ -4282,7 +4282,7 @@ _ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_i
   tail call void @_ZSt17__merge_sort_loopIPPN3sat6clauseES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %2, ptr noundef %23, ptr noundef %11, i64 noundef %25)
   %26 = shl nsw i64 %.023.i38, 2
   %27 = icmp slt i64 %26, %22
-  br i1 %27, label %.lr.ph.i37, label %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit39, !llvm.loop !250
+  br i1 %27, label %.lr.ph.i37, label %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit39, !llvm.loop !247
 
 _ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit39: ; preds = %.lr.ph.i37, %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit, %13
   %.pre-phi43 = phi i64 [ %22, %_ZSt24__merge_sort_with_bufferIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_T1_.exit ], [ %.pre42, %13 ], [ %22, %.lr.ph.i37 ]
@@ -4403,7 +4403,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_
   %65 = phi i64 [ %45, %56 ], [ %55, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %66 = phi ptr [ %.032.i, %56 ], [ %53, %.thread.i ], [ %spec.select30.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %67 = icmp sgt i64 %65, 0
-  br i1 %67, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !251
+  br i1 %67, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !248
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread26.i
   %.pre = ptrtoint ptr %66 to i64
@@ -4475,7 +4475,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_
   %103 = phi i64 [ %94, %.thread26.i48 ], [ %82, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %82, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %101, %99 ]
   %104 = phi ptr [ %92, %.thread26.i48 ], [ %.031.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %.031.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %102, %99 ]
   %105 = icmp sgt i64 %103, 0
-  br i1 %105, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !252
+  br i1 %105, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !249
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i49
   %.pre83 = ptrtoint ptr %104 to i64
@@ -4583,7 +4583,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.
   %39 = icmp ne ptr %.1.i, %13
   %40 = icmp ne ptr %.120.i, %2
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !253
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !250
 
 ._crit_edge.i:                                    ; preds = %37, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %.1.i, %37 ]
@@ -4662,7 +4662,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %55, ptr %72, align 8, !tbaa !174
   %73 = icmp eq ptr %.tr124, %.026.i.ph
-  br i1 %73, label %74, label %.outer, !llvm.loop !254
+  br i1 %73, label %74, label %.outer, !llvm.loop !251
 
 74:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i76
   %75 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
@@ -4677,7 +4677,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.
 
 78:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread36.i
   %79 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %53, !llvm.loop !254
+  br label %53, !llvm.loop !251
 
 _ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread, %74
   %.sink45.i = phi ptr [ %75, %74 ], [ %49, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread ]
@@ -4752,7 +4752,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_
   %119 = phi i64 [ %99, %110 ], [ %109, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %120 = phi ptr [ %.032.i, %110 ], [ %107, %.thread.i ], [ %spec.select30.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat6psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %121 = icmp sgt i64 %119, 0
-  br i1 %121, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !251
+  br i1 %121, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !248
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread26.i
   %.pre = ptrtoint ptr %120 to i64
@@ -4824,7 +4824,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_
   %157 = phi i64 [ %148, %.thread26.i89 ], [ %136, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %136, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %155, %153 ]
   %158 = phi ptr [ %146, %.thread26.i89 ], [ %.031.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %.031.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %156, %153 ]
   %159 = icmp sgt i64 %157, 0
-  br i1 %159, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !252
+  br i1 %159, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !249
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i90
   %.pre138 = ptrtoint ptr %158 to i64
@@ -4969,7 +4969,7 @@ _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6ps
   %10 = sub i64 %4, %9
   %11 = ashr exact i64 %10, 3
   %.not.us = icmp slt i64 %11, %2
-  br i1 %.not.us, label %._crit_edge, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.us, !llvm.loop !255
+  br i1 %.not.us, label %._crit_edge, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.us, !llvm.loop !252
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit
   %12 = phi i64 [ %55, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit ], [ %5, %.lr.ph ]
@@ -5048,21 +5048,21 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %39
   store ptr %41, ptr %.09.i.i, align 8, !tbaa !174
   %.pre.i = load i32, ptr %16, align 4
-  br label %39, !llvm.loop !248
+  br label %39, !llvm.loop !245
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i
   %.sink.i = phi ptr [ %.034, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i ], [ %.09.i.i, %49 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i ]
   store ptr %14, ptr %.sink.i, align 8, !tbaa !174
   %.0.i = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %13
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit, label %.lr.ph.i, !llvm.loop !249
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit, label %.lr.ph.i, !llvm.loop !246
 
 _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i
   %55 = ptrtoint ptr %13 to i64
   %56 = sub i64 %4, %55
   %57 = ashr exact i64 %56, 3
   %.not = icmp slt i64 %57, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !256
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !252
 
 ._crit_edge:                                      ; preds = %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.us, %3
   %.0.lcssa = phi ptr [ %0, %3 ], [ %8, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.us ], [ %13, %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit.loopexit ]
@@ -5143,14 +5143,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i.i27: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i26, %84
   store ptr %86, ptr %.09.i.i20, align 8, !tbaa !174
   %.pre.i28 = load i32, ptr %61, align 4
-  br label %84, !llvm.loop !248
+  br label %84, !llvm.loop !245
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i22: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i26, %94, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i30
   %.sink.i23 = phi ptr [ %.0.lcssa, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i30 ], [ %.09.i.i20, %94 ], [ %.09.i.i20, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat6psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i26 ]
   store ptr %59, ptr %.sink.i23, align 8, !tbaa !174
   %.0.i24 = getelementptr inbounds nuw i8, ptr %.023.i17, i64 8
   %.not.i25 = icmp eq ptr %.0.i24, %1
-  br i1 %.not.i25, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit31, label %.lr.ph.i16, !llvm.loop !249
+  br i1 %.not.i25, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit31, label %.lr.ph.i16, !llvm.loop !246
 
 _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEEvT_S9_T0_.exit31: ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_6psm_ltEEEEvT_T0_.exit.i22, %._crit_edge
   ret void
@@ -5193,7 +5193,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm
   %15 = sub i64 %6, %14
   %16 = ashr exact i64 %15, 3
   %.not.us = icmp slt i64 %16, %5
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !257
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !253
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit
   %.052 = phi ptr [ %18, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
@@ -5248,7 +5248,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.
   %41 = icmp ne ptr %.1.i, %17
   %42 = icmp ne ptr %.120.i, %18
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !258
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !254
 
 ._crit_edge.i.loopexit:                           ; preds = %39
   %44 = ptrtoint ptr %17 to i64
@@ -5278,7 +5278,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm
   %54 = sub i64 %6, %49
   %55 = ashr exact i64 %54, 3
   %.not = icmp slt i64 %55, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !259
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %53, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_6psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -5338,7 +5338,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat6psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.
   %82 = icmp ne ptr %.1.i36, %56
   %83 = icmp ne ptr %.120.i35, %1
   %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !258
+  br i1 %84, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !254
 
 ._crit_edge.i23:                                  ; preds = %80, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %56, %._crit_edge ], [ %.120.i35, %80 ]
@@ -5535,14 +5535,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbR
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i, %51, %39
   store ptr %41, ptr %.09.i, align 8, !tbaa !174
   %.pre = load i32, ptr %8, align 4
-  br label %39, !llvm.loop !260
+  br label %39, !llvm.loop !255
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i, %57, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread
   %.sink = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread ], [ %.09.i, %49 ], [ %.09.i, %57 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i ]
   store ptr %6, ptr %.sink, align 8, !tbaa !174
   %.0 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %.not = icmp eq ptr %.0, %1
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !261
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !256
 
 .loopexit:                                        ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEEvT_T0_.exit, %.preheader, %2
   ret void
@@ -5685,7 +5685,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEb
   %81 = phi i64 [ %55, %69 ], [ %55, %63 ], [ %73, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %82 = phi ptr [ %.033.i, %69 ], [ %.033.i, %63 ], [ %71, %.thread.i ], [ %spec.select31.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %83 = icmp sgt i64 %81, 0
-  br i1 %83, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !262
+  br i1 %83, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !257
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread27.i
   %.pre = ptrtoint ptr %82 to i64
@@ -5769,7 +5769,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEb
   %127 = phi i64 [ %118, %.thread27.i50 ], [ %100, %110 ], [ %100, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %100, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %125, %123 ]
   %128 = phi ptr [ %116, %.thread27.i50 ], [ %.032.i, %110 ], [ %.032.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %.032.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %126, %123 ]
   %129 = icmp sgt i64 %127, 0
-  br i1 %129, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !263
+  br i1 %129, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !258
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i49
   %.pre84 = ptrtoint ptr %128 to i64
@@ -5911,14 +5911,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbR
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %49, %37
   store ptr %39, ptr %.09.i.i, align 8, !tbaa !174
   %.pre.i = load i32, ptr %12, align 4
-  br label %37, !llvm.loop !260
+  br label %37, !llvm.loop !255
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %55, %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i
   %.sink.i = phi ptr [ %.014.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i ], [ %.09.i.i, %47 ], [ %.09.i.i, %55 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i ]
   store ptr %10, ptr %.sink.i, align 8, !tbaa !174
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i24 = icmp eq i64 %.024.i.add, 56
-  br i1 %.not.i24, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_.exit, label %9, !llvm.loop !261
+  br i1 %.not.i24, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_.exit, label %9, !llvm.loop !256
 
 _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEEvT_T0_.exit.i
   %61 = getelementptr inbounds nuw i8, ptr %.014.i, i64 56
@@ -5926,7 +5926,7 @@ _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11g
   %63 = sub i64 %4, %62
   %.not.i = icmp slt i64 %63, 56
   %scevgep26 = getelementptr i8, ptr %indvars.iv, i64 56
-  br i1 %.not.i, label %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_.exit, label %.lr.ph.i, !llvm.loop !264
+  br i1 %.not.i, label %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_.exit, label %.lr.ph.i, !llvm.loop !259
 
 _ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_.exit: ; preds = %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_.exit
   tail call void @_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_(ptr noundef nonnull %61, ptr noundef %1)
@@ -5940,7 +5940,7 @@ _ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterI
   tail call void @_ZSt17__merge_sort_loopIPPN3sat6clauseES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %2, ptr noundef %8, ptr noundef %0, i64 noundef %64)
   %65 = shl nsw i64 %.025, 2
   %66 = icmp slt i64 %65, %7
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !265
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_.exit.thread, %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEEvT_S9_T0_T1_.exit
   ret void
@@ -6035,7 +6035,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEb
   %47 = icmp ne ptr %.1.i, %13
   %48 = icmp ne ptr %.120.i, %2
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !266
+  br i1 %49, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !261
 
 ._crit_edge.i:                                    ; preds = %45, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %.1.i, %45 ]
@@ -6126,7 +6126,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEb
   %88 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %63, ptr %88, align 8, !tbaa !174
   %89 = icmp eq ptr %.tr124, %.026.i.ph
-  br i1 %89, label %90, label %.outer, !llvm.loop !267
+  br i1 %89, label %90, label %.outer, !llvm.loop !262
 
 90:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i76
   %91 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
@@ -6141,7 +6141,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEb
 
 94:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread37.i
   %95 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %61, !llvm.loop !267
+  br label %61, !llvm.loop !262
 
 _ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread, %90
   %.sink46.i = phi ptr [ %91, %90 ], [ %57, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread ]
@@ -6228,7 +6228,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEb
   %143 = phi i64 [ %117, %131 ], [ %117, %125 ], [ %135, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %144 = phi ptr [ %.033.i, %131 ], [ %.033.i, %125 ], [ %133, %.thread.i ], [ %spec.select31.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11glue_psm_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %145 = icmp sgt i64 %143, 0
-  br i1 %145, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !262
+  br i1 %145, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !257
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread27.i
   %.pre = ptrtoint ptr %144 to i64
@@ -6312,7 +6312,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEb
   %189 = phi i64 [ %180, %.thread27.i91 ], [ %162, %172 ], [ %162, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %162, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %187, %185 ]
   %190 = phi ptr [ %178, %.thread27.i91 ], [ %.032.i, %172 ], [ %.032.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %.032.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11glue_psm_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %188, %185 ]
   %191 = icmp sgt i64 %189, 0
-  br i1 %191, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !263
+  br i1 %191, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !258
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i90
   %.pre138 = ptrtoint ptr %190 to i64
@@ -6473,7 +6473,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11gl
   %15 = sub i64 %6, %14
   %16 = ashr exact i64 %15, 3
   %.not.us = icmp slt i64 %16, %5
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !268
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !263
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit
   %.052 = phi ptr [ %18, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
@@ -6540,7 +6540,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEb
   %49 = icmp ne ptr %.1.i, %17
   %50 = icmp ne ptr %.120.i, %18
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !269
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !264
 
 ._crit_edge.i.loopexit:                           ; preds = %47
   %52 = ptrtoint ptr %17 to i64
@@ -6570,7 +6570,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11gl
   %62 = sub i64 %6, %57
   %63 = ashr exact i64 %62, 3
   %.not = icmp slt i64 %63, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !270
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !263
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %61, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11glue_psm_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -6642,7 +6642,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11glue_psm_ltEEclIPPNS2_6clauseES8_EEb
   %98 = icmp ne ptr %.1.i37, %64
   %99 = icmp ne ptr %.120.i36, %1
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !269
+  br i1 %100, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !264
 
 ._crit_edge.i23:                                  ; preds = %96, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %64, %._crit_edge ], [ %.120.i36, %96 ]
@@ -6839,14 +6839,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbR
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i, %51, %39
   store ptr %41, ptr %.09.i, align 8, !tbaa !174
   %.pre = load i32, ptr %8, align 4
-  br label %39, !llvm.loop !271
+  br label %39, !llvm.loop !265
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i, %57, %49, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread
   %.sink = phi ptr [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread ], [ %.09.i, %49 ], [ %.09.i, %57 ], [ %.09.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i ]
   store ptr %6, ptr %.sink, align 8, !tbaa !174
   %.0 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %.not = icmp eq ptr %.0, %1
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !272
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !266
 
 .loopexit:                                        ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEEvT_T0_.exit, %.preheader, %2
   ret void
@@ -6989,7 +6989,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEb
   %81 = phi i64 [ %55, %69 ], [ %55, %63 ], [ %73, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %82 = phi ptr [ %.033.i, %69 ], [ %.033.i, %63 ], [ %71, %.thread.i ], [ %spec.select31.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %83 = icmp sgt i64 %81, 0
-  br i1 %83, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !273
+  br i1 %83, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !267
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread27.i
   %.pre = ptrtoint ptr %82 to i64
@@ -7073,7 +7073,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEb
   %127 = phi i64 [ %118, %.thread27.i50 ], [ %100, %110 ], [ %100, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %100, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %125, %123 ]
   %128 = phi ptr [ %116, %.thread27.i50 ], [ %.032.i, %110 ], [ %.032.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45 ], [ %.032.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %126, %123 ]
   %129 = icmp sgt i64 %127, 0
-  br i1 %129, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !274
+  br i1 %129, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i45, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !268
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i49
   %.pre84 = ptrtoint ptr %128 to i64
@@ -7215,14 +7215,14 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbR
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %49, %37
   store ptr %39, ptr %.09.i.i, align 8, !tbaa !174
   %.pre.i = load i32, ptr %12, align 4
-  br label %37, !llvm.loop !271
+  br label %37, !llvm.loop !265
 
 _ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i, %55, %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i
   %.sink.i = phi ptr [ %.014.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i ], [ %.09.i.i, %47 ], [ %.09.i.i, %55 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIPNS2_6clauseEPS7_EEbRT_T0_.exit.i.i ]
   store ptr %10, ptr %.sink.i, align 8, !tbaa !174
   %.024.i.add = add nuw nsw i64 %.024.i.idx, 8
   %.not.i24 = icmp eq i64 %.024.i.add, 56
-  br i1 %.not.i24, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_.exit, label %9, !llvm.loop !272
+  br i1 %.not.i24, label %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_.exit, label %9, !llvm.loop !266
 
 _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3sat6clauseEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEEvT_T0_.exit.i
   %61 = getelementptr inbounds nuw i8, ptr %.014.i, i64 56
@@ -7230,7 +7230,7 @@ _ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11p
   %63 = sub i64 %4, %62
   %.not.i = icmp slt i64 %63, 56
   %scevgep26 = getelementptr i8, ptr %indvars.iv, i64 56
-  br i1 %.not.i, label %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_.exit, label %.lr.ph.i, !llvm.loop !275
+  br i1 %.not.i, label %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_.exit, label %.lr.ph.i, !llvm.loop !269
 
 _ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_.exit: ; preds = %_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_.exit
   tail call void @_ZSt16__insertion_sortIPPN3sat6clauseEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_(ptr noundef nonnull %61, ptr noundef %1)
@@ -7244,7 +7244,7 @@ _ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterI
   tail call void @_ZSt17__merge_sort_loopIPPN3sat6clauseES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_T2_(ptr noundef %2, ptr noundef %8, ptr noundef %0, i64 noundef %64)
   %65 = shl nsw i64 %.025, 2
   %66 = icmp slt i64 %65, %7
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !276
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_.exit.thread, %_ZSt22__chunk_insertion_sortIPPN3sat6clauseElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEEvT_S9_T0_T1_.exit
   ret void
@@ -7339,7 +7339,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEb
   %47 = icmp ne ptr %.1.i, %13
   %48 = icmp ne ptr %.120.i, %2
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !277
+  br i1 %49, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !271
 
 ._crit_edge.i:                                    ; preds = %45, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit
   %.018.lcssa.i = phi ptr [ %5, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit ], [ %.1.i, %45 ]
@@ -7430,7 +7430,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEb
   %88 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   store ptr %63, ptr %88, align 8, !tbaa !174
   %89 = icmp eq ptr %.tr124, %.026.i.ph
-  br i1 %89, label %90, label %.outer, !llvm.loop !278
+  br i1 %89, label %90, label %.outer, !llvm.loop !272
 
 90:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread.i76
   %91 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
@@ -7445,7 +7445,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEb
 
 94:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEbT_T0_.exit.thread37.i
   %95 = getelementptr inbounds i8, ptr %.024.i, i64 -8
-  br label %61, !llvm.loop !278
+  br label %61, !llvm.loop !272
 
 _ZSt13move_backwardIPPN3sat6clauseES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread, %90
   %.sink46.i = phi ptr [ %91, %90 ], [ %57, %_ZSt4moveIPPN3sat6clauseES3_ET0_T_S5_S4_.exit73.thread ]
@@ -7532,7 +7532,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEb
   %143 = phi i64 [ %117, %131 ], [ %117, %125 ], [ %135, %.thread.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %144 = phi ptr [ %.033.i, %131 ], [ %.033.i, %125 ], [ %133, %.thread.i ], [ %spec.select31.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3sat11psm_glue_ltEEclIPPNS2_6clauseEKS7_EEbT_RT0_.exit.i ]
   %145 = icmp sgt i64 %143, 0
-  br i1 %145, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !273
+  br i1 %145, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !267
 
 _ZSt13__lower_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread27.i
   %.pre = ptrtoint ptr %144 to i64
@@ -7616,7 +7616,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEb
   %189 = phi i64 [ %180, %.thread27.i91 ], [ %162, %172 ], [ %162, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %162, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %187, %185 ]
   %190 = phi ptr [ %178, %.thread27.i91 ], [ %.032.i, %172 ], [ %.032.i, %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86 ], [ %.032.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3sat11psm_glue_ltEEclIKPNS2_6clauseEPS7_EEbRT_T0_.exit.i ], [ %188, %185 ]
   %191 = icmp sgt i64 %189, 0
-  br i1 %191, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !274
+  br i1 %191, label %_ZSt7advanceIPPN3sat6clauseElEvRT_T0_.exit.i86, label %_ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !268
 
 _ZSt13__upper_boundIPPN3sat6clauseES2_N9__gnu_cxx5__ops14_Val_comp_iterINS0_11psm_glue_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit: ; preds = %.thread.i90
   %.pre138 = ptrtoint ptr %190 to i64
@@ -7777,7 +7777,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11ps
   %15 = sub i64 %6, %14
   %16 = ashr exact i64 %15, 3
   %.not.us = icmp slt i64 %16, %5
-  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !279
+  br i1 %.not.us, label %._crit_edge, label %._crit_edge.i.us, !llvm.loop !273
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit
   %.052 = phi ptr [ %18, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ], [ %0, %.lr.ph ]
@@ -7844,7 +7844,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEb
   %49 = icmp ne ptr %.1.i, %17
   %50 = icmp ne ptr %.120.i, %18
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !280
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !274
 
 ._crit_edge.i.loopexit:                           ; preds = %47
   %52 = ptrtoint ptr %17 to i64
@@ -7874,7 +7874,7 @@ _ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11ps
   %62 = sub i64 %6, %57
   %63 = ashr exact i64 %62, 3
   %.not = icmp slt i64 %63, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !281
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us, %4
   %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit.us ], [ %61, %_ZSt12__move_mergeIPPN3sat6clauseES3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11psm_glue_ltEEEET0_T_SA_SA_SA_S9_T1_.exit ]
@@ -7946,7 +7946,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3sat11psm_glue_ltEEclIPPNS2_6clauseES8_EEb
   %98 = icmp ne ptr %.1.i37, %64
   %99 = icmp ne ptr %.120.i36, %1
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !280
+  br i1 %100, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !274
 
 ._crit_edge.i23:                                  ; preds = %96, %._crit_edge
   %.019.lcssa.i24 = phi ptr [ %64, %._crit_edge ], [ %.120.i36, %96 ]
@@ -8270,10 +8270,10 @@ attributes #24 = { builtin allocsize(0) }
 !239 = distinct !{!239, !173}
 !240 = distinct !{!240, !173}
 !241 = distinct !{!241, !173}
-!242 = distinct !{!242, !173, !243}
-!243 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!242 = distinct !{!242, !173}
+!243 = distinct !{!243, !173}
 !244 = distinct !{!244, !173}
-!245 = distinct !{!245, !173, !243}
+!245 = distinct !{!245, !173}
 !246 = distinct !{!246, !173}
 !247 = distinct !{!247, !173}
 !248 = distinct !{!248, !173}
@@ -8283,9 +8283,9 @@ attributes #24 = { builtin allocsize(0) }
 !252 = distinct !{!252, !173}
 !253 = distinct !{!253, !173}
 !254 = distinct !{!254, !173}
-!255 = distinct !{!255, !173, !243}
+!255 = distinct !{!255, !173}
 !256 = distinct !{!256, !173}
-!257 = distinct !{!257, !173, !243}
+!257 = distinct !{!257, !173}
 !258 = distinct !{!258, !173}
 !259 = distinct !{!259, !173}
 !260 = distinct !{!260, !173}
@@ -8296,17 +8296,10 @@ attributes #24 = { builtin allocsize(0) }
 !265 = distinct !{!265, !173}
 !266 = distinct !{!266, !173}
 !267 = distinct !{!267, !173}
-!268 = distinct !{!268, !173, !243}
+!268 = distinct !{!268, !173}
 !269 = distinct !{!269, !173}
 !270 = distinct !{!270, !173}
 !271 = distinct !{!271, !173}
 !272 = distinct !{!272, !173}
 !273 = distinct !{!273, !173}
 !274 = distinct !{!274, !173}
-!275 = distinct !{!275, !173}
-!276 = distinct !{!276, !173}
-!277 = distinct !{!277, !173}
-!278 = distinct !{!278, !173}
-!279 = distinct !{!279, !173, !243}
-!280 = distinct !{!280, !173}
-!281 = distinct !{!281, !173}

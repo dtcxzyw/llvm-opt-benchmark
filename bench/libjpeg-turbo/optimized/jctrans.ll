@@ -642,7 +642,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
   %101 = add nuw nsw i32 %.291.us, 1
   %exitcond148.not = icmp eq i32 %101, %65
-  br i1 %exitcond148.not, label %._crit_edge94.us.loopexit, label %.lr.ph93.us, !llvm.loop !139
+  br i1 %exitcond148.not, label %._crit_edge94.us.loopexit, label %.lr.ph93.us, !llvm.loop !138
 
 102:                                              ; preds = %.lr.ph88.us, %102
   %indvars.iv141 = phi i64 [ %89, %.lr.ph88.us ], [ %indvars.iv.next142, %102 ]
@@ -654,7 +654,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   store ptr %.086.us, ptr %104, align 8, !tbaa !54
   %105 = add nuw nsw i32 %.07485.us, 1
   %exitcond144.not = icmp eq i32 %105, %.fr127
-  br i1 %exitcond144.not, label %..loopexit_crit_edge.us.loopexit, label %102, !llvm.loop !140
+  br i1 %exitcond144.not, label %..loopexit_crit_edge.us.loopexit, label %102, !llvm.loop !139
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99
   %106 = icmp sgt i32 %65, 0
@@ -681,24 +681,24 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %116 = add nuw nsw i32 %.291.us106, 1
   %exitcond.not = icmp eq i32 %116, %65
-  br i1 %exitcond.not, label %._crit_edge94.us109, label %108, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge94.us109, label %108, !llvm.loop !138
 
 ._crit_edge94.us109:                              ; preds = %108
   %117 = trunc nsw i64 %indvars.iv.next138 to i32
   %118 = add nuw nsw i32 %.07397.us102, 1
   %exitcond140.not = icmp eq i32 %118, %73
-  br i1 %exitcond140.not, label %._crit_edge100, label %.lr.ph99.split.split.us, !llvm.loop !141
+  br i1 %exitcond140.not, label %._crit_edge100, label %.lr.ph99.split.split.us, !llvm.loop !137
 
 ._crit_edge100:                                   ; preds = %._crit_edge94.us109, %._crit_edge94.us, %.lr.ph99.split, %70
   %.178.lcssa = phi i32 [ %.077117, %70 ], [ %.077117, %.lr.ph99.split ], [ %.4.lcssa.us, %._crit_edge94.us ], [ %117, %._crit_edge94.us109 ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge120, label %61, !llvm.loop !142
+  br i1 %exitcond157.not, label %._crit_edge120, label %61, !llvm.loop !140
 
 ._crit_edge120:                                   ; preds = %._crit_edge100, %.preheader
-  %119 = load ptr, ptr %51, align 8, !tbaa !143
+  %119 = load ptr, ptr %51, align 8, !tbaa !141
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !144
+  %121 = load ptr, ptr %120, align 8, !tbaa !142
   %122 = call i32 %121(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %.not = icmp eq i32 %122, 0
   br i1 %.not, label %123, label %125
@@ -713,7 +713,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %126 = add nuw i32 %.071121, 1
   %127 = load i32, ptr %7, align 8, !tbaa !126
   %128 = icmp ult i32 %126, %127
-  br i1 %128, label %.preheader, label %._crit_edge122.loopexit, !llvm.loop !146
+  br i1 %128, label %.preheader, label %._crit_edge122.loopexit, !llvm.loop !144
 
 ._crit_edge122.loopexit:                          ; preds = %125
   %.pre162 = load i32, ptr %44, align 4, !tbaa !121
@@ -726,7 +726,7 @@ define internal range(i32 0, 2) i32 @compress_output(ptr noundef %0, ptr readnon
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
   %131 = sext i32 %129 to i64
   %132 = icmp slt i64 %indvars.iv.next159, %131
-  br i1 %132, label %53, label %._crit_edge126.loopexit, !llvm.loop !147
+  br i1 %132, label %53, label %._crit_edge126.loopexit, !llvm.loop !145
 
 ._crit_edge126.loopexit:                          ; preds = %._crit_edge122
   %.pre163 = load i32, ptr %13, align 4, !tbaa !120
@@ -943,14 +943,12 @@ attributes #4 = { nounwind }
 !134 = !{!100, !11, i64 52}
 !135 = !{!100, !11, i64 68}
 !136 = !{!100, !11, i64 56}
-!137 = distinct !{!137, !57, !138}
-!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!137 = distinct !{!137, !57}
+!138 = distinct !{!138, !57}
 !139 = distinct !{!139, !57}
 !140 = distinct !{!140, !57}
-!141 = distinct !{!141, !57, !138}
-!142 = distinct !{!142, !57}
-!143 = !{!4, !23, i64 496}
-!144 = !{!145, !6, i64 8}
-!145 = !{!"jpeg_entropy_encoder", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!146 = distinct !{!146, !57}
-!147 = distinct !{!147, !57}
+!141 = !{!4, !23, i64 496}
+!142 = !{!143, !6, i64 8}
+!143 = !{!"jpeg_entropy_encoder", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!144 = distinct !{!144, !57}
+!145 = distinct !{!145, !57}

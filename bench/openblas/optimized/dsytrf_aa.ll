@@ -215,7 +215,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   store i32 %113, ptr %111, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not357.not = icmp slt i64 %indvars.iv, %109
-  br i1 %.not357.not, label %110, label %._crit_edge, !llvm.loop !12
+  br i1 %.not357.not, label %110, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %106
   %.pre430 = load i32, ptr %14, align 4, !tbaa !3
@@ -327,7 +327,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %storemerge360 = add nsw i32 %173, -1
   store i32 %storemerge360, ptr %15, align 4, !tbaa !3
   %174 = icmp sgt i32 %173, 1
-  br i1 %174, label %.lr.ph373, label %._crit_edge374.loopexit, !llvm.loop !13
+  br i1 %174, label %.lr.ph373, label %._crit_edge374.loopexit, !llvm.loop !11
 
 ._crit_edge374.loopexit:                          ; preds = %.lr.ph373
   %175 = trunc nsw i64 %indvars.iv.next419 to i32
@@ -365,7 +365,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %196 = icmp sge i32 %193, %195
   %197 = icmp sle i32 %193, %195
   %.in358 = select i1 %194, i1 %196, i1 %197
-  br i1 %.in358, label %154, label %._crit_edge379.loopexit, !llvm.loop !14
+  br i1 %.in358, label %154, label %._crit_edge379.loopexit, !llvm.loop !12
 
 ._crit_edge379.loopexit:                          ; preds = %._crit_edge374
   %.pre432.pre = load i32, ptr %1, align 4, !tbaa !3
@@ -476,7 +476,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %indvars.iv.next425 = add nsw i64 %indvars.iv424, 1
   %251 = sext i32 %250 to i64
   %.not351.us.not = icmp slt i64 %indvars.iv424, %251
-  br i1 %.not351.us.not, label %.lr.ph388.split.us, label %._crit_edge389.loopexit, !llvm.loop !15
+  br i1 %.not351.us.not, label %.lr.ph388.split.us, label %._crit_edge389.loopexit, !llvm.loop !13
 
 .lr.ph388.split:                                  ; preds = %.lr.ph388
   %252 = sext i32 %234 to i64
@@ -490,7 +490,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   store i32 %256, ptr %254, align 4, !tbaa !3
   %indvars.iv.next422 = add nsw i64 %indvars.iv421, 1
   %.not351.not = icmp slt i64 %indvars.iv421, %252
-  br i1 %.not351.not, label %253, label %._crit_edge389, !llvm.loop !16
+  br i1 %.not351.not, label %253, label %._crit_edge389, !llvm.loop !13
 
 ._crit_edge389.loopexit:                          ; preds = %249
   %.pre435 = load i32, ptr %14, align 4, !tbaa !3
@@ -604,7 +604,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %storemerge = add nsw i32 %318, -1
   store i32 %storemerge, ptr %15, align 4, !tbaa !3
   %319 = icmp sgt i32 %318, 1
-  br i1 %319, label %.lr.ph394, label %._crit_edge395.loopexit, !llvm.loop !17
+  br i1 %319, label %.lr.ph394, label %._crit_edge395.loopexit, !llvm.loop !14
 
 ._crit_edge395.loopexit:                          ; preds = %.lr.ph394
   %320 = trunc nsw i64 %indvars.iv.next428 to i32
@@ -641,7 +641,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %340 = icmp sge i32 %337, %339
   %341 = icmp sle i32 %337, %339
   %.in = select i1 %338, i1 %340, i1 %341
-  br i1 %.in, label %299, label %._crit_edge401.loopexit, !llvm.loop !18
+  br i1 %.in, label %299, label %._crit_edge401.loopexit, !llvm.loop !15
 
 ._crit_edge401.loopexit:                          ; preds = %._crit_edge395
   %.pre437.pre = load i32, ptr %1, align 4, !tbaa !3
@@ -731,13 +731,10 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
 !13 = distinct !{!13, !10}
 !14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
+!15 = distinct !{!15, !10}

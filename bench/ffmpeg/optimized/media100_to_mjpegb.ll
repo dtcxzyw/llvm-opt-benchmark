@@ -532,7 +532,7 @@ bytestream2_put_byte.exit138:                     ; preds = %bytestream2_get_be3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond522.not = icmp eq i32 %257, %lftr.wideiv
-  br i1 %exitcond522.not, label %.critedge, label %262, !llvm.loop !34
+  br i1 %exitcond522.not, label %.critedge, label %262
 
 bytestream2_put_byte.exit140:                     ; preds = %bytestream2_put_byte.exit140.preheader, %bytestream2_put_byte.exit142
   %.067509 = phi i32 [ %280, %bytestream2_put_byte.exit142 ], [ 0, %bytestream2_put_byte.exit140.preheader ]
@@ -571,7 +571,7 @@ bytestream2_put_byte.exit142:                     ; preds = %bytestream2_get_be3
   %.sroa.0.38 = phi ptr [ %279, %278 ], [ %.sroa.0.3508, %bytestream2_get_be32.exit145 ]
   %280 = add nuw nsw i32 %.067509, 1
   %exitcond520.not = icmp eq i32 %280, 64
-  br i1 %exitcond520.not, label %245, label %bytestream2_put_byte.exit140, !llvm.loop !36
+  br i1 %exitcond520.not, label %245, label %bytestream2_put_byte.exit140, !llvm.loop !34
 
 .critedge.loopexit.split.loop.exit:               ; preds = %262
   %281 = trunc nsw i64 %indvars.iv to i32
@@ -846,6 +846,4 @@ attributes #9 = { noreturn nounwind }
 !31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
 !33 = distinct !{!33, !32}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !32}
+!34 = distinct !{!34, !32}

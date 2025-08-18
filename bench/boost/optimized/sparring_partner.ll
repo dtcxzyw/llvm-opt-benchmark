@@ -22619,7 +22619,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   %28 = getelementptr inbounds nuw i8, ptr %.01925.us, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !63
   %.not.us = icmp eq ptr %29, null
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !427
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %31 = landingpad { ptr, i32 }
@@ -22696,7 +22696,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
   %6 = getelementptr inbounds i8, ptr %5, i64 -1
   store ptr %6, ptr %4, align 8, !tbaa !126
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !429
+  %8 = load ptr, ptr %7, align 8, !tbaa !427
   store i32 0, ptr %8, align 4, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !125
@@ -22784,7 +22784,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
   %48 = getelementptr inbounds i8, ptr %27, i64 -1
   store ptr %48, ptr %4, align 8, !tbaa !126
   %.not.i = icmp ult ptr %48, %22
-  br i1 %.not.i, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit, label %26, !llvm.loop !430
+  br i1 %.not.i, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit, label %26, !llvm.loop !428
 
 49:                                               ; preds = %15
   %50 = landingpad { ptr, i32 }
@@ -22797,9 +22797,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
 
 53:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %54 = load ptr, ptr %52, align 8, !tbaa !20, !noalias !431
+  %54 = load ptr, ptr %52, align 8, !tbaa !20, !noalias !429
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8, !noalias !431
+  %56 = load ptr, ptr %55, align 8, !noalias !429
   invoke void %56(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %52)
           to label %_ZNKSt7__cxx118numpunctIcE8groupingEv.exit unwind label %93
 
@@ -22875,7 +22875,7 @@ _ZNKSt7__cxx118numpunctIcE8groupingEv.exit:       ; preds = %53
   %90 = getelementptr inbounds i8, ptr %69, i64 -1
   store ptr %90, ptr %4, align 8, !tbaa !126
   %.not.i46 = icmp ult ptr %90, %64
-  br i1 %.not.i46, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %68, !llvm.loop !430
+  br i1 %.not.i46, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %68, !llvm.loop !428
 
 91:                                               ; preds = %51
   %92 = landingpad { ptr, i32 }
@@ -23018,7 +23018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %157 = getelementptr inbounds i8, ptr %108, i64 -1
   store ptr %157, ptr %4, align 8, !tbaa !126
   %.not35 = icmp ult ptr %157, %101
-  br i1 %.not35, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %107, !llvm.loop !434
+  br i1 %.not35, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50, label %107, !llvm.loop !432
 
 _ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE17main_convert_loopEv.exit50: ; preds = %155, %146, %124, %123, %122, %110, %87, %83, %82, %81, %68, %_ZNKSt7__cxx118numpunctIcE13thousands_sepEv.exit, %144, %63
   %.221 = phi i1 [ true, %63 ], [ %145, %144 ], [ true, %_ZNKSt7__cxx118numpunctIcE13thousands_sepEv.exit ], [ true, %87 ], [ false, %83 ], [ false, %82 ], [ false, %81 ], [ false, %68 ], [ true, %155 ], [ false, %146 ], [ false, %124 ], [ false, %123 ], [ false, %122 ], [ false, %110 ]
@@ -23124,7 +23124,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsig
   %31 = getelementptr inbounds i8, ptr %10, i64 -1
   store ptr %31, ptr %2, align 8, !tbaa !126
   %.not = icmp ult ptr %31, %4
-  br i1 %.not, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE22main_convert_iterationEv.exit.thread, label %9, !llvm.loop !430
+  br i1 %.not, label %_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE22main_convert_iterationEv.exit.thread, label %9, !llvm.loop !428
 
 _ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE22main_convert_iterationEv.exit.thread: ; preds = %28, %24, %23, %22, %9, %1
   %.not.lcssa = phi i1 [ true, %1 ], [ false, %9 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ true, %28 ]
@@ -23915,11 +23915,9 @@ attributes #40 = { nounwind willreturn memory(none) }
 !424 = !{!425}
 !425 = distinct !{!425, !426, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_: argument 0"}
 !426 = distinct !{!426, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_"}
-!427 = distinct !{!427, !428}
-!428 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!429 = !{!123, !6, i64 8}
-!430 = distinct !{!430, !57}
-!431 = !{!432}
-!432 = distinct !{!432, !433, !"_ZNKSt7__cxx118numpunctIcE8groupingEv: argument 0"}
-!433 = distinct !{!433, !"_ZNKSt7__cxx118numpunctIcE8groupingEv"}
-!434 = distinct !{!434, !57}
+!427 = !{!123, !6, i64 8}
+!428 = distinct !{!428, !57}
+!429 = !{!430}
+!430 = distinct !{!430, !431, !"_ZNKSt7__cxx118numpunctIcE8groupingEv: argument 0"}
+!431 = distinct !{!431, !"_ZNKSt7__cxx118numpunctIcE8groupingEv"}
+!432 = distinct !{!432, !57}

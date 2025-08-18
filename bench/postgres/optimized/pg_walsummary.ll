@@ -245,7 +245,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 97:                                               ; preds = %.lr.ph9.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %72
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !8
 
 .critedge.i.split.loop.exit32:                    ; preds = %.lr.ph9.i
   %98 = trunc nuw i64 %indvars.iv to i32
@@ -277,11 +277,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 110:                                              ; preds = %105, %.critedge.thread.i
   %.2.lcssa25.i = phi i32 [ %.2.lcssa.i, %105 ], [ %.2.lcssa26.i, %.critedge.thread.i ]
   %111 = icmp ult i32 %.2.lcssa25.i, %.040.lcssa.i
-  br i1 %111, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !10
+  br i1 %111, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !7
 
 dump_one_relation.exit:                           ; preds = %110, %.critedge.thread.us.i, %._crit_edge.i, %70
   %112 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %33, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %dump_one_relation.exit, %32
   call void @DestroyBlockRefTableReader(ptr noundef %33) #11
@@ -293,7 +293,7 @@ dump_one_relation.exit:                           ; preds = %110, %.critedge.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %115 = load i32, ptr @optind, align 4
   %116 = icmp slt i32 %115, %0
-  br i1 %116, label %22, label %._crit_edge23, !llvm.loop !12
+  br i1 %116, label %22, label %._crit_edge23, !llvm.loop !10
 
 ._crit_edge23:                                    ; preds = %._crit_edge
   call void @exit(i32 noundef 0) #13
@@ -435,9 +435,7 @@ attributes #13 = { noreturn nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}

@@ -1118,7 +1118,7 @@ closeLOfd.exit:                                   ; preds = %26, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %32 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
+  br i1 %35, label %.lr.ph.split, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %31, %17, %3
   ret void
@@ -1376,6 +1376,4 @@ attributes #13 = { noreturn nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !5}
+!12 = distinct !{!12, !5}

@@ -1979,7 +1979,7 @@ define internal fastcc range(i32 0, 256) i32 @singlematch(i32 noundef range(i32 
   %.2.i.us = phi ptr [ %55, %60 ], [ %55, %59 ], [ %47, %57 ], [ %50, %72 ], [ %50, %73 ], [ %50, %71 ]
   %84 = getelementptr inbounds nuw i8, ptr %.2.i.us, i64 1
   %85 = icmp ult ptr %84, %38
-  br i1 %85, label %.lr.ph.i.split.us, label %matchbracketclass.exit, !llvm.loop !65
+  br i1 %85, label %.lr.ph.i.split.us, label %matchbracketclass.exit, !llvm.loop !62
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %match_class.exit.i
   %86 = phi ptr [ %124, %match_class.exit.i ], [ %42, %.lr.ph.i ]
@@ -2272,7 +2272,7 @@ push_captures.exit.thread:                        ; preds = %31
   %69 = getelementptr inbounds nuw i8, ptr %.02639, i64 1
   %70 = load ptr, ptr %26, align 8, !tbaa !47
   %.not = icmp ugt ptr %69, %70
-  br i1 %.not, label %push_captures.exit.thread31, label %31, !llvm.loop !67
+  br i1 %.not, label %push_captures.exit.thread31, label %31, !llvm.loop !65
 
 push_captures.exit.thread31:                      ; preds = %push_captures.exit.thread, %push_onecapture.exit, %1, %33
   %.2 = phi i32 [ %40, %33 ], [ 0, %1 ], [ %spec.select.i, %push_onecapture.exit ], [ 0, %push_captures.exit.thread ]
@@ -2415,6 +2415,4 @@ attributes #8 = { noreturn nounwind }
 !62 = distinct !{!62, !24}
 !63 = distinct !{!63, !24}
 !64 = distinct !{!64, !24}
-!65 = distinct !{!65, !24, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !24}
+!65 = distinct !{!65, !24}

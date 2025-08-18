@@ -340,7 +340,7 @@ define ptr @av_dv_codec_profile2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %.1 = phi ptr [ %.01620, %30 ], [ %.01620, %26 ], [ %.01620, %.split ], [ %spec.select, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !44
+  br i1 %exitcond.not, label %.critedge, label %.split, !llvm.loop !42
 
 .critedge:                                        ; preds = %34, %41, %17, %21
   %.us-phi = phi ptr [ %9, %17 ], [ null, %21 ], [ %22, %34 ], [ %.1, %41 ]
@@ -403,6 +403,4 @@ attributes #7 = { nounwind willreturn memory(none) }
 !39 = !{!5, !6, i64 4}
 !40 = distinct !{!40, !17}
 !41 = !{!5, !6, i64 8}
-!42 = distinct !{!42, !17, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !17}
+!42 = distinct !{!42, !17}

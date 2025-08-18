@@ -13235,7 +13235,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S
   %155 = icmp ne ptr %.1.i, %17
   %156 = icmp ne ptr %.120.i, %18
   %157 = select i1 %155, i1 %156, i1 false
-  br i1 %157, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !828
+  br i1 %157, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !827
 
 ._crit_edge.i.loopexit:                           ; preds = %153
   %158 = ptrtoint ptr %17 to i64
@@ -13265,7 +13265,7 @@ _ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3
   %168 = sub i64 %7, %163
   %169 = sdiv exact i64 %168, 24
   %.not = icmp slt i64 %169, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !829
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !826
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit.us, %5
   %.019.lcssa = phi ptr [ %2, %5 ], [ %13, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit.us ], [ %167, %_ZSt12__move_mergeIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEET0_T_SC_SC_SC_SB_T1_.exit ]
@@ -13335,7 +13335,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEclIP6tripleIP3appS8_S
   %199 = icmp ne ptr %.1.i40, %170
   %200 = icmp ne ptr %.120.i39, %1
   %201 = select i1 %199, i1 %200, i1 false
-  br i1 %201, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !828
+  br i1 %201, label %.lr.ph.i29, label %._crit_edge.i22, !llvm.loop !827
 
 ._crit_edge.i22:                                  ; preds = %197, %._crit_edge
   %.019.lcssa.i23 = phi ptr [ %170, %._crit_edge ], [ %.120.i39, %197 ]
@@ -13579,13 +13579,13 @@ _ZNSt3_V26rotateIP6tripleIP3appS3_S3_EEET_S6_S6_S6_.exit: ; preds = %._crit_edge
 define internal void @_GLOBAL__sub_I_dyn_ack.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
-  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !830
+  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !828
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL12true_literalE)
-  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !830
+  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !828
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL13false_literalE)
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !831
+  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !829
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL21null_eq_justificationE)
-  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !833
+  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !831
   %5 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL20null_b_justificationE)
   ret void
 }
@@ -14462,11 +14462,9 @@ attributes #26 = { builtin allocsize(0) }
 !823 = distinct !{!823, !510}
 !824 = distinct !{!824, !510}
 !825 = distinct !{!825, !510}
-!826 = distinct !{!826, !510, !827}
-!827 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!828 = distinct !{!828, !510}
-!829 = distinct !{!829, !510}
-!830 = !{!426, !11, i64 0}
-!831 = !{!832, !5, i64 0}
-!832 = !{!"_ZTSN3smt16eq_justificationE", !5, i64 0}
-!833 = !{!425, !5, i64 0}
+!826 = distinct !{!826, !510}
+!827 = distinct !{!827, !510}
+!828 = !{!426, !11, i64 0}
+!829 = !{!830, !5, i64 0}
+!830 = !{!"_ZTSN3smt16eq_justificationE", !5, i64 0}
+!831 = !{!425, !5, i64 0}

@@ -333,7 +333,7 @@ define internal void @serport_ldisc_receive(ptr noundef readonly captures(none) 
   %39 = add i32 %28, 1
   %40 = sext i32 %39 to i64
   %41 = icmp ugt i64 %3, %40
-  br i1 %41, label %.split, label %.loopexit, !llvm.loop !16
+  br i1 %41, label %.split, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.split, %.split.us, %4
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #11
@@ -521,8 +521,6 @@ attributes #13 = { nounwind allocsize(2) }
 !9 = !{i64 2148346574, i64 2148346613, i64 2148346634, i64 2148346671, i64 2148346694, i64 2148346564}
 !10 = !{i64 2154931169}
 !11 = !{i64 2154934355}
-!12 = distinct !{!12, !13, !14, !15}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !13, !14}

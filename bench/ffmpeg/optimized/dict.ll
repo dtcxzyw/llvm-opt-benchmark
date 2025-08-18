@@ -76,7 +76,7 @@ define ptr @av_dict_get(ptr noundef readonly captures(address_is_null) %0, ptr n
   %7 = and i32 %3, 1
   %.not39 = icmp eq i32 %7, 0
   %8 = and i32 %3, 2
-  %.not44 = icmp ne i32 %8, 0
+  %.not44 = icmp eq i32 %8, 0
   br i1 %.not39, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.loopexit.us
@@ -151,21 +151,21 @@ av_dict_iterate.exit.us:                          ; preds = %17
 .critedge.loopexit.us:                            ; preds = %.split35.us, %.split.us
   %44 = phi i8 [ %22, %.split.us ], [ %34, %.split35.us ]
   %45 = phi i8 [ %26, %.split.us ], [ %39, %.split35.us ]
-  %.not42.us = icmp eq i8 %45, 0
-  %.not43.us = icmp eq i8 %44, 0
-  %or.cond46.us.not116 = or i1 %.not44, %.not43.us
-  %or.cond128 = and i1 %.not42.us, %or.cond46.us.not116
-  br i1 %or.cond128, label %av_dict_iterate.exit.thread, label %.lr.ph.split.us, !llvm.loop !18
+  %.not42.us = icmp ne i8 %45, 0
+  %.not43.us = icmp ne i8 %44, 0
+  %or.cond46.us = and i1 %.not44, %.not43.us
+  %or.cond132 = or i1 %.not42.us, %or.cond46.us
+  br i1 %or.cond132, label %.lr.ph.split.us, label %av_dict_iterate.exit.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.not44, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split
+  br i1 %.not44, label %.lr.ph.split.split.split, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.loopexit56.us
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %.critedge.loopexit56.us
   %.03361.us71 = phi ptr [ %57, %.critedge.loopexit56.us ], [ %2, %.lr.ph.split ]
   %.not11.i.us72 = icmp eq ptr %.03361.us71, null
   br i1 %.not11.i.us72, label %54, label %46
 
-46:                                               ; preds = %.lr.ph.split.split.us
+46:                                               ; preds = %.lr.ph.split.split.us.split
   %47 = load ptr, ptr %5, align 8, !tbaa !11
   %48 = ptrtoint ptr %.03361.us71 to i64
   %49 = ptrtoint ptr %47 to i64
@@ -175,8 +175,8 @@ av_dict_iterate.exit.us:                          ; preds = %17
   %53 = add i32 %52, 1
   br label %54
 
-54:                                               ; preds = %46, %.lr.ph.split.split.us
-  %.0.i.us73 = phi i32 [ %53, %46 ], [ 0, %.lr.ph.split.split.us ]
+54:                                               ; preds = %46, %.lr.ph.split.split.us.split
+  %.0.i.us73 = phi i32 [ %53, %46 ], [ 0, %.lr.ph.split.split.us.split ]
   %.not12.i.us74 = icmp slt i32 %.0.i.us73, %6
   br i1 %.not12.i.us74, label %av_dict_iterate.exit.us75, label %av_dict_iterate.exit.thread
 
@@ -202,10 +202,10 @@ av_dict_iterate.exit.us75:                        ; preds = %54
   %.not41.us = icmp eq i8 %64, 0
   %or.cond.us = or i1 %65, %.not41.us
   %66 = add i32 %.030.us, 1
-  br i1 %or.cond.us, label %.critedge.loopexit56.us, label %59, !llvm.loop !20
+  br i1 %or.cond.us, label %.critedge.loopexit56.us, label %59, !llvm.loop !18
 
 .critedge.loopexit56.us:                          ; preds = %59
-  br i1 %.not41.us, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.us
+  br i1 %.not41.us, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %.critedge.loopexit56
   %.03361 = phi ptr [ %78, %.critedge.loopexit56 ], [ %2, %.lr.ph.split ]
@@ -249,24 +249,24 @@ av_dict_iterate.exit:                             ; preds = %75
   %.not41 = icmp eq i8 %85, 0
   %or.cond = or i1 %86, %.not41
   %87 = add i32 %.030, 1
-  br i1 %or.cond, label %.critedge.loopexit56, label %80, !llvm.loop !20
+  br i1 %or.cond, label %.critedge.loopexit56, label %80, !llvm.loop !18
 
 .critedge.loopexit56:                             ; preds = %80
   %88 = or i8 %85, %83
-  %or.cond125 = icmp eq i8 %88, 0
-  br i1 %or.cond125, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
+  %or.cond127 = icmp eq i8 %88, 0
+  br i1 %or.cond127, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
 
-av_dict_iterate.exit.thread:                      ; preds = %av_dict_iterate.exit, %75, %.critedge.loopexit56, %.critedge.loopexit56.us, %av_dict_iterate.exit.us75, %54, %av_dict_iterate.exit.us, %17, %.critedge.loopexit.us, %.preheader57, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.preheader57 ], [ null, %17 ], [ null, %av_dict_iterate.exit.us ], [ %20, %.critedge.loopexit.us ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ], [ null, %54 ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ %78, %.critedge.loopexit56 ]
+av_dict_iterate.exit.thread:                      ; preds = %av_dict_iterate.exit.us75, %.critedge.loopexit56.us, %54, %av_dict_iterate.exit, %75, %.critedge.loopexit56, %av_dict_iterate.exit.us, %17, %.critedge.loopexit.us, %.preheader57, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %.preheader57 ], [ null, %av_dict_iterate.exit.us ], [ null, %17 ], [ %20, %.critedge.loopexit.us ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ %78, %.critedge.loopexit56 ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ], [ null, %54 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  %6 = load ptr, ptr %0, align 8, !tbaa !21
+  %6 = load ptr, ptr %0, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !23
+  store ptr null, ptr %5, align 8, !tbaa !21
   %7 = and i32 %3, 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %.sink.split
@@ -281,7 +281,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 
 .sink.split:                                      ; preds = %4, %9
   %.sink = phi ptr [ %10, %9 ], [ %2, %4 ]
-  store ptr %.sink, ptr %5, align 8, !tbaa !23
+  store ptr %.sink, ptr %5, align 8, !tbaa !21
   br label %11
 
 11:                                               ; preds = %.sink.split, %8
@@ -331,19 +331,19 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %29
   %26 = phi ptr [ %30, %29 ], [ %25, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
   %.not109.us = icmp eq ptr %28, null
   br i1 %.not109.us, label %.split.us, label %29
 
 29:                                               ; preds = %.lr.ph.split.us
   %30 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %26, i32 noundef %3)
   %.not95.us = icmp eq ptr %30, null
-  br i1 %.not95.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not95.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %36
   %31 = phi ptr [ %37, %36 ], [ %25, %.lr.ph ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
   %.not110 = icmp eq ptr %33, null
   br i1 %.not110, label %36, label %34
 
@@ -360,7 +360,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 36:                                               ; preds = %34, %.critedge
   %37 = tail call ptr @av_dict_get(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %31, i32 noundef %3)
   %.not95 = icmp eq ptr %37, null
-  br i1 %.not95, label %.loopexit, label %.critedge, !llvm.loop !26
+  br i1 %.not95, label %.loopexit, label %.critedge, !llvm.loop !23
 
 .loopexit:                                        ; preds = %36, %29, %.preheader, %23, %21
   %.070 = phi ptr [ null, %23 ], [ %22, %21 ], [ null, %.preheader ], [ null, %29 ], [ null, %36 ]
@@ -369,7 +369,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
 
 38:                                               ; preds = %.loopexit
   %39 = tail call noalias ptr @av_mallocz(i64 noundef 16) #8
-  store ptr %39, ptr %0, align 8, !tbaa !21
+  store ptr %39, ptr %0, align 8, !tbaa !19
   %.not97 = icmp eq ptr %39, null
   br i1 %.not97, label %.thread142, label %.thread116
 
@@ -398,7 +398,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %.not103 = icmp eq i32 %44, 0
   %or.cond112 = or i1 %.not103, %.not102
   %45 = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !24
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   br i1 %or.cond112, label %54, label %47
 
 47:                                               ; preds = %43
@@ -414,7 +414,7 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr nonnull align 1 %12, i64 %50, i1 false)
   call void @av_freep(ptr noundef nonnull %5) #8
-  store ptr %52, ptr %5, align 8, !tbaa !23
+  store ptr %52, ptr %5, align 8, !tbaa !21
   br label %63
 
 54:                                               ; preds = %43
@@ -449,8 +449,8 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %68, ptr %.2119, align 8, !tbaa !4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %66, i64 %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.070, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !27
-  %.pr.pre = load ptr, ptr %5, align 8, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.070, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !24
+  %.pr.pre = load ptr, ptr %5, align 8, !tbaa !21
   %71 = icmp eq ptr %.pr.pre, null
   br i1 %71, label %.thread126, label %72
 
@@ -461,9 +461,9 @@ define range(i32 -22, 1) i32 @av_dict_set(ptr noundef %0, ptr noundef %1, ptr no
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76
   store ptr %.173115, ptr %77, align 8, !tbaa !12
-  %78 = load ptr, ptr %5, align 8, !tbaa !23
+  %78 = load ptr, ptr %5, align 8, !tbaa !21
   %79 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %74, i64 %76, i32 1
-  store ptr %78, ptr %79, align 8, !tbaa !24
+  store ptr %78, ptr %79, align 8, !tbaa !22
   %80 = add nsw i32 %75, 1
   store i32 %80, ptr %.2119, align 8, !tbaa !4
   br label %86
@@ -545,7 +545,7 @@ define range(i32 -22, 1) i32 @av_dict_parse_string(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %1, ptr %8, align 8, !tbaa !23
+  store ptr %1, ptr %8, align 8, !tbaa !21
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -558,9 +558,9 @@ define range(i32 -22, 1) i32 @av_dict_parse_string(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %9, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call ptr @av_get_token(ptr noundef nonnull %8, ptr noundef %2) #8
-  store ptr %12, ptr %6, align 8, !tbaa !23
+  store ptr %12, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !23
+  store ptr null, ptr %7, align 8, !tbaa !21
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %parse_key_value_pair.exit, label %13
 
@@ -570,16 +570,16 @@ define range(i32 -22, 1) i32 @av_dict_parse_string(ptr noundef %0, ptr noundef %
   br i1 %.not13.i, label %parse_key_value_pair.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %8, align 8, !tbaa !23
+  %16 = load ptr, ptr %8, align 8, !tbaa !21
   %17 = call i64 @strspn(ptr noundef %16, ptr noundef %2) #9
   %.not14.i = icmp eq i64 %17, 0
   br i1 %.not14.i, label %parse_key_value_pair.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store ptr %19, ptr %8, align 8, !tbaa !23
+  store ptr %19, ptr %8, align 8, !tbaa !21
   %20 = call ptr @av_get_token(ptr noundef nonnull %8, ptr noundef %3) #8
-  store ptr %20, ptr %7, align 8, !tbaa !23
+  store ptr %20, ptr %7, align 8, !tbaa !21
   %21 = load i8, ptr %12, align 1, !tbaa !15
   %22 = icmp ne i8 %21, 0
   %23 = icmp ne ptr %20, null
@@ -605,17 +605,17 @@ parse_key_value_pair.exit:                        ; preds = %.lr.ph, %13, %15, %
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %parse_key_value_pair.exit
-  %30 = load ptr, ptr %8, align 8, !tbaa !23
+  %30 = load ptr, ptr %8, align 8, !tbaa !21
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %.not8 = icmp eq i8 %31, 0
   br i1 %.not8, label %.loopexit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store ptr %33, ptr %8, align 8, !tbaa !23
+  store ptr %33, ptr %8, align 8, !tbaa !21
   %.pre = load i8, ptr %33, align 1, !tbaa !15
   %34 = icmp eq i8 %.pre, 0
-  br i1 %34, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %34, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %29, %parse_key_value_pair.exit, %32, %9, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %29 ], [ %.0.i, %parse_key_value_pair.exit ], [ 0, %32 ]
@@ -624,7 +624,7 @@ parse_key_value_pair.exit:                        ; preds = %.lr.ph, %13, %15, %
 
 ; Function Attrs: nounwind uwtable
 define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !21
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %.preheader
 
@@ -654,7 +654,7 @@ define void @av_dict_free(ptr noundef %0) local_unnamed_addr #2 {
   %16 = add nsw i32 %15, -1
   store i32 %16, ptr %2, align 8, !tbaa !4
   %.not9 = icmp eq i32 %15, 0
-  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !29
+  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %6, %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -703,10 +703,10 @@ av_dict_iterate.exit:                             ; preds = %13
   %18 = getelementptr inbounds %struct.AVDictionaryEntry, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = tail call i32 @av_dict_set(ptr noundef %0, ptr noundef %19, ptr noundef %21, i32 noundef %2)
   %23 = icmp sgt i32 %22, -1
-  br i1 %23, label %.split, label %av_dict_iterate.exit.thread.split, !llvm.loop !30
+  br i1 %23, label %.split, label %av_dict_iterate.exit.thread.split, !llvm.loop !27
 
 av_dict_iterate.exit.thread.split:                ; preds = %16, %av_dict_iterate.exit, %13, %3
   %.2.split = phi i32 [ 0, %3 ], [ %22, %16 ], [ 0, %av_dict_iterate.exit ], [ 0, %13 ]
@@ -754,7 +754,7 @@ av_dict_count.exit:                               ; preds = %18
 
 av_dict_count.exit.thread:                        ; preds = %18, %av_dict_count.exit
   %20 = tail call noalias ptr @av_strdup(ptr noundef nonnull @.str.1) #8
-  store ptr %20, ptr %1, align 8, !tbaa !23
+  store ptr %20, ptr %1, align 8, !tbaa !21
   %.not27 = icmp eq ptr %20, null
   %21 = select i1 %.not27, i32 -12, i32 0
   br label %46
@@ -807,9 +807,9 @@ av_dict_iterate.exit:                             ; preds = %33
   call void @av_bprint_escape(ptr noundef nonnull %7, ptr noundef %42, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0) #8
   call void @av_bprint_append_data(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 1) #8
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !24
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
   call void @av_bprint_escape(ptr noundef nonnull %7, ptr noundef %44, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0) #8
-  br label %24, !llvm.loop !31
+  br label %24, !llvm.loop !28
 
 av_dict_iterate.exit.thread:                      ; preds = %33, %av_dict_iterate.exit
   %45 = call i32 @av_bprint_finalize(ptr noundef nonnull %7, ptr noundef %1) #8
@@ -872,17 +872,14 @@ attributes #9 = { nounwind willreturn memory(read) }
 !15 = !{!7, !7, i64 0}
 !16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS12AVDictionary", !10, i64 0}
-!23 = !{!14, !14, i64 0}
-!24 = !{!13, !14, i64 8}
-!25 = distinct !{!25, !17, !19}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS12AVDictionary", !10, i64 0}
+!21 = !{!14, !14, i64 0}
+!22 = !{!13, !14, i64 8}
+!23 = distinct !{!23, !17}
+!24 = !{i64 0, i64 8, !21, i64 8, i64 8, !21}
+!25 = distinct !{!25, !17}
 !26 = distinct !{!26, !17}
-!27 = !{i64 0, i64 8, !23, i64 8, i64 8, !23}
+!27 = distinct !{!27, !17}
 !28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17}

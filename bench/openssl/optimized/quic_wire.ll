@@ -1566,7 +1566,7 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 181:                                              ; preds = %172, %176
   %.150 = phi i64 [ %177, %176 ], [ %.049144, %172 ]
   %exitcond.not = icmp eq i64 %173, %62
-  br i1 %exitcond.not, label %._crit_edge.thread151, label %.lr.ph.split, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge.thread151, label %.lr.ph.split, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %136, %100
   br i1 %.not71, label %._crit_edge.thread, label %._crit_edge.thread151
@@ -3087,7 +3087,7 @@ define i64 @ossl_quic_wire_decode_padding(ptr noundef captures(none) %0) local_u
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   %8 = icmp ult ptr %7, %3
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !62
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %.lr.ph, %6, %1
   %.0.lcssa = phi ptr [ %.val, %1 ], [ %7, %6 ], [ %.017, %.lr.ph ]
@@ -3537,10 +3537,10 @@ PACKET_get_1.exit:                                ; preds = %ossl_quic_wire_deco
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %73, ptr noundef nonnull align 1 dereferenceable(16) %74, i64 range(i64 0, 4294967296) 16, i1 false)
-  store i16 %48, ptr %1, align 2, !tbaa !63
+  store i16 %48, ptr %1, align 2, !tbaa !61
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i16 %58, ptr %75, align 2, !tbaa !66
-  store i8 %60, ptr %65, align 2, !tbaa !67
+  store i16 %58, ptr %75, align 2, !tbaa !64
+  store i8 %60, ptr %65, align 2, !tbaa !65
   br label %ossl_quic_wire_decode_transport_param_bytes.exit.thread
 
 ossl_quic_wire_decode_transport_param_bytes.exit.thread: ; preds = %68, %64, %27, %20, %13, %5, %2, %PACKET_get_1.exit, %ossl_quic_wire_decode_transport_param_bytes.exit, %72
@@ -3667,12 +3667,10 @@ attributes #12 = { nounwind }
 !56 = !{!9, !9, i64 0}
 !57 = !{!11, !11, i64 0}
 !58 = distinct !{!58, !17}
-!59 = distinct !{!59, !17, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !17}
-!62 = distinct !{!62, !17}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"quic_preferred_addr_st", !65, i64 0, !65, i64 2, !7, i64 4, !7, i64 8, !43, i64 24, !42, i64 40}
-!65 = !{!"short", !7, i64 0}
-!66 = !{!64, !65, i64 2}
-!67 = !{!64, !7, i64 40}
+!59 = distinct !{!59, !17}
+!60 = distinct !{!60, !17}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"quic_preferred_addr_st", !63, i64 0, !63, i64 2, !7, i64 4, !7, i64 8, !43, i64 24, !42, i64 40}
+!63 = !{!"short", !7, i64 0}
+!64 = !{!62, !63, i64 2}
+!65 = !{!62, !7, i64 40}

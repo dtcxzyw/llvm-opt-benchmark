@@ -516,7 +516,7 @@ switch.lookup166:                                 ; preds = %37
   %225 = load i32, ptr %224, align 4, !tbaa !26
   %226 = zext i32 %225 to i64
   %227 = icmp samesign ult i64 %indvars.iv.next158, %226
-  br i1 %227, label %.lr.ph148.split, label %._crit_edge149, !llvm.loop !41
+  br i1 %227, label %.lr.ph148.split, label %._crit_edge149, !llvm.loop !39
 
 ._crit_edge149:                                   ; preds = %._crit_edge.us, %.lr.ph148.split, %181
   %fputc137 = tail call i32 @fputc(i32 10, ptr %1)
@@ -627,6 +627,4 @@ attributes #5 = { nounwind }
 !36 = !{!23, !24, i64 32}
 !37 = !{!31, !31, i64 0}
 !38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !35}
+!39 = distinct !{!39, !35}

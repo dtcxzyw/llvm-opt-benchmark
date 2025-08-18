@@ -1977,7 +1977,7 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %79 = add nsw i32 %.0125186.i, -1
   %80 = add i32 %.3189.i, 1
   %81 = icmp sgt i32 %.0125186.i, 1
-  br i1 %81, label %.split.i, label %.loopexit.i, !llvm.loop !9
+  br i1 %81, label %.split.i, label %.loopexit.i, !llvm.loop !6
 
 82:                                               ; preds = %18
   %83 = and i32 %15, 63
@@ -2063,13 +2063,13 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %124 = add i32 %.4180.i, 1
   %125 = add i32 %107, -1
   %.not142.i = icmp eq i32 %107, 0
-  br i1 %.not142.i, label %._crit_edge.i, label %.lr.ph.outer.i, !llvm.loop !10
+  br i1 %.not142.i, label %._crit_edge.i, label %.lr.ph.outer.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %109
   %126 = add i32 %.4180.i, 1
   %127 = add i32 %107, -1
   %.not142232.i = icmp eq i32 %107, 0
-  br i1 %.not142232.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not142232.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.loopexit242.i
   %128 = icmp sgt i32 %.7.i, 0
@@ -2275,7 +2275,7 @@ define internal noundef i32 @dns_stats_tree_packet(ptr noundef %0, ptr readnone 
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @dns_types_vals, ptr noundef nonnull @.str.795)
   %15 = tail call i32 @stats_tree_tick_pivot(ptr noundef %0, i32 noundef %11, ptr noundef %14)
-  %16 = load i8, ptr @dns_qname_stats, align 1, !range !11, !noundef !12
+  %16 = load i8, ptr @dns_qname_stats, align 1, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %26
 
@@ -2364,7 +2364,7 @@ define internal noundef i32 @dns_stats_tree_packet(ptr noundef %0, ptr readnone 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %78 = load i8, ptr %77, align 8, !range !11, !noundef !12
+  %78 = load i8, ptr %77, align 8, !range !9, !noundef !10
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %87, label %89
 
@@ -2378,7 +2378,7 @@ define internal noundef i32 @dns_stats_tree_packet(ptr noundef %0, ptr readnone 
   %85 = tail call i32 @stats_tree_tick_pivot(ptr noundef %0, i32 noundef %83, ptr noundef %84)
   %86 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.057)
   %.not55 = icmp eq ptr %86, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 87:                                               ; preds = %._crit_edge
   %88 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.901, i32 noundef 0, i1 noundef zeroext false, i32 noundef 1)
@@ -2393,7 +2393,7 @@ define internal noundef i32 @dns_stats_tree_packet(ptr noundef %0, ptr readnone 
   %95 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.899, i32 noundef 0, i1 noundef zeroext false, i32 noundef %94)
   %96 = load i32, ptr %71, align 4
   %97 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.900, i32 noundef 0, i1 noundef zeroext false, i32 noundef %96)
-  %98 = load i8, ptr %77, align 8, !range !11, !noundef !12
+  %98 = load i8, ptr %77, align 8, !range !9, !noundef !10
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %100, label %102
 
@@ -2403,7 +2403,7 @@ define internal noundef i32 @dns_stats_tree_packet(ptr noundef %0, ptr readnone 
 
 102:                                              ; preds = %89
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  %104 = load i8, ptr %103, align 1, !range !11, !noundef !12
+  %104 = load i8, ptr %103, align 1, !range !9, !noundef !10
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %108
 
@@ -2485,7 +2485,7 @@ declare void @stats_tree_set_first_column_name(ptr noundef, ptr noundef) local_u
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = alloca [256 x i8], align 16
-  %7 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !11, !noundef !12
+  %7 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.loopexit
 
@@ -2524,7 +2524,7 @@ define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr nounde
 27:                                               ; preds = %17, %24, %21
   %28 = load i32, ptr @st_node_qr_qf_packets, align 4
   %29 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %6, i32 noundef %28, i1 noundef zeroext true, i32 noundef 1)
-  %30 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %30 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %39
 
@@ -2548,7 +2548,7 @@ define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr nounde
   %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.798)
   %45 = load i32, ptr @st_node_qr_qo_packets, align 4
   %46 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %44, i32 noundef %45, i1 noundef zeroext true, i32 noundef 1)
-  %47 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %47 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %56
 
@@ -2574,7 +2574,7 @@ define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr nounde
   %62 = load i32, ptr @st_node_qr_qk_packets, align 4
   %.str.913..str.912 = select i1 %.not412, ptr @.str.913, ptr @.str.912
   %63 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.913..str.912, i32 noundef %62, i1 noundef zeroext true, i32 noundef 1)
-  %64 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %64 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %73
 
@@ -2598,7 +2598,7 @@ define internal noundef i32 @dns_qr_stats_tree_packet(ptr noundef %0, ptr nounde
   %78 = call ptr @val_to_str(i32 noundef %77, ptr noundef nonnull @dns_types_vals, ptr noundef nonnull @.str.795)
   %79 = load i32, ptr @st_node_qr_qt_packets, align 4
   %80 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %78, i32 noundef %79, i1 noundef zeroext true, i32 noundef 1)
-  %81 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %81 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %90
 
@@ -2633,7 +2633,7 @@ switch.lookup:                                    ; preds = %90
 98:                                               ; preds = %90, %switch.lookup
   %.str.919.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.919, %90 ]
   %99 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.919.sink, i32 noundef %95, i1 noundef zeroext true, i32 noundef 1)
-  %100 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %100 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %107
 
@@ -2811,7 +2811,7 @@ switch.lookup:                                    ; preds = %90
 
 198:                                              ; preds = %115, %123, %133, %143, %153, %163, %173, %183, %194, %196, %188, %178, %168, %158, %148, %138, %128, %118, %112
   %.sink = phi i32 [ %117, %115 ], [ %125, %123 ], [ %135, %133 ], [ %145, %143 ], [ %155, %153 ], [ %165, %163 ], [ %175, %173 ], [ %185, %183 ], [ %195, %194 ], [ %197, %196 ], [ %190, %188 ], [ %180, %178 ], [ %170, %168 ], [ %160, %158 ], [ %150, %148 ], [ %140, %138 ], [ %130, %128 ], [ %120, %118 ], [ %114, %112 ]
-  %199 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %199 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %208
 
@@ -2831,12 +2831,12 @@ switch.lookup:                                    ; preds = %90
   %209 = load i32, ptr @st_node_qr_q_packets, align 4
   %210 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.966, i32 noundef %209, i1 noundef zeroext true, i32 noundef 1)
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  %212 = load i8, ptr %211, align 1, !range !11, !noundef !12
+  %212 = load i8, ptr %211, align 1, !range !9, !noundef !10
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %228, label %214
 
 214:                                              ; preds = %208
-  %215 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %215 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %217, label %225
 
@@ -2859,12 +2859,12 @@ switch.lookup:                                    ; preds = %90
   br label %228
 
 228:                                              ; preds = %220, %225, %208
-  %229 = load i8, ptr %211, align 1, !range !11, !noundef !12
+  %229 = load i8, ptr %211, align 1, !range !9, !noundef !10
   %230 = trunc nuw i8 %229 to i1
   br i1 %230, label %231, label %.loopexit
 
 231:                                              ; preds = %228
-  %232 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %232 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %233 = trunc nuw i8 %232 to i1
   br i1 %233, label %234, label %242
 
@@ -2911,7 +2911,7 @@ switch.lookup:                                    ; preds = %90
 255:                                              ; preds = %245, %252, %249
   %256 = load i32, ptr @st_node_qr_rf_packets, align 4
   %257 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %6, i32 noundef %256, i1 noundef zeroext true, i32 noundef 1)
-  %258 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %258 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %267
 
@@ -2935,7 +2935,7 @@ switch.lookup:                                    ; preds = %90
   %272 = call ptr @val_to_str(i32 noundef %271, ptr noundef nonnull @rcode_vals, ptr noundef nonnull @.str.797)
   %273 = load i32, ptr @st_node_qr_rc_packets, align 4
   %274 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %272, i32 noundef %273, i1 noundef zeroext true, i32 noundef 1)
-  %275 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %275 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %277, label %284
 
@@ -2961,7 +2961,7 @@ switch.lookup:                                    ; preds = %90
   %290 = load i32, ptr @st_node_qr_rk_packets, align 4
   %.str.939..str.40 = select i1 %.not393, ptr @.str.939, ptr @.str.40
   %291 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %.str.939..str.40, i32 noundef %290, i1 noundef zeroext true, i32 noundef 1)
-  %292 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %292 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %293 = trunc nuw i8 %292 to i1
   br i1 %293, label %294, label %301
 
@@ -3108,7 +3108,7 @@ switch.lookup:                                    ; preds = %90
 
 372:                                              ; preds = %309, %317, %327, %337, %347, %357, %368, %370, %362, %352, %342, %332, %322, %312, %306
   %.sink441 = phi i32 [ %311, %309 ], [ %319, %317 ], [ %329, %327 ], [ %339, %337 ], [ %349, %347 ], [ %359, %357 ], [ %369, %368 ], [ %371, %370 ], [ %364, %362 ], [ %354, %352 ], [ %344, %342 ], [ %334, %332 ], [ %324, %322 ], [ %314, %312 ], [ %308, %306 ]
-  %373 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %373 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %375, label %390
 
@@ -3118,7 +3118,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %377, label %378, label %384
 
 378:                                              ; preds = %375
-  %379 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !11, !noundef !12
+  %379 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !9, !noundef !10
   %380 = trunc nuw i8 %379 to i1
   br i1 %380, label %381, label %390
 
@@ -3271,7 +3271,7 @@ switch.lookup:                                    ; preds = %90
 
 461:                                              ; preds = %398, %406, %416, %426, %436, %446, %457, %459, %451, %441, %431, %421, %411, %401, %395
   %.sink444 = phi i32 [ %400, %398 ], [ %408, %406 ], [ %418, %416 ], [ %428, %426 ], [ %438, %436 ], [ %448, %446 ], [ %458, %457 ], [ %460, %459 ], [ %453, %451 ], [ %443, %441 ], [ %433, %431 ], [ %423, %421 ], [ %413, %411 ], [ %403, %401 ], [ %397, %395 ]
-  %462 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %462 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %463 = trunc nuw i8 %462 to i1
   br i1 %463, label %464, label %479
 
@@ -3281,7 +3281,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %466, label %467, label %473
 
 467:                                              ; preds = %464
-  %468 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !11, !noundef !12
+  %468 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !9, !noundef !10
   %469 = trunc nuw i8 %468 to i1
   br i1 %469, label %470, label %479
 
@@ -3434,7 +3434,7 @@ switch.lookup:                                    ; preds = %90
 
 550:                                              ; preds = %487, %495, %505, %515, %525, %535, %546, %548, %540, %530, %520, %510, %500, %490, %484
   %.sink448 = phi i32 [ %489, %487 ], [ %497, %495 ], [ %507, %505 ], [ %517, %515 ], [ %527, %525 ], [ %537, %535 ], [ %547, %546 ], [ %549, %548 ], [ %542, %540 ], [ %532, %530 ], [ %522, %520 ], [ %512, %510 ], [ %502, %500 ], [ %492, %490 ], [ %486, %484 ]
-  %551 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %551 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %552 = trunc nuw i8 %551 to i1
   br i1 %552, label %553, label %568
 
@@ -3444,7 +3444,7 @@ switch.lookup:                                    ; preds = %90
   br i1 %555, label %556, label %562
 
 556:                                              ; preds = %553
-  %557 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !11, !noundef !12
+  %557 = load i8, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1, !range !9, !noundef !10
   %558 = trunc nuw i8 %557 to i1
   br i1 %558, label %559, label %568
 
@@ -3633,7 +3633,7 @@ switch.lookup:                                    ; preds = %90
 
 659:                                              ; preds = %576, %584, %594, %604, %614, %624, %634, %644, %655, %657, %649, %639, %629, %619, %609, %599, %589, %579, %573
   %.sink452 = phi i32 [ %578, %576 ], [ %586, %584 ], [ %596, %594 ], [ %606, %604 ], [ %616, %614 ], [ %626, %624 ], [ %636, %634 ], [ %646, %644 ], [ %656, %655 ], [ %658, %657 ], [ %651, %649 ], [ %641, %639 ], [ %631, %629 ], [ %621, %619 ], [ %611, %609 ], [ %601, %599 ], [ %591, %589 ], [ %581, %579 ], [ %575, %573 ]
-  %660 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %660 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %661 = trunc nuw i8 %660 to i1
   br i1 %661, label %662, label %669
 
@@ -3653,13 +3653,13 @@ switch.lookup:                                    ; preds = %90
   %670 = load i32, ptr @st_node_qr_r_packets, align 4
   %671 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.966, i32 noundef %670, i1 noundef zeroext true, i32 noundef 1)
   %672 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  %673 = load i8, ptr %672, align 1, !range !11, !noundef !12
+  %673 = load i8, ptr %672, align 1, !range !9, !noundef !10
   %674 = trunc nuw i8 %673 to i1
   br i1 %674, label %746, label %675
 
 675:                                              ; preds = %669
   %676 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %677 = load i8, ptr %676, align 8, !range !11, !noundef !12
+  %677 = load i8, ptr %676, align 8, !range !9, !noundef !10
   %678 = trunc nuw i8 %677 to i1
   br i1 %678, label %746, label %679
 
@@ -3675,7 +3675,7 @@ switch.lookup:                                    ; preds = %90
   %688 = call double @llvm.fmuladd.f64(double %683, double 1.000000e+03, double %687)
   %689 = fptrunc double %688 to float
   %690 = call i32 @stats_tree_manip_node_float(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.973, i32 noundef %680, i1 noundef zeroext true, float noundef %689)
-  %691 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %691 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %692 = trunc nuw i8 %691 to i1
   br i1 %692, label %693, label %707
 
@@ -3708,7 +3708,7 @@ switch.lookup:                                    ; preds = %90
   %714 = call double @llvm.fmuladd.f64(double %710, double 1.000000e+03, double %713)
   %715 = fptrunc double %714 to float
   %716 = call i32 @stats_tree_manip_node_float(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.973, i32 noundef %708, i1 noundef zeroext true, float noundef %715)
-  %717 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %717 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %718 = trunc nuw i8 %717 to i1
   br i1 %718, label %719, label %733
 
@@ -3734,7 +3734,7 @@ switch.lookup:                                    ; preds = %90
 733:                                              ; preds = %722, %719, %707
   %734 = load i32, ptr @st_node_qr_qs_packets, align 4
   %735 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.967, i32 noundef %734, i1 noundef zeroext false, i32 noundef -1)
-  %736 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %736 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %737 = trunc nuw i8 %736 to i1
   br i1 %737, label %738, label %746
 
@@ -3753,12 +3753,12 @@ switch.lookup:                                    ; preds = %90
 
 746:                                              ; preds = %741, %738, %733, %675, %669
   %747 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %748 = load i8, ptr %747, align 8, !range !11, !noundef !12
+  %748 = load i8, ptr %747, align 8, !range !9, !noundef !10
   %749 = trunc nuw i8 %748 to i1
   br i1 %749, label %750, label %764
 
 750:                                              ; preds = %746
-  %751 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %751 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %752 = trunc nuw i8 %751 to i1
   br i1 %752, label %753, label %761
 
@@ -3781,17 +3781,17 @@ switch.lookup:                                    ; preds = %90
   br label %764
 
 764:                                              ; preds = %756, %761, %746
-  %765 = load i8, ptr %672, align 1, !range !11, !noundef !12
+  %765 = load i8, ptr %672, align 1, !range !9, !noundef !10
   %766 = trunc nuw i8 %765 to i1
   br i1 %766, label %767, label %784
 
 767:                                              ; preds = %764
-  %768 = load i8, ptr %747, align 8, !range !11, !noundef !12
+  %768 = load i8, ptr %747, align 8, !range !9, !noundef !10
   %769 = trunc nuw i8 %768 to i1
   br i1 %769, label %784, label %770
 
 770:                                              ; preds = %767
-  %771 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %771 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %772 = trunc nuw i8 %771 to i1
   br i1 %772, label %773, label %781
 
@@ -3899,7 +3899,7 @@ switch.lookup:                                    ; preds = %90
 
 829:                                              ; preds = %799, %809, %819, %827, %825, %814, %804, %794
   %.sink453 = phi i32 [ %801, %799 ], [ %811, %809 ], [ %821, %819 ], [ %828, %827 ], [ %826, %825 ], [ %816, %814 ], [ %806, %804 ], [ %796, %794 ]
-  %830 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %830 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %831 = trunc nuw i8 %830 to i1
   br i1 %831, label %832, label %837
 
@@ -3916,7 +3916,7 @@ switch.lookup:                                    ; preds = %90
 837:                                              ; preds = %829, %832, %834
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %788, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %788, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %837, %784
   %838 = load i32, ptr %393, align 8
@@ -4004,7 +4004,7 @@ switch.lookup:                                    ; preds = %90
 
 882:                                              ; preds = %852, %862, %872, %880, %878, %867, %857, %847
   %.sink454 = phi i32 [ %854, %852 ], [ %864, %862 ], [ %874, %872 ], [ %881, %880 ], [ %879, %878 ], [ %869, %867 ], [ %859, %857 ], [ %849, %847 ]
-  %883 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %883 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %884 = trunc nuw i8 %883 to i1
   br i1 %884, label %885, label %890
 
@@ -4021,7 +4021,7 @@ switch.lookup:                                    ; preds = %90
 890:                                              ; preds = %882, %885, %887
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge423, label %841, !llvm.loop !15
+  br i1 %exitcond435.not, label %._crit_edge423, label %841, !llvm.loop !13
 
 ._crit_edge423:                                   ; preds = %890, %._crit_edge
   %891 = load i32, ptr %482, align 4
@@ -4109,7 +4109,7 @@ switch.lookup:                                    ; preds = %90
 
 935:                                              ; preds = %905, %915, %925, %933, %931, %920, %910, %900
   %.sink455 = phi i32 [ %907, %905 ], [ %917, %915 ], [ %927, %925 ], [ %934, %933 ], [ %932, %931 ], [ %922, %920 ], [ %912, %910 ], [ %902, %900 ]
-  %936 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !11, !noundef !12
+  %936 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %937 = trunc nuw i8 %936 to i1
   br i1 %937, label %938, label %943
 
@@ -4126,7 +4126,7 @@ switch.lookup:                                    ; preds = %90
 943:                                              ; preds = %935, %938, %940
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond440.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count439
-  br i1 %exitcond440.not, label %.loopexit, label %894, !llvm.loop !16
+  br i1 %exitcond440.not, label %.loopexit, label %894, !llvm.loop !14
 
 .loopexit:                                        ; preds = %943, %._crit_edge423, %237, %242, %228, %5
   ret i32 1
@@ -4146,7 +4146,7 @@ define internal void @dns_qr_stats_tree_init(ptr noundef %0) #0 {
   %9 = tail call zeroext i1 @prefs_get_bool_value(ptr noundef %8, i32 noundef 2)
   %10 = zext i1 %9 to i8
   store i8 %10, ptr @dns_qr_qrn_aud_zv_statistics_enabled, align 1
-  %11 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !11, !noundef !12
+  %11 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %62
 
@@ -4449,7 +4449,7 @@ define internal i32 @dissect_dns(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = load i8, ptr @dns_desegment, align 1, !range !11, !noundef !12
+  %17 = load i8, ptr @dns_desegment, align 1, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %18, i32 noundef 2, ptr noundef nonnull @get_dns_pdu_len, ptr noundef nonnull @dissect_dns_tcp_pdu, ptr noundef %3)
   %19 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -4790,7 +4790,7 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
 
 131:                                              ; preds = %125
   %132 = getelementptr inbounds nuw i8, ptr %93, i64 28
-  %133 = load i8, ptr %132, align 4, !range !11, !noundef !12
+  %133 = load i8, ptr %132, align 4, !range !9, !noundef !10
   %134 = trunc nuw i8 %133 to i1
   %not.516 = xor i1 %134, true
   br label %.thread499
@@ -4836,7 +4836,7 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
 
 155:                                              ; preds = %.critedge
   %156 = getelementptr inbounds nuw i8, ptr %93, i64 28
-  %157 = load i8, ptr %156, align 4, !range !11, !noundef !12
+  %157 = load i8, ptr %156, align 4, !range !9, !noundef !10
   %158 = trunc nuw i8 %157 to i1
   %not. = xor i1 %158, true
   br label %.thread499
@@ -5057,7 +5057,7 @@ thread-pre-split.thread:                          ; preds = %60, %thread-pre-spl
   %.1.i = phi i32 [ %289, %286 ], [ %267, %285 ], [ %275, %269 ], [ %279, %276 ], [ %284, %281 ], [ %267, %280 ]
   %291 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %292 = icmp sgt i32 %291, 3
-  br i1 %292, label %.lr.ph.i, label %dissect_dso_data.exit, !llvm.loop !17
+  br i1 %292, label %.lr.ph.i, label %dissect_dso_data.exit, !llvm.loop !15
 
 dissect_dso_data.exit:                            ; preds = %290, %246
   %.0.lcssa.i = phi i32 [ %238, %246 ], [ %.1.i, %290 ]
@@ -5177,7 +5177,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %343, %340, %333
   %spec.select.i.i.i = add i32 %.110.i.i.i, %350
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %351, label %.preheader.i.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %351, label %.preheader.i.i.i, !llvm.loop !16
 
 351:                                              ; preds = %.preheader.i.i.i
   %352 = add i32 %spec.select.i.i.i, 1
@@ -5231,7 +5231,7 @@ dissect_dns_query.exit.i:                         ; preds = %372, %366, %324
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %375 = add i32 %309, %.021.i
   %376 = icmp samesign ugt i32 %.01920.i, 1
-  br i1 %376, label %302, label %dissect_query_records.exit, !llvm.loop !19
+  br i1 %376, label %302, label %dissect_query_records.exit, !llvm.loop !17
 
 dissect_query_records.exit:                       ; preds = %dissect_dns_query.exit.i
   %377 = load ptr, ptr %13, align 8
@@ -5262,7 +5262,7 @@ dissect_query_records.exit:                       ; preds = %dissect_dns_query.e
   %387 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.020.i, i32 noundef range(i32 0, 3) %25, ptr noundef %384, ptr noundef %1, i1 noundef zeroext %4, ptr noundef %297)
   %388 = add i32 %387, %.020.i
   %389 = icmp samesign ugt i32 %.01819.i, 1
-  br i1 %389, label %385, label %dissect_answer_records.exit, !llvm.loop !20
+  br i1 %389, label %385, label %dissect_answer_records.exit, !llvm.loop !18
 
 dissect_answer_records.exit:                      ; preds = %385
   %390 = load ptr, ptr %9, align 8
@@ -5292,7 +5292,7 @@ dissect_answer_records.exit:                      ; preds = %385
   %399 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.020.i452, i32 noundef range(i32 0, 3) %25, ptr noundef %396, ptr noundef %1, i1 noundef zeroext %4, ptr noundef %297)
   %400 = add i32 %399, %.020.i452
   %401 = icmp samesign ugt i32 %.01819.i453, 1
-  br i1 %401, label %397, label %dissect_answer_records.exit454, !llvm.loop !20
+  br i1 %401, label %397, label %dissect_answer_records.exit454, !llvm.loop !18
 
 dissect_answer_records.exit454:                   ; preds = %397
   %402 = load ptr, ptr %8, align 8
@@ -5321,7 +5321,7 @@ dissect_answer_records.exit454:                   ; preds = %397
   %410 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.020.i455, i32 noundef range(i32 0, 3) %25, ptr noundef %407, ptr noundef %1, i1 noundef zeroext %4, ptr noundef %297)
   %411 = add i32 %410, %.020.i455
   %412 = icmp samesign ugt i32 %.01819.i456, 1
-  br i1 %412, label %408, label %dissect_answer_records.exit457, !llvm.loop !20
+  br i1 %412, label %408, label %dissect_answer_records.exit457, !llvm.loop !18
 
 dissect_answer_records.exit457:                   ; preds = %408
   %413 = load ptr, ptr %7, align 8
@@ -5672,7 +5672,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   %spec.select.i = add i32 %.110.i, %586
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %qname_labels_count.exit, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %qname_labels_count.exit, label %.preheader.i, !llvm.loop !16
 
 qname_labels_count.exit:                          ; preds = %.preheader.i
   %587 = add i32 %spec.select.i, 1
@@ -5706,7 +5706,7 @@ qname_labels_count.exit:                          ; preds = %.preheader.i
   store i8 %595, ptr %603, align 1
   %indvars.iv.next.i489 = add nuw nsw i64 %indvars.iv.i488, 1
   %exitcond.not.i490 = icmp eq i64 %indvars.iv.next.i489, %wide.trip.count.i
-  br i1 %exitcond.not.i490, label %qname_host_and_domain.exit, label %.preheader.i487, !llvm.loop !21
+  br i1 %exitcond.not.i490, label %qname_host_and_domain.exit, label %.preheader.i487, !llvm.loop !19
 
 qname_host_and_domain.exit.critedge:              ; preds = %578
   %604 = getelementptr inbounds nuw i8, ptr %557, i64 28
@@ -6167,7 +6167,7 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
   %201 = add i32 %112, 4
   %202 = load i32, ptr @hf_dns_rr_ttl, align 4
   %203 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %145, i32 noundef %202, ptr noundef %0, i32 noundef %201, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11)
-  %204 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !11, !noundef !12
+  %204 = load i8, ptr @dns_qr_statistics_enabled, align 1, !range !9, !noundef !10
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %206, label %216
 
@@ -6353,7 +6353,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %269, ptr noundef nonnull @.str.1284, ptr noundef %267)
   %270 = load i32, ptr @hf_dns_a, align 4
   %271 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %270, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef 0)
-  %272 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !11, !noundef !12
+  %272 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !9, !noundef !10
   %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %.loopexit
 
@@ -6673,7 +6673,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   %458 = add i32 %.121192329.us, 1
   %459 = add nuw nsw i32 %.021212328.us, 1
   %exitcond2382.not = icmp eq i32 %459, 8
-  br i1 %exitcond2382.not, label %.split2332.us, label %.split.us, !llvm.loop !22
+  br i1 %exitcond2382.not, label %.split2332.us, label %.split.us, !llvm.loop !20
 
 .split.us2333:                                    ; preds = %448, %467
   %.021172330.us2334 = phi i32 [ %468, %467 ], [ 128, %448 ]
@@ -6703,7 +6703,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   %469 = add i32 %.121192329.us2335, 1
   %470 = add nuw nsw i32 %.021212328.us2336, 1
   %exitcond.not = icmp eq i32 %470, 8
-  br i1 %exitcond.not, label %.split2332.us, label %.split.us2333, !llvm.loop !23
+  br i1 %exitcond.not, label %.split2332.us, label %.split.us2333, !llvm.loop !20
 
 .split:                                           ; preds = %448, %476
   %.021172330 = phi i32 [ %477, %476 ], [ 128, %448 ]
@@ -6731,7 +6731,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   %478 = add i32 %.121192329, 1
   %479 = add nuw nsw i32 %.021212328, 1
   %exitcond2383.not = icmp eq i32 %479, 8
-  br i1 %exitcond2383.not, label %.split2332.us, label %.split, !llvm.loop !24
+  br i1 %exitcond2383.not, label %.split2332.us, label %.split, !llvm.loop !20
 
 .split2332.us:                                    ; preds = %467, %456, %476
   %.us-phi = phi i32 [ %478, %476 ], [ %458, %456 ], [ %469, %467 ]
@@ -6750,7 +6750,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   %486 = add i32 %.021132344, 1
   %487 = add i32 %.021162343, -1
   %.not2199 = icmp eq i32 %487, 0
-  br i1 %.not2199, label %.loopexit, label %445, !llvm.loop !25
+  br i1 %.not2199, label %.loopexit, label %445, !llvm.loop !21
 
 488:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -6767,7 +6767,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %496, ptr noundef nonnull @.str.1294, ptr noundef %494)
   %497 = load i32, ptr @hf_dns_ptr_domain_name, align 4
   %498 = call ptr @proto_tree_add_string(ptr noundef %.02114, i32 noundef %497, ptr noundef %0, i32 noundef %126, i32 noundef %489, ptr noundef %494)
-  %499 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !11, !noundef !12
+  %499 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !9, !noundef !10
   %500 = trunc nuw i8 %499 to i1
   %501 = and i16 %.02225, 127
   %502 = icmp eq i16 %501, 1
@@ -6867,7 +6867,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
 558:                                              ; preds = %552, %557
   %559 = add nsw i64 %.021222327, -1
   %.not2198 = icmp eq i64 %559, 0
-  br i1 %.not2198, label %548, label %552, !llvm.loop !26
+  br i1 %.not2198, label %548, label %552, !llvm.loop !22
 
 560:                                              ; preds = %548
   call void @add_ipv6_name(ptr noundef nonnull %40, ptr noundef %494, i1 noundef zeroext false)
@@ -7051,7 +7051,7 @@ add_opt_rr_to_tree.exit:                          ; preds = %226, %234
   %679 = add i32 %633, %630
   %680 = sub i32 %634, %630
   %.not2196 = icmp eq i32 %680, 0
-  br i1 %.not2196, label %.loopexit, label %628, !llvm.loop !27
+  br i1 %.not2196, label %.loopexit, label %628, !llvm.loop !23
 
 681:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -7330,7 +7330,7 @@ proto_item_set_generated.exit:                    ; preds = %811, %808, %803, %7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %870, ptr noundef nonnull @.str.1284, ptr noundef %868)
   %871 = load i32, ptr @hf_dns_aaaa, align 4
   %872 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %871, ptr noundef %0, i32 noundef %126, i32 noundef 16, i32 noundef 0)
-  %873 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !11, !noundef !12
+  %873 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 3), align 1, !range !9, !noundef !10
   %874 = trunc nuw i8 %873 to i1
   %875 = and i16 %.02225, 127
   %876 = icmp eq i16 %875, 1
@@ -7624,7 +7624,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %1066 = add i32 %.12321, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1067 = icmp samesign ult i64 %indvars.iv, 15
-  br i1 %1067, label %.lr.ph2322, label %._crit_edge2323, !llvm.loop !28
+  br i1 %1067, label %.lr.ph2322, label %._crit_edge2323, !llvm.loop !24
 
 ._crit_edge2323:                                  ; preds = %.lr.ph2322, %.preheader
   %1068 = phi i32 [ %1060, %.preheader ], [ %1062, %.lr.ph2322 ]
@@ -7762,7 +7762,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %1128 = add nsw i32 %.121292309, -1
   %1129 = add i16 %.021342308, -1
   %.not2188 = icmp eq i16 %1129, 0
-  br i1 %.not2188, label %.loopexit2242, label %.lr.ph2311, !llvm.loop !29
+  br i1 %.not2188, label %.loopexit2242, label %.lr.ph2311, !llvm.loop !25
 
 .lr.ph2304:                                       ; preds = %.preheader2243, %.lr.ph2304
   %.52303 = phi i32 [ %1132, %.lr.ph2304 ], [ %1122, %.preheader2243 ]
@@ -7774,7 +7774,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %1133 = add nsw i32 %.321312302, -1
   %1134 = add i16 %.121352301, -1
   %.not2187 = icmp eq i16 %1134, 0
-  br i1 %.not2187, label %.loopexit2242, label %.lr.ph2304, !llvm.loop !30
+  br i1 %.not2187, label %.loopexit2242, label %.lr.ph2304, !llvm.loop !26
 
 .lr.ph2297:                                       ; preds = %.preheader2245, %.lr.ph2297
   %.62296 = phi i32 [ %1137, %.lr.ph2297 ], [ %1122, %.preheader2245 ]
@@ -7786,7 +7786,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %1138 = add nsw i32 %.421322295, -1
   %1139 = add i16 %.221362294, -1
   %.not2186 = icmp eq i16 %1139, 0
-  br i1 %.not2186, label %.loopexit2242, label %.lr.ph2297, !llvm.loop !31
+  br i1 %.not2186, label %.loopexit2242, label %.lr.ph2297, !llvm.loop !27
 
 1140:                                             ; preds = %.preheader2247
   %1141 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %4, ptr noundef %1119, ptr noundef nonnull @ei_dns_depr_opc, ptr noundef nonnull @.str.1313, i32 noundef 8)
@@ -7984,7 +7984,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %.22130 = phi i32 [ %1258, %1256 ], [ %1176, %1174 ], [ %1187, %1177 ], [ %1195, %1193 ], [ %1200, %1196 ], [ %1207, %1205 ], [ %1220, %1215 ], [ %1214, %1210 ], [ %1109, %1208 ], [ %1231, %1221 ], [ %.52133, %1255 ], [ %1109, %.preheader2241 ], [ %1109, %.preheader2243 ], [ %1109, %.preheader2245 ], [ %1128, %.lr.ph2311 ], [ %1133, %.lr.ph2304 ], [ %1138, %.lr.ph2297 ]
   %.4 = phi i32 [ %1257, %1256 ], [ %1175, %1174 ], [ %1186, %1177 ], [ %1194, %1193 ], [ %1199, %1196 ], [ %1206, %1205 ], [ %1219, %1215 ], [ %1213, %1210 ], [ %1122, %1208 ], [ %1230, %1221 ], [ %.7, %1255 ], [ %1122, %.preheader2241 ], [ %1122, %.preheader2243 ], [ %1122, %.preheader2245 ], [ %1127, %.lr.ph2311 ], [ %1132, %.lr.ph2304 ], [ %1137, %.lr.ph2297 ]
   %1259 = icmp sgt i32 %.22130, 0
-  br i1 %1259, label %.preheader2247, label %.loopexit, !llvm.loop !32
+  br i1 %1259, label %.preheader2247, label %.loopexit, !llvm.loop !28
 
 1260:                                             ; preds = %263
   %1261 = load ptr, ptr %127, align 8
@@ -8050,7 +8050,7 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %1302 = add i32 %1275, %1278
   %1303 = sub nsw i32 %1276, %1278
   %1304 = icmp sgt i32 %1303, 1
-  br i1 %1304, label %.lr.ph2292, label %.loopexit, !llvm.loop !33
+  br i1 %1304, label %.lr.ph2292, label %.loopexit, !llvm.loop !29
 
 1305:                                             ; preds = %263, %263, %263
   %1306 = load i32, ptr @hf_dns_ds_key_id, align 4
@@ -8332,7 +8332,7 @@ proto_item_set_generated.exit2211:                ; preds = %1453, %1450, %1445,
   %1500 = add i32 %.021472288, 5
   %1501 = sdiv i32 %1500, 8
   %1502 = icmp slt i32 %1501, %1492
-  br i1 %1502, label %1494, label %1503, !llvm.loop !34
+  br i1 %1502, label %1494, label %1503, !llvm.loop !30
 
 1503:                                             ; preds = %1494
   %1504 = load i32, ptr @hf_dns_nsec3_hash_value, align 4
@@ -8450,7 +8450,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1581 = add i32 %1573, %.112286
   %1582 = sub i32 %.021462285, %1573
   %1583 = icmp sgt i32 %1582, 1
-  br i1 %1583, label %.lr.ph2287, label %._crit_edge, !llvm.loop !35
+  br i1 %1583, label %.lr.ph2287, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph2287, %1549
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
@@ -8584,7 +8584,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1652 = add i32 %.021412279, 2
   %1653 = load i32, ptr %95, align 4
   %1654 = icmp ult i32 %1652, %1653
-  br i1 %1654, label %.lr.ph2281, label %.loopexit2251, !llvm.loop !36
+  br i1 %1654, label %.lr.ph2281, label %.loopexit2251, !llvm.loop !32
 
 .lr.ph2277:                                       ; preds = %.preheader2252, %.lr.ph2277
   %.152276 = phi i32 [ %1663, %.lr.ph2277 ], [ %1635, %.preheader2252 ]
@@ -8609,7 +8609,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %1670 = load i32, ptr %95, align 4
   %1671 = icmp ult i32 %1669, %1670
-  br i1 %1671, label %.lr.ph2277, label %.loopexit2251, !llvm.loop !37
+  br i1 %1671, label %.lr.ph2277, label %.loopexit2251, !llvm.loop !33
 
 1672:                                             ; preds = %.lr.ph2284
   %1673 = load i32, ptr @hf_dns_svcb_param_port, align 4
@@ -8633,7 +8633,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1684 = add i32 %.221432271, 4
   %1685 = load i32, ptr %95, align 4
   %1686 = icmp ult i32 %1684, %1685
-  br i1 %1686, label %.lr.ph2273, label %.loopexit2251, !llvm.loop !38
+  br i1 %1686, label %.lr.ph2273, label %.loopexit2251, !llvm.loop !34
 
 1687:                                             ; preds = %.lr.ph2284
   %1688 = load i32, ptr %95, align 4
@@ -8657,7 +8657,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1700 = add i32 %.321442268, 16
   %1701 = load i32, ptr %95, align 4
   %1702 = icmp ult i32 %1700, %1701
-  br i1 %1702, label %.lr.ph2270, label %.loopexit2251, !llvm.loop !39
+  br i1 %1702, label %.lr.ph2270, label %.loopexit2251, !llvm.loop !35
 
 1703:                                             ; preds = %.lr.ph2284
   %1704 = load i32, ptr @hf_dns_svcb_param_dohpath, align 4
@@ -8704,7 +8704,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %.13 = phi i32 [ %1730, %1723 ], [ %1635, %1721 ], [ %1635, %.lr.ph2284 ], [ %1676, %1672 ], [ %1692, %1687 ], [ %1709, %1703 ], [ %1720, %1711 ], [ %1635, %.preheader2250 ], [ %1635, %.preheader2252 ], [ %1635, %.preheader2254 ], [ %1635, %.preheader2256 ], [ %1651, %.lr.ph2281 ], [ %1663, %.lr.ph2277 ], [ %1683, %.lr.ph2273 ], [ %1699, %.lr.ph2270 ]
   %1731 = sub i32 %.13, %126
   %1732 = icmp slt i32 %1731, %261
-  br i1 %1732, label %.lr.ph2284, label %.loopexit2259, !llvm.loop !40
+  br i1 %1732, label %.lr.ph2284, label %.loopexit2259, !llvm.loop !36
 
 .loopexit2259:                                    ; preds = %.loopexit2251, %1611
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
@@ -8731,7 +8731,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1741 = xor i32 %1734, -1
   %1742 = add i32 %.021382266, %1741
   %.not2177 = icmp eq i32 %1742, 0
-  br i1 %.not2177, label %.loopexit, label %.preheader2260, !llvm.loop !41
+  br i1 %.not2177, label %.loopexit, label %.preheader2260, !llvm.loop !37
 
 1743:                                             ; preds = %263
   %1744 = load i32, ptr @hf_dns_ilnp_nodeid_preference, align 4
@@ -9052,7 +9052,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1965 = icmp ne i32 %1963, 0
   %1966 = icmp ne i32 %1964, 0
   %1967 = select i1 %1965, i1 %1966, i1 false
-  br i1 %1967, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  br i1 %1967, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 1968:                                             ; preds = %263
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -9288,7 +9288,7 @@ define internal fastcc noundef zeroext i1 @compute_key_id(ptr noundef %0, ptr no
   %37 = add nsw i32 %.03740, -2
   %38 = add i32 %.03542, 2
   %39 = icmp samesign ugt i32 %37, 1
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = icmp eq i32 %37, 1
@@ -9334,7 +9334,7 @@ define internal fastcc double @rfc1867_size(ptr noundef %0, i32 noundef %1) unna
   %8 = fmul double %.079, 1.000000e+01
   %9 = add nsw i32 %.010, -1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi double [ %6, %2 ], [ %8, %.lr.ph ]
@@ -9417,13 +9417,13 @@ define internal fastcc void @dissect_type_bitmap_nxt(ptr noundef %0, ptr noundef
   %16 = lshr i32 %.02224, 1
   %17 = add i32 %.126, 1
   %exitcond.not = icmp eq i32 %17, %7
-  br i1 %exitcond.not, label %18, label %8, !llvm.loop !45
+  br i1 %exitcond.not, label %18, label %8, !llvm.loop !41
 
 18:                                               ; preds = %15
   %19 = add i32 %.030, 1
   %20 = add i32 %.02028, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %18, %4
   ret void
@@ -9454,7 +9454,7 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   %.131.lcssa = phi i32 [ %11, %.lr.ph49 ], [ %5, %.loopexit.loopexit ]
   %.1.lcssa = phi i32 [ %10, %.lr.ph49 ], [ %28, %.loopexit.loopexit ]
   %.not = icmp eq i32 %.131.lcssa, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !43
 
 .lr.ph49:                                         ; preds = %4, %.loopexit
   %.048 = phi i32 [ %.1.lcssa, %.loopexit ], [ %2, %4 ]
@@ -9501,13 +9501,13 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   %25 = add i32 %.12939, 1
   %26 = add nuw nsw i32 %.03238, 1
   %exitcond.not = icmp eq i32 %26, 8
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !48
+  br i1 %exitcond.not, label %27, label %16, !llvm.loop !44
 
 27:                                               ; preds = %23
   %28 = add i32 %.144, 1
   %29 = add nsw i32 %.03341, -1
   %.not35 = icmp eq i32 %29, 0
-  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %.not35, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.loopexit, %4
   ret void
@@ -9618,13 +9618,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -9634,8 +9634,8 @@ attributes #14 = { nounwind willreturn memory(read) }
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
@@ -9658,7 +9658,3 @@ attributes #14 = { nounwind willreturn memory(read) }
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}

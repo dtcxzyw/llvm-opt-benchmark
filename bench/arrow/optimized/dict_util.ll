@@ -118,7 +118,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i = add nuw nsw i64 %.pn.i, %.023.i
   %73 = add nuw nsw i64 %.01822.i, 1
   %exitcond.not.i = icmp eq i64 %73, %7
-  br i1 %exitcond.not.i, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i, !llvm.loop !42
 
 74:                                               ; preds = %11
   %75 = getelementptr inbounds i8, ptr %25, i64 %23
@@ -153,7 +153,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i28 = add nuw nsw i64 %.023.us.i26, %92
   %93 = add nuw nsw i64 %.01822.us.i27, 1
   %exitcond25.not.i29 = icmp eq i64 %93, %7
-  br i1 %exitcond25.not.i29, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %78, !llvm.loop !46
+  br i1 %exitcond25.not.i29, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %78, !llvm.loop !44
 
 .lr.ph.split.i18:                                 ; preds = %.lr.ph.i16, %119
   %.023.i19 = phi i64 [ %.1.i23, %119 ], [ 0, %.lr.ph.i16 ]
@@ -193,7 +193,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i23 = add nuw nsw i64 %.pn.i22, %.023.i19
   %120 = add nuw nsw i64 %.01822.i20, 1
   %exitcond.not.i24 = icmp eq i64 %120, %7
-  br i1 %exitcond.not.i24, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i18, !llvm.loop !47
+  br i1 %exitcond.not.i24, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i18, !llvm.loop !44
 
 121:                                              ; preds = %11
   %122 = getelementptr inbounds i16, ptr %25, i64 %23
@@ -212,7 +212,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i41 = phi i64 [ 0, %.lr.ph.split.us.i40 ], [ %.1.us.i43, %125 ]
   %.01822.us.i42 = phi i64 [ 0, %.lr.ph.split.us.i40 ], [ %140, %125 ]
   %126 = getelementptr inbounds nuw i16, ptr %122, i64 %.01822.us.i42
-  %127 = load i16, ptr %126, align 2, !tbaa !48
+  %127 = load i16, ptr %126, align 2, !tbaa !45
   %128 = zext i16 %127 to i64
   %129 = add nsw i64 %124, %128
   %130 = lshr i64 %129, 3
@@ -228,7 +228,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i43 = add nuw nsw i64 %.023.us.i41, %139
   %140 = add nuw nsw i64 %.01822.us.i42, 1
   %exitcond25.not.i44 = icmp eq i64 %140, %7
-  br i1 %exitcond25.not.i44, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %125, !llvm.loop !50
+  br i1 %exitcond25.not.i44, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %125, !llvm.loop !47
 
 .lr.ph.split.i33:                                 ; preds = %.lr.ph.i31, %166
   %.023.i34 = phi i64 [ %.1.i38, %166 ], [ 0, %.lr.ph.i31 ]
@@ -247,7 +247,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 150:                                              ; preds = %.lr.ph.split.i33
   %151 = getelementptr inbounds nuw i16, ptr %122, i64 %.01822.i35
-  %152 = load i16, ptr %151, align 2, !tbaa !48
+  %152 = load i16, ptr %151, align 2, !tbaa !45
   %153 = zext i16 %152 to i64
   %154 = load i64, ptr %123, align 8, !tbaa !40
   %155 = add nsw i64 %154, %153
@@ -268,7 +268,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i38 = add nuw nsw i64 %.pn.i37, %.023.i34
   %167 = add nuw nsw i64 %.01822.i35, 1
   %exitcond.not.i39 = icmp eq i64 %167, %7
-  br i1 %exitcond.not.i39, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i33, !llvm.loop !51
+  br i1 %exitcond.not.i39, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i33, !llvm.loop !47
 
 168:                                              ; preds = %11
   %169 = getelementptr inbounds i16, ptr %25, i64 %23
@@ -287,7 +287,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i56 = phi i64 [ 0, %.lr.ph.split.us.i55 ], [ %.1.us.i58, %172 ]
   %.01822.us.i57 = phi i64 [ 0, %.lr.ph.split.us.i55 ], [ %187, %172 ]
   %173 = getelementptr inbounds nuw i16, ptr %169, i64 %.01822.us.i57
-  %174 = load i16, ptr %173, align 2, !tbaa !48
+  %174 = load i16, ptr %173, align 2, !tbaa !45
   %175 = sext i16 %174 to i64
   %176 = add nsw i64 %171, %175
   %177 = lshr i64 %176, 3
@@ -303,7 +303,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i58 = add nuw nsw i64 %.023.us.i56, %186
   %187 = add nuw nsw i64 %.01822.us.i57, 1
   %exitcond25.not.i59 = icmp eq i64 %187, %7
-  br i1 %exitcond25.not.i59, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %172, !llvm.loop !52
+  br i1 %exitcond25.not.i59, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %172, !llvm.loop !48
 
 .lr.ph.split.i48:                                 ; preds = %.lr.ph.i46, %213
   %.023.i49 = phi i64 [ %.1.i53, %213 ], [ 0, %.lr.ph.i46 ]
@@ -322,7 +322,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 197:                                              ; preds = %.lr.ph.split.i48
   %198 = getelementptr inbounds nuw i16, ptr %169, i64 %.01822.i50
-  %199 = load i16, ptr %198, align 2, !tbaa !48
+  %199 = load i16, ptr %198, align 2, !tbaa !45
   %200 = sext i16 %199 to i64
   %201 = load i64, ptr %170, align 8, !tbaa !40
   %202 = add nsw i64 %201, %200
@@ -343,7 +343,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i53 = add nuw nsw i64 %.pn.i52, %.023.i49
   %214 = add nuw nsw i64 %.01822.i50, 1
   %exitcond.not.i54 = icmp eq i64 %214, %7
-  br i1 %exitcond.not.i54, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i48, !llvm.loop !53
+  br i1 %exitcond.not.i54, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i48, !llvm.loop !48
 
 215:                                              ; preds = %11
   %216 = getelementptr inbounds i32, ptr %25, i64 %23
@@ -362,7 +362,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i71 = phi i64 [ 0, %.lr.ph.split.us.i70 ], [ %.1.us.i73, %219 ]
   %.01822.us.i72 = phi i64 [ 0, %.lr.ph.split.us.i70 ], [ %234, %219 ]
   %220 = getelementptr inbounds nuw i32, ptr %216, i64 %.01822.us.i72
-  %221 = load i32, ptr %220, align 4, !tbaa !54
+  %221 = load i32, ptr %220, align 4, !tbaa !49
   %222 = zext i32 %221 to i64
   %223 = add nsw i64 %218, %222
   %224 = lshr i64 %223, 3
@@ -378,7 +378,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i73 = add nuw nsw i64 %.023.us.i71, %233
   %234 = add nuw nsw i64 %.01822.us.i72, 1
   %exitcond25.not.i74 = icmp eq i64 %234, %7
-  br i1 %exitcond25.not.i74, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %219, !llvm.loop !56
+  br i1 %exitcond25.not.i74, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %219, !llvm.loop !51
 
 .lr.ph.split.i63:                                 ; preds = %.lr.ph.i61, %260
   %.023.i64 = phi i64 [ %.1.i68, %260 ], [ 0, %.lr.ph.i61 ]
@@ -397,7 +397,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 244:                                              ; preds = %.lr.ph.split.i63
   %245 = getelementptr inbounds nuw i32, ptr %216, i64 %.01822.i65
-  %246 = load i32, ptr %245, align 4, !tbaa !54
+  %246 = load i32, ptr %245, align 4, !tbaa !49
   %247 = zext i32 %246 to i64
   %248 = load i64, ptr %217, align 8, !tbaa !40
   %249 = add nsw i64 %248, %247
@@ -418,7 +418,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i68 = add nuw nsw i64 %.pn.i67, %.023.i64
   %261 = add nuw nsw i64 %.01822.i65, 1
   %exitcond.not.i69 = icmp eq i64 %261, %7
-  br i1 %exitcond.not.i69, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i63, !llvm.loop !57
+  br i1 %exitcond.not.i69, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i63, !llvm.loop !51
 
 262:                                              ; preds = %11
   %263 = getelementptr inbounds i32, ptr %25, i64 %23
@@ -437,7 +437,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i86 = phi i64 [ 0, %.lr.ph.split.us.i85 ], [ %.1.us.i88, %266 ]
   %.01822.us.i87 = phi i64 [ 0, %.lr.ph.split.us.i85 ], [ %281, %266 ]
   %267 = getelementptr inbounds nuw i32, ptr %263, i64 %.01822.us.i87
-  %268 = load i32, ptr %267, align 4, !tbaa !54
+  %268 = load i32, ptr %267, align 4, !tbaa !49
   %269 = sext i32 %268 to i64
   %270 = add nsw i64 %265, %269
   %271 = lshr i64 %270, 3
@@ -453,7 +453,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i88 = add nuw nsw i64 %.023.us.i86, %280
   %281 = add nuw nsw i64 %.01822.us.i87, 1
   %exitcond25.not.i89 = icmp eq i64 %281, %7
-  br i1 %exitcond25.not.i89, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %266, !llvm.loop !58
+  br i1 %exitcond25.not.i89, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %266, !llvm.loop !52
 
 .lr.ph.split.i78:                                 ; preds = %.lr.ph.i76, %307
   %.023.i79 = phi i64 [ %.1.i83, %307 ], [ 0, %.lr.ph.i76 ]
@@ -472,7 +472,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 291:                                              ; preds = %.lr.ph.split.i78
   %292 = getelementptr inbounds nuw i32, ptr %263, i64 %.01822.i80
-  %293 = load i32, ptr %292, align 4, !tbaa !54
+  %293 = load i32, ptr %292, align 4, !tbaa !49
   %294 = sext i32 %293 to i64
   %295 = load i64, ptr %264, align 8, !tbaa !40
   %296 = add nsw i64 %295, %294
@@ -493,7 +493,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i83 = add nuw nsw i64 %.pn.i82, %.023.i79
   %308 = add nuw nsw i64 %.01822.i80, 1
   %exitcond.not.i84 = icmp eq i64 %308, %7
-  br i1 %exitcond.not.i84, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i78, !llvm.loop !59
+  br i1 %exitcond.not.i84, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i78, !llvm.loop !52
 
 309:                                              ; preds = %11
   %310 = getelementptr inbounds i64, ptr %25, i64 %23
@@ -512,7 +512,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i101 = phi i64 [ 0, %.lr.ph.split.us.i100 ], [ %.1.us.i103, %313 ]
   %.01822.us.i102 = phi i64 [ 0, %.lr.ph.split.us.i100 ], [ %327, %313 ]
   %314 = getelementptr inbounds nuw i64, ptr %310, i64 %.01822.us.i102
-  %315 = load i64, ptr %314, align 8, !tbaa !60
+  %315 = load i64, ptr %314, align 8, !tbaa !53
   %316 = add i64 %315, %312
   %317 = lshr i64 %316, 3
   %318 = getelementptr inbounds nuw i8, ptr %21, i64 %317
@@ -527,7 +527,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i103 = add nuw nsw i64 %.023.us.i101, %326
   %327 = add nuw nsw i64 %.01822.us.i102, 1
   %exitcond25.not.i104 = icmp eq i64 %327, %7
-  br i1 %exitcond25.not.i104, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %313, !llvm.loop !61
+  br i1 %exitcond25.not.i104, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %313, !llvm.loop !54
 
 .lr.ph.split.i93:                                 ; preds = %.lr.ph.i91, %352
   %.023.i94 = phi i64 [ %.1.i98, %352 ], [ 0, %.lr.ph.i91 ]
@@ -546,7 +546,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 337:                                              ; preds = %.lr.ph.split.i93
   %338 = getelementptr inbounds nuw i64, ptr %310, i64 %.01822.i95
-  %339 = load i64, ptr %338, align 8, !tbaa !60
+  %339 = load i64, ptr %338, align 8, !tbaa !53
   %340 = load i64, ptr %311, align 8, !tbaa !40
   %341 = add i64 %340, %339
   %342 = lshr i64 %341, 3
@@ -566,7 +566,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i98 = add nuw nsw i64 %.pn.i97, %.023.i94
   %353 = add nuw nsw i64 %.01822.i95, 1
   %exitcond.not.i99 = icmp eq i64 %353, %7
-  br i1 %exitcond.not.i99, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i93, !llvm.loop !62
+  br i1 %exitcond.not.i99, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i93, !llvm.loop !54
 
 354:                                              ; preds = %11
   %355 = getelementptr inbounds i64, ptr %25, i64 %23
@@ -585,7 +585,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.023.us.i116 = phi i64 [ 0, %.lr.ph.split.us.i115 ], [ %.1.us.i118, %358 ]
   %.01822.us.i117 = phi i64 [ 0, %.lr.ph.split.us.i115 ], [ %372, %358 ]
   %359 = getelementptr inbounds nuw i64, ptr %355, i64 %.01822.us.i117
-  %360 = load i64, ptr %359, align 8, !tbaa !60
+  %360 = load i64, ptr %359, align 8, !tbaa !53
   %361 = add nsw i64 %360, %357
   %362 = lshr i64 %361, 3
   %363 = getelementptr inbounds nuw i8, ptr %21, i64 %362
@@ -600,7 +600,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.us.i118 = add nuw nsw i64 %.023.us.i116, %371
   %372 = add nuw nsw i64 %.01822.us.i117, 1
   %exitcond25.not.i119 = icmp eq i64 %372, %7
-  br i1 %exitcond25.not.i119, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %358, !llvm.loop !63
+  br i1 %exitcond25.not.i119, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %358, !llvm.loop !55
 
 .lr.ph.split.i108:                                ; preds = %.lr.ph.i106, %397
   %.023.i109 = phi i64 [ %.1.i113, %397 ], [ 0, %.lr.ph.i106 ]
@@ -619,7 +619,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
 
 382:                                              ; preds = %.lr.ph.split.i108
   %383 = getelementptr inbounds nuw i64, ptr %355, i64 %.01822.i110
-  %384 = load i64, ptr %383, align 8, !tbaa !60
+  %384 = load i64, ptr %383, align 8, !tbaa !53
   %385 = load i64, ptr %356, align 8, !tbaa !40
   %386 = add nsw i64 %385, %384
   %387 = lshr i64 %386, 3
@@ -639,7 +639,7 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %.1.i113 = add nuw nsw i64 %.pn.i112, %.023.i109
   %398 = add nuw nsw i64 %.01822.i110, 1
   %exitcond.not.i114 = icmp eq i64 %398, %7
-  br i1 %exitcond.not.i114, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i108, !llvm.loop !64
+  br i1 %exitcond.not.i114, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i108, !llvm.loop !55
 
 _ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit: ; preds = %352, %313, %307, %266, %260, %219, %213, %172, %166, %125, %119, %78, %72, %31, %397, %358, %354, %309, %262, %215, %168, %121, %74, %27, %9
   %.0 = phi i64 [ %10, %9 ], [ 0, %27 ], [ 0, %74 ], [ 0, %121 ], [ 0, %168 ], [ 0, %215 ], [ 0, %262 ], [ 0, %309 ], [ 0, %354 ], [ %.1.us.i118, %358 ], [ %.1.i113, %397 ], [ %.1.us.i, %31 ], [ %.1.i, %72 ], [ %.1.us.i28, %78 ], [ %.1.i23, %119 ], [ %.1.us.i43, %125 ], [ %.1.i38, %166 ], [ %.1.us.i58, %172 ], [ %.1.i53, %213 ], [ %.1.us.i73, %219 ], [ %.1.i68, %260 ], [ %.1.us.i88, %266 ], [ %.1.i83, %307 ], [ %.1.us.i103, %313 ], [ %.1.i98, %352 ]
@@ -695,26 +695,17 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !39 = !{!"p1 _ZTSSt10shared_ptrIN5arrow6BufferEE", !6, i64 0}
 !40 = !{!10, !12, i64 24}
 !41 = !{!7, !7, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !43}
-!46 = distinct !{!46, !43, !44}
+!44 = distinct !{!44, !43}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"short", !7, i64 0}
 !47 = distinct !{!47, !43}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"short", !7, i64 0}
-!50 = distinct !{!50, !43, !44}
+!48 = distinct !{!48, !43}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"int", !7, i64 0}
 !51 = distinct !{!51, !43}
-!52 = distinct !{!52, !43, !44}
-!53 = distinct !{!53, !43}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"int", !7, i64 0}
-!56 = distinct !{!56, !43, !44}
-!57 = distinct !{!57, !43}
-!58 = distinct !{!58, !43, !44}
-!59 = distinct !{!59, !43}
-!60 = !{!12, !12, i64 0}
-!61 = distinct !{!61, !43, !44}
-!62 = distinct !{!62, !43}
-!63 = distinct !{!63, !43, !44}
-!64 = distinct !{!64, !43}
+!52 = distinct !{!52, !43}
+!53 = !{!12, !12, i64 0}
+!54 = distinct !{!54, !43}
+!55 = distinct !{!55, !43}

@@ -144,7 +144,7 @@ FreeExprContext.exit:                             ; preds = %ShutdownExprContext
   tail call void @pfree(ptr noundef nonnull %6) #12
   %28 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %FreeExprContext.exit, %1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -210,7 +210,7 @@ define dso_local void @FreeExprContext(ptr noundef %0, i1 noundef zeroext %1) lo
   tail call void @pfree(ptr noundef nonnull %16) #12
   %18 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   store ptr %8, ptr @CurrentMemoryContext, align 8
@@ -299,7 +299,7 @@ define dso_local noundef ptr @CreateWorkExprContext(ptr noundef %0) local_unname
   %.0 = phi i64 [ 8388608, %1 ], [ %8, %6 ]
   %7 = icmp samesign ugt i64 %.0, %5
   %8 = lshr i64 %.0, 1
-  br i1 %7, label %6, label %9, !llvm.loop !9
+  br i1 %7, label %6, label %9, !llvm.loop !7
 
 9:                                                ; preds = %6
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %.0, i64 8192)
@@ -526,7 +526,7 @@ define dso_local ptr @ExecGetResultType(ptr noundef readonly captures(none) %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  %4 = load i8, ptr %3, align 1, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %.thread
 
@@ -542,7 +542,7 @@ define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  %12 = load i8, ptr %11, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr %11, align 1, !range !8, !noundef !9
   store i8 %12, ptr %1, align 1
   %.pre = load ptr, ptr %7, align 8
   br label %32
@@ -556,7 +556,7 @@ define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  %16 = load i8, ptr %15, align 1, !range !10, !noundef !11
+  %16 = load i8, ptr %15, align 1, !range !8, !noundef !9
   br label %.sink.split
 
 17:                                               ; preds = %.thread
@@ -602,7 +602,7 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 199
-  %7 = load i8, ptr %6, align 1, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.thread.i
 
@@ -611,7 +611,7 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 195
-  %13 = load i8, ptr %12, align 1, !range !10, !noundef !11
+  %13 = load i8, ptr %12, align 1, !range !8, !noundef !9
   br i1 %.not.i, label %.sink.split.i, label %ExecGetResultSlotOps.exit
 
 .thread.i:                                        ; preds = %4
@@ -657,14 +657,14 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
 25:                                               ; preds = %ExecGetResultSlotOps.exit26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 199
-  %29 = load i8, ptr %28, align 1, !range !10, !noundef !11
+  %29 = load i8, ptr %28, align 1, !range !8, !noundef !9
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %.thread.i18
 
@@ -673,7 +673,7 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
   %33 = load ptr, ptr %32, align 8
   %.not.i24 = icmp eq ptr %33, null
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 195
-  %35 = load i8, ptr %34, align 1, !range !10, !noundef !11
+  %35 = load i8, ptr %34, align 1, !range !8, !noundef !9
   br i1 %.not.i24, label %.sink.split.i20, label %ExecGetResultSlotOps.exit26
 
 .thread.i18:                                      ; preds = %.lr.ph
@@ -722,7 +722,7 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 199
-  %7 = load i8, ptr %6, align 1, !range !10, !noundef !11
+  %7 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.thread.i.i
 
@@ -731,7 +731,7 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 195
-  %13 = load i8, ptr %12, align 1, !range !10, !noundef !11
+  %13 = load i8, ptr %12, align 1, !range !8, !noundef !9
   br i1 %.not.i.i, label %.sink.split.i.i, label %ExecGetResultSlotOps.exit.i
 
 .thread.i.i:                                      ; preds = %1
@@ -768,7 +768,7 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
 
 .lr.ph.i.preheader:                               ; preds = %ExecGetResultSlotOps.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 199
-  %26 = load i8, ptr %25, align 1, !range !10, !noundef !11
+  %26 = load i8, ptr %25, align 1, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %.thread.i18.i
 
@@ -777,7 +777,7 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
   %30 = load ptr, ptr %29, align 8
   %.not.i24.i = icmp eq ptr %30, null
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 195
-  %32 = load i8, ptr %31, align 1, !range !10, !noundef !11
+  %32 = load i8, ptr %31, align 1, !range !8, !noundef !9
   br i1 %.not.i24.i, label %.sink.split.i20.i, label %ExecGetResultSlotOps.exit26.i
 
 .thread.i18.i:                                    ; preds = %.lr.ph.i.preheader
@@ -897,13 +897,13 @@ list_head.exit.i:                                 ; preds = %9, %3
 
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %21, i64 -9
-  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 1, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %tlist_matches_tupdesc.exit.thread, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %21, i64 -12
-  %40 = load i8, ptr %39, align 4, !range !10, !noundef !11
+  %40 = load i8, ptr %39, align 4, !range !8, !noundef !9
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %tlist_matches_tupdesc.exit.thread, label %42
 
@@ -935,7 +935,7 @@ list_head.exit.i:                                 ; preds = %9, %3
   %..i.i = select i1 %56, ptr %53, ptr null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %20, !llvm.loop !13
+  br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %20, !llvm.loop !11
 
 tlist_matches_tupdesc.exit:                       ; preds = %52, %list_head.exit.i
   %.026.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %52 ]
@@ -946,11 +946,11 @@ tlist_matches_tupdesc.exit:                       ; preds = %52, %list_head.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %60 = load i8, ptr %59, align 4, !range !10, !noundef !11
+  %60 = load i8, ptr %59, align 4, !range !8, !noundef !9
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 199
   store i8 %60, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %63 = load i8, ptr %62, align 8, !range !10, !noundef !11
+  %63 = load i8, ptr %62, align 8, !range !8, !noundef !9
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 195
   store i8 %63, ptr %64, align 1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1077,7 +1077,7 @@ ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 125
-  %34 = load i8, ptr %33, align 1, !range !10, !noundef !11
+  %34 = load i8, ptr %33, align 1, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %43, label %36
 
@@ -1353,7 +1353,7 @@ define dso_local void @UnregisterExprContextCallback(ptr noundef captures(none) 
   %.1 = phi ptr [ %.011, %14 ], [ %6, %10 ], [ %6, %.lr.ph ]
   %17 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %16, %3
   ret void
@@ -1407,7 +1407,7 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = load i32, ptr %20, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.thread40, !llvm.loop !15
+  br i1 %26, label %.lr.ph, label %.thread40, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %17, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %17 ]
@@ -1517,7 +1517,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %34 = load i8, ptr %33, align 2, !range !10, !noundef !11
+  %34 = load i8, ptr %33, align 2, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i16, ptr %36, align 4
@@ -1705,7 +1705,7 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly captures(ad
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 42
-  %11 = load i8, ptr %10, align 2, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 2, !range !8, !noundef !9
   %12 = xor i8 %11, 1
   %13 = zext nneg i8 %12 to i32
   %.1 = add i32 %.01216, %13
@@ -1836,7 +1836,7 @@ declare ptr @ExecStoreAllNullTuple(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetChildToRootMap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %._crit_edge, label %5
 
@@ -1880,7 +1880,7 @@ declare ptr @convert_tuples_by_name(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetRootToChildMap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %31, label %6
 
@@ -1902,7 +1902,7 @@ define dso_local ptr @ExecGetRootToChildMap(ptr noundef captures(none) %0, ptr n
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 127
-  %23 = load i8, ptr %22, align 1, !range !10, !noundef !11
+  %23 = load i8, ptr %22, align 1, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   %25 = xor i1 %24, true
   %26 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %12, ptr noundef %16, i1 noundef zeroext %25) #12
@@ -1963,7 +1963,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
+  %19 = load i8, ptr %18, align 8, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
@@ -1983,7 +1983,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 127
-  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 1, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
   %38 = xor i1 %37, true
   %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #12
@@ -2060,7 +2060,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
+  %19 = load i8, ptr %18, align 8, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ExecGetRootToChildMap.exit, label %21
 
@@ -2080,7 +2080,7 @@ GetResultRTEPermissionInfo.exit:                  ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 127
-  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 1, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
   %38 = xor i1 %37, true
   %39 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %25, ptr noundef %29, i1 noundef zeroext %38) #12
@@ -2125,7 +2125,7 @@ GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %46, %GetResultR
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecGetExtraUpdatedCols(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i8, ptr %3, align 8, !range !10, !noundef !11
+  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
@@ -2197,7 +2197,7 @@ MakePerTupleExprContext.exit:                     ; preds = %2
   store ptr %31, ptr @CurrentMemoryContext, align 8
   %32 = tail call ptr @ExecGetUpdatedCols(ptr noundef %0, ptr noundef nonnull %1)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load i8, ptr %33, align 8, !range !10, !noundef !11
+  %34 = load i8, ptr %33, align 8, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %ExecGetExtraUpdatedCols.exit, label %36
 
@@ -2315,15 +2315,13 @@ attributes #13 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}

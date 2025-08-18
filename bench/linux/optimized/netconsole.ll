@@ -571,12 +571,12 @@ define internal void @write_msg(ptr readnone captures(none) %0, ptr noundef %1, 
   %53 = getelementptr i8, ptr %50, i64 %52
   %54 = sub i32 %49, %51
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %42, %38, %.split
   %56 = load ptr, ptr %34, align 8
   %57 = icmp eq ptr %56, @target_list
-  br i1 %57, label %.loopexit3, label %.split, !llvm.loop !25
+  br i1 %57, label %.loopexit3, label %.split, !llvm.loop !22
 
 .loopexit3:                                       ; preds = %.loopexit, %31, %12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %13) #11
@@ -623,7 +623,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 14:                                               ; preds = %.split18.us.us
   %15 = getelementptr inbounds nuw i8, ptr %31, i64 1280
   %16 = load ptr, ptr %15, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #11, !srcloc !26
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #11, !srcloc !24
   br label %17
 
 17:                                               ; preds = %.split18.us.us, %14
@@ -632,7 +632,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
   store i8 0, ptr %18, align 8
   %19 = load ptr, ptr @target_list, align 8
   %20 = icmp eq ptr %19, @target_list
-  br i1 %20, label %.split44.us, label %.split.us16.us, !llvm.loop !27
+  br i1 %20, label %.split44.us, label %.split.us16.us
 
 21:                                               ; preds = %26, %.split.us16.us
   %22 = phi ptr [ %11, %.split.us16.us ], [ %27, %26 ]
@@ -644,7 +644,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 26:                                               ; preds = %21
   %27 = load ptr, ptr %22, align 8
   %28 = icmp eq ptr %27, @target_list
-  br i1 %28, label %.split14.us, label %21, !llvm.loop !28
+  br i1 %28, label %.split14.us, label %21, !llvm.loop !25
 
 .split18.us.us:                                   ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -670,7 +670,7 @@ define internal noundef i32 @netconsole_netdev_event(ptr readnone captures(none)
 40:                                               ; preds = %37, %.split.us
   %41 = load ptr, ptr %33, align 8
   %42 = icmp eq ptr %41, @target_list
-  br i1 %42, label %.split14.us.thread, label %.split.us, !llvm.loop !29
+  br i1 %42, label %.split14.us.thread, label %.split.us, !llvm.loop !25
 
 .split14.us.thread:                               ; preds = %40, %9
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @target_list_lock, i64 noundef %6) #11
@@ -794,11 +794,7 @@ attributes #13 = { cold nounwind }
 !19 = !{i64 2156716153, i64 2156715964, i64 2156716014, i64 2156716060, i64 2156716088}
 !20 = distinct !{!20, !6, !7}
 !21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = !{i64 2156449831}
 !25 = distinct !{!25, !6, !7}
-!26 = !{i64 2156449831}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !6, !7, !23}
-!29 = distinct !{!29, !6, !7}

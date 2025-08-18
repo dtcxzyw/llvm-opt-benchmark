@@ -665,15 +665,15 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
   store i8 61, ptr %220, align 1
   store i8 0, ptr %226, align 1
   %228 = getelementptr i8, ptr %226, i64 1
-  br i1 %227, label %dissect_id_infostring.exit.i, label %.split.us.i.i, !llvm.loop !12
+  br i1 %227, label %dissect_id_infostring.exit.i, label %.split.us.i.i
 
 229:                                              ; preds = %222
   %230 = add i32 %.061.us.i.i, 1
-  br label %222, !llvm.loop !14
+  br label %222, !llvm.loop !12
 
 231:                                              ; preds = %215
   %232 = add i32 %.062.us.i.i, 1
-  br label %215, !llvm.loop !15
+  br label %215, !llvm.loop !13
 
 .split.i.i:                                       ; preds = %Cmd_Argv_length.exit150.i, %.critedge2.i.i
   %.082.i.i = phi ptr [ %268, %.critedge2.i.i ], [ %205, %Cmd_Argv_length.exit150.i ]
@@ -703,7 +703,7 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
 
 241:                                              ; preds = %237
   %242 = add i32 %.062.i.i, 1
-  br label %237, !llvm.loop !15
+  br label %237, !llvm.loop !13
 
 243:                                              ; preds = %237
   %244 = getelementptr i8, ptr %.060.i.i, i64 %238
@@ -722,7 +722,7 @@ Cmd_Argv_length.exit150.i:                        ; preds = %165
 
 250:                                              ; preds = %246
   %251 = add i32 %.061.i.i, 1
-  br label %246, !llvm.loop !14
+  br label %246, !llvm.loop !12
 
 .critedge2.i.i:                                   ; preds = %246, %246
   %252 = getelementptr i8, ptr %245, i64 %247
@@ -853,7 +853,7 @@ Cmd_Argv.exit198.i:                               ; preds = %Cmd_Argv.exit189.th
   %313 = load i32, ptr @cmd_argc, align 4
   %314 = sext i32 %313 to i64
   %315 = icmp slt i64 %indvars.iv.next324.i, %314
-  br i1 %315, label %Cmd_Argv.exit198.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %315, label %Cmd_Argv.exit198.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %Cmd_Argv.exit198.i, %Cmd_Argv.exit189.thread.thread.i
   %.lcssa272.i = phi i32 [ %307, %Cmd_Argv.exit189.thread.thread.i ], [ %313, %Cmd_Argv.exit198.i ]
@@ -1192,8 +1192,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}

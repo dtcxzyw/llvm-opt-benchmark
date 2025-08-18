@@ -646,7 +646,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %62 = load i32, ptr %8, align 4, !tbaa !4
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next122, %63
-  br i1 %64, label %.lr.ph.split, label %.loopexit96, !llvm.loop !21
+  br i1 %64, label %.lr.ph.split, label %.loopexit96, !llvm.loop !19
 
 .loopexit96:                                      ; preds = %40, %61, %58
   %65 = phi i32 [ %.pre, %58 ], [ %62, %61 ], [ %41, %40 ]
@@ -658,7 +658,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %67 = load i32, ptr %8, align 4, !tbaa !4
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next125, %68
-  br i1 %69, label %.lr.ph104, label %.loopexit, !llvm.loop !22
+  br i1 %69, label %.lr.ph104, label %.loopexit, !llvm.loop !20
 
 .lr.ph104:                                        ; preds = %.loopexit96, %66
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %66 ], [ 0, %.loopexit96 ]
@@ -745,7 +745,7 @@ define dso_local ptr @b3OpenCLUtils_getDevice(ptr noundef %0, i32 noundef %1) lo
   %13 = call i32 %12(ptr noundef %0, i32 noundef 4225, i64 noundef %6, ptr noundef %11, ptr noundef null)
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds ptr, ptr %11, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
   call void @free(ptr noundef %11) #13
   br label %17
 
@@ -882,14 +882,14 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.20, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4096
-  %6 = load i64, ptr %5, align 8, !tbaa !25
+  %6 = load i64, ptr %5, align 8, !tbaa !23
   %7 = and i64 %6, 2
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %1
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
-  %.pre = load i64, ptr %5, align 8, !tbaa !25
+  %.pre = load i64, ptr %5, align 8, !tbaa !23
   br label %9
 
 9:                                                ; preds = %8, %1
@@ -900,7 +900,7 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 
 12:                                               ; preds = %9
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23)
-  %.pre7 = load i64, ptr %5, align 8, !tbaa !25
+  %.pre7 = load i64, ptr %5, align 8, !tbaa !23
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -911,7 +911,7 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 
 16:                                               ; preds = %13
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.24)
-  %.pre8 = load i64, ptr %5, align 8, !tbaa !25
+  %.pre8 = load i64, ptr %5, align 8, !tbaa !23
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -926,10 +926,10 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 
 21:                                               ; preds = %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4104
-  %23 = load i32, ptr %22, align 8, !tbaa !27
+  %23 = load i32, ptr %22, align 8, !tbaa !25
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.26, i32 noundef %23)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4112
-  %25 = load i64, ptr %24, align 8, !tbaa !28
+  %25 = load i64, ptr %24, align 8, !tbaa !26
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.27, i64 noundef %25)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4120
   %27 = load i64, ptr %26, align 8, !tbaa !15
@@ -939,53 +939,53 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
   %31 = load i64, ptr %30, align 8, !tbaa !15
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.28, i64 noundef %27, i64 noundef %29, i64 noundef %31)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 4184
-  %33 = load i64, ptr %32, align 8, !tbaa !29
+  %33 = load i64, ptr %32, align 8, !tbaa !27
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.29, i64 noundef %33)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 4192
-  %35 = load i32, ptr %34, align 8, !tbaa !30
+  %35 = load i32, ptr %34, align 8, !tbaa !28
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.30, i32 noundef %35)
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 4240
-  %37 = load i32, ptr %36, align 8, !tbaa !31
+  %37 = load i32, ptr %36, align 8, !tbaa !29
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.31, i32 noundef %37)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 4248
-  %39 = load i64, ptr %38, align 8, !tbaa !32
+  %39 = load i64, ptr %38, align 8, !tbaa !30
   %40 = lshr i64 %39, 20
   %41 = trunc i64 %40 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.32, i32 noundef %41)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 4216
-  %43 = load i64, ptr %42, align 8, !tbaa !33
+  %43 = load i64, ptr %42, align 8, !tbaa !31
   %44 = lshr i64 %43, 20
   %45 = trunc i64 %44 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.33, i32 noundef %45)
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 4224
-  %47 = load i32, ptr %46, align 8, !tbaa !34
+  %47 = load i32, ptr %46, align 8, !tbaa !32
   %48 = icmp eq i32 %47, 1
   %49 = select i1 %48, ptr @.str.35, ptr @.str.36
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.34, ptr noundef nonnull %49)
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4228
-  %51 = load i32, ptr %50, align 4, !tbaa !35
+  %51 = load i32, ptr %50, align 4, !tbaa !33
   %52 = icmp eq i32 %51, 1
   %53 = select i1 %52, ptr @.str.38, ptr @.str.39
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.37, ptr noundef nonnull %53)
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4208
-  %55 = load i64, ptr %54, align 8, !tbaa !36
+  %55 = load i64, ptr %54, align 8, !tbaa !34
   %56 = lshr i64 %55, 10
   %57 = trunc i64 %56 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.40, i32 noundef %57)
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 4200
-  %59 = load i64, ptr %58, align 8, !tbaa !37
+  %59 = load i64, ptr %58, align 8, !tbaa !35
   %60 = lshr i64 %59, 10
   %61 = trunc i64 %60 to i32
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.41, i32 noundef %61)
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4256
-  %63 = load i64, ptr %62, align 8, !tbaa !38
+  %63 = load i64, ptr %62, align 8, !tbaa !36
   %64 = and i64 %63, 1
   %.not4 = icmp eq i64 %64, 0
   br i1 %.not4, label %66, label %65
 
 65:                                               ; preds = %21
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43)
-  %.pre9 = load i64, ptr %62, align 8, !tbaa !38
+  %.pre9 = load i64, ptr %62, align 8, !tbaa !36
   br label %66
 
 66:                                               ; preds = %65, %21
@@ -1000,29 +1000,29 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 
 70:                                               ; preds = %69, %66
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 4264
-  %72 = load i32, ptr %71, align 8, !tbaa !39
+  %72 = load i32, ptr %71, align 8, !tbaa !37
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.45, i32 noundef %72)
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 4232
-  %74 = load i32, ptr %73, align 8, !tbaa !40
+  %74 = load i32, ptr %73, align 8, !tbaa !38
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.46, i32 noundef %74)
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 4236
-  %76 = load i32, ptr %75, align 4, !tbaa !41
+  %76 = load i32, ptr %75, align 4, !tbaa !39
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.47, i32 noundef %76)
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.48)
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 4144
-  %78 = load i64, ptr %77, align 8, !tbaa !42
+  %78 = load i64, ptr %77, align 8, !tbaa !40
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.49, i64 noundef %78)
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 4152
-  %80 = load i64, ptr %79, align 8, !tbaa !43
+  %80 = load i64, ptr %79, align 8, !tbaa !41
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.50, i64 noundef %80)
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 4160
-  %82 = load i64, ptr %81, align 8, !tbaa !44
+  %82 = load i64, ptr %81, align 8, !tbaa !42
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.51, i64 noundef %82)
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 4168
-  %84 = load i64, ptr %83, align 8, !tbaa !45
+  %84 = load i64, ptr %83, align 8, !tbaa !43
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.52, i64 noundef %84)
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 4176
-  %86 = load i64, ptr %85, align 8, !tbaa !46
+  %86 = load i64, ptr %85, align 8, !tbaa !44
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.53, i64 noundef %86)
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 3072
   %88 = load i8, ptr %87, align 8, !tbaa !14
@@ -1040,17 +1040,17 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 91:                                               ; preds = %90, %89
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.56)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 4268
-  %93 = load i32, ptr %92, align 4, !tbaa !47
+  %93 = load i32, ptr %92, align 4, !tbaa !45
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 4272
-  %95 = load i32, ptr %94, align 8, !tbaa !48
+  %95 = load i32, ptr %94, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 4276
-  %97 = load i32, ptr %96, align 4, !tbaa !49
+  %97 = load i32, ptr %96, align 4, !tbaa !47
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 4280
-  %99 = load i32, ptr %98, align 8, !tbaa !50
+  %99 = load i32, ptr %98, align 8, !tbaa !48
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 4284
-  %101 = load i32, ptr %100, align 4, !tbaa !51
+  %101 = load i32, ptr %100, align 4, !tbaa !49
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 4288
-  %103 = load i32, ptr %102, align 8, !tbaa !52
+  %103 = load i32, ptr %102, align 8, !tbaa !50
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.57, i32 noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -1074,7 +1074,7 @@ define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, p
   %21 = alloca i32, align 4
   %22 = alloca i64, align 8
   %23 = alloca ptr, align 8
-  store ptr %1, ptr %8, align 8, !tbaa !23
+  store ptr %1, ptr %8, align 8, !tbaa !21
   %.not109 = icmp eq ptr %4, null
   %24 = select i1 %.not109, ptr @.str.58, ptr %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1090,7 +1090,7 @@ define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, p
   %27 = load ptr, ptr @__clewGetDeviceInfo, align 8, !tbaa !8
   %28 = call i32 %27(ptr noundef %1, i32 noundef 4139, i64 noundef 256, ptr noundef nonnull %11, ptr noundef null)
   %29 = load ptr, ptr @__clewGetDeviceInfo, align 8, !tbaa !8
-  %30 = load ptr, ptr %8, align 8, !tbaa !23
+  %30 = load ptr, ptr %8, align 8, !tbaa !21
   %31 = call i32 %29(ptr noundef %30, i32 noundef 4141, i64 noundef 256, ptr noundef nonnull %12, ptr noundef null)
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 92)
   %.not9.i = icmp eq ptr %strchr, null
@@ -1101,7 +1101,7 @@ define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, p
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %strchr142 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %33, i32 92)
   %.not.i = icmp eq ptr %strchr142, null
-  br i1 %.not.i, label %_ZL6strip2PKcS0_.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZL6strip2PKcS0_.exit, label %.lr.ph.i, !llvm.loop !51
 
 _ZL6strip2PKcS0_.exit:                            ; preds = %.lr.ph.i, %26
   %.07.lcssa.i = phi ptr [ %5, %26 ], [ %33, %.lr.ph.i ]
@@ -1114,7 +1114,7 @@ _ZL6strip2PKcS0_.exit:                            ; preds = %.lr.ph.i, %26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %strchr144 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 47)
   %.not.i129 = icmp eq ptr %strchr144, null
-  br i1 %.not.i129, label %_ZL6strip2PKcS0_.exit131, label %.lr.ph.i128, !llvm.loop !53
+  br i1 %.not.i129, label %_ZL6strip2PKcS0_.exit131, label %.lr.ph.i128, !llvm.loop !51
 
 _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6strip2PKcS0_.exit
   %.07.lcssa.i130 = phi ptr [ %.07.lcssa.i, %_ZL6strip2PKcS0_.exit ], [ %35, %.lr.ph.i128 ]
@@ -1125,10 +1125,10 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 38:                                               ; preds = %_ZL6strip2PKcS0_.exit131, %7
   %39 = icmp eq ptr %5, null
   %or.cond3 = or i1 %39, %6
-  %40 = load i8, ptr @gDebugSkipLoadingBinary, align 1, !range !54
+  %40 = load i8, ptr @gDebugSkipLoadingBinary, align 1, !range !52
   %41 = trunc nuw i8 %40 to i1
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %41
-  %42 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !54
+  %42 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !52
   %43 = trunc nuw i8 %42 to i1
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %43
   br i1 %or.cond7, label %.critedge.thread, label %44
@@ -1171,13 +1171,13 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 .critedge.thread134:                              ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %62 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %63 = load ptr, ptr %8, align 8, !tbaa !23
+  %63 = load ptr, ptr %8, align 8, !tbaa !21
   %64 = call i32 %62(ptr noundef %59, ptr noundef %63, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %15)
   %65 = load i64, ptr %15, align 8, !tbaa !15
   %66 = add i64 %65, 1
   %67 = call noalias ptr @malloc(i64 noundef %66) #12
   %68 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %69 = load ptr, ptr %8, align 8, !tbaa !23
+  %69 = load ptr, ptr %8, align 8, !tbaa !21
   %70 = call i32 %68(ptr noundef %59, ptr noundef %69, i32 noundef 4483, i64 noundef %65, ptr noundef %67, ptr noundef null)
   %71 = load i64, ptr %15, align 8, !tbaa !15
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 %71
@@ -1213,7 +1213,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %17, align 8, !tbaa !10
   %76 = icmp eq ptr %2, null
-  %77 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !54
+  %77 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !52
   %78 = trunc nuw i8 %77 to i1
   %or.cond9 = select i1 %76, i1 true, i1 %78
   %or.cond14 = and i1 %25, %or.cond9
@@ -1236,7 +1236,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
   %.not115 = icmp eq ptr %84, null
   %85 = icmp samesign ult i64 %indvars.iv, 2
   %86 = select i1 %.not115, i1 %85, i1 false
-  br i1 %86, label %.preheader, label %87, !llvm.loop !55
+  br i1 %86, label %.preheader, label %87, !llvm.loop !53
 
 87:                                               ; preds = %.preheader
   br i1 %.not115, label %97, label %.thread140
@@ -1301,13 +1301,13 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 116:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %117 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %118 = load ptr, ptr %8, align 8, !tbaa !23
+  %118 = load ptr, ptr %8, align 8, !tbaa !21
   %119 = call i32 %117(ptr noundef %104, ptr noundef %118, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %20)
   %120 = load i64, ptr %20, align 8, !tbaa !15
   %121 = add i64 %120, 1
   %122 = call noalias ptr @malloc(i64 noundef %121) #12
   %123 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %124 = load ptr, ptr %8, align 8, !tbaa !23
+  %124 = load ptr, ptr %8, align 8, !tbaa !21
   %125 = call i32 %123(ptr noundef %104, ptr noundef %124, i32 noundef 4483, i64 noundef %120, ptr noundef %122, ptr noundef null)
   %126 = load i64, ptr %20, align 8, !tbaa !15
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 %126
@@ -1533,40 +1533,38 @@ attributes #13 = { nounwind }
 !16 = !{!"long", !6, i64 0}
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS13_cl_device_id", !9, i64 0}
-!25 = !{!26, !16, i64 4096}
-!26 = !{!"_ZTS18b3OpenCLDeviceInfo", !6, i64 0, !6, i64 1024, !6, i64 2048, !6, i64 3072, !16, i64 4096, !5, i64 4104, !16, i64 4112, !6, i64 4120, !16, i64 4144, !16, i64 4152, !16, i64 4160, !16, i64 4168, !16, i64 4176, !16, i64 4184, !5, i64 4192, !16, i64 4200, !16, i64 4208, !16, i64 4216, !5, i64 4224, !5, i64 4228, !5, i64 4232, !5, i64 4236, !5, i64 4240, !16, i64 4248, !16, i64 4256, !5, i64 4264, !5, i64 4268, !5, i64 4272, !5, i64 4276, !5, i64 4280, !5, i64 4284, !5, i64 4288}
-!27 = !{!26, !5, i64 4104}
-!28 = !{!26, !16, i64 4112}
-!29 = !{!26, !16, i64 4184}
-!30 = !{!26, !5, i64 4192}
-!31 = !{!26, !5, i64 4240}
-!32 = !{!26, !16, i64 4248}
-!33 = !{!26, !16, i64 4216}
-!34 = !{!26, !5, i64 4224}
-!35 = !{!26, !5, i64 4228}
-!36 = !{!26, !16, i64 4208}
-!37 = !{!26, !16, i64 4200}
-!38 = !{!26, !16, i64 4256}
-!39 = !{!26, !5, i64 4264}
-!40 = !{!26, !5, i64 4232}
-!41 = !{!26, !5, i64 4236}
-!42 = !{!26, !16, i64 4144}
-!43 = !{!26, !16, i64 4152}
-!44 = !{!26, !16, i64 4160}
-!45 = !{!26, !16, i64 4168}
-!46 = !{!26, !16, i64 4176}
-!47 = !{!26, !5, i64 4268}
-!48 = !{!26, !5, i64 4272}
-!49 = !{!26, !5, i64 4276}
-!50 = !{!26, !5, i64 4280}
-!51 = !{!26, !5, i64 4284}
-!52 = !{!26, !5, i64 4288}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS13_cl_device_id", !9, i64 0}
+!23 = !{!24, !16, i64 4096}
+!24 = !{!"_ZTS18b3OpenCLDeviceInfo", !6, i64 0, !6, i64 1024, !6, i64 2048, !6, i64 3072, !16, i64 4096, !5, i64 4104, !16, i64 4112, !6, i64 4120, !16, i64 4144, !16, i64 4152, !16, i64 4160, !16, i64 4168, !16, i64 4176, !16, i64 4184, !5, i64 4192, !16, i64 4200, !16, i64 4208, !16, i64 4216, !5, i64 4224, !5, i64 4228, !5, i64 4232, !5, i64 4236, !5, i64 4240, !16, i64 4248, !16, i64 4256, !5, i64 4264, !5, i64 4268, !5, i64 4272, !5, i64 4276, !5, i64 4280, !5, i64 4284, !5, i64 4288}
+!25 = !{!24, !5, i64 4104}
+!26 = !{!24, !16, i64 4112}
+!27 = !{!24, !16, i64 4184}
+!28 = !{!24, !5, i64 4192}
+!29 = !{!24, !5, i64 4240}
+!30 = !{!24, !16, i64 4248}
+!31 = !{!24, !16, i64 4216}
+!32 = !{!24, !5, i64 4224}
+!33 = !{!24, !5, i64 4228}
+!34 = !{!24, !16, i64 4208}
+!35 = !{!24, !16, i64 4200}
+!36 = !{!24, !16, i64 4256}
+!37 = !{!24, !5, i64 4264}
+!38 = !{!24, !5, i64 4232}
+!39 = !{!24, !5, i64 4236}
+!40 = !{!24, !16, i64 4144}
+!41 = !{!24, !16, i64 4152}
+!42 = !{!24, !16, i64 4160}
+!43 = !{!24, !16, i64 4168}
+!44 = !{!24, !16, i64 4176}
+!45 = !{!24, !5, i64 4268}
+!46 = !{!24, !5, i64 4272}
+!47 = !{!24, !5, i64 4276}
+!48 = !{!24, !5, i64 4280}
+!49 = !{!24, !5, i64 4284}
+!50 = !{!24, !5, i64 4288}
+!51 = distinct !{!51, !18}
+!52 = !{i8 0, i8 2}
 !53 = distinct !{!53, !18}
-!54 = !{i8 0, i8 2}
-!55 = distinct !{!55, !18}

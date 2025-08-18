@@ -2838,7 +2838,7 @@ parser_location.exit.i:                           ; preds = %.lr.ph, %parser_loc
   %60 = call i64 @rb_ary_push(i64 noundef %8, i64 noundef %59) #9
   %.0 = load ptr, ptr %.014, align 8, !tbaa !78
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.thread16, label %parser_location.exit.i, !llvm.loop !105
+  br i1 %.not, label %._crit_edge.thread16, label %parser_location.exit.i, !llvm.loop !103
 
 ._crit_edge.thread:                               ; preds = %parser_location.exit.i.us, %._crit_edge
   %61 = call i64 @rb_obj_freeze(i64 noundef %8) #9
@@ -2893,14 +2893,14 @@ rb_scan_args_set.exit:                            ; preds = %.thread20
   %20 = and i64 %17, 7
   %21 = icmp ne i64 %20, 0
   %22 = or i1 %19, %21
-  br i1 %22, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !106
+  br i1 %22, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !104
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %rb_scan_args_set.exit
   %23 = inttoptr i64 %17 to ptr
   %24 = load i64, ptr %23, align 8, !tbaa !47
   %25 = and i64 %24, 31
   %26 = icmp eq i64 %25, 5
-  br i1 %26, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !107
+  br i1 %26, label %Check_Type.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, !prof !105
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %rb_scan_args_set.exit
   tail call void @rb_unexpected_type(i64 noundef %17, i32 noundef 5) #12
@@ -3021,7 +3021,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
 
 12:                                               ; preds = %rbimpl_intern_const.exit
   %13 = inttoptr i64 %10 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !47, !noalias !108
+  %14 = load i64, ptr %13, align 8, !tbaa !47, !noalias !106
   %15 = and i64 %14, 8192
   %.not.i.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -3222,11 +3222,9 @@ attributes #12 = { cold noreturn nounwind }
 !100 = !{!"pm_comment", !81, i64 0, !33, i64 8, !18, i64 24}
 !101 = !{!100, !17, i64 16}
 !102 = !{!100, !18, i64 24}
-!103 = distinct !{!103, !12, !104}
-!104 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!105 = distinct !{!105, !12}
-!106 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!107 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"rbimpl_rstring_getmem: argument 0"}
-!110 = distinct !{!110, !"rbimpl_rstring_getmem"}
+!103 = distinct !{!103, !12}
+!104 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!105 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"rbimpl_rstring_getmem: argument 0"}
+!108 = distinct !{!108, !"rbimpl_rstring_getmem"}

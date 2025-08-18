@@ -16542,7 +16542,7 @@ zend_check_arg_send_type.exit.thread.us:          ; preds = %.lr.ph.split.us
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = add i32 %.05572.us, -1
   %.not60.us = icmp eq i32 %76, 0
-  br i1 %.not60.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !293
+  br i1 %.not60.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %113
   %.05275 = phi ptr [ %.1, %113 ], [ %46, %.lr.ph ]
@@ -16554,7 +16554,7 @@ zend_check_arg_send_type.exit.thread.us:          ; preds = %.lr.ph.split.us
   switch i8 %78, label %79 [
     i8 0, label %113
     i8 10, label %zend_check_arg_send_type.exit.thread
-  ], !prof !295
+  ], !prof !293
 
 79:                                               ; preds = %.lr.ph.split
   %80 = add i32 %.05373, -1
@@ -16942,7 +16942,7 @@ define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0,
   %.not = icmp ne ptr %2, null
   %6 = select i1 %.not, ptr %2, ptr %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %7, align 8, !tbaa !296
+  store ptr %6, ptr %7, align 8, !tbaa !294
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %14, label %8
 
@@ -17227,7 +17227,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %zend_string_alloc.e
   %12 = load ptr, ptr %10, align 8, !tbaa !42, !nonnull !154, !noundef !154
   tail call void @_efree(ptr noundef nonnull %4) #34
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %14 = load ptr, ptr %13, align 8, !tbaa !297
+  %14 = load ptr, ptr %13, align 8, !tbaa !295
   br label %15
 
 15:                                               ; preds = %zend_hash_find_ptr.exit.thread, %11
@@ -17448,12 +17448,12 @@ switch.lookup:                                    ; preds = %74
   %121 = load i32, ptr %116, align 8, !tbaa !171
   store i32 %121, ptr %.0156, align 8, !tbaa !171
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %123 = load ptr, ptr %122, align 8, !tbaa !298
+  %123 = load ptr, ptr %122, align 8, !tbaa !296
   %124 = zext i32 %121 to i64
   %125 = getelementptr inbounds nuw %struct._zval_struct, ptr %123, i64 %124
   tail call void @zval_ptr_dtor(ptr noundef %125) #34
   %126 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !299
+  %127 = load ptr, ptr %126, align 8, !tbaa !297
   %.not175 = icmp eq ptr %127, null
   br i1 %.not175, label %zend_string_release.exit, label %128
 
@@ -17494,7 +17494,7 @@ switch.lookup:                                    ; preds = %74
 
 zend_string_release.exit:                         ; preds = %144, %143, %136, %132, %128, %115
   %145 = tail call i32 @zend_hash_del(ptr noundef nonnull %112, ptr noundef %1) #34
-  %.pre = load ptr, ptr %122, align 8, !tbaa !298
+  %.pre = load ptr, ptr %122, align 8, !tbaa !296
   br label %163
 
 146:                                              ; preds = %114
@@ -17506,7 +17506,7 @@ zend_string_release.exit:                         ; preds = %144, %143, %136, %1
   %150 = load i8, ptr %0, align 8, !tbaa !66
   %151 = icmp eq i8 %150, 1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %153 = load ptr, ptr %152, align 8, !tbaa !298
+  %153 = load ptr, ptr %152, align 8, !tbaa !296
   %154 = sext i32 %149 to i64
   %155 = shl nsw i64 %154, 4
   br i1 %151, label %156, label %158
@@ -17522,7 +17522,7 @@ zend_string_release.exit:                         ; preds = %144, %143, %136, %1
 160:                                              ; preds = %158, %156
   %161 = phi ptr [ %157, %156 ], [ %159, %158 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %161, ptr %162, align 8, !tbaa !298
+  store ptr %161, ptr %162, align 8, !tbaa !296
   br label %163
 
 163:                                              ; preds = %zend_string_release.exit, %160
@@ -17578,7 +17578,7 @@ zend_string_release.exit:                         ; preds = %144, %143, %136, %1
   %196 = getelementptr inbounds nuw %struct._zval_struct, ptr %192, i64 %195
   tail call void @zval_ptr_dtor(ptr noundef %196) #34
   %197 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %198 = load ptr, ptr %197, align 8, !tbaa !299
+  %198 = load ptr, ptr %197, align 8, !tbaa !297
   %.not173 = icmp eq ptr %198, null
   br i1 %.not173, label %zend_string_release_ex.exit, label %199
 
@@ -17820,17 +17820,17 @@ zend_string_copy.exit:                            ; preds = %297, %293, %is_pers
   %341 = getelementptr inbounds nuw i8, ptr %.0156, i64 4
   store i32 %.1155, ptr %341, align 4, !tbaa !168
   %342 = getelementptr inbounds nuw i8, ptr %.0156, i64 16
-  store ptr %4, ptr %342, align 8, !tbaa !299
+  store ptr %4, ptr %342, align 8, !tbaa !297
   %343 = getelementptr inbounds nuw i8, ptr %.0156, i64 24
-  store ptr null, ptr %343, align 8, !tbaa !300
+  store ptr null, ptr %343, align 8, !tbaa !298
   %344 = getelementptr inbounds nuw i8, ptr %.0156, i64 56
-  store ptr %.0156, ptr %344, align 8, !tbaa !301
+  store ptr %.0156, ptr %344, align 8, !tbaa !299
   %345 = getelementptr inbounds nuw i8, ptr %.0156, i64 64
-  store ptr null, ptr %345, align 8, !tbaa !302
+  store ptr null, ptr %345, align 8, !tbaa !300
   %346 = getelementptr inbounds nuw i8, ptr %.0156, i64 32
   store ptr %0, ptr %346, align 8, !tbaa !174
   %347 = getelementptr inbounds nuw i8, ptr %.0156, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %347, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !303
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %347, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !301
   %348 = load i8, ptr %0, align 8, !tbaa !66
   %349 = and i8 %348, 1
   %.not.i202 = icmp eq i8 %349, 0
@@ -18688,13 +18688,13 @@ zend_arena_alloc.exit:                            ; preds = %65, %63, %53, %48
   %77 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   store i32 %3, ptr %77, align 4, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %4, ptr %78, align 8, !tbaa !304
+  store ptr %4, ptr %78, align 8, !tbaa !302
   %79 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr null, ptr %79, align 8, !tbaa !305
+  store ptr null, ptr %79, align 8, !tbaa !303
   %80 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %0, ptr %80, align 8, !tbaa !134
   %81 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !303
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !301
   %82 = load i8, ptr %35, align 8, !tbaa !42
   %83 = icmp eq i8 %82, 11
   br i1 %83, label %84, label %95
@@ -19084,7 +19084,7 @@ zend_string_alloc.exit:
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !79
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !306
+  %16 = load ptr, ptr %15, align 8, !tbaa !304
   tail call void %16(ptr noundef %1, ptr noundef nonnull %7, ptr noundef null) #34
   %17 = load i32, ptr %8, align 4, !tbaa !42
   %18 = and i32 %17, 64
@@ -19841,7 +19841,7 @@ define dso_local ptr @zend_read_property_ex(ptr noundef %0, ptr noundef %1, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !79
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !307
+  %10 = load ptr, ptr %9, align 8, !tbaa !305
   %11 = select i1 %3, i32 3, i32 0
   %12 = tail call ptr %10(ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef null, ptr noundef %4) #34
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
@@ -19870,7 +19870,7 @@ zend_string_alloc.exit:
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !307
+  %18 = load ptr, ptr %17, align 8, !tbaa !305
   %19 = select i1 %4, i32 3, i32 0
   %20 = tail call ptr %18(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %19, ptr noundef null, ptr noundef %5) #34
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !123
@@ -19936,11 +19936,11 @@ zend_string_alloc.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @zend_save_error_handling(ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %0) local_unnamed_addr #26 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !308
-  store i32 %2, ptr %0, align 8, !tbaa !309
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !311
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !306
+  store i32 %2, ptr %0, align 8, !tbaa !307
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !309
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !312
+  store ptr %3, ptr %4, align 8, !tbaa !310
   ret void
 }
 
@@ -19950,11 +19950,11 @@ define dso_local void @zend_replace_error_handling(i32 noundef %0, ptr noundef %
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !308
-  store i32 %5, ptr %2, align 8, !tbaa !309
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !311
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !306
+  store i32 %5, ptr %2, align 8, !tbaa !307
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !309
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !312
+  store ptr %6, ptr %7, align 8, !tbaa !310
   br label %8
 
 8:                                                ; preds = %4, %3
@@ -19962,18 +19962,18 @@ define dso_local void @zend_replace_error_handling(i32 noundef %0, ptr noundef %
   %10 = icmp eq ptr %1, null
   %11 = or i1 %9, %10
   tail call void @llvm.assume(i1 %11)
-  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !308
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !311
+  store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !306
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !309
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define dso_local void @zend_restore_error_handling(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
-  %2 = load i32, ptr %0, align 8, !tbaa !309
-  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !308
+  %2 = load i32, ptr %0, align 8, !tbaa !307
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 840), align 8, !tbaa !306
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !312
-  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !311
+  %4 = load ptr, ptr %3, align 8, !tbaa !310
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 832), align 8, !tbaa !309
   ret void
 }
 
@@ -20055,7 +20055,7 @@ define dso_local zeroext i1 @zend_is_countable(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !79
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %9 = load ptr, ptr %8, align 8, !tbaa !313
+  %9 = load ptr, ptr %8, align 8, !tbaa !311
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %16
 
@@ -20080,7 +20080,7 @@ define dso_local range(i32 -1, 1) i32 @zend_get_default_from_internal_arg_info(p
   %4 = alloca %struct._zend_file_context, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !314
+  %7 = load ptr, ptr %6, align 8, !tbaa !312
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %107, label %8
 
@@ -20307,17 +20307,17 @@ zend_string_release.exit.i:                       ; preds = %95, %94, %87, %.cri
 
 96:                                               ; preds = %zend_string_release.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !315
-  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !316
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !313
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !314
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %100 = load ptr, ptr %3, align 8, !tbaa !127
-  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !315
+  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !313
   %101 = or i32 %99, 320
-  store i32 %101, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !316
+  store i32 %101, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !314
   call void @zend_file_context_begin(ptr noundef nonnull %4) #34
   call void @zend_const_expr_to_zval(ptr noundef %0, ptr noundef nonnull %97, i1 noundef zeroext true) #34
-  store ptr %98, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !315
-  store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !316
+  store ptr %98, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 456), align 8, !tbaa !313
+  store i32 %99, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4, !tbaa !314
   call void @zend_file_context_end(ptr noundef nonnull %4) #34
   call void @zend_ast_destroy(ptr noundef nonnull %83) #34
   %102 = load ptr, ptr %3, align 8, !tbaa !127
@@ -20842,27 +20842,25 @@ attributes #41 = { nounwind returns_twice }
 !290 = !{!51, !10, i64 400}
 !291 = !{!81, !10, i64 160}
 !292 = !{!111, !18, i64 32}
-!293 = distinct !{!293, !294}
-!294 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!295 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
-!296 = !{!111, !18, i64 24}
-!297 = !{!181, !41, i64 88}
-!298 = !{!51, !18, i64 48}
-!299 = !{!169, !37, i64 16}
-!300 = !{!169, !17, i64 24}
-!301 = !{!169, !167, i64 56}
-!302 = !{!169, !170, i64 64}
-!303 = !{i64 0, i64 8, !151, i64 8, i64 4, !121}
-!304 = !{!135, !37, i64 16}
-!305 = !{!135, !17, i64 24}
-!306 = !{!81, !10, i64 80}
-!307 = !{!81, !10, i64 32}
-!308 = !{!5, !13, i64 840}
-!309 = !{!310, !13, i64 0}
-!310 = !{!"", !13, i64 0, !21, i64 8}
-!311 = !{!5, !21, i64 832}
-!312 = !{!310, !21, i64 8}
-!313 = !{!81, !10, i64 144}
-!314 = !{!240, !41, i64 24}
-!315 = !{!139, !128, i64 456}
-!316 = !{!139, !13, i64 172}
+!293 = !{!"branch_weights", i32 2000, i32 2, i32 2000}
+!294 = !{!111, !18, i64 24}
+!295 = !{!181, !41, i64 88}
+!296 = !{!51, !18, i64 48}
+!297 = !{!169, !37, i64 16}
+!298 = !{!169, !17, i64 24}
+!299 = !{!169, !167, i64 56}
+!300 = !{!169, !170, i64 64}
+!301 = !{i64 0, i64 8, !151, i64 8, i64 4, !121}
+!302 = !{!135, !37, i64 16}
+!303 = !{!135, !17, i64 24}
+!304 = !{!81, !10, i64 80}
+!305 = !{!81, !10, i64 32}
+!306 = !{!5, !13, i64 840}
+!307 = !{!308, !13, i64 0}
+!308 = !{!"", !13, i64 0, !21, i64 8}
+!309 = !{!5, !21, i64 832}
+!310 = !{!308, !21, i64 8}
+!311 = !{!81, !10, i64 144}
+!312 = !{!240, !41, i64 24}
+!313 = !{!139, !128, i64 456}
+!314 = !{!139, !13, i64 172}

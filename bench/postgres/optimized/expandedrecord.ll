@@ -1749,7 +1749,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %131, %76, %9
   %135 = load i32, ptr %5, align 4
@@ -1917,7 +1917,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %40, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %68, label %40, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %65
   %.pre73 = load i32, ptr %17, align 4
@@ -1944,7 +1944,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
 76:                                               ; preds = %77
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !15
+  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !13
 
 77:                                               ; preds = %.lr.ph67, %76
   %indvars.iv69 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next70, %76 ]
@@ -2225,8 +2225,6 @@ attributes #9 = { cold nounwind }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}

@@ -2083,7 +2083,7 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !85
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2149,17 +2149,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !85
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !87
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !86
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !88
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2225,17 +2225,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !88
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !90
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !89
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !91
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2301,17 +2301,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !91
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !93
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !92
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !94
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2379,17 +2379,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !94
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !96
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !95
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !97
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2455,17 +2455,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !98
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !97
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !99
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !98
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !100
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2531,17 +2531,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !100
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !102
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !101
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !103
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2607,17 +2607,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !103
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !105
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !104
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !106
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2683,17 +2683,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !106
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !108
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !107
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !109
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2759,17 +2759,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !109
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !111
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !110
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !112
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !111
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2835,17 +2835,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !112
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !114
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !113
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !115
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -2911,17 +2911,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !115
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !117
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !116
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !118
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -2987,17 +2987,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !118
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !120
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !119
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !121
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3063,17 +3063,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !121
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !123
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !122
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !124
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -3139,17 +3139,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !124
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !126
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !125
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !127
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3215,17 +3215,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !127
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !129
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !128
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !130
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -3291,17 +3291,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !130
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !132
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !131
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !133
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3367,17 +3367,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !134
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !133
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !135
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !134
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !136
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -3443,17 +3443,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !136
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !138
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !137
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !139
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3519,17 +3519,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
 37:                                               ; preds = %36, %26
   %38 = add nuw i64 %.04346.us.us, 1
   %exitcond.not = icmp eq i64 %38, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !139
 
 ._crit_edge.us.us:                                ; preds = %37
   %39 = add i64 %.04248.us.us, 1
   %.not.us.us = icmp eq i64 %39, %14
-  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !141
+  br i1 %.not.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us.us, !llvm.loop !140
 
 ._crit_edge51.split.us.us:                        ; preds = %._crit_edge.us.us
   %40 = add nuw i64 %.052.us53, 1
   %exitcond58.not = icmp eq i64 %40, %8
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !142
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph50.us, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %._crit_edge51.split.us.us, %3
   ret void
@@ -3595,17 +3595,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !142
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !144
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !143
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !145
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3671,17 +3671,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !146
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !145
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !147
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !146
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !148
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3747,17 +3747,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !148
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !150
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !149
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !151
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3823,17 +3823,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !152
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !151
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !153
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !152
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !154
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3899,17 +3899,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !155
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !154
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !156
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !155
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !157
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -3975,17 +3975,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !158
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !157
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !159
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !158
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !160
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -4051,17 +4051,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !161
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !160
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !162
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !161
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !163
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -4127,17 +4127,17 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
 38:                                               ; preds = %37, %26
   %39 = add nuw i64 %.04345.us.us, 1
   %exitcond.not = icmp eq i64 %39, %18
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !164
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %26, !llvm.loop !163
 
 ._crit_edge.us.us:                                ; preds = %38
   %40 = add i64 %.04247.us.us, 1
   %.not.us.us = icmp eq i64 %40, %14
-  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !165
+  br i1 %.not.us.us, label %._crit_edge50.split.us.us, label %.lr.ph.us.us, !llvm.loop !164
 
 ._crit_edge50.split.us.us:                        ; preds = %._crit_edge.us.us
   %41 = add nuw i64 %.051.us52, 1
   %exitcond57.not = icmp eq i64 %41, %8
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !166
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph49.us, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %._crit_edge50.split.us.us, %3
   ret void
@@ -4264,87 +4264,86 @@ attributes #19 = { builtin allocsize(0) }
 !80 = !{!23, !6, i64 16}
 !81 = !{!26, !27, i64 0}
 !82 = distinct !{!82, !48}
-!83 = distinct !{!83, !48, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!85 = distinct !{!85, !48, !84}
+!83 = distinct !{!83, !48}
+!84 = distinct !{!84, !48}
+!85 = distinct !{!85, !48}
 !86 = distinct !{!86, !48}
-!87 = distinct !{!87, !48, !84}
-!88 = distinct !{!88, !48, !84}
+!87 = distinct !{!87, !48}
+!88 = distinct !{!88, !48}
 !89 = distinct !{!89, !48}
-!90 = distinct !{!90, !48, !84}
-!91 = distinct !{!91, !48, !84}
+!90 = distinct !{!90, !48}
+!91 = distinct !{!91, !48}
 !92 = distinct !{!92, !48}
-!93 = distinct !{!93, !48, !84}
-!94 = distinct !{!94, !48, !84}
+!93 = distinct !{!93, !48}
+!94 = distinct !{!94, !48}
 !95 = distinct !{!95, !48}
-!96 = distinct !{!96, !48, !84}
-!97 = distinct !{!97, !48, !84}
+!96 = distinct !{!96, !48}
+!97 = distinct !{!97, !48}
 !98 = distinct !{!98, !48}
-!99 = distinct !{!99, !48, !84}
-!100 = distinct !{!100, !48, !84}
+!99 = distinct !{!99, !48}
+!100 = distinct !{!100, !48}
 !101 = distinct !{!101, !48}
-!102 = distinct !{!102, !48, !84}
-!103 = distinct !{!103, !48, !84}
+!102 = distinct !{!102, !48}
+!103 = distinct !{!103, !48}
 !104 = distinct !{!104, !48}
-!105 = distinct !{!105, !48, !84}
-!106 = distinct !{!106, !48, !84}
+!105 = distinct !{!105, !48}
+!106 = distinct !{!106, !48}
 !107 = distinct !{!107, !48}
-!108 = distinct !{!108, !48, !84}
-!109 = distinct !{!109, !48, !84}
+!108 = distinct !{!108, !48}
+!109 = distinct !{!109, !48}
 !110 = distinct !{!110, !48}
-!111 = distinct !{!111, !48, !84}
-!112 = distinct !{!112, !48, !84}
+!111 = distinct !{!111, !48}
+!112 = distinct !{!112, !48}
 !113 = distinct !{!113, !48}
-!114 = distinct !{!114, !48, !84}
-!115 = distinct !{!115, !48, !84}
+!114 = distinct !{!114, !48}
+!115 = distinct !{!115, !48}
 !116 = distinct !{!116, !48}
-!117 = distinct !{!117, !48, !84}
-!118 = distinct !{!118, !48, !84}
+!117 = distinct !{!117, !48}
+!118 = distinct !{!118, !48}
 !119 = distinct !{!119, !48}
-!120 = distinct !{!120, !48, !84}
-!121 = distinct !{!121, !48, !84}
+!120 = distinct !{!120, !48}
+!121 = distinct !{!121, !48}
 !122 = distinct !{!122, !48}
-!123 = distinct !{!123, !48, !84}
-!124 = distinct !{!124, !48, !84}
+!123 = distinct !{!123, !48}
+!124 = distinct !{!124, !48}
 !125 = distinct !{!125, !48}
-!126 = distinct !{!126, !48, !84}
-!127 = distinct !{!127, !48, !84}
+!126 = distinct !{!126, !48}
+!127 = distinct !{!127, !48}
 !128 = distinct !{!128, !48}
-!129 = distinct !{!129, !48, !84}
-!130 = distinct !{!130, !48, !84}
+!129 = distinct !{!129, !48}
+!130 = distinct !{!130, !48}
 !131 = distinct !{!131, !48}
-!132 = distinct !{!132, !48, !84}
-!133 = distinct !{!133, !48, !84}
+!132 = distinct !{!132, !48}
+!133 = distinct !{!133, !48}
 !134 = distinct !{!134, !48}
-!135 = distinct !{!135, !48, !84}
-!136 = distinct !{!136, !48, !84}
+!135 = distinct !{!135, !48}
+!136 = distinct !{!136, !48}
 !137 = distinct !{!137, !48}
-!138 = distinct !{!138, !48, !84}
-!139 = distinct !{!139, !48, !84}
+!138 = distinct !{!138, !48}
+!139 = distinct !{!139, !48}
 !140 = distinct !{!140, !48}
-!141 = distinct !{!141, !48, !84}
-!142 = distinct !{!142, !48, !84}
+!141 = distinct !{!141, !48}
+!142 = distinct !{!142, !48}
 !143 = distinct !{!143, !48}
-!144 = distinct !{!144, !48, !84}
-!145 = distinct !{!145, !48, !84}
+!144 = distinct !{!144, !48}
+!145 = distinct !{!145, !48}
 !146 = distinct !{!146, !48}
-!147 = distinct !{!147, !48, !84}
-!148 = distinct !{!148, !48, !84}
+!147 = distinct !{!147, !48}
+!148 = distinct !{!148, !48}
 !149 = distinct !{!149, !48}
-!150 = distinct !{!150, !48, !84}
-!151 = distinct !{!151, !48, !84}
+!150 = distinct !{!150, !48}
+!151 = distinct !{!151, !48}
 !152 = distinct !{!152, !48}
-!153 = distinct !{!153, !48, !84}
-!154 = distinct !{!154, !48, !84}
+!153 = distinct !{!153, !48}
+!154 = distinct !{!154, !48}
 !155 = distinct !{!155, !48}
-!156 = distinct !{!156, !48, !84}
-!157 = distinct !{!157, !48, !84}
+!156 = distinct !{!156, !48}
+!157 = distinct !{!157, !48}
 !158 = distinct !{!158, !48}
-!159 = distinct !{!159, !48, !84}
-!160 = distinct !{!160, !48, !84}
+!159 = distinct !{!159, !48}
+!160 = distinct !{!160, !48}
 !161 = distinct !{!161, !48}
-!162 = distinct !{!162, !48, !84}
-!163 = distinct !{!163, !48, !84}
+!162 = distinct !{!162, !48}
+!163 = distinct !{!163, !48}
 !164 = distinct !{!164, !48}
-!165 = distinct !{!165, !48, !84}
-!166 = distinct !{!166, !48, !84}
+!165 = distinct !{!165, !48}

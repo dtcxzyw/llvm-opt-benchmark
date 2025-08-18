@@ -894,7 +894,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   store i32 %70, ptr %72, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count135
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %64, %.thread.us, %strbuf_setlen.exit
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 480
@@ -960,7 +960,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   store ptr %spec.select, ptr %95, align 8, !tbaa !27
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %90
-  br i1 %exitcond141.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !118
+  br i1 %exitcond141.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !116
 
 ._crit_edge127:                                   ; preds = %.lr.ph126.split, %.thread120.us.preheader, %85
   %.081151 = phi ptr [ %.081150, %.thread120.us.preheader ], [ %88, %85 ], [ %.081150, %.lr.ph126.split ]
@@ -1071,7 +1071,7 @@ define internal noundef i32 @emit_diff_first_parent_only(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %10 = load ptr, ptr %9, align 8, !tbaa !119
+  %10 = load ptr, ptr %9, align 8, !tbaa !117
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1094,7 +1094,7 @@ define internal noundef i32 @emit_diff_first_parent_only(ptr noundef %0, ptr nou
   %.020 = phi i32 [ %4, %15 ], [ %20, %17 ]
   %.0 = phi i32 [ 43, %15 ], [ 45, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %23 = load ptr, ptr %22, align 8, !tbaa !120
+  %23 = load ptr, ptr %22, align 8, !tbaa !118
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !103
   tail call void %23(ptr noundef %0, i32 noundef %.0, i32 noundef %.020, ptr noundef nonnull %.021, i32 noundef 1, ptr noundef %25, i32 noundef 0) #11
@@ -1265,9 +1265,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !112 = !{!"combine_diff_parent", !7, i64 0, !12, i64 4, !39, i64 8, !15, i64 48}
 !113 = !{!112, !12, i64 4}
 !114 = !{!39, !12, i64 32}
-!115 = distinct !{!115, !31, !116}
-!116 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!117 = distinct !{!117, !31}
-!118 = distinct !{!118, !31}
-!119 = !{!14, !6, i64 488}
-!120 = !{!14, !6, i64 496}
+!115 = distinct !{!115, !31}
+!116 = distinct !{!116, !31}
+!117 = !{!14, !6, i64 488}
+!118 = !{!14, !6, i64 496}

@@ -2886,7 +2886,7 @@ define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr readnone captu
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
   %86 = load volatile ptr, ptr %47, align 8
   %87 = icmp eq ptr %86, %47
-  br i1 %87, label %.split6.us, label %.split, !llvm.loop !51
+  br i1 %87, label %.split6.us, label %.split, !llvm.loop !49
 
 .split6.us:                                       ; preds = %.split, %.split.us, %45
   %88 = phi i1 [ true, %45 ], [ false, %.split.us ], [ true, %.split ]
@@ -2921,7 +2921,7 @@ define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr readnone captu
   %106 = load i32, ptr %93, align 8
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %105, %107
-  br i1 %108, label %98, label %.loopexit, !llvm.loop !52
+  br i1 %108, label %98, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %98, %.split6.us
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
@@ -2945,8 +2945,8 @@ define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr readnone captu
   br i1 %117, label %118, label %119, !prof !17
 
 118:                                              ; preds = %114
-  tail call void asm sideeffect "456: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 456b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 456) #16, !srcloc !53
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 0, i64 12) #16, !srcloc !54
+  tail call void asm sideeffect "456: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 456b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 456) #16, !srcloc !51
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 0, i64 12) #16, !srcloc !52
   unreachable
 
 119:                                              ; preds = %114
@@ -3048,9 +3048,7 @@ attributes #20 = { nounwind allocsize(2) }
 !46 = !{i64 2155918749}
 !47 = distinct !{!47, !10, !11}
 !48 = distinct !{!48, !11}
-!49 = distinct !{!49, !10, !11, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !10, !11}
-!52 = distinct !{!52, !10, !11}
-!53 = !{i64 2155935995, i64 2155935804, i64 2155935856, i64 2155935902, i64 2155935930}
-!54 = !{i64 2155936069, i64 2155936098, i64 2155936144, i64 2155936202, i64 2155936256, i64 2155936310, i64 2155936365, i64 2155936396}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = !{i64 2155935995, i64 2155935804, i64 2155935856, i64 2155935902, i64 2155935930}
+!52 = !{i64 2155936069, i64 2155936098, i64 2155936144, i64 2155936202, i64 2155936256, i64 2155936310, i64 2155936365, i64 2155936396}

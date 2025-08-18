@@ -1496,7 +1496,7 @@ PyUnicode_READ.exit258.us355:                     ; preds = %PyUnicode_READ.exit
   %.not207.us357 = icmp slt i64 %149, %.4177.val
   %.1146.us358 = select i1 %144, i32 %.0145.us354, i32 %145
   %switch218.us359 = and i1 %144, %.not207.us357
-  br i1 %switch218.us359, label %.split.us344.us, label %.thread328, !llvm.loop !32
+  br i1 %switch218.us359, label %.split.us344.us, label %.thread328
 
 PyUnicode_READ.exit.us346.us:                     ; preds = %PyUnicode_READ.exit.us346.us, %.split.us344.us
   %.1157.us345.us = phi i64 [ %.0156.us353, %.split.us344.us ], [ %149, %PyUnicode_READ.exit.us346.us ]
@@ -1504,7 +1504,7 @@ PyUnicode_READ.exit.us346.us:                     ; preds = %PyUnicode_READ.exit
   %147 = load i16, ptr %146, align 2, !tbaa !30
   %148 = icmp ugt i16 %147, 10
   %149 = add i64 %.1157.us345.us, 1
-  br i1 %148, label %PyUnicode_READ.exit.us346.us, label %PyUnicode_READ.exit258.us355, !llvm.loop !34
+  br i1 %148, label %PyUnicode_READ.exit.us346.us, label %PyUnicode_READ.exit258.us355, !llvm.loop !32
 
 .split:                                           ; preds = %143, %PyUnicode_READ.exit258
   %.0156 = phi i64 [ %153, %PyUnicode_READ.exit258 ], [ 0, %143 ]
@@ -1517,7 +1517,7 @@ PyUnicode_READ.exit:                              ; preds = %PyUnicode_READ.exit
   %151 = load i32, ptr %150, align 4, !tbaa !31
   %152 = icmp ugt i32 %151, 10
   %153 = add i64 %.1157, 1
-  br i1 %152, label %PyUnicode_READ.exit, label %.split343.split, !llvm.loop !36
+  br i1 %152, label %PyUnicode_READ.exit, label %.split343.split, !llvm.loop !32
 
 .split343.split:                                  ; preds = %PyUnicode_READ.exit
   switch i16 %131, label %PyUnicode_READ.exit258 [
@@ -1569,7 +1569,7 @@ PyUnicode_READ.exit260.us:                        ; preds = %.preheader, %PyUnic
   %168 = load i8, ptr %167, align 1, !tbaa !15
   %169 = icmp ugt i8 %168, 13
   %170 = add i64 %.1154.us, 1
-  br i1 %169, label %PyUnicode_READ.exit260.us, label %.split428.us.thread, !llvm.loop !37
+  br i1 %169, label %PyUnicode_READ.exit260.us, label %.split428.us.thread, !llvm.loop !34
 
 PyUnicode_READ.exit260.us432:                     ; preds = %.preheader, %PyUnicode_READ.exit260.us432
   %.1154.us431 = phi i64 [ %174, %PyUnicode_READ.exit260.us432 ], [ %.0153, %.preheader ]
@@ -1577,7 +1577,7 @@ PyUnicode_READ.exit260.us432:                     ; preds = %.preheader, %PyUnic
   %172 = load i16, ptr %171, align 2, !tbaa !30
   %173 = icmp ugt i16 %172, 13
   %174 = add i64 %.1154.us431, 1
-  br i1 %173, label %PyUnicode_READ.exit260.us432, label %.split428.us.thread463, !llvm.loop !38
+  br i1 %173, label %PyUnicode_READ.exit260.us432, label %.split428.us.thread463, !llvm.loop !34
 
 PyUnicode_READ.exit260:                           ; preds = %.preheader, %PyUnicode_READ.exit260
   %.1154 = phi i64 [ %178, %PyUnicode_READ.exit260 ], [ %.0153, %.preheader ]
@@ -1585,7 +1585,7 @@ PyUnicode_READ.exit260:                           ; preds = %.preheader, %PyUnic
   %176 = load i32, ptr %175, align 4, !tbaa !31
   %177 = icmp ugt i32 %176, 13
   %178 = add i64 %.1154, 1
-  br i1 %177, label %PyUnicode_READ.exit260, label %.split428.us, !llvm.loop !39
+  br i1 %177, label %PyUnicode_READ.exit260, label %.split428.us, !llvm.loop !34
 
 .split428.us.thread:                              ; preds = %PyUnicode_READ.exit260.us
   %179 = getelementptr i8, ptr %.0.i253, i64 %.1154.us
@@ -1722,7 +1722,7 @@ PyUnicode_WRITE.exit275.us:                       ; preds = %PyUnicode_READ.exit
   %231 = getelementptr i8, ptr %.0.i270, i64 %227
   %232 = load i8, ptr %231, align 1, !tbaa !15
   %233 = icmp ugt i8 %232, 13
-  br i1 %233, label %PyUnicode_WRITE.exit275.us, label %.split367.us.loopexit468, !llvm.loop !40
+  br i1 %233, label %PyUnicode_WRITE.exit275.us, label %.split367.us.loopexit468, !llvm.loop !35
 
 PyUnicode_WRITE.exit275.us376:                    ; preds = %PyUnicode_READ.exit274.us374.preheader, %PyUnicode_WRITE.exit275.us376
   %234 = phi i16 [ %240, %PyUnicode_WRITE.exit275.us376 ], [ %221, %PyUnicode_READ.exit274.us374.preheader ]
@@ -1735,7 +1735,7 @@ PyUnicode_WRITE.exit275.us376:                    ; preds = %PyUnicode_READ.exit
   %239 = getelementptr i16, ptr %.0.i270, i64 %235
   %240 = load i16, ptr %239, align 2, !tbaa !30
   %241 = icmp ugt i16 %240, 13
-  br i1 %241, label %PyUnicode_WRITE.exit275.us376, label %.split367.us.loopexit469, !llvm.loop !41
+  br i1 %241, label %PyUnicode_WRITE.exit275.us376, label %.split367.us.loopexit469, !llvm.loop !35
 
 .split365.split:                                  ; preds = %.preheader339
   %242 = getelementptr i32, ptr %.0.i270, i64 %.0135
@@ -1754,7 +1754,7 @@ PyUnicode_WRITE.exit275:                          ; preds = %.split365.split, %P
   %250 = getelementptr i32, ptr %.0.i270, i64 %246
   %251 = load i32, ptr %250, align 4, !tbaa !31
   %252 = icmp ugt i32 %251, 13
-  br i1 %252, label %PyUnicode_WRITE.exit275, label %.split367.us, !llvm.loop !42
+  br i1 %252, label %PyUnicode_WRITE.exit275, label %.split367.us, !llvm.loop !35
 
 .split367.us.loopexit468:                         ; preds = %PyUnicode_WRITE.exit275.us, %PyUnicode_READ.exit274.us.preheader
   %.1136.us.lcssa = phi i64 [ %.0135, %PyUnicode_READ.exit274.us.preheader ], [ %227, %PyUnicode_WRITE.exit275.us ]
@@ -2030,14 +2030,14 @@ PyUnicode_READ.exit21.us41.i:                     ; preds = %PyUnicode_READ.exit
 
 20:                                               ; preds = %18
   %21 = getelementptr i8, ptr %.1.lcssa.us28.us.i, i64 %11
-  br label %.split.us24.us.i, !llvm.loop !43
+  br label %.split.us24.us.i
 
 PyUnicode_READ.exit.us26.us.i:                    ; preds = %.split.us24.us.i, %PyUnicode_READ.exit.us26.us.i
   %.1.us2534.us.i = phi ptr [ %22, %PyUnicode_READ.exit.us26.us.i ], [ %.018.us40.i, %.split.us24.us.i ]
   %22 = getelementptr i8, ptr %.1.us2534.us.i, i64 %11
   %23 = load i16, ptr %22, align 2
   %24 = icmp ugt i16 %23, 10
-  br i1 %24, label %PyUnicode_READ.exit.us26.us.i, label %PyUnicode_READ.exit21.us41.i, !llvm.loop !44
+  br i1 %24, label %PyUnicode_READ.exit.us26.us.i, label %PyUnicode_READ.exit21.us41.i, !llvm.loop !36
 
 25:                                               ; preds = %13
   %26 = tail call ptr @memchr(ptr noundef %4, i32 noundef 10, i64 noundef %10) #12
@@ -2054,7 +2054,7 @@ PyUnicode_READ.exit.i:                            ; preds = %.split.i, %PyUnicod
   %29 = getelementptr i8, ptr %.130.i, i64 %11
   %30 = load i32, ptr %29, align 4, !tbaa !31
   %31 = icmp ugt i32 %30, 10
-  br i1 %31, label %PyUnicode_READ.exit.i, label %.split23.split.i, !llvm.loop !45
+  br i1 %31, label %PyUnicode_READ.exit.i, label %.split23.split.i, !llvm.loop !36
 
 .split23.split.i:                                 ; preds = %PyUnicode_READ.exit.i, %.split.i
   %32 = phi i32 [ %27, %.split.i ], [ %30, %PyUnicode_READ.exit.i ]
@@ -2083,7 +2083,7 @@ find_control_char.exit:                           ; preds = %PyUnicode_READ.exit
   br label %.thread
 
 find_control_char.exit.thread:                    ; preds = %18, %34, %find_control_char.exit
-  store i64 %12, ptr %6, align 8, !tbaa !46
+  store i64 %12, ptr %6, align 8, !tbaa !37
   br label %.thread
 
 43:                                               ; preds = %7
@@ -2107,7 +2107,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.split.us, %PyUnico
   %46 = getelementptr i8, ptr %.1105.us247, i64 %11
   %47 = load i8, ptr %46, align 1, !tbaa !15
   %48 = icmp ugt i8 %47, 13
-  br i1 %48, label %PyUnicode_READ.exit.us, label %.split239.us, !llvm.loop !47
+  br i1 %48, label %PyUnicode_READ.exit.us, label %.split239.us, !llvm.loop !38
 
 .split.us240:                                     ; preds = %.preheader210
   %49 = load i16, ptr %.0104, align 2
@@ -2120,7 +2120,7 @@ PyUnicode_READ.exit.us242:                        ; preds = %.split.us240, %PyUn
   %52 = getelementptr i8, ptr %.1105.us241250, i64 %11
   %53 = load i16, ptr %52, align 2
   %54 = icmp ugt i16 %53, 13
-  br i1 %54, label %PyUnicode_READ.exit.us242, label %.split239.us.loopexit283, !llvm.loop !48
+  br i1 %54, label %PyUnicode_READ.exit.us242, label %.split239.us.loopexit283, !llvm.loop !38
 
 .split:                                           ; preds = %.preheader210
   %55 = load i32, ptr %.0104, align 4
@@ -2133,7 +2133,7 @@ PyUnicode_READ.exit:                              ; preds = %.split, %PyUnicode_
   %58 = getelementptr i8, ptr %.1105246, i64 %11
   %59 = load i32, ptr %58, align 4
   %60 = icmp ugt i32 %59, 13
-  br i1 %60, label %PyUnicode_READ.exit, label %.split239.us.loopexit, !llvm.loop !49
+  br i1 %60, label %PyUnicode_READ.exit, label %.split239.us.loopexit, !llvm.loop !38
 
 .split239.us.loopexit:                            ; preds = %PyUnicode_READ.exit
   %61 = trunc nuw nsw i32 %59 to i8
@@ -2150,7 +2150,7 @@ PyUnicode_READ.exit:                              ; preds = %.split, %PyUnicode_
   br i1 %.not120, label %65, label %64
 
 64:                                               ; preds = %.split239.us
-  store i64 %12, ptr %6, align 8, !tbaa !46
+  store i64 %12, ptr %6, align 8, !tbaa !37
   br label %.thread
 
 65:                                               ; preds = %.split239.us
@@ -2272,14 +2272,14 @@ PyUnicode_READ.exit21.us41.i140:                  ; preds = %PyUnicode_READ.exit
 
 111:                                              ; preds = %109
   %112 = getelementptr i8, ptr %.1.lcssa.us28.us.i141, i64 %11
-  br label %.split.us24.us.i138, !llvm.loop !43
+  br label %.split.us24.us.i138
 
 PyUnicode_READ.exit.us26.us.i142:                 ; preds = %.split.us24.us.i138, %PyUnicode_READ.exit.us26.us.i142
   %.1.us2534.us.i143 = phi ptr [ %113, %PyUnicode_READ.exit.us26.us.i142 ], [ %.018.us40.i139, %.split.us24.us.i138 ]
   %113 = getelementptr i8, ptr %.1.us2534.us.i143, i64 %11
   %114 = load i16, ptr %113, align 2
   %115 = icmp ugt i16 %114, %104
-  br i1 %115, label %PyUnicode_READ.exit.us26.us.i142, label %PyUnicode_READ.exit21.us41.i140, !llvm.loop !44
+  br i1 %115, label %PyUnicode_READ.exit.us26.us.i142, label %PyUnicode_READ.exit21.us41.i140, !llvm.loop !36
 
 116:                                              ; preds = %101
   %117 = sext i8 %102 to i32
@@ -2297,7 +2297,7 @@ PyUnicode_READ.exit.i135:                         ; preds = %.split.i130, %PyUni
   %121 = getelementptr i8, ptr %.130.i136, i64 %11
   %122 = load i32, ptr %121, align 4, !tbaa !31
   %123 = icmp ugt i32 %122, %103
-  br i1 %123, label %PyUnicode_READ.exit.i135, label %.split23.split.i132, !llvm.loop !45
+  br i1 %123, label %PyUnicode_READ.exit.i135, label %.split23.split.i132, !llvm.loop !36
 
 .split23.split.i132:                              ; preds = %PyUnicode_READ.exit.i135, %.split.i130
   %124 = phi i32 [ %119, %.split.i130 ], [ %122, %PyUnicode_READ.exit.i135 ]
@@ -2326,7 +2326,7 @@ find_control_char.exit144:                        ; preds = %PyUnicode_READ.exit
   br label %.thread
 
 find_control_char.exit144.thread:                 ; preds = %109, %126, %find_control_char.exit144
-  store i64 %12, ptr %6, align 8, !tbaa !46
+  store i64 %12, ptr %6, align 8, !tbaa !37
   br label %.thread
 
 135:                                              ; preds = %_PyUnicode_DATA.exit
@@ -2371,14 +2371,14 @@ PyUnicode_READ.exit21.us41.i157:                  ; preds = %PyUnicode_READ.exit
 
 150:                                              ; preds = %148
   %151 = getelementptr i8, ptr %.1.lcssa.us28.us.i158, i64 %11
-  br label %.split.us24.us.i155, !llvm.loop !43
+  br label %.split.us24.us.i155
 
 PyUnicode_READ.exit.us26.us.i159:                 ; preds = %.split.us24.us.i155, %PyUnicode_READ.exit.us26.us.i159
   %.1.us2534.us.i160 = phi ptr [ %152, %PyUnicode_READ.exit.us26.us.i159 ], [ %.018.us40.i156, %.split.us24.us.i155 ]
   %152 = getelementptr i8, ptr %.1.us2534.us.i160, i64 %11
   %153 = load i16, ptr %152, align 2
   %154 = icmp ugt i16 %153, %140
-  br i1 %154, label %PyUnicode_READ.exit.us26.us.i159, label %PyUnicode_READ.exit21.us41.i157, !llvm.loop !44
+  br i1 %154, label %PyUnicode_READ.exit.us26.us.i159, label %PyUnicode_READ.exit21.us41.i157, !llvm.loop !36
 
 155:                                              ; preds = %143
   %156 = ptrtoint ptr %.0102268 to i64
@@ -2397,7 +2397,7 @@ PyUnicode_READ.exit.i152:                         ; preds = %.split.i147, %PyUni
   %161 = getelementptr i8, ptr %.130.i153, i64 %11
   %162 = load i32, ptr %161, align 4, !tbaa !31
   %163 = icmp ugt i32 %162, %139
-  br i1 %163, label %PyUnicode_READ.exit.i152, label %.split23.split.i149, !llvm.loop !45
+  br i1 %163, label %PyUnicode_READ.exit.i152, label %.split23.split.i149, !llvm.loop !36
 
 .split23.split.i149:                              ; preds = %PyUnicode_READ.exit.i152, %.split.i147
   %164 = phi i32 [ %159, %.split.i147 ], [ %162, %PyUnicode_READ.exit.i152 ]
@@ -2441,7 +2441,7 @@ PyUnicode_READ.exit164.us:                        ; preds = %.lr.ph254, %175
 175:                                              ; preds = %PyUnicode_READ.exit164.us
   %176 = add nuw nsw i64 %.098253.us, 1
   %exitcond315.not = icmp eq i64 %176, %.val
-  br i1 %exitcond315.not, label %.thread198, label %PyUnicode_READ.exit164.us, !llvm.loop !50
+  br i1 %exitcond315.not, label %.thread198, label %PyUnicode_READ.exit164.us, !llvm.loop !39
 
 PyUnicode_READ.exit164.us261:                     ; preds = %.lr.ph254, %182
   %.098253.us260 = phi i64 [ %183, %182 ], [ 1, %.lr.ph254 ]
@@ -2456,7 +2456,7 @@ PyUnicode_READ.exit164.us261:                     ; preds = %.lr.ph254, %182
 182:                                              ; preds = %PyUnicode_READ.exit164.us261
   %183 = add nuw nsw i64 %.098253.us260, 1
   %exitcond.not = icmp eq i64 %183, %.val
-  br i1 %exitcond.not, label %.thread198, label %PyUnicode_READ.exit164.us261, !llvm.loop !51
+  br i1 %exitcond.not, label %.thread198, label %PyUnicode_READ.exit164.us261, !llvm.loop !39
 
 PyUnicode_READ.exit164:                           ; preds = %.lr.ph254, %189
   %.098253 = phi i64 [ %190, %189 ], [ 1, %.lr.ph254 ]
@@ -2471,7 +2471,7 @@ PyUnicode_READ.exit164:                           ; preds = %.lr.ph254, %189
 189:                                              ; preds = %PyUnicode_READ.exit164
   %190 = add nuw nsw i64 %.098253, 1
   %exitcond316.not = icmp eq i64 %190, %.val
-  br i1 %exitcond316.not, label %.thread198, label %PyUnicode_READ.exit164, !llvm.loop !52
+  br i1 %exitcond316.not, label %.thread198, label %PyUnicode_READ.exit164, !llvm.loop !39
 
 PyUnicode_READ.exit164._crit_edge:                ; preds = %PyUnicode_READ.exit164.us261, %PyUnicode_READ.exit164.us, %PyUnicode_READ.exit164, %.preheader
   %.098.lcssa = phi i64 [ 1, %.preheader ], [ %.098253, %PyUnicode_READ.exit164 ], [ %.098253.us, %PyUnicode_READ.exit164.us ], [ %.098253.us260, %PyUnicode_READ.exit164.us261 ]
@@ -2518,14 +2518,14 @@ PyUnicode_READ.exit21.us41.i177:                  ; preds = %PyUnicode_READ.exit
 
 206:                                              ; preds = %204
   %207 = getelementptr i8, ptr %.1.lcssa.us28.us.i178, i64 %11
-  br label %.split.us24.us.i175, !llvm.loop !43
+  br label %.split.us24.us.i175
 
 PyUnicode_READ.exit.us26.us.i179:                 ; preds = %.split.us24.us.i175, %PyUnicode_READ.exit.us26.us.i179
   %.1.us2534.us.i180 = phi ptr [ %208, %PyUnicode_READ.exit.us26.us.i179 ], [ %.018.us40.i176, %.split.us24.us.i175 ]
   %208 = getelementptr i8, ptr %.1.us2534.us.i180, i64 %11
   %209 = load i16, ptr %208, align 2
   %210 = icmp ugt i16 %209, %199
-  br i1 %210, label %PyUnicode_READ.exit.us26.us.i179, label %PyUnicode_READ.exit21.us41.i177, !llvm.loop !44
+  br i1 %210, label %PyUnicode_READ.exit.us26.us.i179, label %PyUnicode_READ.exit21.us41.i177, !llvm.loop !36
 
 211:                                              ; preds = %.thread194
   %212 = sext i8 %.pre to i32
@@ -2545,7 +2545,7 @@ PyUnicode_READ.exit.i172:                         ; preds = %.split.i167, %PyUni
   %218 = getelementptr i8, ptr %.130.i173, i64 %11
   %219 = load i32, ptr %218, align 4, !tbaa !31
   %220 = icmp ugt i32 %219, %139
-  br i1 %220, label %PyUnicode_READ.exit.i172, label %.split23.split.i169, !llvm.loop !45
+  br i1 %220, label %PyUnicode_READ.exit.i172, label %.split23.split.i169, !llvm.loop !36
 
 .split23.split.i169:                              ; preds = %PyUnicode_READ.exit.i172, %.split.i167
   %221 = phi i32 [ %216, %.split.i167 ], [ %219, %PyUnicode_READ.exit.i172 ]
@@ -2574,7 +2574,7 @@ find_control_char.exit182:                        ; preds = %PyUnicode_READ.exit
 
 find_control_char.exit182.thread:                 ; preds = %204, %223, %find_control_char.exit182, %228
   %storemerge = phi i64 [ %231, %228 ], [ %12, %find_control_char.exit182 ], [ %12, %223 ], [ %12, %204 ]
-  store i64 %storemerge, ptr %6, align 8, !tbaa !46
+  store i64 %storemerge, ptr %6, align 8, !tbaa !37
   br label %.thread
 
 .thread:                                          ; preds = %PyUnicode_READ.exit126, %74, %64, %.thread198, %find_control_char.exit144.thread, %130, %find_control_char.exit182.thread, %38, %find_control_char.exit.thread
@@ -2587,37 +2587,37 @@ define internal void @textiowrapper_dealloc(ptr noundef initializes((96, 97)) %0
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 1, ptr %3, align 8, !tbaa !53
+  store i8 1, ptr %3, align 8, !tbaa !40
   %4 = tail call i32 @_PyIOBase_finalize(ptr noundef %0) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %Py_DECREF.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %7, align 8, !tbaa !57
+  store i32 0, ptr %7, align 8, !tbaa !44
   %8 = getelementptr i8, ptr %0, i64 -16
   %9 = getelementptr i8, ptr %0, i64 -8
-  %.val.i = load i64, ptr %9, align 8, !tbaa !58
+  %.val.i = load i64, ptr %9, align 8, !tbaa !45
   %10 = and i64 %.val.i, -4
   %11 = inttoptr i64 %10 to ptr
-  %.val9.i = load i64, ptr %8, align 8, !tbaa !60
+  %.val9.i = load i64, ptr %8, align 8, !tbaa !47
   %12 = and i64 %.val9.i, -4
   %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr %11, align 8, !tbaa !60
+  %14 = load i64, ptr %11, align 8, !tbaa !47
   %15 = and i64 %14, 3
   %16 = or disjoint i64 %15, %12
-  store i64 %16, ptr %11, align 8, !tbaa !60
+  store i64 %16, ptr %11, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !58
+  %18 = load i64, ptr %17, align 8, !tbaa !45
   %19 = and i64 %18, 3
   %20 = or disjoint i64 %19, %10
-  store i64 %20, ptr %17, align 8, !tbaa !58
-  store i64 0, ptr %8, align 8, !tbaa !60
-  %21 = load i64, ptr %9, align 8, !tbaa !58
+  store i64 %20, ptr %17, align 8, !tbaa !45
+  store i64 0, ptr %8, align 8, !tbaa !47
+  %21 = load i64, ptr %9, align 8, !tbaa !45
   %22 = and i64 %21, 1
-  store i64 %22, ptr %9, align 8, !tbaa !58
+  store i64 %22, ptr %9, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = load ptr, ptr %23, align 8, !tbaa !61
+  %24 = load ptr, ptr %23, align 8, !tbaa !48
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
 
@@ -2628,7 +2628,7 @@ define internal void @textiowrapper_dealloc(ptr noundef initializes((96, 97)) %0
 26:                                               ; preds = %25, %6
   %27 = tail call i32 @textiowrapper_clear(ptr noundef nonnull %0)
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
+  %29 = load ptr, ptr %28, align 8, !tbaa !49
   tail call void %29(ptr noundef nonnull %0) #11
   %30 = load i32, ptr %.val, align 8, !tbaa !15
   %.not.i = icmp sgt i32 %30, -1
@@ -2661,7 +2661,7 @@ define internal ptr @textiowrapper_repr(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !57
+  %9 = load i32, ptr %8, align 8, !tbaa !44
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %13
 
@@ -2781,7 +2781,7 @@ Py_DECREF.exit28:                                 ; preds = %49, %53, %56
 61:                                               ; preds = %._crit_edge, %58
   %62 = phi ptr [ %.pre, %._crit_edge ], [ %59, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !63
+  %64 = load ptr, ptr %63, align 8, !tbaa !50
   %65 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.46, ptr noundef %62, ptr noundef %64) #11
   %66 = load ptr, ptr %4, align 8, !tbaa !13
   %67 = load i32, ptr %66, align 8, !tbaa !15
@@ -2851,7 +2851,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 7:                                                ; preds = %5, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
   %.not118 = icmp eq ptr %9, null
   br i1 %.not118, label %12, label %10
 
@@ -2862,7 +2862,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 12:                                               ; preds = %10, %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !63
+  %14 = load ptr, ptr %13, align 8, !tbaa !50
   %.not120 = icmp eq ptr %14, null
   br i1 %.not120, label %17, label %15
 
@@ -2873,7 +2873,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %15, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !65
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not122 = icmp eq ptr %19, null
   br i1 %.not122, label %22, label %20
 
@@ -2884,7 +2884,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 22:                                               ; preds = %20, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !66
+  %24 = load ptr, ptr %23, align 8, !tbaa !53
   %.not124 = icmp eq ptr %24, null
   br i1 %.not124, label %27, label %25
 
@@ -2895,7 +2895,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 27:                                               ; preds = %25, %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = load ptr, ptr %28, align 8, !tbaa !67
+  %29 = load ptr, ptr %28, align 8, !tbaa !54
   %.not126 = icmp eq ptr %29, null
   br i1 %.not126, label %32, label %30
 
@@ -2906,7 +2906,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 32:                                               ; preds = %30, %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !68
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
   %.not128 = icmp eq ptr %34, null
   br i1 %.not128, label %37, label %35
 
@@ -2917,7 +2917,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 37:                                               ; preds = %35, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %39 = load ptr, ptr %38, align 8, !tbaa !69
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
   %.not130 = icmp eq ptr %39, null
   br i1 %.not130, label %42, label %40
 
@@ -2928,7 +2928,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 42:                                               ; preds = %40, %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %44 = load ptr, ptr %43, align 8, !tbaa !70
+  %44 = load ptr, ptr %43, align 8, !tbaa !57
   %.not132 = icmp eq ptr %44, null
   br i1 %.not132, label %47, label %45
 
@@ -2939,7 +2939,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 47:                                               ; preds = %45, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !71
+  %49 = load ptr, ptr %48, align 8, !tbaa !58
   %.not134 = icmp eq ptr %49, null
   br i1 %.not134, label %52, label %50
 
@@ -2950,7 +2950,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 52:                                               ; preds = %50, %47
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %54 = load ptr, ptr %53, align 8, !tbaa !72
+  %54 = load ptr, ptr %53, align 8, !tbaa !59
   %.not136 = icmp eq ptr %54, null
   br i1 %.not136, label %57, label %55
 
@@ -2961,7 +2961,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 
 57:                                               ; preds = %55, %52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %59 = load ptr, ptr %58, align 8, !tbaa !73
+  %59 = load ptr, ptr %58, align 8, !tbaa !60
   %.not138 = icmp eq ptr %59, null
   br i1 %.not138, label %62, label %60
 
@@ -2981,7 +2981,7 @@ define internal i32 @textiowrapper_traverse(ptr noundef readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @textiowrapper_clear(ptr noundef captures(none) initializes((16, 20)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 8, !tbaa !57
+  store i32 0, ptr %2, align 8, !tbaa !44
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not = icmp eq ptr %4, null
@@ -3231,7 +3231,7 @@ Py_DECREF.exit:                                   ; preds = %90, %87, %85, %Py_D
 define internal ptr @textiowrapper_iternext(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -3242,7 +3242,7 @@ define internal ptr @textiowrapper_iternext(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !74
+  %10 = load i32, ptr %9, align 4, !tbaa !61
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
 
@@ -3253,11 +3253,11 @@ define internal ptr @textiowrapper_iternext(ptr noundef %0) #0 {
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  store i8 0, ptr %14, align 1, !tbaa !75
+  store i8 0, ptr %14, align 1, !tbaa !62
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = getelementptr i8, ptr %0, i64 8
   %.val38 = load ptr, ptr %19, align 8, !tbaa !16
   %.not43 = icmp eq ptr %.val38, %18
@@ -3350,8 +3350,8 @@ Py_DECREF.exit31:                                 ; preds = %41, %43, %46
 
 Py_DECREF.exit:                                   ; preds = %54, %51, %49, %Py_DECREF.exit31
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %56 = load i8, ptr %55, align 1, !tbaa !79
-  store i8 %56, ptr %14, align 1, !tbaa !75
+  %56 = load i8, ptr %55, align 1, !tbaa !66
+  store i8 %56, ptr %14, align 1, !tbaa !62
   br label %Py_DECREF.exit33
 
 Py_DECREF.exit33:                                 ; preds = %20, %35, %32, %26, %.thread40, %36, %Py_DECREF.exit, %11, %6
@@ -3368,13 +3368,13 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr i8, ptr %1, i64 16
-  %.val107 = load i64, ptr %9, align 8, !tbaa !80
+  %.val107 = load i64, ptr %9, align 8, !tbaa !67
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %.thread
 
 .thread:                                          ; preds = %3
   %10 = getelementptr i8, ptr %2, i64 16
-  %.val108 = load i64, ptr %10, align 8, !tbaa !81
+  %.val108 = load i64, ptr %10, align 8, !tbaa !68
   %11 = add i64 %.val108, %.val107
   %12 = add i64 %11, -1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3405,9 +3405,9 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
 .thread119:                                       ; preds = %.thread110
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %27, align 8, !tbaa !57
+  store i32 0, ptr %27, align 8, !tbaa !44
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %28, align 4, !tbaa !74
+  store i32 0, ptr %28, align 4, !tbaa !61
   br label %92
 
 29:                                               ; preds = %.thread110
@@ -3437,7 +3437,7 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
 
 41:                                               ; preds = %38
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #12
-  %43 = load i64, ptr %7, align 8, !tbaa !46
+  %43 = load i64, ptr %7, align 8, !tbaa !37
   %.not90 = icmp eq i64 %42, %43
   br i1 %.not90, label %46, label %44
 
@@ -3506,7 +3506,7 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
 
 67:                                               ; preds = %64
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #12
-  %69 = load i64, ptr %8, align 8, !tbaa !46
+  %69 = load i64, ptr %8, align 8, !tbaa !37
   %.not96 = icmp eq i64 %68, %69
   br i1 %.not96, label %72, label %70
 
@@ -3566,9 +3566,9 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
   %.057 = phi i32 [ %86, %83 ], [ 0, %82 ], [ 0, %74 ], [ 0, %53 ], [ 0, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %89, align 8, !tbaa !57
+  store i32 0, ptr %89, align 8, !tbaa !44
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %90, align 4, !tbaa !74
+  store i32 0, ptr %90, align 4, !tbaa !61
   %91 = icmp eq ptr %.064, null
   br i1 %91, label %92, label %.critedge.i
 
@@ -3579,12 +3579,12 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
   %.060130 = phi ptr [ null, %.thread119 ], [ %.060, %88 ]
   %.062128 = phi ptr [ @_Py_NoneStruct, %.thread119 ], [ %.062, %88 ]
   %94 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %95 = load ptr, ptr %94, align 8, !tbaa !85
+  %95 = load ptr, ptr %94, align 8, !tbaa !72
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !87
+  %97 = load ptr, ptr %96, align 8, !tbaa !74
   %98 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %97) #11
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 184
-  %100 = load i32, ptr %99, align 8, !tbaa !96
+  %100 = load i32, ptr %99, align 8, !tbaa !83
   %.not.i = icmp eq i32 %100, 0
   br i1 %.not.i, label %.critedge.i, label %101
 
@@ -3623,18 +3623,18 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper___init__(ptr noundef cap
 
 116:                                              ; preds = %107
   %117 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %118 = load ptr, ptr %117, align 8, !tbaa !85
+  %118 = load ptr, ptr %117, align 8, !tbaa !72
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !87
+  %120 = load ptr, ptr %119, align 8, !tbaa !74
   %121 = call ptr @_PyInterpreterState_GetConfig(ptr noundef %120) #11
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 12
-  %123 = load i32, ptr %122, align 4, !tbaa !101
+  %123 = load i32, ptr %122, align 4, !tbaa !88
   %.not.i232.i = icmp eq i32 %123, 0
   br i1 %.not.i232.i, label %io_check_errors.exit.thread.i, label %124
 
 124:                                              ; preds = %116
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 11600
-  %126 = load ptr, ptr %125, align 8, !tbaa !102
+  %126 = load ptr, ptr %125, align 8, !tbaa !89
   %.not9.i.i = icmp eq ptr %126, null
   br i1 %.not9.i.i, label %io_check_errors.exit.thread.i, label %127
 
@@ -3928,20 +3928,20 @@ Py_DECREF.exit195.i:                              ; preds = %228, %225, %223, %P
 
 Py_DECREF.exit193.i:                              ; preds = %236, %233, %231, %Py_DECREF.exit195.i
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %237, align 8, !tbaa !166
+  store i64 0, ptr %237, align 8, !tbaa !153
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 0, ptr %238, align 8, !tbaa !167
+  store i64 0, ptr %238, align 8, !tbaa !154
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %239, align 8, !tbaa !168
+  store ptr null, ptr %239, align 8, !tbaa !155
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 0.000000e+00, ptr %240, align 8, !tbaa !169
+  store double 0.000000e+00, ptr %240, align 8, !tbaa !156
   %241 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10460), align 4
   %242 = icmp ne i32 %241, 0
   %or.cond.i = select i1 %104, i1 %242, i1 false
   br i1 %or.cond.i, label %243, label %244
 
 243:                                              ; preds = %Py_DECREF.exit193.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35808), ptr %165, align 8, !tbaa !63
+  store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35808), ptr %165, align 8, !tbaa !50
   br label %.thread.i
 
 244:                                              ; preds = %Py_DECREF.exit193.i
@@ -3954,12 +3954,12 @@ Py_DECREF.exit193.i:                              ; preds = %236, %233, %231, %P
 
 248:                                              ; preds = %245, %244
   %249 = call ptr @_Py_GetLocaleEncodingObject() #11
-  store ptr %249, ptr %165, align 8, !tbaa !63
+  store ptr %249, ptr %165, align 8, !tbaa !50
   %250 = icmp eq ptr %249, null
   br i1 %250, label %_io_TextIOWrapper___init___impl.exit, label %.thread.i
 
 251:                                              ; preds = %245
-  %.pr.i = load ptr, ptr %165, align 8, !tbaa !63
+  %.pr.i = load ptr, ptr %165, align 8, !tbaa !50
   %.not176.i = icmp eq ptr %.pr.i, null
   br i1 %.not176.i, label %255, label %.thread.i
 
@@ -3971,7 +3971,7 @@ Py_DECREF.exit193.i:                              ; preds = %236, %233, %231, %P
 
 255:                                              ; preds = %251
   %256 = call ptr @PyUnicode_FromString(ptr noundef nonnull %.064125) #11
-  store ptr %256, ptr %165, align 8, !tbaa !63
+  store ptr %256, ptr %165, align 8, !tbaa !50
   %257 = icmp eq ptr %256, null
   br i1 %257, label %_io_TextIOWrapper___init___impl.exit, label %258
 
@@ -4013,15 +4013,15 @@ Py_DECREF.exit193.i:                              ; preds = %236, %233, %231, %P
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %272, %269
-  store ptr %.0133.i, ptr %221, align 8, !tbaa !71
+  store ptr %.0133.i, ptr %221, align 8, !tbaa !58
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 8192, ptr %274, align 8, !tbaa !170
+  store i64 8192, ptr %274, align 8, !tbaa !157
   %275 = trunc i32 %.058131 to i8
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %275, ptr %276, align 8, !tbaa !171
+  store i8 %275, ptr %276, align 8, !tbaa !158
   %277 = trunc i32 %.057133 to i8
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  store i8 %277, ptr %278, align 1, !tbaa !172
+  store i8 %277, ptr %278, align 1, !tbaa !159
   %279 = call fastcc i32 @set_newline(ptr noundef nonnull %0, ptr noundef %.060129)
   %280 = icmp slt i32 %279, 0
   br i1 %280, label %Py_DECREF.exit191.i, label %281
@@ -4037,14 +4037,14 @@ _Py_NewRef.exit.i:                                ; preds = %272, %269
   br label %_Py_NewRef.exit235.i
 
 _Py_NewRef.exit235.i:                             ; preds = %284, %281
-  store ptr %26, ptr %157, align 8, !tbaa !64
+  store ptr %26, ptr %157, align 8, !tbaa !51
   %286 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %286, align 8, !tbaa !16
   %287 = call ptr @PyType_GetModuleByDef(ptr noundef %.val.i, ptr noundef nonnull @_PyIO_Module) #11
   %288 = getelementptr i8, ptr %287, i64 32
-  %.val.i.i = load ptr, ptr %288, align 8, !tbaa !173
+  %.val.i.i = load ptr, ptr %288, align 8, !tbaa !160
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %.val.i.i, ptr %289, align 8, !tbaa !76
+  store ptr %.val.i.i, ptr %289, align 8, !tbaa !63
   %290 = call fastcc i32 @_textiowrapper_set_decoder(ptr noundef nonnull %0, ptr noundef %259, ptr noundef %138)
   %.not178.i = icmp eq i32 %290, 0
   br i1 %.not178.i, label %291, label %Py_DECREF.exit191.i
@@ -4071,7 +4071,7 @@ _Py_NewRef.exit235.i:                             ; preds = %284, %281
 
 Py_DECREF.exit189.i:                              ; preds = %298, %295, %293
   %299 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 64
-  %300 = load ptr, ptr %299, align 8, !tbaa !176
+  %300 = load ptr, ptr %299, align 8, !tbaa !163
   %301 = getelementptr i8, ptr %26, i64 8
   %.val231.i = load ptr, ptr %301, align 8, !tbaa !16
   %.not244.i = icmp eq ptr %.val231.i, %300
@@ -4079,13 +4079,13 @@ Py_DECREF.exit189.i:                              ; preds = %298, %295, %293
 
 302:                                              ; preds = %Py_DECREF.exit189.i
   %303 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 72
-  %304 = load ptr, ptr %303, align 8, !tbaa !177
+  %304 = load ptr, ptr %303, align 8, !tbaa !164
   %.not245.i = icmp eq ptr %.val231.i, %304
   br i1 %.not245.i, label %308, label %305
 
 305:                                              ; preds = %302
   %306 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 56
-  %307 = load ptr, ptr %306, align 8, !tbaa !178
+  %307 = load ptr, ptr %306, align 8, !tbaa !165
   %.not246.i = icmp eq ptr %.val231.i, %307
   br i1 %.not246.i, label %308, label %Py_DECREF.exit187.i
 
@@ -4101,14 +4101,14 @@ Py_DECREF.exit189.i:                              ; preds = %298, %295, %293
 
 313:                                              ; preds = %311
   %314 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 96
-  %315 = load ptr, ptr %314, align 8, !tbaa !179
+  %315 = load ptr, ptr %314, align 8, !tbaa !166
   %316 = getelementptr i8, ptr %312, i64 8
   %.val228.i = load ptr, ptr %316, align 8, !tbaa !16
   %.not247.i = icmp eq ptr %.val228.i, %315
   br i1 %.not247.i, label %317, label %318
 
 317:                                              ; preds = %313
-  store ptr %312, ptr %229, align 8, !tbaa !72
+  store ptr %312, ptr %229, align 8, !tbaa !59
   br label %Py_DECREF.exit187.i
 
 318:                                              ; preds = %313
@@ -4157,9 +4157,9 @@ Py_DECREF.exit.i:                                 ; preds = %332, %329, %326
 334:                                              ; preds = %Py_DECREF.exit.i
   %335 = trunc i32 %327 to i8
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  store i8 %335, ptr %336, align 1, !tbaa !75
+  store i8 %335, ptr %336, align 1, !tbaa !62
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  store i8 %335, ptr %337, align 1, !tbaa !79
+  store i8 %335, ptr %337, align 1, !tbaa !66
   %338 = call i32 @PyObject_HasAttrWithError(ptr noundef nonnull %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67752)) #11
   %339 = icmp slt i32 %338, 0
   br i1 %339, label %_io_TextIOWrapper___init___impl.exit, label %340
@@ -4167,15 +4167,15 @@ Py_DECREF.exit.i:                                 ; preds = %332, %329, %326
 340:                                              ; preds = %334
   %341 = trunc i32 %338 to i8
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  store i8 %341, ptr %342, align 2, !tbaa !180
+  store i8 %341, ptr %342, align 2, !tbaa !167
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %343, align 8, !tbaa !181
+  store i8 0, ptr %343, align 8, !tbaa !168
   %344 = call fastcc i32 @_textiowrapper_fix_encoder_state(ptr noundef nonnull %0)
   %345 = icmp slt i32 %344, 0
   br i1 %345, label %_io_TextIOWrapper___init___impl.exit, label %346
 
 346:                                              ; preds = %340
-  store i32 1, ptr %105, align 8, !tbaa !57
+  store i32 1, ptr %105, align 8, !tbaa !44
   br label %_io_TextIOWrapper___init___impl.exit
 
 Py_DECREF.exit191.i:                              ; preds = %291, %_Py_NewRef.exit235.i, %_Py_NewRef.exit.i
@@ -4215,7 +4215,7 @@ define internal noalias noundef ptr @_io__TextIOBase_detach(ptr readnone capture
 
 7:                                                ; preds = %6
   %8 = getelementptr i8, ptr %4, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !80
+  %.val = load i64, ptr %8, align 8, !tbaa !67
   %.not7 = icmp eq i64 %.val, 0
   br i1 %.not7, label %11, label %9
 
@@ -4226,11 +4226,11 @@ define internal noalias noundef ptr @_io__TextIOBase_detach(ptr readnone capture
 
 11:                                               ; preds = %7, %6
   %12 = getelementptr i8, ptr %1, i64 888
-  %.val8 = load ptr, ptr %12, align 8, !tbaa !182
+  %.val8 = load ptr, ptr %12, align 8, !tbaa !169
   %13 = getelementptr i8, ptr %.val8, i64 32
-  %.val8.val = load ptr, ptr %13, align 8, !tbaa !173
+  %.val8.val = load ptr, ptr %13, align 8, !tbaa !160
   %14 = getelementptr i8, ptr %.val8.val, i64 8
-  %.val8.val.val = load ptr, ptr %14, align 8, !tbaa !190
+  %.val8.val.val = load ptr, ptr %14, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val8.val.val, ptr noundef nonnull @.str.5) #11
   br label %15
 
@@ -4272,11 +4272,11 @@ define internal noalias noundef ptr @_io__TextIOBase_read(ptr readnone captures(
 
 20:                                               ; preds = %14, %18, %.thread
   %21 = getelementptr i8, ptr %1, i64 888
-  %.val = load ptr, ptr %21, align 8, !tbaa !182
+  %.val = load ptr, ptr %21, align 8, !tbaa !169
   %22 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %22, align 8, !tbaa !173
+  %.val.val = load ptr, ptr %22, align 8, !tbaa !160
   %23 = getelementptr i8, ptr %.val.val, i64 8
-  %.val.val.val = load ptr, ptr %23, align 8, !tbaa !190
+  %.val.val.val = load ptr, ptr %23, align 8, !tbaa !177
   call void @PyErr_SetString(ptr noundef %.val.val.val, ptr noundef nonnull @.str.6) #11
   br label %24
 
@@ -4319,11 +4319,11 @@ define internal noalias noundef ptr @_io__TextIOBase_readline(ptr readnone captu
 
 20:                                               ; preds = %14, %18, %.thread
   %21 = getelementptr i8, ptr %1, i64 888
-  %.val = load ptr, ptr %21, align 8, !tbaa !182
+  %.val = load ptr, ptr %21, align 8, !tbaa !169
   %22 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %22, align 8, !tbaa !173
+  %.val.val = load ptr, ptr %22, align 8, !tbaa !160
   %23 = getelementptr i8, ptr %.val.val, i64 8
-  %.val.val.val = load ptr, ptr %23, align 8, !tbaa !190
+  %.val.val.val = load ptr, ptr %23, align 8, !tbaa !177
   call void @PyErr_SetString(ptr noundef %.val.val.val, ptr noundef nonnull @.str.7) #11
   br label %24
 
@@ -4371,7 +4371,7 @@ define internal noalias noundef ptr @_io__TextIOBase_write(ptr readnone captures
 
 22:                                               ; preds = %19
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #12
-  %24 = load i64, ptr %7, align 8, !tbaa !46
+  %24 = load i64, ptr %7, align 8, !tbaa !37
   %.not26 = icmp eq i64 %23, %24
   br i1 %.not26, label %27, label %25
 
@@ -4382,11 +4382,11 @@ define internal noalias noundef ptr @_io__TextIOBase_write(ptr readnone captures
 
 27:                                               ; preds = %22
   %28 = getelementptr i8, ptr %1, i64 888
-  %.val28 = load ptr, ptr %28, align 8, !tbaa !182
+  %.val28 = load ptr, ptr %28, align 8, !tbaa !169
   %29 = getelementptr i8, ptr %.val28, i64 32
-  %.val28.val = load ptr, ptr %29, align 8, !tbaa !173
+  %.val28.val = load ptr, ptr %29, align 8, !tbaa !160
   %30 = getelementptr i8, ptr %.val28.val, i64 8
-  %.val28.val.val = load ptr, ptr %30, align 8, !tbaa !190
+  %.val28.val.val = load ptr, ptr %30, align 8, !tbaa !177
   call void @PyErr_SetString(ptr noundef %.val28.val.val, ptr noundef nonnull @.str.8) #11
   br label %31
 
@@ -4433,25 +4433,25 @@ define internal void @incrementalnewlinedecoder_dealloc(ptr noundef %0) #0 {
   %.val = load ptr, ptr %2, align 8, !tbaa !16
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = getelementptr i8, ptr %0, i64 -8
-  %.val.i = load i64, ptr %4, align 8, !tbaa !58
+  %.val.i = load i64, ptr %4, align 8, !tbaa !45
   %5 = and i64 %.val.i, -4
   %6 = inttoptr i64 %5 to ptr
-  %.val9.i = load i64, ptr %3, align 8, !tbaa !60
+  %.val9.i = load i64, ptr %3, align 8, !tbaa !47
   %7 = and i64 %.val9.i, -4
   %8 = inttoptr i64 %7 to ptr
-  %9 = load i64, ptr %6, align 8, !tbaa !60
+  %9 = load i64, ptr %6, align 8, !tbaa !47
   %10 = and i64 %9, 3
   %11 = or disjoint i64 %10, %7
-  store i64 %11, ptr %6, align 8, !tbaa !60
+  store i64 %11, ptr %6, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !58
+  %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = and i64 %13, 3
   %15 = or disjoint i64 %14, %5
-  store i64 %15, ptr %12, align 8, !tbaa !58
-  store i64 0, ptr %3, align 8, !tbaa !60
-  %16 = load i64, ptr %4, align 8, !tbaa !58
+  store i64 %15, ptr %12, align 8, !tbaa !45
+  store i64 0, ptr %3, align 8, !tbaa !47
+  %16 = load i64, ptr %4, align 8, !tbaa !45
   %17 = and i64 %16, 1
-  store i64 %17, ptr %4, align 8, !tbaa !58
+  store i64 %17, ptr %4, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %.not.i6 = icmp eq ptr %19, null
@@ -4497,7 +4497,7 @@ Py_DECREF.exit13.i:                               ; preds = %25, %22, %20, %1
 
 incrementalnewlinedecoder_clear.exit:             ; preds = %Py_DECREF.exit13.i, %28, %30, %33
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %35 = load ptr, ptr %34, align 8, !tbaa !62
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
   tail call void %35(ptr noundef nonnull %0) #11
   %36 = load i32, ptr %.val, align 8, !tbaa !15
   %.not.i = icmp sgt i32 %36, -1
@@ -4613,13 +4613,13 @@ define internal range(i32 -1, 1) i32 @_io_IncrementalNewlineDecoder___init__(ptr
   %4 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
-  %.val = load i64, ptr %5, align 8, !tbaa !80
+  %.val = load i64, ptr %5, align 8, !tbaa !67
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %.thread
 
 .thread:                                          ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 16
-  %.val35 = load i64, ptr %6, align 8, !tbaa !81
+  %.val35 = load i64, ptr %6, align 8, !tbaa !68
   %7 = add i64 %.val35, %.val
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
@@ -4747,7 +4747,7 @@ define internal ptr @_io_IncrementalNewlineDecoder_decode(ptr noundef captures(n
 
 .thread:                                          ; preds = %4
   %6 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %6, align 8, !tbaa !80
+  %.val = load i64, ptr %6, align 8, !tbaa !67
   %7 = add i64 %.val, %2
   br label %12
 
@@ -4895,13 +4895,13 @@ Py_INCREF.exit.i:                                 ; preds = %39, %.critedge.i
 46:                                               ; preds = %11
   %47 = tail call ptr @Py_GetConstant(i32 noundef 8) #11
   store ptr %47, ptr %4, align 8, !tbaa !13
-  store i64 0, ptr %5, align 8, !tbaa !191
+  store i64 0, ptr %5, align 8, !tbaa !178
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %46, %45, %42, %Py_INCREF.exit.i
-  %48 = load i64, ptr %5, align 8, !tbaa !191
+  %48 = load i64, ptr %5, align 8, !tbaa !178
   %49 = shl i64 %48, 1
-  store i64 %49, ptr %5, align 8, !tbaa !191
+  store i64 %49, ptr %5, align 8, !tbaa !178
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i8, ptr %50, align 8
   %52 = and i8 %51, 1
@@ -4910,7 +4910,7 @@ Py_DECREF.exit.i:                                 ; preds = %46, %45, %42, %Py_I
 
 53:                                               ; preds = %Py_DECREF.exit.i
   %54 = or disjoint i64 %49, 1
-  store i64 %54, ptr %5, align 8, !tbaa !191
+  store i64 %54, ptr %5, align 8, !tbaa !178
   br label %55
 
 55:                                               ; preds = %53, %Py_DECREF.exit.i
@@ -4962,7 +4962,7 @@ define internal ptr @_io_IncrementalNewlineDecoder_setstate(ptr noundef captures
   br i1 %.not8, label %32, label %18
 
 18:                                               ; preds = %16
-  %19 = load i64, ptr %4, align 8, !tbaa !191
+  %19 = load i64, ptr %4, align 8, !tbaa !178
   %20 = trunc i64 %19 to i8
   %21 = and i8 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4971,7 +4971,7 @@ define internal ptr @_io_IncrementalNewlineDecoder_setstate(ptr noundef captures
   %25 = or disjoint i8 %24, %21
   store i8 %25, ptr %22, align 8
   %26 = lshr i64 %19, 1
-  store i64 %26, ptr %4, align 8, !tbaa !191
+  store i64 %26, ptr %4, align 8, !tbaa !178
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !14
   %.not9 = icmp eq ptr %28, @_Py_NoneStruct
@@ -5148,9 +5148,9 @@ declare void @Py_ReprLeave(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @_textiowrapper_readline(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = getelementptr i8, ptr %0, i64 8
   %.val250 = load ptr, ptr %8, align 8, !tbaa !16
   %.not = icmp eq ptr %.val250, %7
@@ -5158,7 +5158,7 @@ define internal fastcc ptr @_textiowrapper_readline(ptr noundef %0, i64 noundef 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %11 = load ptr, ptr %10, align 8, !tbaa !72
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
   %.not205 = icmp eq ptr %11, null
   br i1 %.not205, label %14, label %12
 
@@ -5168,7 +5168,7 @@ define internal fastcc ptr @_textiowrapper_readline(ptr noundef %0, i64 noundef 
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !57
+  %16 = load i32, ptr %15, align 8, !tbaa !44
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %20
 
@@ -5179,7 +5179,7 @@ define internal fastcc ptr @_textiowrapper_readline(ptr noundef %0, i64 noundef 
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !74
+  %22 = load i32, ptr %21, align 4, !tbaa !61
   %.not.i251 = icmp eq i32 %22, 0
   br i1 %.not.i251, label %_io_TextIOWrapper_closed_get_impl.exit, label %23
 
@@ -5190,7 +5190,7 @@ define internal fastcc ptr @_textiowrapper_readline(ptr noundef %0, i64 noundef 
 
 _io_TextIOWrapper_closed_get_impl.exit:           ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = tail call ptr @PyObject_GetAttr(ptr noundef %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.critedge218, label %29
@@ -5249,11 +5249,11 @@ Py_DECREF.exit239:                                ; preds = %29, %32, %35
   %.0164 = phi ptr [ %.4168, %Py_DECREF.exit237 ], [ null, %.preheader ]
   %.0111 = phi i64 [ %.2113, %Py_DECREF.exit237 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 0, ptr %3, align 8, !tbaa !46
+  store i64 0, ptr %3, align 8, !tbaa !37
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %53
-  %54 = load ptr, ptr %47, align 8, !tbaa !68
+  %54 = load ptr, ptr %47, align 8, !tbaa !55
   %.not206 = icmp eq ptr %54, null
   br i1 %.not206, label %.critedge, label %55
 
@@ -5274,7 +5274,7 @@ Py_DECREF.exit239:                                ; preds = %29, %32, %35
   br i1 %.not212, label %Py_DECREF.exit237.thread291, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %59, %61
-  br label %.backedge, !llvm.loop !192
+  br label %.backedge, !llvm.loop !179
 
 61:                                               ; preds = %.critedge
   %62 = icmp eq i32 %57, 0
@@ -5302,7 +5302,7 @@ Py_DECREF.exit239:                                ; preds = %29, %32, %35
   br label %textiowrapper_set_decoded_chars.exit
 
 textiowrapper_set_decoded_chars.exit:             ; preds = %.critedge220, %64, %66, %69
-  store i64 0, ptr %48, align 8, !tbaa !166
+  store i64 0, ptr %48, align 8, !tbaa !153
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %71 = load ptr, ptr %70, align 8, !tbaa !13
   %.not211 = icmp eq ptr %71, null
@@ -5339,7 +5339,7 @@ textiowrapper_set_decoded_chars.exit:             ; preds = %.critedge220, %64, 
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %80, %83
-  %85 = load i64, ptr %48, align 8, !tbaa !166
+  %85 = load i64, ptr %48, align 8, !tbaa !153
   br label %95
 
 86:                                               ; preds = %78
@@ -5392,11 +5392,11 @@ _PyUnicode_DATA.exit:                             ; preds = %98, %100
   %.2162.val = load i64, ptr %102, align 8, !tbaa !27
   %103 = and i16 %.val.i, 7
   %104 = zext nneg i16 %103 to i32
-  %105 = load i8, ptr %49, align 1, !tbaa !193
+  %105 = load i8, ptr %49, align 1, !tbaa !180
   %106 = sext i8 %105 to i32
-  %107 = load i8, ptr %50, align 2, !tbaa !194
+  %107 = load i8, ptr %50, align 2, !tbaa !181
   %108 = sext i8 %107 to i32
-  %109 = load ptr, ptr %51, align 8, !tbaa !67
+  %109 = load ptr, ptr %51, align 8, !tbaa !54
   %110 = zext nneg i16 %103 to i64
   %111 = mul i64 %.2, %110
   %112 = getelementptr i8, ptr %.0.i254, i64 %111
@@ -5415,7 +5415,7 @@ _PyUnicode_DATA.exit:                             ; preds = %98, %100
   br label %170
 
 120:                                              ; preds = %_PyUnicode_DATA.exit
-  %121 = load i64, ptr %3, align 8, !tbaa !46
+  %121 = load i64, ptr %3, align 8, !tbaa !37
   %122 = add i64 %121, %.2
   %123 = add i64 %121, %.0111
   %.not208 = icmp slt i64 %123, %1
@@ -5539,7 +5539,7 @@ Py_DECREF.exit237.thread291:                      ; preds = %Py_DECREF.exit235, 
   br label %215
 
 Py_DECREF.exit237:                                ; preds = %169, %166, %164, %Py_DECREF.exit229
-  store i64 0, ptr %48, align 8, !tbaa !166
+  store i64 0, ptr %48, align 8, !tbaa !153
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
@@ -5548,7 +5548,7 @@ Py_DECREF.exit237:                                ; preds = %169, %166, %164, %P
   %.1109.ph = add i64 %.pn, %.2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %171 = sub i64 %.1109.ph, %.2116
-  store i64 %171, ptr %48, align 8, !tbaa !166
+  store i64 %171, ptr %48, align 8, !tbaa !153
   %172 = icmp sgt i64 %.2, 0
   br i1 %172, label %176, label %173
 
@@ -5753,7 +5753,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_writeflush(ptr nound
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = icmp eq ptr %6, null
   br i1 %7, label %Py_DECREF.exit60, label %8
 
@@ -5810,7 +5810,7 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = load i64, ptr %30, align 8, !tbaa !167
+  %31 = load i64, ptr %30, align 8, !tbaa !154
   %32 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %31) #11
   %33 = icmp eq ptr %32, null
   br i1 %33, label %Py_DECREF.exit60, label %34
@@ -5818,7 +5818,7 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 34:                                               ; preds = %29
   %35 = tail call ptr @PyBytes_AsString(ptr noundef nonnull %32) #11
   %36 = getelementptr i8, ptr %6, i64 16
-  %.val7687 = load i64, ptr %36, align 8, !tbaa !80
+  %.val7687 = load i64, ptr %36, align 8, !tbaa !67
   %.not5088 = icmp sgt i64 %.val7687, 0
   br i1 %.not5088, label %.lr.ph, label %.critedge55
 
@@ -5829,7 +5829,7 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 38:                                               ; preds = %.lr.ph, %61
   %.03990 = phi i64 [ 0, %.lr.ph ], [ %66, %61 ]
   %.04089 = phi i64 [ 0, %.lr.ph ], [ %65, %61 ]
-  %39 = load ptr, ptr %37, align 8, !tbaa !195
+  %39 = load ptr, ptr %37, align 8, !tbaa !182
   %40 = getelementptr ptr, ptr %39, i64 %.03990
   %41 = load ptr, ptr %40, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5863,10 +5863,10 @@ _PyUnicode_DATA.exit:                             ; preds = %22, %24
 
 _PyUnicode_DATA.exit85:                           ; preds = %48, %50
   %.0.i83 = phi ptr [ %.0.i.i82, %48 ], [ %.val4.i84, %50 ]
-  store ptr %.0.i83, ptr %3, align 8, !tbaa !197
+  store ptr %.0.i83, ptr %3, align 8, !tbaa !184
   %52 = getelementptr i8, ptr %41, i64 16
   %.val74 = load i64, ptr %52, align 8, !tbaa !27
-  store i64 %.val74, ptr %4, align 8, !tbaa !46
+  store i64 %.val74, ptr %4, align 8, !tbaa !37
   br label %61
 
 53:                                               ; preds = %38
@@ -5875,8 +5875,8 @@ _PyUnicode_DATA.exit85:                           ; preds = %48, %50
   br i1 %55, label %.critedge53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53
-  %.pre = load ptr, ptr %3, align 8, !tbaa !197
-  %.pre92 = load i64, ptr %4, align 8, !tbaa !46
+  %.pre = load ptr, ptr %3, align 8, !tbaa !184
+  %.pre92 = load i64, ptr %4, align 8, !tbaa !37
   br label %61
 
 .critedge53:                                      ; preds = %53
@@ -5908,9 +5908,9 @@ Py_DECREF.exit64:                                 ; preds = %.critedge53, %57, %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = add nuw nsw i64 %.03990, 1
-  %.val76 = load i64, ptr %36, align 8, !tbaa !80
+  %.val76 = load i64, ptr %36, align 8, !tbaa !67
   %.not50 = icmp slt i64 %66, %.val76
-  br i1 %.not50, label %38, label %.critedge55, !llvm.loop !198
+  br i1 %.not50, label %38, label %.critedge55, !llvm.loop !185
 
 .critedge55:                                      ; preds = %61, %34, %15, %12, %_PyUnicode_DATA.exit
   %.038 = phi ptr [ %27, %_PyUnicode_DATA.exit ], [ %6, %12 ], [ %6, %15 ], [ %32, %34 ], [ %32, %61 ]
@@ -5935,7 +5935,7 @@ Py_DECREF.exit62:                                 ; preds = %.critedge55, %68, %
   br label %74
 
 74:                                               ; preds = %78, %Py_DECREF.exit62
-  %75 = load ptr, ptr %72, align 8, !tbaa !64
+  %75 = load ptr, ptr %72, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %75, ptr %2, align 16, !tbaa !13
   store ptr %.038, ptr %73, align 8, !tbaa !13
@@ -5947,7 +5947,7 @@ Py_DECREF.exit62:                                 ; preds = %.critedge55, %68, %
 78:                                               ; preds = %74
   %79 = call i32 @_PyIO_trap_eintr() #11
   %.not51 = icmp eq i32 %79, 0
-  br i1 %.not51, label %.critedge, label %74, !llvm.loop !199
+  br i1 %.not51, label %.critedge, label %74, !llvm.loop !186
 
 .critedge:                                        ; preds = %78
   %80 = load i32, ptr %.038, align 8, !tbaa !15
@@ -6013,21 +6013,21 @@ define internal fastcc range(i32 -1, 2) i32 @textiowrapper_read_chunk(ptr nounde
   store ptr null, ptr %6, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %14 = load ptr, ptr %13, align 8, !tbaa !76
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %15 = getelementptr i8, ptr %14, i64 8
-  %.val105 = load ptr, ptr %15, align 8, !tbaa !190
+  %.val105 = load ptr, ptr %15, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val105, ptr noundef nonnull @.str.50) #11
   br label %Py_DECREF.exit92
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  %18 = load i8, ptr %17, align 1, !tbaa !75
+  %18 = load i8, ptr %17, align 1, !tbaa !62
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %Py_DECREF.exit86, label %19
 
@@ -6156,7 +6156,7 @@ Py_DECREF.exit86:                                 ; preds = %69, %66, %Py_INCREF
 
 70:                                               ; preds = %Py_DECREF.exit86
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %72 = load double, ptr %71, align 8, !tbaa !169
+  %72 = load double, ptr %71, align 8, !tbaa !156
   %73 = fcmp ogt double %72, 1.000000e+00
   %74 = select i1 %73, double %72, double 1.000000e+00
   %75 = uitofp nneg i64 %1 to double
@@ -6167,7 +6167,7 @@ Py_DECREF.exit86:                                 ; preds = %69, %66, %Py_INCREF
 78:                                               ; preds = %70, %Py_DECREF.exit86
   %.056 = phi i64 [ %77, %70 ], [ 0, %Py_DECREF.exit86 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load i64, ptr %79, align 8, !tbaa !170
+  %80 = load i64, ptr %79, align 8, !tbaa !157
   %..056 = call i64 @llvm.smax.i64(i64 %80, i64 %.056)
   %81 = call ptr @PyLong_FromSsize_t(i64 noundef %..056) #11
   %82 = icmp eq ptr %81, null
@@ -6175,9 +6175,9 @@ Py_DECREF.exit86:                                 ; preds = %69, %66, %Py_INCREF
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %85 = load ptr, ptr %84, align 8, !tbaa !64
+  %85 = load ptr, ptr %84, align 8, !tbaa !51
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  %87 = load i8, ptr %86, align 2, !tbaa !180
+  %87 = load i8, ptr %86, align 2, !tbaa !167
   %.not78 = icmp eq i8 %87, 0
   %88 = select i1 %.not78, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67704), ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67752)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6211,7 +6211,7 @@ Py_DECREF.exit84:                                 ; preds = %83, %92, %95
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !13
-  %101 = load i8, ptr %86, align 2, !tbaa !180
+  %101 = load i8, ptr %86, align 2, !tbaa !167
   %.not81 = icmp eq i8 %101, 0
   %102 = select i1 %.not81, ptr @.str.6, ptr @.str.54
   %103 = getelementptr i8, ptr %90, i64 8
@@ -6223,14 +6223,14 @@ Py_DECREF.exit84:                                 ; preds = %83, %92, %95
 
 107:                                              ; preds = %97
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %109 = load i64, ptr %108, align 8, !tbaa !200
+  %109 = load i64, ptr %108, align 8, !tbaa !187
   %110 = icmp eq i64 %109, 0
   %111 = zext i1 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %113 = load ptr, ptr %112, align 8, !tbaa !76
-  %114 = load ptr, ptr %9, align 8, !tbaa !66
+  %113 = load ptr, ptr %112, align 8, !tbaa !63
+  %114 = load ptr, ptr %9, align 8, !tbaa !53
   %115 = getelementptr i8, ptr %113, i64 24
-  %.val106 = load ptr, ptr %115, align 8, !tbaa !203
+  %.val106 = load ptr, ptr %115, align 8, !tbaa !190
   %116 = getelementptr i8, ptr %114, i64 8
   %.val.i = load ptr, ptr %116, align 8, !tbaa !16
   %.not.i107 = icmp eq ptr %.val.i, %.val106
@@ -6307,7 +6307,7 @@ _textiowrapper_decode.exit.thread:                ; preds = %122, %128, %134, %1
 
 textiowrapper_set_decoded_chars.exit:             ; preds = %138, %141, %143, %146
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %147, align 8, !tbaa !166
+  store i64 0, ptr %147, align 8, !tbaa !153
   %148 = getelementptr i8, ptr %.0.i, i64 16
   %.val104 = load i64, ptr %148, align 8, !tbaa !27
   %149 = icmp sgt i64 %.val104, 0
@@ -6318,8 +6318,8 @@ textiowrapper_set_decoded_chars.exit:             ; preds = %138, %141, %143, %1
   %.sink = select i1 %149, double %152, double 0.000000e+00
   %spec.select = select i1 %149, i32 1, i32 %153
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double %.sink, ptr %154, align 8, !tbaa !169
-  %155 = load i8, ptr %17, align 1, !tbaa !75
+  store double %.sink, ptr %154, align 8, !tbaa !156
+  %155 = load i8, ptr %17, align 1, !tbaa !62
   %.not80 = icmp eq i8 %155, 0
   br i1 %.not80, label %168, label %156
 
@@ -6465,7 +6465,7 @@ define internal fastcc void @textiowrapper_set_decoded_chars(ptr noundef capture
 
 Py_XDECREF.exit:                                  ; preds = %2, %5, %7, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %11, align 8, !tbaa !166
+  store i64 0, ptr %11, align 8, !tbaa !153
   ret void
 }
 
@@ -6496,7 +6496,7 @@ declare void @PyBytes_Concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_TextIOWrapper_detach(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -6507,7 +6507,7 @@ define internal ptr @_io_TextIOWrapper_detach(ptr noundef %0, ptr readnone captu
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !74
+  %10 = load i32, ptr %9, align 4, !tbaa !61
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -6523,9 +6523,9 @@ define internal ptr @_io_TextIOWrapper_detach(ptr noundef %0, ptr readnone captu
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !64
-  store ptr null, ptr %17, align 8, !tbaa !64
-  store i32 1, ptr %9, align 4, !tbaa !74
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
+  store ptr null, ptr %17, align 8, !tbaa !51
+  store i32 1, ptr %9, align 4, !tbaa !61
   br label %_io_TextIOWrapper_detach_impl.exit
 
 _io_TextIOWrapper_detach_impl.exit:               ; preds = %6, %11, %13, %16
@@ -6542,7 +6542,7 @@ define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %0, ptr n
 
 .thread:                                          ; preds = %4
   %6 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %6, align 8, !tbaa !80
+  %.val = load i64, ptr %6, align 8, !tbaa !67
   %7 = add i64 %.val, %2
   br label %11
 
@@ -6684,7 +6684,7 @@ define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %0, ptr n
 
 67:                                               ; preds = %58
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %69 = load ptr, ptr %68, align 8, !tbaa !68
+  %69 = load ptr, ptr %68, align 8, !tbaa !55
   %.not55.not.i = icmp eq ptr %69, null
   br i1 %.not55.not.i, label %79, label %75
 
@@ -6697,7 +6697,7 @@ define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %0, ptr n
   %.0427893102 = phi ptr [ %.042, %55 ], [ @_Py_NoneStruct, %.thread70 ], [ @_Py_NoneStruct, %8 ]
   %72 = phi i1 [ %.not110, %55 ], [ false, %.thread70 ], [ false, %8 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %74 = load ptr, ptr %73, align 8, !tbaa !68
+  %74 = load ptr, ptr %73, align 8, !tbaa !55
   %.not5574.i = icmp ne ptr %74, null
   %or.cond375.i = or i1 %71, %72
   %or.cond576.i = or i1 %70, %or.cond375.i
@@ -6706,9 +6706,9 @@ define internal noundef ptr @_io_TextIOWrapper_reconfigure(ptr noundef %0, ptr n
 
 75:                                               ; preds = %.thread.i, %67
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %77 = load ptr, ptr %76, align 8, !tbaa !76
+  %77 = load ptr, ptr %76, align 8, !tbaa !63
   %78 = getelementptr i8, ptr %77, i64 8
-  %.val65.i = load ptr, ptr %78, align 8, !tbaa !190
+  %.val65.i = load ptr, ptr %78, align 8, !tbaa !177
   call void @PyErr_SetString(ptr noundef %.val65.i, ptr noundef nonnull @.str.76) #11
   br label %_io_TextIOWrapper_reconfigure_impl.exit
 
@@ -6764,7 +6764,7 @@ validate_newline.exit.i:                          ; preds = %91, %88, %84, %82
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %.thread78.i
-  %103 = load i8, ptr %100, align 8, !tbaa !171
+  %103 = load i8, ptr %100, align 8, !tbaa !158
   %104 = sext i8 %103 to i64
   br label %convert_optional_bool.exit.i
 
@@ -6791,7 +6791,7 @@ convert_optional_bool.exit.thread81.i:            ; preds = %convert_optional_bo
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %convert_optional_bool.exit.thread81.i
-  %116 = load i8, ptr %113, align 1, !tbaa !172
+  %116 = load i8, ptr %113, align 1, !tbaa !159
   %117 = sext i8 %116 to i64
   br label %convert_optional_bool.exit71.i
 
@@ -6819,7 +6819,7 @@ convert_optional_bool.exit71.thread84.i:          ; preds = %convert_optional_bo
 
 128:                                              ; preds = %convert_optional_bool.exit71.thread84.i
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 0.000000e+00, ptr %129, align 8, !tbaa !169
+  store double 0.000000e+00, ptr %129, align 8, !tbaa !156
   br i1 %97, label %130, label %133
 
 130:                                              ; preds = %128
@@ -6836,12 +6836,12 @@ convert_optional_bool.exit71.thread84.i:          ; preds = %convert_optional_bo
 
 134:                                              ; preds = %.thread86.i
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %136 = load ptr, ptr %135, align 8, !tbaa !63
+  %136 = load ptr, ptr %135, align 8, !tbaa !50
   br i1 %99, label %140, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %139 = load ptr, ptr %138, align 8, !tbaa !71
+  %139 = load ptr, ptr %138, align 8, !tbaa !58
   br label %140
 
 140:                                              ; preds = %137, %134
@@ -7109,8 +7109,8 @@ textiowrapper_change_encoding.exit.i:             ; preds = %239, %236, %Py_DECR
   br i1 %241, label %_io_TextIOWrapper_reconfigure_impl.exit, label %textiowrapper_change_encoding.exit.thread89.i
 
 textiowrapper_change_encoding.exit.thread89.i:    ; preds = %textiowrapper_change_encoding.exit.i, %133
-  store i8 %112, ptr %100, align 8, !tbaa !171
-  store i8 %125, ptr %113, align 1, !tbaa !172
+  store i8 %112, ptr %100, align 8, !tbaa !158
+  store i8 %125, ptr %113, align 1, !tbaa !159
   br label %_io_TextIOWrapper_reconfigure_impl.exit
 
 _io_TextIOWrapper_reconfigure_impl.exit:          ; preds = %textiowrapper_change_encoding.exit.thread89.i, %textiowrapper_change_encoding.exit.i, %219, %216, %Py_DECREF.exit70.i.i, %199, %196, %Py_DECREF.exit76.i.i, %185, %182, %Py_DECREF.exit80.i.i, %171, %168, %Py_DECREF.exit84.i.i, %147, %130, %convert_optional_bool.exit71.thread84.i, %121, %108, %validate_newline.exit.i, %79, %75, %62, %50, %40, %11
@@ -7137,7 +7137,7 @@ define internal ptr @_io_TextIOWrapper_write(ptr noundef %0, ptr noundef %1) #0 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !57
+  %11 = load i32, ptr %10, align 8, !tbaa !44
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %13, label %15
 
@@ -7148,7 +7148,7 @@ define internal ptr @_io_TextIOWrapper_write(ptr noundef %0, ptr noundef %1) #0 
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !74
+  %17 = load i32, ptr %16, align 4, !tbaa !61
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %20, label %18
 
@@ -7159,9 +7159,9 @@ define internal ptr @_io_TextIOWrapper_write(ptr noundef %0, ptr noundef %1) #0 
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %22 = load ptr, ptr %21, align 8, !tbaa !76
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
-  %24 = load ptr, ptr %23, align 8, !tbaa !77
+  %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = getelementptr i8, ptr %0, i64 8
   %.val190.i = load ptr, ptr %25, align 8, !tbaa !16
   %.not217.i = icmp eq ptr %.val190.i, %24
@@ -7169,7 +7169,7 @@ define internal ptr @_io_TextIOWrapper_write(ptr noundef %0, ptr noundef %1) #0 
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %28 = load ptr, ptr %27, align 8, !tbaa !59
   %.not131.i = icmp eq ptr %28, null
   br i1 %.not131.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %29
 
@@ -7179,7 +7179,7 @@ define internal ptr @_io_TextIOWrapper_write(ptr noundef %0, ptr noundef %1) #0 
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !64
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   %33 = tail call ptr @PyObject_GetAttr(ptr noundef %32, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %34 = icmp eq ptr %33, null
   br i1 %34, label %_io_TextIOWrapper_write_impl.exit, label %35
@@ -7221,14 +7221,14 @@ Py_DECREF.exit173.i:                              ; preds = %41, %38, %35
 
 50:                                               ; preds = %47, %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %52 = load ptr, ptr %51, align 8, !tbaa !65
+  %52 = load ptr, ptr %51, align 8, !tbaa !52
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50
-  %55 = load ptr, ptr %21, align 8, !tbaa !76
+  %55 = load ptr, ptr %21, align 8, !tbaa !63
   %56 = getelementptr i8, ptr %55, i64 8
-  %.val191.i = load ptr, ptr %56, align 8, !tbaa !190
+  %.val191.i = load ptr, ptr %56, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val191.i, ptr noundef nonnull @.str.90) #11
   br label %_io_TextIOWrapper_write_impl.exit
 
@@ -7246,19 +7246,19 @@ Py_INCREF.exit.i:                                 ; preds = %60, %57
   %62 = getelementptr i8, ptr %1, i64 16
   %.val187.i = load i64, ptr %62, align 8, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %64 = load i8, ptr %63, align 4, !tbaa !204
+  %64 = load i8, ptr %63, align 4, !tbaa !191
   %.not132.i = icmp eq i8 %64, 0
   br i1 %.not132.i, label %68, label %65
 
 65:                                               ; preds = %Py_INCREF.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %67 = load ptr, ptr %66, align 8, !tbaa !205
+  %67 = load ptr, ptr %66, align 8, !tbaa !192
   %.not133.i = icmp eq ptr %67, null
   br i1 %.not133.i, label %68, label %71
 
 68:                                               ; preds = %65, %Py_INCREF.exit.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %70 = load i8, ptr %69, align 8, !tbaa !171
+  %70 = load i8, ptr %69, align 8, !tbaa !158
   %.not134.i = icmp eq i8 %70, 0
   br i1 %.not134.i, label %.thread198.i, label %71
 
@@ -7268,13 +7268,13 @@ Py_INCREF.exit.i:                                 ; preds = %60, %57
   br i1 %.not135.not.i, label %89, label %73
 
 73:                                               ; preds = %71
-  %74 = load i8, ptr %63, align 4, !tbaa !204
+  %74 = load i8, ptr %63, align 4, !tbaa !191
   %.not137.i = icmp eq i8 %74, 0
   br i1 %.not137.i, label %.thread.i, label %75
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %77 = load ptr, ptr %76, align 8, !tbaa !205
+  %77 = load ptr, ptr %76, align 8, !tbaa !192
   %.not138.i = icmp eq ptr %77, null
   br i1 %.not138.i, label %.thread.i, label %78
 
@@ -7301,23 +7301,23 @@ Py_DECREF.exit171.i:                              ; preds = %84, %81, %78
 .thread.i:                                        ; preds = %Py_DECREF.exit171.i, %75, %73
   %.0108.ph.i = phi ptr [ %1, %73 ], [ %1, %75 ], [ %79, %Py_DECREF.exit171.i ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %86 = load i8, ptr %85, align 1, !tbaa !172
+  %86 = load i8, ptr %85, align 1, !tbaa !159
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %88 = load i8, ptr %87, align 8, !tbaa !171
+  %88 = load i8, ptr %87, align 8, !tbaa !158
   %.not141224.i = icmp ne i8 %88, 0
   br label %97
 
 89:                                               ; preds = %71
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %91 = load i8, ptr %90, align 1, !tbaa !172
+  %91 = load i8, ptr %90, align 1, !tbaa !159
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %93 = load i8, ptr %92, align 8, !tbaa !171
+  %93 = load i8, ptr %92, align 8, !tbaa !158
   %.not141.not.i = icmp eq i8 %93, 0
   br i1 %.not141.not.i, label %97, label %.thread208.i
 
 .thread198.i:                                     ; preds = %68
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %95 = load i8, ptr %94, align 1, !tbaa !172
+  %95 = load i8, ptr %94, align 1, !tbaa !159
   br label %97
 
 .thread208.i:                                     ; preds = %89
@@ -7332,7 +7332,7 @@ Py_DECREF.exit171.i:                              ; preds = %84, %81, %78
   %98 = phi i1 [ false, %89 ], [ false, %.thread198.i ], [ %.not142.i, %.thread208.i ], [ %.not141224.i, %.thread.i ]
   %.not140207.i = icmp ne i8 %.not140207.in.i, 0
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %100 = load ptr, ptr %99, align 8, !tbaa !168
+  %100 = load ptr, ptr %99, align 8, !tbaa !155
   %.not143.i = icmp eq ptr %100, null
   br i1 %.not143.i, label %120, label %101
 
@@ -7347,7 +7347,7 @@ Py_DECREF.exit171.i:                              ; preds = %84, %81, %78
   %105 = getelementptr i8, ptr %.0108205.i, i64 16
   %.0108.val.i = load i64, ptr %105, align 8, !tbaa !27
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %107 = load i64, ptr %106, align 8, !tbaa !170
+  %107 = load i64, ptr %106, align 8, !tbaa !157
   %.not145.i = icmp sgt i64 %.0108.val.i, %107
   br i1 %.not145.i, label %117, label %108
 
@@ -7376,11 +7376,11 @@ Py_DECREF.exit171.i:                              ; preds = %84, %81, %78
 _Py_NewRef.exit.i:                                ; preds = %117, %115, %112
   %.0110.i = phi ptr [ %118, %117 ], [ %.0108205.i, %112 ], [ %.0108205.i, %115 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %119, align 8, !tbaa !181
+  store i8 0, ptr %119, align 8, !tbaa !168
   br label %124
 
 120:                                              ; preds = %97
-  %121 = load ptr, ptr %51, align 8, !tbaa !65
+  %121 = load ptr, ptr %51, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %121, ptr %4, align 16, !tbaa !13
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7443,22 +7443,22 @@ Py_DECREF.exit169.i:                              ; preds = %129, %126, %124
 
 146:                                              ; preds = %132, %131
   %.0112.in.i = getelementptr i8, ptr %.1111.i, i64 16
-  %.0112.i = load i64, ptr %.0112.in.i, align 8, !tbaa !46
+  %.0112.i = load i64, ptr %.0112.in.i, align 8, !tbaa !37
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %148 = load i64, ptr %147, align 8, !tbaa !170
+  %148 = load i64, ptr %147, align 8, !tbaa !157
   %.not149.i = icmp slt i64 %.0112.i, %148
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   br i1 %.not149.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %146, %150
-  %149 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !69
+  %149 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   %.not150.i = icmp eq ptr %149, null
   br i1 %.not150.i, label %.loopexit.thread.i, label %150
 
 150:                                              ; preds = %.preheader.i
   %151 = call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %0)
   %152 = icmp slt i32 %151, 0
-  br i1 %152, label %153, label %.preheader.i, !llvm.loop !206
+  br i1 %152, label %153, label %.preheader.i, !llvm.loop !193
 
 153:                                              ; preds = %150
   %154 = load i32, ptr %.1111.i, align 8, !tbaa !15
@@ -7476,12 +7476,12 @@ Py_DECREF.exit169.i:                              ; preds = %129, %126, %124
   br label %_io_TextIOWrapper_write_impl.exit
 
 .loopexit.i:                                      ; preds = %146
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !69
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   %159 = icmp eq ptr %.pre.i, null
   br i1 %159, label %.loopexit.thread.i, label %160
 
 .loopexit.thread.i:                               ; preds = %.preheader.i, %.loopexit.i
-  store ptr %.1111.i, ptr %.phi.trans.insert.i, align 8, !tbaa !69
+  store ptr %.1111.i, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   br label %Py_DECREF.exit159.i
 
 160:                                              ; preds = %.loopexit.i
@@ -7511,13 +7511,13 @@ Py_DECREF.exit169.i:                              ; preds = %129, %126, %124
   br label %_io_TextIOWrapper_write_impl.exit
 
 Py_DECREF.exit163.i:                              ; preds = %162
-  %170 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !69
+  %170 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   %171 = getelementptr i8, ptr %163, i64 24
-  %.val193.i = load ptr, ptr %171, align 8, !tbaa !195
+  %.val193.i = load ptr, ptr %171, align 8, !tbaa !182
   store ptr %170, ptr %.val193.i, align 8, !tbaa !13
   %172 = getelementptr i8, ptr %.val193.i, i64 8
   store ptr %.1111.i, ptr %172, align 8, !tbaa !13
-  store ptr %163, ptr %.phi.trans.insert.i, align 8, !tbaa !69
+  store ptr %163, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   br label %Py_DECREF.exit159.i
 
 173:                                              ; preds = %160
@@ -7555,10 +7555,10 @@ Py_DECREF.exit163.i:                              ; preds = %162
 
 Py_DECREF.exit159.i:                              ; preds = %186, %183, %182, %Py_DECREF.exit163.i, %.loopexit.thread.i
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %188 = load i64, ptr %187, align 8, !tbaa !167
+  %188 = load i64, ptr %187, align 8, !tbaa !154
   %189 = add i64 %188, %.0112.i
-  store i64 %189, ptr %187, align 8, !tbaa !167
-  %190 = load i64, ptr %147, align 8, !tbaa !170
+  store i64 %189, ptr %187, align 8, !tbaa !154
+  %190 = load i64, ptr %147, align 8, !tbaa !157
   %191 = icmp sge i64 %189, %190
   %192 = or i1 %.not140207.i, %191
   %or.cond5.i = or i1 %98, %192
@@ -7574,14 +7574,14 @@ Py_DECREF.exit159.i:                              ; preds = %186, %183, %182, %P
 
 197:                                              ; preds = %196
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %199 = load ptr, ptr %198, align 8, !tbaa !64
+  %199 = load ptr, ptr %198, align 8, !tbaa !51
   %200 = call i32 @_PyFile_Flush(ptr noundef %199) #11
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %_io_TextIOWrapper_write_impl.exit, label %202
 
 202:                                              ; preds = %197, %196
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %204 = load ptr, ptr %203, align 8, !tbaa !70
+  %204 = load ptr, ptr %203, align 8, !tbaa !57
   %.not153.i = icmp eq ptr %204, null
   br i1 %.not153.i, label %Py_DECREF.exit157.i, label %205
 
@@ -7609,7 +7609,7 @@ Py_DECREF.exit159.i:                              ; preds = %186, %183, %182, %P
 
 Py_DECREF.exit157.i:                              ; preds = %212, %209, %207, %205, %202
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %214 = load ptr, ptr %213, align 8, !tbaa !66
+  %214 = load ptr, ptr %213, align 8, !tbaa !53
   %.not155.i = icmp eq ptr %214, null
   br i1 %.not155.i, label %Py_DECREF.exit.i, label %215
 
@@ -7651,7 +7651,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 -1, ptr %6, align 8, !tbaa !46
+  store i64 -1, ptr %6, align 8, !tbaa !37
   %or.cond = icmp ult i64 %2, 2
   br i1 %or.cond, label %9, label %7
 
@@ -7671,7 +7671,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
   br i1 %.not7, label %219, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
-  %.pre = load i64, ptr %6, align 8, !tbaa !46
+  %.pre = load i64, ptr %6, align 8, !tbaa !37
   br label %14
 
 14:                                               ; preds = %._crit_edge, %9
@@ -7679,7 +7679,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !57
+  %17 = load i32, ptr %16, align 8, !tbaa !44
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %19, label %21
 
@@ -7690,7 +7690,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !74
+  %23 = load i32, ptr %22, align 4, !tbaa !61
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %26, label %24
 
@@ -7701,9 +7701,9 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %28 = load ptr, ptr %27, align 8, !tbaa !76
+  %28 = load ptr, ptr %27, align 8, !tbaa !63
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %30 = load ptr, ptr %29, align 8, !tbaa !77
+  %30 = load ptr, ptr %29, align 8, !tbaa !64
   %31 = getelementptr i8, ptr %0, i64 8
   %.val123.i = load ptr, ptr %31, align 8, !tbaa !16
   %.not147.i = icmp eq ptr %.val123.i, %30
@@ -7711,7 +7711,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %34 = load ptr, ptr %33, align 8, !tbaa !72
+  %34 = load ptr, ptr %33, align 8, !tbaa !59
   %.not95.i = icmp eq ptr %34, null
   br i1 %.not95.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %35
 
@@ -7721,7 +7721,7 @@ define internal ptr @_io_TextIOWrapper_read(ptr noundef %0, ptr noundef readonly
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !64
+  %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = call ptr @PyObject_GetAttr(ptr noundef %38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_io_TextIOWrapper_read_impl.exit, label %41
@@ -7763,14 +7763,14 @@ Py_DECREF.exit113.i:                              ; preds = %47, %44, %41
 
 56:                                               ; preds = %53, %49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %58 = load ptr, ptr %57, align 8, !tbaa !66
+  %58 = load ptr, ptr %57, align 8, !tbaa !53
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %27, align 8, !tbaa !76
+  %61 = load ptr, ptr %27, align 8, !tbaa !63
   %62 = getelementptr i8, ptr %61, i64 8
-  %.val124.i = load ptr, ptr %62, align 8, !tbaa !190
+  %.val124.i = load ptr, ptr %62, align 8, !tbaa !177
   call void @PyErr_SetString(ptr noundef %.val124.i, ptr noundef nonnull @.str.50) #11
   br label %_io_TextIOWrapper_read_impl.exit
 
@@ -7785,7 +7785,7 @@ Py_DECREF.exit113.i:                              ; preds = %47, %44, %41
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !64
+  %70 = load ptr, ptr %69, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %70, ptr %4, align 8, !tbaa !13
   %71 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67704), ptr noundef nonnull %4, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -7818,10 +7818,10 @@ Py_DECREF.exit111.i:                              ; preds = %80, %77, %75
   br label %_io_TextIOWrapper_read_impl.exit
 
 82:                                               ; preds = %73
-  %83 = load ptr, ptr %27, align 8, !tbaa !76
-  %84 = load ptr, ptr %57, align 8, !tbaa !66
+  %83 = load ptr, ptr %27, align 8, !tbaa !63
+  %84 = load ptr, ptr %57, align 8, !tbaa !53
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !203
+  %86 = load ptr, ptr %85, align 8, !tbaa !190
   %87 = getelementptr i8, ptr %84, i64 8
   %.val122.i = load ptr, ptr %87, align 8, !tbaa !16
   %.not148.i = icmp eq ptr %.val122.i, %86
@@ -7885,7 +7885,7 @@ Py_DECREF.exit109.i:                              ; preds = %97, %94, %92
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %114 = load ptr, ptr %113, align 8, !tbaa !70
+  %114 = load ptr, ptr %113, align 8, !tbaa !57
   %.not100.i = icmp eq ptr %114, null
   br i1 %.not100.i, label %Py_DECREF.exit105.i, label %115
 
@@ -7917,7 +7917,7 @@ Py_DECREF.exit105.i:                              ; preds = %122, %119, %117, %1
 
 124:                                              ; preds = %66
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %126 = load ptr, ptr %125, align 8, !tbaa !68
+  %126 = load ptr, ptr %125, align 8, !tbaa !55
   %127 = icmp eq ptr %126, null
   br i1 %127, label %textiowrapper_get_decoded_chars.exit.i, label %128
 
@@ -7925,7 +7925,7 @@ Py_DECREF.exit105.i:                              ; preds = %122, %119, %117, %1
   %129 = getelementptr i8, ptr %126, i64 16
   %.val.i.i = load i64, ptr %129, align 8, !tbaa !27
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %131 = load i64, ptr %130, align 8, !tbaa !166
+  %131 = load i64, ptr %130, align 8, !tbaa !153
   %132 = sub i64 %.val.i.i, %131
   %133 = call i64 @llvm.smin.i64(i64 range(i64 -1, -9223372036854775808) %15, i64 %132)
   %134 = icmp sgt i64 %131, 0
@@ -7951,9 +7951,9 @@ Py_DECREF.exit105.i:                              ; preds = %122, %119, %117, %1
 
 textiowrapper_get_decoded_chars.exit.thread137.i: ; preds = %143, %140, %136
   %.019.i.i = phi ptr [ %138, %136 ], [ %126, %140 ], [ %126, %143 ]
-  %145 = load i64, ptr %130, align 8, !tbaa !166
+  %145 = load i64, ptr %130, align 8, !tbaa !153
   %146 = add i64 %145, %133
-  store i64 %146, ptr %130, align 8, !tbaa !166
+  store i64 %146, ptr %130, align 8, !tbaa !153
   store ptr %.019.i.i, ptr %5, align 8, !tbaa !13
   br label %149
 
@@ -7989,7 +7989,7 @@ textiowrapper_get_decoded_chars.exit.i:           ; preds = %124
 158:                                              ; preds = %155
   %159 = call i32 @_PyIO_trap_eintr() #11
   %.not98.i = icmp eq i32 %159, 0
-  br i1 %.not98.i, label %Py_DECREF.exit107.i, label %155, !llvm.loop !207
+  br i1 %.not98.i, label %Py_DECREF.exit107.i, label %155, !llvm.loop !194
 
 160:                                              ; preds = %155
   %161 = icmp eq i32 %156, 0
@@ -8032,14 +8032,14 @@ textiowrapper_get_decoded_chars.exit.i:           ; preds = %124
   br label %Py_DECREF.exit103.i
 
 Py_DECREF.exit103.i:                              ; preds = %177, %174, %172
-  %178 = load ptr, ptr %125, align 8, !tbaa !68
+  %178 = load ptr, ptr %125, align 8, !tbaa !55
   %179 = icmp eq ptr %178, null
   br i1 %179, label %textiowrapper_get_decoded_chars.exit133.i, label %180
 
 180:                                              ; preds = %Py_DECREF.exit103.i
   %181 = getelementptr i8, ptr %178, i64 16
   %.val.i127.i = load i64, ptr %181, align 8, !tbaa !27
-  %182 = load i64, ptr %153, align 8, !tbaa !166
+  %182 = load i64, ptr %153, align 8, !tbaa !153
   %183 = sub i64 %.val.i127.i, %182
   %184 = call i64 @llvm.smin.i64(i64 range(i64 -1, -9223372036854775808) %.070.ph158.i, i64 %183)
   %185 = icmp sgt i64 %182, 0
@@ -8065,9 +8065,9 @@ Py_DECREF.exit103.i:                              ; preds = %177, %174, %172
 
 textiowrapper_get_decoded_chars.exit133.thread141.i: ; preds = %194, %191, %187
   %.019.i131.i = phi ptr [ %189, %187 ], [ %178, %191 ], [ %178, %194 ]
-  %196 = load i64, ptr %153, align 8, !tbaa !166
+  %196 = load i64, ptr %153, align 8, !tbaa !153
   %197 = add i64 %196, %184
-  store i64 %197, ptr %153, align 8, !tbaa !166
+  store i64 %197, ptr %153, align 8, !tbaa !153
   store ptr %.019.i131.i, ptr %5, align 8, !tbaa !13
   br label %.outer.i
 
@@ -8083,7 +8083,7 @@ textiowrapper_get_decoded_chars.exit133.i:        ; preds = %Py_DECREF.exit103.i
   %.val.i = load i64, ptr %200, align 8, !tbaa !27
   %201 = sub i64 %.070.ph158.i, %.val.i
   %202 = icmp sgt i64 %201, 0
-  br i1 %202, label %.outer.split.i, label %.thread.i, !llvm.loop !207
+  br i1 %202, label %.outer.split.i, label %.thread.i, !llvm.loop !194
 
 .loopexit.i:                                      ; preds = %160
   br i1 %.not96.i, label %.loopexit.thread.i, label %203
@@ -8198,7 +8198,7 @@ Py_DECREF.exit.thread:                            ; preds = %8, %Py_DECREF.exit
 .thread:                                          ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %6
   %.017 = phi i64 [ -1, %6 ], [ %12, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !57
+  %21 = load i32, ptr %20, align 8, !tbaa !44
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %23, label %25
 
@@ -8209,7 +8209,7 @@ Py_DECREF.exit.thread:                            ; preds = %8, %Py_DECREF.exit
 
 25:                                               ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !74
+  %27 = load i32, ptr %26, align 4, !tbaa !61
   %.not.i23 = icmp eq i32 %27, 0
   br i1 %.not.i23, label %30, label %28
 
@@ -8231,7 +8231,7 @@ _io_TextIOWrapper_readline_impl.exit:             ; preds = %30, %28, %23, %Py_D
 define internal ptr @_io_TextIOWrapper_flush(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8242,7 +8242,7 @@ define internal ptr @_io_TextIOWrapper_flush(ptr noundef %0, ptr readnone captur
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8253,9 +8253,9 @@ define internal ptr @_io_TextIOWrapper_flush(ptr noundef %0, ptr readnone captur
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %19, align 8, !tbaa !16
   %.not28.i = icmp eq ptr %.val.i, %18
@@ -8263,7 +8263,7 @@ define internal ptr @_io_TextIOWrapper_flush(ptr noundef %0, ptr readnone captur
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %22 = load ptr, ptr %21, align 8, !tbaa !72
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
   %.not24.i = icmp eq ptr %22, null
   br i1 %.not24.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %23
 
@@ -8273,7 +8273,7 @@ define internal ptr @_io_TextIOWrapper_flush(ptr noundef %0, ptr readnone captur
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = tail call ptr @PyObject_GetAttr(ptr noundef %26, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_io_TextIOWrapper_flush_impl.exit, label %29
@@ -8315,16 +8315,16 @@ Py_DECREF.exit.i:                                 ; preds = %35, %32, %29
 
 44:                                               ; preds = %41, %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %46 = load i8, ptr %45, align 1, !tbaa !79
+  %46 = load i8, ptr %45, align 1, !tbaa !66
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  store i8 %46, ptr %47, align 1, !tbaa !75
+  store i8 %46, ptr %47, align 1, !tbaa !62
   %48 = tail call fastcc i32 @_textiowrapper_writeflush(ptr noundef nonnull %0)
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %_io_TextIOWrapper_flush_impl.exit, label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !64
+  %52 = load ptr, ptr %51, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %52, ptr %3, align 8, !tbaa !13
   %53 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56728), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8341,7 +8341,7 @@ define internal ptr @_io_TextIOWrapper_close(ptr noundef %0, ptr readnone captur
   %3 = alloca ptr, align 8
   %4 = alloca [2 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !57
+  %6 = load i32, ptr %5, align 8, !tbaa !44
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %10
 
@@ -8352,7 +8352,7 @@ define internal ptr @_io_TextIOWrapper_close(ptr noundef %0, ptr readnone captur
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !74
+  %12 = load i32, ptr %11, align 4, !tbaa !61
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %13
 
@@ -8363,7 +8363,7 @@ define internal ptr @_io_TextIOWrapper_close(ptr noundef %0, ptr readnone captur
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = tail call ptr @PyObject_GetAttr(ptr noundef %16, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_io_TextIOWrapper_close_impl.exit, label %19
@@ -8394,12 +8394,12 @@ Py_DECREF.exit37.i:                               ; preds = %25, %22, %19
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %30 = load i8, ptr %29, align 8, !tbaa !53
+  %30 = load i8, ptr %29, align 8, !tbaa !40
   %.not30.i = icmp eq i8 %30, 0
   br i1 %.not30.i, label %Py_DECREF.exit35.i, label %31
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %15, align 8, !tbaa !64
+  %32 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %32, ptr %4, align 16, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8439,7 +8439,7 @@ Py_DECREF.exit35.i:                               ; preds = %41, %40, %37, %35, 
 
 46:                                               ; preds = %44, %Py_DECREF.exit35.i
   %.016.i = phi ptr [ %45, %44 ], [ null, %Py_DECREF.exit35.i ]
-  %47 = load ptr, ptr %15, align 8, !tbaa !64
+  %47 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %47, ptr %3, align 8, !tbaa !13
   %48 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50912), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8476,7 +8476,7 @@ _io_TextIOWrapper_close_impl.exit:                ; preds = %8, %13, %_io_TextIO
 define internal ptr @_io_TextIOWrapper_fileno(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8487,7 +8487,7 @@ define internal ptr @_io_TextIOWrapper_fileno(ptr noundef readonly captures(none
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8498,7 +8498,7 @@ define internal ptr @_io_TextIOWrapper_fileno(ptr noundef readonly captures(none
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
   %17 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 56264), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8514,7 +8514,7 @@ _io_TextIOWrapper_fileno_impl.exit:               ; preds = %7, %12, %14
 define internal ptr @_io_TextIOWrapper_seekable(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8525,7 +8525,7 @@ define internal ptr @_io_TextIOWrapper_seekable(ptr noundef readonly captures(no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8536,7 +8536,7 @@ define internal ptr @_io_TextIOWrapper_seekable(ptr noundef readonly captures(no
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
   %17 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 69168), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8552,7 +8552,7 @@ _io_TextIOWrapper_seekable_impl.exit:             ; preds = %7, %12, %14
 define internal ptr @_io_TextIOWrapper_readable(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8563,7 +8563,7 @@ define internal ptr @_io_TextIOWrapper_readable(ptr noundef readonly captures(no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8574,7 +8574,7 @@ define internal ptr @_io_TextIOWrapper_readable(ptr noundef readonly captures(no
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
   %17 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67800), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8590,7 +8590,7 @@ _io_TextIOWrapper_readable_impl.exit:             ; preds = %7, %12, %14
 define internal ptr @_io_TextIOWrapper_writable(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8601,7 +8601,7 @@ define internal ptr @_io_TextIOWrapper_writable(ptr noundef readonly captures(no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8612,7 +8612,7 @@ define internal ptr @_io_TextIOWrapper_writable(ptr noundef readonly captures(no
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
   %17 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74360), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8628,7 +8628,7 @@ _io_TextIOWrapper_writable_impl.exit:             ; preds = %7, %12, %14
 define internal ptr @_io_TextIOWrapper_isatty(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -8639,7 +8639,7 @@ define internal ptr @_io_TextIOWrapper_isatty(ptr noundef readonly captures(none
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -8650,7 +8650,7 @@ define internal ptr @_io_TextIOWrapper_isatty(ptr noundef readonly captures(none
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %16, ptr %3, align 8, !tbaa !13
   %17 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60072), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -8698,7 +8698,7 @@ define internal ptr @_io_TextIOWrapper_seek(ptr noundef %0, ptr noundef readonly
   %.0 = phi i32 [ 0, %11 ], [ -1, %19 ], [ %17, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !57
+  %23 = load i32, ptr %22, align 8, !tbaa !44
   %24 = icmp slt i32 %23, 1
   br i1 %24, label %25, label %27
 
@@ -8709,7 +8709,7 @@ define internal ptr @_io_TextIOWrapper_seek(ptr noundef %0, ptr noundef readonly
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %29 = load i32, ptr %28, align 4, !tbaa !74
+  %29 = load i32, ptr %28, align 4, !tbaa !61
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %32, label %30
 
@@ -8720,9 +8720,9 @@ define internal ptr @_io_TextIOWrapper_seek(ptr noundef %0, ptr noundef readonly
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %34 = load ptr, ptr %33, align 8, !tbaa !76
+  %34 = load ptr, ptr %33, align 8, !tbaa !63
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !77
+  %36 = load ptr, ptr %35, align 8, !tbaa !64
   %37 = getelementptr i8, ptr %0, i64 8
   %.val178.i = load ptr, ptr %37, align 8, !tbaa !16
   %.not193.i = icmp eq ptr %.val178.i, %36
@@ -8730,7 +8730,7 @@ define internal ptr @_io_TextIOWrapper_seek(ptr noundef %0, ptr noundef readonly
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %40 = load ptr, ptr %39, align 8, !tbaa !72
+  %40 = load ptr, ptr %39, align 8, !tbaa !59
   %.not135.i = icmp eq ptr %40, null
   br i1 %.not135.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %41
 
@@ -8740,7 +8740,7 @@ define internal ptr @_io_TextIOWrapper_seek(ptr noundef %0, ptr noundef readonly
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !64
+  %44 = load ptr, ptr %43, align 8, !tbaa !51
   %45 = tail call ptr @PyObject_GetAttr(ptr noundef %44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_io_TextIOWrapper_seek_impl.exit, label %47
@@ -8792,14 +8792,14 @@ Py_DECREF.exit166.i:                              ; preds = %53, %50, %47
 
 Py_INCREF.exit.i:                                 ; preds = %65, %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %68 = load i8, ptr %67, align 1, !tbaa !79
+  %68 = load i8, ptr %67, align 1, !tbaa !66
   %.not136.i = icmp eq i8 %68, 0
   br i1 %.not136.i, label %69, label %72
 
 69:                                               ; preds = %Py_INCREF.exit.i
-  %70 = load ptr, ptr %33, align 8, !tbaa !76
+  %70 = load ptr, ptr %33, align 8, !tbaa !63
   %71 = getelementptr i8, ptr %70, i64 8
-  %.val181.i = load ptr, ptr %71, align 8, !tbaa !190
+  %.val181.i = load ptr, ptr %71, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val181.i, ptr noundef nonnull @.str.93) #11
   br label %Py_DECREF.exit.thread.i
 
@@ -8820,9 +8820,9 @@ Py_INCREF.exit.i:                                 ; preds = %65, %62
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
-  %79 = load ptr, ptr %33, align 8, !tbaa !76
+  %79 = load ptr, ptr %33, align 8, !tbaa !63
   %80 = getelementptr i8, ptr %79, i64 8
-  %.val180.i = load ptr, ptr %80, align 8, !tbaa !190
+  %.val180.i = load ptr, ptr %80, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val180.i, ptr noundef nonnull @.str.94) #11
   br label %Py_DECREF.exit.thread.i
 
@@ -8859,9 +8859,9 @@ Py_DECREF.exit164.i:                              ; preds = %86, %83, %81
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
-  %95 = load ptr, ptr %33, align 8, !tbaa !76
+  %95 = load ptr, ptr %33, align 8, !tbaa !63
   %96 = getelementptr i8, ptr %95, i64 8
-  %.val179.i = load ptr, ptr %96, align 8, !tbaa !190
+  %.val179.i = load ptr, ptr %96, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val179.i, ptr noundef nonnull @.str.95) #11
   br label %Py_DECREF.exit.thread.i
 
@@ -8895,7 +8895,7 @@ Py_DECREF.exit164.i:                              ; preds = %86, %83, %81
 
 Py_DECREF.exit162.i:                              ; preds = %108, %105, %103, %100
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %110 = load ptr, ptr %109, align 8, !tbaa !66
+  %110 = load ptr, ptr %109, align 8, !tbaa !53
   %.not138.i = icmp eq ptr %110, null
   br i1 %.not138.i, label %120, label %111
 
@@ -8924,7 +8924,7 @@ Py_DECREF.exit162.i:                              ; preds = %108, %105, %103, %1
 
 120:                                              ; preds = %119, %116, %114, %Py_DECREF.exit162.i
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !64
+  %122 = load ptr, ptr %121, align 8, !tbaa !51
   %123 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 69120), ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 2) #11
   %124 = load i32, ptr %12, align 8, !tbaa !15
   %.not.i157.i = icmp sgt i32 %124, -1
@@ -8946,7 +8946,7 @@ Py_DECREF.exit158.i:                              ; preds = %128, %125, %120
 
 130:                                              ; preds = %Py_DECREF.exit158.i
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %132 = load ptr, ptr %131, align 8, !tbaa !65
+  %132 = load ptr, ptr %131, align 8, !tbaa !52
   %.not140.i = icmp eq ptr %132, null
   br i1 %.not140.i, label %_io_TextIOWrapper_seek_impl.exit, label %133
 
@@ -9006,14 +9006,14 @@ Py_DECREF.exit158.i:                              ; preds = %128, %125, %120
   br i1 %160, label %Py_DECREF.exit.thread.i, label %161
 
 161:                                              ; preds = %158
-  %162 = load i64, ptr %7, align 8, !tbaa !208
+  %162 = load i64, ptr %7, align 8, !tbaa !195
   %163 = call ptr @PyLong_FromSsize_t(i64 noundef %162) #11
   %164 = icmp eq ptr %163, null
   br i1 %164, label %Py_DECREF.exit.thread.i, label %165
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %167 = load ptr, ptr %166, align 8, !tbaa !64
+  %167 = load ptr, ptr %166, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %167, ptr %4, align 16, !tbaa !13
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9078,7 +9078,7 @@ Py_DECREF.exit152.i:                              ; preds = %181, %178, %176
 
 Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %Py_DECREF.exit152.i
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %191 = load ptr, ptr %190, align 8, !tbaa !66
+  %191 = load ptr, ptr %190, align 8, !tbaa !53
   %.not143.i = icmp eq ptr %191, null
   br i1 %.not143.i, label %196, label %192
 
@@ -9091,14 +9091,14 @@ Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %P
 
 196:                                              ; preds = %192, %Py_DECREF.exit150.i
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %198 = load i32, ptr %197, align 8, !tbaa !210
+  %198 = load i32, ptr %197, align 8, !tbaa !197
   %.not144.i = icmp eq i32 %198, 0
   br i1 %.not144.i, label %242, label %199
 
 199:                                              ; preds = %196
-  %200 = load ptr, ptr %166, align 8, !tbaa !64
+  %200 = load ptr, ptr %166, align 8, !tbaa !51
   %201 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %202 = load i32, ptr %201, align 4, !tbaa !211
+  %202 = load i32, ptr %201, align 4, !tbaa !198
   %203 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %200, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67704), ptr noundef nonnull @.str.99, i32 noundef %202) #11
   %204 = icmp eq ptr %203, null
   br i1 %204, label %Py_DECREF.exit.thread.i, label %205
@@ -9133,7 +9133,7 @@ Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %P
 
 219:                                              ; preds = %205
   %220 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %221 = load i32, ptr %220, align 8, !tbaa !212
+  %221 = load i32, ptr %220, align 8, !tbaa !199
   %222 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.101, i32 noundef %221, ptr noundef nonnull %203) #11
   %223 = icmp eq ptr %222, null
   br i1 %223, label %Py_DECREF.exit.thread.i, label %224
@@ -9142,9 +9142,9 @@ Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %P
   %225 = load ptr, ptr %182, align 8, !tbaa !13
   store ptr %222, ptr %182, align 8, !tbaa !13
   call fastcc void @Py_XDECREF(ptr noundef %225)
-  %226 = load ptr, ptr %190, align 8, !tbaa !66
+  %226 = load ptr, ptr %190, align 8, !tbaa !53
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %228 = load i8, ptr %227, align 4, !tbaa !213
+  %228 = load i8, ptr %227, align 4, !tbaa !200
   %.not146.i = icmp eq i8 %228, 0
   %229 = select i1 %.not146.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %230 = call ptr (ptr, ptr, ...) @PyObject_CallMethodObjArgs(ptr noundef %226, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull %203, ptr noundef nonnull %229, ptr noundef null) #11
@@ -9155,7 +9155,7 @@ Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %P
 233:                                              ; preds = %224
   call fastcc void @textiowrapper_set_decoded_chars(ptr noundef nonnull %0, ptr noundef %230)
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %235 = load ptr, ptr %234, align 8, !tbaa !68
+  %235 = load ptr, ptr %234, align 8, !tbaa !55
   %236 = call i64 @PyUnicode_GetLength(ptr noundef %235) #11
   %237 = sext i32 %198 to i64
   %238 = icmp slt i64 %236, %237
@@ -9168,12 +9168,12 @@ Py_DECREF.exit150.i:                              ; preds = %189, %186, %184, %P
 
 Py_DECREF.exit.i:                                 ; preds = %233
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %237, ptr %241, align 8, !tbaa !166
+  store i64 %237, ptr %241, align 8, !tbaa !153
   br label %249
 
 242:                                              ; preds = %196
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %244 = load i32, ptr %243, align 8, !tbaa !212
+  %244 = load i32, ptr %243, align 8, !tbaa !199
   %245 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.103, i32 noundef %244, ptr noundef nonnull @.str.11) #11
   %246 = icmp eq ptr %245, null
   br i1 %246, label %Py_DECREF.exit.thread.i, label %247
@@ -9187,7 +9187,7 @@ Py_DECREF.exit.i:                                 ; preds = %233
 249:                                              ; preds = %247, %Py_DECREF.exit.i
   %.val185.i = phi i32 [ %221, %Py_DECREF.exit.i ], [ %244, %247 ]
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %251 = load ptr, ptr %250, align 8, !tbaa !65
+  %251 = load ptr, ptr %250, align 8, !tbaa !52
   %.not147.i = icmp eq ptr %251, null
   br i1 %.not147.i, label %_io_TextIOWrapper_seek_impl.exit, label %252
 
@@ -9240,7 +9240,7 @@ define internal ptr @_io_TextIOWrapper_tell(ptr noundef %0, ptr readnone capture
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !57
+  %15 = load i32, ptr %14, align 8, !tbaa !44
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %19
 
@@ -9251,7 +9251,7 @@ define internal ptr @_io_TextIOWrapper_tell(ptr noundef %0, ptr readnone capture
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %21 = load i32, ptr %20, align 4, !tbaa !74
+  %21 = load i32, ptr %20, align 4, !tbaa !61
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %24, label %22
 
@@ -9262,9 +9262,9 @@ define internal ptr @_io_TextIOWrapper_tell(ptr noundef %0, ptr readnone capture
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %26 = load ptr, ptr %25, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %27, align 8, !tbaa !64
   %29 = getelementptr i8, ptr %0, i64 8
   %.val246.i = load ptr, ptr %29, align 8, !tbaa !16
   %.not298.i = icmp eq ptr %.val246.i, %28
@@ -9272,7 +9272,7 @@ define internal ptr @_io_TextIOWrapper_tell(ptr noundef %0, ptr readnone capture
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %32 = load ptr, ptr %31, align 8, !tbaa !72
+  %32 = load ptr, ptr %31, align 8, !tbaa !59
   %.not166.i = icmp eq ptr %32, null
   br i1 %.not166.i, label %_io_TextIOWrapper_closed_get_impl.exit.i, label %33
 
@@ -9282,7 +9282,7 @@ define internal ptr @_io_TextIOWrapper_tell(ptr noundef %0, ptr readnone capture
 
 _io_TextIOWrapper_closed_get_impl.exit.i:         ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !64
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   %37 = tail call ptr @PyObject_GetAttr(ptr noundef %36, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_io_TextIOWrapper_tell_impl.exit, label %39
@@ -9324,20 +9324,20 @@ Py_DECREF.exit218.i:                              ; preds = %45, %42, %39
 
 54:                                               ; preds = %51, %47
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %56 = load i8, ptr %55, align 1, !tbaa !79
+  %56 = load i8, ptr %55, align 1, !tbaa !66
   %.not167.i = icmp eq i8 %56, 0
   br i1 %.not167.i, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %25, align 8, !tbaa !76
+  %58 = load ptr, ptr %25, align 8, !tbaa !63
   %59 = getelementptr i8, ptr %58, i64 8
-  %.val247.i = load ptr, ptr %59, align 8, !tbaa !190
+  %.val247.i = load ptr, ptr %59, align 8, !tbaa !177
   tail call void @PyErr_SetString(ptr noundef %.val247.i, ptr noundef nonnull @.str.93) #11
   br label %_io_TextIOWrapper_tell_impl.exit
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  %62 = load i8, ptr %61, align 1, !tbaa !75
+  %62 = load i8, ptr %61, align 1, !tbaa !62
   %.not168.i = icmp eq i8 %62, 0
   br i1 %.not168.i, label %63, label %65
 
@@ -9358,7 +9358,7 @@ Py_DECREF.exit218.i:                              ; preds = %45, %42, %39
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !64
+  %73 = load ptr, ptr %72, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %73, ptr %8, align 8, !tbaa !13
   %74 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 72104), ptr noundef nonnull %8, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -9368,19 +9368,19 @@ Py_DECREF.exit218.i:                              ; preds = %45, %42, %39
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %78 = load ptr, ptr %77, align 8, !tbaa !66
+  %78 = load ptr, ptr %77, align 8, !tbaa !53
   %79 = icmp eq ptr %78, null
   br i1 %79, label %_io_TextIOWrapper_tell_impl.exit, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %82 = load ptr, ptr %81, align 8, !tbaa !70
+  %82 = load ptr, ptr %81, align 8, !tbaa !57
   %83 = icmp eq ptr %82, null
   br i1 %83, label %_io_TextIOWrapper_tell_impl.exit, label %84
 
 84:                                               ; preds = %80
   %85 = call i64 @PyLong_AsLong(ptr noundef nonnull %74) #11
-  store i64 %85, ptr %9, align 8, !tbaa !208
+  store i64 %85, ptr %9, align 8, !tbaa !195
   %86 = load i32, ptr %74, align 8, !tbaa !15
   %.not.i215.i = icmp sgt i32 %86, -1
   br i1 %.not.i215.i, label %87, label %Py_DECREF.exit216.i
@@ -9401,7 +9401,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
   br i1 %.not169.i, label %92, label %_io_TextIOWrapper_tell_impl.exit
 
 92:                                               ; preds = %Py_DECREF.exit216.i
-  %93 = load ptr, ptr %81, align 8, !tbaa !70
+  %93 = load ptr, ptr %81, align 8, !tbaa !57
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %95 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %93, ptr noundef nonnull @.str.106, ptr noundef nonnull %94, ptr noundef nonnull %10) #11
   %.not170.i = icmp eq i32 %95, 0
@@ -9410,12 +9410,12 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 96:                                               ; preds = %92
   %97 = load ptr, ptr %10, align 8, !tbaa !13
   %98 = getelementptr i8, ptr %97, i64 16
-  %.val251.i = load i64, ptr %98, align 8, !tbaa !80
-  %99 = load i64, ptr %9, align 8, !tbaa !208
+  %.val251.i = load i64, ptr %98, align 8, !tbaa !67
+  %99 = load i64, ptr %9, align 8, !tbaa !195
   %100 = sub i64 %99, %.val251.i
-  store i64 %100, ptr %9, align 8, !tbaa !208
+  store i64 %100, ptr %9, align 8, !tbaa !195
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %102 = load i64, ptr %101, align 8, !tbaa !166
+  %102 = load i64, ptr %101, align 8, !tbaa !153
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %104, label %106
 
@@ -9424,7 +9424,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
   br label %_io_TextIOWrapper_tell_impl.exit
 
 106:                                              ; preds = %96
-  %107 = load ptr, ptr %77, align 8, !tbaa !66
+  %107 = load ptr, ptr %77, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %107, ptr %7, align 8, !tbaa !13
   %108 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57768), ptr noundef nonnull %7, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -9434,7 +9434,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %112 = load double, ptr %111, align 8, !tbaa !169
+  %112 = load double, ptr %111, align 8, !tbaa !156
   %113 = sitofp i64 %102 to double
   %114 = fmul double %112, %113
   %115 = fptosi double %114 to i64
@@ -9446,14 +9446,14 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 .lr.ph.i:                                         ; preds = %110, %180
   %.0131324.i = phi i64 [ %.1132.i, %180 ], [ %115, %110 ]
   %.0134323.i = phi i64 [ %.1135.i, %180 ], [ 1, %110 ]
-  %.val254.i = load i64, ptr %9, align 8, !tbaa !208
+  %.val254.i = load i64, ptr %9, align 8, !tbaa !195
   %.val255.i = load i32, ptr %94, align 8
   %119 = call fastcc i32 @_textiowrapper_decoder_setstate(ptr noundef nonnull %0, i64 %.val254.i, i32 %.val255.i)
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %Py_DECREF.exit214.i, label %121
 
 121:                                              ; preds = %.lr.ph.i
-  %122 = load ptr, ptr %77, align 8, !tbaa !66
+  %122 = load ptr, ptr %77, align 8, !tbaa !53
   %123 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %122, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull @.str.107, ptr noundef nonnull %117, i64 noundef %.0131324.i) #11
   %124 = call fastcc i32 @check_decoded(ptr noundef %123)
   %125 = icmp slt i32 %124, 0
@@ -9482,7 +9482,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 
 134:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %135 = load ptr, ptr %77, align 8, !tbaa !66
+  %135 = load ptr, ptr %77, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %135, ptr %6, align 8, !tbaa !13
   %136 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57768), ptr noundef nonnull %6, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -9555,7 +9555,7 @@ Py_DECREF.exit216.i:                              ; preds = %90, %87, %84
 
 169:                                              ; preds = %155
   %170 = getelementptr i8, ptr %156, i64 16
-  %.val250.i = load i64, ptr %170, align 8, !tbaa !80
+  %.val250.i = load i64, ptr %170, align 8, !tbaa !67
   %171 = load i32, ptr %136, align 8, !tbaa !15
   %.not.i205.i = icmp sgt i32 %171, -1
   br i1 %.not.i205.i, label %172, label %176
@@ -9592,16 +9592,16 @@ Py_DECREF.exit212.thread.i:                       ; preds = %134, %Py_DECREF.exi
   %.2145.pn.i = phi i64 [ %.0134323.i, %178 ], [ %.val250.i, %176 ]
   %.1132.i = sub i64 %.0131324.i, %.2145.pn.i
   %181 = icmp sgt i64 %.1132.i, 0
-  br i1 %181, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !214
+  br i1 %181, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !201
 
 182:                                              ; preds = %176
   %183 = load i32, ptr %11, align 4, !tbaa !31
-  store i32 %183, ptr %94, align 8, !tbaa !212
+  store i32 %183, ptr %94, align 8, !tbaa !199
   %184 = sub i64 %102, %.val245.i
   br label %187
 
 ._crit_edge.i:                                    ; preds = %180, %110
-  %.val252.i = load i64, ptr %9, align 8, !tbaa !208
+  %.val252.i = load i64, ptr %9, align 8, !tbaa !195
   %.val253.i = load i32, ptr %94, align 8
   %185 = call fastcc i32 @_textiowrapper_decoder_setstate(ptr noundef nonnull %0, i64 %.val252.i, i32 %.val253.i)
   %186 = icmp slt i32 %185, 0
@@ -9610,12 +9610,12 @@ Py_DECREF.exit212.thread.i:                       ; preds = %134, %Py_DECREF.exi
 187:                                              ; preds = %._crit_edge.i, %182
   %.0121269.i = phi i64 [ %102, %._crit_edge.i ], [ %184, %182 ]
   %.2133.i = phi i64 [ 0, %._crit_edge.i ], [ %.0131324.i, %182 ]
-  %188 = load i64, ptr %9, align 8, !tbaa !208
+  %188 = load i64, ptr %9, align 8, !tbaa !195
   %189 = add i64 %188, %.2133.i
-  store i64 %189, ptr %9, align 8, !tbaa !208
+  store i64 %189, ptr %9, align 8, !tbaa !195
   %190 = trunc i64 %.0121269.i to i32
   %191 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %190, ptr %191, align 8, !tbaa !210
+  store i32 %190, ptr %191, align 8, !tbaa !197
   %192 = icmp eq i64 %.0121269.i, 0
   br i1 %192, label %287, label %193
 
@@ -9623,7 +9623,7 @@ Py_DECREF.exit212.thread.i:                       ; preds = %134, %Py_DECREF.exi
   %194 = load ptr, ptr %10, align 8, !tbaa !13
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = getelementptr i8, ptr %194, i64 16
-  %.val249.i = load i64, ptr %196, align 8, !tbaa !80
+  %.val249.i = load i64, ptr %196, align 8, !tbaa !67
   %197 = getelementptr i8, ptr %195, i64 %.val249.i
   %198 = getelementptr i8, ptr %195, i64 %.2133.i
   %199 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -9637,7 +9637,7 @@ Py_DECREF.exit204.i:                              ; preds = %267, %193
   br i1 %200, label %201, label %Py_DECREF.exit204.thread286.i
 
 201:                                              ; preds = %Py_DECREF.exit204.i
-  %202 = load ptr, ptr %77, align 8, !tbaa !66
+  %202 = load ptr, ptr %77, align 8, !tbaa !53
   %203 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %202, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull @.str.107, ptr noundef %.0151.i, i64 noundef 1) #11
   %204 = call fastcc i32 @check_decoded(ptr noundef %203)
   %205 = icmp sgt i32 %204, -1
@@ -9662,11 +9662,11 @@ Py_DECREF.exit204.i:                              ; preds = %267, %193
 
 213:                                              ; preds = %212, %209, %206
   %214 = add i64 %.val244.i, %.2127.i
-  %215 = load i32, ptr %199, align 4, !tbaa !211
+  %215 = load i32, ptr %199, align 4, !tbaa !198
   %216 = add i32 %215, 1
-  store i32 %216, ptr %199, align 4, !tbaa !211
+  store i32 %216, ptr %199, align 4, !tbaa !198
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %217 = load ptr, ptr %77, align 8, !tbaa !66
+  %217 = load ptr, ptr %77, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %217, ptr %5, align 8, !tbaa !13
   %218 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 57768), ptr noundef nonnull %5, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -9739,7 +9739,7 @@ Py_DECREF.exit204.i:                              ; preds = %267, %193
 
 251:                                              ; preds = %237
   %252 = getelementptr i8, ptr %238, i64 16
-  %.val248.i = load i64, ptr %252, align 8, !tbaa !80
+  %.val248.i = load i64, ptr %252, align 8, !tbaa !67
   %253 = load i32, ptr %218, align 8, !tbaa !15
   %.not.i195.i = icmp sgt i32 %253, -1
   br i1 %.not.i195.i, label %254, label %258
@@ -9770,15 +9770,15 @@ Py_DECREF.exit202.thread.i:                       ; preds = %213, %Py_DECREF.exi
   br i1 %or.cond.i, label %267, label %260
 
 260:                                              ; preds = %258
-  %261 = load i32, ptr %199, align 4, !tbaa !211
+  %261 = load i32, ptr %199, align 4, !tbaa !198
   %262 = sext i32 %261 to i64
-  %263 = load i64, ptr %9, align 8, !tbaa !208
+  %263 = load i64, ptr %9, align 8, !tbaa !195
   %264 = add i64 %263, %262
-  store i64 %264, ptr %9, align 8, !tbaa !208
+  store i64 %264, ptr %9, align 8, !tbaa !195
   %265 = sub i64 %.2.i, %214
   %266 = load i32, ptr %11, align 4, !tbaa !31
-  store i32 %266, ptr %94, align 8, !tbaa !212
-  store i32 0, ptr %199, align 4, !tbaa !211
+  store i32 %266, ptr %94, align 8, !tbaa !199
+  store i32 0, ptr %199, align 4, !tbaa !198
   br label %267
 
 267:                                              ; preds = %260, %258
@@ -9795,7 +9795,7 @@ Py_DECREF.exit204.thread286.i:                    ; preds = %267, %Py_DECREF.exi
   br i1 %269, label %270, label %287
 
 270:                                              ; preds = %Py_DECREF.exit204.thread286.i
-  %271 = load ptr, ptr %77, align 8, !tbaa !66
+  %271 = load ptr, ptr %77, align 8, !tbaa !53
   %272 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %271, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 53032), ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.11, ptr noundef nonnull @_Py_TrueStruct) #11
   %273 = call fastcc i32 @check_decoded(ptr noundef %272)
   %274 = icmp slt i32 %273, 0
@@ -9821,7 +9821,7 @@ Py_DECREF.exit204.thread286.i:                    ; preds = %267, %Py_DECREF.exi
 
 Py_DECREF.exit194.i:                              ; preds = %282, %279, %275
   %283 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i8 1, ptr %283, align 4, !tbaa !213
+  store i8 1, ptr %283, align 4, !tbaa !200
   %284 = icmp slt i64 %277, %.3.i
   br i1 %284, label %285, label %287
 
@@ -9832,7 +9832,7 @@ Py_DECREF.exit194.i:                              ; preds = %282, %279, %275
 
 287:                                              ; preds = %Py_DECREF.exit194.i, %Py_DECREF.exit204.thread286.i, %187
   %.1122.i = phi i64 [ 0, %187 ], [ %.3.i, %Py_DECREF.exit204.thread286.i ], [ %.3.i, %Py_DECREF.exit194.i ]
-  %288 = load ptr, ptr %77, align 8, !tbaa !66
+  %288 = load ptr, ptr %77, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %288, ptr %4, align 16, !tbaa !13
   %289 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -9874,13 +9874,13 @@ Py_DECREF.exit192.i:                              ; preds = %295, %292, %287
 
 Py_DECREF.exit190.i:                              ; preds = %302, %299, %297
   %303 = trunc i64 %.1122.i to i32
-  store i32 %303, ptr %191, align 8, !tbaa !210
+  store i32 %303, ptr %191, align 8, !tbaa !197
   %304 = call fastcc ptr @textiowrapper_build_cookie(ptr noundef %9)
   br label %_io_TextIOWrapper_tell_impl.exit
 
 Py_DECREF.exit214.i:                              ; preds = %121, %.lr.ph.i, %201, %285, %270, %Py_DECREF.exit202.thread.i, %._crit_edge.i, %Py_DECREF.exit212.thread.i
   %305 = call ptr @PyErr_GetRaisedException() #11
-  %306 = load ptr, ptr %77, align 8, !tbaa !66
+  %306 = load ptr, ptr %77, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %306, ptr %3, align 16, !tbaa !13
   %307 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9951,7 +9951,7 @@ define internal ptr @_io_TextIOWrapper_truncate(ptr noundef %0, ptr noundef read
 11:                                               ; preds = %7, %9
   %.0 = phi ptr [ @_Py_NoneStruct, %7 ], [ %10, %9 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !57
+  %13 = load i32, ptr %12, align 8, !tbaa !44
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %17
 
@@ -9962,7 +9962,7 @@ define internal ptr @_io_TextIOWrapper_truncate(ptr noundef %0, ptr noundef read
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !74
+  %19 = load i32, ptr %18, align 4, !tbaa !61
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %22, label %20
 
@@ -9978,7 +9978,7 @@ define internal ptr @_io_TextIOWrapper_truncate(ptr noundef %0, ptr noundef read
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !64
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %27, ptr %4, align 16, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10001,28 +10001,28 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @set_newline(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !67
+  %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.thread30, label %9
 
 .thread30:                                        ; preds = %2
-  store ptr null, ptr %3, align 8, !tbaa !67
+  store ptr null, ptr %3, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i8 1, ptr %6, align 2, !tbaa !194
+  store i8 1, ptr %6, align 2, !tbaa !181
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 91
-  store i8 1, ptr %7, align 1, !tbaa !193
+  store i8 1, ptr %7, align 1, !tbaa !180
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i8 1, ptr %8, align 4, !tbaa !204
+  store i8 1, ptr %8, align 4, !tbaa !191
   br label %36
 
 9:                                                ; preds = %2
   %10 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %1) #11
-  store ptr %10, ptr %3, align 8, !tbaa !67
+  store ptr %10, ptr %3, align 8, !tbaa !54
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  store ptr %4, ptr %3, align 8, !tbaa !67
+  store ptr %4, ptr %3, align 8, !tbaa !54
   br label %Py_XDECREF.exit
 
 13:                                               ; preds = %9
@@ -10030,14 +10030,14 @@ define internal fastcc range(i32 -1, 1) i32 @set_newline(ptr noundef captures(no
   %15 = icmp eq i8 %14, 0
   %16 = zext i1 %15 to i8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i8 %16, ptr %17, align 2, !tbaa !194
+  store i8 %16, ptr %17, align 2, !tbaa !181
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 91
-  store i8 0, ptr %18, align 1, !tbaa !193
+  store i8 0, ptr %18, align 1, !tbaa !180
   %19 = load i8, ptr %1, align 1, !tbaa !15
   %20 = icmp ne i8 %19, 0
   %21 = zext i1 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i8 %21, ptr %22, align 4, !tbaa !204
+  store i8 %21, ptr %22, align 4, !tbaa !191
   br i1 %15, label %36, label %23
 
 23:                                               ; preds = %13
@@ -10062,7 +10062,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_newline(ptr noundef captures(no
 _PyUnicode_DATA.exit:                             ; preds = %26, %28
   %.0.i = phi ptr [ %.0.i.i, %26 ], [ %.val4.i, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %.0.i, ptr %30, align 8, !tbaa !205
+  store ptr %.0.i, ptr %30, align 8, !tbaa !192
   %31 = load i8, ptr %.0.i, align 1
   %.not = icmp eq i8 %31, 10
   br i1 %.not, label %sub_1, label %_PyUnicode_DATA.exit.tail
@@ -10081,7 +10081,7 @@ _PyUnicode_DATA.exit.tail:                        ; preds = %_PyUnicode_DATA.exi
 
 36:                                               ; preds = %.thread30, %13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr null, ptr %37, align 8, !tbaa !205
+  store ptr null, ptr %37, align 8, !tbaa !192
   br label %38
 
 38:                                               ; preds = %_PyUnicode_DATA.exit.tail, %36
@@ -10123,7 +10123,7 @@ declare ptr @_PyCodec_LookupTextEncoding(ptr noundef, ptr noundef) local_unnamed
 define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_decoder(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8, !tbaa !13
   %7 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67800), ptr noundef nonnull %4, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -10180,23 +10180,23 @@ Py_DECREF.exit38:                                 ; preds = %9, %12, %15
 
 Py_DECREF.exit:                                   ; preds = %25, %22, %20, %17
   %26 = call ptr @_PyCodecInfo_GetIncrementalDecoder(ptr noundef nonnull %1, ptr noundef nonnull %2) #11
-  store ptr %26, ptr %18, align 8, !tbaa !66
+  store ptr %26, ptr %18, align 8, !tbaa !53
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %Py_DECREF.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  %30 = load i8, ptr %29, align 2, !tbaa !194
+  %30 = load i8, ptr %29, align 2, !tbaa !181
   %.not34 = icmp eq i8 %30, 0
   br i1 %.not34, label %.critedge, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %33 = load ptr, ptr %32, align 8, !tbaa !63
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !203
+  %35 = load ptr, ptr %34, align 8, !tbaa !190
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 91
-  %37 = load i8, ptr %36, align 1, !tbaa !193
+  %37 = load i8, ptr %36, align 1, !tbaa !180
   %.not35 = icmp eq i8 %37, 0
   %38 = select i1 %.not35, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   %39 = call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %35, ptr noundef nonnull %26, ptr noundef nonnull %38, ptr noundef null) #11
@@ -10235,7 +10235,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_set_encoder(ptr noun
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !64
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8, !tbaa !13
   %8 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74360), ptr noundef nonnull %4, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -10293,9 +10293,9 @@ Py_DECREF.exit31:                                 ; preds = %10, %13, %16
 
 Py_DECREF.exit:                                   ; preds = %26, %23, %21, %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr null, ptr %27, align 8, !tbaa !168
+  store ptr null, ptr %27, align 8, !tbaa !155
   %28 = call ptr @_PyCodecInfo_GetIncrementalEncoder(ptr noundef nonnull %1, ptr noundef nonnull %2) #11
-  store ptr %28, ptr %19, align 8, !tbaa !65
+  store ptr %28, ptr %19, align 8, !tbaa !52
   %29 = icmp eq ptr %28, null
   br i1 %29, label %Py_XDECREF.exit, label %30
 
@@ -10328,15 +10328,15 @@ Py_DECREF.exit:                                   ; preds = %26, %23, %21, %18
 
 42:                                               ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !215
-  store ptr %44, ptr %27, align 8, !tbaa !168
+  %44 = load ptr, ptr %43, align 8, !tbaa !202
+  store ptr %44, ptr %27, align 8, !tbaa !155
   br label %.loopexit
 
 45:                                               ; preds = %.preheader
   %46 = getelementptr i8, ptr %.037, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !217
+  %47 = load ptr, ptr %46, align 8, !tbaa !204
   %.not28 = icmp eq ptr %47, null
-  br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !218
+  br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !205
 
 .loopexit:                                        ; preds = %45, %42, %35
   %.pr = load ptr, ptr %5, align 8, !tbaa !13
@@ -10369,21 +10369,21 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_fix_encoder_state(pt
   %2 = alloca [2 x ptr], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %5 = load i8, ptr %4, align 1, !tbaa !79
+  %5 = load i8, ptr %4, align 1, !tbaa !66
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !52
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 1, ptr %10, align 8, !tbaa !181
+  store i8 1, ptr %10, align 8, !tbaa !168
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !13
   %13 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 72104), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #11
@@ -10416,8 +10416,8 @@ Py_DECREF.exit21:                                 ; preds = %15, %18, %21
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %23
-  store i8 0, ptr %10, align 8, !tbaa !181
-  %26 = load ptr, ptr %7, align 8, !tbaa !65
+  store i8 0, ptr %10, align 8, !tbaa !168
+  %26 = load ptr, ptr %7, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %26, ptr %2, align 16, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10456,7 +10456,7 @@ declare ptr @_PyCodecInfo_GetIncrementalEncoder(ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal ptr @ascii_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_AsASCIIString(ptr noundef %1, ptr noundef %5) #11
   ret ptr %6
@@ -10465,7 +10465,7 @@ define internal ptr @ascii_encode(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal ptr @latin1_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_AsLatin1String(ptr noundef %1, ptr noundef %5) #11
   ret ptr %6
@@ -10474,7 +10474,7 @@ define internal ptr @latin1_encode(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf8_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_AsUTF8String(ptr noundef %1, ptr noundef %5) #11
   ret ptr %6
@@ -10483,7 +10483,7 @@ define internal ptr @utf8_encode(ptr noundef readonly captures(none) %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf16be_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_EncodeUTF16(ptr noundef %1, ptr noundef %5, i32 noundef 1) #11
   ret ptr %6
@@ -10492,7 +10492,7 @@ define internal ptr @utf16be_encode(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf16le_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_EncodeUTF16(ptr noundef %1, ptr noundef %5, i32 noundef -1) #11
   ret ptr %6
@@ -10501,10 +10501,10 @@ define internal ptr @utf16le_encode(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf16_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i8, ptr %3, align 8, !tbaa !181
+  %4 = load i8, ptr %3, align 8, !tbaa !168
   %.not = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %6) #11
   %. = sext i1 %.not to i32
   %8 = tail call ptr @_PyUnicode_EncodeUTF16(ptr noundef %1, ptr noundef %7, i32 noundef %.) #11
@@ -10514,7 +10514,7 @@ define internal ptr @utf16_encode(ptr noundef readonly captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf32be_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_EncodeUTF32(ptr noundef %1, ptr noundef %5, i32 noundef 1) #11
   ret ptr %6
@@ -10523,7 +10523,7 @@ define internal ptr @utf32be_encode(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf32le_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !71
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %4) #11
   %6 = tail call ptr @_PyUnicode_EncodeUTF32(ptr noundef %1, ptr noundef %5, i32 noundef -1) #11
   ret ptr %6
@@ -10532,10 +10532,10 @@ define internal ptr @utf32le_encode(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @utf32_encode(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i8, ptr %3, align 8, !tbaa !181
+  %4 = load i8, ptr %3, align 8, !tbaa !168
   %.not = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = tail call ptr @PyUnicode_AsUTF8(ptr noundef %6) #11
   %. = sext i1 %.not to i32
   %8 = tail call ptr @_PyUnicode_EncodeUTF32(ptr noundef %1, ptr noundef %7, i32 noundef %.) #11
@@ -10563,7 +10563,7 @@ declare i32 @_Py_convert_optional_to_ssize_t(ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @textiowrapper_get_decoded_chars(ptr noundef captures(none) %0, i64 noundef range(i64 -1, -9223372036854775808) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = load ptr, ptr %3, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
@@ -10575,7 +10575,7 @@ define internal fastcc ptr @textiowrapper_get_decoded_chars(ptr noundef captures
   %9 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %11 = load i64, ptr %10, align 8, !tbaa !166
+  %11 = load i64, ptr %10, align 8, !tbaa !153
   %12 = sub i64 %.val, %11
   %13 = icmp slt i64 %1, 0
   %14 = tail call i64 @llvm.smin.i64(i64 %1, i64 %12)
@@ -10603,9 +10603,9 @@ define internal fastcc ptr @textiowrapper_get_decoded_chars(ptr noundef captures
 
 _Py_NewRef.exit:                                  ; preds = %24, %21, %17
   %.019 = phi ptr [ %19, %17 ], [ %4, %21 ], [ %4, %24 ]
-  %26 = load i64, ptr %10, align 8, !tbaa !166
+  %26 = load i64, ptr %10, align 8, !tbaa !153
   %27 = add i64 %26, %.020
-  store i64 %27, ptr %10, align 8, !tbaa !166
+  store i64 %27, ptr %10, align 8, !tbaa !153
   br label %28
 
 28:                                               ; preds = %17, %_Py_NewRef.exit, %6
@@ -10627,7 +10627,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr no
   %4 = alloca ptr, align 8
   %.not = icmp eq i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
@@ -10650,7 +10650,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr no
   %.sink = phi i8 [ 0, %9 ], [ 1, %7 ]
   %.0 = phi ptr [ %11, %9 ], [ %8, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 %.sink, ptr %13, align 8, !tbaa !181
+  store i8 %.sink, ptr %13, align 8, !tbaa !168
   %14 = icmp eq ptr %.0, null
   br i1 %14, label %Py_DECREF.exit, label %15
 
@@ -10749,7 +10749,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_decoder_setstate(ptr
   %4 = icmp eq i32 %.8.val, 0
   %or.cond = select i1 %3, i1 %4, i1 false
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !53
   br i1 %or.cond, label %7, label %9
 
 7:                                                ; preds = %1
@@ -10799,13 +10799,13 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_setstate(ptr
 
 .thread:                                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
   br label %12
 
 7:                                                ; preds = %1
   %.not = icmp eq i32 %.8.val, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %7
@@ -10829,7 +10829,7 @@ define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_setstate(ptr
   %.sink.i = phi i8 [ 0, %12 ], [ 1, %10 ]
   %.0.i = phi ptr [ %15, %12 ], [ %11, %10 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 %.sink.i, ptr %17, align 8, !tbaa !181
+  store i8 %.sink.i, ptr %17, align 8, !tbaa !168
   %18 = icmp eq ptr %.0.i, null
   br i1 %18, label %_textiowrapper_encoder_reset.exit, label %19
 
@@ -10892,7 +10892,7 @@ declare ptr @_PyLong_FromByteArray(ptr noundef, i64 noundef, i32 noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_TextIOWrapper_name_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -10903,7 +10903,7 @@ define internal ptr @_io_TextIOWrapper_name_get(ptr noundef readonly captures(no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !74
+  %10 = load i32, ptr %9, align 4, !tbaa !61
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -10914,7 +10914,7 @@ define internal ptr @_io_TextIOWrapper_name_get(ptr noundef readonly captures(no
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = tail call ptr @PyObject_GetAttr(ptr noundef %15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 64088)) #11
   br label %_io_TextIOWrapper_name_get_impl.exit
 
@@ -10926,7 +10926,7 @@ _io_TextIOWrapper_name_get_impl.exit:             ; preds = %6, %11, %13
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_TextIOWrapper_closed_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -10937,7 +10937,7 @@ define internal ptr @_io_TextIOWrapper_closed_get(ptr noundef readonly captures(
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !74
+  %10 = load i32, ptr %9, align 4, !tbaa !61
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -10948,7 +10948,7 @@ define internal ptr @_io_TextIOWrapper_closed_get(ptr noundef readonly captures(
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = tail call ptr @PyObject_GetAttr(ptr noundef %15, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 50960)) #11
   br label %_io_TextIOWrapper_closed_get_impl.exit
 
@@ -10962,7 +10962,7 @@ define internal ptr @_io_TextIOWrapper_newlines_get(ptr noundef readonly capture
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -10973,7 +10973,7 @@ define internal ptr @_io_TextIOWrapper_newlines_get(ptr noundef readonly capture
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -10984,7 +10984,7 @@ define internal ptr @_io_TextIOWrapper_newlines_get(ptr noundef readonly capture
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !66
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_io_TextIOWrapper_newlines_get_impl.exit, label %18
 
@@ -11004,7 +11004,7 @@ _io_TextIOWrapper_newlines_get_impl.exit:         ; preds = %7, %12, %14, %18
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_io_TextIOWrapper_errors_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -11015,7 +11015,7 @@ define internal noundef ptr @_io_TextIOWrapper_errors_get(ptr noundef readonly c
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = load i32, ptr %10, align 8, !tbaa !15
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %_io_TextIOWrapper_errors_get_impl.exit, label %13
@@ -11033,7 +11033,7 @@ _io_TextIOWrapper_errors_get_impl.exit:           ; preds = %6, %8, %13
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_TextIOWrapper__CHUNK_SIZE_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !57
+  %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -11044,7 +11044,7 @@ define internal ptr @_io_TextIOWrapper__CHUNK_SIZE_get(ptr noundef readonly capt
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !74
+  %10 = load i32, ptr %9, align 4, !tbaa !61
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %13, label %11
 
@@ -11055,7 +11055,7 @@ define internal ptr @_io_TextIOWrapper__CHUNK_SIZE_get(ptr noundef readonly capt
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !170
+  %15 = load i64, ptr %14, align 8, !tbaa !157
   %16 = tail call ptr @PyLong_FromSsize_t(i64 noundef %15) #11
   br label %_io_TextIOWrapper__CHUNK_SIZE_get_impl.exit
 
@@ -11067,7 +11067,7 @@ _io_TextIOWrapper__CHUNK_SIZE_get_impl.exit:      ; preds = %6, %11, %13
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr noundef captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !44
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -11078,7 +11078,7 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr noun
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !74
+  %11 = load i32, ptr %10, align 4, !tbaa !61
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %14, label %12
 
@@ -11118,7 +11118,7 @@ define internal range(i32 -1, 1) i32 @_io_TextIOWrapper__CHUNK_SIZE_set(ptr noun
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %20, ptr %28, align 8, !tbaa !170
+  store i64 %20, ptr %28, align 8, !tbaa !157
   br label %_io_TextIOWrapper__CHUNK_SIZE_set_impl.exit
 
 _io_TextIOWrapper__CHUNK_SIZE_set_impl.exit:      ; preds = %7, %12, %16, %22, %.thread.i, %27
@@ -11204,189 +11204,176 @@ attributes #12 = { nounwind willreturn memory(read) }
 !30 = !{!25, !25, i64 0}
 !31 = !{!12, !12, i64 0}
 !32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !35, !33}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35, !33}
-!38 = distinct !{!38, !35, !33}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35, !33}
-!41 = distinct !{!41, !35, !33}
-!42 = distinct !{!42, !35}
-!43 = distinct !{!43, !33}
-!44 = distinct !{!44, !35, !33}
-!45 = distinct !{!45, !35}
-!46 = !{!20, !20, i64 0}
-!47 = distinct !{!47, !35, !33}
-!48 = distinct !{!48, !35, !33}
-!49 = distinct !{!49, !35}
-!50 = distinct !{!50, !35, !33}
-!51 = distinct !{!51, !35, !33}
-!52 = distinct !{!52, !35}
-!53 = !{!54, !7, i64 96}
-!54 = !{!"textio", !6, i64 0, !12, i64 16, !12, i64 20, !20, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !21, i64 80, !7, i64 88, !7, i64 89, !7, i64 90, !7, i64 91, !7, i64 92, !7, i64 93, !7, i64 94, !7, i64 95, !7, i64 96, !10, i64 104, !7, i64 112, !11, i64 120, !20, i64 128, !11, i64 136, !20, i64 144, !11, i64 152, !55, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !56, i64 192}
-!55 = !{!"double", !7, i64 0}
-!56 = !{!"p1 _ZTS9_io_state", !10, i64 0}
-!57 = !{!54, !12, i64 16}
-!58 = !{!59, !20, i64 8}
-!59 = !{!"", !20, i64 0, !20, i64 8}
-!60 = !{!59, !20, i64 0}
-!61 = !{!54, !11, i64 176}
-!62 = !{!18, !10, i64 320}
-!63 = !{!54, !11, i64 40}
-!64 = !{!54, !11, i64 32}
-!65 = !{!54, !11, i64 48}
-!66 = !{!54, !11, i64 56}
-!67 = !{!54, !11, i64 64}
-!68 = !{!54, !11, i64 120}
-!69 = !{!54, !11, i64 136}
-!70 = !{!54, !11, i64 152}
-!71 = !{!54, !11, i64 72}
-!72 = !{!54, !11, i64 168}
-!73 = !{!54, !11, i64 184}
-!74 = !{!54, !12, i64 20}
-!75 = !{!54, !7, i64 95}
-!76 = !{!54, !56, i64 192}
-!77 = !{!78, !9, i64 120}
-!78 = !{!"_io_state", !12, i64 0, !11, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120}
-!79 = !{!54, !7, i64 93}
-!80 = !{!19, !20, i64 16}
-!81 = !{!82, !20, i64 16}
-!82 = !{!"", !6, i64 0, !20, i64 16, !20, i64 24, !83, i64 32, !84, i64 40}
-!83 = !{!"p1 _ZTS15_dictkeysobject", !10, i64 0}
-!84 = !{!"p1 _ZTS11_dictvalues", !10, i64 0}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"p1 _ZTS3_ts", !10, i64 0}
-!87 = !{!88, !89, i64 16}
-!88 = !{!"_ts", !86, i64 0, !86, i64 8, !89, i64 16, !20, i64 24, !90, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !91, i64 72, !10, i64 80, !10, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !92, i64 120, !11, i64 128, !12, i64 136, !11, i64 144, !20, i64 152, !20, i64 160, !11, i64 168, !20, i64 176, !12, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !20, i64 216, !20, i64 224, !93, i64 232, !94, i64 240, !94, i64 248, !95, i64 256, !11, i64 272, !20, i64 280, !11, i64 288, !11, i64 296}
-!89 = !{!"p1 _ZTS3_is", !10, i64 0}
-!90 = !{!"", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1}
-!91 = !{!"p1 _ZTS19_PyInterpreterFrame", !10, i64 0}
-!92 = !{!"p1 _ZTS14_err_stackitem", !10, i64 0}
-!93 = !{!"p1 _ZTS12_stack_chunk", !10, i64 0}
-!94 = !{!"p2 _ZTS7_object", !10, i64 0}
-!95 = !{!"_err_stackitem", !11, i64 0, !92, i64 8}
-!96 = !{!97, !12, i64 184}
-!97 = !{!"PyConfig", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !20, i64 24, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !98, i64 64, !12, i64 72, !98, i64 80, !98, i64 88, !98, i64 96, !12, i64 104, !99, i64 112, !99, i64 128, !99, i64 144, !99, i64 160, !12, i64 176, !12, i64 180, !12, i64 184, !12, i64 188, !12, i64 192, !12, i64 196, !12, i64 200, !12, i64 204, !12, i64 208, !12, i64 212, !12, i64 216, !12, i64 220, !12, i64 224, !98, i64 232, !98, i64 240, !98, i64 248, !12, i64 256, !12, i64 260, !12, i64 264, !12, i64 268, !12, i64 272, !98, i64 280, !98, i64 288, !98, i64 296, !98, i64 304, !12, i64 312, !99, i64 320, !98, i64 336, !98, i64 344, !98, i64 352, !98, i64 360, !98, i64 368, !98, i64 376, !98, i64 384, !12, i64 392, !98, i64 400, !98, i64 408, !98, i64 416, !98, i64 424, !12, i64 432, !12, i64 436, !12, i64 440}
-!98 = !{!"p1 int", !10, i64 0}
-!99 = !{!"", !20, i64 0, !100, i64 8}
-!100 = !{!"p2 int", !10, i64 0}
-!101 = !{!97, !12, i64 12}
-!102 = !{!103, !21, i64 11600}
-!103 = !{!"_is", !104, i64 0, !89, i64 7264, !20, i64 7272, !20, i64 7280, !12, i64 7288, !20, i64 7296, !12, i64 7304, !12, i64 7308, !12, i64 7312, !20, i64 7320, !108, i64 7328, !110, i64 7376, !86, i64 7384, !20, i64 7392, !111, i64 7400, !11, i64 7640, !11, i64 7648, !113, i64 7656, !117, i64 7752, !118, i64 7960, !97, i64 7992, !20, i64 8440, !11, i64 8448, !11, i64 8456, !11, i64 8464, !10, i64 8472, !7, i64 8480, !7, i64 8544, !20, i64 8552, !7, i64 8560, !119, i64 10600, !11, i64 10648, !11, i64 10656, !11, i64 10664, !124, i64 10672, !125, i64 10728, !127, i64 10744, !130, i64 10768, !133, i64 10816, !11, i64 10824, !7, i64 10832, !7, i64 10896, !7, i64 10960, !7, i64 11024, !7, i64 11025, !134, i64 11032, !137, i64 11600, !140, i64 11656, !141, i64 11664, !143, i64 14104, !144, i64 79648, !146, i64 79664, !147, i64 79736, !148, i64 79768, !151, i64 79792, !152, i64 81744, !156, i64 222936, !128, i64 222968, !157, i64 222976, !20, i64 222984, !158, i64 222992, !10, i64 223000, !159, i64 223008, !128, i64 223024, !128, i64 223025, !20, i64 223032, !20, i64 223040, !7, i64 223048, !7, i64 224264, !7, i64 224328, !160, i64 224392, !161, i64 224552, !20, i64 224688, !165, i64 224696}
-!104 = !{!"_ceval_state", !20, i64 0, !12, i64 8, !105, i64 16, !12, i64 24, !106, i64 32}
-!105 = !{!"p1 _ZTS18_gil_runtime_state", !10, i64 0}
-!106 = !{!"_pending_calls", !86, i64 0, !107, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !7, i64 24, !12, i64 7224, !12, i64 7228}
-!107 = !{!"PyMutex", !7, i64 0}
-!108 = !{!"pythreads", !20, i64 0, !86, i64 8, !109, i64 16, !86, i64 24, !20, i64 32, !20, i64 40}
-!109 = !{!"p1 _ZTS18_PyThreadStateImpl", !10, i64 0}
-!110 = !{!"p1 _ZTS14pyruntimestate", !10, i64 0}
-!111 = !{!"_gc_runtime_state", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !112, i64 24, !7, i64 48, !112, i64 96, !7, i64 120, !12, i64 192, !11, i64 200, !11, i64 208, !20, i64 216, !20, i64 224, !12, i64 232, !12, i64 236}
-!112 = !{!"gc_generation", !59, i64 0, !12, i64 16, !12, i64 20}
-!113 = !{!"_import_state", !11, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !11, i64 40, !114, i64 48, !116, i64 72}
-!114 = !{!"", !107, i64 0, !115, i64 8, !20, i64 16}
-!115 = !{!"long long", !7, i64 0}
-!116 = !{!"", !12, i64 0, !20, i64 8, !12, i64 16}
-!117 = !{!"_gil_runtime_state", !20, i64 0, !86, i64 8, !12, i64 16, !20, i64 24, !7, i64 32, !7, i64 80, !7, i64 120, !7, i64 168}
-!118 = !{!"codecs_state", !11, i64 0, !11, i64 8, !11, i64 16, !12, i64 24}
-!119 = !{!"", !120, i64 0, !123, i64 24}
-!120 = !{!"_xid_lookup_state", !121, i64 0}
-!121 = !{!"", !12, i64 0, !12, i64 4, !107, i64 8, !122, i64 16}
-!122 = !{!"p1 _ZTS12_xid_regitem", !10, i64 0}
-!123 = !{!"xi_exceptions", !11, i64 0, !11, i64 8, !11, i64 16}
-!124 = !{!"_warnings_runtime_state", !11, i64 0, !11, i64 8, !11, i64 16, !114, i64 24, !20, i64 48}
-!125 = !{!"atexit_state", !126, i64 0, !11, i64 8}
-!126 = !{!"p1 _ZTS15atexit_callback", !10, i64 0}
-!127 = !{!"_stoptheworld_state", !107, i64 0, !128, i64 1, !128, i64 2, !128, i64 3, !129, i64 4, !20, i64 8, !86, i64 16}
-!128 = !{!"_Bool", !7, i64 0}
-!129 = !{!"", !7, i64 0}
-!130 = !{!"_qsbr_shared", !20, i64 0, !20, i64 8, !131, i64 16, !20, i64 24, !107, i64 32, !132, i64 40}
-!131 = !{!"p1 _ZTS9_qsbr_pad", !10, i64 0}
-!132 = !{!"p1 _ZTS18_qsbr_thread_state", !10, i64 0}
-!133 = !{!"p1 _ZTS15_obmalloc_state", !10, i64 0}
-!134 = !{!"_py_object_state", !135, i64 0, !12, i64 560}
-!135 = !{!"_Py_freelists", !136, i64 0, !136, i64 16, !7, i64 32, !136, i64 352, !136, i64 368, !136, i64 384, !136, i64 400, !136, i64 416, !136, i64 432, !136, i64 448, !136, i64 464, !136, i64 480, !136, i64 496, !136, i64 512, !136, i64 528, !136, i64 544}
-!136 = !{!"_Py_freelist", !10, i64 0, !20, i64 8}
-!137 = !{!"_Py_unicode_state", !138, i64 0, !10, i64 32, !139, i64 40}
-!138 = !{!"_Py_unicode_fs_codec", !21, i64 0, !12, i64 8, !21, i64 16, !12, i64 24}
-!139 = !{!"_Py_unicode_ids", !20, i64 0, !94, i64 8}
-!140 = !{!"_Py_long_state", !12, i64 0}
-!141 = !{!"_dtoa_state", !7, i64 0, !7, i64 64, !7, i64 128, !142, i64 2432}
-!142 = !{!"p1 double", !10, i64 0}
-!143 = !{!"_py_func_state", !12, i64 0, !7, i64 8}
-!144 = !{!"_py_code_state", !107, i64 0, !145, i64 8}
-!145 = !{!"p1 _ZTS15_Py_hashtable_t", !10, i64 0}
-!146 = !{!"_Py_dict_state", !12, i64 0, !7, i64 8}
-!147 = !{!"_Py_exc_state", !11, i64 0, !10, i64 8, !12, i64 16, !11, i64 24}
-!148 = !{!"_Py_mem_interp_free_queue", !12, i64 0, !107, i64 4, !149, i64 8}
-!149 = !{!"llist_node", !150, i64 0, !150, i64 8}
-!150 = !{!"p1 _ZTS10llist_node", !10, i64 0}
-!151 = !{!"ast_state", !129, i64 0, !12, i64 4, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !11, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !11, i64 440, !11, i64 448, !11, i64 456, !11, i64 464, !11, i64 472, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !11, i64 512, !11, i64 520, !11, i64 528, !11, i64 536, !11, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !11, i64 592, !11, i64 600, !11, i64 608, !11, i64 616, !11, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !11, i64 672, !11, i64 680, !11, i64 688, !11, i64 696, !11, i64 704, !11, i64 712, !11, i64 720, !11, i64 728, !11, i64 736, !11, i64 744, !11, i64 752, !11, i64 760, !11, i64 768, !11, i64 776, !11, i64 784, !11, i64 792, !11, i64 800, !11, i64 808, !11, i64 816, !11, i64 824, !11, i64 832, !11, i64 840, !11, i64 848, !11, i64 856, !11, i64 864, !11, i64 872, !11, i64 880, !11, i64 888, !11, i64 896, !11, i64 904, !11, i64 912, !11, i64 920, !11, i64 928, !11, i64 936, !11, i64 944, !11, i64 952, !11, i64 960, !11, i64 968, !11, i64 976, !11, i64 984, !11, i64 992, !11, i64 1000, !11, i64 1008, !11, i64 1016, !11, i64 1024, !11, i64 1032, !11, i64 1040, !11, i64 1048, !11, i64 1056, !11, i64 1064, !11, i64 1072, !11, i64 1080, !11, i64 1088, !11, i64 1096, !11, i64 1104, !11, i64 1112, !11, i64 1120, !11, i64 1128, !11, i64 1136, !11, i64 1144, !11, i64 1152, !11, i64 1160, !11, i64 1168, !11, i64 1176, !11, i64 1184, !11, i64 1192, !11, i64 1200, !11, i64 1208, !11, i64 1216, !11, i64 1224, !11, i64 1232, !11, i64 1240, !11, i64 1248, !11, i64 1256, !11, i64 1264, !11, i64 1272, !11, i64 1280, !11, i64 1288, !11, i64 1296, !11, i64 1304, !11, i64 1312, !11, i64 1320, !11, i64 1328, !11, i64 1336, !11, i64 1344, !11, i64 1352, !11, i64 1360, !11, i64 1368, !11, i64 1376, !11, i64 1384, !11, i64 1392, !11, i64 1400, !11, i64 1408, !11, i64 1416, !11, i64 1424, !11, i64 1432, !11, i64 1440, !11, i64 1448, !11, i64 1456, !11, i64 1464, !11, i64 1472, !11, i64 1480, !11, i64 1488, !11, i64 1496, !11, i64 1504, !11, i64 1512, !11, i64 1520, !11, i64 1528, !11, i64 1536, !11, i64 1544, !11, i64 1552, !11, i64 1560, !11, i64 1568, !11, i64 1576, !11, i64 1584, !11, i64 1592, !11, i64 1600, !11, i64 1608, !11, i64 1616, !11, i64 1624, !11, i64 1632, !11, i64 1640, !11, i64 1648, !11, i64 1656, !11, i64 1664, !11, i64 1672, !11, i64 1680, !11, i64 1688, !11, i64 1696, !11, i64 1704, !11, i64 1712, !11, i64 1720, !11, i64 1728, !11, i64 1736, !11, i64 1744, !11, i64 1752, !11, i64 1760, !11, i64 1768, !11, i64 1776, !11, i64 1784, !11, i64 1792, !11, i64 1800, !11, i64 1808, !11, i64 1816, !11, i64 1824, !11, i64 1832, !11, i64 1840, !11, i64 1848, !11, i64 1856, !11, i64 1864, !11, i64 1872, !11, i64 1880, !11, i64 1888, !11, i64 1896, !11, i64 1904, !11, i64 1912, !11, i64 1920, !11, i64 1928, !11, i64 1936, !11, i64 1944}
-!152 = !{!"types_state", !12, i64 0, !153, i64 8, !154, i64 98312, !155, i64 107920, !107, i64 108416, !7, i64 108424}
-!153 = !{!"type_cache", !7, i64 0}
-!154 = !{!"", !20, i64 0, !7, i64 8}
-!155 = !{!"", !20, i64 0, !20, i64 8, !7, i64 16}
-!156 = !{!"callable_cache", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
-!157 = !{!"p1 _ZTS17_PyExecutorObject", !10, i64 0}
-!158 = !{!"_rare_events", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4}
-!159 = !{!"_Py_GlobalMonitors", !7, i64 0}
-!160 = !{!"_Py_interp_cached_objects", !11, i64 0, !11, i64 8, !11, i64 16, !7, i64 24, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152}
-!161 = !{!"_Py_interp_static_objects", !162, i64 0}
-!162 = !{!"", !12, i64 0, !59, i64 8, !163, i64 24, !164, i64 64}
-!163 = !{!"", !6, i64 0, !10, i64 16, !11, i64 24, !20, i64 32}
-!164 = !{!"", !6, i64 0, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !7, i64 64}
-!165 = !{!"_PyThreadStateImpl", !88, i64 0, !11, i64 304, !11, i64 312, !132, i64 320, !149, i64 328}
-!166 = !{!54, !20, i64 128}
-!167 = !{!54, !20, i64 144}
-!168 = !{!54, !10, i64 104}
-!169 = !{!54, !55, i64 160}
-!170 = !{!54, !20, i64 24}
-!171 = !{!54, !7, i64 88}
-!172 = !{!54, !7, i64 89}
-!173 = !{!174, !10, i64 32}
-!174 = !{!"", !6, i64 0, !11, i64 16, !175, i64 24, !10, i64 32, !11, i64 40, !11, i64 48}
-!175 = !{!"p1 _ZTS11PyModuleDef", !10, i64 0}
-!176 = !{!78, !9, i64 64}
-!177 = !{!78, !9, i64 72}
-!178 = !{!78, !9, i64 56}
-!179 = !{!78, !9, i64 96}
-!180 = !{!54, !7, i64 94}
-!181 = !{!54, !7, i64 112}
-!182 = !{!183, !11, i64 888}
-!183 = !{!"_heaptypeobject", !18, i64 0, !184, i64 416, !185, i64 448, !186, i64 736, !187, i64 760, !188, i64 840, !11, i64 856, !11, i64 864, !11, i64 872, !83, i64 880, !11, i64 888, !21, i64 896, !10, i64 904, !189, i64 912}
-!184 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
-!185 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280}
-!186 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
-!187 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
-!188 = !{!"", !10, i64 0, !10, i64 8}
-!189 = !{!"_specialization_cache", !11, i64 0, !12, i64 8, !11, i64 16}
-!190 = !{!78, !11, i64 8}
-!191 = !{!115, !115, i64 0}
-!192 = distinct !{!192, !35}
-!193 = !{!54, !7, i64 91}
-!194 = !{!54, !7, i64 90}
-!195 = !{!196, !94, i64 24}
-!196 = !{!"", !19, i64 0, !94, i64 24, !20, i64 32}
-!197 = !{!21, !21, i64 0}
-!198 = distinct !{!198, !35}
-!199 = distinct !{!199, !35}
-!200 = !{!201, !20, i64 16}
-!201 = !{!"", !10, i64 0, !11, i64 8, !20, i64 16, !20, i64 24, !12, i64 32, !12, i64 36, !21, i64 40, !202, i64 48, !202, i64 56, !202, i64 64, !10, i64 72}
-!202 = !{!"p1 long", !10, i64 0}
-!203 = !{!78, !9, i64 24}
-!204 = !{!54, !7, i64 92}
-!205 = !{!54, !21, i64 80}
-!206 = distinct !{!206, !35}
-!207 = distinct !{!207, !35}
-!208 = !{!209, !20, i64 0}
-!209 = !{!"", !20, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !7, i64 20}
-!210 = !{!209, !12, i64 16}
-!211 = !{!209, !12, i64 12}
-!212 = !{!209, !12, i64 8}
-!213 = !{!209, !7, i64 20}
-!214 = distinct !{!214, !35}
-!215 = !{!216, !10, i64 8}
-!216 = !{!"", !21, i64 0, !10, i64 8}
-!217 = !{!216, !21, i64 0}
-!218 = distinct !{!218, !35}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = distinct !{!36, !33}
+!37 = !{!20, !20, i64 0}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = !{!41, !7, i64 96}
+!41 = !{!"textio", !6, i64 0, !12, i64 16, !12, i64 20, !20, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !21, i64 80, !7, i64 88, !7, i64 89, !7, i64 90, !7, i64 91, !7, i64 92, !7, i64 93, !7, i64 94, !7, i64 95, !7, i64 96, !10, i64 104, !7, i64 112, !11, i64 120, !20, i64 128, !11, i64 136, !20, i64 144, !11, i64 152, !42, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !43, i64 192}
+!42 = !{!"double", !7, i64 0}
+!43 = !{!"p1 _ZTS9_io_state", !10, i64 0}
+!44 = !{!41, !12, i64 16}
+!45 = !{!46, !20, i64 8}
+!46 = !{!"", !20, i64 0, !20, i64 8}
+!47 = !{!46, !20, i64 0}
+!48 = !{!41, !11, i64 176}
+!49 = !{!18, !10, i64 320}
+!50 = !{!41, !11, i64 40}
+!51 = !{!41, !11, i64 32}
+!52 = !{!41, !11, i64 48}
+!53 = !{!41, !11, i64 56}
+!54 = !{!41, !11, i64 64}
+!55 = !{!41, !11, i64 120}
+!56 = !{!41, !11, i64 136}
+!57 = !{!41, !11, i64 152}
+!58 = !{!41, !11, i64 72}
+!59 = !{!41, !11, i64 168}
+!60 = !{!41, !11, i64 184}
+!61 = !{!41, !12, i64 20}
+!62 = !{!41, !7, i64 95}
+!63 = !{!41, !43, i64 192}
+!64 = !{!65, !9, i64 120}
+!65 = !{!"_io_state", !12, i64 0, !11, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120}
+!66 = !{!41, !7, i64 93}
+!67 = !{!19, !20, i64 16}
+!68 = !{!69, !20, i64 16}
+!69 = !{!"", !6, i64 0, !20, i64 16, !20, i64 24, !70, i64 32, !71, i64 40}
+!70 = !{!"p1 _ZTS15_dictkeysobject", !10, i64 0}
+!71 = !{!"p1 _ZTS11_dictvalues", !10, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS3_ts", !10, i64 0}
+!74 = !{!75, !76, i64 16}
+!75 = !{!"_ts", !73, i64 0, !73, i64 8, !76, i64 16, !20, i64 24, !77, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !12, i64 60, !12, i64 64, !78, i64 72, !10, i64 80, !10, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !79, i64 120, !11, i64 128, !12, i64 136, !11, i64 144, !20, i64 152, !20, i64 160, !11, i64 168, !20, i64 176, !12, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !20, i64 216, !20, i64 224, !80, i64 232, !81, i64 240, !81, i64 248, !82, i64 256, !11, i64 272, !20, i64 280, !11, i64 288, !11, i64 296}
+!76 = !{!"p1 _ZTS3_is", !10, i64 0}
+!77 = !{!"", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 1}
+!78 = !{!"p1 _ZTS19_PyInterpreterFrame", !10, i64 0}
+!79 = !{!"p1 _ZTS14_err_stackitem", !10, i64 0}
+!80 = !{!"p1 _ZTS12_stack_chunk", !10, i64 0}
+!81 = !{!"p2 _ZTS7_object", !10, i64 0}
+!82 = !{!"_err_stackitem", !11, i64 0, !79, i64 8}
+!83 = !{!84, !12, i64 184}
+!84 = !{!"PyConfig", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !20, i64 24, !12, i64 32, !12, i64 36, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !85, i64 64, !12, i64 72, !85, i64 80, !85, i64 88, !85, i64 96, !12, i64 104, !86, i64 112, !86, i64 128, !86, i64 144, !86, i64 160, !12, i64 176, !12, i64 180, !12, i64 184, !12, i64 188, !12, i64 192, !12, i64 196, !12, i64 200, !12, i64 204, !12, i64 208, !12, i64 212, !12, i64 216, !12, i64 220, !12, i64 224, !85, i64 232, !85, i64 240, !85, i64 248, !12, i64 256, !12, i64 260, !12, i64 264, !12, i64 268, !12, i64 272, !85, i64 280, !85, i64 288, !85, i64 296, !85, i64 304, !12, i64 312, !86, i64 320, !85, i64 336, !85, i64 344, !85, i64 352, !85, i64 360, !85, i64 368, !85, i64 376, !85, i64 384, !12, i64 392, !85, i64 400, !85, i64 408, !85, i64 416, !85, i64 424, !12, i64 432, !12, i64 436, !12, i64 440}
+!85 = !{!"p1 int", !10, i64 0}
+!86 = !{!"", !20, i64 0, !87, i64 8}
+!87 = !{!"p2 int", !10, i64 0}
+!88 = !{!84, !12, i64 12}
+!89 = !{!90, !21, i64 11600}
+!90 = !{!"_is", !91, i64 0, !76, i64 7264, !20, i64 7272, !20, i64 7280, !12, i64 7288, !20, i64 7296, !12, i64 7304, !12, i64 7308, !12, i64 7312, !20, i64 7320, !95, i64 7328, !97, i64 7376, !73, i64 7384, !20, i64 7392, !98, i64 7400, !11, i64 7640, !11, i64 7648, !100, i64 7656, !104, i64 7752, !105, i64 7960, !84, i64 7992, !20, i64 8440, !11, i64 8448, !11, i64 8456, !11, i64 8464, !10, i64 8472, !7, i64 8480, !7, i64 8544, !20, i64 8552, !7, i64 8560, !106, i64 10600, !11, i64 10648, !11, i64 10656, !11, i64 10664, !111, i64 10672, !112, i64 10728, !114, i64 10744, !117, i64 10768, !120, i64 10816, !11, i64 10824, !7, i64 10832, !7, i64 10896, !7, i64 10960, !7, i64 11024, !7, i64 11025, !121, i64 11032, !124, i64 11600, !127, i64 11656, !128, i64 11664, !130, i64 14104, !131, i64 79648, !133, i64 79664, !134, i64 79736, !135, i64 79768, !138, i64 79792, !139, i64 81744, !143, i64 222936, !115, i64 222968, !144, i64 222976, !20, i64 222984, !145, i64 222992, !10, i64 223000, !146, i64 223008, !115, i64 223024, !115, i64 223025, !20, i64 223032, !20, i64 223040, !7, i64 223048, !7, i64 224264, !7, i64 224328, !147, i64 224392, !148, i64 224552, !20, i64 224688, !152, i64 224696}
+!91 = !{!"_ceval_state", !20, i64 0, !12, i64 8, !92, i64 16, !12, i64 24, !93, i64 32}
+!92 = !{!"p1 _ZTS18_gil_runtime_state", !10, i64 0}
+!93 = !{!"_pending_calls", !73, i64 0, !94, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !7, i64 24, !12, i64 7224, !12, i64 7228}
+!94 = !{!"PyMutex", !7, i64 0}
+!95 = !{!"pythreads", !20, i64 0, !73, i64 8, !96, i64 16, !73, i64 24, !20, i64 32, !20, i64 40}
+!96 = !{!"p1 _ZTS18_PyThreadStateImpl", !10, i64 0}
+!97 = !{!"p1 _ZTS14pyruntimestate", !10, i64 0}
+!98 = !{!"_gc_runtime_state", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !99, i64 24, !7, i64 48, !99, i64 96, !7, i64 120, !12, i64 192, !11, i64 200, !11, i64 208, !20, i64 216, !20, i64 224, !12, i64 232, !12, i64 236}
+!99 = !{!"gc_generation", !46, i64 0, !12, i64 16, !12, i64 20}
+!100 = !{!"_import_state", !11, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !11, i64 40, !101, i64 48, !103, i64 72}
+!101 = !{!"", !94, i64 0, !102, i64 8, !20, i64 16}
+!102 = !{!"long long", !7, i64 0}
+!103 = !{!"", !12, i64 0, !20, i64 8, !12, i64 16}
+!104 = !{!"_gil_runtime_state", !20, i64 0, !73, i64 8, !12, i64 16, !20, i64 24, !7, i64 32, !7, i64 80, !7, i64 120, !7, i64 168}
+!105 = !{!"codecs_state", !11, i64 0, !11, i64 8, !11, i64 16, !12, i64 24}
+!106 = !{!"", !107, i64 0, !110, i64 24}
+!107 = !{!"_xid_lookup_state", !108, i64 0}
+!108 = !{!"", !12, i64 0, !12, i64 4, !94, i64 8, !109, i64 16}
+!109 = !{!"p1 _ZTS12_xid_regitem", !10, i64 0}
+!110 = !{!"xi_exceptions", !11, i64 0, !11, i64 8, !11, i64 16}
+!111 = !{!"_warnings_runtime_state", !11, i64 0, !11, i64 8, !11, i64 16, !101, i64 24, !20, i64 48}
+!112 = !{!"atexit_state", !113, i64 0, !11, i64 8}
+!113 = !{!"p1 _ZTS15atexit_callback", !10, i64 0}
+!114 = !{!"_stoptheworld_state", !94, i64 0, !115, i64 1, !115, i64 2, !115, i64 3, !116, i64 4, !20, i64 8, !73, i64 16}
+!115 = !{!"_Bool", !7, i64 0}
+!116 = !{!"", !7, i64 0}
+!117 = !{!"_qsbr_shared", !20, i64 0, !20, i64 8, !118, i64 16, !20, i64 24, !94, i64 32, !119, i64 40}
+!118 = !{!"p1 _ZTS9_qsbr_pad", !10, i64 0}
+!119 = !{!"p1 _ZTS18_qsbr_thread_state", !10, i64 0}
+!120 = !{!"p1 _ZTS15_obmalloc_state", !10, i64 0}
+!121 = !{!"_py_object_state", !122, i64 0, !12, i64 560}
+!122 = !{!"_Py_freelists", !123, i64 0, !123, i64 16, !7, i64 32, !123, i64 352, !123, i64 368, !123, i64 384, !123, i64 400, !123, i64 416, !123, i64 432, !123, i64 448, !123, i64 464, !123, i64 480, !123, i64 496, !123, i64 512, !123, i64 528, !123, i64 544}
+!123 = !{!"_Py_freelist", !10, i64 0, !20, i64 8}
+!124 = !{!"_Py_unicode_state", !125, i64 0, !10, i64 32, !126, i64 40}
+!125 = !{!"_Py_unicode_fs_codec", !21, i64 0, !12, i64 8, !21, i64 16, !12, i64 24}
+!126 = !{!"_Py_unicode_ids", !20, i64 0, !81, i64 8}
+!127 = !{!"_Py_long_state", !12, i64 0}
+!128 = !{!"_dtoa_state", !7, i64 0, !7, i64 64, !7, i64 128, !129, i64 2432}
+!129 = !{!"p1 double", !10, i64 0}
+!130 = !{!"_py_func_state", !12, i64 0, !7, i64 8}
+!131 = !{!"_py_code_state", !94, i64 0, !132, i64 8}
+!132 = !{!"p1 _ZTS15_Py_hashtable_t", !10, i64 0}
+!133 = !{!"_Py_dict_state", !12, i64 0, !7, i64 8}
+!134 = !{!"_Py_exc_state", !11, i64 0, !10, i64 8, !12, i64 16, !11, i64 24}
+!135 = !{!"_Py_mem_interp_free_queue", !12, i64 0, !94, i64 4, !136, i64 8}
+!136 = !{!"llist_node", !137, i64 0, !137, i64 8}
+!137 = !{!"p1 _ZTS10llist_node", !10, i64 0}
+!138 = !{!"ast_state", !116, i64 0, !12, i64 4, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !11, i64 368, !11, i64 376, !11, i64 384, !11, i64 392, !11, i64 400, !11, i64 408, !11, i64 416, !11, i64 424, !11, i64 432, !11, i64 440, !11, i64 448, !11, i64 456, !11, i64 464, !11, i64 472, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !11, i64 512, !11, i64 520, !11, i64 528, !11, i64 536, !11, i64 544, !11, i64 552, !11, i64 560, !11, i64 568, !11, i64 576, !11, i64 584, !11, i64 592, !11, i64 600, !11, i64 608, !11, i64 616, !11, i64 624, !11, i64 632, !11, i64 640, !11, i64 648, !11, i64 656, !11, i64 664, !11, i64 672, !11, i64 680, !11, i64 688, !11, i64 696, !11, i64 704, !11, i64 712, !11, i64 720, !11, i64 728, !11, i64 736, !11, i64 744, !11, i64 752, !11, i64 760, !11, i64 768, !11, i64 776, !11, i64 784, !11, i64 792, !11, i64 800, !11, i64 808, !11, i64 816, !11, i64 824, !11, i64 832, !11, i64 840, !11, i64 848, !11, i64 856, !11, i64 864, !11, i64 872, !11, i64 880, !11, i64 888, !11, i64 896, !11, i64 904, !11, i64 912, !11, i64 920, !11, i64 928, !11, i64 936, !11, i64 944, !11, i64 952, !11, i64 960, !11, i64 968, !11, i64 976, !11, i64 984, !11, i64 992, !11, i64 1000, !11, i64 1008, !11, i64 1016, !11, i64 1024, !11, i64 1032, !11, i64 1040, !11, i64 1048, !11, i64 1056, !11, i64 1064, !11, i64 1072, !11, i64 1080, !11, i64 1088, !11, i64 1096, !11, i64 1104, !11, i64 1112, !11, i64 1120, !11, i64 1128, !11, i64 1136, !11, i64 1144, !11, i64 1152, !11, i64 1160, !11, i64 1168, !11, i64 1176, !11, i64 1184, !11, i64 1192, !11, i64 1200, !11, i64 1208, !11, i64 1216, !11, i64 1224, !11, i64 1232, !11, i64 1240, !11, i64 1248, !11, i64 1256, !11, i64 1264, !11, i64 1272, !11, i64 1280, !11, i64 1288, !11, i64 1296, !11, i64 1304, !11, i64 1312, !11, i64 1320, !11, i64 1328, !11, i64 1336, !11, i64 1344, !11, i64 1352, !11, i64 1360, !11, i64 1368, !11, i64 1376, !11, i64 1384, !11, i64 1392, !11, i64 1400, !11, i64 1408, !11, i64 1416, !11, i64 1424, !11, i64 1432, !11, i64 1440, !11, i64 1448, !11, i64 1456, !11, i64 1464, !11, i64 1472, !11, i64 1480, !11, i64 1488, !11, i64 1496, !11, i64 1504, !11, i64 1512, !11, i64 1520, !11, i64 1528, !11, i64 1536, !11, i64 1544, !11, i64 1552, !11, i64 1560, !11, i64 1568, !11, i64 1576, !11, i64 1584, !11, i64 1592, !11, i64 1600, !11, i64 1608, !11, i64 1616, !11, i64 1624, !11, i64 1632, !11, i64 1640, !11, i64 1648, !11, i64 1656, !11, i64 1664, !11, i64 1672, !11, i64 1680, !11, i64 1688, !11, i64 1696, !11, i64 1704, !11, i64 1712, !11, i64 1720, !11, i64 1728, !11, i64 1736, !11, i64 1744, !11, i64 1752, !11, i64 1760, !11, i64 1768, !11, i64 1776, !11, i64 1784, !11, i64 1792, !11, i64 1800, !11, i64 1808, !11, i64 1816, !11, i64 1824, !11, i64 1832, !11, i64 1840, !11, i64 1848, !11, i64 1856, !11, i64 1864, !11, i64 1872, !11, i64 1880, !11, i64 1888, !11, i64 1896, !11, i64 1904, !11, i64 1912, !11, i64 1920, !11, i64 1928, !11, i64 1936, !11, i64 1944}
+!139 = !{!"types_state", !12, i64 0, !140, i64 8, !141, i64 98312, !142, i64 107920, !94, i64 108416, !7, i64 108424}
+!140 = !{!"type_cache", !7, i64 0}
+!141 = !{!"", !20, i64 0, !7, i64 8}
+!142 = !{!"", !20, i64 0, !20, i64 8, !7, i64 16}
+!143 = !{!"callable_cache", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24}
+!144 = !{!"p1 _ZTS17_PyExecutorObject", !10, i64 0}
+!145 = !{!"_rare_events", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4}
+!146 = !{!"_Py_GlobalMonitors", !7, i64 0}
+!147 = !{!"_Py_interp_cached_objects", !11, i64 0, !11, i64 8, !11, i64 16, !7, i64 24, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152}
+!148 = !{!"_Py_interp_static_objects", !149, i64 0}
+!149 = !{!"", !12, i64 0, !46, i64 8, !150, i64 24, !151, i64 64}
+!150 = !{!"", !6, i64 0, !10, i64 16, !11, i64 24, !20, i64 32}
+!151 = !{!"", !6, i64 0, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !7, i64 64}
+!152 = !{!"_PyThreadStateImpl", !75, i64 0, !11, i64 304, !11, i64 312, !119, i64 320, !136, i64 328}
+!153 = !{!41, !20, i64 128}
+!154 = !{!41, !20, i64 144}
+!155 = !{!41, !10, i64 104}
+!156 = !{!41, !42, i64 160}
+!157 = !{!41, !20, i64 24}
+!158 = !{!41, !7, i64 88}
+!159 = !{!41, !7, i64 89}
+!160 = !{!161, !10, i64 32}
+!161 = !{!"", !6, i64 0, !11, i64 16, !162, i64 24, !10, i64 32, !11, i64 40, !11, i64 48}
+!162 = !{!"p1 _ZTS11PyModuleDef", !10, i64 0}
+!163 = !{!65, !9, i64 64}
+!164 = !{!65, !9, i64 72}
+!165 = !{!65, !9, i64 56}
+!166 = !{!65, !9, i64 96}
+!167 = !{!41, !7, i64 94}
+!168 = !{!41, !7, i64 112}
+!169 = !{!170, !11, i64 888}
+!170 = !{!"_heaptypeobject", !18, i64 0, !171, i64 416, !172, i64 448, !173, i64 736, !174, i64 760, !175, i64 840, !11, i64 856, !11, i64 864, !11, i64 872, !70, i64 880, !11, i64 888, !21, i64 896, !10, i64 904, !176, i64 912}
+!171 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24}
+!172 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280}
+!173 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
+!174 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
+!175 = !{!"", !10, i64 0, !10, i64 8}
+!176 = !{!"_specialization_cache", !11, i64 0, !12, i64 8, !11, i64 16}
+!177 = !{!65, !11, i64 8}
+!178 = !{!102, !102, i64 0}
+!179 = distinct !{!179, !33}
+!180 = !{!41, !7, i64 91}
+!181 = !{!41, !7, i64 90}
+!182 = !{!183, !81, i64 24}
+!183 = !{!"", !19, i64 0, !81, i64 24, !20, i64 32}
+!184 = !{!21, !21, i64 0}
+!185 = distinct !{!185, !33}
+!186 = distinct !{!186, !33}
+!187 = !{!188, !20, i64 16}
+!188 = !{!"", !10, i64 0, !11, i64 8, !20, i64 16, !20, i64 24, !12, i64 32, !12, i64 36, !21, i64 40, !189, i64 48, !189, i64 56, !189, i64 64, !10, i64 72}
+!189 = !{!"p1 long", !10, i64 0}
+!190 = !{!65, !9, i64 24}
+!191 = !{!41, !7, i64 92}
+!192 = !{!41, !21, i64 80}
+!193 = distinct !{!193, !33}
+!194 = distinct !{!194, !33}
+!195 = !{!196, !20, i64 0}
+!196 = !{!"", !20, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !7, i64 20}
+!197 = !{!196, !12, i64 16}
+!198 = !{!196, !12, i64 12}
+!199 = !{!196, !12, i64 8}
+!200 = !{!196, !7, i64 20}
+!201 = distinct !{!201, !33}
+!202 = !{!203, !10, i64 8}
+!203 = !{!"", !21, i64 0, !10, i64 8}
+!204 = !{!203, !21, i64 0}
+!205 = distinct !{!205, !33}

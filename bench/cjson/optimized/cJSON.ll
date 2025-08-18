@@ -5686,7 +5686,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
 get_object_item.exit.us:                          ; preds = %61, %.lr.ph.i.i.us
   %88 = tail call i32 @cJSON_Compare(ptr noundef nonnull %.048.us, ptr noundef nonnull %.250.i.us, i32 noundef 0)
   %.not63.us = icmp eq i32 %88, 0
-  br i1 %.not63.us, label %get_object_item.exit.thread, label %.split.us, !llvm.loop !59
+  br i1 %.not63.us, label %get_object_item.exit.thread, label %.split.us
 
 case_insensitive_strcmp.exit.thread30.i.us:       ; preds = %76, %.preheader.i.i.us, %.lr.ph51.i.us
   %89 = load ptr, ptr %.250.i.us, align 8, !tbaa !24
@@ -5801,7 +5801,7 @@ get_object_item.exit.loopexit109:                 ; preds = %97
 get_object_item.exit91.us:                        ; preds = %110, %.lr.ph.i.i88.us
   %137 = tail call i32 @cJSON_Compare(ptr noundef nonnull %.0.us, ptr noundef nonnull %.250.i84.us, i32 noundef 0)
   %.not62.us = icmp eq i32 %137, 0
-  br i1 %.not62.us, label %get_object_item.exit.thread, label %.split121.us, !llvm.loop !61
+  br i1 %.not62.us, label %get_object_item.exit.thread, label %.split121.us
 
 case_insensitive_strcmp.exit.thread30.i86.us:     ; preds = %125, %.preheader.i.i85.us, %.lr.ph51.i83.us
   %138 = load ptr, ptr %.250.i84.us, align 8, !tbaa !24
@@ -5922,7 +5922,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
   %.063121.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.063121.idx
   %22 = ptrtoint ptr %6 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !62
+  %24 = load ptr, ptr %23, align 8, !tbaa !59
   %25 = add i64 %.059122, %22
   %reass.sub = sub i64 %21, %25
   %26 = add i64 %reass.sub, 1
@@ -6165,7 +6165,7 @@ utf16_literal_to_utf8.exit:                       ; preds = %106, %.loopexit.i
 
 utf16_literal_to_utf8.exit.thread:                ; preds = %81, %76, %78, %71, %53, %parse_hex4.exit.i, %96, %38, %34
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %123 = load ptr, ptr %122, align 8, !tbaa !63
+  %123 = load ptr, ptr %122, align 8, !tbaa !60
   tail call void %123(ptr noundef nonnull %27) #32
   br label %.thread108
 
@@ -7016,8 +7016,5 @@ attributes #34 = { nounwind willreturn memory(none) }
 !56 = !{!14, !14, i64 0}
 !57 = !{!58, !58, i64 0}
 !58 = !{!"float", !7, i64 0}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !60}
-!62 = !{!29, !6, i64 32}
-!63 = !{!29, !6, i64 40}
+!59 = !{!29, !6, i64 32}
+!60 = !{!29, !6, i64 40}

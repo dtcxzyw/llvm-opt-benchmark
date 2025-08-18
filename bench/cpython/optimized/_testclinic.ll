@@ -6536,7 +6536,7 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
 
 32:                                               ; preds = %14
   store ptr %13, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !6
-  br i1 %.not20.i, label %11, label %.critedge.i, !llvm.loop !90
+  br i1 %.not20.i, label %11, label %.critedge.i, !llvm.loop !89
 
 .critedge.i:                                      ; preds = %32
   %33 = call ptr @PyTuple_New(i64 noundef 2) #10
@@ -6586,7 +6586,7 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %46, %43, %.preheader.i
-  br i1 %40, label %.preheader.i, label %py_buffer_converter_impl.exit, !llvm.loop !91
+  br i1 %40, label %.preheader.i, label %py_buffer_converter_impl.exit, !llvm.loop !90
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader6.split.split.split.i
   %47 = phi i1 [ true, %.preheader6.split.split.split.i ], [ false, %PyTuple_SET_ITEM.exit.i ]
@@ -6615,7 +6615,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   %52 = load ptr, ptr %indvars.iv34.i.sroa.phi, align 8, !tbaa !6
   %53 = getelementptr [1 x ptr], ptr %38, i64 0, i64 %indvars.iv34.i
   store ptr %52, ptr %53, align 8, !tbaa !6
-  br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !92
+  br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !91
 
 py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %.preheader8.i, %.lr.ph.i, %.lr.ph.split.i, %31
   %.1.i = phi ptr [ null, %.preheader8.i ], [ null, %.lr.ph.i ], [ null, %31 ], [ null, %.lr.ph.split.i ], [ null, %Py_DECREF.exit.i ], [ %33, %PyTuple_SET_ITEM.exit.i ]
@@ -6626,7 +6626,7 @@ py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.ex
 54:                                               ; preds = %3, %py_buffer_converter_impl.exit
   %.0 = phi ptr [ %.1.i, %py_buffer_converter_impl.exit ], [ null, %3 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !93
+  %56 = load ptr, ptr %55, align 8, !tbaa !92
   %.not3 = icmp eq ptr %56, null
   br i1 %.not3, label %58, label %57
 
@@ -6636,7 +6636,7 @@ py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.ex
 
 58:                                               ; preds = %57, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !93
+  %60 = load ptr, ptr %59, align 8, !tbaa !92
   %.not4 = icmp eq ptr %60, null
   br i1 %.not4, label %62, label %61
 
@@ -10361,7 +10361,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   store ptr %.0, ptr %53, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.critedge29, label %14, !llvm.loop !94
+  br i1 %exitcond.not, label %.critedge29, label %14, !llvm.loop !93
 
 .critedge29:                                      ; preds = %PyTuple_SET_ITEM.exit
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -10801,8 +10801,8 @@ define internal noundef ptr @varpos_no_fastcall(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -10847,8 +10847,8 @@ define internal ptr @posonly_varpos_no_fastcall(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -10948,8 +10948,8 @@ define internal ptr @posonly_req_opt_varpos_no_fastcall(ptr noundef readonly cap
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11151,8 +11151,8 @@ define internal ptr @varpos_array_no_fastcall(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11215,8 +11215,8 @@ define internal ptr @posonly_varpos_array_no_fastcall(ptr noundef readonly captu
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11335,8 +11335,8 @@ define internal ptr @posonly_req_opt_varpos_array_no_fastcall(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !94
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11681,7 +11681,7 @@ PyDict_GET_SIZE.exit:                             ; preds = %15, %PyTuple_GET_SI
 
 .thread:                                          ; preds = %32, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %36 = load ptr, ptr %35, align 8, !tbaa !96
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
   %37 = call ptr %36(ptr noundef %0, i64 noundef 0) #10
   br label %38
 
@@ -12079,7 +12079,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %11
 
 PyDict_GET_SIZE.exit50:                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !97
+  %32 = load i64, ptr %31, align 8, !tbaa !96
   %33 = icmp ne i64 %32, 0
   %34 = icmp slt i64 %14, 1
   %or.cond5 = select i1 %33, i1 %34, i1 false
@@ -12098,7 +12098,7 @@ PyDict_GET_SIZE.exit50:                           ; preds = %27
 
 .thread54:                                        ; preds = %PyDict_GET_SIZE.exit50, %35, %37, %22, %20
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %41 = load ptr, ptr %40, align 8, !tbaa !96
+  %41 = load ptr, ptr %40, align 8, !tbaa !95
   %42 = call ptr %41(ptr noundef %0, i64 noundef 0) #10
   br label %43
 
@@ -12189,7 +12189,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %11
 
 PyDict_GET_SIZE.exit50:                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !97
+  %32 = load i64, ptr %31, align 8, !tbaa !96
   %33 = icmp ne i64 %32, 0
   %34 = icmp slt i64 %14, 1
   %or.cond5 = select i1 %33, i1 %34, i1 false
@@ -12283,7 +12283,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
 
 PyDict_GET_SIZE.exit:                             ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !97
+  %27 = load i64, ptr %26, align 8, !tbaa !96
   %.not12 = icmp eq i64 %27, 0
   br i1 %.not12, label %39, label %28
 
@@ -12444,16 +12444,15 @@ attributes #12 = { nounwind willreturn memory(read) }
 !85 = !{!86, !15, i64 16}
 !86 = !{!"", !8, i64 0, !7, i64 8, !15, i64 16, !15, i64 24, !20, i64 32, !20, i64 36, !16, i64 40, !87, i64 48, !87, i64 56, !87, i64 64, !8, i64 72}
 !87 = !{!"p1 long", !8, i64 0}
-!88 = distinct !{!88, !26, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = distinct !{!88, !26}
+!89 = distinct !{!89, !26}
 !90 = distinct !{!90, !26}
 !91 = distinct !{!91, !26}
-!92 = distinct !{!92, !26}
-!93 = !{!86, !7, i64 8}
-!94 = distinct !{!94, !26}
-!95 = !{!13, !8, i64 296}
-!96 = !{!13, !8, i64 304}
-!97 = !{!98, !15, i64 16}
-!98 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !99, i64 32, !100, i64 40}
-!99 = !{!"p1 _ZTS15_dictkeysobject", !8, i64 0}
-!100 = !{!"p1 _ZTS11_dictvalues", !8, i64 0}
+!92 = !{!86, !7, i64 8}
+!93 = distinct !{!93, !26}
+!94 = !{!13, !8, i64 296}
+!95 = !{!13, !8, i64 304}
+!96 = !{!97, !15, i64 16}
+!97 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !98, i64 32, !99, i64 40}
+!98 = !{!"p1 _ZTS15_dictkeysobject", !8, i64 0}
+!99 = !{!"p1 _ZTS11_dictvalues", !8, i64 0}

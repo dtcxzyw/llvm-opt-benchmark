@@ -3418,7 +3418,7 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %.lr.ph5, label %.critedge, !prof !42, !llvm.loop !43
+  br i1 %21, label %.lr.ph5, label %.critedge, !prof !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %13, label %.lr.ph3, label %.critedge, !prof !40
@@ -3431,14 +3431,14 @@ define dso_local noundef zeroext i1 @inode_maybe_inc_iversion(ptr noundef %0, i1
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i8 %26, 0
-  br i1 %28, label %.lr.ph3, label %.critedge, !prof !42, !llvm.loop !45
+  br i1 %28, label %.lr.ph3, label %.critedge, !prof !42, !llvm.loop !43
 
 .lr.ph3:                                          ; preds = %.lr.ph.split, %22
   %29 = phi { i8, i64 } [ %25, %22 ], [ %10, %.lr.ph.split ]
   %30 = extractvalue { i8, i64 } %29, 1
   %31 = and i64 %30, 1
   %.not.not.not = icmp ne i64 %31, 0
-  br i1 %.not.not.not, label %22, label %.critedge, !llvm.loop !45
+  br i1 %.not.not.not, label %22, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph3, %22, %.lr.ph5, %.lr.ph.split.us, %.lr.ph.split, %2
   %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %.lr.ph5 ], [ %.not.not.not, %22 ], [ %.not.not.not, %.lr.ph3 ]
@@ -3455,7 +3455,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inode_query_iversion(pt
 
 ._crit_edge:                                      ; preds = %12, %1
   %.lcssa = phi i64 [ %3, %1 ], [ %13, %12 ]
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !46
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !44
   br label %.thread
 
 .lr.ph:                                           ; preds = %1, %12
@@ -3472,7 +3472,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inode_query_iversion(pt
   %13 = extractvalue { i8, i64 } %8, 1
   %14 = and i64 %13, 1
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
   %16 = phi i64 [ %.lcssa, %._crit_edge ], [ %6, %.lr.ph ]
@@ -3842,8 +3842,6 @@ attributes #18 = { cold nounwind }
 !40 = !{!"branch_weights", i32 1, i32 1999}
 !41 = !{i64 2149219244, i64 2149219283, i64 2149219304, i64 2149219341, i64 2149219364, i64 2149219373, i64 2149219574}
 !42 = !{!"branch_weights", i32 0, i32 1}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !6, !7}
+!44 = !{i64 2156340124}
 !45 = distinct !{!45, !6, !7}
-!46 = !{i64 2156340124}
-!47 = distinct !{!47, !6, !7}

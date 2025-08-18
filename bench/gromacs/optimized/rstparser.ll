@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit: ; pre
   %102 = add i64 %.sroa.speculated, 1
   %103 = load i64, ptr %5, align 8, !tbaa !28
   %104 = icmp ult i64 %102, %103
-  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
+  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit.us, %2
   ret void
@@ -745,6 +745,4 @@ attributes #11 = { noreturn }
 !37 = distinct !{!37, !27}
 !38 = distinct !{!38, !27}
 !39 = !{!11, !11, i64 0}
-!40 = distinct !{!40, !27, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !27}
+!40 = distinct !{!40, !27}

@@ -1328,7 +1328,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
 60:                                               ; preds = %.preheader.split, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !211
+  br i1 %exitcond, label %.loopexit, label %.preheader.split, !llvm.loop !209
 
 .loopexit:                                        ; preds = %46, %39, %60, %.thread, %15
   %.031 = phi i32 [ %18, %15 ], [ %20, %.thread ], [ 0, %60 ], [ %42, %39 ], [ 0, %46 ]
@@ -1364,7 +1364,7 @@ define internal i32 @vaapi_av1_decode_init(ptr noundef %0) #1 {
   store i32 0, ptr %13, align 8, !tbaa !175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.critedge, label %9, !llvm.loop !212
+  br i1 %exitcond, label %.critedge, label %9, !llvm.loop !210
 
 .critedge:                                        ; preds = %12
   %14 = tail call i32 @ff_vaapi_decode_init(ptr noundef %0) #6
@@ -1398,7 +1398,7 @@ define internal i32 @vaapi_av1_decode_uninit(ptr noundef %0) #1 {
   tail call void @av_frame_free(ptr noundef nonnull %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %8, label %11, !llvm.loop !213
+  br i1 %exitcond.not, label %8, label %11, !llvm.loop !211
 }
 
 declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #2
@@ -1662,8 +1662,6 @@ attributes #6 = { nounwind }
 !206 = !{!203, !43, i64 10}
 !207 = distinct !{!207, !179}
 !208 = !{!102, !8, i64 177}
-!209 = distinct !{!209, !179, !210}
-!210 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!209 = distinct !{!209, !179}
+!210 = distinct !{!210, !179}
 !211 = distinct !{!211, !179}
-!212 = distinct !{!212, !179}
-!213 = distinct !{!213, !179}

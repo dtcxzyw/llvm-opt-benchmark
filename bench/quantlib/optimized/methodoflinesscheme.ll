@@ -2021,7 +2021,7 @@ if.then.us:                                       ; preds = %for.cond7.for.cond.
   %7 = load double, ptr %x, align 8, !tbaa !44
   %add.us = fadd double %7, %cond28.us
   %cmp29.us = fcmp oeq double %add.us, %7
-  br i1 %cmp29.us, label %do.body, label %for.cond.us, !llvm.loop !110
+  br i1 %cmp29.us, label %do.body, label %for.cond.us
 
 for.body.us:                                      ; preds = %for.cond7.preheader.us, %for.body.us
   %i.0135.us = phi i64 [ 0, %for.cond7.preheader.us ], [ %inc.us, %for.body.us ]
@@ -2036,7 +2036,7 @@ for.body.us:                                      ; preds = %for.cond7.preheader
   %.sroa.speculated.us = select i1 %cmp.i.us, double %10, double %errmax.0134.us
   %inc.us = add nuw i64 %i.0135.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %umax
-  br i1 %exitcond.not, label %for.cond7.for.cond.cleanup_crit_edge.us, label %for.body.us, !llvm.loop !112
+  br i1 %exitcond.not, label %for.cond7.for.cond.cleanup_crit_edge.us, label %for.body.us, !llvm.loop !110
 
 for.cond7.preheader.us:                           ; preds = %for.cond.us
   %11 = load ptr, ptr %yerr, align 8, !tbaa !48
@@ -2081,7 +2081,7 @@ for.cond7.preheader.us154:                        ; preds = %for.cond.us139
   %17 = load double, ptr %x, align 8, !tbaa !44
   %add.us152 = fadd double %17, %cond28.us151
   %cmp29.us153 = fcmp oeq double %add.us152, %17
-  br i1 %cmp29.us153, label %do.body, label %for.cond.us139, !llvm.loop !113
+  br i1 %cmp29.us153, label %do.body, label %for.cond.us139
 
 lpad5.split.split.us:                             ; preds = %for.cond.us139
   %18 = landingpad { ptr, i32 }
@@ -2363,7 +2363,7 @@ for.body86:                                       ; preds = %for.body86.lr.ph, %
   store double %52, ptr %add.ptr.i94, align 8, !tbaa !44
   %inc90 = add nuw i64 %i82.0159, 1
   %exitcond165.not = icmp eq i64 %inc90, %sub.ptr.div.i
-  br i1 %exitcond165.not, label %if.then.i.i.i, label %for.body86, !llvm.loop !114
+  br i1 %exitcond165.not, label %if.then.i.i.i, label %for.body86, !llvm.loop !111
 
 ehcleanup93:                                      ; preds = %lpad5.split.us, %lpad5.split.split.us, %lpad5.split.split, %ehcleanup67
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup67 ], [ %13, %lpad5.split.us ], [ %20, %lpad5.split.split ], [ %18, %lpad5.split.split.us ]
@@ -2569,9 +2569,9 @@ for.cond.cleanup:                                 ; preds = %for.body, %invoke.c
   %9 = load double, ptr %a2, align 8, !tbaa !57
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %h, double %x)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
-  store double %10, ptr %__args.addr.i, align 8, !tbaa !44, !noalias !115
+  store double %10, ptr %__args.addr.i, align 8, !tbaa !44, !noalias !112
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %derivs, i64 16
-  %11 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !115
+  %11 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !112
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
 
@@ -2584,7 +2584,7 @@ if.then.i:                                        ; preds = %for.cond.cleanup
 
 if.end.i:                                         ; preds = %for.cond.cleanup
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %derivs, i64 24
-  %12 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !115
+  %12 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !112
   invoke void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont24 unwind label %lpad23
 
@@ -2625,7 +2625,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store double %20, ptr %add.ptr.i197, align 8, !tbaa !44
   %inc = add nuw i64 %i.0670, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !118
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !115
 
 invoke.cont24:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
@@ -2671,8 +2671,8 @@ for.cond.cleanup29:                               ; preds = %for.body30, %_ZNSt6
   %27 = load double, ptr %a3, align 8, !tbaa !58
   %28 = call double @llvm.fmuladd.f64(double %27, double %h, double %x)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i199)
-  store double %28, ptr %__args.addr.i199, align 8, !tbaa !44, !noalias !119
-  %29 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !119
+  store double %28, ptr %__args.addr.i199, align 8, !tbaa !44, !noalias !116
+  %29 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !116
   %tobool.not.i.i201 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i201, label %if.then.i204, label %if.end.i202
 
@@ -2684,7 +2684,7 @@ if.then.i204:                                     ; preds = %for.cond.cleanup29
   unreachable
 
 if.end.i202:                                      ; preds = %for.cond.cleanup29
-  %30 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !119
+  %30 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !116
   invoke void %30(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i199, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont44 unwind label %lpad43
 
@@ -2711,7 +2711,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   store double %38, ptr %add.ptr.i211, align 8, !tbaa !44
   %inc39 = add nuw i64 %i26.0672, 1
   %exitcond682.not = icmp eq i64 %inc39, %sub.ptr.div.i
-  br i1 %exitcond682.not, label %for.cond.cleanup29, label %for.body30, !llvm.loop !122
+  br i1 %exitcond682.not, label %for.cond.cleanup29, label %for.body30, !llvm.loop !119
 
 invoke.cont44:                                    ; preds = %if.end.i202
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i199)
@@ -2758,8 +2758,8 @@ for.cond.cleanup49:                               ; preds = %for.body50, %_ZNSt6
   %45 = load double, ptr %a4, align 8, !tbaa !59
   %46 = call double @llvm.fmuladd.f64(double %45, double %h, double %x)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i229)
-  store double %46, ptr %__args.addr.i229, align 8, !tbaa !44, !noalias !123
-  %47 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !123
+  store double %46, ptr %__args.addr.i229, align 8, !tbaa !44, !noalias !120
+  %47 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !120
   %tobool.not.i.i231 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i231, label %if.then.i234, label %if.end.i232
 
@@ -2771,7 +2771,7 @@ if.then.i234:                                     ; preds = %for.cond.cleanup49
   unreachable
 
 if.end.i232:                                      ; preds = %for.cond.cleanup49
-  %48 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !123
+  %48 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !120
   invoke void %48(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i229, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -2802,7 +2802,7 @@ for.body50:                                       ; preds = %for.body50.lr.ph, %
   store double %59, ptr %add.ptr.i242, align 8, !tbaa !44
   %inc61 = add nuw i64 %i46.0674, 1
   %exitcond684.not = icmp eq i64 %inc61, %sub.ptr.div.i
-  br i1 %exitcond684.not, label %for.cond.cleanup49, label %for.body50, !llvm.loop !126
+  br i1 %exitcond684.not, label %for.cond.cleanup49, label %for.body50, !llvm.loop !123
 
 invoke.cont66:                                    ; preds = %if.end.i232
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i229)
@@ -2850,8 +2850,8 @@ for.cond.cleanup71:                               ; preds = %for.body72, %_ZNSt6
   %66 = load double, ptr %a5, align 8, !tbaa !60
   %67 = call double @llvm.fmuladd.f64(double %66, double %h, double %x)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i260)
-  store double %67, ptr %__args.addr.i260, align 8, !tbaa !44, !noalias !127
-  %68 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !127
+  store double %67, ptr %__args.addr.i260, align 8, !tbaa !44, !noalias !124
+  %68 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !124
   %tobool.not.i.i262 = icmp eq ptr %68, null
   br i1 %tobool.not.i.i262, label %if.then.i265, label %if.end.i263
 
@@ -2863,7 +2863,7 @@ if.then.i265:                                     ; preds = %for.cond.cleanup71
   unreachable
 
 if.end.i263:                                      ; preds = %for.cond.cleanup71
-  %69 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !127
+  %69 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !124
   invoke void %69(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i260, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont90 unwind label %lpad89
 
@@ -2898,7 +2898,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   store double %83, ptr %add.ptr.i274, align 8, !tbaa !44
   %inc85 = add nuw i64 %i68.0676, 1
   %exitcond686.not = icmp eq i64 %inc85, %sub.ptr.div.i
-  br i1 %exitcond686.not, label %for.cond.cleanup71, label %for.body72, !llvm.loop !130
+  br i1 %exitcond686.not, label %for.cond.cleanup71, label %for.body72, !llvm.loop !127
 
 invoke.cont90:                                    ; preds = %if.end.i263
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i260)
@@ -2947,8 +2947,8 @@ for.cond.cleanup95:                               ; preds = %for.body96, %_ZNSt6
   %90 = load double, ptr %a6, align 8, !tbaa !61
   %91 = call double @llvm.fmuladd.f64(double %90, double %h, double %x)
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i292)
-  store double %91, ptr %__args.addr.i292, align 8, !tbaa !44, !noalias !131
-  %92 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !131
+  store double %91, ptr %__args.addr.i292, align 8, !tbaa !44, !noalias !128
+  %92 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !95, !noalias !128
   %tobool.not.i.i294 = icmp eq ptr %92, null
   br i1 %tobool.not.i.i294, label %if.then.i297, label %if.end.i295
 
@@ -2960,7 +2960,7 @@ if.then.i297:                                     ; preds = %for.cond.cleanup95
   unreachable
 
 if.end.i295:                                      ; preds = %for.cond.cleanup95
-  %93 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !131
+  %93 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !92, !noalias !128
   invoke void %93(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.22") align 8 %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %derivs, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i292, ptr noundef nonnull align 8 dereferenceable(24) %ytemp)
           to label %invoke.cont116 unwind label %lpad115
 
@@ -2999,7 +2999,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   store double %110, ptr %add.ptr.i307, align 8, !tbaa !44
   %inc111 = add nuw i64 %i92.0678, 1
   %exitcond688.not = icmp eq i64 %inc111, %sub.ptr.div.i
-  br i1 %exitcond688.not, label %for.cond.cleanup95, label %for.body96, !llvm.loop !134
+  br i1 %exitcond688.not, label %for.cond.cleanup95, label %for.body96, !llvm.loop !131
 
 invoke.cont116:                                   ; preds = %if.end.i295
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i292)
@@ -3170,7 +3170,7 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
   store double %mul144, ptr %add.ptr.i378, align 8, !tbaa !44
   %inc147 = add nuw i64 %i118.0680, 1
   %exitcond690.not = icmp eq i64 %inc147, %sub.ptr.div.i
-  br i1 %exitcond690.not, label %for.cond.cleanup121, label %for.body122, !llvm.loop !135
+  br i1 %exitcond690.not, label %for.cond.cleanup121, label %for.body122, !llvm.loop !132
 
 ehcleanup:                                        ; preds = %lpad115, %lpad89, %lpad65, %lpad43, %lpad23
   %ak3.sroa.17.4 = phi ptr [ %ak3.sroa.17.5488500526550718, %lpad23 ], [ %ak3.sroa.17.5488500526550718, %lpad43 ], [ %40, %lpad65 ], [ %40, %lpad89 ], [ %40, %lpad115 ]
@@ -3326,7 +3326,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFSt6vectorIdSaIdEEdRKS2_EZN8QuantLib19MethodOfLinesScheme4stepERNS6_5ArrayEdE3$_0E9_M_invokeERKSt9_Any_dataOdS4_"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.22") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %__args1) #2 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !136
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !133
   %__args.val = load double, ptr %__args, align 8, !tbaa !44
   tail call void @_ZNK8QuantLib19MethodOfLinesScheme5applyEdRKSt6vectorIdSaIdEE(ptr dead_on_unwind writable sret(%"class.std::vector.22") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(64) %call.val, double noundef %__args.val, ptr noundef nonnull readonly align 8 dereferenceable(24) %__args1)
   ret void
@@ -3519,31 +3519,28 @@ attributes #27 = { builtin nounwind }
 !107 = distinct !{!107, !36}
 !108 = !{!109, !109, i64 0}
 !109 = !{!"int", !6, i64 0}
-!110 = distinct !{!110, !111}
-!111 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!112 = distinct !{!112, !36}
-!113 = distinct !{!113, !111}
-!114 = distinct !{!114, !36}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
-!117 = distinct !{!117, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
-!118 = distinct !{!118, !36}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
-!121 = distinct !{!121, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
-!122 = distinct !{!122, !36}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
-!125 = distinct !{!125, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
-!126 = distinct !{!126, !36}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
-!129 = distinct !{!129, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
-!130 = distinct !{!130, !36}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
-!133 = distinct !{!133, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
-!134 = distinct !{!134, !36}
-!135 = distinct !{!135, !36}
-!136 = !{!137, !5, i64 0}
-!137 = !{!"_ZTSZN8QuantLib19MethodOfLinesScheme4stepERNS_5ArrayEdE3$_0", !5, i64 0}
+!110 = distinct !{!110, !36}
+!111 = distinct !{!111, !36}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
+!114 = distinct !{!114, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
+!115 = distinct !{!115, !36}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
+!118 = distinct !{!118, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
+!119 = distinct !{!119, !36}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
+!122 = distinct !{!122, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
+!123 = distinct !{!123, !36}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
+!126 = distinct !{!126, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
+!127 = distinct !{!127, !36}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_: %agg.result"}
+!130 = distinct !{!130, !"_ZNKSt8functionIFSt6vectorIdSaIdEEdRKS2_EEclEdS4_"}
+!131 = distinct !{!131, !36}
+!132 = distinct !{!132, !36}
+!133 = !{!134, !5, i64 0}
+!134 = !{!"_ZTSZN8QuantLib19MethodOfLinesScheme4stepERNS_5ArrayEdE3$_0", !5, i64 0}

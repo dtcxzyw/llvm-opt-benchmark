@@ -3001,7 +3001,7 @@ define internal range(i32 0, 2) i32 @cbd_3(ptr noundef writeonly captures(none) 
   %.054.add = add nuw nsw i64 %.054.idx, 8
   store i16 %85, ptr %68, align 2, !tbaa !36
   %86 = icmp samesign ult i64 %.054.idx, 504
-  br i1 %86, label %.preheader, label %.loopexit, !llvm.loop !78
+  br i1 %86, label %.preheader, label %.loopexit, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %.preheader ]
@@ -3060,7 +3060,7 @@ define internal range(i32 0, 2) i32 @cbd_2(ptr noundef writeonly captures(none) 
   %.026.add = add nuw nsw i64 %.026.idx, 4
   store i16 %34, ptr %22, align 2, !tbaa !36
   %exitcond.not = icmp eq i64 %.027.idx, 127
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.0 = phi i32 [ 0, %4 ], [ 1, %.preheader ]
@@ -3451,7 +3451,7 @@ scalar_inverse_ntt.exit:                          ; preds = %.preheader.i
   %.0.add.i.i59 = add nuw nsw i64 %.0.idx.i.i55, 4
   store i16 %180, ptr %167, align 2, !tbaa !36
   %181 = icmp samesign ult i64 %.0.idx.i.i55, 508
-  br i1 %181, label %126, label %scalar_mult.exit.preheader.i, !llvm.loop !80
+  br i1 %181, label %126, label %scalar_mult.exit.preheader.i, !llvm.loop !79
 
 scalar_mult.exit.preheader.i:                     ; preds = %126
   %182 = add nsw i32 %.in.i, -1
@@ -3551,7 +3551,7 @@ scalar_mult_add.exit.i:                           ; preds = %184
   %.0.i60 = add nsw i32 %.0.in26.i, -1
   %.1.i61 = getelementptr inbounds nuw i8, ptr %.127.i, i64 512
   %246 = icmp sgt i32 %.0.in26.i, 2
-  br i1 %246, label %.lr.ph.i, label %.preheader.i62, !llvm.loop !81
+  br i1 %246, label %.lr.ph.i, label %.preheader.i62, !llvm.loop !80
 
 247:                                              ; preds = %280, %.preheader.i62
   %.020.i.i = phi i32 [ %281, %280 ], [ 2, %.preheader.i62 ]
@@ -3642,7 +3642,7 @@ scalar_mult_add.exit.i:                           ; preds = %184
 scalar_inverse_ntt.exit.i:                        ; preds = %.preheader.i.i
   %297 = getelementptr inbounds nuw i8, ptr %.01429.i, i64 512
   %298 = icmp sgt i32 %.in.i, 1
-  br i1 %298, label %.preheader23.i, label %matrix_mult_intt.exit, !llvm.loop !82
+  br i1 %298, label %.preheader23.i, label %matrix_mult_intt.exit, !llvm.loop !81
 
 matrix_mult_intt.exit:                            ; preds = %scalar_inverse_ntt.exit.i, %scalar_inverse_ntt.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3709,14 +3709,14 @@ gencbd_vector.exit.thread:                        ; preds = %301
   %.026.add.i.i = add nuw nsw i64 %.026.idx.i.i, 4
   store i16 %330, ptr %318, align 2, !tbaa !36
   %exitcond.not.i.i = icmp eq i64 %.027.idx.i.i, 127
-  br i1 %exitcond.not.i.i, label %331, label %.preheader.i.i68, !llvm.loop !79
+  br i1 %exitcond.not.i.i, label %331, label %.preheader.i.i68, !llvm.loop !78
 
 331:                                              ; preds = %.preheader.i.i68
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %332 = getelementptr inbounds nuw i8, ptr %.07.i, i64 512
   %333 = add nsw i32 %.08.i67, -1
   %334 = icmp sgt i32 %.08.i67, 1
-  br i1 %334, label %301, label %335, !llvm.loop !83
+  br i1 %334, label %301, label %335, !llvm.loop !82
 
 335:                                              ; preds = %331
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3743,14 +3743,14 @@ gencbd_vector.exit.thread:                        ; preds = %301
   store i16 %346, ptr %338, align 2, !tbaa !36
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i74 = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i.i74, label %scalar_add.exit.i, label %337, !llvm.loop !84
+  br i1 %exitcond.not.i.i74, label %scalar_add.exit.i, label %337, !llvm.loop !83
 
 scalar_add.exit.i:                                ; preds = %337
   %347 = getelementptr inbounds nuw i8, ptr %.03.i, i64 512
   %348 = getelementptr inbounds nuw i8, ptr %.02.i, i64 512
   %349 = add nsw i32 %.0.i72, -1
   %350 = icmp sgt i32 %.0.i72, 1
-  br i1 %350, label %336, label %vector_add.exit, !llvm.loop !85
+  br i1 %350, label %336, label %vector_add.exit, !llvm.loop !84
 
 vector_add.exit:                                  ; preds = %scalar_add.exit.i
   %notmask.i.i.i = shl nsw i32 -1, %23
@@ -3793,7 +3793,7 @@ scalar_compress.exit.i:                           ; preds = %353
   %371 = getelementptr inbounds nuw i8, ptr %.02.i75, i64 512
   %372 = add nsw i32 %.0.i76, -1
   %373 = icmp sgt i32 %.0.i76, 1
-  br i1 %373, label %352, label %vector_compress.exit, !llvm.loop !86
+  br i1 %373, label %352, label %vector_compress.exit, !llvm.loop !85
 
 vector_compress.exit:                             ; preds = %scalar_compress.exit.i
   br i1 %123, label %.lr.ph.i81, label %vector_encode.exit
@@ -3913,7 +3913,7 @@ cbd_2.exit.thread:                                ; preds = %vector_encode.exit
   %.026.add.i = add nuw nsw i64 %.026.idx.i, 4
   store i16 %430, ptr %418, align 2, !tbaa !36
   %exitcond.not.i = icmp eq i64 %.027.idx.i, 127
-  br i1 %exitcond.not.i, label %431, label %.preheader.i88, !llvm.loop !79
+  br i1 %exitcond.not.i, label %431, label %.preheader.i88, !llvm.loop !78
 
 431:                                              ; preds = %.preheader.i88
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3934,7 +3934,7 @@ cbd_2.exit.thread:                                ; preds = %vector_encode.exit
   store i16 %441, ptr %433, align 2, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i91, label %scalar_add.exit, label %432, !llvm.loop !84
+  br i1 %exitcond.not.i91, label %scalar_add.exit, label %432, !llvm.loop !83
 
 scalar_add.exit:                                  ; preds = %432, %scalar_add.exit
   %.052.idx.i = phi i64 [ %.052.add.i, %scalar_add.exit ], [ 0, %432 ]
@@ -4051,7 +4051,7 @@ scalar_add.exit:                                  ; preds = %432, %scalar_add.ex
   store i16 %533, ptr %526, align 2, !tbaa !36
   %.052.add.i = add nuw nsw i64 %.052.idx.i, 16
   %534 = icmp samesign ult i64 %.052.idx.i, 496
-  br i1 %534, label %scalar_add.exit, label %scalar_decode_decompress_add.exit, !llvm.loop !87
+  br i1 %534, label %scalar_add.exit, label %scalar_decode_decompress_add.exit, !llvm.loop !86
 
 scalar_decode_decompress_add.exit:                ; preds = %scalar_add.exit
   %notmask.i.i = shl nsw i32 -1, %25
@@ -4214,7 +4214,7 @@ define internal fastcc void @inner_product(ptr noundef nonnull captures(none) %0
   %.0.add.i = add nuw nsw i64 %.0.idx.i, 4
   store i16 %59, ptr %46, align 2, !tbaa !36
   %60 = icmp samesign ult i64 %.0.idx.i, 508
-  br i1 %60, label %5, label %scalar_mult.exit.preheader, !llvm.loop !80
+  br i1 %60, label %5, label %scalar_mult.exit.preheader, !llvm.loop !79
 
 scalar_mult.exit.preheader:                       ; preds = %5
   %61 = icmp sgt i32 %3, 1
@@ -4309,7 +4309,7 @@ scalar_mult.exit.preheader:                       ; preds = %5
 scalar_mult_add.exit:                             ; preds = %64
   %126 = add nsw i32 %.016, -1
   %127 = icmp sgt i32 %.016, 2
-  br i1 %127, label %.lr.ph, label %scalar_mult.exit._crit_edge, !llvm.loop !88
+  br i1 %127, label %.lr.ph, label %scalar_mult.exit._crit_edge, !llvm.loop !87
 
 scalar_mult.exit._crit_edge:                      ; preds = %scalar_mult_add.exit, %scalar_mult.exit.preheader
   ret void
@@ -4423,8 +4423,8 @@ attributes #14 = { nounwind memory(none) }
 !73 = distinct !{!73, !39}
 !74 = distinct !{!74, !39}
 !75 = distinct !{!75, !39}
-!76 = distinct !{!76, !39, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !39}
+!77 = distinct !{!77, !39}
 !78 = distinct !{!78, !39}
 !79 = distinct !{!79, !39}
 !80 = distinct !{!80, !39}
@@ -4435,4 +4435,3 @@ attributes #14 = { nounwind memory(none) }
 !85 = distinct !{!85, !39}
 !86 = distinct !{!86, !39}
 !87 = distinct !{!87, !39}
-!88 = distinct !{!88, !39}

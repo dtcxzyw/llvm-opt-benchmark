@@ -347,7 +347,7 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
   call fastcc void @hash_fd(i32 noundef %146, ptr noundef %139, ptr noundef %143, i32 noundef %144, i32 noundef %145)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %109, %124
   %147 = load i32, ptr %10, align 4, !tbaa !9
@@ -363,7 +363,7 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.hash_stdin_paths.unquoted, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.hash_stdin_paths.unquoted, i64 24, i1 false)
-  %153 = load ptr, ptr @stdin, align 8, !tbaa !46
+  %153 = load ptr, ptr @stdin, align 8, !tbaa !44
   %154 = call i32 @strbuf_getline(ptr noundef nonnull %6, ptr noundef %153) #9
   %.not5.i = icmp eq i32 %154, -1
   br i1 %.not5.i, label %hash_stdin_paths.exit, label %.lr.ph.i
@@ -376,20 +376,20 @@ define dso_local noundef i32 @cmd_hash_object(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not4.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %167
-  %158 = load ptr, ptr %155, align 8, !tbaa !48
-  %159 = load i8, ptr %158, align 1, !tbaa !50
+  %158 = load ptr, ptr %155, align 8, !tbaa !46
+  %159 = load i8, ptr %158, align 1, !tbaa !48
   %160 = icmp eq i8 %159, 34
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %.lr.ph.split.us.i
-  store i64 0, ptr %156, align 8, !tbaa !51
-  %162 = load ptr, ptr %157, align 8, !tbaa !48
+  store i64 0, ptr %156, align 8, !tbaa !49
+  %162 = load ptr, ptr %157, align 8, !tbaa !46
   %.not9.i.us.i = icmp eq ptr %162, @strbuf_slopbuf
   br i1 %.not9.i.us.i, label %strbuf_setlen.exit.us.i, label %163
 
 163:                                              ; preds = %161
-  store i8 0, ptr %162, align 1, !tbaa !50
-  %.pre9.i = load ptr, ptr %155, align 8, !tbaa !48
+  store i8 0, ptr %162, align 1, !tbaa !48
+  %.pre9.i = load ptr, ptr %155, align 8, !tbaa !46
   br label %strbuf_setlen.exit.us.i
 
 strbuf_setlen.exit.us.i:                          ; preds = %163, %161
@@ -404,33 +404,33 @@ strbuf_setlen.exit.us.i:                          ; preds = %163, %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre10.i = load ptr, ptr %155, align 8, !tbaa !48
+  %.pre10.i = load ptr, ptr %155, align 8, !tbaa !46
   br label %167
 
 167:                                              ; preds = %166, %.lr.ph.split.us.i
   %168 = phi ptr [ %.pre10.i, %166 ], [ %158, %.lr.ph.split.us.i ]
   %169 = call i32 (ptr, i32, ...) @xopen(ptr noundef %168, i32 noundef 0) #9
   call fastcc void @hash_fd(i32 noundef %169, ptr noundef %149, ptr noundef %168, i32 noundef %151, i32 noundef %152)
-  %170 = load ptr, ptr @stdin, align 8, !tbaa !46
+  %170 = load ptr, ptr @stdin, align 8, !tbaa !44
   %171 = call i32 @strbuf_getline(ptr noundef nonnull %6, ptr noundef %170) #9
   %.not.us.i = icmp eq i32 %171, -1
-  br i1 %.not.us.i, label %hash_stdin_paths.exit, label %.lr.ph.split.us.i, !llvm.loop !52
+  br i1 %.not.us.i, label %hash_stdin_paths.exit, label %.lr.ph.split.us.i, !llvm.loop !50
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %181
-  %172 = load ptr, ptr %155, align 8, !tbaa !48
-  %173 = load i8, ptr %172, align 1, !tbaa !50
+  %172 = load ptr, ptr %155, align 8, !tbaa !46
+  %173 = load i8, ptr %172, align 1, !tbaa !48
   %174 = icmp eq i8 %173, 34
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %.lr.ph.split.i
-  store i64 0, ptr %156, align 8, !tbaa !51
-  %176 = load ptr, ptr %157, align 8, !tbaa !48
+  store i64 0, ptr %156, align 8, !tbaa !49
+  %176 = load ptr, ptr %157, align 8, !tbaa !46
   %.not9.i.i = icmp eq ptr %176, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %177
 
 177:                                              ; preds = %175
-  store i8 0, ptr %176, align 1, !tbaa !50
-  %.pre.i = load ptr, ptr %155, align 8, !tbaa !48
+  store i8 0, ptr %176, align 1, !tbaa !48
+  %.pre.i = load ptr, ptr %155, align 8, !tbaa !46
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %177, %175
@@ -449,17 +449,17 @@ strbuf_setlen.exit.i:                             ; preds = %177, %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre8.i = load ptr, ptr %155, align 8, !tbaa !48
+  %.pre8.i = load ptr, ptr %155, align 8, !tbaa !46
   br label %181
 
 181:                                              ; preds = %180, %.lr.ph.split.i
   %182 = phi ptr [ %.pre8.i, %180 ], [ %172, %.lr.ph.split.i ]
   %183 = call i32 (ptr, i32, ...) @xopen(ptr noundef %182, i32 noundef 0) #9
   call fastcc void @hash_fd(i32 noundef %183, ptr noundef %149, ptr noundef null, i32 noundef %151, i32 noundef %152)
-  %184 = load ptr, ptr @stdin, align 8, !tbaa !46
+  %184 = load ptr, ptr @stdin, align 8, !tbaa !44
   %185 = call i32 @strbuf_getline(ptr noundef nonnull %6, ptr noundef %184) #9
   %.not.i = icmp eq i32 %185, -1
-  br i1 %.not.i, label %hash_stdin_paths.exit, label %.lr.ph.split.i, !llvm.loop !53
+  br i1 %.not.i, label %hash_stdin_paths.exit, label %.lr.ph.split.i, !llvm.loop !50
 
 hash_stdin_paths.exit:                            ; preds = %181, %167, %148
   call void @strbuf_release(ptr noundef nonnull %6) #9
@@ -526,9 +526,9 @@ define internal fastcc void @hash_fd(i32 noundef %0, ptr noundef %1, ptr noundef
 
 hash_literally.exit:                              ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !51
+  %18 = load i64, ptr %17, align 8, !tbaa !49
   %19 = call i32 @write_object_file_literally(ptr noundef %16, i64 noundef %18, ptr noundef %1, ptr noundef nonnull %8, i32 noundef %3) #9
   %20 = icmp eq i32 %19, 0
   %21 = call i32 @close(i32 noundef %0) #9
@@ -539,7 +539,7 @@ hash_literally.exit:                              ; preds = %12
 22:                                               ; preds = %11
   %23 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %25 = load ptr, ptr %24, align 8, !tbaa !54
+  %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = tail call i32 @type_from_string_gently(ptr noundef %1, i64 noundef -1, i32 noundef 0) #9
   %27 = call i32 @index_fd(ptr noundef %25, ptr noundef nonnull %8, i32 noundef %0, ptr noundef nonnull %7, i32 noundef %26, ptr noundef %2, i32 noundef %3) #9
   %.not10 = icmp eq i32 %27, 0
@@ -561,7 +561,7 @@ hash_literally.exit:                              ; preds = %12
 32:                                               ; preds = %22, %hash_literally.exit
   %33 = call ptr @oid_to_hex(ptr noundef nonnull %8) #9
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %33)
-  %34 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %34 = load ptr, ptr @stdout, align 8, !tbaa !44
   call void @maybe_flush_or_die(ptr noundef %34, ptr noundef nonnull @.str.25) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -669,16 +669,13 @@ attributes #10 = { noreturn nounwind }
 !39 = !{!"p1 _ZTS12remote_state", !6, i64 0}
 !40 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
 !41 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !43}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!48 = !{!49, !5, i64 16}
-!49 = !{!"strbuf", !13, i64 0, !13, i64 8, !5, i64 16}
-!50 = !{!7, !7, i64 0}
-!51 = !{!49, !13, i64 8}
-!52 = distinct !{!52, !43, !44}
-!53 = distinct !{!53, !43}
-!54 = !{!25, !38, i64 384}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!46 = !{!47, !5, i64 16}
+!47 = !{!"strbuf", !13, i64 0, !13, i64 8, !5, i64 16}
+!48 = !{!7, !7, i64 0}
+!49 = !{!47, !13, i64 8}
+!50 = distinct !{!50, !43}
+!51 = !{!25, !38, i64 384}

@@ -237,7 +237,7 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %22, label %.split.us, label %24
 
 23:                                               ; preds = %29
-  br i1 %20, label %.preheader.split.us, label %.critedge, !llvm.loop !21
+  br i1 %20, label %.preheader.split.us, label %.critedge
 
 24:                                               ; preds = %.preheader.split.us
   store i32 0, ptr %5, align 4, !tbaa !17
@@ -795,5 +795,3 @@ attributes #3 = { nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS13sqlite3_value", !9, i64 0}
 !20 = !{!10, !10, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -1319,7 +1319,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %gep.i.i.i.i = getelementptr i8, ptr %118, i64 %indvars.iv.next37.i.i.i.i
   %131 = load i8, ptr %gep.i.i.i.i, align 1
   %132 = icmp eq i8 %131, 0
-  br i1 %132, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !14
+  br i1 %132, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i
 
 .lr.ph.split.i.i.i.i:                             ; preds = %141, %.lr.ph.split.preheader.i.i.i.i
   %indvars.iv.i.i.i.i20 = phi i64 [ 1, %.lr.ph.split.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i22, %141 ]
@@ -1341,7 +1341,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %142 = add nsw i64 %indvars.iv.next.i.i.i.i22, %117
   %.not22.i.i.i.i = icmp slt i64 %142, %122
   %143 = trunc nsw i64 %142 to i32
-  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !16
+  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !14
 
 _ZN15FieldInfoReader8has_nextEv.exit:             ; preds = %113
   %.not31 = icmp eq i8 %119, 0
@@ -1380,7 +1380,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   %.pre = load ptr, ptr %4, align 8
   %.pre46 = load i32, ptr %60, align 4
   %.pre47 = load i32, ptr %59, align 8
-  br label %113, !llvm.loop !17
+  br label %113, !llvm.loop !15
 
 _ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i17, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %141, %130
   ret ptr %52
@@ -1978,7 +1978,7 @@ _ZN15FieldInfoReader9next_uintEv.exit14:          ; preds = %_ZN15FieldInfoReade
   %gep.i.i.i.i = getelementptr i8, ptr %51, i64 %indvars.iv.next37.i.i.i.i
   %64 = load i8, ptr %gep.i.i.i.i, align 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !14
+  br i1 %65, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i
 
 .lr.ph.split.i.i.i.i:                             ; preds = %74, %.lr.ph.split.preheader.i.i.i.i
   %indvars.iv.i.i.i.i18 = phi i64 [ 1, %.lr.ph.split.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i20, %74 ]
@@ -2000,7 +2000,7 @@ _ZN15FieldInfoReader9next_uintEv.exit14:          ; preds = %_ZN15FieldInfoReade
   %75 = add nsw i64 %indvars.iv.next.i.i.i.i20, %50
   %.not22.i.i.i.i = icmp slt i64 %75, %55
   %76 = trunc nsw i64 %75 to i32
-  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !16
+  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !14
 
 _ZN15FieldInfoReader8has_nextEv.exit:             ; preds = %46
   %.not27 = icmp eq i8 %52, 0
@@ -2053,7 +2053,7 @@ _ZN15FieldInfoReader8has_nextEv.exit.thread24:    ; preds = %71, %.lr.ph30.i.i.i
   %.pre = load ptr, ptr %3, align 8
   %.pre34 = load i32, ptr %10, align 4
   %.pre35 = load i32, ptr %9, align 8
-  br label %46, !llvm.loop !18
+  br label %46, !llvm.loop !16
 
 _ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i15, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %74, %63
   ret void
@@ -2133,7 +2133,7 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !19
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2149,7 +2149,7 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %35 = load i32, ptr %3, align 4
   %36 = trunc nuw i64 %indvars.iv.next22 to i32
   %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !20
+  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !18
 
 38:                                               ; preds = %.preheader
   %39 = load i64, ptr %4, align 8
@@ -2208,10 +2208,8 @@ attributes #6 = { nounwind }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}

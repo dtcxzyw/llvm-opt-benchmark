@@ -66,7 +66,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   br i1 %25, label %.lr.ph265.preheader, label %.preheader252.preheader
 
 .preheader252.preheader:                          ; preds = %24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(500) %5, i8 0, i64 500, i1 false), !tbaa !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(500) %5, i8 0, i64 500, i1 false), !tbaa !13
   %26 = icmp samesign ugt i32 %2, 2
   %27 = icmp samesign ugt i32 %3, 2
   %or.cond3 = and i1 %26, %27
@@ -80,7 +80,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 .loopexit:                                        ; preds = %32, %.lr.ph265
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %28
-  br i1 %exitcond295.not, label %.thread246, label %.lr.ph265, !llvm.loop !15
+  br i1 %exitcond295.not, label %.thread246, label %.lr.ph265, !llvm.loop !14
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %.loopexit
   %indvars.iv291 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next292, %.loopexit ]
@@ -112,7 +112,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   store float %35, ptr %38, align 4, !tbaa !9
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %28
-  br i1 %exitcond290.not, label %.loopexit, label %32, !llvm.loop !16
+  br i1 %exitcond290.not, label %.loopexit, label %32, !llvm.loop !15
 
 40:                                               ; preds = %.preheader252.preheader
   %41 = add nsw i32 %2, -1
@@ -124,7 +124,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %.3 = phi i32 [ %41, %40 ], [ %.2195, %43 ]
   %44 = urem i32 %.3, %.2195
   %.not225 = icmp eq i32 %44, 0
-  br i1 %.not225, label %45, label %43, !llvm.loop !17
+  br i1 %.not225, label %45, label %43, !llvm.loop !16
 
 45:                                               ; preds = %43
   %46 = add nuw nsw i32 %.2195, 1
@@ -172,7 +172,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 69:                                               ; preds = %62
   %70 = sext i32 %.0208 to i64
   %71 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %70
-  store i8 1, ptr %71, align 1, !tbaa !14
+  store i8 1, ptr %71, align 1, !tbaa !13
   br label %72
 
 72:                                               ; preds = %69, %62
@@ -182,7 +182,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
 74:                                               ; preds = %72
   %75 = sext i32 %.0206 to i64
   %76 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %75
-  store i8 1, ptr %76, align 1, !tbaa !14
+  store i8 1, ptr %76, align 1, !tbaa !13
   br label %77
 
 77:                                               ; preds = %74, %72
@@ -269,22 +269,22 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   %121 = icmp slt i64 %indvars.iv.next282, %120
   %122 = icmp sgt i64 %106, %120
   %123 = select i1 %121, i1 %122, i1 false
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader250
   %.0205.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %119, %.lr.ph ]
   %124 = zext i32 %.0205.lcssa to i64
   %125 = icmp eq i64 %indvars.iv.next282, %124
-  br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !19
+  br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
 126:                                              ; preds = %110
   %127 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %indvars.iv.next282
-  %128 = load i8, ptr %127, align 1, !tbaa !14
+  %128 = load i8, ptr %127, align 1, !tbaa !13
   %.not229 = icmp eq i8 %128, 0
-  br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !19
+  br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
 .critedge.backedge:                               ; preds = %._crit_edge, %126, %.critedge
-  br label %.critedge, !llvm.loop !20
+  br label %.critedge, !llvm.loop !19
 
 .thread246:                                       ; preds = %._crit_edge.us, %99, %.loopexit, %8, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -322,12 +322,11 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !9 = !{!5, !6, i64 4}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = !{!7, !7, i64 0}
+!12 = distinct !{!12, !11}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !11}
 !15 = distinct !{!15, !11}
 !16 = distinct !{!16, !11}
 !17 = distinct !{!17, !11}
 !18 = distinct !{!18, !11}
 !19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}

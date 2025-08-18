@@ -380,7 +380,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %245 = tail call i32 @llvm.bswap.i32(i32 %244)
   %246 = shl i32 %245, 16
   %247 = and i32 %245, -65536
-  %248 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %246, i32 %247) #8, !srcloc !13
+  %248 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %246, i32 %247) #8, !srcloc !12
   %249 = xor i32 %248, -1
   %250 = lshr i32 %249, 16
   %251 = trunc nuw i32 %250 to i16
@@ -416,7 +416,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
   %272 = tail call i32 @csum_partial(ptr noundef %265, i32 noundef %269, i32 noundef %271) #7
   %273 = shl i32 %272, 16
   %274 = and i32 %272, -65536
-  %275 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273, i32 %274) #8, !srcloc !13
+  %275 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273, i32 %274) #8, !srcloc !12
   %276 = xor i32 %275, -1
   %277 = lshr i32 %276, 16
   %278 = trunc nuw i32 %277 to i16
@@ -437,7 +437,7 @@ define internal ptr @gre_gso_segment(ptr noundef %0, i64 noundef %1) #2 align 16
 285:                                              ; preds = %279, %261
   %286 = load ptr, ptr %189, align 8
   %287 = icmp eq ptr %286, null
-  br i1 %287, label %.loopexit, label %.split, !llvm.loop !14
+  br i1 %287, label %.loopexit, label %.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %285, %167, %111, %34, %32, %2
   %288 = phi ptr [ inttoptr (i64 -22 to ptr), %34 ], [ %107, %111 ], [ inttoptr (i64 -22 to ptr), %2 ], [ inttoptr (i64 -22 to ptr), %32 ], [ %107, %167 ], [ %107, %285 ]
@@ -495,7 +495,7 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   %.pn = load ptr, ptr %.pn.in, align 8
   %33 = getelementptr i8, ptr %.pn, i64 %11
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %35, !prof !15
+  br i1 %34, label %.thread, label %35, !prof !13
 
 35:                                               ; preds = %32
   %36 = load i16, ptr %33, align 1
@@ -560,7 +560,7 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 %11
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread, label %._crit_edge, !prof !16
+  br i1 %79, label %.thread, label %._crit_edge, !prof !14
 
 ._crit_edge:                                      ; preds = %75
   %.pre = load i16, ptr %78, align 1
@@ -656,7 +656,7 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
 135:                                              ; preds = %133, %128, %125, %107
   %136 = load ptr, ptr %108, align 8
   %137 = icmp eq ptr %136, %0
-  br i1 %137, label %.loopexit, label %107, !llvm.loop !17
+  br i1 %137, label %.loopexit, label %107, !llvm.loop !15
 
 .loopexit:                                        ; preds = %135, %101
   %138 = load i32, ptr %9, align 8
@@ -850,10 +850,10 @@ define internal fastcc zeroext i16 @__skb_gro_checksum_validate_complete(ptr nou
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
-  %9 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 %8) #9, !srcloc !18
+  %9 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 %8) #9, !srcloc !16
   %10 = shl i32 %9, 16
   %11 = and i32 %9, -65536
-  %12 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 %11) #8, !srcloc !13
+  %12 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 %11) #8, !srcloc !12
   %13 = icmp ugt i32 %12, -65537
   br i1 %13, label %17, label %14
 
@@ -953,13 +953,11 @@ attributes #9 = { nounwind memory(read) }
 !6 = !{!"branch_weights", i32 1, i32 2000}
 !7 = !{i64 2155212684, i64 2155212493, i64 2155212545, i64 2155212591, i64 2155212619}
 !8 = !{i64 2155212758, i64 2155212787, i64 2155212833, i64 2155212891, i64 2155212945, i64 2155212999, i64 2155213054, i64 2155213085}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = !{i64 6768021, i64 6768044}
-!14 = distinct !{!14, !10, !11}
-!15 = !{!"branch_weights", i32 871893, i32 2146611755}
-!16 = !{!"branch_weights", i32 670544, i32 2146813104}
-!17 = distinct !{!17, !10, !11}
-!18 = !{i64 6772252, i64 6772265}
+!12 = !{i64 6768021, i64 6768044}
+!13 = !{!"branch_weights", i32 871893, i32 2146611755}
+!14 = !{!"branch_weights", i32 670544, i32 2146813104}
+!15 = distinct !{!15, !10, !11}
+!16 = !{i64 6772252, i64 6772265}

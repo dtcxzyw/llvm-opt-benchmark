@@ -1920,7 +1920,7 @@ check_end.exit:                                   ; preds = %26, %._crit_edge.i
 Py_DECREF.exit:                                   ; preds = %33, %.lr.ph.split
   %35 = add nuw nsw i64 %.021, 1
   %exitcond.not = icmp eq i64 %35, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !47
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2045,6 +2045,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !44 = !{!"double", !6, i64 0}
 !45 = !{!9, !9, i64 0}
 !46 = distinct !{!46, !28}
-!47 = distinct !{!47, !28, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !28}
+!47 = distinct !{!47, !28}

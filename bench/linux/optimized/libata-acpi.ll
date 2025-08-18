@@ -1062,7 +1062,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 131072
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %67, label %7
+  br i1 %6, label %88, label %7
 
 7:                                                ; preds = %2
   %8 = and i32 %.fr, 1024
@@ -1077,162 +1077,196 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %13, %.thread.us
-  %16 = phi ptr [ %45, %.thread.us ], [ %11, %13 ]
+.split.us:                                        ; preds = %13
+  br i1 %9, label %.split.us.split.us, label %.split.us.split
+
+.split.us.split.us:                               ; preds = %.split.us, %.thread.us.us
+  %16 = phi ptr [ %38, %.thread.us.us ], [ %11, %.split.us ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 16
   %19 = and i64 %18, 268435456
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %.thread.us
+  br i1 %20, label %21, label %.thread.us.us
 
-21:                                               ; preds = %.split.us
+21:                                               ; preds = %.split.us.split.us
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 688
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %23) #8
   %25 = getelementptr i8, ptr %23, i64 -16
   %26 = icmp ne ptr %25, null
   %27 = and i1 %24, %26
-  br i1 %27, label %28, label %.thread.us
+  br i1 %27, label %28, label %.thread.us.us
 
 28:                                               ; preds = %21
   %29 = getelementptr i8, ptr %23, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread.us, label %32
+  br i1 %31, label %.thread.us.us, label %32
 
 32:                                               ; preds = %28
-  br i1 %9, label %38, label %33
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %34 = tail call i32 @acpi_pm_device_sleep_state(ptr noundef nonnull %33, ptr noundef null, i32 noundef 4) #8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %.thread.us.us, label %36
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %16, i64 800
-  %35 = load i32, ptr %34, align 32
-  %36 = icmp eq i32 %35, 3
-  %37 = select i1 %36, i32 3, i32 4
-  br label %38
+36:                                               ; preds = %32
+  %37 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %30, i32 noundef %34) #8
+  br label %.thread.us.us
 
-38:                                               ; preds = %33, %32
-  %39 = phi i32 [ 4, %32 ], [ %37, %33 ]
-  %40 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %41 = tail call i32 @acpi_pm_device_sleep_state(ptr noundef nonnull %40, ptr noundef null, i32 noundef %39) #8
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread.us, label %43
+.thread.us.us:                                    ; preds = %36, %32, %28, %21, %.split.us.split.us
+  %38 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef 0) #8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.thread8, label %.split.us.split.us, !llvm.loop !14
 
-43:                                               ; preds = %38
-  %44 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %30, i32 noundef %41) #8
+.split.us.split:                                  ; preds = %.split.us, %.thread.us
+  %40 = phi ptr [ %66, %.thread.us ], [ %11, %.split.us ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 16
+  %43 = and i64 %42, 268435456
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %.thread.us
+
+45:                                               ; preds = %.split.us.split
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 688
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %47) #8
+  %49 = getelementptr i8, ptr %47, i64 -16
+  %50 = icmp ne ptr %49, null
+  %51 = and i1 %48, %50
+  br i1 %51, label %52, label %.thread.us
+
+52:                                               ; preds = %45
+  %53 = getelementptr i8, ptr %47, i64 -8
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %.thread.us, label %56
+
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 800
+  %58 = load i32, ptr %57, align 32
+  %59 = icmp eq i32 %58, 3
+  %60 = select i1 %59, i32 3, i32 4
+  %61 = getelementptr inbounds nuw i8, ptr %40, i64 56
+  %62 = tail call i32 @acpi_pm_device_sleep_state(ptr noundef nonnull %61, ptr noundef null, i32 noundef %60) #8
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %.thread.us, label %64
+
+64:                                               ; preds = %56
+  %65 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %54, i32 noundef %62) #8
   br label %.thread.us
 
-.thread.us:                                       ; preds = %43, %38, %28, %21, %.split.us
-  %45 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef 0) #8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread8, label %.split.us, !llvm.loop !14
+.thread.us:                                       ; preds = %64, %56, %52, %45, %.split.us.split
+  %66 = tail call ptr @ata_dev_next(ptr noundef nonnull %40, ptr noundef nonnull %10, i32 noundef 0) #8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.thread8, label %.split.us.split, !llvm.loop !14
 
 .split:                                           ; preds = %13, %.thread
-  %47 = phi ptr [ %65, %.thread ], [ %11, %13 ]
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 16
-  %50 = and i64 %49, 268435456
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %.thread
+  %68 = phi ptr [ %86, %.thread ], [ %11, %13 ]
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load i64, ptr %69, align 16
+  %71 = and i64 %70, 268435456
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %.thread
 
-52:                                               ; preds = %.split
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 688
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %54) #8
-  %56 = getelementptr i8, ptr %54, i64 -16
-  %57 = icmp ne ptr %56, null
-  %58 = and i1 %55, %57
-  br i1 %58, label %59, label %.thread
+73:                                               ; preds = %.split
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 688
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %75) #8
+  %77 = getelementptr i8, ptr %75, i64 -16
+  %78 = icmp ne ptr %77, null
+  %79 = and i1 %76, %78
+  br i1 %79, label %80, label %.thread
 
-59:                                               ; preds = %52
-  %60 = getelementptr i8, ptr %54, i64 -8
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread, label %63
+80:                                               ; preds = %73
+  %81 = getelementptr i8, ptr %75, i64 -8
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %.thread, label %84
 
-63:                                               ; preds = %59
-  %64 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %61, i32 noundef 0) #8
+84:                                               ; preds = %80
+  %85 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %82, i32 noundef 0) #8
   br label %.thread
 
-.thread:                                          ; preds = %52, %.split, %63, %59
-  %65 = tail call ptr @ata_dev_next(ptr noundef nonnull %47, ptr noundef nonnull %10, i32 noundef 0) #8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread8, label %.split, !llvm.loop !16
+.thread:                                          ; preds = %73, %.split, %84, %80
+  %86 = tail call ptr @ata_dev_next(ptr noundef nonnull %68, ptr noundef nonnull %10, i32 noundef 0) #8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.thread8, label %.split, !llvm.loop !14
 
-67:                                               ; preds = %2
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 15424
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %69) #8
-  %71 = getelementptr i8, ptr %69, i64 -16
-  %72 = icmp ne ptr %71, null
-  %73 = and i1 %70, %72
-  br i1 %73, label %74, label %.thread8
+88:                                               ; preds = %2
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 15424
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %90) #8
+  %92 = getelementptr i8, ptr %90, i64 -16
+  %93 = icmp ne ptr %92, null
+  %94 = and i1 %91, %93
+  br i1 %94, label %95, label %.thread8
 
-74:                                               ; preds = %67
-  %75 = getelementptr i8, ptr %69, i64 -8
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread8, label %78
+95:                                               ; preds = %88
+  %96 = getelementptr i8, ptr %90, i64 -8
+  %97 = load ptr, ptr %96, align 8
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %.thread8, label %99
 
-78:                                               ; preds = %74
-  %79 = and i32 %.fr, 16
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %83, label %81
+99:                                               ; preds = %95
+  %100 = and i32 %.fr, 16
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %104, label %102
 
-81:                                               ; preds = %78
-  %82 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %76, i32 noundef 0) #8
-  br label %83
+102:                                              ; preds = %99
+  %103 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %97, i32 noundef 0) #8
+  br label %104
 
-83:                                               ; preds = %81, %78
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8256
-  %85 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %84, i32 noundef 0) #8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %.loopexit, label %87
+104:                                              ; preds = %102, %99
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8256
+  %106 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %105, i32 noundef 0) #8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %.loopexit, label %108
 
-87:                                               ; preds = %83
-  %88 = lshr exact i32 %79, 2
-  %89 = xor i32 %88, 4
-  br label %90
+108:                                              ; preds = %104
+  %109 = lshr exact i32 %100, 2
+  %110 = xor i32 %109, 4
+  br label %111
 
-90:                                               ; preds = %.thread10, %87
-  %91 = phi ptr [ %85, %87 ], [ %109, %.thread10 ]
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %93 = load i64, ptr %92, align 16
-  %94 = and i64 %93, 268435456
-  %95 = icmp eq i64 %94, 0
-  br i1 %95, label %96, label %.thread10
+111:                                              ; preds = %.thread10, %108
+  %112 = phi ptr [ %106, %108 ], [ %130, %.thread10 ]
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load i64, ptr %113, align 16
+  %115 = and i64 %114, 268435456
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %117, label %.thread10
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %91, i64 688
-  %98 = load ptr, ptr %97, align 8
-  %99 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %98) #8
-  %100 = getelementptr i8, ptr %98, i64 -16
-  %101 = icmp ne ptr %100, null
-  %102 = and i1 %99, %101
-  br i1 %102, label %103, label %.thread10
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 688
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %119) #8
+  %121 = getelementptr i8, ptr %119, i64 -16
+  %122 = icmp ne ptr %121, null
+  %123 = and i1 %120, %122
+  br i1 %123, label %124, label %.thread10
 
-103:                                              ; preds = %96
-  %104 = getelementptr i8, ptr %98, i64 -8
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread10, label %107
+124:                                              ; preds = %117
+  %125 = getelementptr i8, ptr %119, i64 -8
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %.thread10, label %128
 
-107:                                              ; preds = %103
-  %108 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %105, i32 noundef %89) #8
+128:                                              ; preds = %124
+  %129 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %126, i32 noundef %110) #8
   br label %.thread10
 
-.thread10:                                        ; preds = %96, %90, %107, %103
-  %109 = tail call ptr @ata_dev_next(ptr noundef nonnull %91, ptr noundef nonnull %84, i32 noundef 0) #8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %.loopexit, label %90, !llvm.loop !17
+.thread10:                                        ; preds = %117, %111, %128, %124
+  %130 = tail call ptr @ata_dev_next(ptr noundef nonnull %112, ptr noundef nonnull %105, i32 noundef 0) #8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %.loopexit, label %111, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.thread10, %83
-  br i1 %80, label %111, label %.thread8
+.loopexit:                                        ; preds = %.thread10, %104
+  br i1 %101, label %132, label %.thread8
 
-111:                                              ; preds = %.loopexit
-  %112 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %76, i32 noundef 4) #8
+132:                                              ; preds = %.loopexit
+  %133 = tail call i32 @acpi_bus_set_power(ptr noundef nonnull %97, i32 noundef 4) #8
   br label %.thread8
 
-.thread8:                                         ; preds = %.thread, %.thread.us, %67, %111, %.loopexit, %74, %7
+.thread8:                                         ; preds = %.thread, %.thread.us, %.thread.us.us, %88, %132, %.loopexit, %95, %7
   ret void
 }
 
@@ -1619,7 +1653,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %228 = getelementptr i8, ptr %225, i64 7
   store ptr %228, ptr %3, align 8
   %229 = icmp eq i32 %227, %70
-  br i1 %229, label %.loopexit57.loopexit, label %88, !llvm.loop !18
+  br i1 %229, label %.loopexit57.loopexit, label %88, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread17
   %230 = load ptr, ptr %0, align 64
@@ -1833,12 +1867,12 @@ define internal fastcc void @ata_acpi_handle_hotplug(ptr noundef %0, ptr noundef
   store i64 %37, ptr %35, align 16
   %38 = tail call ptr @ata_dev_next(ptr noundef nonnull %34, ptr noundef nonnull %31, i32 noundef 2) #8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %.preheader4
   %40 = tail call ptr @ata_link_next(ptr noundef nonnull %31, ptr noundef %0, i32 noundef 0) #8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit5, label %.preheader4, !llvm.loop !20
+  br i1 %41, label %.loopexit5, label %.preheader4, !llvm.loop !18
 
 .loopexit5:                                       ; preds = %.loopexit, %28, %24
   tail call void @ata_port_schedule_eh(ptr noundef %0) #8
@@ -1932,10 +1966,8 @@ attributes #10 = { cold nounwind }
 !11 = !{i32 -22, i32 613566757}
 !12 = distinct !{!12, !8, !9}
 !13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
 !16 = distinct !{!16, !8, !9}
 !17 = distinct !{!17, !8, !9}
 !18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}

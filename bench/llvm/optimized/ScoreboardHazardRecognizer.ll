@@ -533,7 +533,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %98 = add i32 %97, %.03440
   %99 = getelementptr inbounds nuw i8, ptr %.03342, i64 24
   %.not36 = icmp eq ptr %99, %42
-  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !80
+  br i1 %.not36, label %.loopexit, label %.preheader, !llvm.loop !79
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %.lr.ph ]
@@ -604,7 +604,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   store i64 %138, ptr %136, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !78
 
 .loopexit:                                        ; preds = %._crit_edge, %25, %_ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit, %2, %5
   ret void
@@ -790,7 +790,7 @@ define linkonce_odr hidden void @_ZN4llvm24ScheduleHazardRecognizer9EmitNoopsEj(
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %0) #11
   %6 = add nuw i32 %.03, 1
   %exitcond.not = icmp eq i32 %6, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -907,8 +907,6 @@ attributes #12 = { builtin nounwind }
 !75 = distinct !{!75, !41}
 !76 = !{!70, !33, i64 0}
 !77 = distinct !{!77, !41}
-!78 = distinct !{!78, !41, !79}
-!79 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !41}
+!79 = distinct !{!79, !41}
 !80 = distinct !{!80, !41}
-!81 = distinct !{!81, !41}
-!82 = distinct !{!82, !41}

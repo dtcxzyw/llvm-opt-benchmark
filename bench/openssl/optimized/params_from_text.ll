@@ -54,7 +54,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %.lr.ph.split
   %21 = getelementptr inbounds nuw i8, ptr %.048, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !14
+  %22 = load i32, ptr %21, align 8, !tbaa !13
   switch i32 %22, label %88 [
     i32 2, label %23
     i32 1, label %41
@@ -67,7 +67,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !15
+  %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = icmp ugt i64 %25, 8
   br i1 %26, label %27, label %34
 
@@ -77,7 +77,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %.not46, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %6, align 8, !tbaa !16
+  %30 = load ptr, ptr %6, align 8, !tbaa !15
   %31 = call i32 @BN_print(ptr noundef %1, ptr noundef %30) #7
   br label %92
 
@@ -91,7 +91,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %.not45, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = load i64, ptr %5, align 8, !tbaa !18
+  %37 = load i64, ptr %5, align 8, !tbaa !17
   %38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %37) #7
   br label %92
 
@@ -101,7 +101,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
 
 41:                                               ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %43 = load i64, ptr %42, align 8, !tbaa !15
+  %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = icmp ugt i64 %43, 8
   br i1 %44, label %45, label %52
 
@@ -111,7 +111,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %.not44, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %6, align 8, !tbaa !16
+  %48 = load ptr, ptr %6, align 8, !tbaa !15
   %49 = call i32 @BN_print(ptr noundef %1, ptr noundef %48) #7
   br label %92
 
@@ -125,7 +125,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %.not43, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = load i64, ptr %4, align 8, !tbaa !18
+  %55 = load i64, ptr %4, align 8, !tbaa !17
   %56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.4, i64 noundef %55) #7
   br label %92
 
@@ -135,27 +135,27 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
 
 59:                                               ; preds = %20
   %60 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !19
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %63 = load i64, ptr %62, align 8, !tbaa !15
+  %63 = load i64, ptr %62, align 8, !tbaa !14
   %64 = trunc i64 %63 to i32
   %65 = call i32 @BIO_dump(ptr noundef %1, ptr noundef %61, i32 noundef %64) #7
   br label %92
 
 66:                                               ; preds = %20
   %67 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !19
+  %68 = load ptr, ptr %67, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %70 = load i64, ptr %69, align 8, !tbaa !15
+  %70 = load i64, ptr %69, align 8, !tbaa !14
   %71 = trunc i64 %70 to i32
   %72 = call i32 @BIO_dump(ptr noundef %1, ptr noundef %68, i32 noundef %71) #7
   br label %92
 
 73:                                               ; preds = %20, %20
   %74 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !19
+  %75 = load ptr, ptr %74, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %77 = load i64, ptr %76, align 8, !tbaa !15
+  %77 = load i64, ptr %76, align 8, !tbaa !14
   %78 = trunc i64 %77 to i32
   %79 = call i32 @BIO_dump(ptr noundef %1, ptr noundef %75, i32 noundef %78) #7
   br label %92
@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %80
-  %84 = load double, ptr %7, align 8, !tbaa !20
+  %84 = load double, ptr %7, align 8, !tbaa !19
   %85 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.5, double noundef %84) #7
   br label %92
 
@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
 
 88:                                               ; preds = %20
   %89 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %90 = load i64, ptr %89, align 8, !tbaa !15
+  %90 = load i64, ptr %89, align 8, !tbaa !14
   %91 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %22, i64 noundef %90) #7
   br label %92
 
@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_print_to_bio(ptr noundef %0, ptr noundef 
   %95 = getelementptr inbounds nuw i8, ptr %.048, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !3
   %.not = icmp eq ptr %96, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %92, %94, %.lr.ph.split.us, %13, %3
   %.1 = phi i32 [ 0, %3 ], [ 1, %13 ], [ 0, %.lr.ph.split.us ], [ 1, %94 ], [ 0, %92 ], [ 0, %.lr.ph.split ]
@@ -219,7 +219,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_allocate_from_text(ptr noundef writeonly 
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr null, ptr %8, align 8, !tbaa !16
+  store ptr null, ptr %8, align 8, !tbaa !15
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null
   %or.cond = or i1 %9, %10
@@ -255,7 +255,7 @@ sub_1.i:                                          ; preds = %11
 20:                                               ; preds = %.tail.thread.i
   %21 = icmp ne ptr %19, null
   %22 = zext i1 %21 to i32
-  store i32 %22, ptr %5, align 4, !tbaa !23
+  store i32 %22, ptr %5, align 4, !tbaa !21
   br label %23
 
 23:                                               ; preds = %20, %.tail.thread.i
@@ -264,7 +264,7 @@ sub_1.i:                                          ; preds = %11
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !14
+  %27 = load i32, ptr %26, align 8, !tbaa !13
   switch i32 %27, label %prepare_from_text.exit [
     i32 1, label %28
     i32 2, label %28
@@ -289,12 +289,12 @@ sub_1.i:                                          ; preds = %11
   br i1 %34, label %prepare_from_text.exit.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %8, align 8, !tbaa !16
+  %36 = load ptr, ptr %8, align 8, !tbaa !15
   %37 = icmp eq ptr %36, null
   br i1 %37, label %prepare_from_text.exit.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %26, align 8, !tbaa !14
+  %39 = load i32, ptr %26, align 8, !tbaa !13
   %40 = icmp eq i32 %39, 2
   br i1 %40, label %41, label %44
 
@@ -310,8 +310,8 @@ sub_1.i:                                          ; preds = %11
   br label %prepare_from_text.exit.thread
 
 thread-pre-split.i:                               ; preds = %41
-  %.pr.i = load i32, ptr %26, align 8, !tbaa !14
-  %.pre66.pre.i = load ptr, ptr %8, align 8, !tbaa !16
+  %.pr.i = load i32, ptr %26, align 8, !tbaa !13
+  %.pre66.pre.i = load ptr, ptr %8, align 8, !tbaa !15
   br label %44
 
 44:                                               ; preds = %thread-pre-split.i, %38
@@ -323,7 +323,7 @@ thread-pre-split.i:                               ; preds = %41
 47:                                               ; preds = %44
   %48 = call i32 @BN_is_negative(ptr noundef %.pre66.i) #7
   %.not58.i = icmp eq i32 %48, 0
-  %.pre65.i = load ptr, ptr %8, align 8, !tbaa !16
+  %.pre65.i = load ptr, ptr %8, align 8, !tbaa !15
   br i1 %.not58.i, label %51, label %49
 
 49:                                               ; preds = %47
@@ -332,14 +332,14 @@ thread-pre-split.i:                               ; preds = %41
   br i1 %.not59.i, label %prepare_from_text.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %49
-  %.pre.i = load ptr, ptr %8, align 8, !tbaa !16
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !15
   br label %51
 
 51:                                               ; preds = %._crit_edge.i, %47, %44
   %52 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre65.i, %47 ], [ %.pre66.i, %44 ]
   %53 = call i32 @BN_num_bits(ptr noundef %52) #7
   %54 = sext i32 %53 to i64
-  %55 = load i32, ptr %26, align 8, !tbaa !14
+  %55 = load i32, ptr %26, align 8, !tbaa !13
   %56 = icmp eq i32 %55, 1
   %57 = and i32 %53, 7
   %58 = icmp eq i32 %57, 0
@@ -349,7 +349,7 @@ thread-pre-split.i:                               ; preds = %41
   %60 = add nsw i64 %.047.i, 7
   %61 = lshr i64 %60, 3
   %62 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %63 = load i64, ptr %62, align 8, !tbaa !15
+  %63 = load i64, ptr %62, align 8, !tbaa !14
   %.not60.i = icmp eq i64 %63, 0
   br i1 %.not60.i, label %prepare_from_text.exit, label %64
 
@@ -405,12 +405,12 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
   br i1 %81, label %prepare_from_text.exit.thread, label %82
 
 82:                                               ; preds = %prepare_from_text.exit
-  %83 = load ptr, ptr %8, align 8, !tbaa !16
+  %83 = load ptr, ptr %8, align 8, !tbaa !15
   %.not.i20 = icmp eq i64 %.026, 0
   br i1 %.not.i20, label %construct_from_text.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = load i32, ptr %26, align 8, !tbaa !14
+  %85 = load i32, ptr %26, align 8, !tbaa !13
   switch i32 %85, label %construct_from_text.exit [
     i32 1, label %86
     i32 2, label %86
@@ -421,7 +421,7 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
 86:                                               ; preds = %84, %84
   %87 = trunc i64 %.026 to i32
   %88 = call i32 @BN_bn2nativepad(ptr noundef %83, ptr noundef nonnull %80, i32 noundef %87) #7
-  %89 = load i32, ptr %26, align 8, !tbaa !14
+  %89 = load i32, ptr %26, align 8, !tbaa !13
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %construct_from_text.exit
 
@@ -434,12 +434,12 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
   %.03243.i = phi i64 [ %93, %.preheader.i ], [ %.026, %91 ]
   %.03342.i = phi ptr [ %96, %.preheader.i ], [ %80, %91 ]
   %93 = add i64 %.03243.i, -1
-  %94 = load i8, ptr %.03342.i, align 1, !tbaa !24
+  %94 = load i8, ptr %.03342.i, align 1, !tbaa !22
   %95 = xor i8 %94, -1
-  store i8 %95, ptr %.03342.i, align 1, !tbaa !24
+  store i8 %95, ptr %.03342.i, align 1, !tbaa !22
   %96 = getelementptr inbounds nuw i8, ptr %.03342.i, i64 1
   %.not41.i = icmp eq i64 %93, 0
-  br i1 %.not41.i, label %construct_from_text.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %.not41.i, label %construct_from_text.exit, label %.preheader.i, !llvm.loop !23
 
 97:                                               ; preds = %84
   %98 = call ptr @strncpy(ptr noundef nonnull %80, ptr noundef %3, i64 noundef %.026) #7
@@ -451,7 +451,7 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
 
 101:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 0, ptr %7, align 8, !tbaa !18
+  store i64 0, ptr %7, align 8, !tbaa !17
   %102 = call i32 @OPENSSL_hexstr2buf_ex(ptr noundef nonnull %80, i64 noundef %.026, ptr noundef nonnull %7, ptr noundef %3, i8 noundef signext 58) #7
   %.not39.not.i = icmp eq i32 %102, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -463,25 +463,25 @@ prepare_from_text.exit:                           ; preds = %.thread.i, %70, %51
 
 construct_from_text.exit:                         ; preds = %.preheader.i, %82, %84, %86, %91, %97, %101, %103
   %.035.i = phi i64 [ %.026, %84 ], [ %.026, %91 ], [ %.026, %86 ], [ %99, %97 ], [ %.026, %101 ], [ %.026, %103 ], [ 0, %82 ], [ %.026, %.preheader.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, i64 16, i1 false), !tbaa.struct !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %19, i64 16, i1 false), !tbaa.struct !24
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %80, ptr %104, align 8, !tbaa !19
+  store ptr %80, ptr %104, align 8, !tbaa !18
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.035.i, ptr %105, align 8, !tbaa !15
+  store i64 %.035.i, ptr %105, align 8, !tbaa !14
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -1, ptr %106, align 8, !tbaa !29
-  %107 = load ptr, ptr %8, align 8, !tbaa !16
+  store i64 -1, ptr %106, align 8, !tbaa !27
+  %107 = load ptr, ptr %8, align 8, !tbaa !15
   call void @BN_free(ptr noundef %107) #7
   br label %111
 
 108:                                              ; preds = %101
-  %109 = load ptr, ptr %8, align 8, !tbaa !16
+  %109 = load ptr, ptr %8, align 8, !tbaa !15
   call void @BN_free(ptr noundef %109) #7
   call void @CRYPTO_free(ptr noundef nonnull %80, ptr noundef nonnull @.str.7, i32 noundef 332) #7
   br label %111
 
 prepare_from_text.exit.thread:                    ; preds = %49, %33, %35, %23, %78, %69, %67, %43, %prepare_from_text.exit
-  %110 = load ptr, ptr %8, align 8, !tbaa !16
+  %110 = load ptr, ptr %8, align 8, !tbaa !15
   call void @BN_free(ptr noundef %110) #7
   br label %111
 
@@ -560,22 +560,20 @@ attributes #8 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!"long", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = !{!4, !9, i64 8}
-!15 = !{!4, !10, i64 24}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!18 = !{!10, !10, i64 0}
-!19 = !{!4, !6, i64 16}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"double", !7, i64 0}
-!22 = distinct !{!22, !12}
-!23 = !{!9, !9, i64 0}
-!24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !12}
-!26 = !{i64 0, i64 8, !27, i64 8, i64 4, !23, i64 16, i64 8, !28, i64 24, i64 8, !18, i64 32, i64 8, !18}
-!27 = !{!5, !5, i64 0}
-!28 = !{!6, !6, i64 0}
-!29 = !{!4, !10, i64 32}
+!13 = !{!4, !9, i64 8}
+!14 = !{!4, !10, i64 24}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!17 = !{!10, !10, i64 0}
+!18 = !{!4, !6, i64 16}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !7, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = !{!7, !7, i64 0}
+!23 = distinct !{!23, !12}
+!24 = !{i64 0, i64 8, !25, i64 8, i64 4, !21, i64 16, i64 8, !26, i64 24, i64 8, !17, i64 32, i64 8, !17}
+!25 = !{!5, !5, i64 0}
+!26 = !{!6, !6, i64 0}
+!27 = !{!4, !10, i64 32}

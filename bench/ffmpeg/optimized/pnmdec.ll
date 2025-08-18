@@ -1003,7 +1003,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %510, ptr %10, align 8, !tbaa !30
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
   %exitcond849.not = icmp eq i64 %indvars.iv.next846, %wide.trip.count848
-  br i1 %exitcond849.not, label %._crit_edge.us709, label %491, !llvm.loop !71
+  br i1 %exitcond849.not, label %._crit_edge.us709, label %491, !llvm.loop !70
 
 ._crit_edge.us709:                                ; preds = %491
   %511 = getelementptr inbounds float, ptr %.0486705.us, i64 %483
@@ -1011,7 +1011,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   %513 = getelementptr inbounds float, ptr %.0484707.us, i64 %490
   %514 = add nuw nsw i32 %.0483708.us, 1
   %exitcond850.not = icmp eq i32 %514, %422
-  br i1 %exitcond850.not, label %.loopexit618, label %.preheader617.us, !llvm.loop !72
+  br i1 %exitcond850.not, label %.loopexit618, label %.preheader617.us, !llvm.loop !71
 
 515:                                              ; preds = %416
   %516 = mul i32 %420, 6
@@ -1135,7 +1135,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %607, ptr %10, align 8, !tbaa !30
   %indvars.iv.next828 = add nuw nsw i64 %indvars.iv827, 1
   %exitcond831.not = icmp eq i64 %indvars.iv.next828, %wide.trip.count830
-  br i1 %exitcond831.not, label %._crit_edge.us679, label %549, !llvm.loop !73
+  br i1 %exitcond831.not, label %._crit_edge.us679, label %549, !llvm.loop !72
 
 ._crit_edge.us679:                                ; preds = %549
   %608 = getelementptr inbounds float, ptr %.0481675.us, i64 %541
@@ -1143,7 +1143,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   %610 = getelementptr inbounds float, ptr %.0479677.us, i64 %548
   %611 = add nuw nsw i32 %.0478678.us, 1
   %exitcond832.not = icmp eq i32 %611, %422
-  br i1 %exitcond832.not, label %.loopexit618, label %.preheader623.us, !llvm.loop !74
+  br i1 %exitcond832.not, label %.loopexit618, label %.preheader623.us, !llvm.loop !73
 
 612:                                              ; preds = %520
   br i1 %531, label %.preheader621.lr.ph, label %.loopexit618
@@ -1248,7 +1248,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %690, ptr %10, align 8, !tbaa !30
   %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
   %exitcond837.not = icmp eq i64 %indvars.iv.next834, %wide.trip.count836
-  br i1 %exitcond837.not, label %._crit_edge.us689, label %629, !llvm.loop !75
+  br i1 %exitcond837.not, label %._crit_edge.us689, label %629, !llvm.loop !74
 
 ._crit_edge.us689:                                ; preds = %629
   %691 = getelementptr inbounds float, ptr %.0476685.us, i64 %621
@@ -1256,7 +1256,7 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   %693 = getelementptr inbounds float, ptr %.0474687.us, i64 %628
   %694 = add nuw nsw i32 %.0473688.us, 1
   %exitcond838.not = icmp eq i32 %694, %422
-  br i1 %exitcond838.not, label %.loopexit618, label %.preheader621.us, !llvm.loop !76
+  br i1 %exitcond838.not, label %.loopexit618, label %.preheader621.us, !llvm.loop !75
 
 .loopexit618:                                     ; preds = %._crit_edge.us679, %._crit_edge.us689, %._crit_edge.us699, %._crit_edge.us709, %.preheader621.lr.ph, %.preheader623.lr.ph, %.preheader617.lr.ph, %.preheader619.lr.ph, %532, %612, %445, %477
   %695 = add nsw i32 %422, -1
@@ -1356,13 +1356,13 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %755, ptr %10, align 8, !tbaa !30
   %indvars.iv.next816 = add nuw nsw i64 %indvars.iv815, 1
   %exitcond819.not = icmp eq i64 %indvars.iv.next816, %wide.trip.count818
-  br i1 %exitcond819.not, label %._crit_edge.us661, label %750, !llvm.loop !77
+  br i1 %exitcond819.not, label %._crit_edge.us661, label %750, !llvm.loop !76
 
 ._crit_edge.us661:                                ; preds = %750
   %756 = getelementptr inbounds float, ptr %.0471659.us, i64 %749
   %757 = add nuw nsw i32 %.0470660.us, 1
   %exitcond820.not = icmp eq i32 %757, %725
-  br i1 %exitcond820.not, label %.loopexit626, label %.preheader627.us, !llvm.loop !78
+  br i1 %exitcond820.not, label %.loopexit626, label %.preheader627.us, !llvm.loop !77
 
 758:                                              ; preds = %736
   br i1 %743, label %.preheader625.lr.ph, label %.loopexit626
@@ -1398,13 +1398,13 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %771, ptr %10, align 8, !tbaa !30
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
   %exitcond825.not = icmp eq i64 %indvars.iv.next822, %wide.trip.count824
-  br i1 %exitcond825.not, label %._crit_edge.us669, label %764, !llvm.loop !79
+  br i1 %exitcond825.not, label %._crit_edge.us669, label %764, !llvm.loop !78
 
 ._crit_edge.us669:                                ; preds = %764
   %772 = getelementptr inbounds float, ptr %.0468667.us, i64 %763
   %773 = add nuw nsw i32 %.0467668.us, 1
   %exitcond826.not = icmp eq i32 %773, %725
-  br i1 %exitcond826.not, label %.loopexit626, label %.preheader625.us, !llvm.loop !80
+  br i1 %exitcond826.not, label %.loopexit626, label %.preheader625.us, !llvm.loop !79
 
 774:                                              ; preds = %719
   %775 = shl i32 %723, 1
@@ -1474,13 +1474,13 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %816, ptr %10, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %796, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge.us, label %796, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %796
   %817 = getelementptr inbounds float, ptr %.0465645.us, i64 %795
   %818 = add nuw nsw i32 %.0464646.us, 1
   %exitcond808.not = icmp eq i32 %818, %725
-  br i1 %exitcond808.not, label %.loopexit626, label %.preheader631.us, !llvm.loop !82
+  br i1 %exitcond808.not, label %.loopexit626, label %.preheader631.us, !llvm.loop !81
 
 819:                                              ; preds = %779
   br i1 %786, label %.preheader629.lr.ph, label %.loopexit626
@@ -1533,13 +1533,13 @@ samplecpy.exit591:                                ; preds = %.lr.ph.i587, %.preh
   store ptr %849, ptr %10, align 8, !tbaa !30
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond813.not = icmp eq i64 %indvars.iv.next810, %wide.trip.count812
-  br i1 %exitcond813.not, label %._crit_edge.us653, label %828, !llvm.loop !83
+  br i1 %exitcond813.not, label %._crit_edge.us653, label %828, !llvm.loop !82
 
 ._crit_edge.us653:                                ; preds = %828
   %850 = getelementptr inbounds float, ptr %.0462651.us, i64 %827
   %851 = add nuw nsw i32 %.0461652.us, 1
   %exitcond814.not = icmp eq i32 %851, %725
-  br i1 %exitcond814.not, label %.loopexit626, label %.preheader629.us, !llvm.loop !84
+  br i1 %exitcond814.not, label %.loopexit626, label %.preheader629.us, !llvm.loop !83
 
 .loopexit626:                                     ; preds = %._crit_edge.us, %._crit_edge.us653, %._crit_edge.us661, %._crit_edge.us669, %.preheader629.lr.ph, %.preheader631.lr.ph, %.preheader625.lr.ph, %.preheader627.lr.ph, %787, %819, %744, %758
   %852 = add nsw i32 %725, -1
@@ -1684,19 +1684,18 @@ attributes #7 = { noreturn nounwind }
 !66 = !{!31, !12, i64 32}
 !67 = !{!21, !21, i64 0}
 !68 = distinct !{!68, !46}
-!69 = distinct !{!69, !46, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !46}
+!70 = distinct !{!70, !46}
 !71 = distinct !{!71, !46}
-!72 = distinct !{!72, !46, !70}
+!72 = distinct !{!72, !46}
 !73 = distinct !{!73, !46}
-!74 = distinct !{!74, !46, !70}
+!74 = distinct !{!74, !46}
 !75 = distinct !{!75, !46}
-!76 = distinct !{!76, !46, !70}
+!76 = distinct !{!76, !46}
 !77 = distinct !{!77, !46}
-!78 = distinct !{!78, !46, !70}
+!78 = distinct !{!78, !46}
 !79 = distinct !{!79, !46}
-!80 = distinct !{!80, !46, !70}
+!80 = distinct !{!80, !46}
 !81 = distinct !{!81, !46}
-!82 = distinct !{!82, !46, !70}
+!82 = distinct !{!82, !46}
 !83 = distinct !{!83, !46}
-!84 = distinct !{!84, !46, !70}

@@ -104,12 +104,12 @@ define ptr @cs_compress(ptr noundef readonly captures(address_is_null) %0) local
   %57 = getelementptr inbounds i32, ptr %27, i64 %56
   store i32 %49, ptr %57, align 4, !tbaa !16
   %58 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv62
-  %59 = load double, ptr %58, align 8, !tbaa !21
+  %59 = load double, ptr %58, align 8, !tbaa !20
   %60 = getelementptr inbounds double, ptr %29, i64 %56
-  store double %59, ptr %60, align 8, !tbaa !21
+  store double %59, ptr %60, align 8, !tbaa !20
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count71
-  br i1 %exitcond66.not, label %.sink.split, label %.lr.ph56.split, !llvm.loop !23
+  br i1 %exitcond66.not, label %.sink.split, label %.lr.ph56.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.lr.ph56.split, %.lr.ph56.split.us, %._crit_edge.thread, %6
   %.sink = phi i32 [ 0, %6 ], [ 1, %._crit_edge.thread ], [ 1, %.lr.ph56.split.us ], [ 1, %.lr.ph56.split ]
@@ -154,8 +154,6 @@ attributes #2 = { nounwind }
 !16 = !{!5, !5, i64 0}
 !17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"double", !6, i64 0}
-!23 = distinct !{!23, !18}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !6, i64 0}

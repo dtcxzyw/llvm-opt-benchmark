@@ -317,7 +317,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
   %56 = load i8, ptr %4, align 8
   %57 = zext i8 %56 to i64
   %58 = icmp samesign ult i64 %55, %57
-  br i1 %58, label %.split, label %.loopexit, !llvm.loop !17
+  br i1 %58, label %.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %54, %29, %3
   ret void
@@ -432,7 +432,7 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
   br i1 %6, label %35, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !16
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1) #6
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %35
@@ -470,7 +470,7 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
   %32 = load i8, ptr %20, align 8
   %33 = zext i8 %32 to i64
   %34 = icmp samesign ult i64 %31, %33
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %24
   call void @drm_modeset_unlock_all(ptr noundef %.200.val.112.val) #6
@@ -555,7 +555,7 @@ define internal noundef i32 @pri_wm_latency_show(ptr noundef %0, ptr readnone ca
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
   %40 = icmp samesign ult i64 %37, %39
-  br i1 %40, label %15, label %.loopexit, !llvm.loop !20
+  br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2
   tail call void @drm_modeset_unlock_all(ptr noundef %4) #6
@@ -655,7 +655,7 @@ define internal noundef i32 @spr_wm_latency_show(ptr noundef %0, ptr readnone ca
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
   %40 = icmp samesign ult i64 %37, %39
-  br i1 %40, label %15, label %.loopexit, !llvm.loop !20
+  br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2
   tail call void @drm_modeset_unlock_all(ptr noundef %4) #6
@@ -752,7 +752,7 @@ define internal noundef i32 @cur_wm_latency_show(ptr noundef %0, ptr readnone ca
   %38 = load i8, ptr %10, align 8
   %39 = zext i8 %38 to i64
   %40 = icmp samesign ult i64 %37, %39
-  br i1 %40, label %15, label %.loopexit, !llvm.loop !20
+  br i1 %40, label %15, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %32, %2
   tail call void @drm_modeset_unlock_all(ptr noundef %4) #6
@@ -788,11 +788,9 @@ attributes #6 = { nounwind }
 !10 = !{i64 2160339854, i64 2160339665, i64 2160339715, i64 2160339761, i64 2160339789}
 !11 = !{i8 0, i8 2}
 !12 = !{}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = !{!"auto-init"}
 !17 = distinct !{!17, !14, !15}
-!18 = !{!"auto-init"}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
+!18 = distinct !{!18, !14, !15}

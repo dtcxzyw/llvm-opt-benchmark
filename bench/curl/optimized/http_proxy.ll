@@ -722,7 +722,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %60 = load ptr, ptr %59, align 8, !tbaa !130
   %61 = tail call i32 %60(ptr noundef nonnull %55, ptr noundef null, i1 noundef zeroext %2, ptr noundef nonnull %3) #6
   %.not75.us = icmp eq i32 %61, 0
-  br i1 %.not75.us, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !135
+  br i1 %.not75.us, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %62 = load i8, ptr %3, align 1, !tbaa !42, !range !131, !noundef !132
@@ -903,7 +903,7 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
 
 27:                                               ; preds = %.preheader
   %28 = icmp eq ptr %.0, %26
-  br i1 %28, label %29, label %.preheader, !llvm.loop !137
+  br i1 %28, label %29, label %.preheader, !llvm.loop !135
 
 29:                                               ; preds = %27
   %30 = tail call zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef %0, ptr noundef nonnull %26, ptr noundef %1, i1 noundef zeroext false) #6
@@ -922,7 +922,7 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
 34:                                               ; preds = %31
   %35 = load ptr, ptr %33, align 8, !tbaa !123
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !138
+  %37 = load ptr, ptr %36, align 8, !tbaa !136
   tail call void %37(ptr noundef nonnull %33, ptr noundef %1) #6
   br label %38
 
@@ -963,7 +963,7 @@ define hidden i32 @Curl_cf_http_proxy_insert_after(ptr noundef %0, ptr noundef r
   br i1 %.not9, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %3, align 8, !tbaa !139
+  %9 = load ptr, ptr %3, align 8, !tbaa !137
   call void @Curl_conn_cf_insert_after(ptr noundef %0, ptr noundef %9) #6
   br label %10
 
@@ -1147,8 +1147,6 @@ attributes #6 = { nounwind }
 !132 = !{}
 !133 = !{!107, !9, i64 0}
 !134 = !{!14, !7, i64 1409}
-!135 = distinct !{!135, !136}
-!136 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!137 = distinct !{!137, !112}
-!138 = !{!125, !6, i64 32}
-!139 = !{!9, !9, i64 0}
+!135 = distinct !{!135, !112}
+!136 = !{!125, !6, i64 32}
+!137 = !{!9, !9, i64 0}

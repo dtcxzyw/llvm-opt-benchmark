@@ -84,7 +84,7 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   %.219.us = select i1 %9, ptr %.02029.us, ptr %.01728.us
   %.020.us = load ptr, ptr %.222.in.us, align 8
   %.not.us = icmp eq ptr %.020.us, @sentinel
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !6
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
   %.02029 = phi ptr [ %.020, %14 ], [ %.02026, %.lr.ph ]
@@ -132,7 +132,7 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   %.219.us = select i1 %9, ptr %.02029.us, ptr %.01728.us
   %.020.us = load ptr, ptr %.222.in.us, align 8
   %.not.us = icmp eq ptr %.020.us, @sentinel
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %14
   %.02029 = phi ptr [ %.020, %14 ], [ %.02026, %.lr.ph ]
@@ -168,7 +168,7 @@ define dso_local ptr @rbt_leftmost(ptr noundef readonly captures(none) %0) local
   %3 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, @sentinel
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ @sentinel, %1 ], [ %.0812, %.lr.ph ]
@@ -210,7 +210,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %.in = getelementptr inbounds nuw i8, ptr %.04149, i64 %.in.v
   %.041 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.041, @sentinel
-  br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %6, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %15
   %17 = icmp slt i32 %9, 0
@@ -274,7 +274,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %42 = load ptr, ptr %41, align 8
   %43 = load i8, ptr %42, align 8
   %44 = icmp eq i8 %43, 1
-  br i1 %44, label %.lr.ph52, label %rbt_insert_fixup.exit, !llvm.loop !11
+  br i1 %44, label %.lr.ph52, label %rbt_insert_fixup.exit, !llvm.loop !8
 
 .lr.ph52:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %45 = phi ptr [ %42, %.lr.ph.i ], [ %38, %.lr.ph.i.preheader ]
@@ -593,10 +593,10 @@ rbt_rotate_right.exit.i:                          ; preds = %171, %170, %116, %1
   %.3.i = phi ptr [ %63, %57 ], [ %122, %116 ], [ %.2.i, %111 ], [ %.2.i, %112 ], [ %.5.i, %170 ], [ %.5.i, %171 ]
   %172 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.3.i, %172
-  br i1 %.not.i, label %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !8
 
 rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge: ; preds = %rbt_rotate_right.exit.i
-  br label %rbt_insert_fixup.exit, !llvm.loop !11
+  br label %rbt_insert_fixup.exit, !llvm.loop !8
 
 rbt_insert_fixup.exit:                            ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge, %36
   %.lcssa.i = phi ptr [ %37, %36 ], [ %172, %rbt_rotate_right.exit.i.rbt_insert_fixup.exit.loopexit_crit_edge ], [ %37, %.lr.ph.i.preheader ], [ %172, %.lr.ph.i ]
@@ -632,7 +632,7 @@ define dso_local void @rbt_delete(ptr noundef captures(none) %0, ptr noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, @sentinel
-  br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !9
 
 .loopexit50.i:                                    ; preds = %.preheader.i, %5
   %.0.ph.i = phi ptr [ %1, %5 ], [ %.1.i, %.preheader.i ]
@@ -1165,7 +1165,7 @@ rbt_rotate_left.exit73.i.i:                       ; preds = %224, %223, %176, %1
   %.2.i.i = load ptr, ptr %.2.in.i.i, align 8
   %225 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %.2.i.i, %225
-  br i1 %.not.i.i, label %rbt_delete_fixup.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %rbt_delete_fixup.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 rbt_delete_fixup.exit.i:                          ; preds = %rbt_rotate_left.exit73.i.i, %.lr.ph.i.i, %37
   %.056.lcssa.i.i = phi ptr [ %.035.i, %37 ], [ %.2.i.i, %rbt_rotate_left.exit73.i.i ], [ %.05699.i.i, %.lr.ph.i.i ]
@@ -1238,7 +1238,7 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   %9 = getelementptr inbounds nuw i8, ptr %storemerge30, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %10, @sentinel
-  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !14
+  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1252,7 +1252,7 @@ define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %15, @sentinel
-  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !15
+  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !12
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1296,7 +1296,7 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   %9 = getelementptr inbounds nuw i8, ptr %storemerge30, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %10, @sentinel
-  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !16
+  br i1 %.not31, label %select.unfold, label %8, !llvm.loop !13
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1310,7 +1310,7 @@ define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %15, @sentinel
-  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !17
+  br i1 %.not29, label %select.unfold, label %.preheader35, !llvm.loop !14
 
 .preheader:                                       ; preds = %11, %22
   %16 = phi ptr [ %18, %22 ], [ %3, %11 ]
@@ -1346,7 +1346,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !range !18, !noundef !19
+  %3 = load i8, ptr %2, align 8, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %9, label %5
 
@@ -1385,17 +1385,14 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{i8 0, i8 2}
-!19 = !{}
+!15 = !{i8 0, i8 2}
+!16 = !{}

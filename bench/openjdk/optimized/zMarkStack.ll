@@ -428,7 +428,7 @@ define linkonce_odr hidden void @_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMar
   %37 = inttoptr i64 %36 to ptr
   %38 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %37, ptr %.0.i, ptr nonnull %6) #11, !srcloc !11
   %39 = icmp eq ptr %38, %.0.i
-  br i1 %39, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i, !llvm.loop !14
+  br i1 %39, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i, !llvm.loop !12
 
 40:                                               ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -478,7 +478,7 @@ define linkonce_odr hidden void @_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMar
   %73 = inttoptr i64 %72 to ptr
   %74 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %73, ptr %.0.i5, ptr nonnull %42) #11, !srcloc !11
   %75 = icmp eq ptr %74, %.0.i5
-  br i1 %75, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i4, !llvm.loop !14
+  br i1 %75, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit, label %.split.i4, !llvm.loop !12
 
 _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit: ; preds = %.split.i4, %.split.us.i7, %.split.i, %.split.us.i
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -563,7 +563,7 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks8pop_slowEP19ZMarkS
   %35 = inttoptr i64 %34 to ptr
   %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35, ptr %.08.i.i, ptr nonnull %8) #11, !srcloc !11
   %37 = icmp eq ptr %36, %.08.i.i
-  br i1 %37, label %_ZN11ZMarkStripe11steal_stackEv.exit.thread, label %14, !llvm.loop !15
+  br i1 %37, label %_ZN11ZMarkStripe11steal_stackEv.exit.thread, label %14, !llvm.loop !13
 
 38:                                               ; preds = %14
   %39 = load volatile ptr, ptr %9, align 8
@@ -597,7 +597,7 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks8pop_slowEP19ZMarkS
   %61 = inttoptr i64 %60 to ptr
   %62 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %61, ptr %.08.i5.i, ptr nonnull %9) #11, !srcloc !11
   %63 = icmp eq ptr %62, %.08.i5.i
-  br i1 %63, label %_ZN11ZMarkStripe11steal_stackEv.exit.thread, label %40, !llvm.loop !15
+  br i1 %63, label %_ZN11ZMarkStripe11steal_stackEv.exit.thread, label %40, !llvm.loop !13
 
 _ZN11ZMarkStripe11steal_stackEv.exit.thread:      ; preds = %23, %49
   %.0.i.ph = phi ptr [ %50, %49 ], [ %24, %23 ]
@@ -652,7 +652,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
 
 _ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit: ; preds = %72, %_ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i
   store ptr null, ptr %3, align 8
-  br label %10, !llvm.loop !16
+  br label %10, !llvm.loop !14
 
 76:                                               ; preds = %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread, %_ZN11ZMarkStripe11steal_stackEv.exit
   %.012 = phi i1 [ false, %_ZN11ZMarkStripe11steal_stackEv.exit ], [ true, %_ZN6ZStackI15ZMarkStackEntryLm254EE3popERS0_.exit.thread ]
@@ -738,7 +738,7 @@ _ZN6ZStackIPS_I15ZMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %45 = inttoptr i64 %44 to ptr
   %46 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45, ptr %.0.i.i, ptr nonnull %27) #11, !srcloc !11
   %47 = icmp eq ptr %46, %.0.i.i
-  br i1 %47, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i, label %.split.i.i, !llvm.loop !14
+  br i1 %47, label %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i, label %.split.i.i, !llvm.loop !12
 
 _ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i: ; preds = %.split.i.i
   %48 = load volatile i32, ptr %7, align 4
@@ -779,7 +779,7 @@ _ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkSt
   %.1 = phi i1 [ %.018, %11 ], [ %.2, %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit ]
   %66 = add nuw nsw i64 %.01517, 1
   %exitcond.not = icmp eq i64 %66, 16
-  br i1 %exitcond.not, label %67, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %67, label %11, !llvm.loop !15
 
 67:                                               ; preds = %65
   ret i1 %.1
@@ -872,9 +872,7 @@ attributes #11 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = !{i64 2145412694}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}

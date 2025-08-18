@@ -1509,7 +1509,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not94 = icmp eq ptr %78, %10
-  br i1 %.not94, label %.thread115, label %.lr.ph131.split, !llvm.loop !25
+  br i1 %.not94, label %.thread115, label %.lr.ph131.split, !llvm.loop !23
 
 79:                                               ; preds = %71
   tail call void @GrantLock(ptr noundef %7, ptr noundef %9, i32 noundef %5) #14
@@ -1741,7 +1741,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %89 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %88, i32 noundef 0) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %90, label %.preheader, !llvm.loop !26
+  br i1 %exitcond.not.i, label %90, label %.preheader, !llvm.loop !24
 
 90:                                               ; preds = %.preheader
   %91 = load ptr, ptr @MyProc, align 8
@@ -1780,7 +1780,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %109 = getelementptr i8, ptr %108, i64 23040
   call void @LWLockRelease(ptr noundef nonnull %109) #14
   %110 = icmp samesign ugt i64 %indvars.iv9.i, 1
-  br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !27
+  br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !25
 
 CheckDeadLock.exit:                               ; preds = %106
   store volatile i32 0, ptr @got_deadlock_timeout, align 4
@@ -1789,7 +1789,7 @@ CheckDeadLock.exit:                               ; preds = %106
 111:                                              ; preds = %78, %CheckDeadLock.exit
   %112 = load volatile i32, ptr @InterruptPending, align 4
   %.not89 = icmp eq i32 %112, 0
-  br i1 %.not89, label %114, label %113, !prof !28
+  br i1 %.not89, label %114, label %113, !prof !26
 
 113:                                              ; preds = %111
   call void @ProcessInterrupts() #14
@@ -1968,7 +1968,7 @@ CheckDeadLock.exit:                               ; preds = %106
   %199 = getelementptr inbounds nuw i8, ptr %.sroa.0.0101, i64 8
   %200 = load ptr, ptr %199, align 8
   %.not94 = icmp eq ptr %200, %58
-  br i1 %.not94, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not94, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %198
   %201 = sext i32 %.178 to i64
@@ -2076,7 +2076,7 @@ CheckDeadLock.exit:                               ; preds = %106
 
 248:                                              ; preds = %165, %244
   %249 = icmp eq i32 %117, 1
-  br i1 %249, label %60, label %250, !llvm.loop !30
+  br i1 %249, label %60, label %250, !llvm.loop !28
 
 250:                                              ; preds = %248
   %251 = load i32, ptr @standbyState, align 4
@@ -2293,7 +2293,7 @@ define dso_local void @ProcLockWakeup(ptr noundef %0, ptr noundef %1) local_unna
 ProcWakeup.exit:                                  ; preds = %26, %23, %39
   %.1 = phi i32 [ %41, %39 ], [ %.028, %23 ], [ %.028, %26 ]
   %.not23 = icmp eq ptr %.sroa.8.030, %3
-  br i1 %.not23, label %.loopexit, label %10, !llvm.loop !31
+  br i1 %.not23, label %.loopexit, label %10, !llvm.loop !29
 
 .loopexit:                                        ; preds = %ProcWakeup.exit, %6, %2
   ret void
@@ -2318,7 +2318,7 @@ define dso_local void @ProcWaitForSignal(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @ResetLatch(ptr noundef %4) #14
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6, !prof !28
+  br i1 %.not, label %7, label %6, !prof !26
 
 6:                                                ; preds = %1
   tail call void @ProcessInterrupts() #14
@@ -2537,12 +2537,10 @@ attributes #16 = { nounwind willreturn memory(none) }
 !20 = !{i64 2150966477}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !27 = distinct !{!27, !5}
-!28 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!28 = distinct !{!28, !5}
 !29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}

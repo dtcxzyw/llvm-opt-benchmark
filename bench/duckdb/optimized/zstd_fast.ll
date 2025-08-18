@@ -19,7 +19,7 @@ define void @_ZN11duckdb_zstd18ZSTD_fillHashTableEPNS_17ZSTD_matchState_tEPKvNS_
   %16 = getelementptr inbounds i8, ptr %1, i64 -6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 3
   %18 = icmp ult ptr %17, %16
-  br i1 %5, label %19, label %113
+  br i1 %5, label %19, label %155
 
 19:                                               ; preds = %4
   br i1 %18, label %.lr.ph.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit
@@ -34,472 +34,515 @@ define void @_ZN11duckdb_zstd18ZSTD_fillHashTableEPNS_17ZSTD_matchState_tEPKvNS_
   %26 = icmp eq i32 %2, 0
   br i1 %26, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
-  %27 = phi ptr [ %53, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i ], [ %17, %.lr.ph.i ]
-  %.044.us.i = phi ptr [ %27, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i ], [ %15, %.lr.ph.i ]
-  %28 = ptrtoint ptr %.044.us.i to i64
-  %29 = sub i64 %28, %22
-  %30 = trunc i64 %29 to i32
-  switch i32 %9, label %43 [
-    i32 8, label %40
-    i32 5, label %37
-    i32 6, label %34
-    i32 7, label %31
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
+  switch i32 %9, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i [
+    i32 8, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i
+    i32 5, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i
+    i32 6, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i
+    i32 7, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i
   ]
 
-31:                                               ; preds = %.lr.ph.split.us.i
-  %.0.val40.us.i = load i64, ptr %.044.us.i, align 1, !tbaa !23
-  %32 = mul i64 %.0.val40.us.i, -3523014627193167104
-  %33 = lshr i64 %32, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i: ; preds = %.lr.ph.split.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i
+  %27 = phi ptr [ %39, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i ], [ %17, %.lr.ph.split.us.i ]
+  %.044.us.us.i = phi ptr [ %27, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i ], [ %15, %.lr.ph.split.us.i ]
+  %28 = ptrtoint ptr %.044.us.us.i to i64
+  %29 = sub i64 %28, %22
+  %30 = trunc i64 %29 to i32
+  %.0.val42.us.us.i = load i64, ptr %.044.us.us.i, align 1, !tbaa !23
+  %31 = mul i64 %.0.val42.us.us.i, -3523014627327384477
+  %32 = lshr i64 %31, %24
+  %33 = lshr i64 %32, 8
+  %34 = trunc i64 %32 to i32
+  %35 = and i32 %34, 255
+  %36 = shl i32 %30, 8
+  %37 = or disjoint i32 %35, %36
+  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %33
+  store i32 %37, ptr %38, align 4, !tbaa !24
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 3
+  %40 = icmp ult ptr %39, %16
+  br i1 %40, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
 
-34:                                               ; preds = %.lr.ph.split.us.i
-  %.0.val38.us.i = load i64, ptr %.044.us.i, align 1, !tbaa !23
-  %35 = mul i64 %.0.val38.us.i, -3523014627193847808
-  %36 = lshr i64 %35, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
-
-37:                                               ; preds = %.lr.ph.split.us.i
-  %.0.val36.us.i = load i64, ptr %.044.us.i, align 1, !tbaa !23
-  %38 = mul i64 %.0.val36.us.i, -3523014627271114752
-  %39 = lshr i64 %38, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
-
-40:                                               ; preds = %.lr.ph.split.us.i
-  %.0.val42.us.i = load i64, ptr %.044.us.i, align 1, !tbaa !23
-  %41 = mul i64 %.0.val42.us.i, -3523014627327384477
-  %42 = lshr i64 %41, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
-
-43:                                               ; preds = %.lr.ph.split.us.i
-  %.0.val.us.i = load i32, ptr %.044.us.i, align 1, !tbaa !24
-  %44 = mul i32 %.0.val.us.i, -1640531535
-  %45 = lshr i32 %44, %25
-  %46 = zext i32 %45 to i64
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i:  ; preds = %43, %40, %37, %34, %31
-  %.0.i.us.i = phi i64 [ %46, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ]
-  %47 = lshr i64 %.0.i.us.i, 8
-  %48 = trunc i64 %.0.i.us.i to i32
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i: ; preds = %.lr.ph.split.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i
+  %41 = phi ptr [ %53, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i ], [ %17, %.lr.ph.split.us.i ]
+  %.044.us.us46.i = phi ptr [ %41, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i ], [ %15, %.lr.ph.split.us.i ]
+  %42 = ptrtoint ptr %.044.us.us46.i to i64
+  %43 = sub i64 %42, %22
+  %44 = trunc i64 %43 to i32
+  %.0.val36.us.us.i = load i64, ptr %.044.us.us46.i, align 1, !tbaa !23
+  %45 = mul i64 %.0.val36.us.us.i, -3523014627271114752
+  %46 = lshr i64 %45, %24
+  %47 = lshr i64 %46, 8
+  %48 = trunc i64 %46 to i32
   %49 = and i32 %48, 255
-  %50 = shl i32 %30, 8
+  %50 = shl i32 %44, 8
   %51 = or disjoint i32 %49, %50
   %52 = getelementptr inbounds nuw i32, ptr %7, i64 %47
   store i32 %51, ptr %52, align 4, !tbaa !24
-  %53 = getelementptr inbounds nuw i8, ptr %27, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 3
   %54 = icmp ult ptr %53, %16
-  br i1 %54, label %.lr.ph.split.us.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
+  br i1 %54, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.loopexit.i
-  %55 = phi ptr [ %111, %.loopexit.i ], [ %17, %.lr.ph.i ]
-  %.044.i = phi ptr [ %55, %.loopexit.i ], [ %15, %.lr.ph.i ]
-  %56 = ptrtoint ptr %.044.i to i64
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i: ; preds = %.lr.ph.split.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i
+  %55 = phi ptr [ %67, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i ], [ %17, %.lr.ph.split.us.i ]
+  %.044.us.us50.i = phi ptr [ %55, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i ], [ %15, %.lr.ph.split.us.i ]
+  %56 = ptrtoint ptr %.044.us.us50.i to i64
   %57 = sub i64 %56, %22
   %58 = trunc i64 %57 to i32
-  switch i32 %9, label %59 [
-    i32 8, label %72
-    i32 5, label %63
-    i32 6, label %66
-    i32 7, label %69
-  ]
+  %.0.val38.us.us.i = load i64, ptr %.044.us.us50.i, align 1, !tbaa !23
+  %59 = mul i64 %.0.val38.us.us.i, -3523014627193847808
+  %60 = lshr i64 %59, %24
+  %61 = lshr i64 %60, 8
+  %62 = trunc i64 %60 to i32
+  %63 = and i32 %62, 255
+  %64 = shl i32 %58, 8
+  %65 = or disjoint i32 %63, %64
+  %66 = getelementptr inbounds nuw i32, ptr %7, i64 %61
+  store i32 %65, ptr %66, align 4, !tbaa !24
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 3
+  %68 = icmp ult ptr %67, %16
+  br i1 %68, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
 
-59:                                               ; preds = %.lr.ph.split.i
-  %.0.val.i = load i32, ptr %.044.i, align 1, !tbaa !24
-  %60 = mul i32 %.0.val.i, -1640531535
-  %61 = lshr i32 %60, %25
-  %62 = zext i32 %61 to i64
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-
-63:                                               ; preds = %.lr.ph.split.i
-  %.0.val36.i = load i64, ptr %.044.i, align 1, !tbaa !23
-  %64 = mul i64 %.0.val36.i, -3523014627271114752
-  %65 = lshr i64 %64, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-
-66:                                               ; preds = %.lr.ph.split.i
-  %.0.val38.i = load i64, ptr %.044.i, align 1, !tbaa !23
-  %67 = mul i64 %.0.val38.i, -3523014627193847808
-  %68 = lshr i64 %67, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-
-69:                                               ; preds = %.lr.ph.split.i
-  %.0.val40.i = load i64, ptr %.044.i, align 1, !tbaa !23
-  %70 = mul i64 %.0.val40.i, -3523014627193167104
-  %71 = lshr i64 %70, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-
-72:                                               ; preds = %.lr.ph.split.i
-  %.0.val42.i = load i64, ptr %.044.i, align 1, !tbaa !23
-  %73 = mul i64 %.0.val42.i, -3523014627327384477
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i: ; preds = %.lr.ph.split.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i
+  %69 = phi ptr [ %81, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i ], [ %17, %.lr.ph.split.us.i ]
+  %.044.us.us54.i = phi ptr [ %69, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i ], [ %15, %.lr.ph.split.us.i ]
+  %70 = ptrtoint ptr %.044.us.us54.i to i64
+  %71 = sub i64 %70, %22
+  %72 = trunc i64 %71 to i32
+  %.0.val40.us.us.i = load i64, ptr %.044.us.us54.i, align 1, !tbaa !23
+  %73 = mul i64 %.0.val40.us.us.i, -3523014627193167104
   %74 = lshr i64 %73, %24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i:     ; preds = %72, %69, %66, %63, %59
-  %.0.i.i = phi i64 [ %62, %59 ], [ %74, %72 ], [ %65, %63 ], [ %68, %66 ], [ %71, %69 ]
-  %75 = lshr i64 %.0.i.i, 8
-  %76 = trunc i64 %.0.i.i to i32
+  %75 = lshr i64 %74, 8
+  %76 = trunc i64 %74 to i32
   %77 = and i32 %76, 255
-  %78 = shl i32 %58, 8
+  %78 = shl i32 %72, 8
   %79 = or disjoint i32 %77, %78
   %80 = getelementptr inbounds nuw i32, ptr %7, i64 %75
   store i32 %79, ptr %80, align 4, !tbaa !24
-  br label %81
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 3
+  %82 = icmp ult ptr %81, %16
+  br i1 %82, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
 
-81:                                               ; preds = %110, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
-  %indvars.iv.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i ], [ %indvars.iv.next.i, %110 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %indvars.iv.i
-  switch i32 %9, label %83 [
-    i32 8, label %96
-    i32 5, label %87
-    i32 6, label %90
-    i32 7, label %93
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i:  ; preds = %.lr.ph.split.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i
+  %83 = phi ptr [ %95, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i ], [ %17, %.lr.ph.split.us.i ]
+  %.044.us.i = phi ptr [ %83, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i ], [ %15, %.lr.ph.split.us.i ]
+  %84 = ptrtoint ptr %.044.us.i to i64
+  %85 = sub i64 %84, %22
+  %86 = trunc i64 %85 to i32
+  %.0.val.us.i = load i32, ptr %.044.us.i, align 1, !tbaa !24
+  %87 = mul i32 %.0.val.us.i, -1640531535
+  %88 = lshr i32 %87, %25
+  %89 = lshr i32 %88, 8
+  %90 = zext nneg i32 %89 to i64
+  %91 = and i32 %88, 255
+  %92 = shl i32 %86, 8
+  %93 = or disjoint i32 %91, %92
+  %94 = getelementptr inbounds nuw i32, ptr %7, i64 %90
+  store i32 %93, ptr %94, align 4, !tbaa !24
+  %95 = getelementptr inbounds nuw i8, ptr %83, i64 3
+  %96 = icmp ult ptr %95, %16
+  br i1 %96, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
+
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.loopexit.i
+  %97 = phi ptr [ %153, %.loopexit.i ], [ %17, %.lr.ph.i ]
+  %.044.i = phi ptr [ %97, %.loopexit.i ], [ %15, %.lr.ph.i ]
+  %98 = ptrtoint ptr %.044.i to i64
+  %99 = sub i64 %98, %22
+  %100 = trunc i64 %99 to i32
+  switch i32 %9, label %101 [
+    i32 8, label %114
+    i32 5, label %105
+    i32 6, label %108
+    i32 7, label %111
   ]
 
-83:                                               ; preds = %81
-  %.val.i = load i32, ptr %82, align 1, !tbaa !24
-  %84 = mul i32 %.val.i, -1640531535
-  %85 = lshr i32 %84, %25
-  %86 = zext i32 %85 to i64
+101:                                              ; preds = %.lr.ph.split.i
+  %.0.val.i = load i32, ptr %.044.i, align 1, !tbaa !24
+  %102 = mul i32 %.0.val.i, -1640531535
+  %103 = lshr i32 %102, %25
+  %104 = zext i32 %103 to i64
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+
+105:                                              ; preds = %.lr.ph.split.i
+  %.0.val36.i = load i64, ptr %.044.i, align 1, !tbaa !23
+  %106 = mul i64 %.0.val36.i, -3523014627271114752
+  %107 = lshr i64 %106, %24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+
+108:                                              ; preds = %.lr.ph.split.i
+  %.0.val38.i = load i64, ptr %.044.i, align 1, !tbaa !23
+  %109 = mul i64 %.0.val38.i, -3523014627193847808
+  %110 = lshr i64 %109, %24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+
+111:                                              ; preds = %.lr.ph.split.i
+  %.0.val40.i = load i64, ptr %.044.i, align 1, !tbaa !23
+  %112 = mul i64 %.0.val40.i, -3523014627193167104
+  %113 = lshr i64 %112, %24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+
+114:                                              ; preds = %.lr.ph.split.i
+  %.0.val42.i = load i64, ptr %.044.i, align 1, !tbaa !23
+  %115 = mul i64 %.0.val42.i, -3523014627327384477
+  %116 = lshr i64 %115, %24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i:     ; preds = %114, %111, %108, %105, %101
+  %.0.i.i = phi i64 [ %104, %101 ], [ %116, %114 ], [ %107, %105 ], [ %110, %108 ], [ %113, %111 ]
+  %117 = lshr i64 %.0.i.i, 8
+  %118 = trunc i64 %.0.i.i to i32
+  %119 = and i32 %118, 255
+  %120 = shl i32 %100, 8
+  %121 = or disjoint i32 %119, %120
+  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %117
+  store i32 %121, ptr %122, align 4, !tbaa !24
+  br label %123
+
+123:                                              ; preds = %152, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i
+  %indvars.iv.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i ], [ %indvars.iv.next.i, %152 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %indvars.iv.i
+  switch i32 %9, label %125 [
+    i32 8, label %138
+    i32 5, label %129
+    i32 6, label %132
+    i32 7, label %135
+  ]
+
+125:                                              ; preds = %123
+  %.val.i = load i32, ptr %124, align 1, !tbaa !24
+  %126 = mul i32 %.val.i, -1640531535
+  %127 = lshr i32 %126, %25
+  %128 = zext i32 %127 to i64
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
-87:                                               ; preds = %81
-  %.val35.i = load i64, ptr %82, align 1, !tbaa !23
-  %88 = mul i64 %.val35.i, -3523014627271114752
-  %89 = lshr i64 %88, %24
+129:                                              ; preds = %123
+  %.val35.i = load i64, ptr %124, align 1, !tbaa !23
+  %130 = mul i64 %.val35.i, -3523014627271114752
+  %131 = lshr i64 %130, %24
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
-90:                                               ; preds = %81
-  %.val37.i = load i64, ptr %82, align 1, !tbaa !23
-  %91 = mul i64 %.val37.i, -3523014627193847808
-  %92 = lshr i64 %91, %24
+132:                                              ; preds = %123
+  %.val37.i = load i64, ptr %124, align 1, !tbaa !23
+  %133 = mul i64 %.val37.i, -3523014627193847808
+  %134 = lshr i64 %133, %24
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
-93:                                               ; preds = %81
-  %.val39.i = load i64, ptr %82, align 1, !tbaa !23
-  %94 = mul i64 %.val39.i, -3523014627193167104
-  %95 = lshr i64 %94, %24
+135:                                              ; preds = %123
+  %.val39.i = load i64, ptr %124, align 1, !tbaa !23
+  %136 = mul i64 %.val39.i, -3523014627193167104
+  %137 = lshr i64 %136, %24
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
-96:                                               ; preds = %81
-  %.val41.i = load i64, ptr %82, align 1, !tbaa !23
-  %97 = mul i64 %.val41.i, -3523014627327384477
-  %98 = lshr i64 %97, %24
+138:                                              ; preds = %123
+  %.val41.i = load i64, ptr %124, align 1, !tbaa !23
+  %139 = mul i64 %.val41.i, -3523014627327384477
+  %140 = lshr i64 %139, %24
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
 
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i:   ; preds = %96, %93, %90, %87, %83
-  %.0.i33.i = phi i64 [ %86, %83 ], [ %98, %96 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ]
-  %99 = lshr i64 %.0.i33.i, 8
-  %100 = getelementptr inbounds nuw i32, ptr %7, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !24
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %110
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i:   ; preds = %138, %135, %132, %129, %125
+  %.0.i33.i = phi i64 [ %128, %125 ], [ %140, %138 ], [ %131, %129 ], [ %134, %132 ], [ %137, %135 ]
+  %141 = lshr i64 %.0.i33.i, 8
+  %142 = getelementptr inbounds nuw i32, ptr %7, i64 %141
+  %143 = load i32, ptr %142, align 4, !tbaa !24
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %152
 
-103:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
-  %104 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %105 = add i32 %104, %58
-  %106 = trunc i64 %.0.i33.i to i32
-  %107 = and i32 %106, 255
-  %108 = shl i32 %105, 8
-  %109 = or disjoint i32 %107, %108
-  store i32 %109, ptr %100, align 4, !tbaa !24
-  br label %110
+145:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
+  %146 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %147 = add i32 %146, %100
+  %148 = trunc i64 %.0.i33.i to i32
+  %149 = and i32 %148, 255
+  %150 = shl i32 %147, 8
+  %151 = or disjoint i32 %149, %150
+  store i32 %151, ptr %142, align 4, !tbaa !24
+  br label %152
 
-110:                                              ; preds = %103, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
+152:                                              ; preds = %145, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.loopexit.i, label %81, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.loopexit.i, label %123, !llvm.loop !27
 
-.loopexit.i:                                      ; preds = %110
-  %111 = getelementptr inbounds nuw i8, ptr %55, i64 3
-  %112 = icmp ult ptr %111, %16
-  br i1 %112, label %.lr.ph.split.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !29
+.loopexit.i:                                      ; preds = %152
+  %153 = getelementptr inbounds nuw i8, ptr %97, i64 3
+  %154 = icmp ult ptr %153, %16
+  br i1 %154, label %.lr.ph.split.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !25
 
-113:                                              ; preds = %4
+155:                                              ; preds = %4
   br i1 %18, label %.lr.ph.i6, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit
 
-.lr.ph.i6:                                        ; preds = %113
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %115 = load i32, ptr %114, align 4, !tbaa !22
-  %116 = ptrtoint ptr %11 to i64
-  %117 = sub i32 64, %115
-  %118 = zext nneg i32 %117 to i64
-  %119 = sub i32 32, %115
-  %120 = icmp eq i32 %2, 0
-  br i1 %120, label %.lr.ph.split.us.i20, label %.lr.ph.split.i7.preheader
+.lr.ph.i6:                                        ; preds = %155
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %157 = load i32, ptr %156, align 4, !tbaa !22
+  %158 = ptrtoint ptr %11 to i64
+  %159 = sub i32 64, %157
+  %160 = zext nneg i32 %159 to i64
+  %161 = sub i32 32, %157
+  %162 = icmp eq i32 %2, 0
+  br i1 %162, label %.lr.ph.split.us.i20, label %.lr.ph.split.i7
 
-.lr.ph.split.i7.preheader:                        ; preds = %.lr.ph.i6
-  switch i32 %9, label %.lr.ph.split.i7 [
-    i32 8, label %.lr.ph.split.i7.us
-    i32 5, label %.lr.ph.split.i7.us36
-    i32 6, label %.lr.ph.split.i7.us40
-    i32 7, label %.lr.ph.split.i7.us44
+.lr.ph.split.us.i20:                              ; preds = %.lr.ph.i6
+  switch i32 %9, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26 [
+    i32 8, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24
+    i32 5, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i
+    i32 6, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i
+    i32 7, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i
   ]
 
-.lr.ph.split.i7.us:                               ; preds = %.lr.ph.split.i7.preheader, %.loopexit.i12.loopexit30.us
-  %121 = phi ptr [ %138, %.loopexit.i12.loopexit30.us ], [ %17, %.lr.ph.split.i7.preheader ]
-  %.056.i.us = phi ptr [ %121, %.loopexit.i12.loopexit30.us ], [ %15, %.lr.ph.split.i7.preheader ]
-  %122 = ptrtoint ptr %.056.i.us to i64
-  %123 = sub i64 %122, %116
-  %124 = trunc i64 %123 to i32
-  %.0.val42.i15.us = load i64, ptr %.056.i.us, align 1, !tbaa !23
-  %125 = mul i64 %.0.val42.i15.us, -3523014627327384477
-  %126 = lshr i64 %125, %118
-  %127 = getelementptr inbounds nuw i32, ptr %7, i64 %126
-  store i32 %124, ptr %127, align 4, !tbaa !24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i.us
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i.us: ; preds = %137, %.lr.ph.split.i7.us
-  %indvars.iv71.i.us = phi i64 [ 1, %.lr.ph.split.i7.us ], [ %indvars.iv.next72.i.us, %137 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.056.i.us, i64 %indvars.iv71.i.us
-  %.val41.us.i.us = load i64, ptr %128, align 1, !tbaa !23
-  %129 = mul i64 %.val41.us.i.us, -3523014627327384477
-  %130 = lshr i64 %129, %118
-  %131 = getelementptr inbounds nuw i32, ptr %7, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !24
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %137
-
-134:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i.us
-  %135 = trunc nuw nsw i64 %indvars.iv71.i.us to i32
-  %136 = add i32 %135, %124
-  store i32 %136, ptr %131, align 4, !tbaa !24
-  br label %137
-
-137:                                              ; preds = %134, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i.us
-  %indvars.iv.next72.i.us = add nuw nsw i64 %indvars.iv71.i.us, 1
-  %exitcond74.not.i.us = icmp eq i64 %indvars.iv.next72.i.us, 3
-  br i1 %exitcond74.not.i.us, label %.loopexit.i12.loopexit30.us, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i.us, !llvm.loop !30
-
-.loopexit.i12.loopexit30.us:                      ; preds = %137
-  %138 = getelementptr inbounds nuw i8, ptr %121, i64 3
-  %139 = icmp ult ptr %138, %16
-  br i1 %139, label %.lr.ph.split.i7.us, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !31
-
-.lr.ph.split.i7.us36:                             ; preds = %.lr.ph.split.i7.preheader, %.loopexit.i12.loopexit31.us
-  %140 = phi ptr [ %157, %.loopexit.i12.loopexit31.us ], [ %17, %.lr.ph.split.i7.preheader ]
-  %.056.i.us37 = phi ptr [ %140, %.loopexit.i12.loopexit31.us ], [ %15, %.lr.ph.split.i7.preheader ]
-  %141 = ptrtoint ptr %.056.i.us37 to i64
-  %142 = sub i64 %141, %116
-  %143 = trunc i64 %142 to i32
-  %.0.val36.i14.us = load i64, ptr %.056.i.us37, align 1, !tbaa !23
-  %144 = mul i64 %.0.val36.i14.us, -3523014627271114752
-  %145 = lshr i64 %144, %118
-  %146 = getelementptr inbounds nuw i32, ptr %7, i64 %145
-  store i32 %143, ptr %146, align 4, !tbaa !24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i.us
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i.us: ; preds = %156, %.lr.ph.split.i7.us36
-  %indvars.iv67.i.us = phi i64 [ 1, %.lr.ph.split.i7.us36 ], [ %indvars.iv.next68.i.us, %156 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.056.i.us37, i64 %indvars.iv67.i.us
-  %.val35.us.i.us = load i64, ptr %147, align 1, !tbaa !23
-  %148 = mul i64 %.val35.us.i.us, -3523014627271114752
-  %149 = lshr i64 %148, %118
-  %150 = getelementptr inbounds nuw i32, ptr %7, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !24
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %156
-
-153:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i.us
-  %154 = trunc nuw nsw i64 %indvars.iv67.i.us to i32
-  %155 = add i32 %154, %143
-  store i32 %155, ptr %150, align 4, !tbaa !24
-  br label %156
-
-156:                                              ; preds = %153, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i.us
-  %indvars.iv.next68.i.us = add nuw nsw i64 %indvars.iv67.i.us, 1
-  %exitcond70.not.i.us = icmp eq i64 %indvars.iv.next68.i.us, 3
-  br i1 %exitcond70.not.i.us, label %.loopexit.i12.loopexit31.us, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i.us, !llvm.loop !32
-
-.loopexit.i12.loopexit31.us:                      ; preds = %156
-  %157 = getelementptr inbounds nuw i8, ptr %140, i64 3
-  %158 = icmp ult ptr %157, %16
-  br i1 %158, label %.lr.ph.split.i7.us36, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !33
-
-.lr.ph.split.i7.us40:                             ; preds = %.lr.ph.split.i7.preheader, %.loopexit.i12.loopexit32.us
-  %159 = phi ptr [ %176, %.loopexit.i12.loopexit32.us ], [ %17, %.lr.ph.split.i7.preheader ]
-  %.056.i.us41 = phi ptr [ %159, %.loopexit.i12.loopexit32.us ], [ %15, %.lr.ph.split.i7.preheader ]
-  %160 = ptrtoint ptr %.056.i.us41 to i64
-  %161 = sub i64 %160, %116
-  %162 = trunc i64 %161 to i32
-  %.0.val38.i13.us = load i64, ptr %.056.i.us41, align 1, !tbaa !23
-  %163 = mul i64 %.0.val38.i13.us, -3523014627193847808
-  %164 = lshr i64 %163, %118
-  %165 = getelementptr inbounds nuw i32, ptr %7, i64 %164
-  store i32 %162, ptr %165, align 4, !tbaa !24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i.us
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i.us: ; preds = %175, %.lr.ph.split.i7.us40
-  %indvars.iv63.i.us = phi i64 [ 1, %.lr.ph.split.i7.us40 ], [ %indvars.iv.next64.i.us, %175 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.056.i.us41, i64 %indvars.iv63.i.us
-  %.val37.us.i.us = load i64, ptr %166, align 1, !tbaa !23
-  %167 = mul i64 %.val37.us.i.us, -3523014627193847808
-  %168 = lshr i64 %167, %118
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24: ; preds = %.lr.ph.split.us.i20, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24
+  %163 = phi ptr [ %170, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24 ], [ %17, %.lr.ph.split.us.i20 ]
+  %.056.us.us.i = phi ptr [ %163, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24 ], [ %15, %.lr.ph.split.us.i20 ]
+  %164 = ptrtoint ptr %.056.us.us.i to i64
+  %165 = sub i64 %164, %158
+  %166 = trunc i64 %165 to i32
+  %.0.val42.us.us.i25 = load i64, ptr %.056.us.us.i, align 1, !tbaa !23
+  %167 = mul i64 %.0.val42.us.us.i25, -3523014627327384477
+  %168 = lshr i64 %167, %160
   %169 = getelementptr inbounds nuw i32, ptr %7, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !24
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %175
+  store i32 %166, ptr %169, align 4, !tbaa !24
+  %170 = getelementptr inbounds nuw i8, ptr %163, i64 3
+  %171 = icmp ult ptr %170, %16
+  br i1 %171, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
 
-172:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i.us
-  %173 = trunc nuw nsw i64 %indvars.iv63.i.us to i32
-  %174 = add i32 %173, %162
-  store i32 %174, ptr %169, align 4, !tbaa !24
-  br label %175
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i: ; preds = %.lr.ph.split.us.i20, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i
+  %172 = phi ptr [ %179, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i ], [ %17, %.lr.ph.split.us.i20 ]
+  %.056.us.us58.i = phi ptr [ %172, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i ], [ %15, %.lr.ph.split.us.i20 ]
+  %173 = ptrtoint ptr %.056.us.us58.i to i64
+  %174 = sub i64 %173, %158
+  %175 = trunc i64 %174 to i32
+  %.0.val36.us.us.i23 = load i64, ptr %.056.us.us58.i, align 1, !tbaa !23
+  %176 = mul i64 %.0.val36.us.us.i23, -3523014627271114752
+  %177 = lshr i64 %176, %160
+  %178 = getelementptr inbounds nuw i32, ptr %7, i64 %177
+  store i32 %175, ptr %178, align 4, !tbaa !24
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 3
+  %180 = icmp ult ptr %179, %16
+  br i1 %180, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
 
-175:                                              ; preds = %172, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i.us
-  %indvars.iv.next64.i.us = add nuw nsw i64 %indvars.iv63.i.us, 1
-  %exitcond66.not.i.us = icmp eq i64 %indvars.iv.next64.i.us, 3
-  br i1 %exitcond66.not.i.us, label %.loopexit.i12.loopexit32.us, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i.us, !llvm.loop !34
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i: ; preds = %.lr.ph.split.us.i20, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i
+  %181 = phi ptr [ %188, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i ], [ %17, %.lr.ph.split.us.i20 ]
+  %.056.us.us62.i = phi ptr [ %181, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i ], [ %15, %.lr.ph.split.us.i20 ]
+  %182 = ptrtoint ptr %.056.us.us62.i to i64
+  %183 = sub i64 %182, %158
+  %184 = trunc i64 %183 to i32
+  %.0.val38.us.us.i22 = load i64, ptr %.056.us.us62.i, align 1, !tbaa !23
+  %185 = mul i64 %.0.val38.us.us.i22, -3523014627193847808
+  %186 = lshr i64 %185, %160
+  %187 = getelementptr inbounds nuw i32, ptr %7, i64 %186
+  store i32 %184, ptr %187, align 4, !tbaa !24
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 3
+  %189 = icmp ult ptr %188, %16
+  br i1 %189, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
 
-.loopexit.i12.loopexit32.us:                      ; preds = %175
-  %176 = getelementptr inbounds nuw i8, ptr %159, i64 3
-  %177 = icmp ult ptr %176, %16
-  br i1 %177, label %.lr.ph.split.i7.us40, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !35
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i: ; preds = %.lr.ph.split.us.i20, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i
+  %190 = phi ptr [ %197, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i ], [ %17, %.lr.ph.split.us.i20 ]
+  %.056.us.us66.i = phi ptr [ %190, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i ], [ %15, %.lr.ph.split.us.i20 ]
+  %191 = ptrtoint ptr %.056.us.us66.i to i64
+  %192 = sub i64 %191, %158
+  %193 = trunc i64 %192 to i32
+  %.0.val40.us.us.i21 = load i64, ptr %.056.us.us66.i, align 1, !tbaa !23
+  %194 = mul i64 %.0.val40.us.us.i21, -3523014627193167104
+  %195 = lshr i64 %194, %160
+  %196 = getelementptr inbounds nuw i32, ptr %7, i64 %195
+  store i32 %193, ptr %196, align 4, !tbaa !24
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 3
+  %198 = icmp ult ptr %197, %16
+  br i1 %198, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
 
-.lr.ph.split.i7.us44:                             ; preds = %.lr.ph.split.i7.preheader, %.loopexit.i12.loopexit33.us
-  %178 = phi ptr [ %195, %.loopexit.i12.loopexit33.us ], [ %17, %.lr.ph.split.i7.preheader ]
-  %.056.i.us45 = phi ptr [ %178, %.loopexit.i12.loopexit33.us ], [ %15, %.lr.ph.split.i7.preheader ]
-  %179 = ptrtoint ptr %.056.i.us45 to i64
-  %180 = sub i64 %179, %116
-  %181 = trunc i64 %180 to i32
-  %.0.val40.i8.us = load i64, ptr %.056.i.us45, align 1, !tbaa !23
-  %182 = mul i64 %.0.val40.i8.us, -3523014627193167104
-  %183 = lshr i64 %182, %118
-  %184 = getelementptr inbounds nuw i32, ptr %7, i64 %183
-  store i32 %181, ptr %184, align 4, !tbaa !24
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i.us
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26: ; preds = %.lr.ph.split.us.i20, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26
+  %199 = phi ptr [ %207, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26 ], [ %17, %.lr.ph.split.us.i20 ]
+  %.056.us.i = phi ptr [ %199, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26 ], [ %15, %.lr.ph.split.us.i20 ]
+  %200 = ptrtoint ptr %.056.us.i to i64
+  %201 = sub i64 %200, %158
+  %202 = trunc i64 %201 to i32
+  %.0.val.us.i27 = load i32, ptr %.056.us.i, align 1, !tbaa !24
+  %203 = mul i32 %.0.val.us.i27, -1640531535
+  %204 = lshr i32 %203, %161
+  %205 = zext i32 %204 to i64
+  %206 = getelementptr inbounds nuw i32, ptr %7, i64 %205
+  store i32 %202, ptr %206, align 4, !tbaa !24
+  %207 = getelementptr inbounds nuw i8, ptr %199, i64 3
+  %208 = icmp ult ptr %207, %16
+  br i1 %208, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
 
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i.us: ; preds = %194, %.lr.ph.split.i7.us44
-  %indvars.iv.i9.us = phi i64 [ 1, %.lr.ph.split.i7.us44 ], [ %indvars.iv.next.i10.us, %194 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.056.i.us45, i64 %indvars.iv.i9.us
-  %.val39.us.i.us = load i64, ptr %185, align 1, !tbaa !23
-  %186 = mul i64 %.val39.us.i.us, -3523014627193167104
-  %187 = lshr i64 %186, %118
-  %188 = getelementptr inbounds nuw i32, ptr %7, i64 %187
-  %189 = load i32, ptr %188, align 4, !tbaa !24
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %194
-
-191:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i.us
-  %192 = trunc nuw nsw i64 %indvars.iv.i9.us to i32
-  %193 = add i32 %192, %181
-  store i32 %193, ptr %188, align 4, !tbaa !24
-  br label %194
-
-194:                                              ; preds = %191, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i.us
-  %indvars.iv.next.i10.us = add nuw nsw i64 %indvars.iv.i9.us, 1
-  %exitcond.not.i11.us = icmp eq i64 %indvars.iv.next.i10.us, 3
-  br i1 %exitcond.not.i11.us, label %.loopexit.i12.loopexit33.us, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i.us, !llvm.loop !36
-
-.loopexit.i12.loopexit33.us:                      ; preds = %194
-  %195 = getelementptr inbounds nuw i8, ptr %178, i64 3
-  %196 = icmp ult ptr %195, %16
-  br i1 %196, label %.lr.ph.split.i7.us44, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !37
-
-.lr.ph.split.us.i20:                              ; preds = %.lr.ph.i6, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
-  %197 = phi ptr [ %218, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22 ], [ %17, %.lr.ph.i6 ]
-  %.056.us.i = phi ptr [ %197, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22 ], [ %15, %.lr.ph.i6 ]
-  %198 = ptrtoint ptr %.056.us.i to i64
-  %199 = sub i64 %198, %116
-  %200 = trunc i64 %199 to i32
-  switch i32 %9, label %213 [
-    i32 8, label %210
-    i32 5, label %207
-    i32 6, label %204
-    i32 7, label %201
+.lr.ph.split.i7:                                  ; preds = %.lr.ph.i6, %.loopexit.i12
+  %209 = phi ptr [ %280, %.loopexit.i12 ], [ %17, %.lr.ph.i6 ]
+  %.056.i = phi ptr [ %209, %.loopexit.i12 ], [ %15, %.lr.ph.i6 ]
+  %210 = ptrtoint ptr %.056.i to i64
+  %211 = sub i64 %210, %158
+  %212 = trunc i64 %211 to i32
+  switch i32 %9, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i16 [
+    i32 8, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread.i
+    i32 5, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread96.i
+    i32 6, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread98.i
+    i32 7, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread100.i
   ]
 
-201:                                              ; preds = %.lr.ph.split.us.i20
-  %.0.val40.us.i21 = load i64, ptr %.056.us.i, align 1, !tbaa !23
-  %202 = mul i64 %.0.val40.us.i21, -3523014627193167104
-  %203 = lshr i64 %202, %118
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread96.i: ; preds = %.lr.ph.split.i7
+  %.0.val36.i14 = load i64, ptr %.056.i, align 1, !tbaa !23
+  %213 = mul i64 %.0.val36.i14, -3523014627271114752
+  %214 = lshr i64 %213, %160
+  %215 = getelementptr inbounds nuw i32, ptr %7, i64 %214
+  store i32 %212, ptr %215, align 4, !tbaa !24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i
 
-204:                                              ; preds = %.lr.ph.split.us.i20
-  %.0.val38.us.i24 = load i64, ptr %.056.us.i, align 1, !tbaa !23
-  %205 = mul i64 %.0.val38.us.i24, -3523014627193847808
-  %206 = lshr i64 %205, %118
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread98.i: ; preds = %.lr.ph.split.i7
+  %.0.val38.i13 = load i64, ptr %.056.i, align 1, !tbaa !23
+  %216 = mul i64 %.0.val38.i13, -3523014627193847808
+  %217 = lshr i64 %216, %160
+  %218 = getelementptr inbounds nuw i32, ptr %7, i64 %217
+  store i32 %212, ptr %218, align 4, !tbaa !24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i
 
-207:                                              ; preds = %.lr.ph.split.us.i20
-  %.0.val36.us.i25 = load i64, ptr %.056.us.i, align 1, !tbaa !23
-  %208 = mul i64 %.0.val36.us.i25, -3523014627271114752
-  %209 = lshr i64 %208, %118
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread100.i: ; preds = %.lr.ph.split.i7
+  %.0.val40.i8 = load i64, ptr %.056.i, align 1, !tbaa !23
+  %219 = mul i64 %.0.val40.i8, -3523014627193167104
+  %220 = lshr i64 %219, %160
+  %221 = getelementptr inbounds nuw i32, ptr %7, i64 %220
+  store i32 %212, ptr %221, align 4, !tbaa !24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i
 
-210:                                              ; preds = %.lr.ph.split.us.i20
-  %.0.val42.us.i26 = load i64, ptr %.056.us.i, align 1, !tbaa !23
-  %211 = mul i64 %.0.val42.us.i26, -3523014627327384477
-  %212 = lshr i64 %211, %118
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread.i: ; preds = %.lr.ph.split.i7
+  %.0.val42.i15 = load i64, ptr %.056.i, align 1, !tbaa !23
+  %222 = mul i64 %.0.val42.i15, -3523014627327384477
+  %223 = lshr i64 %222, %160
+  %224 = getelementptr inbounds nuw i32, ptr %7, i64 %223
+  store i32 %212, ptr %224, align 4, !tbaa !24
+  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i
 
-213:                                              ; preds = %.lr.ph.split.us.i20
-  %.0.val.us.i27 = load i32, ptr %.056.us.i, align 1, !tbaa !24
-  %214 = mul i32 %.0.val.us.i27, -1640531535
-  %215 = lshr i32 %214, %119
-  %216 = zext i32 %215 to i64
-  br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22
-
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22: ; preds = %213, %210, %207, %204, %201
-  %.0.i.us.i23 = phi i64 [ %216, %213 ], [ %212, %210 ], [ %209, %207 ], [ %206, %204 ], [ %203, %201 ]
-  %217 = getelementptr inbounds nuw i32, ptr %7, i64 %.0.i.us.i23
-  store i32 %200, ptr %217, align 4, !tbaa !24
-  %218 = getelementptr inbounds nuw i8, ptr %197, i64 3
-  %219 = icmp ult ptr %218, %16
-  br i1 %219, label %.lr.ph.split.us.i20, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !38
-
-.lr.ph.split.i7:                                  ; preds = %.lr.ph.split.i7.preheader, %.loopexit.i12.loopexit
-  %220 = phi ptr [ %239, %.loopexit.i12.loopexit ], [ %17, %.lr.ph.split.i7.preheader ]
-  %.056.i = phi ptr [ %220, %.loopexit.i12.loopexit ], [ %15, %.lr.ph.split.i7.preheader ]
-  %221 = ptrtoint ptr %.056.i to i64
-  %222 = sub i64 %221, %116
-  %223 = trunc i64 %222 to i32
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i16:   ; preds = %.lr.ph.split.i7
   %.0.val.i17 = load i32, ptr %.056.i, align 1, !tbaa !24
-  %224 = mul i32 %.0.val.i17, -1640531535
-  %225 = lshr i32 %224, %119
-  %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %7, i64 %226
-  store i32 %223, ptr %227, align 4, !tbaa !24
+  %225 = mul i32 %.0.val.i17, -1640531535
+  %226 = lshr i32 %225, %161
+  %227 = zext i32 %226 to i64
+  %228 = getelementptr inbounds nuw i32, ptr %7, i64 %227
+  store i32 %212, ptr %228, align 4, !tbaa !24
   br label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18
 
-_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18: ; preds = %238, %.lr.ph.split.i7
-  %indvars.iv75.i = phi i64 [ 1, %.lr.ph.split.i7 ], [ %indvars.iv.next76.i, %238 ]
-  %228 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv75.i
-  %.val.i19 = load i32, ptr %228, align 1, !tbaa !24
-  %229 = mul i32 %.val.i19, -1640531535
-  %230 = lshr i32 %229, %119
-  %231 = zext i32 %230 to i64
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i: ; preds = %238, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread.i
+  %indvars.iv87.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread.i ], [ %indvars.iv.next88.i, %238 ]
+  %229 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv87.i
+  %.val41.us.i = load i64, ptr %229, align 1, !tbaa !23
+  %230 = mul i64 %.val41.us.i, -3523014627327384477
+  %231 = lshr i64 %230, %160
   %232 = getelementptr inbounds nuw i32, ptr %7, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !24
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %238
 
-235:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18
-  %236 = trunc nuw nsw i64 %indvars.iv75.i to i32
-  %237 = add i32 %236, %223
+235:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i
+  %236 = trunc nuw nsw i64 %indvars.iv87.i to i32
+  %237 = add i32 %236, %212
   store i32 %237, ptr %232, align 4, !tbaa !24
   br label %238
 
-238:                                              ; preds = %235, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18
-  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %exitcond78.not.i = icmp eq i64 %indvars.iv.next76.i, 3
-  br i1 %exitcond78.not.i, label %.loopexit.i12.loopexit, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18, !llvm.loop !39
+238:                                              ; preds = %235, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond90.not.i = icmp eq i64 %indvars.iv.next88.i, 3
+  br i1 %exitcond90.not.i, label %.loopexit.i12, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us.i, !llvm.loop !29
 
-.loopexit.i12.loopexit:                           ; preds = %238
-  %239 = getelementptr inbounds nuw i8, ptr %220, i64 3
-  %240 = icmp ult ptr %239, %16
-  br i1 %240, label %.lr.ph.split.i7, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !40
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i: ; preds = %248, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread96.i
+  %indvars.iv83.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread96.i ], [ %indvars.iv.next84.i, %248 ]
+  %239 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv83.i
+  %.val35.us.i = load i64, ptr %239, align 1, !tbaa !23
+  %240 = mul i64 %.val35.us.i, -3523014627271114752
+  %241 = lshr i64 %240, %160
+  %242 = getelementptr inbounds nuw i32, ptr %7, i64 %241
+  %243 = load i32, ptr %242, align 4, !tbaa !24
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %248
 
-_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit: ; preds = %.loopexit.i12.loopexit33.us, %.loopexit.i12.loopexit32.us, %.loopexit.i12.loopexit31.us, %.loopexit.i12.loopexit30.us, %.loopexit.i12.loopexit, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i22, %.loopexit.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i, %113, %19
+245:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i
+  %246 = trunc nuw nsw i64 %indvars.iv83.i to i32
+  %247 = add i32 %246, %212
+  store i32 %247, ptr %242, align 4, !tbaa !24
+  br label %248
+
+248:                                              ; preds = %245, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i
+  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next84.i, 3
+  br i1 %exitcond86.not.i, label %.loopexit.i12, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us46.i, !llvm.loop !29
+
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i: ; preds = %258, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread98.i
+  %indvars.iv79.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread98.i ], [ %indvars.iv.next80.i, %258 ]
+  %249 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv79.i
+  %.val37.us.i = load i64, ptr %249, align 1, !tbaa !23
+  %250 = mul i64 %.val37.us.i, -3523014627193847808
+  %251 = lshr i64 %250, %160
+  %252 = getelementptr inbounds nuw i32, ptr %7, i64 %251
+  %253 = load i32, ptr %252, align 4, !tbaa !24
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %258
+
+255:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i
+  %256 = trunc nuw nsw i64 %indvars.iv79.i to i32
+  %257 = add i32 %256, %212
+  store i32 %257, ptr %252, align 4, !tbaa !24
+  br label %258
+
+258:                                              ; preds = %255, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i
+  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
+  %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 3
+  br i1 %exitcond82.not.i, label %.loopexit.i12, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us50.i, !llvm.loop !29
+
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i: ; preds = %268, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread100.i
+  %indvars.iv.i9 = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.thread100.i ], [ %indvars.iv.next.i10, %268 ]
+  %259 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv.i9
+  %.val39.us.i = load i64, ptr %259, align 1, !tbaa !23
+  %260 = mul i64 %.val39.us.i, -3523014627193167104
+  %261 = lshr i64 %260, %160
+  %262 = getelementptr inbounds nuw i32, ptr %7, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !24
+  %264 = icmp eq i32 %263, 0
+  br i1 %264, label %265, label %268
+
+265:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i
+  %266 = trunc nuw nsw i64 %indvars.iv.i9 to i32
+  %267 = add i32 %266, %212
+  store i32 %267, ptr %262, align 4, !tbaa !24
+  br label %268
+
+268:                                              ; preds = %265, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i
+  %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
+  %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 3
+  br i1 %exitcond.not.i11, label %.loopexit.i12, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.us54.i, !llvm.loop !29
+
+_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18: ; preds = %279, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i16
+  %indvars.iv91.i = phi i64 [ 1, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.i16 ], [ %indvars.iv.next92.i, %279 ]
+  %269 = getelementptr inbounds nuw i8, ptr %.056.i, i64 %indvars.iv91.i
+  %.val.i19 = load i32, ptr %269, align 1, !tbaa !24
+  %270 = mul i32 %.val.i19, -1640531535
+  %271 = lshr i32 %270, %161
+  %272 = zext i32 %271 to i64
+  %273 = getelementptr inbounds nuw i32, ptr %7, i64 %272
+  %274 = load i32, ptr %273, align 4, !tbaa !24
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %279
+
+276:                                              ; preds = %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18
+  %277 = trunc nuw nsw i64 %indvars.iv91.i to i32
+  %278 = add i32 %277, %212
+  store i32 %278, ptr %273, align 4, !tbaa !24
+  br label %279
+
+279:                                              ; preds = %276, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18
+  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
+  %exitcond94.not.i = icmp eq i64 %indvars.iv.next92.i, 3
+  br i1 %exitcond94.not.i, label %.loopexit.i12, label %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit34.i18, !llvm.loop !29
+
+.loopexit.i12:                                    ; preds = %268, %258, %248, %238, %279
+  %280 = getelementptr inbounds nuw i8, ptr %209, i64 3
+  %281 = icmp ult ptr %280, %16
+  br i1 %281, label %.lr.ph.split.i7, label %_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit, !llvm.loop !28
+
+_ZN11duckdb_zstdL26ZSTD_fillHashTableForCDictEPNS_17ZSTD_matchState_tEPKvNS_26ZSTD_dictTableLoadMethod_eE.exit: ; preds = %.loopexit.i12, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us67.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us63.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us59.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i24, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i26, %.loopexit.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us55.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us51.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us47.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.us.i, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit.us.i, %155, %19
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %7 = load i32, ptr %6, align 8, !tbaa !41
+  %7 = load i32, ptr %6, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %9 = load i32, ptr %8, align 4, !tbaa !42
+  %9 = load i32, ptr %8, align 4, !tbaa !31
   %10 = icmp ugt i32 %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -516,11 +559,11 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   %21 = add i64 %4, %19
   %22 = sub i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %11, align 8, !tbaa !43
+  %24 = load i32, ptr %11, align 8, !tbaa !32
   %25 = getelementptr i8, ptr %0, i64 24
-  %.val19.i = load i32, ptr %25, align 8, !tbaa !44
+  %.val19.i = load i32, ptr %25, align 8, !tbaa !33
   %26 = getelementptr i8, ptr %0, i64 40
-  %.val20.i = load i32, ptr %26, align 8, !tbaa !45
+  %.val20.i = load i32, ptr %26, align 8, !tbaa !34
   %27 = shl nuw i32 1, %24
   %28 = sub i32 %23, %.val19.i
   %29 = icmp ugt i32 %28, %27
@@ -673,7 +716,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   %.1241.i.ph.us.i = phi i64 [ %.0240.i.us.i, %.thread285.i ], [ %106, %105 ]
   %.1238.i.ph.us.i = phi ptr [ %.0237.i.us.i, %.thread285.i ], [ %109, %105 ]
   %111 = icmp ult ptr %104, %36
-  br i1 %111, label %.split.us.i, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !46
+  br i1 %111, label %.split.us.i, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i:                                         ; preds = %69, %159
   %.0263.i.i = phi i64 [ %127, %159 ], [ %76, %69 ]
@@ -763,9 +806,9 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
 145:                                              ; preds = %.split.i
   %146 = getelementptr inbounds i8, ptr %.0232.i.i, i64 %80
   %147 = getelementptr inbounds i8, ptr %.0232.i.i, i64 -1
-  %148 = load i8, ptr %147, align 1, !tbaa !47
+  %148 = load i8, ptr %147, align 1, !tbaa !36
   %149 = getelementptr inbounds i8, ptr %146, i64 -1
-  %150 = load i8, ptr %149, align 1, !tbaa !47
+  %150 = load i8, ptr %149, align 1, !tbaa !36
   %151 = icmp eq i8 %148, %150
   %.neg.i.i = sext i1 %151 to i64
   %152 = getelementptr inbounds i8, ptr %.0232.i.i, i64 %.neg.i.i
@@ -782,7 +825,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   %.1241.i.ph.i = phi i64 [ %.0240.i.i, %.thread289.i ], [ %141, %140 ]
   %.1238.i.ph.i = phi ptr [ %.0237.i.i, %.thread289.i ], [ %144, %140 ]
   %160 = icmp ult ptr %139, %36
-  br i1 %160, label %.split.i, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %160, label %.split.i, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i:                                    ; preds = %119, %85, %.split174.us.i
   %.us-phi169.sink.i = phi ptr [ %.us-phi179.i, %.split174.us.i ], [ %.0230.i.us.i, %85 ], [ %.0230.i.i, %119 ]
@@ -818,9 +861,9 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   %.4247.i185.i = phi i64 [ %182, %181 ], [ 4, %165 ]
   %.4252.i184.i = phi ptr [ %178, %181 ], [ %167, %165 ]
   %176 = getelementptr inbounds i8, ptr %.4.i186.i, i64 -1
-  %177 = load i8, ptr %176, align 1, !tbaa !47
+  %177 = load i8, ptr %176, align 1, !tbaa !36
   %178 = getelementptr inbounds i8, ptr %.4252.i184.i, i64 -1
-  %179 = load i8, ptr %178, align 1, !tbaa !47
+  %179 = load i8, ptr %178, align 1, !tbaa !36
   %180 = icmp eq i8 %177, %179
   br i1 %180, label %181, label %.critedge.i.i
 
@@ -829,7 +872,7 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   %183 = icmp ugt ptr %176, %.0225.i210.i
   %184 = icmp ugt ptr %178, %34
   %185 = and i1 %183, %184
-  br i1 %185, label %.lr.ph.i, label %.critedge.i.i, !llvm.loop !49
+  br i1 %185, label %.lr.ph.i, label %.critedge.i.i, !llvm.loop !37
 
 .critedge.i.i:                                    ; preds = %181, %.lr.ph.i, %165, %145
   %.0236.i91.i = phi i32 [ %115, %145 ], [ %.0236.i.ph.i, %165 ], [ %.0236.i.ph.i, %.lr.ph.i ], [ %.0236.i.ph.i, %181 ]
@@ -904,8 +947,8 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   br i1 %210, label %211, label %216
 
 211:                                              ; preds = %209
-  %.352.val.i.i = load i16, ptr %.352.i.i, align 1, !tbaa !50
-  %.348.val.i.i = load i16, ptr %.348.i.i, align 1, !tbaa !50
+  %.352.val.i.i = load i16, ptr %.352.i.i, align 1, !tbaa !38
+  %.348.val.i.i = load i16, ptr %.348.i.i, align 1, !tbaa !38
   %212 = icmp eq i16 %.352.val.i.i, %.348.val.i.i
   br i1 %212, label %213, label %216
 
@@ -921,8 +964,8 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressBlock_fastEPNS_17ZSTD_matchSt
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %216
-  %219 = load i8, ptr %.453.i.i, align 1, !tbaa !47
-  %220 = load i8, ptr %.4.i26.i, align 1, !tbaa !47
+  %219 = load i8, ptr %.453.i.i, align 1, !tbaa !36
+  %220 = load i8, ptr %.4.i26.i, align 1, !tbaa !36
   %221 = icmp eq i8 %219, %220
   %spec.select.idx.i.i = zext i1 %221 to i64
   %spec.select.i28.i = getelementptr inbounds nuw i8, ptr %.4.i26.i, i64 %spec.select.idx.i.i
@@ -942,28 +985,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i:   ; preds = %222, %.thread63.i.i
   %228 = ptrtoint ptr %.0225.i210.i to i64
   %229 = sub i64 %227, %228
   %.not.i4.i = icmp ugt ptr %.3.i.i, %63
-  %230 = load ptr, ptr %64, align 8, !tbaa !52
+  %230 = load ptr, ptr %64, align 8, !tbaa !40
   br i1 %.not.i4.i, label %247, label %231
 
 231:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i
-  %.0225.i.val.i = load <2 x i64>, ptr %.0225.i210.i, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i, ptr %230, align 1, !tbaa !47
+  %.0225.i.val.i = load <2 x i64>, ptr %.0225.i210.i, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i, ptr %230, align 1, !tbaa !36
   %232 = icmp ugt i64 %229, 16
-  %233 = load ptr, ptr %64, align 8, !tbaa !52
+  %233 = load ptr, ptr %64, align 8, !tbaa !40
   br i1 %232, label %235, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i: ; preds = %231
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 %229
-  store ptr %234, ptr %64, align 8, !tbaa !52
-  %.pre.i = load ptr, ptr %67, align 8, !tbaa !56
+  store ptr %234, ptr %64, align 8, !tbaa !40
+  %.pre.i = load ptr, ptr %67, align 8, !tbaa !44
   br label %273
 
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %237 = getelementptr inbounds nuw i8, ptr %.0225.i210.i, i64 16
   %238 = getelementptr i8, ptr %233, i64 %229
-  %.val22.i = load <2 x i64>, ptr %237, align 1, !tbaa !47
-  store <2 x i64> %.val22.i, ptr %236, align 1, !tbaa !47
+  %.val22.i = load <2 x i64>, ptr %237, align 1, !tbaa !36
+  store <2 x i64> %.val22.i, ptr %236, align 1, !tbaa !36
   %239 = icmp slt i64 %229, 33
   br i1 %239, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, label %240
 
@@ -975,15 +1018,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i: ; pre
   %.130.i.i = phi ptr [ %241, %240 ], [ %245, %242 ]
   %.pn.i.i = phi ptr [ %237, %240 ], [ %244, %242 ]
   %.1.i6.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
-  %.1.i6.val.i = load <2 x i64>, ptr %.1.i6.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i, ptr %.130.i.i, align 1, !tbaa !47
+  %.1.i6.val.i = load <2 x i64>, ptr %.1.i6.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i, ptr %.130.i.i, align 1, !tbaa !36
   %243 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 16
   %244 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 32
-  %.val21.i = load <2 x i64>, ptr %244, align 1, !tbaa !47
-  store <2 x i64> %.val21.i, ptr %243, align 1, !tbaa !47
+  %.val21.i = load <2 x i64>, ptr %244, align 1, !tbaa !36
+  store <2 x i64> %.val21.i, ptr %243, align 1, !tbaa !36
   %245 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 32
   %246 = icmp ult ptr %245, %238
-  br i1 %246, label %242, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !57
+  br i1 %246, label %242, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !45
 
 247:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i
   %.not.i31.i = icmp ugt ptr %.0225.i210.i, %63
@@ -992,8 +1035,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i: ; pre
 248:                                              ; preds = %247
   %249 = sub i64 %65, %228
   %250 = getelementptr inbounds i8, ptr %230, i64 %249
-  %.val19.i.i = load <2 x i64>, ptr %.0225.i210.i, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i, ptr %230, align 1, !tbaa !47
+  %.val19.i.i = load <2 x i64>, ptr %.0225.i210.i, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i, ptr %230, align 1, !tbaa !36
   %251 = icmp slt i64 %249, 17
   br i1 %251, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, label %252
 
@@ -1005,15 +1048,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i: ; pre
   %.130.i.i.i = phi ptr [ %253, %252 ], [ %257, %254 ]
   %.pn.i.i.i = phi ptr [ %.0225.i210.i, %252 ], [ %256, %254 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
-  %.1.i.val.i.i = load <2 x i64>, ptr %.1.i.i.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i, ptr %.130.i.i.i, align 1, !tbaa !47
+  %.1.i.val.i.i = load <2 x i64>, ptr %.1.i.i.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i, ptr %.130.i.i.i, align 1, !tbaa !36
   %255 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 16
   %256 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 32
-  %.val.i32.i = load <2 x i64>, ptr %256, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i, ptr %255, align 1, !tbaa !47
+  %.val.i32.i = load <2 x i64>, ptr %256, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i, ptr %255, align 1, !tbaa !36
   %257 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 32
   %258 = icmp ult ptr %257, %250
-  br i1 %258, label %254, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, !llvm.loop !57
+  br i1 %258, label %254, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = %254, %248, %247
   %.014.i.i = phi ptr [ %63, %248 ], [ %.0225.i210.i, %247 ], [ %63, %254 ]
@@ -1025,58 +1068,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = 
   %.121.i.i = phi ptr [ %262, %.lr.ph.i.i ], [ %.0.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i ]
   %.11520.i.i = phi ptr [ %260, %.lr.ph.i.i ], [ %.014.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i ]
   %260 = getelementptr inbounds nuw i8, ptr %.11520.i.i, i64 1
-  %261 = load i8, ptr %.11520.i.i, align 1, !tbaa !47
+  %261 = load i8, ptr %.11520.i.i, align 1, !tbaa !36
   %262 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 1
-  store i8 %261, ptr %.121.i.i, align 1, !tbaa !47
+  store i8 %261, ptr %.121.i.i, align 1, !tbaa !36
   %exitcond.not.i.i = icmp eq ptr %260, %.3.i.i
-  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, label %.lr.ph.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %242, %.lr.ph.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, %235
-  %263 = load ptr, ptr %64, align 8, !tbaa !52
+  %263 = load ptr, ptr %64, align 8, !tbaa !40
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 %229
-  store ptr %264, ptr %64, align 8, !tbaa !52
+  store ptr %264, ptr %64, align 8, !tbaa !40
   %265 = icmp ugt i64 %229, 65535
-  %.pre282.i = load ptr, ptr %67, align 8, !tbaa !56
+  %.pre282.i = load ptr, ptr %67, align 8, !tbaa !44
   br i1 %265, label %266, label %273
 
 266:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i
-  store i32 1, ptr %66, align 8, !tbaa !59
-  %267 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %66, align 8, !tbaa !47
+  %267 = load ptr, ptr %1, align 8, !tbaa !48
   %268 = ptrtoint ptr %.pre282.i to i64
   %269 = ptrtoint ptr %267 to i64
   %270 = sub i64 %268, %269
   %271 = lshr exact i64 %270, 3
   %272 = trunc i64 %271 to i32
-  store i32 %272, ptr %68, align 4, !tbaa !61
+  store i32 %272, ptr %68, align 4, !tbaa !49
   br label %273
 
 273:                                              ; preds = %266, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i
   %274 = phi ptr [ %.pre.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i ], [ %.pre282.i, %266 ], [ %.pre282.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i ]
   %275 = trunc i64 %229 to i16
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  store i16 %275, ptr %276, align 4, !tbaa !62
-  store i32 %.3256.i.i, ptr %274, align 4, !tbaa !64
+  store i16 %275, ptr %276, align 4, !tbaa !50
+  store i32 %.3256.i.i, ptr %274, align 4, !tbaa !52
   %277 = add i64 %226, -3
   %278 = icmp ugt i64 %277, 65535
   br i1 %278, label %279, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i
 
 279:                                              ; preds = %273
-  store i32 2, ptr %66, align 8, !tbaa !59
-  %280 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %66, align 8, !tbaa !47
+  %280 = load ptr, ptr %1, align 8, !tbaa !48
   %281 = ptrtoint ptr %274 to i64
   %282 = ptrtoint ptr %280 to i64
   %283 = sub i64 %281, %282
   %284 = lshr exact i64 %283, 3
   %285 = trunc i64 %284 to i32
-  store i32 %285, ptr %68, align 4, !tbaa !61
+  store i32 %285, ptr %68, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i: ; preds = %279, %273
   %286 = trunc i64 %277 to i16
   %287 = getelementptr inbounds nuw i8, ptr %274, i64 6
-  store i16 %286, ptr %287, align 2, !tbaa !65
+  store i16 %286, ptr %287, align 2, !tbaa !53
   %288 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  store ptr %288, ptr %67, align 8, !tbaa !56
+  store ptr %288, ptr %67, align 8, !tbaa !44
   %289 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %226
   %.not291.i.i = icmp ugt ptr %289, %36
   br i1 %.not291.i.i, label %.critedge3.i.i, label %290
@@ -1184,8 +1227,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i: ; preds = %
   br i1 %337, label %338, label %343
 
 338:                                              ; preds = %336
-  %.352.val.i44.i = load i16, ptr %.352.i36.i, align 1, !tbaa !50
-  %.348.val.i45.i = load i16, ptr %.348.i37.i, align 1, !tbaa !50
+  %.352.val.i44.i = load i16, ptr %.352.i36.i, align 1, !tbaa !38
+  %.348.val.i45.i = load i16, ptr %.348.i37.i, align 1, !tbaa !38
   %339 = icmp eq i16 %.352.val.i44.i, %.348.val.i45.i
   br i1 %339, label %340, label %343
 
@@ -1201,8 +1244,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i: ; preds = %
   br i1 %344, label %345, label %349
 
 345:                                              ; preds = %343
-  %346 = load i8, ptr %.453.i38.i, align 1, !tbaa !47
-  %347 = load i8, ptr %.4.i39.i, align 1, !tbaa !47
+  %346 = load i8, ptr %.453.i38.i, align 1, !tbaa !36
+  %347 = load i8, ptr %.4.i39.i, align 1, !tbaa !36
   %348 = icmp eq i8 %346, %347
   %spec.select.idx.i42.i = zext i1 %348 to i64
   %spec.select.i43.i = getelementptr inbounds nuw i8, ptr %.4.i39.i, i64 %spec.select.idx.i42.i
@@ -1231,38 +1274,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i: ; preds = %349, %.thread63.i59
   br i1 %.not.i.i, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i, label %362
 
 362:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i
-  %363 = load ptr, ptr %64, align 8, !tbaa !52
-  %.2.i.val23.i = load <2 x i64>, ptr %.2.i196.i, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i, ptr %363, align 1, !tbaa !47
-  %.pre283.i = load ptr, ptr %67, align 8, !tbaa !56
+  %363 = load ptr, ptr %64, align 8, !tbaa !40
+  %.2.i.val23.i = load <2 x i64>, ptr %.2.i196.i, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i, ptr %363, align 1, !tbaa !36
+  %.pre283.i = load ptr, ptr %67, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i: ; preds = %362, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i
   %364 = phi ptr [ %307, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i ], [ %.pre283.i, %362 ]
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
-  store i16 0, ptr %365, align 4, !tbaa !62
-  store i32 1, ptr %364, align 4, !tbaa !64
+  store i16 0, ptr %365, align 4, !tbaa !50
+  store i32 1, ptr %364, align 4, !tbaa !52
   %366 = add i64 %.1.i41.i, 1
   %367 = icmp ugt i64 %366, 65535
   br i1 %367, label %368, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i
 
 368:                                              ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i
-  store i32 2, ptr %66, align 8, !tbaa !59
-  %369 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %66, align 8, !tbaa !47
+  %369 = load ptr, ptr %1, align 8, !tbaa !48
   %370 = ptrtoint ptr %364 to i64
   %371 = ptrtoint ptr %369 to i64
   %372 = sub i64 %370, %371
   %373 = lshr exact i64 %372, 3
   %374 = trunc i64 %373 to i32
-  store i32 %374, ptr %68, align 4, !tbaa !61
+  store i32 %374, ptr %68, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i: ; preds = %368, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i
   %375 = trunc i64 %366 to i16
   %376 = getelementptr inbounds nuw i8, ptr %364, i64 6
-  store i16 %375, ptr %376, align 2, !tbaa !65
+  store i16 %375, ptr %376, align 2, !tbaa !53
   %377 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store ptr %377, ptr %67, align 8, !tbaa !56
+  store ptr %377, ptr %67, align 8, !tbaa !44
   %.not293.i.i = icmp ugt ptr %361, %36
   br i1 %.not293.i.i, label %.critedge3.i.i, label %.lr.ph197.i
 
@@ -1402,7 +1445,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i247 = phi i64 [ %.0240.i.us.i229, %.thread285.i244 ], [ %433, %432 ]
   %.1238.i.ph.us.i248 = phi ptr [ %.0237.i.us.i230, %.thread285.i244 ], [ %436, %432 ]
   %438 = icmp ult ptr %431, %36
-  br i1 %438, label %.split.us.i225, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !66
+  br i1 %438, label %.split.us.i225, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i66:                                       ; preds = %398, %485
   %.0263.i.i67 = phi i64 [ %453, %485 ], [ %404, %398 ]
@@ -1491,9 +1534,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
 471:                                              ; preds = %.split.i66
   %472 = getelementptr inbounds i8, ptr %.0232.i.i73, i64 %408
   %473 = getelementptr inbounds i8, ptr %.0232.i.i73, i64 -1
-  %474 = load i8, ptr %473, align 1, !tbaa !47
+  %474 = load i8, ptr %473, align 1, !tbaa !36
   %475 = getelementptr inbounds i8, ptr %472, i64 -1
-  %476 = load i8, ptr %475, align 1, !tbaa !47
+  %476 = load i8, ptr %475, align 1, !tbaa !36
   %477 = icmp eq i8 %474, %476
   %.neg.i.i224 = sext i1 %477 to i64
   %478 = getelementptr inbounds i8, ptr %.0232.i.i73, i64 %.neg.i.i224
@@ -1510,7 +1553,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i90 = phi i64 [ %.0240.i.i70, %.thread289.i87 ], [ %467, %466 ]
   %.1238.i.ph.i91 = phi ptr [ %.0237.i.i71, %.thread289.i87 ], [ %470, %466 ]
   %486 = icmp ult ptr %465, %36
-  br i1 %486, label %.split.i66, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %486, label %.split.i66, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i218:                                 ; preds = %446, %413, %.split174.us.i92
   %.us-phi169.sink.i219 = phi ptr [ %.us-phi179.i97, %.split174.us.i92 ], [ %.0230.i.us.i233, %413 ], [ %.0230.i.i74, %446 ]
@@ -1546,9 +1589,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i216 = phi i64 [ %508, %507 ], [ 4, %491 ]
   %.4252.i184.i217 = phi ptr [ %504, %507 ], [ %493, %491 ]
   %502 = getelementptr inbounds i8, ptr %.4.i186.i215, i64 -1
-  %503 = load i8, ptr %502, align 1, !tbaa !47
+  %503 = load i8, ptr %502, align 1, !tbaa !36
   %504 = getelementptr inbounds i8, ptr %.4252.i184.i217, i64 -1
-  %505 = load i8, ptr %504, align 1, !tbaa !47
+  %505 = load i8, ptr %504, align 1, !tbaa !36
   %506 = icmp eq i8 %503, %505
   br i1 %506, label %507, label %.critedge.i.i102
 
@@ -1557,7 +1600,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   %509 = icmp ugt ptr %502, %.0225.i210.i58
   %510 = icmp ugt ptr %504, %34
   %511 = and i1 %509, %510
-  br i1 %511, label %.lr.ph.i214, label %.critedge.i.i102, !llvm.loop !49
+  br i1 %511, label %.lr.ph.i214, label %.critedge.i.i102, !llvm.loop !37
 
 .critedge.i.i102:                                 ; preds = %507, %.lr.ph.i214, %491, %471
   %.0236.i91.i103 = phi i32 [ %442, %471 ], [ %.0236.i.ph.i100, %491 ], [ %.0236.i.ph.i100, %.lr.ph.i214 ], [ %.0236.i.ph.i100, %507 ]
@@ -1632,8 +1675,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   br i1 %536, label %537, label %542
 
 537:                                              ; preds = %535
-  %.352.val.i.i198 = load i16, ptr %.352.i.i113, align 1, !tbaa !50
-  %.348.val.i.i199 = load i16, ptr %.348.i.i114, align 1, !tbaa !50
+  %.352.val.i.i198 = load i16, ptr %.352.i.i113, align 1, !tbaa !38
+  %.348.val.i.i199 = load i16, ptr %.348.i.i114, align 1, !tbaa !38
   %538 = icmp eq i16 %.352.val.i.i198, %.348.val.i.i199
   br i1 %538, label %539, label %542
 
@@ -1649,8 +1692,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_1EPNS_17ZSTD_matchState_tEPN
   br i1 %543, label %544, label %548
 
 544:                                              ; preds = %542
-  %545 = load i8, ptr %.453.i.i115, align 1, !tbaa !47
-  %546 = load i8, ptr %.4.i26.i116, align 1, !tbaa !47
+  %545 = load i8, ptr %.453.i.i115, align 1, !tbaa !36
+  %546 = load i8, ptr %.4.i26.i116, align 1, !tbaa !36
   %547 = icmp eq i8 %545, %546
   %spec.select.idx.i.i196 = zext i1 %547 to i64
   %spec.select.i28.i197 = getelementptr inbounds nuw i8, ptr %.4.i26.i116, i64 %spec.select.idx.i.i196
@@ -1670,28 +1713,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i118: ; preds = %548, %.thread63.i.
   %554 = ptrtoint ptr %.0225.i210.i58 to i64
   %555 = sub i64 %553, %554
   %.not.i4.i120 = icmp ugt ptr %.3.i.i109, %392
-  %556 = load ptr, ptr %393, align 8, !tbaa !52
+  %556 = load ptr, ptr %393, align 8, !tbaa !40
   br i1 %.not.i4.i120, label %573, label %557
 
 557:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i118
-  %.0225.i.val.i121 = load <2 x i64>, ptr %.0225.i210.i58, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i121, ptr %556, align 1, !tbaa !47
+  %.0225.i.val.i121 = load <2 x i64>, ptr %.0225.i210.i58, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i121, ptr %556, align 1, !tbaa !36
   %558 = icmp ugt i64 %555, 16
-  %559 = load ptr, ptr %393, align 8, !tbaa !52
+  %559 = load ptr, ptr %393, align 8, !tbaa !40
   br i1 %558, label %561, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122: ; preds = %557
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 %555
-  store ptr %560, ptr %393, align 8, !tbaa !52
-  %.pre.i123 = load ptr, ptr %396, align 8, !tbaa !56
+  store ptr %560, ptr %393, align 8, !tbaa !40
+  %.pre.i123 = load ptr, ptr %396, align 8, !tbaa !44
   br label %599
 
 561:                                              ; preds = %557
   %562 = getelementptr inbounds nuw i8, ptr %559, i64 16
   %563 = getelementptr inbounds nuw i8, ptr %.0225.i210.i58, i64 16
   %564 = getelementptr i8, ptr %559, i64 %555
-  %.val22.i174 = load <2 x i64>, ptr %563, align 1, !tbaa !47
-  store <2 x i64> %.val22.i174, ptr %562, align 1, !tbaa !47
+  %.val22.i174 = load <2 x i64>, ptr %563, align 1, !tbaa !36
+  store <2 x i64> %.val22.i174, ptr %562, align 1, !tbaa !36
   %565 = icmp slt i64 %555, 33
   br i1 %565, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, label %566
 
@@ -1703,15 +1746,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122: ; 
   %.130.i.i175 = phi ptr [ %567, %566 ], [ %571, %568 ]
   %.pn.i.i176 = phi ptr [ %563, %566 ], [ %570, %568 ]
   %.1.i6.i177 = getelementptr inbounds nuw i8, ptr %.pn.i.i176, i64 16
-  %.1.i6.val.i178 = load <2 x i64>, ptr %.1.i6.i177, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i178, ptr %.130.i.i175, align 1, !tbaa !47
+  %.1.i6.val.i178 = load <2 x i64>, ptr %.1.i6.i177, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i178, ptr %.130.i.i175, align 1, !tbaa !36
   %569 = getelementptr inbounds nuw i8, ptr %.130.i.i175, i64 16
   %570 = getelementptr inbounds nuw i8, ptr %.pn.i.i176, i64 32
-  %.val21.i179 = load <2 x i64>, ptr %570, align 1, !tbaa !47
-  store <2 x i64> %.val21.i179, ptr %569, align 1, !tbaa !47
+  %.val21.i179 = load <2 x i64>, ptr %570, align 1, !tbaa !36
+  store <2 x i64> %.val21.i179, ptr %569, align 1, !tbaa !36
   %571 = getelementptr inbounds nuw i8, ptr %.130.i.i175, i64 32
   %572 = icmp ult ptr %571, %564
-  br i1 %572, label %568, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, !llvm.loop !57
+  br i1 %572, label %568, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, !llvm.loop !45
 
 573:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i118
   %.not.i31.i182 = icmp ugt ptr %.0225.i210.i58, %392
@@ -1720,8 +1763,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122: ; 
 574:                                              ; preds = %573
   %575 = sub i64 %394, %554
   %576 = getelementptr inbounds i8, ptr %556, i64 %575
-  %.val19.i.i183 = load <2 x i64>, ptr %.0225.i210.i58, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i183, ptr %556, align 1, !tbaa !47
+  %.val19.i.i183 = load <2 x i64>, ptr %.0225.i210.i58, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i183, ptr %556, align 1, !tbaa !36
   %577 = icmp slt i64 %575, 17
   br i1 %577, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189, label %578
 
@@ -1733,15 +1776,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122: ; 
   %.130.i.i.i184 = phi ptr [ %579, %578 ], [ %583, %580 ]
   %.pn.i.i.i185 = phi ptr [ %.0225.i210.i58, %578 ], [ %582, %580 ]
   %.1.i.i.i186 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i185, i64 16
-  %.1.i.val.i.i187 = load <2 x i64>, ptr %.1.i.i.i186, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i187, ptr %.130.i.i.i184, align 1, !tbaa !47
+  %.1.i.val.i.i187 = load <2 x i64>, ptr %.1.i.i.i186, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i187, ptr %.130.i.i.i184, align 1, !tbaa !36
   %581 = getelementptr inbounds nuw i8, ptr %.130.i.i.i184, i64 16
   %582 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i185, i64 32
-  %.val.i32.i188 = load <2 x i64>, ptr %582, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i188, ptr %581, align 1, !tbaa !47
+  %.val.i32.i188 = load <2 x i64>, ptr %582, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i188, ptr %581, align 1, !tbaa !36
   %583 = getelementptr inbounds nuw i8, ptr %.130.i.i.i184, i64 32
   %584 = icmp ult ptr %583, %576
-  br i1 %584, label %580, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189, !llvm.loop !57
+  br i1 %584, label %580, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189: ; preds = %580, %574, %573
   %.014.i.i190 = phi ptr [ %392, %574 ], [ %.0225.i210.i58, %573 ], [ %392, %580 ]
@@ -1753,58 +1796,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189: ; preds
   %.121.i.i193 = phi ptr [ %588, %.lr.ph.i.i192 ], [ %.0.i.i191, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189 ]
   %.11520.i.i194 = phi ptr [ %586, %.lr.ph.i.i192 ], [ %.014.i.i190, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189 ]
   %586 = getelementptr inbounds nuw i8, ptr %.11520.i.i194, i64 1
-  %587 = load i8, ptr %.11520.i.i194, align 1, !tbaa !47
+  %587 = load i8, ptr %.11520.i.i194, align 1, !tbaa !36
   %588 = getelementptr inbounds nuw i8, ptr %.121.i.i193, i64 1
-  store i8 %587, ptr %.121.i.i193, align 1, !tbaa !47
+  store i8 %587, ptr %.121.i.i193, align 1, !tbaa !36
   %exitcond.not.i.i195 = icmp eq ptr %586, %.3.i.i109
-  br i1 %exitcond.not.i.i195, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, label %.lr.ph.i.i192, !llvm.loop !58
+  br i1 %exitcond.not.i.i195, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, label %.lr.ph.i.i192, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180: ; preds = %568, %.lr.ph.i.i192, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i189, %561
-  %589 = load ptr, ptr %393, align 8, !tbaa !52
+  %589 = load ptr, ptr %393, align 8, !tbaa !40
   %590 = getelementptr inbounds nuw i8, ptr %589, i64 %555
-  store ptr %590, ptr %393, align 8, !tbaa !52
+  store ptr %590, ptr %393, align 8, !tbaa !40
   %591 = icmp ugt i64 %555, 65535
-  %.pre282.i181 = load ptr, ptr %396, align 8, !tbaa !56
+  %.pre282.i181 = load ptr, ptr %396, align 8, !tbaa !44
   br i1 %591, label %592, label %599
 
 592:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180
-  store i32 1, ptr %395, align 8, !tbaa !59
-  %593 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %395, align 8, !tbaa !47
+  %593 = load ptr, ptr %1, align 8, !tbaa !48
   %594 = ptrtoint ptr %.pre282.i181 to i64
   %595 = ptrtoint ptr %593 to i64
   %596 = sub i64 %594, %595
   %597 = lshr exact i64 %596, 3
   %598 = trunc i64 %597 to i32
-  store i32 %598, ptr %397, align 4, !tbaa !61
+  store i32 %598, ptr %397, align 4, !tbaa !49
   br label %599
 
 599:                                              ; preds = %592, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122
   %600 = phi ptr [ %.pre.i123, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i122 ], [ %.pre282.i181, %592 ], [ %.pre282.i181, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i180 ]
   %601 = trunc i64 %555 to i16
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 4
-  store i16 %601, ptr %602, align 4, !tbaa !62
-  store i32 %.3256.i.i106, ptr %600, align 4, !tbaa !64
+  store i16 %601, ptr %602, align 4, !tbaa !50
+  store i32 %.3256.i.i106, ptr %600, align 4, !tbaa !52
   %603 = add i64 %552, -3
   %604 = icmp ugt i64 %603, 65535
   br i1 %604, label %605, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i124
 
 605:                                              ; preds = %599
-  store i32 2, ptr %395, align 8, !tbaa !59
-  %606 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %395, align 8, !tbaa !47
+  %606 = load ptr, ptr %1, align 8, !tbaa !48
   %607 = ptrtoint ptr %600 to i64
   %608 = ptrtoint ptr %606 to i64
   %609 = sub i64 %607, %608
   %610 = lshr exact i64 %609, 3
   %611 = trunc i64 %610 to i32
-  store i32 %611, ptr %397, align 4, !tbaa !61
+  store i32 %611, ptr %397, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i124
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i124: ; preds = %605, %599
   %612 = trunc i64 %603 to i16
   %613 = getelementptr inbounds nuw i8, ptr %600, i64 6
-  store i16 %612, ptr %613, align 2, !tbaa !65
+  store i16 %612, ptr %613, align 2, !tbaa !53
   %614 = getelementptr inbounds nuw i8, ptr %600, i64 8
-  store ptr %614, ptr %396, align 8, !tbaa !56
+  store ptr %614, ptr %396, align 8, !tbaa !44
   %615 = getelementptr inbounds nuw i8, ptr %.3.i.i109, i64 %552
   %.not291.i.i125 = icmp ugt ptr %615, %36
   br i1 %.not291.i.i125, label %.critedge3.i.i135, label %616
@@ -1910,8 +1953,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i124: ; preds 
   br i1 %661, label %662, label %667
 
 662:                                              ; preds = %660
-  %.352.val.i44.i158 = load i16, ptr %.352.i36.i143, align 1, !tbaa !50
-  %.348.val.i45.i159 = load i16, ptr %.348.i37.i144, align 1, !tbaa !50
+  %.352.val.i44.i158 = load i16, ptr %.352.i36.i143, align 1, !tbaa !38
+  %.348.val.i45.i159 = load i16, ptr %.348.i37.i144, align 1, !tbaa !38
   %663 = icmp eq i16 %.352.val.i44.i158, %.348.val.i45.i159
   br i1 %663, label %664, label %667
 
@@ -1927,8 +1970,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i124: ; preds 
   br i1 %668, label %669, label %673
 
 669:                                              ; preds = %667
-  %670 = load i8, ptr %.453.i38.i145, align 1, !tbaa !47
-  %671 = load i8, ptr %.4.i39.i146, align 1, !tbaa !47
+  %670 = load i8, ptr %.453.i38.i145, align 1, !tbaa !36
+  %671 = load i8, ptr %.4.i39.i146, align 1, !tbaa !36
   %672 = icmp eq i8 %670, %671
   %spec.select.idx.i42.i156 = zext i1 %672 to i64
   %spec.select.i43.i157 = getelementptr inbounds nuw i8, ptr %.4.i39.i146, i64 %spec.select.idx.i42.i156
@@ -1957,38 +2000,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i148: ; preds = %673, %.thread63.
   br i1 %.not.i.i150, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i153, label %685
 
 685:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i148
-  %686 = load ptr, ptr %393, align 8, !tbaa !52
-  %.2.i.val23.i151 = load <2 x i64>, ptr %.2.i196.i130, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i151, ptr %686, align 1, !tbaa !47
-  %.pre283.i152 = load ptr, ptr %396, align 8, !tbaa !56
+  %686 = load ptr, ptr %393, align 8, !tbaa !40
+  %.2.i.val23.i151 = load <2 x i64>, ptr %.2.i196.i130, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i151, ptr %686, align 1, !tbaa !36
+  %.pre283.i152 = load ptr, ptr %396, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i153
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i153: ; preds = %685, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i148
   %687 = phi ptr [ %631, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i148 ], [ %.pre283.i152, %685 ]
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 4
-  store i16 0, ptr %688, align 4, !tbaa !62
-  store i32 1, ptr %687, align 4, !tbaa !64
+  store i16 0, ptr %688, align 4, !tbaa !50
+  store i32 1, ptr %687, align 4, !tbaa !52
   %689 = add i64 %.1.i41.i149, 1
   %690 = icmp ugt i64 %689, 65535
   br i1 %690, label %691, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i154
 
 691:                                              ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i153
-  store i32 2, ptr %395, align 8, !tbaa !59
-  %692 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %395, align 8, !tbaa !47
+  %692 = load ptr, ptr %1, align 8, !tbaa !48
   %693 = ptrtoint ptr %687 to i64
   %694 = ptrtoint ptr %692 to i64
   %695 = sub i64 %693, %694
   %696 = lshr exact i64 %695, 3
   %697 = trunc i64 %696 to i32
-  store i32 %697, ptr %397, align 4, !tbaa !61
+  store i32 %697, ptr %397, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i154
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i154: ; preds = %691, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i153
   %698 = trunc i64 %689 to i16
   %699 = getelementptr inbounds nuw i8, ptr %687, i64 6
-  store i16 %698, ptr %699, align 2, !tbaa !65
+  store i16 %698, ptr %699, align 2, !tbaa !53
   %700 = getelementptr inbounds nuw i8, ptr %687, i64 8
-  store ptr %700, ptr %396, align 8, !tbaa !56
+  store ptr %700, ptr %396, align 8, !tbaa !44
   %.not293.i.i155 = icmp ugt ptr %684, %36
   br i1 %.not293.i.i155, label %.critedge3.i.i135, label %.lr.ph197.i129
 
@@ -2128,7 +2171,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i455 = phi i64 [ %.0240.i.us.i436, %.thread285.i452 ], [ %756, %755 ]
   %.1238.i.ph.us.i456 = phi ptr [ %.0237.i.us.i437, %.thread285.i452 ], [ %759, %755 ]
   %761 = icmp ult ptr %754, %36
-  br i1 %761, label %.split.us.i432, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !67
+  br i1 %761, label %.split.us.i432, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i271:                                      ; preds = %721, %808
   %.0263.i.i272 = phi i64 [ %776, %808 ], [ %727, %721 ]
@@ -2217,9 +2260,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
 794:                                              ; preds = %.split.i271
   %795 = getelementptr inbounds i8, ptr %.0232.i.i278, i64 %731
   %796 = getelementptr inbounds i8, ptr %.0232.i.i278, i64 -1
-  %797 = load i8, ptr %796, align 1, !tbaa !47
+  %797 = load i8, ptr %796, align 1, !tbaa !36
   %798 = getelementptr inbounds i8, ptr %795, i64 -1
-  %799 = load i8, ptr %798, align 1, !tbaa !47
+  %799 = load i8, ptr %798, align 1, !tbaa !36
   %800 = icmp eq i8 %797, %799
   %.neg.i.i431 = sext i1 %800 to i64
   %801 = getelementptr inbounds i8, ptr %.0232.i.i278, i64 %.neg.i.i431
@@ -2236,7 +2279,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i296 = phi i64 [ %.0240.i.i275, %.thread289.i293 ], [ %790, %789 ]
   %.1238.i.ph.i297 = phi ptr [ %.0237.i.i276, %.thread289.i293 ], [ %793, %789 ]
   %809 = icmp ult ptr %788, %36
-  br i1 %809, label %.split.i271, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %809, label %.split.i271, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i425:                                 ; preds = %769, %736, %.split174.us.i298
   %.us-phi169.sink.i426 = phi ptr [ %.us-phi179.i303, %.split174.us.i298 ], [ %.0230.i.us.i440, %736 ], [ %.0230.i.i279, %769 ]
@@ -2272,9 +2315,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i423 = phi i64 [ %831, %830 ], [ 4, %814 ]
   %.4252.i184.i424 = phi ptr [ %827, %830 ], [ %816, %814 ]
   %825 = getelementptr inbounds i8, ptr %.4.i186.i422, i64 -1
-  %826 = load i8, ptr %825, align 1, !tbaa !47
+  %826 = load i8, ptr %825, align 1, !tbaa !36
   %827 = getelementptr inbounds i8, ptr %.4252.i184.i424, i64 -1
-  %828 = load i8, ptr %827, align 1, !tbaa !47
+  %828 = load i8, ptr %827, align 1, !tbaa !36
   %829 = icmp eq i8 %826, %828
   br i1 %829, label %830, label %.critedge.i.i308
 
@@ -2283,7 +2326,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   %832 = icmp ugt ptr %825, %.0225.i210.i263
   %833 = icmp ugt ptr %827, %34
   %834 = and i1 %832, %833
-  br i1 %834, label %.lr.ph.i421, label %.critedge.i.i308, !llvm.loop !49
+  br i1 %834, label %.lr.ph.i421, label %.critedge.i.i308, !llvm.loop !37
 
 .critedge.i.i308:                                 ; preds = %830, %.lr.ph.i421, %814, %794
   %.0236.i91.i309 = phi i32 [ %765, %794 ], [ %.0236.i.ph.i306, %814 ], [ %.0236.i.ph.i306, %.lr.ph.i421 ], [ %.0236.i.ph.i306, %830 ]
@@ -2358,8 +2401,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   br i1 %859, label %860, label %865
 
 860:                                              ; preds = %858
-  %.352.val.i.i405 = load i16, ptr %.352.i.i319, align 1, !tbaa !50
-  %.348.val.i.i406 = load i16, ptr %.348.i.i320, align 1, !tbaa !50
+  %.352.val.i.i405 = load i16, ptr %.352.i.i319, align 1, !tbaa !38
+  %.348.val.i.i406 = load i16, ptr %.348.i.i320, align 1, !tbaa !38
   %861 = icmp eq i16 %.352.val.i.i405, %.348.val.i.i406
   br i1 %861, label %862, label %865
 
@@ -2375,8 +2418,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_1EPNS_17ZSTD_matchState_tEPN
   br i1 %866, label %867, label %871
 
 867:                                              ; preds = %865
-  %868 = load i8, ptr %.453.i.i321, align 1, !tbaa !47
-  %869 = load i8, ptr %.4.i26.i322, align 1, !tbaa !47
+  %868 = load i8, ptr %.453.i.i321, align 1, !tbaa !36
+  %869 = load i8, ptr %.4.i26.i322, align 1, !tbaa !36
   %870 = icmp eq i8 %868, %869
   %spec.select.idx.i.i403 = zext i1 %870 to i64
   %spec.select.i28.i404 = getelementptr inbounds nuw i8, ptr %.4.i26.i322, i64 %spec.select.idx.i.i403
@@ -2396,28 +2439,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i324: ; preds = %871, %.thread63.i.
   %877 = ptrtoint ptr %.0225.i210.i263 to i64
   %878 = sub i64 %876, %877
   %.not.i4.i326 = icmp ugt ptr %.3.i.i315, %715
-  %879 = load ptr, ptr %716, align 8, !tbaa !52
+  %879 = load ptr, ptr %716, align 8, !tbaa !40
   br i1 %.not.i4.i326, label %896, label %880
 
 880:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i324
-  %.0225.i.val.i327 = load <2 x i64>, ptr %.0225.i210.i263, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i327, ptr %879, align 1, !tbaa !47
+  %.0225.i.val.i327 = load <2 x i64>, ptr %.0225.i210.i263, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i327, ptr %879, align 1, !tbaa !36
   %881 = icmp ugt i64 %878, 16
-  %882 = load ptr, ptr %716, align 8, !tbaa !52
+  %882 = load ptr, ptr %716, align 8, !tbaa !40
   br i1 %881, label %884, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328: ; preds = %880
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 %878
-  store ptr %883, ptr %716, align 8, !tbaa !52
-  %.pre.i329 = load ptr, ptr %719, align 8, !tbaa !56
+  store ptr %883, ptr %716, align 8, !tbaa !40
+  %.pre.i329 = load ptr, ptr %719, align 8, !tbaa !44
   br label %922
 
 884:                                              ; preds = %880
   %885 = getelementptr inbounds nuw i8, ptr %882, i64 16
   %886 = getelementptr inbounds nuw i8, ptr %.0225.i210.i263, i64 16
   %887 = getelementptr i8, ptr %882, i64 %878
-  %.val22.i381 = load <2 x i64>, ptr %886, align 1, !tbaa !47
-  store <2 x i64> %.val22.i381, ptr %885, align 1, !tbaa !47
+  %.val22.i381 = load <2 x i64>, ptr %886, align 1, !tbaa !36
+  store <2 x i64> %.val22.i381, ptr %885, align 1, !tbaa !36
   %888 = icmp slt i64 %878, 33
   br i1 %888, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, label %889
 
@@ -2429,15 +2472,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328: ; 
   %.130.i.i382 = phi ptr [ %890, %889 ], [ %894, %891 ]
   %.pn.i.i383 = phi ptr [ %886, %889 ], [ %893, %891 ]
   %.1.i6.i384 = getelementptr inbounds nuw i8, ptr %.pn.i.i383, i64 16
-  %.1.i6.val.i385 = load <2 x i64>, ptr %.1.i6.i384, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i385, ptr %.130.i.i382, align 1, !tbaa !47
+  %.1.i6.val.i385 = load <2 x i64>, ptr %.1.i6.i384, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i385, ptr %.130.i.i382, align 1, !tbaa !36
   %892 = getelementptr inbounds nuw i8, ptr %.130.i.i382, i64 16
   %893 = getelementptr inbounds nuw i8, ptr %.pn.i.i383, i64 32
-  %.val21.i386 = load <2 x i64>, ptr %893, align 1, !tbaa !47
-  store <2 x i64> %.val21.i386, ptr %892, align 1, !tbaa !47
+  %.val21.i386 = load <2 x i64>, ptr %893, align 1, !tbaa !36
+  store <2 x i64> %.val21.i386, ptr %892, align 1, !tbaa !36
   %894 = getelementptr inbounds nuw i8, ptr %.130.i.i382, i64 32
   %895 = icmp ult ptr %894, %887
-  br i1 %895, label %891, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, !llvm.loop !57
+  br i1 %895, label %891, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, !llvm.loop !45
 
 896:                                              ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i324
   %.not.i31.i389 = icmp ugt ptr %.0225.i210.i263, %715
@@ -2446,8 +2489,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328: ; 
 897:                                              ; preds = %896
   %898 = sub i64 %717, %877
   %899 = getelementptr inbounds i8, ptr %879, i64 %898
-  %.val19.i.i390 = load <2 x i64>, ptr %.0225.i210.i263, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i390, ptr %879, align 1, !tbaa !47
+  %.val19.i.i390 = load <2 x i64>, ptr %.0225.i210.i263, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i390, ptr %879, align 1, !tbaa !36
   %900 = icmp slt i64 %898, 17
   br i1 %900, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396, label %901
 
@@ -2459,15 +2502,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328: ; 
   %.130.i.i.i391 = phi ptr [ %902, %901 ], [ %906, %903 ]
   %.pn.i.i.i392 = phi ptr [ %.0225.i210.i263, %901 ], [ %905, %903 ]
   %.1.i.i.i393 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i392, i64 16
-  %.1.i.val.i.i394 = load <2 x i64>, ptr %.1.i.i.i393, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i394, ptr %.130.i.i.i391, align 1, !tbaa !47
+  %.1.i.val.i.i394 = load <2 x i64>, ptr %.1.i.i.i393, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i394, ptr %.130.i.i.i391, align 1, !tbaa !36
   %904 = getelementptr inbounds nuw i8, ptr %.130.i.i.i391, i64 16
   %905 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i392, i64 32
-  %.val.i32.i395 = load <2 x i64>, ptr %905, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i395, ptr %904, align 1, !tbaa !47
+  %.val.i32.i395 = load <2 x i64>, ptr %905, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i395, ptr %904, align 1, !tbaa !36
   %906 = getelementptr inbounds nuw i8, ptr %.130.i.i.i391, i64 32
   %907 = icmp ult ptr %906, %899
-  br i1 %907, label %903, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396, !llvm.loop !57
+  br i1 %907, label %903, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396: ; preds = %903, %897, %896
   %.014.i.i397 = phi ptr [ %715, %897 ], [ %.0225.i210.i263, %896 ], [ %715, %903 ]
@@ -2479,58 +2522,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396: ; preds
   %.121.i.i400 = phi ptr [ %911, %.lr.ph.i.i399 ], [ %.0.i.i398, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396 ]
   %.11520.i.i401 = phi ptr [ %909, %.lr.ph.i.i399 ], [ %.014.i.i397, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396 ]
   %909 = getelementptr inbounds nuw i8, ptr %.11520.i.i401, i64 1
-  %910 = load i8, ptr %.11520.i.i401, align 1, !tbaa !47
+  %910 = load i8, ptr %.11520.i.i401, align 1, !tbaa !36
   %911 = getelementptr inbounds nuw i8, ptr %.121.i.i400, i64 1
-  store i8 %910, ptr %.121.i.i400, align 1, !tbaa !47
+  store i8 %910, ptr %.121.i.i400, align 1, !tbaa !36
   %exitcond.not.i.i402 = icmp eq ptr %909, %.3.i.i315
-  br i1 %exitcond.not.i.i402, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, label %.lr.ph.i.i399, !llvm.loop !58
+  br i1 %exitcond.not.i.i402, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, label %.lr.ph.i.i399, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387: ; preds = %891, %.lr.ph.i.i399, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i396, %884
-  %912 = load ptr, ptr %716, align 8, !tbaa !52
+  %912 = load ptr, ptr %716, align 8, !tbaa !40
   %913 = getelementptr inbounds nuw i8, ptr %912, i64 %878
-  store ptr %913, ptr %716, align 8, !tbaa !52
+  store ptr %913, ptr %716, align 8, !tbaa !40
   %914 = icmp ugt i64 %878, 65535
-  %.pre282.i388 = load ptr, ptr %719, align 8, !tbaa !56
+  %.pre282.i388 = load ptr, ptr %719, align 8, !tbaa !44
   br i1 %914, label %915, label %922
 
 915:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387
-  store i32 1, ptr %718, align 8, !tbaa !59
-  %916 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %718, align 8, !tbaa !47
+  %916 = load ptr, ptr %1, align 8, !tbaa !48
   %917 = ptrtoint ptr %.pre282.i388 to i64
   %918 = ptrtoint ptr %916 to i64
   %919 = sub i64 %917, %918
   %920 = lshr exact i64 %919, 3
   %921 = trunc i64 %920 to i32
-  store i32 %921, ptr %720, align 4, !tbaa !61
+  store i32 %921, ptr %720, align 4, !tbaa !49
   br label %922
 
 922:                                              ; preds = %915, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328
   %923 = phi ptr [ %.pre.i329, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i328 ], [ %.pre282.i388, %915 ], [ %.pre282.i388, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i387 ]
   %924 = trunc i64 %878 to i16
   %925 = getelementptr inbounds nuw i8, ptr %923, i64 4
-  store i16 %924, ptr %925, align 4, !tbaa !62
-  store i32 %.3256.i.i312, ptr %923, align 4, !tbaa !64
+  store i16 %924, ptr %925, align 4, !tbaa !50
+  store i32 %.3256.i.i312, ptr %923, align 4, !tbaa !52
   %926 = add i64 %875, -3
   %927 = icmp ugt i64 %926, 65535
   br i1 %927, label %928, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i330
 
 928:                                              ; preds = %922
-  store i32 2, ptr %718, align 8, !tbaa !59
-  %929 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %718, align 8, !tbaa !47
+  %929 = load ptr, ptr %1, align 8, !tbaa !48
   %930 = ptrtoint ptr %923 to i64
   %931 = ptrtoint ptr %929 to i64
   %932 = sub i64 %930, %931
   %933 = lshr exact i64 %932, 3
   %934 = trunc i64 %933 to i32
-  store i32 %934, ptr %720, align 4, !tbaa !61
+  store i32 %934, ptr %720, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i330
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i330: ; preds = %928, %922
   %935 = trunc i64 %926 to i16
   %936 = getelementptr inbounds nuw i8, ptr %923, i64 6
-  store i16 %935, ptr %936, align 2, !tbaa !65
+  store i16 %935, ptr %936, align 2, !tbaa !53
   %937 = getelementptr inbounds nuw i8, ptr %923, i64 8
-  store ptr %937, ptr %719, align 8, !tbaa !56
+  store ptr %937, ptr %719, align 8, !tbaa !44
   %938 = getelementptr inbounds nuw i8, ptr %.3.i.i315, i64 %875
   %.not291.i.i331 = icmp ugt ptr %938, %36
   br i1 %.not291.i.i331, label %.critedge3.i.i341, label %939
@@ -2636,8 +2679,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i330: ; preds 
   br i1 %984, label %985, label %990
 
 985:                                              ; preds = %983
-  %.352.val.i44.i365 = load i16, ptr %.352.i36.i349, align 1, !tbaa !50
-  %.348.val.i45.i366 = load i16, ptr %.348.i37.i350, align 1, !tbaa !50
+  %.352.val.i44.i365 = load i16, ptr %.352.i36.i349, align 1, !tbaa !38
+  %.348.val.i45.i366 = load i16, ptr %.348.i37.i350, align 1, !tbaa !38
   %986 = icmp eq i16 %.352.val.i44.i365, %.348.val.i45.i366
   br i1 %986, label %987, label %990
 
@@ -2653,8 +2696,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i330: ; preds 
   br i1 %991, label %992, label %996
 
 992:                                              ; preds = %990
-  %993 = load i8, ptr %.453.i38.i351, align 1, !tbaa !47
-  %994 = load i8, ptr %.4.i39.i352, align 1, !tbaa !47
+  %993 = load i8, ptr %.453.i38.i351, align 1, !tbaa !36
+  %994 = load i8, ptr %.4.i39.i352, align 1, !tbaa !36
   %995 = icmp eq i8 %993, %994
   %spec.select.idx.i42.i363 = zext i1 %995 to i64
   %spec.select.i43.i364 = getelementptr inbounds nuw i8, ptr %.4.i39.i352, i64 %spec.select.idx.i42.i363
@@ -2683,38 +2726,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i354: ; preds = %996, %.thread63.
   br i1 %.not.i.i357, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i360, label %1008
 
 1008:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i354
-  %1009 = load ptr, ptr %716, align 8, !tbaa !52
-  %.2.i.val23.i358 = load <2 x i64>, ptr %.2.i196.i336, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i358, ptr %1009, align 1, !tbaa !47
-  %.pre283.i359 = load ptr, ptr %719, align 8, !tbaa !56
+  %1009 = load ptr, ptr %716, align 8, !tbaa !40
+  %.2.i.val23.i358 = load <2 x i64>, ptr %.2.i196.i336, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i358, ptr %1009, align 1, !tbaa !36
+  %.pre283.i359 = load ptr, ptr %719, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i360
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i360: ; preds = %1008, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i354
   %1010 = phi ptr [ %954, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i354 ], [ %.pre283.i359, %1008 ]
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 4
-  store i16 0, ptr %1011, align 4, !tbaa !62
-  store i32 1, ptr %1010, align 4, !tbaa !64
+  store i16 0, ptr %1011, align 4, !tbaa !50
+  store i32 1, ptr %1010, align 4, !tbaa !52
   %1012 = add i64 %.1.i41.i355, 1
   %1013 = icmp ugt i64 %1012, 65535
   br i1 %1013, label %1014, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i361
 
 1014:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i360
-  store i32 2, ptr %718, align 8, !tbaa !59
-  %1015 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %718, align 8, !tbaa !47
+  %1015 = load ptr, ptr %1, align 8, !tbaa !48
   %1016 = ptrtoint ptr %1010 to i64
   %1017 = ptrtoint ptr %1015 to i64
   %1018 = sub i64 %1016, %1017
   %1019 = lshr exact i64 %1018, 3
   %1020 = trunc i64 %1019 to i32
-  store i32 %1020, ptr %720, align 4, !tbaa !61
+  store i32 %1020, ptr %720, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i361
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i361: ; preds = %1014, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i360
   %1021 = trunc i64 %1012 to i16
   %1022 = getelementptr inbounds nuw i8, ptr %1010, i64 6
-  store i16 %1021, ptr %1022, align 2, !tbaa !65
+  store i16 %1021, ptr %1022, align 2, !tbaa !53
   %1023 = getelementptr inbounds nuw i8, ptr %1010, i64 8
-  store ptr %1023, ptr %719, align 8, !tbaa !56
+  store ptr %1023, ptr %719, align 8, !tbaa !44
   %.not293.i.i362 = icmp ugt ptr %1007, %36
   br i1 %.not293.i.i362, label %.critedge3.i.i341, label %.lr.ph197.i335
 
@@ -2854,7 +2897,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i663 = phi i64 [ %.0240.i.us.i644, %.thread285.i660 ], [ %1079, %1078 ]
   %.1238.i.ph.us.i664 = phi ptr [ %.0237.i.us.i645, %.thread285.i660 ], [ %1082, %1078 ]
   %1084 = icmp ult ptr %1077, %36
-  br i1 %1084, label %.split.us.i640, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !68
+  br i1 %1084, label %.split.us.i640, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i479:                                      ; preds = %1044, %1131
   %.0263.i.i480 = phi i64 [ %1099, %1131 ], [ %1050, %1044 ]
@@ -2943,9 +2986,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
 1117:                                             ; preds = %.split.i479
   %1118 = getelementptr inbounds i8, ptr %.0232.i.i486, i64 %1054
   %1119 = getelementptr inbounds i8, ptr %.0232.i.i486, i64 -1
-  %1120 = load i8, ptr %1119, align 1, !tbaa !47
+  %1120 = load i8, ptr %1119, align 1, !tbaa !36
   %1121 = getelementptr inbounds i8, ptr %1118, i64 -1
-  %1122 = load i8, ptr %1121, align 1, !tbaa !47
+  %1122 = load i8, ptr %1121, align 1, !tbaa !36
   %1123 = icmp eq i8 %1120, %1122
   %.neg.i.i639 = sext i1 %1123 to i64
   %1124 = getelementptr inbounds i8, ptr %.0232.i.i486, i64 %.neg.i.i639
@@ -2962,7 +3005,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i504 = phi i64 [ %.0240.i.i483, %.thread289.i501 ], [ %1113, %1112 ]
   %.1238.i.ph.i505 = phi ptr [ %.0237.i.i484, %.thread289.i501 ], [ %1116, %1112 ]
   %1132 = icmp ult ptr %1111, %36
-  br i1 %1132, label %.split.i479, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %1132, label %.split.i479, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i633:                                 ; preds = %1092, %1059, %.split174.us.i506
   %.us-phi169.sink.i634 = phi ptr [ %.us-phi179.i511, %.split174.us.i506 ], [ %.0230.i.us.i648, %1059 ], [ %.0230.i.i487, %1092 ]
@@ -2998,9 +3041,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i631 = phi i64 [ %1154, %1153 ], [ 4, %1137 ]
   %.4252.i184.i632 = phi ptr [ %1150, %1153 ], [ %1139, %1137 ]
   %1148 = getelementptr inbounds i8, ptr %.4.i186.i630, i64 -1
-  %1149 = load i8, ptr %1148, align 1, !tbaa !47
+  %1149 = load i8, ptr %1148, align 1, !tbaa !36
   %1150 = getelementptr inbounds i8, ptr %.4252.i184.i632, i64 -1
-  %1151 = load i8, ptr %1150, align 1, !tbaa !47
+  %1151 = load i8, ptr %1150, align 1, !tbaa !36
   %1152 = icmp eq i8 %1149, %1151
   br i1 %1152, label %1153, label %.critedge.i.i516
 
@@ -3009,7 +3052,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   %1155 = icmp ugt ptr %1148, %.0225.i210.i471
   %1156 = icmp ugt ptr %1150, %34
   %1157 = and i1 %1155, %1156
-  br i1 %1157, label %.lr.ph.i629, label %.critedge.i.i516, !llvm.loop !49
+  br i1 %1157, label %.lr.ph.i629, label %.critedge.i.i516, !llvm.loop !37
 
 .critedge.i.i516:                                 ; preds = %1153, %.lr.ph.i629, %1137, %1117
   %.0236.i91.i517 = phi i32 [ %1088, %1117 ], [ %.0236.i.ph.i514, %1137 ], [ %.0236.i.ph.i514, %.lr.ph.i629 ], [ %.0236.i.ph.i514, %1153 ]
@@ -3084,8 +3127,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   br i1 %1182, label %1183, label %1188
 
 1183:                                             ; preds = %1181
-  %.352.val.i.i613 = load i16, ptr %.352.i.i527, align 1, !tbaa !50
-  %.348.val.i.i614 = load i16, ptr %.348.i.i528, align 1, !tbaa !50
+  %.352.val.i.i613 = load i16, ptr %.352.i.i527, align 1, !tbaa !38
+  %.348.val.i.i614 = load i16, ptr %.348.i.i528, align 1, !tbaa !38
   %1184 = icmp eq i16 %.352.val.i.i613, %.348.val.i.i614
   br i1 %1184, label %1185, label %1188
 
@@ -3101,8 +3144,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_1EPNS_17ZSTD_matchState_tEPN
   br i1 %1189, label %1190, label %1194
 
 1190:                                             ; preds = %1188
-  %1191 = load i8, ptr %.453.i.i529, align 1, !tbaa !47
-  %1192 = load i8, ptr %.4.i26.i530, align 1, !tbaa !47
+  %1191 = load i8, ptr %.453.i.i529, align 1, !tbaa !36
+  %1192 = load i8, ptr %.4.i26.i530, align 1, !tbaa !36
   %1193 = icmp eq i8 %1191, %1192
   %spec.select.idx.i.i611 = zext i1 %1193 to i64
   %spec.select.i28.i612 = getelementptr inbounds nuw i8, ptr %.4.i26.i530, i64 %spec.select.idx.i.i611
@@ -3122,28 +3165,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i532: ; preds = %1194, %.thread63.i
   %1200 = ptrtoint ptr %.0225.i210.i471 to i64
   %1201 = sub i64 %1199, %1200
   %.not.i4.i534 = icmp ugt ptr %.3.i.i523, %1038
-  %1202 = load ptr, ptr %1039, align 8, !tbaa !52
+  %1202 = load ptr, ptr %1039, align 8, !tbaa !40
   br i1 %.not.i4.i534, label %1219, label %1203
 
 1203:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i532
-  %.0225.i.val.i535 = load <2 x i64>, ptr %.0225.i210.i471, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i535, ptr %1202, align 1, !tbaa !47
+  %.0225.i.val.i535 = load <2 x i64>, ptr %.0225.i210.i471, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i535, ptr %1202, align 1, !tbaa !36
   %1204 = icmp ugt i64 %1201, 16
-  %1205 = load ptr, ptr %1039, align 8, !tbaa !52
+  %1205 = load ptr, ptr %1039, align 8, !tbaa !40
   br i1 %1204, label %1207, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536: ; preds = %1203
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 %1201
-  store ptr %1206, ptr %1039, align 8, !tbaa !52
-  %.pre.i537 = load ptr, ptr %1042, align 8, !tbaa !56
+  store ptr %1206, ptr %1039, align 8, !tbaa !40
+  %.pre.i537 = load ptr, ptr %1042, align 8, !tbaa !44
   br label %1245
 
 1207:                                             ; preds = %1203
   %1208 = getelementptr inbounds nuw i8, ptr %1205, i64 16
   %1209 = getelementptr inbounds nuw i8, ptr %.0225.i210.i471, i64 16
   %1210 = getelementptr i8, ptr %1205, i64 %1201
-  %.val22.i589 = load <2 x i64>, ptr %1209, align 1, !tbaa !47
-  store <2 x i64> %.val22.i589, ptr %1208, align 1, !tbaa !47
+  %.val22.i589 = load <2 x i64>, ptr %1209, align 1, !tbaa !36
+  store <2 x i64> %.val22.i589, ptr %1208, align 1, !tbaa !36
   %1211 = icmp slt i64 %1201, 33
   br i1 %1211, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, label %1212
 
@@ -3155,15 +3198,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536: ; 
   %.130.i.i590 = phi ptr [ %1213, %1212 ], [ %1217, %1214 ]
   %.pn.i.i591 = phi ptr [ %1209, %1212 ], [ %1216, %1214 ]
   %.1.i6.i592 = getelementptr inbounds nuw i8, ptr %.pn.i.i591, i64 16
-  %.1.i6.val.i593 = load <2 x i64>, ptr %.1.i6.i592, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i593, ptr %.130.i.i590, align 1, !tbaa !47
+  %.1.i6.val.i593 = load <2 x i64>, ptr %.1.i6.i592, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i593, ptr %.130.i.i590, align 1, !tbaa !36
   %1215 = getelementptr inbounds nuw i8, ptr %.130.i.i590, i64 16
   %1216 = getelementptr inbounds nuw i8, ptr %.pn.i.i591, i64 32
-  %.val21.i594 = load <2 x i64>, ptr %1216, align 1, !tbaa !47
-  store <2 x i64> %.val21.i594, ptr %1215, align 1, !tbaa !47
+  %.val21.i594 = load <2 x i64>, ptr %1216, align 1, !tbaa !36
+  store <2 x i64> %.val21.i594, ptr %1215, align 1, !tbaa !36
   %1217 = getelementptr inbounds nuw i8, ptr %.130.i.i590, i64 32
   %1218 = icmp ult ptr %1217, %1210
-  br i1 %1218, label %1214, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, !llvm.loop !57
+  br i1 %1218, label %1214, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, !llvm.loop !45
 
 1219:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i532
   %.not.i31.i597 = icmp ugt ptr %.0225.i210.i471, %1038
@@ -3172,8 +3215,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536: ; 
 1220:                                             ; preds = %1219
   %1221 = sub i64 %1040, %1200
   %1222 = getelementptr inbounds i8, ptr %1202, i64 %1221
-  %.val19.i.i598 = load <2 x i64>, ptr %.0225.i210.i471, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i598, ptr %1202, align 1, !tbaa !47
+  %.val19.i.i598 = load <2 x i64>, ptr %.0225.i210.i471, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i598, ptr %1202, align 1, !tbaa !36
   %1223 = icmp slt i64 %1221, 17
   br i1 %1223, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604, label %1224
 
@@ -3185,15 +3228,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536: ; 
   %.130.i.i.i599 = phi ptr [ %1225, %1224 ], [ %1229, %1226 ]
   %.pn.i.i.i600 = phi ptr [ %.0225.i210.i471, %1224 ], [ %1228, %1226 ]
   %.1.i.i.i601 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i600, i64 16
-  %.1.i.val.i.i602 = load <2 x i64>, ptr %.1.i.i.i601, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i602, ptr %.130.i.i.i599, align 1, !tbaa !47
+  %.1.i.val.i.i602 = load <2 x i64>, ptr %.1.i.i.i601, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i602, ptr %.130.i.i.i599, align 1, !tbaa !36
   %1227 = getelementptr inbounds nuw i8, ptr %.130.i.i.i599, i64 16
   %1228 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i600, i64 32
-  %.val.i32.i603 = load <2 x i64>, ptr %1228, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i603, ptr %1227, align 1, !tbaa !47
+  %.val.i32.i603 = load <2 x i64>, ptr %1228, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i603, ptr %1227, align 1, !tbaa !36
   %1229 = getelementptr inbounds nuw i8, ptr %.130.i.i.i599, i64 32
   %1230 = icmp ult ptr %1229, %1222
-  br i1 %1230, label %1226, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604, !llvm.loop !57
+  br i1 %1230, label %1226, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604: ; preds = %1226, %1220, %1219
   %.014.i.i605 = phi ptr [ %1038, %1220 ], [ %.0225.i210.i471, %1219 ], [ %1038, %1226 ]
@@ -3205,58 +3248,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604: ; preds
   %.121.i.i608 = phi ptr [ %1234, %.lr.ph.i.i607 ], [ %.0.i.i606, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604 ]
   %.11520.i.i609 = phi ptr [ %1232, %.lr.ph.i.i607 ], [ %.014.i.i605, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604 ]
   %1232 = getelementptr inbounds nuw i8, ptr %.11520.i.i609, i64 1
-  %1233 = load i8, ptr %.11520.i.i609, align 1, !tbaa !47
+  %1233 = load i8, ptr %.11520.i.i609, align 1, !tbaa !36
   %1234 = getelementptr inbounds nuw i8, ptr %.121.i.i608, i64 1
-  store i8 %1233, ptr %.121.i.i608, align 1, !tbaa !47
+  store i8 %1233, ptr %.121.i.i608, align 1, !tbaa !36
   %exitcond.not.i.i610 = icmp eq ptr %1232, %.3.i.i523
-  br i1 %exitcond.not.i.i610, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, label %.lr.ph.i.i607, !llvm.loop !58
+  br i1 %exitcond.not.i.i610, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, label %.lr.ph.i.i607, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595: ; preds = %1214, %.lr.ph.i.i607, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i604, %1207
-  %1235 = load ptr, ptr %1039, align 8, !tbaa !52
+  %1235 = load ptr, ptr %1039, align 8, !tbaa !40
   %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 %1201
-  store ptr %1236, ptr %1039, align 8, !tbaa !52
+  store ptr %1236, ptr %1039, align 8, !tbaa !40
   %1237 = icmp ugt i64 %1201, 65535
-  %.pre282.i596 = load ptr, ptr %1042, align 8, !tbaa !56
+  %.pre282.i596 = load ptr, ptr %1042, align 8, !tbaa !44
   br i1 %1237, label %1238, label %1245
 
 1238:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595
-  store i32 1, ptr %1041, align 8, !tbaa !59
-  %1239 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1041, align 8, !tbaa !47
+  %1239 = load ptr, ptr %1, align 8, !tbaa !48
   %1240 = ptrtoint ptr %.pre282.i596 to i64
   %1241 = ptrtoint ptr %1239 to i64
   %1242 = sub i64 %1240, %1241
   %1243 = lshr exact i64 %1242, 3
   %1244 = trunc i64 %1243 to i32
-  store i32 %1244, ptr %1043, align 4, !tbaa !61
+  store i32 %1244, ptr %1043, align 4, !tbaa !49
   br label %1245
 
 1245:                                             ; preds = %1238, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536
   %1246 = phi ptr [ %.pre.i537, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i536 ], [ %.pre282.i596, %1238 ], [ %.pre282.i596, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i595 ]
   %1247 = trunc i64 %1201 to i16
   %1248 = getelementptr inbounds nuw i8, ptr %1246, i64 4
-  store i16 %1247, ptr %1248, align 4, !tbaa !62
-  store i32 %.3256.i.i520, ptr %1246, align 4, !tbaa !64
+  store i16 %1247, ptr %1248, align 4, !tbaa !50
+  store i32 %.3256.i.i520, ptr %1246, align 4, !tbaa !52
   %1249 = add i64 %1198, -3
   %1250 = icmp ugt i64 %1249, 65535
   br i1 %1250, label %1251, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i538
 
 1251:                                             ; preds = %1245
-  store i32 2, ptr %1041, align 8, !tbaa !59
-  %1252 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1041, align 8, !tbaa !47
+  %1252 = load ptr, ptr %1, align 8, !tbaa !48
   %1253 = ptrtoint ptr %1246 to i64
   %1254 = ptrtoint ptr %1252 to i64
   %1255 = sub i64 %1253, %1254
   %1256 = lshr exact i64 %1255, 3
   %1257 = trunc i64 %1256 to i32
-  store i32 %1257, ptr %1043, align 4, !tbaa !61
+  store i32 %1257, ptr %1043, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i538
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i538: ; preds = %1251, %1245
   %1258 = trunc i64 %1249 to i16
   %1259 = getelementptr inbounds nuw i8, ptr %1246, i64 6
-  store i16 %1258, ptr %1259, align 2, !tbaa !65
+  store i16 %1258, ptr %1259, align 2, !tbaa !53
   %1260 = getelementptr inbounds nuw i8, ptr %1246, i64 8
-  store ptr %1260, ptr %1042, align 8, !tbaa !56
+  store ptr %1260, ptr %1042, align 8, !tbaa !44
   %1261 = getelementptr inbounds nuw i8, ptr %.3.i.i523, i64 %1198
   %.not291.i.i539 = icmp ugt ptr %1261, %36
   br i1 %.not291.i.i539, label %.critedge3.i.i549, label %1262
@@ -3362,8 +3405,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i538: ; preds 
   br i1 %1307, label %1308, label %1313
 
 1308:                                             ; preds = %1306
-  %.352.val.i44.i573 = load i16, ptr %.352.i36.i557, align 1, !tbaa !50
-  %.348.val.i45.i574 = load i16, ptr %.348.i37.i558, align 1, !tbaa !50
+  %.352.val.i44.i573 = load i16, ptr %.352.i36.i557, align 1, !tbaa !38
+  %.348.val.i45.i574 = load i16, ptr %.348.i37.i558, align 1, !tbaa !38
   %1309 = icmp eq i16 %.352.val.i44.i573, %.348.val.i45.i574
   br i1 %1309, label %1310, label %1313
 
@@ -3379,8 +3422,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i538: ; preds 
   br i1 %1314, label %1315, label %1319
 
 1315:                                             ; preds = %1313
-  %1316 = load i8, ptr %.453.i38.i559, align 1, !tbaa !47
-  %1317 = load i8, ptr %.4.i39.i560, align 1, !tbaa !47
+  %1316 = load i8, ptr %.453.i38.i559, align 1, !tbaa !36
+  %1317 = load i8, ptr %.4.i39.i560, align 1, !tbaa !36
   %1318 = icmp eq i8 %1316, %1317
   %spec.select.idx.i42.i571 = zext i1 %1318 to i64
   %spec.select.i43.i572 = getelementptr inbounds nuw i8, ptr %.4.i39.i560, i64 %spec.select.idx.i42.i571
@@ -3409,38 +3452,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i562: ; preds = %1319, %.thread63
   br i1 %.not.i.i565, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i568, label %1331
 
 1331:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i562
-  %1332 = load ptr, ptr %1039, align 8, !tbaa !52
-  %.2.i.val23.i566 = load <2 x i64>, ptr %.2.i196.i544, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i566, ptr %1332, align 1, !tbaa !47
-  %.pre283.i567 = load ptr, ptr %1042, align 8, !tbaa !56
+  %1332 = load ptr, ptr %1039, align 8, !tbaa !40
+  %.2.i.val23.i566 = load <2 x i64>, ptr %.2.i196.i544, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i566, ptr %1332, align 1, !tbaa !36
+  %.pre283.i567 = load ptr, ptr %1042, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i568
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i568: ; preds = %1331, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i562
   %1333 = phi ptr [ %1277, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i562 ], [ %.pre283.i567, %1331 ]
   %1334 = getelementptr inbounds nuw i8, ptr %1333, i64 4
-  store i16 0, ptr %1334, align 4, !tbaa !62
-  store i32 1, ptr %1333, align 4, !tbaa !64
+  store i16 0, ptr %1334, align 4, !tbaa !50
+  store i32 1, ptr %1333, align 4, !tbaa !52
   %1335 = add i64 %.1.i41.i563, 1
   %1336 = icmp ugt i64 %1335, 65535
   br i1 %1336, label %1337, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i569
 
 1337:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i568
-  store i32 2, ptr %1041, align 8, !tbaa !59
-  %1338 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1041, align 8, !tbaa !47
+  %1338 = load ptr, ptr %1, align 8, !tbaa !48
   %1339 = ptrtoint ptr %1333 to i64
   %1340 = ptrtoint ptr %1338 to i64
   %1341 = sub i64 %1339, %1340
   %1342 = lshr exact i64 %1341, 3
   %1343 = trunc i64 %1342 to i32
-  store i32 %1343, ptr %1043, align 4, !tbaa !61
+  store i32 %1343, ptr %1043, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i569
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i569: ; preds = %1337, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i568
   %1344 = trunc i64 %1335 to i16
   %1345 = getelementptr inbounds nuw i8, ptr %1333, i64 6
-  store i16 %1344, ptr %1345, align 2, !tbaa !65
+  store i16 %1344, ptr %1345, align 2, !tbaa !53
   %1346 = getelementptr inbounds nuw i8, ptr %1333, i64 8
-  store ptr %1346, ptr %1042, align 8, !tbaa !56
+  store ptr %1346, ptr %1042, align 8, !tbaa !44
   %.not293.i.i570 = icmp ugt ptr %1330, %36
   br i1 %.not293.i.i570, label %.critedge3.i.i549, label %.lr.ph197.i543
 
@@ -3477,11 +3520,11 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   %1358 = add i64 %4, %1356
   %1359 = sub i64 %1358, %1357
   %1360 = trunc i64 %1359 to i32
-  %1361 = load i32, ptr %11, align 8, !tbaa !43
+  %1361 = load i32, ptr %11, align 8, !tbaa !32
   %1362 = getelementptr i8, ptr %0, i64 24
-  %.val19.i665 = load i32, ptr %1362, align 8, !tbaa !44
+  %.val19.i665 = load i32, ptr %1362, align 8, !tbaa !33
   %1363 = getelementptr i8, ptr %0, i64 40
-  %.val20.i666 = load i32, ptr %1363, align 8, !tbaa !45
+  %.val20.i666 = load i32, ptr %1363, align 8, !tbaa !34
   %1364 = shl nuw i32 1, %1361
   %1365 = sub i32 %1360, %.val19.i665
   %1366 = icmp ugt i32 %1365, %1364
@@ -3635,7 +3678,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i871 = phi i64 [ %.0240.i.us.i851, %.thread285.i868 ], [ %1444, %1443 ]
   %.1238.i.ph.us.i872 = phi ptr [ %.0237.i.us.i852, %.thread285.i868 ], [ %1447, %1443 ]
   %1449 = icmp ult ptr %1442, %1373
-  br i1 %1449, label %.split.us.i847, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !69
+  br i1 %1449, label %.split.us.i847, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i687:                                      ; preds = %1407, %1497
   %.0263.i.i688 = phi i64 [ %1465, %1497 ], [ %1414, %1407 ]
@@ -3725,9 +3768,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
 1483:                                             ; preds = %.split.i687
   %1484 = getelementptr inbounds i8, ptr %.0232.i.i694, i64 %1418
   %1485 = getelementptr inbounds i8, ptr %.0232.i.i694, i64 -1
-  %1486 = load i8, ptr %1485, align 1, !tbaa !47
+  %1486 = load i8, ptr %1485, align 1, !tbaa !36
   %1487 = getelementptr inbounds i8, ptr %1484, i64 -1
-  %1488 = load i8, ptr %1487, align 1, !tbaa !47
+  %1488 = load i8, ptr %1487, align 1, !tbaa !36
   %1489 = icmp eq i8 %1486, %1488
   %.neg.i.i846 = sext i1 %1489 to i64
   %1490 = getelementptr inbounds i8, ptr %.0232.i.i694, i64 %.neg.i.i846
@@ -3744,7 +3787,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i712 = phi i64 [ %.0240.i.i691, %.thread289.i709 ], [ %1479, %1478 ]
   %.1238.i.ph.i713 = phi ptr [ %.0237.i.i692, %.thread289.i709 ], [ %1482, %1478 ]
   %1498 = icmp ult ptr %1477, %1373
-  br i1 %1498, label %.split.i687, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %1498, label %.split.i687, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i840:                                 ; preds = %1457, %1423, %.split174.us.i714
   %.us-phi169.sink.i841 = phi ptr [ %.us-phi179.i719, %.split174.us.i714 ], [ %.0230.i.us.i855, %1423 ], [ %.0230.i.i695, %1457 ]
@@ -3780,9 +3823,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i838 = phi i64 [ %1520, %1519 ], [ 4, %1503 ]
   %.4252.i184.i839 = phi ptr [ %1516, %1519 ], [ %1505, %1503 ]
   %1514 = getelementptr inbounds i8, ptr %.4.i186.i837, i64 -1
-  %1515 = load i8, ptr %1514, align 1, !tbaa !47
+  %1515 = load i8, ptr %1514, align 1, !tbaa !36
   %1516 = getelementptr inbounds i8, ptr %.4252.i184.i839, i64 -1
-  %1517 = load i8, ptr %1516, align 1, !tbaa !47
+  %1517 = load i8, ptr %1516, align 1, !tbaa !36
   %1518 = icmp eq i8 %1515, %1517
   br i1 %1518, label %1519, label %.critedge.i.i724
 
@@ -3791,7 +3834,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   %1521 = icmp ugt ptr %1514, %.0225.i210.i679
   %1522 = icmp ugt ptr %1516, %1371
   %1523 = and i1 %1521, %1522
-  br i1 %1523, label %.lr.ph.i836, label %.critedge.i.i724, !llvm.loop !49
+  br i1 %1523, label %.lr.ph.i836, label %.critedge.i.i724, !llvm.loop !37
 
 .critedge.i.i724:                                 ; preds = %1519, %.lr.ph.i836, %1503, %1483
   %.0236.i91.i725 = phi i32 [ %1453, %1483 ], [ %.0236.i.ph.i722, %1503 ], [ %.0236.i.ph.i722, %.lr.ph.i836 ], [ %.0236.i.ph.i722, %1519 ]
@@ -3866,8 +3909,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   br i1 %1548, label %1549, label %1554
 
 1549:                                             ; preds = %1547
-  %.352.val.i.i820 = load i16, ptr %.352.i.i735, align 1, !tbaa !50
-  %.348.val.i.i821 = load i16, ptr %.348.i.i736, align 1, !tbaa !50
+  %.352.val.i.i820 = load i16, ptr %.352.i.i735, align 1, !tbaa !38
+  %.348.val.i.i821 = load i16, ptr %.348.i.i736, align 1, !tbaa !38
   %1550 = icmp eq i16 %.352.val.i.i820, %.348.val.i.i821
   br i1 %1550, label %1551, label %1554
 
@@ -3883,8 +3926,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_1EPNS_17ZSTD_matchState_tEPN
   br i1 %1555, label %1556, label %1560
 
 1556:                                             ; preds = %1554
-  %1557 = load i8, ptr %.453.i.i737, align 1, !tbaa !47
-  %1558 = load i8, ptr %.4.i26.i738, align 1, !tbaa !47
+  %1557 = load i8, ptr %.453.i.i737, align 1, !tbaa !36
+  %1558 = load i8, ptr %.4.i26.i738, align 1, !tbaa !36
   %1559 = icmp eq i8 %1557, %1558
   %spec.select.idx.i.i818 = zext i1 %1559 to i64
   %spec.select.i28.i819 = getelementptr inbounds nuw i8, ptr %.4.i26.i738, i64 %spec.select.idx.i.i818
@@ -3904,28 +3947,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i740: ; preds = %1560, %.thread63.i
   %1566 = ptrtoint ptr %.0225.i210.i679 to i64
   %1567 = sub i64 %1565, %1566
   %.not.i4.i742 = icmp ugt ptr %.3.i.i731, %1401
-  %1568 = load ptr, ptr %1402, align 8, !tbaa !52
+  %1568 = load ptr, ptr %1402, align 8, !tbaa !40
   br i1 %.not.i4.i742, label %1585, label %1569
 
 1569:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i740
-  %.0225.i.val.i743 = load <2 x i64>, ptr %.0225.i210.i679, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i743, ptr %1568, align 1, !tbaa !47
+  %.0225.i.val.i743 = load <2 x i64>, ptr %.0225.i210.i679, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i743, ptr %1568, align 1, !tbaa !36
   %1570 = icmp ugt i64 %1567, 16
-  %1571 = load ptr, ptr %1402, align 8, !tbaa !52
+  %1571 = load ptr, ptr %1402, align 8, !tbaa !40
   br i1 %1570, label %1573, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744: ; preds = %1569
   %1572 = getelementptr inbounds nuw i8, ptr %1571, i64 %1567
-  store ptr %1572, ptr %1402, align 8, !tbaa !52
-  %.pre.i745 = load ptr, ptr %1405, align 8, !tbaa !56
+  store ptr %1572, ptr %1402, align 8, !tbaa !40
+  %.pre.i745 = load ptr, ptr %1405, align 8, !tbaa !44
   br label %1611
 
 1573:                                             ; preds = %1569
   %1574 = getelementptr inbounds nuw i8, ptr %1571, i64 16
   %1575 = getelementptr inbounds nuw i8, ptr %.0225.i210.i679, i64 16
   %1576 = getelementptr i8, ptr %1571, i64 %1567
-  %.val22.i796 = load <2 x i64>, ptr %1575, align 1, !tbaa !47
-  store <2 x i64> %.val22.i796, ptr %1574, align 1, !tbaa !47
+  %.val22.i796 = load <2 x i64>, ptr %1575, align 1, !tbaa !36
+  store <2 x i64> %.val22.i796, ptr %1574, align 1, !tbaa !36
   %1577 = icmp slt i64 %1567, 33
   br i1 %1577, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, label %1578
 
@@ -3937,15 +3980,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744: ; 
   %.130.i.i797 = phi ptr [ %1579, %1578 ], [ %1583, %1580 ]
   %.pn.i.i798 = phi ptr [ %1575, %1578 ], [ %1582, %1580 ]
   %.1.i6.i799 = getelementptr inbounds nuw i8, ptr %.pn.i.i798, i64 16
-  %.1.i6.val.i800 = load <2 x i64>, ptr %.1.i6.i799, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i800, ptr %.130.i.i797, align 1, !tbaa !47
+  %.1.i6.val.i800 = load <2 x i64>, ptr %.1.i6.i799, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i800, ptr %.130.i.i797, align 1, !tbaa !36
   %1581 = getelementptr inbounds nuw i8, ptr %.130.i.i797, i64 16
   %1582 = getelementptr inbounds nuw i8, ptr %.pn.i.i798, i64 32
-  %.val21.i801 = load <2 x i64>, ptr %1582, align 1, !tbaa !47
-  store <2 x i64> %.val21.i801, ptr %1581, align 1, !tbaa !47
+  %.val21.i801 = load <2 x i64>, ptr %1582, align 1, !tbaa !36
+  store <2 x i64> %.val21.i801, ptr %1581, align 1, !tbaa !36
   %1583 = getelementptr inbounds nuw i8, ptr %.130.i.i797, i64 32
   %1584 = icmp ult ptr %1583, %1576
-  br i1 %1584, label %1580, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, !llvm.loop !57
+  br i1 %1584, label %1580, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, !llvm.loop !45
 
 1585:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i740
   %.not.i31.i804 = icmp ugt ptr %.0225.i210.i679, %1401
@@ -3954,8 +3997,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744: ; 
 1586:                                             ; preds = %1585
   %1587 = sub i64 %1403, %1566
   %1588 = getelementptr inbounds i8, ptr %1568, i64 %1587
-  %.val19.i.i805 = load <2 x i64>, ptr %.0225.i210.i679, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i805, ptr %1568, align 1, !tbaa !47
+  %.val19.i.i805 = load <2 x i64>, ptr %.0225.i210.i679, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i805, ptr %1568, align 1, !tbaa !36
   %1589 = icmp slt i64 %1587, 17
   br i1 %1589, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811, label %1590
 
@@ -3967,15 +4010,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744: ; 
   %.130.i.i.i806 = phi ptr [ %1591, %1590 ], [ %1595, %1592 ]
   %.pn.i.i.i807 = phi ptr [ %.0225.i210.i679, %1590 ], [ %1594, %1592 ]
   %.1.i.i.i808 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i807, i64 16
-  %.1.i.val.i.i809 = load <2 x i64>, ptr %.1.i.i.i808, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i809, ptr %.130.i.i.i806, align 1, !tbaa !47
+  %.1.i.val.i.i809 = load <2 x i64>, ptr %.1.i.i.i808, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i809, ptr %.130.i.i.i806, align 1, !tbaa !36
   %1593 = getelementptr inbounds nuw i8, ptr %.130.i.i.i806, i64 16
   %1594 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i807, i64 32
-  %.val.i32.i810 = load <2 x i64>, ptr %1594, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i810, ptr %1593, align 1, !tbaa !47
+  %.val.i32.i810 = load <2 x i64>, ptr %1594, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i810, ptr %1593, align 1, !tbaa !36
   %1595 = getelementptr inbounds nuw i8, ptr %.130.i.i.i806, i64 32
   %1596 = icmp ult ptr %1595, %1588
-  br i1 %1596, label %1592, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811, !llvm.loop !57
+  br i1 %1596, label %1592, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811: ; preds = %1592, %1586, %1585
   %.014.i.i812 = phi ptr [ %1401, %1586 ], [ %.0225.i210.i679, %1585 ], [ %1401, %1592 ]
@@ -3987,58 +4030,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811: ; preds
   %.121.i.i815 = phi ptr [ %1600, %.lr.ph.i.i814 ], [ %.0.i.i813, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811 ]
   %.11520.i.i816 = phi ptr [ %1598, %.lr.ph.i.i814 ], [ %.014.i.i812, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811 ]
   %1598 = getelementptr inbounds nuw i8, ptr %.11520.i.i816, i64 1
-  %1599 = load i8, ptr %.11520.i.i816, align 1, !tbaa !47
+  %1599 = load i8, ptr %.11520.i.i816, align 1, !tbaa !36
   %1600 = getelementptr inbounds nuw i8, ptr %.121.i.i815, i64 1
-  store i8 %1599, ptr %.121.i.i815, align 1, !tbaa !47
+  store i8 %1599, ptr %.121.i.i815, align 1, !tbaa !36
   %exitcond.not.i.i817 = icmp eq ptr %1598, %.3.i.i731
-  br i1 %exitcond.not.i.i817, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, label %.lr.ph.i.i814, !llvm.loop !58
+  br i1 %exitcond.not.i.i817, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, label %.lr.ph.i.i814, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802: ; preds = %1580, %.lr.ph.i.i814, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i811, %1573
-  %1601 = load ptr, ptr %1402, align 8, !tbaa !52
+  %1601 = load ptr, ptr %1402, align 8, !tbaa !40
   %1602 = getelementptr inbounds nuw i8, ptr %1601, i64 %1567
-  store ptr %1602, ptr %1402, align 8, !tbaa !52
+  store ptr %1602, ptr %1402, align 8, !tbaa !40
   %1603 = icmp ugt i64 %1567, 65535
-  %.pre282.i803 = load ptr, ptr %1405, align 8, !tbaa !56
+  %.pre282.i803 = load ptr, ptr %1405, align 8, !tbaa !44
   br i1 %1603, label %1604, label %1611
 
 1604:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802
-  store i32 1, ptr %1404, align 8, !tbaa !59
-  %1605 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1404, align 8, !tbaa !47
+  %1605 = load ptr, ptr %1, align 8, !tbaa !48
   %1606 = ptrtoint ptr %.pre282.i803 to i64
   %1607 = ptrtoint ptr %1605 to i64
   %1608 = sub i64 %1606, %1607
   %1609 = lshr exact i64 %1608, 3
   %1610 = trunc i64 %1609 to i32
-  store i32 %1610, ptr %1406, align 4, !tbaa !61
+  store i32 %1610, ptr %1406, align 4, !tbaa !49
   br label %1611
 
 1611:                                             ; preds = %1604, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744
   %1612 = phi ptr [ %.pre.i745, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i744 ], [ %.pre282.i803, %1604 ], [ %.pre282.i803, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i802 ]
   %1613 = trunc i64 %1567 to i16
   %1614 = getelementptr inbounds nuw i8, ptr %1612, i64 4
-  store i16 %1613, ptr %1614, align 4, !tbaa !62
-  store i32 %.3256.i.i728, ptr %1612, align 4, !tbaa !64
+  store i16 %1613, ptr %1614, align 4, !tbaa !50
+  store i32 %.3256.i.i728, ptr %1612, align 4, !tbaa !52
   %1615 = add i64 %1564, -3
   %1616 = icmp ugt i64 %1615, 65535
   br i1 %1616, label %1617, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i746
 
 1617:                                             ; preds = %1611
-  store i32 2, ptr %1404, align 8, !tbaa !59
-  %1618 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1404, align 8, !tbaa !47
+  %1618 = load ptr, ptr %1, align 8, !tbaa !48
   %1619 = ptrtoint ptr %1612 to i64
   %1620 = ptrtoint ptr %1618 to i64
   %1621 = sub i64 %1619, %1620
   %1622 = lshr exact i64 %1621, 3
   %1623 = trunc i64 %1622 to i32
-  store i32 %1623, ptr %1406, align 4, !tbaa !61
+  store i32 %1623, ptr %1406, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i746
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i746: ; preds = %1617, %1611
   %1624 = trunc i64 %1615 to i16
   %1625 = getelementptr inbounds nuw i8, ptr %1612, i64 6
-  store i16 %1624, ptr %1625, align 2, !tbaa !65
+  store i16 %1624, ptr %1625, align 2, !tbaa !53
   %1626 = getelementptr inbounds nuw i8, ptr %1612, i64 8
-  store ptr %1626, ptr %1405, align 8, !tbaa !56
+  store ptr %1626, ptr %1405, align 8, !tbaa !44
   %1627 = getelementptr inbounds nuw i8, ptr %.3.i.i731, i64 %1564
   %.not291.i.i747 = icmp ugt ptr %1627, %1373
   br i1 %.not291.i.i747, label %.critedge3.i.i757, label %1628
@@ -4146,8 +4189,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i746: ; preds 
   br i1 %1675, label %1676, label %1681
 
 1676:                                             ; preds = %1674
-  %.352.val.i44.i780 = load i16, ptr %.352.i36.i765, align 1, !tbaa !50
-  %.348.val.i45.i781 = load i16, ptr %.348.i37.i766, align 1, !tbaa !50
+  %.352.val.i44.i780 = load i16, ptr %.352.i36.i765, align 1, !tbaa !38
+  %.348.val.i45.i781 = load i16, ptr %.348.i37.i766, align 1, !tbaa !38
   %1677 = icmp eq i16 %.352.val.i44.i780, %.348.val.i45.i781
   br i1 %1677, label %1678, label %1681
 
@@ -4163,8 +4206,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i746: ; preds 
   br i1 %1682, label %1683, label %1687
 
 1683:                                             ; preds = %1681
-  %1684 = load i8, ptr %.453.i38.i767, align 1, !tbaa !47
-  %1685 = load i8, ptr %.4.i39.i768, align 1, !tbaa !47
+  %1684 = load i8, ptr %.453.i38.i767, align 1, !tbaa !36
+  %1685 = load i8, ptr %.4.i39.i768, align 1, !tbaa !36
   %1686 = icmp eq i8 %1684, %1685
   %spec.select.idx.i42.i778 = zext i1 %1686 to i64
   %spec.select.i43.i779 = getelementptr inbounds nuw i8, ptr %.4.i39.i768, i64 %spec.select.idx.i42.i778
@@ -4193,38 +4236,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i770: ; preds = %1687, %.thread63
   br i1 %.not.i.i772, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i775, label %1700
 
 1700:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i770
-  %1701 = load ptr, ptr %1402, align 8, !tbaa !52
-  %.2.i.val23.i773 = load <2 x i64>, ptr %.2.i196.i752, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i773, ptr %1701, align 1, !tbaa !47
-  %.pre283.i774 = load ptr, ptr %1405, align 8, !tbaa !56
+  %1701 = load ptr, ptr %1402, align 8, !tbaa !40
+  %.2.i.val23.i773 = load <2 x i64>, ptr %.2.i196.i752, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i773, ptr %1701, align 1, !tbaa !36
+  %.pre283.i774 = load ptr, ptr %1405, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i775
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i775: ; preds = %1700, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i770
   %1702 = phi ptr [ %1645, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i770 ], [ %.pre283.i774, %1700 ]
   %1703 = getelementptr inbounds nuw i8, ptr %1702, i64 4
-  store i16 0, ptr %1703, align 4, !tbaa !62
-  store i32 1, ptr %1702, align 4, !tbaa !64
+  store i16 0, ptr %1703, align 4, !tbaa !50
+  store i32 1, ptr %1702, align 4, !tbaa !52
   %1704 = add i64 %.1.i41.i771, 1
   %1705 = icmp ugt i64 %1704, 65535
   br i1 %1705, label %1706, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i776
 
 1706:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i775
-  store i32 2, ptr %1404, align 8, !tbaa !59
-  %1707 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1404, align 8, !tbaa !47
+  %1707 = load ptr, ptr %1, align 8, !tbaa !48
   %1708 = ptrtoint ptr %1702 to i64
   %1709 = ptrtoint ptr %1707 to i64
   %1710 = sub i64 %1708, %1709
   %1711 = lshr exact i64 %1710, 3
   %1712 = trunc i64 %1711 to i32
-  store i32 %1712, ptr %1406, align 4, !tbaa !61
+  store i32 %1712, ptr %1406, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i776
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i776: ; preds = %1706, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i775
   %1713 = trunc i64 %1704 to i16
   %1714 = getelementptr inbounds nuw i8, ptr %1702, i64 6
-  store i16 %1713, ptr %1714, align 2, !tbaa !65
+  store i16 %1713, ptr %1714, align 2, !tbaa !53
   %1715 = getelementptr inbounds nuw i8, ptr %1702, i64 8
-  store ptr %1715, ptr %1405, align 8, !tbaa !56
+  store ptr %1715, ptr %1405, align 8, !tbaa !44
   %.not293.i.i777 = icmp ugt ptr %1699, %1373
   br i1 %.not293.i.i777, label %.critedge3.i.i757, label %.lr.ph197.i751
 
@@ -4364,7 +4407,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i1079 = phi i64 [ %.0240.i.us.i1060, %.thread285.i1076 ], [ %1771, %1770 ]
   %.1238.i.ph.us.i1080 = phi ptr [ %.0237.i.us.i1061, %.thread285.i1076 ], [ %1774, %1770 ]
   %1776 = icmp ult ptr %1769, %1373
-  br i1 %1776, label %.split.us.i1056, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !70
+  br i1 %1776, label %.split.us.i1056, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i895:                                      ; preds = %1736, %1823
   %.0263.i.i896 = phi i64 [ %1791, %1823 ], [ %1742, %1736 ]
@@ -4453,9 +4496,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
 1809:                                             ; preds = %.split.i895
   %1810 = getelementptr inbounds i8, ptr %.0232.i.i902, i64 %1746
   %1811 = getelementptr inbounds i8, ptr %.0232.i.i902, i64 -1
-  %1812 = load i8, ptr %1811, align 1, !tbaa !47
+  %1812 = load i8, ptr %1811, align 1, !tbaa !36
   %1813 = getelementptr inbounds i8, ptr %1810, i64 -1
-  %1814 = load i8, ptr %1813, align 1, !tbaa !47
+  %1814 = load i8, ptr %1813, align 1, !tbaa !36
   %1815 = icmp eq i8 %1812, %1814
   %.neg.i.i1055 = sext i1 %1815 to i64
   %1816 = getelementptr inbounds i8, ptr %.0232.i.i902, i64 %.neg.i.i1055
@@ -4472,7 +4515,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i920 = phi i64 [ %.0240.i.i899, %.thread289.i917 ], [ %1805, %1804 ]
   %.1238.i.ph.i921 = phi ptr [ %.0237.i.i900, %.thread289.i917 ], [ %1808, %1804 ]
   %1824 = icmp ult ptr %1803, %1373
-  br i1 %1824, label %.split.i895, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %1824, label %.split.i895, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i1049:                                ; preds = %1784, %1751, %.split174.us.i922
   %.us-phi169.sink.i1050 = phi ptr [ %.us-phi179.i927, %.split174.us.i922 ], [ %.0230.i.us.i1064, %1751 ], [ %.0230.i.i903, %1784 ]
@@ -4508,9 +4551,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i1047 = phi i64 [ %1846, %1845 ], [ 4, %1829 ]
   %.4252.i184.i1048 = phi ptr [ %1842, %1845 ], [ %1831, %1829 ]
   %1840 = getelementptr inbounds i8, ptr %.4.i186.i1046, i64 -1
-  %1841 = load i8, ptr %1840, align 1, !tbaa !47
+  %1841 = load i8, ptr %1840, align 1, !tbaa !36
   %1842 = getelementptr inbounds i8, ptr %.4252.i184.i1048, i64 -1
-  %1843 = load i8, ptr %1842, align 1, !tbaa !47
+  %1843 = load i8, ptr %1842, align 1, !tbaa !36
   %1844 = icmp eq i8 %1841, %1843
   br i1 %1844, label %1845, label %.critedge.i.i932
 
@@ -4519,7 +4562,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   %1847 = icmp ugt ptr %1840, %.0225.i210.i887
   %1848 = icmp ugt ptr %1842, %1371
   %1849 = and i1 %1847, %1848
-  br i1 %1849, label %.lr.ph.i1045, label %.critedge.i.i932, !llvm.loop !49
+  br i1 %1849, label %.lr.ph.i1045, label %.critedge.i.i932, !llvm.loop !37
 
 .critedge.i.i932:                                 ; preds = %1845, %.lr.ph.i1045, %1829, %1809
   %.0236.i91.i933 = phi i32 [ %1780, %1809 ], [ %.0236.i.ph.i930, %1829 ], [ %.0236.i.ph.i930, %.lr.ph.i1045 ], [ %.0236.i.ph.i930, %1845 ]
@@ -4594,8 +4637,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   br i1 %1874, label %1875, label %1880
 
 1875:                                             ; preds = %1873
-  %.352.val.i.i1029 = load i16, ptr %.352.i.i943, align 1, !tbaa !50
-  %.348.val.i.i1030 = load i16, ptr %.348.i.i944, align 1, !tbaa !50
+  %.352.val.i.i1029 = load i16, ptr %.352.i.i943, align 1, !tbaa !38
+  %.348.val.i.i1030 = load i16, ptr %.348.i.i944, align 1, !tbaa !38
   %1876 = icmp eq i16 %.352.val.i.i1029, %.348.val.i.i1030
   br i1 %1876, label %1877, label %1880
 
@@ -4611,8 +4654,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_4_0EPNS_17ZSTD_matchState_tEPN
   br i1 %1881, label %1882, label %1886
 
 1882:                                             ; preds = %1880
-  %1883 = load i8, ptr %.453.i.i945, align 1, !tbaa !47
-  %1884 = load i8, ptr %.4.i26.i946, align 1, !tbaa !47
+  %1883 = load i8, ptr %.453.i.i945, align 1, !tbaa !36
+  %1884 = load i8, ptr %.4.i26.i946, align 1, !tbaa !36
   %1885 = icmp eq i8 %1883, %1884
   %spec.select.idx.i.i1027 = zext i1 %1885 to i64
   %spec.select.i28.i1028 = getelementptr inbounds nuw i8, ptr %.4.i26.i946, i64 %spec.select.idx.i.i1027
@@ -4632,28 +4675,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i948: ; preds = %1886, %.thread63.i
   %1892 = ptrtoint ptr %.0225.i210.i887 to i64
   %1893 = sub i64 %1891, %1892
   %.not.i4.i950 = icmp ugt ptr %.3.i.i939, %1730
-  %1894 = load ptr, ptr %1731, align 8, !tbaa !52
+  %1894 = load ptr, ptr %1731, align 8, !tbaa !40
   br i1 %.not.i4.i950, label %1911, label %1895
 
 1895:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i948
-  %.0225.i.val.i951 = load <2 x i64>, ptr %.0225.i210.i887, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i951, ptr %1894, align 1, !tbaa !47
+  %.0225.i.val.i951 = load <2 x i64>, ptr %.0225.i210.i887, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i951, ptr %1894, align 1, !tbaa !36
   %1896 = icmp ugt i64 %1893, 16
-  %1897 = load ptr, ptr %1731, align 8, !tbaa !52
+  %1897 = load ptr, ptr %1731, align 8, !tbaa !40
   br i1 %1896, label %1899, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952: ; preds = %1895
   %1898 = getelementptr inbounds nuw i8, ptr %1897, i64 %1893
-  store ptr %1898, ptr %1731, align 8, !tbaa !52
-  %.pre.i953 = load ptr, ptr %1734, align 8, !tbaa !56
+  store ptr %1898, ptr %1731, align 8, !tbaa !40
+  %.pre.i953 = load ptr, ptr %1734, align 8, !tbaa !44
   br label %1937
 
 1899:                                             ; preds = %1895
   %1900 = getelementptr inbounds nuw i8, ptr %1897, i64 16
   %1901 = getelementptr inbounds nuw i8, ptr %.0225.i210.i887, i64 16
   %1902 = getelementptr i8, ptr %1897, i64 %1893
-  %.val22.i1005 = load <2 x i64>, ptr %1901, align 1, !tbaa !47
-  store <2 x i64> %.val22.i1005, ptr %1900, align 1, !tbaa !47
+  %.val22.i1005 = load <2 x i64>, ptr %1901, align 1, !tbaa !36
+  store <2 x i64> %.val22.i1005, ptr %1900, align 1, !tbaa !36
   %1903 = icmp slt i64 %1893, 33
   br i1 %1903, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, label %1904
 
@@ -4665,15 +4708,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952: ; 
   %.130.i.i1006 = phi ptr [ %1905, %1904 ], [ %1909, %1906 ]
   %.pn.i.i1007 = phi ptr [ %1901, %1904 ], [ %1908, %1906 ]
   %.1.i6.i1008 = getelementptr inbounds nuw i8, ptr %.pn.i.i1007, i64 16
-  %.1.i6.val.i1009 = load <2 x i64>, ptr %.1.i6.i1008, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i1009, ptr %.130.i.i1006, align 1, !tbaa !47
+  %.1.i6.val.i1009 = load <2 x i64>, ptr %.1.i6.i1008, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i1009, ptr %.130.i.i1006, align 1, !tbaa !36
   %1907 = getelementptr inbounds nuw i8, ptr %.130.i.i1006, i64 16
   %1908 = getelementptr inbounds nuw i8, ptr %.pn.i.i1007, i64 32
-  %.val21.i1010 = load <2 x i64>, ptr %1908, align 1, !tbaa !47
-  store <2 x i64> %.val21.i1010, ptr %1907, align 1, !tbaa !47
+  %.val21.i1010 = load <2 x i64>, ptr %1908, align 1, !tbaa !36
+  store <2 x i64> %.val21.i1010, ptr %1907, align 1, !tbaa !36
   %1909 = getelementptr inbounds nuw i8, ptr %.130.i.i1006, i64 32
   %1910 = icmp ult ptr %1909, %1902
-  br i1 %1910, label %1906, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, !llvm.loop !57
+  br i1 %1910, label %1906, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, !llvm.loop !45
 
 1911:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i948
   %.not.i31.i1013 = icmp ugt ptr %.0225.i210.i887, %1730
@@ -4682,8 +4725,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952: ; 
 1912:                                             ; preds = %1911
   %1913 = sub i64 %1732, %1892
   %1914 = getelementptr inbounds i8, ptr %1894, i64 %1913
-  %.val19.i.i1014 = load <2 x i64>, ptr %.0225.i210.i887, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i1014, ptr %1894, align 1, !tbaa !47
+  %.val19.i.i1014 = load <2 x i64>, ptr %.0225.i210.i887, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i1014, ptr %1894, align 1, !tbaa !36
   %1915 = icmp slt i64 %1913, 17
   br i1 %1915, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020, label %1916
 
@@ -4695,15 +4738,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952: ; 
   %.130.i.i.i1015 = phi ptr [ %1917, %1916 ], [ %1921, %1918 ]
   %.pn.i.i.i1016 = phi ptr [ %.0225.i210.i887, %1916 ], [ %1920, %1918 ]
   %.1.i.i.i1017 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1016, i64 16
-  %.1.i.val.i.i1018 = load <2 x i64>, ptr %.1.i.i.i1017, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i1018, ptr %.130.i.i.i1015, align 1, !tbaa !47
+  %.1.i.val.i.i1018 = load <2 x i64>, ptr %.1.i.i.i1017, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i1018, ptr %.130.i.i.i1015, align 1, !tbaa !36
   %1919 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1015, i64 16
   %1920 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1016, i64 32
-  %.val.i32.i1019 = load <2 x i64>, ptr %1920, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i1019, ptr %1919, align 1, !tbaa !47
+  %.val.i32.i1019 = load <2 x i64>, ptr %1920, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i1019, ptr %1919, align 1, !tbaa !36
   %1921 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1015, i64 32
   %1922 = icmp ult ptr %1921, %1914
-  br i1 %1922, label %1918, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020, !llvm.loop !57
+  br i1 %1922, label %1918, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020: ; preds = %1918, %1912, %1911
   %.014.i.i1021 = phi ptr [ %1730, %1912 ], [ %.0225.i210.i887, %1911 ], [ %1730, %1918 ]
@@ -4715,58 +4758,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020: ; pred
   %.121.i.i1024 = phi ptr [ %1926, %.lr.ph.i.i1023 ], [ %.0.i.i1022, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020 ]
   %.11520.i.i1025 = phi ptr [ %1924, %.lr.ph.i.i1023 ], [ %.014.i.i1021, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020 ]
   %1924 = getelementptr inbounds nuw i8, ptr %.11520.i.i1025, i64 1
-  %1925 = load i8, ptr %.11520.i.i1025, align 1, !tbaa !47
+  %1925 = load i8, ptr %.11520.i.i1025, align 1, !tbaa !36
   %1926 = getelementptr inbounds nuw i8, ptr %.121.i.i1024, i64 1
-  store i8 %1925, ptr %.121.i.i1024, align 1, !tbaa !47
+  store i8 %1925, ptr %.121.i.i1024, align 1, !tbaa !36
   %exitcond.not.i.i1026 = icmp eq ptr %1924, %.3.i.i939
-  br i1 %exitcond.not.i.i1026, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, label %.lr.ph.i.i1023, !llvm.loop !58
+  br i1 %exitcond.not.i.i1026, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, label %.lr.ph.i.i1023, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011: ; preds = %1906, %.lr.ph.i.i1023, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1020, %1899
-  %1927 = load ptr, ptr %1731, align 8, !tbaa !52
+  %1927 = load ptr, ptr %1731, align 8, !tbaa !40
   %1928 = getelementptr inbounds nuw i8, ptr %1927, i64 %1893
-  store ptr %1928, ptr %1731, align 8, !tbaa !52
+  store ptr %1928, ptr %1731, align 8, !tbaa !40
   %1929 = icmp ugt i64 %1893, 65535
-  %.pre282.i1012 = load ptr, ptr %1734, align 8, !tbaa !56
+  %.pre282.i1012 = load ptr, ptr %1734, align 8, !tbaa !44
   br i1 %1929, label %1930, label %1937
 
 1930:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011
-  store i32 1, ptr %1733, align 8, !tbaa !59
-  %1931 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1733, align 8, !tbaa !47
+  %1931 = load ptr, ptr %1, align 8, !tbaa !48
   %1932 = ptrtoint ptr %.pre282.i1012 to i64
   %1933 = ptrtoint ptr %1931 to i64
   %1934 = sub i64 %1932, %1933
   %1935 = lshr exact i64 %1934, 3
   %1936 = trunc i64 %1935 to i32
-  store i32 %1936, ptr %1735, align 4, !tbaa !61
+  store i32 %1936, ptr %1735, align 4, !tbaa !49
   br label %1937
 
 1937:                                             ; preds = %1930, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952
   %1938 = phi ptr [ %.pre.i953, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i952 ], [ %.pre282.i1012, %1930 ], [ %.pre282.i1012, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1011 ]
   %1939 = trunc i64 %1893 to i16
   %1940 = getelementptr inbounds nuw i8, ptr %1938, i64 4
-  store i16 %1939, ptr %1940, align 4, !tbaa !62
-  store i32 %.3256.i.i936, ptr %1938, align 4, !tbaa !64
+  store i16 %1939, ptr %1940, align 4, !tbaa !50
+  store i32 %.3256.i.i936, ptr %1938, align 4, !tbaa !52
   %1941 = add i64 %1890, -3
   %1942 = icmp ugt i64 %1941, 65535
   br i1 %1942, label %1943, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i954
 
 1943:                                             ; preds = %1937
-  store i32 2, ptr %1733, align 8, !tbaa !59
-  %1944 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1733, align 8, !tbaa !47
+  %1944 = load ptr, ptr %1, align 8, !tbaa !48
   %1945 = ptrtoint ptr %1938 to i64
   %1946 = ptrtoint ptr %1944 to i64
   %1947 = sub i64 %1945, %1946
   %1948 = lshr exact i64 %1947, 3
   %1949 = trunc i64 %1948 to i32
-  store i32 %1949, ptr %1735, align 4, !tbaa !61
+  store i32 %1949, ptr %1735, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i954
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i954: ; preds = %1943, %1937
   %1950 = trunc i64 %1941 to i16
   %1951 = getelementptr inbounds nuw i8, ptr %1938, i64 6
-  store i16 %1950, ptr %1951, align 2, !tbaa !65
+  store i16 %1950, ptr %1951, align 2, !tbaa !53
   %1952 = getelementptr inbounds nuw i8, ptr %1938, i64 8
-  store ptr %1952, ptr %1734, align 8, !tbaa !56
+  store ptr %1952, ptr %1734, align 8, !tbaa !44
   %1953 = getelementptr inbounds nuw i8, ptr %.3.i.i939, i64 %1890
   %.not291.i.i955 = icmp ugt ptr %1953, %1373
   br i1 %.not291.i.i955, label %.critedge3.i.i965, label %1954
@@ -4872,8 +4915,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i954: ; preds 
   br i1 %1999, label %2000, label %2005
 
 2000:                                             ; preds = %1998
-  %.352.val.i44.i989 = load i16, ptr %.352.i36.i973, align 1, !tbaa !50
-  %.348.val.i45.i990 = load i16, ptr %.348.i37.i974, align 1, !tbaa !50
+  %.352.val.i44.i989 = load i16, ptr %.352.i36.i973, align 1, !tbaa !38
+  %.348.val.i45.i990 = load i16, ptr %.348.i37.i974, align 1, !tbaa !38
   %2001 = icmp eq i16 %.352.val.i44.i989, %.348.val.i45.i990
   br i1 %2001, label %2002, label %2005
 
@@ -4889,8 +4932,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i954: ; preds 
   br i1 %2006, label %2007, label %2011
 
 2007:                                             ; preds = %2005
-  %2008 = load i8, ptr %.453.i38.i975, align 1, !tbaa !47
-  %2009 = load i8, ptr %.4.i39.i976, align 1, !tbaa !47
+  %2008 = load i8, ptr %.453.i38.i975, align 1, !tbaa !36
+  %2009 = load i8, ptr %.4.i39.i976, align 1, !tbaa !36
   %2010 = icmp eq i8 %2008, %2009
   %spec.select.idx.i42.i987 = zext i1 %2010 to i64
   %spec.select.i43.i988 = getelementptr inbounds nuw i8, ptr %.4.i39.i976, i64 %spec.select.idx.i42.i987
@@ -4919,38 +4962,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i978: ; preds = %2011, %.thread63
   br i1 %.not.i.i981, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i984, label %2023
 
 2023:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i978
-  %2024 = load ptr, ptr %1731, align 8, !tbaa !52
-  %.2.i.val23.i982 = load <2 x i64>, ptr %.2.i196.i960, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i982, ptr %2024, align 1, !tbaa !47
-  %.pre283.i983 = load ptr, ptr %1734, align 8, !tbaa !56
+  %2024 = load ptr, ptr %1731, align 8, !tbaa !40
+  %.2.i.val23.i982 = load <2 x i64>, ptr %.2.i196.i960, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i982, ptr %2024, align 1, !tbaa !36
+  %.pre283.i983 = load ptr, ptr %1734, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i984
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i984: ; preds = %2023, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i978
   %2025 = phi ptr [ %1969, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i978 ], [ %.pre283.i983, %2023 ]
   %2026 = getelementptr inbounds nuw i8, ptr %2025, i64 4
-  store i16 0, ptr %2026, align 4, !tbaa !62
-  store i32 1, ptr %2025, align 4, !tbaa !64
+  store i16 0, ptr %2026, align 4, !tbaa !50
+  store i32 1, ptr %2025, align 4, !tbaa !52
   %2027 = add i64 %.1.i41.i979, 1
   %2028 = icmp ugt i64 %2027, 65535
   br i1 %2028, label %2029, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i985
 
 2029:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i984
-  store i32 2, ptr %1733, align 8, !tbaa !59
-  %2030 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1733, align 8, !tbaa !47
+  %2030 = load ptr, ptr %1, align 8, !tbaa !48
   %2031 = ptrtoint ptr %2025 to i64
   %2032 = ptrtoint ptr %2030 to i64
   %2033 = sub i64 %2031, %2032
   %2034 = lshr exact i64 %2033, 3
   %2035 = trunc i64 %2034 to i32
-  store i32 %2035, ptr %1735, align 4, !tbaa !61
+  store i32 %2035, ptr %1735, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i985
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i985: ; preds = %2029, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i984
   %2036 = trunc i64 %2027 to i16
   %2037 = getelementptr inbounds nuw i8, ptr %2025, i64 6
-  store i16 %2036, ptr %2037, align 2, !tbaa !65
+  store i16 %2036, ptr %2037, align 2, !tbaa !53
   %2038 = getelementptr inbounds nuw i8, ptr %2025, i64 8
-  store ptr %2038, ptr %1734, align 8, !tbaa !56
+  store ptr %2038, ptr %1734, align 8, !tbaa !44
   %.not293.i.i986 = icmp ugt ptr %2022, %1373
   br i1 %.not293.i.i986, label %.critedge3.i.i965, label %.lr.ph197.i959
 
@@ -5090,7 +5133,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i1287 = phi i64 [ %.0240.i.us.i1268, %.thread285.i1284 ], [ %2094, %2093 ]
   %.1238.i.ph.us.i1288 = phi ptr [ %.0237.i.us.i1269, %.thread285.i1284 ], [ %2097, %2093 ]
   %2099 = icmp ult ptr %2092, %1373
-  br i1 %2099, label %.split.us.i1264, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !71
+  br i1 %2099, label %.split.us.i1264, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i1103:                                     ; preds = %2059, %2146
   %.0263.i.i1104 = phi i64 [ %2114, %2146 ], [ %2065, %2059 ]
@@ -5179,9 +5222,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
 2132:                                             ; preds = %.split.i1103
   %2133 = getelementptr inbounds i8, ptr %.0232.i.i1110, i64 %2069
   %2134 = getelementptr inbounds i8, ptr %.0232.i.i1110, i64 -1
-  %2135 = load i8, ptr %2134, align 1, !tbaa !47
+  %2135 = load i8, ptr %2134, align 1, !tbaa !36
   %2136 = getelementptr inbounds i8, ptr %2133, i64 -1
-  %2137 = load i8, ptr %2136, align 1, !tbaa !47
+  %2137 = load i8, ptr %2136, align 1, !tbaa !36
   %2138 = icmp eq i8 %2135, %2137
   %.neg.i.i1263 = sext i1 %2138 to i64
   %2139 = getelementptr inbounds i8, ptr %.0232.i.i1110, i64 %.neg.i.i1263
@@ -5198,7 +5241,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i1128 = phi i64 [ %.0240.i.i1107, %.thread289.i1125 ], [ %2128, %2127 ]
   %.1238.i.ph.i1129 = phi ptr [ %.0237.i.i1108, %.thread289.i1125 ], [ %2131, %2127 ]
   %2147 = icmp ult ptr %2126, %1373
-  br i1 %2147, label %.split.i1103, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %2147, label %.split.i1103, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i1257:                                ; preds = %2107, %2074, %.split174.us.i1130
   %.us-phi169.sink.i1258 = phi ptr [ %.us-phi179.i1135, %.split174.us.i1130 ], [ %.0230.i.us.i1272, %2074 ], [ %.0230.i.i1111, %2107 ]
@@ -5234,9 +5277,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i1255 = phi i64 [ %2169, %2168 ], [ 4, %2152 ]
   %.4252.i184.i1256 = phi ptr [ %2165, %2168 ], [ %2154, %2152 ]
   %2163 = getelementptr inbounds i8, ptr %.4.i186.i1254, i64 -1
-  %2164 = load i8, ptr %2163, align 1, !tbaa !47
+  %2164 = load i8, ptr %2163, align 1, !tbaa !36
   %2165 = getelementptr inbounds i8, ptr %.4252.i184.i1256, i64 -1
-  %2166 = load i8, ptr %2165, align 1, !tbaa !47
+  %2166 = load i8, ptr %2165, align 1, !tbaa !36
   %2167 = icmp eq i8 %2164, %2166
   br i1 %2167, label %2168, label %.critedge.i.i1140
 
@@ -5245,7 +5288,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   %2170 = icmp ugt ptr %2163, %.0225.i210.i1095
   %2171 = icmp ugt ptr %2165, %1371
   %2172 = and i1 %2170, %2171
-  br i1 %2172, label %.lr.ph.i1253, label %.critedge.i.i1140, !llvm.loop !49
+  br i1 %2172, label %.lr.ph.i1253, label %.critedge.i.i1140, !llvm.loop !37
 
 .critedge.i.i1140:                                ; preds = %2168, %.lr.ph.i1253, %2152, %2132
   %.0236.i91.i1141 = phi i32 [ %2103, %2132 ], [ %.0236.i.ph.i1138, %2152 ], [ %.0236.i.ph.i1138, %.lr.ph.i1253 ], [ %.0236.i.ph.i1138, %2168 ]
@@ -5320,8 +5363,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   br i1 %2197, label %2198, label %2203
 
 2198:                                             ; preds = %2196
-  %.352.val.i.i1237 = load i16, ptr %.352.i.i1151, align 1, !tbaa !50
-  %.348.val.i.i1238 = load i16, ptr %.348.i.i1152, align 1, !tbaa !50
+  %.352.val.i.i1237 = load i16, ptr %.352.i.i1151, align 1, !tbaa !38
+  %.348.val.i.i1238 = load i16, ptr %.348.i.i1152, align 1, !tbaa !38
   %2199 = icmp eq i16 %.352.val.i.i1237, %.348.val.i.i1238
   br i1 %2199, label %2200, label %2203
 
@@ -5337,8 +5380,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_5_0EPNS_17ZSTD_matchState_tEPN
   br i1 %2204, label %2205, label %2209
 
 2205:                                             ; preds = %2203
-  %2206 = load i8, ptr %.453.i.i1153, align 1, !tbaa !47
-  %2207 = load i8, ptr %.4.i26.i1154, align 1, !tbaa !47
+  %2206 = load i8, ptr %.453.i.i1153, align 1, !tbaa !36
+  %2207 = load i8, ptr %.4.i26.i1154, align 1, !tbaa !36
   %2208 = icmp eq i8 %2206, %2207
   %spec.select.idx.i.i1235 = zext i1 %2208 to i64
   %spec.select.i28.i1236 = getelementptr inbounds nuw i8, ptr %.4.i26.i1154, i64 %spec.select.idx.i.i1235
@@ -5358,28 +5401,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1156: ; preds = %2209, %.thread63.
   %2215 = ptrtoint ptr %.0225.i210.i1095 to i64
   %2216 = sub i64 %2214, %2215
   %.not.i4.i1158 = icmp ugt ptr %.3.i.i1147, %2053
-  %2217 = load ptr, ptr %2054, align 8, !tbaa !52
+  %2217 = load ptr, ptr %2054, align 8, !tbaa !40
   br i1 %.not.i4.i1158, label %2234, label %2218
 
 2218:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1156
-  %.0225.i.val.i1159 = load <2 x i64>, ptr %.0225.i210.i1095, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i1159, ptr %2217, align 1, !tbaa !47
+  %.0225.i.val.i1159 = load <2 x i64>, ptr %.0225.i210.i1095, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i1159, ptr %2217, align 1, !tbaa !36
   %2219 = icmp ugt i64 %2216, 16
-  %2220 = load ptr, ptr %2054, align 8, !tbaa !52
+  %2220 = load ptr, ptr %2054, align 8, !tbaa !40
   br i1 %2219, label %2222, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160: ; preds = %2218
   %2221 = getelementptr inbounds nuw i8, ptr %2220, i64 %2216
-  store ptr %2221, ptr %2054, align 8, !tbaa !52
-  %.pre.i1161 = load ptr, ptr %2057, align 8, !tbaa !56
+  store ptr %2221, ptr %2054, align 8, !tbaa !40
+  %.pre.i1161 = load ptr, ptr %2057, align 8, !tbaa !44
   br label %2260
 
 2222:                                             ; preds = %2218
   %2223 = getelementptr inbounds nuw i8, ptr %2220, i64 16
   %2224 = getelementptr inbounds nuw i8, ptr %.0225.i210.i1095, i64 16
   %2225 = getelementptr i8, ptr %2220, i64 %2216
-  %.val22.i1213 = load <2 x i64>, ptr %2224, align 1, !tbaa !47
-  store <2 x i64> %.val22.i1213, ptr %2223, align 1, !tbaa !47
+  %.val22.i1213 = load <2 x i64>, ptr %2224, align 1, !tbaa !36
+  store <2 x i64> %.val22.i1213, ptr %2223, align 1, !tbaa !36
   %2226 = icmp slt i64 %2216, 33
   br i1 %2226, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, label %2227
 
@@ -5391,15 +5434,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160: ;
   %.130.i.i1214 = phi ptr [ %2228, %2227 ], [ %2232, %2229 ]
   %.pn.i.i1215 = phi ptr [ %2224, %2227 ], [ %2231, %2229 ]
   %.1.i6.i1216 = getelementptr inbounds nuw i8, ptr %.pn.i.i1215, i64 16
-  %.1.i6.val.i1217 = load <2 x i64>, ptr %.1.i6.i1216, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i1217, ptr %.130.i.i1214, align 1, !tbaa !47
+  %.1.i6.val.i1217 = load <2 x i64>, ptr %.1.i6.i1216, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i1217, ptr %.130.i.i1214, align 1, !tbaa !36
   %2230 = getelementptr inbounds nuw i8, ptr %.130.i.i1214, i64 16
   %2231 = getelementptr inbounds nuw i8, ptr %.pn.i.i1215, i64 32
-  %.val21.i1218 = load <2 x i64>, ptr %2231, align 1, !tbaa !47
-  store <2 x i64> %.val21.i1218, ptr %2230, align 1, !tbaa !47
+  %.val21.i1218 = load <2 x i64>, ptr %2231, align 1, !tbaa !36
+  store <2 x i64> %.val21.i1218, ptr %2230, align 1, !tbaa !36
   %2232 = getelementptr inbounds nuw i8, ptr %.130.i.i1214, i64 32
   %2233 = icmp ult ptr %2232, %2225
-  br i1 %2233, label %2229, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, !llvm.loop !57
+  br i1 %2233, label %2229, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, !llvm.loop !45
 
 2234:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1156
   %.not.i31.i1221 = icmp ugt ptr %.0225.i210.i1095, %2053
@@ -5408,8 +5451,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160: ;
 2235:                                             ; preds = %2234
   %2236 = sub i64 %2055, %2215
   %2237 = getelementptr inbounds i8, ptr %2217, i64 %2236
-  %.val19.i.i1222 = load <2 x i64>, ptr %.0225.i210.i1095, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i1222, ptr %2217, align 1, !tbaa !47
+  %.val19.i.i1222 = load <2 x i64>, ptr %.0225.i210.i1095, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i1222, ptr %2217, align 1, !tbaa !36
   %2238 = icmp slt i64 %2236, 17
   br i1 %2238, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228, label %2239
 
@@ -5421,15 +5464,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160: ;
   %.130.i.i.i1223 = phi ptr [ %2240, %2239 ], [ %2244, %2241 ]
   %.pn.i.i.i1224 = phi ptr [ %.0225.i210.i1095, %2239 ], [ %2243, %2241 ]
   %.1.i.i.i1225 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1224, i64 16
-  %.1.i.val.i.i1226 = load <2 x i64>, ptr %.1.i.i.i1225, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i1226, ptr %.130.i.i.i1223, align 1, !tbaa !47
+  %.1.i.val.i.i1226 = load <2 x i64>, ptr %.1.i.i.i1225, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i1226, ptr %.130.i.i.i1223, align 1, !tbaa !36
   %2242 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1223, i64 16
   %2243 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1224, i64 32
-  %.val.i32.i1227 = load <2 x i64>, ptr %2243, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i1227, ptr %2242, align 1, !tbaa !47
+  %.val.i32.i1227 = load <2 x i64>, ptr %2243, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i1227, ptr %2242, align 1, !tbaa !36
   %2244 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1223, i64 32
   %2245 = icmp ult ptr %2244, %2237
-  br i1 %2245, label %2241, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228, !llvm.loop !57
+  br i1 %2245, label %2241, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228: ; preds = %2241, %2235, %2234
   %.014.i.i1229 = phi ptr [ %2053, %2235 ], [ %.0225.i210.i1095, %2234 ], [ %2053, %2241 ]
@@ -5441,58 +5484,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228: ; pred
   %.121.i.i1232 = phi ptr [ %2249, %.lr.ph.i.i1231 ], [ %.0.i.i1230, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228 ]
   %.11520.i.i1233 = phi ptr [ %2247, %.lr.ph.i.i1231 ], [ %.014.i.i1229, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228 ]
   %2247 = getelementptr inbounds nuw i8, ptr %.11520.i.i1233, i64 1
-  %2248 = load i8, ptr %.11520.i.i1233, align 1, !tbaa !47
+  %2248 = load i8, ptr %.11520.i.i1233, align 1, !tbaa !36
   %2249 = getelementptr inbounds nuw i8, ptr %.121.i.i1232, i64 1
-  store i8 %2248, ptr %.121.i.i1232, align 1, !tbaa !47
+  store i8 %2248, ptr %.121.i.i1232, align 1, !tbaa !36
   %exitcond.not.i.i1234 = icmp eq ptr %2247, %.3.i.i1147
-  br i1 %exitcond.not.i.i1234, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, label %.lr.ph.i.i1231, !llvm.loop !58
+  br i1 %exitcond.not.i.i1234, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, label %.lr.ph.i.i1231, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219: ; preds = %2229, %.lr.ph.i.i1231, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1228, %2222
-  %2250 = load ptr, ptr %2054, align 8, !tbaa !52
+  %2250 = load ptr, ptr %2054, align 8, !tbaa !40
   %2251 = getelementptr inbounds nuw i8, ptr %2250, i64 %2216
-  store ptr %2251, ptr %2054, align 8, !tbaa !52
+  store ptr %2251, ptr %2054, align 8, !tbaa !40
   %2252 = icmp ugt i64 %2216, 65535
-  %.pre282.i1220 = load ptr, ptr %2057, align 8, !tbaa !56
+  %.pre282.i1220 = load ptr, ptr %2057, align 8, !tbaa !44
   br i1 %2252, label %2253, label %2260
 
 2253:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219
-  store i32 1, ptr %2056, align 8, !tbaa !59
-  %2254 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %2056, align 8, !tbaa !47
+  %2254 = load ptr, ptr %1, align 8, !tbaa !48
   %2255 = ptrtoint ptr %.pre282.i1220 to i64
   %2256 = ptrtoint ptr %2254 to i64
   %2257 = sub i64 %2255, %2256
   %2258 = lshr exact i64 %2257, 3
   %2259 = trunc i64 %2258 to i32
-  store i32 %2259, ptr %2058, align 4, !tbaa !61
+  store i32 %2259, ptr %2058, align 4, !tbaa !49
   br label %2260
 
 2260:                                             ; preds = %2253, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160
   %2261 = phi ptr [ %.pre.i1161, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1160 ], [ %.pre282.i1220, %2253 ], [ %.pre282.i1220, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1219 ]
   %2262 = trunc i64 %2216 to i16
   %2263 = getelementptr inbounds nuw i8, ptr %2261, i64 4
-  store i16 %2262, ptr %2263, align 4, !tbaa !62
-  store i32 %.3256.i.i1144, ptr %2261, align 4, !tbaa !64
+  store i16 %2262, ptr %2263, align 4, !tbaa !50
+  store i32 %.3256.i.i1144, ptr %2261, align 4, !tbaa !52
   %2264 = add i64 %2213, -3
   %2265 = icmp ugt i64 %2264, 65535
   br i1 %2265, label %2266, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1162
 
 2266:                                             ; preds = %2260
-  store i32 2, ptr %2056, align 8, !tbaa !59
-  %2267 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %2056, align 8, !tbaa !47
+  %2267 = load ptr, ptr %1, align 8, !tbaa !48
   %2268 = ptrtoint ptr %2261 to i64
   %2269 = ptrtoint ptr %2267 to i64
   %2270 = sub i64 %2268, %2269
   %2271 = lshr exact i64 %2270, 3
   %2272 = trunc i64 %2271 to i32
-  store i32 %2272, ptr %2058, align 4, !tbaa !61
+  store i32 %2272, ptr %2058, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1162
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1162: ; preds = %2266, %2260
   %2273 = trunc i64 %2264 to i16
   %2274 = getelementptr inbounds nuw i8, ptr %2261, i64 6
-  store i16 %2273, ptr %2274, align 2, !tbaa !65
+  store i16 %2273, ptr %2274, align 2, !tbaa !53
   %2275 = getelementptr inbounds nuw i8, ptr %2261, i64 8
-  store ptr %2275, ptr %2057, align 8, !tbaa !56
+  store ptr %2275, ptr %2057, align 8, !tbaa !44
   %2276 = getelementptr inbounds nuw i8, ptr %.3.i.i1147, i64 %2213
   %.not291.i.i1163 = icmp ugt ptr %2276, %1373
   br i1 %.not291.i.i1163, label %.critedge3.i.i1173, label %2277
@@ -5598,8 +5641,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1162: ; preds
   br i1 %2322, label %2323, label %2328
 
 2323:                                             ; preds = %2321
-  %.352.val.i44.i1197 = load i16, ptr %.352.i36.i1181, align 1, !tbaa !50
-  %.348.val.i45.i1198 = load i16, ptr %.348.i37.i1182, align 1, !tbaa !50
+  %.352.val.i44.i1197 = load i16, ptr %.352.i36.i1181, align 1, !tbaa !38
+  %.348.val.i45.i1198 = load i16, ptr %.348.i37.i1182, align 1, !tbaa !38
   %2324 = icmp eq i16 %.352.val.i44.i1197, %.348.val.i45.i1198
   br i1 %2324, label %2325, label %2328
 
@@ -5615,8 +5658,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1162: ; preds
   br i1 %2329, label %2330, label %2334
 
 2330:                                             ; preds = %2328
-  %2331 = load i8, ptr %.453.i38.i1183, align 1, !tbaa !47
-  %2332 = load i8, ptr %.4.i39.i1184, align 1, !tbaa !47
+  %2331 = load i8, ptr %.453.i38.i1183, align 1, !tbaa !36
+  %2332 = load i8, ptr %.4.i39.i1184, align 1, !tbaa !36
   %2333 = icmp eq i8 %2331, %2332
   %spec.select.idx.i42.i1195 = zext i1 %2333 to i64
   %spec.select.i43.i1196 = getelementptr inbounds nuw i8, ptr %.4.i39.i1184, i64 %spec.select.idx.i42.i1195
@@ -5645,38 +5688,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1186: ; preds = %2334, %.thread6
   br i1 %.not.i.i1189, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1192, label %2346
 
 2346:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1186
-  %2347 = load ptr, ptr %2054, align 8, !tbaa !52
-  %.2.i.val23.i1190 = load <2 x i64>, ptr %.2.i196.i1168, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i1190, ptr %2347, align 1, !tbaa !47
-  %.pre283.i1191 = load ptr, ptr %2057, align 8, !tbaa !56
+  %2347 = load ptr, ptr %2054, align 8, !tbaa !40
+  %.2.i.val23.i1190 = load <2 x i64>, ptr %.2.i196.i1168, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i1190, ptr %2347, align 1, !tbaa !36
+  %.pre283.i1191 = load ptr, ptr %2057, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1192
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1192: ; preds = %2346, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1186
   %2348 = phi ptr [ %2292, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1186 ], [ %.pre283.i1191, %2346 ]
   %2349 = getelementptr inbounds nuw i8, ptr %2348, i64 4
-  store i16 0, ptr %2349, align 4, !tbaa !62
-  store i32 1, ptr %2348, align 4, !tbaa !64
+  store i16 0, ptr %2349, align 4, !tbaa !50
+  store i32 1, ptr %2348, align 4, !tbaa !52
   %2350 = add i64 %.1.i41.i1187, 1
   %2351 = icmp ugt i64 %2350, 65535
   br i1 %2351, label %2352, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1193
 
 2352:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1192
-  store i32 2, ptr %2056, align 8, !tbaa !59
-  %2353 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %2056, align 8, !tbaa !47
+  %2353 = load ptr, ptr %1, align 8, !tbaa !48
   %2354 = ptrtoint ptr %2348 to i64
   %2355 = ptrtoint ptr %2353 to i64
   %2356 = sub i64 %2354, %2355
   %2357 = lshr exact i64 %2356, 3
   %2358 = trunc i64 %2357 to i32
-  store i32 %2358, ptr %2058, align 4, !tbaa !61
+  store i32 %2358, ptr %2058, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1193
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1193: ; preds = %2352, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1192
   %2359 = trunc i64 %2350 to i16
   %2360 = getelementptr inbounds nuw i8, ptr %2348, i64 6
-  store i16 %2359, ptr %2360, align 2, !tbaa !65
+  store i16 %2359, ptr %2360, align 2, !tbaa !53
   %2361 = getelementptr inbounds nuw i8, ptr %2348, i64 8
-  store ptr %2361, ptr %2057, align 8, !tbaa !56
+  store ptr %2361, ptr %2057, align 8, !tbaa !44
   %.not293.i.i1194 = icmp ugt ptr %2345, %1373
   br i1 %.not293.i.i1194, label %.critedge3.i.i1173, label %.lr.ph197.i1167
 
@@ -5816,7 +5859,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.us.i1495 = phi i64 [ %.0240.i.us.i1476, %.thread285.i1492 ], [ %2417, %2416 ]
   %.1238.i.ph.us.i1496 = phi ptr [ %.0237.i.us.i1477, %.thread285.i1492 ], [ %2420, %2416 ]
   %2422 = icmp ult ptr %2415, %1373
-  br i1 %2422, label %.split.us.i1472, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !72
+  br i1 %2422, label %.split.us.i1472, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .split.i1311:                                     ; preds = %2382, %2469
   %.0263.i.i1312 = phi i64 [ %2437, %2469 ], [ %2388, %2382 ]
@@ -5905,9 +5948,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
 2455:                                             ; preds = %.split.i1311
   %2456 = getelementptr inbounds i8, ptr %.0232.i.i1318, i64 %2392
   %2457 = getelementptr inbounds i8, ptr %.0232.i.i1318, i64 -1
-  %2458 = load i8, ptr %2457, align 1, !tbaa !47
+  %2458 = load i8, ptr %2457, align 1, !tbaa !36
   %2459 = getelementptr inbounds i8, ptr %2456, i64 -1
-  %2460 = load i8, ptr %2459, align 1, !tbaa !47
+  %2460 = load i8, ptr %2459, align 1, !tbaa !36
   %2461 = icmp eq i8 %2458, %2460
   %.neg.i.i1471 = sext i1 %2461 to i64
   %2462 = getelementptr inbounds i8, ptr %.0232.i.i1318, i64 %.neg.i.i1471
@@ -5924,7 +5967,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   %.1241.i.ph.i1336 = phi i64 [ %.0240.i.i1315, %.thread289.i1333 ], [ %2451, %2450 ]
   %.1238.i.ph.i1337 = phi ptr [ %.0237.i.i1316, %.thread289.i1333 ], [ %2454, %2450 ]
   %2470 = icmp ult ptr %2449, %1373
-  br i1 %2470, label %.split.i1311, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !48
+  br i1 %2470, label %.split.i1311, label %_ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_0EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, !llvm.loop !35
 
 .sink.split.i1465:                                ; preds = %2430, %2397, %.split174.us.i1338
   %.us-phi169.sink.i1466 = phi ptr [ %.us-phi179.i1343, %.split174.us.i1338 ], [ %.0230.i.us.i1480, %2397 ], [ %.0230.i.i1319, %2430 ]
@@ -5960,9 +6003,9 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   %.4247.i185.i1463 = phi i64 [ %2492, %2491 ], [ 4, %2475 ]
   %.4252.i184.i1464 = phi ptr [ %2488, %2491 ], [ %2477, %2475 ]
   %2486 = getelementptr inbounds i8, ptr %.4.i186.i1462, i64 -1
-  %2487 = load i8, ptr %2486, align 1, !tbaa !47
+  %2487 = load i8, ptr %2486, align 1, !tbaa !36
   %2488 = getelementptr inbounds i8, ptr %.4252.i184.i1464, i64 -1
-  %2489 = load i8, ptr %2488, align 1, !tbaa !47
+  %2489 = load i8, ptr %2488, align 1, !tbaa !36
   %2490 = icmp eq i8 %2487, %2489
   br i1 %2490, label %2491, label %.critedge.i.i1348
 
@@ -5971,7 +6014,7 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   %2493 = icmp ugt ptr %2486, %.0225.i210.i1303
   %2494 = icmp ugt ptr %2488, %1371
   %2495 = and i1 %2493, %2494
-  br i1 %2495, label %.lr.ph.i1461, label %.critedge.i.i1348, !llvm.loop !49
+  br i1 %2495, label %.lr.ph.i1461, label %.critedge.i.i1348, !llvm.loop !37
 
 .critedge.i.i1348:                                ; preds = %2491, %.lr.ph.i1461, %2475, %2455
   %.0236.i91.i1349 = phi i32 [ %2426, %2455 ], [ %.0236.i.ph.i1346, %2475 ], [ %.0236.i.ph.i1346, %.lr.ph.i1461 ], [ %.0236.i.ph.i1346, %2491 ]
@@ -6046,8 +6089,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   br i1 %2520, label %2521, label %2526
 
 2521:                                             ; preds = %2519
-  %.352.val.i.i1445 = load i16, ptr %.352.i.i1359, align 1, !tbaa !50
-  %.348.val.i.i1446 = load i16, ptr %.348.i.i1360, align 1, !tbaa !50
+  %.352.val.i.i1445 = load i16, ptr %.352.i.i1359, align 1, !tbaa !38
+  %.348.val.i.i1446 = load i16, ptr %.348.i.i1360, align 1, !tbaa !38
   %2522 = icmp eq i16 %.352.val.i.i1445, %.348.val.i.i1446
   br i1 %2522, label %2523, label %2526
 
@@ -6063,8 +6106,8 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_6_0EPNS_17ZSTD_matchState_tEPN
   br i1 %2527, label %2528, label %2532
 
 2528:                                             ; preds = %2526
-  %2529 = load i8, ptr %.453.i.i1361, align 1, !tbaa !47
-  %2530 = load i8, ptr %.4.i26.i1362, align 1, !tbaa !47
+  %2529 = load i8, ptr %.453.i.i1361, align 1, !tbaa !36
+  %2530 = load i8, ptr %.4.i26.i1362, align 1, !tbaa !36
   %2531 = icmp eq i8 %2529, %2530
   %spec.select.idx.i.i1443 = zext i1 %2531 to i64
   %spec.select.i28.i1444 = getelementptr inbounds nuw i8, ptr %.4.i26.i1362, i64 %spec.select.idx.i.i1443
@@ -6084,28 +6127,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1364: ; preds = %2532, %.thread63.
   %2538 = ptrtoint ptr %.0225.i210.i1303 to i64
   %2539 = sub i64 %2537, %2538
   %.not.i4.i1366 = icmp ugt ptr %.3.i.i1355, %2376
-  %2540 = load ptr, ptr %2377, align 8, !tbaa !52
+  %2540 = load ptr, ptr %2377, align 8, !tbaa !40
   br i1 %.not.i4.i1366, label %2557, label %2541
 
 2541:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1364
-  %.0225.i.val.i1367 = load <2 x i64>, ptr %.0225.i210.i1303, align 1, !tbaa !47
-  store <2 x i64> %.0225.i.val.i1367, ptr %2540, align 1, !tbaa !47
+  %.0225.i.val.i1367 = load <2 x i64>, ptr %.0225.i210.i1303, align 1, !tbaa !36
+  store <2 x i64> %.0225.i.val.i1367, ptr %2540, align 1, !tbaa !36
   %2542 = icmp ugt i64 %2539, 16
-  %2543 = load ptr, ptr %2377, align 8, !tbaa !52
+  %2543 = load ptr, ptr %2377, align 8, !tbaa !40
   br i1 %2542, label %2545, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368: ; preds = %2541
   %2544 = getelementptr inbounds nuw i8, ptr %2543, i64 %2539
-  store ptr %2544, ptr %2377, align 8, !tbaa !52
-  %.pre.i1369 = load ptr, ptr %2380, align 8, !tbaa !56
+  store ptr %2544, ptr %2377, align 8, !tbaa !40
+  %.pre.i1369 = load ptr, ptr %2380, align 8, !tbaa !44
   br label %2583
 
 2545:                                             ; preds = %2541
   %2546 = getelementptr inbounds nuw i8, ptr %2543, i64 16
   %2547 = getelementptr inbounds nuw i8, ptr %.0225.i210.i1303, i64 16
   %2548 = getelementptr i8, ptr %2543, i64 %2539
-  %.val22.i1421 = load <2 x i64>, ptr %2547, align 1, !tbaa !47
-  store <2 x i64> %.val22.i1421, ptr %2546, align 1, !tbaa !47
+  %.val22.i1421 = load <2 x i64>, ptr %2547, align 1, !tbaa !36
+  store <2 x i64> %.val22.i1421, ptr %2546, align 1, !tbaa !36
   %2549 = icmp slt i64 %2539, 33
   br i1 %2549, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, label %2550
 
@@ -6117,15 +6160,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368: ;
   %.130.i.i1422 = phi ptr [ %2551, %2550 ], [ %2555, %2552 ]
   %.pn.i.i1423 = phi ptr [ %2547, %2550 ], [ %2554, %2552 ]
   %.1.i6.i1424 = getelementptr inbounds nuw i8, ptr %.pn.i.i1423, i64 16
-  %.1.i6.val.i1425 = load <2 x i64>, ptr %.1.i6.i1424, align 1, !tbaa !47
-  store <2 x i64> %.1.i6.val.i1425, ptr %.130.i.i1422, align 1, !tbaa !47
+  %.1.i6.val.i1425 = load <2 x i64>, ptr %.1.i6.i1424, align 1, !tbaa !36
+  store <2 x i64> %.1.i6.val.i1425, ptr %.130.i.i1422, align 1, !tbaa !36
   %2553 = getelementptr inbounds nuw i8, ptr %.130.i.i1422, i64 16
   %2554 = getelementptr inbounds nuw i8, ptr %.pn.i.i1423, i64 32
-  %.val21.i1426 = load <2 x i64>, ptr %2554, align 1, !tbaa !47
-  store <2 x i64> %.val21.i1426, ptr %2553, align 1, !tbaa !47
+  %.val21.i1426 = load <2 x i64>, ptr %2554, align 1, !tbaa !36
+  store <2 x i64> %.val21.i1426, ptr %2553, align 1, !tbaa !36
   %2555 = getelementptr inbounds nuw i8, ptr %.130.i.i1422, i64 32
   %2556 = icmp ult ptr %2555, %2548
-  br i1 %2556, label %2552, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, !llvm.loop !57
+  br i1 %2556, label %2552, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, !llvm.loop !45
 
 2557:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i1364
   %.not.i31.i1429 = icmp ugt ptr %.0225.i210.i1303, %2376
@@ -6134,8 +6177,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368: ;
 2558:                                             ; preds = %2557
   %2559 = sub i64 %2378, %2538
   %2560 = getelementptr inbounds i8, ptr %2540, i64 %2559
-  %.val19.i.i1430 = load <2 x i64>, ptr %.0225.i210.i1303, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i1430, ptr %2540, align 1, !tbaa !47
+  %.val19.i.i1430 = load <2 x i64>, ptr %.0225.i210.i1303, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i1430, ptr %2540, align 1, !tbaa !36
   %2561 = icmp slt i64 %2559, 17
   br i1 %2561, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436, label %2562
 
@@ -6147,15 +6190,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368: ;
   %.130.i.i.i1431 = phi ptr [ %2563, %2562 ], [ %2567, %2564 ]
   %.pn.i.i.i1432 = phi ptr [ %.0225.i210.i1303, %2562 ], [ %2566, %2564 ]
   %.1.i.i.i1433 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1432, i64 16
-  %.1.i.val.i.i1434 = load <2 x i64>, ptr %.1.i.i.i1433, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i1434, ptr %.130.i.i.i1431, align 1, !tbaa !47
+  %.1.i.val.i.i1434 = load <2 x i64>, ptr %.1.i.i.i1433, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i1434, ptr %.130.i.i.i1431, align 1, !tbaa !36
   %2565 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1431, i64 16
   %2566 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i1432, i64 32
-  %.val.i32.i1435 = load <2 x i64>, ptr %2566, align 1, !tbaa !47
-  store <2 x i64> %.val.i32.i1435, ptr %2565, align 1, !tbaa !47
+  %.val.i32.i1435 = load <2 x i64>, ptr %2566, align 1, !tbaa !36
+  store <2 x i64> %.val.i32.i1435, ptr %2565, align 1, !tbaa !36
   %2567 = getelementptr inbounds nuw i8, ptr %.130.i.i.i1431, i64 32
   %2568 = icmp ult ptr %2567, %2560
-  br i1 %2568, label %2564, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436, !llvm.loop !57
+  br i1 %2568, label %2564, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436: ; preds = %2564, %2558, %2557
   %.014.i.i1437 = phi ptr [ %2376, %2558 ], [ %.0225.i210.i1303, %2557 ], [ %2376, %2564 ]
@@ -6167,58 +6210,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436: ; pred
   %.121.i.i1440 = phi ptr [ %2572, %.lr.ph.i.i1439 ], [ %.0.i.i1438, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436 ]
   %.11520.i.i1441 = phi ptr [ %2570, %.lr.ph.i.i1439 ], [ %.014.i.i1437, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436 ]
   %2570 = getelementptr inbounds nuw i8, ptr %.11520.i.i1441, i64 1
-  %2571 = load i8, ptr %.11520.i.i1441, align 1, !tbaa !47
+  %2571 = load i8, ptr %.11520.i.i1441, align 1, !tbaa !36
   %2572 = getelementptr inbounds nuw i8, ptr %.121.i.i1440, i64 1
-  store i8 %2571, ptr %.121.i.i1440, align 1, !tbaa !47
+  store i8 %2571, ptr %.121.i.i1440, align 1, !tbaa !36
   %exitcond.not.i.i1442 = icmp eq ptr %2570, %.3.i.i1355
-  br i1 %exitcond.not.i.i1442, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, label %.lr.ph.i.i1439, !llvm.loop !58
+  br i1 %exitcond.not.i.i1442, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, label %.lr.ph.i.i1439, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427: ; preds = %2552, %.lr.ph.i.i1439, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i1436, %2545
-  %2573 = load ptr, ptr %2377, align 8, !tbaa !52
+  %2573 = load ptr, ptr %2377, align 8, !tbaa !40
   %2574 = getelementptr inbounds nuw i8, ptr %2573, i64 %2539
-  store ptr %2574, ptr %2377, align 8, !tbaa !52
+  store ptr %2574, ptr %2377, align 8, !tbaa !40
   %2575 = icmp ugt i64 %2539, 65535
-  %.pre282.i1428 = load ptr, ptr %2380, align 8, !tbaa !56
+  %.pre282.i1428 = load ptr, ptr %2380, align 8, !tbaa !44
   br i1 %2575, label %2576, label %2583
 
 2576:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427
-  store i32 1, ptr %2379, align 8, !tbaa !59
-  %2577 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %2379, align 8, !tbaa !47
+  %2577 = load ptr, ptr %1, align 8, !tbaa !48
   %2578 = ptrtoint ptr %.pre282.i1428 to i64
   %2579 = ptrtoint ptr %2577 to i64
   %2580 = sub i64 %2578, %2579
   %2581 = lshr exact i64 %2580, 3
   %2582 = trunc i64 %2581 to i32
-  store i32 %2582, ptr %2381, align 4, !tbaa !61
+  store i32 %2582, ptr %2381, align 4, !tbaa !49
   br label %2583
 
 2583:                                             ; preds = %2576, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368
   %2584 = phi ptr [ %.pre.i1369, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread.i1368 ], [ %.pre282.i1428, %2576 ], [ %.pre282.i1428, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i1427 ]
   %2585 = trunc i64 %2539 to i16
   %2586 = getelementptr inbounds nuw i8, ptr %2584, i64 4
-  store i16 %2585, ptr %2586, align 4, !tbaa !62
-  store i32 %.3256.i.i1352, ptr %2584, align 4, !tbaa !64
+  store i16 %2585, ptr %2586, align 4, !tbaa !50
+  store i32 %.3256.i.i1352, ptr %2584, align 4, !tbaa !52
   %2587 = add i64 %2536, -3
   %2588 = icmp ugt i64 %2587, 65535
   br i1 %2588, label %2589, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1370
 
 2589:                                             ; preds = %2583
-  store i32 2, ptr %2379, align 8, !tbaa !59
-  %2590 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %2379, align 8, !tbaa !47
+  %2590 = load ptr, ptr %1, align 8, !tbaa !48
   %2591 = ptrtoint ptr %2584 to i64
   %2592 = ptrtoint ptr %2590 to i64
   %2593 = sub i64 %2591, %2592
   %2594 = lshr exact i64 %2593, 3
   %2595 = trunc i64 %2594 to i32
-  store i32 %2595, ptr %2381, align 4, !tbaa !61
+  store i32 %2595, ptr %2381, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1370
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1370: ; preds = %2589, %2583
   %2596 = trunc i64 %2587 to i16
   %2597 = getelementptr inbounds nuw i8, ptr %2584, i64 6
-  store i16 %2596, ptr %2597, align 2, !tbaa !65
+  store i16 %2596, ptr %2597, align 2, !tbaa !53
   %2598 = getelementptr inbounds nuw i8, ptr %2584, i64 8
-  store ptr %2598, ptr %2380, align 8, !tbaa !56
+  store ptr %2598, ptr %2380, align 8, !tbaa !44
   %2599 = getelementptr inbounds nuw i8, ptr %.3.i.i1355, i64 %2536
   %.not291.i.i1371 = icmp ugt ptr %2599, %1373
   br i1 %.not291.i.i1371, label %.critedge3.i.i1381, label %2600
@@ -6324,8 +6367,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1370: ; preds
   br i1 %2645, label %2646, label %2651
 
 2646:                                             ; preds = %2644
-  %.352.val.i44.i1405 = load i16, ptr %.352.i36.i1389, align 1, !tbaa !50
-  %.348.val.i45.i1406 = load i16, ptr %.348.i37.i1390, align 1, !tbaa !50
+  %.352.val.i44.i1405 = load i16, ptr %.352.i36.i1389, align 1, !tbaa !38
+  %.348.val.i45.i1406 = load i16, ptr %.348.i37.i1390, align 1, !tbaa !38
   %2647 = icmp eq i16 %.352.val.i44.i1405, %.348.val.i45.i1406
   br i1 %2647, label %2648, label %2651
 
@@ -6341,8 +6384,8 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit5.i1370: ; preds
   br i1 %2652, label %2653, label %2657
 
 2653:                                             ; preds = %2651
-  %2654 = load i8, ptr %.453.i38.i1391, align 1, !tbaa !47
-  %2655 = load i8, ptr %.4.i39.i1392, align 1, !tbaa !47
+  %2654 = load i8, ptr %.453.i38.i1391, align 1, !tbaa !36
+  %2655 = load i8, ptr %.4.i39.i1392, align 1, !tbaa !36
   %2656 = icmp eq i8 %2654, %2655
   %spec.select.idx.i42.i1403 = zext i1 %2656 to i64
   %spec.select.i43.i1404 = getelementptr inbounds nuw i8, ptr %.4.i39.i1392, i64 %spec.select.idx.i42.i1403
@@ -6371,38 +6414,38 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1394: ; preds = %2657, %.thread6
   br i1 %.not.i.i1397, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1400, label %2669
 
 2669:                                             ; preds = %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1394
-  %2670 = load ptr, ptr %2377, align 8, !tbaa !52
-  %.2.i.val23.i1398 = load <2 x i64>, ptr %.2.i196.i1376, align 1, !tbaa !47
-  store <2 x i64> %.2.i.val23.i1398, ptr %2670, align 1, !tbaa !47
-  %.pre283.i1399 = load ptr, ptr %2380, align 8, !tbaa !56
+  %2670 = load ptr, ptr %2377, align 8, !tbaa !40
+  %.2.i.val23.i1398 = load <2 x i64>, ptr %.2.i196.i1376, align 1, !tbaa !36
+  store <2 x i64> %.2.i.val23.i1398, ptr %2670, align 1, !tbaa !36
+  %.pre283.i1399 = load ptr, ptr %2380, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1400
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1400: ; preds = %2669, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1394
   %2671 = phi ptr [ %2615, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit60.i1394 ], [ %.pre283.i1399, %2669 ]
   %2672 = getelementptr inbounds nuw i8, ptr %2671, i64 4
-  store i16 0, ptr %2672, align 4, !tbaa !62
-  store i32 1, ptr %2671, align 4, !tbaa !64
+  store i16 0, ptr %2672, align 4, !tbaa !50
+  store i32 1, ptr %2671, align 4, !tbaa !52
   %2673 = add i64 %.1.i41.i1395, 1
   %2674 = icmp ugt i64 %2673, 65535
   br i1 %2674, label %2675, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1401
 
 2675:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1400
-  store i32 2, ptr %2379, align 8, !tbaa !59
-  %2676 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %2379, align 8, !tbaa !47
+  %2676 = load ptr, ptr %1, align 8, !tbaa !48
   %2677 = ptrtoint ptr %2671 to i64
   %2678 = ptrtoint ptr %2676 to i64
   %2679 = sub i64 %2677, %2678
   %2680 = lshr exact i64 %2679, 3
   %2681 = trunc i64 %2680 to i32
-  store i32 %2681, ptr %2381, align 4, !tbaa !61
+  store i32 %2681, ptr %2381, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1401
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit.i1401: ; preds = %2675, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit75.i1400
   %2682 = trunc i64 %2673 to i16
   %2683 = getelementptr inbounds nuw i8, ptr %2671, i64 6
-  store i16 %2682, ptr %2683, align 2, !tbaa !65
+  store i16 %2682, ptr %2683, align 2, !tbaa !53
   %2684 = getelementptr inbounds nuw i8, ptr %2671, i64 8
-  store ptr %2684, ptr %2380, align 8, !tbaa !56
+  store ptr %2684, ptr %2380, align 8, !tbaa !44
   %.not293.i.i1402 = icmp ugt ptr %2668, %1373
   br i1 %.not293.i.i1402, label %.critedge3.i.i1381, label %.lr.ph197.i1375
 
@@ -6442,19 +6485,19 @@ _ZN11duckdb_zstdL34ZSTD_compressBlock_fast_noDict_7_0EPNS_17ZSTD_matchState_tEPN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
 define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %7 = load i32, ptr %6, align 8, !tbaa !41
+  %7 = load i32, ptr %6, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load i32, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %13 = load i32, ptr %12, align 4, !tbaa !73
+  %13 = load i32, ptr %12, align 4, !tbaa !54
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = zext i32 %14 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !44
+  %19 = load i32, ptr %18, align 8, !tbaa !33
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -6463,16 +6506,16 @@ define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %28 = load ptr, ptr %27, align 8, !tbaa !74
+  %28 = load ptr, ptr %27, align 8, !tbaa !55
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !44
+  %32 = load i32, ptr %31, align 8, !tbaa !33
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = zext i32 %32 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
-  %37 = load ptr, ptr %28, align 8, !tbaa !75
+  %37 = load ptr, ptr %28, align 8, !tbaa !56
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
   %.neg.i.i = sub i64 %39, %38
@@ -6489,7 +6532,7 @@ define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = ptrtoint ptr %16 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %52 = load i32, ptr %51, align 8, !tbaa !76
+  %52 = load i32, ptr %51, align 8, !tbaa !57
   %.not.i.i = icmp eq i32 %52, 0
   switch i32 %7, label %53 [
     i32 7, label %1455
@@ -6512,7 +6555,7 @@ define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS
   tail call void @llvm.prefetch.p0(ptr %57, i32 0, i32 2, i32 1)
   %58 = add i64 %.0292.i187.i, 64
   %59 = icmp ult i64 %58, %56
-  br i1 %59, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !77
+  br i1 %59, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !58
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %54, %53
   %60 = add nsw i64 %4, -8
@@ -6679,8 +6722,8 @@ define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS
   br i1 %142, label %143, label %148
 
 143:                                              ; preds = %140
-  %.352.val.i.i.i = load i16, ptr %.352.i.i.i, align 1, !tbaa !50
-  %.348.val.i.i.i = load i16, ptr %.348.i.i.i, align 1, !tbaa !50
+  %.352.val.i.i.i = load i16, ptr %.352.i.i.i, align 1, !tbaa !38
+  %.348.val.i.i.i = load i16, ptr %.348.i.i.i, align 1, !tbaa !38
   %144 = icmp eq i16 %.352.val.i.i.i, %.348.val.i.i.i
   br i1 %144, label %145, label %148
 
@@ -6696,8 +6739,8 @@ define noundef i64 @_ZN11duckdb_zstd38ZSTD_compressBlock_fast_dictMatchStateEPNS
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %148
-  %151 = load i8, ptr %.453.i.i.i, align 1, !tbaa !47
-  %152 = load i8, ptr %.4.i.i.i, align 1, !tbaa !47
+  %151 = load i8, ptr %.453.i.i.i, align 1, !tbaa !36
+  %152 = load i8, ptr %.4.i.i.i, align 1, !tbaa !36
   %153 = icmp eq i8 %151, %152
   %spec.select.idx.i.i.i = zext i1 %153 to i64
   %spec.select.i.i.i = getelementptr inbounds nuw i8, ptr %.4.i.i.i, i64 %spec.select.idx.i.i.i
@@ -6781,8 +6824,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i: ; preds = %154, %.thread63.i.i
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %182
-  %.352.val.i33.i.i = load i16, ptr %.352.i25.i.i, align 1, !tbaa !50
-  %.348.val.i34.i.i = load i16, ptr %.348.i26.i.i, align 1, !tbaa !50
+  %.352.val.i33.i.i = load i16, ptr %.352.i25.i.i, align 1, !tbaa !38
+  %.348.val.i34.i.i = load i16, ptr %.348.i26.i.i, align 1, !tbaa !38
   %185 = icmp eq i16 %.352.val.i33.i.i, %.348.val.i34.i.i
   br i1 %185, label %186, label %189
 
@@ -6798,8 +6841,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i: ; preds = %154, %.thread63.i.i
   br i1 %190, label %191, label %195
 
 191:                                              ; preds = %189
-  %192 = load i8, ptr %.453.i27.i.i, align 1, !tbaa !47
-  %193 = load i8, ptr %.4.i28.i.i, align 1, !tbaa !47
+  %192 = load i8, ptr %.453.i27.i.i, align 1, !tbaa !36
+  %193 = load i8, ptr %.4.i28.i.i, align 1, !tbaa !36
   %194 = icmp eq i8 %192, %193
   %spec.select.idx.i31.i.i = zext i1 %194 to i64
   %spec.select.i32.i.i = getelementptr inbounds nuw i8, ptr %.4.i28.i.i, i64 %spec.select.idx.i31.i.i
@@ -6824,28 +6867,28 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i: ; preds = %_ZN11
   %202 = ptrtoint ptr %.0266.i213.i to i64
   %203 = sub i64 %201, %202
   %.not.i356.i.i = icmp ugt ptr %108, %68
-  %204 = load ptr, ptr %69, align 8, !tbaa !52
+  %204 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %.not.i356.i.i, label %221, label %205
 
 205:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i
-  %.0266.i.val.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val.i, ptr %204, align 1, !tbaa !47
+  %.0266.i.val.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val.i, ptr %204, align 1, !tbaa !36
   %206 = icmp ugt i64 %203, 16
-  %207 = load ptr, ptr %69, align 8, !tbaa !52
+  %207 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %206, label %209, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i: ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 %203
-  store ptr %208, ptr %69, align 8, !tbaa !52
-  %.pre259.i = load ptr, ptr %72, align 8, !tbaa !56
+  store ptr %208, ptr %69, align 8, !tbaa !40
+  %.pre259.i = load ptr, ptr %72, align 8, !tbaa !44
   br label %247
 
 209:                                              ; preds = %205
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %211 = getelementptr inbounds nuw i8, ptr %.0266.i213.i, i64 16
   %212 = getelementptr i8, ptr %207, i64 %203
-  %.val14.i = load <2 x i64>, ptr %211, align 1, !tbaa !47
-  store <2 x i64> %.val14.i, ptr %210, align 1, !tbaa !47
+  %.val14.i = load <2 x i64>, ptr %211, align 1, !tbaa !36
+  store <2 x i64> %.val14.i, ptr %210, align 1, !tbaa !36
   %213 = icmp slt i64 %203, 33
   br i1 %213, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, label %214
 
@@ -6857,15 +6900,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i: ; p
   %.130.i.i.i = phi ptr [ %215, %214 ], [ %219, %216 ]
   %.pn.i.i.i = phi ptr [ %211, %214 ], [ %218, %216 ]
   %.1.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
-  %.1.i.i.val.i = load <2 x i64>, ptr %.1.i.i.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.i.val.i, ptr %.130.i.i.i, align 1, !tbaa !47
+  %.1.i.i.val.i = load <2 x i64>, ptr %.1.i.i.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.i.val.i, ptr %.130.i.i.i, align 1, !tbaa !36
   %217 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 32
-  %.val13.i = load <2 x i64>, ptr %218, align 1, !tbaa !47
-  store <2 x i64> %.val13.i, ptr %217, align 1, !tbaa !47
+  %.val13.i = load <2 x i64>, ptr %218, align 1, !tbaa !36
+  store <2 x i64> %.val13.i, ptr %217, align 1, !tbaa !36
   %219 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 32
   %220 = icmp ult ptr %219, %212
-  br i1 %220, label %216, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, !llvm.loop !57
+  br i1 %220, label %216, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, !llvm.loop !45
 
 221:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i
   %.not.i25.i = icmp ugt ptr %.0266.i213.i, %68
@@ -6874,8 +6917,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i: ; p
 222:                                              ; preds = %221
   %223 = sub i64 %70, %202
   %224 = getelementptr inbounds i8, ptr %204, i64 %223
-  %.val19.i.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i, ptr %204, align 1, !tbaa !47
+  %.val19.i.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i, ptr %204, align 1, !tbaa !36
   %225 = icmp slt i64 %223, 17
   br i1 %225, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i, label %226
 
@@ -6887,15 +6930,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i: ; p
   %.130.i.i26.i = phi ptr [ %227, %226 ], [ %231, %228 ]
   %.pn.i.i27.i = phi ptr [ %.0266.i213.i, %226 ], [ %230, %228 ]
   %.1.i.i28.i = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i, i64 16
-  %.1.i.val.i.i = load <2 x i64>, ptr %.1.i.i28.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i, ptr %.130.i.i26.i, align 1, !tbaa !47
+  %.1.i.val.i.i = load <2 x i64>, ptr %.1.i.i28.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i, ptr %.130.i.i26.i, align 1, !tbaa !36
   %229 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i, i64 16
   %230 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i, i64 32
-  %.val.i.i = load <2 x i64>, ptr %230, align 1, !tbaa !47
-  store <2 x i64> %.val.i.i, ptr %229, align 1, !tbaa !47
+  %.val.i.i = load <2 x i64>, ptr %230, align 1, !tbaa !36
+  store <2 x i64> %.val.i.i, ptr %229, align 1, !tbaa !36
   %231 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i, i64 32
   %232 = icmp ult ptr %231, %224
-  br i1 %232, label %228, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i, !llvm.loop !57
+  br i1 %232, label %228, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i: ; preds = %228, %222, %221
   %.014.i.i = phi ptr [ %68, %222 ], [ %.0266.i213.i, %221 ], [ %68, %228 ]
@@ -6907,37 +6950,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i: ; preds 
   %.121.i.i = phi ptr [ %236, %.lr.ph.i.i ], [ %.0.i30.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i ]
   %.11520.i.i = phi ptr [ %234, %.lr.ph.i.i ], [ %.014.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i ]
   %234 = getelementptr inbounds nuw i8, ptr %.11520.i.i, i64 1
-  %235 = load i8, ptr %.11520.i.i, align 1, !tbaa !47
+  %235 = load i8, ptr %.11520.i.i, align 1, !tbaa !36
   %236 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 1
-  store i8 %235, ptr %.121.i.i, align 1, !tbaa !47
+  store i8 %235, ptr %.121.i.i, align 1, !tbaa !36
   %exitcond.not.i.i = icmp eq ptr %.11520.i.i, %.1.i.i
-  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, label %.lr.ph.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, label %.lr.ph.i.i, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = %216, %.lr.ph.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i, %209
-  %237 = load ptr, ptr %69, align 8, !tbaa !52
+  %237 = load ptr, ptr %69, align 8, !tbaa !40
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 %203
-  store ptr %238, ptr %69, align 8, !tbaa !52
+  store ptr %238, ptr %69, align 8, !tbaa !40
   %239 = icmp ugt i64 %203, 65535
-  %.pre260.i = load ptr, ptr %72, align 8, !tbaa !56
+  %.pre260.i = load ptr, ptr %72, align 8, !tbaa !44
   br i1 %239, label %240, label %247
 
 240:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i
-  store i32 1, ptr %71, align 8, !tbaa !59
-  %241 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %71, align 8, !tbaa !47
+  %241 = load ptr, ptr %1, align 8, !tbaa !48
   %242 = ptrtoint ptr %.pre260.i to i64
   %243 = ptrtoint ptr %241 to i64
   %244 = sub i64 %242, %243
   %245 = lshr exact i64 %244, 3
   %246 = trunc i64 %245 to i32
-  store i32 %246, ptr %73, align 4, !tbaa !61
+  store i32 %246, ptr %73, align 4, !tbaa !49
   br label %247
 
 247:                                              ; preds = %240, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i
   %248 = phi ptr [ %.pre259.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i ], [ %.pre260.i, %240 ], [ %.pre260.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i ]
   %249 = trunc i64 %203 to i16
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  store i16 %249, ptr %250, align 4, !tbaa !62
-  store i32 1, ptr %248, align 4, !tbaa !64
+  store i16 %249, ptr %250, align 4, !tbaa !50
+  store i32 1, ptr %248, align 4, !tbaa !52
   %251 = add i64 %.0.i.i, 1
   %252 = icmp ugt i64 %251, 65535
   br i1 %252, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i
@@ -6976,9 +7019,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = 
   %.4297.i190.i = phi i64 [ %276, %275 ], [ %268, %261 ]
   %.0300.i189.i = phi ptr [ %272, %275 ], [ %262, %261 ]
   %270 = getelementptr inbounds i8, ptr %.4.i191.i, i64 -1
-  %271 = load i8, ptr %270, align 1, !tbaa !47
+  %271 = load i8, ptr %270, align 1, !tbaa !36
   %272 = getelementptr inbounds i8, ptr %.0300.i189.i, i64 -1
-  %273 = load i8, ptr %272, align 1, !tbaa !47
+  %273 = load i8, ptr %272, align 1, !tbaa !36
   %274 = icmp eq i8 %271, %273
   br i1 %274, label %275, label %.critedge.i.loopexit.i
 
@@ -6987,7 +7030,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = 
   %277 = icmp ugt ptr %270, %.0266.i213.i
   %278 = icmp ugt ptr %272, %36
   %279 = and i1 %277, %278
-  br i1 %279, label %.lr.ph192.i, label %.critedge.i.loopexit.i, !llvm.loop !78
+  br i1 %279, label %.lr.ph192.i, label %.critedge.i.loopexit.i, !llvm.loop !59
 
 .critedge.i.loopexit.i:                           ; preds = %275, %.lr.ph192.i
   %.4297.i.lcssa.ph.i = phi i64 [ %276, %275 ], [ %.4297.i190.i, %.lr.ph192.i ]
@@ -7003,28 +7046,28 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i: ; preds = 
   %281 = sub i64 %.pre-phi264.i, %280
   %282 = add i32 %264, 3
   %.not.i354.i.i = icmp ugt ptr %.4.i.lcssa.i, %68
-  %283 = load ptr, ptr %69, align 8, !tbaa !52
+  %283 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %.not.i354.i.i, label %300, label %284
 
 284:                                              ; preds = %.critedge.i.i
-  %.0266.i.val17.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val17.i, ptr %283, align 1, !tbaa !47
+  %.0266.i.val17.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val17.i, ptr %283, align 1, !tbaa !36
   %285 = icmp ugt i64 %281, 16
-  %286 = load ptr, ptr %69, align 8, !tbaa !52
+  %286 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %285, label %288, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i: ; preds = %284
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 %281
-  store ptr %287, ptr %69, align 8, !tbaa !52
-  %.pre.i = load ptr, ptr %72, align 8, !tbaa !56
+  store ptr %287, ptr %69, align 8, !tbaa !40
+  %.pre.i = load ptr, ptr %72, align 8, !tbaa !44
   br label %326
 
 288:                                              ; preds = %284
   %289 = getelementptr inbounds nuw i8, ptr %286, i64 16
   %290 = getelementptr inbounds nuw i8, ptr %.0266.i213.i, i64 16
   %291 = getelementptr i8, ptr %286, i64 %281
-  %.val16.i = load <2 x i64>, ptr %290, align 1, !tbaa !47
-  store <2 x i64> %.val16.i, ptr %289, align 1, !tbaa !47
+  %.val16.i = load <2 x i64>, ptr %290, align 1, !tbaa !36
+  store <2 x i64> %.val16.i, ptr %289, align 1, !tbaa !36
   %292 = icmp slt i64 %281, 33
   br i1 %292, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, label %293
 
@@ -7036,15 +7079,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i: 
   %.130.i358.i.i = phi ptr [ %294, %293 ], [ %298, %295 ]
   %.pn.i359.i.i = phi ptr [ %290, %293 ], [ %297, %295 ]
   %.1.i360.i.i = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i, i64 16
-  %.1.i360.i.val.i = load <2 x i64>, ptr %.1.i360.i.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i360.i.val.i, ptr %.130.i358.i.i, align 1, !tbaa !47
+  %.1.i360.i.val.i = load <2 x i64>, ptr %.1.i360.i.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i360.i.val.i, ptr %.130.i358.i.i, align 1, !tbaa !36
   %296 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i, i64 32
-  %.val15.i = load <2 x i64>, ptr %297, align 1, !tbaa !47
-  store <2 x i64> %.val15.i, ptr %296, align 1, !tbaa !47
+  %.val15.i = load <2 x i64>, ptr %297, align 1, !tbaa !36
+  store <2 x i64> %.val15.i, ptr %296, align 1, !tbaa !36
   %298 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i, i64 32
   %299 = icmp ult ptr %298, %291
-  br i1 %299, label %295, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, !llvm.loop !57
+  br i1 %299, label %295, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, !llvm.loop !45
 
 300:                                              ; preds = %.critedge.i.i
   %.not.i31.i = icmp ugt ptr %.0266.i213.i, %68
@@ -7053,8 +7096,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i: 
 301:                                              ; preds = %300
   %302 = sub i64 %70, %280
   %303 = getelementptr inbounds i8, ptr %283, i64 %302
-  %.val19.i32.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.val19.i32.i, ptr %283, align 1, !tbaa !47
+  %.val19.i32.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.val19.i32.i, ptr %283, align 1, !tbaa !36
   %304 = icmp slt i64 %302, 17
   br i1 %304, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i, label %305
 
@@ -7066,15 +7109,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i: 
   %.130.i.i33.i = phi ptr [ %306, %305 ], [ %310, %307 ]
   %.pn.i.i34.i = phi ptr [ %.0266.i213.i, %305 ], [ %309, %307 ]
   %.1.i.i35.i = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i, i64 16
-  %.1.i.val.i36.i = load <2 x i64>, ptr %.1.i.i35.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i36.i, ptr %.130.i.i33.i, align 1, !tbaa !47
+  %.1.i.val.i36.i = load <2 x i64>, ptr %.1.i.i35.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i36.i, ptr %.130.i.i33.i, align 1, !tbaa !36
   %308 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i, i64 16
   %309 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i, i64 32
-  %.val.i37.i = load <2 x i64>, ptr %309, align 1, !tbaa !47
-  store <2 x i64> %.val.i37.i, ptr %308, align 1, !tbaa !47
+  %.val.i37.i = load <2 x i64>, ptr %309, align 1, !tbaa !36
+  store <2 x i64> %.val.i37.i, ptr %308, align 1, !tbaa !36
   %310 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i, i64 32
   %311 = icmp ult ptr %310, %303
-  br i1 %311, label %307, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i, !llvm.loop !57
+  br i1 %311, label %307, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i: ; preds = %307, %301, %300
   %.014.i39.i = phi ptr [ %68, %301 ], [ %.0266.i213.i, %300 ], [ %68, %307 ]
@@ -7086,37 +7129,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i: ; preds 
   %.121.i42.i = phi ptr [ %315, %.lr.ph.i41.i ], [ %.0.i40.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i ]
   %.11520.i43.i = phi ptr [ %313, %.lr.ph.i41.i ], [ %.014.i39.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i ]
   %313 = getelementptr inbounds nuw i8, ptr %.11520.i43.i, i64 1
-  %314 = load i8, ptr %.11520.i43.i, align 1, !tbaa !47
+  %314 = load i8, ptr %.11520.i43.i, align 1, !tbaa !36
   %315 = getelementptr inbounds nuw i8, ptr %.121.i42.i, i64 1
-  store i8 %314, ptr %.121.i42.i, align 1, !tbaa !47
+  store i8 %314, ptr %.121.i42.i, align 1, !tbaa !36
   %exitcond.not.i44.i = icmp eq ptr %313, %.4.i.lcssa.i
-  br i1 %exitcond.not.i44.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, label %.lr.ph.i41.i, !llvm.loop !58
+  br i1 %exitcond.not.i44.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, label %.lr.ph.i41.i, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i: ; preds = %295, %.lr.ph.i41.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i, %288
-  %316 = load ptr, ptr %69, align 8, !tbaa !52
+  %316 = load ptr, ptr %69, align 8, !tbaa !40
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 %281
-  store ptr %317, ptr %69, align 8, !tbaa !52
+  store ptr %317, ptr %69, align 8, !tbaa !40
   %318 = icmp ugt i64 %281, 65535
-  %.pre256.i = load ptr, ptr %72, align 8, !tbaa !56
+  %.pre256.i = load ptr, ptr %72, align 8, !tbaa !44
   br i1 %318, label %319, label %326
 
 319:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i
-  store i32 1, ptr %71, align 8, !tbaa !59
-  %320 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %71, align 8, !tbaa !47
+  %320 = load ptr, ptr %1, align 8, !tbaa !48
   %321 = ptrtoint ptr %.pre256.i to i64
   %322 = ptrtoint ptr %320 to i64
   %323 = sub i64 %321, %322
   %324 = lshr exact i64 %323, 3
   %325 = trunc i64 %324 to i32
-  store i32 %325, ptr %73, align 4, !tbaa !61
+  store i32 %325, ptr %73, align 4, !tbaa !49
   br label %326
 
 326:                                              ; preds = %319, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i
   %327 = phi ptr [ %.pre.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i ], [ %.pre256.i, %319 ], [ %.pre256.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i ]
   %328 = trunc i64 %281 to i16
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  store i16 %328, ptr %329, align 4, !tbaa !62
-  store i32 %282, ptr %327, align 4, !tbaa !64
+  store i16 %328, ptr %329, align 4, !tbaa !50
+  store i32 %282, ptr %327, align 4, !tbaa !52
   %330 = add i64 %.4297.i.lcssa.i, -3
   %331 = icmp ugt i64 %330, 65535
   br i1 %331, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i
@@ -7200,8 +7243,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i: ; preds
   br i1 %363, label %364, label %369
 
 364:                                              ; preds = %362
-  %.352.val.i.i = load i16, ptr %.352.i.i, align 1, !tbaa !50
-  %.348.val.i.i = load i16, ptr %.348.i.i, align 1, !tbaa !50
+  %.352.val.i.i = load i16, ptr %.352.i.i, align 1, !tbaa !38
+  %.348.val.i.i = load i16, ptr %.348.i.i, align 1, !tbaa !38
   %365 = icmp eq i16 %.352.val.i.i, %.348.val.i.i
   br i1 %365, label %366, label %369
 
@@ -7217,8 +7260,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i: ; preds
   br i1 %370, label %371, label %375
 
 371:                                              ; preds = %369
-  %372 = load i8, ptr %.453.i.i, align 1, !tbaa !47
-  %373 = load i8, ptr %.4.i46.i, align 1, !tbaa !47
+  %372 = load i8, ptr %.453.i.i, align 1, !tbaa !36
+  %373 = load i8, ptr %.4.i46.i, align 1, !tbaa !36
   %374 = icmp eq i8 %372, %373
   %spec.select.idx.i.i = zext i1 %374 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %.4.i46.i, i64 %spec.select.idx.i.i
@@ -7242,9 +7285,9 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i:   ; preds = %375, %.thread63.i.i
   %.6299.i198.i = phi i64 [ %387, %386 ], [ %379, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i ]
   %.0318.i197.i = phi ptr [ %383, %386 ], [ %91, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i ]
   %381 = getelementptr inbounds i8, ptr %.6.i199.i, i64 -1
-  %382 = load i8, ptr %381, align 1, !tbaa !47
+  %382 = load i8, ptr %381, align 1, !tbaa !36
   %383 = getelementptr inbounds i8, ptr %.0318.i197.i, i64 -1
-  %384 = load i8, ptr %383, align 1, !tbaa !47
+  %384 = load i8, ptr %383, align 1, !tbaa !36
   %385 = icmp eq i8 %382, %384
   br i1 %385, label %386, label %.critedge2.i.loopexit.i
 
@@ -7253,7 +7296,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i:   ; preds = %375, %.thread63.i.i
   %388 = icmp ugt ptr %381, %.0266.i213.i
   %389 = icmp ugt ptr %383, %21
   %390 = and i1 %388, %389
-  br i1 %390, label %.lr.ph200.i, label %.critedge2.i.loopexit.i, !llvm.loop !79
+  br i1 %390, label %.lr.ph200.i, label %.critedge2.i.loopexit.i, !llvm.loop !60
 
 .critedge2.i.loopexit.i:                          ; preds = %386, %.lr.ph200.i
   %.6299.i.lcssa.ph.i = phi i64 [ %387, %386 ], [ %.6299.i198.i, %.lr.ph200.i ]
@@ -7269,28 +7312,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i:   ; preds = %375, %.thread63.i.i
   %392 = sub i64 %.pre-phi.i, %391
   %393 = add i32 %338, 3
   %.not.i352.i.i = icmp ugt ptr %.6.i.lcssa.i, %68
-  %394 = load ptr, ptr %69, align 8, !tbaa !52
+  %394 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %.not.i352.i.i, label %411, label %395
 
 395:                                              ; preds = %.critedge2.i.i
-  %.0266.i.val20.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val20.i, ptr %394, align 1, !tbaa !47
+  %.0266.i.val20.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val20.i, ptr %394, align 1, !tbaa !36
   %396 = icmp ugt i64 %392, 16
-  %397 = load ptr, ptr %69, align 8, !tbaa !52
+  %397 = load ptr, ptr %69, align 8, !tbaa !40
   br i1 %396, label %399, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i: ; preds = %395
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 %392
-  store ptr %398, ptr %69, align 8, !tbaa !52
-  %.pre257.i = load ptr, ptr %72, align 8, !tbaa !56
+  store ptr %398, ptr %69, align 8, !tbaa !40
+  %.pre257.i = load ptr, ptr %72, align 8, !tbaa !44
   br label %437
 
 399:                                              ; preds = %395
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 16
   %401 = getelementptr inbounds nuw i8, ptr %.0266.i213.i, i64 16
   %402 = getelementptr i8, ptr %397, i64 %392
-  %.val19.i = load <2 x i64>, ptr %401, align 1, !tbaa !47
-  store <2 x i64> %.val19.i, ptr %400, align 1, !tbaa !47
+  %.val19.i = load <2 x i64>, ptr %401, align 1, !tbaa !36
+  store <2 x i64> %.val19.i, ptr %400, align 1, !tbaa !36
   %403 = icmp slt i64 %392, 33
   br i1 %403, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, label %404
 
@@ -7302,15 +7345,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i: 
   %.130.i362.i.i = phi ptr [ %405, %404 ], [ %409, %406 ]
   %.pn.i363.i.i = phi ptr [ %401, %404 ], [ %408, %406 ]
   %.1.i364.i.i = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i, i64 16
-  %.1.i364.i.val.i = load <2 x i64>, ptr %.1.i364.i.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i364.i.val.i, ptr %.130.i362.i.i, align 1, !tbaa !47
+  %.1.i364.i.val.i = load <2 x i64>, ptr %.1.i364.i.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i364.i.val.i, ptr %.130.i362.i.i, align 1, !tbaa !36
   %407 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i, i64 16
   %408 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i, i64 32
-  %.val18.i = load <2 x i64>, ptr %408, align 1, !tbaa !47
-  store <2 x i64> %.val18.i, ptr %407, align 1, !tbaa !47
+  %.val18.i = load <2 x i64>, ptr %408, align 1, !tbaa !36
+  store <2 x i64> %.val18.i, ptr %407, align 1, !tbaa !36
   %409 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i, i64 32
   %410 = icmp ult ptr %409, %402
-  br i1 %410, label %406, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, !llvm.loop !57
+  br i1 %410, label %406, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, !llvm.loop !45
 
 411:                                              ; preds = %.critedge2.i.i
   %.not.i51.i = icmp ugt ptr %.0266.i213.i, %68
@@ -7319,8 +7362,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i: 
 412:                                              ; preds = %411
   %413 = sub i64 %70, %391
   %414 = getelementptr inbounds i8, ptr %394, i64 %413
-  %.val19.i52.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !47
-  store <2 x i64> %.val19.i52.i, ptr %394, align 1, !tbaa !47
+  %.val19.i52.i = load <2 x i64>, ptr %.0266.i213.i, align 1, !tbaa !36
+  store <2 x i64> %.val19.i52.i, ptr %394, align 1, !tbaa !36
   %415 = icmp slt i64 %413, 17
   br i1 %415, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i, label %416
 
@@ -7332,15 +7375,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i: 
   %.130.i.i53.i = phi ptr [ %417, %416 ], [ %421, %418 ]
   %.pn.i.i54.i = phi ptr [ %.0266.i213.i, %416 ], [ %420, %418 ]
   %.1.i.i55.i = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i, i64 16
-  %.1.i.val.i56.i = load <2 x i64>, ptr %.1.i.i55.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i56.i, ptr %.130.i.i53.i, align 1, !tbaa !47
+  %.1.i.val.i56.i = load <2 x i64>, ptr %.1.i.i55.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i56.i, ptr %.130.i.i53.i, align 1, !tbaa !36
   %419 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i, i64 16
   %420 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i, i64 32
-  %.val.i57.i = load <2 x i64>, ptr %420, align 1, !tbaa !47
-  store <2 x i64> %.val.i57.i, ptr %419, align 1, !tbaa !47
+  %.val.i57.i = load <2 x i64>, ptr %420, align 1, !tbaa !36
+  store <2 x i64> %.val.i57.i, ptr %419, align 1, !tbaa !36
   %421 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i, i64 32
   %422 = icmp ult ptr %421, %414
-  br i1 %422, label %418, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i, !llvm.loop !57
+  br i1 %422, label %418, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i: ; preds = %418, %412, %411
   %.014.i59.i = phi ptr [ %68, %412 ], [ %.0266.i213.i, %411 ], [ %68, %418 ]
@@ -7352,37 +7395,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i: ; preds 
   %.121.i62.i = phi ptr [ %426, %.lr.ph.i61.i ], [ %.0.i60.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i ]
   %.11520.i63.i = phi ptr [ %424, %.lr.ph.i61.i ], [ %.014.i59.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i ]
   %424 = getelementptr inbounds nuw i8, ptr %.11520.i63.i, i64 1
-  %425 = load i8, ptr %.11520.i63.i, align 1, !tbaa !47
+  %425 = load i8, ptr %.11520.i63.i, align 1, !tbaa !36
   %426 = getelementptr inbounds nuw i8, ptr %.121.i62.i, i64 1
-  store i8 %425, ptr %.121.i62.i, align 1, !tbaa !47
+  store i8 %425, ptr %.121.i62.i, align 1, !tbaa !36
   %exitcond.not.i64.i = icmp eq ptr %424, %.6.i.lcssa.i
-  br i1 %exitcond.not.i64.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, label %.lr.ph.i61.i, !llvm.loop !58
+  br i1 %exitcond.not.i64.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, label %.lr.ph.i61.i, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i: ; preds = %406, %.lr.ph.i61.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i, %399
-  %427 = load ptr, ptr %69, align 8, !tbaa !52
+  %427 = load ptr, ptr %69, align 8, !tbaa !40
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 %392
-  store ptr %428, ptr %69, align 8, !tbaa !52
+  store ptr %428, ptr %69, align 8, !tbaa !40
   %429 = icmp ugt i64 %392, 65535
-  %.pre258.i = load ptr, ptr %72, align 8, !tbaa !56
+  %.pre258.i = load ptr, ptr %72, align 8, !tbaa !44
   br i1 %429, label %430, label %437
 
 430:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i
-  store i32 1, ptr %71, align 8, !tbaa !59
-  %431 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %71, align 8, !tbaa !47
+  %431 = load ptr, ptr %1, align 8, !tbaa !48
   %432 = ptrtoint ptr %.pre258.i to i64
   %433 = ptrtoint ptr %431 to i64
   %434 = sub i64 %432, %433
   %435 = lshr exact i64 %434, 3
   %436 = trunc i64 %435 to i32
-  store i32 %436, ptr %73, align 4, !tbaa !61
+  store i32 %436, ptr %73, align 4, !tbaa !49
   br label %437
 
 437:                                              ; preds = %430, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i
   %438 = phi ptr [ %.pre257.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i ], [ %.pre258.i, %430 ], [ %.pre258.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i ]
   %439 = trunc i64 %392 to i16
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 4
-  store i16 %439, ptr %440, align 4, !tbaa !62
-  store i32 %393, ptr %438, align 4, !tbaa !64
+  store i16 %439, ptr %440, align 4, !tbaa !50
+  store i32 %393, ptr %438, align 4, !tbaa !52
   %441 = add i64 %.6299.i.lcssa.i, -3
   %442 = icmp ugt i64 %441, 65535
   br i1 %442, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i
@@ -7412,14 +7455,14 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split
   %.2284.i.ph.ph.i = phi i32 [ %.0282.i211.i, %247 ], [ %.0272.i212.i, %326 ], [ %.0272.i212.i, %437 ]
   %.2274.i.ph.ph.i = phi i32 [ %.0272.i212.i, %247 ], [ %264, %326 ], [ %338, %437 ]
   %.2.i.ph.ph.i = phi ptr [ %108, %247 ], [ %.4.i.lcssa.i, %326 ], [ %.6.i.lcssa.i, %437 ]
-  store i32 2, ptr %71, align 8, !tbaa !59
-  %453 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %71, align 8, !tbaa !47
+  %453 = load ptr, ptr %1, align 8, !tbaa !48
   %454 = ptrtoint ptr %.sink309.i to i64
   %455 = ptrtoint ptr %453 to i64
   %456 = sub i64 %454, %455
   %457 = lshr exact i64 %456, 3
   %458 = trunc i64 %457 to i32
-  store i32 %458, ptr %73, align 4, !tbaa !61
+  store i32 %458, ptr %73, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i, %437, %326, %247
@@ -7431,9 +7474,9 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i: ; preds
   %.2.i.ph.i = phi ptr [ %108, %247 ], [ %.4.i.lcssa.i, %326 ], [ %.6.i.lcssa.i, %437 ], [ %.2.i.ph.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i ]
   %459 = trunc i64 %.sink305.i to i16
   %460 = getelementptr inbounds nuw i8, ptr %.sink304.i, i64 6
-  store i16 %459, ptr %460, align 2, !tbaa !65
+  store i16 %459, ptr %460, align 2, !tbaa !53
   %461 = getelementptr inbounds nuw i8, ptr %.sink304.i, i64 8
-  store ptr %461, ptr %72, align 8, !tbaa !56
+  store ptr %461, ptr %72, align 8, !tbaa !44
   %462 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i, i64 %.2295.i.ph.i
   %.not337.i.i = icmp ugt ptr %462, %23
   br i1 %.not337.i.i, label %.thread123.i, label %463
@@ -7493,38 +7536,38 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i: ; preds
   br i1 %.not.i.i.i, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i, label %498
 
 498:                                              ; preds = %493
-  %499 = load ptr, ptr %69, align 8, !tbaa !52
-  %.3269.i.val.i = load <2 x i64>, ptr %.3269.i208.i, align 1, !tbaa !47
-  store <2 x i64> %.3269.i.val.i, ptr %499, align 1, !tbaa !47
-  %.pre261.i = load ptr, ptr %72, align 8, !tbaa !56
+  %499 = load ptr, ptr %69, align 8, !tbaa !40
+  %.3269.i.val.i = load <2 x i64>, ptr %.3269.i208.i, align 1, !tbaa !36
+  store <2 x i64> %.3269.i.val.i, ptr %499, align 1, !tbaa !36
+  %.pre261.i = load ptr, ptr %72, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i: ; preds = %498, %493
   %500 = phi ptr [ %481, %493 ], [ %.pre261.i, %498 ]
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 4
-  store i16 0, ptr %501, align 4, !tbaa !62
-  store i32 1, ptr %500, align 4, !tbaa !64
+  store i16 0, ptr %501, align 4, !tbaa !50
+  store i32 1, ptr %500, align 4, !tbaa !52
   %502 = add i64 %497, 1
   %503 = icmp ugt i64 %502, 65535
   br i1 %503, label %504, label %511
 
 504:                                              ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i
-  store i32 2, ptr %71, align 8, !tbaa !59
-  %505 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %71, align 8, !tbaa !47
+  %505 = load ptr, ptr %1, align 8, !tbaa !48
   %506 = ptrtoint ptr %500 to i64
   %507 = ptrtoint ptr %505 to i64
   %508 = sub i64 %506, %507
   %509 = lshr exact i64 %508, 3
   %510 = trunc i64 %509 to i32
-  store i32 %510, ptr %73, align 4, !tbaa !61
+  store i32 %510, ptr %73, align 4, !tbaa !49
   br label %511
 
 511:                                              ; preds = %504, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i
   %512 = trunc i64 %502 to i16
   %513 = getelementptr inbounds nuw i8, ptr %500, i64 6
-  store i16 %512, ptr %513, align 2, !tbaa !65
+  store i16 %512, ptr %513, align 2, !tbaa !53
   %514 = getelementptr inbounds nuw i8, ptr %500, i64 8
-  store ptr %514, ptr %72, align 8, !tbaa !56
+  store ptr %514, ptr %72, align 8, !tbaa !44
   %.9.i.val8.i = load i32, ptr %.3269.i208.i, align 1, !tbaa !24
   %515 = mul i32 %.9.i.val8.i, -1640531535
   %516 = lshr i32 %515, %65
@@ -7559,7 +7602,7 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i: ; preds = %498, %
   tail call void @llvm.prefetch.p0(ptr %525, i32 0, i32 2, i32 1)
   %526 = add i64 %.0292.i187.i27, 64
   %527 = icmp ult i64 %526, %524
-  br i1 %527, label %.lr.ph.i26, label %.loopexit.i28, !llvm.loop !77
+  br i1 %527, label %.lr.ph.i26, label %.loopexit.i28, !llvm.loop !58
 
 .loopexit.i28:                                    ; preds = %.lr.ph.i26, %522, %521
   %528 = add nsw i64 %4, -8
@@ -7727,8 +7770,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i: ; preds = %498, %
   br i1 %612, label %613, label %618
 
 613:                                              ; preds = %610
-  %.352.val.i.i.i279 = load i16, ptr %.352.i.i.i213, align 1, !tbaa !50
-  %.348.val.i.i.i280 = load i16, ptr %.348.i.i.i214, align 1, !tbaa !50
+  %.352.val.i.i.i279 = load i16, ptr %.352.i.i.i213, align 1, !tbaa !38
+  %.348.val.i.i.i280 = load i16, ptr %.348.i.i.i214, align 1, !tbaa !38
   %614 = icmp eq i16 %.352.val.i.i.i279, %.348.val.i.i.i280
   br i1 %614, label %615, label %618
 
@@ -7744,8 +7787,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i: ; preds = %498, %
   br i1 %619, label %620, label %624
 
 620:                                              ; preds = %618
-  %621 = load i8, ptr %.453.i.i.i215, align 1, !tbaa !47
-  %622 = load i8, ptr %.4.i.i.i216, align 1, !tbaa !47
+  %621 = load i8, ptr %.453.i.i.i215, align 1, !tbaa !36
+  %622 = load i8, ptr %.4.i.i.i216, align 1, !tbaa !36
   %623 = icmp eq i8 %621, %622
   %spec.select.idx.i.i.i277 = zext i1 %623 to i64
   %spec.select.i.i.i278 = getelementptr inbounds nuw i8, ptr %.4.i.i.i216, i64 %spec.select.idx.i.i.i277
@@ -7829,8 +7872,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i218: ; preds = %624, %.thread63.
   br i1 %653, label %654, label %659
 
 654:                                              ; preds = %652
-  %.352.val.i33.i.i261 = load i16, ptr %.352.i25.i.i252, align 1, !tbaa !50
-  %.348.val.i34.i.i262 = load i16, ptr %.348.i26.i.i253, align 1, !tbaa !50
+  %.352.val.i33.i.i261 = load i16, ptr %.352.i25.i.i252, align 1, !tbaa !38
+  %.348.val.i34.i.i262 = load i16, ptr %.348.i26.i.i253, align 1, !tbaa !38
   %655 = icmp eq i16 %.352.val.i33.i.i261, %.348.val.i34.i.i262
   br i1 %655, label %656, label %659
 
@@ -7846,8 +7889,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i218: ; preds = %624, %.thread63.
   br i1 %660, label %661, label %665
 
 661:                                              ; preds = %659
-  %662 = load i8, ptr %.453.i27.i.i254, align 1, !tbaa !47
-  %663 = load i8, ptr %.4.i28.i.i255, align 1, !tbaa !47
+  %662 = load i8, ptr %.453.i27.i.i254, align 1, !tbaa !36
+  %663 = load i8, ptr %.4.i28.i.i255, align 1, !tbaa !36
   %664 = icmp eq i8 %662, %663
   %spec.select.idx.i31.i.i259 = zext i1 %664 to i64
   %spec.select.i32.i.i260 = getelementptr inbounds nuw i8, ptr %.4.i28.i.i255, i64 %spec.select.idx.i31.i.i259
@@ -7872,28 +7915,28 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i221: ; preds = %_Z
   %672 = ptrtoint ptr %.0266.i213.i34 to i64
   %673 = sub i64 %671, %672
   %.not.i356.i.i223 = icmp ugt ptr %578, %538
-  %674 = load ptr, ptr %539, align 8, !tbaa !52
+  %674 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %.not.i356.i.i223, label %691, label %675
 
 675:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i221
-  %.0266.i.val.i224 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val.i224, ptr %674, align 1, !tbaa !47
+  %.0266.i.val.i224 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val.i224, ptr %674, align 1, !tbaa !36
   %676 = icmp ugt i64 %673, 16
-  %677 = load ptr, ptr %539, align 8, !tbaa !52
+  %677 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %676, label %679, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225: ; preds = %675
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 %673
-  store ptr %678, ptr %539, align 8, !tbaa !52
-  %.pre259.i226 = load ptr, ptr %542, align 8, !tbaa !56
+  store ptr %678, ptr %539, align 8, !tbaa !40
+  %.pre259.i226 = load ptr, ptr %542, align 8, !tbaa !44
   br label %717
 
 679:                                              ; preds = %675
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 16
   %681 = getelementptr inbounds nuw i8, ptr %.0266.i213.i34, i64 16
   %682 = getelementptr i8, ptr %677, i64 %673
-  %.val14.i227 = load <2 x i64>, ptr %681, align 1, !tbaa !47
-  store <2 x i64> %.val14.i227, ptr %680, align 1, !tbaa !47
+  %.val14.i227 = load <2 x i64>, ptr %681, align 1, !tbaa !36
+  store <2 x i64> %.val14.i227, ptr %680, align 1, !tbaa !36
   %683 = icmp slt i64 %673, 33
   br i1 %683, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, label %684
 
@@ -7905,15 +7948,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225: 
   %.130.i.i.i228 = phi ptr [ %685, %684 ], [ %689, %686 ]
   %.pn.i.i.i229 = phi ptr [ %681, %684 ], [ %688, %686 ]
   %.1.i.i.i230 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i229, i64 16
-  %.1.i.i.val.i231 = load <2 x i64>, ptr %.1.i.i.i230, align 1, !tbaa !47
-  store <2 x i64> %.1.i.i.val.i231, ptr %.130.i.i.i228, align 1, !tbaa !47
+  %.1.i.i.val.i231 = load <2 x i64>, ptr %.1.i.i.i230, align 1, !tbaa !36
+  store <2 x i64> %.1.i.i.val.i231, ptr %.130.i.i.i228, align 1, !tbaa !36
   %687 = getelementptr inbounds nuw i8, ptr %.130.i.i.i228, i64 16
   %688 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i229, i64 32
-  %.val13.i232 = load <2 x i64>, ptr %688, align 1, !tbaa !47
-  store <2 x i64> %.val13.i232, ptr %687, align 1, !tbaa !47
+  %.val13.i232 = load <2 x i64>, ptr %688, align 1, !tbaa !36
+  store <2 x i64> %.val13.i232, ptr %687, align 1, !tbaa !36
   %689 = getelementptr inbounds nuw i8, ptr %.130.i.i.i228, i64 32
   %690 = icmp ult ptr %689, %682
-  br i1 %690, label %686, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, !llvm.loop !57
+  br i1 %690, label %686, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, !llvm.loop !45
 
 691:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i221
   %.not.i25.i235 = icmp ugt ptr %.0266.i213.i34, %538
@@ -7922,8 +7965,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225: 
 692:                                              ; preds = %691
   %693 = sub i64 %540, %672
   %694 = getelementptr inbounds i8, ptr %674, i64 %693
-  %.val19.i.i236 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i236, ptr %674, align 1, !tbaa !47
+  %.val19.i.i236 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i236, ptr %674, align 1, !tbaa !36
   %695 = icmp slt i64 %693, 17
   br i1 %695, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242, label %696
 
@@ -7935,15 +7978,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225: 
   %.130.i.i26.i237 = phi ptr [ %697, %696 ], [ %701, %698 ]
   %.pn.i.i27.i238 = phi ptr [ %.0266.i213.i34, %696 ], [ %700, %698 ]
   %.1.i.i28.i239 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i238, i64 16
-  %.1.i.val.i.i240 = load <2 x i64>, ptr %.1.i.i28.i239, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i240, ptr %.130.i.i26.i237, align 1, !tbaa !47
+  %.1.i.val.i.i240 = load <2 x i64>, ptr %.1.i.i28.i239, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i240, ptr %.130.i.i26.i237, align 1, !tbaa !36
   %699 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i237, i64 16
   %700 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i238, i64 32
-  %.val.i.i241 = load <2 x i64>, ptr %700, align 1, !tbaa !47
-  store <2 x i64> %.val.i.i241, ptr %699, align 1, !tbaa !47
+  %.val.i.i241 = load <2 x i64>, ptr %700, align 1, !tbaa !36
+  store <2 x i64> %.val.i.i241, ptr %699, align 1, !tbaa !36
   %701 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i237, i64 32
   %702 = icmp ult ptr %701, %694
-  br i1 %702, label %698, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242, !llvm.loop !57
+  br i1 %702, label %698, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242: ; preds = %698, %692, %691
   %.014.i.i243 = phi ptr [ %538, %692 ], [ %.0266.i213.i34, %691 ], [ %538, %698 ]
@@ -7955,37 +7998,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242: ; pre
   %.121.i.i246 = phi ptr [ %706, %.lr.ph.i.i245 ], [ %.0.i30.i244, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242 ]
   %.11520.i.i247 = phi ptr [ %704, %.lr.ph.i.i245 ], [ %.014.i.i243, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242 ]
   %704 = getelementptr inbounds nuw i8, ptr %.11520.i.i247, i64 1
-  %705 = load i8, ptr %.11520.i.i247, align 1, !tbaa !47
+  %705 = load i8, ptr %.11520.i.i247, align 1, !tbaa !36
   %706 = getelementptr inbounds nuw i8, ptr %.121.i.i246, i64 1
-  store i8 %705, ptr %.121.i.i246, align 1, !tbaa !47
+  store i8 %705, ptr %.121.i.i246, align 1, !tbaa !36
   %exitcond.not.i.i248 = icmp eq ptr %.11520.i.i247, %.1.i.i44
-  br i1 %exitcond.not.i.i248, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, label %.lr.ph.i.i245, !llvm.loop !58
+  br i1 %exitcond.not.i.i248, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, label %.lr.ph.i.i245, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233: ; preds = %686, %.lr.ph.i.i245, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i242, %679
-  %707 = load ptr, ptr %539, align 8, !tbaa !52
+  %707 = load ptr, ptr %539, align 8, !tbaa !40
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 %673
-  store ptr %708, ptr %539, align 8, !tbaa !52
+  store ptr %708, ptr %539, align 8, !tbaa !40
   %709 = icmp ugt i64 %673, 65535
-  %.pre260.i234 = load ptr, ptr %542, align 8, !tbaa !56
+  %.pre260.i234 = load ptr, ptr %542, align 8, !tbaa !44
   br i1 %709, label %710, label %717
 
 710:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233
-  store i32 1, ptr %541, align 8, !tbaa !59
-  %711 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %541, align 8, !tbaa !47
+  %711 = load ptr, ptr %1, align 8, !tbaa !48
   %712 = ptrtoint ptr %.pre260.i234 to i64
   %713 = ptrtoint ptr %711 to i64
   %714 = sub i64 %712, %713
   %715 = lshr exact i64 %714, 3
   %716 = trunc i64 %715 to i32
-  store i32 %716, ptr %543, align 4, !tbaa !61
+  store i32 %716, ptr %543, align 4, !tbaa !49
   br label %717
 
 717:                                              ; preds = %710, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225
   %718 = phi ptr [ %.pre259.i226, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i225 ], [ %.pre260.i234, %710 ], [ %.pre260.i234, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233 ]
   %719 = trunc i64 %673 to i16
   %720 = getelementptr inbounds nuw i8, ptr %718, i64 4
-  store i16 %719, ptr %720, align 4, !tbaa !62
-  store i32 1, ptr %718, align 4, !tbaa !64
+  store i16 %719, ptr %720, align 4, !tbaa !50
+  store i32 1, ptr %718, align 4, !tbaa !52
   %721 = add i64 %.0.i.i222, 1
   %722 = icmp ugt i64 %721, 65535
   br i1 %722, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i110, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82
@@ -8024,9 +8067,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233: ; preds
   %.4297.i190.i201 = phi i64 [ %746, %745 ], [ %738, %731 ]
   %.0300.i189.i202 = phi ptr [ %742, %745 ], [ %732, %731 ]
   %740 = getelementptr inbounds i8, ptr %.4.i191.i200, i64 -1
-  %741 = load i8, ptr %740, align 1, !tbaa !47
+  %741 = load i8, ptr %740, align 1, !tbaa !36
   %742 = getelementptr inbounds i8, ptr %.0300.i189.i202, i64 -1
-  %743 = load i8, ptr %742, align 1, !tbaa !47
+  %743 = load i8, ptr %742, align 1, !tbaa !36
   %744 = icmp eq i8 %741, %743
   br i1 %744, label %745, label %.critedge.i.loopexit.i203
 
@@ -8035,7 +8078,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233: ; preds
   %747 = icmp ugt ptr %740, %.0266.i213.i34
   %748 = icmp ugt ptr %742, %36
   %749 = and i1 %747, %748
-  br i1 %749, label %.lr.ph192.i199, label %.critedge.i.loopexit.i203, !llvm.loop !78
+  br i1 %749, label %.lr.ph192.i199, label %.critedge.i.loopexit.i203, !llvm.loop !59
 
 .critedge.i.loopexit.i203:                        ; preds = %745, %.lr.ph192.i199
   %.4297.i.lcssa.ph.i204 = phi i64 [ %746, %745 ], [ %.4297.i190.i201, %.lr.ph192.i199 ]
@@ -8051,28 +8094,28 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i233: ; preds
   %751 = sub i64 %.pre-phi264.i170, %750
   %752 = add i32 %734, 3
   %.not.i354.i.i173 = icmp ugt ptr %.4.i.lcssa.i172, %538
-  %753 = load ptr, ptr %539, align 8, !tbaa !52
+  %753 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %.not.i354.i.i173, label %770, label %754
 
 754:                                              ; preds = %.critedge.i.i169
-  %.0266.i.val17.i174 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val17.i174, ptr %753, align 1, !tbaa !47
+  %.0266.i.val17.i174 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val17.i174, ptr %753, align 1, !tbaa !36
   %755 = icmp ugt i64 %751, 16
-  %756 = load ptr, ptr %539, align 8, !tbaa !52
+  %756 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %755, label %758, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i175
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i175: ; preds = %754
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 %751
-  store ptr %757, ptr %539, align 8, !tbaa !52
-  %.pre.i176 = load ptr, ptr %542, align 8, !tbaa !56
+  store ptr %757, ptr %539, align 8, !tbaa !40
+  %.pre.i176 = load ptr, ptr %542, align 8, !tbaa !44
   br label %796
 
 758:                                              ; preds = %754
   %759 = getelementptr inbounds nuw i8, ptr %756, i64 16
   %760 = getelementptr inbounds nuw i8, ptr %.0266.i213.i34, i64 16
   %761 = getelementptr i8, ptr %756, i64 %751
-  %.val16.i177 = load <2 x i64>, ptr %760, align 1, !tbaa !47
-  store <2 x i64> %.val16.i177, ptr %759, align 1, !tbaa !47
+  %.val16.i177 = load <2 x i64>, ptr %760, align 1, !tbaa !36
+  store <2 x i64> %.val16.i177, ptr %759, align 1, !tbaa !36
   %762 = icmp slt i64 %751, 33
   br i1 %762, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, label %763
 
@@ -8084,15 +8127,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i17
   %.130.i358.i.i178 = phi ptr [ %764, %763 ], [ %768, %765 ]
   %.pn.i359.i.i179 = phi ptr [ %760, %763 ], [ %767, %765 ]
   %.1.i360.i.i180 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i179, i64 16
-  %.1.i360.i.val.i181 = load <2 x i64>, ptr %.1.i360.i.i180, align 1, !tbaa !47
-  store <2 x i64> %.1.i360.i.val.i181, ptr %.130.i358.i.i178, align 1, !tbaa !47
+  %.1.i360.i.val.i181 = load <2 x i64>, ptr %.1.i360.i.i180, align 1, !tbaa !36
+  store <2 x i64> %.1.i360.i.val.i181, ptr %.130.i358.i.i178, align 1, !tbaa !36
   %766 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i178, i64 16
   %767 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i179, i64 32
-  %.val15.i182 = load <2 x i64>, ptr %767, align 1, !tbaa !47
-  store <2 x i64> %.val15.i182, ptr %766, align 1, !tbaa !47
+  %.val15.i182 = load <2 x i64>, ptr %767, align 1, !tbaa !36
+  store <2 x i64> %.val15.i182, ptr %766, align 1, !tbaa !36
   %768 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i178, i64 32
   %769 = icmp ult ptr %768, %761
-  br i1 %769, label %765, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, !llvm.loop !57
+  br i1 %769, label %765, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, !llvm.loop !45
 
 770:                                              ; preds = %.critedge.i.i169
   %.not.i31.i185 = icmp ugt ptr %.0266.i213.i34, %538
@@ -8101,8 +8144,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i17
 771:                                              ; preds = %770
   %772 = sub i64 %540, %750
   %773 = getelementptr inbounds i8, ptr %753, i64 %772
-  %.val19.i32.i186 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.val19.i32.i186, ptr %753, align 1, !tbaa !47
+  %.val19.i32.i186 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.val19.i32.i186, ptr %753, align 1, !tbaa !36
   %774 = icmp slt i64 %772, 17
   br i1 %774, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192, label %775
 
@@ -8114,15 +8157,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i17
   %.130.i.i33.i187 = phi ptr [ %776, %775 ], [ %780, %777 ]
   %.pn.i.i34.i188 = phi ptr [ %.0266.i213.i34, %775 ], [ %779, %777 ]
   %.1.i.i35.i189 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i188, i64 16
-  %.1.i.val.i36.i190 = load <2 x i64>, ptr %.1.i.i35.i189, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i36.i190, ptr %.130.i.i33.i187, align 1, !tbaa !47
+  %.1.i.val.i36.i190 = load <2 x i64>, ptr %.1.i.i35.i189, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i36.i190, ptr %.130.i.i33.i187, align 1, !tbaa !36
   %778 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i187, i64 16
   %779 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i188, i64 32
-  %.val.i37.i191 = load <2 x i64>, ptr %779, align 1, !tbaa !47
-  store <2 x i64> %.val.i37.i191, ptr %778, align 1, !tbaa !47
+  %.val.i37.i191 = load <2 x i64>, ptr %779, align 1, !tbaa !36
+  store <2 x i64> %.val.i37.i191, ptr %778, align 1, !tbaa !36
   %780 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i187, i64 32
   %781 = icmp ult ptr %780, %773
-  br i1 %781, label %777, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192, !llvm.loop !57
+  br i1 %781, label %777, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192: ; preds = %777, %771, %770
   %.014.i39.i193 = phi ptr [ %538, %771 ], [ %.0266.i213.i34, %770 ], [ %538, %777 ]
@@ -8134,37 +8177,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192: ; pre
   %.121.i42.i196 = phi ptr [ %785, %.lr.ph.i41.i195 ], [ %.0.i40.i194, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192 ]
   %.11520.i43.i197 = phi ptr [ %783, %.lr.ph.i41.i195 ], [ %.014.i39.i193, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192 ]
   %783 = getelementptr inbounds nuw i8, ptr %.11520.i43.i197, i64 1
-  %784 = load i8, ptr %.11520.i43.i197, align 1, !tbaa !47
+  %784 = load i8, ptr %.11520.i43.i197, align 1, !tbaa !36
   %785 = getelementptr inbounds nuw i8, ptr %.121.i42.i196, i64 1
-  store i8 %784, ptr %.121.i42.i196, align 1, !tbaa !47
+  store i8 %784, ptr %.121.i42.i196, align 1, !tbaa !36
   %exitcond.not.i44.i198 = icmp eq ptr %783, %.4.i.lcssa.i172
-  br i1 %exitcond.not.i44.i198, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, label %.lr.ph.i41.i195, !llvm.loop !58
+  br i1 %exitcond.not.i44.i198, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, label %.lr.ph.i41.i195, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183: ; preds = %765, %.lr.ph.i41.i195, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i192, %758
-  %786 = load ptr, ptr %539, align 8, !tbaa !52
+  %786 = load ptr, ptr %539, align 8, !tbaa !40
   %787 = getelementptr inbounds nuw i8, ptr %786, i64 %751
-  store ptr %787, ptr %539, align 8, !tbaa !52
+  store ptr %787, ptr %539, align 8, !tbaa !40
   %788 = icmp ugt i64 %751, 65535
-  %.pre256.i184 = load ptr, ptr %542, align 8, !tbaa !56
+  %.pre256.i184 = load ptr, ptr %542, align 8, !tbaa !44
   br i1 %788, label %789, label %796
 
 789:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183
-  store i32 1, ptr %541, align 8, !tbaa !59
-  %790 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %541, align 8, !tbaa !47
+  %790 = load ptr, ptr %1, align 8, !tbaa !48
   %791 = ptrtoint ptr %.pre256.i184 to i64
   %792 = ptrtoint ptr %790 to i64
   %793 = sub i64 %791, %792
   %794 = lshr exact i64 %793, 3
   %795 = trunc i64 %794 to i32
-  store i32 %795, ptr %543, align 4, !tbaa !61
+  store i32 %795, ptr %543, align 4, !tbaa !49
   br label %796
 
 796:                                              ; preds = %789, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i175
   %797 = phi ptr [ %.pre.i176, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i175 ], [ %.pre256.i184, %789 ], [ %.pre256.i184, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183 ]
   %798 = trunc i64 %751 to i16
   %799 = getelementptr inbounds nuw i8, ptr %797, i64 4
-  store i16 %798, ptr %799, align 4, !tbaa !62
-  store i32 %752, ptr %797, align 4, !tbaa !64
+  store i16 %798, ptr %799, align 4, !tbaa !50
+  store i32 %752, ptr %797, align 4, !tbaa !52
   %800 = add i64 %.4297.i.lcssa.i171, -3
   %801 = icmp ugt i64 %800, 65535
   br i1 %801, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i110, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82
@@ -8248,8 +8291,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183: ; pr
   br i1 %833, label %834, label %839
 
 834:                                              ; preds = %832
-  %.352.val.i.i149 = load i16, ptr %.352.i.i67, align 1, !tbaa !50
-  %.348.val.i.i150 = load i16, ptr %.348.i.i68, align 1, !tbaa !50
+  %.352.val.i.i149 = load i16, ptr %.352.i.i67, align 1, !tbaa !38
+  %.348.val.i.i150 = load i16, ptr %.348.i.i68, align 1, !tbaa !38
   %835 = icmp eq i16 %.352.val.i.i149, %.348.val.i.i150
   br i1 %835, label %836, label %839
 
@@ -8265,8 +8308,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i183: ; pr
   br i1 %840, label %841, label %845
 
 841:                                              ; preds = %839
-  %842 = load i8, ptr %.453.i.i69, align 1, !tbaa !47
-  %843 = load i8, ptr %.4.i46.i70, align 1, !tbaa !47
+  %842 = load i8, ptr %.453.i.i69, align 1, !tbaa !36
+  %843 = load i8, ptr %.4.i46.i70, align 1, !tbaa !36
   %844 = icmp eq i8 %842, %843
   %spec.select.idx.i.i147 = zext i1 %844 to i64
   %spec.select.i.i148 = getelementptr inbounds nuw i8, ptr %.4.i46.i70, i64 %spec.select.idx.i.i147
@@ -8290,9 +8333,9 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i72: ; preds = %845, %.thread63.i.i
   %.6299.i198.i141 = phi i64 [ %857, %856 ], [ %849, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i72 ]
   %.0318.i197.i142 = phi ptr [ %853, %856 ], [ %561, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i72 ]
   %851 = getelementptr inbounds i8, ptr %.6.i199.i140, i64 -1
-  %852 = load i8, ptr %851, align 1, !tbaa !47
+  %852 = load i8, ptr %851, align 1, !tbaa !36
   %853 = getelementptr inbounds i8, ptr %.0318.i197.i142, i64 -1
-  %854 = load i8, ptr %853, align 1, !tbaa !47
+  %854 = load i8, ptr %853, align 1, !tbaa !36
   %855 = icmp eq i8 %852, %854
   br i1 %855, label %856, label %.critedge2.i.loopexit.i143
 
@@ -8301,7 +8344,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i72: ; preds = %845, %.thread63.i.i
   %858 = icmp ugt ptr %851, %.0266.i213.i34
   %859 = icmp ugt ptr %853, %21
   %860 = and i1 %858, %859
-  br i1 %860, label %.lr.ph200.i139, label %.critedge2.i.loopexit.i143, !llvm.loop !79
+  br i1 %860, label %.lr.ph200.i139, label %.critedge2.i.loopexit.i143, !llvm.loop !60
 
 .critedge2.i.loopexit.i143:                       ; preds = %856, %.lr.ph200.i139
   %.6299.i.lcssa.ph.i144 = phi i64 [ %857, %856 ], [ %.6299.i198.i141, %.lr.ph200.i139 ]
@@ -8317,28 +8360,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i72: ; preds = %845, %.thread63.i.i
   %862 = sub i64 %.pre-phi.i75, %861
   %863 = add i32 %808, 3
   %.not.i352.i.i78 = icmp ugt ptr %.6.i.lcssa.i77, %538
-  %864 = load ptr, ptr %539, align 8, !tbaa !52
+  %864 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %.not.i352.i.i78, label %881, label %865
 
 865:                                              ; preds = %.critedge2.i.i74
-  %.0266.i.val20.i79 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val20.i79, ptr %864, align 1, !tbaa !47
+  %.0266.i.val20.i79 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val20.i79, ptr %864, align 1, !tbaa !36
   %866 = icmp ugt i64 %862, 16
-  %867 = load ptr, ptr %539, align 8, !tbaa !52
+  %867 = load ptr, ptr %539, align 8, !tbaa !40
   br i1 %866, label %869, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80: ; preds = %865
   %868 = getelementptr inbounds nuw i8, ptr %867, i64 %862
-  store ptr %868, ptr %539, align 8, !tbaa !52
-  %.pre257.i81 = load ptr, ptr %542, align 8, !tbaa !56
+  store ptr %868, ptr %539, align 8, !tbaa !40
+  %.pre257.i81 = load ptr, ptr %542, align 8, !tbaa !44
   br label %907
 
 869:                                              ; preds = %865
   %870 = getelementptr inbounds nuw i8, ptr %867, i64 16
   %871 = getelementptr inbounds nuw i8, ptr %.0266.i213.i34, i64 16
   %872 = getelementptr i8, ptr %867, i64 %862
-  %.val19.i117 = load <2 x i64>, ptr %871, align 1, !tbaa !47
-  store <2 x i64> %.val19.i117, ptr %870, align 1, !tbaa !47
+  %.val19.i117 = load <2 x i64>, ptr %871, align 1, !tbaa !36
+  store <2 x i64> %.val19.i117, ptr %870, align 1, !tbaa !36
   %873 = icmp slt i64 %862, 33
   br i1 %873, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, label %874
 
@@ -8350,15 +8393,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80
   %.130.i362.i.i118 = phi ptr [ %875, %874 ], [ %879, %876 ]
   %.pn.i363.i.i119 = phi ptr [ %871, %874 ], [ %878, %876 ]
   %.1.i364.i.i120 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i119, i64 16
-  %.1.i364.i.val.i121 = load <2 x i64>, ptr %.1.i364.i.i120, align 1, !tbaa !47
-  store <2 x i64> %.1.i364.i.val.i121, ptr %.130.i362.i.i118, align 1, !tbaa !47
+  %.1.i364.i.val.i121 = load <2 x i64>, ptr %.1.i364.i.i120, align 1, !tbaa !36
+  store <2 x i64> %.1.i364.i.val.i121, ptr %.130.i362.i.i118, align 1, !tbaa !36
   %877 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i118, i64 16
   %878 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i119, i64 32
-  %.val18.i122 = load <2 x i64>, ptr %878, align 1, !tbaa !47
-  store <2 x i64> %.val18.i122, ptr %877, align 1, !tbaa !47
+  %.val18.i122 = load <2 x i64>, ptr %878, align 1, !tbaa !36
+  store <2 x i64> %.val18.i122, ptr %877, align 1, !tbaa !36
   %879 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i118, i64 32
   %880 = icmp ult ptr %879, %872
-  br i1 %880, label %876, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, !llvm.loop !57
+  br i1 %880, label %876, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, !llvm.loop !45
 
 881:                                              ; preds = %.critedge2.i.i74
   %.not.i51.i125 = icmp ugt ptr %.0266.i213.i34, %538
@@ -8367,8 +8410,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80
 882:                                              ; preds = %881
   %883 = sub i64 %540, %861
   %884 = getelementptr inbounds i8, ptr %864, i64 %883
-  %.val19.i52.i126 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !47
-  store <2 x i64> %.val19.i52.i126, ptr %864, align 1, !tbaa !47
+  %.val19.i52.i126 = load <2 x i64>, ptr %.0266.i213.i34, align 1, !tbaa !36
+  store <2 x i64> %.val19.i52.i126, ptr %864, align 1, !tbaa !36
   %885 = icmp slt i64 %883, 17
   br i1 %885, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132, label %886
 
@@ -8380,15 +8423,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80
   %.130.i.i53.i127 = phi ptr [ %887, %886 ], [ %891, %888 ]
   %.pn.i.i54.i128 = phi ptr [ %.0266.i213.i34, %886 ], [ %890, %888 ]
   %.1.i.i55.i129 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i128, i64 16
-  %.1.i.val.i56.i130 = load <2 x i64>, ptr %.1.i.i55.i129, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i56.i130, ptr %.130.i.i53.i127, align 1, !tbaa !47
+  %.1.i.val.i56.i130 = load <2 x i64>, ptr %.1.i.i55.i129, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i56.i130, ptr %.130.i.i53.i127, align 1, !tbaa !36
   %889 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i127, i64 16
   %890 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i128, i64 32
-  %.val.i57.i131 = load <2 x i64>, ptr %890, align 1, !tbaa !47
-  store <2 x i64> %.val.i57.i131, ptr %889, align 1, !tbaa !47
+  %.val.i57.i131 = load <2 x i64>, ptr %890, align 1, !tbaa !36
+  store <2 x i64> %.val.i57.i131, ptr %889, align 1, !tbaa !36
   %891 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i127, i64 32
   %892 = icmp ult ptr %891, %884
-  br i1 %892, label %888, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132, !llvm.loop !57
+  br i1 %892, label %888, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132: ; preds = %888, %882, %881
   %.014.i59.i133 = phi ptr [ %538, %882 ], [ %.0266.i213.i34, %881 ], [ %538, %888 ]
@@ -8400,37 +8443,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132: ; pre
   %.121.i62.i136 = phi ptr [ %896, %.lr.ph.i61.i135 ], [ %.0.i60.i134, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132 ]
   %.11520.i63.i137 = phi ptr [ %894, %.lr.ph.i61.i135 ], [ %.014.i59.i133, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132 ]
   %894 = getelementptr inbounds nuw i8, ptr %.11520.i63.i137, i64 1
-  %895 = load i8, ptr %.11520.i63.i137, align 1, !tbaa !47
+  %895 = load i8, ptr %.11520.i63.i137, align 1, !tbaa !36
   %896 = getelementptr inbounds nuw i8, ptr %.121.i62.i136, i64 1
-  store i8 %895, ptr %.121.i62.i136, align 1, !tbaa !47
+  store i8 %895, ptr %.121.i62.i136, align 1, !tbaa !36
   %exitcond.not.i64.i138 = icmp eq ptr %894, %.6.i.lcssa.i77
-  br i1 %exitcond.not.i64.i138, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, label %.lr.ph.i61.i135, !llvm.loop !58
+  br i1 %exitcond.not.i64.i138, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, label %.lr.ph.i61.i135, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123: ; preds = %876, %.lr.ph.i61.i135, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i132, %869
-  %897 = load ptr, ptr %539, align 8, !tbaa !52
+  %897 = load ptr, ptr %539, align 8, !tbaa !40
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 %862
-  store ptr %898, ptr %539, align 8, !tbaa !52
+  store ptr %898, ptr %539, align 8, !tbaa !40
   %899 = icmp ugt i64 %862, 65535
-  %.pre258.i124 = load ptr, ptr %542, align 8, !tbaa !56
+  %.pre258.i124 = load ptr, ptr %542, align 8, !tbaa !44
   br i1 %899, label %900, label %907
 
 900:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123
-  store i32 1, ptr %541, align 8, !tbaa !59
-  %901 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %541, align 8, !tbaa !47
+  %901 = load ptr, ptr %1, align 8, !tbaa !48
   %902 = ptrtoint ptr %.pre258.i124 to i64
   %903 = ptrtoint ptr %901 to i64
   %904 = sub i64 %902, %903
   %905 = lshr exact i64 %904, 3
   %906 = trunc i64 %905 to i32
-  store i32 %906, ptr %543, align 4, !tbaa !61
+  store i32 %906, ptr %543, align 4, !tbaa !49
   br label %907
 
 907:                                              ; preds = %900, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80
   %908 = phi ptr [ %.pre257.i81, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i80 ], [ %.pre258.i124, %900 ], [ %.pre258.i124, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i123 ]
   %909 = trunc i64 %862 to i16
   %910 = getelementptr inbounds nuw i8, ptr %908, i64 4
-  store i16 %909, ptr %910, align 4, !tbaa !62
-  store i32 %863, ptr %908, align 4, !tbaa !64
+  store i16 %909, ptr %910, align 4, !tbaa !50
+  store i32 %863, ptr %908, align 4, !tbaa !52
   %911 = add i64 %.6299.i.lcssa.i76, -3
   %912 = icmp ugt i64 %911, 65535
   br i1 %912, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i110, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82
@@ -8460,14 +8503,14 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split
   %.2284.i.ph.ph.i114 = phi i32 [ %.0282.i211.i36, %717 ], [ %.0272.i212.i35, %796 ], [ %.0272.i212.i35, %907 ]
   %.2274.i.ph.ph.i115 = phi i32 [ %.0272.i212.i35, %717 ], [ %734, %796 ], [ %808, %907 ]
   %.2.i.ph.ph.i116 = phi ptr [ %578, %717 ], [ %.4.i.lcssa.i172, %796 ], [ %.6.i.lcssa.i77, %907 ]
-  store i32 2, ptr %541, align 8, !tbaa !59
-  %923 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %541, align 8, !tbaa !47
+  %923 = load ptr, ptr %1, align 8, !tbaa !48
   %924 = ptrtoint ptr %.sink309.i111 to i64
   %925 = ptrtoint ptr %923 to i64
   %926 = sub i64 %924, %925
   %927 = lshr exact i64 %926, 3
   %928 = trunc i64 %927 to i32
-  store i32 %928, ptr %543, align 4, !tbaa !61
+  store i32 %928, ptr %543, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i110, %907, %796, %717
@@ -8479,9 +8522,9 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82: ; pre
   %.2.i.ph.i88 = phi ptr [ %578, %717 ], [ %.4.i.lcssa.i172, %796 ], [ %.6.i.lcssa.i77, %907 ], [ %.2.i.ph.ph.i116, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i110 ]
   %929 = trunc i64 %.sink305.i83 to i16
   %930 = getelementptr inbounds nuw i8, ptr %.sink304.i84, i64 6
-  store i16 %929, ptr %930, align 2, !tbaa !65
+  store i16 %929, ptr %930, align 2, !tbaa !53
   %931 = getelementptr inbounds nuw i8, ptr %.sink304.i84, i64 8
-  store ptr %931, ptr %542, align 8, !tbaa !56
+  store ptr %931, ptr %542, align 8, !tbaa !44
   %932 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i88, i64 %.2295.i.ph.i85
   %.not337.i.i89 = icmp ugt ptr %932, %23
   br i1 %.not337.i.i89, label %.thread123.i96, label %933
@@ -8539,38 +8582,38 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i82: ; pre
   br i1 %.not.i.i.i104, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107, label %966
 
 966:                                              ; preds = %961
-  %967 = load ptr, ptr %539, align 8, !tbaa !52
-  %.3269.i.val.i105 = load <2 x i64>, ptr %.3269.i208.i92, align 1, !tbaa !47
-  store <2 x i64> %.3269.i.val.i105, ptr %967, align 1, !tbaa !47
-  %.pre261.i106 = load ptr, ptr %542, align 8, !tbaa !56
+  %967 = load ptr, ptr %539, align 8, !tbaa !40
+  %.3269.i.val.i105 = load <2 x i64>, ptr %.3269.i208.i92, align 1, !tbaa !36
+  store <2 x i64> %.3269.i.val.i105, ptr %967, align 1, !tbaa !36
+  %.pre261.i106 = load ptr, ptr %542, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107: ; preds = %966, %961
   %968 = phi ptr [ %949, %961 ], [ %.pre261.i106, %966 ]
   %969 = getelementptr inbounds nuw i8, ptr %968, i64 4
-  store i16 0, ptr %969, align 4, !tbaa !62
-  store i32 1, ptr %968, align 4, !tbaa !64
+  store i16 0, ptr %969, align 4, !tbaa !50
+  store i32 1, ptr %968, align 4, !tbaa !52
   %970 = add i64 %965, 1
   %971 = icmp ugt i64 %970, 65535
   br i1 %971, label %972, label %979
 
 972:                                              ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107
-  store i32 2, ptr %541, align 8, !tbaa !59
-  %973 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %541, align 8, !tbaa !47
+  %973 = load ptr, ptr %1, align 8, !tbaa !48
   %974 = ptrtoint ptr %968 to i64
   %975 = ptrtoint ptr %973 to i64
   %976 = sub i64 %974, %975
   %977 = lshr exact i64 %976, 3
   %978 = trunc i64 %977 to i32
-  store i32 %978, ptr %543, align 4, !tbaa !61
+  store i32 %978, ptr %543, align 4, !tbaa !49
   br label %979
 
 979:                                              ; preds = %972, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107
   %980 = trunc i64 %970 to i16
   %981 = getelementptr inbounds nuw i8, ptr %968, i64 6
-  store i16 %980, ptr %981, align 2, !tbaa !65
+  store i16 %980, ptr %981, align 2, !tbaa !53
   %982 = getelementptr inbounds nuw i8, ptr %968, i64 8
-  store ptr %982, ptr %542, align 8, !tbaa !56
+  store ptr %982, ptr %542, align 8, !tbaa !44
   %.9.i.val8.i108 = load i64, ptr %.3269.i208.i92, align 1, !tbaa !23
   %983 = mul i64 %.9.i.val8.i108, -3523014627271114752
   %984 = lshr i64 %983, %534
@@ -8604,7 +8647,7 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107: ; preds = %966
   tail call void @llvm.prefetch.p0(ptr %992, i32 0, i32 2, i32 1)
   %993 = add i64 %.0292.i187.i300, 64
   %994 = icmp ult i64 %993, %991
-  br i1 %994, label %.lr.ph.i299, label %.loopexit.i301, !llvm.loop !77
+  br i1 %994, label %.lr.ph.i299, label %.loopexit.i301, !llvm.loop !58
 
 .loopexit.i301:                                   ; preds = %.lr.ph.i299, %989, %988
   %995 = add nsw i64 %4, -8
@@ -8772,8 +8815,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107: ; preds = %966
   br i1 %1079, label %1080, label %1085
 
 1080:                                             ; preds = %1077
-  %.352.val.i.i.i553 = load i16, ptr %.352.i.i.i487, align 1, !tbaa !50
-  %.348.val.i.i.i554 = load i16, ptr %.348.i.i.i488, align 1, !tbaa !50
+  %.352.val.i.i.i553 = load i16, ptr %.352.i.i.i487, align 1, !tbaa !38
+  %.348.val.i.i.i554 = load i16, ptr %.348.i.i.i488, align 1, !tbaa !38
   %1081 = icmp eq i16 %.352.val.i.i.i553, %.348.val.i.i.i554
   br i1 %1081, label %1082, label %1085
 
@@ -8789,8 +8832,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i107: ; preds = %966
   br i1 %1086, label %1087, label %1091
 
 1087:                                             ; preds = %1085
-  %1088 = load i8, ptr %.453.i.i.i489, align 1, !tbaa !47
-  %1089 = load i8, ptr %.4.i.i.i490, align 1, !tbaa !47
+  %1088 = load i8, ptr %.453.i.i.i489, align 1, !tbaa !36
+  %1089 = load i8, ptr %.4.i.i.i490, align 1, !tbaa !36
   %1090 = icmp eq i8 %1088, %1089
   %spec.select.idx.i.i.i551 = zext i1 %1090 to i64
   %spec.select.i.i.i552 = getelementptr inbounds nuw i8, ptr %.4.i.i.i490, i64 %spec.select.idx.i.i.i551
@@ -8874,8 +8917,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i492: ; preds = %1091, %.thread63
   br i1 %1120, label %1121, label %1126
 
 1121:                                             ; preds = %1119
-  %.352.val.i33.i.i535 = load i16, ptr %.352.i25.i.i526, align 1, !tbaa !50
-  %.348.val.i34.i.i536 = load i16, ptr %.348.i26.i.i527, align 1, !tbaa !50
+  %.352.val.i33.i.i535 = load i16, ptr %.352.i25.i.i526, align 1, !tbaa !38
+  %.348.val.i34.i.i536 = load i16, ptr %.348.i26.i.i527, align 1, !tbaa !38
   %1122 = icmp eq i16 %.352.val.i33.i.i535, %.348.val.i34.i.i536
   br i1 %1122, label %1123, label %1126
 
@@ -8891,8 +8934,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i492: ; preds = %1091, %.thread63
   br i1 %1127, label %1128, label %1132
 
 1128:                                             ; preds = %1126
-  %1129 = load i8, ptr %.453.i27.i.i528, align 1, !tbaa !47
-  %1130 = load i8, ptr %.4.i28.i.i529, align 1, !tbaa !47
+  %1129 = load i8, ptr %.453.i27.i.i528, align 1, !tbaa !36
+  %1130 = load i8, ptr %.4.i28.i.i529, align 1, !tbaa !36
   %1131 = icmp eq i8 %1129, %1130
   %spec.select.idx.i31.i.i533 = zext i1 %1131 to i64
   %spec.select.i32.i.i534 = getelementptr inbounds nuw i8, ptr %.4.i28.i.i529, i64 %spec.select.idx.i31.i.i533
@@ -8917,28 +8960,28 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i495: ; preds = %_Z
   %1139 = ptrtoint ptr %.0266.i213.i307 to i64
   %1140 = sub i64 %1138, %1139
   %.not.i356.i.i497 = icmp ugt ptr %1045, %1005
-  %1141 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1141 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %.not.i356.i.i497, label %1158, label %1142
 
 1142:                                             ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i495
-  %.0266.i.val.i498 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val.i498, ptr %1141, align 1, !tbaa !47
+  %.0266.i.val.i498 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val.i498, ptr %1141, align 1, !tbaa !36
   %1143 = icmp ugt i64 %1140, 16
-  %1144 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1144 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %1143, label %1146, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499: ; preds = %1142
   %1145 = getelementptr inbounds nuw i8, ptr %1144, i64 %1140
-  store ptr %1145, ptr %1006, align 8, !tbaa !52
-  %.pre259.i500 = load ptr, ptr %1009, align 8, !tbaa !56
+  store ptr %1145, ptr %1006, align 8, !tbaa !40
+  %.pre259.i500 = load ptr, ptr %1009, align 8, !tbaa !44
   br label %1184
 
 1146:                                             ; preds = %1142
   %1147 = getelementptr inbounds nuw i8, ptr %1144, i64 16
   %1148 = getelementptr inbounds nuw i8, ptr %.0266.i213.i307, i64 16
   %1149 = getelementptr i8, ptr %1144, i64 %1140
-  %.val14.i501 = load <2 x i64>, ptr %1148, align 1, !tbaa !47
-  store <2 x i64> %.val14.i501, ptr %1147, align 1, !tbaa !47
+  %.val14.i501 = load <2 x i64>, ptr %1148, align 1, !tbaa !36
+  store <2 x i64> %.val14.i501, ptr %1147, align 1, !tbaa !36
   %1150 = icmp slt i64 %1140, 33
   br i1 %1150, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, label %1151
 
@@ -8950,15 +8993,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499: 
   %.130.i.i.i502 = phi ptr [ %1152, %1151 ], [ %1156, %1153 ]
   %.pn.i.i.i503 = phi ptr [ %1148, %1151 ], [ %1155, %1153 ]
   %.1.i.i.i504 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i503, i64 16
-  %.1.i.i.val.i505 = load <2 x i64>, ptr %.1.i.i.i504, align 1, !tbaa !47
-  store <2 x i64> %.1.i.i.val.i505, ptr %.130.i.i.i502, align 1, !tbaa !47
+  %.1.i.i.val.i505 = load <2 x i64>, ptr %.1.i.i.i504, align 1, !tbaa !36
+  store <2 x i64> %.1.i.i.val.i505, ptr %.130.i.i.i502, align 1, !tbaa !36
   %1154 = getelementptr inbounds nuw i8, ptr %.130.i.i.i502, i64 16
   %1155 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i503, i64 32
-  %.val13.i506 = load <2 x i64>, ptr %1155, align 1, !tbaa !47
-  store <2 x i64> %.val13.i506, ptr %1154, align 1, !tbaa !47
+  %.val13.i506 = load <2 x i64>, ptr %1155, align 1, !tbaa !36
+  store <2 x i64> %.val13.i506, ptr %1154, align 1, !tbaa !36
   %1156 = getelementptr inbounds nuw i8, ptr %.130.i.i.i502, i64 32
   %1157 = icmp ult ptr %1156, %1149
-  br i1 %1157, label %1153, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, !llvm.loop !57
+  br i1 %1157, label %1153, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, !llvm.loop !45
 
 1158:                                             ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i495
   %.not.i25.i509 = icmp ugt ptr %.0266.i213.i307, %1005
@@ -8967,8 +9010,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499: 
 1159:                                             ; preds = %1158
   %1160 = sub i64 %1007, %1139
   %1161 = getelementptr inbounds i8, ptr %1141, i64 %1160
-  %.val19.i.i510 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i510, ptr %1141, align 1, !tbaa !47
+  %.val19.i.i510 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i510, ptr %1141, align 1, !tbaa !36
   %1162 = icmp slt i64 %1160, 17
   br i1 %1162, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516, label %1163
 
@@ -8980,15 +9023,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499: 
   %.130.i.i26.i511 = phi ptr [ %1164, %1163 ], [ %1168, %1165 ]
   %.pn.i.i27.i512 = phi ptr [ %.0266.i213.i307, %1163 ], [ %1167, %1165 ]
   %.1.i.i28.i513 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i512, i64 16
-  %.1.i.val.i.i514 = load <2 x i64>, ptr %.1.i.i28.i513, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i514, ptr %.130.i.i26.i511, align 1, !tbaa !47
+  %.1.i.val.i.i514 = load <2 x i64>, ptr %.1.i.i28.i513, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i514, ptr %.130.i.i26.i511, align 1, !tbaa !36
   %1166 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i511, i64 16
   %1167 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i512, i64 32
-  %.val.i.i515 = load <2 x i64>, ptr %1167, align 1, !tbaa !47
-  store <2 x i64> %.val.i.i515, ptr %1166, align 1, !tbaa !47
+  %.val.i.i515 = load <2 x i64>, ptr %1167, align 1, !tbaa !36
+  store <2 x i64> %.val.i.i515, ptr %1166, align 1, !tbaa !36
   %1168 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i511, i64 32
   %1169 = icmp ult ptr %1168, %1161
-  br i1 %1169, label %1165, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516, !llvm.loop !57
+  br i1 %1169, label %1165, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516: ; preds = %1165, %1159, %1158
   %.014.i.i517 = phi ptr [ %1005, %1159 ], [ %.0266.i213.i307, %1158 ], [ %1005, %1165 ]
@@ -9000,37 +9043,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516: ; pre
   %.121.i.i520 = phi ptr [ %1173, %.lr.ph.i.i519 ], [ %.0.i30.i518, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516 ]
   %.11520.i.i521 = phi ptr [ %1171, %.lr.ph.i.i519 ], [ %.014.i.i517, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516 ]
   %1171 = getelementptr inbounds nuw i8, ptr %.11520.i.i521, i64 1
-  %1172 = load i8, ptr %.11520.i.i521, align 1, !tbaa !47
+  %1172 = load i8, ptr %.11520.i.i521, align 1, !tbaa !36
   %1173 = getelementptr inbounds nuw i8, ptr %.121.i.i520, i64 1
-  store i8 %1172, ptr %.121.i.i520, align 1, !tbaa !47
+  store i8 %1172, ptr %.121.i.i520, align 1, !tbaa !36
   %exitcond.not.i.i522 = icmp eq ptr %.11520.i.i521, %.1.i.i317
-  br i1 %exitcond.not.i.i522, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, label %.lr.ph.i.i519, !llvm.loop !58
+  br i1 %exitcond.not.i.i522, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, label %.lr.ph.i.i519, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507: ; preds = %1153, %.lr.ph.i.i519, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i516, %1146
-  %1174 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1174 = load ptr, ptr %1006, align 8, !tbaa !40
   %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 %1140
-  store ptr %1175, ptr %1006, align 8, !tbaa !52
+  store ptr %1175, ptr %1006, align 8, !tbaa !40
   %1176 = icmp ugt i64 %1140, 65535
-  %.pre260.i508 = load ptr, ptr %1009, align 8, !tbaa !56
+  %.pre260.i508 = load ptr, ptr %1009, align 8, !tbaa !44
   br i1 %1176, label %1177, label %1184
 
 1177:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507
-  store i32 1, ptr %1008, align 8, !tbaa !59
-  %1178 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1008, align 8, !tbaa !47
+  %1178 = load ptr, ptr %1, align 8, !tbaa !48
   %1179 = ptrtoint ptr %.pre260.i508 to i64
   %1180 = ptrtoint ptr %1178 to i64
   %1181 = sub i64 %1179, %1180
   %1182 = lshr exact i64 %1181, 3
   %1183 = trunc i64 %1182 to i32
-  store i32 %1183, ptr %1010, align 4, !tbaa !61
+  store i32 %1183, ptr %1010, align 4, !tbaa !49
   br label %1184
 
 1184:                                             ; preds = %1177, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499
   %1185 = phi ptr [ %.pre259.i500, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i499 ], [ %.pre260.i508, %1177 ], [ %.pre260.i508, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507 ]
   %1186 = trunc i64 %1140 to i16
   %1187 = getelementptr inbounds nuw i8, ptr %1185, i64 4
-  store i16 %1186, ptr %1187, align 4, !tbaa !62
-  store i32 1, ptr %1185, align 4, !tbaa !64
+  store i16 %1186, ptr %1187, align 4, !tbaa !50
+  store i32 1, ptr %1185, align 4, !tbaa !52
   %1188 = add i64 %.0.i.i496, 1
   %1189 = icmp ugt i64 %1188, 65535
   br i1 %1189, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i384, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356
@@ -9069,9 +9112,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507: ; preds
   %.4297.i190.i475 = phi i64 [ %1213, %1212 ], [ %1205, %1198 ]
   %.0300.i189.i476 = phi ptr [ %1209, %1212 ], [ %1199, %1198 ]
   %1207 = getelementptr inbounds i8, ptr %.4.i191.i474, i64 -1
-  %1208 = load i8, ptr %1207, align 1, !tbaa !47
+  %1208 = load i8, ptr %1207, align 1, !tbaa !36
   %1209 = getelementptr inbounds i8, ptr %.0300.i189.i476, i64 -1
-  %1210 = load i8, ptr %1209, align 1, !tbaa !47
+  %1210 = load i8, ptr %1209, align 1, !tbaa !36
   %1211 = icmp eq i8 %1208, %1210
   br i1 %1211, label %1212, label %.critedge.i.loopexit.i477
 
@@ -9080,7 +9123,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507: ; preds
   %1214 = icmp ugt ptr %1207, %.0266.i213.i307
   %1215 = icmp ugt ptr %1209, %36
   %1216 = and i1 %1214, %1215
-  br i1 %1216, label %.lr.ph192.i473, label %.critedge.i.loopexit.i477, !llvm.loop !78
+  br i1 %1216, label %.lr.ph192.i473, label %.critedge.i.loopexit.i477, !llvm.loop !59
 
 .critedge.i.loopexit.i477:                        ; preds = %1212, %.lr.ph192.i473
   %.4297.i.lcssa.ph.i478 = phi i64 [ %1213, %1212 ], [ %.4297.i190.i475, %.lr.ph192.i473 ]
@@ -9096,28 +9139,28 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i507: ; preds
   %1218 = sub i64 %.pre-phi264.i444, %1217
   %1219 = add i32 %1201, 3
   %.not.i354.i.i447 = icmp ugt ptr %.4.i.lcssa.i446, %1005
-  %1220 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1220 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %.not.i354.i.i447, label %1237, label %1221
 
 1221:                                             ; preds = %.critedge.i.i443
-  %.0266.i.val17.i448 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val17.i448, ptr %1220, align 1, !tbaa !47
+  %.0266.i.val17.i448 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val17.i448, ptr %1220, align 1, !tbaa !36
   %1222 = icmp ugt i64 %1218, 16
-  %1223 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1223 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %1222, label %1225, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i449
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i449: ; preds = %1221
   %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 %1218
-  store ptr %1224, ptr %1006, align 8, !tbaa !52
-  %.pre.i450 = load ptr, ptr %1009, align 8, !tbaa !56
+  store ptr %1224, ptr %1006, align 8, !tbaa !40
+  %.pre.i450 = load ptr, ptr %1009, align 8, !tbaa !44
   br label %1263
 
 1225:                                             ; preds = %1221
   %1226 = getelementptr inbounds nuw i8, ptr %1223, i64 16
   %1227 = getelementptr inbounds nuw i8, ptr %.0266.i213.i307, i64 16
   %1228 = getelementptr i8, ptr %1223, i64 %1218
-  %.val16.i451 = load <2 x i64>, ptr %1227, align 1, !tbaa !47
-  store <2 x i64> %.val16.i451, ptr %1226, align 1, !tbaa !47
+  %.val16.i451 = load <2 x i64>, ptr %1227, align 1, !tbaa !36
+  store <2 x i64> %.val16.i451, ptr %1226, align 1, !tbaa !36
   %1229 = icmp slt i64 %1218, 33
   br i1 %1229, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, label %1230
 
@@ -9129,15 +9172,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i44
   %.130.i358.i.i452 = phi ptr [ %1231, %1230 ], [ %1235, %1232 ]
   %.pn.i359.i.i453 = phi ptr [ %1227, %1230 ], [ %1234, %1232 ]
   %.1.i360.i.i454 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i453, i64 16
-  %.1.i360.i.val.i455 = load <2 x i64>, ptr %.1.i360.i.i454, align 1, !tbaa !47
-  store <2 x i64> %.1.i360.i.val.i455, ptr %.130.i358.i.i452, align 1, !tbaa !47
+  %.1.i360.i.val.i455 = load <2 x i64>, ptr %.1.i360.i.i454, align 1, !tbaa !36
+  store <2 x i64> %.1.i360.i.val.i455, ptr %.130.i358.i.i452, align 1, !tbaa !36
   %1233 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i452, i64 16
   %1234 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i453, i64 32
-  %.val15.i456 = load <2 x i64>, ptr %1234, align 1, !tbaa !47
-  store <2 x i64> %.val15.i456, ptr %1233, align 1, !tbaa !47
+  %.val15.i456 = load <2 x i64>, ptr %1234, align 1, !tbaa !36
+  store <2 x i64> %.val15.i456, ptr %1233, align 1, !tbaa !36
   %1235 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i452, i64 32
   %1236 = icmp ult ptr %1235, %1228
-  br i1 %1236, label %1232, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, !llvm.loop !57
+  br i1 %1236, label %1232, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, !llvm.loop !45
 
 1237:                                             ; preds = %.critedge.i.i443
   %.not.i31.i459 = icmp ugt ptr %.0266.i213.i307, %1005
@@ -9146,8 +9189,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i44
 1238:                                             ; preds = %1237
   %1239 = sub i64 %1007, %1217
   %1240 = getelementptr inbounds i8, ptr %1220, i64 %1239
-  %.val19.i32.i460 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.val19.i32.i460, ptr %1220, align 1, !tbaa !47
+  %.val19.i32.i460 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.val19.i32.i460, ptr %1220, align 1, !tbaa !36
   %1241 = icmp slt i64 %1239, 17
   br i1 %1241, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466, label %1242
 
@@ -9159,15 +9202,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i44
   %.130.i.i33.i461 = phi ptr [ %1243, %1242 ], [ %1247, %1244 ]
   %.pn.i.i34.i462 = phi ptr [ %.0266.i213.i307, %1242 ], [ %1246, %1244 ]
   %.1.i.i35.i463 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i462, i64 16
-  %.1.i.val.i36.i464 = load <2 x i64>, ptr %.1.i.i35.i463, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i36.i464, ptr %.130.i.i33.i461, align 1, !tbaa !47
+  %.1.i.val.i36.i464 = load <2 x i64>, ptr %.1.i.i35.i463, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i36.i464, ptr %.130.i.i33.i461, align 1, !tbaa !36
   %1245 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i461, i64 16
   %1246 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i462, i64 32
-  %.val.i37.i465 = load <2 x i64>, ptr %1246, align 1, !tbaa !47
-  store <2 x i64> %.val.i37.i465, ptr %1245, align 1, !tbaa !47
+  %.val.i37.i465 = load <2 x i64>, ptr %1246, align 1, !tbaa !36
+  store <2 x i64> %.val.i37.i465, ptr %1245, align 1, !tbaa !36
   %1247 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i461, i64 32
   %1248 = icmp ult ptr %1247, %1240
-  br i1 %1248, label %1244, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466, !llvm.loop !57
+  br i1 %1248, label %1244, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466: ; preds = %1244, %1238, %1237
   %.014.i39.i467 = phi ptr [ %1005, %1238 ], [ %.0266.i213.i307, %1237 ], [ %1005, %1244 ]
@@ -9179,37 +9222,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466: ; pre
   %.121.i42.i470 = phi ptr [ %1252, %.lr.ph.i41.i469 ], [ %.0.i40.i468, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466 ]
   %.11520.i43.i471 = phi ptr [ %1250, %.lr.ph.i41.i469 ], [ %.014.i39.i467, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466 ]
   %1250 = getelementptr inbounds nuw i8, ptr %.11520.i43.i471, i64 1
-  %1251 = load i8, ptr %.11520.i43.i471, align 1, !tbaa !47
+  %1251 = load i8, ptr %.11520.i43.i471, align 1, !tbaa !36
   %1252 = getelementptr inbounds nuw i8, ptr %.121.i42.i470, i64 1
-  store i8 %1251, ptr %.121.i42.i470, align 1, !tbaa !47
+  store i8 %1251, ptr %.121.i42.i470, align 1, !tbaa !36
   %exitcond.not.i44.i472 = icmp eq ptr %1250, %.4.i.lcssa.i446
-  br i1 %exitcond.not.i44.i472, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, label %.lr.ph.i41.i469, !llvm.loop !58
+  br i1 %exitcond.not.i44.i472, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, label %.lr.ph.i41.i469, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457: ; preds = %1232, %.lr.ph.i41.i469, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i466, %1225
-  %1253 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1253 = load ptr, ptr %1006, align 8, !tbaa !40
   %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 %1218
-  store ptr %1254, ptr %1006, align 8, !tbaa !52
+  store ptr %1254, ptr %1006, align 8, !tbaa !40
   %1255 = icmp ugt i64 %1218, 65535
-  %.pre256.i458 = load ptr, ptr %1009, align 8, !tbaa !56
+  %.pre256.i458 = load ptr, ptr %1009, align 8, !tbaa !44
   br i1 %1255, label %1256, label %1263
 
 1256:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457
-  store i32 1, ptr %1008, align 8, !tbaa !59
-  %1257 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1008, align 8, !tbaa !47
+  %1257 = load ptr, ptr %1, align 8, !tbaa !48
   %1258 = ptrtoint ptr %.pre256.i458 to i64
   %1259 = ptrtoint ptr %1257 to i64
   %1260 = sub i64 %1258, %1259
   %1261 = lshr exact i64 %1260, 3
   %1262 = trunc i64 %1261 to i32
-  store i32 %1262, ptr %1010, align 4, !tbaa !61
+  store i32 %1262, ptr %1010, align 4, !tbaa !49
   br label %1263
 
 1263:                                             ; preds = %1256, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i449
   %1264 = phi ptr [ %.pre.i450, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i449 ], [ %.pre256.i458, %1256 ], [ %.pre256.i458, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457 ]
   %1265 = trunc i64 %1218 to i16
   %1266 = getelementptr inbounds nuw i8, ptr %1264, i64 4
-  store i16 %1265, ptr %1266, align 4, !tbaa !62
-  store i32 %1219, ptr %1264, align 4, !tbaa !64
+  store i16 %1265, ptr %1266, align 4, !tbaa !50
+  store i32 %1219, ptr %1264, align 4, !tbaa !52
   %1267 = add i64 %.4297.i.lcssa.i445, -3
   %1268 = icmp ugt i64 %1267, 65535
   br i1 %1268, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i384, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356
@@ -9293,8 +9336,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457: ; pr
   br i1 %1300, label %1301, label %1306
 
 1301:                                             ; preds = %1299
-  %.352.val.i.i423 = load i16, ptr %.352.i.i341, align 1, !tbaa !50
-  %.348.val.i.i424 = load i16, ptr %.348.i.i342, align 1, !tbaa !50
+  %.352.val.i.i423 = load i16, ptr %.352.i.i341, align 1, !tbaa !38
+  %.348.val.i.i424 = load i16, ptr %.348.i.i342, align 1, !tbaa !38
   %1302 = icmp eq i16 %.352.val.i.i423, %.348.val.i.i424
   br i1 %1302, label %1303, label %1306
 
@@ -9310,8 +9353,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i457: ; pr
   br i1 %1307, label %1308, label %1312
 
 1308:                                             ; preds = %1306
-  %1309 = load i8, ptr %.453.i.i343, align 1, !tbaa !47
-  %1310 = load i8, ptr %.4.i46.i344, align 1, !tbaa !47
+  %1309 = load i8, ptr %.453.i.i343, align 1, !tbaa !36
+  %1310 = load i8, ptr %.4.i46.i344, align 1, !tbaa !36
   %1311 = icmp eq i8 %1309, %1310
   %spec.select.idx.i.i421 = zext i1 %1311 to i64
   %spec.select.i.i422 = getelementptr inbounds nuw i8, ptr %.4.i46.i344, i64 %spec.select.idx.i.i421
@@ -9335,9 +9378,9 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i346: ; preds = %1312, %.thread63.i
   %.6299.i198.i415 = phi i64 [ %1324, %1323 ], [ %1316, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i346 ]
   %.0318.i197.i416 = phi ptr [ %1320, %1323 ], [ %1028, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i346 ]
   %1318 = getelementptr inbounds i8, ptr %.6.i199.i414, i64 -1
-  %1319 = load i8, ptr %1318, align 1, !tbaa !47
+  %1319 = load i8, ptr %1318, align 1, !tbaa !36
   %1320 = getelementptr inbounds i8, ptr %.0318.i197.i416, i64 -1
-  %1321 = load i8, ptr %1320, align 1, !tbaa !47
+  %1321 = load i8, ptr %1320, align 1, !tbaa !36
   %1322 = icmp eq i8 %1319, %1321
   br i1 %1322, label %1323, label %.critedge2.i.loopexit.i417
 
@@ -9346,7 +9389,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i346: ; preds = %1312, %.thread63.i
   %1325 = icmp ugt ptr %1318, %.0266.i213.i307
   %1326 = icmp ugt ptr %1320, %21
   %1327 = and i1 %1325, %1326
-  br i1 %1327, label %.lr.ph200.i413, label %.critedge2.i.loopexit.i417, !llvm.loop !79
+  br i1 %1327, label %.lr.ph200.i413, label %.critedge2.i.loopexit.i417, !llvm.loop !60
 
 .critedge2.i.loopexit.i417:                       ; preds = %1323, %.lr.ph200.i413
   %.6299.i.lcssa.ph.i418 = phi i64 [ %1324, %1323 ], [ %.6299.i198.i415, %.lr.ph200.i413 ]
@@ -9362,28 +9405,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i346: ; preds = %1312, %.thread63.i
   %1329 = sub i64 %.pre-phi.i349, %1328
   %1330 = add i32 %1275, 3
   %.not.i352.i.i352 = icmp ugt ptr %.6.i.lcssa.i351, %1005
-  %1331 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1331 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %.not.i352.i.i352, label %1348, label %1332
 
 1332:                                             ; preds = %.critedge2.i.i348
-  %.0266.i.val20.i353 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val20.i353, ptr %1331, align 1, !tbaa !47
+  %.0266.i.val20.i353 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val20.i353, ptr %1331, align 1, !tbaa !36
   %1333 = icmp ugt i64 %1329, 16
-  %1334 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1334 = load ptr, ptr %1006, align 8, !tbaa !40
   br i1 %1333, label %1336, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i354
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i354: ; preds = %1332
   %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 %1329
-  store ptr %1335, ptr %1006, align 8, !tbaa !52
-  %.pre257.i355 = load ptr, ptr %1009, align 8, !tbaa !56
+  store ptr %1335, ptr %1006, align 8, !tbaa !40
+  %.pre257.i355 = load ptr, ptr %1009, align 8, !tbaa !44
   br label %1374
 
 1336:                                             ; preds = %1332
   %1337 = getelementptr inbounds nuw i8, ptr %1334, i64 16
   %1338 = getelementptr inbounds nuw i8, ptr %.0266.i213.i307, i64 16
   %1339 = getelementptr i8, ptr %1334, i64 %1329
-  %.val19.i391 = load <2 x i64>, ptr %1338, align 1, !tbaa !47
-  store <2 x i64> %.val19.i391, ptr %1337, align 1, !tbaa !47
+  %.val19.i391 = load <2 x i64>, ptr %1338, align 1, !tbaa !36
+  store <2 x i64> %.val19.i391, ptr %1337, align 1, !tbaa !36
   %1340 = icmp slt i64 %1329, 33
   br i1 %1340, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, label %1341
 
@@ -9395,15 +9438,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i35
   %.130.i362.i.i392 = phi ptr [ %1342, %1341 ], [ %1346, %1343 ]
   %.pn.i363.i.i393 = phi ptr [ %1338, %1341 ], [ %1345, %1343 ]
   %.1.i364.i.i394 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i393, i64 16
-  %.1.i364.i.val.i395 = load <2 x i64>, ptr %.1.i364.i.i394, align 1, !tbaa !47
-  store <2 x i64> %.1.i364.i.val.i395, ptr %.130.i362.i.i392, align 1, !tbaa !47
+  %.1.i364.i.val.i395 = load <2 x i64>, ptr %.1.i364.i.i394, align 1, !tbaa !36
+  store <2 x i64> %.1.i364.i.val.i395, ptr %.130.i362.i.i392, align 1, !tbaa !36
   %1344 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i392, i64 16
   %1345 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i393, i64 32
-  %.val18.i396 = load <2 x i64>, ptr %1345, align 1, !tbaa !47
-  store <2 x i64> %.val18.i396, ptr %1344, align 1, !tbaa !47
+  %.val18.i396 = load <2 x i64>, ptr %1345, align 1, !tbaa !36
+  store <2 x i64> %.val18.i396, ptr %1344, align 1, !tbaa !36
   %1346 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i392, i64 32
   %1347 = icmp ult ptr %1346, %1339
-  br i1 %1347, label %1343, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, !llvm.loop !57
+  br i1 %1347, label %1343, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, !llvm.loop !45
 
 1348:                                             ; preds = %.critedge2.i.i348
   %.not.i51.i399 = icmp ugt ptr %.0266.i213.i307, %1005
@@ -9412,8 +9455,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i35
 1349:                                             ; preds = %1348
   %1350 = sub i64 %1007, %1328
   %1351 = getelementptr inbounds i8, ptr %1331, i64 %1350
-  %.val19.i52.i400 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !47
-  store <2 x i64> %.val19.i52.i400, ptr %1331, align 1, !tbaa !47
+  %.val19.i52.i400 = load <2 x i64>, ptr %.0266.i213.i307, align 1, !tbaa !36
+  store <2 x i64> %.val19.i52.i400, ptr %1331, align 1, !tbaa !36
   %1352 = icmp slt i64 %1350, 17
   br i1 %1352, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406, label %1353
 
@@ -9425,15 +9468,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i35
   %.130.i.i53.i401 = phi ptr [ %1354, %1353 ], [ %1358, %1355 ]
   %.pn.i.i54.i402 = phi ptr [ %.0266.i213.i307, %1353 ], [ %1357, %1355 ]
   %.1.i.i55.i403 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i402, i64 16
-  %.1.i.val.i56.i404 = load <2 x i64>, ptr %.1.i.i55.i403, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i56.i404, ptr %.130.i.i53.i401, align 1, !tbaa !47
+  %.1.i.val.i56.i404 = load <2 x i64>, ptr %.1.i.i55.i403, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i56.i404, ptr %.130.i.i53.i401, align 1, !tbaa !36
   %1356 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i401, i64 16
   %1357 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i402, i64 32
-  %.val.i57.i405 = load <2 x i64>, ptr %1357, align 1, !tbaa !47
-  store <2 x i64> %.val.i57.i405, ptr %1356, align 1, !tbaa !47
+  %.val.i57.i405 = load <2 x i64>, ptr %1357, align 1, !tbaa !36
+  store <2 x i64> %.val.i57.i405, ptr %1356, align 1, !tbaa !36
   %1358 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i401, i64 32
   %1359 = icmp ult ptr %1358, %1351
-  br i1 %1359, label %1355, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406, !llvm.loop !57
+  br i1 %1359, label %1355, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406: ; preds = %1355, %1349, %1348
   %.014.i59.i407 = phi ptr [ %1005, %1349 ], [ %.0266.i213.i307, %1348 ], [ %1005, %1355 ]
@@ -9445,37 +9488,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406: ; pre
   %.121.i62.i410 = phi ptr [ %1363, %.lr.ph.i61.i409 ], [ %.0.i60.i408, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406 ]
   %.11520.i63.i411 = phi ptr [ %1361, %.lr.ph.i61.i409 ], [ %.014.i59.i407, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406 ]
   %1361 = getelementptr inbounds nuw i8, ptr %.11520.i63.i411, i64 1
-  %1362 = load i8, ptr %.11520.i63.i411, align 1, !tbaa !47
+  %1362 = load i8, ptr %.11520.i63.i411, align 1, !tbaa !36
   %1363 = getelementptr inbounds nuw i8, ptr %.121.i62.i410, i64 1
-  store i8 %1362, ptr %.121.i62.i410, align 1, !tbaa !47
+  store i8 %1362, ptr %.121.i62.i410, align 1, !tbaa !36
   %exitcond.not.i64.i412 = icmp eq ptr %1361, %.6.i.lcssa.i351
-  br i1 %exitcond.not.i64.i412, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, label %.lr.ph.i61.i409, !llvm.loop !58
+  br i1 %exitcond.not.i64.i412, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, label %.lr.ph.i61.i409, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397: ; preds = %1343, %.lr.ph.i61.i409, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i406, %1336
-  %1364 = load ptr, ptr %1006, align 8, !tbaa !52
+  %1364 = load ptr, ptr %1006, align 8, !tbaa !40
   %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 %1329
-  store ptr %1365, ptr %1006, align 8, !tbaa !52
+  store ptr %1365, ptr %1006, align 8, !tbaa !40
   %1366 = icmp ugt i64 %1329, 65535
-  %.pre258.i398 = load ptr, ptr %1009, align 8, !tbaa !56
+  %.pre258.i398 = load ptr, ptr %1009, align 8, !tbaa !44
   br i1 %1366, label %1367, label %1374
 
 1367:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397
-  store i32 1, ptr %1008, align 8, !tbaa !59
-  %1368 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1008, align 8, !tbaa !47
+  %1368 = load ptr, ptr %1, align 8, !tbaa !48
   %1369 = ptrtoint ptr %.pre258.i398 to i64
   %1370 = ptrtoint ptr %1368 to i64
   %1371 = sub i64 %1369, %1370
   %1372 = lshr exact i64 %1371, 3
   %1373 = trunc i64 %1372 to i32
-  store i32 %1373, ptr %1010, align 4, !tbaa !61
+  store i32 %1373, ptr %1010, align 4, !tbaa !49
   br label %1374
 
 1374:                                             ; preds = %1367, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i354
   %1375 = phi ptr [ %.pre257.i355, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i354 ], [ %.pre258.i398, %1367 ], [ %.pre258.i398, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i397 ]
   %1376 = trunc i64 %1329 to i16
   %1377 = getelementptr inbounds nuw i8, ptr %1375, i64 4
-  store i16 %1376, ptr %1377, align 4, !tbaa !62
-  store i32 %1330, ptr %1375, align 4, !tbaa !64
+  store i16 %1376, ptr %1377, align 4, !tbaa !50
+  store i32 %1330, ptr %1375, align 4, !tbaa !52
   %1378 = add i64 %.6299.i.lcssa.i350, -3
   %1379 = icmp ugt i64 %1378, 65535
   br i1 %1379, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i384, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356
@@ -9505,14 +9548,14 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split
   %.2284.i.ph.ph.i388 = phi i32 [ %.0282.i211.i309, %1184 ], [ %.0272.i212.i308, %1263 ], [ %.0272.i212.i308, %1374 ]
   %.2274.i.ph.ph.i389 = phi i32 [ %.0272.i212.i308, %1184 ], [ %1201, %1263 ], [ %1275, %1374 ]
   %.2.i.ph.ph.i390 = phi ptr [ %1045, %1184 ], [ %.4.i.lcssa.i446, %1263 ], [ %.6.i.lcssa.i351, %1374 ]
-  store i32 2, ptr %1008, align 8, !tbaa !59
-  %1390 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1008, align 8, !tbaa !47
+  %1390 = load ptr, ptr %1, align 8, !tbaa !48
   %1391 = ptrtoint ptr %.sink309.i385 to i64
   %1392 = ptrtoint ptr %1390 to i64
   %1393 = sub i64 %1391, %1392
   %1394 = lshr exact i64 %1393, 3
   %1395 = trunc i64 %1394 to i32
-  store i32 %1395, ptr %1010, align 4, !tbaa !61
+  store i32 %1395, ptr %1010, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i384, %1374, %1263, %1184
@@ -9524,9 +9567,9 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356: ; pr
   %.2.i.ph.i362 = phi ptr [ %1045, %1184 ], [ %.4.i.lcssa.i446, %1263 ], [ %.6.i.lcssa.i351, %1374 ], [ %.2.i.ph.ph.i390, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i384 ]
   %1396 = trunc i64 %.sink305.i357 to i16
   %1397 = getelementptr inbounds nuw i8, ptr %.sink304.i358, i64 6
-  store i16 %1396, ptr %1397, align 2, !tbaa !65
+  store i16 %1396, ptr %1397, align 2, !tbaa !53
   %1398 = getelementptr inbounds nuw i8, ptr %.sink304.i358, i64 8
-  store ptr %1398, ptr %1009, align 8, !tbaa !56
+  store ptr %1398, ptr %1009, align 8, !tbaa !44
   %1399 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i362, i64 %.2295.i.ph.i359
   %.not337.i.i363 = icmp ugt ptr %1399, %23
   br i1 %.not337.i.i363, label %.thread123.i370, label %1400
@@ -9584,38 +9627,38 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i356: ; pr
   br i1 %.not.i.i.i378, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381, label %1433
 
 1433:                                             ; preds = %1428
-  %1434 = load ptr, ptr %1006, align 8, !tbaa !52
-  %.3269.i.val.i379 = load <2 x i64>, ptr %.3269.i208.i366, align 1, !tbaa !47
-  store <2 x i64> %.3269.i.val.i379, ptr %1434, align 1, !tbaa !47
-  %.pre261.i380 = load ptr, ptr %1009, align 8, !tbaa !56
+  %1434 = load ptr, ptr %1006, align 8, !tbaa !40
+  %.3269.i.val.i379 = load <2 x i64>, ptr %.3269.i208.i366, align 1, !tbaa !36
+  store <2 x i64> %.3269.i.val.i379, ptr %1434, align 1, !tbaa !36
+  %.pre261.i380 = load ptr, ptr %1009, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381: ; preds = %1433, %1428
   %1435 = phi ptr [ %1416, %1428 ], [ %.pre261.i380, %1433 ]
   %1436 = getelementptr inbounds nuw i8, ptr %1435, i64 4
-  store i16 0, ptr %1436, align 4, !tbaa !62
-  store i32 1, ptr %1435, align 4, !tbaa !64
+  store i16 0, ptr %1436, align 4, !tbaa !50
+  store i32 1, ptr %1435, align 4, !tbaa !52
   %1437 = add i64 %1432, 1
   %1438 = icmp ugt i64 %1437, 65535
   br i1 %1438, label %1439, label %1446
 
 1439:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381
-  store i32 2, ptr %1008, align 8, !tbaa !59
-  %1440 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1008, align 8, !tbaa !47
+  %1440 = load ptr, ptr %1, align 8, !tbaa !48
   %1441 = ptrtoint ptr %1435 to i64
   %1442 = ptrtoint ptr %1440 to i64
   %1443 = sub i64 %1441, %1442
   %1444 = lshr exact i64 %1443, 3
   %1445 = trunc i64 %1444 to i32
-  store i32 %1445, ptr %1010, align 4, !tbaa !61
+  store i32 %1445, ptr %1010, align 4, !tbaa !49
   br label %1446
 
 1446:                                             ; preds = %1439, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381
   %1447 = trunc i64 %1437 to i16
   %1448 = getelementptr inbounds nuw i8, ptr %1435, i64 6
-  store i16 %1447, ptr %1448, align 2, !tbaa !65
+  store i16 %1447, ptr %1448, align 2, !tbaa !53
   %1449 = getelementptr inbounds nuw i8, ptr %1435, i64 8
-  store ptr %1449, ptr %1009, align 8, !tbaa !56
+  store ptr %1449, ptr %1009, align 8, !tbaa !44
   %.9.i.val8.i382 = load i64, ptr %.3269.i208.i366, align 1, !tbaa !23
   %1450 = mul i64 %.9.i.val8.i382, -3523014627193847808
   %1451 = lshr i64 %1450, %1001
@@ -9649,7 +9692,7 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381: ; preds = %143
   tail call void @llvm.prefetch.p0(ptr %1459, i32 0, i32 2, i32 1)
   %1460 = add i64 %.0292.i187.i574, 64
   %1461 = icmp ult i64 %1460, %1458
-  br i1 %1461, label %.lr.ph.i573, label %.loopexit.i575, !llvm.loop !77
+  br i1 %1461, label %.lr.ph.i573, label %.loopexit.i575, !llvm.loop !58
 
 .loopexit.i575:                                   ; preds = %.lr.ph.i573, %1456, %1455
   %1462 = add nsw i64 %4, -8
@@ -9817,8 +9860,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381: ; preds = %143
   br i1 %1546, label %1547, label %1552
 
 1547:                                             ; preds = %1544
-  %.352.val.i.i.i827 = load i16, ptr %.352.i.i.i761, align 1, !tbaa !50
-  %.348.val.i.i.i828 = load i16, ptr %.348.i.i.i762, align 1, !tbaa !50
+  %.352.val.i.i.i827 = load i16, ptr %.352.i.i.i761, align 1, !tbaa !38
+  %.348.val.i.i.i828 = load i16, ptr %.348.i.i.i762, align 1, !tbaa !38
   %1548 = icmp eq i16 %.352.val.i.i.i827, %.348.val.i.i.i828
   br i1 %1548, label %1549, label %1552
 
@@ -9834,8 +9877,8 @@ _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i381: ; preds = %143
   br i1 %1553, label %1554, label %1558
 
 1554:                                             ; preds = %1552
-  %1555 = load i8, ptr %.453.i.i.i763, align 1, !tbaa !47
-  %1556 = load i8, ptr %.4.i.i.i764, align 1, !tbaa !47
+  %1555 = load i8, ptr %.453.i.i.i763, align 1, !tbaa !36
+  %1556 = load i8, ptr %.4.i.i.i764, align 1, !tbaa !36
   %1557 = icmp eq i8 %1555, %1556
   %spec.select.idx.i.i.i825 = zext i1 %1557 to i64
   %spec.select.i.i.i826 = getelementptr inbounds nuw i8, ptr %.4.i.i.i764, i64 %spec.select.idx.i.i.i825
@@ -9919,8 +9962,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i766: ; preds = %1558, %.thread63
   br i1 %1587, label %1588, label %1593
 
 1588:                                             ; preds = %1586
-  %.352.val.i33.i.i809 = load i16, ptr %.352.i25.i.i800, align 1, !tbaa !50
-  %.348.val.i34.i.i810 = load i16, ptr %.348.i26.i.i801, align 1, !tbaa !50
+  %.352.val.i33.i.i809 = load i16, ptr %.352.i25.i.i800, align 1, !tbaa !38
+  %.348.val.i34.i.i810 = load i16, ptr %.348.i26.i.i801, align 1, !tbaa !38
   %1589 = icmp eq i16 %.352.val.i33.i.i809, %.348.val.i34.i.i810
   br i1 %1589, label %1590, label %1593
 
@@ -9936,8 +9979,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i.i766: ; preds = %1558, %.thread63
   br i1 %1594, label %1595, label %1599
 
 1595:                                             ; preds = %1593
-  %1596 = load i8, ptr %.453.i27.i.i802, align 1, !tbaa !47
-  %1597 = load i8, ptr %.4.i28.i.i803, align 1, !tbaa !47
+  %1596 = load i8, ptr %.453.i27.i.i802, align 1, !tbaa !36
+  %1597 = load i8, ptr %.4.i28.i.i803, align 1, !tbaa !36
   %1598 = icmp eq i8 %1596, %1597
   %spec.select.idx.i31.i.i807 = zext i1 %1598 to i64
   %spec.select.i32.i.i808 = getelementptr inbounds nuw i8, ptr %.4.i28.i.i803, i64 %spec.select.idx.i31.i.i807
@@ -9962,28 +10005,28 @@ _ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i769: ; preds = %_Z
   %1606 = ptrtoint ptr %.0266.i213.i581 to i64
   %1607 = sub i64 %1605, %1606
   %.not.i356.i.i771 = icmp ugt ptr %1512, %1472
-  %1608 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1608 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %.not.i356.i.i771, label %1625, label %1609
 
 1609:                                             ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i769
-  %.0266.i.val.i772 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val.i772, ptr %1608, align 1, !tbaa !47
+  %.0266.i.val.i772 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val.i772, ptr %1608, align 1, !tbaa !36
   %1610 = icmp ugt i64 %1607, 16
-  %1611 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1611 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %1610, label %1613, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773: ; preds = %1609
   %1612 = getelementptr inbounds nuw i8, ptr %1611, i64 %1607
-  store ptr %1612, ptr %1473, align 8, !tbaa !52
-  %.pre259.i774 = load ptr, ptr %1476, align 8, !tbaa !56
+  store ptr %1612, ptr %1473, align 8, !tbaa !40
+  %.pre259.i774 = load ptr, ptr %1476, align 8, !tbaa !44
   br label %1651
 
 1613:                                             ; preds = %1609
   %1614 = getelementptr inbounds nuw i8, ptr %1611, i64 16
   %1615 = getelementptr inbounds nuw i8, ptr %.0266.i213.i581, i64 16
   %1616 = getelementptr i8, ptr %1611, i64 %1607
-  %.val14.i775 = load <2 x i64>, ptr %1615, align 1, !tbaa !47
-  store <2 x i64> %.val14.i775, ptr %1614, align 1, !tbaa !47
+  %.val14.i775 = load <2 x i64>, ptr %1615, align 1, !tbaa !36
+  store <2 x i64> %.val14.i775, ptr %1614, align 1, !tbaa !36
   %1617 = icmp slt i64 %1607, 33
   br i1 %1617, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, label %1618
 
@@ -9995,15 +10038,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773: 
   %.130.i.i.i776 = phi ptr [ %1619, %1618 ], [ %1623, %1620 ]
   %.pn.i.i.i777 = phi ptr [ %1615, %1618 ], [ %1622, %1620 ]
   %.1.i.i.i778 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i777, i64 16
-  %.1.i.i.val.i779 = load <2 x i64>, ptr %.1.i.i.i778, align 1, !tbaa !47
-  store <2 x i64> %.1.i.i.val.i779, ptr %.130.i.i.i776, align 1, !tbaa !47
+  %.1.i.i.val.i779 = load <2 x i64>, ptr %.1.i.i.i778, align 1, !tbaa !36
+  store <2 x i64> %.1.i.i.val.i779, ptr %.130.i.i.i776, align 1, !tbaa !36
   %1621 = getelementptr inbounds nuw i8, ptr %.130.i.i.i776, i64 16
   %1622 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i777, i64 32
-  %.val13.i780 = load <2 x i64>, ptr %1622, align 1, !tbaa !47
-  store <2 x i64> %.val13.i780, ptr %1621, align 1, !tbaa !47
+  %.val13.i780 = load <2 x i64>, ptr %1622, align 1, !tbaa !36
+  store <2 x i64> %.val13.i780, ptr %1621, align 1, !tbaa !36
   %1623 = getelementptr inbounds nuw i8, ptr %.130.i.i.i776, i64 32
   %1624 = icmp ult ptr %1623, %1616
-  br i1 %1624, label %1620, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, !llvm.loop !57
+  br i1 %1624, label %1620, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, !llvm.loop !45
 
 1625:                                             ; preds = %_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS1_S1_S1_S1_.exit.i769
   %.not.i25.i783 = icmp ugt ptr %.0266.i213.i581, %1472
@@ -10012,8 +10055,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773: 
 1626:                                             ; preds = %1625
   %1627 = sub i64 %1474, %1606
   %1628 = getelementptr inbounds i8, ptr %1608, i64 %1627
-  %.val19.i.i784 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.val19.i.i784, ptr %1608, align 1, !tbaa !47
+  %.val19.i.i784 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.val19.i.i784, ptr %1608, align 1, !tbaa !36
   %1629 = icmp slt i64 %1627, 17
   br i1 %1629, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790, label %1630
 
@@ -10025,15 +10068,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773: 
   %.130.i.i26.i785 = phi ptr [ %1631, %1630 ], [ %1635, %1632 ]
   %.pn.i.i27.i786 = phi ptr [ %.0266.i213.i581, %1630 ], [ %1634, %1632 ]
   %.1.i.i28.i787 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i786, i64 16
-  %.1.i.val.i.i788 = load <2 x i64>, ptr %.1.i.i28.i787, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i.i788, ptr %.130.i.i26.i785, align 1, !tbaa !47
+  %.1.i.val.i.i788 = load <2 x i64>, ptr %.1.i.i28.i787, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i.i788, ptr %.130.i.i26.i785, align 1, !tbaa !36
   %1633 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i785, i64 16
   %1634 = getelementptr inbounds nuw i8, ptr %.pn.i.i27.i786, i64 32
-  %.val.i.i789 = load <2 x i64>, ptr %1634, align 1, !tbaa !47
-  store <2 x i64> %.val.i.i789, ptr %1633, align 1, !tbaa !47
+  %.val.i.i789 = load <2 x i64>, ptr %1634, align 1, !tbaa !36
+  store <2 x i64> %.val.i.i789, ptr %1633, align 1, !tbaa !36
   %1635 = getelementptr inbounds nuw i8, ptr %.130.i.i26.i785, i64 32
   %1636 = icmp ult ptr %1635, %1628
-  br i1 %1636, label %1632, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790, !llvm.loop !57
+  br i1 %1636, label %1632, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790: ; preds = %1632, %1626, %1625
   %.014.i.i791 = phi ptr [ %1472, %1626 ], [ %.0266.i213.i581, %1625 ], [ %1472, %1632 ]
@@ -10045,37 +10088,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790: ; pre
   %.121.i.i794 = phi ptr [ %1640, %.lr.ph.i.i793 ], [ %.0.i30.i792, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790 ]
   %.11520.i.i795 = phi ptr [ %1638, %.lr.ph.i.i793 ], [ %.014.i.i791, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790 ]
   %1638 = getelementptr inbounds nuw i8, ptr %.11520.i.i795, i64 1
-  %1639 = load i8, ptr %.11520.i.i795, align 1, !tbaa !47
+  %1639 = load i8, ptr %.11520.i.i795, align 1, !tbaa !36
   %1640 = getelementptr inbounds nuw i8, ptr %.121.i.i794, i64 1
-  store i8 %1639, ptr %.121.i.i794, align 1, !tbaa !47
+  store i8 %1639, ptr %.121.i.i794, align 1, !tbaa !36
   %exitcond.not.i.i796 = icmp eq ptr %.11520.i.i795, %.1.i.i591
-  br i1 %exitcond.not.i.i796, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, label %.lr.ph.i.i793, !llvm.loop !58
+  br i1 %exitcond.not.i.i796, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, label %.lr.ph.i.i793, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781: ; preds = %1620, %.lr.ph.i.i793, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i29.i790, %1613
-  %1641 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1641 = load ptr, ptr %1473, align 8, !tbaa !40
   %1642 = getelementptr inbounds nuw i8, ptr %1641, i64 %1607
-  store ptr %1642, ptr %1473, align 8, !tbaa !52
+  store ptr %1642, ptr %1473, align 8, !tbaa !40
   %1643 = icmp ugt i64 %1607, 65535
-  %.pre260.i782 = load ptr, ptr %1476, align 8, !tbaa !56
+  %.pre260.i782 = load ptr, ptr %1476, align 8, !tbaa !44
   br i1 %1643, label %1644, label %1651
 
 1644:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781
-  store i32 1, ptr %1475, align 8, !tbaa !59
-  %1645 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1475, align 8, !tbaa !47
+  %1645 = load ptr, ptr %1, align 8, !tbaa !48
   %1646 = ptrtoint ptr %.pre260.i782 to i64
   %1647 = ptrtoint ptr %1645 to i64
   %1648 = sub i64 %1646, %1647
   %1649 = lshr exact i64 %1648, 3
   %1650 = trunc i64 %1649 to i32
-  store i32 %1650, ptr %1477, align 4, !tbaa !61
+  store i32 %1650, ptr %1477, align 4, !tbaa !49
   br label %1651
 
 1651:                                             ; preds = %1644, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773
   %1652 = phi ptr [ %.pre259.i774, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.thread.i773 ], [ %.pre260.i782, %1644 ], [ %.pre260.i782, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781 ]
   %1653 = trunc i64 %1607 to i16
   %1654 = getelementptr inbounds nuw i8, ptr %1652, i64 4
-  store i16 %1653, ptr %1654, align 4, !tbaa !62
-  store i32 1, ptr %1652, align 4, !tbaa !64
+  store i16 %1653, ptr %1654, align 4, !tbaa !50
+  store i32 1, ptr %1652, align 4, !tbaa !52
   %1655 = add i64 %.0.i.i770, 1
   %1656 = icmp ugt i64 %1655, 65535
   br i1 %1656, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i658, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630
@@ -10114,9 +10157,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781: ; preds
   %.4297.i190.i749 = phi i64 [ %1680, %1679 ], [ %1672, %1665 ]
   %.0300.i189.i750 = phi ptr [ %1676, %1679 ], [ %1666, %1665 ]
   %1674 = getelementptr inbounds i8, ptr %.4.i191.i748, i64 -1
-  %1675 = load i8, ptr %1674, align 1, !tbaa !47
+  %1675 = load i8, ptr %1674, align 1, !tbaa !36
   %1676 = getelementptr inbounds i8, ptr %.0300.i189.i750, i64 -1
-  %1677 = load i8, ptr %1676, align 1, !tbaa !47
+  %1677 = load i8, ptr %1676, align 1, !tbaa !36
   %1678 = icmp eq i8 %1675, %1677
   br i1 %1678, label %1679, label %.critedge.i.loopexit.i751
 
@@ -10125,7 +10168,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781: ; preds
   %1681 = icmp ugt ptr %1674, %.0266.i213.i581
   %1682 = icmp ugt ptr %1676, %36
   %1683 = and i1 %1681, %1682
-  br i1 %1683, label %.lr.ph192.i747, label %.critedge.i.loopexit.i751, !llvm.loop !78
+  br i1 %1683, label %.lr.ph192.i747, label %.critedge.i.loopexit.i751, !llvm.loop !59
 
 .critedge.i.loopexit.i751:                        ; preds = %1679, %.lr.ph192.i747
   %.4297.i.lcssa.ph.i752 = phi i64 [ %1680, %1679 ], [ %.4297.i190.i749, %.lr.ph192.i747 ]
@@ -10141,28 +10184,28 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i.i781: ; preds
   %1685 = sub i64 %.pre-phi264.i718, %1684
   %1686 = add i32 %1668, 3
   %.not.i354.i.i721 = icmp ugt ptr %.4.i.lcssa.i720, %1472
-  %1687 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1687 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %.not.i354.i.i721, label %1704, label %1688
 
 1688:                                             ; preds = %.critedge.i.i717
-  %.0266.i.val17.i722 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val17.i722, ptr %1687, align 1, !tbaa !47
+  %.0266.i.val17.i722 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val17.i722, ptr %1687, align 1, !tbaa !36
   %1689 = icmp ugt i64 %1685, 16
-  %1690 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1690 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %1689, label %1692, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i723
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i723: ; preds = %1688
   %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 %1685
-  store ptr %1691, ptr %1473, align 8, !tbaa !52
-  %.pre.i724 = load ptr, ptr %1476, align 8, !tbaa !56
+  store ptr %1691, ptr %1473, align 8, !tbaa !40
+  %.pre.i724 = load ptr, ptr %1476, align 8, !tbaa !44
   br label %1730
 
 1692:                                             ; preds = %1688
   %1693 = getelementptr inbounds nuw i8, ptr %1690, i64 16
   %1694 = getelementptr inbounds nuw i8, ptr %.0266.i213.i581, i64 16
   %1695 = getelementptr i8, ptr %1690, i64 %1685
-  %.val16.i725 = load <2 x i64>, ptr %1694, align 1, !tbaa !47
-  store <2 x i64> %.val16.i725, ptr %1693, align 1, !tbaa !47
+  %.val16.i725 = load <2 x i64>, ptr %1694, align 1, !tbaa !36
+  store <2 x i64> %.val16.i725, ptr %1693, align 1, !tbaa !36
   %1696 = icmp slt i64 %1685, 33
   br i1 %1696, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, label %1697
 
@@ -10174,15 +10217,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i72
   %.130.i358.i.i726 = phi ptr [ %1698, %1697 ], [ %1702, %1699 ]
   %.pn.i359.i.i727 = phi ptr [ %1694, %1697 ], [ %1701, %1699 ]
   %.1.i360.i.i728 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i727, i64 16
-  %.1.i360.i.val.i729 = load <2 x i64>, ptr %.1.i360.i.i728, align 1, !tbaa !47
-  store <2 x i64> %.1.i360.i.val.i729, ptr %.130.i358.i.i726, align 1, !tbaa !47
+  %.1.i360.i.val.i729 = load <2 x i64>, ptr %.1.i360.i.i728, align 1, !tbaa !36
+  store <2 x i64> %.1.i360.i.val.i729, ptr %.130.i358.i.i726, align 1, !tbaa !36
   %1700 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i726, i64 16
   %1701 = getelementptr inbounds nuw i8, ptr %.pn.i359.i.i727, i64 32
-  %.val15.i730 = load <2 x i64>, ptr %1701, align 1, !tbaa !47
-  store <2 x i64> %.val15.i730, ptr %1700, align 1, !tbaa !47
+  %.val15.i730 = load <2 x i64>, ptr %1701, align 1, !tbaa !36
+  store <2 x i64> %.val15.i730, ptr %1700, align 1, !tbaa !36
   %1702 = getelementptr inbounds nuw i8, ptr %.130.i358.i.i726, i64 32
   %1703 = icmp ult ptr %1702, %1695
-  br i1 %1703, label %1699, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, !llvm.loop !57
+  br i1 %1703, label %1699, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, !llvm.loop !45
 
 1704:                                             ; preds = %.critedge.i.i717
   %.not.i31.i733 = icmp ugt ptr %.0266.i213.i581, %1472
@@ -10191,8 +10234,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i72
 1705:                                             ; preds = %1704
   %1706 = sub i64 %1474, %1684
   %1707 = getelementptr inbounds i8, ptr %1687, i64 %1706
-  %.val19.i32.i734 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.val19.i32.i734, ptr %1687, align 1, !tbaa !47
+  %.val19.i32.i734 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.val19.i32.i734, ptr %1687, align 1, !tbaa !36
   %1708 = icmp slt i64 %1706, 17
   br i1 %1708, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740, label %1709
 
@@ -10204,15 +10247,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i72
   %.130.i.i33.i735 = phi ptr [ %1710, %1709 ], [ %1714, %1711 ]
   %.pn.i.i34.i736 = phi ptr [ %.0266.i213.i581, %1709 ], [ %1713, %1711 ]
   %.1.i.i35.i737 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i736, i64 16
-  %.1.i.val.i36.i738 = load <2 x i64>, ptr %.1.i.i35.i737, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i36.i738, ptr %.130.i.i33.i735, align 1, !tbaa !47
+  %.1.i.val.i36.i738 = load <2 x i64>, ptr %.1.i.i35.i737, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i36.i738, ptr %.130.i.i33.i735, align 1, !tbaa !36
   %1712 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i735, i64 16
   %1713 = getelementptr inbounds nuw i8, ptr %.pn.i.i34.i736, i64 32
-  %.val.i37.i739 = load <2 x i64>, ptr %1713, align 1, !tbaa !47
-  store <2 x i64> %.val.i37.i739, ptr %1712, align 1, !tbaa !47
+  %.val.i37.i739 = load <2 x i64>, ptr %1713, align 1, !tbaa !36
+  store <2 x i64> %.val.i37.i739, ptr %1712, align 1, !tbaa !36
   %1714 = getelementptr inbounds nuw i8, ptr %.130.i.i33.i735, i64 32
   %1715 = icmp ult ptr %1714, %1707
-  br i1 %1715, label %1711, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740, !llvm.loop !57
+  br i1 %1715, label %1711, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740: ; preds = %1711, %1705, %1704
   %.014.i39.i741 = phi ptr [ %1472, %1705 ], [ %.0266.i213.i581, %1704 ], [ %1472, %1711 ]
@@ -10224,37 +10267,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740: ; pre
   %.121.i42.i744 = phi ptr [ %1719, %.lr.ph.i41.i743 ], [ %.0.i40.i742, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740 ]
   %.11520.i43.i745 = phi ptr [ %1717, %.lr.ph.i41.i743 ], [ %.014.i39.i741, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740 ]
   %1717 = getelementptr inbounds nuw i8, ptr %.11520.i43.i745, i64 1
-  %1718 = load i8, ptr %.11520.i43.i745, align 1, !tbaa !47
+  %1718 = load i8, ptr %.11520.i43.i745, align 1, !tbaa !36
   %1719 = getelementptr inbounds nuw i8, ptr %.121.i42.i744, i64 1
-  store i8 %1718, ptr %.121.i42.i744, align 1, !tbaa !47
+  store i8 %1718, ptr %.121.i42.i744, align 1, !tbaa !36
   %exitcond.not.i44.i746 = icmp eq ptr %1717, %.4.i.lcssa.i720
-  br i1 %exitcond.not.i44.i746, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, label %.lr.ph.i41.i743, !llvm.loop !58
+  br i1 %exitcond.not.i44.i746, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, label %.lr.ph.i41.i743, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731: ; preds = %1699, %.lr.ph.i41.i743, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i38.i740, %1692
-  %1720 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1720 = load ptr, ptr %1473, align 8, !tbaa !40
   %1721 = getelementptr inbounds nuw i8, ptr %1720, i64 %1685
-  store ptr %1721, ptr %1473, align 8, !tbaa !52
+  store ptr %1721, ptr %1473, align 8, !tbaa !40
   %1722 = icmp ugt i64 %1685, 65535
-  %.pre256.i732 = load ptr, ptr %1476, align 8, !tbaa !56
+  %.pre256.i732 = load ptr, ptr %1476, align 8, !tbaa !44
   br i1 %1722, label %1723, label %1730
 
 1723:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731
-  store i32 1, ptr %1475, align 8, !tbaa !59
-  %1724 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1475, align 8, !tbaa !47
+  %1724 = load ptr, ptr %1, align 8, !tbaa !48
   %1725 = ptrtoint ptr %.pre256.i732 to i64
   %1726 = ptrtoint ptr %1724 to i64
   %1727 = sub i64 %1725, %1726
   %1728 = lshr exact i64 %1727, 3
   %1729 = trunc i64 %1728 to i32
-  store i32 %1729, ptr %1477, align 4, !tbaa !61
+  store i32 %1729, ptr %1477, align 4, !tbaa !49
   br label %1730
 
 1730:                                             ; preds = %1723, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i723
   %1731 = phi ptr [ %.pre.i724, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.thread.i723 ], [ %.pre256.i732, %1723 ], [ %.pre256.i732, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731 ]
   %1732 = trunc i64 %1685 to i16
   %1733 = getelementptr inbounds nuw i8, ptr %1731, i64 4
-  store i16 %1732, ptr %1733, align 4, !tbaa !62
-  store i32 %1686, ptr %1731, align 4, !tbaa !64
+  store i16 %1732, ptr %1733, align 4, !tbaa !50
+  store i32 %1686, ptr %1731, align 4, !tbaa !52
   %1734 = add i64 %.4297.i.lcssa.i719, -3
   %1735 = icmp ugt i64 %1734, 65535
   br i1 %1735, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i658, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630
@@ -10338,8 +10381,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731: ; pr
   br i1 %1767, label %1768, label %1773
 
 1768:                                             ; preds = %1766
-  %.352.val.i.i697 = load i16, ptr %.352.i.i615, align 1, !tbaa !50
-  %.348.val.i.i698 = load i16, ptr %.348.i.i616, align 1, !tbaa !50
+  %.352.val.i.i697 = load i16, ptr %.352.i.i615, align 1, !tbaa !38
+  %.348.val.i.i698 = load i16, ptr %.348.i.i616, align 1, !tbaa !38
   %1769 = icmp eq i16 %.352.val.i.i697, %.348.val.i.i698
   br i1 %1769, label %1770, label %1773
 
@@ -10355,8 +10398,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit361.i.i731: ; pr
   br i1 %1774, label %1775, label %1779
 
 1775:                                             ; preds = %1773
-  %1776 = load i8, ptr %.453.i.i617, align 1, !tbaa !47
-  %1777 = load i8, ptr %.4.i46.i618, align 1, !tbaa !47
+  %1776 = load i8, ptr %.453.i.i617, align 1, !tbaa !36
+  %1777 = load i8, ptr %.4.i46.i618, align 1, !tbaa !36
   %1778 = icmp eq i8 %1776, %1777
   %spec.select.idx.i.i695 = zext i1 %1778 to i64
   %spec.select.i.i696 = getelementptr inbounds nuw i8, ptr %.4.i46.i618, i64 %spec.select.idx.i.i695
@@ -10380,9 +10423,9 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i620: ; preds = %1779, %.thread63.i
   %.6299.i198.i689 = phi i64 [ %1791, %1790 ], [ %1783, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i620 ]
   %.0318.i197.i690 = phi ptr [ %1787, %1790 ], [ %1495, %_ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i620 ]
   %1785 = getelementptr inbounds i8, ptr %.6.i199.i688, i64 -1
-  %1786 = load i8, ptr %1785, align 1, !tbaa !47
+  %1786 = load i8, ptr %1785, align 1, !tbaa !36
   %1787 = getelementptr inbounds i8, ptr %.0318.i197.i690, i64 -1
-  %1788 = load i8, ptr %1787, align 1, !tbaa !47
+  %1788 = load i8, ptr %1787, align 1, !tbaa !36
   %1789 = icmp eq i8 %1786, %1788
   br i1 %1789, label %1790, label %.critedge2.i.loopexit.i691
 
@@ -10391,7 +10434,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i620: ; preds = %1779, %.thread63.i
   %1792 = icmp ugt ptr %1785, %.0266.i213.i581
   %1793 = icmp ugt ptr %1787, %21
   %1794 = and i1 %1792, %1793
-  br i1 %1794, label %.lr.ph200.i687, label %.critedge2.i.loopexit.i691, !llvm.loop !79
+  br i1 %1794, label %.lr.ph200.i687, label %.critedge2.i.loopexit.i691, !llvm.loop !60
 
 .critedge2.i.loopexit.i691:                       ; preds = %1790, %.lr.ph200.i687
   %.6299.i.lcssa.ph.i692 = phi i64 [ %1791, %1790 ], [ %.6299.i198.i689, %.lr.ph200.i687 ]
@@ -10407,28 +10450,28 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.i620: ; preds = %1779, %.thread63.i
   %1796 = sub i64 %.pre-phi.i623, %1795
   %1797 = add i32 %1742, 3
   %.not.i352.i.i626 = icmp ugt ptr %.6.i.lcssa.i625, %1472
-  %1798 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1798 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %.not.i352.i.i626, label %1815, label %1799
 
 1799:                                             ; preds = %.critedge2.i.i622
-  %.0266.i.val20.i627 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.0266.i.val20.i627, ptr %1798, align 1, !tbaa !47
+  %.0266.i.val20.i627 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.0266.i.val20.i627, ptr %1798, align 1, !tbaa !36
   %1800 = icmp ugt i64 %1796, 16
-  %1801 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1801 = load ptr, ptr %1473, align 8, !tbaa !40
   br i1 %1800, label %1803, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i628
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i628: ; preds = %1799
   %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 %1796
-  store ptr %1802, ptr %1473, align 8, !tbaa !52
-  %.pre257.i629 = load ptr, ptr %1476, align 8, !tbaa !56
+  store ptr %1802, ptr %1473, align 8, !tbaa !40
+  %.pre257.i629 = load ptr, ptr %1476, align 8, !tbaa !44
   br label %1841
 
 1803:                                             ; preds = %1799
   %1804 = getelementptr inbounds nuw i8, ptr %1801, i64 16
   %1805 = getelementptr inbounds nuw i8, ptr %.0266.i213.i581, i64 16
   %1806 = getelementptr i8, ptr %1801, i64 %1796
-  %.val19.i665 = load <2 x i64>, ptr %1805, align 1, !tbaa !47
-  store <2 x i64> %.val19.i665, ptr %1804, align 1, !tbaa !47
+  %.val19.i665 = load <2 x i64>, ptr %1805, align 1, !tbaa !36
+  store <2 x i64> %.val19.i665, ptr %1804, align 1, !tbaa !36
   %1807 = icmp slt i64 %1796, 33
   br i1 %1807, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, label %1808
 
@@ -10440,15 +10483,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i62
   %.130.i362.i.i666 = phi ptr [ %1809, %1808 ], [ %1813, %1810 ]
   %.pn.i363.i.i667 = phi ptr [ %1805, %1808 ], [ %1812, %1810 ]
   %.1.i364.i.i668 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i667, i64 16
-  %.1.i364.i.val.i669 = load <2 x i64>, ptr %.1.i364.i.i668, align 1, !tbaa !47
-  store <2 x i64> %.1.i364.i.val.i669, ptr %.130.i362.i.i666, align 1, !tbaa !47
+  %.1.i364.i.val.i669 = load <2 x i64>, ptr %.1.i364.i.i668, align 1, !tbaa !36
+  store <2 x i64> %.1.i364.i.val.i669, ptr %.130.i362.i.i666, align 1, !tbaa !36
   %1811 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i666, i64 16
   %1812 = getelementptr inbounds nuw i8, ptr %.pn.i363.i.i667, i64 32
-  %.val18.i670 = load <2 x i64>, ptr %1812, align 1, !tbaa !47
-  store <2 x i64> %.val18.i670, ptr %1811, align 1, !tbaa !47
+  %.val18.i670 = load <2 x i64>, ptr %1812, align 1, !tbaa !36
+  store <2 x i64> %.val18.i670, ptr %1811, align 1, !tbaa !36
   %1813 = getelementptr inbounds nuw i8, ptr %.130.i362.i.i666, i64 32
   %1814 = icmp ult ptr %1813, %1806
-  br i1 %1814, label %1810, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, !llvm.loop !57
+  br i1 %1814, label %1810, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, !llvm.loop !45
 
 1815:                                             ; preds = %.critedge2.i.i622
   %.not.i51.i673 = icmp ugt ptr %.0266.i213.i581, %1472
@@ -10457,8 +10500,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i62
 1816:                                             ; preds = %1815
   %1817 = sub i64 %1474, %1795
   %1818 = getelementptr inbounds i8, ptr %1798, i64 %1817
-  %.val19.i52.i674 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !47
-  store <2 x i64> %.val19.i52.i674, ptr %1798, align 1, !tbaa !47
+  %.val19.i52.i674 = load <2 x i64>, ptr %.0266.i213.i581, align 1, !tbaa !36
+  store <2 x i64> %.val19.i52.i674, ptr %1798, align 1, !tbaa !36
   %1819 = icmp slt i64 %1817, 17
   br i1 %1819, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680, label %1820
 
@@ -10470,15 +10513,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i62
   %.130.i.i53.i675 = phi ptr [ %1821, %1820 ], [ %1825, %1822 ]
   %.pn.i.i54.i676 = phi ptr [ %.0266.i213.i581, %1820 ], [ %1824, %1822 ]
   %.1.i.i55.i677 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i676, i64 16
-  %.1.i.val.i56.i678 = load <2 x i64>, ptr %.1.i.i55.i677, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i56.i678, ptr %.130.i.i53.i675, align 1, !tbaa !47
+  %.1.i.val.i56.i678 = load <2 x i64>, ptr %.1.i.i55.i677, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i56.i678, ptr %.130.i.i53.i675, align 1, !tbaa !36
   %1823 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i675, i64 16
   %1824 = getelementptr inbounds nuw i8, ptr %.pn.i.i54.i676, i64 32
-  %.val.i57.i679 = load <2 x i64>, ptr %1824, align 1, !tbaa !47
-  store <2 x i64> %.val.i57.i679, ptr %1823, align 1, !tbaa !47
+  %.val.i57.i679 = load <2 x i64>, ptr %1824, align 1, !tbaa !36
+  store <2 x i64> %.val.i57.i679, ptr %1823, align 1, !tbaa !36
   %1825 = getelementptr inbounds nuw i8, ptr %.130.i.i53.i675, i64 32
   %1826 = icmp ult ptr %1825, %1818
-  br i1 %1826, label %1822, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680, !llvm.loop !57
+  br i1 %1826, label %1822, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680: ; preds = %1822, %1816, %1815
   %.014.i59.i681 = phi ptr [ %1472, %1816 ], [ %.0266.i213.i581, %1815 ], [ %1472, %1822 ]
@@ -10490,37 +10533,37 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680: ; pre
   %.121.i62.i684 = phi ptr [ %1830, %.lr.ph.i61.i683 ], [ %.0.i60.i682, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680 ]
   %.11520.i63.i685 = phi ptr [ %1828, %.lr.ph.i61.i683 ], [ %.014.i59.i681, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680 ]
   %1828 = getelementptr inbounds nuw i8, ptr %.11520.i63.i685, i64 1
-  %1829 = load i8, ptr %.11520.i63.i685, align 1, !tbaa !47
+  %1829 = load i8, ptr %.11520.i63.i685, align 1, !tbaa !36
   %1830 = getelementptr inbounds nuw i8, ptr %.121.i62.i684, i64 1
-  store i8 %1829, ptr %.121.i62.i684, align 1, !tbaa !47
+  store i8 %1829, ptr %.121.i62.i684, align 1, !tbaa !36
   %exitcond.not.i64.i686 = icmp eq ptr %1828, %.6.i.lcssa.i625
-  br i1 %exitcond.not.i64.i686, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, label %.lr.ph.i61.i683, !llvm.loop !58
+  br i1 %exitcond.not.i64.i686, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, label %.lr.ph.i61.i683, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671: ; preds = %1810, %.lr.ph.i61.i683, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i58.i680, %1803
-  %1831 = load ptr, ptr %1473, align 8, !tbaa !52
+  %1831 = load ptr, ptr %1473, align 8, !tbaa !40
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 %1796
-  store ptr %1832, ptr %1473, align 8, !tbaa !52
+  store ptr %1832, ptr %1473, align 8, !tbaa !40
   %1833 = icmp ugt i64 %1796, 65535
-  %.pre258.i672 = load ptr, ptr %1476, align 8, !tbaa !56
+  %.pre258.i672 = load ptr, ptr %1476, align 8, !tbaa !44
   br i1 %1833, label %1834, label %1841
 
 1834:                                             ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671
-  store i32 1, ptr %1475, align 8, !tbaa !59
-  %1835 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %1475, align 8, !tbaa !47
+  %1835 = load ptr, ptr %1, align 8, !tbaa !48
   %1836 = ptrtoint ptr %.pre258.i672 to i64
   %1837 = ptrtoint ptr %1835 to i64
   %1838 = sub i64 %1836, %1837
   %1839 = lshr exact i64 %1838, 3
   %1840 = trunc i64 %1839 to i32
-  store i32 %1840, ptr %1477, align 4, !tbaa !61
+  store i32 %1840, ptr %1477, align 4, !tbaa !49
   br label %1841
 
 1841:                                             ; preds = %1834, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i628
   %1842 = phi ptr [ %.pre257.i629, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.thread.i628 ], [ %.pre258.i672, %1834 ], [ %.pre258.i672, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit365.i.i671 ]
   %1843 = trunc i64 %1796 to i16
   %1844 = getelementptr inbounds nuw i8, ptr %1842, i64 4
-  store i16 %1843, ptr %1844, align 4, !tbaa !62
-  store i32 %1797, ptr %1842, align 4, !tbaa !64
+  store i16 %1843, ptr %1844, align 4, !tbaa !50
+  store i32 %1797, ptr %1842, align 4, !tbaa !52
   %1845 = add i64 %.6299.i.lcssa.i624, -3
   %1846 = icmp ugt i64 %1845, 65535
   br i1 %1846, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i658, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630
@@ -10550,14 +10593,14 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split
   %.2284.i.ph.ph.i662 = phi i32 [ %.0282.i211.i583, %1651 ], [ %.0272.i212.i582, %1730 ], [ %.0272.i212.i582, %1841 ]
   %.2274.i.ph.ph.i663 = phi i32 [ %.0272.i212.i582, %1651 ], [ %1668, %1730 ], [ %1742, %1841 ]
   %.2.i.ph.ph.i664 = phi ptr [ %1512, %1651 ], [ %.4.i.lcssa.i720, %1730 ], [ %.6.i.lcssa.i625, %1841 ]
-  store i32 2, ptr %1475, align 8, !tbaa !59
-  %1857 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1475, align 8, !tbaa !47
+  %1857 = load ptr, ptr %1, align 8, !tbaa !48
   %1858 = ptrtoint ptr %.sink309.i659 to i64
   %1859 = ptrtoint ptr %1857 to i64
   %1860 = sub i64 %1858, %1859
   %1861 = lshr exact i64 %1860, 3
   %1862 = trunc i64 %1861 to i32
-  store i32 %1862, ptr %1477, align 4, !tbaa !61
+  store i32 %1862, ptr %1477, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i658, %1841, %1730, %1651
@@ -10569,9 +10612,9 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630: ; pr
   %.2.i.ph.i636 = phi ptr [ %1512, %1651 ], [ %.4.i.lcssa.i720, %1730 ], [ %.6.i.lcssa.i625, %1841 ], [ %.2.i.ph.ph.i664, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.sink.split.i658 ]
   %1863 = trunc i64 %.sink305.i631 to i16
   %1864 = getelementptr inbounds nuw i8, ptr %.sink304.i632, i64 6
-  store i16 %1863, ptr %1864, align 2, !tbaa !65
+  store i16 %1863, ptr %1864, align 2, !tbaa !53
   %1865 = getelementptr inbounds nuw i8, ptr %.sink304.i632, i64 8
-  store ptr %1865, ptr %1476, align 8, !tbaa !56
+  store ptr %1865, ptr %1476, align 8, !tbaa !44
   %1866 = getelementptr inbounds nuw i8, ptr %.2.i.ph.i636, i64 %.2295.i.ph.i633
   %.not337.i.i637 = icmp ugt ptr %1866, %23
   br i1 %.not337.i.i637, label %.thread123.i644, label %1867
@@ -10629,38 +10672,38 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit357.i.i630: ; pr
   br i1 %.not.i.i.i652, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i655, label %1900
 
 1900:                                             ; preds = %1895
-  %1901 = load ptr, ptr %1473, align 8, !tbaa !52
-  %.3269.i.val.i653 = load <2 x i64>, ptr %.3269.i208.i640, align 1, !tbaa !47
-  store <2 x i64> %.3269.i.val.i653, ptr %1901, align 1, !tbaa !47
-  %.pre261.i654 = load ptr, ptr %1476, align 8, !tbaa !56
+  %1901 = load ptr, ptr %1473, align 8, !tbaa !40
+  %.3269.i.val.i653 = load <2 x i64>, ptr %.3269.i208.i640, align 1, !tbaa !36
+  store <2 x i64> %.3269.i.val.i653, ptr %1901, align 1, !tbaa !36
+  %.pre261.i654 = load ptr, ptr %1476, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i655
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i655: ; preds = %1900, %1895
   %1902 = phi ptr [ %1883, %1895 ], [ %.pre261.i654, %1900 ]
   %1903 = getelementptr inbounds nuw i8, ptr %1902, i64 4
-  store i16 0, ptr %1903, align 4, !tbaa !62
-  store i32 1, ptr %1902, align 4, !tbaa !64
+  store i16 0, ptr %1903, align 4, !tbaa !50
+  store i32 1, ptr %1902, align 4, !tbaa !52
   %1904 = add i64 %1899, 1
   %1905 = icmp ugt i64 %1904, 65535
   br i1 %1905, label %1906, label %1913
 
 1906:                                             ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i655
-  store i32 2, ptr %1475, align 8, !tbaa !59
-  %1907 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %1475, align 8, !tbaa !47
+  %1907 = load ptr, ptr %1, align 8, !tbaa !48
   %1908 = ptrtoint ptr %1902 to i64
   %1909 = ptrtoint ptr %1907 to i64
   %1910 = sub i64 %1908, %1909
   %1911 = lshr exact i64 %1910, 3
   %1912 = trunc i64 %1911 to i32
-  store i32 %1912, ptr %1477, align 4, !tbaa !61
+  store i32 %1912, ptr %1477, align 4, !tbaa !49
   br label %1913
 
 1913:                                             ; preds = %1906, %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit80.i655
   %1914 = trunc i64 %1904 to i16
   %1915 = getelementptr inbounds nuw i8, ptr %1902, i64 6
-  store i16 %1914, ptr %1915, align 2, !tbaa !65
+  store i16 %1914, ptr %1915, align 2, !tbaa !53
   %1916 = getelementptr inbounds nuw i8, ptr %1902, i64 8
-  store ptr %1916, ptr %1476, align 8, !tbaa !56
+  store ptr %1916, ptr %1476, align 8, !tbaa !44
   %.9.i.val8.i656 = load i64, ptr %.3269.i208.i640, align 1, !tbaa !23
   %1917 = mul i64 %.9.i.val8.i656, -3523014627193167104
   %1918 = lshr i64 %1917, %1468
@@ -10695,7 +10738,7 @@ _ZN11duckdb_zstdL42ZSTD_compressBlock_fast_dictMatchState_4_0EPNS_17ZSTD_matchSt
 define noundef i64 @_ZN11duckdb_zstd31ZSTD_compressBlock_fast_extDictEPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
 switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %6 = load i32, ptr %5, align 8, !tbaa !41
+  %6 = load i32, ptr %5, align 8, !tbaa !30
   %switch.tableidx = add i32 %6, -5
   %7 = icmp ult i32 %switch.tableidx, 3
   %spec.select = select i1 %7, i32 %6, i32 4
@@ -10783,8 +10826,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %34
-  %.352.val.i = load i16, ptr %.352.i, align 1, !tbaa !50
-  %.348.val.i = load i16, ptr %.348.i, align 1, !tbaa !50
+  %.352.val.i = load i16, ptr %.352.i, align 1, !tbaa !38
+  %.348.val.i = load i16, ptr %.348.i, align 1, !tbaa !38
   %38 = icmp eq i16 %.352.val.i, %.348.val.i
   br i1 %38, label %39, label %42
 
@@ -10800,8 +10843,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL20ZSTD_count_2segmentsEPKhS
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = load i8, ptr %.453.i, align 1, !tbaa !47
-  %46 = load i8, ptr %.4.i, align 1, !tbaa !47
+  %45 = load i8, ptr %.453.i, align 1, !tbaa !36
+  %46 = load i8, ptr %.4.i, align 1, !tbaa !36
   %47 = icmp eq i8 %45, %46
   %spec.select.idx.i = zext i1 %47 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.4.i, i64 %spec.select.idx.i
@@ -10888,8 +10931,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %14, %.thread63.i, %
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %78
-  %.352.val.i33 = load i16, ptr %.352.i25, align 1, !tbaa !50
-  %.348.val.i34 = load i16, ptr %.348.i26, align 1, !tbaa !50
+  %.352.val.i33 = load i16, ptr %.352.i25, align 1, !tbaa !38
+  %.348.val.i34 = load i16, ptr %.348.i26, align 1, !tbaa !38
   %82 = icmp eq i16 %.352.val.i33, %.348.val.i34
   br i1 %82, label %83, label %86
 
@@ -10905,8 +10948,8 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit:     ; preds = %14, %.thread63.i, %
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %86
-  %89 = load i8, ptr %.453.i27, align 1, !tbaa !47
-  %90 = load i8, ptr %.4.i28, align 1, !tbaa !47
+  %89 = load i8, ptr %.453.i27, align 1, !tbaa !36
+  %90 = load i8, ptr %.4.i28, align 1, !tbaa !36
   %91 = icmp eq i8 %89, %90
   %spec.select.idx.i31 = zext i1 %91 to i64
   %spec.select.i32 = getelementptr inbounds nuw i8, ptr %.4.i28, i64 %spec.select.idx.i31
@@ -10937,24 +10980,24 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL39ZSTD_compressBlock_fast_e
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load i32, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %13 = load i32, ptr %12, align 4, !tbaa !73
+  %13 = load i32, ptr %12, align 4, !tbaa !54
   %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
   %15 = add i32 %14, 1
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !80
+  %20 = load ptr, ptr %19, align 8, !tbaa !61
   %21 = ptrtoint ptr %3 to i64
   %22 = ptrtoint ptr %18 to i64
   %23 = sub i64 %21, %22
   %24 = add i64 %23, %4
   %25 = trunc i64 %24 to i32
-  %26 = load i32, ptr %7, align 8, !tbaa !43
+  %26 = load i32, ptr %7, align 8, !tbaa !32
   %27 = getelementptr i8, ptr %0, i64 28
-  %.val426 = load i32, ptr %27, align 4, !tbaa !81
+  %.val426 = load i32, ptr %27, align 4, !tbaa !62
   %28 = getelementptr i8, ptr %0, i64 40
-  %.val427 = load i32, ptr %28, align 8, !tbaa !45
+  %.val427 = load i32, ptr %28, align 8, !tbaa !34
   %29 = shl nuw i32 1, %26
   %30 = sub i32 %25, %.val426
   %31 = icmp ugt i32 %30, %29
@@ -10965,7 +11008,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL39ZSTD_compressBlock_fast_e
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !44
+  %38 = load i32, ptr %37, align 8, !tbaa !33
   %39 = tail call i32 @llvm.umax.i32(i32 %38, i32 %34)
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 %40
@@ -11128,9 +11171,9 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit380:    ; preds = %_ZN11duckdb_zstdL12
   %117 = getelementptr inbounds nuw i8, ptr %100, i64 %116
   %118 = select i1 %99, ptr %42, ptr %43
   %119 = getelementptr inbounds i8, ptr %.0305, i64 -1
-  %120 = load i8, ptr %119, align 1, !tbaa !47
+  %120 = load i8, ptr %119, align 1, !tbaa !36
   %121 = getelementptr inbounds i8, ptr %117, i64 -1
-  %122 = load i8, ptr %121, align 1, !tbaa !47
+  %122 = load i8, ptr %121, align 1, !tbaa !36
   %123 = icmp eq i8 %120, %122
   %.neg = sext i1 %123 to i64
   %124 = getelementptr inbounds i8, ptr %.0305, i64 %.neg
@@ -11260,7 +11303,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %160, %164, %167, %1
   %.1325 = phi i64 [ %176, %175 ], [ %.0324, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376 ]
   %.1323 = phi ptr [ %179, %175 ], [ %.0322, %_ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376 ]
   %181 = icmp ult ptr %174, %44
-  br i1 %181, label %94, label %.loopexit, !llvm.loop !82
+  br i1 %181, label %94, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.thread477, %180, %48
   %.0296545 = phi ptr [ %3, %48 ], [ %.0296572, %180 ], [ %.6, %.thread477 ]
@@ -11304,9 +11347,9 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %160, %164, %167, %1
   %.4334547 = phi i64 [ %207, %206 ], [ 4, %190 ]
   %.4339546 = phi ptr [ %203, %206 ], [ %196, %190 ]
   %201 = getelementptr inbounds i8, ptr %.5301548, i64 -1
-  %202 = load i8, ptr %201, align 1, !tbaa !47
+  %202 = load i8, ptr %201, align 1, !tbaa !36
   %203 = getelementptr inbounds i8, ptr %.4339546, i64 -1
-  %204 = load i8, ptr %203, align 1, !tbaa !47
+  %204 = load i8, ptr %203, align 1, !tbaa !36
   %205 = icmp eq i8 %202, %204
   br i1 %205, label %206, label %.critedge
 
@@ -11315,7 +11358,7 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %160, %164, %167, %1
   %208 = icmp ugt ptr %201, %.0296572
   %209 = icmp ugt ptr %203, %193
   %210 = and i1 %209, %208
-  br i1 %210, label %.lr.ph, label %.critedge, !llvm.loop !83
+  br i1 %210, label %.lr.ph, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %206, %.lr.ph, %190, %115
   %.3343 = phi i32 [ 1, %115 ], [ %197, %190 ], [ %197, %.lr.ph ], [ %197, %206 ]
@@ -11336,28 +11379,28 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit376:    ; preds = %160, %164, %167, %1
   %216 = ptrtoint ptr %.0296572 to i64
   %217 = sub i64 %215, %216
   %.not.i383 = icmp ugt ptr %.3299, %60
-  %218 = load ptr, ptr %61, align 8, !tbaa !52
+  %218 = load ptr, ptr %61, align 8, !tbaa !40
   br i1 %.not.i383, label %235, label %219
 
 219:                                              ; preds = %.critedge
-  %.0283.val = load <2 x i64>, ptr %.0296572, align 1, !tbaa !47
-  store <2 x i64> %.0283.val, ptr %218, align 1, !tbaa !47
+  %.0283.val = load <2 x i64>, ptr %.0296572, align 1, !tbaa !36
+  store <2 x i64> %.0283.val, ptr %218, align 1, !tbaa !36
   %220 = icmp ugt i64 %217, 16
-  %221 = load ptr, ptr %61, align 8, !tbaa !52
+  %221 = load ptr, ptr %61, align 8, !tbaa !40
   br i1 %220, label %223, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread: ; preds = %219
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 %217
-  store ptr %222, ptr %61, align 8, !tbaa !52
-  %.pre = load ptr, ptr %64, align 8, !tbaa !56
+  store ptr %222, ptr %61, align 8, !tbaa !40
+  %.pre = load ptr, ptr %64, align 8, !tbaa !44
   br label %261
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %.0296572, i64 16
   %226 = getelementptr i8, ptr %221, i64 %217
-  %.val425 = load <2 x i64>, ptr %225, align 1, !tbaa !47
-  store <2 x i64> %.val425, ptr %224, align 1, !tbaa !47
+  %.val425 = load <2 x i64>, ptr %225, align 1, !tbaa !36
+  store <2 x i64> %.val425, ptr %224, align 1, !tbaa !36
   %227 = icmp slt i64 %217, 33
   br i1 %227, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit, label %228
 
@@ -11369,15 +11412,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread: ; preds
   %.130.i = phi ptr [ %229, %228 ], [ %233, %230 ]
   %.pn.i = phi ptr [ %225, %228 ], [ %232, %230 ]
   %.1.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
-  %.1.i.val = load <2 x i64>, ptr %.1.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val, ptr %.130.i, align 1, !tbaa !47
+  %.1.i.val = load <2 x i64>, ptr %.1.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val, ptr %.130.i, align 1, !tbaa !36
   %231 = getelementptr inbounds nuw i8, ptr %.130.i, i64 16
   %232 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 32
-  %.val424 = load <2 x i64>, ptr %232, align 1, !tbaa !47
-  store <2 x i64> %.val424, ptr %231, align 1, !tbaa !47
+  %.val424 = load <2 x i64>, ptr %232, align 1, !tbaa !36
+  store <2 x i64> %.val424, ptr %231, align 1, !tbaa !36
   %233 = getelementptr inbounds nuw i8, ptr %.130.i, i64 32
   %234 = icmp ult ptr %233, %226
-  br i1 %234, label %230, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit, !llvm.loop !57
+  br i1 %234, label %230, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit, !llvm.loop !45
 
 235:                                              ; preds = %.critedge
   %.not.i429 = icmp ugt ptr %.0296572, %60
@@ -11386,8 +11429,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread: ; preds
 236:                                              ; preds = %235
   %237 = sub i64 %62, %216
   %238 = getelementptr inbounds i8, ptr %218, i64 %237
-  %.val19.i = load <2 x i64>, ptr %.0296572, align 1, !tbaa !47
-  store <2 x i64> %.val19.i, ptr %218, align 1, !tbaa !47
+  %.val19.i = load <2 x i64>, ptr %.0296572, align 1, !tbaa !36
+  store <2 x i64> %.val19.i, ptr %218, align 1, !tbaa !36
   %239 = icmp slt i64 %237, 17
   br i1 %239, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, label %240
 
@@ -11399,15 +11442,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread: ; preds
   %.130.i.i = phi ptr [ %241, %240 ], [ %245, %242 ]
   %.pn.i.i = phi ptr [ %.0296572, %240 ], [ %244, %242 ]
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 16
-  %.1.i.val.i = load <2 x i64>, ptr %.1.i.i, align 1, !tbaa !47
-  store <2 x i64> %.1.i.val.i, ptr %.130.i.i, align 1, !tbaa !47
+  %.1.i.val.i = load <2 x i64>, ptr %.1.i.i, align 1, !tbaa !36
+  store <2 x i64> %.1.i.val.i, ptr %.130.i.i, align 1, !tbaa !36
   %243 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 16
   %244 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 32
-  %.val.i = load <2 x i64>, ptr %244, align 1, !tbaa !47
-  store <2 x i64> %.val.i, ptr %243, align 1, !tbaa !47
+  %.val.i = load <2 x i64>, ptr %244, align 1, !tbaa !36
+  store <2 x i64> %.val.i, ptr %243, align 1, !tbaa !36
   %245 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 32
   %246 = icmp ult ptr %245, %238
-  br i1 %246, label %242, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !57
+  br i1 %246, label %242, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, !llvm.loop !45
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %242, %236, %235
   %.014.i = phi ptr [ %60, %236 ], [ %.0296572, %235 ], [ %60, %242 ]
@@ -11419,58 +11462,58 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %2
   %.121.i = phi ptr [ %250, %.lr.ph.i ], [ %.0.i430, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i ]
   %.11520.i = phi ptr [ %248, %.lr.ph.i ], [ %.014.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i ]
   %248 = getelementptr inbounds nuw i8, ptr %.11520.i, i64 1
-  %249 = load i8, ptr %.11520.i, align 1, !tbaa !47
+  %249 = load i8, ptr %.11520.i, align 1, !tbaa !36
   %250 = getelementptr inbounds nuw i8, ptr %.121.i, i64 1
-  store i8 %249, ptr %.121.i, align 1, !tbaa !47
+  store i8 %249, ptr %.121.i, align 1, !tbaa !36
   %exitcond.not.i = icmp eq ptr %248, %.3299
-  br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit, label %.lr.ph.i, !llvm.loop !46
 
 _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %230, %.lr.ph.i, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i, %223
-  %251 = load ptr, ptr %61, align 8, !tbaa !52
+  %251 = load ptr, ptr %61, align 8, !tbaa !40
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 %217
-  store ptr %252, ptr %61, align 8, !tbaa !52
+  store ptr %252, ptr %61, align 8, !tbaa !40
   %253 = icmp ugt i64 %217, 65535
-  %.pre633 = load ptr, ptr %64, align 8, !tbaa !56
+  %.pre633 = load ptr, ptr %64, align 8, !tbaa !44
   br i1 %253, label %254, label %261
 
 254:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
-  store i32 1, ptr %63, align 8, !tbaa !59
-  %255 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 1, ptr %63, align 8, !tbaa !47
+  %255 = load ptr, ptr %1, align 8, !tbaa !48
   %256 = ptrtoint ptr %.pre633 to i64
   %257 = ptrtoint ptr %255 to i64
   %258 = sub i64 %256, %257
   %259 = lshr exact i64 %258, 3
   %260 = trunc i64 %259 to i32
-  store i32 %260, ptr %65, align 4, !tbaa !61
+  store i32 %260, ptr %65, align 4, !tbaa !49
   br label %261
 
 261:                                              ; preds = %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread, %254, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit
   %262 = phi ptr [ %.pre, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.thread ], [ %.pre633, %254 ], [ %.pre633, %_ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit ]
   %263 = trunc i64 %217 to i16
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 4
-  store i16 %263, ptr %264, align 4, !tbaa !62
-  store i32 %.3343, ptr %262, align 4, !tbaa !64
+  store i16 %263, ptr %264, align 4, !tbaa !50
+  store i32 %.3343, ptr %262, align 4, !tbaa !52
   %265 = add i64 %214, -3
   %266 = icmp ugt i64 %265, 65535
   br i1 %266, label %267, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit384
 
 267:                                              ; preds = %261
-  store i32 2, ptr %63, align 8, !tbaa !59
-  %268 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %63, align 8, !tbaa !47
+  %268 = load ptr, ptr %1, align 8, !tbaa !48
   %269 = ptrtoint ptr %262 to i64
   %270 = ptrtoint ptr %268 to i64
   %271 = sub i64 %269, %270
   %272 = lshr exact i64 %271, 3
   %273 = trunc i64 %272 to i32
-  store i32 %273, ptr %65, align 4, !tbaa !61
+  store i32 %273, ptr %65, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit384
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit384: ; preds = %261, %267
   %274 = trunc i64 %265 to i16
   %275 = getelementptr inbounds nuw i8, ptr %262, i64 6
-  store i16 %274, ptr %275, align 2, !tbaa !65
+  store i16 %274, ptr %275, align 2, !tbaa !53
   %276 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  store ptr %276, ptr %64, align 8, !tbaa !56
+  store ptr %276, ptr %64, align 8, !tbaa !44
   %277 = getelementptr inbounds nuw i8, ptr %.3299, i64 %214
   %278 = icmp ult ptr %.1303, %277
   br i1 %278, label %279, label %284
@@ -11593,38 +11636,38 @@ _ZN11duckdb_zstdL12ZSTD_hashPtrEPKvjj.exit374:    ; preds = %285
   br i1 %.not.i, label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445, label %337
 
 337:                                              ; preds = %332
-  %338 = load ptr, ptr %61, align 8, !tbaa !52
-  %.2.val = load <2 x i64>, ptr %.7556, align 1, !tbaa !47
-  store <2 x i64> %.2.val, ptr %338, align 1, !tbaa !47
-  %.pre634 = load ptr, ptr %64, align 8, !tbaa !56
+  %338 = load ptr, ptr %61, align 8, !tbaa !40
+  %.2.val = load <2 x i64>, ptr %.7556, align 1, !tbaa !36
+  store <2 x i64> %.2.val, ptr %338, align 1, !tbaa !36
+  %.pre634 = load ptr, ptr %64, align 8, !tbaa !44
   br label %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445
 
 _ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445: ; preds = %332, %337
   %339 = phi ptr [ %318, %332 ], [ %.pre634, %337 ]
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
-  store i16 0, ptr %340, align 4, !tbaa !62
-  store i32 1, ptr %339, align 4, !tbaa !64
+  store i16 0, ptr %340, align 4, !tbaa !50
+  store i32 1, ptr %339, align 4, !tbaa !52
   %341 = add i64 %336, 1
   %342 = icmp ugt i64 %341, 65535
   br i1 %342, label %343, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit
 
 343:                                              ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445
-  store i32 2, ptr %63, align 8, !tbaa !59
-  %344 = load ptr, ptr %1, align 8, !tbaa !60
+  store i32 2, ptr %63, align 8, !tbaa !47
+  %344 = load ptr, ptr %1, align 8, !tbaa !48
   %345 = ptrtoint ptr %339 to i64
   %346 = ptrtoint ptr %344 to i64
   %347 = sub i64 %345, %346
   %348 = lshr exact i64 %347, 3
   %349 = trunc i64 %348 to i32
-  store i32 %349, ptr %65, align 4, !tbaa !61
+  store i32 %349, ptr %65, align 4, !tbaa !49
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit: ; preds = %_ZN11duckdb_zstdL21ZSTD_safecopyLiteralsEPhPKhS2_S2_.exit445, %343
   %350 = trunc i64 %341 to i16
   %351 = getelementptr inbounds nuw i8, ptr %339, i64 6
-  store i16 %350, ptr %351, align 2, !tbaa !65
+  store i16 %350, ptr %351, align 2, !tbaa !53
   %352 = getelementptr inbounds nuw i8, ptr %339, i64 8
-  store ptr %352, ptr %64, align 8, !tbaa !56
+  store ptr %352, ptr %64, align 8, !tbaa !44
   switch i32 %5, label %default.unreachable [
     i32 7, label %363
     i32 5, label %357
@@ -11718,62 +11761,43 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !22 = !{!17, !10, i64 8}
 !23 = !{!11, !11, i64 0}
 !24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !26}
 !28 = distinct !{!28, !26}
 !29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26, !27}
-!31 = distinct !{!31, !26, !27}
-!32 = distinct !{!32, !26, !27}
-!33 = distinct !{!33, !26, !27}
-!34 = distinct !{!34, !26, !27}
-!35 = distinct !{!35, !26, !27}
-!36 = distinct !{!36, !26, !27}
-!37 = distinct !{!37, !26, !27}
-!38 = distinct !{!38, !26, !27}
-!39 = distinct !{!39, !26}
-!40 = distinct !{!40, !26}
-!41 = !{!4, !10, i64 272}
-!42 = !{!4, !10, i64 276}
-!43 = !{!17, !10, i64 0}
-!44 = !{!4, !10, i64 24}
-!45 = !{!4, !10, i64 40}
-!46 = distinct !{!46, !26, !27}
-!47 = !{!8, !8, i64 0}
-!48 = distinct !{!48, !26}
-!49 = distinct !{!49, !26}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"short", !8, i64 0}
-!52 = !{!53, !6, i64 24}
-!53 = !{!"_ZTSN11duckdb_zstd10seqStore_tE", !54, i64 0, !54, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !11, i64 56, !11, i64 64, !55, i64 72, !10, i64 76}
-!54 = !{!"p1 _ZTSN11duckdb_zstd8seqDef_sE", !7, i64 0}
-!55 = !{!"_ZTSN11duckdb_zstd21ZSTD_longLengthType_eE", !8, i64 0}
-!56 = !{!53, !54, i64 8}
-!57 = distinct !{!57, !26}
+!30 = !{!4, !10, i64 272}
+!31 = !{!4, !10, i64 276}
+!32 = !{!17, !10, i64 0}
+!33 = !{!4, !10, i64 24}
+!34 = !{!4, !10, i64 40}
+!35 = distinct !{!35, !26}
+!36 = !{!8, !8, i64 0}
+!37 = distinct !{!37, !26}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"short", !8, i64 0}
+!40 = !{!41, !6, i64 24}
+!41 = !{!"_ZTSN11duckdb_zstd10seqStore_tE", !42, i64 0, !42, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !11, i64 56, !11, i64 64, !43, i64 72, !10, i64 76}
+!42 = !{!"p1 _ZTSN11duckdb_zstd8seqDef_sE", !7, i64 0}
+!43 = !{!"_ZTSN11duckdb_zstd21ZSTD_longLengthType_eE", !8, i64 0}
+!44 = !{!41, !42, i64 8}
+!45 = distinct !{!45, !26}
+!46 = distinct !{!46, !26}
+!47 = !{!41, !43, i64 72}
+!48 = !{!41, !42, i64 0}
+!49 = !{!41, !10, i64 76}
+!50 = !{!51, !39, i64 4}
+!51 = !{!"_ZTSN11duckdb_zstd8seqDef_sE", !10, i64 0, !39, i64 4, !39, i64 6}
+!52 = !{!51, !10, i64 0}
+!53 = !{!51, !39, i64 6}
+!54 = !{!17, !10, i64 20}
+!55 = !{!4, !16, i64 248}
+!56 = !{!4, !6, i64 0}
+!57 = !{!4, !10, i64 296}
 !58 = distinct !{!58, !26}
-!59 = !{!53, !55, i64 72}
-!60 = !{!53, !54, i64 0}
-!61 = !{!53, !10, i64 76}
-!62 = !{!63, !51, i64 4}
-!63 = !{!"_ZTSN11duckdb_zstd8seqDef_sE", !10, i64 0, !51, i64 4, !51, i64 6}
-!64 = !{!63, !10, i64 0}
-!65 = !{!63, !51, i64 6}
-!66 = distinct !{!66, !26, !27}
-!67 = distinct !{!67, !26, !27}
-!68 = distinct !{!68, !26, !27}
-!69 = distinct !{!69, !26, !27}
-!70 = distinct !{!70, !26, !27}
-!71 = distinct !{!71, !26, !27}
-!72 = distinct !{!72, !26, !27}
-!73 = !{!17, !10, i64 20}
-!74 = !{!4, !16, i64 248}
-!75 = !{!4, !6, i64 0}
-!76 = !{!4, !10, i64 296}
-!77 = distinct !{!77, !26}
-!78 = distinct !{!78, !26}
-!79 = distinct !{!79, !26}
-!80 = !{!4, !6, i64 16}
-!81 = !{!4, !10, i64 28}
-!82 = distinct !{!82, !26}
-!83 = distinct !{!83, !26}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = !{!4, !6, i64 16}
+!62 = !{!4, !10, i64 28}
+!63 = distinct !{!63, !26}
+!64 = distinct !{!64, !26}

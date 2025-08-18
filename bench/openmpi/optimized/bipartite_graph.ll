@@ -1856,12 +1856,12 @@ min_cost_flow_ssp.exit:                           ; preds = %13, %19
 153:                                              ; preds = %150, %147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %145
-  br i1 %exitcond.not, label %._crit_edge.us, label %147, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge.us, label %147, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %153
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %145
-  br i1 %exitcond110.not, label %._crit_edge91, label %.preheader80.us, !llvm.loop !86
+  br i1 %exitcond110.not, label %._crit_edge91, label %.preheader80.us, !llvm.loop !85
 
 ._crit_edge91:                                    ; preds = %._crit_edge.us, %.loopexit83
   %154 = load i32, ptr %1, align 4, !tbaa !3
@@ -1914,12 +1914,12 @@ min_cost_flow_ssp.exit:                           ; preds = %13, %19
   %.2.us = phi i32 [ %171, %168 ], [ %.15092.us, %165 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %162
-  br i1 %exitcond115.not, label %._crit_edge.us96, label %165, !llvm.loop !87
+  br i1 %exitcond115.not, label %._crit_edge.us96, label %165, !llvm.loop !86
 
 ._crit_edge.us96:                                 ; preds = %174
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %162
-  br i1 %exitcond120.not, label %.loopexit, label %.preheader.us, !llvm.loop !88
+  br i1 %exitcond120.not, label %.loopexit, label %.preheader.us, !llvm.loop !87
 
 175:                                              ; preds = %156
   store i32 0, ptr %1, align 4, !tbaa !3
@@ -2076,9 +2076,8 @@ attributes #19 = { nounwind allocsize(0) }
 !80 = distinct !{!80, !20}
 !81 = distinct !{!81, !20}
 !82 = distinct !{!82, !20}
-!83 = distinct !{!83, !20, !84}
-!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = distinct !{!83, !20}
+!84 = distinct !{!84, !20}
 !85 = distinct !{!85, !20}
-!86 = distinct !{!86, !20, !84}
+!86 = distinct !{!86, !20}
 !87 = distinct !{!87, !20}
-!88 = distinct !{!88, !20, !84}

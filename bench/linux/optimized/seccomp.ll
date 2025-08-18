@@ -2985,7 +2985,7 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   %.ph1 = phi i32 [ %2, %40 ], [ %32, %41 ], [ %32, %57 ], [ %65, %64 ], [ %27, %39 ]
   %29 = add i32 %.ph, 1
   %30 = icmp ult i32 %29, %23
-  br i1 %30, label %31, label %.loopexit, !llvm.loop !86
+  br i1 %30, label %31, label %.loopexit, !llvm.loop !85
 
 31:                                               ; preds = %28, %25
   %32 = phi i32 [ 0, %25 ], [ %.ph1, %28 ]
@@ -3062,9 +3062,9 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   br label %28
 
 .loopexit:                                        ; preds = %28, %21
-  tail call void asm sideeffect "669: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 669b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 669) #14, !srcloc !87
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 798, i32 2305, i64 12) #14, !srcloc !88
-  tail call void asm sideeffect "670: nop\0A\09.pushsection .discard.instr_end\0A\09.long 670b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 670) #14, !srcloc !89
+  tail call void asm sideeffect "669: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 669b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 669) #14, !srcloc !86
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 798, i32 2305, i64 12) #14, !srcloc !87
+  tail call void asm sideeffect "670: nop\0A\09.pushsection .discard.instr_end\0A\09.long 670b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 670) #14, !srcloc !88
   br label %.thread3
 
 66:                                               ; preds = %31
@@ -3081,7 +3081,7 @@ default.unreachable:                              ; preds = %43
 68:                                               ; preds = %.thread3, %66, %.split
   %69 = add nuw nsw i64 %17, 1
   %70 = icmp eq i64 %69, 462
-  br i1 %70, label %.split8.us, label %.split, !llvm.loop !90
+  br i1 %70, label %.split8.us, label %.split, !llvm.loop !84
 
 .split8.us:                                       ; preds = %68, %14
   ret void
@@ -3151,7 +3151,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %34 = getelementptr i8, ptr %42, i64 16
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %27) #14
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit, label %.preheader37, !llvm.loop !91
+  br i1 %36, label %.loopexit, label %.preheader37, !llvm.loop !89
 
 .loopexit:                                        ; preds = %33, %30
   %37 = phi ptr [ @seccomp_log_names, %30 ], [ %34, %33 ]
@@ -3159,14 +3159,14 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %39 = or i32 %38, %26
   %40 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.13) #14
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %.preheader38, !llvm.loop !92
+  br i1 %41, label %45, label %.preheader38, !llvm.loop !90
 
 .preheader37:                                     ; preds = %30, %33
   %42 = phi ptr [ %34, %33 ], [ @seccomp_log_names, %30 ]
   %43 = getelementptr i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %.critedge, label %33, !llvm.loop !91
+  br i1 %.not, label %.critedge, label %33, !llvm.loop !89
 
 .critedge:                                        ; preds = %.preheader37
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -3253,7 +3253,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %92 = icmp eq ptr %91, null
   %93 = icmp eq i64 %86, 0
   %94 = select i1 %92, i1 true, i1 %93
-  br i1 %94, label %.thread26, label %.preheader35, !llvm.loop !93
+  br i1 %94, label %.thread26, label %.preheader35, !llvm.loop !91
 
 .thread26:                                        ; preds = %76, %70, %85, %58, %56
   %95 = phi ptr [ @.str.22, %56 ], [ @.str.23, %58 ], [ @.str.22, %76 ], [ @.str.22, %70 ], [ %8, %85 ]
@@ -3308,7 +3308,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %129 = icmp eq ptr %128, null
   %130 = icmp eq i64 %123, 0
   %131 = select i1 %129, i1 true, i1 %130
-  br i1 %131, label %.thread30, label %.preheader, !llvm.loop !93
+  br i1 %131, label %.thread30, label %.preheader, !llvm.loop !91
 
 .thread30:                                        ; preds = %113, %107, %122, %.thread26
   %132 = phi ptr [ @.str.23, %.thread26 ], [ @.str.22, %113 ], [ @.str.22, %107 ], [ %9, %122 ]
@@ -3377,7 +3377,7 @@ define internal i32 @seccomp_actions_logged_handler(ptr noundef readonly capture
   %170 = icmp eq ptr %169, null
   %171 = icmp eq i64 %164, 0
   %172 = select i1 %170, i1 true, i1 %171
-  br i1 %172, label %.critedge23, label %137, !llvm.loop !93
+  br i1 %172, label %.critedge23, label %137, !llvm.loop !91
 
 .critedge23:                                      ; preds = %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef align 8 dereferenceable(64) %0, i64 64, i1 false)
@@ -3529,13 +3529,11 @@ attributes #18 = { nounwind allocsize(2) }
 !81 = !{i64 2158826855, i64 2158826884, i64 2158826930, i64 2158826988, i64 2158827042, i64 2158827096, i64 2158827151, i64 2158827182, i64 2158827490, i64 2158827496, i64 2158827543, i64 2158827566, i64 2158827592}
 !82 = !{i64 2158828041, i64 2158827852, i64 2158827902, i64 2158827948, i64 2158827976}
 !83 = !{i64 2149000240}
-!84 = distinct !{!84, !12, !13, !85}
-!85 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!86 = distinct !{!86, !12, !13}
-!87 = !{i64 2158829123, i64 2158828932, i64 2158828984, i64 2158829030, i64 2158829058}
-!88 = !{i64 2158829197, i64 2158829226, i64 2158829272, i64 2158829330, i64 2158829384, i64 2158829438, i64 2158829493, i64 2158829524, i64 2158829832, i64 2158829838, i64 2158829885, i64 2158829908, i64 2158829934}
-!89 = !{i64 2158830383, i64 2158830194, i64 2158830244, i64 2158830290, i64 2158830318}
+!84 = distinct !{!84, !12, !13}
+!85 = distinct !{!85, !12, !13}
+!86 = !{i64 2158829123, i64 2158828932, i64 2158828984, i64 2158829030, i64 2158829058}
+!87 = !{i64 2158829197, i64 2158829226, i64 2158829272, i64 2158829330, i64 2158829384, i64 2158829438, i64 2158829493, i64 2158829524, i64 2158829832, i64 2158829838, i64 2158829885, i64 2158829908, i64 2158829934}
+!88 = !{i64 2158830383, i64 2158830194, i64 2158830244, i64 2158830290, i64 2158830318}
+!89 = distinct !{!89, !12, !13}
 !90 = distinct !{!90, !12, !13}
 !91 = distinct !{!91, !12, !13}
-!92 = distinct !{!92, !12, !13}
-!93 = distinct !{!93, !12, !13}

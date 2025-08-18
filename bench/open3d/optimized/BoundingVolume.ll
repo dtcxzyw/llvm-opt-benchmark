@@ -61270,7 +61270,7 @@ _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit22: ; preds = %47, %44, %42
 52:                                               ; preds = %_ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %55 = load i32, ptr %54, align 8, !tbaa !864
+  %55 = load i32, ptr %54, align 8, !tbaa !863
   %56 = zext i32 %55 to i64
   %57 = call noundef i64 @_ZN6open3d4core10shape_util7WrapDimEllb(i64 noundef 0, i64 noundef %56, i1 noundef zeroext false)
   %58 = load ptr, ptr %53, align 8, !tbaa !19
@@ -61454,7 +61454,7 @@ define internal void @_GLOBAL__sub_I_BoundingVolume.cpp() #30 section ".text.sta
   %10 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN5Eigen12placeholdersL6lastp1E)
   %11 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5Eigen12placeholdersL3allE)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false), !tbaa.struct !865
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false), !tbaa.struct !864
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -61466,7 +61466,7 @@ define internal void @_GLOBAL__sub_I_BoundingVolume.cpp() #30 section ".text.sta
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEED2Ev, ptr nonnull @_ZN6open3d13visualization7gl_utilL19texture_format_map_E, ptr nonnull @__dso_handle) #34
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) @constinit.5, i64 24, i1 false), !tbaa.struct !865
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) @constinit.5, i64 24, i1 false), !tbaa.struct !864
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -62440,7 +62440,6 @@ attributes #40 = { nounwind allocsize(0) }
 !859 = distinct !{!859, !860, !"_ZNK6open3d1t8geometry19OrientedBoundingBox8GetColorEv: argument 0"}
 !860 = distinct !{!860, !"_ZNK6open3d1t8geometry19OrientedBoundingBox8GetColorEv"}
 !861 = distinct !{!861, !45}
-!862 = distinct !{!862, !45, !863}
-!863 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!864 = !{!20, !14, i64 8}
-!865 = !{i64 0, i64 24, !16}
+!862 = distinct !{!862, !45}
+!863 = !{!20, !14, i64 8}
+!864 = !{i64 0, i64 24, !16}

@@ -1007,7 +1007,7 @@ openSocket.exit:                                  ; preds = %21
   %47 = getelementptr inbounds nuw i8, ptr %.03550.us.us.i, i64 24
   %.035.us.us.i = load ptr, ptr %47, align 8
   %.not38.us.us.i = icmp eq ptr %.035.us.us.i, null
-  br i1 %.not38.us.us.i, label %._crit_edge51.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !18
+  br i1 %.not38.us.us.i, label %._crit_edge51.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !17
 
 48:                                               ; preds = %9
   %49 = tail call i32 (...) @ipv6_available() #15
@@ -1186,7 +1186,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
   %57 = sext i32 %53 to i64
   %58 = udiv i64 %57, 40
   %59 = icmp samesign ugt i64 %58, %56
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %52, %20
   %.042.lcssa = phi ptr [ null, %20 ], [ %.1, %52 ]
@@ -1253,7 +1253,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   %25 = getelementptr inbounds nuw i8, ptr %.03550.us.us, i64 24
   %.035.us.us = load ptr, ptr %25, align 8
   %.not38.us.us = icmp eq ptr %.035.us.us, null
-  br i1 %.not38.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us, !llvm.loop !18
+  br i1 %.not38.us.us, label %._crit_edge51.split.us.us, label %.lr.ph.us, !llvm.loop !17
 
 .lr.ph61.split.us63:                              ; preds = %.lr.ph61, %._crit_edge.split.us.us
   %.03458.us64 = phi ptr [ %28, %._crit_edge.split.us.us ], [ %1, %.lr.ph61 ]
@@ -1266,7 +1266,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   %27 = getelementptr inbounds nuw i8, ptr %.03458.us64, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not.us68 = icmp eq ptr %28, null
-  br i1 %.not.us68, label %.thread, label %.lr.ph61.split.us63, !llvm.loop !20
+  br i1 %.not.us68, label %.thread, label %.lr.ph61.split.us63, !llvm.loop !16
 
 .lr.ph.us69:                                      ; preds = %.lr.ph61.split.us63, %.loopexit.us.us
   %.03550.us53.us = phi ptr [ %.035.us54.us, %.loopexit.us.us ], [ %.03548.us65, %.lr.ph61.split.us63 ]
@@ -1296,7 +1296,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
 41:                                               ; preds = %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.thread, label %42, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread, label %42, !llvm.loop !19
 
 42:                                               ; preds = %.preheader, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader ]
@@ -1311,7 +1311,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   %47 = getelementptr inbounds nuw i8, ptr %.03550.us53.us, i64 24
   %.035.us54.us = load ptr, ptr %47, align 8
   %.not38.us55.us = icmp eq ptr %.035.us54.us, null
-  br i1 %.not38.us55.us, label %._crit_edge.split.us.us, label %.lr.ph.us69, !llvm.loop !22
+  br i1 %.not38.us55.us, label %._crit_edge.split.us.us, label %.lr.ph.us69, !llvm.loop !17
 
 .thread:                                          ; preds = %._crit_edge.split.us.us, %41, %._crit_edge51.split.us.us, %12, %21, %.lr.ph61, %4
   %.0 = phi ptr [ null, %4 ], [ null, %.lr.ph61 ], [ %.03458.us, %21 ], [ null, %12 ], [ null, %._crit_edge51.split.us.us ], [ %.03458.us64, %41 ], [ null, %._crit_edge.split.us.us ]
@@ -1366,7 +1366,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %0) #15
   %.not8 = icmp eq ptr %34, null
-  br i1 %.not8, label %22, label %35, !llvm.loop !23
+  br i1 %.not8, label %22, label %35, !llvm.loop !20
 
 35:                                               ; preds = %24, %22
   %.2 = phi ptr [ %30, %24 ], [ %.1, %22 ]
@@ -1435,7 +1435,7 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %.03137, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader36, !llvm.loop !24
+  br i1 %.not, label %8, label %.preheader36, !llvm.loop !21
 
 8:                                                ; preds = %.preheader36
   %9 = load ptr, ptr %0, align 8
@@ -1465,7 +1465,7 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
   %24 = getelementptr inbounds nuw i8, ptr %.139, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not35 = icmp eq ptr %25, null
-  br i1 %.not35, label %.sink.split, label %.preheader, !llvm.loop !25
+  br i1 %.not35, label %.sink.split, label %.preheader, !llvm.loop !22
 
 .sink.split:                                      ; preds = %16, %.preheader, %8
   %.0.ph = phi ptr [ null, %8 ], [ null, %.preheader ], [ %12, %16 ]
@@ -1727,7 +1727,7 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
 23:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !23
 
 24:                                               ; preds = %20, %23
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]
@@ -1967,7 +1967,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %52 = getelementptr inbounds nuw i8, ptr %.0106130, i64 32
   %53 = load ptr, ptr %52, align 8
   %cond = icmp eq ptr %53, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %51, %47
   %54 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
@@ -2038,7 +2038,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %79 = getelementptr inbounds nuw i8, ptr %.2133, i64 32
   %.2 = load ptr, ptr %79, align 8
   %cond119 = icmp eq ptr %.2, null
-  br i1 %cond119, label %._crit_edge136, label %.lr.ph135, !llvm.loop !28
+  br i1 %cond119, label %._crit_edge136, label %.lr.ph135, !llvm.loop !25
 
 ._crit_edge136:                                   ; preds = %78, %73
   %80 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
@@ -2195,16 +2195,13 @@ attributes #18 = { nounwind allocsize(0) }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7, !17}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !17}
+!20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7, !17}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}

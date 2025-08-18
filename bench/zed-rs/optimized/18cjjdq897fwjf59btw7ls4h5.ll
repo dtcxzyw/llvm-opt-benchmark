@@ -77661,7 +77661,7 @@ define void @"_ZN103_$LT$extension..extension_settings..ExtensionSettings$u20$as
 .split38.i:                                       ; preds = %30, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28f4cfeae19089c6E.exit.thread23.i"
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %35
+  br label %.split38.us.i
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28f4cfeae19089c6E.exit.thread23.i": ; preds = %.split.i, %12
   %.sroa.02.0.i.i31.i = phi ptr [ %.sroa.10.0.i, %12 ], [ %9, %.split.i ]
@@ -77715,7 +77715,7 @@ _ZN10serde_json5value8to_value17hda30f60392f28e77E.exit.i: ; preds = %"_ZN106_$L
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h894cf15f2d38100dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #70
-          to label %35 unwind label %28, !noalias !17369
+          to label %.split38.us.i unwind label %28, !noalias !17369
 
 27:                                               ; preds = %.split40.us.i
   unreachable
@@ -77736,16 +77736,16 @@ _ZN10serde_json5value8to_value17hda30f60392f28e77E.exit.i: ; preds = %"_ZN106_$L
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17359
   br label %.split.i
 
-32:                                               ; preds = %35
+32:                                               ; preds = %.split38.us.i
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #71, !noalias !17359
   unreachable
 
-34:                                               ; preds = %35
+34:                                               ; preds = %.split38.us.i
   resume { ptr, i32 } %.pn.ph.i
 
-35:                                               ; preds = %25, %.split38.i
+.split38.us.i:                                    ; preds = %25, %.split38.i
   %.pn.ph.i = phi { ptr, i32 } [ %26, %25 ], [ %13, %.split38.i ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb932c300cd7389bdE.llvm.12726036149210647513"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8) #70
           to label %34 unwind label %32, !noalias !17359
@@ -77753,8 +77753,8 @@ _ZN10serde_json5value8to_value17hda30f60392f28e77E.exit.i: ; preds = %"_ZN106_$L
 "_ZN8settings14settings_store24SettingsSources$LT$T$GT$15json_merge_with17h90d12066974943b1E.exit": ; preds = %18, %19
   %.sroa.5.0.copyload.sink.i = phi ptr [ %20, %19 ], [ %17, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !17359
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.0.copyload.sink.i, ptr %36, align 8, !alias.scope !17356, !noalias !17361
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.5.0.copyload.sink.i, ptr %35, align 8, !alias.scope !17356, !noalias !17361
   store ptr %14, ptr %0, align 8, !alias.scope !17356, !noalias !17361
   ret void
 }

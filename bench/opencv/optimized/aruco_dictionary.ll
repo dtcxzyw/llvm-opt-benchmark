@@ -4765,7 +4765,7 @@ _ZN2cv5arucoL21_generateRandomMarkerEiRNS_3RNGE.exit: ; preds = %._crit_edge.us.
   %199 = load i32, ptr %146, align 8
   %200 = icmp slt i32 %198, %199
   %or.cond179 = select i1 %.not79, i1 %200, i1 false
-  br i1 %or.cond179, label %.lr.ph165, label %.loopexit, !llvm.loop !139
+  br i1 %or.cond179, label %.lr.ph165, label %.loopexit, !llvm.loop !138
 
 201:                                              ; preds = %.lr.ph165
   %202 = landingpad { ptr, i32 }
@@ -4865,7 +4865,7 @@ _ZN2cv5arucoL21_generateRandomMarkerEiRNS_3RNGE.exit: ; preds = %._crit_edge.us.
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %229 = load i32, ptr %146, align 8, !tbaa !64
   %230 = icmp slt i32 %229, %1
-  br i1 %230, label %157, label %._crit_edge175, !llvm.loop !140
+  br i1 %230, label %157, label %._crit_edge175, !llvm.loop !139
 
 .body110:                                         ; preds = %201, %210, %216, %227, %194, %188
   %.pn83.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn.i104, %188 ], [ %.pn83, %210 ], [ %.pn81, %227 ], [ %217, %216 ], [ %202, %201 ]
@@ -5118,7 +5118,6 @@ attributes #17 = { noreturn }
 !134 = distinct !{!134, !135, !"_ZN2cv5arucoL21_generateRandomMarkerEiRNS_3RNGE: argument 0"}
 !135 = distinct !{!135, !"_ZN2cv5arucoL21_generateRandomMarkerEiRNS_3RNGE"}
 !136 = distinct !{!136, !48}
-!137 = distinct !{!137, !48, !138}
-!138 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!137 = distinct !{!137, !48}
+!138 = distinct !{!138, !48}
 !139 = distinct !{!139, !48}
-!140 = distinct !{!140, !48}

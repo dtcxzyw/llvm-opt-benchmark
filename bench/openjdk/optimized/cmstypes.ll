@@ -6367,7 +6367,7 @@ ReadOneElem.exit.i:                               ; preds = %120, %118
 ReadOneElem.exit40.i:                             ; preds = %129, %127
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.i, !llvm.loop !46
 
 ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.i, %ReadOneElem.exit50.us.i
   %.pr117 = load i32, ptr %7, align 4
@@ -6388,7 +6388,7 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   %138 = load i32, ptr %7, align 4
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next, %139
-  br i1 %140, label %141, label %._crit_edge, !llvm.loop !49
+  br i1 %140, label %141, label %._crit_edge, !llvm.loop !47
 
 141:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
@@ -6603,7 +6603,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %17 = add i32 %.067127, 1
   %18 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062129) #14
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %19 = icmp eq i32 %spec.select, 0
@@ -6834,7 +6834,7 @@ WriteOneMLUC.exit114.thread:                      ; preds = %118, %119, %WriteOn
   %124 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.1133) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge136, label %49, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge136, label %49, !llvm.loop !49
 
 ._crit_edge136:                                   ; preds = %WriteOneMLUC.exit114.thread, %35
   %125 = load ptr, ptr %8, align 8
@@ -7103,7 +7103,7 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   %62 = load i16, ptr %7, align 2
   %63 = zext i16 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next86, %63
-  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !52
+  br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !50
 
 65:                                               ; preds = %49
   %66 = load i16, ptr %7, align 2
@@ -7124,12 +7124,12 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
 .loopexit:                                        ; preds = %53, %.preheader, %65
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %.loopexit69, label %42, !llvm.loop !53
+  br i1 %exitcond91.not, label %.loopexit69, label %42, !llvm.loop !51
 
 75:                                               ; preds = %85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit69, label %76, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit69, label %76, !llvm.loop !52
 
 76:                                               ; preds = %.preheader71, %75
   %indvars.iv = phi i64 [ 0, %.preheader71 ], [ %indvars.iv.next, %75 ]
@@ -7219,7 +7219,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 20:                                               ; preds = %36
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 3
-  br i1 %exitcond56.not, label %.loopexit, label %.preheader, !llvm.loop !55
+  br i1 %exitcond56.not, label %.loopexit, label %.preheader, !llvm.loop !53
 
 .preheader:                                       ; preds = %18, %20
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %20 ], [ 0, %18 ]
@@ -7277,7 +7277,7 @@ define internal range(i32 0, 2) i32 @Type_vcgt_Write(ptr readnone captures(none)
 47:                                               ; preds = %_cmsQuickSaturateWord.exit
   %48 = add nuw nsw i32 %.03346, 1
   %exitcond.not = icmp eq i32 %48, 256
-  br i1 %exitcond.not, label %68, label %49, !llvm.loop !56
+  br i1 %exitcond.not, label %68, label %49, !llvm.loop !54
 
 49:                                               ; preds = %.preheader42, %47
   %.03346 = phi i32 [ 0, %.preheader42 ], [ %48, %47 ]
@@ -7313,7 +7313,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %49, %59, %61
 68:                                               ; preds = %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader42, !llvm.loop !57
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader42, !llvm.loop !55
 
 .loopexit:                                        ; preds = %68, %_cmsQuickSaturateWord.exit, %20, %36, %34, %.preheader, %44, %42, %40, %38, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %38 ], [ 0, %40 ], [ 0, %42 ], [ 0, %44 ], [ 1, %20 ], [ 0, %36 ], [ 0, %34 ], [ 0, %.preheader ], [ 0, %_cmsQuickSaturateWord.exit ], [ 1, %68 ]
@@ -7666,7 +7666,7 @@ IsIdentity.exit:                                  ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %59 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i69 = icmp eq i32 %59, 12
-  br i1 %exitcond.not.i69, label %WriteDoubles.exit, label %.lr.ph.i, !llvm.loop !58
+  br i1 %exitcond.not.i69, label %WriteDoubles.exit, label %.lr.ph.i, !llvm.loop !56
 
 WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exit
   %.051 = phi i32 [ 0, %IsIdentity.exit ], [ %54, %57 ]
@@ -7694,7 +7694,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %69 = getelementptr inbounds nuw i8, ptr %.057.i72, i64 8
   %70 = add nuw i32 %.08.i71, 1
   %exitcond.not.i74 = icmp eq i32 %70, %63
-  br i1 %exitcond.not.i74, label %.loopexit106, label %.lr.ph.i70, !llvm.loop !58
+  br i1 %exitcond.not.i74, label %.loopexit106, label %.lr.ph.i70, !llvm.loop !56
 
 .loopexit106:                                     ; preds = %68, %WriteDoubles.exit
   %71 = load ptr, ptr %6, align 8
@@ -7721,7 +7721,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %80 = getelementptr inbounds nuw i8, ptr %.057.i80, i64 8
   %81 = add nuw i32 %.08.i79, 1
   %exitcond.not.i82 = icmp eq i32 %81, %74
-  br i1 %exitcond.not.i82, label %.loopexit104, label %.lr.ph.i78, !llvm.loop !58
+  br i1 %exitcond.not.i82, label %.loopexit104, label %.lr.ph.i78, !llvm.loop !56
 
 .loopexit104:                                     ; preds = %79, %.loopexit106
   %82 = load ptr, ptr %6, align 8
@@ -7748,7 +7748,7 @@ WriteDoubles.exit:                                ; preds = %57, %IsIdentity.exi
   %91 = getelementptr inbounds nuw i8, ptr %.057.i88, i64 8
   %92 = add nuw i32 %.08.i87, 1
   %exitcond.not.i90 = icmp eq i32 %92, %85
-  br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i86, !llvm.loop !58
+  br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i86, !llvm.loop !56
 
 .loopexit:                                        ; preds = %90, %.loopexit104
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -7878,7 +7878,7 @@ define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i
   %.1.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 4
   store i32 %storemerge.i, ptr %.018.i, align 4
   %30 = icmp sgt i32 %.18.i, 0
-  br i1 %30, label %.lr.ph.i, label %convert_utf16_to_utf32.exit, !llvm.loop !59
+  br i1 %30, label %.lr.ph.i, label %convert_utf16_to_utf32.exit, !llvm.loop !57
 
 convert_utf16_to_utf32.exit:                      ; preds = %.lr.ph.i, %14, %16, %21, %29, %3
   %.09.i = phi i32 [ 1, %3 ], [ 0, %.lr.ph.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %16 ], [ 1, %29 ]
@@ -7948,7 +7948,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph58, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.lr.ph58, label %.lr.ph, !llvm.loop !58
 
 .lr.ph58:                                         ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -7988,12 +7988,12 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   store i16 %25, ptr %27, align 2
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 256
-  br i1 %exitcond74.not, label %28, label %20, !llvm.loop !61
+  br i1 %exitcond74.not, label %28, label %20, !llvm.loop !59
 
 28:                                               ; preds = %20
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %15, !llvm.loop !62
+  br i1 %exitcond79.not, label %._crit_edge, label %15, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %28
   tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %8) #14
@@ -8013,7 +8013,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
   call void @cmsFreeToneCurve(ptr noundef %32) #14
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph60, !llvm.loop !63
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph60, !llvm.loop !61
 
 .lr.ph63.preheader:                               ; preds = %.lr.ph, %15, %._crit_edge
   %.042 = phi ptr [ null, %._crit_edge ], [ %8, %15 ], [ %8, %.lr.ph ]
@@ -8034,7 +8034,7 @@ define internal fastcc range(i32 0, 2) i32 @Read8bitTables(ptr noundef %0, ptr n
 36:                                               ; preds = %.lr.ph63, %35
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !64
+  br i1 %exitcond89.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !62
 
 ._crit_edge64:                                    ; preds = %36
   %.not48 = icmp eq ptr %.042, null
@@ -8101,7 +8101,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 20:                                               ; preds = %.preheader
   %21 = add nuw nsw i32 %.02537, 1
   %exitcond45.not = icmp eq i32 %21, 256
-  br i1 %exitcond45.not, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond45.not, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .preheader:                                       ; preds = %16, %20
   %.02537 = phi i32 [ %21, %20 ], [ 0, %16 ]
@@ -8117,7 +8117,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 24:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %.preheader32, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.preheader32, !llvm.loop !64
 
 .preheader32:                                     ; preds = %.lr.ph.split, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph.split ]
@@ -8140,7 +8140,7 @@ define internal fastcc range(i32 0, 2) i32 @Write8bitTables(ptr noundef %0, ptr 
 .loopexit:                                        ; preds = %24, %20
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond49.not, label %.loopexit31, label %.lr.ph.split, !llvm.loop !67
+  br i1 %exitcond49.not, label %.loopexit31, label %.lr.ph.split, !llvm.loop !65
 
 .loopexit31:                                      ; preds = %.loopexit, %.preheader32, %.preheader, %.lr.ph, %4, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %4 ], [ 1, %.lr.ph ], [ 0, %.preheader ], [ 0, %.preheader32 ], [ 1, %.loopexit ]
@@ -8177,7 +8177,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 11:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
@@ -8214,7 +8214,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
   call void @cmsFreeToneCurve(ptr noundef %22) #14
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph36, !llvm.loop !69
+  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph36, !llvm.loop !67
 
 .loopexit33:                                      ; preds = %15, %.lr.ph, %._crit_edge
   br i1 %.not40, label %.loopexit, label %.lr.ph39.preheader
@@ -8237,7 +8237,7 @@ define internal fastcc range(i32 0, 2) i32 @Read16bitTables(ptr noundef %0, ptr 
 26:                                               ; preds = %.lr.ph39, %25
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph39, !llvm.loop !70
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph39, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph36, %26, %.preheader, %.loopexit33, %8, %5, %7
   %.025 = phi i32 [ 0, %7 ], [ 1, %5 ], [ 0, %8 ], [ 0, %.loopexit33 ], [ 1, %.preheader ], [ 0, %26 ], [ 1, %.lr.ph36 ]
@@ -8272,7 +8272,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
@@ -8296,7 +8296,7 @@ define internal fastcc range(i32 0, 2) i32 @Write16bitTables(ptr noundef %0, ptr
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next11, %22
-  br i1 %23, label %5, label %.loopexit, !llvm.loop !72
+  br i1 %23, label %5, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %2
   %.0 = phi i32 [ 1, %2 ], [ 0, %.lr.ph ], [ 1, %._crit_edge ]
@@ -8467,7 +8467,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
 28:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !73
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %28, %.preheader29
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8490,7 +8490,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   call void @cmsFreeToneCurve(ptr noundef %33) #14
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph38, !llvm.loop !74
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph38, !llvm.loop !72
 
 .loopexit:                                        ; preds = %.lr.ph38, %.loopexit28, %9, %4
   %.024 = phi ptr [ null, %4 ], [ null, %9 ], [ %.0, %.loopexit28 ], [ %.0, %.lr.ph38 ]
@@ -8529,7 +8529,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %.preheader45, !llvm.loop !75
+  br i1 %exitcond.not, label %23, label %.preheader45, !llvm.loop !73
 
 23:                                               ; preds = %20
   %24 = call i32 @_cmsReadUInt8Number(ptr noundef nonnull %1, ptr noundef nonnull %8) #14
@@ -8596,7 +8596,7 @@ define internal fastcc ptr @ReadCLUT(ptr noundef readonly captures(none) %0, ptr
   %52 = load i32, ptr %40, align 8
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next53, %53
-  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !76
+  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !74
 
 55:                                               ; preds = %36
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -8739,7 +8739,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteSetOfCurves(ptr noundef readonl
 7:                                                ; preds = %Type_ParametricCurve_Write.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %Type_Curve_Write.exit.thread, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %Type_Curve_Write.exit.thread, label %.lr.ph, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
@@ -8944,7 +8944,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %22, label %17, label %._crit_edge, !llvm.loop !78
+  br i1 %22, label %17, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %17, %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -8988,7 +8988,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteCLUT(ptr noundef readonly captu
   %39 = load i32, ptr %36, align 8
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next9, %40
-  br i1 %41, label %.lr.ph4, label %.loopexit, !llvm.loop !79
+  br i1 %41, label %.lr.ph4, label %.loopexit, !llvm.loop !77
 
 .lr.ph4:                                          ; preds = %.preheader, %38
   %indvars.iv8 = phi i64 [ %indvars.iv.next9, %38 ], [ 0, %.preheader ]
@@ -9040,7 +9040,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
@@ -9070,7 +9070,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
   %19 = load i32, ptr %7, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next23, %20
-  br i1 %21, label %.lr.ph7, label %.loopexit, !llvm.loop !81
+  br i1 %21, label %.lr.ph7, label %.loopexit, !llvm.loop !79
 
 .lr.ph7:                                          ; preds = %.preheader1, %18
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %18 ], [ 0, %.preheader1 ]
@@ -9085,7 +9085,7 @@ define internal fastcc range(i32 0, 2) i32 @WriteMatrix(ptr noundef %0, ptr noun
   %27 = add nuw i32 %.210, 1
   %28 = load i32, ptr %7, align 4
   %29 = icmp ult i32 %27, %28
-  br i1 %29, label %.lr.ph11, label %.loopexit, !llvm.loop !82
+  br i1 %29, label %.lr.ph11, label %.loopexit, !llvm.loop !80
 
 .lr.ph11:                                         ; preds = %.preheader, %26
   %.210 = phi i32 [ %27, %26 ], [ 0, %.preheader ]
@@ -9227,12 +9227,12 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   store i32 %32, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph79, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %.lr.ph79, label %.lr.ph, !llvm.loop !81
 
 33:                                               ; preds = %39
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %.thread64.sink.split.sink.split, label %34, !llvm.loop !84
+  br i1 %exitcond88.not, label %.thread64.sink.split.sink.split, label %34, !llvm.loop !82
 
 34:                                               ; preds = %.lr.ph79, %33
   %indvars.iv84 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next85, %33 ]
@@ -9247,7 +9247,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv84
   %41 = load i32, ptr %40, align 4
   %42 = trunc nuw i64 %indvars.iv84 to i32
-  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #14, !callees !85
+  %43 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %42, i32 noundef %41) #14, !callees !83
   %.not56 = icmp eq i32 %43, 0
   br i1 %.not56, label %.thread64.sink.split.sink.split, label %33
 
@@ -9416,7 +9416,7 @@ define internal ptr @Type_MPEcurve_Read(ptr noundef %0, ptr noundef %1, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i16 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %38, %32
   %42 = load ptr, ptr %19, align 8
@@ -9555,7 +9555,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
   store double %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !85
 
 .lr.ph50:                                         ; preds = %.preheader, %45
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %45 ], [ 0, %.preheader ]
@@ -9579,7 +9579,7 @@ define internal ptr @Type_MPEmatrix_Read(ptr noundef readonly captures(none) %0,
   %49 = load i16, ptr %6, align 2
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next56, %50
-  br i1 %51, label %.lr.ph50, label %._crit_edge.loopexit, !llvm.loop !88
+  br i1 %51, label %.lr.ph50, label %._crit_edge.loopexit, !llvm.loop !86
 
 ._crit_edge.loopexit:                             ; preds = %45
   %52 = zext i16 %49 to i32
@@ -9636,7 +9636,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !87
 
 .preheader.loopexit:                              ; preds = %20
   %.pre = load i32, ptr %12, align 4
@@ -9685,7 +9685,7 @@ define internal range(i32 0, 2) i32 @Type_MPEmatrix_Write(ptr readnone captures(
   %39 = load i32, ptr %12, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next41, %40
-  br i1 %41, label %28, label %.loopexit, !llvm.loop !90
+  br i1 %41, label %28, label %.loopexit, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %33, %38, %.preheader, %11, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 1, %.preheader ], [ 0, %31 ], [ 0, %33 ], [ 1, %38 ], [ 0, %.lr.ph ]
@@ -9749,7 +9749,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
   store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %28, %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9774,7 +9774,7 @@ define internal ptr @Type_MPEclut_Read(ptr noundef readonly captures(none) %0, p
   %44 = load i32, ptr %41, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv.next49, %45
-  br i1 %46, label %.lr.ph43, label %._crit_edge44, !llvm.loop !92
+  br i1 %46, label %.lr.ph43, label %._crit_edge44, !llvm.loop !90
 
 .lr.ph43:                                         ; preds = %38, %43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %43 ], [ 0, %38 ]
@@ -9854,7 +9854,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
   store i8 %30, ptr %31, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %27, %23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -9874,7 +9874,7 @@ define internal range(i32 0, 2) i32 @Type_MPEclut_Write(ptr readnone captures(no
   %38 = load i32, ptr %35, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next36, %39
-  br i1 %40, label %.lr.ph29, label %.loopexit, !llvm.loop !94
+  br i1 %40, label %.lr.ph29, label %.loopexit, !llvm.loop !92
 
 .lr.ph29:                                         ; preds = %.preheader, %37
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %37 ], [ 0, %.preheader ]
@@ -9968,7 +9968,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %38 = add nsw i32 %37, -1
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next.i, %39
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !95
+  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %34
   %41 = sext i32 %38 to i64
@@ -10044,7 +10044,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next173.i, %73
-  br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !96
+  br i1 %74, label %63, label %.loopexit106.i, !llvm.loop !94
 
 75:                                               ; preds = %49
   %76 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %10) #14
@@ -10077,7 +10077,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %91 = load i32, ptr %10, align 4
   %92 = zext i32 %91 to i64
   %93 = icmp samesign ult i64 %indvars.iv.next170.i, %92
-  br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !97
+  br i1 %93, label %.lr.ph131.i, label %.loopexit106.i, !llvm.loop !95
 
 .lr.ph131.i:                                      ; preds = %87, %90
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %90 ], [ 1, %87 ]
@@ -10098,7 +10098,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %99 = load i16, ptr %7, align 2
   %100 = zext i16 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next176.i, %100
-  br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !98
+  br i1 %101, label %.lr.ph136.i, label %._crit_edge137.loopexit.i, !llvm.loop !96
 
 ._crit_edge137.loopexit.i:                        ; preds = %.loopexit106.i
   %102 = zext i16 %99 to i32
@@ -10131,7 +10131,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
   %113 = zext i16 %112 to i64
   %114 = icmp samesign ult i64 %indvars.iv.next182.i, %113
-  br i1 %114, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !99
+  br i1 %114, label %.lr.ph141.i, label %._crit_edge142.i, !llvm.loop !97
 
 ._crit_edge142.i:                                 ; preds = %111, %._crit_edge137.i
   %115 = load ptr, ptr %25, align 8
@@ -10169,7 +10169,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
   %133 = zext i16 %132 to i64
   %134 = icmp samesign ult i64 %indvars.iv.next185.i, %133
-  br i1 %134, label %118, label %ReadSegmentedCurve.exit, !llvm.loop !100
+  br i1 %134, label %118, label %ReadSegmentedCurve.exit, !llvm.loop !98
 
 .loopexit107.i:                                   ; preds = %.lr.ph.i, %77, %75, %55, %53, %51, %47, %.lr.ph136.i, %.lr.ph131.i, %63, %97
   %135 = load i16, ptr %7, align 2
@@ -10195,7 +10195,7 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %143 = zext i16 %142 to i64
   %144 = icmp samesign ult i64 %indvars.iv.next179.i, %143
-  br i1 %144, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !101
+  br i1 %144, label %.lr.ph148.i, label %._crit_edge149.i, !llvm.loop !99
 
 ._crit_edge149.i:                                 ; preds = %141, %.loopexit107.i
   %145 = load ptr, ptr %25, align 8
@@ -10248,7 +10248,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 19:                                               ; preds = %22
   %20 = add nuw i32 %.06388, 1
   %exitcond.not = icmp eq i32 %20, %2
-  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !102
+  br i1 %exitcond.not, label %.lr.ph90.preheader, label %.lr.ph, !llvm.loop !100
 
 .lr.ph90.preheader:                               ; preds = %19
   %wide.trip.count = zext i32 %2 to i64
@@ -10273,7 +10273,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = trunc nuw i64 %indvars.iv to i32
-  %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #14, !callees !103
+  %29 = tail call i32 %5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %28, i32 noundef 0) #14, !callees !101
   %.not72 = icmp eq i32 %29, 0
   br i1 %.not72, label %.thread82.sink.split.sink.split3, label %30
 
@@ -10285,7 +10285,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !104
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %30, %15
   %35 = load ptr, ptr %16, align 8
@@ -10306,7 +10306,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
 40:                                               ; preds = %44
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !105
+  br i1 %exitcond105.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !103
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %40
   %indvars.iv101 = phi i64 [ 0, %.lr.ph92.preheader ], [ %indvars.iv.next102, %40 ]
@@ -10393,7 +10393,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 24:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader66.i, label %.lr.ph.i, !llvm.loop !106
+  br i1 %exitcond.not.i, label %.preheader66.i, label %.lr.ph.i, !llvm.loop !104
 
 .preheader66.i:                                   ; preds = %24, %.preheader68.i
   %25 = load i32, ptr %13, align 8
@@ -10452,7 +10452,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next107.i, %51
-  br i1 %52, label %53, label %.loopexit.i, !llvm.loop !107
+  br i1 %52, label %53, label %.loopexit.i, !llvm.loop !105
 
 53:                                               ; preds = %47, %.lr.ph74.i
   %indvars.iv106.i = phi i64 [ 1, %.lr.ph74.i ], [ %indvars.iv.next107.i, %47 ]
@@ -10503,7 +10503,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
 75:                                               ; preds = %76
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count104.i
-  br i1 %exitcond105.not.i, label %.loopexit.i, label %76, !llvm.loop !108
+  br i1 %exitcond105.not.i, label %.loopexit.i, label %76, !llvm.loop !106
 
 76:                                               ; preds = %75, %.lr.ph72.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next102.i, %75 ]
@@ -10519,7 +10519,7 @@ define internal range(i32 0, 2) i32 @WriteMPECurve(ptr readnone captures(none) %
   %81 = load i32, ptr %13, align 8
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next110.i, %82
-  br i1 %83, label %.lr.ph76.i, label %WriteSegmentedCurve.exit, !llvm.loop !109
+  br i1 %83, label %.lr.ph76.i, label %WriteSegmentedCurve.exit, !llvm.loop !107
 
 WriteSegmentedCurve.exit:                         ; preds = %.lr.ph.i, %33, %35, %37, %58, %60, %62, %66, %69, %.loopexit.i, %76, %53, %5, %16, %18, %21, %.preheader66.i
   %.0.i = phi i32 [ 0, %21 ], [ 0, %18 ], [ 0, %16 ], [ 0, %5 ], [ 1, %.preheader66.i ], [ 0, %53 ], [ 0, %76 ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %66 ], [ 0, %69 ], [ 1, %.loopexit.i ], [ 0, %.lr.ph.i ]
@@ -10796,7 +10796,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 4
   store i32 %storemerge.i.i, ptr %.018.i.i, align 4
   %53 = icmp sgt i32 %.18.i.i, 0
-  br i1 %53, label %.lr.ph.i.i, label %.loopexit.loopexit, !llvm.loop !59
+  br i1 %53, label %.lr.ph.i.i, label %.loopexit.loopexit, !llvm.loop !57
 
 54:                                               ; preds = %.lr.ph.i.i, %37, %44, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -10947,123 +10947,181 @@ define internal fastcc range(i32 0, 2) i32 @WriteOffsetArray(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %4
   %13 = icmp samesign ugt i32 %3, 16
-  %14 = icmp samesign ugt i32 %3, 24
-  %wide.trip.count71 = zext i32 %2 to i64
-  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.thread.us ], [ 0, %.lr.ph ]
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %wide.trip.count = zext i32 %2 to i64
+  br label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %14 = icmp samesign ugt i32 %3, 24
+  %wide.trip.count88 = zext i32 %2 to i64
+  br i1 %14, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread.us.us
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv68
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv85
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %17) #14
-  %.not.i.us = icmp eq i32 %18, 0
-  br i1 %.not.i.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit.us
+  %.not.i.us.us = icmp eq i32 %18, 0
+  br i1 %.not.i.us.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit.us.us
 
-WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us
+WriteOneElem.exit.us.us:                          ; preds = %.lr.ph.split.us.split.us
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv68
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %21) #14
-  %.not6.i.not.us = icmp eq i32 %22, 0
-  br i1 %.not6.i.not.us, label %WriteOneElem.exit.thread, label %23
+  %.not6.i.not.us.us = icmp eq i32 %22, 0
+  br i1 %.not6.i.not.us.us, label %WriteOneElem.exit.thread, label %23
 
-23:                                               ; preds = %WriteOneElem.exit.us
+23:                                               ; preds = %WriteOneElem.exit.us.us
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv68
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv85
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %26) #14
-  %.not.i21.us = icmp eq i32 %27, 0
-  br i1 %.not.i21.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit25.us
+  %.not.i21.us.us = icmp eq i32 %27, 0
+  br i1 %.not.i21.us.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit25.us.us
 
-WriteOneElem.exit25.us:                           ; preds = %23
+WriteOneElem.exit25.us.us:                        ; preds = %23
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv68
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv85
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %30) #14
-  %.not6.i22.not.us = icmp eq i32 %31, 0
-  br i1 %.not6.i22.not.us, label %WriteOneElem.exit.thread, label %32
+  %.not6.i22.not.us.us = icmp eq i32 %31, 0
+  br i1 %.not6.i22.not.us.us, label %WriteOneElem.exit.thread, label %32
 
-32:                                               ; preds = %WriteOneElem.exit25.us
+32:                                               ; preds = %WriteOneElem.exit25.us.us
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv68
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv85
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %35) #14
-  %.not.i26.us = icmp eq i32 %36, 0
-  br i1 %.not.i26.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit30.us
+  %.not.i26.us.us = icmp eq i32 %36, 0
+  br i1 %.not.i26.us.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit30.us.us
 
-WriteOneElem.exit30.us:                           ; preds = %32
+WriteOneElem.exit30.us.us:                        ; preds = %32
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv68
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv85
   %39 = load i32, ptr %38, align 4
   %40 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %39) #14
-  %.not6.i27.not.us = icmp eq i32 %40, 0
-  br i1 %.not6.i27.not.us, label %WriteOneElem.exit.thread, label %41
+  %.not6.i27.not.us.us = icmp eq i32 %40, 0
+  br i1 %.not6.i27.not.us.us, label %WriteOneElem.exit.thread, label %41
 
-41:                                               ; preds = %WriteOneElem.exit30.us
-  br i1 %14, label %42, label %.thread.us
+41:                                               ; preds = %WriteOneElem.exit30.us.us
+  %42 = load ptr, ptr %11, align 8
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv85
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %44) #14
+  %.not.i31.us.us = icmp eq i32 %45, 0
+  br i1 %.not.i31.us.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit35.us.us
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv68
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %45) #14
-  %.not.i31.us = icmp eq i32 %46, 0
-  br i1 %.not.i31.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit35.us
+WriteOneElem.exit35.us.us:                        ; preds = %41
+  %46 = load ptr, ptr %12, align 8
+  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv85
+  %48 = load i32, ptr %47, align 4
+  %49 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %48) #14
+  %.not6.i32.not.us.us = icmp eq i32 %49, 0
+  br i1 %.not6.i32.not.us.us, label %WriteOneElem.exit.thread, label %.thread.us.us
 
-WriteOneElem.exit35.us:                           ; preds = %42
-  %47 = load ptr, ptr %12, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv68
-  %49 = load i32, ptr %48, align 4
-  %50 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %49) #14
-  %.not6.i32.not.us = icmp eq i32 %50, 0
-  br i1 %.not6.i32.not.us, label %WriteOneElem.exit.thread, label %.thread.us
+.thread.us.us:                                    ; preds = %WriteOneElem.exit35.us.us
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split.us, !llvm.loop !108
 
-.thread.us:                                       ; preds = %WriteOneElem.exit35.us, %41
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us, !llvm.loop !110
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.thread.us ], [ 0, %.lr.ph.split.us ]
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv80
+  %52 = load i32, ptr %51, align 4
+  %53 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %52) #14
+  %.not.i.us = icmp eq i32 %53, 0
+  br i1 %.not.i.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4
-  %54 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %53) #14
-  %.not.i = icmp eq i32 %54, 0
+WriteOneElem.exit.us:                             ; preds = %.lr.ph.split.us.split
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv80
+  %56 = load i32, ptr %55, align 4
+  %57 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %56) #14
+  %.not6.i.not.us = icmp eq i32 %57, 0
+  br i1 %.not6.i.not.us, label %WriteOneElem.exit.thread, label %58
+
+58:                                               ; preds = %WriteOneElem.exit.us
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv80
+  %61 = load i32, ptr %60, align 4
+  %62 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %61) #14
+  %.not.i21.us = icmp eq i32 %62, 0
+  br i1 %.not.i21.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit25.us
+
+WriteOneElem.exit25.us:                           ; preds = %58
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv80
+  %65 = load i32, ptr %64, align 4
+  %66 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %65) #14
+  %.not6.i22.not.us = icmp eq i32 %66, 0
+  br i1 %.not6.i22.not.us, label %WriteOneElem.exit.thread, label %67
+
+67:                                               ; preds = %WriteOneElem.exit25.us
+  %68 = load ptr, ptr %9, align 8
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv80
+  %70 = load i32, ptr %69, align 4
+  %71 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %70) #14
+  %.not.i26.us = icmp eq i32 %71, 0
+  br i1 %.not.i26.us, label %WriteOneElem.exit.thread, label %WriteOneElem.exit30.us
+
+WriteOneElem.exit30.us:                           ; preds = %67
+  %72 = load ptr, ptr %10, align 8
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv80
+  %74 = load i32, ptr %73, align 4
+  %75 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %74) #14
+  %.not6.i27.not.us = icmp eq i32 %75, 0
+  br i1 %.not6.i27.not.us, label %WriteOneElem.exit.thread, label %.thread.us
+
+.thread.us:                                       ; preds = %WriteOneElem.exit30.us
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count88
+  br i1 %exitcond84.not, label %WriteOneElem.exit.thread, label %.lr.ph.split.us.split, !llvm.loop !108
+
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.thread ]
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %78) #14
+  %.not.i = icmp eq i32 %79, 0
   br i1 %.not.i, label %WriteOneElem.exit.thread, label %WriteOneElem.exit
 
 WriteOneElem.exit:                                ; preds = %.lr.ph.split
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %57) #14
-  %.not6.i.not = icmp eq i32 %58, 0
-  br i1 %.not6.i.not, label %WriteOneElem.exit.thread, label %59
+  %80 = load ptr, ptr %6, align 8
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %82 = load i32, ptr %81, align 4
+  %83 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %82) #14
+  %.not6.i.not = icmp eq i32 %83, 0
+  br i1 %.not6.i.not, label %WriteOneElem.exit.thread, label %84
 
-59:                                               ; preds = %WriteOneElem.exit
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %62) #14
-  %.not.i21 = icmp eq i32 %63, 0
+84:                                               ; preds = %WriteOneElem.exit
+  %85 = load ptr, ptr %7, align 8
+  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
+  %87 = load i32, ptr %86, align 4
+  %88 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %87) #14
+  %.not.i21 = icmp eq i32 %88, 0
   br i1 %.not.i21, label %WriteOneElem.exit.thread, label %WriteOneElem.exit25
 
-WriteOneElem.exit25:                              ; preds = %59
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %66) #14
-  %.not6.i22.not = icmp eq i32 %67, 0
+WriteOneElem.exit25:                              ; preds = %84
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %91 = load i32, ptr %90, align 4
+  %92 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %0, i32 noundef %91) #14
+  %.not6.i22.not = icmp eq i32 %92, 0
   br i1 %.not6.i22.not, label %WriteOneElem.exit.thread, label %.thread
 
 .thread:                                          ; preds = %WriteOneElem.exit25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
-  br i1 %exitcond.not, label %WriteOneElem.exit.thread, label %.lr.ph.split, !llvm.loop !111
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %WriteOneElem.exit.thread, label %.lr.ph.split, !llvm.loop !108
 
-WriteOneElem.exit.thread:                         ; preds = %WriteOneElem.exit, %WriteOneElem.exit25, %.thread, %.lr.ph.split, %59, %WriteOneElem.exit.us, %WriteOneElem.exit25.us, %WriteOneElem.exit30.us, %WriteOneElem.exit35.us, %.thread.us, %.lr.ph.split.us, %23, %32, %42, %4
-  %.017 = phi i32 [ 1, %4 ], [ 0, %42 ], [ 0, %32 ], [ 0, %23 ], [ 0, %.lr.ph.split.us ], [ 1, %.thread.us ], [ 0, %WriteOneElem.exit35.us ], [ 0, %WriteOneElem.exit30.us ], [ 0, %WriteOneElem.exit25.us ], [ 0, %WriteOneElem.exit.us ], [ 0, %59 ], [ 0, %.lr.ph.split ], [ 1, %.thread ], [ 0, %WriteOneElem.exit25 ], [ 0, %WriteOneElem.exit ]
+WriteOneElem.exit.thread:                         ; preds = %WriteOneElem.exit, %WriteOneElem.exit25, %.thread, %.lr.ph.split, %84, %WriteOneElem.exit.us, %WriteOneElem.exit25.us, %WriteOneElem.exit30.us, %.thread.us, %.lr.ph.split.us.split, %58, %67, %WriteOneElem.exit.us.us, %WriteOneElem.exit25.us.us, %WriteOneElem.exit30.us.us, %WriteOneElem.exit35.us.us, %.thread.us.us, %.lr.ph.split.us.split.us, %23, %32, %41, %4
+  %.017 = phi i32 [ 1, %4 ], [ 0, %41 ], [ 0, %32 ], [ 0, %23 ], [ 0, %.lr.ph.split.us.split.us ], [ 1, %.thread.us.us ], [ 0, %WriteOneElem.exit35.us.us ], [ 0, %WriteOneElem.exit30.us.us ], [ 0, %WriteOneElem.exit25.us.us ], [ 0, %WriteOneElem.exit.us.us ], [ 0, %67 ], [ 0, %58 ], [ 0, %.lr.ph.split.us.split ], [ 1, %.thread.us ], [ 0, %WriteOneElem.exit30.us ], [ 0, %WriteOneElem.exit25.us ], [ 0, %WriteOneElem.exit.us ], [ 0, %84 ], [ 0, %.lr.ph.split ], [ 1, %.thread ], [ 0, %WriteOneElem.exit25 ], [ 0, %WriteOneElem.exit ]
   ret i32 %.017
 }
 
@@ -11102,7 +11160,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadDoublesAt(ptr noundef %0, i32 no
   %13 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
   %14 = add nuw i32 %.018, 1
   %exitcond.not = icmp eq i32 %14, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !112
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   %15 = load ptr, ptr %8, align 8
@@ -11284,8 +11342,8 @@ attributes #15 = { nounwind willreturn memory(read) }
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
 !48 = distinct !{!48, !7}
 !49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
@@ -11321,9 +11379,9 @@ attributes #15 = { nounwind willreturn memory(read) }
 !80 = distinct !{!80, !7}
 !81 = distinct !{!81, !7}
 !82 = distinct !{!82, !7}
-!83 = distinct !{!83, !7}
+!83 = !{ptr @ReadMPECurve, ptr @ReadMPEElem, ptr @ReadSeqID}
 !84 = distinct !{!84, !7}
-!85 = !{ptr @ReadMPECurve, ptr @ReadMPEElem, ptr @ReadSeqID}
+!85 = distinct !{!85, !7}
 !86 = distinct !{!86, !7}
 !87 = distinct !{!87, !7}
 !88 = distinct !{!88, !7}
@@ -11339,15 +11397,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !98 = distinct !{!98, !7}
 !99 = distinct !{!99, !7}
 !100 = distinct !{!100, !7}
-!101 = distinct !{!101, !7}
+!101 = !{ptr @WriteMPECurve, ptr @WriteSeqID}
 !102 = distinct !{!102, !7}
-!103 = !{ptr @WriteMPECurve, ptr @WriteSeqID}
+!103 = distinct !{!103, !7}
 !104 = distinct !{!104, !7}
 !105 = distinct !{!105, !7}
 !106 = distinct !{!106, !7}
 !107 = distinct !{!107, !7}
 !108 = distinct !{!108, !7}
 !109 = distinct !{!109, !7}
-!110 = distinct !{!110, !7, !47}
-!111 = distinct !{!111, !7}
-!112 = distinct !{!112, !7}

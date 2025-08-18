@@ -391,11 +391,11 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 193:                                              ; preds = %178
   %194 = fadd double %174, %173
   store double %194, ptr %30, align 8, !tbaa !7
-  br label %.lr.ph300.us, !llvm.loop !13
+  br label %.lr.ph300.us
 
 195:                                              ; preds = %178, %175
   %.not271.not.us = icmp sgt i64 %indvars.iv.next344, %172
-  br i1 %.not271.not.us, label %175, label %._crit_edge301, !llvm.loop !15
+  br i1 %.not271.not.us, label %175, label %._crit_edge301, !llvm.loop !13
 
 ._crit_edge301:                                   ; preds = %195, %167
   %196 = phi double [ %169, %167 ], [ %174, %195 ]
@@ -576,7 +576,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1 = phi i32 [ %292, %.loopexit.thread ], [ %.0328, %124 ], [ %198, %._crit_edge316 ], [ %198, %.loopexit ], [ %198, %._crit_edge316.thread ]
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %.not265.not = icmp samesign ult i64 %indvars.iv335, %123
-  br i1 %.not265.not, label %124, label %.loopexit291, !llvm.loop !16
+  br i1 %.not265.not, label %124, label %.loopexit291, !llvm.loop !14
 
 .loopexit291:                                     ; preds = %.critedge, %109, %107, %162, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -646,7 +646,5 @@ attributes #5 = { nounwind }
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
 !12 = distinct !{!12, !10}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

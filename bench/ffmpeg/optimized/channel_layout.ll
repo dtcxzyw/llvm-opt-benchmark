@@ -1874,76 +1874,74 @@ define i32 @av_channel_layout_index_from_string(ptr noundef readonly captures(no
   %20 = load i32, ptr %19, align 4, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = icmp eq i32 %.034.fr, -1
-  br i1 %22, label %.lr.ph.split.us.preheader, label %.lr.ph.split.split
+  %23 = icmp sgt i32 %20, 0
+  br i1 %22, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %smax = call i32 @llvm.smax.i32(i32 %20, i32 0)
-  %wide.trip.count67 = zext nneg i32 %smax to i64
-  %exitcond68.not79 = icmp slt i32 %20, 1
-  br i1 %exitcond68.not79, label %.critedge.thread, label %.lr.ph81.preheader
+.lr.ph.split.us.split:                            ; preds = %.lr.ph
+  br i1 %23, label %.lr.ph61, label %.critedge.thread
 
-.lr.ph81.preheader:                               ; preds = %.lr.ph.split.us.preheader
-  %23 = load ptr, ptr %21, align 8, !tbaa !17
-  br label %.lr.ph81
+.lr.ph61:                                         ; preds = %.lr.ph.split.us.split
+  %24 = load ptr, ptr %21, align 8, !tbaa !17
+  %wide.trip.count70 = zext nneg i32 %20 to i64
+  br label %25
 
-.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph.split.us
-  %indvars.iv6480 = phi i64 [ %indvars.iv.next65, %.lr.ph.split.us ], [ 0, %.lr.ph81.preheader ]
-  %24 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %23, i64 %indvars.iv6480, i32 1
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %24) #17
-  %.not45.us = icmp eq i32 %25, 0
-  br i1 %.not45.us, label %.critedge.loopexit, label %.lr.ph.split.us
+25:                                               ; preds = %.lr.ph61, %28
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next68, %28 ]
+  %26 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %24, i64 %indvars.iv67, i32 1
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %26) #17
+  %.not45.us = icmp eq i32 %27, 0
+  br i1 %.not45.us, label %.critedge.loopexit, label %28
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph81
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv6480, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.critedge.thread, label %.lr.ph81
+28:                                               ; preds = %25
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
+  br i1 %exitcond71.not, label %.critedge.thread, label %25
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  %26 = icmp sgt i32 %20, 0
-  br i1 %26, label %.lr.ph58, label %.critedge.thread
+  br i1 %23, label %.lr.ph58, label %.critedge.thread
 
 .lr.ph58:                                         ; preds = %.lr.ph.split.split
-  %27 = load ptr, ptr %21, align 8, !tbaa !17
+  %29 = load ptr, ptr %21, align 8, !tbaa !17
   %wide.trip.count = zext nneg i32 %20 to i64
-  br label %28
+  br label %30
 
-28:                                               ; preds = %.lr.ph58, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %35 ]
-  %29 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %27, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %30) #17
-  %.not45 = icmp eq i32 %31, 0
-  br i1 %.not45, label %32, label %35
+30:                                               ; preds = %.lr.ph58, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %37 ]
+  %31 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %32) #17
+  %.not45 = icmp eq i32 %33, 0
+  br i1 %.not45, label %34, label %37
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr %29, align 8, !tbaa !21
-  %34 = icmp eq i32 %.034.fr, %33
-  br i1 %34, label %.critedge.loopexit59, label %35
+34:                                               ; preds = %30
+  %35 = load i32, ptr %31, align 8, !tbaa !21
+  %36 = icmp eq i32 %.034.fr, %35
+  br i1 %36, label %.critedge.loopexit62, label %37
 
-35:                                               ; preds = %28, %32
+37:                                               ; preds = %30, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.thread, label %28
+  br i1 %exitcond.not, label %.critedge.thread, label %30
 
-.critedge.thread:                                 ; preds = %35, %.lr.ph.split.us, %.lr.ph.split.us.preheader, %5, %18, %.lr.ph.split.split, %2, %2
-  %36 = call i32 @av_channel_from_string(ptr noundef %1)
-  %37 = icmp eq i32 %36, -1
-  br i1 %37, label %.critedge, label %38
+.critedge.thread:                                 ; preds = %37, %28, %5, %18, %.lr.ph.split.split, %.lr.ph.split.us.split, %2, %2
+  %38 = call i32 @av_channel_from_string(ptr noundef %1)
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %.critedge, label %40
 
-38:                                               ; preds = %.critedge.thread
-  %39 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %0, i32 noundef %36)
+40:                                               ; preds = %.critedge.thread
+  %41 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %0, i32 noundef %38)
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph81
-  %40 = trunc nuw nsw i64 %indvars.iv6480 to i32
+.critedge.loopexit:                               ; preds = %25
+  %42 = trunc nuw nsw i64 %indvars.iv67 to i32
   br label %.critedge
 
-.critedge.loopexit59:                             ; preds = %32
-  %41 = trunc nuw nsw i64 %indvars.iv to i32
+.critedge.loopexit62:                             ; preds = %34
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit59, %.critedge.loopexit, %2, %.critedge.thread, %6, %38
-  %.2 = phi i32 [ %39, %38 ], [ -22, %6 ], [ -22, %.critedge.thread ], [ -22, %2 ], [ %40, %.critedge.loopexit ], [ %41, %.critedge.loopexit59 ]
+.critedge:                                        ; preds = %.critedge.loopexit62, %.critedge.loopexit, %2, %.critedge.thread, %6, %40
+  %.2 = phi i32 [ %41, %40 ], [ -22, %6 ], [ -22, %.critedge.thread ], [ -22, %2 ], [ %42, %.critedge.loopexit ], [ %43, %.critedge.loopexit62 ]
   ret i32 %.2
 }
 
@@ -2756,9 +2754,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

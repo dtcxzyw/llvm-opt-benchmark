@@ -334,7 +334,7 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   %84 = icmp sle i32 %83, %2
   %85 = icmp eq i32 %77, 0
   %or.cond69 = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond69, label %.critedge.split.split.us, label %.split.us, !llvm.loop !49
+  br i1 %or.cond69, label %.critedge.split.split.us, label %.split.us, !llvm.loop !47
 
 .critedge.split.split:                            ; preds = %.critedge.split, %.critedge.split.split._crit_edge
   %.04564 = phi double [ %92, %.critedge.split.split._crit_edge ], [ 1.000000e+02, %.critedge.split ]
@@ -356,7 +356,7 @@ Abc_Clock.exit58.us:                              ; preds = %64, %61
   %92 = fmul double %.04564, 1.500000e+00
   %93 = fmul double %.04663, 1.100000e+00
   %94 = icmp eq i32 %91, 0
-  br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !50
+  br i1 %94, label %.critedge.split.split, label %.split.us, !llvm.loop !47
 
 .split.us:                                        ; preds = %.critedge.split.split._crit_edge, %.critedge.split.split.us._crit_edge, %55, %Abc_Clock.exit58.us
   %.us-phi = phi i32 [ %52, %Abc_Clock.exit58.us ], [ %52, %55 ], [ %77, %.critedge.split.split.us._crit_edge ], [ %91, %.critedge.split.split._crit_edge ]
@@ -461,7 +461,4 @@ attributes #8 = { nounwind }
 !44 = !{!4, !5, i64 324}
 !45 = !{!4, !5, i64 168}
 !46 = !{!4, !10, i64 176}
-!47 = distinct !{!47, !30, !48}
-!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!49 = distinct !{!49, !30, !48}
-!50 = distinct !{!50, !30}
+!47 = distinct !{!47, !30}

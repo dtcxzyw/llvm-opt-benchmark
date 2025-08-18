@@ -4047,7 +4047,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   call void @proto_item_set_len(ptr noundef %163, i32 noundef %164)
   %165 = load i32, ptr %11, align 4
   %.not209 = icmp eq i32 %165, 0
-  br i1 %.not209, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not209, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %159, %.lr.ph217.split
   %.3.lcssa = phi i32 [ %76, %.lr.ph217.split ], [ %.4, %159 ]
@@ -4057,7 +4057,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %169 = sub i32 %.3.lcssa, %.1214
   call void @proto_item_set_len(ptr noundef %168, i32 noundef %169)
   %.not = icmp eq i8 %166, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph217.split, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph217.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.1.lcssa = phi i32 [ %30, %.preheader ], [ %.3.lcssa, %.loopexit ]
@@ -4456,7 +4456,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_cmn_service_level_aa_cont(ptr noun
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = sub i32 %80, %3
   %82 = icmp ult i32 %81, %4
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %78, %7
   %83 = trunc i32 %4 to i16
@@ -4924,7 +4924,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_ta_id_list(ptr noundef %0
   %22 = add i32 %.16471, 3
   %23 = add nsw i8 %.072, -1
   %.not67 = icmp eq i8 %23, 0
-  br i1 %.not67, label %.loopexit, label %19, !llvm.loop !15
+  br i1 %.not67, label %.loopexit, label %19, !llvm.loop !13
 
 24:                                               ; preds = %.lr.ph
   %25 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %10, i32 noundef %15, i32 noundef 8, i1 noundef zeroext true)
@@ -4944,7 +4944,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_ta_id_list(ptr noundef %0
   %34 = add i32 %.369, 6
   %35 = add nsw i8 %.170, -1
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 36:                                               ; preds = %.lr.ph
   %37 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %10, i32 noundef %15, i32 noundef 8, i1 noundef zeroext true)
@@ -4962,7 +4962,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   %41 = add i32 %.06274, 1
   %42 = sub i32 %.2, %3
   %43 = icmp ult i32 %42, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %44 = trunc i32 %4 to i16
@@ -5360,7 +5360,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_ciphering_key_data(ptr nounde
   call void @proto_item_set_len(ptr noundef %148, i32 noundef %149)
   %150 = sub i32 %.4, %3
   %151 = icmp ult i32 %150, %4
-  br i1 %151, label %25, label %._crit_edge, !llvm.loop !18
+  br i1 %151, label %25, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %147, %7
   %152 = trunc i32 %4 to i16
@@ -5448,7 +5448,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %.lr.ph, %19
   %26 = add i32 %.01820, 1
   %27 = sub i32 %22, %3
   %28 = icmp ult i32 %27, %4
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %de_nas_5gs_cmn_dnn.exit, %7
   %29 = trunc i32 %4 to i16
@@ -5499,7 +5499,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %.lr.ph, %19
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
   %32 = add i32 %.02931, 1
   %33 = icmp ult i32 %31, %4
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %de_nas_5gs_cmn_dnn.exit, %7
   %34 = trunc i32 %4 to i16
@@ -5560,7 +5560,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_mapped_nssai(ptr noundef %0, 
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
   %28 = sub i32 %.1, %3
   %29 = icmp ult i32 %28, %4
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %25, %7
   %30 = trunc i32 %4 to i16
@@ -5607,7 +5607,7 @@ nas5gs_get_private_data.exit:                     ; preds = %7, %15
   %.0.i = phi ptr [ %14, %7 ], [ %17, %15 ]
   %22 = load i8, ptr %.0.i, align 4
   %23 = icmp eq i8 %22, 0
-  %24 = load i8, ptr @g_nas_5gs_null_decipher, align 1, !range !22
+  %24 = load i8, ptr @g_nas_5gs_null_decipher, align 1, !range !20
   %25 = trunc nuw i8 %24 to i1
   %or.cond = select i1 %23, i1 true, i1 %25
   br i1 %or.cond, label %26, label %29
@@ -5668,7 +5668,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_nssai(ptr noundef %0, ptr nou
   %22 = add i32 %.01820, 1
   %23 = sub i32 %18, %3
   %24 = icmp ult i32 %23, %4
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %25 = trunc i32 %4 to i16
@@ -5788,7 +5788,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %.lr.ph144, %61
   %67 = add i32 %.0124142, 1
   %68 = load i32, ptr %14, align 4
   %.not129 = icmp ugt i32 %67, %68
-  br i1 %.not129, label %.loopexit, label %.lr.ph144, !llvm.loop !24
+  br i1 %.not129, label %.loopexit, label %.lr.ph144, !llvm.loop !22
 
 69:                                               ; preds = %.lr.ph148
   %70 = load i32, ptr @hf_nas_5gs_mm_op_def_access_cat_criteria_os_id_os_app_id_count, align 4
@@ -5822,7 +5822,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %.lr.ph144, %61
   %89 = add i32 %.1125137, 1
   %90 = load i32, ptr %14, align 4
   %.not128 = icmp ugt i32 %89, %90
-  br i1 %.not128, label %.loopexit, label %.lr.ph139, !llvm.loop !25
+  br i1 %.not128, label %.loopexit, label %.lr.ph139, !llvm.loop !23
 
 91:                                               ; preds = %.lr.ph148
   %92 = load i32, ptr @hf_nas_5gs_mm_op_def_access_cat_criteria_s_nssai_count, align 4
@@ -5887,7 +5887,7 @@ de_nas_5gs_cmn_s_nssai.exit:                      ; preds = %114, %114, %.lr.ph,
   %125 = add i32 %.2126133, 1
   %126 = load i32, ptr %14, align 4
   %.not = icmp ugt i32 %125, %126
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %de_nas_5gs_cmn_s_nssai.exit, %.lr.ph139, %de_nas_5gs_cmn_dnn.exit, %91, %69, %47, %.lr.ph148
   %.3 = phi i32 [ %45, %.lr.ph148 ], [ %50, %47 ], [ %72, %69 ], [ %94, %91 ], [ %64, %de_nas_5gs_cmn_dnn.exit ], [ %86, %.lr.ph139 ], [ %122, %de_nas_5gs_cmn_s_nssai.exit ]
@@ -5897,11 +5897,11 @@ de_nas_5gs_cmn_s_nssai.exit:                      ; preds = %114, %114, %.lr.ph,
   %129 = sub i32 %.3, %38
   %130 = load i32, ptr %12, align 4
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph148, label %._crit_edge, !llvm.loop !27
+  br i1 %131, label %.lr.ph148, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph153
   %.1.lcssa = phi i32 [ %38, %.lr.ph153 ], [ %.3, %.loopexit ]
-  %132 = load i8, ptr %15, align 1, !range !22, !noundef !28
+  %132 = load i8, ptr %15, align 1, !range !20, !noundef !26
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %140
 
@@ -5922,7 +5922,7 @@ de_nas_5gs_cmn_s_nssai.exit:                      ; preds = %114, %114, %.lr.ph,
   %145 = add i32 %.0151, 1
   %146 = sub i32 %142, %3
   %147 = icmp ult i32 %146, %4
-  br i1 %147, label %.lr.ph153, label %._crit_edge154, !llvm.loop !29
+  br i1 %147, label %.lr.ph153, label %._crit_edge154, !llvm.loop !27
 
 ._crit_edge154:                                   ; preds = %140, %7
   %148 = trunc i32 %4 to i16
@@ -6086,7 +6086,7 @@ nas5gs_get_private_data.exit:                     ; preds = %7, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %85 = load i32, ptr %8, align 4
   %86 = icmp ult i32 %67, %85
-  br i1 %86, label %.lr.ph184, label %._crit_edge185, !llvm.loop !30
+  br i1 %86, label %.lr.ph184, label %._crit_edge185, !llvm.loop !28
 
 ._crit_edge185:                                   ; preds = %84, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6254,7 +6254,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %149, %148, %131, %1
   %169 = add nuw i32 %.0163175, 1
   %170 = load i32, ptr %13, align 4
   %171 = icmp ult i32 %169, %170
-  br i1 %171, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %171, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %de_nas_5gs_cmn_dnn.exit, %.lr.ph179
   %.1166.lcssa = phi i32 [ %105, %.lr.ph179 ], [ %168, %de_nas_5gs_cmn_dnn.exit ]
@@ -6271,7 +6271,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %149, %148, %131, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %179 = load i32, ptr %11, align 4
   %180 = icmp ult i32 %93, %179
-  br i1 %180, label %.lr.ph179, label %._crit_edge180, !llvm.loop !32
+  br i1 %180, label %.lr.ph179, label %._crit_edge180, !llvm.loop !30
 
 ._crit_edge180:                                   ; preds = %._crit_edge, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -6367,7 +6367,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_pdu_ses_react_res_err_c(ptr n
   %13 = add i32 %.013, 2
   %14 = sub i32 %13, %3
   %15 = icmp ult i32 %14, %4
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %16 = trunc i32 %4 to i16
@@ -6436,7 +6436,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_rej_nssai(ptr noundef %0, ptr
   call void @proto_item_set_len(ptr noundef %28, i32 noundef %29)
   %30 = sub i32 %.1, %3
   %31 = icmp ult i32 %30, %4
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %27, %7
   %32 = trunc i32 %4 to i16
@@ -6491,7 +6491,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_sal(ptr noundef %0, ptr nound
   %22 = add i32 %.16471, 3
   %23 = add nsw i8 %.072, -1
   %.not67 = icmp eq i8 %23, 0
-  br i1 %.not67, label %.loopexit, label %19, !llvm.loop !35
+  br i1 %.not67, label %.loopexit, label %19, !llvm.loop !33
 
 24:                                               ; preds = %.lr.ph
   %25 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %10, i32 noundef %15, i32 noundef 8, i1 noundef zeroext true)
@@ -6511,7 +6511,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_sal(ptr noundef %0, ptr nound
   %34 = add i32 %.369, 6
   %35 = add nsw i8 %.170, -1
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !36
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !34
 
 36:                                               ; preds = %.lr.ph
   %37 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %10, i32 noundef %15, i32 noundef 8, i1 noundef zeroext true)
@@ -6529,7 +6529,7 @@ default.unreachable78:                            ; preds = %.lr.ph
   %41 = add i32 %.06274, 1
   %42 = sub i32 %.2, %3
   %43 = icmp ult i32 %42, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %44 = trunc i32 %4 to i16
@@ -6617,7 +6617,7 @@ define internal zeroext i16 @de_nas_5gs_mm_sor_transp_cont(ptr noundef %0, ptr n
   %45 = sub i32 %43, %3
   %46 = load i32, ptr %8, align 4
   %47 = icmp ult i32 %45, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %.0128.lcssa = phi i32 [ %35, %32 ], [ %43, %.lr.ph ]
@@ -6691,7 +6691,7 @@ define internal zeroext i16 @de_nas_5gs_mm_sor_transp_cont(ptr noundef %0, ptr n
   %84 = add i32 %.1138, 1
   %85 = sub i32 %83, %3
   %86 = icmp ult i32 %85, %4
-  br i1 %86, label %.lr.ph139, label %.loopexit, !llvm.loop !39
+  br i1 %86, label %.lr.ph139, label %.loopexit, !llvm.loop !37
 
 87:                                               ; preds = %7
   tail call void @proto_tree_add_bitmask_list(ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @de_nas_5gs_mm_sor_transp_cont.flags_dt1, i32 noundef 0)
@@ -6913,14 +6913,14 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_extended_rejected_nssai(ptr n
   %64 = load i32, ptr %10, align 4
   %65 = add i32 %64, 1
   %66 = icmp slt i32 %33, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %63, %29
   %.2.lcssa = phi i32 [ %.1, %29 ], [ %.3, %63 ]
   %67 = add i32 %.05560, 1
   %68 = sub i32 %.2.lcssa, %3
   %69 = icmp ult i32 %68, %4
-  br i1 %69, label %.lr.ph63, label %._crit_edge64, !llvm.loop !41
+  br i1 %69, label %.lr.ph63, label %._crit_edge64, !llvm.loop !39
 
 ._crit_edge64:                                    ; preds = %._crit_edge, %7
   %70 = trunc i32 %4 to i16
@@ -7001,7 +7001,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_peips_assist_info(ptr noundef
   %19 = add i32 %.01922, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %exitcond.not = icmp eq i32 %.01922, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %17, %7
   %20 = trunc i32 %4 to i16
@@ -7058,7 +7058,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_nssrg_info(ptr noundef %0, pt
   %32 = sub i32 %.131, %.033
   %33 = load i32, ptr %9, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph35
   %.1.lcssa = phi i32 [ %25, %.lr.ph35 ], [ %31, %.lr.ph ]
@@ -7068,7 +7068,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_nssrg_info(ptr noundef %0, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = sub i32 %.1.lcssa, %3
   %37 = icmp ult i32 %36, %4
-  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !44
+  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !42
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %7
   %38 = trunc i32 %4 to i16
@@ -7090,7 +7090,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_plmns_list_disaster_cond(ptr 
   %12 = add i32 %.016, 3
   %13 = sub i32 %12, %3
   %14 = icmp ult i32 %13, %4
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %15 = trunc i32 %4 to i16
@@ -7182,7 +7182,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_nsag_info(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = sub i32 %.1, %3
   %43 = icmp ult i32 %42, %4
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %40, %7
   %44 = trunc i32 %4 to i16
@@ -7267,7 +7267,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_snpn_list(ptr noundef %0, ptr
   %19 = add i32 %.024, 9
   %20 = sub i32 %19, %3
   %21 = icmp ult i32 %20, %4
-  br i1 %21, label %9, label %._crit_edge, !llvm.loop !47
+  br i1 %21, label %9, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %9, %7
   %22 = trunc i32 %4 to i16
@@ -7435,7 +7435,7 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %12, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %40 = sub i32 %37, %3
   %41 = icmp ult i32 %40, %4
-  br i1 %41, label %12, label %._crit_edge, !llvm.loop !48
+  br i1 %41, label %12, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %de_nas_5gs_cmn_dnn.exit, %7
   %42 = trunc i32 %4 to i16
@@ -7491,7 +7491,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_alt_nssai(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %38 = sub i32 %33, %3
   %39 = icmp ult i32 %38, %4
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %40 = trunc i32 %4 to i16
@@ -7597,7 +7597,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_loc_valid_info(ptr no
   %31 = add nuw i32 %.042, 1
   %32 = load i32, ptr %9, align 4
   %33 = icmp ult i32 %31, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph46
   %.1.lcssa = phi i32 [ %25, %.lr.ph46 ], [ %30, %.lr.ph ]
@@ -7608,7 +7608,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_loc_valid_info(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = sub i32 %.1.lcssa, %3
   %37 = icmp ult i32 %36, %4
-  br i1 %37, label %.lr.ph46, label %._crit_edge47, !llvm.loop !51
+  br i1 %37, label %.lr.ph46, label %._crit_edge47, !llvm.loop !49
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %7
   %38 = trunc i32 %4 to i16
@@ -7689,7 +7689,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_time_valid_info(ptr n
   %54 = sub i32 %.2, %28
   %55 = load i32, ptr %9, align 4
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %53, %12
   %.1.lcssa = phi i32 [ %28, %12 ], [ %.2, %53 ]
@@ -7701,7 +7701,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_time_valid_info(ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %59 = sub i32 %.1.lcssa, %3
   %60 = icmp ult i32 %59, %4
-  br i1 %60, label %12, label %._crit_edge61, !llvm.loop !53
+  br i1 %60, label %12, label %._crit_edge61, !llvm.loop !51
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %7
   %61 = trunc i32 %4 to i16
@@ -7760,7 +7760,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_partial_nssai(ptr noundef %0,
   %.2 = phi i32 [ %25, %22 ], [ %20, %17 ]
   %27 = sub i32 %.2, %3
   %28 = icmp ult i32 %27, %4
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %26, %7
   %29 = trunc i32 %4 to i16
@@ -7872,7 +7872,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_on_demand_nssai(ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = sub i32 %.1, %3
   %35 = icmp ult i32 %34, %4
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %32, %7
   %36 = trunc i32 %4 to i16
@@ -8068,14 +8068,14 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_mapped_eps_b_cont(ptr noundef
   %64 = add nuw nsw i32 %.075, 1
   %65 = add nsw i32 %.06874, -1
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %61, %.lr.ph79
   %.1.lcssa = phi i32 [ %26, %.lr.ph79 ], [ %63, %61 ]
   %66 = add i32 %.07076, 1
   %67 = sub i32 %.1.lcssa, %3
   %68 = icmp ult i32 %67, %4
-  br i1 %68, label %.lr.ph79, label %._crit_edge80, !llvm.loop !57
+  br i1 %68, label %.lr.ph79, label %._crit_edge80, !llvm.loop !55
 
 ._crit_edge80:                                    ; preds = %._crit_edge, %7
   %69 = trunc i32 %4 to i16
@@ -8199,7 +8199,7 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_pdu_address(ptr noundef %0, p
 
 79:                                               ; preds = %47, %20, %17
   %.sink = phi i32 [ 13, %47 ], [ 9, %20 ], [ 5, %17 ]
-  %80 = load i8, ptr %8, align 1, !range !22, !noundef !28
+  %80 = load i8, ptr %8, align 1, !range !20, !noundef !26
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %86
 
@@ -8459,7 +8459,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_ue_policy_section_mgm_lst(p
   %.1.lcssa = phi i32 [ %58, %.lr.ph86 ], [ %.2.lcssa, %._crit_edge ]
   %47 = sub i32 %.1.lcssa, %3
   %48 = icmp ult i32 %47, %4
-  br i1 %48, label %.lr.ph86, label %._crit_edge87, !llvm.loop !58
+  br i1 %48, label %.lr.ph86, label %._crit_edge87, !llvm.loop !56
 
 .lr.ph86:                                         ; preds = %7, %.loopexit
   %.05684 = phi i32 [ %49, %.loopexit ], [ 0, %7 ]
@@ -8751,7 +8751,7 @@ de_nas_5gs_cmn_dnn.exit.i.i:                      ; preds = %212, %204
   %224 = add nuw i32 %.0147.i.i, 1
   %225 = load i32, ptr %35, align 4
   %226 = icmp ult i32 %224, %225
-  br i1 %226, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !59
+  br i1 %226, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !57
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %216
   %.lcssa.i.i = phi i32 [ 0, %216 ], [ %225, %.lr.ph.i.i ]
@@ -8796,7 +8796,7 @@ de_nas_5gs_cmn_dnn.exit.i.i:                      ; preds = %212, %204
 255:                                              ; preds = %246, %237, %228, %._crit_edge.i.i, %de_nas_5gs_cmn_dnn.exit.i.i, %200, %194, %188, %184, %180, %176, %172, %165, %161, %154, %150, %146, %139, %132, %120
   %.1.i.i = phi i32 [ %131, %120 ], [ %138, %132 ], [ %145, %139 ], [ %149, %146 ], [ %153, %150 ], [ %160, %154 ], [ %164, %161 ], [ %171, %165 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ %187, %184 ], [ %193, %188 ], [ %199, %194 ], [ %203, %200 ], [ %215, %de_nas_5gs_cmn_dnn.exit.i.i ], [ %227, %._crit_edge.i.i ], [ %236, %228 ], [ %245, %237 ], [ %252, %246 ]
   %256 = icmp slt i32 %.1.i.i, %114
-  br i1 %256, label %.lr.ph150.i.i, label %de_nas_5gs_ursp_traff_desc.exit.i, !llvm.loop !60
+  br i1 %256, label %.lr.ph150.i.i, label %de_nas_5gs_ursp_traff_desc.exit.i, !llvm.loop !58
 
 de_nas_5gs_ursp_traff_desc.exit.i:                ; preds = %255, %.lr.ph150.i.i, %253, %.lr.ph80.i
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -8945,7 +8945,7 @@ de_nas_5gs_cmn_dnn.exit.i69.i:                    ; preds = %329, %321
 341:                                              ; preds = %337, %333, %de_nas_5gs_cmn_dnn.exit.i69.i, %de_nas_5gs_cmn_s_nssai.exit.i, %291, %.lr.ph.i67.i, %.lr.ph.i67.i
   %.1.i68.i = phi i32 [ %294, %291 ], [ %320, %de_nas_5gs_cmn_s_nssai.exit.i ], [ %332, %de_nas_5gs_cmn_dnn.exit.i69.i ], [ %336, %333 ], [ %338, %337 ], [ %289, %.lr.ph.i67.i ], [ %289, %.lr.ph.i67.i ]
   %342 = icmp slt i32 %.1.i68.i, %285
-  br i1 %342, label %.lr.ph.i67.i, label %de_nas_5gs_ursp_r_sel_desc.exit.i, !llvm.loop !61
+  br i1 %342, label %.lr.ph.i67.i, label %de_nas_5gs_ursp_r_sel_desc.exit.i, !llvm.loop !59
 
 de_nas_5gs_ursp_r_sel_desc.exit.i:                ; preds = %341, %339, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -8955,13 +8955,13 @@ de_nas_5gs_ursp_r_sel_desc.exit.i:                ; preds = %341, %339, %.lr.ph.
   %345 = sub i32 %344, %261
   %346 = load i32, ptr %39, align 4
   %347 = icmp ult i32 %345, %346
-  br i1 %347, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !62
+  br i1 %347, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %de_nas_5gs_ursp_r_sel_desc.exit.i, %de_nas_5gs_ursp_traff_desc.exit.i
   %.lcssa74.i = phi i32 [ 0, %de_nas_5gs_ursp_traff_desc.exit.i ], [ %346, %de_nas_5gs_ursp_r_sel_desc.exit.i ]
   %348 = add i32 %.lcssa74.i, %261
   %349 = icmp ult i32 %348, %93
-  br i1 %349, label %.lr.ph80.i, label %de_nas_5gs_ue_policies_ursp.exit, !llvm.loop !63
+  br i1 %349, label %.lr.ph80.i, label %de_nas_5gs_ue_policies_ursp.exit, !llvm.loop !61
 
 de_nas_5gs_ue_policies_ursp.exit:                 ; preds = %._crit_edge.i, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -9176,14 +9176,14 @@ de_nas_5gs_ue_policies_ursp.exit:                 ; preds = %._crit_edge.i, %89
   %473 = add i32 %.1155.i.i, 1
   %474 = load i32, ptr %14, align 4
   %475 = icmp ult i32 %473, %474
-  br i1 %475, label %.lr.ph.i.i63, label %._crit_edge.i.i64, !llvm.loop !64
+  br i1 %475, label %.lr.ph.i.i63, label %._crit_edge.i.i64, !llvm.loop !62
 
 ._crit_edge.i.i64:                                ; preds = %472, %423
   %.3.lcssa.i.i = phi i32 [ %431, %423 ], [ %.4.i.i, %472 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %476 = load i32, ptr %19, align 4
   %477 = icmp ult i32 %408, %476
-  br i1 %477, label %.lr.ph6.i.i, label %._crit_edge7.i.i, !llvm.loop !65
+  br i1 %477, label %.lr.ph6.i.i, label %._crit_edge7.i.i, !llvm.loop !63
 
 ._crit_edge7.i.i:                                 ; preds = %._crit_edge.i.i64, %.lr.ph23.i.i
   %.1.lcssa.i.i = phi i32 [ %405, %.lr.ph23.i.i ], [ %.3.lcssa.i.i, %._crit_edge.i.i64 ]
@@ -9287,7 +9287,7 @@ de_nas_5gs_ue_policies_ursp.exit:                 ; preds = %._crit_edge.i, %89
   %532 = add nuw i32 %.010.i.i, 1
   %533 = load i32, ptr %25, align 4
   %534 = icmp ult i32 %532, %533
-  br i1 %534, label %.lr.ph12.i.i, label %._crit_edge13.i.i, !llvm.loop !66
+  br i1 %534, label %.lr.ph12.i.i, label %._crit_edge13.i.i, !llvm.loop !64
 
 ._crit_edge13.i.i:                                ; preds = %531, %.lr.ph17.i.i
   %535 = load i32, ptr %23, align 4
@@ -9295,7 +9295,7 @@ de_nas_5gs_ue_policies_ursp.exit:                 ; preds = %._crit_edge.i, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %537 = load i32, ptr %18, align 4
   %538 = icmp ult i32 %494, %537
-  br i1 %538, label %.lr.ph17.i.i, label %._crit_edge18.i.i, !llvm.loop !67
+  br i1 %538, label %.lr.ph17.i.i, label %._crit_edge18.i.i, !llvm.loop !65
 
 ._crit_edge18.i.i:                                ; preds = %._crit_edge13.i.i, %480
   %.6.lcssa.i.i = phi i32 [ %491, %480 ], [ %536, %._crit_edge13.i.i ]
@@ -9330,7 +9330,7 @@ de_nas_5gs_ue_policies_ursp.exit:                 ; preds = %._crit_edge.i, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %554 = icmp slt i32 %.7.i.i, %377
-  br i1 %554, label %.lr.ph23.i.i, label %de_nas_5gs_ue_policies_andsp_wlansp_rule.exit.i, !llvm.loop !68
+  br i1 %554, label %.lr.ph23.i.i, label %de_nas_5gs_ue_policies_andsp_wlansp_rule.exit.i, !llvm.loop !66
 
 de_nas_5gs_ue_policies_andsp_wlansp_rule.exit.i:  ; preds = %553, %374
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -9351,7 +9351,7 @@ de_nas_5gs_ue_policies_andsp_wlansp_rule.exit.i:  ; preds = %553, %374
   %556 = load i32, ptr %31, align 4
   %557 = add i32 %556, %369
   %558 = icmp ult i32 %557, %354
-  br i1 %558, label %.lr.ph.i61, label %de_nas_5gs_ue_policies_andsp.exit, !llvm.loop !69
+  br i1 %558, label %.lr.ph.i61, label %de_nas_5gs_ue_policies_andsp.exit, !llvm.loop !67
 
 de_nas_5gs_ue_policies_andsp.exit:                ; preds = %555, %350
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -9376,7 +9376,7 @@ de_nas_5gs_ue_policies_andsp.exit:                ; preds = %555, %350
   %569 = add i32 %.076, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %.not59 = icmp eq i32 %568, 0
-  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %564
   %.pr.pre = load i32, ptr %43, align 4
@@ -9387,7 +9387,7 @@ de_nas_5gs_ue_policies_andsp.exit:                ; preds = %555, %350
   %.2.lcssa = phi i32 [ %68, %.lr.ph81 ], [ %566, %._crit_edge.loopexit ]
   %570 = add i32 %.05579, 1
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph81, !llvm.loop !71
+  br i1 %.not, label %.loopexit, label %.lr.ph81, !llvm.loop !69
 
 ._crit_edge87:                                    ; preds = %.loopexit, %7
   %571 = trunc i32 %4 to i16
@@ -9411,7 +9411,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_ue_policy_section_mgm_res(p
   %.1.lcssa = phi i32 [ %18, %.lr.ph42 ], [ %29, %.lr.ph ]
   %10 = sub i32 %.1.lcssa, %3
   %11 = icmp ult i32 %10, %4
-  br i1 %11, label %.lr.ph42, label %._crit_edge, !llvm.loop !72
+  br i1 %11, label %.lr.ph42, label %._crit_edge, !llvm.loop !70
 
 .lr.ph42:                                         ; preds = %7, %.loopexit
   %.03441 = phi i32 [ %12, %.loopexit ], [ 0, %7 ]
@@ -9446,7 +9446,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_ue_policy_section_mgm_res(p
   %32 = add i32 %31, -1
   store i32 %32, ptr %9, align 4
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %33 = trunc i32 %4 to i16
@@ -9468,7 +9468,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_upsi_list(ptr noundef %0, p
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25
   %.1.lcssa = phi i32 [ %22, %.lr.ph25 ], [ %28, %.lr.ph ]
   %12 = icmp ult i32 %.1.lcssa, %10
-  br i1 %12, label %.lr.ph25, label %._crit_edge, !llvm.loop !74
+  br i1 %12, label %.lr.ph25, label %._crit_edge, !llvm.loop !72
 
 .lr.ph25:                                         ; preds = %7, %.loopexit
   %.024 = phi i32 [ %14, %.loopexit ], [ 1, %7 ]
@@ -9499,7 +9499,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_upsi_list(ptr noundef %0, p
   %30 = add i32 %29, -2
   store i32 %30, ptr %9, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !75
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %32 = trunc i32 %4 to i16
@@ -9544,7 +9544,7 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_ue_policy_nw_classmark(ptr 
   %.0 = add i32 %.017, 1
   %16 = sub i32 %.0, %3
   %17 = icmp ult i32 %16, %4
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %18 = trunc i32 %4 to i16
@@ -9812,7 +9812,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.preheader56, label %60, !llvm.loop !77
+  br i1 %exitcond.not, label %.preheader56, label %60, !llvm.loop !75
 
 .preheader56:                                     ; preds = %60, %.preheader56
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.preheader56 ], [ 72, %60 ]
@@ -9823,7 +9823,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next82, 46
-  br i1 %exitcond88.not, label %.preheader55, label %.preheader56, !llvm.loop !78
+  br i1 %exitcond88.not, label %.preheader55, label %.preheader56, !llvm.loop !76
 
 .preheader55:                                     ; preds = %.preheader56, %.preheader55
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader55 ], [ 118, %.preheader56 ]
@@ -9834,7 +9834,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next90, 115
-  br i1 %exitcond96.not, label %.preheader54, label %.preheader55, !llvm.loop !79
+  br i1 %exitcond96.not, label %.preheader54, label %.preheader55, !llvm.loop !77
 
 .preheader54:                                     ; preds = %.preheader55, %.preheader54
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.preheader54 ], [ 233, %.preheader55 ]
@@ -9845,7 +9845,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next98, 28
-  br i1 %exitcond104.not, label %.preheader53, label %.preheader54, !llvm.loop !80
+  br i1 %exitcond104.not, label %.preheader53, label %.preheader54, !llvm.loop !78
 
 .preheader53:                                     ; preds = %.preheader54, %.preheader53
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.preheader53 ], [ 261, %.preheader54 ]
@@ -9856,7 +9856,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next106, 37
-  br i1 %exitcond112.not, label %.preheader52, label %.preheader53, !llvm.loop !81
+  br i1 %exitcond112.not, label %.preheader52, label %.preheader53, !llvm.loop !79
 
 .preheader52:                                     ; preds = %.preheader53, %.preheader52
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader52 ], [ 298, %.preheader53 ]
@@ -9867,7 +9867,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next114, 8
-  br i1 %exitcond120.not, label %.preheader, label %.preheader52, !llvm.loop !82
+  br i1 %exitcond120.not, label %.preheader, label %.preheader52, !llvm.loop !80
 
 .preheader:                                       ; preds = %.preheader52, %.preheader
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 306, %.preheader52 ]
@@ -9878,7 +9878,7 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next122, 9
-  br i1 %exitcond128.not, label %75, label %.preheader, !llvm.loop !83
+  br i1 %exitcond128.not, label %75, label %.preheader, !llvm.loop !81
 
 75:                                               ; preds = %.preheader
   %76 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.1495, ptr noundef nonnull @.str.1496, ptr noundef nonnull @.str.1497)
@@ -10026,7 +10026,7 @@ nas5gs_get_private_data.exit:                     ; preds = %4, %12
   %47 = icmp ne i8 %30, 2
   %48 = icmp ne i8 %30, 4
   %or.cond = and i1 %47, %48
-  %49 = load i8, ptr @g_nas_5gs_null_decipher, align 1, !range !22
+  %49 = load i8, ptr @g_nas_5gs_null_decipher, align 1, !range !20
   %50 = trunc nuw i8 %49 to i1
   %or.cond4 = select i1 %or.cond, i1 true, i1 %50
   br i1 %or.cond4, label %51, label %53
@@ -10399,7 +10399,7 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %35 = load i32, ptr @hf_nas_5gs_mm_cag_info_entry_cag_only, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %35, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0)
   %37 = add i32 %21, 4
-  %38 = load i8, ptr %10, align 1, !range !22, !noundef !28
+  %38 = load i8, ptr %10, align 1, !range !20, !noundef !26
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %44
 
@@ -10424,11 +10424,11 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %51 = sub i32 %50, %.0110125
   %52 = load i32, ptr %8, align 4
   %53 = icmp ult i32 %51, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %44
   %.2.lcssa = phi i32 [ %.1, %44 ], [ %50, %.lr.ph ]
-  %54 = load i8, ptr %9, align 1, !range !22, !noundef !28
+  %54 = load i8, ptr %9, align 1, !range !20, !noundef !26
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %.loopexit
 
@@ -10477,7 +10477,7 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %91 = load i32, ptr @hf_nas_5gs_mm_cag_info_entry_tvii, align 4
   %92 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %63, i32 noundef %91, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %93 = add i32 %.4121, 7
-  %94 = load i8, ptr %12, align 1, !range !22, !noundef !28
+  %94 = load i8, ptr %12, align 1, !range !20, !noundef !26
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %107
 
@@ -10499,7 +10499,7 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %104 = add nuw i32 %.0115, 1
   %105 = load i32, ptr %13, align 4
   %106 = icmp ult i32 %104, %105
-  br i1 %106, label %.lr.ph117, label %._crit_edge118, !llvm.loop !85
+  br i1 %106, label %.lr.ph117, label %._crit_edge118, !llvm.loop !83
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %96
   %.6.lcssa = phi i32 [ %99, %96 ], [ %103, %.lr.ph117 ]
@@ -10517,7 +10517,7 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %111 = sub i32 %.5, %.2.lcssa
   %112 = load i32, ptr %8, align 4
   %113 = icmp ult i32 %111, %112
-  br i1 %113, label %.lr.ph123, label %.loopexit, !llvm.loop !86
+  br i1 %113, label %.lr.ph123, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %107, %56, %._crit_edge
   %.3 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %59, %56 ], [ %.5, %107 ]
@@ -10527,7 +10527,7 @@ define internal fastcc noundef zeroext i16 @dissect_nas_5gs_mm_cag_information_l
   %116 = add i32 %.0109126, 1
   %117 = sub i32 %.3, %3
   %118 = icmp ult i32 %117, %4
-  br i1 %118, label %16, label %._crit_edge129, !llvm.loop !87
+  br i1 %118, label %16, label %._crit_edge129, !llvm.loop !85
 
 ._crit_edge129:                                   ; preds = %.loopexit, %6
   %119 = trunc i32 %4 to i16
@@ -16159,7 +16159,7 @@ define internal fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef
   %17 = load i32, ptr @hf_nas_5gs_sm_msg_type, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %19 = add i32 %7, -1
-  tail call void %.0(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 1, i32 noundef %19), !callees !88
+  tail call void %.0(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 1, i32 noundef %19), !callees !86
   br label %20
 
 20:                                               ; preds = %15, %13
@@ -16426,8 +16426,8 @@ attributes #16 = { noreturn }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
@@ -16436,15 +16436,15 @@ attributes #16 = { noreturn }
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!20 = !{i8 0, i8 2}
 !21 = distinct !{!21, !7}
-!22 = !{i8 0, i8 2}
+!22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!26 = !{}
 !27 = distinct !{!27, !7}
-!28 = !{}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
@@ -16502,6 +16502,4 @@ attributes #16 = { noreturn }
 !83 = distinct !{!83, !7}
 !84 = distinct !{!84, !7}
 !85 = distinct !{!85, !7}
-!86 = distinct !{!86, !7}
-!87 = distinct !{!87, !7}
-!88 = !{ptr @nas_5gs_n1_sm_info_from_ue, ptr @nas_5gs_n1_sm_info_to_ue, ptr @nas_5gs_unknown_n1_sm_info}
+!86 = !{ptr @nas_5gs_n1_sm_info_from_ue, ptr @nas_5gs_n1_sm_info_to_ue, ptr @nas_5gs_unknown_n1_sm_info}

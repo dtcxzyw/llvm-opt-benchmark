@@ -3410,7 +3410,7 @@ ldbLogSourceLine.exit:                            ; preds = %38, %.lr.ph.i.i, %l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = sext i32 %54 to i64
   %.not.not = icmp slt i64 %indvars.iv, %55
-  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !158
+  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %53, %ldbLogSourceLine.exit.us, %2
   ret void
@@ -3513,7 +3513,7 @@ define dso_local ptr @ldbCatStackValueRec(ptr noundef %0, ptr noundef %1, i32 no
   %46 = add nuw nsw i32 %.06581, 1
   %47 = tail call i32 @lua_next(ptr noundef %1, i32 noundef %28) #19
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !159
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !157
 
 ._crit_edge.loopexit:                             ; preds = %37
   %48 = select i1 %38, ptr %45, ptr %40
@@ -3939,7 +3939,7 @@ define dso_local ptr @ldbRedisProtocolToHuman_MultiBulk(ptr noundef captures(non
   %28 = phi i64 [ %22, %.lr.ph ], [ %.pre, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp sgt i64 %28, %indvars.iv.next
-  br i1 %29, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+  br i1 %29, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !158
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre26 = load ptr, ptr %0, align 8, !tbaa !92
@@ -3998,7 +3998,7 @@ define dso_local ptr @ldbRedisProtocolToHuman_Set(ptr noundef captures(none) %0,
   %23 = phi i64 [ %17, %.lr.ph ], [ %.pre, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp sgt i64 %23, %indvars.iv.next
-  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !161
+  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !159
 
 ._crit_edge.loopexit:                             ; preds = %22
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !92
@@ -4056,7 +4056,7 @@ define dso_local ptr @ldbRedisProtocolToHuman_Map(ptr noundef captures(none) %0,
   %26 = phi i64 [ %20, %.lr.ph ], [ %.pre, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = icmp sgt i64 %26, %indvars.iv.next
-  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !162
+  br i1 %27, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
 
 ._crit_edge.loopexit:                             ; preds = %25
   %.pre25 = load ptr, ptr %0, align 8, !tbaa !92
@@ -4170,14 +4170,14 @@ define dso_local void @ldbPrint(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %13 = call ptr @ldbCatStackValueRec(ptr noundef %12, ptr noundef %0, i32 noundef -1, i32 noundef 0)
   call void @ldbLogWithMaxLen(ptr noundef %13)
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #19
-  br label %27, !llvm.loop !163
+  br label %27, !llvm.loop !161
 
 14:                                               ; preds = %.lr.ph
   %15 = add nuw nsw i32 %.01724, 1
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #19
   %16 = call ptr @lua_getlocal(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %15) #19
   %.not22 = icmp eq ptr %16, null
-  br i1 %.not22, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !164
+  br i1 %.not22, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !162
 
 .critedge._crit_edge:                             ; preds = %.critedge.loopexit, %2
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.107) #18
@@ -4249,7 +4249,7 @@ define dso_local void @ldbPrintAll(ptr noundef %0) local_unnamed_addr #0 {
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #19
   %15 = call ptr @lua_getlocal(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %6) #19
   %.not13 = icmp eq ptr %15, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !165
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %14
   %16 = icmp eq i32 %.2, 0
@@ -4355,7 +4355,7 @@ ldbLogSourceLine.exit:                            ; preds = %33, %.lr.ph.i.i, %l
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next44, %46
-  br i1 %47, label %.lr.ph38, label %.loopexit, !llvm.loop !166
+  br i1 %47, label %.lr.ph38, label %.loopexit, !llvm.loop !164
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %133
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %133 ]
@@ -4532,7 +4532,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %54, %57, %
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !167
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !165
 
 .loopexit:                                        ; preds = %133, %ldbLogSourceLine.exit, %.preheader, %13, %9
   ret void
@@ -4759,7 +4759,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %19, %22, %
   tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %.0.i) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !168
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %sdslen.exit, %11
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 300), align 4, !tbaa !139
@@ -4804,13 +4804,13 @@ define dso_local void @ldbTrace(ptr noundef %0) local_unnamed_addr #0 {
   %11 = call ptr @sdsempty() #19
   %12 = icmp eq i32 %.09, 0
   %13 = select i1 %12, ptr @.str.131, ptr @.str.132
-  %14 = load ptr, ptr %5, align 8, !tbaa !169
+  %14 = load ptr, ptr %5, align 8, !tbaa !167
   %.not6 = icmp eq ptr %14, null
   %15 = select i1 %.not6, ptr @.str.133, ptr %14
   %16 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %11, ptr noundef nonnull @.str.130, ptr noundef nonnull %13, ptr noundef nonnull %15) #19
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 16), align 8, !tbaa !26
   %18 = call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %16) #19
-  %19 = load i32, ptr %6, align 8, !tbaa !171
+  %19 = load i32, ptr %6, align 8, !tbaa !169
   %20 = icmp slt i32 %19, 1
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 320), align 8
   %.not.not.i.i = icmp sgt i32 %19, %21
@@ -4863,7 +4863,7 @@ ldbLogSourceLine.exit:                            ; preds = %30, %.lr.ph.i.i, %l
   %43 = add nuw nsw i32 %.09, 1
   %44 = call i32 @lua_getstack(ptr noundef %0, i32 noundef %43, ptr noundef nonnull %2) #19
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !172
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !170
 
 ._crit_edge.thread:                               ; preds = %1
   %45 = call ptr @sdsnew(ptr noundef nonnull @.str.134) #19
@@ -4955,7 +4955,7 @@ define dso_local range(i32 -1, 1) i32 @ldbRepl(ptr noundef %0) local_unnamed_add
   %12 = load ptr, ptr @ldb, align 8, !tbaa !54
   %13 = load ptr, ptr %12, align 8, !tbaa !144
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %15 = load ptr, ptr %14, align 8, !tbaa !173
+  %15 = load ptr, ptr %14, align 8, !tbaa !171
   %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef nonnull %4, i64 noundef 1024) #19
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %.thread
@@ -5007,7 +5007,7 @@ sdslen.exit.thread:                               ; preds = %18, %sdslen.exit, %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = call ptr @ldbReplParseCommand(ptr noundef nonnull %2, ptr noundef nonnull %3)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !174
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %sdslen.exit.thread, %5
   %.lcssa = phi ptr [ %6, %5 ], [ %36, %sdslen.exit.thread ]
@@ -5416,7 +5416,7 @@ define dso_local void @luaLdbLineHook(ptr noundef %0, ptr noundef %1) local_unna
   %6 = tail call i32 @lua_getstack(ptr noundef %0, i32 noundef 0, ptr noundef %1) #19
   %7 = tail call i32 @lua_getinfo(ptr noundef %0, ptr noundef nonnull @.str.196, ptr noundef %1) #19
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load i32, ptr %8, align 8, !tbaa !171
+  %9 = load i32, ptr %8, align 8, !tbaa !169
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 324), align 4, !tbaa !24
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %11 = icmp sgt i32 %10, 0
@@ -5447,7 +5447,7 @@ ldbIsBreakpoint.exit:                             ; preds = %.lr.ph.i, %5
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %ldbIsBreakpoint.exit
-  %23 = load i32, ptr %1, align 8, !tbaa !175
+  %23 = load i32, ptr %1, align 8, !tbaa !173
   %24 = icmp ne i32 %23, 3
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 300), align 4
   %26 = icmp ne i32 %25, 0
@@ -5457,12 +5457,12 @@ ldbIsBreakpoint.exit:                             ; preds = %.lr.ph.i, %5
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %29 = load i64, ptr %28, align 8, !tbaa !176
-  %30 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !177
+  %29 = load i64, ptr %28, align 8, !tbaa !174
+  %30 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !175
   %31 = tail call i64 %30() #19
   %32 = sub i64 %31, %29
   %33 = udiv i64 %32, 1000
-  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8024), align 8, !tbaa !178
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8024), align 8, !tbaa !176
   %.not35 = icmp eq i64 %34, 0
   %35 = select i1 %.not35, i64 5000, i64 %34
   %.not36.not = icmp slt i64 %33, %35
@@ -5541,10 +5541,10 @@ ldbLogSourceLine.exit:                            ; preds = %56, %.lr.ph.i.i, %l
   br label %69
 
 69:                                               ; preds = %67, %ldbLogSourceLine.exit
-  %70 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !177
+  %70 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !175
   %71 = tail call i64 %70() #19
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %71, ptr %72, align 8, !tbaa !176
+  store i64 %71, ptr %72, align 8, !tbaa !174
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %69, %36, %ldbIsBreakpoint.exit
@@ -5751,8 +5751,8 @@ attributes #23 = { nounwind willreturn memory(none) }
 !153 = distinct !{!153, !15}
 !154 = distinct !{!154, !15}
 !155 = distinct !{!155, !15}
-!156 = distinct !{!156, !15, !157}
-!157 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!156 = distinct !{!156, !15}
+!157 = distinct !{!157, !15}
 !158 = distinct !{!158, !15}
 !159 = distinct !{!159, !15}
 !160 = distinct !{!160, !15}
@@ -5762,15 +5762,13 @@ attributes #23 = { nounwind willreturn memory(none) }
 !164 = distinct !{!164, !15}
 !165 = distinct !{!165, !15}
 !166 = distinct !{!166, !15}
-!167 = distinct !{!167, !15}
-!168 = distinct !{!168, !15}
-!169 = !{!170, !22, i64 8}
-!170 = !{!"lua_Debug", !19, i64 0, !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !8, i64 56, !19, i64 116}
-!171 = !{!170, !19, i64 40}
+!167 = !{!168, !22, i64 8}
+!168 = !{!"lua_Debug", !19, i64 0, !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !8, i64 56, !19, i64 116}
+!169 = !{!168, !19, i64 40}
+!170 = distinct !{!170, !15}
+!171 = !{!147, !11, i64 144}
 !172 = distinct !{!172, !15}
-!173 = !{!147, !11, i64 144}
-!174 = distinct !{!174, !15}
-!175 = !{!170, !19, i64 0}
-!176 = !{!133, !7, i64 32}
-!177 = !{!11, !11, i64 0}
-!178 = !{!34, !32, i64 8024}
+!173 = !{!168, !19, i64 0}
+!174 = !{!133, !7, i64 32}
+!175 = !{!11, !11, i64 0}
+!176 = !{!34, !32, i64 8024}

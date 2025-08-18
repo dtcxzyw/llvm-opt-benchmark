@@ -1001,7 +1001,7 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
   store i32 0, ptr %436, align 4, !tbaa !6
   %437 = getelementptr inbounds nuw i8, ptr %.0409768.i, i64 1
   %.not506.i = icmp ugt ptr %437, %.0460.i
-  br i1 %.not506.i, label %.loopexit.i, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i, !llvm.loop !29
+  br i1 %.not506.i, label %.loopexit.i, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i, !llvm.loop !27
 
 .loopexit.i:                                      ; preds = %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i, %419, %411, %410
   %.2428.i = phi i32 [ %.1427.i, %411 ], [ %.1427.i, %410 ], [ %424, %419 ], [ %424, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i ], [ %424, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i ]
@@ -1704,7 +1704,7 @@ define noundef i32 @_ZN10duckdb_lz412LZ4_loadDictEPNS_12LZ4_stream_uEPKci(ptr no
   store i32 %25, ptr %26, align 4, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %.127, i64 3
   %.not = icmp ugt ptr %27, %18
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !28
 
 .loopexit:                                        ; preds = %20, %6, %3
   %.0 = phi i32 [ 0, %3 ], [ %15, %6 ], [ %15, %20 ]
@@ -1776,7 +1776,7 @@ define noundef i32 @_ZN10duckdb_lz426LZ4_compress_fast_continueEPNS_12LZ4_stream
   store i32 %storemerge.i, ptr %25, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %27, label %24, !llvm.loop !31
+  br i1 %exitcond.not.i, label %27, label %24, !llvm.loop !29
 
 27:                                               ; preds = %24
   %28 = zext i32 %8 to i64
@@ -1946,7 +1946,7 @@ define noundef i32 @_ZN10duckdb_lz425LZ4_compress_forceExtDictEPNS_12LZ4_stream_
   store i32 %storemerge.i, ptr %16, align 4, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %18, label %15, !llvm.loop !31
+  br i1 %exitcond.not.i, label %18, label %15, !llvm.loop !29
 
 18:                                               ; preds = %15
   %19 = zext i32 %14 to i64
@@ -2015,7 +2015,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN10duckdb_lz425read_long_length_no_checkEPPKh(ptr noundef captures(none) %0) local_unnamed_addr #12 {
-  %.promoted = load ptr, ptr %0, align 8, !tbaa !32
+  %.promoted = load ptr, ptr %0, align 8, !tbaa !30
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2024,10 +2024,10 @@ define noundef i64 @_ZN10duckdb_lz425read_long_length_no_checkEPPKh(ptr noundef 
   %4 = load i8, ptr %3, align 1, !tbaa !3
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %6, ptr %0, align 8, !tbaa !32
+  store ptr %6, ptr %0, align 8, !tbaa !30
   %7 = add i64 %.0, %5
   %8 = icmp eq i8 %4, -1
-  br i1 %8, label %2, label %9, !llvm.loop !33
+  br i1 %8, label %2, label %9, !llvm.loop !31
 
 9:                                                ; preds = %2
   ret i64 %7
@@ -2110,7 +2110,7 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKc
 
 53:                                               ; preds = %46
   %.not12.i = icmp ult ptr %47, %38
-  br i1 %.not12.i, label %.preheader594, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, !prof !34
+  br i1 %.not12.i, label %.preheader594, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, !prof !32
 
 .preheader594:                                    ; preds = %53, %57
   %54 = phi ptr [ %55, %57 ], [ %47, %53 ]
@@ -2124,7 +2124,7 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKc
   %59 = zext i8 %58 to i64
   %60 = add i64 %.0.i, %59
   %61 = icmp eq i8 %58, -1
-  br i1 %61, label %.preheader594, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit, !llvm.loop !35
+  br i1 %61, label %.preheader594, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit, !llvm.loop !33
 
 _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit: ; preds = %57
   %62 = icmp eq i64 %60, -1
@@ -2139,7 +2139,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit: ; preds = %57
   %69 = xor i64 %68, -1
   %70 = icmp ugt i64 %64, %69
   %or.cond572 = or i1 %67, %70
-  br i1 %or.cond572, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %71, !prof !36
+  br i1 %or.cond572, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %71, !prof !34
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %.0362, i64 %64
@@ -2159,7 +2159,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit: ; preds = %57
   %78 = getelementptr inbounds nuw i8, ptr %.0.i479, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %.011.i478, i64 32
   %80 = icmp ult ptr %78, %72
-  br i1 %80, label %.preheader593, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread543, !llvm.loop !37
+  br i1 %80, label %.preheader593, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread543, !llvm.loop !35
 
 81:                                               ; preds = %46
   %82 = getelementptr inbounds nuw i8, ptr %.0362, i64 %51
@@ -2195,7 +2195,7 @@ _ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread543: ; preds = %.preheader5
   %97 = zext i8 %96 to i64
   %98 = add i64 %.0.i483, %97
   %99 = icmp eq i8 %96, -1
-  br i1 %99, label %.preheader684, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484, !llvm.loop !35
+  br i1 %99, label %.preheader684, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484, !llvm.loop !33
 
 _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %100 = icmp eq i64 %98, -1
@@ -2210,7 +2210,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %107 = icmp ult ptr %106, %6
   %or.cond458 = select i1 %20, i1 %107, i1 false
   %or.cond475 = select i1 %105, i1 true, i1 %or.cond458
-  br i1 %or.cond475, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %108, !prof !38
+  br i1 %or.cond475, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %108, !prof !36
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %.3, i64 %102
@@ -2253,7 +2253,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
 .backedge:                                        ; preds = %.preheader591, %.lr.ph, %162, %141, %158, %118
   %.0523.be = phi ptr [ %87, %118 ], [ %.6529, %158 ], [ %.6529, %141 ], [ %.6529, %162 ], [ %.6529, %.lr.ph ], [ %.6529, %.preheader591 ]
   %.0362.be = phi ptr [ %112, %118 ], [ %159, %158 ], [ %144, %141 ], [ %130, %162 ], [ %156, %.lr.ph ], [ %130, %.preheader591 ]
-  br label %46, !llvm.loop !39
+  br label %46, !llvm.loop !37
 
 .thread552:                                       ; preds = %108, %114, %117
   %.6529 = phi ptr [ %87, %117 ], [ %87, %114 ], [ %93, %108 ]
@@ -2261,7 +2261,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %126 = getelementptr inbounds nuw i8, ptr %89, i64 %8
   %127 = icmp ult ptr %126, %6
   %or.cond460 = select i1 %20, i1 %127, i1 false
-  br i1 %or.cond460, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %128, !prof !40
+  br i1 %or.cond460, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %128, !prof !38
 
 128:                                              ; preds = %.thread552
   %129 = icmp ult ptr %89, %6
@@ -2319,7 +2319,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %156 = getelementptr inbounds nuw i8, ptr %.6642, i64 1
   store i8 %155, ptr %.6642, align 1, !tbaa !3
   %157 = icmp ult ptr %156, %153
-  br i1 %157, label %.lr.ph, label %.backedge, !llvm.loop !41
+  br i1 %157, label %.lr.ph, label %.backedge, !llvm.loop !39
 
 158:                                              ; preds = %145
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr nonnull align 1 %6, i64 %146, i1 false)
@@ -2344,7 +2344,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %165 = getelementptr inbounds nuw i8, ptr %.0.i486, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %.011.i485, i64 32
   %167 = icmp ult ptr %165, %130
-  br i1 %167, label %.preheader591, label %.backedge, !llvm.loop !37
+  br i1 %167, label %.preheader591, label %.backedge, !llvm.loop !35
 
 .lr.ph645.split:                                  ; preds = %.lr.ph645, %185
   %168 = phi i64 [ %199, %185 ], [ %333, %.lr.ph645 ]
@@ -2393,7 +2393,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %198 = lshr i32 %197, 4
   %199 = zext nneg i32 %198 to i64
   %cond = icmp eq i32 %198, 15
-  br i1 %cond, label %._crit_edge, label %.lr.ph645.split, !llvm.loop !42
+  br i1 %cond, label %._crit_edge, label %.lr.ph645.split, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %185, %351, %.preheader587
   %.8.lcssa = phi ptr [ %.8.ph, %.preheader587 ], [ %360, %351 ], [ %194, %185 ]
@@ -2401,7 +2401,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %.lcssa607 = phi i32 [ %331, %.preheader587 ], [ %363, %351 ], [ %197, %185 ]
   %200 = getelementptr inbounds i8, ptr %14, i64 -15
   %.not12.i489 = icmp ult ptr %.lcssa610, %200
-  br i1 %.not12.i489, label %.preheader585, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, !prof !34
+  br i1 %.not12.i489, label %.preheader585, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, !prof !32
 
 .preheader585:                                    ; preds = %._crit_edge, %204
   %201 = phi ptr [ %202, %204 ], [ %.lcssa610, %._crit_edge ]
@@ -2415,7 +2415,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit484: ; preds = %95
   %206 = zext i8 %205 to i64
   %207 = add i64 %.0.i491, %206
   %208 = icmp eq i8 %205, -1
-  br i1 %208, label %.preheader585, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492, !llvm.loop !35
+  br i1 %208, label %.preheader585, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492, !llvm.loop !33
 
 _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492: ; preds = %204
   %209 = icmp eq i64 %207, -1
@@ -2430,7 +2430,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit492: ; preds = %204
   %216 = xor i64 %215, -1
   %217 = icmp ugt i64 %211, %216
   %or.cond575 = or i1 %214, %217
-  br i1 %or.cond575, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %.loopexit588, !prof !36
+  br i1 %or.cond575, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %.loopexit588, !prof !34
 
 .loopexit588:                                     ; preds = %.lr.ph645.split, %.lr.ph645.split.us, %210
   %.8615 = phi ptr [ %.8.lcssa, %210 ], [ %.8644.us, %.lr.ph645.split.us ], [ %.8644, %.lr.ph645.split ]
@@ -2551,7 +2551,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit:    ; preds = %.preheader584, %241
   %266 = zext i8 %265 to i64
   %267 = add i64 %.0.i497, %266
   %268 = icmp eq i8 %265, -1
-  br i1 %268, label %260, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498, !llvm.loop !35
+  br i1 %268, label %260, label %_ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498, !llvm.loop !33
 
 _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %269 = icmp ne i64 %267, -1
@@ -2578,7 +2578,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %276 = getelementptr inbounds nuw i8, ptr %.0370, i64 %8
   %277 = icmp ult ptr %276, %6
   %or.cond469 = select i1 %20, i1 %277, i1 false
-  br i1 %or.cond469, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %278, !prof !40
+  br i1 %or.cond469, label %_ZN10duckdb_lz4L14LZ4_wildCopy32EPvPKvS0_.exit.thread, label %278, !prof !38
 
 278:                                              ; preds = %.loopexit598
   %279 = icmp eq i32 %5, 2
@@ -2640,7 +2640,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %309 = getelementptr inbounds nuw i8, ptr %.13668, i64 1
   store i8 %308, ptr %.13668, align 1, !tbaa !3
   %310 = icmp ult ptr %309, %306
-  br i1 %310, label %.lr.ph670, label %.loopexit, !llvm.loop !43
+  br i1 %310, label %.lr.ph670, label %.loopexit, !llvm.loop !41
 
 311:                                              ; preds = %298
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr nonnull align 1 %6, i64 %299, i1 false)
@@ -2649,7 +2649,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
 
 .loopexit:                                        ; preds = %.lr.ph670, %311, %294
   %.12 = phi ptr [ %297, %294 ], [ %312, %311 ], [ %309, %.lr.ph670 ]
-  br label %.preheader587, !llvm.loop !42
+  br label %.preheader587, !llvm.loop !40
 
 313:                                              ; preds = %278
   %.not450 = icmp ne i32 %4, 0
@@ -2679,7 +2679,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %325 = getelementptr inbounds nuw i8, ptr %.15665, i64 1
   store i8 %324, ptr %.15665, align 1, !tbaa !3
   %326 = icmp ult ptr %325, %321
-  br i1 %326, label %.lr.ph666, label %.loopexit581, !llvm.loop !44
+  br i1 %326, label %.lr.ph666, label %.loopexit581, !llvm.loop !42
 
 327:                                              ; preds = %316
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %.0370, i64 %319, i1 false)
@@ -2749,7 +2749,7 @@ _ZN10duckdb_lz4L20read_variable_lengthEPPKhS1_i.exit498: ; preds = %264
   %364 = lshr i32 %363, 4
   %365 = zext nneg i32 %364 to i64
   %cond.us = icmp eq i32 %364, 15
-  br i1 %cond.us, label %._crit_edge, label %.lr.ph645.split.us, !llvm.loop !45
+  br i1 %cond.us, label %._crit_edge, label %.lr.ph645.split.us, !llvm.loop !40
 
 366:                                              ; preds = %313
   %367 = icmp ult i64 %.0377, 8
@@ -2837,7 +2837,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit501: ; preds = %.preheader582
   %413 = getelementptr inbounds nuw i8, ptr %.17661, i64 1
   store i8 %412, ptr %.17661, align 1, !tbaa !3
   %414 = icmp ult ptr %413, %281
-  br i1 %414, label %.lr.ph663, label %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit504, !llvm.loop !46
+  br i1 %414, label %.lr.ph663, label %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit504, !llvm.loop !43
 
 415:                                              ; preds = %393
   %416 = load i64, ptr %.3373, align 1
@@ -2860,7 +2860,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit501: ; preds = %.preheader582
   br i1 %423, label %420, label %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit504, !llvm.loop !23
 
 _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit504: ; preds = %420, %.lr.ph663, %409, %415
-  br label %.preheader587, !llvm.loop !42
+  br label %.preheader587, !llvm.loop !40
 
 424:                                              ; preds = %._crit_edge763, %.loopexit581
   %.pre-phi = phi i64 [ %.pre, %._crit_edge763 ], [ %34, %.loopexit581 ]
@@ -2916,7 +2916,7 @@ define noundef i32 @_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci(ptr noundef %0, 
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = add i64 %.0.i.i, %16
   %19 = icmp eq i8 %15, -1
-  br i1 %19, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !33
+  br i1 %19, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140.i
   %20 = add i64 %18, 15
@@ -2960,7 +2960,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %43 = add i64 %.0.i108.i, %41
   %44 = icmp eq i8 %40, -1
-  br i1 %44, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !33
+  br i1 %44, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader.i
   %45 = add i64 %43, 15
@@ -2990,7 +2990,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   store i8 %54, ptr %55, align 1, !tbaa !3
   %56 = add nuw i64 %.0146.i, 1
   %exitcond.not.i = icmp eq i64 %56, %47
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %50
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 %47
@@ -3046,7 +3046,7 @@ define noundef i32 @_ZN10duckdb_lz433LZ4_decompress_fast_withPrefix64kEPKcPci(pt
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %19 = add i64 %.0.i.i, %17
   %20 = icmp eq i8 %16, -1
-  br i1 %20, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !33
+  br i1 %20, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140.i
   %21 = add i64 %19, 15
@@ -3090,7 +3090,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %44 = add i64 %.0.i108.i, %42
   %45 = icmp eq i8 %41, -1
-  br i1 %45, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !33
+  br i1 %45, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader.i
   %46 = add i64 %44, 15
@@ -3120,7 +3120,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   store i8 %55, ptr %56, align 1, !tbaa !3
   %57 = add nuw i64 %.0146.i, 1
   %exitcond.not.i = icmp eq i64 %57, %48
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %51
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 %48
@@ -3180,13 +3180,13 @@ define noundef i32 @_ZN10duckdb_lz420LZ4_freeStreamDecodeEPNS_18LZ4_streamDecode
 define noundef i32 @_ZN10duckdb_lz419LZ4_setStreamDecodeEPNS_18LZ4_streamDecode_uEPKci(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %4, ptr %5, align 8, !tbaa !48
+  store i64 %4, ptr %5, align 8, !tbaa !45
   %6 = getelementptr inbounds i8, ptr %1, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !51
-  store ptr null, ptr %0, align 8, !tbaa !52
+  store ptr %6, ptr %7, align 8, !tbaa !48
+  store ptr null, ptr %0, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %8, align 8, !tbaa !53
+  store i64 0, ptr %8, align 8, !tbaa !50
   ret i32 1
 }
 
@@ -3202,7 +3202,7 @@ define noundef range(i32 0, 2113994767) i32 @_ZN10duckdb_lz425LZ4_decoderRingBuf
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_streamDecode_uEPKcPcii(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !48
+  %7 = load i64, ptr %6, align 8, !tbaa !45
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %16
 
@@ -3213,15 +3213,15 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %10 to i64
-  store i64 %13, ptr %6, align 8, !tbaa !48
+  store i64 %13, ptr %6, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !51
+  store ptr %14, ptr %15, align 8, !tbaa !48
   br label %55
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !51
+  %18 = load ptr, ptr %17, align 8, !tbaa !48
   %19 = icmp eq ptr %18, %2
   br i1 %19, label %20, label %46
 
@@ -3236,7 +3236,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !53
+  %27 = load i64, ptr %26, align 8, !tbaa !50
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %33
 
@@ -3247,7 +3247,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
   br label %38
 
 33:                                               ; preds = %25
-  %34 = load ptr, ptr %0, align 8, !tbaa !52
+  %34 = load ptr, ptr %0, align 8, !tbaa !49
   %35 = sub nsw i64 0, %7
   %36 = getelementptr inbounds i8, ptr %2, i64 %35
   %37 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %36, ptr noundef readonly %34, i64 noundef range(i64 1, 0) %27)
@@ -3260,29 +3260,29 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
 
 40:                                               ; preds = %38
   %41 = zext nneg i32 %.1 to i64
-  %42 = load i64, ptr %6, align 8, !tbaa !48
+  %42 = load i64, ptr %6, align 8, !tbaa !45
   %43 = add i64 %42, %41
-  store i64 %43, ptr %6, align 8, !tbaa !48
-  %44 = load ptr, ptr %17, align 8, !tbaa !51
+  store i64 %43, ptr %6, align 8, !tbaa !45
+  %44 = load ptr, ptr %17, align 8, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %41
-  store ptr %45, ptr %17, align 8, !tbaa !51
+  store ptr %45, ptr %17, align 8, !tbaa !48
   br label %55
 
 46:                                               ; preds = %16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %7, ptr %47, align 8, !tbaa !53
+  store i64 %7, ptr %47, align 8, !tbaa !50
   %48 = sub i64 0, %7
   %49 = getelementptr inbounds i8, ptr %18, i64 %48
-  store ptr %49, ptr %0, align 8, !tbaa !52
+  store ptr %49, ptr %0, align 8, !tbaa !49
   %50 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L22LZ4_decompress_genericEPKcPciiNS_18earlyEnd_directiveENS_14dict_directiveEPKhS6_m(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 2, ptr noundef %2, ptr noundef nonnull readonly %49, i64 noundef %7)
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %46
   %53 = zext nneg i32 %50 to i64
-  store i64 %53, ptr %6, align 8, !tbaa !48
+  store i64 %53, ptr %6, align 8, !tbaa !45
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %53
-  store ptr %54, ptr %17, align 8, !tbaa !51
+  store ptr %54, ptr %17, align 8, !tbaa !48
   br label %55
 
 55:                                               ; preds = %12, %52, %40, %46, %38, %9
@@ -3293,7 +3293,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_safe_continueEPNS_18LZ4_stre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_fast_continueEPNS_18LZ4_streamDecode_uEPKcPci(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !48
+  %6 = load i64, ptr %5, align 8, !tbaa !45
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %73
 
@@ -3323,7 +3323,7 @@ define noundef i32 @_ZN10duckdb_lz428LZ4_decompress_fast_continueEPNS_18LZ4_stre
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %23 = add i64 %.0.i.i.i, %21
   %24 = icmp eq i8 %20, -1
-  br i1 %24, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !33
+  br i1 %24, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader140.i.i
   %25 = add i64 %23, 15
@@ -3367,7 +3367,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader1
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %48 = add i64 %.0.i108.i.i, %46
   %49 = icmp eq i8 %45, -1
-  br i1 %49, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !33
+  br i1 %49, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.preheader.i.i
   %50 = add i64 %48, 15
@@ -3397,7 +3397,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   store i8 %59, ptr %60, align 1, !tbaa !3
   %61 = add nuw i64 %.0146.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %61, %52
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %55
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 %52
@@ -3415,21 +3415,21 @@ _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit: ; preds = %36
   br i1 %70, label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread, label %71
 
 71:                                               ; preds = %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit
-  store i64 %9, ptr %5, align 8, !tbaa !48
+  store i64 %9, ptr %5, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %10, ptr %72, align 8, !tbaa !51
+  store ptr %10, ptr %72, align 8, !tbaa !48
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread
 
 73:                                               ; preds = %4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !51
+  %75 = load ptr, ptr %74, align 8, !tbaa !48
   %76 = icmp eq ptr %75, %2
   br i1 %76, label %77, label %162
 
 77:                                               ; preds = %73
-  %78 = load ptr, ptr %0, align 8, !tbaa !52
+  %78 = load ptr, ptr %0, align 8, !tbaa !49
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !53
+  %80 = load i64, ptr %79, align 8, !tbaa !50
   %81 = sext i32 %3 to i64
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
   %83 = sub i64 0, %6
@@ -3458,7 +3458,7 @@ _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit: ; preds = %36
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 1
   %98 = add i64 %.0.i.i, %96
   %99 = icmp eq i8 %95, -1
-  br i1 %99, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !33
+  br i1 %99, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140.i
   %100 = add i64 %98, 15
@@ -3502,7 +3502,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 1
   %123 = add i64 %.0.i108.i, %121
   %124 = icmp eq i8 %120, -1
-  br i1 %124, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !33
+  br i1 %124, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader.i
   %125 = add i64 %123, 15
@@ -3564,7 +3564,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   store i8 %145, ptr %146, align 1, !tbaa !3
   %147 = add nuw i64 %.0146.i, 1
   %exitcond.not.i = icmp eq i64 %147, %.294.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %143
   %148 = getelementptr inbounds nuw i8, ptr %.585.i, i64 %.294.i
@@ -3582,20 +3582,20 @@ _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %111
   br i1 %156, label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread, label %157
 
 157:                                              ; preds = %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit
-  %158 = load i64, ptr %5, align 8, !tbaa !48
+  %158 = load i64, ptr %5, align 8, !tbaa !45
   %159 = add i64 %158, %81
-  store i64 %159, ptr %5, align 8, !tbaa !48
-  %160 = load ptr, ptr %74, align 8, !tbaa !51
+  store i64 %159, ptr %5, align 8, !tbaa !45
+  %160 = load ptr, ptr %74, align 8, !tbaa !48
   %161 = getelementptr inbounds i8, ptr %160, i64 %81
-  store ptr %161, ptr %74, align 8, !tbaa !51
+  store ptr %161, ptr %74, align 8, !tbaa !48
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread
 
 162:                                              ; preds = %73
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %6, ptr %163, align 8, !tbaa !53
+  store i64 %6, ptr %163, align 8, !tbaa !50
   %164 = sub i64 0, %6
   %165 = getelementptr inbounds i8, ptr %75, i64 %164
-  store ptr %165, ptr %0, align 8, !tbaa !52
+  store ptr %165, ptr %0, align 8, !tbaa !49
   %166 = sext i32 %3 to i64
   %167 = getelementptr inbounds i8, ptr %2, i64 %166
   %168 = ptrtoint ptr %167 to i64
@@ -3621,7 +3621,7 @@ _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %111
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 1
   %180 = add i64 %.0.i.i.i72, %178
   %181 = icmp eq i8 %177, -1
-  br i1 %181, label %.preheader140.i.i71, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i73, !llvm.loop !33
+  br i1 %181, label %.preheader140.i.i71, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i73, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i73: ; preds = %.preheader140.i.i71
   %182 = add i64 %180, 15
@@ -3665,7 +3665,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i73: ; preds = %.preheade
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 1
   %205 = add i64 %.0.i108.i.i69, %203
   %206 = icmp eq i8 %202, -1
-  br i1 %206, label %.preheader.i.i68, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i70, !llvm.loop !33
+  br i1 %206, label %.preheader.i.i68, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i70, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i70: ; preds = %.preheader.i.i68
   %207 = add i64 %205, 15
@@ -3727,7 +3727,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i70: ; preds = %.prehe
   store i8 %227, ptr %228, align 1, !tbaa !3
   %229 = add nuw i64 %.0146.i.i64, 1
   %exitcond.not.i.i65 = icmp eq i64 %229, %.294.i.i
-  br i1 %exitcond.not.i.i65, label %._crit_edge.i.i66, label %.lr.ph.i.i63, !llvm.loop !47
+  br i1 %exitcond.not.i.i65, label %._crit_edge.i.i66, label %.lr.ph.i.i63, !llvm.loop !44
 
 ._crit_edge.i.i66:                                ; preds = %.lr.ph.i.i63, %225
   %230 = getelementptr inbounds nuw i8, ptr %.585.i.i, i64 %.294.i.i
@@ -3745,8 +3745,8 @@ _ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit: ; preds = %193
   br i1 %238, label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread, label %239
 
 239:                                              ; preds = %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit
-  store i64 %166, ptr %5, align 8, !tbaa !48
-  store ptr %167, ptr %74, align 8, !tbaa !51
+  store i64 %166, ptr %5, align 8, !tbaa !45
+  store ptr %167, ptr %74, align 8, !tbaa !48
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread
 
 _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread: ; preds = %183, %208, %211, %._crit_edge.i.i66, %101, %129, %126, %._crit_edge.i, %26, %51, %._crit_edge.i.i, %193, %111, %36, %71, %239, %157, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit
@@ -3875,7 +3875,7 @@ define noundef i32 @_ZN10duckdb_lz429LZ4_decompress_fast_usingDictEPKcPciS1_i(pt
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %27 = add i64 %.0.i.i, %25
   %28 = icmp eq i8 %24, -1
-  br i1 %28, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !33
+  br i1 %28, label %.preheader140.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140.i
   %29 = add i64 %27, 15
@@ -3919,7 +3919,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i: ; preds = %.preheader140
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %52 = add i64 %.0.i108.i, %50
   %53 = icmp eq i8 %49, -1
-  br i1 %53, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !33
+  br i1 %53, label %.preheader.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader.i
   %54 = add i64 %52, 15
@@ -3949,7 +3949,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   store i8 %63, ptr %64, align 1, !tbaa !3
   %65 = add nuw i64 %.0146.i, 1
   %exitcond.not.i = icmp eq i64 %65, %56
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %59
   %66 = getelementptr inbounds nuw i8, ptr %35, i64 %56
@@ -3991,7 +3991,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i: ; preds = %.preheader
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %90 = add i64 %.0.i.i.i, %88
   %91 = icmp eq i8 %87, -1
-  br i1 %91, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !33
+  br i1 %91, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader140.i.i
   %92 = add i64 %90, 15
@@ -4035,7 +4035,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader1
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %115 = add i64 %.0.i108.i.i, %113
   %116 = icmp eq i8 %112, -1
-  br i1 %116, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !33
+  br i1 %116, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.preheader.i.i
   %117 = add i64 %115, 15
@@ -4097,7 +4097,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   store i8 %137, ptr %138, align 1, !tbaa !3
   %139 = add nuw i64 %.0146.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %139, %.294.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %135
   %140 = getelementptr inbounds nuw i8, ptr %.585.i.i, i64 %.294.i.i
@@ -4220,7 +4220,7 @@ define noundef i32 @_ZN10duckdb_lz414LZ4_uncompressEPKcPci(ptr noundef %0, ptr n
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = add i64 %.0.i.i.i, %16
   %19 = icmp eq i8 %15, -1
-  br i1 %19, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !33
+  br i1 %19, label %.preheader140.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader140.i.i
   %20 = add i64 %18, 15
@@ -4264,7 +4264,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit.i.i: ; preds = %.preheader1
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %43 = add i64 %.0.i108.i.i, %41
   %44 = icmp eq i8 %40, -1
-  br i1 %44, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !33
+  br i1 %44, label %.preheader.i.i, label %_ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i, !llvm.loop !31
 
 _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.preheader.i.i
   %45 = add i64 %43, 15
@@ -4294,7 +4294,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   store i8 %54, ptr %55, align 1, !tbaa !3
   %56 = add nuw i64 %.0146.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %56, %47
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %50
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 %47
@@ -4454,7 +4454,7 @@ define internal fastcc void @_ZN10duckdb_lz4L23LZ4_memcpy_using_offsetEPhPKhS0_m
   store i32 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx3, align 1
   %.0 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %45 = icmp ult ptr %.0, %2
-  br i1 %45, label %.lr.ph, label %_ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit, !llvm.loop !54
+  br i1 %45, label %.lr.ph, label %_ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit, !llvm.loop !51
 
 _ZN10duckdb_lz4L28LZ4_memcpy_using_offset_baseEPhPKhS0_m.exit: ; preds = %.lr.ph, %38, %43
   ret void
@@ -4535,31 +4535,28 @@ attributes #20 = { nounwind allocsize(0,1) }
 !24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !25 = !{!"branch_weights", i32 127, i32 1}
 !26 = !{!"branch_weights", i32 255873, i32 127}
-!27 = distinct !{!27, !21, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
 !29 = distinct !{!29, !21}
-!30 = distinct !{!30, !21}
+!30 = !{!10, !10, i64 0}
 !31 = distinct !{!31, !21}
-!32 = !{!10, !10, i64 0}
+!32 = !{!"branch_weights", i32 4001, i32 1}
 !33 = distinct !{!33, !21}
-!34 = !{!"branch_weights", i32 4001, i32 1}
+!34 = !{!"branch_weights", i32 4001, i32 4000000}
 !35 = distinct !{!35, !21}
-!36 = !{!"branch_weights", i32 4001, i32 4000000}
+!36 = !{!"branch_weights", i32 6002, i32 8002000}
 !37 = distinct !{!37, !21}
-!38 = !{!"branch_weights", i32 6002, i32 8002000}
+!38 = !{!"branch_weights", i32 1, i32 4001}
 !39 = distinct !{!39, !21}
-!40 = !{!"branch_weights", i32 1, i32 4001}
+!40 = distinct !{!40, !21}
 !41 = distinct !{!41, !21}
 !42 = distinct !{!42, !21}
 !43 = distinct !{!43, !21}
 !44 = distinct !{!44, !21}
-!45 = distinct !{!45, !21, !28}
-!46 = distinct !{!46, !21}
-!47 = distinct !{!47, !21}
-!48 = !{!49, !50, i64 24}
-!49 = !{!"_ZTSN10duckdb_lz427LZ4_streamDecode_t_internalE", !10, i64 0, !10, i64 8, !50, i64 16, !50, i64 24}
-!50 = !{!"long", !4, i64 0}
-!51 = !{!49, !10, i64 8}
-!52 = !{!49, !10, i64 0}
-!53 = !{!49, !50, i64 16}
-!54 = distinct !{!54, !21}
+!45 = !{!46, !47, i64 24}
+!46 = !{!"_ZTSN10duckdb_lz427LZ4_streamDecode_t_internalE", !10, i64 0, !10, i64 8, !47, i64 16, !47, i64 24}
+!47 = !{!"long", !4, i64 0}
+!48 = !{!46, !10, i64 8}
+!49 = !{!46, !10, i64 0}
+!50 = !{!46, !47, i64 16}
+!51 = distinct !{!51, !21}

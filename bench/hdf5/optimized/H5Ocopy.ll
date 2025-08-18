@@ -1645,7 +1645,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %540 = load i8, ptr %gep, align 1, !tbaa !3, !range !7, !noundef !8
   %541 = trunc nuw i8 %540 to i1
   %542 = add i64 %.5480, 1
-  br i1 %541, label %539, label %.loopexit690, !llvm.loop !136
+  br i1 %541, label %539, label %.loopexit690, !llvm.loop !135
 
 .loopexit690:                                     ; preds = %539, %534
   %.4479 = phi i64 [ %.3478717, %534 ], [ %.5480, %539 ]
@@ -1688,7 +1688,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %566 = phi i8 [ 0, %563 ], [ %552, %559 ], [ %552, %.loopexit690 ]
   %567 = phi ptr [ @H5O_MSG_NULL, %563 ], [ %557, %559 ], [ %557, %.loopexit690 ]
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 120
-  %569 = load ptr, ptr %568, align 8, !tbaa !137
+  %569 = load ptr, ptr %568, align 8, !tbaa !136
   %.not540 = icmp eq ptr %569, null
   br i1 %.not540, label %655, label %570
 
@@ -1867,7 +1867,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %657 = add i32 %.1471718, 1
   %658 = zext i32 %657 to i64
   %659 = icmp ugt i64 %656, %658
-  br i1 %659, label %534, label %.preheader688, !llvm.loop !138
+  br i1 %659, label %534, label %.preheader688, !llvm.loop !137
 
 660:                                              ; preds = %.lr.ph724.split, %660
   %661 = phi i64 [ 0, %.lr.ph724.split ], [ %667, %660 ]
@@ -1880,7 +1880,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %666 = add i32 %.2472722, 1
   %667 = zext i32 %666 to i64
   %668 = icmp samesign ugt i64 %656, %667
-  br i1 %668, label %660, label %._crit_edge725, !llvm.loop !139
+  br i1 %668, label %660, label %._crit_edge725, !llvm.loop !134
 
 ._crit_edge725:                                   ; preds = %660, %.preheader688.thread, %.preheader688
   %.pre771795 = phi i8 [ %.pre771, %.preheader688 ], [ %.pre771794, %.preheader688.thread ], [ %.pre771, %660 ]
@@ -2037,7 +2037,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %733 = call noalias ptr @H5FL_blk_calloc(ptr noundef nonnull @H5_chunk_image_blk_free_list, i64 noundef %723) #7
   %734 = load ptr, ptr %383, align 8, !tbaa !104
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 24
-  store ptr %733, ptr %735, align 8, !tbaa !140
+  store ptr %733, ptr %735, align 8, !tbaa !138
   %736 = icmp eq ptr %733, null
   br i1 %736, label %737, label %741
 
@@ -2049,10 +2049,10 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
 
 741:                                              ; preds = %732
   %742 = getelementptr inbounds nuw i8, ptr %734, i64 8
-  store i64 %723, ptr %742, align 8, !tbaa !141
+  store i64 %723, ptr %742, align 8, !tbaa !139
   %743 = getelementptr inbounds nuw i8, ptr %734, i64 16
-  store i64 %.0461597, ptr %743, align 8, !tbaa !142
-  store i64 1, ptr %381, align 8, !tbaa !143
+  store i64 %.0461597, ptr %743, align 8, !tbaa !140
+  store i64 1, ptr %381, align 8, !tbaa !141
   %744 = load i8, ptr %315, align 8, !tbaa !79
   %745 = icmp eq i8 %744, 1
   br i1 %745, label %766, label %746
@@ -2118,7 +2118,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %779 = load i8, ptr %gep728, align 1, !tbaa !3, !range !7, !noundef !8
   %780 = trunc nuw i8 %779 to i1
   %781 = add i64 %.8483, 1
-  br i1 %780, label %778, label %.loopexit687, !llvm.loop !144
+  br i1 %780, label %778, label %.loopexit687, !llvm.loop !142
 
 .loopexit687:                                     ; preds = %778, %777
   %.7482 = phi i64 [ %.6481729, %777 ], [ %.8483, %778 ]
@@ -2152,7 +2152,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %indvars.iv.next = add i64 %indvars.iv, 1
   %803 = and i64 %indvars.iv.next, 4294967295
   %804 = icmp ugt i64 %770, %803
-  br i1 %804, label %777, label %._crit_edge734, !llvm.loop !145
+  br i1 %804, label %777, label %._crit_edge734, !llvm.loop !143
 
 ._crit_edge734:                                   ; preds = %796, %766
   %.0460.lcssa = phi ptr [ %769, %766 ], [ %802, %796 ]
@@ -2192,7 +2192,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %820 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %813, i64 %810, i32 7
   store i64 %819, ptr %820, align 8, !tbaa !113
   %821 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %813, i64 %810, i32 4
-  store i32 0, ptr %821, align 8, !tbaa !146
+  store i32 0, ptr %821, align 8, !tbaa !144
   br label %826
 
 822:                                              ; preds = %807
@@ -2293,7 +2293,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %876 = load i8, ptr %gep738, align 1, !tbaa !3, !range !7, !noundef !8
   %877 = trunc nuw i8 %876 to i1
   %878 = add i64 %.11486, 1
-  br i1 %877, label %875, label %.loopexit, !llvm.loop !147
+  br i1 %877, label %875, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %875, %871
   %.10485 = phi i64 [ %.9484739, %871 ], [ %.11486, %875 ]
@@ -2301,7 +2301,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %880 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %879, i64 %872
   %881 = load ptr, ptr %880, align 8, !tbaa !108
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 128
-  %883 = load ptr, ptr %882, align 8, !tbaa !148
+  %883 = load ptr, ptr %882, align 8, !tbaa !146
   %.not537 = icmp eq ptr %883, null
   br i1 %.not537, label %901, label %884
 
@@ -2319,7 +2319,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %891 = load i8, ptr %890, align 1, !tbaa !118
   %892 = zext i8 %891 to i32
   store i32 %892, ptr %20, align 4, !tbaa !23
-  store ptr %306, ptr %865, align 8, !tbaa !149
+  store ptr %306, ptr %865, align 8, !tbaa !147
   %893 = getelementptr inbounds nuw i8, ptr %880, i64 24
   %894 = load ptr, ptr %893, align 8, !tbaa !116
   %895 = call i32 %883(ptr noundef nonnull %0, ptr noundef nonnull %888, ptr noundef nonnull %1, ptr noundef %894, ptr noundef nonnull %20, ptr noundef nonnull %2) #7
@@ -2341,7 +2341,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
   %902 = add i32 %.4474740, 1
   %903 = zext i32 %902 to i64
   %904 = icmp ugt i64 %770, %903
-  br i1 %904, label %871, label %._crit_edge742, !llvm.loop !150
+  br i1 %904, label %871, label %._crit_edge742, !llvm.loop !148
 
 ._crit_edge742:                                   ; preds = %901, %.preheader685
   store i8 0, ptr %855, align 8, !tbaa !58
@@ -2352,9 +2352,9 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
 906:                                              ; preds = %._crit_edge742
   %907 = trunc i64 %905 to i32
   %908 = getelementptr inbounds nuw i8, ptr %306, i64 284
-  %909 = load i32, ptr %908, align 4, !tbaa !151
+  %909 = load i32, ptr %908, align 4, !tbaa !149
   %910 = add i32 %909, %907
-  store i32 %910, ptr %908, align 4, !tbaa !151
+  store i32 %910, ptr %908, align 4, !tbaa !149
   br label %911
 
 911:                                              ; preds = %906, %._crit_edge742
@@ -2464,7 +2464,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread112.i, %260
 
 961:                                              ; preds = %958
   %962 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %963 = load ptr, ptr %962, align 8, !tbaa !152
+  %963 = load ptr, ptr %962, align 8, !tbaa !150
   %.not557 = icmp eq ptr %963, null
   br i1 %.not557, label %.thread677, label %964
 
@@ -2647,9 +2647,9 @@ define internal i32 @H5O__copy_comm_dt_cmp(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !153
+  %11 = load i64, ptr %10, align 8, !tbaa !151
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !153
+  %13 = load i64, ptr %12, align 8, !tbaa !151
   %.not = icmp eq i64 %11, %13
   br i1 %.not, label %18, label %14
 
@@ -2836,7 +2836,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_check(ptr 
   %.155 = phi ptr [ %20, %33 ], [ %57, %72 ], [ %57, %70 ], [ %20, %46 ], [ null, %17 ], [ %57, %85 ]
   %.153 = phi ptr [ null, %33 ], [ null, %72 ], [ null, %70 ], [ %40, %46 ], [ null, %17 ], [ %79, %85 ]
   %.151 = phi i1 [ false, %33 ], [ false, %72 ], [ false, %70 ], [ true, %46 ], [ false, %17 ], [ true, %85 ]
-  store i32 2, ptr %3, align 8, !tbaa !154
+  store i32 2, ptr %3, align 8, !tbaa !152
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @H5O__copy_search_comm_dt_attr_cb, ptr %97, align 8, !tbaa !126
   %98 = load ptr, ptr %0, align 8, !tbaa !18
@@ -2920,7 +2920,7 @@ define internal range(i32 -1, 1) i32 @H5O__copy_search_comm_dt_cb(i64 %0, ptr no
   br i1 %13, label %14, label %42, !prof !9
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %2, align 8, !tbaa !156
+  %15 = load i32, ptr %2, align 8, !tbaa !154
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %42
 
@@ -3128,7 +3128,7 @@ define internal noundef i32 @H5O__copy_free_addrmap_cb(ptr noundef %0, ptr readn
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !152
+  %17 = load ptr, ptr %16, align 8, !tbaa !150
   tail call void %17(ptr noundef nonnull %12) #7
   br label %18
 
@@ -3316,27 +3316,25 @@ attributes #7 = { nounwind }
 !131 = !{!26, !20, i64 56}
 !132 = distinct !{!132, !75}
 !133 = !{!80, !11, i64 344}
-!134 = distinct !{!134, !75, !135}
-!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!136 = distinct !{!136, !75}
-!137 = !{!112, !15, i64 120}
-!138 = distinct !{!138, !75}
-!139 = distinct !{!139, !75}
-!140 = !{!128, !55, i64 24}
-!141 = !{!128, !11, i64 8}
-!142 = !{!128, !11, i64 16}
-!143 = !{!80, !11, i64 376}
-!144 = distinct !{!144, !75}
+!134 = distinct !{!134, !75}
+!135 = distinct !{!135, !75}
+!136 = !{!112, !15, i64 120}
+!137 = distinct !{!137, !75}
+!138 = !{!128, !55, i64 24}
+!139 = !{!128, !11, i64 8}
+!140 = !{!128, !11, i64 16}
+!141 = !{!80, !11, i64 376}
+!142 = distinct !{!142, !75}
+!143 = distinct !{!143, !75}
+!144 = !{!109, !24, i64 16}
 !145 = distinct !{!145, !75}
-!146 = !{!109, !24, i64 16}
-!147 = distinct !{!147, !75}
-!148 = !{!112, !15, i64 128}
-!149 = !{!26, !28, i64 48}
-!150 = distinct !{!150, !75}
-!151 = !{!80, !24, i64 284}
-!152 = !{!54, !15, i64 24}
-!153 = !{!63, !11, i64 8}
+!146 = !{!112, !15, i64 128}
+!147 = !{!26, !28, i64 48}
+!148 = distinct !{!148, !75}
+!149 = !{!80, !24, i64 284}
+!150 = !{!54, !15, i64 24}
+!151 = !{!63, !11, i64 8}
+!152 = !{!153, !24, i64 0}
+!153 = !{!"H5A_attr_iter_op_t", !24, i64 0, !5, i64 8}
 !154 = !{!155, !24, i64 0}
-!155 = !{!"H5A_attr_iter_op_t", !24, i64 0, !5, i64 8}
-!156 = !{!157, !24, i64 0}
-!157 = !{!"", !24, i64 0, !4, i64 4, !11, i64 8, !24, i64 16, !5, i64 24}
+!155 = !{!"", !24, i64 0, !4, i64 4, !11, i64 8, !24, i64 16, !5, i64 24}

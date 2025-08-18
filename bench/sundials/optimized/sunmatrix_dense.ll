@@ -248,7 +248,7 @@ define noundef i32 @SUNMatCopy_Dense(ptr noundef readonly captures(none) %0, ptr
 ._crit_edge.us:                                   ; preds = %18
   %23 = add nuw nsw i64 %.014.us, 1
   %exitcond17.not = icmp eq i64 %23, %5
-  br i1 %exitcond17.not, label %._crit_edge15, label %.preheader.us, !llvm.loop !34
+  br i1 %exitcond17.not, label %._crit_edge15, label %.preheader.us
 
 ._crit_edge15:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   ret i32 0
@@ -298,7 +298,7 @@ define noundef i32 @SUNMatScaleAdd_Dense(double noundef %0, ptr noundef readonly
 ._crit_edge.us:                                   ; preds = %19
   %26 = add nuw nsw i64 %.018.us, 1
   %exitcond21.not = icmp eq i64 %26, %6
-  br i1 %exitcond21.not, label %._crit_edge19, label %.preheader.us, !llvm.loop !36
+  br i1 %exitcond21.not, label %._crit_edge19, label %.preheader.us
 
 ._crit_edge19:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %3
   ret i32 0
@@ -344,7 +344,7 @@ define noundef i32 @SUNMatScaleAddI_Dense(double noundef %0, ptr noundef readonl
 ._crit_edge.us:                                   ; preds = %13
   %20 = add nuw nsw i64 %.017.us, 1
   %exitcond20.not = icmp eq i64 %20, %5
-  br i1 %exitcond20.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !37
+  br i1 %exitcond20.not, label %._crit_edge18, label %.preheader.us
 
 ._crit_edge18:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %2
   ret i32 0
@@ -395,7 +395,7 @@ define noundef i32 @SUNMatMatvec_Dense(ptr noundef readonly captures(none) %0, p
 ._crit_edge.us:                                   ; preds = %18
   %26 = add nuw nsw i64 %.02127.us, 1
   %exitcond31.not = icmp eq i64 %26, %11
-  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph26.us, !llvm.loop !38
+  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph26.us
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %3, %.preheader
   ret i32 0
@@ -406,11 +406,11 @@ define noundef i32 @SUNMatSpace_Dense(ptr noundef readonly captures(none) %0, pt
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !27
-  store i64 %6, ptr %1, align 8, !tbaa !39
+  store i64 %6, ptr %1, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !26
   %9 = add nsw i64 %8, 3
-  store i64 %9, ptr %2, align 8, !tbaa !39
+  store i64 %9, ptr %2, align 8, !tbaa !34
   ret i32 0
 }
 
@@ -588,9 +588,4 @@ attributes #18 = { nounwind allocsize(0,1) }
 !31 = !{!4, !9, i64 16}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"double", !6, i64 0}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !35}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
-!39 = !{!23, !23, i64 0}
+!34 = !{!23, !23, i64 0}

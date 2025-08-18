@@ -1405,7 +1405,7 @@ define internal fastcc noundef zeroext i1 @rf4ce_security_parse_sec_str(ptr noun
   %.2 = load i8, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %22, %27, %36, %16, %.split.us, %2
   %.039 = phi i1 [ false, %2 ], [ %.not47.us.not.not, %.split.us ], [ %.not47.us.not.not, %16 ], [ true, %36 ], [ false, %27 ], [ false, %22 ]
@@ -1469,6 +1469,4 @@ attributes #11 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!12 = distinct !{!12, !7}

@@ -3021,7 +3021,7 @@ define dso_local void @cluster_change_node() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, -1
-  br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
+  br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %9, %0
   %.b57.i = load i1, ptr @get_info_node.set_opts, align 1
@@ -3382,6 +3382,4 @@ attributes #13 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !10}
 !24 = distinct !{!24, !9, !10}
 !25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !9, !10}
+!26 = distinct !{!26, !9, !10}

@@ -613,101 +613,109 @@ define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %19
-  %.022.us = phi ptr [ %20, %19 ], [ %6, %.lr.ph ]
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us) #13
-  %11 = call i64 @php_url_decode(ptr noundef nonnull %.022.us, i64 noundef %10) #14
-  br i1 %.not19, label %19, label %12
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.not19, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
-12:                                               ; preds = %.lr.ph.split.us
-  %13 = load i16, ptr %7, align 8
-  %14 = trunc i16 %13 to i8
-  %15 = and i8 %14, 1
-  %16 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us, ptr noundef null, i8 noundef zeroext %15) #14
-  %.not20.us = icmp eq ptr %16, null
-  br i1 %.not20.us, label %18, label %17
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
+  %.022.us.us = phi ptr [ %12, %.lr.ph.split.us.split.us ], [ %6, %.lr.ph.split.us ]
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us.us) #13
+  %11 = call i64 @php_url_decode(ptr noundef nonnull %.022.us.us, i64 noundef %10) #14
+  %12 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
+  %.not.us.us = icmp eq ptr %12, null
+  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us
 
-17:                                               ; preds = %12
-  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %16) #14
-  br label %19
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %21
+  %.022.us = phi ptr [ %22, %21 ], [ %6, %.lr.ph.split.us ]
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us) #13
+  %14 = call i64 @php_url_decode(ptr noundef nonnull %.022.us, i64 noundef %13) #14
+  %15 = load i16, ptr %7, align 8
+  %16 = trunc i16 %15 to i8
+  %17 = and i8 %16, 1
+  %18 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us, ptr noundef null, i8 noundef zeroext %17) #14
+  %.not20.us = icmp eq ptr %18, null
+  br i1 %.not20.us, label %20, label %19
 
-18:                                               ; preds = %12
+19:                                               ; preds = %.lr.ph.split.us.split
+  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %18) #14
+  br label %21
+
+20:                                               ; preds = %.lr.ph.split.us.split
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us) #14
-  br label %19
+  br label %21
 
-19:                                               ; preds = %18, %17, %.lr.ph.split.us
-  %20 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
-  %.not.us = icmp eq ptr %20, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
+21:                                               ; preds = %20, %19
+  %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
+  %.not.us = icmp eq ptr %22, null
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not19, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %29
-  %.022.us23 = phi ptr [ %30, %29 ], [ %6, %.lr.ph.split ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us23) #13
-  %22 = call i64 @php_url_decode(ptr noundef nonnull %.022.us23, i64 noundef %21) #14
-  %23 = load i16, ptr %7, align 8
-  %24 = trunc i16 %23 to i8
-  %25 = and i8 %24, 1
-  %26 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us23, ptr noundef null, i8 noundef zeroext %25) #14
-  %.not18.us = icmp eq ptr %26, null
-  br i1 %.not18.us, label %28, label %27
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %31
+  %.022.us23 = phi ptr [ %32, %31 ], [ %6, %.lr.ph.split ]
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us23) #13
+  %24 = call i64 @php_url_decode(ptr noundef nonnull %.022.us23, i64 noundef %23) #14
+  %25 = load i16, ptr %7, align 8
+  %26 = trunc i16 %25 to i8
+  %27 = and i8 %26, 1
+  %28 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us23, ptr noundef null, i8 noundef zeroext %27) #14
+  %.not18.us = icmp eq ptr %28, null
+  br i1 %.not18.us, label %30, label %29
 
-27:                                               ; preds = %.lr.ph.split.split.us
-  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %26) #14
-  br label %29
+29:                                               ; preds = %.lr.ph.split.split.us
+  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %28) #14
+  br label %31
 
-28:                                               ; preds = %.lr.ph.split.split.us
+30:                                               ; preds = %.lr.ph.split.split.us
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us23) #14
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %27
-  %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
-  %.not.us24 = icmp eq ptr %30, null
-  br i1 %.not.us24, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !82
+31:                                               ; preds = %30, %29
+  %32 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
+  %.not.us24 = icmp eq ptr %32, null
+  br i1 %.not.us24, label %._crit_edge, label %.lr.ph.split.split.us
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %46
-  %.022 = phi ptr [ %47, %46 ], [ %6, %.lr.ph.split ]
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022) #13
-  %32 = call i64 @php_url_decode(ptr noundef nonnull %.022, i64 noundef %31) #14
-  %33 = load i16, ptr %7, align 8
-  %34 = trunc i16 %33 to i8
-  %35 = and i8 %34, 1
-  %36 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %35) #14
-  %.not18 = icmp eq ptr %36, null
-  br i1 %.not18, label %38, label %37
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %48
+  %.022 = phi ptr [ %49, %48 ], [ %6, %.lr.ph.split ]
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022) #13
+  %34 = call i64 @php_url_decode(ptr noundef nonnull %.022, i64 noundef %33) #14
+  %35 = load i16, ptr %7, align 8
+  %36 = trunc i16 %35 to i8
+  %37 = and i8 %36, 1
+  %38 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %37) #14
+  %.not18 = icmp eq ptr %38, null
+  br i1 %.not18, label %40, label %39
 
-37:                                               ; preds = %.lr.ph.split.split
-  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %36) #14
-  br label %39
+39:                                               ; preds = %.lr.ph.split.split
+  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %38) #14
+  br label %41
 
-38:                                               ; preds = %.lr.ph.split.split
+40:                                               ; preds = %.lr.ph.split.split
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #14
-  br label %39
+  br label %41
 
-39:                                               ; preds = %37, %38
-  %40 = load i16, ptr %7, align 8
-  %41 = trunc i16 %40 to i8
-  %42 = and i8 %41, 1
-  %43 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %42) #14
-  %.not20 = icmp eq ptr %43, null
-  br i1 %.not20, label %45, label %44
+41:                                               ; preds = %39, %40
+  %42 = load i16, ptr %7, align 8
+  %43 = trunc i16 %42 to i8
+  %44 = and i8 %43, 1
+  %45 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %44) #14
+  %.not20 = icmp eq ptr %45, null
+  br i1 %.not20, label %47, label %46
 
-44:                                               ; preds = %39
-  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %43) #14
-  br label %46
+46:                                               ; preds = %41
+  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %45) #14
+  br label %48
 
-45:                                               ; preds = %39
+47:                                               ; preds = %41
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #14
-  br label %46
+  br label %48
 
-46:                                               ; preds = %44, %45
-  %47 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
-  %.not = icmp eq ptr %47, null
+48:                                               ; preds = %46, %47
+  %49 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
+  %.not = icmp eq ptr %49, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %46, %29, %19, %4
+._crit_edge:                                      ; preds = %48, %31, %21, %.lr.ph.split.us.split.us, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -758,15 +766,15 @@ define internal noundef i64 @php_stream_input_write(ptr readnone captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !83
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !84
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !81
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !85
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !82
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !86
+  %10 = load i64, ptr %9, align 8, !tbaa !83
   %11 = add i64 %10, %2
   %12 = icmp slt i64 %8, %11
   br i1 %12, label %13, label %20
@@ -786,13 +794,13 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 20:                                               ; preds = %13, %15, %7, %3
   %21 = load ptr, ptr %5, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !87
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
   %.not24 = icmp eq ptr %23, null
   br i1 %.not24, label %24, label %28
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !86
+  %26 = load i64, ptr %25, align 8, !tbaa !83
   %27 = tail call i32 @_php_stream_seek(ptr noundef nonnull %21, i64 noundef %26, i32 noundef 0) #14
   %.pre = load ptr, ptr %5, align 8, !tbaa !34
   br label %28
@@ -813,9 +821,9 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !86
+  %38 = load i64, ptr %37, align 8, !tbaa !83
   %39 = add nsw i64 %38, %30
-  store i64 %39, ptr %37, align 8, !tbaa !86
+  store i64 %39, ptr %37, align 8, !tbaa !83
   br label %40
 
 40:                                               ; preds = %36, %32
@@ -825,9 +833,9 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_stream_input_close(ptr noundef captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
   tail call void @_efree(ptr noundef %4) #14
-  store ptr null, ptr %3, align 8, !tbaa !83
+  store ptr null, ptr %3, align 8, !tbaa !80
   ret i32 0
 }
 
@@ -839,7 +847,7 @@ define internal noundef i32 @php_stream_input_flush(ptr readnone captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_stream_input_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !80
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %14, label %8
@@ -848,10 +856,10 @@ define internal i32 @php_stream_input_seek(ptr noundef readonly captures(none) %
   %9 = tail call i32 @_php_stream_seek(ptr noundef nonnull %7, i64 noundef %1, i32 noundef %2) #14
   %10 = load ptr, ptr %6, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  %12 = load i64, ptr %11, align 8, !tbaa !88
+  %12 = load i64, ptr %11, align 8, !tbaa !85
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %12, ptr %13, align 8, !tbaa !86
-  store i64 %12, ptr %3, align 8, !tbaa !89
+  store i64 %12, ptr %13, align 8, !tbaa !83
+  store i64 %12, ptr %3, align 8, !tbaa !86
   br label %14
 
 14:                                               ; preds = %4, %8
@@ -977,13 +985,10 @@ attributes #16 = { nounwind willreturn memory(none) }
 !77 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
 !78 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
 !79 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
-!80 = distinct !{!80, !81}
-!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!82 = distinct !{!82, !81}
-!83 = !{!74, !6, i64 8}
-!84 = !{!11, !7, i64 248}
-!85 = !{!11, !13, i64 240}
-!86 = !{!35, !13, i64 8}
-!87 = !{!74, !77, i64 16}
-!88 = !{!74, !13, i64 152}
-!89 = !{!13, !13, i64 0}
+!80 = !{!74, !6, i64 8}
+!81 = !{!11, !7, i64 248}
+!82 = !{!11, !13, i64 240}
+!83 = !{!35, !13, i64 8}
+!84 = !{!74, !77, i64 16}
+!85 = !{!74, !13, i64 152}
+!86 = !{!13, !13, i64 0}

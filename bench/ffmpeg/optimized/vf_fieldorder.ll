@@ -146,36 +146,36 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 56, ptr noundef nonnull @.str.6, ptr noundef nonnull %35) #4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %37 = load i32, ptr %36, align 4, !tbaa !51
-  %.fr115 = freeze i32 %37
+  %.fr116 = freeze i32 %37
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 64
-  %40 = icmp sgt i32 %.fr115, 2
+  %40 = icmp sgt i32 %.fr116, 2
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %42 = icmp sgt i32 %.fr115, 0
-  %43 = add nsw i32 %.fr115, -1
+  %42 = icmp sgt i32 %.fr116, 0
+  %43 = add nsw i32 %.fr116, -1
   br i1 %42, label %.split.us, label %.critedge
 
 .split.us:                                        ; preds = %33, %.loopexit92.us
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit92.us ], [ 0, %33 ]
-  %44 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv123
+  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.loopexit92.us ], [ 0, %33 ]
+  %44 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv130
   %45 = load ptr, ptr %44, align 8, !tbaa !52
   %.not85.us = icmp eq ptr %45, null
   br i1 %.not85.us, label %.critedge, label %46
 
 46:                                               ; preds = %.split.us
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %indvars.iv123
+  %47 = getelementptr inbounds nuw [8 x i32], ptr %38, i64 0, i64 %indvars.iv130
   %48 = load i32, ptr %47, align 4, !tbaa !53
   %.not86.us = icmp eq i32 %48, 0
   br i1 %.not86.us, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv123
+  %50 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv130
   %51 = load i32, ptr %50, align 4, !tbaa !53
   %52 = select i1 %40, i32 %51, i32 0
   %53 = select i1 %40, i32 %48, i32 0
-  %54 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv123
+  %54 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv130
   %55 = load i32, ptr %54, align 4, !tbaa !53
-  %56 = getelementptr inbounds nuw [8 x ptr], ptr %.0, i64 0, i64 %indvars.iv123
+  %56 = getelementptr inbounds nuw [8 x ptr], ptr %.0, i64 0, i64 %indvars.iv130
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = load i32, ptr %16, align 8, !tbaa !47
   %.not89.us = icmp eq i32 %58, 0
@@ -193,8 +193,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.07394.us, ptr align 1 %63, i64 %90, i1 false)
   %64 = getelementptr inbounds i8, ptr %.07394.us, i64 %92
   %65 = getelementptr inbounds i8, ptr %.07295.us, i64 %91
-  %exitcond122.not = icmp eq i32 %60, %.fr115
-  br i1 %exitcond122.not, label %.loopexit92.us, label %59, !llvm.loop !54
+  %exitcond129.not = icmp eq i32 %60, %.fr116
+  br i1 %exitcond129.not, label %.loopexit92.us, label %59, !llvm.loop !54
 
 .lr.ph99.us:                                      ; preds = %49
   %66 = mul nsw i32 %52, %43
@@ -213,9 +213,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %79
 
 .loopexit92.us:                                   ; preds = %59, %81, %.thread
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next124, 4
-  br i1 %exitcond126.not, label %.critedge, label %.split.us, !llvm.loop !55
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 4
+  br i1 %exitcond133.not, label %.critedge, label %.split.us, !llvm.loop !55
 
 79:                                               ; preds = %.lr.ph99.us, %81
   %.198.us = phi ptr [ %71, %.lr.ph99.us ], [ %84, %81 ]
@@ -236,7 +236,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %84 = getelementptr inbounds i8, ptr %.198.us, i64 %73
   %85 = add nsw i32 %.17696.us, -1
   %86 = icmp sgt i32 %.17696.us, 0
-  br i1 %86, label %79, label %.loopexit92.us, !llvm.loop !57
+  br i1 %86, label %79, label %.loopexit92.us, !llvm.loop !56
 
 .lr.ph.us:                                        ; preds = %49
   %87 = shl nsw i32 %53, 1
@@ -280,7 +280,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #0 {
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !58
+  %8 = load i32, ptr %7, align 4, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !49
   %11 = tail call i32 @av_image_fill_linesizes(ptr noundef nonnull %6, i32 noundef %8, i32 noundef %10) #4
@@ -383,7 +383,6 @@ attributes #4 = { nounwind }
 !52 = !{!11, !11, i64 0}
 !53 = !{!23, !23, i64 0}
 !54 = distinct !{!54, !16}
-!55 = distinct !{!55, !16, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !16}
-!58 = !{!20, !23, i64 36}
+!55 = distinct !{!55, !16}
+!56 = distinct !{!56, !16}
+!57 = !{!20, !23, i64 36}

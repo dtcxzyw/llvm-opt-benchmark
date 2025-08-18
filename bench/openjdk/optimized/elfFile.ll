@@ -2736,7 +2736,7 @@ _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit: ; preds = %31,
   %63 = load i64, ptr %7, align 8
   %64 = icmp slt i64 %63, %61
   %.0.i.i = select i1 %62, i1 %64, i1 false
-  br i1 %.0.i.i, label %.lr.ph.split.i, label %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread, !llvm.loop !18
+  br i1 %.0.i.i, label %.lr.ph.split.i, label %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread, !llvm.loop !16
 
 _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread: ; preds = %48, %60, %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2749,7 +2749,7 @@ _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8: ; preds = %54
   %67 = load i64, ptr %7, align 8
   %68 = icmp slt i64 %67, %65
   %.0.i = select i1 %66, i1 %68, i1 false
-  br i1 %.0.i, label %13, label %.loopexit, !llvm.loop !19
+  br i1 %.0.i, label %13, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %13, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8, %2, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread, %18, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit
   %.0 = phi i1 [ %.0.i3, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit ], [ false, %18 ], [ false, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread ], [ false, %2 ], [ false, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8 ], [ false, %13 ]
@@ -2945,7 +2945,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_spe
   %39 = load i64, ptr %5, align 8
   %40 = icmp slt i64 %39, %37
   %.0.i = select i1 %38, i1 %40, i1 false
-  br i1 %.0.i, label %.lr.ph.split, label %.loopexit, !llvm.loop !18
+  br i1 %.0.i, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
 
 .split8.us:                                       ; preds = %19
   %41 = tail call noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit20read_attribute_valueEmb(ptr noundef nonnull align 8 dereferenceable(72) %21, i64 noundef %16, i1 noundef zeroext true)
@@ -3240,7 +3240,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
 102:                                              ; preds = %97
   %103 = load i8, ptr %7, align 1
   %104 = icmp eq i8 %103, 0
-  br i1 %104, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit, label %.split.us.i, !llvm.loop !20
+  br i1 %104, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit, label %.split.us.i, !llvm.loop !18
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.split.us.i, %97, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3488,7 +3488,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
 29:                                               ; preds = %24
   %30 = load i8, ptr %5, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread, label %.split.us, !llvm.loop !20
+  br i1 %31, label %_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread, label %.split.us, !llvm.loop !18
 
 .split:                                           ; preds = %.split.outer, %42
   %.013 = phi i64 [ %44, %42 ], [ %.013.ph, %.split.outer ]
@@ -3517,12 +3517,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
   store i8 %.pre, ptr %43, align 1
   %44 = add nuw i64 %.013, 1
   %45 = icmp eq i8 %.pre, 0
-  br i1 %45, label %.split23.us, label %.split, !llvm.loop !21
+  br i1 %45, label %.split23.us, label %.split, !llvm.loop !18
 
 .thread25:                                        ; preds = %41
   %46 = add i64 %.013, 1
   %47 = icmp eq i8 %.pre, 0
-  br i1 %47, label %.split23.us.thread, label %.split.outer, !llvm.loop !21
+  br i1 %47, label %.split23.us.thread, label %.split.outer, !llvm.loop !18
 
 .split23.us:                                      ; preds = %42
   br i1 %.0.ph, label %.split23.us.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread
@@ -3698,7 +3698,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   %99 = zext i8 %98 to i32
   %100 = add nsw i32 %99, -1
   %101 = icmp sgt i32 %100, %97
-  br i1 %101, label %102, label %.preheader, !llvm.loop !22
+  br i1 %101, label %102, label %.preheader, !llvm.loop !19
 
 102:                                              ; preds = %.lr.ph, %95
   %.0516 = phi i8 [ 0, %.lr.ph ], [ %96, %95 ]
@@ -3714,7 +3714,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
 
 .preheader:                                       ; preds = %95, %.preheader
   %110 = tail call noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef null, i64 noundef 0)
-  br i1 %110, label %.preheader, label %111, !llvm.loop !23
+  br i1 %110, label %.preheader, label %111, !llvm.loop !20
 
 111:                                              ; preds = %.preheader
   %112 = load i64, ptr %13, align 8
@@ -3981,7 +3981,7 @@ _ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit: ; preds = %.
   %128 = load i64, ptr %35, align 8
   %129 = icmp slt i64 %128, %126
   %.0.i = select i1 %127, i1 %129, i1 false
-  br i1 %.0.i, label %42, label %.loopexit, !llvm.loop !24
+  br i1 %.0.i, label %42, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %42, %125, %8, %.thread, %.loopexit20
   %.0 = phi i1 [ %98, %.loopexit20 ], [ false, %.thread ], [ false, %8 ], [ false, %125 ], [ false, %42 ]
@@ -4271,7 +4271,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
 46:                                               ; preds = %41
   %47 = load i8, ptr %9, align 1
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %.split.us.i, !llvm.loop !20
+  br i1 %48, label %49, label %.split.us.i, !llvm.loop !18
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30, %.split.us.i, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4368,7 +4368,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread: ; pre
   %89 = load i64, ptr %19, align 8
   %90 = icmp slt i64 %89, %87
   %.0.i7 = select i1 %88, i1 %90, i1 false
-  br i1 %.0.i7, label %25, label %.loopexit, !llvm.loop !25
+  br i1 %.0.i7, label %25, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %85, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread, %28
   %.06 = phi i1 [ %29, %28 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit ], [ false, %85 ]
@@ -4540,7 +4540,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
 74:                                               ; preds = %69
   %75 = load i8, ptr %5, align 1
   %76 = icmp eq i8 %75, 0
-  br i1 %76, label %77, label %.split.us.i, !llvm.loop !20
+  br i1 %76, label %77, label %.split.us.i, !llvm.loop !18
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.split.us.i, %69, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5466,7 +5466,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenam
   %.111 = phi i64 [ %34, %32 ], [ 0, %25 ], [ %2, %30 ]
   %.1 = phi i1 [ %.019, %32 ], [ false, %25 ], [ true, %30 ]
   %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %.critedge, label %15, !llvm.loop !26
+  br i1 %.not, label %.critedge, label %15, !llvm.loop !23
 
 .critedge:                                        ; preds = %15, %35
   %.0.lcssa = phi i1 [ %.1, %35 ], [ %.019, %15 ]
@@ -5672,14 +5672,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !17}
+!20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}

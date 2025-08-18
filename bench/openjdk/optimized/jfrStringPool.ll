@@ -3275,7 +3275,7 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i: ; preds = %44
   %61 = add i64 %.114.i.i, 2
   %62 = add nuw i64 %.015.i.i, 1
   %exitcond.not.i.i8 = icmp eq i64 %62, %2
-  br i1 %exitcond.not.i.i8, label %_ZN11EncoderHostI20Varint128EncoderImpl20BigEndianEncoderImplE5writeItEEPhPKT_mS4_.exit, label %.preheader.i.i7, !llvm.loop !28
+  br i1 %exitcond.not.i.i8, label %_ZN11EncoderHostI20Varint128EncoderImpl20BigEndianEncoderImplE5writeItEEPhPKT_mS4_.exit, label %.preheader.i.i7, !llvm.loop !26
 
 _ZN11EncoderHostI20Varint128EncoderImpl20BigEndianEncoderImplE5writeItEEPhPKT_mS4_.exit: ; preds = %.preheader.i.i7, %.preheader.i.us.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit16.i.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit.i.i
   %.011.i.i.pn = phi i64 [ %.0.i.i.i, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i ], [ 2, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i ], [ %42, %_ZN20Varint128EncoderImpl6encodeItEEmT_Ph.exit16.i.i ], [ %55, %.preheader.i.us.i ], [ %61, %.preheader.i.i7 ]
@@ -3299,7 +3299,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ExclusiveOpI12StringPoolOpI2
 
 7:                                                ; preds = %.preheader.i
   %8 = tail call noundef zeroext i1 @_ZNK9JfrBuffer7retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
-  br i1 %8, label %_ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %8, label %_ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit, label %.preheader.i, !llvm.loop !27
 
 _ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit: ; preds = %.preheader.i, %7, %2
   %9 = tail call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
@@ -3385,7 +3385,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN22UnBufferedWriteToChunkI19Jfr
   %22 = sub nsw i64 %.01213.i.i, %10
   %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 %10
   %24 = icmp sgt i64 %22, 0
-  br i1 %24, label %9, label %_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbufferedEPKvl.exit, !llvm.loop !30
+  br i1 %24, label %9, label %_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbufferedEPKvl.exit, !llvm.loop !28
 
 _ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbufferedEPKvl.exit: ; preds = %.critedge.i.i, %4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3455,7 +3455,7 @@ define linkonce_odr hidden void @_ZN16StreamWriterHostI13MallocAdapterILm1048576
   %27 = sub nsw i64 %.01213.i.i, %15
   %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 %15
   %29 = icmp sgt i64 %27, 0
-  br i1 %29, label %14, label %_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEm.exit.loopexit, !llvm.loop !30
+  br i1 %29, label %14, label %_ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEm.exit.loopexit, !llvm.loop !28
 
 _ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE5flushEm.exit.loopexit: ; preds = %.critedge.i.i
   %.pre = load ptr, ptr %0, align 8
@@ -3530,7 +3530,7 @@ _ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE3addEPS0_.exit.i.i: ; pred
   br i1 %.not.i5.i, label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE7releaseEPS3_.exit, label %27
 
 27:                                               ; preds = %_ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE3addEPS0_.exit.i.i
-  %28 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %17) #16, !srcloc !31
+  %28 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %17) #16, !srcloc !29
   br label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE7releaseEPS3_.exit
 
 29:                                               ; preds = %14
@@ -3574,7 +3574,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11ExclusiveOpI12StringPoolOpI2
 
 7:                                                ; preds = %.preheader.i
   %8 = tail call noundef zeroext i1 @_ZNK9JfrBuffer7retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
-  br i1 %8, label %_ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %8, label %_ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit, label %.preheader.i, !llvm.loop !27
 
 _ZL25retired_sensitive_acquireI19JfrStringPoolBufferEvPT_P6Thread.exit: ; preds = %.preheader.i, %7, %2
   %9 = tail call noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
@@ -3672,9 +3672,7 @@ attributes #19 = { nounwind willreturn memory(none) }
 !23 = distinct !{!23, !9}
 !24 = !{i64 2145411161}
 !25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
 !28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = !{i64 2145411697}
+!29 = !{i64 2145411697}

@@ -1138,12 +1138,12 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
   store ptr %35, ptr %29, align 8
   %36 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %29, ptr %35, ptr nonnull align 8 dereferenceable(8) %33) #11, !srcloc !10
   %.not.i.i = icmp eq ptr %36, %35
-  br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit, label %34, !llvm.loop !38
+  br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit, label %34, !llvm.loop !37
 
 _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit: ; preds = %34
   %37 = add nuw i64 %.0811, 1
   %exitcond.not = icmp eq i64 %37, %1
-  br i1 %exitcond.not, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE8allocateEm.exit.thread, label %.lr.ph.split, !llvm.loop !39
+  br i1 %exitcond.not, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE8allocateEm.exit.thread, label %.lr.ph.split, !llvm.loop !36
 
 _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE8allocateEm.exit.thread: ; preds = %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit, %27, %.lr.ph.split, %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.us, %15, %.lr.ph.split.us, %6, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE10initializeEv.exit
   %.0 = phi i1 [ false, %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE10initializeEv.exit ], [ true, %6 ], [ true, %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.us ], [ false, %15 ], [ false, %.lr.ph.split.us ], [ true, %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_free_listEPS1_.exit.loopexit ], [ false, %27 ], [ false, %.lr.ph.split ]
@@ -1170,39 +1170,39 @@ define linkonce_odr hidden void @_ZNK27JfrConcurrentLinkedListHostI18JfrConcurre
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  %.01318.i.i.i = load ptr, ptr %11, align 8, !noalias !40
+  %.01318.i.i.i = load ptr, ptr %11, align 8, !noalias !38
   %.not19.i.i.i = icmp eq ptr %.01318.i.i.i, null
   br i1 %.not19.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5, %18
   %.01320.i.i.i = phi ptr [ %.013.i.i.i, %18 ], [ %.01318.i.i.i, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 32
-  %13 = load i8, ptr %12, align 8, !noalias !40
+  %13 = load i8, ptr %12, align 8, !noalias !38
   %14 = trunc i8 %13 to i1
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %.lr.ph.i.i.i
-  %16 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %12) #11, !noalias !40, !srcloc !20
+  %16 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %12) #11, !noalias !38, !srcloc !20
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit
 
 18:                                               ; preds = %15, %.lr.ph.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 8
-  %.013.i.i.i = load ptr, ptr %19, align 8, !noalias !40
+  %.013.i.i.i = load ptr, ptr %19, align 8, !noalias !38
   %.not.i.i.i = icmp eq ptr %.013.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %18, %5
-  %20 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 40) #11, !noalias !40
+  %20 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 40) #11, !noalias !38
   %21 = icmp eq ptr %20, null
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %._crit_edge.i.i.i
-  store ptr %10, ptr %20, align 8, !noalias !40
+  store ptr %10, ptr %20, align 8, !noalias !38
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !noalias !40
-  store i8 1, ptr %24, align 8, !noalias !40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !noalias !38
+  store i8 1, ptr %24, align 8, !noalias !38
   br label %25
 
 25:                                               ; preds = %22, %._crit_edge.i.i.i
@@ -1210,18 +1210,18 @@ define linkonce_odr hidden void @_ZNK27JfrConcurrentLinkedListHostI18JfrConcurre
   br label %27
 
 27:                                               ; preds = %27, %25
-  %28 = load ptr, ptr %11, align 8, !noalias !40
-  store ptr %28, ptr %26, align 8, !noalias !40
-  %29 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20, ptr %28, ptr nonnull %11) #11, !noalias !40, !srcloc !10
+  %28 = load ptr, ptr %11, align 8, !noalias !38
+  store ptr %28, ptr %26, align 8, !noalias !38
+  %29 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20, ptr %28, ptr nonnull %11) #11, !noalias !38, !srcloc !10
   %.not15.i.i.i = icmp eq ptr %29, %28
   br i1 %.not15.i.i.i, label %_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit, label %27, !llvm.loop !22
 
 _ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv.exit: ; preds = %15, %27
   %.0.i.i.i = phi ptr [ %20, %27 ], [ %.01320.i.i.i, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %31 = load i64, ptr %30, align 8, !noalias !45
+  %31 = load i64, ptr %30, align 8, !noalias !43
   %32 = add nsw i64 %31, 1
-  store i64 %32, ptr %30, align 8, !noalias !45
+  store i64 %32, ptr %30, align 8, !noalias !43
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   br label %_Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit
 
@@ -1273,7 +1273,7 @@ _Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit: ; preds = %_Z18mark_for_insert
 
 _Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit.backedge: ; preds = %52, %57, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit
   %.025.i.be = phi ptr [ %spec.select21.lcssa, %52 ], [ null, %57 ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
-  br label %_Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit, !llvm.loop !48
+  br label %_Z18mark_for_insertionI9JfrBufferEbPT_PKS1_.exit, !llvm.loop !46
 
 _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit: ; preds = %._crit_edge, %52
   %55 = load ptr, ptr %spec.select.lcssa, align 8
@@ -1411,7 +1411,7 @@ _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEc
   %62 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 %61
   %63 = add i64 %.011.i, 1
   %64 = icmp ult ptr %62, %16
-  br i1 %64, label %.lr.ph.i, label %_ZN15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEE8dispatchEbPKhm.exit, !llvm.loop !49
+  br i1 %64, label %.lr.ph.i, label %_ZN15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEE8dispatchEbPKhm.exit, !llvm.loop !47
 
 _ZN15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEE8dispatchEbPKhm.exit: ; preds = %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEclEPKhb.exit.i, %18
   %.0.lcssa.i = phi i64 [ 0, %18 ], [ %63, %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEclEPKhb.exit.i ]
@@ -1452,7 +1452,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN31ReinitializeAllReleaseRetire
   %.1.i = phi ptr [ %15, %14 ], [ %.1.i.ph, %.preheader ]
   %15 = load ptr, ptr %.1.i, align 8
   %.not.i = icmp eq ptr %15, %1
-  br i1 %.not.i, label %16, label %14, !llvm.loop !50
+  br i1 %.not.i, label %16, label %14, !llvm.loop !48
 
 16:                                               ; preds = %14
   store ptr %7, ptr %.1.i, align 8
@@ -1577,7 +1577,7 @@ define linkonce_odr hidden noundef ptr @_ZN19JfrEpochStorageHostI9JfrBuffer24Jfr
   store ptr %24, ptr %13, align 8
   %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %24, ptr nonnull align 8 dereferenceable(8) %22) #11, !srcloc !10
   %.not.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i, label %_Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit.thread, label %23, !llvm.loop !38
+  br i1 %.not.i.i.i.i, label %_Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit.thread, label %23, !llvm.loop !37
 
 _Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Threadb.exit: ; preds = %3, %7
   %26 = tail call noundef ptr @_Z28mspace_allocate_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES3_18JfrConcurrentQueueIS2_11JfrCHeapObjE13JfrLinkedListIS2_S6_ELb1EEENT_7NodePtrEmPSB_P6Thread(i64 noundef %1, ptr noundef nonnull %4, ptr noundef %2)
@@ -1627,7 +1627,7 @@ define linkonce_odr hidden noundef ptr @_Z28mspace_allocate_to_live_listI14JfrMe
   %.0.i.i.i.i = phi i64 [ %8, %.preheader.i.i.i.i ], [ %6, %.preheader.i.preheader.i.i.i ]
   %7 = icmp ugt i64 %0, %.0.i.i.i.i
   %8 = shl nuw i64 %.0.i.i.i.i, 1
-  br i1 %7, label %.preheader.i.i.i.i, label %_ZL21align_allocation_sizemm.exit.i.i.i, !llvm.loop !51
+  br i1 %7, label %.preheader.i.i.i.i, label %_ZL21align_allocation_sizemm.exit.i.i.i, !llvm.loop !49
 
 _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   %9 = icmp eq i64 %.0.i.i.i.i, 0
@@ -1657,7 +1657,7 @@ _ZL21align_allocation_sizemm.exit.i.i.i:          ; preds = %.preheader.i.i.i.i
   store ptr %18, ptr %12, align 8
   %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %12, ptr %18, ptr nonnull align 8 dereferenceable(8) %16) #11, !srcloc !10
   %.not.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit, label %17, !llvm.loop !38
+  br i1 %.not.i.i, label %_ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit, label %17, !llvm.loop !37
 
 _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EES2_18JfrConcurrentQueueIS1_11JfrCHeapObjE13JfrLinkedListIS1_S5_ELb1EE16add_to_live_listEPS1_b.exit: ; preds = %17, %3, %10, %_ZL21align_allocation_sizemm.exit.i.i.i
   %.0 = phi ptr [ null, %_ZL21align_allocation_sizemm.exit.i.i.i ], [ null, %10 ], [ null, %3 ], [ %12, %17 ]
@@ -1734,19 +1734,17 @@ attributes #12 = { noreturn nounwind }
 !33 = distinct !{!33, !8}
 !34 = distinct !{!34, !8}
 !35 = !{i64 2145411697}
-!36 = distinct !{!36, !8, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = !{!41, !43}
-!41 = distinct !{!41, !42, !"_ZN16JfrVersionSystem3getEv: argument 0"}
-!42 = distinct !{!42, !"_ZN16JfrVersionSystem3getEv"}
-!43 = distinct !{!43, !44, !"_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv: argument 0"}
-!44 = distinct !{!44, !"_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv"}
-!45 = !{!46, !41, !43}
-!46 = distinct !{!46, !47, !"_ZN14RefCountHandleIN16JfrVersionSystem4NodeEE4makeEPKS1_: argument 0"}
-!47 = distinct !{!47, !"_ZN14RefCountHandleIN16JfrVersionSystem4NodeEE4makeEPKS1_"}
+!36 = distinct !{!36, !8}
+!37 = distinct !{!37, !8}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZN16JfrVersionSystem3getEv: argument 0"}
+!40 = distinct !{!40, !"_ZN16JfrVersionSystem3getEv"}
+!41 = distinct !{!41, !42, !"_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv: argument 0"}
+!42 = distinct !{!42, !"_ZN18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE18get_version_handleEv"}
+!43 = !{!44, !39, !41}
+!44 = distinct !{!44, !45, !"_ZN14RefCountHandleIN16JfrVersionSystem4NodeEE4makeEPKS1_: argument 0"}
+!45 = distinct !{!45, !"_ZN14RefCountHandleIN16JfrVersionSystem4NodeEE4makeEPKS1_"}
+!46 = distinct !{!46, !8}
+!47 = distinct !{!47, !8}
 !48 = distinct !{!48, !8}
 !49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = distinct !{!51, !8}

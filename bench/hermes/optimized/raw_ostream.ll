@@ -359,7 +359,7 @@ if.then4.i.i:                                     ; preds = %if.then
   store ptr %add.ptr.i.i, ptr %OutBufCur.i6.i, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %switch.early.test, %if.then4.i.i, %if.then.i.i
+for.inc:                                          ; preds = %if.then4.i.i, %if.then.i.i, %switch.early.test
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7

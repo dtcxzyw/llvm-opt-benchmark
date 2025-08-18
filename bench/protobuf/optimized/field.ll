@@ -9348,7 +9348,7 @@ for.inc.i.us.us:                                  ; preds = %for.body.i.us.us
   %sub.i.i.us.us = add nsw i32 %__begin5.sroa.0.024.i.us.us, -1
   %and.i9.i.us.us = and i32 %sub.i.i.us.us, %__begin5.sroa.0.024.i.us.us
   %cmp.i.not.i.us.us = icmp eq i32 %and.i9.i.us.us, 0
-  br i1 %cmp.i.not.i.us.us, label %for.end.i.us, label %for.body.i.us.us, !llvm.loop !124
+  br i1 %cmp.i.not.i.us.us, label %for.end.i.us, label %for.body.i.us.us
 
 while.body.i:                                     ; preds = %entry, %if.end34.i
   %xor.i.i.i.pn.i = phi i64 [ %add3.i.i, %if.end34.i ], [ %xor.i.i.i.i, %entry ]
@@ -9406,7 +9406,7 @@ for.end.i:                                        ; preds = %for.inc.i, %while.b
 if.end34.i:                                       ; preds = %for.end.i
   %add.i12.i = add i64 %seq.sroa.10.0.i, 16
   %add3.i.i = add i64 %add.i12.i, %seq.sroa.4.0.i
-  br label %while.body.i, !llvm.loop !125
+  br label %while.body.i, !llvm.loop !122
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE4findIS7_EENSJ_8iteratorERKT_m.exit: ; preds = %for.end.i, %for.end.i.us, %if.then.i
   %call25.pn.i = phi { ptr, ptr } [ %.fca.1.insert.i.i, %if.then.i ], [ { ptr null, ptr undef }, %for.end.i.us ], [ { ptr null, ptr undef }, %for.end.i ]
@@ -9524,51 +9524,51 @@ _ZNKSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE12_M_check_
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE12_M_check_lenEmPKc.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
-  %13 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store i64 %13, ptr %__cur.07.i.i.i, align 8, !alias.scope !126, !noalias !129
-  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !129, !noalias !126
+  %13 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store i64 %13, ptr %__cur.07.i.i.i, align 8, !alias.scope !123, !noalias !126
+  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !126, !noalias !123
   %field_vars_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 8
   %field_vars_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 8
-  %14 = load ptr, ptr %field_vars_3.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %14, ptr %field_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %14 = load ptr, ptr %field_vars_3.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %14, ptr %field_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 16
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 16
-  %15 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %15, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %15 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %15, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 24
-  %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %16, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %field_vars_3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
+  %16 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %16, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %field_vars_3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !126, !noalias !123
   %tracker_vars_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %tracker_vars_4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
-  %17 = load ptr, ptr %tracker_vars_4.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %17, ptr %tracker_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %17 = load ptr, ptr %tracker_vars_4.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %17, ptr %tracker_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_finish.i.i.i.i4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 40
   %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 40
-  %18 = load ptr, ptr %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %18, ptr %_M_finish.i.i.i.i4.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %18 = load ptr, ptr %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %18, ptr %_M_finish.i.i.i.i4.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 48
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 48
-  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %19, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracker_vars_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
+  %19 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %19, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracker_vars_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !126, !noalias !123
   %per_generator_vars_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 56
   %per_generator_vars_5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 56
-  %20 = load ptr, ptr %per_generator_vars_5.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %20, ptr %per_generator_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %20 = load ptr, ptr %per_generator_vars_5.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %20, ptr %per_generator_vars_.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_finish.i.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 64
   %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 64
-  %21 = load ptr, ptr %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %21, ptr %_M_finish.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
+  %21 = load ptr, ptr %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %21, ptr %_M_finish.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
   %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 72
   %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 72
-  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i, align 8, !alias.scope !129, !noalias !126
-  store ptr %22, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !129
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %per_generator_vars_5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !129, !noalias !126
-  tail call void @_ZN6google8protobuf8compiler3cpp14FieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i) #24, !noalias !126
+  %22 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %22, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i, align 8, !alias.scope !123, !noalias !126
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %per_generator_vars_5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !126, !noalias !123
+  tail call void @_ZN6google8protobuf8compiler3cpp14FieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i) #24, !noalias !123
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 80
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 80
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -9583,51 +9583,51 @@ _ZNSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE11_S_relocat
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i34, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i33, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIN6google8protobuf8compiler3cpp14FieldGeneratorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %23 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !134, !noalias !131
-  store i64 %23, ptr %__cur.07.i.i.i13, align 8, !alias.scope !131, !noalias !134
-  store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !134, !noalias !131
+  %23 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !131, !noalias !128
+  store i64 %23, ptr %__cur.07.i.i.i13, align 8, !alias.scope !128, !noalias !131
+  store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !131, !noalias !128
   %field_vars_.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 8
   %field_vars_3.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 8
-  %24 = load ptr, ptr %field_vars_3.i.i.i.i.i.i.i16, align 8, !alias.scope !134, !noalias !131
-  store ptr %24, ptr %field_vars_.i.i.i.i.i.i.i15, align 8, !alias.scope !131, !noalias !134
+  %24 = load ptr, ptr %field_vars_3.i.i.i.i.i.i.i16, align 8, !alias.scope !131, !noalias !128
+  store ptr %24, ptr %field_vars_.i.i.i.i.i.i.i15, align 8, !alias.scope !128, !noalias !131
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 16
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 16
-  %25 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !134, !noalias !131
-  store ptr %25, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !131, !noalias !134
+  %25 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !131, !noalias !128
+  store ptr %25, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !128, !noalias !131
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 24
-  %26 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !134, !noalias !131
-  store ptr %26, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !131, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %field_vars_3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !134, !noalias !131
+  %26 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !131, !noalias !128
+  store ptr %26, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !128, !noalias !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %field_vars_3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !131, !noalias !128
   %tracker_vars_.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 32
   %tracker_vars_4.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 32
-  %27 = load ptr, ptr %tracker_vars_4.i.i.i.i.i.i.i22, align 8, !alias.scope !134, !noalias !131
-  store ptr %27, ptr %tracker_vars_.i.i.i.i.i.i.i21, align 8, !alias.scope !131, !noalias !134
+  %27 = load ptr, ptr %tracker_vars_4.i.i.i.i.i.i.i22, align 8, !alias.scope !131, !noalias !128
+  store ptr %27, ptr %tracker_vars_.i.i.i.i.i.i.i21, align 8, !alias.scope !128, !noalias !131
   %_M_finish.i.i.i.i4.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 40
   %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 40
-  %28 = load ptr, ptr %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i24, align 8, !alias.scope !134, !noalias !131
-  store ptr %28, ptr %_M_finish.i.i.i.i4.i.i.i.i.i.i.i23, align 8, !alias.scope !131, !noalias !134
+  %28 = load ptr, ptr %_M_finish3.i.i.i.i5.i.i.i.i.i.i.i24, align 8, !alias.scope !131, !noalias !128
+  store ptr %28, ptr %_M_finish.i.i.i.i4.i.i.i.i.i.i.i23, align 8, !alias.scope !128, !noalias !131
   %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 48
   %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 48
-  %29 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26, align 8, !alias.scope !134, !noalias !131
-  store ptr %29, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25, align 8, !alias.scope !131, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracker_vars_4.i.i.i.i.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !134, !noalias !131
+  %29 = load ptr, ptr %_M_end_of_storage4.i.i.i.i7.i.i.i.i.i.i.i26, align 8, !alias.scope !131, !noalias !128
+  store ptr %29, ptr %_M_end_of_storage.i.i.i.i6.i.i.i.i.i.i.i25, align 8, !alias.scope !128, !noalias !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tracker_vars_4.i.i.i.i.i.i.i22, i8 0, i64 24, i1 false), !alias.scope !131, !noalias !128
   %per_generator_vars_.i.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 56
   %per_generator_vars_5.i.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 56
-  %30 = load ptr, ptr %per_generator_vars_5.i.i.i.i.i.i.i28, align 8, !alias.scope !134, !noalias !131
-  store ptr %30, ptr %per_generator_vars_.i.i.i.i.i.i.i27, align 8, !alias.scope !131, !noalias !134
+  %30 = load ptr, ptr %per_generator_vars_5.i.i.i.i.i.i.i28, align 8, !alias.scope !131, !noalias !128
+  store ptr %30, ptr %per_generator_vars_.i.i.i.i.i.i.i27, align 8, !alias.scope !128, !noalias !131
   %_M_finish.i.i.i.i8.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 64
   %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 64
-  %31 = load ptr, ptr %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i30, align 8, !alias.scope !134, !noalias !131
-  store ptr %31, ptr %_M_finish.i.i.i.i8.i.i.i.i.i.i.i29, align 8, !alias.scope !131, !noalias !134
+  %31 = load ptr, ptr %_M_finish3.i.i.i.i9.i.i.i.i.i.i.i30, align 8, !alias.scope !131, !noalias !128
+  store ptr %31, ptr %_M_finish.i.i.i.i8.i.i.i.i.i.i.i29, align 8, !alias.scope !128, !noalias !131
   %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 72
   %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 72
-  %32 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i32, align 8, !alias.scope !134, !noalias !131
-  store ptr %32, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i31, align 8, !alias.scope !131, !noalias !134
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %per_generator_vars_5.i.i.i.i.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !134, !noalias !131
-  tail call void @_ZN6google8protobuf8compiler3cpp14FieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i14) #24, !noalias !131
+  %32 = load ptr, ptr %_M_end_of_storage4.i.i.i.i11.i.i.i.i.i.i.i32, align 8, !alias.scope !131, !noalias !128
+  store ptr %32, ptr %_M_end_of_storage.i.i.i.i10.i.i.i.i.i.i.i31, align 8, !alias.scope !128, !noalias !131
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %per_generator_vars_5.i.i.i.i.i.i.i28, i8 0, i64 24, i1 false), !alias.scope !131, !noalias !128
+  tail call void @_ZN6google8protobuf8compiler3cpp14FieldGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %__first.addr.06.i.i.i14) #24, !noalias !128
   %incdec.ptr.i.i.i33 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i14, i64 80
   %incdec.ptr1.i.i.i34 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i13, i64 80
   %cmp.not.i.i.i35 = icmp eq ptr %incdec.ptr.i.i.i33, %0
@@ -9835,17 +9835,14 @@ attributes #29 = { builtin allocsize(0) }
 !119 = !{!120}
 !120 = distinct !{!120, !121, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm: %agg.result"}
 !121 = distinct !{!121, !"_ZN4absl12lts_2023080218container_internal5probeERKNS1_12CommonFieldsEm"}
-!122 = distinct !{!122, !17, !123}
-!123 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!124 = distinct !{!124, !123}
-!125 = distinct !{!125, !17}
+!122 = distinct !{!122, !17}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!125 = distinct !{!125, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!128 = distinct !{!128, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_"}
-!129 = !{!130}
-!130 = distinct !{!130, !128, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!127 = distinct !{!127, !125, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
+!130 = distinct !{!130, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_"}
 !131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__dest"}
-!133 = distinct !{!133, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_"}
-!134 = !{!135}
-!135 = distinct !{!135, !133, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}
+!132 = distinct !{!132, !130, !"_ZSt19__relocate_object_aIN6google8protobuf8compiler3cpp14FieldGeneratorES4_SaIS4_EEvPT_PT0_RT1_: %__orig"}

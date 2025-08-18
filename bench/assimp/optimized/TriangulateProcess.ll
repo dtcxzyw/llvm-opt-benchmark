@@ -3605,7 +3605,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4N
   store ptr %54, ptr %88, align 8
   %.not = icmp eq i64 %.09, 0
   %89 = add nsw i64 %.09, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !46
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNS5_14eliminateHolesIS9_IS9_I10aiVector2tIfESaISH_EESaISJ_EEEES7_RKT_S7_EUlPKS6_SQ_E_EEEvSM_T0_ST_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN6mapbox6detail6EarcutIjE4NodeESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNS5_14eliminateHolesIS9_IS9_I10aiVector2tIfESaISH_EESaISJ_EEEES7_RKT_S7_EUlPKS6_SQ_E_EEEvSM_T0_ST_T1_T2_.exit, %3
   ret void
@@ -3667,7 +3667,7 @@ define linkonce_odr hidden noundef ptr @_ZN6mapbox6detail6EarcutIjE14findHoleBri
   %.188 = phi ptr [ %.087, %12 ], [ %.087, %17 ], [ %.078., %30 ], [ %.087, %8 ]
   %.183 = phi double [ %.082, %12 ], [ %.082, %17 ], [ %27, %30 ], [ %.082, %8 ]
   %.not = icmp eq ptr %.pre, %2
-  br i1 %.not, label %33, label %8, !llvm.loop !47
+  br i1 %.not, label %33, label %8, !llvm.loop !45
 
 33:                                               ; preds = %.thread
   %.not102 = icmp eq ptr %.188, null
@@ -3839,7 +3839,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread: ; preds = %1
   %156 = getelementptr inbounds nuw i8, ptr %.179, i64 32
   %157 = load ptr, ptr %156, align 8
   %.not103 = icmp eq ptr %157, %.188
-  br i1 %.not103, label %.loopexit, label %42, !llvm.loop !48
+  br i1 %.not103, label %.loopexit, label %42, !llvm.loop !46
 
 .loopexit:                                        ; preds = %30, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread, %33
   %.3 = phi ptr [ null, %33 ], [ %.5, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread ], [ %.078., %30 ]
@@ -4030,7 +4030,7 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
   %56 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store ptr %55, ptr %56, align 8
   %.not19 = icmp eq ptr %55, %1
-  br i1 %.not19, label %57, label %6, !llvm.loop !49
+  br i1 %.not19, label %57, label %6, !llvm.loop !47
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 48
@@ -4057,7 +4057,7 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
 
 62:                                               ; preds = %63
   %exitcond.not.i = icmp eq i32 %64, %.0.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i.preheader, label %63, !llvm.loop !50
+  br i1 %exitcond.not.i, label %._crit_edge.us.i.preheader, label %63, !llvm.loop !48
 
 63:                                               ; preds = %62, %.lr.ph.us.i
   %.04469.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %64, %62 ]
@@ -4148,18 +4148,18 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
   %.361.us.i = phi ptr [ %.260.us.i, %97 ], [ %.050.us.i, %96 ]
   %100 = getelementptr inbounds nuw i8, ptr %.050.us.i, i64 48
   store ptr %.149.us.i, ptr %100, align 8
-  br label %._crit_edge.us.i, !llvm.loop !51
+  br label %._crit_edge.us.i, !llvm.loop !49
 
 .loopexit.us.i:                                   ; preds = %68
   %.not.us.i = icmp eq ptr %.253.us.i, null
-  br i1 %.not.us.i, label %._crit_edge81.i, label %.lr.ph.us.i, !llvm.loop !52
+  br i1 %.not.us.i, label %._crit_edge81.i, label %.lr.ph.us.i, !llvm.loop !50
 
 ._crit_edge81.i:                                  ; preds = %.loopexit.us.i
   %101 = getelementptr inbounds nuw i8, ptr %.149.us.i, i64 56
   store ptr null, ptr %101, align 8
   %102 = icmp eq i32 %.04678.us.i, 0
   %103 = shl nuw nsw i32 %.0.i, 1
-  br i1 %102, label %_ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit, label %.lr.ph.us.i.preheader, !llvm.loop !53
+  br i1 %102, label %_ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit, label %.lr.ph.us.i.preheader, !llvm.loop !51
 
 _ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit: ; preds = %._crit_edge81.i
   ret void
@@ -4361,7 +4361,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread: ; preds = %1
   %.0.in = getelementptr inbounds nuw i8, ptr %.088, i64 56
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !52
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread, %27
   %.1.in90 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4437,7 +4437,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread: ; preds = 
   %.1.in = getelementptr inbounds nuw i8, ptr %.193, i64 48
   %.1 = load ptr, ptr %.1.in, align 8
   %.not68 = icmp eq ptr %.1, null
-  br i1 %.not68, label %.critedge2, label %.lr.ph94, !llvm.loop !55
+  br i1 %.not68, label %.critedge2, label %.lr.ph94, !llvm.loop !53
 
 .critedge2:                                       ; preds = %138, %.lr.ph94, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread, %183, %.critedge, %2
   %.065 = phi i1 [ false, %2 ], [ true, %.critedge ], [ true, %.lr.ph94 ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit82.thread ], [ false, %183 ], [ false, %138 ]
@@ -4534,7 +4534,7 @@ _ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread: ; preds = %.
   %.0.in = getelementptr inbounds nuw i8, ptr %.027, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, %4
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 .loopexit:                                        ; preds = %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread, %47, %.preheader, %2
   %.023 = phi i1 [ false, %2 ], [ true, %.preheader ], [ true, %_ZNK6mapbox6detail6EarcutIjE15pointInTriangleEdddddddd.exit.thread ], [ false, %47 ]
@@ -4967,7 +4967,7 @@ _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit51: ; preds = %103, %52,
   %240 = getelementptr inbounds nuw i8, ptr %.125, i64 32
   %241 = load ptr, ptr %240, align 8
   %.not = icmp eq ptr %241, %.1
-  br i1 %.not, label %.preheader, label %5, !llvm.loop !57
+  br i1 %.not, label %.preheader, label %5, !llvm.loop !55
 
 .preheader:                                       ; preds = %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit51, %._crit_edge.i52
   %.120.i = phi ptr [ %.3.i, %._crit_edge.i52 ], [ %241, %_ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit51 ]
@@ -5305,7 +5305,7 @@ _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit.i46: ; preds = %109, %.
   %.022.in = getelementptr inbounds nuw i8, ptr %.02254, i64 32
   %.022 = load ptr, ptr %.022.in, align 8
   %.not.not = icmp eq ptr %.022, %119
-  br i1 %.not.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %118
   %.pre58 = load ptr, ptr %5, align 8
@@ -5314,7 +5314,7 @@ _ZN6mapbox6detail6EarcutIjE10removeNodeEPNS2_4NodeE.exit.i46: ; preds = %109, %.
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
   %.1 = phi ptr [ %.pre58, %._crit_edge.loopexit ], [ %6, %4 ]
   %.not24 = icmp eq ptr %.1, %1
-  br i1 %.not24, label %.loopexit, label %4, !llvm.loop !59
+  br i1 %.not24, label %.loopexit, label %4, !llvm.loop !57
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge.thread
   ret void
@@ -5552,7 +5552,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6mapbox6detail6EarcutIjE15isVa
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not27.i = icmp eq ptr %24, %1
-  br i1 %.not27.i, label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit, label %.preheader, !llvm.loop !60
+  br i1 %.not27.i, label %_ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit, label %.preheader, !llvm.loop !58
 
 _ZN6mapbox6detail6EarcutIjE17intersectsPolygonEPKNS2_4NodeES5_.exit: ; preds = %22
   %25 = load ptr, ptr %9, align 8
@@ -5729,7 +5729,7 @@ _ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit28.thread: ; pred
 160:                                              ; preds = %158, %146, %137
   %.1.i = phi i1 [ %159, %158 ], [ %.023.i, %146 ], [ %.023.i, %137 ]
   %.not27.i31 = icmp eq ptr %141, %1
-  br i1 %.not27.i31, label %_ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit, label %137, !llvm.loop !61
+  br i1 %.not27.i31, label %_ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit, label %137, !llvm.loop !59
 
 _ZN6mapbox6detail6EarcutIjE12middleInsideEPKNS2_4NodeES5_.exit: ; preds = %160
   br i1 %.1.i, label %161, label %_ZN6mapbox6detail6EarcutIjE13locallyInsideEPKNS2_4NodeES5_.exit.thread33
@@ -5881,15 +5881,15 @@ attributes #20 = { noreturn }
 !41 = distinct !{!41, !4}
 !42 = distinct !{!42, !4}
 !43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !4}
+!45 = distinct !{!45, !4}
 !46 = distinct !{!46, !4}
 !47 = distinct !{!47, !4}
 !48 = distinct !{!48, !4}
 !49 = distinct !{!49, !4}
 !50 = distinct !{!50, !4}
 !51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4, !45}
+!52 = distinct !{!52, !4}
 !53 = distinct !{!53, !4}
 !54 = distinct !{!54, !4}
 !55 = distinct !{!55, !4}
@@ -5897,5 +5897,3 @@ attributes #20 = { noreturn }
 !57 = distinct !{!57, !4}
 !58 = distinct !{!58, !4}
 !59 = distinct !{!59, !4}
-!60 = distinct !{!60, !4}
-!61 = distinct !{!61, !4}

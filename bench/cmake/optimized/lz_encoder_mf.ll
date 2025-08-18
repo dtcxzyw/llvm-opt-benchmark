@@ -357,7 +357,7 @@ lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us
   %56 = icmp ne i32 %18, 0
   %.not.us = icmp ult i32 %54, %7
   %or.cond.us = select i1 %56, i1 %.not.us, i1 false
-  br i1 %or.cond.us, label %.lr.ph93.split.us, label %._crit_edge, !llvm.loop !32
+  br i1 %or.cond.us, label %.lr.ph93.split.us, label %._crit_edge
 
 57:                                               ; preds = %.preheader.us
   %58 = add i32 %.017.i87.us, 8
@@ -496,7 +496,7 @@ define dso_local void @lzma_mf_hc3_skip(ptr noundef captures(none) %0, i32 nound
 move_pos.exit:                                    ; preds = %60, %19, %15
   %61 = add i32 %.0, -1
   %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %62, label %12, !llvm.loop !34
+  br i1 %.not, label %62, label %12, !llvm.loop !32
 
 62:                                               ; preds = %move_pos.exit
   ret void
@@ -842,7 +842,7 @@ define dso_local void @lzma_mf_hc4_skip(ptr noundef captures(none) %0, i32 nound
 move_pos.exit:                                    ; preds = %71, %19, %15
   %72 = add i32 %.0, -1
   %.not = icmp eq i32 %72, 0
-  br i1 %.not, label %73, label %12, !llvm.loop !36
+  br i1 %.not, label %73, label %12, !llvm.loop !34
 
 73:                                               ; preds = %move_pos.exit
   ret void
@@ -866,7 +866,7 @@ define dso_local i32 @lzma_mf_bt2_find(ptr noundef captures(none) %0, ptr nounde
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load i32, ptr %11, align 8, !tbaa !37
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %19
 
@@ -1094,7 +1094,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = load i32, ptr %6, align 8, !tbaa !37
+  %20 = load i32, ptr %6, align 8, !tbaa !35
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %26
 
@@ -1264,7 +1264,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %lzm
 move_pos.exit:                                    ; preds = %100, %bt_skip_func.exit, %22
   %101 = add i32 %.0, -1
   %.not29 = icmp eq i32 %101, 0
-  br i1 %.not29, label %102, label %14, !llvm.loop !38
+  br i1 %.not29, label %102, label %14, !llvm.loop !36
 
 102:                                              ; preds = %move_pos.exit
   ret void
@@ -1288,7 +1288,7 @@ define dso_local i32 @lzma_mf_bt3_find(ptr noundef captures(none) %0, ptr nounde
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load i32, ptr %11, align 8, !tbaa !37
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %19
 
@@ -1740,7 +1740,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr %6, align 8, !tbaa !37
+  %21 = load i32, ptr %6, align 8, !tbaa !35
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %27
 
@@ -1929,7 +1929,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %lzm
 move_pos.exit:                                    ; preds = %120, %bt_skip_func.exit, %23
   %121 = add i32 %.0, -1
   %.not37 = icmp eq i32 %121, 0
-  br i1 %.not37, label %122, label %15, !llvm.loop !39
+  br i1 %.not37, label %122, label %15, !llvm.loop !37
 
 122:                                              ; preds = %move_pos.exit
   ret void
@@ -1953,7 +1953,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr noundef captures(none) %0, ptr nounde
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load i32, ptr %11, align 8, !tbaa !37
+  %12 = load i32, ptr %11, align 8, !tbaa !35
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %19
 
@@ -2469,7 +2469,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr %6, align 8, !tbaa !37
+  %21 = load i32, ptr %6, align 8, !tbaa !35
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %27
 
@@ -2670,7 +2670,7 @@ bt_skip_func.exit:                                ; preds = %._crit_edge.i, %lzm
 move_pos.exit:                                    ; preds = %131, %bt_skip_func.exit, %23
   %132 = add i32 %.0, -1
   %.not43 = icmp eq i32 %132, 0
-  br i1 %.not43, label %133, label %15, !llvm.loop !40
+  br i1 %.not43, label %133, label %15, !llvm.loop !38
 
 133:                                              ; preds = %move_pos.exit
   ret void
@@ -2685,7 +2685,7 @@ define internal fastcc void @normalize(ptr noundef captures(none) %0) unnamed_ad
   %3 = load i32, ptr %2, align 4, !tbaa !27
   %4 = xor i32 %3, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %6 = load i32, ptr %5, align 4, !tbaa !41
+  %6 = load i32, ptr %5, align 4, !tbaa !39
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
@@ -2696,7 +2696,7 @@ define internal fastcc void @normalize(ptr noundef captures(none) %0) unnamed_ad
 
 .preheader:                                       ; preds = %13, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load i32, ptr %9, align 8, !tbaa !42
+  %10 = load i32, ptr %9, align 8, !tbaa !40
   %.not33 = icmp eq i32 %10, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph32
 
@@ -2712,10 +2712,10 @@ define internal fastcc void @normalize(ptr noundef captures(none) %0) unnamed_ad
   %storemerge29 = tail call i32 @llvm.usub.sat.i32(i32 %15, i32 %4)
   store i32 %storemerge29, ptr %14, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %5, align 4, !tbaa !41
+  %16 = load i32, ptr %5, align 4, !tbaa !39
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %13, label %.preheader, !llvm.loop !43
+  br i1 %18, label %13, label %.preheader, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2731,10 +2731,10 @@ define internal fastcc void @normalize(ptr noundef captures(none) %0) unnamed_ad
   %storemerge = tail call i32 @llvm.usub.sat.i32(i32 %24, i32 %4)
   store i32 %storemerge, ptr %23, align 4, !tbaa !20
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %25 = load i32, ptr %9, align 8, !tbaa !42
+  %25 = load i32, ptr %9, align 8, !tbaa !40
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next36, %26
-  br i1 %27, label %22, label %._crit_edge, !llvm.loop !44
+  br i1 %27, label %22, label %._crit_edge, !llvm.loop !42
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2788,15 +2788,13 @@ attributes #5 = { nounwind }
 !30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !31 = !{!5, !10, i64 92}
 !32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!5, !10, i64 104}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35}
-!40 = distinct !{!40, !35}
-!41 = !{!5, !10, i64 108}
-!42 = !{!5, !10, i64 112}
-!43 = distinct !{!43, !35}
-!44 = distinct !{!44, !35}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !33}
+!35 = !{!5, !10, i64 104}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}
+!39 = !{!5, !10, i64 108}
+!40 = !{!5, !10, i64 112}
+!41 = distinct !{!41, !33}
+!42 = distinct !{!42, !33}

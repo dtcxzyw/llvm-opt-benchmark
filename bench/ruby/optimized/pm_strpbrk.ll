@@ -108,11 +108,11 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
 54:                                               ; preds = %52, %50, %45
   %.1.i = phi i64 [ %46, %45 ], [ %51, %50 ], [ %53, %52 ]
   %55 = icmp ult i64 %.1.i, %3
-  br i1 %55, label %.split.i, label %pm_strpbrk_utf8.exit, !llvm.loop !37
+  br i1 %55, label %.split.i, label %pm_strpbrk_utf8.exit, !llvm.loop !35
 
 56:                                               ; preds = %7
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %58 = load ptr, ptr %57, align 8, !tbaa !38
+  %58 = load ptr, ptr %57, align 8, !tbaa !36
   %59 = icmp eq ptr %58, getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 96)
   br i1 %59, label %60, label %88
 
@@ -134,7 +134,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
 68:                                               ; preds = %.split.us.i26
   %69 = add nuw nsw i64 %.016.us.i, 1
   %exitcond.not.i = icmp eq i64 %69, %3
-  br i1 %exitcond.not.i, label %pm_strpbrk_utf8.exit, label %.split.us.i26, !llvm.loop !39
+  br i1 %exitcond.not.i, label %pm_strpbrk_utf8.exit, label %.split.us.i26, !llvm.loop !37
 
 .split.i29:                                       ; preds = %60, %85
   %.pre23.i = phi ptr [ %.pre23.i89, %85 ], [ getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 96), %60 ]
@@ -151,7 +151,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %75, label %76, label %85
 
 76:                                               ; preds = %74
-  %77 = load ptr, ptr %61, align 8, !tbaa !40
+  %77 = load ptr, ptr %61, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %pm_strpbrk_explicit_encoding_set.exit.i, label %78
 
@@ -163,21 +163,21 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %.pre23.i, i64 32
-  %83 = load ptr, ptr %82, align 8, !tbaa !41
+  %83 = load ptr, ptr %82, align 8, !tbaa !39
   %84 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %62, ptr noundef nonnull %1, ptr noundef %63, i32 noundef 182, ptr noundef %83) #4
-  %.pre.i = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre.i = load ptr, ptr %57, align 8, !tbaa !36
   br label %pm_strpbrk_explicit_encoding_set.exit.i
 
 pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   %.pre23.i90 = phi ptr [ %.pre23.i, %76 ], [ %.pre23.i, %78 ], [ %.pre.i, %81 ]
-  store ptr %.pre23.i90, ptr %61, align 8, !tbaa !40
+  store ptr %.pre23.i90, ptr %61, align 8, !tbaa !38
   br label %85
 
 85:                                               ; preds = %pm_strpbrk_explicit_encoding_set.exit.i, %74
   %.pre23.i89 = phi ptr [ %.pre23.i90, %pm_strpbrk_explicit_encoding_set.exit.i ], [ %.pre23.i, %74 ]
   %86 = add nuw nsw i64 %.016.i, 1
   %exitcond22.not.i = icmp eq i64 %86, %3
-  br i1 %exitcond22.not.i, label %pm_strpbrk_utf8.exit, label %.split.i29, !llvm.loop !43
+  br i1 %exitcond22.not.i, label %pm_strpbrk_utf8.exit, label %.split.i29, !llvm.loop !37
 
 .split.loop.exit14.i:                             ; preds = %.split.us.i26, %.split.i29
   %.us-phi.i28 = phi i64 [ %.016.i, %.split.i29 ], [ %.016.us.i, %.split.us.i26 ]
@@ -186,7 +186,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 
 88:                                               ; preds = %56
   %89 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %90 = load i8, ptr %89, align 8, !tbaa !44, !range !30, !noundef !31
+  %90 = load i8, ptr %89, align 8, !tbaa !41, !range !30, !noundef !31
   %91 = trunc nuw i8 %90 to i1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -209,12 +209,12 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br i1 %100, label %130, label %101
 
 101:                                              ; preds = %99
-  %102 = load ptr, ptr %58, align 8, !tbaa !45
+  %102 = load ptr, ptr %58, align 8, !tbaa !42
   %103 = sub nsw i64 %3, %.03946.us.i
   %104 = tail call i64 %102(ptr noundef nonnull %95, i64 noundef %103) #4
-  %105 = load ptr, ptr %92, align 8, !tbaa !40
+  %105 = load ptr, ptr %92, align 8, !tbaa !38
   %.not.i.us.i = icmp eq ptr %105, null
-  %.pre51.i = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre51.i = load ptr, ptr %57, align 8, !tbaa !36
   br i1 %.not.i.us.i, label %114, label %106
 
 106:                                              ; preds = %101
@@ -226,14 +226,14 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 109:                                              ; preds = %106
   %110 = getelementptr i8, ptr %1, i64 %104
   %111 = getelementptr inbounds nuw i8, ptr %.pre51.i, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !41
+  %112 = load ptr, ptr %111, align 8, !tbaa !39
   %113 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %93, ptr noundef nonnull %1, ptr noundef %110, i32 noundef 182, ptr noundef %112) #4
-  %.pre.i41 = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre.i41 = load ptr, ptr %57, align 8, !tbaa !36
   br label %114
 
 114:                                              ; preds = %109, %106, %101
   %115 = phi ptr [ %.pre.i41, %109 ], [ %.pre51.i, %106 ], [ %.pre51.i, %101 ]
-  store ptr %115, ptr %92, align 8, !tbaa !40
+  store ptr %115, ptr %92, align 8, !tbaa !38
   %.not43.us.i = icmp eq i64 %104, 0
   br i1 %.not43.us.i, label %.preheader.us.i38, label %116
 
@@ -248,12 +248,12 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br i1 %119, label %120, label %.critedge.us.i40
 
 120:                                              ; preds = %.preheader.us.i38
-  %121 = load ptr, ptr %58, align 8, !tbaa !45
+  %121 = load ptr, ptr %58, align 8, !tbaa !42
   %122 = getelementptr i8, ptr %1, i64 %118
   %123 = sub nuw nsw i64 %3, %118
   %124 = tail call i64 %121(ptr noundef %122, i64 noundef %123) #4
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.preheader.us.i38, label %.critedge.us.i40, !llvm.loop !46
+  br i1 %125, label %.preheader.us.i38, label %.critedge.us.i40, !llvm.loop !43
 
 .critedge.us.i40:                                 ; preds = %120, %.preheader.us.i38
   %126 = getelementptr i8, ptr %1, i64 %118
@@ -269,7 +269,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 132:                                              ; preds = %130, %.critedge.us.i40, %116
   %.1.us.i37 = phi i64 [ %131, %130 ], [ %117, %116 ], [ %118, %.critedge.us.i40 ]
   %133 = icmp ult i64 %.1.us.i37, %3
-  br i1 %133, label %.split.us.i35, label %pm_strpbrk_utf8.exit, !llvm.loop !47
+  br i1 %133, label %.split.us.i35, label %pm_strpbrk_utf8.exit, !llvm.loop !44
 
 .split.i31:                                       ; preds = %94, %148
   %.03946.i = phi i64 [ %.1.i34, %148 ], [ 0, %94 ]
@@ -289,7 +289,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br label %148
 
 .thread.i:                                        ; preds = %138
-  %142 = load ptr, ptr %58, align 8, !tbaa !45
+  %142 = load ptr, ptr %58, align 8, !tbaa !42
   %143 = sub nsw i64 %3, %.03946.i
   %144 = tail call i64 %142(ptr noundef nonnull %134, i64 noundef %143) #4
   %.not4344.i = icmp eq i64 %144, 0
@@ -306,7 +306,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 148:                                              ; preds = %.thread45.i, %145, %140
   %.1.i34 = phi i64 [ %141, %140 ], [ %146, %145 ], [ %147, %.thread45.i ]
   %149 = icmp ult i64 %.1.i34, %3
-  br i1 %149, label %.split.i31, label %pm_strpbrk_utf8.exit, !llvm.loop !48
+  br i1 %149, label %.split.i31, label %pm_strpbrk_utf8.exit, !llvm.loop !44
 
 150:                                              ; preds = %88
   br i1 %4, label %.split.i46, label %.split.us.i42
@@ -323,7 +323,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 155:                                              ; preds = %.split.us.i42
   %156 = add nuw nsw i64 %.03843.us.i, 1
   %exitcond.not.i45 = icmp eq i64 %156, %3
-  br i1 %exitcond.not.i45, label %pm_strpbrk_utf8.exit, label %.split.us.i42, !llvm.loop !49
+  br i1 %exitcond.not.i45, label %pm_strpbrk_utf8.exit, label %.split.us.i42, !llvm.loop !45
 
 .split.i46:                                       ; preds = %150, %193
   %.03843.i = phi i64 [ %.1.i48, %193 ], [ 0, %150 ]
@@ -343,12 +343,12 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br label %193
 
 165:                                              ; preds = %161
-  %166 = load ptr, ptr %58, align 8, !tbaa !45
+  %166 = load ptr, ptr %58, align 8, !tbaa !42
   %167 = sub nsw i64 %3, %.03843.i
   %168 = tail call i64 %166(ptr noundef nonnull %157, i64 noundef %167) #4
-  %169 = load ptr, ptr %92, align 8, !tbaa !40
+  %169 = load ptr, ptr %92, align 8, !tbaa !38
   %.not.i.i49 = icmp eq ptr %169, null
-  %.pre50.i = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre50.i = load ptr, ptr %57, align 8, !tbaa !36
   br i1 %.not.i.i49, label %pm_strpbrk_explicit_encoding_set.exit.i51, label %170
 
 170:                                              ; preds = %165
@@ -360,14 +360,14 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
 173:                                              ; preds = %170
   %174 = getelementptr i8, ptr %1, i64 %168
   %175 = getelementptr inbounds nuw i8, ptr %.pre50.i, i64 32
-  %176 = load ptr, ptr %175, align 8, !tbaa !41
+  %176 = load ptr, ptr %175, align 8, !tbaa !39
   %177 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %93, ptr noundef nonnull %1, ptr noundef %174, i32 noundef 182, ptr noundef %176) #4
-  %.pre.i52 = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre.i52 = load ptr, ptr %57, align 8, !tbaa !36
   br label %pm_strpbrk_explicit_encoding_set.exit.i51
 
 pm_strpbrk_explicit_encoding_set.exit.i51:        ; preds = %173, %170, %165
   %178 = phi ptr [ %.pre50.i, %165 ], [ %.pre50.i, %170 ], [ %.pre.i52, %173 ]
-  store ptr %178, ptr %92, align 8, !tbaa !40
+  store ptr %178, ptr %92, align 8, !tbaa !38
   %.not42.i = icmp eq i64 %168, 0
   br i1 %.not42.i, label %.preheader.i, label %179
 
@@ -382,12 +382,12 @@ pm_strpbrk_explicit_encoding_set.exit.i51:        ; preds = %173, %170, %165
   br i1 %182, label %183, label %.critedge.i
 
 183:                                              ; preds = %.preheader.i
-  %184 = load ptr, ptr %58, align 8, !tbaa !45
+  %184 = load ptr, ptr %58, align 8, !tbaa !42
   %185 = getelementptr i8, ptr %1, i64 %181
   %186 = sub nuw nsw i64 %3, %181
   %187 = tail call i64 %184(ptr noundef %185, i64 noundef %186) #4
   %188 = icmp eq i64 %187, 0
-  br i1 %188, label %.preheader.i, label %.critedge.i, !llvm.loop !50
+  br i1 %188, label %.preheader.i, label %.critedge.i, !llvm.loop !46
 
 .critedge.i:                                      ; preds = %183, %.preheader.i
   %189 = getelementptr i8, ptr %1, i64 %181
@@ -399,7 +399,7 @@ pm_strpbrk_explicit_encoding_set.exit.i51:        ; preds = %173, %170, %165
 193:                                              ; preds = %.critedge.i, %179, %163
   %.1.i48 = phi i64 [ %164, %163 ], [ %180, %179 ], [ %181, %.critedge.i ]
   %194 = icmp ult i64 %.1.i48, %3
-  br i1 %194, label %.split.i46, label %pm_strpbrk_utf8.exit, !llvm.loop !51
+  br i1 %194, label %.split.i46, label %pm_strpbrk_utf8.exit, !llvm.loop !45
 
 pm_strpbrk_utf8.exit.loopexit99.split.loop.exit:  ; preds = %.split.us.i42
   %195 = getelementptr i8, ptr %1, i64 %.03843.us.i
@@ -460,20 +460,15 @@ attributes #4 = { nounwind }
 !32 = !{!10, !10, i64 0}
 !33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !34}
+!36 = !{!8, !14, i64 520}
 !37 = distinct !{!37, !34}
-!38 = !{!8, !14, i64 520}
-!39 = distinct !{!39, !34, !36}
-!40 = !{!8, !14, i64 672}
-!41 = !{!42, !16, i64 32}
-!42 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !16, i64 32, !29, i64 40}
+!38 = !{!8, !14, i64 672}
+!39 = !{!40, !16, i64 32}
+!40 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !16, i64 32, !29, i64 40}
+!41 = !{!40, !29, i64 40}
+!42 = !{!40, !14, i64 0}
 !43 = distinct !{!43, !34}
-!44 = !{!42, !29, i64 40}
-!45 = !{!42, !14, i64 0}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
 !46 = distinct !{!46, !34}
-!47 = distinct !{!47, !34, !36}
-!48 = distinct !{!48, !34}
-!49 = distinct !{!49, !34, !36}
-!50 = distinct !{!50, !34}
-!51 = distinct !{!51, !34}

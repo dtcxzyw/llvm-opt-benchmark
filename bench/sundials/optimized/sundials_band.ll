@@ -38,7 +38,7 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %10, i1 false), !tbaa !17
   %13 = add nuw nsw i64 %.0116150.us, 1
   %exitcond.not = icmp eq i64 %13, %1
-  br i1 %exitcond.not, label %.loopexit145, label %.lr.ph.us, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit145, label %.lr.ph.us
 
 .loopexit145:                                     ; preds = %.lr.ph.us, %6
   %14 = add i64 %1, -1
@@ -89,7 +89,7 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph177
   %.0127.lcssa = phi i64 [ %.0126174, %.lr.ph177 ], [ %.1128, %.lr.ph ]
   %29 = sub nsw i64 %.0127.lcssa, %.0126174
-  store i64 %.0127.lcssa, ptr %.0115175, align 8, !tbaa !21
+  store i64 %.0127.lcssa, ptr %.0115175, align 8, !tbaa !19
   %30 = getelementptr double, ptr %17, i64 %29
   %31 = getelementptr double, ptr %30, i64 %4
   %32 = load double, ptr %31, align 8, !tbaa !17
@@ -185,7 +185,7 @@ define i64 @SUNDlsMat_bandGBTRF(ptr noundef readonly captures(none) %0, i64 noun
 
 ._crit_edge178:                                   ; preds = %._crit_edge173, %.loopexit145
   %.0115.lcssa = phi ptr [ %5, %.loopexit145 ], [ %67, %._crit_edge173 ]
-  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !21
+  store i64 %14, ptr %.0115.lcssa, align 8, !tbaa !19
   %68 = getelementptr inbounds ptr, ptr %0, i64 %14
   %69 = load ptr, ptr %68, align 8, !tbaa !16
   %70 = getelementptr inbounds double, ptr %69, i64 %4
@@ -227,7 +227,7 @@ define void @SUNDlsMat_BandGBTRS(ptr noundef readonly captures(none) %0, ptr nou
   %.067.i = phi i64 [ %27, %.loopexit.i ], [ 0, %3 ]
   %smin.i = tail call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 %12)
   %15 = getelementptr inbounds nuw i64, ptr %1, i64 %.067.i
-  %16 = load i64, ptr %15, align 8, !tbaa !21
+  %16 = load i64, ptr %15, align 8, !tbaa !19
   %17 = getelementptr inbounds double, ptr %2, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !17
   %.not.i = icmp eq i64 %16, %.067.i
@@ -321,7 +321,7 @@ define void @SUNDlsMat_bandGBTRS(ptr noundef readonly captures(none) %0, i64 nou
   %.067 = phi i64 [ %22, %.loopexit ], [ 0, %6 ]
   %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv, i64 %7)
   %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.067
-  %11 = load i64, ptr %10, align 8, !tbaa !21
+  %11 = load i64, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds double, ptr %5, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !17
   %.not = icmp eq i64 %11, %.067
@@ -748,6 +748,4 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !16 = !{!9, !9, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = !{!8, !8, i64 0}
+!19 = !{!8, !8, i64 0}

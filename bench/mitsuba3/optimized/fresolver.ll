@@ -1842,7 +1842,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.not = icmp eq ptr %56, %1
-  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !27
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
   %.010 = phi ptr [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %56, %.loopexit ]
@@ -1879,7 +1879,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
 18:                                               ; preds = %.lr.ph.split.us
   %19 = getelementptr inbounds nuw i8, ptr %.012.us, i64 32
   %.not.us = icmp eq ptr %19, %1
-  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
   %.012 = phi ptr [ %56, %.loopexit ], [ %0, %.lr.ph ]
@@ -1957,7 +1957,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.not = icmp eq ptr %56, %1
-  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !31
+  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !28
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
   %.010 = phi ptr [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %56, %.loopexit ]
@@ -2237,9 +2237,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit11.i: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit10.i
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %8, align 16, !alias.scope !32
+  store ptr null, ptr %8, align 16, !alias.scope !29
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %9, align 16, !alias.scope !35
+  store ptr null, ptr %9, align 16, !alias.scope !32
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.7, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit12.i unwind label %.thread28.i
 
@@ -2436,14 +2436,11 @@ attributes #20 = { builtin allocsize(0) }
 !24 = distinct !{!24, !25, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
 !25 = distinct !{!25, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_"}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5, !28}
-!31 = distinct !{!31, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
+!31 = distinct !{!31, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
 !32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
-!34 = distinct !{!34, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv: argument 0"}
-!37 = distinct !{!37, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv"}
+!33 = distinct !{!33, !34, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv: argument 0"}
+!34 = distinct !{!34, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv"}

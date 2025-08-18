@@ -813,7 +813,7 @@ _ZNSolsEPFRSoS_E.exit63.us.i:                     ; preds = %.noexc82.us.i
 
 302:                                              ; preds = %300
   %303 = add nuw nsw i32 %.038.us.i, 1
-  br label %.preheader106.us.i, !llvm.loop !64
+  br label %.preheader106.us.i, !llvm.loop !63
 
 304:                                              ; preds = %300
   invoke void @_ZN7Imf_3_419TiledRgbaOutputFile9writeTileEiii(ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %.0.us.i, i32 noundef %.038.us.i, i32 noundef %.039.us.i)
@@ -821,7 +821,7 @@ _ZNSolsEPFRSoS_E.exit63.us.i:                     ; preds = %.noexc82.us.i
 
 305:                                              ; preds = %304
   %306 = add nuw nsw i32 %.0.us.i, 1
-  br label %.preheader.us.i, !llvm.loop !65
+  br label %.preheader.us.i, !llvm.loop !64
 
 .loopexit.split.us.i:                             ; preds = %.noexc82.us.i, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i77.us.i, %.noexc80.us.i, %278, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61.us.i, %263, %.preheader107.split.us.i
   %lpad.loopexit.us.i = landingpad { ptr, i32 }
@@ -913,7 +913,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 327:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %328 = add nuw nsw i32 %.039.i, 1
-  br label %.preheader107.split.i, !llvm.loop !66
+  br label %.preheader107.split.i, !llvm.loop !62
 
 .split111.i:                                      ; preds = %318, %316, %315, %_ZNSolsEPFRSoS_E.exit63.i
   %329 = landingpad { ptr, i32 }
@@ -936,7 +936,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 
 334:                                              ; preds = %332
   %335 = add nuw nsw i32 %.038.i, 1
-  br label %.preheader106.i, !llvm.loop !64
+  br label %.preheader106.i, !llvm.loop !63
 
 .split117.i:                                      ; preds = %337, %.preheader.i27
   %336 = landingpad { ptr, i32 }
@@ -949,7 +949,7 @@ _ZNSolsEPFRSoS_E.exit63.i:                        ; preds = %311
 
 338:                                              ; preds = %337
   %339 = add nuw nsw i32 %.0.i28, 1
-  br label %.preheader.i27, !llvm.loop !65
+  br label %.preheader.i27, !llvm.loop !64
 
 340:                                              ; preds = %.split117.i, %.split114.i, %.split111.i, %.split117.us.i, %.split114.us.i, %.split111.us.i
   %.pn.pn.i = phi { ptr, i32 } [ %329, %.split111.i ], [ %307, %.split111.us.i ], [ %330, %.split114.i ], [ %308, %.split114.us.i ], [ %336, %.split117.i ], [ %309, %.split117.us.i ]
@@ -1236,8 +1236,6 @@ attributes #15 = { builtin nounwind }
 !59 = !{!"_ZTSN7Imf_3_411CompressionE", !7, i64 0}
 !60 = !{!61, !61, i64 0}
 !61 = !{!"_ZTSN7Imf_3_46EnvmapE", !7, i64 0}
-!62 = distinct !{!62, !55, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !55}
+!63 = distinct !{!63, !55}
 !64 = distinct !{!64, !55}
-!65 = distinct !{!65, !55}
-!66 = distinct !{!66, !55}

@@ -1837,7 +1837,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef null, i32 noundef %69, ptr noundef %2, i32 noundef 19, i32 noundef 0, ptr noundef nonnull @.str.739, i32 noundef %.087125, i32 noundef %70)
   %72 = add nuw nsw i32 %.087125, 1
   %exitcond142.not = icmp eq i32 %72, 8
-  br i1 %exitcond142.not, label %.loopexit.thread, label %.preheader.split, !llvm.loop !13
+  br i1 %exitcond142.not, label %.loopexit.thread, label %.preheader.split, !llvm.loop !11
 
 73:                                               ; preds = %23
   %74 = load i32, ptr @hf_dect_B_Data, align 4
@@ -1880,7 +1880,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
   store i8 %.sink.i.i, ptr %90, align 1
   %96 = add nuw nsw i32 %.02951.i, 1
   %exitcond.not.i = icmp eq i32 %96, 80
-  br i1 %exitcond.not.i, label %97, label %77, !llvm.loop !14
+  br i1 %exitcond.not.i, label %97, label %77, !llvm.loop !12
 
 97:                                               ; preds = %77
   %98 = load i8, ptr %6, align 16
@@ -1919,7 +1919,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
 
 .preheader.i.backedge:                            ; preds = %107, %108
   %.337.i.be = phi i8 [ %104, %107 ], [ %109, %108 ]
-  br label %.preheader.i, !llvm.loop !15
+  br label %.preheader.i, !llvm.loop !13
 
 108:                                              ; preds = %.preheader.i
   %109 = xor i8 %104, 16
@@ -1929,7 +1929,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr noundef r
 .thread.i:                                        ; preds = %108, %107
   %.236.i = phi i8 [ %104, %107 ], [ %109, %108 ]
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, 10
-  br i1 %exitcond63.not.i, label %calc_xcrc.exit, label %99, !llvm.loop !16
+  br i1 %exitcond63.not.i, label %calc_xcrc.exit, label %99, !llvm.loop !14
 
 calc_xcrc.exit:                                   ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2052,9 +2052,7 @@ attributes #6 = { nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}

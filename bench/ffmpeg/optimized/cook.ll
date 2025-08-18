@@ -2247,7 +2247,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   store i32 %.0.i145.i, ptr %149, align 4, !tbaa !92
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i
-  br i1 %exitcond69.not.i, label %.preheader14.i, label %.lr.ph.i21, !llvm.loop !136
+  br i1 %exitcond69.not.i, label %.preheader14.i, label %.lr.ph.i21, !llvm.loop !135
 
 150:                                              ; preds = %206, %.lr.ph47.i
   %.09946.i = phi i32 [ %113, %.lr.ph47.i ], [ %.3.i, %206 ]
@@ -2291,7 +2291,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %.198.i = phi i32 [ %.09738.i, %.lr.ph39.i ], [ %spec.select138.i, %156 ]
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count73.i
-  br i1 %exitcond79.not.i, label %._crit_edge40.i, label %.lr.ph39.i, !llvm.loop !137
+  br i1 %exitcond79.not.i, label %._crit_edge40.i, label %.lr.ph39.i, !llvm.loop !136
 
 ._crit_edge40.i:                                  ; preds = %163
   %164 = icmp eq i32 %.2113.i, -1
@@ -2343,7 +2343,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %.1.i = phi i32 [ %.033.i, %.lr.ph34.i ], [ %spec.select140.i, %182 ]
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
-  br i1 %exitcond74.not.i, label %._crit_edge.i, label %.lr.ph34.i, !llvm.loop !138
+  br i1 %exitcond74.not.i, label %._crit_edge.i, label %.lr.ph34.i, !llvm.loop !137
 
 ._crit_edge.i:                                    ; preds = %190
   %191 = icmp eq i32 %.4115.i, -1
@@ -2376,7 +2376,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %.3.i = phi i32 [ %.09946.i, %.thread.i ], [ %192, %.thread5.i ]
   %207 = add nuw nsw i32 %.110544.i, 1
   %exitcond80.not.i = icmp eq i32 %207, %113
-  br i1 %exitcond80.not.i, label %._crit_edge48.i, label %150, !llvm.loop !139
+  br i1 %exitcond80.not.i, label %._crit_edge48.i, label %150, !llvm.loop !138
 
 ._crit_edge48.i:                                  ; preds = %206, %._crit_edge.i, %._crit_edge40.i, %.preheader14.i
   %.099.lcssa.i = phi i32 [ %113, %.preheader14.i ], [ %.3.i, %206 ], [ %.09946.i, %._crit_edge40.i ], [ %.09946.i, %._crit_edge.i ]
@@ -2426,7 +2426,7 @@ categorize.exit:                                  ; preds = %.lr.ph59.preheader.
   store i32 %spec.select.i25, ptr %220, align 4, !tbaa !92
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next.i26, %216
-  br i1 %exitcond53.not, label %expand_category.exit, label %.lr.ph.i23, !llvm.loop !140
+  br i1 %exitcond53.not, label %expand_category.exit, label %.lr.ph.i23, !llvm.loop !139
 
 expand_category.exit:                             ; preds = %.lr.ph.i23, %categorize.exit
   br i1 %122, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -2443,7 +2443,7 @@ expand_category.exit:                             ; preds = %.lr.ph.i23, %catego
 224:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %224
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %224 ]
@@ -2486,7 +2486,7 @@ expand_category.exit:                             ; preds = %.lr.ph.i23, %catego
   %248 = load i32, ptr %245, align 4, !tbaa !92
   %.neg.i.i = xor i32 %248, -1
   %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
-  %249 = load i32, ptr %240, align 8, !tbaa !142
+  %249 = load i32, ptr %240, align 8, !tbaa !141
   %250 = load i32, ptr %15, align 8, !tbaa !91
   %251 = sub nsw i32 32, %249
   %252 = load i32, ptr %114, align 4, !tbaa !50
@@ -2584,7 +2584,7 @@ expand_category.exit:                             ; preds = %.lr.ph.i23, %catego
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %indvars.iv.next.i.i
   store i32 %318, ptr %gep.i.i, align 4, !tbaa !92
   %319 = icmp sgt i64 %indvars.iv.i.i, 1
-  br i1 %319, label %315, label %.lr.ph59.i.preheader.i, !llvm.loop !143
+  br i1 %319, label %315, label %.lr.ph59.i.preheader.i, !llvm.loop !142
 
 .lr.ph59.i.preheader.i:                           ; preds = %315
   %spec.select53.i.i = select i1 %313, i32 1, i32 %.061.i.i
@@ -2628,12 +2628,12 @@ expand_category.exit:                             ; preds = %.lr.ph.i23, %catego
   store i32 %.sink.i.i, ptr %338, align 4, !tbaa !92
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph59.i.i, !llvm.loop !144
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph59.i.i, !llvm.loop !143
 
 ._crit_edge.i.i:                                  ; preds = %337
   %indvars.iv.next71.i.i = add nuw nsw i64 %indvars.iv70.i.i, 1
   %exitcond75.not.i.i = icmp eq i64 %indvars.iv.next71.i.i, %wide.trip.count74.i.i
-  br i1 %exitcond75.not.i.i, label %unpack_SQVH.exit.i, label %253, !llvm.loop !145
+  br i1 %exitcond75.not.i.i, label %unpack_SQVH.exit.i, label %253, !llvm.loop !144
 
 unpack_SQVH.exit.i:                               ; preds = %._crit_edge.i.i
   %.not30.i = icmp eq i32 %.3.i.i, 0
@@ -2653,7 +2653,7 @@ unpack_SQVH.exit.i:                               ; preds = %._crit_edge.i.i
   store i32 7, ptr %gep.i, align 4, !tbaa !92
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next.i34, %340
-  br i1 %exitcond56.not, label %.thread.i28, label %.lr.ph.i32, !llvm.loop !146
+  br i1 %exitcond56.not, label %.thread.i28, label %.lr.ph.i32, !llvm.loop !145
 
 .thread.i28:                                      ; preds = %.lr.ph.i32, %.preheader.i31, %229
   %.033.i29 = phi i32 [ %232, %229 ], [ 7, %.preheader.i31 ], [ 7, %.lr.ph.i32 ]
@@ -2673,7 +2673,7 @@ unpack_SQVH.exit.i:                               ; preds = %._crit_edge.i.i
   %346 = load i32, ptr %29, align 4, !tbaa !52
   %347 = sext i32 %346 to i64
   %348 = icmp slt i64 %indvars.iv.next44.i, %347
-  br i1 %348, label %229, label %decode_vectors.exit, !llvm.loop !147
+  br i1 %348, label %229, label %decode_vectors.exit, !llvm.loop !146
 
 decode_vectors.exit:                              ; preds = %341, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2874,17 +2874,16 @@ attributes #15 = { cold }
 !131 = distinct !{!131, !64}
 !132 = !{!29, !10, i64 104}
 !133 = distinct !{!133, !64}
-!134 = distinct !{!134, !64, !135}
-!135 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!134 = distinct !{!134, !64}
+!135 = distinct !{!135, !64}
 !136 = distinct !{!136, !64}
 !137 = distinct !{!137, !64}
 !138 = distinct !{!138, !64}
 !139 = distinct !{!139, !64}
 !140 = distinct !{!140, !64}
-!141 = distinct !{!141, !64}
-!142 = !{!43, !10, i64 0}
+!141 = !{!43, !10, i64 0}
+!142 = distinct !{!142, !64}
 !143 = distinct !{!143, !64}
 !144 = distinct !{!144, !64}
 !145 = distinct !{!145, !64}
 !146 = distinct !{!146, !64}
-!147 = distinct !{!147, !64}

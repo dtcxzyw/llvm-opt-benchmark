@@ -612,7 +612,7 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %47 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
   %.not.us = icmp eq ptr %47, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 sub_0:                                            ; preds = %.lr.ph, %63
   %48 = phi ptr [ %64, %63 ], [ %38, %.lr.ph ]
@@ -627,7 +627,7 @@ sub_0:                                            ; preds = %.lr.ph, %63
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %63, label %sub_125, !llvm.loop !8
+  br i1 %53, label %63, label %sub_125, !llvm.loop !6
 
 sub_125:                                          ; preds = %.tail
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -639,7 +639,7 @@ sub_125:                                          ; preds = %.tail
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 21
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %63, label %.tail23.thread, !llvm.loop !8
+  br i1 %58, label %63, label %.tail23.thread, !llvm.loop !6
 
 .tail23.thread:                                   ; preds = %sub_0, %sub_125, %.tail23
   %59 = call ptr @cstring_to_text(ptr noundef nonnull %49) #9
@@ -735,7 +735,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 19
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 46
-  br i1 %29, label %54, label %30, !llvm.loop !10
+  br i1 %29, label %54, label %30, !llvm.loop !8
 
 30:                                               ; preds = %25
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2048, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef nonnull %27) #9
@@ -747,7 +747,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %35 = tail call ptr @__errno_location() #11
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 2
-  br i1 %37, label %54, label %38, !llvm.loop !10
+  br i1 %37, label %54, label %38, !llvm.loop !8
 
 38:                                               ; preds = %34
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -761,7 +761,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %43 = load i32, ptr %18, align 8
   %44 = and i32 %43, 61440
   %45 = icmp eq i32 %44, 32768
-  br i1 %45, label %46, label %54, !llvm.loop !10
+  br i1 %45, label %46, label %54, !llvm.loop !8
 
 46:                                               ; preds = %42
   %47 = call ptr @cstring_to_text(ptr noundef nonnull %27) #9
@@ -1136,7 +1136,5 @@ attributes #11 = { nounwind willreturn memory(none) }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

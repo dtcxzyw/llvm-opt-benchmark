@@ -679,7 +679,7 @@ define internal fastcc void @build_rgb_y_table(ptr noundef %0) unnamed_addr #0 {
   store i64 %15, ptr %16, align 8, !tbaa !62
   %17 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %17, 256
-  br i1 %exitcond.not, label %18, label %9, !llvm.loop !74
+  br i1 %exitcond.not, label %18, label %9, !llvm.loop !73
 
 18:                                               ; preds = %9
   ret void
@@ -710,7 +710,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %12 = load ptr, ptr %11, align 8, !tbaa !75
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -733,7 +733,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit64:                                      ; preds = %.lr.ph106, %27
   %26 = icmp samesign ugt i32 %.in122, 1
-  br i1 %26, label %27, label %ycc_extrgb_convert_internal.exit, !llvm.loop !76
+  br i1 %26, label %27, label %ycc_extrgb_convert_internal.exit, !llvm.loop !75
 
 27:                                               ; preds = %.lr.ph109, %.loopexit64
   %.in122 = phi i32 [ %4, %.lr.ph109 ], [ %28, %.loopexit64 ]
@@ -801,13 +801,13 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %76 = getelementptr inbounds nuw i8, ptr %.044.i105, i64 3
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %.loopexit64, label %.lr.ph106, !llvm.loop !77
+  br i1 %exitcond159.not, label %.loopexit64, label %.lr.ph106, !llvm.loop !76
 
 77:                                               ; preds = %5, %5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %81 = load ptr, ptr %80, align 8, !tbaa !75
+  %81 = load ptr, ptr %80, align 8, !tbaa !74
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !58
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
@@ -830,7 +830,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit66:                                      ; preds = %.lr.ph100, %96
   %95 = icmp samesign ugt i32 %.in120, 1
-  br i1 %95, label %96, label %ycc_extrgb_convert_internal.exit, !llvm.loop !78
+  br i1 %95, label %96, label %ycc_extrgb_convert_internal.exit, !llvm.loop !77
 
 96:                                               ; preds = %.lr.ph103, %.loopexit66
   %.in120 = phi i32 [ %4, %.lr.ph103 ], [ %97, %.loopexit66 ]
@@ -900,13 +900,13 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %146 = getelementptr inbounds nuw i8, ptr %.045.i3899, i64 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit66, label %.lr.ph100, !llvm.loop !79
+  br i1 %exitcond154.not, label %.loopexit66, label %.lr.ph100, !llvm.loop !78
 
 147:                                              ; preds = %5
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %149 = load ptr, ptr %148, align 8, !tbaa !42
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %151 = load ptr, ptr %150, align 8, !tbaa !75
+  %151 = load ptr, ptr %150, align 8, !tbaa !74
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %153 = load ptr, ptr %152, align 8, !tbaa !58
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 40
@@ -929,7 +929,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit68:                                      ; preds = %.lr.ph, %166
   %165 = icmp samesign ugt i32 %.in, 1
-  br i1 %165, label %166, label %ycc_extrgb_convert_internal.exit, !llvm.loop !80
+  br i1 %165, label %166, label %ycc_extrgb_convert_internal.exit, !llvm.loop !79
 
 166:                                              ; preds = %.lr.ph97, %.loopexit68
   %.in = phi i32 [ %4, %.lr.ph97 ], [ %167, %.loopexit68 ]
@@ -997,7 +997,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %215 = getelementptr inbounds nuw i8, ptr %.044.i4394, i64 3
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit68, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond149.not, label %.loopexit68, label %.lr.ph, !llvm.loop !80
 
 216:                                              ; preds = %5, %5
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -1005,7 +1005,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %220 = load i32, ptr %219, align 8, !tbaa !68
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %222 = load ptr, ptr %221, align 8, !tbaa !75
+  %222 = load ptr, ptr %221, align 8, !tbaa !74
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %224 = load ptr, ptr %223, align 8, !tbaa !58
   %225 = getelementptr inbounds nuw i8, ptr %218, i64 40
@@ -1090,13 +1090,13 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %282 = getelementptr inbounds nuw i8, ptr %.045.i4888.us, i64 4
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %..loopexit70_crit_edge.us, label %246, !llvm.loop !82
+  br i1 %exitcond144.not, label %..loopexit70_crit_edge.us, label %246, !llvm.loop !81
 
 ..loopexit70_crit_edge.us:                        ; preds = %246
   %283 = add i32 %.0.i4690.us, 1
   %284 = getelementptr inbounds nuw i8, ptr %.043.i4589.us, i64 8
   %285 = icmp samesign ugt i32 %.in167, 1
-  br i1 %285, label %.lr.ph.us92, label %ycc_extrgb_convert_internal.exit, !llvm.loop !83
+  br i1 %285, label %.lr.ph.us92, label %ycc_extrgb_convert_internal.exit, !llvm.loop !82
 
 286:                                              ; preds = %5, %5
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -1104,7 +1104,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %290 = load i32, ptr %289, align 8, !tbaa !68
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %292 = load ptr, ptr %291, align 8, !tbaa !75
+  %292 = load ptr, ptr %291, align 8, !tbaa !74
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %294 = load ptr, ptr %293, align 8, !tbaa !58
   %295 = getelementptr inbounds nuw i8, ptr %288, i64 40
@@ -1189,13 +1189,13 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %352 = getelementptr inbounds nuw i8, ptr %.045.i5382.us, i64 4
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %..loopexit72_crit_edge.us, label %316, !llvm.loop !84
+  br i1 %exitcond139.not, label %..loopexit72_crit_edge.us, label %316, !llvm.loop !83
 
 ..loopexit72_crit_edge.us:                        ; preds = %316
   %353 = add i32 %.0.i5184.us, 1
   %354 = getelementptr inbounds nuw i8, ptr %.043.i5083.us, i64 8
   %355 = icmp samesign ugt i32 %.in166, 1
-  br i1 %355, label %.lr.ph.us86, label %ycc_extrgb_convert_internal.exit, !llvm.loop !85
+  br i1 %355, label %.lr.ph.us86, label %ycc_extrgb_convert_internal.exit, !llvm.loop !84
 
 356:                                              ; preds = %5, %5
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -1203,7 +1203,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %360 = load i32, ptr %359, align 8, !tbaa !68
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %362 = load ptr, ptr %361, align 8, !tbaa !75
+  %362 = load ptr, ptr %361, align 8, !tbaa !74
   %363 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %364 = load ptr, ptr %363, align 8, !tbaa !58
   %365 = getelementptr inbounds nuw i8, ptr %358, i64 40
@@ -1288,19 +1288,19 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %422 = getelementptr inbounds nuw i8, ptr %.045.i5877.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %386, !llvm.loop !86
+  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %386, !llvm.loop !85
 
 ..loopexit74_crit_edge.us:                        ; preds = %386
   %423 = add i32 %.0.i5679.us, 1
   %424 = getelementptr inbounds nuw i8, ptr %.043.i5578.us, i64 8
   %425 = icmp samesign ugt i32 %.in165, 1
-  br i1 %425, label %.lr.ph.us, label %ycc_extrgb_convert_internal.exit, !llvm.loop !87
+  br i1 %425, label %.lr.ph.us, label %ycc_extrgb_convert_internal.exit, !llvm.loop !86
 
 426:                                              ; preds = %5
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %428 = load ptr, ptr %427, align 8, !tbaa !42
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %430 = load ptr, ptr %429, align 8, !tbaa !75
+  %430 = load ptr, ptr %429, align 8, !tbaa !74
   %431 = getelementptr inbounds nuw i8, ptr %428, i64 32
   %432 = load ptr, ptr %431, align 8, !tbaa !58
   %433 = getelementptr inbounds nuw i8, ptr %428, i64 40
@@ -1323,7 +1323,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit:                                        ; preds = %.lr.ph112, %445
   %444 = icmp samesign ugt i32 %.in124, 1
-  br i1 %444, label %445, label %ycc_extrgb_convert_internal.exit, !llvm.loop !88
+  br i1 %444, label %445, label %ycc_extrgb_convert_internal.exit, !llvm.loop !87
 
 445:                                              ; preds = %.lr.ph115, %.loopexit
   %.in124 = phi i32 [ %4, %.lr.ph115 ], [ %446, %.loopexit ]
@@ -1391,7 +1391,7 @@ define internal void @ycc_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %494 = getelementptr inbounds nuw i8, ptr %.044.i63111, i64 3
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph112, !llvm.loop !89
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph112, !llvm.loop !88
 
 ycc_extrgb_convert_internal.exit:                 ; preds = %..loopexit74_crit_edge.us, %..loopexit72_crit_edge.us, %..loopexit70_crit_edge.us, %.loopexit68, %.loopexit66, %.loopexit64, %.loopexit, %.lr.ph80, %.lr.ph85, %.lr.ph91, %356, %286, %216, %147, %77, %8, %426
   ret void
@@ -1512,13 +1512,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %23 = getelementptr inbounds nuw i8, ptr %.014.i105.us, i64 3
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %..loopexit64_crit_edge.us, label %18, !llvm.loop !90
+  br i1 %exitcond161.not, label %..loopexit64_crit_edge.us, label %18, !llvm.loop !89
 
 ..loopexit64_crit_edge.us:                        ; preds = %18
   %24 = add i32 %.0.i108.us, 1
   %25 = getelementptr inbounds nuw i8, ptr %.015.i107.us, i64 8
   %26 = icmp samesign ugt i32 %.in171, 1
-  br i1 %26, label %.lr.ph.us110, label %gray_extrgb_convert_internal.exit, !llvm.loop !91
+  br i1 %26, label %.lr.ph.us110, label %gray_extrgb_convert_internal.exit, !llvm.loop !90
 
 27:                                               ; preds = %5, %5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1559,13 +1559,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %43 = getelementptr inbounds nuw i8, ptr %.015.i3799.us, i64 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %..loopexit66_crit_edge.us, label %37, !llvm.loop !92
+  br i1 %exitcond156.not, label %..loopexit66_crit_edge.us, label %37, !llvm.loop !91
 
 ..loopexit66_crit_edge.us:                        ; preds = %37
   %44 = add i32 %.0.i36102.us, 1
   %45 = getelementptr inbounds nuw i8, ptr %.016.i35101.us, i64 8
   %46 = icmp samesign ugt i32 %.in170, 1
-  br i1 %46, label %.lr.ph.us104, label %gray_extrgb_convert_internal.exit, !llvm.loop !93
+  br i1 %46, label %.lr.ph.us104, label %gray_extrgb_convert_internal.exit, !llvm.loop !92
 
 47:                                               ; preds = %5
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1604,13 +1604,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %62 = getelementptr inbounds nuw i8, ptr %.014.i4293.us, i64 3
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %..loopexit68_crit_edge.us, label %57, !llvm.loop !94
+  br i1 %exitcond151.not, label %..loopexit68_crit_edge.us, label %57, !llvm.loop !93
 
 ..loopexit68_crit_edge.us:                        ; preds = %57
   %63 = add i32 %.0.i4196.us, 1
   %64 = getelementptr inbounds nuw i8, ptr %.015.i4095.us, i64 8
   %65 = icmp samesign ugt i32 %.in169, 1
-  br i1 %65, label %.lr.ph.us98, label %gray_extrgb_convert_internal.exit, !llvm.loop !95
+  br i1 %65, label %.lr.ph.us98, label %gray_extrgb_convert_internal.exit, !llvm.loop !94
 
 66:                                               ; preds = %5, %5
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1651,13 +1651,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %82 = getelementptr inbounds nuw i8, ptr %.015.i4787.us, i64 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %..loopexit70_crit_edge.us, label %76, !llvm.loop !96
+  br i1 %exitcond146.not, label %..loopexit70_crit_edge.us, label %76, !llvm.loop !95
 
 ..loopexit70_crit_edge.us:                        ; preds = %76
   %83 = add i32 %.0.i4690.us, 1
   %84 = getelementptr inbounds nuw i8, ptr %.016.i4589.us, i64 8
   %85 = icmp samesign ugt i32 %.in168, 1
-  br i1 %85, label %.lr.ph.us92, label %gray_extrgb_convert_internal.exit, !llvm.loop !97
+  br i1 %85, label %.lr.ph.us92, label %gray_extrgb_convert_internal.exit, !llvm.loop !96
 
 86:                                               ; preds = %5, %5
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1698,13 +1698,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %102 = getelementptr inbounds nuw i8, ptr %.015.i5281.us, i64 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %..loopexit72_crit_edge.us, label %96, !llvm.loop !98
+  br i1 %exitcond141.not, label %..loopexit72_crit_edge.us, label %96, !llvm.loop !97
 
 ..loopexit72_crit_edge.us:                        ; preds = %96
   %103 = add i32 %.0.i5184.us, 1
   %104 = getelementptr inbounds nuw i8, ptr %.016.i5083.us, i64 8
   %105 = icmp samesign ugt i32 %.in167, 1
-  br i1 %105, label %.lr.ph.us86, label %gray_extrgb_convert_internal.exit, !llvm.loop !99
+  br i1 %105, label %.lr.ph.us86, label %gray_extrgb_convert_internal.exit, !llvm.loop !98
 
 106:                                              ; preds = %5, %5
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1745,13 +1745,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %122 = getelementptr inbounds nuw i8, ptr %.015.i5776.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %116, !llvm.loop !100
+  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %116, !llvm.loop !99
 
 ..loopexit74_crit_edge.us:                        ; preds = %116
   %123 = add i32 %.0.i5679.us, 1
   %124 = getelementptr inbounds nuw i8, ptr %.016.i5578.us, i64 8
   %125 = icmp samesign ugt i32 %.in, 1
-  br i1 %125, label %.lr.ph.us, label %gray_extrgb_convert_internal.exit, !llvm.loop !101
+  br i1 %125, label %.lr.ph.us, label %gray_extrgb_convert_internal.exit, !llvm.loop !100
 
 126:                                              ; preds = %5
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1790,13 +1790,13 @@ define internal void @gray_rgb_convert(ptr noundef readonly captures(none) %0, p
   %141 = getelementptr inbounds nuw i8, ptr %.014.i62111.us, i64 3
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %..loopexit_crit_edge.us, label %136, !llvm.loop !102
+  br i1 %exitcond166.not, label %..loopexit_crit_edge.us, label %136, !llvm.loop !101
 
 ..loopexit_crit_edge.us:                          ; preds = %136
   %142 = add i32 %.0.i61114.us, 1
   %143 = getelementptr inbounds nuw i8, ptr %.015.i60113.us, i64 8
   %144 = icmp samesign ugt i32 %.in172, 1
-  br i1 %144, label %.lr.ph.us116, label %gray_extrgb_convert_internal.exit, !llvm.loop !103
+  br i1 %144, label %.lr.ph.us116, label %gray_extrgb_convert_internal.exit, !llvm.loop !102
 
 gray_extrgb_convert_internal.exit:                ; preds = %..loopexit74_crit_edge.us, %..loopexit72_crit_edge.us, %..loopexit70_crit_edge.us, %..loopexit68_crit_edge.us, %..loopexit66_crit_edge.us, %..loopexit64_crit_edge.us, %..loopexit_crit_edge.us, %106, %86, %66, %47, %27, %8, %126
   ret void
@@ -1870,13 +1870,13 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   store i8 %40, ptr %38, align 1, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit90_crit_edge.us, label %29, !llvm.loop !104
+  br i1 %exitcond.not, label %..loopexit90_crit_edge.us, label %29, !llvm.loop !103
 
 ..loopexit90_crit_edge.us:                        ; preds = %29
   %42 = add i32 %.196.us, 1
   %43 = getelementptr inbounds nuw i8, ptr %.17195.us, i64 8
   %44 = icmp samesign ugt i32 %.in, 1
-  br i1 %44, label %.lr.ph.us, label %.loopexit, !llvm.loop !105
+  br i1 %44, label %.lr.ph.us, label %.loopexit, !llvm.loop !104
 
 .preheader88:                                     ; preds = %5
   br i1 %10, label %.lr.ph102, label %.loopexit
@@ -1926,69 +1926,70 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   store i8 %67, ptr %65, align 1, !tbaa !37
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %..loopexit87_crit_edge.us, label %59, !llvm.loop !106
+  br i1 %exitcond129.not, label %..loopexit87_crit_edge.us, label %59, !llvm.loop !105
 
 ..loopexit87_crit_edge.us:                        ; preds = %59
   %69 = add i32 %.069101.us, 1
   %70 = getelementptr inbounds nuw i8, ptr %.070100.us, i64 8
   %71 = icmp samesign ugt i32 %.in140, 1
-  br i1 %71, label %.lr.ph.us103, label %.loopexit, !llvm.loop !107
+  br i1 %71, label %.lr.ph.us103, label %.loopexit, !llvm.loop !106
 
 .preheader86:                                     ; preds = %5
   br i1 %10, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader86
-  %72 = icmp sgt i32 %7, 0
-  %.not117 = icmp eq i32 %9, 0
+  %72 = icmp slt i32 %7, 1
   %73 = sext i32 %7 to i64
-  br i1 %72, label %.preheader.us.preheader, label %.loopexit
+  %.not117 = icmp eq i32 %9, 0
+  %or.cond = select i1 %72, i1 true, i1 %.not117
+  br i1 %or.cond, label %.loopexit, label %.preheader.us.us.preheader
 
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+.preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %wide.trip.count138 = zext nneg i32 %7 to i64
   %wide.trip.count133 = zext i32 %9 to i64
-  br label %.preheader.us
+  br label %.preheader.us.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge108.us
-  %.in141 = phi i32 [ %74, %._crit_edge108.us ], [ %4, %.preheader.us.preheader ]
-  %.2112.us = phi i32 [ %77, %._crit_edge108.us ], [ %2, %.preheader.us.preheader ]
-  %.272110.us = phi ptr [ %76, %._crit_edge108.us ], [ %3, %.preheader.us.preheader ]
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge108.split.us.us.us
+  %.in141 = phi i32 [ %74, %._crit_edge108.split.us.us.us ], [ %4, %.preheader.us.us.preheader ]
+  %.2112.us.us = phi i32 [ %87, %._crit_edge108.split.us.us.us ], [ %2, %.preheader.us.us.preheader ]
+  %.272110.us.us = phi ptr [ %86, %._crit_edge108.split.us.us.us ], [ %3, %.preheader.us.us.preheader ]
   %74 = add nsw i32 %.in141, -1
-  %75 = zext i32 %.2112.us to i64
-  br i1 %.not117, label %._crit_edge108.us, label %.lr.ph.us109.us
+  %75 = zext i32 %.2112.us.us to i64
+  br label %.lr.ph.us109.us.us
 
-._crit_edge108.us:                                ; preds = %._crit_edge.us.us, %.preheader.us
-  %76 = getelementptr inbounds nuw i8, ptr %.272110.us, i64 8
-  %77 = add i32 %.2112.us, 1
-  %78 = icmp sgt i32 %.in141, 1
-  br i1 %78, label %.preheader.us, label %.loopexit, !llvm.loop !108
+.lr.ph.us109.us.us:                               ; preds = %._crit_edge.us.us.us, %.preheader.us.us
+  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
+  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv135
+  %77 = load ptr, ptr %76, align 8, !tbaa !67
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %75
+  %79 = load ptr, ptr %78, align 8, !tbaa !70
+  %80 = load ptr, ptr %.272110.us.us, align 8, !tbaa !70
+  br label %81
 
-.lr.ph.us109.us:                                  ; preds = %.preheader.us, %._crit_edge.us.us
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %._crit_edge.us.us ], [ 0, %.preheader.us ]
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv135
-  %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %75
-  %82 = load ptr, ptr %81, align 8, !tbaa !70
-  %83 = load ptr, ptr %.272110.us, align 8, !tbaa !70
-  br label %84
-
-84:                                               ; preds = %84, %.lr.ph.us109.us
-  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %84 ], [ 0, %.lr.ph.us109.us ]
-  %.278104.us.us = phi ptr [ %88, %84 ], [ %83, %.lr.ph.us109.us ]
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv130
-  %86 = load i8, ptr %85, align 1, !tbaa !37
-  %87 = getelementptr inbounds nuw i8, ptr %.278104.us.us, i64 %indvars.iv135
-  store i8 %86, ptr %87, align 1, !tbaa !37
-  %88 = getelementptr inbounds nuw i8, ptr %.278104.us.us, i64 %73
+81:                                               ; preds = %81, %.lr.ph.us109.us.us
+  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %81 ], [ 0, %.lr.ph.us109.us.us ]
+  %.278104.us.us.us = phi ptr [ %85, %81 ], [ %80, %.lr.ph.us109.us.us ]
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv130
+  %83 = load i8, ptr %82, align 1, !tbaa !37
+  %84 = getelementptr inbounds nuw i8, ptr %.278104.us.us.us, i64 %indvars.iv135
+  store i8 %83, ptr %84, align 1, !tbaa !37
+  %85 = getelementptr inbounds nuw i8, ptr %.278104.us.us.us, i64 %73
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %._crit_edge.us.us, label %84, !llvm.loop !109
+  br i1 %exitcond134.not, label %._crit_edge.us.us.us, label %81, !llvm.loop !107
 
-._crit_edge.us.us:                                ; preds = %84
+._crit_edge.us.us.us:                             ; preds = %81
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %._crit_edge108.us, label %.lr.ph.us109.us, !llvm.loop !110
+  br i1 %exitcond139.not, label %._crit_edge108.split.us.us.us, label %.lr.ph.us109.us.us, !llvm.loop !108
 
-.loopexit:                                        ; preds = %..loopexit90_crit_edge.us, %..loopexit87_crit_edge.us, %._crit_edge108.us, %.preheader.lr.ph, %.lr.ph102, %.lr.ph97, %.preheader91, %.preheader88, %.preheader86
+._crit_edge108.split.us.us.us:                    ; preds = %._crit_edge.us.us.us
+  %86 = getelementptr inbounds nuw i8, ptr %.272110.us.us, i64 8
+  %87 = add i32 %.2112.us.us, 1
+  %88 = icmp sgt i32 %.in141, 1
+  br i1 %88, label %.preheader.us.us, label %.loopexit, !llvm.loop !109
+
+.loopexit:                                        ; preds = %..loopexit90_crit_edge.us, %..loopexit87_crit_edge.us, %._crit_edge108.split.us.us.us, %.preheader.lr.ph, %.lr.ph102, %.lr.ph97, %.preheader91, %.preheader88, %.preheader86
   ret void
 }
 
@@ -2024,7 +2025,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit64:                                      ; preds = %.lr.ph106, %15
   %14 = icmp samesign ugt i32 %.in122, 1
-  br i1 %14, label %15, label %rgb_extrgb_convert_internal.exit, !llvm.loop !111
+  br i1 %14, label %15, label %rgb_extrgb_convert_internal.exit, !llvm.loop !110
 
 15:                                               ; preds = %.lr.ph109, %.loopexit64
   %.in122 = phi i32 [ %4, %.lr.ph109 ], [ %16, %.loopexit64 ]
@@ -2066,7 +2067,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %38 = getelementptr inbounds nuw i8, ptr %.023.i104, i64 3
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
-  br i1 %exitcond159.not, label %.loopexit64, label %.lr.ph106, !llvm.loop !112
+  br i1 %exitcond159.not, label %.loopexit64, label %.lr.ph106, !llvm.loop !111
 
 39:                                               ; preds = %5, %5
   %40 = icmp sgt i32 %4, 0
@@ -2083,7 +2084,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit66:                                      ; preds = %.lr.ph100, %46
   %45 = icmp samesign ugt i32 %.in120, 1
-  br i1 %45, label %46, label %rgb_extrgb_convert_internal.exit, !llvm.loop !113
+  br i1 %45, label %46, label %rgb_extrgb_convert_internal.exit, !llvm.loop !112
 
 46:                                               ; preds = %.lr.ph103, %.loopexit66
   %.in120 = phi i32 [ %4, %.lr.ph103 ], [ %47, %.loopexit66 ]
@@ -2127,7 +2128,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %70 = getelementptr inbounds nuw i8, ptr %.024.i3798, i64 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit66, label %.lr.ph100, !llvm.loop !114
+  br i1 %exitcond154.not, label %.loopexit66, label %.lr.ph100, !llvm.loop !113
 
 71:                                               ; preds = %5
   %72 = icmp sgt i32 %4, 0
@@ -2144,7 +2145,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit68:                                      ; preds = %.lr.ph, %78
   %77 = icmp samesign ugt i32 %.in, 1
-  br i1 %77, label %78, label %rgb_extrgb_convert_internal.exit, !llvm.loop !115
+  br i1 %77, label %78, label %rgb_extrgb_convert_internal.exit, !llvm.loop !114
 
 78:                                               ; preds = %.lr.ph97, %.loopexit68
   %.in = phi i32 [ %4, %.lr.ph97 ], [ %79, %.loopexit68 ]
@@ -2186,7 +2187,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %101 = getelementptr inbounds nuw i8, ptr %.023.i4293, i64 3
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit68, label %.lr.ph, !llvm.loop !116
+  br i1 %exitcond149.not, label %.loopexit68, label %.lr.ph, !llvm.loop !115
 
 102:                                              ; preds = %5, %5
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2241,13 +2242,13 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %130 = getelementptr inbounds nuw i8, ptr %.024.i4787.us, i64 4
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
-  br i1 %exitcond144.not, label %..loopexit70_crit_edge.us, label %120, !llvm.loop !117
+  br i1 %exitcond144.not, label %..loopexit70_crit_edge.us, label %120, !llvm.loop !116
 
 ..loopexit70_crit_edge.us:                        ; preds = %120
   %131 = add i32 %.0.i4690.us, 1
   %132 = getelementptr inbounds nuw i8, ptr %.025.i4589.us, i64 8
   %133 = icmp samesign ugt i32 %.in167, 1
-  br i1 %133, label %.lr.ph.us92, label %rgb_extrgb_convert_internal.exit, !llvm.loop !118
+  br i1 %133, label %.lr.ph.us92, label %rgb_extrgb_convert_internal.exit, !llvm.loop !117
 
 134:                                              ; preds = %5, %5
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2302,13 +2303,13 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %162 = getelementptr inbounds nuw i8, ptr %.024.i5281.us, i64 4
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
-  br i1 %exitcond139.not, label %..loopexit72_crit_edge.us, label %152, !llvm.loop !119
+  br i1 %exitcond139.not, label %..loopexit72_crit_edge.us, label %152, !llvm.loop !118
 
 ..loopexit72_crit_edge.us:                        ; preds = %152
   %163 = add i32 %.0.i5184.us, 1
   %164 = getelementptr inbounds nuw i8, ptr %.025.i5083.us, i64 8
   %165 = icmp samesign ugt i32 %.in166, 1
-  br i1 %165, label %.lr.ph.us86, label %rgb_extrgb_convert_internal.exit, !llvm.loop !120
+  br i1 %165, label %.lr.ph.us86, label %rgb_extrgb_convert_internal.exit, !llvm.loop !119
 
 166:                                              ; preds = %5, %5
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2363,13 +2364,13 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %194 = getelementptr inbounds nuw i8, ptr %.024.i5776.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %184, !llvm.loop !121
+  br i1 %exitcond.not, label %..loopexit74_crit_edge.us, label %184, !llvm.loop !120
 
 ..loopexit74_crit_edge.us:                        ; preds = %184
   %195 = add i32 %.0.i5679.us, 1
   %196 = getelementptr inbounds nuw i8, ptr %.025.i5578.us, i64 8
   %197 = icmp samesign ugt i32 %.in165, 1
-  br i1 %197, label %.lr.ph.us, label %rgb_extrgb_convert_internal.exit, !llvm.loop !122
+  br i1 %197, label %.lr.ph.us, label %rgb_extrgb_convert_internal.exit, !llvm.loop !121
 
 198:                                              ; preds = %5
   %199 = icmp sgt i32 %4, 0
@@ -2386,7 +2387,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
 
 .loopexit:                                        ; preds = %.lr.ph112, %205
   %204 = icmp samesign ugt i32 %.in124, 1
-  br i1 %204, label %205, label %rgb_extrgb_convert_internal.exit, !llvm.loop !123
+  br i1 %204, label %205, label %rgb_extrgb_convert_internal.exit, !llvm.loop !122
 
 205:                                              ; preds = %.lr.ph115, %.loopexit
   %.in124 = phi i32 [ %4, %.lr.ph115 ], [ %206, %.loopexit ]
@@ -2428,7 +2429,7 @@ define internal void @rgb_rgb_convert(ptr noundef readonly captures(none) %0, pt
   %228 = getelementptr inbounds nuw i8, ptr %.023.i62110, i64 3
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph112, !llvm.loop !124
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph112, !llvm.loop !123
 
 rgb_extrgb_convert_internal.exit:                 ; preds = %..loopexit74_crit_edge.us, %..loopexit72_crit_edge.us, %..loopexit70_crit_edge.us, %.loopexit68, %.loopexit66, %.loopexit64, %.loopexit, %.lr.ph80, %.lr.ph85, %.lr.ph91, %166, %134, %102, %71, %39, %8, %198
   ret void
@@ -2443,7 +2444,7 @@ define internal void @ycc_rgb565_convert(ptr noundef readonly captures(none) %0,
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -2529,7 +2530,7 @@ define internal void @ycc_rgb565_convert(ptr noundef readonly captures(none) %0,
   %80 = lshr i8 %74, 3
   %81 = zext nneg i8 %80 to i16
   %82 = or disjoint i16 %79, %81
-  store i16 %82, ptr %37, align 2, !tbaa !125
+  store i16 %82, ptr %37, align 2, !tbaa !124
   %83 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %84 = add i32 %.0112.i17, -1
   br label %85
@@ -2640,7 +2641,7 @@ define internal void @ycc_rgb565_convert(ptr noundef readonly captures(none) %0,
   %173 = getelementptr inbounds nuw i8, ptr %.1121.i9, i64 4
   %174 = add nuw nsw i32 %.0113.i13, 1
   %exitcond.not = icmp eq i32 %174, %86
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph, %85
   %.1121.i.lcssa = phi ptr [ %.0120.i, %85 ], [ %173, %.lr.ph ]
@@ -2691,12 +2692,12 @@ define internal void @ycc_rgb565_convert(ptr noundef readonly captures(none) %0,
   %213 = lshr i8 %207, 3
   %214 = zext nneg i8 %213 to i16
   %215 = or disjoint i16 %212, %214
-  store i16 %215, ptr %.1121.i.lcssa, align 2, !tbaa !125
+  store i16 %215, ptr %.1121.i.lcssa, align 2, !tbaa !124
   br label %216
 
 216:                                              ; preds = %176, %._crit_edge
   %217 = icmp samesign ugt i32 %.in, 1
-  br i1 %217, label %26, label %ycc_rgb565_convert_le.exit, !llvm.loop !127
+  br i1 %217, label %26, label %ycc_rgb565_convert_le.exit, !llvm.loop !126
 
 ycc_rgb565_convert_le.exit:                       ; preds = %216, %5
   ret void
@@ -2741,7 +2742,7 @@ define internal void @gray_rgb565_convert(ptr noundef readonly captures(none) %0
   %28 = lshr i16 %23, 3
   %29 = or disjoint i16 %27, %28
   %30 = or disjoint i16 %29, %25
-  store i16 %30, ptr %17, align 2, !tbaa !125
+  store i16 %30, ptr %17, align 2, !tbaa !124
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %32 = add i32 %.0.i15, -1
   br label %33
@@ -2784,7 +2785,7 @@ define internal void @gray_rgb565_convert(ptr noundef readonly captures(none) %0
   %57 = getelementptr inbounds nuw i8, ptr %.137.i10, i64 4
   %58 = add nuw nsw i32 %.035.i11, 1
   %exitcond.not = icmp eq i32 %58, %34
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %.139.i.lcssa = phi ptr [ %.038.i, %33 ], [ %43, %.lr.ph ]
@@ -2803,12 +2804,12 @@ define internal void @gray_rgb565_convert(ptr noundef readonly captures(none) %0
   %67 = lshr i16 %62, 3
   %68 = or disjoint i16 %66, %67
   %69 = or disjoint i16 %68, %64
-  store i16 %69, ptr %.137.i.lcssa, align 2, !tbaa !125
+  store i16 %69, ptr %.137.i.lcssa, align 2, !tbaa !124
   br label %70
 
 70:                                               ; preds = %60, %._crit_edge
   %71 = icmp samesign ugt i32 %.in, 1
-  br i1 %71, label %10, label %gray_rgb565_convert_le.exit, !llvm.loop !129
+  br i1 %71, label %10, label %gray_rgb565_convert_le.exit, !llvm.loop !128
 
 gray_rgb565_convert_le.exit:                      ; preds = %70, %5
   ret void
@@ -2867,7 +2868,7 @@ define internal void @rgb_rgb565_convert(ptr noundef readonly captures(none) %0,
   %42 = lshr i8 %36, 3
   %43 = zext nneg i8 %42 to i16
   %44 = or disjoint i16 %41, %43
-  store i16 %44, ptr %25, align 2, !tbaa !125
+  store i16 %44, ptr %25, align 2, !tbaa !124
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %46 = add i32 %.0.i19, -1
   br label %47
@@ -2926,7 +2927,7 @@ define internal void @rgb_rgb565_convert(ptr noundef readonly captures(none) %0,
   %83 = getelementptr inbounds nuw i8, ptr %.156.i9, i64 4
   %84 = add nuw nsw i32 %.048.i13, 1
   %exitcond.not = icmp eq i32 %84, %48
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   %.156.i.lcssa = phi ptr [ %.055.i, %47 ], [ %83, %.lr.ph ]
@@ -2951,12 +2952,12 @@ define internal void @rgb_rgb565_convert(ptr noundef readonly captures(none) %0,
   %97 = lshr i8 %91, 3
   %98 = zext nneg i8 %97 to i16
   %99 = or disjoint i16 %96, %98
-  store i16 %99, ptr %.156.i.lcssa, align 2, !tbaa !125
+  store i16 %99, ptr %.156.i.lcssa, align 2, !tbaa !124
   br label %100
 
 100:                                              ; preds = %86, %._crit_edge
   %101 = icmp samesign ugt i32 %.in, 1
-  br i1 %101, label %14, label %rgb_rgb565_convert_le.exit, !llvm.loop !131
+  br i1 %101, label %14, label %rgb_rgb565_convert_le.exit, !llvm.loop !130
 
 rgb_rgb565_convert_le.exit:                       ; preds = %100, %5
   ret void
@@ -2967,7 +2968,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -2981,7 +2982,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
 
 .lr.ph24:                                         ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %20 = load i32, ptr %19, align 8, !tbaa !132
+  %20 = load i32, ptr %19, align 8, !tbaa !131
   %21 = and i32 %20, 3
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %22
@@ -3064,7 +3065,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %90 = lshr i8 %84, 3
   %91 = zext nneg i8 %90 to i16
   %92 = or disjoint i16 %89, %91
-  store i16 %92, ptr %43, align 2, !tbaa !125
+  store i16 %92, ptr %43, align 2, !tbaa !124
   %93 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %94 = add i32 %.0130.i19, -1
   br label %95
@@ -3191,7 +3192,7 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %198 = getelementptr inbounds nuw i8, ptr %.1140.i9, i64 4
   %199 = add nuw nsw i32 %.0132.i13, 1
   %exitcond.not = icmp eq i32 %199, %96
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %95
   %.1140.i.lcssa = phi ptr [ %.0139.i, %95 ], [ %198, %.lr.ph ]
@@ -3247,12 +3248,12 @@ define internal void @ycc_rgb565D_convert(ptr noundef readonly captures(none) %0
   %242 = lshr i8 %236, 3
   %243 = zext nneg i8 %242 to i16
   %244 = or disjoint i16 %241, %243
-  store i16 %244, ptr %.1140.i.lcssa, align 2, !tbaa !125
+  store i16 %244, ptr %.1140.i.lcssa, align 2, !tbaa !124
   br label %245
 
 245:                                              ; preds = %201, %._crit_edge
   %246 = icmp samesign ugt i32 %.in, 1
-  br i1 %246, label %32, label %ycc_rgb565D_convert_le.exit, !llvm.loop !134
+  br i1 %246, label %32, label %ycc_rgb565D_convert_le.exit, !llvm.loop !133
 
 ycc_rgb565D_convert_le.exit:                      ; preds = %245, %5
   ret void
@@ -3261,13 +3262,13 @@ ycc_rgb565D_convert_le.exit:                      ; preds = %245, %5
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph20, label %gray_rgb565D_convert_le.exit
 
 .lr.ph20:                                         ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %10 = load i32, ptr %9, align 8, !tbaa !132
+  %10 = load i32, ptr %9, align 8, !tbaa !131
   %11 = and i32 %10, 3
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %12
@@ -3311,7 +3312,7 @@ define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %
   %41 = lshr i16 %36, 3
   %42 = or disjoint i16 %40, %41
   %43 = or disjoint i16 %42, %38
-  store i16 %43, ptr %25, align 2, !tbaa !125
+  store i16 %43, ptr %25, align 2, !tbaa !124
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %45 = add i32 %.053.i17, -1
   br label %46
@@ -3372,7 +3373,7 @@ define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %
   %87 = getelementptr inbounds nuw i8, ptr %.158.i10, i64 4
   %88 = add nuw nsw i32 %.056.i11, 1
   %exitcond.not = icmp eq i32 %88, %47
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   %.160.i.lcssa = phi ptr [ %.059.i, %46 ], [ %65, %.lr.ph ]
@@ -3397,12 +3398,12 @@ define internal void @gray_rgb565D_convert(ptr noundef readonly captures(none) %
   %102 = lshr i16 %97, 3
   %103 = or disjoint i16 %101, %102
   %104 = or disjoint i16 %103, %99
-  store i16 %104, ptr %.158.i.lcssa, align 2, !tbaa !125
+  store i16 %104, ptr %.158.i.lcssa, align 2, !tbaa !124
   br label %105
 
 105:                                              ; preds = %90, %._crit_edge
   %106 = icmp samesign ugt i32 %.in, 1
-  br i1 %106, label %18, label %gray_rgb565D_convert_le.exit, !llvm.loop !136
+  br i1 %106, label %18, label %gray_rgb565D_convert_le.exit, !llvm.loop !135
 
 gray_rgb565D_convert_le.exit:                     ; preds = %105, %5
   ret void
@@ -3411,13 +3412,13 @@ gray_rgb565D_convert_le.exit:                     ; preds = %105, %5
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph24, label %rgb_rgb565D_convert_le.exit
 
 .lr.ph24:                                         ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %10 = load i32, ptr %9, align 8, !tbaa !132
+  %10 = load i32, ptr %9, align 8, !tbaa !131
   %11 = and i32 %10, 3
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [4 x i64], ptr @dither_matrix, i64 0, i64 %12
@@ -3483,7 +3484,7 @@ define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0
   %63 = lshr i8 %57, 3
   %64 = zext nneg i8 %63 to i16
   %65 = or disjoint i16 %62, %64
-  store i16 %65, ptr %33, align 2, !tbaa !125
+  store i16 %65, ptr %33, align 2, !tbaa !124
   %66 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %67 = add i32 %.078.i21, -1
   br label %68
@@ -3576,7 +3577,7 @@ define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0
   %137 = getelementptr inbounds nuw i8, ptr %.189.i9, i64 4
   %138 = add nuw nsw i32 %.081.i13, 1
   %exitcond.not = icmp eq i32 %138, %69
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
   %.189.i.lcssa = phi ptr [ %.088.i, %68 ], [ %137, %.lr.ph ]
@@ -3615,12 +3616,12 @@ define internal void @rgb_rgb565D_convert(ptr noundef readonly captures(none) %0
   %164 = lshr i8 %158, 3
   %165 = zext nneg i8 %164 to i16
   %166 = or disjoint i16 %163, %165
-  store i16 %166, ptr %.189.i.lcssa, align 2, !tbaa !125
+  store i16 %166, ptr %.189.i.lcssa, align 2, !tbaa !124
   br label %167
 
 167:                                              ; preds = %140, %._crit_edge
   %168 = icmp samesign ugt i32 %.in, 1
-  br i1 %168, label %22, label %rgb_rgb565D_convert_le.exit, !llvm.loop !138
+  br i1 %168, label %22, label %rgb_rgb565D_convert_le.exit, !llvm.loop !137
 
 rgb_rgb565D_convert_le.exit:                      ; preds = %167, %5
   ret void
@@ -3633,7 +3634,7 @@ define internal void @ycck_cmyk_convert(ptr noundef readonly captures(none) %0, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -3725,13 +3726,13 @@ define internal void @ycck_cmyk_convert(ptr noundef readonly captures(none) %0, 
   %77 = getelementptr inbounds nuw i8, ptr %.04959.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !139
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %39, !llvm.loop !138
 
 ..loopexit_crit_edge.us:                          ; preds = %39
   %78 = add i32 %.061.us, 1
   %79 = getelementptr inbounds nuw i8, ptr %.04760.us, i64 8
   %80 = icmp samesign ugt i32 %.in, 1
-  br i1 %80, label %.lr.ph.us, label %._crit_edge, !llvm.loop !140
+  br i1 %80, label %.lr.ph.us, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph62, %5
   ret void
@@ -3819,10 +3820,10 @@ attributes #4 = { nounwind }
 !69 = !{!44, !46, i64 64}
 !70 = !{!18, !18, i64 0}
 !71 = distinct !{!71, !56}
-!72 = distinct !{!72, !56, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = distinct !{!74, !56}
-!75 = !{!4, !18, i64 424}
+!72 = distinct !{!72, !56}
+!73 = distinct !{!73, !56}
+!74 = !{!4, !18, i64 424}
+!75 = distinct !{!75, !56}
 !76 = distinct !{!76, !56}
 !77 = distinct !{!77, !56}
 !78 = distinct !{!78, !56}
@@ -3830,34 +3831,34 @@ attributes #4 = { nounwind }
 !80 = distinct !{!80, !56}
 !81 = distinct !{!81, !56}
 !82 = distinct !{!82, !56}
-!83 = distinct !{!83, !56, !73}
+!83 = distinct !{!83, !56}
 !84 = distinct !{!84, !56}
-!85 = distinct !{!85, !56, !73}
+!85 = distinct !{!85, !56}
 !86 = distinct !{!86, !56}
-!87 = distinct !{!87, !56, !73}
+!87 = distinct !{!87, !56}
 !88 = distinct !{!88, !56}
 !89 = distinct !{!89, !56}
 !90 = distinct !{!90, !56}
-!91 = distinct !{!91, !56, !73}
+!91 = distinct !{!91, !56}
 !92 = distinct !{!92, !56}
-!93 = distinct !{!93, !56, !73}
+!93 = distinct !{!93, !56}
 !94 = distinct !{!94, !56}
-!95 = distinct !{!95, !56, !73}
+!95 = distinct !{!95, !56}
 !96 = distinct !{!96, !56}
-!97 = distinct !{!97, !56, !73}
+!97 = distinct !{!97, !56}
 !98 = distinct !{!98, !56}
-!99 = distinct !{!99, !56, !73}
+!99 = distinct !{!99, !56}
 !100 = distinct !{!100, !56}
-!101 = distinct !{!101, !56, !73}
+!101 = distinct !{!101, !56}
 !102 = distinct !{!102, !56}
-!103 = distinct !{!103, !56, !73}
+!103 = distinct !{!103, !56}
 !104 = distinct !{!104, !56}
-!105 = distinct !{!105, !56, !73}
+!105 = distinct !{!105, !56}
 !106 = distinct !{!106, !56}
-!107 = distinct !{!107, !56, !73}
-!108 = distinct !{!108, !56, !73}
+!107 = distinct !{!107, !56}
+!108 = distinct !{!108, !56}
 !109 = distinct !{!109, !56}
-!110 = distinct !{!110, !56, !73}
+!110 = distinct !{!110, !56}
 !111 = distinct !{!111, !56}
 !112 = distinct !{!112, !56}
 !113 = distinct !{!113, !56}
@@ -3865,21 +3866,21 @@ attributes #4 = { nounwind }
 !115 = distinct !{!115, !56}
 !116 = distinct !{!116, !56}
 !117 = distinct !{!117, !56}
-!118 = distinct !{!118, !56, !73}
+!118 = distinct !{!118, !56}
 !119 = distinct !{!119, !56}
-!120 = distinct !{!120, !56, !73}
+!120 = distinct !{!120, !56}
 !121 = distinct !{!121, !56}
-!122 = distinct !{!122, !56, !73}
+!122 = distinct !{!122, !56}
 !123 = distinct !{!123, !56}
-!124 = distinct !{!124, !56}
-!125 = !{!16, !16, i64 0}
+!124 = !{!16, !16, i64 0}
+!125 = distinct !{!125, !56}
 !126 = distinct !{!126, !56}
 !127 = distinct !{!127, !56}
 !128 = distinct !{!128, !56}
 !129 = distinct !{!129, !56}
 !130 = distinct !{!130, !56}
-!131 = distinct !{!131, !56}
-!132 = !{!4, !11, i64 168}
+!131 = !{!4, !11, i64 168}
+!132 = distinct !{!132, !56}
 !133 = distinct !{!133, !56}
 !134 = distinct !{!134, !56}
 !135 = distinct !{!135, !56}
@@ -3887,4 +3888,3 @@ attributes #4 = { nounwind }
 !137 = distinct !{!137, !56}
 !138 = distinct !{!138, !56}
 !139 = distinct !{!139, !56}
-!140 = distinct !{!140, !56, !73}

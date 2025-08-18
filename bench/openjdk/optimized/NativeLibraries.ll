@@ -194,14 +194,14 @@ define internal fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef %1, ptr 
   %.not27 = icmp eq ptr %2, null
   %5 = select i1 %.not, ptr @.str.9, ptr @.str.8
   %6 = select i1 %.not, i64 14, i64 12
-  br i1 %.not27, label %.split.us, label %.split
+  br i1 %.not27, label %.split.us.split, label %.split
 
-.split.us:                                        ; preds = %4
+.split.us.split:                                  ; preds = %4
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #7
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.split30.us, label %.loopexit.loopexit
 
-.loopexit.loopexit:                               ; preds = %.split.us
+.loopexit.loopexit:                               ; preds = %.split.us.split
   tail call void @buildJniFunctionName(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %7) #6
   %9 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %1, ptr noundef nonnull %7) #6
   tail call void @free(ptr noundef nonnull %7) #6
@@ -218,7 +218,7 @@ define internal fastcc ptr @findJniFunction(ptr noundef %0, ptr noundef %1, ptr 
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.split30.us, label %16
 
-.split30.us:                                      ; preds = %13, %.split.us
+.split30.us:                                      ; preds = %13, %.split.us.split
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #6
   br label %.loopexit
 

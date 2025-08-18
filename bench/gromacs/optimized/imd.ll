@@ -5673,7 +5673,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %_ZNK11gmx_ga2la_t8f
   store float %184, ptr %180, align 4, !tbaa !175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread, !llvm.loop !370
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread, !llvm.loop !368
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %._crit_edge, %161, %156, %145, %3, %7
   ret void
@@ -6134,6 +6134,4 @@ attributes #29 = { nounwind willreturn memory(none) }
 !365 = !{!366, !367, i64 0}
 !366 = !{!"_ZTSNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EE17_Vector_impl_dataE", !367, i64 0, !367, i64 8, !367, i64 16}
 !367 = !{!"p1 _ZTSN11gmx_ga2la_t5EntryE", !13, i64 0}
-!368 = distinct !{!368, !163, !369}
-!369 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!370 = distinct !{!370, !163}
+!368 = distinct !{!368, !163}

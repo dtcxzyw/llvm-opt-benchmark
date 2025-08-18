@@ -482,7 +482,7 @@ Kit_TruthFill.exit:                               ; preds = %4, %select.unfold.p
   %.val33 = load i32, ptr %13, align 4, !tbaa !20
   %54 = sext i32 %.val33 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph.split, label %.critedge, !llvm.loop !39
+  br i1 %55, label %.lr.ph.split, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %Kit_TruthFill.exit
   %.sroa.05.0.lcssa = phi i32 [ undef, %Kit_TruthFill.exit ], [ %17, %.lr.ph.split.us ], [ %38, %.lr.ph.split ]
@@ -503,7 +503,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %59 = xor i32 %58, -1
   store i32 %59, ptr %57, align 4, !tbaa !14
   %60 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %60, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !40
+  br i1 %60, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !38
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %.critedge
   ret ptr %.0.lcssa
@@ -590,7 +590,7 @@ Kit_TruthFill.exit.thread:                        ; preds = %12
   %50 = add i32 %2, %49
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %3, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !41
+  %53 = load ptr, ptr %52, align 8, !tbaa !39
   %54 = and i32 %35, 1073741824
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %select.unfold26.i, label %select.unfold.i
@@ -611,7 +611,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.split, %sele
   %64 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.next.i
   store i32 %63, ptr %64, align 4, !tbaa !14
   %65 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %65, label %select.unfold.i, label %Kit_TruthMuxPhase.exit, !llvm.loop !42
+  br i1 %65, label %select.unfold.i, label %Kit_TruthMuxPhase.exit, !llvm.loop !40
 
 select.unfold26.i:                                ; preds = %.lr.ph.split, %select.unfold26.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %select.unfold26.i ], [ %26, %.lr.ph.split ]
@@ -629,14 +629,14 @@ select.unfold26.i:                                ; preds = %.lr.ph.split, %sele
   %76 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.next35.i
   store i32 %75, ptr %76, align 4, !tbaa !14
   %77 = icmp samesign ugt i64 %indvars.iv34.i, 1
-  br i1 %77, label %select.unfold26.i, label %Kit_TruthMuxPhase.exit, !llvm.loop !43
+  br i1 %77, label %select.unfold26.i, label %Kit_TruthMuxPhase.exit, !llvm.loop !41
 
 Kit_TruthMuxPhase.exit:                           ; preds = %select.unfold.i, %select.unfold26.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val39 = load i32, ptr %23, align 4, !tbaa !20
   %78 = sext i32 %.val39 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph.split, label %.critedge, !llvm.loop !44
+  br i1 %79, label %.lr.ph.split, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %Kit_TruthMuxPhase.exit, %Kit_TruthFill.exit.thread, %.lr.ph.split.us, %Kit_TruthFill.exit
   %.sroa.06.0.lcssa = phi i32 [ undef, %Kit_TruthFill.exit ], [ %31, %.lr.ph.split.us ], [ undef, %Kit_TruthFill.exit.thread ], [ %35, %Kit_TruthMuxPhase.exit ]
@@ -657,7 +657,7 @@ select.unfold.i44:                                ; preds = %select.unfold.i44, 
   %83 = xor i32 %82, -1
   store i32 %83, ptr %81, align 4, !tbaa !14
   %84 = icmp samesign ugt i64 %indvars.iv.i45, 1
-  br i1 %84, label %select.unfold.i44, label %Kit_TruthNot.exit, !llvm.loop !40
+  br i1 %84, label %select.unfold.i44, label %Kit_TruthNot.exit, !llvm.loop !38
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i44, %.critedge
   ret ptr %.0.lcssa
@@ -757,7 +757,7 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   store i32 %55, ptr %56, align 4, !tbaa !14
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !43
 
 ._crit_edge.us:                                   ; preds = %49
   %57 = shl nsw i32 %35, 1
@@ -774,7 +774,7 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   %.val112.us = load i32, ptr %8, align 4, !tbaa !20
   %65 = sext i32 %.val112.us to i64
   %66 = icmp slt i64 %indvars.iv.next147, %65
-  br i1 %66, label %.lr.ph.us, label %.critedge, !llvm.loop !46
+  br i1 %66, label %.lr.ph.us, label %.critedge, !llvm.loop !44
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126, %.lr.ph126.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph126.split ], [ 1, %.lr.ph126 ]
@@ -809,7 +809,7 @@ Vec_IntGrow.exit:                                 ; preds = %22, %11, %5
   %.val112 = load i32, ptr %8, align 4, !tbaa !20
   %92 = sext i32 %.val112 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %.lr.ph126.split, label %.critedge, !llvm.loop !47
+  br i1 %93, label %.lr.ph126.split, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %.lr.ph126.split, %._crit_edge.us, %Vec_IntGrow.exit
   %.0.lcssa = phi ptr [ null, %Vec_IntGrow.exit ], [ %47, %._crit_edge.us ], [ %83, %.lr.ph126.split ]
@@ -902,7 +902,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   store i32 %134, ptr %135, align 4, !tbaa !14
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge.us133, label %128, !llvm.loop !48
+  br i1 %exitcond157.not, label %._crit_edge.us133, label %128, !llvm.loop !45
 
 ._crit_edge.us133:                                ; preds = %128
   %136 = shl nuw nsw i32 %114, 1
@@ -919,7 +919,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   %.val.us = load i32, ptr %94, align 4, !tbaa !20
   %144 = sext i32 %.val.us to i64
   %145 = icmp slt i64 %indvars.iv.next159, %144
-  br i1 %145, label %.lr.ph.us132, label %.critedge2.preheader, !llvm.loop !49
+  br i1 %145, label %.lr.ph.us132, label %.critedge2.preheader, !llvm.loop !46
 
 .critedge2.preheader:                             ; preds = %._crit_edge.us133, %Vec_IntGrow.exit122
   %.1.lcssa = phi ptr [ %.0.lcssa, %Vec_IntGrow.exit122 ], [ %126, %._crit_edge.us133 ]
@@ -962,7 +962,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   %.val = load i32, ptr %94, align 4, !tbaa !20
   %170 = sext i32 %.val to i64
   %171 = icmp slt i64 %indvars.iv.next150, %170
-  br i1 %171, label %.lr.ph130.split, label %.critedge2._crit_edge, !llvm.loop !50
+  br i1 %171, label %.lr.ph130.split, label %.critedge2._crit_edge, !llvm.loop !46
 
 .critedge2:                                       ; preds = %.critedge2.preheader136, %.critedge2
   %indvars.iv161 = phi i64 [ 0, %.critedge2.preheader136 ], [ %indvars.iv.next162, %.critedge2 ]
@@ -980,7 +980,7 @@ Vec_IntGrow.exit122:                              ; preds = %.critedge.Vec_IntGr
   store i32 %182, ptr %172, align 4, !tbaa !14
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count165
-  br i1 %exitcond166.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !51
+  br i1 %exitcond166.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !47
 
 .critedge2._crit_edge:                            ; preds = %.lr.ph130.split, %.critedge2, %.critedge2.preheader
   ret void
@@ -1052,18 +1052,14 @@ attributes #10 = { nounwind allocsize(0) }
 !34 = !{!35, !9, i64 8}
 !35 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
 !36 = !{!9, !9, i64 0}
-!37 = distinct !{!37, !16, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !16}
+!37 = distinct !{!37, !16}
+!38 = distinct !{!38, !16}
+!39 = !{!22, !22, i64 0}
 !40 = distinct !{!40, !16}
-!41 = !{!22, !22, i64 0}
+!41 = distinct !{!41, !16}
 !42 = distinct !{!42, !16}
 !43 = distinct !{!43, !16}
 !44 = distinct !{!44, !16}
 !45 = distinct !{!45, !16}
-!46 = distinct !{!46, !16, !38}
+!46 = distinct !{!46, !16}
 !47 = distinct !{!47, !16}
-!48 = distinct !{!48, !16}
-!49 = distinct !{!49, !16, !38}
-!50 = distinct !{!50, !16}
-!51 = distinct !{!51, !16}

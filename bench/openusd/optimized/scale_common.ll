@@ -938,7 +938,7 @@ define hidden void @ScalePlaneVertical(i32 noundef %0, i32 noundef %1, i32 nound
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
   %exitcond.not = icmp eq i32 %40, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   ret void
@@ -980,7 +980,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
   %exitcond34.not = icmp eq i32 %31, %2
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.032 = phi ptr [ %38, %.lr.ph.split ], [ %6, %.lr.ph ]
@@ -998,7 +998,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
   %exitcond.not = icmp eq i32 %40, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %12
   ret void
@@ -1343,8 +1343,5 @@ attributes #6 = { nounwind }
 !16 = distinct !{!16, !5}
 !17 = distinct !{!17, !5}
 !18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5, !20}
-!23 = distinct !{!23, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

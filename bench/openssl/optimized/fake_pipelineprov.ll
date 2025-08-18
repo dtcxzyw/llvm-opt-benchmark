@@ -159,7 +159,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_update(ptr noundef readonly 
   store i64 %35, ptr %36, align 8, !tbaa !18
   %37 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %37, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %33, %.lr.ph.split.us, %18, %7
   %.016 = phi i32 [ 1, %7 ], [ 1, %18 ], [ 0, %.lr.ph.split.us ], [ 1, %33 ], [ 0, %.lr.ph.split ]
@@ -194,7 +194,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_final(ptr noundef readonly c
   store i64 %15, ptr %16, align 8, !tbaa !18
   %17 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %17, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13, %5
   %.010 = phi i32 [ 1, %5 ], [ 1, %13 ], [ 0, %.lr.ph ]
@@ -222,14 +222,14 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_get_ctx_params(ptr noun
   %6 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %7 = icmp eq ptr %1, null
   br i1 %7, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !27
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %9
 
@@ -240,7 +240,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !29
+  %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %10, i64 noundef %13) #7
   %.not24 = icmp eq i32 %14, 0
   br i1 %.not24, label %15, label %16
@@ -257,7 +257,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not25, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = load i64, ptr %0, align 8, !tbaa !30
+  %19 = load i64, ptr %0, align 8, !tbaa !28
   %20 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %17, i64 noundef %19) #7
   %.not26 = icmp eq i32 %20, 0
   br i1 %.not26, label %21, label %22
@@ -298,17 +298,17 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %31 = add nuw i64 %.031, 1
   %32 = load i64, ptr %26, align 8, !tbaa !4
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %34, label %ossl_param_is_empty.exit.thread, !llvm.loop !31
+  br i1 %33, label %34, label %ossl_param_is_empty.exit.thread, !llvm.loop !29
 
 34:                                               ; preds = %.lr.ph, %30
   %.031 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %35 = load ptr, ptr %4, align 8, !tbaa !25
+  %35 = load ptr, ptr %4, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.031
   %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = load i64, ptr %3, align 8, !tbaa !18
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.4, ptr noundef %37, i64 noundef %38) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw [32 x ptr], ptr %28, i64 0, i64 %.031
   %40 = load ptr, ptr %39, align 8, !tbaa !13
@@ -360,7 +360,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_set_ctx_params(ptr noun
   %6 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %7 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.3) #7
@@ -386,17 +386,17 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_set_ctx_params(ptr noun
   %14 = add nuw i64 %.014, 1
   %15 = load i64, ptr %10, align 8, !tbaa !4
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %17, label %.loopexit, !llvm.loop !34
+  br i1 %16, label %17, label %.loopexit, !llvm.loop !32
 
 17:                                               ; preds = %.lr.ph, %13
   %.014 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = load ptr, ptr %4, align 8, !tbaa !25
+  %18 = load ptr, ptr %4, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.014
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = load i64, ptr %3, align 8, !tbaa !18
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.4, ptr noundef %20, i64 noundef %21) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = getelementptr inbounds nuw [32 x ptr], ptr %12, i64 0, i64 %.014
   %23 = load ptr, ptr %22, align 8, !tbaa !13
@@ -451,13 +451,13 @@ declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fake_pipeline_provider_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #0 {
   %5 = tail call ptr @OSSL_LIB_CTX_new() #7
-  store ptr %5, ptr %3, align 8, !tbaa !33
+  store ptr %5, ptr %3, align 8, !tbaa !31
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @.str.11, ptr noundef %5) #7
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %4
-  store ptr @fake_pipeline_method, ptr %2, align 8, !tbaa !35
+  store ptr @fake_pipeline_method, ptr %2, align 8, !tbaa !33
   br label %8
 
 8:                                                ; preds = %4, %7
@@ -505,9 +505,9 @@ define internal noalias ptr @fake_pipeline_aes_256_gcm_newctx(ptr noundef %0) #0
   br i1 %5, label %fake_pipeline_newctx.exit, label %6
 
 6:                                                ; preds = %3
-  store i64 32, ptr %4, align 8, !tbaa !30
+  store i64 32, ptr %4, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 12, ptr %7, align 8, !tbaa !29
+  store i64 12, ptr %7, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %8, align 8, !tbaa !4
   %9 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16) #7
@@ -542,7 +542,7 @@ define internal void @fake_pipeline_freectx(ptr noundef %0) #0 {
   %10 = add nuw i64 %.07, 1
   %11 = load i64, ptr %4, align 8, !tbaa !4
   %12 = icmp ult i64 %10, %11
-  br i1 %12, label %7, label %._crit_edge, !llvm.loop !37
+  br i1 %12, label %7, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %7, %1
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %0, i64 noundef 288, ptr noundef nonnull @.str.1, i32 noundef 68) #7
@@ -609,20 +609,18 @@ attributes #7 = { nounwind }
 !18 = !{!6, !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !7, i64 0}
-!21 = distinct !{!21, !12, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p2 omnipotent char", !10, i64 0}
-!27 = !{!28, !17, i64 0}
-!28 = !{!"ossl_param_st", !17, i64 0, !20, i64 8, !10, i64 16, !6, i64 24, !6, i64 32}
-!29 = !{!5, !6, i64 8}
-!30 = !{!5, !6, i64 0}
-!31 = distinct !{!31, !12}
-!32 = !{i64 0, i64 8, !16, i64 8, i64 4, !19, i64 16, i64 8, !33, i64 24, i64 8, !18, i64 32, i64 8, !18}
-!33 = !{!10, !10, i64 0}
-!34 = distinct !{!34, !12}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS16ossl_dispatch_st", !10, i64 0}
-!37 = distinct !{!37, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 omnipotent char", !10, i64 0}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"ossl_param_st", !17, i64 0, !20, i64 8, !10, i64 16, !6, i64 24, !6, i64 32}
+!27 = !{!5, !6, i64 8}
+!28 = !{!5, !6, i64 0}
+!29 = distinct !{!29, !12}
+!30 = !{i64 0, i64 8, !16, i64 8, i64 4, !19, i64 16, i64 8, !31, i64 24, i64 8, !18, i64 32, i64 8, !18}
+!31 = !{!10, !10, i64 0}
+!32 = distinct !{!32, !12}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS16ossl_dispatch_st", !10, i64 0}
+!35 = distinct !{!35, !12}

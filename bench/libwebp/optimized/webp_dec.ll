@@ -1902,7 +1902,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr noundef nonn
   store ptr %28, ptr %0, align 8, !tbaa !13
   store i64 %29, ptr %1, align 8, !tbaa !14
   %30 = icmp ult i64 %29, 8
-  br i1 %30, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !105
+  br i1 %30, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
   %.03255 = phi ptr [ %54, %53 ], [ %6, %.lr.ph ]
@@ -2199,5 +2199,3 @@ attributes #10 = { nounwind }
 !102 = !{!32, !4, i64 88}
 !103 = !{!66, !4, i64 0}
 !104 = !{!66, !4, i64 4}
-!105 = distinct !{!105, !106}
-!106 = !{!"llvm.loop.unswitch.nontrivial.disable"}

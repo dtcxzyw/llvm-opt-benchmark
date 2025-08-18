@@ -1957,7 +1957,7 @@ default.unreachable19:                            ; preds = %178
 273:                                              ; preds = %269, %.critedge8, %250, %.split14
   %274 = add nuw nsw i64 %246, 1
   %275 = icmp eq i64 %274, 4
-  br i1 %275, label %.loopexit11, label %.split14, !llvm.loop !46
+  br i1 %275, label %.loopexit11, label %.split14, !llvm.loop !44
 
 .loopexit11:                                      ; preds = %273, %243, %215, %206
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 238
@@ -1993,7 +1993,7 @@ default.unreachable19:                            ; preds = %178
 295:                                              ; preds = %.critedge10.us, %.split15.us
   %296 = add nuw nsw i64 %287, 1
   %297 = icmp eq i64 %296, 8
-  br i1 %297, label %.loopexit, label %.split15.us, !llvm.loop !47
+  br i1 %297, label %.loopexit, label %.split15.us, !llvm.loop !45
 
 .split15:                                         ; preds = %279, %316
   %298 = phi i64 [ %317, %316 ], [ 0, %279 ]
@@ -2025,7 +2025,7 @@ default.unreachable19:                            ; preds = %178
 316:                                              ; preds = %.critedge10, %302, %.split15
   %317 = add nuw nsw i64 %298, 1
   %318 = icmp eq i64 %317, 8
-  br i1 %318, label %.loopexit, label %.split15, !llvm.loop !48
+  br i1 %318, label %.loopexit, label %.split15, !llvm.loop !45
 
 .loopexit:                                        ; preds = %316, %295, %.loopexit11
   tail call fastcc void @minstrel_ht_update_stats(ptr noundef %0, ptr noundef %3)
@@ -2108,7 +2108,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %44, ptr %47, align 2
   %48 = add nuw nsw i64 %46, 1
   %49 = icmp eq i64 %48, 4
-  br i1 %49, label %50, label %45, !llvm.loop !49
+  br i1 %49, label %50, label %45, !llvm.loop !46
 
 50:                                               ; preds = %45
   store i64 0, ptr %3, align 8, !annotation !5
@@ -2135,7 +2135,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %56, ptr %66, align 2
   %67 = add nuw nsw i64 %65, 1
   %68 = icmp eq i64 %67, 4
-  br i1 %68, label %57, label %64, !llvm.loop !50
+  br i1 %68, label %57, label %64, !llvm.loop !47
 
 69:                                               ; preds = %521, %57
   %70 = phi i64 [ 0, %57 ], [ %522, %521 ]
@@ -2156,7 +2156,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
   store i16 %77, ptr %80, align 2
   %81 = add nuw nsw i64 %79, 1
   %82 = icmp eq i64 %81, 4
-  br i1 %82, label %83, label %78, !llvm.loop !51
+  br i1 %82, label %83, label %78, !llvm.loop !48
 
 83:                                               ; preds = %78
   %84 = icmp eq i64 %70, 16
@@ -2535,7 +2535,7 @@ define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captu
 
 349:                                              ; preds = %345
   %350 = icmp eq i64 %275, 0
-  br i1 %350, label %.thread15.i, label %273, !llvm.loop !52
+  br i1 %350, label %.thread15.i, label %273, !llvm.loop !49
 
 351:                                              ; preds = %345, %342
   %352 = trunc i64 %274 to i32
@@ -2746,7 +2746,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %361, %363
 
 498:                                              ; preds = %494
   %499 = icmp eq i64 %424, 0
-  br i1 %499, label %.thread15.i85, label %422, !llvm.loop !52
+  br i1 %499, label %.thread15.i85, label %422, !llvm.loop !49
 
 500:                                              ; preds = %494, %491
   %501 = trunc i64 %423 to i32
@@ -2778,7 +2778,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %361, %363
   %515 = phi i16 [ %156, %190 ], [ %95, %93 ], [ %156, %154 ], [ %156, %510 ], [ %156, %512 ]
   %516 = add nsw i64 %94, -1
   %517 = icmp eq i64 %94, 0
-  br i1 %517, label %518, label %93, !llvm.loop !53
+  br i1 %517, label %518, label %93, !llvm.loop !50
 
 518:                                              ; preds = %.critedge
   %519 = getelementptr inbounds nuw i8, ptr %71, i64 2
@@ -2789,7 +2789,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %361, %363
 521:                                              ; preds = %518, %69
   %522 = add nuw nsw i64 %70, 1
   %523 = icmp eq i64 %522, 42
-  br i1 %523, label %524, label %69, !llvm.loop !54
+  br i1 %523, label %524, label %69, !llvm.loop !51
 
 524:                                              ; preds = %521
   %525 = load i16, ptr %5, align 8
@@ -3172,7 +3172,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %361, %363
 
 806:                                              ; preds = %802
   %807 = icmp eq i64 %732, 0
-  br i1 %807, label %.thread15.i91, label %730, !llvm.loop !52
+  br i1 %807, label %.thread15.i91, label %730, !llvm.loop !49
 
 808:                                              ; preds = %802, %799
   %809 = trunc i64 %731 to i32
@@ -3203,7 +3203,7 @@ minstrel_ht_sort_best_tp_rates.exit:              ; preds = %361, %363
 minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %823 = add nuw nsw i64 %661, 1
   %824 = icmp eq i64 %823, 4
-  br i1 %824, label %.loopexit109, label %.preheader, !llvm.loop !55
+  br i1 %824, label %.loopexit109, label %.preheader, !llvm.loop !52
 
 .loopexit109:                                     ; preds = %minstrel_ht_sort_best_tp_rates.exit92, %658
   %825 = load i64, ptr %3, align 8
@@ -3521,13 +3521,13 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1048 = phi i16 [ %872, %869 ], [ %996, %1037 ], [ %1042, %1040 ], [ %872, %935 ], [ %1045, %1044 ], [ %872, %940 ]
   %1049 = add nuw nsw i64 %871, 1
   %1050 = icmp eq i64 %1049, 10
-  br i1 %1050, label %.loopexit108, label %869, !llvm.loop !56
+  br i1 %1050, label %.loopexit108, label %869, !llvm.loop !53
 
 .loopexit108:                                     ; preds = %1046, %852
   %1051 = phi i16 [ %854, %852 ], [ %1048, %1046 ]
   %1052 = add nuw nsw i64 %853, 1
   %1053 = icmp eq i64 %1052, 42
-  br i1 %1053, label %1054, label %852, !llvm.loop !57
+  br i1 %1053, label %1054, label %852, !llvm.loop !54
 
 1054:                                             ; preds = %.loopexit108
   %1055 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -3703,7 +3703,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1169 = phi i32 [ %1073, %1070 ], [ %1073, %1134 ], [ %1073, %1112 ], [ %1167, %1159 ], [ %1073, %1079 ]
   %1170 = add nuw nsw i64 %1072, 1
   %1171 = icmp eq i64 %1170, 42
-  br i1 %1171, label %.loopexit107, label %1070, !llvm.loop !58
+  br i1 %1171, label %.loopexit107, label %1070, !llvm.loop !55
 
 .loopexit107:                                     ; preds = %.critedge80, %..loopexit107_crit_edge
   %.pre-phi185 = phi i64 [ %.pre184, %..loopexit107_crit_edge ], [ %1067, %.critedge80 ]
@@ -3794,7 +3794,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1241 = phi i32 [ %1213, %1211 ], [ %1213, %1231 ], [ %1239, %1238 ]
   %1242 = add nuw nsw i64 %1212, 1
   %1243 = icmp eq i64 %1242, 5
-  br i1 %1243, label %1244, label %1211, !llvm.loop !59
+  br i1 %1243, label %1244, label %1211, !llvm.loop !56
 
 1244:                                             ; preds = %1240
   %1245 = tail call i32 @llvm.umax.i32(i32 %1193, i32 %1207)
@@ -3811,7 +3811,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1252 = add nsw i64 %1256, 1
   %1253 = and i64 %1252, 4294967295
   %1254 = icmp eq i64 %1253, 5
-  br i1 %1254, label %.loopexit106, label %1255, !llvm.loop !60
+  br i1 %1254, label %.loopexit106, label %1255, !llvm.loop !57
 
 1255:                                             ; preds = %1251, %1249
   %1256 = phi i64 [ %1250, %1249 ], [ %1252, %1251 ]
@@ -3864,7 +3864,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1293 = icmp samesign ult i64 %1273, 9
   %1294 = icmp ugt i16 %1274, 1
   %1295 = and i1 %1293, %1294
-  br i1 %1295, label %1272, label %.thread, !llvm.loop !61
+  br i1 %1295, label %1272, label %.thread, !llvm.loop !58
 
 1296:                                             ; preds = %1277
   %1297 = trunc nuw nsw i64 %1273 to i32
@@ -3891,12 +3891,12 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
 1310:                                             ; preds = %1300
   %1311 = add nuw nsw i64 %1301, 1
   %1312 = icmp eq i64 %1311, 5
-  br i1 %1312, label %1316, label %1300, !llvm.loop !62
+  br i1 %1312, label %1316, label %1300, !llvm.loop !59
 
 .thread:                                          ; preds = %1290, %1300, %1258
   %1313 = add nuw nsw i32 %1259, 1
   %1314 = icmp eq i32 %1313, 42
-  br i1 %1314, label %.thread93, label %1258, !llvm.loop !63
+  br i1 %1314, label %.thread93, label %1258, !llvm.loop !60
 
 .thread93:                                        ; preds = %.thread
   store i8 %1264, ptr %1246, align 2
@@ -3961,7 +3961,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1351 = phi i32 [ %1323, %1321 ], [ %1323, %1341 ], [ %1349, %1348 ]
   %1352 = add nuw nsw i64 %1322, 1
   %1353 = icmp eq i64 %1352, 5
-  br i1 %1353, label %1354, label %1321, !llvm.loop !59
+  br i1 %1353, label %1354, label %1321, !llvm.loop !56
 
 1354:                                             ; preds = %1350
   %1355 = getelementptr i8, ptr %1, i64 134
@@ -4014,7 +4014,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1388 = phi i32 [ %1358, %1356 ], [ %1358, %1378 ], [ %1386, %1385 ]
   %1389 = add nuw nsw i64 %1357, 1
   %1390 = icmp eq i64 %1389, 5
-  br i1 %1390, label %1391, label %1356, !llvm.loop !59
+  br i1 %1390, label %1391, label %1356, !llvm.loop !56
 
 1391:                                             ; preds = %1387
   %1392 = icmp slt i32 %1351, 5
@@ -4029,7 +4029,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1397 = add nsw i64 %1401, 1
   %1398 = and i64 %1397, 4294967295
   %1399 = icmp eq i64 %1398, 5
-  br i1 %1399, label %.loopexit.preheader, label %1400, !llvm.loop !64
+  br i1 %1399, label %.loopexit.preheader, label %1400, !llvm.loop !61
 
 1400:                                             ; preds = %1396, %1393
   %1401 = phi i64 [ %1395, %1393 ], [ %1397, %1396 ]
@@ -4087,7 +4087,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %1443 = icmp samesign ult i64 %1423, 9
   %1444 = icmp ugt i16 %1424, 1
   %1445 = and i1 %1443, %1444
-  br i1 %1445, label %1422, label %.thread94, !llvm.loop !61
+  br i1 %1445, label %1422, label %.thread94, !llvm.loop !58
 
 1446:                                             ; preds = %1427
   %1447 = getelementptr [42 x %struct.minstrel_mcs_group_data], ptr %58, i64 0, i64 %1415
@@ -4133,7 +4133,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
 1475:                                             ; preds = %1471, %1466
   %1476 = add nuw nsw i32 %1453, 1
   %1477 = icmp eq i32 %1476, 10
-  br i1 %1477, label %.thread95, label %1452, !llvm.loop !65
+  br i1 %1477, label %.thread95, label %1452, !llvm.loop !62
 
 .thread95:                                        ; preds = %1475
   store i8 %1467, ptr %1447, align 4
@@ -4178,7 +4178,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
 1504:                                             ; preds = %1496
   %1505 = add nuw nsw i64 %1497, 1
   %1506 = icmp eq i64 %1505, 5
-  br i1 %1506, label %1507, label %1496, !llvm.loop !62
+  br i1 %1506, label %1507, label %1496, !llvm.loop !59
 
 1507:                                             ; preds = %1504, %1496
   br i1 %1494, label %1528, label %1508
@@ -4214,7 +4214,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   %.ph99 = phi i32 [ %1410, %.thread95 ], [ %1410, %1508 ], [ %1524, %1519 ], [ %1410, %1512 ], [ %1410, %1406 ], [ %1410, %1496 ], [ %1410, %1440 ]
   %1525 = add nuw nsw i32 %1409, 1
   %1526 = icmp eq i32 %1525, 42
-  br i1 %1526, label %.thread103, label %1406, !llvm.loop !66
+  br i1 %1526, label %.thread103, label %1406, !llvm.loop !63
 
 .thread103:                                       ; preds = %.thread94
   store i8 %1414, ptr %1394, align 2
@@ -4240,7 +4240,7 @@ minstrel_ht_sort_best_tp_rates.exit92:            ; preds = %818, %820
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %1533, ptr noundef nonnull align 2 dereferenceable(10) %1534, i64 10, i1 false)
   %1535 = add nuw nsw i64 %1531, 1
   %1536 = icmp eq i64 %1535, 3
-  br i1 %1536, label %1537, label %.loopexit, !llvm.loop !67
+  br i1 %1536, label %1537, label %.loopexit, !llvm.loop !64
 
 1537:                                             ; preds = %.loopexit
   %1538 = load volatile i64, ptr @jiffies, align 64
@@ -4289,7 +4289,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   tail call fastcc void @minstrel_ht_set_rate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %24, i32 noundef %23)
   %25 = add nuw nsw i64 %20, 1
   %26 = icmp eq i64 %25, %18
-  br i1 %26, label %.loopexit, label %19, !llvm.loop !68
+  br i1 %26, label %.loopexit, label %19, !llvm.loop !65
 
 .loopexit:                                        ; preds = %19, %11
   %27 = phi i32 [ 1, %11 ], [ %17, %19 ]
@@ -4564,7 +4564,7 @@ define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(
   %125 = zext i8 %124 to i32
   %126 = load i32, ptr %98, align 8
   %127 = icmp ugt i32 %126, %125
-  br i1 %127, label %99, label %.loopexit, !llvm.loop !69
+  br i1 %127, label %99, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %123, %119, %..loopexit_crit_edge
   %128 = phi i16 [ %.pre6, %..loopexit_crit_edge ], [ %54, %119 ], [ %54, %123 ]
@@ -4786,10 +4786,10 @@ attributes #16 = { nounwind allocsize(0) }
 !41 = !{i64 2170735185, i64 2170735214, i64 2170735260, i64 2170735318, i64 2170735372, i64 2170735426, i64 2170735481, i64 2170735512, i64 2170735820, i64 2170735826, i64 2170735873, i64 2170735896, i64 2170735922}
 !42 = !{i64 2170736395, i64 2170736201, i64 2170736251, i64 2170736297, i64 2170736325}
 !43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
 !46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8, !45}
+!47 = distinct !{!47, !7, !8}
 !48 = distinct !{!48, !7, !8}
 !49 = distinct !{!49, !7, !8}
 !50 = distinct !{!50, !7, !8}
@@ -4809,6 +4809,3 @@ attributes #16 = { nounwind allocsize(0) }
 !64 = distinct !{!64, !7, !8}
 !65 = distinct !{!65, !7, !8}
 !66 = distinct !{!66, !7, !8}
-!67 = distinct !{!67, !7, !8}
-!68 = distinct !{!68, !7, !8}
-!69 = distinct !{!69, !7, !8}

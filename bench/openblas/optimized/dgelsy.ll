@@ -481,7 +481,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %227, ptr %231, align 8, !tbaa !7
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
-  br i1 %exitcond420.not, label %._crit_edge399, label %226, !llvm.loop !13
+  br i1 %exitcond420.not, label %._crit_edge399, label %226, !llvm.loop !12
 
 ._crit_edge399:                                   ; preds = %226, %.lr.ph403
   %232 = getelementptr double, ptr %34, i64 %.pre431
@@ -491,7 +491,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %234 = load i32, ptr %14, align 4, !tbaa !3
   %235 = sext i32 %234 to i64
   %.not357.not = icmp slt i64 %indvars.iv421, %235
-  br i1 %.not357.not, label %.lr.ph403, label %._crit_edge404, !llvm.loop !14
+  br i1 %.not357.not, label %.lr.ph403, label %._crit_edge404, !llvm.loop !13
 
 ._crit_edge404:                                   ; preds = %._crit_edge399, %221
   %brmerge = or i1 %or.cond364, %116
@@ -606,7 +606,6 @@ attributes #5 = { nounwind }
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
 !13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}

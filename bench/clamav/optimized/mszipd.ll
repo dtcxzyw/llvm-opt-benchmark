@@ -2676,7 +2676,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.5.us = phi i32 [ %.4166.us, %.preheader141.split.us ], [ %98, %._crit_edge162.us ]
   %77 = add nuw nsw i16 %.2123164.us, 1
   %78 = icmp samesign ult i16 %77, %8
-  br i1 %78, label %.preheader141.split.us, label %.split.us, !llvm.loop !38
+  br i1 %78, label %.preheader141.split.us, label %.split.us
 
 .preheader.us:                                    ; preds = %70, %88
   %.4109161.us = phi i32 [ %95, %88 ], [ 0, %70 ]
@@ -2802,5 +2802,3 @@ attributes #6 = { nounwind }
 !35 = !{!4, !5, i64 72}
 !36 = !{!37, !37, i64 0}
 !37 = !{!"short", !6, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}

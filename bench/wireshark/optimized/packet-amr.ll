@@ -949,7 +949,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %105 = add i32 %.096.i, 8
   %106 = add i32 %.0.i, 1
   %.not103.i = icmp sgt i8 %84, -1
-  br i1 %.not103.i, label %.split108.us.i, label %.split.i, !llvm.loop !12
+  br i1 %.not103.i, label %.split108.us.i, label %.split.i, !llvm.loop !10
 
 .split108.us.i:                                   ; preds = %104, %81
   %.us-phi.i = phi i32 [ %83, %81 ], [ %106, %104 ]
@@ -1061,7 +1061,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %28 = sdiv i32 %24, 8
   %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
   %30 = icmp sgt i32 %29, 2
-  br i1 %30, label %.split.us, label %.critedge, !llvm.loop !13
+  br i1 %30, label %.split.us, label %.critedge, !llvm.loop !11
 
 .split:                                           ; preds = %.split.preheader, %46
   %.082 = phi i32 [ %44, %46 ], [ 3, %.split.preheader ]
@@ -1090,7 +1090,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %48 = sdiv i32 %44, 8
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %48)
   %50 = icmp sgt i32 %49, 2
-  br i1 %50, label %.split, label %.critedge, !llvm.loop !14
+  br i1 %50, label %.split, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %46, %.split, %.split.us, %26
   %.us-phi = phi i32 [ %.1.us, %26 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %.1, %46 ]
@@ -1223,8 +1223,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !11}
-!14 = distinct !{!14, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

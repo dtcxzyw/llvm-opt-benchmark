@@ -106,7 +106,7 @@ point_box_distance.exit:                          ; preds = %52, %31, %27, %24, 
   %56 = getelementptr inbounds nuw i8, ptr %.018, i64 72
   %57 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
   %exitcond.not = icmp eq i32 %55, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %point_box_distance.exit, %point_box_distance.exit.us, %4
   ret ptr %7
@@ -141,7 +141,5 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !5}

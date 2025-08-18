@@ -454,7 +454,7 @@ define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_u
   tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %11, i1 false), !tbaa !22
   %14 = add nuw nsw i64 %.02436.us, 1
   %exitcond41.not = icmp eq i64 %14, %4
-  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34.us, !llvm.loop !24
+  br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34.us
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -666,5 +666,3 @@ attributes #13 = { nounwind }
 !21 = !{!4, !8, i64 48}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"double", !6, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}

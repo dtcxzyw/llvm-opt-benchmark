@@ -999,7 +999,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
 56:                                               ; preds = %.lr.ph
   %57 = add i32 %.03078, 1
   %exitcond.not = icmp eq i32 %.03078, %53
-  br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !53
 
 58:                                               ; preds = %.lr.ph
   %59 = landingpad { ptr, i32 }
@@ -1009,7 +1009,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
 .loopexit73:                                      ; preds = %56, %.preheader72
   %60 = add nuw nsw i32 %.03982, 1
   %exitcond101.not = icmp eq i32 %60, %33
-  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !55
+  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !52
 
 61:                                               ; preds = %._crit_edge
   %.not40 = icmp eq i8 %44, 0
@@ -1023,7 +1023,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = load ptr, ptr %64, align 8, !tbaa !43
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !56
+  %67 = load i32, ptr %66, align 8, !tbaa !54
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %.lr.ph92, label %._crit_edge93
 
@@ -1079,7 +1079,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
   %92 = add nuw nsw i32 %.040.i.us, 1
   %93 = zext nneg i32 %.040.i.us to i64
   %94 = getelementptr inbounds nuw i16, ptr %.0.i.i.us, i64 %93
-  %95 = load i16, ptr %94, align 2, !tbaa !59
+  %95 = load i16, ptr %94, align 2, !tbaa !57
   %96 = zext i16 %95 to i32
   %97 = and i32 %96, 64512
   %98 = icmp ne i32 %97, 55296
@@ -1090,7 +1090,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
 99:                                               ; preds = %91
   %100 = zext nneg i32 %92 to i64
   %101 = getelementptr inbounds nuw i16, ptr %.0.i.i.us, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !59
+  %102 = load i16, ptr %101, align 2, !tbaa !57
   %103 = zext i16 %102 to i32
   %104 = and i32 %103, 64512
   %105 = icmp eq i32 %104, 56320
@@ -1143,7 +1143,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
   %125 = add nsw i32 %.34360.i.us, 1
   %126 = sext i32 %.34360.i.us to i64
   %127 = getelementptr inbounds i16, ptr %.0.i.i.us, i64 %126
-  %128 = load i16, ptr %127, align 2, !tbaa !59
+  %128 = load i16, ptr %127, align 2, !tbaa !57
   %129 = zext i16 %128 to i32
   %130 = and i32 %129, 64512
   %131 = icmp ne i32 %130, 55296
@@ -1154,7 +1154,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
 132:                                              ; preds = %.lr.ph.i.us
   %133 = sext i32 %125 to i64
   %134 = getelementptr inbounds i16, ptr %.0.i.i.us, i64 %133
-  %135 = load i16, ptr %134, align 2, !tbaa !59
+  %135 = load i16, ptr %134, align 2, !tbaa !57
   %136 = zext i16 %135 to i32
   %137 = and i32 %136, 64512
   %138 = icmp eq i32 %137, 56320
@@ -1179,7 +1179,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
 
 .noexc62.us:                                      ; preds = %.noexc61.us
   %147 = icmp eq i32 %.6.i.us, %90
-  br i1 %147, label %_ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !61
+  br i1 %147, label %_ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !59
 
 _ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread.us: ; preds = %.noexc62.us, %.noexc60.us
   %148 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet6removeERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %4, ptr noundef nonnull align 8 dereferenceable(64) %73)
@@ -1193,9 +1193,9 @@ _ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread65.us: ;
   %151 = add nuw nsw i32 %.02990.us, 1
   %152 = load ptr, ptr %64, align 8, !tbaa !43
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load i32, ptr %153, align 8, !tbaa !56
+  %154 = load i32, ptr %153, align 8, !tbaa !54
   %155 = icmp slt i32 %151, %154
-  br i1 %155, label %.lr.ph92.split.us, label %._crit_edge93, !llvm.loop !62
+  br i1 %155, label %.lr.ph92.split.us, label %._crit_edge93, !llvm.loop !60
 
 .loopexit.split-lp.loopexit.split-lp.split.us:    ; preds = %149, %_ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread.us, %.noexc59.us, %.noexc58.us, %113, %.lr.ph92.split.us
   %lpad.loopexit.split-lp69.us = landingpad { ptr, i32 }
@@ -1271,9 +1271,9 @@ _ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread65: ; pr
   %176 = add nuw nsw i32 %.02990, 1
   %177 = load ptr, ptr %64, align 8, !tbaa !43
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load i32, ptr %178, align 8, !tbaa !56
+  %179 = load i32, ptr %178, align 8, !tbaa !54
   %180 = icmp slt i32 %176, %179
-  br i1 %180, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !63
+  br i1 %180, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !60
 
 181:                                              ; preds = %._crit_edge93, %61
   %182 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSetaSERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %4)
@@ -1416,7 +1416,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
 ._crit_edge:                                      ; preds = %111, %.preheader78
   %39 = add nuw nsw i32 %.04281, 1
   %exitcond87.not = icmp eq i32 %39, %25
-  br i1 %exitcond87.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !64
+  br i1 %exitcond87.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !61
 
 40:                                               ; preds = %.lr.ph83
   %41 = landingpad { ptr, i32 }
@@ -1434,7 +1434,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %45 unwind label %113
 
 45:                                               ; preds = %.lr.ph
-  %46 = load ptr, ptr %9, align 8, !tbaa !65
+  %46 = load ptr, ptr %9, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = icmp sgt i32 %44, -1
   br i1 %47, label %48, label %60
@@ -1448,21 +1448,21 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %60 unwind label %113
 
 52:                                               ; preds = %48
-  store ptr %46, ptr %5, align 8, !tbaa !66
+  store ptr %46, ptr %5, align 8, !tbaa !63
   %53 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %5, i32 noundef %44)
           to label %54 unwind label %57
 
 54:                                               ; preds = %52
-  %55 = load ptr, ptr %5, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #13, !srcloc !68
+  %55 = load ptr, ptr %5, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #13, !srcloc !65
   %56 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %60 unwind label %113
 
 57:                                               ; preds = %52
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %5, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #13, !srcloc !68
+  %59 = load ptr, ptr %5, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %59) #13, !srcloc !65
   br label %.body
 
 60:                                               ; preds = %45, %50, %54
@@ -1471,7 +1471,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %62 unwind label %113
 
 62:                                               ; preds = %60
-  %63 = load ptr, ptr %9, align 8, !tbaa !65
+  %63 = load ptr, ptr %9, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = icmp sgt i32 %61, -1
   br i1 %64, label %65, label %77
@@ -1485,21 +1485,21 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %77 unwind label %113
 
 69:                                               ; preds = %65
-  store ptr %63, ptr %4, align 8, !tbaa !66
+  store ptr %63, ptr %4, align 8, !tbaa !63
   %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %4, i32 noundef %61)
           to label %71 unwind label %74
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr %4, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %72) #13, !srcloc !68
+  %72 = load ptr, ptr %4, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %72) #13, !srcloc !65
   %73 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %77 unwind label %113
 
 74:                                               ; preds = %69
   %75 = landingpad { ptr, i32 }
           cleanup
-  %76 = load ptr, ptr %4, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %76) #13, !srcloc !68
+  %76 = load ptr, ptr %4, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %76) #13, !srcloc !65
   br label %.body
 
 77:                                               ; preds = %62, %67, %71
@@ -1508,7 +1508,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %79 unwind label %113
 
 79:                                               ; preds = %77
-  %80 = load ptr, ptr %9, align 8, !tbaa !65
+  %80 = load ptr, ptr %9, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = icmp sgt i32 %78, -1
   br i1 %81, label %82, label %94
@@ -1522,21 +1522,21 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %94 unwind label %113
 
 86:                                               ; preds = %82
-  store ptr %80, ptr %3, align 8, !tbaa !66
+  store ptr %80, ptr %3, align 8, !tbaa !63
   %87 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %3, i32 noundef %78)
           to label %88 unwind label %91
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr %3, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %89) #13, !srcloc !68
+  %89 = load ptr, ptr %3, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %89) #13, !srcloc !65
   %90 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %94 unwind label %113
 
 91:                                               ; preds = %86
   %92 = landingpad { ptr, i32 }
           cleanup
-  %93 = load ptr, ptr %3, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %93) #13, !srcloc !68
+  %93 = load ptr, ptr %3, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %93) #13, !srcloc !65
   br label %.body
 
 94:                                               ; preds = %79, %84, %88
@@ -1545,7 +1545,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %96 unwind label %113
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr %9, align 8, !tbaa !65
+  %97 = load ptr, ptr %9, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %98 = icmp sgt i32 %95, -1
   br i1 %98, label %99, label %111
@@ -1559,28 +1559,28 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
           to label %111 unwind label %113
 
 103:                                              ; preds = %99
-  store ptr %97, ptr %2, align 8, !tbaa !66
+  store ptr %97, ptr %2, align 8, !tbaa !63
   %104 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext 0, ptr noundef nonnull %2, i32 noundef %95)
           to label %105 unwind label %108
 
 105:                                              ; preds = %103
-  %106 = load ptr, ptr %2, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %106) #13, !srcloc !68
+  %106 = load ptr, ptr %2, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %106) #13, !srcloc !65
   %107 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(64) %10)
           to label %111 unwind label %113
 
 108:                                              ; preds = %103
   %109 = landingpad { ptr, i32 }
           cleanup
-  %110 = load ptr, ptr %2, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %110) #13, !srcloc !68
+  %110 = load ptr, ptr %2, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %110) #13, !srcloc !65
   br label %.body
 
 111:                                              ; preds = %96, %101, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %112 = add i32 %.04180, 1
   %exitcond.not = icmp eq i32 %.04180, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 113:                                              ; preds = %105, %101, %88, %84, %71, %67, %54, %50, %94, %77, %60, %.lr.ph
   %114 = landingpad { ptr, i32 }
@@ -1611,7 +1611,7 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %123 = load ptr, ptr %122, align 8, !tbaa !43
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load i32, ptr %124, align 8, !tbaa !56
+  %125 = load i32, ptr %124, align 8, !tbaa !54
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.lr.ph86, label %.loopexit
 
@@ -1688,9 +1688,9 @@ _ZN6icu_7712_GLOBAL__N_122maybeOnlyCaseSensitiveERKNS_10UnicodeSetERS1_.exit: ; 
   %160 = add nuw nsw i32 %.03185, 1
   %161 = load ptr, ptr %122, align 8, !tbaa !43
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !56
+  %163 = load i32, ptr %162, align 8, !tbaa !54
   %164 = icmp slt i32 %160, %163
-  br i1 %164, label %.lr.ph86, label %.loopexit, !llvm.loop !70
+  br i1 %164, label %.lr.ph86, label %.loopexit, !llvm.loop !67
 
 165:                                              ; preds = %157, %155, %153, %151, %149, %147, %145, %143, %141, %139, %137, %135, %.lr.ph86
   %166 = landingpad { ptr, i32 }
@@ -1784,7 +1784,7 @@ define internal void @_ZN6icu_77L14_set_addStringEP4USetPKDsi(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.lobit = lshr i32 %2, 31
   %6 = trunc nuw nsw i32 %.lobit to i8
-  store ptr %1, ptr %5, align 8, !tbaa !66
+  store ptr %1, ptr %5, align 8, !tbaa !63
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext %6, ptr noundef nonnull %5, i32 noundef %2)
           to label %7 unwind label %11
 
@@ -1794,8 +1794,8 @@ define internal void @_ZN6icu_77L14_set_addStringEP4USetPKDsi(ptr noundef %0, pt
 
 9:                                                ; preds = %7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
-  %10 = load ptr, ptr %5, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #13, !srcloc !68
+  %10 = load ptr, ptr %5, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #13, !srcloc !65
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -1812,8 +1812,8 @@ define internal void @_ZN6icu_77L14_set_addStringEP4USetPKDsi(ptr noundef %0, pt
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  %16 = load ptr, ptr %5, align 8, !tbaa !66
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #13, !srcloc !68
+  %16 = load ptr, ptr %5, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #13, !srcloc !65
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
@@ -1975,22 +1975,19 @@ attributes #15 = { noreturn nounwind }
 !49 = !{!45, !6, i64 24}
 !50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !51}
-!55 = distinct !{!55, !51}
-!56 = !{!57, !9, i64 8}
-!57 = !{!"_ZTSN6icu_777UVectorE", !21, i64 0, !9, i64 8, !9, i64 12, !58, i64 16, !6, i64 24, !6, i64 32}
-!58 = !{!"p1 _ZTS8UElement", !6, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"char16_t", !7, i64 0}
+!52 = distinct !{!52, !51}
+!53 = distinct !{!53, !51}
+!54 = !{!55, !9, i64 8}
+!55 = !{!"_ZTSN6icu_777UVectorE", !21, i64 0, !9, i64 8, !9, i64 12, !56, i64 16, !6, i64 24, !6, i64 32}
+!56 = !{!"p1 _ZTS8UElement", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"char16_t", !7, i64 0}
+!59 = distinct !{!59, !51}
+!60 = distinct !{!60, !51}
 !61 = distinct !{!61, !51}
-!62 = distinct !{!62, !51, !53}
-!63 = distinct !{!63, !51}
-!64 = distinct !{!64, !51}
-!65 = !{!25, !25, i64 0}
-!66 = !{!67, !25, i64 0}
-!67 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !25, i64 0}
-!68 = !{i64 2148873025}
-!69 = distinct !{!69, !51}
-!70 = distinct !{!70, !51}
+!62 = !{!25, !25, i64 0}
+!63 = !{!64, !25, i64 0}
+!64 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !25, i64 0}
+!65 = !{i64 2148873025}
+!66 = distinct !{!66, !51}
+!67 = distinct !{!67, !51}

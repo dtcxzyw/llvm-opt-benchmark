@@ -1170,12 +1170,12 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   store i8 %56, ptr %62, align 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge.us90, label %55, !llvm.loop !15
+  br i1 %exitcond103.not, label %._crit_edge.us90, label %55, !llvm.loop !14
 
 ._crit_edge.us90:                                 ; preds = %55
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !15
 
 .critedge:                                        ; preds = %.loopexit80, %37
   %63 = load ptr, ptr @awt_display, align 8
@@ -1309,7 +1309,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
   store i16 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %68 = load ptr, ptr @awt_display, align 8
@@ -1386,7 +1386,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
   store i64 %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %26 = load ptr, ptr @awt_display, align 8
@@ -1528,7 +1528,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   store i32 %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !18
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv108 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next109, %.lr.ph106 ]
@@ -1558,7 +1558,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %77 = add nsw i32 %62, %.0105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !20
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
   %78 = load ptr, ptr @awt_display, align 8
@@ -1671,7 +1671,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
   store i16 %38, ptr %39, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %40 = load ptr, ptr @awt_display, align 8
@@ -1784,12 +1784,11 @@ attributes #16 = { nounwind allocsize(0) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !14}
+!16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}

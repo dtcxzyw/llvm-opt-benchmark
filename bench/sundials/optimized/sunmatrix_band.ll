@@ -740,7 +740,7 @@ define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly
   store double %20, ptr %18, align 8, !tbaa !36
   %21 = add nuw nsw i64 %.01821.us, 1
   %exitcond27.not = icmp eq i64 %21, %5
-  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph23.split.us, !llvm.loop !38
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph23.split.us
 
 .lr.ph:                                           ; preds = %.lr.ph23, %._crit_edge
   %.01821 = phi i64 [ %32, %._crit_edge ], [ 0, %.lr.ph23 ]
@@ -854,10 +854,10 @@ define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr
   %11 = add i64 %8, 1
   %12 = add i64 %11, %10
   %13 = mul nsw i64 %12, %6
-  store i64 %13, ptr %1, align 8, !tbaa !40
+  store i64 %13, ptr %1, align 8, !tbaa !38
   %14 = load i64, ptr %5, align 8, !tbaa !26
   %15 = add nsw i64 %14, 7
-  store i64 %15, ptr %2, align 8, !tbaa !40
+  store i64 %15, ptr %2, align 8, !tbaa !38
   ret i32 0
 }
 
@@ -1107,6 +1107,4 @@ attributes #21 = { nounwind allocsize(1) }
 !35 = !{!4, !9, i64 16}
 !36 = !{!37, !37, i64 0}
 !37 = !{!"double", !6, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = !{!23, !23, i64 0}
+!38 = !{!23, !23, i64 0}

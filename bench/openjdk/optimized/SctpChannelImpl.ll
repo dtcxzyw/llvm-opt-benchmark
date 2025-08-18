@@ -974,7 +974,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %.2 = phi i64 [ %.19196, %.thread93 ], [ %.040, %47 ]
   %74 = and i32 %73, 32768
   %.not50 = icmp eq i32 %74, 0
-  br i1 %.not50, label %.split67.us, label %.split, !llvm.loop !11
+  br i1 %.not50, label %.split67.us, label %.split, !llvm.loop !9
 
 .split67.us:                                      ; preds = %37, %72
   %.us-phi68 = phi i64 [ %.2, %72 ], [ %.040.us, %37 ]
@@ -1152,6 +1152,4 @@ attributes #14 = { nounwind allocsize(0) }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
+!9 = distinct !{!9, !7}

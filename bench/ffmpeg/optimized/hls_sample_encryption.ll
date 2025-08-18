@@ -607,7 +607,7 @@ decrypt_sync_frame.exit.us.i:                     ; preds = %180
 201:                                              ; preds = %197, %.lr.ph.i13.i.i
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 1
   %exitcond.not.i14.i.i = icmp eq ptr %202, %scevgep.i12.i.i
-  br i1 %exitcond.not.i14.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i, label %.lr.ph.i13.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i14.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i, label %.lr.ph.i13.i.i, !llvm.loop !58
 
 203:                                              ; preds = %197
   %204 = ptrtoint ptr %.sroa.06.3.i to i64
@@ -628,7 +628,7 @@ get_next_ac3_eac3_sync_frame.exit.i.thread.i:     ; preds = %.lr.ph.split.split.
 
 209:                                              ; preds = %203
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 46
-  %211 = load i16, ptr %210, align 2, !tbaa !60
+  %211 = load i16, ptr %210, align 2, !tbaa !59
   %212 = zext i16 %211 to i32
   call void @av_free(ptr noundef %208) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -653,7 +653,7 @@ decrypt_sync_frame.exit.i:                        ; preds = %214
   %223 = zext i16 %211 to i64
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 %223
   %225 = icmp ult ptr %224, %151
-  br i1 %225, label %.lr.ph.split.split.i, label %decrypt_video_frame.exit, !llvm.loop !61
+  br i1 %225, label %.lr.ph.split.split.i, label %decrypt_video_frame.exit, !llvm.loop !57
 
 decrypt_video_frame.exit:                         ; preds = %222, %214, %190, %180, %.thread.i.i, %30, %get_next_ac3_eac3_sync_frame.exit.i.thread.i, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i, %get_next_adts_frame.exit.i.us.thread.i, %.lr.ph.i14, %147, %._crit_edge.i, %decrypt_nal_unit.exit.i, %3
   %.0 = phi i32 [ -1094995529, %3 ], [ %83, %decrypt_nal_unit.exit.i ], [ 0, %._crit_edge.i ], [ 0, %147 ], [ -1094995529, %.lr.ph.i14 ], [ %.0.i.i.us.ph.i, %get_next_adts_frame.exit.i.us.thread.i ], [ -1, %get_next_ac3_eac3_sync_frame.exit.i.thread.i ], [ %206, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i ], [ -1, %30 ], [ -1, %.thread.i.i ], [ 0, %190 ], [ %182, %180 ], [ 0, %222 ], [ %216, %214 ]
@@ -753,8 +753,6 @@ attributes #6 = { nounwind }
 !54 = !{!55, !5, i64 12}
 !55 = !{!"AACADTSHeaderInfo", !9, i64 0, !9, i64 4, !9, i64 8, !5, i64 12, !5, i64 13, !5, i64 14, !5, i64 15, !5, i64 16, !9, i64 20}
 !56 = !{!55, !9, i64 20}
-!57 = distinct !{!57, !44, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !44}
-!60 = !{!34, !10, i64 46}
-!61 = distinct !{!61, !44}
+!57 = distinct !{!57, !44}
+!58 = distinct !{!58, !44}
+!59 = !{!34, !10, i64 46}

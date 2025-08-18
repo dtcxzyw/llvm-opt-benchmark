@@ -162,7 +162,7 @@ define range(i32 0, 2) i32 @ossl_rio_poll_builder_poll(ptr noundef %0, i64 %1) l
   %23 = tail call ptr @__errno_location() #7
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = icmp eq i32 %24, 4
-  br i1 %25, label %.split, label %.critedge, !llvm.loop !22
+  br i1 %25, label %.split, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %22, %.split, %.split.us, %10
   %.us-phi = phi i32 [ %8, %.split.us ], [ -1, %10 ], [ -1, %22 ], [ %20, %.split ]
@@ -217,6 +217,4 @@ attributes #7 = { nounwind willreturn memory(none) }
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!13, !15, i64 4}
 !19 = !{!14, !14, i64 0}
-!20 = distinct !{!20, !17, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !17}
+!20 = distinct !{!20, !17}

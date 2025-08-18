@@ -150,7 +150,7 @@ define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr 
   %75 = phi ptr [ %.pre59, %70 ], [ %62, %60 ]
   %.2.us44 = phi i32 [ %.3.us43, %70 ], [ %.1.us40, %60 ]
   %.not.us45 = icmp eq ptr %75, null
-  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
+  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %10, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -201,7 +201,7 @@ define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr 
   %96 = getelementptr inbounds nuw i8, ptr %.02535.us47, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !12
   %.not.us52 = icmp eq ptr %97, null
-  br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !17
+  br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !13
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %130
   %.036 = phi i32 [ %.3, %130 ], [ 0, %.lr.ph.split.split ]
@@ -275,7 +275,7 @@ define dso_local noalias noundef ptr @pkg_writeCharListWrap(ptr noundef %0, ptr 
   %133 = call i32 @T_FileStream_write(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %132) #11
   %.pre58 = load ptr, ptr %122, align 8, !tbaa !12
   %.not = icmp eq ptr %.pre58, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %95, %121, %130, %74, %48, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -371,7 +371,7 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
 40:                                               ; preds = %36, %32
   %41 = phi ptr [ %.pre44, %36 ], [ %34, %32 ]
   %.not.us = icmp eq ptr %41, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %.not21 = icmp eq i32 %3, 0
@@ -414,7 +414,7 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
 60:                                               ; preds = %56, %52
   %61 = phi ptr [ %.pre43, %56 ], [ %54, %52 ]
   %.not.us29 = icmp eq ptr %61, null
-  br i1 %.not.us29, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !20
+  br i1 %.not.us29, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !15
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %9, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
@@ -470,7 +470,7 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
   %85 = getelementptr inbounds nuw i8, ptr %.025.us30, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !12
   %.not.us33 = icmp eq ptr %86, null
-  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !21
+  br i1 %.not.us33, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !15
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %114
   %.025 = phi ptr [ %.pre42, %114 ], [ %1, %.lr.ph.split.split ]
@@ -487,7 +487,7 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
   br i1 %92, label %.split.us, label %95
 
 .split.us:                                        ; preds = %63, %88, %43, %11
-  %93 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !16
   %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88) #13
   call void @exit(i32 noundef 0) #14
   unreachable
@@ -537,7 +537,7 @@ define dso_local noalias noundef ptr @pkg_writeCharList(ptr noundef %0, ptr noun
   %117 = call i32 @T_FileStream_write(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %116) #11
   %.pre42 = load ptr, ptr %112, align 8, !tbaa !12
   %.not = icmp eq ptr %.pre42, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %84, %111, %114, %60, %40, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -562,7 +562,7 @@ define dso_local i32 @pkg_countCharList(ptr noundef readonly captures(address_is
   %3 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %2, %.lr.ph ]
@@ -594,7 +594,7 @@ define dso_local noundef ptr @pkg_appendToList(ptr noundef %0, ptr noundef captu
   br i1 %4, label %.cont32, label %.else34
 
 .else34:                                          ; preds = %3
-  %.else.val35 = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val35 = load ptr, ptr %1, align 8, !tbaa !19
   %5 = icmp eq ptr %.else.val35, null
   br label %.cont32
 
@@ -609,13 +609,13 @@ define dso_local noundef ptr @pkg_appendToList(ptr noundef %0, ptr noundef captu
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %.preheader, !llvm.loop !27
+  br i1 %.not, label %10, label %.preheader, !llvm.loop !20
 
 10:                                               ; preds = %.preheader
   br i1 %4, label %.cont29.thread, label %.else31
 
 .else31:                                          ; preds = %10
-  store ptr %.0, ptr %1, align 8, !tbaa !26
+  store ptr %.0, ptr %1, align 8, !tbaa !19
   br label %.cont29.thread
 
 .cont29:                                          ; preds = %.cont32
@@ -647,7 +647,7 @@ pkg_prependToList.exit24:                         ; preds = %.cont29.thread, %18
   br i1 %4, label %pkg_prependToList.exit.sink.split, label %pkg_prependToList.exit24.else
 
 pkg_prependToList.exit24.else:                    ; preds = %pkg_prependToList.exit24
-  %.else.val = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val = load ptr, ptr %1, align 8, !tbaa !19
   br label %pkg_prependToList.exit.sink.split
 
 pkg_prependToList.exit.sink.split:                ; preds = %pkg_prependToList.exit24.else, %pkg_prependToList.exit24, %15
@@ -665,7 +665,7 @@ pkg_prependToList.exit:                           ; preds = %pkg_prependToList.e
   br i1 %4, label %.cont25, label %.else27
 
 .else27:                                          ; preds = %pkg_prependToList.exit
-  %.else.val28 = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val28 = load ptr, ptr %1, align 8, !tbaa !19
   br label %.cont25
 
 .cont25:                                          ; preds = %pkg_prependToList.exit, %.else27
@@ -683,7 +683,7 @@ pkg_prependToList.exit:                           ; preds = %pkg_prependToList.e
   br i1 %4, label %.cont, label %.else
 
 .else:                                            ; preds = %25
-  store ptr %storemerge, ptr %1, align 8, !tbaa !26
+  store ptr %storemerge, ptr %1, align 8, !tbaa !19
   br label %.cont
 
 .cont:                                            ; preds = %25, %.else
@@ -701,7 +701,7 @@ define dso_local noundef ptr @convertToNativePathSeparators(ptr noundef returned
   store i8 47, ptr %3, align 1, !tbaa !11
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #12
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %0
@@ -726,7 +726,7 @@ define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %0, ptr noun
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !16
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, i32 noundef 1024, ptr noundef nonnull %2) #13
   br label %pkg_listContains.exit
 
@@ -743,7 +743,7 @@ define dso_local noundef ptr @pkg_appendUniqueDirToList(ptr noundef %0, ptr noun
   store i8 47, ptr %18, align 1, !tbaa !11
   %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #12
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %convertToNativePathSeparators.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i, label %convertToNativePathSeparators.exit, label %.lr.ph.i, !llvm.loop !21
 
 convertToNativePathSeparators.exit:               ; preds = %.lr.ph.i, %14
   %.not6.i = icmp eq ptr %0, null
@@ -760,7 +760,7 @@ convertToNativePathSeparators.exit:               ; preds = %.lr.ph.i, %14
   %23 = getelementptr inbounds nuw i8, ptr %.047.i, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !12
   %.not.i21 = icmp eq ptr %24, null
-  br i1 %.not.i21, label %.loopexit, label %.lr.ph.i20, !llvm.loop !29
+  br i1 %.not.i21, label %.loopexit, label %.lr.ph.i20, !llvm.loop !22
 
 .loopexit:                                        ; preds = %22, %convertToNativePathSeparators.exit
   %25 = call ptr @uprv_strdup_77(ptr noundef nonnull %4) #11
@@ -768,7 +768,7 @@ convertToNativePathSeparators.exit:               ; preds = %.lr.ph.i, %14
   br i1 %26, label %.cont32.i, label %.else34.i
 
 .else34.i:                                        ; preds = %.loopexit
-  %.else.val35.i = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val35.i = load ptr, ptr %1, align 8, !tbaa !19
   %27 = icmp eq ptr %.else.val35.i, null
   br label %.cont32.i
 
@@ -783,13 +783,13 @@ convertToNativePathSeparators.exit:               ; preds = %.lr.ph.i, %14
   %30 = getelementptr inbounds nuw i8, ptr %.0.i22, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %.not.i23 = icmp eq ptr %31, null
-  br i1 %.not.i23, label %32, label %.preheader.i, !llvm.loop !27
+  br i1 %.not.i23, label %32, label %.preheader.i, !llvm.loop !20
 
 32:                                               ; preds = %.preheader.i
   br i1 %26, label %.cont29.thread.i, label %.else31.i
 
 .else31.i:                                        ; preds = %32
-  store ptr %.0.i22, ptr %1, align 8, !tbaa !26
+  store ptr %.0.i22, ptr %1, align 8, !tbaa !19
   br label %.cont29.thread.i
 
 .cont29.i:                                        ; preds = %.cont32.i
@@ -820,7 +820,7 @@ pkg_prependToList.exit24.i:                       ; preds = %39, %.cont29.thread
   br i1 %26, label %pkg_prependToList.exit.sink.split.i, label %pkg_prependToList.exit24.else.i
 
 pkg_prependToList.exit24.else.i:                  ; preds = %pkg_prependToList.exit24.i
-  %.else.val.i = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val.i = load ptr, ptr %1, align 8, !tbaa !19
   br label %pkg_prependToList.exit.sink.split.i
 
 pkg_prependToList.exit.sink.split.i:              ; preds = %pkg_prependToList.exit24.else.i, %pkg_prependToList.exit24.i, %36
@@ -838,7 +838,7 @@ pkg_prependToList.exit.i:                         ; preds = %pkg_prependToList.e
   br i1 %26, label %.cont25.i, label %.else27.i
 
 .else27.i:                                        ; preds = %pkg_prependToList.exit.i
-  %.else.val28.i = load ptr, ptr %1, align 8, !tbaa !26
+  %.else.val28.i = load ptr, ptr %1, align 8, !tbaa !19
   br label %.cont25.i
 
 .cont25.i:                                        ; preds = %.else27.i, %pkg_prependToList.exit.i
@@ -856,7 +856,7 @@ pkg_prependToList.exit.i:                         ; preds = %pkg_prependToList.e
   br i1 %26, label %pkg_listContains.exit, label %.else.i
 
 .else.i:                                          ; preds = %46
-  store ptr %storemerge.i, ptr %1, align 8, !tbaa !26
+  store ptr %storemerge.i, ptr %1, align 8, !tbaa !19
   br label %pkg_listContains.exit
 
 pkg_listContains.exit:                            ; preds = %.lr.ph.i20, %.else.i, %46, %3, %11
@@ -884,7 +884,7 @@ define dso_local signext range(i8 0, 2) i8 @pkg_listContains(ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %2
   %.0 = phi i8 [ 0, %2 ], [ 0, %5 ], [ 1, %.lr.ph ]
@@ -906,7 +906,7 @@ define dso_local void @pkg_deleteList(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @uprv_free_77(ptr noundef nonnull %.06) #11
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -955,21 +955,14 @@ attributes #15 = { nounwind allocsize(0) }
 !10 = !{!"p1 _ZTS9_CharList", !7, i64 0}
 !11 = !{!8, !8, i64 0}
 !12 = !{!5, !10, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = !{!10, !10, i64 0}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
+!19 = !{!10, !10, i64 0}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}

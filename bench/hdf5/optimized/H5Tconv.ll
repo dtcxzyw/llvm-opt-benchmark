@@ -312,7 +312,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 
 16:                                               ; preds = %9
   %17 = load i32, ptr %2, align 8, !tbaa !38
-  switch i32 %17, label %222 [
+  switch i32 %17, label %223 [
     i32 0, label %18
     i32 1, label %179
     i32 2, label %.loopexit
@@ -621,8 +621,8 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 .preheader207:                                    ; preds = %185
   %.not226 = icmp eq i64 %4, 0
   %.not227 = icmp ult i64 %189, 2
-  %or.cond239 = select i1 %.not226, i1 true, i1 %.not227
-  br i1 %or.cond239, label %.loopexit, label %.preheader206.us
+  %or.cond238 = select i1 %.not226, i1 true, i1 %.not227
+  br i1 %or.cond238, label %.loopexit, label %.preheader206.us
 
 .preheader206.us:                                 ; preds = %.preheader207, %._crit_edge.us
   %.1211.us = phi ptr [ %203, %._crit_edge.us ], [ %7, %.preheader207 ]
@@ -645,65 +645,65 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly captures(addre
 ._crit_edge.us:                                   ; preds = %195
   %202 = add nuw i64 %.1169210.us, 1
   %203 = getelementptr inbounds nuw i8, ptr %.1211.us, i64 %190
-  %exitcond234.not = icmp eq i64 %202, %4
-  br i1 %exitcond234.not, label %.loopexit, label %.preheader206.us, !llvm.loop !42
+  %exitcond233.not = icmp eq i64 %202, %4
+  br i1 %exitcond233.not, label %.loopexit, label %.preheader206.us, !llvm.loop !42
 
 204:                                              ; preds = %185
   %205 = lshr i64 %189, 2
   %.not228 = icmp eq i64 %4, 0
   %.not229 = icmp ult i64 %189, 4
-  %or.cond240 = select i1 %.not228, i1 true, i1 %.not229
-  br i1 %or.cond240, label %.loopexit, label %.preheader.us
+  %or.cond239 = select i1 %.not228, i1 true, i1 %.not229
+  br i1 %or.cond239, label %.loopexit, label %.preheader.us.us
 
-.preheader.us:                                    ; preds = %204, %._crit_edge216.us
-  %.0161218.us = phi ptr [ %207, %._crit_edge216.us ], [ %7, %204 ]
-  %.0168217.us = phi i64 [ %206, %._crit_edge216.us ], [ 0, %204 ]
-  br label %214
+.preheader.us.us:                                 ; preds = %204, %._crit_edge216.us.us
+  %.0161218.us.us = phi ptr [ %222, %._crit_edge216.us.us ], [ %7, %204 ]
+  %.0168217.us.us = phi i64 [ %221, %._crit_edge216.us.us ], [ 0, %204 ]
+  br label %213
 
-._crit_edge216.us:                                ; preds = %.lr.ph215.us
-  %206 = add nuw i64 %.0168217.us, 1
-  %207 = getelementptr inbounds nuw i8, ptr %.0161218.us, i64 %190
-  %exitcond237.not = icmp eq i64 %206, %4
-  br i1 %exitcond237.not, label %.loopexit, label %.preheader.us, !llvm.loop !44
+206:                                              ; preds = %._crit_edge.us219.us, %206
+  %.1166213.us.us = phi i64 [ 0, %._crit_edge.us219.us ], [ %209, %206 ]
+  %207 = getelementptr inbounds nuw i8, ptr %220, i64 %.1166213.us.us
+  %208 = load i8, ptr %207, align 1, !tbaa !15
+  %209 = add nuw nsw i64 %.1166213.us.us, 1
+  %210 = sub nsw i64 %191, %209
+  %211 = getelementptr inbounds nuw i8, ptr %220, i64 %210
+  %212 = load i8, ptr %211, align 1, !tbaa !15
+  store i8 %212, ptr %207, align 1, !tbaa !15
+  store i8 %208, ptr %211, align 1, !tbaa !15
+  %exitcond235.not = icmp eq i64 %209, %205
+  br i1 %exitcond235.not, label %._crit_edge216.us.us, label %206, !llvm.loop !43
 
-.lr.ph215.us:                                     ; preds = %.lr.ph215.us.preheader, %.lr.ph215.us
-  %.1166213.us = phi i64 [ %210, %.lr.ph215.us ], [ 0, %.lr.ph215.us.preheader ]
-  %208 = getelementptr inbounds nuw i8, ptr %221, i64 %.1166213.us
-  %209 = load i8, ptr %208, align 1, !tbaa !15
-  %210 = add nuw nsw i64 %.1166213.us, 1
-  %211 = sub nsw i64 %191, %210
-  %212 = getelementptr inbounds nuw i8, ptr %221, i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !15
-  store i8 %213, ptr %208, align 1, !tbaa !15
-  store i8 %209, ptr %212, align 1, !tbaa !15
-  %exitcond236.not = icmp eq i64 %210, %205
-  br i1 %exitcond236.not, label %._crit_edge216.us, label %.lr.ph215.us, !llvm.loop !45
+213:                                              ; preds = %213, %.preheader.us.us
+  %.0165212.us.us = phi i64 [ 0, %.preheader.us.us ], [ %216, %213 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.0161218.us.us, i64 %.0165212.us.us
+  %215 = load i8, ptr %214, align 1, !tbaa !15
+  %216 = add nuw nsw i64 %.0165212.us.us, 1
+  %217 = sub nsw i64 %191, %216
+  %218 = getelementptr inbounds nuw i8, ptr %.0161218.us.us, i64 %217
+  %219 = load i8, ptr %218, align 1, !tbaa !15
+  store i8 %219, ptr %214, align 1, !tbaa !15
+  store i8 %215, ptr %218, align 1, !tbaa !15
+  %exitcond234.not = icmp eq i64 %216, %205
+  br i1 %exitcond234.not, label %._crit_edge.us219.us, label %213, !llvm.loop !44
 
-214:                                              ; preds = %.preheader.us, %214
-  %.0165212.us = phi i64 [ 0, %.preheader.us ], [ %217, %214 ]
-  %215 = getelementptr inbounds nuw i8, ptr %.0161218.us, i64 %.0165212.us
-  %216 = load i8, ptr %215, align 1, !tbaa !15
-  %217 = add nuw nsw i64 %.0165212.us, 1
-  %218 = sub nsw i64 %191, %217
-  %219 = getelementptr inbounds nuw i8, ptr %.0161218.us, i64 %218
-  %220 = load i8, ptr %219, align 1, !tbaa !15
-  store i8 %220, ptr %215, align 1, !tbaa !15
-  store i8 %216, ptr %219, align 1, !tbaa !15
-  %exitcond235.not = icmp eq i64 %217, %205
-  br i1 %exitcond235.not, label %.lr.ph215.us.preheader, label %214, !llvm.loop !46
+._crit_edge.us219.us:                             ; preds = %213
+  %220 = getelementptr inbounds nuw i8, ptr %.0161218.us.us, i64 %191
+  br label %206
 
-.lr.ph215.us.preheader:                           ; preds = %214
-  %221 = getelementptr inbounds nuw i8, ptr %.0161218.us, i64 %191
-  br label %.lr.ph215.us
+._crit_edge216.us.us:                             ; preds = %206
+  %221 = add nuw i64 %.0168217.us.us, 1
+  %222 = getelementptr inbounds nuw i8, ptr %.0161218.us.us, i64 %190
+  %exitcond236.not = icmp eq i64 %221, %4
+  br i1 %exitcond236.not, label %.loopexit, label %.preheader.us.us, !llvm.loop !45
 
-222:                                              ; preds = %16
-  %223 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
-  %224 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !10
-  %225 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_order, i32 noundef 431, i64 noundef %223, i64 noundef %224, ptr noundef nonnull @.str.4) #5
+223:                                              ; preds = %16
+  %224 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
+  %225 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !10
+  %226 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_order, i32 noundef 431, i64 noundef %224, i64 noundef %225, ptr noundef nonnull @.str.4) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge216.us, %.preheader207, %204, %170, %9, %16, %.thread, %222, %181, %174, %122, %75, %65, %58, %46, %34, %21
-  %.0 = phi i32 [ -1, %222 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %170 ], [ -1, %75 ], [ -1, %181 ], [ 0, %16 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us ], [ 0, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge216.us.us, %.preheader207, %204, %170, %9, %16, %.thread, %223, %181, %174, %122, %75, %65, %58, %46, %34, %21
+  %.0 = phi i32 [ -1, %223 ], [ -1, %21 ], [ -1, %34 ], [ -1, %46 ], [ -1, %58 ], [ -1, %65 ], [ -1, %174 ], [ 0, %.thread ], [ -1, %122 ], [ -1, %170 ], [ -1, %75 ], [ -1, %181 ], [ 0, %16 ], [ 0, %9 ], [ 0, %204 ], [ 0, %.preheader207 ], [ 0, %._crit_edge216.us.us ], [ 0, %._crit_edge.us ]
   ret i32 %.0
 }
 
@@ -997,7 +997,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   br label %.loopexit
 
 166:                                              ; preds = %157
-  %167 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !47
+  %167 = load i32, ptr @H5T_native_order_g, align 4, !tbaa !46
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %.loopexit, label %169
 
@@ -1051,7 +1051,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %179 = add nuw nsw i64 %.012361310.lver.orig, 1
   %180 = getelementptr inbounds nuw i8, ptr %.112311311.lver.orig, i64 %.
   %exitcond1329.not.lver.orig = icmp eq i64 %179, %.0.lcssa
-  br i1 %exitcond1329.not.lver.orig, label %.loopexit, label %.lr.ph1312.lver.orig, !llvm.loop !48
+  br i1 %exitcond1329.not.lver.orig, label %.loopexit, label %.lr.ph1312.lver.orig, !llvm.loop !47
 
 .lr.ph1312.ph:                                    ; preds = %.lr.ph1312.lver.check
   %load_initial = load i8, ptr %.01230.lcssa, align 1
@@ -1182,7 +1182,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 %.
   %261 = add i64 %.01306, -20
   %262 = icmp ugt i64 %261, 19
-  br i1 %262, label %.lr.ph1307, label %.preheader, !llvm.loop !49
+  br i1 %262, label %.lr.ph1307, label %.preheader, !llvm.loop !48
 
 .lr.ph1312:                                       ; preds = %.lr.ph1312.ph, %.lr.ph1312
   %.112311311 = phi ptr [ %266, %.lr.ph1312 ], [ %.01230.lcssa, %.lr.ph1312.ph ]
@@ -1194,7 +1194,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %265 = add nuw nsw i64 %.012361310, 1
   %266 = getelementptr inbounds nuw i8, ptr %.112311311, i64 %.
   %exitcond1329.not = icmp eq i64 %265, %.0.lcssa
-  br i1 %exitcond1329.not, label %.loopexit, label %.lr.ph1312, !llvm.loop !48
+  br i1 %exitcond1329.not, label %.loopexit, label %.lr.ph1312, !llvm.loop !47
 
 .preheader1274:                                   ; preds = %.lr.ph1299, %.preheader1276
   %.21232.lcssa = phi ptr [ %7, %.preheader1276 ], [ %435, %.lr.ph1299 ]
@@ -1223,7 +1223,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %274 = add nuw nsw i64 %.112371302.lver.orig, 1
   %275 = getelementptr inbounds nuw i8, ptr %.312331303.lver.orig, i64 %.
   %exitcond1328.not.lver.orig = icmp eq i64 %274, %.1.lcssa
-  br i1 %exitcond1328.not.lver.orig, label %.loopexit, label %.lr.ph1304.lver.orig, !llvm.loop !50
+  br i1 %exitcond1328.not.lver.orig, label %.loopexit, label %.lr.ph1304.lver.orig, !llvm.loop !49
 
 .lr.ph1304.ph:                                    ; preds = %.lr.ph1304.lver.check
   %scevgep = getelementptr i8, ptr %.21232.lcssa, i64 2
@@ -1475,7 +1475,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %435 = getelementptr inbounds nuw i8, ptr %427, i64 %.
   %436 = add i64 %.11298, -20
   %437 = icmp ugt i64 %436, 19
-  br i1 %437, label %.lr.ph1299, label %.preheader1274, !llvm.loop !51
+  br i1 %437, label %.lr.ph1299, label %.preheader1274, !llvm.loop !50
 
 .lr.ph1304:                                       ; preds = %.lr.ph1304.ph, %.lr.ph1304
   %store_forwarded1354 = phi i8 [ %load_initial1353, %.lr.ph1304.ph ], [ %438, %.lr.ph1304 ]
@@ -1494,7 +1494,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %444 = add nuw nsw i64 %.112371302, 1
   %445 = getelementptr inbounds nuw i8, ptr %.312331303, i64 %.
   %exitcond1328.not = icmp eq i64 %444, %.1.lcssa
-  br i1 %exitcond1328.not, label %.loopexit, label %.lr.ph1304, !llvm.loop !50
+  br i1 %exitcond1328.not, label %.loopexit, label %.lr.ph1304, !llvm.loop !49
 
 .preheader1277:                                   ; preds = %.lr.ph1291, %.preheader1279
   %.4.lcssa = phi ptr [ %7, %.preheader1279 ], [ %622, %.lr.ph1291 ]
@@ -1535,7 +1535,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %461 = add nuw nsw i64 %.212381294.lver.orig, 1
   %462 = getelementptr inbounds nuw i8, ptr %.51295.lver.orig, i64 %.
   %exitcond1327.not.lver.orig = icmp eq i64 %461, %.2.lcssa
-  br i1 %exitcond1327.not.lver.orig, label %.loopexit, label %.lr.ph1296.lver.orig, !llvm.loop !52
+  br i1 %exitcond1327.not.lver.orig, label %.loopexit, label %.lr.ph1296.lver.orig, !llvm.loop !51
 
 .lr.ph1296.ph:                                    ; preds = %.lr.ph1296.lver.check
   %scevgep1357 = getelementptr i8, ptr %.4.lcssa, i64 6
@@ -1787,7 +1787,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %622 = getelementptr inbounds nuw i8, ptr %606, i64 %.
   %623 = add i64 %.21290, -10
   %624 = icmp ugt i64 %623, 9
-  br i1 %624, label %.lr.ph1291, label %.preheader1277, !llvm.loop !53
+  br i1 %624, label %.lr.ph1291, label %.preheader1277, !llvm.loop !52
 
 .lr.ph1296:                                       ; preds = %.lr.ph1296.ph, %.lr.ph1296
   %store_forwarded1359 = phi i8 [ %load_initial1358, %.lr.ph1296.ph ], [ %625, %.lr.ph1296 ]
@@ -1818,7 +1818,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %639 = add nuw nsw i64 %.212381294, 1
   %640 = getelementptr inbounds nuw i8, ptr %.51295, i64 %.
   %exitcond1327.not = icmp eq i64 %639, %.2.lcssa
-  br i1 %exitcond1327.not, label %.loopexit, label %.lr.ph1296, !llvm.loop !52
+  br i1 %exitcond1327.not, label %.loopexit, label %.lr.ph1296, !llvm.loop !51
 
 .preheader1280:                                   ; preds = %.lr.ph, %.preheader1282
   %.6.lcssa = phi ptr [ %7, %.preheader1282 ], [ %960, %.lr.ph ]
@@ -2311,7 +2311,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %960 = getelementptr inbounds nuw i8, ptr %928, i64 %.
   %961 = add i64 %.31284, -10
   %962 = icmp ugt i64 %961, 9
-  br i1 %962, label %.lr.ph, label %.preheader1280, !llvm.loop !54
+  br i1 %962, label %.lr.ph, label %.preheader1280, !llvm.loop !53
 
 .lr.ph1288:                                       ; preds = %.preheader1280, %.lr.ph1288
   %.71287 = phi ptr [ %995, %.lr.ph1288 ], [ %.6.lcssa, %.preheader1280 ]
@@ -2366,7 +2366,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly captures(a
   %994 = add nuw nsw i64 %.312391286, 1
   %995 = getelementptr inbounds nuw i8, ptr %.71287, i64 %.
   %exitcond.not = icmp eq i64 %994, %.3.lcssa
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1288, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph1288, !llvm.loop !54
 
 996:                                              ; preds = %169
   %997 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
@@ -2442,12 +2442,12 @@ attributes #5 = { nounwind }
 !39 = !{!"H5T_cdata_t", !14, i64 0, !14, i64 4, !4, i64 8, !20, i64 16}
 !40 = !{!39, !14, i64 4}
 !41 = distinct !{!41, !33}
-!42 = distinct !{!42, !33, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !33, !43}
+!42 = distinct !{!42, !33}
+!43 = distinct !{!43, !33}
+!44 = distinct !{!44, !33}
 !45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33}
-!47 = !{!14, !14, i64 0}
+!46 = !{!14, !14, i64 0}
+!47 = distinct !{!47, !33}
 !48 = distinct !{!48, !33}
 !49 = distinct !{!49, !33}
 !50 = distinct !{!50, !33}
@@ -2455,4 +2455,3 @@ attributes #5 = { nounwind }
 !52 = distinct !{!52, !33}
 !53 = distinct !{!53, !33}
 !54 = distinct !{!54, !33}
-!55 = distinct !{!55, !33}

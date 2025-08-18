@@ -125,7 +125,7 @@ define void @lv_sdl_mousewheel_handler(ptr noundef readonly captures(none) %0) l
 16:                                               ; preds = %13, %.lr.ph.split
   %17 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.01923) #2
   %cond = icmp eq ptr %17, null
-  br i1 %cond, label %.loopexit, label %.lr.ph.split, !llvm.loop !20
+  br i1 %cond, label %.loopexit, label %.lr.ph.split, !llvm.loop !17
 
 .split.us:                                        ; preds = %13, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.01923.us, %.lr.ph.split.us ], [ %.01923, %13 ]
@@ -212,7 +212,5 @@ attributes #2 = { nounwind }
 !14 = !{!4, !5, i64 0}
 !15 = !{!10, !5, i64 16}
 !16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !18}

@@ -15281,7 +15281,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
   store ptr %39, ptr %26, align 8, !tbaa !27
   %40 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5SL_node_t_reg_free_list, ptr noundef nonnull %.02529) #9
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !191
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !189
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %10
   %41 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
@@ -15672,6 +15672,4 @@ attributes #10 = { nounwind willreturn memory(read) }
 !186 = distinct !{!186, !19}
 !187 = distinct !{!187, !19}
 !188 = distinct !{!188, !19}
-!189 = distinct !{!189, !19, !190}
-!190 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!191 = distinct !{!191, !19}
+!189 = distinct !{!189, !19}

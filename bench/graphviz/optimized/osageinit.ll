@@ -1150,7 +1150,7 @@ indent.exit50:                                    ; preds = %52
 69:                                               ; preds = %52, %indent.exit50, %.lr.ph.split
   %70 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.04355) #15
   %.not45 = icmp eq ptr %70, null
-  br i1 %.not45, label %.loopexit, label %.lr.ph.split, !llvm.loop !100
+  br i1 %.not45, label %.loopexit, label %.lr.ph.split, !llvm.loop !98
 
 .loopexit:                                        ; preds = %69, %38
   %71 = load ptr, ptr %3, align 8, !tbaa !3
@@ -1193,7 +1193,7 @@ indent.exit50:                                    ; preds = %52
   %90 = load i32, ptr %89, align 4, !tbaa !61
   %91 = sext i32 %90 to i64
   %.not46.us.not = icmp slt i64 %indvars.iv62, %91
-  br i1 %.not46.us.not, label %.lr.ph58.split.us, label %._crit_edge, !llvm.loop !101
+  br i1 %.not46.us.not, label %.lr.ph58.split.us, label %._crit_edge, !llvm.loop !99
 
 .lr.ph58.split:                                   ; preds = %.lr.ph58.split.preheader, %114
   %indvars.iv = phi i64 [ 1, %.lr.ph58.split.preheader ], [ %indvars.iv.next, %114 ]
@@ -1255,7 +1255,7 @@ indent.exit53:                                    ; preds = %.lr.ph.i51, %106
   %119 = load i32, ptr %118, align 4, !tbaa !61
   %120 = sext i32 %119 to i64
   %.not46.not = icmp slt i64 %indvars.iv, %120
-  br i1 %.not46.not, label %.lr.ph58.split, label %._crit_edge, !llvm.loop !102
+  br i1 %.not46.not, label %.lr.ph58.split, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %114, %.lr.ph58.split.us, %.loopexit.thread66, %.loopexit.thread, %.loopexit
   ret void
@@ -1287,14 +1287,14 @@ define void @osage_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @gv_cleanup_node(ptr noundef nonnull %.01217) #15
   %4 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01217) #15
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !103
+  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %.lr.ph19, %.lr.ph
   %.015 = phi ptr [ %5, %.lr.ph ], [ %3, %.lr.ph19 ]
   tail call void @gv_cleanup_edge(ptr noundef nonnull %.015) #15
   %5 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.015) #15
   %.not13 = icmp eq ptr %5, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %1
   tail call fastcc void @cleanup_graphs(ptr noundef %0)
@@ -1337,7 +1337,7 @@ define internal fastcc void @cleanup_graphs(ptr noundef readonly captures(none) 
   %17 = load i32, ptr %16, align 4, !tbaa !61
   %18 = sext i32 %17 to i64
   %.not.not = icmp slt i64 %indvars.iv, %18
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !105
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %15, %.lr.ph ]
@@ -1553,11 +1553,8 @@ attributes #21 = { cold noreturn nounwind }
 !95 = distinct !{!95, !34}
 !96 = !{!19, !20, i64 8}
 !97 = distinct !{!97, !34}
-!98 = distinct !{!98, !34, !99}
-!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!98 = distinct !{!98, !34}
+!99 = distinct !{!99, !34}
 !100 = distinct !{!100, !34}
-!101 = distinct !{!101, !34, !99}
+!101 = distinct !{!101, !34}
 !102 = distinct !{!102, !34}
-!103 = distinct !{!103, !34}
-!104 = distinct !{!104, !34}
-!105 = distinct !{!105, !34}

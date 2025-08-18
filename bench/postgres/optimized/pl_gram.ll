@@ -5348,7 +5348,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %151 = sext i32 %150 to i64
   %152 = icmp slt i64 %indvars.iv.next133, %151
-  br i1 %152, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !17
+  br i1 %152, label %.lr.ph120.split, label %._crit_edge121, !llvm.loop !15
 
 ._crit_edge121:                                   ; preds = %149, %138, %._crit_edge116.thread, %._crit_edge116
   %153 = load ptr, ptr %6, align 8
@@ -5472,7 +5472,7 @@ NameOfDatum.exit:                                 ; preds = %36, %38
   store i32 %44, ptr %45, align 4
   %46 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #12
   %47 = icmp eq i32 %46, 44
-  br i1 %47, label %15, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %47, label %15, label %._crit_edge.loopexit, !llvm.loop !16
 
 48:                                               ; preds = %22
   %49 = load i32, ptr %4, align 4
@@ -5534,7 +5534,7 @@ NameOfDatum.exit:                                 ; preds = %36, %38
   store i32 %74, ptr %76, align 4
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, -1
   %.not = icmp eq i64 %indvars.iv77, 0
-  br i1 %.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !19
+  br i1 %.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !17
 
 ._crit_edge73:                                    ; preds = %.lr.ph72
   tail call void @plpgsql_adddatum(ptr noundef nonnull %54) #12
@@ -5706,7 +5706,7 @@ define internal fastcc noundef ptr @make_return_query_stmt(i32 noundef %0, ptr n
   store ptr %37, ptr %33, align 8
   %38 = load i32, ptr %5, align 4
   %39 = icmp eq i32 %38, 44
-  br i1 %39, label %34, label %.loopexit, !llvm.loop !20
+  br i1 %39, label %34, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6055,7 +6055,7 @@ define internal fastcc void @check_raise_parameters(ptr noundef readonly capture
   %.112 = phi ptr [ %.011, %.preheader ], [ %spec.select, %6 ]
   %.1 = phi i32 [ %.0, %.preheader ], [ %spec.select15, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %.112, i64 1
-  br label %.preheader, !llvm.loop !21
+  br label %.preheader, !llvm.loop !19
 
 13:                                               ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6349,7 +6349,7 @@ switch.early.test:                                ; preds = %74
   store i8 0, ptr %99, align 1
   %100 = load i32, ptr %84, align 8
   %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph, label %.critedge, !llvm.loop !22
+  br i1 %101, label %.lr.ph, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %94, %82
   %102 = load ptr, ptr %9, align 8
@@ -6896,11 +6896,9 @@ attributes #15 = { noreturn nounwind }
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
 !20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}

@@ -11880,7 +11880,7 @@ zend_memnstr_ex_pre.exit:                         ; preds = %.lr.ph
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.043.us, i64 %37
   %.not.us = icmp ugt ptr %38, %22
-  br i1 %.not.us, label %.loopexit, label %.preheader.us, !llvm.loop !132
+  br i1 %.not.us, label %.loopexit, label %.preheader.us
 
 39:                                               ; preds = %23
   %40 = add nuw i64 %.02638.us, 1
@@ -11976,7 +11976,7 @@ zend_memnstr_ex_pre.exit:                         ; preds = %.lr.ph, %14
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds i8, ptr %.043.us, i64 %39
   %.not.us = icmp ult ptr %40, %0
-  br i1 %.not.us, label %.loopexit, label %.preheader.us, !llvm.loop !134
+  br i1 %.not.us, label %.loopexit, label %.preheader.us
 
 41:                                               ; preds = %24
   %42 = add nuw i64 %.02538.us, 1
@@ -12381,6 +12381,3 @@ attributes #33 = { nounwind willreturn memory(none) }
 !129 = !{!67, !67, i64 0}
 !130 = !{!131, !131, i64 0}
 !131 = !{!"p1 int", !15, i64 0}
-!132 = distinct !{!132, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = distinct !{!134, !133}

@@ -1500,7 +1500,7 @@ _setup_selected_images_list.exit:                 ; preds = %68, %50
   %197 = getelementptr inbounds nuw i8, ptr %.0234.us.i.i, i64 8
   %.023.us.i.i = load ptr, ptr %197, align 8, !tbaa !74
   %.not.us.i.i = icmp eq ptr %.023.us.i.i, null
-  br i1 %.not.us.i.i, label %_count_images_per_track.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !119
+  br i1 %.not.us.i.i, label %_count_images_per_track.exit.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %229
   %.0234.i.i = phi ptr [ %.023.i.i, %229 ], [ %.0231.i110.i, %.lr.ph.i.i ]
@@ -1566,7 +1566,7 @@ _count_images_per_track.exit.i:                   ; preds = %229, %196, %.thread
   %.0.lcssa.i.i = phi i32 [ 0, %164 ], [ 0, %.thread.i ], [ %.1.us.i.i, %196 ], [ %.1.i.i, %229 ]
   %231 = add nsw i32 %.0.lcssa.i.i, %.086101.i
   %232 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %233 = load ptr, ptr %232, align 8, !tbaa !121
+  %233 = load ptr, ptr %232, align 8, !tbaa !119
   %234 = call ptr @gtk_label_new(ptr noundef %233) #16
   %235 = call ptr @g_type_check_instance_cast(ptr noundef %234, i64 noundef %115) #16
   call void @gtk_label_set_ellipsize(ptr noundef %235, i32 noundef 0) #16
@@ -1589,7 +1589,7 @@ _count_images_per_track.exit.i:                   ; preds = %229, %196, %.thread
   %242 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %105) #16
   call void @gtk_grid_attach(ptr noundef %242, ptr noundef %240, i32 noundef 2, i32 noundef %.0102.i, i32 noundef 1, i32 noundef 1) #16
   %243 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %244 = load i32, ptr %243, align 8, !tbaa !122
+  %244 = load i32, ptr %243, align 8, !tbaa !120
   %245 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.70, i32 noundef %244) #16
   %246 = call ptr @gtk_label_new(ptr noundef %245) #16
   %247 = call ptr @g_type_check_instance_cast(ptr noundef %246, i64 noundef %115) #16
@@ -1609,7 +1609,7 @@ _count_images_per_track.exit.i:                   ; preds = %229, %196, %.thread
   call void @gtk_grid_attach(ptr noundef %252, ptr noundef %250, i32 noundef 4, i32 noundef %.0102.i, i32 noundef 1, i32 noundef 1) #16
   call void @g_free(ptr noundef %249) #16
   %253 = add nuw nsw i32 %.0102.i, 1
-  %254 = load i32, ptr %243, align 8, !tbaa !122
+  %254 = load i32, ptr %243, align 8, !tbaa !120
   %255 = add i32 %254, %.087100.i
   call void @g_free(ptr noundef %155) #16
   call void @g_free(ptr noundef %160) #16
@@ -1772,7 +1772,7 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
 5:                                                ; preds = %2
   %6 = icmp slt i64 %0, 0
   %7 = getelementptr inbounds nuw i8, ptr %.280.val, i64 184
-  %8 = load ptr, ptr %7, align 8, !tbaa !123
+  %8 = load ptr, ptr %7, align 8, !tbaa !121
   %9 = tail call i64 @gtk_label_get_type() #17
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %9) #16
   %11 = select i1 %6, ptr @.str.78, ptr @.str.18
@@ -1834,7 +1834,7 @@ define internal fastcc void @_display_offset(i64 noundef %0, i32 noundef range(i
   %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %9, %5 ]
   %51 = getelementptr inbounds nuw i8, ptr %.280.val, i64 128
   %52 = getelementptr inbounds nuw i8, ptr %.280.val, i64 184
-  %53 = load ptr, ptr %52, align 8, !tbaa !123
+  %53 = load ptr, ptr %52, align 8, !tbaa !121
   %54 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %.pre-phi) #16
   call void @gtk_label_set_text(ptr noundef %54, ptr noundef nonnull @.str.18) #16
   %55 = tail call i64 @gtk_entry_get_type() #17
@@ -1900,7 +1900,7 @@ define internal void @_datetime_entry_changed(ptr readnone captures(none) %0, pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %6 = load i32, ptr %5, align 8, !tbaa !124
+  %6 = load i32, ptr %5, align 8, !tbaa !122
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %_new_datetime.exit
 
@@ -2039,17 +2039,17 @@ define internal noundef i32 @_datetime_key_pressed(ptr noundef %0, ptr noundef r
   %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %12) #16
   tail call void @gtk_window_set_focus(ptr noundef %13, ptr noundef null) #16
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store i32 0, ptr %14, align 8, !tbaa !124
+  store i32 0, ptr %14, align 8, !tbaa !122
   br label %21
 
 15:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store i32 1, ptr %16, align 8, !tbaa !124
+  store i32 1, ptr %16, align 8, !tbaa !122
   br label %21
 
 17:                                               ; preds = %3, %3, %3, %3, %3
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store i32 0, ptr %18, align 8, !tbaa !124
+  store i32 0, ptr %18, align 8, !tbaa !122
   %19 = load ptr, ptr %5, align 8, !tbaa !85
   tail call void (ptr, ptr, ...) @g_signal_emit_by_name(ptr noundef %19, ptr noundef nonnull @.str.23) #16
   br label %21
@@ -2073,7 +2073,7 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %10 = load i32, ptr %9, align 8, !tbaa !124
+  %10 = load i32, ptr %9, align 8, !tbaa !122
   %.not32 = icmp eq i32 %10, 0
   br i1 %.not32, label %.preheader, label %74
 
@@ -2101,7 +2101,7 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
   br i1 %.not33, label %21, label %17
 
 17:                                               ; preds = %.split.loop.exit42
-  %18 = load i32, ptr %4, align 4, !tbaa !125
+  %18 = load i32, ptr %4, align 4, !tbaa !123
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %21, label %20
 
@@ -2113,9 +2113,9 @@ define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone 
 21:                                               ; preds = %20, %17, %.split.loop.exit42
   %.028 = phi i32 [ 0, %.split.loop.exit42 ], [ 1, %17 ], [ %spec.select, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %23 = load i32, ptr %22, align 8, !tbaa !126
+  %23 = load i32, ptr %22, align 8, !tbaa !124
   %24 = call i32 @gtk_accelerator_get_default_mod_mask() #16
-  %25 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !125
+  %25 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !123
   %26 = or i32 %25, %23
   %27 = and i32 %26, %24
   %.not39 = icmp eq i32 %27, 1
@@ -2609,14 +2609,14 @@ declare void @gtk_file_filter_add_custom(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_lib_geotagging_filter_gpx(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !127
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.58) #16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !131
+  %8 = load ptr, ptr %7, align 8, !tbaa !129
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   br label %11
@@ -3082,16 +3082,14 @@ attributes #20 = { cold nounwind }
 !116 = !{!114, !25, i64 16}
 !117 = !{!79, !27, i64 8}
 !118 = !{!114, !9, i64 0}
-!119 = distinct !{!119, !120}
-!120 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!121 = !{!114, !12, i64 24}
-!122 = !{!114, !9, i64 40}
-!123 = !{!23, !16, i64 184}
-!124 = !{!23, !9, i64 216}
-!125 = !{!9, !9, i64 0}
-!126 = !{!127, !9, i64 40}
-!127 = !{!"_GdkEventScroll", !9, i64 0, !97, i64 8, !10, i64 16, !9, i64 20, !58, i64 24, !58, i64 32, !9, i64 40, !9, i64 44, !128, i64 48, !58, i64 56, !58, i64 64, !58, i64 72, !58, i64 80, !9, i64 88}
-!128 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!129 = !{!130, !12, i64 32}
-!130 = !{!"_GtkFileFilterInfo", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
-!131 = !{!130, !12, i64 8}
+!119 = !{!114, !12, i64 24}
+!120 = !{!114, !9, i64 40}
+!121 = !{!23, !16, i64 184}
+!122 = !{!23, !9, i64 216}
+!123 = !{!9, !9, i64 0}
+!124 = !{!125, !9, i64 40}
+!125 = !{!"_GdkEventScroll", !9, i64 0, !97, i64 8, !10, i64 16, !9, i64 20, !58, i64 24, !58, i64 32, !9, i64 40, !9, i64 44, !126, i64 48, !58, i64 56, !58, i64 64, !58, i64 72, !58, i64 80, !9, i64 88}
+!126 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!127 = !{!128, !12, i64 32}
+!128 = !{!"_GtkFileFilterInfo", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!129 = !{!128, !12, i64 8}

@@ -1382,7 +1382,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %525 = load i16, ptr %524, align 2
   %526 = and i16 %525, 8
   %.not330.us = icmp eq i16 %526, 0
-  br i1 %.not330.us, label %.lr.ph869, label %.outer, !llvm.loop !14
+  br i1 %.not330.us, label %.lr.ph869, label %.outer
 
 .outer:                                           ; preds = %520, %.lr.ph.split.us
   %.us-phi855 = phi ptr [ %.9.ph876, %.lr.ph.split.us ], [ %521, %520 ]
@@ -1395,7 +1395,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %532 = add nuw nsw i32 %.pr596873874, 1
   store i32 %532, ptr %5, align 4
   %exitcond.not = icmp eq i32 %532, 4
-  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %exitcond.not, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %.lr.ph869
   %.0261.ph.lcssa = phi i32 [ %.0261.ph877, %.lr.ph869 ], [ %531, %.outer ]
@@ -1461,7 +1461,7 @@ thread-pre-split592:                              ; preds = %424, %435, %439, %.
   %561 = and i16 %560, 256
   %.not327 = icmp eq i16 %561, 0
   %562 = getelementptr i8, ptr %.10, i64 1
-  br i1 %.not327, label %563, label %556, !llvm.loop !17
+  br i1 %.not327, label %563, label %556, !llvm.loop !15
 
 563:                                              ; preds = %556
   br i1 %.not328, label %.backedge623, label %.loopexit615
@@ -1633,7 +1633,7 @@ first_wday_of.exit:                               ; preds = %599, %607, %608
   %656 = load i32, ptr %655, align 4
   %.not320 = icmp slt i32 %650, %656
   %657 = add i32 %653, 1
-  br i1 %.not320, label %658, label %652, !llvm.loop !18
+  br i1 %.not320, label %658, label %652, !llvm.loop !16
 
 658:                                              ; preds = %652
   %659 = icmp sgt i32 %653, 12
@@ -1749,7 +1749,7 @@ first_wday_of.exit588:                            ; preds = %699, %706, %707
   %spec.store.select = select i1 %724, i32 0, i32 %723
   %725 = add i32 %722, 1
   %.not324 = icmp sgt i32 %722, %721
-  br i1 %.not324, label %._crit_edge904, label %.lr.ph903, !llvm.loop !19
+  br i1 %.not324, label %._crit_edge904, label %.lr.ph903, !llvm.loop !17
 
 ._crit_edge904:                                   ; preds = %.lr.ph903, %first_wday_of.exit588
   %.1263.lcssa = phi i32 [ %.sext7.i586, %first_wday_of.exit588 ], [ %spec.store.select, %.lr.ph903 ]
@@ -1848,9 +1848,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}

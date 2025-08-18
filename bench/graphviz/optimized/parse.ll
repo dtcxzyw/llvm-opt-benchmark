@@ -886,18 +886,18 @@ define internal fastcc noundef i32 @readc(ptr noundef nonnull captures(none) %0,
 
 .preheader32:                                     ; preds = %15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.preheader32.split.us, label %.preheader32.split.split
+  br i1 %.not, label %.preheader32.split.us.split.us, label %.preheader32.split.split
 
-.preheader32.split.us:                            ; preds = %.preheader32, %.preheader32.split.us.backedge
+.preheader32.split.us.split.us:                   ; preds = %.preheader32, %.preheader32.split.us.split.us.backedge
   %17 = tail call i32 @getc(ptr noundef nonnull %0)
-  switch i32 %17, label %.preheader32.split.us.backedge [
+  switch i32 %17, label %.preheader32.split.us.split.us.backedge [
     i32 10, label %25
     i32 42, label %18
   ]
 
-18:                                               ; preds = %.preheader32.split.us
+18:                                               ; preds = %.preheader32.split.us.split.us
   %19 = tail call i32 @getc(ptr noundef nonnull %0)
-  switch i32 %19, label %.preheader32.split.us.backedge [
+  switch i32 %19, label %.preheader32.split.us.split.us.backedge [
     i32 -1, label %eol.exit
     i32 10, label %22
     i32 42, label %20
@@ -906,22 +906,22 @@ define internal fastcc noundef i32 @readc(ptr noundef nonnull captures(none) %0,
 
 20:                                               ; preds = %18
   %21 = tail call i32 @ungetc(i32 noundef 42, ptr noundef nonnull %0)
-  br label %.preheader32.split.us.backedge
+  br label %.preheader32.split.us.split.us.backedge
 
 22:                                               ; preds = %18
   %23 = load i32, ptr @lineno, align 4, !tbaa !3
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr @lineno, align 4, !tbaa !3
-  br label %.preheader32.split.us.backedge
+  br label %.preheader32.split.us.split.us.backedge
 
-25:                                               ; preds = %.preheader32.split.us
+25:                                               ; preds = %.preheader32.split.us.split.us
   %26 = load i32, ptr @lineno, align 4, !tbaa !3
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr @lineno, align 4, !tbaa !3
-  br label %.preheader32.split.us.backedge
+  br label %.preheader32.split.us.split.us.backedge
 
-.preheader32.split.us.backedge:                   ; preds = %25, %22, %20, %18, %.preheader32.split.us
-  br label %.preheader32.split.us, !llvm.loop !34
+.preheader32.split.us.split.us.backedge:          ; preds = %25, %22, %20, %18, %.preheader32.split.us.split.us
+  br label %.preheader32.split.us.split.us
 
 .preheader32.split.split:                         ; preds = %.preheader32, %.preheader32.split.split.backedge
   %28 = tail call i32 @getc(ptr noundef nonnull %0)
@@ -1285,7 +1285,7 @@ define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef n
   tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext %33)
   %34 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %34, %11
-  br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i, !llvm.loop !34
 
 endString.exit:                                   ; preds = %25
   tail call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %19) #17
@@ -1386,6 +1386,4 @@ attributes #21 = { cold noreturn nounwind }
 !31 = !{!8, !9, i64 64}
 !32 = !{!8, !9, i64 72}
 !33 = distinct !{!33, !16}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !16}
+!34 = distinct !{!34, !16}

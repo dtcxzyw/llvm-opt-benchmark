@@ -520,7 +520,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %34 = add nuw nsw i32 %.03461, 1
   %35 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !25
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %24
   %.not49 = icmp eq ptr %.2.us, null
@@ -606,7 +606,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br i1 %.not, label %.thread57, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !26
+  %8 = load ptr, ptr %0, align 8, !tbaa !24
   %9 = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %8, i32 noundef %1, i32 noundef -1) #7
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %17
@@ -619,7 +619,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   ]
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8, !tbaa !26
+  %13 = load ptr, ptr %0, align 8, !tbaa !24
   %14 = tail call ptr @OPENSSL_sk_delete(ptr noundef %13, i32 noundef %9) #7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %44, label %16
@@ -656,10 +656,10 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br label %44
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %0, align 8, !tbaa !26
+  %24 = load ptr, ptr %0, align 8, !tbaa !24
   %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %9) #7
   tail call void @X509_EXTENSION_free(ptr noundef %25) #7
-  %26 = load ptr, ptr %0, align 8, !tbaa !26
+  %26 = load ptr, ptr %0, align 8, !tbaa !24
   %27 = tail call ptr @OPENSSL_sk_set(ptr noundef %26, i32 noundef %9, ptr noundef nonnull %19) #7
   %.not50 = icmp eq ptr %27, null
   %. = select i1 %.not50, i32 -1, i32 1
@@ -667,7 +667,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
 
 .thread61:                                        ; preds = %.thread, %.thread57
   %28 = phi ptr [ %21, %.thread57 ], [ %20, %.thread ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !26
+  %29 = load ptr, ptr %0, align 8, !tbaa !24
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %34
 
@@ -683,12 +683,12 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br i1 %.not48, label %37, label %36
 
 36:                                               ; preds = %34
-  store ptr %.038, ptr %0, align 8, !tbaa !26
+  store ptr %.038, ptr %0, align 8, !tbaa !24
   br label %44
 
 37:                                               ; preds = %34, %31
   %.1 = phi ptr [ null, %31 ], [ %.038, %34 ]
-  %38 = load ptr, ptr %0, align 8, !tbaa !26
+  %38 = load ptr, ptr %0, align 8, !tbaa !24
   %.not49 = icmp eq ptr %.1, %38
   br i1 %.not49, label %40, label %39
 
@@ -788,8 +788,6 @@ attributes #7 = { nounwind }
 !20 = !{!"p1 omnipotent char", !5, i64 0}
 !21 = !{!11, !5, i64 8}
 !22 = !{!11, !5, i64 32}
-!23 = distinct !{!23, !14, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !14}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
+!23 = distinct !{!23, !14}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}

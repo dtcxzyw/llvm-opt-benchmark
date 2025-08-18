@@ -27417,23 +27417,23 @@ define hidden void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = icmp eq i64 %3, 0
-  br i1 %15, label %.lr.ph.split.us.i, label %.lr.ph.split.split.i
+  br i1 %15, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %.val8.us.pre.i = load i64, ptr %11, align 8, !alias.scope !4872, !noalias !4877
-  %.val10.us.pre.i = load i64, ptr %12, align 8, !alias.scope !4872, !noalias !4877
-  %.cast.us.i = ptrtoint ptr %10 to i64
+.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i
+  %.cast.us.us.i = ptrtoint ptr %10 to i64
   %16 = icmp eq ptr %10, null
-  %spec.select.us.i = select i1 %16, i8 4, i8 0
-  %17 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h6477b3b6f8962a33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.cast.us.i, ptr noalias noundef nonnull align 1 %2, i64 noundef 0, i8 noundef %spec.select.us.i), !noalias !4867
-  %.val.us.i = load i64, ptr %11, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
-  %.val9.us.i = load i64, ptr %12, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
-  %18 = sub i64 %.val9.us.i, %.val10.us.pre.i
+  %.val8.us.us.i = load i64, ptr %11, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
+  %.val10.us.us.i = load i64, ptr %12, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
+  %spec.select.us.us.i = select i1 %16, i8 4, i8 0
+  %17 = tail call i64 @"_ZN60_$LT$flate2..mem..Decompress$u20$as$u20$flate2..zio..Ops$GT$3run17h6477b3b6f8962a33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %.cast.us.us.i, ptr noalias noundef nonnull align 1 %2, i64 noundef 0, i8 noundef %spec.select.us.us.i), !noalias !4867
+  %.val.us.us.i = load i64, ptr %11, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
+  %.val9.us.us.i = load i64, ptr %12, align 8, !alias.scope !4872, !noalias !4877, !noundef !13
+  %18 = sub i64 %.val9.us.us.i, %.val10.us.us.i
   %19 = load i64, ptr %13, align 8, !alias.scope !4878, !noalias !4876, !noundef !13
   %20 = add i64 %18, %19
   %21 = load i64, ptr %14, align 8, !alias.scope !4878, !noalias !4876, !noundef !13
-  %.0.sroa.speculated.i.i.us.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
-  store i64 %.0.sroa.speculated.i.i.us.i, ptr %13, align 8, !alias.scope !4878, !noalias !4876
+  %.0.sroa.speculated.i.i.us.us.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %21)
+  store i64 %.0.sroa.speculated.i.i.us.us.i, ptr %13, align 8, !alias.scope !4878, !noalias !4876
   %22 = and i64 %17, 4294967295
   %23 = icmp eq i64 %22, 2
   br i1 %23, label %.split20.us.i, label %.split.us.i
@@ -27477,7 +27477,7 @@ define hidden void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u
     i8 2, label %.split20.us.i
   ]
 
-.split.us.i:                                      ; preds = %.lr.ph.split.split.i, %.lr.ph.split.us.i
+.split.us.i:                                      ; preds = %.lr.ph.split.split.i, %.lr.ph.split.us.split.us.i
   %36 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17h5e4fb20f1602c2aeE(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.f6d9434fcf4bddc9e50dec3b041c07d1.111, i64 noundef 22), !noalias !4867
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8, !alias.scope !4867, !noalias !4881
@@ -27502,9 +27502,9 @@ define hidden void @"_ZN74_$LT$flate2..zlib..read..ZlibDecoder$LT$R$GT$$u20$as$u
   %or.cond3.i = or i1 %26, %44
   br i1 %or.cond3.i, label %.split20.us.i, label %.backedge.i
 
-.split20.us.i:                                    ; preds = %43, %38, %35, %.lr.ph.split.us.i
-  %.us-phi.i = phi i64 [ %.val8.us.pre.i, %.lr.ph.split.us.i ], [ %.val8.i, %35 ], [ %.val8.i, %38 ], [ %.val8.i, %43 ]
-  %.us-phi21.i = phi i64 [ %.val.us.i, %.lr.ph.split.us.i ], [ %.val.i, %35 ], [ %.val.i, %38 ], [ %.val.i, %43 ]
+.split20.us.i:                                    ; preds = %43, %38, %35, %.lr.ph.split.us.split.us.i
+  %.us-phi.i = phi i64 [ %.val8.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.val8.i, %35 ], [ %.val8.i, %38 ], [ %.val8.i, %43 ]
+  %.us-phi21.i = phi i64 [ %.val.us.us.i, %.lr.ph.split.us.split.us.i ], [ %.val.i, %35 ], [ %.val.i, %38 ], [ %.val.i, %43 ]
   %45 = sub i64 %.us-phi21.i, %.us-phi.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %45, ptr %46, align 8, !alias.scope !4867, !noalias !4881

@@ -298,7 +298,7 @@ Abc_TtSwapVars.exit.thread:                       ; preds = %50
   br i1 %157, label %.preheader.us.i58, label %Abc_TtSwapVars.exit73, !llvm.loop !11
 
 Abc_TtSwapVars.exit73:                            ; preds = %._crit_edge.us.i65, %126, %Abc_TtSwapVars.exit.thread, %Abc_TtSwapVars.exit, %.thread, %115, %136, %.preheader.lr.ph.i56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !tbaa !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !tbaa !12
   br i1 %23, label %.lr.ph, label %193
 
 .lr.ph:                                           ; preds = %Abc_TtSwapVars.exit73, %186
@@ -366,7 +366,7 @@ Abc_TtSwapVars.exit73:                            ; preds = %._crit_edge.us.i65,
   %191 = phi i32 [ %162, %183 ], [ %174, %173 ], [ %162, %177 ], [ %162, %184 ], [ %162, %181 ], [ %162, %175 ]
   %192 = add nuw nsw i32 %.179, 1
   %exitcond.not = icmp eq i32 %192, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %186
   store i32 %190, ptr %24, align 8
@@ -386,17 +386,17 @@ Abc_TtSwapVars.exit73:                            ; preds = %._crit_edge.us.i65,
 197:                                              ; preds = %193, %197
   %indvars.iv = phi i64 [ 0, %193 ], [ %indvars.iv.next, %197 ]
   %198 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv
-  %199 = load i32, ptr %198, align 4, !tbaa !13
+  %199 = load i32, ptr %198, align 4, !tbaa !12
   %200 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %199)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond105.not, label %201, label %197, !llvm.loop !16
+  br i1 %exitcond105.not, label %201, label %197, !llvm.loop !15
 
 201:                                              ; preds = %197
   %putchar49 = call i32 @putchar(i32 10)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count115
-  br i1 %exitcond111.not, label %.loopexit, label %49, !llvm.loop !17
+  br i1 %exitcond111.not, label %.loopexit, label %49, !llvm.loop !16
 
 ._crit_edge95:                                    ; preds = %.loopexit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -458,10 +458,9 @@ attributes #9 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = distinct !{!9, !4}
 !10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !7, i64 0}
+!11 = distinct !{!11, !4}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !7, i64 0}
+!14 = distinct !{!14, !4}
 !15 = distinct !{!15, !4}
 !16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}

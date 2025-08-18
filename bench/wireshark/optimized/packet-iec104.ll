@@ -4219,7 +4219,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   call fastcc void @get_CP56Time(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %14)
   %180 = add nuw nsw i32 %.0113.us114, 1
   %exitcond132.not = icmp eq i32 %180, %80
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !14
+  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !12
 
 .lr.ph.split.split.us115:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us115
   %181 = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %79, %.lr.ph.split ]
@@ -4230,7 +4230,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %185 = add i8 %181, 1
   %186 = add nuw nsw i32 %.0113.us116, 1
   %exitcond131.not = icmp eq i32 %186, %80
-  br i1 %exitcond131.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us115, !llvm.loop !15
+  br i1 %exitcond131.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us115, !llvm.loop !12
 
 .lr.ph.split.split.us117:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us117
   %187 = phi i8 [ %194, %.lr.ph.split.split.us117 ], [ %79, %.lr.ph.split ]
@@ -4244,7 +4244,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %194 = add i8 %187, 2
   %195 = add nuw nsw i32 %.0113.us118, 1
   %exitcond130.not = icmp eq i32 %195, %80
-  br i1 %exitcond130.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us117, !llvm.loop !16
+  br i1 %exitcond130.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us117, !llvm.loop !12
 
 .lr.ph.split.split.us119:                         ; preds = %.lr.ph.split.split.us119.preheader, %.lr.ph.split.split.us119
   %196 = phi i8 [ %200, %.lr.ph.split.split.us119 ], [ %79, %.lr.ph.split.split.us119.preheader ]
@@ -4255,7 +4255,7 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   %200 = add i8 %196, 1
   %201 = add nuw nsw i32 %.0113.us120, 1
   %exitcond.not = icmp eq i32 %201, %80
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split.us119, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
   %.lcssa135.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
@@ -4309,9 +4309,4 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !13}
-!15 = distinct !{!15, !7, !13}
-!16 = distinct !{!16, !7, !13}
-!17 = distinct !{!17, !7, !13}
+!12 = distinct !{!12, !7}

@@ -2381,14 +2381,17 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %35
-  %.sroa.3.027.us = phi i64 [ %36, %35 ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %35
+  %.sroa.3.027.us.us = phi i64 [ %36, %35 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us ]
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
-  store i64 %.sroa.3.027.us, ptr %10, align 8
+  store i64 %.sroa.3.027.us.us, ptr %10, align 8
   %13 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8IsCulledEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   br i1 %13, label %14, label %35
 
-14:                                               ; preds = %.lr.ph.split.us
+14:                                               ; preds = %.lr.ph.split.us.split.us
   %15 = load i64, ptr %1, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %1, align 8
@@ -2406,8 +2409,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   %26 = extractvalue { ptr, i64 } %24, 1
   %27 = icmp ne i64 %23, %26
   %28 = icmp ne ptr %22, %25
-  %.not3.i17.us = select i1 %27, i1 true, i1 %28
-  br i1 %.not3.i17.us, label %29, label %35
+  %.not3.i17.us.us = select i1 %27, i1 true, i1 %28
+  br i1 %.not3.i17.us.us, label %29, label %35
 
 29:                                               ; preds = %14
   %30 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -2420,95 +2423,137 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   store i64 %34, ptr %12, align 8
   br label %35
 
-35:                                               ; preds = %32, %29, %14, %.lr.ph.split.us
-  %36 = add i64 %.sroa.3.027.us, 1
-  %37 = icmp ne i64 %36, %.sroa.2.0.copyload.i14
-  %.not3.i.us = or i1 %.fr, %37
-  br i1 %.not3.i.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+35:                                               ; preds = %32, %29, %14, %.lr.ph.split.us.split.us
+  %36 = add i64 %.sroa.3.027.us.us, 1
+  br label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %59
+  %.sroa.3.027.us = phi i64 [ %60, %59 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us ]
+  store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
+  store i64 %.sroa.3.027.us, ptr %10, align 8
+  %37 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8IsCulledEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  br i1 %37, label %38, label %59
+
+38:                                               ; preds = %.lr.ph.split.us.split
+  %39 = load i64, ptr %1, align 8
+  %40 = add i64 %39, 1
+  store i64 %40, ptr %1, align 8
+  %41 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 %41, ptr %6, align 4
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %42, align 8
+  %45 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %46 = extractvalue { ptr, i64 } %45, 0
+  %47 = extractvalue { ptr, i64 } %45, 1
+  %48 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %49 = extractvalue { ptr, i64 } %48, 0
+  %50 = extractvalue { ptr, i64 } %48, 1
+  %51 = icmp ne i64 %47, %50
+  %52 = icmp ne ptr %46, %49
+  %.not3.i17.us = select i1 %51, i1 true, i1 %52
+  br i1 %.not3.i17.us, label %53, label %59
+
+53:                                               ; preds = %38
+  %54 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %56, label %59
+
+56:                                               ; preds = %53
+  %57 = load i64, ptr %12, align 8
+  %58 = add i64 %57, 1
+  store i64 %58, ptr %12, align 8
+  br label %59
+
+59:                                               ; preds = %56, %53, %38, %.lr.ph.split.us.split
+  %60 = add i64 %.sroa.3.027.us, 1
+  %.not32 = icmp eq i64 %60, %.sroa.2.0.copyload.i14
+  br i1 %.not32, label %._crit_edge, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.fr, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %58
-  %.sroa.3.027.us28 = phi i64 [ %59, %58 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %81
+  %.sroa.3.027.us28 = phi i64 [ %82, %81 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027.us28, ptr %10, align 8
-  %38 = load i64, ptr %1, align 8
-  %39 = add i64 %38, 1
-  store i64 %39, ptr %1, align 8
-  %40 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i32 %40, ptr %6, align 4
-  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, 1
-  store i64 %43, ptr %41, align 8
-  %44 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %45 = extractvalue { ptr, i64 } %44, 0
-  %46 = extractvalue { ptr, i64 } %44, 1
-  %47 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %48 = extractvalue { ptr, i64 } %47, 0
-  %49 = extractvalue { ptr, i64 } %47, 1
-  %50 = icmp ne i64 %46, %49
-  %51 = icmp ne ptr %45, %48
-  %.not3.i17.us29 = select i1 %50, i1 true, i1 %51
-  br i1 %.not3.i17.us29, label %52, label %58
+  %61 = load i64, ptr %1, align 8
+  %62 = add i64 %61, 1
+  store i64 %62, ptr %1, align 8
+  %63 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 %63, ptr %6, align 4
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %65 = load i64, ptr %64, align 8
+  %66 = add i64 %65, 1
+  store i64 %66, ptr %64, align 8
+  %67 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %68 = extractvalue { ptr, i64 } %67, 0
+  %69 = extractvalue { ptr, i64 } %67, 1
+  %70 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %71 = extractvalue { ptr, i64 } %70, 0
+  %72 = extractvalue { ptr, i64 } %70, 1
+  %73 = icmp ne i64 %69, %72
+  %74 = icmp ne ptr %68, %71
+  %.not3.i17.us29 = select i1 %73, i1 true, i1 %74
+  br i1 %.not3.i17.us29, label %75, label %81
 
-52:                                               ; preds = %.lr.ph.split.split.us
-  %53 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %58
+75:                                               ; preds = %.lr.ph.split.split.us
+  %76 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %78, label %81
 
-55:                                               ; preds = %52
-  %56 = load i64, ptr %12, align 8
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %12, align 8
-  br label %58
+78:                                               ; preds = %75
+  %79 = load i64, ptr %12, align 8
+  %80 = add i64 %79, 1
+  store i64 %80, ptr %12, align 8
+  br label %81
 
-58:                                               ; preds = %55, %52, %.lr.ph.split.split.us
-  %59 = add i64 %.sroa.3.027.us28, 1
-  br label %.lr.ph.split.split.us, !llvm.loop !18
+81:                                               ; preds = %78, %75, %.lr.ph.split.split.us
+  %82 = add i64 %.sroa.3.027.us28, 1
+  br label %.lr.ph.split.split.us
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %80
-  %.sroa.3.027 = phi i64 [ %81, %80 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %103
+  %.sroa.3.027 = phi i64 [ %104, %103 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split ]
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
   store i64 %.sroa.3.027, ptr %10, align 8
-  %60 = load i64, ptr %1, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %1, align 8
-  %62 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i32 %62, ptr %6, align 4
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %64 = load i64, ptr %63, align 8
-  %65 = add i64 %64, 1
-  store i64 %65, ptr %63, align 8
-  %66 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %67 = extractvalue { ptr, i64 } %66, 0
-  %68 = extractvalue { ptr, i64 } %66, 1
-  %69 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %70 = extractvalue { ptr, i64 } %69, 0
-  %71 = extractvalue { ptr, i64 } %69, 1
-  %72 = icmp ne i64 %68, %71
-  %73 = icmp ne ptr %67, %70
-  %.not3.i17 = select i1 %72, i1 true, i1 %73
-  br i1 %.not3.i17, label %74, label %80
+  %83 = load i64, ptr %1, align 8
+  %84 = add i64 %83, 1
+  store i64 %84, ptr %1, align 8
+  %85 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 %85, ptr %6, align 4
+  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, 1
+  store i64 %88, ptr %86, align 8
+  %89 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %90 = extractvalue { ptr, i64 } %89, 0
+  %91 = extractvalue { ptr, i64 } %89, 1
+  %92 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %93 = extractvalue { ptr, i64 } %92, 0
+  %94 = extractvalue { ptr, i64 } %92, 1
+  %95 = icmp ne i64 %91, %94
+  %96 = icmp ne ptr %90, %93
+  %.not3.i17 = select i1 %95, i1 true, i1 %96
+  br i1 %.not3.i17, label %97, label %103
 
-74:                                               ; preds = %.lr.ph.split.split
-  %75 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %76 = icmp eq i32 %75, 1
-  br i1 %76, label %77, label %80
+97:                                               ; preds = %.lr.ph.split.split
+  %98 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %99 = icmp eq i32 %98, 1
+  br i1 %99, label %100, label %103
 
-77:                                               ; preds = %74
-  %78 = load i64, ptr %12, align 8
-  %79 = add i64 %78, 1
-  store i64 %79, ptr %12, align 8
-  br label %80
+100:                                              ; preds = %97
+  %101 = load i64, ptr %12, align 8
+  %102 = add i64 %101, 1
+  store i64 %102, ptr %12, align 8
+  br label %103
 
-80:                                               ; preds = %.lr.ph.split.split, %77, %74
-  %81 = add i64 %.sroa.3.027, 1
-  %.not = icmp eq i64 %81, %.sroa.2.0.copyload.i14
+103:                                              ; preds = %.lr.ph.split.split, %100, %97
+  %104 = add i64 %.sroa.3.027, 1
+  %.not = icmp eq i64 %104, %.sroa.2.0.copyload.i14
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %80, %35, %3
+._crit_edge:                                      ; preds = %103, %59, %3
   ret void
 }
 
@@ -2547,7 +2592,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImm
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i, label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -2755,7 +2800,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN3
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -2867,7 +2912,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !21
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -2939,7 +2984,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !21
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !18
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3004,7 +3049,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !21
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !18
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -3079,7 +3124,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt10shared_ptrISt6vectorIN32pxrI
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %7, label %._crit_edge.thread.i, label %13
@@ -3500,7 +3545,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionES1_SaIS1_E
 28:                                               ; preds = %20, %23, %25
   %.1 = phi i64 [ %.02530, %25 ], [ %17, %23 ], [ %17, %20 ]
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %28, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_14Pcp_Statistics11MapFuncHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %29 = load ptr, ptr %0, align 8
@@ -3605,7 +3650,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds = 
   %44 = add nsw i32 %.pr, -1
   store i32 %44, ptr %2, align 8
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %_ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EED2Ev.exit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %_ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EED2Ev.exit, label %.lr.ph, !llvm.loop !21
 
 45:                                               ; preds = %1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3699,7 +3744,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7Sdf
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -3815,7 +3860,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !26
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -3887,7 +3932,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !26
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !23
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -3952,7 +3997,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !26
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !23
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -4075,7 +4120,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt8_Rb_treeISt10shared_ptrISt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS4_EEES7_St9_IdentityIS7_ESt4lessIS7_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit: ; preds = %.lr.ph, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeISt10shared_ptrISt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS4_EEES7_St9_IdentityIS7_ESt4lessIS7_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit, %2
   ret void
@@ -4108,7 +4153,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN3
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeEmSt4lessIS1_ESaISt4pairIKS1_mEEE11lower_boundERS5_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -4266,7 +4311,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserve
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not31 = icmp eq ptr %.0, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 37:                                               ; preds = %20, %17
   %38 = landingpad { ptr, i32 }
@@ -4305,7 +4350,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4less
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4366,9 +4411,9 @@ attributes #20 = { builtin nounwind }
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !17}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
 !21 = distinct !{!21, !5}
@@ -4377,6 +4422,3 @@ attributes #20 = { builtin nounwind }
 !24 = distinct !{!24, !5}
 !25 = distinct !{!25, !5}
 !26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}

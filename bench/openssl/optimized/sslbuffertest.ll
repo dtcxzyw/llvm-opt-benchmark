@@ -391,7 +391,7 @@ checkbuffers.exit90.us:                           ; preds = %107, %100
   %144 = zext nneg i32 %.151 to i64
   %145 = icmp ne i32 %.151, 10
   %146 = and i1 %145, %131
-  br i1 %146, label %.thread105, label %.split.us, !llvm.loop !88
+  br i1 %146, label %.thread105, label %.split.us, !llvm.loop !86
 
 .split.us:                                        ; preds = %143, %126
   %.us-phi = phi i64 [ %127, %126 ], [ %144, %143 ]
@@ -576,7 +576,7 @@ checkbuffers.exit102:                             ; preds = %221, %228
   %250 = icmp ne i32 %.3, 10
   %251 = icmp samesign ult i64 %.155139, 99
   %252 = select i1 %250, i1 %251, i1 false
-  br i1 %252, label %.preheader, label %253, !llvm.loop !89
+  br i1 %252, label %.preheader, label %253, !llvm.loop !87
 
 253:                                              ; preds = %247
   %254 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 177, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull %5, i64 noundef %249, ptr noundef nonnull %4, i64 noundef 10) #5
@@ -584,7 +584,7 @@ checkbuffers.exit102:                             ; preds = %221, %228
   br i1 %.not64, label %.thread116, label %25
 
 .thread116:                                       ; preds = %253, %.split.us, %checkbuffers.exit90.us, %94, %checkbuffers.exit87.us, %72, %checkbuffers.exit84.us, %50, %checkbuffers.exit.us, %.preheader128.split.us, %215, %checkbuffers.exit102, %193, %checkbuffers.exit99, %171, %checkbuffers.exit96, %149, %checkbuffers.exit93, %.thread113, %.thread106, %24, %12
-  %255 = load ptr, ptr @stderr, align 8, !tbaa !90
+  %255 = load ptr, ptr @stderr, align 8, !tbaa !88
   call void @ERR_print_errors_fp(ptr noundef %255) #5
   br label %.loopexit
 
@@ -684,7 +684,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
 
 47:                                               ; preds = %.preheader
   %.not47.not = and i1 %48, %8
-  br i1 %.not47.not, label %.preheader, label %54, !llvm.loop !92
+  br i1 %.not47.not, label %.preheader, label %54, !llvm.loop !90
 
 .preheader:                                       ; preds = %40, %47
   %48 = phi i1 [ false, %47 ], [ true, %40 ]
@@ -711,7 +711,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br i1 %.not57, label %.thread, label %62
 
 62:                                               ; preds = %56
-  %63 = load i64, ptr %7, align 8, !tbaa !93
+  %63 = load i64, ptr %7, align 8, !tbaa !91
   %64 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 260, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %spec.select, i64 noundef %63) #5
   %.not58 = icmp eq i32 %64, 0
   br i1 %.not58, label %.thread, label %.thread75
@@ -727,13 +727,13 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br i1 %.not48, label %.thread, label %72
 
 72:                                               ; preds = %65
-  %73 = load i64, ptr %7, align 8, !tbaa !93
+  %73 = load i64, ptr %7, align 8, !tbaa !91
   %74 = call i32 @test_size_t_lt(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.48, i64 noundef %73, i64 noundef 120) #5
   %.not49 = icmp eq i32 %74, 0
   br i1 %.not49, label %.thread, label %75
 
 75:                                               ; preds = %72
-  %76 = load i64, ptr %7, align 8, !tbaa !93
+  %76 = load i64, ptr %7, align 8, !tbaa !91
   %77 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 270, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.49, i64 noundef %76, i64 noundef 5) #5
   %.not50 = icmp eq i32 %77, 0
   br i1 %.not50, label %.thread, label %78
@@ -749,7 +749,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br label %84
 
 80:                                               ; preds = %78
-  %81 = load i64, ptr %7, align 8, !tbaa !93
+  %81 = load i64, ptr %7, align 8, !tbaa !91
   %82 = add i64 %81, -1
   br label %84
 
@@ -766,7 +766,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   %86 = add i64 %.029, 57
   %spec.select63 = select i1 %.not51, i64 %.029, i64 %86
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 57
-  %88 = load i8, ptr %87, align 1, !tbaa !94
+  %88 = load i8, ptr %87, align 1, !tbaa !92
   %89 = sext i8 %88 to i32
   %90 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 299, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %89, i32 noundef 23) #5
   %.not52.not = icmp eq i32 %90, 0
@@ -794,7 +794,7 @@ define internal range(i32 0, 2) i32 @test_free_buffers(i32 noundef %0) #1 {
   br i1 %.not55, label %.thread, label %103
 
 103:                                              ; preds = %101
-  %104 = load i64, ptr %7, align 8, !tbaa !93
+  %104 = load i64, ptr %7, align 8, !tbaa !91
   %105 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.14, i32 noundef 318, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.55, i64 noundef %104, i64 noundef 9) #5
   %.not56 = icmp eq i32 %105, 0
   br i1 %.not56, label %.thread, label %.thread75
@@ -1009,12 +1009,10 @@ attributes #5 = { nounwind }
 !83 = !{!"p1 _ZTS19record_functions_st", !6, i64 0}
 !84 = !{!15, !70, i64 3208}
 !85 = !{!77, !35, i64 0}
-!86 = distinct !{!86, !12, !87}
-!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!88 = distinct !{!88, !12}
-!89 = distinct !{!89, !12}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!92 = distinct !{!92, !12}
-!93 = !{!25, !25, i64 0}
-!94 = !{!7, !7, i64 0}
+!86 = distinct !{!86, !12}
+!87 = distinct !{!87, !12}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!90 = distinct !{!90, !12}
+!91 = !{!25, !25, i64 0}
+!92 = !{!7, !7, i64 0}

@@ -544,7 +544,7 @@ X11_CreateEmptyCursor.exit:                       ; preds = %34, %9, %5
   %50 = getelementptr inbounds nuw i8, ptr %.01421.us, i64 416
   %.014.us = load ptr, ptr %50, align 8
   %.not.us = icmp eq ptr %.014.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
   %.01421 = phi ptr [ %.014, %58 ], [ %.01419, %.lr.ph ]
@@ -564,7 +564,7 @@ X11_CreateEmptyCursor.exit:                       ; preds = %34, %9, %5
   %59 = getelementptr inbounds nuw i8, ptr %.01421, i64 416
   %.014 = load ptr, ptr %59, align 8
   %.not = icmp eq ptr %.014, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %58, %49, %X11_CreateEmptyCursor.exit
   %60 = load ptr, ptr @X11_XFlush, align 8
@@ -607,7 +607,7 @@ define internal noundef zeroext i1 @X11_WarpMouse(ptr noundef %0, float noundef 
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 8, !range !8, !noundef !9
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %15
 
@@ -678,10 +678,10 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 116
-  %11 = load i8, ptr %10, align 4, !range !10, !noundef !11
+  %11 = load i8, ptr %10, align 4, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 118
-  %14 = load i8, ptr %13, align 2, !range !10
+  %14 = load i8, ptr %13, align 2, !range !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %12, label %16, label %18
 
@@ -717,7 +717,7 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   br i1 %.not24, label %30, label %37
 
 30:                                               ; preds = %24
-  %31 = load i8, ptr %25, align 2, !range !10, !noundef !11
+  %31 = load i8, ptr %25, align 2, !range !8, !noundef !9
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.thread
 
@@ -781,7 +781,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   br label %21
 
 19:                                               ; preds = %2
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !10
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !8
   %20 = trunc nuw i8 %.pre to i1
   br i1 %20, label %21, label %60
 
@@ -875,7 +875,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %58 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next
   %59 = load i32, ptr %58, align 4
   %.not33 = icmp eq i32 %59, 0
-  br i1 %.not33, label %.loopexit, label %26, !llvm.loop !12
+  br i1 %.not33, label %.loopexit, label %26, !llvm.loop !10
 
 .loopexit:                                        ; preds = %57, %.preheader, %37
   call void @SDL_free_REAL(ptr noundef nonnull %23) #5
@@ -930,7 +930,7 @@ X11_FreeCursor.exit:                              ; preds = %4, %10
   store ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %18, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %18, label %4, !llvm.loop !11
 
 18:                                               ; preds = %X11_FreeCursor.exit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1672
@@ -944,7 +944,7 @@ X11_FreeCursor.exit:                              ; preds = %4, %10
   %22 = load ptr, ptr %21, align 8
   tail call void @SDL_free_REAL(ptr noundef nonnull %.01015) #5
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   store ptr null, ptr %19, align 8
@@ -1013,9 +1013,9 @@ define internal fastcc void @X11_WarpMouseInternal(i64 noundef %0, float noundef
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1762
-  %10 = load i8, ptr %9, align 2, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 2, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
-  %12 = load i8, ptr @x11_cursor_visible, align 1, !range !10
+  %12 = load i8, ptr @x11_cursor_visible, align 1, !range !8
   %13 = trunc nuw i8 %12 to i1
   %or.cond = select i1 %11, i1 %13, i1 false
   br i1 %or.cond, label %14, label %16
@@ -1114,12 +1114,10 @@ attributes #6 = { nounwind allocsize(0,1) }
 !3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
 !5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !4, !7}
-!9 = distinct !{!9, !4}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
 !12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}

@@ -4624,7 +4624,7 @@ define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, p
 65:                                               ; preds = %57, %.lr.ph.split
   %66 = load ptr, ptr %47, align 8
   %67 = icmp eq ptr %66, %25
-  br i1 %67, label %.thread, label %.lr.ph.split, !llvm.loop !37
+  br i1 %67, label %.thread, label %.lr.ph.split, !llvm.loop !35
 
 .thread:                                          ; preds = %65, %44, %..thread_crit_edge.split, %23
   %68 = phi i32 [ 1, %..thread_crit_edge.split ], [ 0, %23 ], [ 0, %44 ], [ 0, %65 ]
@@ -4749,7 +4749,7 @@ define internal void @acpi_device_del_work_fn(ptr readnone captures(none) %0) #0
   %25 = phi ptr [ %23, %21 ], [ @.str.40, %17 ]
   %26 = tail call i32 @strcmp(ptr noundef %18, ptr noundef %25) #19
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %12, !llvm.loop !38
+  br i1 %27, label %28, label %12, !llvm.loop !36
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %14, i64 -16
@@ -5110,7 +5110,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %44 = add nuw i32 %48, 1
   %45 = load i32, ptr %38, align 8
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %47, label %.loopexit10, !llvm.loop !39
+  br i1 %46, label %47, label %.loopexit10, !llvm.loop !37
 
 47:                                               ; preds = %.preheader9, %43
   %48 = phi i32 [ %44, %43 ], [ 0, %.preheader9 ]
@@ -5158,7 +5158,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %75 = add nuw i32 %79, 1
   %76 = load i32, ptr %69, align 8
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %78, label %.loopexit, !llvm.loop !39
+  br i1 %77, label %78, label %.loopexit, !llvm.loop !37
 
 78:                                               ; preds = %.preheader, %74
   %79 = phi i32 [ %75, %74 ], [ 0, %.preheader ]
@@ -5209,7 +5209,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   %103 = add nuw i32 %16, 1
   %104 = load i32, ptr %2, align 8
   %105 = icmp ult i32 %103, %104
-  br i1 %105, label %14, label %.loopexit12, !llvm.loop !40
+  br i1 %105, label %14, label %.loopexit12, !llvm.loop !38
 
 .loopexit12:                                      ; preds = %101, %9
   %106 = phi i32 [ 0, %9 ], [ %102, %101 ]
@@ -5355,7 +5355,7 @@ define internal void @acpi_device_release(ptr noundef %0) #0 align 16 {
   tail call void @acpi_power_resources_list_free(ptr noundef %27) #19
   %28 = add nuw nsw i64 %26, 1
   %29 = icmp eq i64 %28, 4
-  br i1 %29, label %.loopexit, label %25, !llvm.loop !41
+  br i1 %29, label %.loopexit, label %25, !llvm.loop !39
 
 .loopexit:                                        ; preds = %25, %19
   tail call void @kfree(ptr noundef %2) #19
@@ -5502,10 +5502,8 @@ attributes #24 = { cold }
 !32 = distinct !{!32, !6, !7}
 !33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
-!35 = distinct !{!35, !6, !7, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
 !37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
 !39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}

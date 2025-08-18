@@ -3601,7 +3601,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   %133 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
   store ptr %133, ptr %0, align 8, !tbaa !49
   %.not60.not = icmp sgt i64 %indvars.iv, %122
-  br i1 %.not60.not, label %.lr.ph111.split, label %.thread, !llvm.loop !58
+  br i1 %.not60.not, label %.lr.ph111.split, label %.thread, !llvm.loop !56
 
 134:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3618,7 +3618,7 @@ _ZN5cmsysL7regnextEPKc.exit77:                    ; preds = %92
   %140 = phi ptr [ %6, %28 ], [ %6, %29 ], [ %35, %34 ], [ %46, %45 ], [ %55, %54 ], [ %64, %63 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %.critedge.thread ]
   %.051 = phi ptr [ %.0.i, %28 ], [ %.0.i, %29 ], [ %.0.i, %34 ], [ %.0.i, %45 ], [ %.0.i, %54 ], [ %.0.i, %63 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %87, %.critedge.thread ]
   %.not = icmp eq ptr %.051, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %139, %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
@@ -3672,7 +3672,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %17 = getelementptr inbounds nuw i8, ptr %.155, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = icmp eq i8 %8, %18
-  br i1 %19, label %.lr.ph56, label %.critedge, !llvm.loop !60
+  br i1 %19, label %.lr.ph56, label %.critedge, !llvm.loop !58
 
 .lr.ph48:                                         ; preds = %.preheader34, %23
   %20 = phi i8 [ %26, %23 ], [ %7, %.preheader34 ]
@@ -3688,7 +3688,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %25 = getelementptr inbounds nuw i8, ptr %.247, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %.not32 = icmp eq i8 %26, 0
-  br i1 %.not32, label %.critedge, label %.lr.ph48, !llvm.loop !61
+  br i1 %.not32, label %.critedge, label %.lr.ph48, !llvm.loop !59
 
 .lr.ph:                                           ; preds = %.preheader36, %30
   %27 = phi i8 [ %33, %30 ], [ %6, %.preheader36 ]
@@ -3704,7 +3704,7 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef no
   %32 = getelementptr inbounds nuw i8, ptr %.340, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !14
   %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !60
 
 34:                                               ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.19)
@@ -3815,10 +3815,8 @@ attributes #16 = { nounwind willreturn memory(read) }
 !53 = distinct !{!53, !16}
 !54 = distinct !{!54, !16}
 !55 = distinct !{!55, !16}
-!56 = distinct !{!56, !16, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !16}
+!57 = distinct !{!57, !16}
 !58 = distinct !{!58, !16}
 !59 = distinct !{!59, !16}
 !60 = distinct !{!60, !16}
-!61 = distinct !{!61, !16}
-!62 = distinct !{!62, !16}

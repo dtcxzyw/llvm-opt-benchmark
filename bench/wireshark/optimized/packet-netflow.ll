@@ -6740,7 +6740,7 @@ switch.lookup:                                    ; preds = %4
   %.not273 = icmp ule i32 %181, %32
   %182 = icmp ne i32 %173, %.1250310
   %or.cond277 = select i1 %33, i1 %.not273, i1 %182
-  br i1 %or.cond277, label %.critedge, label %._crit_edge, !llvm.loop !10
+  br i1 %or.cond277, label %.critedge, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.critedge, %175, %179, %161, %163, %169
   switch i16 %9, label %show_sequence_analysis_info.exit [
@@ -6843,7 +6843,7 @@ show_sequence_analysis_info.exit:                 ; preds = %219, %216, %proto_i
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tcp_netflow(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = load i8, ptr @netflow_preference_desegment, align 1, !range !11, !noundef !12
+  %5 = load i8, ptr @netflow_preference_desegment, align 1, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, i32 noundef 4, ptr noundef nonnull @get_netflow_pdu_len, ptr noundef nonnull @dissect_netflow, ptr noundef %3)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -6973,7 +6973,7 @@ define internal i32 @v9_v10_tmplt_table_hash(ptr noundef readonly captures(none)
   %26 = xor i32 %25, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ %14, %1 ], [ %26, %.lr.ph.i ]
@@ -7000,7 +7000,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %38 = xor i32 %37, %36
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i11
-  br i1 %exitcond.not.i16, label %add_address_to_hash.exit17, label %.lr.ph.i12, !llvm.loop !13
+  br i1 %exitcond.not.i16, label %add_address_to_hash.exit17, label %.lr.ph.i12, !llvm.loop !11
 
 add_address_to_hash.exit17:                       ; preds = %.lr.ph.i12, %add_address_to_hash.exit
   %.011.lcssa.i9 = phi i32 [ %.011.lcssa.i, %add_address_to_hash.exit ], [ %38, %.lr.ph.i12 ]
@@ -7272,7 +7272,7 @@ define internal noundef i32 @dissect_pdu(ptr noundef %0, ptr noundef readonly ca
 89:                                               ; preds = %87
   %90 = sub nuw nsw i32 32, %83
   %91 = shl nsw i32 -1, %90
-  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #13, !srcloc !14
+  %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #13, !srcloc !12
   %93 = and i32 %92, %11
   br label %getprefix.exit
 
@@ -7308,7 +7308,7 @@ getprefix.exit:                                   ; preds = %62, %87, %89
 108:                                              ; preds = %106
   %109 = sub nuw nsw i32 32, %103
   %110 = shl nsw i32 -1, %109
-  %111 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %110) #13, !srcloc !14
+  %111 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %110) #13, !srcloc !12
   %112 = and i32 %111, %15
   br label %getprefix.exit104
 
@@ -7826,7 +7826,7 @@ copy_address_wmem.exit94.i:                       ; preds = %143, %copy_address_
   %165 = sub i32 %.neg.i, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %166 = icmp sgt i32 %165, 3
-  br i1 %166, label %66, label %._crit_edge.i, !llvm.loop !15
+  br i1 %166, label %66, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %164, %39
   %.086.lcssa.i = phi i32 [ %30, %39 ], [ %165, %164 ]
@@ -8113,7 +8113,7 @@ copy_address_wmem.exit143.i:                      ; preds = %321, %copy_address_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %331 = icmp sgt i32 %330, 3
-  br i1 %331, label %203, label %._crit_edge.i54, !llvm.loop !16
+  br i1 %331, label %203, label %._crit_edge.i54, !llvm.loop !14
 
 ._crit_edge.i54:                                  ; preds = %.critedge.i, %172
   %.0126.lcssa.i = phi i32 [ %173, %172 ], [ %330, %.critedge.i ]
@@ -8311,7 +8311,7 @@ switch.lookup:                                    ; preds = %421
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %431 = zext i16 %430 to i64
   %432 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %431
-  br i1 %432, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !17
+  br i1 %432, label %.lr.ph.i.i.i, label %dissect_v9_v10_pdu.exit.i, !llvm.loop !15
 
 433:                                              ; preds = %412
   %434 = call fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef %1, ptr noundef %408, i32 noundef %.059.i, ptr noundef nonnull readonly %380, ptr noundef readonly %4, i32 noundef 0)
@@ -8330,7 +8330,7 @@ dissect_v9_v10_pdu.exit.i:                        ; preds = %429, %433, %412, %4
   %442 = call i32 @llvm.usub.sat.i32(i32 %.04957.i, i32 %440)
   %443 = load i32, ptr %382, align 4
   %.not53.i = icmp ult i32 %442, %443
-  br i1 %.not53.i, label %._crit_edge.i64, label %404, !llvm.loop !18
+  br i1 %.not53.i, label %._crit_edge.i64, label %404, !llvm.loop !16
 
 ._crit_edge.i64:                                  ; preds = %dissect_v9_v10_pdu.exit.i, %proto_item_set_generated.exit.i
   %.049.lcssa.i = phi i32 [ %343, %proto_item_set_generated.exit.i ], [ %442, %dissect_v9_v10_pdu.exit.i ]
@@ -8512,7 +8512,7 @@ define internal fastcc void @store_sequence_analysis_info(i32 noundef %0, i32 no
   br i1 %16, label %36, label %17
 
 17:                                               ; preds = %12
-  %18 = load i8, ptr %15, align 4, !range !11, !noundef !12
+  %18 = load i8, ptr %15, align 4, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %28
 
@@ -8877,7 +8877,7 @@ pen_to_type_hf_list.exit:                         ; preds = %75
   %.1 = phi i32 [ %109, %106 ], [ %105, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %110, %12
   %.0.lcssa = phi i32 [ %2, %12 ], [ %.1, %110 ]
@@ -9060,7 +9060,7 @@ define internal fastcc i32 @dissect_v9_v10_pdu_data(ptr noundef %0, ptr noundef 
   store i32 0, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.preheader6874, label %66, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader6874, label %66, !llvm.loop !18
 
 .preheader6873.loopexit:                          ; preds = %6252
   %71 = icmp eq i16 %.16463, 975
@@ -11211,7 +11211,7 @@ proto_item_set_hidden.exit:                       ; preds = %100, %97, %213, %21
 
 238:                                              ; preds = %proto_item_set_hidden.exit
   %239 = icmp eq i16 %.06473, 1
-  %240 = load i8, ptr @netflow_preference_tcpflags_1byte_cwr, align 1, !range !11
+  %240 = load i8, ptr @netflow_preference_tcpflags_1byte_cwr, align 1, !range !9
   %241 = trunc nuw i8 %240 to i1
   %or.cond = select i1 %239, i1 %241, i1 false
   br i1 %or.cond, label %242, label %246
@@ -20372,7 +20372,7 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
   %.1 = phi i32 [ %6251, %.thread6851 ], [ %.064356914, %72 ], [ %91, %90 ]
   %indvars.iv.next6927 = add nuw nsw i64 %indvars.iv6926, 1
   %exitcond6928.not = icmp eq i64 %indvars.iv.next6927, %wide.trip.count
-  br i1 %exitcond6928.not, label %.preheader6873.loopexit, label %72, !llvm.loop !21
+  br i1 %exitcond6928.not, label %.preheader6873.loopexit, label %72, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader6873, %6273
   %6253 = phi i1 [ true, %.preheader6873 ], [ false, %6273 ]
@@ -20428,10 +20428,10 @@ switch.lookup:                                    ; preds = %proto_item_set_hidd
 6272:                                             ; preds = %.sink.split6942, %6257, %.thread6872
   %indvars.iv.next6930 = add nuw nsw i64 %indvars.iv6929, 1
   %exitcond6932.not = icmp eq i64 %indvars.iv.next6930, 6
-  br i1 %exitcond6932.not, label %6273, label %6254, !llvm.loop !22
+  br i1 %exitcond6932.not, label %6273, label %6254, !llvm.loop !20
 
 6273:                                             ; preds = %6272
-  br i1 %6253, label %.preheader, label %6274, !llvm.loop !23
+  br i1 %6253, label %.preheader, label %6274, !llvm.loop !21
 
 6274:                                             ; preds = %6273
   br i1 %.06462.lcssa, label %6275, label %.critedge
@@ -20720,7 +20720,7 @@ proto_item_set_generated.exit:                    ; preds = %65, %66, %69
   %81 = add i32 %.05660, 1
   %82 = add i32 %78, %.061
   %83 = icmp slt i32 %82, %11
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %80, %.lr.ph, %proto_item_set_generated.exit
   %.0.lcssa = phi i32 [ %21, %proto_item_set_generated.exit ], [ %.061, %.lr.ph ], [ %82, %80 ]
@@ -20892,14 +20892,14 @@ attributes #17 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{ptr @dissect_pdu, ptr @dissect_v8_aggpdu, ptr @dissect_v8_flowpdu, ptr @dissect_v9_v10_flowset}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !8}
+!12 = !{i64 2152152611}
 !13 = distinct !{!13, !8}
-!14 = !{i64 2152152611}
+!14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
@@ -20908,5 +20908,3 @@ attributes #17 = { noreturn }
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
 !22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}

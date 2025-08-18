@@ -478,7 +478,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %49 = load i32, ptr %10, align 8
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ult i64 %48, %50
-  br i1 %51, label %.split.us.us, label %.split10.us, !llvm.loop !14
+  br i1 %51, label %.split.us.us, label %.split10.us, !llvm.loop !13
 
 .split:                                           ; preds = %13, %.split7
   %52 = phi i64 [ %91, %.split7 ], [ 0, %13 ]
@@ -538,14 +538,14 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr noundef readnone 
   %88 = phi i32 [ %58, %56 ], [ %58, %74 ], [ %86, %85 ]
   %89 = add nuw nsw i64 %57, 1
   %90 = icmp eq i64 %89, 8
-  br i1 %90, label %.split7, label %56, !llvm.loop !15
+  br i1 %90, label %.split7, label %56, !llvm.loop !12
 
 .split7:                                          ; preds = %87
   %91 = add nuw nsw i64 %52, 1
   %92 = load i32, ptr %10, align 8
   %93 = zext i32 %92 to i64
   %94 = icmp samesign ult i64 %91, %93
-  br i1 %94, label %.split, label %.split10.us, !llvm.loop !16
+  br i1 %94, label %.split, label %.split10.us, !llvm.loop !13
 
 .split10.us:                                      ; preds = %.split7, %.split7.us.us
   %.us-phi11 = phi i32 [ %45, %.split7.us.us ], [ %88, %.split7 ]
@@ -625,8 +625,5 @@ attributes #8 = { nounwind allocsize(0) }
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = distinct !{!10, !8, !9}
 !11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8, !9, !13}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

@@ -3052,7 +3052,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr nonnull align 1 %30, i64 %31, i1 false)
-  br label %.split.outer, !llvm.loop !16
+  br label %.split.outer, !llvm.loop !14
 
 .split.outer:                                     ; preds = %3, %29
   %.017.ph = phi i8 [ %.118, %29 ], [ 0, %3 ]
@@ -3072,7 +3072,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #29
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.0, i64 %38
-  br label %.split, !llvm.loop !16
+  br label %.split, !llvm.loop !14
 
 .split23.us:                                      ; preds = %.split.us, %.split
   ret void
@@ -3224,6 +3224,4 @@ attributes #32 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !5}
+!14 = distinct !{!14, !5}

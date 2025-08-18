@@ -8309,7 +8309,7 @@ define internal fastcc i64 @diff_region(i64 noundef range(i64 0, -92233720368547
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %122, i64 noundef %123) #15
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %41
-  br i1 %exitcond.not.i.us, label %.lr.ph23.i.us, label %121, !llvm.loop !103
+  br i1 %exitcond.not.i.us, label %.lr.ph23.i.us, label %121, !llvm.loop !102
 
 .lr.ph23.i.us:                                    ; preds = %121
   %124 = add i32 %.reass.i.us, %.fr254
@@ -8327,7 +8327,7 @@ define internal fastcc i64 @diff_region(i64 noundef range(i64 0, -92233720368547
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %126, i64 noundef %131) #15
   %indvars.iv.next26.i.us = add nuw nsw i64 %indvars.iv25.i.us, 1
   %exitcond29.not.i.us = icmp eq i64 %indvars.iv.next26.i.us, %41
-  br i1 %exitcond29.not.i.us, label %print_region_block.exit.us, label %125, !llvm.loop !104
+  br i1 %exitcond29.not.i.us, label %print_region_block.exit.us, label %125, !llvm.loop !103
 
 print_region_block.exit.us:                       ; preds = %125
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90) #15
@@ -8344,7 +8344,7 @@ print_region_block.exit.us:                       ; preds = %125
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %133, i64 noundef %134) #15
   %indvars.iv.next.i202.us = add nuw nsw i64 %indvars.iv.i199.us, 1
   %exitcond.not.i203.us = icmp eq i64 %indvars.iv.next.i202.us, %41
-  br i1 %exitcond.not.i203.us, label %.lr.ph23.i204.us, label %132, !llvm.loop !103
+  br i1 %exitcond.not.i203.us, label %.lr.ph23.i204.us, label %132, !llvm.loop !102
 
 .lr.ph23.i204.us:                                 ; preds = %132, %.lr.ph23.i204.us
   %indvars.iv25.i208.us = phi i64 [ %indvars.iv.next26.i210.us, %.lr.ph23.i204.us ], [ 0, %132 ]
@@ -8358,14 +8358,14 @@ print_region_block.exit.us:                       ; preds = %125
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %135, i64 noundef %140) #15
   %indvars.iv.next26.i210.us = add nuw nsw i64 %indvars.iv25.i208.us, 1
   %exitcond29.not.i211.us = icmp eq i64 %indvars.iv.next26.i210.us, %41
-  br i1 %exitcond29.not.i211.us, label %print_region_block.exit212.loopexit.us, label %.lr.ph23.i204.us, !llvm.loop !104
+  br i1 %exitcond29.not.i211.us, label %print_region_block.exit212.loopexit.us, label %.lr.ph23.i204.us, !llvm.loop !103
 
 print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90) #15
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.2) #15
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %smax272
-  br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !105
+  br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph.i.us, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %print_region_block.exit212.loopexit.us
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -8483,12 +8483,12 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
   %spec.select.us = add i64 %.3155240.us, %197
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next278, %144
-  br i1 %exitcond281.not, label %._crit_edge243.us, label %191, !llvm.loop !106
+  br i1 %exitcond281.not, label %._crit_edge243.us, label %191, !llvm.loop !105
 
 ._crit_edge243.us:                                ; preds = %191
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, %26
-  br i1 %exitcond285.not, label %._crit_edge246, label %.preheader230.us, !llvm.loop !107
+  br i1 %exitcond285.not, label %._crit_edge246, label %.preheader230.us, !llvm.loop !106
 
 ._crit_edge246:                                   ; preds = %._crit_edge243.us
   %.not184 = icmp eq i64 %spec.select.us, 0
@@ -8513,7 +8513,7 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
 202:                                              ; preds = %203
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %144
-  br i1 %exitcond293.not, label %.critedge.us, label %203, !llvm.loop !108
+  br i1 %exitcond293.not, label %.critedge.us, label %203, !llvm.loop !107
 
 203:                                              ; preds = %.preheader.us, %202
   %indvars.iv289 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next290, %202 ]
@@ -8541,7 +8541,7 @@ print_region_block.exit212.loopexit.us:           ; preds = %.lr.ph23.i204.us
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %211, i64 noundef %212) #15
   %indvars.iv.next.i219.us = add nuw nsw i64 %indvars.iv.i216.us, 1
   %exitcond.not.i220.us = icmp eq i64 %indvars.iv.next.i219.us, %144
-  br i1 %exitcond.not.i220.us, label %print_points.exit.us, label %210, !llvm.loop !109
+  br i1 %exitcond.not.i220.us, label %print_points.exit.us, label %210, !llvm.loop !108
 
 print_points.exit.us:                             ; preds = %210
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90) #15
@@ -8558,7 +8558,7 @@ print_points.exit.us:                             ; preds = %210
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.86, ptr noundef nonnull %214, i64 noundef %215) #15
   %indvars.iv.next.i227.us = add nuw nsw i64 %indvars.iv.i224.us, 1
   %exitcond.not.i228.us = icmp eq i64 %indvars.iv.next.i227.us, %144
-  br i1 %exitcond.not.i228.us, label %print_points.exit229.us, label %213, !llvm.loop !109
+  br i1 %exitcond.not.i228.us, label %print_points.exit229.us, label %213, !llvm.loop !108
 
 print_points.exit229.us:                          ; preds = %213
   call void (ptr, ...) @parallel_print(ptr noundef nonnull @.str.90) #15
@@ -8568,7 +8568,7 @@ print_points.exit229.us:                          ; preds = %213
 .critedge.us:                                     ; preds = %202, %print_points.exit229.us
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %smax297
-  br i1 %exitcond298.not, label %.loopexit, label %.preheader.us, !llvm.loop !110
+  br i1 %exitcond298.not, label %.loopexit, label %.preheader.us, !llvm.loop !109
 
 .loopexit:                                        ; preds = %.critedge.us, %.preheader230.lr.ph, %198, %._crit_edge246
   %.2154.lcssa305 = phi i64 [ %spec.select.us, %198 ], [ 0, %._crit_edge246 ], [ 0, %.preheader230.lr.ph ], [ %spec.select.us, %.critedge.us ]
@@ -8993,10 +8993,10 @@ define internal fastcc void @h5diff_print_char(i8 noundef signext %0) unnamed_ad
 
 10:                                               ; preds = %1
   %11 = tail call ptr @__ctype_b_loc() #20
-  %12 = load ptr, ptr %11, align 8, !tbaa !111
+  %12 = load ptr, ptr %11, align 8, !tbaa !110
   %13 = sext i8 %0 to i64
   %14 = getelementptr inbounds i16, ptr %12, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !113
+  %15 = load i16, ptr %14, align 2, !tbaa !112
   %16 = and i16 %15, 16384
   %.not = icmp eq i16 %16, 0
   br i1 %.not, label %18, label %17
@@ -11114,7 +11114,7 @@ define internal fastcc void @ull2float(i64 noundef %0, ptr noundef nonnull write
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.3, align 8
   %6 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8, !tbaa !115
+  store i64 %0, ptr %3, align 8, !tbaa !114
   %7 = load i64, ptr @H5P_CLS_DATASET_XFER_ID_g, align 8, !tbaa !15
   %8 = tail call i64 @H5Pcreate(i64 noundef %7) #15
   %9 = icmp slt i64 %8, 0
@@ -11445,19 +11445,18 @@ attributes #21 = { memory(none) }
 !98 = distinct !{!98, !19}
 !99 = distinct !{!99, !19}
 !100 = distinct !{!100, !19}
-!101 = distinct !{!101, !19, !102}
-!102 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!101 = distinct !{!101, !19}
+!102 = distinct !{!102, !19}
 !103 = distinct !{!103, !19}
 !104 = distinct !{!104, !19}
-!105 = distinct !{!105, !19, !102}
+!105 = distinct !{!105, !19}
 !106 = distinct !{!106, !19}
-!107 = distinct !{!107, !19, !102}
+!107 = distinct !{!107, !19}
 !108 = distinct !{!108, !19}
 !109 = distinct !{!109, !19}
-!110 = distinct !{!110, !19, !102}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"p1 short", !11, i64 0}
-!113 = !{!114, !114, i64 0}
-!114 = !{!"short", !6, i64 0}
-!115 = !{!116, !116, i64 0}
-!116 = !{!"long long", !6, i64 0}
+!110 = !{!111, !111, i64 0}
+!111 = !{!"p1 short", !11, i64 0}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"short", !6, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"long long", !6, i64 0}

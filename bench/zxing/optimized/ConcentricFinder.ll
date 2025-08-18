@@ -2079,7 +2079,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 .critedge80.i:                                    ; preds = %.critedge.us.i, %.lr.ph.i, %482
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %.critedge82.i, label %482, !llvm.loop !88
+  br i1 %exitcond.i, label %.critedge82.i, label %482, !llvm.loop !87
 
 .critedge82.i:                                    ; preds = %.critedge80.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 64, i1 false)
@@ -2118,7 +2118,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %539, i64 8
   store double %538, ptr %.sroa.5.0..sroa_idx.i, align 8
   %exitcond464.not.i = icmp eq i64 %indvars.iv.next462.i, 4
-  br i1 %exitcond464.not.i, label %.split.us.i, label %513, !llvm.loop !89
+  br i1 %exitcond464.not.i, label %.split.us.i, label %513, !llvm.loop !88
 
 .split.us.i:                                      ; preds = %506, %513
   %.sroa.6.0 = phi i1 [ true, %513 ], [ false, %506 ]
@@ -2133,13 +2133,13 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 540:                                              ; preds = %_ZN5ZXing14RegressionLineD2Ev.exit.i.i, %.loopexit377.i
   %541 = phi ptr [ %471, %.loopexit377.i ], [ %542, %_ZN5ZXing14RegressionLineD2Ev.exit.i.i ]
   %542 = getelementptr inbounds i8, ptr %541, i64 -64
-  %543 = load ptr, ptr %542, align 8, !tbaa !90, !noalias !64
+  %543 = load ptr, ptr %542, align 8, !tbaa !89, !noalias !64
   %.not.i.i.i.i.i199.i = icmp eq ptr %543, null
   br i1 %.not.i.i.i.i.i199.i, label %_ZN5ZXing14RegressionLineD2Ev.exit.i.i, label %544
 
 544:                                              ; preds = %540
   %545 = getelementptr inbounds i8, ptr %541, i64 -48
-  %546 = load ptr, ptr %545, align 8, !tbaa !91, !noalias !64
+  %546 = load ptr, ptr %545, align 8, !tbaa !90, !noalias !64
   %547 = ptrtoint ptr %546 to i64
   %548 = ptrtoint ptr %543 to i64
   %549 = sub i64 %547, %548
@@ -2191,7 +2191,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i.i:           ; preds = %544, %540
   %.sroa.speculated.i.i14 = select i1 %565, double %sqrt.i.i11.i, double %.01518.i
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, 4
-  br i1 %exitcond.not.i, label %566, label %558, !llvm.loop !92
+  br i1 %exitcond.not.i, label %566, label %558, !llvm.loop !91
 
 566:                                              ; preds = %558
   %.neg = sext i1 %6 to i32
@@ -2286,7 +2286,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
 
 32:                                               ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit
   %33 = sdiv i32 %5, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %.not45.i = icmp slt i32 %5, 4
   br i1 %.not45.i, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread, label %.lr.ph.i
 
@@ -2304,9 +2304,9 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
   %.01648.i = phi i32 [ 2, %.lr.ph.i ], [ %53, %49 ]
   %.sroa.7.047.i = phi double [ %.sroa.28.0.copyload, %.lr.ph.i ], [ %51, %49 ]
   %.sroa.025.046.i = phi double [ %.sroa.07.0.copyload, %.lr.ph.i ], [ %50, %49 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !93
-  call void @_ZN5ZXing12CenterOfRingERKNS_9BitMatrixENS_6PointTIiEEiib(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.sroa.024.0.insert.insert.i, i32 noundef %4, i32 noundef %.01648.i, i1 noundef zeroext true), !noalias !93
-  %36 = load i8, ptr %34, align 8, !tbaa !25, !range !41, !noalias !93, !noundef !42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !92
+  call void @_ZN5ZXing12CenterOfRingERKNS_9BitMatrixENS_6PointTIiEEiib(ptr dead_on_unwind nonnull writable sret(%"class.std::optional") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %.sroa.024.0.insert.insert.i, i32 noundef %4, i32 noundef %.01648.i, i1 noundef zeroext true), !noalias !92
+  %36 = load i8, ptr %34, align 8, !tbaa !25, !range !41, !noalias !92, !noundef !42
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %40, label %38
 
@@ -2315,8 +2315,8 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
   br i1 %39, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread47, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit
 
 40:                                               ; preds = %35
-  %.sroa.02.0.copyload.i = load double, ptr %7, align 8, !tbaa !23, !noalias !93
-  %.sroa.23.0.copyload.i = load double, ptr %.sroa.23.0..sroa_idx.i, align 8, !tbaa !23, !noalias !93
+  %.sroa.02.0.copyload.i = load double, ptr %7, align 8, !tbaa !23, !noalias !92
+  %.sroa.23.0.copyload.i = load double, ptr %.sroa.23.0..sroa_idx.i, align 8, !tbaa !23, !noalias !92
   %41 = fsub double %.sroa.02.0.copyload.i, %.sroa.07.0.copyload
   %42 = fsub double %.sroa.23.0.copyload.i, %.sroa.28.0.copyload
   %43 = fmul double %42, %42
@@ -2332,7 +2332,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
   %50 = fadd double %.sroa.025.046.i, %.sroa.02.0.copyload.i
   %51 = fadd double %.sroa.7.047.i, %.sroa.23.0.copyload.i
   %52 = add nuw nsw i32 %.049.i, 1
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !93
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !92
   %53 = add nuw nsw i32 %.01648.i, 1
   %exitcond.not.i = icmp eq i32 %52, %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %35, !llvm.loop !43
@@ -2347,29 +2347,29 @@ _ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread: ; preds =
   %.0.lcssa.i = phi double [ 1.000000e+00, %32 ], [ %54, %._crit_edge.loopexit.i ]
   %55 = fdiv double %.sroa.025.0.lcssa.i, %.0.lcssa.i
   %56 = fdiv double %.sroa.7.0.lcssa.i, %.0.lcssa.i
-  store double %55, ptr %0, align 8, !tbaa !23, !alias.scope !93
+  store double %55, ptr %0, align 8, !tbaa !23, !alias.scope !92
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %56, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !93
+  store double %56, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !92
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %57, align 8, !tbaa !25, !alias.scope !93
+  store i8 1, ptr %57, align 8, !tbaa !25, !alias.scope !92
   br label %63
 
 _ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread47: ; preds = %40, %38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %58, align 8, !tbaa !25, !alias.scope !93
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !93
+  store i8 0, ptr %58, align 8, !tbaa !25, !alias.scope !92
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !92
   br label %78
 
 _ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit: ; preds = %38
   %59 = uitofp nneg i32 %.049.i to double
   %60 = fdiv double %.sroa.025.046.i, %59
   %61 = fdiv double %.sroa.7.047.i, %59
-  store double %60, ptr %0, align 8, !tbaa !23, !alias.scope !93
+  store double %60, ptr %0, align 8, !tbaa !23, !alias.scope !92
   %.sroa.423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %61, ptr %.sroa.423.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !93
+  store double %61, ptr %.sroa.423.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !92
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %62, align 8, !tbaa !25, !alias.scope !93
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !93
+  store i8 1, ptr %62, align 8, !tbaa !25, !alias.scope !92
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !92
   br label %63
 
 63:                                               ; preds = %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit, %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread
@@ -2744,13 +2744,12 @@ attributes #18 = { noreturn nounwind }
 !83 = !{!77, !24, i64 48}
 !84 = !{!77, !24, i64 56}
 !85 = !{!82, !82, i64 0}
-!86 = distinct !{!86, !22, !87}
-!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!86 = distinct !{!86, !22}
+!87 = distinct !{!87, !22}
 !88 = distinct !{!88, !22}
-!89 = distinct !{!89, !22}
-!90 = !{!81, !82, i64 0}
-!91 = !{!81, !82, i64 16}
-!92 = distinct !{!92, !22}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii: argument 0"}
-!95 = distinct !{!95, !"_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii"}
+!89 = !{!81, !82, i64 0}
+!90 = !{!81, !82, i64 16}
+!91 = distinct !{!91, !22}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii: argument 0"}
+!94 = distinct !{!94, !"_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii"}

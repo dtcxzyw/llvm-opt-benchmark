@@ -1602,7 +1602,7 @@ yv12_tile_copy.exit.i.i:                          ; preds = %._crit_edge.us.i.i.
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %695 = icmp samesign ult i64 %indvars.iv.i.i, 2
   %696 = select i1 %.not.i.i.i189, i1 %695, i1 false
-  br i1 %696, label %638, label %copy_decoded_tile_to_tile_list_buffer.exit.i, !llvm.loop !19
+  br i1 %696, label %638, label %copy_decoded_tile_to_tile_list_buffer.exit.i, !llvm.loop !18
 
 copy_decoded_tile_to_tile_list_buffer.exit.i:     ; preds = %yv12_tile_copy.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1610,7 +1610,7 @@ copy_decoded_tile_to_tile_list_buffer.exit.i:     ; preds = %yv12_tile_copy.exit
   %697 = add nuw nsw i32 %.06884.i, 1
   %698 = load i32, ptr %54, align 8
   %.not.not.i = icmp slt i32 %.06884.i, %698
-  br i1 %.not.not.i, label %589, label %read_and_decode_one_tile_list.exit.loopexit, !llvm.loop !20
+  br i1 %.not.not.i, label %589, label %read_and_decode_one_tile_list.exit.loopexit, !llvm.loop !19
 
 read_and_decode_one_tile_list.exit.loopexit:      ; preds = %copy_decoded_tile_to_tile_list_buffer.exit.i
   %699 = zext i32 %624 to i64
@@ -1708,7 +1708,7 @@ get_last_nonzero_byte.exit:                       ; preds = %708, %read_padding.
   %720 = getelementptr inbounds i8, ptr %112, i64 %.2
   %721 = load i8, ptr %720, align 1
   %.not170 = icmp eq i8 %721, 0
-  br i1 %.not170, label %.preheader, label %722, !llvm.loop !21
+  br i1 %.not170, label %.preheader, label %722, !llvm.loop !20
 
 722:                                              ; preds = %718
   store i32 7, ptr %30, align 8
@@ -1896,8 +1896,7 @@ attributes #10 = { nounwind allocsize(1) }
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}

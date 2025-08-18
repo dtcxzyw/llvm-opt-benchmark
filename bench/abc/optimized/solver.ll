@@ -5644,7 +5644,7 @@ clause_compare.exit.us:                           ; preds = %80
   %88 = getelementptr inbounds nuw ptr, ptr %.tr27, i64 %94
   store ptr %96, ptr %91, align 8, !tbaa !188
   store ptr %67, ptr %88, align 8, !tbaa !188
-  br label %.split.us, !llvm.loop !192
+  br label %.split.us
 
 .preheader.us:                                    ; preds = %clause_compare.exit.us, %80, %71
   %89 = phi i32 [ %.ph, %71 ], [ %56, %clause_compare.exit.us ], [ %.ph, %80 ]
@@ -5665,7 +5665,7 @@ clause_compare.exit.us:                           ; preds = %80
   br i1 %99, label %.backedge.us.us.backedge, label %.thread19.i44.us.us
 
 .backedge.us.us.backedge:                         ; preds = %.backedge.us.us, %.thread19.i44.us.us, %clause_compare.exit47.us.us
-  br label %.backedge.us.us, !llvm.loop !194
+  br label %.backedge.us.us, !llvm.loop !192
 
 .thread19.i44.us.us:                              ; preds = %.backedge.us.us
   %100 = load i32, ptr %53, align 4
@@ -5784,7 +5784,7 @@ clause_compare.exit:                              ; preds = %131
   br i1 %153, label %.backedge.backedge, label %154
 
 .backedge.backedge:                               ; preds = %.thread19.i44, %clause_compare.exit47
-  br label %.backedge, !llvm.loop !195
+  br label %.backedge, !llvm.loop !192
 
 154:                                              ; preds = %.thread19.i44
   %155 = icmp samesign ult i32 %150, %152
@@ -6095,7 +6095,4 @@ attributes #21 = { nounwind allocsize(0,1) }
 !189 = distinct !{!189, !28}
 !190 = distinct !{!190, !28}
 !191 = distinct !{!191, !28}
-!192 = distinct !{!192, !193}
-!193 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!194 = distinct !{!194, !28, !193}
-!195 = distinct !{!195, !28}
+!192 = distinct !{!192, !28}

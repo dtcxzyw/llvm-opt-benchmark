@@ -1091,7 +1091,7 @@ InitializeAttributeOids.exit:                     ; preds = %.lr.ph.i252, %377
   %433 = load i32, ptr %432, align 8
   %434 = sext i32 %433 to i64
   %435 = icmp slt i64 %indvars.iv.next.i259, %434
-  br i1 %435, label %.lr.ph.split.i, label %AppendAttributeTuples.exit, !llvm.loop !13
+  br i1 %435, label %.lr.ph.split.i, label %AppendAttributeTuples.exit, !llvm.loop !11
 
 AppendAttributeTuples.exit:                       ; preds = %429, %417, %InitializeAttributeOids.exit, %402
   %.027.i = phi ptr [ null, %InitializeAttributeOids.exit ], [ %407, %402 ], [ %407, %417 ], [ %407, %429 ]
@@ -1129,7 +1129,7 @@ AppendAttributeTuples.exit:                       ; preds = %429, %417, %Initial
   %453 = load i32, ptr %57, align 4
   %454 = sext i32 %453 to i64
   %455 = icmp slt i64 %indvars.iv.next.i263, %454
-  br i1 %455, label %449, label %._crit_edge.i, !llvm.loop !14
+  br i1 %455, label %449, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %449, %AppendAttributeTuples.exit
   %456 = load i32, ptr %73, align 8
@@ -1342,7 +1342,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
 558:                                              ; preds = %555
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %559 = icmp slt i64 %indvars.iv.next327, %554
-  br i1 %559, label %555, label %._crit_edge288, !llvm.loop !15
+  br i1 %559, label %555, label %._crit_edge288, !llvm.loop !13
 
 .thread:                                          ; preds = %555
   store i32 1259, ptr %27, align 4
@@ -1354,7 +1354,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
   %indvars.iv.next327341 = add nuw nsw i64 %indvars.iv326, 1
   %561 = sext i32 %.pre338 to i64
   %562 = icmp slt i64 %indvars.iv.next327341, %561
-  br i1 %562, label %.outer, label %._crit_edge288.thread, !llvm.loop !15
+  br i1 %562, label %.outer, label %._crit_edge288.thread, !llvm.loop !13
 
 ._crit_edge288:                                   ; preds = %558
   br i1 %.0285.ph, label %._crit_edge288.thread, label %.critedge297
@@ -1432,7 +1432,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %585 = sext i32 %584 to i64
   %586 = icmp slt i64 %indvars.iv.next329, %585
-  br i1 %586, label %578, label %.preheader265, !llvm.loop !16
+  br i1 %586, label %578, label %.preheader265, !llvm.loop !14
 
 587:                                              ; preds = %.lr.ph293, %587
   %indvars.iv331 = phi i64 [ 0, %.lr.ph293 ], [ %indvars.iv.next332, %587 ]
@@ -1446,7 +1446,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
   %590 = load i32, ptr %73, align 8
   %591 = sext i32 %590 to i64
   %592 = icmp slt i64 %indvars.iv.next332, %591
-  br i1 %592, label %587, label %._crit_edge294, !llvm.loop !17
+  br i1 %592, label %587, label %._crit_edge294, !llvm.loop !15
 
 ._crit_edge294:                                   ; preds = %587, %569, %.preheader265
   call void @record_object_address_dependencies(ptr noundef nonnull %26, ptr noundef %570, i32 noundef 110) #11
@@ -1516,7 +1516,7 @@ UpdateIndexRelation.exit:                         ; preds = %522, %525
   %618 = load i32, ptr %73, align 8
   %619 = sext i32 %618 to i64
   %620 = icmp slt i64 %indvars.iv.next335, %619
-  br i1 %620, label %.lr.ph296, label %.loopexit, !llvm.loop !18
+  br i1 %620, label %.lr.ph296, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph296, %.preheader, %606
   %621 = load i32, ptr @Mode, align 4
@@ -2101,7 +2101,7 @@ define dso_local void @index_build(ptr noundef %0, ptr noundef %1, ptr noundef %
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %RelationGetSmgr.exit, !prof !19
+  br i1 %75, label %76, label %RelationGetSmgr.exit, !prof !17
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -2123,7 +2123,7 @@ RelationGetSmgr.exit:                             ; preds = %72, %76
 82:                                               ; preds = %RelationGetSmgr.exit
   %83 = load ptr, ptr %73, align 8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %RelationGetSmgr.exit53, !prof !19
+  br i1 %84, label %85, label %RelationGetSmgr.exit53, !prof !17
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -2255,7 +2255,7 @@ RelationGetSmgr.exit53:                           ; preds = %82, %85
   %156 = load i8, ptr @bsysscan, align 1, !range !4
   %157 = trunc nuw i8 %156 to i1
   %.not5.i35.i = select i1 %155, i1 true, i1 %157
-  br i1 %.not5.i35.i, label %table_scan_getnextslot.exit.lr.ph.i, label %._crit_edge.i, !prof !20
+  br i1 %.not5.i35.i, label %table_scan_getnextslot.exit.lr.ph.i, label %._crit_edge.i, !prof !18
 
 table_scan_getnextslot.exit.lr.ph.i:              ; preds = %136
   %.not33.i = icmp eq ptr %.fr.i, null
@@ -2276,7 +2276,7 @@ table_scan_getnextslot.exit.us.i:                 ; preds = %table_scan_getnexts
 167:                                              ; preds = %table_scan_getnextslot.exit.us.i
   %168 = load volatile i32, ptr @InterruptPending, align 4
   %.not32.us.i = icmp eq i32 %168, 0
-  br i1 %.not32.us.i, label %.backedge.us.i, label %169, !prof !21
+  br i1 %.not32.us.i, label %.backedge.us.i, label %169, !prof !19
 
 169:                                              ; preds = %167
   call void @ProcessInterrupts() #11
@@ -2296,7 +2296,7 @@ table_scan_getnextslot.exit.us.i:                 ; preds = %table_scan_getnexts
   %176 = load i8, ptr @bsysscan, align 1, !range !4
   %177 = trunc nuw i8 %176 to i1
   %.not5.i.us.i = select i1 %175, i1 true, i1 %177
-  br i1 %.not5.i.us.i, label %table_scan_getnextslot.exit.us.i, label %._crit_edge.i, !prof !22, !llvm.loop !23
+  br i1 %.not5.i.us.i, label %table_scan_getnextslot.exit.us.i, label %._crit_edge.i, !prof !20, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.backedge.us.i, %136
   %178 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2317,7 +2317,7 @@ table_scan_getnextslot.exit.i:                    ; preds = %table_scan_getnexts
 186:                                              ; preds = %table_scan_getnextslot.exit.i
   %187 = load volatile i32, ptr @InterruptPending, align 4
   %.not32.i = icmp eq i32 %187, 0
-  br i1 %.not32.i, label %189, label %188, !prof !21
+  br i1 %.not32.i, label %189, label %188, !prof !19
 
 188:                                              ; preds = %186
   call void @ProcessInterrupts() #11
@@ -2352,7 +2352,7 @@ table_scan_getnextslot.exit.i:                    ; preds = %table_scan_getnexts
   %201 = load i8, ptr @bsysscan, align 1, !range !4
   %202 = trunc nuw i8 %201 to i1
   %.not5.i.i = select i1 %200, i1 true, i1 %202
-  br i1 %.not5.i.i, label %table_scan_getnextslot.exit.i, label %._crit_edge.i, !prof !22, !llvm.loop !24
+  br i1 %.not5.i.i, label %table_scan_getnextslot.exit.i, label %._crit_edge.i, !prof !20, !llvm.loop !21
 
 IndexCheckExclusion.exit:                         ; preds = %table_scan_getnextslot.exit.i, %table_scan_getnextslot.exit.us.i
   %203 = load ptr, ptr %149, align 8
@@ -2529,7 +2529,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %91 = load i32, ptr %46, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %79, label %._crit_edge, !llvm.loop !25
+  br i1 %93, label %79, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %._crit_edge.._crit_edge105_crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.._crit_edge105_crit_edge ], [ %102, %.lr.ph104 ]
@@ -2549,7 +2549,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %101 = load i32, ptr %72, align 4
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next116, %102
-  br i1 %103, label %.lr.ph104, label %._crit_edge105, !llvm.loop !26
+  br i1 %103, label %.lr.ph104, label %._crit_edge105, !llvm.loop !23
 
 ._crit_edge110:                                   ; preds = %121, %._crit_edge105
   %104 = inttoptr i64 %22 to ptr
@@ -2597,7 +2597,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %126 = load i32, ptr %72, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next119, %127
-  br i1 %128, label %.lr.ph109, label %._crit_edge110, !llvm.loop !27
+  br i1 %128, label %.lr.ph109, label %._crit_edge110, !llvm.loop !24
 }
 
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2664,7 +2664,7 @@ define dso_local ptr @BuildIndexInfo(ptr noundef %0) local_unnamed_addr #0 {
   store i16 %44, ptr %45, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %42
   %46 = load i8, ptr %36, align 1, !range !4, !noundef !5
@@ -3044,7 +3044,7 @@ define dso_local void @index_concurrently_swap(i32 noundef %0, i32 noundef %1, p
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 88
   %127 = load i32, ptr %126, align 4
   %.not152 = icmp eq i32 %127, %1
-  br i1 %.not152, label %128, label %137, !llvm.loop !29
+  br i1 %.not152, label %128, label %137, !llvm.loop !26
 
 128:                                              ; preds = %.lr.ph
   %129 = call ptr @heap_copytuple(ptr noundef nonnull %120) #11
@@ -3487,7 +3487,7 @@ define dso_local ptr @BuildDummyIndexInfo(ptr noundef %0) local_unnamed_addr #0 
   store i16 %43, ptr %44, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %41
   ret ptr %38
@@ -3611,7 +3611,7 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr noundef readonly captures(none
 72:                                               ; preds = %67, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %72, %.preheader
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3780,7 +3780,7 @@ define dso_local void @BuildSpeculativeIndexInfo(ptr noundef readonly captures(n
   store i32 %62, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %61, %2
   ret void
@@ -3964,7 +3964,7 @@ slot_getsysattr.exit:                             ; preds = %45, %44, %41, %slot
   %90 = load i32, ptr %23, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %35, label %._crit_edge, !llvm.loop !33
+  br i1 %92, label %35, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %slot_getsysattr.exit, %list_head.exit
   %.029.lcssa = phi ptr [ %22, %list_head.exit ], [ %.1, %slot_getsysattr.exit ]
@@ -4621,7 +4621,7 @@ define dso_local zeroext i1 @reindex_relation(ptr noundef %0, i32 noundef %1, i3
 12:                                               ; preds = %10, %8
   %.046 = phi ptr [ %9, %8 ], [ %11, %10 ]
   %.not53 = icmp eq ptr %.046, null
-  br i1 %.not53, label %119, label %13
+  br i1 %.not53, label %120, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %.046, i64 56
@@ -4722,8 +4722,8 @@ SetReindexPending.exit:                           ; preds = %38
 
 64:                                               ; preds = %58, %56, %60
   %.047 = phi i8 [ %63, %60 ], [ 117, %56 ], [ 112, %58 ]
-  %.not65 = icmp eq ptr %31, null
-  br i1 %.not65, label %.critedge, label %.lr.ph
+  %.not70 = icmp eq ptr %31, null
+  br i1 %.not70, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -4732,31 +4732,31 @@ SetReindexPending.exit:                           ; preds = %38
   %.not58 = icmp eq i32 %67, 0
   %68 = load i32, ptr %65, align 4
   %69 = icmp sgt i32 %68, 0
-  br i1 %.not54, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
+  br i1 %.not54, label %.lr.ph.split.us.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %69, label %.lr.ph76, label %.critedge
+  br i1 %69, label %.lr.ph80, label %.critedge
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  br i1 %69, label %.lr.ph79, label %.critedge
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph
+  br i1 %69, label %.lr.ph68, label %.critedge
 
-.lr.ph79:                                         ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.04960.us78 = phi i32 [ %.1.us, %.lr.ph.split.us ], [ 1, %.lr.ph.split.us.preheader ]
-  %indvars.iv6977 = phi i64 [ %indvars.iv.next70, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph68:                                         ; preds = %.lr.ph.split.us.split.us, %87
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %87 ], [ 0, %.lr.ph.split.us.split.us ]
+  %.04960.us.us67 = phi i32 [ %.1.us.us, %87 ], [ 1, %.lr.ph.split.us.split.us ]
   %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds nuw %union.ListCell, ptr %70, i64 %indvars.iv6977
+  %71 = getelementptr inbounds nuw %union.ListCell, ptr %70, i64 %indvars.iv73
   %72 = load i32, ptr %71, align 8
   %73 = tail call i32 @get_rel_namespace(i32 noundef %72) #11
   %74 = tail call zeroext i1 @IsToastNamespace(i32 noundef %73) #11
   br i1 %74, label %75, label %84
 
-75:                                               ; preds = %.lr.ph79
+75:                                               ; preds = %.lr.ph68
   %76 = tail call zeroext i1 @get_index_isvalid(i32 noundef %72) #11
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %75
   %78 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %78, label %79, label %.lr.ph.split.us
+  br i1 %78, label %79, label %87
 
 79:                                               ; preds = %77
   %80 = tail call i32 @errcode(i32 noundef 1088) #11
@@ -4764,92 +4764,92 @@ SetReindexPending.exit:                           ; preds = %38
   %82 = tail call ptr @get_rel_name(i32 noundef %72) #11
   %83 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %81, ptr noundef %82) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4034, ptr noundef nonnull @__func__.reindex_relation) #11
-  br label %.lr.ph.split.us
+  br label %87
 
-84:                                               ; preds = %75, %.lr.ph79
+84:                                               ; preds = %75, %.lr.ph68
   tail call void @reindex_index(ptr noundef %0, i32 noundef %72, i1 noundef zeroext %.not58, i8 noundef signext %.047, ptr noundef nonnull %3)
   tail call void @CommandCounterIncrement() #11
-  %85 = sext i32 %.04960.us78 to i64
+  %85 = sext i32 %.04960.us.us67 to i64
   tail call void @pgstat_progress_update_param(i32 noundef 7, i64 noundef %85) #11
-  %86 = add i32 %.04960.us78, 1
-  br label %.lr.ph.split.us
+  %86 = add i32 %.04960.us.us67, 1
+  br label %87
 
-.lr.ph.split.us:                                  ; preds = %77, %79, %84
-  %.1.us = phi i32 [ %86, %84 ], [ %.04960.us78, %79 ], [ %.04960.us78, %77 ]
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv6977, 1
-  %87 = load i32, ptr %65, align 4
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next70, %88
-  br i1 %89, label %.lr.ph79, label %.critedge
+87:                                               ; preds = %77, %79, %84
+  %.1.us.us = phi i32 [ %86, %84 ], [ %.04960.us.us67, %79 ], [ %.04960.us.us67, %77 ]
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %88 = load i32, ptr %65, align 4
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next74, %89
+  br i1 %90, label %.lr.ph68, label %.critedge
 
-.lr.ph76:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.0496075 = phi i32 [ %.1, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
-  %indvars.iv74 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %90 = load ptr, ptr %66, align 8
-  %91 = getelementptr inbounds nuw %union.ListCell, ptr %90, i64 %indvars.iv74
-  %92 = load i32, ptr %91, align 8
-  %93 = tail call i32 @get_rel_namespace(i32 noundef %92) #11
-  %94 = tail call zeroext i1 @IsToastNamespace(i32 noundef %93) #11
-  br i1 %94, label %97, label %113
+.lr.ph80:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %.0496079 = phi i32 [ %.1, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
+  %indvars.iv78 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %91 = load ptr, ptr %66, align 8
+  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv78
+  %93 = load i32, ptr %92, align 8
+  %94 = tail call i32 @get_rel_namespace(i32 noundef %93) #11
+  %95 = tail call zeroext i1 @IsToastNamespace(i32 noundef %94) #11
+  br i1 %95, label %98, label %114
 
-.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph.split.preheader, %.lr.ph.split.us.preheader, %64
-  %.lcssa = phi i32 [ 0, %64 ], [ 1, %.lr.ph.split.us.preheader ], [ 1, %.lr.ph.split.preheader ], [ 1, %.lr.ph.split.us ], [ 1, %.lr.ph.split ]
+.critedge:                                        ; preds = %.lr.ph.split, %87, %.lr.ph.split.preheader, %.lr.ph.split.us.split.us, %64
+  %.lcssa = phi i32 [ 0, %64 ], [ 1, %.lr.ph.split.us.split.us ], [ 1, %.lr.ph.split.preheader ], [ 1, %87 ], [ 1, %.lr.ph.split ]
   tail call void @table_close(ptr noundef nonnull %.046, i32 noundef 0) #11
-  %95 = or i32 %.048, %.lcssa
-  %96 = icmp ne i32 %95, 0
-  br label %119
+  %96 = or i32 %.048, %.lcssa
+  %97 = icmp ne i32 %96, 0
+  br label %120
 
-97:                                               ; preds = %.lr.ph76
-  %98 = tail call zeroext i1 @get_index_isvalid(i32 noundef %92) #11
-  br i1 %98, label %113, label %99
+98:                                               ; preds = %.lr.ph80
+  %99 = tail call zeroext i1 @get_index_isvalid(i32 noundef %93) #11
+  br i1 %99, label %114, label %100
 
-99:                                               ; preds = %97
-  %100 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %100, label %101, label %106
+100:                                              ; preds = %98
+  %101 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  br i1 %101, label %102, label %107
 
-101:                                              ; preds = %99
-  %102 = tail call i32 @errcode(i32 noundef 1088) #11
-  %103 = tail call ptr @get_namespace_name(i32 noundef %93) #11
-  %104 = tail call ptr @get_rel_name(i32 noundef %92) #11
-  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %103, ptr noundef %104) #11
+102:                                              ; preds = %100
+  %103 = tail call i32 @errcode(i32 noundef 1088) #11
+  %104 = tail call ptr @get_namespace_name(i32 noundef %94) #11
+  %105 = tail call ptr @get_rel_name(i32 noundef %93) #11
+  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %104, ptr noundef %105) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4034, ptr noundef nonnull @__func__.reindex_relation) #11
-  br label %106
+  br label %107
 
-106:                                              ; preds = %101, %99
-  %107 = tail call zeroext i1 @IsInParallelMode() #11
-  br i1 %107, label %108, label %RemoveReindexPending.exit
+107:                                              ; preds = %102, %100
+  %108 = tail call zeroext i1 @IsInParallelMode() #11
+  br i1 %108, label %109, label %RemoveReindexPending.exit
 
-108:                                              ; preds = %106
-  %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %109)
-  %110 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56) #11
+109:                                              ; preds = %107
+  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %110)
+  %111 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4176, ptr noundef nonnull @__func__.RemoveReindexPending) #11
   unreachable
 
-RemoveReindexPending.exit:                        ; preds = %106
-  %111 = load ptr, ptr @pendingReindexedIndexes, align 8
-  %112 = tail call ptr @list_delete_oid(ptr noundef %111, i32 noundef %92) #11
-  store ptr %112, ptr @pendingReindexedIndexes, align 8
+RemoveReindexPending.exit:                        ; preds = %107
+  %112 = load ptr, ptr @pendingReindexedIndexes, align 8
+  %113 = tail call ptr @list_delete_oid(ptr noundef %112, i32 noundef %93) #11
+  store ptr %113, ptr @pendingReindexedIndexes, align 8
   br label %.lr.ph.split
 
-113:                                              ; preds = %97, %.lr.ph76
-  tail call void @reindex_index(ptr noundef %0, i32 noundef %92, i1 noundef zeroext %.not58, i8 noundef signext %.047, ptr noundef nonnull %3)
+114:                                              ; preds = %98, %.lr.ph80
+  tail call void @reindex_index(ptr noundef %0, i32 noundef %93, i1 noundef zeroext %.not58, i8 noundef signext %.047, ptr noundef nonnull %3)
   tail call void @CommandCounterIncrement() #11
-  %114 = sext i32 %.0496075 to i64
-  tail call void @pgstat_progress_update_param(i32 noundef 7, i64 noundef %114) #11
-  %115 = add i32 %.0496075, 1
+  %115 = sext i32 %.0496079 to i64
+  tail call void @pgstat_progress_update_param(i32 noundef 7, i64 noundef %115) #11
+  %116 = add i32 %.0496079, 1
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %RemoveReindexPending.exit, %113
-  %.1 = phi i32 [ %115, %113 ], [ %.0496075, %RemoveReindexPending.exit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv74, 1
-  %116 = load i32, ptr %65, align 4
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph76, label %.critedge
+.lr.ph.split:                                     ; preds = %RemoveReindexPending.exit, %114
+  %.1 = phi i32 [ %116, %114 ], [ %.0496079, %RemoveReindexPending.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv78, 1
+  %117 = load i32, ptr %65, align 4
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next, %118
+  br i1 %119, label %.lr.ph80, label %.critedge
 
-119:                                              ; preds = %12, %.critedge
-  %.0 = phi i1 [ %96, %.critedge ], [ false, %12 ]
+120:                                              ; preds = %12, %.critedge
+  %.0 = phi i1 [ %97, %.critedge ], [ false, %12 ]
   ret i1 %.0
 }
 
@@ -4994,7 +4994,7 @@ define dso_local void @RestoreReindexState(ptr noundef readonly captures(none) %
   %16 = load i32, ptr %7, align 4
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %11, label %._crit_edge, !llvm.loop !34
+  br i1 %18, label %11, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %11, %1
   store ptr %6, ptr @CurrentMemoryContext, align 8
@@ -5126,19 +5126,19 @@ attributes #12 = { cold nounwind }
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = !{!"branch_weights", i32 127, i32 1}
-!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!22 = !{!"branch_weights", i32 255873, i32 127}
-!23 = distinct !{!23, !7, !12}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"branch_weights", i32 127, i32 1}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = !{!"branch_weights", i32 255873, i32 127}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
@@ -5147,6 +5147,3 @@ attributes #12 = { cold nounwind }
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}

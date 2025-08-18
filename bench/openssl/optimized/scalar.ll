@@ -608,7 +608,7 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
   %19 = lshr i128 %16, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader.loopexit30, label %.split, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader.loopexit30, label %.split, !llvm.loop !22
 
 20:                                               ; preds = %.preheader, %20
   %21 = phi i64 [ %.pre, %.preheader ], [ %24, %20 ]
@@ -620,7 +620,7 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
   %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %21, i64 63)
   store i64 %25, ptr %22, align 8, !tbaa !3
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 6
-  br i1 %exitcond39.not, label %26, label %20, !llvm.loop !25
+  br i1 %exitcond39.not, label %26, label %20, !llvm.loop !23
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -678,7 +678,5 @@ attributes #7 = { nounwind }
 !19 = !{i64 0, i64 56, !14}
 !20 = distinct !{!20, !8}
 !21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}

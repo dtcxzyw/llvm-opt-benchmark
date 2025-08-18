@@ -866,9 +866,9 @@ define void @_ZNK6open3d9pipelines9color_map17ImageWarpingField20GetImageWarping
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.860)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1161)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !13, !noalias !37
+  %16 = load i32, ptr %15, align 8, !tbaa !13, !noalias !36
   %17 = mul nsw i32 %16, %14
   %18 = add nsw i32 %17, %12
   %19 = shl nsw i32 %18, 1
@@ -877,32 +877,32 @@ define void @_ZNK6open3d9pipelines9color_map17ImageWarpingField20GetImageWarping
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %23 = load i32, ptr %22, align 4, !tbaa !20, !noalias !37
+  %23 = load i32, ptr %22, align 4, !tbaa !20, !noalias !36
   %24 = mul nsw i32 %23, %16
   %.not.i = icmp slt i32 %18, %24
   br i1 %.not.i, label %26, label %25
 
 25:                                               ; preds = %21, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !37
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !36
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = zext nneg i32 %19 to i64
-  %29 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !37
+  %29 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !36
   %30 = getelementptr inbounds nuw double, ptr %29, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load double, ptr %30, align 8, !tbaa !21, !noalias !37
-  store double %32, ptr %5, align 16, !tbaa !21, !alias.scope !37
-  %33 = load double, ptr %31, align 8, !tbaa !21, !noalias !37
+  %32 = load double, ptr %30, align 8, !tbaa !21, !noalias !36
+  store double %32, ptr %5, align 16, !tbaa !21, !alias.scope !36
+  %33 = load double, ptr %31, align 8, !tbaa !21, !noalias !36
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %33, ptr %34, align 8, !tbaa !21, !alias.scope !37
+  store double %33, ptr %34, align 8, !tbaa !21, !alias.scope !36
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit
 
 _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit: ; preds = %25, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = add nsw i32 %14, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %36 = mul nsw i32 %16, %35
   %37 = add nsw i32 %36, %12
   %38 = shl nsw i32 %37, 1
@@ -911,32 +911,32 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit: ; preds = 
 
 40:                                               ; preds = %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !20, !noalias !40
+  %42 = load i32, ptr %41, align 4, !tbaa !20, !noalias !39
   %43 = mul nsw i32 %42, %16
   %.not.i22 = icmp slt i32 %37, %43
   br i1 %.not.i22, label %45, label %44
 
 44:                                               ; preds = %40, %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !39
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = zext nneg i32 %38 to i64
-  %48 = load ptr, ptr %46, align 8, !tbaa !7, !noalias !40
+  %48 = load ptr, ptr %46, align 8, !tbaa !7, !noalias !39
   %49 = getelementptr inbounds nuw double, ptr %48, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load double, ptr %49, align 8, !tbaa !21, !noalias !40
-  store double %51, ptr %6, align 16, !tbaa !21, !alias.scope !40
-  %52 = load double, ptr %50, align 8, !tbaa !21, !noalias !40
+  %51 = load double, ptr %49, align 8, !tbaa !21, !noalias !39
+  store double %51, ptr %6, align 16, !tbaa !21, !alias.scope !39
+  %52 = load double, ptr %50, align 8, !tbaa !21, !noalias !39
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %52, ptr %53, align 8, !tbaa !21, !alias.scope !40
+  store double %52, ptr %53, align 8, !tbaa !21, !alias.scope !39
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23
 
 _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23: ; preds = %44, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = add nsw i32 %12, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %55 = add nsw i32 %17, %54
   %56 = shl nsw i32 %55, 1
   %57 = icmp slt i32 %55, 0
@@ -944,31 +944,31 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23: ; preds 
 
 58:                                               ; preds = %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %60 = load i32, ptr %59, align 4, !tbaa !20, !noalias !43
+  %60 = load i32, ptr %59, align 4, !tbaa !20, !noalias !42
   %61 = mul nsw i32 %60, %16
   %.not.i24 = icmp slt i32 %55, %61
   br i1 %.not.i24, label %63, label %62
 
 62:                                               ; preds = %58, %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !42
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = zext nneg i32 %56 to i64
-  %66 = load ptr, ptr %64, align 8, !tbaa !7, !noalias !43
+  %66 = load ptr, ptr %64, align 8, !tbaa !7, !noalias !42
   %67 = getelementptr inbounds nuw double, ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load double, ptr %67, align 8, !tbaa !21, !noalias !43
-  store double %69, ptr %7, align 16, !tbaa !21, !alias.scope !43
-  %70 = load double, ptr %68, align 8, !tbaa !21, !noalias !43
+  %69 = load double, ptr %67, align 8, !tbaa !21, !noalias !42
+  store double %69, ptr %7, align 16, !tbaa !21, !alias.scope !42
+  %70 = load double, ptr %68, align 8, !tbaa !21, !noalias !42
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %70, ptr %71, align 8, !tbaa !21, !alias.scope !43
+  store double %70, ptr %71, align 8, !tbaa !21, !alias.scope !42
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25
 
 _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25: ; preds = %62, %63
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %72 = add nsw i32 %36, %54
   %73 = shl nsw i32 %72, 1
   %74 = icmp slt i32 %72, 0
@@ -976,26 +976,26 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25: ; preds 
 
 75:                                               ; preds = %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %77 = load i32, ptr %76, align 4, !tbaa !20, !noalias !46
+  %77 = load i32, ptr %76, align 4, !tbaa !20, !noalias !45
   %78 = mul nsw i32 %77, %16
   %.not.i26 = icmp slt i32 %72, %78
   br i1 %.not.i26, label %80, label %79
 
 79:                                               ; preds = %75, %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !alias.scope !45
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit27
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = zext nneg i32 %73 to i64
-  %83 = load ptr, ptr %81, align 8, !tbaa !7, !noalias !46
+  %83 = load ptr, ptr %81, align 8, !tbaa !7, !noalias !45
   %84 = getelementptr inbounds nuw double, ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load double, ptr %84, align 8, !tbaa !21, !noalias !46
-  store double %86, ptr %8, align 16, !tbaa !21, !alias.scope !46
-  %87 = load double, ptr %85, align 8, !tbaa !21, !noalias !46
+  %86 = load double, ptr %84, align 8, !tbaa !21, !noalias !45
+  store double %86, ptr %8, align 16, !tbaa !21, !alias.scope !45
+  %87 = load double, ptr %85, align 8, !tbaa !21, !noalias !45
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %87, ptr %88, align 8, !tbaa !21, !alias.scope !46
+  store double %87, ptr %88, align 8, !tbaa !21, !alias.scope !45
   br label %_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit27
 
 _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit27: ; preds = %79, %80
@@ -1013,18 +1013,18 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit27: ; preds 
   %100 = fsub double 1.000000e+00, %92
   %101 = fmul double %96, %100
   %102 = fmul double %100, %98
-  store double %102, ptr %.sroa.257, align 16, !tbaa !49, !alias.scope !51
+  store double %102, ptr %.sroa.257, align 16, !tbaa !48, !alias.scope !50
   %.sroa.257.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.257, i64 8
-  store ptr %5, ptr %.sroa.257.8..sroa_idx, align 8, !tbaa !54, !alias.scope !51
-  store double %101, ptr %.sroa.558, align 16, !tbaa !49, !alias.scope !51
+  store ptr %5, ptr %.sroa.257.8..sroa_idx, align 8, !tbaa !53, !alias.scope !50
+  store double %101, ptr %.sroa.558, align 16, !tbaa !48, !alias.scope !50
   %.sroa.558.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.558, i64 8
-  store ptr %6, ptr %.sroa.558.8..sroa_idx, align 8, !tbaa !54, !alias.scope !51
-  store double %99, ptr %.sroa.860, align 16, !tbaa !49, !alias.scope !51
+  store ptr %6, ptr %.sroa.558.8..sroa_idx, align 8, !tbaa !53, !alias.scope !50
+  store double %99, ptr %.sroa.860, align 16, !tbaa !48, !alias.scope !50
   %.sroa.860.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.860, i64 8
-  store ptr %7, ptr %.sroa.860.8..sroa_idx, align 8, !tbaa !54, !alias.scope !51
-  store double %97, ptr %.sroa.1161, align 16, !tbaa !49, !alias.scope !51
+  store ptr %7, ptr %.sroa.860.8..sroa_idx, align 8, !tbaa !53, !alias.scope !50
+  store double %97, ptr %.sroa.1161, align 16, !tbaa !48, !alias.scope !50
   %.sroa.1161.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.1161, i64 8
-  store ptr %8, ptr %.sroa.1161.8..sroa_idx, align 8, !tbaa !54, !alias.scope !51
+  store ptr %8, ptr %.sroa.1161.8..sroa_idx, align 8, !tbaa !53, !alias.scope !50
   %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40. = load <2 x double>, ptr %.sroa.257, align 16
   %bc.i.i.i.i.i.i = bitcast <2 x double> %.sroa.257.0..sroa.257.0..sroa.257.0..sroa.257.40. to <2 x i64>
   %103 = extractelement <2 x i64> %bc.i.i.i.i.i.i, i64 1
@@ -1105,7 +1105,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !56
+  store ptr %12, ptr %6, align 8, !tbaa !55
   %13 = icmp eq ptr %3, null
   br i1 %13, label %.noexc, label %14
 
@@ -1235,7 +1235,7 @@ define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELi
 _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit: ; preds = %3, %6
   %11 = mul nsw i64 %2, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !57
+  %13 = load i64, ptr %12, align 8, !tbaa !56
   %.not.i = icmp eq i64 %11, %13
   br i1 %.not.i, label %_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll.exit, label %14
 
@@ -1273,7 +1273,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %17
   br label %_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll.exit
 
 _ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll.exit: ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit, %.sink.split.i
-  store i64 %1, ptr %12, align 8, !tbaa !57
+  store i64 %1, ptr %12, align 8, !tbaa !56
   ret void
 }
 
@@ -1396,26 +1396,25 @@ attributes #24 = { noreturn }
 !32 = !{!9, !9, i64 0}
 !33 = !{!12, !12, i64 0}
 !34 = distinct !{!34, !23}
-!35 = distinct !{!35, !23, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
-!39 = distinct !{!39, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
-!42 = distinct !{!42, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
-!45 = distinct !{!45, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
-!48 = distinct !{!48, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
-!49 = !{!50, !19, i64 0}
-!50 = !{!"_ZTSN5Eigen8internal18scalar_constant_opIdEE", !19, i64 0}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESC_EESG_EESG_EEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE: argument 0"}
-!53 = distinct !{!53, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESC_EESG_EESG_EEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE"}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTSN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE", !10, i64 0}
-!56 = !{!26, !27, i64 0}
-!57 = !{!8, !12, i64 8}
+!35 = distinct !{!35, !23}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
+!38 = distinct !{!38, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
+!41 = distinct !{!41, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
+!44 = distinct !{!44, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii: argument 0"}
+!47 = distinct !{!47, !"_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii"}
+!48 = !{!49, !19, i64 0}
+!49 = !{!"_ZTSN5Eigen8internal18scalar_constant_opIdEE", !19, i64 0}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESC_EESG_EESG_EEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE: argument 0"}
+!52 = distinct !{!52, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_IS4_KNS1_INS2_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESC_EESG_EESG_EEEplISF_EEKNS1_INS3_IdNS2_6traitsIT_E6ScalarEEEKSJ_KSN_EERKNS0_ISN_EE"}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE", !10, i64 0}
+!55 = !{!26, !27, i64 0}
+!56 = !{!8, !12, i64 8}

@@ -333,16 +333,16 @@ define internal noundef i32 @monochrome_slice16(ptr noundef readonly captures(no
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = lshr i32 %66, %10
   %68 = getelementptr inbounds nuw i16, ptr %.076.us, i64 %indvars.iv
-  %69 = load i16, ptr %68, align 2, !tbaa !63
+  %69 = load i16, ptr %68, align 2, !tbaa !62
   %70 = uitofp i16 %69 to float
   %71 = fmul nsz float %15, %70
   %72 = zext nneg i32 %67 to i64
   %73 = getelementptr inbounds nuw i16, ptr %62, i64 %72
-  %74 = load i16, ptr %73, align 2, !tbaa !63
+  %74 = load i16, ptr %73, align 2, !tbaa !62
   %75 = uitofp i16 %74 to float
   %76 = tail call nsz float @llvm.fmuladd.f32(float %75, float %15, float -5.000000e-01)
   %77 = getelementptr inbounds nuw i16, ptr %64, i64 %72
-  %78 = load i16, ptr %77, align 2, !tbaa !63
+  %78 = load i16, ptr %77, align 2, !tbaa !62
   %79 = uitofp i16 %78 to float
   %80 = tail call nsz float @llvm.fmuladd.f32(float %79, float %15, float -5.000000e-01)
   %81 = fsub nsz float %45, %76
@@ -392,16 +392,16 @@ envelope.exit.us:                                 ; preds = %98, %92
   %114 = select i1 %isnotneg.inv.i.us, i32 0, i32 %13
   %.0.i.us = select i1 %.not.i.us, i32 %112, i32 %114
   %115 = trunc i32 %.0.i.us to i16
-  store i16 %115, ptr %68, align 2, !tbaa !63
+  store i16 %115, ptr %68, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %65, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %65, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %envelope.exit.us
   %116 = getelementptr inbounds i16, ptr %.076.us, i64 %28
   %117 = add nsw i32 %.07175.us, 1
   %exitcond82.not = icmp eq i32 %117, %24
-  br i1 %exitcond82.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !66
+  br i1 %exitcond82.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !65
 
 ._crit_edge79:                                    ; preds = %._crit_edge.us, %.lr.ph78, %4
   ret i32 0
@@ -467,7 +467,7 @@ define internal noundef i32 @clear_slice8(ptr noundef readonly captures(none) %0
   tail call void @llvm.memset.p0.i64(ptr align 1 %47, i8 %38, i64 %39, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !66
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -534,17 +534,17 @@ define internal noundef i32 @clear_slice16(ptr noundef readonly captures(none) %
 49:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %49 ]
   %50 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv
-  store i16 %43, ptr %50, align 2, !tbaa !63
+  store i16 %43, ptr %50, align 2, !tbaa !62
   %51 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv
-  store i16 %43, ptr %51, align 2, !tbaa !63
+  store i16 %43, ptr %51, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !67
 
 ._crit_edge.us:                                   ; preds = %49
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !69
+  br i1 %exitcond57.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !68
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.lr.ph48, %4
   ret i32 0
@@ -644,12 +644,11 @@ attributes #9 = { nounwind }
 !58 = !{!8, !8, i64 0}
 !59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = distinct !{!61, !60, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"short", !8, i64 0}
+!61 = distinct !{!61, !60}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"short", !8, i64 0}
+!64 = distinct !{!64, !60}
 !65 = distinct !{!65, !60}
-!66 = distinct !{!66, !60, !62}
+!66 = distinct !{!66, !60}
 !67 = distinct !{!67, !60}
 !68 = distinct !{!68, !60}
-!69 = distinct !{!69, !60, !62}

@@ -2273,7 +2273,7 @@ PyUnicode_READ.exit.thread.us84.i.i:              ; preds = %.lr.ph.i.i, %106
 106:                                              ; preds = %105, %99
   %.335.us90.i.i = phi i32 [ %.03255.us83.i.i, %99 ], [ 1, %105 ]
   %exitcond.not.i.i = icmp eq i64 %79, %.val42.i.i
-  br i1 %exitcond.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us84.i.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.thread.us84.i.i, !llvm.loop !49
 
 PyUnicode_READ.exit.i.i:                          ; preds = %.lr.ph.i.i, %134
   %.02957.i.i = phi i64 [ %107, %134 ], [ 0, %.lr.ph.i.i ]
@@ -2327,7 +2327,7 @@ _getrecord_ex.exit.i.i:                           ; preds = %PyUnicode_READ.exit
 134:                                              ; preds = %133, %127
   %.335.i.i = phi i32 [ %.03255.i.i, %127 ], [ 1, %133 ]
   %exitcond104.not.i.i = icmp eq i64 %107, %.val42.i.i
-  br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !52
+  br i1 %exitcond104.not.i.i, label %is_normalized_quickcheck.exit.i, label %PyUnicode_READ.exit.i.i, !llvm.loop !49
 
 is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
   %.0.i.i = phi i32 [ %.335.i.i, %134 ], [ %.335.us74.i.i, %78 ], [ %.335.us90.i.i, %106 ]
@@ -2340,7 +2340,7 @@ is_normalized_quickcheck.exit.i:                  ; preds = %106, %78, %134
 is_normalized_quickcheck.exit.thread29.i:         ; preds = %is_normalized_quickcheck.exit.i, %PyObject_TypeCheck.exit.i.i
   %135 = select i1 %.023.i, ptr @nfc_nfkc, ptr @nfd_nfkd
   %136 = zext i1 %.022.i to i32
-  %137 = tail call ptr %135(ptr noundef %0, ptr noundef %14, i32 noundef %136) #9, !callees !53
+  %137 = tail call ptr %135(ptr noundef %0, ptr noundef %14, i32 noundef %136) #9, !callees !50
   %138 = icmp eq ptr %137, null
   br i1 %138, label %unicodedata_UCD_is_normalized_impl.exit, label %139
 
@@ -2545,7 +2545,7 @@ _getrecord_ex.exit.us.i.i:                        ; preds = %PyUnicode_READ.exit
 
 74:                                               ; preds = %70
   %exitcond105.not.i.i = icmp eq i64 %42, %.val42.i.i
-  br i1 %exitcond105.not.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !54
+  br i1 %exitcond105.not.i.i, label %.loopexit.i, label %.lr.ph.split.us.i.i, !llvm.loop !49
 
 .loopexit.i:                                      ; preds = %74, %_PyUnicode_DATA.exit.i.i, %PyObject_TypeCheck.exit.thread.i.i
   %75 = load i32, ptr %14, align 8, !tbaa !24
@@ -2666,7 +2666,7 @@ _getrecord_ex.exit.us.i47.i:                      ; preds = %PyUnicode_READ.exit
 
 126:                                              ; preds = %123
   %exitcond105.not.i52.i = icmp eq i64 %95, %.val42.i40.i
-  br i1 %exitcond105.not.i52.i, label %.loopexit119.i, label %.lr.ph.split.us.i42.i, !llvm.loop !54
+  br i1 %exitcond105.not.i52.i, label %.loopexit119.i, label %.lr.ph.split.us.i42.i, !llvm.loop !49
 
 .loopexit119.i:                                   ; preds = %126, %_PyUnicode_DATA.exit.i38.i, %PyObject_TypeCheck.exit.thread.i33.i
   %127 = load i32, ptr %14, align 8, !tbaa !24
@@ -2788,7 +2788,7 @@ _getrecord_ex.exit.us.i76.i:                      ; preds = %PyUnicode_READ.exit
 
 179:                                              ; preds = %175
   %exitcond105.not.i81.i = icmp eq i64 %147, %.val42.i69.i
-  br i1 %exitcond105.not.i81.i, label %.loopexit120.i, label %.lr.ph.split.us.i71.i, !llvm.loop !54
+  br i1 %exitcond105.not.i81.i, label %.loopexit120.i, label %.lr.ph.split.us.i71.i, !llvm.loop !49
 
 .loopexit120.i:                                   ; preds = %179, %_PyUnicode_DATA.exit.i67.i, %PyObject_TypeCheck.exit.thread.i62.i
   %180 = load i32, ptr %14, align 8, !tbaa !24
@@ -2910,7 +2910,7 @@ _getrecord_ex.exit.us.i105.i:                     ; preds = %PyUnicode_READ.exit
 
 232:                                              ; preds = %228
   %exitcond105.not.i110.i = icmp eq i64 %200, %.val42.i98.i
-  br i1 %exitcond105.not.i110.i, label %.loopexit121.i, label %.lr.ph.split.us.i100.i, !llvm.loop !54
+  br i1 %exitcond105.not.i110.i, label %.loopexit121.i, label %.lr.ph.split.us.i100.i, !llvm.loop !49
 
 .loopexit121.i:                                   ; preds = %232, %_PyUnicode_DATA.exit.i96.i, %PyObject_TypeCheck.exit.thread.i91.i
   %233 = load i32, ptr %14, align 8, !tbaa !24
@@ -3117,163 +3117,162 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %12, %18, %PyObject_
   br label %.loopexit.i.outer
 
 .loopexit.i.outer:                                ; preds = %.lr.ph.i, %80
-  %.048.i.ph = phi i32 [ 0, %80 ], [ %119, %.lr.ph.i ]
-  %.042.i.ph = phi i32 [ 0, %80 ], [ %140, %.lr.ph.i ]
+  %.048.i.ph = phi i32 [ 0, %80 ], [ %118, %.lr.ph.i ]
+  %.042.i.ph = phi i32 [ 0, %80 ], [ %139, %.lr.ph.i ]
   %.026.i.ph = phi i32 [ %81, %80 ], [ %.329.i, %.lr.ph.i ]
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.outer, %.preheader.i
-  %.048.i = phi i32 [ %119, %.preheader.i ], [ %.048.i.ph, %.loopexit.i.outer ]
+  %.048.i = phi i32 [ %118, %.preheader.i ], [ %.048.i.ph, %.loopexit.i.outer ]
   %.026.i = phi i32 [ %.329.i, %.preheader.i ], [ %.026.i.ph, %.loopexit.i.outer ]
   br label %82
 
 82:                                               ; preds = %82, %.loopexit.i
-  %.014.i.i.i = phi i32 [ %.048.i, %.loopexit.i ], [ %90, %82 ]
-  %.013.i.i.i = phi i32 [ 0, %.loopexit.i ], [ %89, %82 ]
-  %.012.i.i.i = phi i32 [ 0, %.loopexit.i ], [ %91, %82 ]
+  %.014.i.i.i = phi i32 [ %.048.i, %.loopexit.i ], [ %89, %82 ]
+  %.013.i.i.i = phi i32 [ 0, %.loopexit.i ], [ %88, %82 ]
+  %.012.i.i.i = phi i32 [ 0, %.loopexit.i ], [ %90, %82 ]
   %83 = zext i32 %.014.i.i.i to i64
   %84 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !24
-  %86 = and i8 %85, 127
-  %87 = zext nneg i8 %86 to i32
-  %88 = shl i32 %87, %.012.i.i.i
-  %89 = or i32 %88, %.013.i.i.i
-  %90 = add i32 %.014.i.i.i, 1
-  %91 = add i32 %.012.i.i.i, 7
+  %86 = zext i8 %85 to i32
+  %87 = shl i32 %86, %.012.i.i.i
+  %88 = or i32 %87, %.013.i.i.i
+  %89 = add i32 %.014.i.i.i, 1
+  %90 = add i32 %.012.i.i.i, 7
   %.not.i.i.i = icmp slt i8 %85, 0
   br i1 %.not.i.i.i, label %82, label %_dawg_decode_node.exit.i
 
 _dawg_decode_node.exit.i:                         ; preds = %82
-  %92 = trunc i32 %89 to i1
-  br i1 %92, label %93, label %.preheader
+  %91 = trunc i32 %88 to i1
+  br i1 %91, label %92, label %.preheader
 
-93:                                               ; preds = %_dawg_decode_node.exit.i
-  %94 = icmp eq i32 %.026.i, 0
-  br i1 %94, label %95, label %101
+92:                                               ; preds = %_dawg_decode_node.exit.i
+  %93 = icmp eq i32 %.026.i, 0
+  br i1 %93, label %94, label %100
 
-95:                                               ; preds = %93
-  %96 = add i32 %.042.i.ph, 1
-  %97 = icmp eq i32 %96, %3
-  br i1 %97, label %.critedge, label %98
+94:                                               ; preds = %92
+  %95 = add i32 %.042.i.ph, 1
+  %96 = icmp eq i32 %95, %3
+  br i1 %96, label %.critedge, label %97
 
-98:                                               ; preds = %95
-  %99 = zext i32 %.042.i.ph to i64
-  %100 = getelementptr i8, ptr %2, i64 %99
-  store i8 0, ptr %100, align 1, !tbaa !24
+97:                                               ; preds = %94
+  %98 = zext i32 %.042.i.ph to i64
+  %99 = getelementptr i8, ptr %2, i64 %98
+  store i8 0, ptr %99, align 1, !tbaa !24
   br label %.critedge
 
-101:                                              ; preds = %93
-  %102 = add i32 %.026.i, -1
+100:                                              ; preds = %92
+  %101 = add i32 %.026.i, -1
   br label %.preheader
 
-.preheader:                                       ; preds = %101, %_dawg_decode_node.exit.i
-  %.329.i.ph = phi i32 [ %.026.i, %_dawg_decode_node.exit.i ], [ %102, %101 ]
+.preheader:                                       ; preds = %100, %_dawg_decode_node.exit.i
+  %.329.i.ph = phi i32 [ %.026.i, %_dawg_decode_node.exit.i ], [ %101, %100 ]
+  br label %102
+
+102:                                              ; preds = %.preheader, %_dawg_decode_edge.exit.i
+  %.039.i = phi i32 [ %149, %_dawg_decode_edge.exit.i ], [ %89, %.preheader ]
+  %.033.i = phi i32 [ %118, %_dawg_decode_edge.exit.i ], [ %89, %.preheader ]
+  %.031.i = phi i1 [ false, %_dawg_decode_edge.exit.i ], [ true, %.preheader ]
+  %.329.i = phi i32 [ %148, %_dawg_decode_edge.exit.i ], [ %.329.i.ph, %.preheader ]
   br label %103
 
-103:                                              ; preds = %.preheader, %_dawg_decode_edge.exit.i
-  %.039.i = phi i32 [ %150, %_dawg_decode_edge.exit.i ], [ %90, %.preheader ]
-  %.033.i = phi i32 [ %119, %_dawg_decode_edge.exit.i ], [ %90, %.preheader ]
-  %.031.i = phi i1 [ false, %_dawg_decode_edge.exit.i ], [ true, %.preheader ]
-  %.329.i = phi i32 [ %149, %_dawg_decode_edge.exit.i ], [ %.329.i.ph, %.preheader ]
-  br label %104
+103:                                              ; preds = %103, %102
+  %.014.i.i56.i = phi i32 [ %.039.i, %102 ], [ %111, %103 ]
+  %.013.i.i57.i = phi i32 [ 0, %102 ], [ %110, %103 ]
+  %.012.i.i58.i = phi i32 [ 0, %102 ], [ %112, %103 ]
+  %104 = zext i32 %.014.i.i56.i to i64
+  %105 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !24
+  %107 = and i8 %106, 127
+  %108 = zext nneg i8 %107 to i32
+  %109 = shl i32 %108, %.012.i.i58.i
+  %110 = or i32 %109, %.013.i.i57.i
+  %111 = add i32 %.014.i.i56.i, 1
+  %112 = add i32 %.012.i.i58.i, 7
+  %.not.i.i59.i = icmp slt i8 %106, 0
+  br i1 %.not.i.i59.i, label %103, label %_dawg_decode_varint_unsigned.exit.i.i
 
-104:                                              ; preds = %104, %103
-  %.014.i.i56.i = phi i32 [ %.039.i, %103 ], [ %112, %104 ]
-  %.013.i.i57.i = phi i32 [ 0, %103 ], [ %111, %104 ]
-  %.012.i.i58.i = phi i32 [ 0, %103 ], [ %113, %104 ]
-  %105 = zext i32 %.014.i.i56.i to i64
-  %106 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !24
-  %108 = and i8 %107, 127
-  %109 = zext nneg i8 %108 to i32
-  %110 = shl i32 %109, %.012.i.i58.i
-  %111 = or i32 %110, %.013.i.i57.i
-  %112 = add i32 %.014.i.i56.i, 1
-  %113 = add i32 %.012.i.i58.i, 7
-  %.not.i.i59.i = icmp slt i8 %107, 0
-  br i1 %.not.i.i59.i, label %104, label %_dawg_decode_varint_unsigned.exit.i.i
+_dawg_decode_varint_unsigned.exit.i.i:            ; preds = %103
+  %113 = icmp eq i32 %110, 0
+  %or.cond.i.i = and i1 %.031.i, %113
+  br i1 %or.cond.i.i, label %.critedge, label %114
 
-_dawg_decode_varint_unsigned.exit.i.i:            ; preds = %104
-  %114 = icmp eq i32 %111, 0
-  %or.cond.i.i = and i1 %.031.i, %114
-  br i1 %or.cond.i.i, label %.critedge, label %115
+114:                                              ; preds = %_dawg_decode_varint_unsigned.exit.i.i
+  %115 = and i32 %110, 1
+  %116 = lshr i32 %110, 2
+  %117 = and i32 %110, 2
+  %.not.i.i = icmp eq i32 %117, 0
+  %118 = add i32 %116, %.033.i
+  br i1 %.not.i.i, label %119, label %125
 
-115:                                              ; preds = %_dawg_decode_varint_unsigned.exit.i.i
-  %116 = and i32 %111, 1
-  %117 = lshr i32 %111, 2
-  %118 = and i32 %111, 2
-  %.not.i.i = icmp eq i32 %118, 0
-  %119 = add i32 %117, %.033.i
-  br i1 %.not.i.i, label %120, label %126
+119:                                              ; preds = %114
+  %120 = add i32 %.014.i.i56.i, 2
+  %121 = zext i32 %111 to i64
+  %122 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !24
+  %124 = zext i8 %123 to i32
+  br label %125
 
-120:                                              ; preds = %115
-  %121 = add i32 %.014.i.i56.i, 2
-  %122 = zext i32 %112 to i64
-  %123 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !24
-  %125 = zext i8 %124 to i32
+125:                                              ; preds = %119, %114
+  %.383.ph.i = phi i32 [ 1, %114 ], [ %124, %119 ]
+  %.5.ph.i = phi i32 [ %111, %114 ], [ %120, %119 ]
   br label %126
 
-126:                                              ; preds = %120, %115
-  %.383.ph.i = phi i32 [ 1, %115 ], [ %125, %120 ]
-  %.5.ph.i = phi i32 [ %112, %115 ], [ %121, %120 ]
-  br label %127
+126:                                              ; preds = %126, %125
+  %.014.i.i60.i = phi i32 [ %118, %125 ], [ %134, %126 ]
+  %.013.i.i61.i = phi i32 [ 0, %125 ], [ %133, %126 ]
+  %.012.i.i62.i = phi i32 [ 0, %125 ], [ %135, %126 ]
+  %127 = zext i32 %.014.i.i60.i to i64
+  %128 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %127
+  %129 = load i8, ptr %128, align 1, !tbaa !24
+  %130 = and i8 %129, 127
+  %131 = zext nneg i8 %130 to i32
+  %132 = shl i32 %131, %.012.i.i62.i
+  %133 = or i32 %132, %.013.i.i61.i
+  %134 = add i32 %.014.i.i60.i, 1
+  %135 = add i32 %.012.i.i62.i, 7
+  %.not.i.i63.i = icmp slt i8 %129, 0
+  br i1 %.not.i.i63.i, label %126, label %_dawg_node_descendant_count.exit.i
 
-127:                                              ; preds = %127, %126
-  %.014.i.i60.i = phi i32 [ %119, %126 ], [ %135, %127 ]
-  %.013.i.i61.i = phi i32 [ 0, %126 ], [ %134, %127 ]
-  %.012.i.i62.i = phi i32 [ 0, %126 ], [ %136, %127 ]
-  %128 = zext i32 %.014.i.i60.i to i64
-  %129 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !24
-  %131 = and i8 %130, 127
-  %132 = zext nneg i8 %131 to i32
-  %133 = shl i32 %132, %.012.i.i62.i
-  %134 = or i32 %133, %.013.i.i61.i
-  %135 = add i32 %.014.i.i60.i, 1
-  %136 = add i32 %.012.i.i62.i, 7
-  %.not.i.i63.i = icmp slt i8 %130, 0
-  br i1 %.not.i.i63.i, label %127, label %_dawg_node_descendant_count.exit.i
+_dawg_node_descendant_count.exit.i:               ; preds = %126
+  %136 = lshr i32 %133, 1
+  %137 = icmp ult i32 %.329.i, %136
+  br i1 %137, label %138, label %147
 
-_dawg_node_descendant_count.exit.i:               ; preds = %127
-  %137 = lshr i32 %134, 1
-  %138 = icmp ult i32 %.329.i, %137
-  br i1 %138, label %139, label %148
-
-139:                                              ; preds = %_dawg_node_descendant_count.exit.i
-  %140 = add i32 %.383.ph.i, %.042.i.ph
-  %.not55.i = icmp ult i32 %140, %3
+138:                                              ; preds = %_dawg_node_descendant_count.exit.i
+  %139 = add i32 %.383.ph.i, %.042.i.ph
+  %.not55.i = icmp ult i32 %139, %3
   br i1 %.not55.i, label %.preheader.i, label %.critedge
 
-.preheader.i:                                     ; preds = %139
+.preheader.i:                                     ; preds = %138
   %.not163.i = icmp eq i32 %.383.ph.i, 0
   br i1 %.not163.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.547161.i = phi i32 [ %145, %.lr.ph.i ], [ %.042.i.ph, %.preheader.i ]
-  %.4160.i = phi i32 [ %141, %.lr.ph.i ], [ %.5.ph.i, %.preheader.i ]
-  %141 = add i32 %.4160.i, 1
-  %142 = zext i32 %.4160.i to i64
-  %143 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !24
-  %145 = add i32 %.547161.i, 1
-  %146 = zext i32 %.547161.i to i64
-  %147 = getelementptr i8, ptr %2, i64 %146
-  store i8 %144, ptr %147, align 1, !tbaa !24
-  %exitcond.not.i = icmp eq i32 %145, %140
-  br i1 %exitcond.not.i, label %.loopexit.i.outer, label %.lr.ph.i, !llvm.loop !55
+  %.547161.i = phi i32 [ %144, %.lr.ph.i ], [ %.042.i.ph, %.preheader.i ]
+  %.4160.i = phi i32 [ %140, %.lr.ph.i ], [ %.5.ph.i, %.preheader.i ]
+  %140 = add i32 %.4160.i, 1
+  %141 = zext i32 %.4160.i to i64
+  %142 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %141
+  %143 = load i8, ptr %142, align 1, !tbaa !24
+  %144 = add i32 %.547161.i, 1
+  %145 = zext i32 %.547161.i to i64
+  %146 = getelementptr i8, ptr %2, i64 %145
+  store i8 %143, ptr %146, align 1, !tbaa !24
+  %exitcond.not.i = icmp eq i32 %144, %139
+  br i1 %exitcond.not.i, label %.loopexit.i.outer, label %.lr.ph.i, !llvm.loop !51
 
-148:                                              ; preds = %_dawg_node_descendant_count.exit.i
-  %.not.i67 = icmp eq i32 %116, 0
+147:                                              ; preds = %_dawg_node_descendant_count.exit.i
+  %.not.i67 = icmp eq i32 %115, 0
   br i1 %.not.i67, label %_dawg_decode_edge.exit.i, label %.critedge
 
-_dawg_decode_edge.exit.i:                         ; preds = %148
-  %149 = sub i32 %.329.i, %137
-  %150 = add i32 %.5.ph.i, %.383.ph.i
-  br label %103
+_dawg_decode_edge.exit.i:                         ; preds = %147
+  %148 = sub i32 %.329.i, %136
+  %149 = add i32 %.5.ph.i, %.383.ph.i
+  br label %102
 
-.critedge:                                        ; preds = %139, %148, %_dawg_decode_varint_unsigned.exit.i.i, %98, %95, %15, %67, %63, %27, %25, %8, %5, %18, %65
-  %.0 = phi i32 [ 1, %65 ], [ 0, %18 ], [ 0, %5 ], [ 0, %8 ], [ 1, %27 ], [ 0, %25 ], [ 0, %63 ], [ 0, %67 ], [ 0, %15 ], [ 0, %95 ], [ 1, %98 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %148 ], [ 0, %139 ]
+.critedge:                                        ; preds = %138, %147, %_dawg_decode_varint_unsigned.exit.i.i, %97, %94, %15, %67, %63, %27, %25, %8, %5, %18, %65
+  %.0 = phi i32 [ 1, %65 ], [ 0, %18 ], [ 0, %5 ], [ 0, %8 ], [ 1, %27 ], [ 0, %25 ], [ 0, %63 ], [ 0, %67 ], [ 0, %15 ], [ 0, %94 ], [ 1, %97 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %147 ], [ 0, %138 ]
   ret i32 %.0
 }
 
@@ -3321,7 +3320,7 @@ define internal fastcc range(i32 0, 2) i32 @_getcode(ptr noundef readonly captur
   %.185 = phi i32 [ %.084, %8 ], [ %spec.select89, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %find_syllable.exit, label %8, !llvm.loop !56
+  br i1 %exitcond.not.i, label %find_syllable.exit, label %8, !llvm.loop !52
 
 find_syllable.exit:                               ; preds = %17
   %18 = icmp eq i32 %.187, -1
@@ -3356,7 +3355,7 @@ find_syllable.exit:                               ; preds = %17
   %.183 = phi i32 [ %.082, %21 ], [ %spec.select92, %25 ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 21
-  br i1 %exitcond.not.i58, label %find_syllable.exit60, label %21, !llvm.loop !56
+  br i1 %exitcond.not.i58, label %find_syllable.exit60, label %21, !llvm.loop !52
 
 find_syllable.exit60:                             ; preds = %30
   %31 = icmp eq i32 %.4, -1
@@ -3391,7 +3390,7 @@ find_syllable.exit60:                             ; preds = %30
   %.181 = phi i32 [ %.080, %34 ], [ %spec.select95, %38 ]
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 28
-  br i1 %exitcond.not.i65, label %find_syllable.exit67, label %34, !llvm.loop !56
+  br i1 %exitcond.not.i65, label %find_syllable.exit67, label %34, !llvm.loop !52
 
 find_syllable.exit67:                             ; preds = %43
   %44 = icmp ne i32 %.185, -1
@@ -3465,7 +3464,7 @@ find_syllable.exit67:                             ; preds = %43
   %80 = getelementptr i8, ptr %.043116, i64 1
   %81 = add i32 %68, -1
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %79
   %82 = add i32 %.142, -13312
@@ -3504,187 +3503,185 @@ find_syllable.exit67:                             ; preds = %43
   br i1 %.not178.i, label %.preheader.i, label %.preheader158.i
 
 .preheader158.i:                                  ; preds = %93, %_dawg_match_edge.exit.thread.i
-  %.024176.i = phi i32 [ %156, %_dawg_match_edge.exit.thread.i ], [ 0, %93 ]
+  %.024176.i = phi i32 [ %155, %_dawg_match_edge.exit.thread.i ], [ 0, %93 ]
   %.035175.i = phi i32 [ %spec.select.i, %_dawg_match_edge.exit.thread.i ], [ 0, %93 ]
-  %.040174.i = phi i32 [ %120, %_dawg_match_edge.exit.thread.i ], [ 0, %93 ]
+  %.040174.i = phi i32 [ %119, %_dawg_match_edge.exit.thread.i ], [ 0, %93 ]
   br label %94
 
 .preheader.i:                                     ; preds = %_dawg_match_edge.exit.thread.i, %93
-  %.040.lcssa.i = phi i32 [ 0, %93 ], [ %120, %_dawg_match_edge.exit.thread.i ]
+  %.040.lcssa.i = phi i32 [ 0, %93 ], [ %119, %_dawg_match_edge.exit.thread.i ]
   %.035.lcssa.i = phi i32 [ 0, %93 ], [ %spec.select.i, %_dawg_match_edge.exit.thread.i ]
-  br label %159
+  br label %158
 
 94:                                               ; preds = %94, %.preheader158.i
-  %.014.i.i.i = phi i32 [ %102, %94 ], [ %.040174.i, %.preheader158.i ]
-  %.013.i.i.i = phi i32 [ %101, %94 ], [ 0, %.preheader158.i ]
-  %.012.i.i.i = phi i32 [ %103, %94 ], [ 0, %.preheader158.i ]
+  %.014.i.i.i = phi i32 [ %101, %94 ], [ %.040174.i, %.preheader158.i ]
+  %.013.i.i.i = phi i32 [ %100, %94 ], [ 0, %.preheader158.i ]
+  %.012.i.i.i = phi i32 [ %102, %94 ], [ 0, %.preheader158.i ]
   %95 = zext i32 %.014.i.i.i to i64
   %96 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !24
-  %98 = and i8 %97, 127
-  %99 = zext nneg i8 %98 to i32
-  %100 = shl i32 %99, %.012.i.i.i
-  %101 = or i32 %100, %.013.i.i.i
-  %102 = add i32 %.014.i.i.i, 1
-  %103 = add i32 %.012.i.i.i, 7
+  %98 = zext i8 %97 to i32
+  %99 = shl i32 %98, %.012.i.i.i
+  %100 = or i32 %99, %.013.i.i.i
+  %101 = add i32 %.014.i.i.i, 1
+  %102 = add i32 %.012.i.i.i, 7
   %.not.i.i.i = icmp slt i8 %97, 0
   br i1 %.not.i.i.i, label %94, label %_dawg_decode_node.exit.preheader.i
 
 _dawg_decode_node.exit.preheader.i:               ; preds = %94
-  %104 = add nuw i32 %.024176.i, 1
+  %103 = add nuw i32 %.024176.i, 1
   br label %_dawg_decode_node.exit.i
 
 _dawg_decode_node.exit.i:                         ; preds = %_dawg_decode_edge.exit.i, %_dawg_decode_node.exit.preheader.i
-  %.136.i = phi i32 [ %154, %_dawg_decode_edge.exit.i ], [ %.035175.i, %_dawg_decode_node.exit.preheader.i ]
-  %.032.i = phi i32 [ %155, %_dawg_decode_edge.exit.i ], [ %102, %_dawg_decode_node.exit.preheader.i ]
-  %.030.i = phi i32 [ %120, %_dawg_decode_edge.exit.i ], [ %102, %_dawg_decode_node.exit.preheader.i ]
+  %.136.i = phi i32 [ %153, %_dawg_decode_edge.exit.i ], [ %.035175.i, %_dawg_decode_node.exit.preheader.i ]
+  %.032.i = phi i32 [ %154, %_dawg_decode_edge.exit.i ], [ %101, %_dawg_decode_node.exit.preheader.i ]
+  %.030.i = phi i32 [ %119, %_dawg_decode_edge.exit.i ], [ %101, %_dawg_decode_node.exit.preheader.i ]
   %.028.i = phi i1 [ false, %_dawg_decode_edge.exit.i ], [ true, %_dawg_decode_node.exit.preheader.i ]
-  br label %105
+  br label %104
 
-105:                                              ; preds = %105, %_dawg_decode_node.exit.i
-  %.014.i.i48.i = phi i32 [ %.032.i, %_dawg_decode_node.exit.i ], [ %113, %105 ]
-  %.013.i.i49.i = phi i32 [ 0, %_dawg_decode_node.exit.i ], [ %112, %105 ]
-  %.012.i.i50.i = phi i32 [ 0, %_dawg_decode_node.exit.i ], [ %114, %105 ]
-  %106 = zext i32 %.014.i.i48.i to i64
-  %107 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !24
-  %109 = and i8 %108, 127
-  %110 = zext nneg i8 %109 to i32
-  %111 = shl i32 %110, %.012.i.i50.i
-  %112 = or i32 %111, %.013.i.i49.i
-  %113 = add i32 %.014.i.i48.i, 1
-  %114 = add i32 %.012.i.i50.i, 7
-  %.not.i.i51.i = icmp slt i8 %108, 0
-  br i1 %.not.i.i51.i, label %105, label %_dawg_decode_varint_unsigned.exit.i.i
+104:                                              ; preds = %104, %_dawg_decode_node.exit.i
+  %.014.i.i48.i = phi i32 [ %.032.i, %_dawg_decode_node.exit.i ], [ %112, %104 ]
+  %.013.i.i49.i = phi i32 [ 0, %_dawg_decode_node.exit.i ], [ %111, %104 ]
+  %.012.i.i50.i = phi i32 [ 0, %_dawg_decode_node.exit.i ], [ %113, %104 ]
+  %105 = zext i32 %.014.i.i48.i to i64
+  %106 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !24
+  %108 = and i8 %107, 127
+  %109 = zext nneg i8 %108 to i32
+  %110 = shl i32 %109, %.012.i.i50.i
+  %111 = or i32 %110, %.013.i.i49.i
+  %112 = add i32 %.014.i.i48.i, 1
+  %113 = add i32 %.012.i.i50.i, 7
+  %.not.i.i51.i = icmp slt i8 %107, 0
+  br i1 %.not.i.i51.i, label %104, label %_dawg_decode_varint_unsigned.exit.i.i
 
-_dawg_decode_varint_unsigned.exit.i.i:            ; preds = %105
-  %115 = icmp eq i32 %112, 0
-  %or.cond.i.i = and i1 %.028.i, %115
-  br i1 %or.cond.i.i, label %_lookup_dawg_packed.exit.thread, label %116
+_dawg_decode_varint_unsigned.exit.i.i:            ; preds = %104
+  %114 = icmp eq i32 %111, 0
+  %or.cond.i.i = and i1 %.028.i, %114
+  br i1 %or.cond.i.i, label %_lookup_dawg_packed.exit.thread, label %115
 
-116:                                              ; preds = %_dawg_decode_varint_unsigned.exit.i.i
-  %117 = and i32 %112, 1
-  %118 = lshr i32 %112, 2
-  %119 = and i32 %112, 2
-  %.not.i.i = icmp eq i32 %119, 0
-  %120 = add i32 %118, %.030.i
-  br i1 %.not.i.i, label %121, label %.lr.ph.preheader.i.i
+115:                                              ; preds = %_dawg_decode_varint_unsigned.exit.i.i
+  %116 = and i32 %111, 1
+  %117 = lshr i32 %111, 2
+  %118 = and i32 %111, 2
+  %.not.i.i = icmp eq i32 %118, 0
+  %119 = add i32 %117, %.030.i
+  br i1 %.not.i.i, label %120, label %.lr.ph.preheader.i.i
 
-121:                                              ; preds = %116
-  %122 = add i32 %.014.i.i48.i, 2
-  %123 = zext i32 %113 to i64
-  %124 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !24
-  %126 = zext i8 %125 to i32
-  %127 = icmp ugt i8 %125, 1
-  %128 = add i32 %.024176.i, %126
-  %129 = icmp ugt i32 %128, %1
-  %or.cond.i52.i = and i1 %127, %129
+120:                                              ; preds = %115
+  %121 = add i32 %.014.i.i48.i, 2
+  %122 = zext i32 %112 to i64
+  %123 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %122
+  %124 = load i8, ptr %123, align 1, !tbaa !24
+  %125 = zext i8 %124 to i32
+  %126 = icmp ugt i8 %124, 1
+  %127 = add i32 %.024176.i, %125
+  %128 = icmp ugt i32 %127, %1
+  %or.cond.i52.i = and i1 %126, %128
   br i1 %or.cond.i52.i, label %_dawg_match_edge.exit.thread106.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %121
-  %.not1921.not.i.i = icmp eq i8 %125, 0
+.preheader.i.i:                                   ; preds = %120
+  %.not1921.not.i.i = icmp eq i8 %124, 0
   br i1 %.not1921.not.i.i, label %_dawg_match_edge.exit.thread.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i, %116
-  %.277.ph92100.i = phi i32 [ %126, %.preheader.i.i ], [ 1, %116 ]
-  %.274.ph9499.i = phi i32 [ %122, %.preheader.i.i ], [ %113, %116 ]
-  %130 = phi i32 [ %128, %.preheader.i.i ], [ %104, %116 ]
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i, %115
+  %.277.ph92100.i = phi i32 [ %125, %.preheader.i.i ], [ 1, %115 ]
+  %.274.ph9499.i = phi i32 [ %121, %.preheader.i.i ], [ %112, %115 ]
+  %129 = phi i32 [ %127, %.preheader.i.i ], [ %103, %115 ]
   %wide.trip.count.i.i = zext nneg i32 %.277.ph92100.i to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %143, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %143 ]
-  %131 = trunc nuw i64 %indvars.iv.i.i to i32
-  %132 = add i32 %.274.ph9499.i, %131
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !24
-  %136 = add i32 %.024176.i, %131
-  %137 = zext i32 %136 to i64
-  %138 = getelementptr i8, ptr %0, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !24
-  %140 = zext i8 %139 to i64
-  %141 = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %140
-  %142 = load i8, ptr %141, align 1, !tbaa !24
-  %.not.i53.i = icmp eq i8 %135, %142
-  br i1 %.not.i53.i, label %143, label %_dawg_match_edge.exit.i
+.lr.ph.i.i:                                       ; preds = %142, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %142 ]
+  %130 = trunc nuw i64 %indvars.iv.i.i to i32
+  %131 = add i32 %.274.ph9499.i, %130
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !24
+  %135 = add i32 %.024176.i, %130
+  %136 = zext i32 %135 to i64
+  %137 = getelementptr i8, ptr %0, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !24
+  %139 = zext i8 %138 to i64
+  %140 = getelementptr [256 x i8], ptr @_Py_ctype_toupper, i64 0, i64 %139
+  %141 = load i8, ptr %140, align 1, !tbaa !24
+  %.not.i53.i = icmp eq i8 %134, %141
+  br i1 %.not.i53.i, label %142, label %_dawg_match_edge.exit.i
 
-143:                                              ; preds = %.lr.ph.i.i
+142:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_dawg_match_edge.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %_dawg_match_edge.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !54
 
 _dawg_match_edge.exit.i:                          ; preds = %.lr.ph.i.i
   %.not17.i.not.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not17.i.not.i, label %_dawg_match_edge.exit.thread106.i, label %_lookup_dawg_packed.exit.thread
 
-_dawg_match_edge.exit.thread106.i:                ; preds = %_dawg_match_edge.exit.i, %121
-  %.277.ph93111.i = phi i32 [ %.277.ph92100.i, %_dawg_match_edge.exit.i ], [ %126, %121 ]
-  %.274.ph95110.i = phi i32 [ %.274.ph9499.i, %_dawg_match_edge.exit.i ], [ %122, %121 ]
-  %.not47.i = icmp eq i32 %117, 0
+_dawg_match_edge.exit.thread106.i:                ; preds = %_dawg_match_edge.exit.i, %120
+  %.277.ph93111.i = phi i32 [ %.277.ph92100.i, %_dawg_match_edge.exit.i ], [ %125, %120 ]
+  %.274.ph95110.i = phi i32 [ %.274.ph9499.i, %_dawg_match_edge.exit.i ], [ %121, %120 ]
+  %.not47.i = icmp eq i32 %116, 0
   br i1 %.not47.i, label %.preheader156.i, label %_lookup_dawg_packed.exit.thread
 
 .preheader156.i:                                  ; preds = %_dawg_match_edge.exit.thread106.i, %.preheader156.i
-  %.014.i.i54.i = phi i32 [ %151, %.preheader156.i ], [ %120, %_dawg_match_edge.exit.thread106.i ]
-  %.013.i.i55.i = phi i32 [ %150, %.preheader156.i ], [ 0, %_dawg_match_edge.exit.thread106.i ]
-  %.012.i.i56.i = phi i32 [ %152, %.preheader156.i ], [ 0, %_dawg_match_edge.exit.thread106.i ]
-  %144 = zext i32 %.014.i.i54.i to i64
-  %145 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %144
-  %146 = load i8, ptr %145, align 1, !tbaa !24
-  %147 = and i8 %146, 127
-  %148 = zext nneg i8 %147 to i32
-  %149 = shl i32 %148, %.012.i.i56.i
-  %150 = or i32 %149, %.013.i.i55.i
-  %151 = add i32 %.014.i.i54.i, 1
-  %152 = add i32 %.012.i.i56.i, 7
-  %.not.i.i57.i = icmp slt i8 %146, 0
+  %.014.i.i54.i = phi i32 [ %150, %.preheader156.i ], [ %119, %_dawg_match_edge.exit.thread106.i ]
+  %.013.i.i55.i = phi i32 [ %149, %.preheader156.i ], [ 0, %_dawg_match_edge.exit.thread106.i ]
+  %.012.i.i56.i = phi i32 [ %151, %.preheader156.i ], [ 0, %_dawg_match_edge.exit.thread106.i ]
+  %143 = zext i32 %.014.i.i54.i to i64
+  %144 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1, !tbaa !24
+  %146 = and i8 %145, 127
+  %147 = zext nneg i8 %146 to i32
+  %148 = shl i32 %147, %.012.i.i56.i
+  %149 = or i32 %148, %.013.i.i55.i
+  %150 = add i32 %.014.i.i54.i, 1
+  %151 = add i32 %.012.i.i56.i, 7
+  %.not.i.i57.i = icmp slt i8 %145, 0
   br i1 %.not.i.i57.i, label %.preheader156.i, label %_dawg_decode_edge.exit.i
 
 _dawg_decode_edge.exit.i:                         ; preds = %.preheader156.i
-  %153 = lshr i32 %150, 1
-  %154 = add i32 %153, %.136.i
-  %155 = add i32 %.274.ph95110.i, %.277.ph93111.i
+  %152 = lshr i32 %149, 1
+  %153 = add i32 %152, %.136.i
+  %154 = add i32 %.274.ph95110.i, %.277.ph93111.i
   br label %_dawg_decode_node.exit.i
 
-_dawg_match_edge.exit.thread.i:                   ; preds = %.preheader.i.i, %143
-  %156 = phi i32 [ %130, %143 ], [ %128, %.preheader.i.i ]
-  %157 = and i32 %101, 1
-  %spec.select.i = add i32 %.136.i, %157
-  %158 = icmp ult i32 %156, %1
-  br i1 %158, label %.preheader158.i, label %.preheader.i, !llvm.loop !59
+_dawg_match_edge.exit.thread.i:                   ; preds = %.preheader.i.i, %142
+  %155 = phi i32 [ %129, %142 ], [ %127, %.preheader.i.i ]
+  %156 = and i32 %100, 1
+  %spec.select.i = add i32 %.136.i, %156
+  %157 = icmp ult i32 %155, %1
+  br i1 %157, label %.preheader158.i, label %.preheader.i, !llvm.loop !55
 
-159:                                              ; preds = %159, %.preheader.i
-  %.014.i.i59.i = phi i32 [ %167, %159 ], [ %.040.lcssa.i, %.preheader.i ]
-  %.013.i.i60.i = phi i32 [ %166, %159 ], [ 0, %.preheader.i ]
-  %.012.i.i61.i = phi i32 [ %168, %159 ], [ 0, %.preheader.i ]
-  %160 = zext i32 %.014.i.i59.i to i64
-  %161 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %160
-  %162 = load i8, ptr %161, align 1, !tbaa !24
-  %163 = and i8 %162, 127
-  %164 = zext nneg i8 %163 to i32
-  %165 = shl i32 %164, %.012.i.i61.i
-  %166 = or i32 %165, %.013.i.i60.i
-  %167 = add i32 %.014.i.i59.i, 1
-  %168 = add i32 %.012.i.i61.i, 7
-  %.not.i.i62.i = icmp slt i8 %162, 0
-  br i1 %.not.i.i62.i, label %159, label %_dawg_node_is_final.exit.i
+158:                                              ; preds = %158, %.preheader.i
+  %.014.i.i59.i = phi i32 [ %165, %158 ], [ %.040.lcssa.i, %.preheader.i ]
+  %.013.i.i60.i = phi i32 [ %164, %158 ], [ 0, %.preheader.i ]
+  %.012.i.i61.i = phi i32 [ %166, %158 ], [ 0, %.preheader.i ]
+  %159 = zext i32 %.014.i.i59.i to i64
+  %160 = getelementptr [167270 x i8], ptr @packed_name_dawg, i64 0, i64 %159
+  %161 = load i8, ptr %160, align 1, !tbaa !24
+  %162 = zext i8 %161 to i32
+  %163 = shl i32 %162, %.012.i.i61.i
+  %164 = or i32 %163, %.013.i.i60.i
+  %165 = add i32 %.014.i.i59.i, 1
+  %166 = add i32 %.012.i.i61.i, 7
+  %.not.i.i62.i = icmp slt i8 %161, 0
+  br i1 %.not.i.i62.i, label %158, label %_dawg_node_is_final.exit.i
 
-_dawg_node_is_final.exit.i:                       ; preds = %159
-  %169 = and i32 %166, 1
-  %.not.i68 = icmp eq i32 %169, 0
-  %170 = icmp slt i32 %.035.lcssa.i, 0
-  %or.cond97 = select i1 %.not.i68, i1 true, i1 %170
-  br i1 %or.cond97, label %_lookup_dawg_packed.exit.thread, label %171
+_dawg_node_is_final.exit.i:                       ; preds = %158
+  %167 = and i32 %164, 1
+  %.not.i68 = icmp eq i32 %167, 0
+  %168 = icmp slt i32 %.035.lcssa.i, 0
+  %or.cond97 = select i1 %.not.i68, i1 true, i1 %168
+  br i1 %or.cond97, label %_lookup_dawg_packed.exit.thread, label %169
 
-171:                                              ; preds = %_dawg_node_is_final.exit.i
-  %172 = zext nneg i32 %.035.lcssa.i to i64
-  %173 = getelementptr [40951 x i32], ptr @dawg_pos_to_codepoint, i64 0, i64 %172
-  %174 = load i32, ptr %173, align 4, !tbaa !26
+169:                                              ; preds = %_dawg_node_is_final.exit.i
+  %170 = zext nneg i32 %.035.lcssa.i to i64
+  %171 = getelementptr [40951 x i32], ptr @dawg_pos_to_codepoint, i64 0, i64 %170
+  %172 = load i32, ptr %171, align 4, !tbaa !26
   br label %_lookup_dawg_packed.exit.thread.sink.split
 
-_lookup_dawg_packed.exit.thread.sink.split:       ; preds = %._crit_edge, %171, %55
-  %.sink = phi i32 [ %60, %55 ], [ %174, %171 ], [ %.142, %._crit_edge ]
+_lookup_dawg_packed.exit.thread.sink.split:       ; preds = %._crit_edge, %169, %55
+  %.sink = phi i32 [ %60, %55 ], [ %172, %169 ], [ %.142, %._crit_edge ]
   store i32 %.sink, ptr %2, align 4, !tbaa !26
   br label %_lookup_dawg_packed.exit.thread
 
@@ -3784,7 +3781,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %13
 27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.preheader ]
@@ -3959,7 +3956,7 @@ PyUnicode_READ.exit161.thread:                    ; preds = %PyUnicode_READ.exit
   %.1.be = phi i64 [ %.2, %PyUnicode_READ.exit161.thread ], [ %128, %find_nfc_index.exit.thread ]
   %.1125.be = add i64 %.1125235, 1
   %108 = icmp slt i64 %.1.be, %.val
-  br i1 %108, label %.preheader, label %.outer._crit_edge, !llvm.loop !61
+  br i1 %108, label %.preheader, label %.outer._crit_edge, !llvm.loop !57
 
 PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit157.thread, %54, %PyUnicode_READ.exit157, %PyUnicode_READ.exit155, %51, %PyUnicode_READ.exit
   %or.cond.not27.i = icmp ugt i32 %.0.i153, 59
@@ -3969,17 +3966,17 @@ PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit
   %110 = add i32 %.01828.i, 1
   %111 = zext i32 %110 to i64
   %112 = getelementptr %struct.reindex, ptr @nfc_first, i64 %111
-  %113 = load i32, ptr %112, align 8, !tbaa !62
+  %113 = load i32, ptr %112, align 8, !tbaa !58
   %114 = add i32 %113, -1
   %or.cond.not.i = icmp ult i32 %114, %.0.i153
-  br i1 %or.cond.not.i, label %.lr.ph.i, label %find_nfc_index.exit.thread, !llvm.loop !64
+  br i1 %or.cond.not.i, label %.lr.ph.i, label %find_nfc_index.exit.thread, !llvm.loop !60
 
 .lr.ph.i:                                         ; preds = %PyUnicode_READ.exit155.thread, %109
   %115 = phi i32 [ %113, %109 ], [ 60, %PyUnicode_READ.exit155.thread ]
   %116 = phi ptr [ %112, %109 ], [ @nfc_first, %PyUnicode_READ.exit155.thread ]
   %.01828.i = phi i32 [ %110, %109 ], [ 0, %PyUnicode_READ.exit155.thread ]
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %118 = load i16, ptr %117, align 4, !tbaa !65
+  %118 = load i16, ptr %117, align 4, !tbaa !61
   %119 = sext i16 %118 to i32
   %120 = add i32 %115, %119
   %.not21.i = icmp ugt i32 %.0.i153, %120
@@ -3988,7 +3985,7 @@ PyUnicode_READ.exit155.thread:                    ; preds = %PyUnicode_READ.exit
 find_nfc_index.exit:                              ; preds = %.lr.ph.i
   %121 = sub i32 %.0.i153, %115
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 6
-  %123 = load i16, ptr %122, align 2, !tbaa !66
+  %123 = load i16, ptr %122, align 2, !tbaa !62
   %124 = sext i16 %123 to i32
   %125 = add i32 %121, %124
   %126 = icmp eq i32 %125, -1
@@ -4094,7 +4091,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
 
 173:                                              ; preds = %171
   %.not147 = icmp samesign ult i32 %.0122240, %170
-  br i1 %.not147, label %174, label %231, !llvm.loop !67
+  br i1 %.not147, label %174, label %231, !llvm.loop !63
 
 174:                                              ; preds = %173, %_getrecord_ex.exit
   %or.cond.not27.i171 = icmp ugt i32 %.0.i168195, 767
@@ -4104,17 +4101,17 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
   %176 = add i32 %.01828.i174, 1
   %177 = zext i32 %176 to i64
   %178 = getelementptr %struct.reindex, ptr @nfc_last, i64 %177
-  %179 = load i32, ptr %178, align 8, !tbaa !62
+  %179 = load i32, ptr %178, align 8, !tbaa !58
   %180 = add i32 %179, -1
   %or.cond.not.i176 = icmp ult i32 %180, %.0.i168195
-  br i1 %or.cond.not.i176, label %.lr.ph.i173, label %find_nfc_index.exit177.thread, !llvm.loop !64
+  br i1 %or.cond.not.i176, label %.lr.ph.i173, label %find_nfc_index.exit177.thread, !llvm.loop !60
 
 .lr.ph.i173:                                      ; preds = %174, %175
   %181 = phi i32 [ %179, %175 ], [ 768, %174 ]
   %182 = phi ptr [ %178, %175 ], [ @nfc_last, %174 ]
   %.01828.i174 = phi i32 [ %176, %175 ], [ 0, %174 ]
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  %184 = load i16, ptr %183, align 4, !tbaa !65
+  %184 = load i16, ptr %183, align 4, !tbaa !61
   %185 = sext i16 %184 to i32
   %186 = add i32 %181, %185
   %.not21.i175 = icmp ugt i32 %.0.i168195, %186
@@ -4123,7 +4120,7 @@ _getrecord_ex.exit:                               ; preds = %PyUnicode_READ.exit
 find_nfc_index.exit177:                           ; preds = %.lr.ph.i173
   %187 = sub i32 %.0.i168195, %181
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 6
-  %189 = load i16, ptr %188, align 2, !tbaa !66
+  %189 = load i16, ptr %188, align 2, !tbaa !62
   %190 = sext i16 %189 to i32
   %191 = add i32 %187, %190
   %192 = icmp eq i32 %191, -1
@@ -4131,7 +4128,7 @@ find_nfc_index.exit177:                           ; preds = %.lr.ph.i173
 
 find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %find_nfc_index.exit177
   %193 = icmp eq i8 %169, 0
-  br i1 %193, label %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge, label %231, !llvm.loop !67
+  br i1 %193, label %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge, label %231, !llvm.loop !63
 
 194:                                              ; preds = %find_nfc_index.exit177
   %195 = mul i32 %.0127239, 72
@@ -4163,17 +4160,17 @@ find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %f
   %214 = add i32 %.01828.i181, 1
   %215 = zext i32 %214 to i64
   %216 = getelementptr %struct.reindex, ptr @nfc_first, i64 %215
-  %217 = load i32, ptr %216, align 8, !tbaa !62
+  %217 = load i32, ptr %216, align 8, !tbaa !58
   %218 = add i32 %217, -1
   %or.cond.not.i183 = icmp ult i32 %218, %207
-  br i1 %or.cond.not.i183, label %.lr.ph.i180, label %.thread201, !llvm.loop !64
+  br i1 %or.cond.not.i183, label %.lr.ph.i180, label %.thread201, !llvm.loop !60
 
 .lr.ph.i180:                                      ; preds = %209, %213
   %219 = phi i32 [ %217, %213 ], [ 60, %209 ]
   %220 = phi ptr [ %216, %213 ], [ @nfc_first, %209 ]
   %.01828.i181 = phi i32 [ %214, %213 ], [ 0, %209 ]
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %222 = load i16, ptr %221, align 4, !tbaa !65
+  %222 = load i16, ptr %221, align 4, !tbaa !61
   %223 = sext i16 %222 to i32
   %224 = add i32 %219, %223
   %.not21.i182 = icmp ugt i32 %207, %224
@@ -4182,7 +4179,7 @@ find_nfc_index.exit177.thread:                    ; preds = %175, %174, %194, %f
 find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   %225 = sub i32 %207, %219
   %226 = getelementptr inbounds nuw i8, ptr %220, i64 6
-  %227 = load i16, ptr %226, align 2, !tbaa !66
+  %227 = load i16, ptr %226, align 2, !tbaa !62
   %228 = sext i16 %227 to i32
   %229 = add i32 %225, %228
   %.fr = freeze i32 %229
@@ -4198,7 +4195,7 @@ find_nfc_index.exit184:                           ; preds = %.lr.ph.i180
   br i1 %exitcond289.not, label %.thread201, label %.lr.ph243
 
 find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_nfc_index.exit177.thread
-  br label %.thread201, !llvm.loop !67
+  br label %.thread201, !llvm.loop !63
 
 .thread201:                                       ; preds = %231, %171, %209, %find_nfc_index.exit184, %213, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge
   %.3 = phi i32 [ %.2120241, %find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge ], [ %210, %213 ], [ %.4, %231 ], [ %.2120241, %171 ], [ %210, %209 ], [ %210, %find_nfc_index.exit184 ]
@@ -4209,7 +4206,7 @@ find_nfc_index.exit177.thread..thread201.loopexit212_crit_edge: ; preds = %find_
   %.1.ph253.be = phi i64 [ %130, %.thread201 ], [ %37, %31 ]
   %.1119.ph252.be = phi i32 [ %.3, %.thread201 ], [ %33, %31 ]
   %.1125.ph251.be = phi i64 [ %232, %.thread201 ], [ %.1125235, %31 ]
-  br label %.preheader.lr.ph, !llvm.loop !61
+  br label %.preheader.lr.ph, !llvm.loop !57
 
 .outer._crit_edge:                                ; preds = %31, %.backedge, %.thread201.thread, %.preheader213
   %.1125.lcssa = phi i64 [ 0, %.preheader213 ], [ %144, %.thread201.thread ], [ %.1125.be, %.backedge ], [ %.1125235, %31 ]
@@ -4302,7 +4299,7 @@ _PyUnicode_DATA.exit:                             ; preds = %19, %21
 
 .loopexit284:                                     ; preds = %.loopexit283
   %exitcond.not = icmp eq i64 %29, %.val183
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !64
 
 28:                                               ; preds = %.lr.ph304, %.loopexit284
   %.0120303 = phi ptr [ %13, %.lr.ph304 ], [ %.2122, %.loopexit284 ]
@@ -4413,7 +4410,7 @@ PyObject_TypeCheck.exit:                          ; preds = %72
   br i1 %.not281, label %74, label %PyObject_TypeCheck.exit.thread
 
 74:                                               ; preds = %PyObject_TypeCheck.exit
-  %75 = load ptr, ptr %25, align 8, !tbaa !69
+  %75 = load ptr, ptr %25, align 8, !tbaa !65
   %76 = tail call i32 %75(i32 noundef %45) #9
   %.not175 = icmp eq i32 %76, 0
   br i1 %.not175, label %PyObject_TypeCheck.exit.thread, label %77
@@ -4491,7 +4488,7 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   %114 = getelementptr i32, ptr %.2122, i64 %.1128297
   store i32 %45, ptr %114, align 4, !tbaa !26
   %115 = add nsw i64 %.3143, -1
-  br label %.loopexit283, !llvm.loop !70
+  br label %.loopexit283, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %111, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -4507,7 +4504,7 @@ get_decomp_record.exit:                           ; preds = %82, %.thread231, %P
   %123 = getelementptr [20 x i32], ptr %4, i64 0, i64 %122
   store i32 %120, ptr %123, align 4, !tbaa !26
   %124 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %124, label %.loopexit283, label %.lr.ph, !llvm.loop !71
+  br i1 %124, label %.loopexit283, label %.lr.ph, !llvm.loop !67
 
 .loopexit283:                                     ; preds = %.lr.ph, %77, %54, %66, %112
   %.2150 = phi i32 [ %42, %112 ], [ %.1149294, %77 ], [ %42, %66 ], [ %42, %54 ], [ %121, %.lr.ph ]
@@ -4793,7 +4790,7 @@ _getrecord_ex.exit216:                            ; preds = %PyUnicode_READ.exit
   %.1147 = phi i8 [ %256, %_getrecord_ex.exit216 ], [ %183, %_getrecord_ex.exit203 ]
   %258 = add nuw nsw i64 %.1126309, 1
   %259 = icmp slt i64 %258, %.val182
-  br i1 %259, label %.lr.ph311, label %.loopexit, !llvm.loop !72
+  br i1 %259, label %.lr.ph311, label %.loopexit, !llvm.loop !68
 
 .loopexit.sink.split:                             ; preds = %11, %3, %.thread233
   %260 = tail call ptr @PyErr_NoMemory() #9
@@ -4855,11 +4852,11 @@ define internal range(i32 -1, 1) i32 @unicodedata_exec(ptr noundef %0) #0 {
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr @.str.172, ptr %20, align 8, !tbaa !73
+  store ptr @.str.172, ptr %20, align 8, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @get_change_3_2_0, ptr %21, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr @normalization_3_2_0, ptr %22, align 8, !tbaa !69
+  store ptr @normalization_3_2_0, ptr %22, align 8, !tbaa !65
   tail call void @PyObject_GC_Track(ptr noundef nonnull %17) #9
   br label %new_previous_version.exit
 
@@ -4893,9 +4890,9 @@ Py_DECREF.exit:                                   ; preds = %new_previous_versio
   br label %unicodedata_create_capi.exit
 
 35:                                               ; preds = %30
-  store ptr @capi_getucname, ptr %31, align 8, !tbaa !74
+  store ptr @capi_getucname, ptr %31, align 8, !tbaa !70
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr @capi_getcode, ptr %36, align 8, !tbaa !76
+  store ptr @capi_getcode, ptr %36, align 8, !tbaa !72
   %37 = tail call ptr @PyCapsule_New(ptr noundef nonnull %31, ptr noundef nonnull @.str.181, ptr noundef nonnull @unicodedata_destroy_capi) #9
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %unicodedata_create_capi.exit
@@ -5150,31 +5147,27 @@ attributes #10 = { nounwind willreturn memory(read) }
 !46 = !{!47, !19, i64 0}
 !47 = !{!"NamedSequence", !19, i64 0, !6, i64 4}
 !48 = !{!34, !6, i64 5}
-!49 = distinct !{!49, !44, !50}
-!50 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!51 = distinct !{!51, !44, !50}
+!49 = distinct !{!49, !44}
+!50 = !{ptr @nfc_nfkc, ptr @nfd_nfkd}
+!51 = distinct !{!51, !44}
 !52 = distinct !{!52, !44}
-!53 = !{ptr @nfc_nfkc, ptr @nfd_nfkd}
-!54 = distinct !{!54, !44, !50}
+!53 = distinct !{!53, !44}
+!54 = distinct !{!54, !44}
 !55 = distinct !{!55, !44}
 !56 = distinct !{!56, !44}
 !57 = distinct !{!57, !44}
-!58 = distinct !{!58, !44}
-!59 = distinct !{!59, !44}
+!58 = !{!59, !19, i64 0}
+!59 = !{!"reindex", !19, i64 0, !20, i64 4, !20, i64 6}
 !60 = distinct !{!60, !44}
-!61 = distinct !{!61, !44}
-!62 = !{!63, !19, i64 0}
-!63 = !{!"reindex", !19, i64 0, !20, i64 4, !20, i64 6}
+!61 = !{!59, !20, i64 4}
+!62 = !{!59, !20, i64 6}
+!63 = distinct !{!63, !44}
 !64 = distinct !{!64, !44}
-!65 = !{!63, !20, i64 4}
-!66 = !{!63, !20, i64 6}
+!65 = !{!28, !5, i64 32}
+!66 = distinct !{!66, !44}
 !67 = distinct !{!67, !44}
 !68 = distinct !{!68, !44}
-!69 = !{!28, !5, i64 32}
-!70 = distinct !{!70, !44}
-!71 = distinct !{!71, !44}
-!72 = distinct !{!72, !44}
-!73 = !{!28, !15, i64 16}
-!74 = !{!75, !5, i64 0}
-!75 = !{!"", !5, i64 0, !5, i64 8}
-!76 = !{!75, !5, i64 8}
+!69 = !{!28, !15, i64 16}
+!70 = !{!71, !5, i64 0}
+!71 = !{!"", !5, i64 0, !5, i64 8}
+!72 = !{!71, !5, i64 8}

@@ -46,10 +46,10 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %.not3948.i = icmp eq ptr %6, null
-  br i1 %.not3948.i, label %ossl_param_dup.exit, label %.lr.ph.split.us.i
+  br i1 %.not3948.i, label %ossl_param_dup.exit, label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.i:                                ; preds = %5, %17
-  %.021 = phi i32 [ %26, %17 ], [ 1, %5 ]
+.lr.ph.split.us.split.i:                          ; preds = %5, %17
+  %.016 = phi i32 [ %26, %17 ], [ 1, %5 ]
   %.03649.us.i = phi ptr [ %27, %17 ], [ %0, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !12
@@ -60,14 +60,14 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   %switch.us.i = icmp eq i32 %12, 6
   br i1 %switch.us.i, label %17, label %13
 
-13:                                               ; preds = %.lr.ph.split.us.i
+13:                                               ; preds = %.lr.ph.split.us.split.i
   %14 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !11
   %16 = add i64 %15, 7
   br label %17
 
-17:                                               ; preds = %13, %.lr.ph.split.us.i
-  %.034.us.i = phi i64 [ %16, %13 ], [ 15, %.lr.ph.split.us.i ]
+17:                                               ; preds = %13, %.lr.ph.split.us.split.i
+  %.034.us.i = phi i64 [ %16, %13 ], [ 15, %.lr.ph.split.us.split.i ]
   %18 = icmp eq i32 %11, 4
   %19 = zext i1 %18 to i64
   %20 = add i64 %.034.us.i, %19
@@ -77,11 +77,11 @@ define ptr @OSSL_PARAM_dup(ptr noundef readonly captures(address_is_null) %0) lo
   %24 = load i64, ptr %23, align 16, !tbaa !14
   %25 = add i64 %21, %24
   store i64 %25, ptr %23, align 16, !tbaa !14
-  %26 = add nuw nsw i32 %.021, 1
+  %26 = add nuw nsw i32 %.016, 1
   %27 = getelementptr inbounds nuw i8, ptr %.03649.us.i, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %.not39.us.i = icmp eq ptr %28, null
-  br i1 %.not39.us.i, label %ossl_param_dup.exit.loopexit, label %.lr.ph.split.us.i, !llvm.loop !16
+  br i1 %.not39.us.i, label %ossl_param_dup.exit.loopexit, label %.lr.ph.split.us.split.i, !llvm.loop !16
 
 ossl_param_dup.exit.loopexit:                     ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -102,7 +102,7 @@ ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit
 36:                                               ; preds = %ossl_param_dup.exit
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.1
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %37, ptr %38, align 8, !tbaa !19
+  store ptr %37, ptr %38, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %40 = load i64, ptr %39, align 16, !tbaa !14
   %.not8 = icmp eq i64 %40, 0
@@ -116,7 +116,7 @@ ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit
 
 ossl_param_buf_alloc.exit11:                      ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %43, ptr %45, align 8, !tbaa !19
+  store ptr %43, ptr %45, align 8, !tbaa !18
   br label %47
 
 46:                                               ; preds = %41
@@ -128,7 +128,7 @@ ossl_param_buf_alloc.exit11:                      ; preds = %41
   %49 = phi ptr [ %43, %ossl_param_buf_alloc.exit11 ], [ null, %36 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !3
   %.not3948.i12 = icmp eq ptr %50, null
-  br i1 %.not3948.i12, label %ossl_param_dup.exit19, label %.thread.us.i
+  br i1 %.not3948.i12, label %ossl_param_dup.exit14, label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %47, %.thread45.us.i
   %.051.us52.i = phi ptr [ %74, %.thread45.us.i ], [ %34, %47 ]
@@ -136,10 +136,10 @@ ossl_param_buf_alloc.exit11:                      ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !12
   %53 = tail call i32 @CRYPTO_secure_allocated(ptr noundef %52) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.051.us52.i, ptr noundef nonnull align 8 dereferenceable(40) %.03649.us53.i, i64 40, i1 false), !tbaa.struct !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.051.us52.i, ptr noundef nonnull align 8 dereferenceable(40) %.03649.us53.i, i64 40, i1 false), !tbaa.struct !19
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %2, i64 %54, i32 1
-  %56 = load ptr, ptr %55, align 8, !tbaa !19
+  %56 = load ptr, ptr %55, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !12
   %58 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 8
@@ -154,8 +154,8 @@ ossl_param_buf_alloc.exit11:                      ; preds = %41
   %64 = load ptr, ptr %51, align 8, !tbaa !12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %64, i64 %63, i1 false)
   %65 = add i64 %63, 7
-  %.pre60.i = load i32, ptr %58, align 8, !tbaa !13
-  %66 = icmp eq i32 %.pre60.i, 4
+  %.pre62.i = load i32, ptr %58, align 8, !tbaa !13
+  %66 = icmp eq i32 %.pre62.i, 4
   %67 = zext i1 %66 to i64
   %68 = add i64 %65, %67
   %69 = lshr i64 %68, 3
@@ -163,21 +163,21 @@ ossl_param_buf_alloc.exit11:                      ; preds = %41
 
 70:                                               ; preds = %.thread.us.i
   %71 = load ptr, ptr %51, align 8, !tbaa !12
-  %72 = load ptr, ptr %71, align 8, !tbaa !23
-  store ptr %72, ptr %56, align 8, !tbaa !23
+  %72 = load ptr, ptr %71, align 8, !tbaa !22
+  store ptr %72, ptr %56, align 8, !tbaa !22
   br label %.thread45.us.i
 
 .thread45.us.i:                                   ; preds = %70, %61
   %73 = phi i64 [ %69, %61 ], [ 1, %70 ]
   %74 = getelementptr inbounds nuw i8, ptr %.051.us52.i, i64 40
   %75 = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %56, i64 %73
-  store ptr %75, ptr %55, align 8, !tbaa !19
+  store ptr %75, ptr %55, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %.03649.us53.i, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !3
   %.not39.us54.i = icmp eq ptr %77, null
-  br i1 %.not39.us54.i, label %ossl_param_dup.exit19, label %.thread.us.i, !llvm.loop !25
+  br i1 %.not39.us54.i, label %ossl_param_dup.exit14, label %.thread.us.i, !llvm.loop !16
 
-ossl_param_dup.exit19:                            ; preds = %.thread45.us.i, %47
+ossl_param_dup.exit14:                            ; preds = %.thread45.us.i, %47
   %.0.lcssa.i = phi ptr [ %34, %47 ], [ %74, %.thread45.us.i ]
   store ptr null, ptr %.0.lcssa.i, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
@@ -188,8 +188,8 @@ ossl_param_dup.exit19:                            ; preds = %.thread45.us.i, %47
   store i32 127, ptr %80, align 8, !tbaa !13
   br label %ossl_param_buf_alloc.exit.thread
 
-ossl_param_buf_alloc.exit.thread:                 ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit19, %46, %4
-  %.0 = phi ptr [ null, %4 ], [ %34, %ossl_param_dup.exit19 ], [ null, %46 ], [ null, %ossl_param_dup.exit ]
+ossl_param_buf_alloc.exit.thread:                 ; preds = %ossl_param_dup.exit, %ossl_param_dup.exit14, %46, %4
+  %.0 = phi ptr [ null, %4 ], [ %34, %ossl_param_dup.exit14 ], [ null, %46 ], [ null, %ossl_param_dup.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -229,18 +229,18 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.05986 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader81 ]
   %9 = add nuw nsw i64 %.15687, 1
   %10 = getelementptr inbounds nuw [129 x ptr], ptr %3, i64 0, i64 %.15687
-  store ptr %.05986, ptr %10, align 8, !tbaa !26
+  store ptr %.05986, ptr %10, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %.05986, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp ne ptr %12, null
   %14 = icmp samesign ult i64 %.15687, 127
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.lr.ph, label %.loopexit82, !llvm.loop !28
+  br i1 %15, label %.lr.ph, label %.loopexit82, !llvm.loop !26
 
 .loopexit82:                                      ; preds = %.lr.ph, %.preheader81, %7
   %.055 = phi i64 [ 0, %7 ], [ 0, %.preheader81 ], [ %9, %.lr.ph ]
   %16 = getelementptr inbounds nuw [129 x ptr], ptr %3, i64 0, i64 %.055
-  store ptr null, ptr %16, align 8, !tbaa !26
+  store ptr null, ptr %16, align 8, !tbaa !24
   br i1 %6, label %.loopexit80, label %.preheader79
 
 .preheader79:                                     ; preds = %.loopexit82
@@ -253,18 +253,18 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.16088 = phi ptr [ %20, %.lr.ph90 ], [ %1, %.preheader79 ]
   %18 = add nuw nsw i64 %.189, 1
   %19 = getelementptr inbounds nuw [129 x ptr], ptr %4, i64 0, i64 %.189
-  store ptr %.16088, ptr %19, align 8, !tbaa !26
+  store ptr %.16088, ptr %19, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %.16088, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp ne ptr %21, null
   %23 = icmp samesign ult i64 %.189, 127
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.lr.ph90, label %.loopexit80, !llvm.loop !29
+  br i1 %24, label %.lr.ph90, label %.loopexit80, !llvm.loop !27
 
 .loopexit80:                                      ; preds = %.lr.ph90, %.preheader79, %.loopexit82
   %.054 = phi i64 [ 0, %.loopexit82 ], [ 0, %.preheader79 ], [ %18, %.lr.ph90 ]
   %25 = getelementptr inbounds nuw [129 x ptr], ptr %4, i64 0, i64 %.054
-  store ptr null, ptr %25, align 8, !tbaa !26
+  store ptr null, ptr %25, align 8, !tbaa !24
   %26 = or i64 %.054, %.055
   %or.cond3 = icmp eq i64 %26, 0
   br i1 %or.cond3, label %.loopexit.sink.split, label %27
@@ -280,14 +280,14 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %32, label %.loopexit, label %.preheader78
 
 .preheader78:                                     ; preds = %27
-  %33 = load ptr, ptr %3, align 16, !tbaa !26
+  %33 = load ptr, ptr %3, align 16, !tbaa !24
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.preheader, label %.lr.ph95
 
 .preheader:                                       ; preds = %64, %.preheader78
   %.061.lcssa = phi ptr [ %4, %.preheader78 ], [ %.263, %64 ]
   %.057.lcssa = phi ptr [ %31, %.preheader78 ], [ %.3, %64 ]
-  %.pre = load ptr, ptr %.061.lcssa, align 8, !tbaa !26
+  %.pre = load ptr, ptr %.061.lcssa, align 8, !tbaa !24
   br label %35
 
 35:                                               ; preds = %.preheader, %35
@@ -295,18 +295,18 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.162 = phi ptr [ %38, %35 ], [ %.061.lcssa, %.preheader ]
   %.158 = phi ptr [ %37, %35 ], [ %.057.lcssa, %.preheader ]
   %37 = getelementptr inbounds nuw i8, ptr %.158, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.158, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.158, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false), !tbaa.struct !19
   %38 = getelementptr inbounds nuw i8, ptr %.162, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !26
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
   %.not75 = icmp eq ptr %39, null
-  br i1 %.not75, label %.loopexit, label %35, !llvm.loop !30
+  br i1 %.not75, label %.loopexit, label %35, !llvm.loop !28
 
 .lr.ph95:                                         ; preds = %.preheader78, %64
   %40 = phi ptr [ %65, %64 ], [ %33, %.preheader78 ]
   %.05794 = phi ptr [ %.3, %64 ], [ %31, %.preheader78 ]
   %.06193 = phi ptr [ %.263, %64 ], [ %4, %.preheader78 ]
   %.06492 = phi ptr [ %.266, %64 ], [ %3, %.preheader78 ]
-  %41 = load ptr, ptr %.06193, align 8, !tbaa !26
+  %41 = load ptr, ptr %.06193, align 8, !tbaa !24
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.preheader76, label %47
 
@@ -315,11 +315,11 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.165 = phi ptr [ %45, %.preheader76 ], [ %.06492, %.lr.ph95 ]
   %.2 = phi ptr [ %44, %.preheader76 ], [ %.05794, %.lr.ph95 ]
   %44 = getelementptr inbounds nuw i8, ptr %.2, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false), !tbaa.struct !19
   %45 = getelementptr inbounds nuw i8, ptr %.165, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !26
+  %46 = load ptr, ptr %45, align 8, !tbaa !24
   %.not74 = icmp eq ptr %46, null
-  br i1 %.not74, label %.loopexit, label %.preheader76, !llvm.loop !31
+  br i1 %.not74, label %.loopexit, label %.preheader76, !llvm.loop !29
 
 47:                                               ; preds = %.lr.ph95
   %48 = load ptr, ptr %40, align 8, !tbaa !3
@@ -329,8 +329,8 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %47
-  %53 = load ptr, ptr %.06193, align 8, !tbaa !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %53, i64 40, i1 false), !tbaa.struct !20
+  %53 = load ptr, ptr %.06193, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %53, i64 40, i1 false), !tbaa.struct !19
   %54 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
   br label %64
@@ -340,14 +340,14 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %56
-  %59 = load ptr, ptr %.06193, align 8, !tbaa !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false), !tbaa.struct !20
+  %59 = load ptr, ptr %.06193, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false), !tbaa.struct !19
   %60 = getelementptr inbounds nuw i8, ptr %.06193, i64 8
   br label %64
 
 61:                                               ; preds = %56
-  %62 = load ptr, ptr %.06492, align 8, !tbaa !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 40, i1 false), !tbaa.struct !20
+  %62 = load ptr, ptr %.06492, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.05794, ptr noundef nonnull align 8 dereferenceable(40) %62, i64 40, i1 false), !tbaa.struct !19
   %63 = getelementptr inbounds nuw i8, ptr %.06492, i64 8
   br label %64
 
@@ -355,7 +355,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   %.266 = phi ptr [ %55, %52 ], [ %.06492, %58 ], [ %63, %61 ]
   %.263 = phi ptr [ %54, %52 ], [ %60, %58 ], [ %.06193, %61 ]
   %.3 = getelementptr inbounds nuw i8, ptr %.05794, i64 40
-  %65 = load ptr, ptr %.266, align 8, !tbaa !26
+  %65 = load ptr, ptr %.266, align 8, !tbaa !24
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.preheader, label %.lr.ph95
 
@@ -379,8 +379,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @compare_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !26
-  %4 = load ptr, ptr %1, align 8, !tbaa !26
+  %3 = load ptr, ptr %0, align 8, !tbaa !24
+  %4 = load ptr, ptr %1, align 8, !tbaa !24
   %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %5, ptr noundef %6) #8
@@ -404,7 +404,7 @@ define void @OSSL_PARAM_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %.0, align 8, !tbaa !3
   %.not9 = icmp eq ptr %2, null
   %3 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  br i1 %.not9, label %4, label %.preheader, !llvm.loop !32
+  br i1 %.not9, label %4, label %.preheader, !llvm.loop !30
 
 4:                                                ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -468,20 +468,18 @@ attributes #8 = { nounwind }
 !13 = !{!4, !9, i64 8}
 !14 = !{!15, !10, i64 16}
 !15 = !{!"", !6, i64 0, !6, i64 8, !10, i64 16, !10, i64 24}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = !{!15, !6, i64 8}
-!20 = !{i64 0, i64 8, !21, i64 8, i64 4, !22, i64 16, i64 8, !23, i64 24, i64 8, !24, i64 32, i64 8, !24}
-!21 = !{!5, !5, i64 0}
-!22 = !{!9, !9, i64 0}
-!23 = !{!6, !6, i64 0}
-!24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !17, !18}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS13ossl_param_st", !6, i64 0}
+!18 = !{!15, !6, i64 8}
+!19 = !{i64 0, i64 8, !20, i64 8, i64 4, !21, i64 16, i64 8, !22, i64 24, i64 8, !23, i64 32, i64 8, !23}
+!20 = !{!5, !5, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = !{!6, !6, i64 0}
+!23 = !{!10, !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS13ossl_param_st", !6, i64 0}
+!26 = distinct !{!26, !17}
+!27 = distinct !{!27, !17}
 !28 = distinct !{!28, !17}
 !29 = distinct !{!29, !17}
 !30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17}
-!32 = distinct !{!32, !17}

@@ -1527,12 +1527,12 @@ define hidden void @_ZN2cv3hfs9Magnitude9loadImageENS_3PtrINS0_7orutils5ImageIhE
   store i8 %28, ptr %29, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !51
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
-  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !53
+  br i1 %exitcond28.not, label %._crit_edge21, label %.lr.ph.us, !llvm.loop !52
 
 ._crit_edge21:                                    ; preds = %._crit_edge.us, %.lr.ph20, %3
   ret void
@@ -1557,12 +1557,12 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %19 = load i32, ptr %18, align 4, !tbaa !54
+  %19 = load i32, ptr %18, align 4, !tbaa !53
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.preheader.lr.ph, label %._crit_edge61
 
 .preheader.lr.ph:                                 ; preds = %1
-  %21 = load i32, ptr %17, align 8, !tbaa !56
+  %21 = load i32, ptr %17, align 8, !tbaa !55
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.preheader.preheader, label %._crit_edge61
 
@@ -1626,7 +1626,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   br label %57
 
 57:                                               ; preds = %51, %43, %34
-  %58 = load i32, ptr %17, align 8, !tbaa !56
+  %58 = load i32, ptr %17, align 8, !tbaa !55
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = add nsw i32 %58, %59
   %61 = sext i32 %60 to i64
@@ -1651,10 +1651,10 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %78 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %17, align 8, !tbaa !56
+  %79 = load i32, ptr %17, align 8, !tbaa !55
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
+  br i1 %81, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %1
   ret void
@@ -1662,9 +1662,9 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
 ._crit_edge:                                      ; preds = %137, %57, %.preheader
   %82 = phi i32 [ %24, %.preheader ], [ %79, %57 ], [ %149, %137 ]
   %83 = add nuw nsw i32 %.059, 1
-  %84 = load i32, ptr %18, align 4, !tbaa !54
+  %84 = load i32, ptr %18, align 4, !tbaa !53
   %85 = icmp slt i32 %83, %84
-  br i1 %85, label %.preheader, label %._crit_edge61, !llvm.loop !58
+  br i1 %85, label %.preheader, label %._crit_edge61, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %137
   %86 = phi i32 [ %149, %137 ], [ %24, %.lr.ph ]
@@ -1707,7 +1707,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %106 = sub nsw i32 %.sink69, %105
   %107 = getelementptr inbounds i32, ptr %8, i64 %.sink68
   store i32 %106, ptr %107, align 4, !tbaa !25
-  %108 = load i32, ptr %18, align 4, !tbaa !54
+  %108 = load i32, ptr %18, align 4, !tbaa !53
   %109 = add nsw i32 %108, -1
   %110 = icmp eq i32 %.059, %109
   br i1 %110, label %111, label %123
@@ -1717,7 +1717,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %113 = getelementptr inbounds i8, ptr %5, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !24
   %115 = zext i8 %114 to i32
-  %116 = load i32, ptr %17, align 8, !tbaa !56
+  %116 = load i32, ptr %17, align 8, !tbaa !55
   %117 = sub nsw i32 %88, %116
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds i8, ptr %5, i64 %118
@@ -1727,7 +1727,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   br label %137
 
 123:                                              ; preds = %104
-  %124 = load i32, ptr %17, align 8, !tbaa !56
+  %124 = load i32, ptr %17, align 8, !tbaa !55
   %125 = add nsw i32 %124, %88
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i8, ptr %5, i64 %126
@@ -1759,9 +1759,9 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %147 = getelementptr inbounds i32, ptr %16, i64 %.sink73
   store i32 %146, ptr %147, align 4, !tbaa !25
   %148 = add nuw nsw i32 %.05658, 1
-  %149 = load i32, ptr %17, align 8, !tbaa !56
+  %149 = load i32, ptr %17, align 8, !tbaa !55
   %150 = icmp slt i32 %148, %149
-  br i1 %150, label %.lr.ph.split, label %._crit_edge, !llvm.loop !60
+  br i1 %150, label %.lr.ph.split, label %._crit_edge, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1783,7 +1783,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %16 = load ptr, ptr %15, align 8, !tbaa !31
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %19 = load i32, ptr %18, align 4, !tbaa !54
+  %19 = load i32, ptr %18, align 4, !tbaa !53
   %20 = icmp sgt i32 %19, 0
   %21 = load i32, ptr %17, align 8
   %22 = icmp sgt i32 %21, 0
@@ -1805,10 +1805,10 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   store i8 0, ptr %26, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %17, align 8, !tbaa !56
+  %27 = load i32, ptr %17, align 8, !tbaa !55
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !61
+  br i1 %29, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge206:                                   ; preds = %._crit_edge, %1
   ret void
@@ -1816,9 +1816,9 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 ._crit_edge:                                      ; preds = %256, %.lr.ph.split.us, %.preheader
   %30 = phi i32 [ %23, %.preheader ], [ %27, %.lr.ph.split.us ], [ %259, %256 ]
   %31 = add nuw nsw i32 %.0204, 1
-  %32 = load i32, ptr %18, align 4, !tbaa !54
+  %32 = load i32, ptr %18, align 4, !tbaa !53
   %33 = icmp slt i32 %31, %32
-  br i1 %33, label %.preheader, label %._crit_edge206, !llvm.loop !62
+  br i1 %33, label %.preheader, label %._crit_edge206, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %256
   %34 = phi i32 [ %259, %256 ], [ %23, %.lr.ph ]
@@ -1832,7 +1832,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   br i1 %or.cond, label %44, label %40
 
 40:                                               ; preds = %.lr.ph.split
-  %41 = load i32, ptr %18, align 4, !tbaa !54
+  %41 = load i32, ptr %18, align 4, !tbaa !53
   %42 = add nsw i32 %41, -1
   %43 = icmp eq i32 %.0204, %42
   br i1 %43, label %44, label %46
@@ -2103,9 +2103,9 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %257 = getelementptr inbounds i8, ptr %16, i64 %.sink218
   store i8 %.sink216, ptr %257, align 1, !tbaa !24
   %258 = add nuw nsw i32 %.0186202, 1
-  %259 = load i32, ptr %17, align 8, !tbaa !56
+  %259 = load i32, ptr %17, align 8, !tbaa !55
   %260 = icmp slt i32 %258, %259
-  br i1 %260, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
+  br i1 %260, label %.lr.ph.split, label %._crit_edge, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2125,18 +2125,18 @@ define hidden void @_ZN2cv3hfs9Magnitude13processImgCpuERKNS_3MatERS2_(ptr nound
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %10, align 8, !tbaa !64
+  store i32 0, ptr %10, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %11, align 4, !tbaa !66
-  store i32 16842752, ptr %6, align 8, !tbaa !67
+  store i32 0, ptr %11, align 4, !tbaa !63
+  store i32 16842752, ptr %6, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %12, align 8, !tbaa !69
+  store ptr %1, ptr %12, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %14, align 8
-  store i32 33619968, ptr %7, align 8, !tbaa !67
-  store ptr %4, ptr %13, align 8, !tbaa !69
+  store i32 33619968, ptr %7, align 8, !tbaa !64
+  store ptr %4, ptr %13, align 8, !tbaa !66
   invoke void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 6, i32 noundef 0, i32 noundef 0)
           to label %15 unwind label %142
 
@@ -2145,18 +2145,18 @@ define hidden void @_ZN2cv3hfs9Magnitude13processImgCpuERKNS_3MatERS2_(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %16, align 8, !tbaa !64
+  store i32 0, ptr %16, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 0, ptr %17, align 4, !tbaa !66
-  store i32 16842752, ptr %8, align 8, !tbaa !67
+  store i32 0, ptr %17, align 4, !tbaa !63
+  store i32 16842752, ptr %8, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %4, ptr %18, align 8, !tbaa !69
+  store ptr %4, ptr %18, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %20, align 8
-  store i32 33619968, ptr %9, align 8, !tbaa !67
-  store ptr %5, ptr %19, align 8, !tbaa !69
+  store i32 33619968, ptr %9, align 8, !tbaa !64
+  store ptr %5, ptr %19, align 8, !tbaa !66
   invoke void @_ZN2cv12GaussianBlurERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 30064771079, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 4, i32 noundef 0)
           to label %21 unwind label %144
 
@@ -2166,11 +2166,11 @@ define hidden void @_ZN2cv3hfs9Magnitude13processImgCpuERKNS_3MatERS2_(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %23, ptr %24, align 8, !tbaa !56
+  store i32 %23, ptr %24, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %26, ptr %27, align 4, !tbaa !54
+  store i32 %26, ptr %27, align 4, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2364,12 +2364,12 @@ _ZN2cv3PtrINS_3hfs7orutils5ImageIhEEEC2ERKS5_.exit23: ; preds = %83, %91, %94
   store i8 %119, ptr %120, align 1, !tbaa !24
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i
-  br i1 %exitcond.not.i28, label %._crit_edge.us.i29, label %112, !llvm.loop !52
+  br i1 %exitcond.not.i28, label %._crit_edge.us.i29, label %112, !llvm.loop !51
 
 ._crit_edge.us.i29:                               ; preds = %112
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %_ZN2cv3hfs9Magnitude9loadImageENS_3PtrINS0_7orutils5ImageIhEEEERNS_3MatE.exit, label %.lr.ph.us.i25, !llvm.loop !53
+  br i1 %exitcond28.not.i, label %_ZN2cv3hfs9Magnitude9loadImageENS_3PtrINS0_7orutils5ImageIhEEEERNS_3MatE.exit, label %.lr.ph.us.i25, !llvm.loop !52
 
 _ZN2cv3hfs9Magnitude9loadImageENS_3PtrINS0_7orutils5ImageIhEEEERNS_3MatE.exit: ; preds = %._crit_edge.us.i29, %.lr.ph20.i, %_ZN2cv3PtrINS_3hfs7orutils5ImageIhEEEC2ERKS5_.exit23
   br i1 %.not.i.i.i.i21, label %_ZNSt12__shared_ptrIN2cv3hfs7orutils5ImageIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit34, label %121
@@ -2790,23 +2790,20 @@ attributes #19 = { builtin nounwind }
 !47 = !{!11, !11, i64 0}
 !48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !49}
+!51 = distinct !{!51, !49}
 !52 = distinct !{!52, !49}
-!53 = distinct !{!53, !49, !51}
-!54 = !{!55, !15, i64 4}
-!55 = !{!"_ZTSN2cv3hfs7orutils8Vector2_IiEE", !15, i64 0, !15, i64 4}
-!56 = !{!55, !15, i64 0}
-!57 = distinct !{!57, !49, !51}
-!58 = distinct !{!58, !49, !59}
-!59 = !{!"llvm.loop.unswitch.partial.disable"}
-!60 = distinct !{!60, !49}
-!61 = distinct !{!61, !49, !51}
-!62 = distinct !{!62, !49, !59}
-!63 = distinct !{!63, !49}
+!53 = !{!54, !15, i64 4}
+!54 = !{!"_ZTSN2cv3hfs7orutils8Vector2_IiEE", !15, i64 0, !15, i64 4}
+!55 = !{!54, !15, i64 0}
+!56 = distinct !{!56, !49}
+!57 = distinct !{!57, !49, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !49}
+!60 = distinct !{!60, !49, !58}
+!61 = !{!62, !15, i64 0}
+!62 = !{!"_ZTSN2cv5Size_IiEE", !15, i64 0, !15, i64 4}
+!63 = !{!62, !15, i64 4}
 !64 = !{!65, !15, i64 0}
-!65 = !{!"_ZTSN2cv5Size_IiEE", !15, i64 0, !15, i64 4}
-!66 = !{!65, !15, i64 4}
-!67 = !{!68, !15, i64 0}
-!68 = !{!"_ZTSN2cv11_InputArrayE", !15, i64 0, !9, i64 8, !65, i64 16}
-!69 = !{!68, !9, i64 8}
+!65 = !{!"_ZTSN2cv11_InputArrayE", !15, i64 0, !9, i64 8, !62, i64 16}
+!66 = !{!65, !9, i64 8}

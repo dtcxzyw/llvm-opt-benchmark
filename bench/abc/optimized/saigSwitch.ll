@@ -455,7 +455,7 @@ Abc_Clock.exit39:                                 ; preds = %31, %30
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 255
   %.not35 = icmp eq i32 %71, 7
-  br i1 %.not35, label %.loopexit, label %.lr.ph.split, !llvm.loop !48
+  br i1 %.not35, label %.loopexit, label %.lr.ph.split, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %Abc_Clock.exit39
   call void @free(ptr noundef nonnull %23) #19
@@ -480,21 +480,21 @@ define noundef ptr @Aig_CManStart(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %10, align 8
-  store i32 %0, ptr %9, align 8, !tbaa !49
+  store i32 %0, ptr %9, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %2, ptr %11, align 8, !tbaa !51
+  store i32 %2, ptr %11, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %1, ptr %12, align 4, !tbaa !52
+  store i32 %1, ptr %12, align 4, !tbaa !50
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %6, ptr %13, align 4, !tbaa !53
+  store i32 %6, ptr %13, align 4, !tbaa !51
   %14 = add nsw i32 %0, 1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %14, ptr %15, align 4, !tbaa !54
+  store i32 %14, ptr %15, align 4, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 -1, ptr %16, align 8, !tbaa !55
+  store i32 -1, ptr %16, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !56
+  store ptr %17, ptr %18, align 8, !tbaa !54
   ret ptr %9
 }
 
@@ -519,15 +519,15 @@ define void @Aig_CManStop(ptr noundef captures(address_is_null) %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Aig_CManRestart(ptr noundef initializes((12, 16), (32, 36)) %0) local_unnamed_addr #11 {
-  %2 = load i32, ptr %0, align 8, !tbaa !49
+  %2 = load i32, ptr %0, align 8, !tbaa !47
   %3 = add nsw i32 %2, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %4, align 4, !tbaa !54
+  store i32 %3, ptr %4, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 -1, ptr %5, align 8, !tbaa !55
+  store i32 -1, ptr %5, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %7, align 8, !tbaa !56
+  store ptr %6, ptr %7, align 8, !tbaa !54
   ret void
 }
 
@@ -544,21 +544,21 @@ define void @Aig_CManStoreNum(ptr noundef captures(none) %0, i32 noundef %1) loc
   %.06 = phi i32 [ %1, %.lr.ph ], [ %9, %4 ]
   %5 = trunc i32 %.06 to i8
   %6 = or i8 %5, -128
-  %7 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = load ptr, ptr %3, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store ptr %8, ptr %3, align 8, !tbaa !56
+  store ptr %8, ptr %3, align 8, !tbaa !54
   store i8 %6, ptr %7, align 1, !tbaa !25
   %9 = lshr i32 %.06, 7
   %.not = icmp ult i32 %.06, 16384
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %4, %2
   %.0.lcssa = phi i32 [ %1, %2 ], [ %9, %4 ]
   %10 = trunc nuw nsw i32 %.0.lcssa to i8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %13, ptr %11, align 8, !tbaa !56
+  store ptr %13, ptr %11, align 8, !tbaa !54
   store i8 %10, ptr %12, align 1, !tbaa !25
   ret void
 }
@@ -566,9 +566,9 @@ define void @Aig_CManStoreNum(ptr noundef captures(none) %0, i32 noundef %1) loc
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @Aig_CManRestoreNum(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted = load ptr, ptr %2, align 8, !tbaa !56
+  %.promoted = load ptr, ptr %2, align 8, !tbaa !54
   %3 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
-  store ptr %3, ptr %2, align 8, !tbaa !56
+  store ptr %3, ptr %2, align 8, !tbaa !54
   %4 = load i8, ptr %.promoted, align 1, !tbaa !25
   %5 = zext i8 %4 to i32
   %.not8 = icmp sgt i8 %4, -1
@@ -585,11 +585,11 @@ define i32 @Aig_CManRestoreNum(ptr noundef captures(none) %0) local_unnamed_addr
   %11 = or i32 %10, %.010
   %12 = add nuw nsw i32 %.079, 1
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store ptr %13, ptr %2, align 8, !tbaa !56
+  store ptr %13, ptr %2, align 8, !tbaa !54
   %14 = load i8, ptr %7, align 1, !tbaa !25
   %15 = zext i8 %14 to i32
   %.not = icmp sgt i8 %14, -1
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = mul nuw nsw i32 %12, 7
@@ -607,9 +607,9 @@ define i32 @Aig_CManRestoreNum(ptr noundef captures(none) %0) local_unnamed_addr
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Aig_CManAddNode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !54
+  %5 = load i32, ptr %4, align 4, !tbaa !52
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !54
+  store i32 %6, ptr %4, align 4, !tbaa !52
   %7 = shl i32 %5, 1
   %8 = sub nsw i32 %7, %2
   %.not5.i = icmp ult i32 %8, 128
@@ -623,21 +623,21 @@ define void @Aig_CManAddNode(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %.06.i = phi i32 [ %8, %.lr.ph.i ], [ %15, %10 ]
   %11 = trunc i32 %.06.i to i8
   %12 = or i8 %11, -128
-  %13 = load ptr, ptr %9, align 8, !tbaa !56
+  %13 = load ptr, ptr %9, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store ptr %14, ptr %9, align 8, !tbaa !56
+  store ptr %14, ptr %9, align 8, !tbaa !54
   store i8 %12, ptr %13, align 1, !tbaa !25
   %15 = lshr i32 %.06.i, 7
   %.not.i = icmp ult i32 %.06.i, 16384
-  br i1 %.not.i, label %Aig_CManStoreNum.exit, label %10, !llvm.loop !57
+  br i1 %.not.i, label %Aig_CManStoreNum.exit, label %10, !llvm.loop !55
 
 Aig_CManStoreNum.exit:                            ; preds = %10, %3
   %.0.lcssa.i = phi i32 [ %8, %3 ], [ %15, %10 ]
   %16 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %19, ptr %17, align 8, !tbaa !56
+  store ptr %19, ptr %17, align 8, !tbaa !54
   store i8 %16, ptr %18, align 1, !tbaa !25
   %20 = sub nsw i32 %2, %1
   %.not5.i5 = icmp ult i32 %20, 128
@@ -647,20 +647,20 @@ Aig_CManStoreNum.exit:                            ; preds = %10, %3
   %.06.i7 = phi i32 [ %25, %.lr.ph.i6 ], [ %20, %Aig_CManStoreNum.exit ]
   %21 = trunc i32 %.06.i7 to i8
   %22 = or i8 %21, -128
-  %23 = load ptr, ptr %17, align 8, !tbaa !56
+  %23 = load ptr, ptr %17, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %17, align 8, !tbaa !56
+  store ptr %24, ptr %17, align 8, !tbaa !54
   store i8 %22, ptr %23, align 1, !tbaa !25
   %25 = lshr i32 %.06.i7, 7
   %.not.i8 = icmp ult i32 %.06.i7, 16384
-  br i1 %.not.i8, label %Aig_CManStoreNum.exit10, label %.lr.ph.i6, !llvm.loop !57
+  br i1 %.not.i8, label %Aig_CManStoreNum.exit10, label %.lr.ph.i6, !llvm.loop !55
 
 Aig_CManStoreNum.exit10:                          ; preds = %.lr.ph.i6, %Aig_CManStoreNum.exit
   %.0.lcssa.i9 = phi i32 [ %20, %Aig_CManStoreNum.exit ], [ %25, %.lr.ph.i6 ]
   %26 = trunc nuw nsw i32 %.0.lcssa.i9 to i8
-  %27 = load ptr, ptr %17, align 8, !tbaa !56
+  %27 = load ptr, ptr %17, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %28, ptr %17, align 8, !tbaa !56
+  store ptr %28, ptr %17, align 8, !tbaa !54
   store i8 %26, ptr %27, align 1, !tbaa !25
   ret void
 }
@@ -668,13 +668,13 @@ Aig_CManStoreNum.exit10:                          ; preds = %.lr.ph.i6, %Aig_CMa
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !55
+  %4 = load i32, ptr %3, align 8, !tbaa !53
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 4, !tbaa !52
   %9 = sub nsw i32 %8, %1
   %.not5.i = icmp ult i32 %9, 128
   br i1 %.not5.i, label %Aig_CManStoreNum.exit, label %.lr.ph.i
@@ -687,13 +687,13 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
   %.06.i = phi i32 [ %9, %.lr.ph.i ], [ %16, %11 ]
   %12 = trunc i32 %.06.i to i8
   %13 = or i8 %12, -128
-  %14 = load ptr, ptr %10, align 8, !tbaa !56
+  %14 = load ptr, ptr %10, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store ptr %15, ptr %10, align 8, !tbaa !56
+  store ptr %15, ptr %10, align 8, !tbaa !54
   store i8 %13, ptr %14, align 1, !tbaa !25
   %16 = lshr i32 %.06.i, 7
   %.not.i = icmp ult i32 %.06.i, 16384
-  br i1 %.not.i, label %Aig_CManStoreNum.exit, label %11, !llvm.loop !57
+  br i1 %.not.i, label %Aig_CManStoreNum.exit, label %11, !llvm.loop !55
 
 17:                                               ; preds = %2
   %.not = icmp sgt i32 %4, %1
@@ -713,13 +713,13 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
   %.06.i17 = phi i32 [ %20, %.lr.ph.i16 ], [ %27, %22 ]
   %23 = trunc i32 %.06.i17 to i8
   %24 = or i8 %23, -128
-  %25 = load ptr, ptr %21, align 8, !tbaa !56
+  %25 = load ptr, ptr %21, align 8, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store ptr %26, ptr %21, align 8, !tbaa !56
+  store ptr %26, ptr %21, align 8, !tbaa !54
   store i8 %24, ptr %25, align 1, !tbaa !25
   %27 = lshr i32 %.06.i17, 7
   %.not.i18 = icmp ult i32 %.06.i17, 16384
-  br i1 %.not.i18, label %Aig_CManStoreNum.exit, label %22, !llvm.loop !57
+  br i1 %.not.i18, label %Aig_CManStoreNum.exit, label %22, !llvm.loop !55
 
 28:                                               ; preds = %17
   %29 = sub nsw i32 %4, %1
@@ -736,41 +736,41 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
   %.06.i23 = phi i32 [ %31, %.lr.ph.i22 ], [ %38, %33 ]
   %34 = trunc i32 %.06.i23 to i8
   %35 = or i8 %34, -128
-  %36 = load ptr, ptr %32, align 8, !tbaa !56
+  %36 = load ptr, ptr %32, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %37, ptr %32, align 8, !tbaa !56
+  store ptr %37, ptr %32, align 8, !tbaa !54
   store i8 %35, ptr %36, align 1, !tbaa !25
   %38 = lshr i32 %.06.i23, 7
   %.not.i24 = icmp ult i32 %.06.i23, 16384
-  br i1 %.not.i24, label %Aig_CManStoreNum.exit, label %33, !llvm.loop !57
+  br i1 %.not.i24, label %Aig_CManStoreNum.exit, label %33, !llvm.loop !55
 
 Aig_CManStoreNum.exit:                            ; preds = %22, %33, %11, %28, %18, %6
   %.0.lcssa.i19.sink = phi i32 [ %9, %6 ], [ %20, %18 ], [ %31, %28 ], [ %16, %11 ], [ %38, %33 ], [ %27, %22 ]
   %39 = trunc nuw nsw i32 %.0.lcssa.i19.sink to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !56
+  %41 = load ptr, ptr %40, align 8, !tbaa !54
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store ptr %42, ptr %40, align 8, !tbaa !56
+  store ptr %42, ptr %40, align 8, !tbaa !54
   store i8 %39, ptr %41, align 1, !tbaa !25
-  store i32 %1, ptr %3, align 8, !tbaa !55
+  store i32 %1, ptr %3, align 8, !tbaa !53
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !54
+  %44 = load i32, ptr %43, align 4, !tbaa !52
   %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %43, align 4, !tbaa !54
+  store i32 %45, ptr %43, align 4, !tbaa !52
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Aig_CManGetNode(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !54
+  %5 = load i32, ptr %4, align 4, !tbaa !52
   %6 = add nsw i32 %5, 1
-  store i32 %6, ptr %4, align 4, !tbaa !54
+  store i32 %6, ptr %4, align 4, !tbaa !52
   %7 = shl i32 %5, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted.i = load ptr, ptr %8, align 8, !tbaa !56
+  %.promoted.i = load ptr, ptr %8, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 1
-  store ptr %9, ptr %8, align 8, !tbaa !56
+  store ptr %9, ptr %8, align 8, !tbaa !54
   %10 = load i8, ptr %.promoted.i, align 1, !tbaa !25
   %11 = zext i8 %10 to i32
   %.not8.i = icmp sgt i8 %10, -1
@@ -787,11 +787,11 @@ define void @Aig_CManGetNode(ptr noundef captures(none) %0, ptr noundef writeonl
   %17 = or i32 %16, %.010.i
   %18 = add nuw nsw i32 %.079.i, 1
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store ptr %19, ptr %8, align 8, !tbaa !56
+  store ptr %19, ptr %8, align 8, !tbaa !54
   %20 = load i8, ptr %13, align 1, !tbaa !25
   %21 = zext i8 %20 to i32
   %.not.i = icmp sgt i8 %20, -1
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !58
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %22 = mul nuw nsw i32 %18, 7
@@ -807,7 +807,7 @@ Aig_CManRestoreNum.exit:                          ; preds = %3, %._crit_edge.loo
   %25 = sub nsw i32 %7, %24
   store i32 %25, ptr %2, align 4, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %.promoted.i6, i64 1
-  store ptr %26, ptr %8, align 8, !tbaa !56
+  store ptr %26, ptr %8, align 8, !tbaa !54
   %27 = load i8, ptr %.promoted.i6, align 1, !tbaa !25
   %28 = zext i8 %27 to i32
   %.not8.i7 = icmp sgt i8 %27, -1
@@ -824,11 +824,11 @@ Aig_CManRestoreNum.exit:                          ; preds = %3, %._crit_edge.loo
   %34 = or i32 %33, %.010.i9
   %35 = add nuw nsw i32 %.079.i10, 1
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  store ptr %36, ptr %8, align 8, !tbaa !56
+  store ptr %36, ptr %8, align 8, !tbaa !54
   %37 = load i8, ptr %30, align 1, !tbaa !25
   %38 = zext i8 %37 to i32
   %.not.i11 = icmp sgt i8 %37, -1
-  br i1 %.not.i11, label %._crit_edge.loopexit.i12, label %.lr.ph.i8, !llvm.loop !58
+  br i1 %.not.i11, label %._crit_edge.loopexit.i12, label %.lr.ph.i8, !llvm.loop !56
 
 ._crit_edge.loopexit.i12:                         ; preds = %.lr.ph.i8
   %39 = mul nuw nsw i32 %35, 7
@@ -848,9 +848,9 @@ Aig_CManRestoreNum.exit16:                        ; preds = %Aig_CManRestoreNum.
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @Aig_CManGetPo(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted.i = load ptr, ptr %2, align 8, !tbaa !56
+  %.promoted.i = load ptr, ptr %2, align 8, !tbaa !54
   %3 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 1
-  store ptr %3, ptr %2, align 8, !tbaa !56
+  store ptr %3, ptr %2, align 8, !tbaa !54
   %4 = load i8, ptr %.promoted.i, align 1, !tbaa !25
   %5 = zext i8 %4 to i32
   %.not8.i = icmp sgt i8 %4, -1
@@ -867,11 +867,11 @@ define i32 @Aig_CManGetPo(ptr noundef captures(none) %0) local_unnamed_addr #13 
   %11 = or i32 %10, %.010.i
   %12 = add nuw nsw i32 %.079.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store ptr %13, ptr %2, align 8, !tbaa !56
+  store ptr %13, ptr %2, align 8, !tbaa !54
   %14 = load i8, ptr %7, align 1, !tbaa !25
   %15 = zext i8 %14 to i32
   %.not.i = icmp sgt i8 %14, -1
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !58
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %16 = mul nuw nsw i32 %12, 7
@@ -884,14 +884,14 @@ Aig_CManRestoreNum.exit:                          ; preds = %1, %._crit_edge.loo
   %17 = shl i32 %.lcssa.i, %.07.lcssa.i
   %18 = or i32 %17, %.0.lcssa.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !55
+  %20 = load i32, ptr %19, align 8, !tbaa !53
   %21 = icmp eq i32 %20, -1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = load i32, ptr %22, align 4, !tbaa !54
+  %23 = load i32, ptr %22, align 4, !tbaa !52
   %. = select i1 %21, i32 %23, i32 %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = add nsw i32 %23, 1
-  store i32 %25, ptr %24, align 4, !tbaa !54
+  store i32 %25, ptr %24, align 4, !tbaa !52
   %26 = and i32 %18, 1
   %.not = icmp eq i32 %26, 0
   %27 = ashr exact i32 %18, 1
@@ -899,7 +899,7 @@ Aig_CManRestoreNum.exit:                          ; preds = %1, %._crit_edge.loo
   %29 = sub nsw i32 0, %27
   %storemerge.p = select i1 %.not, i32 %29, i32 %28
   %storemerge = add i32 %., %storemerge.p
-  store i32 %storemerge, ptr %19, align 8, !tbaa !55
+  store i32 %storemerge, ptr %19, align 8, !tbaa !53
   ret i32 %storemerge
 }
 
@@ -922,21 +922,21 @@ define noundef ptr @Aig_CManCreate(ptr noundef readonly captures(none) %0) local
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #20
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %13, align 8
-  store i32 %.val42, ptr %12, align 8, !tbaa !49
+  store i32 %.val42, ptr %12, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.val45, ptr %14, align 8, !tbaa !51
+  store i32 %.val45, ptr %14, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %5, ptr %15, align 4, !tbaa !52
+  store i32 %5, ptr %15, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i32 %9, ptr %16, align 4, !tbaa !53
+  store i32 %9, ptr %16, align 4, !tbaa !51
   %17 = add nsw i32 %.val42, 1
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %17, ptr %18, align 4, !tbaa !54
+  store i32 %17, ptr %18, align 4, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 -1, ptr %19, align 8, !tbaa !55
+  store i32 -1, ptr %19, align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %20, ptr %21, align 8, !tbaa !56
+  store ptr %20, ptr %21, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr i8, ptr %23, i64 4
@@ -1010,9 +1010,9 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %60 = trunc i64 %.pre80 to i32
   %61 = and i32 %60, 1
   %62 = or disjoint i32 %59, %61
-  %63 = load i32, ptr %18, align 4, !tbaa !54
+  %63 = load i32, ptr %18, align 4, !tbaa !52
   %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %18, align 4, !tbaa !54
+  store i32 %64, ptr %18, align 4, !tbaa !52
   %65 = shl i32 %63, 1
   %66 = sub nsw i32 %65, %62
   %.not5.i.i = icmp ult i32 %66, 128
@@ -1022,20 +1022,20 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %.06.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ %66, %Aig_ObjFaninId1.exit ]
   %67 = trunc i32 %.06.i.i to i8
   %68 = or i8 %67, -128
-  %69 = load ptr, ptr %21, align 8, !tbaa !56
+  %69 = load ptr, ptr %21, align 8, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  store ptr %70, ptr %21, align 8, !tbaa !56
+  store ptr %70, ptr %21, align 8, !tbaa !54
   store i8 %68, ptr %69, align 1, !tbaa !25
   %71 = lshr i32 %.06.i.i, 7
   %.not.i.i = icmp ult i32 %.06.i.i, 16384
-  br i1 %.not.i.i, label %Aig_CManStoreNum.exit.i, label %.lr.ph.i.i, !llvm.loop !57
+  br i1 %.not.i.i, label %Aig_CManStoreNum.exit.i, label %.lr.ph.i.i, !llvm.loop !55
 
 Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_ObjFaninId1.exit
   %.0.lcssa.i.i = phi i32 [ %66, %Aig_ObjFaninId1.exit ], [ %71, %.lr.ph.i.i ]
   %72 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
-  %73 = load ptr, ptr %21, align 8, !tbaa !56
+  %73 = load ptr, ptr %21, align 8, !tbaa !54
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  store ptr %74, ptr %21, align 8, !tbaa !56
+  store ptr %74, ptr %21, align 8, !tbaa !54
   store i8 %72, ptr %73, align 1, !tbaa !25
   %75 = sub nsw i32 %62, %51
   %.not5.i5.i = icmp ult i32 %75, 128
@@ -1045,20 +1045,20 @@ Aig_CManStoreNum.exit.i:                          ; preds = %.lr.ph.i.i, %Aig_Ob
   %.06.i7.i = phi i32 [ %80, %.lr.ph.i6.i ], [ %75, %Aig_CManStoreNum.exit.i ]
   %76 = trunc i32 %.06.i7.i to i8
   %77 = or i8 %76, -128
-  %78 = load ptr, ptr %21, align 8, !tbaa !56
+  %78 = load ptr, ptr %21, align 8, !tbaa !54
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  store ptr %79, ptr %21, align 8, !tbaa !56
+  store ptr %79, ptr %21, align 8, !tbaa !54
   store i8 %77, ptr %78, align 1, !tbaa !25
   %80 = lshr i32 %.06.i7.i, 7
   %.not.i8.i = icmp ult i32 %.06.i7.i, 16384
-  br i1 %.not.i8.i, label %Aig_CManAddNode.exit, label %.lr.ph.i6.i, !llvm.loop !57
+  br i1 %.not.i8.i, label %Aig_CManAddNode.exit, label %.lr.ph.i6.i, !llvm.loop !55
 
 Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_CManStoreNum.exit.i
   %.0.lcssa.i9.i = phi i32 [ %75, %Aig_CManStoreNum.exit.i ], [ %80, %.lr.ph.i6.i ]
   %81 = trunc nuw nsw i32 %.0.lcssa.i9.i to i8
-  %82 = load ptr, ptr %21, align 8, !tbaa !56
+  %82 = load ptr, ptr %21, align 8, !tbaa !54
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store ptr %83, ptr %21, align 8, !tbaa !56
+  store ptr %83, ptr %21, align 8, !tbaa !54
   store i8 %81, ptr %82, align 1, !tbaa !25
   %.pre = load ptr, ptr %22, align 8, !tbaa !3
   br label %84
@@ -1070,7 +1070,7 @@ Aig_CManAddNode.exit:                             ; preds = %.lr.ph.i6.i, %Aig_C
   %.val33 = load i32, ptr %86, align 4, !tbaa !21
   %87 = sext i32 %.val33 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph, label %.critedge.preheader, !llvm.loop !59
+  br i1 %88, label %.lr.ph, label %.critedge.preheader, !llvm.loop !57
 
 .lr.ph66:                                         ; preds = %.critedge.preheader, %Aig_CManAddPo.exit
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %Aig_CManAddPo.exit ], [ 0, %.critedge.preheader ]
@@ -1098,12 +1098,12 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
   %101 = trunc i64 %.pre77 to i32
   %102 = and i32 %101, 1
   %103 = or disjoint i32 %100, %102
-  %104 = load i32, ptr %19, align 8, !tbaa !55
+  %104 = load i32, ptr %19, align 8, !tbaa !53
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %Aig_ObjFaninId0.exit49
-  %107 = load i32, ptr %18, align 4, !tbaa !54
+  %107 = load i32, ptr %18, align 4, !tbaa !52
   %108 = sub nsw i32 %107, %103
   %.not5.i.i52 = icmp ult i32 %108, 128
   br i1 %.not5.i.i52, label %Aig_CManAddPo.exit, label %.lr.ph.i.i53
@@ -1112,13 +1112,13 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
   %.06.i.i54 = phi i32 [ %113, %.lr.ph.i.i53 ], [ %108, %106 ]
   %109 = trunc i32 %.06.i.i54 to i8
   %110 = or i8 %109, -128
-  %111 = load ptr, ptr %21, align 8, !tbaa !56
+  %111 = load ptr, ptr %21, align 8, !tbaa !54
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  store ptr %112, ptr %21, align 8, !tbaa !56
+  store ptr %112, ptr %21, align 8, !tbaa !54
   store i8 %110, ptr %111, align 1, !tbaa !25
   %113 = lshr i32 %.06.i.i54, 7
   %.not.i.i55 = icmp ult i32 %.06.i.i54, 16384
-  br i1 %.not.i.i55, label %Aig_CManAddPo.exit, label %.lr.ph.i.i53, !llvm.loop !57
+  br i1 %.not.i.i55, label %Aig_CManAddPo.exit, label %.lr.ph.i.i53, !llvm.loop !55
 
 114:                                              ; preds = %Aig_ObjFaninId0.exit49
   %.not.i50 = icmp sgt i32 %104, %103
@@ -1134,13 +1134,13 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
   %.06.i17.i = phi i32 [ %122, %.lr.ph.i16.i ], [ %117, %115 ]
   %118 = trunc i32 %.06.i17.i to i8
   %119 = or i8 %118, -128
-  %120 = load ptr, ptr %21, align 8, !tbaa !56
+  %120 = load ptr, ptr %21, align 8, !tbaa !54
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  store ptr %121, ptr %21, align 8, !tbaa !56
+  store ptr %121, ptr %21, align 8, !tbaa !54
   store i8 %119, ptr %120, align 1, !tbaa !25
   %122 = lshr i32 %.06.i17.i, 7
   %.not.i18.i = icmp ult i32 %.06.i17.i, 16384
-  br i1 %.not.i18.i, label %Aig_CManAddPo.exit, label %.lr.ph.i16.i, !llvm.loop !57
+  br i1 %.not.i18.i, label %Aig_CManAddPo.exit, label %.lr.ph.i16.i, !llvm.loop !55
 
 123:                                              ; preds = %114
   %124 = sub nsw i32 %104, %103
@@ -1153,43 +1153,43 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %94
   %.06.i23.i = phi i32 [ %131, %.lr.ph.i22.i ], [ %126, %123 ]
   %127 = trunc i32 %.06.i23.i to i8
   %128 = or i8 %127, -128
-  %129 = load ptr, ptr %21, align 8, !tbaa !56
+  %129 = load ptr, ptr %21, align 8, !tbaa !54
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  store ptr %130, ptr %21, align 8, !tbaa !56
+  store ptr %130, ptr %21, align 8, !tbaa !54
   store i8 %128, ptr %129, align 1, !tbaa !25
   %131 = lshr i32 %.06.i23.i, 7
   %.not.i24.i = icmp ult i32 %.06.i23.i, 16384
-  br i1 %.not.i24.i, label %Aig_CManAddPo.exit, label %.lr.ph.i22.i, !llvm.loop !57
+  br i1 %.not.i24.i, label %Aig_CManAddPo.exit, label %.lr.ph.i22.i, !llvm.loop !55
 
 Aig_CManAddPo.exit:                               ; preds = %.lr.ph.i16.i, %.lr.ph.i22.i, %.lr.ph.i.i53, %106, %115, %123
   %.0.lcssa.i19.sink.i = phi i32 [ %108, %106 ], [ %117, %115 ], [ %126, %123 ], [ %113, %.lr.ph.i.i53 ], [ %131, %.lr.ph.i22.i ], [ %122, %.lr.ph.i16.i ]
   %132 = trunc nuw nsw i32 %.0.lcssa.i19.sink.i to i8
-  %133 = load ptr, ptr %21, align 8, !tbaa !56
+  %133 = load ptr, ptr %21, align 8, !tbaa !54
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
-  store ptr %134, ptr %21, align 8, !tbaa !56
+  store ptr %134, ptr %21, align 8, !tbaa !54
   store i8 %132, ptr %133, align 1, !tbaa !25
-  store i32 %103, ptr %19, align 8, !tbaa !55
-  %135 = load i32, ptr %18, align 4, !tbaa !54
+  store i32 %103, ptr %19, align 8, !tbaa !53
+  %135 = load i32, ptr %18, align 4, !tbaa !52
   %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %18, align 4, !tbaa !54
+  store i32 %136, ptr %18, align 4, !tbaa !52
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %137 = load ptr, ptr %26, align 8, !tbaa !27
   %138 = getelementptr i8, ptr %137, i64 4
   %.val = load i32, ptr %138, align 4, !tbaa !21
   %139 = sext i32 %.val to i64
   %140 = icmp slt i64 %indvars.iv.next75, %139
-  br i1 %140, label %.lr.ph66, label %.critedge2, !llvm.loop !60
+  br i1 %140, label %.lr.ph66, label %.critedge2, !llvm.loop !58
 
 .critedge2:                                       ; preds = %Aig_CManAddPo.exit, %.critedge.preheader
-  %141 = load i32, ptr %16, align 4, !tbaa !53
-  %142 = load ptr, ptr %21, align 8, !tbaa !56
+  %141 = load i32, ptr %16, align 4, !tbaa !51
+  %142 = load ptr, ptr %21, align 8, !tbaa !54
   %143 = ptrtoint ptr %142 to i64
   %144 = ptrtoint ptr %20 to i64
   %145 = sub i64 %143, %144
   %146 = trunc i64 %145 to i32
   %147 = sitofp i64 %145 to double
-  %148 = load i32, ptr %15, align 4, !tbaa !52
-  %149 = load i32, ptr %14, align 8, !tbaa !51
+  %148 = load i32, ptr %15, align 4, !tbaa !50
+  %149 = load i32, ptr %14, align 8, !tbaa !49
   %150 = add nsw i32 %149, %148
   %151 = sitofp i32 %150 to double
   %152 = fdiv double %147, %151
@@ -1279,18 +1279,16 @@ attributes #20 = { nounwind allocsize(0) }
 !43 = !{!41, !12, i64 4}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"float", !7, i64 0}
-!46 = distinct !{!46, !36, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !36}
-!49 = !{!50, !12, i64 0}
-!50 = !{!"Aig_CMan_t_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !5, i64 24, !12, i64 32, !12, i64 36, !7, i64 40}
-!51 = !{!50, !12, i64 8}
-!52 = !{!50, !12, i64 4}
-!53 = !{!50, !12, i64 36}
-!54 = !{!50, !12, i64 12}
-!55 = !{!50, !12, i64 32}
-!56 = !{!50, !5, i64 24}
+!46 = distinct !{!46, !36}
+!47 = !{!48, !12, i64 0}
+!48 = !{!"Aig_CMan_t_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !5, i64 24, !12, i64 32, !12, i64 36, !7, i64 40}
+!49 = !{!48, !12, i64 8}
+!50 = !{!48, !12, i64 4}
+!51 = !{!48, !12, i64 36}
+!52 = !{!48, !12, i64 12}
+!53 = !{!48, !12, i64 32}
+!54 = !{!48, !5, i64 24}
+!55 = distinct !{!55, !36}
+!56 = distinct !{!56, !36}
 !57 = distinct !{!57, !36}
 !58 = distinct !{!58, !36}
-!59 = distinct !{!59, !36}
-!60 = distinct !{!60, !36}

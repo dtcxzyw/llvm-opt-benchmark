@@ -2098,7 +2098,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   %.1 = phi i32 [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %57, %53 ], [ %63, %58 ], [ %72, %64 ], [ %89, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %94 = icmp ult i32 %.1, %24
-  br i1 %94, label %28, label %._crit_edge, !llvm.loop !19
+  br i1 %94, label %28, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %93, %.thread, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2209,6 +2209,5 @@ attributes #8 = { allocsize(1) }
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

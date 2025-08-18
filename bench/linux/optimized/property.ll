@@ -1259,7 +1259,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 .critedge.us:                                     ; preds = %44, %.lr.ph.split.us
   %35 = load ptr, ptr %27, align 8
   %36 = icmp eq ptr %35, %23
-  br i1 %36, label %.thread, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %36, label %.thread, label %.lr.ph.split.us
 
 37:                                               ; preds = %44, %.split.us.us
   %38 = phi i64 [ 0, %.split.us.us ], [ %45, %44 ]
@@ -1274,7 +1274,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
 44:                                               ; preds = %37
   %45 = add nuw nsw i64 %38, 1
   %46 = icmp samesign ult i64 %45, %34
-  br i1 %46, label %37, label %.critedge.us, !llvm.loop !26
+  br i1 %46, label %37, label %.critedge.us, !llvm.loop !8
 
 .critedge:                                        ; preds = %57, %.lr.ph.split
   %47 = load ptr, ptr %49, align 8
@@ -1564,7 +1564,7 @@ select.unfold34:                                  ; preds = %88, %92
   %138 = icmp ult ptr %137, %109
   %139 = icmp ugt i64 %3, %136
   %140 = and i1 %139, %138
-  br i1 %140, label %.preheader, label %141, !llvm.loop !27
+  br i1 %140, label %.preheader, label %141, !llvm.loop !24
 
 141:                                              ; preds = %.preheader, %.preheader, %134
   %142 = phi i32 [ %135, %134 ], [ %132, %.preheader ], [ %132, %.preheader ]
@@ -1607,7 +1607,7 @@ select.unfold34:                                  ; preds = %88, %92
   store i64 %158, ptr %159, align 8
   %160 = add nuw nsw i64 %155, 1
   %161 = icmp eq i64 %160, %153
-  br i1 %161, label %.loopexit, label %154, !llvm.loop !28
+  br i1 %161, label %.loopexit, label %154, !llvm.loop !25
 
 .loopexit:                                        ; preds = %154, %144, %148, %.thread38, %.thread39
   %162 = phi i32 [ 0, %.thread38 ], [ 0, %148 ], [ %142, %144 ], [ 0, %.thread39 ], [ %142, %154 ]
@@ -1684,7 +1684,7 @@ select.unfold42:                                  ; preds = %175, %179
   %200 = icmp ult ptr %199, %109
   %201 = icmp ugt i64 %3, %198
   %202 = and i1 %201, %200
-  br i1 %202, label %.preheader54, label %203, !llvm.loop !27
+  br i1 %202, label %.preheader54, label %203, !llvm.loop !24
 
 203:                                              ; preds = %.preheader54, %.preheader54, %196
   %204 = phi i32 [ %197, %196 ], [ %194, %.preheader54 ], [ %194, %.preheader54 ]
@@ -1727,7 +1727,7 @@ select.unfold42:                                  ; preds = %175, %179
   store i64 %220, ptr %221, align 8
   %222 = add nuw nsw i64 %217, 1
   %223 = icmp eq i64 %222, %215
-  br i1 %223, label %.loopexit53, label %216, !llvm.loop !28
+  br i1 %223, label %.loopexit53, label %216, !llvm.loop !25
 
 .loopexit53:                                      ; preds = %216, %206, %210, %.thread46, %.thread47
   %224 = phi i32 [ 0, %.thread46 ], [ 0, %210 ], [ %204, %206 ], [ 0, %.thread47 ], [ %204, %216 ]
@@ -1748,7 +1748,7 @@ select.unfold42:                                  ; preds = %175, %179
   %233 = phi ptr [ %231, %230 ], [ %226, %.loopexit53 ], [ %164, %.loopexit ]
   %234 = add i32 %115, 1
   %235 = icmp ult ptr %233, %109
-  br i1 %235, label %114, label %.thread, !llvm.loop !29
+  br i1 %235, label %114, label %.thread, !llvm.loop !26
 
 .thread:                                          ; preds = %.outer, %.loopexit53, %203, %.loopexit, %141, %232, %227, %118, %114, %.preheader54, %.preheader, %28, %25, %19, %5, %acpi_parse_string_ref.exit30.thread, %acpi_parse_string_ref.exit.thread, %106, %101, %select.unfold34, %77, %74, %72, %67, %65, %.thread31, %select.unfold
   %236 = phi i32 [ 0, %select.unfold34 ], [ 0, %74 ], [ -2, %select.unfold ], [ -2, %65 ], [ -22, %67 ], [ 0, %72 ], [ -2, %77 ], [ -22, %.thread31 ], [ -2, %101 ], [ -2, %106 ], [ -22, %acpi_parse_string_ref.exit.thread ], [ -22, %acpi_parse_string_ref.exit30.thread ], [ -2, %5 ], [ -2, %19 ], [ -2, %25 ], [ -2, %28 ], [ -22, %.preheader ], [ -22, %.preheader54 ], [ -22, %203 ], [ 0, %.loopexit53 ], [ -22, %141 ], [ 0, %.loopexit ], [ -22, %118 ], [ -2, %227 ], [ -22, %114 ], [ -2, %232 ], [ -2, %.outer ]
@@ -2170,12 +2170,12 @@ define internal ptr @acpi_fwnode_get_name(ptr noundef %0) #0 align 16 {
   %17 = getelementptr i8, ptr %0, i64 -16
   %18 = icmp eq ptr %17, null
   %19 = or i1 %18, %16
-  br i1 %19, label %.thread, label %20, !prof !30
+  br i1 %19, label %.thread, label %20, !prof !27
 
 .thread:                                          ; preds = %4, %15
-  tail call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #15, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1582, i32 2305, i64 12) #15, !srcloc !32
-  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #15, !srcloc !33
+  tail call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #15, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.14, i32 1582, i32 2305, i64 12) #15, !srcloc !29
+  tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_end\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #15, !srcloc !30
   br label %22
 
 20:                                               ; preds = %15
@@ -2280,7 +2280,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
 20:                                               ; preds = %16, %11
   %21 = tail call ptr @fwnode_get_next_child_node(ptr noundef %0, ptr noundef nonnull %5) #15
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %20, %16, %11, %2
   %23 = phi ptr [ null, %2 ], [ null, %20 ], [ %5, %16 ], [ %5, %11 ]
@@ -2291,7 +2291,7 @@ define internal ptr @acpi_fwnode_get_named_child_node(ptr noundef %0, ptr nounde
 define internal noundef range(i32 -22, 1) i32 @acpi_fwnode_get_reference_args(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address) %5) #0 align 16 {
   %7 = zext i32 %4 to i64
   %8 = zext i32 %3 to i64
-  %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !35
+  %9 = tail call i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef %1, i64 noundef %7, i64 noundef %8, ptr noundef %5), !range !32
   ret i32 %9
 }
 
@@ -2338,7 +2338,7 @@ define internal ptr @acpi_graph_get_next_endpoint(ptr noundef %0, ptr noundef %1
 is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %24
   %26 = phi i1 [ false, %9 ], [ %25, %24 ], [ false, %.preheader10 ]
   %27 = or i1 %6, %26
-  br i1 %27, label %.loopexit11, label %.preheader10, !llvm.loop !36
+  br i1 %27, label %.loopexit11, label %.preheader10, !llvm.loop !33
 
 28:                                               ; preds = %2
   %29 = tail call ptr @fwnode_get_parent(ptr noundef nonnull %1) #15
@@ -2399,7 +2399,7 @@ is_acpi_graph_node.exit:                          ; preds = %.preheader10, %9, %
 59:                                               ; preds = %57, %55, %40, %38
   %60 = phi ptr [ %58, %57 ], [ null, %55 ], [ null, %38 ], [ null, %40 ]
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !37
+  br i1 %61, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %59, %.thread
   %62 = phi ptr [ %33, %.thread ], [ %60, %59 ]
@@ -2449,7 +2449,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
   %4 = alloca %struct.fwnode_reference_args, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
-  %5 = call noundef i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef 0, i64 noundef 8, ptr noundef nonnull %4), !range !35
+  %5 = call noundef i32 @__acpi_node_get_property_reference(ptr noundef %0, ptr noundef nonnull @.str.20, i64 noundef 0, i64 noundef 8, ptr noundef nonnull %4), !range !32
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %.loopexit
 
@@ -2512,7 +2512,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
 44:                                               ; preds = %.preheader5, %.preheader5
   %45 = call ptr @fwnode_get_next_child_node(ptr noundef nonnull %8, ptr noundef nonnull %34) #15
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit6, label %.preheader5, !llvm.loop !38
+  br i1 %46, label %.loopexit6, label %.preheader5, !llvm.loop !35
 
 .loopexit6:                                       ; preds = %44, %.preheader5, %25
   %47 = phi ptr [ null, %25 ], [ null, %44 ], [ %42, %.preheader5 ]
@@ -2542,7 +2542,7 @@ define internal ptr @acpi_graph_get_remote_endpoint(ptr noundef %0) #0 align 16 
 60:                                               ; preds = %.preheader, %.preheader
   %61 = call ptr @fwnode_get_next_child_node(ptr noundef %47, ptr noundef nonnull %50) #15
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !38
+  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %60, %.preheader, %.loopexit6, %21, %16, %1
   %63 = phi ptr [ %20, %16 ], [ null, %1 ], [ null, %21 ], [ null, %.loopexit6 ], [ null, %60 ], [ %58, %.preheader ]
@@ -3303,7 +3303,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   store i8 %305, ptr %306, align 1
   %307 = add nuw i64 %287, 1
   %308 = icmp eq i64 %307, %4
-  br i1 %308, label %.thread52, label %286, !llvm.loop !39
+  br i1 %308, label %.thread52, label %286, !llvm.loop !36
 
 309:                                              ; preds = %328, %282
   %310 = phi i64 [ 0, %282 ], [ %331, %328 ]
@@ -3340,7 +3340,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   store i16 %329, ptr %330, align 2
   %331 = add nuw i64 %310, 1
   %332 = icmp eq i64 %331, %4
-  br i1 %332, label %.thread52, label %309, !llvm.loop !40
+  br i1 %332, label %.thread52, label %309, !llvm.loop !37
 
 333:                                              ; preds = %352, %280
   %334 = phi i64 [ 0, %280 ], [ %355, %352 ]
@@ -3377,7 +3377,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   store i32 %353, ptr %354, align 4
   %355 = add nuw i64 %334, 1
   %356 = icmp eq i64 %355, %4
-  br i1 %356, label %.thread52, label %333, !llvm.loop !41
+  br i1 %356, label %.thread52, label %333, !llvm.loop !38
 
 357:                                              ; preds = %373, %278
   %358 = phi i64 [ 0, %278 ], [ %376, %373 ]
@@ -3409,7 +3409,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   store i64 %374, ptr %375, align 8
   %376 = add nuw i64 %358, 1
   %377 = icmp eq i64 %376, %4
-  br i1 %377, label %.thread52, label %357, !llvm.loop !42
+  br i1 %377, label %.thread52, label %357, !llvm.loop !39
 
 378:                                              ; preds = %275
   %379 = trunc i64 %4 to i32
@@ -3436,7 +3436,7 @@ default.unreachable222:                           ; preds = %275, %select.unfold
   %394 = add nuw i32 %386, 1
   %395 = sext i32 %394 to i64
   %396 = icmp ult i64 %395, %383
-  br i1 %396, label %.preheader, label %.thread52, !llvm.loop !43
+  br i1 %396, label %.preheader, label %.thread52, !llvm.loop !40
 
 .thread52:                                        ; preds = %.critedge65.outer, %.critedge65.backedge, %390, %.preheader, %373, %366, %352, %346, %342, %328, %322, %318, %304, %298, %294, %159, %.thread55.thread, %.loopexit78.thread, %.loopexit, %.thread50, %.thread232, %135, %127, %119, %148, %150, %153, %378, %273, %268, %263, %258, %255
   %397 = phi i32 [ %208, %255 ], [ -22, %268 ], [ -71, %273 ], [ 0, %378 ], [ %260, %258 ], [ -75, %263 ], [ 1, %148 ], [ 1, %150 ], [ -75, %135 ], [ -75, %127 ], [ -75, %119 ], [ %155, %153 ], [ -22, %.thread232 ], [ -22, %.thread50 ], [ -22, %.loopexit78.thread ], [ -71, %.loopexit ], [ -71, %.thread55.thread ], [ -22, %159 ], [ -75, %298 ], [ -71, %294 ], [ 0, %304 ], [ -75, %322 ], [ -71, %318 ], [ 0, %328 ], [ -75, %346 ], [ -71, %342 ], [ 0, %352 ], [ -71, %366 ], [ 0, %373 ], [ %382, %390 ], [ -71, %.preheader ], [ -22, %.critedge65.backedge ], [ -22, %.critedge65.outer ]
@@ -3523,23 +3523,20 @@ attributes #16 = { nounwind allocsize(0) }
 !21 = distinct !{!21, !6, !7}
 !22 = distinct !{!22, !6, !7}
 !23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !6, !7, !25}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = !{!"branch_weights", i32 0, i32 -2147483648}
-!31 = !{i64 2154964902, i64 2154964711, i64 2154964763, i64 2154964809, i64 2154964837}
-!32 = !{i64 2154964976, i64 2154965005, i64 2154965051, i64 2154965109, i64 2154965163, i64 2154965217, i64 2154965272, i64 2154965303, i64 2154965611, i64 2154965617, i64 2154965664, i64 2154965687, i64 2154965713}
-!33 = !{i64 2154966170, i64 2154965981, i64 2154966031, i64 2154966077, i64 2154966105}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = !{!"branch_weights", i32 0, i32 -2147483648}
+!28 = !{i64 2154964902, i64 2154964711, i64 2154964763, i64 2154964809, i64 2154964837}
+!29 = !{i64 2154964976, i64 2154965005, i64 2154965051, i64 2154965109, i64 2154965163, i64 2154965217, i64 2154965272, i64 2154965303, i64 2154965611, i64 2154965617, i64 2154965664, i64 2154965687, i64 2154965713}
+!30 = !{i64 2154966170, i64 2154965981, i64 2154966031, i64 2154966077, i64 2154966105}
+!31 = distinct !{!31, !6, !7}
+!32 = !{i32 -2147483648, i32 1}
+!33 = distinct !{!33, !6, !7}
 !34 = distinct !{!34, !6, !7}
-!35 = !{i32 -2147483648, i32 1}
+!35 = distinct !{!35, !6, !7}
 !36 = distinct !{!36, !6, !7}
 !37 = distinct !{!37, !6, !7}
 !38 = distinct !{!38, !6, !7}
 !39 = distinct !{!39, !6, !7}
 !40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}

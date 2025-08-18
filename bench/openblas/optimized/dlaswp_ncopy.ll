@@ -262,7 +262,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %113 = getelementptr inbounds i8, ptr %.1286, i64 %.idx
   %114 = add nsw i64 %.0278, -1
   %115 = icmp sgt i64 %.0278, 1
-  br i1 %115, label %.preheader310.split.split, label %.split.us, !llvm.loop !13
+  br i1 %115, label %.preheader310.split.split, label %.split.us, !llvm.loop !11
 
 .split.us:                                        ; preds = %111, %90, %.preheader310.split.split.us.preheader
   %.us-phi = phi ptr [ %6, %.preheader310.split.split.us.preheader ], [ %.4.us, %90 ], [ %112, %111 ]
@@ -372,7 +372,7 @@ define noundef i32 @dlaswp_ncopy(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %156 = getelementptr inbounds nuw i8, ptr %.3275, i64 16
   %157 = add nsw i64 %.1280, -1
   %158 = icmp sgt i64 %.1280, 1
-  br i1 %158, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %158, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %153, %.thread
   %.5 = phi ptr [ %.0281307, %.thread ], [ %154, %153 ]
@@ -420,7 +420,5 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}

@@ -4004,7 +4004,7 @@ switch.lookup:                                    ; preds = %_ZN6GlShotIN3vcg4Sh
   %247 = sub nsw i32 %245, %241
   %spec.select = select i1 %246, i32 %247, i32 %.095
   %248 = icmp slt i32 %241, %245
-  br i1 %248, label %.lr.ph, label %.loopexit, !llvm.loop !72
+  br i1 %248, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 249:                                              ; preds = %230
   %250 = getelementptr inbounds nuw i8, ptr %231, i64 264
@@ -4538,20 +4538,20 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i18:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit23
 
 _ZN7QStringD2Ev.exit23:                           ; preds = %22, %_ZN9QtPrivate8RefCount5derefEv.exit.i19, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i18
-  %27 = load ptr, ptr %3, align 8, !noalias !73
+  %27 = load ptr, ptr %3, align 8, !noalias !72
   %28 = icmp eq ptr %27, @_ZN10QArrayData11shared_nullE
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %_ZN7QStringD2Ev.exit23
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %31 = load i64, ptr %30, align 8, !noalias !73
+  %31 = load i64, ptr %30, align 8, !noalias !72
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
   br label %33
 
 33:                                               ; preds = %29, %_ZN7QStringD2Ev.exit23
   %34 = phi ptr [ %32, %29 ], [ null, %_ZN7QStringD2Ev.exit23 ]
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %36 = load i32, ptr %35, align 4, !noalias !73
+  %36 = load i32, ptr %35, align 4, !noalias !72
   invoke void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %7, ptr noundef %34, i32 noundef %36)
           to label %_ZNKR7QString11toLocal8BitEv.exit unwind label %79
 
@@ -4687,20 +4687,20 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   br label %146
 
 85:                                               ; preds = %_ZN10QByteArrayD2Ev.exit
-  %86 = load ptr, ptr %5, align 8, !noalias !76
+  %86 = load ptr, ptr %5, align 8, !noalias !75
   %87 = icmp eq ptr %86, @_ZN10QArrayData11shared_nullE
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %90 = load i64, ptr %89, align 8, !noalias !76
+  %90 = load i64, ptr %89, align 8, !noalias !75
   %91 = getelementptr inbounds i8, ptr %86, i64 %90
   br label %92
 
 92:                                               ; preds = %88, %85
   %93 = phi ptr [ %91, %88 ], [ null, %85 ]
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %95 = load i32, ptr %94, align 4, !noalias !76
+  %95 = load i32, ptr %94, align 4, !noalias !75
   invoke void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %9, ptr noundef %93, i32 noundef %95)
           to label %_ZNKR7QString11toLocal8BitEv.exit40 unwind label %79
 
@@ -4896,7 +4896,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %8
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %_ZN7QStringC2ERKS_.exit
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25, !noalias !79
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25, !noalias !78
   %12 = trunc i64 %11 to i32
   br label %13
 
@@ -6650,15 +6650,14 @@ attributes #27 = { noreturn }
 !67 = distinct !{!67, !68, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE: argument 0"}
 !68 = distinct !{!68, !"_ZNK6QImage6scaledEiiN2Qt15AspectRatioModeENS0_18TransformationModeE"}
 !69 = distinct !{!69, !6}
-!70 = distinct !{!70, !6, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !6}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
-!75 = distinct !{!75, !"_ZNKR7QString11toLocal8BitEv"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
-!78 = distinct !{!78, !"_ZNKR7QString11toLocal8BitEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN7QString8fromUtf8EPKci: argument 0"}
-!81 = distinct !{!81, !"_ZN7QString8fromUtf8EPKci"}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
+!74 = distinct !{!74, !"_ZNKR7QString11toLocal8BitEv"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
+!77 = distinct !{!77, !"_ZNKR7QString11toLocal8BitEv"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN7QString8fromUtf8EPKci: argument 0"}
+!80 = distinct !{!80, !"_ZN7QString8fromUtf8EPKci"}

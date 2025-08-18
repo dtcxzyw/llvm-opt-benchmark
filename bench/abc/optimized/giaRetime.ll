@@ -1762,9 +1762,9 @@ define ptr @Gia_ManRetimeForward(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %21, label %Abc_Clock.exit, label %22
 
 22:                                               ; preds = %.lr.ph.split
-  %23 = load i64, ptr %5, align 8, !tbaa !68
+  %23 = load i64, ptr %5, align 8, !tbaa !67
   %.neg17 = mul i64 %23, -1000000
-  %24 = load i64, ptr %9, align 8, !tbaa !70
+  %24 = load i64, ptr %9, align 8, !tbaa !69
   %.neg = sdiv i64 %24, -1000
   %.neg18 = add i64 %.neg, %.neg17
   br label %Abc_Clock.exit
@@ -1799,9 +1799,9 @@ Abc_Clock.exit:                                   ; preds = %.lr.ph.split, %22
   br i1 %43, label %Abc_Clock.exit16, label %44
 
 44:                                               ; preds = %Abc_Clock.exit
-  %45 = load i64, ptr %4, align 8, !tbaa !68
+  %45 = load i64, ptr %4, align 8, !tbaa !67
   %46 = mul nsw i64 %45, 1000000
-  %47 = load i64, ptr %10, align 8, !tbaa !70
+  %47 = load i64, ptr %10, align 8, !tbaa !69
   %48 = sdiv i64 %47, 1000
   %49 = add nsw i64 %48, %46
   br label %Abc_Clock.exit16
@@ -1824,7 +1824,7 @@ Abc_Clock.exit16:                                 ; preds = %Abc_Clock.exit, %44
   %55 = icmp slt i32 %26, %1
   %56 = icmp sgt i32 %40, 0
   %57 = and i1 %55, %56
-  br i1 %57, label %.lr.ph.split, label %._crit_edge, !llvm.loop !71
+  br i1 %57, label %.lr.ph.split, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %54, %14, %3
   %.0.lcssa = phi ptr [ %0, %3 ], [ %12, %14 ], [ %25, %54 ]
@@ -1853,7 +1853,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #17
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !72
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !70
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
@@ -1861,7 +1861,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !72, !noalias !74
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !70, !noalias !72
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   br label %17
 
@@ -1888,7 +1888,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !77
+  %5 = load i32, ptr %4, align 4, !tbaa !75
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %47
 
@@ -1905,7 +1905,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %14 = load i32, ptr %13, align 4, !tbaa !78
+  %14 = load i32, ptr %13, align 4, !tbaa !76
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
 
@@ -1932,7 +1932,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
 26:                                               ; preds = %24, %22
   %27 = phi ptr [ %23, %22 ], [ %25, %24 ]
   store ptr %27, ptr %18, align 8, !tbaa !28
-  %28 = load i32, ptr %4, align 4, !tbaa !77
+  %28 = load i32, ptr %4, align 4, !tbaa !75
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %27, i64 %29
   %31 = sub nsw i32 %9, %28
@@ -1940,7 +1940,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %33 = mul nsw i64 %32, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !79
+  %35 = load ptr, ptr %34, align 8, !tbaa !77
   %.not34 = icmp eq ptr %35, null
   br i1 %.not34, label %46, label %36
 
@@ -1948,8 +1948,8 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
   %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #20
-  store ptr %39, ptr %34, align 8, !tbaa !79
-  %40 = load i32, ptr %4, align 4, !tbaa !77
+  store ptr %39, ptr %34, align 8, !tbaa !77
+  %40 = load i32, ptr %4, align 4, !tbaa !75
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %39, i64 %41
   %43 = sub nsw i32 %9, %40
@@ -1959,7 +1959,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unna
   br label %46
 
 46:                                               ; preds = %36, %26
-  store i32 %9, ptr %4, align 4, !tbaa !77
+  store i32 %9, ptr %4, align 4, !tbaa !75
   br label %47
 
 47:                                               ; preds = %46, %1
@@ -2184,17 +2184,15 @@ attributes #21 = { cold noreturn nounwind }
 !63 = distinct !{!63, !37}
 !64 = !{!46, !9, i64 0}
 !65 = distinct !{!65, !37}
-!66 = distinct !{!66, !37, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = !{!69, !23, i64 0}
-!69 = !{!"timespec", !23, i64 0, !23, i64 8}
-!70 = !{!69, !23, i64 8}
-!71 = distinct !{!71, !37}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"vprintf: argument 0"}
-!76 = distinct !{!76, !"vprintf"}
-!77 = !{!4, !9, i64 28}
-!78 = !{!4, !9, i64 796}
-!79 = !{!4, !11, i64 40}
+!66 = distinct !{!66, !37}
+!67 = !{!68, !23, i64 0}
+!68 = !{!"timespec", !23, i64 0, !23, i64 8}
+!69 = !{!68, !23, i64 8}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"vprintf: argument 0"}
+!74 = distinct !{!74, !"vprintf"}
+!75 = !{!4, !9, i64 28}
+!76 = !{!4, !9, i64 796}
+!77 = !{!4, !11, i64 40}

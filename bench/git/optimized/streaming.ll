@@ -269,7 +269,7 @@ define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %0, ptr nou
   %22 = load ptr, ptr %14, align 8, !tbaa !15
   %23 = call i64 %22(ptr noundef nonnull %9, ptr noundef nonnull %7, i64 noundef 16384) #11
   %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.thread47, label %.lr.ph.split.us.split, !llvm.loop !69
+  br i1 %24, label %.thread47, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %38
   %25 = phi i64 [ %40, %38 ], [ %16, %.lr.ph ]
@@ -289,7 +289,7 @@ define dso_local range(i32 -1, 1) i32 @stream_blob_to_fd(i32 noundef %0, ptr nou
 28:                                               ; preds = %.preheader
   %29 = add nuw nsw i64 %.03357, 1
   %exitcond.not = icmp eq i64 %29, 16384
-  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !71
+  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !69
 
 30:                                               ; preds = %28
   %31 = add nsw i64 %.03458, 16384
@@ -417,12 +417,12 @@ define internal range(i32 -1, 1) i32 @open_istream_loose(ptr noundef %0, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 %26, ptr %27, align 4, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %29 = load i64, ptr %28, align 8, !tbaa !73
+  %29 = load i64, ptr %28, align 8, !tbaa !71
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %30, ptr %31, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 1, ptr %32, align 8, !tbaa !74
+  store i32 1, ptr %32, align 8, !tbaa !72
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @close_istream_loose, ptr %33, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -446,7 +446,7 @@ define internal range(i32 -1, 1) i32 @open_istream_loose(ptr noundef %0, ptr nou
 define internal range(i32 -1, 1) i32 @open_istream_pack_non_delta(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !75
+  store ptr null, ptr %5, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -459,7 +459,7 @@ define internal range(i32 -1, 1) i32 @open_istream_pack_non_delta(ptr noundef %0
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 0, ptr %12, align 8, !tbaa !74
+  store i32 0, ptr %12, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @close_istream_pack_non_delta, ptr %13, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -484,7 +484,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @close_istream_loose(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i32, ptr %2, align 8, !tbaa !74
+  %3 = load i32, ptr %2, align 8, !tbaa !72
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %close_deflated_stream.exit
 
@@ -505,7 +505,7 @@ close_deflated_stream.exit:                       ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load i32, ptr %4, align 8, !tbaa !74
+  %5 = load i32, ptr %4, align 8, !tbaa !72
   switch i32 %5, label %7 [
     i32 2, label %.loopexit
     i32 3, label %6
@@ -551,11 +551,11 @@ define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noun
 28:                                               ; preds = %.lr.ph, %37
   %.14158 = phi i64 [ %.040, %.lr.ph ], [ %34, %37 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.14158
-  store ptr %29, ptr %25, align 8, !tbaa !77
+  store ptr %29, ptr %25, align 8, !tbaa !75
   %30 = sub nuw i64 %2, %.14158
-  store i64 %30, ptr %26, align 8, !tbaa !78
+  store i64 %30, ptr %26, align 8, !tbaa !76
   %31 = tail call i32 @git_inflate(ptr noundef nonnull %24, i32 noundef 4) #11
-  %32 = load ptr, ptr %25, align 8, !tbaa !77
+  %32 = load ptr, ptr %25, align 8, !tbaa !75
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %27
   switch i32 %31, label %.thread [
@@ -570,7 +570,7 @@ define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noun
 
 .thread:                                          ; preds = %35, %28
   tail call void @git_inflate_end(ptr noundef nonnull %24) #11
-  store i32 3, ptr %4, align 8, !tbaa !74
+  store i32 3, ptr %4, align 8, !tbaa !72
   br label %.loopexit
 
 37:                                               ; preds = %35, %28
@@ -579,7 +579,7 @@ define internal i64 @read_istream_loose(ptr noundef %0, ptr noundef %1, i64 noun
 
 39:                                               ; preds = %28
   tail call void @git_inflate_end(ptr noundef nonnull %24) #11
-  store i32 2, ptr %4, align 8, !tbaa !74
+  store i32 2, ptr %4, align 8, !tbaa !72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %22, %.thread, %3, %39, %6
@@ -604,7 +604,7 @@ declare void @unuse_pack(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @close_istream_pack_non_delta(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i32, ptr %2, align 8, !tbaa !74
+  %3 = load i32, ptr %2, align 8, !tbaa !72
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %close_deflated_stream.exit
 
@@ -621,7 +621,7 @@ close_deflated_stream.exit:                       ; preds = %1, %5
 define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %6 = load i32, ptr %5, align 8, !tbaa !74
+  %6 = load i32, ptr %5, align 8, !tbaa !72
   switch i32 %6, label %10 [
     i32 0, label %7
     i32 2, label %.loopexit
@@ -632,7 +632,7 @@ define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1,
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   tail call void @git_inflate_init(ptr noundef nonnull %8) #11
-  store i32 1, ptr %5, align 8, !tbaa !74
+  store i32 1, ptr %5, align 8, !tbaa !72
   br label %10
 
 9:                                                ; preds = %3
@@ -656,24 +656,24 @@ define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %.lr.ph, %35
   %.03346 = phi i64 [ 0, %.lr.ph ], [ %34, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !75
+  store ptr null, ptr %4, align 8, !tbaa !73
   %20 = load ptr, ptr %11, align 8, !tbaa !56
   %21 = load i64, ptr %12, align 8, !tbaa !56
   %22 = call ptr @use_pack(ptr noundef %20, ptr noundef nonnull %4, i64 noundef %21, ptr noundef nonnull %14) #11
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.03346
-  store ptr %23, ptr %15, align 8, !tbaa !77
+  store ptr %23, ptr %15, align 8, !tbaa !75
   %24 = sub nuw i64 %2, %.03346
-  store i64 %24, ptr %16, align 8, !tbaa !78
-  store ptr %22, ptr %17, align 8, !tbaa !79
+  store i64 %24, ptr %16, align 8, !tbaa !76
+  store ptr %22, ptr %17, align 8, !tbaa !77
   %25 = call i32 @git_inflate(ptr noundef nonnull %13, i32 noundef 4) #11
-  %26 = load ptr, ptr %17, align 8, !tbaa !79
+  %26 = load ptr, ptr %17, align 8, !tbaa !77
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %22 to i64
   %29 = sub i64 %27, %28
   %30 = load i64, ptr %12, align 8, !tbaa !56
   %31 = add nsw i64 %29, %30
   store i64 %31, ptr %12, align 8, !tbaa !56
-  %32 = load ptr, ptr %15, align 8, !tbaa !77
+  %32 = load ptr, ptr %15, align 8, !tbaa !75
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %18
   call void @unuse_pack(ptr noundef nonnull %4) #11
@@ -685,7 +685,7 @@ define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %19
   call void @git_inflate_end(ptr noundef nonnull %13) #11
-  store i32 3, ptr %5, align 8, !tbaa !74
+  store i32 3, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -696,7 +696,7 @@ define internal i64 @read_istream_pack_non_delta(ptr noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %19
   call void @git_inflate_end(ptr noundef nonnull %13) #11
-  store i32 2, ptr %5, align 8, !tbaa !74
+  store i32 2, ptr %5, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -779,8 +779,8 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.051.ph87 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %28, %.outer ]
   %.054.ph86 = phi i64 [ %2, %.lr.ph.lr.ph ], [ %27, %.outer ]
-  %16 = load i32, ptr %8, align 4, !tbaa !80
-  %17 = load i32, ptr %9, align 8, !tbaa !81
+  %16 = load i32, ptr %8, align 4, !tbaa !78
+  %17 = load i32, ptr %9, align 8, !tbaa !79
   %18 = icmp slt i32 %16, %17
   br i1 %18, label %.outer, label %.lr.ph135
 
@@ -794,20 +794,20 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %22 = sext i32 %.lcssa125 to i64
   %23 = getelementptr inbounds i8, ptr %14, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %23, i64 %spec.select, i1 false)
-  %24 = load i32, ptr %8, align 4, !tbaa !80
+  %24 = load i32, ptr %8, align 4, !tbaa !78
   %25 = trunc nuw nsw i64 %spec.select to i32
   %26 = add i32 %24, %25
-  store i32 %26, ptr %8, align 4, !tbaa !80
+  store i32 %26, ptr %8, align 4, !tbaa !78
   %27 = sub i64 %.054.ph86, %spec.select
   %28 = add i64 %spec.select, %.051.ph87
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph135:                                        ; preds = %.lr.ph, %.backedge
-  store i32 0, ptr %8, align 4, !tbaa !80
-  store i32 0, ptr %9, align 8, !tbaa !81
-  %29 = load i32, ptr %10, align 4, !tbaa !82
-  %30 = load i32, ptr %11, align 8, !tbaa !83
+  store i32 0, ptr %8, align 4, !tbaa !78
+  store i32 0, ptr %9, align 8, !tbaa !79
+  %29 = load i32, ptr %10, align 4, !tbaa !80
+  %30 = load i32, ptr %11, align 8, !tbaa !81
   %31 = icmp slt i32 %29, %30
   br i1 %31, label %32, label %47
 
@@ -826,21 +826,21 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   br i1 %.not64, label %39, label %.critedge
 
 39:                                               ; preds = %32
-  %40 = load i32, ptr %11, align 8, !tbaa !83
+  %40 = load i32, ptr %11, align 8, !tbaa !81
   %41 = load i64, ptr %4, align 8, !tbaa !57
   %42 = trunc i64 %41 to i32
   %43 = sub i32 %40, %42
-  store i32 %43, ptr %10, align 4, !tbaa !82
+  store i32 %43, ptr %10, align 4, !tbaa !80
   %44 = load i64, ptr %5, align 8, !tbaa !57
   %45 = trunc i64 %44 to i32
   %46 = sub i32 16384, %45
-  store i32 %46, ptr %9, align 8, !tbaa !81
+  store i32 %46, ptr %9, align 8, !tbaa !79
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 47:                                               ; preds = %.lr.ph135
-  %48 = load i32, ptr %12, align 8, !tbaa !84
+  %48 = load i32, ptr %12, align 8, !tbaa !82
   %.not59 = icmp eq i32 %48, 0
   br i1 %.not59, label %56, label %49
 
@@ -860,20 +860,20 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   %53 = load i64, ptr %6, align 8, !tbaa !57
   %54 = trunc i64 %53 to i32
   %55 = sub i32 16384, %54
-  store i32 %55, ptr %9, align 8, !tbaa !81
+  store i32 %55, ptr %9, align 8, !tbaa !79
   %.not63 = icmp eq i32 %54, 16384
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not63, label %.loopexit, label %.backedge
 
 56:                                               ; preds = %47
-  store i32 0, ptr %10, align 4, !tbaa !82
-  store i32 0, ptr %11, align 8, !tbaa !83
+  store i32 0, ptr %10, align 4, !tbaa !80
+  store i32 0, ptr %11, align 8, !tbaa !81
   %57 = load ptr, ptr %7, align 8, !tbaa !61
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %60 = call i64 %59(ptr noundef %57, ptr noundef nonnull %15, i64 noundef 16384) #11
   %61 = trunc i64 %60 to i32
-  store i32 %61, ptr %11, align 8, !tbaa !83
+  store i32 %61, ptr %11, align 8, !tbaa !81
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.loopexit, label %63
 
@@ -882,12 +882,12 @@ define internal i64 @read_istream_filtered(ptr noundef %0, ptr noundef writeonly
   br i1 %.not61, label %64, label %.backedge
 
 64:                                               ; preds = %63
-  store i32 1, ptr %12, align 8, !tbaa !84
+  store i32 1, ptr %12, align 8, !tbaa !82
   br label %.backedge
 
 .backedge:                                        ; preds = %52, %64, %63, %39
-  %65 = load i32, ptr %8, align 4, !tbaa !80
-  %66 = load i32, ptr %9, align 8, !tbaa !81
+  %65 = load i32, ptr %8, align 4, !tbaa !78
+  %66 = load i32, ptr %9, align 8, !tbaa !79
   %67 = icmp slt i32 %65, %66
   br i1 %67, label %.outer, label %.lr.ph135
 
@@ -998,18 +998,16 @@ attributes #12 = { nounwind willreturn memory(read) }
 !67 = !{!"p1 _ZTS10repository", !6, i64 0}
 !68 = !{!13, !13, i64 0}
 !69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !72}
-!72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!5, !9, i64 168}
-!74 = !{!5, !13, i64 192}
-!75 = !{!76, !76, i64 0}
-!76 = !{!"p1 _ZTS11pack_window", !6, i64 0}
-!77 = !{!5, !12, i64 184}
-!78 = !{!5, !9, i64 152}
-!79 = !{!5, !12, i64 176}
-!80 = !{!62, !13, i64 32796}
-!81 = !{!62, !13, i64 32792}
-!82 = !{!62, !13, i64 32788}
-!83 = !{!62, !13, i64 32784}
-!84 = !{!62, !13, i64 32800}
+!70 = !{!"llvm.loop.mustprogress"}
+!71 = !{!5, !9, i64 168}
+!72 = !{!5, !13, i64 192}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS11pack_window", !6, i64 0}
+!75 = !{!5, !12, i64 184}
+!76 = !{!5, !9, i64 152}
+!77 = !{!5, !12, i64 176}
+!78 = !{!62, !13, i64 32796}
+!79 = !{!62, !13, i64 32792}
+!80 = !{!62, !13, i64 32788}
+!81 = !{!62, !13, i64 32784}
+!82 = !{!62, !13, i64 32800}

@@ -710,13 +710,13 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr readnone c
 
 52:                                               ; preds = %.thread4, %.thread
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
-  br i1 %44, label %.split.split, label %.split8.us, !llvm.loop !31
+  br i1 %44, label %.split.split, label %.split8.us, !llvm.loop !29
 
 .split8.us:                                       ; preds = %52, %41, %.thread4.us9
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #8
   %53 = load ptr, ptr %11, align 8
   %54 = icmp eq ptr %53, @rdmacg_devices
-  br i1 %54, label %.loopexit, label %10, !llvm.loop !32
+  br i1 %54, label %.loopexit, label %10, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.split8.us, %2
   tail call void @mutex_unlock(ptr noundef nonnull @rdmacg_mutex) #8
@@ -760,9 +760,9 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   %25 = phi i64 [ 0, %22 ], [ %53, %48 ]
   %26 = phi ptr [ %20, %22 ], [ %54, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i32 0, ptr %8, align 4, !annotation !33
+  store i32 0, ptr %8, align 4, !annotation !31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !33
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %26, ptr %6, align 8
   %27 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.9) #8
@@ -841,7 +841,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef %63) #8
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %57, !llvm.loop !34
+  br i1 %65, label %66, label %57, !llvm.loop !32
 
 66:                                               ; preds = %61
   %67 = icmp eq ptr %59, null
@@ -943,7 +943,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   br i1 %118, label %.thread22, label %119
 
 119:                                              ; preds = %114
-  %120 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %117) #12, !srcloc !35
+  %120 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %117) #12, !srcloc !33
   %121 = trunc i64 %120 to i32
   %122 = icmp slt i32 %121, 2
   br i1 %122, label %123, label %.thread22
@@ -978,7 +978,7 @@ define internal i64 @rdmacg_resource_set_max(ptr noundef %0, ptr noundef %1, i64
   %140 = add i64 %124, 4294967296
   %141 = ashr exact i64 %140, 32
   %142 = icmp ugt i64 %141, 1
-  br i1 %142, label %.thread22, label %114, !prof !36, !llvm.loop !37
+  br i1 %142, label %.thread22, label %114, !prof !34, !llvm.loop !35
 
 .thread22:                                        ; preds = %114, %138, %119
   %143 = getelementptr inbounds nuw i8, ptr %106, i64 56
@@ -1097,12 +1097,10 @@ attributes #12 = { nounwind memory(read) }
 !26 = distinct !{!26, !6, !7}
 !27 = distinct !{!27, !6, !7}
 !28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = !{!"auto-init"}
 !32 = distinct !{!32, !6, !7}
-!33 = !{!"auto-init"}
-!34 = distinct !{!34, !6, !7}
-!35 = !{i64 258765}
-!36 = !{!"branch_weights", i32 1, i32 1999}
-!37 = distinct !{!37, !6, !7}
+!33 = !{i64 258765}
+!34 = !{!"branch_weights", i32 1, i32 1999}
+!35 = distinct !{!35, !6, !7}

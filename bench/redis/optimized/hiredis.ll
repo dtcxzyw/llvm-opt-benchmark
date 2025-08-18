@@ -1145,7 +1145,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
   %50 = add i64 %49, %47
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %bulklen.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bulklen.exit ], [ 0, %.lr.ph ]
@@ -1234,7 +1234,7 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
   %88 = tail call ptr @hi_sdscatlen(ptr noundef %87, ptr noundef nonnull @.str.6, i64 noundef 2) #13
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge61, label %.lr.ph60.split.us, !llvm.loop !34
+  br i1 %exitcond96.not, label %._crit_edge61, label %.lr.ph60.split.us
 
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %.lr.ph60.split
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.lr.ph60.split ], [ 0, %.lr.ph60 ]
@@ -1377,7 +1377,7 @@ bulklen.exit.us:                                  ; preds = %36, %44, %42, %40, 
   %50 = add i64 %49, %47
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %bulklen.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bulklen.exit ], [ 0, %.lr.ph ]
@@ -1469,7 +1469,7 @@ bulklen.exit:                                     ; preds = %65, %.lr.ph.split, 
   store i8 10, ptr %93, align 1, !tbaa !22
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge66, label %.lr.ph65.split.us, !llvm.loop !36
+  br i1 %exitcond101.not, label %._crit_edge66, label %.lr.ph65.split.us
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %.lr.ph65.split
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph65.split ], [ 0, %.lr.ph65 ]
@@ -1516,7 +1516,7 @@ define void @redisFreeCommand(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @__redisSetError(ptr noundef initializes((8, 12)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %4, align 8, !tbaa !37
+  store i32 %1, ptr %4, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %.not, label %10, label %6
@@ -1559,12 +1559,12 @@ define void @redisFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %47, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !45
+  %4 = load ptr, ptr %0, align 8, !tbaa !40
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %4, align 8, !tbaa !46
+  %6 = load ptr, ptr %4, align 8, !tbaa !41
   %.not29 = icmp eq ptr %6, null
   br i1 %.not29, label %8, label %7
 
@@ -1574,43 +1574,43 @@ define void @redisFree(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %5, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   tail call void @hi_sdsfree(ptr noundef %10) #13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %12 = load ptr, ptr %11, align 8, !tbaa !49
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
   tail call void @redisReaderFree(ptr noundef %12) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %14 = load ptr, ptr %13, align 8, !tbaa !50
+  %14 = load ptr, ptr %13, align 8, !tbaa !45
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %15(ptr noundef %14) #13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %18(ptr noundef %17) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %21(ptr noundef %20) #13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  %23 = load ptr, ptr %22, align 8, !tbaa !48
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %24(ptr noundef %23) #13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %26 = load ptr, ptr %25, align 8, !tbaa !54
+  %26 = load ptr, ptr %25, align 8, !tbaa !49
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %27(ptr noundef %26) #13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %29 = load ptr, ptr %28, align 8, !tbaa !55
+  %29 = load ptr, ptr %28, align 8, !tbaa !50
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   tail call void %30(ptr noundef %29) #13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %32 = load ptr, ptr %31, align 8, !tbaa !56
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %37, label %33
 
 33:                                               ; preds = %8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %35 = load ptr, ptr %34, align 8, !tbaa !57
+  %35 = load ptr, ptr %34, align 8, !tbaa !52
   %.not31 = icmp eq ptr %35, null
   br i1 %.not31, label %37, label %36
 
@@ -1619,19 +1619,19 @@ define void @redisFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %36, %33, %8
-  %38 = load ptr, ptr %0, align 8, !tbaa !45
+  %38 = load ptr, ptr %0, align 8, !tbaa !40
   %.not32 = icmp eq ptr %38, null
   br i1 %.not32, label %45, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !58
+  %41 = load ptr, ptr %40, align 8, !tbaa !53
   %.not33 = icmp eq ptr %41, null
   br i1 %.not33, label %45, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %44 = load ptr, ptr %43, align 8, !tbaa !59
+  %44 = load ptr, ptr %43, align 8, !tbaa !54
   tail call void %41(ptr noundef %44) #13
   br label %45
 
@@ -1653,8 +1653,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define i32 @redisFreeKeepFd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %3 = load i32, ptr %2, align 4, !tbaa !60
-  store i32 -1, ptr %2, align 4, !tbaa !60
+  %3 = load i32, ptr %2, align 4, !tbaa !55
+  store i32 -1, ptr %2, align 4, !tbaa !55
   tail call void @redisFree(ptr noundef %0)
   ret i32 %3
 }
@@ -1662,35 +1662,35 @@ define i32 @redisFreeKeepFd(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @redisReconnect(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %2, align 8, !tbaa !37
+  store i32 0, ptr %2, align 8, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %3, i8 0, i64 %4, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %6 = load ptr, ptr %5, align 8, !tbaa !59
+  %6 = load ptr, ptr %5, align 8, !tbaa !54
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !45
+  %8 = load ptr, ptr %0, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not43 = icmp eq ptr %10, null
   br i1 %.not43, label %.thread, label %11
 
 11:                                               ; preds = %7
   tail call void %10(ptr noundef nonnull %6) #13
-  store ptr null, ptr %5, align 8, !tbaa !59
+  store ptr null, ptr %5, align 8, !tbaa !54
   br label %12
 
 12:                                               ; preds = %11, %1
-  %.pr = load ptr, ptr %0, align 8, !tbaa !45
+  %.pr = load ptr, ptr %0, align 8, !tbaa !40
   %.not44 = icmp eq ptr %.pr, null
   br i1 %.not44, label %16, label %.thread
 
 .thread:                                          ; preds = %7, %12
   %13 = phi ptr [ %.pr, %12 ], [ %8, %7 ]
-  %14 = load ptr, ptr %13, align 8, !tbaa !46
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %.not45 = icmp eq ptr %14, null
   br i1 %.not45, label %16, label %15
 
@@ -1700,23 +1700,23 @@ define i32 @redisReconnect(ptr noundef initializes((8, 12)) %0) local_unnamed_ad
 
 16:                                               ; preds = %15, %.thread, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   tail call void @hi_sdsfree(ptr noundef %18) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %20 = load ptr, ptr %19, align 8, !tbaa !49
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
   tail call void @redisReaderFree(ptr noundef %20) #13
   %21 = tail call ptr @hi_sdsempty() #13
-  store ptr %21, ptr %17, align 8, !tbaa !48
+  store ptr %21, ptr %17, align 8, !tbaa !43
   %22 = tail call ptr @redisReaderCreateWithFunctions(ptr noundef nonnull @defaultFunctions) #13
-  store ptr %22, ptr %19, align 8, !tbaa !49
-  %23 = load ptr, ptr %17, align 8, !tbaa !48
+  store ptr %22, ptr %19, align 8, !tbaa !44
+  %23 = load ptr, ptr %17, align 8, !tbaa !43
   %24 = icmp eq ptr %23, null
   %25 = icmp eq ptr %22, null
   %or.cond = select i1 %24, i1 true, i1 %25
   br i1 %or.cond, label %26, label %28
 
 26:                                               ; preds = %16
-  store i32 5, ptr %2, align 8, !tbaa !37
+  store i32 5, ptr %2, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %27, align 1, !tbaa !22
@@ -1724,7 +1724,7 @@ define i32 @redisReconnect(ptr noundef initializes((8, 12)) %0) local_unnamed_ad
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %30 = load i32, ptr %29, align 8, !tbaa !61
+  %30 = load i32, ptr %29, align 8, !tbaa !56
   switch i32 %30, label %47 [
     i32 0, label %31
     i32 1, label %41
@@ -1732,26 +1732,26 @@ define i32 @redisReconnect(ptr noundef initializes((8, 12)) %0) local_unnamed_ad
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %33 = load ptr, ptr %32, align 8, !tbaa !50
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %35 = load i32, ptr %34, align 8, !tbaa !62
+  %35 = load i32, ptr %34, align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %37 = load ptr, ptr %36, align 8, !tbaa !53
+  %37 = load ptr, ptr %36, align 8, !tbaa !48
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %39 = load ptr, ptr %38, align 8, !tbaa !51
+  %39 = load ptr, ptr %38, align 8, !tbaa !46
   %40 = tail call i32 @redisContextConnectBindTcp(ptr noundef nonnull %0, ptr noundef %33, i32 noundef %35, ptr noundef %37, ptr noundef %39) #13
   br label %49
 
 41:                                               ; preds = %28
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %43 = load ptr, ptr %42, align 8, !tbaa !52
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %45 = load ptr, ptr %44, align 8, !tbaa !53
+  %45 = load ptr, ptr %44, align 8, !tbaa !48
   %46 = tail call i32 @redisContextConnectUnix(ptr noundef nonnull %0, ptr noundef %43, ptr noundef %45) #13
   br label %49
 
 47:                                               ; preds = %28
-  store i32 2, ptr %2, align 8, !tbaa !37
+  store i32 2, ptr %2, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(35) %3, ptr noundef nonnull align 1 dereferenceable(35) @.str.8, i64 35, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 47
   store i8 0, ptr %48, align 1, !tbaa !22
@@ -1760,20 +1760,20 @@ define i32 @redisReconnect(ptr noundef initializes((8, 12)) %0) local_unnamed_ad
 49:                                               ; preds = %41, %47, %31
   %.0 = phi i32 [ %40, %31 ], [ %46, %41 ], [ -1, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %51 = load ptr, ptr %50, align 8, !tbaa !54
+  %51 = load ptr, ptr %50, align 8, !tbaa !49
   %.not46 = icmp eq ptr %51, null
   br i1 %.not46, label %64, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %54 = load i32, ptr %53, align 8, !tbaa !63
+  %54 = load i32, ptr %53, align 8, !tbaa !58
   %55 = and i32 %54, 1
   %.not47 = icmp eq i32 %55, 0
   br i1 %.not47, label %64, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %58 = load i32, ptr %57, align 4, !tbaa !60
+  %58 = load i32, ptr %57, align 4, !tbaa !55
   %.not48 = icmp eq i32 %58, -1
   br i1 %.not48, label %64, label %59
 
@@ -1797,22 +1797,22 @@ declare i32 @redisContextSetTimeout(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @redisConnectWithOptions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %3 = tail call ptr %2(i64 noundef 1, i64 noundef 272) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %redisContextInit.exit.thread, label %5
 
 5:                                                ; preds = %1
-  store ptr @redisContextDefaultFuncs, ptr %3, align 8, !tbaa !45
+  store ptr @redisContextDefaultFuncs, ptr %3, align 8, !tbaa !40
   %6 = tail call ptr @hi_sdsempty() #13
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr %6, ptr %7, align 8, !tbaa !48
+  store ptr %6, ptr %7, align 8, !tbaa !43
   %8 = tail call ptr @redisReaderCreateWithFunctions(ptr noundef nonnull @defaultFunctions) #13
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  store ptr %8, ptr %9, align 8, !tbaa !49
+  store ptr %8, ptr %9, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  store i32 -1, ptr %10, align 4, !tbaa !60
-  %11 = load ptr, ptr %7, align 8, !tbaa !48
+  store i32 -1, ptr %10, align 4, !tbaa !55
+  %11 = load ptr, ptr %7, align 8, !tbaa !43
   %12 = icmp eq ptr %11, null
   %13 = icmp eq ptr %8, null
   %or.cond.i = select i1 %12, i1 true, i1 %13
@@ -1824,16 +1824,16 @@ define ptr @redisConnectWithOptions(ptr noundef readonly captures(none) %0) loca
 
 redisContextInit.exit:                            ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !65
+  %16 = load i32, ptr %15, align 4, !tbaa !60
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %22
 
 18:                                               ; preds = %redisContextInit.exit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %20 = load i32, ptr %19, align 8, !tbaa !63
+  %20 = load i32, ptr %19, align 8, !tbaa !58
   %21 = or i32 %20, 1
-  store i32 %21, ptr %19, align 8, !tbaa !63
+  store i32 %21, ptr %19, align 8, !tbaa !58
   br label %22
 
 22:                                               ; preds = %18, %redisContextInit.exit
@@ -1843,9 +1843,9 @@ redisContextInit.exit:                            ; preds = %5
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !63
+  %26 = load i32, ptr %25, align 8, !tbaa !58
   %27 = or i32 %26, 128
-  store i32 %27, ptr %25, align 8, !tbaa !63
+  store i32 %27, ptr %25, align 8, !tbaa !58
   br label %28
 
 28:                                               ; preds = %24, %22
@@ -1855,9 +1855,9 @@ redisContextInit.exit:                            ; preds = %5
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %32 = load i32, ptr %31, align 8, !tbaa !63
+  %32 = load i32, ptr %31, align 8, !tbaa !58
   %33 = or i32 %32, 512
-  store i32 %33, ptr %31, align 8, !tbaa !63
+  store i32 %33, ptr %31, align 8, !tbaa !58
   br label %34
 
 34:                                               ; preds = %30, %28
@@ -1867,9 +1867,9 @@ redisContextInit.exit:                            ; preds = %5
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %38 = load i32, ptr %37, align 8, !tbaa !63
+  %38 = load i32, ptr %37, align 8, !tbaa !58
   %39 = or i32 %38, 1024
-  store i32 %39, ptr %37, align 8, !tbaa !63
+  store i32 %39, ptr %37, align 8, !tbaa !58
   br label %40
 
 40:                                               ; preds = %36, %34
@@ -1879,9 +1879,9 @@ redisContextInit.exit:                            ; preds = %5
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %44 = load i32, ptr %43, align 8, !tbaa !63
+  %44 = load i32, ptr %43, align 8, !tbaa !58
   %45 = or i32 %44, 2048
-  store i32 %45, ptr %43, align 8, !tbaa !63
+  store i32 %45, ptr %43, align 8, !tbaa !58
   br label %46
 
 46:                                               ; preds = %42, %40
@@ -1891,14 +1891,14 @@ redisContextInit.exit:                            ; preds = %5
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %50 = load i32, ptr %49, align 8, !tbaa !63
+  %50 = load i32, ptr %49, align 8, !tbaa !58
   %51 = or i32 %50, 4096
-  store i32 %51, ptr %49, align 8, !tbaa !63
+  store i32 %51, ptr %49, align 8, !tbaa !58
   br label %52
 
 52:                                               ; preds = %48, %46
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = load ptr, ptr %53, align 8, !tbaa !67
+  %54 = load ptr, ptr %53, align 8, !tbaa !62
   %.not60 = icmp eq ptr %54, null
   br i1 %.not60, label %55, label %.sink.split
 
@@ -1910,34 +1910,34 @@ redisContextInit.exit:                            ; preds = %5
 .sink.split:                                      ; preds = %55, %52
   %redisPushAutoFree.sink = phi ptr [ %54, %52 ], [ @redisPushAutoFree, %55 ]
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  store ptr %redisPushAutoFree.sink, ptr %57, align 8, !tbaa !68
+  store ptr %redisPushAutoFree.sink, ptr %57, align 8, !tbaa !63
   br label %58
 
 58:                                               ; preds = %.sink.split, %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !69
+  %60 = load ptr, ptr %59, align 8, !tbaa !64
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  store ptr %60, ptr %61, align 8, !tbaa !56
+  store ptr %60, ptr %61, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !70
+  %63 = load ptr, ptr %62, align 8, !tbaa !65
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  store ptr %63, ptr %64, align 8, !tbaa !57
+  store ptr %63, ptr %64, align 8, !tbaa !52
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !71
+  %66 = load ptr, ptr %65, align 8, !tbaa !66
   %67 = tail call i32 @redisContextUpdateConnectTimeout(ptr noundef nonnull %3, ptr noundef %66) #13
   %.not62 = icmp eq i32 %67, 0
   br i1 %.not62, label %68, label %72
 
 68:                                               ; preds = %58
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !72
+  %70 = load ptr, ptr %69, align 8, !tbaa !67
   %71 = tail call i32 @redisContextUpdateCommandTimeout(ptr noundef nonnull %3, ptr noundef %70) #13
   %.not63 = icmp eq i32 %71, 0
   br i1 %.not63, label %76, label %72
 
 72:                                               ; preds = %68, %58
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 5, ptr %73, align 8, !tbaa !37
+  store i32 5, ptr %73, align 8, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %74, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 25
@@ -1945,7 +1945,7 @@ redisContextInit.exit:                            ; preds = %5
   br label %redisContextInit.exit.thread
 
 76:                                               ; preds = %68
-  %77 = load i32, ptr %0, align 8, !tbaa !73
+  %77 = load i32, ptr %0, align 8, !tbaa !68
   switch i32 %77, label %98 [
     i32 0, label %78
     i32 1, label %87
@@ -1958,7 +1958,7 @@ redisContextInit.exit:                            ; preds = %5
   %81 = load ptr, ptr %80, align 8, !tbaa !22
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i32, ptr %82, align 8, !tbaa !22
-  %84 = load ptr, ptr %65, align 8, !tbaa !71
+  %84 = load ptr, ptr %65, align 8, !tbaa !66
   %85 = load ptr, ptr %79, align 8, !tbaa !22
   %86 = tail call i32 @redisContextConnectBindTcp(ptr noundef nonnull %3, ptr noundef %81, i32 noundef %83, ptr noundef %84, ptr noundef %85) #13
   br label %99
@@ -1966,18 +1966,18 @@ redisContextInit.exit:                            ; preds = %5
 87:                                               ; preds = %76
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !22
-  %90 = load ptr, ptr %65, align 8, !tbaa !71
+  %90 = load ptr, ptr %65, align 8, !tbaa !66
   %91 = tail call i32 @redisContextConnectUnix(ptr noundef nonnull %3, ptr noundef %89, ptr noundef %90) #13
   br label %99
 
 92:                                               ; preds = %76
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load i32, ptr %93, align 8, !tbaa !22
-  store i32 %94, ptr %10, align 4, !tbaa !60
+  store i32 %94, ptr %10, align 4, !tbaa !55
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %96 = load i32, ptr %95, align 8, !tbaa !63
+  %96 = load i32, ptr %95, align 8, !tbaa !58
   %97 = or i32 %96, 2
-  store i32 %97, ptr %95, align 8, !tbaa !63
+  store i32 %97, ptr %95, align 8, !tbaa !58
   br label %99
 
 98:                                               ; preds = %76
@@ -1986,23 +1986,23 @@ redisContextInit.exit:                            ; preds = %5
 
 99:                                               ; preds = %87, %92, %78
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !37
+  %101 = load i32, ptr %100, align 8, !tbaa !32
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %redisContextInit.exit.thread
 
 103:                                              ; preds = %99
-  %104 = load i32, ptr %10, align 4, !tbaa !60
+  %104 = load i32, ptr %10, align 4, !tbaa !55
   %.not64 = icmp eq i32 %104, -1
   br i1 %.not64, label %redisContextInit.exit.thread, label %105
 
 105:                                              ; preds = %103
-  %106 = load ptr, ptr %69, align 8, !tbaa !72
+  %106 = load ptr, ptr %69, align 8, !tbaa !67
   %.not65 = icmp eq ptr %106, null
   br i1 %.not65, label %redisContextInit.exit.thread, label %107
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %109 = load i32, ptr %108, align 8, !tbaa !63
+  %109 = load i32, ptr %108, align 8, !tbaa !58
   %110 = and i32 %109, 1
   %.not66 = icmp eq i32 %110, 0
   br i1 %.not66, label %redisContextInit.exit.thread, label %111
@@ -2022,8 +2022,8 @@ redisContextInit.exit.thread:                     ; preds = %1, %14, %99, %103, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @redisSetPushCallback(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %4 = load ptr, ptr %3, align 8, !tbaa !68
-  store ptr %1, ptr %3, align 8, !tbaa !68
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %3, align 8, !tbaa !63
   ret ptr %4
 }
 
@@ -2065,7 +2065,7 @@ define ptr @redisConnectWithTimeout(ptr noundef %0, i32 noundef %1, i64 %2, i64 
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %1, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %5, ptr %10, align 8, !tbaa !71
+  store ptr %5, ptr %10, align 8, !tbaa !66
   %11 = call ptr @redisConnectWithOptions(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
@@ -2081,7 +2081,7 @@ define ptr @redisConnectNonBlock(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %1, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %6, align 4, !tbaa !65
+  store i32 1, ptr %6, align 4, !tbaa !60
   %7 = call ptr @redisConnectWithOptions(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %7
@@ -2099,7 +2099,7 @@ define ptr @redisConnectBindNonBlock(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %1, ptr %7, align 8, !tbaa !22
   store ptr %2, ptr %5, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 1, ptr %8, align 4, !tbaa !65
+  store i32 1, ptr %8, align 4, !tbaa !60
   %9 = call ptr @redisConnectWithOptions(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %9
@@ -2117,7 +2117,7 @@ define ptr @redisConnectBindNonBlockWithReuse(ptr noundef %0, i32 noundef %1, pt
   store i32 %1, ptr %7, align 8, !tbaa !22
   store ptr %2, ptr %5, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 3, ptr %8, align 4, !tbaa !65
+  store i32 3, ptr %8, align 4, !tbaa !60
   %9 = call ptr @redisConnectWithOptions(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %9
@@ -2128,7 +2128,7 @@ define ptr @redisConnectUnix(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.redisOptions, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
-  store i32 1, ptr %2, align 8, !tbaa !73
+  store i32 1, ptr %2, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %3, align 8, !tbaa !22
   %4 = call ptr @redisConnectWithOptions(ptr noundef nonnull %2)
@@ -2145,11 +2145,11 @@ define ptr @redisConnectUnixWithTimeout(ptr noundef %0, i64 %1, i64 %2) local_un
   store i64 %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  store i32 1, ptr %5, align 8, !tbaa !73
+  store i32 1, ptr %5, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %8, align 8, !tbaa !71
+  store ptr %4, ptr %8, align 8, !tbaa !66
   %9 = call ptr @redisConnectWithOptions(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %9
@@ -2161,11 +2161,11 @@ define ptr @redisConnectUnixNonBlock(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
-  store i32 1, ptr %2, align 8, !tbaa !73
+  store i32 1, ptr %2, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %5, align 4, !tbaa !65
+  store i32 1, ptr %5, align 4, !tbaa !60
   %6 = call ptr @redisConnectWithOptions(ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %6
@@ -2176,7 +2176,7 @@ define ptr @redisConnectFd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.redisOptions, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
-  store i32 2, ptr %2, align 8, !tbaa !73
+  store i32 2, ptr %2, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %0, ptr %3, align 8, !tbaa !22
   %4 = call ptr @redisConnectWithOptions(ptr noundef nonnull %2)
@@ -2187,7 +2187,7 @@ define ptr @redisConnectFd(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @redisSetTimeout(ptr noundef %0, i64 %1, i64 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %5 = load i32, ptr %4, align 8, !tbaa !63
+  %5 = load i32, ptr %4, align 8, !tbaa !58
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -2228,14 +2228,14 @@ define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %0) local_unnamed_addr 
   %2 = alloca [16384 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !37
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %26
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %0, align 8, !tbaa !45
+  %6 = load ptr, ptr %0, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = call i64 %8(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 16384) #13
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 0
@@ -2247,17 +2247,17 @@ define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %0) local_unnamed_addr 
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %15 = load ptr, ptr %14, align 8, !tbaa !49
+  %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = and i64 %9, 2147483647
   %17 = call i32 @redisReaderFeed(ptr noundef %15, ptr noundef nonnull %2, i64 noundef %16) #13
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %26, label %18
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %14, align 8, !tbaa !49
-  %20 = load i32, ptr %19, align 8, !tbaa !75
+  %19 = load ptr, ptr %14, align 8, !tbaa !44
+  %20 = load i32, ptr %19, align 8, !tbaa !70
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 %20, ptr %3, align 8, !tbaa !37
+  store i32 %20, ptr %3, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #14
   %24 = call i64 @llvm.umin.i64(i64 %23, i64 127)
@@ -2277,13 +2277,13 @@ declare i32 @redisReaderFeed(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !37
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %96
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
   %9 = load i8, ptr %8, align 1, !tbaa !22
   %10 = zext i8 %9 to i32
@@ -2330,9 +2330,9 @@ hi_sdslen.exit:                                   ; preds = %12, %15, %19, %23, 
   br i1 %.not21, label %hi_sdslen.exit.thread, label %30
 
 30:                                               ; preds = %hi_sdslen.exit
-  %31 = load ptr, ptr %0, align 8, !tbaa !45
+  %31 = load ptr, ptr %0, align 8, !tbaa !40
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !79
+  %33 = load ptr, ptr %32, align 8, !tbaa !74
   %34 = tail call i64 %33(ptr noundef nonnull %0) #13
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %96, label %36
@@ -2342,7 +2342,7 @@ hi_sdslen.exit:                                   ; preds = %12, %15, %19, %23, 
   br i1 %.not22, label %hi_sdslen.exit.thread, label %37
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr %6, align 8, !tbaa !48
+  %38 = load ptr, ptr %6, align 8, !tbaa !43
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1, !tbaa !22
   %41 = zext i8 %40 to i32
@@ -2391,7 +2391,7 @@ hi_sdslen.exit25:                                 ; preds = %43, %46, %50, %54, 
 62:                                               ; preds = %hi_sdslen.exit25
   tail call void @hi_sdsfree(ptr noundef nonnull %38) #13
   %63 = tail call ptr @hi_sdsempty() #13
-  store ptr %63, ptr %6, align 8, !tbaa !48
+  store ptr %63, ptr %6, align 8, !tbaa !43
   %64 = icmp eq ptr %63, null
   br i1 %64, label %93, label %hi_sdslen.exit.thread
 
@@ -2405,7 +2405,7 @@ hi_sdslen.exit.thread:                            ; preds = %36, %hi_sdslen.exit
   br i1 %.not23, label %96, label %67
 
 67:                                               ; preds = %hi_sdslen.exit.thread
-  %68 = load ptr, ptr %6, align 8, !tbaa !48
+  %68 = load ptr, ptr %6, align 8, !tbaa !43
   %69 = getelementptr inbounds i8, ptr %68, i64 -1
   %70 = load i8, ptr %69, align 1, !tbaa !22
   %71 = zext i8 %70 to i32
@@ -2454,7 +2454,7 @@ hi_sdslen.exit27:                                 ; preds = %67, %73, %76, %80, 
   br label %96
 
 93:                                               ; preds = %62, %hi_sdslen.exit25.thread
-  store i32 5, ptr %3, align 8, !tbaa !37
+  store i32 5, ptr %3, align 8, !tbaa !32
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %94, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2471,17 +2471,17 @@ declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = tail call i32 @redisReaderGetReply(ptr noundef %4, ptr noundef %1) #13
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !49
-  %9 = load i32, ptr %8, align 8, !tbaa !75
+  %8 = load ptr, ptr %3, align 8, !tbaa !44
+  %9 = load i32, ptr %8, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %9, ptr %11, align 8, !tbaa !37
+  store i32 %9, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #14
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 127)
@@ -2505,9 +2505,9 @@ define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %0, ptr noundef writeonly
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !80
+  store ptr null, ptr %5, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   %8 = call i32 @redisReaderGetReply(ptr noundef %7, ptr noundef nonnull %5) #13
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %redisNextInBandReplyFromReader.exit, label %redisGetReplyFromReader.exit.lr.ph.i
@@ -2518,12 +2518,12 @@ redisGetReplyFromReader.exit.lr.ph.i:             ; preds = %2
   br label %redisGetReplyFromReader.exit.i
 
 redisGetReplyFromReader.exit.i:                   ; preds = %redisHandledPushReply.exit.i, %redisGetReplyFromReader.exit.lr.ph.i
-  %12 = load ptr, ptr %5, align 8, !tbaa !80
+  %12 = load ptr, ptr %5, align 8, !tbaa !75
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %.thread, label %13
 
 13:                                               ; preds = %redisGetReplyFromReader.exit.i
-  %14 = load ptr, ptr %10, align 8, !tbaa !68
+  %14 = load ptr, ptr %10, align 8, !tbaa !63
   %.not8.i.i = icmp eq ptr %14, null
   br i1 %.not8.i.i, label %.thread20, label %15
 
@@ -2533,19 +2533,19 @@ redisGetReplyFromReader.exit.i:                   ; preds = %redisHandledPushRep
   br i1 %17, label %redisHandledPushReply.exit.i, label %.thread20
 
 redisHandledPushReply.exit.i:                     ; preds = %15
-  %18 = load ptr, ptr %11, align 8, !tbaa !56
+  %18 = load ptr, ptr %11, align 8, !tbaa !51
   call void %14(ptr noundef %18, ptr noundef nonnull %12) #13
-  %19 = load ptr, ptr %6, align 8, !tbaa !49
+  %19 = load ptr, ptr %6, align 8, !tbaa !44
   %20 = call i32 @redisReaderGetReply(ptr noundef %19, ptr noundef nonnull %5) #13
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %redisNextInBandReplyFromReader.exit, label %redisGetReplyFromReader.exit.i
 
 redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushReply.exit.i, %2
-  %22 = load ptr, ptr %6, align 8, !tbaa !49
-  %23 = load i32, ptr %22, align 8, !tbaa !75
+  %22 = load ptr, ptr %6, align 8, !tbaa !44
+  %23 = load i32, ptr %22, align 8, !tbaa !70
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %23, ptr %25, align 8, !tbaa !37
+  store i32 %23, ptr %25, align 8, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %24) #14
   %28 = call i64 @llvm.umin.i64(i64 %27, i64 127)
@@ -2556,7 +2556,7 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
 
 .thread:                                          ; preds = %redisGetReplyFromReader.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = load i32, ptr %30, align 8, !tbaa !63
+  %31 = load i32, ptr %30, align 8, !tbaa !58
   %32 = and i32 %31, 1
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.thread20, label %.preheader
@@ -2574,14 +2574,14 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
 .critedge.preheader:                              ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %38 = load i32, ptr %37, align 8, !tbaa !37
+  %38 = load i32, ptr %37, align 8, !tbaa !32
   %.not.i34 = icmp eq i32 %38, 0
   br i1 %.not.i34, label %.lr.ph, label %redisBufferRead.exit.thread
 
 .lr.ph:                                           ; preds = %.critedge.preheader, %.critedge.backedge
-  %39 = load ptr, ptr %0, align 8, !tbaa !45
+  %39 = load ptr, ptr %0, align 8, !tbaa !40
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !74
+  %41 = load ptr, ptr %40, align 8, !tbaa !69
   %42 = call i64 %41(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 16384) #13
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
@@ -2592,17 +2592,17 @@ redisNextInBandReplyFromReader.exit:              ; preds = %redisHandledPushRep
   br i1 %.not11.i, label %58, label %46
 
 46:                                               ; preds = %45
-  %47 = load ptr, ptr %6, align 8, !tbaa !49
+  %47 = load ptr, ptr %6, align 8, !tbaa !44
   %48 = and i64 %42, 2147483647
   %49 = call i32 @redisReaderFeed(ptr noundef %47, ptr noundef nonnull %3, i64 noundef %48) #13
   %.not12.i = icmp eq i32 %49, 0
   br i1 %.not12.i, label %58, label %50
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8, !tbaa !49
-  %52 = load i32, ptr %51, align 8, !tbaa !75
+  %51 = load ptr, ptr %6, align 8, !tbaa !44
+  %52 = load i32, ptr %51, align 8, !tbaa !70
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 %52, ptr %37, align 8, !tbaa !37
+  store i32 %52, ptr %37, align 8, !tbaa !32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %55 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %53) #14
   %56 = call i64 @llvm.umin.i64(i64 %55, i64 127)
@@ -2617,18 +2617,18 @@ redisBufferRead.exit.thread:                      ; preds = %.lr.ph, %.critedge.
 
 58:                                               ; preds = %46, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %59 = load ptr, ptr %6, align 8, !tbaa !49
+  %59 = load ptr, ptr %6, align 8, !tbaa !44
   %60 = call i32 @redisReaderGetReply(ptr noundef %59, ptr noundef nonnull %5) #13
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %redisNextInBandReplyFromReader.exit18, label %redisGetReplyFromReader.exit.i12
 
 redisGetReplyFromReader.exit.i12:                 ; preds = %58, %redisHandledPushReply.exit.i16
-  %62 = load ptr, ptr %5, align 8, !tbaa !80
+  %62 = load ptr, ptr %5, align 8, !tbaa !75
   %.not.i.i13 = icmp eq ptr %62, null
   br i1 %.not.i.i13, label %.critedge.backedge, label %63
 
 63:                                               ; preds = %redisGetReplyFromReader.exit.i12
-  %64 = load ptr, ptr %10, align 8, !tbaa !68
+  %64 = load ptr, ptr %10, align 8, !tbaa !63
   %.not8.i.i14 = icmp eq ptr %64, null
   br i1 %.not8.i.i14, label %.thread20, label %65
 
@@ -2638,18 +2638,18 @@ redisGetReplyFromReader.exit.i12:                 ; preds = %58, %redisHandledPu
   br i1 %67, label %redisHandledPushReply.exit.i16, label %.thread20
 
 redisHandledPushReply.exit.i16:                   ; preds = %65
-  %68 = load ptr, ptr %11, align 8, !tbaa !56
+  %68 = load ptr, ptr %11, align 8, !tbaa !51
   call void %64(ptr noundef %68, ptr noundef nonnull %62) #13
-  %69 = load ptr, ptr %6, align 8, !tbaa !49
+  %69 = load ptr, ptr %6, align 8, !tbaa !44
   %70 = call i32 @redisReaderGetReply(ptr noundef %69, ptr noundef nonnull %5) #13
   %71 = icmp eq i32 %70, -1
   br i1 %71, label %redisNextInBandReplyFromReader.exit18, label %redisGetReplyFromReader.exit.i12
 
 redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPushReply.exit.i16
-  %72 = load ptr, ptr %6, align 8, !tbaa !49
-  %73 = load i32, ptr %72, align 8, !tbaa !75
+  %72 = load ptr, ptr %6, align 8, !tbaa !44
+  %73 = load i32, ptr %72, align 8, !tbaa !70
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %73, ptr %37, align 8, !tbaa !37
+  store i32 %73, ptr %37, align 8, !tbaa !32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %74) #14
   %77 = call i64 @llvm.umin.i64(i64 %76, i64 127)
@@ -2660,7 +2660,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
 
 .critedge.backedge:                               ; preds = %redisGetReplyFromReader.exit.i12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %79 = load i32, ptr %37, align 8, !tbaa !37
+  %79 = load i32, ptr %37, align 8, !tbaa !32
   %.not.i = icmp eq i32 %79, 0
   br i1 %.not.i, label %.lr.ph, label %redisBufferRead.exit.thread
 
@@ -2670,7 +2670,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
   br i1 %.not9, label %82, label %81
 
 81:                                               ; preds = %.thread20
-  store ptr %80, ptr %1, align 8, !tbaa !80
+  store ptr %80, ptr %1, align 8, !tbaa !75
   br label %.loopexit
 
 82:                                               ; preds = %.thread20
@@ -2687,14 +2687,14 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @__redisAppendCommand(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @hi_sdscatlen(ptr noundef %5, ptr noundef %1, i64 noundef %2) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %9, align 8, !tbaa !37
+  store i32 5, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %10, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2702,7 +2702,7 @@ define range(i32 -1, 1) i32 @__redisAppendCommand(ptr noundef captures(none) %0,
   br label %13
 
 12:                                               ; preds = %3
-  store ptr %6, ptr %4, align 8, !tbaa !48
+  store ptr %6, ptr %4, align 8, !tbaa !43
   br label %13
 
 13:                                               ; preds = %12, %8
@@ -2713,14 +2713,14 @@ define range(i32 -1, 1) i32 @__redisAppendCommand(ptr noundef captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisAppendFormattedCommand(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = tail call ptr @hi_sdscatlen(ptr noundef %5, ptr noundef %1, i64 noundef %2) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %__redisAppendCommand.exit, label %11
 
 __redisAppendCommand.exit:                        ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %8, align 8, !tbaa !37
+  store i32 5, ptr %8, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %9, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2728,7 +2728,7 @@ __redisAppendCommand.exit:                        ; preds = %3
   br label %12
 
 11:                                               ; preds = %3
-  store ptr %6, ptr %4, align 8, !tbaa !48
+  store ptr %6, ptr %4, align 8, !tbaa !43
   br label %12
 
 12:                                               ; preds = %__redisAppendCommand.exit, %11
@@ -2748,7 +2748,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %7, align 8, !tbaa !37
+  store i32 5, ptr %7, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %8, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2757,7 +2757,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %11, align 8, !tbaa !37
+  store i32 2, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %12, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -2768,14 +2768,14 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   %15 = load ptr, ptr %4, align 8, !tbaa !24
   %16 = sext i32 %5 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = call ptr @hi_sdscatlen(ptr noundef %18, ptr noundef %15, i64 noundef %16) #13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %22, align 8, !tbaa !37
+  store i32 5, ptr %22, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2785,7 +2785,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   br label %28
 
 26:                                               ; preds = %14
-  store ptr %19, ptr %17, align 8, !tbaa !48
+  store ptr %19, ptr %17, align 8, !tbaa !43
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   call void %27(ptr noundef %15) #13
   br label %28
@@ -2811,7 +2811,7 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %7, align 8, !tbaa !37
+  store i32 5, ptr %7, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %8, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2820,7 +2820,7 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %11, align 8, !tbaa !37
+  store i32 2, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %12, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -2831,14 +2831,14 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
   %15 = load ptr, ptr %3, align 8, !tbaa !24
   %16 = sext i32 %5 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = call ptr @hi_sdscatlen(ptr noundef %18, ptr noundef %15, i64 noundef %16) #13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %22, align 8, !tbaa !37
+  store i32 5, ptr %22, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2848,7 +2848,7 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
   br label %redisvAppendCommand.exit
 
 26:                                               ; preds = %14
-  store ptr %19, ptr %17, align 8, !tbaa !48
+  store ptr %19, ptr %17, align 8, !tbaa !43
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   call void %27(ptr noundef %15) #13
   br label %redisvAppendCommand.exit
@@ -2871,7 +2871,7 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %9, align 8, !tbaa !37
+  store i32 5, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %10, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2881,14 +2881,14 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
 12:                                               ; preds = %4
   %13 = load ptr, ptr %5, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   %16 = call ptr @hi_sdscatlen(ptr noundef %15, ptr noundef %13, i64 noundef %6) #13
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %19, align 8, !tbaa !37
+  store i32 5, ptr %19, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %20, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2897,7 +2897,7 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
   br label %23
 
 22:                                               ; preds = %12
-  store ptr %16, ptr %14, align 8, !tbaa !48
+  store ptr %16, ptr %14, align 8, !tbaa !43
   call void @hi_sdsfree(ptr noundef %13) #13
   br label %23
 
@@ -2920,7 +2920,7 @@ define ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %8, align 8, !tbaa !37
+  store i32 5, ptr %8, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %9, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2929,7 +2929,7 @@ define ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %12, align 8, !tbaa !37
+  store i32 2, ptr %12, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %13, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -2940,14 +2940,14 @@ define ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %16 = load ptr, ptr %5, align 8, !tbaa !24
   %17 = sext i32 %6 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %19 = load ptr, ptr %18, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !43
   %20 = call ptr @hi_sdscatlen(ptr noundef %19, ptr noundef %16, i64 noundef %17) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %23, align 8, !tbaa !37
+  store i32 5, ptr %23, align 8, !tbaa !32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -2961,13 +2961,13 @@ redisvAppendCommand.exit.thread:                  ; preds = %7, %11, %22
   br label %35
 
 27:                                               ; preds = %15
-  store ptr %20, ptr %18, align 8, !tbaa !48
+  store ptr %20, ptr %18, align 8, !tbaa !43
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
   call void %28(ptr noundef %16) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %30 = load i32, ptr %29, align 8, !tbaa !63
+  %30 = load i32, ptr %29, align 8, !tbaa !58
   %31 = and i32 %30, 1
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %__redisBlockForReply.exit, label %32
@@ -3011,7 +3011,7 @@ define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonl
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %10, align 8, !tbaa !37
+  store i32 5, ptr %10, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %11, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -3021,14 +3021,14 @@ define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonl
 13:                                               ; preds = %4
   %14 = load ptr, ptr %6, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = call ptr @hi_sdscatlen(ptr noundef %16, ptr noundef %14, i64 noundef %7) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 5, ptr %20, align 8, !tbaa !37
+  store i32 5, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %21, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -3041,12 +3041,12 @@ redisAppendCommandArgv.exit.thread:               ; preds = %9, %19
   br label %30
 
 23:                                               ; preds = %13
-  store ptr %17, ptr %15, align 8, !tbaa !48
+  store ptr %17, ptr %15, align 8, !tbaa !43
   call void @hi_sdsfree(ptr noundef %14) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %25 = load i32, ptr %24, align 8, !tbaa !63
+  %25 = load i32, ptr %24, align 8, !tbaa !58
   %26 = and i32 %25, 1
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %__redisBlockForReply.exit, label %27
@@ -3070,15 +3070,15 @@ __redisBlockForReply.exit:                        ; preds = %23, %27
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @createStringObject(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
-  %4 = load i32, ptr %0, align 8, !tbaa !81
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %4 = load i32, ptr %0, align 8, !tbaa !76
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %6 = tail call ptr %5(i64 noundef 1, i64 noundef 64) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %createReplyObject.exit.thread, label %8
 
 8:                                                ; preds = %3
   store i32 %4, ptr %6, align 8, !tbaa !4
-  %9 = load i32, ptr %0, align 8, !tbaa !81
+  %9 = load i32, ptr %0, align 8, !tbaa !76
   %10 = icmp eq i32 %9, 14
   %11 = load ptr, ptr @hiredisAllocFns, align 8, !tbaa !31
   br i1 %10, label %12, label %22
@@ -3117,21 +3117,21 @@ define internal ptr @createStringObject(ptr noundef readonly captures(none) %0, 
   %.sink = phi i64 [ %2, %26 ], [ %17, %16 ]
   %.0 = phi ptr [ %24, %26 ], [ %14, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.sink, ptr %29, align 8, !tbaa !84
+  store i64 %.sink, ptr %29, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %.0, ptr %30, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !85
+  %32 = load ptr, ptr %31, align 8, !tbaa !80
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %createReplyObject.exit.thread, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !86
+  %35 = load ptr, ptr %34, align 8, !tbaa !81
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i32, ptr %38, align 8, !tbaa !87
+  %39 = load i32, ptr %38, align 8, !tbaa !82
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
   store ptr %6, ptr %41, align 8, !tbaa !17
@@ -3148,8 +3148,8 @@ createReplyObject.exit.thread:                    ; preds = %3, %28, %33, %42
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @createArrayObject(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !81
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %3 = load i32, ptr %0, align 8, !tbaa !76
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 64) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %createReplyObject.exit.thread, label %7
@@ -3169,7 +3169,7 @@ hi_calloc.exit.thread:                            ; preds = %8
   br label %14
 
 hi_calloc.exit:                                   ; preds = %8
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %11 = tail call ptr %10(i64 noundef range(i64 1, 0) %1, i64 noundef 8) #13
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %11, ptr %12, align 8, !tbaa !15
@@ -3184,17 +3184,17 @@ hi_calloc.exit:                                   ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %1, ptr %16, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !80
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %createReplyObject.exit.thread, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !86
+  %21 = load ptr, ptr %20, align 8, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !87
+  %25 = load i32, ptr %24, align 8, !tbaa !82
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   store ptr %5, ptr %27, align 8, !tbaa !17
@@ -3207,7 +3207,7 @@ createReplyObject.exit.thread:                    ; preds = %2, %15, %19, %14
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @createIntegerObject(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 64) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %createReplyObject.exit.thread, label %6
@@ -3215,19 +3215,19 @@ define internal ptr @createIntegerObject(ptr noundef readonly captures(none) %0,
 6:                                                ; preds = %2
   store i32 3, ptr %4, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %1, ptr %7, align 8, !tbaa !88
+  store i64 %1, ptr %7, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %9 = load ptr, ptr %8, align 8, !tbaa !80
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %createReplyObject.exit.thread, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !86
+  %12 = load ptr, ptr %11, align 8, !tbaa !81
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !87
+  %16 = load i32, ptr %15, align 8, !tbaa !82
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   store ptr %4, ptr %18, align 8, !tbaa !17
@@ -3243,7 +3243,7 @@ define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %0, 
   br i1 %5, label %createReplyObject.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %8 = tail call ptr %7(i64 noundef 1, i64 noundef 64) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %createReplyObject.exit.thread, label %10
@@ -3251,7 +3251,7 @@ define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %0, 
 10:                                               ; preds = %6
   store i32 7, ptr %8, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1, ptr %11, align 8, !tbaa !89
+  store double %1, ptr %11, align 8, !tbaa !84
   %12 = add nuw i64 %3, 1
   %13 = load ptr, ptr @hiredisAllocFns, align 8, !tbaa !31
   %14 = tail call ptr %13(i64 noundef %12) #13
@@ -3270,19 +3270,19 @@ define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %0, 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %3
   store i8 0, ptr %20, align 1, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %3, ptr %21, align 8, !tbaa !84
+  store i64 %3, ptr %21, align 8, !tbaa !79
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !85
+  %23 = load ptr, ptr %22, align 8, !tbaa !80
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %createReplyObject.exit.thread, label %24
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %26 = load ptr, ptr %25, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !87
+  %30 = load i32, ptr %29, align 8, !tbaa !82
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %8, ptr %32, align 8, !tbaa !17
@@ -3295,7 +3295,7 @@ createReplyObject.exit.thread:                    ; preds = %6, %18, %24, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @createNilObject(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %3 = tail call ptr %2(i64 noundef 1, i64 noundef 64) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %createReplyObject.exit.thread, label %5
@@ -3303,17 +3303,17 @@ define internal ptr @createNilObject(ptr noundef readonly captures(none) %0) #0 
 5:                                                ; preds = %1
   store i32 4, ptr %3, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !80
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %createReplyObject.exit.thread, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !86
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !87
+  %14 = load i32, ptr %13, align 8, !tbaa !82
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %12, i64 %15
   store ptr %3, ptr %16, align 8, !tbaa !17
@@ -3325,7 +3325,7 @@ createReplyObject.exit.thread:                    ; preds = %1, %5, %8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @createBoolObject(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !64
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !59
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 64) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %createReplyObject.exit.thread, label %6
@@ -3335,19 +3335,19 @@ define internal ptr @createBoolObject(ptr noundef readonly captures(none) %0, i3
   %7 = icmp ne i32 %1, 0
   %8 = zext i1 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %8, ptr %9, align 8, !tbaa !88
+  store i64 %8, ptr %9, align 8, !tbaa !83
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !85
+  %11 = load ptr, ptr %10, align 8, !tbaa !80
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %createReplyObject.exit.thread, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !86
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !87
+  %18 = load i32, ptr %17, align 8, !tbaa !82
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %16, i64 %19
   store ptr %4, ptr %20, align 8, !tbaa !17
@@ -3433,61 +3433,56 @@ attributes #15 = { nounwind willreturn memory(none) }
 !29 = !{!30, !30, i64 0}
 !30 = !{!"p1 short", !13, i64 0}
 !31 = !{!21, !13, i64 0}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
-!37 = !{!38, !6, i64 8}
-!38 = !{!"redisContext", !39, i64 0, !6, i64 8, !7, i64 12, !6, i64 140, !6, i64 144, !12, i64 152, !40, i64 160, !6, i64 168, !41, i64 176, !41, i64 184, !42, i64 192, !43, i64 216, !44, i64 224, !11, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264}
-!39 = !{!"p1 _ZTS17redisContextFuncs", !13, i64 0}
-!40 = !{!"p1 _ZTS11redisReader", !13, i64 0}
-!41 = !{!"p1 _ZTS7timeval", !13, i64 0}
-!42 = !{!"", !12, i64 0, !12, i64 8, !6, i64 16}
-!43 = !{!"", !12, i64 0}
-!44 = !{!"p1 _ZTS8sockaddr", !13, i64 0}
-!45 = !{!38, !39, i64 0}
-!46 = !{!47, !13, i64 0}
-!47 = !{!"redisContextFuncs", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
-!48 = !{!38, !12, i64 152}
-!49 = !{!38, !40, i64 160}
-!50 = !{!38, !12, i64 192}
-!51 = !{!38, !12, i64 200}
-!52 = !{!38, !12, i64 216}
-!53 = !{!38, !41, i64 176}
-!54 = !{!38, !41, i64 184}
-!55 = !{!38, !44, i64 224}
-!56 = !{!38, !13, i64 240}
-!57 = !{!38, !13, i64 248}
-!58 = !{!47, !13, i64 8}
-!59 = !{!38, !13, i64 256}
-!60 = !{!38, !6, i64 140}
-!61 = !{!38, !6, i64 168}
-!62 = !{!38, !6, i64 208}
-!63 = !{!38, !6, i64 144}
-!64 = !{!21, !13, i64 8}
-!65 = !{!66, !6, i64 4}
-!66 = !{!"", !6, i64 0, !6, i64 4, !41, i64 8, !41, i64 16, !7, i64 24, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
-!67 = !{!66, !13, i64 64}
-!68 = !{!38, !13, i64 264}
-!69 = !{!66, !13, i64 48}
-!70 = !{!66, !13, i64 56}
-!71 = !{!66, !41, i64 8}
-!72 = !{!66, !41, i64 16}
-!73 = !{!66, !6, i64 0}
-!74 = !{!47, !13, i64 32}
-!75 = !{!76, !6, i64 0}
-!76 = !{!"redisReader", !6, i64 0, !7, i64 4, !12, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !9, i64 168, !77, i64 176, !6, i64 184, !6, i64 188, !13, i64 192, !78, i64 200, !13, i64 208}
-!77 = !{!"p2 _ZTS13redisReadTask", !13, i64 0}
-!78 = !{!"p1 _ZTS25redisReplyObjectFunctions", !13, i64 0}
-!79 = !{!47, !13, i64 40}
-!80 = !{!13, !13, i64 0}
-!81 = !{!82, !6, i64 0}
-!82 = !{!"redisReadTask", !6, i64 0, !9, i64 8, !6, i64 16, !13, i64 24, !83, i64 32, !13, i64 40}
-!83 = !{!"p1 _ZTS13redisReadTask", !13, i64 0}
-!84 = !{!5, !11, i64 24}
-!85 = !{!82, !83, i64 32}
-!86 = !{!82, !13, i64 24}
-!87 = !{!82, !6, i64 16}
-!88 = !{!5, !9, i64 8}
-!89 = !{!5, !10, i64 16}
+!32 = !{!33, !6, i64 8}
+!33 = !{!"redisContext", !34, i64 0, !6, i64 8, !7, i64 12, !6, i64 140, !6, i64 144, !12, i64 152, !35, i64 160, !6, i64 168, !36, i64 176, !36, i64 184, !37, i64 192, !38, i64 216, !39, i64 224, !11, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264}
+!34 = !{!"p1 _ZTS17redisContextFuncs", !13, i64 0}
+!35 = !{!"p1 _ZTS11redisReader", !13, i64 0}
+!36 = !{!"p1 _ZTS7timeval", !13, i64 0}
+!37 = !{!"", !12, i64 0, !12, i64 8, !6, i64 16}
+!38 = !{!"", !12, i64 0}
+!39 = !{!"p1 _ZTS8sockaddr", !13, i64 0}
+!40 = !{!33, !34, i64 0}
+!41 = !{!42, !13, i64 0}
+!42 = !{!"redisContextFuncs", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
+!43 = !{!33, !12, i64 152}
+!44 = !{!33, !35, i64 160}
+!45 = !{!33, !12, i64 192}
+!46 = !{!33, !12, i64 200}
+!47 = !{!33, !12, i64 216}
+!48 = !{!33, !36, i64 176}
+!49 = !{!33, !36, i64 184}
+!50 = !{!33, !39, i64 224}
+!51 = !{!33, !13, i64 240}
+!52 = !{!33, !13, i64 248}
+!53 = !{!42, !13, i64 8}
+!54 = !{!33, !13, i64 256}
+!55 = !{!33, !6, i64 140}
+!56 = !{!33, !6, i64 168}
+!57 = !{!33, !6, i64 208}
+!58 = !{!33, !6, i64 144}
+!59 = !{!21, !13, i64 8}
+!60 = !{!61, !6, i64 4}
+!61 = !{!"", !6, i64 0, !6, i64 4, !36, i64 8, !36, i64 16, !7, i64 24, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
+!62 = !{!61, !13, i64 64}
+!63 = !{!33, !13, i64 264}
+!64 = !{!61, !13, i64 48}
+!65 = !{!61, !13, i64 56}
+!66 = !{!61, !36, i64 8}
+!67 = !{!61, !36, i64 16}
+!68 = !{!61, !6, i64 0}
+!69 = !{!42, !13, i64 32}
+!70 = !{!71, !6, i64 0}
+!71 = !{!"redisReader", !6, i64 0, !7, i64 4, !12, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !9, i64 168, !72, i64 176, !6, i64 184, !6, i64 188, !13, i64 192, !73, i64 200, !13, i64 208}
+!72 = !{!"p2 _ZTS13redisReadTask", !13, i64 0}
+!73 = !{!"p1 _ZTS25redisReplyObjectFunctions", !13, i64 0}
+!74 = !{!42, !13, i64 40}
+!75 = !{!13, !13, i64 0}
+!76 = !{!77, !6, i64 0}
+!77 = !{!"redisReadTask", !6, i64 0, !9, i64 8, !6, i64 16, !13, i64 24, !78, i64 32, !13, i64 40}
+!78 = !{!"p1 _ZTS13redisReadTask", !13, i64 0}
+!79 = !{!5, !11, i64 24}
+!80 = !{!77, !78, i64 32}
+!81 = !{!77, !13, i64 24}
+!82 = !{!77, !6, i64 16}
+!83 = !{!5, !9, i64 8}
+!84 = !{!5, !10, i64 16}

@@ -2534,7 +2534,7 @@ define internal fastcc void @decode_super_msg(ptr noundef %0, ptr noundef %1, i3
   %.237 = phi i32 [ %28, %24 ], [ %23, %.lr.ph.split ]
   %.2 = phi i32 [ %27, %24 ], [ %22, %.lr.ph.split ]
   %.not38 = icmp eq i32 %.237, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  br i1 %.not38, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %29, %17, %4
   ret void
@@ -2869,7 +2869,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.1705 = phi i32 [ %133, %128 ], [ %105, %85 ]
   %.1701 = phi i32 [ %132, %128 ], [ %104, %85 ]
   %.not767 = icmp eq i32 %.1705, 0
-  br i1 %.not767, label %._crit_edge856, label %85, !llvm.loop !11
+  br i1 %.not767, label %._crit_edge856, label %85, !llvm.loop !9
 
 ._crit_edge856:                                   ; preds = %134
   store i32 %136, ptr %82, align 4
@@ -2883,7 +2883,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.lcssa849 = phi i32 [ %137, %._crit_edge856 ], [ 0, %78 ]
   %.0728.lcssa = phi i32 [ %.1729, %._crit_edge856 ], [ 0, %78 ]
   store i32 %.lcssa849, ptr %5, align 8
-  %141 = load i8, ptr @setup_conversations_enabled, align 1, !range !12, !noundef !13
+  %141 = load i8, ptr @setup_conversations_enabled, align 1, !range !10, !noundef !11
   %142 = trunc nuw i8 %141 to i1
   %143 = icmp ne i32 %.0728.lcssa, 0
   %144 = select i1 %142, i1 %140, i1 false
@@ -2940,7 +2940,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.3707 = phi i32 [ %173, %168 ], [ %167, %.lr.ph847 ]
   %.3703 = phi i32 [ %172, %168 ], [ %166, %.lr.ph847 ]
   %.not765 = icmp eq i32 %.3707, 0
-  br i1 %.not765, label %.loopexit, label %.lr.ph847, !llvm.loop !14
+  br i1 %.not765, label %.loopexit, label %.lr.ph847, !llvm.loop !12
 
 .lr.ph843:                                        ; preds = %.preheader776, %200
   %.4842 = phi i32 [ %.5, %200 ], [ 4, %.preheader776 ]
@@ -2989,7 +2989,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.5709 = phi i32 [ %199, %195 ], [ %191, %.lr.ph843 ]
   %.5 = phi i32 [ %198, %195 ], [ %190, %.lr.ph843 ]
   %.not763 = icmp eq i32 %.5709, 0
-  br i1 %.not763, label %.loopexit, label %.lr.ph843, !llvm.loop !15
+  br i1 %.not763, label %.loopexit, label %.lr.ph843, !llvm.loop !13
 
 201:                                              ; preds = %13
   %202 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 4)
@@ -3009,7 +3009,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 .loopexit779:                                     ; preds = %212
   %211 = add i32 %210, %.6710838
   %.not884 = icmp eq i32 %211, 0
-  br i1 %.not884, label %.loopexit, label %.preheader778, !llvm.loop !16
+  br i1 %.not884, label %.loopexit, label %.preheader778, !llvm.loop !14
 
 .preheader778:                                    ; preds = %.preheader778.preheader, %.loopexit779
   %.6839 = phi i32 [ %236, %.loopexit779 ], [ 5, %.preheader778.preheader ]
@@ -3045,7 +3045,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %236 = add i32 %.7837, 6
   %237 = add nuw nsw i32 %.0727835, 1
   %exitcond.not = icmp eq i32 %.0727835, %209
-  br i1 %exitcond.not, label %.loopexit779, label %212, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit779, label %212, !llvm.loop !15
 
 238:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3078,7 +3078,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %259 = zext i8 %258 to i32
   %260 = load i32, ptr %6, align 4
   %261 = icmp ugt i32 %260, %259
-  br i1 %261, label %.lr.ph833, label %._crit_edge834, !llvm.loop !18
+  br i1 %261, label %.lr.ph833, label %._crit_edge834, !llvm.loop !16
 
 ._crit_edge834:                                   ; preds = %.lr.ph833, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3135,7 +3135,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.10714 = phi i32 [ %287, %283 ], [ %279, %.lr.ph829 ]
   %.10 = phi i32 [ %286, %283 ], [ %278, %.lr.ph829 ]
   %.not760 = icmp eq i32 %.10714, 0
-  br i1 %.not760, label %.loopexit, label %.lr.ph829, !llvm.loop !19
+  br i1 %.not760, label %.loopexit, label %.lr.ph829, !llvm.loop !17
 
 .lr.ph824:                                        ; preds = %.preheader782, %.lr.ph824
   %.11823 = phi i32 [ %291, %.lr.ph824 ], [ 4, %.preheader782 ]
@@ -3145,7 +3145,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %291 = add i32 %.11823, 1
   %292 = add i32 %.11715822, -1
   %.not759 = icmp eq i32 %292, 0
-  br i1 %.not759, label %.loopexit, label %.lr.ph824, !llvm.loop !20
+  br i1 %.not759, label %.loopexit, label %.lr.ph824, !llvm.loop !18
 
 .lr.ph820:                                        ; preds = %.preheader784, %330
   %.12819 = phi i32 [ %.13, %330 ], [ 4, %.preheader784 ]
@@ -3246,7 +3246,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.13717 = phi i32 [ %329, %325 ], [ %309, %.lr.ph820 ]
   %.13 = phi i32 [ %328, %325 ], [ %308, %.lr.ph820 ]
   %.not757 = icmp eq i32 %.13717, 0
-  br i1 %.not757, label %.loopexit, label %.lr.ph820, !llvm.loop !21
+  br i1 %.not757, label %.loopexit, label %.lr.ph820, !llvm.loop !19
 
 331:                                              ; preds = %13
   %332 = load i32, ptr @hf_ua3g_ip_device_routing_digit_value, align 4
@@ -3294,7 +3294,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.15719 = phi i32 [ %357, %352 ], [ %351, %.lr.ph816 ]
   %.15 = phi i32 [ %356, %352 ], [ %350, %.lr.ph816 ]
   %.not755 = icmp eq i32 %.15719, 0
-  br i1 %.not755, label %.loopexit, label %.lr.ph816, !llvm.loop !22
+  br i1 %.not755, label %.loopexit, label %.lr.ph816, !llvm.loop !20
 
 359:                                              ; preds = %13, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3388,7 +3388,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.1697 = phi i32 [ %.2698, %395 ], [ %.0696801, %363 ]
   %.1 = phi i32 [ %.2, %395 ], [ %.0695802, %363 ]
   %.not751 = icmp eq i32 %.17721, 0
-  br i1 %.not751, label %407, label %363, !llvm.loop !23
+  br i1 %.not751, label %407, label %363, !llvm.loop !21
 
 407:                                              ; preds = %403
   store i32 %405, ptr %360, align 4
@@ -3396,7 +3396,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   store ptr null, ptr %362, align 8
   %408 = icmp ne ptr %404, null
   store i32 %406, ptr %7, align 8
-  %409 = load i8, ptr @setup_conversations_enabled, align 1, !range !12, !noundef !13
+  %409 = load i8, ptr @setup_conversations_enabled, align 1, !range !10, !noundef !11
   %410 = trunc nuw i8 %409 to i1
   %or.cond6 = select i1 %410, i1 %408, i1 false
   br i1 %or.cond6, label %411, label %.thread885
@@ -3519,7 +3519,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.19723 = phi i32 [ %464, %462 ], [ %439, %.lr.ph ]
   %.19 = phi i32 [ %463, %462 ], [ %438, %.lr.ph ]
   %.not746 = icmp eq i32 %.19723, 0
-  br i1 %.not746, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not746, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .lr.ph797:                                        ; preds = %.preheader787, %494
   %.20796 = phi i32 [ %.21, %494 ], [ 4, %.preheader787 ]
@@ -3575,7 +3575,7 @@ switch.lookup:                                    ; preds = %483
   %.21725 = phi i32 [ %493, %489 ], [ %482, %.lr.ph797 ]
   %.21 = phi i32 [ %492, %489 ], [ %481, %.lr.ph797 ]
   %.not749 = icmp eq i32 %.21725, 0
-  br i1 %.not749, label %.loopexit, label %.lr.ph797, !llvm.loop !25
+  br i1 %.not749, label %.loopexit, label %.lr.ph797, !llvm.loop !23
 
 .loopexit:                                        ; preds = %465, %494, %358, %330, %.lr.ph824, %288, %.loopexit779, %200, %174, %.preheader789, %.preheader787, %334, %.preheader784, %.preheader782, %262, %201, %.preheader776, %.preheader, %150, %._crit_edge834, %331, %.thread885, %18, %17, %13, %37, %54, %75, %72, %69, %66, %63, %60, %57, %4
   ret void
@@ -3828,7 +3828,7 @@ switch.lookup:                                    ; preds = %4
   %27 = add i32 %.02731, 3
   %28 = add i32 %.02830, -3
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %switch.lookup
   ret void
@@ -3910,7 +3910,7 @@ define internal fastcc void @decode_dwl_special_char(ptr noundef %0, ptr noundef
 .loopexit:                                        ; preds = %8
   %4 = add i32 %.0128, -9
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %3, %.loopexit
   %.0128 = phi i32 [ %4, %.loopexit ], [ %2, %3 ]
@@ -3927,7 +3927,7 @@ define internal fastcc void @decode_dwl_special_char(ptr noundef %0, ptr noundef
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %.1145, i32 noundef 1, i32 noundef 0)
   %.114 = add i32 %.1145, 1
   %exitcond.not = icmp eq i32 %.114, %7
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -4006,7 +4006,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nou
   %26 = add i32 %.0114, 1
   %27 = add i32 %.093113, -1
   %.not101 = icmp eq i32 %27, 0
-  br i1 %.not101, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not101, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 28:                                               ; preds = %5
   %29 = load i32, ptr @hf_ua3g_beep_beep_destination, align 4
@@ -4047,7 +4047,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nou
   %46 = add i32 %.1110.us, 1
   %47 = add i32 %.194109.us, -1
   %.not99.us = icmp eq i32 %47, 0
-  br i1 %.not99.us, label %.loopexit, label %.preheader.us, !llvm.loop !30
+  br i1 %.not99.us, label %.loopexit, label %.preheader.us, !llvm.loop !28
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.1110 = phi i32 [ %73, %._crit_edge ], [ 6, %.preheader.preheader ]
@@ -4080,7 +4080,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nou
   %69 = add i32 %.2106, 3
   %70 = add nuw nsw i32 %.096104, 1
   %exitcond.not = icmp eq i32 %.096104, %40
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %48
   %71 = load i32, ptr @hf_ua3g_beep_terminator, align 4
@@ -4088,7 +4088,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nou
   %73 = add i32 %.2106, 4
   %.reass = add i32 %.194109, %invariant.op
   %.not99 = icmp eq i32 %.reass, 0
-  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !28
 
 74:                                               ; preds = %4
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4153,7 +4153,7 @@ define internal fastcc void @decode_ringing_cadence(ptr noundef %0, ptr noundef 
   %16 = add i32 %.04, 1
   %.021 = add i32 %.0215, -1
   %.not23 = icmp eq i32 %.021, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %3
   ret void
@@ -4256,7 +4256,7 @@ define internal fastcc void @decode_icon_cmd(ptr noundef %0, ptr noundef %1) unn
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %0, i32 noundef %17, ptr noundef %1, i32 noundef 4, i32 noundef 2, i32 noundef %16, ptr noundef nonnull @.str.1248, i32 noundef %.01, ptr noundef %18, i32 noundef %16)
   %20 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %20, 8
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !31
 
 .loopexit:                                        ; preds = %10, %2
   ret void
@@ -4307,7 +4307,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   %26 = add nuw nsw i32 %.0136155, 1
   %27 = add nuw nsw i32 %.0139154, 1
   %exitcond158.not = icmp eq i32 %26, 11
-  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %exitcond158.not, label %.loopexit, label %.preheader, !llvm.loop !32
 
 28:                                               ; preds = %10
   %29 = load i32, ptr @hf_ua3g_audio_config_audio_circuit_dth, align 4
@@ -4387,7 +4387,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
 77:                                               ; preds = %.preheader145, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit146, label %.preheader145, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit146, label %.preheader145, !llvm.loop !33
 
 78:                                               ; preds = %.lr.ph
   tail call void @wmem_strbuf_append(ptr noundef %68, ptr noundef nonnull @.str.1255)
@@ -4402,7 +4402,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   %84 = add nuw i32 %.0152, 1
   %.1138 = add i32 %.1138153, -1
   %.not142 = icmp eq i32 %.1138, 0
-  br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit.sink.split:                             ; preds = %10, %46, %45, %28, %13
   %hf_ua3g_audio_config_ignored.sink = phi ptr [ @hf_ua3g_audio_config_dpi_chan_gci_tx2, %13 ], [ @hf_ua3g_audio_config_audio_circuit_atf, %28 ], [ @hf_ua3g_audio_config_handsfree_return, %45 ], [ @hf_ua3g_audio_config_loudspeaker_aco_param_handsfree_med_recv_threshold, %46 ], [ @hf_ua3g_audio_config_ignored, %10 ]
@@ -4618,7 +4618,7 @@ define internal fastcc void @decode_ua_dwl_protocol(ptr noundef %0, ptr noundef 
   %94 = add i32 %.1135140, -1
   %95 = add i32 %.0142, 1
   %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 96:                                               ; preds = %4
   %97 = load i32, ptr @hf_ua3g_ua_dwl_protocol_packet_download_end_ack_ok_status, align 4
@@ -4719,7 +4719,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %25 = add i32 %.0320, 1
   %26 = add i32 %.0262319, -1
   %.not281 = icmp eq i32 %26, 0
-  br i1 %.not281, label %.loopexit, label %.lr.ph321, !llvm.loop !39
+  br i1 %.not281, label %.loopexit, label %.lr.ph321, !llvm.loop !36
 
 .lr.ph316:                                        ; preds = %.preheader282, %98
   %.1315 = phi i32 [ %.2, %98 ], [ 4, %.preheader282 ]
@@ -4850,7 +4850,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %.2264 = phi i32 [ %97, %95 ], [ %43, %.lr.ph316 ]
   %.2 = phi i32 [ %96, %95 ], [ %42, %.lr.ph316 ]
   %.not279 = icmp eq i32 %.2264, 0
-  br i1 %.not279, label %.loopexit, label %.lr.ph316, !llvm.loop !40
+  br i1 %.not279, label %.loopexit, label %.lr.ph316, !llvm.loop !37
 
 .lr.ph312:                                        ; preds = %.preheader296, %187
   %.3311 = phi i32 [ %.4, %187 ], [ 4, %.preheader296 ]
@@ -4978,7 +4978,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %135 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %132, ptr noundef %1, i32 noundef %130, i32 noundef 2, i32 noundef %133, ptr noundef nonnull @.str.1234, ptr noundef %134, i32 noundef %133)
   %136 = add nuw nsw i32 %.0267307, 1
   %exitcond343.not = icmp eq i32 %136, %umax342
-  br i1 %exitcond343.not, label %.loopexit285, label %.lr.ph308, !llvm.loop !41
+  br i1 %exitcond343.not, label %.loopexit285, label %.lr.ph308, !llvm.loop !38
 
 .lr.ph306:                                        ; preds = %.lr.ph306.preheader, %.lr.ph306
   %.1268305 = phi i32 [ %144, %.lr.ph306 ], [ 0, %.lr.ph306.preheader ]
@@ -4991,7 +4991,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %143 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %140, ptr noundef %1, i32 noundef %138, i32 noundef 2, i32 noundef %141, ptr noundef nonnull @.str.1234, ptr noundef %142, i32 noundef %141)
   %144 = add nuw nsw i32 %.1268305, 1
   %exitcond341.not = icmp eq i32 %144, %umax340
-  br i1 %exitcond341.not, label %.loopexit285, label %.lr.ph306, !llvm.loop !42
+  br i1 %exitcond341.not, label %.loopexit285, label %.lr.ph306, !llvm.loop !39
 
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph304
   %.2269303 = phi i32 [ %152, %.lr.ph304 ], [ 0, %.lr.ph304.preheader ]
@@ -5004,7 +5004,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %151 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %148, ptr noundef %1, i32 noundef %146, i32 noundef 2, i32 noundef %149, ptr noundef nonnull @.str.1234, ptr noundef %150, i32 noundef %149)
   %152 = add nuw nsw i32 %.2269303, 1
   %exitcond339.not = icmp eq i32 %152, %umax338
-  br i1 %exitcond339.not, label %.loopexit285, label %.lr.ph304, !llvm.loop !43
+  br i1 %exitcond339.not, label %.loopexit285, label %.lr.ph304, !llvm.loop !40
 
 .lr.ph302:                                        ; preds = %.preheader290, %.lr.ph302
   %.3270301 = phi i32 [ %160, %.lr.ph302 ], [ 0, %.preheader290 ]
@@ -5017,7 +5017,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %159 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %157, ptr noundef %1, i32 noundef %154, i32 noundef 2, i32 noundef %156, ptr noundef nonnull @.str.1234, ptr noundef %158, i32 noundef %156)
   %160 = add nuw nsw i32 %.3270301, 1
   %exitcond337.not = icmp eq i32 %160, %119
-  br i1 %exitcond337.not, label %.loopexit285, label %.lr.ph302, !llvm.loop !44
+  br i1 %exitcond337.not, label %.loopexit285, label %.lr.ph302, !llvm.loop !41
 
 161:                                              ; preds = %116
   br label %.loopexit285.sink.split
@@ -5045,7 +5045,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %172 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %169, ptr noundef %1, i32 noundef %167, i32 noundef 2, i32 noundef %170, ptr noundef nonnull @.str.1234, ptr noundef %171, i32 noundef %170)
   %173 = add nuw nsw i32 %.4271299, 1
   %exitcond336.not = icmp eq i32 %173, %umax335
-  br i1 %exitcond336.not, label %.loopexit285, label %.lr.ph300, !llvm.loop !45
+  br i1 %exitcond336.not, label %.loopexit285, label %.lr.ph300, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.5298 = phi i32 [ %181, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -5058,7 +5058,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %180 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %109, i32 noundef %177, ptr noundef %1, i32 noundef %175, i32 noundef 2, i32 noundef %178, ptr noundef nonnull @.str.1234, ptr noundef %179, i32 noundef %178)
   %181 = add nuw nsw i32 %.5298, 1
   %exitcond.not = icmp eq i32 %181, %umax
-  br i1 %exitcond.not, label %.loopexit285, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit285, label %.lr.ph, !llvm.loop !43
 
 182:                                              ; preds = %116
   br label %.loopexit285.sink.split
@@ -5079,7 +5079,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
   %.4266 = phi i32 [ %186, %.loopexit285 ], [ %115, %.lr.ph312 ]
   %.4 = phi i32 [ %185, %.loopexit285 ], [ %114, %.lr.ph312 ]
   %.not277 = icmp eq i32 %.4266, 0
-  br i1 %.not277, label %.loopexit, label %.lr.ph312, !llvm.loop !47
+  br i1 %.not277, label %.loopexit, label %.lr.ph312, !llvm.loop !44
 
 .loopexit.sink.split:                             ; preds = %17, %14
   %hf_ua3g_cs_ip_device_routing_cmd00_characteristic_number.sink = phi ptr [ @hf_ua3g_cs_ip_device_routing_cmd00_characteristic_number, %14 ], [ @hf_ua3g_cs_ip_device_routing_cmd01_incident_0, %17 ]
@@ -5111,7 +5111,7 @@ define internal fastcc void @decode_subdevice_state(ptr noundef %0, ptr noundef 
   %13 = add nuw nsw i32 %.0171, 1
   %14 = add nuw nsw i32 %.02, 2
   %exitcond.not = icmp eq i32 %13, 7
-  br i1 %exitcond.not, label %15, label %3, !llvm.loop !48
+  br i1 %exitcond.not, label %15, label %3, !llvm.loop !45
 
 15:                                               ; preds = %3
   ret void
@@ -5214,12 +5214,12 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{i8 0, i8 2}
-!13 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
@@ -5236,7 +5236,7 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !27 = distinct !{!27, !7}
 !28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7, !9}
+!30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
@@ -5252,6 +5252,3 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}

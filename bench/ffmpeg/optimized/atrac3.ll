@@ -536,7 +536,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   %115 = add nuw nsw i32 %.0158207.i, 1
   %116 = getelementptr inbounds nuw i8, ptr %.0162206.i, i64 1
   %exitcond244.not.i = icmp eq i32 %115, %75
-  br i1 %exitcond244.not.i, label %.loopexit.i, label %.lr.ph208.i, !llvm.loop !71
+  br i1 %exitcond244.not.i, label %.loopexit.i, label %.lr.ph208.i, !llvm.loop !70
 
 117:                                              ; preds = %108
   br i1 %89, label %.lr.ph204.preheader.i, label %.loopexit.i
@@ -555,7 +555,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store i8 %119, ptr %121, align 1, !tbaa !38
   %indvars.iv.next240.i = add nuw nsw i64 %indvars.iv239.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next240.i, %wide.trip.count242.i
-  br i1 %exitcond243.not.i, label %.loopexit.i, label %.lr.ph204.i, !llvm.loop !72
+  br i1 %exitcond243.not.i, label %.loopexit.i, label %.lr.ph204.i, !llvm.loop !71
 
 .loopexit.i:                                      ; preds = %.lr.ph204.i, %.lr.ph208.i, %117, %111
   %122 = load ptr, ptr %87, align 8, !tbaa !41
@@ -574,7 +574,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   %127 = getelementptr inbounds nuw i8, ptr %.1163209.i, i64 1
   %128 = load i8, ptr %127, align 1, !tbaa !38
   %129 = icmp eq i8 %128, -8
-  br i1 %129, label %.lr.ph211.i, label %._crit_edge.i35, !llvm.loop !73
+  br i1 %129, label %.lr.ph211.i, label %._crit_edge.i35, !llvm.loop !72
 
 ._crit_edge.i35:                                  ; preds = %125, %.loopexit.i
   %.1163.lcssa.i = phi ptr [ %122, %.loopexit.i ], [ %127, %125 ]
@@ -645,7 +645,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store i32 %169, ptr %160, align 4, !tbaa !43
   %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next248.i, 4
-  br i1 %exitcond250.not.i, label %172, label %155, !llvm.loop !74
+  br i1 %exitcond250.not.i, label %172, label %155, !llvm.loop !73
 
 172:                                              ; preds = %155
   %173 = load ptr, ptr %86, align 8, !tbaa !51
@@ -725,7 +725,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store float %229, ptr %213, align 4, !tbaa !28
   %indvars.iv.next104.i.i = add nuw nsw i64 %indvars.iv103.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next104.i.i, %indvars.iv127.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit90.i.i, label %210, !llvm.loop !75
+  br i1 %exitcond.not.i.i, label %.loopexit90.i.i, label %210, !llvm.loop !74
 
 .loopexit90.i.i:                                  ; preds = %210, %183
   %.083.in.i.i = phi i64 [ %indvars.iv.i.i, %183 ], [ %indvars.iv127.i.i, %210 ]
@@ -767,7 +767,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store float %242, ptr %238, align 4, !tbaa !28
   %indvars.iv.next121.i.i = add nuw nsw i64 %indvars.iv120.i.i, 1
   %exitcond124.not.i.i = icmp eq i64 %indvars.iv.next121.i.i, %indvars.iv125.i.i
-  br i1 %exitcond124.not.i.i, label %.loopexit.i.i, label %.lr.ph97.i.i, !llvm.loop !76
+  br i1 %exitcond124.not.i.i, label %.loopexit.i.i, label %.lr.ph97.i.i, !llvm.loop !75
 
 .lr.ph95.i.i:                                     ; preds = %.preheader87.i.i, %.lr.ph95.i.i
   %indvars.iv115.i.i = phi i64 [ %indvars.iv.next116.i.i, %.lr.ph95.i.i ], [ %231, %.preheader87.i.i ]
@@ -782,7 +782,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store float %249, ptr %245, align 4, !tbaa !28
   %indvars.iv.next116.i.i = add nuw nsw i64 %indvars.iv115.i.i, 1
   %exitcond119.not.i.i = icmp eq i64 %indvars.iv.next116.i.i, %indvars.iv125.i.i
-  br i1 %exitcond119.not.i.i, label %.loopexit.i.i, label %.lr.ph95.i.i, !llvm.loop !77
+  br i1 %exitcond119.not.i.i, label %.loopexit.i.i, label %.lr.ph95.i.i, !llvm.loop !76
 
 250:                                              ; preds = %.loopexit90.i.i, %.loopexit90.i.i
   %251 = add nuw nsw i64 %indvars.iv.i.i, 256
@@ -803,7 +803,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   store float %259, ptr %256, align 4, !tbaa !28
   %indvars.iv.next109.i.i = add nuw nsw i64 %indvars.iv108.i.i, 1
   %exitcond114.not.i.i = icmp eq i64 %indvars.iv.next109.i.i, %indvars.iv125.i.i
-  br i1 %exitcond114.not.i.i, label %.loopexit.i.i, label %.lr.ph93.i.i, !llvm.loop !78
+  br i1 %exitcond114.not.i.i, label %.loopexit.i.i, label %.lr.ph93.i.i, !llvm.loop !77
 
 .loopexit.i.i:                                    ; preds = %.lr.ph93.i.i, %.lr.ph95.i.i, %.lr.ph97.i.i, %250, %.preheader.i.i, %.preheader87.i.i, %.loopexit90..loopexit_crit_edge.i.i
   %indvars.iv.next.pre-phi.i.i = phi i64 [ %.pre.i.i, %.loopexit90..loopexit_crit_edge.i.i ], [ %251, %250 ], [ %230, %.preheader87.i.i ], [ %233, %.preheader.i.i ], [ %233, %.lr.ph97.i.i ], [ %230, %.lr.ph95.i.i ], [ %251, %.lr.ph93.i.i ]
@@ -811,7 +811,7 @@ decode_bytes.exit:                                ; preds = %45, %._crit_edge.i,
   %indvars.iv.next128.i.i = add nuw nsw i64 %indvars.iv127.i.i, 256
   %indvars.iv.next126.i.i = add nuw nsw i64 %indvars.iv125.i.i, 256
   %exitcond138.not.i.i = icmp eq i64 %indvars.iv.next130.i.i, 4
-  br i1 %exitcond138.not.i.i, label %reverse_matrixing.exit.i, label %183, !llvm.loop !79
+  br i1 %exitcond138.not.i.i, label %reverse_matrixing.exit.i, label %183, !llvm.loop !78
 
 reverse_matrixing.exit.i:                         ; preds = %.loopexit.i.i
   %260 = getelementptr inbounds nuw i8, ptr %142, i64 4
@@ -879,7 +879,7 @@ get_channel_weights.exit30.i.i:                   ; preds = %287, %278, %get_cha
   %294 = icmp samesign ult i64 %indvars.iv.i180.i, 768
   %indvars.iv.next55.i.i = add nuw nsw i64 %indvars.iv54.i.i, 256
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 256
-  br i1 %294, label %.lr.ph.preheader.i.i, label %channel_weighting.exit.i, !llvm.loop !80
+  br i1 %294, label %.lr.ph.preheader.i.i, label %channel_weighting.exit.i, !llvm.loop !79
 
 .lr.ph.preheader.i.i:                             ; preds = %.loopexit.i184.i, %get_channel_weights.exit30.i.i
   %indvars.iv54.i.i = phi i64 [ 264, %get_channel_weights.exit30.i.i ], [ %indvars.iv.next55.i.i, %.loopexit.i184.i ]
@@ -909,7 +909,7 @@ get_channel_weights.exit30.i.i:                   ; preds = %287, %278, %get_cha
   store float %310, ptr %306, align 4, !tbaa !28
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond.not.i182.i = icmp eq i64 %indvars.iv.next41.i.i, %indvars.iv54.i.i
-  br i1 %exitcond.not.i182.i, label %.lr.ph37.i.i, label %.lr.ph.i181.i, !llvm.loop !81
+  br i1 %exitcond.not.i182.i, label %.lr.ph37.i.i, label %.lr.ph.i181.i, !llvm.loop !80
 
 .lr.ph37.i.i:                                     ; preds = %.lr.ph.i181.i, %.lr.ph37.i.i
   %indvars.iv45.i.i = phi i64 [ %indvars.iv.next46.i.i, %.lr.ph37.i.i ], [ %indvars.iv54.i.i, %.lr.ph.i181.i ]
@@ -923,17 +923,17 @@ get_channel_weights.exit30.i.i:                   ; preds = %287, %278, %get_cha
   store float %316, ptr %314, align 4, !tbaa !28
   %indvars.iv.next46.i.i = add nuw nsw i64 %indvars.iv45.i.i, 1
   %exitcond51.not.i.i = icmp eq i64 %indvars.iv.next46.i.i, %indvars.iv52.i.i
-  br i1 %exitcond51.not.i.i, label %.loopexit.i184.i, label %.lr.ph37.i.i, !llvm.loop !82
+  br i1 %exitcond51.not.i.i, label %.loopexit.i184.i, label %.lr.ph37.i.i, !llvm.loop !81
 
 channel_weighting.exit.i:                         ; preds = %.loopexit.i184.i, %262
   %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 2
   %.not177.i = icmp samesign ult i64 %indvars.iv.next252.i, %94
-  br i1 %.not177.i, label %95, label %.thread191.i, !llvm.loop !83
+  br i1 %.not177.i, label %95, label %.thread191.i, !llvm.loop !82
 
 317:                                              ; preds = %.lr.ph.split.i
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count237.i
-  br i1 %exitcond.not.i34, label %.thread191.i, label %.lr.ph.split.i, !llvm.loop !84
+  br i1 %exitcond.not.i34, label %.thread191.i, label %.lr.ph.split.i, !llvm.loop !69
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i30, %317
   %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i33, %317 ], [ 0, %.lr.ph.i30 ]
@@ -995,7 +995,7 @@ channel_weighting.exit.i:                         ; preds = %.loopexit.i184.i, %
   tail call void @ff_atrac_iqmf(ptr noundef %342, ptr noundef nonnull %344, i32 noundef 512, ptr noundef %342, ptr noundef nonnull %351, ptr noundef nonnull %339) #9
   %indvars.iv.next255.i = add nuw nsw i64 %indvars.iv254.i, 1
   %exitcond258.not.i = icmp eq i64 %indvars.iv.next255.i, %wide.trip.count257.i
-  br i1 %exitcond258.not.i, label %decode_frame.exit, label %340, !llvm.loop !85
+  br i1 %exitcond258.not.i, label %decode_frame.exit, label %340, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %172, %._crit_edge.i35, %95, %.lr.ph211.i
   %.1.i.ph = phi i32 [ -1094995529, %.lr.ph211.i ], [ %179, %172 ], [ -1094995529, %._crit_edge.i35 ], [ %107, %95 ], [ %71, %.lr.ph.split.us.i ], [ %336, %.lr.ph.split.i ]
@@ -1119,12 +1119,12 @@ define internal i32 @atrac3al_decode_frame(ptr noundef %0, ptr noundef initializ
   store i32 %53, ptr %26, align 8, !tbaa !66
   %54 = sub nsw i32 %.val53.i, %53
   %55 = icmp sgt i32 %54, 6
-  br i1 %55, label %41, label %.critedge.i, !llvm.loop !86
+  br i1 %55, label %41, label %.critedge.i, !llvm.loop !84
 
 .critedge.i:                                      ; preds = %50, %41, %.preheader1.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %31, !llvm.loop !87
+  br i1 %exitcond.not.i, label %.preheader.i, label %31, !llvm.loop !85
 
 56:                                               ; preds = %56, %.preheader.i
   %indvars.iv11.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next12.i, %56 ]
@@ -1144,7 +1144,7 @@ define internal i32 @atrac3al_decode_frame(ptr noundef %0, ptr noundef initializ
   tail call void @ff_atrac_iqmf(ptr noundef %58, ptr noundef nonnull %60, i32 noundef 512, ptr noundef %58, ptr noundef nonnull %67, ptr noundef nonnull %30) #9
   %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %exitcond15.not.i = icmp eq i64 %indvars.iv.next12.i, %wide.trip.count.i
-  br i1 %exitcond15.not.i, label %.loopexit, label %56, !llvm.loop !88
+  br i1 %exitcond15.not.i, label %.loopexit, label %56, !llvm.loop !86
 
 al_decode_frame.exit:                             ; preds = %31
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.20) #9
@@ -1188,9 +1188,9 @@ define internal void @atrac3_init_static_data() #0 {
   %.01213 = phi ptr [ @atrac3_vlc_table, %0 ], [ %12, %1 ]
   %2 = getelementptr inbounds nuw [7 x %struct.VLC], ptr @spectral_coeff_tab, i64 0, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.01213, ptr %3, align 8, !tbaa !89
+  store ptr %.01213, ptr %3, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 256, ptr %4, align 4, !tbaa !92
+  store i32 256, ptr %4, align 4, !tbaa !90
   %5 = getelementptr inbounds nuw [7 x i8], ptr @huff_tab_sizes, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !38
   %7 = zext i8 %6 to i32
@@ -1201,7 +1201,7 @@ define internal void @atrac3_init_static_data() #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.01213, i64 1024
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %13, label %1, !llvm.loop !93
+  br i1 %exitcond.not, label %13, label %1, !llvm.loop !91
 
 13:                                               ; preds = %1
   ret void
@@ -1250,7 +1250,7 @@ define internal fastcc void @init_imdct_window() unnamed_addr #3 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next20 = add nsw i64 %indvars.iv19, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %31, label %1, !llvm.loop !94
+  br i1 %exitcond.not, label %31, label %1, !llvm.loop !92
 
 31:                                               ; preds = %1
   ret void
@@ -1279,7 +1279,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_channel_sound_unit(
   %11 = alloca [8 x i32], align 16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 6668
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 4104
-  %14 = load i32, ptr %13, align 8, !tbaa !95
+  %14 = load i32, ptr %13, align 8, !tbaa !93
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [2 x %struct.GainBlock], ptr %12, i64 0, i64 %15
   %17 = sub nsw i32 1, %14
@@ -1341,7 +1341,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_channel_sound_unit(
   %55 = add i32 %44, 2
   %56 = tail call i32 @llvm.umin.i32(i32 %26, i32 %55)
   store i32 %56, ptr %45, align 8, !tbaa !66
-  store i32 %54, ptr %2, align 16, !tbaa !97
+  store i32 %54, ptr %2, align 16, !tbaa !95
   %57 = add nuw nsw i32 %54, 1
   %wide.trip.count.i = zext nneg i32 %57 to i64
   br label %58
@@ -1366,7 +1366,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_channel_sound_unit(
   %70 = tail call i32 @llvm.umin.i32(i32 %60, i32 %69)
   store i32 %70, ptr %45, align 8, !tbaa !66
   %71 = getelementptr inbounds nuw %struct.AtracGainInfo, ptr %19, i64 %indvars.iv46.i
-  store i32 %68, ptr %71, align 4, !tbaa !98
+  store i32 %68, ptr %71, align 4, !tbaa !96
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %.not43.i = icmp ult i32 %67, 536870912
@@ -1420,24 +1420,24 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_channel_sound_unit(
 104:                                              ; preds = %101, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %74
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !98
 
 ._crit_edge.i:                                    ; preds = %104, %58
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %58, !llvm.loop !101
+  br i1 %exitcond.not.i, label %.preheader.i, label %58, !llvm.loop !99
 
 .lr.ph42.i:                                       ; preds = %.preheader.i, %.lr.ph42.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph42.i ], [ %wide.trip.count.i, %.preheader.i ]
   %105 = getelementptr inbounds nuw %struct.AtracGainInfo, ptr %19, i64 %indvars.iv49.i
-  store i32 0, ptr %105, align 4, !tbaa !98
+  store i32 0, ptr %105, align 4, !tbaa !96
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next50.i, 4
-  br i1 %exitcond52.not.i, label %.loopexit, label %.lr.ph42.i, !llvm.loop !102
+  br i1 %exitcond52.not.i, label %.loopexit, label %.lr.ph42.i, !llvm.loop !100
 
 .loopexit:                                        ; preds = %.lr.ph42.i, %.preheader.i
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 4108
-  %107 = load i32, ptr %2, align 16, !tbaa !97
+  %107 = load i32, ptr %2, align 16, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %108 = load i32, ptr %45, align 8, !tbaa !66
@@ -1460,7 +1460,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %121, align 4, !tbaa !103
+  store i32 0, ptr %121, align 4, !tbaa !101
   br label %337
 
 122:                                              ; preds = %.loopexit
@@ -1516,7 +1516,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   store i32 %151, ptr %152, align 4, !tbaa !43
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i62
-  br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i64, !llvm.loop !104
+  br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i64, !llvm.loop !102
 
 ._crit_edge.i68:                                  ; preds = %.lr.ph.i64, %.preheader.i63
   %.promoted109135.i = phi i32 [ %.promoted109128.i, %.preheader.i63 ], [ %spec.select.i.i, %.lr.ph.i64 ]
@@ -1645,7 +1645,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   %237 = tail call i32 @llvm.umin.i32(i32 %109, i32 %236)
   store i32 %237, ptr %45, align 8, !tbaa !66
   %238 = tail call i32 @llvm.fshl.i32(i32 %.162115.i, i32 %235, i32 6)
-  store i32 %238, ptr %217, align 4, !tbaa !105
+  store i32 %238, ptr %217, align 4, !tbaa !103
   %239 = sub i32 1024, %238
   %240 = tail call i32 @llvm.smin.i32(i32 %239, i32 %188)
   %241 = zext nneg i32 %228 to i64
@@ -1685,7 +1685,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   store i32 %260, ptr %263, align 4, !tbaa !43
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
   %exitcond75.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %wide.trip.count74.i.i
-  br i1 %exitcond75.not.i.i, label %read_quant_spectral_coeffs.exit.thread.i, label %251, !llvm.loop !107
+  br i1 %exitcond75.not.i.i, label %read_quant_spectral_coeffs.exit.thread.i, label %251, !llvm.loop !105
 
 264:                                              ; preds = %224
   br i1 %192, label %.preheader.i.i, label %.preheader54.i.i
@@ -1695,7 +1695,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   br i1 %265, label %.lr.ph64.i.i, label %read_quant_spectral_coeffs.exit.thread164.i
 
 .lr.ph64.i.i:                                     ; preds = %.preheader54.i.i
-  %266 = load ptr, ptr %195, align 8, !tbaa !89
+  %266 = load ptr, ptr %195, align 8, !tbaa !87
   %wide.trip.count79.i.i = zext nneg i32 %240 to i64
   br label %268
 
@@ -1732,7 +1732,7 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   store i32 %284, ptr %287, align 4, !tbaa !43
   %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
   %exitcond80.not.i.i = icmp eq i64 %indvars.iv.next77.i.i, %wide.trip.count79.i.i
-  br i1 %exitcond80.not.i.i, label %read_quant_spectral_coeffs.exit.thread.i, label %268, !llvm.loop !108
+  br i1 %exitcond80.not.i.i, label %read_quant_spectral_coeffs.exit.thread.i, label %268, !llvm.loop !106
 
 288:                                              ; preds = %288, %.lr.ph66.i.i
   %289 = phi i32 [ %237, %.lr.ph66.i.i ], [ %306, %288 ]
@@ -1772,23 +1772,23 @@ decode_tonal_components.exit.thread103:           ; preds = %.loopexit
   store i32 %317, ptr %318, align 4, !tbaa !43
   %indvars.iv.next82.i.i = add nuw nsw i64 %indvars.iv81.i.i, 1
   %exitcond85.not.i.i = icmp eq i64 %indvars.iv.next82.i.i, %wide.trip.count84.i.i
-  br i1 %exitcond85.not.i.i, label %read_quant_spectral_coeffs.exit.i, label %288, !llvm.loop !109
+  br i1 %exitcond85.not.i.i, label %read_quant_spectral_coeffs.exit.i, label %288, !llvm.loop !107
 
 read_quant_spectral_coeffs.exit.thread.i:         ; preds = %251, %268
   %.promoted109134.ph.i = phi i32 [ %286, %268 ], [ %262, %251 ]
   %319 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store i32 %240, ptr %319, align 4, !tbaa !110
+  store i32 %240, ptr %319, align 4, !tbaa !108
   br label %.lr.ph103.i
 
 read_quant_spectral_coeffs.exit.thread164.i:      ; preds = %.preheader54.i.i, %.preheader56.i.i
   %320 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store i32 %240, ptr %320, align 4, !tbaa !110
+  store i32 %240, ptr %320, align 4, !tbaa !108
   br label %._crit_edge104.i
 
 read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.i
   %.promoted109134.i = phi i32 [ %237, %.preheader.i.i ], [ %306, %288 ]
   %321 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store i32 %240, ptr %321, align 4, !tbaa !110
+  store i32 %240, ptr %321, align 4, !tbaa !108
   %322 = icmp slt i32 %238, 1024
   br i1 %322, label %.lr.ph103.i, label %._crit_edge104.i
 
@@ -1809,14 +1809,14 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   store float %328, ptr %329, align 4, !tbaa !28
   %indvars.iv.next148.i = add nuw nsw i64 %indvars.iv147.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next148.i, %wide.trip.count150.i
-  br i1 %exitcond151.not.i, label %._crit_edge104.i, label %324, !llvm.loop !111
+  br i1 %exitcond151.not.i, label %._crit_edge104.i, label %324, !llvm.loop !109
 
 ._crit_edge104.i:                                 ; preds = %324, %read_quant_spectral_coeffs.exit.i, %read_quant_spectral_coeffs.exit.thread164.i
   %.promoted109134161.i = phi i32 [ %.promoted109134.i, %read_quant_spectral_coeffs.exit.i ], [ %237, %read_quant_spectral_coeffs.exit.thread164.i ], [ %.promoted109134162.i, %324 ]
   %indvars.iv.next153.i = add nsw i64 %indvars.iv152.i, 1
   %330 = add nuw nsw i32 %.063106.i, 1
   %exitcond157.not.i = icmp eq i32 %330, %210
-  br i1 %exitcond157.not.i, label %.loopexit.loopexit.i, label %216, !llvm.loop !112
+  br i1 %exitcond157.not.i, label %.loopexit.loopexit.i, label %216, !llvm.loop !110
 
 .loopexit.loopexit.i:                             ; preds = %._crit_edge104.i
   %331 = trunc nsw i64 %indvars.iv.next153.i to i32
@@ -1827,27 +1827,27 @@ read_quant_spectral_coeffs.exit.i:                ; preds = %288, %.preheader.i.
   %.371.i = phi i32 [ %.270114.i, %196 ], [ %.270114.i, %202 ], [ %331, %.loopexit.loopexit.i ]
   %332 = add nuw nsw i32 %.162115.i, 1
   %exitcond158.not.i = icmp eq i32 %332, %137
-  br i1 %exitcond158.not.i, label %._crit_edge119.i, label %196, !llvm.loop !113
+  br i1 %exitcond158.not.i, label %._crit_edge119.i, label %196, !llvm.loop !111
 
 ._crit_edge119.i:                                 ; preds = %.loopexit.i, %187
   %.promoted109129.i = phi i32 [ %.promoted109132.i, %187 ], [ %.promoted109130.i, %.loopexit.i ]
   %.270.lcssa.i = phi i32 [ %.068121.i, %187 ], [ %.371.i, %.loopexit.i ]
   %333 = add nuw nsw i32 %.060123.i, 1
   %exitcond159.not.i = icmp eq i32 %333, %117
-  br i1 %exitcond159.not.i, label %decode_tonal_components.exit, label %.preheader.i63, !llvm.loop !114
+  br i1 %exitcond159.not.i, label %decode_tonal_components.exit, label %.preheader.i63, !llvm.loop !112
 
 decode_tonal_components.exit.thread:              ; preds = %._crit_edge.i68, %216, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 -1094995529, ptr %334, align 4, !tbaa !103
+  store i32 -1094995529, ptr %334, align 4, !tbaa !101
   br label %decode_gain_control.exit
 
 decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %335 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %.270.lcssa.i, ptr %335, align 4, !tbaa !103
+  store i32 %.270.lcssa.i, ptr %335, align 4, !tbaa !101
   %336 = icmp slt i32 %.270.lcssa.i, 0
   br i1 %336, label %decode_gain_control.exit, label %337
 
@@ -1898,7 +1898,7 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   store i32 %365, ptr %368, align 4, !tbaa !43
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, %wide.trip.count.i71
-  br i1 %exitcond.not.i74, label %.preheader53.i, label %356, !llvm.loop !115
+  br i1 %exitcond.not.i74, label %.preheader53.i, label %356, !llvm.loop !113
 
 .preheader.i75:                                   ; preds = %483
   %369 = getelementptr inbounds nuw i8, ptr %2, i64 7152
@@ -1916,7 +1916,7 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   %375 = zext i16 %374 to i32
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %376 = getelementptr inbounds nuw [33 x i16], ptr @subband_tab, i64 0, i64 %indvars.iv.next97.i
-  %377 = load i16, ptr %376, align 2, !tbaa !116
+  %377 = load i16, ptr %376, align 2, !tbaa !114
   %378 = zext i16 %377 to i32
   %379 = sub nsw i32 %378, %375
   %380 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv96.i
@@ -1937,7 +1937,7 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   %386 = add nsw i32 %381, -1
   %387 = sext i32 %386 to i64
   %388 = getelementptr inbounds [7 x %struct.VLC], ptr @spectral_coeff_tab, i64 0, i64 %387, i32 1
-  %389 = load ptr, ptr %388, align 8, !tbaa !89
+  %389 = load ptr, ptr %388, align 8, !tbaa !87
   %390 = load ptr, ptr %1, align 8, !tbaa !62
   %wide.trip.count79.i.us.i = zext nneg i32 %379 to i64
   %391 = load i32, ptr %46, align 8, !tbaa !64
@@ -1969,14 +1969,14 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   store i32 %408, ptr %411, align 4, !tbaa !43
   %indvars.iv.next77.i.us.i = add nuw nsw i64 %indvars.iv76.i.us.i, 1
   %exitcond80.not.i.us.i = icmp eq i64 %indvars.iv.next77.i.us.i, %wide.trip.count79.i.us.i
-  br i1 %exitcond80.not.i.us.i, label %read_quant_spectral_coeffs.exit.us.i, label %392, !llvm.loop !108
+  br i1 %exitcond80.not.i.us.i, label %read_quant_spectral_coeffs.exit.us.i, label %392, !llvm.loop !106
 
 .preheader.i.us.i:                                ; preds = %382
   %412 = icmp sgt i32 %379, 1
   br i1 %412, label %.lr.ph66.i.us.i, label %read_quant_spectral_coeffs.exit.us.i
 
 .lr.ph66.i.us.i:                                  ; preds = %.preheader.i.us.i
-  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @spectral_coeff_tab, i64 8), align 8, !tbaa !89
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @spectral_coeff_tab, i64 8), align 8, !tbaa !87
   %414 = load ptr, ptr %1, align 8, !tbaa !62
   %wide.trip.count84.i.us.i = zext nneg i32 %384 to i64
   %415 = load i32, ptr %46, align 8, !tbaa !64
@@ -2021,7 +2021,7 @@ decode_tonal_components.exit:                     ; preds = %._crit_edge119.i
   store i32 %445, ptr %446, align 4, !tbaa !43
   %indvars.iv.next82.i.us.i = add nuw nsw i64 %indvars.iv81.i.us.i, 1
   %exitcond85.not.i.us.i = icmp eq i64 %indvars.iv.next82.i.us.i, %wide.trip.count84.i.us.i
-  br i1 %exitcond85.not.i.us.i, label %read_quant_spectral_coeffs.exit.us.i, label %416, !llvm.loop !109
+  br i1 %exitcond85.not.i.us.i, label %read_quant_spectral_coeffs.exit.us.i, label %416, !llvm.loop !107
 
 read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.preheader.i.us.i, %.preheader54.i.us.i
   %447 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv96.i
@@ -2053,7 +2053,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count94.i
-  br i1 %exitcond95.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !118
+  br i1 %exitcond95.not.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !116
 
 463:                                              ; preds = %.preheader.split.us.i
   %464 = zext i16 %374 to i64
@@ -2065,7 +2065,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %463, %read_quant_spectral_coeffs.exit.us.i
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count.i71
-  br i1 %exitcond100.not.i, label %decode_spectrum.exit, label %.preheader.split.us.i, !llvm.loop !119
+  br i1 %exitcond100.not.i, label %decode_spectrum.exit, label %.preheader.split.us.i, !llvm.loop !117
 
 .preheader53.i:                                   ; preds = %356, %483
   %468 = phi i32 [ %484, %483 ], [ %367, %356 ]
@@ -2095,7 +2095,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
   %484 = phi i32 [ %468, %.preheader53.i ], [ %481, %471 ]
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i71
-  br i1 %exitcond72.not.i, label %.preheader.i75, label %.preheader53.i, !llvm.loop !120
+  br i1 %exitcond72.not.i, label %.preheader.i75, label %.preheader53.i, !llvm.loop !118
 
 .preheader.split.i:                               ; preds = %.preheader.i75, %.loopexit.i78
   %485 = phi i16 [ %488, %.loopexit.i78 ], [ 0, %.preheader.i75 ]
@@ -2103,7 +2103,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
   %486 = zext i16 %485 to i32
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %487 = getelementptr inbounds nuw [33 x i16], ptr @subband_tab, i64 0, i64 %indvars.iv.next83.i
-  %488 = load i16, ptr %487, align 2, !tbaa !116
+  %488 = load i16, ptr %487, align 2, !tbaa !114
   %489 = zext i16 %488 to i32
   %490 = sub nsw i32 %489, %486
   %491 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv82.i
@@ -2164,7 +2164,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
   store i32 %518, ptr %521, align 4, !tbaa !43
   %indvars.iv.next72.i.i85 = add nuw nsw i64 %indvars.iv71.i.i84, 1
   %exitcond75.not.i.i86 = icmp eq i64 %indvars.iv.next72.i.i85, %wide.trip.count74.i.i83
-  br i1 %exitcond75.not.i.i86, label %read_quant_spectral_coeffs.exit.i77, label %509, !llvm.loop !107
+  br i1 %exitcond75.not.i.i86, label %read_quant_spectral_coeffs.exit.i77, label %509, !llvm.loop !105
 
 522:                                              ; preds = %522, %.lr.ph.i.i
   %523 = phi i32 [ %.promoted56.i, %.lr.ph.i.i ], [ %533, %522 ]
@@ -2197,7 +2197,7 @@ read_quant_spectral_coeffs.exit.us.i:             ; preds = %392, %416, %.prehea
   store i32 %544, ptr %545, align 4, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %read_quant_spectral_coeffs.exit.i77, label %522, !llvm.loop !121
+  br i1 %exitcond.not.i.i, label %read_quant_spectral_coeffs.exit.i77, label %522, !llvm.loop !119
 
 read_quant_spectral_coeffs.exit.i77:              ; preds = %522, %509, %.preheader56.i.i81, %.preheader58.i.i
   %546 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %indvars.iv82.i
@@ -2228,7 +2228,7 @@ read_quant_spectral_coeffs.exit.i77:              ; preds = %522, %509, %.prehea
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count80.i
-  br i1 %exitcond81.not.i, label %.loopexit.i78, label %.lr.ph.i80, !llvm.loop !118
+  br i1 %exitcond81.not.i, label %.loopexit.i78, label %.lr.ph.i80, !llvm.loop !116
 
 561:                                              ; preds = %.preheader.split.i
   %562 = zext i16 %485 to i64
@@ -2240,11 +2240,11 @@ read_quant_spectral_coeffs.exit.i77:              ; preds = %522, %509, %.prehea
 
 .loopexit.i78:                                    ; preds = %.lr.ph.i80, %561, %read_quant_spectral_coeffs.exit.i77
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i71
-  br i1 %exitcond86.not.i, label %decode_spectrum.exit, label %.preheader.split.i, !llvm.loop !122
+  br i1 %exitcond86.not.i, label %decode_spectrum.exit, label %.preheader.split.i, !llvm.loop !117
 
 decode_spectrum.exit:                             ; preds = %.loopexit.i78, %.loopexit.us.i
   %566 = getelementptr inbounds nuw [33 x i16], ptr @subband_tab, i64 0, i64 %wide.trip.count.i71
-  %567 = load i16, ptr %566, align 2, !tbaa !116
+  %567 = load i16, ptr %566, align 2, !tbaa !114
   %568 = zext i16 %567 to i64
   %569 = getelementptr inbounds nuw float, ptr %369, i64 %568
   %570 = shl nuw nsw i64 %568, 2
@@ -2259,7 +2259,7 @@ decode_spectrum.exit:                             ; preds = %.loopexit.i78, %.lo
 add_tonal_components.exit.thread:                 ; preds = %decode_spectrum.exit
   %572 = zext nneg i32 %346 to i64
   %573 = getelementptr inbounds nuw [33 x i16], ptr @subband_tab, i64 0, i64 %572
-  %574 = load i16, ptr %573, align 2, !tbaa !116
+  %574 = load i16, ptr %573, align 2, !tbaa !114
   %575 = zext i16 %574 to i32
   %576 = add nsw i32 %575, -1
   %577 = ashr i32 %576, 8
@@ -2273,9 +2273,9 @@ add_tonal_components.exit.thread:                 ; preds = %decode_spectrum.exi
   %indvars.iv36.i = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next37.i, %._crit_edge.i87 ]
   %.02730.i = phi i32 [ -1, %.lr.ph33.preheader.i ], [ %..027.i, %._crit_edge.i87 ]
   %578 = getelementptr inbounds nuw %struct.TonalComponent, ptr %106, i64 %indvars.iv36.i
-  %579 = load i32, ptr %578, align 4, !tbaa !105
+  %579 = load i32, ptr %578, align 4, !tbaa !103
   %580 = getelementptr inbounds nuw i8, ptr %578, i64 4
-  %581 = load i32, ptr %580, align 4, !tbaa !110
+  %581 = load i32, ptr %580, align 4, !tbaa !108
   %582 = add nsw i32 %581, %579
   %..027.i = tail call i32 @llvm.smax.i32(i32 %582, i32 %.02730.i)
   %583 = getelementptr inbounds nuw i8, ptr %578, i64 8
@@ -2298,17 +2298,17 @@ add_tonal_components.exit.thread:                 ; preds = %decode_spectrum.exi
   store float %591, ptr %589, align 4, !tbaa !28
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i89
-  br i1 %exitcond.not.i93, label %._crit_edge.i87, label %.lr.ph.i90, !llvm.loop !123
+  br i1 %exitcond.not.i93, label %._crit_edge.i87, label %.lr.ph.i90, !llvm.loop !120
 
 ._crit_edge.i87:                                  ; preds = %.lr.ph.i90, %.lr.ph33.i
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
-  br i1 %exitcond40.not.i, label %add_tonal_components.exit, label %.lr.ph33.i, !llvm.loop !124
+  br i1 %exitcond40.not.i, label %add_tonal_components.exit, label %.lr.ph33.i, !llvm.loop !121
 
 add_tonal_components.exit:                        ; preds = %._crit_edge.i87
   %592 = zext nneg i32 %346 to i64
   %593 = getelementptr inbounds nuw [33 x i16], ptr @subband_tab, i64 0, i64 %592
-  %594 = load i16, ptr %593, align 2, !tbaa !116
+  %594 = load i16, ptr %593, align 2, !tbaa !114
   %595 = zext i16 %594 to i32
   %596 = add nsw i32 %595, -1
   %597 = ashr i32 %596, 8
@@ -2355,11 +2355,11 @@ add_tonal_components.exit:                        ; preds = %._crit_edge.i87
   store float %618, ptr %619, align 4, !tbaa !28
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, 128
-  br i1 %exitcond.not.i98, label %imlt.exit, label %.preheader.i95, !llvm.loop !125
+  br i1 %exitcond.not.i98, label %imlt.exit, label %.preheader.i95, !llvm.loop !122
 
 imlt.exit:                                        ; preds = %.preheader.i95, %612
-  %621 = load ptr, ptr %605, align 8, !tbaa !126
-  %622 = load ptr, ptr %606, align 8, !tbaa !127
+  %621 = load ptr, ptr %605, align 8, !tbaa !123
+  %622 = load ptr, ptr %606, align 8, !tbaa !124
   tail call void %621(ptr noundef %622, ptr noundef nonnull %604, ptr noundef nonnull %614, i64 noundef 4) #9
   %623 = load ptr, ptr %607, align 8, !tbaa !50
   tail call void %623(ptr noundef nonnull %604, ptr noundef nonnull %604, ptr noundef nonnull @mdct_window, i32 noundef 512) #9
@@ -2379,12 +2379,12 @@ imlt.exit:                                        ; preds = %.preheader.i95, %61
   tail call void @ff_atrac_gain_compensation(ptr noundef nonnull %608, ptr noundef nonnull %604, ptr noundef nonnull %626, ptr noundef nonnull %627, ptr noundef nonnull %628, i32 noundef 256, ptr noundef %629) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond128.not, label %630, label %611, !llvm.loop !128
+  br i1 %exitcond128.not, label %630, label %611, !llvm.loop !125
 
 630:                                              ; preds = %625
-  %631 = load i32, ptr %13, align 8, !tbaa !95
+  %631 = load i32, ptr %13, align 8, !tbaa !93
   %632 = xor i32 %631, 1
-  store i32 %632, ptr %13, align 8, !tbaa !95
+  store i32 %632, ptr %13, align 8, !tbaa !93
   br label %decode_gain_control.exit
 
 decode_gain_control.exit:                         ; preds = %101, %decode_tonal_components.exit.thread, %decode_tonal_components.exit, %630, %42, %38
@@ -2522,8 +2522,8 @@ attributes #10 = { cold }
 !66 = !{!33, !10, i64 16}
 !67 = !{!68, !68, i64 0}
 !68 = !{!"p1 float", !7, i64 0}
-!69 = distinct !{!69, !45, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!69 = distinct !{!69, !45}
+!70 = distinct !{!70, !45}
 !71 = distinct !{!71, !45}
 !72 = distinct !{!72, !45}
 !73 = distinct !{!73, !45}
@@ -2540,45 +2540,42 @@ attributes #10 = { cold }
 !84 = distinct !{!84, !45}
 !85 = distinct !{!85, !45}
 !86 = distinct !{!86, !45}
-!87 = distinct !{!87, !45}
-!88 = distinct !{!88, !45}
-!89 = !{!90, !91, i64 8}
-!90 = !{!"VLC", !10, i64 0, !91, i64 8, !10, i64 16, !10, i64 20}
-!91 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!92 = !{!90, !10, i64 20}
-!93 = distinct !{!93, !45}
-!94 = distinct !{!94, !45}
-!95 = !{!96, !10, i64 4104}
-!96 = !{!"ChannelUnit", !10, i64 0, !10, i64 4, !8, i64 8, !10, i64 4104, !8, i64 4108, !8, i64 6668, !8, i64 7152, !8, i64 11248, !8, i64 15344, !8, i64 15528, !8, i64 15712}
-!97 = !{!96, !10, i64 0}
-!98 = !{!99, !10, i64 0}
-!99 = !{!"AtracGainInfo", !10, i64 0, !8, i64 4, !8, i64 32}
+!87 = !{!88, !89, i64 8}
+!88 = !{!"VLC", !10, i64 0, !89, i64 8, !10, i64 16, !10, i64 20}
+!89 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!90 = !{!88, !10, i64 20}
+!91 = distinct !{!91, !45}
+!92 = distinct !{!92, !45}
+!93 = !{!94, !10, i64 4104}
+!94 = !{!"ChannelUnit", !10, i64 0, !10, i64 4, !8, i64 8, !10, i64 4104, !8, i64 4108, !8, i64 6668, !8, i64 7152, !8, i64 11248, !8, i64 15344, !8, i64 15528, !8, i64 15712}
+!95 = !{!94, !10, i64 0}
+!96 = !{!97, !10, i64 0}
+!97 = !{!"AtracGainInfo", !10, i64 0, !8, i64 4, !8, i64 32}
+!98 = distinct !{!98, !45}
+!99 = distinct !{!99, !45}
 !100 = distinct !{!100, !45}
-!101 = distinct !{!101, !45}
+!101 = !{!94, !10, i64 4}
 !102 = distinct !{!102, !45}
-!103 = !{!96, !10, i64 4}
-!104 = distinct !{!104, !45}
-!105 = !{!106, !10, i64 0}
-!106 = !{!"TonalComponent", !10, i64 0, !10, i64 4, !8, i64 8}
+!103 = !{!104, !10, i64 0}
+!104 = !{!"TonalComponent", !10, i64 0, !10, i64 4, !8, i64 8}
+!105 = distinct !{!105, !45}
+!106 = distinct !{!106, !45}
 !107 = distinct !{!107, !45}
-!108 = distinct !{!108, !45}
+!108 = !{!104, !10, i64 4}
 !109 = distinct !{!109, !45}
-!110 = !{!106, !10, i64 4}
+!110 = distinct !{!110, !45}
 !111 = distinct !{!111, !45}
 !112 = distinct !{!112, !45}
 !113 = distinct !{!113, !45}
-!114 = distinct !{!114, !45}
-!115 = distinct !{!115, !45}
-!116 = !{!117, !117, i64 0}
-!117 = !{!"short", !8, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"short", !8, i64 0}
+!116 = distinct !{!116, !45}
+!117 = distinct !{!117, !45}
 !118 = distinct !{!118, !45}
-!119 = distinct !{!119, !45, !70}
+!119 = distinct !{!119, !45}
 !120 = distinct !{!120, !45}
 !121 = distinct !{!121, !45}
 !122 = distinct !{!122, !45}
-!123 = distinct !{!123, !45}
-!124 = distinct !{!124, !45}
+!123 = !{!32, !7, i64 4840}
+!124 = !{!32, !36, i64 4832}
 !125 = distinct !{!125, !45}
-!126 = !{!32, !7, i64 4840}
-!127 = !{!32, !36, i64 4832}
-!128 = distinct !{!128, !45}

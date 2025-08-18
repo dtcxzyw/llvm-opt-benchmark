@@ -3576,7 +3576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
   %244 = sub i64 %242, %243
   %245 = sdiv exact i64 %244, 96
   %246 = icmp ult i64 %239, %245
-  br i1 %246, label %.lr.ph.split, label %._crit_edge, !llvm.loop !212
+  br i1 %246, label %.lr.ph.split, label %._crit_edge, !llvm.loop !210
 
 .split161:                                        ; preds = %229
   %247 = landingpad { ptr, i32 }
@@ -4027,7 +4027,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11Web
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !213
+  %7 = load ptr, ptr %6, align 8, !tbaa !211
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -4145,7 +4145,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11Web
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !213
+  %7 = load ptr, ptr %6, align 8, !tbaa !211
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -4184,9 +4184,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !215
+  %3 = load ptr, ptr %2, align 8, !tbaa !213
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !216
+  %5 = load ptr, ptr %4, align 8, !tbaa !214
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -4211,7 +4211,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gnu_cxx12_Lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !213
+  %4 = load ptr, ptr %3, align 8, !tbaa !211
   %5 = icmp eq ptr %4, @_ZTSPFvPvE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -4505,11 +4505,9 @@ attributes #25 = { noreturn }
 !207 = !{!202, !13, i64 0}
 !208 = !{!202, !13, i64 80}
 !209 = !{!202, !22, i64 72}
-!210 = distinct !{!210, !77, !211}
-!211 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!212 = distinct !{!212, !77}
-!213 = !{!214, !16, i64 8}
-!214 = !{!"_ZTSSt9type_info", !16, i64 8}
-!215 = !{!9, !9, i64 0}
-!216 = !{!217, !16, i64 24}
-!217 = !{!"_ZTSSt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE", !89, i64 0, !162, i64 16}
+!210 = distinct !{!210, !77}
+!211 = !{!212, !16, i64 8}
+!212 = !{!"_ZTSSt9type_info", !16, i64 8}
+!213 = !{!9, !9, i64 0}
+!214 = !{!215, !16, i64 24}
+!215 = !{!"_ZTSSt19_Sp_counted_deleterIPhPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE", !89, i64 0, !162, i64 16}

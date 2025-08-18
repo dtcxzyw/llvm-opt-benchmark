@@ -5210,7 +5210,7 @@ ereflectx.exit.us:                                ; preds = %ereflectx.exit.us, 
   store i16 %78, ptr %85, align 2, !tbaa !15
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %.split.us, label %ereflectx.exit.us, !llvm.loop !181
+  br i1 %exitcond65.not, label %.split.us, label %ereflectx.exit.us, !llvm.loop !179
 
 86:                                               ; preds = %.split.us
   ret i32 %46
@@ -5218,7 +5218,7 @@ ereflectx.exit.us:                                ; preds = %ereflectx.exit.us, 
 .split.us:                                        ; preds = %ereflectx.exit, %ereflectx.exit.us, %ereflectx.exit.thread.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %86, label %.preheader, !llvm.loop !182
+  br i1 %exitcond73.not, label %86, label %.preheader, !llvm.loop !180
 
 ereflectx.exit:                                   ; preds = %ereflectx.exit.preheader, %ereflectx.exit
   %indvars.iv = phi i64 [ 0, %ereflectx.exit.preheader ], [ %indvars.iv.next, %ereflectx.exit ]
@@ -5235,7 +5235,7 @@ ereflectx.exit:                                   ; preds = %ereflectx.exit.preh
   store i16 %75, ptr %93, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.us, label %ereflectx.exit, !llvm.loop !183
+  br i1 %exitcond.not, label %.split.us, label %ereflectx.exit, !llvm.loop !179
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5245,7 +5245,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %14 = load i32, ptr %13, align 4, !tbaa !184
+  %14 = load i32, ptr %13, align 4, !tbaa !181
   %15 = icmp sgt i32 %14, 0
   %16 = sitofp i32 %3 to float
   %17 = fmul nsz float %16, 5.000000e-01
@@ -5261,7 +5261,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
 
 24:                                               ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %26 = load float, ptr %25, align 4, !tbaa !185
+  %26 = load float, ptr %25, align 4, !tbaa !182
   %.pre = sitofp i32 %2 to float
   %.pre105 = fdiv nsz float %.pre, 3.000000e+00
   br label %27
@@ -5356,7 +5356,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
 91:                                               ; preds = %163
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 4
-  br i1 %exitcond104.not, label %90, label %.preheader, !llvm.loop !186
+  br i1 %exitcond104.not, label %90, label %.preheader, !llvm.loop !183
 
 92:                                               ; preds = %.preheader, %163
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %163 ]
@@ -5465,7 +5465,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   store i16 %168, ptr %169, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %91, label %92, !llvm.loop !187
+  br i1 %exitcond.not, label %91, label %92, !llvm.loop !184
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5473,13 +5473,13 @@ define internal fastcc range(i32 -22, 1) i32 @prepare_cube_in(ptr noundef %0) un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !188
+  %5 = load ptr, ptr %4, align 8, !tbaa !185
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   br label %10
 
 .critedge44.preheader:                            ; preds = %20
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !189
+  %8 = load ptr, ptr %7, align 8, !tbaa !186
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 128
   br label %23
 
@@ -5528,7 +5528,7 @@ get_direction.exit:                               ; preds = %10
   store i32 %22, ptr %21, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !190
+  br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !187
 
 23:                                               ; preds = %.critedge44.preheader, %.critedge44
   %indvars.iv63 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next64, %.critedge44 ]
@@ -5566,7 +5566,7 @@ get_rotation.exit:                                ; preds = %23
   store i32 %.0.i47.ph, ptr %31, align 4, !tbaa !90
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66 = icmp eq i64 %indvars.iv.next64, 6
-  br i1 %exitcond66, label %.critedge, label %23, !llvm.loop !191
+  br i1 %exitcond66, label %.critedge, label %23, !llvm.loop !188
 
 .critedge:                                        ; preds = %.critedge44, %get_rotation.exit, %26, %get_direction.exit, %13
   %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %26 ], [ -22, %get_rotation.exit ], [ 0, %.critedge44 ]
@@ -5580,7 +5580,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %14 = load i32, ptr %13, align 4, !tbaa !184
+  %14 = load i32, ptr %13, align 4, !tbaa !181
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %23
 
@@ -5595,7 +5595,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %25 = load float, ptr %24, align 4, !tbaa !185
+  %25 = load float, ptr %24, align 4, !tbaa !182
   %.pre = sitofp i32 %3 to float
   %.pre87 = fdiv nsz float %.pre, 6.000000e+00
   %.pre89 = sitofp i32 %2 to float
@@ -5681,7 +5681,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
 79:                                               ; preds = %129
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond86.not, label %78, label %.preheader, !llvm.loop !192
+  br i1 %exitcond86.not, label %78, label %.preheader, !llvm.loop !189
 
 80:                                               ; preds = %.preheader, %129
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %129 ]
@@ -5766,7 +5766,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
   store i16 %133, ptr %134, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %79, label %80, !llvm.loop !193
+  br i1 %exitcond.not, label %79, label %80, !llvm.loop !190
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5776,7 +5776,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %14 = load i32, ptr %13, align 4, !tbaa !184
+  %14 = load i32, ptr %13, align 4, !tbaa !181
   %15 = icmp sgt i32 %14, 0
   %16 = sitofp i32 %3 to float
   br i1 %15, label %17, label %23
@@ -5791,7 +5791,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %25 = load float, ptr %24, align 4, !tbaa !185
+  %25 = load float, ptr %24, align 4, !tbaa !182
   %.pre = sitofp i32 %2 to float
   %.pre87 = fdiv nsz float %.pre, 6.000000e+00
   br label %26
@@ -5876,7 +5876,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
 80:                                               ; preds = %130
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond86.not, label %79, label %.preheader, !llvm.loop !194
+  br i1 %exitcond86.not, label %79, label %.preheader, !llvm.loop !191
 
 81:                                               ; preds = %.preheader, %130
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %130 ]
@@ -5958,7 +5958,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
   store i16 %134, ptr %135, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %80, label %81, !llvm.loop !195
+  br i1 %exitcond.not, label %80, label %81, !llvm.loop !192
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6041,7 +6041,7 @@ define internal noundef i32 @xyz_to_eac(ptr noundef readonly captures(none) %0, 
 66:                                               ; preds = %67
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
-  br i1 %exitcond44.not, label %65, label %.preheader, !llvm.loop !196
+  br i1 %exitcond44.not, label %65, label %.preheader, !llvm.loop !193
 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
@@ -6058,7 +6058,7 @@ define internal noundef i32 @xyz_to_eac(ptr noundef readonly captures(none) %0, 
   store i16 %63, ptr %75, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %66, label %67, !llvm.loop !197
+  br i1 %exitcond.not, label %66, label %67, !llvm.loop !194
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6178,12 +6178,12 @@ define internal range(i32 0, 2) i32 @xyz_to_flat(ptr noundef readonly captures(n
   store i16 %75, ptr %85, align 2, !tbaa !15
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
-  br i1 %exitcond80.not, label %.split.us.us, label %77, !llvm.loop !198
+  br i1 %exitcond80.not, label %.split.us.us, label %77, !llvm.loop !195
 
 .split.us.us:                                     ; preds = %77
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 4
-  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !199
+  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !196
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.split ], [ 0, %.preheader.preheader ]
@@ -6198,7 +6198,7 @@ define internal range(i32 0, 2) i32 @xyz_to_flat(ptr noundef readonly captures(n
 .split:                                           ; preds = %89
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !200
+  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !196
 
 89:                                               ; preds = %.preheader, %89
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %89 ]
@@ -6208,7 +6208,7 @@ define internal range(i32 0, 2) i32 @xyz_to_flat(ptr noundef readonly captures(n
   store i16 0, ptr %91, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %89, !llvm.loop !201
+  br i1 %exitcond.not, label %.split, label %89, !llvm.loop !195
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6295,7 +6295,7 @@ define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none)
 69:                                               ; preds = %70
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %68, label %.preheader, !llvm.loop !202
+  br i1 %exitcond57.not, label %68, label %.preheader, !llvm.loop !197
 
 70:                                               ; preds = %.preheader, %70
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %70 ]
@@ -6313,7 +6313,7 @@ define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none)
   store i16 %66, ptr %77, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %69, label %70, !llvm.loop !203
+  br i1 %exitcond.not, label %69, label %70, !llvm.loop !198
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6408,7 +6408,7 @@ define internal noundef i32 @xyz_to_barrel(ptr readnone captures(none) %0, ptr n
 66:                                               ; preds = %67
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
-  br i1 %exitcond74.not, label %65, label %.preheader, !llvm.loop !204
+  br i1 %exitcond74.not, label %65, label %.preheader, !llvm.loop !199
 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
@@ -6426,7 +6426,7 @@ define internal noundef i32 @xyz_to_barrel(ptr readnone captures(none) %0, ptr n
   store i16 %63, ptr %74, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %66, label %67, !llvm.loop !205
+  br i1 %exitcond.not, label %66, label %67, !llvm.loop !200
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6525,12 +6525,12 @@ define internal range(i32 0, 2) i32 @xyz_to_stereographic(ptr noundef readonly c
   store i16 %62, ptr %72, align 2, !tbaa !15
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
-  br i1 %exitcond80.not, label %.split.us.us, label %64, !llvm.loop !206
+  br i1 %exitcond80.not, label %.split.us.us, label %64, !llvm.loop !201
 
 .split.us.us:                                     ; preds = %64
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 4
-  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !207
+  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !202
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv73 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next74, %.split ]
@@ -6545,7 +6545,7 @@ define internal range(i32 0, 2) i32 @xyz_to_stereographic(ptr noundef readonly c
 .split:                                           ; preds = %76
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !208
+  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !202
 
 76:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
@@ -6555,7 +6555,7 @@ define internal range(i32 0, 2) i32 @xyz_to_stereographic(ptr noundef readonly c
   store i16 0, ptr %78, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !209
+  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6621,7 +6621,7 @@ define internal noundef i32 @xyz_to_mercator(ptr readnone captures(none) %0, ptr
 55:                                               ; preds = %56
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 4
-  br i1 %exitcond42.not, label %54, label %.preheader, !llvm.loop !210
+  br i1 %exitcond42.not, label %54, label %.preheader, !llvm.loop !203
 
 56:                                               ; preds = %.preheader, %56
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %56 ]
@@ -6638,7 +6638,7 @@ define internal noundef i32 @xyz_to_mercator(ptr readnone captures(none) %0, ptr
   store i16 %52, ptr %64, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %55, label %56, !llvm.loop !211
+  br i1 %exitcond.not, label %55, label %56, !llvm.loop !204
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6701,7 +6701,7 @@ define internal noundef i32 @xyz_to_ball(ptr readnone captures(none) %0, ptr nou
 53:                                               ; preds = %54
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, 4
-  br i1 %exitcond46.not, label %52, label %.preheader, !llvm.loop !212
+  br i1 %exitcond46.not, label %52, label %.preheader, !llvm.loop !205
 
 54:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
@@ -6718,7 +6718,7 @@ define internal noundef i32 @xyz_to_ball(ptr readnone captures(none) %0, ptr nou
   store i16 %50, ptr %62, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %53, label %54, !llvm.loop !213
+  br i1 %exitcond.not, label %53, label %54, !llvm.loop !206
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6781,7 +6781,7 @@ define internal noundef i32 @xyz_to_hammer(ptr readnone captures(none) %0, ptr n
 53:                                               ; preds = %54
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
-  br i1 %exitcond48.not, label %52, label %.preheader, !llvm.loop !214
+  br i1 %exitcond48.not, label %52, label %.preheader, !llvm.loop !207
 
 54:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
@@ -6798,7 +6798,7 @@ define internal noundef i32 @xyz_to_hammer(ptr readnone captures(none) %0, ptr n
   store i16 %50, ptr %62, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %53, label %54, !llvm.loop !215
+  br i1 %exitcond.not, label %53, label %54, !llvm.loop !208
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6859,7 +6859,7 @@ define internal noundef i32 @xyz_to_sinusoidal(ptr readnone captures(none) %0, p
 51:                                               ; preds = %52
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 4
-  br i1 %exitcond41.not, label %50, label %.preheader, !llvm.loop !216
+  br i1 %exitcond41.not, label %50, label %.preheader, !llvm.loop !209
 
 52:                                               ; preds = %.preheader, %52
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %52 ]
@@ -6876,7 +6876,7 @@ define internal noundef i32 @xyz_to_sinusoidal(ptr readnone captures(none) %0, p
   store i16 %48, ptr %60, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %51, label %52, !llvm.loop !217
+  br i1 %exitcond.not, label %51, label %52, !llvm.loop !210
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -6965,12 +6965,12 @@ define internal range(i32 0, 2) i32 @xyz_to_fisheye(ptr noundef readonly capture
   store i16 %62, ptr %72, align 2, !tbaa !15
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
-  br i1 %exitcond72.not, label %.split.us.us, label %64, !llvm.loop !218
+  br i1 %exitcond72.not, label %.split.us.us, label %64, !llvm.loop !211
 
 .split.us.us:                                     ; preds = %64
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %.split62.us, label %.preheader.us, !llvm.loop !219
+  br i1 %exitcond76.not, label %.split62.us, label %.preheader.us, !llvm.loop !212
 
 .preheader:                                       ; preds = %8, %.split
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.split ], [ 0, %8 ]
@@ -6985,7 +6985,7 @@ define internal range(i32 0, 2) i32 @xyz_to_fisheye(ptr noundef readonly capture
 .split:                                           ; preds = %76
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 4
-  br i1 %exitcond68.not, label %.split62.us, label %.preheader, !llvm.loop !220
+  br i1 %exitcond68.not, label %.split62.us, label %.preheader, !llvm.loop !212
 
 76:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
@@ -6995,7 +6995,7 @@ define internal range(i32 0, 2) i32 @xyz_to_fisheye(ptr noundef readonly capture
   store i16 0, ptr %78, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !221
+  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !211
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7093,12 +7093,12 @@ define internal range(i32 0, 2) i32 @xyz_to_pannini(ptr noundef readonly capture
   store i16 %61, ptr %71, align 2, !tbaa !15
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, 4
-  br i1 %exitcond70.not, label %.split.us.us, label %63, !llvm.loop !222
+  br i1 %exitcond70.not, label %.split.us.us, label %63, !llvm.loop !213
 
 .split.us.us:                                     ; preds = %63
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
-  br i1 %exitcond74.not, label %.split60.us, label %.preheader.us, !llvm.loop !223
+  br i1 %exitcond74.not, label %.split60.us, label %.preheader.us, !llvm.loop !214
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.split ], [ 0, %.preheader.preheader ]
@@ -7113,7 +7113,7 @@ define internal range(i32 0, 2) i32 @xyz_to_pannini(ptr noundef readonly capture
 .split:                                           ; preds = %75
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66.not, label %.split60.us, label %.preheader, !llvm.loop !224
+  br i1 %exitcond66.not, label %.split60.us, label %.preheader, !llvm.loop !214
 
 75:                                               ; preds = %.preheader, %75
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %75 ]
@@ -7123,7 +7123,7 @@ define internal range(i32 0, 2) i32 @xyz_to_pannini(ptr noundef readonly capture
   store i16 0, ptr %77, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %75, !llvm.loop !225
+  br i1 %exitcond.not, label %.split, label %75, !llvm.loop !213
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7232,12 +7232,12 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
   store i16 %69, ptr %79, align 2, !tbaa !15
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 4
-  br i1 %exitcond68.not, label %.split.us.us, label %71, !llvm.loop !226
+  br i1 %exitcond68.not, label %.split.us.us, label %71, !llvm.loop !215
 
 .split.us.us:                                     ; preds = %71
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
-  br i1 %exitcond72.not, label %.split58.us, label %.preheader.us, !llvm.loop !227
+  br i1 %exitcond72.not, label %.split58.us, label %.preheader.us, !llvm.loop !216
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.split ], [ 0, %.preheader.preheader ]
@@ -7252,7 +7252,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
 .split:                                           ; preds = %83
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %.split58.us, label %.preheader, !llvm.loop !228
+  br i1 %exitcond64.not, label %.split58.us, label %.preheader, !llvm.loop !216
 
 83:                                               ; preds = %.preheader, %83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %83 ]
@@ -7262,7 +7262,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
   store i16 0, ptr %85, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %83, !llvm.loop !229
+  br i1 %exitcond.not, label %.split, label %83, !llvm.loop !215
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7371,12 +7371,12 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
   store i16 %69, ptr %79, align 2, !tbaa !15
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 4
-  br i1 %exitcond68.not, label %.split.us.us, label %71, !llvm.loop !230
+  br i1 %exitcond68.not, label %.split.us.us, label %71, !llvm.loop !217
 
 .split.us.us:                                     ; preds = %71
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
-  br i1 %exitcond72.not, label %.split58.us, label %.preheader.us, !llvm.loop !231
+  br i1 %exitcond72.not, label %.split58.us, label %.preheader.us, !llvm.loop !218
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.split ], [ 0, %.preheader.preheader ]
@@ -7391,7 +7391,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
 .split:                                           ; preds = %83
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %.split58.us, label %.preheader, !llvm.loop !232
+  br i1 %exitcond64.not, label %.split58.us, label %.preheader, !llvm.loop !218
 
 83:                                               ; preds = %.preheader, %83
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %83 ]
@@ -7401,7 +7401,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
   store i16 0, ptr %85, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %83, !llvm.loop !233
+  br i1 %exitcond.not, label %.split, label %83, !llvm.loop !217
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7516,7 +7516,7 @@ reflectx.exit.thread.us:                          ; preds = %reflectx.exit.threa
   store i16 %74, ptr %81, align 2, !tbaa !15
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 4
-  br i1 %exitcond130.not, label %.split.us, label %reflectx.exit.thread.us, !llvm.loop !234
+  br i1 %exitcond130.not, label %.split.us, label %reflectx.exit.thread.us, !llvm.loop !219
 
 .preheader.split:                                 ; preds = %.preheader
   %82 = icmp slt i64 %66, 1
@@ -7542,7 +7542,7 @@ reflectx.exit.us:                                 ; preds = %reflectx.exit.us, %
   store i16 %86, ptr %92, align 2, !tbaa !15
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 4
-  br i1 %exitcond126.not, label %.split.us, label %reflectx.exit.us, !llvm.loop !235
+  br i1 %exitcond126.not, label %.split.us, label %reflectx.exit.us, !llvm.loop !219
 
 .preheader.split.split:                           ; preds = %.preheader.split
   br i1 %.not.i, label %.preheader.split.split.split.us, label %.preheader.split.split.split
@@ -7563,7 +7563,7 @@ reflectx.exit.us109:                              ; preds = %reflectx.exit.us109
   store i16 %93, ptr %99, align 2, !tbaa !15
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 4
-  br i1 %exitcond122.not, label %.split.us, label %reflectx.exit.us109, !llvm.loop !236
+  br i1 %exitcond122.not, label %.split.us, label %reflectx.exit.us109, !llvm.loop !219
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split
   %100 = icmp slt i32 %71, 0
@@ -7578,7 +7578,7 @@ reflectx.exit.us109:                              ; preds = %reflectx.exit.us109
 .split.us:                                        ; preds = %reflectx.exit, %reflectx.exit.us109, %reflectx.exit.us, %reflectx.exit.thread.us
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 4
-  br i1 %exitcond134.not, label %103, label %.preheader, !llvm.loop !237
+  br i1 %exitcond134.not, label %103, label %.preheader, !llvm.loop !220
 
 reflectx.exit:                                    ; preds = %.preheader.split.split.split, %reflectx.exit
   %indvars.iv = phi i64 [ 0, %.preheader.split.split.split ], [ %indvars.iv.next, %reflectx.exit ]
@@ -7592,7 +7592,7 @@ reflectx.exit:                                    ; preds = %.preheader.split.sp
   store i16 %102, ptr %109, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.us, label %reflectx.exit, !llvm.loop !238
+  br i1 %exitcond.not, label %.split.us, label %reflectx.exit, !llvm.loop !219
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -7607,7 +7607,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %16 = tail call nsz float @llvm.fabs.f32(float %15)
   %or.cond = fcmp nsz ugt float %16, 0x3FE921FB60000000
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %18 = load i32, ptr %17, align 4, !tbaa !184
+  %18 = load i32, ptr %17, align 4, !tbaa !181
   %19 = icmp sgt i32 %18, 0
   br i1 %or.cond, label %62, label %20
 
@@ -7627,7 +7627,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %32 = load float, ptr %31, align 4, !tbaa !185
+  %32 = load float, ptr %31, align 4, !tbaa !182
   br label %33
 
 33:                                               ; preds = %30, %21
@@ -7687,7 +7687,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
 
 71:                                               ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %73 = load float, ptr %72, align 4, !tbaa !185
+  %73 = load float, ptr %72, align 4, !tbaa !182
   br label %74
 
 74:                                               ; preds = %71, %63
@@ -7816,7 +7816,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
 147:                                              ; preds = %148
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 4
-  br i1 %exitcond147.not, label %146, label %.preheader, !llvm.loop !239
+  br i1 %exitcond147.not, label %146, label %.preheader, !llvm.loop !221
 
 148:                                              ; preds = %.preheader, %148
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %148 ]
@@ -7834,7 +7834,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   store i16 %144, ptr %155, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %147, label %148, !llvm.loop !240
+  br i1 %exitcond.not, label %147, label %148, !llvm.loop !222
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7965,7 +7965,7 @@ reflectx.exit.thread.us:                          ; preds = %reflectx.exit.threa
   store i16 %79, ptr %86, align 2, !tbaa !15
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 4
-  br i1 %exitcond58.not, label %.split.us, label %reflectx.exit.thread.us, !llvm.loop !241
+  br i1 %exitcond58.not, label %.split.us, label %reflectx.exit.thread.us, !llvm.loop !223
 
 .preheader.split:                                 ; preds = %.preheader
   %87 = icmp slt i64 %71, 1
@@ -7991,7 +7991,7 @@ reflectx.exit.us:                                 ; preds = %reflectx.exit.us, %
   store i16 %91, ptr %97, align 2, !tbaa !15
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 4
-  br i1 %exitcond54.not, label %.split.us, label %reflectx.exit.us, !llvm.loop !242
+  br i1 %exitcond54.not, label %.split.us, label %reflectx.exit.us, !llvm.loop !223
 
 .preheader.split.split:                           ; preds = %.preheader.split
   br i1 %.not.i, label %.preheader.split.split.split.us, label %.preheader.split.split.split
@@ -8012,7 +8012,7 @@ reflectx.exit.us37:                               ; preds = %reflectx.exit.us37,
   store i16 %98, ptr %104, align 2, !tbaa !15
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 4
-  br i1 %exitcond50.not, label %.split.us, label %reflectx.exit.us37, !llvm.loop !243
+  br i1 %exitcond50.not, label %.split.us, label %reflectx.exit.us37, !llvm.loop !223
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split
   %105 = icmp slt i32 %76, 0
@@ -8030,7 +8030,7 @@ reflectx.exit.us37:                               ; preds = %reflectx.exit.us37,
 .split.us:                                        ; preds = %reflectx.exit, %reflectx.exit.us37, %reflectx.exit.us, %reflectx.exit.thread.us
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 4
-  br i1 %exitcond62.not, label %108, label %.preheader, !llvm.loop !244
+  br i1 %exitcond62.not, label %108, label %.preheader, !llvm.loop !224
 
 reflectx.exit:                                    ; preds = %.preheader.split.split.split, %reflectx.exit
   %indvars.iv = phi i64 [ 0, %.preheader.split.split.split ], [ %indvars.iv.next, %reflectx.exit ]
@@ -8044,7 +8044,7 @@ reflectx.exit:                                    ; preds = %.preheader.split.sp
   store i16 %107, ptr %114, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.us, label %reflectx.exit, !llvm.loop !245
+  br i1 %exitcond.not, label %.split.us, label %reflectx.exit, !llvm.loop !223
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -8107,7 +8107,7 @@ define internal range(i32 0, 2) i32 @xyz_to_hequirect(ptr readnone captures(none
 53:                                               ; preds = %54
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
-  br i1 %exitcond43.not, label %48, label %.preheader, !llvm.loop !246
+  br i1 %exitcond43.not, label %48, label %.preheader, !llvm.loop !225
 
 54:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
@@ -8124,7 +8124,7 @@ define internal range(i32 0, 2) i32 @xyz_to_hequirect(ptr readnone captures(none
   store i16 %46, ptr %62, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %53, label %54, !llvm.loop !247
+  br i1 %exitcond.not, label %53, label %54, !llvm.loop !226
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -8223,12 +8223,12 @@ define internal range(i32 0, 2) i32 @xyz_to_equisolid(ptr noundef readonly captu
   store i16 %62, ptr %72, align 2, !tbaa !15
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
-  br i1 %exitcond80.not, label %.split.us.us, label %64, !llvm.loop !248
+  br i1 %exitcond80.not, label %.split.us.us, label %64, !llvm.loop !227
 
 .split.us.us:                                     ; preds = %64
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 4
-  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !249
+  br i1 %exitcond84.not, label %.split70.us, label %.preheader.us, !llvm.loop !228
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv73 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next74, %.split ]
@@ -8243,7 +8243,7 @@ define internal range(i32 0, 2) i32 @xyz_to_equisolid(ptr noundef readonly captu
 .split:                                           ; preds = %76
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !250
+  br i1 %exitcond76.not, label %.split70.us, label %.preheader, !llvm.loop !228
 
 76:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
@@ -8253,7 +8253,7 @@ define internal range(i32 0, 2) i32 @xyz_to_equisolid(ptr noundef readonly captu
   store i16 0, ptr %78, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !251
+  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !227
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -8353,12 +8353,12 @@ define internal range(i32 0, 2) i32 @xyz_to_orthographic(ptr noundef readonly ca
   store i16 %62, ptr %72, align 2, !tbaa !15
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %exitcond83.not, label %.split.us.us, label %64, !llvm.loop !252
+  br i1 %exitcond83.not, label %.split.us.us, label %64, !llvm.loop !229
 
 .split.us.us:                                     ; preds = %64
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 4
-  br i1 %exitcond87.not, label %.split73.us, label %.preheader.us, !llvm.loop !253
+  br i1 %exitcond87.not, label %.split73.us, label %.preheader.us, !llvm.loop !230
 
 .preheader:                                       ; preds = %.preheader.preheader, %.split
   %indvars.iv76 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next77, %.split ]
@@ -8373,7 +8373,7 @@ define internal range(i32 0, 2) i32 @xyz_to_orthographic(ptr noundef readonly ca
 .split:                                           ; preds = %76
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 4
-  br i1 %exitcond79.not, label %.split73.us, label %.preheader, !llvm.loop !254
+  br i1 %exitcond79.not, label %.split73.us, label %.preheader, !llvm.loop !230
 
 76:                                               ; preds = %.preheader, %76
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %76 ]
@@ -8383,7 +8383,7 @@ define internal range(i32 0, 2) i32 @xyz_to_orthographic(ptr noundef readonly ca
   store i16 0, ptr %78, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !255
+  br i1 %exitcond.not, label %.split, label %76, !llvm.loop !229
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -8460,7 +8460,7 @@ define internal noundef i32 @xyz_to_octahedron(ptr readnone captures(none) %0, p
 61:                                               ; preds = %62
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %60, label %.preheader, !llvm.loop !256
+  br i1 %exitcond53.not, label %60, label %.preheader, !llvm.loop !231
 
 62:                                               ; preds = %.preheader, %62
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %62 ]
@@ -8477,7 +8477,7 @@ define internal noundef i32 @xyz_to_octahedron(ptr readnone captures(none) %0, p
   store i16 %58, ptr %70, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %61, label %62, !llvm.loop !257
+  br i1 %exitcond.not, label %61, label %62, !llvm.loop !232
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -8541,7 +8541,7 @@ declare i64 @llvm.lrint.i64.f32(float) #8
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cube3x2_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %8 = load i32, ptr %7, align 8, !tbaa !258
+  %8 = load i32, ptr %7, align 8, !tbaa !233
   %9 = icmp sgt i32 %8, 0
   %10 = sitofp i32 %4 to float
   %11 = fmul nsz float %10, 5.000000e-01
@@ -8557,7 +8557,7 @@ define internal noundef i32 @cube3x2_to_xyz(ptr noundef readonly captures(none) 
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %20 = load float, ptr %19, align 8, !tbaa !259
+  %20 = load float, ptr %19, align 8, !tbaa !234
   %.pre = sitofp i32 %3 to float
   %.pre43 = fdiv nsz float %.pre, 3.000000e+00
   br label %21
@@ -8621,13 +8621,13 @@ define internal range(i32 -22, 1) i32 @prepare_cube_out(ptr noundef %0) unnamed_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !260
+  %5 = load ptr, ptr %4, align 8, !tbaa !235
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   br label %10
 
 .critedge44.preheader:                            ; preds = %20
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %8 = load ptr, ptr %7, align 8, !tbaa !261
+  %8 = load ptr, ptr %7, align 8, !tbaa !236
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 152
   br label %22
 
@@ -8675,7 +8675,7 @@ get_direction.exit:                               ; preds = %10
   store i32 %.0.i.ph, ptr %21, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !262
+  br i1 %exitcond, label %.critedge44.preheader, label %10, !llvm.loop !237
 
 22:                                               ; preds = %.critedge44.preheader, %.critedge44
   %indvars.iv63 = phi i64 [ 0, %.critedge44.preheader ], [ %indvars.iv.next64, %.critedge44 ]
@@ -8713,7 +8713,7 @@ get_rotation.exit:                                ; preds = %22
   store i32 %.0.i47.ph, ptr %30, align 4, !tbaa !90
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66 = icmp eq i64 %indvars.iv.next64, 6
-  br i1 %exitcond66, label %.critedge, label %22, !llvm.loop !263
+  br i1 %exitcond66, label %.critedge, label %22, !llvm.loop !238
 
 .critedge:                                        ; preds = %.critedge44, %get_rotation.exit, %25, %get_direction.exit, %13
   %.3 = phi i32 [ -22, %13 ], [ -22, %get_direction.exit ], [ -22, %25 ], [ -22, %get_rotation.exit ], [ 0, %.critedge44 ]
@@ -8723,7 +8723,7 @@ get_rotation.exit:                                ; preds = %22
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cube1x6_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %8 = load i32, ptr %7, align 8, !tbaa !258
+  %8 = load i32, ptr %7, align 8, !tbaa !233
   %9 = icmp sgt i32 %8, 0
   %10 = sitofp i32 %4 to float
   %11 = fdiv nsz float %10, 6.000000e+00
@@ -8738,7 +8738,7 @@ define internal noundef i32 @cube1x6_to_xyz(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %19 = load float, ptr %18, align 8, !tbaa !259
+  %19 = load float, ptr %18, align 8, !tbaa !234
   %.pre = sitofp i32 %3 to float
   br label %20
 
@@ -8780,7 +8780,7 @@ define internal noundef i32 @cube1x6_to_xyz(ptr noundef readonly captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cube6x1_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %8 = load i32, ptr %7, align 8, !tbaa !258
+  %8 = load i32, ptr %7, align 8, !tbaa !233
   %9 = icmp sgt i32 %8, 0
   %10 = sitofp i32 %4 to float
   br i1 %9, label %11, label %17
@@ -8795,7 +8795,7 @@ define internal noundef i32 @cube6x1_to_xyz(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %19 = load float, ptr %18, align 8, !tbaa !259
+  %19 = load float, ptr %18, align 8, !tbaa !234
   %.pre = sitofp i32 %3 to float
   %.pre33 = fdiv nsz float %.pre, 6.000000e+00
   br label %20
@@ -9729,7 +9729,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
   %14 = fdiv nsz float %12, %13
   %15 = fcmp nsz olt float %10, 0x3FE5555560000000
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %17 = load i32, ptr %16, align 8, !tbaa !258
+  %17 = load i32, ptr %16, align 8, !tbaa !233
   %18 = icmp sgt i32 %17, 0
   br i1 %15, label %19, label %53
 
@@ -9747,7 +9747,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %29 = load float, ptr %28, align 8, !tbaa !259
+  %29 = load float, ptr %28, align 8, !tbaa !234
   br label %30
 
 30:                                               ; preds = %27, %20
@@ -9790,7 +9790,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %62 = load float, ptr %61, align 8, !tbaa !259
+  %62 = load float, ptr %61, align 8, !tbaa !234
   br label %63
 
 63:                                               ; preds = %60, %54
@@ -10443,8 +10443,8 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
 
 115:                                              ; preds = %113, %111
   %.0.us = phi i32 [ %112, %111 ], [ %114, %113 ]
-  %116 = load float, ptr %31, align 8, !tbaa !264
-  %117 = load float, ptr %32, align 4, !tbaa !265
+  %116 = load float, ptr %31, align 8, !tbaa !239
+  %117 = load float, ptr %32, align 4, !tbaa !240
   %118 = load float, ptr %7, align 4, !tbaa !49
   %119 = fadd nsz float %116, %118
   %120 = load float, ptr %33, align 4, !tbaa !49
@@ -10531,8 +10531,8 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
 
 192:                                              ; preds = %190, %188
   %.0109.us = phi i32 [ %189, %188 ], [ %191, %190 ]
-  %193 = load i32, ptr %49, align 8, !tbaa !266
-  %194 = load i32, ptr %50, align 4, !tbaa !267
+  %193 = load i32, ptr %49, align 8, !tbaa !241
+  %194 = load i32, ptr %50, align 4, !tbaa !242
   %.not.i.us = icmp eq i32 %193, 0
   br i1 %.not.i.us, label %.loopexit30.i.us, label %.preheader28.i.us
 
@@ -10550,12 +10550,12 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
   store i16 %200, ptr %197, align 2, !tbaa !15
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 4
-  br i1 %exitcond.not.i.us, label %201, label %196, !llvm.loop !268
+  br i1 %exitcond.not.i.us, label %201, label %196, !llvm.loop !243
 
 201:                                              ; preds = %196
   %indvars.iv.next37.i.us = add nuw nsw i64 %indvars.iv36.i.us, 1
   %exitcond39.not.i.us = icmp eq i64 %indvars.iv.next37.i.us, 4
-  br i1 %exitcond39.not.i.us, label %.loopexit30.i.us, label %.preheader28.i.us, !llvm.loop !269
+  br i1 %exitcond39.not.i.us, label %.loopexit30.i.us, label %.preheader28.i.us, !llvm.loop !244
 
 .loopexit30.i.us:                                 ; preds = %201, %192
   %.not26.i.us = icmp eq i32 %194, 0
@@ -10575,12 +10575,12 @@ define internal noundef i32 @v360_slice(ptr noundef readonly captures(none) %0, 
   store i16 %207, ptr %204, align 2, !tbaa !15
   %indvars.iv.next41.i.us = add nuw nsw i64 %indvars.iv40.i.us, 1
   %exitcond43.not.i.us = icmp eq i64 %indvars.iv.next41.i.us, 4
-  br i1 %exitcond43.not.i.us, label %208, label %203, !llvm.loop !270
+  br i1 %exitcond43.not.i.us, label %208, label %203, !llvm.loop !245
 
 208:                                              ; preds = %203
   %indvars.iv.next45.i.us = add nuw nsw i64 %indvars.iv44.i.us, 1
   %exitcond47.not.i.us = icmp eq i64 %indvars.iv.next45.i.us, 4
-  br i1 %exitcond47.not.i.us, label %input_flip.exit.us, label %.preheader.i.us, !llvm.loop !271
+  br i1 %exitcond47.not.i.us, label %input_flip.exit.us, label %.preheader.i.us, !llvm.loop !246
 
 input_flip.exit.us:                               ; preds = %208, %.loopexit30.i.us
   %209 = load ptr, ptr %51, align 8, !tbaa !87
@@ -10615,12 +10615,12 @@ input_flip.exit.us:                               ; preds = %208, %.loopexit30.i
 224:                                              ; preds = %221, %218, %212, %input_flip.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %85, !llvm.loop !272
+  br i1 %exitcond.not, label %._crit_edge.us, label %85, !llvm.loop !247
 
 ._crit_edge.us:                                   ; preds = %224
   %indvars.iv.next128 = add nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
-  br i1 %exitcond131.not, label %._crit_edge123.loopexit, label %.preheader.us, !llvm.loop !273
+  br i1 %exitcond131.not, label %._crit_edge123.loopexit, label %.preheader.us, !llvm.loop !248
 
 ._crit_edge123.loopexit:                          ; preds = %._crit_edge.us
   %.pre = load i32, ptr %15, align 4, !tbaa !52
@@ -10635,7 +10635,7 @@ input_flip.exit.us:                               ; preds = %208, %.loopexit30.i
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %226 = sext i32 %225 to i64
   %227 = icmp slt i64 %indvars.iv.next133, %226
-  br i1 %227, label %53, label %._crit_edge, !llvm.loop !274
+  br i1 %227, label %53, label %._crit_edge, !llvm.loop !249
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -11473,17 +11473,17 @@ attributes #19 = { nounwind willreturn memory(none) }
 !176 = distinct !{!176, !19}
 !177 = distinct !{!177, !19}
 !178 = distinct !{!178, !19}
-!179 = distinct !{!179, !19, !180}
-!180 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!181 = distinct !{!181, !19, !180}
-!182 = distinct !{!182, !19}
+!179 = distinct !{!179, !19}
+!180 = distinct !{!180, !19}
+!181 = !{!5, !10, i64 204}
+!182 = !{!5, !12, i64 196}
 !183 = distinct !{!183, !19}
-!184 = !{!5, !10, i64 204}
-!185 = !{!5, !12, i64 196}
-!186 = distinct !{!186, !19}
+!184 = distinct !{!184, !19}
+!185 = !{!5, !11, i64 40}
+!186 = !{!5, !11, i64 56}
 !187 = distinct !{!187, !19}
-!188 = !{!5, !11, i64 40}
-!189 = !{!5, !11, i64 56}
+!188 = distinct !{!188, !19}
+!189 = distinct !{!189, !19}
 !190 = distinct !{!190, !19}
 !191 = distinct !{!191, !19}
 !192 = distinct !{!192, !19}
@@ -11492,16 +11492,16 @@ attributes #19 = { nounwind willreturn memory(none) }
 !195 = distinct !{!195, !19}
 !196 = distinct !{!196, !19}
 !197 = distinct !{!197, !19}
-!198 = distinct !{!198, !19, !180}
-!199 = distinct !{!199, !19, !180}
+!198 = distinct !{!198, !19}
+!199 = distinct !{!199, !19}
 !200 = distinct !{!200, !19}
 !201 = distinct !{!201, !19}
 !202 = distinct !{!202, !19}
 !203 = distinct !{!203, !19}
 !204 = distinct !{!204, !19}
 !205 = distinct !{!205, !19}
-!206 = distinct !{!206, !19, !180}
-!207 = distinct !{!207, !19, !180}
+!206 = distinct !{!206, !19}
+!207 = distinct !{!207, !19}
 !208 = distinct !{!208, !19}
 !209 = distinct !{!209, !19}
 !210 = distinct !{!210, !19}
@@ -11512,60 +11512,35 @@ attributes #19 = { nounwind willreturn memory(none) }
 !215 = distinct !{!215, !19}
 !216 = distinct !{!216, !19}
 !217 = distinct !{!217, !19}
-!218 = distinct !{!218, !19, !180}
-!219 = distinct !{!219, !19, !180}
+!218 = distinct !{!218, !19}
+!219 = distinct !{!219, !19}
 !220 = distinct !{!220, !19}
 !221 = distinct !{!221, !19}
-!222 = distinct !{!222, !19, !180}
-!223 = distinct !{!223, !19, !180}
+!222 = distinct !{!222, !19}
+!223 = distinct !{!223, !19}
 !224 = distinct !{!224, !19}
 !225 = distinct !{!225, !19}
-!226 = distinct !{!226, !19, !180}
-!227 = distinct !{!227, !19, !180}
+!226 = distinct !{!226, !19}
+!227 = distinct !{!227, !19}
 !228 = distinct !{!228, !19}
 !229 = distinct !{!229, !19}
-!230 = distinct !{!230, !19, !180}
-!231 = distinct !{!231, !19, !180}
+!230 = distinct !{!230, !19}
+!231 = distinct !{!231, !19}
 !232 = distinct !{!232, !19}
-!233 = distinct !{!233, !19}
-!234 = distinct !{!234, !19, !180}
-!235 = distinct !{!235, !19, !180}
-!236 = distinct !{!236, !19, !180}
+!233 = !{!5, !10, i64 208}
+!234 = !{!5, !12, i64 200}
+!235 = !{!5, !11, i64 48}
+!236 = !{!5, !11, i64 64}
 !237 = distinct !{!237, !19}
 !238 = distinct !{!238, !19}
-!239 = distinct !{!239, !19}
-!240 = distinct !{!240, !19}
-!241 = distinct !{!241, !19, !180}
-!242 = distinct !{!242, !19, !180}
-!243 = distinct !{!243, !19, !180}
+!239 = !{!5, !12, i64 224}
+!240 = !{!5, !12, i64 228}
+!241 = !{!5, !10, i64 232}
+!242 = !{!5, !10, i64 236}
+!243 = distinct !{!243, !19}
 !244 = distinct !{!244, !19}
 !245 = distinct !{!245, !19}
 !246 = distinct !{!246, !19}
 !247 = distinct !{!247, !19}
-!248 = distinct !{!248, !19, !180}
-!249 = distinct !{!249, !19, !180}
-!250 = distinct !{!250, !19}
-!251 = distinct !{!251, !19}
-!252 = distinct !{!252, !19, !180}
-!253 = distinct !{!253, !19, !180}
-!254 = distinct !{!254, !19}
-!255 = distinct !{!255, !19}
-!256 = distinct !{!256, !19}
-!257 = distinct !{!257, !19}
-!258 = !{!5, !10, i64 208}
-!259 = !{!5, !12, i64 200}
-!260 = !{!5, !11, i64 48}
-!261 = !{!5, !11, i64 64}
-!262 = distinct !{!262, !19}
-!263 = distinct !{!263, !19}
-!264 = !{!5, !12, i64 224}
-!265 = !{!5, !12, i64 228}
-!266 = !{!5, !10, i64 232}
-!267 = !{!5, !10, i64 236}
-!268 = distinct !{!268, !19}
-!269 = distinct !{!269, !19}
-!270 = distinct !{!270, !19}
-!271 = distinct !{!271, !19}
-!272 = distinct !{!272, !19}
-!273 = distinct !{!273, !19, !180}
-!274 = distinct !{!274, !19}
+!248 = distinct !{!248, !19}
+!249 = distinct !{!249, !19}

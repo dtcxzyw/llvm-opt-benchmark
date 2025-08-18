@@ -225,7 +225,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr noalias noundef readonly captures(
   store i8 %84, ptr %85, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count78
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph.split.us ], [ %6, %.lr.ph.split ]
@@ -307,13 +307,13 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.019 = phi ptr [ %0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %6 = load i16, ptr %.019, align 2, !tbaa !15
+  %6 = load i16, ptr %.019, align 2, !tbaa !13
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %.019, i64 2
-  %9 = load i16, ptr %8, align 2, !tbaa !15
+  %9 = load i16, ptr %8, align 2, !tbaa !13
   %10 = zext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %.019, i64 4
-  %12 = load i16, ptr %11, align 2, !tbaa !15
+  %12 = load i16, ptr %11, align 2, !tbaa !13
   %13 = zext i16 %12 to i32
   %14 = mul nsw i32 %7, -9719
   %.neg.i = mul nsw i32 %10, -19081
@@ -342,7 +342,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr noalias noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -498,7 +498,7 @@ define internal void @YuvToRgbRow(ptr noalias noundef readonly captures(none) %0
   %87 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %88 = getelementptr inbounds nuw i8, ptr %.02128, i64 6
   %.not = icmp eq ptr %88, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %87, %.lr.ph ]
@@ -666,7 +666,7 @@ define internal void @YuvToRgbaRow(ptr noalias noundef readonly captures(none) %
   %89 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %90 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %.not = icmp eq ptr %90, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %89, %.lr.ph ]
@@ -832,7 +832,7 @@ define internal void @YuvToBgrRow(ptr noalias noundef readonly captures(none) %0
   %87 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %88 = getelementptr inbounds nuw i8, ptr %.02128, i64 6
   %.not = icmp eq ptr %88, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %87, %.lr.ph ]
@@ -1000,7 +1000,7 @@ define internal void @YuvToBgraRow(ptr noalias noundef readonly captures(none) %
   %89 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %90 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %.not = icmp eq ptr %90, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %89, %.lr.ph ]
@@ -1170,7 +1170,7 @@ define internal void @YuvToArgbRow(ptr noalias noundef readonly captures(none) %
   %89 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %90 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %.not = icmp eq ptr %90, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %89, %.lr.ph ]
@@ -1336,7 +1336,7 @@ define internal void @YuvToRgba4444Row(ptr noalias noundef readonly captures(non
   %89 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %90 = getelementptr inbounds nuw i8, ptr %.02128, i64 4
   %.not = icmp eq ptr %90, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %89, %.lr.ph ]
@@ -1506,7 +1506,7 @@ define internal void @YuvToRgb565Row(ptr noalias noundef readonly captures(none)
   %95 = getelementptr inbounds nuw i8, ptr %.02227, i64 1
   %96 = getelementptr inbounds nuw i8, ptr %.02128, i64 4
   %.not = icmp eq ptr %96, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.022.lcssa = phi ptr [ %2, %5 ], [ %95, %.lr.ph ]
@@ -1607,7 +1607,7 @@ define internal void @ConvertARGBToY_C(ptr noalias noundef readonly captures(non
   store i8 %19, ptr %20, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1646,7 +1646,7 @@ define internal void @ConvertRGB24ToY_C(ptr noalias noundef readonly captures(no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %.089, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1685,7 +1685,7 @@ define internal void @ConvertBGR24ToY_C(ptr noalias noundef readonly captures(no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %.089, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1722,11 +1722,11 @@ attributes #5 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !4, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !4}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !7, i64 0}
+!12 = distinct !{!12, !4}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"short", !7, i64 0}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
 !19 = distinct !{!19, !4}
@@ -1736,5 +1736,3 @@ attributes #5 = { nounwind }
 !23 = distinct !{!23, !4}
 !24 = distinct !{!24, !4}
 !25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}

@@ -5133,14 +5133,14 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   %25 = getelementptr i8, ptr %.030, i64 1
   store i8 %24, ptr %.030, align 1
   %exitcond.not = icmp eq ptr %.030, %scevgep
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !28
 
 .loopexit:                                        ; preds = %19
   %26 = load ptr, ptr %7, align 8
   call void @gcry_md_write(ptr noundef %26, ptr noundef nonnull %8, i64 noundef 64)
   %27 = add nuw nsw i32 %.02332, 64
   %28 = icmp samesign ult i32 %.02332, 1048512
-  br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !30
+  br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !27
 
 .split34.us:                                      ; preds = %.loopexit, %.split.us
   %29 = load ptr, ptr %7, align 8
@@ -5445,7 +5445,7 @@ define internal ptr @snmp_usm_priv_des(ptr noundef readonly captures(none) %0, p
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %28, label %21, !llvm.loop !31
+  br i1 %exitcond.not, label %28, label %21, !llvm.loop !29
 
 28:                                               ; preds = %21
   %29 = tail call i32 @tvb_captured_length(ptr noundef %1)
@@ -5732,7 +5732,7 @@ define internal fastcc void @free_ue_cache(ptr noundef captures(none) %0) unname
   %storemerge = load ptr, ptr @free_ue_cache.nxt, align 8
   store ptr %storemerge, ptr @free_ue_cache.a, align 8
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr %0, align 8
@@ -5921,9 +5921,7 @@ attributes #15 = { nounwind }
 !24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}

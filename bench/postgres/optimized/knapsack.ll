@@ -117,12 +117,12 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nound
 59:                                               ; preds = %50, %.lr.ph65.split
   %60 = add i32 %.05364, -1
   %.not59 = icmp slt i32 %60, %.fr
-  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !8
+  br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %59, %39, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge69, label %19, !llvm.loop !7
 
 ._crit_edge69:                                    ; preds = %._crit_edge, %.preheader
   store ptr %7, ptr @CurrentMemoryContext, align 8
@@ -163,7 +163,5 @@ attributes #2 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

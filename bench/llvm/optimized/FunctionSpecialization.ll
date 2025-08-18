@@ -15941,14 +15941,14 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %9, align 4, !tbaa !573
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 -1, ptr %4, align 8, !tbaa !344, !alias.scope !576
+  store i32 -1, ptr %4, align 8, !tbaa !344, !alias.scope !575
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %11, ptr %10, align 8, !tbaa !25, !alias.scope !576
+  store ptr %11, ptr %10, align 8, !tbaa !25, !alias.scope !575
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %12, align 8, !tbaa !26, !alias.scope !576
+  store i32 0, ptr %12, align 8, !tbaa !26, !alias.scope !575
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 4, ptr %13, align 4, !tbaa !27, !alias.scope !576
+  store i32 4, ptr %13, align 4, !tbaa !27, !alias.scope !575
   %14 = load ptr, ptr %0, align 8, !tbaa !348
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !349
@@ -16015,28 +16015,28 @@ _ZSt4copyIPKN4llvm7ArgInfoEPS1_ET0_T_S6_S5_.exit31.i.thread.i.i.i: ; preds = %_Z
 _ZN4llvm7SpecSigC2ERKS0_.exit.i:                  ; preds = %.sink.split.i.i.i.i, %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %.06.i, i64 96
   %.not.i = icmp eq ptr %35, %18
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !581
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !574
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E9initEmptyEv.exit: ; preds = %3, %._crit_edge.i, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 -1, ptr %5, align 8, !tbaa !344, !alias.scope !582
+  store i32 -1, ptr %5, align 8, !tbaa !344, !alias.scope !580
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %37, ptr %36, align 8, !tbaa !25, !alias.scope !582
+  store ptr %37, ptr %36, align 8, !tbaa !25, !alias.scope !580
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %38, align 8, !tbaa !26, !alias.scope !582
+  store i32 0, ptr %38, align 8, !tbaa !26, !alias.scope !580
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 4, ptr %39, align 4, !tbaa !27, !alias.scope !582
+  store i32 4, ptr %39, align 4, !tbaa !27, !alias.scope !580
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 -2, ptr %6, align 8, !tbaa !344, !alias.scope !587
+  store i32 -2, ptr %6, align 8, !tbaa !344, !alias.scope !585
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %41, ptr %40, align 8, !tbaa !25, !alias.scope !587
+  store ptr %41, ptr %40, align 8, !tbaa !25, !alias.scope !585
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %42, align 8, !tbaa !26, !alias.scope !587
+  store i32 0, ptr %42, align 8, !tbaa !26, !alias.scope !585
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 4, ptr %43, align 4, !tbaa !27, !alias.scope !587
+  store i32 4, ptr %43, align 4, !tbaa !27, !alias.scope !585
   %.not30 = icmp eq ptr %1, %2
   br i1 %.not30, label %_ZN4llvm7SpecSigD2Ev.exit, label %.lr.ph
 
@@ -16189,7 +16189,7 @@ _ZN4llvm12DenseMapInfoINS_7SpecSigEvE7isEqualERKS1_S4_.exit: ; preds = %70, %93,
 _ZN4llvm7SpecSigD2Ev.exit25:                      ; preds = %_ZN4llvm12DenseMapInfoINS_7SpecSigEvE7isEqualERKS1_S4_.exit, %111
   %112 = getelementptr inbounds nuw i8, ptr %.031, i64 96
   %.not = icmp eq ptr %112, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !592
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !590
 }
 
 declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21), ptr noundef) local_unnamed_addr #4
@@ -16227,7 +16227,7 @@ define linkonce_odr hidden noundef nonnull align 1 ptr @_ZN4llvm12function_refIF
 
 _ZNKSt8functionIFRKN4llvm17TargetLibraryInfoERNS0_8FunctionEEEclES5_.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !593
+  %8 = load ptr, ptr %7, align 8, !tbaa !591
   %9 = tail call noundef nonnull align 1 ptr %8(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(136) %1) #17
   ret ptr %9
 }
@@ -17108,23 +17108,21 @@ attributes #20 = { builtin nounwind }
 !571 = distinct !{!571, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15getTombstoneKeyEv"}
 !572 = distinct !{!572, !81}
 !573 = !{!342, !19, i64 12}
-!574 = distinct !{!574, !81, !575}
-!575 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!576 = !{!577, !579}
-!577 = distinct !{!577, !578, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv: argument 0"}
-!578 = distinct !{!578, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv"}
-!579 = distinct !{!579, !580, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv: argument 0"}
-!580 = distinct !{!580, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv"}
-!581 = distinct !{!581, !81}
-!582 = !{!583, !585}
-!583 = distinct !{!583, !584, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv: argument 0"}
-!584 = distinct !{!584, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv"}
-!585 = distinct !{!585, !586, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv: argument 0"}
-!586 = distinct !{!586, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv"}
-!587 = !{!588, !590}
-!588 = distinct !{!588, !589, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE15getTombstoneKeyEv: argument 0"}
-!589 = distinct !{!589, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE15getTombstoneKeyEv"}
-!590 = distinct !{!590, !591, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15getTombstoneKeyEv: argument 0"}
-!591 = distinct !{!591, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15getTombstoneKeyEv"}
-!592 = distinct !{!592, !81}
-!593 = !{!211, !12, i64 24}
+!574 = distinct !{!574, !81}
+!575 = !{!576, !578}
+!576 = distinct !{!576, !577, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv: argument 0"}
+!577 = distinct !{!577, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv"}
+!578 = distinct !{!578, !579, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv: argument 0"}
+!579 = distinct !{!579, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv"}
+!580 = !{!581, !583}
+!581 = distinct !{!581, !582, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv: argument 0"}
+!582 = distinct !{!582, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE11getEmptyKeyEv"}
+!583 = distinct !{!583, !584, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv: argument 0"}
+!584 = distinct !{!584, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E11getEmptyKeyEv"}
+!585 = !{!586, !588}
+!586 = distinct !{!586, !587, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE15getTombstoneKeyEv: argument 0"}
+!587 = distinct !{!587, !"_ZN4llvm12DenseMapInfoINS_7SpecSigEvE15getTombstoneKeyEv"}
+!588 = distinct !{!588, !589, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15getTombstoneKeyEv: argument 0"}
+!589 = distinct !{!589, !"_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SpecSigEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15getTombstoneKeyEv"}
+!590 = distinct !{!590, !81}
+!591 = !{!211, !12, i64 24}

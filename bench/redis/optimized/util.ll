@@ -732,7 +732,7 @@ define dso_local noundef ptr @memmapchars(ptr noundef returned captures(ret: add
 12:                                               ; preds = %8
   %13 = add nuw i64 %.016.us, 1
   %exitcond.not = icmp eq i64 %13, %4
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %8, !llvm.loop !32
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %8, !llvm.loop !31
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.016.us
@@ -743,7 +743,7 @@ define dso_local noundef ptr @memmapchars(ptr noundef returned captures(ret: add
 ..loopexit_crit_edge.us:                          ; preds = %12, %14
   %17 = add nuw i64 %.01417.us, 1
   %exitcond22.not = icmp eq i64 %17, %1
-  br i1 %exitcond22.not, label %._crit_edge, label %.preheader.us, !llvm.loop !33
+  br i1 %exitcond22.not, label %._crit_edge, label %.preheader.us, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %5
   ret ptr %0
@@ -1178,7 +1178,7 @@ digits10.exit:                                    ; preds = %3, %5, %7, %15, %17
   store i8 %64, ptr %67, align 1, !tbaa !9
   %68 = add i32 %.03135, -2
   %69 = icmp ugt i64 %.03036, 9999
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.031.lcssa = phi i32 [ %50, %49 ], [ %68, %.lr.ph ]
@@ -1304,7 +1304,7 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
   %28 = add i64 %23, %24
   %29 = add nuw i64 %.168, 1
   %exitcond.not = icmp eq i64 %29, %1
-  br i1 %exitcond.not, label %.critedge59, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge59, label %.lr.ph, !llvm.loop !34
 
 .critedge59:                                      ; preds = %27, %16
   %.0.lcssa = phi i64 [ %17, %16 ], [ %28, %27 ]
@@ -1333,7 +1333,7 @@ define dso_local range(i32 0, 2) i32 @string2ll(ptr noundef readonly captures(no
 
 .critedge.sink.split:                             ; preds = %37, %9, %33
   %.sink = phi i64 [ %34, %33 ], [ 0, %9 ], [ %.0.lcssa8790, %37 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !36
+  store i64 %.sink, ptr %2, align 8, !tbaa !35
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread71, %8, %32, %37, %35, %30, %11, %9, %3
@@ -1417,7 +1417,7 @@ define dso_local range(i32 0, 2) i32 @string2ull(ptr noundef %0, ptr noundef wri
   %28 = add i64 %23, %24
   %29 = add nuw i64 %.168.i, 1
   %exitcond.not.i = icmp eq i64 %29, %4
-  br i1 %exitcond.not.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !34
 
 .critedge59.i:                                    ; preds = %27, %16
   %.0.lcssa.i = phi i64 [ %17, %16 ], [ %28, %27 ]
@@ -1438,7 +1438,7 @@ string2ll.exit:                                   ; preds = %30
 
 string2ll.exit.thread14:                          ; preds = %32, %.thread88.i, %9, %string2ll.exit
   %.sink.i16 = phi i64 [ 0, %string2ll.exit ], [ %.0.lcssa.i, %32 ], [ %15, %.thread88.i ], [ 0, %9 ]
-  store i64 %.sink.i16, ptr %1, align 8, !tbaa !36
+  store i64 %.sink.i16, ptr %1, align 8, !tbaa !35
   br label %45
 
 .loopexit:                                        ; preds = %22, %.lr.ph.i, %2, %11, %30, %32, %9, %.thread71.i
@@ -1447,7 +1447,7 @@ string2ll.exit.thread14:                          ; preds = %32, %.thread88.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !27
   %36 = call i64 @strtoull(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10) #31
-  store i64 %36, ptr %1, align 8, !tbaa !36
+  store i64 %36, ptr %1, align 8, !tbaa !35
   %37 = load i32, ptr %35, align 4, !tbaa !5
   switch i32 %37, label %38 [
     i32 22, label %44
@@ -1550,7 +1550,7 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
   %27 = add i64 %22, %23
   %28 = add nuw i64 %.168.i, 1
   %exitcond.not.i = icmp eq i64 %28, %1
-  br i1 %exitcond.not.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not.i, label %.critedge59.i, label %.lr.ph.i, !llvm.loop !34
 
 .critedge59.i:                                    ; preds = %26, %15
   %.0.lcssa.i = phi i64 [ %16, %15 ], [ %27, %26 ]
@@ -1570,7 +1570,7 @@ define dso_local range(i32 0, 2) i32 @string2l(ptr noundef readonly captures(non
 
 string2ll.exit:                                   ; preds = %.thread88.i, %33, %8, %31
   %.sink.i = phi i64 [ %32, %31 ], [ 0, %8 ], [ %14, %.thread88.i ], [ %.0.lcssa.i, %33 ]
-  store i64 %.sink.i, ptr %2, align 8, !tbaa !38
+  store i64 %.sink.i, ptr %2, align 8, !tbaa !37
   br label %string2ll.exit.thread
 
 string2ll.exit.thread:                            ; preds = %.lr.ph.i, %21, %.thread71.i, %8, %33, %29, %10, %3, %string2ll.exit
@@ -1629,10 +1629,10 @@ base_16_char_type.exit:                           ; preds = %4, %8, %10
   %28 = shl nuw i64 %.020, 4
   %29 = add i64 %21, %28
   %30 = add nuw i64 %.022, 1
-  br label %4, !llvm.loop !40
+  br label %4, !llvm.loop !39
 
 31:                                               ; preds = %base_16_char_type.exit
-  store i64 %.020, ptr %2, align 8, !tbaa !38
+  store i64 %.020, ptr %2, align 8, !tbaa !37
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %15, %31
@@ -1698,7 +1698,7 @@ define dso_local range(i32 0, 2) i32 @string2ld(ptr noundef readonly captures(no
   br i1 %.not22, label %.critedge, label %32
 
 32:                                               ; preds = %31
-  store x86_fp80 %10, ptr %2, align 16, !tbaa !41
+  store x86_fp80 %10, ptr %2, align 16, !tbaa !40
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %32, %7, %18, %27, %28, %3
@@ -1724,7 +1724,7 @@ define dso_local range(i32 0, 2) i32 @string2d(ptr noundef %0, i64 noundef %1, p
   store i32 0, ptr %5, align 4, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call double @fast_float_strtod(ptr noundef %0, ptr noundef nonnull %4) #31
-  store double %6, ptr %2, align 8, !tbaa !43
+  store double %6, ptr %2, align 8, !tbaa !42
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %.critedge, label %8
 
@@ -1790,7 +1790,7 @@ define dso_local range(i32 0, 2) i32 @double2ll(double noundef %0, ptr noundef w
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
-  store i64 %5, ptr %1, align 8, !tbaa !36
+  store i64 %5, ptr %1, align 8, !tbaa !35
   br label %9
 
 9:                                                ; preds = %8, %4, %2
@@ -1934,7 +1934,7 @@ define dso_local range(i32 0, 38) i32 @fixedpoint_d2string(ptr noundef writeonly
 18:                                               ; preds = %9
   %19 = zext nneg i32 %3 to i64
   %20 = getelementptr inbounds nuw [18 x double], ptr @fixedpoint_d2string.powers_of_ten, i64 0, i64 %19
-  %21 = load double, ptr %20, align 8, !tbaa !43
+  %21 = load double, ptr %20, align 8, !tbaa !42
   %22 = fmul double %2, %21
   %23 = tail call i64 @llrint(double noundef %22) #31, !tbaa !5
   %24 = icmp slt i64 %23, 0
@@ -2084,7 +2084,7 @@ digits10.exit:                                    ; preds = %59, %61, %63, %67, 
   %100 = add nsw i32 %.06992, -3
   %spec.select = select i1 %99, i32 %100, i32 %98
   %101 = icmp ugt i64 %.291, 9999
-  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %77
   %.2.lcssa = phi i64 [ %.175, %77 ], [ %87, %.lr.ph ]
@@ -2167,7 +2167,7 @@ define dso_local i32 @trimDoubleString(ptr noundef %0, i64 noundef %1) local_unn
 
 8:                                                ; preds = %6
   %9 = add i64 %.1, -1
-  br label %6, !llvm.loop !46
+  br label %6, !llvm.loop !45
 
 10:                                               ; preds = %6
   %11 = add i64 %.1, -1
@@ -2267,7 +2267,7 @@ define dso_local i32 @ld2string(ptr noundef %0, i64 noundef %1, x86_fp80 noundef
 
 40:                                               ; preds = %38
   %41 = add i64 %.2, -1
-  br label %38, !llvm.loop !47
+  br label %38, !llvm.loop !46
 
 42:                                               ; preds = %38
   %43 = add i64 %.2, -1
@@ -2342,8 +2342,8 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #31
   %17 = tail call i32 @getpid() #31
-  %18 = load i64, ptr %3, align 8, !tbaa !48
-  %19 = load i64, ptr %13, align 8, !tbaa !50
+  %18 = load i64, ptr %3, align 8, !tbaa !47
+  %19 = load i64, ptr %13, align 8, !tbaa !49
   %20 = zext i32 %17 to i64
   %21 = xor i64 %18, %14
   %22 = xor i64 %21, %20
@@ -2354,7 +2354,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %26, label %15, !llvm.loop !51
+  br i1 %exitcond.not, label %26, label %15, !llvm.loop !50
 
 .thread:                                          ; preds = %10
   store i1 true, ptr @getRandomBytes.seed_initialized, align 4
@@ -2396,7 +2396,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   store i8 %34, ptr %32, align 1, !tbaa !9
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 64
-  br i1 %exitcond43.not, label %30, label %31, !llvm.loop !52
+  br i1 %exitcond43.not, label %30, label %31, !llvm.loop !51
 
 35:                                               ; preds = %41
   %36 = call i64 @llvm.umin.i64(i64 %.02537, i64 32)
@@ -2404,9 +2404,9 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   call void @sha256_update(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 64) #31
   call void @sha256_update(ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef 32) #31
   call void @sha256_final(ptr noundef nonnull %6, ptr noundef nonnull %4) #31
-  %37 = load i64, ptr @getRandomBytes.counter, align 8, !tbaa !38
+  %37 = load i64, ptr @getRandomBytes.counter, align 8, !tbaa !37
   %38 = add i64 %37, 1
-  store i64 %38, ptr @getRandomBytes.counter, align 8, !tbaa !38
+  store i64 %38, ptr @getRandomBytes.counter, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02438, ptr noundef nonnull align 16 dereferenceable(1) %4, i64 %36, i1 false)
   %39 = sub i64 %.02537, %36
   %40 = getelementptr inbounds nuw i8, ptr %.02438, i64 %36
@@ -2414,7 +2414,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not32 = icmp eq i64 %39, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 41:                                               ; preds = %30, %41
   %indvars.iv44 = phi i64 [ 0, %30 ], [ %indvars.iv.next45, %41 ]
@@ -2424,7 +2424,7 @@ define dso_local void @getRandomBytes(ptr noundef writeonly captures(none) %0, i
   store i8 %44, ptr %42, align 1, !tbaa !9
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 64
-  br i1 %exitcond47.not, label %35, label %41, !llvm.loop !54
+  br i1 %exitcond47.not, label %35, label %41, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %35, %29
   ret void
@@ -2468,7 +2468,7 @@ define dso_local void @getRandomHexChars(ptr noundef captures(none) %0, i64 noun
   store i8 %8, ptr %3, align 1, !tbaa !9
   %9 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2528,7 +2528,7 @@ define dso_local ptr @getAbsolutePath(ptr noundef %0) local_unnamed_addr #3 {
 
 31:                                               ; preds = %10
   %32 = getelementptr inbounds i8, ptr %11, i64 -17
-  %33 = load i64, ptr %32, align 1, !tbaa !38
+  %33 = load i64, ptr %32, align 1, !tbaa !37
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %19, %23, %27, %31
@@ -2570,7 +2570,7 @@ sdslen.exit:                                      ; preds = %16, %19, %23, %27, 
 
 50:                                               ; preds = %34
   %51 = getelementptr inbounds i8, ptr %11, i64 -17
-  %52 = load i64, ptr %51, align 1, !tbaa !38
+  %52 = load i64, ptr %51, align 1, !tbaa !37
   br label %sdslen.exit32
 
 default.unreachable43:                            ; preds = %34
@@ -2637,7 +2637,7 @@ sdslen.exit36.thread:                             ; preds = %sdslen.exit36.threa
   br label %sdslen.exit34
 
 85:                                               ; preds = %sdslen.exit36.thread
-  %86 = load i64, ptr %59, align 1, !tbaa !38
+  %86 = load i64, ptr %59, align 1, !tbaa !37
   br label %sdslen.exit34
 
 sdslen.exit34:                                    ; preds = %73, %76, %79, %82, %85
@@ -2674,7 +2674,7 @@ sdslen.exit34:                                    ; preds = %73, %76, %79, %82, 
   ]
 
 sdslen.exit36.thread.backedge:                    ; preds = %97, %._crit_edge, %sdslen.exit36
-  br label %sdslen.exit36.thread, !llvm.loop !56
+  br label %sdslen.exit36.thread, !llvm.loop !55
 
 101:                                              ; preds = %97
   %102 = lshr i32 %99, 3
@@ -2697,7 +2697,7 @@ sdslen.exit36.thread.backedge:                    ; preds = %97, %._crit_edge, %
   br label %sdslen.exit36
 
 113:                                              ; preds = %97
-  %114 = load i64, ptr %66, align 1, !tbaa !38
+  %114 = load i64, ptr %66, align 1, !tbaa !37
   br label %sdslen.exit36
 
 sdslen.exit36:                                    ; preds = %101, %104, %107, %110, %113
@@ -2735,7 +2735,7 @@ sdslen.exit36:                                    ; preds = %101, %104, %107, %1
   br label %sdslen.exit38
 
 129:                                              ; preds = %116
-  %130 = load i64, ptr %66, align 1, !tbaa !38
+  %130 = load i64, ptr %66, align 1, !tbaa !37
   br label %sdslen.exit38
 
 default.unreachable:                              ; preds = %116
@@ -2756,7 +2756,7 @@ sdslen.exit38:                                    ; preds = %117, %120, %123, %1
   %135 = add nuw nsw i32 %.046, 1
   %136 = load i8, ptr %134, align 1, !tbaa !9
   %.not30 = icmp eq i8 %136, 47
-  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %137 = sub nuw i32 -2, %.046
@@ -2800,7 +2800,7 @@ declare ptr @sdscatsds(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i64 @getTimeZone() local_unnamed_addr #21 {
-  %1 = load i64, ptr @timezone, align 8, !tbaa !38
+  %1 = load i64, ptr @timezone, align 8, !tbaa !37
   ret i64 %1
 }
 
@@ -2940,7 +2940,7 @@ sub_128:                                          ; preds = %.tail
 .backedge:                                        ; preds = %35, %40, %.tail, %.tail26
   %19 = call ptr @readdir64(ptr noundef nonnull %4) #31
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !57
 
 .tail26.thread:                                   ; preds = %sub_0, %sub_128, %.tail26
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4097, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #31
@@ -2963,7 +2963,7 @@ sub_128:                                          ; preds = %.tail
   br label %.thread
 
 31:                                               ; preds = %25
-  %32 = load i32, ptr %7, align 8, !tbaa !59
+  %32 = load i32, ptr %7, align 8, !tbaa !58
   %33 = and i32 %32, 61440
   %34 = icmp eq i32 %33, 16384
   br i1 %34, label %35, label %40
@@ -2971,7 +2971,7 @@ sub_128:                                          ; preds = %.tail
 35:                                               ; preds = %31
   %36 = call i32 @dirRemove(ptr noundef nonnull %3)
   %37 = icmp eq i32 %36, -1
-  br i1 %37, label %38, label %.backedge, !llvm.loop !58
+  br i1 %37, label %38, label %.backedge, !llvm.loop !57
 
 38:                                               ; preds = %35
   %39 = call i32 @closedir(ptr noundef nonnull %4)
@@ -3135,7 +3135,7 @@ define dso_local noundef ptr @fgets_async_signal_safe(ptr noundef captures(ret: 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !62
+  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !61
 
 .thread:                                          ; preds = %8, %.lr.ph, %3
   %.012 = phi ptr [ %0, %3 ], [ null, %.lr.ph ], [ %0, %8 ]
@@ -3234,7 +3234,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
 
 38:                                               ; preds = %35, %30
   %39 = phi ptr [ %33, %30 ], [ %36, %35 ]
-  %40 = load i64, ptr %39, align 8, !tbaa !38
+  %40 = load i64, ptr %39, align 8, !tbaa !37
   br label %82
 
 .thread79:                                        ; preds = %check_longlong_async_signal_safe.exit..thread79_crit_edge, %27
@@ -3258,7 +3258,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
 
 51:                                               ; preds = %48, %43
   %52 = phi ptr [ %46, %43 ], [ %49, %48 ]
-  %53 = load i64, ptr %52, align 8, !tbaa !38
+  %53 = load i64, ptr %52, align 8, !tbaa !37
   br label %82
 
 54:                                               ; preds = %25
@@ -3337,7 +3337,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   store i8 %92, ptr %.07.i, align 1, !tbaa !9
   %93 = udiv i64 %.0.i68, 10
   %.not.i69 = icmp ult i64 %.0.i68, 10
-  br i1 %.not.i69, label %u2string_async_signal_safe.exit, label %89, !llvm.loop !63
+  br i1 %.not.i69, label %u2string_async_signal_safe.exit, label %89, !llvm.loop !62
 
 94:                                               ; preds = %82
   %95 = icmp slt i64 %.052, 0
@@ -3367,7 +3367,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   store i8 %102, ptr %.050.i, align 1, !tbaa !9
   %104 = sdiv i64 %.2.i, %98
   %.not.i70 = icmp eq i64 %104, 0
-  br i1 %.not.i70, label %105, label %99, !llvm.loop !64
+  br i1 %.not.i70, label %105, label %99, !llvm.loop !63
 
 105:                                              ; preds = %99
   %not. = xor i1 %86, true
@@ -3460,7 +3460,7 @@ check_longlong_async_signal_safe.exit..thread79_crit_edge: ; preds = %check_long
   %126 = add nuw nsw i32 %.058.i, 1
   %127 = getelementptr inbounds i8, ptr %.357.i, i64 -1
   %exitcond.not.i = icmp eq i32 %126, 16
-  br i1 %exitcond.not.i, label %i2string_async_signal_safe.exit, label %.preheader.i, !llvm.loop !65
+  br i1 %exitcond.not.i, label %i2string_async_signal_safe.exit, label %.preheader.i, !llvm.loop !64
 
 i2string_async_signal_safe.exit:                  ; preds = %125, %108
   %.252.i = phi ptr [ %.151.i, %108 ], [ %127, %125 ]
@@ -3493,7 +3493,7 @@ u2string_async_signal_safe.exit:                  ; preds = %89, %i2string_async
   %141 = icmp ne i8 %140, 0
   %142 = icmp ult ptr %139, %7
   %143 = select i1 %141, i1 %142, i1 false
-  br i1 %143, label %.lr.ph, label %._crit_edge, !llvm.loop !66
+  br i1 %143, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %u2string_async_signal_safe.exit
   %.3.lcssa = phi ptr [ %.049, %u2string_async_signal_safe.exit ], [ %139, %.lr.ph ]
@@ -3541,13 +3541,13 @@ u2string_async_signal_safe.exit:                  ; preds = %89, %i2string_async
   %166 = icmp ne i8 %165, 0
   %167 = icmp ult ptr %164, %7
   %168 = select i1 %166, i1 %167, i1 false
-  br i1 %168, label %.lr.ph96, label %.loopexit, !llvm.loop !67
+  br i1 %168, label %.lr.ph96, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph96, %155, %check_longlong_async_signal_safe.exit, %16, %._crit_edge
   %.155.ph = phi ptr [ %.0.i, %check_longlong_async_signal_safe.exit ], [ %.0.i, %._crit_edge ], [ %.054, %16 ], [ %.0.i, %155 ], [ %.0.i, %.lr.ph96 ]
   %.2.ph = phi ptr [ %.049, %check_longlong_async_signal_safe.exit ], [ %.3.lcssa, %._crit_edge ], [ %17, %16 ], [ %.049, %155 ], [ %164, %.lr.ph96 ]
   %169 = getelementptr inbounds nuw i8, ptr %.155.ph, i64 1
-  br label %12, !llvm.loop !68
+  br label %12, !llvm.loop !67
 
 170:                                              ; preds = %14, %12
   %.049.lcssa = phi ptr [ %7, %14 ], [ %.049, %12 ]
@@ -3663,27 +3663,27 @@ attributes #32 = { memory(none) }
 !27 = !{!28, !28, i64 0}
 !28 = !{!"p1 omnipotent char", !16, i64 0}
 !29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
 !32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11, !31}
+!33 = distinct !{!33, !11}
 !34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"long long", !7, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"long", !7, i64 0}
-!40 = distinct !{!40, !11}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long double", !7, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"double", !7, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long long", !7, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"long", !7, i64 0}
+!39 = distinct !{!39, !11}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"long double", !7, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"double", !7, i64 0}
+!44 = distinct !{!44, !11}
 !45 = distinct !{!45, !11}
 !46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = !{!49, !39, i64 0}
-!49 = !{!"timeval", !39, i64 0, !39, i64 8}
-!50 = !{!49, !39, i64 8}
+!47 = !{!48, !38, i64 0}
+!48 = !{!"timeval", !38, i64 0, !38, i64 8}
+!49 = !{!48, !38, i64 8}
+!50 = distinct !{!50, !11}
 !51 = distinct !{!51, !11}
 !52 = distinct !{!52, !11}
 !53 = distinct !{!53, !11}
@@ -3691,14 +3691,13 @@ attributes #32 = { memory(none) }
 !55 = distinct !{!55, !11}
 !56 = distinct !{!56, !11}
 !57 = distinct !{!57, !11}
-!58 = distinct !{!58, !11}
-!59 = !{!60, !6, i64 24}
-!60 = !{!"stat", !39, i64 0, !39, i64 8, !39, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !39, i64 40, !39, i64 48, !39, i64 56, !39, i64 64, !61, i64 72, !61, i64 88, !61, i64 104, !7, i64 120}
-!61 = !{!"timespec", !39, i64 0, !39, i64 8}
+!58 = !{!59, !6, i64 24}
+!59 = !{!"stat", !38, i64 0, !38, i64 8, !38, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !38, i64 40, !38, i64 48, !38, i64 56, !38, i64 64, !60, i64 72, !60, i64 88, !60, i64 104, !7, i64 120}
+!60 = !{!"timespec", !38, i64 0, !38, i64 8}
+!61 = distinct !{!61, !11}
 !62 = distinct !{!62, !11}
 !63 = distinct !{!63, !11}
 !64 = distinct !{!64, !11}
 !65 = distinct !{!65, !11}
 !66 = distinct !{!66, !11}
 !67 = distinct !{!67, !11}
-!68 = distinct !{!68, !11}

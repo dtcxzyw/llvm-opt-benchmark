@@ -2690,7 +2690,7 @@ _ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6a
   %.2 = phi i32 [ %169, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.198, %_ZN11SwitchRange6adjoinEiifb.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count108
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %175, %120
   %.1.lcssa = phi i32 [ %.2.us, %120 ], [ %.2, %175 ]
@@ -2851,7 +2851,7 @@ _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
 252:                                              ; preds = %247, %_ZN11SwitchRange6adjoinERS_.exit.i, %239
   %.1.i = phi i32 [ %245, %239 ], [ %.034.i, %247 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
   %exitcond110.not = icmp eq i64 %indvars.iv.next.i, %224
-  br i1 %exitcond110.not, label %._crit_edge.i83, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond110.not, label %._crit_edge.i83, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i83:                                  ; preds = %252, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %252 ]
@@ -2885,7 +2885,7 @@ _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
 263:                                              ; preds = %262, %259, %.lr.ph39.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next43.i, %254
-  br i1 %exitcond111.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !12
+  br i1 %exitcond111.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !10
 
 _ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %263, %._crit_edge.i83, %221, %220
   %.4 = phi i32 [ %.3, %220 ], [ 0, %221 ], [ %253, %._crit_edge.i83 ], [ %253, %263 ]
@@ -2984,7 +2984,7 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, %.0
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  br i1 %39, label %35, label %41, !llvm.loop !13
+  br i1 %39, label %35, label %41, !llvm.loop !11
 
 41:                                               ; preds = %35
   store ptr %36, ptr %6, align 8
@@ -3004,7 +3004,7 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, %.097
   %49 = getelementptr inbounds i8, ptr %46, i64 -16
-  br i1 %48, label %45, label %50, !llvm.loop !14
+  br i1 %48, label %45, label %50, !llvm.loop !12
 
 50:                                               ; preds = %45
   store ptr %46, ptr %7, align 8
@@ -3074,7 +3074,7 @@ define hidden void @_ZN5Parse18jump_switch_rangesEP4NodeP11SwitchRangeS3_i(ptr n
   %83 = fadd float %.079.i, %82
   %84 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %.not.i = icmp ugt ptr %84, %57
-  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread, label %.lr.ph.i, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %80
   %85 = load i8, ptr @UseSwitchProfiling, align 1
@@ -3102,7 +3102,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %.lr.ph.i
 95:                                               ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %.0100189, i64 16
   %.not111 = icmp ugt ptr %96, %57
-  br i1 %.not111, label %.loopexit176, label %90, !llvm.loop !16
+  br i1 %.not111, label %.loopexit176, label %90, !llvm.loop !14
 
 97:                                               ; preds = %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
   %.07.lcssa.i208 = phi float [ %83, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit ]
@@ -3218,7 +3218,7 @@ _ZL7if_probff.exit:                               ; preds = %128, %132
   %165 = fadd float %.079.i119, %164
   %166 = getelementptr inbounds nuw i8, ptr %.010.i118, i64 16
   %.not.i120 = icmp ugt ptr %166, %162
-  br i1 %.not.i120, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit122, label %.lr.ph.i117, !llvm.loop !15
+  br i1 %.not.i120, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit122, label %.lr.ph.i117, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit122:        ; preds = %.lr.ph.i117, %161
   %.07.lcssa.i121 = phi float [ 0.000000e+00, %161 ], [ %165, %.lr.ph.i117 ]
@@ -3503,7 +3503,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i133:               ; preds = %295, %283, %_ZN8Gra
   %321 = fadd float %.079.i141, %320
   %322 = getelementptr inbounds nuw i8, ptr %.010.i140, i64 16
   %.not.i142 = icmp ugt ptr %322, %57
-  br i1 %.not.i142, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit144, label %.lr.ph.i139, !llvm.loop !15
+  br i1 %.not.i142, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit144, label %.lr.ph.i139, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit144:        ; preds = %.lr.ph.i139, %317
   %.07.lcssa.i143 = phi float [ 0.000000e+00, %317 ], [ %321, %.lr.ph.i139 ]
@@ -3864,7 +3864,7 @@ _ZN5Parse19jump_if_always_forkEib.exit:           ; preds = %.thread173, %497, %
   store i32 %522, ptr %520, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %516, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %516, !llvm.loop !15
 
 .loopexit:                                        ; preds = %516, %511, %78, %_ZN5Parse19jump_if_always_forkEib.exit
   ret void
@@ -3982,7 +3982,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   store i32 1, ptr %72, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %exitcond152.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !16
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us
   %73 = zext nneg i32 %15 to i64
@@ -4024,7 +4024,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   store i32 %97, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count151
-  br i1 %exitcond.not, label %99, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %99, label %.lr.ph.split, !llvm.loop !16
 
 99:                                               ; preds = %.lr.ph.split
   %100 = zext nneg i32 %15 to i64
@@ -4257,7 +4257,7 @@ _ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6a
   %.2 = phi i32 [ %203, %_ZN11SwitchRange6adjoinEiifb.exit.thread ], [ %.1133173, %_ZN11SwitchRange6adjoinEiifb.exit ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge143, label %.lr.ph142, !llvm.loop !20
+  br i1 %exitcond157.not, label %._crit_edge143, label %.lr.ph142, !llvm.loop !17
 
 ._crit_edge143:                                   ; preds = %209
   %210 = getelementptr i32, ptr %51, i64 %49
@@ -4406,7 +4406,7 @@ _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
 282:                                              ; preds = %277, %_ZN11SwitchRange6adjoinERS_.exit.i, %269
   %.1.i = phi i32 [ %275, %269 ], [ %.034.i, %277 ], [ %.034.i, %_ZN11SwitchRange6adjoinERS_.exit.i ]
   %exitcond158.not = icmp eq i64 %indvars.iv.next.i, %254
-  br i1 %exitcond158.not, label %._crit_edge.i117, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond158.not, label %._crit_edge.i117, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i117:                                 ; preds = %282, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %282 ]
@@ -4440,7 +4440,7 @@ _ZN11SwitchRange6adjoinERS_.exit.i:               ; preds = %.lr.ph.i
 293:                                              ; preds = %292, %289, %.lr.ph39.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next43.i, %284
-  br i1 %exitcond159.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !12
+  br i1 %exitcond159.not, label %_ZL12merge_rangesP11SwitchRangeRi.exit, label %.lr.ph39.i, !llvm.loop !10
 
 _ZL12merge_rangesP11SwitchRangeRi.exit:           ; preds = %293, %._crit_edge.i117, %251, %250
   %.4 = phi i32 [ %.3, %250 ], [ 0, %251 ], [ %283, %._crit_edge.i117 ], [ %283, %293 ]
@@ -4508,7 +4508,7 @@ define hidden void @_ZN5Parse27linear_search_switch_rangesEP4NodeRP11SwitchRange
   %15 = fadd float %.079.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %.not.i = icmp ugt ptr %16, %5
-  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i, %4
   %.07.lcssa.i = phi float [ 0.000000e+00, %4 ], [ %15, %.lr.ph.i ]
@@ -4552,7 +4552,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i, %4
   %.1 = select i1 %36, ptr %.082116, ptr %.076115
   %.082 = getelementptr inbounds nuw i8, ptr %.082116, i64 16
   %.not = icmp ugt ptr %.082, %31
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.076.lcssa = phi ptr [ %28, %27 ], [ %.1, %.lr.ph ]
@@ -4649,7 +4649,7 @@ _ZN11SwitchRange6adjoinERS_.exit:                 ; preds = %51, %._crit_edge.i.
   %.2 = phi i32 [ %.077118, %43 ], [ %spec.select91, %_ZN11SwitchRange6adjoinERS_.exit ], [ %.077118, %49 ], [ 0, %47 ]
   %75 = add i32 %.2, 1
   %76 = icmp ult i32 %75, %.0122
-  br i1 %76, label %39, label %77, !llvm.loop !22
+  br i1 %76, label %39, label %77, !llvm.loop !19
 
 77:                                               ; preds = %74
   %78 = sub i32 %.0122, %.281
@@ -4822,7 +4822,7 @@ _ZL7if_probff.exit:                               ; preds = %166, %174
   %181 = fsub float 1.000000e+00, %180
   %182 = fadd float %.074120, %181
   %183 = icmp ugt i32 %78, 1
-  br i1 %183, label %27, label %._crit_edge124, !llvm.loop !23
+  br i1 %183, label %27, label %._crit_edge124, !llvm.loop !20
 
 ._crit_edge124:                                   ; preds = %_ZL7if_probff.exit, %._crit_edge, %77, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
   ret void
@@ -4885,7 +4885,7 @@ _ZN26GrowableArrayWithAllocatorI12SwitchRanges13GrowableArrayIS0_EE4pushERKS0_.e
   %25 = fadd float %.079.i, %24
   %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %.not.i = icmp ugt ptr %26, %16
-  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i
   %27 = fcmp oeq float %25, 0.000000e+00
@@ -4896,7 +4896,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i
   br label %29
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit
-  store i32 %11, ptr %3, align 8, !noalias !24
+  store i32 %11, ptr %3, align 8, !noalias !21
   br label %77
 
 29:                                               ; preds = %29, %.preheader
@@ -4907,7 +4907,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cn
   %32 = fadd float %.0, %31
   %33 = fcmp ogt float %32, %28
   %34 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  br i1 %33, label %35, label %29, !llvm.loop !27
+  br i1 %33, label %35, label %29, !llvm.loop !24
 
 35:                                               ; preds = %29
   store ptr %.037, ptr %19, align 8
@@ -4952,14 +4952,14 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread:    ; preds = %22, %_ZL11sum_of_cn
   br i1 %58, label %thread-pre-split.sink.split, label %thread-pre-split
 
 59:                                               ; preds = %52
-  %60 = load i32, ptr %3, align 8, !noalias !28
+  %60 = load i32, ptr %3, align 8, !noalias !25
   %61 = add nsw i32 %60, -1
-  store i32 %61, ptr %3, align 8, !noalias !28
+  store i32 %61, ptr %3, align 8, !noalias !25
   %62 = load float, ptr %40, align 8
   br label %77
 
 63:                                               ; preds = %9
-  store i32 %11, ptr %3, align 8, !noalias !31
+  store i32 %11, ptr %3, align 8, !noalias !28
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %65 = load float, ptr %64, align 8
   br label %77
@@ -5002,7 +5002,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %78 = phi i32 [ %.pr, %thread-pre-split ], [ %11, %63 ], [ %61, %59 ], [ %11, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
   %.1 = phi float [ 0.000000e+00, %thread-pre-split ], [ %65, %63 ], [ %62, %59 ], [ 0.000000e+00, %_ZL11sum_of_cntsP11SwitchRangeS0_.exit.thread ]
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %9, label %80, !llvm.loop !34
+  br i1 %79, label %9, label %80, !llvm.loop !31
 
 80:                                               ; preds = %77
   %81 = load i64, ptr %8, align 8
@@ -5089,7 +5089,7 @@ define hidden noundef zeroext i1 @_ZN5Parse18create_jump_tablesEP4NodeP11SwitchR
   %43 = fadd float %.079.i, %42
   %44 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %.not.i = icmp ugt ptr %44, %3
-  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %_ZL11sum_of_cntsP11SwitchRangeS0_.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i, %10
   %.07.lcssa.i = phi float [ 0.000000e+00, %10 ], [ %43, %.lr.ph.i ]
@@ -5407,7 +5407,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %211, %2
   %227 = load i32, ptr %221, align 4
   %228 = sext i32 %227 to i64
   %.not155.not = icmp slt i64 %.0129180, %228
-  br i1 %.not155.not, label %.lr.ph182, label %._crit_edge183.loopexit, !llvm.loop !35
+  br i1 %.not155.not, label %.lr.ph182, label %._crit_edge183.loopexit, !llvm.loop !32
 
 ._crit_edge183.loopexit:                          ; preds = %.lr.ph182
   %229 = trunc nsw i64 %indvars.iv.next209 to i32
@@ -5417,7 +5417,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %211, %2
   %.1132.lcssa = phi i32 [ %.0131186, %219 ], [ %229, %._crit_edge183.loopexit ]
   %230 = getelementptr inbounds nuw i8, ptr %.0130187, i64 16
   %.not151 = icmp ugt ptr %230, %.0125
-  br i1 %.not151, label %.loopexit, label %219, !llvm.loop !36
+  br i1 %.not151, label %.loopexit, label %219, !llvm.loop !33
 
 .lr.ph177:                                        ; preds = %.preheader168, %._crit_edge
   %.0128176 = phi ptr [ %250, %._crit_edge ], [ %.0123, %.preheader168 ]
@@ -5452,7 +5452,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %211, %2
   %247 = load i32, ptr %235, align 4
   %248 = sext i32 %247 to i64
   %.not150.not = icmp slt i64 %.0126173, %248
-  br i1 %.not150.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %.not150.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %249 = trunc nsw i64 %indvars.iv.next to i32
@@ -5462,7 +5462,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %211, %2
   %.3.lcssa = phi i32 [ %.2175, %.lr.ph177 ], [ %249, %._crit_edge.loopexit ]
   %250 = getelementptr inbounds nuw i8, ptr %.0128176, i64 16
   %.not149 = icmp ugt ptr %250, %.0125
-  br i1 %.not149, label %.loopexit, label %.lr.ph177, !llvm.loop !38
+  br i1 %.not149, label %.loopexit, label %.lr.ph177, !llvm.loop !35
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge183, %.preheader168, %.preheader
   %251 = load ptr, ptr %13, align 8
@@ -5741,13 +5741,13 @@ _ZN5Parse19jump_if_always_forkEib.exit:           ; preds = %391, %.thread
   %402 = load i32, ptr %301, align 4
   %403 = sext i32 %402 to i64
   %.not154.not = icmp slt i64 %.0121191, %403
-  br i1 %.not154.not, label %306, label %._crit_edge194, !llvm.loop !39
+  br i1 %.not154.not, label %306, label %._crit_edge194, !llvm.loop !36
 
 ._crit_edge194:                                   ; preds = %_ZN5Parse19jump_if_always_forkEib.exit, %299
   %.5.lcssa = phi i32 [ %.4197, %299 ], [ %401, %_ZN5Parse19jump_if_always_forkEib.exit ]
   %404 = getelementptr inbounds nuw i8, ptr %.0122198, i64 16
   %.not153 = icmp ugt ptr %404, %.0125
-  br i1 %.not153, label %._crit_edge201, label %299, !llvm.loop !40
+  br i1 %.not153, label %._crit_edge201, label %299, !llvm.loop !37
 
 ._crit_edge201:                                   ; preds = %._crit_edge194, %292
   call void @_ZN8GraphKit17stop_and_kill_mapEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #15
@@ -7511,7 +7511,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i: ; preds = %10
 24:                                               ; preds = %20
   %25 = load ptr, ptr %.07.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i, label %.preheader.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i, label %.preheader.i.i.i, !llvm.loop !38
 
 _ZNK5Parse5Block11is_SEL_headEv.exit.i:           ; preds = %24, %.preheader.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7735,7 +7735,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i40: ; preds = %.critedge
 174:                                              ; preds = %170
   %175 = load ptr, ptr %.07.i.i.i42, align 8
   %.not.i.i.i44 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i44, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i43, label %.preheader.i.i.i41, !llvm.loop !41
+  br i1 %.not.i.i.i44, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i43, label %.preheader.i.i.i41, !llvm.loop !38
 
 _ZNK5Parse5Block11is_SEL_headEv.exit.i43:         ; preds = %174, %.preheader.i.i.i41
   %176 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7797,7 +7797,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i.i47: ; preds = %192
 206:                                              ; preds = %202
   %207 = load ptr, ptr %.07.i.i.i49, align 8
   %.not.i.i.i51 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i51, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i50, label %.preheader.i.i.i48, !llvm.loop !41
+  br i1 %.not.i.i.i51, label %_ZNK5Parse5Block11is_SEL_headEv.exit.i50, label %.preheader.i.i.i48, !llvm.loop !38
 
 _ZNK5Parse5Block11is_SEL_headEv.exit.i50:         ; preds = %206, %.preheader.i.i.i48
   %208 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -8429,7 +8429,7 @@ _ZNK10ciTypeFlow5Block12is_loop_headEv.exit.i.i:  ; preds = %2
 16:                                               ; preds = %12
   %17 = load ptr, ptr %.07.i.i, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !41
+  br i1 %.not.i.i, label %_ZNK5Parse5Block11is_SEL_headEv.exit, label %.preheader.i.i, !llvm.loop !38
 
 _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %16, %.preheader.i.i
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -15531,7 +15531,7 @@ _ZN13GrowableArrayI12SwitchRangesE8allocateEv.exit: ; preds = %7, %11, %15
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !42
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !39
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15547,7 +15547,7 @@ _ZN13GrowableArrayI12SwitchRangesE8allocateEv.exit: ; preds = %7, %11, %15
   %35 = load i32, ptr %3, align 4
   %36 = trunc nuw i64 %indvars.iv.next22 to i32
   %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !43
+  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !40
 
 38:                                               ; preds = %.preheader
   %39 = load i64, ptr %4, align 8
@@ -15657,8 +15657,8 @@ attributes #16 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
@@ -15667,22 +15667,22 @@ attributes #16 = { noreturn nounwind }
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !9}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv: argument 0"}
-!26 = distinct !{!26, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv"}
-!27 = distinct !{!27, !7}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv: argument 0"}
+!23 = distinct !{!23, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv"}
+!24 = distinct !{!24, !7}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv: argument 0"}
+!27 = distinct !{!27, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv"}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv: argument 0"}
 !30 = distinct !{!30, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv: argument 0"}
-!33 = distinct !{!33, !"_ZN17GrowableArrayViewI12SwitchRangesE3popEv"}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
 !34 = distinct !{!34, !7}
 !35 = distinct !{!35, !7}
 !36 = distinct !{!36, !7}
@@ -15690,6 +15690,3 @@ attributes #16 = { noreturn nounwind }
 !38 = distinct !{!38, !7}
 !39 = distinct !{!39, !7}
 !40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}

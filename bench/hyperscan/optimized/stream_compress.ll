@@ -1771,7 +1771,7 @@ mmbit_mask_index.exit.i.i.us.i:                   ; preds = %1023
 
 mmbit_sparse_iter_next.exit.loopexit.us.i:        ; preds = %mmbit_mask_index.exit.i.i.us.i
   %.not51.us.i = icmp eq i32 %1030, -1
-  br i1 %.not51.us.i, label %.critedge.i, label %.lr.ph146.split.us.i, !llvm.loop !5
+  br i1 %.not51.us.i, label %.critedge.i, label %.lr.ph146.split.us.i
 
 .lr.ph146.split.i:                                ; preds = %.lr.ph146.i..lr.ph146.split.i_crit_edge, %.lr.ph146.i.thread
   %.promoted158.i = phi i64 [ %850, %.lr.ph146.i.thread ], [ %.promoted158.i.pre, %.lr.ph146.i..lr.ph146.split.i_crit_edge ]
@@ -3796,7 +3796,7 @@ mmbit_mask_index.exit.i.i.us.i.i:                 ; preds = %965
 
 mmbit_sparse_iter_next.exit.loopexit.us.i.i:      ; preds = %mmbit_mask_index.exit.i.i.us.i.i
   %.not41.us.i.i = icmp eq i32 %972, -1
-  br i1 %.not41.us.i.i, label %._crit_edge137.i.i, label %925, !llvm.loop !7
+  br i1 %.not41.us.i.i, label %._crit_edge137.i.i, label %925
 
 .lr.ph136.split.i.i:                              ; preds = %.lr.ph136.i.i
   %1013 = icmp samesign ult i32 %754, 65
@@ -3860,7 +3860,7 @@ mmbit_sparse_iter_next.exit.loopexit.us.i.i:      ; preds = %mmbit_mask_index.ex
   %.not58.i66.us.i.i = icmp eq i64 %1052, 0
   %1053 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1052, i1 true)
   %1054 = trunc nuw nsw i64 %1053 to i32
-  br i1 %.not58.i66.us.i.i, label %._crit_edge137.split.i.i, label %.lr.ph136.split.split.us.i.i, !llvm.loop !8
+  br i1 %.not58.i66.us.i.i, label %._crit_edge137.split.i.i, label %.lr.ph136.split.split.us.i.i
 
 .lr.ph136.split.split.i.i:                        ; preds = %.lr.ph136.split.i.i, %mmbit_sparse_iter_next.exit.i.i
   %.lcssa132147.i.i = phi i32 [ %.lcssa132146.i.i, %mmbit_sparse_iter_next.exit.i.i ], [ %.promoted.i.i, %.lr.ph136.split.i.i ]
@@ -5014,7 +5014,7 @@ mmbit_iterate.exit60.i.i:                         ; preds = %1601, %1541
 
 mmbit_iterate.exit.us284.i.i:                     ; preds = %1658
   %.not55.us286.i.i = icmp eq i32 %1662, -1
-  br i1 %.not55.us286.i.i, label %sc_compress.exit, label %.lr.ph280.split.split.us.i.i, !llvm.loop !9
+  br i1 %.not55.us286.i.i, label %sc_compress.exit, label %.lr.ph280.split.split.us.i.i
 
 .lr.ph280.split.split.i.i:                        ; preds = %.lr.ph280.i.i
   %1670 = icmp samesign ult i32 %.fr298.i.i, 65
@@ -5092,7 +5092,7 @@ mmbit_iterate.exit.us291.i.i:                     ; preds = %mmbit_get_flat_bloc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1700, ptr nonnull readonly align 1 %1706, i64 %1613, i1 false)
   %1707 = add i64 %1681, %1613
   %1708 = icmp eq i32 %1504, %1699
-  br i1 %1708, label %sc_compress.exit, label %.lr.ph756.i, !llvm.loop !10
+  br i1 %1708, label %sc_compress.exit, label %.lr.ph756.i
 
 .lr.ph280.split.split.split.i.i:                  ; preds = %mmbit_iterate.exit.i.i, %.lr.ph280.split.split.split.preheader.i.i
   %.0279.i.i = phi i32 [ %1802, %mmbit_iterate.exit.i.i ], [ %.011.i59322.i.i, %.lr.ph280.split.split.split.preheader.i.i ]
@@ -6520,7 +6520,7 @@ mmbit_mask_index.exit.i.i.us.i.i:                 ; preds = %689
 
 mmbit_sparse_iter_next.exit.loopexit.us.i.i:      ; preds = %mmbit_mask_index.exit.i.i.us.i.i
   %.not31.us.i.i = icmp eq i32 %696, -1
-  br i1 %.not31.us.i.i, label %._crit_edge70.i.i, label %670, !llvm.loop !11
+  br i1 %.not31.us.i.i, label %._crit_edge70.i.i, label %670
 
 .lr.ph69.split.i.i:                               ; preds = %.lr.ph69.i.i
   %737 = icmp samesign ult i32 %124, 65
@@ -6561,7 +6561,7 @@ mmbit_sparse_iter_next.exit.loopexit.us.i.i:      ; preds = %mmbit_mask_index.ex
   %.not58.i56.us.i.i = icmp eq i64 %755, 0
   %756 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %755, i1 true)
   %757 = trunc nuw nsw i64 %756 to i32
-  br i1 %.not58.i56.us.i.i, label %._crit_edge70.split.i.i, label %.lr.ph69.split.split.us.i.i, !llvm.loop !12
+  br i1 %.not58.i56.us.i.i, label %._crit_edge70.split.i.i, label %.lr.ph69.split.split.us.i.i
 
 .lr.ph69.split.split.i.i:                         ; preds = %.lr.ph69.split.i.i, %mmbit_sparse_iter_next.exit.i.i
   %.lcssa6580.i.i = phi i32 [ %.lcssa6579.i.i, %mmbit_sparse_iter_next.exit.i.i ], [ %.promoted.i.i, %.lr.ph69.split.i.i ]
@@ -7502,7 +7502,7 @@ mmbit_iterate.exit36.i..lr.ph69.i249_crit_edge.i: ; preds = %mmbit_iterate.exit3
 
 mmbit_iterate.exit.us72.i.i:                      ; preds = %1233
   %.not31.us74.i.i = icmp eq i32 %1237, -1
-  br i1 %.not31.us74.i.i, label %sc_size.exit, label %.lr.ph69.split.split.us.i253.i, !llvm.loop !13
+  br i1 %.not31.us74.i.i, label %sc_size.exit, label %.lr.ph69.split.split.us.i253.i
 
 .lr.ph69.split.split.i251.i:                      ; preds = %.lr.ph69.i249.i
   %1245 = icmp samesign ult i32 %.fr85.i.i, 65
@@ -7564,7 +7564,7 @@ mmbit_iterate.exit.us79.i.i:                      ; preds = %mmbit_get_flat_bloc
   %1267 = trunc nuw nsw i64 %1266 to i32
   %1268 = add i64 %1249, %1196
   %1269 = icmp eq i32 %1195, %1267
-  br i1 %1269, label %sc_size.exit, label %.lr.ph148.i, !llvm.loop !14
+  br i1 %1269, label %sc_size.exit, label %.lr.ph148.i
 
 .lr.ph69.split.split.split.i.i:                   ; preds = %mmbit_iterate.exit.i.i, %.lr.ph69.split.split.split.preheader.i.i
   %.068.i.i = phi i32 [ %1356, %mmbit_iterate.exit.i.i ], [ %.011.i35115.i.i, %.lr.ph69.split.split.split.preheader.i.i ]
@@ -8296,7 +8296,7 @@ mmbit_iterate.exit87:                             ; preds = %258, %197
 
 mmbit_iterate.exit.us253:                         ; preds = %318
   %.not62.us255 = icmp eq i32 %322, -1
-  br i1 %.not62.us255, label %mmbit_decompress.exit81, label %.lr.ph246.split.split.us, !llvm.loop !15
+  br i1 %.not62.us255, label %mmbit_decompress.exit81, label %.lr.ph246.split.split.us
 
 .lr.ph246.split.split:                            ; preds = %.lr.ph246
   %330 = icmp ult i32 %.fr271, 65
@@ -8371,7 +8371,7 @@ mmbit_iterate.exit.us262:                         ; preds = %mmbit_get_flat_bloc
   %361 = trunc nuw nsw i64 %360 to i32
   %362 = add i64 %334, %270
   %363 = icmp ugt i64 %362, %4
-  br i1 %363, label %mmbit_decompress.exit81, label %.lr.ph372, !llvm.loop !16
+  br i1 %363, label %mmbit_decompress.exit81, label %.lr.ph372
 
 .lr.ph246.split.split.split:                      ; preds = %.lr.ph246.split.split.split.preheader, %mmbit_iterate.exit
   %.0245 = phi i32 [ %459, %mmbit_iterate.exit ], [ %.011.i86310, %.lr.ph246.split.split.split.preheader ]
@@ -8586,15 +8586,3 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}

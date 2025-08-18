@@ -7,63 +7,80 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @ff_rle_count_pixels(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %2 to i64
   %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 127)
+  %.02129 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = icmp sgt i32 %1, 1
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %.02129 = getelementptr inbounds i8, ptr %0, i64 %5
   %.not25 = icmp eq i32 %3, 0
-  %8 = icmp eq i32 %2, 1
   br i1 %.not25, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us._crit_edge
-  %.02132.us = phi ptr [ %.021.us, %.lr.ph.split.us._crit_edge ], [ %.02129, %.lr.ph ]
-  %.031.us = phi i32 [ %9, %.lr.ph.split.us._crit_edge ], [ 1, %.lr.ph ]
-  %.pn30.us = phi ptr [ %.02132.us, %.lr.ph.split.us._crit_edge ], [ %0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %8 = icmp eq i32 %2, 1
+  br i1 %8, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %9
+  %.02132.us.us = phi ptr [ %.021.us.us, %9 ], [ %.02129, %.lr.ph.split.us ]
+  %.031.us.us = phi i32 [ %10, %9 ], [ 1, %.lr.ph.split.us ]
+  %.pn30.us.us = phi ptr [ %.02132.us.us, %9 ], [ %0, %.lr.ph.split.us ]
+  %bcmp.us.us = tail call i32 @bcmp(ptr %.pn30.us.us, ptr %.02132.us.us, i64 %5)
+  %.not.us.us.not = icmp eq i32 %bcmp.us.us, 0
+  br i1 %.not.us.us.not, label %.split.us, label %9
+
+9:                                                ; preds = %.lr.ph.split.us.split.us
+  %10 = add nuw nsw i32 %.031.us.us, 1
+  %.021.us.us = getelementptr inbounds i8, ptr %.02132.us.us, i64 %5
+  %exitcond45.not = icmp eq i32 %10, %6
+  br i1 %exitcond45.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !4
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split._crit_edge
+  %.02132.us = phi ptr [ %.021.us, %.lr.ph.split.us.split._crit_edge ], [ %.02129, %.lr.ph.split.us ]
+  %.031.us = phi i32 [ %11, %.lr.ph.split.us.split._crit_edge ], [ 1, %.lr.ph.split.us ]
+  %.pn30.us = phi ptr [ %.02132.us, %.lr.ph.split.us.split._crit_edge ], [ %0, %.lr.ph.split.us ]
   %bcmp.us = tail call i32 @bcmp(ptr %.pn30.us, ptr %.02132.us, i64 %5)
   %.not.us.not = icmp eq i32 %bcmp.us, 0
-  %9 = add nuw nsw i32 %.031.us, 1
-  br i1 %.not.us.not, label %10, label %.lr.ph.split.us._crit_edge
+  %11 = add nuw nsw i32 %.031.us, 1
+  br i1 %.not.us.not, label %12, label %.lr.ph.split.us.split._crit_edge
 
-10:                                               ; preds = %.lr.ph.split.us
-  %11 = icmp slt i32 %9, %6
-  %or.cond.us = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond.us, label %12, label %.split.us
+12:                                               ; preds = %.lr.ph.split.us.split
+  %13 = icmp slt i32 %11, %6
+  br i1 %13, label %14, label %.split.us
 
-12:                                               ; preds = %10
-  %13 = load i8, ptr %.02132.us, align 1, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %.02132.us, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !4
-  %.not26.us = icmp eq i8 %13, %15
-  br i1 %.not26.us, label %.split.us, label %.lr.ph.split.us._crit_edge
+14:                                               ; preds = %12
+  %15 = load i8, ptr %.02132.us, align 1, !tbaa !6
+  %16 = getelementptr inbounds nuw i8, ptr %.02132.us, i64 1
+  %17 = load i8, ptr %16, align 1, !tbaa !6
+  %.not26.us = icmp eq i8 %15, %17
+  br i1 %.not26.us, label %.split.us, label %.lr.ph.split.us.split._crit_edge
 
-.lr.ph.split.us._crit_edge:                       ; preds = %.lr.ph.split.us, %12
-  %.021.us = getelementptr inbounds i8, ptr %.02132.us, i64 %5
-  %exitcond39.not = icmp eq i32 %9, %6
-  br i1 %exitcond39.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
+.lr.ph.split.us.split._crit_edge:                 ; preds = %.lr.ph.split.us.split, %14
+  %.021.us = getelementptr inbounds nuw i8, ptr %.02132.us, i64 %5
+  %exitcond46.not = icmp eq i32 %11, %6
+  br i1 %exitcond46.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !4
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %18
-  %.02132 = phi ptr [ %.021, %18 ], [ %.02129, %.lr.ph ]
-  %.031 = phi i32 [ %19, %18 ], [ 1, %.lr.ph ]
-  %.pn30 = phi ptr [ %.02132, %18 ], [ %0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %20
+  %.02132 = phi ptr [ %.021, %20 ], [ %.02129, %.lr.ph ]
+  %.031 = phi i32 [ %21, %20 ], [ 1, %.lr.ph ]
+  %.pn30 = phi ptr [ %.02132, %20 ], [ %0, %.lr.ph ]
   %bcmp = tail call i32 @bcmp(ptr %.pn30, ptr %.02132, i64 %5)
   %.not = icmp eq i32 %bcmp, 0
-  %16 = zext i1 %.not to i32
-  %.not24 = icmp eq i32 %3, %16
-  br i1 %.not24, label %18, label %.loopexit
+  %18 = zext i1 %.not to i32
+  %.not24 = icmp eq i32 %3, %18
+  br i1 %.not24, label %20, label %.loopexit
 
-.split.us:                                        ; preds = %10, %12
-  %17 = add nsw i32 %.031.us, -1
+.split.us:                                        ; preds = %.lr.ph.split.us.split.us, %14, %12
+  %.us-phi = phi i32 [ %.031.us, %12 ], [ %.031.us, %14 ], [ %.031.us.us, %.lr.ph.split.us.split.us ]
+  %19 = add nsw i32 %.us-phi, -1
   br label %.loopexit
 
-18:                                               ; preds = %.lr.ph.split
-  %19 = add nuw nsw i32 %.031, 1
+20:                                               ; preds = %.lr.ph.split
+  %21 = add nuw nsw i32 %.031, 1
   %.021 = getelementptr inbounds i8, ptr %.02132, i64 %5
-  %exitcond.not = icmp eq i32 %19, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  %exitcond.not = icmp eq i32 %21, %6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
-.loopexit:                                        ; preds = %18, %.lr.ph.split, %.lr.ph.split.us._crit_edge, %4, %.split.us
-  %.1 = phi i32 [ %17, %.split.us ], [ 1, %4 ], [ %6, %.lr.ph.split.us._crit_edge ], [ %6, %18 ], [ %.031, %.lr.ph.split ]
+.loopexit:                                        ; preds = %20, %.lr.ph.split, %9, %.lr.ph.split.us.split._crit_edge, %4, %.split.us
+  %.1 = phi i32 [ %19, %.split.us ], [ 1, %4 ], [ %6, %.lr.ph.split.us.split._crit_edge ], [ %6, %9 ], [ %6, %20 ], [ %.031, %.lr.ph.split ]
   ret i32 %.1
 }
 
@@ -77,119 +94,211 @@ define i32 @ff_rle_encode(ptr noundef %0, i32 noundef %1, ptr noundef readonly c
   %12 = icmp eq i32 %3, 1
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  br label %15
+  br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
-15:                                               ; preds = %.lr.ph, %49
-  %.062 = phi ptr [ %0, %.lr.ph ], [ %.1, %49 ]
-  %.04761 = phi i32 [ 0, %.lr.ph ], [ %51, %49 ]
-  %.05060 = phi ptr [ %2, %.lr.ph ], [ %50, %49 ]
-  %16 = sub nsw i32 %4, %.04761
-  %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 127)
-  %18 = icmp sgt i32 %16, 1
-  br i1 %18, label %.lr.ph.split.i, label %ff_rle_count_pixels.exit56
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %46
+  %.067.us = phi ptr [ %.1.us, %46 ], [ %0, %.lr.ph ]
+  %.04766.us = phi i32 [ %48, %46 ], [ 0, %.lr.ph ]
+  %.05063.us = phi ptr [ %47, %46 ], [ %2, %.lr.ph ]
+  %15 = sub nsw i32 %4, %.04766.us
+  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 127)
+  %.02129.i.us = getelementptr inbounds nuw i8, ptr %.05063.us, i64 %11
+  %17 = icmp sgt i32 %15, 1
+  br i1 %17, label %.lr.ph.split.i.us, label %ff_rle_count_pixels.exit56.us
 
-.lr.ph.split.i:                                   ; preds = %15, %19
-  %.031.i = phi i32 [ %20, %19 ], [ 1, %15 ]
-  %.pn30.i = phi ptr [ %.02132.i, %19 ], [ %.05060, %15 ]
-  %.02132.i = getelementptr inbounds i8, ptr %.pn30.i, i64 %11
+.lr.ph.split.i.us:                                ; preds = %.lr.ph.split.us, %18
+  %.02132.i.us = phi ptr [ %.021.i.us, %18 ], [ %.02129.i.us, %.lr.ph.split.us ]
+  %.031.i.us = phi i32 [ %19, %18 ], [ 1, %.lr.ph.split.us ]
+  %.pn30.i.us = phi ptr [ %.02132.i.us, %18 ], [ %.05063.us, %.lr.ph.split.us ]
+  %bcmp.i.us = tail call i32 @bcmp(ptr %.pn30.i.us, ptr %.02132.i.us, i64 %11)
+  %.not.i.us = icmp eq i32 %bcmp.i.us, 0
+  br i1 %.not.i.us, label %18, label %ff_rle_count_pixels.exit.us
+
+18:                                               ; preds = %.lr.ph.split.i.us
+  %19 = add nuw nsw i32 %.031.i.us, 1
+  %.021.i.us = getelementptr inbounds nuw i8, ptr %.02132.i.us, i64 %11
+  %exitcond.not.i.us = icmp eq i32 %19, %16
+  br i1 %exitcond.not.i.us, label %ff_rle_count_pixels.exit.us, label %.lr.ph.split.i.us, !llvm.loop !4
+
+ff_rle_count_pixels.exit.us:                      ; preds = %18, %.lr.ph.split.i.us
+  %.1.i.us = phi i32 [ %16, %18 ], [ %.031.i.us, %.lr.ph.split.i.us ]
+  %20 = icmp sgt i32 %.1.i.us, 1
+  br i1 %20, label %36, label %.lr.ph.split.us.split.i.us
+
+.lr.ph.split.us.split.i.us:                       ; preds = %ff_rle_count_pixels.exit.us, %.lr.ph.split.us.split._crit_edge.i.us
+  %.02132.us.i.us = phi ptr [ %.021.us.i.us, %.lr.ph.split.us.split._crit_edge.i.us ], [ %.02129.i.us, %ff_rle_count_pixels.exit.us ]
+  %.031.us.i.us = phi i32 [ %21, %.lr.ph.split.us.split._crit_edge.i.us ], [ 1, %ff_rle_count_pixels.exit.us ]
+  %.pn30.us.i.us = phi ptr [ %.02132.us.i.us, %.lr.ph.split.us.split._crit_edge.i.us ], [ %.05063.us, %ff_rle_count_pixels.exit.us ]
+  %bcmp.us.i.us = tail call i32 @bcmp(ptr %.pn30.us.i.us, ptr %.02132.us.i.us, i64 %11)
+  %.not.us.not.i.us = icmp eq i32 %bcmp.us.i.us, 0
+  %21 = add nuw nsw i32 %.031.us.i.us, 1
+  br i1 %.not.us.not.i.us, label %22, label %.lr.ph.split.us.split._crit_edge.i.us
+
+22:                                               ; preds = %.lr.ph.split.us.split.i.us
+  %23 = icmp slt i32 %21, %16
+  br i1 %23, label %24, label %.split.us.i.loopexit.us
+
+24:                                               ; preds = %22
+  %25 = load i8, ptr %.02132.us.i.us, align 1, !tbaa !6
+  %26 = getelementptr inbounds nuw i8, ptr %.02132.us.i.us, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !6
+  %.not26.us.i.us = icmp eq i8 %25, %27
+  br i1 %.not26.us.i.us, label %.split.us.i.loopexit.us, label %.lr.ph.split.us.split._crit_edge.i.us
+
+.lr.ph.split.us.split._crit_edge.i.us:            ; preds = %24, %.lr.ph.split.us.split.i.us
+  %.021.us.i.us = getelementptr inbounds nuw i8, ptr %.02132.us.i.us, i64 %11
+  %exitcond46.not.i.us = icmp eq i32 %21, %16
+  br i1 %exitcond46.not.i.us, label %ff_rle_count_pixels.exit56.us, label %.lr.ph.split.us.split.i.us, !llvm.loop !4
+
+ff_rle_count_pixels.exit56.us:                    ; preds = %.lr.ph.split.us.split._crit_edge.i.us, %.split.us.i.loopexit.us, %.lr.ph.split.us
+  %.1.i54.us = phi i32 [ %50, %.split.us.i.loopexit.us ], [ 1, %.lr.ph.split.us ], [ %16, %.lr.ph.split.us.split._crit_edge.i.us ]
+  %28 = sext i32 %.1.i54.us to i64
+  %29 = getelementptr inbounds i8, ptr %.067.us, i64 %28
+  %.not.us = icmp ult ptr %29, %14
+  br i1 %.not.us, label %30, label %.loopexit
+
+30:                                               ; preds = %ff_rle_count_pixels.exit56.us
+  %31 = xor i32 %.1.i54.us, %8
+  %32 = add nsw i32 %31, %7
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %.067.us, i64 1
+  store i8 %33, ptr %.067.us, align 1, !tbaa !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.05063.us, i64 %28, i1 false)
+  %35 = getelementptr inbounds i8, ptr %34, i64 %28
+  br label %46
+
+36:                                               ; preds = %ff_rle_count_pixels.exit.us
+  %37 = getelementptr inbounds nuw i8, ptr %.067.us, i64 %11
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %39 = icmp ugt ptr %38, %14
+  br i1 %39, label %.loopexit, label %40
+
+40:                                               ; preds = %36
+  %41 = xor i32 %.1.i.us, %6
+  %42 = add nsw i32 %41, %5
+  %43 = trunc i32 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %.067.us, i64 1
+  store i8 %43, ptr %.067.us, align 1, !tbaa !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %.05063.us, i64 %11, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %11
+  %.pre = zext nneg i32 %.1.i.us to i64
+  br label %46
+
+46:                                               ; preds = %40, %30
+  %.pre-phi = phi i64 [ %.pre, %40 ], [ %28, %30 ]
+  %.048.us = phi i32 [ %.1.i.us, %40 ], [ %.1.i54.us, %30 ]
+  %.1.us = phi ptr [ %45, %40 ], [ %35, %30 ]
+  %47 = getelementptr inbounds i8, ptr %.05063.us, i64 %.pre-phi
+  %48 = add nsw i32 %.048.us, %.04766.us
+  %49 = icmp slt i32 %48, %4
+  br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
+
+.split.us.i.loopexit.us:                          ; preds = %24, %22
+  %50 = add nsw i32 %.031.us.i.us, -1
+  br label %ff_rle_count_pixels.exit56.us
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %79
+  %.067 = phi ptr [ %.1, %79 ], [ %0, %.lr.ph ]
+  %.04766 = phi i32 [ %81, %79 ], [ 0, %.lr.ph ]
+  %.05063 = phi ptr [ %80, %79 ], [ %2, %.lr.ph ]
+  %51 = sub nsw i32 %4, %.04766
+  %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 127)
+  %.02129.i = getelementptr inbounds i8, ptr %.05063, i64 %11
+  %53 = icmp sgt i32 %51, 1
+  br i1 %53, label %.lr.ph.split.i, label %ff_rle_count_pixels.exit56
+
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split, %54
+  %.02132.i = phi ptr [ %.021.i, %54 ], [ %.02129.i, %.lr.ph.split ]
+  %.031.i = phi i32 [ %55, %54 ], [ 1, %.lr.ph.split ]
+  %.pn30.i = phi ptr [ %.02132.i, %54 ], [ %.05063, %.lr.ph.split ]
   %bcmp.i = tail call i32 @bcmp(ptr %.pn30.i, ptr %.02132.i, i64 %11)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %19, label %ff_rle_count_pixels.exit
+  br i1 %.not.i, label %54, label %ff_rle_count_pixels.exit
 
-19:                                               ; preds = %.lr.ph.split.i
-  %20 = add nuw nsw i32 %.031.i, 1
-  %exitcond.not.i = icmp eq i32 %20, %17
-  br i1 %exitcond.not.i, label %ff_rle_count_pixels.exit, label %.lr.ph.split.i, !llvm.loop !10
+54:                                               ; preds = %.lr.ph.split.i
+  %55 = add nuw nsw i32 %.031.i, 1
+  %.021.i = getelementptr inbounds i8, ptr %.02132.i, i64 %11
+  %exitcond.not.i = icmp eq i32 %55, %52
+  br i1 %exitcond.not.i, label %ff_rle_count_pixels.exit, label %.lr.ph.split.i, !llvm.loop !4
 
-ff_rle_count_pixels.exit:                         ; preds = %.lr.ph.split.i, %19
-  %.1.i = phi i32 [ %17, %19 ], [ %.031.i, %.lr.ph.split.i ]
-  %21 = icmp sgt i32 %.1.i, 1
-  br i1 %21, label %22, label %.lr.ph.split.us.i
+ff_rle_count_pixels.exit:                         ; preds = %.lr.ph.split.i, %54
+  %.1.i = phi i32 [ %52, %54 ], [ %.031.i, %.lr.ph.split.i ]
+  %56 = icmp sgt i32 %.1.i, 1
+  br i1 %56, label %57, label %.lr.ph.split.us.split.us.i
 
-22:                                               ; preds = %ff_rle_count_pixels.exit
-  %23 = getelementptr inbounds i8, ptr %.062, i64 %11
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  %25 = icmp ugt ptr %24, %14
-  br i1 %25, label %.loopexit, label %26
+57:                                               ; preds = %ff_rle_count_pixels.exit
+  %58 = getelementptr inbounds i8, ptr %.067, i64 %11
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %60 = icmp ugt ptr %59, %14
+  br i1 %60, label %.loopexit, label %61
 
-26:                                               ; preds = %22
-  %27 = xor i32 %.1.i, %6
-  %28 = add nsw i32 %27, %5
-  %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %.062, i64 1
-  store i8 %29, ptr %.062, align 1, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.05060, i64 %11, i1 false)
-  %31 = getelementptr inbounds i8, ptr %30, i64 %11
-  %.pre = mul nsw i32 %.1.i, %3
-  %.pre64 = sext i32 %.pre to i64
-  br label %49
+61:                                               ; preds = %57
+  %62 = xor i32 %.1.i, %6
+  %63 = add nsw i32 %62, %5
+  %64 = trunc i32 %63 to i8
+  %65 = getelementptr inbounds nuw i8, ptr %.067, i64 1
+  store i8 %64, ptr %.067, align 1, !tbaa !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr align 1 %.05063, i64 %11, i1 false)
+  %66 = getelementptr inbounds i8, ptr %65, i64 %11
+  %.pre72 = mul nsw i32 %.1.i, %3
+  %.pre74 = sext i32 %.pre72 to i64
+  br label %79
 
-.lr.ph.split.us.i:                                ; preds = %ff_rle_count_pixels.exit, %.lr.ph.split.us._crit_edge.i
-  %.031.us.i = phi i32 [ %32, %.lr.ph.split.us._crit_edge.i ], [ 1, %ff_rle_count_pixels.exit ]
-  %.pn30.us.i = phi ptr [ %.02132.us.i, %.lr.ph.split.us._crit_edge.i ], [ %.05060, %ff_rle_count_pixels.exit ]
-  %.02132.us.i = getelementptr inbounds i8, ptr %.pn30.us.i, i64 %11
-  %bcmp.us.i = tail call i32 @bcmp(ptr %.pn30.us.i, ptr %.02132.us.i, i64 %11)
-  %.not.us.not.i = icmp eq i32 %bcmp.us.i, 0
-  %32 = add nuw nsw i32 %.031.us.i, 1
-  br i1 %.not.us.not.i, label %33, label %.lr.ph.split.us._crit_edge.i
+.lr.ph.split.us.split.us.i:                       ; preds = %ff_rle_count_pixels.exit, %67
+  %.02132.us.us.i = phi ptr [ %.021.us.us.i, %67 ], [ %.02129.i, %ff_rle_count_pixels.exit ]
+  %.031.us.us.i = phi i32 [ %68, %67 ], [ 1, %ff_rle_count_pixels.exit ]
+  %.pn30.us.us.i = phi ptr [ %.02132.us.us.i, %67 ], [ %.05063, %ff_rle_count_pixels.exit ]
+  %bcmp.us.us.i = tail call i32 @bcmp(ptr %.pn30.us.us.i, ptr %.02132.us.us.i, i64 %11)
+  %.not.us.us.not.i = icmp eq i32 %bcmp.us.us.i, 0
+  br i1 %.not.us.us.not.i, label %.split.us.i.loopexit58, label %67
 
-33:                                               ; preds = %.lr.ph.split.us.i
-  %34 = icmp slt i32 %32, %17
-  %or.cond.us.i = select i1 %12, i1 %34, i1 false
-  br i1 %or.cond.us.i, label %35, label %.split.us.i
+67:                                               ; preds = %.lr.ph.split.us.split.us.i
+  %68 = add nuw nsw i32 %.031.us.us.i, 1
+  %.021.us.us.i = getelementptr inbounds i8, ptr %.02132.us.us.i, i64 %11
+  %exitcond45.not.i = icmp eq i32 %68, %52
+  br i1 %exitcond45.not.i, label %ff_rle_count_pixels.exit56, label %.lr.ph.split.us.split.us.i, !llvm.loop !4
 
-35:                                               ; preds = %33
-  %36 = load i8, ptr %.02132.us.i, align 1, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %.02132.us.i, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !4
-  %.not26.us.i = icmp eq i8 %36, %38
-  br i1 %.not26.us.i, label %.split.us.i, label %.lr.ph.split.us._crit_edge.i
-
-.lr.ph.split.us._crit_edge.i:                     ; preds = %35, %.lr.ph.split.us.i
-  %exitcond39.not.i = icmp eq i32 %32, %17
-  br i1 %exitcond39.not.i, label %ff_rle_count_pixels.exit56, label %.lr.ph.split.us.i, !llvm.loop !7
-
-.split.us.i:                                      ; preds = %35, %33
-  %39 = add nsw i32 %.031.us.i, -1
+.split.us.i.loopexit58:                           ; preds = %.lr.ph.split.us.split.us.i
+  %69 = add nsw i32 %.031.us.us.i, -1
   br label %ff_rle_count_pixels.exit56
 
-ff_rle_count_pixels.exit56:                       ; preds = %.lr.ph.split.us._crit_edge.i, %15, %.split.us.i
-  %.1.i53 = phi i32 [ %39, %.split.us.i ], [ 1, %15 ], [ %17, %.lr.ph.split.us._crit_edge.i ]
-  %40 = mul nsw i32 %.1.i53, %3
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %.062, i64 %41
-  %.not = icmp ult ptr %42, %14
-  br i1 %.not, label %43, label %.loopexit
+ff_rle_count_pixels.exit56:                       ; preds = %67, %.lr.ph.split, %.split.us.i.loopexit58
+  %.1.i54 = phi i32 [ %69, %.split.us.i.loopexit58 ], [ 1, %.lr.ph.split ], [ %52, %67 ]
+  %70 = mul nsw i32 %.1.i54, %3
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i8, ptr %.067, i64 %71
+  %.not = icmp ult ptr %72, %14
+  br i1 %.not, label %73, label %.loopexit
 
-43:                                               ; preds = %ff_rle_count_pixels.exit56
-  %44 = xor i32 %.1.i53, %8
-  %45 = add nsw i32 %44, %7
-  %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %.062, i64 1
-  store i8 %46, ptr %.062, align 1, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %.05060, i64 %41, i1 false)
-  %48 = getelementptr inbounds i8, ptr %47, i64 %41
-  br label %49
+73:                                               ; preds = %ff_rle_count_pixels.exit56
+  %74 = xor i32 %.1.i54, %8
+  %75 = add nsw i32 %74, %7
+  %76 = trunc i32 %75 to i8
+  %77 = getelementptr inbounds nuw i8, ptr %.067, i64 1
+  store i8 %76, ptr %.067, align 1, !tbaa !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.05063, i64 %71, i1 false)
+  %78 = getelementptr inbounds i8, ptr %77, i64 %71
+  br label %79
 
-49:                                               ; preds = %43, %26
-  %.pre-phi65 = phi i64 [ %41, %43 ], [ %.pre64, %26 ]
-  %.048 = phi i32 [ %.1.i53, %43 ], [ %.1.i, %26 ]
-  %.1 = phi ptr [ %48, %43 ], [ %31, %26 ]
-  %50 = getelementptr inbounds i8, ptr %.05060, i64 %.pre-phi65
-  %51 = add nsw i32 %.048, %.04761
-  %52 = icmp slt i32 %51, %4
-  br i1 %52, label %15, label %._crit_edge, !llvm.loop !11
+79:                                               ; preds = %73, %61
+  %.pre-phi75 = phi i64 [ %71, %73 ], [ %.pre74, %61 ]
+  %.048 = phi i32 [ %.1.i54, %73 ], [ %.1.i, %61 ]
+  %.1 = phi ptr [ %78, %73 ], [ %66, %61 ]
+  %80 = getelementptr inbounds i8, ptr %.05063, i64 %.pre-phi75
+  %81 = add nsw i32 %.048, %.04766
+  %82 = icmp slt i32 %81, %4
+  br i1 %82, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %49, %9
-  %.0.lcssa = phi ptr [ %0, %9 ], [ %.1, %49 ]
-  %53 = ptrtoint ptr %.0.lcssa to i64
-  %54 = ptrtoint ptr %0 to i64
-  %55 = sub i64 %53, %54
-  %56 = trunc i64 %55 to i32
+._crit_edge:                                      ; preds = %79, %46, %9
+  %.0.lcssa = phi ptr [ %0, %9 ], [ %.1.us, %46 ], [ %.1, %79 ]
+  %83 = ptrtoint ptr %.0.lcssa to i64
+  %84 = ptrtoint ptr %0 to i64
+  %85 = sub i64 %83, %84
+  %86 = trunc i64 %85 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ff_rle_count_pixels.exit56, %22, %._crit_edge
-  %.049 = phi i32 [ %56, %._crit_edge ], [ -1, %22 ], [ -1, %ff_rle_count_pixels.exit56 ]
+.loopexit:                                        ; preds = %57, %ff_rle_count_pixels.exit56, %36, %ff_rle_count_pixels.exit56.us, %._crit_edge
+  %.049 = phi i32 [ %86, %._crit_edge ], [ -1, %ff_rle_count_pixels.exit56.us ], [ -1, %36 ], [ -1, %ff_rle_count_pixels.exit56 ], [ -1, %57 ]
   ret i32 %.049
 }
 
@@ -214,11 +323,9 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !5}

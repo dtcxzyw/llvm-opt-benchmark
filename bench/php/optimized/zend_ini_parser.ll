@@ -2318,7 +2318,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %26, %.critedge.thre
 54:                                               ; preds = %51, %.preheader.split.us.i
   %.1.us.i = phi ptr [ %49, %.preheader.split.us.i ], [ %52, %51 ]
   %55 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader.split.us.i, !llvm.loop !53
+  br label %.preheader.split.us.i
 
 .thread.i:                                        ; preds = %51, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
   %56 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %46) #19
@@ -2459,7 +2459,7 @@ define internal fastcc void @ini_error(ptr noundef %0) unnamed_addr #0 {
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !55
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !53
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.74, ptr noundef %.0) #21
   br label %21
 
@@ -3410,7 +3410,5 @@ attributes #21 = { cold nounwind }
 !50 = !{!6, !6, i64 0}
 !51 = !{!13, !13, i64 0}
 !52 = !{!44, !44, i64 0}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}

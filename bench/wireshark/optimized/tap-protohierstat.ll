@@ -526,7 +526,7 @@ define internal fastcc void @phs_draw(ptr noundef readonly captures(address_is_n
   call fastcc void @phs_draw(ptr noundef %56, i32 noundef %5)
   %57 = load ptr, ptr %.02328, align 8
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph29.split, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph29.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph29.split, %.loopexit, %.lr.ph29.split.us, %..loopexit_crit_edge.us, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -577,6 +577,4 @@ attributes #13 = { cold noreturn nounwind }
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8}
+!12 = distinct !{!12, !8}

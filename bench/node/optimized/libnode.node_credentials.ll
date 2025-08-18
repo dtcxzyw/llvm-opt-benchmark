@@ -3646,7 +3646,7 @@ for.cond:                                         ; preds = %_ZN4node16MaybeStac
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
   %sub.ptr.div.i20 = ashr exact i64 %sub.ptr.sub.i19, 2
   %cmp7 = icmp ult i64 %inc, %sub.ptr.div.i20
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %14 = phi ptr [ %13, %for.cond ], [ %5, %for.body.lr.ph ]
@@ -4108,6 +4108,4 @@ attributes #24 = { nounwind willreturn memory(none) }
 !9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !10}
+!12 = distinct !{!12, !10}

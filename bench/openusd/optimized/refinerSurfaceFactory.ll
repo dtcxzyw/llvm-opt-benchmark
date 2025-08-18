@@ -572,7 +572,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase38getF
   store i32 %60, ptr %61, align 4
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond117.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count116.i
-  br i1 %exitcond117.not.i, label %._crit_edge.us.loopexit.i, label %.lr.ph66.us.i, !llvm.loop !13
+  br i1 %exitcond117.not.i, label %._crit_edge.us.loopexit.i, label %.lr.ph66.us.i, !llvm.loop !12
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph.us.preheader.i
   %indvars.iv102.i = phi i64 [ %57, %.lr.ph.us.preheader.i ], [ %indvars.iv.next103.i, %.lr.ph.us.i ]
@@ -584,7 +584,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase38getF
   store i32 %63, ptr %64, align 4
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count107.i
-  br i1 %exitcond108.not.i, label %.preheader.us.loopexit.i, label %.lr.ph.us.i, !llvm.loop !14
+  br i1 %exitcond108.not.i, label %.preheader.us.loopexit.i, label %.lr.ph.us.i, !llvm.loop !13
 
 .preheader.us.loopexit.i:                         ; preds = %.lr.ph.us.i
   %65 = trunc nsw i64 %indvars.iv.next103.i to i32
@@ -709,7 +709,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBas
 50:                                               ; preds = %38, %49, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !14
 
 .loopexit:                                        ; preds = %50, %15, %13
   %.not42 = icmp eq ptr %2, null
@@ -902,7 +902,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   store i32 %62, ptr %63, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count116
-  br i1 %exitcond117.not, label %._crit_edge.us.loopexit, label %.lr.ph66.us, !llvm.loop !13
+  br i1 %exitcond117.not, label %._crit_edge.us.loopexit, label %.lr.ph66.us, !llvm.loop !12
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv102 = phi i64 [ %59, %.lr.ph.us.preheader ], [ %indvars.iv.next103, %.lr.ph.us ]
@@ -914,7 +914,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   store i32 %65, ptr %66, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count107
-  br i1 %exitcond108.not, label %.preheader.us.loopexit, label %.lr.ph.us, !llvm.loop !14
+  br i1 %exitcond108.not, label %.preheader.us.loopexit, label %.lr.ph.us, !llvm.loop !13
 
 .preheader.us.loopexit:                           ; preds = %.lr.ph.us
   %67 = trunc nsw i64 %indvars.iv.next103 to i32
@@ -974,7 +974,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   store i32 %81, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !13
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv87 = phi i64 [ %79, %.lr.ph66.preheader ], [ %indvars.iv.next88, %.lr.ph66 ]
@@ -986,7 +986,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   store i32 %84, ptr %85, align 4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge.loopexit, label %.lr.ph66, !llvm.loop !13
+  br i1 %exitcond93.not, label %._crit_edge.loopexit, label %.lr.ph66, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph66
   %86 = trunc nsw i64 %indvars.iv.next88 to i32
@@ -996,7 +996,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %86, %._crit_edge.loopexit ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count121
-  br i1 %exitcond98.not, label %._crit_edge72, label %.lr.ph71.split, !llvm.loop !16
+  br i1 %exitcond98.not, label %._crit_edge72, label %.lr.ph71.split, !llvm.loop !11
 
 ._crit_edge72:                                    ; preds = %._crit_edge, %._crit_edge.us, %5
   %.047.lcssa = phi i32 [ 0, %5 ], [ %.2.lcssa.us, %._crit_edge.us ], [ %.2.lcssa, %._crit_edge ]
@@ -1275,7 +1275,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.i: ; preds 
   store i32 %.sink.i, ptr %199, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader, !llvm.loop !15
 
 .preheader25:                                     ; preds = %4, %433
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i13, %433 ], [ 0, %4 ]
@@ -1613,7 +1613,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.thread.i: ; preds = 
   store i32 %.sink.i12, ptr %437, align 4
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 3
-  br i1 %exitcond.not.i14, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader25, !llvm.loop !18
+  br i1 %exitcond.not.i14, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit, label %.preheader25, !llvm.loop !16
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_118gatherPatchPoints4IiEEiRKNS0_3Vtr8internal5LevelEiRKNS4_10ConstArrayIiEEPT_i.exit: ; preds = %433, %195
   %.0 = phi i32 [ 16, %195 ], [ 12, %433 ]
@@ -1650,11 +1650,9 @@ attributes #10 = { builtin nounwind }
 !8 = distinct !{!8, !6}
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}

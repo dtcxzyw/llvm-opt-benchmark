@@ -271,7 +271,7 @@ switch.early.test:                                ; preds = %55
   %78 = load i16, ptr %31, align 8
   %79 = zext i16 %78 to i64
   %80 = icmp samesign ult i64 %indvars.iv.next155, %79
-  br i1 %80, label %.lr.ph134.split, label %.loopexit, !llvm.loop !15
+  br i1 %80, label %.lr.ph134.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %77, %69, %.preheader126, %62
   %.093 = phi i32 [ %.092, %62 ], [ %.092, %.preheader126 ], [ %.092, %69 ], [ %.3, %77 ]
@@ -282,7 +282,7 @@ switch.early.test:                                ; preds = %55
   br i1 %or.cond8, label %.thread, label %83
 
 83:                                               ; preds = %.loopexit
-  %84 = load i8, ptr @spec_cores_first, align 1, !range !16, !noundef !17
+  %84 = load i8, ptr @spec_cores_first, align 1, !range !14, !noundef !15
   %85 = trunc nuw i8 %84 to i1
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 82
   %87 = load i16, ptr %86, align 2
@@ -347,14 +347,14 @@ switch.early.test:                                ; preds = %55
   %115 = icmp ne i32 %.6.us, 0
   %116 = icmp ne i32 %114, %.095
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %104, label %._crit_edge.us, !llvm.loop !18
+  br i1 %117, label %104, label %._crit_edge.us, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %113
   %118 = add nsw i32 %.097139.us, %.090
   %119 = icmp sgt i32 %.6.us, 0
   %120 = icmp ne i32 %118, %.089
   %121 = select i1 %119, i1 %120, i1 false
-  br i1 %121, label %.preheader.us, label %.thread, !llvm.loop !19
+  br i1 %121, label %.preheader.us, label %.thread, !llvm.loop !17
 
 .thread:                                          ; preds = %75, %._crit_edge.us, %.preheader.lr.ph, %99, %.loopexit, %.loopexit129, %40
   %122 = load i32, ptr %4, align 4
@@ -362,7 +362,7 @@ switch.early.test:                                ; preds = %55
   store i32 %123, ptr %4, align 4
   %124 = call ptr @next_node_bitmap(ptr noundef %0, ptr noundef nonnull %4) #3
   %.not108 = icmp eq ptr %124, null
-  br i1 %.not108, label %._crit_edge, label %29, !llvm.loop !20
+  br i1 %.not108, label %._crit_edge, label %29, !llvm.loop !18
 }
 
 declare i32 @gres_get_gpu_plugin_id() local_unnamed_addr #1
@@ -409,11 +409,9 @@ attributes #3 = { nounwind }
 !10 = !{!"llvm.loop.unroll.disable"}
 !11 = distinct !{!11, !9, !10}
 !12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !9, !10}
-!16 = !{i8 0, i8 2}
-!17 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
 !18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10, !14}
-!20 = distinct !{!20, !9, !10}

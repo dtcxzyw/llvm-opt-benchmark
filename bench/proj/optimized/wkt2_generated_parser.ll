@@ -985,7 +985,7 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr noundef nonnull c
 21:                                               ; preds = %18, %.preheader32.split.us.i
   %.1.us.i = phi ptr [ %16, %.preheader32.split.us.i ], [ %19, %18 ]
   %22 = add nuw nsw i64 %.020.us.i, 1
-  br label %.preheader32.split.us.i, !llvm.loop !15
+  br label %.preheader32.split.us.i
 
 .thread.i:                                        ; preds = %18, %.preheader32.split.us.i, %.preheader32.split.us.i, %5
   %strlen.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13)
@@ -1061,7 +1061,7 @@ yytnamerr.exit:                                   ; preds = %.preheader32.split.
 55:                                               ; preds = %52, %.preheader32.split.us.i114
   %.1.us.i119 = phi ptr [ %50, %.preheader32.split.us.i114 ], [ %53, %52 ]
   %56 = add nuw nsw i64 %.020.us.i115, 1
-  br label %.preheader32.split.us.i114, !llvm.loop !15
+  br label %.preheader32.split.us.i114
 
 .thread.i110:                                     ; preds = %52, %.preheader32.split.us.i114, %.preheader32.split.us.i114, %42
   %strlen.i.i111 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44)
@@ -1269,5 +1269,3 @@ attributes #10 = { nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 omnipotent char", !14, i64 0}
 !14 = !{!"any pointer", !5, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}

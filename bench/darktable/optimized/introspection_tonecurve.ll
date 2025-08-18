@@ -5527,10 +5527,10 @@ to_log.exit.us:                                   ; preds = %to_log.exit.us.preh
 130:                                              ; preds = %129, %to_log.exit.us
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %._crit_edge201, label %to_log.exit.us, !llvm.loop !224
+  br i1 %exitcond222.not, label %._crit_edge201, label %to_log.exit.us
 
 ._crit_edge201:                                   ; preds = %143, %130, %110
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %132 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
   call void @dt_dev_add_history_item_target(ptr noundef %131, ptr noundef %2, i32 noundef 1, ptr noundef %132) #21
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -5604,7 +5604,7 @@ thread-pre-split:                                 ; preds = %25, %34
   %165 = load ptr, ptr %164, align 8, !tbaa !119
   %166 = load i32, ptr %158, align 4, !tbaa !13
   tail call void @dt_bauhaus_combobox_set(ptr noundef %165, i32 noundef %166) #21
-  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %168 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
   tail call void @dt_dev_add_history_item_target(ptr noundef %167, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %168) #21
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -5635,7 +5635,7 @@ thread-pre-split:                                 ; preds = %25, %34
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %183 = load ptr, ptr %182, align 8, !tbaa !131
   tail call void @dt_bauhaus_combobox_set(ptr noundef %183, i32 noundef 1) #21
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %185 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
   tail call void @dt_dev_add_history_item_target(ptr noundef %184, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %185) #21
   %186 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -5681,7 +5681,7 @@ thread-pre-split:                                 ; preds = %25, %34
   %209 = tail call i64 @gtk_widget_get_type() #23
   %210 = tail call ptr @g_type_check_instance_cast(ptr noundef %208, i64 noundef %209) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %210) #21
-  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %212 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
   tail call void @dt_dev_add_history_item_target(ptr noundef %211, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %212) #21
   br label %232
@@ -5701,7 +5701,7 @@ thread-pre-split:                                 ; preds = %25, %34
   %220 = tail call i64 @gtk_widget_get_type() #23
   %221 = tail call ptr @g_type_check_instance_cast(ptr noundef %219, i64 noundef %220) #21
   tail call void @gtk_widget_queue_draw(ptr noundef %221) #21
-  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %223 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
   tail call void @dt_dev_add_history_item_target(ptr noundef %222, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %223) #21
   br label %232
@@ -5765,12 +5765,12 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %35 = load double, ptr %34, align 8, !tbaa !139
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load double, ptr %36, align 8, !tbaa !227
+  %37 = load double, ptr %36, align 8, !tbaa !225
   %38 = sitofp i32 %24 to double
   %39 = fsub reassoc nsz arcp contract afn double %37, %38
   store double %39, ptr %32, align 8, !tbaa !140
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %41 = load double, ptr %40, align 8, !tbaa !229
+  %41 = load double, ptr %40, align 8, !tbaa !227
   %42 = fsub reassoc nsz arcp contract afn double %41, %38
   store double %42, ptr %34, align 8, !tbaa !139
   %43 = sitofp i32 %31 to double
@@ -5836,7 +5836,7 @@ to_lin.exit150:                                   ; preds = %57, %70, %.thread
   %.0.i181 = phi float [ %.0.i.ph184, %.thread ], [ %73, %70 ], [ %51, %57 ]
   %.0.i149 = phi nsz float [ %77, %.thread ], [ %61, %70 ], [ %61, %57 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %79 = load i32, ptr %78, align 8, !tbaa !230
+  %79 = load i32, ptr %78, align 8, !tbaa !228
   %80 = and i32 %79, 256
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %.preheader, label %115
@@ -5904,7 +5904,7 @@ to_log.exit179.us:                                ; preds = %102, %91
   %.1.us = select i1 %113, i32 %114, i32 %.0137220.us
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !231
+  br i1 %exitcond229.not, label %._crit_edge, label %.lr.ph.split.us
 
 115:                                              ; preds = %to_lin.exit150
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -6119,7 +6119,7 @@ _add_node.exit:                                   ; preds = %.lr.ph37.i, %.threa
   %227 = add nsw i32 %.pre.i, 1
   store i32 %227, ptr %13, align 4, !tbaa !13
   store i32 %.246.i, ptr %116, align 8, !tbaa !141
-  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %229 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %12
   call void @dt_dev_add_history_item_target(ptr noundef %228, ptr noundef %2, i32 noundef 1, ptr noundef %229) #21
   br label %242
@@ -6172,7 +6172,7 @@ to_log.exit176:                                   ; preds = %.lr.ph, %to_log.exi
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dt_iop_tonecurve_leave_notify(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %5 = load i32, ptr %4, align 4, !tbaa !232
+  %5 = load i32, ptr %4, align 4, !tbaa !229
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
@@ -6223,12 +6223,12 @@ define internal range(i32 0, 2) i32 @_scrolled(ptr noundef %0, ptr noundef %1, p
   br i1 %.not13, label %29, label %23
 
 23:                                               ; preds = %21
-  %24 = load double, ptr %4, align 8, !tbaa !234
+  %24 = load double, ptr %4, align 8, !tbaa !231
   %25 = fmul reassoc nsz arcp contract afn double %24, 0xBF50624DE0000000
-  store double %25, ptr %4, align 8, !tbaa !234
+  store double %25, ptr %4, align 8, !tbaa !231
   %26 = fptrunc reassoc nsz arcp contract afn double %25 to float
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !235
+  %28 = load i32, ptr %27, align 8, !tbaa !232
   call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef 0.000000e+00, float noundef %26, i32 noundef %28)
   br label %29
 
@@ -6264,7 +6264,7 @@ define internal range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, 
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !237
+  %20 = load i32, ptr %19, align 4, !tbaa !234
   switch i32 %20, label %.fold.split [
     i32 65362, label %24
     i32 65431, label %24
@@ -6289,7 +6289,7 @@ define internal range(i32 0, 2) i32 @dt_iop_tonecurve_key_press(ptr noundef %0, 
   %.022 = phi nsz float [ 0.000000e+00, %21 ], [ 0x3F50624DE0000000, %22 ], [ 0xBF50624DE0000000, %23 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %18 ]
   %.0 = phi nsz float [ 0xBF50624DE0000000, %21 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %23 ], [ 0x3F50624DE0000000, %18 ], [ 0x3F50624DE0000000, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !239
+  %26 = load i32, ptr %25, align 8, !tbaa !236
   tail call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %.022, float noundef %.0, i32 noundef %26)
   br label %.fold.split
 
@@ -6331,7 +6331,7 @@ define internal void @interpolator_callback(ptr noundef %0, ptr noundef %1) #1 {
   br label %15
 
 15:                                               ; preds = %6, %.sink.split
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   tail call void @dt_dev_add_history_item_target(ptr noundef %16, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %0) #21
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !130
@@ -6421,7 +6421,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #13 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !240
+  %3 = load i32, ptr @introspection, align 8, !tbaa !237
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
@@ -6770,7 +6770,7 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
 
 dt_iop_tonecurve_sanity_check.exit:               ; preds = %36, %63, %66, %._crit_edge.i
   tail call void @gtk_widget_queue_draw(ptr noundef %1) #21
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !226
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %81 = getelementptr inbounds %struct._GtkWidget, ptr %1, i64 %12
   tail call void @dt_dev_add_history_item_target(ptr noundef %80, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %81) #21
   ret void
@@ -7274,22 +7274,19 @@ attributes #24 = { nounwind willreturn memory(read) }
 !221 = !{!216, !14, i64 48}
 !222 = !{!216, !91, i64 24}
 !223 = !{!216, !91, i64 32}
-!224 = distinct !{!224, !225}
-!225 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!226 = !{!144, !47, i64 64}
-!227 = !{!228, !91, i64 24}
-!228 = !{!"_GdkEventMotion", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !91, i64 24, !91, i64 32, !218, i64 40, !14, i64 48, !40, i64 52, !219, i64 56, !91, i64 64, !91, i64 72}
-!229 = !{!228, !91, i64 32}
-!230 = !{!228, !14, i64 48}
-!231 = distinct !{!231, !225}
-!232 = !{!233, !14, i64 84}
-!233 = !{!"_GdkEventCrossing", !14, i64 0, !217, i64 8, !7, i64 16, !217, i64 24, !14, i64 32, !91, i64 40, !91, i64 48, !91, i64 56, !91, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84}
-!234 = !{!91, !91, i64 0}
-!235 = !{!236, !14, i64 40}
-!236 = !{!"_GdkEventScroll", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !91, i64 24, !91, i64 32, !14, i64 40, !14, i64 44, !219, i64 48, !91, i64 56, !91, i64 64, !91, i64 72, !91, i64 80, !14, i64 88}
-!237 = !{!238, !14, i64 28}
-!238 = !{!"_GdkEventKey", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !74, i64 40, !40, i64 48, !7, i64 50, !14, i64 51}
-!239 = !{!238, !14, i64 24}
-!240 = !{!241, !14, i64 0}
-!241 = !{!"dt_introspection_t", !14, i64 0, !14, i64 4, !74, i64 8, !36, i64 16, !242, i64 24, !36, i64 32, !36, i64 40, !42, i64 48}
-!242 = !{!"p1 _ZTS24dt_introspection_field_t", !27, i64 0}
+!224 = !{!144, !47, i64 64}
+!225 = !{!226, !91, i64 24}
+!226 = !{!"_GdkEventMotion", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !91, i64 24, !91, i64 32, !218, i64 40, !14, i64 48, !40, i64 52, !219, i64 56, !91, i64 64, !91, i64 72}
+!227 = !{!226, !91, i64 32}
+!228 = !{!226, !14, i64 48}
+!229 = !{!230, !14, i64 84}
+!230 = !{!"_GdkEventCrossing", !14, i64 0, !217, i64 8, !7, i64 16, !217, i64 24, !14, i64 32, !91, i64 40, !91, i64 48, !91, i64 56, !91, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84}
+!231 = !{!91, !91, i64 0}
+!232 = !{!233, !14, i64 40}
+!233 = !{!"_GdkEventScroll", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !91, i64 24, !91, i64 32, !14, i64 40, !14, i64 44, !219, i64 48, !91, i64 56, !91, i64 64, !91, i64 72, !91, i64 80, !14, i64 88}
+!234 = !{!235, !14, i64 28}
+!235 = !{!"_GdkEventKey", !14, i64 0, !217, i64 8, !7, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !74, i64 40, !40, i64 48, !7, i64 50, !14, i64 51}
+!236 = !{!235, !14, i64 24}
+!237 = !{!238, !14, i64 0}
+!238 = !{!"dt_introspection_t", !14, i64 0, !14, i64 4, !74, i64 8, !36, i64 16, !239, i64 24, !36, i64 32, !36, i64 40, !42, i64 48}
+!239 = !{!"p1 _ZTS24dt_introspection_field_t", !27, i64 0}

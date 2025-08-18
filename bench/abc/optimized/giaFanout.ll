@@ -968,7 +968,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %68 = getelementptr inbounds i32, ptr %.val105.val, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !34
   %70 = icmp slt i32 %48, %69
-  br i1 %70, label %.lr.ph.us, label %.critedge.us.loopexit, !llvm.loop !53
+  br i1 %70, label %.lr.ph.us, label %.critedge.us.loopexit, !llvm.loop !52
 
 .preheader:                                       ; preds = %.critedge, %.critedge.us, %Vec_IntStart.exit115
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1053,7 +1053,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %113 = getelementptr inbounds i32, ptr %.val105.val, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !34
   %115 = icmp slt i32 %86, %114
-  br i1 %115, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !54
+  br i1 %115, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !52
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %88
   %.val.pre = load i32, ptr %6, align 8, !tbaa !3
@@ -1064,7 +1064,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = sext i32 %.val to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph126.split, label %.preheader, !llvm.loop !55
+  br i1 %117, label %.lr.ph126.split, label %.preheader, !llvm.loop !51
 
 118:                                              ; preds = %.lr.ph129.split, %118
   %indvars.iv139 = phi i64 [ 0, %.lr.ph129.split ], [ %indvars.iv.next140, %118 ]
@@ -1093,7 +1093,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %.val91 = load i32, ptr %73, align 4, !tbaa !37
   %137 = sext i32 %.val91 to i64
   %138 = icmp slt i64 %indvars.iv.next140, %137
-  br i1 %138, label %118, label %.critedge4, !llvm.loop !56
+  br i1 %138, label %118, label %.critedge4, !llvm.loop !53
 
 .critedge4:                                       ; preds = %118, %.preheader, %.lr.ph129
   %.not.i117 = icmp eq ptr %34, null
@@ -1229,7 +1229,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds i8, ptr %.val23.val, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !34
   %38 = icmp slt i32 %30, %37
-  br i1 %38, label %.lr.ph, label %.critedge2, !llvm.loop !57
+  br i1 %38, label %.lr.ph, label %.critedge2, !llvm.loop !54
 
 .critedge2:                                       ; preds = %.lr.ph, %9
   %putchar = tail call i32 @putchar(i32 10)
@@ -1237,7 +1237,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   %39 = load i32, ptr %3, align 8, !tbaa !3
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %8, label %.critedge, !llvm.loop !58
+  br i1 %41, label %8, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %8, %.critedge2, %1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1374,11 +1374,8 @@ attributes #15 = { nounwind }
 !48 = !{!4, !11, i64 152}
 !49 = !{!12, !12, i64 0}
 !50 = !{!4, !12, i64 264}
-!51 = distinct !{!51, !32, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = distinct !{!53, !32, !52}
+!51 = distinct !{!51, !32}
+!52 = distinct !{!52, !32}
+!53 = distinct !{!53, !32}
 !54 = distinct !{!54, !32}
 !55 = distinct !{!55, !32}
-!56 = distinct !{!56, !32}
-!57 = distinct !{!57, !32}
-!58 = distinct !{!58, !32}

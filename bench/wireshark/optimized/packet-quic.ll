@@ -4715,7 +4715,7 @@ quic_cids_has_match.exit87.thread.loopexit:       ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %.3113, i64 672
   %81 = load ptr, ptr %80, align 8
   %.not64 = icmp eq ptr %81, null
-  br i1 %.not64, label %.lr.ph124.preheader, label %quic_cids_has_match.exit79.thread, !llvm.loop !22
+  br i1 %.not64, label %.lr.ph124.preheader, label %quic_cids_has_match.exit79.thread, !llvm.loop !20
 
 .loopexit:                                        ; preds = %75, %64
   %.01422.i80.lcssa.sink150 = phi ptr [ %.01422.i72.us, %64 ], [ %.01422.i80, %75 ]
@@ -4753,7 +4753,7 @@ quic_cids_has_match.exit87.thread.loopexit:       ; preds = %78
 99:                                               ; preds = %97, %90
   %.5 = phi ptr [ %98, %97 ], [ null, %90 ]
   %.not67 = icmp eq ptr %.5, null
-  br i1 %.not67, label %.lr.ph124, label %.critedge69, !llvm.loop !23
+  br i1 %.not67, label %.lr.ph124, label %.critedge69, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph124
   store i8 0, ptr %2, align 8
@@ -5481,7 +5481,7 @@ define internal fastcc noundef zeroext i1 @quic_decrypt_header(ptr noundef %0, i
   %38 = shl nuw i32 %35, %37
   %39 = or i32 %38, %.0301
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
-  br i1 %exitcond.not, label %28, label %29, !llvm.loop !24
+  br i1 %exitcond.not, label %28, label %29, !llvm.loop !22
 
 40:                                               ; preds = %10, %18, %16, %13, %28
   %.1 = phi i1 [ true, %28 ], [ false, %13 ], [ false, %16 ], [ false, %18 ], [ false, %10 ]
@@ -5658,7 +5658,7 @@ quic_is_pp_cipher_initialized.exit:               ; preds = %85
   store i8 %110, ptr %115, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 116:                                              ; preds = %._crit_edge.i
   store ptr @.str.514, ptr %78, align 8
@@ -6106,7 +6106,7 @@ proto_item_set_generated.exit.i:                  ; preds = %312, %309, %302
   %363 = add i64 %362, -1
   store i64 %363, ptr %16, align 8
   %.not440.i = icmp eq i64 %363, 0
-  br i1 %.not440.i, label %._crit_edge.i53, label %.lr.ph.i52, !llvm.loop !26
+  br i1 %.not440.i, label %._crit_edge.i53, label %.lr.ph.i52, !llvm.loop !24
 
 ._crit_edge.i53:                                  ; preds = %.lr.ph.i52, %337
   %.2.lcssa.i = phi i32 [ %353, %337 ], [ %361, %.lr.ph.i52 ]
@@ -6478,7 +6478,7 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   %.1211.i.i = select i1 %.not246.not.i.i, i32 %.021043.i.i, i32 %563
   %.0209.i.i = load ptr, ptr %.020944.i.i, align 8
   %.not245.i.i = icmp eq ptr %.0209.i.i, null
-  br i1 %.not245.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not245.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !25
 
 .thread2.thread.i.i:                              ; preds = %551
   %564 = zext i32 %462 to i64
@@ -7932,7 +7932,7 @@ dissect_quic_frame_type.exit:                     ; preds = %proto_item_set_gene
   %.1 = phi i32 [ %288, %286 ], [ %.0430.i, %dissect_quic_frame_type.exit ]
   %1308 = call i32 @tvb_reported_length_remaining(ptr noundef %256, i32 noundef %.1)
   %1309 = icmp sgt i32 %1308, 0
-  br i1 %1309, label %284, label %.loopexit, !llvm.loop !28
+  br i1 %1309, label %284, label %.loopexit, !llvm.loop !26
 
 1310:                                             ; preds = %.thread
   %1311 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8132,7 +8132,7 @@ quic_hp_cipher_init.exit.thread:                  ; preds = %16
 quic_hp_cipher_init.exit:                         ; preds = %16
   %26 = load ptr, ptr %8, align 8
   %27 = and i64 %17, 255
-  %28 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %26, i64 noundef range(i64 0, 4294967296) %27, i64 noundef 32) #19, !alias.scope !29
+  %28 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %26, i64 noundef range(i64 0, 4294967296) %27, i64 noundef 32) #19, !alias.scope !27
   call void @wmem_free(ptr noundef null, ptr noundef %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8226,7 +8226,7 @@ quic_hkdf_expand_label.exit.i:                    ; preds = %27
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %11, align 8
-  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %25, i64 noundef 32) #19, !alias.scope !33
+  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef %35, i64 noundef range(i64 0, 4294967296) %25, i64 noundef 32) #19, !alias.scope !31
   call void @wmem_free(ptr noundef null, ptr noundef %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8803,20 +8803,18 @@ attributes #20 = { allocsize(0) }
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
 !22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
 !24 = distinct !{!24, !9}
 !25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
-!31 = distinct !{!31, !"memcpy.inline"}
-!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = !{!32, !34}
+!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
+!33 = distinct !{!33, !"memcpy.inline"}
+!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}

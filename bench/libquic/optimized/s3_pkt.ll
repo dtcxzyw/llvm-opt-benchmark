@@ -63,7 +63,7 @@ define hidden i32 @ssl3_write_app_data(ptr noundef %0, ptr noundef %1, i32 nound
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
   %33 = tail call fastcc i32 @do_ssl3_write(ptr noundef nonnull %0, i32 noundef 23, ptr noundef %32, i32 noundef %..037.us.i)
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !51
+  br i1 %34, label %._crit_edge.i, label %.lr.ph.split.us.i
 
 ._crit_edge.i:                                    ; preds = %26, %11
   %.033.lcssa.i = phi i32 [ %7, %11 ], [ %28, %26 ]
@@ -138,7 +138,7 @@ define hidden i32 @ssl3_write_bytes(ptr noundef %0, i32 noundef %1, ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
   %35 = tail call fastcc i32 @do_ssl3_write(ptr noundef nonnull %0, i32 noundef 23, ptr noundef %34, i32 noundef %..037.us)
   %36 = icmp slt i32 %35, 1
-  br i1 %36, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
+  br i1 %36, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %41, %28, %12
   %.033.lcssa = phi i32 [ %8, %12 ], [ %30, %28 ], [ %43, %41 ]
@@ -192,13 +192,13 @@ define internal fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef %1, ptr no
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %12 = load i32, ptr %11, align 8, !tbaa !53
+  %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = icmp sgt i32 %12, %3
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  %16 = load ptr, ptr %15, align 8, !tbaa !54
+  %16 = load ptr, ptr %15, align 8, !tbaa !52
   %.not.i = icmp eq ptr %16, %2
   br i1 %.not.i, label %21, label %17
 
@@ -211,7 +211,7 @@ define internal fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef %1, ptr no
 
 21:                                               ; preds = %17, %14
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 148
-  %23 = load i32, ptr %22, align 4, !tbaa !55
+  %23 = load i32, ptr %22, align 4, !tbaa !53
   %.not13.i = icmp eq i32 %23, %1
   br i1 %.not13.i, label %25, label %24
 
@@ -227,20 +227,20 @@ define internal fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef %1, ptr no
 28:                                               ; preds = %25
   %29 = load ptr, ptr %8, align 8, !tbaa !6
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 152
-  %31 = load i32, ptr %30, align 8, !tbaa !56
+  %31 = load i32, ptr %30, align 8, !tbaa !54
   br label %ssl3_write_pending.exit
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 244
-  %34 = load i32, ptr %33, align 4, !tbaa !57
+  %34 = load i32, ptr %33, align 4, !tbaa !55
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %42, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !58
+  %37 = load ptr, ptr %36, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !59
+  %39 = load ptr, ptr %38, align 8, !tbaa !57
   %40 = tail call i32 %39(ptr noundef nonnull %0) #5
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %ssl3_write_pending.exit
@@ -276,24 +276,24 @@ define internal fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not42, label %67, label %55
 
 55:                                               ; preds = %53
-  %56 = load ptr, ptr %5, align 8, !tbaa !61
+  %56 = load ptr, ptr %5, align 8, !tbaa !59
   %57 = trunc i32 %1 to i8
   %58 = call i32 @tls_seal_record(ptr noundef nonnull %0, ptr noundef %56, ptr noundef nonnull %6, i64 noundef %50, i8 noundef zeroext %57, ptr noundef %2, i64 noundef %48) #5
   %.not43 = icmp eq i32 %58, 0
   br i1 %.not43, label %67, label %59
 
 59:                                               ; preds = %55
-  %60 = load i64, ptr %6, align 8, !tbaa !62
+  %60 = load i64, ptr %6, align 8, !tbaa !60
   call void @ssl_write_buffer_set_len(ptr noundef nonnull %0, i64 noundef %60) #5
   %61 = load ptr, ptr %8, align 8, !tbaa !6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
-  store i32 %3, ptr %62, align 8, !tbaa !53
+  store i32 %3, ptr %62, align 8, !tbaa !51
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 160
-  store ptr %2, ptr %63, align 8, !tbaa !54
+  store ptr %2, ptr %63, align 8, !tbaa !52
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 148
-  store i32 %1, ptr %64, align 4, !tbaa !55
+  store i32 %1, ptr %64, align 4, !tbaa !53
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 152
-  store i32 %3, ptr %65, align 8, !tbaa !56
+  store i32 %3, ptr %65, align 8, !tbaa !54
   %66 = call fastcc i32 @ssl3_write_pending(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   br label %67
 
@@ -357,7 +357,7 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   %26 = load ptr, ptr %14, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 122
-  %29 = load i16, ptr %28, align 2, !tbaa !63
+  %29 = load i16, ptr %28, align 2, !tbaa !61
   %30 = icmp eq i16 %29, 0
   br i1 %30, label %31, label %85
 
@@ -389,9 +389,9 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   ]
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = load i64, ptr %9, align 8, !tbaa !62
+  %45 = load i64, ptr %9, align 8, !tbaa !60
   call void @ssl_read_buffer_consume(ptr noundef %0, i64 noundef %45) #5
-  %46 = load i64, ptr %8, align 8, !tbaa !62
+  %46 = load i64, ptr %8, align 8, !tbaa !60
   %47 = icmp ugt i64 %46, 65535
   br i1 %47, label %48, label %ssl3_get_record.exit
 
@@ -400,13 +400,13 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   br label %ssl3_get_record.exit.thread
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = load i64, ptr %9, align 8, !tbaa !62
+  %50 = load i64, ptr %9, align 8, !tbaa !60
   %51 = call i32 @ssl_read_buffer_extend_to(ptr noundef %0, i64 noundef %50) #5
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %ssl3_get_record.exit.thread, label %.backedge.i
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = load i64, ptr %9, align 8, !tbaa !62
+  %54 = load i64, ptr %9, align 8, !tbaa !60
   call void @ssl_read_buffer_consume(ptr noundef %0, i64 noundef %54) #5
   br label %.backedge.i
 
@@ -417,35 +417,35 @@ define hidden range(i32 -2147483648, 65536) i32 @ssl3_read_bytes(ptr noundef %0,
   br i1 %57, label %ssl3_get_record.exit.thread, label %.lr.ph.i
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = load i8, ptr %7, align 1, !tbaa !64
+  %59 = load i8, ptr %7, align 1, !tbaa !62
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %61 = load ptr, ptr %60, align 8, !tbaa !65
+  %61 = load ptr, ptr %60, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i, label %65, label %62
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr %24, align 8, !tbaa !66
+  %63 = load ptr, ptr %24, align 8, !tbaa !64
   %64 = call i32 @SSL_CTX_remove_session(ptr noundef %63, ptr noundef nonnull %61) #5
   br label %65
 
 65:                                               ; preds = %62, %58
   %66 = load ptr, ptr %14, align 8, !tbaa !6
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 244
-  store i32 1, ptr %67, align 4, !tbaa !57
+  store i32 1, ptr %67, align 4, !tbaa !55
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 248
-  store i8 2, ptr %68, align 8, !tbaa !64
+  store i8 2, ptr %68, align 8, !tbaa !62
   %69 = load ptr, ptr %14, align 8, !tbaa !6
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 249
-  store i8 %59, ptr %70, align 1, !tbaa !64
+  store i8 %59, ptr %70, align 1, !tbaa !62
   %71 = call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %0) #5
   %.not13.i.i = icmp eq i32 %71, 0
   br i1 %.not13.i.i, label %72, label %ssl3_get_record.exit.thread
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !58
+  %74 = load ptr, ptr %73, align 8, !tbaa !56
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 80
-  %76 = load ptr, ptr %75, align 8, !tbaa !59
+  %76 = load ptr, ptr %75, align 8, !tbaa !57
   %77 = call i32 %76(ptr noundef nonnull %0) #5
   br label %ssl3_get_record.exit.thread
 
@@ -464,13 +464,13 @@ ssl3_get_record.exit.thread:                      ; preds = %31, %.backedge.i, %
 ssl3_get_record.exit:                             ; preds = %44
   %79 = load ptr, ptr %14, align 8, !tbaa !6
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 120
-  %81 = load i8, ptr %6, align 1, !tbaa !64
-  store i8 %81, ptr %80, align 8, !tbaa !67
+  %81 = load i8, ptr %6, align 1, !tbaa !62
+  store i8 %81, ptr %80, align 8, !tbaa !65
   %82 = trunc nuw i64 %46 to i16
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 122
-  store i16 %82, ptr %83, align 2, !tbaa !63
+  store i16 %82, ptr %83, align 2, !tbaa !61
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 128
-  store ptr %37, ptr %84, align 8, !tbaa !68
+  store ptr %37, ptr %84, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -479,17 +479,17 @@ ssl3_get_record.exit:                             ; preds = %44
 
 85:                                               ; preds = %ssl3_get_record.exit, %.backedge
   %86 = phi ptr [ %79, %ssl3_get_record.exit ], [ %26, %.backedge ]
-  %87 = load i32, ptr %15, align 8, !tbaa !69
+  %87 = load i32, ptr %15, align 8, !tbaa !67
   %88 = and i32 %87, 2
   %.not = icmp eq i32 %88, 0
   br i1 %.not, label %90, label %89
 
 89:                                               ; preds = %85
-  store i16 0, ptr %28, align 2, !tbaa !63
+  store i16 0, ptr %28, align 2, !tbaa !61
   br label %ssl3_send_alert.exit
 
 90:                                               ; preds = %85
-  %.pr.pre = load i8, ptr %27, align 8, !tbaa !67
+  %.pr.pre = load i8, ptr %27, align 8, !tbaa !65
   br i1 %cond, label %thread-pre-split, label %91
 
 91:                                               ; preds = %90
@@ -499,7 +499,7 @@ ssl3_get_record.exit:                             ; preds = %44
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 257
-  store i8 0, ptr %95, align 1, !tbaa !70
+  store i8 0, ptr %95, align 1, !tbaa !68
   %96 = call i32 @SSL_in_init(ptr noundef nonnull %0) #5
   %97 = icmp ne i32 %96, 0
   %or.cond9 = and i1 %16, %97
@@ -508,7 +508,7 @@ ssl3_get_record.exit:                             ; preds = %44
 98:                                               ; preds = %94
   %99 = load ptr, ptr %14, align 8, !tbaa !6
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 264
-  %101 = load ptr, ptr %100, align 8, !tbaa !71
+  %101 = load ptr, ptr %100, align 8, !tbaa !69
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
@@ -517,7 +517,7 @@ ssl3_get_record.exit:                             ; preds = %44
   br label %.thread160
 
 104:                                              ; preds = %98, %94
-  %105 = load i16, ptr %28, align 2, !tbaa !63
+  %105 = load i16, ptr %28, align 2, !tbaa !61
   %106 = icmp eq i16 %105, 0
   br i1 %106, label %.backedge.backedge, label %107
 
@@ -529,19 +529,19 @@ ssl3_get_record.exit:                             ; preds = %44
   %110 = zext i16 %105 to i32
   %. = call i32 @llvm.umin.i32(i32 %3, i32 %110)
   %111 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %112 = load ptr, ptr %111, align 8, !tbaa !68
+  %112 = load ptr, ptr %111, align 8, !tbaa !66
   %113 = zext nneg i32 %. to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %112, i64 %113, i1 false)
   br i1 %13, label %ssl3_send_alert.exit, label %114
 
 114:                                              ; preds = %109
-  %115 = load i16, ptr %28, align 2, !tbaa !63
+  %115 = load i16, ptr %28, align 2, !tbaa !61
   %116 = trunc nuw i32 %. to i16
   %117 = sub i16 %115, %116
-  store i16 %117, ptr %28, align 2, !tbaa !63
-  %118 = load ptr, ptr %111, align 8, !tbaa !68
+  store i16 %117, ptr %28, align 2, !tbaa !61
+  %118 = load ptr, ptr %111, align 8, !tbaa !66
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %113
-  store ptr %119, ptr %111, align 8, !tbaa !68
+  store ptr %119, ptr %111, align 8, !tbaa !66
   %120 = icmp eq i16 %115, %116
   br i1 %120, label %121, label %ssl3_send_alert.exit
 
@@ -561,7 +561,7 @@ ssl3_get_record.exit:                             ; preds = %44
   br i1 %.not140, label %127, label %ssl3_can_renegotiate.exit.thread
 
 127:                                              ; preds = %124
-  %128 = load i32, ptr %18, align 4, !tbaa !72
+  %128 = load i32, ptr %18, align 4, !tbaa !70
   switch i32 %128, label %ssl3_can_renegotiate.exit.thread [
     i32 3, label %.preheader
     i32 1, label %ssl3_can_renegotiate.exit
@@ -570,7 +570,7 @@ ssl3_get_record.exit:                             ; preds = %44
 
 ssl3_can_renegotiate.exit:                        ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %86, i64 252
-  %130 = load i32, ptr %129, align 4, !tbaa !73
+  %130 = load i32, ptr %129, align 4, !tbaa !71
   %.not250 = icmp eq i32 %130, 0
   br i1 %.not250, label %.preheader, label %ssl3_can_renegotiate.exit.thread
 
@@ -580,13 +580,13 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 
 .preheader:                                       ; preds = %127, %127, %ssl3_can_renegotiate.exit
   %131 = getelementptr inbounds nuw i8, ptr %86, i64 136
-  %.promoted = load i8, ptr %131, align 8, !tbaa !74
+  %.promoted = load i8, ptr %131, align 8, !tbaa !72
   %132 = icmp ult i8 %.promoted, 4
   br i1 %132, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %133 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %.promoted249 = load i16, ptr %28, align 2, !tbaa !63
+  %.promoted249 = load i16, ptr %28, align 2, !tbaa !61
   br label %134
 
 134:                                              ; preds = %.lr.ph, %142
@@ -596,8 +596,8 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
   br i1 %137, label %.backedge.backedge, label %138
 
 138:                                              ; preds = %134
-  %139 = load ptr, ptr %133, align 8, !tbaa !68
-  %140 = load i8, ptr %139, align 1, !tbaa !64
+  %139 = load ptr, ptr %133, align 8, !tbaa !66
+  %140 = load i8, ptr %139, align 1, !tbaa !62
   %.not146 = icmp eq i8 %140, 0
   br i1 %.not146, label %142, label %141
 
@@ -607,23 +607,23 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 1
-  store ptr %143, ptr %133, align 8, !tbaa !68
+  store ptr %143, ptr %133, align 8, !tbaa !66
   %144 = add i16 %135, -1
-  store i16 %144, ptr %28, align 2, !tbaa !63
+  store i16 %144, ptr %28, align 2, !tbaa !61
   %145 = add nuw nsw i8 %136, 1
-  store i8 %145, ptr %131, align 8, !tbaa !74
+  store i8 %145, ptr %131, align 8, !tbaa !72
   %exitcond.not = icmp eq i8 %145, 4
-  br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %142, %.preheader
-  store i8 0, ptr %131, align 8, !tbaa !74
-  %146 = load ptr, ptr %19, align 8, !tbaa !77
+  store i8 0, ptr %131, align 8, !tbaa !72
+  %146 = load ptr, ptr %19, align 8, !tbaa !75
   %.not142 = icmp eq ptr %146, null
   br i1 %.not142, label %150, label %147
 
 147:                                              ; preds = %._crit_edge
-  %148 = load i32, ptr %0, align 8, !tbaa !78
-  %149 = load ptr, ptr %20, align 8, !tbaa !79
+  %148 = load i32, ptr %0, align 8, !tbaa !76
+  %149 = load ptr, ptr %20, align 8, !tbaa !77
   call void %146(i32 noundef 0, i32 noundef %148, i32 noundef 22, ptr noundef nonnull @ssl3_read_bytes.kHelloRequest, i64 noundef 4, ptr noundef nonnull %0, ptr noundef %149) #5
   br label %150
 
@@ -635,7 +635,7 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 152:                                              ; preds = %150
   %153 = load ptr, ptr %14, align 8, !tbaa !6
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 81
-  %155 = load i8, ptr %154, align 1, !tbaa !80
+  %155 = load i8, ptr %154, align 1, !tbaa !78
   %.not144 = icmp eq i8 %155, 0
   br i1 %.not144, label %156, label %157
 
@@ -644,7 +644,7 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
   br label %ssl3_send_alert.exit
 
 157:                                              ; preds = %152
-  %158 = load i32, ptr %18, align 4, !tbaa !72
+  %158 = load i32, ptr %18, align 4, !tbaa !70
   %159 = icmp eq i32 %158, 3
   br i1 %159, label %.backedge.backedge, label %160
 
@@ -660,11 +660,11 @@ ssl3_can_renegotiate.exit.thread:                 ; preds = %127, %ssl3_can_rene
 163:                                              ; preds = %160
   %164 = load ptr, ptr %14, align 8, !tbaa !6
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 252
-  %166 = load i32, ptr %165, align 4, !tbaa !73
+  %166 = load i32, ptr %165, align 4, !tbaa !71
   %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %165, align 4, !tbaa !73
-  store i32 4096, ptr %21, align 4, !tbaa !81
-  %168 = load ptr, ptr %22, align 8, !tbaa !82
+  store i32 %167, ptr %165, align 4, !tbaa !71
+  store i32 4096, ptr %21, align 4, !tbaa !79
+  %168 = load ptr, ptr %22, align 8, !tbaa !80
   %169 = call i32 %168(ptr noundef nonnull %0) #5
   %170 = icmp slt i32 %169, 0
   br i1 %170, label %ssl3_send_alert.exit, label %171
@@ -682,7 +682,7 @@ thread-pre-split:                                 ; preds = %90, %122
   br i1 %174, label %175, label %228
 
 175:                                              ; preds = %thread-pre-split
-  %176 = load i16, ptr %28, align 2, !tbaa !63
+  %176 = load i16, ptr %28, align 2, !tbaa !61
   %.not135 = icmp eq i16 %176, 2
   br i1 %.not135, label %178, label %177
 
@@ -691,38 +691,38 @@ thread-pre-split:                                 ; preds = %90, %122
   br label %.thread160
 
 178:                                              ; preds = %175
-  %179 = load ptr, ptr %19, align 8, !tbaa !77
+  %179 = load ptr, ptr %19, align 8, !tbaa !75
   %.not136 = icmp eq ptr %179, null
   br i1 %.not136, label %186, label %180
 
 180:                                              ; preds = %178
-  %181 = load i32, ptr %0, align 8, !tbaa !78
+  %181 = load i32, ptr %0, align 8, !tbaa !76
   %182 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %183 = load ptr, ptr %182, align 8, !tbaa !68
-  %184 = load ptr, ptr %20, align 8, !tbaa !79
+  %183 = load ptr, ptr %182, align 8, !tbaa !66
+  %184 = load ptr, ptr %20, align 8, !tbaa !77
   call void %179(i32 noundef 0, i32 noundef %181, i32 noundef 21, ptr noundef %183, i64 noundef 2, ptr noundef nonnull %0, ptr noundef %184) #5
-  %.pre = load i16, ptr %28, align 2, !tbaa !63
+  %.pre = load i16, ptr %28, align 2, !tbaa !61
   %185 = add i16 %.pre, -2
   br label %186
 
 186:                                              ; preds = %180, %178
   %187 = phi i16 [ %185, %180 ], [ 0, %178 ]
   %188 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %189 = load ptr, ptr %188, align 8, !tbaa !68
-  %190 = load i8, ptr %189, align 1, !tbaa !64
+  %189 = load ptr, ptr %188, align 8, !tbaa !66
+  %190 = load i8, ptr %189, align 1, !tbaa !62
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 1
-  %192 = load i8, ptr %191, align 1, !tbaa !64
-  store i16 %187, ptr %28, align 2, !tbaa !63
+  %192 = load i8, ptr %191, align 1, !tbaa !62
+  store i16 %187, ptr %28, align 2, !tbaa !61
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 2
-  store ptr %193, ptr %188, align 8, !tbaa !68
-  %194 = load ptr, ptr %23, align 8, !tbaa !83
+  store ptr %193, ptr %188, align 8, !tbaa !66
+  %194 = load ptr, ptr %23, align 8, !tbaa !81
   %.not137 = icmp eq ptr %194, null
   br i1 %.not137, label %195, label %.thread
 
 195:                                              ; preds = %186
-  %196 = load ptr, ptr %24, align 8, !tbaa !66
+  %196 = load ptr, ptr %24, align 8, !tbaa !64
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 264
-  %198 = load ptr, ptr %197, align 8, !tbaa !84
+  %198 = load ptr, ptr %197, align 8, !tbaa !82
   %.not138 = icmp eq ptr %198, null
   %spec.select = select i1 %.not138, ptr %.0119.ph, ptr %198
   %.not139 = icmp eq ptr %spec.select, null
@@ -751,17 +751,17 @@ thread-pre-split:                                 ; preds = %90, %122
 
 207:                                              ; preds = %204
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 240
-  store i8 1, ptr %208, align 8, !tbaa !90
-  %209 = load i32, ptr %15, align 8, !tbaa !69
+  store i8 1, ptr %208, align 8, !tbaa !88
+  %209 = load i32, ptr %15, align 8, !tbaa !67
   %210 = or i32 %209, 2
-  store i32 %210, ptr %15, align 8, !tbaa !69
+  store i32 %210, ptr %15, align 8, !tbaa !67
   br label %ssl3_send_alert.exit
 
 211:                                              ; preds = %204
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 257
-  %213 = load i8, ptr %212, align 1, !tbaa !70
+  %213 = load i8, ptr %212, align 1, !tbaa !68
   %214 = add i8 %213, 1
-  store i8 %214, ptr %212, align 1, !tbaa !70
+  store i8 %214, ptr %212, align 1, !tbaa !68
   %215 = icmp ugt i8 %214, 4
   br i1 %215, label %216, label %.outer
 
@@ -780,12 +780,12 @@ thread-pre-split:                                 ; preds = %90, %122
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef %219, ptr noundef nonnull @.str, i32 noundef 563) #5
   %220 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %218) #5
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %10) #5
-  %221 = load i32, ptr %15, align 8, !tbaa !69
+  %221 = load i32, ptr %15, align 8, !tbaa !67
   %222 = or i32 %221, 2
-  store i32 %222, ptr %15, align 8, !tbaa !69
-  %223 = load ptr, ptr %24, align 8, !tbaa !66
+  store i32 %222, ptr %15, align 8, !tbaa !67
+  %223 = load ptr, ptr %24, align 8, !tbaa !64
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %225 = load ptr, ptr %224, align 8, !tbaa !65
+  %225 = load ptr, ptr %224, align 8, !tbaa !63
   %226 = call i32 @SSL_CTX_remove_session(ptr noundef %223, ptr noundef %225) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ssl3_send_alert.exit
@@ -800,7 +800,7 @@ thread-pre-split:                                 ; preds = %90, %122
   br i1 %.not134, label %231, label %230
 
 230:                                              ; preds = %228
-  store i16 0, ptr %28, align 2, !tbaa !63
+  store i16 0, ptr %28, align 2, !tbaa !61
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %134, %230, %104, %157, %171
@@ -813,33 +813,33 @@ thread-pre-split:                                 ; preds = %90, %122
 .thread160:                                       ; preds = %227, %216, %231, %177, %162, %141, %ssl3_can_renegotiate.exit.thread, %103
   %.1115 = phi i8 [ 10, %103 ], [ 100, %ssl3_can_renegotiate.exit.thread ], [ 50, %141 ], [ 100, %162 ], [ 50, %177 ], [ 10, %231 ], [ 47, %227 ], [ 10, %216 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %233 = load ptr, ptr %232, align 8, !tbaa !65
+  %233 = load ptr, ptr %232, align 8, !tbaa !63
   %.not.i = icmp eq ptr %233, null
   br i1 %.not.i, label %237, label %234
 
 234:                                              ; preds = %.thread160
-  %235 = load ptr, ptr %24, align 8, !tbaa !66
+  %235 = load ptr, ptr %24, align 8, !tbaa !64
   %236 = call i32 @SSL_CTX_remove_session(ptr noundef %235, ptr noundef nonnull %233) #5
   br label %237
 
 237:                                              ; preds = %234, %.thread160
   %238 = load ptr, ptr %14, align 8, !tbaa !6
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 244
-  store i32 1, ptr %239, align 4, !tbaa !57
+  store i32 1, ptr %239, align 4, !tbaa !55
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 248
-  store i8 2, ptr %240, align 8, !tbaa !64
+  store i8 2, ptr %240, align 8, !tbaa !62
   %241 = load ptr, ptr %14, align 8, !tbaa !6
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 249
-  store i8 %.1115, ptr %242, align 1, !tbaa !64
+  store i8 %.1115, ptr %242, align 1, !tbaa !62
   %243 = call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %0) #5
   %.not13.i = icmp eq i32 %243, 0
   br i1 %.not13.i, label %244, label %ssl3_send_alert.exit
 
 244:                                              ; preds = %237
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %246 = load ptr, ptr %245, align 8, !tbaa !58
+  %246 = load ptr, ptr %245, align 8, !tbaa !56
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 80
-  %248 = load ptr, ptr %247, align 8, !tbaa !59
+  %248 = load ptr, ptr %247, align 8, !tbaa !57
   %249 = call i32 %248(ptr noundef nonnull %0) #5
   br label %ssl3_send_alert.exit
 
@@ -860,7 +860,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_read_change_cipher_spec(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 122
-  %9 = load i16, ptr %8, align 2, !tbaa !91
+  %9 = load i16, ptr %8, align 2, !tbaa !89
   %10 = icmp ne i16 %9, 0
   %11 = load i8, ptr %2, align 1
   %12 = icmp ne i8 %11, 1
@@ -870,47 +870,47 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_read_change_cipher_spec(ptr no
 13:                                               ; preds = %5
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str, i32 noundef 320) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %15 = load ptr, ptr %14, align 8, !tbaa !65
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %18 = load ptr, ptr %17, align 8, !tbaa !66
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = tail call i32 @SSL_CTX_remove_session(ptr noundef %18, ptr noundef nonnull %15) #5
   br label %20
 
 20:                                               ; preds = %16, %13
   %21 = load ptr, ptr %6, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 244
-  store i32 1, ptr %22, align 4, !tbaa !57
+  store i32 1, ptr %22, align 4, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 248
-  store i8 2, ptr %23, align 8, !tbaa !64
+  store i8 2, ptr %23, align 8, !tbaa !62
   %24 = load ptr, ptr %6, align 8, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 249
-  store i8 47, ptr %25, align 1, !tbaa !64
+  store i8 47, ptr %25, align 1, !tbaa !62
   %26 = tail call i32 @ssl_write_buffer_is_pending(ptr noundef nonnull %0) #5
   %.not13.i = icmp eq i32 %26, 0
   br i1 %.not13.i, label %27, label %ssl3_send_alert.exit
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !58
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %31 = load ptr, ptr %30, align 8, !tbaa !59
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = tail call i32 %31(ptr noundef nonnull %0) #5
   br label %ssl3_send_alert.exit
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %35 = load ptr, ptr %34, align 8, !tbaa !77
+  %35 = load ptr, ptr %34, align 8, !tbaa !75
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %ssl3_send_alert.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr %0, align 8, !tbaa !78
+  %37 = load i32, ptr %0, align 8, !tbaa !76
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %39 = load ptr, ptr %38, align 8, !tbaa !79
+  %39 = load ptr, ptr %38, align 8, !tbaa !77
   call void %35(i32 noundef 0, i32 noundef %37, i32 noundef 20, ptr noundef nonnull %2, i64 noundef 1, ptr noundef nonnull %0, ptr noundef %39) #5
   br label %ssl3_send_alert.exit
 
@@ -927,13 +927,13 @@ define hidden i32 @ssl3_send_alert(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = tail call i32 @SSL_CTX_remove_session(ptr noundef %10, ptr noundef nonnull %7) #5
   br label %12
 
@@ -941,23 +941,23 @@ define hidden i32 @ssl3_send_alert(ptr noundef %0, i32 noundef %1, i32 noundef %
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 244
-  store i32 1, ptr %15, align 4, !tbaa !57
+  store i32 1, ptr %15, align 4, !tbaa !55
   %16 = trunc i32 %1 to i8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 248
-  store i8 %16, ptr %17, align 8, !tbaa !64
+  store i8 %16, ptr %17, align 8, !tbaa !62
   %18 = trunc i32 %2 to i8
   %19 = load ptr, ptr %13, align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 249
-  store i8 %18, ptr %20, align 1, !tbaa !64
+  store i8 %18, ptr %20, align 1, !tbaa !62
   %21 = tail call i32 @ssl_write_buffer_is_pending(ptr noundef %0) #5
   %.not13 = icmp eq i32 %21, 0
   br i1 %.not13, label %22, label %28
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !56
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !59
+  %26 = load ptr, ptr %25, align 8, !tbaa !57
   %27 = tail call i32 %26(ptr noundef nonnull %0) #5
   br label %28
 
@@ -994,7 +994,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_dispatch_alert(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 244
-  store i32 0, ptr %4, align 4, !tbaa !57
+  store i32 0, ptr %4, align 4, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %6 = tail call fastcc i32 @do_ssl3_write(ptr noundef %0, i32 noundef 21, ptr noundef nonnull %5, i32 noundef 2)
   %7 = icmp slt i32 %6, 1
@@ -1003,47 +1003,47 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_dispatch_alert(ptr noundef %0)
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 244
-  store i32 1, ptr %10, align 4, !tbaa !57
+  store i32 1, ptr %10, align 4, !tbaa !55
   br label %45
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 248
-  %13 = load i8, ptr %12, align 8, !tbaa !64
+  %13 = load i8, ptr %12, align 8, !tbaa !62
   %14 = icmp eq i8 %13, 2
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !92
+  %17 = load ptr, ptr %16, align 8, !tbaa !90
   %18 = tail call i32 @BIO_flush(ptr noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %21 = load ptr, ptr %20, align 8, !tbaa !77
+  %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr %0, align 8, !tbaa !78
+  %23 = load i32, ptr %0, align 8, !tbaa !76
   %24 = load ptr, ptr %2, align 8, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 248
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %27 = load ptr, ptr %26, align 8, !tbaa !79
+  %27 = load ptr, ptr %26, align 8, !tbaa !77
   tail call void %21(i32 noundef 1, i32 noundef %23, i32 noundef 21, ptr noundef nonnull %25, i64 noundef 2, ptr noundef nonnull %0, ptr noundef %27) #5
   br label %28
 
 28:                                               ; preds = %22, %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %30 = load ptr, ptr %29, align 8, !tbaa !83
+  %30 = load ptr, ptr %29, align 8, !tbaa !81
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %31, label %.thread
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %33 = load ptr, ptr %32, align 8, !tbaa !66
+  %33 = load ptr, ptr %32, align 8, !tbaa !64
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 264
-  %35 = load ptr, ptr %34, align 8, !tbaa !84
+  %35 = load ptr, ptr %34, align 8, !tbaa !82
   %.not31 = icmp eq ptr %35, null
   br i1 %.not31, label %45, label %.thread
 
@@ -1051,11 +1051,11 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_dispatch_alert(ptr noundef %0)
   %.02434 = phi ptr [ %35, %31 ], [ %30, %28 ]
   %36 = load ptr, ptr %2, align 8, !tbaa !6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 248
-  %38 = load i8, ptr %37, align 8, !tbaa !64
+  %38 = load i8, ptr %37, align 8, !tbaa !62
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 249
-  %42 = load i8, ptr %41, align 1, !tbaa !64
+  %42 = load i8, ptr %41, align 1, !tbaa !62
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
   tail call void %.02434(ptr noundef nonnull %0, i32 noundef 16392, i32 noundef %44) #5
@@ -1073,13 +1073,13 @@ define internal fastcc i32 @ssl3_write_pending(ptr noundef %0, i32 noundef %1, p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %8 = load i32, ptr %7, align 8, !tbaa !53
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp sgt i32 %8, %3
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %12 = load ptr, ptr %11, align 8, !tbaa !54
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %.not = icmp eq ptr %12, %2
   br i1 %.not, label %17, label %13
 
@@ -1092,7 +1092,7 @@ define internal fastcc i32 @ssl3_write_pending(ptr noundef %0, i32 noundef %1, p
 
 17:                                               ; preds = %13, %10
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 148
-  %19 = load i32, ptr %18, align 4, !tbaa !55
+  %19 = load i32, ptr %18, align 4, !tbaa !53
   %.not13 = icmp eq i32 %19, %1
   br i1 %.not13, label %21, label %20
 
@@ -1108,7 +1108,7 @@ define internal fastcc i32 @ssl3_write_pending(ptr noundef %0, i32 noundef %1, p
 24:                                               ; preds = %21
   %25 = load ptr, ptr %5, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
-  %27 = load i32, ptr %26, align 8, !tbaa !56
+  %27 = load i32, ptr %26, align 8, !tbaa !54
   br label %28
 
 28:                                               ; preds = %24, %21, %20
@@ -1207,45 +1207,43 @@ attributes #5 = { nounwind }
 !48 = !{!"p1 _ZTS18ssl_ecdh_method_st", !13, i64 0}
 !49 = !{!7, !11, i64 280}
 !50 = !{!7, !8, i64 268}
-!51 = distinct !{!51, !52}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = !{!36, !8, i64 144}
-!54 = !{!36, !16, i64 160}
-!55 = !{!36, !8, i64 148}
-!56 = !{!36, !8, i64 152}
-!57 = !{!36, !8, i64 244}
-!58 = !{!7, !12, i64 8}
-!59 = !{!60, !13, i64 80}
-!60 = !{!"ssl_protocol_method_st", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !8, i64 96, !13, i64 104, !13, i64 112}
-!61 = !{!16, !16, i64 0}
-!62 = !{!25, !25, i64 0}
-!63 = !{!38, !11, i64 2}
-!64 = !{!9, !9, i64 0}
-!65 = !{!7, !23, i64 184}
-!66 = !{!7, !24, i64 232}
-!67 = !{!38, !9, i64 0}
-!68 = !{!38, !16, i64 8}
-!69 = !{!7, !8, i64 48}
-!70 = !{!36, !9, i64 257}
-!71 = !{!36, !43, i64 264}
-!72 = !{!7, !8, i64 364}
-!73 = !{!36, !8, i64 252}
-!74 = !{!36, !9, i64 136}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!7, !13, i64 96}
-!78 = !{!7, !8, i64 0}
-!79 = !{!7, !13, i64 104}
-!80 = !{!36, !9, i64 81}
-!81 = !{!7, !8, i64 52}
-!82 = !{!7, !13, i64 40}
-!83 = !{!7, !13, i64 200}
-!84 = !{!85, !13, i64 264}
-!85 = !{!"ssl_ctx_st", !12, i64 0, !9, i64 8, !11, i64 64, !11, i64 66, !20, i64 72, !21, i64 80, !20, i64 88, !20, i64 96, !86, i64 104, !87, i64 112, !25, i64 120, !23, i64 128, !23, i64 136, !8, i64 144, !8, i64 148, !25, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !8, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !26, i64 240, !88, i64 248, !88, i64 256, !13, i64 264, !28, i64 272, !8, i64 280, !8, i64 284, !8, i64 288, !22, i64 296, !13, i64 304, !13, i64 312, !8, i64 320, !8, i64 324, !9, i64 328, !13, i64 360, !19, i64 368, !13, i64 376, !13, i64 384, !11, i64 392, !13, i64 400, !13, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !13, i64 464, !16, i64 472, !13, i64 480, !13, i64 488, !9, i64 496, !13, i64 504, !13, i64 512, !13, i64 520, !13, i64 528, !13, i64 536, !13, i64 544, !16, i64 552, !8, i64 560, !30, i64 568, !25, i64 576, !29, i64 584, !32, i64 592, !16, i64 600, !25, i64 608, !16, i64 616, !25, i64 624, !13, i64 632, !13, i64 640, !8, i64 648, !8, i64 648, !8, i64 648, !8, i64 648, !89, i64 656, !8, i64 664}
-!86 = !{!"p1 _ZTS13x509_store_st", !13, i64 0}
-!87 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !13, i64 0}
-!88 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !13, i64 0}
-!89 = !{!"p1 _ZTS13stack_st_X509", !13, i64 0}
-!90 = !{!36, !9, i64 240}
-!91 = !{!36, !11, i64 122}
-!92 = !{!7, !14, i64 24}
+!51 = !{!36, !8, i64 144}
+!52 = !{!36, !16, i64 160}
+!53 = !{!36, !8, i64 148}
+!54 = !{!36, !8, i64 152}
+!55 = !{!36, !8, i64 244}
+!56 = !{!7, !12, i64 8}
+!57 = !{!58, !13, i64 80}
+!58 = !{!"ssl_protocol_method_st", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !8, i64 96, !13, i64 104, !13, i64 112}
+!59 = !{!16, !16, i64 0}
+!60 = !{!25, !25, i64 0}
+!61 = !{!38, !11, i64 2}
+!62 = !{!9, !9, i64 0}
+!63 = !{!7, !23, i64 184}
+!64 = !{!7, !24, i64 232}
+!65 = !{!38, !9, i64 0}
+!66 = !{!38, !16, i64 8}
+!67 = !{!7, !8, i64 48}
+!68 = !{!36, !9, i64 257}
+!69 = !{!36, !43, i64 264}
+!70 = !{!7, !8, i64 364}
+!71 = !{!36, !8, i64 252}
+!72 = !{!36, !9, i64 136}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.mustprogress"}
+!75 = !{!7, !13, i64 96}
+!76 = !{!7, !8, i64 0}
+!77 = !{!7, !13, i64 104}
+!78 = !{!36, !9, i64 81}
+!79 = !{!7, !8, i64 52}
+!80 = !{!7, !13, i64 40}
+!81 = !{!7, !13, i64 200}
+!82 = !{!83, !13, i64 264}
+!83 = !{!"ssl_ctx_st", !12, i64 0, !9, i64 8, !11, i64 64, !11, i64 66, !20, i64 72, !21, i64 80, !20, i64 88, !20, i64 96, !84, i64 104, !85, i64 112, !25, i64 120, !23, i64 128, !23, i64 136, !8, i64 144, !8, i64 148, !25, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !8, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !26, i64 240, !86, i64 248, !86, i64 256, !13, i64 264, !28, i64 272, !8, i64 280, !8, i64 284, !8, i64 288, !22, i64 296, !13, i64 304, !13, i64 312, !8, i64 320, !8, i64 324, !9, i64 328, !13, i64 360, !19, i64 368, !13, i64 376, !13, i64 384, !11, i64 392, !13, i64 400, !13, i64 408, !9, i64 416, !9, i64 432, !9, i64 448, !13, i64 464, !16, i64 472, !13, i64 480, !13, i64 488, !9, i64 496, !13, i64 504, !13, i64 512, !13, i64 520, !13, i64 528, !13, i64 536, !13, i64 544, !16, i64 552, !8, i64 560, !30, i64 568, !25, i64 576, !29, i64 584, !32, i64 592, !16, i64 600, !25, i64 608, !16, i64 616, !25, i64 624, !13, i64 632, !13, i64 640, !8, i64 648, !8, i64 648, !8, i64 648, !8, i64 648, !87, i64 656, !8, i64 664}
+!84 = !{!"p1 _ZTS13x509_store_st", !13, i64 0}
+!85 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !13, i64 0}
+!86 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !13, i64 0}
+!87 = !{!"p1 _ZTS13stack_st_X509", !13, i64 0}
+!88 = !{!36, !9, i64 240}
+!89 = !{!36, !11, i64 122}
+!90 = !{!7, !14, i64 24}

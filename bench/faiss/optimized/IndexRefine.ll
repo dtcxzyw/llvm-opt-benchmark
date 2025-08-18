@@ -2923,7 +2923,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
   %29 = phi float [ %26, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us ], [ %24, %23 ]
   %30 = add nuw i64 %.144.us, 1
   %exitcond56.not = icmp eq i64 %30, %5
-  br i1 %exitcond56.not, label %.loopexit, label %23, !llvm.loop !66
+  br i1 %exitcond56.not, label %.loopexit, label %23, !llvm.loop !65
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %.043 = phi i64 [ %74, %73 ], [ 0, %.lr.ph ]
@@ -3001,7 +3001,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %60
   %68 = shl i64 %.1.i, 1
   %69 = or disjoint i64 %68, 1
   %70 = icmp ugt i64 %68, %0
-  br i1 %70, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %70, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !66
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit: ; preds = %65, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i, %60, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
   %.0.lcssa.i.ph = phi i64 [ %.1.i, %65 ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %60 ]
@@ -3014,7 +3014,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 73:                                               ; preds = %.lr.ph.split, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit
   %74 = add nuw i64 %.043, 1
   %exitcond.not = icmp eq i64 %74, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !64
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47, %115
   %.144 = phi i64 [ %116, %115 ], [ 0, %.lr.ph47 ]
@@ -3087,7 +3087,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i31:          ; preds = %102
   %110 = shl i64 %.1.i34, 1
   %111 = or disjoint i64 %110, 1
   %112 = icmp ugt i64 %110, %0
-  br i1 %112, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit, label %.lr.ph.i28, !llvm.loop !67
+  br i1 %112, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit, label %.lr.ph.i28, !llvm.loop !66
 
 _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit: ; preds = %107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i31, %102, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i37, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i36
   %.0.lcssa.i35.ph = phi i64 [ %.1.i34, %107 ], [ %.056.i29, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i37 ], [ %.056.i29, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i31 ], [ %.056.i29, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i36 ], [ %.056.i29, %102 ]
@@ -3100,7 +3100,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loope
 115:                                              ; preds = %.lr.ph47.split, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit
   %116 = add nuw i64 %.144, 1
   %exitcond55.not = icmp eq i64 %116, %5
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !69
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !65
 
 .loopexit:                                        ; preds = %73, %17, %115, %28, %.preheader41, %.preheader
   ret void
@@ -3204,7 +3204,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i:     ; preds = %_ZN5faiss4CMinIflE4
   %54 = getelementptr inbounds nuw i64, ptr %35, i64 %.025.i.i
   store i64 %48, ptr %54, align 8, !tbaa !30
   %55 = icmp ugt i64 %.025.i.i, 3
-  br i1 %55, label %.lr.ph.i.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, !llvm.loop !70
+  br i1 %55, label %.lr.ph.i.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, !llvm.loop !67
 
 _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i, %38
   %.0.lcssa.i.i = phi i64 [ 1, %38 ], [ %.025.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i.i ], [ %44, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i ]
@@ -3213,7 +3213,7 @@ _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; preds = %_
   %57 = getelementptr inbounds nuw i64, ptr %35, i64 %.0.lcssa.i.i
   store i64 %43, ptr %57, align 8, !tbaa !30
   %exitcond.not.i = icmp eq i64 %39, %23
-  br i1 %exitcond.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %38, !llvm.loop !71
+  br i1 %exitcond.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %38, !llvm.loop !68
 
 58:                                               ; preds = %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i, %.lr.ph44.i
   %.02842.i = phi i64 [ 0, %.lr.ph44.i ], [ %59, %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i ]
@@ -3245,7 +3245,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i35.i:   ; preds = %_ZN5faiss4CMinIflE4
   %72 = getelementptr inbounds nuw i64, ptr %37, i64 %.025.i33.i
   store i64 %66, ptr %72, align 8, !tbaa !30
   %73 = icmp ugt i64 %.025.i33.i, 3
-  br i1 %73, label %.lr.ph.i32.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i, !llvm.loop !70
+  br i1 %73, label %.lr.ph.i32.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i, !llvm.loop !67
 
 _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i35.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i34.i, %58
   %.0.lcssa.i31.i = phi i64 [ 1, %58 ], [ %.025.i33.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i34.i ], [ %62, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i35.i ]
@@ -3254,7 +3254,7 @@ _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i: ; preds = 
   %75 = getelementptr inbounds nuw i64, ptr %37, i64 %.0.lcssa.i31.i
   store i64 %.02842.i, ptr %75, align 8, !tbaa !30
   %exitcond50.not.i = icmp eq i64 %59, %23
-  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %58, !llvm.loop !72
+  br i1 %exitcond50.not.i, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %58, !llvm.loop !69
 
 _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; preds = %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i, %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit36.i, %.preheader.i, %.preheader39.i
   %76 = load i64, ptr %7, align 8, !tbaa !30
@@ -3359,7 +3359,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i:          ; preds = %118
   %126 = shl i64 %.1.i.i, 1
   %127 = or disjoint i64 %126, 1
   %128 = icmp ugt i64 %126, %89
-  br i1 %128, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i34, !llvm.loop !73
+  br i1 %128, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i, label %.lr.ph.i.i34, !llvm.loop !70
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i: ; preds = %123, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i, %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i40
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %123 ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i40 ], [ %.062.i.i, %118 ]
@@ -3386,7 +3386,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   %spec.select.i = add i64 %.03740.i, %137
   %138 = add nuw i64 %.041.i, 1
   %exitcond.not.i38 = icmp eq i64 %138, %83
-  br i1 %exitcond.not.i38, label %._crit_edge.i, label %86, !llvm.loop !74
+  br i1 %exitcond.not.i38, label %._crit_edge.i, label %86, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i, %82
   %.037.lcssa.i = phi i64 [ 0, %82 ], [ %spec.select.i, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i ]
@@ -3410,7 +3410,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5fais
   store i64 -1, ptr %148, align 8, !tbaa !30
   %149 = add nuw i64 %.242.i, 1
   %exitcond47.not.i = icmp eq i64 %149, %83
-  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i39, !llvm.loop !75
+  br i1 %exitcond47.not.i, label %_ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit, label %.lr.ph44.i39, !llvm.loop !72
 
 _ZN5faiss12heap_reorderINS_4CMinIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph44.i39, %._crit_edge.i
   %150 = add nsw i64 %.043, 1
@@ -3476,7 +3476,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us: ; p
   %18 = phi float [ %13, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.us ], [ %11, %10 ]
   %19 = add nuw i64 %.043.us, 1
   %exitcond54.not = icmp eq i64 %19, %5
-  br i1 %exitcond54.not, label %.loopexit, label %10, !llvm.loop !76
+  br i1 %exitcond54.not, label %.loopexit, label %10, !llvm.loop !73
 
 .preheader:                                       ; preds = %6
   br i1 %.not50, label %.loopexit, label %.lr.ph47
@@ -3509,7 +3509,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
   %29 = phi float [ %26, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us ], [ %24, %23 ]
   %30 = add nuw i64 %.144.us, 1
   %exitcond56.not = icmp eq i64 %30, %5
-  br i1 %exitcond56.not, label %.loopexit, label %23, !llvm.loop !77
+  br i1 %exitcond56.not, label %.loopexit, label %23, !llvm.loop !74
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %.043 = phi i64 [ %74, %73 ], [ 0, %.lr.ph ]
@@ -3587,7 +3587,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i:            ; preds = %60
   %68 = shl i64 %.1.i, 1
   %69 = or disjoint i64 %68, 1
   %70 = icmp ugt i64 %68, %0
-  br i1 %70, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !78
+  br i1 %70, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !75
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit: ; preds = %65, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i, %60, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i
   %.0.lcssa.i.ph = phi i64 [ %.1.i, %65 ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i ], [ %.056.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i ], [ %.056.i, %60 ]
@@ -3600,7 +3600,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
 73:                                               ; preds = %.lr.ph.split, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexit
   %74 = add nuw i64 %.043, 1
   %exitcond.not = icmp eq i64 %74, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !73
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47, %115
   %.144 = phi i64 [ %116, %115 ], [ 0, %.lr.ph47 ]
@@ -3673,7 +3673,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i31:          ; preds = %102
   %110 = shl i64 %.1.i34, 1
   %111 = or disjoint i64 %110, 1
   %112 = icmp ugt i64 %110, %0
-  br i1 %112, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit, label %.lr.ph.i28, !llvm.loop !78
+  br i1 %112, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit, label %.lr.ph.i28, !llvm.loop !75
 
 _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit: ; preds = %107, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31, %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i36
   %.0.lcssa.i35.ph = phi i64 [ %.1.i34, %107 ], [ %.056.i29, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i37 ], [ %.056.i29, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i31 ], [ %.056.i29, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i36 ], [ %.056.i29, %102 ]
@@ -3686,7 +3686,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loope
 115:                                              ; preds = %.lr.ph47.split, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.loopexit
   %116 = add nuw i64 %.144, 1
   %exitcond55.not = icmp eq i64 %116, %5
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !80
+  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph47.split, !llvm.loop !74
 
 .loopexit:                                        ; preds = %73, %17, %115, %28, %.preheader41, %.preheader
   ret void
@@ -3765,7 +3765,7 @@ define internal void @_ZNK5faiss11IndexRefine12range_searchElPKffPNS_17RangeSear
 35:                                               ; preds = %27
   %36 = load ptr, ptr %5, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !81
+  %38 = load ptr, ptr %37, align 8, !tbaa !76
   %39 = getelementptr inbounds i64, ptr %38, i64 %.033
   %40 = load i64, ptr %39, align 8, !tbaa !30
   %41 = add nsw i64 %.033, 1
@@ -3778,7 +3778,7 @@ define internal void @_ZNK5faiss11IndexRefine12range_searchElPKffPNS_17RangeSear
   %45 = phi ptr [ %55, %54 ], [ %36, %35 ]
   %.02431 = phi i64 [ %59, %54 ], [ %40, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !83
+  %47 = load ptr, ptr %46, align 8, !tbaa !78
   %48 = getelementptr inbounds nuw i64, ptr %47, i64 %.02431
   %49 = load i64, ptr %48, align 8, !tbaa !30
   %50 = load ptr, ptr %16, align 8, !tbaa !16
@@ -3790,12 +3790,12 @@ define internal void @_ZNK5faiss11IndexRefine12range_searchElPKffPNS_17RangeSear
 54:                                               ; preds = %.lr.ph
   %55 = load ptr, ptr %5, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !84
+  %57 = load ptr, ptr %56, align 8, !tbaa !79
   %58 = getelementptr inbounds nuw float, ptr %57, i64 %.02431
   store float %53, ptr %58, align 4, !tbaa !54
   %59 = add i64 %.02431, 1
   %exitcond.not = icmp eq i64 %59, %43
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.loopexit, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4155,9 +4155,9 @@ attributes #27 = { noreturn nounwind }
 !61 = distinct !{!61, !47}
 !62 = distinct !{!62, !47}
 !63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47, !65}
-!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!66 = distinct !{!66, !47, !65}
+!64 = distinct !{!64, !47}
+!65 = distinct !{!65, !47}
+!66 = distinct !{!66, !47}
 !67 = distinct !{!67, !47}
 !68 = distinct !{!68, !47}
 !69 = distinct !{!69, !47}
@@ -4167,13 +4167,8 @@ attributes #27 = { noreturn nounwind }
 !73 = distinct !{!73, !47}
 !74 = distinct !{!74, !47}
 !75 = distinct !{!75, !47}
-!76 = distinct !{!76, !47, !65}
-!77 = distinct !{!77, !47, !65}
-!78 = distinct !{!78, !47}
-!79 = distinct !{!79, !47}
+!76 = !{!77, !41, i64 16}
+!77 = !{!"_ZTSN5faiss17RangeSearchResultE", !10, i64 8, !41, i64 16, !41, i64 24, !32, i64 32, !10, i64 40}
+!78 = !{!77, !41, i64 24}
+!79 = !{!77, !32, i64 32}
 !80 = distinct !{!80, !47}
-!81 = !{!82, !41, i64 16}
-!82 = !{!"_ZTSN5faiss17RangeSearchResultE", !10, i64 8, !41, i64 16, !41, i64 24, !32, i64 32, !10, i64 40}
-!83 = !{!82, !41, i64 24}
-!84 = !{!82, !32, i64 32}
-!85 = distinct !{!85, !47}

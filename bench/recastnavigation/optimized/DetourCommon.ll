@@ -707,7 +707,7 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef readonly 
   %40 = select i1 %39, float %.097.us, float %36
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !11
+  br i1 %exitcond.not.i.us, label %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !10
 
 .lr.ph.i47.us:                                    ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us, %.lr.ph.i47.us
   %.0101.us = phi float [ %50, %.lr.ph.i47.us ], [ %56, %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us ]
@@ -726,7 +726,7 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr noundef readonly 
   %50 = select i1 %49, float %.0101.us, float %46
   %indvars.iv.next.i50.us = add nuw nsw i64 %indvars.iv.i48.us, 1
   %exitcond.not.i51.us = icmp eq i64 %indvars.iv.next.i50.us, %wide.trip.count.i46
-  br i1 %exitcond.not.i51.us, label %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, label %.lr.ph.i47.us, !llvm.loop !11
+  br i1 %exitcond.not.i51.us, label %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, label %.lr.ph.i47.us, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit52.us:           ; preds = %.lr.ph.i47.us, %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us
   %.1102.us = phi float [ %56, %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us ], [ %50, %.lr.ph.i47.us ]
@@ -777,7 +777,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit.us113:          ; preds = %.lr.ph.split
   %77 = select i1 %76, float %.0101.us118, float %73
   %indvars.iv.next.i50.us122 = add nuw nsw i64 %indvars.iv.i48.us120, 1
   %exitcond.not.i51.us123 = icmp eq i64 %indvars.iv.next.i50.us122, %wide.trip.count.i46
-  br i1 %exitcond.not.i51.us123, label %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, label %.lr.ph.i47.us117, !llvm.loop !11
+  br i1 %exitcond.not.i51.us123, label %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, label %.lr.ph.i47.us117, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128: ; preds = %.lr.ph.i47.us117
   %78 = fmul float %9, %65
@@ -857,7 +857,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %126 = select i1 %125, float %.091, float %122
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
-  br i1 %exitcond.not.i59, label %_ZL11projectPolyPKfS0_iRfS1_.exit60, label %.lr.ph.i55, !llvm.loop !11
+  br i1 %exitcond.not.i59, label %_ZL11projectPolyPKfS0_iRfS1_.exit60, label %.lr.ph.i55, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit60:              ; preds = %.lr.ph.i55, %101
   %.194 = phi float [ %116, %101 ], [ %124, %.lr.ph.i55 ]
@@ -883,7 +883,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit60:              ; preds = %.lr.ph.i55, %101
   %138 = select i1 %137, float %.088, float %134
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i62
-  br i1 %exitcond.not.i67, label %_ZL11projectPolyPKfS0_iRfS1_.exit68, label %.lr.ph.i63, !llvm.loop !11
+  br i1 %exitcond.not.i67, label %_ZL11projectPolyPKfS0_iRfS1_.exit68, label %.lr.ph.i63, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11projectPolyPKfS0_iRfS1_.exit60
   %.190 = phi float [ %128, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ], [ %136, %.lr.ph.i63 ]
@@ -897,7 +897,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11p
   %143 = trunc nuw nsw i64 %indvars.iv158 to i32
   %exitcond162.not = icmp ne i64 %indvars.iv.next159, %wide.trip.count.i62
   %or.cond.not = select i1 %not..i69, i1 %exitcond162.not, i1 false
-  br i1 %or.cond.not, label %101, label %.loopexit, !llvm.loop !12
+  br i1 %or.cond.not, label %101, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, %_ZL11projectPolyPKfS0_iRfS1_.exit68, %_ZL11projectPolyPKfS0_iRfS1_.exit, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
   %.0 = phi i1 [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]
@@ -946,7 +946,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
   %35 = fadd float %.074, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph78.preheader, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph78.preheader, label %9, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %6
   %36 = add nsw i32 %1, -1
@@ -978,7 +978,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
 48:                                               ; preds = %.lr.ph78
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !14
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !13
 
 .loopexit:                                        ; preds = %48, %._crit_edge, %44
   %.066 = phi i32 [ %45, %44 ], [ %36, %._crit_edge ], [ %38, %48 ]
@@ -1091,9 +1091,8 @@ attributes #6 = { nounwind }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

@@ -2989,7 +2989,7 @@ mi_heap_malloc.exit.us:                           ; preds = %.lr.ph
 24:                                               ; preds = %mi_heap_malloc.exit
   %25 = tail call ptr @_ZSt15get_new_handlerv() #20
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.split8.us, label %mi_heap_malloc.exit, !llvm.loop !41
+  br i1 %.not, label %.split8.us, label %mi_heap_malloc.exit, !llvm.loop !39
 
 .split8.us:                                       ; preds = %24, %10, %.split, %.split.us
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.4) #19
@@ -3004,7 +3004,7 @@ mi_heap_malloc.exit:                              ; preds = %.split, %24
   tail call void %27() #19
   %28 = tail call noalias ptr @_mi_malloc_generic(ptr noundef %0, i64 noundef %1, i1 noundef zeroext false, i64 noundef 0) #19
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %24, label %.critedge, !llvm.loop !41
+  br i1 %29, label %24, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %mi_heap_malloc.exit, %mi_heap_malloc.exit.us, %mi_heap_malloc.exit.us.thread, %.split8.us
   %.05 = phi ptr [ null, %.split8.us ], [ %15, %mi_heap_malloc.exit.us.thread ], [ %22, %mi_heap_malloc.exit.us ], [ %28, %mi_heap_malloc.exit ]
@@ -3218,7 +3218,7 @@ mi_try_new_handler.exit:                          ; preds = %.lr.ph
   %9 = load ptr, ptr %3, align 8, !tbaa !3
   %10 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %9, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #20
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !42
+  br i1 %11, label %.lr.ph, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %mi_try_new_handler.exit, %2
   %.lcssa = phi ptr [ %5, %2 ], [ %10, %mi_try_new_handler.exit ]
@@ -3263,7 +3263,7 @@ mi_try_new_handler.exit.i:                        ; preds = %.lr.ph.i
   %15 = load ptr, ptr %9, align 8, !tbaa !3
   %16 = tail call ptr @_mi_heap_realloc_zero(ptr noundef %15, ptr noundef %0, i64 noundef %storemerge.i.ph, i1 noundef zeroext false) #20
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !42
+  br i1 %17, label %.lr.ph.i, label %mi_new_realloc.exit, !llvm.loop !40
 
 mi_new_realloc.exit:                              ; preds = %mi_try_new_handler.exit.i, %8, %mi_count_size_overflow.exit
   %.0 = phi ptr [ null, %mi_count_size_overflow.exit ], [ %11, %8 ], [ %16, %mi_try_new_handler.exit.i ]
@@ -3348,7 +3348,7 @@ define internal fastcc void @mi_free_block_mt(ptr noundef %0, ptr noundef %1, pt
 
 49:                                               ; preds = %11, %5, %3
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %51 = load i32, ptr %50, align 8, !tbaa !43
+  %51 = load i32, ptr %50, align 8, !tbaa !41
   %52 = icmp eq i32 %51, 3
   br i1 %52, label %53, label %54
 
@@ -3394,7 +3394,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
 .backedge:                                        ; preds = %9, %.thread
   %.pn = phi { i64, i1 } [ %11, %9 ], [ %15, %.thread ]
   %.038.be = extractvalue { i64, i1 } %.pn, 0
-  br label %6, !llvm.loop !44
+  br label %6, !llvm.loop !42
 
 .thread:                                          ; preds = %6
   %13 = and i64 %.038, -4
@@ -3422,7 +3422,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
   %25 = cmpxchg weak ptr %22, i64 %.039.in, i64 %5 release monotonic, align 8
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
-  br i1 %26, label %.loopexit, label %24, !llvm.loop !45
+  br i1 %26, label %.loopexit, label %24, !llvm.loop !43
 
 .loopexit:                                        ; preds = %24, %17
   %28 = load atomic i64, ptr %3 monotonic, align 8
@@ -3435,7 +3435,7 @@ define internal fastcc void @mi_free_block_delayed_mt(ptr noundef captures(none)
   %32 = cmpxchg weak ptr %3, i64 %.2, i64 %31 release monotonic, align 8
   %33 = extractvalue { i64, i1 } %32, 1
   %34 = extractvalue { i64, i1 } %32, 0
-  br i1 %33, label %.thread45, label %29, !llvm.loop !46
+  br i1 %33, label %.thread45, label %29, !llvm.loop !44
 
 .thread45:                                        ; preds = %.thread, %29
   ret void
@@ -3572,11 +3572,9 @@ attributes #21 = { noreturn nounwind "no-builtin-malloc" }
 !36 = !{!12, !6, i64 26}
 !37 = !{!"branch_weights", i32 2146946776, i32 536872}
 !38 = !{!"branch_weights", !"expected", i32 1074010192, i32 1073473456}
-!39 = distinct !{!39, !33, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !33}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !33}
+!41 = !{!23, !26, i64 152}
 !42 = distinct !{!42, !33}
-!43 = !{!23, !26, i64 152}
+!43 = distinct !{!43, !33}
 !44 = distinct !{!44, !33}
-!45 = distinct !{!45, !33}
-!46 = distinct !{!46, !33}

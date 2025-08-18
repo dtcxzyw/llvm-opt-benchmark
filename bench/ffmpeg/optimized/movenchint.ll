@@ -446,7 +446,7 @@ thread-pre-split.i.i.i:                           ; preds = %138
 169:                                              ; preds = %162
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond75.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count74.i.i.i.i
-  br i1 %exitcond75.not.i.i.i.i, label %.critedge.us.i.i.i.i, label %161, !llvm.loop !90
+  br i1 %exitcond75.not.i.i.i.i, label %.critedge.us.i.i.i.i, label %161, !llvm.loop !89
 
 .preheader50.i.i.i.i:                             ; preds = %196, %.preheader50.preheader.i.i.i.i
   %indvars.iv91.i.i.i.i = phi i64 [ 0, %.preheader50.preheader.i.i.i.i ], [ %indvars.iv.next92.i.i.i.i, %196 ]
@@ -471,7 +471,7 @@ thread-pre-split.i.i.i:                           ; preds = %138
 175:                                              ; preds = %171
   %indvars.iv.next82.i.i.i.i = add nuw nsw i64 %indvars.iv81.i.i.i.i, 1
   %exitcond90.not.i.i.i.i = icmp eq i64 %indvars.iv.next82.i.i.i.i, %wide.trip.count89.i.i.i.i
-  br i1 %exitcond90.not.i.i.i.i, label %.critedge.i.i.i.i, label %170, !llvm.loop !90
+  br i1 %exitcond90.not.i.i.i.i, label %.critedge.i.i.i.i, label %170, !llvm.loop !89
 
 .critedge.split.loop.exit107.i.i.i.i:             ; preds = %171
   %176 = trunc nuw nsw i64 %indvars.iv81.i.i.i.i to i32
@@ -512,7 +512,7 @@ thread-pre-split.i.i.i:                           ; preds = %138
   %192 = icmp sgt i32 %.03955.i.i.i.i, 1
   %193 = icmp sgt i32 %.04054.i.i.i.i, 1
   %or.cond.i.i.i.i = and i1 %192, %193
-  br i1 %or.cond.i.i.i.i, label %.lr.ph.i.i.i.i, label %.critedge3.i.i.i.i, !llvm.loop !91
+  br i1 %or.cond.i.i.i.i, label %.lr.ph.i.i.i.i, label %.critedge3.i.i.i.i, !llvm.loop !90
 
 .critedge3.i.i.i.i:                               ; preds = %188, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
   %.1.lcssa.i.i.i.i = phi i32 [ %.041.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %191, %188 ], [ %.153.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -529,7 +529,7 @@ thread-pre-split.i.i.i:                           ; preds = %138
   %indvars.iv.next92.i.i.i.i = add nuw nsw i64 %indvars.iv91.i.i.i.i, 1
   %indvars.iv.next85.i.i.i.i = add nsw i32 %indvars.iv84.i.i.i.i, -1
   %exitcond95.not.i.i.i.i = icmp eq i64 %indvars.iv.next92.i.i.i.i, %wide.trip.count94.i.i.i.i
-  br i1 %exitcond95.not.i.i.i.i, label %.loopexit41.i.i.i, label %.preheader50.i.i.i.i, !llvm.loop !92
+  br i1 %exitcond95.not.i.i.i.i, label %.loopexit41.i.i.i, label %.preheader50.i.i.i.i, !llvm.loop !88
 
 .loopexit.i.i.i:                                  ; preds = %.critedge3.i.i.i.i, %.critedge49.loopexit67.i.i.i.i
   %.us-phi.i.i.i.i = phi i32 [ %.041.lcssa.us.i.i.i.i, %.critedge49.loopexit67.i.i.i.i ], [ %.1.lcssa.i.i.i.i, %.critedge3.i.i.i.i ]
@@ -634,7 +634,7 @@ find_sample_match.exit.i.i:                       ; preds = %207, %.loopexit.i.i
   call void @ffio_fill(ptr noundef %74, i32 noundef 0, i64 noundef %240) #5
   %241 = add nsw i32 %.3.i, 1
   %242 = icmp sgt i32 %238, 0
-  br i1 %242, label %.lr.ph.i21.i.i, label %.loopexit.i.i, !llvm.loop !93
+  br i1 %242, label %.lr.ph.i21.i.i, label %.loopexit.i.i, !llvm.loop !91
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i21.i.i, %find_sample_match.exit.i.i
   %.298.i = phi i32 [ %.096.i, %find_sample_match.exit.i.i ], [ %241, %.lr.ph.i21.i.i ]
@@ -674,7 +674,7 @@ find_sample_match.exit.i.i:                       ; preds = %207, %.loopexit.i.i
   call void @ffio_fill(ptr noundef %74, i32 noundef 0, i64 noundef %256) #5
   %257 = add nsw i32 %.197.i, 1
   %258 = icmp sgt i32 %254, 0
-  br i1 %258, label %.lr.ph.i22.i.i, label %describe_payload.exit.i, !llvm.loop !93
+  br i1 %258, label %.lr.ph.i22.i.i, label %describe_payload.exit.i, !llvm.loop !91
 
 describe_payload.exit.i:                          ; preds = %.loopexit.i.i, %.lr.ph.i22.i.i
   %.4.i = phi i32 [ %257, %.lr.ph.i22.i.i ], [ %245, %.loopexit.i.i ]
@@ -707,22 +707,22 @@ write_hint_packets.exit:                          ; preds = %84, %264, %73
   %272 = load ptr, ptr %7, align 8, !tbaa !66
   %273 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %272, ptr %273, align 8, !tbaa !73
-  %274 = load i64, ptr %76, align 8, !tbaa !94
+  %274 = load i64, ptr %76, align 8, !tbaa !92
   %275 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %274, ptr %275, align 8, !tbaa !95
+  store i64 %274, ptr %275, align 8, !tbaa !93
   %276 = getelementptr inbounds nuw i8, ptr %18, i64 36
-  store i32 %2, ptr %276, align 4, !tbaa !96
+  store i32 %2, ptr %276, align 4, !tbaa !94
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %278 = load i32, ptr %277, align 8, !tbaa !97
+  %278 = load i32, ptr %277, align 8, !tbaa !95
   %279 = and i32 %278, 1
   %.not48 = icmp eq i32 %279, 0
   br i1 %.not48, label %284, label %280
 
 280:                                              ; preds = %write_hint_packets.exit
   %281 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %282 = load i32, ptr %281, align 8, !tbaa !97
+  %282 = load i32, ptr %281, align 8, !tbaa !95
   %283 = or i32 %282, 1
-  store i32 %283, ptr %281, align 8, !tbaa !97
+  store i32 %283, ptr %281, align 8, !tbaa !95
   br label %284
 
 284:                                              ; preds = %280, %write_hint_packets.exit
@@ -861,7 +861,7 @@ define void @ff_mov_close_hinting(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next.i, %19
-  br i1 %20, label %10, label %sample_queue_free.exit, !llvm.loop !98
+  br i1 %20, label %10, label %sample_queue_free.exit, !llvm.loop !96
 
 sample_queue_free.exit:                           ; preds = %17, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1033,14 +1033,12 @@ attributes #5 = { nounwind }
 !85 = !{!34, !13, i64 232}
 !86 = !{!34, !19, i64 240}
 !87 = !{!19, !19, i64 0}
-!88 = distinct !{!88, !83, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = distinct !{!88, !83}
+!89 = distinct !{!89, !83}
 !90 = distinct !{!90, !83}
 !91 = distinct !{!91, !83}
-!92 = distinct !{!92, !83}
-!93 = distinct !{!93, !83}
-!94 = !{!63, !19, i64 16}
-!95 = !{!63, !19, i64 8}
-!96 = !{!63, !13, i64 36}
-!97 = !{!63, !13, i64 40}
-!98 = distinct !{!98, !83}
+!92 = !{!63, !19, i64 16}
+!93 = !{!63, !19, i64 8}
+!94 = !{!63, !13, i64 36}
+!95 = !{!63, !13, i64 40}
+!96 = distinct !{!96, !83}

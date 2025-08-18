@@ -2448,7 +2448,7 @@ cp_check.exit.us:                                 ; preds = %103, %100
   %116 = load i32, ptr %15, align 4, !tbaa !64
   %117 = add i32 %116, -269
   %or.cond124.us = icmp ult i32 %117, 20
-  br i1 %or.cond124.us, label %._crit_edge.split.us.thread, label %.lr.ph.split.us, !llvm.loop !117
+  br i1 %or.cond124.us, label %._crit_edge.split.us.thread, label %.lr.ph.split.us
 
 ._crit_edge.split.us:                             ; preds = %.outer
   %118 = load ptr, ptr %17, align 8, !tbaa !101
@@ -2897,7 +2897,7 @@ cp_istypedecl.exit.thread99:                      ; preds = %57, %58, %48
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %78 = load i32, ptr %77, align 4, !tbaa !94
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %78, ptr %79, align 8, !tbaa !119
+  store i32 %78, ptr %79, align 8, !tbaa !117
   %80 = tail call fastcc i32 @cp_next(ptr noundef nonnull %0)
   br label %.preheader139
 
@@ -3061,7 +3061,7 @@ cp_expr_kint.exit.i:                              ; preds = %ctype_raw.exit.i.i
 cp_expr_ksize.exit:                               ; preds = %cp_expr_kint.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %139, ptr %142, align 4, !tbaa !120
+  store i32 %139, ptr %142, align 4, !tbaa !118
   br label %cp_opt.exit82.thread
 
 cp_opt.exit82.thread:                             ; preds = %cp_expr_ksize.exit, %115
@@ -3454,7 +3454,7 @@ ctype_raw.exit162:                                ; preds = %104
   %.1116 = phi i32 [ %15, %17 ], [ %.2117.lcssa, %.thread ], [ %15, %64 ], [ %.5, %.thread166 ]
   %.1 = phi i32 [ %18, %17 ], [ %50, %.thread ], [ %67, %64 ], [ %156, %.thread166 ]
   %.not156 = icmp eq i32 %.1116, 0
-  br i1 %.not156, label %158, label %7, !llvm.loop !121
+  br i1 %.not156, label %158, label %7, !llvm.loop !119
 
 158:                                              ; preds = %157
   ret i32 %.1
@@ -3861,7 +3861,7 @@ cp_opt.exit21:                                    ; preds = %lj_cparse_case.exit
   switch i32 %171, label %cp_opt.exit21 [
     i32 41, label %cp_check.exit19
     i32 259, label %172
-  ], !llvm.loop !122
+  ], !llvm.loop !120
 
 172:                                              ; preds = %cp_opt.exit21
   tail call fastcc void @cp_err_token(ptr noundef nonnull %0, i32 noundef 41) #16
@@ -3878,7 +3878,7 @@ thread-pre-split:                                 ; preds = %cp_decl_align.exit,
 cp_opt.exit21.thread:                             ; preds = %lj_cparse_case.exit.thread, %thread-pre-split
   %.pr66 = phi i32 [ %.pr, %thread-pre-split ], [ %168, %lj_cparse_case.exit.thread ]
   %174 = icmp eq i32 %.pr66, 44
-  br i1 %174, label %cp_opt.exit, label %cp_decl_gccattribute.exit, !llvm.loop !123
+  br i1 %174, label %cp_opt.exit, label %cp_decl_gccattribute.exit, !llvm.loop !121
 
 cp_decl_gccattribute.exit:                        ; preds = %164, %cp_opt.exit21.thread
   %175 = phi i32 [ %.pr66, %cp_opt.exit21.thread ], [ %32, %164 ]
@@ -3942,7 +3942,7 @@ cp_check.exit.i:                                  ; preds = %181
   %203 = inttoptr i64 %202 to ptr
   %204 = tail call fastcc i32 @cp_next(ptr noundef nonnull %0)
   %205 = icmp eq i32 %204, 257
-  br i1 %205, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !124
+  br i1 %205, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !122
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %188
   %.0.lcssa.i = phi ptr [ %189, %188 ], [ %203, %.lr.ph.i ]
@@ -4087,7 +4087,7 @@ cp_decl_align.exit48:                             ; preds = %223, %cp_check.exit
   br i1 %259, label %cp_opt.exit45, label %cp_opt.exit45.thread.backedge
 
 cp_opt.exit45.thread.backedge:                    ; preds = %257, %cp_check.exit43, %cp_decl_align.exit48
-  br label %cp_opt.exit45.thread, !llvm.loop !125
+  br label %cp_opt.exit45.thread, !llvm.loop !123
 
 cp_opt.exit45:                                    ; preds = %257, %cp_opt.exit45
   %260 = tail call fastcc i32 @cp_next(ptr noundef nonnull %0)
@@ -4095,7 +4095,7 @@ cp_opt.exit45:                                    ; preds = %257, %cp_opt.exit45
   switch i32 %261, label %cp_opt.exit45 [
     i32 41, label %cp_check.exit43
     i32 259, label %262
-  ], !llvm.loop !126
+  ], !llvm.loop !124
 
 262:                                              ; preds = %cp_opt.exit45
   tail call fastcc void @cp_err_token(ptr noundef nonnull %0, i32 noundef 41) #16
@@ -4182,7 +4182,7 @@ cp_opt.exit:                                      ; preds = %3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %96
   %.1107.us = phi i32 [ %33, %96 ], [ %.056116, %.lr.ph ]
-  store i32 -1, ptr %16, align 4, !tbaa !120
+  store i32 -1, ptr %16, align 4, !tbaa !118
   call fastcc void @cp_declarator(ptr noundef nonnull %0, ptr noundef %6)
   %31 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %0, ptr noundef %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4202,7 +4202,7 @@ cp_opt.exit:                                      ; preds = %3
   br i1 %38, label %36, label %ctype_raw.exit.us, !llvm.loop !115
 
 ctype_raw.exit.us:                                ; preds = %36
-  %40 = load i32, ptr %16, align 4, !tbaa !120
+  %40 = load i32, ptr %16, align 4, !tbaa !118
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %56, label %42
 
@@ -4322,7 +4322,7 @@ ctype_raw.exit.us:                                ; preds = %36
   store i32 %103, ptr %26, align 8, !tbaa !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %.not66.us = icmp eq i32 %.4.us, 0
-  br i1 %.not66.us, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !127
+  br i1 %.not66.us, label %.lr.ph.split.us, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %96
   call fastcc void @cp_err_token(ptr noundef nonnull %0, i32 noundef 125) #16
@@ -4330,7 +4330,7 @@ ctype_raw.exit.us:                                ; preds = %36
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %154
   %.1107 = phi i32 [ %129, %154 ], [ %.056116, %.lr.ph ]
-  store i32 -1, ptr %16, align 4, !tbaa !120
+  store i32 -1, ptr %16, align 4, !tbaa !118
   call fastcc void @cp_declarator(ptr noundef nonnull %0, ptr noundef %6)
   %104 = call fastcc i32 @cp_decl_intern(ptr noundef nonnull %0, ptr noundef %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4470,7 +4470,7 @@ cp_check.exit:                                    ; preds = %.split112.us
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %165 = load i32, ptr %10, align 4, !tbaa !64
   %.not64 = icmp eq i32 %165, 125
-  br i1 %.not64, label %cp_check.exit84, label %27, !llvm.loop !128
+  br i1 %.not64, label %cp_check.exit84, label %27, !llvm.loop !125
 
 cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_opt.exit
   %.056.lcssa = phi i32 [ %9, %cp_opt.exit ], [ %.us-phi113, %cp_check.exit ]
@@ -4684,7 +4684,7 @@ cp_check.exit84:                                  ; preds = %cp_check.exit, %cp_
   %.0109.in.in.i = getelementptr inbounds nuw i8, ptr %187, i64 8
   %.0109.in.i = load i16, ptr %.0109.in.in.i, align 8, !tbaa !83
   %.not.i86 = icmp eq i16 %.0109.in.i, 0
-  br i1 %.not.i86, label %cp_struct_layout.exit, label %183, !llvm.loop !129
+  br i1 %.not.i86, label %cp_struct_layout.exit, label %183, !llvm.loop !126
 
 cp_struct_layout.exit:                            ; preds = %274, %cp_check.exit84
   %.0107.lcssa.i = phi i32 [ %180, %cp_check.exit84 ], [ %.1108.i, %274 ]
@@ -5148,7 +5148,7 @@ cp_opt.exit221:                                   ; preds = %cp_expr_sub.exit222
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %8, align 4, !tbaa !58
   %24 = icmp sgt i32 %22, 19
-  br i1 %24, label %._crit_edge, label %cp_expr_sub.exit222, !llvm.loop !130
+  br i1 %24, label %._crit_edge, label %cp_expr_sub.exit222, !llvm.loop !127
 
 25:                                               ; preds = %cp_expr_sub.exit222
   tail call fastcc void @cp_err_token(ptr noundef nonnull %0, i32 noundef 58) #16
@@ -6181,7 +6181,7 @@ cp_opt.exit.i:                                    ; preds = %cp_expr_sub.exit.i
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %74, align 4, !tbaa !58
   %84 = icmp sgt i32 %82, 19
-  br i1 %84, label %._crit_edge.i, label %cp_expr_sub.exit.i, !llvm.loop !130
+  br i1 %84, label %._crit_edge.i, label %cp_expr_sub.exit.i, !llvm.loop !127
 
 85:                                               ; preds = %cp_expr_sub.exit.i
   tail call fastcc void @cp_err_token(ptr noundef nonnull %0, i32 noundef 41) #16
@@ -6328,7 +6328,7 @@ cp_expr_unary.exit144:                            ; preds = %107
   %159 = add i32 %158, %.0137
   %160 = tail call fastcc i32 @cp_next(ptr noundef nonnull %0)
   %161 = icmp eq i32 %160, 257
-  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !131
+  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %149
   %.0.lcssa = phi i32 [ %153, %149 ], [ %159, %.lr.ph ]
@@ -6393,7 +6393,7 @@ cp_opt.exit54:                                    ; preds = %cp_expr_sub.exit
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %9, align 4, !tbaa !58
   %25 = icmp sgt i32 %23, 19
-  br i1 %25, label %._crit_edge, label %cp_expr_sub.exit, !llvm.loop !130
+  br i1 %25, label %._crit_edge, label %cp_expr_sub.exit, !llvm.loop !127
 
 cp_expr_comma.exit:                               ; preds = %cp_expr_sub.exit
   %26 = load ptr, ptr %6, align 8, !tbaa !14
@@ -6499,7 +6499,7 @@ cp_check.exit:                                    ; preds = %38
 74:                                               ; preds = %71, %67, %63, %60
   %75 = load ptr, ptr %6, align 8, !tbaa !14
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !132
+  %77 = load ptr, ptr %76, align 8, !tbaa !129
   %78 = load ptr, ptr %75, align 8, !tbaa !74
   %79 = ptrtoint ptr %.2 to i64
   %80 = ptrtoint ptr %78 to i64
@@ -6556,7 +6556,7 @@ define internal fastcc void @cp_err_badidx(ptr noundef %0, ptr noundef %1) unnam
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !132
+  %6 = load ptr, ptr %5, align 8, !tbaa !129
   %7 = load ptr, ptr %4, align 8, !tbaa !74
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -6644,7 +6644,7 @@ cp_opt.exit24:                                    ; preds = %cp_expr_sub.exit
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %23, align 4, !tbaa !58
   %34 = icmp sgt i32 %32, 19
-  br i1 %34, label %._crit_edge, label %cp_expr_sub.exit, !llvm.loop !130
+  br i1 %34, label %._crit_edge, label %cp_expr_sub.exit, !llvm.loop !127
 
 cp_expr_comma.exit:                               ; preds = %cp_expr_sub.exit, %cp_istypedecl.exit.thread
   %35 = phi i32 [ %.pr, %cp_istypedecl.exit.thread ], [ %29, %cp_expr_sub.exit ]
@@ -7282,19 +7282,16 @@ attributes #17 = { noreturn nounwind }
 !114 = !{!16, !11, i64 4}
 !115 = distinct !{!115, !13}
 !116 = distinct !{!116, !13}
-!117 = distinct !{!117, !118}
-!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!119 = !{!77, !11, i64 40}
-!120 = !{!77, !11, i64 60}
+!117 = !{!77, !11, i64 40}
+!118 = !{!77, !11, i64 60}
+!119 = distinct !{!119, !13}
+!120 = distinct !{!120, !13}
 !121 = distinct !{!121, !13}
 !122 = distinct !{!122, !13}
 !123 = distinct !{!123, !13}
 !124 = distinct !{!124, !13}
 !125 = distinct !{!125, !13}
 !126 = distinct !{!126, !13}
-!127 = distinct !{!127, !118}
+!127 = distinct !{!127, !13}
 !128 = distinct !{!128, !13}
-!129 = distinct !{!129, !13}
-!130 = distinct !{!130, !13}
-!131 = distinct !{!131, !13}
-!132 = !{!40, !23, i64 16}
+!129 = !{!40, !23, i64 16}

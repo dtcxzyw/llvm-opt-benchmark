@@ -276,7 +276,7 @@ define dso_local noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr noundef reado
   %.286.us136.i = phi ptr [ %109, %108 ], [ %.084126.us129.i, %107 ], [ %106, %.thread.us134.i ]
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next168.i, 8
-  br i1 %exitcond170.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !10
+  br i1 %exitcond170.not.i, label %.loopexit.i12, label %.split.split.us.i, !llvm.loop !8
 
 .split.split.i:                                   ; preds = %156, %.split.split.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %.split.split.preheader.i ], [ %indvars.iv.next164.i, %156 ]
@@ -383,7 +383,7 @@ decoct.exit.i:                                    ; preds = %.lr.ph.i
   %.286.i = phi ptr [ %115, %114 ], [ %.084126.i, %113 ], [ %155, %.thread.i ]
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond166.not.i = icmp eq i64 %indvars.iv.next164.i, 8
-  br i1 %exitcond166.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !11
+  br i1 %exitcond166.not.i, label %.loopexit.i12, label %.split.split.i, !llvm.loop !8
 
 .loopexit.i12:                                    ; preds = %92, %156, %110, %148
   %.185.i = phi ptr [ %150, %148 ], [ %.286.us136.i, %110 ], [ %.286.i, %156 ], [ %.286.us.i, %92 ]
@@ -484,7 +484,4 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !5, !9}
-!11 = distinct !{!11, !5}
+!8 = distinct !{!8, !5}

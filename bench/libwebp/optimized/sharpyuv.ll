@@ -678,7 +678,7 @@ UpdateW.exit275.i:                                ; preds = %UpdateW.exit265.i
   %384 = getelementptr inbounds i16, ptr %.1218.i, i64 %122
   %385 = add nuw nsw i32 %.1212.i, 2
   %386 = icmp slt i32 %385, %104
-  br i1 %386, label %255, label %387, !llvm.loop !21
+  br i1 %386, label %255, label %387, !llvm.loop !20
 
 387:                                              ; preds = %UpdateW.exit275.i
   %.not.i111 = icmp eq i32 %.0213298.i, 0
@@ -695,7 +695,7 @@ UpdateW.exit275.i:                                ; preds = %UpdateW.exit265.i
 
 .preheader.i.backedge:                            ; preds = %388, %387
   %.0213298.i.be = phi i32 [ %391, %388 ], [ 1, %387 ]
-  br label %.preheader.i, !llvm.loop !22
+  br label %.preheader.i, !llvm.loop !21
 
 split.i:                                          ; preds = %388
   %393 = add nsw i32 %27, 16
@@ -770,10 +770,10 @@ split.i:                                          ; preds = %388
   %438 = sext i1 %437 to i8
   %439 = select i1 %.not.i.us.us.i.i, i8 %436, i8 %438
   %440 = getelementptr inbounds nuw i8, ptr %.092.us.i.i, i64 %indvars.iv128.i.i
-  store i8 %439, ptr %440, align 1, !tbaa !23
+  store i8 %439, ptr %440, align 1, !tbaa !22
   %indvars.iv.next129.i.i = add nuw nsw i64 %indvars.iv128.i.i, 1
   %exitcond133.not.i.i = icmp eq i64 %indvars.iv.next129.i.i, %wide.trip.count132.i.i
-  br i1 %exitcond133.not.i.i, label %.split111.us.us.i.i, label %404, !llvm.loop !24
+  br i1 %exitcond133.not.i.i, label %.split111.us.us.i.i, label %404, !llvm.loop !23
 
 .split111.us.us.i.i:                              ; preds = %404
   %441 = getelementptr inbounds i16, ptr %.0.us.i.i, i64 %113
@@ -785,7 +785,7 @@ split.i:                                          ; preds = %388
   %447 = getelementptr inbounds i8, ptr %.092.us.i.i, i64 %399
   %448 = add nuw nsw i32 %.097.us.i.i, 1
   %exitcond135.not.i.i = icmp eq i32 %448, %smax134.i.i
-  br i1 %exitcond135.not.i.i, label %.preheader.i.i, label %.split.us.us.i.i, !llvm.loop !25
+  br i1 %exitcond135.not.i.i, label %.preheader.i.i, label %.split.us.us.i.i, !llvm.loop !24
 
 .split.i.i:                                       ; preds = %.split111.i.i, %.split.preheader.i.i
   %.097.i.i = phi i32 [ %492, %.split111.i.i ], [ 0, %.split.preheader.i.i ]
@@ -835,7 +835,7 @@ split.i:                                          ; preds = %388
   store i16 %483, ptr %484, align 2, !tbaa !14
   %indvars.iv.next.i278.i = add nuw nsw i64 %indvars.iv.i277.i, 1
   %exitcond.not.i279.i = icmp eq i64 %indvars.iv.next.i278.i, %wide.trip.count.i276.i
-  br i1 %exitcond.not.i279.i, label %.split111.i.i, label %449, !llvm.loop !26
+  br i1 %exitcond.not.i279.i, label %.split111.i.i, label %449, !llvm.loop !23
 
 .split111.i.i:                                    ; preds = %449
   %485 = getelementptr inbounds i16, ptr %.0.i.i, i64 %113
@@ -847,7 +847,7 @@ split.i:                                          ; preds = %388
   %491 = getelementptr inbounds i8, ptr %.092.i.i, i64 %399
   %492 = add nuw nsw i32 %.097.i.i, 1
   %exitcond127.not.i.i = icmp eq i32 %492, %smax134.i.i
-  br i1 %exitcond127.not.i.i, label %.preheader.i.i, label %.split.i.i, !llvm.loop !27
+  br i1 %exitcond127.not.i.i, label %.preheader.i.i, label %.split.i.i, !llvm.loop !24
 
 .preheader.i.i:                                   ; preds = %.split111.i.i, %.split111.us.us.i.i
   %493 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -927,7 +927,7 @@ split.i:                                          ; preds = %388
   %536 = sext i1 %535 to i8
   %537 = select i1 %.not.i104.us.us.i.i, i8 %534, i8 %536
   %538 = getelementptr inbounds nuw i8, ptr %.093.us.i.i, i64 %indvars.iv144.i.i
-  store i8 %537, ptr %538, align 1, !tbaa !23
+  store i8 %537, ptr %538, align 1, !tbaa !22
   %539 = trunc i32 %532 to i16
   %.not.i105.us.us.i.i = icmp ult i16 %539, 256
   %540 = trunc i32 %532 to i8
@@ -935,10 +935,10 @@ split.i:                                          ; preds = %388
   %542 = sext i1 %541 to i8
   %543 = select i1 %.not.i105.us.us.i.i, i8 %540, i8 %542
   %544 = getelementptr inbounds nuw i8, ptr %.094.us.i.i, i64 %indvars.iv144.i.i
-  store i8 %543, ptr %544, align 1, !tbaa !23
+  store i8 %543, ptr %544, align 1, !tbaa !22
   %indvars.iv.next145.i.i = add nuw nsw i64 %indvars.iv144.i.i, 1
   %exitcond149.not.i.i = icmp eq i64 %indvars.iv.next145.i.i, %wide.trip.count148.i.i
-  br i1 %exitcond149.not.i.i, label %.split119.us.us.i.i, label %509, !llvm.loop !28
+  br i1 %exitcond149.not.i.i, label %.split119.us.us.i.i, label %509, !llvm.loop !25
 
 .split119.us.us.i.i:                              ; preds = %509
   %545 = getelementptr inbounds i16, ptr %.1.us.i.i, i64 %122
@@ -946,7 +946,7 @@ split.i:                                          ; preds = %388
   %547 = getelementptr inbounds i8, ptr %.094.us.i.i, i64 %500
   %548 = add nuw nsw i32 %.198.us.i.i, 1
   %exitcond151.not.i.i = icmp eq i32 %548, %smax150.i.i
-  br i1 %exitcond151.not.i.i, label %DoSharpArgbToYuv.exit, label %.split117.us.us.i.i, !llvm.loop !29
+  br i1 %exitcond151.not.i.i, label %DoSharpArgbToYuv.exit, label %.split117.us.us.i.i, !llvm.loop !26
 
 .split117.i.i:                                    ; preds = %.split119.i.i, %.split117.preheader.i.i
   %.198.i.i = phi i32 [ %586, %.split119.i.i ], [ 0, %.split117.preheader.i.i ]
@@ -1000,7 +1000,7 @@ split.i:                                          ; preds = %388
   store i16 %581, ptr %582, align 2, !tbaa !14
   %indvars.iv.next137.i.i = add nuw nsw i64 %indvars.iv136.i.i, 1
   %exitcond141.not.i.i = icmp eq i64 %indvars.iv.next137.i.i, %wide.trip.count140.i.i
-  br i1 %exitcond141.not.i.i, label %.split119.i.i, label %549, !llvm.loop !30
+  br i1 %exitcond141.not.i.i, label %.split119.i.i, label %549, !llvm.loop !25
 
 .split119.i.i:                                    ; preds = %549
   %583 = getelementptr inbounds i16, ptr %.1.i.i, i64 %122
@@ -1008,7 +1008,7 @@ split.i:                                          ; preds = %388
   %585 = getelementptr inbounds i8, ptr %.094.i.i, i64 %500
   %586 = add nuw nsw i32 %.198.i.i, 1
   %exitcond143.not.i.i = icmp eq i32 %586, %smax150.i.i
-  br i1 %exitcond143.not.i.i, label %DoSharpArgbToYuv.exit, label %.split117.i.i, !llvm.loop !31
+  br i1 %exitcond143.not.i.i, label %DoSharpArgbToYuv.exit, label %.split117.i.i, !llvm.loop !26
 
 DoSharpArgbToYuv.exit:                            ; preds = %.split119.i.i, %.split119.us.us.i.i, %.loopexit
   %.0214.i = phi i32 [ 0, %.loopexit ], [ 1, %.split119.us.us.i.i ], [ 1, %.split119.i.i ]
@@ -1077,26 +1077,26 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   %indvars.iv79 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next80, %.split.us ]
   %19 = mul nsw i64 %indvars.iv79, %16
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !23
+  %21 = load i8, ptr %20, align 1, !tbaa !22
   %22 = zext i8 %21 to i16
   %23 = shl nuw nsw i16 %22, 2
   %24 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv79
   store i16 %23, ptr %24, align 2, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %1, i64 %19
-  %26 = load i8, ptr %25, align 1, !tbaa !23
+  %26 = load i8, ptr %25, align 1, !tbaa !22
   %27 = zext i8 %26 to i16
   %28 = shl nuw nsw i16 %27, 2
   %gep94 = getelementptr i16, ptr %invariant.gep93, i64 %indvars.iv79
   store i16 %28, ptr %gep94, align 2, !tbaa !14
   %29 = getelementptr inbounds i8, ptr %2, i64 %19
-  %30 = load i8, ptr %29, align 1, !tbaa !23
+  %30 = load i8, ptr %29, align 1, !tbaa !22
   %31 = zext i8 %30 to i16
   %32 = shl nuw nsw i16 %31, 2
   %gep96 = getelementptr i16, ptr %invariant.gep95, i64 %indvars.iv79
   store i16 %32, ptr %gep96, align 2, !tbaa !14
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count83
-  br i1 %exitcond84.not, label %.split67.us, label %.split.us, !llvm.loop !32
+  br i1 %exitcond84.not, label %.split67.us, label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %7
   %33 = icmp sgt i32 %4, 8
@@ -1138,7 +1138,7 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   store i16 %56, ptr %gep92, align 2, !tbaa !14
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count77
-  br i1 %exitcond78.not, label %.split67.us, label %.split.split.us, !llvm.loop !33
+  br i1 %exitcond78.not, label %.split67.us, label %.split.split.us, !llvm.loop !27
 
 .split.split:                                     ; preds = %.split, %.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split.split ], [ 0, %.split ]
@@ -1166,7 +1166,7 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
   store i16 %73, ptr %gep88, align 2, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
-  br i1 %exitcond.not, label %.split67.us, label %.split.split, !llvm.loop !34
+  br i1 %exitcond.not, label %.split67.us, label %.split.split, !llvm.loop !27
 
 .split67.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %74 = and i32 %5, 1
@@ -1297,7 +1297,7 @@ define internal fastcc void @UpdateChroma(ptr noundef readonly captures(none) %0
   %91 = getelementptr inbounds nuw i8, ptr %.049, i64 4
   %92 = add nuw nsw i32 %.051, 1
   %exitcond.not = icmp eq i32 %92, %smax
-  br i1 %exitcond.not, label %93, label %20, !llvm.loop !35
+  br i1 %exitcond.not, label %93, label %20, !llvm.loop !28
 
 93:                                               ; preds = %20
   ret void
@@ -1360,20 +1360,13 @@ attributes #12 = { nounwind allocsize(0) }
 !16 = distinct !{!16, !13}
 !17 = distinct !{!17, !13}
 !18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
 !21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !13, !20}
-!25 = distinct !{!25, !13, !20}
+!22 = !{!5, !5, i64 0}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
 !26 = distinct !{!26, !13}
 !27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13, !20}
-!29 = distinct !{!29, !13, !20}
-!30 = distinct !{!30, !13}
-!31 = distinct !{!31, !13}
-!32 = distinct !{!32, !13, !20}
-!33 = distinct !{!33, !13, !20}
-!34 = distinct !{!34, !13}
-!35 = distinct !{!35, !13}
+!28 = distinct !{!28, !13}

@@ -3239,7 +3239,7 @@ get_bit.exit79.i:                                 ; preds = %196
 .split26.us.i.i:                                  ; preds = %.split.us.i.i, %237
   %252 = add nuw nsw i64 %.02327.i.i, 1
   %exitcond30.not.i.i = icmp eq i64 %252, 16
-  br i1 %exitcond30.not.i.i, label %select_point.exit.i, label %237, !llvm.loop !24
+  br i1 %exitcond30.not.i.i, label %select_point.exit.i, label %237, !llvm.loop !23
 
 select_point.exit.i:                              ; preds = %.split26.us.i.i
   br i1 %.not70.i, label %253, label %254
@@ -3316,7 +3316,7 @@ get_bit.exit81.i:                                 ; preds = %254, %253
 .split26.us.i90.i:                                ; preds = %.split.us.i92.i, %287
   %302 = add nuw nsw i64 %.02327.i88.i, 1
   %exitcond30.not.i91.i = icmp eq i64 %302, 16
-  br i1 %exitcond30.not.i91.i, label %select_point.exit95.i, label %287, !llvm.loop !24
+  br i1 %exitcond30.not.i91.i, label %select_point.exit95.i, label %287, !llvm.loop !23
 
 select_point.exit95.i:                            ; preds = %.split26.us.i90.i
   call fastcc void @point_add(ptr noundef %11, ptr noundef %183, ptr noundef %184, ptr noundef %11, ptr noundef %183, ptr noundef %184, i32 noundef 1, ptr noundef %12, ptr noundef %185, ptr noundef %186)
@@ -3474,7 +3474,7 @@ get_bit.exit107.i:                                ; preds = %371, %get_bit.exit1
 .split26.us.i110.i:                               ; preds = %.split.us.i112.i, %378
   %393 = add nuw nsw i64 %.02327.i108.i, 1
   %exitcond30.not.i111.i = icmp eq i64 %393, 17
-  br i1 %exitcond30.not.i111.i, label %select_point.exit115.i, label %378, !llvm.loop !24
+  br i1 %exitcond30.not.i111.i, label %select_point.exit115.i, label %378, !llvm.loop !23
 
 select_point.exit115.i:                           ; preds = %.split26.us.i110.i
   %394 = load i64, ptr %185, align 16, !tbaa !11
@@ -3506,7 +3506,7 @@ select_point.exit115.i:                           ; preds = %.split26.us.i110.i
   store i64 %412, ptr %408, align 8, !tbaa !11
   %413 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i116.i = icmp eq i64 %413, 4
-  br i1 %exitcond.not.i116.i, label %copy_conditional.exit.i, label %405, !llvm.loop !25
+  br i1 %exitcond.not.i116.i, label %copy_conditional.exit.i, label %405, !llvm.loop !24
 
 copy_conditional.exit.i:                          ; preds = %405
   %.not71.i = icmp eq i32 %.1.i, 0
@@ -5233,7 +5233,7 @@ define internal fastcc void @point_add(ptr noundef nonnull captures(none) %0, pt
   store i64 %1248, ptr %1244, align 8, !tbaa !11
   %1249 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %1249, 4
-  br i1 %exitcond.not.i, label %copy_conditional.exit, label %1241, !llvm.loop !25
+  br i1 %exitcond.not.i, label %copy_conditional.exit, label %1241, !llvm.loop !24
 
 copy_conditional.exit:                            ; preds = %1241, %copy_conditional.exit
   %.010.i63 = phi i64 [ %1257, %copy_conditional.exit ], [ 0, %1241 ]
@@ -5247,7 +5247,7 @@ copy_conditional.exit:                            ; preds = %1241, %copy_conditi
   store i64 %1256, ptr %1252, align 8, !tbaa !11
   %1257 = add nuw nsw i64 %.010.i63, 1
   %exitcond.not.i64 = icmp eq i64 %1257, 4
-  br i1 %exitcond.not.i64, label %copy_conditional.exit65, label %copy_conditional.exit, !llvm.loop !25
+  br i1 %exitcond.not.i64, label %copy_conditional.exit65, label %copy_conditional.exit, !llvm.loop !24
 
 copy_conditional.exit65:                          ; preds = %copy_conditional.exit, %copy_conditional.exit65
   %.010.i66 = phi i64 [ %1265, %copy_conditional.exit65 ], [ 0, %copy_conditional.exit ]
@@ -5261,7 +5261,7 @@ copy_conditional.exit65:                          ; preds = %copy_conditional.ex
   store i64 %1264, ptr %1260, align 8, !tbaa !11
   %1265 = add nuw nsw i64 %.010.i66, 1
   %exitcond.not.i67 = icmp eq i64 %1265, 4
-  br i1 %exitcond.not.i67, label %copy_conditional.exit68, label %copy_conditional.exit65, !llvm.loop !25
+  br i1 %exitcond.not.i67, label %copy_conditional.exit68, label %copy_conditional.exit65, !llvm.loop !24
 
 copy_conditional.exit68:                          ; preds = %copy_conditional.exit65, %copy_conditional.exit68
   %.010.i69 = phi i64 [ %1273, %copy_conditional.exit68 ], [ 0, %copy_conditional.exit65 ]
@@ -5275,7 +5275,7 @@ copy_conditional.exit68:                          ; preds = %copy_conditional.ex
   store i64 %1272, ptr %1268, align 8, !tbaa !11
   %1273 = add nuw nsw i64 %.010.i69, 1
   %exitcond.not.i70 = icmp eq i64 %1273, 4
-  br i1 %exitcond.not.i70, label %copy_conditional.exit71, label %copy_conditional.exit68, !llvm.loop !25
+  br i1 %exitcond.not.i70, label %copy_conditional.exit71, label %copy_conditional.exit68, !llvm.loop !24
 
 copy_conditional.exit71:                          ; preds = %copy_conditional.exit68, %copy_conditional.exit71
   %.010.i72 = phi i64 [ %1281, %copy_conditional.exit71 ], [ 0, %copy_conditional.exit68 ]
@@ -5289,7 +5289,7 @@ copy_conditional.exit71:                          ; preds = %copy_conditional.ex
   store i64 %1280, ptr %1276, align 8, !tbaa !11
   %1281 = add nuw nsw i64 %.010.i72, 1
   %exitcond.not.i73 = icmp eq i64 %1281, 4
-  br i1 %exitcond.not.i73, label %copy_conditional.exit74, label %copy_conditional.exit71, !llvm.loop !25
+  br i1 %exitcond.not.i73, label %copy_conditional.exit74, label %copy_conditional.exit71, !llvm.loop !24
 
 copy_conditional.exit74:                          ; preds = %copy_conditional.exit71, %copy_conditional.exit74
   %.010.i75 = phi i64 [ %1289, %copy_conditional.exit74 ], [ 0, %copy_conditional.exit71 ]
@@ -5303,7 +5303,7 @@ copy_conditional.exit74:                          ; preds = %copy_conditional.ex
   store i64 %1288, ptr %1284, align 8, !tbaa !11
   %1289 = add nuw nsw i64 %.010.i75, 1
   %exitcond.not.i76 = icmp eq i64 %1289, 4
-  br i1 %exitcond.not.i76, label %copy_conditional.exit77, label %copy_conditional.exit74, !llvm.loop !25
+  br i1 %exitcond.not.i76, label %copy_conditional.exit77, label %copy_conditional.exit74, !llvm.loop !24
 
 copy_conditional.exit77:                          ; preds = %copy_conditional.exit74
   %1290 = load i64, ptr %11, align 16, !tbaa !11
@@ -6056,7 +6056,6 @@ attributes #11 = { nounwind allocsize(0) }
 !19 = distinct !{!19, !10}
 !20 = distinct !{!20, !10}
 !21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
 !24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}

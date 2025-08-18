@@ -6183,7 +6183,7 @@ _ZN9Imath_3_24modpEii.exit.us.i:                  ; preds = %403, %399
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %424 = add i32 %.06.i, 1
   %exitcond.not.i = icmp eq i32 %.06.i, %383
-  br i1 %exitcond.not.i, label %_ZN7Imf_3_412_GLOBAL__N_112convertToXdrEPNS_22DeepScanLineOutputFile4DataERNS_5ArrayIcEEiii.exit.loopexit, label %389, !llvm.loop !237
+  br i1 %exitcond.not.i, label %_ZN7Imf_3_412_GLOBAL__N_112convertToXdrEPNS_22DeepScanLineOutputFile4DataERNS_5ArrayIcEEiii.exit.loopexit, label %389, !llvm.loop !236
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %451
   %.val19.us33.i = phi ptr [ %.val19.us32.i, %451 ], [ %.val19.us34.i, %.lr.ph.i ]
@@ -6248,7 +6248,7 @@ _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %435, %431
   %456 = sub i64 %454, %455
   %457 = ashr exact i64 %456, 3
   %458 = icmp ugt i64 %457, %453
-  br i1 %458, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !238
+  br i1 %458, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !235
 
 _ZN7Imf_3_412_GLOBAL__N_112convertToXdrEPNS_22DeepScanLineOutputFile4DataERNS_5ArrayIcEEiii.exit.loopexit: ; preds = %._crit_edge.i
   %.pre227.pre.pre = load ptr, ptr %27, align 8, !tbaa !183
@@ -6815,7 +6815,5 @@ attributes #29 = { nounwind willreturn memory(read) }
 !232 = !{!"llvm.loop.unswitch.partial.disable"}
 !233 = distinct !{!233, !86}
 !234 = distinct !{!234, !86}
-!235 = distinct !{!235, !86, !236}
-!236 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!237 = distinct !{!237, !86}
-!238 = distinct !{!238, !86}
+!235 = distinct !{!235, !86}
+!236 = distinct !{!236, !86}

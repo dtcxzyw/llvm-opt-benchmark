@@ -421,7 +421,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %249 = fsub double %248, %178
   store double %249, ptr %60, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr %61, ptr %9, align 8, !tbaa !43
+  store ptr %61, ptr %9, align 8, !tbaa !42
   %250 = load <2 x double>, ptr %12, align 16, !tbaa !37
   %251 = load <2 x double>, ptr %62, align 8, !tbaa !37
   %252 = load <2 x double>, ptr %63, align 16, !tbaa !37
@@ -458,7 +458,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   store double %277, ptr %272, align 8, !tbaa !23
   %278 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %278, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %279, label %253, !llvm.loop !45
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %279, label %253, !llvm.loop !44
 
 279:                                              ; preds = %253
   %280 = load double, ptr %61, align 8, !tbaa !23
@@ -527,7 +527,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %324 = fsub double %323, %178
   store double %324, ptr %79, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %80, ptr %8, align 8, !tbaa !43
+  store ptr %80, ptr %8, align 8, !tbaa !42
   br label %325
 
 325:                                              ; preds = %325, %279
@@ -561,7 +561,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   store double %349, ptr %344, align 8, !tbaa !23
   %350 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i187 = icmp eq i64 %350, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i187, label %351, label %325, !llvm.loop !45
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i187, label %351, label %325, !llvm.loop !44
 
 351:                                              ; preds = %325
   %352 = load double, ptr %80, align 8, !tbaa !23
@@ -600,7 +600,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.sroa.12.56.vec.insert = insertelement <2 x double> <double 0.000000e+00, double poison>, double %373, i64 1
   %374 = call double @cos(double noundef %370) #11, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %89, ptr %7, align 8, !tbaa !43
+  store ptr %89, ptr %7, align 8, !tbaa !42
   br label %375
 
 375:                                              ; preds = %375, %351
@@ -634,7 +634,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   store double %399, ptr %394, align 8, !tbaa !23
   %400 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i234, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i236 = icmp eq i64 %400, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i236, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit239, label %375, !llvm.loop !45
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i236, label %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit239, label %375, !llvm.loop !44
 
 _ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit239: ; preds = %375
   %401 = load double, ptr %89, align 8, !tbaa !23
@@ -688,7 +688,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit239: ;
   %431 = fsub double %429, %430
   %432 = call double @llvm.fabs.f64(double %431)
   %433 = fcmp oeq double %432, 0x7FF0000000000000
-  br i1 %433, label %cdce.call591, label %cdce.end592, !prof !46
+  br i1 %433, label %cdce.call591, label %cdce.end592, !prof !45
 
 cdce.call591:                                     ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit239
   %434 = call double @cos(double noundef %431) #11, !tbaa !14
@@ -708,7 +708,7 @@ cdce.end592:                                      ; preds = %_ZN5Eigen10MatrixBa
 438:                                              ; preds = %116, %cdce.end592
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
-  br i1 %exitcond616.not, label %._crit_edge604, label %116, !llvm.loop !47
+  br i1 %exitcond616.not, label %._crit_edge604, label %116, !llvm.loop !46
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -875,10 +875,9 @@ attributes #13 = { noreturn }
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEElsINS1_IdLi1ELi3ELi1ELi1ELi3EEEEENS_16CommaInitializerIS2_EERKNS0_IT_EE: argument 0"}
 !40 = distinct !{!40, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEElsINS1_IdLi1ELi3ELi1ELi1ELi3EEEEENS_16CommaInitializerIS2_EERKNS0_IT_EE"}
-!41 = distinct !{!41, !26, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = !{!44, !19, i64 0}
-!44 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi3EEE", !19, i64 0}
-!45 = distinct !{!45, !26}
-!46 = !{!"branch_weights", i32 1, i32 1048575}
-!47 = distinct !{!47, !26}
+!41 = distinct !{!41, !26}
+!42 = !{!43, !19, i64 0}
+!43 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi3EEE", !19, i64 0}
+!44 = distinct !{!44, !26}
+!45 = !{!"branch_weights", i32 1, i32 1048575}
+!46 = distinct !{!46, !26}

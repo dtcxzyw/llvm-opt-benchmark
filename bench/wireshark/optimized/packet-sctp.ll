@@ -7332,7 +7332,7 @@ define internal fastcc void @dissect_parameters(ptr noundef %0, ptr noundef %1, 
   %43 = icmp slt i32 %42, 1
   tail call fastcc void @dissect_parameter(ptr noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, i1 noundef zeroext %43)
   %44 = icmp sgt i32 %42, 0
-  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !50
+  br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %38, %18, %5
   ret void
@@ -7649,7 +7649,7 @@ dissect_hostname_parameter.exit:                  ; preds = %109, %118, %120
   %143 = add nuw nsw i32 %.024.i, 2
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %128
-  br i1 %exitcond.not.i, label %dissect_supported_address_types_parameter.exit, label %130, !llvm.loop !51
+  br i1 %exitcond.not.i, label %dissect_supported_address_types_parameter.exit, label %130, !llvm.loop !49
 
 dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.523)
@@ -7684,7 +7684,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   %159 = add i32 %.02.i, 2
   %160 = add nuw nsw i32 %.0151.i, 1
   %exitcond.not.i114 = icmp eq i32 %160, %156
-  br i1 %exitcond.not.i114, label %dissect_ipv4_parameter.exit, label %.lr.ph.i113, !llvm.loop !52
+  br i1 %exitcond.not.i114, label %dissect_ipv4_parameter.exit, label %.lr.ph.i113, !llvm.loop !50
 
 161:                                              ; preds = %43
   %162 = load i32, ptr @hf_stream_reset_req_seq_nr, align 4
@@ -7711,7 +7711,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   %172 = add i32 %.02.i118, 2
   %173 = add nuw nsw i32 %.0111.i, 1
   %exitcond.not.i119 = icmp eq i32 %173, %169
-  br i1 %exitcond.not.i119, label %dissect_ipv4_parameter.exit, label %.lr.ph.i117, !llvm.loop !53
+  br i1 %exitcond.not.i119, label %dissect_ipv4_parameter.exit, label %.lr.ph.i117, !llvm.loop !51
 
 174:                                              ; preds = %43
   %175 = load i32, ptr @hf_stream_reset_req_seq_nr, align 4
@@ -7811,7 +7811,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   %indvars.iv.next.i123 = add nuw nsw i32 %indvars.iv.i122, 1
   %235 = add nuw nsw i32 %227, 1
   %exitcond.not.i124 = icmp eq i32 %indvars.iv.next.i123, %223
-  br i1 %exitcond.not.i124, label %dissect_chunks_parameter.exit, label %225, !llvm.loop !54
+  br i1 %exitcond.not.i124, label %dissect_chunks_parameter.exit, label %225, !llvm.loop !52
 
 dissect_chunks_parameter.exit:                    ; preds = %234, %219
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.523)
@@ -7853,7 +7853,7 @@ dissect_chunks_parameter.exit:                    ; preds = %234, %219
   %indvars.iv.next.i129 = add nuw nsw i32 %indvars.iv.i127, 1
   %254 = add nuw nsw i32 %246, 2
   %exitcond.not.i130 = icmp eq i32 %indvars.iv.next.i129, %242
-  br i1 %exitcond.not.i130, label %dissect_hmac_algo_parameter.exit, label %244, !llvm.loop !55
+  br i1 %exitcond.not.i130, label %dissect_hmac_algo_parameter.exit, label %244, !llvm.loop !53
 
 dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %237, ptr noundef nonnull @.str.523)
@@ -7893,7 +7893,7 @@ dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   %indvars.iv.next.i135 = add nuw nsw i32 %indvars.iv.i133, 1
   %271 = add nuw nsw i32 %263, 1
   %exitcond.not.i136 = icmp eq i32 %indvars.iv.next.i135, %259
-  br i1 %exitcond.not.i136, label %dissect_supported_extensions_parameter.exit, label %261, !llvm.loop !56
+  br i1 %exitcond.not.i136, label %dissect_supported_extensions_parameter.exit, label %261, !llvm.loop !54
 
 dissect_supported_extensions_parameter.exit:      ; preds = %270, %255
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.523)
@@ -8189,7 +8189,7 @@ define internal fastcc void @dissect_error_causes(ptr noundef %0, ptr noundef %1
   %48 = add i32 %.011.i, 2
   %49 = add nuw i32 %.0910.i, 1
   %exitcond.not.i = icmp eq i32 %49, %43
-  br i1 %exitcond.not.i, label %dissect_missing_mandatory_parameters_cause.exit, label %.lr.ph.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %dissect_missing_mandatory_parameters_cause.exit, label %.lr.ph.i, !llvm.loop !55
 
 50:                                               ; preds = %17
   %51 = load ptr, ptr %4, align 8
@@ -8512,7 +8512,7 @@ dissect_error_cause.exit:                         ; preds = %dissect_missing_man
   %230 = add i32 %12, %.029
   %231 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %230)
   %.not = icmp eq i32 %231, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %dissect_error_cause.exit, %3
   ret void
@@ -8590,7 +8590,7 @@ define internal fastcc void @sctp_ack_block(ptr noundef readonly captures(none) 
   %41 = getelementptr inbounds nuw i8, ptr %.05887, i64 72
   %42 = load ptr, ptr %41, align 8
   %.not79 = icmp eq ptr %42, null
-  br i1 %.not79, label %.loopexit, label %.preheader85, !llvm.loop !59
+  br i1 %.not79, label %.loopexit, label %.preheader85, !llvm.loop !57
 
 43:                                               ; preds = %26
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8671,7 +8671,7 @@ define internal fastcc void @sctp_ack_block(ptr noundef readonly captures(none) 
   %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %83 = load ptr, ptr %82, align 8
   %.not33.i = icmp eq ptr %83, null
-  br i1 %.not33.i, label %84, label %.preheader.i, !llvm.loop !60
+  br i1 %.not33.i, label %84, label %.preheader.i, !llvm.loop !58
 
 84:                                               ; preds = %.preheader.i
   %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
@@ -8698,7 +8698,7 @@ define internal fastcc void @sctp_ack_block(ptr noundef readonly captures(none) 
 sctp_ack.exit:                                    ; preds = %.preheader.split, %67, %90, %93
   %94 = add nuw i32 %.088, 1
   %exitcond.not = icmp eq i32 %94, %65
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !61
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !59
 
 .loopexit:                                        ; preds = %40, %sctp_ack.exit, %.preheader, %58, %43, %50, %6, %7, %10
   ret void
@@ -8883,7 +8883,7 @@ define internal void @frag_free_msgs(ptr noundef %0) #0 {
   tail call void @g_free(ptr noundef nonnull %5)
   %8 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.preheader21, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %.preheader21, label %.lr.ph, !llvm.loop !61
 
 .preheader:                                       ; preds = %.lr.ph24, %.preheader21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8899,7 +8899,7 @@ define internal void @frag_free_msgs(ptr noundef %0) #0 {
   tail call void @g_free(ptr noundef nonnull %11)
   %14 = load ptr, ptr %3, align 8
   %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %.preheader, label %.lr.ph24, !llvm.loop !64
+  br i1 %.not19, label %.preheader, label %.lr.ph24, !llvm.loop !62
 
 .lr.ph26:                                         ; preds = %.preheader, %.lr.ph26
   %15 = phi ptr [ %20, %.lr.ph26 ], [ %10, %.preheader ]
@@ -8912,7 +8912,7 @@ define internal void @frag_free_msgs(ptr noundef %0) #0 {
   tail call void @g_free(ptr noundef nonnull %15)
   %20 = load ptr, ptr %9, align 8
   %.not20 = icmp eq ptr %20, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph26, !llvm.loop !65
+  br i1 %.not20, label %._crit_edge, label %.lr.ph26, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph26, %.preheader
   tail call void @g_free(ptr noundef %0)
@@ -9149,8 +9149,8 @@ attributes #26 = { allocsize(0) }
 !45 = distinct !{!45, !7}
 !46 = distinct !{!46, !7}
 !47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7, !49}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
 !50 = distinct !{!50, !7}
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
@@ -9160,10 +9160,8 @@ attributes #26 = { allocsize(0) }
 !56 = distinct !{!56, !7}
 !57 = distinct !{!57, !7}
 !58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7, !62}
-!62 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !7, !60}
+!60 = !{!"llvm.loop.unswitch.partial.disable"}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
 !63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}

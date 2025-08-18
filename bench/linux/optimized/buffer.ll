@@ -6946,7 +6946,7 @@ define dso_local void @__bh_read_batch(i32 noundef %0, ptr noundef readonly capt
 55:                                               ; preds = %52, %51, %43, %.split
   %56 = add nuw nsw i64 %37, 1
   %57 = icmp eq i64 %56, %7
-  br i1 %57, label %.loopexit, label %.split, !llvm.loop !202
+  br i1 %57, label %.loopexit, label %.split, !llvm.loop !200
 
 .loopexit:                                        ; preds = %55, %34, %4
   ret void
@@ -6966,9 +6966,9 @@ define dso_local void @buffer_init() local_unnamed_addr #8 section ".init.text" 
   br i1 %7, label %8, label %9, !prof !18
 
 8:                                                ; preds = %0
-  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #13, !srcloc !203
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3137, i32 2305, i64 12) #13, !srcloc !204
-  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_end\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #13, !srcloc !205
+  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #13, !srcloc !201
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3137, i32 2305, i64 12) #13, !srcloc !202
+  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_end\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #13, !srcloc !203
   br label %9
 
 9:                                                ; preds = %8, %0
@@ -7020,14 +7020,14 @@ define internal noundef i32 @buffer_exit_cpu_dead(i32 noundef %0) #2 align 16 {
   store ptr null, ptr %9, align 8
   %19 = add nuw nsw i64 %8, 1
   %20 = icmp eq i64 %19, 16
-  br i1 %20, label %21, label %7, !llvm.loop !206
+  br i1 %20, label %21, label %7, !llvm.loop !204
 
 21:                                               ; preds = %18
   %22 = load i64, ptr %3, align 8
   %23 = add i64 %22, ptrtoint (ptr @bh_accounting to i64)
   %24 = inttoptr i64 %23 to ptr
   %25 = load i32, ptr %24, align 4
-  tail call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @bh_accounting, i32 %25, ptr nonnull elementtype(i32) @bh_accounting) #13, !srcloc !207
+  tail call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @bh_accounting, i32 %25, ptr nonnull elementtype(i32) @bh_accounting) #13, !srcloc !205
   %26 = load i64, ptr %3, align 8
   %27 = add i64 %26, ptrtoint (ptr @bh_accounting to i64)
   %28 = inttoptr i64 %27 to ptr
@@ -7131,7 +7131,7 @@ define internal fastcc i64 @folio_init_buffers(ptr noundef %0, ptr noundef %1, i
   %23 = lshr i32 %2, 9
   %24 = zext nneg i32 %23 to i64
   %25 = add nsw i64 %24, -1
-  %26 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 -1) #15, !srcloc !208
+  %26 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 -1) #15, !srcloc !206
   %27 = add i32 %26, 10
   %28 = zext nneg i32 %27 to i64
   br label %29
@@ -7178,7 +7178,7 @@ define internal fastcc i64 @folio_init_buffers(ptr noundef %0, ptr noundef %1, i
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %5
-  br i1 %53, label %.split4.us, label %.split.us, !llvm.loop !209
+  br i1 %53, label %.split4.us, label %.split.us, !llvm.loop !207
 
 .split:                                           ; preds = %32, %74
   %54 = phi ptr [ %77, %74 ], [ %5, %32 ]
@@ -7223,7 +7223,7 @@ define internal fastcc i64 @folio_init_buffers(ptr noundef %0, ptr noundef %1, i
   %76 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %5
-  br i1 %78, label %.split4.us, label %.split, !llvm.loop !210
+  br i1 %78, label %.split4.us, label %.split, !llvm.loop !207
 
 .split4.us:                                       ; preds = %74, %49
   ret i64 %33
@@ -7540,14 +7540,11 @@ attributes #16 = { nounwind memory(none) }
 !197 = distinct !{!197, !22, !23}
 !198 = distinct !{!198, !22, !23}
 !199 = distinct !{!199, !22, !23}
-!200 = distinct !{!200, !22, !23, !201}
-!201 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!202 = distinct !{!202, !22, !23}
-!203 = !{i64 2159735085, i64 2159734894, i64 2159734946, i64 2159734992, i64 2159735020}
-!204 = !{i64 2159735159, i64 2159735188, i64 2159735234, i64 2159735292, i64 2159735346, i64 2159735400, i64 2159735455, i64 2159735486, i64 2159735794, i64 2159735800, i64 2159735847, i64 2159735870, i64 2159735896}
-!205 = !{i64 2159736341, i64 2159736152, i64 2159736202, i64 2159736248, i64 2159736276}
-!206 = distinct !{!206, !22, !23}
-!207 = !{i64 2159715841}
-!208 = !{i64 380154}
-!209 = distinct !{!209, !22, !23, !201}
-!210 = distinct !{!210, !22, !23}
+!200 = distinct !{!200, !22, !23}
+!201 = !{i64 2159735085, i64 2159734894, i64 2159734946, i64 2159734992, i64 2159735020}
+!202 = !{i64 2159735159, i64 2159735188, i64 2159735234, i64 2159735292, i64 2159735346, i64 2159735400, i64 2159735455, i64 2159735486, i64 2159735794, i64 2159735800, i64 2159735847, i64 2159735870, i64 2159735896}
+!203 = !{i64 2159736341, i64 2159736152, i64 2159736202, i64 2159736248, i64 2159736276}
+!204 = distinct !{!204, !22, !23}
+!205 = !{i64 2159715841}
+!206 = !{i64 380154}
+!207 = distinct !{!207, !22, !23}

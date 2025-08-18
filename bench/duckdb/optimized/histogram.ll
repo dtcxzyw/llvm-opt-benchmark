@@ -185,7 +185,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split
   %98 = phi i64 [ %97, %89 ], [ %.sroa.969.172, %.lr.ph.split ]
   %99 = add i64 %98, -1
   %100 = getelementptr inbounds nuw i32, ptr %10, i64 %.sroa.768.2
-  %101 = load i32, ptr %100, align 4, !tbaa !27
+  %101 = load i32, ptr %100, align 4, !tbaa !26
   %102 = shl i32 %101, 9
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds [2048 x i8], ptr @_ZN13duckdb_brotli26_kBrotliContextLookupTableE, i64 0, i64 %103
@@ -217,7 +217,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split
   %127 = add i64 %.15174, 1
   %128 = add nsw i64 %.04975, -1
   %.not = icmp eq i64 %128, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit
   %.sroa.768.1.lcssa = phi i64 [ %.sroa.768.088, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %.sroa.768.2.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.768.2, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
@@ -227,7 +227,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split
   %.146.lcssa = phi i8 [ %.04599, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %.177.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.177, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
   %.1.lcssa = phi i8 [ %.0100, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %85, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %126, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
   %129 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !30
+  %130 = load i32, ptr %129, align 4, !tbaa !28
   %131 = and i32 %130, 33554431
   %132 = zext nneg i32 %131 to i64
   %133 = add i64 %.151.lcssa, %132
@@ -281,7 +281,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61: ; preds = %144, %146
   %166 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %167 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %166, i64 %165
   %168 = getelementptr inbounds nuw i8, ptr %37, i64 14
-  %169 = load i16, ptr %168, align 2, !tbaa !31
+  %169 = load i16, ptr %168, align 2, !tbaa !29
   %170 = and i16 %169, 1023
   %171 = zext nneg i16 %170 to i64
   %172 = getelementptr inbounds nuw [544 x i32], ptr %167, i64 0, i64 %171
@@ -289,9 +289,9 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61: ; preds = %144, %146
   %174 = add i32 %173, 1
   store i32 %174, ptr %172, align 4, !tbaa !11
   %175 = getelementptr inbounds nuw i8, ptr %167, i64 2176
-  %176 = load i64, ptr %175, align 8, !tbaa !32
+  %176 = load i64, ptr %175, align 8, !tbaa !30
   %177 = add i64 %176, 1
-  store i64 %177, ptr %175, align 8, !tbaa !32
+  store i64 %177, ptr %175, align 8, !tbaa !30
   br label %178
 
 178:                                              ; preds = %134, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61, %._crit_edge
@@ -302,7 +302,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61: ; preds = %144, %146
   %.2 = phi i8 [ %.1.lcssa, %._crit_edge ], [ %142, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61 ], [ %142, %134 ]
   %179 = add nuw i64 %.05297, 1
   %exitcond.not = icmp eq i64 %179, %1
-  br i1 %exitcond.not, label %._crit_edge102, label %36, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge102, label %36, !llvm.loop !32
 
 ._crit_edge102:                                   ; preds = %178, %_ZL22InitBlockSplitIteratorP18BlockSplitIteratorPKN13duckdb_brotli10BlockSplitE.exit59
   ret void
@@ -340,14 +340,12 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !21 = !{!16, !12, i64 0}
 !22 = !{!23, !5, i64 1024}
 !23 = !{!"_ZTSN13duckdb_brotli16HistogramLiteralE", !6, i64 0, !5, i64 1024, !20, i64 1032}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"_ZTSN13duckdb_brotli11ContextTypeE", !6, i64 0}
-!29 = distinct !{!29, !25}
-!30 = !{!16, !12, i64 4}
-!31 = !{!16, !17, i64 14}
-!32 = !{!33, !5, i64 2176}
-!33 = !{!"_ZTSN13duckdb_brotli17HistogramDistanceE", !6, i64 0, !5, i64 2176, !20, i64 2184}
-!34 = distinct !{!34, !25}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"_ZTSN13duckdb_brotli11ContextTypeE", !6, i64 0}
+!28 = !{!16, !12, i64 4}
+!29 = !{!16, !17, i64 14}
+!30 = !{!31, !5, i64 2176}
+!31 = !{!"_ZTSN13duckdb_brotli17HistogramDistanceE", !6, i64 0, !5, i64 2176, !20, i64 2184}
+!32 = distinct !{!32, !25}
